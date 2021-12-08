@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3bc0dc67_ff5ba32c",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-12-08T14:52:02Z",
+      "side": 1,
+      "message": "\u003e indent this inline comment, for consistency?\n\nI have placed the comment above the #if statement that follows. Since this statement is highlighting the reason why the guard is needed. Otherwise the statement looks out of place. Hope you don\u0027t have a strong opinion on this :)",
+      "parentUuid": "cb82a795_b7e9eb2b",
+      "range": {
+        "startLine": 368,
+        "startChar": 0,
+        "endLine": 368,
+        "endChar": 3
+      },
+      "revId": "bdf39b59216647bcf75c59cc2fd51bf791a92cb5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b62b154d_97712669",
         "filename": "plat/st/common/bl2_io_storage.c",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2021-12-06T09:52:01Z",
       "side": 1,
       "message": "could straight use MAX_NUMBER_IDS in the for() loop below.",
+      "range": {
+        "startLine": 456,
+        "startChar": 0,
+        "endLine": 456,
+        "endChar": 28
+      },
+      "revId": "bdf39b59216647bcf75c59cc2fd51bf791a92cb5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "542c123c_d0d05ae6",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-12-08T14:52:02Z",
+      "side": 1,
+      "message": "\u003e could straight use MAX_NUMBER_IDS in the for() loop below.\n\nOkay.",
+      "parentUuid": "b62b154d_97712669",
       "range": {
         "startLine": 456,
         "startChar": 0,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "932d8d7a_17e47f07",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-12-08T14:52:02Z",
+      "side": 1,
+      "message": "\u003e is this needed since the policies is already skipped by next block if not the target image uuid?\n\nI had put this in my earlier version of code which was using a slightly different logic. But you are right, this is not needed anymore. Will remove.",
+      "parentUuid": "ba10d273_c2b757a2",
+      "range": {
+        "startLine": 460,
+        "startChar": 0,
+        "endLine": 460,
+        "endChar": 12
+      },
+      "revId": "bdf39b59216647bcf75c59cc2fd51bf791a92cb5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c39e1364_2de5acae",
         "filename": "plat/st/common/bl2_io_storage.c",
         "patchSetId": 5
@@ -83,6 +155,30 @@
       "writtenOn": "2021-12-06T09:52:01Z",
       "side": 1,
       "message": "would prefer ERROR() since it\u0027s an error case.",
+      "range": {
+        "startLine": 484,
+        "startChar": 3,
+        "endLine": 484,
+        "endChar": 7
+      },
+      "revId": "bdf39b59216647bcf75c59cc2fd51bf791a92cb5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37e8ad79_26537be1",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-12-08T14:52:02Z",
+      "side": 1,
+      "message": "\u003e would prefer ERROR() since it\u0027s an error case.\n\nOkay.",
+      "parentUuid": "c39e1364_2de5acae",
       "range": {
         "startLine": 484,
         "startChar": 3,
