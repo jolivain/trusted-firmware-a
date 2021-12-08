@@ -514,6 +514,54 @@ static uint64_t ffa_error_handler(uint32_t smc_fid,
 	return spmc_ffa_error_return(handle, FFA_ERROR_NOT_SUPPORTED);
 }
 
+static uint64_t ffa_version_handler(uint32_t smc_fid,
+				    bool secure_origin,
+				    uint64_t x1,
+				    uint64_t x2,
+				    uint64_t x3,
+				    uint64_t x4,
+				    void *cookie,
+				    void *handle,
+				    uint64_t flags)
+{
+	uint32_t requested_version = x1;
+
+	if (requested_version & FFA_VERSION_BIT31_MASK) {
+		/* Invalid encoding, return an error. */
+		SMC_RET1(handle, FFA_ERROR_NOT_SUPPORTED);
+		/* Execution stops here. */
+	}
+
+	/* Check if a supported FF-A version. */
+	if (requested_version != MAKE_FFA_VERSION(U(1), U(0)) &&
+	    requested_version != MAKE_FFA_VERSION(U(1), U(1))) {
+		SMC_RET1(handle, FFA_ERROR_NOT_SUPPORTED);
+		/* Execution stops here. */
+	}
+
+	/* Determine the caller to store the requested version. */
+	if (secure_origin) {
+		/*
+		 * Ensure that the SP is reporting the same version as
+		 * specified in it's manifest. If these do not match there is
+		 * something wrong with the SP.
+		 * TODO: Should we abort the SP? For now assert this is not
+		 *       case.
+		 */
+		assert(requested_version ==
+		       spmc_get_current_sp_ctx()->ffa_version);
+	} else {
+		/*
+		 * If this is called by the normal world, record this
+		 * information in it's descriptor.
+		 */
+		spmc_get_hyp_ctx()->ffa_version = requested_version;
+	}
+
+	SMC_RET1(handle, MAKE_FFA_VERSION(FFA_VERSION_MAJOR,
+					  FFA_VERSION_MINOR));
+}
+
 /*******************************************************************************
  * This function will parse the Secure Partition Manifest. From manifest, it
  * will fetch details for preparing Secure partition image context and secure
@@ -911,6 +959,10 @@ uint64_t spmc_smc_handler(uint32_t smc_fid,
 			  uint64_t flags)
 {
 	switch (smc_fid) {
+
+	case FFA_VERSION:
+		return ffa_version_handler(smc_fid, secure_origin, x1, x2, x3,
+					   x4, cookie, handle, flags);
 
 	case FFA_MSG_SEND_DIRECT_REQ_SMC32:
 	case FFA_MSG_SEND_DIRECT_REQ_SMC64:
