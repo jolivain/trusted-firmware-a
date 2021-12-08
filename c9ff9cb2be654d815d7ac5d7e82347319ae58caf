@@ -33,6 +33,52 @@
       "message": "Manually giving Verified+1",
       "revId": "c9ff9cb2be654d815d7ac5d7e82347319ae58caf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09f01d4f_cd233d4b",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-12-08T07:08:00Z",
+      "side": 1,
+      "message": "Given that we expect output[] to be bigger than (or same size as) data_hash[], why can\u0027t we directly pass it to mbedtls_md()? It should fit, right? If it\u0027s a type issue then I think I\u0027d rather have an explicit (ugly) cast on output (probably with some comment to explain the rationale) rather than a copy of the buffer...",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 29
+      },
+      "revId": "c9ff9cb2be654d815d7ac5d7e82347319ae58caf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2411a6fd_22f7795f",
+        "filename": "include/drivers/auth/crypto_mod.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2021-12-08T07:08:00Z",
+      "side": 1,
+      "message": "Should this rather be enum crypto_md_algo?",
+      "range": {
+        "startLine": 93,
+        "startChar": 25,
+        "endLine": 93,
+        "endChar": 37
+      },
+      "revId": "c9ff9cb2be654d815d7ac5d7e82347319ae58caf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
