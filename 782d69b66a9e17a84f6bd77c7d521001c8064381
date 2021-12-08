@@ -16,6 +16,23 @@
       "message": "Should be OK.",
       "revId": "782d69b66a9e17a84f6bd77c7d521001c8064381",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b23d433_1e908446",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-12-08T22:10:07Z",
+      "side": 1,
+      "message": "The commit message needs to be fixed. The F in Fix should not be capitalized, otherwise it will fail CI checks.",
+      "revId": "782d69b66a9e17a84f6bd77c7d521001c8064381",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
