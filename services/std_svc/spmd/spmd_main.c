@@ -584,15 +584,28 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 		 * If caller is secure and SPMC was initialized,
 		 * return FFA_VERSION of SPMD.
 		 * If caller is non secure and SPMC was initialized,
-		 * return SPMC's version.
+		 * forward to the EL3 SPMC if enabled, otherwise return
+		 * the SPMC version if implemented at a lower EL.
 		 * Sanity check to "input_version".
 		 */
 		if ((input_version & FFA_VERSION_BIT31_MASK) ||
 		    (!is_spmc_at_el3() && (ctx->state == SPMC_STATE_RESET))) {
 			ret = FFA_ERROR_NOT_SUPPORTED;
 		} else if (!secure_origin) {
+#if SPMC_AT_EL3
+			/*
+			 * Only forward this call to the EL3 SPMC as it
+			 * able to ERET directly to the partition.
+			 * A more generic solution is required for SPMC's
+			 * at other exception levels.
+			 */
+			return spmd_smc_forward(smc_fid, secure_origin,
+						x1, x2, x3, x4, handle,
+						cookie, flags);
+#else
 			ret = MAKE_FFA_VERSION(spmc_attrs.major_version,
 					       spmc_attrs.minor_version);
+#endif
 		} else {
 			ret = MAKE_FFA_VERSION(FFA_VERSION_MAJOR,
 					       FFA_VERSION_MINOR);
