@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90acfd15_728637b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-12-08T08:50:27Z",
+      "side": 1,
+      "message": "Hi Konstantin, just a FYI when you have a patch stack like this you can just run the CI on the top patch like this one and the CI will include for testing all the changes in the patches below in the relation chain. You do though then have to manually set the verified of these other patches assuming the CI passes.\n\nNo problem running the CI on each patch seperately apart from the extra load on the CI that may slow things down and risk overload that may cause infrastructure failures to creep in and of course your fingers clicking all those buttons :-) ",
+      "revId": "014c5249354e406d1982867f140f01e6ecff0a23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
