@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a084407_887808cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-08T13:18:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43caf825_7a8544fc",
+      "range": {
+        "startLine": 9,
+        "startChar": 61,
+        "endLine": 10,
+        "endChar": 15
+      },
+      "revId": "c9563c5e56b8129165f520766858edc6bf88a684",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03c4f049_ec80d1f7",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-12-08T12:24:56Z",
       "side": 1,
       "message": "I\u0027m not sure what this sentence is trying to say, should it be:\n\"Event log drive invokes this platform function in the Measured Boot finalizing function ...\"?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 25
+      },
+      "revId": "c9563c5e56b8129165f520766858edc6bf88a684",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1850aef_41feeb0e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-08T13:18:28Z",
+      "side": 1,
+      "message": "I updated the commit message. Is that sound okay now?",
+      "parentUuid": "03c4f049_ec80d1f7",
       "range": {
         "startLine": 11,
         "startChar": 0,
