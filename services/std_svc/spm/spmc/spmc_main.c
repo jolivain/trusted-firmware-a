@@ -491,6 +491,26 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 
 	sp->execution_state = config_32;
 
+	ret = fdt_read_uint32(sp_manifest, node,
+			      "execution-ctx-count", &config_32);
+
+	if (ret != 0) {
+		ERROR("Missing SP Execution Context Count.\n");
+		return ret;
+	}
+
+	/*
+	 * Ensure this field is set correctly in the manifest however
+	 * since this is currently a hardcoded value for S-EL1 partitions
+	 * we don't need to save it here, just validate.
+	 */
+	if (config_32 != PLATFORM_CORE_COUNT) {
+		ERROR("SP Execution Context Count (%d) must be %d).\n",
+			config_32, PLATFORM_CORE_COUNT);
+		return -1;
+	}
+
+
 	/*
 	 * Look for the optional fields that are expected to be present in
 	 * an SP manifest.
