@@ -64,6 +64,14 @@ typedef struct spmd_spm_core_context {
 
 #define SPMD_DIRECT_MSG_ENDPOINT_ID		U(FFA_ENDPOINT_ID_MAX - 1)
 
+/* Define SPMD target function IDs for direct messaging from the SPMD */
+#define SPMD_DIR_MSG_PSCI			U(0)
+#define SPMD_DIR_MSG_FFA_VERSION		U(0x8)
+
+/* Function to build SPMD to SPMC message */
+void spmd_build_spmc_message(gp_regs_t *gpregs, uint8_t target,
+	                     unsigned long long message);
+
 /* Functions used to enter/exit SPMC synchronously */
 uint64_t spmd_spm_core_sync_entry(spmd_spm_core_context_t *ctx);
 __dead2 void spmd_spm_core_sync_exit(uint64_t rc);

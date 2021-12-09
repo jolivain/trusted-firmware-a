@@ -20,21 +20,6 @@ static struct {
 } g_spmd_pm;
 
 /*******************************************************************************
- * spmd_build_spmc_message
- *
- * Builds an SPMD to SPMC direct message request.
- ******************************************************************************/
-static void spmd_build_spmc_message(gp_regs_t *gpregs, unsigned long long message)
-{
-	write_ctx_reg(gpregs, CTX_GPREG_X0, FFA_MSG_SEND_DIRECT_REQ_SMC32);
-	write_ctx_reg(gpregs, CTX_GPREG_X1,
-		(SPMD_DIRECT_MSG_ENDPOINT_ID << FFA_DIRECT_MSG_SOURCE_SHIFT) |
-		spmd_spmc_id_get());
-	write_ctx_reg(gpregs, CTX_GPREG_X2, FFA_PARAM_MBZ);
-	write_ctx_reg(gpregs, CTX_GPREG_X3, message);
-}
-
-/*******************************************************************************
  * spmd_pm_secondary_ep_register
  ******************************************************************************/
 int spmd_pm_secondary_ep_register(uintptr_t entry_point)
@@ -137,7 +122,8 @@ static int32_t spmd_cpu_off_handler(u_register_t unused)
 	assert(ctx->state != SPMC_STATE_OFF);
 
 	/* Build an SPMD to SPMC direct message request. */
-	spmd_build_spmc_message(get_gpregs_ctx(&ctx->cpu_ctx), PSCI_CPU_OFF);
+	spmd_build_spmc_message(get_gpregs_ctx(&ctx->cpu_ctx),
+				SPMD_DIR_MSG_PSCI, PSCI_CPU_OFF);
 
 	rc = spmd_spm_core_sync_entry(ctx);
 	if (rc != 0ULL) {
