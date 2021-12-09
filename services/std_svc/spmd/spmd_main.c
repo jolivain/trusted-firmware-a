@@ -546,8 +546,12 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 			ret = MAKE_FFA_VERSION(spmc_attrs.major_version,
 					       spmc_attrs.minor_version);
 		} else {
-			ret = MAKE_FFA_VERSION(FFA_VERSION_MAJOR,
-					       FFA_VERSION_MINOR);
+			/*
+			 * Forward the call to the SPMC so the components
+			 * version can be stored.
+			 */
+			return spmd_smc_forward(smc_fid, secure_origin,
+						x1, x2, x3, x4, handle);
 		}
 
 		SMC_RET8(handle, (uint32_t)ret, FFA_TARGET_INFO_MBZ,
