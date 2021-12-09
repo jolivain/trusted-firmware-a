@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b954e69a_dbd4b9e4",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2021-12-09T16:33:23Z",
+      "side": 1,
+      "message": "context switch is a lantency sensitive path so i wouldnt advocate adding things not strictly necessary..would prefer to not make the change if it is not strictly needed.",
+      "parentUuid": "57186df3_1dc44819",
+      "range": {
+        "startLine": 681,
+        "startChar": 16,
+        "endLine": 681,
+        "endChar": 20
+      },
+      "revId": "10c263d6d8f2356223a87f8ea0ae3bc8bd865800",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0657f56c_0138accb",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 3
