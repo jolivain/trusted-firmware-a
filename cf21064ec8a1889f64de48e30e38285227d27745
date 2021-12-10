@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24c32eb2_4e9700ba",
+        "filename": "include/plat/common/common_def.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2021-12-10T09:50:55Z",
+      "side": 1,
+      "message": "Are you sure this memory is unused in all platforms ?",
+      "range": {
+        "startLine": 93,
+        "startChar": 32,
+        "endLine": 93,
+        "endChar": 42
+      },
+      "revId": "cf21064ec8a1889f64de48e30e38285227d27745",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
