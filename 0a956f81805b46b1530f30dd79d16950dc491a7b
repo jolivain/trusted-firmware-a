@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "01c39b55_4ad30981",
+        "filename": "Makefile",
+        "patchSetId": 2
+      },
+      "lineNbr": 1430,
+      "author": {
+        "id": 1000422
+      },
+      "writtenOn": "2021-12-10T18:00:05Z",
+      "side": 1,
+      "message": "Yes, we do.  That patch is doing basically the same thing: adding -L${OPENSSL_DIR} to the fiptool build.",
+      "parentUuid": "6e3925dd_79a9f842",
+      "revId": "0a956f81805b46b1530f30dd79d16950dc491a7b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "275aec03_841e0537",
         "filename": "tools/fiptool/Makefile",
         "patchSetId": 2
