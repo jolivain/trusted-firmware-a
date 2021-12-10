@@ -33,6 +33,23 @@
       "message": "The issues are OpenCI issues and the RME tftf tests have passed.",
       "revId": "a4cc85c129d031d9c887cf59b1baeaef18a43010",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c202b00_4b022816",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2021-12-10T12:45:11Z",
+      "side": 1,
+      "message": "I think the failures in the OpenCI are infrastructure issues. Linaro are reworking Expect scripts to work in a LAVA  environment for FVP tests and this looks related that area.",
+      "revId": "a4cc85c129d031d9c887cf59b1baeaef18a43010",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
