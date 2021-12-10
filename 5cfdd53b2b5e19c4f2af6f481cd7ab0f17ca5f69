@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7467db58_87fe1249",
+        "filename": "include/drivers/partition/gpt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-12-10T13:11:39Z",
+      "side": 1,
+      "message": "sorry, maybe out of scope, but its stange gpt.h inlucdes efi.h.\nIt should be efi.h that includes gpt.h.\n\nI would rather have efi.h:\n+include \u003ctools_share/uuid.h\u003e\n+#define GUID_LEN  sizeof(efi_uuid)\n\n and gpt.h\n+include \u003ctools_share/uuid.h\u003e\n+#define GUID_LEN  sizeof(uuid)",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "5cfdd53b2b5e19c4f2af6f481cd7ab0f17ca5f69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
