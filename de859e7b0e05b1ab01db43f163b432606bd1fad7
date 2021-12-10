@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a612c5b_f4d9cbd4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-12-10T16:02:05Z",
+      "side": 1,
+      "message": "Hi Rex,\nCan you confirm that the existing build configs in tf-cov-make cover these newly added source files in this patch stack? If not, will you be pushing a patch to tf-a-ci-scripts repo?\n\nplat/mediatek/mt8186/drivers/dcm/mtk_dcm.c\nplat/mediatek/mt8186/drivers/dcm/mtk_dcm_utils.c\nplat/mediatek/mt8186/drivers/emi_mpu/emi_mpu.c\nplat/mediatek/mt8186/drivers/gpio/mtgpio.c\nplat/mediatek/mt8186/drivers/mcdi/mt_cpu_pm.c\nplat/mediatek/mt8186/drivers/mcdi/mt_cpu_pm_cpc.c\nplat/mediatek/mt8186/drivers/mcdi/mt_cpu_pm_mbox.c\nplat/mediatek/mt8186/drivers/mcdi/mt_cpu_pm_mbox_sspm.c\nplat/mediatek/mt8186/drivers/mcdi/mt_mcdi.c\nplat/mediatek/mt8186/drivers/pmic/pmic.c\nplat/mediatek/mt8186/drivers/rtc/rtc.c\nplat/mediatek/mt8186/drivers/spmc/mtspmc.c\nplat/mediatek/mt8186/plat_sip_calls.c",
+      "revId": "de859e7b0e05b1ab01db43f163b432606bd1fad7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
