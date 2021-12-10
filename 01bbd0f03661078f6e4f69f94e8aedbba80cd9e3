@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7262bf05_35728839",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-12-10T13:14:15Z",
+      "side": 1,
+      "message": "A question, somewhat related to discussion in a previous commit of the series.",
+      "revId": "01bbd0f03661078f6e4f69f94e8aedbba80cd9e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bc1dc20_727626a9",
+        "filename": "include/drivers/partition/partition.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-12-10T13:14:15Z",
+      "side": 1,
+      "message": "why not using type struct uuid; and uuid/uuid_efi types every where?\nIt would fix the memcmp() functions getting unsized u8 */void * ref to read out)",
+      "revId": "01bbd0f03661078f6e4f69f94e8aedbba80cd9e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
