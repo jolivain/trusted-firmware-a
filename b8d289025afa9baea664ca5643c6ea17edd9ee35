@@ -16,6 +16,24 @@
       "message": "Is it bit confusing to use PLAT_FVP, its better to use something like TARGET_PLATFORM(fvp or soc) similar to what has been done for corstone platform\nrefer to commit ef93cfa3a",
       "revId": "b8d289025afa9baea664ca5643c6ea17edd9ee35",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d8217f5_da415a0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2021-12-11T13:13:17Z",
+      "side": 1,
+      "message": "thanks for the review.\nUsed TARGET_PLATFORM instead of PLAT_FVP similar to other platforms.",
+      "parentUuid": "b3f0eba2_8c72836f",
+      "revId": "b8d289025afa9baea664ca5643c6ea17edd9ee35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
