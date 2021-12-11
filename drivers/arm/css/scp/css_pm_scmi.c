@@ -292,6 +292,13 @@ void __dead2 css_scp_system_off(int state)
 	int core_pos;
 
 	/*
+	 * Before issuing the system power command, set the trusted mailbox to
+	 * 0. This will ensure that in the case of a warm/cold reset, the
+	 * primary CPU executes from the cold boot sequence.
+	 */
+	mmio_write_64(PLAT_ARM_TRUSTED_MAILBOX_BASE, 0U);
+
+	/*
 	 * Mark all secondary CPUs as asleep to prevent pending interrupt from
 	 * waking.
 	 */
