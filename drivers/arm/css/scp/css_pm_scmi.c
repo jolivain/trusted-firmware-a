@@ -11,6 +11,7 @@
 #include <common/debug.h>
 #include <drivers/arm/css/css_scp.h>
 #include <drivers/arm/css/scmi.h>
+#include <lib/mmio.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/arm/css/common/css_pm.h>
 #include <plat/common/platform.h>
@@ -290,6 +291,13 @@ void __dead2 css_scp_system_off(int state)
 {
 	int ret;
 	int core_pos;
+
+	/*
+	 * Before issuing the system power command, set the trusted mailbox to
+	 * 0. This will ensure that in the case of a warm/cold reset, the
+	 * primary CPU executes from the cold boot sequence.
+	 */
+	mmio_write_64(PLAT_ARM_TRUSTED_MAILBOX_BASE, 0U);
 
 	/*
 	 * Mark all secondary CPUs as asleep to prevent pending interrupt from
