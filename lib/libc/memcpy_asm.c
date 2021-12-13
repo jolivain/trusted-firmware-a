@@ -9,36 +9,27 @@
 #include <string.h>
 
 #if __aarch64__
-
 /* __aarch64__ */
 #define ZERO 0UL
-typedef	uint128_t word;		/* "word" used for optimal copy speed */
-
 #else
-
 /* __aarch32__ */
 #define ZERO 0U
-typedef	uint64_t word;		/* "word" used for optimal copy speed */
-
 #endif
 
-#define	wsize	sizeof(word)
-#define	wmask	7U
+extern void memcpy_align8(void *dst, const void *src, unsigned long length);
 
-#define are_aligned(dst,src) ((((uintptr_t)src | (uintptr_t)dst) & wmask) == 0)
+/* stp/ldp only require 8 byte alignment not 16 */
+#define ALIGN 8
+
+#define are_aligned(dst,src) ((((uintptr_t)src | (uintptr_t)dst) & (ALIGN - 1)) == 0)
 
 void *memcpy(void *dst, const void *src, size_t len)
 {
 	if (len != ZERO) {
 		if (are_aligned(dst,src)) {
-			while (len >= wsize) {
-				*(word *)dst = *(word *)src;
-				src += wsize;
-				dst += wsize;
-				len -= wsize;
-			}
+			memcpy_align8(dst, src, len);
 		}
-		if (len != ZERO) {
+		else {
 			const char *s = src;
 			char *d = dst;
 
