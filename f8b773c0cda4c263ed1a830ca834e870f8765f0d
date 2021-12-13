@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "548ff90b_cfb28e2c",
+        "filename": "plat/st/stm32mp1/bl2_plat_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-13T20:40:41Z",
+      "side": 1,
+      "message": "nit: can you initialise it at line no. 172 instead?",
+      "range": {
+        "startLine": 238,
+        "startChar": 1,
+        "endLine": 238,
+        "endChar": 74
+      },
+      "revId": "f8b773c0cda4c263ed1a830ca834e870f8765f0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
