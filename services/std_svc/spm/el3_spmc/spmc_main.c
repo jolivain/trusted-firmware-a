@@ -1033,6 +1033,75 @@ err_unlock:
 	return spmc_ffa_error_return(handle, ret);
 }
 
+static uint64_t ffa_features_handler(uint32_t smc_fid,
+				     bool secure_origin,
+				     uint64_t x1,
+				     uint64_t x2,
+				     uint64_t x3,
+				     uint64_t x4,
+				     void *cookie,
+				     void *handle,
+				     uint64_t flags)
+{
+	uint32_t function_id = x1;
+	uint32_t input_properties = x2;
+
+	/*
+	 * We don't currently support any additional input properties
+	 * for any ABI therefore ensure this value is always set to 0.
+	 */
+	if (input_properties != 0) {
+		return spmc_ffa_error_return(handle, FFA_ERROR_NOT_SUPPORTED);
+	}
+
+	if ((function_id & FFA_FEATURES_BIT31_MASK)) {
+		/* Report if an FFA ABI is supported. */
+		switch (function_id) {
+		/* Supported features from both worlds.*/
+		case FFA_ERROR:
+		case FFA_SUCCESS_SMC32:
+		case FFA_FEATURES:
+		case FFA_VERSION:
+		case FFA_MSG_SEND_DIRECT_REQ_SMC32:
+		case FFA_MSG_SEND_DIRECT_REQ_SMC64:
+		case FFA_PARTITION_INFO_GET:
+		case FFA_RXTX_MAP_SMC32:
+		case FFA_RXTX_MAP_SMC64:
+		case FFA_RXTX_UNMAP:
+
+			/*
+			 * We are relying on the fact that the other registers
+			 * will be set to 0 as these values align with the
+			 * currently implemented features of the SPMC. If this
+			 * changes this function must be extended to handle
+			 * reporting the additional functionality.
+			 */
+
+			SMC_RET1(handle, FFA_SUCCESS_SMC32);
+			/* Execution stops here. */
+
+		/* Supported features only from the secure world. */
+		case FFA_MSG_SEND_DIRECT_RESP_SMC32:
+		case FFA_MSG_SEND_DIRECT_RESP_SMC64:
+		case FFA_MSG_WAIT:
+
+			if (!secure_origin) {
+				return spmc_ffa_error_return(handle,
+						FFA_ERROR_NOT_SUPPORTED);
+			}
+			SMC_RET1(handle, FFA_SUCCESS_SMC32);
+			/* Execution stops here. */
+
+		default:
+			return spmc_ffa_error_return(handle,
+						FFA_ERROR_NOT_SUPPORTED);
+		}
+	} else {
+		/* We currently don't support any additional features. */
+		return spmc_ffa_error_return(handle, FFA_ERROR_NOT_SUPPORTED);
+	}
+}
+
 /*******************************************************************************
  * This function will parse the Secure Partition Manifest. From manifest, it
  * will fetch details for preparing Secure partition image context and secure
@@ -1430,6 +1499,10 @@ uint64_t spmc_smc_handler(uint32_t smc_fid,
 	case FFA_VERSION:
 		return ffa_version_handler(smc_fid, secure_origin, x1, x2, x3,
 					   x4, cookie, handle, flags);
+
+	case FFA_FEATURES:
+		return ffa_features_handler(smc_fid, secure_origin, x1, x2, x3,
+					    x4, cookie, handle, flags);
 
 	case FFA_MSG_SEND_DIRECT_REQ_SMC32:
 	case FFA_MSG_SEND_DIRECT_REQ_SMC64:
