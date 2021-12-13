@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0f60389_263b4ee9",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-12-13T23:24:37Z",
+      "side": 1,
+      "message": "If this value is used for both DMCs would it be better to remove the number and just call it \"MORELLO_DMC_MEMC_STATUS_MASK\"?",
+      "range": {
+        "startLine": 130,
+        "startChar": 3,
+        "endLine": 130,
+        "endChar": 32
+      },
+      "revId": "5c2b1a22ffcc32ec260c080f2edfdcb611cff5e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
