@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb93d47d_a7fa88b3",
+        "filename": "plat/arm/board/morello/morello_image_load.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-12-13T23:45:30Z",
+      "side": 1,
+      "message": "nit: this will fit on one line",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 37
+      },
+      "revId": "1c3b8730c3b07f66367d89f0cf9ee1205c28084b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6774efd_6c543bc8",
+        "filename": "plat/arm/board/morello/morello_image_load.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-12-13T23:45:30Z",
+      "side": 1,
+      "message": "Please use braces around the body as per https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 10
+      },
+      "revId": "1c3b8730c3b07f66367d89f0cf9ee1205c28084b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
