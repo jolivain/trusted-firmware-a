@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49374c9d_37fabe80",
+        "filename": "include/drivers/partition/efi.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-12-13T09:11:32Z",
+      "side": 1,
+      "message": "we should try to avoid new typedefs if possible:\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html?highlight\u003dtypedef#avoid-anonymous-typedefs-of-structs-enums-in-headers\nBut if it is ok for maintainers, just discard this comment.",
+      "revId": "e0c4c11fdb98494d3b52bf7ecb153b665aa93204",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
