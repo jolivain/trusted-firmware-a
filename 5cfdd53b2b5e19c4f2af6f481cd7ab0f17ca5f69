@@ -22,6 +22,30 @@
       },
       "revId": "5cfdd53b2b5e19c4f2af6f481cd7ab0f17ca5f69",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72fe5c04_c913ca13",
+        "filename": "include/drivers/partition/gpt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-12-13T05:25:00Z",
+      "side": 1,
+      "message": "\u003e sorry, maybe out of scope, but its stange gpt.h inlucdes efi.h.\n\u003e It should be efi.h that includes gpt.h.\n\nSo my thinking here was that efi.h should have all the basic struct and macro declarations for the EFI related stuff. And the gpt.h header would be a consumer of those basic efi declarations.\n\n\u003e \n\u003e I would rather have efi.h:\n\u003e +include \u003ctools_share/uuid.h\u003e\n\u003e +#define GUID_LEN  sizeof(efi_uuid)\n\u003e \n\u003e  and gpt.h\n\u003e +include \u003ctools_share/uuid.h\u003e\n\u003e +#define GUID_LEN  sizeof(uuid)\n\nThis has the GUID_LEN getting defined in both files. That can again cause redefinition errors when we need both the header files. Can we not have the macro defined in a single header, and then have that header included by other consumers of that macro.",
+      "parentUuid": "7467db58_87fe1249",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "5cfdd53b2b5e19c4f2af6f481cd7ab0f17ca5f69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
