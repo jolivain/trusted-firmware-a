@@ -325,7 +325,9 @@ void __dead2 css_scp_system_off(int state)
 			SCMI_SYS_PWR_FORCEFUL_REQ,
 			state);
 
-	if (ret != SCMI_E_SUCCESS) {
+	if (ret == SCMI_E_QUEUED) {
+		INFO("SCMI system power state set queued, entering wfi\n");
+	} else if (ret != SCMI_E_SUCCESS) {
 		ERROR("SCMI system power state set 0x%x returns unexpected 0x%x\n",
 			state, ret);
 		panic();
