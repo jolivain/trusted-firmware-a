@@ -10,7 +10,7 @@ LIBC_SRCS	:=	$(addprefix lib/libc/,		\
 			exit.c				\
 			memchr.c			\
 			memcmp.c			\
-			memcpy.c			\
+			memcpy_asm.c			\
 			memmove.c			\
 			memrchr.c			\
 			printf.c			\
@@ -34,9 +34,11 @@ LIBC_SRCS	:=	$(addprefix lib/libc/,		\
 ifeq (${ARCH},aarch64)
 LIBC_SRCS	+=	$(addprefix lib/libc/aarch64/,	\
 			memset.S			\
+			memcpy_align16.S		\
 			setjmp.S)
 else
 LIBC_SRCS	+=	$(addprefix lib/libc/aarch32/,	\
+			memcpy_align8.S			\
 			memset.S)
 endif
 

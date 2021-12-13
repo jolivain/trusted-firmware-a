@@ -12,33 +12,29 @@
 
 /* __aarch64__ */
 #define ZERO 0UL
-typedef	uint128_t word;		/* "word" used for optimal copy speed */
+extern void memcpy_align16(void *dst, const void *src, unsigned long length);
+#define MEMCPY_ALIGN(dst, src, len) (memcpy_align16)(dst, src, len)
 
 #else
 
 /* __aarch32__ */
 #define ZERO 0U
-typedef	uint64_t word;		/* "word" used for optimal copy speed */
+extern void memcpy_align8(void *dst, const void *src, unsigned int length);
+#define MEMCPY_ALIGN(dst, src, len) (memcpy_align8)(dst, src, len)
 
 #endif
 
-#define	wsize	sizeof(word)
-#define	wmask	7U
-
-#define are_aligned(dst,src) ((((uintptr_t)src | (uintptr_t)dst) & wmask) == 0)
+/* stp/ldp only require 8 byte alignment not 16 */
+#define ALIGN 8
+#define are_aligned(dst,src) ((((uintptr_t)src | (uintptr_t)dst) & (ALIGN - 1)) == 0)
 
 void *memcpy(void *dst, const void *src, size_t len)
 {
 	if (len != ZERO) {
 		if (are_aligned(dst,src)) {
-			while (len >= wsize) {
-				*(word *)dst = *(word *)src;
-				src += wsize;
-				dst += wsize;
-				len -= wsize;
-			}
+			MEMCPY_ALIGN(dst, src, len);
 		}
-		if (len != ZERO) {
+		else {
 			const char *s = src;
 			char *d = dst;
 

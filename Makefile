@@ -888,9 +888,7 @@ ifneq (${GENERATE_COT},0)
         endif
 endif
 
-ifneq (${FIP_ALIGN},0)
-FIP_ARGS += --align ${FIP_ALIGN}
-endif
+FIP_ARGS    +=  --align ${FIP_ALIGN}
 
 ifdef FDT_SOURCES
 NEED_FDT := yes
