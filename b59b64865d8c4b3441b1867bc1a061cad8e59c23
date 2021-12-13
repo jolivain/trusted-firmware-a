@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "606c57cd_4e7cf4bc",
+        "filename": "plat/st/stm32mp1/bl2_plat_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-12-13T11:12:31Z",
+      "side": 1,
+      "message": "\u003e My main concern was about the 0 value. Does it means index 0, and is valid, or is it an invalid unfilled register? So should we have the upper bits of the register set with a magic number, and check this magic number, just to know that this index 0 is valid?\n\nYes, i understand what you were implying by using magic number. So, we do have bank 0 as a valid bank number. But I think there should not be a scenario where the default, reset value gets passed on. In case of an error, the plat_fwu_get_boot_idx function should return some value like -1. In that case, the following assert would fail.",
+      "parentUuid": "95616a8e_f5121ae3",
+      "revId": "b59b64865d8c4b3441b1867bc1a061cad8e59c23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2315c610_ccc0d109",
         "filename": "plat/st/stm32mp1/include/boot_api.h",
         "patchSetId": 6
