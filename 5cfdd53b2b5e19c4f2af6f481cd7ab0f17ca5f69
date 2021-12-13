@@ -118,6 +118,30 @@
       },
       "revId": "5cfdd53b2b5e19c4f2af6f481cd7ab0f17ca5f69",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dd5e3f5_ccabff57",
+        "filename": "include/drivers/partition/gpt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-12-13T11:56:31Z",
+      "side": 1,
+      "message": "\u003e I think we don\u0027t really need GUID_LEN if using uuid.h provides required resources. Guid should be type fields, not char/u8 arrays.\n\nTrue. I have removed the definition of GUID_LEN.\n\n\u003e \n\u003e Also using uuid.h addresses Yann\u0027s comment (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/12567) in a former change.\n\u003e \n\u003e As for EFI_NAMELEN, it is not UUID related so it should rather be defined from efi.h (that includes tols_shared/uuid.h).\n\nOkay.",
+      "parentUuid": "006aa420_8c8ebaa2",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "5cfdd53b2b5e19c4f2af6f481cd7ab0f17ca5f69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
