@@ -46,6 +46,30 @@
       },
       "revId": "5cfdd53b2b5e19c4f2af6f481cd7ab0f17ca5f69",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ad07d08_88076444",
+        "filename": "include/drivers/partition/gpt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2021-12-13T07:32:44Z",
+      "side": 1,
+      "message": "\u003e (...) efi.h should have all the basic struct and macro declarations for the EFI related stuff. And the gpt.h header would be a consumer of those basic efi declarations.\n\nGPT does not rely on the EFI spec. It uses GUIDs that are UUIDs. efi.h could simply use tools_share/uuid.h resources, as using type uuid_t or struct efi_uuid.\n\n\n\u003e This has the GUID_LEN getting defined in both files (...)\n\nBoth could rely on uuid_t / struct efi_uuid from uuid.h\nLooking into the implementation, gpt.h can easily be updated to use uuid types rather than u8 or char arrays. (see comment in https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/12568/6/include/drivers/partition/partition.h#35).\n\n\nSorry I made this comment quite late. Having gpt.h including efi.h looks really strange to me. If maintainers thinks the shortcut is ok, feel free to keep as is.",
+      "parentUuid": "72fe5c04_c913ca13",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "5cfdd53b2b5e19c4f2af6f481cd7ab0f17ca5f69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
