@@ -39,6 +39,9 @@
 #define FFA_ID_MASK			U(0xFFFF)
 #define FFA_PARTITION_ID_SHIFT		U(16)
 
+#define FFA_FEATURES_BIT31_MASK		U(0x1u << 31)
+
+
 #define FFA_MSG_WAIT_EP_ID(ep_vcpu_ids) \
 		((ep_vcpu_ids >> FFA_PARTITION_ID_SHIFT) & FFA_ID_MASK)
 
