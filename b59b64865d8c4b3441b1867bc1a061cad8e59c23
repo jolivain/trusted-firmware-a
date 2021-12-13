@@ -87,6 +87,24 @@
       "message": "Please, do not modify this file, as it is the ROM code interface.\nIdeally this should go in plat/st/stm32mp1/stm32mp1_private.c, after the following patch is merged:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/12988\n\nFor the register number, you should use 21, and name it TAMP_BOOT_COUNTER_BACKUP_REG_ID",
       "revId": "b59b64865d8c4b3441b1867bc1a061cad8e59c23",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c2f342c_ac8da5c9",
+        "filename": "plat/st/stm32mp1/include/boot_api.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2021-12-13T11:07:45Z",
+      "side": 1,
+      "message": "\u003e Please, do not modify this file, as it is the ROM code interface.\n\nOkay. I wasn\u0027t aware of this. The header file does not seem to have any comment to this effect. Also, the file has been modified earlier.\n\n\u003e Ideally this should go in plat/st/stm32mp1/stm32mp1_private.c, after the following patch is merged:\n\u003e https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/12988\n\nOkay.\n\n\u003e \n\u003e For the register number, you should use 21, and name it TAMP_BOOT_COUNTER_BACKUP_REG_ID\n\nI think the register 21 is currently being used as a boot counter. A separate hitherto unused register would be needed to pass the boot index.",
+      "parentUuid": "2315c610_ccc0d109",
+      "revId": "b59b64865d8c4b3441b1867bc1a061cad8e59c23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
