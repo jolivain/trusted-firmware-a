@@ -37,6 +37,9 @@
 #define FFA_WB_TYPE_S2RAM	0
 #define FFA_WB_TYPE_NOTS2RAM	1
 
+/* FF-A Related helper macros. */
+#define FFA_FEATURES_BIT31_MASK		U(0x1u << 31)
+
 /* FF-A partition properties values. */
 #define FFA_PARTITION_DIRECT_REQ_RECV 	U(1 << 0)
 #define FFA_PARTITION_DIRECT_REQ_SEND 	U(1 << 1)
