@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0157832_64f1e36c",
+        "filename": "plat/st/stm32mp1/bl2_plat_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-12-13T21:28:17Z",
+      "side": 1,
+      "message": "In my opinion, the second check is good enough. This is because, if a certain config didnt exist in the dtb pool, config_info will be NULL(line 385) and the execution will continue anyways(line 387). Let me know if you disagree.\nif (idx \u003d\u003d FCONF_INVALID_IDX) {\n\tcontinue;\n}",
+      "range": {
+        "startLine": 378,
+        "startChar": 0,
+        "endLine": 380,
+        "endChar": 4
+      },
+      "revId": "b7066086424c2f6fd04880db852306d6f487962e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
