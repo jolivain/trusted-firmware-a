@@ -22,6 +22,30 @@
       },
       "revId": "f8b773c0cda4c263ed1a830ca834e870f8765f0d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76af5d72_f4932ace",
+        "filename": "plat/st/stm32mp1/bl2_plat_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-12-14T08:17:18Z",
+      "side": 1,
+      "message": "I think I\u0027ll make the opposite (assigning serial_uart_interface), if that\u0027s OK for you? That would avoid the STM32MP_UART_PROGRAMMER flag there as the get_uart_address() function is under this flag too.",
+      "parentUuid": "548ff90b_cfb28e2c",
+      "range": {
+        "startLine": 238,
+        "startChar": 1,
+        "endLine": 238,
+        "endChar": 74
+      },
+      "revId": "f8b773c0cda4c263ed1a830ca834e870f8765f0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
