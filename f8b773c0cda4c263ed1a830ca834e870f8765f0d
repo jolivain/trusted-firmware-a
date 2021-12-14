@@ -46,6 +46,30 @@
       },
       "revId": "f8b773c0cda4c263ed1a830ca834e870f8765f0d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "406cc592_8fe3bf61",
+        "filename": "plat/st/stm32mp1/bl2_plat_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-12-14T08:36:04Z",
+      "side": 1,
+      "message": "I finally removed serial_uart_interface, that was not very useful.",
+      "parentUuid": "76af5d72_f4932ace",
+      "range": {
+        "startLine": 238,
+        "startChar": 1,
+        "endLine": 238,
+        "endChar": 74
+      },
+      "revId": "f8b773c0cda4c263ed1a830ca834e870f8765f0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
