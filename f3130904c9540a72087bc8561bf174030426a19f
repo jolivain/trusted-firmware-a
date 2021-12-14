@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "332a3a47_da7b7345",
+        "filename": "plat/mediatek/mt8186/drivers/rtc/rtc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-12-14T21:12:40Z",
+      "side": 1,
+      "message": "I was wondering why would you define MASKs and SHIFTs to be enums. Why cant they simply be macros?",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 2
+      },
+      "revId": "f3130904c9540a72087bc8561bf174030426a19f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
