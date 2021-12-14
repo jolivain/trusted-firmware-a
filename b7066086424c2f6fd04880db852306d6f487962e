@@ -22,6 +22,30 @@
       },
       "revId": "b7066086424c2f6fd04880db852306d6f487962e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bed7224_a521ebbb",
+        "filename": "plat/st/stm32mp1/bl2_plat_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-12-14T08:20:22Z",
+      "side": 1,
+      "message": "All the other images are supposed to be in the FIP, so I\u0027d prefer to have the warning in case they are not. Only TOS_FW_CONFIG_ID should have a special treatment IMHO.",
+      "parentUuid": "e0157832_64f1e36c",
+      "range": {
+        "startLine": 378,
+        "startChar": 0,
+        "endLine": 380,
+        "endChar": 4
+      },
+      "revId": "b7066086424c2f6fd04880db852306d6f487962e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
