@@ -1227,6 +1227,23 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 		sp->sp_id = config_32;
 	}
 
+	ret = fdt_read_uint32(sp_manifest, node,
+			      "power-management-messages", &config_32);
+	if (ret) {
+		WARN("Missing Power Management Messages entry.\n");
+	} else {
+		/* We currently only support CPU_OFF power messages so ensure
+		 * additional messages have not been requested. Extend check when
+		 * additional messages are supported,
+		 */
+		if (config_32 & ~FFA_PM_MSG_SUB_CPU_OFF) {
+			ERROR("Requested unsupported power management messages (%x)\n",
+			      config_32);
+			return -EINVAL;
+		}
+		sp->pwr_mgmt_msgs = config_32;
+	}
+
 	return 0;
 }
 
