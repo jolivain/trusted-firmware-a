@@ -16,6 +16,23 @@
       "message": "Putting vishnu as CoR as this patch impacts their platform",
       "revId": "c9884000e54ea01d9f309feeef74d0a3ec7b783c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f147b1d_4ba67284",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-12-14T17:54:33Z",
+      "side": 1,
+      "message": "Commitlint job failed.\n\n✖   subject must not be sentence-case, start-case, pascal-case, upper-case [subject-case]\n⚠   header must not be longer than 50 characters, current length is 52 [header-max-length]\n⚠   scope must be one of [amu, hcx, mpam, sme, sve, sys-reg-trace, trbe, trf, allwinner, arm, fpga, fvp, fvp-r, juno, morello, rd, rdn2, sgi, tc, tc0, marvell, armada, a3k, a8k, mediatek, mt8183, mt8192, mt8195, mt8186, nvidia, tegra, tegra132, nxp, imx, imx8m, imx8mm, imx8mp, layerscape, lx2, lx216, lx2160, ls1028a, ls1028ardb, qemu, qti, sc7180, sc7280, rpi, rpi4, renesas, rcar, rcar3, rockchip, rk3399, socionext, synquacer, st, stm32mp1, xilinx, versal, zynqmp, bl, bl1, bl2, services, ffa, rme, spm, cpus, el3-runtime, fconf, mpmm, optee, psci, gpt, smccc, xlat, auth, cc-713, fwu, io, mtd, measured-boot, mmc, mtd, nand, spi-nand, scmi, ufs, arm-drivers, ethos-n, gic, gicv3, gic600ae, tzc, tzc400, marvell-drivers, marvell-comphy, marvell-comphy-3700, marvell-comphy-cp110, marvell-uart, armada-drivers, a3k-drivers, a3720-uart, mediatek-drivers, mediatek-apu, mediatek-emi-mpu, mediatek-pmic-wrapper, mt8192-drivers, mt8192-spm, nxp-drivers, nxp-dcfg, flexspi, nxp-scfg, nxp-sfp, renesas-drivers, rcar3-drivers, st-drivers, st-clock, st-io-drivers, st-io-stm32image, st-sdmmc2, st-pmic, stpmic1, st-uart, stm32-console, st-usb, usb, aarch64, debug, crc32, hw-crc32, sw-crc32, dt-bindings, fdt-wrappers, fdts, morello-fdts, stm32mp1-fdts, pie, security, sdei, tbbr, nxp-ocram, nxp-psci, docs, changelog, commit-style, contributing, maintainers, prerequisites, build, hooks, stm32image, deps, checkpatch, libfdt, npm] [scope-enum]",
+      "revId": "c9884000e54ea01d9f309feeef74d0a3ec7b783c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
