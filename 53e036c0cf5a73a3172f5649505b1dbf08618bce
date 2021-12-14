@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "154f0cef_3a0991df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-12-14T19:44:40Z",
+      "side": 1,
+      "message": "Yes, I ran tests locally to ensure that the correct code paths were being followed in this function on both CCIDX and non-CCIDX enabled platforms in aarch32 and aarch64.",
+      "parentUuid": "480c9930_3cad2436",
+      "revId": "53e036c0cf5a73a3172f5649505b1dbf08618bce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da7e66a9_97b2655e",
@@ -35,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f9d1be2_de375f09",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-12-14T19:44:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da7e66a9_97b2655e",
+      "revId": "53e036c0cf5a73a3172f5649505b1dbf08618bce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb3095b3_fb68a2e0",
@@ -48,6 +84,24 @@
       "writtenOn": "2021-12-14T13:44:11Z",
       "side": 1,
       "message": "x6 ?",
+      "revId": "53e036c0cf5a73a3172f5649505b1dbf08618bce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18f9527d_0ede36e0",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-12-14T19:44:40Z",
+      "side": 1,
+      "message": "In order to extract a bitfield from an X register, the destination must also be an X register even if the bitfield is less than (or equal to) 32 bits wide. The end result is that W6 holds the numsets bitfield as it did in the original code. I added additional comments to be more clear.",
+      "parentUuid": "bb3095b3_fb68a2e0",
       "revId": "53e036c0cf5a73a3172f5649505b1dbf08618bce",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
