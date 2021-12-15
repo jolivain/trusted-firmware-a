@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d7f5b545_ba76f5f9",
+        "filename": "Makefile",
+        "patchSetId": 14
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2021-12-15T13:58:30Z",
+      "side": 1,
+      "message": "Thanks for highlighting it. I wasn\u0027t aware that macros get enabled in this scenario.\n\nI will try with this options and test it locally.",
+      "parentUuid": "dff58eb1_df5396ad",
+      "revId": "f74cb0be8ac80eb3072555cb04eb09375d4cb31f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "526844b4_36414891",
         "filename": "Makefile",
         "patchSetId": 14
@@ -66,6 +84,30 @@
       "writtenOn": "2021-12-15T13:47:01Z",
       "side": 1,
       "message": "similarly I think it deserves a default value otherwise it is \u0027defined\u0027 and always evaluates to true in the code.",
+      "range": {
+        "startLine": 1170,
+        "startChar": 8,
+        "endLine": 1170,
+        "endChar": 25
+      },
+      "revId": "f74cb0be8ac80eb3072555cb04eb09375d4cb31f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69d19a97_ff89c826",
+        "filename": "Makefile",
+        "patchSetId": 14
+      },
+      "lineNbr": 1170,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2021-12-15T13:58:30Z",
+      "side": 1,
+      "message": "This is already set to 0 by default in defaults.mk.",
+      "parentUuid": "526844b4_36414891",
       "range": {
         "startLine": 1170,
         "startChar": 8,
