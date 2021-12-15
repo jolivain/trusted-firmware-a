@@ -166,6 +166,12 @@ void spmc_sp_common_setup(sp_desc_t *sp,
 	/* Zero the general purpose registers before we populate as required. */
 	zeromem(&ep_info->args, sizeof(ep_info->args));
 
+	/*
+	 * TF-A Implementation defined behaviour to provide the linear
+	 * core ID in the x4 register.
+	 */
+	ep_info->args.arg4 = (uintptr_t) plat_my_core_pos();
+
 	/* Check if the SP wants to use the FF-A boot protocol. */
 	if (boot_info_reg >= 0) {
 		/*
