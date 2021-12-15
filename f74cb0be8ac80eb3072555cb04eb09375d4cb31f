@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8aa44103_b0351dbd",
+        "filename": "Makefile",
+        "patchSetId": 14
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-12-15T14:14:52Z",
+      "side": 1,
+      "message": "I think for FEAT_SB above this is achieved by initially setting it the value based off of arch-features and then setting it according to version\n\nENABLE_FEAT_SB\t\t\u003d\t$(if $(findstring sb,${arch-features}),1,0)\n\nifeq \"8.5\" \"$(word 1, $(sort 8.5 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))\"\nENABLE_FEAT_SB\t\t\u003d \t1\nendif",
+      "parentUuid": "d7f5b545_ba76f5f9",
+      "revId": "f74cb0be8ac80eb3072555cb04eb09375d4cb31f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "526844b4_36414891",
         "filename": "Makefile",
         "patchSetId": 14
