@@ -34,6 +34,46 @@
       "parentUuid": "705fd37b_e3d3343f",
       "revId": "f74cb0be8ac80eb3072555cb04eb09375d4cb31f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dff58eb1_df5396ad",
+        "filename": "Makefile",
+        "patchSetId": 14
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-12-15T13:47:01Z",
+      "side": 1,
+      "message": "Hi,\n\nA default value needs to be defined otherwise those pre-processor symbols evaluate to true in context.S\n\n # Determine and enable FEAT_FGT to access HDFGRTR_EL2 register for v8.6 and higher versions.\n ifeq \"8.6\" \"$(word 1, $(sort 8.6 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))\"\n ENABLE_FEAT_FGT                \u003d       1\n+else\n+ENABLE_FEAT_FGT                \u003d       0\n endif\n \n # Determine and enable FEAT_ECV to access CNTPOFF_EL2 register for v8.6 and higher versions.\n ifeq \"8.6\" \"$(word 1, $(sort 8.6 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))\"\n ENABLE_FEAT_ECV                \u003d       1\n+else\n+ENABLE_FEAT_ECV                \u003d       0\n endif",
+      "revId": "f74cb0be8ac80eb3072555cb04eb09375d4cb31f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "526844b4_36414891",
+        "filename": "Makefile",
+        "patchSetId": 14
+      },
+      "lineNbr": 1170,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2021-12-15T13:47:01Z",
+      "side": 1,
+      "message": "similarly I think it deserves a default value otherwise it is \u0027defined\u0027 and always evaluates to true in the code.",
+      "range": {
+        "startLine": 1170,
+        "startChar": 8,
+        "endLine": 1170,
+        "endChar": 25
+      },
+      "revId": "f74cb0be8ac80eb3072555cb04eb09375d4cb31f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
