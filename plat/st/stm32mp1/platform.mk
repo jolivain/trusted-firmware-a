@@ -191,6 +191,7 @@ PLAT_BL_COMMON_SOURCES	+=	lib/cpus/aarch32/cortex_a7.S
 PLAT_BL_COMMON_SOURCES	+=	drivers/arm/tzc/tzc400.c				\
 				drivers/delay_timer/delay_timer.c			\
 				drivers/delay_timer/generic_delay_timer.c		\
+				drivers/regulator/regulator_core.c			\
 				drivers/st/bsec/bsec.c					\
 				drivers/st/clk/stm32mp_clkfunc.c			\
 				drivers/st/clk/stm32mp1_clk.c				\
