@@ -3,6 +3,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ea7dcf52_9ad13ff2",
+        "filename": "plat/arm/board/morello/morello_bl2_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-15T20:03:53Z",
+      "side": 1,
+      "message": "nit: It will be better if you specify the range of DDR that zeroed out during BL31 stage",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "16b808e77079115f20ca71569f154a488668df74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b00055a_6fe1f9dc",
+        "filename": "plat/arm/board/morello/morello_bl2_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-15T20:03:53Z",
+      "side": 1,
+      "message": "nit: s/momory/memory",
+      "range": {
+        "startLine": 20,
+        "startChar": 20,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "16b808e77079115f20ca71569f154a488668df74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76474dfb_b51e5191",
+        "filename": "plat/arm/board/morello/morello_trusted_boot.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-15T20:03:53Z",
+      "side": 1,
+      "message": "IIUC Morello build relies on common Arm board makefile(board_common.mk) it uses below NV counters\nTFW_NVCTR_VAL \u003d  31\nNTFW_NVCTR_VAL \u003d 223\n\nThese NV counters are used during the certificate generation and are always higher than \u0027platform NV counter\u0027 i.e. 0. Hence on every boot there will be a try to set the NV counter that eventually will fail as per line no.34.\n\nI suggest, please follow the approach from Diphda platform where Cert NV counter and Platform NV counter are made equal ref [1] and [2]\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/board/diphda/platform.mk#n20\n[2]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/board/diphda/common/diphda_trusted_boot.c#n41",
+      "range": {
+        "startLine": 19,
+        "startChar": 1,
+        "endLine": 19,
+        "endChar": 13
+      },
+      "revId": "16b808e77079115f20ca71569f154a488668df74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c31410e7_c6212b85",
         "filename": "plat/arm/board/morello/morello_trusted_boot.c",
         "patchSetId": 4
@@ -14,6 +83,30 @@
       "writtenOn": "2021-12-15T16:23:41Z",
       "side": 1,
       "message": "I was wondering, if you expect this function to be never called, can you invoke panic() within this function definition?",
+      "range": {
+        "startLine": 27,
+        "startChar": 72,
+        "endLine": 28,
+        "endChar": 28
+      },
+      "revId": "16b808e77079115f20ca71569f154a488668df74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4b1511d_6818451e",
+        "filename": "plat/arm/board/morello/morello_trusted_boot.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-15T20:03:53Z",
+      "side": 1,
+      "message": "I think, an error return from this function gives flexibility to handle it in platform defined way (plat_error_handler),that may resemble \u0027panic\u0027 behaviour.",
+      "parentUuid": "c31410e7_c6212b85",
       "range": {
         "startLine": 27,
         "startChar": 72,
