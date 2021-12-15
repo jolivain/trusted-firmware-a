@@ -163,6 +163,12 @@ void spmc_sp_common_setup(sp_desc_t *sp,
 	ep_info->spsr =	SPSR_64(MODE_EL1, MODE_SP_ELX,
 				DISABLE_ALL_EXCEPTIONS);
 
+	/*
+	 * TF-A Implementation defined behaviour to provide the linear
+	 * core ID in the x4 register.
+	 */
+	ep_info->args.arg4 = (uintptr_t) plat_my_core_pos();
+
 	/* Check if the SP wants to use the FF-A boot protocol. */
 	if (boot_info_reg >= 0) {
 		/*
