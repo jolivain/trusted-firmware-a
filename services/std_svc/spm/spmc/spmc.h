@@ -242,8 +242,8 @@ struct ffa_partition_info_v1_1 {
 extern const spd_pm_ops_t spmc_pm;
 
 /* Setup Function for different SP types. */
-void spmc_sp_common_setup(sp_desc_t *sp, entry_point_info_t *ep_info);
-void spmc_el1_sp_setup(sp_desc_t *sp, entry_point_info_t *ep_info);
+void spmc_sp_common_setup(sp_desc_t *sp, entry_point_info_t *ep_info, int32_t boot_info_reg);
+void spmc_el1_sp_setup(sp_desc_t *sp, entry_point_info_t *ep_info, int32_t boot_info_reg);
 void spmc_sp_common_ep_commit(sp_desc_t *sp, entry_point_info_t *ep_info);
 
 /*
