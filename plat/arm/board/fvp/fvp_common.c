@@ -515,3 +515,25 @@ int32_t plat_get_soc_revision(void)
 	return (int32_t)(((sys_id >> V2M_SYS_ID_REV_SHIFT) &
 			  V2M_SYS_ID_REV_MASK) & SOC_ID_REV_MASK);
 }
+
+#if SPMC_AT_EL3
+/*
+ * On the FVP platform when using the EL3 SPMC implementation allocate the
+ * datastore for tracking shared memory descriptors in the TZC DRAM section
+ * to ensure sufficient storage can be allocated.
+ * Provide a strong implementation of the accessor method to allow the datastore
+ * details to be retrieved by the SPMC.
+ * The SPMC will take care of initializing the memory region.
+ */
+
+#define PLAT_SPMC_SHMEM_DATASTORE_SIZE 512 * 1024
+
+__section("arm_el3_tzc_dram") uint8_t plat_spmc_shmem_datastore[PLAT_SPMC_SHMEM_DATASTORE_SIZE];
+
+int plat_spmc_shmem_datastore_get(uint8_t **datastore, size_t *size)
+{
+	*datastore = plat_spmc_shmem_datastore;
+	*size = PLAT_SPMC_SHMEM_DATASTORE_SIZE;
+	return 0;
+}
+#endif
