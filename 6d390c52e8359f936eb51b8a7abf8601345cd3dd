@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dea4befd_6947d120",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-12-16T00:56:06Z",
+      "side": 1,
+      "message": "Hi, this is something I had in mind to provide some workaround for the OrangePi 3 users, which reportedly use a custom hack to make Ethernet work in Linux.\nOn top of solving this particular problem for them, this will probably become the default in the future, when we want to retire PMIC setup in TF-A entirely, so this has more value.\n\nDoes that make sense, or is there a better solution?",
+      "revId": "6d390c52e8359f936eb51b8a7abf8601345cd3dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
