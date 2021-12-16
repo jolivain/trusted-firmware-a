@@ -142,7 +142,7 @@ uint64_t spmc_ffa_error_return(void *handle, int error_code)
 
 /*
  * Helper function to validate a secure partition ID to ensure it does not
- * conflictwith any other FF-A component and follows the convention to
+ * conflict with any other FF-A component and follows the convention to
  * indicate it resides within the secure world.
  */
 bool validate_partition_id(uint16_t partition_id)
