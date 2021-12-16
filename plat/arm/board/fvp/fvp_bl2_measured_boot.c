@@ -65,6 +65,7 @@ void bl2_plat_mboot_init(void)
 	event_log_init((uint8_t *)event_log_start, event_log_finish);
 }
 
+#if TRUSTED_BOARD_BOOT
 int plat_mboot_measure_critical_data(unsigned int critical_data_id,
 				     const void *base, size_t size)
 {
@@ -118,6 +119,7 @@ static int fvp_populate_and_measure_critical_data(void)
 
 	return rc;
 }
+#endif /* TRUSTED_BOARD_BOOT */
 
 void bl2_plat_mboot_finish(void)
 {
@@ -129,10 +131,12 @@ void bl2_plat_mboot_finish(void)
 	/* Event Log filled size */
 	size_t event_log_cur_size;
 
+#if TRUSTED_BOARD_BOOT
 	rc = fvp_populate_and_measure_critical_data();
 	if (rc != 0) {
 		panic();
 	}
+#endif /* TRUSTED_BOARD_BOOT */
 
 	event_log_cur_size = event_log_get_cur_size((uint8_t *)event_log_base);
 

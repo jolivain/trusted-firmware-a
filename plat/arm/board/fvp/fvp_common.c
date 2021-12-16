@@ -117,10 +117,13 @@ const mmap_region_t plat_arm_mmap[] = {
 #if TRUSTED_BOARD_BOOT
 	/* To access the Root of Trust Public Key registers. */
 	MAP_DEVICE2,
+#endif /* TRUSTED_BOARD_BOOT */
+
+#if TRUSTED_BOARD_BOOT || MEASURED_BOOT
 #if !BL2_AT_EL3
 	ARM_MAP_BL1_RW,
 #endif
-#endif /* TRUSTED_BOARD_BOOT */
+#endif /* TRUSTED_BOARD_BOOT || MEASURED_BOOT */
 #if SPM_MM
 	ARM_SP_IMAGE_MMAP,
 #endif
@@ -444,7 +447,7 @@ void fvp_interconnect_disable(void)
 #endif
 }
 
-#if TRUSTED_BOARD_BOOT
+#if TRUSTED_BOARD_BOOT || MEASURED_BOOT
 int plat_get_mbedtls_heap(void **heap_addr, size_t *heap_size)
 {
 	assert(heap_addr != NULL);
@@ -452,7 +455,7 @@ int plat_get_mbedtls_heap(void **heap_addr, size_t *heap_size)
 
 	return arm_get_mbedtls_heap(heap_addr, heap_size);
 }
-#endif
+#endif /* TRUSTED_BOARD_BOOT || MEASURED_BOOT */
 
 void fvp_timer_init(void)
 {
