@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d598e9e_967049bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-12-16T18:17:39Z",
+      "side": 1,
+      "message": "Looks like the static checks are not happy with include order.\n\nChecking files modified between patches origin/master and HEAD...\n86240942f:plat/st/stm32mp1/bl2_plat_setup.c: [\u0027Project includes not in order. Include\n    order should be common/desc_image_load.h, drivers/generic_delay_timer.h, drivers/st/bsec.h,\n    drivers/st/stm32_iwdg.h, drivers/st/stm32mp1_clk.h, drivers/st/stm32mp_pmic.h\u0027]\n\n4dc77a35e:plat/st/stm32mp1/stm32mp1_private.c: [\u0027Project includes not in order. Include\n    order should be lib/mmio.h, lib/xlat_tables/xlat_tables_v2.h, libfdt.h\u0027]\n\nd7176f031:plat/st/stm32mp1/stm32mp1_private.c: [\u0027Project includes not in order. Include\n    order should be drivers/st/stm32_gpio.h, drivers/st/stm32_iwdg.h, lib/xlat_tables/xlat_tables_v2.h,\n    libfdt.h\u0027]",
+      "revId": "fadb131a801f93463fce49586097da272eb77a88",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
