@@ -13,9 +13,9 @@
 #include <common/debug.h>
 #include <common/desc_image_load.h>
 #include <common/tbbr/tbbr_img_def.h>
-#if TRUSTED_BOARD_BOOT
+#if TRUSTED_BOARD_BOOT || MEASURED_BOOT
 #include <drivers/auth/mbedtls/mbedtls_config.h>
-#endif
+#endif /* TRUSTED_BOARD_BOOT || MEASURED_BOOT */
 #include <lib/fconf/fconf.h>
 #include <lib/fconf/fconf_dyn_cfg_getter.h>
 #include <lib/fconf/fconf_tbbr_getter.h>
@@ -23,7 +23,7 @@
 #include <plat/arm/common/arm_dyn_cfg_helpers.h>
 #include <plat/arm/common/plat_arm.h>
 
-#if TRUSTED_BOARD_BOOT
+#if TRUSTED_BOARD_BOOT || MEASURED_BOOT
 
 static void *mbedtls_heap_addr;
 static size_t mbedtls_heap_size;
@@ -118,7 +118,7 @@ void arm_bl1_set_mbedtls_heap(void)
 #endif /* !MEASURED_BOOT */
 	}
 }
-#endif /* TRUSTED_BOARD_BOOT */
+#endif /* TRUSTED_BOARD_BOOT || MEASURED_BOOT */
 
 /*
  * BL2 utility function to initialize dynamic configuration specified by
