@@ -30,6 +30,14 @@
 /* Get ARM SOC-ID */
 #pragma weak plat_arm_get_soc_id
 
+#if SPMC_AT_EL3
+/*
+ * Provide a weak default implementation to be overridden on specific
+ * platforms.
+ */
+#pragma weak plat_spmc_shmem_datastore_get
+#endif
+
 /*******************************************************************************
  * Changes the memory attributes for the region of mapped memory where the BL
  * image's translation tables are located such that the tables will have
@@ -237,3 +245,20 @@ int plat_sdei_validate_entry_point(uintptr_t ep, unsigned int client_mode)
 }
 #endif
 
+#if SPMC_AT_EL3
+/*
+ * When using the EL3 SPMC it is required to allocate a datastore to be
+ * used for tracking memory descriptors. The size and location of the datastore
+ * is to be determine on a per platform basis to accommodate use cases and
+ * memory constraints.
+ * Provide a weak default accessor method to allow the SPMC to exit cleanly if
+ * no datastore has been allocated.
+ */
+int plat_spmc_shmem_datastore_get(uint8_t **datastore, size_t *size)
+{
+	ERROR("No Memory Descriptor Backing Store defined for EL3 SPMC!\n");
+	*datastore = NULL;
+	size = 0;
+	return -1;
+}
+#endif
