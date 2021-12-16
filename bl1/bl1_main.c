@@ -121,10 +121,10 @@ void bl1_main(void)
 	/* Perform remaining generic architectural setup from EL3 */
 	bl1_arch_setup();
 
-#if TRUSTED_BOARD_BOOT
+#if TRUSTED_BOARD_BOOT || MEASURED_BOOT
 	/* Initialize authentication module */
 	auth_mod_init();
-#endif /* TRUSTED_BOARD_BOOT */
+#endif /* TRUSTED_BOARD_BOOT || MEASURED_BOOT */
 
 	/* Initialize the measured boot */
 	bl1_plat_mboot_init();

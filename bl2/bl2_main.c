@@ -89,10 +89,10 @@ void bl2_main(void)
 	fwu_init();
 #endif /* PSA_FWU_SUPPORT */
 
-#if TRUSTED_BOARD_BOOT
+#if TRUSTED_BOARD_BOOT || MEASURED_BOOT
 	/* Initialize authentication module */
 	auth_mod_init();
-#endif /* TRUSTED_BOARD_BOOT */
+#endif /* TRUSTED_BOARD_BOOT || MEASURED_BOOT */
 
 	/* Initialize the Measured Boot backend */
 	bl2_plat_mboot_init();

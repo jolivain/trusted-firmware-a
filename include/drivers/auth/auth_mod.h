@@ -7,7 +7,7 @@
 #ifndef AUTH_MOD_H
 #define AUTH_MOD_H
 
-#if TRUSTED_BOARD_BOOT
+#if TRUSTED_BOARD_BOOT || MEASURED_BOOT
 
 #include <common/tbbr/cot_def.h>
 #include <common/tbbr/tbbr_img_def.h>
@@ -85,6 +85,6 @@ extern unsigned int auth_img_flags[MAX_NUMBER_IDS];
 
 #endif
 
-#endif /* TRUSTED_BOARD_BOOT */
+#endif /* TRUSTED_BOARD_BOOT || MEASURED_BOOT */
 
 #endif /* AUTH_MOD_H */

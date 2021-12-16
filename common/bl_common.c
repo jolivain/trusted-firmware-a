@@ -153,14 +153,22 @@ static int load_image_flush(unsigned int image_id,
 	int rc;
 
 	rc = load_image(image_id, image_data);
-	if (rc == 0) {
-		flush_dcache_range(image_data->image_base,
-				   image_data->image_size);
+	if (rc != 0) {
+		return rc;
 	}
 
-	return rc;
-}
+#if MEASURED_BOOT
+	rc = plat_mboot_measure_image(image_id, image_data);
+	if (rc != 0) {
+		return rc;
+	}
+#endif /* MEASURED_BOOT */
 
+	flush_dcache_range(image_data->image_base,
+			   image_data->image_size);
+
+	return 0;
+}
 
 #if TRUSTED_BOARD_BOOT
 /*
@@ -203,6 +211,8 @@ static int load_auth_image_recursive(unsigned int image_id,
 	}
 
 	if (is_parent_image == 0) {
+
+#if MEASURED_BOOT
 		/*
 		 * Measure the image.
 		 * We do not measure its parents because these only play a role
@@ -215,7 +225,7 @@ static int load_auth_image_recursive(unsigned int image_id,
 		if (rc != 0) {
 			return rc;
 		}
-
+#endif /* MEASURED_BOOT */
 		/*
 		 * Flush the image to main memory so that it can be executed
 		 * later by any CPU, regardless of cache and MMU state. This

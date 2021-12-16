@@ -336,14 +336,16 @@ int auth_mod_get_parent_id(unsigned int img_id, unsigned int *parent_id)
  */
 void auth_mod_init(void)
 {
+#if TRUSTED_BOARD_BOOT
 	/* Check we have a valid CoT registered */
 	assert(cot_desc_ptr != NULL);
 
-	/* Crypto module */
-	crypto_mod_init();
-
 	/* Image parser module */
 	img_parser_init();
+#endif /* TRUSTED_BOARD_BOOT */
+
+	/* Crypto module */
+	crypto_mod_init();
 }
 
 /*
