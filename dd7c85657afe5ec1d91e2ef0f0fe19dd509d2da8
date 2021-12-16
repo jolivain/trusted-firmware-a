@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "be74f1d2_9fdf6eda",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-12-16T11:17:17Z",
+      "side": 1,
+      "message": "(aarch64/aarch32)",
+      "revId": "dd7c85657afe5ec1d91e2ef0f0fe19dd509d2da8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad36e66b_1965203f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-12-16T11:17:17Z",
+      "side": 1,
+      "message": "C",
+      "revId": "dd7c85657afe5ec1d91e2ef0f0fe19dd509d2da8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "914a7932_309f51bb",
@@ -14,6 +48,125 @@
       "writtenOn": "2021-12-16T11:06:31Z",
       "side": 1,
       "message": "Comparing total instructions executed for each boot stage:\n\naarch32\nbl1                                                                                                                                      \nversion      memcpy    other    total                                                                                                    \n---------  --------  -------  -------\napple         15416   150748   166164 \nasm           15388   150750   166138\nc             18702   150750   169452\nsimple       139159   150748   289907\n\nbl2                                  \nversion      memcpy    other    total\n---------  --------  -------  -------\napple         46035   230798   276833\nasm           46008   230800   276808\nc             57187   230797   287984\nsimple       453116   230800   683916\n\nbl32                                 \nversion      memcpy    other    total\n---------  --------  -------  -------\napple           291  3552795  3553086\nasm             292  3552794  3553086\nc               273  3552794  3553067\nsimple          636  3552795  3553431\n\naarch64\n\nbl1                                  \nversion      memcpy    other    total\n---------  --------  -------  -------\napple         15461   159935   175396\nasm           10695   159680   170375\nc             21002   159679   180681\nsimple       224423   159679   384102\n\nbl2                                  \nversion      memcpy    other    total\n---------  --------  -------  -------\napple         41504   271006   312510\nasm           33818   270980   304798\nc             67911   270977   338888\nsimple       771060   270981  1042041                           \n\nbl31\nversion      memcpy    other    total\n---------  --------  -------  -------\napple          3548  3573821  3577369\nasm            4207  3573823  3578030\nc              1415  3573818  3575233\nsimple         4932  3573817  3578749\n\n\"apple\" is the open source memcpy implementation from https://opensource.apple.com/source/xnu/xnu-2050.7.9/libsyscall/wrappers/memcpy.c",
+      "revId": "dd7c85657afe5ec1d91e2ef0f0fe19dd509d2da8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a65e2b5_bcd03ecb",
+        "filename": "lib/libc/aarch32/memcpy_align8.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-12-16T11:17:17Z",
+      "side": 1,
+      "message": "blo",
+      "revId": "dd7c85657afe5ec1d91e2ef0f0fe19dd509d2da8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a277628_a69d07d7",
+        "filename": "lib/libc/aarch64/memcpy_align16.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-12-16T11:17:17Z",
+      "side": 1,
+      "message": "b.lo",
+      "revId": "dd7c85657afe5ec1d91e2ef0f0fe19dd509d2da8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4939a97_12db6349",
+        "filename": "lib/libc/aarch64/memcpy_align16.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-12-16T11:17:17Z",
+      "side": 1,
+      "message": "x6 \u003d len/16",
+      "revId": "dd7c85657afe5ec1d91e2ef0f0fe19dd509d2da8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91f1f753_d648cb71",
+        "filename": "lib/libc/aarch64/memcpy_align16.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-12-16T11:17:17Z",
+      "side": 1,
+      "message": "use tab after ldr",
+      "revId": "dd7c85657afe5ec1d91e2ef0f0fe19dd509d2da8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e813e34_5a809cc0",
+        "filename": "lib/libc/aarch64/memcpy_align16.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-12-16T11:17:17Z",
+      "side": 1,
+      "message": "use tab after str",
+      "revId": "dd7c85657afe5ec1d91e2ef0f0fe19dd509d2da8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83fd6ad1_11a5c930",
+        "filename": "lib/libc/aarch64/memcpy_align16.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-12-16T11:17:17Z",
+      "side": 1,
+      "message": "use tab after ldr",
+      "revId": "dd7c85657afe5ec1d91e2ef0f0fe19dd509d2da8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82033647_3b19d245",
+        "filename": "lib/libc/aarch64/memcpy_align16.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-12-16T11:17:17Z",
+      "side": 1,
+      "message": "ldrb\tw3, [x1]\nstrb\tw3, [x0]",
       "revId": "dd7c85657afe5ec1d91e2ef0f0fe19dd509d2da8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
