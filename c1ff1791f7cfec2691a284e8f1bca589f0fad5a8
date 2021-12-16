@@ -33,6 +33,24 @@
       "message": "I am curious. what happens when all SPs specify the same boot-order value in their manifests?",
       "revId": "c1ff1791f7cfec2691a284e8f1bca589f0fad5a8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "542e441f_35e10c9a",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2021-12-16T14:08:37Z",
+      "side": 1,
+      "message": "They will all still be booted, but no guarantees on the order.",
+      "parentUuid": "b5ed12ab_b9dace84",
+      "revId": "c1ff1791f7cfec2691a284e8f1bca589f0fad5a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
