@@ -16,6 +16,24 @@
       "message": "As STP/LDP instructions don\u0027t require 16-bytes alignment, shouldn\u0027t memcpy_align16() be renamed to memcpy_align8()?",
       "revId": "d650e917dbb4fdda43b46c545cab6f9051be3dac",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb29be57_574be2bf",
+        "filename": "lib/libc/memcpy_asm.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2021-12-16T17:02:13Z",
+      "side": 1,
+      "message": "or just use memcpy_16() and memcpy_8()?",
+      "parentUuid": "754ce19d_3f70befe",
+      "revId": "d650e917dbb4fdda43b46c545cab6f9051be3dac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
