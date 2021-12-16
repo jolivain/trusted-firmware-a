@@ -16,6 +16,24 @@
       "message": "Could you please fix the static failures and re-run the CI, the series is in good shape and can be merged soon.",
       "revId": "2ca99a8e73bab93654fd60ec65dbab8f033b8882",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7b52202_22a7aa01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2021-12-16T14:31:03Z",
+      "side": 1,
+      "message": "Thanks for the review. Have fixed the static checks related to the patch series and re-triggered the CI.",
+      "parentUuid": "bbb1b03c_fe352c70",
+      "revId": "2ca99a8e73bab93654fd60ec65dbab8f033b8882",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
