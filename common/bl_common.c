@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -20,9 +20,8 @@
 #include <plat/common/platform.h>
 
 #if TRUSTED_BOARD_BOOT
+static bool disable_auth;
 # ifdef DYN_DISABLE_AUTH
-static int disable_auth;
-
 /******************************************************************************
  * API to dynamically disable authentication. Only meant for development
  * systems. This is only invoked if DYN_DISABLE_AUTH is defined.
@@ -30,21 +29,11 @@ static int disable_auth;
 void dyn_disable_auth(void)
 {
 	INFO("Disabling authentication of images dynamically\n");
-	disable_auth = 1;
+	disable_auth = true;
 }
 # endif /* DYN_DISABLE_AUTH */
-
-/******************************************************************************
- * Function to determine whether the authentication is disabled dynamically.
- *****************************************************************************/
-static int dyn_is_auth_disabled(void)
-{
-# ifdef DYN_DISABLE_AUTH
-	return disable_auth;
-# else
-	return 0;
-# endif
-}
+#else
+static bool disable_auth = true;
 #endif /* TRUSTED_BOARD_BOOT */
 
 uintptr_t page_align(uintptr_t value, unsigned dir)
@@ -143,25 +132,6 @@ exit:
 	return io_result;
 }
 
-/*
- * Load an image and flush it out to main memory so that it can be executed
- * later by any CPU, regardless of cache and MMU state.
- */
-static int load_image_flush(unsigned int image_id,
-			    image_info_t *image_data)
-{
-	int rc;
-
-	rc = load_image(image_id, image_data);
-	if (rc == 0) {
-		flush_dcache_range(image_data->image_base,
-				   image_data->image_size);
-	}
-
-	return rc;
-}
-
-
 #if TRUSTED_BOARD_BOOT
 /*
  * This function uses recursion to authenticate the parent images up to the root
@@ -202,30 +172,6 @@ static int load_auth_image_recursive(unsigned int image_id,
 		return -EAUTH;
 	}
 
-	if (is_parent_image == 0) {
-		/*
-		 * Measure the image.
-		 * We do not measure its parents because these only play a role
-		 * in authentication, which is orthogonal to measured boot.
-		 *
-		 * TODO: Change this code if we change our minds about measuring
-		 * certificates.
-		 */
-		rc = plat_mboot_measure_image(image_id, image_data);
-		if (rc != 0) {
-			return rc;
-		}
-
-		/*
-		 * Flush the image to main memory so that it can be executed
-		 * later by any CPU, regardless of cache and MMU state. This
-		 * is only needed for child images, not for the parents
-		 * (certificates).
-		 */
-		flush_dcache_range(image_data->image_base,
-				   image_data->image_size);
-	}
-
 	return 0;
 }
 #endif /* TRUSTED_BOARD_BOOT */
@@ -233,13 +179,38 @@ static int load_auth_image_recursive(unsigned int image_id,
 static int load_auth_image_internal(unsigned int image_id,
 				    image_info_t *image_data)
 {
-#if TRUSTED_BOARD_BOOT
-	if (dyn_is_auth_disabled() == 0) {
-		return load_auth_image_recursive(image_id, image_data, 0);
-	}
-#endif
+	int rc;
 
-	return load_image_flush(image_id, image_data);
+	if (disable_auth) {
+		rc = load_image(image_id, image_data);
+		if (rc != 0) {
+			return rc;
+		}
+	} else {
+#if TRUSTED_BOARD_BOOT
+		rc = load_auth_image_recursive(image_id, image_data, 0);
+		if (rc != 0) {
+			return rc;
+		}
+#else
+	/* authentication must be disabled for Non-TBBR flow */
+	assert(false);	/* Unreachable */
+#endif /* TRUSTED_BOARD_BOOT */
+	}
+
+	rc = plat_mboot_measure_image(image_id, image_data);
+	if (rc != 0) {
+		return rc;
+	}
+
+	/*
+	 * Flush the image to main memory so that it can be executed
+	 * later by any CPU, regardless of cache and MMU state.
+	 */
+	flush_dcache_range(image_data->image_base,
+			   image_data->image_size);
+
+	return 0;
 }
 
 /*******************************************************************************
