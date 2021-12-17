@@ -72,6 +72,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1def2856_04903deb",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-12-17T13:35:43Z",
+      "side": 1,
+      "message": "Having discussed this with Soby and given his comment I\u0027ve removed line setting the NCZV registers.",
+      "parentUuid": "b954e69a_dbd4b9e4",
+      "range": {
+        "startLine": 681,
+        "startChar": 16,
+        "endLine": 681,
+        "endChar": 20
+      },
+      "revId": "10c263d6d8f2356223a87f8ea0ae3bc8bd865800",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0657f56c_0138accb",
