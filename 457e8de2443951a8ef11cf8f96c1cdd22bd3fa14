@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d7ad808_c371ad71",
+        "filename": "drivers/st/pmic/stpmic1.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-12-17T20:06:59Z",
+      "side": 1,
+      "message": "Should this be 4 or 5? If its left at 4, it will match any string with prefix \"ldo3\". If the intent is to check for a prefix this is perfect, but if \"ldo3\" is the whole string to look for then it should probably be 5 to ensure the null termination is checked. I see a few instances of this in this file so just wanted to double check.",
+      "range": {
+        "startLine": 688,
+        "startChar": 5,
+        "endLine": 688,
+        "endChar": 30
+      },
+      "revId": "457e8de2443951a8ef11cf8f96c1cdd22bd3fa14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
