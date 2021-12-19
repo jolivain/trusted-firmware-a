@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -23,6 +23,7 @@
 #include <smccc_helpers.h>
 
 #include "spm_mm_private.h"
+#include "spm_common.h"
 
 /*******************************************************************************
  * Secure Partition context information.
