@@ -7,6 +7,8 @@
 #ifndef FFA_SVC_H
 #define FFA_SVC_H
 
+#include <stdbool.h>
+
 #include <lib/smccc.h>
 #include <lib/utils_def.h>
 #include <tools_share/uuid.h>
@@ -175,6 +177,11 @@
 #define FFA_ENDPOINT_ID_MAX			U(1 << 16)
 
 /*
+ * FFA Mask for the secure world.
+ */
+#define FFA_SECURE_WORLD_ID_MASK		BIT(15)
+
+/*
  * Mask for source and destination endpoint id in
  * a direct message request/response.
  */
@@ -206,6 +213,26 @@ static inline uint16_t ffa_endpoint_source(unsigned int ep)
 {
 	return (ep >> FFA_DIRECT_MSG_SOURCE_SHIFT) &
 		FFA_DIRECT_MSG_ENDPOINT_ID_MASK;
+}
+
+/******************************************************************************
+ * ffa helper functions to determine partition ID world
+ *****************************************************************************/
+
+/*
+ * Determine if provided ID is in the secure world.
+ */
+static inline bool ffa_is_secure_world_id(uint16_t id)
+{
+	return (id & FFA_SECURE_WORLD_ID_MASK);
+}
+
+/*
+ * Determine if provided ID is in the normal world.
+ */
+static inline bool ffa_is_normal_world_id(uint16_t id)
+{
+	return !ffa_is_secure_world_id(id);
 }
 
 #endif /* FFA_SVC_H */
