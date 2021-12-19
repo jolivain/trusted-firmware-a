@@ -20,6 +20,7 @@
 #include <services/spm_mm_partition.h>
 
 #include "spm_mm_private.h"
+#include "spm_common.h"
 #include "spm_mm_shim_private.h"
 
 /* Setup context of the Secure Partition */
