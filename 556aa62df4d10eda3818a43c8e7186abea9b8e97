@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3690015c_e0c5db02",
+        "filename": "drivers/st/regulator/regulator_fixed.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-12-20T19:01:19Z",
+      "side": 1,
+      "message": "Is this check for node \u003e 0 doing anything? It looks like the check at line 63 handles ending the loop.",
+      "range": {
+        "startLine": 88,
+        "startChar": 3,
+        "endLine": 88,
+        "endChar": 19
+      },
+      "revId": "556aa62df4d10eda3818a43c8e7186abea9b8e97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
