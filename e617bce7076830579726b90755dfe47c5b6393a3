@@ -16,6 +16,24 @@
       "message": "This might be better if placed in the drivers/st directory.",
       "revId": "e617bce7076830579726b90755dfe47c5b6393a3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbc61f91_6180db5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2021-12-20T09:37:22Z",
+      "side": 1,
+      "message": "The idea here was to have a common framework that all platform could use. But it might fit only ST platforms needs. I will move the files. It could be moved back if someone else wants to use it.",
+      "parentUuid": "70ed6089_68633156",
+      "revId": "e617bce7076830579726b90755dfe47c5b6393a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
