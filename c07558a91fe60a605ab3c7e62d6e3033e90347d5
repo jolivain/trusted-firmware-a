@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8eb3ecd3_0e72e5e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-12-20T14:48:21Z",
+      "side": 1,
+      "message": "Since I regularly confuse myself with negative logic, I changed the symbol to SUNXI_SETUP_REGULATORS.\nAlso I covered the axp_regulator structures, since they take up some of our precious .rodata space.",
+      "revId": "c07558a91fe60a605ab3c7e62d6e3033e90347d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
