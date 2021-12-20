@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0d8a86c_f0c3c473",
+        "filename": "drivers/st/regulator/regulator_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-12-20T19:01:08Z",
+      "side": 1,
+      "message": "Is it necessary to initialize ret here?",
+      "range": {
+        "startLine": 252,
+        "startChar": 9,
+        "endLine": 252,
+        "endChar": 12
+      },
+      "revId": "1189ed942016c5a49986f79b8ea2dc308c59b96f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad0bc0d4_b11b5a81",
+        "filename": "drivers/st/regulator/regulator_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-12-20T19:01:08Z",
+      "side": 1,
+      "message": "Would it be better if the order of these logical evaluations is changed? This way, you ensure n \u003e1 before indexing into the array\nwhile ( (n \u003e 1U) \u0026\u0026 ((*levels)[n - 1U] \u003e rdev-\u003emax_mv) ) {",
+      "range": {
+        "startLine": 314,
+        "startChar": 46,
+        "endLine": 314,
+        "endChar": 54
+      },
+      "revId": "1189ed942016c5a49986f79b8ea2dc308c59b96f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfe23692_f833abff",
+        "filename": "drivers/st/regulator/regulator_core.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-12-20T19:01:08Z",
+      "side": 1,
+      "message": "Could you provide a little more context to this print message?",
+      "range": {
+        "startLine": 505,
+        "startChar": 8,
+        "endLine": 505,
+        "endChar": 21
+      },
+      "revId": "1189ed942016c5a49986f79b8ea2dc308c59b96f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
