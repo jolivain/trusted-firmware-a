@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf153a88_1dfc3dab",
+        "filename": "plat/mediatek/mt8186/drivers/emi_mpu/emi_mpu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-12-21T18:33:50Z",
+      "side": 1,
+      "message": "Static checks might reject this patch based on include order. https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html#include-statement-ordering",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 20
+      },
+      "revId": "b4af658a1b418508a61c85eeb756953edc22d5f2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
