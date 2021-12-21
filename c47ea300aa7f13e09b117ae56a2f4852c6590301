@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "120eede9_13ce94e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-12-21T17:42:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0c6788a4_6ac23bb0",
+      "revId": "c47ea300aa7f13e09b117ae56a2f4852c6590301",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aadc4128_cd1a7022",
         "filename": "lib/cpus/aarch64/cortex_x2.S",
         "patchSetId": 3
@@ -31,6 +49,30 @@
       "writtenOn": "2021-12-21T13:47:14Z",
       "side": 1,
       "message": "Should this not be CORTEX_X2_CPUECTLR2_EL1_PF_MODE_CNSRV? If not where is that macro used?",
+      "range": {
+        "startLine": 73,
+        "startChar": 10,
+        "endLine": 73,
+        "endChar": 13
+      },
+      "revId": "c47ea300aa7f13e09b117ae56a2f4852c6590301",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "117c152c_0b68258d",
+        "filename": "lib/cpus/aarch64/cortex_x2.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-12-21T17:42:41Z",
+      "side": 1,
+      "message": "You are 100% correct, thanks for catching this, I set that field to 0xF when trying to debug an issue that seems like an FVP model bug then forgot to put it back before uploading the patch.",
+      "parentUuid": "aadc4128_cd1a7022",
       "range": {
         "startLine": 73,
         "startChar": 10,
