@@ -22,6 +22,30 @@
       },
       "revId": "b4af658a1b418508a61c85eeb756953edc22d5f2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45cf99d9_92483eae",
+        "filename": "plat/mediatek/mt8186/drivers/emi_mpu/emi_mpu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2021-12-22T01:51:47Z",
+      "side": 1,
+      "message": "I think the error is caused by this patch:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/13070\n\nI have modified the order of included header file.\nThanks!",
+      "parentUuid": "bf153a88_1dfc3dab",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 20
+      },
+      "revId": "b4af658a1b418508a61c85eeb756953edc22d5f2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
