@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4f32fe1e_98e5e3d8",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-12-22T20:30:09Z",
+      "side": 1,
+      "message": "If we\u0027re limited to only ethernet0-9 this only needs to be 10 chars to include the ending null character. Are the extra spaces needed for anything?",
+      "range": {
+        "startLine": 501,
+        "startChar": 16,
+        "endLine": 501,
+        "endChar": 18
+      },
+      "revId": "21bd84a7b58618d9b924ce6ac4c37980d3ff32a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cac33a76_68072852",
         "filename": "common/fdt_fixup.c",
         "patchSetId": 2
