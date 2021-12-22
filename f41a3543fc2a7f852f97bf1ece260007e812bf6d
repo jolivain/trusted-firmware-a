@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fece5df6_b4975266",
+        "filename": "plat/mediatek/mt8186/drivers/emi_mpu/emi_mpu.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-22T09:31:46Z",
+      "side": 1,
+      "message": "nit: better align this with open brace",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 22
+      },
+      "revId": "f41a3543fc2a7f852f97bf1ece260007e812bf6d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c77ac396_ba46289f",
+        "filename": "plat/mediatek/mt8186/drivers/emi_mpu/emi_mpu.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-22T09:31:46Z",
+      "side": 1,
+      "message": "0U instead?",
+      "range": {
+        "startLine": 43,
+        "startChar": 16,
+        "endLine": 43,
+        "endChar": 17
+      },
+      "revId": "f41a3543fc2a7f852f97bf1ece260007e812bf6d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9308d24_a9067f0b",
+        "filename": "plat/mediatek/mt8186/drivers/emi_mpu/emi_mpu.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-22T09:31:46Z",
+      "side": 1,
+      "message": "May I know the indend behind returning \u00271\u0027? In general, success is indicated by returning \u00270\u0027 right?",
+      "range": {
+        "startLine": 69,
+        "startChar": 1,
+        "endLine": 69,
+        "endChar": 10
+      },
+      "revId": "f41a3543fc2a7f852f97bf1ece260007e812bf6d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32d4e621_0832f4e6",
+        "filename": "plat/mediatek/mt8186/drivers/emi_mpu/emi_mpu.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2021-12-22T09:31:46Z",
+      "side": 1,
+      "message": "I think, better handle the error returned by this function.",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 88,
+        "endChar": 59
+      },
+      "revId": "f41a3543fc2a7f852f97bf1ece260007e812bf6d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
