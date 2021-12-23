@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e7c69e1_df816c7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-12-23T04:21:40Z",
+      "side": 1,
+      "message": "Many thanks for this! Not only does it help with secure mode, but I believe it resolves a warning from Linux for other folks as well.",
+      "revId": "1cf90dd868707a7de12a47d9cd974f4145fd227e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa817896_df7fc670",
+        "filename": "plat/allwinner/common/sunxi_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-12-23T04:21:40Z",
+      "side": 1,
+      "message": "This matches the A64 documentation, but I don\u0027t think this is common among all SoCs. If I remember correctly, recent SoCs have the \"bonding ID\" somewhere in the first few bytes of the SID, and not all the same place either. I haven\u0027t looked at this in detail before, so I do not know the specifics offhand.",
+      "revId": "1cf90dd868707a7de12a47d9cd974f4145fd227e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
