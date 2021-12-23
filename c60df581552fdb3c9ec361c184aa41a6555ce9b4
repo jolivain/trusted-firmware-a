@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c9c7fcc8_69248954",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-12-23T14:00:11Z",
+      "side": 1,
+      "message": "\u003e Have you checked if the \"SRAM cache\" copy of the chip ID (at SID + 0x200) is readable from the NS world?\n\nI had not, but did now. I read all zeroes, from +0x0, or +0x200. The I copied the H3 fixup code into TF-A, to check whether \"initialising the SRAM cache by using the register access method\" helps (this is what you meant above, right?), but it made no difference.\n\n\u003e Another strategy could be exposing the full 16-byte chip ID via some SMC call.\n\nYeah possible, but I don\u0027t really want to invent an SMC call just for that, especially since we don\u0027t really own the OEM region (as we are not Allwinner). We could add the value somewhere to the DT, though? booting-without-of.txt once described a root node \"serial-number\" property, but that was (accidentally?) lost in conversion. That would still mean we need the DT code, which means we could even keep the MAC code?\n\n\u003e While I support fixing the Ethernet MAC address issue, to me this seems like a too-specific solution to a more general problem. (For example: what about thermal sensor calibration data?)\n\nYou have some point, but what I liked about this is that it\u0027s \"architected\" and covered by existing standards. U-Boot for instance works out of the box with this, since it (now) observes local-mac-address properties automatically.\n\nWe could add the THS calibration data to the DT as well, I always thought this would be a better solution than having this SID driver in Linux (which was always architecturally doomed).\n\nSo I am not married to this solution (and would be happy if we can avoid adding so much code to BL31), but would like to use existing standard and not employ too many custom hacks.",
+      "parentUuid": "788445a0_d3fce37e",
+      "revId": "c60df581552fdb3c9ec361c184aa41a6555ce9b4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1752bb7e_802c3b00",
         "filename": "plat/allwinner/common/allwinner-common.mk",
         "patchSetId": 2
@@ -96,6 +114,30 @@
       "side": 1,
       "message": "`SEPARATE_CODE_AND_RODATA :\u003d 0` would remove some of the page alignment without any loss of functionality.",
       "parentUuid": "66a71619_daa76786",
+      "range": {
+        "startLine": 13,
+        "startChar": 8,
+        "endLine": 13,
+        "endChar": 36
+      },
+      "revId": "c60df581552fdb3c9ec361c184aa41a6555ce9b4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0eb5e27_005c1edb",
+        "filename": "plat/allwinner/sun50i_a64/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2021-12-23T14:00:11Z",
+      "side": 1,
+      "message": "Yes, it does, but it\u0027s not enough in this case. The code that r/w libfdt pulls is somewhat massive, so just the alignment alone doesn\u0027t help here.",
+      "parentUuid": "2de126ac_eaaf5e60",
       "range": {
         "startLine": 13,
         "startChar": 8,
