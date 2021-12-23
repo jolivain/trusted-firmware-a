@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6b63bed_0240e60c",
+        "filename": "plat/st/stm32mp1/platform.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-12-23T21:26:04Z",
+      "side": 1,
+      "message": "Patch is fine as is, but it might be more descriptive to put a \"NUM\" suffix or \"NR_OF\" prefix on this define to match the other definitions.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 17
+      },
+      "revId": "8377232125e98b7b31ab90ae0dd346df5781da87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
