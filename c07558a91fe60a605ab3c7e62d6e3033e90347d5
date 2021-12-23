@@ -16,6 +16,23 @@
       "message": "Since I regularly confuse myself with negative logic, I changed the symbol to SUNXI_SETUP_REGULATORS.\nAlso I covered the axp_regulator structures, since they take up some of our precious .rodata space.",
       "revId": "c07558a91fe60a605ab3c7e62d6e3033e90347d5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e98ca759_bd643e8e",
+        "filename": "drivers/allwinner/axp/common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-12-23T04:08:01Z",
+      "side": 1,
+      "message": "nit: You put a blank line below the #if, but not before the #endif.",
+      "revId": "c07558a91fe60a605ab3c7e62d6e3033e90347d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
