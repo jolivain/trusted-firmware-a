@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5762aa82_b7b48050",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2021-12-23T20:48:17Z",
+      "side": 1,
+      "message": "Function memcmp does not return a boolean type, this should be (guidcmp(...) \u003d\u003d 0).",
+      "range": {
+        "startLine": 255,
+        "startChar": 6,
+        "endLine": 255,
+        "endChar": 50
+      },
+      "revId": "09634d63b3cfab8ce453eee972a6294d6baddf41",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
