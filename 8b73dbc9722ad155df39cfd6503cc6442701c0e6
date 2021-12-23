@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "502b906e_54b993ea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2021-12-23T13:44:35Z",
+      "side": 1,
+      "message": "nit : subject could be stated as \"reset the unset PSTATE fields to default\"",
+      "revId": "8b73dbc9722ad155df39cfd6503cc6442701c0e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a58cce2e_904cdd51",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2021-12-23T13:44:35Z",
+      "side": 1,
+      "message": "nit : Could have used the existing preprocessor directive #ID_AA64PFR0_DIT_SUPPORTED.",
+      "revId": "8b73dbc9722ad155df39cfd6503cc6442701c0e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42723fa0_1edc448a",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2021-12-23T13:44:35Z",
+      "side": 1,
+      "message": "nit: reset instead of set",
+      "revId": "8b73dbc9722ad155df39cfd6503cc6442701c0e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddfdba1c_4c59bba4",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2021-12-23T13:44:35Z",
+      "side": 1,
+      "message": "nit: resets instead of set",
+      "revId": "8b73dbc9722ad155df39cfd6503cc6442701c0e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be7d69d6_65ee699d",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2021-12-23T13:44:35Z",
+      "side": 1,
+      "message": "nit : Reset the PState bits",
+      "revId": "8b73dbc9722ad155df39cfd6503cc6442701c0e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
