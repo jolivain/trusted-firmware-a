@@ -19,7 +19,10 @@
 #include <platform_tsp.h>
 
 #if SPMC_AT_EL3
+#include "ffa_helpers.h"
 #include <lib/psci/psci.h>
+#include <lib/xlat_tables/xlat_tables_defs.h>
+#include <lib/xlat_tables/xlat_tables_v2.h>
 #include <services/ffa_svc.h>
 #endif
 
@@ -52,9 +55,27 @@ work_statistics_t tsp_stats[PLATFORM_CORE_COUNT];
 
 #if SPMC_AT_EL3
 static unsigned int spmc_id;
+static unsigned int partition_id;
+
+/* Partition Mailbox */
+static uint8_t send_page[PAGE_SIZE] __aligned(PAGE_SIZE);
+static uint8_t recv_page[PAGE_SIZE] __aligned(PAGE_SIZE);
+
+struct mailbox {
+	void *send;
+	const void *recv;
+};
+
+/*
+ * Declare a global mailbox for use within the TSP.
+ * This will be initialized appropriately when the buffers
+ * are mapped with the SPMC.
+ */
+static struct mailbox mailbox;
+
 #endif
 
-static tsp_args_t tsp_smc(uint32_t func, uint64_t arg0,
+tsp_args_t tsp_smc(uint32_t func, uint64_t arg0,
 			  uint64_t arg1, uint64_t arg2,
 			  uint64_t arg3, uint64_t arg4,
 			  uint64_t arg5, uint64_t arg6)
@@ -182,6 +203,7 @@ uint64_t tsp_main(void)
 		}
 
 		INFO("TSP FF-A endpoint id = 0x%lx\n", smc_args._regs[2]);
+		partition_id =  smc_args._regs[2];
 
 		/* Get the SPMC ID */
 		smc_args = tsp_smc(FFA_SPM_ID_GET, 0, 0, 0, 0, 0, 0, 0);
@@ -193,6 +215,15 @@ uint64_t tsp_main(void)
 
 		spmc_id = smc_args._regs[2];
 
+		/* Call RXTX_MAP to map a 4k RX and TX buffer. */
+		if (ffa_rxtx_map((uintptr_t) send_page,
+				 (uintptr_t) recv_page, 1)) {
+			ERROR("TSP could not map it's RX/TX Buffers\n");
+			panic();
+		}
+
+		mailbox.send = send_page;
+		mailbox.recv = recv_page;
 	}
 #endif
 	/* Update this cpu's statistics */
@@ -584,6 +615,385 @@ tsp_args_t *tsp_abort_smc_handler(uint64_t func,
 }
 
 #if SPMC_AT_EL3
+
+/*******************************************************************************
+ * This enum is used to handle test cases driven from the FF-A Test Driver.
+ ******************************************************************************/
+/* Keep in Sync with FF-A Test Driver. */
+enum message_t {
+	/* Partition Only Messages. */
+	FF_A_RELAY_MESSAGE = 0,
+
+	/* Basic Functionality. */
+	FF_A_ECHO_MESSAGE,
+	FF_A_RELAY_MESSAGE_EL3,
+
+	/* Memory Sharing. */
+	FF_A_MEMORY_SHARE,
+	FF_A_MEMORY_SHARE_FRAGMENTED,
+	FF_A_MEMORY_LEND,
+	FF_A_MEMORY_LEND_FRAGMENTED,
+
+	LAST,
+	FF_A_RUN_ALL = 255,
+	FF_A_OP_MAX = 256
+};
+
+
+/*******************************************************************************
+ * This function handles framework messages. Currently only PM.
+ ******************************************************************************/
+tsp_args_t *handle_framework_message(uint64_t arg0,
+				     uint64_t arg1,
+				     uint64_t arg2,
+				     uint64_t arg3,
+				     uint64_t arg4,
+				     uint64_t arg5,
+				     uint64_t arg6,
+				     uint64_t arg7)
+{
+
+	/*
+	 * Check if it is a power management message from the SPMC to
+	 * turn off this cpu else barf for now.
+	 */
+	if (ffa_endpoint_source(arg1) != spmc_id)
+		goto err;
+
+	/* Check it is a PM request message. */
+	if ((arg2 & FFA_PM_MSG_MASK) != FFA_PM_MSG_PSCI_REQ)
+		goto err;
+
+	/* Check it is a PSCI CPU_OFF request. */
+	if (arg3 != PSCI_CPU_OFF)
+		goto err;
+
+	/* Everything checks out. Do the needful. */
+	return tsp_cpu_off_main(arg0, arg1, arg2, arg3,
+				arg4, arg5, arg6, arg7);
+err:
+	ERROR("%s: Unknown framework message!\n", __func__);
+	panic();
+}
+
+/*******************************************************************************
+ * Helper function to swap source and destination partition IDs.
+ ******************************************************************************/
+void swap_src_dst(uint16_t *src, uint16_t *dst)
+{
+	uint32_t tmp;
+
+	tmp = *src;
+	*src = *dst;
+	*dst = tmp;
+}
+
+/*******************************************************************************
+ * Wrapper function to send a direct response.
+ ******************************************************************************/
+tsp_args_t *ffa_msg_send_direct_resp(uint16_t sender,
+				     uint16_t receiver,
+				     uint32_t arg3,
+				     uint32_t arg4,
+				     uint32_t arg5,
+				     uint32_t arg6,
+				     uint32_t arg7)
+{
+	uint32_t flags = 0;
+	uint32_t src_dst_ids = (sender << FFA_DIRECT_MSG_SOURCE_SHIFT) |
+			       (receiver << FFA_DIRECT_MSG_DESTINATION_SHIFT);
+
+	return set_smc_args(FFA_MSG_SEND_DIRECT_RESP_SMC64, src_dst_ids,
+			    flags, arg3, arg4, arg5, arg6, arg7);
+}
+
+/*******************************************************************************
+ * Wrapper function to send a direct request.
+ ******************************************************************************/
+tsp_args_t ffa_msg_send_direct_req(uint16_t sender,
+				   uint16_t receiver,
+				   uint32_t arg3,
+				   uint32_t arg4,
+				   uint32_t arg5,
+				   uint32_t arg6,
+				   uint32_t arg7)
+{
+	uint32_t flags = 0;
+	uint32_t src_dst_ids = (sender << FFA_DIRECT_MSG_SOURCE_SHIFT) |
+			       (receiver << FFA_DIRECT_MSG_DESTINATION_SHIFT);
+
+
+	/* Send Direct Request. */
+	return tsp_smc(FFA_MSG_SEND_DIRECT_REQ_SMC64, src_dst_ids,
+			flags, arg3, arg4, arg5, arg6, arg7);
+}
+
+/*******************************************************************************
+ * Memory Management Helpers.
+ ******************************************************************************/
+static char mem_region_buffer[4096 * 2]  __aligned(PAGE_SIZE);
+#define REGION_BUF_SIZE sizeof(mem_region_buffer)
+
+bool memory_retrieve(struct mailbox *mb,
+		     struct ffa_memory_region **retrieved, uint64_t handle,
+		     ffa_id_t sender, ffa_id_t receiver,
+		     uint32_t flags, uint32_t *frag_length,
+		     uint32_t *total_length)
+{
+	tsp_args_t ret;
+	uint32_t descriptor_size;
+
+	if (retrieved == NULL || mb == NULL) {
+		ERROR("Invalid parameters!\n");
+		return false;
+	}
+
+	/* Clear TX buffer. */
+	memset(mb->send, 0, PAGE_SIZE);
+
+	/* Clear local buffer. */
+	memset(mem_region_buffer, 0, REGION_BUF_SIZE);
+
+	descriptor_size = ffa_memory_retrieve_request_init(
+	    mb->send, handle, sender, receiver, 0, flags,
+	    FFA_DATA_ACCESS_RW,
+	    FFA_INSTRUCTION_ACCESS_NX,
+	    FFA_MEMORY_NORMAL_MEM,
+	    FFA_MEMORY_CACHE_WRITE_BACK,
+	    FFA_MEMORY_INNER_SHAREABLE);
+
+	ret = ffa_mem_retrieve_req(descriptor_size, descriptor_size);
+
+	if (ffa_func_id(ret) == FFA_ERROR) {
+		ERROR("Couldn't retrieve the memory page. Error: %x\n",
+		      ffa_error_code(ret));
+		return false;
+	}
+
+	/*
+	 * Following total_size and fragment_size are useful to keep track
+	 * of the state of transaction. When the sum of all fragment_size of all
+	 * fragments is equal to total_size, the memory transaction has been
+	 * completed.
+	 */
+	*total_length = ret._regs[1];
+	*frag_length = ret._regs[2];
+
+	/* Copy response to local buffer. */
+	memcpy(mem_region_buffer, mb->recv, *frag_length);
+
+	if (ffa_rx_release()) {
+		ERROR("Failed to release buffer!\n");
+		return false;
+	}
+
+	*retrieved = (struct ffa_memory_region *) mem_region_buffer;
+
+	if ((*retrieved)->receiver_count > MAX_MEM_SHARE_RECIPIENTS) {
+		VERBOSE("SPMC memory sharing supports max of %u receivers!\n",
+			MAX_MEM_SHARE_RECIPIENTS);
+		return false;
+	}
+
+	VERBOSE("Memory Descriptor Retrieved!\n");
+
+	return true;
+}
+
+/*******************************************************************************
+ * Test Functions.
+ ******************************************************************************/
+
+/*******************************************************************************
+ * Enable the TSP to forward the received message to another partition and ask
+ * it to echo the value back in order to validate direct messages functionlaity.
+ ******************************************************************************/
+int ffa_test_relay(uint64_t arg0,
+		   uint64_t arg1,
+		   uint64_t arg2,
+		   uint64_t arg3,
+		   uint64_t arg4,
+		   uint64_t arg5,
+		   uint64_t arg6,
+		   uint64_t arg7)
+{
+	tsp_args_t ffa_forward_result;
+	uint32_t receiver = arg5;
+
+	ffa_forward_result = ffa_msg_send_direct_req(ffa_endpoint_source(arg1),
+						     receiver,
+						     FF_A_ECHO_MESSAGE, arg4,
+						     0, 0, 0);
+	return ffa_forward_result._regs[3];
+}
+
+
+/*******************************************************************************
+ * This function handles memory management tests, currently share and lend.
+ * This test supports the use of FRAG_RX to use memory descriptors that do not
+ * fit in a single 4KB buffer.
+ ******************************************************************************/
+int test_memory_send(uint16_t sender, uint64_t handle, bool share)
+{
+	struct ffa_memory_region *m;
+	struct ffa_composite_memory_region *composite;
+	int ret, status = 0;
+	unsigned int mem_attrs;
+	char *ptr;
+	ffa_id_t source = sender;
+	uint32_t flags = share ? FFA_FLAG_SHARE_MEMORY : FFA_FLAG_LEND_MEMORY;
+	uint32_t total_length, recv_length = 0;
+
+	if (!memory_retrieve(&mailbox, &m, handle, source, partition_id, flags,
+			&recv_length, &total_length)) {
+		return FFA_ERROR_INVALID_PARAMETER;
+	}
+
+	while (total_length != recv_length) {
+		tsp_args_t ffa_return;
+		uint32_t frag_length;
+
+		ffa_return = ffa_mem_frag_rx(handle, recv_length);
+
+		if (ffa_return._regs[0] == FFA_ERROR) {
+			WARN("TSP: failed to resume mem with handle %lx\n",
+			     handle);
+			return ffa_return._regs[2];
+		}
+		frag_length = ffa_return._regs[3];
+
+		memcpy(&mem_region_buffer[recv_length], mailbox.recv,
+		       frag_length);
+
+		if (ffa_rx_release()) {
+			ERROR("Failed to release buffer!\n");
+			return FFA_ERROR_DENIED;
+		}
+
+		recv_length += frag_length;
+
+		assert(recv_length <= total_length);
+	}
+
+	composite = ffa_memory_region_get_composite(m, 0);
+	if (composite == NULL) {
+		WARN("Failed to get composite descriptor!\n");
+		return FFA_ERROR_INVALID_PARAMETER;
+	}
+
+	VERBOSE("Address: %p; page_count: %x %lx\n",
+		composite->constituents[0].address,
+		composite->constituents[0].page_count, PAGE_SIZE);
+
+	/* This test is only concerned with RW permissions. */
+	if (ffa_get_data_access_attr(
+			m->receivers[0].receiver_permissions.permissions) !=
+		FFA_DATA_ACCESS_RW) {
+		ERROR(" %x != %x!\n", ffa_get_data_access_attr(
+			m->receivers[0].receiver_permissions.permissions),
+			FFA_DATA_ACCESS_RW);
+		return FFA_ERROR_INVALID_PARAMETER;
+	}
+
+	mem_attrs = MT_RW_DATA | MT_EXECUTE_NEVER;
+
+	/* Only expecting to be sent memory from NWd so map accordinly. */
+	mem_attrs |= MT_NS;
+
+	for (int i = 0; i < composite->constituent_count; i++) {
+		size_t size = composite->constituents[i].page_count * PAGE_SIZE;
+
+		ret = mmap_add_dynamic_region(
+				(uint64_t)composite->constituents[i].address,
+				(uint64_t)composite->constituents[i].address,
+				size, mem_attrs);
+
+		if (ret != 0) {
+			ERROR("Failed [%d] mmap_add_dynamic_region %d (%lx) (%lx) (%x)!\n",
+				i, ret,
+				(uint64_t)composite->constituents[i].address,
+				size, mem_attrs);
+			return FFA_ERROR_NO_MEMORY;
+		}
+
+		ptr = (char *) composite->constituents[i].address;
+
+		/*
+		 * Read initial magic number from memory region for
+		 * validation purposes.
+		 */
+		if (!i) {
+			status = *ptr + 1;
+		}
+		/* Increment memory region for validation purposes. */
+		++(*ptr);
+	}
+
+	for (int i = 0; i < composite->constituent_count; i++) {
+		ret = mmap_remove_dynamic_region(
+			(uint64_t)composite->constituents[i].address,
+			composite->constituents[i].page_count * PAGE_SIZE);
+
+		if (ret != 0) {
+			ERROR("Failed [%d] mmap_remove_dynamic_region!\n", i);
+			return -FFA_ERROR_NO_MEMORY;
+		}
+	}
+	if (!memory_relinquish((struct ffa_mem_relinquish *)mailbox.send,
+				m->handle, partition_id)) {
+		ERROR("Failed to relinquish memory region!\n");
+		return FFA_ERROR_INVALID_PARAMETER;
+	}
+	return status;
+}
+
+/*******************************************************************************
+ * Handles partition messages. Exercised from the FF-A Test Driver.
+ ******************************************************************************/
+tsp_args_t *handle_partition_message(uint64_t arg0,
+				     uint64_t arg1,
+				     uint64_t arg2,
+				     uint64_t arg3,
+				     uint64_t arg4,
+				     uint64_t arg5,
+				     uint64_t arg6,
+				     uint64_t arg7)
+{
+	uint16_t sender = ffa_endpoint_source(arg1);
+	uint16_t receiver = ffa_endpoint_destination(arg1);
+	uint32_t status = -1;
+
+	switch (arg3) {
+	case FF_A_MEMORY_SHARE:
+		INFO("TSP Tests: Memory Share Request--\n");
+		status = test_memory_send(sender, arg4, true);
+		break;
+
+	case FF_A_MEMORY_LEND:
+		INFO("TSP Tests: Memory Lend Request--\n");
+		status = test_memory_send(sender, arg4, false);
+		break;
+
+	case FF_A_RELAY_MESSAGE:
+		INFO("TSP Tests: Relaying message--\n");
+		status = ffa_test_relay(arg0, arg1, arg2, arg3, arg4,
+					arg5, arg6, arg7);
+		break;
+
+	case FF_A_ECHO_MESSAGE:
+		INFO("TSP Tests: echo message--\n");
+		status = arg4;
+		break;
+
+	default:
+		INFO("TSP Tests: Unknown request ID %d--\n", (int) arg3);
+	}
+
+	swap_src_dst(&sender, &receiver);
+	return ffa_msg_send_direct_resp(sender, receiver, status, 0, 0, 0, 0);
+}
+
+
 /*******************************************************************************
  * This function implements the event loop for handling FF-A ABI invocations.
  ******************************************************************************/
@@ -598,7 +1008,7 @@ tsp_args_t *tsp_event_loop(uint64_t arg0,
 {
 	uint64_t smc_fid = arg0;
 
-	/* Panic if the SPMC did not forward an FF-A call */
+	/* Panic if the SPMC did not forward an FF-A call. */
 	if (!is_ffa_fid(smc_fid))
 		panic();
 
@@ -611,31 +1021,20 @@ tsp_args_t *tsp_event_loop(uint64_t arg0,
 		 */
 		return set_smc_args(FFA_MSG_WAIT, 0, 0, 0, 0, 0, 0, 0);
 
+	case FFA_MSG_SEND_DIRECT_REQ_SMC64:
 	case FFA_MSG_SEND_DIRECT_REQ_SMC32:
-		/*
-		 * Check if it is a power management message from the SPMC to
-		 * turn off this cpu else barf for now.
-		 */
-		if (ffa_endpoint_source(arg1) != spmc_id)
-			break;
 
-		/* Check it is a framework message */
-		if (!(arg2 & FFA_DIRECT_FRAMEWORK_MSG_MASK))
-			break;
-
-		/* Check it is a PM request message */
-		if ((arg2 & FFA_PM_MSG_MASK) != FFA_PM_MSG_PSCI_REQ)
-			break;
-
-		/* Check it is a PSCI CPU_OFF request */
-		if (arg3 != PSCI_CPU_OFF)
-			break;
-
-		/* Everything checks out. Do the needful */
-		return tsp_cpu_off_main(arg0, arg1, arg2, arg3,
-					arg4, arg5, arg6, arg7);
+		/* Check if a framework message, handle accordingly. */
+		if ((arg2 & FFA_DIRECT_FRAMEWORK_MSG_MASK)) {
+			return handle_framework_message(arg0, arg1, arg2, arg3,
+							arg4, arg5, arg6, arg7);
+		} else {
+			return handle_partition_message(arg0, arg1, arg2, arg3,
+							arg4, arg5, arg6, arg7);
+		}
 	default:
-		break;
+		return set_smc_args(FFA_MSG_SEND_DIRECT_RESP_SMC32, 1, 2, 3, 4,
+				    0, 0, 0);
 	}
 
 	INFO("%s: Unsupported FF-A FID (0x%lx)\n", __func__, smc_fid);
