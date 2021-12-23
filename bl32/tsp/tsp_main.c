@@ -22,6 +22,11 @@
 #include "tsp_private.h"
 
 /*******************************************************************************
+ * Lock to control access to the console.
+ ******************************************************************************/
+spinlock_t console_lock;
+
+/*******************************************************************************
  * TSP main entry point where it gets the opportunity to initialize its secure
  * state/applications. Once the state is initialized, it must return to the
  * SPD with a pointer to the 'tsp_vector_table' jump table.
@@ -46,15 +51,11 @@ uint64_t tsp_main(void)
 	tsp_stats[linear_id].eret_count++;
 	tsp_stats[linear_id].cpu_on_count++;
 
-#if LOG_LEVEL >= LOG_LEVEL_INFO
-	spin_lock(&console_lock);
 	INFO("TSP: cpu 0x%lx: %d smcs, %d erets %d cpu on requests\n",
 	     read_mpidr(),
 	     tsp_stats[linear_id].smc_count,
 	     tsp_stats[linear_id].eret_count,
 	     tsp_stats[linear_id].cpu_on_count);
-	spin_unlock(&console_lock);
-#endif
 	return (uint64_t) &tsp_vector_table;
 }
 
@@ -75,16 +76,12 @@ smc_args_t *tsp_cpu_on_main(void)
 	tsp_stats[linear_id].eret_count++;
 	tsp_stats[linear_id].cpu_on_count++;
 
-#if LOG_LEVEL >= LOG_LEVEL_INFO
-	spin_lock(&console_lock);
 	INFO("TSP: cpu 0x%lx turned on\n", read_mpidr());
 	INFO("TSP: cpu 0x%lx: %d smcs, %d erets %d cpu on requests\n",
 		read_mpidr(),
 		tsp_stats[linear_id].smc_count,
 		tsp_stats[linear_id].eret_count,
 		tsp_stats[linear_id].cpu_on_count);
-	spin_unlock(&console_lock);
-#endif
 	/* Indicate to the SPD that we have completed turned ourselves on */
 	return set_smc_args(TSP_ON_DONE, 0, 0, 0, 0, 0, 0, 0);
 }
@@ -116,16 +113,12 @@ smc_args_t *tsp_cpu_off_main(uint64_t arg0,
 	tsp_stats[linear_id].eret_count++;
 	tsp_stats[linear_id].cpu_off_count++;
 
-#if LOG_LEVEL >= LOG_LEVEL_INFO
-	spin_lock(&console_lock);
 	INFO("TSP: cpu 0x%lx off request\n", read_mpidr());
 	INFO("TSP: cpu 0x%lx: %d smcs, %d erets %d cpu off requests\n",
 		read_mpidr(),
 		tsp_stats[linear_id].smc_count,
 		tsp_stats[linear_id].eret_count,
 		tsp_stats[linear_id].cpu_off_count);
-	spin_unlock(&console_lock);
-#endif
 
 	/* Indicate to the SPD that we have completed this request */
 	return set_smc_args(TSP_OFF_DONE, 0, 0, 0, 0, 0, 0, 0);
@@ -159,15 +152,11 @@ smc_args_t *tsp_cpu_suspend_main(uint64_t arg0,
 	tsp_stats[linear_id].eret_count++;
 	tsp_stats[linear_id].cpu_suspend_count++;
 
-#if LOG_LEVEL >= LOG_LEVEL_INFO
-	spin_lock(&console_lock);
 	INFO("TSP: cpu 0x%lx: %d smcs, %d erets %d cpu suspend requests\n",
 		read_mpidr(),
 		tsp_stats[linear_id].smc_count,
 		tsp_stats[linear_id].eret_count,
 		tsp_stats[linear_id].cpu_suspend_count);
-	spin_unlock(&console_lock);
-#endif
 
 	/* Indicate to the SPD that we have completed this request */
 	return set_smc_args(TSP_SUSPEND_DONE, 0, 0, 0, 0, 0, 0, 0);
@@ -197,8 +186,6 @@ smc_args_t *tsp_cpu_resume_main(uint64_t max_off_pwrlvl,
 	tsp_stats[linear_id].eret_count++;
 	tsp_stats[linear_id].cpu_resume_count++;
 
-#if LOG_LEVEL >= LOG_LEVEL_INFO
-	spin_lock(&console_lock);
 	INFO("TSP: cpu 0x%lx resumed. maximum off power level %" PRId64 "\n",
 	     read_mpidr(), max_off_pwrlvl);
 	INFO("TSP: cpu 0x%lx: %d smcs, %d erets %d cpu resume requests\n",
@@ -206,8 +193,6 @@ smc_args_t *tsp_cpu_resume_main(uint64_t max_off_pwrlvl,
 		tsp_stats[linear_id].smc_count,
 		tsp_stats[linear_id].eret_count,
 		tsp_stats[linear_id].cpu_resume_count);
-	spin_unlock(&console_lock);
-#endif
 	/* Indicate to the SPD that we have completed this request */
 	return set_smc_args(TSP_RESUME_DONE, 0, 0, 0, 0, 0, 0, 0);
 }
@@ -238,16 +223,12 @@ smc_args_t *tsp_smc_handler(uint64_t func,
 	tsp_stats[linear_id].smc_count++;
 	tsp_stats[linear_id].eret_count++;
 
-#if LOG_LEVEL >= LOG_LEVEL_INFO
-	spin_lock(&console_lock);
 	INFO("TSP: cpu 0x%lx received %s smc 0x%" PRIx64 "\n", read_mpidr(),
 		((func >> 31) & 1) == 1 ? "fast" : "yielding",
 		func);
 	INFO("TSP: cpu 0x%lx: %d smcs, %d erets\n", read_mpidr(),
 		tsp_stats[linear_id].smc_count,
 		tsp_stats[linear_id].eret_count);
-	spin_unlock(&console_lock);
-#endif
 
 	/* Render secure services and obtain results here */
 	results[0] = arg1;
@@ -289,11 +270,7 @@ smc_args_t *tsp_smc_handler(uint64_t func,
 		break;
 	case TSP_CHECK_DIT:
 		if (!is_armv8_4_dit_present()) {
-#if LOG_LEVEL >= LOG_LEVEL_ERROR
-			spin_lock(&console_lock);
 			ERROR("DIT not supported\n");
-			spin_unlock(&console_lock);
-#endif
 			results[0] = 0;
 			results[1] = 0xffff;
 			break;
