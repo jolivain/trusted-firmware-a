@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "788445a0_d3fce37e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-12-23T05:28:45Z",
+      "side": 1,
+      "message": "Have you checked if the \"SRAM cache\" copy of the chip ID (at SID + 0x200) is readable from the NS world? IIRC the first 0x40 bytes of the H6 eFuse layout are readable from NS. I don\u0027t know about the older layout. I can check H3-H616 next week to make sure. If that works, the only help (sometimes) needed from BL31 is applying the register readout workaround.\n\nAnother strategy could be exposing the full 16-byte chip ID via some SMC call. That would be similar to what the BSP does, and would require much less code in BL31.\n\nWhile I support fixing the Ethernet MAC address issue, to me this seems like a too-specific solution to a more general problem. (For example: what about thermal sensor calibration data?)",
+      "revId": "c60df581552fdb3c9ec361c184aa41a6555ce9b4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1752bb7e_802c3b00",
         "filename": "plat/allwinner/common/allwinner-common.mk",
         "patchSetId": 2
@@ -55,6 +72,30 @@
       "side": 1,
       "message": "Not disabling them will exceed the BL31 limit (with DEBUG\u003d1). This is the first r/w libfdt user for most SoCs, that pulls in quite some new code from libfdt (\u003e5KB).\nMost Allwinner SoCs (except the H616) run BL31 in SRAM, which is very limited. The A64 has only 64KB available, and we are already quite tight. I had a look at the ELF, and the main wasters are page alignment, extra .rodata, .text, and .data segments (there are only 221 data bytes, but we use up 4K), and padding before the exception handlers.\n\nI didn\u0027t want to give up DEBUG\u003d1 entirely, and I figured that the assertions take up quite some space (mostly due to the strings). So just disabling assertions fixes the build.\nThis MAC address feature is off by default (the main users are secure boards), so mostly we will keep them, but we cannot build DEBUG\u003d1 on the A64 with this enabled, so something has to give. I figured assertions should take one of the team here.",
       "parentUuid": "d0dea0a3_c1c98223",
+      "range": {
+        "startLine": 13,
+        "startChar": 8,
+        "endLine": 13,
+        "endChar": 36
+      },
+      "revId": "c60df581552fdb3c9ec361c184aa41a6555ce9b4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2de126ac_eaaf5e60",
+        "filename": "plat/allwinner/sun50i_a64/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-12-23T05:28:45Z",
+      "side": 1,
+      "message": "`SEPARATE_CODE_AND_RODATA :\u003d 0` would remove some of the page alignment without any loss of functionality.",
+      "parentUuid": "66a71619_daa76786",
       "range": {
         "startLine": 13,
         "startChar": 8,
