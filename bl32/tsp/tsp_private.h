@@ -101,6 +101,10 @@ extern work_statistics_t tsp_stats[PLATFORM_CORE_COUNT];
 /* Vector table of jumps */
 extern tsp_vectors_t tsp_vector_table;
 
+#if SPMC_AT_EL3
+extern void tsp_cpu_on_entry(void);
+#endif
+
 /* functions */
 int32_t tsp_common_int_handler(void);
 int32_t tsp_handle_preemption(void);
