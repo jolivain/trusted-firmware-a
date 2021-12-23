@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -63,8 +63,20 @@
 /* No SCP in FVP */
 #define PLAT_ARM_SCP_TZC_DRAM1_SIZE	UL(0x0)
 
-#define PLAT_ARM_DRAM2_BASE		ULL(0x880000000)
-#define PLAT_ARM_DRAM2_SIZE		UL(0x80000000)
+#define PLAT_ARM_DRAM2_BASE		ULL(0x880000000) /* 36-bit range */
+#define PLAT_ARM_DRAM2_SIZE		ULL(0x780000000) /* 30 GB*/
+
+#define PLAT_ARM_DRAM3_BASE		ULL(0x8800000000) /* 40-bit range */
+#define PLAT_ARM_DRAM3_SIZE		ULL(0x7800000000) /* 480 GB*/
+
+#define PLAT_ARM_DRAM4_BASE		ULL(0x88000000000) /* 44-bit range */
+#define PLAT_ARM_DRAM4_SIZE		ULL(0x78000000000) /* 7.5 TB*/
+
+#define PLAT_ARM_DRAM5_BASE		ULL(0x880000000000) /* 48-bit range */
+#define PLAT_ARM_DRAM5_SIZE		ULL(0x780000000000) /* 120 TB*/
+
+#define PLAT_ARM_DRAM6_BASE		ULL(0x8800000000000) /* 52-bit range */
+#define PLAT_ARM_DRAM6_SIZE		ULL(0x7800000000000) /* 2 PB*/
 
 /* Range of kernel DTB load address */
 #define FVP_DTB_DRAM_MAP_START		ULL(0x82000000)
