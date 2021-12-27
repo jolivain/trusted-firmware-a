@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e5889bd_8c752e29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-12-27T14:27:10Z",
+      "side": 1,
+      "message": "LGTM.\nNote that on Hikey960, the BL1 is closed source and we cannot simply extend the size of BL31. BL1 will overwrite BL33 into the BL31 overlapped area.",
+      "revId": "ba4b061b5b1452d395e683c105933d14ad091f6b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
