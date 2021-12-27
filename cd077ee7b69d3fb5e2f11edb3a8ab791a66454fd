@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d3b7fc3_3a26eccc",
+        "filename": "services/std_svc/spm/spmc/spmc.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-12-27T11:47:29Z",
+      "side": 1,
+      "message": "I wonder if you could add a SPMC_SOURCES_TEST variables.\nWith SPMC_SOURCES +\u003d $(SPMC_SOURCES_TEST).\n\nThat way, patching the name and location of the test file could create less conflicts in this makefile.",
+      "revId": "cd077ee7b69d3fb5e2f11edb3a8ab791a66454fd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
