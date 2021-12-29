@@ -70,6 +70,24 @@
       "parentUuid": "8718880f_2769177c",
       "revId": "de859e7b0e05b1ab01db43f163b432606bd1fad7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be54b7ba_56204bda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2021-12-29T16:16:26Z",
+      "side": 1,
+      "message": "Hi Rex\nWe noticed that 2 files were not analyzed by existing build configs in tf-cov-make as seen in [1]. Please push a CI patch to fix the issue.\n - plat/mediatek/mt8186/drivers/mcdi/mt_cpu_pm_mbox.c\n - plat/mediatek/mt8186/drivers/mcdi/mt_cpu_pm_mbox_sspm.c\n\n[1] https://ci.trustedfirmware.org/job/tf-a-coverity/22/",
+      "parentUuid": "05705882_dee78126",
+      "revId": "de859e7b0e05b1ab01db43f163b432606bd1fad7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
