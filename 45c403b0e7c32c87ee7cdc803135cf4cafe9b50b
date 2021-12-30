@@ -46,6 +46,30 @@
       },
       "revId": "45c403b0e7c32c87ee7cdc803135cf4cafe9b50b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b69b8db0_7043a7ab",
+        "filename": "include/bl32/tsp/tsp.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-12-30T11:08:04Z",
+      "side": 1,
+      "message": "The SMC is triggered in tf-a-tests in this patch:\nhttps://review.trustedfirmware.org/c/TF-A/tf-a-tests/+/12875\nI\u0027ve also added a test configuration to the ci to run the tsp tests on an FVP that supports v8.4 so the test is run. That is here\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/12876",
+      "parentUuid": "3b4f8627_ed4f3ff6",
+      "range": {
+        "startLine": 44,
+        "startChar": 8,
+        "endLine": 44,
+        "endChar": 21
+      },
+      "revId": "45c403b0e7c32c87ee7cdc803135cf4cafe9b50b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
