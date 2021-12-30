@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31fc4c69_ff409927",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-12-30T11:05:19Z",
+      "side": 1,
+      "message": "Given Johns comment, I think set is more appropriate than reset so I\u0027ll change it to be consistent to that.",
+      "parentUuid": "502b906e_54b993ea",
+      "revId": "8b73dbc9722ad155df39cfd6503cc6442701c0e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed4bd781_f64dabea",
@@ -91,6 +109,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "56110eb5_e73efb58",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-12-30T11:05:19Z",
+      "side": 1,
+      "message": "Yes, this patch is just setting the PSTATE bits not set during TakeException. I\u0027m not sure why DIT is not set during TakeException however it may be the case we see more cases like this if more Architectural specific PSTATE bits are added in the future.",
+      "parentUuid": "b2dd6e64_cf4438bd",
+      "range": {
+        "startLine": 9,
+        "startChar": 47,
+        "endLine": 9,
+        "endChar": 55
+      },
+      "revId": "8b73dbc9722ad155df39cfd6503cc6442701c0e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cf0a853e_863df455",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 7
@@ -102,6 +144,24 @@
       "writtenOn": "2021-12-23T19:27:38Z",
       "side": 1,
       "message": "I find the usage of terms \"set\" and \"reset\" in this patch somewhat confusing. \"Set\" implies \"1\", \"reset\" implies \"0\", but the function name \"reset_unset_pstate_bits\" seems to be setting bits rather than resetting/clearing them? But the comments use the term set?",
+      "revId": "8b73dbc9722ad155df39cfd6503cc6442701c0e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c149b2ba_3a815a97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-12-30T11:05:19Z",
+      "side": 1,
+      "message": "Sorry, you\u0027re right, set is probably more appropriate. I\u0027ll change the instances of reset.",
+      "parentUuid": "cf0a853e_863df455",
       "revId": "8b73dbc9722ad155df39cfd6503cc6442701c0e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -123,6 +183,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b71d774_8a64bfae",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-12-30T11:05:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a58cce2e_904cdd51",
+      "revId": "8b73dbc9722ad155df39cfd6503cc6442701c0e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42723fa0_1edc448a",
@@ -136,6 +214,24 @@
       "writtenOn": "2021-12-23T13:44:35Z",
       "side": 1,
       "message": "nit: reset instead of set",
+      "revId": "8b73dbc9722ad155df39cfd6503cc6442701c0e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d7d71fa_3e4eedf6",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-12-30T11:05:19Z",
+      "side": 1,
+      "message": "As above sticking with set so I\u0027ll change the instances of reset to match",
+      "parentUuid": "42723fa0_1edc448a",
       "revId": "8b73dbc9722ad155df39cfd6503cc6442701c0e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -157,6 +253,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12ef61f9_6947751e",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-12-30T11:05:19Z",
+      "side": 1,
+      "message": "As above sticking with set so I\u0027ll change the instances of reset to match",
+      "parentUuid": "ddfdba1c_4c59bba4",
+      "revId": "8b73dbc9722ad155df39cfd6503cc6442701c0e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be7d69d6_65ee699d",
@@ -170,6 +284,24 @@
       "writtenOn": "2021-12-23T13:44:35Z",
       "side": 1,
       "message": "nit : Reset the PState bits",
+      "revId": "8b73dbc9722ad155df39cfd6503cc6442701c0e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63575ed4_686b6688",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2021-12-30T11:05:19Z",
+      "side": 1,
+      "message": "As above sticking with set so I\u0027ll change the instances of reset to match",
+      "parentUuid": "be7d69d6_65ee699d",
       "revId": "8b73dbc9722ad155df39cfd6503cc6442701c0e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
