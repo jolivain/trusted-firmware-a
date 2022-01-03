@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f5652020_86236d74",
+        "filename": "bl1/bl1_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-03T18:28:42Z",
+      "side": 1,
+      "message": "Ack, currently \u0027TRUSTED_BOARD_BOOT\u0027 guards all defns and declarations inside the auth_mod.h that also need to be removed.",
+      "parentUuid": "a25d57b1_89180052",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 39
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e13bbecb_53cd70a6",
         "filename": "bl2/bl2_main.c",
         "patchSetId": 1
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "941fc03f_a942c33a",
+        "filename": "bl2/bl2_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-03T18:28:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e13bbecb_53cd70a6",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 39
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "de1d50e6_56a34346",
         "filename": "common/bl_common.c",
         "patchSetId": 1
@@ -60,6 +108,30 @@
       "writtenOn": "2022-01-03T11:13:42Z",
       "side": 1,
       "message": "I don\u0027t think we need this #if MEASURED_BOOT. plat_mboot_measure_image() is defined for both MEASURED_BOOT and !MEASURED_BOOT configs (platform.h provides an empty implementation of it in the latter case).",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 17
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ec41ba8_c134d5cb",
+        "filename": "common/bl_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-03T18:28:42Z",
+      "side": 1,
+      "message": "Ah, right!",
+      "parentUuid": "de1d50e6_56a34346",
       "range": {
         "startLine": 160,
         "startChar": 0,
@@ -141,6 +213,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "883347d4_af835163",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-03T18:28:42Z",
+      "side": 1,
+      "message": "As discussed elsewhere, let\u0027s not modify this file, instead invoke \u0027crypto_mod_init\u0027 from BL1 and BL2 main directly.",
+      "parentUuid": "df2507cb_55541a3c",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 349,
+        "endChar": 1
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "167415cf_c270ce18",
         "filename": "include/drivers/auth/auth_mod.h",
         "patchSetId": 1
@@ -176,6 +272,30 @@
       "side": 1,
       "message": "Thinking about it further, I suspect we just want to pull in the definition of auth_mod_init(). When measured boot is enabled on its own (i.e. no trusted boot in the picture), we still need to call auth_mod_init() to initialize the crypto module.\n\nThinking about it, auth_mod_init() sounds kind of a bad name to me now... It used to make sense when there was only trusted boot because trusted boot is mostly about authenticating images. Now I think it looks weird to call this function for measured boot, which only cares about calculating hashes and not checking hashes/signatures.\n\nPerhaps we should restructure this code. For example, we could call crypto_mod_init() directly from within bl1/bl2_main() and then have a trusted_boot_init() for the image parser initialization? bl2_main() for example would have the following call sequence:\n\n crypto_mod_init();\n trusted_boot_init();\n bl2_plat_mboot_init();\n\nAny thoughts?",
       "parentUuid": "167415cf_c270ce18",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 39
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cb8d0b3_b6852c5f",
+        "filename": "include/drivers/auth/auth_mod.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-03T18:28:42Z",
+      "side": 1,
+      "message": "\u003e Thinking about it further, I suspect we just want to pull in the definition of auth_mod_init(). When measured boot is enabled on its own (i.e. no trusted boot in the picture), we still need to call auth_mod_init() to initialize the crypto module.\n\nYes, this is the only reason I guarded this file under both TRUSTED_BOARD_BOOT and MEASURED_BOOT flag. I think it make sense to remove both guards to call auth_mod_init unconditionally from BL1 and BL2 (bl1/bl2_main.c) common code.\n\n\u003e \n\u003e Thinking about it, auth_mod_init() sounds kind of a bad name to me now... It used to make sense when there was only trusted boot because trusted boot is mostly about authenticating images. Now I think it looks weird to call this function for measured boot, which only cares about calculating hashes and not checking hashes/signatures.\n\u003e \n\u003e Perhaps we should restructure this code. For example, we could call crypto_mod_init() directly from within bl1/bl2_main() and then have a trusted_boot_init() for the image parser initialization? bl2_main() for example would have the following call sequence:\n\u003e \n\u003e  crypto_mod_init();\n\nIt makes sense. Initially tried this way but then observed that Renesas platform support Trusted board boot without Crypto module hence avoided bringing this function call in common layer. If you agree then we can update the declaration of this function in crypto_mod.h as below and then call it in bl1/bl2_main as you suggested.\n\n    #if CRYPTO_SUPPORT /* set only when TRUSTED_BOARD_BOOT or MEASURED_BOOT enabled */\n    void crypto_mod_init(void);\n    #else\n    static inline void crypto_mod_init(void)\n    {\n        return;\n    }\n    #endif /* CRYPTO_SUPPORT */\n\nAlso, crypto_mod.h resides in auth/ folder that looks odd as Measured Boot needs Crypto supports without authentication. Can we take out crypto_mod.h from auth folder?\n\n\u003e  trusted_boot_init();\n\ns/auth_mod_init/trusted_boot_init needs more changes in the code. We need to update the documentation wherever auth_mod_init is referred. Few platforms for e.g Renesas have their own implementation of auth_mod_init [1], that also need to be updated. \nAuthentication is the purpose of trusted board boot anyways, and function name auth_mod_init is aligned to a auth_mod.c file. IMHO better retain the function name as \u0027auth_mod_init\u0027 only. Let me know what do you think?\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/drivers/renesas/common/auth/auth_mod.c#n138\n\n\u003e  bl2_plat_mboot_init();\n\u003e \n\u003e Any thoughts?",
+      "parentUuid": "387b8604_4bc3f572",
       "range": {
         "startLine": 10,
         "startChar": 0,
