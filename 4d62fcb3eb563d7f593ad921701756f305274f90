@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a25d57b1_89180052",
+        "filename": "bl1/bl1_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-01-03T11:13:42Z",
+      "side": 1,
+      "message": "I think it would be better if we unconditionally call auth_mod_init() here, i.e. without any #if. We can have the #if in the body of auth_mod_init() instead - we already have some of it anyway. This would reduce the number of #if overall and improve readability IMHO.",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 39
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e13bbecb_53cd70a6",
+        "filename": "bl2/bl2_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-01-03T11:13:42Z",
+      "side": 1,
+      "message": "Same comment as in bl1_main.c.",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 39
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de1d50e6_56a34346",
+        "filename": "common/bl_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-01-03T11:13:42Z",
+      "side": 1,
+      "message": "I don\u0027t think we need this #if MEASURED_BOOT. plat_mboot_measure_image() is defined for both MEASURED_BOOT and !MEASURED_BOOT configs (platform.h provides an empty implementation of it in the latter case).",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 17
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5b90e17_7b211a0a",
+        "filename": "common/bl_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-01-03T11:13:42Z",
+      "side": 1,
+      "message": "Same comment as above.",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 17
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "698a1b54_c88d7a9f",
+        "filename": "common/bl_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-01-03T11:13:42Z",
+      "side": 1,
+      "message": "Can we measure the image in load_auth_image_internal(), instead of doing it in both load_auth_image_recursive() for trusted boot configs and load_image_flush() for non-trusted boot configs? This would reduce the amount of code that is specific to each build config.\n\nThat being said, I think this suggestion only works if we don\u0027t recursively measure parent images, which is the case today (see line 213). If we want to change this behaviour in the near future then we will need to keep the measurement operation in both functions, like you did.\n\nI don\u0027t remember very well... at the last Tech forum call, did we say we should also measure certificates?",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 253,
+        "endChar": 1
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df2507cb_55541a3c",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-01-03T11:13:42Z",
+      "side": 1,
+      "message": "Following up on my comment in bl1/bl2_main.c, I am suggesting we modify the code like this:\n\n void auth_mod_init(void)\n {\n #if TRUSTED_BOARD_BOOT\n\t/* Check we have a valid CoT registered */\n\tassert(cot_desc_ptr !\u003d NULL);\n\n\t/* Image parser module */\n\timg_parser_init();\n #endif /* TRUSTED_BOARD_BOOT */\n\n #if TRUSTED_BOARD_BOOT || MEASURED_BOOT\n\t/* Crypto module */\n\tcrypto_mod_init();\n #endif\n }",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 349,
+        "endChar": 1
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "167415cf_c270ce18",
+        "filename": "include/drivers/auth/auth_mod.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-01-03T11:13:42Z",
+      "side": 1,
+      "message": "Could you please elaborate on why we need this change? If you don\u0027t make that change, I am assuming that you get some compilation errors due to the measured boot code needing some definitions in this file... which ones? \n\nI am a bit confused because AFAIK, measured boot does not involve any authentication. It only requires a hash function and auth_mod.h does not seem like the file that provides such a hash function definition. So I am wondering if some other file should be pulled in by the measured boot code.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 39
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
