@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6a89ccfd_da8224ad",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-03T18:28:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0619c948_d5cc026d",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 22
+      },
+      "revId": "5add4dc179a71b1eec95b6def1341fe4be73a965",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "98d916f9_483b275a",
         "filename": "plat/arm/board/fvp/fvp_common.c",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-03T12:41:46Z",
       "side": 1,
       "message": "Consider merging this as a single line?\n\n #if (TRUSTED_BOARD_BOOT || MEASURED_BOOT) \u0026\u0026 !BL2_AT_EL3\n\nAlso a comment explaining why we need to add this mapping in this config would be useful.",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 15
+      },
+      "revId": "5add4dc179a71b1eec95b6def1341fe4be73a965",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "391b0a72_f0b0fe95",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-03T18:28:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "98d916f9_483b275a",
       "range": {
         "startLine": 122,
         "startChar": 0,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c6e20439_1fa45510",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-03T18:28:39Z",
+      "side": 1,
+      "message": "Ack, let me update these defines to make things clear.",
+      "parentUuid": "452b0cf1_505a16df",
+      "range": {
+        "startLine": 148,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 19
+      },
+      "revId": "5add4dc179a71b1eec95b6def1341fe4be73a965",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "73bbae9e_dbc56967",
         "filename": "plat/arm/board/fvp/include/platform_def.h",
         "patchSetId": 2
@@ -83,6 +155,30 @@
       "writtenOn": "2022-01-03T12:41:46Z",
       "side": 1,
       "message": "I am beginning to think we should introduce some kind of meta-build flag, say CRYPTO_SUPPORT, which would be set as long as either TRUSTED_BOARD_BOOT or MEASURED_BOOT are defined. This might be useful in a number of places like here. What do you think?",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 40
+      },
+      "revId": "5add4dc179a71b1eec95b6def1341fe4be73a965",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b181d0b_882b1637",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-03T18:28:39Z",
+      "side": 1,
+      "message": "I also think now it is better to introduce common flag \u0027CRYPTO_SUPPORT\u0027 as a substitute for TRUSTED_BOARD_BOOT or MEASURED_BOOT. Let me do the necessary changes.",
+      "parentUuid": "73bbae9e_dbc56967",
       "range": {
         "startLine": 190,
         "startChar": 0,
