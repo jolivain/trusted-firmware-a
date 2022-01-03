@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0619c948_d5cc026d",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-01-03T12:41:46Z",
+      "side": 1,
+      "message": "I find it very confusing that plat_mboot_measure_critical_data() is included only when trusted boot is enabled. I thought this was a mistake, until I read the comment at line 135... \n\nI suggest that fvp_populate_and_measure_critical_data() gets unconditionally called at line 139 and we move the #if MEASURED_BOOT as well as the comment inside the body of fvp_populate_and_measure_critical_data()...\n\n static int fvp_populate_and_measure_critical_data(void)\n {\n   int rc \u003d 0;\n\n   /*\n    * FVP platform only measures \u0027platform NV-counter\u0027 and hence its measurement\n    * makes sense during Trusted-Boot flow only.\n    */\n   #if TRUSTED_BOARD_BOOT\n   struct fvp_critical_data populate_critical_data;\n\n   rc \u003d fvp_populate_critical_data(\u0026populate_critical_data);\n   if (rc \u003d\u003d 0) {\n   \trc \u003d plat_mboot_measure_critical_data(CRITICAL_DATA_ID,\n\t\t\t\t\t\t\u0026populate_critical_data,\n\t\t\t\t\t\tsizeof(populate_critical_data));\n\t}\n   #endif\n\n   return rc;\n }",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 22
+      },
+      "revId": "5add4dc179a71b1eec95b6def1341fe4be73a965",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98d916f9_483b275a",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-01-03T12:41:46Z",
+      "side": 1,
+      "message": "Consider merging this as a single line?\n\n #if (TRUSTED_BOARD_BOOT || MEASURED_BOOT) \u0026\u0026 !BL2_AT_EL3\n\nAlso a comment explaining why we need to add this mapping in this config would be useful.",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 15
+      },
+      "revId": "5add4dc179a71b1eec95b6def1341fe4be73a965",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "452b0cf1_505a16df",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-01-03T12:41:46Z",
+      "side": 1,
+      "message": "Does COT_DESC_IN_DTB make any sense for MEASURED_BOOT? I suspect it does not (the chain of trust is only relevant to trusted boot code), in which case we might want to write these definitions in a different manner to make things clearer?",
+      "range": {
+        "startLine": 148,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 19
+      },
+      "revId": "5add4dc179a71b1eec95b6def1341fe4be73a965",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73bbae9e_dbc56967",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-01-03T12:41:46Z",
+      "side": 1,
+      "message": "I am beginning to think we should introduce some kind of meta-build flag, say CRYPTO_SUPPORT, which would be set as long as either TRUSTED_BOARD_BOOT or MEASURED_BOOT are defined. This might be useful in a number of places like here. What do you think?",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 40
+      },
+      "revId": "5add4dc179a71b1eec95b6def1341fe4be73a965",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
