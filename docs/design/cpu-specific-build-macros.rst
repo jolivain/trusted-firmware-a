@@ -454,6 +454,12 @@ For Cortex-X2, the following errata build flags are defined :
 -  ``ERRATA_X2_2083908``: This applies errata 2083908 workaround to Cortex-X2
    CPU. This needs to be enabled for revision r2p0 of the CPU, it is still open.
 
+For Cortex-A510, the following errata build flags are defined :
+
+-  ``ERRATA_A510_1922240``: This applies errata 1922240 workaround to
+   Cortex-A510 CPU. This needs to be enabled only for revision r0p0, it is
+   fixed in r0p1.
+
 DSU Errata Workarounds
 ----------------------
 
