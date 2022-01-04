@@ -447,6 +447,30 @@
       },
       "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b826c6e_f1bed17c",
+        "filename": "include/drivers/auth/auth_mod.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-04T10:35:59Z",
+      "side": 1,
+      "message": "\u003e \u003e It makes sense. Initially tried this way but then observed that Renesas platform support Trusted board boot without Crypto module hence avoided bringing this function call in common layer.\n\u003e \n\u003e Ah, good catch about the Renesas platform port!\n\u003e \n\u003e \u003e If you agree then we can update the declaration of this function in crypto_mod.h as below and then call it in bl1/bl2_main as you suggested.\n\u003e \u003e \n\u003e \u003e     #if CRYPTO_SUPPORT /* set only when TRUSTED_BOARD_BOOT or MEASURED_BOOT enabled */\n\u003e \u003e     void crypto_mod_init(void);\n\u003e \u003e     #else\n\u003e \u003e     static inline void crypto_mod_init(void)\n\u003e \u003e     {\n\u003e \u003e         return;\n\u003e \u003e     }\n\u003e \u003e     #endif /* CRYPTO_SUPPORT */\n\u003e \n\u003e Agree, sounds good to me.\n\nFurther thinking, if we decide to have CRYPTO_SUPPORT as global flag then it should be enabled in platform makefile as per their need. (This means, we need to enable this flag in all existing platforms that uses Crypto). \nI think we can\u0027t put a compulsion to enable CRYPTO_SUPPORT if TRUSTED_BOARD_BOOT or MEASURED_BOOT is enabled for all platforms (for e.g. Renesas doesn\u0027t need Crypto). Do you have any suggestion here?\n\n\u003e \n\u003e \u003e Also, crypto_mod.h resides in auth/ folder that looks odd as Measured Boot needs Crypto supports without authentication. Can we take out crypto_mod.h from auth folder?\n\u003e \n\u003e I guess we could, that makes sense to me. Where do you suggest we move it?\n\nAll include files under include/driver/crypto/* and source files under driver/crypto/*.\nThis indeed needs changes in all platform Makefiles. Does it make sense?\n\n\u003e \n\u003e \u003e \u003e  trusted_boot_init();\n\u003e \u003e \n\u003e \u003e s/auth_mod_init/trusted_boot_init needs more changes in the code. We need to update the documentation wherever auth_mod_init is referred. Few platforms for e.g Renesas have their own implementation of auth_mod_init [1], that also need to be updated. \n\u003e \u003e Authentication is the purpose of trusted board boot anyways, and function name auth_mod_init is aligned to a auth_mod.c file. IMHO better retain the function name as \u0027auth_mod_init\u0027 only. Let me know what do you think?\n\u003e \u003e \n\u003e \u003e [1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/drivers/renesas/common/auth/auth_mod.c#n138\n\u003e \n\u003e Yes, I had not thought this through. I agree with you, let\u0027s stick with auth_mod_init().",
+      "parentUuid": "e3903393_e225af56",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 39
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
