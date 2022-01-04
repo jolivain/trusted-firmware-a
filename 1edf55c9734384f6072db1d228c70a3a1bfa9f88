@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d1579a9_4d07687d",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-01-04T14:22:40Z",
+      "side": 1,
+      "message": "I would design a public function for the spmc to return this information instead. This removes the need for the SPMC_AT_EL3 flag here and makes spmc as a standalone entity.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 6
+      },
+      "revId": "1edf55c9734384f6072db1d228c70a3a1bfa9f88",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
