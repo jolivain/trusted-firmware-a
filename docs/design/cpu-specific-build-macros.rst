@@ -441,6 +441,12 @@ For Neoverse N2, the following errata build flags are defined :
 -  ``ERRATA_N2_2280757``: This applies errata 2280757 workaround to Neoverse-N2
    CPU. This needs to be enabled for revision r0p0 of the CPU and is still open.
 
+For Cortex-A510, the following errata build flags are defined :
+
+-  ``ERRATA_A510_1922240``: This applies errata 1922240 workaround to
+   Cortex-A510 CPU. This needs to be enabled only for revision r0p0, it is
+   fixedin r0p1.
+
 DSU Errata Workarounds
 ----------------------
 
