@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d362f935_8763b220",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-04T21:12:48Z",
+      "side": 1,
+      "message": "Is it make sense to put this whole implementation under ENABLE_FEAT_DIT flag as below?\n\n  #if ENABLE_FEAT_DIT\n  #if ENABLE_ASSERTIONS\n\tmrs\tx0, id_aa64pfr0_el1\n\tubfx\tx0, x0, #ID_AA64PFR0_DIT_SHIFT, #ID_AA64PFR0_DIT_LENGTH\n\tcmp\tx0, #ID_AA64PFR0_DIT_SUPPORTED\n\tASM_ASSERT(eq)\n  #endif /* ENABLE_ASSERTIONS */\n\tmov\tx0, #DIT_BIT\n\tmsr\tDIT, x0\n  #endif /* ENABLE_FEAT_DIT */\n\nIt helps to compile out this whole implementation when \u0027ENABLE_FEAT_DIT\u0027 flag is disabled.",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 6
+      },
+      "revId": "84f08ee71455325f01ab6b2d50dbe27237c66f97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4958937a_eac80e37",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-04T21:12:48Z",
+      "side": 1,
+      "message": "It looks odd placing this macro in the save routine (where various registers get saved to the stack). \n\u0027set_unset_pstate_bits\u0027 is kind of workaround to set the non-set PSTATE bits, can it get called from each EL3 entry (by converting this macro to function)?",
+      "range": {
+        "startLine": 792,
+        "startChar": 0,
+        "endLine": 796,
+        "endChar": 22
+      },
+      "revId": "84f08ee71455325f01ab6b2d50dbe27237c66f97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
