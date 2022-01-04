@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27b33816_f6ab2894",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-01-04T14:16:15Z",
+      "side": 1,
+      "message": "How about using the BIT() macro instead? That helps clarify that we are looking at the most significant bit to differentiate between NS/S world partition ids.",
+      "range": {
+        "startLine": 182,
+        "startChar": 33,
+        "endLine": 182,
+        "endChar": 42
+      },
+      "revId": "9753178689e6a564a36aec9f6e0d0f2a2f43fae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
