@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71926ce3_75b941f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-01-05T20:38:17Z",
+      "side": 1,
+      "message": "Possible MISRA issues...?  Otherwise, I don\u0027t see any concerns.",
+      "revId": "c3b2b041d4aa16f07569a9b4866b35f79359331e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67da0d6e_2af9cc76",
+        "filename": "drivers/nxp/ifc/nand/ifc_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-01-05T20:38:17Z",
+      "side": 1,
+      "message": "IIRC, MISRA prefers typed constants, like \"0L\" in this case, and similarly below.",
+      "revId": "c3b2b041d4aa16f07569a9b4866b35f79359331e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9a0a27f_836dd06c",
+        "filename": "drivers/nxp/ifc/nand/ifc_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-01-05T20:38:17Z",
+      "side": 1,
+      "message": "Again, IIRC, MISRA prefers \"2048U\" (or \"U(2048)\").  Similarly below.",
+      "revId": "c3b2b041d4aa16f07569a9b4866b35f79359331e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45a04690_92e80540",
+        "filename": "drivers/nxp/ifc/nand/ifc_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-01-05T20:38:17Z",
+      "side": 1,
+      "message": "Again, similarly here, \"32U\" or similar?",
+      "revId": "c3b2b041d4aa16f07569a9b4866b35f79359331e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b199ccd4_bf2bb801",
+        "filename": "drivers/nxp/ifc/nand/ifc_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-01-05T20:38:17Z",
+      "side": 1,
+      "message": "\"0x0000ffffU\"?  (Possibly not critical since an AND is an AND regardless of signedness, but again, MISRA checks might prefer that.)",
+      "revId": "c3b2b041d4aa16f07569a9b4866b35f79359331e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "666a8152_1ee36400",
+        "filename": "drivers/nxp/ifc/nand/ifc_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-01-05T20:38:17Z",
+      "side": 1,
+      "message": "Again, \"0xffU\"?  (Elsewhere as well.)",
+      "revId": "c3b2b041d4aa16f07569a9b4866b35f79359331e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
