@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bd684bb_c7e895e8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-05T10:23:24Z",
+      "side": 1,
+      "message": "bit elaborative comment will be useful.",
+      "revId": "9034720f3a155d8252bb723a24bf28d535e71f56",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f41084c6_215a0467",
+        "filename": "services/spd/tspd/tspd_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-05T10:23:24Z",
+      "side": 1,
+      "message": "For consistency, please add a comment describing this FID (IMHO currently looks to be a part of arithmetic operation FID).",
+      "range": {
+        "startLine": 573,
+        "startChar": 20,
+        "endLine": 573,
+        "endChar": 33
+      },
+      "revId": "9034720f3a155d8252bb723a24bf28d535e71f56",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
