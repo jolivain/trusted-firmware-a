@@ -41,6 +41,38 @@ func rainier_disable_speculative_loads
 	ret
 endfunc rainier_disable_speculative_loads
 
+	/* --------------------------------------------------
+	 * Errata Workaround for Neoverse N1 Errata #1868343.
+	 * This applies to revision <= r4p0 of Neoverse N1.
+	 * This workaround is the same as the workaround for
+	 * errata 1262606 and 1275112 but applies to a wider
+	 * revision range.
+	 * Inputs:
+	 * x0: variant[4:7] and revision[0:3] of current cpu.
+	 * Shall clobber: x0-x17
+	 * --------------------------------------------------
+	 */
+func errata_n1_1868343_wa
+	/*
+	 * Compare x0 against revision r4p0
+	 */
+	mov	x17, x30
+	bl	check_errata_1868343
+	cbz	x0, 1f
+	mrs	x1, RAINIER_CPUACTLR_EL1
+	orr	x1, x1, RAINIER_CPUACTLR_EL1_BIT_13
+	msr	RAINIER_CPUACTLR_EL1, x1
+	isb
+1:
+	ret	x17
+endfunc errata_n1_1868343_wa
+
+func check_errata_1868343
+	/* Applies to everything <= r4p0 */
+	mov	x1, #0x40
+	b	cpu_rev_var_ls
+endfunc check_errata_1868343
+
 func rainier_reset_func
 	mov	x19, x30
 
@@ -54,6 +86,11 @@ func rainier_reset_func
 
 	bl	cpu_get_rev_var
 	mov	x18, x0
+
+#if ERRATA_N1_1868343
+	mov	x0, x18
+	bl	errata_n1_1868343_wa
+#endif
 
 #if ENABLE_AMU
 	/* Make sure accesses from EL0/EL1 and EL2 are not trapped to EL3 */
@@ -100,6 +137,12 @@ func rainier_errata_report
 
 	bl	cpu_get_rev_var
 	mov	x8, x0
+
+	/*
+	 * Report all errata. The revision-variant information is passed to
+	 * checking functions of each errata.
+	 */
+	report_errata ERRATA_N1_1868343, rainier, 1868343
 
 	ldp	x8, x30, [sp], #16
 	ret
