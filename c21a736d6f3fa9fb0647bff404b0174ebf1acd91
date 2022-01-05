@@ -16,6 +16,24 @@
       "message": "Out of curiosity, just confirming that this platform does not need ERRATA_A78_1952683 right?\n(because of its CPU_REV \u003e\u003d r1p0)",
       "revId": "c21a736d6f3fa9fb0647bff404b0174ebf1acd91",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52d65543_fb8dcfdc",
+        "filename": "plat/mediatek/mt8195/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-01-05T11:15:18Z",
+      "side": 1,
+      "message": "our version is r1p0.\nSo according to this description, it\u0027s fixed in r1p0:\nERRATA_A78_1952683: This applies errata 1952683 workaround to Cortex-A78 CPU. This needs to be enabled for revision r0p0, it is fixed in r1p0.\n\nhttps://trustedfirmware-a.readthedocs.io/en/latest/design/cpu-specific-build-macros.html",
+      "parentUuid": "356d71c1_d0fb425d",
+      "revId": "c21a736d6f3fa9fb0647bff404b0174ebf1acd91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
