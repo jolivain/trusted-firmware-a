@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "356d71c1_d0fb425d",
+        "filename": "plat/mediatek/mt8195/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-05T10:47:49Z",
+      "side": 1,
+      "message": "Out of curiosity, just confirming that this platform does not need ERRATA_A78_1952683 right?\n(because of its CPU_REV \u003e\u003d r1p0)",
+      "revId": "c21a736d6f3fa9fb0647bff404b0174ebf1acd91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
