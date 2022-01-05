@@ -67,6 +67,24 @@
       "message": "@Madhukar,\nmay I ask the progress of merging these patches into master branch?\nIs there any code freezing day or something else since I noticed the master branch is not updated for long time?",
       "revId": "ab45305062f50f81e5c3f800ef4c6cef5097cb04",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c382c1fd_c62d73bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-01-05T14:39:21Z",
+      "side": 1,
+      "message": "Hi Rex\nOur CI has been failing due to infrastructure issues. Moreover, due to holidays, there has been a delay in identifying and fixing the CI issues. We are working to resolve them at the earliest and catch up master branch with integration.",
+      "parentUuid": "d0e82dfa_86047c42",
+      "revId": "ab45305062f50f81e5c3f800ef4c6cef5097cb04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
