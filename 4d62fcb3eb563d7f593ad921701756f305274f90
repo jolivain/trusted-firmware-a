@@ -471,6 +471,30 @@
       },
       "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46fd65d0_ba0df6ba",
+        "filename": "include/drivers/auth/auth_mod.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-01-05T12:01:58Z",
+      "side": 1,
+      "message": "\u003e Further thinking, if we decide to have CRYPTO_SUPPORT as global flag then it should be enabled in platform makefile as per their need. (This means, we need to enable this flag in all existing platforms that uses Crypto). \n\u003e I think we can\u0027t put a compulsion to enable CRYPTO_SUPPORT if TRUSTED_BOARD_BOOT or MEASURED_BOOT is enabled for all platforms (for e.g. Renesas doesn\u0027t need Crypto). Do you have any suggestion here?\n\nI disagree, I think we *can* enable CRYPTO_SUPPORT if TRUSTED_BOARD_BOOT or MEASURED_BOOT is enabled. I even think this is the right thing to do. If you refer to the authentication framework design documentation (see the ASCII diagram at [1]), it is designed to work in conjunction with a crypto module (and an image parser module). As a result, TBB and MB modules explicitly call functions like crypto_mod_calc_hash(), crypto_mod_verify_hash() and so on. Defining CRYPTO_SUPPORT in this manner should work for all platforms, except for Renesas\u0027 one, for which we have to do something different. \n\n[1] https://trustedfirmware-a.readthedocs.io/en/latest/design/auth-framework.html#authentication-framework-chain-of-trust\n\nThe trouble is that the Renesas platform is using the authentication framework in a way it was not designed for. There is no crypto module involvement. Also, auth_mod_init() was never been meant to be redefined by platforms. I am guessing that the existing authentication framework design did not fit Renesas\u0027 requirements, which led them to replace bits of it.\n\nEventually, I think it would be interesting to understand their requirements and evolve the authentication framework to accommodate them, or if it\u0027s not possible, design a mechanism to provide an alternate authentication framework. In the latter case, functions like auth_mod_init() would officially become part of the framework interfaces.\n\nBut that\u0027s a bigger piece of work, which is clearly out of the scope of this patch. For now, would it work to let the Renesas platform makefile explicitly override CRYPTO_SUPPORT (and set it to 0)?\n\n\n\u003e \u003e \u003e Also, crypto_mod.h resides in auth/ folder that looks odd as Measured Boot needs Crypto supports without authentication. Can we take out crypto_mod.h from auth folder?\n\u003e \u003e \n\u003e \u003e I guess we could, that makes sense to me. Where do you suggest we move it?\n\u003e \n\u003e All include files under include/driver/crypto/* and source files under driver/crypto/*.\n\u003e This indeed needs changes in all platform Makefiles. Does it make sense?\n\nMaybe... I am having troubles picturing the entire set of changes and where the mbedtls include files would fit in this. Perhaps this could be prototyped in a separate patch?",
+      "parentUuid": "0b826c6e_f1bed17c",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 39
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
