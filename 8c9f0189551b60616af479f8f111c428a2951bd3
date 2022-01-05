@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d5ba0d89_b851fd73",
+        "filename": "lib/cpus/aarch64/rainier.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000186
+      },
+      "writtenOn": "2022-01-05T17:18:58Z",
+      "side": 1,
+      "message": "Fixed the copyright year.",
+      "parentUuid": "a52f756a_816ea2d4",
+      "revId": "8c9f0189551b60616af479f8f111c428a2951bd3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "651962c0_9fb0b352",
         "filename": "lib/cpus/aarch64/rainier.S",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2022-01-05T16:30:06Z",
       "side": 1,
       "message": "Does it clobber x2-x16?",
+      "revId": "8c9f0189551b60616af479f8f111c428a2951bd3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f3fb853_b5b57086",
+        "filename": "lib/cpus/aarch64/rainier.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000186
+      },
+      "writtenOn": "2022-01-05T17:18:58Z",
+      "side": 1,
+      "message": "Sorry it doesn\u0027t clobber x2-x16. I\u0027ve updated the comment.",
+      "parentUuid": "651962c0_9fb0b352",
       "revId": "8c9f0189551b60616af479f8f111c428a2951bd3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
