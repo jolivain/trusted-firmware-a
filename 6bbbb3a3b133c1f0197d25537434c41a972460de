@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a74225f_88454448",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-01-05T21:16:19Z",
+      "side": 1,
+      "message": "I\u0027m not sure I can comment either way as to the appropriateness of SPM running at EL3 (I\u0027ll leave that to CoR), but other than one minor nit in a comment, the implementation seems reasonable.  CR+1, but you might want to fix that minor nit.",
+      "revId": "6bbbb3a3b133c1f0197d25537434c41a972460de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d025466_b6697bed",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-01-05T21:16:19Z",
+      "side": 1,
+      "message": "Minor nit: \"!SPMC_AT_EL3 */\" (space).",
+      "revId": "6bbbb3a3b133c1f0197d25537434c41a972460de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
