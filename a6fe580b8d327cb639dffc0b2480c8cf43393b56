@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9251010a_f07308d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-01-06T19:13:06Z",
+      "side": 1,
+      "message": "One minor nit...",
+      "revId": "a6fe580b8d327cb639dffc0b2480c8cf43393b56",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81a5eb01_006cf26f",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-01-06T19:13:06Z",
+      "side": 1,
+      "message": "Could you please indent this #endif?  It looks like an #endif to the #if defined(IMAGE...",
+      "revId": "a6fe580b8d327cb639dffc0b2480c8cf43393b56",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
