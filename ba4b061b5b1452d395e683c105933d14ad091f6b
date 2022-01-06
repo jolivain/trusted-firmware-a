@@ -16,6 +16,23 @@
       "message": "LGTM.\nNote that on Hikey960, the BL1 is closed source and we cannot simply extend the size of BL31. BL1 will overwrite BL33 into the BL31 overlapped area.",
       "revId": "ba4b061b5b1452d395e683c105933d14ad091f6b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2801050d_53c545f7",
+        "filename": "plat/arm/common/arm_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-01-06T21:54:19Z",
+      "side": 1,
+      "message": "I gather that, just speaking in generalities, we\u0027re trying to cut down on \"#pragma weak\" usage.  Perhaps this a known, accepted exception?",
+      "revId": "ba4b061b5b1452d395e683c105933d14ad091f6b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
