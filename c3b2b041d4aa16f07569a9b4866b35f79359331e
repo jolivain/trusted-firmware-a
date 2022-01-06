@@ -226,6 +226,24 @@
       "parentUuid": "666a8152_1ee36400",
       "revId": "c3b2b041d4aa16f07569a9b4866b35f79359331e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d9a46aa_bea33208",
+        "filename": "drivers/nxp/ifc/nand/ifc_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2022-01-06T03:54:31Z",
+      "side": 1,
+      "message": "Sorry, no need to update here, because buf[i] is uint8_t, thanks.",
+      "parentUuid": "06f38baa_683ba3df",
+      "revId": "c3b2b041d4aa16f07569a9b4866b35f79359331e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
