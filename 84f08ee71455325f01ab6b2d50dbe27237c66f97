@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "37944899_2531cbce",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-01-06T11:37:43Z",
+      "side": 1,
+      "message": "This check is intended to make sure that the ENABLE_FEAT_DIT flag and feature bit match. So when ENABLE_FEAT_DIT \u003d\u003d 1 the DIT feature bit also equals 1 and also that when ENABLE_FEAT_DIT \u003d\u003d 0 the DIT feature bit equals 0 which is why I still do a check even when ENABLE_FEAT_DIT !\u003d 0.\nI think this is important as if the dit feature bit \u003d 1 the firmware needs to support this so also equal 1",
+      "parentUuid": "d362f935_8763b220",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 6
+      },
+      "revId": "84f08ee71455325f01ab6b2d50dbe27237c66f97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4958937a_eac80e37",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 9
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-04T21:12:48Z",
       "side": 1,
       "message": "It looks odd placing this macro in the save routine (where various registers get saved to the stack). \n\u0027set_unset_pstate_bits\u0027 is kind of workaround to set the non-set PSTATE bits, can it get called from each EL3 entry (by converting this macro to function)?",
+      "range": {
+        "startLine": 792,
+        "startChar": 0,
+        "endLine": 796,
+        "endChar": 22
+      },
+      "revId": "84f08ee71455325f01ab6b2d50dbe27237c66f97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb7c7324_d4eb5566",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-01-06T11:37:43Z",
+      "side": 1,
+      "message": "This is what I originally did however in internal review I got this comment from Soby so changed it. \n\"calling this explicitly seems a bit of a maintenance hazard as we need to ensure this function is called for any new entry point we define to EL3. \nIf this can be done as part of an essential routine (like save_gp_pmcr_pauth_regs), that is less of a burden for maintenance. not sure this can be incorporated in that.\"\n\nI do understand both concerns but I\u0027m not sure what a middle ground could be.",
+      "parentUuid": "4958937a_eac80e37",
       "range": {
         "startLine": 792,
         "startChar": 0,
