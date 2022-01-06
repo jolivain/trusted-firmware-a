@@ -337,7 +337,7 @@ enum {
 
 static int pmic_set_state(const struct regul_description *desc, bool enable)
 {
-	VERBOSE("%s: set state to %u\n", desc->node_name, enable);
+	VERBOSE("%s: set state to %d\n", desc->node_name, enable);
 
 	if (enable == STATE_ENABLE) {
 		return stpmic1_regulator_enable(desc->node_name);
