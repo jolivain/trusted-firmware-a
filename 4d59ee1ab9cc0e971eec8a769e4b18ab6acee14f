@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a48ec77f_1ef55182",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-01-06T00:22:42Z",
+      "side": 1,
+      "message": "This is fine, but I was just pondering:  wouldn\u0027t it be nice if there were two different errors these two cases:  Perhaps something like FFA_ERROR_NOT_SUPPORTED vs. FFA_ERROR_INVALID_VERS_SPEC (first case above)?  Just food for thought...",
+      "revId": "4d59ee1ab9cc0e971eec8a769e4b18ab6acee14f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
