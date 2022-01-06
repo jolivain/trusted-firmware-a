@@ -453,11 +453,11 @@ ERRATA_A710_2058056	?=0
 
 # Flag to apply erratum 2055002 workaround during reset. This erratum applies
 # to revision r1p0, r2p0 of the Cortex-A710 cpu and is still open.
-ERRATA_A710_2055002 ?=0
+ERRATA_A710_2055002	?=0
 
 # Flag to apply erratum 2017096 workaround during reset. This erratum applies
 # to revision r0p0, r1p0 and r2p0 of the Cortex-A710 cpu and is still open.
-ERRATA_A710_2017096 ?=0
+ERRATA_A710_2017096	?=0
 
 # Flag to apply erratum 2067956 workaround during reset. This erratum applies
 # to revision r0p0 of the Neoverse N2 cpu and is still open.
@@ -510,6 +510,10 @@ ERRATA_X2_2083908	?=0
 # Flag to apply erratum 1922240 workaround during reset. This erratum applies
 # to revision r0p0 of the Cortex-A510 cpu and is fixed in r0p1
 ERRATA_A510_1922240	?=0
+
+# Flag to apply erratum 2288014 workaround during reset. This erratum applies
+# to revision r0p0 of the Cortex-A510 cpu and is fixed in r0p1
+ERRATA_A510_2288014	?=0
 
 # Flag to apply DSU erratum 798953. This erratum applies to DSUs revision r0p0.
 # Applying the workaround results in higher DSU power consumption on idle.
@@ -951,6 +955,10 @@ $(eval $(call add_define,ERRATA_X2_2083908))
 # Process ERRATA_A510_1922240 flag
 $(eval $(call assert_boolean,ERRATA_A510_1922240))
 $(eval $(call add_define,ERRATA_A510_1922240))
+
+# Process ERRATA_A510_2288014 flag
+$(eval $(call assert_boolean,ERRATA_A510_2288014))
+$(eval $(call add_define,ERRATA_A510_2288014))
 
 # Process ERRATA_DSU_798953 flag
 $(eval $(call assert_boolean,ERRATA_DSU_798953))
