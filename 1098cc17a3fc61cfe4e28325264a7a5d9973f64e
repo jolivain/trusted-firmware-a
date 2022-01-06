@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8847d76_e1b37014",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-01-06T23:10:34Z",
+      "side": 1,
+      "message": "This is not a boolean type, so should probably be something like \"service_arg0 !\u003d 0U\" instead.",
+      "range": {
+        "startLine": 443,
+        "startChar": 12,
+        "endLine": 443,
+        "endChar": 24
+      },
+      "revId": "1098cc17a3fc61cfe4e28325264a7a5d9973f64e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
