@@ -16,6 +16,40 @@
       "message": "Few nits, please add \u0027tsp\u0027 as a blessed scope entry in commitlint json file.\nWill it make sense to change the copyright year to 2022 (though this change is being done 2021 but getting merged in 2022)?",
       "revId": "5be42204aecda4f41dd0f004aab137bb34263d8c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11d51024_7288faff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-01-06T13:20:25Z",
+      "side": 1,
+      "message": "LGTM. Please run the CI Jobs. ",
+      "revId": "5be42204aecda4f41dd0f004aab137bb34263d8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92e1472c_0c82ab47",
+        "filename": "include/arch/aarch64/arch_helpers.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-01-06T13:20:25Z",
+      "side": 1,
+      "message": "nit: Data Independent Timing register. \nJust to keep uniformity.",
+      "revId": "5be42204aecda4f41dd0f004aab137bb34263d8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
