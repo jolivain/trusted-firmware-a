@@ -16,6 +16,24 @@
       "message": "Please fix static failures",
       "revId": "06e55dc8424277f7d6325949c4cd6ebe7fabb173",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29c9f92c_e5b1a3f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-01-07T16:19:54Z",
+      "side": 1,
+      "message": "Hi Manish,\n\nThe only static failures concerning this patches series are due to new files added. Those files are added unconditionally to STM32MP1 compilation. So they are compiled.",
+      "parentUuid": "140b75b1_8b33a96a",
+      "revId": "06e55dc8424277f7d6325949c4cd6ebe7fabb173",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
