@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0087ee53_437a0c1c",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-01-07T22:43:47Z",
+      "side": 1,
+      "message": "I believe this should go right above the \"#include \u003cservices/spmd_svc.h\u003e\" include as it is a project include rather than a platform include. https://trustedfirmware-a.readthedocs.io/en/v2.2/process/coding-guidelines.html",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 30
+      },
+      "revId": "4f34fffc2193387345c35ed0a16ea291c86efd67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
