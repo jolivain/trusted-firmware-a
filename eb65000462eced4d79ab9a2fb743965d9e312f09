@@ -16,6 +16,24 @@
       "message": "CR+1, but just a thought:  #if SPMC_AT_EL3, this call won\u0027t ever execute.  Does it make sense to put this MAKE_FFA_VERSION() call inside a #else?  That, even if only just to make it visually obvious that it\u0027s one or the other...",
       "revId": "eb65000462eced4d79ab9a2fb743965d9e312f09",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "242b2ca9_d7790b98",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-07T12:02:34Z",
+      "side": 1,
+      "message": "Sure, makes sense to me, updated.",
+      "parentUuid": "4a7d43f6_2d835a0a",
+      "revId": "eb65000462eced4d79ab9a2fb743965d9e312f09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
