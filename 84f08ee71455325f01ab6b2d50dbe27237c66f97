@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b54c19cb_e0c39c2c",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-07T10:45:47Z",
+      "side": 1,
+      "message": "Okay,thanks! but ensuring correct dit bit value in the id register when ENABLE_FEAT_DIT\u003d0 looks overkill operation to me. \nWhen ENABLE_FEAT_DIT\u003d1, it makes sense to check the hardware supports it or not because all later system registers accesses are guarded under this flag, unintentionally having ENABLE_FEAT_DIT\u003d1 leads to an unexpected behaviour.\nWhy it is must to enable the feature when it is architecturally supported? is there any security threat?",
+      "parentUuid": "37944899_2531cbce",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 6
+      },
+      "revId": "84f08ee71455325f01ab6b2d50dbe27237c66f97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4958937a_eac80e37",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 9
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "This is what I originally did however in internal review I got this comment from Soby so changed it. \n\"calling this explicitly seems a bit of a maintenance hazard as we need to ensure this function is called for any new entry point we define to EL3. \nIf this can be done as part of an essential routine (like save_gp_pmcr_pauth_regs), that is less of a burden for maintenance. not sure this can be incorporated in that.\"\n\nI do understand both concerns but I\u0027m not sure what a middle ground could be.",
       "parentUuid": "4958937a_eac80e37",
+      "range": {
+        "startLine": 792,
+        "startChar": 0,
+        "endLine": 796,
+        "endChar": 22
+      },
+      "revId": "84f08ee71455325f01ab6b2d50dbe27237c66f97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ae0aa82_cd74bd3c",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-07T10:45:47Z",
+      "side": 1,
+      "message": "I too don\u0027t have any strong opinion, but indeed agree on that the maintenance point. I thought it is just misuse of \u0027save_gp_pmcr_pauth_regs\u0027 function for setting unset pstate bits.",
+      "parentUuid": "fb7c7324_d4eb5566",
       "range": {
         "startLine": 792,
         "startChar": 0,
