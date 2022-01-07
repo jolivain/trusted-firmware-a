@@ -39,6 +39,30 @@
       },
       "revId": "dbfdb8b39e0c5d458ba118b7cc3cff894d912cea",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8352b6e9_af9e3c81",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-07T08:40:20Z",
+      "side": 1,
+      "message": "BTW I don\u0027t believe it can be forwarded as is because the version is returned in x0 (not through FFA_SUCCESS/ERROR). Thinking more through this.",
+      "parentUuid": "c3fccbd4_e82a1927",
+      "range": {
+        "startLine": 549,
+        "startChar": 3,
+        "endLine": 554,
+        "endChar": 30
+      },
+      "revId": "dbfdb8b39e0c5d458ba118b7cc3cff894d912cea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
