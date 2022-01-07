@@ -16,6 +16,24 @@
       "message": "I wonder if you could add a SPMC_SOURCES_TEST variables.\nWith SPMC_SOURCES +\u003d $(SPMC_SOURCES_TEST).\n\nThat way, patching the name and location of the test file could create less conflicts in this makefile.",
       "revId": "cd077ee7b69d3fb5e2f11edb3a8ab791a66454fd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6e91710_ee99f7e4",
+        "filename": "services/std_svc/spm/spmc/spmc.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-07T12:03:32Z",
+      "side": 1,
+      "message": "Sounds reasonable to me. Although thinking about it a bit more, I wonder if SPMC_LP_SOURCES (or similar) might be a better name? With the aim to indicate the test partition is one implementation of the logical partitions but it can be changed / extended as required?",
+      "parentUuid": "8d3b7fc3_3a26eccc",
+      "revId": "cd077ee7b69d3fb5e2f11edb3a8ab791a66454fd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
