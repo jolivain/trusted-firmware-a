@@ -33,6 +33,23 @@
       "message": "This is a bit of a tricky situation. Long ago, this regulator setup code was added to allow HDMI to work in U-Boot, because U-Boot had no (non-SPL) PMIC driver, and TF-A already had a PMIC driver to service PSCI poweroff/reboot requests. However, it doesn\u0027t really belong here because, as you note, it is not flexible; it blindly turns every referenced regulator on, even those that aren\u0027t needed before the OS boots.\n\nThe problem with this change (and why my version of the patch was abandoned) is that it breaks U-Boot video output on many boards. There is no easy way to change the conditions here without breaking somebody\u0027s use case, because TF-A simply doesn\u0027t have enough information available about what drivers U-Boot will use. The correct place to enable the regulators is in U-Boot, in the drivers themselves, as needed.\n\nAs first steps in the process, I added generic AXP PMIC support to U-Boot, and Andre added the SUNXI_SETUP_REGULATORS\u003d0/1 build option to TF-A. What is still missing is adding and using an AXP803 regulator driver in U-Boot.\n\nThat means right now, your options are:\n 1) Carry a local patch that does what your board needs\n 2) Build with SUNXI_SETUP_REGULATORS\u003d0, which will fix Ethernet, but may break other things\n\nOnce somebody writes some AXP803 code for U-Boot (which I will eventually do if nobody else does it first), there will be a new option:\n 2) Build with SUNXI_SETUP_REGULATORS\u003d0, which will no longer break anything, because U-Boot no longer depends on it.\n\nAt that point we can make SUNXI_SETUP_REGULATORS\u003d0 the default, and eventually all of the regulator setup code can be removed from TF-A. Until then, we do not plan to change the conditions here. Sorry.",
       "revId": "8d3944bf31ea2938ae91ec78065b7594bcae27fa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d098acd_5694caeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000730
+      },
+      "writtenOn": "2022-01-08T03:43:56Z",
+      "side": 1,
+      "message": "From the view point of RTL8211 ethernet PHY on Orange Pi One Plus, simply assert reset signal\nto solve address misconfiguration even if this ATF fix is apploved or rejected.\nActually I am trying this dirty patch in OpenBSD (see https://marc.info/?l\u003dopenbsd-arm\u0026m\u003d163868572426679\u0026w\u003d2 ), this makes no problem.\n\nAgain, it needs to fix ATF or DTB to solve my problem. If ATF fix is rejected, I have to consult DTB people. But many Allwinner-H6 board does not defines the signal for RTL8211\u0027s reset. Who should I consult about this?",
+      "revId": "8d3944bf31ea2938ae91ec78065b7594bcae27fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
