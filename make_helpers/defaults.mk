@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016-2021, Arm Limited. All rights reserved.
+# Copyright (c) 2016-2022, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -266,6 +266,9 @@ SPIN_ON_BL1_EXIT		:= 0
 
 # Flags to build TF with Trusted Boot support
 TRUSTED_BOARD_BOOT		:= 0
+
+# Flags to build TF with Crypto support
+CRYPTO_SUPPORT			:= 0
 
 # Build option to choose whether Trusted Firmware uses Coherent memory or not.
 USE_COHERENT_MEM		:= 1

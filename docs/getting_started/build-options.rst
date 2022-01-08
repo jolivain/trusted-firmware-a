@@ -158,6 +158,10 @@ Common build options
    certificate generation tool to create new keys in case no valid keys are
    present or specified. Allowed options are '0' or '1'. Default is '1'.
 
+-  ``CRYPTO_SUPPORT``: This option is used to add Crypto module support.
+   This option gets enabled automatically if the ``TRUSTED_BOARD_BOOT`` or
+   ``MEASURED_BOOT`` option is enabled. It is disabled by default.
+
 -  ``CTX_INCLUDE_AARCH32_REGS`` : Boolean option that, when set to 1, will cause
    the AArch32 system registers to be included when saving and restoring the
    CPU context. The option must be set to 0 for AArch64-only platforms (that
@@ -961,7 +965,7 @@ Firmware update options
 
 --------------
 
-*Copyright (c) 2019-2021, Arm Limited. All rights reserved.*
+*Copyright (c) 2019-2022, Arm Limited. All rights reserved.*
 
 .. _DEN0115: https://developer.arm.com/docs/den0115/latest
 .. _PSA FW update specification: https://developer.arm.com/documentation/den0118/a/
