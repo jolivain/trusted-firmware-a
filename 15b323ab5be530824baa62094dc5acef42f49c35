@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afd04766_1b4b337a",
+        "filename": "include/services/spmc_svc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-09T22:31:23Z",
+      "side": 1,
+      "message": "is this meant to be static inline?\n\nIt would be easier to read if defining a single function returning whether SPMC_AT_EL3\u003d\u003d1",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 6
+      },
+      "revId": "15b323ab5be530824baa62094dc5acef42f49c35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eabc8bcf_62508ace",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-09T22:31:23Z",
+      "side": 1,
+      "message": "nit: use NWD and SWD naming?",
+      "range": {
+        "startLine": 20,
+        "startChar": 12,
+        "endLine": 20,
+        "endChar": 16
+      },
+      "revId": "15b323ab5be530824baa62094dc5acef42f49c35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd523f43_abcb943a",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-09T22:31:23Z",
+      "side": 1,
+      "message": "spmd_private.h defines FFA_NS_ENDPOINT_ID",
+      "range": {
+        "startLine": 26,
+        "startChar": 8,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "15b323ab5be530824baa62094dc5acef42f49c35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74ee924b_99b7418e",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-09T22:31:23Z",
+      "side": 1,
+      "message": "nit: this assumes a static allocation by the SPMC, right? e.g. it does not permit defining the ID in the manifest. Not an immediate issue, eventually Hafnium has same limitation..",
+      "range": {
+        "startLine": 28,
+        "startChar": 24,
+        "endLine": 28,
+        "endChar": 41
+      },
+      "revId": "15b323ab5be530824baa62094dc5acef42f49c35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e26d45f_ce527e6c",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-09T22:31:23Z",
+      "side": 1,
+      "message": "does this make sense?",
+      "range": {
+        "startLine": 59,
+        "startChar": 1,
+        "endLine": 60,
+        "endChar": 4
+      },
+      "revId": "15b323ab5be530824baa62094dc5acef42f49c35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17889d02_a713d85e",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-09T22:31:23Z",
+      "side": 1,
+      "message": "it is?",
+      "range": {
+        "startLine": 129,
+        "startChar": 39,
+        "endLine": 129,
+        "endChar": 42
+      },
+      "revId": "15b323ab5be530824baa62094dc5acef42f49c35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
