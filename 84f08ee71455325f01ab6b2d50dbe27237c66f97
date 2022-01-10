@@ -72,6 +72,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b32e8cf_a788f9d7",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-01-10T11:13:21Z",
+      "side": 1,
+      "message": "I think you\u0027re right. I\u0027ve changed it to your suggestion in the latest change. Thanks",
+      "parentUuid": "b54c19cb_e0c39c2c",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 6
+      },
+      "revId": "84f08ee71455325f01ab6b2d50dbe27237c66f97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4958937a_eac80e37",
