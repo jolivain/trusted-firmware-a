@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21db66c8_eae3ff0d",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-10T13:36:50Z",
+      "side": 1,
+      "message": "Right it is not needed.\nI thought plat_mboot_measure_critical_data and fvp_populate_critical_data get used only when TRUSTED_BOARD_BOOT is enabled so guarded them under TRUSTED_BOARD_BOOT flag.\nIdeally, TRUSTED_BOARD_BOOT guard requires for fvp_populate_critical_data static function to avoid an error: \u0027fvp_populate_critical_data\u0027 defined but not used [-Werror\u003dunused-function].",
+      "parentUuid": "21759598_61057235",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 1
+      },
+      "revId": "f1dcfb658a02cbedb4a50ed4579ce7f8e60c439c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dc2c8aec_e65fbf18",
         "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
         "patchSetId": 4
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "61cb9c1b_46bf7c19",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-10T13:36:50Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dc2c8aec_e65fbf18",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 4
+      },
+      "revId": "f1dcfb658a02cbedb4a50ed4579ce7f8e60c439c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f1ccc156_cfa1cea6",
         "filename": "plat/arm/common/arm_common.mk",
         "patchSetId": 4
@@ -60,6 +108,30 @@
       "writtenOn": "2022-01-10T13:13:28Z",
       "side": 1,
       "message": "Can\u0027t you use CRYPTO_SUPPORT here?",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 405,
+        "endChar": 59
+      },
+      "revId": "f1dcfb658a02cbedb4a50ed4579ce7f8e60c439c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db289ced_ce280507",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-10T13:36:50Z",
+      "side": 1,
+      "message": "I thought of using CRYPTO_SUPPORT, but the issue is platform makefile gets included first and then CRYPTO_SUPPORT option gets enabled in root Makefile. Do you see any issue in current implementation?",
+      "parentUuid": "f1ccc156_cfa1cea6",
       "range": {
         "startLine": 405,
         "startChar": 0,
