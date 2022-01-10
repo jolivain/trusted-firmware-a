@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "874dbdc5_fa64ae10",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-10T10:57:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a89ccfd_da8224ad",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 22
+      },
+      "revId": "5add4dc179a71b1eec95b6def1341fe4be73a965",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98d916f9_483b275a",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "98d916f9_483b275a",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 15
+      },
+      "revId": "5add4dc179a71b1eec95b6def1341fe4be73a965",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9bf8098_f3ebd78e",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-10T10:57:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "391b0a72_f0b0fe95",
       "range": {
         "startLine": 122,
         "startChar": 0,
@@ -142,6 +190,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d37adb84_cba5b0a9",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-10T10:57:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6e20439_1fa45510",
+      "range": {
+        "startLine": 148,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 19
+      },
+      "revId": "5add4dc179a71b1eec95b6def1341fe4be73a965",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "73bbae9e_dbc56967",
@@ -179,6 +251,30 @@
       "side": 1,
       "message": "I also think now it is better to introduce common flag \u0027CRYPTO_SUPPORT\u0027 as a substitute for TRUSTED_BOARD_BOOT or MEASURED_BOOT. Let me do the necessary changes.",
       "parentUuid": "73bbae9e_dbc56967",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 40
+      },
+      "revId": "5add4dc179a71b1eec95b6def1341fe4be73a965",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff0412f6_d52bf25a",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-10T10:57:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b181d0b_882b1637",
       "range": {
         "startLine": 190,
         "startChar": 0,
