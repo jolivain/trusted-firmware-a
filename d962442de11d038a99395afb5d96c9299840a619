@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de7b17ae_7ac6dc7b",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 741,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-01-10T12:23:09Z",
+      "side": 1,
+      "message": "If you agree with my suggestions in other files, then we\u0027ll need to add\n\n else\n   CRYPTO_SUPPORT :\u003d 0\n endif\n\nhere.",
+      "revId": "d962442de11d038a99395afb5d96c9299840a619",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb995e6d_ede401ac",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-01-10T12:23:09Z",
+      "side": 1,
+      "message": "I don\u0027t think we should advertise this build option in the documentation. In most cases, it should be considered as an internal build flag derived from the user-facing TRUSTED_BOARD_BOOT \u0026 MEASURED_BOOT flags. In most cases, we would not expect users to set it on the command line or in the platform makefile. Renesas platform is the only exception, which we can document in their platform makefile. Suggest removing changes in this file.",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 66
+      },
+      "revId": "d962442de11d038a99395afb5d96c9299840a619",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5780a76a_5e8ff753",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-01-10T12:23:09Z",
+      "side": 1,
+      "message": "For the same reasons as the ones I\u0027ve mentioned in build-options.rst: I think CRYPTO_SUPPORT should not appear in defaults.mk. I think the changes in the top Makefile are enough.",
+      "range": {
+        "startLine": 270,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 21
+      },
+      "revId": "d962442de11d038a99395afb5d96c9299840a619",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
