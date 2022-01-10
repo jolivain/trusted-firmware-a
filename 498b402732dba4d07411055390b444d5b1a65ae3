@@ -151,6 +151,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4879c1be_767b1c0e",
+        "filename": "common/bl_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-10T16:01:34Z",
+      "side": 1,
+      "message": "Furthermore thinking, If you agree you then we will measure the image in the \u0027load_auth_image\u0027 without doing any changes in \u0027load_auth_image_internal\u0027 function (I will take out changes done in this function) and will do changes in load_auth_image as below:\n\nint load_auth_image(unsigned int image_id, image_info_t *image_data)\n        } while ((err !\u003d 0) \u0026\u0026 (plat_try_next_boot_source() !\u003d 0));\n #endif /* PSA_FWU_SUPPORT */\n \n+       /* \n+        * if image authentication passed in TBBR or loading passed in\n+        * Non-TBBR flow then measure the image if MEASURED_BOOT is enabled\n+        */\n+       if (err \u003d\u003d 0) {\n+               err \u003d plat_mboot_measure_image(image_id, image_data);\n+               if (err !\u003d 0) {\n+                       return err;\n+               }\n+\n+               /*\n+                * Flush the image to main memory so that it can be executed\n+                * later by any CPU, regardless of cache and MMU state.\n+                */\n+               flush_dcache_range(image_data-\u003eimage_base,\n+                                  image_data-\u003eimage_size);\n+       }\n+\n        return err;\n\nLet me know what do you think?",
+      "parentUuid": "96278714_596257cd",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 32
+      },
+      "revId": "498b402732dba4d07411055390b444d5b1a65ae3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03bf4bf2_d4e9488f",
         "filename": "common/bl_common.c",
         "patchSetId": 2
