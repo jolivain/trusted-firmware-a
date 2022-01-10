@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21759598_61057235",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-01-10T13:13:28Z",
+      "side": 1,
+      "message": "Does plat_mboot_measure_critical_data() need to be under #if TRUSTED_BOARD_BOOT?",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 1
+      },
+      "revId": "f1dcfb658a02cbedb4a50ed4579ce7f8e60c439c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc2c8aec_e65fbf18",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-01-10T13:13:28Z",
+      "side": 1,
+      "message": "(minor) I would move this comment just above #if TRUSTED_BOARD_BOOT because that\u0027s effectively the line it explains.",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 4
+      },
+      "revId": "f1dcfb658a02cbedb4a50ed4579ce7f8e60c439c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1ccc156_cfa1cea6",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-01-10T13:13:28Z",
+      "side": 1,
+      "message": "Can\u0027t you use CRYPTO_SUPPORT here?",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 405,
+        "endChar": 59
+      },
+      "revId": "f1dcfb658a02cbedb4a50ed4579ce7f8e60c439c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
