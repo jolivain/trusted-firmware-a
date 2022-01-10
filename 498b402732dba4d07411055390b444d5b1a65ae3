@@ -85,6 +85,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c0bc0d49_e1f57577",
+        "filename": "common/bl_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-01-10T13:16:18Z",
+      "side": 1,
+      "message": "\u003e Just made it suitable so that \u0027disable_auth\u0027 variable get used in both Trusted and Non-trusted boot flow.\n\nWasn\u0027t it already the case?",
+      "parentUuid": "bc9fad82_236ab369",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 32
+      },
+      "revId": "498b402732dba4d07411055390b444d5b1a65ae3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03bf4bf2_d4e9488f",
         "filename": "common/bl_common.c",
         "patchSetId": 2
