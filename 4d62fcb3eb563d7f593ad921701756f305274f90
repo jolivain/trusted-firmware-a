@@ -89,6 +89,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc3bc0b2_d3ab48ae",
+        "filename": "bl1/bl1_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-10T10:56:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3cf9f09_3c6c1f43",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 39
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e13bbecb_53cd70a6",
@@ -126,6 +150,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "e13bbecb_53cd70a6",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 39
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05ca0bc9_e8a970c1",
+        "filename": "bl2/bl2_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-10T10:56:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "941fc03f_a942c33a",
       "range": {
         "startLine": 92,
         "startChar": 0,
@@ -183,6 +231,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a110b4c_10cd0a12",
+        "filename": "common/bl_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-10T10:56:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ec41ba8_c134d5cb",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 17
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d4b42db_c6297b60",
@@ -196,6 +268,30 @@
       "writtenOn": "2022-01-04T08:14:54Z",
       "side": 1,
       "message": "I don\u0027t think this is needed anyways as we are aiming towards removing #ifdery.",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 22
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3001f94e_afbf1026",
+        "filename": "common/bl_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-10T10:56:45Z",
+      "side": 1,
+      "message": "Removing #if ends ups in \u0027-Werror\u003dunused-function\u0027 so retained it. Please let me know what do you think?",
+      "parentUuid": "0d4b42db_c6297b60",
       "range": {
         "startLine": 173,
         "startChar": 0,
@@ -253,6 +349,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cda11b19_b76a0e92",
+        "filename": "common/bl_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-10T10:56:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "328dae26_9059e06b",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 17
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "698a1b54_c88d7a9f",
@@ -290,6 +410,30 @@
       "side": 1,
       "message": "\u003e Can we measure the image in load_auth_image_internal(), instead of doing it in both load_auth_image_recursive() for trusted boot configs and load_image_flush() for non-trusted boot configs? This would reduce the amount of code that is specific to each build config.\n\u003e \n\u003e That being said, I think this suggestion only works if we don\u0027t recursively measure parent images, which is the case today (see line 213). If we want to change this behaviour in the near future then we will need to keep the measurement operation in both functions, like you did.\n\nOkay, let me do the necessary changes to measure the image inside \u0027load_auth_image_internal\u0027 in both trusted and non-trusted boot configs.\n\n\u003e \n\u003e I don\u0027t remember very well... at the last Tech forum call, did we say we should also measure certificates?\n\nYes, we decided not to measure the certificates containing hash information IIRC. \nCurrently, we don\u0027t have certificates that contain specific data to be measured, but I believe the measurement of such certificates can be handled similar to the data images.",
       "parentUuid": "698a1b54_c88d7a9f",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 253,
+        "endChar": 1
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dafa5d1_762de26a",
+        "filename": "common/bl_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-10T10:56:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33810f58_5fbd9d68",
       "range": {
         "startLine": 243,
         "startChar": 0,
@@ -361,6 +505,30 @@
       "side": 1,
       "message": "I mean, we only need to remove \u0027crypto_mod_init\u0027 call from this function and guard img_parser_init as you mentioned. Ideally, this file should not contain any Measured-Boot related changes.",
       "parentUuid": "883347d4_af835163",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 349,
+        "endChar": 1
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4ae82a7_07be8fcf",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-10T10:56:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc4e0698_e1256450",
       "range": {
         "startLine": 337,
         "startChar": 0,
@@ -528,6 +696,30 @@
       "side": 1,
       "message": "\u003e \u003e Further thinking, if we decide to have CRYPTO_SUPPORT as global flag then it should be enabled in platform makefile as per their need. (This means, we need to enable this flag in all existing platforms that uses Crypto). \n\u003e \u003e I think we can\u0027t put a compulsion to enable CRYPTO_SUPPORT if TRUSTED_BOARD_BOOT or MEASURED_BOOT is enabled for all platforms (for e.g. Renesas doesn\u0027t need Crypto). Do you have any suggestion here?\n\u003e \n\u003e I disagree, I think we *can* enable CRYPTO_SUPPORT if TRUSTED_BOARD_BOOT or MEASURED_BOOT is enabled. I even think this is the right thing to do. If you refer to the authentication framework design documentation (see the ASCII diagram at [1]), it is designed to work in conjunction with a crypto module (and an image parser module). As a result, TBB and MB modules explicitly call functions like crypto_mod_calc_hash(), crypto_mod_verify_hash() and so on. Defining CRYPTO_SUPPORT in this manner should work for all platforms, except for Renesas\u0027 one, for which we have to do something different. \n\u003e \n\u003e [1] https://trustedfirmware-a.readthedocs.io/en/latest/design/auth-framework.html#authentication-framework-chain-of-trust\n\nOkay then let\u0027s stick to the Authentication framework design in the TF-A. \nI thought Renesas took this different approach (and in future some other platform may follow that) then this compulsion does not make sense. \n\n\u003e \n\u003e The trouble is that the Renesas platform is using the authentication framework in a way it was not designed for. There is no crypto module involvement. Also, auth_mod_init() was never been meant to be redefined by platforms. I am guessing that the existing authentication framework design did not fit Renesas\u0027 requirements, which led them to replace bits of it.\n\u003e \n\u003e Eventually, I think it would be interesting to understand their requirements and evolve the authentication framework to accommodate them, or if it\u0027s not possible, design a mechanism to provide an alternate authentication framework. In the latter case, functions like auth_mod_init() would officially become part of the framework interfaces.\n\nI think this need some investigation as well as discussion with Renesas platform team.\n\n\u003e \n\u003e But that\u0027s a bigger piece of work, which is clearly out of the scope of this patch. For now, would it work to let the Renesas platform makefile explicitly override CRYPTO_SUPPORT (and set it to 0)?\n\nAgree, let me override this option for Renesas platform.\n\n\u003e \n\u003e \n\u003e \u003e \u003e \u003e Also, crypto_mod.h resides in auth/ folder that looks odd as Measured Boot needs Crypto supports without authentication. Can we take out crypto_mod.h from auth folder?\n\u003e \u003e \u003e \n\u003e \u003e \u003e I guess we could, that makes sense to me. Where do you suggest we move it?\n\u003e \u003e \n\u003e \u003e All include files under include/driver/crypto/* and source files under driver/crypto/*.\n\u003e \u003e This indeed needs changes in all platform Makefiles. Does it make sense?\n\u003e \n\u003e Maybe... I am having troubles picturing the entire set of changes and where the mbedtls include files would fit in this. Perhaps this could be prototyped in a separate patch?\n\nOkay, let\u0027s do this if possible in the separate patch.",
       "parentUuid": "46fd65d0_ba0df6ba",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 39
+      },
+      "revId": "4d62fcb3eb563d7f593ad921701756f305274f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97979963_9d89b436",
+        "filename": "include/drivers/auth/auth_mod.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-10T10:56:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3278ae89_e8837597",
       "range": {
         "startLine": 10,
         "startChar": 0,
