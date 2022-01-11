@@ -503,7 +503,6 @@ INCLUDES		+=	-Iinclude				\
 				${PLAT_INCLUDES}			\
 				${SPD_INCLUDES}
 
-include common/backtrace/backtrace.mk
 
 ################################################################################
 # Generic definitions
@@ -604,6 +603,8 @@ endif
 ################################################################################
 
 include ${PLAT_MAKEFILE_FULL}
+
+include common/backtrace/backtrace.mk
 
 $(eval $(call MAKE_PREREQ_DIR,${BUILD_PLAT}))
 
