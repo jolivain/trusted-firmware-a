@@ -104,6 +104,24 @@
       "parentUuid": "1e5a8cdf_bfde08ce",
       "revId": "f3eed203aa0233b520a24f855c3344ee18b8aa8c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e545087_3083a36a",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-11T18:31:25Z",
+      "side": 1,
+      "message": "It is used during setup where the buffers are mapped with the SPMC and then currently as part of the memory sharing test cases where they are used to populate / receive the memory descriptors as appropriate.\n\nYes good point, this should be made static.",
+      "parentUuid": "a2ca91d8_ed0bffe6",
+      "revId": "f3eed203aa0233b520a24f855c3344ee18b8aa8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
