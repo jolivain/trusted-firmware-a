@@ -22,6 +22,30 @@
       },
       "revId": "ed9f3b0e14855e7d8ecfe1117006e3a67a88285f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13745815_b1b33d6e",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-11T18:53:00Z",
+      "side": 1,
+      "message": "Hi Etienne,\nThis function gets used while setting the FIP image specification (offset and length). Later BL2 uses that specification to load images contained in that FIP to the memory. \nIMO, main use of this function is to return the bank(where FIP resides) that platform should use to boot images(load images to memory).\nI agree that this function further gets used [2] while setting the boot index in the register.\nCan we add both cases by s/should boot/should boot or has booted? (need changes also at line no.945 then). Please let me know what do you think?\n\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/12573/9/plat/st/common/bl2_io_storage.c#527\n[2]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/12577/9/plat/st/stm32mp1/stm32mp1_private.c#603",
+      "parentUuid": "e78b32be_679150d0",
+      "range": {
+        "startLine": 952,
+        "startChar": 0,
+        "endLine": 952,
+        "endChar": 6
+      },
+      "revId": "ed9f3b0e14855e7d8ecfe1117006e3a67a88285f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
