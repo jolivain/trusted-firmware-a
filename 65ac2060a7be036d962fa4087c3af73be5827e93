@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b3f2fa6_2f61ef09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-01-11T16:20:11Z",
+      "side": 1,
+      "message": "****** Order of includes on the last patch(es) ******\n\nResult : FAILURE\n\nChecking files modified between patches origin/master and HEAD...\n2b0d4e9be:plat/imx/imx8m/imx8m_dyn_cfg_helpers.c: [\u0027Project includes not in order.\n    Include order should be arch_helpers.h, common/desc_image_load.h, common/fdt_wrappers.h,\n    libfdt.h\u0027]\n\n2b0d4e9be:plat/imx/imx8m/imx8m_measured_boot.c: [\u0027./include/imx8m_measured_boot.h\n    should be in project group, after system group\u0027]\n\n\n\n****** Line endings not valid ******\n\nResult : SUCCESS\n\n****** Coding style on current patch ******\n\nResult : SUCCESS\n\n  CHECKING STYLE\n\n[*] Checking style of \u002765ac2060a7be036d962fa4087c3af73be5827e93\u0027\n\n\n[*] Checking style of \u00272b0d4e9be769e1210b9e50f0048741d98589eb02\u0027\n\n\n[*] Checking style of \u00279e52d45fdf619561e0a7a833b77aaacc947a4dfd\u0027\n\n\n[*] Checking style of \u002763d215984691e8b2de46e7b725ca2abf7f8ae304\u0027\n\n\n[*] Checking style of \u002706e55dc8424277f7d6325949c4cd6ebe7fabb173\u0027\n\n\n[*] Checking style of \u002788f4fb8fa759b1761954067346ee674b454bdfde\u0027\n\n\n[*] Checking style of \u0027ba7d2e2698c42df85b5c32d5b49008870da43bc6\u0027\n\n\n[*] Checking style of \u00275def13eb01ebac5656031bdc388a215d012fdaf8\u0027\n\n\n[*] Checking style of \u002726cf5cf6d62eae599a9173217a221bf552b4cc06\u0027\n\n\n[*] Checking style of \u0027a078134e2305ca5695731bc275a5ca892cc38880\u0027\n\n\n\n****** Banned API check on patch(es) ******\n\nResult : SUCCESS\n\n\n****** Newly added files detection check for Coverity Scan analysis on patch(es) ******\n\nResult : FAILURE\n\n\nNew source files have been identified in your patch..\nplat/imx/imx8m/imx8m_dyn_cfg_helpers.c\nplat/imx/imx8m/imx8m_measured_boot.c\n\n1. Kindly ensure they are updated in the \"tf-cov-make\" build script as well to \n   consider them for Coverity Scan analysis. Please refer to the tf-a documentation \n   \"https://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#add-build-configurations\" \n   for more detailed explanation on adding your new build configurations.\n\n2. Please ignore if files are already updated. Further the Code Maintainer will \n   resolve the issue by taking appropriate action.",
+      "revId": "65ac2060a7be036d962fa4087c3af73be5827e93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
