@@ -175,6 +175,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d3023fbc_c477d7f4",
+        "filename": "common/bl_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-11T23:18:32Z",
+      "side": 1,
+      "message": "Hi Sandrine, \nI pushed the patch with this approach as I thought it is better place to handle image measurement in either Trusted or Non-Trusted Boot flow. Please let me know if you think differently.",
+      "parentUuid": "4879c1be_767b1c0e",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 32
+      },
+      "revId": "498b402732dba4d07411055390b444d5b1a65ae3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03bf4bf2_d4e9488f",
         "filename": "common/bl_common.c",
         "patchSetId": 2
