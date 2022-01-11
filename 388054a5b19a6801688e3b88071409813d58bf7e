@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49bb2948_18d6f557",
+        "filename": "plat/mediatek/mt8186/drivers/spm/constraints/mt_spm_rc_bus26m.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-01-11T02:44:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c2e3478_a14de62c",
+      "revId": "388054a5b19a6801688e3b88071409813d58bf7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87a3a0d7_87ea2d11",
@@ -48,6 +66,30 @@
       "writtenOn": "2022-01-10T19:29:09Z",
       "side": 1,
       "message": "Can you use MT_SPM_RESOURCE_REQ_H for better readability?",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "388054a5b19a6801688e3b88071409813d58bf7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42883640_0cf09b7d",
+        "filename": "plat/mediatek/mt8186/include/mt_spm_resource_req.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-01-11T02:44:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87a3a0d7_87ea2d11",
       "range": {
         "startLine": 7,
         "startChar": 8,
@@ -75,6 +117,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57b1be8e_795e45eb",
+        "filename": "plat/mediatek/mt8186/include/platform_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-01-11T02:44:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87d1c046_d5fd7f22",
+      "revId": "388054a5b19a6801688e3b88071409813d58bf7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e52a576_ea06be74",
@@ -88,6 +148,30 @@
       "writtenOn": "2022-01-10T19:29:09Z",
       "side": 1,
       "message": "2021-2022",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 20
+      },
+      "revId": "388054a5b19a6801688e3b88071409813d58bf7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3184b2dc_59adaac2",
+        "filename": "plat/mediatek/mt8186/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-01-11T02:44:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e52a576_ea06be74",
       "range": {
         "startLine": 2,
         "startChar": 16,
