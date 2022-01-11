@@ -8,7 +8,7 @@
 ifeq (${ARCH},aarch32)
         ENABLE_BACKTRACE 	:=	0
 else
-        ENABLE_BACKTRACE 	:=	${DEBUG}
+        ENABLE_BACKTRACE 	?=	${DEBUG}
 endif
 
 ifeq (${ENABLE_BACKTRACE},1)
