@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "83e3d527_0ca5e3c3",
+        "filename": "include/services/spmc_svc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-11T18:16:50Z",
+      "side": 1,
+      "message": "Makes sense, updated.",
+      "parentUuid": "afd04766_1b4b337a",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 6
+      },
+      "revId": "15b323ab5be530824baa62094dc5acef42f49c35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eabc8bcf_62508ace",
@@ -47,6 +71,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6185dce_b17cab12",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-11T18:16:50Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "eabc8bcf_62508ace",
+      "range": {
+        "startLine": 20,
+        "startChar": 12,
+        "endLine": 20,
+        "endChar": 16
+      },
+      "revId": "15b323ab5be530824baa62094dc5acef42f49c35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd523f43_abcb943a",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-01-09T22:31:23Z",
       "side": 1,
       "message": "spmd_private.h defines FFA_NS_ENDPOINT_ID",
+      "range": {
+        "startLine": 26,
+        "startChar": 8,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "15b323ab5be530824baa62094dc5acef42f49c35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc89cd8c_37c2524d",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-11T18:16:50Z",
+      "side": 1,
+      "message": "Thanks, removed this.",
+      "parentUuid": "dd523f43_abcb943a",
       "range": {
         "startLine": 26,
         "startChar": 8,
@@ -95,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "96f253c5_d7c63430",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-11T18:16:50Z",
+      "side": 1,
+      "message": "This is just used as the base to start allocating the SP IDs. During assignment a new partition ID is checked to ensure that doesn\u0027t clash with an manually allocated ID for both physical and logical SPs and if required will continue to increment from this base until a non used partition is found.",
+      "parentUuid": "74ee924b_99b7418e",
+      "range": {
+        "startLine": 28,
+        "startChar": 24,
+        "endLine": 28,
+        "endChar": 41
+      },
+      "revId": "15b323ab5be530824baa62094dc5acef42f49c35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9e26d45f_ce527e6c",
         "filename": "services/std_svc/spm/spmc/spmc.h",
         "patchSetId": 2
@@ -118,6 +214,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a24e73aa_ec2d048b",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-11T18:16:50Z",
+      "side": 1,
+      "message": "Good question. I think the original reasoning was for completeness and that it could be useful for logical partitions however this is not currently used. I can remove these two entries.",
+      "parentUuid": "9e26d45f_ce527e6c",
+      "range": {
+        "startLine": 59,
+        "startChar": 1,
+        "endLine": 60,
+        "endChar": 4
+      },
+      "revId": "15b323ab5be530824baa62094dc5acef42f49c35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "17889d02_a713d85e",
         "filename": "services/std_svc/spm/spmc/spmc.h",
         "patchSetId": 2
@@ -129,6 +249,30 @@
       "writtenOn": "2022-01-09T22:31:23Z",
       "side": 1,
       "message": "it is?",
+      "range": {
+        "startLine": 129,
+        "startChar": 39,
+        "endLine": 129,
+        "endChar": 42
+      },
+      "revId": "15b323ab5be530824baa62094dc5acef42f49c35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b5a65f7_94eefc83",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-11T18:16:50Z",
+      "side": 1,
+      "message": "Thanks, fixed",
+      "parentUuid": "17889d02_a713d85e",
       "range": {
         "startLine": 129,
         "startChar": 39,
