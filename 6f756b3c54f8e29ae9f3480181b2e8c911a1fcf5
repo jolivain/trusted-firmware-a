@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e29e8b4b_8569d829",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-11T18:17:53Z",
+      "side": 1,
+      "message": "Thanks, missed this. I have removed FFA_SECURE_WORLD_ID_MASK and relocated  SPMC_SECURE_ID_MASK/SPMC_SECURE_ID_SHIFT to this file to allow reuse.",
+      "parentUuid": "1a8788e3_8f0c3c53",
+      "range": {
+        "startLine": 182,
+        "startChar": 8,
+        "endLine": 182,
+        "endChar": 32
+      },
+      "revId": "6f756b3c54f8e29ae9f3480181b2e8c911a1fcf5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "db0e793d_69fd72e3",
         "filename": "include/services/ffa_svc.h",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-07T22:07:47Z",
       "side": 1,
       "message": "nit: This expression does not evaluate to a boolean type.",
+      "range": {
+        "startLine": 227,
+        "startChar": 8,
+        "endLine": 227,
+        "endChar": 39
+      },
+      "revId": "6f756b3c54f8e29ae9f3480181b2e8c911a1fcf5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1a3349a_971cb013",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-11T18:17:53Z",
+      "side": 1,
+      "message": "Updated.",
+      "parentUuid": "db0e793d_69fd72e3",
       "range": {
         "startLine": 227,
         "startChar": 8,
