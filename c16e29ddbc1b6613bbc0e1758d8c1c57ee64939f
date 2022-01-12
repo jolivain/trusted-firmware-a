@@ -16,6 +16,23 @@
       "message": "Dear maintainers, this patchset has been in review for months, may I know is there any more comments? if no, would you please merge these patches? thanks. ",
       "revId": "c16e29ddbc1b6613bbc0e1758d8c1c57ee64939f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf51419d_b180eb39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-01-12T09:46:13Z",
+      "side": 1,
+      "message": "Its quite a large stack, can you rebase the stack so that appropriate rebasing is done on the parents through the stack and then run the CI (ALLOW-CI +1) on the top most patch you want submitted addressing any issue found please so we can get Verified set.\n\nI\u0027m running ALLOW-CI +2 on https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/12056/3 as this is common code. I see it has maintainer review and I have added Code-Owner review so if that passes this common code patch will be ready.",
+      "revId": "c16e29ddbc1b6613bbc0e1758d8c1c57ee64939f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
