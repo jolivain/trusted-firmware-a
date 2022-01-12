@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d79b13f4_e10b0318",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-01-12T16:14:19Z",
+      "side": 1,
+      "message": "****** Order of includes on the last patch(es) ******\n\nResult : FAILURE\n\nChecking files modified between patches origin/master and HEAD...\n9bcd8b61e:plat/mediatek/mt8186/drivers/spm/mt_spm_conservation.c: [\u0027plat/common/platform.h\n    should be in project group, after system group\u0027]\n\n9bcd8b61e:plat/mediatek/mt8186/drivers/spm/mt_spm_vcorefs.c: [\u0027plat/common/platform.h\n    should be in project group, after system group\u0027]\n\nf9a23afe6:plat/mediatek/mt8186/drivers/spm/mt_spm_conservation.c: [\u0027plat/common/platform.h\n    should be in project group, after system group\u0027]",
+      "revId": "9bcd8b61e711922ae05dd9eca9f29138cc8aa9cb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
