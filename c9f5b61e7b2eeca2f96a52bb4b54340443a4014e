@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0c4399d9_a7cec018",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-01-12T15:13:20Z",
+      "side": 1,
+      "message": "I saw there is a file called spmc.h ? would this pair of functions fit in there?",
+      "parentUuid": "bf833535_79667afd",
+      "range": {
+        "startLine": 224,
+        "startChar": 19,
+        "endLine": 224,
+        "endChar": 41
+      },
+      "revId": "c9f5b61e7b2eeca2f96a52bb4b54340443a4014e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3eb9ad42_a9126f6b",
         "filename": "include/services/ffa_svc.h",
         "patchSetId": 3
