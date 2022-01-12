@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "119cac58_c566d497",
+        "filename": "services/std_svc/spm/spmc/logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-01-12T21:08:56Z",
+      "side": 1,
+      "message": "Unless there\u0027s a reason this should be restricted to 8 bits, unsigned int (or just int to be more consistent with the existing spmc code) would probably be better.",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 9
+      },
+      "revId": "35a6fbf40cca9aaabdd06f493a4ee174f22ec728",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b05d76b8_d24b1575",
+        "filename": "services/std_svc/spm/spmc/logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-01-12T21:08:56Z",
+      "side": 1,
+      "message": "Would there be a need to check for a null GUID as well? Or just a null pointer here?",
+      "range": {
+        "startLine": 62,
+        "startChar": 5,
+        "endLine": 62,
+        "endChar": 34
+      },
+      "revId": "35a6fbf40cca9aaabdd06f493a4ee174f22ec728",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f01ac1d8_687b8299",
+        "filename": "services/std_svc/spm/spmc/logical_sp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-01-12T21:08:56Z",
+      "side": 1,
+      "message": "macro",
+      "range": {
+        "startLine": 35,
+        "startChar": 15,
+        "endLine": 35,
+        "endChar": 21
+      },
+      "revId": "35a6fbf40cca9aaabdd06f493a4ee174f22ec728",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1258086b_369ed7bb",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-01-12T21:08:56Z",
+      "side": 1,
+      "message": "Would \"return (el3_lp_desc_t *) EL3_LP_DESCS_START;\" work here?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 21
+      },
+      "revId": "35a6fbf40cca9aaabdd06f493a4ee174f22ec728",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
