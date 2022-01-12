@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "52aeb565_948e358e",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2022-01-12T08:31:38Z",
+      "side": 1,
+      "message": "My fear with this is an incorrect FIP (meaning issue in loaded binaries) will end with an infinite loop as you still go with the active-\u003eindex.\nYou said that no mechanism but we have watchdog on the platform which must be used and the boot info (now only printed) will allow to avoid such issue.\nI\u0027m OK with the Auth failure that is not saved, but the watchdog is a present known reason that can be used to get the correct boot index.\nWhat about the TRIAL state that must be used to avoid NV counter to be updated?",
+      "range": {
+        "startLine": 487,
+        "startChar": 0,
+        "endLine": 496,
+        "endChar": 3
+      },
+      "revId": "8772ec825c52a46ba398f1d778f77ed3bf6b99b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1f7a3ea1_83d9fe03",
         "filename": "plat/st/common/bl2_io_storage.c",
         "patchSetId": 9
