@@ -172,11 +172,6 @@ spmc_shmem_obj_ffa_constituent_size(struct spmc_shmem_obj *obj)
  */
 static int spmc_shmem_check_obj(struct spmc_shmem_obj *obj)
 {
-	if (obj->desc.emad_count != 1) {
-		NOTICE("%s: unsupported attribute desc count %u != 1\n",
-		       __func__, obj->desc.emad_count);
-		return -EINVAL;
-	}
 
 	for (int emad_num = 0; emad_num < obj->desc.emad_count; emad_num++) {
 		size_t size;
@@ -361,6 +356,7 @@ long spmc_ffa_mem_send(uint32_t smc_fid,
 	long ret;
 	struct spmc_shmem_obj *obj;
 	struct mailbox *mbox = spmc_get_mbox_desc(secure_origin);
+	const struct ffa_mtd *req;
 	ffa_mtd_flag32_t mtd_flag;
 
 	if (address || page_count) {
@@ -394,22 +390,63 @@ long spmc_ffa_mem_send(uint32_t smc_fid,
 	}
 
 	spin_lock(&mbox->lock);
+
+	/* Perform validation of descriptor. */
+	if (!mbox->rxtx_page_count) {
+		NOTICE("%s: buffer pair not registered\n", __func__);
+		ret = FFA_ERROR_INVALID_PARAMETER;
+		goto err_unlock_mbox;
+	}
+
+	req = mbox->tx_buffer;
+
+	/*
+	 * If a partition ID resides in the secure world validate that the
+	 * partition ID is for a known partition. Ignore any partition ID
+	 * belonging to the normal world as it is assume the Hypervisor will
+	 * have validated these.
+	 */
+	for (int i = 0; i < req->emad_count; i++) {
+		ffa_endpoint_id16_t ep_id = req->emad[i].mapd.endpoint_id;
+
+		if (ffa_is_secure_world_id(ep_id)) {
+			if (spmc_get_sp_ctx(ep_id) == NULL) {
+				NOTICE("%s: Invalid receiver id 0x%x\n",
+				     __func__, ep_id);
+				ret = FFA_ERROR_INVALID_PARAMETER;
+				goto err_unlock_mbox;
+			}
+		}
+	}
+
+	/* Ensure partition IDs are not duplicated. */
+	for (int i = 0; i < req->emad_count; i++) {
+		for (int j = i + 1; j < req->emad_count; j++) {
+			if (req->emad[i].mapd.endpoint_id ==
+				req->emad[j].mapd.endpoint_id) {
+				ret = FFA_ERROR_INVALID_PARAMETER;
+				goto err_unlock_mbox;
+			}
+		}
+	}
+
 	spin_lock(&spmc_shmem_obj_state.lock);
 
 	obj = spmc_shmem_obj_alloc(&spmc_shmem_obj_state, total_length);
 	if (!obj) {
 		ret = FFA_ERROR_NO_MEMORY;
-		goto err_unlock;
+		goto err_unlock_all;
 	}
 
 	ret = spmc_ffa_fill_desc(mbox, obj, fragment_length, mtd_flag, handle);
-
 	spin_unlock(&spmc_shmem_obj_state.lock);
 	spin_unlock(&mbox->lock);
+
 	return ret;
 
-err_unlock:
+err_unlock_all:
 	spin_unlock(&spmc_shmem_obj_state.lock);
+err_unlock_mbox:
 	spin_unlock(&mbox->lock);
 	return spmc_ffa_error_return(handle, ret);
 }
@@ -555,17 +592,6 @@ spmc_ffa_mem_retrieve_req(uint32_t smc_fid,
 		goto err_unlock_mailbox;
 	}
 
-	/*
-	 * Ensure endpoint count is 1, additional receivers not currently
-	 * supported.
-	 */
-	if (req->emad_count != 1) {
-		NOTICE("%s: unsupported retrieve descriptor count: %u\n",
-		       __func__, req->emad_count);
-		ret = FFA_ERROR_INVALID_PARAMETER;
-		goto err_unlock_mailbox;
-	}
-
 	if (total_length < sizeof(*req)) {
 		NOTICE("%s: invalid length %u < %zu\n", __func__, total_length,
 		       sizeof(*req));
@@ -602,6 +628,13 @@ spmc_ffa_mem_retrieve_req(uint32_t smc_fid,
 		goto err_unlock_all;
 	}
 
+	if (req->emad_count && req->emad_count != obj->desc.emad_count) {
+		NOTICE("%s: mistmatch of endpoint counts %u != %u\n",
+		       __func__, req->emad_count, obj->desc.emad_count);
+		ret = FFA_ERROR_INVALID_PARAMETER;
+		goto err_unlock_all;
+	}
+
 	if (req->flags && ((req->flags & FFA_MTD_FLAG_TYPE_MASK) !=
 			  (obj->desc.flags & FFA_MTD_FLAG_TYPE_MASK))) {
 		/*
@@ -625,15 +658,30 @@ spmc_ffa_mem_retrieve_req(uint32_t smc_fid,
 		goto err_unlock_all;
 	}
 
-	/* TODO: support more than one endpoint ids. */
-	if (req->emad_count &&
-	    req->emad[0].mapd.endpoint_id !=
-	    obj->desc.emad[0].mapd.endpoint_id) {
-		NOTICE("%s: wrong receiver id 0x%x != 0x%x\n",
-		       __func__, req->emad[0].mapd.endpoint_id,
-		       obj->desc.emad[0].mapd.endpoint_id);
-		ret = FFA_ERROR_INVALID_PARAMETER;
-		goto err_unlock_all;
+	/*
+	 * Validate all the endpoints match in the case of multiple
+	 * borrowers. We don't mandate that the order of the borrowers
+	 * must match in the descriptors therefore check to see if the
+	 * endpoints match in any order.
+	 */
+	for (int i = 0; i < req->emad_count; i++) {
+		bool found = false;
+
+		for (int j = 0; j < req->emad_count; j++) {
+			if (req->emad_count &&
+			    req->emad[i].mapd.endpoint_id ==
+			    obj->desc.emad[j].mapd.endpoint_id) {
+				found = true;
+				break;
+			}
+		}
+
+		if (!found) {
+			NOTICE("%s: invalid receiver id (0x%x).\n",
+				__func__, req->emad[i].mapd.endpoint_id);
+			ret = FFA_ERROR_INVALID_PARAMETER;
+			goto err_unlock_all;
+		}
 	}
 
 	mbox->state = MAILBOX_STATE_FULL;
@@ -818,16 +866,32 @@ int spmc_ffa_mem_relinquish(uint32_t smc_fid,
 	}
 
 	if (obj->desc.emad_count != req->endpoint_count) {
+		NOTICE("%s: mismatch of endpoint count %u != %u\n", __func__,
+		       obj->desc.emad_count, req->endpoint_count);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_all;
 	}
+
+	/* Validate requested endpoint IDs match descriptor. */
 	for (size_t i = 0; i < req->endpoint_count; i++) {
-		if (req->endpoint_array[i] !=
-		    obj->desc.emad[i].mapd.endpoint_id) {
+		bool found = false;
+
+		for (size_t j = 0; j < obj->desc.emad_count; j++) {
+			if (req->endpoint_array[i] ==
+			    obj->desc.emad[j].mapd.endpoint_id) {
+				found = true;
+				break;
+			}
+		}
+
+		if (!found) {
+			NOTICE("%s: Invalid endpoint ID (0x%x).\n",
+				__func__, req->endpoint_array[i]);
 			ret = FFA_ERROR_INVALID_PARAMETER;
 			goto err_unlock_all;
 		}
 	}
+
 	if (!obj->in_use) {
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_all;
