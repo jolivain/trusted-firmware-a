@@ -225,7 +225,7 @@ typedef uint32_t ffa_memory_region_flags_t;
 #define FFA_MEMORY_REGION_TRANSACTION_TYPE_DONATE ((0x3U) << 3)
 
 /** The maximum number of recipients a memory region may be sent to. */
-#define MAX_MEM_SHARE_RECIPIENTS 1U
+#define MAX_MEM_SHARE_RECIPIENTS 2U
 
 
 /* FFA Memory mapping modes. */
@@ -314,12 +314,15 @@ struct ffa_mem_relinquish {
 static inline uint32_t ffa_mem_relinquish_init(
 	struct ffa_mem_relinquish *relinquish_request,
 	ffa_memory_handle_t handle, ffa_memory_region_flags_t flags,
-	ffa_id_t sender)
+	ffa_id_t *endpoints, uint32_t endpoint_count)
 {
 	relinquish_request->handle = handle;
 	relinquish_request->flags = flags;
-	relinquish_request->endpoint_count = 1;
-	relinquish_request->endpoints[0] = sender;
+	relinquish_request->endpoint_count = endpoint_count;
+	for (int i = 0; i < endpoint_count; i++) {
+		relinquish_request->endpoints[i] = endpoints[i];
+	}
+
 	return sizeof(struct ffa_mem_relinquish) + sizeof(ffa_id_t);
 }
 
@@ -351,8 +354,9 @@ ffa_memory_region_get_composite(struct ffa_memory_region *memory_region,
  */
 uint32_t ffa_memory_retrieve_request_init(
 	struct ffa_memory_region *memory_region, ffa_memory_handle_t handle,
-	ffa_id_t sender, ffa_id_t receiver, uint32_t tag,
-	ffa_memory_region_flags_t flags, enum ffa_data_access data_access,
+	ffa_id_t sender, ffa_id_t *receivers, uint32_t receiver_count,
+	uint32_t tag, ffa_memory_region_flags_t flags,
+	enum ffa_data_access data_access,
 	enum ffa_instruction_access instruction_access,
 	enum ffa_memory_type type, enum ffa_memory_cacheability cacheability,
 	enum ffa_memory_shareability shareability);
@@ -363,7 +367,7 @@ tsp_args_t ffa_mem_retrieve_req(uint32_t descriptor_length,
 bool ffa_mem_relinquish(void);
 bool ffa_rx_release(void);
 bool memory_relinquish(struct ffa_mem_relinquish *m, uint64_t handle,
-		       ffa_id_t id);
+		       ffa_id_t *endpoints, uint32_t endpoint_count);
 bool ffa_rxtx_map(uintptr_t send, uintptr_t recv, uint32_t pages);
 
 
