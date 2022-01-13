@@ -634,6 +634,9 @@ enum message_t {
 	FF_A_MEMORY_LEND,
 	FF_A_MEMORY_LEND_FRAGMENTED,
 
+	FF_A_MEMORY_SHARE_MULTI_ENDPOINT,
+	FF_A_MEMORY_LEND_MULTI_ENDPOINT,
+
 	LAST,
 	FF_A_RUN_ALL = 255,
 	FF_A_OP_MAX = 256
@@ -736,7 +739,7 @@ static char mem_region_buffer[4096 * 2]  __aligned(PAGE_SIZE);
 
 bool memory_retrieve(struct mailbox *mb,
 		     struct ffa_memory_region **retrieved, uint64_t handle,
-		     ffa_id_t sender, ffa_id_t receiver,
+		     ffa_id_t sender, ffa_id_t *receivers, int receiver_count,
 		     uint32_t flags, uint32_t *frag_length,
 		     uint32_t *total_length)
 {
@@ -755,7 +758,7 @@ bool memory_retrieve(struct mailbox *mb,
 	memset(mem_region_buffer, 0, REGION_BUF_SIZE);
 
 	descriptor_size = ffa_memory_retrieve_request_init(
-	    mb->send, handle, sender, receiver, 0, flags,
+	    mb->send, handle, sender, receivers, receiver_count, 0, flags,
 	    FFA_DATA_ACCESS_RW,
 	    FFA_INSTRUCTION_ACCESS_NX,
 	    FFA_MEMORY_NORMAL_MEM,
@@ -833,7 +836,7 @@ int ffa_test_relay(uint64_t arg0,
  * This test supports the use of FRAG_RX to use memory descriptors that do not
  * fit in a single 4KB buffer.
  ******************************************************************************/
-int test_memory_send(uint16_t sender, uint64_t handle, bool share)
+int test_memory_send(uint16_t sender, uint64_t handle, bool share, bool multi_endpoint)
 {
 	struct ffa_memory_region *m;
 	struct ffa_composite_memory_region *composite;
@@ -844,8 +847,17 @@ int test_memory_send(uint16_t sender, uint64_t handle, bool share)
 	uint32_t flags = share ? FFA_FLAG_SHARE_MEMORY : FFA_FLAG_LEND_MEMORY;
 	uint32_t total_length, recv_length = 0;
 
-	if (!memory_retrieve(&mailbox, &m, handle, source, partition_id, flags,
-			&recv_length, &total_length)) {
+	/*
+	 * In the case that we're testing multiple endpoints choose a partition
+	 * ID that resides in the normal world so the SPMC won't detect it as
+	 * invalid.
+	 */
+	int receiver_count = multi_endpoint ? 2 : 1;
+	ffa_id_t receivers[2] = { partition_id, 0x10 };
+
+	if (!memory_retrieve(&mailbox, &m, handle, source, receivers,
+			     receiver_count, flags, &recv_length,
+			     &total_length)) {
 		return FFA_ERROR_INVALID_PARAMETER;
 	}
 
@@ -940,7 +952,7 @@ int test_memory_send(uint16_t sender, uint64_t handle, bool share)
 		}
 	}
 	if (!memory_relinquish((struct ffa_mem_relinquish *)mailbox.send,
-				m->handle, partition_id)) {
+				m->handle, receivers, receiver_count)) {
 		ERROR("Failed to relinquish memory region!\n");
 		return FFA_ERROR_INVALID_PARAMETER;
 	}
@@ -963,15 +975,28 @@ tsp_args_t *handle_partition_message(uint64_t arg0,
 	uint16_t receiver = ffa_endpoint_destination(arg1);
 	uint32_t status = -1;
 
+	const bool share = true;
+	const bool multi_endpoint = true;
+
 	switch (arg3) {
 	case FF_A_MEMORY_SHARE:
 		INFO("TSP Tests: Memory Share Request--\n");
-		status = test_memory_send(sender, arg4, true);
+		status = test_memory_send(sender, arg4, share, !multi_endpoint);
 		break;
 
 	case FF_A_MEMORY_LEND:
 		INFO("TSP Tests: Memory Lend Request--\n");
-		status = test_memory_send(sender, arg4, false);
+		status = test_memory_send(sender, arg4, !share, !multi_endpoint);
+		break;
+
+	case FF_A_MEMORY_SHARE_MULTI_ENDPOINT:
+		INFO("TSP Tests: Multi Endpoint Memory Share Request--\n");
+		status = test_memory_send(sender, arg4, share, multi_endpoint);
+		break;
+
+	case FF_A_MEMORY_LEND_MULTI_ENDPOINT:
+		INFO("TSP Tests: Multi Endpoint Memory Lend Request--\n");
+		status = test_memory_send(sender, arg4, !share, multi_endpoint);
 		break;
 
 	case FF_A_RELAY_MESSAGE:
