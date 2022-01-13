@@ -18,8 +18,8 @@
 static void ffa_memory_region_init_header(
 	struct ffa_memory_region *memory_region, ffa_id_t sender,
 	ffa_memory_attributes_t attributes, ffa_memory_region_flags_t flags,
-	ffa_memory_handle_t handle, uint32_t tag, ffa_id_t receiver,
-	ffa_memory_access_permissions_t permissions)
+	ffa_memory_handle_t handle, uint32_t tag, ffa_id_t *test_receivers,
+	uint32_t receiver_count, ffa_memory_access_permissions_t permissions)
 {
 	memory_region->sender = sender;
 	memory_region->attributes = attributes;
@@ -28,24 +28,29 @@ static void ffa_memory_region_init_header(
 	memory_region->handle = handle;
 	memory_region->tag = tag;
 	memory_region->reserved_1 = 0;
-	memory_region->receiver_count = 1;
-	memory_region->receivers[0].receiver_permissions.receiver = receiver;
-	memory_region->receivers[0].receiver_permissions.permissions =
-		permissions;
-	memory_region->receivers[0].receiver_permissions.flags = 0;
-	memory_region->receivers[0].reserved_0 = 0;
+	memory_region->receiver_count = receiver_count;
+	for (unsigned int i = 0; i < receiver_count; i++) {
+		memory_region->receivers[i].receiver_permissions.receiver =
+			test_receivers[i];
+		memory_region->receivers[i].receiver_permissions.permissions =
+			permissions;
+		memory_region->receivers[i].receiver_permissions.flags = 0;
+		memory_region->receivers[i].reserved_0 = 0;
+	}
 }
 
 /**
  * Initialises the given `ffa_memory_region` to be used for an
  * `FFA_MEM_RETRIEVE_REQ` by the receiver of a memory transaction.
+ * TODO: Support differing attributes per receiver.
  *
  * Returns the size of the message written.
  */
 uint32_t ffa_memory_retrieve_request_init(
 	struct ffa_memory_region *memory_region, ffa_memory_handle_t handle,
-	ffa_id_t sender, ffa_id_t receiver, uint32_t tag,
-	ffa_memory_region_flags_t flags, enum ffa_data_access data_access,
+	ffa_id_t sender, ffa_id_t *test_receivers, uint32_t receiver_count,
+	uint32_t tag, ffa_memory_region_flags_t flags,
+	enum ffa_data_access data_access,
 	enum ffa_instruction_access instruction_access,
 	enum ffa_memory_type type, enum ffa_memory_cacheability cacheability,
 	enum ffa_memory_shareability shareability)
@@ -63,10 +68,13 @@ uint32_t ffa_memory_retrieve_request_init(
 	ffa_set_memory_shareability_attr(&attributes, shareability);
 
 	ffa_memory_region_init_header(memory_region, sender, attributes, flags,
-					handle, tag, receiver, permissions);
+				      handle, tag, test_receivers,
+				      receiver_count, permissions);
 
-	memory_region->receivers[0].composite_memory_region_offset = 0;
-	memory_region->receivers[0].reserved_0 = 0;
+	for (unsigned int i = 0; i < receiver_count; i++) {
+		memory_region->receivers[i].composite_memory_region_offset = 0;
+		memory_region->receivers[i].reserved_0 = 0;
+	}
 
 	return sizeof(struct ffa_memory_region) +
 	       memory_region->receiver_count * sizeof(struct ffa_memory_access);
@@ -110,7 +118,6 @@ tsp_args_t ffa_mem_frag_rx(uint64_t handle, uint32_t recv_length)
 bool memory_relinquish(struct ffa_mem_relinquish *m, uint64_t handle,
 		       ffa_id_t id)
 {
-
 	ffa_mem_relinquish_init(m, handle, 0, id);
 	if (ffa_mem_relinquish()) {
 		return false;
