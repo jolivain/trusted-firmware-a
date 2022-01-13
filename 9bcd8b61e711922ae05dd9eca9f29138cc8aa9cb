@@ -16,6 +16,24 @@
       "message": "****** Order of includes on the last patch(es) ******\n\nResult : FAILURE\n\nChecking files modified between patches origin/master and HEAD...\n9bcd8b61e:plat/mediatek/mt8186/drivers/spm/mt_spm_conservation.c: [\u0027plat/common/platform.h\n    should be in project group, after system group\u0027]\n\n9bcd8b61e:plat/mediatek/mt8186/drivers/spm/mt_spm_vcorefs.c: [\u0027plat/common/platform.h\n    should be in project group, after system group\u0027]\n\nf9a23afe6:plat/mediatek/mt8186/drivers/spm/mt_spm_conservation.c: [\u0027plat/common/platform.h\n    should be in project group, after system group\u0027]",
       "revId": "9bcd8b61e711922ae05dd9eca9f29138cc8aa9cb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0dcfb5e_09441dc5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-01-13T02:15:39Z",
+      "side": 1,
+      "message": "Sorry that I did not check this.\nMy static check script is not updated.\n\nI have fixed this static error for both patch:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/13317\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/13318\n\nThanks!",
+      "parentUuid": "d79b13f4_e10b0318",
+      "revId": "9bcd8b61e711922ae05dd9eca9f29138cc8aa9cb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
