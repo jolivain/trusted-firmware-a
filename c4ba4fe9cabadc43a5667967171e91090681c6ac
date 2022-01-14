@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8710534e_75462ac0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2022-01-14T04:05:48Z",
+      "side": 1,
+      "message": "Dear maintainers:\n\nCI failed because of the following coverity issue, it will be fixed after merging CI update patch: https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/12537, thanks.\n\n****** Newly added files detection check for Coverity Scan analysis on patch(es) ******\n\nResult : FAILURE\n\n\nNew source files have been identified in your patch..\ndrivers/nxp/ifc/nand/ifc_nand.c\ndrivers/nxp/ifc/nor/ifc_nor.c\ndrivers/nxp/tzc/plat_tzc380.c\nplat/nxp/common/soc_errata/errata_a008850.c\n\n1. Kindly ensure they are updated in the \"tf-cov-make\" build script as well to \n   consider them for Coverity Scan analysis. Please refer to the tf-a documentation \n   \"https://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#add-build-configurations\" \n   for more detailed explanation on adding your new build configurations.\n\n2. Please ignore if files are already updated. Further the Code Maintainer will \n   resolve the issue by taking appropriate action.",
+      "revId": "c4ba4fe9cabadc43a5667967171e91090681c6ac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
