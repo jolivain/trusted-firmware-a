@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a023fd54_13a53d44",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-14T15:30:25Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "5f425887_00ebe4b1",
+      "range": {
+        "startLine": 218,
+        "startChar": 3,
+        "endLine": 218,
+        "endChar": 6
+      },
+      "revId": "c9f5b61e7b2eeca2f96a52bb4b54340443a4014e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf833535_79667afd",
@@ -73,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c4a37926_5e5a86b5",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-14T15:30:25Z",
+      "side": 1,
+      "message": "Good point, and now you mention it I wonder if the remaining changes in patch are a bit early / not worth their own patch. \nI\u0027m thinking if it would make more sense to move these functions to spmc.h as you say, and squash it all with the initial SPMC core patch instead (where we introduce spmc.h)?",
+      "parentUuid": "0c4399d9_a7cec018",
+      "range": {
+        "startLine": 224,
+        "startChar": 19,
+        "endLine": 224,
+        "endChar": 41
+      },
+      "revId": "c9f5b61e7b2eeca2f96a52bb4b54340443a4014e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3eb9ad42_a9126f6b",
         "filename": "include/services/ffa_svc.h",
         "patchSetId": 3
@@ -84,6 +132,30 @@
       "writtenOn": "2022-01-12T15:05:47Z",
       "side": 1,
       "message": "the last pair of \"(\" \")\" at the far end of the expression are not needed.",
+      "range": {
+        "startLine": 226,
+        "startChar": 8,
+        "endLine": 226,
+        "endChar": 9
+      },
+      "revId": "c9f5b61e7b2eeca2f96a52bb4b54340443a4014e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e8de358_7876dad5",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-14T15:30:25Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "3eb9ad42_a9126f6b",
       "range": {
         "startLine": 226,
         "startChar": 8,
