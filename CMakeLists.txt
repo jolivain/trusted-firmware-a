@@ -86,6 +86,18 @@ arm_config_option(
     TYPE PATH)
 
 #
+# Retrieve the platform variant metadata.
+#
+
+tfa_platform_variants(variants
+    PLATFORM ${TFA_PLATFORM})
+
+arm_config_option(
+    NAME TFA_PLATFORM_VARIANT
+    HELP "Platform variant to build."
+    STRINGS ${variants})
+
+#
 # If no toolchain file has been provided through the default CMake mechanism, we
 # use our own mechanism for toolchain selection, with the intention of making it
 # easier for users to specify a valid toolchain file.
