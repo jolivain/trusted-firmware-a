@@ -118,6 +118,30 @@
       },
       "revId": "ed9f3b0e14855e7d8ecfe1117006e3a67a88285f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fdbfa0a_61eaf3ee",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-17T11:53:39Z",
+      "side": 1,
+      "message": "Thanks, Sughosh, and Etienne for the clarifications.\nI also agree now this function is used \u0027to retrieve the boot index\u0027 in various scenarios explained in 2 paragraphs.\n1. 1st paragraph explains the usage of this function after images get loaded to memory (kind of helper function) and \n2. 2nd paragraph explains use of this function before images get loaded to memory",
+      "parentUuid": "c6d0a20e_8675ddd2",
+      "range": {
+        "startLine": 952,
+        "startChar": 0,
+        "endLine": 952,
+        "endChar": 6
+      },
+      "revId": "ed9f3b0e14855e7d8ecfe1117006e3a67a88285f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
