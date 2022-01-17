@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b0ebbfd8_ae6ed063",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2022-01-17T06:10:02Z",
+      "side": 1,
+      "message": "I have replied on that discussion on why the function was named plat_fwu_get_boot_idx. Please let me know if you are fine with the reasoning that I provided.",
+      "parentUuid": "8fb0cf94_3dbc310c",
+      "range": {
+        "startLine": 527,
+        "startChar": 0,
+        "endLine": 527,
+        "endChar": 36
+      },
+      "revId": "8772ec825c52a46ba398f1d778f77ed3bf6b99b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1f7a3ea1_83d9fe03",
         "filename": "plat/st/common/bl2_io_storage.c",
         "patchSetId": 9
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "The image found will always be a FIP image (more precisely a fwu update-able image).\nYou can see it is found from the UUID read from meatadata. This UUID is expected to relate to our update-able FIP image unless what metadata are corrupted and BL2 can use the info (but try a revert to previous_active_index).\n\nUpon such failure, maybe the code could decide straight to fallback to the previous_active_index bank. But I understand your implementation here expects panic() to trigger a reboot (possibly though a HW watchdog) and that at reboot, BL2 will decide to use previous_active_index. Such implementation is currently missing. Maybe in a next change (boot_idx (after line 527) would be loaded with metadata-\u003eprevious_active_index upon return code of a platform specific stm32mp1_reboot_on_watchdog() or like function).",
       "parentUuid": "1f7a3ea1_83d9fe03",
+      "range": {
+        "startLine": 530,
+        "startChar": 1,
+        "endLine": 536,
+        "endChar": 3
+      },
+      "revId": "8772ec825c52a46ba398f1d778f77ed3bf6b99b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5468aedf_25980b65",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2022-01-17T06:10:02Z",
+      "side": 1,
+      "message": "Yes, this should be the behaviour once watchdog support is implemented. For now, the platform will simply hang.",
+      "parentUuid": "3c75810f_301903cc",
       "range": {
         "startLine": 530,
         "startChar": 1,
