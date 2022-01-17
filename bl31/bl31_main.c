@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -15,6 +15,7 @@
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <common/runtime_svc.h>
+#include <common/tf_feat_detect.h>
 #include <drivers/console.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/pmf/pmf.h>
@@ -91,23 +92,6 @@ void bl31_setup(u_register_t arg0, u_register_t arg1, u_register_t arg2,
 
 	/* Perform late platform-specific setup */
 	bl31_plat_arch_setup();
-
-#if ENABLE_FEAT_HCX
-	/*
-	 * Assert that FEAT_HCX is supported on this system, without this check
-	 * an exception would occur during context save/restore if enabled but
-	 * not supported.
-	 */
-	assert(is_feat_hcx_present());
-#endif /* ENABLE_FEAT_HCX */
-
-#if CTX_INCLUDE_PAUTH_REGS
-	/*
-	 * Assert that the ARMv8.3-PAuth registers are present or an access
-	 * fault will be triggered when they are being saved or restored.
-	 */
-	assert(is_armv8_3_pauth_present());
-#endif /* CTX_INCLUDE_PAUTH_REGS */
 }
 
 /*******************************************************************************
@@ -122,6 +106,11 @@ void bl31_main(void)
 {
 	NOTICE("BL31: %s\n", version_string);
 	NOTICE("BL31: %s\n", build_message);
+
+	/*
+	 * Detect if the features enabled during compilation are supported by PE.
+	 */
+	detect_arch_features();
 
 #ifdef SUPPORT_UNKNOWN_MPID
 	if (unsupported_mpid_flag == 0) {

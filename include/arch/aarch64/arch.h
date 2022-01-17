@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -78,14 +78,14 @@
  * Definitions for CPU system register interface to GICv3
  ******************************************************************************/
 #define ICC_IGRPEN1_EL1		S3_0_C12_C12_7
-#define ICC_SGI1R		S3_0_C12_C11_5
-#define ICC_SRE_EL1		S3_0_C12_C12_5
-#define ICC_SRE_EL2		S3_4_C12_C9_5
-#define ICC_SRE_EL3		S3_6_C12_C12_5
+#define ICC_SGI1R			S3_0_C12_C11_5
+#define ICC_SRE_EL1			S3_0_C12_C12_5
+#define ICC_SRE_EL2			S3_4_C12_C9_5
+#define ICC_SRE_EL3			S3_6_C12_C12_5
 #define ICC_CTLR_EL1		S3_0_C12_C12_4
 #define ICC_CTLR_EL3		S3_6_C12_C12_4
-#define ICC_PMR_EL1		S3_0_C4_C6_0
-#define ICC_RPR_EL1		S3_0_C12_C11_3
+#define ICC_PMR_EL1			S3_0_C4_C6_0
+#define ICC_RPR_EL1			S3_0_C12_C11_3
 #define ICC_IGRPEN1_EL3		S3_6_c12_c12_7
 #define ICC_IGRPEN0_EL1		S3_0_c12_c12_6
 #define ICC_HPPIR0_EL1		S3_0_c12_c8_2
@@ -99,15 +99,14 @@
 /*******************************************************************************
  * Definitions for EL2 system registers for save/restore routine
  ******************************************************************************/
-
-#define CNTPOFF_EL2		S3_4_C14_C0_6
-#define HAFGRTR_EL2		S3_4_C3_C1_6
-#define HDFGRTR_EL2		S3_4_C3_C1_4
-#define HDFGWTR_EL2		S3_4_C3_C1_5
-#define HFGITR_EL2		S3_4_C1_C1_6
-#define HFGRTR_EL2		S3_4_C1_C1_4
-#define HFGWTR_EL2		S3_4_C1_C1_5
-#define ICH_HCR_EL2		S3_4_C12_C11_0
+#define CNTPOFF_EL2			S3_4_C14_C0_6
+#define HAFGRTR_EL2			S3_4_C3_C1_6
+#define HDFGRTR_EL2			S3_4_C3_C1_4
+#define HDFGWTR_EL2			S3_4_C3_C1_5
+#define HFGITR_EL2			S3_4_C1_C1_6
+#define HFGRTR_EL2			S3_4_C1_C1_4
+#define HFGWTR_EL2			S3_4_C1_C1_5
+#define ICH_HCR_EL2			S3_4_C12_C11_0
 #define ICH_VMCR_EL2		S3_4_C12_C11_7
 #define MPAMVPM0_EL2		S3_4_C10_C5_0
 #define MPAMVPM1_EL2		S3_4_C10_C5_1
@@ -118,9 +117,9 @@
 #define MPAMVPM6_EL2		S3_4_C10_C5_6
 #define MPAMVPM7_EL2		S3_4_C10_C5_7
 #define MPAMVPMV_EL2		S3_4_C10_C4_1
-#define TRFCR_EL2		S3_4_C1_C2_1
-#define PMSCR_EL2		S3_4_C9_C9_0
-#define TFSR_EL2		S3_4_C5_C6_0
+#define TRFCR_EL2			S3_4_C1_C2_1
+#define PMSCR_EL2			S3_4_C9_C9_0
+#define TFSR_EL2			S3_4_C5_C6_0
 
 /*******************************************************************************
  * Generic timer memory mapped registers & offsets
@@ -131,14 +130,14 @@
 
 #define CNTCR_EN			(U(1) << 0)
 #define CNTCR_HDBG			(U(1) << 1)
-#define CNTCR_FCREQ(x)			((x) << 8)
+#define CNTCR_FCREQ(x)		((x) << 8)
 
 /*******************************************************************************
  * System register bit definitions
  ******************************************************************************/
 /* CLIDR definitions */
-#define LOUIS_SHIFT		U(21)
-#define LOC_SHIFT		U(24)
+#define LOUIS_SHIFT			U(21)
+#define LOC_SHIFT			U(24)
 #define CTYPE_SHIFT(n)		U(3 * (n - 1))
 #define CLIDR_FIELD_WIDTH	U(3)
 
@@ -162,7 +161,7 @@
 #define ID_AA64PFR0_AMU_SHIFT	U(44)
 #define ID_AA64PFR0_AMU_MASK	ULL(0xf)
 #define ID_AA64PFR0_AMU_NOT_SUPPORTED	U(0x0)
-#define ID_AA64PFR0_AMU_V1	U(0x1)
+#define ID_AA64PFR0_AMU_V1		ULL(0x1)
 #define ID_AA64PFR0_AMU_V1P1	U(0x2)
 #define ID_AA64PFR0_ELX_MASK	ULL(0xf)
 #define ID_AA64PFR0_GIC_SHIFT	U(24)
@@ -170,6 +169,7 @@
 #define ID_AA64PFR0_GIC_MASK	ULL(0xf)
 #define ID_AA64PFR0_SVE_SHIFT	U(32)
 #define ID_AA64PFR0_SVE_MASK	ULL(0xf)
+#define ID_AA64PFR0_SVE_SUPPORTED	ULL(0X1)
 #define ID_AA64PFR0_SVE_LENGTH	U(4)
 #define ID_AA64PFR0_SEL2_SHIFT	U(36)
 #define ID_AA64PFR0_SEL2_MASK	ULL(0xf)
@@ -182,11 +182,16 @@
 #define ID_AA64PFR0_CSV2_SHIFT	U(56)
 #define ID_AA64PFR0_CSV2_MASK	ULL(0xf)
 #define ID_AA64PFR0_CSV2_LENGTH	U(4)
+#define ID_AA64PFR0_CSV2_2_SUPPORTED	ULL(0X2)
 #define ID_AA64PFR0_FEAT_RME_SHIFT		U(52)
 #define ID_AA64PFR0_FEAT_RME_MASK		ULL(0xf)
 #define ID_AA64PFR0_FEAT_RME_LENGTH		U(4)
 #define ID_AA64PFR0_FEAT_RME_NOT_SUPPORTED	U(0)
 #define ID_AA64PFR0_FEAT_RME_V1			U(1)
+#define ID_AA64PFR0_RAS_SHIFT	U(28)
+#define ID_AA64PFR0_RAS_MASK	ULL(0xf)
+#define ID_AA64PFR0_RAS_SUPPORTED	ULL(0X1)
+#define ID_AA64PFR0_RAS_LENGTH	U(4)
 
 /* Exception level handling */
 #define EL_IMPL_NONE		ULL(0)
@@ -206,6 +211,7 @@
 /* ID_AA64DFR0_EL1.PMS definitions (for ARMv8.2+) */
 #define ID_AA64DFR0_PMS_SHIFT	U(32)
 #define ID_AA64DFR0_PMS_MASK	ULL(0xf)
+#define ID_AA64DFR0_SPE_SUPPORTED	ULL(0X1)
 
 /* ID_AA64DFR0_EL1.TraceBuffer definitions */
 #define ID_AA64DFR0_TRACEBUFFER_SHIFT		U(44)
@@ -231,6 +237,10 @@
 #define ID_AA64ISAR1_API_MASK	ULL(0xf)
 #define ID_AA64ISAR1_APA_SHIFT	U(4)
 #define ID_AA64ISAR1_APA_MASK	ULL(0xf)
+#define ID_AA64ISAR1_SB_SHIFT	U(36)
+#define ID_AA64ISAR1_SB_MASK	ULL(0xf)
+#define ID_AA64ISAR1_SB_SUPPORTED	ULL(0x1)
+#define ID_AA64ISAR1_SB_NOT_SUPPORTED	ULL(0x0)
 
 /* ID_AA64MMFR0_EL1 definitions */
 #define ID_AA64MMFR0_EL1_PARANGE_SHIFT	U(0)
@@ -303,6 +313,12 @@
 
 #define ID_AA64MMFR2_EL1_CNP_SHIFT	U(0)
 #define ID_AA64MMFR2_EL1_CNP_MASK	ULL(0xf)
+
+#define ID_AA64MMFR2_EL1_NV_SHIFT	U(24)
+#define ID_AA64MMFR2_EL1_NV_MASK	ULL(0Xf)
+#define ID_AA64MMFR2_EL1_NV_NOT_SUPPORTED	ULL(0X0)
+#define ID_AA64MMFR2_EL1_NV_SUPPORTED	ULL(0X1)
+#define ID_AA64MMFR2_EL1_NV2_SUPPORTED	ULL(0X2)
 
 /* ID_AA64PFR1_EL1 definitions */
 #define ID_AA64PFR1_EL1_SSBS_SHIFT	U(4)
