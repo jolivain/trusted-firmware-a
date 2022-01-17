@@ -16,6 +16,23 @@
       "message": "Jiafei, looks like some real errors in the CI logs for you to look at.\n\nSuch as https://ci.trustedfirmware.org/job/tf-a-static-checks/338/\nhttps://ci.trustedfirmware.org/job/tf-a-builder/707220/console\nand others marked failure.\n\nJoanna",
       "revId": "b68de3e1238474a348e27676a66efee46dfd55d9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08062bd4_29b7c582",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-01-17T23:14:40Z",
+      "side": 1,
+      "message": "Just ru the CI on the top most patch of a stack and it includes all other patch changes in the stack. Once you have the top most patch passing and verified set by the CI system you can manually set verified for all other patches in the stack.",
+      "revId": "b68de3e1238474a348e27676a66efee46dfd55d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
