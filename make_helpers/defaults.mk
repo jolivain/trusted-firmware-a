@@ -133,11 +133,20 @@ ENABLE_BTI			:= 0
 # Use BRANCH_PROTECTION to enable PAUTH.
 ENABLE_PAUTH			:= 0
 
-# Flag to enable access to the HCRX_EL2 register by setting SCR_EL3.HXEn.
-ENABLE_FEAT_HCX			:= 0
-
 # Flag to enable access to the HAFGRTR_EL2 register
 ENABLE_FEAT_AMUv1		:= 0
+
+# Flag to enable AMUv1p1 extension.
+ENABLE_FEAT_AMUv1p1		:= 0
+
+# Flag to enable CSV2_2 extension.
+ENABLE_FEAT_CSV2_2 		:= 0
+
+# Flag to enable Data Independent Timing Instructions.
+ENABLE_FEAT_DIT			:= 0
+
+# Flag to enable access to the HCRX_EL2 register by setting SCR_EL3.HXEn.
+ENABLE_FEAT_HCX			:= 0
 
 # Flag to enable access to the HDFGRTR_EL2 register
 ENABLE_FEAT_FGT			:= 0
@@ -147,6 +156,21 @@ ENABLE_FEAT_ECV			:= 0
 
 # Flag to enable use of the DIT feature.
 ENABLE_FEAT_DIT			:= 0
+
+# Flag to enable access to Privileged Access Never bit of PSTATE.
+ENABLE_FEAT_PAN			:= 0
+
+# Flag to enable access to the Random Number Generator registers
+ENABLE_FEAT_RNG			:= 0
+
+# Flag to enable Speculation Barrier Instruction
+ENABLE_FEAT_SB			:= 0
+
+# Flag to enable Secure EL-2 feature.
+ENABLE_FEAT_SEL2		:= 0
+
+# Flag to enable Virtualization Host Extensions
+ENABLE_FEAT_VHE 		:= 0
 
 # By default BL31 encryption disabled
 ENCRYPT_BL31			:= 0
@@ -165,6 +189,9 @@ ERROR_DEPRECATED		:= 0
 
 # Fault injection support
 FAULT_INJECTION_SUPPORT		:= 0
+
+# Flag to enable Architectural Feature Detection Mechanism
+FEATURE_DETECTION		:= 1
 
 # Byte alignment that each component in FIP is aligned to
 FIP_ALIGN			:= 0
@@ -311,7 +338,7 @@ V				:= 0
 WARMBOOT_ENABLE_DCACHE_EARLY	:= 0
 
 # Build option to enable/disable the Statistical Profiling Extensions
-ENABLE_SPE_FOR_LOWER_ELS	:= 1
+ENABLE_SPE_FOR_LOWER_ELS	:= 0
 
 # SPE is only supported on AArch64 so disable it on AArch32.
 ifeq (${ARCH},aarch32)
@@ -329,7 +356,7 @@ ENABLE_AMU_FCONF		:= 0
 AMU_RESTRICT_COUNTERS		:= 0
 
 # Enable SVE for non-secure world by default
-ENABLE_SVE_FOR_NS		:= 1
+ENABLE_SVE_FOR_NS		:= 0
 # SVE is only supported on AArch64 so disable it on AArch32.
 ifeq (${ARCH},aarch32)
 	override ENABLE_SVE_FOR_NS	:= 0
