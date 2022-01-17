@@ -393,3 +393,6 @@ ENABLE_SYS_REG_TRACE_FOR_NS	:= 1
 
 # enable trace filter control registers access to NS by default
 ENABLE_TRF_FOR_NS		:= 1
+
+# enable Architectural Feature Detection Mechanism
+FEATURE_DETECTION		:= 0
