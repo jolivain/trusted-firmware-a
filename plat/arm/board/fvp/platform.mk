@@ -401,3 +401,6 @@ ENABLE_SYS_REG_TRACE_FOR_NS	:= 1
 
 # enable trace filter control registers access to NS by default
 ENABLE_TRF_FOR_NS		:= 1
+
+# Feature Detection Mechanism is disabled by default for FVP.
+FEATURE_DETECTION		:= 0
