@@ -400,4 +400,6 @@ ENABLE_TRBE_FOR_NS		:= 1
 ENABLE_SYS_REG_TRACE_FOR_NS	:= 1
 
 # enable trace filter control registers access to NS by default
+ifeq "8.4" "$(word 1, $(sort 8.4 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
 ENABLE_TRF_FOR_NS		:= 1
+endif
