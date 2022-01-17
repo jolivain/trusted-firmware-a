@@ -263,24 +263,6 @@ ENABLE_FEAT_RNG		=	$(if $(findstring rng,${arch-features}),1,0)
 # Determine if FEAT_SB is supported
 ENABLE_FEAT_SB		=	$(if $(findstring sb,${arch-features}),1,0)
 
-ifeq "8.5" "$(word 1, $(sort 8.5 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
-ENABLE_FEAT_SB		= 	1
-endif
-
-# Determine and enable FEAT_FGT to access HDFGRTR_EL2 register for v8.6 and higher versions.
-ifeq "8.6" "$(word 1, $(sort 8.6 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
-ENABLE_FEAT_FGT		=	1
-endif
-
-# Determine and enable FEAT_ECV to access CNTPOFF_EL2 register for v8.6 and higher versions.
-ifeq "8.6" "$(word 1, $(sort 8.6 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
-ENABLE_FEAT_ECV		=	1
-endif
-
-ifeq "8.4" "$(word 1, $(sort 8.4 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
-ENABLE_FEAT_DIT		= 	1
-endif
-
 ifneq ($(findstring armclang,$(notdir $(CC))),)
 TF_CFLAGS_aarch32	=	-target arm-arm-none-eabi $(march32-directive)
 TF_CFLAGS_aarch64	=	-target aarch64-arm-none-eabi $(march64-directive)
@@ -474,6 +456,7 @@ endif
 ################################################################################
 # Common sources and include directories
 ################################################################################
+include ${MAKE_HELPERS_DIRECTORY}arch_features.mk
 include lib/compiler-rt/compiler-rt.mk
 
 BL_COMMON_SOURCES	+=	common/bl_common.c			\
@@ -980,10 +963,7 @@ $(eval $(call assert_booleans,\
         CREATE_KEYS \
         CTX_INCLUDE_AARCH32_REGS \
         CTX_INCLUDE_FPREGS \
-        CTX_INCLUDE_PAUTH_REGS \
-        CTX_INCLUDE_MTE_REGS \
         CTX_INCLUDE_EL2_REGS \
-        CTX_INCLUDE_NEVE_REGS \
         DEBUG \
         DISABLE_MTPMU \
         DYN_DISABLE_AUTH \
@@ -993,17 +973,12 @@ $(eval $(call assert_booleans,\
         ENABLE_AMU_FCONF \
         AMU_RESTRICT_COUNTERS \
         ENABLE_ASSERTIONS \
-        ENABLE_MPAM_FOR_LOWER_ELS \
         ENABLE_PIE \
         ENABLE_PMF \
         ENABLE_PSCI_STAT \
-        ENABLE_RME \
         ENABLE_RUNTIME_INSTRUMENTATION \
         ENABLE_SME_FOR_NS \
         ENABLE_SME_FOR_SWD \
-        ENABLE_SPE_FOR_LOWER_ELS \
-        ENABLE_SVE_FOR_NS \
-        ENABLE_SVE_FOR_SWD \
         ERROR_DEPRECATED \
         FAULT_INJECTION_SUPPORT \
         GENERATE_COT \
@@ -1017,14 +992,12 @@ $(eval $(call assert_booleans,\
         PL011_GENERIC_UART \
         PROGRAMMABLE_RESET_ADDRESS \
         PSCI_EXTENDED_STATE_ID \
-        RAS_EXTENSION \
         RESET_TO_BL31 \
         SAVE_KEYS \
         SEPARATE_CODE_AND_RODATA \
         SEPARATE_NOBITS_REGION \
         SPIN_ON_BL1_EXIT \
         SPM_MM \
-        SPMD_SPM_AT_SEL2 \
         TRUSTED_BOARD_BOOT \
         CRYPTO_SUPPORT \
         USE_COHERENT_MEM \
@@ -1045,20 +1018,13 @@ $(eval $(call assert_booleans,\
         RAS_TRAP_LOWER_EL_ERR_ACCESS \
         COT_DESC_IN_DTB \
         USE_SP804_TIMER \
-        ENABLE_FEAT_RNG \
-        ENABLE_FEAT_SB \
-        ENABLE_FEAT_DIT \
         PSA_FWU_SUPPORT \
-        ENABLE_TRBE_FOR_NS \
         ENABLE_SYS_REG_TRACE_FOR_NS \
-        ENABLE_TRF_FOR_NS \
-        ENABLE_FEAT_HCX \
         ENABLE_MPMM \
         ENABLE_MPMM_FCONF \
-        ENABLE_FEAT_FGT \
-        ENABLE_FEAT_AMUv1 \
-        ENABLE_FEAT_ECV \
         SIMICS_BUILD \
+	FEATURE_DETECTION \
+	SPMD_SPM_AT_SEL2 \
 )))
 
 $(eval $(call assert_numerics,\
@@ -1066,9 +1032,33 @@ $(eval $(call assert_numerics,\
         ARM_ARCH_MAJOR \
         ARM_ARCH_MINOR \
         BRANCH_PROTECTION \
+        CTX_INCLUDE_PAUTH_REGS \
+        CTX_INCLUDE_MTE_REGS \
+        CTX_INCLUDE_NEVE_REGS \
+	ENABLE_BTI \
+	ENABLE_PAUTH \
+	ENABLE_FEAT_AMUv1 \
+        ENABLE_FEAT_AMUv1p1 \
+        ENABLE_FEAT_CSV2_2 \
+        ENABLE_FEAT_DIT \
+        ENABLE_FEAT_ECV \
+        ENABLE_FEAT_FGT \
+        ENABLE_FEAT_HCX \
+        ENABLE_FEAT_PAN \
+        ENABLE_FEAT_RNG \
+        ENABLE_FEAT_SB \
+	ENABLE_FEAT_SEL2 \	
+        ENABLE_FEAT_VHE \
+        ENABLE_MPAM_FOR_LOWER_ELS \
+        ENABLE_RME \
+        ENABLE_SPE_FOR_LOWER_ELS \
+        ENABLE_SVE_FOR_NS \
+        ENABLE_SVE_FOR_SWD \
+        ENABLE_TRF_FOR_NS \
         FW_ENC_STATUS \
         NR_OF_FW_BANKS \
         NR_OF_IMAGES_IN_FW_BANK \
+        RAS_EXTENSION \
 )))
 
 ifdef KEY_SIZE
@@ -1088,25 +1078,48 @@ endif
 $(eval $(call add_defines,\
     $(sort \
         ALLOW_RO_XLAT_TABLES \
+        AMU_RESTRICT_COUNTERS \
         ARM_ARCH_MAJOR \
         ARM_ARCH_MINOR \
+        ARM_IO_IN_DTB \
+        BL2_AT_EL3 \
         BL2_ENABLE_SP_LOAD \
+        BL2_IN_XIP_MEM \
+        BL2_INV_DCACHE \
         COLD_BOOT_SINGLE_CPU \
+        COT_DESC_IN_DTB \
+        CRYPTO_SUPPORT \
         CTX_INCLUDE_AARCH32_REGS \
         CTX_INCLUDE_FPREGS \
         CTX_INCLUDE_PAUTH_REGS \
-        EL3_EXCEPTION_HANDLING \
         CTX_INCLUDE_MTE_REGS \
         CTX_INCLUDE_EL2_REGS \
         CTX_INCLUDE_NEVE_REGS \
         DECRYPTION_SUPPORT_${DECRYPTION_SUPPORT} \
         DISABLE_MTPMU \
+        EL3_EXCEPTION_HANDLING \
         ENABLE_AMU \
         ENABLE_AMU_AUXILIARY_COUNTERS \
         ENABLE_AMU_FCONF \
-        AMU_RESTRICT_COUNTERS \
         ENABLE_ASSERTIONS \
         ENABLE_BTI \
+        ENABLE_FEAT_AMUv1 \
+        ENABLE_FEAT_AMUv1p1 \
+        ENABLE_FEAT_CSV2_2 \
+        ENABLE_FEAT_DIT \
+        ENABLE_FEAT_ECV \
+        ENABLE_FEAT_FGT \
+        ENABLE_FEAT_HCX \
+        ENABLE_FEAT_PAN \
+        ENABLE_FEAT_RNG \
+        ENABLE_FEAT_SB \
+	ENABLE_FEAT_SEL2 \
+        ENABLE_FEAT_VHE \
+        ENABLE_MPMM \
+        ENABLE_MPMM_FCONF \
+        ENABLE_SYS_REG_TRACE_FOR_NS \
+        ENABLE_TRBE_FOR_NS \
+        ENABLE_TRF_FOR_NS \
         ENABLE_MPAM_FOR_LOWER_ELS \
         ENABLE_PAUTH \
         ENABLE_PIE \
@@ -1121,45 +1134,41 @@ $(eval $(call add_defines,\
         ENABLE_SVE_FOR_SWD \
         ENCRYPT_BL31 \
         ENCRYPT_BL32 \
+        ERRATA_SPECULATIVE_AT \
         ERROR_DEPRECATED \
         FAULT_INJECTION_SUPPORT \
+	FEATURE_DETECTION \
         GICV2_G0_FOR_EL3 \
         HANDLE_EA_EL3_FIRST \
         HW_ASSISTED_COHERENCY \
         LOG_LEVEL \
         MEASURED_BOOT \
+        NR_OF_FW_BANKS \
+        NR_OF_IMAGES_IN_FW_BANK \
         NS_TIMER_SWITCH \
         PL011_GENERIC_UART \
         PLAT_${PLAT} \
         PROGRAMMABLE_RESET_ADDRESS \
+        PSA_FWU_SUPPORT \
         PSCI_EXTENDED_STATE_ID \
         RAS_EXTENSION \
+        RAS_TRAP_LOWER_EL_ERR_ACCESS \
+        RECLAIM_INIT_CODE \
         RESET_TO_BL31 \
+        SDEI_IN_FCONF \
+        SEC_INT_DESC_IN_FCONF \
         SEPARATE_CODE_AND_RODATA \
         SEPARATE_NOBITS_REGION \
-        RECLAIM_INIT_CODE \
         SPD_${SPD} \
         SPIN_ON_BL1_EXIT \
         SPM_MM \
         SPMD_SPM_AT_SEL2 \
         TRUSTED_BOARD_BOOT \
-        CRYPTO_SUPPORT \
         TRNG_SUPPORT \
         USE_COHERENT_MEM \
         USE_DEBUGFS \
-        ARM_IO_IN_DTB \
-        SDEI_IN_FCONF \
-        SEC_INT_DESC_IN_FCONF \
         USE_ROMLIB \
-        USE_TBBR_DEFS \
-        WARMBOOT_ENABLE_DCACHE_EARLY \
-        BL2_AT_EL3 \
-        BL2_IN_XIP_MEM \
-        BL2_INV_DCACHE \
         USE_SPINLOCK_CAS \
-        ERRATA_SPECULATIVE_AT \
-        RAS_TRAP_LOWER_EL_ERR_ACCESS \
-        COT_DESC_IN_DTB \
         USE_SP804_TIMER \
         ENABLE_FEAT_RNG \
         ENABLE_FEAT_SB \
@@ -1177,6 +1186,8 @@ $(eval $(call add_defines,\
         ENABLE_FEAT_AMUv1 \
         ENABLE_FEAT_ECV \
         SIMICS_BUILD \
+        USE_TBBR_DEFS \
+        WARMBOOT_ENABLE_DCACHE_EARLY \
 )))
 
 ifeq (${SANITIZE_UB},trap)
