@@ -63,6 +63,30 @@
       },
       "revId": "dbfdb8b39e0c5d458ba118b7cc3cff894d912cea",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38f09793_e784d69d",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-01-18T16:12:51Z",
+      "side": 1,
+      "message": "Reworked it to use direct messages",
+      "parentUuid": "8352b6e9_af9e3c81",
+      "range": {
+        "startLine": 549,
+        "startChar": 3,
+        "endLine": 554,
+        "endChar": 30
+      },
+      "revId": "dbfdb8b39e0c5d458ba118b7cc3cff894d912cea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
