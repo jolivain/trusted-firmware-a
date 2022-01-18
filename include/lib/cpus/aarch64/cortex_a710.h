@@ -9,6 +9,9 @@
 
 #define CORTEX_A710_MIDR					U(0x410FD470)
 
+/* Cortex-A710 loop count for CVE-BHB-NUM */
+#define CORTEX_A710_BHB_LOOP_COUNT				U(32)
+
 /*******************************************************************************
  * CPU Extended Control register specific definitions
  ******************************************************************************/

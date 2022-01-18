@@ -12,6 +12,9 @@
 /* Cortex-A77 MIDR */
 #define CORTEX_A77_MIDR					U(0x410FD0D0)
 
+/* Cortex-A77 loop count for CVE-BHB-NUM */
+#define CORTEX_A77_BHB_LOOP_COUNT	U(24)
+
 /*******************************************************************************
  * CPU Extended Control register specific definitions.
  ******************************************************************************/
