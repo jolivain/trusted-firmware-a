@@ -237,6 +237,30 @@
       },
       "revId": "84f08ee71455325f01ab6b2d50dbe27237c66f97",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8661fb33_c5c5adf2",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-18T18:26:54Z",
+      "side": 1,
+      "message": "Thanks Daniel! This looks neat now.\nBut, will it makes sense to add name change as separate patch  \u0027s/save_gp_pmcr_pauth_reg/prepare_el3_entry\u0027 and on top of that your changes?",
+      "parentUuid": "73bc51c9_75126527",
+      "range": {
+        "startLine": 792,
+        "startChar": 0,
+        "endLine": 796,
+        "endChar": 22
+      },
+      "revId": "84f08ee71455325f01ab6b2d50dbe27237c66f97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
