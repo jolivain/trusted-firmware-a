@@ -12,6 +12,9 @@
 /* Neoverse N1 MIDR for revision 0 */
 #define NEOVERSE_N1_MIDR		U(0x410fd0c0)
 
+/* Neoverse N1 loop count for CVE-BHB-NUM */
+#define NEOVERSE_N1_BHB_LOOP_COUNT		U(24)
+
 /* Exception Syndrome register EC code for IC Trap */
 #define NEOVERSE_N1_EC_IC_TRAP		U(0x1f)
 

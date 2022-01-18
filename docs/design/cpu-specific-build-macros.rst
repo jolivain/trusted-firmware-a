@@ -29,6 +29,10 @@ vulnerability workarounds should be applied at runtime.
    platform contains at least 1 CPU that requires dynamic mitigation.
    Defaults to 0.
 
+-  ``WORKAROUND_CVE_2022_23960``: Enables mitigation for `CVE-2022-23960`_.
+   This build option should be set to 1 if the target platform contains at
+   least 1 CPU that requires this mitigation. Defaults to 1.
+
 .. _arm_cpu_macros_errata_workarounds:
 
 CPU Errata Workarounds

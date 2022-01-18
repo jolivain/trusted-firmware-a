@@ -9,6 +9,9 @@
 
 #define NEOVERSE_V1_MIDR					U(0x410FD400)
 
+/* Neoverse V1 loop count for CVE-BHB-NUM */
+#define NEOVERSE_V1_BHB_LOOP_COUNT				U(32)
+
 /*******************************************************************************
  * CPU Extended Control register specific definitions.
  ******************************************************************************/

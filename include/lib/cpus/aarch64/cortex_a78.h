@@ -11,6 +11,9 @@
 
 #define CORTEX_A78_MIDR					U(0x410FD410)
 
+/* Cortex-A78 loop count for CVE-BHB-NUM */
+#define CORTEX_A78_BHB_LOOP_COUNT	U(32)
+
 /*******************************************************************************
  * CPU Extended Control register specific definitions.
  ******************************************************************************/
