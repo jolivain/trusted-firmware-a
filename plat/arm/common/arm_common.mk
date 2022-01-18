@@ -396,6 +396,9 @@ ifeq (${MEASURED_BOOT},1)
     MEASURED_BOOT_MK := drivers/measured_boot/event_log/event_log.mk
     $(info Including ${MEASURED_BOOT_MK})
     include ${MEASURED_BOOT_MK}
+
+    BL1_SOURCES		+= 	${EVENT_LOG_SOURCES}
+    BL2_SOURCES		+= 	${EVENT_LOG_SOURCES}
 endif
 
     # We expect to locate the *.mk files under the directories specified below
