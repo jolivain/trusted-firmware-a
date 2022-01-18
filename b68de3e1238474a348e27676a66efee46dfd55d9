@@ -33,6 +33,42 @@
       "message": "Just ru the CI on the top most patch of a stack and it includes all other patch changes in the stack. Once you have the top most patch passing and verified set by the CI system you can manually set verified for all other patches in the stack.",
       "revId": "b68de3e1238474a348e27676a66efee46dfd55d9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59e14384_a7d635c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2022-01-18T05:43:31Z",
+      "side": 1,
+      "message": "Hi, @Joanna Farley,\n\nThe following erros is expected:\n\nmake_helpers/plat_helpers.mk:32: *** \"Error: Invalid platform.\n\nBecause I removed platform \"ls1043\" and replaced with a new platform \"ls1043ardb, so I created a PR to update CI to address this platform name update:\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/12537\n\nPlease let me know if you have more comments, thanks.\n\nJiafei.",
+      "parentUuid": "08bf9e7f_7ea7e998",
+      "revId": "b68de3e1238474a348e27676a66efee46dfd55d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27cc25e4_654af2c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2022-01-18T05:43:31Z",
+      "side": 1,
+      "message": "I see, but current patchset depend on CI update:\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/12537\n\nSo may I update all patches to be verified? thanks.\n\nJiafei",
+      "parentUuid": "08062bd4_29b7c582",
+      "revId": "b68de3e1238474a348e27676a66efee46dfd55d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
