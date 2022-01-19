@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdda8a5c_72fc794e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-01-19T21:24:27Z",
+      "side": 1,
+      "message": "⧗   input: rockchip.rst: Fix typo in build instructions for AARCH64\n\nAARCH64 requires bl31 and not bl32.\n\nSigned-off-by: Herman van Hazendonk \u003cgithub.com@herrie.org\u003e\nChange-Id: If656ee68164532a60f661c206d34f6971d78baca\n✖   subject may not be empty [subject-empty]\n✖   type may not be empty [type-empty]\n⚠   header must not be longer than 50 characters, current length is 56 [header-max-length]\n\n✖   found 2 problems, 1 warnings\nⓘ   Get help: https://github.com/conventional-changelog/commitlint/#what-is-commitlint",
+      "revId": "323e4b0e849f049ca2db8fdcdf3353d371e36148",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
