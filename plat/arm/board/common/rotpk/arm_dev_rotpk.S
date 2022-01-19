@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-/* diphda platform provides custom values for the macros defined in
+/* corstone1000 platform provides custom values for the macros defined in
  * arm_def.h , so only platform_def.h needs to be included
  */
 #if !defined(TARGET_PLATFORM_FVP) && !defined(TARGET_PLATFORM_FPGA)

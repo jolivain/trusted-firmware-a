@@ -7,7 +7,7 @@
 #include <plat/arm/common/plat_arm.h>
 
 /*
- * diphda error handler
+ * corstone1000 error handler
  */
 void __dead2 plat_arm_error_handler(int err)
 {
