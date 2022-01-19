@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "217dd05e_3b880a87",
+        "filename": "plat/imx/imx8m/imx8mm/platform.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-19T11:38:44Z",
+      "side": 1,
+      "message": "Hi Paul,\nThis is not needed. I posted a patch [1], which enables platform to decide where to compile Event Log source files. Please accordingly update your platform makefile. Thanks!\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/13553",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 12
+      },
+      "revId": "c1fbf6c4be269e6402090c94d0419a2f81ef659d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
