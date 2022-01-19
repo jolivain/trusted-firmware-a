@@ -22,6 +22,29 @@
       },
       "revId": "fd0a5b5a74aaf02e5f01e9a1f7b094a6aec7578d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "daff1ea3_27733fb3",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-19T16:45:48Z",
+      "side": 1,
+      "message": "Missed this to mention in last commit, Is this really needed? This function as of now contains only macros (no branching) so no chance of x30 corruption right? Also, issue is x17 gets corrupted first before saving.",
+      "range": {
+        "startLine": 781,
+        "startChar": 1,
+        "endLine": 781,
+        "endChar": 13
+      },
+      "revId": "fd0a5b5a74aaf02e5f01e9a1f7b094a6aec7578d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
