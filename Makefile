@@ -281,24 +281,28 @@ ifeq "8.4" "$(word 1, $(sort 8.4 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
 ENABLE_FEAT_DIT		= 	1
 endif
 
-ifneq ($(findstring armclang,$(notdir $(CC))),)
-TF_CFLAGS_aarch32	=	-target arm-arm-none-eabi $(march32-directive)
-TF_CFLAGS_aarch64	=	-target aarch64-arm-none-eabi $(march64-directive)
-LD			=	$(LINKER)
-AS			=	$(CC) -c -x assembler-with-cpp $(TF_CFLAGS_$(ARCH))
-CPP			=	$(CC) -E $(TF_CFLAGS_$(ARCH))
-PP			=	$(CC) -E $(TF_CFLAGS_$(ARCH))
-else ifneq ($(findstring clang,$(notdir $(CC))),)
-CLANG_CCDIR		=	$(if $(filter-out ./,$(dir $(CC))),$(dir $(CC)),)
-TF_CFLAGS_aarch32	=	$(target32-directive) $(march32-directive)
-TF_CFLAGS_aarch64	=	-target aarch64-elf $(march64-directive)
-LD			=	$(CLANG_CCDIR)ld.lld
-ifeq (, $(shell which $(LD)))
-$(error "No $(LD) in PATH, make sure it is installed or set LD to a different linker")
-endif
-AS			=	$(CC) -c -x assembler-with-cpp $(TF_CFLAGS_$(ARCH))
-CPP			=	$(CC) -E
-PP			=	$(CC) -E
+ifneq ($(findstring clang,$(notdir $(CC))),)
+    CLANG_CCDIR		=	$(if $(filter-out ./,$(dir $(CC))),$(dir $(CC)),)
+    ifneq ($(findstring armclang,$(notdir $(CC))),)
+        TF_CFLAGS_aarch32	=	-target arm-arm-none-eabi $(march32-directive)
+        TF_CFLAGS_aarch64	=	-target aarch64-arm-none-eabi $(march64-directive)
+        LD					=	${LINKER}
+        CPP			=	$(CC) -E $(TF_CFLAGS_$(ARCH))
+        PP			=	$(CC) -E $(TF_CFLAGS_$(ARCH))
+    else
+        TF_CFLAGS_aarch32	=	$(target32-directive) $(march32-directive)
+        TF_CFLAGS_aarch64	=	-target aarch64-elf $(march64-directive)
+        CPP			        =	$(CC) -E
+        PP			        =	$(CC) -E
+        AR			:=	$(if $(wildcard $(CLANG_CCDIR)llvm-ar),$(CLANG_CCDIR)llvm-ar,llvm-ar)
+        LD			=	$(if $(wildcard $(CLANG_CCDIR)ld.lld),$(CLANG_CCDIR)ld.lld,ld.lld)
+        OD			=	$(if $(wildcard $(CLANG_CCDIR)llvm-objdump),$(CLANG_CCDIR)llvm-objdump,llvm-objdump)
+        OC			=	$(if $(wildcard $(CLANG_CCDIR)llvm-objcopy),$(CLANG_CCDIR)llvm-objcopy,llvm-objcopy)
+    endif
+    AS			=	$(CC) -c -x assembler-with-cpp $(TF_CFLAGS_$(ARCH))
+    ifeq (, $(shell which ${LD}))
+        $(error "No $(LD) in PATH, make sure it is installed or set LD to a different linker")
+    endif
 else ifneq ($(findstring gcc,$(notdir $(CC))),)
 TF_CFLAGS_aarch32	=	$(march32-directive)
 TF_CFLAGS_aarch64	=	$(march64-directive)
@@ -1222,7 +1226,7 @@ endif
 all: msg_start
 
 msg_start:
-	@echo "Building ${PLAT}"
+	@echo "Building ${PLAT} CPP = ${CPP} PP = ${PP}"
 
 ifeq (${ERROR_DEPRECATED},0)
 # Check if deprecated declarations and cpp warnings should be treated as error or not.
