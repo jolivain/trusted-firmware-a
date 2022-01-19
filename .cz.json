@@ -494,6 +494,10 @@
                     ]
                 },
                 {
+                    "title": "Partition",
+                    "scopes": ["partition", "drivers/partition"],
+                },
+                {
                     "title": "SCMI",
                     "scopes": ["scmi", "scmi_common", "drivers/scmi-msg"]
                 },
