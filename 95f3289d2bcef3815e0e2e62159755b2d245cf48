@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8215ea5_a946434c",
+        "filename": "lib/cpus/aarch64/cortex_a510.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-01-19T21:51:58Z",
+      "side": 1,
+      "message": "Did you intend to have the isb before the final return?",
+      "range": {
+        "startLine": 95,
+        "startChar": 1,
+        "endLine": 95,
+        "endChar": 4
+      },
+      "revId": "95f3289d2bcef3815e0e2e62159755b2d245cf48",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
