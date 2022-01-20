@@ -141,6 +141,24 @@
       "parentUuid": "aa7bd8d5_f775751c",
       "revId": "b68de3e1238474a348e27676a66efee46dfd55d9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7fb48dd_c3e6ca61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2022-01-20T06:26:55Z",
+      "side": 1,
+      "message": "Hi, Joannna,\n\nI don\u0027t find such issue in soc.c, from the following code, we can find from plat_console.h to sfp.h, these header files are already in project group, may I miss somthing? or scrip issue to report a false issue?\n\n  7 #include \u003cassert.h\u003e\n  8\n  9 #include \u003carch.h\u003e\n 10 #include \u003ccaam.h\u003e\n 11 #include \u003ccassert.h\u003e\n 12 #include \u003ccci.h\u003e\n 13 #include \u003ccommon/debug.h\u003e\n 14 #include \u003cdcfg.h\u003e\n 15 #ifdef I2C_INIT\n 16 #include \u003ci2c.h\u003e\n 17 #endif\n 18 #include \u003clib/mmio.h\u003e\n 19 #include \u003clib/xlat_tables/xlat_tables_v2.h\u003e\n 20 #include \u003cls_interconnect.h\u003e\n 21 #ifdef POLICY_FUSE_PROVISION\n 22 #include \u003cnxp_gpio.h\u003e\n 23 #endif\n 24 #if TRUSTED_BOARD_BOOT\n 25 #include \u003cnxp_smmu.h\u003e\n 26 #endif\n 27 #include \u003cnxp_timer.h\u003e\n 28 #ifdef CONFIG_OCRAM_ECC_EN\n 29 #include \u003cocram.h\u003e\n 30 #endif\n 31 #include \u003cplat_console.h\u003e\n 32 #include \u003cplat_gic.h\u003e\n 33 #include \u003cplat_tzc380.h\u003e\n 34 #include \u003cscfg.h\u003e\n 35 #if defined(NXP_SFP_ENABLED)\n 36 #include \u003csfp.h\u003e\n 37 #endif\n 38\n 39 #include \u003cerrata.h\u003e\n 40 #include \u003cns_access.h\u003e\n 41 #include \u003cplat_common.h\u003e\n 42 #include \u003cplatform_def.h\u003e\n 43 #include \u003csoc.h\u003e",
+      "parentUuid": "f9ba0240_11145529",
+      "revId": "b68de3e1238474a348e27676a66efee46dfd55d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
