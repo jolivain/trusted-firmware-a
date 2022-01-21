@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cde4c882_8a6a4502",
+        "filename": "services/std_svc/spm/spmc/spmc.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-01-21T11:11:54Z",
+      "side": 1,
+      "message": "Please make this optional. This blocks (or at least forces a platform port to do some dummy TSP) using OP-TEE as bl32.",
+      "revId": "d3476950061b1cc81b2474e7479fbed1a9c72776",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
