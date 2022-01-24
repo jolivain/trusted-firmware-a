@@ -97,14 +97,14 @@ else
 endif
 
 ifeq ($(MEASURED_BOOT),1)
-    ifeq (${TPM_HASH_ALG}, sha256)
-        TF_MBEDTLS_TPM_HASH_ALG_ID	:=	TF_MBEDTLS_SHA256
-    else ifeq (${TPM_HASH_ALG}, sha384)
-        TF_MBEDTLS_TPM_HASH_ALG_ID	:=	TF_MBEDTLS_SHA384
-    else ifeq (${TPM_HASH_ALG}, sha512)
-        TF_MBEDTLS_TPM_HASH_ALG_ID	:=	TF_MBEDTLS_SHA512
+    ifeq (${MBOOT_HASH_ALG}, sha256)
+        TF_MBEDTLS_MBOOT_HASH_ALG_ID	:=	TF_MBEDTLS_SHA256
+    else ifeq (${MBOOT_HASH_ALG}, sha384)
+        TF_MBEDTLS_MBOOT_HASH_ALG_ID	:=	TF_MBEDTLS_SHA384
+    else ifeq (${MBOOT_HASH_ALG}, sha512)
+        TF_MBEDTLS_MBOOT_HASH_ALG_ID	:=	TF_MBEDTLS_SHA512
     else
-        $(error "TPM_HASH_ALG not defined.")
+        $(error "MBOOT_HASH_ALG not defined.")
     endif
 endif
 
@@ -118,7 +118,7 @@ $(eval $(call add_defines,\
 )))
 
 ifeq ($(MEASURED_BOOT),1)
-  $(eval $(call add_define,TF_MBEDTLS_TPM_HASH_ALG_ID))
+  $(eval $(call add_define,TF_MBEDTLS_MBOOT_HASH_ALG_ID))
 endif
 
 $(eval $(call MAKE_LIB,mbedtls))
