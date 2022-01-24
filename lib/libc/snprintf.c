@@ -40,6 +40,8 @@ static void unsigned_num_print(char **s, size_t n, size_t *chars_printed,
 	unsigned int rem;
 	char ascii_a = capitalise ? 'A' : 'a';
 
+	assert(radix >= 10);
+
 	do {
 		rem = unum % radix;
 		if (rem < 10U) {
