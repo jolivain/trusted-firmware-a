@@ -3,6 +3,92 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b91cded6_1d536844",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-24T13:52:37Z",
+      "side": 1,
+      "message": "A candid ask is whether we\u0027d want any of the SPMD / SPMC  or SPs to be concerned by a fw update flow?",
+      "range": {
+        "startLine": 12,
+        "startChar": 50,
+        "endLine": 14,
+        "endChar": 20
+      },
+      "revId": "4f34fffc2193387345c35ed0a16ea291c86efd67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1706daae_4b431af9",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-24T13:52:37Z",
+      "side": 1,
+      "message": "Should this be a weak function defined per platform?",
+      "revId": "4f34fffc2193387345c35ed0a16ea291c86efd67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "417453a1_ab9d8e11",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-24T13:52:37Z",
+      "side": 1,
+      "message": "This assumes the SPMD and SPMC always stick to the same version, right?",
+      "range": {
+        "startLine": 373,
+        "startChar": 1,
+        "endLine": 375,
+        "endChar": 47
+      },
+      "revId": "4f34fffc2193387345c35ed0a16ea291c86efd67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28a06909_0d8a0cd4",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-24T13:52:37Z",
+      "side": 1,
+      "message": "use FF-A macros defined earlier on?",
+      "range": {
+        "startLine": 377,
+        "startChar": 23,
+        "endLine": 377,
+        "endChar": 29
+      },
+      "revId": "4f34fffc2193387345c35ed0a16ea291c86efd67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0087ee53_437a0c1c",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 2
@@ -43,6 +129,29 @@
         "startChar": 0,
         "endLine": 31,
         "endChar": 30
+      },
+      "revId": "4f34fffc2193387345c35ed0a16ea291c86efd67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09309d44_34296d32",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-24T13:52:37Z",
+      "side": 1,
+      "message": "misses \\n",
+      "range": {
+        "startLine": 389,
+        "startChar": 41,
+        "endLine": 389,
+        "endChar": 42
       },
       "revId": "4f34fffc2193387345c35ed0a16ea291c86efd67",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
