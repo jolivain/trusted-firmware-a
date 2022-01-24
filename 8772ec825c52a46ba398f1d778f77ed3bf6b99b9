@@ -284,6 +284,30 @@
       },
       "revId": "8772ec825c52a46ba398f1d778f77ed3bf6b99b9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72d2fbdd_eb41e526",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2022-01-24T06:49:47Z",
+      "side": 1,
+      "message": "\u003e Yes, I think it would be better to rename the function as suggested.\n\nI have renamed the function. Please review.",
+      "parentUuid": "a227d4ff_72942b89",
+      "range": {
+        "startLine": 530,
+        "startChar": 1,
+        "endLine": 536,
+        "endChar": 3
+      },
+      "revId": "8772ec825c52a46ba398f1d778f77ed3bf6b99b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
