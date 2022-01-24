@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e63ab2e4_2983842b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2022-01-24T00:19:24Z",
+      "side": 1,
+      "message": "For context, this is the implementation of the suggestions from the following LKML thread:\nhttps://lore.kernel.org/lkml/20210322062514.40747-1-samuel@sholland.org/T/\n\nAnd here\u0027s what it looks like in action:\n\n```\n\u003d\u003e fdt addr $fdtcontroladdr\n\u003d\u003e fdt print /cpus\ncpus {\n        #address-cells \u003d \u003c0x00000001\u003e;\n        #size-cells \u003d \u003c0x00000000\u003e;\n        idle-states {\n                entry-method \u003d \"psci\";\n                cluster-sleep {\n                        phandle \u003d \u003c0x000000aa\u003e;\n                        min-residency-us \u003d \u003c0x0000c350\u003e;\n                        exit-latency-us \u003d \u003c0x000005dc\u003e;\n                        entry-latency-us \u003d \u003c0x00000352\u003e;\n                        local-timer-stop;\n                        arm,psci-suspend-param \u003d \u003c0x01010013\u003e;\n                        compatible \u003d \"arm,idle-state\";\n                };\n                cpu-sleep {\n                        phandle \u003d \u003c0x000000a9\u003e;\n                        min-residency-us \u003d \u003c0x000061a8\u003e;\n                        exit-latency-us \u003d \u003c0x000005dc\u003e;\n                        entry-latency-us \u003d \u003c0x00000320\u003e;\n                        local-timer-stop;\n                        arm,psci-suspend-param \u003d \u003c0x00010003\u003e;\n                        compatible \u003d \"arm,idle-state\";\n                };\n        };\n        cpu@0 {\n                cpu-idle-states \u003d \u003c0x000000a8 0x000000a9\u003e;\n                compatible \u003d \"arm,cortex-a53\";\n                device_type \u003d \"cpu\";\n                reg \u003d \u003c0x00000000\u003e;\n                enable-method \u003d \"psci\";\n                next-level-cache \u003d \u003c0x00000005\u003e;\n                clocks \u003d \u003c0x00000002 0x00000015\u003e;\n                clock-names \u003d \"cpu\";\n                #cooling-cells \u003d \u003c0x00000002\u003e;\n                operating-points-v2 \u003d \u003c0x00000006\u003e;\n                cpu-supply \u003d \u003c0x00000007\u003e;\n                phandle \u003d \u003c0x0000000a\u003e;\n        };\n...\n```",
+      "revId": "2f5eaf2bd6efc1488334fbddfed36b1c0aac4a87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
