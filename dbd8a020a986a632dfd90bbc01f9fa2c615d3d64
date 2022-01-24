@@ -16,6 +16,24 @@
       "message": "Can you have a look at the static failures?\nhttps://ci.trustedfirmware.org/job/tf-a-static-checks/389/\nThis can be fixes in one of the first change in this patch stack. Thanks.",
       "revId": "dbd8a020a986a632dfd90bbc01f9fa2c615d3d64",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0da3d54c_2bd48dd8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-24T18:22:55Z",
+      "side": 1,
+      "message": "Updated header include orders and have submitted a patch for tf-cov-make.\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/13635",
+      "parentUuid": "5ed22e95_31795752",
+      "revId": "dbd8a020a986a632dfd90bbc01f9fa2c615d3d64",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
