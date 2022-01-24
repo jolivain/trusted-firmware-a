@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3482f745_095b9678",
+        "filename": "services/std_svc/spm/spmc/logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-24T18:21:38Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "119cac58_c566d497",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 9
+      },
+      "revId": "35a6fbf40cca9aaabdd06f493a4ee174f22ec728",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b05d76b8_d24b1575",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-12T21:08:56Z",
       "side": 1,
       "message": "Would there be a need to check for a null GUID as well? Or just a null pointer here?",
+      "range": {
+        "startLine": 62,
+        "startChar": 5,
+        "endLine": 62,
+        "endChar": 34
+      },
+      "revId": "35a6fbf40cca9aaabdd06f493a4ee174f22ec728",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee7fb707_86e670fd",
+        "filename": "services/std_svc/spm/spmc/logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-24T18:21:38Z",
+      "side": 1,
+      "message": "Good point, added a check for a NULL GUID as well.",
+      "parentUuid": "b05d76b8_d24b1575",
       "range": {
         "startLine": 62,
         "startChar": 5,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f679ebfd_7346e67f",
+        "filename": "services/std_svc/spm/spmc/logical_sp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-24T18:21:38Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "f01ac1d8_687b8299",
+      "range": {
+        "startLine": 35,
+        "startChar": 15,
+        "endLine": 35,
+        "endChar": 21
+      },
+      "revId": "35a6fbf40cca9aaabdd06f493a4ee174f22ec728",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1258086b_369ed7bb",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-01-12T21:08:56Z",
       "side": 1,
       "message": "Would \"return (el3_lp_desc_t *) EL3_LP_DESCS_START;\" work here?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 21
+      },
+      "revId": "35a6fbf40cca9aaabdd06f493a4ee174f22ec728",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d97449b_5bb9d257",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-24T18:21:38Z",
+      "side": 1,
+      "message": "Sure, updated.",
+      "parentUuid": "1258086b_369ed7bb",
       "range": {
         "startLine": 51,
         "startChar": 0,
