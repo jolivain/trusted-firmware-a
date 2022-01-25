@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61ffcb37_6aa3fc06",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-25T10:29:50Z",
+      "side": 1,
+      "message": "Needs #if SPMD_SPM_AT_SEL2",
+      "range": {
+        "startLine": 578,
+        "startChar": 3,
+        "endLine": 578,
+        "endChar": 43
+      },
+      "revId": "c4f1086fd875bbb90dceec1b1c65c67ed86b09ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
