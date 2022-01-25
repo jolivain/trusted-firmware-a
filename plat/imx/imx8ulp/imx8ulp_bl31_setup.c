@@ -153,6 +153,9 @@ void bl31_platform_setup(void)
 	xrdc_enable();
 
 	imx8ulp_caam_init();
+
+extern void dram_init(void);
+	dram_init();
 }
 
 entry_point_info_t *bl31_plat_get_next_image_ep_info(unsigned int type)
