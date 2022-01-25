@@ -1,0 +1,141 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05d8fc45_d7570d02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-25T15:11:19Z",
+      "side": 1,
+      "message": "Hi, can you rebase this patchset to tip of the tree?",
+      "revId": "2ec2e66009a6c6182d74ba0f0ad01082968fc46f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f4cb95f_7e30aaa1",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-25T15:11:19Z",
+      "side": 1,
+      "message": "I wonder, can it happen an interrupt is configured Group1NS and this api is called with group\u003dGICV3_G1S? What would this trigger?",
+      "revId": "2ec2e66009a6c6182d74ba0f0ad01082968fc46f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1efe1992_9e05a283",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1132,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-25T15:11:19Z",
+      "side": 1,
+      "message": "Provide a default case?",
+      "revId": "2ec2e66009a6c6182d74ba0f0ad01082968fc46f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9d59708_79ddf58c",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1133,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-25T15:11:19Z",
+      "side": 1,
+      "message": "nit: blank",
+      "revId": "2ec2e66009a6c6182d74ba0f0ad01082968fc46f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26636654_1c09d186",
+        "filename": "include/drivers/arm/gicv2.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-25T15:11:19Z",
+      "side": 1,
+      "message": "use parentheses like other parms",
+      "range": {
+        "startLine": 53,
+        "startChar": 3,
+        "endLine": 53,
+        "endChar": 8
+      },
+      "revId": "2ec2e66009a6c6182d74ba0f0ad01082968fc46f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89446c77_be711d4c",
+        "filename": "plat/common/plat_gicv2.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-25T15:11:19Z",
+      "side": 1,
+      "message": "unsigned int",
+      "range": {
+        "startLine": 258,
+        "startChar": 26,
+        "endLine": 258,
+        "endChar": 29
+      },
+      "revId": "2ec2e66009a6c6182d74ba0f0ad01082968fc46f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df1caea4_f00946e8",
+        "filename": "plat/common/plat_gicv2.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-25T15:11:19Z",
+      "side": 1,
+      "message": "unsigned int",
+      "range": {
+        "startLine": 272,
+        "startChar": 29,
+        "endLine": 272,
+        "endChar": 32
+      },
+      "revId": "2ec2e66009a6c6182d74ba0f0ad01082968fc46f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
