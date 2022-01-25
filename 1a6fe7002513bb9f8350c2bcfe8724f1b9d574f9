@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "377a9a4f_4c0676cb",
+        "filename": "plat/arm/board/fvp/fvp_security.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-25T12:35:33Z",
+      "side": 1,
+      "message": "nit: It will be good if you provide this link [1] as a comment for quick reference. \n\n[1]: https://developer.arm.com/documentation/100964/1116/Base-Platform/Base---memory/Base-Platform-memory-map",
+      "revId": "1a6fe7002513bb9f8350c2bcfe8724f1b9d574f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dfd8bf9_43500920",
+        "filename": "plat/arm/board/fvp/fvp_security.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-25T12:35:33Z",
+      "side": 1,
+      "message": "instead fvp_tzc_regions?",
+      "range": {
+        "startLine": 25,
+        "startChar": 30,
+        "endLine": 25,
+        "endChar": 41
+      },
+      "revId": "1a6fe7002513bb9f8350c2bcfe8724f1b9d574f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9ac466e_f44df283",
+        "filename": "plat/arm/board/fvp/fvp_security.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-25T12:35:33Z",
+      "side": 1,
+      "message": "This macro doesn\u0027t seems to be generic across all Arm platforms. Will it makes sense to rename it to FVP_DRAM3_BASE, and similarly below PLAT_ARM_DRAM* macros?",
+      "range": {
+        "startLine": 32,
+        "startChar": 3,
+        "endLine": 32,
+        "endChar": 22
+      },
+      "revId": "1a6fe7002513bb9f8350c2bcfe8724f1b9d574f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
