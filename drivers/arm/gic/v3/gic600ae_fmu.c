@@ -291,6 +291,16 @@ void gic600_fmu_init(uint64_t base, uint64_t blk_present_mask,
 	}
 
 	/*
+	 * Disable all safety mechanisms for blocks that are not
+	 * present
+	 */
+	for (unsigned int i = FMU_BLK_GICD; i <= FMU_BLK_PPI31; i++) {
+		if ((blk_present_mask & BIT(i)) == 0U) {
+			gic_fmu_disable_all_sm_blkid(base, i);
+		}
+	}
+
+	/*
 	 * Enable MBIST REQ error and FMU CLK gate override safety mechanisms for
 	 * all blocks
 	 *
