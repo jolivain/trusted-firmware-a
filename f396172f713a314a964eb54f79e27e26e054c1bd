@@ -33,6 +33,23 @@
       "message": "Hmm, The scope of ARM_PRELOADED_DTB_BASE was reduced so that we can rationalize the arguments being set by different BL images.\n\nThe idea is that BL2 creates the nodelist of entry point arguments and all following images use the same entry point arguments as far as possible. Else it becomes difficult to track down how the parameters are being modified in various places.\n\nRESET_TO_BL31 is the case when we will have all the preloaded images(since BL2 is absent). Hence it was thought ARM_PRELOADED_DTB_BASE is better limited to that case.\n\nIf BL2 is the loader image, then BL2 should also load HW_CONFIG from FIP. If the default DTB needs to be overridden , then the DTB can be overridden during TF-A compilation by pointing the HW_CONFIG variable to a different DTB. Will that suffice this requirement ?",
       "revId": "f396172f713a314a964eb54f79e27e26e054c1bd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02864112_1ffe268f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-01-25T16:25:37Z",
+      "side": 1,
+      "message": "WiP with Andre.",
+      "revId": "f396172f713a314a964eb54f79e27e26e054c1bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
