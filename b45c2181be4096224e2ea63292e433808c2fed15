@@ -144,6 +144,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "76aade29_0422804e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-26T12:01:15Z",
+      "side": 1,
+      "message": "Good points, so I\u0027ll change `fix` back to `feat` as this isn\u0027t a bug fix and then would it help if I rephrased the full summary to something like:\n\n`feat(spmc): prevent read only xlat tables with the EL3 SPMC`\n\nMy thinking here is that the \"feature\" of an additional error message (warning of incompatible build args), is being added to support the SPMC component/scope and this achieved by modifying the xlat table library. Do you think this makes the intention any clearer?",
+      "parentUuid": "20cbb559_7724def5",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 59
+      },
+      "revId": "b45c2181be4096224e2ea63292e433808c2fed15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5cd03409_d9c4f1dd",
