@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -167,33 +167,49 @@ func el2_sysregs_context_save
 	str	x11, [x0, #CTX_CNTPOFF_EL2]
 #endif
 
-#if ARM_ARCH_AT_LEAST(8, 4)
-	mrs	x12, contextidr_el2
-	str	x12, [x0, #CTX_CONTEXTIDR_EL2]
-
-#if CTX_INCLUDE_AARCH32_REGS
-	mrs	x13, sder32_el2
-	str	x13, [x0, #CTX_SDER32_EL2]
+#if ENABLE_FEAT_VHE
+	/* contextidr_el2 register is saved only when FEAT_VHE or
+	 * FEAT_Debugv8p2 ( currently not in TF-A ) is supported. */
+	mrs	x9, contextidr_el2
+	mrs	x10, ttbr1_el2
+	stp	x9, x10, [x0, #CTX_CONTEXTIDR_EL2]
 #endif
-	mrs	x14, ttbr1_el2
-	mrs	x15, vdisr_el2
-	stp	x14, x15, [x0, #CTX_TTBR1_EL2]
+
+#if RAS_EXTENSION
+	/* vdisr_el2 and vsesr_el2 registers are saved only when FEAT_RAS is supported. */
+	mrs	X11, vdisr_el2
+	mrs	X12, vsesr_el2
+	stp	x11, x12, [x0, #CTX_VDISR_EL2]
+#endif
+
+#if SPMD_SPM_AT_SEL2
+	/* vstcr_el2 and vsttbr_el2 registers are saved only when FEAT_SEL2 is supported. */
+	mrs	X13, vstcr_el2
+	mrs	X14, vsttbr_el2
+	stp	x13, x14, [x0, #CTX_VSTCR_EL2]
+#endif
+
+#if CTX_INCLUDE_AARCH32_REGS && SPMD_SPM_AT_SEL2
+	/* sder32_el2 register is saved only when
+	 * EL2 , EL1 capable of using Aarch32 and FEAT_SEL2 is supported. */
+	mrs	x15, sder32_el2
+	str	x15, [x0, #CTX_SDER32_EL2]
+#endif
 
 #if CTX_INCLUDE_NEVE_REGS
+	/* vncr_el2 register is saved only when FEAT_NV2 is supported. */
 	mrs	x16, vncr_el2
 	str	x16, [x0, #CTX_VNCR_EL2]
 #endif
 
-	mrs	x9, vsesr_el2
-	mrs	x10, vstcr_el2
-	stp	x9, x10, [x0, #CTX_VSESR_EL2]
-
-	mrs	x11, vsttbr_el2
-	mrs	x12, TRFCR_EL2
-	stp	x11, x12, [x0, #CTX_VSTTBR_EL2]
+#if ENABLE_TRF_FOR_NS
+	/* trfcr_el2 register is saved only when FEAT_TRF is supported. */
+	mrs	x12, trfcr_el2
+	str	x12, [x0, #CTX_TRFCR_EL2]
 #endif
 
-#if ARM_ARCH_AT_LEAST(8, 5)
+#if ENABLE_FEAT_CSV2_2
+	/* scxtnum_el2 register is saved only when FEAT_CSV2_2 is supported. */
 	mrs	x13, scxtnum_el2
 	str	x13, [x0, #CTX_SCXTNUM_EL2]
 #endif
@@ -347,33 +363,50 @@ func el2_sysregs_context_restore
 	msr	CNTPOFF_EL2, x11
 #endif
 
-#if ARM_ARCH_AT_LEAST(8, 4)
-	ldr	x12, [x0, #CTX_CONTEXTIDR_EL2]
-	msr	contextidr_el2, x12
 
-#if CTX_INCLUDE_AARCH32_REGS
-	ldr	x13, [x0, #CTX_SDER32_EL2]
-	msr	sder32_el2, x13
+#if ENABLE_FEAT_VHE
+	/* contextidr_el2 register is restored only when FEAT_VHE or
+	 * FEAT_Debugv8p2 ( currently not in TF-A ) is supported. */
+	ldp	x9, x10, [x0, #CTX_CONTEXTIDR_EL2]
+	msr	contextidr_el2, x9
+	msr	ttbr1_el2, x10
 #endif
-	ldp	x14, x15, [x0, #CTX_TTBR1_EL2]
-	msr	ttbr1_el2, x14
-	msr	vdisr_el2, x15
+
+#if RAS_EXTENSION
+	/* vdisr_el2 and vsesr_el2 registers are restored only when FEAT_RAS is supported. */
+	ldp	x11, x12, [x0, #CTX_VDISR_EL2]
+	msr	vdisr_el2, x11
+	msr	vsesr_el2, x12
+#endif
+
+#if SPMD_SPM_AT_SEL2
+	/* vstcr_el2 and vsttbr_el2 registers are restored only when FEAT_SEL2 is supported. */
+	ldp	x13, x14, [x0, #CTX_VSTCR_EL2]
+	msr	vstcr_el2, x13
+	msr	vsttbr_el2, x14
+#endif
+
+#if CTX_INCLUDE_AARCH32_REGS && SPMD_SPM_AT_SEL2
+	/* sder32_el2 register is restored only when
+	 * EL2 , EL1 capable of using Aarch32 and FEAT_SEL2 is supported. */
+	ldr x15, [x0, #CTX_SDER32_EL2]
+	msr sder32_el2, x15
+#endif
 
 #if CTX_INCLUDE_NEVE_REGS
-	ldr	x16, [x0, #CTX_VNCR_EL2]
-	msr	vncr_el2, x16
+	/* vncr_el2 register is restored only when FEAT_NV2 is supported. */
+	ldr x16, [x0, #CTX_VNCR_EL2]
+	msr vncr_el2, x16
 #endif
 
-	ldp	x9, x10, [x0, #CTX_VSESR_EL2]
-	msr	vsesr_el2, x9
-	msr	vstcr_el2, x10
-
-	ldp	x11, x12, [x0, #CTX_VSTTBR_EL2]
-	msr	vsttbr_el2, x11
-	msr	TRFCR_EL2, x12
+#if ENABLE_TRF_FOR_NS
+	/* trfcr_el2 register is restored only when FEAT_TRF is supported. */
+	ldr x12, [x0, #CTX_TRFCR_EL2]
+	msr trfcr_el2, x12
 #endif
 
-#if ARM_ARCH_AT_LEAST(8, 5)
+#if ENABLE_FEAT_CSV2_2
+	/* scxtnum_el2 register is restored only when FEAT_CSV2_2 is supported. */
 	ldr	x13, [x0, #CTX_SCXTNUM_EL2]
 	msr	scxtnum_el2, x13
 #endif
