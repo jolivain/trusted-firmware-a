@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfbcffe7_94928a23",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1685,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-27T11:10:46Z",
+      "side": 1,
+      "message": "Will update.",
+      "parentUuid": "c54d4348_e9fd2b45",
+      "revId": "7d026dae0b830a4bb99460279cd7ee177ccbb9af",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43a505b2_12bb7cef",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-01-27T00:54:22Z",
       "side": 1,
       "message": "So then, I *think* this is going to print out a cryptic state number, true?\n\nSince you in fact know what state it\u0027s in by human-comprehensible name, why not explicitly print out a human-comprehensible state name/description, \"Waiting State\"?  That would be more descriptive than \"... in 3 state\"",
+      "revId": "7d026dae0b830a4bb99460279cd7ee177ccbb9af",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71591222_9fe3eed6",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1695,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-01-27T11:10:46Z",
+      "side": 1,
+      "message": "Yes that\u0027s correct it would just print the state number. So at this point we\u0027re ensuring we are in a given state (Waiting) and any other state would be an error. This means that we wouldn\u0027t know the human comprehensible state name without checking for each possible state. \n\nAs a middle ground do you think it would be clearer to change the error message to say something like: \"S-EL1 SP context on core%u is in %u state, expected waiting state (%u)\"?",
+      "parentUuid": "43a505b2_12bb7cef",
       "revId": "7d026dae0b830a4bb99460279cd7ee177ccbb9af",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
