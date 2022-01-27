@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a08fe4d_5284a622",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-27T10:10:26Z",
+      "side": 1,
+      "message": "nit: typo",
+      "range": {
+        "startLine": 7,
+        "startChar": 14,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7b16bab_87f47de6",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-27T10:10:26Z",
+      "side": 1,
+      "message": "nit: which is?",
+      "range": {
+        "startLine": 50,
+        "startChar": 71,
+        "endLine": 50,
+        "endChar": 76
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "795fab11_238cf9db",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-27T10:10:26Z",
+      "side": 1,
+      "message": "Just an obvious wording detail, pre-Arm CCA, EL3 is also secure world.",
+      "range": {
+        "startLine": 49,
+        "startChar": 33,
+        "endLine": 50,
+        "endChar": 12
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d4df175_46144ef5",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-27T10:10:26Z",
+      "side": 1,
+      "message": "Is the new assumption that NS EL2 is always populated (by some Hypervisor)?",
+      "range": {
+        "startLine": 56,
+        "startChar": 49,
+        "endLine": 57,
+        "endChar": 70
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53fd1864_4b522d89",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-27T10:10:26Z",
+      "side": 1,
+      "message": "nit: full stop",
+      "range": {
+        "startLine": 57,
+        "startChar": 66,
+        "endLine": 57,
+        "endChar": 70
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55384d02_b66da4fc",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-27T10:10:26Z",
+      "side": 1,
+      "message": "I get the intention. Though the current way was designed with in mind that the operation is symmetrical for NS/S save/restore operations. While I admit the method is rigid, there is less \u0027risk\u0027 of missing an arch feature provided the same register set is used for world switch one way and the other.\nI wonder if there can be problems when RMMD and SPMD do not save/restore the exact same set of registers. I\u0027m thinking of data leak or state corruption between worlds. Should there be rules to be enforced?",
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a16a02a4_1862c213",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-27T10:10:26Z",
+      "side": 1,
+      "message": "nit: and performs the initialization for the given world?",
+      "range": {
+        "startLine": 105,
+        "startChar": 49,
+        "endLine": 106,
+        "endChar": 14
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89f73033_56152cc9",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-27T10:10:26Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 109,
+        "startChar": 22,
+        "endLine": 109,
+        "endChar": 31
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a171ef2_895dc0d4",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-27T10:10:26Z",
+      "side": 1,
+      "message": "rephrase?",
+      "range": {
+        "startLine": 125,
+        "startChar": 10,
+        "endLine": 125,
+        "endChar": 39
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e95e43f_76783580",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-27T10:10:26Z",
+      "side": 1,
+      "message": "When the SPMC resides at SEL2:\nNS to S world switch saves NS EL1 context from the SPMD.\nS to NS world switch restores NS EL1 context from the SPMD.\n\u0027Exit to secure\u0027 should be rephrased \u0027Exit to SEL2\u0027 because EL3 is already secure (similarly for \u0027Entry from secure\u0027)",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 23
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
