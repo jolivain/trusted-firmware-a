@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9da27d89_e5887539",
+        "filename": "drivers/st/clk/stm32mp1_clk.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-01-27T17:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3c48c14_63e708a8",
+      "range": {
+        "startLine": 1117,
+        "startChar": 26,
+        "endLine": 1117,
+        "endChar": 27
+      },
+      "revId": "2527ea18a893bf5d9da3f1ea274fc781b432d433",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89eb47db_c4a3e0b7",
@@ -79,6 +103,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "89eb47db_c4a3e0b7",
+      "revId": "2527ea18a893bf5d9da3f1ea274fc781b432d433",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef465cbd_29fd7951",
+        "filename": "drivers/st/clk/stm32mp1_clk.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1123,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-01-27T17:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "520d5b93_5968b99e",
       "revId": "2527ea18a893bf5d9da3f1ea274fc781b432d433",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
