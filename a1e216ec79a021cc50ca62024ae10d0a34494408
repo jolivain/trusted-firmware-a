@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5dfe34c_b99aa848",
+        "filename": "drivers/st/clk/stm32mp_clkfunc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-01-27T16:50:32Z",
+      "side": 1,
+      "message": "u_register_t is defined as unsigned long. Is this cast necessary?",
+      "range": {
+        "startLine": 348,
+        "startChar": 19,
+        "endLine": 348,
+        "endChar": 31
+      },
+      "revId": "a1e216ec79a021cc50ca62024ae10d0a34494408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
