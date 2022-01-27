@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e535f492_a555663b",
+        "filename": "lib/cpus/aarch64/cortex_x2.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-01-27T19:00:30Z",
+      "side": 1,
+      "message": "I think it would be clearer to define these registers in cortex_x2.h using the names given in the comments in the workaround",
+      "range": {
+        "startLine": 159,
+        "startChar": 5,
+        "endLine": 159,
+        "endChar": 18
+      },
+      "revId": "4d58e26c7941187fc280974a9e98472d8a7071cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
