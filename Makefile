@@ -135,6 +135,10 @@ ifeq (${ENABLE_RME},1)
 ifneq (${ENABLE_PIE},0)
         $(error ENABLE_RME does not support PIE)
 endif
+# RME doesn't support BRBE
+ifneq (${ENABLE_BRBE_FOR_NS},0)
+        $(error ENABLE_RME does not support BRBE.)
+endif
 # RME requires AARCH64
 ifneq (${ARCH},aarch64)
         $(error ENABLE_RME requires AArch64)
@@ -1031,6 +1035,7 @@ $(eval $(call assert_booleans,\
         COT_DESC_IN_DTB \
         USE_SP804_TIMER \
         PSA_FWU_SUPPORT \
+        ENABLE_BRBE_FOR_NS \
         ENABLE_TRBE_FOR_NS \
         ENABLE_SYS_REG_TRACE_FOR_NS \
         ENABLE_MPMM \
@@ -1168,6 +1173,7 @@ $(eval $(call add_defines,\
         NR_OF_FW_BANKS \
         NR_OF_IMAGES_IN_FW_BANK \
         PSA_FWU_SUPPORT \
+        ENABLE_BRBE_FOR_NS \
         ENABLE_TRBE_FOR_NS \
         ENABLE_SYS_REG_TRACE_FOR_NS \
         ENABLE_TRF_FOR_NS \
