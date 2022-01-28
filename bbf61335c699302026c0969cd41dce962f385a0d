@@ -51,6 +51,23 @@
       "message": "The CI result looks good to me now, there is only a failure of \"Newly added files detection check for Coverity Scan analysis on patch(es)\" left. That one should be addressed by https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/13697 (Is there any way to make CI not fail with that check?)",
       "revId": "bbf61335c699302026c0969cd41dce962f385a0d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76611833_87b69f22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-01-28T14:02:51Z",
+      "side": 1,
+      "message": "Static checks look now, have identified someone who can do CoR on these patches\n\nAlso, I have Legacy CI which sync patches in different repositories and runs CI (to see if this platform builds or not)",
+      "revId": "bbf61335c699302026c0969cd41dce962f385a0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
