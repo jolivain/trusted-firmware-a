@@ -1050,6 +1050,7 @@ $(eval $(call assert_booleans,\
         ENABLE_FEAT_SB \
         ENABLE_FEAT_DIT \
         PSA_FWU_SUPPORT \
+        ENABLE_BRBE_FOR_NS \
         ENABLE_TRBE_FOR_NS \
         ENABLE_SYS_REG_TRACE_FOR_NS \
         ENABLE_TRF_FOR_NS \
@@ -1169,6 +1170,7 @@ $(eval $(call add_defines,\
         NR_OF_FW_BANKS \
         NR_OF_IMAGES_IN_FW_BANK \
         PSA_FWU_SUPPORT \
+        ENABLE_BRBE_FOR_NS \
         ENABLE_TRBE_FOR_NS \
         ENABLE_SYS_REG_TRACE_FOR_NS \
         ENABLE_TRF_FOR_NS \
