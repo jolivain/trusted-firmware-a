@@ -1055,6 +1055,7 @@ $(eval $(call assert_booleans,\
         ENABLE_FEAT_FGT \
         ENABLE_FEAT_AMUv1 \
         ENABLE_FEAT_ECV \
+        ENABLE_BRBE_FOR_NS \
 )))
 
 $(eval $(call assert_numerics,\
@@ -1172,6 +1173,7 @@ $(eval $(call add_defines,\
         ENABLE_FEAT_FGT \
         ENABLE_FEAT_AMUv1 \
         ENABLE_FEAT_ECV \
+        ENABLE_BRBE_FOR_NS \
 )))
 
 ifeq (${SANITIZE_UB},trap)

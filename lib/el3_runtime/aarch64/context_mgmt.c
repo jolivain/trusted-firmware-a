@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -19,6 +19,7 @@
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/el3_runtime/pubsub_events.h>
 #include <lib/extensions/amu.h>
+#include <lib/extensions/brbe.h>
 #include <lib/extensions/mpam.h>
 #include <lib/extensions/sme.h>
 #include <lib/extensions/spe.h>
@@ -392,6 +393,10 @@ static void manage_extensions_nonsecure(bool el2_unused, cpu_context_t *ctx)
 #if ENABLE_TRBE_FOR_NS
 	trbe_enable();
 #endif /* ENABLE_TRBE_FOR_NS */
+
+#if ENABLE_BRBE_FOR_NS
+	brbe_enable();
+#endif /* ENABLE_BRBE_FOR_NS */
 
 #if ENABLE_SYS_REG_TRACE_FOR_NS
 	sys_reg_trace_enable(ctx);
