@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ded23790_7aceb155",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-01-28T09:29:22Z",
+      "side": 1,
+      "message": "This causes release build to break because assert at line 593 is omitted and hence variable becomes unused.",
+      "range": {
+        "startLine": 574,
+        "startChar": 3,
+        "endLine": 574,
+        "endChar": 26
+      },
+      "revId": "c54dca10d5cb9b5105b4e1ad4431122798d3f2b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
