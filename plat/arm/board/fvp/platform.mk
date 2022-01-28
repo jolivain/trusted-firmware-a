@@ -394,6 +394,9 @@ endif
 # enable trace buffer control registers access to NS by default
 ENABLE_TRBE_FOR_NS		:= 1
 
+# enable branch record buffer control registers access in NS by default
+ENABLE_BRBE_FOR_NS		:= 1
+
 # enable trace system registers access to NS by default
 ENABLE_SYS_REG_TRACE_FOR_NS	:= 1
 
