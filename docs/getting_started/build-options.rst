@@ -833,6 +833,11 @@ Common build options
   functions that wait for an arbitrary time length (udelay and mdelay). The
   default value is 0.
 
+- ``ENABLE_BRBE_FOR_NS``: This flag enables access to the branch record buffer
+  registers from NS ELs when FEAT_BRBE is implemented. BRBE is an optional
+  architectural feature for AArch64. The default is 0 and it is automatically
+  disabled when the target architecture is AArch32.
+
 - ``ENABLE_TRBE_FOR_NS``: This flag is used to enable access of trace buffer
   control registers from NS ELs, NS-EL2 or NS-EL1(when NS-EL2 is implemented
   but unused) when FEAT_TRBE is implemented. TRBE is an optional architectural
@@ -961,7 +966,7 @@ Firmware update options
 
 --------------
 
-*Copyright (c) 2019-2021, Arm Limited. All rights reserved.*
+*Copyright (c) 2019-2022, Arm Limited. All rights reserved.*
 
 .. _DEN0115: https://developer.arm.com/docs/den0115/latest
 .. _PSA FW update specification: https://developer.arm.com/documentation/den0118/a/

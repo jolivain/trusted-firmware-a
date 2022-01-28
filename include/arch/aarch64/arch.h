@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -216,6 +216,11 @@
 #define ID_AA64DFR0_MTPMU_SHIFT		U(48)
 #define ID_AA64DFR0_MTPMU_MASK		ULL(0xf)
 #define ID_AA64DFR0_MTPMU_SUPPORTED	ULL(1)
+
+/* ID_AA64DFR0_EL1.BRBE definitions */
+#define ID_AA64DFR0_BRBE_SHIFT		U(52)
+#define ID_AA64DFR0_BRBE_MASK		ULL(0xf)
+#define ID_AA64DFR0_BRBE_SUPPORTED	ULL(1)
 
 /* ID_AA64ISAR0_EL1 definitions */
 #define ID_AA64ISAR0_RNDR_SHIFT	U(60)
@@ -482,6 +487,8 @@
 #define MDCR_EnPMSN_BIT		(ULL(1) << 36)
 #define MDCR_MPMX_BIT		(ULL(1) << 35)
 #define MDCR_MCCD_BIT		(ULL(1) << 34)
+#define MDCR_SBRBE_SHIFT	U(32)
+#define MDCR_SBRBE_MASK		ULL(0x3)
 #define MDCR_NSTB(x)		((x) << 24)
 #define MDCR_NSTB_EL1		ULL(0x3)
 #define MDCR_NSTBE		(ULL(1) << 26)
