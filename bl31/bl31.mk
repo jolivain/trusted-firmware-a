@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -102,6 +102,10 @@ endif
 
 ifeq (${ENABLE_TRBE_FOR_NS},1)
 BL31_SOURCES		+=	lib/extensions/trbe/trbe.c
+endif
+
+ifeq (${ENABLE_BRBE_FOR_NS},1)
+BL31_SOURCES		+=	lib/extensions/brbe/brbe.c
 endif
 
 ifeq (${ENABLE_SYS_REG_TRACE_FOR_NS},1)
