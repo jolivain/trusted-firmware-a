@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0778cf7d_2197f958",
+        "filename": "plat/st/stm32mp1/bl2_plat_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-01-31T09:00:14Z",
+      "side": 1,
+      "message": "Yes, you\u0027re right. I\u0027ll move that before line 181, as I need otp there.",
+      "parentUuid": "4b75fcb5_94b89895",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 2
+      },
+      "revId": "b2560b5529f4025ec485513f32c65e11c2c426d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "56bd52b6_743c8b60",
         "filename": "plat/st/stm32mp1/platform.mk",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-28T19:33:18Z",
       "side": 1,
       "message": "Out of curiosity, when this counter gets incremented, and is it per FIP?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 23
+      },
+      "revId": "b2560b5529f4025ec485513f32c65e11c2c426d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dade1343_dbaed019",
+        "filename": "plat/st/stm32mp1/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-01-31T09:00:14Z",
+      "side": 1,
+      "message": "That monotonic counter is just for BL2. It is used by the ROM code to check if it can boot this software. FIP will use other means (Etienne brought this subject in one of the Tech Forums).",
+      "parentUuid": "56bd52b6_743c8b60",
       "range": {
         "startLine": 21,
         "startChar": 0,
