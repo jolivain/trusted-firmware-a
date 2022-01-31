@@ -403,6 +403,10 @@ ifeq (${TRUSTED_BOARD_BOOT}, 1)
 BL1_SOURCES		+=	plat/arm/board/fvp/fvp_trusted_boot.c
 BL2_SOURCES		+=	plat/arm/board/fvp/fvp_trusted_boot.c
 
+ifeq (${DRTM_SUPPORT}, 1)
+BL31_SOURCES   += plat/arm/board/fvp/fvp_drtm_dma_prot.c
+endif
+
 # FVP being a development platform, enable capability to disable Authentication
 # dynamically if TRUSTED_BOARD_BOOT is set.
 DYN_DISABLE_AUTH	:=	1
