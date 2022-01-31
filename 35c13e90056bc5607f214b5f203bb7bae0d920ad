@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "33d44952_4b69875f",
+        "filename": "lib/cpus/aarch64/cortex_a510.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-01-31T21:25:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "71aa3940_9b7b48f4",
+      "revId": "35c13e90056bc5607f214b5f203bb7bae0d920ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b7b27995_02f3a21c",
         "filename": "lib/cpus/aarch64/cortex_a510.S",
         "patchSetId": 3
@@ -48,6 +66,24 @@
       "writtenOn": "2022-01-30T21:27:34Z",
       "side": 1,
       "message": "Does it affect x1 or x2?",
+      "revId": "35c13e90056bc5607f214b5f203bb7bae0d920ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "883234fd_c04cc1db",
+        "filename": "lib/cpus/aarch64/cortex_a510.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-01-31T21:25:14Z",
+      "side": 1,
+      "message": "Yes, see function check_errata_2041909.",
+      "parentUuid": "b7b27995_02f3a21c",
       "revId": "35c13e90056bc5607f214b5f203bb7bae0d920ad",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
