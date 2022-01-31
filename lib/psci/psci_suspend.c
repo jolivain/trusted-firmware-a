@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -331,5 +331,9 @@ void psci_cpu_suspend_finish(unsigned int cpu_idx, const psci_power_state_t *sta
 	 * information that we had stashed away during the suspend
 	 * call to set this cpu on its way.
 	 */
+#if CTX_INCLUDE_EL2_REGS
+	cm_prepare_el3_exit_ns();
+#else
 	cm_prepare_el3_exit(NON_SECURE);
+#endif
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -39,6 +39,7 @@ void cm_prepare_el3_exit(uint32_t security_state);
 #if CTX_INCLUDE_EL2_REGS
 void cm_el2_sysregs_context_save(uint32_t security_state);
 void cm_el2_sysregs_context_restore(uint32_t security_state);
+void cm_prepare_el3_exit_ns(void);
 #endif
 
 void cm_el1_sysregs_context_save(uint32_t security_state);

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -162,7 +162,11 @@ int arm_execution_state_switch(unsigned int smc_fid,
 	 * calling EL.
 	 */
 	cm_init_my_context(&ep);
+#if CTX_INCLUDE_EL2_REGS
+	cm_prepare_el3_exit_ns();
+#else
 	cm_prepare_el3_exit(NON_SECURE);
+#endif
 
 	/*
 	 * State switch success. The caller of SMC wouldn't see the SMC

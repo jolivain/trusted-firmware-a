@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -253,7 +253,20 @@ void __init bl31_prepare_next_image_entry(void)
 		(image_type == SECURE) ? "secure" : "normal");
 	print_entry_point_info(next_image_info);
 	cm_init_my_context(next_image_info);
+
+/*
+ * If CTX_INCLUDE_EL2_REGS is enabled and we are entering
+ * the NS world, use 'cm_prepare_el3_exit_ns' to exit.
+ */
+#if CTX_INCLUDE_EL2_REGS
+	if (image_type == NON_SECURE) {
+		cm_prepare_el3_exit_ns();
+	} else {
+		cm_prepare_el3_exit(image_type);
+	}
+#else
 	cm_prepare_el3_exit(image_type);
+#endif /* CTX_INCLUDE_EL2_REGS */
 }
 
 /*******************************************************************************
