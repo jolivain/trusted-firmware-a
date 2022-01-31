@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5bdfcf7_b4e1d185",
+        "filename": "plat/arm/board/corstone1000/common/corstone1000_plat.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-31T15:01:26Z",
+      "side": 1,
+      "message": "This function is used only in this file, so better mention it as a static",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 4
+      },
+      "revId": "d38e121e5760a9c5505a9fcc8802a1d914d04024",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e08729d6_500b06a0",
+        "filename": "plat/arm/board/corstone1000/common/corstone1000_plat.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-31T15:01:26Z",
+      "side": 1,
+      "message": "nit: set_fip_image_source instead?",
+      "range": {
+        "startLine": 33,
+        "startChar": 5,
+        "endLine": 33,
+        "endChar": 31
+      },
+      "revId": "d38e121e5760a9c5505a9fcc8802a1d914d04024",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c528bab3_383decba",
+        "filename": "plat/arm/board/corstone1000/common/corstone1000_plat.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-31T15:01:26Z",
+      "side": 1,
+      "message": "sanity checking of this value would be helpful, though as per the implementation it is less important, but better warn if unusual index being set. (i.e. if *boot_bank_flag \u003e\u003d 2)",
+      "range": {
+        "startLine": 36,
+        "startChar": 20,
+        "endLine": 36,
+        "endChar": 34
+      },
+      "revId": "d38e121e5760a9c5505a9fcc8802a1d914d04024",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1f52ce3_56d4d381",
+        "filename": "plat/arm/board/corstone1000/common/corstone1000_plat.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-01-31T15:01:26Z",
+      "side": 1,
+      "message": "A comment mentioning who set up this register would be helpful here.",
+      "range": {
+        "startLine": 36,
+        "startChar": 50,
+        "endLine": 36,
+        "endChar": 73
+      },
+      "revId": "d38e121e5760a9c5505a9fcc8802a1d914d04024",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
