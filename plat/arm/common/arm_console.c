@@ -19,12 +19,17 @@
 /*******************************************************************************
  * Functions that set up the console
  ******************************************************************************/
-static console_t arm_boot_console;
+static console_t arm_boot_console = { .base = 0 };
 static console_t arm_runtime_console;
 
 /* Initialize the console to provide early debug support */
 void __init arm_console_boot_init(void)
 {
+	/* If the console was initialized already, don't initialize again */
+	if (arm_boot_console.base != 0) {
+		return;
+	}
+
 	int rc = console_pl011_register(PLAT_ARM_BOOT_UART_BASE,
 					PLAT_ARM_BOOT_UART_CLK_IN_HZ,
 					ARM_CONSOLE_BAUDRATE,
