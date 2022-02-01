@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8af9bc38_9d911e18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-02-01T10:10:52Z",
+      "side": 1,
+      "message": "Small comments about adding detail but otherwise it looks good to me",
+      "revId": "d210beb4864291f525bc3f0dc12d50588bf80ef6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a6a68c6_26aff6cf",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-02-01T10:10:52Z",
+      "side": 1,
+      "message": "NIT: I think to be clear and match the description given for ERRATA_V1_1774420 for example you should add\n,it is fixed in r2p1.",
+      "revId": "d210beb4864291f525bc3f0dc12d50588bf80ef6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ea9f546_8e852c2b",
+        "filename": "lib/cpus/aarch64/cortex_x2.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-02-01T10:10:52Z",
+      "side": 1,
+      "message": "Again, I think it would be good to add\n\",fixed in r2p1\"\nLike is seen for the function errata_neoverse_v1_1774420_wa",
+      "revId": "d210beb4864291f525bc3f0dc12d50588bf80ef6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ca6dbea_d8587b71",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-02-01T10:10:52Z",
+      "side": 1,
+      "message": "Again, I think it would be useful to add\n\", and was fixed in r2p1.\"",
+      "range": {
+        "startLine": 511,
+        "startChar": 54,
+        "endLine": 511,
+        "endChar": 55
+      },
+      "revId": "d210beb4864291f525bc3f0dc12d50588bf80ef6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
