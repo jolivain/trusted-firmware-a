@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d83aac75_f88f9f8f",
+        "filename": "include/services/spmd_svc.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-01T10:27:46Z",
+      "side": 1,
+      "message": "make the arguments align like in function signature of line 15.",
+      "range": {
+        "startLine": 27,
+        "startChar": 3,
+        "endLine": 27,
+        "endChar": 4
+      },
+      "revId": "659db2a5e9c06daf6fffe6bd3feffdb1e40526b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ce9bfb2_2454f915",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-01T10:27:46Z",
+      "side": 1,
+      "message": "FF-A",
+      "range": {
+        "startLine": 426,
+        "startChar": 11,
+        "endLine": 426,
+        "endChar": 14
+      },
+      "revId": "659db2a5e9c06daf6fffe6bd3feffdb1e40526b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bb8c937_d4872a41",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-01T10:27:46Z",
+      "side": 1,
+      "message": "full stop",
+      "range": {
+        "startLine": 426,
+        "startChar": 42,
+        "endLine": 426,
+        "endChar": 47
+      },
+      "revId": "659db2a5e9c06daf6fffe6bd3feffdb1e40526b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40cc40ab_f9bf7a0a",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-01T10:27:46Z",
+      "side": 1,
+      "message": "why was this renamed?\nI think the spmd prefix is meant to indicate the module this function is part of.\nCould the name of this function be \"spmd_smc_forward\" and the added function in line 467 added with \"internal\" suffix?\nThe doc comments could be updated to explain the \"internal\" suffixed version calls the EL3 SPMC if it is present.\n\nThe \"ffa_\" inclusion might not be conceptually correct, as I think the function is generic enough to not be used in the context of an FF-A call. I think the SPMD would still forward such call to the SWd using this function.",
+      "range": {
+        "startLine": 428,
+        "startChar": 9,
+        "endLine": 428,
+        "endChar": 24
+      },
+      "revId": "659db2a5e9c06daf6fffe6bd3feffdb1e40526b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b594745_fc1a926b",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-01T10:27:46Z",
+      "side": 1,
+      "message": "As per comment in line 428:\n- Could you update the doc comment?\n- Could this function be called \u0027spmd_smc_forward_internal\u0027?",
+      "range": {
+        "startLine": 466,
+        "startChar": 0,
+        "endLine": 469,
+        "endChar": 50
+      },
+      "revId": "659db2a5e9c06daf6fffe6bd3feffdb1e40526b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
