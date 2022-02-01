@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e15a48c1_78c49728",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-02-01T10:18:22Z",
+      "side": 1,
+      "message": "Small nit but otherwise looks good",
+      "revId": "08f7e3e5a258ccc1f8c2761ae9de3fe1f04e58ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c92ce7e7_43ab9c4e",
+        "filename": "include/lib/cpus/aarch64/cortex_x2.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-02-01T10:18:22Z",
+      "side": 1,
+      "message": "NIT: Have all the letters as capitals, to match the rest of the file",
+      "range": {
+        "startLine": 41,
+        "startChar": 38,
+        "endLine": 41,
+        "endChar": 51
+      },
+      "revId": "08f7e3e5a258ccc1f8c2761ae9de3fe1f04e58ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
