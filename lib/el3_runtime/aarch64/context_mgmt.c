@@ -442,7 +442,7 @@ static void manage_extensions_nonsecure(bool el2_unused, cpu_context_t *ctx)
 #endif
 
 #if ENABLE_MPAM_FOR_LOWER_ELS
-	mpam_enable(el2_unused);
+	mpam_enable(el2_unused, ctx);
 #endif
 
 #if ENABLE_TRBE_FOR_NS
