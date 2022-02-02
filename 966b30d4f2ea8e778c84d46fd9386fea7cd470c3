@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "54aaccd6_9078b995",
+        "filename": "plat/nxp/soc-ls1046a/ls1046aqds/ddr_init.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-02-02T21:27:45Z",
+      "side": 1,
+      "message": "Would WARN or ERROR be suitable here for consistency?",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 7
+      },
+      "revId": "966b30d4f2ea8e778c84d46fd9386fea7cd470c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "da921937_958edfbb",
         "filename": "plat/nxp/soc-ls1046a/ls1046aqds/ddr_init.c",
         "patchSetId": 2
@@ -37,6 +60,29 @@
       "writtenOn": "2022-01-31T16:48:51Z",
       "side": 1,
       "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "966b30d4f2ea8e778c84d46fd9386fea7cd470c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42522d4e_335e47c2",
+        "filename": "plat/nxp/soc-ls1046a/ls1046aqds/ddr_init.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-02-02T21:27:45Z",
+      "side": 1,
+      "message": "ret is not a boolean type so it might be good to do something like \"ret !\u003d 0\" instead.",
+      "range": {
+        "startLine": 38,
+        "startChar": 5,
+        "endLine": 38,
+        "endChar": 8
+      },
       "revId": "966b30d4f2ea8e778c84d46fd9386fea7cd470c3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
