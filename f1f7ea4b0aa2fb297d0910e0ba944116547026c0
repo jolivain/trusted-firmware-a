@@ -22,6 +22,30 @@
       },
       "revId": "f1f7ea4b0aa2fb297d0910e0ba944116547026c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57aba360_5b7265e2",
+        "filename": "plat/arm/board/corstone1000/common/include/platform_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000708
+      },
+      "writtenOn": "2022-02-02T15:54:37Z",
+      "side": 1,
+      "message": "to just increase readability. We have macros with long names (and we might add few more in the future), so I thought it would be better to add extra tabs. I can minimize it if you like. Let me know",
+      "parentUuid": "32a92b7c_556e30dd",
+      "range": {
+        "startLine": 19,
+        "startChar": 32,
+        "endLine": 19,
+        "endChar": 33
+      },
+      "revId": "f1f7ea4b0aa2fb297d0910e0ba944116547026c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
