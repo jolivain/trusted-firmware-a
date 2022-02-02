@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "681f50c5_2519055f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-02-02T09:52:57Z",
+      "side": 1,
+      "message": "We should definitely study the possibility more seriously.\n\nAt first glance, it seems ProvenCore does not fit well with the model envisioned by FF-A for SPs. Indeed, ProvenCore implements a preemptive microkernel which can run at EL1 as well as S-EL1. Its knowledge about other software (FF-A components) is really limited and most communication (e.g. with Linux if ProvenCore runs in S-EL1 and Linux in EL1) is delegated to ProvenCore applications (i.e. at S-EL0). However, my understanding of the FF-A is that the FF-A interface for ProvenCore would need to be implemented in the kernel (for the ERET/SMC conduits). Adding logic to the kernel, all the more so when it is not directly related to the internal logic of the kernel, is something we are reluctant to do because it impacts the formal proofs that are performed on the kernel.\n\nMoreover, FF-A seems to assume that the most common use-case for SPs is to act as direct service providers. The runtime model for FFA_MSG_SEND_DIRECT_REQ for instance does not really make sense in the context of ProvenCore: it is possible that, at one time, 2 different S-EL0 ProvenCore applications are handling 2 different requests originating from Linux. It is also possible that a request from Linux to a ProvenCore application triggers a request to Linux, whose completion is needed to reply to the original request. It seems we would only be using indirect messaging, although I am still a bit confused whether even this would fit well with all our needs.\n\nLastly, ProvenCore would be a UP endpoint (single execution context), but it is currently not migratable. I am not sure about the consequences with respect to FF-A, and about the feasibility of making ProvenCore migratable.",
+      "parentUuid": "41bef46d_deeffc1c",
+      "revId": "8516ee5dbdd9d9f71535ec128b87839113f0f70b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "45cb8bf7_80bbc158",
         "filename": "include/bl32/pnc/pnc.h",
         "patchSetId": 3
@@ -31,6 +49,30 @@
       "writtenOn": "2022-01-25T15:34:12Z",
       "side": 1,
       "message": "Should this be signed-off as an Arm contribution?\nHere and other new files added by this change.",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 51
+      },
+      "revId": "8516ee5dbdd9d9f71535ec128b87839113f0f70b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "080b02ae_621112e8",
+        "filename": "include/bl32/pnc/pnc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-02-02T09:52:57Z",
+      "side": 1,
+      "message": "Although it is not the case for this specific file, other new files added to services/spd/pncd were copied and marginally adapted from the corresponding files in services/spd/tlkd. Should we also discard the Arm copyright for those?",
+      "parentUuid": "45cb8bf7_80bbc158",
       "range": {
         "startLine": 2,
         "startChar": 23,
@@ -66,6 +108,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a7d58225_8238b0f8",
+        "filename": "services/spd/pncd/pncd.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-02-02T09:52:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "eb3ef4d1_b5c72e5e",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 35
+      },
+      "revId": "8516ee5dbdd9d9f71535ec128b87839113f0f70b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7a70f2e5_31bbb3d7",
         "filename": "services/spd/pncd/pncd.mk",
         "patchSetId": 3
@@ -89,6 +155,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "38ed9fce_bd78caf7",
+        "filename": "services/spd/pncd/pncd.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-02-02T09:52:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7a70f2e5_31bbb3d7",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 22
+      },
+      "revId": "8516ee5dbdd9d9f71535ec128b87839113f0f70b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6a0789ca_5b81706b",
         "filename": "services/spd/pncd/pncd.mk",
         "patchSetId": 3
@@ -100,6 +190,30 @@
       "writtenOn": "2022-01-25T15:34:12Z",
       "side": 1,
       "message": "Is this option still relevant?",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 26
+      },
+      "revId": "8516ee5dbdd9d9f71535ec128b87839113f0f70b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bb6ced6_07e7890f",
+        "filename": "services/spd/pncd/pncd.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-02-02T09:52:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6a0789ca_5b81706b",
       "range": {
         "startLine": 39,
         "startChar": 0,
