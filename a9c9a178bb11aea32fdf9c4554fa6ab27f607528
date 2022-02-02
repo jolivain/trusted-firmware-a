@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb582b01_ca60045a",
+        "filename": "bl32/tsp/ffa_helpers.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-02-02T21:40:27Z",
+      "side": 1,
+      "message": "Might be good to use uint16_t for consistency.",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 17,
+        "endChar": 22
+      },
+      "revId": "a9c9a178bb11aea32fdf9c4554fa6ab27f607528",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7726bfb_ab6f483d",
+        "filename": "bl32/tsp/ffa_helpers.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-02-02T21:40:27Z",
+      "side": 1,
+      "message": "Definitions like this are typically done as x_SHIFT and x_MASK in the rest of the code base. Shift is like the offsets used here and the MASK definition does not have the shift baked in like they do here.",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 79
+      },
+      "revId": "a9c9a178bb11aea32fdf9c4554fa6ab27f607528",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b461c79f_83438f11",
+        "filename": "bl32/tsp/ffa_helpers.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-02-02T21:40:27Z",
+      "side": 1,
+      "message": "nit: align tabs",
+      "range": {
+        "startLine": 231,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 27
+      },
+      "revId": "a9c9a178bb11aea32fdf9c4554fa6ab27f607528",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd4b4428_e0cac3c6",
+        "filename": "bl32/tsp/ffa_helpers.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-02-02T21:40:27Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 336,
+        "startChar": 15,
+        "endLine": 336,
+        "endChar": 16
+      },
+      "revId": "a9c9a178bb11aea32fdf9c4554fa6ab27f607528",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
