@@ -102,6 +102,23 @@
       "message": "(Added the QTI maintainers as reviewers to all patches for consistency...)\n\n@Manish: Thanks a lot for your review! Do we also need a review from lachitp/Saurabh, or is Nikita\u0027s Code-Owner-Review enough? While I would appreciate a review from someone at QTI, I am not sure if they are interested in an 8 year old platform. I did not touch any existing code in plat/qti, so there should not be any changes for their platform.\n\nAlso, is there something I should fix for the Legacy-CI/Verified-1, or is the failure unrelated to my changes? The logs from the Legacy-CI do not seem to be publicly available.",
       "revId": "bbf61335c699302026c0969cd41dce962f385a0d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5931207d_f0c2fa5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-02-03T10:16:55Z",
+      "side": 1,
+      "message": "Nikita\u0027s CoR should be enough, we have added lachitp/Saurabh just in case they have some comments(but as you said they might not be interested).\n\nI have triggered legacy CI again to see your the build tests(for this platform) you have added are running or not ",
+      "revId": "bbf61335c699302026c0969cd41dce962f385a0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
