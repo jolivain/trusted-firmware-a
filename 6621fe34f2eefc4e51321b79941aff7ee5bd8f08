@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d7c0e0c_bf60b7de",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-03T10:53:00Z",
+      "side": 1,
+      "message": "nit: this and the comment in line 258 can both fit in a single line. to be consistent with comment in line 245",
+      "range": {
+        "startLine": 250,
+        "startChar": 1,
+        "endLine": 252,
+        "endChar": 4
+      },
+      "revId": "6621fe34f2eefc4e51321b79941aff7ee5bd8f08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1c3dbfd_151d3088",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-03T10:53:00Z",
+      "side": 1,
+      "message": "FFA_ERROR",
+      "range": {
+        "startLine": 264,
+        "startChar": 18,
+        "endLine": 264,
+        "endChar": 28
+      },
+      "revId": "6621fe34f2eefc4e51321b79941aff7ee5bd8f08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cc191db_01ac3c26",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-03T10:53:00Z",
+      "side": 1,
+      "message": "I am not understanding what happens here. Is this expected to give execution back to the SP? \nDoes it mean if the if clause is true, the function the return in line 272?",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 269,
+        "endChar": 3
+      },
+      "revId": "6621fe34f2eefc4e51321b79941aff7ee5bd8f08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
