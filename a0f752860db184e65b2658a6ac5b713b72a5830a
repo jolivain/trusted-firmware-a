@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01d9e00b_0853790c",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-03T11:07:19Z",
+      "side": 1,
+      "message": "full stop.",
+      "range": {
+        "startLine": 184,
+        "startChar": 31,
+        "endLine": 184,
+        "endChar": 32
+      },
+      "revId": "a0f752860db184e65b2658a6ac5b713b72a5830a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4500d304_79faeb61",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-03T11:07:19Z",
+      "side": 1,
+      "message": "full stop here and in remaining comments to this function.",
+      "range": {
+        "startLine": 223,
+        "startChar": 67,
+        "endLine": 223,
+        "endChar": 68
+      },
+      "revId": "a0f752860db184e65b2658a6ac5b713b72a5830a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fbb7997_f1770fb0",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-03T11:07:19Z",
+      "side": 1,
+      "message": "Is it worth adding a wrapper function for this check in the spmc.h module? I see it being quite handy in various contexts.",
+      "range": {
+        "startLine": 232,
+        "startChar": 32,
+        "endLine": 232,
+        "endChar": 58
+      },
+      "revId": "a0f752860db184e65b2658a6ac5b713b72a5830a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6539b4ba_0e1ab2aa",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-03T11:07:19Z",
+      "side": 1,
+      "message": "As suggested for dir_msg_req, is it worth adding error logs to this function too?",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 4
+      },
+      "revId": "a0f752860db184e65b2658a6ac5b713b72a5830a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}

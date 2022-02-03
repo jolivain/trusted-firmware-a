@@ -69,6 +69,24 @@
       "parentUuid": "3891e8a3_f7fdea8c",
       "revId": "6cd0f211d0c832efce96789a6c67ed3f2765b4d9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96c1301b_de2759ac",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-03T11:07:19Z",
+      "side": 1,
+      "message": "Is it worth adding error logs as well? To distinguish the various cases for INVALID_PARAMETER in a debugging context.",
+      "parentUuid": "00c9ccbb_3da1ebdb",
+      "revId": "6cd0f211d0c832efce96789a6c67ed3f2765b4d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
