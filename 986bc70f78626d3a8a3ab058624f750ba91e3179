@@ -52,6 +52,24 @@
       "parentUuid": "86f81620_b227c4ed",
       "revId": "986bc70f78626d3a8a3ab058624f750ba91e3179",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65d2d03e_923fe9ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000736
+      },
+      "writtenOn": "2022-02-03T14:10:50Z",
+      "side": 1,
+      "message": "I have pushed an alternative change with a mixture of my approach and your suggestion (the define is in platform_def.h instead of the platform.mk). Unfortunately, overriding it in platform_def.h without change in include/drivers/arm/gicv2.h does not work because platform_def.h is typically included very early (e.g. from assert.h).\n\nNote: The change to platform_def.h is included in the commit/change after this one (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/12890), to keep this change free from platform-specific changes.",
+      "parentUuid": "a70d5159_a7688e70",
+      "revId": "986bc70f78626d3a8a3ab058624f750ba91e3179",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
