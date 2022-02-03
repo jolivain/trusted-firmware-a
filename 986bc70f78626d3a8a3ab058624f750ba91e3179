@@ -34,6 +34,24 @@
       "parentUuid": "bc733513_1c3c26a1",
       "revId": "986bc70f78626d3a8a3ab058624f750ba91e3179",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a70d5159_a7688e70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-02-03T13:21:45Z",
+      "side": 1,
+      "message": "Personally i would prefer this approach.\nBut could you try if following does works or not in platform header file (not sure about include orders), if it does not work then i am happy with what you mentioned in comments.\n#ifdef GICD_PIDR2_GICV2\n #undef GICD_PIDR2_GICV2\n #define GICD_PIDR2_GICV2\tU(0xFD8)\n#endif",
+      "parentUuid": "86f81620_b227c4ed",
+      "revId": "986bc70f78626d3a8a3ab058624f750ba91e3179",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
