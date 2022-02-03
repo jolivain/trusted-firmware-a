@@ -16,6 +16,91 @@
       "message": "For context, this is the implementation of the suggestions from the following LKML thread:\nhttps://lore.kernel.org/lkml/20210322062514.40747-1-samuel@sholland.org/T/\n\nAnd here\u0027s what it looks like in action:\n\n```\n\u003d\u003e fdt addr $fdtcontroladdr\n\u003d\u003e fdt print /cpus\ncpus {\n        #address-cells \u003d \u003c0x00000001\u003e;\n        #size-cells \u003d \u003c0x00000000\u003e;\n        idle-states {\n                entry-method \u003d \"psci\";\n                cluster-sleep {\n                        phandle \u003d \u003c0x000000aa\u003e;\n                        min-residency-us \u003d \u003c0x0000c350\u003e;\n                        exit-latency-us \u003d \u003c0x000005dc\u003e;\n                        entry-latency-us \u003d \u003c0x00000352\u003e;\n                        local-timer-stop;\n                        arm,psci-suspend-param \u003d \u003c0x01010013\u003e;\n                        compatible \u003d \"arm,idle-state\";\n                };\n                cpu-sleep {\n                        phandle \u003d \u003c0x000000a9\u003e;\n                        min-residency-us \u003d \u003c0x000061a8\u003e;\n                        exit-latency-us \u003d \u003c0x000005dc\u003e;\n                        entry-latency-us \u003d \u003c0x00000320\u003e;\n                        local-timer-stop;\n                        arm,psci-suspend-param \u003d \u003c0x00010003\u003e;\n                        compatible \u003d \"arm,idle-state\";\n                };\n        };\n        cpu@0 {\n                cpu-idle-states \u003d \u003c0x000000a8 0x000000a9\u003e;\n                compatible \u003d \"arm,cortex-a53\";\n                device_type \u003d \"cpu\";\n                reg \u003d \u003c0x00000000\u003e;\n                enable-method \u003d \"psci\";\n                next-level-cache \u003d \u003c0x00000005\u003e;\n                clocks \u003d \u003c0x00000002 0x00000015\u003e;\n                clock-names \u003d \"cpu\";\n                #cooling-cells \u003d \u003c0x00000002\u003e;\n                operating-points-v2 \u003d \u003c0x00000006\u003e;\n                cpu-supply \u003d \u003c0x00000007\u003e;\n                phandle \u003d \u003c0x0000000a\u003e;\n        };\n...\n```",
       "revId": "2f5eaf2bd6efc1488334fbddfed36b1c0aac4a87",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "075b6079_36669bfa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-02-03T20:15:40Z",
+      "side": 1,
+      "message": "One question about code in header file.  Possibly also update Copyright claims.",
+      "revId": "2f5eaf2bd6efc1488334fbddfed36b1c0aac4a87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6167e6a4_cdc31a4e",
+        "filename": "plat/allwinner/common/allwinner-common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-02-03T20:15:40Z",
+      "side": 1,
+      "message": "2022?",
+      "revId": "2f5eaf2bd6efc1488334fbddfed36b1c0aac4a87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89629a8a_f033b738",
+        "filename": "plat/allwinner/common/include/sunxi_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-02-03T20:15:40Z",
+      "side": 1,
+      "message": "Is it better to flesh out the function in a .c file rather than in this .h file?  In fact, it looks like it is defined in sunxi_pm.c?",
+      "revId": "2f5eaf2bd6efc1488334fbddfed36b1c0aac4a87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47ef619b_2968d4ac",
+        "filename": "plat/allwinner/common/sunxi_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-02-03T20:15:40Z",
+      "side": 1,
+      "message": "2022?",
+      "revId": "2f5eaf2bd6efc1488334fbddfed36b1c0aac4a87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5bfdfd8_d9890e35",
+        "filename": "plat/allwinner/common/sunxi_prepare_dtb.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-02-03T20:15:40Z",
+      "side": 1,
+      "message": "2022?",
+      "revId": "2f5eaf2bd6efc1488334fbddfed36b1c0aac4a87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
