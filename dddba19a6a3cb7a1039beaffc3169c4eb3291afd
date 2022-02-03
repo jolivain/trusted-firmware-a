@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03443541_cdfb7edd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000736
+      },
+      "writtenOn": "2022-02-03T11:03:51Z",
+      "side": 1,
+      "message": "After another look through my own changes I fixed an hilariously minor annoyance that $(...) vs ${...} was used inconsistently for variable references in the Makefile... No functional difference in patch set 4.",
+      "revId": "dddba19a6a3cb7a1039beaffc3169c4eb3291afd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
