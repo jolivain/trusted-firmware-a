@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ab9b19f0_380198b5",
+        "filename": "lib/libc/aarch32/memcpy_align8.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-03T15:13:04Z",
+      "side": 1,
+      "message": "or better use:\n\t/* Skip m_loop8 if len \u003c 8 */\n\tlsrs\tr3, r2, #3\n\tbeq\tm_loop1\n\n\tpush\t{r4, r5}\n\n/* copy 8 bytes at a time */\nm_loop8:\n\tldrd\tr4, r5, [r1], #8\n\tstrd\tr4, r5, [r0], #8\n\tsubs\tr3, r3, #1\n\tbne\tm_loop8\n\tpop\t{r4, r5}\n\n\tands\tr2, r2, #7\n\tbxeq\tlr\n\n/* copy byte per byte */\nm_loop1:\n\tldrb\tr3, [r1], #1\n\tstrb\tr3, [r0], #1\n\tsubs\tr2, r2, #1\n\tbne\tm_loop1\n\tbx\tlr",
+      "parentUuid": "8ad29931_a7884350",
+      "revId": "e11a129dd82d17b37b2a1026922f40cb8fb501d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "90dfe774_daa4017e",
         "filename": "lib/libc/aarch64/memcpy_align8.S",
         "patchSetId": 14
