@@ -16,6 +16,24 @@
       "message": "Though this patch looks good to me, the only problem is Plat specific flag in generic file\n@Madhukar is doing some experiments, will wait for him to provide his comments",
       "revId": "986bc70f78626d3a8a3ab058624f750ba91e3179",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86f81620_b227c4ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000736
+      },
+      "writtenOn": "2022-02-03T12:17:31Z",
+      "side": 1,
+      "message": "Thanks! I\u0027m open to alternative suggestions here, there are probably many other solutions possible. For example, simply disabling the problematic assert with a compile flag would also work (since the GICD_PIDR2_GICV2 register is not used anywhere else).\n\nOr, I had a different approach for overriding the register address originally:\n\n diff --git a/include/drivers/arm/gicv2.h b/include/drivers/arm/gicv2.h\n index ebcb216d6..3d8ea6e22 100644\n --- a/include/drivers/arm/gicv2.h\n +++ b/include/drivers/arm/gicv2.h\n @@ -30,7 +30,14 @@\n  #define GICD_SGIR\t\tU(0xF00)\n  #define GICD_CPENDSGIR\t\tU(0xF10)\n  #define GICD_SPENDSGIR\t\tU(0xF20)\n +\n +/*\n + * Some implementations of GICv2 (erroneously) have this register at a different\n + * address. Allow overriding it using defines in platform make files.\n + */\n +#ifndef GICD_PIDR2_GICV2\n  #define GICD_PIDR2_GICV2\tU(0xFE8)\n +#endif\n  \n  #define ITARGETSR_SHIFT\t\t2\n  #define GIC_TARGET_CPU_MASK\tU(0xff)\n\nand then in plat/qti/msm8916/platform.mk:\n\n # The QGIC2 implementation seems to have PIDR0-4 and PIDR4-7 erroneously swapped\n # for some reason, override the register address to the correct location.\n $(eval $(call add_define_val,GICD_PIDR2_GICV2,0xFD8))  # 0xFE8 -\u003e 0xFD8\n\nWith that approach the actual platform-specific part was not in the generic code, except for the ifndef to avoid problems with the macro re-definition. I dropped it in favor of the current change because I thought it is a bit confusing to have register addresses listed in the platform make file.",
+      "parentUuid": "bc733513_1c3c26a1",
+      "revId": "986bc70f78626d3a8a3ab058624f750ba91e3179",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
