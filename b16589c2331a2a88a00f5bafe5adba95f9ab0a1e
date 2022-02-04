@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8a9f5b4b_756bce18",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000715
+      },
+      "writtenOn": "2022-02-04T09:11:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c6ee3868_f658e1fa",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 21
+      },
+      "revId": "b16589c2331a2a88a00f5bafe5adba95f9ab0a1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "af6cb6ea_4448c6b4",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -106,6 +130,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a4b4ab0_a5b57342",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000715
+      },
+      "writtenOn": "2022-02-04T09:11:26Z",
+      "side": 1,
+      "message": "It\u0027s a primer for Hafnium patches.\nIt\u0027s needed to allow NWd send messages to SWd, with the Hyp relaying the call to the SPMC",
+      "parentUuid": "16ccf0da_b7d1ec23",
+      "revId": "b16589c2331a2a88a00f5bafe5adba95f9ab0a1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9672b6dd_b10b2cf9",
@@ -119,6 +161,30 @@
       "writtenOn": "2022-02-03T18:01:57Z",
       "side": 1,
       "message": "Should this be conditioned as v1.1 ABI as per line 682?\nAlso I wonder if there\u0027s any case of SWd forwarding to NWd??",
+      "range": {
+        "startLine": 708,
+        "startChar": 1,
+        "endLine": 708,
+        "endChar": 20
+      },
+      "revId": "b16589c2331a2a88a00f5bafe5adba95f9ab0a1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa09d8a7_f62e87ec",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1000715
+      },
+      "writtenOn": "2022-02-04T09:11:26Z",
+      "side": 1,
+      "message": "The forwarding is done only from Hyp to SPMC, since the SPMC is the one handling the functionality when there is at least one SP endpoint involved.\nI think your comments was targeting to move the \u0027case\u0027 in a place where only NWd to SWd forwarding is allowed?\nI\u0027m doing it, but that check will already be implemented on Hafnium side, with a different \u0027specialization\u0027 for Hyp/SPMC, like for FFA_MSG_SEND.\n\nDo you think this implementation is safer or sticking to FFA_MSG_SEND is more coherent?",
+      "parentUuid": "9672b6dd_b10b2cf9",
       "range": {
         "startLine": 708,
         "startChar": 1,
