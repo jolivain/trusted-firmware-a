@@ -87,6 +87,24 @@
       "parentUuid": "b5599c3b_86b6e7af",
       "revId": "a56140ac23896c227ed89a38ab6f10f39942b867",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "086e0722_132016ac",
+        "filename": "services/std_svc/spm/spmc/spmc_shared_mem.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-02-04T12:47:29Z",
+      "side": 1,
+      "message": "Just to chime in, the fix for the locking also improves stability on Kinibi side.\nThanks for catching and fixing this!",
+      "parentUuid": "48c590f7_21c01a61",
+      "revId": "a56140ac23896c227ed89a38ab6f10f39942b867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
