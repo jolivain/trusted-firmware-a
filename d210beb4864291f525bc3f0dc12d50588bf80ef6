@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a11c2f6_beccd3ad",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-02-06T06:23:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0a6a68c6_26aff6cf",
+      "revId": "d210beb4864291f525bc3f0dc12d50588bf80ef6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6ea9f546_8e852c2b",
@@ -52,6 +70,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5eb2ecfd_d6e3ccc6",
+        "filename": "lib/cpus/aarch64/cortex_x2.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-02-06T06:23:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6ea9f546_8e852c2b",
+      "revId": "d210beb4864291f525bc3f0dc12d50588bf80ef6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ca6dbea_d8587b71",
@@ -65,6 +101,30 @@
       "writtenOn": "2022-02-01T10:10:52Z",
       "side": 1,
       "message": "Again, I think it would be useful to add\n\", and was fixed in r2p1.\"",
+      "range": {
+        "startLine": 511,
+        "startChar": 54,
+        "endLine": 511,
+        "endChar": 55
+      },
+      "revId": "d210beb4864291f525bc3f0dc12d50588bf80ef6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1df2f08_6768cabf",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-02-06T06:23:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3ca6dbea_d8587b71",
       "range": {
         "startLine": 511,
         "startChar": 54,
