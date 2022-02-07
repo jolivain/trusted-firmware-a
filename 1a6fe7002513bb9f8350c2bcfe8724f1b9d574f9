@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc41afc6_6e7ae64b",
+        "filename": "plat/arm/board/fvp/fvp_security.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-02-07T08:40:03Z",
+      "side": 1,
+      "message": "Thanks, makes sense.",
+      "parentUuid": "e45cd0e9_b957ac00",
+      "revId": "1a6fe7002513bb9f8350c2bcfe8724f1b9d574f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9dfd8bf9_43500920",
@@ -168,6 +186,30 @@
       "side": 1,
       "message": "I named them this way to be consistent with the other dram regions in platform_def.h, and to avoid 2 different names for a logically unique group of defines.",
       "parentUuid": "b751207f_25f73771",
+      "range": {
+        "startLine": 32,
+        "startChar": 3,
+        "endLine": 32,
+        "endChar": 22
+      },
+      "revId": "1a6fe7002513bb9f8350c2bcfe8724f1b9d574f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "146410d6_facdffeb",
+        "filename": "plat/arm/board/fvp/fvp_security.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-02-07T08:40:03Z",
+      "side": 1,
+      "message": "OK, fair enough. It is not that I oppose it, I simply thought these macros are only consumed on FVP, so name them accordingly.",
+      "parentUuid": "ef42fde6_60a15ef8",
       "range": {
         "startLine": 32,
         "startChar": 3,
