@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5aed1d3f_55ac2a50",
+        "filename": "include/plat/common/common_def.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-02-07T16:09:32Z",
+      "side": 1,
+      "message": "This one will conflict with a define in drivers/mtd/nand/raw_nand.c.\nMaybe this should a a dedicated patch: adding the values, and removing the one(s) defined in NAND driver.\nAs they are sizes, I think they should be unsigned too.",
+      "revId": "0a03f0c15f002e646dec0a0b7b5f8d9a76529d62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
