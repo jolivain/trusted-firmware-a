@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3f75e20_41923546",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-02-07T18:45:43Z",
+      "side": 1,
+      "message": "This function gets called in [1] too, Initializing console twice does not seems to be an issue, to be on the safe side, could we put a check inside this function that if the console is already initialized, it shouldn\u0027t perform any action and it should return immediately?\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/common/arm_bl31_setup.c#n123",
+      "range": {
+        "startLine": 24,
+        "startChar": 1,
+        "endLine": 24,
+        "endChar": 22
+      },
+      "revId": "2eda70fbd7d39f0d212c0cd7bc4350617caec231",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
