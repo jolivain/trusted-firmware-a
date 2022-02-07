@@ -16,6 +16,24 @@
       "message": "The CI failure seems to be related with this patch, could you please have a look (keeping -1 until confirmed)",
       "revId": "992d97c45faeaee7b6a82089374addcc0dc74344",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "815b658a_1f377289",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-02-07T09:58:07Z",
+      "side": 1,
+      "message": "Failure appeared to be mainly because of stray characters ( �b) in ftpm logs, see below logs:\n \nM/TA: PCR_Event2:\nM/TA:   PCRIndex           : 0\nM/TA:   EventType          : 1\nM/TA:   Digests Count      : 1\nM/TA:     #0 AlgorithmId   : SHA256\nM/TA:        Digest        : f7 78 e8 6a 54 5a 8a 03 9e 18 70 1e 4e f2 cc 5d\nM/TA: \t\t\t   : 55 �b ba 3e e1 1e ed d5 13 28 ad 34 93 08 ce 4c\nM/TA:   EventSize          : 20\nM/TA:   Event              : SECURE_RT_EL1_OPTEE\n\nbut this is not related to the patch.\nIMO, UART thrown stray character during the run, that entered into the ftpm event log, and that eventually leads to the ftpm and tf-a event logs comparison failure.\nLet me re-trigger CIs again to see if this problem goes away.",
+      "parentUuid": "761b9cfb_c39a5e6d",
+      "revId": "992d97c45faeaee7b6a82089374addcc0dc74344",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
