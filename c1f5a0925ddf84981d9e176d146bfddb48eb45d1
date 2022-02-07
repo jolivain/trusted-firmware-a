@@ -16,6 +16,24 @@
       "message": "Given that this is a non-exported static function, and all radix arguments are constants, a compile time assert looks to be much smarter. However I haven\u0027t managed to use CASSERT in here. Using a enum also didn\u0027t help to catch this at compile time.\nIf anyone has a clever idea, I am happy to hear about this.",
       "revId": "c1f5a0925ddf84981d9e176d146bfddb48eb45d1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08fc6739_2efe5337",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-02-07T17:02:03Z",
+      "side": 1,
+      "message": "scratch that, that comment was meant for the other patch",
+      "parentUuid": "0bd710d7_40c132ce",
+      "revId": "c1f5a0925ddf84981d9e176d146bfddb48eb45d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
