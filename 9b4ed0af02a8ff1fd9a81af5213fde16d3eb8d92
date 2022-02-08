@@ -16,6 +16,23 @@
       "message": "I have tested this patch on the Xilinx ZCU102 evaluation board.  It builds and runs.",
       "revId": "9b4ed0af02a8ff1fd9a81af5213fde16d3eb8d92",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe7a7aa5_50ef4591",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-02-08T16:36:58Z",
+      "side": 1,
+      "message": "Hi Giulio,\nIn most circumstances, COR+1 vote can only be given by the platform maintainers(Venkatesh and Michal). We discourage patch authors to give the vote themselves.",
+      "revId": "9b4ed0af02a8ff1fd9a81af5213fde16d3eb8d92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
