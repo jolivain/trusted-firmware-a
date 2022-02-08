@@ -71,6 +71,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c61f1273_9532e808",
+        "filename": "plat/allwinner/common/include/sunxi_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-02-08T00:55:39Z",
+      "side": 1,
+      "message": "No, this is on purpose, a trick from the kernel: If SUNXI_PSCI_USE_SCPI is defined, we get the prototype here, and the full-fledged implementation is in the .c file.\nHowever if that symbol is not defined, this \"static inline in a header\" allows the compiler to optimize the whole call away, and it loses even more code that calls this function, because the result is known at compile time. We rely on this to keep our code size down.",
+      "parentUuid": "89629a8a_f033b738",
+      "revId": "2f5eaf2bd6efc1488334fbddfed36b1c0aac4a87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "47ef619b_2968d4ac",
         "filename": "plat/allwinner/common/sunxi_pm.c",
         "patchSetId": 1
