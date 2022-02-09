@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "873a30e7_22b20725",
+        "filename": "plat/arm/common/arm_console.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-02-09T13:12:59Z",
+      "side": 1,
+      "message": "Isn\u0027t static initialization the process of initializing each member of this structure to zero?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 33
+      },
+      "revId": "365582ae5f5f459e8978d264ab68f1a942bd2ae9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a33a3b1a_c34efd25",
+        "filename": "plat/arm/common/arm_console.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-02-09T13:12:59Z",
+      "side": 1,
+      "message": "0UL instead?",
+      "range": {
+        "startLine": 29,
+        "startChar": 30,
+        "endLine": 29,
+        "endChar": 31
+      },
+      "revId": "365582ae5f5f459e8978d264ab68f1a942bd2ae9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
