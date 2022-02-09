@@ -12,6 +12,9 @@
 /* Cortex-A76 MIDR for revision 0 */
 #define CORTEX_A76_MIDR		U(0x410fd0b0)
 
+/* Cortex-A76 loop count for CVE-BHB-NUM */
+#define CORTEX_A76_BHB_LOOP_COUNT	U(24)
+
 /*******************************************************************************
  * CPU Extended Control register specific definitions.
  ******************************************************************************/
