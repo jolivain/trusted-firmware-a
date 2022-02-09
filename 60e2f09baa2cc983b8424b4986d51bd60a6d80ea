@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9f7dbe1b_c6acada9",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2022-02-09T02:17:52Z",
+      "side": 1,
+      "message": "Yes, I will update this.",
+      "parentUuid": "50d7677d_6178daec",
+      "revId": "60e2f09baa2cc983b8424b4986d51bd60a6d80ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2e0785ad_ae55977a",
         "filename": "common/fdt_fixup.c",
         "patchSetId": 1
@@ -65,6 +83,24 @@
       "writtenOn": "2022-02-09T01:19:48Z",
       "side": 1,
       "message": "So, hmmm...  Am I confused, or is this a function scoped within another function?  If so, is that for-sure what you want?",
+      "revId": "60e2f09baa2cc983b8424b4986d51bd60a6d80ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d253fa5b_a997a33a",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2022-02-09T02:17:52Z",
+      "side": 1,
+      "message": "This is an iterator macro from libfdt.h:\n\n #define fdt_for_each_subnode(node, fdt, parent)         \\\n         for (node \u003d fdt_first_subnode(fdt, parent);     \\\n              node \u003e\u003d 0;                                 \\\n              node \u003d fdt_next_subnode(fdt, node))",
+      "parentUuid": "2e0785ad_ae55977a",
       "revId": "60e2f09baa2cc983b8424b4986d51bd60a6d80ea",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
