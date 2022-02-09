@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a966502a_3b45d0e6",
+        "filename": "plat/arm/common/arm_console.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-02-09T19:33:35Z",
+      "side": 1,
+      "message": "All un-initialized static variable lands in BSS area, and in TF-A BSS area gets initialised to zero quiet early during init C-runtime[1] and [2]. Hence explicit initialization of this structure variable is not needed.\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/arch/aarch64/el3_common_macros.S#n467\n[2]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/arch/aarch32/el3_common_macros.S#n407",
+      "parentUuid": "ee96b658_375ccaa3",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 33
+      },
+      "revId": "365582ae5f5f459e8978d264ab68f1a942bd2ae9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a33a3b1a_c34efd25",
         "filename": "plat/arm/common/arm_console.c",
         "patchSetId": 3
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "I was thinking I\u0027d heard that the going theory was to return if it\u0027s \u003d\u003d PLAT_ARM_BOOT_UART_BASE, rather than !\u003d 0.\n\nHowever, even that might fail in a real-world system if somebody hits reset.  That is, unless it\u0027s re-loaded from flash (would it be?) it would retain its value of PLAT_ARM_BOOT_UART_BASE, and this code would be skipped.",
       "parentUuid": "a33a3b1a_c34efd25",
+      "range": {
+        "startLine": 29,
+        "startChar": 30,
+        "endLine": 29,
+        "endChar": 31
+      },
+      "revId": "365582ae5f5f459e8978d264ab68f1a942bd2ae9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35c856de_4da57c53",
+        "filename": "plat/arm/common/arm_console.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-02-09T19:33:35Z",
+      "side": 1,
+      "message": "\u003e I was thinking I\u0027d heard that the going theory was to return if it\u0027s \u003d\u003d PLAT_ARM_BOOT_UART_BASE, rather than !\u003d 0.\n\nYes, \u003d\u003d PLAT_ARM_BOOT_UART_BASE is a better choice than assuming that the base address of UART can never be zero. \n\n\u003e \n\u003e However, even that might fail in a real-world system if somebody hits reset.  That is, unless it\u0027s re-loaded from flash (would it be?) it would retain its value of PLAT_ARM_BOOT_UART_BASE, and this code would be skipped.\n\nNo. This variable isn\u0027t stored in the flash, so we can safely assume that it is reset to 0 after a reboot during C-runtime",
+      "parentUuid": "0c13e859_a693de52",
       "range": {
         "startLine": 29,
         "startChar": 30,
