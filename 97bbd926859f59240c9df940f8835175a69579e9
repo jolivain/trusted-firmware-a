@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ef8978d9_0f9c417d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2022-02-10T04:29:14Z",
+      "side": 1,
+      "message": "Done but in changelog.yaml it is \"docs/nxp/layerscape\", does it matter?\n\n289           - title: Layerscape\n290             scope: layerscape\n291\n292             deprecated:\n293               - docs/nxp/layerscape",
+      "parentUuid": "5b619a9a_1ae38c5b",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "97bbd926859f59240c9df940f8835175a69579e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e0e01f0d_1d7154e7",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -37,6 +61,24 @@
       "writtenOn": "2022-01-31T15:13:02Z",
       "side": 1,
       "message": "Small NIT but otherwise looks good",
+      "revId": "97bbd926859f59240c9df940f8835175a69579e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14d9ea40_d1f8c0e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2022-02-10T04:29:14Z",
+      "side": 1,
+      "message": "thanks.",
+      "parentUuid": "e0e01f0d_1d7154e7",
       "revId": "97bbd926859f59240c9df940f8835175a69579e9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
