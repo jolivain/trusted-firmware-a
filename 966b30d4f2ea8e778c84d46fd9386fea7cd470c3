@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5bedcc48_abef6040",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2022-02-10T04:07:20Z",
+      "side": 1,
+      "message": "Fiexd and updated in changelog.yaml with another commit, thanks.",
+      "parentUuid": "075546e0_31b7bf31",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 20
+      },
+      "revId": "966b30d4f2ea8e778c84d46fd9386fea7cd470c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "abe37de8_9797baa8",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -37,6 +61,24 @@
       "writtenOn": "2022-02-07T16:01:28Z",
       "side": 1,
       "message": "Gentle reminder.",
+      "revId": "966b30d4f2ea8e778c84d46fd9386fea7cd470c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ca6e113_71195f67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2022-02-10T04:07:20Z",
+      "side": 1,
+      "message": "Sorry for late response because of holiday, thanks.",
+      "parentUuid": "abe37de8_9797baa8",
       "revId": "966b30d4f2ea8e778c84d46fd9386fea7cd470c3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -54,6 +96,30 @@
       "writtenOn": "2022-02-02T21:27:45Z",
       "side": 1,
       "message": "Would WARN or ERROR be suitable here for consistency?",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 7
+      },
+      "revId": "966b30d4f2ea8e778c84d46fd9386fea7cd470c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54d1f986_e43ec6d8",
+        "filename": "plat/nxp/soc-ls1046a/ls1046aqds/ddr_init.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2022-02-10T04:07:20Z",
+      "side": 1,
+      "message": "I would like to keep it as debug message because it will report ERROR when returned from this function with error return values, thanks.",
+      "parentUuid": "54aaccd6_9078b995",
       "range": {
         "startLine": 33,
         "startChar": 2,
@@ -104,6 +170,48 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33459fba_87d4c9fd",
+        "filename": "plat/nxp/soc-ls1046a/ls1046aqds/ddr_init.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2022-02-10T04:07:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42522d4e_335e47c2",
+      "range": {
+        "startLine": 38,
+        "startChar": 5,
+        "endLine": 38,
+        "endChar": 8
+      },
+      "revId": "966b30d4f2ea8e778c84d46fd9386fea7cd470c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c48320c_f7b55f7a",
+        "filename": "plat/nxp/soc-ls1046a/ls1046aqds/ddr_init.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2022-02-10T04:07:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da921937_958edfbb",
+      "revId": "966b30d4f2ea8e778c84d46fd9386fea7cd470c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49286000_463c3c96",
@@ -117,6 +225,30 @@
       "writtenOn": "2022-01-31T16:48:51Z",
       "side": 1,
       "message": "nitpick: U(3)",
+      "range": {
+        "startLine": 47,
+        "startChar": 24,
+        "endLine": 47,
+        "endChar": 25
+      },
+      "revId": "966b30d4f2ea8e778c84d46fd9386fea7cd470c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85e56872_93dabbeb",
+        "filename": "plat/nxp/soc-ls1046a/ls1046aqds/plat_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2022-02-10T04:07:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49286000_463c3c96",
       "range": {
         "startLine": 47,
         "startChar": 24,
