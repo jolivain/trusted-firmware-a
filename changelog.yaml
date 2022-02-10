@@ -326,6 +326,31 @@ subsections:
                         deprecated:
                           - plat/soc-lx2160
 
+              - title: LS1046A
+                scope: ls1046a
+
+                deprecated:
+                  - plat/nxp/ls1046a
+
+                subsections:
+                  - title: LS1046ARDB
+                    scope: ls1046ardb
+
+                    deprecated:
+                      - plat/nxp/ls1046ardb
+
+                  - title: LS1046AFRWY
+                    scope: ls1046afrwy
+
+                    deprecated:
+                      - plat/nxp/ls1046afrwy
+
+                  - title: LS1046AQDS
+                    scope: ls1046aqds
+
+                    deprecated:
+                      - plat/nxp/ls1046aqds
+
       - title: QEMU
         scope: qemu
 
