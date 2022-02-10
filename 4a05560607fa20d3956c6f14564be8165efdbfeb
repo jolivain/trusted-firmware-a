@@ -97,6 +97,24 @@
       "message": "10U\nassert() is dummy in release builds. Wouldn\u0027t it be better to use panic()?",
       "revId": "4a05560607fa20d3956c6f14564be8165efdbfeb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a0a5a39_55113d3d",
+        "filename": "lib/libc/snprintf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-02-10T15:34:19Z",
+      "side": 1,
+      "message": "Yeah, I am a bit undecided whether to turn a purely theoretical issue (the code as of now is fine) into a firmware panic, but there is probably some sense in always panicking.",
+      "parentUuid": "288d9f57_d84c2895",
+      "revId": "4a05560607fa20d3956c6f14564be8165efdbfeb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
