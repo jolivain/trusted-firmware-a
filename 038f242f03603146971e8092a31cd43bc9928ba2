@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74da51ae_c719094b",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-11T16:48:51Z",
+      "side": 1,
+      "message": "Is there a requirement that variables should be declared before any operands?",
+      "range": {
+        "startLine": 149,
+        "startChar": 14,
+        "endLine": 149,
+        "endChar": 23
+      },
+      "revId": "038f242f03603146971e8092a31cd43bc9928ba2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5a29a73_2b699860",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-11T16:48:51Z",
+      "side": 1,
+      "message": "the same question.",
+      "revId": "038f242f03603146971e8092a31cd43bc9928ba2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbead042_e0385b79",
+        "filename": "lib/psci/psci_on.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-11T16:48:51Z",
+      "side": 1,
+      "message": "Have you considered to define a macro which will call\neither cm_prepare_el3_exit_ns() or cm_prepare_el3_exit(NON_SECURE)?",
+      "revId": "038f242f03603146971e8092a31cd43bc9928ba2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
