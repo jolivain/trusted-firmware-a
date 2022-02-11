@@ -33,6 +33,3 @@ $(eval $(call add_defines,\
 MEASURED_BOOT_SRC_DIR	:= drivers/measured_boot/rss/
 
 MEASURED_BOOT_SOURCES	+= ${MEASURED_BOOT_SRC_DIR}rss_measured_boot.c
-
-BL2_SOURCES		+= ${MEASURED_BOOT_SOURCES}
-BL1_SOURCES		+= ${MEASURED_BOOT_SOURCES}
