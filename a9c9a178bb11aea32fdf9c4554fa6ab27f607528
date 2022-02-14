@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de970fc1_44a5f4e4",
+        "filename": "bl32/tsp/ffa_helpers.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-02-14T18:48:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb582b01_ca60045a",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 17,
+        "endChar": 22
+      },
+      "revId": "a9c9a178bb11aea32fdf9c4554fa6ab27f607528",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7726bfb_ab6f483d",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-02-02T21:40:27Z",
       "side": 1,
       "message": "Definitions like this are typically done as x_SHIFT and x_MASK in the rest of the code base. Shift is like the offsets used here and the MASK definition does not have the shift baked in like they do here.",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 79
+      },
+      "revId": "a9c9a178bb11aea32fdf9c4554fa6ab27f607528",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49293a47_f03148ad",
+        "filename": "bl32/tsp/ffa_helpers.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-02-14T18:48:19Z",
+      "side": 1,
+      "message": "That\u0027s a fair point. Renamed OFFSET to SHIFT and removed the shift from the MASK to be inline with other definitions.",
+      "parentUuid": "c7726bfb_ab6f483d",
       "range": {
         "startLine": 82,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a60f9b6_334ccdfb",
+        "filename": "bl32/tsp/ffa_helpers.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-02-14T18:48:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b461c79f_83438f11",
+      "range": {
+        "startLine": 231,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 27
+      },
+      "revId": "a9c9a178bb11aea32fdf9c4554fa6ab27f607528",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd4b4428_e0cac3c6",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-02-02T21:40:27Z",
       "side": 1,
       "message": "0U",
+      "range": {
+        "startLine": 336,
+        "startChar": 15,
+        "endLine": 336,
+        "endChar": 16
+      },
+      "revId": "a9c9a178bb11aea32fdf9c4554fa6ab27f607528",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec236328_95fac70b",
+        "filename": "bl32/tsp/ffa_helpers.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-02-14T18:48:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd4b4428_e0cac3c6",
       "range": {
         "startLine": 336,
         "startChar": 15,
