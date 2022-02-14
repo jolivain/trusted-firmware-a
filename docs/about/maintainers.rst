@@ -89,8 +89,14 @@ Trusted Boot
 :|G|: `ManishVB-Arm`_
 :|F|: drivers/auth/
 
-Secure Partition Manager (SPM)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Secure Partition Manager Core (EL3 FF-A SPMC)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:|M|: Marc Bonnici <marc.bonnici@arm.com>
+:|G|: `marcbonnici`_
+:|F|: services/std_svc/spm/spmc/\*
+
+Secure Partition Manager Dispatcher (SPMD)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 :|M|: Olivier Deprez <olivier.deprez@arm.com>
 :|G|: `odeprez`_
 :|M|: Manish Pandey <manish.pandey2@arm.com>
@@ -99,7 +105,7 @@ Secure Partition Manager (SPM)
 :|G|: `max-shvetsov`_
 :|M|: Joao Alves <Joao.Alves@arm.com>
 :|G|: `J-Alves`_
-:|F|: services/std_svc/spm\*
+:|F|: services/std_svc/spm/spmd/\*
 
 Exception Handling Framework (EHF)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -861,5 +867,6 @@ Conventional Changelog Extensions
 .. _uarif1: https://github.com/uarif1
 .. _pangupta: https://github.com/pangupta
 .. _JiafeiPan: https://github.com/JiafeiPan
+.. _marcbonnici: https://github.com/marcbonnici
 
 .. _Project Maintenance Process: https://developer.trustedfirmware.org/w/collaboration/project-maintenance-process/
