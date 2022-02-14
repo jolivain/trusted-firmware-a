@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7087cb5_9a36d746",
+        "filename": "lib/extensions/mpam/mpam.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-14T12:36:10Z",
+      "side": 1,
+      "message": "MPAMIDR_EL1 is 64-bit register, so: !\u003d 0UL (also on lines #35 \u0026 #57)",
+      "revId": "85ef7b13f5e1508678ac290651f1c567f4331432",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
