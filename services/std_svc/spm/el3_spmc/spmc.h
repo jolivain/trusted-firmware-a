@@ -11,6 +11,7 @@
 
 #include <lib/psci/psci.h>
 #include <lib/spinlock.h>
+#include "logical_sp.h"
 #include "spm_common.h"
 
 /*
@@ -35,6 +36,11 @@
 /* FF-A warm boot types. */
 #define FFA_WB_TYPE_S2RAM	0
 #define FFA_WB_TYPE_NOTS2RAM	1
+
+/* FF-A partition properties values. */
+#define FFA_PARTITION_PROPERTIES_DIR_MSG_REC	U(1 << 0)
+#define FFA_PARTITION_PROPERTIES_DIR_MSG_REQ	U(1 << 1)
+#define FFA_PARTITION_PROPERTIES_INDIR_MSG	U(1 << 2)
 
 /*
  * Runtime states of an execution context as per the FF-A v1.1 specification.
@@ -183,5 +189,11 @@ uint64_t spmc_ffa_error_return(void *handle, int error_code);
  * Ensure a partition ID does not clash and follows the secure world convention.
  */
 bool is_ffa_secure_id_valid(uint16_t partition_id);
+
+/*
+ * Helper function to obtain the array storing the EL3
+ * Logical Partition descriptors.
+ */
+struct el3_lp_desc *get_el3_lp_array(void);
 
 #endif /* SPMC_H */
