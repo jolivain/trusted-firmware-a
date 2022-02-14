@@ -1,13 +1,11 @@
 /*
- * Copyright (c) 2016-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 #include <stdint.h>
-
-#include <platform_def.h>
 
 #include <arch.h>
 #include <arch_helpers.h>
@@ -16,6 +14,8 @@
 #include <common/desc_image_load.h>
 #include <drivers/auth/auth_mod.h>
 #include <plat/common/platform.h>
+
+#include <platform_def.h>
 
 #include "bl2_private.h"
 
@@ -66,16 +66,16 @@ struct entry_point_info *bl2_load_images(void)
 
 		if ((bl2_node_info->image_info->h.attr &
 		    IMAGE_ATTRIB_SKIP_LOADING) == 0U) {
-			INFO("BL2: Loading image id %d\n", bl2_node_info->image_id);
+			INFO("BL2: Loading image id %u\n", bl2_node_info->image_id);
 			err = load_auth_image(bl2_node_info->image_id,
 				bl2_node_info->image_info);
 			if (err != 0) {
-				ERROR("BL2: Failed to load image id %d (%i)\n",
+				ERROR("BL2: Failed to load image id %u (%i)\n",
 				      bl2_node_info->image_id, err);
 				plat_error_handler(err);
 			}
 		} else {
-			INFO("BL2: Skip loading image id %d\n", bl2_node_info->image_id);
+			INFO("BL2: Skip loading image id %u\n", bl2_node_info->image_id);
 		}
 
 		/* Allow platform to handle image information. */
