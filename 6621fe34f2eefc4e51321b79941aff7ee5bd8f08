@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "610311db_ef58c954",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-02-14T18:48:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d7c0e0c_bf60b7de",
+      "range": {
+        "startLine": 250,
+        "startChar": 1,
+        "endLine": 252,
+        "endChar": 4
+      },
+      "revId": "6621fe34f2eefc4e51321b79941aff7ee5bd8f08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1c3dbfd_151d3088",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-02-03T10:53:00Z",
       "side": 1,
       "message": "FFA_ERROR",
+      "range": {
+        "startLine": 264,
+        "startChar": 18,
+        "endLine": 264,
+        "endChar": 28
+      },
+      "revId": "6621fe34f2eefc4e51321b79941aff7ee5bd8f08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e9ab27d_aabf817c",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-02-14T18:48:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1c3dbfd_151d3088",
       "range": {
         "startLine": 264,
         "startChar": 18,
@@ -84,6 +132,30 @@
       "side": 1,
       "message": "ah, saw in other patches the following was included after invoking this function:\n\"/* Should not get here */\n\t\tpanic();\"\nPlease add, as it will help clarifying the execution flow for this.",
       "parentUuid": "2cc191db_01ac3c26",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 269,
+        "endChar": 3
+      },
+      "revId": "6621fe34f2eefc4e51321b79941aff7ee5bd8f08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4103acb0_864ebb07",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-02-14T18:48:50Z",
+      "side": 1,
+      "message": "Sure, added that in. \n\nJust for completeness, the intention here isn\u0027t to give execution to the SP. This is handling the case where we have synchronously entered the SP to perform it\u0027s setup, something has gone wrong and it has called FFA_ERROR to signify this. At this point we pickup the SMC and perform a synchronous exit back to the SPMC SP initialization code to handle the failure.",
+      "parentUuid": "11151df0_cd73746f",
       "range": {
         "startLine": 269,
         "startChar": 0,
