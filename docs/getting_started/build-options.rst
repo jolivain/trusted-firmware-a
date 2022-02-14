@@ -641,6 +641,14 @@ Common build options
 
    This option defaults to 0.
 
+-  ``DRTM_SUPPORT``: Boolean to enable support for Dynamic Root of Trust for
+   Measurement (DRTM). This flag can be enabled with ``TRUSTED_BOARD_BOOT`` in
+   order to provide trust that runtime firmware BL31 code taking the
+   measurements and recording them as per `PSA DRTM specification`_ has not
+   been tampered with.
+
+   This option defaults to 0.
+
 -  ``NON_TRUSTED_WORLD_KEY``: This option is used when ``GENERATE_COT=1``. It
    specifies the file that contains the Non-Trusted World private key in PEM
    format. If ``SAVE_KEYS=1``, this file name will be used to save the key.
@@ -1087,3 +1095,4 @@ Firmware update options
 
 .. _DEN0115: https://developer.arm.com/docs/den0115/latest
 .. _PSA FW update specification: https://developer.arm.com/documentation/den0118/a/
+.. _PSA DRTM specification: https://developer.arm.com/documentation/den0113/a
