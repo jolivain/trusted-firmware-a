@@ -107,7 +107,7 @@ struct cpu_win_configuration mv_cpu_wins[CPU_WIN_CONFIG_MAX][MV_CPU_WIN_NUM] = {
 	 *
 	 *	0xFFFFFFFF ---> +-----------------------+
 	 *			|	 Boot ROM	| 64 KB
-	 *	0xFFF00000 ---> +-----------------------+
+	 *	0xFFFF0000 ---> +-----------------------+
 	 *			:			:
 	 *	0xFE010000 ---> +-----------------------+
 	 *			|	 CCI Regs	| 64 KB
