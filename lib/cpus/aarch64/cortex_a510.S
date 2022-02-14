@@ -153,6 +153,44 @@ func check_errata_2041909
 	b	cpu_rev_var_range
 endfunc check_errata_2041909
 
+	/* --------------------------------------------------
+	 * Errata Workaround for Cortex-A510 Errata #2250311.
+	 * This applies only to revisions r0p0, r0p1, r0p2,
+	 * r0p3 and r1p0, and is fixed in r1p1.
+	 * This workaround is non-standard and is not fixed
+	 * here, the check function is just provided so the
+	 * errata reporting framework will work as intended.
+	 * The fix is to disable MPMM which interferes with
+	 * the MPMM framework, so the workaround is located
+	 * in lib/mpmm/mpmm.c
+	 * --------------------------------------------------
+	 */
+func errata_cortex_a510_2250311_wa
+	/* Check workaround compatibility. */
+	mov	x17, x30
+	bl	check_errata_2250311
+	cbz	x0, 1f
+
+	/* Disable MPMM */
+	mrs	x0, CPUMPMMCR_EL3
+	bfc	x0, #CPUMPMMCR_EL3_MPMM_EN_SHIFT, #CPUMPMMCR_EL3_MPMM_EN_MASK
+	msr	CPUMPMMCR_EL3, x0
+
+#if ENABLE_MPMM && IMAGE_BL31
+	/* If ENABLE_MPMM is set, tell the runtime lib to skip enabling it. */
+	bl mpmm_errata_disable
+#endif
+
+1:
+	ret x17
+endfunc errata_cortex_a510_2250311_wa
+
+func check_errata_2250311
+	/* Applies to r1p0 and lower */
+	mov	x1, #0x10
+	b	cpu_rev_var_ls
+endfunc check_errata_2250311
+
 	/* ----------------------------------------------------
 	 * HW will do the cache maintenance while powering down
 	 * ----------------------------------------------------
@@ -187,6 +225,7 @@ func cortex_a510_errata_report
 	report_errata ERRATA_A510_2288014, cortex_a510, 2288014
 	report_errata ERRATA_A510_2042739, cortex_a510, 2042739
 	report_errata ERRATA_A510_2041909, cortex_a510, 2041909
+	report_errata ERRATA_A510_2250311, cortex_a510, 2250311
 
 	ldp	x8, x30, [sp], #16
 	ret
@@ -222,6 +261,11 @@ func cortex_a510_reset_func
 #if ERRATA_A510_2041909
 	mov	x0, x18
 	bl	errata_cortex_a510_2041909_wa
+#endif
+
+#if ERRATA_A510_2250311
+	mov	x0, x18
+	bl	errata_cortex_a510_2250311_wa
 #endif
 
 	ret	x19
