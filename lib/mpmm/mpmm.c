@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, Arm Limited. All rights reserved.
+ * Copyright (c) 2022, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -62,11 +62,24 @@ static bool mpmm_supported(void)
 	return supported;
 }
 
+static bool mpmm_errata_disable = false;
+
 void mpmm_enable(void)
 {
-	bool supported = mpmm_supported();
-
-	if (supported) {
+	if (mpmm_supported()) {
+		if(mpmm_errata_disable) {
+			VERBOSE("MPMM: disabled by errata workaround")
+			return;
+		}
 		write_cpumpmmcr_el3_mpmm_en(1U);
 	}
+}
+
+/*
+ * This function is called from assembly code very early in BL31 so it must be
+ * small and simple.
+ */
+void mpmm_errata_disable(void)
+{
+	mpmm_errata_disable = true;
 }

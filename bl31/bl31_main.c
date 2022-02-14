@@ -57,6 +57,8 @@ static uint32_t next_image_type = NON_SECURE;
 volatile uint32_t unsupported_mpid_flag = 1;
 #endif
 
+void mpmm_skip_for_errata_workaround(void);
+
 /*
  * Implement the ARM Standard Service function to get arguments for a
  * particular service.
