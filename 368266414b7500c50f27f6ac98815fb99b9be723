@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f2c2cfc_6298ef32",
+        "filename": "services/std_svc/spm/spmc/spmc_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-02-14T18:50:00Z",
+      "side": 1,
+      "message": "This code is specific to S-EL1 partitions and therefore should be located in `spmc_el1_sp_setup` rather than the common function.",
+      "revId": "368266414b7500c50f27f6ac98815fb99b9be723",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
