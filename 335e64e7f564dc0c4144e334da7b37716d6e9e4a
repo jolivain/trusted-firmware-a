@@ -22,6 +22,30 @@
       },
       "revId": "335e64e7f564dc0c4144e334da7b37716d6e9e4a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ae77650_f45c536b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-02-14T08:24:51Z",
+      "side": 1,
+      "message": "Hi Madhukar,\nI cannot enable the flag yet in platform.mk. Some other files should be changed before. When it is OK, I can enable it.\nOr do you prefer a dedicated series for all corrections and at the end the flag enabled?",
+      "parentUuid": "63b4ac4e_c40ff430",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 19
+      },
+      "revId": "335e64e7f564dc0c4144e334da7b37716d6e9e4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
