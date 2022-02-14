@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9f042ec7_f69f95a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000271
+      },
+      "writtenOn": "2022-02-14T20:00:00Z",
+      "side": 1,
+      "message": "*configurable, sorry.\n\nIndeed I tried this in U-Boot (I added a mapping for virtual memory to physical memory beginning at 0xffe00000) and accessing memory from 0xfff00000 gives zeros, while accessing memory before that address causes Synchronous Abort. So the window really begins at 0xfff00000.",
+      "parentUuid": "e3682292_23ea7f46",
+      "revId": "d75c60bb39d824ca4f63b7e31f460f96497a4df5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2cea7392_1836ff1f",
         "filename": "plat/marvell/armada/a3k/common/dram_win.c",
         "patchSetId": 1
