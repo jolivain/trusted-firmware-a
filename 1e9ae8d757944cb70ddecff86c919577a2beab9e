@@ -111,6 +111,23 @@
       "parentUuid": "5787756a_1678633f",
       "revId": "1e9ae8d757944cb70ddecff86c919577a2beab9e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6b651a2_3f5e6595",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-02-14T19:18:34Z",
+      "side": 1,
+      "message": "Build test seems to be failing. Can you take a look?\n------------------------------------------------------------------------------------------------\n\nplat/arm/board/corstone1000/common/corstone1000_pm.c: In function \u0027corstone1000_system_reset\u0027:\nplat/arm/board/corstone1000/common/corstone1000_pm.c:18:48: error: pointer targets in initialization of \u0027volatile uint32_t * const\u0027 {aka \u0027volatile unsigned int * const\u0027} from \u0027int *\u0027 differ in signedness [-Werror\u003dpointer-sign]\n   18 |  uint32_t volatile * const watchdog_ctrl_reg \u003d (int *) SECURE_WATCHDOG_ADDR_CTRL_REG;\n      |                                                ^\nplat/arm/board/corstone1000/common/corstone1000_pm.c:19:47: error: pointer targets in initialization of \u0027volatile uint32_t * const\u0027 {aka \u0027volatile unsigned int * const\u0027} from \u0027int *\u0027 differ in signedness [-Werror\u003dpointer-sign]\n   19 |  uint32_t volatile * const watchdog_val_reg \u003d (int *) SECURE_WATCHDOG_ADDR_VAL_REG;\n      |                                               ^\ncc1: all warnings being treated as errors\nMakefile:1269: recipe for target \u0027/work/workspace/workspace/tf-worker_ws_13/trusted_firmware/build/corstone1000/debug/bl31/corstone1000_pm.o\u0027 failed\nmake: *** [/work/workspace/workspace/tf-worker_ws_13/trusted_firmware/build/corstone1000/debug/bl31/corstone1000_pm.o] Error 1",
+      "revId": "1e9ae8d757944cb70ddecff86c919577a2beab9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
