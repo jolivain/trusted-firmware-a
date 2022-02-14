@@ -1,0 +1,214 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eebb8880_90912be9",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-14T13:13:54Z",
+      "side": 1,
+      "message": "according to #54, if (CTX_INCLUDE_MTE_REGS \u003d 1) \u0026\u0026 (ENABLE_ASSERTIONS \u003d 0), \u0027mte\u0027 won\u0027t be defined.\nAre you getting compilation error?",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1daa0fee_81b87733",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-14T13:13:54Z",
+      "side": 1,
+      "message": "{}",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2145425_b86f129e",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-14T13:13:54Z",
+      "side": 1,
+      "message": "\"S-EL2 can not be used in AArch32\\n\"",
+      "range": {
+        "startLine": 75,
+        "startChar": 9,
+        "endLine": 75,
+        "endChar": 44
+      },
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35cd52ae_33e1eaef",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-14T13:13:54Z",
+      "side": 1,
+      "message": "Add space after /*",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4ad0ccf_2f8ef172",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-14T13:13:54Z",
+      "side": 1,
+      "message": "The comment is misleading. This is not enabling MTE, but disabling MTE instructions to be trapped.\nThe same for Pointer Authentication.",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a5a35fd_db44d73b",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-14T13:13:54Z",
+      "side": 1,
+      "message": "For functions above \"initializationS\" were used.",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95c60341_9c407e56",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-14T13:13:54Z",
+      "side": 1,
+      "message": "\"initialization\", please see examples above.",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "862e7fc3_1fac818e",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-14T13:13:54Z",
+      "side": 1,
+      "message": "API",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31f6672a_14af4115",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-14T13:13:54Z",
+      "side": 1,
+      "message": "will be used",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc4bdb6f_17e6e71e",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-14T13:13:54Z",
+      "side": 1,
+      "message": "the same",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f11ea933_b8746a59",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-14T13:13:54Z",
+      "side": 1,
+      "message": "add trailing \u0027.\u0027",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "300a8567_ab612bcd",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-14T13:13:54Z",
+      "side": 1,
+      "message": "Is there compilation warning, that \"break\" is unreachable?",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
