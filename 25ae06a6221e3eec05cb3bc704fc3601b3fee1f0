@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f41eb867_dc4c6556",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-02-15T13:01:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b11f4716_8fc7b9a8",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 23
+      },
+      "revId": "25ae06a6221e3eec05cb3bc704fc3601b3fee1f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be8ed07c_66ad1161",
@@ -47,6 +71,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03cc23a0_756f9049",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-02-15T13:01:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be8ed07c_66ad1161",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 30
+      },
+      "revId": "25ae06a6221e3eec05cb3bc704fc3601b3fee1f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "153ba724_943afe8b",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-02-14T19:57:04Z",
       "side": 1,
       "message": "Place comments above the associated definition so they don\u0027t exceed line limits.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 67
+      },
+      "revId": "25ae06a6221e3eec05cb3bc704fc3601b3fee1f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac43f70b_186a7c23",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-02-15T13:01:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "153ba724_943afe8b",
       "range": {
         "startLine": 25,
         "startChar": 0,
@@ -95,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "921d2498_5ba4a738",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-02-15T13:01:09Z",
+      "side": 1,
+      "message": "These are two separate includes. One for the spmc and the other for the spmd.",
+      "parentUuid": "0734be9e_2d556c80",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 30
+      },
+      "revId": "25ae06a6221e3eec05cb3bc704fc3601b3fee1f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b26ba5d3_2ebae877",
         "filename": "services/std_svc/spm/spmc/spmc_main.c",
         "patchSetId": 6
@@ -106,6 +202,30 @@
       "writtenOn": "2022-02-14T19:57:04Z",
       "side": 1,
       "message": "nit: over 80 chars",
+      "range": {
+        "startLine": 103,
+        "startChar": 80,
+        "endLine": 103,
+        "endChar": 83
+      },
+      "revId": "25ae06a6221e3eec05cb3bc704fc3601b3fee1f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e1ce13b_2a8bef7d",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-02-15T13:01:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b26ba5d3_2ebae877",
       "range": {
         "startLine": 103,
         "startChar": 80,
@@ -139,6 +259,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5ab6fc2_4a478e72",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-02-15T13:01:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8875fff_ed83ac55",
+      "range": {
+        "startLine": 155,
+        "startChar": 5,
+        "endLine": 155,
+        "endChar": 8
+      },
+      "revId": "25ae06a6221e3eec05cb3bc704fc3601b3fee1f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "369203c5_17646ae0",
@@ -152,6 +296,30 @@
       "writtenOn": "2022-02-14T19:57:04Z",
       "side": 1,
       "message": "nit: comment too long",
+      "range": {
+        "startLine": 231,
+        "startChar": 73,
+        "endLine": 231,
+        "endChar": 75
+      },
+      "revId": "25ae06a6221e3eec05cb3bc704fc3601b3fee1f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc4c0dd4_cf92d3f8",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-02-15T13:01:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "369203c5_17646ae0",
       "range": {
         "startLine": 231,
         "startChar": 73,
@@ -185,6 +353,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ebd07cc_a590326d",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-02-15T13:01:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0464d1ab_98213936",
+      "range": {
+        "startLine": 354,
+        "startChar": 1,
+        "endLine": 354,
+        "endChar": 12
+      },
+      "revId": "25ae06a6221e3eec05cb3bc704fc3601b3fee1f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6d73072_f353ca0f",
@@ -198,6 +390,30 @@
       "writtenOn": "2022-02-14T19:57:04Z",
       "side": 1,
       "message": "nit: comment over 80 chars",
+      "range": {
+        "startLine": 78,
+        "startChar": 73,
+        "endLine": 78,
+        "endChar": 77
+      },
+      "revId": "25ae06a6221e3eec05cb3bc704fc3601b3fee1f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "237bf54c_c6682e9c",
+        "filename": "services/std_svc/spm/spmc/spmc_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-02-15T13:01:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6d73072_f353ca0f",
       "range": {
         "startLine": 78,
         "startChar": 73,
