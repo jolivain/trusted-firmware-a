@@ -191,6 +191,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2c7185ef_96d03d83",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-15T09:40:29Z",
+      "side": 1,
+      "message": "Thanks for your explanation.\n\nThe internal suffix only came to me given the function \u0027spmd_smc_forward\u0027 below is static.\n\nAbout the \"ffa_smc_forward\", without the spmd prefix it doesn\u0027t comply with the naming convention in this file.\nIs there another source file that would the function better? Perhaps shared between SPMD and SPMC? \nCould it be renamed to \u0027spm_smc_forward\u0027?",
+      "parentUuid": "fcb189bb_60f8b871",
+      "range": {
+        "startLine": 428,
+        "startChar": 9,
+        "endLine": 428,
+        "endChar": 24
+      },
+      "revId": "659db2a5e9c06daf6fffe6bd3feffdb1e40526b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b594745_fc1a926b",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 5
@@ -202,6 +226,30 @@
       "writtenOn": "2022-02-01T10:27:46Z",
       "side": 1,
       "message": "As per comment in line 428:\n- Could you update the doc comment?\n- Could this function be called \u0027spmd_smc_forward_internal\u0027?",
+      "range": {
+        "startLine": 466,
+        "startChar": 0,
+        "endLine": 469,
+        "endChar": 50
+      },
+      "revId": "659db2a5e9c06daf6fffe6bd3feffdb1e40526b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e4324b4_d2884c7d",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-15T09:40:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b594745_fc1a926b",
       "range": {
         "startLine": 466,
         "startChar": 0,
