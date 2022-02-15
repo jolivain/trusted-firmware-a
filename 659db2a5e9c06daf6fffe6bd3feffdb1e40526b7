@@ -215,6 +215,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8c6db7d7_fa7bc732",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-02-15T13:00:24Z",
+      "side": 1,
+      "message": "Makes sense, unfortunately I don\u0027t currently have a shared source file between the SPMD and the SPMC. The closest would be spm_common.h however this was designed to be shared between the SPMC and the SPM MM rather than with the SPMD. \n\nJust trying to think of alternatives, what do you think about leaving the existing `spmd_smc_forward` function and renaming the new function to `spmd_smc_switch_state` or something on those lines?\n\nThat way the forward function takes care of forwarding to the SPMC or calling through to the function to change the security state depending on what is required? \nThis would still leave the SPMC calling an spmd function but I think a name like that would still make the intention easier to understand?",
+      "parentUuid": "2c7185ef_96d03d83",
+      "range": {
+        "startLine": 428,
+        "startChar": 9,
+        "endLine": 428,
+        "endChar": 24
+      },
+      "revId": "659db2a5e9c06daf6fffe6bd3feffdb1e40526b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b594745_fc1a926b",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 5
