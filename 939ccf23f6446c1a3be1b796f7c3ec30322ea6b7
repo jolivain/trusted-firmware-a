@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "152a6b4a_86825aa2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T12:02:28Z",
+      "side": 1,
+      "message": "This patch itself is OK, but need further migration of functionality from this lib for SPMD as next steps.",
+      "revId": "939ccf23f6446c1a3be1b796f7c3ec30322ea6b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80468e56_e59a108e",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T12:02:28Z",
+      "side": 1,
+      "message": "All of scr_el3 reg init must be moved to SPMD. This will also allow direct interrupt routing configuration by SPMD bypassing the IMF which can then be deprecated.\n\nThese functions here then would be only for legacy.",
+      "range": {
+        "startLine": 51,
+        "startChar": 12,
+        "endLine": 51,
+        "endChar": 42
+      },
+      "revId": "939ccf23f6446c1a3be1b796f7c3ec30322ea6b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43c876a1_0688d682",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T12:02:28Z",
+      "side": 1,
+      "message": "The next step would be for EL3 to not have SVE/SME compilation flags specific for Secure world.  This can happen if SVE and SME enablement is done within SPMD. The check would look like the following in SPMD\n\n#if ENABLE_SVE_FOR_NS\nif (feature_present_on_CPU) {\n       sve_enable(ctx)   --\u003eSPMD knows SPM can handle save of incoming NS SVE context\n}\n#endif\n\nSimilarly for SME when SPM can handle incoming NS SME context\n\nSo all of this code here for Secure would be only for legacy SPDs.",
+      "revId": "939ccf23f6446c1a3be1b796f7c3ec30322ea6b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
