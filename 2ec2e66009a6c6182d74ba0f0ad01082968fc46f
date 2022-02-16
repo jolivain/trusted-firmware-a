@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "75144b7b_ad16988b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-02-16T10:36:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4cbbfc6_6f375b6f",
+      "revId": "2ec2e66009a6c6182d74ba0f0ad01082968fc46f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f4cb95f_7e30aaa1",
@@ -106,6 +124,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d75134f_a0f720bb",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1132,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-02-16T10:36:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bcb44b2_a0e17bb6",
+      "revId": "2ec2e66009a6c6182d74ba0f0ad01082968fc46f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9d59708_79ddf58c",
@@ -137,6 +173,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "f9d59708_79ddf58c",
+      "revId": "2ec2e66009a6c6182d74ba0f0ad01082968fc46f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "400ac3ab_6093272c",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1133,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-02-16T10:36:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1986ddf_a9f6c99e",
       "revId": "2ec2e66009a6c6182d74ba0f0ad01082968fc46f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -178,6 +232,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "26636654_1c09d186",
+      "range": {
+        "startLine": 53,
+        "startChar": 3,
+        "endLine": 53,
+        "endChar": 8
+      },
+      "revId": "2ec2e66009a6c6182d74ba0f0ad01082968fc46f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6ae7fec_bacdaa74",
+        "filename": "include/drivers/arm/gicv2.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-02-16T10:36:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c81361c5_2867fcc9",
       "range": {
         "startLine": 53,
         "startChar": 3,
