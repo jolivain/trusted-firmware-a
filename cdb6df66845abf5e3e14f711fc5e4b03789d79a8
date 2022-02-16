@@ -16,6 +16,24 @@
       "message": "Hi team,\nstill CI failure, but don\u0027t seem linked to this change.\nUnfortunately continuously rebase didn\u0027t fix it.\nCould some maintainer please have a look and confirm?\nThanks",
       "revId": "cdb6df66845abf5e3e14f711fc5e4b03789d79a8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86b68d36_a85010b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-02-16T09:48:53Z",
+      "side": 1,
+      "message": "I think this is a real failure with the SPM-MM case.\n\nBoth test cases have some panic signature\nhttps://ci-builds.trustedfirmware.org/static-files/MZubajIQfHC2rlYVEooSTLCz0aDZ-CPG2hTtOJpbALAxNjQ1MDA0OTA0MTQ3Ojk6YW5vbnltb3VzOmpvYi90Zi1hLWJ1aWxkZXIvNzc1NzgxL2FydGlmYWN0/lava-uart0.log\n\n\n\u003e Executing \u0027SPM NS interrupts test\u0027\nINFO:    Registered IRQ handler 0x880049c0 for IRQ #7\nNOTICE:  Programming the timer...\nINFO:    Sending MM_COMMUNICATE_AARCH64 to Cactus\nUnhandled exception on CPU0.\nSystem registers:\n  MPIDR\u003d0x81000000\n  ESR\u003d0xbe000000  ELR\u003d0x880043c0  FAR\u003d0x0\n  SCTLR\u003d0x30cd183f  SPSR\u003d0x20000249  DAIF\u003d0x3c0\nGeneral-purpose registers:\n  x0\u003d0x1\n  x1\u003d0x8800c4db\n  x2\u003d0x1\n  x3\u003d0x8693a8d\n  x4\u003d0xff600000\n  x5\u003d0x7\n  x6\u003d0x0\n  x7\u003d0xff60ffff\n  x8\u003d0x88031fff\n  x9\u003d0x10000\n  x10\u003d0xffffffff\n  x11\u003d0x0\n  x12\u003d0xff600000\n  x13\u003d0x88019918\n  x14\u003d0x0\n  x15\u003d0x0\n  x16\u003d0x0\n  x17\u003d0x0\n  x18\u003d0x0\n  x19\u003d0x880198c0\n  x20\u003d0x8801a000\n  x21\u003d0x0\n  x22\u003d0x88008398\n  x23\u003d0x1000000\n  x24\u003d0xff01ffffff\n  x25\u003d0x8801a1a0\n  x26\u003d0x0\n  x27\u003d0x0\n  x28\u003d0x0\n  x29\u003d0x8800c4a0\n  x30\u003d0x88004b3c\n  SP\u003d0x8800c4a0\n\n\n\n\nhttps://ci-builds.trustedfirmware.org/static-files/qP0Hjx4P58Jm5JDN2t9R8uqwsaQdd4gzlLx_ZdFgu3cxNjQ1MDA0ODQzNzg3Ojk6YW5vbnltb3VzOmpvYi90Zi1hLWJ1aWxkZXIvNzc1NzgyL2FydGlmYWN0/lava-uart0.log\n\nadd-symbol-file /home/supven01/work/mm_upstream/Build/ArmVExpress-FVP-AArch64-MM-Normal/DEBUG_GCC5/AARCH64/MdeModulePkg/Application/UefiInfoApp/UefiInfo/DEBUG/UefiInfo.dll 0xF5F98000\nLoading driver at 0x000F5F97000 EntryPoint\u003d0x000F5F98000 UefiInfo.efi\n\n\nSError Exception at 0x00000000F5EA0DD0",
+      "parentUuid": "0e6dc9ec_01ff3bef",
+      "revId": "cdb6df66845abf5e3e14f711fc5e4b03789d79a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
