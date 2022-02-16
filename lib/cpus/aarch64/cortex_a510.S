@@ -230,6 +230,37 @@ func check_errata_2218950
 	b	cpu_rev_var_ls
 endfunc check_errata_2218950
 
+	/* --------------------------------------------------
+	 * Errata Workaround for Cortex-A510 Errata #2172148.
+	 * This applies only to revisions r0p0, r0p1, r0p2,
+	 * r0p3 and r1p0, and is fixed in r1p1.
+	 * x0: variant[4:7] and revision[0:3] of current cpu.
+	 * Shall clobber: x0, x1, x17
+	 * --------------------------------------------------
+	 */
+func errata_cortex_a510_2172148_wa
+	/* Check workaround compatibility. */
+	mov	x17, x30
+	bl	check_errata_2172148
+	cbz	x0, 1f
+
+	/* Force L2 allocation of transient lines. */
+	mrs	x0, CORTEX_A510_CPUECTLR_EL1
+	mov	x1, #1
+	bfi	x0, x1, #23, #2		/* [24:23] = 0b01 */
+	bfi	x0, x1, #46, #2		/* [47:46] = 0b01 */
+	msr	CORTEX_A510_CPUECTLR_EL1, x0
+
+1:
+	ret x17
+endfunc errata_cortex_a510_2172148_wa
+
+func check_errata_2172148
+	/* Applies to r1p0 and lower */
+	mov	x1, #0x10
+	b	cpu_rev_var_ls
+endfunc check_errata_2172148
+
 	/* ----------------------------------------------------
 	 * HW will do the cache maintenance while powering down
 	 * ----------------------------------------------------
@@ -266,6 +297,7 @@ func cortex_a510_errata_report
 	report_errata ERRATA_A510_2041909, cortex_a510, 2041909
 	report_errata ERRATA_A510_2250311, cortex_a510, 2250311
 	report_errata ERRATA_A510_2218950, cortex_a510, 2218950
+	report_errata ERRATA_A510_2172148, cortex_a510, 2172148
 
 	ldp	x8, x30, [sp], #16
 	ret
@@ -311,6 +343,11 @@ func cortex_a510_reset_func
 #if ERRATA_A510_2218950
 	mov	x0, x18
 	bl	errata_cortex_a510_2218950_wa
+#endif
+
+#if ERRATA_A510_2172148
+	mov	x0, x18
+	bl	errata_cortex_a510_2172148_wa
 #endif
 
 	ret	x19
