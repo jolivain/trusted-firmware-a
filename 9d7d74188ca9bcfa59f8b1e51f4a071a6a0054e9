@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5992efd_d6b5f0e0",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T15:43:50Z",
+      "side": 0,
+      "message": "We need to clear the regs atleast after coming out from the Realm world. Is this restore a problem at the moment ?",
+      "revId": "9d7d74188ca9bcfa59f8b1e51f4a071a6a0054e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
