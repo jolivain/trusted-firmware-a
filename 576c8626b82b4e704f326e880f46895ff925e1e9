@@ -41,6 +41,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4be6414b_6c22b90b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T11:21:39Z",
+      "side": 1,
+      "message": "Thanks Olivier for the comments",
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7b16bab_87f47de6",
@@ -82,6 +99,54 @@
         "startChar": 33,
         "endLine": 50,
         "endChar": 12
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9891e91d_0e7b6ccd",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T11:21:39Z",
+      "side": 1,
+      "message": "clarified.",
+      "parentUuid": "795fab11_238cf9db",
+      "range": {
+        "startLine": 49,
+        "startChar": 33,
+        "endLine": 50,
+        "endChar": 12
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db461634_b70b58a1",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T11:21:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7b16bab_87f47de6",
+      "range": {
+        "startLine": 50,
+        "startChar": 71,
+        "endLine": 50,
+        "endChar": 76
       },
       "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
@@ -135,6 +200,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0407e69c_36248d9e",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T11:21:39Z",
+      "side": 1,
+      "message": "That seems to be case although we can support the skip NS EL1 if there is still a market need for this.",
+      "parentUuid": "5d4df175_46144ef5",
+      "range": {
+        "startLine": 56,
+        "startChar": 49,
+        "endLine": 57,
+        "endChar": 70
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce61bdb0_85737cb2",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T11:21:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53fd1864_4b522d89",
+      "range": {
+        "startLine": 57,
+        "startChar": 66,
+        "endLine": 57,
+        "endChar": 70
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "55384d02_b66da4fc",
         "filename": "docs/design_documents/context_mgmt_rework.rst",
         "patchSetId": 3
@@ -152,6 +265,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3d510c0a_7c89666a",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T11:21:39Z",
+      "side": 1,
+      "message": "Hmm, Entry and exit from a world is managed by the dispatcher. You are right that if a set of reg is missed this will be a security issue. Realms and Secure worlds are going to diverge in terms of capability required as Realms probably need all the features on the CPU where as Secure world can restrict itself to a subset of feature of CPUs (eg: trace, Debug, PMU are not capabilities needed for Secure world).\n\nGiven that, I think we can do something here to atleast save the common set in a single function eg : all mandatory ARMv9.0 EL2 regs can be done by a helper. We can maintain a some  documentation within the source tree to list all register set saved and restored for Realm and Secure worlds. I think lets look at how the implementation looks like and share code if we see commonality.",
+      "parentUuid": "55384d02_b66da4fc",
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a16a02a4_1862c213",
         "filename": "docs/design_documents/context_mgmt_rework.rst",
         "patchSetId": 3
@@ -163,6 +294,30 @@
       "writtenOn": "2022-01-27T10:10:26Z",
       "side": 1,
       "message": "nit: and performs the initialization for the given world?",
+      "range": {
+        "startLine": 105,
+        "startChar": 49,
+        "endLine": 106,
+        "endChar": 14
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79f5ab00_55a681ab",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T11:21:39Z",
+      "side": 1,
+      "message": "reworded",
+      "parentUuid": "a16a02a4_1862c213",
       "range": {
         "startLine": 105,
         "startChar": 49,
@@ -196,6 +351,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "91f96362_dd4a2f87",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T11:21:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89f73033_56152cc9",
+      "range": {
+        "startLine": 109,
+        "startChar": 22,
+        "endLine": 109,
+        "endChar": 31
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a171ef2_895dc0d4",
@@ -209,6 +388,30 @@
       "writtenOn": "2022-01-27T10:10:26Z",
       "side": 1,
       "message": "rephrase?",
+      "range": {
+        "startLine": 125,
+        "startChar": 10,
+        "endLine": 125,
+        "endChar": 39
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "427ccfe2_a00d3e77",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T11:21:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a171ef2_895dc0d4",
       "range": {
         "startLine": 125,
         "startChar": 10,
@@ -244,6 +447,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ec30ebb1_13e131c9",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T11:21:39Z",
+      "side": 1,
+      "message": "Hmm, yes, but eventually we should try to avoid saving and restoring EL1 regs if SPM can do the necessary to save and restore. I will add this to the diagram and add a note on these lines.",
+      "parentUuid": "2e95e43f_76783580",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 23
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "830dce2c_ab766f19",
         "filename": "docs/design_documents/context_mgmt_rework.rst",
         "patchSetId": 3
@@ -255,6 +482,30 @@
       "writtenOn": "2022-01-27T10:49:47Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 166,
+        "startChar": 3,
+        "endLine": 166,
+        "endChar": 11
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f67676df_0a2bda87",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T11:21:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "830dce2c_ab766f19",
       "range": {
         "startLine": 166,
         "startChar": 3,
@@ -288,6 +539,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f676f88b_3d6b41ab",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T11:21:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f374c9da_76a6d184",
+      "range": {
+        "startLine": 167,
+        "startChar": 7,
+        "endLine": 167,
+        "endChar": 12
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fea3c5d3_96165200",
@@ -301,6 +576,30 @@
       "writtenOn": "2022-01-27T10:49:47Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 171,
+        "startChar": 34,
+        "endLine": 171,
+        "endChar": 42
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33438fb5_18dfdcd9",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T11:21:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fea3c5d3_96165200",
       "range": {
         "startLine": 171,
         "startChar": 34,
@@ -334,6 +633,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29750ce1_f0d5c596",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T11:21:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc2153eb_75543240",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 23
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b81bd8f5_d692bdd4",
@@ -347,6 +670,30 @@
       "writtenOn": "2022-01-27T10:49:47Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 182,
+        "startChar": 11,
+        "endLine": 182,
+        "endChar": 19
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60a030a4_32c9151f",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T11:21:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b81bd8f5_d692bdd4",
       "range": {
         "startLine": 182,
         "startChar": 11,
