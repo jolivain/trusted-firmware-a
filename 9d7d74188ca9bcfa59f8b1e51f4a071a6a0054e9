@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c36e45ac_151a2287",
+        "filename": "lib/extensions/mpam/mpam.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T15:38:07Z",
+      "side": 1,
+      "message": "This is the kind of code that will be removed if SKIP EL2 config is no longer supported.",
+      "range": {
+        "startLine": 32,
+        "startChar": 5,
+        "endLine": 32,
+        "endChar": 15
+      },
+      "revId": "9d7d74188ca9bcfa59f8b1e51f4a071a6a0054e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "854798d7_3ddee677",
+        "filename": "lib/extensions/mpam/mpam.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T15:38:07Z",
+      "side": 1,
+      "message": "Actually this is responsibility of EL2 code to initialize these values if it wants to use MPAM. \nI think EL3 should not enable lower EL register on their behalf.\n\nShould we try removing this code and see how it pans out ? \n\nAlso the generic enable should be restricted to NS. The Secure side can enable MPAM based on capability of the secure entity and whether the save and restore of relevant regs are done.",
+      "range": {
+        "startLine": 38,
+        "startChar": 8,
+        "endLine": 61,
+        "endChar": 2
+      },
+      "revId": "9d7d74188ca9bcfa59f8b1e51f4a071a6a0054e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
