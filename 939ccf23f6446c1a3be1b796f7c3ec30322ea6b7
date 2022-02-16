@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ae13c59_089a0167",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T15:22:48Z",
+      "side": 1,
+      "message": "The patch is fine in itself, Most of my comments are for pre-existing issues so not affecting your patch.",
+      "revId": "939ccf23f6446c1a3be1b796f7c3ec30322ea6b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80468e56_e59a108e",
@@ -37,6 +54,138 @@
         "endLine": 51,
         "endChar": 42
       },
+      "revId": "939ccf23f6446c1a3be1b796f7c3ec30322ea6b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f20f8512_a32aa81b",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T15:22:48Z",
+      "side": 1,
+      "message": "I realized that SPM at EL3 is also a thing which might this common code to be present for both SPM (at EL2 or EL3). Perhaps both the SPMs can use a common utility and we can remove Interrupt mgmt framework (IMF) in future.\n\nIgnore this for now, will ne take inputs from SPM team for this.",
+      "parentUuid": "80468e56_e59a108e",
+      "range": {
+        "startLine": 51,
+        "startChar": 12,
+        "endLine": 51,
+        "endChar": 42
+      },
+      "revId": "939ccf23f6446c1a3be1b796f7c3ec30322ea6b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6011fc7_281dc407",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T15:22:48Z",
+      "side": 1,
+      "message": "nit: \"...MTE support for Secure world...\"",
+      "range": {
+        "startLine": 59,
+        "startChar": 11,
+        "endLine": 59,
+        "endChar": 22
+      },
+      "revId": "939ccf23f6446c1a3be1b796f7c3ec30322ea6b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb57dcc8_9e6333dc",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T15:22:48Z",
+      "side": 1,
+      "message": ":), you seem to have resolved a bug in the previous version of the code, the variable `mte` could have been undefined in some cases AFAICS.",
+      "revId": "939ccf23f6446c1a3be1b796f7c3ec30322ea6b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "894b99aa_ba78f1e5",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T15:22:48Z",
+      "side": 1,
+      "message": "This can be moved to line 175 as well ? We can clear the it anyway with or w/o ENABLE_RME flag.",
+      "revId": "939ccf23f6446c1a3be1b796f7c3ec30322ea6b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdee8f31_907b496b",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T15:22:48Z",
+      "side": 1,
+      "message": "This will have to change for both firmware first and kernel first handling. This bit set will actually prevent accessing this register in both NS and Secure worlds hence preventing both kernel first and firmware first handling (S-EL1/2 needs to access this register for firmware first). Anyway this is not your change just calling out while I am noticing the problem.",
+      "revId": "939ccf23f6446c1a3be1b796f7c3ec30322ea6b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f15b27a9_d6609a0d",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T15:22:48Z",
+      "side": 1,
+      "message": "nit: the comment here can say CPTR_EL3 was initialized out of reset, copy that vlaue to the context...",
+      "revId": "939ccf23f6446c1a3be1b796f7c3ec30322ea6b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d205f65_d567e082",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-16T15:22:48Z",
+      "side": 1,
+      "message": "Wouldn\u0027t this register need to be saved and restored if being enabled for both the worlds ? If this is conditionally enabled in TF-A then the same conditional flag needs to be present here.",
       "revId": "939ccf23f6446c1a3be1b796f7c3ec30322ea6b7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
