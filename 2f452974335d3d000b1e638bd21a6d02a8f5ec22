@@ -16,6 +16,23 @@
       "message": "I verified this locally on my Espressobin. MARVELL BOOT PARTITION is ignored, but that UUID works very well. Without that UUID the GPT partition is ignored and you enter in BootROM prompt.",
       "revId": "2f452974335d3d000b1e638bd21a6d02a8f5ec22",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68c60fc9_e4a6698f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2022-02-17T23:40:57Z",
+      "side": 1,
+      "message": "@Madhukar: I think that this change has enough reviews, could you merge it?",
+      "revId": "2f452974335d3d000b1e638bd21a6d02a8f5ec22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
