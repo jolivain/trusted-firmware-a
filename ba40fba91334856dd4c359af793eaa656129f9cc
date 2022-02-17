@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9077f42a_add85e6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-02-17T17:12:58Z",
+      "side": 1,
+      "message": "Added Sandrine as cert_create tool code owner from https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/docs/about/maintainers.rst\n\nAlso added Manish who was going to help out with getting this change in and is a maintainer.\n\nI\u0027ve kicked off a CI run, I suspect it will complain about the format of the commit message, we have a Conventional Commits mandate introduced to help with automatic changelog generation when we do releases. We can help you fix that as its not always obvious when looking at the CI errata message.",
+      "revId": "ba40fba91334856dd4c359af793eaa656129f9cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
