@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <assert.h>
 #include <errno.h>
 #include <inttypes.h>
 
@@ -62,6 +63,11 @@ struct trusty_shmem_obj_state {
  * @identity_mapped:    If %true, all client memory is identity mapped.
  * @receiver:           If %true, the client is allowed to receive memory.
  *                      If %false, the client is allowed to send memory.
+ * @use_ns_bit:         If %true, the client expects the NS bit in the
+ *                      memory_region_attributes of the ffa_mtd to be set for
+ *                      nonsecure memory.
+ *                      If %false, the client does not support the NS bit
+ *                      in the memory_region_attributes of the ffa_mtd.
  */
 struct trusty_shmem_client_state {
 	const void *tx_buf;
@@ -70,6 +76,7 @@ struct trusty_shmem_client_state {
 	const bool secure;
 	const bool identity_mapped;
 	const bool receiver;
+	bool use_ns_bit;
 };
 
 __aligned(8) static uint8_t
@@ -311,6 +318,7 @@ static long trusty_ffa_fill_desc(struct trusty_shmem_client_state *client,
 		/* First fragment, descriptor header has been copied */
 		obj->desc.handle = trusty_shmem_obj_state.next_handle++;
 		obj->desc.flags = FFA_MTD_FLAG_TYPE_SHARE_MEMORY;
+		obj->desc.memory_region_attributes |= FFA_MEM_ATTR_NONSECURE;
 	}
 
 	obj->desc_filled += fragment_length;
@@ -546,6 +554,11 @@ trusty_ffa_mem_retrieve_req(struct trusty_shmem_client_state *client,
 	size_t copy_size = MIN(obj->desc_size, client->buf_size);
 
 	memcpy(resp, &obj->desc, copy_size);
+
+	if (!client->use_ns_bit) {
+		assert(copy_size >= sizeof(*resp));
+		resp->memory_region_attributes &= ~FFA_MEM_ATTR_NONSECURE;
+	}
 
 	SMC_RET8(smc_handle, SMC_FC_FFA_MEM_RETRIEVE_RESP, obj->desc_size,
 		 copy_size, 0, 0, 0, 0, 0);
@@ -875,13 +888,14 @@ err_not_suppoprted:
  * trusty_ffa_features - FFA_FEATURES implementation.
  * @client:     Client state.
  * @func:       Api to check.
+ * @props:      Input properties.
  * @ret2:       Pointer to return value2 on success.
  * @ret3:       Pointer to return value3 on success.
  *
  * Return: 0 on success, error code on failure.
  */
 static int trusty_ffa_features(struct trusty_shmem_client_state *client,
-			       uint32_t func, u_register_t *ret2,
+			       uint32_t func, uint32_t props, u_register_t *ret2,
 			       u_register_t *ret3)
 {
 	if (SMC_ENTITY(func) != SMC_ENTITY_SHARED_MEMORY ||
@@ -913,7 +927,12 @@ static int trusty_ffa_features(struct trusty_shmem_client_state *client,
 		 * had been retrieved in a variable of type size_t.
 		 */
 		*ret3 = sizeof(size_t) * 8 - 1;
-		__attribute__((fallthrough));
+		*ret2 = 0;
+		if (props & FFA_FEATURES2_MEM_RETRIEVE_REQ_NS_BIT) {
+			*ret2 |= FFA_FEATURES2_MEM_RETRIEVE_REQ_NS_BIT;
+			client->use_ns_bit = true;
+		}
+		return 0;
 
 	case SMC_FC_FFA_MEM_SHARE:
 	case SMC_FC64_FFA_MEM_SHARE:
@@ -991,7 +1010,7 @@ uintptr_t spmd_smc_handler(uint32_t smc_fid,
 		break;
 
 	case SMC_FC_FFA_FEATURES:
-		ret = trusty_ffa_features(client, w1, &ret_reg2, &ret_reg3);
+		ret = trusty_ffa_features(client, w1, w2, &ret_reg2, &ret_reg3);
 		break;
 
 	case SMC_FC_FFA_RXTX_MAP:
