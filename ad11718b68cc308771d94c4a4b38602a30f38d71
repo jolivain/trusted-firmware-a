@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b598c7a_8337d09e",
+        "filename": "drivers/arm/gic/v3/gic600ae_fmu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-02-18T03:06:25Z",
+      "side": 1,
+      "message": "need to be careful with reporting error on console. An attacker can use this as a side channel when they are attempting to inject errors and this is a good way to tell them exactly if they were able to inject errors and what type of error they injected...would recommend changing to VERBOSE...",
+      "range": {
+        "startLine": 229,
+        "startChar": 1,
+        "endLine": 229,
+        "endChar": 6
+      },
+      "revId": "ad11718b68cc308771d94c4a4b38602a30f38d71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
