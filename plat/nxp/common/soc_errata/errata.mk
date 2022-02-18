@@ -9,7 +9,8 @@
 
 ERRATA := \
   ERRATA_SOC_A050426 \
-  ERRATA_SOC_A008850
+  ERRATA_SOC_A008850 \
+  ERRATA_SOC_A009660
 
 define enable_errata
   $(1) ?= 0
