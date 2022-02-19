@@ -190,10 +190,11 @@ static int intel_fpga_config_start(uint32_t config_type)
 
 	mailbox_clear_response();
 
-	mailbox_send_cmd(1U, MBOX_CMD_CANCEL, NULL, 0U, CMD_CASUAL, NULL, 0U);
+	mailbox_send_cmd(MBOX_JOB_ID, MBOX_CMD_CANCEL, NULL, 0U,
+			CMD_CASUAL, NULL, NULL);
 
-	status = mailbox_send_cmd(1U, MBOX_RECONFIG, NULL, 0U, CMD_CASUAL,
-			response, ARRAY_SIZE(response));
+	status = mailbox_send_cmd(MBOX_JOB_ID, MBOX_RECONFIG, &argument, size,
+			CMD_CASUAL, response, &resp_len);
 
 	if (status < 0)
 		return status;
