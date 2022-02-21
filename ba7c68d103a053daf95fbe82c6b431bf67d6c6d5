@@ -52,6 +52,24 @@
       "parentUuid": "04e1c33d_094d6a6a",
       "revId": "ba7c68d103a053daf95fbe82c6b431bf67d6c6d5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "326321b6_72a627f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-02-21T16:40:15Z",
+      "side": 1,
+      "message": "Essentially, the scope \"intel\" needs to be added to the list of blessed scopes. Please take a look at this patch for reference.\n\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/13859/5/changelog.yaml",
+      "parentUuid": "75720ce2_cf1f10d1",
+      "revId": "ba7c68d103a053daf95fbe82c6b431bf67d6c6d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
