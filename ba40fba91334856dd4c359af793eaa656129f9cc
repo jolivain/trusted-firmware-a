@@ -33,6 +33,23 @@
       "message": "The CI failure is a commit message format issue (see https://ci.trustedfirmware.org/job/tf-a-commitlint/1717/console) \n\nTF-A has an automated changelog creation system based off of the commit message following a strict format.\n\nIts documented here https://trustedfirmware-a.readthedocs.io/en/latest/process/commit-style.html",
       "revId": "ba40fba91334856dd4c359af793eaa656129f9cc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70bf0b41_c48db1be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-02-21T17:07:14Z",
+      "side": 1,
+      "message": "Think we may have duplicate changes https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/14043",
+      "revId": "ba40fba91334856dd4c359af793eaa656129f9cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
