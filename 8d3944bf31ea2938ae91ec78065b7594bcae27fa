@@ -50,6 +50,24 @@
       "message": "From the view point of RTL8211 ethernet PHY on Orange Pi One Plus, simply assert reset signal\nto solve address misconfiguration even if this ATF fix is apploved or rejected.\nActually I am trying this dirty patch in OpenBSD (see https://marc.info/?l\u003dopenbsd-arm\u0026m\u003d163868572426679\u0026w\u003d2 ), this makes no problem.\n\nAgain, it needs to fix ATF or DTB to solve my problem. If ATF fix is rejected, I have to consult DTB people. But many Allwinner-H6 board does not defines the signal for RTL8211\u0027s reset. Who should I consult about this?",
       "revId": "8d3944bf31ea2938ae91ec78065b7594bcae27fa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79b8f80b_e0eb9490",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-02-21T18:23:48Z",
+      "side": 1,
+      "message": "I don\u0027t know about the reset line, but as Samuel mentioned, this is probably the old issue, a combination of DT overlays adding phandles everywhere, U-Boot missing regulator support, and the board design being picky.\n\nSasanosan, can you try to compile TF-A with \"SUNXI_SETUP_REGULATORS\u003d0\" on the make command line, and see if that fixes your problem? That is the recommended workaround for now, and should have the same effect as this patch, mostly.",
+      "parentUuid": "8d098acd_5694caeb",
+      "revId": "8d3944bf31ea2938ae91ec78065b7594bcae27fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
