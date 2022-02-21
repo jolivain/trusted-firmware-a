@@ -26,3 +26,21 @@ int plat_spmc_shmem_datastore_get(uint8_t **datastore, size_t *size)
 	*size = PLAT_SPMC_SHMEM_DATASTORE_SIZE;
 	return 0;
 }
+
+/*
+ * Add dummy implementations of memory management related platform hooks.
+ * These can be used to implement platform specific functionality to support
+ * a memory sharing/lending operation.
+ *
+ * Note: The hooks must be located as part of the initial share request and
+ * final reclaim to prevent order dependencies with operations that may take
+ * place in the normal world without visibility of the SPMC.
+ */
+int plat_spmc_shmem_begin(void *desc)
+{
+	return 0;
+}
+int plat_spmc_shmem_reclaim(void *desc)
+{
+	return 0;
+}
