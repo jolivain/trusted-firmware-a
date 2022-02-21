@@ -176,6 +176,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd7383c7_145e4024",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-02-21T10:33:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9891e91d_0e7b6ccd",
+      "range": {
+        "startLine": 49,
+        "startChar": 33,
+        "endLine": 50,
+        "endChar": 12
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d4df175_46144ef5",
@@ -270,6 +294,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0df3c24_20640e8d",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-02-21T10:33:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0407e69c_36248d9e",
+      "range": {
+        "startLine": 56,
+        "startChar": 49,
+        "endLine": 57,
+        "endChar": 70
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55384d02_b66da4fc",
@@ -301,6 +349,24 @@
       "side": 1,
       "message": "Hmm, Entry and exit from a world is managed by the dispatcher. You are right that if a set of reg is missed this will be a security issue. Realms and Secure worlds are going to diverge in terms of capability required as Realms probably need all the features on the CPU where as Secure world can restrict itself to a subset of feature of CPUs (eg: trace, Debug, PMU are not capabilities needed for Secure world).\n\nGiven that, I think we can do something here to atleast save the common set in a single function eg : all mandatory ARMv9.0 EL2 regs can be done by a helper. We can maintain a some  documentation within the source tree to list all register set saved and restored for Realm and Secure worlds. I think lets look at how the implementation looks like and share code if we see commonality.",
       "parentUuid": "55384d02_b66da4fc",
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c96de7a8_1a168c48",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-02-21T10:33:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3d510c0a_7c89666a",
       "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -342,6 +408,30 @@
       "side": 1,
       "message": "reworded",
       "parentUuid": "a16a02a4_1862c213",
+      "range": {
+        "startLine": 105,
+        "startChar": 49,
+        "endLine": 106,
+        "endChar": 14
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbba1177_137a92ad",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-02-21T10:33:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "79f5ab00_55a681ab",
       "range": {
         "startLine": 105,
         "startChar": 49,
@@ -507,6 +597,30 @@
       "side": 1,
       "message": "I have a little concern over here. Secure EL1 contexts (ones of secure partitions) are managed by SEL2, no issue. We\u0027re talking here about the NS EL1 context. SPMC(SEL2) has no knowledge of the extra features used by the normal world. Until today it\u0027s on the SPMD(EL3) to save/restore the NS EL1 context. The new contract between RMMD/RMM/NS in that all share the same set of arch features would also have to apply to the SPMD at least. If we extend the contract to the SPMC then it has to know about the extra NS arch features.",
       "parentUuid": "ec30ebb1_13e131c9",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 23
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f33d0937_e7f3f58e",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-02-21T10:33:30Z",
+      "side": 1,
+      "message": "Further thinking.. Perhaps the only change is in saying the EL1 NS context save/restore shall be moved to SPM rather than done by the SPMD.\nEventually this save/restore only concerns arch features that the secure world (SEL2 and secure partitions) ought to exercise.",
+      "parentUuid": "fa1e2d2b_79b68653",
       "range": {
         "startLine": 128,
         "startChar": 0,
