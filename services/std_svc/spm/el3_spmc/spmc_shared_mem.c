@@ -17,6 +17,28 @@
 
 #include <platform_def.h>
 
+
+/*
+ * Add weak dummy implementations of memory management related platform hooks.
+ * These can be utilized to support platform specific functionality to support
+ * a memory sharing/lending operation.
+ *
+ * Note: The hooks must be located as part of the initial share request and
+ * final reclaim to prevent order dependencies with operations that make take
+ * place in the normal world without visibility of the SPMC.
+ */
+#pragma weak plat_spmc_shmem_begin
+int plat_spmc_shmem_begin(struct ffa_mtd *desc)
+{
+	return 0;
+}
+
+#pragma weak plat_spmc_shmem_reclaim
+int plat_spmc_shmem_reclaim(struct ffa_mtd *desc)
+{
+	return 0;
+}
+
 /**
  * struct spmc_shmem_obj - Shared memory object.
  * @desc_size:      Size of @desc.
@@ -969,6 +991,12 @@ static long spmc_ffa_fill_desc(struct mailbox *mbox,
 		}
 	}
 
+	/* Allow for platform specific operations to be performed. */
+	ret = plat_spmc_shmem_begin(&obj->desc);
+	if (ret != 0) {
+		goto err_arg;
+	}
+
 	SMC_RET8(smc_handle, FFA_SUCCESS_SMC32, 0, handle_low, handle_high, 0,
 		 0, 0, 0);
 
@@ -1672,6 +1700,13 @@ int spmc_ffa_mem_reclaim(uint32_t smc_fid,
 		ret = FFA_ERROR_DENIED;
 		goto err_unlock;
 	}
+
+	/* Allow for platform specific operations to be performed. */
+	ret = plat_spmc_shmem_reclaim(&obj->desc);
+	if (ret != 0) {
+		goto err_unlock;
+	}
+
 	spmc_shmem_obj_free(&spmc_shmem_obj_state, obj);
 	spin_unlock(&spmc_shmem_obj_state.lock);
 
