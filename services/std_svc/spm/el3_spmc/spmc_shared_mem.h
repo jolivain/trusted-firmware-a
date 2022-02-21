@@ -292,6 +292,8 @@ struct spmc_shmem_obj_state {
 };
 
 extern struct spmc_shmem_obj_state spmc_shmem_obj_state;
+extern int plat_spmc_shmem_begin(void *desc);
+extern int plat_spmc_shmem_reclaim(void *desc);
 
 long spmc_ffa_mem_send(uint32_t smc_fid,
 		       bool secure_origin,
