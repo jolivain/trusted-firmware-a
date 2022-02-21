@@ -70,6 +70,30 @@
       },
       "revId": "cbadfe694207c9bf0c8f0e639b56666f47a4c712",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f9c73c6_8146872a",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-02-21T13:58:23Z",
+      "side": 0,
+      "message": "When a core resumes from suspend a number of registers (or register fields) get reset. This is the case of VSTCR_EL2 which is only initialized once by Hafnium https://git.trustedfirmware.org/hafnium/hafnium.git/tree/src/arch/aarch64/hypervisor/hypervisor_entry.S#n210\nHafnium doesn\u0027t go through a full core reinit on core resume. Next entry into the SPMC restoring a vCPU crashes because this S2 configuration register is lost.\nPrior to this change this was covered by EL3 restoring EL2 registers including \u0027secure only\u0027 registers.",
+      "parentUuid": "2ec548b1_b4f397eb",
+      "range": {
+        "startLine": 369,
+        "startChar": 5,
+        "endLine": 369,
+        "endChar": 14
+      },
+      "revId": "cbadfe694207c9bf0c8f0e639b56666f47a4c712",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
