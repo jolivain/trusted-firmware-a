@@ -633,6 +633,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3239caaf_ecfac634",
+        "filename": "docs/design_documents/context_mgmt_rework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-21T10:40:04Z",
+      "side": 1,
+      "message": "If we look at the EL1 context save and restore done by SPMD today, it does not cover all the EL1 regs, for example PMU, Debug are not saved today. This is fine IMO as these features, as long as they are not used by the SP (and suitable traps bits remain enabled), the NS context can remain in the sysregs for features not used by SPs.\n\nIn the model I propose, SPM would need to save the incoming NS EL1 context (similar to SVE NS context).\n\nRMMD will not save and restore EL1 regs in the usual scenario (there is an exception for the Secure world intr pre-emption case). \n\nThis need not be done immediately as EL3 can continue to do what it is doing currently but can be a gradual migration.",
+      "parentUuid": "fa1e2d2b_79b68653",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 23
+      },
+      "revId": "576c8626b82b4e704f326e880f46895ff925e1e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "830dce2c_ab766f19",
         "filename": "docs/design_documents/context_mgmt_rework.rst",
         "patchSetId": 3
