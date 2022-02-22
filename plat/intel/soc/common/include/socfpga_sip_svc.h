@@ -36,11 +36,20 @@
 #define INTEL_SIP_SMC_RSU_NOTIFY			0xC200000E
 #define INTEL_SIP_SMC_RSU_RETRY_COUNTER			0xC200000F
 
+/* ECC */
+#define INTEL_SIP_SMC_ECC_DBE				0xC200000D
+
 /* Send Mailbox Command */
 #define INTEL_SIP_SMC_MBOX_SEND_CMD			0xC200001E
 
 
 /* SiP Definitions */
+
+/* ECC DBE */
+#define WARM_RESET_WFI_FLAG				BIT(31)
+#define SYSMGR_ECC_DBE_COLD_RST_MASK		(SYSMGR_ECC_OCRAM_MASK |\
+							SYSMGR_ECC_DDR0_MASK |\
+							SYSMGR_ECC_DDR1_MASK)
 
 /* FPGA config helpers */
 #define INTEL_SIP_SMC_FPGA_CONFIG_ADDR			0x400000
@@ -69,5 +78,9 @@ struct fpga_config_info {
 /* Function Definitions */
 
 bool is_address_in_ddr_range(uint64_t addr, uint64_t size);
+
+/* ECC DBE */
+bool cold_reset_for_ecc_dbe(void);
+uint32_t intel_ecc_dbe_notification(uint64_t dbe_value);
 
 #endif /* SOCFPGA_SIP_SVC_H */
