@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a94b8d65_97aa804a",
+        "filename": "Makefile",
+        "patchSetId": 7
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-22T12:21:46Z",
+      "side": 1,
+      "message": "How did you check 8.7?",
+      "revId": "22263c55a1e6799b7f30e0053ab4c00db438d2c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5019ed0_59b190a1",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-22T12:21:46Z",
+      "side": 1,
+      "message": "please remove :",
+      "revId": "22263c55a1e6799b7f30e0053ab4c00db438d2c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b0471ca_792301e3",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-22T12:21:46Z",
+      "side": 1,
+      "message": "The comments for each feature are similar, no need to repeat them.\nJust provide it once before the 1st check function read_feat_sb().\nReplace \"on this system\" with \"by PE\". Fix everywhere.",
+      "revId": "22263c55a1e6799b7f30e0053ab4c00db438d2c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b61c7ed_bd6ecfcb",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-22T12:21:46Z",
+      "side": 1,
+      "message": "add space before !\u003d",
+      "revId": "22263c55a1e6799b7f30e0053ab4c00db438d2c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "622c8600_7309b230",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-22T12:21:46Z",
+      "side": 1,
+      "message": "Why 9.0, but get_armv9_2_feat_rme_support()?",
+      "revId": "22263c55a1e6799b7f30e0053ab4c00db438d2c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9972f352_832f0db3",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-22T12:21:46Z",
+      "side": 1,
+      "message": "add extra *. Fix everywhere.",
+      "revId": "22263c55a1e6799b7f30e0053ab4c00db438d2c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33226a9c_4b273792",
+        "filename": "include/common/feat_detect.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-22T12:21:46Z",
+      "side": 1,
+      "message": "(a, b)",
+      "revId": "22263c55a1e6799b7f30e0053ab4c00db438d2c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56c419fc_1995665c",
+        "filename": "include/common/feat_detect.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-22T12:21:46Z",
+      "side": 1,
+      "message": "What\u0027s about 9.0 on line #63?",
+      "revId": "22263c55a1e6799b7f30e0053ab4c00db438d2c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
