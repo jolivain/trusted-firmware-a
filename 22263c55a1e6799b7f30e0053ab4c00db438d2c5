@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ed8cfcb_6d8d3f9b",
+        "filename": "Makefile",
+        "patchSetId": 7
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-02-23T12:00:59Z",
+      "side": 1,
+      "message": "Feature has not been tested myself. In order to keep uniformity, as I have followed for other features from 8.0 onwards, I did come across\nthis FEAT_HCX which is listed mandatory for version8.7 under Arm ARM docs. Henceforth introduced this check.\nWill check with the team, who has introduced this HCX feature and plan on this testing.\nPlease share your thoughts on retaining this check till then or not.",
+      "parentUuid": "a94b8d65_97aa804a",
+      "revId": "22263c55a1e6799b7f30e0053ab4c00db438d2c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5019ed0_59b190a1",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-02-22T12:21:46Z",
       "side": 1,
       "message": "please remove :",
+      "revId": "22263c55a1e6799b7f30e0053ab4c00db438d2c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7757eed_5f9ce806",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-02-23T12:00:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5019ed0_59b190a1",
       "revId": "22263c55a1e6799b7f30e0053ab4c00db438d2c5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -52,6 +88,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "deb36486_eb7e2edb",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-02-23T12:00:59Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "7b0471ca_792301e3",
+      "revId": "22263c55a1e6799b7f30e0053ab4c00db438d2c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b61c7ed_bd6ecfcb",
@@ -65,6 +119,24 @@
       "writtenOn": "2022-02-22T12:21:46Z",
       "side": 1,
       "message": "add space before !\u003d",
+      "revId": "22263c55a1e6799b7f30e0053ab4c00db438d2c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "380496f1_b383e62a",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-02-23T12:00:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b61c7ed_bd6ecfcb",
       "revId": "22263c55a1e6799b7f30e0053ab4c00db438d2c5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -86,6 +158,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be1a8ab4_37aef19a",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-02-23T12:00:59Z",
+      "side": 1,
+      "message": "Updated. Thanks",
+      "parentUuid": "622c8600_7309b230",
+      "revId": "22263c55a1e6799b7f30e0053ab4c00db438d2c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9972f352_832f0db3",
@@ -99,6 +189,24 @@
       "writtenOn": "2022-02-22T12:21:46Z",
       "side": 1,
       "message": "add extra *. Fix everywhere.",
+      "revId": "22263c55a1e6799b7f30e0053ab4c00db438d2c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2d47ab1_b0d06e64",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-02-23T12:00:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9972f352_832f0db3",
       "revId": "22263c55a1e6799b7f30e0053ab4c00db438d2c5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -120,6 +228,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31d1962c_54b1517a",
+        "filename": "include/common/feat_detect.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-02-23T12:00:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33226a9c_4b273792",
+      "revId": "22263c55a1e6799b7f30e0053ab4c00db438d2c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56c419fc_1995665c",
@@ -133,6 +259,24 @@
       "writtenOn": "2022-02-22T12:21:46Z",
       "side": 1,
       "message": "What\u0027s about 9.0 on line #63?",
+      "revId": "22263c55a1e6799b7f30e0053ab4c00db438d2c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98b135ac_b546d130",
+        "filename": "include/common/feat_detect.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-02-23T12:00:59Z",
+      "side": 1,
+      "message": "Updated to 9.2.",
+      "parentUuid": "56c419fc_1995665c",
       "revId": "22263c55a1e6799b7f30e0053ab4c00db438d2c5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
