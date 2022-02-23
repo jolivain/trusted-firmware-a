@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "55ed4f0d_ee84748f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-02-23T08:45:27Z",
+      "side": 1,
+      "message": "I think fix(plat/arm) would be more appropriate. This is not a generic RME fix but rather something specific to the Arm platforms memory layout.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "9ddae5b0531b1438dfe146f96fd218c71ac8323c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "534ff578_cb424b27",
