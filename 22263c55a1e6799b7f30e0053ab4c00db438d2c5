@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf19a2a0_91c4a39f",
+        "filename": "Makefile",
+        "patchSetId": 7
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-02-23T12:58:31Z",
+      "side": 1,
+      "message": "Because GCC dosn\u0027t support -march option for \u003e armv8.6-a, I think as a workaround for testing lines #298 and #300 can be commented out, with the model parameters set to:\nclusterN.has_arm_v8-7\u003d1",
+      "parentUuid": "5ed8cfcb_6d8d3f9b",
+      "revId": "22263c55a1e6799b7f30e0053ab4c00db438d2c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5019ed0_59b190a1",
