@@ -128,6 +128,9 @@
 # if SPM_MM
 #  define PLAT_ARM_MMAP_ENTRIES		10
 #  define MAX_XLAT_TABLES		9
+#  if DRTM_SUPPORT
+#   define MAX_XLAT_TABLES		10
+#  endif
 #  define PLAT_SP_IMAGE_MMAP_REGIONS	30
 #  define PLAT_SP_IMAGE_MAX_XLAT_TABLES	10
 # elif SPMC_AT_EL3
@@ -138,11 +141,15 @@
 #  if USE_DEBUGFS
 #   if ENABLE_RME
 #    define MAX_XLAT_TABLES		9
+#   elif DRTM_SUPPORT
+#    define MAX_XLAT_TABLES		9
 #   else
 #    define MAX_XLAT_TABLES		8
 #   endif
 #  else
 #   if ENABLE_RME
+#    define MAX_XLAT_TABLES		8
+#   elif DRTM_SUPPORT
 #    define MAX_XLAT_TABLES		8
 #   else
 #    define MAX_XLAT_TABLES		7
