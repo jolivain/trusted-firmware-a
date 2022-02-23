@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2022, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -146,7 +146,7 @@
  * Put BL3-1 at the top of the Trusted SRAM. BL31_BASE is calculated using the
  * current BL3-1 debug size plus a little space for growth.
  */
-#define BL31_BASE			(BL31_LIMIT - 0x20000)
+#define BL31_BASE			(BL31_LIMIT - 0x30000)
 #define BL31_LIMIT			(BL_RAM_BASE + BL_RAM_SIZE)
 #define BL31_PROGBITS_LIMIT		BL1_RW_BASE
 
