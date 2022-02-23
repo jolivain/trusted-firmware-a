@@ -138,6 +138,8 @@
 #  if USE_DEBUGFS
 #   if ENABLE_RME
 #    define MAX_XLAT_TABLES		9
+#   elif DRTM_SUPPORT
+#    define MAX_XLAT_TABLES		9
 #   else
 #    define MAX_XLAT_TABLES		8
 #   endif
