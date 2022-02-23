@@ -16,6 +16,24 @@
       "message": "Added copyright notice.",
       "revId": "c56571ade0e296f10e8db7309c0f0a25542d7ba8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0de9db2b_589b6d48",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-02-23T16:35:23Z",
+      "side": 1,
+      "message": "make doc fails:\n\nWarning, treated as error:\n/home/olidep01/WORK/trusted-firmware-a/docs/design_documents/context_mgmt_rework.rst:195:Incomplete section title.\n\n--------------\n*Copyright (c) 2022, Arm Limited and Contributors. All rights reserved.*",
+      "parentUuid": "abace9b2_799c2223",
+      "revId": "c56571ade0e296f10e8db7309c0f0a25542d7ba8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
