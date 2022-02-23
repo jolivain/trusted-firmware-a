@@ -118,6 +118,30 @@
       },
       "revId": "cbadfe694207c9bf0c8f0e639b56666f47a4c712",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a957e7d9_31afe3ff",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-02-23T07:16:51Z",
+      "side": 0,
+      "message": "Yes with some nuance. The easy fix would be to consider VSTCR_EL2/VTCR_EL2 to become part of SP state (rather than Hafnium state) and be added to SP context save/restore (just like VSTTBR_EL2/VTTBR_EL2 are). This is a bit suboptimal because VTCR_EL2/VSTCR_EL2 are fixed once for all at boot. So this is creating invariant copies per VM.\nOn the other hand, we really want Hafnium EL2 state to be preserved accross SMC calls e.g. TTBR0_EL2. So this is fine tuning in terms of which registers need to be retained by the EL3 save/restore routine (I guess that\u0027s what you meant anyways?).",
+      "parentUuid": "e9c3ef95_e87fa18c",
+      "range": {
+        "startLine": 369,
+        "startChar": 5,
+        "endLine": 369,
+        "endChar": 14
+      },
+      "revId": "cbadfe694207c9bf0c8f0e639b56666f47a4c712",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
