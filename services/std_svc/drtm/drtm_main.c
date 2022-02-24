@@ -12,14 +12,36 @@
 
 #include <stdint.h>
 
+#include <arch.h>
+#include <arch_helpers.h>
 #include <common/debug.h>
 #include <common/runtime_svc.h>
+#include <drivers/auth/crypto_mod.h>
 #include "drtm_main.h"
 #include <services/drtm_svc.h>
 
+/* This value is used by the SMC to adevertise the boot PE */
+static uint64_t boot_pe_aff_value;
+
 int drtm_setup(void)
 {
+	int rc;
+
 	INFO("DRTM service setup\n");
+
+	boot_pe_aff_value = read_mpidr_el1() & MPIDR_AFFINITY_MASK;
+
+	rc = drtm_dma_prot_init();
+	if (rc != 0) {
+		return rc;
+	}
+
+	/*
+	 * initialise the platform supported crypto module that will
+	 * be used by the DRTM-service to calculate hash of DRTM-
+	 * implementation specific components
+	 */
+	crypto_mod_init();
 
 	return 0;
 }
