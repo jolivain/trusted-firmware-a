@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a64f0ece_0d78d6eb",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-02-24T18:00:05Z",
+      "side": 1,
+      "message": "The \u0027assert\u0027 check occurs only if ENABLE_ASSERTIONS \u003d 1, right?",
+      "parentUuid": "eebb8880_90912be9",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1daa0fee_81b87733",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2022-02-14T13:13:54Z",
       "side": 1,
       "message": "{}",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab0d6fd2_ee78786d",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-02-24T18:00:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1daa0fee_81b87733",
       "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -58,6 +94,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e22877be_201ea00a",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-02-24T18:00:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2145425_b86f129e",
+      "range": {
+        "startLine": 75,
+        "startChar": 9,
+        "endLine": 75,
+        "endChar": 44
+      },
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35cd52ae_33e1eaef",
@@ -71,6 +131,24 @@
       "writtenOn": "2022-02-14T13:13:54Z",
       "side": 1,
       "message": "Add space after /*",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54ed8841_a1fcde24",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-02-24T18:00:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35cd52ae_33e1eaef",
       "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -92,6 +170,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79e266df_d93cae5b",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-02-24T18:00:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4ad0ccf_2f8ef172",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a5a35fd_db44d73b",
@@ -105,6 +201,24 @@
       "writtenOn": "2022-02-14T13:13:54Z",
       "side": 1,
       "message": "For functions above \"initializationS\" were used.",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e72a31b_1c7cefb2",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-02-24T18:00:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5a5a35fd_db44d73b",
       "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -126,6 +240,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "014a64f7_a066f408",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-02-24T18:00:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95c60341_9c407e56",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "862e7fc3_1fac818e",
@@ -139,6 +271,24 @@
       "writtenOn": "2022-02-14T13:13:54Z",
       "side": 1,
       "message": "API",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cac91109_8fbd8480",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-02-24T18:00:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "862e7fc3_1fac818e",
       "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -160,6 +310,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7013d979_d57aab5b",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-02-24T18:00:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31f6672a_14af4115",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc4bdb6f_17e6e71e",
@@ -173,6 +341,24 @@
       "writtenOn": "2022-02-14T13:13:54Z",
       "side": 1,
       "message": "the same",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70c779a6_2f7cbab5",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-02-24T18:00:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc4bdb6f_17e6e71e",
       "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -194,6 +380,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42c3d5e7_3492ffcf",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-02-24T18:00:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f11ea933_b8746a59",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "300a8567_ab612bcd",
@@ -207,6 +411,24 @@
       "writtenOn": "2022-02-14T13:13:54Z",
       "side": 1,
       "message": "Is there compilation warning, that \"break\" is unreachable?",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0414da9a_5d9e09a5",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-02-24T18:00:05Z",
+      "side": 1,
+      "message": "I didn\u0027t get a compilation warning.",
+      "parentUuid": "300a8567_ab612bcd",
       "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }

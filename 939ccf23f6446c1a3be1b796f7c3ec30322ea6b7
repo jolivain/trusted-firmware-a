@@ -82,6 +82,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b09b5d3a_201db811",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-02-24T18:00:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f20f8512_a32aa81b",
+      "range": {
+        "startLine": 51,
+        "startChar": 12,
+        "endLine": 51,
+        "endChar": 42
+      },
+      "revId": "939ccf23f6446c1a3be1b796f7c3ec30322ea6b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6011fc7_281dc407",
@@ -95,6 +119,30 @@
       "writtenOn": "2022-02-16T15:22:48Z",
       "side": 1,
       "message": "nit: \"...MTE support for Secure world...\"",
+      "range": {
+        "startLine": 59,
+        "startChar": 11,
+        "endLine": 59,
+        "endChar": 22
+      },
+      "revId": "939ccf23f6446c1a3be1b796f7c3ec30322ea6b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5281bda6_68811093",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-02-24T18:00:05Z",
+      "side": 1,
+      "message": "I made the comment more accurate based on Alexei\u0027s suggestion.",
+      "parentUuid": "f6011fc7_281dc407",
       "range": {
         "startLine": 59,
         "startChar": 11,
@@ -139,6 +187,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "605afc70_21515907",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-02-24T18:00:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "894b99aa_ba78f1e5",
+      "revId": "939ccf23f6446c1a3be1b796f7c3ec30322ea6b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bdee8f31_907b496b",
@@ -169,6 +235,24 @@
       "writtenOn": "2022-02-16T15:22:48Z",
       "side": 1,
       "message": "nit: the comment here can say CPTR_EL3 was initialized out of reset, copy that vlaue to the context...",
+      "revId": "939ccf23f6446c1a3be1b796f7c3ec30322ea6b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c905489_4dc4d379",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-02-24T18:00:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f15b27a9_d6609a0d",
       "revId": "939ccf23f6446c1a3be1b796f7c3ec30322ea6b7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
