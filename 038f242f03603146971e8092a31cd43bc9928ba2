@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1a2bc968_71a93e5e",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-02-24T21:24:34Z",
+      "side": 1,
+      "message": "I\u0027ve seen this kind of use in TF-A. I\u0027m declaring it here to avoid the \u0027unused variable\u0027 error if CTX_INCLUDE_EL2_REGS is not set.",
+      "parentUuid": "74da51ae_c719094b",
+      "range": {
+        "startLine": 149,
+        "startChar": 14,
+        "endLine": 149,
+        "endChar": 23
+      },
+      "revId": "038f242f03603146971e8092a31cd43bc9928ba2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a5a29a73_2b699860",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 4
