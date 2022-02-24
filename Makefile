@@ -1018,6 +1018,7 @@ $(eval $(call assert_booleans,\
         RESET_TO_BL31 \
         SAVE_KEYS \
         SEPARATE_CODE_AND_RODATA \
+        SEPARATE_BL2_NOLOAD_REGION \
         SEPARATE_NOBITS_REGION \
         SPIN_ON_BL1_EXIT \
         SPM_MM \
@@ -1132,6 +1133,7 @@ $(eval $(call add_defines,\
         RAS_EXTENSION \
         RESET_TO_BL31 \
         SEPARATE_CODE_AND_RODATA \
+        SEPARATE_BL2_NOLOAD_REGION \
         SEPARATE_NOBITS_REGION \
         RECLAIM_INIT_CODE \
         SPD_${SPD} \
