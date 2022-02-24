@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -134,9 +134,13 @@
 	 *	some CPUs use this entry to set a test function to determine if
 	 *	the workaround for CVE-2017-5715 needs to be applied or not.
 	 * _extra2:
-	 *	This is a placeholder for future per CPU operations.  Currently
+	 *	This is a placeholder for future per CPU operations. Currently
 	 *	some CPUs use this entry to set a function to disable the
-	 *	workaround for CVE-2018-3639.
+	 *	workaround for CVE-2018-3639 and some CPUs use this to set a
+	 *	test function to determine if the SMCCC_ARCH_WORKAROUND_3 can
+	 *	be called to mitigate CVE_2022_23960 for this CPU or not. The
+	 *	assumption is that no CPU will need to have SMC workarounds
+	 *	for both the CVEs.
 	 * _e_handler:
 	 *	This is a placeholder for future per CPU exception handlers.
 	 * _power_down_ops:
