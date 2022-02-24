@@ -142,6 +142,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33e37d5d_03da3c97",
+        "filename": "services/std_svc/spm/spmc/logical_sp.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-24T15:51:30Z",
+      "side": 1,
+      "message": "makes sense to me. thanks",
+      "parentUuid": "a67bc78d_9e918994",
+      "range": {
+        "startLine": 29,
+        "startChar": 1,
+        "endLine": 32,
+        "endChar": 48
+      },
+      "revId": "b6f22f25c661f2b5a8859b6ebddcc8d9bccdc82e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e3c4160_c183cc4d",
@@ -226,6 +250,30 @@
       "side": 1,
       "message": "It could reuse parts of it however since the logical partitions IDs are already populated in the descriptor we cannot perform the check in the same manor as for the physical partition(s). I.e. instead of a given ID being checked that it doesn\u0027t already exist, in this case the ID will always already be present at least once.\n\nI think the alternative would be to split validate_partition_id to two parts to separate out the logical partition ID check and only call the former part, however I\u0027m not sure that would make things much cleaner. \n\nFor now I\u0027ve refactored these checks to use the more descriptive individual functions to perform the validation.\n\nWhat do you think?",
       "parentUuid": "e48a2873_c7523fd7",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 59,
+        "endChar": 3
+      },
+      "revId": "b6f22f25c661f2b5a8859b6ebddcc8d9bccdc82e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "378e9957_6440a05a",
+        "filename": "services/std_svc/spm/spmc/logical_sp.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-02-24T15:51:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "60edeac6_1f292420",
       "range": {
         "startLine": 54,
         "startChar": 2,
