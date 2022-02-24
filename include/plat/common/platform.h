@@ -413,5 +413,4 @@ bool plat_has_unmanaged_dma_peripherals(void);
 unsigned int plat_get_total_num_smmus(void);
 void plat_enumerate_smmus(const uintptr_t **smmus_out,
 			  size_t *smmu_count_out);
-
 #endif /* PLATFORM_H */
