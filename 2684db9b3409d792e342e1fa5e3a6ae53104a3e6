@@ -165,6 +165,246 @@
       },
       "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36109b5d_d350ef9c",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1010,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-24T12:05:31Z",
+      "side": 1,
+      "message": "This function can be removed I think.",
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f5e594a_4732d359",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-24T12:05:31Z",
+      "side": 1,
+      "message": "keep these asserts in the caller. \n\nChange this macro to be a static function which checks the incoming params (base, size, src_sec) --\u003e ensure src_sec is either one of SMC_FROM_REALM or SMC_FROM_SECURE",
+      "range": {
+        "startLine": 1048,
+        "startChar": 0,
+        "endLine": 1052,
+        "endChar": 53
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dd4ae31_cab99619",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1142,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-24T12:05:31Z",
+      "side": 1,
+      "message": "This check is too complicated for the new API semantics. All you need to check is whether the if (gpi_info.gpi \u003d\u003d GPT_GPI_NS)\n\nremvoe gpt_check_transition_pas.",
+      "range": {
+        "startLine": 1141,
+        "startChar": 6,
+        "endLine": 1142,
+        "endChar": 28
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16d7d50e_3e6aa668",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1145,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-24T12:05:31Z",
+      "side": 1,
+      "message": "VERBOSE(\"[GPT] Only Granule in NS state can be delegated.\nVERBOSE(\"      Caller: %u, Current GPI: %u\\n\",\n\t\t\tsrc_sec_state, gpi_info.gpi);",
+      "range": {
+        "startLine": 1143,
+        "startChar": 2,
+        "endLine": 1145,
+        "endChar": 47
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5b3c6bf_8e2cb43c",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1149,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-24T12:05:31Z",
+      "side": 1,
+      "message": "This is point of no return, no errors are allowed beyond this line.",
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acc64d82_d1eb1dc5",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-24T12:05:31Z",
+      "side": 1,
+      "message": "if (src_sec_state \u003d\u003d SMC_FROM_SECURE)\n    nse \u003d (uint64_t)GPT_NSE_SECURE \u003c\u003c GPT_NSE_SHIFT;\nelse\n    nse \u003d (uint64_t)GPT_NSE_REALM \u003c\u003c GPT_NSE_SHIFT;",
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e884616_68172bd9",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1161,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-24T12:05:31Z",
+      "side": 1,
+      "message": "remove.",
+      "range": {
+        "startLine": 1157,
+        "startChar": 1,
+        "endLine": 1161,
+        "endChar": 0
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51086c60_fe3e93fc",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-24T12:05:31Z",
+      "side": 1,
+      "message": "Add comment here: \t\n        /*\n\t * In order to maintain mutual distrust between Realm and Secure\n\t * states, remove any data speculatively fetched into the target\n\t * physical address space. Issue DC CIPAPA over address range \n         * and then dsb osh()\n\t */",
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d1bb7e1_f6b17b51",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-24T12:05:31Z",
+      "side": 1,
+      "message": "remove, already done by flush.",
+      "range": {
+        "startLine": 1165,
+        "startChar": 0,
+        "endLine": 1165,
+        "endChar": 10
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7d6b414_214f38a8",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-24T12:05:31Z",
+      "side": 1,
+      "message": "nse \u003d (uint64_t)GPT_NSE_NON_SECURE \u003c\u003c GPT_NSE_SHIFT;",
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a86c327_e3ea2fd4",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-24T12:05:31Z",
+      "side": 1,
+      "message": "remove.",
+      "range": {
+        "startLine": 1175,
+        "startChar": 0,
+        "endLine": 1178,
+        "endChar": 2
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69d544d0_f17a02a3",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-24T12:05:31Z",
+      "side": 1,
+      "message": "done already in flush",
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
