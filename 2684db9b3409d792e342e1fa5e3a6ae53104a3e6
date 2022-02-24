@@ -1,0 +1,170 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ea5497e_6a107164",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-24T11:16:01Z",
+      "side": 1,
+      "message": "Still reviewing",
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc560a7f_2a99584e",
+        "filename": "include/lib/gpt_rme/gpt_rme.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-24T11:16:01Z",
+      "side": 1,
+      "message": "This is a confusing error code to use since the prev values are binary and this one is hex.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 33
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c68763c_43ea982d",
+        "filename": "include/lib/gpt_rme/gpt_rme.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-24T11:16:01Z",
+      "side": 1,
+      "message": "\"Security state of the originating SMC invoking the API\".\n\nOnly SMCs originating in Realm and Secure world are allowed to invoke this API.",
+      "range": {
+        "startLine": 272,
+        "startChar": 5,
+        "endLine": 272,
+        "endChar": 18
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cf04ad2_86325c65",
+        "filename": "include/lib/gpt_rme/gpt_rme.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-24T11:16:01Z",
+      "side": 1,
+      "message": "This is not present anymore.",
+      "range": {
+        "startLine": 273,
+        "startChar": 0,
+        "endLine": 273,
+        "endChar": 59
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c7d169d_301ca306",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-24T11:16:01Z",
+      "side": 1,
+      "message": "not used anymore. Can be removed.",
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad8d54cc_91e9fd53",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-24T11:16:01Z",
+      "side": 1,
+      "message": "can be removed.",
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce3f5817_b0871dbf",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-24T11:16:01Z",
+      "side": 1,
+      "message": "osh is enough.\n\nIn fact the previous cache helpers should also use osh but that is a later task.",
+      "range": {
+        "startLine": 96,
+        "startChar": 5,
+        "endLine": 96,
+        "endChar": 7
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5b07f81_7324b449",
+        "filename": "lib/aarch64/misc_helpers.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-02-24T11:16:01Z",
+      "side": 1,
+      "message": "rename this function as gpt_tlbi_by_pa_ll",
+      "range": {
+        "startLine": 602,
+        "startChar": 5,
+        "endLine": 602,
+        "endChar": 19
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
