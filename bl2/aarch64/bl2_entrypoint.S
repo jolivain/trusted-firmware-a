@@ -66,6 +66,12 @@ func bl2_entrypoint
 	sub	x1, x1, x0
 	bl	inv_dcache_range
 
+#if SEPARATE_BL2_NOLOAD_REGION
+	adr	x0, BL2_NOLOAD_START
+	adr	x1, BL2_NOLOAD_LIMIT
+	sub	x1, x1, x0
+	bl	inv_dcache_range
+#endif
 	/* ---------------------------------------------
 	 * Zero out NOBITS sections. There are 2 of them:
 	 *   - the .bss section;
