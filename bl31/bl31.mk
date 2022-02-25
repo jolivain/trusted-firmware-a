@@ -149,6 +149,7 @@ endif
 
 ifeq (${DRTM_SUPPORT},1)
 BL31_SOURCES		+=	services/std_svc/drtm/drtm_main.c
+BL31_SOURCES		+=	${MBEDTLS_SOURCES}
 endif
 
 BL31_LINKERFILE		:=	bl31/bl31.ld.S
