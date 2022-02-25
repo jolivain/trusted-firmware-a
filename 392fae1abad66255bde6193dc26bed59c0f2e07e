@@ -16,6 +16,24 @@
       "message": "Patch looks good to me but commit lint job seems to be failing\nhttps://ci.trustedfirmware.org/job/tf-a-commitlint/1751/console",
       "revId": "392fae1abad66255bde6193dc26bed59c0f2e07e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a51744ca_4cee9724",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2022-02-25T06:18:56Z",
+      "side": 1,
+      "message": "Fixed, please check again, thanks.\n\nBTW, the following issue is not an false issue, there are pmu.h both in plat and include directory,  in fact plat/nxp/soc-ls1088a/soc.c is using \"pmu.h\" in include which is in system group, but the scanning script find pmu.h in plat directory and treat it is in platform group, and tream sfp.h is behind of pmu.h, so report the following errors:\n\nChecking files modified between patches origin/master and HEAD...\n3663aee74:plat/nxp/soc-ls1088a/soc.c: [\u0027sfp.h should be in project group, after system\n    group\u0027]",
+      "parentUuid": "97c1025f_71972cbb",
+      "revId": "392fae1abad66255bde6193dc26bed59c0f2e07e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
