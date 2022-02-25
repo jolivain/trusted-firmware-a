@@ -153,6 +153,10 @@ endif
 
 BL31_LINKERFILE		:=	bl31/bl31.ld.S
 
+ifeq (${DRTM_SUPPORT}, 1)
+BL31_SOURCES		+=	${MBEDTLS_SOURCES}
+endif
+
 # Flag used to indicate if Crash reporting via console should be included
 # in BL31. This defaults to being present in DEBUG builds only
 ifndef CRASH_REPORTING
