@@ -400,7 +400,8 @@ PLAT_RSS_NOT_SUPPORTED	:= 1
 endif
 
 ifeq (${DRTM_SUPPORT}, 1)
-BL31_SOURCES   += plat/arm/board/fvp/fvp_drtm_dma_prot.c
+BL31_SOURCES   += plat/arm/board/fvp/fvp_drtm_dma_prot.c	\
+		  plat/arm/common/arm_dyn_cfg.c
 endif
 
 ifeq (${TRUSTED_BOARD_BOOT}, 1)
