@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c918ad5e_6ff0ced4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-02-26T19:20:48Z",
+      "side": 1,
+      "message": "As the generic hash algorithm macro is not guaranteed to work for every measured-boot backend supported by the platform, we decided to use a per-backend hash algorithm macro. I am thus \nabandoning this patch.",
+      "revId": "47f8f3d08c87ae2d5317168c0406a6bcbf6abb93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
