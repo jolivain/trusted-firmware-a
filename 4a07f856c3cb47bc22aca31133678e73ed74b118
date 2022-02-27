@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "826c9233_76bd555d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-02-27T21:33:53Z",
+      "side": 1,
+      "message": "Minor nitpick:  \"its manifest\" rather than \"it\u0027s manifest.\"",
+      "revId": "4a07f856c3cb47bc22aca31133678e73ed74b118",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87a97319_1253c1da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-02-27T21:33:53Z",
+      "side": 1,
+      "message": "CR+1, but a couple minor nits.",
+      "revId": "4a07f856c3cb47bc22aca31133678e73ed74b118",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "644e7563_4b275b3f",
+        "filename": "services/std_svc/spm/spmc/spmc_pm.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-02-27T21:33:53Z",
+      "side": 1,
+      "message": "CR+1, but apparently this is a new file?  If so, shouldn\u0027t a new file be copyright 2022, or at least 2020-2022?",
+      "revId": "4a07f856c3cb47bc22aca31133678e73ed74b118",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
