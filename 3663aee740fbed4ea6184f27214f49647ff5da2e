@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12104dce_d4481c95",
+        "filename": "plat/nxp/soc-ls1088a/aarch64/ls1088a.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2022-02-28T02:07:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade10740_e0083dca",
+      "range": {
+        "startLine": 101,
+        "startChar": 3,
+        "endLine": 101,
+        "endChar": 6
+      },
+      "revId": "3663aee740fbed4ea6184f27214f49647ff5da2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b1feb1d7_6fdd046e",
@@ -106,6 +130,30 @@
       "writtenOn": "2022-02-26T17:57:08Z",
       "side": 1,
       "message": "Please use braces {}",
+      "range": {
+        "startLine": 77,
+        "startChar": 1,
+        "endLine": 78,
+        "endChar": 53
+      },
+      "revId": "3663aee740fbed4ea6184f27214f49647ff5da2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcf0902e_ebb14ecc",
+        "filename": "plat/nxp/soc-ls1088a/soc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2022-02-28T02:07:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4913e172_dc990bcc",
       "range": {
         "startLine": 77,
         "startChar": 1,
