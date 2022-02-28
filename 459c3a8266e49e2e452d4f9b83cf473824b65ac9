@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fa1bde1_d4e75d42",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-02-28T10:22:59Z",
+      "side": 1,
+      "message": "Update new check to validate Arg2 is either 0 in a partition message or a PM related in a framework message.",
+      "revId": "459c3a8266e49e2e452d4f9b83cf473824b65ac9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
