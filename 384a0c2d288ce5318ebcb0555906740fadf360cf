@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "679e55cd_5643adf8",
+        "filename": "bl2/aarch64/bl2_entrypoint.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-02-28T13:46:08Z",
+      "side": 1,
+      "message": "Should that be done in macro el3_entrypoint_common (file el3_common_macros.S), as you modify the bl2 at el3 linker script?\nThis should also be done in aarch32 code?",
+      "revId": "384a0c2d288ce5318ebcb0555906740fadf360cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
