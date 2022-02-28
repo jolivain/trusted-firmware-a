@@ -651,6 +651,10 @@ ERRATA_DSU_936184	?=0
 # results in higher DSU power consumption on idle.
 ERRATA_DSU_2313941	?=0
 
+# Flag to apply erratum 1618635 workaround during reset. This erratum applies
+# to revision r0p0 of the Neoverse V1 cpu and was fixed in the revision r1p0.
+ERRATA_V1_1618635	?=0
+
 # Process ERRATA_A9_794073 flag
 $(eval $(call assert_boolean,ERRATA_A9_794073))
 $(eval $(call add_define,ERRATA_A9_794073))
@@ -1210,6 +1214,10 @@ $(eval $(call add_define,ERRATA_DSU_936184))
 # Process ERRATA_DSU_2313941 flag
 $(eval $(call assert_boolean,ERRATA_DSU_2313941))
 $(eval $(call add_define,ERRATA_DSU_2313941))
+
+# Process ERRATA_V1_1618635 flag
+$(eval $(call assert_boolean,ERRATA_V1_1618635))
+$(eval $(call add_define,ERRATA_V1_1618635))
 
 # Errata build flags
 ifneq (${ERRATA_A53_843419},0)
