@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "327caf92_ffd4528b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-02-28T22:21:55Z",
+      "side": 1,
+      "message": "This link is not publicly accessible. Probably it\u0027s better to summarize what\u0027s planned here if there is no publicly accessible reference.",
+      "range": {
+        "startLine": 23,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 19
+      },
+      "revId": "e66b99da039ea5dd0693b4fe64126d40492b5b37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "098c23f0_a3b1c36e",
+        "filename": "Makefile",
+        "patchSetId": 18
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-02-28T22:21:55Z",
+      "side": 1,
+      "message": "Are there use cases where you don\u0027t want to enable a feature even though the platform supports it? Or do we assume if the platform supports it then a feature should be enabled?",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 269,
+        "endChar": 15
+      },
+      "revId": "e66b99da039ea5dd0693b4fe64126d40492b5b37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
