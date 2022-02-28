@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b808600d_cab6e40e",
+        "filename": "plat/nxp/soc-ls1088a/ls1088aqds/ddr_init.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2022-02-28T02:02:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fe4bd6e_7a5c2a68",
+      "range": {
+        "startLine": 36,
+        "startChar": 5,
+        "endLine": 36,
+        "endChar": 17
+      },
+      "revId": "8337dc8c8a3189d4940dbd1b56f99867f42dd482",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "809713ae_3432e2dc",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-02-26T17:35:35Z",
       "side": 1,
       "message": "DEBUG?",
+      "range": {
+        "startLine": 66,
+        "startChar": 1,
+        "endLine": 66,
+        "endChar": 6
+      },
+      "revId": "8337dc8c8a3189d4940dbd1b56f99867f42dd482",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a1fc5f4_ffc92698",
+        "filename": "plat/nxp/soc-ls1088a/ls1088aqds/ddr_init.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2022-02-28T02:02:31Z",
+      "side": 1,
+      "message": "No, we define debug() in include/drivers/nxp/ddr/ddr.h\n\n 35 #ifdef DDR_DEBUG\n 36 #define debug(...) INFO(__VA_ARGS__)\n 37 #else\n 38 #define debug(...) VERBOSE(__VA_ARGS__)\n 39 #endif",
+      "parentUuid": "809713ae_3432e2dc",
       "range": {
         "startLine": 66,
         "startChar": 1,
