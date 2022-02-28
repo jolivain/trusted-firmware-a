@@ -16,6 +16,10 @@
  * CPU Extended Control register specific definitions.
  ******************************************************************************/
 #define NEOVERSE_V1_CPUECTLR_EL1				S3_0_C15_C1_4
+#define NEOVERSE_V1_CPUPSELR_EL3				S3_6_c15_c8_0
+#define NEOVERSE_V1_CPUPOR_EL3					S3_6_c15_c8_2
+#define NEOVERSE_V1_CPUPMR_EL3					S3_6_c15_c8_3
+#define NEOVERSE_V1_CPUPCR_EL3					S3_6_c15_c8_1
 #define NEOVERSE_V1_CPUECTLR_EL1_BIT_8				(ULL(1) << 8)
 #define NEOVERSE_V1_CPUECTLR_EL1_BIT_53				(ULL(1) << 53)
 #define NEOVERSE_V1_CPUECTLR_EL1_PF_MODE_CNSRV			ULL(3)
