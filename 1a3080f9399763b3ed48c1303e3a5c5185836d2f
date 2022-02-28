@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "128f3219_56377b53",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-02-28T10:22:43Z",
+      "side": 1,
+      "message": "Add initial version of parameter checking of W2 for partition messages. This function will be expanded when we add support for framework messages in a later commit.",
+      "revId": "1a3080f9399763b3ed48c1303e3a5c5185836d2f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
