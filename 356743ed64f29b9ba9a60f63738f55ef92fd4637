@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4519264f_2c7bb113",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-02-28T15:28:51Z",
+      "side": 1,
+      "message": "Just for my information, what is the need of using macros here, instead of calling functions directly?",
+      "revId": "356743ed64f29b9ba9a60f63738f55ef92fd4637",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eaf50ecc_b77034b0",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-02-28T15:28:51Z",
+      "side": 1,
+      "message": "this line shouldn\u0027t be changed",
+      "revId": "356743ed64f29b9ba9a60f63738f55ef92fd4637",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c919072b_81194293",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-02-28T15:28:51Z",
+      "side": 1,
+      "message": "prefer tabs instead of spaces\nSame for some other files in the patch set",
+      "revId": "356743ed64f29b9ba9a60f63738f55ef92fd4637",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f7098ba_683dc284",
+        "filename": "include/common/feat_detect.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-02-28T15:28:51Z",
+      "side": 1,
+      "message": "same remark for tabs",
+      "range": {
+        "startLine": 17,
+        "startChar": 20,
+        "endLine": 17,
+        "endChar": 28
+      },
+      "revId": "356743ed64f29b9ba9a60f63738f55ef92fd4637",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
