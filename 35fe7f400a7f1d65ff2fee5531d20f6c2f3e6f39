@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d48786e6_0f92df98",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-02-28T18:52:30Z",
+      "side": 1,
+      "message": "Hi All, \n\nWe analyzed the \"Verified\" failed issue and understand from there the failure is caused by build failed for:\n1. ls1046afrwy-default\n2. ls1046aqds-default\n3. corstone1000-fpga-default\n4. corstone1000-fvp-default\n5. ls1046ardb-default\n\nBoth Agilex and Stratix10 are passing. \n\n\nThanks.\n\nRegards\nTang, Sieu Mun",
+      "revId": "35fe7f400a7f1d65ff2fee5531d20f6c2f3e6f39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
