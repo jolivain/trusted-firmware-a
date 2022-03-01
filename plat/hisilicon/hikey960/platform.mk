@@ -23,12 +23,14 @@ PLAT_PL061_MAX_GPIOS		:=	232
 PROGRAMMABLE_RESET_ADDRESS	:=	1
 ENABLE_SVE_FOR_NS		:=	0
 PLAT_PARTITION_BLOCK_SIZE	:=	4096
+AARCH64				:=	1
 
 # Process flags
 $(eval $(call add_define,HIKEY960_TSP_RAM_LOCATION_ID))
 $(eval $(call add_define,CRASH_CONSOLE_BASE))
 $(eval $(call add_define,PLAT_PL061_MAX_GPIOS))
 $(eval $(call add_define,PLAT_PARTITION_BLOCK_SIZE))
+$(eval $(call add_define,AARCH64))
 
 # Add the build options to pack Trusted OS Extra1 and Trusted OS Extra2 images
 # in the FIP if the platform requires.
@@ -157,3 +159,12 @@ ERRATA_A53_843419		:=	1
 ERRATA_A53_855873		:=	1
 
 FIP_ALIGN			:=	512
+
+
+# SPM dispatcher
+ifeq (${SPD},spmd)
+ifeq ($(ARM_SP_MANIFEST_DTS),)
+ARM_SP_MANIFEST_DTS	:=	plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts
+endif
+FDT_SOURCES		+=	${ARM_SP_MANIFEST_DTS}
+endif
