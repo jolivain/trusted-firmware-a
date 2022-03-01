@@ -60,4 +60,27 @@
  */
 #define TSP_IRQ_SEC_PHY_TIMER       IRQ_SEC_PHY_TIMER
 
+#if defined(SPMC_AT_EL3)
+/*
+ * Number of Secure Partitions supported.
+ * SPMC at EL3, uses this count to configure the maximum number of supported
+ * secure partitions.
+ */
+#define SECURE_PARTITION_COUNT      1
+
+/*
+ * Number of Nwld Partitions supported.
+ * SPMC at EL3, uses this count to configure the maximum number of supported
+ * nwld partitions.
+ */
+#define NS_PARTITION_COUNT      1
+/*
+ * Number of Logical Partitions supported.
+ * SPMC at EL3, uses this count to configure the maximum number of supported
+ * logical partitions.
+ */
+#define MAX_EL3_LP_DESCS_COUNT		1
+
+#endif /* SPMC_AT_EL3 */
+
 #endif /* HIKEY960_DEF_H */
