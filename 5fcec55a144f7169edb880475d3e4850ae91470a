@@ -16,6 +16,24 @@
       "message": "Very-minor nit:  \"conflict with\" instead of \"conflictwith\".",
       "revId": "5fcec55a144f7169edb880475d3e4850ae91470a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3f4933b_acdd074d",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-01T09:51:50Z",
+      "side": 1,
+      "message": "Thanks, fixed in the commit it was introduced.",
+      "parentUuid": "35714df6_2d056882",
+      "revId": "5fcec55a144f7169edb880475d3e4850ae91470a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
