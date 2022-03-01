@@ -30,6 +30,8 @@
  */
 #define DDR_SEC_SIZE			0x04000000 /* Trustonic: reserve 64MB secure memory */
 #define DDR_SEC_BASE			0x3F000000
+#define DDR_SEC_CONFIG_SIZE		0x00001000 /* Trustonic: SPMD manifest */
+#define DDR_SEC_CONFIG_BASE		0x43000000
 
 #define DDR_SDP_SIZE			0x00400000
 #define DDR_SDP_BASE			(DDR_SEC_BASE - 0x400000 /* align */ - \

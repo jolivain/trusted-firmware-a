@@ -161,3 +161,12 @@ ERRATA_A53_843419		:=	1
 ERRATA_A53_855873		:=	1
 
 FIP_ALIGN			:=	512
+
+
+# SPM dispatcher
+ifeq (${SPD},spmd)
+ifeq ($(ARM_SP_MANIFEST_DTS),)
+ARM_SP_MANIFEST_DTS	:=	plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts
+endif
+FDT_SOURCES		+=	${ARM_SP_MANIFEST_DTS}
+endif
