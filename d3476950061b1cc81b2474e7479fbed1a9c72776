@@ -16,6 +16,24 @@
       "message": "Please make this optional. This blocks (or at least forces a platform port to do some dummy TSP) using OP-TEE as bl32.",
       "revId": "d3476950061b1cc81b2474e7479fbed1a9c72776",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "959d1b55_9b36c0f3",
+        "filename": "services/std_svc/spm/spmc/spmc.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-01T18:54:18Z",
+      "side": 1,
+      "message": "Apologies for the delayed response. Makes sense, updated to only include the TSP Makefile if no BL32 binary is provided as a TF-A build argument.",
+      "parentUuid": "cde4c882_8a6a4502",
+      "revId": "d3476950061b1cc81b2474e7479fbed1a9c72776",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
