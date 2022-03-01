@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5946539e_30bdfdbd",
+        "filename": "Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-03-01T15:40:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "585f2f7b_be7411ee",
+      "range": {
+        "startLine": 289,
+        "startChar": 10,
+        "endLine": 289,
+        "endChar": 28
+      },
+      "revId": "62eb2affcac9f52f7cf42c18cf8ab6c6fc2e5ac9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "291690ba_19673ec8",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-03-01T11:26:02Z",
       "side": 1,
       "message": "Do we need this for pre-processing with llvm-clang? same comment for line no. 300",
+      "range": {
+        "startLine": 299,
+        "startChar": 21,
+        "endLine": 299,
+        "endChar": 41
+      },
+      "revId": "62eb2affcac9f52f7cf42c18cf8ab6c6fc2e5ac9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d70e953c_dfdcf064",
+        "filename": "Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-03-01T15:40:51Z",
+      "side": 1,
+      "message": "Indeed, it isn\u0027t needed for clang. Adding it doesn\u0027t seem to have any effect on the actual build, however, I\u0027ve reverted this particular change so this is handled differently between clang and armclang.",
+      "parentUuid": "291690ba_19673ec8",
       "range": {
         "startLine": 299,
         "startChar": 21,
