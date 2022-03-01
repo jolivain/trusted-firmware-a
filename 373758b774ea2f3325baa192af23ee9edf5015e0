@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3b34e93_a2e10a96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-03-01T10:40:02Z",
+      "side": 1,
+      "message": "Hi, you need to give your full name and have a Signed-off-by: line for your patch to be considered.\nAlso see the comments inline.\n",
+      "revId": "373758b774ea2f3325baa192af23ee9edf5015e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50b4e9e2_e6efa4ed",
+        "filename": "lib/libc/snprintf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-03-01T10:40:02Z",
+      "side": 1,
+      "message": "That seems unrelated. I get it you took it from printf.c, where the rest of the code was also copied from, but that brings up the questions why we would have two implementations of nearly the same code.",
+      "revId": "373758b774ea2f3325baa192af23ee9edf5015e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d173e5a_a51375db",
+        "filename": "lib/libc/snprintf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-03-01T10:40:02Z",
+      "side": 1,
+      "message": "Is it really useful to write \"64-bit on AArch64\" everywhere? That kind of gives the impression this whole feature is useless. I think we should either drop that part in the parentheses, and refer to the C types only, or mention the AArch32 values, to show the difference.",
+      "revId": "373758b774ea2f3325baa192af23ee9edf5015e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dde4c7f8_20b00438",
+        "filename": "lib/libc/snprintf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-03-01T10:40:02Z",
+      "side": 1,
+      "message": "why the 2 here? include/lib/libc/aarch64/stddef_.h defines size_t to unsigned long, so it should be 1.",
+      "revId": "373758b774ea2f3325baa192af23ee9edf5015e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
