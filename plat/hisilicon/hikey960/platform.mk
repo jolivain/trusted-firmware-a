@@ -165,6 +165,9 @@ FIP_ALIGN			:=	512
 
 # SPM dispatcher
 ifeq (${SPD},spmd)
+# Add support for platform supplied linker script for BL31 build
+$(eval $(call add_define,PLAT_EXTRA_LD_SCRIPT))
+
 ifeq ($(ARM_SP_MANIFEST_DTS),)
 ARM_SP_MANIFEST_DTS	:=	plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts
 endif

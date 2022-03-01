@@ -28,8 +28,10 @@
  *   - Secure DDR (4MB aligned on 4MB) for OP-TEE's "Secure Data Path" feature
  *   - Non-secure DDR (8MB) reserved for OP-TEE's future use
  */
-#define DDR_SEC_SIZE			0x04000000 /* Trustonic: reserve 64MB secure memory */
+#define DDR_SEC_SIZE			0x03C00000 /* Trustonic: reserve 60MB secure memory */
 #define DDR_SEC_BASE			0x3F000000
+#define DDR2_SEC_BASE			0x42C00000 /* Trustonic: 4MB for BL31 RAM2 */
+#define DDR2_SEC_SIZE			0x00400000
 #define DDR_SEC_CONFIG_SIZE		0x00001000 /* Trustonic: SPMD manifest */
 #define DDR_SEC_CONFIG_BASE		0x43000000
 
