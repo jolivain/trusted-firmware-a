@@ -16,6 +16,41 @@
       "message": "Reported Open-CI failure is unrelated to this patch. Re-triggered legacy-CI that was failed earlier due to infra issue.",
       "revId": "033f61370af38c6397963075ac2477f3192714b9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf56e6b1_4a4c2ed7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-03-02T09:56:32Z",
+      "side": 1,
+      "message": "Putting a MR-1 until we figure out the CI failure. The patch per se looks good to me.",
+      "revId": "033f61370af38c6397963075ac2477f3192714b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b14f15d0_8cf98e7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-03-02T09:56:32Z",
+      "side": 1,
+      "message": "Is it unrelated? I see the failure occurred on a mbetls-enabled config [1], which makes it suspicious in the context of this patch. The job fails after invoking cert_create tool but I see no error message so I am not sure what is going on...\n\nManish, could you please provide some more details on the failure if you\u0027ve investigated it at your end?\n\n[1] tf-l2-boot-tests-juno/juno-aarch32-el3-runtime-mbedtls:juno-linux.uboot+aarch32-rt32",
+      "parentUuid": "87f01dc6_2549c3c4",
+      "revId": "033f61370af38c6397963075ac2477f3192714b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
