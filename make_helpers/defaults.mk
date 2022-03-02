@@ -452,3 +452,6 @@ ENABLE_TRF_FOR_NS		:= 0
 # SCR_EL3.TWEDEL(4bit) field, when FEAT_TWED is implemented.
 # By default it takes 0, and need to be updated by the platforms.
 TWED_DELAY			:= 0
+
+# Dynamic Root of Trust for Measurement support
+DRTM_SUPPORT			:= 0
