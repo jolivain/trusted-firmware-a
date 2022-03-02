@@ -1,13 +1,13 @@
 /*
- * Copyright (c) 2019-2021, ARM Limited and Contributors. All rights reserved.
- * Copyright (c) 2019-2021, Intel Corporation. All rights reserved.
+ * Copyright (c) 2019-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2022, Intel Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <assert.h>
 #include <arch.h>
 #include <arch_helpers.h>
-#include <assert.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <common/desc_image_load.h>

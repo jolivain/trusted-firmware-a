@@ -1,6 +1,5 @@
 /*
- * Copyright (c) 2019-2022, ARM Limited and Contributors. All rights reserved.
- * Copyright (c) 2019-2022, Intel Corporation. All rights reserved.
+ * Copyright (c) 2020-2022, Intel Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -28,10 +27,11 @@ entry_point_info_t *bl31_plat_get_next_image_ep_info(uint32_t type)
 			  &bl33_image_ep_info : &bl32_image_ep_info;
 
 	/* None of the images on this platform can have 0x0 as the entrypoint */
-	if (next_image_info->pc)
+	if (next_image_info->pc) {
 		return next_image_info;
-	else
+	} else {
 		return NULL;
+	}
 }
 
 void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
@@ -39,7 +39,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 {
 	static console_t console;
 
-	mmio_write_64(PLAT_SEC_ENTRY, PLAT_SEC_WARM_ENTRY);
+	mmio_write_64(PLAT_SEC_ENTRY, 0);
 
 	console_16550_register(PLAT_UART0_BASE, PLAT_UART_CLOCK, PLAT_BAUDRATE,
 		&console);
@@ -49,6 +49,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	void *from_bl2 = (void *) arg0;
 
 	bl_params_t *params_from_bl2 = (bl_params_t *)from_bl2;
+
 	assert(params_from_bl2 != NULL);
 
 	/*
@@ -61,7 +62,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 
 		bl_params_node_t *bl_params = params_from_bl2->head;
 
-		while (bl_params) {
+		while (bl_params != NULL) {
 			if (bl_params->image_id == BL33_IMAGE_ID)
 				bl33_image_ep_info = *bl_params->ep_info;
 
@@ -116,16 +117,21 @@ void bl31_platform_setup(void)
 	mailbox_hps_stage_notify(HPS_EXECUTION_STATE_SSBL);
 }
 
-const mmap_region_t plat_agilex_mmap[] = {
-	MAP_REGION_FLAT(DRAM_BASE, DRAM_SIZE, MT_MEMORY | MT_RW | MT_NS),
-	MAP_REGION_FLAT(DEVICE1_BASE, DEVICE1_SIZE, MT_DEVICE | MT_RW | MT_NS),
-	MAP_REGION_FLAT(DEVICE2_BASE, DEVICE2_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+const mmap_region_t plat_dm_mmap[] = {
+	MAP_REGION_FLAT(DRAM_BASE, DRAM_SIZE,
+		MT_MEMORY | MT_RW | MT_NS),
+	MAP_REGION_FLAT(DEVICE1_BASE, DEVICE1_SIZE,
+		MT_DEVICE | MT_RW | MT_NS),
+	MAP_REGION_FLAT(DEVICE2_BASE, DEVICE2_SIZE,
+		MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(OCRAM_BASE, OCRAM_SIZE,
 		MT_NON_CACHEABLE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(DEVICE3_BASE, DEVICE3_SIZE,
 		MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(MEM64_BASE, MEM64_SIZE, MT_DEVICE | MT_RW | MT_NS),
-	MAP_REGION_FLAT(DEVICE4_BASE, DEVICE4_SIZE, MT_DEVICE | MT_RW | MT_NS),
+	MAP_REGION_FLAT(MEM64_BASE, MEM64_SIZE,
+		MT_DEVICE | MT_RW | MT_NS),
+	MAP_REGION_FLAT(DEVICE4_BASE, DEVICE4_SIZE,
+		MT_DEVICE | MT_RW | MT_NS),
 	{0}
 };
 
@@ -151,7 +157,6 @@ void bl31_plat_arch_setup(void)
 		{0}
 	};
 
-	setup_page_tables(bl_regions, plat_agilex_mmap);
+	setup_page_tables(bl_regions, plat_dm_mmap);
 	enable_mmu_el3(0);
 }
-

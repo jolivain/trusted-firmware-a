@@ -1,13 +1,13 @@
 /*
- * Copyright (c) 2019-2020, ARM Limited and Contributors. All rights reserved.
- * Copyright (c) 2019-2020, Intel Corporation. All rights reserved.
+ * Copyright (c) 2019-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2022, Intel Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <assert.h>
 #include <arch.h>
 #include <arch_helpers.h>
-#include <assert.h>
 #include <common/bl_common.h>
 #include <drivers/arm/gicv2.h>
 #include <drivers/ti/uart/uart_16550.h>
