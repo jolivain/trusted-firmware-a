@@ -54,7 +54,7 @@ The following tools are required to obtain and build |TF-A|:
 The following libraries must be available to build one or more components or
 supporting tools:
 
-- OpenSSL >= 1.0.1
+- OpenSSL >= 3.0
 
    Required to build the cert_create tool.
 
@@ -160,7 +160,7 @@ documentation, available `here <https://git-scm.com/docs/githooks>`_.
 
 --------------
 
-*Copyright (c) 2021, Arm Limited. All rights reserved.*
+*Copyright (c) 2021-2022, Arm Limited. All rights reserved.*
 
 .. _Arm Developer website: https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/downloads
 .. _Gerrit Code Review: https://www.gerritcodereview.com/
