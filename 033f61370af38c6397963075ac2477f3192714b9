@@ -51,6 +51,24 @@
       "parentUuid": "87f01dc6_2549c3c4",
       "revId": "033f61370af38c6397963075ac2477f3192714b9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4989f9f_c9c1a1de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-03-02T10:00:22Z",
+      "side": 1,
+      "message": "This is failed in Open-CI daily job without this patch [1], in that context I mentioned it is un-related. We need to analyse this failure separately though.\n\n[1]: https://ci.trustedfirmware.org/job/tf-a-ci-gateway/5233/",
+      "parentUuid": "b14f15d0_8cf98e7f",
+      "revId": "033f61370af38c6397963075ac2477f3192714b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
