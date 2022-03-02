@@ -70,6 +70,24 @@
       "parentUuid": "1d3a2e2f_8795ab87",
       "revId": "384a0c2d288ce5318ebcb0555906740fadf360cf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76978236_f8ef3b9b",
+        "filename": "bl2/aarch64/bl2_entrypoint.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-03-02T12:45:30Z",
+      "side": 1,
+      "message": "Hi Jiafei,\nI agree the feature can be useful for platforms with tiny embedded SRAM.\nBL2_AT_EL3 is used when TF-A BL1 is not used, and when BL2 is loaded by ROM code.\n\nI\u0027ve seen that you\u0027ve just removed the code that was invalidating the cache. Isn\u0027t that required for those memory areas? If it is, you should do that in the macro I was mentioning (el3_entrypoint_common), maybe under BL2_AT_EL3, and for both aarch64 and aarch32.",
+      "parentUuid": "00370da8_758a99ef",
+      "revId": "384a0c2d288ce5318ebcb0555906740fadf360cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
