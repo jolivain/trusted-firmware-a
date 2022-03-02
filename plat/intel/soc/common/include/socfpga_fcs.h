@@ -10,7 +10,7 @@
 /* FCS Definitions */
 
 #define FCS_RANDOM_WORD_SIZE		8U
-#define FCS_PROV_DATA_WORD_SIZE		43U
+#define FCS_PROV_DATA_WORD_SIZE		44U
 
 #define FCS_RANDOM_BYTE_SIZE		(FCS_RANDOM_WORD_SIZE * 4U)
 #define FCS_PROV_DATA_BYTE_SIZE		(FCS_PROV_DATA_WORD_SIZE * 4U)
@@ -33,8 +33,7 @@ uint32_t intel_fcs_random_number_gen(uint64_t addr, uint64_t *ret_size,
 				uint32_t *mbox_error);
 uint32_t intel_fcs_send_cert(uint64_t addr, uint64_t size,
 				uint32_t *send_id);
-uint32_t intel_fcs_get_provision_data(uint64_t addr, uint64_t *fcs_size,
-				uint32_t *mbox_error);
+uint32_t intel_fcs_get_provision_data(uint32_t *send_id);
 uint32_t intel_fcs_cryption(uint32_t mode, uint32_t src_addr,
 			uint32_t src_size, uint32_t dst_addr,
 			uint32_t dst_size, uint32_t *send_id);

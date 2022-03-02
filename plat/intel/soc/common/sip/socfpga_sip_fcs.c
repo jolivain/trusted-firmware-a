@@ -16,6 +16,7 @@ uint32_t intel_fcs_random_number_gen(uint64_t addr, uint64_t *ret_size,
 {
 	int status;
 	unsigned int i;
+	unsigned int resp_len = FCS_RANDOM_WORD_SIZE;
 	uint32_t random_data[FCS_RANDOM_WORD_SIZE] = {0U};
 
 	if (!is_address_in_ddr_range(addr, FCS_RANDOM_BYTE_SIZE)) {
@@ -23,15 +24,15 @@ uint32_t intel_fcs_random_number_gen(uint64_t addr, uint64_t *ret_size,
 	}
 
 	status = mailbox_send_cmd(MBOX_JOB_ID, MBOX_FCS_RANDOM_GEN, NULL, 0U,
-			CMD_CASUAL, random_data, FCS_RANDOM_WORD_SIZE);
+			CMD_CASUAL, random_data, &resp_len);
 
 	if (status < 0) {
 		*mbox_error = -status;
 		return INTEL_SIP_SMC_STATUS_ERROR;
 	}
 
-	if (status != FCS_RANDOM_WORD_SIZE) {
-		*mbox_error = ~0U;
+	if (resp_len != FCS_RANDOM_WORD_SIZE) {
+		*mbox_error = GENERIC_RESPONSE_ERROR;
 		return INTEL_SIP_SMC_STATUS_ERROR;
 	}
 
@@ -41,6 +42,8 @@ uint32_t intel_fcs_random_number_gen(uint64_t addr, uint64_t *ret_size,
 		mmio_write_32(addr, random_data[i]);
 		addr += MBOX_WORD_BYTE;
 	}
+
+	flush_dcache_range(addr - *ret_size, *ret_size);
 
 	return INTEL_SIP_SMC_STATUS_OK;
 }
@@ -65,30 +68,15 @@ uint32_t intel_fcs_send_cert(uint64_t addr, uint64_t size,
 	return INTEL_SIP_SMC_STATUS_OK;
 }
 
-uint32_t intel_fcs_get_provision_data(uint64_t addr, uint64_t *ret_size,
-					uint32_t *mbox_error)
+uint32_t intel_fcs_get_provision_data(uint32_t *send_id)
 {
 	int status;
-	unsigned int i;
-	uint32_t provision_data[FCS_PROV_DATA_WORD_SIZE] = {0U};
 
-	if (!is_address_in_ddr_range(addr, FCS_PROV_DATA_BYTE_SIZE)) {
-		return INTEL_SIP_SMC_STATUS_REJECTED;
-	}
-
-	status = mailbox_send_cmd(MBOX_JOB_ID, MBOX_FCS_GET_PROVISION, NULL, 0U,
-			CMD_CASUAL, provision_data, FCS_PROV_DATA_WORD_SIZE);
+	status = mailbox_send_cmd_async(send_id, MBOX_FCS_GET_PROVISION,
+				NULL, 0U, CMD_DIRECT);
 
 	if (status < 0) {
-		*mbox_error = -status;
-		return status;
-	}
-
-	*ret_size = status * MBOX_WORD_BYTE;
-
-	for (i = 0U; i < status; i++) {
-		mmio_write_32(addr, provision_data[i]);
-		addr += MBOX_WORD_BYTE;
+		return INTEL_SIP_SMC_STATUS_ERROR;
 	}
 
 	return INTEL_SIP_SMC_STATUS_OK;
