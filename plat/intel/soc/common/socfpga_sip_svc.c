@@ -10,6 +10,7 @@
 #include <lib/mmio.h>
 #include <tools_share/uuid.h>
 
+#include "socfpga_fcs.h"
 #include "socfpga_mailbox.h"
 #include "socfpga_reset_manager.h"
 #include "socfpga_sip_svc.h"
@@ -430,9 +431,9 @@ uintptr_t sip_smc_handler(uint32_t smc_fid,
 			 u_register_t flags)
 {
 	uint32_t retval = 0;
-	uint32_t status = INTEL_SIP_SMC_STATUS_OK;
 	uint32_t completed_addr[3];
 	uint64_t rsu_respbuf[9];
+	int status = INTEL_SIP_SMC_STATUS_OK;
 	int mbox_status;
 	unsigned int len_in_resp;
 	u_register_t x5, x6;
