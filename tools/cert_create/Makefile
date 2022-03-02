@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -62,7 +62,7 @@ HOSTCCFLAGS += ${DEFINES}
 # Make soft links and include from local directory otherwise wrong headers
 # could get pulled in from firmware tree.
 INC_DIR += -I ./include -I ${PLAT_INCLUDE} -I ${OPENSSL_DIR}/include
-LIB_DIR := -L ${OPENSSL_DIR}/lib
+LIB_DIR := -L ${OPENSSL_DIR}/lib -L ${OPENSSL_DIR}
 LIB := -lssl -lcrypto
 
 HOSTCC ?= gcc
