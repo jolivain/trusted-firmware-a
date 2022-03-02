@@ -88,6 +88,24 @@
       "parentUuid": "00370da8_758a99ef",
       "revId": "384a0c2d288ce5318ebcb0555906740fadf360cf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d77ffa73_ab8fd881",
+        "filename": "bl2/aarch64/bl2_entrypoint.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-03-02T16:19:45Z",
+      "side": 1,
+      "message": "I too agree that BL2_NOLOAD_START to BL2_NOLOAD_LIMIT should get invalidated under BL2_AT_EL3 in both AArch64 and AArch32 case.",
+      "parentUuid": "76978236_f8ef3b9b",
+      "revId": "384a0c2d288ce5318ebcb0555906740fadf360cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
