@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2014-2021, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2014-2022, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -22,7 +22,7 @@ ifeq (${DEBUG},1)
 else
   HOSTCCFLAGS += -O2
 endif
-LDLIBS := -L${OPENSSL_DIR}/lib -lcrypto
+LDLIBS := -L${OPENSSL_DIR}/lib -L${OPENSSL_DIR} -lcrypto
 
 ifeq (${V},0)
   Q := @
