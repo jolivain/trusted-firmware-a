@@ -416,3 +416,6 @@ ENABLE_SYS_REG_TRACE_FOR_NS	:= 0
 # lower ELs, i.e. NS-EL2, or NS-EL1 if NS-EL2 implemented but unused
 # if FEAT_TRF is implemented.
 ENABLE_TRF_FOR_NS		:= 0
+
+# Dynamic Root of Trust for Measurement support
+DRTM_SUPPORT			:= 0
