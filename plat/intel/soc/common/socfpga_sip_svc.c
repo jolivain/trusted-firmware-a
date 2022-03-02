@@ -549,6 +549,10 @@ uintptr_t sip_smc_handler(uint32_t smc_fid,
 		status = intel_rsu_copy_dcmf_version(x1, x2);
 		SMC_RET1(handle, status);
 
+	case INTEL_SIP_SMC_ECC_DBE:
+		status = intel_ecc_dbe_notification(x1);
+		SMC_RET1(handle, status);
+
 	case INTEL_SIP_SMC_MBOX_SEND_CMD:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
