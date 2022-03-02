@@ -52,6 +52,24 @@
       "parentUuid": "50a0edd8_3b38be26",
       "revId": "384a0c2d288ce5318ebcb0555906740fadf360cf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00370da8_758a99ef",
+        "filename": "bl2/aarch64/bl2_entrypoint.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000493
+      },
+      "writtenOn": "2022-03-02T02:52:28Z",
+      "side": 1,
+      "message": "I got your point, yes, you are right, I enabled lag BL2_AT_EL3, so I don\u0027t need to update bl2_entrypoint.S, have fixed this issue, thanks.\n\nBTW, per my understand this feature is only helpful when enable BL2_AT_EL3, non-tf-a bootrom load bl2 into ram, but maybe initial ram is not enough to load BL2 image and also for nonloadable ram(.bss, stack, page tables), in this case we can move non-loadable section to another RAM section.",
+      "parentUuid": "1d3a2e2f_8795ab87",
+      "revId": "384a0c2d288ce5318ebcb0555906740fadf360cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
