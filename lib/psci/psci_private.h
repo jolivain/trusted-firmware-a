@@ -47,6 +47,9 @@
  */
 #define PSCI_MAX_CPUS_INDEX	0xFFFFU
 
+/* Invalid parent */
+#define PSCI_PARENT_NODE_INVALID	0xFFFFFFFFU
+
 /*
  * Helper functions to get/set the fields of PSCI per-cpu data.
  */
