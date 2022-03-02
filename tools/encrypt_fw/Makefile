@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2019-2020, Linaro Limited. All rights reserved.
+# Copyright (c) 2019-2022, Linaro Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -39,7 +39,7 @@ endif
 # Make soft links and include from local directory otherwise wrong headers
 # could get pulled in from firmware tree.
 INC_DIR := -I ./include -I ../../include/tools_share -I ${OPENSSL_DIR}/include
-LIB_DIR := -L ${OPENSSL_DIR}/lib
+LIB_DIR := -L ${OPENSSL_DIR}/lib -L ${OPENSSL_DIR}
 LIB := -lssl -lcrypto
 
 HOSTCC ?= gcc
