@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35ae9e89_fcf45ee2",
+        "filename": "include/lib/gpt_rme/gpt_rme.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-03T11:15:30Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "fc560a7f_2a99584e",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 33
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c68763c_43ea982d",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-02-24T11:16:01Z",
       "side": 1,
       "message": "\"Security state of the originating SMC invoking the API\".\n\nOnly SMCs originating in Realm and Secure world are allowed to invoke this API.",
+      "range": {
+        "startLine": 272,
+        "startChar": 5,
+        "endLine": 272,
+        "endChar": 18
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f655aee_221b9c5a",
+        "filename": "include/lib/gpt_rme/gpt_rme.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-03T11:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c68763c_43ea982d",
       "range": {
         "startLine": 272,
         "startChar": 5,
@@ -87,6 +135,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05b367ef_76e09c80",
+        "filename": "include/lib/gpt_rme/gpt_rme.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-03T11:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2cf04ad2_86325c65",
+      "range": {
+        "startLine": 273,
+        "startChar": 0,
+        "endLine": 273,
+        "endChar": 59
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c7d169d_301ca306",
@@ -104,6 +176,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02a59bb2_d6ea2434",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-03T11:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c7d169d_301ca306",
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad8d54cc_91e9fd53",
@@ -117,6 +207,24 @@
       "writtenOn": "2022-02-24T11:16:01Z",
       "side": 1,
       "message": "can be removed.",
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e53b2cce_f9e56f7b",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-03T11:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad8d54cc_91e9fd53",
       "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -144,6 +252,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a512eb2c_f7aa94c7",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-03T11:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce3f5817_b0871dbf",
+      "range": {
+        "startLine": 96,
+        "startChar": 5,
+        "endLine": 96,
+        "endChar": 7
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5b07f81_7324b449",
@@ -157,6 +289,30 @@
       "writtenOn": "2022-02-24T11:16:01Z",
       "side": 1,
       "message": "rename this function as gpt_tlbi_by_pa_ll",
+      "range": {
+        "startLine": 602,
+        "startChar": 5,
+        "endLine": 602,
+        "endChar": 19
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f6fa162_2e4c151d",
+        "filename": "lib/aarch64/misc_helpers.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-03T11:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5b07f81_7324b449",
       "range": {
         "startLine": 602,
         "startChar": 5,
@@ -207,6 +363,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d012ff5_80a4fd0f",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-03T11:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f5e594a_4732d359",
+      "range": {
+        "startLine": 1048,
+        "startChar": 0,
+        "endLine": 1052,
+        "endChar": 53
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01ae1841_a4198216",
@@ -224,6 +404,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af65d2a6_34c0fb6f",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-03T11:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01ae1841_a4198216",
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2dd4ae31_cab99619",
@@ -237,6 +435,30 @@
       "writtenOn": "2022-02-24T12:05:31Z",
       "side": 1,
       "message": "This check is too complicated for the new API semantics. All you need to check is whether the if (gpi_info.gpi \u003d\u003d GPT_GPI_NS)\n\nremvoe gpt_check_transition_pas.",
+      "range": {
+        "startLine": 1141,
+        "startChar": 6,
+        "endLine": 1142,
+        "endChar": 28
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bbf8c9c_c3aecf75",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1142,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-03T11:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dd4ae31_cab99619",
       "range": {
         "startLine": 1141,
         "startChar": 6,
@@ -270,6 +492,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b0c5128_c629854d",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1145,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-03T11:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16d7d50e_3e6aa668",
+      "range": {
+        "startLine": 1143,
+        "startChar": 2,
+        "endLine": 1145,
+        "endChar": 47
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5b3c6bf_8e2cb43c",
@@ -287,6 +533,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43f82831_90b6a124",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1149,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-03T11:15:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e5b3c6bf_8e2cb43c",
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "acc64d82_d1eb1dc5",
@@ -300,6 +564,24 @@
       "writtenOn": "2022-02-24T12:05:31Z",
       "side": 1,
       "message": "if (src_sec_state \u003d\u003d SMC_FROM_SECURE)\n    nse \u003d (uint64_t)GPT_NSE_SECURE \u003c\u003c GPT_NSE_SHIFT;\nelse\n    nse \u003d (uint64_t)GPT_NSE_REALM \u003c\u003c GPT_NSE_SHIFT;",
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b449053_b9cf6433",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-03T11:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acc64d82_d1eb1dc5",
       "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -327,6 +609,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11e9f567_692eab0e",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1161,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-03T11:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e884616_68172bd9",
+      "range": {
+        "startLine": 1157,
+        "startChar": 1,
+        "endLine": 1161,
+        "endChar": 0
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51086c60_fe3e93fc",
@@ -340,6 +646,24 @@
       "writtenOn": "2022-02-24T12:05:31Z",
       "side": 1,
       "message": "Add comment here: \t\n        /*\n\t * In order to maintain mutual distrust between Realm and Secure\n\t * states, remove any data speculatively fetched into the target\n\t * physical address space. Issue DC CIPAPA over address range \n         * and then dsb osh()\n\t */",
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c95a80c6_26e7879b",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-03T11:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51086c60_fe3e93fc",
       "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -367,6 +691,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bec049d3_7fee4e54",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-03T11:15:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3d1bb7e1_f6b17b51",
+      "range": {
+        "startLine": 1165,
+        "startChar": 0,
+        "endLine": 1165,
+        "endChar": 10
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7d6b414_214f38a8",
@@ -380,6 +728,24 @@
       "writtenOn": "2022-02-24T12:05:31Z",
       "side": 1,
       "message": "nse \u003d (uint64_t)GPT_NSE_NON_SECURE \u003c\u003c GPT_NSE_SHIFT;",
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93309224_12313311",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-03T11:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7d6b414_214f38a8",
       "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -407,6 +773,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b28d6113_e0c74f76",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-03T11:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a86c327_e3ea2fd4",
+      "range": {
+        "startLine": 1175,
+        "startChar": 0,
+        "endLine": 1178,
+        "endChar": 2
+      },
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69d544d0_f17a02a3",
@@ -424,6 +814,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af8dedf7_3c87255f",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-03T11:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69d544d0_f17a02a3",
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04216da3_7a59cbc4",
@@ -437,6 +845,24 @@
       "writtenOn": "2022-02-24T16:05:46Z",
       "side": 1,
       "message": "Most of the comments to above function apply here.",
+      "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63285649_29811e1a",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1214,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-03T11:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04216da3_7a59cbc4",
       "revId": "2684db9b3409d792e342e1fa5e3a6ae53104a3e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
