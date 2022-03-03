@@ -197,9 +197,17 @@ const plat_psci_ops_t sq_psci_ops = {
 int plat_setup_psci_ops(uintptr_t sec_entrypoint,
 			const struct plat_psci_ops **psci_ops)
 {
+#if SQ_RESET_TO_BL2
+	uintptr_t *sq_sec_ep = (uintptr_t *)BL2_MAILBOX_BASE;
+
+	*sq_sec_ep = sec_entrypoint;
+	flush_dcache_range((uint64_t)sq_sec_ep,
+			   sizeof(*sq_sec_ep));
+#else
 	sq_sec_entrypoint = sec_entrypoint;
 	flush_dcache_range((uint64_t)&sq_sec_entrypoint,
 			   sizeof(sq_sec_entrypoint));
+#endif
 
 	*psci_ops = &sq_psci_ops;
 
