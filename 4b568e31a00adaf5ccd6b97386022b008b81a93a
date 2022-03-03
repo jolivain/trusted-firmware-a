@@ -33,6 +33,24 @@
       "message": "Hi All, \n\nCould you provide advice on how to resolve the failure below? \n\nChecking files modified between patches origin/master and HEAD...\n35fe7f400:plat/intel/soc/agilex/bl2_plat_setup.c: [\u0027assert.h should be in system group,\n    at the top\u0027]\n\n35fe7f400:plat/intel/soc/stratix10/bl2_plat_setup.c: [\u0027assert.h should be in system\n    group, at the top\u0027]\n\n\nThanks.\n\nBest Regards, \nTang, Sieu Mun",
       "revId": "4b568e31a00adaf5ccd6b97386022b008b81a93a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a62b62ca_7d61d678",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-03-03T16:51:55Z",
+      "side": 1,
+      "message": "Hi \nI am not sure how to fix the issue. It could be a false positive. Can you wait till the master catches up with the integration branch?\n\nMeanwhile, can you fix the following issue:\n\n****** Newly added files detection check for Coverity Scan analysis on patch(es) ******\n\nResult : FAILURE\n\n\nNew source files have been identified in your patch..\nplat/intel/soc/common/sip/socfpga_sip_ecc.c\nplat/intel/soc/common/sip/socfpga_sip_fcs.c\nplat/intel/soc/n5x/bl31_plat_setup.c\n\n1. Kindly ensure these newly added source files are covered by : \n   a. Coverity scan analysis by adding them to \"tf-cov-make\" build script with the appropriate build configurations. \n   b. Built as part of one of the platform configurations present in \"tf-l1-build-plat\" test group.\n\n   Please refer to the tf-a documentation for more detailed explanation. \n   \"https://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#add-build-configurations\"\n\n2. Please ignore if your files are already updated. Further the Code Maintainer will \n   resolve the issue by taking appropriate action.",
+      "parentUuid": "541844f3_9e1da70b",
+      "revId": "4b568e31a00adaf5ccd6b97386022b008b81a93a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
