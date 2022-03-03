@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0326659a_c45f96ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-03-03T11:29:35Z",
+      "side": 1,
+      "message": "Hi All, \n\nI have done the fixes based on the http://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l1/533/ : FAILURE\": \n    1. WARNING: Copyright is out of date in plat/intel/soc/agilex/bl2_plat_setup.c: \u0027 * Copyright (c) 2019-2021, ARM Limited and Contributors. All rights reserved.\u0027\n    2. WARNING: Copyright is out of date in plat/intel/soc/common/include/socfpga_system_manager.h: \u0027 * Copyright (c) 2019-2020, Intel Corporation. All rights reserved.\u0027\n    3. WARNING: Copyright is out of date in plat/intel/soc/stratix10/bl2_plat_setup.c: \u0027 * Copyright (c) 2019-2021, ARM Limited and Contributors. All rights reserved.\n    4. 0677c0bf7:plat/intel/soc/n5x/bl31_plat_setup.c: [\u0027assert.h should be in system group, at the top\u0027]\n    5. 35fe7f400:plat/intel/soc/agilex/bl2_plat_setup.c: [\u0027assert.h should be in system group, at the top\u0027]\n    6. 35fe7f400:plat/intel/soc/stratix10/bl2_plat_setup.c: [\u0027assert.h should be in system group, at the top\u0027]\n\n\nThanks. \n\nBest Regards, \nTang, Sieu Mun",
+      "revId": "4b568e31a00adaf5ccd6b97386022b008b81a93a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
