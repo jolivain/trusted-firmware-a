@@ -69,6 +69,24 @@
       "parentUuid": "62ecd17b_a1a79837",
       "revId": "ba4b061b5b1452d395e683c105933d14ad091f6b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd5deadf_0c05a004",
+        "filename": "plat/arm/common/arm_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-04T16:19:20Z",
+      "side": 1,
+      "message": "I was just just wondering if there was an update from yourself or @Manish Pandey on this usage?\n\nI have another patch in progress that also calls a platform hook and I\u0027d initially used another \"#pragma weak\" to provide a default implementation, however of course I would like to use the preferred approach to handle this sort of scenario.",
+      "parentUuid": "58c2b1d2_af667f63",
+      "revId": "ba4b061b5b1452d395e683c105933d14ad091f6b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
