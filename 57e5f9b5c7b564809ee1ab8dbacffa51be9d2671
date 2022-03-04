@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2726312_fc5cb480",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-03-04T17:01:52Z",
+      "side": 1,
+      "message": "IMO there is no harm in mentioning __unused for this declaration to cover release build case (unused but set variable) as discussed in previous comment.",
+      "range": {
+        "startLine": 28,
+        "startChar": 12,
+        "endLine": 28,
+        "endChar": 35
+      },
+      "revId": "57e5f9b5c7b564809ee1ab8dbacffa51be9d2671",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
