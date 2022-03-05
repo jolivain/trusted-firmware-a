@@ -5,7 +5,7 @@
 #
 
 
-SPD_INCLUDES		:=
+SPD_INCLUDES		:=	-Iservices/spd/trusty/include
 
 SPD_SOURCES		:=	services/spd/trusty/shared-mem-smcall.c	\
 				services/spd/trusty/trusty.c		\

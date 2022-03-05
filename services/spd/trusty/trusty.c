@@ -22,6 +22,7 @@
 #include <lib/smccc.h>
 #include <plat/common/platform.h>
 #include <tools_share/uuid.h>
+#include <trusty/plat/boot_args.h>
 
 #include "sm_err.h"
 #include "smcall.h"
@@ -382,8 +383,6 @@ static int32_t trusty_cpu_init(void)
 
 	return 1;
 }
-
-void plat_trusty_set_boot_args(aapcs64_params_t *args);
 
 #if !defined(TSP_SEC_MEM_SIZE) && defined(BL32_MEM_SIZE)
 #define TSP_SEC_MEM_SIZE BL32_MEM_SIZE
