@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52ddf383_42f77c76",
+        "filename": "plat/intel/soc/agilex/platform.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-03-05T23:28:47Z",
+      "side": 1,
+      "message": "Apart from this initialization, this flag also has to be defined. Please refer how the build flag STM32MP_DDR_32BIT_INTERFACE is defined here\n https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/st/stm32mp1/platform.mk#n183",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 19
+      },
+      "revId": "8ecafbff84a37f62db7b31cd8a026477f37238f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
