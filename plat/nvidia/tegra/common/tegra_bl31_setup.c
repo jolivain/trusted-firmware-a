@@ -33,6 +33,10 @@
 #include <tegra_platform.h>
 #include <tegra_private.h>
 
+#ifdef SPD_trusty
+#include <trusty/plat/boot_args.h>
+#endif
+
 /* length of Trusty's input parameters (in bytes) */
 #define TRUSTY_PARAMS_LEN_BYTES	(4096*2)
 
