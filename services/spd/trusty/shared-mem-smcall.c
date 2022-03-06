@@ -13,7 +13,7 @@
 #include <lib/object_pool.h>
 #include <lib/spinlock.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include "shared-mem-smcall.h"
+#include <trusty/arm_ffa.h>
 
 #include <platform_def.h>
 
