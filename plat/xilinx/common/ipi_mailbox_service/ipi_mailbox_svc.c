@@ -16,12 +16,11 @@
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
 
+#include "../../../services/spd/trusty/include/trusty/smcall.h"
+#include "ipi_mailbox_svc.h"
 #include <ipi.h>
 #include <plat_ipi.h>
 #include <plat_private.h>
-
-#include "ipi_mailbox_svc.h"
-#include "../../../services/spd/trusty/smcall.h"
 
 /*********************************************************************
  * Macros definitions
