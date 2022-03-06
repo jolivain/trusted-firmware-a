@@ -24,9 +24,8 @@
 #include <lib/smccc.h>
 #include <plat/common/platform.h>
 #include <tools_share/uuid.h>
-
-#include "sm_err.h"
-#include "smcall.h"
+#include <trusty/smcall.h>
+#include <trusty/sm_err.h>
 
 /* Trusty UID: RFC-4122 compliant UUID version 4 */
 DEFINE_SVC_UUID2(trusty_uuid,
