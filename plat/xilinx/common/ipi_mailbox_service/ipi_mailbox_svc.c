@@ -21,7 +21,7 @@
 #include <plat_private.h>
 
 #include "ipi_mailbox_svc.h"
-#include "../../../services/spd/trusty/smcall.h"
+#include "../../../services/spd/trusty/include/trusty/smcall.h"
 
 /*********************************************************************
  * Macros definitions

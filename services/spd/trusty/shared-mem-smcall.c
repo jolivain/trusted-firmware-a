@@ -12,9 +12,9 @@
 #include <lib/object_pool.h>
 #include <lib/spinlock.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include <platform_def.h>
+#include <trusty/arm_ffa.h>
 
-#include "shared-mem-smcall.h"
+#include <platform_def.h>
 
 /*
  * Use a 512KB buffer by default for shared memory descriptors. Set
