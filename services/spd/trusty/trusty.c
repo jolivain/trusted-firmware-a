@@ -23,9 +23,8 @@
 #include <plat/common/platform.h>
 #include <tools_share/uuid.h>
 #include <trusty/plat/boot_args.h>
-
-#include "sm_err.h"
-#include "smcall.h"
+#include <trusty/sm_err.h>
+#include <trusty/smcall.h>
 
 /* Trusty UID: RFC-4122 compliant UUID version 4 */
 DEFINE_SVC_UUID2(trusty_uuid,
