@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3919a0d3_f5876ac9",
+        "filename": "Makefile",
+        "patchSetId": 19
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-03-07T17:14:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69193649_644cc996",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 275,
+        "endChar": 18
+      },
+      "revId": "35cd6775f64cf27a092bd0441b47260d8cd1b560",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c19a1309_84f1cf57",
@@ -64,6 +88,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "400d3dbc_de9de1b9",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-03-07T17:14:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c19a1309_84f1cf57",
+      "range": {
+        "startLine": 30,
+        "startChar": 1,
+        "endLine": 30,
+        "endChar": 58
+      },
+      "revId": "35cd6775f64cf27a092bd0441b47260d8cd1b560",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53bd2ee0_44258565",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-03-07T11:41:09Z",
       "side": 1,
       "message": "See comment above and better to remove this dead code. There may not be anything to do for dynamic handling of feature during boot phase.\n\nSame comments for below lines.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 6
+      },
+      "revId": "35cd6775f64cf27a092bd0441b47260d8cd1b560",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df0a13e1_2a45e8f5",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-03-07T17:14:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53bd2ee0_44258565",
       "range": {
         "startLine": 43,
         "startChar": 0,
