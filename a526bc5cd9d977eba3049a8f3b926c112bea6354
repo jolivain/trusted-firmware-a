@@ -86,6 +86,74 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de1647bb_7eb75c33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-03-07T14:00:08Z",
+      "side": 1,
+      "message": "Patch looks good to me.\nSome minor comments.\n\nAlso please resolve all the errors related to static checks.\n\n\n",
+      "revId": "a526bc5cd9d977eba3049a8f3b926c112bea6354",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9b6534d_3ca1037b",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-03-07T14:00:08Z",
+      "side": 1,
+      "message": "Some general comments related to this build flag.\nMight be helpful in future as a new feature (BRBE) support is being enabled at EL-3.\n\nSoon, a feature detection mechanism, with a tri-state approach will be added to TF-A.\nOne thing, you could be aware of is, features from now on support three states(0,1,2), instead of to boolean(currently we support(0,1))\n\nSo once the feature detection mechanism is in place, please update this feature macro (ENABLE_BRBE_FOR_NS) from boolean to\na numeric type. Both in documentation as well as in Makefile. \nThe only reason for highlighting this, \n1. Even those patches are ready for upstreaming, so please keep an eye on them. \nIf in case, they are merged before your patches, kindly take care of these sections.",
+      "revId": "a526bc5cd9d977eba3049a8f3b926c112bea6354",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6577274b_7d240c79",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-03-07T14:00:08Z",
+      "side": 1,
+      "message": "nit: Can we place this build option above, in sort of alphabetical order. ? The order is followed for most options even though a few aren\u0027t.",
+      "revId": "a526bc5cd9d977eba3049a8f3b926c112bea6354",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c2b9a51_2a99b43e",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-03-07T14:00:08Z",
+      "side": 1,
+      "message": "nit: 2019-2022",
+      "revId": "a526bc5cd9d977eba3049a8f3b926c112bea6354",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78b29be6_d001f442",
