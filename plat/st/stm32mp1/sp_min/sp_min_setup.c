@@ -40,6 +40,8 @@ static entry_point_info_t bl33_image_ep_info;
  ******************************************************************************/
 void sp_min_plat_fiq_handler(uint32_t id)
 {
+	(void)plat_crash_console_init();
+
 	switch (id & INT_ID_MASK) {
 	case STM32MP1_IRQ_TZC400:
 		tzc400_init(STM32MP1_TZC_BASE);
@@ -51,7 +53,7 @@ void sp_min_plat_fiq_handler(uint32_t id)
 		panic();
 		break;
 	default:
-		ERROR("SECURE IT handler not define for it : %u", id);
+		ERROR("SECURE IT handler not define for it : %u\n", id);
 		break;
 	}
 }
