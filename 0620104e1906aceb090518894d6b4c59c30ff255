@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "68c5fafc_d65c585a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-07T11:45:13Z",
+      "side": 1,
+      "message": "nit: limit commit msg body to 72 chars?",
+      "range": {
+        "startLine": 10,
+        "startChar": 66,
+        "endLine": 11,
+        "endChar": 68
+      },
+      "revId": "0620104e1906aceb090518894d6b4c59c30ff255",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f7d3bf65_7fce8c52",
@@ -14,6 +37,70 @@
       "writtenOn": "2022-03-07T10:05:09Z",
       "side": 1,
       "message": "Putting a temporary MR -1 as the L2 CI runs are failing.\n\nThe initial L1 failures were mainly because the patch had not been rebased. \n\nThe OpenCI L2 seems to have failed due to infrastructure issues.\n\nThe Legacy L2 seems to have numerous failures. In some UARTS I\u0027m seeing \nERROR:   Unhandled External Abort received on 0x81000000 from EL2\nERROR:   exception reason\u003d1 syndrome\u003d0x92000210\n\nI\u0027ve not done through them all. Please review https://jenkins.oss.arm.com/job/tf-gerrit-tforg-l2/2424/",
+      "revId": "0620104e1906aceb090518894d6b4c59c30ff255",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51bd9994_d16974b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-07T11:45:13Z",
+      "side": 1,
+      "message": "The external abort failures are most probably because of those changes in integration:\nhttps://review.trustedfirmware.org/c/TF-A/tf-a-tests/+/13499\nhttps://review.trustedfirmware.org/c/TF-A/tf-a-tests/+/13650\n\nxlat v2 failures are also present in integration",
+      "parentUuid": "f7d3bf65_7fce8c52",
+      "revId": "0620104e1906aceb090518894d6b4c59c30ff255",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a07756e1_370d1996",
+        "filename": "include/lib/gpt_rme/gpt_rme.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-07T11:45:13Z",
+      "side": 1,
+      "message": "I reckon delegate/undelegate is the terminology used to toggle PAS from NS to Realm and either way.\nWill the same wording be used when secure world wants to toggle a granule from NS to S?",
+      "range": {
+        "startLine": 277,
+        "startChar": 8,
+        "endLine": 277,
+        "endChar": 16
+      },
+      "revId": "0620104e1906aceb090518894d6b4c59c30ff255",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db84211f_2445be84",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-07T11:45:13Z",
+      "side": 1,
+      "message": "nit: are those inner parentheses necessary?\nGPT_L0_IDX already protects the _pa parameter.",
+      "range": {
+        "startLine": 442,
+        "startChar": 22,
+        "endLine": 442,
+        "endChar": 23
+      },
       "revId": "0620104e1906aceb090518894d6b4c59c30ff255",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -49,6 +136,29 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "bff88639_cbce3d19",
+      "revId": "0620104e1906aceb090518894d6b4c59c30ff255",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4cc9a63_326a51a9",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-07T11:45:13Z",
+      "side": 1,
+      "message": "Is there a real need for inline? The C compiler is smart enough to inline without hint in the code. Unless the initial intent was to place this function in a header file.",
+      "range": {
+        "startLine": 962,
+        "startChar": 0,
+        "endLine": 962,
+        "endChar": 13
+      },
       "revId": "0620104e1906aceb090518894d6b4c59c30ff255",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
