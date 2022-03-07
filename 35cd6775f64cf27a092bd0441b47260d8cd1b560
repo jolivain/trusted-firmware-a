@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aeaee737_e88af3b3",
+        "filename": "Makefile",
+        "patchSetId": 19
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-03-07T11:41:09Z",
+      "side": 1,
+      "message": "Suggest to move all ARCH_MAJOR and MINOR checks to a separate file and declutter the main Makefile.",
+      "revId": "35cd6775f64cf27a092bd0441b47260d8cd1b560",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69193649_644cc996",
+        "filename": "Makefile",
+        "patchSetId": 19
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-03-07T11:41:09Z",
+      "side": 1,
+      "message": "Lets not introduce this coupling here. The dependency is not symmetric between these 2 flags. RAS_EXTENSION depends on HANDLE_EA_EL3_FIRST being set but the converse is not true always.",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 275,
+        "endChar": 18
+      },
+      "revId": "35cd6775f64cf27a092bd0441b47260d8cd1b560",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c19a1309_84f1cf57",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-03-07T11:41:09Z",
+      "side": 1,
+      "message": "Lets not mention this here at this moment as there may not be anything to do for dynamic handling of feature during boot phase.",
+      "range": {
+        "startLine": 30,
+        "startChar": 1,
+        "endLine": 30,
+        "endChar": 58
+      },
+      "revId": "35cd6775f64cf27a092bd0441b47260d8cd1b560",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53bd2ee0_44258565",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-03-07T11:41:09Z",
+      "side": 1,
+      "message": "See comment above and better to remove this dead code. There may not be anything to do for dynamic handling of feature during boot phase.\n\nSame comments for below lines.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 6
+      },
+      "revId": "35cd6775f64cf27a092bd0441b47260d8cd1b560",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
