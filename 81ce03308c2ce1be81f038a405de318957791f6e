@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c0d86c2c_7ab848f7",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-03-07T21:31:34Z",
+      "side": 1,
+      "message": "I didn\u0027t want to use cm_ prefix since these are static (private) functions.",
+      "parentUuid": "023394fd_64393c07",
+      "range": {
+        "startLine": 38,
+        "startChar": 12,
+        "endLine": 38,
+        "endChar": 32
+      },
+      "revId": "81ce03308c2ce1be81f038a405de318957791f6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6ad01798_f0eea409",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2022-03-07T14:52:10Z",
       "side": 1,
       "message": "Should this configuration be made from SPD? Here SPMD?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 6
+      },
+      "revId": "81ce03308c2ce1be81f038a405de318957791f6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38bc5215_61253a0e",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-03-07T21:31:34Z",
+      "side": 1,
+      "message": "Does it only apply to SPMD? I see the routing model being set for \u0027legacy\u0027 code as well.",
+      "parentUuid": "6ad01798_f0eea409",
       "range": {
         "startLine": 46,
         "startChar": 0,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fc741f58_248447b2",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-03-07T21:31:34Z",
+      "side": 1,
+      "message": "I was also wondering if MTE code above should be part of manage_extensions_secure, but I\u0027m not sure what the criteria is to put a feature in manage_extensions_secure is. All the features in manage_extensions_secure seem to have build flags associated with them.",
+      "parentUuid": "7bc9f77c_9cbe25b0",
+      "range": {
+        "startLine": 73,
+        "startChar": 1,
+        "endLine": 81,
+        "endChar": 2
+      },
+      "revId": "81ce03308c2ce1be81f038a405de318957791f6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "40ae4a24_d0263e2e",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 5
@@ -83,6 +155,30 @@
       "writtenOn": "2022-03-07T14:52:10Z",
       "side": 1,
       "message": "requires an update?",
+      "range": {
+        "startLine": 361,
+        "startChar": 66,
+        "endLine": 362,
+        "endChar": 24
+      },
+      "revId": "81ce03308c2ce1be81f038a405de318957791f6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d893010_9f26b1a1",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-03-07T21:31:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40ae4a24_d0263e2e",
       "range": {
         "startLine": 361,
         "startChar": 66,
