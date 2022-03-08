@@ -41,6 +41,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "504600c3_d648273e",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-08T20:42:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ccfc3450_a6976f20",
+      "revId": "ffb7dc67f3506aaecf7bcc08aa746870aee1a9b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a706d3ad_55c05245",
@@ -54,6 +72,30 @@
       "writtenOn": "2022-03-08T16:00:40Z",
       "side": 1,
       "message": "!\u003d 0U",
+      "range": {
+        "startLine": 584,
+        "startChar": 24,
+        "endLine": 584,
+        "endChar": 25
+      },
+      "revId": "ffb7dc67f3506aaecf7bcc08aa746870aee1a9b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f7e1c8b_715d9537",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-08T20:42:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a706d3ad_55c05245",
       "range": {
         "startLine": 584,
         "startChar": 24,
@@ -87,6 +129,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c9d869b_959a0265",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-08T20:42:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "885e1bc4_ad398ae9",
+      "range": {
+        "startLine": 608,
+        "startChar": 0,
+        "endLine": 608,
+        "endChar": 3
+      },
+      "revId": "ffb7dc67f3506aaecf7bcc08aa746870aee1a9b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b6b2b41_93e0883a",
@@ -100,6 +166,30 @@
       "writtenOn": "2022-03-08T16:00:40Z",
       "side": 1,
       "message": "same as 608",
+      "range": {
+        "startLine": 620,
+        "startChar": 56,
+        "endLine": 620,
+        "endChar": 83
+      },
+      "revId": "ffb7dc67f3506aaecf7bcc08aa746870aee1a9b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4961af1f_9a881ac7",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-08T20:42:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b6b2b41_93e0883a",
       "range": {
         "startLine": 620,
         "startChar": 56,
@@ -127,6 +217,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49ddbd5a_ab4d8fa5",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-08T20:42:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9a9eb6a_49707542",
+      "revId": "ffb7dc67f3506aaecf7bcc08aa746870aee1a9b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f39249b_c86ee7f6",
@@ -140,6 +248,30 @@
       "writtenOn": "2022-03-08T16:00:40Z",
       "side": 1,
       "message": "should you assert or check that the return is success?",
+      "range": {
+        "startLine": 670,
+        "startChar": 0,
+        "endLine": 670,
+        "endChar": 4
+      },
+      "revId": "ffb7dc67f3506aaecf7bcc08aa746870aee1a9b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "368d3a00_b02f6f5d",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-08T20:42:29Z",
+      "side": 1,
+      "message": "Added an assertion to check this, if this fails I don\u0027t think there\u0027s much we can do.",
+      "parentUuid": "8f39249b_c86ee7f6",
       "range": {
         "startLine": 670,
         "startChar": 0,
