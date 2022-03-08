@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bea71748_b19507ba",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-08T14:29:46Z",
+      "side": 1,
+      "message": "This assert is removed from other static functions, is it worth removing here, provided it remains line 389?",
+      "range": {
+        "startLine": 161,
+        "startChar": 1,
+        "endLine": 161,
+        "endChar": 21
+      },
+      "revId": "1fec88cb8551e333d0a621e9685f0220a42f7bd7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23455588_47c4c1a9",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-08T14:29:46Z",
+      "side": 1,
+      "message": "nit: blank",
+      "revId": "1fec88cb8551e333d0a621e9685f0220a42f7bd7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
