@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81fd51da_e8fc8d2d",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-03-08T23:33:05Z",
+      "side": 1,
+      "message": "CR+1:  I\u0027ll accept this, but I think it would be better to explicitly initialize them to zero rather than depend upon section initialization.  That, even if only because it clearly states that initialization in the code -- makes the code more self-documenting.",
+      "revId": "5f790cd47fe00343a6f01befdccc8cc31341cb2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
