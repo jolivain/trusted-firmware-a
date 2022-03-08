@@ -1,0 +1,538 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "503e52e6_b086071a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "FF-A",
+      "range": {
+        "startLine": 18,
+        "startChar": 11,
+        "endLine": 18,
+        "endChar": 14
+      },
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3b69ab9_b76b35bb",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "FFA_PARTITION_INFO_GET\n\nI think it is best to refer to the interface names used in the specification.",
+      "range": {
+        "startLine": 184,
+        "startChar": 43,
+        "endLine": 184,
+        "endChar": 61
+      },
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14ed2657_34dac511",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 184,
+        "startChar": 3,
+        "endLine": 184,
+        "endChar": 11
+      },
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e52d1132_a37da849",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "delete empty line",
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a9409fe_17df4d36",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "nit: align arguments",
+      "range": {
+        "startLine": 696,
+        "startChar": 5,
+        "endLine": 699,
+        "endChar": 27
+      },
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b1bfbd7_6d31e72e",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "referred helper function in a comment below?",
+      "range": {
+        "startLine": 716,
+        "startChar": 0,
+        "endLine": 717,
+        "endChar": 73
+      },
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bab813d_6f67839c",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "over 80",
+      "range": {
+        "startLine": 721,
+        "startChar": 68,
+        "endLine": 721,
+        "endChar": 69
+      },
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a79a570_7be50ac3",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "defining a helper to copy uuid?",
+      "range": {
+        "startLine": 732,
+        "startChar": 4,
+        "endLine": 735,
+        "endChar": 48
+      },
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "208f14d7_64fdfbef",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 753,
+        "startChar": 6,
+        "endLine": 753,
+        "endChar": 11
+      },
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "539c5a42_f8378e42",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "align function arguments.",
+      "range": {
+        "startLine": 774,
+        "startChar": 42,
+        "endLine": 778,
+        "endChar": 27
+      },
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92875231_1a3b962d",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "Should this be wrapped in a helper function if it is meant to be used in various places?",
+      "range": {
+        "startLine": 796,
+        "startChar": 0,
+        "endLine": 796,
+        "endChar": 8
+      },
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d3e831b_4129283e",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "over 80",
+      "range": {
+        "startLine": 800,
+        "startChar": 68,
+        "endLine": 800,
+        "endChar": 69
+      },
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38107f91_54cdc0db",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "Delete empty line",
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b25c359_e2054d55",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "drop.",
+      "range": {
+        "startLine": 831,
+        "startChar": 6,
+        "endLine": 831,
+        "endChar": 11
+      },
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec3eced9_ee4df776",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "over 80",
+      "range": {
+        "startLine": 855,
+        "startChar": 54,
+        "endLine": 855,
+        "endChar": 66
+      },
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9948e05e_01efe1a8",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "FFA_PARTITION_INFO_GET",
+      "range": {
+        "startLine": 871,
+        "startChar": 20,
+        "endLine": 871,
+        "endChar": 38
+      },
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b24ec8c_85f6da29",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "\"FF-A v1.1 and v1.0...\"\n\"FF-A\" just to clarify",
+      "range": {
+        "startLine": 871,
+        "startChar": 58,
+        "endLine": 871,
+        "endChar": 71
+      },
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e0ddd6b_5fe04b13",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "delete empty line",
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab69f72a_a1a5f37c",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "define in separate lines.",
+      "range": {
+        "startLine": 892,
+        "startChar": 0,
+        "endLine": 892,
+        "endChar": 3
+      },
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f975c32_54f05c36",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "over 80",
+      "range": {
+        "startLine": 900,
+        "startChar": 0,
+        "endLine": 900,
+        "endChar": 18
+      },
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ab62dbf_17dea690",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "Should this var be called \"flags\" instead?",
+      "range": {
+        "startLine": 903,
+        "startChar": 1,
+        "endLine": 903,
+        "endChar": 3
+      },
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f27403a6_349204af",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "over 80",
+      "range": {
+        "startLine": 914,
+        "startChar": 0,
+        "endLine": 914,
+        "endChar": 5
+      },
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "787fa8ac_07410b1a",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "right style is: \"} else {\"\nCan put the comment inside the else clause.",
+      "range": {
+        "startLine": 916,
+        "startChar": 1,
+        "endLine": 922,
+        "endChar": 7
+      },
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eabbc29a_792a6242",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 1406,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-08T17:16:22Z",
+      "side": 1,
+      "message": "over 80",
+      "range": {
+        "startLine": 1406,
+        "startChar": 74,
+        "endLine": 1406,
+        "endChar": 75
+      },
+      "revId": "101994f237855b3e22279c2c6cde62135114b73d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
