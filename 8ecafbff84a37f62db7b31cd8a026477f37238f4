@@ -94,6 +94,30 @@
       },
       "revId": "8ecafbff84a37f62db7b31cd8a026477f37238f4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bed563c7_814d350b",
+        "filename": "plat/intel/soc/agilex/platform.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-03-08T14:53:06Z",
+      "side": 1,
+      "message": "Hi Sieu Mun,\n\nMaybe I misled you. By common makefile, I meant a makefile common to Intel platforms. Please do not modify the project Makefile. I see 2 options:\n\n1. Introduce a makefile common to intel platforms and define the macro \n# Defination of SIMICS flag\nSIMICS_BUILD ?\u003d 0\n\n# Enable flags for C files\n$(eval $(call assert_booleans,\\\n$(sort \\\nSIMICS_BUILD \\\n)))\n\n$(eval $(call add_defines,\\\n$(sort \\\nSIMICS_BUILD \\\n))\n\n2. Duplicate the macro definition for each of the three Intel platforms.\n\nPlease let me know if you have questions.\n\nThanks\nMadhukar",
+      "parentUuid": "8bda3f86_faa977e8",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 19
+      },
+      "revId": "8ecafbff84a37f62db7b31cd8a026477f37238f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
