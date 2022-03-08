@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb86acbc_222714fb",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-03-08T23:03:15Z",
+      "side": 1,
+      "message": "So, compare_uuid() returns true if they\u0027re ... equal?  Perhaps call it uuid_match() or something like that?\n\nYou may not have control over the name of that function, but conceptually speaking, it would be nice if that could somehow be made clearer...",
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5adbd479_1cfa69d7",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 1202,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-03-08T23:03:15Z",
+      "side": 1,
+      "message": "goto... really?  Why not:\n\n\tif (mbox-\u003estate \u003d\u003d MAILBOX_STATE_FULL) {\n\t     mbox-\u003estate \u003d MAILBOX_STATE_EMPTY;\n\t     spin_unlock(\u0026mbox-\u003elock);\n\t     SMC_RET1(handle, FFA_SUCCESS_SMC32);\n\t}",
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
