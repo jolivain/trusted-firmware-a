@@ -22,6 +22,47 @@
       },
       "revId": "bf2b407dd150c7802d229e5a8b5185cb5493763b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4bb478a_cb37784f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-08T20:45:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04a6bf09_f10c7651",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 26
+      },
+      "revId": "bf2b407dd150c7802d229e5a8b5185cb5493763b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e30997d_b95b503c",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 1149,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-08T20:45:20Z",
+      "side": 1,
+      "message": "As discussed offline, refactored to move buffer unlocking in an error case to the end of the function to be consistent with later commits.",
+      "revId": "bf2b407dd150c7802d229e5a8b5185cb5493763b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
