@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dcab5cb_29226363",
+        "filename": "plat/intel/soc/common/socfpga_sip_svc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-03-08T21:53:39Z",
+      "side": 1,
+      "message": "resp_len is \u003d ARRAY_SIZE() which means it is always positive. This condition always evaluates to false. Why is it needed?",
+      "range": {
+        "startLine": 143,
+        "startChar": 2,
+        "endLine": 143,
+        "endChar": 20
+      },
+      "revId": "04eb76cd0582b2d91a4ef35d810647f46de9cd22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
