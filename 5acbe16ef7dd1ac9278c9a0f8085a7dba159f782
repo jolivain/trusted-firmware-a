@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed3e28ad_1e7054d0",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 1081,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-08T20:45:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7e653ac_2084c873",
+      "range": {
+        "startLine": 1081,
+        "startChar": 0,
+        "endLine": 1081,
+        "endChar": 5
+      },
+      "revId": "5acbe16ef7dd1ac9278c9a0f8085a7dba159f782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f62ab231_6b68c6d3",
@@ -47,6 +71,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc94b06b_04451777",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-08T20:45:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f62ab231_6b68c6d3",
+      "range": {
+        "startLine": 1085,
+        "startChar": 66,
+        "endLine": 1086,
+        "endChar": 2
+      },
+      "revId": "5acbe16ef7dd1ac9278c9a0f8085a7dba159f782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb0a7fc8_4d490622",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-03-08T17:25:59Z",
       "side": 1,
       "message": "outer-most () seem unnecessary",
+      "range": {
+        "startLine": 1102,
+        "startChar": 13,
+        "endLine": 1102,
+        "endChar": 37
+      },
+      "revId": "5acbe16ef7dd1ac9278c9a0f8085a7dba159f782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd1605d2_c0445198",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 1102,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-08T20:45:10Z",
+      "side": 1,
+      "message": "The parentheses here were added to better convey the intention here due to a previous comment. I can remove just the outer-most ones if that is still clear what the intent is?",
+      "parentUuid": "bb0a7fc8_4d490622",
       "range": {
         "startLine": 1102,
         "startChar": 13,
