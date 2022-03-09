@@ -22,6 +22,30 @@
       },
       "revId": "4a82423fcccd8d696928178f50769114cafb9c96",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4696852_05919760",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-09T19:52:00Z",
+      "side": 1,
+      "message": "Sure, this is essentially because if the SPMC is at EL3 the state tracking is not used and therefore the default value of the `state` variable will always be `SPMC_STATE_RESET`. \nI\u0027ve added a comment to state that we should ignore the state if the EL3 SPMC is enabled.",
+      "parentUuid": "fec867a3_49d1fef4",
+      "range": {
+        "startLine": 606,
+        "startChar": 8,
+        "endLine": 606,
+        "endChar": 22
+      },
+      "revId": "4a82423fcccd8d696928178f50769114cafb9c96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
