@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00195608_ea53cba6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-09T11:53:04Z",
+      "side": 1,
+      "message": "review to be continued...",
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb86acbc_222714fb",
@@ -31,6 +48,236 @@
       "writtenOn": "2022-03-08T23:03:15Z",
       "side": 1,
       "message": "goto... really?  Why not:\n\n\tif (mbox-\u003estate \u003d\u003d MAILBOX_STATE_FULL) {\n\t     mbox-\u003estate \u003d MAILBOX_STATE_EMPTY;\n\t     spin_unlock(\u0026mbox-\u003elock);\n\t     SMC_RET1(handle, FFA_SUCCESS_SMC32);\n\t}",
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f87d3651_e4be3b67",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 1219,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-09T11:53:04Z",
+      "side": 1,
+      "message": "Are the boundaries of the SP img know?\nIf they are, wouldn\u0027t be enough checking the entry point is part of that range?",
+      "range": {
+        "startLine": 1219,
+        "startChar": 0,
+        "endLine": 1219,
+        "endChar": 1
+      },
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88fde0e9_903b5460",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-09T11:53:04Z",
+      "side": 1,
+      "message": "separate into multiple lines",
+      "range": {
+        "startLine": 1224,
+        "startChar": 1,
+        "endLine": 1225,
+        "endChar": 50
+      },
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26359ba3_5fd77d11",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-09T11:53:04Z",
+      "side": 1,
+      "message": "Not sure about the intent of this comment?",
+      "range": {
+        "startLine": 1247,
+        "startChar": 3,
+        "endLine": 1247,
+        "endChar": 32
+      },
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b28f120e_cc1b4311",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-09T11:53:04Z",
+      "side": 1,
+      "message": "Nit: one-line comment?",
+      "range": {
+        "startLine": 1262,
+        "startChar": 0,
+        "endLine": 1262,
+        "endChar": 2
+      },
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8504da3b_19033372",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 1276,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-09T11:53:04Z",
+      "side": 1,
+      "message": "nit: one-line comment?",
+      "range": {
+        "startLine": 1276,
+        "startChar": 0,
+        "endLine": 1276,
+        "endChar": 2
+      },
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07977b66_db76f95a",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 1289,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-09T11:53:04Z",
+      "side": 1,
+      "message": "... and here?",
+      "range": {
+        "startLine": 1289,
+        "startChar": 0,
+        "endLine": 1289,
+        "endChar": 2
+      },
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "055d5ada_b9eb1c4e",
+        "filename": "services/std_svc/spm/spmc/spmc_pm.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-09T11:53:04Z",
+      "side": 1,
+      "message": "full stop.",
+      "range": {
+        "startLine": 49,
+        "startChar": 36,
+        "endLine": 49,
+        "endChar": 47
+      },
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0f2438e_171d86b3",
+        "filename": "services/std_svc/spm/spmc/spmc_pm.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-09T11:53:04Z",
+      "side": 1,
+      "message": "full stop",
+      "range": {
+        "startLine": 52,
+        "startChar": 47,
+        "endLine": 52,
+        "endChar": 49
+      },
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a85ab3de_23fffb93",
+        "filename": "services/std_svc/spm/spmc/spmc_pm.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-09T11:53:04Z",
+      "side": 1,
+      "message": "over 80",
+      "range": {
+        "startLine": 53,
+        "startChar": 75,
+        "endLine": 53,
+        "endChar": 77
+      },
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bee4fb28_cdaba3b7",
+        "filename": "services/std_svc/spm/spmc/spmc_pm.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-09T11:53:04Z",
+      "side": 1,
+      "message": "I am confused by this.\nThe CPU ON interface is to turn on Secondary cores, right?\nSo I had a look into spmc_sp_common_setup, and it allocates an SP ID to the SP, checks if SP requires use of the boot protocol.\nThese are operations I\u0027d consider to be done not at secondary core bring up, but prior to initializing the SP in the primary core.\nSo, is this call really needed? Am I missing something?",
+      "range": {
+        "startLine": 74,
+        "startChar": 1,
+        "endLine": 74,
+        "endChar": 21
+      },
       "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
