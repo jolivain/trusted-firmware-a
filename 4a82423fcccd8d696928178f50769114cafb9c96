@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fec867a3_49d1fef4",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-03-09T10:41:14Z",
+      "side": 1,
+      "message": "Could you add a comment about why the state can be SPMC_STATE_RESET for spmc_at_el3?",
+      "range": {
+        "startLine": 606,
+        "startChar": 8,
+        "endLine": 606,
+        "endChar": 22
+      },
+      "revId": "4a82423fcccd8d696928178f50769114cafb9c96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
