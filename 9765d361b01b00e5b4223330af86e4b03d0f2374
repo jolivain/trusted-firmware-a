@@ -16,6 +16,24 @@
       "message": "When we set `ENABLE_ASSERTIONS :\u003d 0` in the makefile, then this line does not compile anymore with `-Wunused-variable`.\nCan you put the line under `#if !defined(NDEBUG)`?\nOr, not define a variable and inline into the assert.\n\nAnyhow, we managed to boot with assert enabled, so not a blocking issue anymore.",
       "revId": "9765d361b01b00e5b4223330af86e4b03d0f2374",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb565e7e_f93d40e4",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-09T13:57:59Z",
+      "side": 1,
+      "message": "Good point thanks for the comment, I\u0027ll revert this back to being part of the assertion directly.",
+      "parentUuid": "37d2b7b0_0c30a545",
+      "revId": "9765d361b01b00e5b4223330af86e4b03d0f2374",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
