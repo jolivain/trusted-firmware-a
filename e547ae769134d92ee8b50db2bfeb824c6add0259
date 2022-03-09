@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "641f3a17_9e6dd81a",
+        "filename": "services/std_svc/spm/spmc/spmc_setup.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2022-03-09T08:27:48Z",
+      "side": 1,
+      "message": "I think using the TOS_FW_UUID, or a UUID in general here is not a good idea.\n1. The DT allows discovering the type of information inside using the compatibility strings. No need to replicate this capability at a higher level. The SP only needs to know the format. Thus here basically a UUID is mapped to DT format or parameter type. Reusing TOS_FW_UUID for this seem to be incorrect for me.\n2. Future execution of any S-EL0 SP under the S-EL3 SPMC pushes other SPMC implementations to reuse the methodology implemented here. Passing the TOS_FW_UUID to an S-EL0 SP running under OP-TEE SPMC looks strange. \n3. Moreover, in general using an UUID can be misleading. The main purpose of UUID is allowing multiple stakeholders defining non colliding ID values. But why would anybody use a different ID value to identify the DT format? Using a string like \"TYPE_DT\" would seem to be a better option to me.\n\nI suggest using a string like: \"TYPE_DTv1\". This would be more aligned with the purpose of this ID, and would remove any confusion on when and why a value change is expected.",
+      "range": {
+        "startLine": 45,
+        "startChar": 24,
+        "endLine": 45,
+        "endChar": 42
+      },
+      "revId": "e547ae769134d92ee8b50db2bfeb824c6add0259",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
