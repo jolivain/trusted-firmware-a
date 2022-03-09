@@ -250,6 +250,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "60e6dd37_e905ea3c",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 1100,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-09T09:25:17Z",
+      "side": 1,
+      "message": "nit: use (GPT_NSE_NS \u003c\u003c GPT_NSE_SHIFT) straight?",
+      "range": {
+        "startLine": 1100,
+        "startChar": 28,
+        "endLine": 1100,
+        "endChar": 31
+      },
+      "revId": "16ffb0b59bc59953f65e32d074957c91224d24ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87c5ed30_c9961a79",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 1104,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-09T09:25:17Z",
+      "side": 1,
+      "message": "nit: blank",
+      "revId": "16ffb0b59bc59953f65e32d074957c91224d24ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c8c19ca0_82e82396",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 16
@@ -267,6 +307,207 @@
         "endLine": 1110,
         "endChar": 35
       },
+      "revId": "16ffb0b59bc59953f65e32d074957c91224d24ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62f2d02f_c8dcf10d",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 1144,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-09T09:25:17Z",
+      "side": 1,
+      "message": "nit: capital",
+      "range": {
+        "startLine": 1144,
+        "startChar": 4,
+        "endLine": 1144,
+        "endChar": 5
+      },
+      "revId": "16ffb0b59bc59953f65e32d074957c91224d24ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5a3ec64_364d6dcc",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 1150,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-09T09:25:17Z",
+      "side": 1,
+      "message": "same comment as line 1034",
+      "range": {
+        "startLine": 1150,
+        "startChar": 2,
+        "endLine": 1150,
+        "endChar": 10
+      },
+      "revId": "16ffb0b59bc59953f65e32d074957c91224d24ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e625f8a3_b21f8068",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 1153,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-09T09:25:17Z",
+      "side": 1,
+      "message": "nit: capital",
+      "range": {
+        "startLine": 1153,
+        "startChar": 4,
+        "endLine": 1153,
+        "endChar": 5
+      },
+      "revId": "16ffb0b59bc59953f65e32d074957c91224d24ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02494e34_b8a668a0",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-09T09:25:17Z",
+      "side": 1,
+      "message": "nit: capital",
+      "range": {
+        "startLine": 1185,
+        "startChar": 4,
+        "endLine": 1185,
+        "endChar": 5
+      },
+      "revId": "16ffb0b59bc59953f65e32d074957c91224d24ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef46f750_38c825f6",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 1190,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-09T09:25:17Z",
+      "side": 1,
+      "message": "miss \\n",
+      "range": {
+        "startLine": 1190,
+        "startChar": 73,
+        "endLine": 1190,
+        "endChar": 77
+      },
+      "revId": "16ffb0b59bc59953f65e32d074957c91224d24ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57fe0e37_83097948",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 1200,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-09T09:25:17Z",
+      "side": 1,
+      "message": "Add a TODO stating that DC CIGDPAPA shall be used when FEAT_MTE2 is implemented.",
+      "range": {
+        "startLine": 1200,
+        "startChar": 27,
+        "endLine": 1200,
+        "endChar": 43
+      },
+      "revId": "16ffb0b59bc59953f65e32d074957c91224d24ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bd91b3d_433c12dd",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 1200,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-09T09:25:17Z",
+      "side": 1,
+      "message": "This is the spec excerpt related to the delegate sequence, should it be updated?",
+      "range": {
+        "startLine": 1198,
+        "startChar": 4,
+        "endLine": 1200,
+        "endChar": 27
+      },
+      "revId": "16ffb0b59bc59953f65e32d074957c91224d24ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69fa3acb_aafb4bf1",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-09T09:25:17Z",
+      "side": 1,
+      "message": "nit: use (GPT_NSE_NS \u003c\u003c GPT_NSE_SHIFT) straight?",
+      "range": {
+        "startLine": 1225,
+        "startChar": 28,
+        "endLine": 1225,
+        "endChar": 31
+      },
+      "revId": "16ffb0b59bc59953f65e32d074957c91224d24ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52278e24_72a6028c",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 1238,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-09T09:25:17Z",
+      "side": 1,
+      "message": "nit: blank",
       "revId": "16ffb0b59bc59953f65e32d074957c91224d24ff",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
