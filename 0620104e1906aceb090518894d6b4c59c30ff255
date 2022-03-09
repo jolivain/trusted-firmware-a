@@ -83,6 +83,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1465effa_bbba26c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-09T09:05:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51bd9994_d16974b1",
+      "revId": "0620104e1906aceb090518894d6b4c59c30ff255",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a07756e1_370d1996",
@@ -120,6 +138,30 @@
       "side": 1,
       "message": "From Arm ® Architecture Reference Manual Supplement, The Realm Management Extension (RME), for\nArmv9-A (DDI0615)\n\nA1.1.1 Delegate\nThis sequence transitions the physical granule at address (addr) from Non-secure to Secure or Realm physical address space\n\n\nA1.1.2 Undelegate\nThis sequence transitions the physical granule at address (addr) from Secure or Realm physical address space to Non-secure.\n\nFrom what I understood NS \u003c-\u003e S would have to be undelegate(NS -\u003e PAS) then delegate(PAS -\u003e S)",
       "parentUuid": "a07756e1_370d1996",
+      "range": {
+        "startLine": 277,
+        "startChar": 8,
+        "endLine": 277,
+        "endChar": 16
+      },
+      "revId": "0620104e1906aceb090518894d6b4c59c30ff255",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ae8bf94_4ae9b9d6",
+        "filename": "include/lib/gpt_rme/gpt_rme.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-09T09:05:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3d5727d4_add2a212",
       "range": {
         "startLine": 277,
         "startChar": 8,
@@ -249,6 +291,30 @@
       "side": 1,
       "message": "The undelegate sequence is a break-then-make sequence therefore it calls twice the write_gpt() function.\n\nAs you mentioned inline is a hint and only a hint. the C compile might or might not inline it. I would rather have it to inline it, but for a matter of keeping the delegate/undelegate code clean I created this function.\n\nNot adding the inline keyword would reduce the probability of the code being inlined",
       "parentUuid": "f4cc9a63_326a51a9",
+      "range": {
+        "startLine": 962,
+        "startChar": 0,
+        "endLine": 962,
+        "endChar": 13
+      },
+      "revId": "0620104e1906aceb090518894d6b4c59c30ff255",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0471bfef_9f18282c",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-09T09:05:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7d8dc5c2_178cb1e4",
       "range": {
         "startLine": 962,
         "startChar": 0,
