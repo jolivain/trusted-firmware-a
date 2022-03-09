@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c05247d9_2ca9f12e",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-03-09T00:48:25Z",
+      "side": 1,
+      "message": "Personally, I think \"normal world\" is clearer than \"NWd\".  If you\u0027re concerned about line length, you could do something like:\n\nVERBOSE(\"Direct requests are not supported to the \"\n        \"normal world.\\n\");",
+      "revId": "6e65c1cd0e3460ef46e700e1731a524bf91fcacb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ddc6db0_3b4830a4",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-03-09T00:48:25Z",
+      "side": 1,
+      "message": "CR+1, but, again, personally, if the fact that rx_buffer and tx_buffer are important to the algorithm, I\u0027d keep those initializations in, even if only just to keep that algorithm clear.",
+      "revId": "6e65c1cd0e3460ef46e700e1731a524bf91fcacb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
