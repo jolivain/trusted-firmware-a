@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "88f05495_c99f48cc",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 1714,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-09T19:51:38Z",
+      "side": 1,
+      "message": "Good point, added.",
+      "parentUuid": "95fe9018_975190c2",
+      "range": {
+        "startLine": 1712,
+        "startChar": 1,
+        "endLine": 1714,
+        "endChar": 2
+      },
+      "revId": "2de9ddebb52564d2a8ddcf389f4626462d67ea1a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c0147d71_3d9d5c4a",
         "filename": "services/std_svc/spm/spmc/spmc_main.c",
         "patchSetId": 15
@@ -54,6 +78,30 @@
       "writtenOn": "2022-03-09T17:49:37Z",
       "side": 1,
       "message": "suggestion that it can be simplified with an \"assert\".",
+      "range": {
+        "startLine": 1820,
+        "startChar": 1,
+        "endLine": 1824,
+        "endChar": 2
+      },
+      "revId": "2de9ddebb52564d2a8ddcf389f4626462d67ea1a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "069d0df6_26abc885",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 1824,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-09T19:51:38Z",
+      "side": 1,
+      "message": "I\u0027m not sure an assertion is sufficient here. If this fails we are receiving interrupts and have no way to deal with them as we can\u0027t delegate to the SP. I don\u0027t think there is an easy way for the SPMC to continue in this case.",
+      "parentUuid": "c0147d71_3d9d5c4a",
       "range": {
         "startLine": 1820,
         "startChar": 1,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d61b24cd_fa41512c",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 1831,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-09T19:51:38Z",
+      "side": 1,
+      "message": "This comment was made more verbose due to a previous comment about stating where we\u0027re expecting vs what we\u0027re in. I\u0027m not sure how to shorten this to be \u003c80 characters. Open to suggestions.",
+      "parentUuid": "646bc9bd_cc52870e",
+      "range": {
+        "startLine": 1831,
+        "startChar": 0,
+        "endLine": 1831,
+        "endChar": 5
+      },
+      "revId": "2de9ddebb52564d2a8ddcf389f4626462d67ea1a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4e9d333e_2471fa9f",
         "filename": "services/std_svc/spm/spmc/spmc_main.c",
         "patchSetId": 15
@@ -100,6 +172,30 @@
       "writtenOn": "2022-03-09T17:49:37Z",
       "side": 1,
       "message": "nit: full stop",
+      "range": {
+        "startLine": 1836,
+        "startChar": 46,
+        "endLine": 1836,
+        "endChar": 55
+      },
+      "revId": "2de9ddebb52564d2a8ddcf389f4626462d67ea1a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37fdf604_c8a681f7",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 1836,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-09T19:51:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e9d333e_2471fa9f",
       "range": {
         "startLine": 1836,
         "startChar": 46,
