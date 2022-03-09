@@ -22,6 +22,30 @@
       },
       "revId": "04eb76cd0582b2d91a4ef35d810647f46de9cd22",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9b88c0b_87b4f2b4",
+        "filename": "plat/intel/soc/common/socfpga_sip_svc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-03-09T01:17:02Z",
+      "side": 1,
+      "message": "I have figured out it and fixed it. It should be checking with \"status\" instead of \"resp_len\". Please help to review.\n\n\nThanks. \nTang, Sieu Mun",
+      "parentUuid": "3dcab5cb_29226363",
+      "range": {
+        "startLine": 143,
+        "startChar": 2,
+        "endLine": 143,
+        "endChar": 20
+      },
+      "revId": "04eb76cd0582b2d91a4ef35d810647f46de9cd22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
