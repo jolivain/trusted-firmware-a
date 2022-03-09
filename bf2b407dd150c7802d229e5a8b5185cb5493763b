@@ -63,6 +63,24 @@
       "message": "As discussed offline, refactored to move buffer unlocking in an error case to the end of the function to be consistent with later commits.",
       "revId": "bf2b407dd150c7802d229e5a8b5185cb5493763b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7f85cf1_80aa1e8c",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 1149,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-09T19:52:07Z",
+      "side": 1,
+      "message": "Reverted back due to further feedback.",
+      "parentUuid": "1e30997d_b95b503c",
+      "revId": "bf2b407dd150c7802d229e5a8b5185cb5493763b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
