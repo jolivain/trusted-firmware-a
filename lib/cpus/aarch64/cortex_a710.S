@@ -305,11 +305,64 @@ func check_errata_2282622
 	b       cpu_rev_var_ls
 endfunc check_errata_2282622
 
+/* ---------------------------------------------------------------
+ * Errata Workaround for Cortex-A710 Erratum 2008768.
+ * This applies to revision r0p0, r1p0 and r2p0.
+ * It is fixed in r2p1.
+ * Inputs:
+ * x0: variant[4:7] and revision[0:3] of current cpu.
+ * Shall clobber: x0, x1, x2, x17
+ * ---------------------------------------------------------------
+ */
+func errata_a710_2008768_wa
+	mov     x17, x30
+	bl      check_errata_2008768
+	cbz     x0, done_2008768
+
+	/* Read number of error records into x0 and zero loop counter in x1 */
+	mrs     x0, ERRIDR_EL1
+	mov	x1, xzr
+
+	/* Iterate through all error records and write ERXCTLR_EL1.ED=0 */
+loop_2008768:
+	cmp	x1, x0
+	bcs	done_2008768
+
+	/* Write index (loop count) into ERRSELR_EL1 */
+	msr	ERRSELR_EL1, x1
+
+	/* Clear ERXCTLR_EL1.ED bit*/
+	mrs	x2, ERXCTLR_EL1
+	bfi	x2, xzr, #ERXCTLR_ED_SHIFT, #1
+	msr	ERXCTLR_EL1, x2
+
+	/* Increment counter and return to top of loop. */
+	add	x1, x1, #1
+	b	loop_2008768
+
+done_2008768:
+	ret     x17
+endfunc errata_a710_2008768_wa
+
+func check_errata_2008768
+	/* Applies to r0p0, r1p0 and r2p0 */
+	mov     x1, #0x20
+	b       cpu_rev_var_ls
+endfunc check_errata_2008768
+
 	/* ----------------------------------------------------
 	 * HW will do the cache maintenance while powering down
 	 * ----------------------------------------------------
 	 */
 func cortex_a710_core_pwr_dwn
+
+#if ERRATA_A710_2008768
+	mov	x18, x30
+	bl	cpu_get_rev_var
+	bl	errata_a710_2008768_wa
+	mov	x30, x18
+#endif
+
 	/* ---------------------------------------------------
 	 * Enable CPU power down bit in power control register
 	 * ---------------------------------------------------
@@ -344,6 +397,7 @@ func cortex_a710_errata_report
 	report_errata ERRATA_A710_2267065, cortex_a710, 2267065
 	report_errata ERRATA_A710_2136059, cortex_a710, 2136059
 	report_errata ERRATA_A710_2282622, cortex_a710, 2282622
+	report_errata ERRATA_A710_2008768, cortex_a710, 2008768
 
 	ldp	x8, x30, [sp], #16
 	ret
