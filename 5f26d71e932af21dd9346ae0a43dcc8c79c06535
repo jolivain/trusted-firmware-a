@@ -306,6 +306,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "533631cd_f6defe15",
+        "filename": "lib/aarch64/misc_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-09T14:34:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27ec048f_9f91c7d6",
+      "range": {
+        "startLine": 610,
+        "startChar": 36,
+        "endLine": 610,
+        "endChar": 37
+      },
+      "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "173255bf_8f2dea42",
@@ -372,6 +396,24 @@
       "side": 1,
       "message": "This could be added later, the current code didn\u0027t handle it and there is now way to test it currently",
       "parentUuid": "28d9eea3_cccbdde8",
+      "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4681b14_ba230713",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1000504
+      },
+      "writtenOn": "2022-03-09T14:34:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4cd9b3f_ca349422",
       "revId": "5f26d71e932af21dd9346ae0a43dcc8c79c06535",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
