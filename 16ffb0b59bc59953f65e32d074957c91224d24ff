@@ -295,6 +295,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c7725c9_45fc3c32",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-03-09T12:03:47Z",
+      "side": 1,
+      "message": "Hmm, the reason this was panic() originally was because we don\u0027t expect `size` parameter of API to be exposed directly to S/realm caller. This is an internal API invoked from RMMD (via gtsi) or SPMD and the dispatchers will hardcode the size when they invoke this API.\n\nBut on second thoughts, it is better to return -EINVAL to the dispatcher.",
+      "parentUuid": "9aaa5c70_72cce407",
+      "range": {
+        "startLine": 1034,
+        "startChar": 2,
+        "endLine": 1034,
+        "endChar": 10
+      },
+      "revId": "16ffb0b59bc59953f65e32d074957c91224d24ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7f5f15d_0489a5b7",
