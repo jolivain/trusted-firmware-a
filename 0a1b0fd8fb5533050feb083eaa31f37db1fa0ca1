@@ -45,6 +45,30 @@
       },
       "revId": "0a1b0fd8fb5533050feb083eaa31f37db1fa0ca1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "587ba4d4_629c2d33",
+        "filename": "lib/cpus/aarch64/cortex_a78_ae.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-03-09T23:16:43Z",
+      "side": 1,
+      "message": "To clarify, for bits that are unnamed I don\u0027t see any reason to make a whole new definition, and I\u0027m not sure why we\u0027ve done it this way in the past.",
+      "parentUuid": "c9a0b376_f32b323d",
+      "range": {
+        "startLine": 125,
+        "startChar": 14,
+        "endLine": 125,
+        "endChar": 43
+      },
+      "revId": "0a1b0fd8fb5533050feb083eaa31f37db1fa0ca1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
