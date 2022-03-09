@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23fc34d9_601130ec",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-03-09T15:05:31Z",
+      "side": 1,
+      "message": "When we compile without ASSERT, we get\n    14:50:17  services/std_svc/spm/spmc/spmc_main.c: In function \u0027rxtx_unmap_handler\u0027:\n    14:50:17  services/std_svc/spm/spmc/spmc_main.c:689:6: error: variable \u0027ret\u0027 set but not used [-Werror\u003dunused-but-set-variable]\n\nAs in the other comment, this should not be a problem for us anymore.",
+      "revId": "7374cf25b4904bcfd83a61b9c8a89665ae7be9aa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
