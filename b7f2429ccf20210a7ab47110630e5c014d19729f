@@ -89,6 +89,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82218c4c_6c6b7dd2",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1327,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-03-09T13:58:36Z",
+      "side": 1,
+      "message": "Finally, I am ok to patch the generic SPMC code.\nThe patch is very small and can be replaced when we activate the gp-boot-regs behavior.",
+      "parentUuid": "180635c1_194af927",
+      "revId": "b7f2429ccf20210a7ab47110630e5c014d19729f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e72fb91a_7447fc26",
