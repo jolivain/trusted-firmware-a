@@ -16,6 +16,24 @@
       "message": "CR+1, but I personally don\u0027t think it\u0027s necessarily best to make log messages (arguably) more cryptic to keep within 80-column width.  You should be able to do something like this:\n\nVERBOSE(\"S-EL1 SP context on core%u not handling a direct \"\n        \"request (%u).\\n\",",
       "revId": "689a6146a84e89e638eec43cf853a478a3a84527",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bf5848b_d5307884",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-09T10:20:03Z",
+      "side": 1,
+      "message": "The previous sentence was also not accurate.\nWhen the log messages are broken, It seems that the linter complains.\nI agree we should avoid making the sentences cryptic though.",
+      "parentUuid": "6a4d2f5f_78ab7d10",
+      "revId": "689a6146a84e89e638eec43cf853a478a3a84527",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
