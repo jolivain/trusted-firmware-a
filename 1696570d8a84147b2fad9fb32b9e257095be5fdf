@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6e140f3_0cc5e086",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-09T19:52:34Z",
+      "side": 1,
+      "message": "I was asked to reduce the length of the messages and changing to NWd was one area that was suggested. In this case that is not require and reverted the change.",
+      "parentUuid": "0e56d9f6_11275784",
+      "revId": "1696570d8a84147b2fad9fb32b9e257095be5fdf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ad056f2_abc0d248",
@@ -54,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dd7adfec_3195a594",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-09T19:52:34Z",
+      "side": 1,
+      "message": "I think this is addressed in another comment, however I\u0027ve removed the second level goto and and use the same `goto err` to be consistent with the other error conditions in this function.",
+      "parentUuid": "8ad056f2_abc0d248",
+      "revId": "1696570d8a84147b2fad9fb32b9e257095be5fdf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ef2d9946_8b573fc7",
         "filename": "services/std_svc/spm/spmc/spmc_main.c",
         "patchSetId": 15
@@ -65,6 +101,30 @@
       "writtenOn": "2022-03-09T09:41:37Z",
       "side": 1,
       "message": "nit align with arguments",
+      "range": {
+        "startLine": 1486,
+        "startChar": 8,
+        "endLine": 1486,
+        "endChar": 9
+      },
+      "revId": "1696570d8a84147b2fad9fb32b9e257095be5fdf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "735d2e70_255fb2d9",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 1486,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-09T19:52:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef2d9946_8b573fc7",
       "range": {
         "startLine": 1486,
         "startChar": 8,
