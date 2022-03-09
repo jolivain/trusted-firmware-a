@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7beef6c6_2955c654",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-03-09T10:03:30Z",
+      "side": 1,
+      "message": "I think this should be\n\"does not reside\"\nIf not I think it would be clearer to remove the does",
+      "range": {
+        "startLine": 31,
+        "startChar": 3,
+        "endLine": 31,
+        "endChar": 14
+      },
+      "revId": "0b58d83b633bb70bdac61331b9e34f4a3404bcb4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
