@@ -33,6 +33,24 @@
       "message": "CR+1, but, again, personally, if the fact that rx_buffer and tx_buffer are important to the algorithm, I\u0027d keep those initializations in, even if only just to keep that algorithm clear.",
       "revId": "6e65c1cd0e3460ef46e700e1731a524bf91fcacb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1657f08d_43effe0c",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-09T09:20:18Z",
+      "side": 1,
+      "message": "@Marc your preference, either way I will add CR+1 either way.",
+      "parentUuid": "2ddc6db0_3b4830a4",
+      "revId": "6e65c1cd0e3460ef46e700e1731a524bf91fcacb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
