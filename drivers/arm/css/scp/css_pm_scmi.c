@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -289,6 +289,19 @@ int css_scp_get_power_state(u_register_t mpidr, unsigned int power_level)
 void __dead2 css_scp_system_off(int state)
 {
 	int ret;
+	int core_pos;
+
+	/*
+	 * Mark all secondary CPUs as asleep to prevent pending interrupt from
+	 * waking.
+	 */
+	for (core_pos = 0; core_pos < PLATFORM_CORE_COUNT; core_pos++) {
+		if (core_pos == plat_my_core_pos()) {
+			/* Skip for primary core */
+			continue;
+		}
+		plat_arm_gic_mark_core_asleep(core_pos);
+	}
 
 	/*
 	 * Disable GIC CPU interface to prevent pending interrupt from waking
