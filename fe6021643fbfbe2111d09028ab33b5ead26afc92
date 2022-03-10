@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "461ee347_b76bb392",
+        "filename": "plat/st/stm32mp1/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-03-10T16:15:49Z",
+      "side": 1,
+      "message": "Shouldnt these new build flags be added to the add_define list on line 186 ?",
+      "revId": "fe6021643fbfbe2111d09028ab33b5ead26afc92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
