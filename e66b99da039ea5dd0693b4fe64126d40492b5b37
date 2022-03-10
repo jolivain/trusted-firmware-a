@@ -45,6 +45,30 @@
       },
       "revId": "e66b99da039ea5dd0693b4fe64126d40492b5b37",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaf2da57_3f449395",
+        "filename": "Makefile",
+        "patchSetId": 18
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-03-10T11:56:18Z",
+      "side": 1,
+      "message": "The general concept here is to enable the features which are mandatory as per Arm ARM docs, from a particular arch version, irrespective of whether the platform\nutilise it or not. We provide the flexibility to platforms, via this approach, wherein they could override it if not needed.",
+      "parentUuid": "098c23f0_a3b1c36e",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 269,
+        "endChar": 15
+      },
+      "revId": "e66b99da039ea5dd0693b4fe64126d40492b5b37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
