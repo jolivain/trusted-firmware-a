@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7b5d4de_3de97ac6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-03-10T12:40:19Z",
+      "side": 1,
+      "message": "Should we update the copyright year for the header files?",
+      "revId": "0e739a09dce3ecb20bd9f9a2045f19d59f4fbf4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "290c76af_b6fe3fde",
+        "filename": "include/lib/cpus/aarch64/cortex_a77.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-03-10T12:40:19Z",
+      "side": 1,
+      "message": "nit: should we fix the alignment to match other macros in the file",
+      "range": {
+        "startLine": 16,
+        "startChar": 34,
+        "endLine": 16,
+        "endChar": 39
+      },
+      "revId": "0e739a09dce3ecb20bd9f9a2045f19d59f4fbf4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fc25d8e_daa49760",
+        "filename": "include/lib/cpus/aarch64/cortex_a78.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-03-10T12:40:19Z",
+      "side": 1,
+      "message": "nit: should we fix the alignment to match other macros in the file",
+      "range": {
+        "startLine": 15,
+        "startChar": 34,
+        "endLine": 15,
+        "endChar": 39
+      },
+      "revId": "0e739a09dce3ecb20bd9f9a2045f19d59f4fbf4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76ec0d0c_641fe3ef",
+        "filename": "include/lib/cpus/aarch64/cortex_x2.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-03-10T12:40:19Z",
+      "side": 1,
+      "message": "nit: should we fix the alignment to match other macros in the file",
+      "range": {
+        "startLine": 13,
+        "startChar": 38,
+        "endLine": 13,
+        "endChar": 44
+      },
+      "revId": "0e739a09dce3ecb20bd9f9a2045f19d59f4fbf4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be98684b_da34e0ea",
+        "filename": "include/lib/cpus/aarch64/neoverse_n1.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-03-10T12:40:19Z",
+      "side": 1,
+      "message": "nit: should we fix the alignment to match other macros in the file",
+      "range": {
+        "startLine": 16,
+        "startChar": 36,
+        "endLine": 16,
+        "endChar": 41
+      },
+      "revId": "0e739a09dce3ecb20bd9f9a2045f19d59f4fbf4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
