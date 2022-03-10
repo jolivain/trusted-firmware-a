@@ -52,6 +52,10 @@ PLAT_BL_COMMON_SOURCES	:=	${PLAT_QEMU_COMMON_PATH}/qemu_common.c			\
 				${PLAT_QEMU_COMMON_PATH}/qemu_console.c		  \
 				drivers/arm/pl011/${ARCH}/pl011_console.S
 
+ifeq (${SPD},trusty)
+PLAT_BL_COMMON_SOURCES	+=	${PLAT_QEMU_COMMON_PATH}/shared_mem.c
+endif
+
 include lib/xlat_tables_v2/xlat_tables.mk
 PLAT_BL_COMMON_SOURCES	+=	${XLAT_TABLES_LIB_SRCS}
 
