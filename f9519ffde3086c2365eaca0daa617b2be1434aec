@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2f42b4d_3376f91c",
+        "filename": "fdts/stm32mp135f-dk.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-03-10T16:37:34Z",
+      "side": 1,
+      "message": "TF-A CI scripts complains about include order, but the file is taken from here:\nhttps://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm/boot/dts/stm32mp135f-dk.dts\nI\u0027d prefer not to modify it. I could move the ddr file but the order\n#include \"stm32mp135.dtsi\"\n#include \"stm32mp13xf.dtsi\"\n#include \"stm32mp13-pinctrl.dtsi\"\nshould remain the same",
+      "revId": "f9519ffde3086c2365eaca0daa617b2be1434aec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
