@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eebe1cea_5f50b8a2",
+        "filename": "include/lib/cpus/aarch64/cortex_a710.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-03-10T20:43:59Z",
+      "side": 1,
+      "message": "nitpick: 2021-2022",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "fd77b68ec8d4598a414c0ba5650e61b7ff2b56e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7ec7526_9f0c969b",
+        "filename": "include/lib/cpus/aarch64/cortex_a710.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-03-10T20:43:59Z",
+      "side": 1,
+      "message": "Did you mean CVE_2022_23960? Similar change might be needed in other header files.",
+      "range": {
+        "startLine": 12,
+        "startChar": 30,
+        "endLine": 12,
+        "endChar": 41
+      },
+      "revId": "fd77b68ec8d4598a414c0ba5650e61b7ff2b56e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "46de91f1_41a792c8",
         "filename": "lib/cpus/aarch64/cortex_a710.S",
         "patchSetId": 5
