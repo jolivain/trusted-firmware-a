@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac78f689_ebd63a79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-03-10T10:52:29Z",
+      "side": 1,
+      "message": "Trustonic does not recommend its customers to use this patch.\n\nWhile aligned with the spec, this diverges too much from the behavior without FF-A/SPMC.\nWe have discussed with ARM to evolve the spec to allow for re-sharing of physical pages that are already shared in an earlier share operation, as is the case with other hypervisors.",
+      "revId": "c159caed2648885ad2ad96f4125cac65a7ff229d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
