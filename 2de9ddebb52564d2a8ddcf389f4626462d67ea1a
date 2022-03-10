@@ -112,6 +112,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bd79e79_bf8ef417",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 1824,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-10T09:33:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "069d0df6_26abc885",
+      "range": {
+        "startLine": 1820,
+        "startChar": 1,
+        "endLine": 1824,
+        "endChar": 2
+      },
+      "revId": "2de9ddebb52564d2a8ddcf389f4626462d67ea1a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "646bc9bd_cc52870e",
@@ -149,6 +173,30 @@
       "side": 1,
       "message": "This comment was made more verbose due to a previous comment about stating where we\u0027re expecting vs what we\u0027re in. I\u0027m not sure how to shorten this to be \u003c80 characters. Open to suggestions.",
       "parentUuid": "646bc9bd_cc52870e",
+      "range": {
+        "startLine": 1831,
+        "startChar": 0,
+        "endLine": 1831,
+        "endChar": 5
+      },
+      "revId": "2de9ddebb52564d2a8ddcf389f4626462d67ea1a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5be2e151_91c1934e",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 1831,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-03-10T09:33:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d61b24cd_fa41512c",
       "range": {
         "startLine": 1831,
         "startChar": 0,
