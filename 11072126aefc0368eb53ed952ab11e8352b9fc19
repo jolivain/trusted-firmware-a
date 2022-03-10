@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3f0d0b34_e69a42de",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-03-10T20:42:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efcdfb82_8197eed8",
+      "range": {
+        "startLine": 7,
+        "startChar": 28,
+        "endLine": 7,
+        "endChar": 47
+      },
+      "revId": "11072126aefc0368eb53ed952ab11e8352b9fc19",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5f1d2ce0_6f327a21",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -37,6 +61,24 @@
       "writtenOn": "2022-03-09T23:51:37Z",
       "side": 1,
       "message": "Curious how we checked the error records? ",
+      "revId": "11072126aefc0368eb53ed952ab11e8352b9fc19",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5303cb2_075a0b6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-03-10T20:42:40Z",
+      "side": 1,
+      "message": "This workaround prevents error records from even being created at all during power down by clearing the ED bit in each record slot.",
+      "parentUuid": "5f1d2ce0_6f327a21",
       "revId": "11072126aefc0368eb53ed952ab11e8352b9fc19",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -54,6 +96,30 @@
       "writtenOn": "2022-03-09T23:51:37Z",
       "side": 1,
       "message": "nit: 2022",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "11072126aefc0368eb53ed952ab11e8352b9fc19",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf1d5f24_4542ae27",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-03-10T20:42:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4fcf473e_36a252a6",
       "range": {
         "startLine": 2,
         "startChar": 22,
