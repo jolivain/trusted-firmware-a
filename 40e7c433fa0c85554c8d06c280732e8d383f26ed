@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "355bb58e_81f2760e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-03-10T08:56:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "22cfea6a_2a49aced",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 10
+      },
+      "revId": "40e7c433fa0c85554c8d06c280732e8d383f26ed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd9994e7_932c5666",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-03-09T23:19:13Z",
       "side": 1,
       "message": "Remove this part so it automatically links to the latest version.",
+      "range": {
+        "startLine": 21,
+        "startChar": 73,
+        "endLine": 21,
+        "endChar": 78
+      },
+      "revId": "40e7c433fa0c85554c8d06c280732e8d383f26ed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26cdbcb7_1e9d1e3c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-03-10T08:56:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cd9994e7_932c5666",
       "range": {
         "startLine": 21,
         "startChar": 73,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3b32f94_542f72cf",
+        "filename": "include/lib/cpus/aarch64/cortex_a78_ae.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-03-10T08:56:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "352189b4_6c525c22",
+      "range": {
+        "startLine": 26,
+        "startChar": 15,
+        "endLine": 26,
+        "endChar": 20
+      },
+      "revId": "40e7c433fa0c85554c8d06c280732e8d383f26ed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5fe7553b_405dc088",
@@ -93,6 +165,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be8fb8ed_e365a0d7",
+        "filename": "lib/cpus/aarch64/cortex_a78_ae.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-03-10T08:56:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5fe7553b_405dc088",
+      "range": {
+        "startLine": 154,
+        "startChar": 58,
+        "endLine": 154,
+        "endChar": 60
+      },
+      "revId": "40e7c433fa0c85554c8d06c280732e8d383f26ed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d8ba144_3c4b571a",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-03-09T23:00:28Z",
       "side": 1,
       "message": "If the bit isn\u0027t named we can reduce the unnecessary macros by using the generic BIT(40) macro.",
+      "range": {
+        "startLine": 160,
+        "startChar": 14,
+        "endLine": 160,
+        "endChar": 44
+      },
+      "revId": "40e7c433fa0c85554c8d06c280732e8d383f26ed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c68dde11_c85cad1f",
+        "filename": "lib/cpus/aarch64/cortex_a78_ae.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-03-10T08:56:40Z",
+      "side": 1,
+      "message": "This would be a departure from the other bit definitions. If we want to change this convention every where then I suggest we do it in another commit",
+      "parentUuid": "1d8ba144_3c4b571a",
       "range": {
         "startLine": 160,
         "startChar": 14,
