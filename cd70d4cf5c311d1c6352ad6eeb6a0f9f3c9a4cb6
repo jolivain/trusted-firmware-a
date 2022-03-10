@@ -1,6 +1,63 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4b01e3a_2c351a65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-03-10T22:05:40Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "cd70d4cf5c311d1c6352ad6eeb6a0f9f3c9a4cb6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf0ab971_b06babe4",
+        "filename": "include/lib/cpus/aarch64/cortex_a76.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-03-10T22:05:40Z",
+      "side": 1,
+      "message": "CVE_2022_23960?",
+      "range": {
+        "startLine": 15,
+        "startChar": 29,
+        "endLine": 15,
+        "endChar": 40
+      },
+      "revId": "cd70d4cf5c311d1c6352ad6eeb6a0f9f3c9a4cb6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33c3faad_013545aa",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-03-10T22:05:40Z",
+      "side": 1,
+      "message": "The macro guards (i.e #if and #endif) have reduced the readability. Could you insert a blank line before an #if and after an #endif block?",
+      "revId": "cd70d4cf5c311d1c6352ad6eeb6a0f9f3c9a4cb6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a71fc3a_3316dfa8",
