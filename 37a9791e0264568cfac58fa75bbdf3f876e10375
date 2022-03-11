@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "174d4309_0fee7356",
+        "filename": "include/lib/cpus/aarch64/cortex_a72.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-03-11T07:13:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "711e2092_9186a839",
+      "range": {
+        "startLine": 16,
+        "startChar": 33,
+        "endLine": 16,
+        "endChar": 34
+      },
+      "revId": "37a9791e0264568cfac58fa75bbdf3f876e10375",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a94f9e29_6513485a",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-03-10T20:32:37Z",
       "side": 1,
       "message": "nit: extend lines all the way to the end",
+      "range": {
+        "startLine": 474,
+        "startChar": 4,
+        "endLine": 474,
+        "endChar": 49
+      },
+      "revId": "37a9791e0264568cfac58fa75bbdf3f876e10375",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47692f94_c811bee5",
+        "filename": "lib/cpus/aarch64/cortex_a57.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-03-11T07:13:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a94f9e29_6513485a",
       "range": {
         "startLine": 474,
         "startChar": 4,
@@ -135,6 +183,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b467d306_fbcbbd39",
+        "filename": "lib/cpus/aarch64/cortex_a57.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-03-11T07:13:34Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "068eea79_41573b0e",
+      "range": {
+        "startLine": 514,
+        "startChar": 5,
+        "endLine": 514,
+        "endChar": 32
+      },
+      "revId": "37a9791e0264568cfac58fa75bbdf3f876e10375",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8823ad30_2fbc03d7",
@@ -148,6 +220,24 @@
       "writtenOn": "2022-03-10T22:10:37Z",
       "side": 1,
       "message": "Please insert an empty line before the start of a comment block.",
+      "revId": "37a9791e0264568cfac58fa75bbdf3f876e10375",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3e061d7_d69ab9b5",
+        "filename": "lib/cpus/aarch64/cortex_a72.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-03-11T07:13:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8823ad30_2fbc03d7",
       "revId": "37a9791e0264568cfac58fa75bbdf3f876e10375",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
