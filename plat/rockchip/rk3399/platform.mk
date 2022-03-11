@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016-2020, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2016-2022, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -111,3 +111,6 @@ $(RK3399M0FW): | ${BUILD_M0}
 
 # Do not enable SVE
 ENABLE_SVE_FOR_NS	:=	0
+
+# Enable SPE (Statistical Profiling Extensions) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1

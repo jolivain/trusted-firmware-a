@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2019-2020, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2019-2022, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -40,6 +40,12 @@ override NEED_BL33	:=	yes
 
 #TFA for Corstone700 starts from BL32
 override RESET_TO_SP_MIN	:=	1
+
+# Enable SPE (Statistical Profiling Extensions) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:= 1
 
 #Device tree
 CORSTONE700_HW_CONFIG_DTS	:=	fdts/corstone700_${TARGET_PLATFORM}.dts

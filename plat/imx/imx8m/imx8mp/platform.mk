@@ -1,5 +1,5 @@
 #
-# Copyright 2019-2020 NXP
+# Copyright 2019-2022 NXP
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -151,3 +151,9 @@ $(eval $(call add_define,IMX_BOOT_UART_BASE))
 
 EL3_EXCEPTION_HANDLING := 1
 SDEI_SUPPORT := 1
+
+# Enable SPE (Statistical Profiling Extensions) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:= 1

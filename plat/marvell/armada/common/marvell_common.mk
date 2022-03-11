@@ -1,4 +1,4 @@
-# Copyright (C) 2018 Marvell International Ltd.
+# Copyright (C) 2022 Marvell International Ltd.
 #
 # SPDX-License-Identifier:     BSD-3-Clause
 # https://spdx.org/licenses
@@ -19,6 +19,12 @@ $(eval $(call add_define,LLC_SRAM))
 # Enable/Disable LLC
 LLC_ENABLE			:= 1
 $(eval $(call add_define,LLC_ENABLE))
+
+# Enable SPE (Statistical Profiling Extensions) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:= 1
 
 include lib/xlat_tables_v2/xlat_tables.mk
 

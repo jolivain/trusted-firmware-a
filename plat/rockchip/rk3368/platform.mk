@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2016-2022, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -65,3 +65,6 @@ $(eval $(call add_define,PLAT_EXTRA_LD_SCRIPT))
 ENABLE_SVE_FOR_NS	:=	0
 
 WORKAROUND_CVE_2017_5715	:=	0
+
+# Enable SPE (Statistical Profiling Extensions) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1

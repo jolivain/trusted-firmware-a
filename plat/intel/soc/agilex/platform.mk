@@ -76,3 +76,9 @@ BL2_INV_DCACHE			:= 0
 MULTI_CONSOLE_API		:= 1
 SIMICS_BUILD			:= 0
 USE_COHERENT_MEM		:= 1
+
+# Enable SPE (Statistical Profiling Extensions) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:= 1

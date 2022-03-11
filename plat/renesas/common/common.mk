@@ -17,6 +17,9 @@ MULTI_CONSOLE_API		:= 1
 CRASH_REPORTING			:= 1
 HANDLE_EA_EL3_FIRST		:= 1
 
+# Enable SPE (Statistical Profiling Extensions) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
 # This option gets enabled automatically if the TRUSTED_BOARD_BOOT
 # is set via root Makefile, but Renesas support Trusted-Boot without
 # Crypto module.

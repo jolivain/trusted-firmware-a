@@ -24,6 +24,12 @@ STM32_TF_VERSION	?=	0
 # Enable dynamic memory mapping
 PLAT_XLAT_TABLES_DYNAMIC :=	1
 
+# Enable SPE (Statistical Profiling Extensions) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:= 1
+
 # DDR controller with dual AXI port and 32-bit interface
 STM32MP_DDR_DUAL_AXI_PORT:=	1
 STM32MP_DDR_32BIT_INTERFACE:=	1
