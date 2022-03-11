@@ -58,3 +58,22 @@ void plat_enumerate_smmus(const uintptr_t **smmus_out,
 		*smmu_count_out = 0;
 	}
 }
+
+/* DRTM DMA Protection Features */
+static plat_drtm_dma_prot_features_t dma_prot_features;
+
+plat_drtm_dma_prot_features_t *plat_drtm_get_dma_prot_features(void)
+{
+	/* Unused */
+	dma_prot_features.max_num_mem_prot_regions = 0;
+
+	/* Complete DMA protection only */
+	dma_prot_features.dma_protection_support = 0x1;
+
+	return &dma_prot_features;
+}
+
+uint64_t plat_drtm_get_dma_protected_region_size(void)
+{
+	return 0U;
+}

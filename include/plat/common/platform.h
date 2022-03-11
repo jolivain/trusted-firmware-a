@@ -20,6 +20,9 @@
 #include "plat_trng.h"
 #endif
 #include <drivers/fwu/fwu_metadata.h>
+#if DRTM_SUPPORT
+#include "plat_drtm.h"
+#endif /* DRTM_SUPPORT */
 
 /*******************************************************************************
  * Forward declarations
@@ -410,15 +413,5 @@ int plat_fwu_set_metadata_image_source(unsigned int image_id,
 				       uintptr_t *image_spec);
 void plat_fwu_set_images_source(const struct fwu_metadata *metadata);
 uint32_t plat_fwu_get_boot_idx(void);
-
-/*******************************************************************************
- * DRTM services- platform specific functions
- ******************************************************************************/
-/* platform-specific DMA protection functions */
-bool plat_has_non_host_platforms(void);
-bool plat_has_unmanaged_dma_peripherals(void);
-unsigned int plat_get_total_smmus(void);
-void plat_enumerate_smmus(const uintptr_t **smmus_out,
-			  size_t *smmu_count_out);
 
 #endif /* PLATFORM_H */
