@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2020-2021, Arm Limited. All rights reserved.
+# Copyright (c) 2020-2022, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -96,6 +96,12 @@ HW_ASSISTED_COHERENCY			:=	1
 # When building for systems with hardware-assisted coherency, there's no need to
 # use USE_COHERENT_MEM. Require that USE_COHERENT_MEM must be set to 0 too.
 USE_COHERENT_MEM			:=	0
+
+# Enable SPE (Statistical Profiling Extension) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:= 1
 
 # Add TARGET_PLATFORM to differentiate between Morello FVP and Morello SoC platform
 $(eval $(call add_define,TARGET_PLATFORM_$(call uppercase,${TARGET_PLATFORM})))

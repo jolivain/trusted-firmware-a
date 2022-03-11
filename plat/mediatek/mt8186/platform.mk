@@ -91,6 +91,12 @@ ERRATA_A76_1165522 := 1
 ERRATA_A76_1868343 := 1
 ERRATA_A76_1946160 := 1
 
+# Enable SPE (Statistical Profiling Extension) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:= 1
+
 # indicate the reset vector address can be programmed
 PROGRAMMABLE_RESET_ADDRESS := 1
 

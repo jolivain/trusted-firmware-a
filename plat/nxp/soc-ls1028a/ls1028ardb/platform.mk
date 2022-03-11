@@ -1,5 +1,5 @@
 #
-# Copyright 2020-2021 NXP
+# Copyright 2020-2022 NXP
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -14,6 +14,12 @@ WARM_BOOT	:=	no
 NUM_OF_DDRC		:=	1
 CONFIG_DDR_NODIMM	:=	1
 DDR_ECC_EN		:=	yes
+
+# Enable SPE (Statistical Profiling Extension) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:= 1
 
 # On-board flash
 FLASH_TYPE	:=	MT35XU02G

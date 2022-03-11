@@ -31,6 +31,12 @@ override NEED_BL31	:=	yes
 NEED_BL32		:=	yes
 override NEED_BL33	:=	yes
 
+# Enable SPE (Statistical Profiling Extension) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:= 1
+
 # Include GICv2 driver files
 include drivers/arm/gic/v2/gicv2.mk
 

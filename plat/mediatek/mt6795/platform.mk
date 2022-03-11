@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016-2017, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2016-2022, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -65,3 +65,6 @@ $(eval $(call add_define,MTK_SIP_KERNEL_BOOT_ENABLE))
 
 # Do not enable SVE
 ENABLE_SVE_FOR_NS	:=	0
+
+# Enable SPE (Statistical Profiling Extension) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 	1

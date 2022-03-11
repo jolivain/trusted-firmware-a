@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2019, MediaTek Inc. All rights reserved.
+# Copyright (c) 2012, MediaTek Inc. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -75,6 +75,12 @@ ERRATA_A53_826319 := 0
 ERRATA_A53_836870 := 1
 ERRATA_A53_855873 := 1
 
+# Enable SPE (Statistical Profiling Extension) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:= 1
+
 # indicate the reset vector address can be programmed
 PROGRAMMABLE_RESET_ADDRESS := 1
 
@@ -86,4 +92,3 @@ MACH_MT8183 := 1
 $(eval $(call add_define,MACH_MT8183))
 
 include lib/coreboot/coreboot.mk
-

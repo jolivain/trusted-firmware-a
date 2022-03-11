@@ -1,4 +1,4 @@
-# Copyright (c) 2020-2021, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2020-2022, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -84,3 +84,9 @@ $(eval $(call TOOL_ADD_PAYLOAD,${NT_FW_CONFIG},--nt-fw-config))
 
 override CTX_INCLUDE_AARCH32_REGS	:= 0
 override ENABLE_AMU			:= 1
+
+# Enable SPE (Statistical Profiling Extension) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:= 1

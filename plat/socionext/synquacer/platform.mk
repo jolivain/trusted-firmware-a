@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2018-2022, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -9,6 +9,10 @@ override PROGRAMMABLE_RESET_ADDRESS	:= 1
 override USE_COHERENT_MEM		:= 1
 override SEPARATE_CODE_AND_RODATA	:= 1
 override ENABLE_SVE_FOR_NS		:= 0
+
+# Enable SPE (Statistical Profiling Extension) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
 # Enable workarounds for selected Cortex-A53 erratas.
 ERRATA_A53_855873		:= 1
 # Enable SCMI support

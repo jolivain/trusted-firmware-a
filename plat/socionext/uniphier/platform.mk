@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -9,6 +9,9 @@ override COLD_BOOT_SINGLE_CPU		:= 1
 override PROGRAMMABLE_RESET_ADDRESS	:= 1
 override USE_COHERENT_MEM		:= 1
 override ENABLE_SVE_FOR_NS		:= 0
+
+# Enable SPE (Statistical Profiling Extension) by default.
+ENABLE_SPE_FOR_LOWER_ELS		:= 1
 
 # Disabling ENABLE_PIE saves memory footprint a lot, but you need to adjust
 # UNIPHIER_MEM_BASE so that all TF images are loaded at their link addresses.
