@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af7d1a87_bd08f90b",
+        "filename": "lib/cpus/aarch64/cortex_x2.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-03-11T16:22:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "34cb35d8_bde2145e",
+      "revId": "77a655412da3d7532a9864972af9d7a8fa67c1f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "062eeed3_fb3e7745",
@@ -43,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dd92c9d6_c94f982b",
+        "filename": "lib/cpus/aarch64/cortex_x2.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-03-11T16:22:48Z",
+      "side": 1,
+      "message": "Just changing tis one doesn\u0027t make it ascending, so have shuffled other entries too.",
+      "parentUuid": "062eeed3_fb3e7745",
+      "range": {
+        "startLine": 290,
+        "startChar": 45,
+        "endLine": 290,
+        "endChar": 52
+      },
+      "revId": "77a655412da3d7532a9864972af9d7a8fa67c1f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aa8c1e54_1c79775d",
         "filename": "lib/cpus/aarch64/cortex_x2.S",
         "patchSetId": 1
@@ -54,6 +96,30 @@
       "writtenOn": "2022-03-08T17:05:37Z",
       "side": 1,
       "message": "Repeated ret x19",
+      "range": {
+        "startLine": 343,
+        "startChar": 0,
+        "endLine": 343,
+        "endChar": 2
+      },
+      "revId": "77a655412da3d7532a9864972af9d7a8fa67c1f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74c475ea_2734dfd0",
+        "filename": "lib/cpus/aarch64/cortex_x2.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-03-11T16:22:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "aa8c1e54_1c79775d",
       "range": {
         "startLine": 343,
         "startChar": 0,
