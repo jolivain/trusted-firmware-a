@@ -1,5 +1,5 @@
 #
-#Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+#Copyright (c) 2022, ARM Limited and Contributors. All rights reserved.
 #
 #SPDX-License-Identifier: BSD-3-Clause
 #
@@ -71,3 +71,9 @@ include lib/libfdt/libfdt.mk
 $(eval $(call add_define,PLAT_EXTRA_LD_SCRIPT))
 $(eval $(call add_define,PLAT_SKIP_OPTEE_S_EL1_INT_REGISTER))
 $(eval $(call add_define,PLAT_WARMBOOT_ADDR_NOT_ALIGN))
+
+# Enable SPE (Statistical Profiling Extensions) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:= 1

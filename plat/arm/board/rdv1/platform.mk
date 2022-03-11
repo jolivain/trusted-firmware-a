@@ -1,4 +1,4 @@
-# Copyright (c) 2020-2021, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2020-2022, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -63,3 +63,9 @@ ifneq ($(CSS_SGI_PLATFORM_VARIANT),0)
  $(error "CSS_SGI_PLATFORM_VARIANT for RD-V1 should always be 0, \
      currently set to ${CSS_SGI_PLATFORM_VARIANT}.")
 endif
+
+# Enable SPE (Statistical Profiling Extensions) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:= 1

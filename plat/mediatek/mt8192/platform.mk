@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2020, MediaTek Inc. All rights reserved.
+# Copyright (c) 2022, MediaTek Inc. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -86,6 +86,12 @@ include ${MTK_PLAT_SOC}/drivers/spm/build.mk
 HW_ASSISTED_COHERENCY := 1
 USE_COHERENT_MEM := 0
 CTX_INCLUDE_AARCH32_REGS := 0
+
+# Enable SPE (Statistical Profiling Extensions) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:= 1
 
 # indicate the reset vector address can be programmed
 PROGRAMMABLE_RESET_ADDRESS := 1
