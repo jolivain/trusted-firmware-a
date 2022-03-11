@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -47,6 +47,9 @@ ERRATA_A53_835769		:= 1
 ERRATA_A53_843419		:= 1
 ENABLE_SVE_FOR_NS		:= 0
 WORKAROUND_CVE_2017_5715	:= 0
+
+# Enable SPE (Statistical Profiling Extension) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
 
 PLAT_PL061_MAX_GPIOS 		:= 104
 $(eval $(call add_define,PLAT_PL061_MAX_GPIOS))

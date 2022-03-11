@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2018-2022, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -37,3 +37,9 @@ ifeq (${TRUSTED_BOARD_BOOT}, 1)
 BL1_SOURCES		+=	${SGM775_BASE}/sgm775_trusted_boot.c
 BL2_SOURCES		+=	${SGM775_BASE}/sgm775_trusted_boot.c
 endif
+
+# Enable SPE (Statistical Profiling Extension) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:= 1

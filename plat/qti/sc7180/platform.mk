@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
 # Copyright (c) 2018-2020, The Linux Foundation. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
@@ -17,6 +17,12 @@ WARMBOOT_ENABLE_DCACHE_EARLY	:=	1
 
 # Disable the PSCI platform compatibility layer
 ENABLE_PLAT_COMPAT		:=	0
+
+# Enable SPE (Statistical Profiling Extension) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:= 1
 
 # Enable PSCI v1.0 extended state ID format
 PSCI_EXTENDED_STATE_ID	:=  1

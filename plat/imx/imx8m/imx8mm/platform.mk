@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2019-2020, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2019-2022, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -163,3 +163,9 @@ BL2_SOURCES		+=	plat/imx/imx8m/imx8m_measured_boot.c	\
 				${EVENT_LOG_SOURCES}
 
 endif
+
+# Enable SPE (Statistical Profiling Extension) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:= 1

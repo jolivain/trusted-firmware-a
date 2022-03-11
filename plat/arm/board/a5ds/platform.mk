@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2019-2021, Arm Limited. All rights reserved.
+# Copyright (c) 2019-2022, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -109,3 +109,9 @@ $(eval $(call add_define,ARM_XLAT_TABLES_LIB_V1))
 
 $(eval $(call assert_boolean,ARM_DISABLE_TRUSTED_WDOG))
 $(eval $(call add_define,ARM_DISABLE_TRUSTED_WDOG))
+
+# Enable SPE (Statistical Profiling Extension) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:= 1
