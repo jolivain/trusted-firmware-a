@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26f9d5f0_ec1f34ea",
+        "filename": "include/lib/cpus/aarch64/cortex_a76.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-03-11T07:13:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cf0ab971_b06babe4",
+      "range": {
+        "startLine": 15,
+        "startChar": 29,
+        "endLine": 15,
+        "endChar": 40
+      },
+      "revId": "cd70d4cf5c311d1c6352ad6eeb6a0f9f3c9a4cb6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33c3faad_013545aa",
@@ -58,6 +82,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae993408_f61ec890",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-03-11T07:13:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "33c3faad_013545aa",
+      "revId": "cd70d4cf5c311d1c6352ad6eeb6a0f9f3c9a4cb6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a71fc3a_3316dfa8",
@@ -71,6 +113,30 @@
       "writtenOn": "2022-03-10T20:19:22Z",
       "side": 1,
       "message": "Can you update this comment, now that it applies to CVE_2022_23960 as well?",
+      "range": {
+        "startLine": 669,
+        "startChar": 4,
+        "endLine": 671,
+        "endChar": 60
+      },
+      "revId": "cd70d4cf5c311d1c6352ad6eeb6a0f9f3c9a4cb6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3af0f75_aea7aa08",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-03-11T07:13:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9a71fc3a_3316dfa8",
       "range": {
         "startLine": 669,
         "startChar": 4,
