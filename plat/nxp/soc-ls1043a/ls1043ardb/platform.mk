@@ -1,5 +1,5 @@
 #
-# Copyright 2018-2021 NXP
+# Copyright 2018-2022 NXP
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -17,6 +17,12 @@ DDRC_NUM_DIMM		:=	0
 DDRC_NUM_CS		:=	4
 DDR_ECC_EN		:=	no
 CONFIG_STATIC_DDR 	:=	0
+
+# Enable SPE (Statistical Profiling Extension) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:= 1
 
 # On-Board Flash Details
 # 128MB IFC NOR Flash

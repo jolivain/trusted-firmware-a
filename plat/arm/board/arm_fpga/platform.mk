@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2021, Arm Limited. All rights reserved.
+# Copyright (c) 2022, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -34,6 +34,12 @@ FPGA_PRELOADED_CMD_LINE := 0x1000
 $(eval $(call add_define,FPGA_PRELOADED_CMD_LINE))
 
 ENABLE_AMU		:=	1
+
+# Enable SPE (Statistical Profiling Extension) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:= 1
 
 # Treating this as a memory-constrained port for now
 USE_COHERENT_MEM	:=	0

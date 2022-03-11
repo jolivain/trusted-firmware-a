@@ -16,6 +16,12 @@ DDRC_NUM_CS	:=	4
 DDR_ECC_EN	:=	yes
 CONFIG_STATIC_DDR := 0
 
+# Enable SPE (Statistical Profiling Extension) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:=	1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:=	1
+
 # On-Board Flash Details
 QSPI_FLASH_SZ	:=	0x20000000
 NOR_FLASH_SZ	:=	0x20000000

@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2021, MediaTek Inc. All rights reserved.
+# Copyright (c) 2022, MediaTek Inc. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -96,6 +96,12 @@ ERRATA_A78_1951500 := 1
 ERRATA_A78_1821534 := 1
 ERRATA_A78_2132060 := 1
 ERRATA_A78_2242635 := 1
+
+# Enable SPE (Statistical Profiling Extension) by default.
+ENABLE_SPE_FOR_LOWER_ELS	:= 1
+
+# Enable SVE (Scalable Vector Extension) for non-secure world by default.
+ENABLE_SVE_FOR_NS		:= 1
 
 # indicate the reset vector address can be programmed
 PROGRAMMABLE_RESET_ADDRESS := 1
