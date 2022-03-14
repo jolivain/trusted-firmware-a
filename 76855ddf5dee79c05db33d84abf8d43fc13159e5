@@ -16,6 +16,24 @@
       "message": "TDB where does the SPMC MM code fit here. Do we need another section? ",
       "revId": "76855ddf5dee79c05db33d84abf8d43fc13159e5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "492c516e_868d1c40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-14T14:07:51Z",
+      "side": 1,
+      "message": "Interestingly it didn\u0027t have an official code owner. Not sure it really needs one where it stands as I appreciate the EL3 FF-A SPM would supersede the SPM-MM mid term?",
+      "parentUuid": "dad6d2e2_2a95dfb2",
+      "revId": "76855ddf5dee79c05db33d84abf8d43fc13159e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
