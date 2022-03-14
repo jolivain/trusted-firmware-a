@@ -44,6 +44,8 @@
 /* ECC */
 #define INTEL_SIP_SMC_ECC_DBE				0xC200000D
 
+/* Generic Command */
+#define INTEL_SIP_SMC_HPS_SET_BRIDGES			0xC2000032
 /* Send Mailbox Command */
 #define INTEL_SIP_SMC_MBOX_SEND_CMD			0xC200001E
 
@@ -83,5 +85,8 @@ bool is_address_in_ddr_range(uint64_t addr, uint64_t size);
 /* ECC DBE */
 bool cold_reset_for_ecc_dbe(void);
 uint32_t intel_ecc_dbe_notification(uint64_t dbe_value);
+
+/* Miscellaneous HPS services */
+uint32_t intel_hps_set_bridges(uint64_t enable, uint64_t mask);
 
 #endif /* SOCFPGA_SIP_SVC_H */
