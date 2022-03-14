@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f07350e5_8a9d9445",
+        "filename": "Makefile",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-14T14:12:40Z",
+      "side": 1,
+      "message": "Can we add a build warning stating that the EL3 SPM is experimental?\n(as done lines 159, 601...)",
+      "revId": "13ce69fdfde56d35993fccf30a0646b8a01b3767",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c80195d5_5bec3af9",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-14T14:12:40Z",
+      "side": 1,
+      "message": "As mentioned here, this document assumes existence of the EL3 SPM-MM\nor the SPMD(EL3)+SEL2(SPMC)/SEL1(SPMC).\nPerhaps the EL3 FF-A SPM requires creation of a new document (or reconsider this current document to cater with the newly introduced EL3 FF-A SPMC solution). I guess it\u0027s ok for now but to add on a TODO list.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 49
+      },
+      "revId": "13ce69fdfde56d35993fccf30a0646b8a01b3767",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6526c546_38d99be7",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-14T14:12:40Z",
+      "side": 1,
+      "message": "exception",
+      "range": {
+        "startLine": 141,
+        "startChar": 2,
+        "endLine": 141,
+        "endChar": 11
+      },
+      "revId": "13ce69fdfde56d35993fccf30a0646b8a01b3767",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
