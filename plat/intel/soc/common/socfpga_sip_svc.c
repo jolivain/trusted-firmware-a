@@ -23,6 +23,7 @@ static int current_block, current_buffer;
 static int read_block, max_blocks, is_partial_reconfig;
 static uint32_t send_id, rcv_id;
 static uint32_t bytes_per_block, blocks_submitted;
+static bool bridge_disable;
 
 
 /*  SiP Service UUID */
@@ -95,10 +96,9 @@ static uint32_t intel_mailbox_fpga_config_isdone(uint32_t query_type)
 			return INTEL_SIP_SMC_STATUS_ERROR;
 	}
 
-	if (query_type != 1) {
-		/* full reconfiguration */
-		if (!is_partial_reconfig)
-			socfpga_bridges_enable();	/* Enable bridge */
+	if (bridge_disable) {
+		socfpga_bridges_enable(~0);	/* Enable bridge */
+		bridge_disable = false;
 	}
 
 	return INTEL_SIP_SMC_STATUS_OK;
@@ -222,10 +222,9 @@ static int intel_fpga_config_start(uint32_t config_type)
 	read_block = 0;
 	current_buffer = 0;
 
-	/* full reconfiguration */
-	if (!is_partial_reconfig) {
-		/* Disable bridge */
-		socfpga_bridges_disable();
+	/* Disable bridge on full reconfiguration */
+	if (bridge_disable) {
+		socfpga_bridges_disable(~0);
 	}
 
 	return 0;
@@ -419,6 +418,32 @@ static uint32_t intel_mbox_send_cmd(uint32_t cmd, uint32_t *args,
 	return INTEL_SIP_SMC_STATUS_OK;
 }
 
+/* Miscellaneous HPS services */
+uint32_t intel_hps_set_bridges(uint64_t enable, uint64_t mask)
+{
+	int status = 0;
+
+	if (enable & SOCFPGA_BRIDGE_ENABLE) {
+		if ((enable & SOCFPGA_BRIDGE_HAS_MASK) != 0) {
+			status = socfpga_bridges_enable((uint32_t)mask);
+		} else {
+			status = socfpga_bridges_enable(~0);
+		}
+	} else {
+		if ((enable & SOCFPGA_BRIDGE_HAS_MASK) != 0) {
+			status = socfpga_bridges_disable((uint32_t)mask);
+		} else {
+			status = socfpga_bridges_disable(~0);
+		}
+	}
+
+	if (status < 0) {
+		return INTEL_SIP_SMC_STATUS_ERROR;
+	}
+
+	return INTEL_SIP_SMC_STATUS_OK;
+}
+
 /*
  * This function is responsible for handling all SiP calls from the NS world
  */
@@ -541,6 +566,10 @@ uintptr_t sip_smc_handler(uint32_t smc_fid,
 					     (uint32_t *)x5, x6, &mbox_status,
 					     &len_in_resp);
 		SMC_RET3(handle, status, mbox_status, len_in_resp);
+
+	case INTEL_SIP_SMC_HPS_SET_BRIDGES:
+		status = intel_hps_set_bridges(x1, x2);
+		SMC_RET1(handle, status);
 
 	default:
 		return socfpga_sip_handler(smc_fid, x1, x2, x3, x4,
