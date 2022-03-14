@@ -189,6 +189,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc9ef8a3_0307b470",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-14T14:14:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "96f253c5_d7c63430",
+      "range": {
+        "startLine": 28,
+        "startChar": 24,
+        "endLine": 28,
+        "endChar": 41
+      },
+      "revId": "15b323ab5be530824baa62094dc5acef42f49c35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e26d45f_ce527e6c",
@@ -226,6 +250,30 @@
       "side": 1,
       "message": "Good question. I think the original reasoning was for completeness and that it could be useful for logical partitions however this is not currently used. I can remove these two entries.",
       "parentUuid": "9e26d45f_ce527e6c",
+      "range": {
+        "startLine": 59,
+        "startChar": 1,
+        "endLine": 60,
+        "endChar": 4
+      },
+      "revId": "15b323ab5be530824baa62094dc5acef42f49c35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f110dece_a7dd78d0",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-14T14:14:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a24e73aa_ec2d048b",
       "range": {
         "startLine": 59,
         "startChar": 1,
