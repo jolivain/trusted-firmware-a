@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-2021, Arm Limited. All rights reserved.
+ * Copyright (c) 2020-2022, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -240,4 +240,9 @@ void bl31_platform_setup(void)
 #ifdef TARGET_PLATFORM_SOC
 	dmc_ecc_setup(&plat_info);
 #endif
+}
+
+void bl31_plat_runtime_setup(void)
+{
+	arm_bl31_plat_runtime_setup();
 }

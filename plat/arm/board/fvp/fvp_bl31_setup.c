@@ -106,3 +106,8 @@ unsigned int plat_get_syscnt_freq2(void)
 
 	return counter_base_frequency;
 }
+
+void bl31_plat_runtime_setup(void)
+{
+	arm_bl31_plat_runtime_setup();
+}

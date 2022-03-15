@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2022, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -57,4 +57,9 @@ void __init bl31_plat_arch_setup(void)
 	assert(hw_config_info != NULL);
 
 	fconf_populate("HW_CONFIG", hw_config_info->config_addr);
+}
+
+void bl31_plat_runtime_setup(void)
+{
+	arm_bl31_plat_runtime_setup();
 }
