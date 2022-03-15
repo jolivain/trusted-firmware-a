@@ -52,6 +52,24 @@
       "parentUuid": "0da3d54c_2bd48dd8",
       "revId": "dbd8a020a986a632dfd90bbc01f9fa2c615d3d64",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a006c956_2430cd7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:44:27Z",
+      "side": 1,
+      "message": "Updated spmc_main.c and spmc_setup.c with what the CI is reporting is the correct order.\n\nI discussed the error for spm_common.h on the tfa slack channel and the conclusion was to leave it as it is due to the CI not dealing with #if defines. Is there something I can do to mark this? \n\n\n\u003e Noticed the platform-ci change for coverity.\nI\u0027m sorry I\u0027m not sure what I need to do to satisfy this requirement, would you be able to elaborate how to solve this? I\u0027ve submitted a patch to enable testing with tf-cov-make as per the documentation, or is that unrelated?",
+      "parentUuid": "fad5e040_225c7dba",
+      "revId": "dbd8a020a986a632dfd90bbc01f9fa2c615d3d64",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
