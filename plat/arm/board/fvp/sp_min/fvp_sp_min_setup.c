@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,6 +9,7 @@
 #include <bl32/sp_min/platform_sp_min.h>
 #include <common/debug.h>
 #include <lib/fconf/fconf.h>
+#include <lib/fconf/fconf_dyn_cfg_getter.h>
 #include <plat/arm/common/plat_arm.h>
 
 #include "../fvp_private.h"
@@ -18,6 +19,19 @@ uintptr_t hw_config_dtb;
 void plat_arm_sp_min_early_platform_setup(u_register_t arg0, u_register_t arg1,
 			u_register_t arg2, u_register_t arg3)
 {
+	const struct dyn_cfg_dtb_info_t *tos_fw_config_info __unused;
+
+#if !RESET_TO_SP_MIN && !BL2_AT_EL3
+	INFO("SP_MIN FCONF: FW_CONFIG address = %lx\n", (uintptr_t)arg1);
+	/* Fill the properties struct with the info from the config dtb */
+	fconf_populate("FW_CONFIG", arg1);
+
+	tos_fw_config_info = FCONF_GET_PROPERTY(dyn_cfg, dtb, TOS_FW_CONFIG_ID);
+	if (tos_fw_config_info != NULL) {
+		arg1 = tos_fw_config_info->config_addr;
+	}
+#endif /* !RESET_TO_SP_MIN && !BL2_AT_EL3 */
+
 	arm_sp_min_early_platform_setup((void *)arg0, arg1, arg2, (void *)arg3);
 
 	/* Initialize the platform config for future decision making */
@@ -43,6 +57,9 @@ void plat_arm_sp_min_early_platform_setup(u_register_t arg0, u_register_t arg1,
 
 void sp_min_plat_arch_setup(void)
 {
+	const struct dyn_cfg_dtb_info_t *hw_config_info __unused;
+	struct entry_point_info *bl33_image_ep __unused;
+
 	arm_sp_min_plat_arch_setup();
 
 	/*
@@ -52,9 +69,26 @@ void sp_min_plat_arch_setup(void)
 	 * Also, BL2 skips loading HW_CONFIG dtb for BL2_AT_EL3 builds.
 	 */
 #if !RESET_TO_SP_MIN && !BL2_AT_EL3
-	assert(hw_config_dtb != 0U);
+	hw_config_info = FCONF_GET_PROPERTY(dyn_cfg, dtb, HW_CONFIG_ID);
+	assert(hw_config_info->config_addr != 0U);
 
-	INFO("SP_MIN FCONF: HW_CONFIG address = %p\n", (void *)hw_config_dtb);
-	fconf_populate("HW_CONFIG", hw_config_dtb);
-#endif
+	INFO("SP_MIN FCONF: HW_CONFIG address = %p\n",
+	     (void *)hw_config_info->config_addr);
+	fconf_populate("HW_CONFIG", hw_config_info->config_addr);
+
+	/*
+	 * memcpy HW config from Secure address to NS address, and
+	 * that can be consumed by BL33
+	 */
+	memcpy((void *)hw_config_info->ns_config_addr,
+	       (void *)hw_config_info->config_addr,
+	       (size_t)hw_config_info->config_max_size);
+
+	flush_dcache_range(hw_config_info->ns_config_addr,
+			   hw_config_info->config_max_size);
+
+	/* Update BL33's ep info with NS HW config address */
+	bl33_image_ep = sp_min_plat_get_bl33_ep_info();
+	bl33_image_ep->args.arg1 = hw_config_info->ns_config_addr;
+#endif /* !RESET_TO_SP_MIN && !BL2_AT_EL3 */
 }
