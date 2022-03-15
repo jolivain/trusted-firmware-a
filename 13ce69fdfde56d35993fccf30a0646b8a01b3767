@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ced68cbd_afba7aa5",
+        "filename": "Makefile",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:44:01Z",
+      "side": 1,
+      "message": "Added experimental warning to b31.mk where the makefile is included. Added check to ENABLE_RME to error if SPMC_AT_EL3 is also enabled.",
+      "parentUuid": "52fe5fa0_e4f0b679",
+      "revId": "13ce69fdfde56d35993fccf30a0646b8a01b3767",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c80195d5_5bec3af9",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 7
@@ -85,6 +103,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "639c6c67_09cbceac",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:44:01Z",
+      "side": 1,
+      "message": "Good point, I think that modifications to the current document should suffice as aside from the exception level difference most of the information would still be relevant.\n\nI\u0027ve made an initial update to the above document, please let me know if this is what you had in mind. I\u0027ve also added a todo on my end to revisit this.",
+      "parentUuid": "c80195d5_5bec3af9",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 49
+      },
+      "revId": "13ce69fdfde56d35993fccf30a0646b8a01b3767",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6526c546_38d99be7",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 7
@@ -96,6 +138,30 @@
       "writtenOn": "2022-03-14T14:12:40Z",
       "side": 1,
       "message": "exception",
+      "range": {
+        "startLine": 141,
+        "startChar": 2,
+        "endLine": 141,
+        "endChar": 11
+      },
+      "revId": "13ce69fdfde56d35993fccf30a0646b8a01b3767",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c210907_b22251ce",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:44:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6526c546_38d99be7",
       "range": {
         "startLine": 141,
         "startChar": 2,
@@ -119,6 +185,30 @@
       "writtenOn": "2022-03-14T16:52:23Z",
       "side": 1,
       "message": "nit: 2022",
+      "range": {
+        "startLine": 1307,
+        "startChar": 20,
+        "endLine": 1307,
+        "endChar": 24
+      },
+      "revId": "13ce69fdfde56d35993fccf30a0646b8a01b3767",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46193ee6_664ed7f3",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 1307,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:44:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28dd93fe_01cde533",
       "range": {
         "startLine": 1307,
         "startChar": 20,
