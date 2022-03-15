@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aafefb3b_8e4df7d5",
+        "filename": "include/services/spmd_svc.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:44:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2685d196_94cd4f3f",
+      "revId": "cb817dd6d8488316e3d0b813f4d1b22b06ada464",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d84cc04e_8954dedc",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-03-14T16:47:47Z",
       "side": 1,
       "message": "use is_spmc_at_el3?",
+      "range": {
+        "startLine": 492,
+        "startChar": 0,
+        "endLine": 492,
+        "endChar": 17
+      },
+      "revId": "cb817dd6d8488316e3d0b813f4d1b22b06ada464",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b93dab2_0d7ff484",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:44:31Z",
+      "side": 1,
+      "message": "Sure, updated.",
+      "parentUuid": "d84cc04e_8954dedc",
       "range": {
         "startLine": 492,
         "startChar": 0,
@@ -64,6 +106,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bf232ff_2725e937",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:44:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2edfc093_b994dc20",
+      "range": {
+        "startLine": 721,
+        "startChar": 20,
+        "endLine": 721,
+        "endChar": 47
+      },
+      "revId": "cb817dd6d8488316e3d0b813f4d1b22b06ada464",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13cc40ce_e5436c28",
@@ -77,6 +143,30 @@
       "writtenOn": "2022-03-14T16:47:47Z",
       "side": 1,
       "message": "use is_spmc_at_el3?",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 17
+      },
+      "revId": "cb817dd6d8488316e3d0b813f4d1b22b06ada464",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5338f299_66c4262c",
+        "filename": "services/std_svc/std_svc_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:44:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13cc40ce_e5436c28",
       "range": {
         "startLine": 153,
         "startChar": 0,
