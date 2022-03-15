@@ -7,10 +7,12 @@
 #include <assert.h>
 #include <common/debug.h>
 #include <drivers/arm/smmu_v3.h>
-#include <fconf_hw_config_getter.h>
+#include <lib/el3_runtime/aarch64/context.h>
+#include <lib/el3_runtime/context_mgmt.h>
 #include <lib/fconf/fconf.h>
 #include <lib/fconf/fconf_dyn_cfg_getter.h>
 #include <lib/mmio.h>
+#include <fconf_hw_config_getter.h>
 #include <plat/arm/common/arm_config.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
@@ -109,5 +111,36 @@ unsigned int plat_get_syscnt_freq2(void)
 
 void bl31_plat_runtime_setup(void)
 {
+	const struct dyn_cfg_dtb_info_t *hw_config_info __unused;
+	struct entry_point_info *bl33_image_ep __unused;
+	cpu_context_t *ctx __unused;
+	gp_regs_t *gp_regs_ctx __unused;
+
 	arm_bl31_plat_runtime_setup();
+
+#if !RESET_TO_BL31 && !BL2_AT_EL3
+	hw_config_info = FCONF_GET_PROPERTY(dyn_cfg, dtb, HW_CONFIG_ID);
+
+	/*
+	 * memcpy HW config from Secure address to NS address, and
+	 * that can be consumed by BL33
+	 */
+	memcpy((void *)hw_config_info->ns_config_addr,
+	       (void *)hw_config_info->config_addr,
+	       (size_t)hw_config_info->config_max_size);
+
+	flush_dcache_range(hw_config_info->ns_config_addr,
+			   hw_config_info->config_max_size);
+
+	/* Update BL33's ctx with NS HW config address  */
+	ctx = cm_get_context(NON_SECURE);
+	gp_regs_ctx = get_gpregs_ctx(ctx);
+
+#if ARM_LINUX_KERNEL_AS_BL33
+	gp_regs_ctx->ctx_regs[0] = hw_config_info->ns_config_addr;
+#else
+	gp_regs_ctx->ctx_regs[1] = hw_config_info->ns_config_addr;
+#endif /* ARM_LINUX_KERNEL_AS_BL33 */
+
+#endif /* !RESET_TO_BL31 && !BL2_AT_EL3 */
 }
