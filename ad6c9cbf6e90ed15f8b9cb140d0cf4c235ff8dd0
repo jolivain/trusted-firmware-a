@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "32e11473_da39da8e",
+        "filename": "include/common/bl_common.ld.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:43:55Z",
+      "side": 1,
+      "message": "It is used in the RODATA_COMMON definition below which otherwise would need to be conditionally included. This seemed like the cleaner option.",
+      "parentUuid": "5c5aa7ec_05a804d2",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 20
+      },
+      "revId": "ad6c9cbf6e90ed15f8b9cb140d0cf4c235ff8dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e80042fe_407778d3",
         "filename": "services/std_svc/spm/spmc/logical_sp.c",
         "patchSetId": 14
@@ -37,6 +61,41 @@
       "writtenOn": "2022-03-15T05:55:16Z",
       "side": 1,
       "message": "nit: remove blank",
+      "revId": "ad6c9cbf6e90ed15f8b9cb140d0cf4c235ff8dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55da8727_5f75cbf1",
+        "filename": "services/std_svc/spm/spmc/logical_sp.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:43:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e80042fe_407778d3",
+      "revId": "ad6c9cbf6e90ed15f8b9cb140d0cf4c235ff8dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b40a7a3_d1a35199",
+        "filename": "services/std_svc/spm/spmc/logical_sp.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:43:55Z",
+      "side": 1,
+      "message": "Added additional check for the partition properties. Currently the LSPs only support receiving direct messages.",
       "revId": "ad6c9cbf6e90ed15f8b9cb140d0cf4c235ff8dd0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -64,6 +123,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "641258b4_e17af7f0",
+        "filename": "services/std_svc/spm/spmc/logical_sp.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:43:55Z",
+      "side": 1,
+      "message": "No it\u0027s not, if it\u0027s clear enough what the intention is here I\u0027ll remove it.",
+      "parentUuid": "408a15b6_cb80a4c3",
+      "range": {
+        "startLine": 103,
+        "startChar": 18,
+        "endLine": 103,
+        "endChar": 31
+      },
+      "revId": "ad6c9cbf6e90ed15f8b9cb140d0cf4c235ff8dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5fdfb41_8528036e",
@@ -77,6 +160,24 @@
       "writtenOn": "2022-03-15T05:55:16Z",
       "side": 1,
       "message": "nit: add blank",
+      "revId": "ad6c9cbf6e90ed15f8b9cb140d0cf4c235ff8dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce4e4964_0193c26d",
+        "filename": "services/std_svc/spm/spmc/logical_sp.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:43:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5fdfb41_8528036e",
       "revId": "ad6c9cbf6e90ed15f8b9cb140d0cf4c235ff8dd0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -104,6 +205,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79804adc_e8dcfb46",
+        "filename": "services/std_svc/spm/spmc/logical_sp.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:43:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b302618_41ee1cf7",
+      "range": {
+        "startLine": 6,
+        "startChar": 8,
+        "endLine": 6,
+        "endChar": 16
+      },
+      "revId": "ad6c9cbf6e90ed15f8b9cb140d0cf4c235ff8dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0539375_1573cc1a",
@@ -121,6 +246,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "656f98b3_b5374495",
+        "filename": "services/std_svc/spm/spmc/logical_sp.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:43:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0539375_1573cc1a",
+      "revId": "ad6c9cbf6e90ed15f8b9cb140d0cf4c235ff8dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "660f51fa_c9ec41d3",
@@ -134,6 +277,30 @@
       "writtenOn": "2022-03-15T05:55:16Z",
       "side": 1,
       "message": "remove or use /* */ comment type",
+      "range": {
+        "startLine": 30,
+        "startChar": 19,
+        "endLine": 30,
+        "endChar": 35
+      },
+      "revId": "ad6c9cbf6e90ed15f8b9cb140d0cf4c235ff8dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea154d27_1cf7d2a7",
+        "filename": "services/std_svc/spm/spmc/logical_sp.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:43:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "660f51fa_c9ec41d3",
       "range": {
         "startLine": 30,
         "startChar": 19,
@@ -190,6 +357,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "200092ec_bb54f4ce",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:43:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71d99283_59f9743c",
+      "range": {
+        "startLine": 140,
+        "startChar": 14,
+        "endLine": 140,
+        "endChar": 15
+      },
+      "revId": "ad6c9cbf6e90ed15f8b9cb140d0cf4c235ff8dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96b03cd5_dc8fb4e8",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:43:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b186383_2d1a7b0a",
+      "range": {
+        "startLine": 140,
+        "startChar": 6,
+        "endLine": 140,
+        "endChar": 9
+      },
+      "revId": "ad6c9cbf6e90ed15f8b9cb140d0cf4c235ff8dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b1164bb9_d83a1b01",
@@ -203,6 +418,30 @@
       "writtenOn": "2022-03-15T05:55:16Z",
       "side": 1,
       "message": "rephrase?",
+      "range": {
+        "startLine": 152,
+        "startChar": 17,
+        "endLine": 152,
+        "endChar": 47
+      },
+      "revId": "ad6c9cbf6e90ed15f8b9cb140d0cf4c235ff8dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "517bf960_a68bf4ae",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:43:55Z",
+      "side": 1,
+      "message": "Updated.",
+      "parentUuid": "b1164bb9_d83a1b01",
       "range": {
         "startLine": 152,
         "startChar": 17,
@@ -259,6 +498,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f12a2af_55bf3f40",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:43:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25dd0087_2a98e0bb",
+      "range": {
+        "startLine": 233,
+        "startChar": 14,
+        "endLine": 233,
+        "endChar": 15
+      },
+      "revId": "ad6c9cbf6e90ed15f8b9cb140d0cf4c235ff8dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3621057c_ed7c78a4",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:43:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e4574c4_71fc6876",
+      "range": {
+        "startLine": 233,
+        "startChar": 6,
+        "endLine": 233,
+        "endChar": 9
+      },
+      "revId": "ad6c9cbf6e90ed15f8b9cb140d0cf4c235ff8dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6817dcb0_b372d33b",
@@ -272,6 +559,24 @@
       "writtenOn": "2022-03-15T05:55:16Z",
       "side": 1,
       "message": "nit: remove blank",
+      "revId": "ad6c9cbf6e90ed15f8b9cb140d0cf4c235ff8dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba5bcdee_3ee9c762",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:43:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6817dcb0_b372d33b",
       "revId": "ad6c9cbf6e90ed15f8b9cb140d0cf4c235ff8dd0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -312,6 +617,54 @@
       "writtenOn": "2022-03-15T05:55:16Z",
       "side": 1,
       "message": "unsigned int",
+      "range": {
+        "startLine": 664,
+        "startChar": 6,
+        "endLine": 664,
+        "endChar": 9
+      },
+      "revId": "ad6c9cbf6e90ed15f8b9cb140d0cf4c235ff8dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe7b9eb1_03f94afc",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:43:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24062666_9c6e74e1",
+      "range": {
+        "startLine": 664,
+        "startChar": 14,
+        "endLine": 664,
+        "endChar": 15
+      },
+      "revId": "ad6c9cbf6e90ed15f8b9cb140d0cf4c235ff8dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13727850_94bedaca",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:43:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6df29f4d_c0126c53",
       "range": {
         "startLine": 664,
         "startChar": 6,
