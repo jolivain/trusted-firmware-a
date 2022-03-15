@@ -333,17 +333,12 @@ ifeq (${ARCH},aarch32)
 endif
 
 # Enable the dynamic translation tables library.
+ifeq ($(filter 1,${BL2_AT_EL3} ${ARM_XLAT_TABLES_LIB_V1}),)
 ifeq (${ARCH},aarch32)
-    ifeq (${RESET_TO_SP_MIN},1)
         BL32_CPPFLAGS	+=	-DPLAT_XLAT_TABLES_DYNAMIC
-    endif
 else # AArch64
-    ifeq (${RESET_TO_BL31},1)
         BL31_CPPFLAGS	+=	-DPLAT_XLAT_TABLES_DYNAMIC
-    endif
-    ifeq (${SPD},trusty)
-        BL31_CPPFLAGS	+=	-DPLAT_XLAT_TABLES_DYNAMIC
-    endif
+endif
 endif
 
 ifeq (${ENABLE_RME},1)
