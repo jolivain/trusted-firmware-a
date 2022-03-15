@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88bcfb78_5257da16",
+        "filename": "plat/nxp/common/soc_errata/errata_a050426.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-03-15T14:43:42Z",
+      "side": 1,
+      "message": "Please use braces\nif (condition) {\n\n}",
+      "revId": "c43e08bbf05882c3cd9031a687d01deb86d74019",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
