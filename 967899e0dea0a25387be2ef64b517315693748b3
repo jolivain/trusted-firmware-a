@@ -33,6 +33,24 @@
       "message": "I don\u0027t think \"z\" should be handled like \"l\": it can\u0027t be repeated, nor should it be combined with \"l\". glibc warns for %lzd or %zld, but I don\u0027t think we need to do that here.\n\nSo I think just: \"l_count \u003d 1; fmt++; break;\" in \"case \u0027z\u0027:\" is the simplest here. That isn\u0027t perfect, either, but at least doesn\u0027t give the impression both are the same.",
       "revId": "967899e0dea0a25387be2ef64b517315693748b3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4a8e878_28fc4864",
+        "filename": "lib/libc/snprintf.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000767
+      },
+      "writtenOn": "2022-03-15T01:46:19Z",
+      "side": 1,
+      "message": "Did you mean for for case \u0027z\u0027: l_count \u003d 1; fmt++; goto loop;?\n\nWe use %zu or %zx with \u0027z\u0027 specifier. If we don\u0027t goto loop nothing gets printed for %zu or %zx.",
+      "parentUuid": "fb61366a_604b083c",
+      "revId": "967899e0dea0a25387be2ef64b517315693748b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
