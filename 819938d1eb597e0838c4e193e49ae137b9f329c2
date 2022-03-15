@@ -16,6 +16,24 @@
       "message": "The errors from the CI (aside from the incorrect ordering which I will address in the appropriate patch) appear to be:\n\n07:18:14 aarch64-none-elf-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/common/bl_common.c:174: undefined reference to `auth_mod_verify_img\u0027\n07:18:14 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/common/bl_common.c:174:(.text.load_auth_image_recursive.constprop.0+0x15c): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `auth_mod_verify_img\u0027\n07:18:14 Makefile:1258: recipe for target \u0027/home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/stingray/debug/bl2/bl2.elf\u0027 failed\n07:18:14 make: *** [/home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/stingray/debug/bl2/bl2.elf] Error 1\n\nAnd:\n\n08:11:42 [PostBuildScript] - [INFO] Executing post build scripts.\n08:11:42 [tf-a-builder] $ /bin/bash -e /tmp/jenkins17683725451698380000.sh\n08:11:42 \u003d\u003d\u003d Starting expect-post tests \u003d\u003d\u003d\n08:11:42 --- tfa_event_log\t2022-03-15 08:11:42.833795375 +0000\n08:11:42 +++ ftpm_event_log\t2022-03-15 08:11:42.833795375 +0000\n08:11:42 @@ -76,8 +76,6 @@\n08:11:42  \n08:11:42  Digest        : f7 78 e8 6a 54 5a 8a 03 9e 18 70 1e 4e f2 cc 5d\n08:11:42  \n08:11:42 - : 55 2b ba 3e e1 1e ed d5 13 28 ad 34 93 08 ce 4c\n08:11:42 -\n08:11:42   EventSize          : 20\n08:11:42  \n08:11:42   Event              : SECURE_RT_EL1_OPTEE\n08:11:42 Traceback (most recent call last):\n08:11:42   File \"/home/buildslave/workspace/tf-a-builder/tf-a-ci-scripts/expect-post/tpm-logs.exp\", line 34, in \u003cmodule\u003e\n08:11:42     check_call(\"diff -s -u tfa_event_log ftpm_event_log\", shell\u003dTrue)\n08:11:42   File \"/usr/lib/python3.6/subprocess.py\", line 311, in check_call\n08:11:42     raise CalledProcessError(retcode, cmd)\n08:11:42 subprocess.CalledProcessError: Command \u0027diff -s -u tfa_event_log ftpm_event_log\u0027 returned non-zero exit status 1.\n08:11:42 expect-post/tpm-logs.exp(uart1): FAIL\n\nDoes anyone have any advice on how to resolve either of these?",
       "revId": "819938d1eb597e0838c4e193e49ae137b9f329c2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49bde1e7_d9a1a0bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-15T10:35:58Z",
+      "side": 1,
+      "message": "I think it would be good to rebase for starters. The stingray/n5x build failures are most probably unrelated to this patchstack.",
+      "parentUuid": "6e57d97a_68c5db11",
+      "revId": "819938d1eb597e0838c4e193e49ae137b9f329c2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
