@@ -89,7 +89,7 @@
 #define ARM_DTB_DRAM_NS			MAP_REGION_FLAT(		\
 					FVP_DTB_DRAM_MAP_START,		\
 					FVP_DTB_DRAM_MAP_SIZE,		\
-					MT_MEMORY | MT_RO | MT_NS)
+					MT_MEMORY | MT_RW | MT_NS)
 /*
  * Load address of BL33 for this platform port
  */
