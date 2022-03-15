@@ -1,0 +1,152 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8188da9_5dc5c45d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-03-15T16:29:02Z",
+      "side": 1,
+      "message": "Can be simplified I think. ",
+      "revId": "bb947cccce608d74442daabbdd172a320c4645ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bf0bf5b_c3ec7a1a",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2020,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-03-15T16:29:02Z",
+      "side": 1,
+      "message": "reword to say mandatory when ENABLE_RME is 1.",
+      "range": {
+        "startLine": 2020,
+        "startChar": 40,
+        "endLine": 2020,
+        "endChar": 80
+      },
+      "revId": "bb947cccce608d74442daabbdd172a320c4645ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "250960a7_1c49d35a",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-03-15T16:29:02Z",
+      "side": 1,
+      "message": "we remove this build macro.",
+      "revId": "bb947cccce608d74442daabbdd172a320c4645ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ac1f3d7_e2f49957",
+        "filename": "include/services/attest_svc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-03-15T16:29:02Z",
+      "side": 1,
+      "message": "Attest is not a dfferent service but part of custom interface between EL3 and RMM. So in that regards, this can be part of existing RMMD services (like gtsi)",
+      "revId": "bb947cccce608d74442daabbdd172a320c4645ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8095840a_41ffca61",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-03-15T16:29:02Z",
+      "side": 1,
+      "message": "RMMD can directly call this API. I dont see the need for the ops and callback mechanism.",
+      "range": {
+        "startLine": 487,
+        "startChar": 14,
+        "endLine": 487,
+        "endChar": 40
+      },
+      "revId": "bb947cccce608d74442daabbdd172a320c4645ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3adbb2e_7bbde24c",
+        "filename": "services/std_svc/rmmd/attest/attest.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-03-15T16:29:02Z",
+      "side": 1,
+      "message": "This framework is not needed. Can be removed.",
+      "revId": "bb947cccce608d74442daabbdd172a320c4645ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f22d3c1f_d132a563",
+        "filename": "services/std_svc/rmmd/attest/attest.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-03-15T16:29:02Z",
+      "side": 1,
+      "message": "same comment as above.",
+      "revId": "bb947cccce608d74442daabbdd172a320c4645ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a75a3b1_f280e8c2",
+        "filename": "services/std_svc/std_svc_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-03-15T16:29:02Z",
+      "side": 1,
+      "message": "Attest should probably be routed into this handler. We need to move gtsi as well into this, but that is a later task.",
+      "revId": "bb947cccce608d74442daabbdd172a320c4645ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
