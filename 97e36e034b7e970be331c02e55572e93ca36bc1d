@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f539d7f_cea7d70c",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-15T06:15:36Z",
+      "side": 1,
+      "message": "nit: add blank",
+      "revId": "97e36e034b7e970be331c02e55572e93ca36bc1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e83c3d80_df52eef6",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-15T06:15:36Z",
+      "side": 1,
+      "message": "should be 3?\n\n Bit[0]: partition can receive direct requests if set\n Bit[1]: partition can send direct requests if set",
+      "range": {
+        "startLine": 542,
+        "startChar": 18,
+        "endLine": 542,
+        "endChar": 22
+      },
+      "revId": "97e36e034b7e970be331c02e55572e93ca36bc1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
