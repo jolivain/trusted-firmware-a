@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8974443e_c68fe005",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:44:18Z",
+      "side": 1,
+      "message": "Removed as this was not required.",
+      "parentUuid": "d750a59a_f7de07be",
+      "range": {
+        "startLine": 41,
+        "startChar": 30,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "27b249891c03b6aae32a1f331f10a3035fe92fea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9311eaa_addd6014",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-03-15T05:55:37Z",
       "side": 1,
       "message": "done line 209",
+      "range": {
+        "startLine": 217,
+        "startChar": 1,
+        "endLine": 217,
+        "endChar": 24
+      },
+      "revId": "27b249891c03b6aae32a1f331f10a3035fe92fea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce2f3bb3_5d1a90d5",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:44:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a9311eaa_addd6014",
       "range": {
         "startLine": 217,
         "startChar": 1,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a0e2cddd_b396ccea",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:44:18Z",
+      "side": 1,
+      "message": "They\u0027re not, however I felt that they conveyed the intention here better and made the distinction clearer on the below save/restores. Happy to remove if you would prefer?",
+      "parentUuid": "c6da2926_c90499f6",
+      "range": {
+        "startLine": 236,
+        "startChar": 2,
+        "endLine": 237,
+        "endChar": 45
+      },
+      "revId": "27b249891c03b6aae32a1f331f10a3035fe92fea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a2bc0019_103d9354",
         "filename": "services/std_svc/spm/spmc/spmc_main.c",
         "patchSetId": 13
@@ -83,6 +155,24 @@
       "writtenOn": "2022-03-15T05:55:37Z",
       "side": 1,
       "message": "nit: add blank",
+      "revId": "27b249891c03b6aae32a1f331f10a3035fe92fea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68b09da9_cef8b863",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:44:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2bc0019_103d9354",
       "revId": "27b249891c03b6aae32a1f331f10a3035fe92fea",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -100,6 +190,30 @@
       "writtenOn": "2022-03-15T05:55:37Z",
       "side": 1,
       "message": "I don\u0027t really get this, shouldn\u0027t FFA_MSG_WAIT x1 only be used by an Hypervisor to eret to a NWd VM?",
+      "range": {
+        "startLine": 246,
+        "startChar": 33,
+        "endLine": 246,
+        "endChar": 55
+      },
+      "revId": "27b249891c03b6aae32a1f331f10a3035fe92fea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8b157de_4169b098",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-15T19:44:18Z",
+      "side": 1,
+      "message": "Very good point, this didn\u0027t make sense. Remove and using a NWd entity ID here instead.",
+      "parentUuid": "705d47f7_d0d2de24",
       "range": {
         "startLine": 246,
         "startChar": 33,
