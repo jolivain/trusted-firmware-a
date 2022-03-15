@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e46d951_aec2d8ed",
+        "filename": "plat/intel/soc/common/socfpga_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-03-15T16:55:33Z",
+      "side": 1,
+      "message": "typecast the \u0027type\u0027 i.e. config_type config \u003d (config_type) type\nor instead of creating this extra variable, just replace the check at line no. 198 with\n((config_type) type \u003d\u003d FULL_CONFIG)",
+      "range": {
+        "startLine": 196,
+        "startChar": 22,
+        "endLine": 196,
+        "endChar": 26
+      },
+      "revId": "7ffc75fca92dafee4e4d0751072c02361a53712d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
