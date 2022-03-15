@@ -34,6 +34,24 @@
       "parentUuid": "ac78f689_ebd63a79",
       "revId": "c159caed2648885ad2ad96f4125cac65a7ff229d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f42fe3a2_203820fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-03-15T15:35:35Z",
+      "side": 1,
+      "message": "Thanks for providing this patch.\nWe would prefer it would not be merged for the moment.\n\nWe need to decide first how to handle the SEL2 case, work-around in the upper layers, similar to https://github.com/OP-TEE/optee_client/pull/233/commits/ff0141a1fe72811031740cc58bf34d3b83c004ef, or small or bigger patch in Hafnium.",
+      "parentUuid": "b5538072_09437fe9",
+      "revId": "c159caed2648885ad2ad96f4125cac65a7ff229d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
