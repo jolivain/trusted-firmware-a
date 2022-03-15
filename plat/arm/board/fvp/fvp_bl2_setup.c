@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -43,14 +43,19 @@ struct bl_params *plat_get_next_bl_params(void)
 
 	arm_bl_params = arm_get_next_bl_params();
 
-#if __aarch64__ && !BL2_AT_EL3
+#if !BL2_AT_EL3
 	const struct dyn_cfg_dtb_info_t *fw_config_info;
 	bl_mem_params_node_t *param_node;
 	uintptr_t fw_config_base = 0U;
 	entry_point_info_t *ep_info;
 
+#if __aarch64__
 	/* Get BL31 image node */
 	param_node = get_bl_mem_params_node(BL31_IMAGE_ID);
+#else /* aarch32 */
+	/* Get SP_MIN image node */
+	param_node = get_bl_mem_params_node(BL32_IMAGE_ID);
+#endif /* __aarch64__ */
 	assert(param_node != NULL);
 
 	/* get fw_config load address */
