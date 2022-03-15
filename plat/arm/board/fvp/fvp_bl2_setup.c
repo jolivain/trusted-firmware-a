@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -40,17 +40,24 @@ void bl2_platform_setup(void)
 struct bl_params *plat_get_next_bl_params(void)
 {
 	struct bl_params *arm_bl_params;
+	const struct dyn_cfg_dtb_info_t *hw_config_info __unused;
+	bl_mem_params_node_t *param_node __unused;
 
 	arm_bl_params = arm_get_next_bl_params();
 
-#if __aarch64__ && !BL2_AT_EL3
+#if !BL2_AT_EL3
 	const struct dyn_cfg_dtb_info_t *fw_config_info;
-	bl_mem_params_node_t *param_node;
 	uintptr_t fw_config_base = 0U;
 	entry_point_info_t *ep_info;
 
+#if __aarch64__
 	/* Get BL31 image node */
 	param_node = get_bl_mem_params_node(BL31_IMAGE_ID);
+#else /* aarch32 */
+	/* Get SP_MIN image node */
+	param_node = get_bl_mem_params_node(BL32_IMAGE_ID);
+#endif /* __aarch64__ */
+
 	assert(param_node != NULL);
 
 	/* get fw_config load address */
@@ -66,7 +73,27 @@ struct bl_params *plat_get_next_bl_params(void)
 	 */
 	ep_info = &param_node->ep_info;
 	ep_info->args.arg1 = (uint32_t)fw_config_base;
-#endif /* __aarch64__ && !BL2_AT_EL3 */
+
+	/* grab NS HW config address */
+	hw_config_info = FCONF_GET_PROPERTY(dyn_cfg, dtb, HW_CONFIG_ID);
+
+	/* Copy HW config from Secure address to NS address */
+	memcpy((void *)hw_config_info->ns_config_addr,
+	       (void *)hw_config_info->config_addr,
+	       (size_t)hw_config_info->config_max_size);
+
+	/*
+	 * Ensure HW-config device tree committed to memory, as there is
+	 * a possibility to use HW-config without cache and MMU enabled
+	 * at BL33
+	 */
+	flush_dcache_range(hw_config_info->ns_config_addr,
+			   hw_config_info->config_max_size);
+
+	param_node = get_bl_mem_params_node(BL33_IMAGE_ID);
+	/* Update BL33's ep info with NS HW config address  */
+	param_node->ep_info.args.arg1 = hw_config_info->ns_config_addr;
+#endif /* !BL2_AT_EL3 */
 
 	return arm_bl_params;
 }
