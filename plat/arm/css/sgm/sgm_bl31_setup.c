@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -52,4 +52,9 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 const plat_psci_ops_t *plat_arm_psci_override_pm_ops(plat_psci_ops_t *ops)
 {
 	return css_scmi_override_pm_ops(ops);
+}
+
+void bl31_plat_runtime_setup(void)
+{
+	arm_bl31_plat_runtime_setup();
 }

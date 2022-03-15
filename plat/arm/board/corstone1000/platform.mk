@@ -51,6 +51,7 @@ BL2_SOURCES		+=	plat/arm/board/corstone1000/common/corstone1000_security.c		\
 
 BL31_SOURCES	+=	drivers/cfi/v2m/v2m_flash.c				\
 			lib/utils/mem_region.c					\
+			plat/arm/board/corstone1000/common/corstone1000_bl31_setup.c	\
 			plat/arm/board/corstone1000/common/corstone1000_helpers.S		\
 			plat/arm/board/corstone1000/common/corstone1000_topology.c		\
 			plat/arm/board/corstone1000/common/corstone1000_security.c		\

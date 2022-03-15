@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -364,11 +364,6 @@ void arm_free_init_memory(void)
 void __init bl31_platform_setup(void)
 {
 	arm_bl31_platform_setup();
-}
-
-void bl31_plat_runtime_setup(void)
-{
-	arm_bl31_plat_runtime_setup();
 }
 
 /*******************************************************************************
