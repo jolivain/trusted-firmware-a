@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ed5c773_913e1967",
+        "filename": "services/std_svc/spm/spmc/spmc_shared_mem.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-16T11:38:20Z",
+      "side": 1,
+      "message": "Refactored to reduce scope of shmem lock and prevent the requirement to free memory obj in case of failures.",
+      "revId": "09e1be11e2d406ab6360dab9f3a3cdc89b5d24c2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
