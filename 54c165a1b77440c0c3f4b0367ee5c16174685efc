@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "99e3139f_1efb52e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-03-16T15:05:41Z",
+      "side": 1,
+      "message": "commit lint found an issue:\n✖   subject may not end with full stop [subject-full-stop]",
+      "revId": "54c165a1b77440c0c3f4b0367ee5c16174685efc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "44209741_aea4b4d2",
@@ -14,6 +31,24 @@
       "writtenOn": "2022-03-16T02:23:53Z",
       "side": 1,
       "message": "Hi Madhukar:\n    This build failure seems to be some problem with the CI environment. Please check about it.",
+      "revId": "54c165a1b77440c0c3f4b0367ee5c16174685efc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbb65840_ab0d733a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-03-16T15:05:41Z",
+      "side": 1,
+      "message": "Please rebase the patch on integration branch.",
+      "parentUuid": "44209741_aea4b4d2",
       "revId": "54c165a1b77440c0c3f4b0367ee5c16174685efc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
