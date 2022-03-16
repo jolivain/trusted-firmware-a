@@ -16,6 +16,24 @@
       "message": "It seems odd to remove such useful typedefs, but I\u0027m sure you have good reasons, so OK by me!",
       "revId": "3c29598d580dc10589064d7b1d8d1280b6109423",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed95bd33_a1022ec4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-03-16T09:34:53Z",
+      "side": 1,
+      "message": "Thanks, I was informed on a previous patch that it was against the TF-A guidelines to use typedefs in this manor so I have removed all such usage throughout the patchstack.",
+      "parentUuid": "bbb0cfc0_0c93b32c",
+      "revId": "3c29598d580dc10589064d7b1d8d1280b6109423",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
