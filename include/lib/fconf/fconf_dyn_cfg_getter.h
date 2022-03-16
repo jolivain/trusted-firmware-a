@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2021, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2022, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -16,6 +16,8 @@
 
 struct dyn_cfg_dtb_info_t {
 	uintptr_t config_addr;
+	/* serves mainly to hold NS hw_config address */
+	uintptr_t ns_config_addr;
 	uint32_t config_max_size;
 	unsigned int config_id;
 };
