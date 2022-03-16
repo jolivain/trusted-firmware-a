@@ -47,6 +47,8 @@
 /* Send Mailbox Command */
 #define INTEL_SIP_SMC_MBOX_SEND_CMD			0xC200001E
 
+/* FPGA Crypto Services */
+#define INTEL_SIP_SMC_FCS_CRYPTION				0x4200005B
 
 /* SiP Definitions */
 
