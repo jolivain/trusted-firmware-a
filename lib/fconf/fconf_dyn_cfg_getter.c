@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2021, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2022, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -73,6 +73,7 @@ int fconf_populate_dtb_registry(uintptr_t config)
 {
 	int rc;
 	int node, child;
+	struct dyn_cfg_dtb_info_t *hw_config_dtb_info;
 
 	/* As libfdt use void *, we can't avoid this cast */
 	const void *dtb = (void *)config;
@@ -130,6 +131,22 @@ int fconf_populate_dtb_registry(uintptr_t config)
 		VERBOSE("\tconfig-id = %u\n", config_id);
 
 		set_config_info(config_addr, config_max_size, config_id);
+
+		if (config_id == HW_CONFIG_ID) {
+			/*
+			 * This is optional property for hw-config as all platforms
+			 * not necessarily adopt this way to have 2 instances of
+			 * hw-config i.e. one for secure and other for non-secure
+			 */
+			rc = fdt_read_uint64(dtb, child, "ns-load-address", &val64);
+			if (rc == 0) {
+				hw_config_dtb_info =
+				FCONF_GET_PROPERTY(dyn_cfg, dtb, HW_CONFIG_ID);
+				hw_config_dtb_info->ns_config_addr = (uintptr_t)val64;
+				VERBOSE("\tns-load-address = %lx\n",
+					hw_config_dtb_info->ns_config_addr);
+			}
+		}
 	}
 
 	if ((child < 0) && (child != -FDT_ERR_NOTFOUND)) {
