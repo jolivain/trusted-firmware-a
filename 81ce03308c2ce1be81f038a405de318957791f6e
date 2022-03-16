@@ -121,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "da150bf0_049a09da",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-03-16T16:17:17Z",
+      "side": 1,
+      "message": "I\u0027ve updated it to ignore the setting when SPD_spmd is defined.",
+      "parentUuid": "38bc5215_61253a0e",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 6
+      },
+      "revId": "81ce03308c2ce1be81f038a405de318957791f6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7bc9f77c_9cbe25b0",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 5
