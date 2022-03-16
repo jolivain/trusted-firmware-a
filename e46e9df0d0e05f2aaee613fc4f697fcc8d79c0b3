@@ -16,6 +16,23 @@
       "message": "Gentle ping for this patch~",
       "revId": "e46e9df0d0e05f2aaee613fc4f697fcc8d79c0b3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d3a1388_2fa63479",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-03-16T11:08:16Z",
+      "side": 1,
+      "message": "The newly added file is built as part of mt8186 platform build.\nBut looking at CI scripts i don\u0027t see this platform is built in our CI\nAdded a patch https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/14431 (i have added topic mt8186 to this patch, if you put the same topic name for your patch i can trigger CI and verify if both works fine together)",
+      "revId": "e46e9df0d0e05f2aaee613fc4f697fcc8d79c0b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
