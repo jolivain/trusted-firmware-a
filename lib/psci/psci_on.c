@@ -199,15 +199,6 @@ void psci_cpu_on_finish(unsigned int cpu_idx, const psci_power_state_t *state_in
 	psci_arch_setup();
 
 	/*
-	 * Lock the CPU spin lock to make sure that the context initialization
-	 * is done. Since the lock is only used in this function to create
-	 * a synchronization point with cpu_on_start(), it can be released
-	 * immediately.
-	 */
-	psci_spin_lock_cpu(cpu_idx);
-	psci_spin_unlock_cpu(cpu_idx);
-
-	/*
 	 * Call the cpu on finish handler registered by the Secure Payload
 	 * Dispatcher to let it do any bookeeping. If the handler encounters an
 	 * error, it's expected to assert within
@@ -220,6 +211,15 @@ void psci_cpu_on_finish(unsigned int cpu_idx, const psci_power_state_t *state_in
 	/* Populate the mpidr field within the cpu node array */
 	/* This needs to be done only once */
 	psci_cpu_pd_nodes[cpu_idx].mpidr = read_mpidr() & MPIDR_AFFINITY_MASK;
+
+	/*
+	 * Lock the CPU spin lock to make sure that the context initialization
+	 * is done. Since the lock is only used in this function to create
+	 * a synchronization point with cpu_on_start(), it can be released
+	 * immediately.
+	 */
+	psci_spin_lock_cpu(cpu_idx);
+	psci_spin_unlock_cpu(cpu_idx);
 
 	/*
 	 * Generic management: Now we just need to retrieve the
