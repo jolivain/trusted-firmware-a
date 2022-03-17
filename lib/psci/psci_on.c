@@ -207,9 +207,6 @@ void psci_cpu_on_finish(unsigned int cpu_idx, const psci_power_state_t *state_in
 	psci_spin_lock_cpu(cpu_idx);
 	psci_spin_unlock_cpu(cpu_idx);
 
-	/* Ensure we have been explicitly woken up by another cpu */
-	assert(psci_get_aff_info_state() == AFF_STATE_ON_PENDING);
-
 	/*
 	 * Call the cpu on finish handler registered by the Secure Payload
 	 * Dispatcher to let it do any bookeeping. If the handler encounters an
