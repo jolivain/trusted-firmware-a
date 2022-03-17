@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42b7b3e0_daa95e9e",
+        "filename": "drivers/arm/css/scp/css_pm_scmi.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-03-17T00:27:43Z",
+      "side": 1,
+      "message": "can this be simplified as below:\nmmio_write_64(PLAT_ARM_TRUSTED_MAILBOX_BASE, 0U);",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 301,
+        "endChar": 24
+      },
+      "revId": "ae1ac8cfa1418054c8b8581f05fccf71c4947c88",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
