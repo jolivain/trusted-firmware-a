@@ -16,6 +16,23 @@
       "message": "Hi All, \n\nI have fixed the warnings in the build run (https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l1/645/). Please help to review. \n\n\n1. WARNING: Copyright is out of date in plat/intel/soc/stratix10/bl2_plat_setup.c: \u0027 * Copyright (c) 2019-2021, ARM Limited and Contributors. All rights reserved.\u0027\n2. WARNING: Copyright is out of date in plat/intel/soc/stratix10/include/s10_clock_manager.h: \u0027 * Copyright (c) 2019, Intel Corporation. All rights reserved.\u0027\n\n\nThanks. \n\nBest Regards, \nTang, Sieu Mun",
       "revId": "bf999f7b8ceacff342de202b535f1975e4710d57",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45ea455b_1a4ced37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-03-17T09:24:08Z",
+      "side": 1,
+      "message": "Hi All, \n\nRebased and fixed. \n1. WARNING: Copyright is out of date in plat/intel/soc/stratix10/bl2_plat_setup.c: \u0027 * Copyright (c) 2019-2021, ARM Limited and Contributors. All rights reserved.\u0027\n2. WARNING: Copyright is out of date in plat/intel/soc/stratix10/include/s10_clock_manager.h: \u0027 * Copyright (c) 2019, Intel Corporation. All rights reserved.\u0027\n\n\nNot related: \n1. WARNING: Copyright is out of date in lib/cpus/aarch64/cortex_a76.S: \u0027 * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.\u0027\n2. WARNING: Copyright is out of date in plat/marvell/armada/a3k/common/cm3_system_reset.c: \u0027 * Copyright (C) 2020 Marek Behun, CZ.NIC\u0027\n3. WARNING: Copyright is out of date in plat/mediatek/mt8186/include/plat_sip_calls.h: \u0027 * Copyright (c) 2021, MediaTek Inc. All rights reserved.\u0027\n4. WARNING: Copyright is out of date in plat/mediatek/mt8186/plat_pm.c: \u0027 * Copyright (c) 2021, MediaTek Inc. All rights reserved.\u0027\n5. WARNING: Copyright is out of date in plat/xilinx/common/pm_service/pm_ipi.c: \u0027 * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.\u0027\n6. WARNING: Copyright is out of date in plat/xilinx/versal/pm_service/pm_client.c: \u0027 * Copyright (c) 2019-2021, Xilinx, Inc. All rights reserved.\u0027\n7. WARNING: Copyright is out of date in plat/xilinx/zynqmp/platform.mk: \u0027# Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.\u0027\n8. WARNING: Copyright is out of date in plat/xilinx/zynqmp/tsp/tsp_plat_setup.c: \u0027 * Copyright (c) 2014-2019, ARM Limited and Contributors. All rights reserved.\u0027\n\nPlease help to review. \n\nThanks. \n\nBest Regards, \nTang, Sieu Mun",
+      "revId": "bf999f7b8ceacff342de202b535f1975e4710d57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
