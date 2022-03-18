@@ -432,8 +432,9 @@ uintptr_t sip_smc_handler(uint32_t smc_fid,
 			 void *handle,
 			 u_register_t flags)
 {
-	uint32_t retval = 0;
-	uint32_t completed_addr[3];
+	uint32_t retval = 0, completed_addr[3];
+	uint32_t retval2 = 0;
+	uint32_t mbox_error = 0;
 	uint64_t rsu_respbuf[9];
 	int status = INTEL_SIP_SMC_STATUS_OK;
 	int mbox_status;
@@ -554,6 +555,24 @@ uintptr_t sip_smc_handler(uint32_t smc_fid,
 		}
 
 		SMC_RET3(handle, status, x4, x5);
+
+	case INTEL_SIP_SMC_FCS_PSGSIGMA_TEARDOWN:
+		status = intel_fcs_sigma_teardown(x1, &mbox_error);
+		SMC_RET2(handle, status, mbox_error);
+
+	case INTEL_SIP_SMC_FCS_CHIP_ID:
+		status = intel_fcs_chip_id(&retval, &retval2, &mbox_error);
+		SMC_RET4(handle, status, mbox_error, retval, retval2);
+
+	case INTEL_SIP_SMC_FCS_ATTESTATION_SUBKEY:
+		status = intel_fcs_attestation_subkey(x1, x2, x3,
+					(uint32_t *) &x4, &mbox_error);
+		SMC_RET4(handle, status, mbox_error, x3, x4);
+
+	case INTEL_SIP_SMC_FCS_ATTESTATION_MEASUREMENTS:
+		status = intel_fcs_get_measurement(x1, x2, x3,
+					(uint32_t *) &x4, &mbox_error);
+		SMC_RET4(handle, status, mbox_error, x3, x4);
 
 	default:
 		return socfpga_sip_handler(smc_fid, x1, x2, x3, x4,
