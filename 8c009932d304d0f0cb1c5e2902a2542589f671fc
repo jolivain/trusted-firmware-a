@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0575e61c_6fec6d1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-03-18T01:16:43Z",
+      "side": 1,
+      "message": "Hi all, \n\nI have updated and fixed it based on https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l1/655/.\n\nChecking files modified between patches origin/master and HEAD...\nbf999f7b8:plat/intel/soc/stratix10/bl2_plat_setup.c: [\u0027Platform includes not in order.\n    Include order should be s10_clock_manager.h, s10_mmc.h, socfpga_system_manager.h\u0027]\n\nbf999f7b8:plat/intel/soc/stratix10/soc/s10_mmc.c: [\u0027Platform includes not in order.\n    Include order should be s10_clock_manager.h, socfpga_system_manager.h\u0027]\n\nPlease help to review. \n\n\nThanks. \n\nBest Regards, \nTang, Sieu Mun",
+      "revId": "8c009932d304d0f0cb1c5e2902a2542589f671fc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
