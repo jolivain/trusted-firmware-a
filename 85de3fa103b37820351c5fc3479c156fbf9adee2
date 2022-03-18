@@ -46,6 +46,30 @@
       },
       "revId": "85de3fa103b37820351c5fc3479c156fbf9adee2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a20926e8_c8a78960",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-18T09:45:40Z",
+      "side": 1,
+      "message": "On another angle I thought it\u0027s preferable falling through to line #131 (to still perform the smmu invalidate all operation)?\nAlthough we may still report an error condition on exiting?",
+      "parentUuid": "df6813f3_29c6cee6",
+      "range": {
+        "startLine": 119,
+        "startChar": 4,
+        "endLine": 119,
+        "endChar": 40
+      },
+      "revId": "85de3fa103b37820351c5fc3479c156fbf9adee2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
