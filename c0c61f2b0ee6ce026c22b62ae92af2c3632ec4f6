@@ -88,6 +88,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f55ced87_c8b77b65",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-03-20T05:19:22Z",
+      "side": 1,
+      "message": "x1 unvalidated to be in rmm memory",
+      "range": {
+        "startLine": 390,
+        "startChar": 41,
+        "endLine": 390,
+        "endChar": 43
+      },
+      "revId": "c0c61f2b0ee6ce026c22b62ae92af2c3632ec4f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f87e9b7_d722e0f4",
         "filename": "services/std_svc/rmmd/rmmd_main.c",
         "patchSetId": 1
@@ -99,6 +122,29 @@
       "writtenOn": "2022-03-15T16:30:58Z",
       "side": 1,
       "message": "directly call plat_get_attestation_key() here",
+      "revId": "c0c61f2b0ee6ce026c22b62ae92af2c3632ec4f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c002614_9db302f8",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-03-20T05:19:22Z",
+      "side": 1,
+      "message": "x3,x4 not validated/../",
+      "range": {
+        "startLine": 402,
+        "startChar": 16,
+        "endLine": 402,
+        "endChar": 22
+      },
       "revId": "c0c61f2b0ee6ce026c22b62ae92af2c3632ec4f6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
