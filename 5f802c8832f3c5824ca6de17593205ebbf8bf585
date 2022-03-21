@@ -51,6 +51,42 @@
       "message": "CI failed for arm FPGA platform build. Will debug and push a fix.\n\naarch64-none-elf-ld.bfd: /home/madhukar/TF_PLATFORM/Reference/trusted-firmware-a/build/arm_fpga/debug/bl31/bl31.elf section `.bss\u0027 will not fit in region `RAM\u0027\naarch64-none-elf-ld.bfd: BL31 image has exceeded its limit.\naarch64-none-elf-ld.bfd: region `RAM\u0027 overflowed by 7552 bytes\n",
       "revId": "5f802c8832f3c5824ca6de17593205ebbf8bf585",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70b6a4c2_f862d09d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-03-21T15:32:24Z",
+      "side": 1,
+      "message": "Increase in RAM region by 7K seems like a lot. Is it only because of the additional vector table?",
+      "parentUuid": "26081b79_17c8a93d",
+      "revId": "5f802c8832f3c5824ca6de17593205ebbf8bf585",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd3c1782_e6fd18bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-03-21T15:32:24Z",
+      "side": 1,
+      "message": "Thanks",
+      "parentUuid": "85b2aee4_42a8fc98",
+      "revId": "5f802c8832f3c5824ca6de17593205ebbf8bf585",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
