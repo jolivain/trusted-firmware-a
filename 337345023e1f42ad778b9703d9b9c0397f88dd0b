@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aab96e36_2bb5c846",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000511
+      },
+      "writtenOn": "2022-03-21T05:37:13Z",
+      "side": 1,
+      "message": "Thanks Madhukar for the comments. Please find my reply inline. Also please let me know if I need to change the comment in code at line 300.",
+      "revId": "337345023e1f42ad778b9703d9b9c0397f88dd0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9452d86_da292c8e",
@@ -26,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "43a65c6d_416459cb",
+        "filename": "drivers/arm/css/scp/css_pm_scmi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000511
+      },
+      "writtenOn": "2022-03-21T05:37:13Z",
+      "side": 1,
+      "message": "It is not mandatory that it should be the primary core. But in Linux based OS what I found is it is the primary core which always enter the secure world and do the shutdown.",
+      "parentUuid": "b9452d86_da292c8e",
+      "range": {
+        "startLine": 300,
+        "startChar": 15,
+        "endLine": 300,
+        "endChar": 22
+      },
+      "revId": "337345023e1f42ad778b9703d9b9c0397f88dd0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08acdbe6_0633da2d",
         "filename": "drivers/arm/css/scp/css_pm_scmi.c",
         "patchSetId": 1
@@ -37,6 +78,30 @@
       "writtenOn": "2022-03-17T23:02:40Z",
       "side": 1,
       "message": "If I understand the PSCI spec correctly, when a secondary core is turned off, it will perform gic_mark_core_asleep anyway as part of cpu_if_disable. I was wondering why is this needed again?",
+      "range": {
+        "startLine": 303,
+        "startChar": 2,
+        "endLine": 303,
+        "endChar": 31
+      },
+      "revId": "337345023e1f42ad778b9703d9b9c0397f88dd0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7de0cc21_0e2d172a",
+        "filename": "drivers/arm/css/scp/css_pm_scmi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000511
+      },
+      "writtenOn": "2022-03-21T05:37:13Z",
+      "side": 1,
+      "message": "This is correct when we do a CPU hotplug, but in the case of shutdown/reboot (whether it is cold reboot or warm reboot) only the primary CPU will enter the secure world and do the shutdown activities.\n\nWith Linux as operating system in a multicore platform, what I noticed was the core 0 (primary core) was executing the shutdown sequence. The secondary cores will do the their cleanup activities and execute WFI (simply the executes the WFI instruction, without core power down). \n\nOn shutdown activity completion, Linux will invoke the UEFI shutdown service from core 0 (not only Linux all OS which uses UEFI as bootloader will do the same). As a part of the shutdown activity, only the core 0 will invoke PSCI call and enter trusted firmware (the secondary cores are still in non secure context in WFI). In this case it is the responsibility of the primary core to disconnect the secondary cores from GCI/redistributor by programming the waker logic.\n\nUefi reference for cold reboot for Arm based system: https://github.com/tianocore/edk2/blob/master/ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.c#L30\n\nFor warm reboot, my UEFI patch is in review process: https://gerrit.oss.arm.com/c/css/src/fw/uefi/edk2/+/221401\n\nWithout this change also, the cold reboot will work. On cold reboot, the SYSTOP power domain will also reset and this will resets the GIC as well. But in case of warm reboot, only the CPU/Cluster power domains are powered off, and hence it is recommended to program the waker logic.",
+      "parentUuid": "08acdbe6_0633da2d",
       "range": {
         "startLine": 303,
         "startChar": 2,
