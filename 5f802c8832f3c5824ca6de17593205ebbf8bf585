@@ -87,6 +87,24 @@
       "parentUuid": "85b2aee4_42a8fc98",
       "revId": "5f802c8832f3c5824ca6de17593205ebbf8bf585",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d080ca2_a4be94d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-03-21T16:45:50Z",
+      "side": 1,
+      "message": "Yes. Each CPU vector table is adding around 0x800. Since the FPGA platform compiles many CPUs, the total increase in size is about 7K.",
+      "parentUuid": "70b6a4c2_f862d09d",
+      "revId": "5f802c8832f3c5824ca6de17593205ebbf8bf585",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
