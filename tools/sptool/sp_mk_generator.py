@@ -46,20 +46,19 @@ A typical SP_LAYOUT_FILE file will look like
 }
 
 """
-
 import json
 import os
 import re
 import sys
 import uuid
 from spactions import SpSetupActions
-import fdt
 
 MAX_SP = 8
 UUID_LEN = 4
 
 # Some helper functions to access kwargs propagated to the action functions in
 # SpSetupActions framework.
+
 def check_sp_mk_gen(**kwargs):
     if "sp_gen_mk" not in kwargs:
         raise Exception(f"Path to file sp_gen.mk needs to be in 'kwargs'.")
@@ -79,11 +78,40 @@ def write_to_sp_mk_gen(content, **kwargs):
 
 def get_sp_manif_full_path(sp_node, **kwargs):
     check_sp_layout_dir(**kwargs)
-    return os.path.join(kwargs["sp_layout_dir"], sp_node["pm"])
+    return os.path.join(kwargs["sp_layout_dir"], get_file_from_layout(sp_node["pm"]))
+
+def get_sp_img_full_path(sp_node, **kwargs):
+    check_sp_layout_dir(**kwargs)
+    return os.path.join(kwargs["sp_layout_dir"], get_file_from_layout(sp_node["image"]))
 
 def get_sp_pkg(sp, **kwargs):
     check_out_dir(**kwargs)
     return os.path.join(kwargs["out_dir"], f"{sp}.pkg")
+
+def is_line_in_sp_gen(line, **kwargs):
+    with open(kwargs["sp_gen_mk"], "r") as f:
+        sppkg_rule = [l for l in f if line in l]
+    return len(sppkg_rule) is not 0
+
+def get_file_from_layout(node):
+    ''' Helper to fetch a file path from sp_layout.json. '''
+    if type(node) is dict and "file" in node.keys():
+        return node["file"]
+    return node
+
+def get_offset_from_layout(node):
+    ''' Helper to fetch an offset from sp_layout.json. '''
+    if type(node) is dict and "offset" in node.keys():
+        return int(node["offset"], 0)
+    return None
+
+def get_image_offset(node):
+    ''' Helper to fetch image offset from sp_layout.json '''
+    return get_offset_from_layout(node["image"])
+
+def get_pm_offset(node):
+    ''' Helper to fetch pm offset from sp_layout.json '''
+    return get_offset_from_layout(node["pm"])
 
 @SpSetupActions.sp_action(global_action=True)
 def check_max_sps(sp_layout, **kwargs):
@@ -101,14 +129,29 @@ def gen_fdt_sources(sp_layout, sp, **kwargs):
 
 @SpSetupActions.sp_action
 def gen_sptool_args(sp_layout, sp, **kwargs):
-    ''' Generate sptool arguments to generate SP Pkg for a given SP. '''
-    check_out_dir(**kwargs)
-    check_sp_layout_dir(**kwargs)
+    ''' Generate Sp Pkgs rules. '''
     sp_pkg = get_sp_pkg(sp, **kwargs)
-    sp_dtb_name = os.path.basename(sp_layout[sp]["pm"])[:-1] + "b"
+    sp_dtb_name = os.path.basename(get_file_from_layout(sp_layout[sp]["pm"]))[:-1] + "b"
     sp_dtb = os.path.join(kwargs["out_dir"], f"fdts/{sp_dtb_name}")
-    sp_bin = os.path.join(kwargs["sp_layout_dir"], sp_layout[sp]["image"])
-    write_to_sp_mk_gen(f"SPTOOL_ARGS += -i {sp_bin}:{sp_dtb} -o {sp_pkg}\n", **kwargs)
+
+    # Do not generate rule if already there.
+    if is_line_in_sp_gen(f'{sp_pkg}:', **kwargs):
+        return kwargs
+    write_to_sp_mk_gen(f"SP_PKGS += {sp_pkg}\n", **kwargs)
+
+    sptool_args = f" -i {get_sp_img_full_path(sp_layout[sp], **kwargs)}:{sp_dtb}"
+    sptool_args += " --boot-info" if sp_layout[sp].get("boot-info") else ""
+    pm_offset = get_pm_offset(sp_layout[sp])
+    sptool_args += f" --pm-offset {pm_offset}" if pm_offset is not None else ""
+    image_offset = get_image_offset(sp_layout[sp])
+    sptool_args += f" --img-offset {image_offset}" if image_offset is not None else ""
+    sptool_args += f" -o {sp_pkg} -v"
+    sppkg_rule = f'''
+{sp_pkg}:
+\t$(Q)echo Generating {sp_pkg}
+\t$(Q)$(PYTHON) $(SPTOOL) {sptool_args}
+'''
+    write_to_sp_mk_gen(sppkg_rule, **kwargs)
     return kwargs
 
 @SpSetupActions.sp_action
@@ -161,4 +204,4 @@ if __name__ == "__main__":
     args["sp_layout_dir"] = os.path.dirname(sp_layout_file)
     args["out_dir"] = os.path.abspath(sys.argv[3])
     args["dualroot"] = sys.argv[4] == "dualroot"
-    SpSetupActions.run_actions(sp_layout, False, **args)
+    SpSetupActions.run_actions(sp_layout, True, **args)
