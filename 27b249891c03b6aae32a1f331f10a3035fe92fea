@@ -142,6 +142,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a5c9812_b2fead79",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-22T06:32:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a0e2cddd_b396ccea",
+      "range": {
+        "startLine": 236,
+        "startChar": 2,
+        "endLine": 237,
+        "endChar": 45
+      },
+      "revId": "27b249891c03b6aae32a1f331f10a3035fe92fea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a2bc0019_103d9354",
@@ -214,6 +238,30 @@
       "side": 1,
       "message": "Very good point, this didn\u0027t make sense. Remove and using a NWd entity ID here instead.",
       "parentUuid": "705d47f7_d0d2de24",
+      "range": {
+        "startLine": 246,
+        "startChar": 33,
+        "endLine": 246,
+        "endChar": 55
+      },
+      "revId": "27b249891c03b6aae32a1f331f10a3035fe92fea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1161c9e5_468c620c",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-22T06:32:04Z",
+      "side": 1,
+      "message": "On second thought was this in provision for multiple SP support?\ne.g. in a call chain the caller might be a SP and not the NWd.",
+      "parentUuid": "b8b157de_4169b098",
       "range": {
         "startLine": 246,
         "startChar": 33,
