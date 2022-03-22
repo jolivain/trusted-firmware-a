@@ -357,6 +357,7 @@ uint64_t rmmd_rmm_el3_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 				void *handle, uint64_t flags)
 {
 	uint32_t src_sec_state;
+	int ret;
 
 	/* Determine which security state this SMC originated from */
 	src_sec_state = caller_sec_state(flags);
@@ -373,6 +374,9 @@ uint64_t rmmd_rmm_el3_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 	case RMMD_GTSI_UNDELEGATE:
 		SMC_RET1(handle, gtsi_transition_granule(x1, SMC_FROM_REALM,
 								GPT_GPI_NS));
+	case RMMD_ATTEST_GET_PLAT_TOKEN:
+		ret = rmmd_attest_get_platform_token(x1, &x2, x3);
+		SMC_RET2(handle, ret, x2);
 	default:
 		WARN("RMM: Unsupported RMM-EL3 call 0x%08x\n", smc_fid);
 		SMC_RET1(handle, SMC_UNK);
