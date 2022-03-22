@@ -85,6 +85,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f2bf331e_f0b12a28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-22T08:23:29Z",
+      "side": 1,
+      "message": "I\u0027m a bit uncomfortable with pulling test code in as default in the reference implementation which could be used to make a product. We can ask other maintainers.",
+      "parentUuid": "63d4e864_878f62a8",
+      "revId": "610b09bee964dbb3203f37f3893012fedf2460dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d20a2dc5_689d7e30",
         "filename": "services/std_svc/spm/spmc/logical_sp_test.c",
         "patchSetId": 14
@@ -214,6 +232,30 @@
       "side": 1,
       "message": "Removed the Todo keyword. Left the comment itself.",
       "parentUuid": "4abd86f3_d8b04e6e",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 43,
+        "endChar": 4
+      },
+      "revId": "610b09bee964dbb3203f37f3893012fedf2460dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26b830e6_fd0af2da",
+        "filename": "services/std_svc/spm/spmc/logical_sp_test.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-22T08:23:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "177b3464_ae1b47ec",
       "range": {
         "startLine": 40,
         "startChar": 1,
