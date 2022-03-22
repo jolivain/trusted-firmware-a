@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90e49df3_f5329c93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000695
+      },
+      "writtenOn": "2022-03-22T17:14:00Z",
+      "side": 1,
+      "message": "Looks good to me",
+      "revId": "b5f97af88de4c9c4268fc80cdee8eca94c883707",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ef375f2_6c5c7fe8",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000695
+      },
+      "writtenOn": "2022-03-22T17:14:00Z",
+      "side": 1,
+      "message": "nit: would it be better to return result here?",
+      "revId": "b5f97af88de4c9c4268fc80cdee8eca94c883707",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
