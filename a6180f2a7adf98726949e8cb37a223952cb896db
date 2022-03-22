@@ -84,6 +84,23 @@
       "message": "I see this failure for Stingray.\n\n16:14:56 aarch64-none-elf-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/stingray/debug/bl2/bl2_main.o: in function `bl2_main\u0027:\n16:14:56 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/bl2/bl2_main.c:93: undefined reference to `crypto_mod_init\u0027\n16:14:56 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/bl2/bl2_main.c:93:(.text.bl2_main+0x38): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `crypto_mod_init\u0027\n16:14:56 aarch64-none-elf-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/bl2/bl2_main.c:96: undefined reference to `auth_mod_init\u0027\n16:14:56 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/bl2/bl2_main.c:96:(.text.bl2_main+0x3c): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `auth_mod_init\u0027\n16:14:56 aarch64-none-elf-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/stingray/debug/bl2/bl_common.o: in function `load_auth_image_recursive\u0027:\n16:14:56 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/common/bl_common.c:159: undefined reference to `auth_mod_get_parent_id\u0027\n16:14:56 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/common/bl_common.c:159:(.text.load_auth_image_recursive.constprop.0+0x1c): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `auth_mod_get_parent_id\u0027\n16:14:56 aarch64-none-elf-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/common/bl_common.c:174: undefined reference to `auth_mod_verify_img\u0027\n16:14:56 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/common/bl_common.c:174:(.text.load_auth_image_recursive.constprop.0+0x15c): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `auth_mod_verify_img\u0027\n16:14:56 Makefile:1258: recipe for target \u0027/home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/stingray/debug/bl2/bl2.elf\u0027 failed\n16:14:56 make: *** [/home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/stingray/debug/bl2/bl2.elf] Error 1\n\nThis failure is not related to the patch.",
       "revId": "a6180f2a7adf98726949e8cb37a223952cb896db",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "347915b9_420b0218",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-03-22T22:06:00Z",
+      "side": 1,
+      "message": "@Joanna what should be the next step? Since the two failing boards do not use the code from this patch, can I override the -V score?",
+      "revId": "a6180f2a7adf98726949e8cb37a223952cb896db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
