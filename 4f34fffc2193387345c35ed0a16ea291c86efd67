@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ca15248_ab05e802",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-22T06:28:39Z",
+      "side": 1,
+      "message": "Never mind. My comment applies when SPMD and SPMC reside at separate exception levels. If SPMC properties as statically encoded in the SPMD and the SPMC is updated by a FW update, then the SPMD may require an update too. I believe this doesn\u0027t apply in this case where both SPMD/SPMC reside at EL3.",
+      "parentUuid": "a9c1210d_667d43b9",
+      "range": {
+        "startLine": 12,
+        "startChar": 50,
+        "endLine": 14,
+        "endChar": 20
+      },
+      "revId": "4f34fffc2193387345c35ed0a16ea291c86efd67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1706daae_4b431af9",
@@ -79,6 +103,24 @@
       "side": 1,
       "message": "I hadn\u0027t expected the platform to need to make modifications to the values provided here. Although if that is preferred for future flexibility I don\u0027t see why we couldn\u0027t change this. Were there any specifics you had in mind?",
       "parentUuid": "1706daae_4b431af9",
+      "revId": "4f34fffc2193387345c35ed0a16ea291c86efd67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dea05b35_0b0cbe9e",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-22T06:28:39Z",
+      "side": 1,
+      "message": "I wonder if this comment was somehow related https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/13248/comment/6d1579a9_4d07687d/\ne.g. a platform would define SPMC properties differently from defaults but ok to resolve if not the case.",
+      "parentUuid": "8626b91a_3b6aa608",
       "revId": "4f34fffc2193387345c35ed0a16ea291c86efd67",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -120,6 +162,30 @@
       "side": 1,
       "message": "We are currently yes, do you think that is an unreasonable assumption?",
       "parentUuid": "417453a1_ab9d8e11",
+      "range": {
+        "startLine": 373,
+        "startChar": 1,
+        "endLine": 375,
+        "endChar": 47
+      },
+      "revId": "4f34fffc2193387345c35ed0a16ea291c86efd67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e39d336b_48e93e40",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-22T06:28:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "15841e47_d705809e",
       "range": {
         "startLine": 373,
         "startChar": 1,
