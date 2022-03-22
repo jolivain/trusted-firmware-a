@@ -12,7 +12,8 @@ include services/std_svc/rmmd/trp/trp.mk
 
 RMMD_SOURCES	+=	$(addprefix services/std_svc/rmmd/,	\
 			${ARCH}/rmmd_helpers.S			\
-			rmmd_main.c)
+			rmmd_main.c						\
+			rmmd_attest.c)
 
 # Let the top-level Makefile know that we intend to include RMM image
 NEED_RMM	:=	yes
