@@ -16,6 +16,24 @@
       "message": "The CI complains on 2 issues:\n- First one is the order of includes, I explained it there: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/14364/2/fdts/stm32mp135f-dk.dts#13\n- Second one is about new files. That is covered with tf-a-ci-script patch: https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/14377",
       "revId": "99a5d8d01d38474b056766651bd746a4fe93ab20",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8add860_6ce572fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-03-22T14:43:14Z",
+      "side": 1,
+      "message": "I have legacy CI to make sure CI patch does tests newly introduced config, happy to make an exception on include order",
+      "parentUuid": "f6f97104_f2d6aef3",
+      "revId": "99a5d8d01d38474b056766651bd746a4fe93ab20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
