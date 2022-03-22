@@ -16,6 +16,46 @@
       "message": "Can you look at open comments (e.g. Comments tab) and mark resolved when required?",
       "revId": "c5cd73278273b762a74cabff862e7f032e9c5b31",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5c303bc_81620b9f",
+        "filename": "services/std_svc/std_svc_setup.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-22T08:27:24Z",
+      "side": 1,
+      "message": "WARNING: Copyright is out of date in services/std_svc/std_svc_setup.c: \u0027 * Copyright (c) 2014-2021, ARM Limited and Contributors. All rights reserved.\u0027",
+      "revId": "c5cd73278273b762a74cabff862e7f032e9c5b31",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e2385d0_77fdcf1b",
+        "filename": "services/std_svc/std_svc_setup.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-22T08:27:24Z",
+      "side": 1,
+      "message": "services/std_svc/std_svc_setup.c:156: WARNING: Block comments should align the * on each line\n+\t\t\t/* If we have an SPMC at EL3 allow handling first.\n+\t\t\t* SPMC will call through to SPMD if required.",
+      "range": {
+        "startLine": 155,
+        "startChar": 3,
+        "endLine": 157,
+        "endChar": 5
+      },
+      "revId": "c5cd73278273b762a74cabff862e7f032e9c5b31",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
