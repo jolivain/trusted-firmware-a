@@ -74,6 +74,19 @@
 /* Return values from RMMD GTSI SMCs */
 #define RMMD_GTSI_RET_BAD_ADDR		-2
 #define RMMD_GTSI_RET_BAD_PAS		-3
+
+/* Retrieve Platform token from EL3.
+ * The arguments to this SMC are :
+ *    arg0 - Function ID.
+ *    arg1 - Platform attestation token buffer Physical address. (The challenge
+ *           object is passed in this buffer.)
+ *    arg2 - Platform attestation token buffer size.
+ *    arg3 - Challenge object size.
+ * The return arguments are :
+ *    ret0 - Status / error.
+ *    ret1 - Size of the platform token if successful.
+ */
+#define RMMD_ATTEST_GET_PLAT_TOKEN	RMM_FID(SMC_64, ATTEST_GET_PLAT_TOKEN)
 #ifndef __ASSEMBLER__
 #include <stdint.h>
 

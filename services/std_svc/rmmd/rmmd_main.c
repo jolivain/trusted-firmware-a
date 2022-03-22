@@ -33,6 +33,29 @@
 #include "rmmd_private.h"
 
 /*******************************************************************************
+ * Definitions for Platform attestation.
+ ******************************************************************************/
+#define SHA256_DIGEST_SIZE	32U
+#define SHA384_DIGEST_SIZE	48U
+#define SHA512_DIGEST_SIZE	64U
+
+/* For printing Realm attestation token hash */
+#define DIGITS_PER_BYTE				2UL
+#define LENGTH_OF_TERMINATING_ZERO_IN_BYTES	1UL
+#define BYTES_PER_LINE_BASE			4UL
+
+/*******************************************************************************
+ * Platform attestation buffer. TODO: This temp buffer can be removed.
+ ******************************************************************************/
+static uint8_t attestation_data[PAGE_SIZE] __aligned(PAGE_SIZE);
+
+/*******************************************************************************
+ * Lock for dynamic mapping of pages. TODO: This mapping scheme can be removed
+ * when EL3- RMM interface is formalised.
+ ******************************************************************************/
+static spinlock_t lock;
+
+/*******************************************************************************
  * RMM context information.
  ******************************************************************************/
 rmmd_rmm_context_t rmm_context[PLATFORM_CORE_COUNT];
@@ -349,6 +372,114 @@ static int gtsi_transition_granule(uint64_t pa,
 	return ret;
 }
 
+static void print_token_hash(uint8_t *hash, size_t hash_size)
+{
+	size_t leftover;
+	/*
+	 * bytes_per_line is always a power of two, so it can be used to
+	 * construct mask with it when it is necessary to count remainder.
+	 *
+	 */
+	const size_t bytes_per_line = 1 << BYTES_PER_LINE_BASE;
+	char hash_text[(1 << BYTES_PER_LINE_BASE) * DIGITS_PER_BYTE +
+		LENGTH_OF_TERMINATING_ZERO_IN_BYTES];
+	const char hex_chars[] = {'0', '1', '2', '3', '4', '5', '6', '7',
+				  '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+	unsigned int i;
+
+	for (i = 0U; i < hash_size; ++i) {
+		hash_text[(i & (bytes_per_line - 1)) * DIGITS_PER_BYTE] =
+			hex_chars[hash[i] >> 4];
+		hash_text[(i & (bytes_per_line - 1)) * DIGITS_PER_BYTE + 1] =
+			hex_chars[hash[i] & 0x0f];
+		if (((i + 1) & (bytes_per_line - 1)) == 0U) {
+			hash_text[bytes_per_line * DIGITS_PER_BYTE] = '\0';
+			VERBOSE("hash part %u = %s\n",
+				(i >> BYTES_PER_LINE_BASE) + 1, hash_text);
+		}
+	}
+
+	leftover = (size_t)i & (bytes_per_line - 1);
+
+	if (leftover != 0UL) {
+		hash_text[leftover * DIGITS_PER_BYTE] = '\0';
+		VERBOSE("hash part %u = %s\n", (i >> BYTES_PER_LINE_BASE) + 1,
+			hash_text);
+	}
+}
+
+/*
+ * TODO: Have different error codes for different errors so that the caller can
+ * differentiate various error cases.
+ */
+static int attest_get_platform_token(uint64_t buf_pa, uint64_t *buf_len, uint64_t challenge_hash_len)
+{
+	size_t attestation_data_length = sizeof(attestation_data);
+	int err;
+	uintptr_t va;
+
+	if (*buf_len > PAGE_SIZE) {
+		ERROR("Can't map regions larger than a page.\n");
+		return SMC_UNK;
+	}
+
+	if ((challenge_hash_len != SHA256_DIGEST_SIZE) &&
+	    (challenge_hash_len != SHA384_DIGEST_SIZE) &&
+	    (challenge_hash_len != SHA512_DIGEST_SIZE)) {
+		ERROR("Invalid hash size: %lu\n", challenge_hash_len);
+		return SMC_UNK;
+	}
+
+	spin_lock(&lock);
+
+	/* Map the buffer that was provided by the RMM. */
+	err = mmap_add_dynamic_region_alloc_va(buf_pa, &va, PAGE_SIZE,
+					       MT_RW_DATA | MT_REALM);
+	if (err != 0) {
+		ERROR("mmap_add_dynamic_region_alloc_va failed: %d (%p).\n"
+		      , err, (void *)buf_pa);
+		spin_unlock(&lock);
+		return SMC_UNK;
+	}
+
+	/*
+	 * Get the hash of the Realm token from the SMC parameters's
+	 * platform token buffer. In a later version this will be used
+	 * as an input for the platform token generation. However for
+	 * now only print it.
+	 */
+	print_token_hash((uint8_t *)va, challenge_hash_len);
+
+	/* Get the platform token. */
+	err = plat_get_cca_attest_token(attestation_data,
+		&attestation_data_length, (uint8_t *)va, challenge_hash_len);
+
+	if (err != 0) {
+		ERROR("Failed to get platform token: %d.\n", err);
+		mmap_remove_dynamic_region(va, PAGE_SIZE);
+		spin_unlock(&lock);
+		return SMC_UNK;
+	}
+
+	assert(attestation_data_length <= *buf_len);
+
+	/* TODO: Remove memcpy when EL3 - RMM interface is formalised */
+	(void)memcpy((uint8_t *)va, attestation_data,
+		attestation_data_length);
+
+	/* Unmap RMM memory. */
+	err = mmap_remove_dynamic_region(va, PAGE_SIZE);
+	spin_unlock(&lock);
+	if (err != 0) {
+		ERROR("mmap_remove_dynamic_region failed: %d (%p).\n",
+		      err, (void *)buf_pa);
+		return SMC_UNK;
+	}
+
+	*buf_len = attestation_data_length;
+	return SMC_OK;
+}
+
 /*******************************************************************************
  * This function handles RMM-EL3 interface SMCs
  ******************************************************************************/
@@ -357,6 +488,7 @@ uint64_t rmmd_rmm_el3_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 				void *handle, uint64_t flags)
 {
 	uint32_t src_sec_state;
+	int ret;
 
 	/* Determine which security state this SMC originated from */
 	src_sec_state = caller_sec_state(flags);
@@ -373,6 +505,10 @@ uint64_t rmmd_rmm_el3_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 	case RMMD_GTSI_UNDELEGATE:
 		SMC_RET1(handle, gtsi_transition_granule(x1, SMC_FROM_REALM,
 								GPT_GPI_NS));
+	case RMMD_ATTEST_GET_PLAT_TOKEN:
+		ret = attest_get_platform_token(x1, &x2, x3);
+		SMC_RET2(handle, ret, x2);
+
 	default:
 		WARN("RMM: Unsupported RMM-EL3 call 0x%08x\n", smc_fid);
 		SMC_RET1(handle, SMC_UNK);
