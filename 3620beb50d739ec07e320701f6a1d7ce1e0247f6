@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "622e6306_4a99b2c9",
+        "filename": "plat/st/stm32mp1/stm32mp1_syscfg.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-03-22T08:12:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cfe09bf6_d71a7053",
+      "revId": "3620beb50d739ec07e320701f6a1d7ce1e0247f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bea8537c_49a50076",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-03-21T22:33:14Z",
       "side": 1,
       "message": "I guess this is not from TF-A. Out of curiosity, is it used by doxygen to create documentation?",
+      "range": {
+        "startLine": 239,
+        "startChar": 3,
+        "endLine": 239,
+        "endChar": 9
+      },
+      "revId": "3620beb50d739ec07e320701f6a1d7ce1e0247f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83b6286b_7653f8d1",
+        "filename": "plat/st/stm32mp1/stm32mp1_syscfg.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-03-22T08:12:16Z",
+      "side": 1,
+      "message": "That\u0027s a copy/paste from what was done on STM32MP15, in plat/st/stm32mp1/stm32mp1_dbgmcu.c file. But we do not use doxygen. I can remove that if you wish?",
+      "parentUuid": "bea8537c_49a50076",
       "range": {
         "startLine": 239,
         "startChar": 3,
