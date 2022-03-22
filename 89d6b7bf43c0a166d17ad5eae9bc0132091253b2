@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbe6fffd_6649ef22",
+        "filename": "services/std_svc/rmmd/rmmd_attest.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-03-22T17:37:00Z",
+      "side": 1,
+      "message": "don\u0027t",
+      "revId": "89d6b7bf43c0a166d17ad5eae9bc0132091253b2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9efb1484_7812dfc0",
+        "filename": "services/std_svc/rmmd/rmmd_attest.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-03-22T17:37:00Z",
+      "side": 1,
+      "message": "Can we return negative err value instead of -1? See also other cases.",
+      "revId": "89d6b7bf43c0a166d17ad5eae9bc0132091253b2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3747d126_39dc83b1",
+        "filename": "services/std_svc/rmmd/rmmd_attest.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-03-22T17:37:00Z",
+      "side": 1,
+      "message": "(void)memcpy",
+      "revId": "89d6b7bf43c0a166d17ad5eae9bc0132091253b2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "812b6a29_503f20f9",
+        "filename": "services/std_svc/rmmd/rmmd_attest.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-03-22T17:37:00Z",
+      "side": 1,
+      "message": "parameters\u0027",
+      "revId": "89d6b7bf43c0a166d17ad5eae9bc0132091253b2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
