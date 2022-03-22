@@ -50,6 +50,23 @@
       "message": "@Madhukar, is this a known issue? I get a CI failure\n\n17:48:38 aarch64-none-elf-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/stingray/debug/bl2/bl2_main.o: in function `bl2_main\u0027:\n17:48:38 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/bl2/bl2_main.c:93: undefined reference to `crypto_mod_init\u0027\n17:48:38 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/bl2/bl2_main.c:93:(.text.bl2_main+0x38): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `crypto_mod_init\u0027\n17:48:38 aarch64-none-elf-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/bl2/bl2_main.c:96: undefined reference to `auth_mod_init\u0027\n17:48:38 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/bl2/bl2_main.c:96:(.text.bl2_main+0x3c): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `auth_mod_init\u0027\n17:48:38 aarch64-none-elf-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/stingray/debug/bl2/bl_common.o: in function `load_auth_image_recursive\u0027:\n17:48:38 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/common/bl_common.c:159: undefined reference to `auth_mod_get_parent_id\u0027\n17:48:38 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/common/bl_common.c:159:(.text.load_auth_image_recursive.constprop.0+0x1c): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `auth_mod_get_parent_id\u0027\n17:48:38 aarch64-none-elf-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/common/bl_common.c:174: undefined reference to `auth_mod_verify_img\u0027\n17:48:38 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/common/bl_common.c:174:(.text.load_auth_image_recursive.constprop.0+0x15c): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `auth_mod_verify_img\u0027\n17:48:38 Makefile:1258: recipe for target \u0027/home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/stingray/debug/bl2/bl2.elf\u0027 failed\n17:48:38 make: *** [/home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/stingray/debug/bl2/bl2.elf] Error 1",
       "revId": "a6180f2a7adf98726949e8cb37a223952cb896db",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fdea6a5_f91b6840",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-03-22T22:03:49Z",
+      "side": 1,
+      "message": "I see this failure for ST boards. \n\n16:10:56 make: *** No rule to make target \u0027/home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/stm32mp1/debug/fdts/stm32mp135f-dk-bl2.dts\u0027, needed by \u0027/home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/stm32mp1/debug/fdts/stm32mp135f-dk-bl2.dtb\u0027.  Stop.\n\nThis failure is not related to the patch.",
+      "revId": "a6180f2a7adf98726949e8cb37a223952cb896db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
