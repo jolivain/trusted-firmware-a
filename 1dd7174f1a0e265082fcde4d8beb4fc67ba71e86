@@ -100,6 +100,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "755ad075_43bab31a",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-22T06:19:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c8e4dfca_1f76faaa",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 31
+      },
+      "revId": "1dd7174f1a0e265082fcde4d8beb4fc67ba71e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "485851df_ad6d546b",
@@ -337,6 +361,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c18e9d25_a7336826",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-22T06:19:22Z",
+      "side": 1,
+      "message": "I kind of recall the spec says FFA_SECONDARY_EP_REGISTER can only be called when a SP is in its init state hence a single execution context active.",
+      "parentUuid": "481c5333_183d54cf",
+      "range": {
+        "startLine": 133,
+        "startChar": 1,
+        "endLine": 136,
+        "endChar": 30
+      },
+      "revId": "1dd7174f1a0e265082fcde4d8beb4fc67ba71e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e41bc286_ddbf5d7f",
         "filename": "services/std_svc/spm/spmc/spmc.h",
         "patchSetId": 12
@@ -366,6 +414,24 @@
       "side": 1,
       "message": "Yes we did look at the that option, however there looks to be a relativity large amount of wasted entries from the sp descriptor that were not required for normal world entities, especially sp_exec_ct, and we wanted to try and keep a minimal footprint.\nDoes that seem reasonable?",
       "parentUuid": "e41bc286_ddbf5d7f",
+      "revId": "1dd7174f1a0e265082fcde4d8beb4fc67ba71e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afa09cf1_da9d5498",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-22T06:19:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "320ed852_f7d27289",
       "revId": "1dd7174f1a0e265082fcde4d8beb4fc67ba71e86",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -499,6 +565,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e67ce6da_bbda22b6",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-22T06:19:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "158388ef_ea0a38ba",
+      "range": {
+        "startLine": 36,
+        "startChar": 3,
+        "endLine": 36,
+        "endChar": 76
+      },
+      "revId": "1dd7174f1a0e265082fcde4d8beb4fc67ba71e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59101255_8ec15995",
@@ -536,6 +626,30 @@
       "side": 1,
       "message": "I don\u0027t have a strong preference either way however have had comments on other patches that being more explicit with parentheses is preferred?",
       "parentUuid": "59101255_8ec15995",
+      "range": {
+        "startLine": 50,
+        "startChar": 9,
+        "endLine": 50,
+        "endChar": 10
+      },
+      "revId": "1dd7174f1a0e265082fcde4d8beb4fc67ba71e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7aac37ee_54cfea34",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-22T06:19:22Z",
+      "side": 1,
+      "message": "IMO it adds heavyness when not required by the C syntax, but ok to leave as is.",
+      "parentUuid": "0348d383_1f6011ec",
       "range": {
         "startLine": 50,
         "startChar": 9,
@@ -792,6 +906,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0adacfbc_aabd7e69",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-22T06:19:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ecbe07b_40fe772b",
+      "revId": "1dd7174f1a0e265082fcde4d8beb4fc67ba71e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5cec3f46_cd334e39",
@@ -876,6 +1008,30 @@
       "side": 1,
       "message": "True, allocate may be the wrong word here. Perhaps \"select\"?",
       "parentUuid": "33514a3f_dfe22d8c",
+      "range": {
+        "startLine": 262,
+        "startChar": 4,
+        "endLine": 262,
+        "endChar": 29
+      },
+      "revId": "1dd7174f1a0e265082fcde4d8beb4fc67ba71e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9c58551_0a08602a",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-22T06:19:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3a56131_5c96bd15",
       "range": {
         "startLine": 262,
         "startChar": 4,
@@ -1064,6 +1220,30 @@
       "side": 1,
       "message": "Fair point, this was again originally taken from the SPM MM code, however if this code was to be extended to support multiple partitions would it make sense to keep this to prevent any future issues?",
       "parentUuid": "1a38f6ac_59587bd2",
+      "range": {
+        "startLine": 313,
+        "startChar": 0,
+        "endLine": 315,
+        "endChar": 10
+      },
+      "revId": "1dd7174f1a0e265082fcde4d8beb4fc67ba71e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a41f970f_dcc0ae9a",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-22T06:19:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9308990a_c9602267",
       "range": {
         "startLine": 313,
         "startChar": 0,
@@ -1579,6 +1759,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ff7395e_5208692a",
+        "filename": "services/std_svc/spm/spmc/spmc_setup.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-22T06:19:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8b7c670_f801e18d",
+      "range": {
+        "startLine": 3,
+        "startChar": 3,
+        "endLine": 3,
+        "endChar": 63
+      },
+      "revId": "1dd7174f1a0e265082fcde4d8beb4fc67ba71e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8eab6ab_4e0687e4",
@@ -1610,6 +1814,24 @@
       "side": 1,
       "message": "Sure, I guess the upper limimt would be FFA_SWD_ID_LIMIT? However I would expect the maximum number of SPs would always be considerably lower than this. Perhaps adding an assertion that the sp_id does not reach that value may be more appropriate?",
       "parentUuid": "f8eab6ab_4e0687e4",
+      "revId": "1dd7174f1a0e265082fcde4d8beb4fc67ba71e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2626d60a_b1fb50b6",
+        "filename": "services/std_svc/spm/spmc/spmc_setup.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-22T06:19:22Z",
+      "side": 1,
+      "message": "Whatever option, the main point is that it\u0027s generally safer to guard an infinite loop with a failsafe exit condition esp. in a boot firmware.",
+      "parentUuid": "eda2300b_d90263a4",
       "revId": "1dd7174f1a0e265082fcde4d8beb4fc67ba71e86",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },

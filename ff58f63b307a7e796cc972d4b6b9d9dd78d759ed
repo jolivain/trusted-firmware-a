@@ -1165,6 +1165,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "024de403_c05256b4",
+        "filename": "services/std_svc/spm/spmc/spmc_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-03-22T06:19:22Z",
+      "side": 1,
+      "message": "I wonder if this may clash at some point with the context management refactoring changes under review (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/13804). We\u0027ll have to take special care if merging one of the other patchset first.",
+      "parentUuid": "caba8fda_d64629fa",
+      "revId": "ff58f63b307a7e796cc972d4b6b9d9dd78d759ed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2844b574_50b73492",
         "filename": "services/std_svc/spm/spmc/spmc_setup.c",
         "patchSetId": 5
