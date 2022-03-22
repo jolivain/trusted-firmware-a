@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -26,8 +26,6 @@
 #include <plat/common/common_def.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>
-#include <services/gtsi_svc.h>
-#include <services/rmi_svc.h>
 #include <services/rmmd_svc.h>
 #include <smccc_helpers.h>
 #include <lib/extensions/sve.h>
@@ -271,10 +269,12 @@ uint64_t rmmd_rmi_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 					x1, x2, x3, x4, handle);
 	}
 
-	assert(src_sec_state == SMC_FROM_REALM);
+	if (src_sec_state != SMC_FROM_REALM) {
+		SMC_RET1(handle, SMC_UNK);
+	}
 
 	switch (smc_fid) {
-	case RMI_RMM_REQ_COMPLETE:
+	case RMMD_RMI_REQ_COMPLETE:
 		if (ctx->state == RMM_STATE_RESET) {
 			VERBOSE("RMM: running rmmd_rmm_sync_exit\n");
 			rmmd_rmm_sync_exit(x1);
@@ -338,21 +338,21 @@ static int gtsi_transition_granule(uint64_t pa,
 		ERROR("[GTSI] Transition failed: invalid %s\n", "address");
 		ERROR("       PA: 0x%" PRIx64 ", SRC: %d, PAS: %d\n", pa,
 		      src_sec_state, target_pas);
-		ret = GRAN_TRANS_RET_BAD_ADDR;
+		ret = RMMD_GTSI_RET_BAD_ADDR;
 	} else if (ret == -EPERM) {
 		ERROR("[GTSI] Transition failed: invalid %s\n", "caller/PAS");
 		ERROR("       PA: 0x%" PRIx64 ", SRC: %d, PAS: %d\n", pa,
 		      src_sec_state, target_pas);
-		ret = GRAN_TRANS_RET_BAD_PAS;
+		ret = RMMD_GTSI_RET_BAD_PAS;
 	}
 
 	return ret;
 }
 
 /*******************************************************************************
- * This function handles all SMCs in the range reserved for GTF.
+ * This function handles RMM-EL3 interface SMCs
  ******************************************************************************/
-uint64_t rmmd_gtsi_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
+uint64_t rmmd_rmm_el3_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 				uint64_t x3, uint64_t x4, void *cookie,
 				void *handle, uint64_t flags)
 {
@@ -362,19 +362,19 @@ uint64_t rmmd_gtsi_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 	src_sec_state = caller_sec_state(flags);
 
 	if (src_sec_state != SMC_FROM_REALM) {
-		WARN("RMM: GTF call originated from secure or normal world\n");
+		WARN("RMM: RMMD-EL3 call originated from secure or normal world\n");
 		SMC_RET1(handle, SMC_UNK);
 	}
 
 	switch (smc_fid) {
-	case SMC_ASC_MARK_REALM:
+	case RMMD_GTSI_DELEGATE:
 		SMC_RET1(handle, gtsi_transition_granule(x1, SMC_FROM_REALM,
 								GPT_GPI_REALM));
-	case SMC_ASC_MARK_NONSECURE:
+	case RMMD_GTSI_UNDELEGATE:
 		SMC_RET1(handle, gtsi_transition_granule(x1, SMC_FROM_REALM,
 								GPT_GPI_NS));
 	default:
-		WARN("RMM: Unsupported GTF call 0x%08x\n", smc_fid);
+		WARN("RMM: Unsupported RMM-EL3 call 0x%08x\n", smc_fid);
 		SMC_RET1(handle, SMC_UNK);
 	}
 }

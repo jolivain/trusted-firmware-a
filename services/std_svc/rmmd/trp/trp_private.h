@@ -31,6 +31,19 @@ typedef struct trp_args {
 #define write_trp_arg(args, offset, val) (((args)->regs[offset >> 3])	\
 					 = val)
 
+/* RMI handled by TRP */
+#define RMI_FNUM_VERSION_REQ		U(0x150)
+
+#define RMI_FNUM_GRANULE_DELEGATE	U(0x151)
+#define RMI_FNUM_GRANULE_UNDELEGATE	U(0x152)
+
+#define RMI_RMM_REQ_VERSION		RMI_FID(SMC_64, RMI_FNUM_VERSION_REQ)
+
+#define RMI_RMM_GRANULE_DELEGATE	RMI_FID(SMC_64, \
+						RMI_FNUM_GRANULE_DELEGATE)
+#define RMI_RMM_GRANULE_UNDELEGATE	RMI_FID(SMC_64, \
+						RMI_FNUM_GRANULE_UNDELEGATE)
+
 /* Definitions for RMI VERSION */
 #define RMI_ABI_VERSION_MAJOR		U(0x0)
 #define RMI_ABI_VERSION_MINOR		U(0x0)
