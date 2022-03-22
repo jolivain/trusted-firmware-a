@@ -284,6 +284,8 @@ void bl31_plat_runtime_setup(void);
 struct entry_point_info *bl31_plat_get_next_image_ep_info(uint32_t type);
 int plat_get_cca_attest_token(uint8_t *buf, size_t *len,
 			       uint8_t *hash, size_t hash_size);
+int plat_get_cca_attest_key(uint8_t *buf, size_t *len, uint8_t type,
+			     size_t size);
 
 /*******************************************************************************
  * Mandatory PSCI functions (BL31)

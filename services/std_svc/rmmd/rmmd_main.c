@@ -480,6 +480,60 @@ static int attest_get_platform_token(uint64_t buf_pa, uint64_t *buf_len, uint64_
 	return SMC_OK;
 }
 
+static int attest_get_signing_key(uint64_t buf_pa, uint64_t *buf_len, uint64_t ecc_curve, uint64_t key_bits)
+{
+	size_t attestation_data_length = sizeof(attestation_data);
+	int err;
+	uintptr_t va;
+
+	if (*buf_len > PAGE_SIZE) {
+		ERROR("Can't map regions larger than a page.\n");
+		return SMC_UNK;
+	}
+
+	spin_lock(&lock);
+
+	/* Map the buffer that was provided by the RMM. */
+	err = mmap_add_dynamic_region_alloc_va(buf_pa, &va, PAGE_SIZE,
+					       MT_RW_DATA | MT_REALM);
+	if (err != 0) {
+		ERROR("mmap_add_dynamic_region_alloc_va failed: %d (%p).\n"
+		      , err, (void *)buf_pa);
+		spin_unlock(&lock);
+		return SMC_UNK;
+	}
+
+	/* Get the attestation key. */
+	err = plat_get_cca_attest_key(attestation_data,
+				  &attestation_data_length,
+				  (uint8_t)ecc_curve, key_bits);
+	if (err != 0) {
+		ERROR("Failed to get attestation key: %d.\n", err);
+		mmap_remove_dynamic_region(va, PAGE_SIZE);
+		spin_unlock(&lock);
+		return SMC_UNK;
+	}
+
+	assert(attestation_data_length <= *buf_len);
+
+	/* TODO: Remove memcpy when EL3 - RMM interface is formalised */
+	(void)memcpy((uint8_t *)va, attestation_data,
+		     attestation_data_length);
+
+	/* Unmap RMM memory. */
+	err = mmap_remove_dynamic_region(va, PAGE_SIZE);
+	spin_unlock(&lock);
+
+	if (err != 0) {
+		ERROR("mmap_remove_dynamic_region failed: %d (%p).\n",
+		      err, (void *)buf_pa);
+		return SMC_UNK;
+	}
+
+	*buf_len = attestation_data_length;
+	return SMC_OK;
+}
+
 /*******************************************************************************
  * This function handles RMM-EL3 interface SMCs
  ******************************************************************************/
@@ -507,6 +561,10 @@ uint64_t rmmd_rmm_el3_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 								GPT_GPI_NS));
 	case RMMD_ATTEST_GET_PLAT_TOKEN:
 		ret = attest_get_platform_token(x1, &x2, x3);
+		SMC_RET2(handle, ret, x2);
+
+	case RMMD_ATTEST_GET_REALM_KEY:
+		ret = attest_get_signing_key(x1, &x2, x3, x4);
 		SMC_RET2(handle, ret, x2);
 
 	default:
