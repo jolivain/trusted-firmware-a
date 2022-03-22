@@ -134,6 +134,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4a8b8d72_ef71106f",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-03-22T14:32:17Z",
+      "side": 1,
+      "message": "The communication between EL3 and RMM should ideally be based on static buffers allocated by EL3 during cold boot and mapped into RMM. Currently this is not the case and EL3 is mapping in buffer passed by the client hence necessitating the validation of the buf address. \n\nValidating this buf address would either need a platform API or an extension to the GPT lib to retrieve the PAS of the buffer. Given that we plan to move to EL3 allocated static buffer in the near term and the RME feature is experimental in TF-A, I can add a note here in that regard. Would that be sufficient ?",
+      "parentUuid": "f55ced87_c8b77b65",
+      "range": {
+        "startLine": 390,
+        "startChar": 41,
+        "endLine": 390,
+        "endChar": 43
+      },
+      "revId": "c0c61f2b0ee6ce026c22b62ae92af2c3632ec4f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f87e9b7_d722e0f4",
         "filename": "services/std_svc/rmmd/rmmd_main.c",
         "patchSetId": 1
@@ -162,6 +186,30 @@
       "writtenOn": "2022-03-20T05:19:22Z",
       "side": 1,
       "message": "x3,x4 not validated/../",
+      "range": {
+        "startLine": 402,
+        "startChar": 16,
+        "endLine": 402,
+        "endChar": 22
+      },
+      "revId": "c0c61f2b0ee6ce026c22b62ae92af2c3632ec4f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14e5d730_f3ef68d5",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-03-22T14:32:17Z",
+      "side": 1,
+      "message": "Yes, these parameters are unused at the moment. I am introducing a typedef for the ECC curve which can then be used to validate the parameter. Working on it now.",
+      "parentUuid": "2c002614_9db302f8",
       "range": {
         "startLine": 402,
         "startChar": 16,
