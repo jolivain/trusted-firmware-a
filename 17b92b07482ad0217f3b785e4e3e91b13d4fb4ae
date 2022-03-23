@@ -16,6 +16,24 @@
       "message": "It is possible for the psci_spd_pm-\u003esvc_on_finish(0) and subscribers of PUBLISH_EVENT(psci_cpu_on_finish) could modify NS context. Hence it is necessary to synchronize earlier.",
       "revId": "17b92b07482ad0217f3b785e4e3e91b13d4fb4ae",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef226e17_dc0cda4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-03-23T10:23:56Z",
+      "side": 1,
+      "message": "Hmm. That seems possible. I think there is an opportunity to remove the lock, if we create the NS world context _before_ powering on the target CPU. If the CPU power on fails, then we can purge the context. That is a small price for the enhancement. What do you think?",
+      "parentUuid": "de5aaa80_5f7e67a8",
+      "revId": "17b92b07482ad0217f3b785e4e3e91b13d4fb4ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
