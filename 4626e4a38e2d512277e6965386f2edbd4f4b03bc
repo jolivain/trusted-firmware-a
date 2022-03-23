@@ -69,6 +69,24 @@
       "parentUuid": "41e888de_b7197e6d",
       "revId": "4626e4a38e2d512277e6965386f2edbd4f4b03bc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f95246d5_c1ee4283",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-03-23T14:56:53Z",
+      "side": 1,
+      "message": "I see 3: 0, -EINVAL \u0026 -EPERM",
+      "parentUuid": "4e02d399_b2d32b1f",
+      "revId": "4626e4a38e2d512277e6965386f2edbd4f4b03bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
