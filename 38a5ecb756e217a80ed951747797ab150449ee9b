@@ -51,6 +51,24 @@
       "message": "Failing with following error, not related to this change:\n22:23:26 make: *** No rule to make target \u0027/home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/stm32mp1/debug/fdts/stm32mp135f-dk-bl2.dts\u0027, needed by \u0027/home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/stm32mp1/debug/fdts/stm32mp135f-dk-bl2.dtb\u0027.  Stop.\n",
       "revId": "38a5ecb756e217a80ed951747797ab150449ee9b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "178957d1_32fd3755",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-03-23T17:10:26Z",
+      "side": 1,
+      "message": "Hi,\nSorry for this. As told by Andre in another patch comment, this is due to alignment between tf-a-ci-script version used and trustedfirmware-a. If you wish to correct the issue, you should rebase your patch on latest integration branch. But the maintainers are aware of that, and they probably be able to merge your patch as-is.\n\nBest regards,\nYann",
+      "parentUuid": "9baa7fab_2228771b",
+      "revId": "38a5ecb756e217a80ed951747797ab150449ee9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
