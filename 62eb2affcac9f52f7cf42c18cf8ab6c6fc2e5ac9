@@ -117,6 +117,30 @@
       },
       "revId": "62eb2affcac9f52f7cf42c18cf8ab6c6fc2e5ac9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9a93e1c_24e506e8",
+        "filename": "Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-03-24T15:06:47Z",
+      "side": 1,
+      "message": "I asked this query since current implementation deliberately do not pass the pre-processor option [1] when building with clang. However, I don\u0027t know the exact reason why.If this option has been tested and works well with clang, then it is better to fix it now.\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/commit/Makefile?id\u003d7040155e58a67cfca0776f5ca6348c7c8da68a49",
+      "parentUuid": "464d17de_ae430185",
+      "range": {
+        "startLine": 299,
+        "startChar": 21,
+        "endLine": 299,
+        "endChar": 41
+      },
+      "revId": "62eb2affcac9f52f7cf42c18cf8ab6c6fc2e5ac9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
