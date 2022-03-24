@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15ba3aa1_2230287b",
+        "filename": "Makefile",
+        "patchSetId": 9
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2022-03-24T12:58:38Z",
+      "side": 1,
+      "message": "$(LINKER)",
+      "range": {
+        "startLine": 289,
+        "startChar": 17,
+        "endLine": 289,
+        "endChar": 26
+      },
+      "revId": "612a444e82bb710937f3a2dc25dc337145e0f33b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c03c9cfb_08a197a6",
+        "filename": "Makefile",
+        "patchSetId": 9
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2022-03-24T12:58:38Z",
+      "side": 1,
+      "message": "Indentation appears to be out of alignment with other lines (is your tab width set to 8?)",
+      "range": {
+        "startLine": 289,
+        "startChar": 10,
+        "endLine": 289,
+        "endChar": 15
+      },
+      "revId": "612a444e82bb710937f3a2dc25dc337145e0f33b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5493496c_895f5692",
+        "filename": "Makefile",
+        "patchSetId": 9
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2022-03-24T12:58:38Z",
+      "side": 1,
+      "message": "It seems unusual to me that we would omit the target flags from the preprocessor; they\u0027re quite important, because otherwise we inherit predefined preprocessor definitions from the default target (i.e. the host machine). I would expect both Clang and ArmClang to share these two commands.",
+      "range": {
+        "startLine": 295,
+        "startChar": 0,
+        "endLine": 296,
+        "endChar": 22
+      },
+      "revId": "612a444e82bb710937f3a2dc25dc337145e0f33b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4df76cef_ce3da1e0",
+        "filename": "Makefile",
+        "patchSetId": 9
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2022-03-24T12:58:38Z",
+      "side": 1,
+      "message": "Clang provides the `--print-prog-name` argument for retrieving the path to the most relevant toolchain tool, e.g.:\n\n    chrkay01@ubuntu:~$ clang --print-prog-name ld.lld\n    /usr/bin/ld.lld",
+      "range": {
+        "startLine": 297,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 97
+      },
+      "revId": "612a444e82bb710937f3a2dc25dc337145e0f33b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2efc912_5e7d0f1c",
+        "filename": "Makefile",
+        "patchSetId": 9
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2022-03-24T12:58:38Z",
+      "side": 1,
+      "message": "We don\u0027t do this for other tools, and `which` is non-portable anyway (e.g. Windows uses `where`). An error will be throw up if it\u0027s invoked and found missing, so I don\u0027t think we benefit much from catching it ourselves.",
+      "range": {
+        "startLine": 303,
+        "startChar": 0,
+        "endLine": 305,
+        "endChar": 9
+      },
+      "revId": "612a444e82bb710937f3a2dc25dc337145e0f33b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
