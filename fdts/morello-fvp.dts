@@ -8,6 +8,7 @@
 #include "morello.dtsi"
 
 / {
+	model = "Arm Morello Fixed Virtual Platform";
 
 	chosen {
 		stdout-path = "serial0:115200n8";
