@@ -13,6 +13,7 @@
 #include <common/debug.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/el3_runtime/pubsub_events.h>
+#include <lib/utils.h>
 #include <plat/common/platform.h>
 
 #include "psci_private.h"
@@ -63,6 +64,7 @@ int psci_cpu_on_start(u_register_t target_cpu,
 	aff_info_state_t target_aff_state;
 	int ret = plat_core_pos_by_mpidr(target_cpu);
 	unsigned int target_idx = (unsigned int)ret;
+	cpu_context_t *ctx;
 
 	/* Calling function must supply valid input arguments */
 	assert(ret >= 0);
@@ -136,6 +138,19 @@ int psci_cpu_on_start(u_register_t target_cpu,
 	}
 
 	/*
+	 * Store the re-entry information for the non-secure world before
+	 * the target_cpu powers on. Initializing the context earlier
+	 * removes the need for synchronization with the target_cpu.
+	 */
+	cm_init_context_by_index(target_idx, ep);
+
+	/*
+	 * Introduce a barrier to ensure context is initialized before the
+	 * target CPU is powered on.
+	 */
+	dsbsy();
+
+	/*
 	 * Perform generic, architecture and platform specific handling.
 	 */
 	/*
@@ -146,10 +161,11 @@ int psci_cpu_on_start(u_register_t target_cpu,
 	rc = psci_plat_pm_ops->pwr_domain_on(target_cpu);
 	assert((rc == PSCI_E_SUCCESS) || (rc == PSCI_E_INTERN_FAIL));
 
-	if (rc == PSCI_E_SUCCESS)
-		/* Store the re-entry information for the non-secure world. */
-		cm_init_context_by_index(target_idx, ep);
-	else {
+	if (rc != PSCI_E_SUCCESS) {
+		/* Clear any residual register values from the context */
+		ctx = cm_get_context_by_index(target_idx, GET_SECURITY_STATE(ep->h.attr));
+		zeromem(ctx, sizeof(*ctx));
+
 		/* Restore the state on error. */
 		psci_set_aff_info_state_by_idx(target_idx, AFF_STATE_OFF);
 		flush_cpu_data_by_index(target_idx,
@@ -197,15 +213,6 @@ void psci_cpu_on_finish(unsigned int cpu_idx, const psci_power_state_t *state_in
 	 * to run in the non-secure address space.
 	 */
 	psci_arch_setup();
-
-	/*
-	 * Lock the CPU spin lock to make sure that the context initialization
-	 * is done. Since the lock is only used in this function to create
-	 * a synchronization point with cpu_on_start(), it can be released
-	 * immediately.
-	 */
-	psci_spin_lock_cpu(cpu_idx);
-	psci_spin_unlock_cpu(cpu_idx);
 
 	/*
 	 * Call the cpu on finish handler registered by the Secure Payload
