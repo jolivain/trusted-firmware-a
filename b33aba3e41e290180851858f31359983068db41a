@@ -117,6 +117,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fd25f71_8a7a9524",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-03-24T16:12:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46fffd2d_b9a3f30b",
+      "range": {
+        "startLine": 285,
+        "startChar": 4,
+        "endLine": 286,
+        "endChar": 44
+      },
+      "revId": "b33aba3e41e290180851858f31359983068db41a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93ffb9b1_ad8f2ab2",
@@ -264,6 +288,24 @@
       "side": 1,
       "message": "Not currently. We can add.",
       "parentUuid": "6dcb51ee_f416118c",
+      "revId": "b33aba3e41e290180851858f31359983068db41a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03d1e478_a0326bd7",
+        "filename": "services/std_svc/rmmd/rmmd_attest.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-03-24T16:12:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b80dd858_bb179a95",
       "revId": "b33aba3e41e290180851858f31359983068db41a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
