@@ -264,7 +264,10 @@ void spmc_el0_sp_spsr_setup(entry_point_info_t *ep_info)
 void spmc_el0_sp_setup(struct secure_partition_desc *sp,
 		       int32_t boot_info_reg)
 {
-	mmap_region_t sel1_exception_vectors;
+	mmap_region_t sel1_exception_vectors =
+		MAP_REGION_FLAT(SPM_SHIM_EXCEPTIONS_START,
+				SPM_SHIM_EXCEPTIONS_SIZE,
+				 MT_CODE | MT_SECURE | MT_PRIVILEGED);
 	cpu_context_t *ctx;
 
 	ctx = &sp->ec[SEL0_SP_EC_INDEX].cpu_ctx;
@@ -272,10 +275,6 @@ void spmc_el0_sp_setup(struct secure_partition_desc *sp,
 	sp->xlat_ctx_handle->xlat_regime = EL1_EL0_REGIME;
 
 	/* This region contains the exception vectors used at S-EL1. */
-	sel1_exception_vectors =
-		MAP_REGION_FLAT(SPM_SHIM_EXCEPTIONS_START,
-				SPM_SHIM_EXCEPTIONS_SIZE,
-				 MT_CODE | MT_SECURE | MT_PRIVILEGED);
 	mmap_add_region_ctx(sp->xlat_ctx_handle,
 			    &sel1_exception_vectors);
 
