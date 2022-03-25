@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2022-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -20,6 +20,7 @@
 #include <plat/common/platform.h>
 #include <services/ffa_svc.h>
 #include "spm_common.h"
+#include "spm_shim_private.h"
 #include "spmc.h"
 #include <tools_share/firmware_image_package.h>
 
