@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80cda202_37705f40",
+        "filename": "Makefile",
+        "patchSetId": 12
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2022-03-25T13:01:44Z",
+      "side": 1,
+      "message": "This can use `--print-prog-name` as you\u0027ve done for the other tools",
+      "range": {
+        "startLine": 288,
+        "startChar": 7,
+        "endLine": 288,
+        "endChar": 73
+      },
+      "revId": "97198a88ae3492d9667e9b765effe62df3e8695f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27bb90ae_b59a33ca",
+        "filename": "Makefile",
+        "patchSetId": 12
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2022-03-25T13:01:44Z",
+      "side": 1,
+      "message": "`LD` - mind case sensitivity.",
+      "range": {
+        "startLine": 292,
+        "startChar": 2,
+        "endLine": 292,
+        "endChar": 4
+      },
+      "revId": "97198a88ae3492d9667e9b765effe62df3e8695f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55cf6416_c7d3cd01",
+        "filename": "Makefile",
+        "patchSetId": 12
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2022-03-25T13:01:44Z",
+      "side": 1,
+      "message": "These need indenting like those in the `ifneq` block",
+      "range": {
+        "startLine": 294,
+        "startChar": 0,
+        "endLine": 296,
+        "endChar": 52
+      },
+      "revId": "97198a88ae3492d9667e9b765effe62df3e8695f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bcdca71_7f41e751",
+        "filename": "Makefile",
+        "patchSetId": 12
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2022-03-25T13:01:44Z",
+      "side": 1,
+      "message": "All of the assignments here ought to be `:\u003d` rather than `\u003d`, otherwise they will be re-evaluated every time they are used (potentially seriously slowing down the build)",
+      "range": {
+        "startLine": 285,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 58
+      },
+      "revId": "97198a88ae3492d9667e9b765effe62df3e8695f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
