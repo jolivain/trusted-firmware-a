@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8dde9ad4_a0f51a10",
+        "filename": "services/std_svc/spm/spmc/logical_sp.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2022-03-25T14:39:56Z",
+      "side": 1,
+      "message": "UUID is checked below to ensure its not a NULL UUID. \nSo can this check be removed?\nAlso using clang causes the build to fail for this condition check.",
+      "revId": "e2245785110391be708ef5a918de4b094043fdfd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7ce4fa0d_65bd33c3",
         "filename": "services/std_svc/spm/spmc/logical_sp.h",
         "patchSetId": 15
