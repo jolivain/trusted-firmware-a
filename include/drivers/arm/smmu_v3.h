@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2022, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,10 +11,15 @@
 #include <lib/utils_def.h>
 
 /* SMMUv3 register offsets from device base */
+#define SMMU_CR0	U(0x0020)
+#define SMMU_CR0ACK	U(0x0024)
 #define SMMU_GBPA	U(0x0044)
 #define SMMU_S_IDR1	U(0x8004)
 #define SMMU_S_INIT	U(0x803c)
 #define SMMU_S_GBPA	U(0x8044)
+
+/* SMMU_CR0 and SMMU_CR0ACK register fields */
+#define SMMU_CR0_SMMUEN			(1UL << 0)
 
 /* SMMU_GBPA register fields */
 #define SMMU_GBPA_UPDATE		(1UL << 31)
@@ -32,5 +37,7 @@
 
 int smmuv3_init(uintptr_t smmu_base);
 int smmuv3_security_init(uintptr_t smmu_base);
+
+int smmuv3_ns_set_abort_all(uintptr_t smmu_base);
 
 #endif /* SMMU_V3_H */
