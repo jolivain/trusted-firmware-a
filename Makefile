@@ -1070,6 +1070,7 @@ $(eval $(call assert_numerics,\
         FW_ENC_STATUS \
         NR_OF_FW_BANKS \
         NR_OF_IMAGES_IN_FW_BANK \
+	TWED_DELAY \
 )))
 
 ifdef KEY_SIZE
@@ -1179,6 +1180,7 @@ $(eval $(call add_defines,\
         ENABLE_FEAT_AMUv1 \
         ENABLE_FEAT_ECV \
         SIMICS_BUILD \
+	TWED_DELAY \
 )))
 
 ifeq (${SANITIZE_UB},trap)
