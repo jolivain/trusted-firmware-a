@@ -34,6 +34,41 @@
       "parentUuid": "7ac39550_50f7efb1",
       "revId": "f0f3c4640a7ad91f5292f85e97606d8ab680ad2c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82b8c7b0_26efd9c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-03-28T09:40:13Z",
+      "side": 1,
+      "message": "However, your change does as I suspected it would break the docs build. If you click through the CI result URL\u0027s you can get to this link\n\nhttps://ci.trustedfirmware.org/job/tf-a-builder/873326/console \n\nthat has the following error\n\n09:29:34 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/docs/about/maintainers.rst:484:Unknown target name: \"leon-chen-mtk\".\n09:29:34 Makefile:25: recipe for target \u0027html\u0027 failed\n09:29:34 make[1]: *** [html] Error 2\n09:29:34 Makefile:1473: recipe for target \u0027doc\u0027 failed\n09:29:34 make: *** [doc] Error 2\n\nIf you look at the bottom of the file you will see all the definitions and you need to add one for \"leon-chen-mtk\".\n\n",
+      "revId": "f0f3c4640a7ad91f5292f85e97606d8ab680ad2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c1a55ed_ab5d78b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-03-28T09:40:13Z",
+      "side": 1,
+      "message": "My appologies, the dangers of doing reviews in parallel and putting comments in the wrong review tab!",
+      "parentUuid": "5833b096_ad6704cc",
+      "revId": "f0f3c4640a7ad91f5292f85e97606d8ab680ad2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
