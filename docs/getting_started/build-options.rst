@@ -327,6 +327,11 @@ Common build options
    This flag can take values 0 to 2, to align with the ``FEATURE_DETECTION``
    mechanism. Default is ``0``.
 
+-  ``ENABLE_FEAT_TWED``: Numeric value to enable the ``FEAT_TWED`` (Delayed
+   trapping of WFE Instruction) extension. ``FEAT_TWED`` is a optional feature
+   available on Arm v8.6. This flag can take values 0 to 2, to align with the
+   ``FEATURE_DETECTION`` mechanism. Default is ``0``.
+
 -  ``ENABLE_FEAT_VHE``: Numeric value to enable the ``FEAT_VHE`` (Virtualization
    Host Extensions) extension. It allows access to CONTEXTIDR_EL2 register
    during EL2 context save/restore operations.``FEAT_VHE`` is a mandatory
@@ -837,6 +842,11 @@ Common build options
    .. note::
       When ``EL3_EXCEPTION_HANDLING`` is ``1``, ``TSP_NS_INTR_ASYNC_PREEMPT``
       must also be set to ``1``.
+
+-  ``TWED_DELAY``: Numeric value to be set in order to delay the trapping of
+   WFE instruction. ``ENABLE_FEAT_TWED`` build option must be enabled to set
+   this delay. It can take values in the range (0-15). Default is ``0`` and
+   it needs to be updated by the platforms explicitly.
 
 -  ``USE_ARM_LINK``: This flag determines whether to enable support for ARM
    linker. When the ``LINKER`` build variable points to the armlink linker,
