@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -26,10 +26,14 @@
 #include <lib/extensions/sys_reg_trace.h>
 #include <lib/extensions/trbe.h>
 #include <lib/extensions/trf.h>
-#include <lib/extensions/twed.h>
 #include <lib/utils.h>
 
 static void manage_extensions_secure(cpu_context_t *ctx);
+
+#if ENABLE_FEAT_TWED
+/* Make sure delay value fits within the range(0-15) */
+CASSERT(((TWED_DELAY & ~SCR_TWEDEL_MASK) == 0U),assert_twed_delay_value_check);
+#endif /* ENABLE_FEAT_TWED */
 
 /*******************************************************************************
  * Context management library initialisation routine. This library is used by
@@ -309,23 +313,16 @@ void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 	sctlr_elx |= SCTLR_IESB_BIT;
 #endif
 
+#if ENABLE_FEAT_TWED
 	/* Enable WFE trap delay in SCR_EL3 if supported and configured */
-	if (is_armv8_6_twed_present()) {
-		uint32_t delay = plat_arm_set_twedel_scr_el3();
+	/* Set delay in SCR_EL3 */
+	scr_el3 &= ~(SCR_TWEDEL_MASK << SCR_TWEDEL_SHIFT);
+	scr_el3 |= ((TWED_DELAY & SCR_TWEDEL_MASK)
+			<< SCR_TWEDEL_SHIFT);
 
-		if (delay != TWED_DISABLED) {
-			/* Make sure delay value fits */
-			assert((delay & ~SCR_TWEDEL_MASK) == 0U);
-
-			/* Set delay in SCR_EL3 */
-			scr_el3 &= ~(SCR_TWEDEL_MASK << SCR_TWEDEL_SHIFT);
-			scr_el3 |= ((delay & SCR_TWEDEL_MASK)
-					<< SCR_TWEDEL_SHIFT);
-
-			/* Enable WFE delay */
-			scr_el3 |= SCR_TWEDEn_BIT;
-		}
-	}
+	/* Enable WFE delay */
+	scr_el3 |= SCR_TWEDEn_BIT;
+#endif /* ENABLE_FEAT_TWED */
 
 	/*
 	 * Store the initialised SCTLR_EL1 value in the cpu_context - SCTLR_EL2
