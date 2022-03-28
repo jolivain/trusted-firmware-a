@@ -1,0 +1,170 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db547d1d_1b30fb19",
+        "filename": "plat/socionext/synquacer/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-03-28T17:38:58Z",
+      "side": 1,
+      "message": "update copyright year.",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "b0b95f260dd682aa4268274edf769859e0d6fd66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "051a7aab_985f3c28",
+        "filename": "plat/socionext/synquacer/sq_io_storage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-03-28T17:38:58Z",
+      "side": 1,
+      "message": "update copyright year",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "b0b95f260dd682aa4268274edf769859e0d6fd66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "350354d7_42e8f589",
+        "filename": "plat/socionext/synquacer/sq_io_storage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-03-28T17:38:58Z",
+      "side": 1,
+      "message": "Use braces around \u0027if\u0027: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html?highlight\u003dbraces#conditional-statement-bodies",
+      "revId": "b0b95f260dd682aa4268274edf769859e0d6fd66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da99e21d_960ac77f",
+        "filename": "plat/socionext/synquacer/sq_io_storage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-03-28T17:38:58Z",
+      "side": 1,
+      "message": "Instead use mmio_read* api to get the value from this register.",
+      "range": {
+        "startLine": 168,
+        "startChar": 14,
+        "endLine": 168,
+        "endChar": 47
+      },
+      "revId": "b0b95f260dd682aa4268274edf769859e0d6fd66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3350801_14afa1f7",
+        "filename": "plat/socionext/synquacer/sq_io_storage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-03-28T17:38:58Z",
+      "side": 1,
+      "message": "Can this be INFO instead?",
+      "range": {
+        "startLine": 171,
+        "startChar": 2,
+        "endLine": 171,
+        "endChar": 8
+      },
+      "revId": "b0b95f260dd682aa4268274edf769859e0d6fd66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ddc6fc3_a6f478b3",
+        "filename": "plat/socionext/synquacer/sq_io_storage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-03-28T17:38:58Z",
+      "side": 1,
+      "message": "Can we put error message that boot_index is out of range in the \u0027else\u0027 case?",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 2
+      },
+      "revId": "b0b95f260dd682aa4268274edf769859e0d6fd66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f199ce5_6bc82300",
+        "filename": "plat/socionext/synquacer/sq_io_storage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-03-28T17:38:58Z",
+      "side": 1,
+      "message": "nit: leave single line here.",
+      "revId": "b0b95f260dd682aa4268274edf769859e0d6fd66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19cbcdcb_972b9b49",
+        "filename": "plat/socionext/synquacer/sq_io_storage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-03-28T17:38:58Z",
+      "side": 1,
+      "message": "same as above: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html?highlight\u003dbraces#conditional-statement-bodies",
+      "revId": "b0b95f260dd682aa4268274edf769859e0d6fd66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
