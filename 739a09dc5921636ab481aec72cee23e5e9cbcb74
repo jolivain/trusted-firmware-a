@@ -22,6 +22,30 @@
       },
       "revId": "739a09dc5921636ab481aec72cee23e5e9cbcb74",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2170a206_8627aaf2",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-03-28T13:14:07Z",
+      "side": 1,
+      "message": "Agree, hashes of TCBs are provided by the boot-time NS-firmware before DCE-preamble. Let me update the wordings here (TCB hashes gathering expected to be done quite before DRTM flow starts)",
+      "parentUuid": "ddfb4dee_f6bd88ae",
+      "range": {
+        "startLine": 541,
+        "startChar": 24,
+        "endLine": 541,
+        "endChar": 44
+      },
+      "revId": "739a09dc5921636ab481aec72cee23e5e9cbcb74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
