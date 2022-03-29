@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2020-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2022, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -519,6 +520,12 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 	bool secure_origin;
 	int32_t ret;
 	uint32_t input_version;
+
+	/* Return error if SPMC init failed */
+	if ((ctx->state == SPMC_STATE_RESET) || (ctx->state == SPMC_STATE_OFF)) {
+		WARN("SPM: SPMC not initialized\n");
+		return spmd_ffa_error_return(handle, FFA_ERROR_DENIED);
+	}
 
 	/* Determine which security state this SMC originated from */
 	secure_origin = is_caller_secure(flags);

@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2014-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2022, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -57,7 +58,7 @@ static int32_t std_svc_setup(void)
 
 #if defined(SPD_spmd)
 	if (spmd_setup() != 0) {
-		ret = 1;
+		WARN("SPMD setup failed. Continuing boot.\n");
 	}
 #endif
 
