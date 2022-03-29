@@ -355,6 +355,18 @@ BL31_SOURCES		+=	plat/common/plat_spmd_manifest.c	\
 BL31_SOURCES		+=	${FDT_WRAPPERS_SOURCES}
 endif
 
+# Include Measured Boot makefile before any Crypto library makefile.
+# Crypto library makefile may need default definitions of Measured Boot build
+# flags present in Measured Boot makefile.
+ifeq (${MEASURED_BOOT},1)
+    MEASURED_BOOT_MK := drivers/measured_boot/event_log/event_log.mk
+    $(info Including ${MEASURED_BOOT_MK})
+    include ${MEASURED_BOOT_MK}
+
+    BL1_SOURCES		+= 	${EVENT_LOG_SOURCES}
+    BL2_SOURCES		+= 	${EVENT_LOG_SOURCES}
+endif
+
 ifneq (${TRUSTED_BOARD_BOOT},0)
 
     # Include common TBB sources
@@ -391,18 +403,6 @@ ifneq (${TRUSTED_BOARD_BOOT},0)
 
     $(info Including ${IMG_PARSER_LIB_MK})
     include ${IMG_PARSER_LIB_MK}
-endif
-
-# Include Measured Boot makefile before any Crypto library makefile.
-# Crypto library makefile may need default definitions of Measured Boot build
-# flags present in Measured Boot makefile.
-ifeq (${MEASURED_BOOT},1)
-    MEASURED_BOOT_MK := drivers/measured_boot/event_log/event_log.mk
-    $(info Including ${MEASURED_BOOT_MK})
-    include ${MEASURED_BOOT_MK}
-
-    BL1_SOURCES		+= 	${EVENT_LOG_SOURCES}
-    BL2_SOURCES		+= 	${EVENT_LOG_SOURCES}
 endif
 
 ifneq ($(filter 1,${MEASURED_BOOT} ${TRUSTED_BOARD_BOOT}),)
