@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ff3a167_0350231c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-03-29T12:52:21Z",
+      "side": 1,
+      "message": "mbedtls_x509.mk is a certificate makefile rather than the crypto makefile. IIUC certificate parser may not need to worry about the hashing algorithm selected right?\nThen, will it makes sense to move the setting of hash related defines (i.e. TF_MBEDTLS_HASH_ALG_ID and TF_MBEDTLS_TPM_HASH_ALG_ID) from mbedtls_common.mk to mbedtls_crypto.mk file?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "e5a38926239af052bc27b5e0ffeefa06e79cc1ef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3c4f987_3e62a7bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-03-29T12:52:21Z",
+      "side": 1,
+      "message": "IMO it makes sense to have one config with default TPM hash algorithm, so better update this config to not pass TPM_HASH_ALGO (to use default TPM hash algorithm).",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 100
+      },
+      "revId": "e5a38926239af052bc27b5e0ffeefa06e79cc1ef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
