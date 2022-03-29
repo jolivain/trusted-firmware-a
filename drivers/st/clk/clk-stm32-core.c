@@ -327,6 +327,9 @@ int _clk_stm32_set_parent(struct stm32_clk_priv *priv, int clk, int clkp)
 	}
 
 	old_parent = _clk_stm32_get_parent(priv, clk);
+	if (old_parent < 0) {
+		return old_parent;
+	}
 	if (old_parent == clkp) {
 		return 0;
 	}
