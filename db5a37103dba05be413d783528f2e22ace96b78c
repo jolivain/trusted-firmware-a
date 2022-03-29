@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47faa24d_55d8f8b0",
+        "filename": "Makefile",
+        "patchSetId": 13
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-03-29T08:06:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3a246ca_95e95da6",
+      "revId": "db5a37103dba05be413d783528f2e22ace96b78c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa56baf8_cdcd598e",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-03-28T11:56:12Z",
       "side": 1,
       "message": "I would put these under the `else` branch so that the two branches of the condition are balanced, rather than assigning and then immediately replacing the values if Arm Compiler. Ideally leave a empty line between the `LD` assignment and the `AR` assignment to help readability.",
+      "range": {
+        "startLine": 286,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 47
+      },
+      "revId": "db5a37103dba05be413d783528f2e22ace96b78c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "811874ed_9bfff6ca",
+        "filename": "Makefile",
+        "patchSetId": 13
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-03-29T08:06:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa56baf8_cdcd598e",
       "range": {
         "startLine": 286,
         "startChar": 0,
@@ -64,6 +106,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "731d4124_4dee47e7",
+        "filename": "Makefile",
+        "patchSetId": 13
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-03-29T08:06:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42962040_0b8c108f",
+      "range": {
+        "startLine": 292,
+        "startChar": 4,
+        "endLine": 292,
+        "endChar": 5
+      },
+      "revId": "db5a37103dba05be413d783528f2e22ace96b78c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5170ed0e_a0a1c876",
@@ -77,6 +143,30 @@
       "writtenOn": "2022-03-28T11:56:12Z",
       "side": 1,
       "message": "Perhaps leave an empty line after the `endif` to help visually separate the `else` block from the next assignments?",
+      "range": {
+        "startLine": 297,
+        "startChar": 6,
+        "endLine": 298,
+        "endChar": 1
+      },
+      "revId": "db5a37103dba05be413d783528f2e22ace96b78c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b8c1d92_087bd7fa",
+        "filename": "Makefile",
+        "patchSetId": 13
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-03-29T08:06:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5170ed0e_a0a1c876",
       "range": {
         "startLine": 297,
         "startChar": 6,
