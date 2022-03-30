@@ -39,6 +39,30 @@
       },
       "revId": "be0dde7f3d125b801da508d79509bdfa3e5b89db",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd872523_00ebd13e",
+        "filename": "lib/psci/psci_on.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-03-30T09:53:24Z",
+      "side": 1,
+      "message": "In the previous code this was a problem. But with the proposed change here, the NS context is created before the CPU power on and the PUBLISH_EVENT. I believe this approach removes dependency on the locks.\n\nThe argument for a barrier seems hypothetical, and I dont know if that is a real world scenario. But if there is consensus that a barrier is required, I will add one.",
+      "parentUuid": "7dc8e90d_79b0e116",
+      "range": {
+        "startLine": 219,
+        "startChar": 15,
+        "endLine": 219,
+        "endChar": 33
+      },
+      "revId": "be0dde7f3d125b801da508d79509bdfa3e5b89db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
