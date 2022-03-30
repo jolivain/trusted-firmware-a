@@ -16,6 +16,23 @@
       "message": "LGTM!",
       "revId": "bb88f149c9525745db2de91953e0207def31f94e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e792b3d4_09e7362a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2022-03-30T09:13:20Z",
+      "side": 1,
+      "message": "Two failing tests not directly related to this change:\n\n- https://ci.trustedfirmware.org/job/tf-a-builder/879670/console (fails because of a missing platform)\n- https://ci.trustedfirmware.org/job/tf-a-builder/879672/console (fails because of a missing platform)",
+      "revId": "bb88f149c9525745db2de91953e0207def31f94e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
