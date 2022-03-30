@@ -81,6 +81,30 @@
       },
       "revId": "be0dde7f3d125b801da508d79509bdfa3e5b89db",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23d45ee0_9f7d56ff",
+        "filename": "lib/psci/psci_on.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-03-30T20:40:48Z",
+      "side": 1,
+      "message": "Hi Varun, this was not a problem in previous code because the update to NS context was inside the crictical section and the spin_unlock ensures ordering of the writes w.r.t to the other core.\nThis is not a hypothetical situation and it can/will happen on real platforms, specially given that this is common code. Moreover, code should be architecturally correct. We can wait for Soby to agree/disagree on the need for barrier, assuming the change itself is okay due to the concerns with spurious wakeup.",
+      "parentUuid": "dd872523_00ebd13e",
+      "range": {
+        "startLine": 219,
+        "startChar": 15,
+        "endLine": 219,
+        "endChar": 33
+      },
+      "revId": "be0dde7f3d125b801da508d79509bdfa3e5b89db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
