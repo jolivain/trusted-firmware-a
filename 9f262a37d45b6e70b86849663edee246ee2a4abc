@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36b6a1d1_13ac5958",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2022-03-30T12:25:27Z",
+      "side": 1,
+      "message": "LGTM. Comments on few inline comments and a variable label.\n",
+      "revId": "9f262a37d45b6e70b86849663edee246ee2a4abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b73c2462_de8c26bd",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2022-03-30T12:25:27Z",
+      "side": 1,
+      "message": "s/ie/i.e./",
+      "range": {
+        "startLine": 492,
+        "startChar": 4,
+        "endLine": 492,
+        "endChar": 6
+      },
+      "revId": "9f262a37d45b6e70b86849663edee246ee2a4abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "495797cf_0555b486",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2022-03-30T12:25:27Z",
+      "side": 1,
+      "message": "s/memoize/memorize/\ns/call/called/",
+      "range": {
+        "startLine": 506,
+        "startChar": 12,
+        "endLine": 506,
+        "endChar": 19
+      },
+      "revId": "9f262a37d45b6e70b86849663edee246ee2a4abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abaf0e29_32525534",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2022-03-30T12:25:27Z",
+      "side": 1,
+      "message": "I would say \"may decrement the boot counter\".\nSuggestion:\n\n+\t/*\n+\t * Select boot index and update boot counter only once per boot\n+\t * even if this function is call several times.\n+\t */",
+      "range": {
+        "startLine": 507,
+        "startChar": 0,
+        "endLine": 507,
+        "endChar": 52
+      },
+      "revId": "9f262a37d45b6e70b86849663edee246ee2a4abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f07cdee_4cf02938",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2022-03-30T12:25:27Z",
+      "side": 1,
+      "message": "s/memoize_boot_idx/memorize_boot_idx/g\n\nor simply s/memoize_boot_idx/boot_index/g?",
+      "range": {
+        "startLine": 509,
+        "startChar": 17,
+        "endLine": 509,
+        "endChar": 33
+      },
+      "revId": "9f262a37d45b6e70b86849663edee246ee2a4abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9e5029f_4e5affbb",
+        "filename": "plat/st/stm32mp1/stm32mp1_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2022-03-30T12:25:27Z",
+      "side": 1,
+      "message": "maybe add `(max supported value is 15)`",
+      "range": {
+        "startLine": 514,
+        "startChar": 0,
+        "endLine": 514,
+        "endChar": 23
+      },
+      "revId": "9f262a37d45b6e70b86849663edee246ee2a4abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
