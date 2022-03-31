@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b11382d_683512d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-03-31T18:16:56Z",
+      "side": 1,
+      "message": "The only L1 fail was the static check for tf-cov-make, but this file should be built as a part of that now since it is included by default with PLAT\u003dfvp.",
+      "revId": "3d718e27d6f8fdb32ea7b62a6295091ab8948f25",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
