@@ -16,6 +16,46 @@
       "message": "Hi, this series (check the morello-dt-fix topic) fixes one bug and some smaller issues reported by Linux\u0027 \"make dtbs_check\". Please have a look!",
       "revId": "12842778523fd4dd4cb00a091992cde4d4b9aa62",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ed1c619_c159d28e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2022-03-31T14:13:33Z",
+      "side": 1,
+      "message": "minor comment, else LGTM",
+      "revId": "12842778523fd4dd4cb00a091992cde4d4b9aa62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb9304d1_839d133a",
+        "filename": "fdts/morello.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2022-03-31T14:13:33Z",
+      "side": 1,
+      "message": "could this be changed to 2022?",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "12842778523fd4dd4cb00a091992cde4d4b9aa62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
