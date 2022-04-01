@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e2e7d4e_00547fb5",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-04-01T21:45:53Z",
+      "side": 1,
+      "message": "nit: This might read better as \"This flag requires that TRUSTED_BOARD_BOOT\u003d1 to ensure that the components involved in the DRTM process can be trusted.\"\n\nOtherwise it seems like TRUSTED_BOARD_BOOT might be optional with DRTM.",
+      "range": {
+        "startLine": 539,
+        "startChar": 23,
+        "endLine": 540,
+        "endChar": 61
+      },
+      "revId": "9866389e1131241a7b2232654b00ffda7aa52c00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
