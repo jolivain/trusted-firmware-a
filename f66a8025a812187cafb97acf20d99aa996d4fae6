@@ -16,6 +16,138 @@
       "message": "Hi Team,\n\nKindly review this small patch related to FEAT_TWED enablement.",
       "revId": "f66a8025a812187cafb97acf20d99aa996d4fae6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d38a887_50fdae9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-01T07:32:19Z",
+      "side": 1,
+      "message": "Please see my in-line and let me know what do you think? Thanks!",
+      "revId": "f66a8025a812187cafb97acf20d99aa996d4fae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85f50cde_ebd13708",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-01T07:32:19Z",
+      "side": 1,
+      "message": "I am thinking as below:\nPlatform should enable/disable TWED feature using FEAT_TWED (boolean option), FEAT_TWED build option must be in sync with the Architecture support (gathered via is_armv8_6_twed_present), otherwise assert at boot.\n\nTWED_DELAY (numeric macro) should provide delay value within range of (0-15) if FEAT_TWED is implemented and enabled",
+      "range": {
+        "startLine": 312,
+        "startChar": 4,
+        "endLine": 312,
+        "endChar": 14
+      },
+      "revId": "f66a8025a812187cafb97acf20d99aa996d4fae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5524d7d_e0328561",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-01T07:32:19Z",
+      "side": 1,
+      "message": "We may not need this compile time assert because it must accept 2 kind of values:\n1. TWED_DELAY \u003d TWED_DISABLED -\u003e to disable the TWED feature i.e scr_el3.TWEDEn \u003d 0\n2. TWED_DELAY \u003d within 0-15 to program the delay",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 315,
+        "endChar": 33
+      },
+      "revId": "f66a8025a812187cafb97acf20d99aa996d4fae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b41a1528_f52d0345",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-01T07:32:19Z",
+      "side": 1,
+      "message": "As mentioned previous comment if we check sanity of build option with what Architecture provides then will get rid of this.",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 318,
+        "endChar": 33
+      },
+      "revId": "f66a8025a812187cafb97acf20d99aa996d4fae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f276f82_4bf70f82",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-01T07:32:19Z",
+      "side": 1,
+      "message": "Can we get rid of this variable as it accepts the constant macro value.",
+      "range": {
+        "startLine": 319,
+        "startChar": 2,
+        "endLine": 319,
+        "endChar": 16
+      },
+      "revId": "f66a8025a812187cafb97acf20d99aa996d4fae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1957c484_67540697",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-01T07:32:19Z",
+      "side": 1,
+      "message": "Use TWED_DELAY macro directly.",
+      "range": {
+        "startLine": 324,
+        "startChar": 16,
+        "endLine": 324,
+        "endChar": 21
+      },
+      "revId": "f66a8025a812187cafb97acf20d99aa996d4fae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
