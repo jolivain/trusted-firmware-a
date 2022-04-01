@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c46dccde_0de43208",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-04-01T21:47:51Z",
+      "side": 1,
+      "message": "nit: comment over 80 chars",
+      "range": {
+        "startLine": 105,
+        "startChar": 73,
+        "endLine": 105,
+        "endChar": 75
+      },
+      "revId": "d9f33e230c00e95d776fb64861634e7f8cd90ac8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d5bf94a_d837d4fc",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-04-01T21:47:51Z",
+      "side": 1,
+      "message": "Enclose with {...} as per coding style guidelines.",
+      "range": {
+        "startLine": 110,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 12
+      },
+      "revId": "d9f33e230c00e95d776fb64861634e7f8cd90ac8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f2a0fbe_92822abd",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-04-01T21:47:51Z",
+      "side": 1,
+      "message": "{...}",
+      "range": {
+        "startLine": 115,
+        "startChar": 2,
+        "endLine": 115,
+        "endChar": 12
+      },
+      "revId": "d9f33e230c00e95d776fb64861634e7f8cd90ac8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
