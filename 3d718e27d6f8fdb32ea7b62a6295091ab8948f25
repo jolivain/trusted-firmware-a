@@ -16,6 +16,23 @@
       "message": "The only L1 fail was the static check for tf-cov-make, but this file should be built as a part of that now since it is included by default with PLAT\u003dfvp.",
       "revId": "3d718e27d6f8fdb32ea7b62a6295091ab8948f25",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b1155ce_998c99a3",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-04-01T15:22:21Z",
+      "side": 1,
+      "message": "I think this will also enable the BRBE for Realm world as well. This means we may need to save and restore between the NS to realm world switch.\n\nIdeally this build flag could reflect the options available in hardware.\nEssentially we can have a single build flag with multiple values, something like :\nENABLE_BRBE \u003d 0 \u003d\u003d\u003e Enable for only EL3\nENABLE_BRBE \u003d 1 \u003d\u003d\u003e Enable for EL3 and NS and Realm (? If Realm world is being enabled we need to save and restore) \nENABLE_BRBE \u003d 2 \u003d\u003d\u003e Enable for all worlds  (disabled for now)\n\nI dont understand the feature and protected region, but you get the idea.",
+      "revId": "3d718e27d6f8fdb32ea7b62a6295091ab8948f25",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
