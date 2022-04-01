@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcfc2cd4_9196975b",
+        "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-04-01T18:08:33Z",
+      "side": 1,
+      "message": "Is the size argument for \u0027is_address_in_ddr_range()\u0027 function correct here? The usage here looks inconsistent with other uses (for e.g. in \u0027intel_fcs_decryption\u0027) to me.",
+      "range": {
+        "startLine": 225,
+        "startChar": 40,
+        "endLine": 225,
+        "endChar": 49
+      },
+      "revId": "108845b97d3b457ac6acaf6b5d8f5d14ecc6387b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
