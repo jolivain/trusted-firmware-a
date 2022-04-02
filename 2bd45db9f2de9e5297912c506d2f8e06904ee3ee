@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e44c4856_b954bbab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000540
+      },
+      "writtenOn": "2022-04-02T07:43:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5545cfe6_f0bc4353",
+      "range": {
+        "startLine": 9,
+        "startChar": 72,
+        "endLine": 9,
+        "endChar": 78
+      },
+      "revId": "2bd45db9f2de9e5297912c506d2f8e06904ee3ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de97737b_d2cec766",
@@ -49,6 +73,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cdbe433f_86c3eda6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000540
+      },
+      "writtenOn": "2022-04-02T07:43:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "de97737b_d2cec766",
+      "range": {
+        "startLine": 10,
+        "startChar": 72,
+        "endLine": 10,
+        "endChar": 76
+      },
+      "revId": "2bd45db9f2de9e5297912c506d2f8e06904ee3ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ae44ce57_1e4906f2",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -60,6 +108,41 @@
       "writtenOn": "2022-04-01T23:27:16Z",
       "side": 1,
       "message": "To add this new build option you will need to add it to the appropriate Makefiles and documentation files as well. You\u0027ll want to add entries in the 2 lists in the main Makefile, add a default value in make_helpers/defaults.mk, and also docs/design/reset-design.rst. You can grep for RESET_TO_BL31 to see how it\u0027s handled in these files.",
+      "revId": "2bd45db9f2de9e5297912c506d2f8e06904ee3ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05bb2ff4_3ab12e35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000540
+      },
+      "writtenOn": "2022-04-02T07:43:26Z",
+      "side": 1,
+      "message": "Thanks John. will update and some comments.",
+      "revId": "2bd45db9f2de9e5297912c506d2f8e06904ee3ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a8e86cd_f28fdb66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000540
+      },
+      "writtenOn": "2022-04-02T07:43:26Z",
+      "side": 1,
+      "message": "yes that is one of the options of course. The other option is just as I posted.\n\nWith it being kind of an unusual config I thought it would be cleaner if platforms wanting/needing to enable this functionality would just define it in their platform.mk (ie the usual $(eval $(call add_define, XXXXX))\n\nyes I\u0027ll add it to the documentation.\n\nAnd please do confirm if you prefer it added to Makefile and defaults: I am not convinced that what you propose is a better choice but I don\u0027t have an issue with it.",
+      "parentUuid": "ae44ce57_1e4906f2",
       "revId": "2bd45db9f2de9e5297912c506d2f8e06904ee3ee",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
