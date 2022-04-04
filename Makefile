@@ -364,7 +364,9 @@ ASFLAGS_aarch64		=	$(march64-directive)
 # General warnings
 WARNINGS		:=	-Wall -Wmissing-include-dirs -Wunused	\
 				-Wdisabled-optimization -Wvla -Wshadow	\
-				-Wno-unused-parameter -Wredundant-decls
+				-Wno-unused-parameter -Wredundant-decls	\
+				-Wtautological-unsigned-zero-compare
+
 
 # Additional warnings
 # Level 1
