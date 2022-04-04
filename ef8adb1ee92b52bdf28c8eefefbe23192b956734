@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52518887_f049280a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-04-04T15:03:09Z",
+      "side": 1,
+      "message": "Thanks Varun for the rework,\nI had further checks internally and one of the rationale for the original implementation was that it allowed the parallelization of the context initialization with the warm boot init on target CPU. Since there is a finite delay for the target CPU to power up, the caller has the opportunity to finish target context initialization before the target waits for the spin lock. \n\nNow the proposed change removes the spin lock in the target warm boot, but it serializes the operations on the caller CPU. Thus , atleast in ARM platforms which implement asynchronous handling of SCMI commands, the performance may be worse off. Hence we would need further validation on some other platforms before this can be merged.\n\nDid you get a chance to measure the performance after the addition of dsb() ?\n\n\n\n",
+      "revId": "ef8adb1ee92b52bdf28c8eefefbe23192b956734",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
