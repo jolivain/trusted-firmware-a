@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f80f572_f2e34520",
+        "filename": "lib/psci/psci_on.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-04-04T23:30:49Z",
+      "side": 0,
+      "message": "CR+1, but just checking: I presume that psci_cpu_on_finish() is not also called from some other place where this check is still required?",
+      "revId": "e638c228b8c5ae8d7450329ea7ec7231584b6fbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
