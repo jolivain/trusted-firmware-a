@@ -16,6 +16,24 @@
       "message": "Patch has stalled with no updates for 21 days. Adding in the four GIC code owners for CO review. Unfortunately most seem to be out on vacation.\n\nA rebase and CI (Allow-CI +2) needs to be done so we can get Verified set.",
       "revId": "3bc58677851c83bab3810de6b5345dada284fcc4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e81acb0_b2f55bea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-04-04T12:31:12Z",
+      "side": 1,
+      "message": "I rebased all the patches. Waiting for reviews",
+      "parentUuid": "e44a8a67_44573d79",
+      "revId": "3bc58677851c83bab3810de6b5345dada284fcc4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
