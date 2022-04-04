@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad160f44_86c9cd5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-04-04T23:36:17Z",
+      "side": 1,
+      "message": "One question?",
+      "revId": "f2167f3646f9846dd66d92e52d47c13402826c64",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3aadda22_d0a1092a",
+        "filename": "plat/st/stm32mp1/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-04-04T23:36:17Z",
+      "side": 1,
+      "message": "Am I remembering correctly that [0-9]* matches any number of digits including zero digits, as opposed [0-9]+ which matches at least one digit?  Either way, is that what you want?",
+      "revId": "f2167f3646f9846dd66d92e52d47c13402826c64",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
