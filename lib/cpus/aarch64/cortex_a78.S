@@ -2,6 +2,11 @@
  * Copyright (c) 2019-2022, ARM Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
+ *
+ * Changes from Qualcomm Innovation Center are provided under the following license:
+ *
+ * Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+ *
  */
 
 #include <arch.h>
@@ -16,6 +21,9 @@
 #if HW_ASSISTED_COHERENCY == 0
 #error "cortex_a78 must be compiled with HW_ASSISTED_COHERENCY enabled"
 #endif
+
+.globl cortex_a78_reset_func
+.globl cortex_a78_core_pwr_dwn
 
 #if WORKAROUND_CVE_2022_23960
 	wa_cve_2022_23960_bhb_vector_table CORTEX_A78_BHB_LOOP_COUNT, cortex_a78
