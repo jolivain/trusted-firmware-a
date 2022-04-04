@@ -34,6 +34,24 @@
       "parentUuid": "fea3f22d_9af9fa4e",
       "revId": "a8e16387a78449dd752df122ca441cfa41848ab0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3965d4f8_4249eda3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-04-04T14:34:51Z",
+      "side": 1,
+      "message": "Hi BenjaminLimJL,\n\nThere are some static check failures. It should be publicly accessible here: https://ci.trustedfirmware.org/job/tf-a-static-checks/881/",
+      "parentUuid": "1a069407_ef439e26",
+      "revId": "a8e16387a78449dd752df122ca441cfa41848ab0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
