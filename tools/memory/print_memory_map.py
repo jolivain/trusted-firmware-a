@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 #
 # Copyright (c) 2019-2020, Arm Limited. All rights reserved.
+# Copyright (c) 2022, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -17,7 +18,9 @@ bl_images = ['bl1', 'bl2', 'bl31']
 blx_symbols = ['__BL1_RAM_START__', '__BL1_RAM_END__',
                 '__BL2_END__',
                 '__BL31_END__',
+                '__RO_START__', '__RO_END_UNALIGNED__', '__RO_END__',
                 '__TEXT_START__', '__TEXT_END__',
+                '__TEXT_RESIDENT_START__', '__TEXT_RESIDENT_END__',
                 '__RODATA_START__', '__RODATA_END__',
                 '__DATA_START__', '__DATA_END__',
                 '__STACKS_START__', '__STACKS_END__',
@@ -39,6 +42,10 @@ if len(sys.argv) >= 2:
         inverted_print = sys.argv[2] == '0'
 else:
     build_dir = 'build/fvp/debug'
+
+max_len = max(len(word) for word in blx_symbols) + 2
+if (max_len % 2) != 0:
+    max_len += 1
 
 # Extract all the required symbols from the map files
 for image in bl_images:
@@ -64,16 +71,16 @@ if inverted_print:
     address_list = reversed(address_list)
 
 # Generate memory view
-print('{:-^93}'.format('Memory Map from: ' + build_dir))
+print(('{:-^%d}' % (max_len * 3 + 20 + 7)).format('Memory Map from: ' + build_dir))
 for address in address_list:
     if "bl1" in address[2]:
-        print(address[0], '+{:-^22}+ |{:^22}| |{:^22}|'.format(address[1], '', ''))
+        print(address[0], ('+{:-^%d}+ |{:^%d}| |{:^%d}|' % (max_len, max_len, max_len)).format(address[1], '', ''))
     elif "bl2" in address[2]:
-        print(address[0], '|{:^22}| +{:-^22}+ |{:^22}|'.format('', address[1], ''))
+        print(address[0], ('|{:^%d}| +{:-^%d}+ |{:^%d}|' % (max_len, max_len, max_len)).format('', address[1], ''))
     elif "bl31" in address[2]:
-        print(address[0], '|{:^22}| |{:^22}| +{:-^22}+'.format('', '', address[1]))
+        print(address[0], ('|{:^%d}| |{:^%d}| +{:-^%d}+' % (max_len, max_len, max_len)).format('', '', address[1]))
     else:
-        print(address[0], '|{:^22}| |{:^22}| +{:-^22}+'.format('', '', address[1]))
+        print(address[0], ('|{:^%d}| |{:^%d}| +{:-^%d}+' % (max_len, max_len, max_len)).format('', '', address[1]))
 
-print('{:^20}{:_^22}   {:_^22}   {:_^22}'.format('', '', '', ''))
-print('{:^20}{:^22}   {:^22}   {:^22}'.format('address', 'bl1', 'bl2', 'bl31'))
+print(('{:^20}{:_^%d}   {:_^%d}   {:_^%d}' % (max_len, max_len, max_len)).format('', '', '', ''))
+print(('{:^20}{:^%d}   {:^%d}   {:^%d}' % (max_len, max_len, max_len)).format('address', 'bl1', 'bl2', 'bl31'))
