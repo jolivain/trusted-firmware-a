@@ -3,6 +3,40 @@
  * Copyright (c) 2018-2020, The Linux Foundation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
+ *
+ * Changes from Qualcomm Innovation Center are provided under the following license:
+ *
+ * Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted (subject to the limitations in the
+ * disclaimer below) provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+
+    * Redistributions in binary form must reproduce the above
+      copyright notice, this list of conditions and the following
+      disclaimer in the documentation and/or other materials provided
+      with the distribution.
+
+    * Neither the name of Qualcomm Innovation Center, Inc. nor the names of its
+      contributors may be used to endorse or promote products derived
+      from this software without specific prior written permission.
+
+ * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE
+ * GRANTED BY THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT
+ * HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
+ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+ * GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+ * IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+ * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
  */
 
 #include <arch.h>
@@ -28,8 +62,8 @@ func qti_kryo4_gold_reset_func
 	mov	x19, x30
 
 	bl	qtiseclib_kryo4_gold_reset_asm
-
-	ret	x19
+	mov	x30, x19
+	b	cortex_a76_reset_func
 
 endfunc qti_kryo4_gold_reset_func
 
@@ -38,7 +72,7 @@ endfunc qti_kryo4_gold_reset_func
  * ----------------------------------------------------
  */
 func qti_kryo4_gold_core_pwr_dwn
-	ret
+	b	cortex_a76_core_pwr_dwn
 endfunc qti_kryo4_gold_core_pwr_dwn
 
 /* -------------------------------------------------------
@@ -48,6 +82,14 @@ endfunc qti_kryo4_gold_core_pwr_dwn
 func qti_kryo4_gold_cluster_pwr_dwn
 	ret
 endfunc qti_kryo4_gold_cluster_pwr_dwn
+
+/* -------------------------------------------------------
+ * The CPU Ops disable workaround cve function for Kryo-3 Gold
+ * -------------------------------------------------------
+ */
+func qti_kryo4_gold_disable_wa_cve_2018_3639
+	b cortex_a76_disable_wa_cve_2018_3639
+endfunc qti_kryo4_gold_disable_wa_cve_2018_3639
 
 #if REPORT_ERRATA
 /*
@@ -77,7 +119,9 @@ func qti_kryo4_gold_cpu_reg_dump
 	ret
 endfunc qti_kryo4_gold_cpu_reg_dump
 
-declare_cpu_ops	qti_kryo4_gold, QTI_KRYO4_GOLD_MIDR,	\
+declare_cpu_ops_wa	qti_kryo4_gold, QTI_KRYO4_GOLD_MIDR,	\
 		qti_kryo4_gold_reset_func,		\
+		CPU_NO_EXTRA1_FUNC,		\
+		qti_kryo4_gold_disable_wa_cve_2018_3639,	\
 		qti_kryo4_gold_core_pwr_dwn,	\
 		qti_kryo4_gold_cluster_pwr_dwn
