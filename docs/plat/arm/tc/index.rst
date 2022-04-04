@@ -13,10 +13,12 @@ Some of the features of TC platform referenced in TF-A include:
 - SCMI
 - MHUv2
 
-Currently, the main difference between TC0 (TARGET_PLATFORM=0) and TC1
-(TARGET_PLATFORM=1) platforms w.r.t to TF-A is the CPUs supported. TC0 has
-support for Cortex A510, Cortex A710 and Cortex X2, while TC1 has support for
-Cortex A510, Cortex Makalu and Cortex Makalu ELP Arm CPUs.
+Currently, the main difference between TC0 (TARGET_PLATFORM=0), TC1
+(TARGET_PLATFORM=1), TC2 (TARGET_PLATFORM=2) platforms w.r.t to TF-A
+is the CPUs supported as below. 
+- TC0 has support for Cortex A510, Cortex A710 and Cortex X2.
+- TC1 has support for Cortex A510, Cortex Makalu and Cortex Makalu ELP.
+- TC2 has support for Hayes and Hunter Arm CPUs.
 
 
 Boot Sequence
@@ -33,7 +35,7 @@ Non-secure world (u-boot).
 Build Procedure (TF-A only)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  Obtain arm `toolchain <https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-a/downloads>`_.
+-  Obtain arm `toolchain https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/downloads>`_.
    Set the CROSS_COMPILE environment variable to point to the toolchain folder.
 
 -  Build TF-A:
@@ -41,7 +43,7 @@ Build Procedure (TF-A only)
    .. code:: shell
 
       make PLAT=tc BL33=<path_to_uboot.bin> \
-      SCP_BL2=<path_to_scp_ramfw.bin> TARGET_PLATFORM={0,1} all fip
+      SCP_BL2=<path_to_scp_ramfw.bin> TARGET_PLATFORM={0,1,2} all fip
 
    Enable TBBR by adding the following options to the make command:
 
