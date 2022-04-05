@@ -34,4 +34,18 @@ void plat_qemu_gic_init(void);
 void qemu_pwr_gic_on_finish(void);
 void qemu_pwr_gic_off(void);
 
+int qemu_set_tos_fw_info(uintptr_t config_base, uintptr_t log_addr,
+			size_t log_size);
+
+int qemu_set_nt_fw_info(
+/*
+ * Currently OP-TEE does not support reading DTBs from Secure memory
+ * and this option should be removed when feature is supported.
+ */
+#ifdef SPD_opteed
+			uintptr_t log_addr,
+#endif
+			size_t log_size,
+			uintptr_t *ns_log_addr);
+
 #endif /* QEMU_PRIVATE_H */
