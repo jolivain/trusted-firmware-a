@@ -16,6 +16,24 @@
       "message": "One comment about folder naming : services/std_svc/spm/spmc/ could be changed to services/std_svc/spm/el3_spmc/ to highlight that this is not the typical SPMC running at S-EL2",
       "revId": "8bd04bb28f777a84a391ea193b7bea2ed5fd31b2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36b3d4d2_2f13d001",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-05T17:41:52Z",
+      "side": 1,
+      "message": "Sure, if you think that explicitly highlighting el3 makes things clearer I can update this.",
+      "parentUuid": "4f60a2c0_6b4b9df4",
+      "revId": "8bd04bb28f777a84a391ea193b7bea2ed5fd31b2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
