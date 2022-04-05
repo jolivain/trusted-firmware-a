@@ -22,6 +22,30 @@
       },
       "revId": "108845b97d3b457ac6acaf6b5d8f5d14ecc6387b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96c49f82_597c122a",
+        "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-04-05T15:26:31Z",
+      "side": 1,
+      "message": "the function is correct, just the usage is to check the address and size (in byte). I have fixed it and please help to review.",
+      "parentUuid": "fcfc2cd4_9196975b",
+      "range": {
+        "startLine": 225,
+        "startChar": 40,
+        "endLine": 225,
+        "endChar": 49
+      },
+      "revId": "108845b97d3b457ac6acaf6b5d8f5d14ecc6387b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
