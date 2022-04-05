@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76cd249a_8edbbc00",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2022-04-05T08:43:40Z",
+      "side": 1,
+      "message": "I don\u0027t think we need to add a new platform specific define when there is already generic one: RESET_TO_BL31 for this specific purpose.",
+      "revId": "8f54f1a7678c3635bf6c03e405f4ca2a419a8029",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04ebedac_dc383cc8",
+        "filename": "plat/socionext/synquacer/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2022-04-05T08:43:40Z",
+      "side": 1,
+      "message": "Currently we are already using sq_sec_entrypoint for secondary CPUs wakeup. And I could see this mailbox page is currently just a replacement for sq_sec_entrypoint. But why do we need this replacement?",
+      "revId": "8f54f1a7678c3635bf6c03e405f4ca2a419a8029",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b422404_c23c8238",
+        "filename": "plat/socionext/synquacer/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2022-04-05T08:43:40Z",
+      "side": 1,
+      "message": "This BL31 allocation conflicts with OP-TEE non-secure shared memory [1]. It may be that its currently working by chance but any extensive usage of non-secure shared memory may corrupt BL31 memory. So last 64 MB are reserved for OP-TEE, try to allocate BL31 starting from 0xfbe00000.\n\n[1] https://github.com/OP-TEE/optee_os/blob/master/core/arch/arm/plat-synquacer/conf.mk",
+      "revId": "8f54f1a7678c3635bf6c03e405f4ca2a419a8029",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cbdbd4e_38475a6e",
+        "filename": "plat/socionext/synquacer/sq_bl2_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2022-04-05T08:43:40Z",
+      "side": 1,
+      "message": "Rather than externs here we should declare them in sq_common.h.",
+      "revId": "8f54f1a7678c3635bf6c03e405f4ca2a419a8029",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8850507_a6089025",
+        "filename": "plat/socionext/synquacer/sq_bl2_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2022-04-05T08:43:40Z",
+      "side": 1,
+      "message": "Is there any specific requirement to have CONSOLE_FLAG_RUNTIME configured for BL2?",
+      "revId": "8f54f1a7678c3635bf6c03e405f4ca2a419a8029",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
