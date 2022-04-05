@@ -51,6 +51,24 @@
       "parentUuid": "3aadda22_d0a1092a",
       "revId": "f2167f3646f9846dd66d92e52d47c13402826c64",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1329ae58_f1d088f5",
+        "filename": "plat/st/stm32mp1/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-04-05T06:58:06Z",
+      "side": 1,
+      "message": "After checking, it seems the + in the grep command doesn\u0027t work as expected.\nsh-5.0$ echo \"v10601a\" | grep -o \"[0-9]+\"\nsh-5.0$ echo \"v10601+\" | grep -o \"[0-9]+\"\n1+\nsh-5.0$ echo \"v10601+\" | grep -o \"[0-9]*\"\n10601\n\nSo I\u0027ll keep the *.",
+      "parentUuid": "27423643_a05d250a",
+      "revId": "f2167f3646f9846dd66d92e52d47c13402826c64",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
