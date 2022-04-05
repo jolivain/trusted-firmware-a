@@ -270,6 +270,30 @@
       },
       "revId": "27b249891c03b6aae32a1f331f10a3035fe92fea",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5476fb0_1d39c5bd",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-05T17:42:03Z",
+      "side": 1,
+      "message": "I think you\u0027re correct and that might have been the intention, however it was incorrectly implemented. To cater for multiple SPs the argument would need to be updated depending on whether it was part of a call chain (which would require additional state tracking to be implemented). This has been working so far as x1 MBZ which matched the normal world entity ID.",
+      "parentUuid": "1161c9e5_468c620c",
+      "range": {
+        "startLine": 246,
+        "startChar": 33,
+        "endLine": 246,
+        "endChar": 55
+      },
+      "revId": "27b249891c03b6aae32a1f331f10a3035fe92fea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
