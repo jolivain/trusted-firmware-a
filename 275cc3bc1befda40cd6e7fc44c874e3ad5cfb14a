@@ -16,6 +16,24 @@
       "message": "275cc3bc1::services/std_svc/spm/common/include/spm_common.h:\nGroup ordering error, order should be:\n\t** #include \u003cstdint.h\u003e                 --\u003e system header, moved to group 1.\n\t** #include \u003ccontext.h\u003e                --\u003e project header, moved to group 2.",
       "revId": "275cc3bc1befda40cd6e7fc44c874e3ad5cfb14a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a25b0b5e_17b2b700",
+        "filename": "services/std_svc/spm/common/include/spm_common.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-05T17:42:00Z",
+      "side": 1,
+      "message": "From previous discussions the conclusion here seemed to be to leave these includes as they are due to the #ifndef as this allows the code to be clearer.\n\nIs this a strong preference to reorder these?",
+      "parentUuid": "7affeb63_a4ed0672",
+      "revId": "275cc3bc1befda40cd6e7fc44c874e3ad5cfb14a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
