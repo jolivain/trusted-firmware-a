@@ -16,6 +16,24 @@
       "message": "The return code has be FFA_MEM_FRAG_TX?",
       "revId": "a9d5195c2df3d730c728f8dd946203230572d490",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41e5ea6d_22769d3c",
+        "filename": "services/std_svc/spm/spmc/spmc_shared_mem.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-05T17:41:33Z",
+      "side": 1,
+      "message": "Good spot, yes this should be. Fixed.",
+      "parentUuid": "fcd7d432_d4623b86",
+      "revId": "a9d5195c2df3d730c728f8dd946203230572d490",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
