@@ -42,6 +42,7 @@
 #define MBOX_CMD_CANCEL			0x03
 #define MBOX_CMD_VAB_SRC_CERT		0x0B
 #define MBOX_CMD_GET_IDCODE		0x10
+#define MBOX_CMD_GET_CHIPID		0x12
 #define MBOX_CMD_REBOOT_HPS		0x47
 
 /* Reconfiguration Commands */
@@ -67,6 +68,13 @@
 #define MBOX_FCS_ENCRYPT_REQ			0x7E
 #define MBOX_FCS_DECRYPT_REQ			0x7F
 #define MBOX_FCS_RANDOM_GEN			0x80
+
+/* PSG SIGMA Commands */
+#define MBOX_PSG_SIGMA_TEARDOWN		0xD5
+
+/* Attestation Commands */
+#define MBOX_ATTESTATION_SUBKEY		0x182
+#define MBOX_GET_MEASUREMENT		0x183
 
 /* Mailbox Definitions */
 
