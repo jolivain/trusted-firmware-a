@@ -54,6 +54,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8f3dfd5_16cc935c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000787
+      },
+      "writtenOn": "2022-04-05T13:06:08Z",
+      "side": 1,
+      "message": "Actually, I don\u0027t use the watchdog, instead, there is another counter to count how many time to boot SCP firmware with same boot_index value (this is because a wrong firmware can just reboot the machine). SCP firmware will start the counter (set to 1) and U-Boot will clear it if it reaches some point (board_late_init at this point). In this protocol, TF-A does not touch it.",
+      "parentUuid": "2ef1eb0d_dc2d3b14",
+      "revId": "6d0472f1b182d20ceaa259a9914839d0df3a72c4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fbb686e2_b63cf617",
