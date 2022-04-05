@@ -127,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "edb4890f_ff157797",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-05T17:42:08Z",
+      "side": 1,
+      "message": "My understanding of the linked comment was to prevent the SPMC specific configuration being located in the SPMD code under an #if in an effort to keep things more organized and self contained, rather than a desire to customize the returned information.",
+      "parentUuid": "dea05b35_0b0cbe9e",
+      "revId": "4f34fffc2193387345c35ed0a16ea291c86efd67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "417453a1_ab9d8e11",
         "filename": "services/std_svc/spm/spmc/spmc_main.c",
         "patchSetId": 2
@@ -280,6 +298,30 @@
       "side": 1,
       "message": "Thanks, fixed.",
       "parentUuid": "0087ee53_437a0c1c",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 30
+      },
+      "revId": "4f34fffc2193387345c35ed0a16ea291c86efd67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ed31010_ff1f5055",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-05T17:42:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23b97a0d_9c9eb7f5",
       "range": {
         "startLine": 31,
         "startChar": 0,
