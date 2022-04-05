@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c92d7d64_32eafe29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-05T17:41:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9c94705_3a8250c2",
+      "revId": "c5cd73278273b762a74cabff862e7f032e9c5b31",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5c303bc_81620b9f",
@@ -35,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8d2e272_32d6e06e",
+        "filename": "services/std_svc/std_svc_setup.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-05T17:41:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5c303bc_81620b9f",
+      "revId": "c5cd73278273b762a74cabff862e7f032e9c5b31",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e2385d0_77fdcf1b",
@@ -48,6 +84,30 @@
       "writtenOn": "2022-03-22T08:27:24Z",
       "side": 1,
       "message": "services/std_svc/std_svc_setup.c:156: WARNING: Block comments should align the * on each line\n+\t\t\t/* If we have an SPMC at EL3 allow handling first.\n+\t\t\t* SPMC will call through to SPMD if required.",
+      "range": {
+        "startLine": 155,
+        "startChar": 3,
+        "endLine": 157,
+        "endChar": 5
+      },
+      "revId": "c5cd73278273b762a74cabff862e7f032e9c5b31",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "444b7eb5_2e6eabbe",
+        "filename": "services/std_svc/std_svc_setup.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-05T17:41:56Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "5e2385d0_77fdcf1b",
       "range": {
         "startLine": 155,
         "startChar": 3,
