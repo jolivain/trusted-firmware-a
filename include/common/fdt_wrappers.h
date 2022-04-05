@@ -44,6 +44,8 @@ uint64_t fdtw_translate_address(const void *dtb, int bus_node,
 int fdtw_for_each_cpu(const void *fdt,
 		      int (*callback)(const void *dtb, int node, uintptr_t mpidr));
 
+int fdtw_find_or_add_subnode(void *fdt, int parentoffset, const char *name);
+
 static inline uint32_t fdt_blob_size(const void *dtb)
 {
 	const uint32_t *dtb_header = dtb;
