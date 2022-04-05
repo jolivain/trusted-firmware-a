@@ -16,6 +16,23 @@
       "message": "CR+1, but one question below.",
       "revId": "ff4bd380450445df8209574982dda706190b99e0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d006aacd_b0baad9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-04-05T06:13:40Z",
+      "side": 1,
+      "message": "The assertion check is present there to enforce expected state (AFF_STATE_ON_PENDING) and avoid programming errors in the ON path. They will be removed by default in Release build. Not in favour of making of making micro optimization trading off maintainability.",
+      "revId": "ff4bd380450445df8209574982dda706190b99e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
