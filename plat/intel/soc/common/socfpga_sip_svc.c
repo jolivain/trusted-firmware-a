@@ -556,6 +556,11 @@ uintptr_t sip_smc_handler(uint32_t smc_fid,
 
 		SMC_RET3(handle, status, x4, x5);
 
+	case INTEL_SIP_SMC_FCS_CNTR_SET_PREAUTH:
+		status = intel_fcs_cntr_set_preauth(x1, x2, x3,
+							&mbox_error);
+		SMC_RET2(handle, status, mbox_error);
+
 	case INTEL_SIP_SMC_FCS_PSGSIGMA_TEARDOWN:
 		status = intel_fcs_sigma_teardown(x1, &mbox_error);
 		SMC_RET2(handle, status, mbox_error);
