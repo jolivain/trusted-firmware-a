@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "28d8fd68_9a5b8565",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000787
+      },
+      "writtenOn": "2022-04-05T09:53:13Z",
+      "side": 1,
+      "message": "The AB update is a kind of firmware bank feature, which will switch the banks according to the boot_index.\n\nThe \"boot_index\" counter will be updated by SCP-firmware on CM3 core before booting TF-A.\nSince the TF-A BL2/BL31 will be combined with U-Boot in a FIP binary, BL2 must check the boot_index and select the bank to load the rest of firmware from NOR flash.\n\nThe actual firmware update is done by U-Boot using UEFI capsule update. Thus the firmware image verification will be done by UEFI capsule authentication, and the behavior verification will be done by OS. The OS will run the test and revert the image if it is not acceptable. U-Boot UEFI will update the active_index of FWU metadata. In that case, the boot_index will be updated by SCP-firmware according to the active_index.\n\nThe reason why this uses the boot_index instead of the active_index are, (1) the FWU spec requires it, and (2) the DeveloperBox platform also supports platform level rollback feature, when the SCP-firmware detects the U-Boot doesn\u0027t boot after the boot_index has been updated, it will rollback the boot_index instead of the active_index.",
+      "parentUuid": "c682ca62_89fcb7b7",
+      "revId": "6d0472f1b182d20ceaa259a9914839d0df3a72c4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fbb686e2_b63cf617",
