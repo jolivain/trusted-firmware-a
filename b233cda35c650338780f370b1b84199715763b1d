@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ba241f5_81827aa2",
+        "filename": "plat/intel/soc/common/include/socfpga_sip_svc.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-04-05T07:50:52Z",
+      "side": 1,
+      "message": "Fixed in patch-v6. Thanks.",
+      "parentUuid": "183dfad2_8b2a793c",
+      "range": {
+        "startLine": 51,
+        "startChar": 37,
+        "endLine": 51,
+        "endChar": 38
+      },
+      "revId": "b233cda35c650338780f370b1b84199715763b1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a879bd2a_cf8389c6",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Ah ok. I don\u0027t see a declaration in a header file though.",
       "parentUuid": "d1e3113b_510914d5",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 43
+      },
+      "revId": "b233cda35c650338780f370b1b84199715763b1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd3519cd_c7358e2e",
+        "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-04-05T07:50:52Z",
+      "side": 1,
+      "message": "Added in plat/intel/soc/common/include/socfpga_sip_svc.h. Thanks.",
+      "parentUuid": "e3c80453_86ad6215",
       "range": {
         "startLine": 14,
         "startChar": 0,
