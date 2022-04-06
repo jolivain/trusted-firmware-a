@@ -16,6 +16,24 @@
       "message": "Apparently, nothing substantive changed?",
       "revId": "33464854a62b995295ecb551c07609b941b4f1f7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e2a889e_e21daf87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-06T08:09:26Z",
+      "side": 1,
+      "message": "Yes, I think the change here would have been as part of adjusting the filepath of the SPMC code from \"spm/spmc/*\" to \"spm/el3_spmc/*\" due to feedback.",
+      "parentUuid": "2bb87439_58a2a34c",
+      "revId": "33464854a62b995295ecb551c07609b941b4f1f7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
