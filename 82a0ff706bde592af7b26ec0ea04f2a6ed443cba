@@ -16,6 +16,23 @@
       "message": "Conversation with Andre says to try and target this for v2.7 release",
       "revId": "82a0ff706bde592af7b26ec0ea04f2a6ed443cba",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbbc5f64_ee2dadfb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-04-06T00:19:18Z",
+      "side": 1,
+      "message": "@Samuel: can you put a COR+1 here, if that\u0027s alright with you?\nWe can have a:\nSUNXI_BL31_IN_DRAM\t?\u003d\t0\nright after\nSUNXI_AMEND_DTB\t\t?\u003d\t0\nif you want to make sure that\u0027s initialised, but the other parts look OK as they are.",
+      "revId": "82a0ff706bde592af7b26ec0ea04f2a6ed443cba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
