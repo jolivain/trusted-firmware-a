@@ -34,6 +34,24 @@
       "parentUuid": "771ec191_eddbcf26",
       "revId": "8ab2ffc719b01d46fdbd085b44db7d43ac554111",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8731cb6d_5dc063c0",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-04-06T15:31:07Z",
+      "side": 1,
+      "message": "but u_register_t is UL",
+      "parentUuid": "be863f6f_8222f36c",
+      "revId": "8ab2ffc719b01d46fdbd085b44db7d43ac554111",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
