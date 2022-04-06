@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e24d91ac_deaf5d99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-06T12:07:12Z",
+      "side": 1,
+      "message": "FYI, I\u0027m adding a test config with measured boot enabled with RME support on FVP:\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/14673\n\nI\u0027ve run this patch stack through it. The results are looking good! One can clearly see the prints from the RSS measured boot backend (along side the prints from the TCG event log driver). There are also prints related to RME support. TFTF tests pass successfully.\n\nSee: https://tf.validation.linaro.org/scheduler/job/658636\n(triggered by https://ci.trustedfirmware.org/view/TF-A/job/tf-a-ci-gateway/7697/)",
+      "revId": "d8e44bdc0a45d38abcd8538de0b06dfb668be825",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2aa5b56_907c839e",
