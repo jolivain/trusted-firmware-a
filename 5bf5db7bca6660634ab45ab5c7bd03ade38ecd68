@@ -88,6 +88,24 @@
       "parentUuid": "d1dbe9cc_2b7c05f6",
       "revId": "5bf5db7bca6660634ab45ab5c7bd03ade38ecd68",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a26d5d6d_954e28b4",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-06T12:57:59Z",
+      "side": 1,
+      "message": "hw_config_dtb_info variable only serves to retrieve the global address of the structure from the array of structures i.e. dtb_infos (see line no.25), and to set the specific member of that structure (i.e. ns_config_addr) hence we don\u0027t bother if it gets destroyed when function goes out of the scope.",
+      "parentUuid": "1382116e_304052a0",
+      "revId": "5bf5db7bca6660634ab45ab5c7bd03ade38ecd68",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
