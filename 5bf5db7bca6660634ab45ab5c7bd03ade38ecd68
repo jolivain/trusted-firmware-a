@@ -16,6 +16,24 @@
       "message": "Shouldn\u0027t set_config_info() accept the new optional property?\n\nWhat I see is that the FCONF_GET_PROPERTY() call goes through all the dyn_cfg_dtb_info_t* objects to find the one matches config_id, which can cause some inefficiencies, especially because the same object is accessed a few lines above (133). I would suggest adding the new optional property to set_config_info(). In case it is not possible/reasonable, maybe making set_config_info() return the accessed dyn_cfg_dtb_info_t* object and then set ns_config_addr is an alternative solution.",
       "revId": "5bf5db7bca6660634ab45ab5c7bd03ade38ecd68",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f10dc24f_39ab6292",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-06T07:07:01Z",
+      "side": 1,
+      "message": "Hi Juan,\n\nI have considered both scenarios what you mentioned, but have not implemented them because of the following reasons -\n\n1. A new input parameter in \u0027set_config_info\u0027 may not work since \u0027ns-load-address\u0027 is only intended for the HW_COFIG device tree.\n2. \u0027set_config_info\u0027 can return dyn_cfg_dtb_info_t*, however this function gets called from a few places where such a return is not necessary.\n\nAs getting the ns-config address of HW_CONFIG is a one-off task, and this function is only called during the boot, re-finding the same object may not add much overhead IMO. Even though I am happy to take the later approach (e.g. to return dyn_cfg_dtb_info_t*) if everyone agrees.",
+      "parentUuid": "19491486_f7452888",
+      "revId": "5bf5db7bca6660634ab45ab5c7bd03ade38ecd68",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
