@@ -16,6 +16,52 @@
       "message": "WIP",
       "revId": "c57e3a8ec5fd41b95fabb61d64b21d312495dc78",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b79e8488_1b66d592",
+        "filename": "plat/hisilicon/hikey960/hikey960_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-04-06T16:38:37Z",
+      "side": 1,
+      "message": "Includes should be in alphabetical order, this one should go after lib/mmio.h.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 43
+      },
+      "revId": "c57e3a8ec5fd41b95fabb61d64b21d312495dc78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cb3a82a_d49792eb",
+        "filename": "plat/hisilicon/hikey960/hikey960_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-04-06T16:38:37Z",
+      "side": 1,
+      "message": "nit: multi line comments usually have only /* on the first line with the comment starting on the next line.",
+      "range": {
+        "startLine": 181,
+        "startChar": 3,
+        "endLine": 181,
+        "endChar": 4
+      },
+      "revId": "c57e3a8ec5fd41b95fabb61d64b21d312495dc78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
