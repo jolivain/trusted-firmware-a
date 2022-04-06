@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efa04b1d_790353fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-04-06T11:45:33Z",
+      "side": 1,
+      "message": "Couple of static check failures\ndrivers/arm/gic/v3/gic600ae_fmu.c:271: ERROR: code indent should use tabs where possible\n+^I        /*$\n\ndrivers/arm/gic/v3/gic600ae_fmu.c:272: ERROR: code indent should use tabs where possible\n+        ^I * Disable all safety mechanisms for blocks that are not$",
+      "revId": "9ade89f9ca6dd572c5f7d8d46d31fab2981e32fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
