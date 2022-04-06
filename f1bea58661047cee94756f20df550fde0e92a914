@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d799c26_bb450edb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-04-06T19:58:43Z",
+      "side": 1,
+      "message": "Is \"cryption\" a word?  Perhaps use \"encryption/decryption\" instead (assuming that\u0027s what you mean)?",
+      "revId": "f1bea58661047cee94756f20df550fde0e92a914",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcedf727_4d43557f",
+        "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-04-06T19:58:43Z",
+      "side": 1,
+      "message": "This might be clearer if you were to say \"size % 4\" instead?  I can\u0027t immediately think of any benefit to \"#define\"ing a macro to represent 4 in a function that checks for multiple-of-4 size.",
+      "revId": "f1bea58661047cee94756f20df550fde0e92a914",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
