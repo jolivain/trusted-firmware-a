@@ -39,6 +39,30 @@
       },
       "revId": "d8e44bdc0a45d38abcd8538de0b06dfb668be825",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bc53973_e1d63b03",
+        "filename": "plat/arm/board/fvp/fvp_common_measured_boot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2022-04-06T12:17:50Z",
+      "side": 1,
+      "message": "There was already a discussion on this topic with @Sandrine Bailleux. Her opinion was:\n\n\u003e I suppose this sentence is only true if both backends use the same hash algorithm for the measurement.\n\u003e If, say, event log uses SHA-256, but RSS uses SHA-512 then we\u0027d need to do 2 measurements anyway, right?\n\n\u003e Also, I believe this concern will go away in the future. In the final solution,\n\u003e my expectation is that each image will either be measured by one or the other backend,\n\u003e but not both. More precisely, RSS will measure all CCA firmware components\n\u003e (HW_CONFIG, FW_CONFIG, BL1, BL2 + its config, BL31 + its config, RMM)\n\u003e while the event log will measure the rest.\n\nI agree with this statement so, for the time being, would leave it as is. But we might do it later anyway if we are proved to be wrong.",
+      "parentUuid": "b2aa5b56_907c839e",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 18
+      },
+      "revId": "d8e44bdc0a45d38abcd8538de0b06dfb668be825",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
