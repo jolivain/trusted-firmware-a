@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "edb9d2ad_b0c906a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-06T12:50:51Z",
+      "side": 1,
+      "message": "Just to clarify... I believe there is nothing in this patch stack that is specific to RME support. So the existing CI test configs (with MEASURED_BOOT\u003d1 and ENABLE_RME\u003d0) will already exercise these patches to some degree. The new test config I am adding is just one step further towards a future RSS+RME FVP platform.",
+      "parentUuid": "e24d91ac_deaf5d99",
+      "revId": "d8e44bdc0a45d38abcd8538de0b06dfb668be825",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2aa5b56_907c839e",
