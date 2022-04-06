@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d699e4d5_e82e0c44",
+        "filename": "plat/qemu/qemu/qemu_bl1_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-04-06T21:25:05Z",
+      "side": 1,
+      "message": "nit: usually /* is on its own line with the comment starting on the next line.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 3
+      },
+      "revId": "a439c9853d55d4c500685e22542862fa5519f662",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4047116_9b6e12ef",
+        "filename": "plat/qemu/qemu/qemu_helpers.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-04-06T21:25:05Z",
+      "side": 1,
+      "message": "Please surround with {...} as per TFA coding style guidelines. There\u0027s several instances of this in this file.",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 52
+      },
+      "revId": "a439c9853d55d4c500685e22542862fa5519f662",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
