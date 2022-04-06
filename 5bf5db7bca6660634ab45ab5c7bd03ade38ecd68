@@ -70,6 +70,24 @@
       "parentUuid": "23e8b105_3f663d21",
       "revId": "5bf5db7bca6660634ab45ab5c7bd03ade38ecd68",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1382116e_304052a0",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-04-06T12:05:22Z",
+      "side": 1,
+      "message": "I might be mistaken, so feel free to correct me if i\u0027m missing something but it looks to me that at line 146 you set the local variable hw_config_dtb_info but don\u0027t actually do anything with it besides print the value you stored in it.\n\nOnce the function goes out of scope, wouldn\u0027t this variable be destroyed? I can see that at line 133 we actually call set_config_info, which allocates memory and stores the information in the registry.",
+      "parentUuid": "d1dbe9cc_2b7c05f6",
+      "revId": "5bf5db7bca6660634ab45ab5c7bd03ade38ecd68",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
