@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4968084a_d76bbbd2",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-04-06T10:35:52Z",
+      "side": 1,
+      "message": "Yes, and also depends on PLAT_LOG_LEVEL_ASSERT value.",
+      "parentUuid": "a64f0ece_0d78d6eb",
+      "revId": "deb6c99ed064bcd9abca34c93ca45c25c09cfe95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1daa0fee_81b87733",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 2
