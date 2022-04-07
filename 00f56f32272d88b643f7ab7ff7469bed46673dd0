@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76a86c95_2b0592b0",
+        "filename": "Makefile",
+        "patchSetId": 5
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1000621
+      },
+      "writtenOn": "2022-04-07T13:45:21Z",
+      "side": 1,
+      "message": "Is there going to be a build-time dependency on TRUSTED_BOARD_BOOT?  If there is not, then relaxing this statement (e.g. issuing an informational message instead) would avoid discouraging those who just want to try out the DRTM Service.\n\nAdditionally, we think that variations to Trusted Boot are also acceptable (e.g. measurement only), so perhaps this is another argument pro pushing out the exact policy choice for securing DRTM.",
+      "range": {
+        "startLine": 837,
+        "startChar": 8,
+        "endLine": 837,
+        "endChar": 15
+      },
+      "revId": "00f56f32272d88b643f7ab7ff7469bed46673dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
