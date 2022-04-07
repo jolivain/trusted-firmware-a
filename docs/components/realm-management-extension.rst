@@ -73,6 +73,11 @@ RMMD is a new standard runtime service that handles the switch to the Realm
 world. It initializes the RMM and handles Realm Management Interface (RMI)
 SMC calls from Non-secure and Realm worlds.
 
+There is a contract between RMM and RMMD that defines the arguments that the
+former needs to take in order to initialize and also the possible return values.
+This contract is defined in the RMM Boot Interface, which can be found at
+:ref:`rmm el3 boot interface`.
+
 Test Realm Payload (TRP)
 *************************
 TRP is a small test payload that runs at R-EL2 and implements a subset of
