@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "153c023a_50ef8d18",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000106
+      },
+      "writtenOn": "2022-04-07T20:21:41Z",
+      "side": 1,
+      "message": "This is done for both `domain_off` and `domain_suspend` below, all can be factored out into k3_power_down_core_clstr() above.",
+      "revId": "f4c14108e806141fbb7c6a40524098f40b213a1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ae3412b_76d73c0b",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000106
+      },
+      "writtenOn": "2022-04-07T20:21:41Z",
+      "side": 1,
+      "message": "Extra newline..",
+      "revId": "f4c14108e806141fbb7c6a40524098f40b213a1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fd8914b_91b0df54",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000106
+      },
+      "writtenOn": "2022-04-07T20:21:41Z",
+      "side": 1,
+      "message": "really no reason to rename this then, just call k3_pwr_domain_off() here and leave that function as is. Sure you will end up calling k3_gic_cpuif_disable() twice but oh well.",
+      "revId": "f4c14108e806141fbb7c6a40524098f40b213a1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6808870c_de8e4017",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000106
+      },
+      "writtenOn": "2022-04-07T20:21:41Z",
+      "side": 1,
+      "message": "Doesn\u0027t seem right, the params are to 32bit addresses (high, low), why cast the `bl31_warm_entrypoint` to 64bit to then reduce it back to 32bit.. Think you want to break that address into high/low halves.\n\nAlso you don\u0027t need to pull in `bl31_warm_entrypoint`, we already have this value as `k3_sec_entrypoint`, use that instead and drop the bl31.h include.",
+      "revId": "f4c14108e806141fbb7c6a40524098f40b213a1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bfe4aae_9006b7b5",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000106
+      },
+      "writtenOn": "2022-04-07T20:21:41Z",
+      "side": 1,
+      "message": "s/\u003c/\u003c\u003d\n\nthen drop the last line.",
+      "revId": "f4c14108e806141fbb7c6a40524098f40b213a1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
