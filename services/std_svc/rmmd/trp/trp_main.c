@@ -73,14 +73,14 @@ void trp_setup(uint64_t x0,
 	       uint64_t x7)
 {
 	(void)x0;
-	(void)x3;
+	(void)x2;
 	(void)x4;
 	(void)x5;
 	(void)x6;
 	(void)x7;
 
 	trp_boot_abi_version = x1;
-	trp_shared_region_start = x2;
+	trp_shared_region_start = x3;
 	flush_dcache_range((uintptr_t)&trp_boot_abi_version,
 			   sizeof(trp_boot_abi_version));
 	flush_dcache_range((uintptr_t)&trp_shared_region_start,

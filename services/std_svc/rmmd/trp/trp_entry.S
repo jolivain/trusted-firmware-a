@@ -71,7 +71,8 @@ trp_head:
 	 * parameters recived from EL3 are:
 	 * x0 (stashed in x20): CPUID
 	 * x1 (stashed in x21): Boot Interface version
-	 * x2 (stashed in x22): Pointer to the shared memory area.
+	 * x2 (stashed in x22): PLATFORM_CORE_COUNT (Not checked here)
+	 * x3 (stashed in x23): Pointer to the shared memory area.
 	 * ---------------------------------------------
 	 */
 	cmp	x20, #PLATFORM_CORE_COUNT
@@ -93,7 +94,7 @@ trp_head:
 	/*
 	 * Check that the pointer to the shared space is not null.
 	 */
-	cmp	x22, #0
+	cmp	x23, #0
 	abort_boot_err_if eq, E_RMM_BOOT_INVALID_SHARED_BUFFER
 
 	/*
