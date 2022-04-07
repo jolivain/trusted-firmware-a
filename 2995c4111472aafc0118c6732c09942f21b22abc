@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "433a9c71_7001756b",
+        "filename": "drivers/arm/mhu/mhu_v2_x.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-07T12:03:11Z",
+      "side": 1,
+      "message": "2022 instead?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "2995c4111472aafc0118c6732c09942f21b22abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec4a13c1_d17f308b",
+        "filename": "drivers/arm/mhu/mhu_v2_x.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-07T12:03:11Z",
+      "side": 1,
+      "message": "Is there any maximum timeout available to get the access ready? if yes, then replace infinite while with timeout implementation.",
+      "range": {
+        "startLine": 316,
+        "startChar": 2,
+        "endLine": 317,
+        "endChar": 3
+      },
+      "revId": "2995c4111472aafc0118c6732c09942f21b22abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bd51a67_e833d8d4",
+        "filename": "drivers/arm/mhu/mhu_v2_x.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-07T12:03:11Z",
+      "side": 1,
+      "message": "nit: should be 2022 instead?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "2995c4111472aafc0118c6732c09942f21b22abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8db1ee40_b65befe3",
+        "filename": "drivers/arm/mhu/mhu_v2_x.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-07T12:03:11Z",
+      "side": 1,
+      "message": "Same comment observed in all below function prototypes. \nIs there any specific reason behind this?",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 46
+      },
+      "revId": "2995c4111472aafc0118c6732c09942f21b22abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4097168a_dc278f53",
+        "filename": "drivers/arm/mhu/mhu_v2_x.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-07T12:03:11Z",
+      "side": 1,
+      "message": "This is repeated at line no.76 and 78. Please remove it from line no. 76 \u0026 78.",
+      "range": {
+        "startLine": 72,
+        "startChar": 2,
+        "endLine": 72,
+        "endChar": 46
+      },
+      "revId": "2995c4111472aafc0118c6732c09942f21b22abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
