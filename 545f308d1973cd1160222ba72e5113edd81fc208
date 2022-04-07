@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2147280d_6479b607",
+        "filename": "include/lib/psa/psa/client.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2022-04-07T14:34:51Z",
+      "side": 1,
+      "message": "This file is copied from TF-M. It was published in 2018. So, I think this is the correct date.",
+      "parentUuid": "feb28d6e_f67e0c7f",
+      "range": {
+        "startLine": 3,
+        "startChar": 17,
+        "endLine": 3,
+        "endChar": 26
+      },
+      "revId": "545f308d1973cd1160222ba72e5113edd81fc208",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9434710f_08e4b5b6",
         "filename": "include/lib/psa/psa/error.h",
         "patchSetId": 1
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bf370093_bf63f096",
+        "filename": "include/lib/psa/psa/error.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2022-04-07T14:34:51Z",
+      "side": 1,
+      "message": "Defined by FF-M, Appendix C:\nhttps://developer.arm.com/-/media/Files/pdf/PlatformSecurityArchitecture/Architect/DEN0063-PSA_Firmware_Framework-1.0.0-2.pdf?revision\u003d2d1429fa-4b5b-461a-a60e-4ef3d8f7f4b4\u0026hash\u003d3BFD6F3E687F324672F18E5BE9F08EDC48087C93",
+      "parentUuid": "9434710f_08e4b5b6",
+      "range": {
+        "startLine": 19,
+        "startChar": 41,
+        "endLine": 19,
+        "endChar": 59
+      },
+      "revId": "545f308d1973cd1160222ba72e5113edd81fc208",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f71abaee_e5bec3ea",
         "filename": "include/lib/psa/psa_manifest/sid.h",
         "patchSetId": 1
@@ -60,6 +108,30 @@
       "writtenOn": "2022-04-07T12:39:15Z",
       "side": 1,
       "message": "2022 instead?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "545f308d1973cd1160222ba72e5113edd81fc208",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5fba9b0_60dc8db7",
+        "filename": "include/lib/psa/psa_manifest/sid.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2022-04-07T14:34:51Z",
+      "side": 1,
+      "message": "This file is copied from TF-M. It was published in 2019. So, I think this is the correct date.",
+      "parentUuid": "f71abaee_e5bec3ea",
       "range": {
         "startLine": 2,
         "startChar": 17,
