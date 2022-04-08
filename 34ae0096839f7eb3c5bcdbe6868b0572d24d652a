@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3a0ba1c_3198cbe0",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-04-08T16:38:37Z",
+      "side": 1,
+      "message": "I could be missing something but why is this done twice? For UP then DOWN?",
+      "range": {
+        "startLine": 236,
+        "startChar": 1,
+        "endLine": 236,
+        "endChar": 20
+      },
+      "revId": "34ae0096839f7eb3c5bcdbe6868b0572d24d652a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}

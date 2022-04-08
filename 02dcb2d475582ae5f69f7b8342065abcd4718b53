@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4074e30d_5f926fc9",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-04-08T16:38:37Z",
+      "side": 1,
+      "message": "NIT: Usually just SWd",
+      "range": {
+        "startLine": 65,
+        "startChar": 14,
+        "endLine": 65,
+        "endChar": 18
+      },
+      "revId": "02dcb2d475582ae5f69f7b8342065abcd4718b53",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de6a1d62_6cce9a11",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-04-08T16:38:37Z",
+      "side": 1,
+      "message": "not the SPMD ID",
+      "range": {
+        "startLine": 113,
+        "startChar": 21,
+        "endLine": 113,
+        "endChar": 49
+      },
+      "revId": "02dcb2d475582ae5f69f7b8342065abcd4718b53",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
