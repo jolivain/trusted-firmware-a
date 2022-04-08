@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea7f397c_659e8eeb",
+        "filename": "services/std_svc/spm/spmc/logical_sp.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-08T17:33:26Z",
+      "side": 1,
+      "message": "Good point, removed this check.",
+      "parentUuid": "8dde9ad4_a0f51a10",
+      "revId": "e2245785110391be708ef5a918de4b094043fdfd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ce4fa0d_65bd33c3",
@@ -41,6 +59,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1227d50_c3c5a02a",
+        "filename": "services/std_svc/spm/spmc/logical_sp.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-08T17:33:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ce4fa0d_65bd33c3",
+      "range": {
+        "startLine": 18,
+        "startChar": 11,
+        "endLine": 18,
+        "endChar": 23
+      },
+      "revId": "e2245785110391be708ef5a918de4b094043fdfd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e2187d7_b1059642",
@@ -54,6 +96,30 @@
       "writtenOn": "2022-03-22T08:27:10Z",
       "side": 1,
       "message": "typo?",
+      "range": {
+        "startLine": 162,
+        "startChar": 32,
+        "endLine": 162,
+        "endChar": 41
+      },
+      "revId": "e2245785110391be708ef5a918de4b094043fdfd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85ab5dbc_619c9173",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-08T17:33:26Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "1e2187d7_b1059642",
       "range": {
         "startLine": 162,
         "startChar": 32,
