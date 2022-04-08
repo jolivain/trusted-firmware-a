@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6697dc18_7fbc79dc",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2022-04-08T19:55:53Z",
+      "side": 1,
+      "message": "As noted in next comment, I\u0027ve just dropped the refactor and called domain off from inside domain_suspend, thanks for suggestion.",
+      "parentUuid": "153c023a_50ef8d18",
+      "revId": "f4c14108e806141fbb7c6a40524098f40b213a1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ae3412b_76d73c0b",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-04-07T20:21:41Z",
       "side": 1,
       "message": "Extra newline..",
+      "revId": "f4c14108e806141fbb7c6a40524098f40b213a1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07dc6543_8fa5a139",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2022-04-08T19:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ae3412b_76d73c0b",
       "revId": "f4c14108e806141fbb7c6a40524098f40b213a1f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -52,6 +88,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c0b68e6_9c3ed2e7",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2022-04-08T19:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fd8914b_91b0df54",
+      "revId": "f4c14108e806141fbb7c6a40524098f40b213a1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6808870c_de8e4017",
@@ -69,6 +123,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "818f53a2_220d0edb",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2022-04-08T19:55:53Z",
+      "side": 1,
+      "message": "Hmm yes definitely agree. Instead I will entirely change ti_sci_enter_sleep to take uint64_t and do the masking on the inside of the function, no reason to place burden on the caller.\n\nWill use k3_sec_entrypoint instead, thanks.",
+      "parentUuid": "6808870c_de8e4017",
+      "revId": "f4c14108e806141fbb7c6a40524098f40b213a1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6bfe4aae_9006b7b5",
@@ -82,6 +154,24 @@
       "writtenOn": "2022-04-07T20:21:41Z",
       "side": 1,
       "message": "s/\u003c/\u003c\u003d\n\nthen drop the last line.",
+      "revId": "f4c14108e806141fbb7c6a40524098f40b213a1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a513ab3_875e3f14",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2022-04-08T19:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bfe4aae_9006b7b5",
       "revId": "f4c14108e806141fbb7c6a40524098f40b213a1f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
