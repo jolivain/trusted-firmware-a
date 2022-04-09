@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c34b1f8a_ace07b22",
+        "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-09T22:29:16Z",
+      "side": 1,
+      "message": "As per internal discussion, running OP-TEE as a SP may occupy a large TDRAM region, so it would be better to move the load address for hw_config further down i.e. 0x7f00000. I will take care of this in the next version of the patch.",
+      "range": {
+        "startLine": 26,
+        "startChar": 23,
+        "endLine": 26,
+        "endChar": 33
+      },
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7afd3ca7_ebdf28a6",
         "filename": "plat/arm/board/fvp/fvp_common.c",
         "patchSetId": 5
@@ -14,6 +37,24 @@
       "writtenOn": "2022-04-08T14:03:11Z",
       "side": 1,
       "message": "I\u0027m not sure I agree. It means the whole TDRAM range incl. SPMC and SPs are mapped during any service call occurring at EL3 during run-time.",
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3404e4f1_6067114d",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-09T22:29:16Z",
+      "side": 1,
+      "message": "Although I initially thought it better to map the entire TDRAM region statically in BL31 to read/write(for runtime updates) of hw_config, I agree that to limit the exposure of TDRAM in BL31, mapping the hw_config region dynamically is a good idea. I will update the patch accordingly.",
+      "parentUuid": "7afd3ca7_ebdf28a6",
       "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
