@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ab57a66_0e4fece7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2022-04-09T03:52:21Z",
+      "side": 1,
+      "message": "\u003e http://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l1/778/ : FAILURE\n\nThe build failed because we ran out of SRAM space. I didn\u0027t see this locally with GCC 11, but I can reproduce it with GCC 10.\n\nIt looks like we can save over a page of SRAM in .text by enabling LTO:\n\n - *fill*         0x000000000004d4f4      0x30c\n - .vectors       0x000000000004d800      0x800\n + *fill*         0x000000000004c3e0      0x420\n + .vectors       0x000000000004c800      0x800\n\nIs it okay if we always enable LTO for Allwinner platforms? This seems to be the best way to recover space without runtime impact (i.e. unlike disabling SEPARATE_CODE_AND_RODATA).",
+      "revId": "89aa306bac70f513047a949d8e6a3d50550e08c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
