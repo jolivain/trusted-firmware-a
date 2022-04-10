@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebcc1298_3aa720dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-04-10T21:44:46Z",
+      "side": 1,
+      "message": "This scope (context mgmt) doesn\u0027t exist, please can you add it to changelog.yaml?",
+      "revId": "66eeeb2fe88b43a5168c1f447b07f1586feaa82b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18356089_8001f4e6",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-04-10T21:44:46Z",
+      "side": 1,
+      "message": "nit: \nNot sure, whether change is needed here, from spaces to tabs, as no errors are detected in static checks.\nHowever, I just noticed in lines 14 and 15, that tabs are used. So please change accordingly at other places below to maintain uniformity.",
+      "revId": "66eeeb2fe88b43a5168c1f447b07f1586feaa82b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37c8bb86_c195f5c2",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-04-10T21:44:46Z",
+      "side": 1,
+      "message": "nit: Please change to 2013-2022. and also\nArm instead?",
+      "revId": "66eeeb2fe88b43a5168c1f447b07f1586feaa82b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
