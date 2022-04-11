@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5788be90_206f9c66",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-11T12:39:26Z",
+      "side": 1,
+      "message": "\u003e Have we considered doing the copy in BL2 instead? It would avoid adding an extra mapping of the Trusted DRAM in the runtime firmware (BL31/SP_MIN).\n\nWe can\u0027t avoid mapping of TDRAM in BL31, BL31 still needs TDRAM for reading HW_CONFIG right?\n\n\u003e \n\u003e This is assuming that BL31/SP_MIN does not modify HW_CONFIG. Is that the case? Which BL image update HW_CONFIG (if any)? And which properties do get updated?\n\nI initially added this copying operation as a part of BL2 only (in internal patch). but in internal discussion, it turns out that this HW_CONFIG may get modified at BL31 or BL32 level so better to defer this operation of copying i.e. just before launching of BL33.  \nI didn\u0027t see any evidences though where BL31 modifies any properties of HW_CONFIG, but I may be missing something so thought it is safer approach to do the copy operation of HW_CONFIG in BL31.",
+      "parentUuid": "66e3d030_76a5e64b",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 61
+      },
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3f699ad3_2338fa67",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
@@ -37,6 +61,24 @@
       "writtenOn": "2022-04-11T11:55:19Z",
       "side": 1,
       "message": "Consider adding a reference to threat #3 from the threat model, like you did on the TF-A mailing list.",
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2eab75f_bd19a964",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-11T12:39:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3f699ad3_2338fa67",
       "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -89,6 +131,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8ef2af12_dfc4f239",
+        "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-11T12:39:26Z",
+      "side": 1,
+      "message": "Sure, will add this in the commit message.",
+      "parentUuid": "dde18144_18ee8b21",
+      "range": {
+        "startLine": 28,
+        "startChar": 3,
+        "endLine": 28,
+        "endChar": 27
+      },
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4022bbf7_9118c075",
         "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
         "patchSetId": 5
@@ -100,6 +166,30 @@
       "writtenOn": "2022-04-11T11:55:19Z",
       "side": 1,
       "message": "IIUC, these changes will pass the address of FW_CONFIG in argument to SP_MIN image, so that the latter can copy it to Trusted DRAM before handing over to BL33. I think this is not properly called out in the commit message. It seems important to me to highlight this, because it is change of contract/argument passing between BL2 and SP_MIN on FVP platform.\n\nAlso, please double-check the documentation, as I seem to recall that the argument passing convention is documented somewhere and might need an update.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 15
+      },
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18a4cbbe_6d2c1fa4",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-11T12:39:26Z",
+      "side": 1,
+      "message": "Let me check documentation for update and also, will update the commit message to mention this contract between BL2 and SP_MIN.",
+      "parentUuid": "4022bbf7_9118c075",
       "range": {
         "startLine": 46,
         "startChar": 0,
@@ -135,6 +225,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c5a345c4_c361d60a",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-11T12:39:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "70034ea7_49c041c7",
+      "range": {
+        "startLine": 74,
+        "startChar": 10,
+        "endLine": 74,
+        "endChar": 21
+      },
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "84d14be3_e39be7a8",
         "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
         "patchSetId": 5
@@ -146,6 +260,30 @@
       "writtenOn": "2022-04-11T11:55:19Z",
       "side": 1,
       "message": "I am not convinced we need to flush the data out of the cache here. At this stage in the boot process, only the primary core is on and there is no plan to bring up any secondary core that might need to access this memory with its data cache off... Or am I missing something?",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 39
+      },
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8be5838e_e92860bc",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-11T12:39:26Z",
+      "side": 1,
+      "message": "I believe we need this to ensure contents are committed to NS memory so that it will be consumed by BL33 properly. Please correct me if I am wrong.",
+      "parentUuid": "84d14be3_e39be7a8",
       "range": {
         "startLine": 132,
         "startChar": 0,
@@ -211,6 +349,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4f422555_e0761add",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-11T12:39:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3f5a2929_13f1fdab",
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c13b44d0_85ffa245",
         "filename": "plat/arm/board/fvp/fvp_common.c",
         "patchSetId": 5
@@ -222,6 +378,30 @@
       "writtenOn": "2022-04-11T11:55:19Z",
       "side": 1,
       "message": "Just like the Trusted DRAM mapping above, do we actually need to keep this mapping active past boot time? Can not dynamically map it, copy HW_CONFIG from non-secure SRAM to secure DRAM, then unmap it for the rest of the system\u0027s lifetime?",
+      "range": {
+        "startLine": 172,
+        "startChar": 1,
+        "endLine": 176,
+        "endChar": 17
+      },
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "068615e9_0f0823d3",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-11T12:39:26Z",
+      "side": 1,
+      "message": "I am not pretty sure on this, it was mapped statically before. This need to be confirmed before moving its mapping dynamically.",
+      "parentUuid": "c13b44d0_85ffa245",
       "range": {
         "startLine": 172,
         "startChar": 1,
@@ -257,6 +437,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "968f8c28_5f01ae54",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-11T12:39:26Z",
+      "side": 1,
+      "message": "Yes, I will move this to dynamic mapping.",
+      "parentUuid": "6748fbcd_7ee50219",
+      "range": {
+        "startLine": 206,
+        "startChar": 1,
+        "endLine": 206,
+        "endChar": 16
+      },
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "11f53d30_544df299",
         "filename": "plat/arm/board/fvp/include/platform_def.h",
         "patchSetId": 5
@@ -268,6 +472,30 @@
       "writtenOn": "2022-04-11T11:55:19Z",
       "side": 1,
       "message": "I notice that FVP_R and Juno platforms also define this mapping for the same reasons. Presumably we should do the same change for these platforms? Or is there a reason I missed why it is safe on these platforms?",
+      "range": {
+        "startLine": 89,
+        "startChar": 8,
+        "endLine": 89,
+        "endChar": 23
+      },
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "932425ed_79ca4b0f",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-11T12:39:26Z",
+      "side": 1,
+      "message": "This is part of the work that will be done after this patch is merged. The initial plan is to focus on one Arm platform, the FVP platform, before moving on to other platforms.",
+      "parentUuid": "11f53d30_544df299",
       "range": {
         "startLine": 89,
         "startChar": 8,
