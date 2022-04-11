@@ -3,6 +3,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "66e3d030_76a5e64b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-11T11:55:19Z",
+      "side": 1,
+      "message": "Have we considered doing the copy in BL2 instead? It would avoid adding an extra mapping of the Trusted DRAM in the runtime firmware (BL31/SP_MIN).\n\nThis is assuming that BL31/SP_MIN does not modify HW_CONFIG. Is that the case? Which BL image update HW_CONFIG (if any)? And which properties do get updated?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 61
+      },
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f699ad3_2338fa67",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-11T11:55:19Z",
+      "side": 1,
+      "message": "Consider adding a reference to threat #3 from the threat model, like you did on the TF-A mailing list.",
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c34b1f8a_ace07b22",
         "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
         "patchSetId": 5
@@ -19,6 +59,98 @@
         "startChar": 23,
         "endLine": 26,
         "endChar": 33
+      },
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dde18144_18ee8b21",
+        "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-11T11:55:19Z",
+      "side": 1,
+      "message": "Looks like the maximum size of HW_CONFIG has been greatly reduced (from 16 MB down to 1 MB). Please call out this change in the commit message and provide rationale for it.",
+      "range": {
+        "startLine": 28,
+        "startChar": 3,
+        "endLine": 28,
+        "endChar": 27
+      },
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4022bbf7_9118c075",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-11T11:55:19Z",
+      "side": 1,
+      "message": "IIUC, these changes will pass the address of FW_CONFIG in argument to SP_MIN image, so that the latter can copy it to Trusted DRAM before handing over to BL33. I think this is not properly called out in the commit message. It seems important to me to highlight this, because it is change of contract/argument passing between BL2 and SP_MIN on FVP platform.\n\nAlso, please double-check the documentation, as I seem to recall that the argument passing convention is documented somewhere and might need an update.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 15
+      },
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70034ea7_49c041c7",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-11T11:55:19Z",
+      "side": 1,
+      "message": "(minor) Remove.",
+      "range": {
+        "startLine": 74,
+        "startChar": 10,
+        "endLine": 74,
+        "endChar": 21
+      },
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84d14be3_e39be7a8",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-11T11:55:19Z",
+      "side": 1,
+      "message": "I am not convinced we need to flush the data out of the cache here. At this stage in the boot process, only the primary core is on and there is no plan to bring up any secondary core that might need to access this memory with its data cache off... Or am I missing something?",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 39
       },
       "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
@@ -55,6 +187,93 @@
       "side": 1,
       "message": "Although I initially thought it better to map the entire TDRAM region statically in BL31 to read/write(for runtime updates) of hw_config, I agree that to limit the exposure of TDRAM in BL31, mapping the hw_config region dynamically is a good idea. I will update the patch accordingly.",
       "parentUuid": "7afd3ca7_ebdf28a6",
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f5a2929_13f1fdab",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-11T11:55:19Z",
+      "side": 1,
+      "message": "I agree with the concerns raised here. We should always apply the principle of least privilege, especially for BL31, as it is the resident part of TF-A.",
+      "parentUuid": "3404e4f1_6067114d",
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c13b44d0_85ffa245",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-11T11:55:19Z",
+      "side": 1,
+      "message": "Just like the Trusted DRAM mapping above, do we actually need to keep this mapping active past boot time? Can not dynamically map it, copy HW_CONFIG from non-secure SRAM to secure DRAM, then unmap it for the rest of the system\u0027s lifetime?",
+      "range": {
+        "startLine": 172,
+        "startChar": 1,
+        "endLine": 176,
+        "endChar": 17
+      },
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6748fbcd_7ee50219",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-11T11:55:19Z",
+      "side": 1,
+      "message": "Similar to the AArch64 scenario, consider mapping this transiently into SP_MIN address space to reduce the attack surface of runtime firmware.",
+      "range": {
+        "startLine": 206,
+        "startChar": 1,
+        "endLine": 206,
+        "endChar": 16
+      },
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11f53d30_544df299",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-11T11:55:19Z",
+      "side": 1,
+      "message": "I notice that FVP_R and Juno platforms also define this mapping for the same reasons. Presumably we should do the same change for these platforms? Or is there a reason I missed why it is safe on these platforms?",
+      "range": {
+        "startLine": 89,
+        "startChar": 8,
+        "endLine": 89,
+        "endChar": 23
+      },
       "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
