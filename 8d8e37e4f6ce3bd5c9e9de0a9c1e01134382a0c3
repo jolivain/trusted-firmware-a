@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5aee8b1a_5dac4e78",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-11T14:22:21Z",
+      "side": 1,
+      "message": "\u003e \u003e We can\u0027t avoid mapping of TDRAM in BL31, BL31 still needs TDRAM for reading HW_CONFIG right?\n\u003e \n\u003e Is BL31 not accessing HW_CONFIG through the secure SRAM mapping instead?\n\nNo, BL2 loads the HW_CONFIG in TDRAM at an address 0x07700000 (I am going to change this though moving it further down) and BL31 is consuming it from that address.\n\u003e \n\u003e \u003e I initially added this copying operation as a part of BL2 only (in internal patch). but in internal discussion, it turns out that this HW_CONFIG may get modified at BL31 or BL32 level so better to defer this operation of copying i.e. just before launching of BL33.  \n\u003e \u003e I didn\u0027t see any evidences though where BL31 modifies any properties of HW_CONFIG, but I may be missing something so thought it is safer approach to do the copy operation of HW_CONFIG in BL31.\n\u003e \n\u003e Oops, sorry Manish, I had forgotten about these internal discussions, my sincere apologies for rewinding the discussion!\n\u003e \n\u003e OK so it sounds like BL31/SP_MIN modifying HW_CONFIG is only a *theoretical* use case. Despite what I\u0027ve said in the internal Gerrit review, I now think we should hold off supporting such a theoretical use case. If it turns out we never use this, we will end up increasing the runtime firmware\u0027s attack surface for nothing! Let\u0027s first dig this up further and understand the use cases for updating HW_CONFIG from BL31/SP_MIN.\n\u003e \n\u003e Does that sound reasonable?\n\nYes, I too thought this is reasonable (to avoid attack surface in the runtime software). Let me modify the patch accordingly and let\u0027s see if anyone has different opinion on this.",
+      "parentUuid": "2004d1ae_b24570c6",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 61
+      },
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3f699ad3_2338fa67",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
@@ -410,6 +434,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "df810778_4bfc95e8",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-11T14:22:21Z",
+      "side": 1,
+      "message": "\u003e But why? Could you please describe the exact scenario you have in mind?\n\u003e \n\u003e AFAIK, data needs to be flushed out of the cache only when it is to be accessed from another PE or device which is not part of the same coherency domain. Typically, when accessing this data from another PE just after powering it up, while it is not part of the same coherency domain yet. Or when the data needs to be accessed from a non-coherent device, the example that comes to mind is a HW crypto accelerator involved in checking the authenticity of an image just after it\u0027s been loaded in memory. Otherwise, even if the data is held in the cache, other CPUs in the same coherency domain can snoop into the other CPU\u0027s cache.\n\nI thought primary core at BL33 may need this region without cache/MMU enabled, and hence this flushing may be important for that purpose but seems like that may not be the real case scenario.",
+      "parentUuid": "f3d567f4_30d37fed",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 39
+      },
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7afd3ca7_ebdf28a6",
         "filename": "plat/arm/board/fvp/fvp_common.c",
         "patchSetId": 5
@@ -540,6 +588,30 @@
       "side": 1,
       "message": "OK, let\u0027s deal with that separately in another future patch. As you rightly say, it was already the case before your patch, it\u0027s not something you\u0027ve introduced.",
       "parentUuid": "068615e9_0f0823d3",
+      "range": {
+        "startLine": 172,
+        "startChar": 1,
+        "endLine": 176,
+        "endChar": 17
+      },
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b91b0965_d0ec6cbd",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-11T14:22:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "139369be_95c963f0",
       "range": {
         "startLine": 172,
         "startChar": 1,
