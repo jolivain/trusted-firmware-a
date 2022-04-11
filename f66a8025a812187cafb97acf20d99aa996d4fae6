@@ -58,6 +58,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ea702e4_dbf5e1f4",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-04-11T14:54:10Z",
+      "side": 1,
+      "message": "Having an explicit build flag for every feature will always benefit our partners, as it provides them with the flexibility to decide whether to enable/disable based on their requirements. I completely agree with your suggestion here.\nAs the feature detection mechanism is in place (upstreamed), this feature check is happening under the feature_detection mechanism.\n\nAlongside the ENABLE_FEAT_TWED option, we can have TWED_DELAY(numeric), which shud be getting used only if ENABLE_FEAT_TWED is enabled.",
+      "parentUuid": "85f50cde_ebd13708",
+      "range": {
+        "startLine": 312,
+        "startChar": 4,
+        "endLine": 312,
+        "endChar": 14
+      },
+      "revId": "f66a8025a812187cafb97acf20d99aa996d4fae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5524d7d_e0328561",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-04-01T07:32:19Z",
       "side": 1,
       "message": "We may not need this compile time assert because it must accept 2 kind of values:\n1. TWED_DELAY \u003d TWED_DISABLED -\u003e to disable the TWED feature i.e scr_el3.TWEDEn \u003d 0\n2. TWED_DELAY \u003d within 0-15 to program the delay",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 315,
+        "endChar": 33
+      },
+      "revId": "f66a8025a812187cafb97acf20d99aa996d4fae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "256bb08a_bdd04512",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-04-11T14:54:10Z",
+      "side": 1,
+      "message": "I agree. But also in my opinion, I think we are more concerned about the values set for the TWED_DELAY flag. \nThere is a relatively high possibility, wherein the user may set more value than it could contain. ( shud be between 0-15).\nSo having the CASSERT, in a way helps to check whether the value is within the range allowed. If that passes, we can just set the value. Need not again check for TWED_DISABLED.\n\nJust want to know your thoughts here. Please do correct me, if it is wrong.",
+      "parentUuid": "e5524d7d_e0328561",
       "range": {
         "startLine": 314,
         "startChar": 0,
@@ -104,6 +152,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88a3cce0_0b199c6f",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-04-11T14:54:10Z",
+      "side": 1,
+      "message": "Agreed and removed.",
+      "parentUuid": "b41a1528_f52d0345",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 318,
+        "endChar": 33
+      },
+      "revId": "f66a8025a812187cafb97acf20d99aa996d4fae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f276f82_4bf70f82",
@@ -127,6 +199,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "215602ab_b1ee1690",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-04-11T14:54:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f276f82_4bf70f82",
+      "range": {
+        "startLine": 319,
+        "startChar": 2,
+        "endLine": 319,
+        "endChar": 16
+      },
+      "revId": "f66a8025a812187cafb97acf20d99aa996d4fae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1957c484_67540697",
@@ -140,6 +236,30 @@
       "writtenOn": "2022-04-01T07:32:19Z",
       "side": 1,
       "message": "Use TWED_DELAY macro directly.",
+      "range": {
+        "startLine": 324,
+        "startChar": 16,
+        "endLine": 324,
+        "endChar": 21
+      },
+      "revId": "f66a8025a812187cafb97acf20d99aa996d4fae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67d993f5_04d7f15b",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-04-11T14:54:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1957c484_67540697",
       "range": {
         "startLine": 324,
         "startChar": 16,
