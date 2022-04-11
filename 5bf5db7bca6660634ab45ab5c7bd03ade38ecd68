@@ -142,6 +142,24 @@
       "parentUuid": "fb06e330_06758e39",
       "revId": "5bf5db7bca6660634ab45ab5c7bd03ade38ecd68",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03866ae7_5ba21f52",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-11T14:25:52Z",
+      "side": 1,
+      "message": "I still think, let\u0027s not change arguably the meaning of this function: set_config_info which is mainly used to set the parameters rather than retrieving anything. \nAs mentioned earlier, finding the object again is not much overhead. I will keep this as it is for now unless someone else not fine with approach.",
+      "parentUuid": "0b568c2f_43ab26fb",
+      "revId": "5bf5db7bca6660634ab45ab5c7bd03ade38ecd68",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
