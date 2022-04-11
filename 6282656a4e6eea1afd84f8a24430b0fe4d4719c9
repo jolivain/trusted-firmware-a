@@ -34,6 +34,24 @@
       "parentUuid": "47057fd2_6a426df9",
       "revId": "6282656a4e6eea1afd84f8a24430b0fe4d4719c9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57defd8a_c5a0854b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-11T10:40:34Z",
+      "side": 1,
+      "message": "\u003e Thanks Manish. Is any documentation available for the ci repo. After adding things as done in the reference commits, how should I test this ?\n\nHi Ruchika\n\n1. Guidelines for adding a test configs are mentioned here [1]\n2. There is no quick-guide available on how to test these test configs. \n3. To test build configuration with the help of Open-CI environment UI, you follow below steps:\na. Go to https://ci.trustedfirmware.org/job/tf-a-ci-gateway/\nb. On left hand-side, click on \u0027Build with parameters\u0027 \nb.1 Provide your newly introduced test config in TEST_GROUPS\nb.2 Provide your CI change in CI_REFSPEC\nb.3.Don\u0027t update other parameters, leave them as it is.\nb.4 Refer[3] example where build-params are added\nb.5 click Build.\n\n[1]: https://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#add-ci-configurations\n[2]: https://tf-ci-users-guide.readthedocs.io/en/latest/\n[3]: https://ci.trustedfirmware.org/job/tf-a-ci-gateway/7959/parameters/\n\nHope this helps.",
+      "parentUuid": "9bf73862_7cb1a04e",
+      "revId": "6282656a4e6eea1afd84f8a24430b0fe4d4719c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
