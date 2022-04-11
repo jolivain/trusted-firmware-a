@@ -16,6 +16,24 @@
       "message": "LGTM. To cover newly added files for l1-build and code coverage, please add qemu build with MEASURED_BOOT\u003d1 in the the repo [1]. Few references [2]-\n1. https://git.trustedfirmware.org/ci/tf-a-ci-scripts.git\n2. https://git.trustedfirmware.org/ci/tf-a-ci-scripts.git/tree/script/tf-coverity/tf-cov-make#n367\n   https://git.trustedfirmware.org/ci/tf-a-ci-scripts.git/tree/tf_config/fvp-mb_hash256-tbb_hash256\n",
       "revId": "6282656a4e6eea1afd84f8a24430b0fe4d4719c9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bf73862_7cb1a04e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-04-11T06:05:05Z",
+      "side": 1,
+      "message": "Thanks Manish. Is any documentation available for the ci repo. After adding things as done in the reference commits, how should I test this ?",
+      "parentUuid": "47057fd2_6a426df9",
+      "revId": "6282656a4e6eea1afd84f8a24430b0fe4d4719c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
