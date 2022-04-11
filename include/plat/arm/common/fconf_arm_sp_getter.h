@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -14,7 +14,7 @@
 /* arm_sp getter */
 #define arm__sp_getter(prop)	arm_sp.prop
 
-#define ARM_SP_MAX_SIZE		U(0xb0000)
+#define ARM_SP_MAX_SIZE		U(0x2000000)
 #define ARM_SP_OWNER_NAME_LEN	U(8)
 
 struct arm_sp_t {
