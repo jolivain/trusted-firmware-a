@@ -153,6 +153,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e60126b1_b59bc6c8",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-04-11T17:00:08Z",
+      "side": 1,
+      "message": "Thanks for your explanation, Manish. I have removed the old implementation completely, wherein this function plat_arm_set_twedel_scr_el3() has been removed and hence the TWED_DISABLED flag as well.\n\nFrom now on, when the ENABLE_FEAT_TWED flag is enabled, the TWED feature is detected at boot time(feature detection mechanism) and takes care of it.\n\nIf it passes there, then the TWED_DELAY value will be set in context_mgmt. Again, here TWED_DELAY is a 4-bit value, so the value must be within(0-15). Hence CASSERT is validating the value set by the platform.\n\nIf the platform sets above 15, CASSERT takes care of it during compilation itself.\nHenceforth, only if the values are passed within(0-15),the section of code setting the SCR_register will get executed and if the value is beyond the range, even if the TWED_FEATURE is enabled, the section will not get executed and that will suffice our use-case.",
+      "parentUuid": "52e32333_0df357bd",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 315,
+        "endChar": 33
+      },
+      "revId": "f66a8025a812187cafb97acf20d99aa996d4fae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b41a1528_f52d0345",
