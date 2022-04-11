@@ -179,6 +179,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ec86e471_fe88b1a9",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-11T18:09:03Z",
+      "side": 1,
+      "message": "This looks reasonable, thanks for the modifications.",
+      "parentUuid": "e60126b1_b59bc6c8",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 315,
+        "endChar": 33
+      },
+      "revId": "f66a8025a812187cafb97acf20d99aa996d4fae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b41a1528_f52d0345",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 2
