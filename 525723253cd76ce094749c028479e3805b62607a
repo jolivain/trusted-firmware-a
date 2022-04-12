@@ -16,6 +16,24 @@
       "message": "Does this function have a return value for all cases, including falling through to here?",
       "revId": "525723253cd76ce094749c028479e3805b62607a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0820924e_7bf9e55d",
+        "filename": "services/std_svc/std_svc_setup.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T13:46:47Z",
+      "side": 1,
+      "message": "Sorry I\u0027m not sure I quite understand your question here.\n\nIIUC we are only adding an additional scenario with the EL3 SPMC to ensure any FF-A SMC is forwarded to the EL3 SPMC if it has originated from the secure world as this allows us to try and align the high level SMC flow when the SPMC is in S-EL2. We should not be affecting any of existing return paths for and other SMCs here and everything should continue to work as expected.\n\nDoes that help clarify anything?",
+      "parentUuid": "99e38185_545db192",
+      "revId": "525723253cd76ce094749c028479e3805b62607a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
