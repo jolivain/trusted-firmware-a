@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27da48ba_4ab3007d",
+        "filename": "tools/sptool/sp_mk_generator.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-12T13:23:16Z",
+      "side": 1,
+      "message": "certtool expects --sp-pkg1, --sp-pkg2, --sp-pkg3, etc. without space.",
+      "range": {
+        "startLine": 148,
+        "startChar": 40,
+        "endLine": 148,
+        "endChar": 41
+      },
+      "revId": "952e0f5d8e91b55374cbcd54040f53b998eb8ff4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17dc5426_2beb51b0",
+        "filename": "tools/sptool/sp_mk_generator.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-12T13:23:16Z",
+      "side": 1,
+      "message": "CRT_ARGS",
+      "range": {
+        "startLine": 148,
+        "startChar": 25,
+        "endLine": 148,
+        "endChar": 28
+      },
+      "revId": "952e0f5d8e91b55374cbcd54040f53b998eb8ff4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
