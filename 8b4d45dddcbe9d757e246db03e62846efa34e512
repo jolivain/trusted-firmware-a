@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db5abaa3_12222dc7",
+        "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-04-12T17:18:49Z",
+      "side": 1,
+      "message": "CR+1, but just checking:  Am I presuming correctly that the mailbox memory is not cached?  If it is cacheable, then the D-cache flush might be better after writing to the mailbox...",
+      "revId": "8b4d45dddcbe9d757e246db03e62846efa34e512",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
