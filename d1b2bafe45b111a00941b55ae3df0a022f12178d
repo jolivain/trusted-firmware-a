@@ -39,6 +39,30 @@
       },
       "revId": "d1b2bafe45b111a00941b55ae3df0a022f12178d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23beb16d_7abbd8bc",
+        "filename": "services/std_svc/spm/spmc/logical_sp.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T13:46:15Z",
+      "side": 1,
+      "message": "Apologies for missing to reply to this.\nIs adding this in do while loop the preferred approach for this type of definition now? This style was originally taken from existing TF-A code to declare the runtime services [1].\n\n[1] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/common/runtime_svc.h#n73",
+      "parentUuid": "1794a35d_dd98a2b5",
+      "range": {
+        "startLine": 37,
+        "startChar": 1,
+        "endLine": 45,
+        "endChar": 3
+      },
+      "revId": "d1b2bafe45b111a00941b55ae3df0a022f12178d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }

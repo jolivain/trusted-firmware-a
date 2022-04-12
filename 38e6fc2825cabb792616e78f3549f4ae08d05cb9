@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29de22ae_adc936b6",
+        "filename": "services/std_svc/spm/el3_spmc/logical_sp.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T13:46:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86cd852a_6401631d",
+      "range": {
+        "startLine": 42,
+        "startChar": 14,
+        "endLine": 42,
+        "endChar": 16
+      },
+      "revId": "38e6fc2825cabb792616e78f3549f4ae08d05cb9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51e30fc9_02cedbcc",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-04-08T19:22:45Z",
       "side": 1,
       "message": "nit: this comment will fit on one line",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 5
+      },
+      "revId": "38e6fc2825cabb792616e78f3549f4ae08d05cb9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5de81b0e_ab26e24f",
+        "filename": "services/std_svc/spm/el3_spmc/logical_sp.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T13:46:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51e30fc9_02cedbcc",
       "range": {
         "startLine": 45,
         "startChar": 0,
@@ -70,6 +118,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1695716f_5ba95613",
+        "filename": "services/std_svc/spm/el3_spmc/spmc.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T13:46:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bd48b4e_2146de4b",
+      "range": {
+        "startLine": 41,
+        "startChar": 49,
+        "endLine": 41,
+        "endChar": 50
+      },
+      "revId": "38e6fc2825cabb792616e78f3549f4ae08d05cb9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "867e4d0d_55a2308e",
+        "filename": "services/std_svc/spm/el3_spmc/spmc.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T13:46:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bd48b4e_2146de4b",
+      "range": {
+        "startLine": 41,
+        "startChar": 49,
+        "endLine": 41,
+        "endChar": 50
+      },
+      "revId": "38e6fc2825cabb792616e78f3549f4ae08d05cb9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eff60aab_d89266f1",
@@ -83,6 +179,30 @@
       "writtenOn": "2022-04-08T19:22:45Z",
       "side": 1,
       "message": "This is uint64_t while the function return type is int32_t.",
+      "range": {
+        "startLine": 690,
+        "startChar": 8,
+        "endLine": 690,
+        "endChar": 10
+      },
+      "revId": "38e6fc2825cabb792616e78f3549f4ae08d05cb9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d28f2ba7_271c9f42",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T13:46:15Z",
+      "side": 1,
+      "message": "Updated to use int32_t and aligned the logical partition init function to also use int32_t.",
+      "parentUuid": "eff60aab_d89266f1",
       "range": {
         "startLine": 690,
         "startChar": 8,
