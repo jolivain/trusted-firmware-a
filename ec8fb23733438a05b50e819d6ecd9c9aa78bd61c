@@ -39,6 +39,29 @@
       "message": "Small nit to address but otherwise looks good to me\n",
       "revId": "ec8fb23733438a05b50e819d6ecd9c9aa78bd61c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a900a84_3a1722eb",
+        "filename": "tools/sptool/sptool.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-04-12T19:28:25Z",
+      "side": 1,
+      "message": "fundamentally there is a chicken and egg problem with the way SPs are packaged. The partition manifest contains the entrypoint offset and this needs to be in the manifest before the size of the partition manifest is known.. If the manifest gets large (to pass impdef details), then the entrypoint needs to be adjusted accordingly...\n\nideally the sp package should take the partition manifest, the boot info and the image, and create the package in appropriate offsets, as opposed to expecting the caller to specify offsets. The tool can then patch the manifest with the appropriate entrypoint offset in the manifest, so long as space for the field is reserved appropriately..\n\nI think this is necessary to avoid hard coding limits on how big the manifest etc should be..\n\nlet me know if the concern is not clear...",
+      "range": {
+        "startLine": 131,
+        "startChar": 30,
+        "endLine": 131,
+        "endChar": 36
+      },
+      "revId": "ec8fb23733438a05b50e819d6ecd9c9aa78bd61c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
