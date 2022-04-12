@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "56f93294_db43c45e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-12T07:48:04Z",
+      "side": 1,
+      "message": "\u003e No, BL2 loads the HW_CONFIG in TDRAM at an address 0x07700000 (I am going to change this though moving it further down) and BL31 is consuming it from that address.\n\nSorry, you\u0027re right, I got confused. In the current proposal, HW_CONFIG never gets loaded in Trusted SRAM, it goes straight from flash to Trusted DRAM.\n\nSo yes, I agree, we need to map this part of the Trusted DRAM into BL31 address space. I believe this can be a read-only mapping, though.\n\n\u003e Yes, I too thought this is reasonable (to avoid attack surface in the runtime software). Let me modify the patch accordingly and let\u0027s see if anyone has different opinion on this.\n\nOK!",
+      "parentUuid": "5aee8b1a_5dac4e78",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 61
+      },
+      "revId": "8d8e37e4f6ce3bd5c9e9de0a9c1e01134382a0c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3f699ad3_2338fa67",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
