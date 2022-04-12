@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfef69f8_205f7053",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-04-12T22:59:08Z",
+      "side": 1,
+      "message": "Looks good just a few small things.",
+      "revId": "c45b69c5f2cb05302186e786a6dbeb65cd7b1aa4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3ca213a_6a282115",
+        "filename": "plat/hisilicon/hikey960/hikey960_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-04-12T22:59:08Z",
+      "side": 1,
+      "message": "determined",
+      "range": {
+        "startLine": 169,
+        "startChar": 12,
+        "endLine": 169,
+        "endChar": 22
+      },
+      "revId": "c45b69c5f2cb05302186e786a6dbeb65cd7b1aa4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ad47a1e_0e26708b",
+        "filename": "plat/hisilicon/hikey960/hikey960_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-04-12T22:59:08Z",
+      "side": 1,
+      "message": "Not required but it might be a good idea to place parenthesis around this definition. Unlikely to ever cause issues though so.",
+      "range": {
+        "startLine": 175,
+        "startChar": 36,
+        "endLine": 175,
+        "endChar": 46
+      },
+      "revId": "c45b69c5f2cb05302186e786a6dbeb65cd7b1aa4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "493ab1a4_38c78713",
+        "filename": "plat/hisilicon/hikey960/include/plat.ld.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-04-12T22:59:08Z",
+      "side": 1,
+      "message": "2017-2022",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "c45b69c5f2cb05302186e786a6dbeb65cd7b1aa4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
