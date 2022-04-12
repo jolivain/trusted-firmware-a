@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7f8735d_6379fce3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2022-04-12T16:23:10Z",
+      "side": 1,
+      "message": "Thanks for the comments, addressed in next version.",
+      "revId": "1f159fdbd0ba449bc162246cb6edf23652c5a493",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9130f8b8_87f9e4a9",
@@ -24,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed06d583_61c8d9b3",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2022-04-12T16:23:10Z",
+      "side": 1,
+      "message": "Actually, this comment is not accurate and is left over from a different implementation, I will remove the comment.",
+      "parentUuid": "9130f8b8_87f9e4a9",
+      "range": {
+        "startLine": 252,
+        "startChar": 1,
+        "endLine": 252,
+        "endChar": 51
+      },
+      "revId": "1f159fdbd0ba449bc162246cb6edf23652c5a493",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9b096db_529ab135",
@@ -37,6 +78,30 @@
       "writtenOn": "2022-04-08T20:34:31Z",
       "side": 1,
       "message": "Please use {...} around this even though it is only one line, as per code style guidelines.",
+      "range": {
+        "startLine": 267,
+        "startChar": 2,
+        "endLine": 267,
+        "endChar": 54
+      },
+      "revId": "1f159fdbd0ba449bc162246cb6edf23652c5a493",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8ae374e_94f26922",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2022-04-12T16:23:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9b096db_529ab135",
       "range": {
         "startLine": 267,
         "startChar": 2,
