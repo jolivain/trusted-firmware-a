@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e18d854_160ba04f",
+        "filename": "plat/intel/soc/stratix10/bl2_plat_setup.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-04-12T22:35:16Z",
+      "side": 1,
+      "message": "Includes should be in alphabetical order so this should go below \"s10_memory_controller.h\"",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 20
+      },
+      "revId": "f479565a6467648e81653da95e0d65c703c90402",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
