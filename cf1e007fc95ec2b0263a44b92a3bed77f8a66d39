@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bd52213_8a107c12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2022-04-12T16:19:15Z",
+      "side": 1,
+      "message": "Thanks for the comments, all addressed for next version.",
+      "revId": "cf1e007fc95ec2b0263a44b92a3bed77f8a66d39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "730ce419_3a806cc5",
@@ -14,6 +31,30 @@
       "writtenOn": "2022-04-08T20:40:38Z",
       "side": 1,
       "message": "Please use {...} per code style guidelines.",
+      "range": {
+        "startLine": 1687,
+        "startChar": 2,
+        "endLine": 1687,
+        "endChar": 17
+      },
+      "revId": "cf1e007fc95ec2b0263a44b92a3bed77f8a66d39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40c2c07b_e5738257",
+        "filename": "plat/ti/k3/common/drivers/ti_sci/ti_sci.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1687,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2022-04-12T16:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "730ce419_3a806cc5",
       "range": {
         "startLine": 1687,
         "startChar": 2,
@@ -47,6 +88,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d403d118_47890cd2",
+        "filename": "plat/ti/k3/common/drivers/ti_sci/ti_sci_protocol.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2022-04-12T16:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28754217_fcebc3e1",
+      "range": {
+        "startLine": 728,
+        "startChar": 8,
+        "endLine": 728,
+        "endChar": 9
+      },
+      "revId": "cf1e007fc95ec2b0263a44b92a3bed77f8a66d39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "efab142c_8fb95846",
@@ -60,6 +125,30 @@
       "writtenOn": "2022-04-08T20:40:38Z",
       "side": 1,
       "message": "space",
+      "range": {
+        "startLine": 729,
+        "startChar": 8,
+        "endLine": 729,
+        "endChar": 9
+      },
+      "revId": "cf1e007fc95ec2b0263a44b92a3bed77f8a66d39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61247593_28a24967",
+        "filename": "plat/ti/k3/common/drivers/ti_sci/ti_sci_protocol.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2022-04-12T16:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efab142c_8fb95846",
       "range": {
         "startLine": 729,
         "startChar": 8,
