@@ -33,10 +33,6 @@
 /* Align with Hafnium implementation */
 #define INV_SP_ID		0x7FFF
 
-/* FF-A warm boot types. */
-#define FFA_WB_TYPE_S2RAM	0
-#define FFA_WB_TYPE_NOTS2RAM	1
-
 /* FF-A Related helper macros. */
 #define FFA_ID_MASK			U(0xFFFF)
 #define FFA_PARTITION_ID_SHIFT		U(16)
@@ -49,6 +45,13 @@
 
 #define FFA_PAGE_SIZE (4096)
 #define FFA_RXTX_PAGE_COUNT_MASK 0x1F
+
+/*
+ * Defines to allow an SP to subscribe for power management messages
+ */
+#define FFA_PM_MSG_SUB_CPU_OFF			U(1 << 0)
+#define FFA_PM_MSG_SUB_CPU_SUSPEND		U(1 << 1)
+#define FFA_PM_MSG_SUB_CPU_SUSPEND_RESUME	U(1 << 2)
 
 /*
  * Runtime states of an execution context as per the FF-A v1.1 specification.
@@ -159,6 +162,11 @@ struct secure_partition_desc {
 
 	/* Secondary entrypoint. Only valid for a S-EL1 SP. */
 	uintptr_t secondary_ep;
+
+	/*
+	 * Store whether the SP has subscribed to any power management messages.
+	 */
+	uint16_t pwr_mgmt_msgs;
 };
 
 /*
@@ -208,6 +216,9 @@ struct ffa_partition_info_v1_1 {
 	uint32_t properties;
 	uint32_t uuid[4];
 };
+
+/* Reference to power management hooks */
+extern const spd_pm_ops_t spmc_pm;
 
 /* Setup Function for different SP types. */
 void spmc_sp_common_setup(struct secure_partition_desc *sp,
