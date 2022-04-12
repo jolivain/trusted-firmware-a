@@ -385,6 +385,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a56b6f90_892a49b9",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T18:19:36Z",
+      "side": 1,
+      "message": "I see, thanks for pointing this out. It seems that the spec does not explicitly mention this restriction however this was in fact the intention behind the ABI. \nIn that case I think you\u0027re correct and this lock can be removed, also the appropriate check needs to be added to check the SP\u0027s runtime state upon invocation.",
+      "parentUuid": "c18e9d25_a7336826",
+      "range": {
+        "startLine": 133,
+        "startChar": 1,
+        "endLine": 136,
+        "endChar": 30
+      },
+      "revId": "1dd7174f1a0e265082fcde4d8beb4fc67ba71e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e41bc286_ddbf5d7f",
         "filename": "services/std_svc/spm/spmc/spmc.h",
         "patchSetId": 12
@@ -1832,6 +1856,24 @@
       "side": 1,
       "message": "Whatever option, the main point is that it\u0027s generally safer to guard an infinite loop with a failsafe exit condition esp. in a boot firmware.",
       "parentUuid": "eda2300b_d90263a4",
+      "revId": "1dd7174f1a0e265082fcde4d8beb4fc67ba71e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab44d8cd_4063dbef",
+        "filename": "services/std_svc/spm/spmc/spmc_setup.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T18:19:36Z",
+      "side": 1,
+      "message": "Apologies for the delay in response. Makes sense, added an additional condition to the while loop to exit if the limit is reached.",
+      "parentUuid": "2626d60a_b1fb50b6",
       "revId": "1dd7174f1a0e265082fcde4d8beb4fc67ba71e86",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
