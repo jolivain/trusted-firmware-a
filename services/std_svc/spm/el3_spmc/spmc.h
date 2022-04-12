@@ -54,6 +54,13 @@
 #define FFA_RXTX_PAGE_COUNT_MASK 0x1F
 
 /*
+ * Defines to allow an SP to subscribe for power management messages
+ */
+#define FFA_PM_MSG_SUB_CPU_OFF			U(1 << 0)
+#define FFA_PM_MSG_SUB_CPU_SUSPEND		U(1 << 1)
+#define FFA_PM_MSG_SUB_CPU_SUSPEND_RESUME	U(1 << 2)
+
+/*
  * Runtime states of an execution context as per the FF-A v1.1 specification.
  */
 enum sp_runtime_states {
@@ -162,6 +169,11 @@ struct secure_partition_desc {
 
 	/* Secondary entrypoint. Only valid for a S-EL1 SP. */
 	uintptr_t secondary_ep;
+
+	/*
+	 * Store whether the SP has subscribed to any power management messages.
+	 */
+	uint16_t pwr_mgmt_msgs;
 };
 
 /*
@@ -211,6 +223,9 @@ struct ffa_partition_info_v1_1 {
 	uint32_t properties;
 	uint32_t uuid[4];
 };
+
+/* Reference to power management hooks */
+extern const spd_pm_ops_t spmc_pm;
 
 /* Setup Function for different SP types. */
 void spmc_sp_common_setup(struct secure_partition_desc *sp,
