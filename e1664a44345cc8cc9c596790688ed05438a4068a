@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02fb6634_c58f60c3",
+        "filename": "services/std_svc/spm/el3_spmc/spmc.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T13:46:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebde8eae_74c2fb3b",
+      "range": {
+        "startLine": 34,
+        "startChar": 26,
+        "endLine": 34,
+        "endChar": 27
+      },
+      "revId": "e1664a44345cc8cc9c596790688ed05438a4068a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f70fa2b_c1a0c210",
@@ -41,6 +65,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52e311dd_f0c0e8fa",
+        "filename": "services/std_svc/spm/el3_spmc/spmc.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T13:46:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f70fa2b_c1a0c210",
+      "revId": "e1664a44345cc8cc9c596790688ed05438a4068a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "390ff7e4_02f511df",
@@ -54,6 +96,30 @@
       "writtenOn": "2022-04-08T20:16:24Z",
       "side": 1,
       "message": "This will fit on a single line.",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 27
+      },
+      "revId": "e1664a44345cc8cc9c596790688ed05438a4068a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e700ae0_047f214d",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T13:46:20Z",
+      "side": 1,
+      "message": "Fixed, and updated the above as well.",
+      "parentUuid": "390ff7e4_02f511df",
       "range": {
         "startLine": 192,
         "startChar": 0,
