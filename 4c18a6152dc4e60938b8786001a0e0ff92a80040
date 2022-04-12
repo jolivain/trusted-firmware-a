@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f69eb36_38a64ad4",
+        "filename": "bl32/tsp/ffa_helpers.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T13:46:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df75ec75_7684a9f4",
+      "range": {
+        "startLine": 228,
+        "startChar": 32,
+        "endLine": 228,
+        "endChar": 33
+      },
+      "revId": "4c18a6152dc4e60938b8786001a0e0ff92a80040",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0e9f9dd_29324857",
@@ -47,6 +71,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7851b15c_8e764591",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T13:46:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0e9f9dd_29324857",
+      "range": {
+        "startLine": 850,
+        "startChar": 0,
+        "endLine": 852,
+        "endChar": 76
+      },
+      "revId": "4c18a6152dc4e60938b8786001a0e0ff92a80040",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a343c1b4_a0c158fe",
@@ -60,6 +108,24 @@
       "writtenOn": "2022-04-08T20:47:38Z",
       "side": 1,
       "message": "Some break statements have blank lines after and some do not, it would be good to keep it consistent one way or the other.",
+      "revId": "4c18a6152dc4e60938b8786001a0e0ff92a80040",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5ea4c38_2337a896",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T13:46:24Z",
+      "side": 1,
+      "message": "Updated to consistently add a space after the break statements including previous commit.",
+      "parentUuid": "a343c1b4_a0c158fe",
       "revId": "4c18a6152dc4e60938b8786001a0e0ff92a80040",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
