@@ -55,6 +55,18 @@
 	(((blk) & FFA_MSG_SEND_ATTRS_BLK_MASK) \
 	<< FFA_MSG_SEND_ATTRS_BLK_SHIFT)
 
+/*
+ * Defines for power management framework messages exchanged using direct
+ * messages between the SPMC and SP.
+ */
+#define FFA_DIRECT_FRAMEWORK_MSG_SHIFT	31
+#define FFA_DIRECT_FRAMEWORK_MSG_MASK	(1UL << FFA_DIRECT_FRAMEWORK_MSG_SHIFT)
+
+#define FFA_PM_MSG_MASK		0xFF
+#define FFA_PM_MSG_PSCI_REQ	0x0
+#define FFA_PM_MSG_WB_REQ	0x1 /* Warm boot request */
+#define FFA_PM_MSG_PM_RESP	0x2 /* Response to a PSCI or warmboot request */
+
 /* Get FFA fastcall std FID from function number */
 #define FFA_FID(smc_cc, func_num)			\
 		((SMC_TYPE_FAST << FUNCID_TYPE_SHIFT) |	\
