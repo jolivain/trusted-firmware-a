@@ -131,6 +131,9 @@ convention:
    -  For other BL3x images, if the firmware configuration file is loaded by
       BL2, then its address is passed in ``arg0`` and if HW_CONFIG is loaded
       then its address is passed in ``arg1``.
+   -  In case of FVP Arm platform, FW_CONFIG address passed in ``arg1`` to
+      BL31/SP_MIN, and SOC_FW_CONFIG and HW_CONFIG details retrieved from
+      FW_CONFIG device tree.
 
 BL1
 ~~~
@@ -1757,11 +1760,19 @@ BL image during boot.
                    DRAM
     0xffffffff +----------+
                :          :
-               |----------|
+    0x82100000 |----------|
                |HW_CONFIG |
-    0x83000000 |----------|  (non-secure)
+    0x82000000 |----------|  (non-secure)
                |          |
     0x80000000 +----------+
+
+               Trusted DRAM
+    0x08000000 +----------+
+               |HW_CONFIG |
+    0x07f00000 |----------|
+               :          :
+               |          |
+    0x06000000 +----------+
 
                Trusted SRAM
     0x04040000 +----------+  loaded by BL2  +----------------+
@@ -1790,15 +1801,18 @@ BL image during boot.
                      DRAM
     0xffffffff +--------------+
                :              :
-               |--------------|
+    0x82100000 |--------------|
                |  HW_CONFIG   |
-    0x83000000 |--------------|  (non-secure)
+    0x82000000 |--------------|  (non-secure)
                |              |
     0x80000000 +--------------+
 
-                Trusted DRAM
+                 Trusted DRAM
     0x08000000 +--------------+
-               |     BL32     |
+               |  HW_CONFIG   |
+    0x07f00000 |--------------|
+               :              :
+               |    BL32      |
     0x06000000 +--------------+
 
                  Trusted SRAM
@@ -1829,11 +1843,19 @@ BL image during boot.
                |  BL32    |  (secure)
     0xff000000 +----------+
                |          |
-               |----------|
+    0x82100000 |----------|
                |HW_CONFIG |
-    0x83000000 |----------|  (non-secure)
+    0x82000000 |----------|  (non-secure)
                |          |
     0x80000000 +----------+
+
+               Trusted DRAM
+    0x08000000 +----------+
+               |HW_CONFIG |
+    0x7f000000 |----------|
+               :          :
+               |          |
+    0x06000000 +----------+
 
                Trusted SRAM
     0x04040000 +----------+  loaded by BL2  +----------------+
