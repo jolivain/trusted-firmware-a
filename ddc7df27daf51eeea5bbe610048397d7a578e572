@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b27e2051_8dce8e29",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 23
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T13:46:42Z",
+      "side": 1,
+      "message": "This is flagged by the CI static checks as the line length is too long. \n\nMy current understanding is that links in commit messages should not be line wrapped however wanted to check if this is the case?",
+      "revId": "ddc7df27daf51eeea5bbe610048397d7a578e572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bd52a732_89d22e2d",
         "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
         "patchSetId": 23
@@ -14,6 +31,30 @@
       "writtenOn": "2022-04-11T22:49:51Z",
       "side": 1,
       "message": "datastore",
+      "range": {
+        "startLine": 1729,
+        "startChar": 36,
+        "endLine": 1729,
+        "endChar": 45
+      },
+      "revId": "ddc7df27daf51eeea5bbe610048397d7a578e572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "146d0d23_15e9754a",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 1729,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T13:46:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd52a732_89d22e2d",
       "range": {
         "startLine": 1729,
         "startChar": 36,
@@ -47,6 +88,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4dc2458_469d9747",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T13:46:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0986325_2138e598",
+      "range": {
+        "startLine": 608,
+        "startChar": 29,
+        "endLine": 608,
+        "endChar": 40
+      },
+      "revId": "ddc7df27daf51eeea5bbe610048397d7a578e572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "729bc842_320af145",
@@ -60,6 +125,30 @@
       "writtenOn": "2022-04-11T22:49:51Z",
       "side": 1,
       "message": "reclaim",
+      "range": {
+        "startLine": 852,
+        "startChar": 61,
+        "endLine": 852,
+        "endChar": 67
+      },
+      "revId": "ddc7df27daf51eeea5bbe610048397d7a578e572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d19935ea_07bbd91f",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T13:46:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "729bc842_320af145",
       "range": {
         "startLine": 852,
         "startChar": 61,
@@ -93,6 +182,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5e7a387_a7ad59c4",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T13:46:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "301d6ac4_d79888d1",
+      "range": {
+        "startLine": 853,
+        "startChar": 61,
+        "endLine": 853,
+        "endChar": 67
+      },
+      "revId": "ddc7df27daf51eeea5bbe610048397d7a578e572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd83a6c9_9dcf1b4f",
@@ -112,6 +225,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e87b3901_3ebe0ce5",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T13:46:42Z",
+      "side": 1,
+      "message": "I don\u0027t think the data structures should require padding if implemented correctly as per the spec and therefore using packed may have limited benefit. The main purpose of the CASSERT\u0027s here are to verify the overall sizes are as expected, so I think even if we were to include the packed attribute it would be worth keeping the CASSET to warn if the structures are not the overall expected size to indicate something is wrong with the implementation.\n\nWhat do you think?",
+      "parentUuid": "cd83a6c9_9dcf1b4f",
+      "revId": "ddc7df27daf51eeea5bbe610048397d7a578e572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a16de52c_d904a8eb",
         "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.h",
         "patchSetId": 23
@@ -123,6 +254,30 @@
       "writtenOn": "2022-04-11T22:49:51Z",
       "side": 1,
       "message": "Please use tabs to align the definitions in each block.",
+      "range": {
+        "startLine": 83,
+        "startChar": 34,
+        "endLine": 83,
+        "endChar": 35
+      },
+      "revId": "ddc7df27daf51eeea5bbe610048397d7a578e572",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "343e7fac_bb492476",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-12T13:46:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a16de52c_d904a8eb",
       "range": {
         "startLine": 83,
         "startChar": 34,
