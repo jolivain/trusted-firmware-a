@@ -419,6 +419,47 @@ static uint32_t intel_mbox_send_cmd(uint32_t cmd, uint32_t *args,
 	return INTEL_SIP_SMC_STATUS_OK;
 }
 
+uint32_t intel_smc_service_completed(uint64_t addr, uint32_t size,
+				uint32_t mode, uint32_t *job_id,
+				uint32_t *ret_size, uint32_t *mbox_error)
+{
+	int status = 0;
+	uint32_t resp_len = size / MBOX_WORD_BYTE;
+
+	if (resp_len > MBOX_DATA_MAX_LEN)
+		return INTEL_SIP_SMC_STATUS_REJECTED;
+
+	if (!is_address_in_ddr_range(addr, size))
+		return INTEL_SIP_SMC_STATUS_REJECTED;
+
+	if (mode == SERVICE_COMPLETED_MODE_ASYNC) {
+		status = mailbox_read_response_async(job_id,
+				NULL, (uint32_t *) addr, &resp_len, 0);
+	} else {
+		status = mailbox_read_response(job_id,
+				(uint32_t *) addr, &resp_len);
+
+		if (status == MBOX_NO_RESPONSE)
+			status = MBOX_BUSY;
+	}
+
+	if (status == MBOX_NO_RESPONSE)
+		return INTEL_SIP_SMC_STATUS_NO_RESPONSE;
+
+	if (status == MBOX_BUSY)
+		return INTEL_SIP_SMC_STATUS_BUSY;
+
+	*ret_size = resp_len * MBOX_WORD_BYTE;
+	flush_dcache_range(addr, *ret_size);
+
+	if (status != MBOX_RET_OK) {
+		*mbox_error = -status;
+		return INTEL_SIP_SMC_STATUS_ERROR;
+	}
+
+	return INTEL_SIP_SMC_STATUS_OK;
+}
+
 /*
  * This function is responsible for handling all SiP calls from the NS world
  */
@@ -435,7 +476,7 @@ uintptr_t sip_smc_handler(uint32_t smc_fid,
 	uint32_t retval = 0, completed_addr[3];
 	uint32_t retval2 = 0;
 	uint32_t mbox_error = 0;
-	uint64_t rsu_respbuf[9];
+	uint64_t retval64, rsu_respbuf[9];
 	int status = INTEL_SIP_SMC_STATUS_OK;
 	int mbox_status;
 	unsigned int len_in_resp;
@@ -555,6 +596,19 @@ uintptr_t sip_smc_handler(uint32_t smc_fid,
 		}
 
 		SMC_RET3(handle, status, x4, x5);
+
+	case INTEL_SIP_SMC_FCS_RANDOM_NUMBER:
+		status = intel_fcs_random_number_gen(x1, &retval64,
+							&mbox_error);
+		SMC_RET4(handle, status, mbox_error, x1, retval64);
+
+	case INTEL_SIP_SMC_FCS_SEND_CERTIFICATE:
+		status = intel_fcs_send_cert(x1, x2, &send_id);
+		SMC_RET1(handle, status);
+
+	case INTEL_SIP_SMC_FCS_GET_PROVISION_DATA:
+		status = intel_fcs_get_provision_data(&send_id);
+		SMC_RET1(handle, status);
 
 	case INTEL_SIP_SMC_FCS_CNTR_SET_PREAUTH:
 		status = intel_fcs_cntr_set_preauth(x1, x2, x3,
