@@ -99,7 +99,7 @@ static int poll_idle_status(uint32_t addr, uint32_t mask, uint32_t match)
 	return -ETIMEDOUT;
 }
 
-int socfpga_bridges_enable(void)
+int socfpga_bridges_enable(uint32_t mask)
 {
 	/* Clear idle request */
 	mmio_setbits_32(SOCFPGA_SYSMGR(NOC_IDLEREQ_CLR), ~0);
@@ -112,7 +112,7 @@ int socfpga_bridges_enable(void)
 				IDLE_DATA_MASK, 0);
 }
 
-int socfpga_bridges_disable(void)
+int socfpga_bridges_disable(uint32_t mask)
 {
 	/* Set idle request */
 	mmio_write_32(SOCFPGA_SYSMGR(NOC_IDLEREQ_SET), ~0);

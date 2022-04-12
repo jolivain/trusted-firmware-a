@@ -98,7 +98,7 @@ static uint32_t intel_mailbox_fpga_config_isdone(uint32_t query_type)
 	if (query_type != 1) {
 		/* full reconfiguration */
 		if (!is_partial_reconfig)
-			socfpga_bridges_enable();	/* Enable bridge */
+			socfpga_bridges_enable(~0);	/* Enable bridge */
 	}
 
 	return INTEL_SIP_SMC_STATUS_OK;
@@ -225,7 +225,7 @@ static int intel_fpga_config_start(uint32_t config_type)
 	/* full reconfiguration */
 	if (!is_partial_reconfig) {
 		/* Disable bridge */
-		socfpga_bridges_disable();
+		socfpga_bridges_disable(~0);
 	}
 
 	return 0;
@@ -451,11 +451,37 @@ uint32_t intel_smc_service_completed(uint64_t addr, uint32_t size,
 	return INTEL_SIP_SMC_STATUS_OK;
 }
 
+/* Miscellaneous HPS services */
+uint32_t intel_hps_set_bridges(uint64_t enable, uint64_t mask)
+{
+	int status = 0;
+
+	if (enable & SOCFPGA_BRIDGE_ENABLE) {
+		if ((enable & SOCFPGA_BRIDGE_HAS_MASK) != 0) {
+			status = socfpga_bridges_enable((uint32_t)mask);
+		} else {
+			status = socfpga_bridges_enable(~0);
+		}
+	} else {
+		if ((enable & SOCFPGA_BRIDGE_HAS_MASK) != 0) {
+			status = socfpga_bridges_disable((uint32_t)mask);
+		} else {
+			status = socfpga_bridges_disable(~0);
+		}
+	}
+
+	if (status < 0) {
+		return INTEL_SIP_SMC_STATUS_ERROR;
+	}
+
+	return INTEL_SIP_SMC_STATUS_OK;
+}
+
 /*
  * This function is responsible for handling all SiP calls from the NS world
  */
 
-uintptr_t sip_smc_handler(uint32_t smc_fid,
+uintptr_t sip_smc_handler_v1(uint32_t smc_fid,
 			 u_register_t x1,
 			 u_register_t x2,
 			 u_register_t x3,
@@ -627,6 +653,10 @@ case INTEL_SIP_SMC_FCS_CRYPTION_EXT:
 		status = intel_fcs_cntr_set_preauth(x1, x2, x3,
 							&mbox_error);
 		SMC_RET2(handle, status, mbox_error);
+
+	case INTEL_SIP_SMC_HPS_SET_BRIDGES:
+		status = intel_hps_set_bridges(x1, x2);
+		SMC_RET1(handle, status);
 
 	case INTEL_SIP_SMC_FCS_PSGSIGMA_TEARDOWN:
 		status = intel_fcs_sigma_teardown(x1, &mbox_error);
@@ -803,6 +833,26 @@ case INTEL_SIP_SMC_FCS_ECDSA_GET_PUBKEY_INIT:
 		return socfpga_sip_handler(smc_fid, x1, x2, x3, x4,
 			cookie, handle, flags);
 	}
+}
+
+uintptr_t sip_smc_handler(uint32_t smc_fid,
+			 u_register_t x1,
+			 u_register_t x2,
+			 u_register_t x3,
+			 u_register_t x4,
+			 void *cookie,
+			 void *handle,
+			 u_register_t flags)
+{
+	uint32_t cmd = smc_fid & INTEL_SIP_SMC_CMD_MASK;
+
+	if (cmd >= INTEL_SIP_SMC_CMD_V2_RANGE_BEGIN &&
+	    cmd <= INTEL_SIP_SMC_CMD_V2_RANGE_END)
+		return sip_smc_handler_v2(smc_fid, x1, x2, x3, x4,
+			cookie, handle, flags);
+	else
+		return sip_smc_handler_v1(smc_fid, x1, x2, x3, x4,
+			cookie, handle, flags);
 }
 
 DECLARE_RT_SVC(
