@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d19b9ec9_fa348ee7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-04-12T22:47:54Z",
+      "side": 1,
+      "message": "Looks good, just a few small things.",
+      "revId": "29c854eec26e16c29f23bf402cb768fcda75af97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eb76895_1a8c50cb",
+        "filename": "plat/intel/soc/agilex/bl2_plat_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-04-12T22:47:54Z",
+      "side": 1,
+      "message": "Includes should be arranged alphabetically, so this one would go after \"socfpga_emac.h\".",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 36
+      },
+      "revId": "29c854eec26e16c29f23bf402cb768fcda75af97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12b3fc09_6d5a1351",
+        "filename": "plat/intel/soc/common/include/socfpga_f2sdram_manager.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-04-12T22:47:54Z",
+      "side": 1,
+      "message": "Since this is a new file should it go back to 2019 or just be 2022?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 22
+      },
+      "revId": "29c854eec26e16c29f23bf402cb768fcda75af97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a67b6472_c910725c",
+        "filename": "plat/intel/soc/common/soc/socfpga_reset_manager.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-04-12T22:47:54Z",
+      "side": 1,
+      "message": "Place above \"socfpga_mailbox.h\" to alphabetize.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 36
+      },
+      "revId": "29c854eec26e16c29f23bf402cb768fcda75af97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c3308d7_9922f902",
+        "filename": "plat/intel/soc/stratix10/bl2_plat_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-04-12T22:47:54Z",
+      "side": 1,
+      "message": "alphabetize",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 36
+      },
+      "revId": "29c854eec26e16c29f23bf402cb768fcda75af97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
