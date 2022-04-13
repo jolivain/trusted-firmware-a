@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44817674_38c3dae2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-13T10:55:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b22e662_4c9a4667",
+      "revId": "1dd7174f1a0e265082fcde4d8beb4fc67ba71e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1716e045_906008ec",
@@ -420,6 +438,30 @@
       "writtenOn": "2022-04-13T10:16:41Z",
       "side": 1,
       "message": "Updated the relevant patches to remove the lock and introduce the SP state check.",
+      "parentUuid": "a56b6f90_892a49b9",
+      "range": {
+        "startLine": 133,
+        "startChar": 1,
+        "endLine": 136,
+        "endChar": 30
+      },
+      "revId": "1dd7174f1a0e265082fcde4d8beb4fc67ba71e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff7f544f_0002902a",
+        "filename": "services/std_svc/spm/spmc/spmc.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-13T10:55:12Z",
+      "side": 1,
+      "message": "Ack",
       "parentUuid": "a56b6f90_892a49b9",
       "range": {
         "startLine": 133,
@@ -1750,6 +1792,30 @@
       "side": 1,
       "message": "We want to ensure that the MMU and icache are disabled before we jump to EL1 and allow the SP to initialize itself.\nShould this be handled in another way?",
       "parentUuid": "9c4b28c8_e7057e02",
+      "range": {
+        "startLine": 401,
+        "startChar": 1,
+        "endLine": 402,
+        "endChar": 26
+      },
+      "revId": "1dd7174f1a0e265082fcde4d8beb4fc67ba71e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eac0a296_69fc2081",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-13T10:55:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ac8ced51_53b65118",
       "range": {
         "startLine": 401,
         "startChar": 1,

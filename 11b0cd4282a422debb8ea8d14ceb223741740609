@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79243ce8_6852a9e2",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-13T10:55:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "271593ca_8a6fbd37",
+      "revId": "11b0cd4282a422debb8ea8d14ceb223741740609",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b699d930_fa190370",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-04-12T17:30:23Z",
       "side": 1,
       "message": "Similarly flagged for include ordering issues.\n\n```\n11b0cd428:services/std_svc/spm/el3_spmc/spmc_setup.c: [\u0027services/ffa_svc.h should\n    be in project group, after system group\u0027, \u0027spm_common.h should be in project group,\n    after system group\u0027, \u0027spmc.h should be in project group, after system group\u0027]\n```",
+      "revId": "11b0cd4282a422debb8ea8d14ceb223741740609",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "792c694b_e88862e3",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-13T10:55:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b699d930_fa190370",
       "revId": "11b0cd4282a422debb8ea8d14ceb223741740609",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
