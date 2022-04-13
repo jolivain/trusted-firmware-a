@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b40571ef_5d34b25d",
+        "filename": "tools/sptool/spactions.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-13T11:16:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1918c5ce_8036f3a6",
+      "range": {
+        "startLine": 47,
+        "startChar": 11,
+        "endLine": 47,
+        "endChar": 18
+      },
+      "revId": "082f169adeeb06c4da74ce45af647eb60d6fc580",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09ff6b17_21c392f3",
@@ -71,6 +95,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38229494_44cdaeca",
+        "filename": "tools/sptool/spactions.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-13T11:16:19Z",
+      "side": 1,
+      "message": "Yes, the used expression always needs a default value for the \"else\" case.\nin this case is: if log_calls is True change action to the return to sp_logged_action(action), else action remains the same.\nsp_logged_action is making such we have logs when the given function is being called.\n\nlogs is: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/14505/5/tools/sptool/spactions.py#27\n\nMoved this into the _ConfiguredAction class constructor. I think it simplifies. let me know if anything is not clear.",
+      "parentUuid": "6e6a3bab_093078c7",
+      "range": {
+        "startLine": 78,
+        "startChar": 59,
+        "endLine": 78,
+        "endChar": 70
+      },
+      "revId": "082f169adeeb06c4da74ce45af647eb60d6fc580",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22490864_0bd1bf47",
@@ -84,6 +132,30 @@
       "writtenOn": "2022-04-12T19:07:09Z",
       "side": 1,
       "message": "might be worth calling it some other name :) was super confusing to follow given that we are already in def sp_action..unless it is required to be the same name... if yes, i dont follow why..",
+      "range": {
+        "startLine": 80,
+        "startChar": 21,
+        "endLine": 80,
+        "endChar": 30
+      },
+      "revId": "082f169adeeb06c4da74ce45af647eb60d6fc580",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc495c03_e8692ec7",
+        "filename": "tools/sptool/spactions.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-13T11:16:19Z",
+      "side": 1,
+      "message": "You\u0027re right. Indeed made it messy right there. :/ \nchanged the name of the class above to _ConfiguredAction. It is meant to be a \"private\" class hence the \u0027_\u0027 suffix, and hopefully will help make things clearer...\nLet me know if anything is still unclear.",
+      "parentUuid": "22490864_0bd1bf47",
       "range": {
         "startLine": 80,
         "startChar": 21,
