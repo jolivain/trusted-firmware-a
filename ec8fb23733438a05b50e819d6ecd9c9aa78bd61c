@@ -158,6 +158,30 @@
       },
       "revId": "ec8fb23733438a05b50e819d6ecd9c9aa78bd61c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04fde4e9_a0c231e0",
+        "filename": "tools/sptool/sptool.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-04-13T19:02:08Z",
+      "side": 1,
+      "message": "\"We know the manifest is very small (as we are just starting development and we are keeping below 4k), at this point the entry-point offset would need to be at 0x1000, which is the lowest granule for page tables that hafnium supports. If eventually, the manifest surpasses the 0x1000 size, the sptool would pack everything and set the img offset at 0x2000. You\u0027d need to manually update the SP\u0027s manifest at this point...\" This is really th epart i have the problem with. The Developre does not know always that it is less than 4K and that he/she needs to increase it later. Why does the developer need to do this manually at all? why can this script not find the size of the dtb, and calculate image offset from that and align it to 16 or 64K or whatever alignment is required? perhaps that should be the input to the script.\nUltimately, what i want is the entrypoint offset to be calculated based on the layout of the boot info (impdef or otherwise), the pm offset, pm size (calculated on the fly) or based on image offset and patched into the manifest, or at least error out. let me know what you think..",
+      "parentUuid": "6ae9dac3_5529f31d",
+      "range": {
+        "startLine": 131,
+        "startChar": 30,
+        "endLine": 131,
+        "endChar": 36
+      },
+      "revId": "ec8fb23733438a05b50e819d6ecd9c9aa78bd61c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
