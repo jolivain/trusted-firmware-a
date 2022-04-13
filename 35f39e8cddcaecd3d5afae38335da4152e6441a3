@@ -128,6 +128,24 @@
       "message": "Found the patch that deletes sptool C files. Can you please introduce that patch early in the series?",
       "revId": "35f39e8cddcaecd3d5afae38335da4152e6441a3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f7cb1b5_3ebbc85e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-13T13:57:29Z",
+      "side": 1,
+      "message": "The intent was to do it phased, such that all commits were building.\nWith this in mind, would you still want the patches to be reordered?",
+      "parentUuid": "3ac4538e_dea6715a",
+      "revId": "35f39e8cddcaecd3d5afae38335da4152e6441a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
