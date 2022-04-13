@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c46b70ea_eb45d0fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-13T12:34:25Z",
+      "side": 1,
+      "message": "Yes this is basically the exact same script which looks neat to my opinion. Indeed we\u0027re discussing a possibility to use a common repo for tools as you know to prevent duplicating the script in the two trees at present.\n\nhttps://review.trustedfirmware.org/c/hafnium/hafnium/+/14211/12/build/image/generate_partition_image.py\n\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/14507/7/tools/sptool/sptool.py",
+      "parentUuid": "17691052_e4498d0f",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "35f39e8cddcaecd3d5afae38335da4152e6441a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "123d4a09_15207cd9",
