@@ -50,9 +50,11 @@ static const char *boot_err_string[] = {
 
 /*******************************************************************************
  * RMM <-> EL3 shared buffer information.
+ * These variables are not made static intentionally, so they can be used
+ * by other components of the library.
  ******************************************************************************/
-static size_t shared_buf_size;
-static uintptr_t shared_buf_base;
+size_t shared_buf_size;
+uintptr_t shared_buf_base;
 
 /*******************************************************************************
  * RMM boot failure flag
@@ -392,15 +394,15 @@ static int gpt_to_gts_error(int error, uint32_t smc_fid, uint64_t address)
 	int ret;
 
 	if (error == 0) {
-		return RMMD_OK;
+		return E_RMM_OK;
 	}
 
 	if (error == -EINVAL) {
-		ret = RMMD_ERR_BAD_ADDR;
+		ret = E_RMM_BAD_ADDR;
 	} else {
 		/* This is the only other error code we expect */
 		assert(error == -EPERM);
-		ret = RMMD_ERR_BAD_PAS;
+		ret = E_RMM_BAD_PAS;
 	}
 
 	ERROR("RMMD: PAS Transition failed. GPT ret = %d, PA: 0x%"PRIx64 ", FID = 0x%x\n",

@@ -33,6 +33,12 @@
 #include <stdint.h>
 
 /*
+ * RMM <-> EL3 shared buffer information.
+ */
+extern size_t shared_buf_size;
+extern uintptr_t shared_buf_base;
+
+/*
  * Data structure used by the RMM dispatcher (RMMD) in EL3 to track context of
  * the RMM at R-EL2.
  */
