@@ -33,12 +33,6 @@
 #include "rmmd_private.h"
 
 /*******************************************************************************
- * RMM <-> EL3 shared buffer information.
- ******************************************************************************/
-static size_t shared_buf_size;
-static uintptr_t shared_buf_base;
-
-/*******************************************************************************
  * RMM boot failure flag
  ******************************************************************************/
 static bool rmm_boot_failed;
@@ -172,6 +166,8 @@ static int32_t rmm_init(void)
  ******************************************************************************/
 int rmmd_setup(void)
 {
+	size_t shared_buf_size __unused;
+	uintptr_t shared_buf_base;
 	uint32_t ep_attr;
 	unsigned int linear_id = plat_my_core_pos();
 	rmmd_rmm_context_t *rmm_ctx = &rmm_context[linear_id];
@@ -204,7 +200,7 @@ int rmmd_setup(void)
 	shared_buf_size =
 			plat_rmmd_get_el3_rmm_shared_memory(&shared_buf_base);
 
-	assert((shared_buf_size != 0) && ((void *)shared_buf_base != NULL));
+	assert((shared_buf_size != 0UL) && ((void *)shared_buf_base != NULL));
 
 	/*
 	 * Prepare coldboot arguments for RMM:
@@ -370,15 +366,15 @@ static int gpt_to_gts_error(int error, uint32_t smc_fid, uint64_t address)
 	int ret;
 
 	if (error == 0) {
-		return RMMD_OK;
+		return E_RMM_OK;
 	}
 
 	if (error == -EINVAL) {
-		ret = RMMD_ERR_BAD_ADDR;
+		ret = E_RMM_BAD_ADDR;
 	} else {
 		/* This is the only other error code we expect */
 		assert(error == -EPERM);
-		ret = RMMD_ERR_BAD_PAS;
+		ret = E_RMM_BAD_PAS;
 	}
 
 	ERROR("RMMD: PAS Transition failed. GPT ret = %d, PA: 0x%"PRIx64 ", FID = 0x%x\n",
