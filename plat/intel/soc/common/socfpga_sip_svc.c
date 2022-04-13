@@ -395,8 +395,7 @@ static uint32_t intel_rsu_retry_counter(uint32_t *respbuf, uint32_t respbuf_sz,
 
 /* Mailbox services */
 static uint32_t intel_mbox_send_cmd(uint32_t cmd, uint32_t *args,
-				unsigned int len,
-				uint32_t urgent, uint32_t *response,
+				unsigned int len, uint32_t urgent, uint64_t response,
 				unsigned int resp_len, int *mbox_status,
 				unsigned int *len_in_resp)
 {
@@ -407,7 +406,7 @@ static uint32_t intel_mbox_send_cmd(uint32_t cmd, uint32_t *args,
 		return INTEL_SIP_SMC_STATUS_REJECTED;
 
 	int status = mailbox_send_cmd(MBOX_JOB_ID, cmd, args, len, urgent,
-				      response, &resp_len);
+					(uint32_t *) response, &resp_len);
 
 	if (status < 0) {
 		*mbox_status = -status;
@@ -416,6 +415,9 @@ static uint32_t intel_mbox_send_cmd(uint32_t cmd, uint32_t *args,
 
 	*mbox_status = 0;
 	*len_in_resp = resp_len;
+
+	flush_dcache_range(response, resp_len * MBOX_WORD_BYTE);
+
 	return INTEL_SIP_SMC_STATUS_OK;
 }
 
@@ -596,9 +598,8 @@ uintptr_t sip_smc_handler_v1(uint32_t smc_fid,
 	case INTEL_SIP_SMC_MBOX_SEND_CMD:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
-		status = intel_mbox_send_cmd(x1, (uint32_t *)x2, x3, x4,
-					     (uint32_t *)x5, x6, &mbox_status,
-					     &len_in_resp);
+		status = intel_mbox_send_cmd(x1, (uint32_t *)x2, x3, x4, x5, x6,
+						&mbox_status, &len_in_resp);
 		SMC_RET3(handle, status, mbox_status, len_in_resp);
 
 	case INTEL_SIP_SMC_FCS_CRYPTION:
