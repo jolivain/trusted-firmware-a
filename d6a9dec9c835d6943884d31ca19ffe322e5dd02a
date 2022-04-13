@@ -64,6 +64,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b9eed50_cd99f81a",
+        "filename": "tools/sptool/sp_mk_generator.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-13T13:53:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ebdf8fb_45ee126b",
+      "range": {
+        "startLine": 81,
+        "startChar": 11,
+        "endLine": 81,
+        "endChar": 16
+      },
+      "revId": "d6a9dec9c835d6943884d31ca19ffe322e5dd02a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "184f5605_0e202fbe",
@@ -77,6 +101,30 @@
       "writtenOn": "2022-04-13T12:19:50Z",
       "side": 1,
       "message": "uuid_std_be? (Big Endian)",
+      "range": {
+        "startLine": 164,
+        "startChar": 8,
+        "endLine": 164,
+        "endChar": 16
+      },
+      "revId": "d6a9dec9c835d6943884d31ca19ffe322e5dd02a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41179ba3_0de68e7d",
+        "filename": "tools/sptool/sp_mk_generator.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-13T13:53:16Z",
+      "side": 1,
+      "message": "Would prefer to keep the name as is, and a doc comment. This because the uuid_std can be defined in line 156 as well.",
+      "parentUuid": "184f5605_0e202fbe",
       "range": {
         "startLine": 164,
         "startChar": 8,
