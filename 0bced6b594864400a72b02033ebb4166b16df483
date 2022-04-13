@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd1cd467_3e55f4c8",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-13T14:51:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e47a4037_63e9d67f",
+      "revId": "0bced6b594864400a72b02033ebb4166b16df483",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "086907bf_e49bd2de",
@@ -41,6 +59,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3af83a1d_2913f673",
+        "filename": "services/std_svc/spm/el3_spmc/spmc.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-13T14:51:52Z",
+      "side": 1,
+      "message": "Good point, fixed.",
+      "parentUuid": "086907bf_e49bd2de",
+      "range": {
+        "startLine": 107,
+        "startChar": 1,
+        "endLine": 107,
+        "endChar": 9
+      },
+      "revId": "0bced6b594864400a72b02033ebb4166b16df483",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e93da80_b09f21f8",
@@ -54,6 +96,30 @@
       "writtenOn": "2022-04-13T10:55:12Z",
       "side": 1,
       "message": "should this ideally be an enum?",
+      "range": {
+        "startLine": 127,
+        "startChar": 1,
+        "endLine": 127,
+        "endChar": 9
+      },
+      "revId": "0bced6b594864400a72b02033ebb4166b16df483",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f5c3f25_fa9cd9d2",
+        "filename": "services/std_svc/spm/el3_spmc/spmc.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-13T14:51:52Z",
+      "side": 1,
+      "message": "Yes that makes sense. Updated.",
+      "parentUuid": "7e93da80_b09f21f8",
       "range": {
         "startLine": 127,
         "startChar": 1,
