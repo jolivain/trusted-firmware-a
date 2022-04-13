@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d8461f7f_2a55dd36",
+        "filename": "lib/cpus/aarch64/cortex_a55.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2022-04-13T20:44:16Z",
+      "side": 1,
+      "message": "will check and get back on this.",
+      "parentUuid": "88849c7d_9754c941",
+      "revId": "ed7ceb985db20bf0349905f9d39139040944899d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a275a110_f631625f",
         "filename": "plat/qti/common/src/aarch64/qti_kryo4_gold.S",
         "patchSetId": 1
@@ -190,6 +208,24 @@
       "side": 1,
       "message": "But you are already doing other things that permanently disable the option of using COHERENT_MEM (like turning on HW_ASSISTED_COHERENCY) anyway, so there\u0027s no real point in keeping only this here. And like I said, the decision we now made that this variable doesn\u0027t actually need any explicit synchronization here is independent from whether COHERENT_MEM is enabled or not anyway, so even if we went back to re-enabling COHERENT_MEM that shouldn\u0027t really mean that we need to put this variable back in it.\n\nI think you should take this out.",
       "parentUuid": "19fa9cde_97457809",
+      "revId": "ed7ceb985db20bf0349905f9d39139040944899d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e0e65c0_d592fd77",
+        "filename": "plat/qti/common/src/qti_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2022-04-13T20:44:16Z",
+      "side": 1,
+      "message": "sure let me remove it",
+      "parentUuid": "5c5bacf1_42a68085",
       "revId": "ed7ceb985db20bf0349905f9d39139040944899d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
