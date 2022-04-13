@@ -134,6 +134,30 @@
       },
       "revId": "ec8fb23733438a05b50e819d6ecd9c9aa78bd61c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ae9dac3_5529f31d",
+        "filename": "tools/sptool/sptool.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-04-13T18:51:19Z",
+      "side": 1,
+      "message": "i dont think 16KB or 64kb is sufficient and this would be technical debt carried forward. we already have manifests potentially growing larger than that. What i\u0027m asking for is to figure out the offsets in the script as opposed to have the caller pass in or even have defaults. Why do we even need default offsets? Why can the offsets not be calculated? the change to do this does not seem large.\n\nI agree this is an improvement but i think moving to a fully dynamic model is hardly a stretch given where we are already today.\n\njoao, i\u0027m not saying my proposal removes the need to update the entry point offset, i\u0027m simply asking you to do it as part of this script and releive the burden from the sp developer. The SP writer puts in a dummy value and you patch it. That seems more natural than having the developer figure out the DTB size, and then filling in the entry point offset based on that and then recompile the dts with the appropriate entry point..",
+      "parentUuid": "ef68b8cc_859178d1",
+      "range": {
+        "startLine": 131,
+        "startChar": 30,
+        "endLine": 131,
+        "endChar": 36
+      },
+      "revId": "ec8fb23733438a05b50e819d6ecd9c9aa78bd61c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
