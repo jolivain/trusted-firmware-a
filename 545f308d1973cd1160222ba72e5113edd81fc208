@@ -3,6 +3,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "298fcdfe_8db1e182",
+        "filename": "include/lib/psa/measured_boot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-13T12:54:09Z",
+      "side": 1,
+      "message": "I cannot see this macro being used anywhere in the code. Should it be removed? Or did I miss it?",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 40
+      },
+      "revId": "545f308d1973cd1160222ba72e5113edd81fc208",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e3810e1_8cd00d0c",
+        "filename": "include/lib/psa/measured_boot_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-13T12:54:09Z",
+      "side": 1,
+      "message": "What\u0027s the reason for isolating these definitions in a separate header file? Why not putting them inside include/lib/psa/measured_boot.h instead?",
+      "revId": "545f308d1973cd1160222ba72e5113edd81fc208",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "feb28d6e_f67e0c7f",
         "filename": "include/lib/psa/psa/client.h",
         "patchSetId": 1
@@ -67,6 +107,29 @@
         "startChar": 17,
         "endLine": 3,
         "endChar": 26
+      },
+      "revId": "545f308d1973cd1160222ba72e5113edd81fc208",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f695717f_4a987cc4",
+        "filename": "include/lib/psa/psa/client.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-13T12:54:09Z",
+      "side": 1,
+      "message": "This comment mentions FF-M ; does it still make sense in the context of TF-A? Should it rather be \"FF\" or \"PSA Firmware Framework\"? Or are we actually using the M version of the protocol, due to the fact that AP is communicating with RSS, i.e. a Cortex-M environment?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 3
       },
       "revId": "545f308d1973cd1160222ba72e5113edd81fc208",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
