@@ -249,6 +249,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64e665f4_03576d7c",
+        "filename": "plat/qti/sc7180/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000357
+      },
+      "writtenOn": "2022-04-13T20:47:42Z",
+      "side": 1,
+      "message": "my bad only ERRATA_A55_1530923 and ERRATA_A76_1165522 \na76 - gold - r15p15\n\na55 -silver - r13p14\nlet me correct it",
+      "parentUuid": "774a44f0_0f562288",
+      "revId": "ed7ceb985db20bf0349905f9d39139040944899d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "61cb06ad_a15f2e18",
         "filename": "plat/qti/sc7280/platform.mk",
         "patchSetId": 1
