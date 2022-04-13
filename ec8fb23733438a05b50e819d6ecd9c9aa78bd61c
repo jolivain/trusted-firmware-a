@@ -62,6 +62,30 @@
       },
       "revId": "ec8fb23733438a05b50e819d6ecd9c9aa78bd61c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f591d5b6_63488c16",
+        "filename": "tools/sptool/sptool.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-13T08:42:26Z",
+      "side": 1,
+      "message": "I see what you mean, though I am not sure if removing the offsets will make it such that you don\u0027t need to adjust the partition manifest as the partition package grows.\n\nLet\u0027s consider the following case. We are starting to \"cook up\" an SP, and the sptool does what you said, i.e. it packages the boot info section, the SP manifest, and the image. We know the manifest is very small (as we are just starting development and we are keeping below 4k), at this point the entry-point offset would need to be at 0x1000, which is the lowest granule for page tables that hafnium supports. If eventually, the manifest surpasses the 0x1000 size, the sptool would pack everything and set the img offset at 0x2000. You\u0027d need to manually update the SP\u0027s manifest at this point...\n\nIMO Having the offsets in the sptool doesn\u0027t solve or aggravate the situation described above, in a meaningful way... The default value can be changed if it is of concern to you. As soon as  the pm increases in size beyond the default value, you\u0027d need to specify the offset to the sptool, and change the manifest. The added step is to specify the image offset to cater for the size of the pm manifest. To note that the tool would give an error if there isn\u0027t space for the sp manifest, which helps to detect this situation fairly easily:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/14507/7/tools/sptool/sptool.py#61\n\nOffsets in the sptool provide a means to:\n- configure the size of the region to be used for the boot information. Currently, the only use case we have is the ff-a manifest, however, the specification specifies that other IMPDEF values can be used. Thus, allows for some level of the configuration of this space, considering we want to have this space allocated as part of the sp_pkg, to make contiguous the regions of boot info descriptors and content (specifically the pm).\n- Img offset in sptool is useful to adjust the alignment of the image. In case we want to have SPs whose lowest translation granule is either 16kb or 64kb. When packing everything, the sptool was setting the image to a 4kb align address... It also helps to make space for the pm manifest, by increasing the img offset manually.\n\nSomething that could be done is to add an option to the sptool to pack everything, (as it was doing up to this point). This option would be mutually exclusive to specifying the pm and img offsets to the sptool.\n\nStill, this doesn\u0027t remove the need to change the entry point in the pm manifest as it grows... Both approaches would need this to happen. To avoid such a hurdle, I think we could look to automate it as part of:\n https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/14506/6/tools/sptool/sp_mk_generator.py\nI am not sure if there are points against automating this, just bringing this up for discussion as an alternative to look into...\n\nLet me know if anything of the above is unclear, or if I misunderstood any of your points.",
+      "parentUuid": "8a900a84_3a1722eb",
+      "range": {
+        "startLine": 131,
+        "startChar": 30,
+        "endLine": 131,
+        "endChar": 36
+      },
+      "revId": "ec8fb23733438a05b50e819d6ecd9c9aa78bd61c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
