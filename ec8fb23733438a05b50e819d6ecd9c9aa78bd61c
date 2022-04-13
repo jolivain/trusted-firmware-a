@@ -86,6 +86,30 @@
       },
       "revId": "ec8fb23733438a05b50e819d6ecd9c9aa78bd61c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e160fe1c_72628f50",
+        "filename": "tools/sptool/sptool.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-13T08:54:20Z",
+      "side": 1,
+      "message": "Not willing to rephrase but to summarize things a bit, the three combined requirements were:\n* Add more flexibility to allow for a larger manifest size.\n* Add ability for testing a SP which uses a S1 translation granule size larger than 4KB (aka 16KB or 64KB).\n* Integrate the FF-A v1.1 boot protocol.\n\nLooks to me all three bullets are ticked.\nI appreciate we can always integrate/automate better the build flow. Though would it be possible to start with the current change sets (which are already great improvements from my perspective), and improve in later iterations when/if required?",
+      "parentUuid": "f591d5b6_63488c16",
+      "range": {
+        "startLine": 131,
+        "startChar": 30,
+        "endLine": 131,
+        "endChar": 36
+      },
+      "revId": "ec8fb23733438a05b50e819d6ecd9c9aa78bd61c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
