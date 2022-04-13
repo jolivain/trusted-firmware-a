@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b4a1366_e0b7021c",
+        "filename": "services/std_svc/spm/el3_spmc/spmc.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-13T10:16:41Z",
+      "side": 1,
+      "message": "Removed `secondary_ep_lock` due to feedback comments as the secondary entry point should not face concurrent accesses.",
+      "revId": "0bced6b594864400a72b02033ebb4166b16df483",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
