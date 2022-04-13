@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03f5d28e_731f1a54",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-13T10:16:25Z",
+      "side": 1,
+      "message": "Removed references to `secondary_ep_lock`.\nDue to comments on a previous commit the secondary entry point can only be updated during an SP\u0027s initialization phase and therefore should not encounter face concurrent accesses.",
+      "revId": "e866c3d10cedf04dedb72a5afcb80a3b6e6a0edb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}

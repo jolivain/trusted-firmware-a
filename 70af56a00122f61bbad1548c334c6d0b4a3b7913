@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3daabd1a_507ed9e8",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 1302,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-13T10:16:25Z",
+      "side": 1,
+      "message": "Added check to ensure that this ABI can only be called during a partition\u0027s initialization phase.",
+      "revId": "70af56a00122f61bbad1548c334c6d0b4a3b7913",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
