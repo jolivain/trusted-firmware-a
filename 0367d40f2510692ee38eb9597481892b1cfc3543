@@ -69,6 +69,24 @@
       "parentUuid": "879e4746_d06db9a4",
       "revId": "0367d40f2510692ee38eb9597481892b1cfc3543",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "519f29c1_4d9b44b3",
+        "filename": "services/std_svc/std_svc_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-04-13T20:29:30Z",
+      "side": 1,
+      "message": "If it is a fatal condition, then we should panic. Instead the device boots up with a disabled PSCI implementation.\n\nBut aborting boot or running a partial std_svc does not cover all use cases either.\n\nAs you rightly pointed out, chip bringup, platform bringup (valid use cases) dont work well with the current implementation.\n\nSo, this patch does not regress the current behavior. But allows for graceful error recovery even for production devices.",
+      "parentUuid": "3b3badd5_d5408008",
+      "revId": "0367d40f2510692ee38eb9597481892b1cfc3543",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
