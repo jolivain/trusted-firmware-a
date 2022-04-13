@@ -122,6 +122,29 @@
       },
       "revId": "d8e44bdc0a45d38abcd8538de0b06dfb668be825",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f785aac4_aba650ec",
+        "filename": "plat/arm/board/fvp/fvp_common_measured_boot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-13T13:59:44Z",
+      "side": 1,
+      "message": "If event_log_measure_and_record() fails, this is going to overwrite its error code stored in variable \u0027err\u0027. If then rss_mboot_measure_and_record() succeeds and returns 0, plat_mboot_measure_image() will incorrectly succeed.\n\nWe need to preserve the error code value returned by event_log_measure_and_record() and aggregate both error codes (event log and RSS) at the end of the function.",
+      "range": {
+        "startLine": 43,
+        "startChar": 1,
+        "endLine": 45,
+        "endChar": 18
+      },
+      "revId": "d8e44bdc0a45d38abcd8538de0b06dfb668be825",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
