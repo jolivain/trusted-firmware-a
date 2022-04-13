@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "526166c9_de34c19b",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-13T13:49:46Z",
+      "side": 1,
+      "message": "If I remember correctly, we agreed to remove this comment.",
+      "range": {
+        "startLine": 13,
+        "startChar": 31,
+        "endLine": 13,
+        "endChar": 85
+      },
+      "revId": "72696cd9e40a01de288aa08f980994f766dd6df3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d02c0ed6_98adaeeb",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-13T13:49:46Z",
+      "side": 1,
+      "message": "I cannot see any of the PSA_ALG_SHA_* macros being defined. Did I miss them? Or are they missing from this patch stack?\n\nIt looks to me as if they should be defined in include/lib/psa/measured_boot.h, along side the declaration of rss_measured_boot_extend_measurement() which expects one of these macros to be provided as the \u0027measurement_algo\u0027 argument.",
+      "range": {
+        "startLine": 21,
+        "startChar": 25,
+        "endLine": 21,
+        "endChar": 40
+      },
+      "revId": "72696cd9e40a01de288aa08f980994f766dd6df3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7061e4a_a70cf30e",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-13T13:49:46Z",
+      "side": 1,
+      "message": "Is this cast needed? AFAIC, psa_status_t is int32_t, which should seamlessly fit in an int (since they are the same type!). If we ever change the definition of psa_status_t type some day - say we make it a int64_t instead - then I would expect the compiler to flag this, whereas if we force-cast it like that we\u0027ll get no warning whatsoever.",
+      "range": {
+        "startLine": 86,
+        "startChar": 9,
+        "endLine": 86,
+        "endChar": 14
+      },
+      "revId": "72696cd9e40a01de288aa08f980994f766dd6df3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de462314_f5fc663d",
+        "filename": "include/drivers/measured_boot/rss/rss_measured_boot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-13T13:49:46Z",
+      "side": 1,
+      "message": "This comment appears to be copied from the event log driver but it does not really apply for RSS AFAICS. The only thing that\u0027s relevant here is that each measurement is associated with metadata; I believe the rest should be removed. You can probably reword it to say that the macros below define strings suitable for the sw_type field of struct rss_mboot_metadata.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 3
+      },
+      "revId": "72696cd9e40a01de288aa08f980994f766dd6df3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
