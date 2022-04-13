@@ -156,6 +156,30 @@
       },
       "revId": "d6a9dec9c835d6943884d31ca19ffe322e5dd02a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "131e67cf_4b79f1a0",
+        "filename": "tools/sptool/sp_mk_generator.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-04-13T12:59:13Z",
+      "side": 1,
+      "message": "We already at 7 SPs today. If we include logging SP (to be introduced in future) then we reach the max number. I would like to double this to 16, to allow for future expansion.",
+      "parentUuid": "2001dd88_db9c731e",
+      "range": {
+        "startLine": 178,
+        "startChar": 7,
+        "endLine": 178,
+        "endChar": 77
+      },
+      "revId": "d6a9dec9c835d6943884d31ca19ffe322e5dd02a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
