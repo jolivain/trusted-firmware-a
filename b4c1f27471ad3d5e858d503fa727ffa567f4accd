@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35d65ffc_b4127c76",
+        "filename": "tools/sptool/spactions.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-04-13T11:54:47Z",
+      "side": 1,
+      "message": "Can we support python2? Some build machines from the farm do not support python3, yet.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 18
+      },
+      "revId": "b4c1f27471ad3d5e858d503fa727ffa567f4accd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af3b3809_06c4e203",
+        "filename": "tools/sptool/spactions.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-04-13T11:54:47Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 19,
+        "startChar": 37,
+        "endLine": 19,
+        "endChar": 43
+      },
+      "revId": "b4c1f27471ad3d5e858d503fa727ffa567f4accd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4598267_01938833",
+        "filename": "tools/sptool/spactions.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-04-13T11:54:47Z",
+      "side": 1,
+      "message": "Is there any way this can be expanded to add more user defined partitions? We have a use case for more than 4 partitions.",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 5
+      },
+      "revId": "b4c1f27471ad3d5e858d503fa727ffa567f4accd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96ffee41_e4ace5f6",
+        "filename": "tools/sptool/spactions.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-04-13T11:54:47Z",
+      "side": 1,
+      "message": "Why is this required?",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 23
+      },
+      "revId": "b4c1f27471ad3d5e858d503fa727ffa567f4accd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
