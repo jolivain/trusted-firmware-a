@@ -16,6 +16,24 @@
       "message": "Have you verified the patch set on HiKey960 platform? If you have verified it, what\u0027s the bootloader are you using? UEFI or uboot?",
       "revId": "2aa7976c2a949c9d897092033bca7d25efabcee6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a7e7f36_5cc2fa76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-04-13T07:58:47Z",
+      "side": 1,
+      "message": "Yes. We run this configuration in our CI on Hikey960 boards every night since few weeks.\nWe are using UEFI as bootloader.\n\n    INFO:    BL31: Preparing for EL3 exit to normal world\n    INFO:    Entry point address \u003d 0x1ac98000\n    INFO:    SPSR \u003d 0x3c9\n    UEFI firmware (version Alpha built at 08:13:59 on Jul  1 2021)\n    3h\n    3h\n    3h\n    3h\n    Press ESCAPE for boot options .Android Fastboot mode - version 0.7.\n    Press RETURN or SPACE key to quit.\n    EFI stub: Booting Linux Kernel...\n    EFI stub: EFI_RNG_PROTOCOL unavailable, no randomness supplied\n    EFI stub: Using DTB from configuration table\n    Failed to handle fs_proto\n    EFI stub: ERROR: Failed initrd from command line!\n    EFI stub: Exiting boot services and installing virtual address map...",
+      "parentUuid": "e9ce35b6_68c0001a",
+      "revId": "2aa7976c2a949c9d897092033bca7d25efabcee6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
