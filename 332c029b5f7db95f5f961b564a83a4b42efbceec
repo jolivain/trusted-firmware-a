@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e639ef17_83550893",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-14T18:02:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4541423_64fdb425",
+      "range": {
+        "startLine": 91,
+        "startChar": 41,
+        "endLine": 91,
+        "endChar": 45
+      },
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9294d36_81579225",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-04-14T08:33:34Z",
       "side": 1,
       "message": "nit: use same format for captions throughout this file at least for functions?\n\n /**************************\n  *\n  **************************/",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 2
+      },
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2830059_9d1dbb51",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-14T18:02:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9294d36_81579225",
       "range": {
         "startLine": 101,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb5f9e84_82ff5e06",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-14T18:02:02Z",
+      "side": 1,
+      "message": "Makes sense, renamed.",
+      "parentUuid": "faa2d16a_203a276d",
+      "range": {
+        "startLine": 106,
+        "startChar": 5,
+        "endLine": 106,
+        "endChar": 26
+      },
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "17c712e3_8f5885a7",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-04-14T08:33:34Z",
       "side": 1,
       "message": "nit: rephrase?",
+      "range": {
+        "startLine": 207,
+        "startChar": 57,
+        "endLine": 208,
+        "endChar": 41
+      },
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4e562da_d48f7534",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-14T18:02:02Z",
+      "side": 1,
+      "message": "Updated.",
+      "parentUuid": "17c712e3_8f5885a7",
       "range": {
         "startLine": 207,
         "startChar": 57,
@@ -116,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e719a9b_ee50444b",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-14T18:02:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea10efd9_a578c6b7",
+      "range": {
+        "startLine": 259,
+        "startChar": 37,
+        "endLine": 259,
+        "endChar": 42
+      },
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ddcddac_be9494a4",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-04-14T08:33:34Z",
       "side": 1,
       "message": "nit: SPs",
+      "range": {
+        "startLine": 290,
+        "startChar": 49,
+        "endLine": 290,
+        "endChar": 53
+      },
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb625995_4698393e",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-14T18:02:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ddcddac_be9494a4",
       "range": {
         "startLine": 290,
         "startChar": 49,
@@ -158,6 +302,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c5490b96_a463deac",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-14T18:02:02Z",
+      "side": 1,
+      "message": "Good question. In the long run I think we should introduce an aborted state however we don\u0027t currently have support for this. \nI\u0027m not sure it would make sense to update the failed partition to the waiting state as this would indicate internally that the partition is in a state to accept new requests/input. If the failed partition is left in the running state then any messages (e.g. direct_req) would be automatically be rejected by the SPMC as the partition as the is not in the expected waiting state.\n\nWhat do you think?",
+      "parentUuid": "d585a937_bf93f6a5",
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0ea1409_91f5035e",
         "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
         "patchSetId": 20
@@ -169,6 +331,30 @@
       "writtenOn": "2022-04-14T08:33:34Z",
       "side": 1,
       "message": "linear id of the current physical cpu?",
+      "range": {
+        "startLine": 27,
+        "startChar": 23,
+        "endLine": 27,
+        "endChar": 54
+      },
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b2ddab8_d7d08aac",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-14T18:02:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0ea1409_91f5035e",
       "range": {
         "startLine": 27,
         "startChar": 23,
@@ -204,6 +390,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "34570a1d_5da17d89",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-14T18:02:02Z",
+      "side": 1,
+      "message": "Yes, we are assuming that the entry point is not the same primary and secondary initialization. This means that since FFA_SECONDARY_EP_REGISTER can only be called during SP initialization this means that if `secondard_ep` has not yet been set then we must be operating on the boot core, as by the time that this function is called for secondary cores the SP must have exited its initialization phase and therefore the secondary entry point will have been set. \n\nDoes that sounds reasonable?",
+      "parentUuid": "03d21a2e_f394b6a7",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 22
+      },
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf11a6b1_fe057973",
         "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
         "patchSetId": 20
@@ -215,6 +425,24 @@
       "writtenOn": "2022-04-14T08:33:34Z",
       "side": 1,
       "message": "What happens when sp_id reaches FFA_SWD_ID_LIMIT-1?\nLooks to me the same id is reused?",
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f0b6983_97f7ccf1",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-14T18:02:02Z",
+      "side": 1,
+      "message": "Good point, updated to print error message and panic if FFA_SWD_ID_LIMIT is reached.",
+      "parentUuid": "bf11a6b1_fe057973",
       "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -232,6 +460,30 @@
       "writtenOn": "2022-04-14T08:33:34Z",
       "side": 1,
       "message": "nit: populated?",
+      "range": {
+        "startLine": 90,
+        "startChar": 57,
+        "endLine": 90,
+        "endChar": 65
+      },
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b630593b_a9dd3703",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-14T18:02:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02d9f190_d4bca00b",
       "range": {
         "startLine": 90,
         "startChar": 57,
