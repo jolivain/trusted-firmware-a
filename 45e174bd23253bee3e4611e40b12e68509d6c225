@@ -70,6 +70,30 @@
       },
       "revId": "45e174bd23253bee3e4611e40b12e68509d6c225",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c740d343_f36b4111",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-14T18:11:43Z",
+      "side": 1,
+      "message": "Hi Raghu, Thanks for putting your thoughts! Below is my understanding -\n1. TRUSTED_BOARD_BOOT dependency on DRTM is to ensure D-CRTM and DCE are trusted entities. Note: DCE and D-CRTM are not separate entities in the current implementation, and are part of BL31. This will change if the implementation evolve to have NS-DCE.\n\n2. D-CRTM accepts TCB hashes from early boot stage components running in NS-world (for UEFI based firmware it is prior to EndofDxe phase) and eventually pass them to DLME [1]. \nTo trust on these TCB hashes, it is important to trust this early boot stage component. My bad, the current statement does not provide these details, let me modify it to make it clear.\n\nAlso, agree if platform makes different provision to ensure integrity of the BL31 and early boot stage component of NS-world then TRUSTED_BOARD_BOOT dependency is not needed.\nI think of RESET_TO_BL31 case here where platform ensures integrity of BL31, and other NS-components via some other mean.\n\nI will retain this TRUSTED BOOT dependency on DRTM, but will add a statement that it is not needed if the platform ensures trustworthiness of BL31 and early boot stage component of NS-world component in their own way. Do you agree?\n\n[1] https://developer.arm.com/documentation/den0113/latest - Refer section 4.1",
+      "parentUuid": "2ad4bfa0_bd78656b",
+      "range": {
+        "startLine": 539,
+        "startChar": 47,
+        "endLine": 539,
+        "endChar": 65
+      },
+      "revId": "45e174bd23253bee3e4611e40b12e68509d6c225",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
