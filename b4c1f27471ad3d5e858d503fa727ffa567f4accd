@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9081042d_ba870f6a",
+        "filename": "tools/sptool/spactions.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-14T07:41:41Z",
+      "side": 1,
+      "message": "Ok, I\u0027ll check with the team and get back to you.\nIn my opinion python3 is a fork and syntactically incompatible with python2.\nSupporting python2 means developing and maintaining two flavors of the same script.\nWith the caveat that python2 is no longer a supported tool as said above.",
+      "parentUuid": "e168355c_272e17ea",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 18
+      },
+      "revId": "b4c1f27471ad3d5e858d503fa727ffa567f4accd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "af3b3809_06c4e203",
         "filename": "tools/sptool/spactions.py",
         "patchSetId": 6
