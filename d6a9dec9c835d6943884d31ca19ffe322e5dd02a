@@ -228,6 +228,30 @@
       },
       "revId": "d6a9dec9c835d6943884d31ca19ffe322e5dd02a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "224d84c2_b6b50e0e",
+        "filename": "tools/sptool/sp_mk_generator.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-04-14T14:54:36Z",
+      "side": 1,
+      "message": "Platform-specific actions can extend the current state of sp_mk_generator.py.\nAlso, global variables can be updated before running the actions.\nTo do so:\n- Define platform custom equivalent to sp_mk_generator.py file. File should import sp_mk_generator, and \"SpSetupActions\". \n- Make sure the new file has a main that calls the \"init_sp_actions\" from our sp_mk_generator.py\n\nFollowing is an example of what it could look like:\n\"\nfrom spactions import SpSetupActions\nimport sp_mk_generator\nimport sys\n\nsp_mk_generator.MAX_SP \u003d 8 # Change value at your descrition.\n\n# Define\n\nif __name__ \u003d\u003d \"__main__\":\n    print(\"Custom sp mk generator\")\n    args, sp_layout \u003d sp_mk_generator.init_sp_actions(sys)\n    SpSetupActions.run_actions(sp_layout, args)\n\"\n\n- In the platform-specific makefile define the variable \u0027SP_MK_GEN\u0027 to point to the newly created python script.\n\nThis is just for your own information. Take this at your own discretion.\nThis is a way to change MAX_SP for your own case, but I didn\u0027t test it, and can\u0027t be sure if it will break other things in the build flow.",
+      "parentUuid": "131e67cf_4b79f1a0",
+      "range": {
+        "startLine": 178,
+        "startChar": 7,
+        "endLine": 178,
+        "endChar": 77
+      },
+      "revId": "d6a9dec9c835d6943884d31ca19ffe322e5dd02a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
