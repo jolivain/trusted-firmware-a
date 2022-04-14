@@ -70,6 +70,30 @@
       },
       "revId": "00f56f32272d88b643f7ab7ff7469bed46673dd0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "919a3941_1fde345b",
+        "filename": "Makefile",
+        "patchSetId": 5
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-04-14T15:49:02Z",
+      "side": 1,
+      "message": "i dont think it is good to couple srtm and DRTM. DRTM was created to overcome some of the SRTM problems with maintaining large TCB and since srtm is not necessarily as trustworthy or is brittle. Making a solution to the SRTM problem, depend on SRTM does not seem right. For drtm, dependency on authenticated code is inevitable i think given that the D-CRTM is in mutable code(at least in this case since bl31 is D-crtm if i understand correctly). I think it makes sense to force the dependency on authentication (Trusted board boot). Depending on srtm is not necessarily all bad since we can consider code before BL31 as not part of \"gap code\" but i think it is best if SRTM and DRTM are independent.\n\nI;ve said in the past that measured boot(SRTM) and authenticated boot should be independent since the S-CRTM typically lives (or should live) in immutable code, so there is no need for that dependency between measured and trusted boot. Also, if there is a dependency between srtm and tbbr, breaking authenticated boot means breaking measured boot, which is best avoided. However that is not necessarily true for DRTM because of DCRTM living in mutable code. generally, avoiding dependencies between different security features, if it makes sense and is possible, should be the approach IMHO.",
+      "parentUuid": "bbef5e69_5fa92ed7",
+      "range": {
+        "startLine": 837,
+        "startChar": 8,
+        "endLine": 837,
+        "endChar": 15
+      },
+      "revId": "00f56f32272d88b643f7ab7ff7469bed46673dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
