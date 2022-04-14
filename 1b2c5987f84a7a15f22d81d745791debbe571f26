@@ -16,6 +16,24 @@
       "message": "The function is empty. It seems that you needn\u0027t to add this function at all.",
       "revId": "1b2c5987f84a7a15f22d81d745791debbe571f26",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfdff822_17879fe8",
+        "filename": "plat/hisilicon/hikey960/tsp/hikey960_tsp_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-04-14T07:43:31Z",
+      "side": 1,
+      "message": "If I don\u0027t define this function, I get a linker error from bl32/tsp/tsp_main.c\nToday, SPMC_AT_EL3 build option requires a TSP payload by default.\nTo go all the way, one could correctly implement the TSP platform layer and run the SPMC_AT_EL3 test suite on Hikey960.",
+      "parentUuid": "d512ef1b_8b2e4f76",
+      "revId": "1b2c5987f84a7a15f22d81d745791debbe571f26",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
