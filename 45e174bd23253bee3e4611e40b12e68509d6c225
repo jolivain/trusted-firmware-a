@@ -94,6 +94,30 @@
       },
       "revId": "45e174bd23253bee3e4611e40b12e68509d6c225",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61352e17_f9cfd9e8",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-04-14T19:12:19Z",
+      "side": 1,
+      "message": "Agree with #1. Just to double check, you agree DCE Preamble is not trusted?\nI\u0027ve raised #2 as a concern with Stuart. The trusted tcb hashes need to be provided and authorized in a different manner and relying on trusted board boot to authorize that and on UEFI (who we are effectively trying to remove trust on), does not seem right. In fact, in [1], there is an explicit statement in section 2.2 - \u0027A key characteristic of DRTM is that the new TCB established by the DRTM boot chain does not have a trust dependency on the SRTM trust chain or anything else which executed prior to the DL Event. A dynamic launch can be initiated any number of times on a running system.\"\n\nDoes this design of providing tcb hashes violate the statement by having a trust dependency on \"anything else that executed prior to the dl event\"?\n\nIt is okay to have these TCB hashes as a signed blob that possibly has its own independent key and revocation/rollback policies that the dlme consumes, but it should not be made part of trusted board boot.",
+      "parentUuid": "c740d343_f36b4111",
+      "range": {
+        "startLine": 539,
+        "startChar": 47,
+        "endLine": 539,
+        "endChar": 65
+      },
+      "revId": "45e174bd23253bee3e4611e40b12e68509d6c225",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
