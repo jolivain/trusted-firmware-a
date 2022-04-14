@@ -1,0 +1,245 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4541423_64fdb425",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-14T08:33:34Z",
+      "side": 1,
+      "message": "nit: full stop",
+      "range": {
+        "startLine": 91,
+        "startChar": 41,
+        "endLine": 91,
+        "endChar": 45
+      },
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9294d36_81579225",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-14T08:33:34Z",
+      "side": 1,
+      "message": "nit: use same format for captions throughout this file at least for functions?\n\n /**************************\n  *\n  **************************/",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 2
+      },
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faa2d16a_203a276d",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-14T08:33:34Z",
+      "side": 1,
+      "message": "Should this be rename is_ffa_secure_id_valid?\n\nCurrently it does not convey that the partition_id must be a \u0027secure world id\u0027.",
+      "range": {
+        "startLine": 106,
+        "startChar": 5,
+        "endLine": 106,
+        "endChar": 26
+      },
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17c712e3_8f5885a7",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-14T08:33:34Z",
+      "side": 1,
+      "message": "nit: rephrase?",
+      "range": {
+        "startLine": 207,
+        "startChar": 57,
+        "endLine": 208,
+        "endChar": 41
+      },
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea10efd9_a578c6b7",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-14T08:33:34Z",
+      "side": 1,
+      "message": "nit: remove",
+      "range": {
+        "startLine": 259,
+        "startChar": 37,
+        "endLine": 259,
+        "endChar": 42
+      },
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ddcddac_be9494a4",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-14T08:33:34Z",
+      "side": 1,
+      "message": "nit: SPs",
+      "range": {
+        "startLine": 290,
+        "startChar": 49,
+        "endLine": 290,
+        "endChar": 53
+      },
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d585a937_bf93f6a5",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-14T08:33:34Z",
+      "side": 1,
+      "message": "should ec-\u003ert_state be updated to some aborted state, or waiting at least?",
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0ea1409_91f5035e",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-14T08:33:34Z",
+      "side": 1,
+      "message": "linear id of the current physical cpu?",
+      "range": {
+        "startLine": 27,
+        "startChar": 23,
+        "endLine": 27,
+        "endChar": 54
+      },
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03d21a2e_f394b6a7",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-14T08:33:34Z",
+      "side": 1,
+      "message": "Is this assuming that the first EC is always calling FFA_SECONDARY_EP_REGISTER?\nThe check done line #53 is about checking the ep address has been updated, not that current sp setup is boot core or secondary core.",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 22
+      },
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf11a6b1_fe057973",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-14T08:33:34Z",
+      "side": 1,
+      "message": "What happens when sp_id reaches FFA_SWD_ID_LIMIT-1?\nLooks to me the same id is reused?",
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02d9f190_d4bca00b",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-14T08:33:34Z",
+      "side": 1,
+      "message": "nit: populated?",
+      "range": {
+        "startLine": 90,
+        "startChar": 57,
+        "endLine": 90,
+        "endChar": 65
+      },
+      "revId": "332c029b5f7db95f5f961b564a83a4b42efbceec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
