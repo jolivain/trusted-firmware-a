@@ -1019,6 +1019,7 @@ $(eval $(call assert_booleans,\
         PSCI_EXTENDED_STATE_ID \
         RAS_EXTENSION \
         RESET_TO_BL31 \
+        RESET_TO_BL31_WITH_PARAMS \
         SAVE_KEYS \
         SEPARATE_CODE_AND_RODATA \
         SEPARATE_BL2_NOLOAD_REGION \
@@ -1136,6 +1137,7 @@ $(eval $(call add_defines,\
         PSCI_EXTENDED_STATE_ID \
         RAS_EXTENSION \
         RESET_TO_BL31 \
+        RESET_TO_BL31_WITH_PARAMS \
         SEPARATE_CODE_AND_RODATA \
         SEPARATE_BL2_NOLOAD_REGION \
         SEPARATE_NOBITS_REGION \
