@@ -22,6 +22,30 @@
       },
       "revId": "c2cc37684db559a47057addf29c3667d39c142b9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d28318cc_e06b1ddb",
+        "filename": "plat/intel/soc/common/socfpga_sip_svc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-04-15T01:43:03Z",
+      "side": 1,
+      "message": "yes, it is already defined\nhttps://github.com/ARM-software/arm-trusted-firmware/blob/master/plat/intel/soc/common/include/socfpga_sip_svc.h#L19",
+      "parentUuid": "b5ef306c_72a8ee16",
+      "range": {
+        "startLine": 404,
+        "startChar": 16,
+        "endLine": 404,
+        "endChar": 38
+      },
+      "revId": "c2cc37684db559a47057addf29c3667d39c142b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
