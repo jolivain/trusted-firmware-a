@@ -658,6 +658,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "56b4700f_833961dd",
+        "filename": "services/std_svc/spm/spmc/spmc.mk",
+        "patchSetId": 12
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-15T14:00:03Z",
+      "side": 1,
+      "message": "The reason for this legacy option was to support an unmodified AArch32 TOS on AArch64 EL3.\nTOS(AArch32) + EL3(AArch32): timer is banked per world. TOS has its own private instance.\nsame TOS(AArch32) + EL3(AArch64): timer is no longer banked per world, the same AArch32 TOS might still access NS timer register and corrupt and a workaround with this option.\nEventually this is all legacy which doesn\u0027t apply to the EL3 SPMC case, the SEL1 payload is AArch64 and shall not interfere with the NS timer.",
+      "parentUuid": "31a6b653_e4f01dce",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 21
+      },
+      "revId": "1dd7174f1a0e265082fcde4d8beb4fc67ba71e86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "82800061_712ff392",
         "filename": "services/std_svc/spm/spmc/spmc_main.c",
         "patchSetId": 12
