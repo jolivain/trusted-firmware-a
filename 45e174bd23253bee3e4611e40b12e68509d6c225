@@ -142,6 +142,30 @@
       },
       "revId": "45e174bd23253bee3e4611e40b12e68509d6c225",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "134d0441_6d309707",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-18T07:53:10Z",
+      "side": 1,
+      "message": "\u003e Agree with #1. Just to double check, you agree DCE Preamble is not trusted?\nAgree, the DCE preamble should not be trusted.\n\n\u003e The important distinction is that we dont \"Trust UEFI code\" to provide the tcb hashes, that defeats DRTM entirely. If UEFI is exploited, trusting it to provide the right TCB hashes means a compromised UEFI can entirely compromise DRTM..\nGot your point. I will check with the team internally again regarding the trustworthiness of the UEFI code in DRTM. \nI believe we both agreed that BL31 is a trusted one for DRTM, and so DRTM must rely on TRUSTED_BOARD_BOOT. The TRUSTED_BOARD_BOOT build option is meant for BL1,BL2, therefore this statement is invalid for platforms that reset to BL31 anyways (such platforms have their own methods for trusting BL31). Do you agree?",
+      "parentUuid": "c71f6a14_639decd8",
+      "range": {
+        "startLine": 539,
+        "startChar": 47,
+        "endLine": 539,
+        "endChar": 65
+      },
+      "revId": "45e174bd23253bee3e4611e40b12e68509d6c225",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
