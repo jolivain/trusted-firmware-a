@@ -47,6 +47,11 @@ enum ffa_instruction_access {
 	FFA_INSTRUCTION_ACCESS_RESERVED,
 };
 
+enum ffa_memory_ns_bit {
+	FFA_MEMORY_SECURE = 0x0,
+	FFA_MEMORY_NS = 0x1,
+};
+
 enum ffa_memory_type {
 	FFA_MEMORY_NOT_SPECIFIED_MEM,
 	FFA_MEMORY_DEVICE_MEM,
@@ -85,6 +90,9 @@ typedef uint16_t ffa_memory_attributes_t;
 #define FFA_INSTRUCTION_ACCESS_SHIFT (0x2U)
 #define FFA_INSTRUCTION_ACCESS_MASK (0x3U)
 
+#define FFA_MEMORY_NS_BIT_SHIFT (0x6U)
+#define FFA_MEMORY_NS_BIT_MASK (0x1U)
+
 #define FFA_MEMORY_TYPE_SHIFT (0x4U)
 #define FFA_MEMORY_TYPE_MASK (0x3U)
 
@@ -118,6 +126,11 @@ ATTR_FUNCTION_SET(instruction_access, ffa_memory_access_permissions_t,
 		  FFA_INSTRUCTION_ACCESS_SHIFT, FFA_INSTRUCTION_ACCESS_MASK)
 ATTR_FUNCTION_GET(instruction_access, ffa_memory_access_permissions_t,
 		  FFA_INSTRUCTION_ACCESS_SHIFT, FFA_INSTRUCTION_ACCESS_MASK)
+
+ATTR_FUNCTION_SET(memory_ns_bit, ffa_memory_attributes_t,
+		  FFA_MEMORY_NS_BIT_SHIFT, FFA_MEMORY_NS_BIT_MASK)
+ATTR_FUNCTION_GET(memory_ns_bit, ffa_memory_attributes_t,
+		  FFA_MEMORY_NS_BIT_SHIFT, FFA_MEMORY_NS_BIT_MASK)
 
 ATTR_FUNCTION_SET(memory_type, ffa_memory_attributes_t, FFA_MEMORY_TYPE_SHIFT,
 		  FFA_MEMORY_TYPE_MASK)
