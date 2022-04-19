@@ -41,6 +41,7 @@
 #define FFA_ID_MASK			U(0xFFFF)
 #define FFA_PARTITION_ID_SHIFT		U(16)
 #define FFA_FEATURES_BIT31_MASK		U(0x1u << 31)
+#define FFA_FEATURES_RET_REQ_NS_BIT	U(0x1u << 1)
 
 #define FFA_RUN_EP_ID(src_dst_ids) \
 		((src_dst_ids >> FFA_PARTITION_ID_SHIFT) & FFA_ID_MASK)
@@ -173,6 +174,11 @@ struct secure_partition_desc {
 	 */
 	uint16_t pwr_mgmt_msgs;
 
+	/*
+	 * Store whenther the SP has request the use of the NS bit for memory
+	 * management transactions if it is using FF-A v1.0.
+	 */
+	bool ns_bit_requested;
 };
 
 /*
@@ -245,6 +251,11 @@ uint64_t spmc_sp_synchronous_entry(struct sp_exec_ctx *ec);
  * Helper function to obtain the descriptor of the current SP on a physical cpu.
  */
 struct secure_partition_desc *spmc_get_current_sp_ctx(void);
+
+/*
+ * Helper function to obtain the descriptor of the hypervisor on a physical cpu.
+ */
+struct ns_endpoint_desc *spmc_get_hyp_ctx(void);
 
 /*
  * Helper function to obtain the execution context of an SP on a
