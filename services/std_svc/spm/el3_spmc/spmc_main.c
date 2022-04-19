@@ -1057,6 +1057,51 @@ err_unlock:
 	return spmc_ffa_error_return(handle, ret);
 }
 
+static uint64_t ffa_feature_success(void *handle, uint32_t arg2)
+{
+	SMC_RET3(handle, FFA_SUCCESS_SMC32, 0, arg2);
+}
+
+static uint64_t ffa_features_retrieve_request(bool secure_origin,
+					      uint32_t input_properties,
+					      void *handle)
+{
+	/*
+	 * If we're called by the normal world we don't support any
+	 * additional features.
+	 */
+	if (!secure_origin) {
+		if (input_properties & FFA_FEATURES_RET_REQ_NS_BIT) {
+			return spmc_ffa_error_return(handle,
+						     FFA_ERROR_NOT_SUPPORTED);
+		} else {
+			SMC_RET1(handle, FFA_SUCCESS_SMC32);
+		}
+	} else {
+		struct secure_partition_desc *sp = spmc_get_current_sp_ctx();
+		/*
+		 * If v1.1 the NS but must be set otherwise it is an invalid
+		 * call. If v1.0 check and store whether the SP has requested
+		 * the use of the NS bit.
+		 */
+		if (sp->ffa_version == MAKE_FFA_VERSION(1, 1)) {
+			if (!(input_properties & FFA_FEATURES_RET_REQ_NS_BIT)) {
+				return spmc_ffa_error_return(handle,
+						       FFA_ERROR_NOT_SUPPORTED);
+			}
+		} else {
+			sp->ns_bit_requested = input_properties &
+					       FFA_FEATURES_RET_REQ_NS_BIT;
+		}
+		if (sp->ns_bit_requested) {
+			return ffa_feature_success(handle,
+						   FFA_FEATURES_RET_REQ_NS_BIT);
+		} else {
+			SMC_RET1(handle, FFA_SUCCESS_SMC32);
+		}
+	}
+}
+
 static uint64_t ffa_features_handler(uint32_t smc_fid,
 				     bool secure_origin,
 				     uint64_t x1,
@@ -1069,14 +1114,6 @@ static uint64_t ffa_features_handler(uint32_t smc_fid,
 {
 	uint32_t function_id = x1;
 	uint32_t input_properties = x2;
-
-	/*
-	 * We don't currently support any additional input properties
-	 * for any ABI therefore ensure this value is always set to 0.
-	 */
-	if (input_properties != 0) {
-		return spmc_ffa_error_return(handle, FFA_ERROR_NOT_SUPPORTED);
-	}
 
 	if ((function_id & FFA_FEATURES_BIT31_MASK)) {
 		/* Report if an FFA ABI is supported. */
@@ -1100,6 +1137,16 @@ static uint64_t ffa_features_handler(uint32_t smc_fid,
 		case FFA_MSG_RUN:
 
 			/*
+			 * We don't currently support any additional input
+			 * properties for any ABI therefore ensure this value is
+			 * always set to 0.
+			 */
+			if (input_properties != 0) {
+				return spmc_ffa_error_return(handle,
+						       FFA_ERROR_NOT_SUPPORTED);
+			}
+
+			/*
 			 * We are relying on the fact that the other registers
 			 * will be set to 0 as these values align with the
 			 * currently implemented features of the SPMC. If this
@@ -1114,8 +1161,6 @@ static uint64_t ffa_features_handler(uint32_t smc_fid,
 		case FFA_SECONDARY_EP_REGISTER_SMC64:
 		case FFA_MSG_SEND_DIRECT_RESP_SMC32:
 		case FFA_MSG_SEND_DIRECT_RESP_SMC64:
-		case FFA_MEM_RETRIEVE_REQ_SMC32:
-		case FFA_MEM_RETRIEVE_REQ_SMC64:
 		case FFA_MEM_RELINQUISH:
 		case FFA_MSG_WAIT:
 
@@ -1126,6 +1171,11 @@ static uint64_t ffa_features_handler(uint32_t smc_fid,
 			SMC_RET1(handle, FFA_SUCCESS_SMC32);
 			/* Execution stops here. */
 
+		case FFA_MEM_RETRIEVE_REQ_SMC32:
+		case FFA_MEM_RETRIEVE_REQ_SMC64:
+			return ffa_features_retrieve_request(secure_origin,
+							     input_properties,
+							     handle);
 
 		/* Supported features only from the normal world. */
 		case FFA_MEM_SHARE_SMC32:
