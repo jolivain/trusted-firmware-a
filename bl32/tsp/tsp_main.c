@@ -798,6 +798,17 @@ bool memory_retrieve(struct mailbox *mb,
 		return false;
 	}
 
+	/*
+	 * We are sharing memory from the normal world therefore validate the NS
+	 * bit was set by the SPMC.
+	 */
+	if (ffa_get_memory_ns_bit_attr((*retrieved)->attributes) !=
+	    FFA_MEMORY_NS) {
+		ERROR("SPMC has not set the NS bit! %x\n",
+		      (*retrieved)->attributes);
+		return false;
+	}
+
 	VERBOSE("Memory Descriptor Retrieved!\n");
 
 	return true;
