@@ -946,6 +946,7 @@ static uint64_t partition_info_get_handler(uint32_t smc_fid,
 {
 	int ret;
 	int partition_count = 0;
+	uint32_t size = 0;
 	uint32_t ffa_version = get_partition_ffa_version(secure_origin);
 	struct el3_lp_desc *el3_lp_descs = get_el3_lp_array();
 	struct mailbox *mbox;
@@ -1023,6 +1024,12 @@ static uint64_t partition_info_get_handler(uint32_t smc_fid,
 							      mbox,
 							      el3_lp_descs,
 							      &partition_count);
+			/*
+			 * For a v1.1 client provide the size of the returned
+			 * descriptor.
+			 */
+			size = sizeof(struct ffa_partition_info_v1_1);
+
 		} else {
 			ERROR("Unknown FF-A version %x\n", ffa_version);
 			ret = FFA_ERROR_INVALID_PARAMETER;
@@ -1043,7 +1050,7 @@ static uint64_t partition_info_get_handler(uint32_t smc_fid,
 		mbox->state = MAILBOX_STATE_FULL;
 		spin_unlock(&mbox->lock);
 	}
-	SMC_RET3(handle, FFA_SUCCESS_SMC32, 0, partition_count);
+	SMC_RET4(handle, FFA_SUCCESS_SMC32, 0, partition_count, size);
 
 err_unlock:
 	spin_unlock(&mbox->lock);
