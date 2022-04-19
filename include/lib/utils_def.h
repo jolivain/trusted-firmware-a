@@ -104,6 +104,13 @@
 #define round_down(value, boundary)		\
 	((value) & ~round_boundary(value, boundary))
 
+/**
+ * Helper macro to ensure a value lies on a given boundary.
+ */
+#define is_aligned(value, boundary)			\
+	(round_up((uintptr_t) value, boundary) ==	\
+	 round_down((uintptr_t) value, boundary))
+
 /*
  * Evaluates to 1 if (ptr + inc) overflows, 0 otherwise.
  * Both arguments must be unsigned pointer values (i.e. uintptr_t).
