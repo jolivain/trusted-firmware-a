@@ -61,6 +61,8 @@ CASSERT(sizeof(struct ffa_comp_mrd) == 16, assert_ffa_comp_mrd_size_mismatch);
  * typedef ffa_mem_attr8_t - Memory region attributes v1.0.
  * typedef ffa_mem_attr16_t - Memory region attributes v1.1.
  *
+ * * @FFA_MEM_ATTR_NS_BIT:
+ *     Memory security state.
  * * @FFA_MEM_ATTR_DEVICE_NGNRNE:
  *     Device-nGnRnE.
  * * @FFA_MEM_ATTR_DEVICE_NGNRE:
@@ -81,6 +83,7 @@ CASSERT(sizeof(struct ffa_comp_mrd) == 16, assert_ffa_comp_mrd_size_mismatch);
  *     Inner Shareable. Combine with FFA_MEM_ATTR_NORMAL_MEMORY_*.
  */
 typedef uint8_t ffa_mem_attr8_t;
+#define FFA_MEM_ATTR_NS_BIT			(0x1U << 6)
 typedef uint16_t ffa_mem_attr16_t;
 #define FFA_MEM_ATTR_DEVICE_NGNRNE		((1U << 4) | (0x0U << 2))
 #define FFA_MEM_ATTR_DEVICE_NGNRE		((1U << 4) | (0x1U << 2))
