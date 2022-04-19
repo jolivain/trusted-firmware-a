@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92a23aa3_71d3314f",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-19T20:06:30Z",
+      "side": 1,
+      "message": "Propagate and bail out upon encountering an error instead of just printing an error message.",
+      "revId": "f45526e64a2d2c6748762c02f651d4c36428b8ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
