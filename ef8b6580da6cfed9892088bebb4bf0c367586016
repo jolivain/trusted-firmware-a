@@ -16,6 +16,24 @@
       "message": "Just a note, this identifier was used in the past as preprocessor macro, see also my patch https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/14318/2\nI fix my patches platform.mk.\n\nIt gives following warning:\n    \u003ccommand-line\u003e: error: expected identifier before numeric constant\n    services/std_svc/spm/el3_spmc/spmc.h:89:2: note: in expansion of macro \u0027AARCH64\u0027\n   89 |  AARCH64 \u003d 0,\n      |  ^~~~~~~",
       "revId": "ef8b6580da6cfed9892088bebb4bf0c367586016",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43adbfb1_933c796b",
+        "filename": "services/std_svc/spm/el3_spmc/spmc.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-20T18:44:09Z",
+      "side": 1,
+      "message": "Thanks for finding this. Added the `SP_STATE` prefix to avoid the clash.",
+      "parentUuid": "b092188e_9aaf0007",
+      "revId": "ef8b6580da6cfed9892088bebb4bf0c367586016",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
