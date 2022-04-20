@@ -164,6 +164,30 @@
       },
       "revId": "9976c8aa1e566c2fba9fd94b33508f12bbe38de6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee127f0b_5759d3e7",
+        "filename": "services/std_svc/std_svc_setup.c",
+        "patchSetId": 22
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-20T18:44:03Z",
+      "side": 1,
+      "message": "Sure. I\u0027ve moved the function to the SPMD as currently the spm/common directory contains files common to the SPMC/SPM_MM implementations and are not included if these are disabled. \n\nI\u0027ve called the function `spmd_ffa_smc_handler` for now, however open to suggestions for a more appropriate name.",
+      "parentUuid": "37435fe0_21e37525",
+      "range": {
+        "startLine": 151,
+        "startChar": 2,
+        "endLine": 164,
+        "endChar": 20
+      },
+      "revId": "9976c8aa1e566c2fba9fd94b33508f12bbe38de6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
