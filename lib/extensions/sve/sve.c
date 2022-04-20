@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -39,9 +39,9 @@ void sve_enable(cpu_context_t *context)
 	cptr_el3 = (cptr_el3 | CPTR_EZ_BIT) & ~(TFP_BIT);
 	write_ctx_reg(get_el3state_ctx(context), CTX_CPTR_EL3, cptr_el3);
 
-	/* Restrict maximum SVE vector length (SVE_VECTOR_LENGTH+1) * 128. */
+	/* Restrict maximum SVE vector length (SVE_VECTOR_LEN+1) * 128. */
 	write_ctx_reg(get_el3state_ctx(context), CTX_ZCR_EL3,
-		(ZCR_EL3_LEN_MASK & CONVERT_SVE_LENGTH(512)));
+		(ZCR_EL3_LEN_MASK & CONVERT_SVE_LENGTH(SVE_VECTOR_LEN)));
 }
 
 void sve_disable(cpu_context_t *context)
