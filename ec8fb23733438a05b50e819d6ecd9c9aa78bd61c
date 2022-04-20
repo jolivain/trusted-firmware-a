@@ -278,6 +278,30 @@
       },
       "revId": "ec8fb23733438a05b50e819d6ecd9c9aa78bd61c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebe5e5ee_47fbf7ce",
+        "filename": "tools/sptool/sptool.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-04-20T01:35:33Z",
+      "side": 1,
+      "message": "okay, want to be clear. This needs to be fixed in the very near future and ideally makes it into the next hafnium release and no later. We can discuss offline on how we can get that done, if that helps.",
+      "parentUuid": "212aa84c_32c10f70",
+      "range": {
+        "startLine": 131,
+        "startChar": 30,
+        "endLine": 131,
+        "endChar": 36
+      },
+      "revId": "ec8fb23733438a05b50e819d6ecd9c9aa78bd61c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
