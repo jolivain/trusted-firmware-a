@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,6 +8,8 @@
 #define SVE_H
 
 #include <context.h>
+
+#define MAX_SVE_VECTOR_LENGTH	2048
 
 void sve_enable(cpu_context_t *context);
 void sve_disable(cpu_context_t *context);
