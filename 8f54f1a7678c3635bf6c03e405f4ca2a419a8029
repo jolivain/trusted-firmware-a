@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5770d12b_a1727ccc",
+        "filename": "plat/socionext/synquacer/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000787
+      },
+      "writtenOn": "2022-04-20T07:00:25Z",
+      "side": 1,
+      "message": "\"sq_sec_entrypoint\" is used only when BL2 is disabled, and the mailbox is used if BL2 is enabled. If we only have BL31, the \"sq_sec_entrypoint\" global variable can be accessed from the real entry code of the secondary CPUs since both are in the same binary. However, if the BL2 is decoupled from the BL31 binary, BL2 can not access to the \u0027sq_sec_entrypoint\u0027 in BL31. Thus we need to use the mailbox. (Of course we can unify the code to use same mailbox in both cases.)\n\nNote that on the SynQuacer platform, all secondary cpus will start from BL2 entry point in secure mode. Thus it has to jump into the BL31 code and then the OS code. So BL2 needs to know the BL31 entry point for secondary cpus.",
+      "parentUuid": "04ebedac_dc383cc8",
+      "revId": "8f54f1a7678c3635bf6c03e405f4ca2a419a8029",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7b422404_c23c8238",
         "filename": "plat/socionext/synquacer/include/platform_def.h",
         "patchSetId": 2
