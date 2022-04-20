@@ -214,6 +214,30 @@
       },
       "revId": "45e174bd23253bee3e4611e40b12e68509d6c225",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cb047a2_babff8a3",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1000621
+      },
+      "writtenOn": "2022-04-20T19:01:12Z",
+      "side": 1,
+      "message": "Hi Raghu,\n\nThanks for your comments.\n\nI will let Stuart respond to your concern, once he is back in May.  I work on the DRTM PoC and mean to share my understanding of Arm DRTM, in case it helps address the concern now.\n\n\n\u003e I\u0027ve raised #2 as a concern with Stuart. The trusted tcb hashes need to be provided and authorized in a different manner and relying on trusted board boot to authorize that and on UEFI (who we are effectively trying to remove trust on), does not seem right. In fact, in [1], there is an explicit statement in section 2.2 - \u0027A key characteristic of DRTM is that the new TCB established by the DRTM boot chain does not have a trust dependency on the SRTM trust chain or anything else which executed prior to the DL Event. A dynamic launch can be initiated any number of times on a running system.\"\n\u003e\n\nAs you point out in a previous comment, DRTM overcomes the secure \u003d\u003e brittle problem with the SRTM trust chain: Thanks to DRTM the SRTM trust chain can be shorter (a smaller TCB), allowing for a \"gap\" between the SRTM trust chain and the DRTM trust chain.  An application of DRTM may indeed seek to exclude most of UEFI from the TCB, i.e. leave it in the \"gap\".\n\n\n\u003e Does this design of providing tcb hashes violate the statement by having a trust dependency on \"anything else that executed prior to the dl event\"?\n\u003e\n\nI think there could be a nuance to the explicit statement in section 2.2, perceivable possibly in context with the associated Figure 2.  Namely, that \u0027the DRTM boot chain does not have a trust dependency on the [*entire*] [*old*] SRTM trust chain ...\u0027.  That is, our working assumption has been that DRTM may still rely on the SRTM trust chain, now that it can be shortened.\n\n\n\u003e It is okay to have these TCB hashes as a signed blob that possibly has its own independent key and revocation/rollback policies that the dlme consumes, but it should not be made part of trusted board boot.\n\u003e\n\nFor the avoidance of doubt, providing TCB hashes is designated for DLME\u0027s authentication of TCB components generated at runtime (e.g. data like ACPI tables).  The challenge with accepting signed blobs of TCB components would be how to entrust the key to the signer, who is in the Normal World.  Our working model has been that authenticated or measured boot (SRTM) could be leveraged.\n\nI hope this helps explain some of this.",
+      "parentUuid": "e73e967a_115e37bf",
+      "range": {
+        "startLine": 539,
+        "startChar": 47,
+        "endLine": 539,
+        "endChar": 65
+      },
+      "revId": "45e174bd23253bee3e4611e40b12e68509d6c225",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
