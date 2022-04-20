@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55ac6eae_7bef402c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-04-20T15:55:59Z",
+      "side": 1,
+      "message": "Would this also apply to ACTLR_EL1? That register is initialized to preserve the reset value.",
+      "parentUuid": "f3e42849_d6320161",
+      "revId": "2c0aadd87dcfe1c70313dc82aa24138bd7b421c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8af7d353_80c164fd",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-04-20T14:41:12Z",
       "side": 1,
       "message": "If CTX_INCLUDE_EL2_REGS is defined, all of the EL2 setting should be written to EL2 context. The direct write of reg should be only otherwise.\n\nalso perhaps these can be done setup_ns_context() and this function can just restore EL2 context.",
+      "revId": "2c0aadd87dcfe1c70313dc82aa24138bd7b421c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbe1adf4_0f9774d8",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-04-20T15:55:59Z",
+      "side": 1,
+      "message": "If CTX_INCLUDE_EL2_REGS is defined, we can assume EL2 is used right? If that is the case I think we only need to initialize SCTLR_EL2. That is already done in setup_ns_context().",
+      "parentUuid": "5a031503_5bf016fd",
       "revId": "2c0aadd87dcfe1c70313dc82aa24138bd7b421c6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
