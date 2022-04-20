@@ -94,6 +94,30 @@
       },
       "revId": "2a9e767c45e6dcaa3c6f3e8bb42d173b444d036f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8865778b_5c9994ab",
+        "filename": "plat/arm/board/fvp/fdts/optee_sp_manifest.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-04-20T19:20:02Z",
+      "side": 1,
+      "message": "Right, the test Sps can change all day long, im thinking company internal sps or SPs already in production. There are many such SPs, and there may be many independent teams. An update to hafnium and TF-A should not mean SP developers have to go rebuild the SPs and change layout. Now, if we update hafnium and tfa to this SP tool, we have to fork the old SP tool separately and continue to support that. For SPs that dont use the boot info protocol, i dont want anything to change. None of our SPs use boot info at the moment, and we may not use it in the future either.\nTF-A and hafnium have to be independent of SPs, thats the whole point of FFA...So saying SPs have to be recompiled because hafnium or tf-a got updated does not work. Backward compatibility has to be maintained. Also update to packaging, should not result in changes to hafnium code and again, the code and data strcutures need to be backward compatible..This is a general statement, the spec itself has to be backward compatible and cannot break things that are already in the field..\nAs for alternate solution that meet your 3 bullets, i already mentioned we should dynamically calculate and patch image offsets. To solve the issue of breaking changes, Effectively, we need to make the sp pkg layout backward compatible and extensible. It is not today, but given new things will get added, we need to be a little more careful about how we dont break existing packages..We need to bump versoin the sp pkg header structure and have hafnium deal with both versions of sp pkg..We can also treat the boot info page as an addition field in sp-pkg_header in say version 2 of the structure, as opposed to hafnium assuming it is the same as load address..that would also help not break existing SPs..\n\nWe can do it as an improvement, but i was worried by your comment that it does not change existing functionality. it seems like it does..do you agree?",
+      "parentUuid": "ce3949ee_e8bacddd",
+      "range": {
+        "startLine": 25,
+        "startChar": 22,
+        "endLine": 25,
+        "endChar": 28
+      },
+      "revId": "2a9e767c45e6dcaa3c6f3e8bb42d173b444d036f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
