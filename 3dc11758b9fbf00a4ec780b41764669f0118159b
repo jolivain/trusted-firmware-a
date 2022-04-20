@@ -33,6 +33,24 @@
       "message": "This patch is causing the build-failure[1] for Arm platforms [1], to fix this I have created a draft patch[2], Please add it to your patch stack.\n\n[1]: Build command:  make  ARM_GPT_SUPPORT\u003d1 ARM_ROTPK_LOCATION\u003ddevel_rsa CROSS_COMPILE\u003daarch64-none-elf- GENERATE_COT\u003d1 PLAT\u003dfvp PSA_FWU_SUPPORT\u003d1 ROT_KEY\u003dplat/arm/board/common/rotpk/arm_rotprivk_rsa.pem TRUSTED_BOARD_BOOT\u003d1 USE_ROMLIB\u003d1  DEBUG\u003d1 V\u003d1 fiptool all\n\nFailure cut-short logs:\n/work/workspace/workspace/tf-worker_ws_2/trusted_firmware/build/fvp/debug/bl1/pl011_console.o /work/workspace/workspace/tf-worker_ws_2/trusted_firmware/build/fvp/debug/bl1/board_arm_helpers.o /work/workspace/workspace/tf-worker_ws_2/trusted_firmware/build/fvp/debug/bl1/arm_helpers.o /work/workspace/workspace/tf-worker_ws_2/trusted_firmware/build/fvp/debug/bl1/enable_mmu.o -L/work/workspace/workspace/tf-worker_ws_2/trusted_firmware/build/fvp/debug/lib -lwrappers -lfdt -lmbedtls -lc \naarch64-none-elf-ld.bfd: /work/workspace/workspace/tf-worker_ws_2/trusted_firmware/build/fvp/debug/lib/libfdt.a(fdt_wip.o): in function `fdt_setprop_inplace_namelen_partial\u0027:\n/work/workspace/workspace/tf-worker_ws_2/trusted_firmware/lib/libfdt/fdt_wip.c:17: multiple definition of `fdt_setprop_inplace_namelen_partial\u0027; /work/workspace/workspace/tf-worker_ws_2/trusted_firmware/build/fvp/debug/lib/libwrappers.a(fdt_setprop_inplace_namelen_partial.o):(.text+0x0): first defined here\naarch64-none-elf-ld.bfd: /work/workspace/workspace/tf-worker_ws_2/trusted_firmware/build/fvp/debug/lib/libfdt.a(fdt_wip.o): in function `fdt_setprop_inplace\u0027:\n/work/workspace/workspace/tf-worker_ws_2/trusted_firmware/lib/libfdt/fdt_wip.c:35: multiple definition of `fdt_setprop_inplace\u0027; /work/workspace/workspace/tf-worker_ws_2/trusted_firmware/build/fvp/debug/lib/libwrappers.a(fdt_setprop_inplace.o):(.text+0x0): first defined here\naarch64-none-elf-ld.bfd: /work/workspace/workspace/tf-worker_ws_2/trusted_firmware/build/fvp/debug/lib/libfdt.a(fdt.o): in function `fdt_check_header\u0027:\n/work/workspace/workspace/tf-worker_ws_2/trusted_firmware/lib/libfdt/fdt.c:86: multiple definition of `fdt_check_header\u0027; /work/workspace/workspace/tf-worker_ws_2/trusted_firmware/build/fvp/debug/lib/libwrappers.a(fdt_check_header.o):(.text+0x0): first defined here\n\n[2]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/14870",
       "revId": "3dc11758b9fbf00a4ec780b41764669f0118159b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b670d08_2eca7e30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-04-20T06:13:03Z",
+      "side": 1,
+      "message": "Thanks. I have cherry-picked the patch you mentioned.",
+      "parentUuid": "4bc55be0_5b175b55",
+      "revId": "3dc11758b9fbf00a4ec780b41764669f0118159b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
