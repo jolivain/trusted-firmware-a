@@ -9,6 +9,8 @@
 
 #include <context.h>
 
+#define MAX_SVE_VECTOR_LENGTH	2048
+
 void sve_enable(cpu_context_t *context);
 void sve_disable(cpu_context_t *context);
 
