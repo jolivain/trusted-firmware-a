@@ -33,6 +33,24 @@
       "message": "Possible could provide context mgmt lib could provide a helper \"el2_sysregs_context_save_all()\" which just invokes all the functions like below. \n\nIn future, ctx mgmt could be more dynamic and replace el2_sysregs_context_save_all() with conditional invocation of save and restore based on whether certain features have enabled dynamic detection or not.",
       "revId": "e92b2cdbddcf91ea87c691979de79294c9c90690",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13b94c8e_9e25cde2",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-04-20T19:50:15Z",
+      "side": 1,
+      "message": "Hi Soby,\n\nAre you suggesting defining all save and restore functions for all features in context.S regardless of whether the build flags are defined?",
+      "parentUuid": "4615358b_62bb2b7e",
+      "revId": "e92b2cdbddcf91ea87c691979de79294c9c90690",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
