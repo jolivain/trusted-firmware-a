@@ -399,6 +399,10 @@ TF_CFLAGS		+=	$(CPPFLAGS) $(TF_CFLAGS_$(ARCH))		\
 				-ffreestanding -fno-builtin -fno-common		\
 				-Os -std=gnu99
 
+ifeq ($(ENABLE_SVE_FOR_NS),1)
+$(eval $(call add_define,SVE_VECTOR_LEN))
+endif
+
 ifeq (${SANITIZE_UB},on)
 TF_CFLAGS		+=	-fsanitize=undefined -fno-sanitize-recover
 endif
@@ -1085,6 +1089,7 @@ $(eval $(call assert_numerics,\
         RAS_EXTENSION \
         TWED_DELAY \
         ENABLE_FEAT_TWED \
+        SVE_VECTOR_LEN \
 )))
 
 ifdef KEY_SIZE
