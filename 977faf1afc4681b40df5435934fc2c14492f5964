@@ -16,6 +16,24 @@
       "message": "can someone give me an indication of the error please? also how could I catch up these sort of errors a bit sooner in the future? it is quite frustrating the development process otherwise....and expensive. I suppose there must be some bit of docs that I am not aware of?",
       "revId": "977faf1afc4681b40df5435934fc2c14492f5964",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "590d1dc3_80e4c65d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-20T08:41:13Z",
+      "side": 1,
+      "message": "Looks like reported error is not because of your patch, but it is due to CI infrastructure failure. I restarted CI now.\nIt will be better if you start the Allow and Legacy CI+1/+2 after posting your patch in future. Below are the meanings of +1 or +2 means for testings -\n1. Legacy/Allow CI+1 - All L1 tests, this includes all platform builds, and few sanity tests\n2. Legacy/Allow CI+2 - L2 test that includes L1 tests, these includes more robustness testings.\n\nIt is all depend upon what level of testing you want. If the change is trivial and  does not affect generic code then L1 test suffice in most of the cases.",
+      "parentUuid": "72440ca4_92337f50",
+      "revId": "977faf1afc4681b40df5435934fc2c14492f5964",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
