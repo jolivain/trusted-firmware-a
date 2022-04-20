@@ -140,6 +140,30 @@
       },
       "revId": "9976c8aa1e566c2fba9fd94b33508f12bbe38de6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37435fe0_21e37525",
+        "filename": "services/std_svc/std_svc_setup.c",
+        "patchSetId": 22
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-04-20T17:06:33Z",
+      "side": 1,
+      "message": "Either in the SPMD as it is consumed by all of EL3 SPMC, SEL1/2 SPMC.\nOr a new common dispatcher file in services/std_svc/spm/common ?",
+      "parentUuid": "3170d468_9a616523",
+      "range": {
+        "startLine": 151,
+        "startChar": 2,
+        "endLine": 164,
+        "endChar": 20
+      },
+      "revId": "9976c8aa1e566c2fba9fd94b33508f12bbe38de6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
