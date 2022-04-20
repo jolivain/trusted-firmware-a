@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3e42849_d6320161",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-04-20T14:41:12Z",
+      "side": 1,
+      "message": "This can be extrapolated to NS world. If EL2 is used, then EL1 regs don\u0027t need to be initialized.",
+      "revId": "2c0aadd87dcfe1c70313dc82aa24138bd7b421c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8af7d353_80c164fd",
@@ -14,6 +31,23 @@
       "writtenOn": "2022-04-19T16:40:40Z",
       "side": 1,
       "message": "nit: As of the current implementation, EL1 registers are set up unconditionally without considering this specific case i.e. SPMC running at S-EL2. Is this change indicative of the fact that EL1 registers are now managed by SPMC and that\u0027s why this setup of EL1 registers was avoided?  If yes, then it might be better to highlight the patch in which SPMC managed the EL1 registers at S-EL2 in the commit message.",
+      "revId": "2c0aadd87dcfe1c70313dc82aa24138bd7b421c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a031503_5bf016fd",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-04-20T14:41:12Z",
+      "side": 1,
+      "message": "If CTX_INCLUDE_EL2_REGS is defined, all of the EL2 setting should be written to EL2 context. The direct write of reg should be only otherwise.\n\nalso perhaps these can be done setup_ns_context() and this function can just restore EL2 context.",
       "revId": "2c0aadd87dcfe1c70313dc82aa24138bd7b421c6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
