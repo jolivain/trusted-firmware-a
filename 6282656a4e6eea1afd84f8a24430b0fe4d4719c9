@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1521164_71a6f4e4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-20T11:35:25Z",
+      "side": 1,
+      "message": "instead use \u0027qemu\u0027 only as per recent guidelines https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/changelog.yaml#n363",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 19
+      },
+      "revId": "6282656a4e6eea1afd84f8a24430b0fe4d4719c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "47057fd2_6a426df9",
