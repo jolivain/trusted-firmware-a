@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2021, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2022, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -51,6 +51,9 @@ static const struct uuidnames uuidnames[] = {
 	{"bl31.bin",		UUID_EL3_RUNTIME_FIRMWARE_BL31},
 	{"bl32.bin",		UUID_SECURE_PAYLOAD_BL32},
 	{"bl33.bin",		UUID_NON_TRUSTED_FIRMWARE_BL33},
+	{"cca.crt",		UUID_CCA_CONTENT_CERT},
+	{"core-swd.crt",	UUID_CORE_SWD_KEY_CERT},
+	{"oem-k.crt",		UUID_OEM_KEY_CERT},
 	{"tb-fw.crt",		UUID_TRUSTED_BOOT_FW_CERT},
 	{"trstd-k.crt",		UUID_TRUSTED_KEY_CERT},
 	{"scp-fw-k.crt",	UUID_SCP_FW_KEY_CERT},
