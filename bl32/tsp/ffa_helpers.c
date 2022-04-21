@@ -21,6 +21,14 @@ static void ffa_memory_region_init_header(
 	ffa_memory_handle_t handle, uint32_t tag, ffa_id_t *test_receivers,
 	uint32_t receiver_count, ffa_memory_access_permissions_t permissions)
 {
+	struct ffa_memory_access *receivers;
+
+	memory_region->offset_receivers = sizeof(struct ffa_memory_region);
+	memory_region->ffa_memory_access_size =
+		sizeof(struct ffa_memory_access);
+	receivers = (struct ffa_memory_access *)
+		    ((uint8_t *) memory_region +
+		     memory_region->offset_receivers);
 	memory_region->sender = sender;
 	memory_region->attributes = attributes;
 	memory_region->reserved_0 = 0;
@@ -30,12 +38,10 @@ static void ffa_memory_region_init_header(
 	memory_region->reserved_1 = 0;
 	memory_region->receiver_count = receiver_count;
 	for (int i = 0; i < receiver_count; i++) {
-		memory_region->receivers[i].receiver_permissions.receiver =
-			test_receivers[i];
-		memory_region->receivers[i].receiver_permissions.permissions =
-			permissions;
-		memory_region->receivers[i].receiver_permissions.flags = 0;
-		memory_region->receivers[i].reserved_0 = 0;
+		receivers[i].receiver_permissions.receiver = test_receivers[i];
+		receivers[i].receiver_permissions.permissions = permissions;
+		receivers[i].receiver_permissions.flags = 0;
+		receivers[i].reserved_0 = 0;
 	}
 }
 
@@ -58,6 +64,7 @@ uint32_t ffa_memory_retrieve_request_init(
 	ffa_memory_access_permissions_t permissions = 0;
 	ffa_memory_attributes_t attributes = 0;
 
+	struct ffa_memory_access *receivers;
 	/* Set memory region's permissions. */
 	ffa_set_data_access_attr(&permissions, data_access);
 	ffa_set_instruction_access_attr(&permissions, instruction_access);
@@ -71,9 +78,13 @@ uint32_t ffa_memory_retrieve_request_init(
 				      handle, tag, test_receivers,
 				      receiver_count, permissions);
 
+	receivers = (struct ffa_memory_access *)
+		    ((uint8_t *) memory_region +
+		     memory_region->offset_receivers);
+
 	for (int i = 0; i < receiver_count; i++) {
-		memory_region->receivers[i].composite_memory_region_offset = 0;
-		memory_region->receivers[i].reserved_0 = 0;
+		receivers[i].composite_memory_region_offset = 0;
+		receivers[i].reserved_0 = 0;
 	}
 
 	return sizeof(struct ffa_memory_region) +
