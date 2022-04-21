@@ -20,7 +20,7 @@ contains, and must be formed with the following fields:
 
 - load-address [mandatory]
     - value type: <u64>
-    - Physical loading base address of the configuration.
+    - Physical loading base address of the configuration in the secure memory.
 
 - max-size [mandatory]
     - value type: <u32>
@@ -30,3 +30,10 @@ contains, and must be formed with the following fields:
     - value type: <u32>
     - Image ID of the configuration.
 
+- ns-load-address [optional]
+    - value type: <u64>
+    - Physical loading base address of the configuration in the non-secure
+      memory.
+      Only needed by those configuration files which require being loaded
+      in secure memory (at config_addr) as well as in non-secure memory
+      e.g. HW_CONFIG
