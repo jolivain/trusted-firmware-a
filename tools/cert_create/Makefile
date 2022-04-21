@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -35,6 +35,8 @@ ifeq (${COT},tbbr)
   include src/tbbr/tbbr.mk
 else ifeq (${COT},dualroot)
   include src/dualroot/cot.mk
+else ifeq (${COT},cca)
+  include src/cca/cot.mk
 else
   $(error Unknown chain of trust ${COT})
 endif
