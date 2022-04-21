@@ -16,6 +16,13 @@
 #define CORTEX_X1_CPUECTLR_EL1		S3_0_C15_C1_4
 
 /*******************************************************************************
+ * CPU Auxiliary Control register specific definitions.
+ ******************************************************************************/
+#define CORTEX_X1_ACTLR2_EL1		S3_0_C15_C1_1
+#define CORTEX_X1_ACTLR2_EL1_BIT_1	(ULL(1) << 1)
+#define CORTEX_X1_ACTLR2_EL1_BIT_2	(ULL(1) << 2)
+
+/*******************************************************************************
  * CPU Power Control register specific definitions
  ******************************************************************************/
 #define CORTEX_X1_CPUPWRCTLR_EL1	S3_0_C15_C2_7
