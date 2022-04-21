@@ -161,6 +161,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b9bacf9b_04359337",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-21T16:12:06Z",
+      "side": 1,
+      "message": "\u003e Yes, I still think that \"ns_config_addr\" should be a generic property for all nodes. I could be wrong but I think that properties which are specific to a given node do not fit well in the fconf design. There is a defined set of properties for a \u0027dtb-registry\u0027 node, see here: https://trustedfirmware-a.readthedocs.io/en/latest/components/fconf/fconf_properties.html\n\nOkay, let me generalised \"ns_config_addr\" this property. This will be optional (ignored) property for the nodes other than hw_config.\n\n\u003e \n\u003e (BTW we will need to update this document).\n\nThanks for pointing this out! let me update the device tree documentation. I will give more details about this property in the documentation to state that why it is only used for \u0027hw-config\u0027 node. \n\n\u003e \n\u003e Some properties may be mandatory, some others may be optional but I think that no property should ever be ignored, which is effectively the case in this patch when you consider the \"ns_config_addr\" property for nodes other than hw_config.\n\u003e \n\u003e I suggest we pull in the other FCONF maintainers in the discussion so they can provide their opinion on this.\n\nI will post the changes as your suggestion and then will take the feedback from other FCONF maintainers also,",
+      "parentUuid": "583e026d_0eebf893",
+      "range": {
+        "startLine": 135,
+        "startChar": 2,
+        "endLine": 135,
+        "endChar": 34
+      },
+      "revId": "7767b6e9d4289b9313233198b07b69387900bfac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "daef4650_0ef5cda6",
         "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
         "patchSetId": 6
