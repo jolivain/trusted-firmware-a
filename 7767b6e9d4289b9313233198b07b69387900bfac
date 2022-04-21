@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df17d64e_e122b0d4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-21T14:16:10Z",
+      "side": 1,
+      "message": "(minor) I am not sure \"arm\" is the right scope for this patch... Arm platforms might happen to be the only ones that use the fconf framework today (?) but really this is a generic fconf change on its own.",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "7767b6e9d4289b9313233198b07b69387900bfac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cb770e6_b01bcc9b",
+        "filename": "include/lib/fconf/fconf_dyn_cfg_getter.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-21T14:16:10Z",
+      "side": 1,
+      "message": "This type of comment is typically not future-proof. If we ever use this field in another context, it is likely we\u0027ll forget updating this comment...\n\nSuggest rewording it along these lines:\n\n  Load address in non-secure memory.\n  Only needed by those configuration files which require being loaded in secure\n  memory (at config_addr) as well as in non-secure memory - e.g. HW_CONFIG.\"",
+      "range": {
+        "startLine": 21,
+        "startChar": 1,
+        "endLine": 21,
+        "endChar": 49
+      },
+      "revId": "7767b6e9d4289b9313233198b07b69387900bfac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ab344f0_9409f2fd",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-21T14:16:10Z",
+      "side": 1,
+      "message": "Even though the \"ns-load-address\" DTB property is only used by the HW_CONFIG node right now, I don\u0027t think we should enforce this in the code. If I am not reading this code, and I am just looking at the FW_CONFIG config file, I could be tempted to think I can use this property for any node. Instead, this code would not even take it into account! So I would get no error/warning message whatsoever and I would be left with no clue.\n\nI think it\u0027s better to look for the property in all nodes and keep it optional like you\u0027ve done. IOW, let\u0027s just remove the check at line 135 and keep the rest of the code unchanged.\n\nAlso, I think it would be better to query this property before calling set_config_info(), and pass either the value we extracted from the DTB file, or 0 if it was not present, to set_config_info(). This way, the dtb_info-\u003ens_config_addr field would always get initialized in set_config_info(), which sounds like a good property from a robustness point of view to me.",
+      "range": {
+        "startLine": 135,
+        "startChar": 2,
+        "endLine": 135,
+        "endChar": 34
+      },
+      "revId": "7767b6e9d4289b9313233198b07b69387900bfac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "daef4650_0ef5cda6",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-21T14:16:10Z",
+      "side": 1,
+      "message": "(minor) The indentation looks weird here. I think it should be more indented than the previous line.",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 51
+      },
+      "revId": "7767b6e9d4289b9313233198b07b69387900bfac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
