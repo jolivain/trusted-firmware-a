@@ -16,6 +16,23 @@
       "message": "LGTM, thanks!",
       "revId": "f4a55e6b32919240b94cb8307dc8815aebdb25db",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a51d6afa_a2b9ba03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-21T11:48:19Z",
+      "side": 1,
+      "message": "https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l1/834/ reported an error in the commit message due to the absence of a scope. However:\n\n1. In any commit message, the scope is supposed to be optional as per [1]:\n\n  \u003ctype\u003e[optional scope]: \u003cdescription\u003e\n\n2. Looking at the existing scopes defined for documentation changes [2], none of \"changelog\", \"commit-style\", \"contributing\", \"maintainers\" or \"prerequisites\" seem appropriate here, as various documents get updated by this patch.\n\nConsidering this, I think it\u0027s safe to ignore the failure reported by the CI.\n\n[1] https://trustedfirmware-a.readthedocs.io/en/latest/process/commit-style.html\n[2] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/changelog.yaml#n961",
+      "revId": "f4a55e6b32919240b94cb8307dc8815aebdb25db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
