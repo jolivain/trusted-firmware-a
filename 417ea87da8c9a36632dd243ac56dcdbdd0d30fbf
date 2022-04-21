@@ -16,6 +16,24 @@
       "message": "Any way we can check for suspend support from system control firmware?",
       "revId": "417ea87da8c9a36632dd243ac56dcdbdd0d30fbf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abbe323e_f567c282",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2022-04-21T22:04:38Z",
+      "side": 1,
+      "message": "The firmware will support that in the future.\n\nHowever, this feature must be enabled at build time, as not all platforms have the required memory to allocate gic context space.",
+      "parentUuid": "bb6e95b8_00b4c98b",
+      "revId": "417ea87da8c9a36632dd243ac56dcdbdd0d30fbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
