@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4603a7ba_7657cd6c",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-04-21T20:21:43Z",
+      "side": 1,
+      "message": "Is it necessary to store the value of x30 and restore it later? I don\u0027t see either x4 or x30 being modified anywhere in cpu_get_rev_var or errata_a710_2008768_wa. Removing this line and 375 should make no impact as far as I can see.",
+      "revId": "7a4576e91240e27addd98d2786cf74229413356d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
