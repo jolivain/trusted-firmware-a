@@ -24,6 +24,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b75cd976_d2b847d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-21T15:18:51Z",
+      "side": 1,
+      "message": "Madhukar, Lauren: As FCONF maintainers, could you please provide your opinion on the discussion ManishB and I had here? https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/14619/comment/6ab344f0_9409f2fd/",
+      "revId": "7767b6e9d4289b9313233198b07b69387900bfac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2cb770e6_b01bcc9b",
@@ -108,6 +125,30 @@
       "side": 1,
       "message": "I don\u0027t think \u0027ns_config_addr\u0027 kind of generic property for all nodes. This is really been introduced for \u0027hw-config\u0027 node because of its usage lying in both secure and non-secure world.\nInitially thought of having the implementation to look for \u0027ns_config_addr\u0027 property un-conditionally in all nodes, but is that really required when this property meant only for \u0027hw-config\u0027 node and considering other nodes not even opt this property in future?\n\nAlso, making this property generalised \u0027ns_config_addr\u0027 needs un-necessary changes in the commonly used \u0027set_config_info\u0027 function to pass the extra property. \n\nLet me know if you still think \u0027ns_config_addr\u0027 searching should happen in all the nodes then will do the changes as you suggested. Thanks!",
       "parentUuid": "6ab344f0_9409f2fd",
+      "range": {
+        "startLine": 135,
+        "startChar": 2,
+        "endLine": 135,
+        "endChar": 34
+      },
+      "revId": "7767b6e9d4289b9313233198b07b69387900bfac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "583e026d_0eebf893",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-21T15:18:51Z",
+      "side": 1,
+      "message": "Yes, I still think that \"ns_config_addr\" should be a generic property for all nodes. I could be wrong but I think that properties which are specific to a given node do not fit well in the fconf design. There is a defined set of properties for a \u0027dtb-registry\u0027 node, see here: https://trustedfirmware-a.readthedocs.io/en/latest/components/fconf/fconf_properties.html\n\n(BTW we will need to update this document).\n\nSome properties may be mandatory, some others may be optional but I think that no property should ever be ignored, which is effectively the case in this patch when you consider the \"ns_config_addr\" property for nodes other than hw_config.\n\nI suggest we pull in the other FCONF maintainers in the discussion so they can provide their opinion on this.",
+      "parentUuid": "fc8074cc_2e943774",
       "range": {
         "startLine": 135,
         "startChar": 2,
