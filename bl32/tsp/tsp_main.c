@@ -817,6 +817,7 @@ int ffa_test_relay(uint64_t arg0,
 int test_memory_send(uint16_t sender, uint64_t handle, bool share, bool multi_endpoint)
 {
 	struct ffa_memory_region *m;
+	struct ffa_memory_access *receivers;
 	struct ffa_composite_memory_region *composite;
 	int ret, status = 0;
 	unsigned int mem_attrs;
@@ -839,6 +840,8 @@ int test_memory_send(uint16_t sender, uint64_t handle, bool share, bool multi_en
 		return FFA_ERROR_INVALID_PARAMETER;
 	}
 
+	receivers = (struct ffa_memory_access *)
+		    ((uint8_t *) m + m->offset_receivers);
 	while (total_length != recv_length) {
 		tsp_args_t ffa_return;
 		uint32_t frag_length;
@@ -877,10 +880,10 @@ int test_memory_send(uint16_t sender, uint64_t handle, bool share, bool multi_en
 
 	/* This test is only concerned with RW permissions. */
 	if (ffa_get_data_access_attr(
-			m->receivers[0].receiver_permissions.permissions) !=
+			receivers[0].receiver_permissions.permissions) !=
 		FFA_DATA_ACCESS_RW) {
 		ERROR(" %x != %x!\n", ffa_get_data_access_attr(
-			m->receivers[0].receiver_permissions.permissions),
+			receivers[0].receiver_permissions.permissions),
 			FFA_DATA_ACCESS_RW);
 		return FFA_ERROR_INVALID_PARAMETER;
 	}
