@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eccf426a_cf47d39d",
+        "filename": "plat/ti/k3/common/drivers/ti_sci/ti_sci_protocol.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000106
+      },
+      "writtenOn": "2022-04-21T22:03:59Z",
+      "side": 1,
+      "message": "s/TISCI_MSG_ENTER_SLEEP/TI_SCI_MSG_ENTER_SLEEP",
+      "revId": "efc2a91b93e424b3e39fe97c2ec31af2500dd34d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b34c0647_416392ec",
+        "filename": "plat/ti/k3/common/drivers/ti_sci/ti_sci_protocol.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1000106
+      },
+      "writtenOn": "2022-04-21T22:03:59Z",
+      "side": 1,
+      "message": "The other TI-SCI message structures follow the format `ti_sci_msg_{req,resp}_\u003cfunction\u003e`, I\u0027d say lets keep the standard here.",
+      "revId": "efc2a91b93e424b3e39fe97c2ec31af2500dd34d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
