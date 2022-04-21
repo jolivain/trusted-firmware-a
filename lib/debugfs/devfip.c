@@ -1,18 +1,20 @@
 /*
- * Copyright (c) 2019-2021, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2022, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-#include <lib/debugfs.h>
 #include <limits.h>
-#include <plat/arm/common/plat_arm.h>
 #include <stdlib.h>
 #include <string.h>
-#include <tools_share/firmware_image_package.h>
 
 #include "dev.h"
+
+#include <lib/debugfs.h>
+#include <tools_share/firmware_image_package.h>
+
+#include <plat/arm/common/plat_arm.h>
 
 #define NR_FIPS		1
 #define STOC_HEADER	(sizeof(fip_toc_header_t))
@@ -76,6 +78,9 @@ static const struct uuidnames uuidnames[] = {
 	{"fw.cfg",		UUID_FW_CONFIG},
 	{"rot-k.crt",		UUID_ROT_KEY_CERT},
 	{"nt-k.crt",		UUID_NON_TRUSTED_WORLD_KEY_CERT},
+	{"cca.crt",		UUID_CCA_CONTENT_CERT},
+	{"core-swd.crt",	UUID_CORE_SWD_KEY_CERT},
+	{"plat-key.crt",	UUID_PLAT_KEY_CERT},
 	{"sip-sp.crt",		UUID_SIP_SECURE_PARTITION_CONTENT_CERT},
 	{"plat-sp.crt",		UUID_PLAT_SECURE_PARTITION_CONTENT_CERT}
 };
