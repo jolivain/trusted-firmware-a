@@ -51,6 +51,24 @@
       "parentUuid": "4615358b_62bb2b7e",
       "revId": "e92b2cdbddcf91ea87c691979de79294c9c90690",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c7846b3_04a18901",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-04-21T08:34:09Z",
+      "side": 1,
+      "message": "I was thing a C function on the following lines :\n\nel2_sysregs_context_save_all()\n{\n                el2_sysregs_context_save_common(el2_sysregs_ctx);\n#if ENABLE_SPE_FOR_LOWER_ELS \u003d\u003d 1\n\t\tel2_sysregs_context_save_spe(el2_sysregs_ctx);\n#endif\n#if CTX_INCLUDE_MTE_REGS \u003d\u003d 1\n\t\tel2_sysregs_context_save_mte(el2_sysregs_ctx);\n#endif\n#if ENABLE_MPAM_FOR_LOWER_ELS \u003d\u003d1 \n\t\tel2_sysregs_context_save_mpam(el2_sysregs_ctx);\n#endif\n#if ENABLE_FEAT_FGT\n\t\tel2_sysregs_context_save_fgt(el2_sysregs_ctx);\n#endif\n#if ENABLE_FEAT_ECV\n\t\tel2_sysregs_context_save_ecv(el2_sysregs_ctx);\n#endif\n#if ENABLE_FEAT_VHE\n\t\tel2_sysregs_context_save_vhe(el2_sysregs_ctx);\n#endif\n#if RAS_EXTENSION\n\t\tel2_sysregs_context_save_ras(el2_sysregs_ctx);\n#endif\n#if CTX_INCLUDE_NEVE_REGS\n\t\tel2_sysregs_context_save_nv2(el2_sysregs_ctx);\n#endif\n#if ENABLE_TRF_FOR_NS\n\t\tel2_sysregs_context_save_trf(el2_sysregs_ctx);\n#endif\n#if ENABLE_FEAT_CSV2_2\n\t\tel2_sysregs_context_save_csv2(el2_sysregs_ctx);\n#endif\n#if ENABLE_FEAT_HCX\n\t\tel2_sysregs_context_save_hcx(el2_sysregs_ctx);\n#endif\n}",
+      "parentUuid": "13b94c8e_9e25cde2",
+      "revId": "e92b2cdbddcf91ea87c691979de79294c9c90690",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
