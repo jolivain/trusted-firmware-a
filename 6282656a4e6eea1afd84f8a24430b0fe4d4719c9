@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "484f0f86_986e0fe7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-04-21T07:24:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a1521164_71a6f4e4",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 19
+      },
+      "revId": "6282656a4e6eea1afd84f8a24430b0fe4d4719c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "47057fd2_6a426df9",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 6
@@ -153,6 +177,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2048950b_ff3e427a",
+        "filename": "plat/qemu/qemu/qemu_bl1_measured_boot.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-04-21T07:24:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d22b956a_f142ff38",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 37
+      },
+      "revId": "6282656a4e6eea1afd84f8a24430b0fe4d4719c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b94f5558_503a804d",
@@ -176,6 +224,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7231bead_a702d444",
+        "filename": "plat/qemu/qemu/qemu_common_measured_boot.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-04-21T07:24:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b94f5558_503a804d",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 37
+      },
+      "revId": "6282656a4e6eea1afd84f8a24430b0fe4d4719c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57e0753b_f6a12642",
@@ -189,6 +261,30 @@
       "writtenOn": "2022-04-20T11:32:13Z",
       "side": 1,
       "message": "Please remove arm platform header inclusion.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 37
+      },
+      "revId": "6282656a4e6eea1afd84f8a24430b0fe4d4719c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd0bef2d_04742724",
+        "filename": "plat/qemu/qemu/qemu_measured_boot.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000359
+      },
+      "writtenOn": "2022-04-21T07:24:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "57e0753b_f6a12642",
       "range": {
         "startLine": 13,
         "startChar": 0,
