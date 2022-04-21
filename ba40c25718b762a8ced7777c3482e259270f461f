@@ -16,6 +16,29 @@
       "message": "Will rebase and merge this patch standalone, as it\u0027s ready and unrelated to the other patches in the stack.",
       "revId": "ba40c25718b762a8ced7777c3482e259270f461f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4e36697_1f986e44",
+        "filename": "plat/arm/board/juno/include/platform_def.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-04-21T10:05:05Z",
+      "side": 1,
+      "message": "How do platform without MBedTLS run the DRTM code? What is the fall back mechanism for such platforms?",
+      "range": {
+        "startLine": 12,
+        "startChar": 9,
+        "endLine": 12,
+        "endChar": 28
+      },
+      "revId": "ba40c25718b762a8ced7777c3482e259270f461f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
