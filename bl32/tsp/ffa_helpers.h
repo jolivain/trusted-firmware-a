@@ -75,9 +75,9 @@ typedef uint8_t ffa_memory_access_permissions_t;
 
 /**
  * This corresponds to table "Memory region attributes descriptor" of the FF-A
- * 1.0 specification.
+ * 1.1 specification.
  */
-typedef uint8_t ffa_memory_attributes_t;
+typedef uint16_t ffa_memory_attributes_t;
 
 #define FFA_DATA_ACCESS_SHIFT (0x0U)
 #define FFA_DATA_ACCESS_MASK (0x3U)
@@ -262,7 +262,7 @@ struct ffa_memory_access {
 /**
  * Information about a set of pages which are being shared. This corresponds to
  * table "Lend, donate or share memory transaction descriptor" of the FFA
- * 1.0 specification. Note that it is also used for retrieve requests and
+ * 1.1 specification. Note that it is also used for retrieve requests and
  * responses.
  */
 struct ffa_memory_region {
@@ -272,8 +272,6 @@ struct ffa_memory_region {
 	 */
 	ffa_id_t sender;
 	ffa_memory_attributes_t attributes;
-	/** Reserved field, must be 0. */
-	uint8_t reserved_0;
 	/** Flags to control behaviour of the transaction. */
 	ffa_memory_region_flags_t flags;
 	ffa_memory_handle_t handle;
@@ -282,20 +280,23 @@ struct ffa_memory_region {
 	 * memory region.
 	 */
 	uint64_t tag;
-	/** Reserved field, must be 0. */
-	uint32_t reserved_1;
+	/**
+	 * Endpoint memory access descriptor `ffa_memory_access` size
+	 */
+	uint32_t ffa_memory_access_size;
 	/**
 	 * The number of `ffa_memory_access` entries included in this
 	 * transaction.
 	 */
 	uint32_t receiver_count;
 	/**
-	 * An array of `attribute_count` endpoint memory access descriptors.
-	 * Each one specifies a memory region offset, an endpoint and the
-	 * attributes with which this memory region should be mapped in that
-	 * endpoint's page table.
+	 * Offset of array of `attribute_count` endpoint memory access
+	 * descriptors.
 	 */
-	struct ffa_memory_access receivers[];
+	uint32_t offset_receivers;
+	/** Reserved field, must be 0. */
+	uint32_t reserved_0;
+	uint64_t reserved_1;
 };
 
 /**
@@ -332,15 +333,20 @@ static inline struct ffa_composite_memory_region *
 ffa_memory_region_get_composite(struct ffa_memory_region *memory_region,
 				uint32_t receiver_index)
 {
-	uint32_t offset = memory_region->receivers[receiver_index]
-				  .composite_memory_region_offset;
+	struct ffa_memory_access *receivers;
+
+	receivers = (struct ffa_memory_access *)
+		    ((uint8_t *) memory_region +
+		    memory_region->offset_receivers +
+		    (memory_region->ffa_memory_access_size * receiver_index));
+	uint32_t offset = receivers->composite_memory_region_offset;
 
 	if (offset == 0U) {
 		return NULL;
 	}
 
-	return (struct ffa_composite_memory_region *)((uint8_t *)memory_region +
-						      offset);
+	return (struct ffa_composite_memory_region *)
+	       ((uint8_t *) memory_region + offset);
 }
 
 /**
