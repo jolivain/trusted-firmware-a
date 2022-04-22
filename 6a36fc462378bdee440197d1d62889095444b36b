@@ -16,6 +16,24 @@
       "message": "-Wtautological-unsigned-zero-compare does not seem to exist in gcc, only in clang, so I would suggest adding a condition to include this flag only when the compiler is clang.",
       "revId": "6a36fc462378bdee440197d1d62889095444b36b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b62e8cb_4c8acb73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000789
+      },
+      "writtenOn": "2022-04-22T16:33:12Z",
+      "side": 1,
+      "message": "Wtype-limits seems like a better choice then. Both gcc and clang support it, and it catches a few additional common mistakes.",
+      "parentUuid": "b4f5cdb3_40ca9cfb",
+      "revId": "6a36fc462378bdee440197d1d62889095444b36b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
