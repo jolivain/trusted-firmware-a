@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eda8b64f_27248d9c",
+        "filename": "services/std_svc/spm/el3_spmc/logical_sp.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-22T17:14:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54991508_489be74d",
+      "range": {
+        "startLine": 81,
+        "startChar": 37,
+        "endLine": 81,
+        "endChar": 59
+      },
+      "revId": "8c49302735ab4f37ab06e78297c5a75ab99a7223",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2478a0e4_f1a789ac",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-04-22T14:30:22Z",
       "side": 1,
       "message": "From ffa partition info get we have:\nbit 0: supports receipt of direct requests.\nbit 1: can send direct requests.\nbit 2: can send/receive indirect messages\n\nWhat does DIR_MSG_REC stand for?\n\nWould it be fair aligning to Hafnium naming?\n #define FFA_PARTITION_DIRECT_REQ_RECV 0x1\n #define FFA_PARTITION_DIRECT_REQ_SEND 0x2",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 54
+      },
+      "revId": "8c49302735ab4f37ab06e78297c5a75ab99a7223",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b4ceaea_2fe66f05",
+        "filename": "services/std_svc/spm/el3_spmc/spmc.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-22T17:14:59Z",
+      "side": 1,
+      "message": "DIR_MSG_REC should been DIR_MSG_RECV however yes aligning with the Hafnium naming scheme makes sense. Updated.",
+      "parentUuid": "2478a0e4_f1a789ac",
       "range": {
         "startLine": 41,
         "startChar": 0,
