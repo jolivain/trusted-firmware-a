@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4486c4be_d4786ac4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-04-22T11:32:16Z",
+      "side": 1,
+      "message": "Small typo but otherwise looks good",
+      "revId": "e7abb8171b8ab0679a0332775edb8ceebb691628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f344ba30_5b8fd2e6",
+        "filename": "tools/sptool/sp_mk_generator.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-04-22T11:32:16Z",
+      "side": 1,
+      "message": "NIT: whether",
+      "range": {
+        "startLine": 163,
+        "startChar": 59,
+        "endLine": 163,
+        "endChar": 65
+      },
+      "revId": "e7abb8171b8ab0679a0332775edb8ceebb691628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
