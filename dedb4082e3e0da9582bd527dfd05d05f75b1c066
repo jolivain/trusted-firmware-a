@@ -16,6 +16,24 @@
       "message": "Hi Okash, Sorry for not replying on email I was waiting on some information from the Arm Partner team. \n\nThey have requested that these file be named \"cortex_x1_cxc_google\" as I understand the MIDR would have been issued under the “CXC” (Cortex-X Custom) program to Google. Other partners can have their own MIDR for Cortex X1 hence the file naming to make clear.\n\nI\u0027m still waiting confirmation from them that the MIDR you quoted is the one allocated to Google\u0027s license but not heard back on that yet. I\u0027m sure it will be as you are quoting it.\n\nThanks Joanna\n\n\n\n",
       "revId": "dedb4082e3e0da9582bd527dfd05d05f75b1c066",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc0dfe79_34aa332c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-04-22T13:23:04Z",
+      "side": 1,
+      "message": "Hi Joanna,\n\nSure I can update the name to cortex_x1_cxc_google once we have the confirmation. In MIDR, is it the implementer field (0x41, i.e. ARM in this case) that matters here? Other fields (architecture, part number, variant and revision) should be agnostic of licensee, right?\n\nBest regards,\nOkash",
+      "parentUuid": "7227ea97_32a60993",
+      "revId": "dedb4082e3e0da9582bd527dfd05d05f75b1c066",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
