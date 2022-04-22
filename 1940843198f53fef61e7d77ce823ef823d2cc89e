@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9ca2e57_6b9f8391",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-22T17:17:28Z",
+      "side": 1,
+      "message": "Moved these checks to `spmc_ffa_fill_desc` to run after the full descriptor has been received.\n\nThis also allows simplification of the mbox handling / locking in `spmc_ffa_mem_send` as we are no longer required to access the descriptor directly here.",
+      "revId": "1940843198f53fef61e7d77ce823ef823d2cc89e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
