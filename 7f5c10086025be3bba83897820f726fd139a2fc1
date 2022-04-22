@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1af410bf_aa08ea2c",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 29
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-22T17:15:26Z",
+      "side": 1,
+      "message": "Ensure we also clear `rxtx_page_count`.",
+      "revId": "7f5c10086025be3bba83897820f726fd139a2fc1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
