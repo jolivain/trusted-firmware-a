@@ -39,6 +39,30 @@
       },
       "revId": "b1f32089d5dc5917fb59d85e44138c2d79437793",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b233160a_a84eb9ca",
+        "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-04-23T02:44:22Z",
+      "side": 1,
+      "message": "If 4-byte aligned, it will equal to 0U. Hence, I have changed to\n(size % MBOX_WORD_BYTE)!\u003d 0U",
+      "parentUuid": "4d91c032_c155e00d",
+      "range": {
+        "startLine": 16,
+        "startChar": 5,
+        "endLine": 16,
+        "endChar": 26
+      },
+      "revId": "b1f32089d5dc5917fb59d85e44138c2d79437793",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
