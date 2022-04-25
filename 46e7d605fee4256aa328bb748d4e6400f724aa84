@@ -16,6 +16,23 @@
       "message": "Looks reasonable.",
       "revId": "46e7d605fee4256aa328bb748d4e6400f724aa84",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "498d58cb_bc1debc6",
+        "filename": "bl32/sp_min/sp_min.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-04-25T20:08:21Z",
+      "side": 1,
+      "message": "I was wondering why wa_cve_2017_5715_bpiall.S was not added to BL32_SOURCES?",
+      "revId": "46e7d605fee4256aa328bb748d4e6400f724aa84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
