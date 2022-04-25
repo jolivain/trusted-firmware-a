@@ -52,6 +52,24 @@
       "parentUuid": "abbe323e_f567c282",
       "revId": "417ea87da8c9a36632dd243ac56dcdbdd0d30fbf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2448347f_c8c1b6bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2022-04-25T19:39:28Z",
+      "side": 1,
+      "message": "Yes, this must be supplied during build, as not all K3 platforms support system suspend.",
+      "parentUuid": "39a05d94_ba0c80da",
+      "revId": "417ea87da8c9a36632dd243ac56dcdbdd0d30fbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
