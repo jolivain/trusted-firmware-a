@@ -6,7 +6,6 @@
 
 #include <asm_macros.S>
 #include <services/rmmd_svc.h>
-
 #include <platform_def.h>
 #include "trp_private.h"
 
@@ -83,6 +82,7 @@ trp_head:
 	mov	x3, x23
 	bl	trp_setup
 	bl	trp_main
+
 warm_boot:
 	mov_imm	x0, RMM_BOOT_COMPLETE
 	mov	x1, xzr /* RMM_BOOT_SUCCESS */
