@@ -51,6 +51,24 @@
       "parentUuid": "73abf059_c66b741b",
       "revId": "b963bf64ad7057b4dcc6bc40149abb6bc13e1cd9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a3a83f1_5c96fb5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-04-25T21:58:56Z",
+      "side": 1,
+      "message": "Since SGI starts from 0 the logic can be simplified as below\n   assert(sgi_num \u003c MIN_PPI_ID) \nand\n   return (id \u003c MIN_PPI_ID)\n\nI guess, there would many more failures which needs to be taken care of",
+      "parentUuid": "2cde9e2c_9f5e898f",
+      "revId": "b963bf64ad7057b4dcc6bc40149abb6bc13e1cd9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
