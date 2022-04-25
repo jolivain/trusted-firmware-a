@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "277dd24e_d17f68c6",
+        "filename": "services/std_svc/spm/spmc/spmc_shared_mem.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-25T17:07:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ae26a52_8c7a9abd",
+      "range": {
+        "startLine": 403,
+        "startChar": 12,
+        "endLine": 403,
+        "endChar": 27
+      },
+      "revId": "4de66daeeb43c9365c03484bb9948dc4b805f7dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98341675_d9df5494",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-03-10T11:39:49Z",
       "side": 1,
       "message": "move into the scope of the for loop, and use in if clause too?",
+      "range": {
+        "startLine": 419,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 5
+      },
+      "revId": "4de66daeeb43c9365c03484bb9948dc4b805f7dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26d8925c_c6c35ca1",
+        "filename": "services/std_svc/spm/spmc/spmc_shared_mem.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-25T17:07:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98341675_d9df5494",
       "range": {
         "startLine": 419,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a8591d1_982c21bd",
+        "filename": "services/std_svc/spm/spmc/spmc_shared_mem.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-25T17:07:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4060b66b_000a2d18",
+      "range": {
+        "startLine": 631,
+        "startChar": 5,
+        "endLine": 631,
+        "endChar": 20
+      },
+      "revId": "4de66daeeb43c9365c03484bb9948dc4b805f7dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c28046ef_5494fe78",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-03-10T11:39:49Z",
       "side": 1,
       "message": "first for loop using \"size_t\" instead of \"int\".\nShall this be int? or the loops up to here be size_t?",
+      "range": {
+        "startLine": 876,
+        "startChar": 6,
+        "endLine": 876,
+        "endChar": 12
+      },
+      "revId": "4de66daeeb43c9365c03484bb9948dc4b805f7dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12efb4dd_fc02b16c",
+        "filename": "services/std_svc/spm/spmc/spmc_shared_mem.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-25T17:07:11Z",
+      "side": 1,
+      "message": "Thanks for pointing that out. The type of the counts is uint32 therefore to cater for the maximum value the loop index should be using size_t. Updated the above loops.",
+      "parentUuid": "c28046ef_5494fe78",
       "range": {
         "startLine": 876,
         "startChar": 6,
