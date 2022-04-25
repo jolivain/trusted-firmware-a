@@ -171,6 +171,8 @@ int rmmd_setup(void)
 	uint32_t ep_attr;
 	unsigned int linear_id = plat_my_core_pos();
 	rmmd_rmm_context_t *rmm_ctx = &rmm_context[linear_id];
+	rmm_manifest_t *manifest;
+	int rc;
 
 	/* Make sure RME is supported. */
 	assert(get_armv9_2_feat_rme_support() != 0U);
@@ -200,6 +202,15 @@ int rmmd_setup(void)
 	shared_buf_size = plat_rmmd_get_el3_shared_mem(&shared_buf_base);
 
 	assert((shared_buf_size != 0UL) && ((void *)shared_buf_base != NULL));
+
+	/* Load the boot manifest at the beginning of the shared area */
+	manifest = (rmm_manifest_t *)shared_buf_base;
+	rc = plat_rmmd_load_manifest(manifest);
+	if (rc != 0) {
+		ERROR("Error loading RMM Boot Manifest (%i)\n", rc);
+		return rc;
+	}
+	flush_dcache_range((uintptr_t)shared_buf_base, shared_buf_size);
 
 	/*
 	 * Prepare coldboot arguments for RMM:

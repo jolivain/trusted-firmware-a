@@ -81,7 +81,7 @@
 							       GPT_GPI_SECURE)
 
 /*
- * REALM and Shared area share the same PAS, so consider them as as single
+ * REALM and Shared area share the same PAS, so consider them as a single
  * PAS region to configure in GPT.
  */
 #define ARM_PAS_REALM			GPT_MAP_REGION_GRANULE(ARM_REALM_BASE, \
