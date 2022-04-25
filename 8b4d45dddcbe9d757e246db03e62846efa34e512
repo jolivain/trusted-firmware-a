@@ -16,6 +16,24 @@
       "message": "CR+1, but just checking:  Am I presuming correctly that the mailbox memory is not cached?  If it is cacheable, then the D-cache flush might be better after writing to the mailbox...",
       "revId": "8b4d45dddcbe9d757e246db03e62846efa34e512",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de193409_1b53fa38",
+        "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-04-25T02:45:20Z",
+      "side": 1,
+      "message": "Yes, it is cacheable. I fixed it. Thanks.",
+      "parentUuid": "db5abaa3_12222dc7",
+      "revId": "8b4d45dddcbe9d757e246db03e62846efa34e512",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
