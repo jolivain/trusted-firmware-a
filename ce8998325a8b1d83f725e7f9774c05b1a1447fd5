@@ -34,6 +34,24 @@
       "parentUuid": "fdbbda92_c108b696",
       "revId": "ce8998325a8b1d83f725e7f9774c05b1a1447fd5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "430415d9_94544ce3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-04-25T17:18:56Z",
+      "side": 1,
+      "message": "Yes, this is what I always try to do for our patches. Problem here is that this is not Allwinner, but common (libfdt helper) code, so it\u0027s up to Madhukar and Manish Badarkhe (according to maintainers.rst) to give a COR+1 (see my comment above). \nThat\u0027s why I elaborated on the testing and review I did, to give them a helping hand.",
+      "parentUuid": "e35e6c62_84d7929b",
+      "revId": "ce8998325a8b1d83f725e7f9774c05b1a1447fd5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
