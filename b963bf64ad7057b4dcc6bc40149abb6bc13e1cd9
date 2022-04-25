@@ -16,6 +16,23 @@
       "message": "LGTM",
       "revId": "b963bf64ad7057b4dcc6bc40149abb6bc13e1cd9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73abf059_c66b741b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000789
+      },
+      "writtenOn": "2022-04-25T21:43:20Z",
+      "side": 1,
+      "message": "I didn\u0027t look at every single CI failure, but the ones I did click on failed on:\n\n  assert((sgi_num \u003e\u003d MIN_SGI_ID) \u0026\u0026 (sgi_num \u003c MIN_PPI_ID));\n\nand\n\n  return (id \u003e\u003d MIN_SGI_ID) \u0026\u0026 (id \u003c MIN_PPI_ID);\n\nsince `MIN_SGI_ID` is zero and the variable being checked is unsigned.\n\nNot sure what the right solution is here. Changing the assert doesn\u0027t feel quite right (what if MIN_SGI_ID ever becomes nonzero?), and adding a pragma to suppress that warning for those specific use cases seems weird too.\n",
+      "revId": "b963bf64ad7057b4dcc6bc40149abb6bc13e1cd9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
