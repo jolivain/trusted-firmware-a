@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fa22588a_c2de052f",
+        "filename": "include/lib/psa/measured_boot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2022-04-25T15:25:35Z",
+      "side": 1,
+      "message": "Not used here, removed. Thank you.",
+      "parentUuid": "298fcdfe_8db1e182",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 40
+      },
+      "revId": "545f308d1973cd1160222ba72e5113edd81fc208",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7e3810e1_8cd00d0c",
         "filename": "include/lib/psa/measured_boot_defs.h",
         "patchSetId": 1
@@ -37,6 +61,24 @@
       "writtenOn": "2022-04-13T12:54:09Z",
       "side": 1,
       "message": "What\u0027s the reason for isolating these definitions in a separate header file? Why not putting them inside include/lib/psa/measured_boot.h instead?",
+      "revId": "545f308d1973cd1160222ba72e5113edd81fc208",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "525cae69_b82e8357",
+        "filename": "include/lib/psa/measured_boot_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2022-04-25T15:25:35Z",
+      "side": 1,
+      "message": "This files contains internal definitions, measured_boot.h contains public APIs/declarations.\n(Note: in TF-M the same file structure is used.)",
+      "parentUuid": "7e3810e1_8cd00d0c",
       "revId": "545f308d1973cd1160222ba72e5113edd81fc208",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -125,6 +167,30 @@
       "writtenOn": "2022-04-13T12:54:09Z",
       "side": 1,
       "message": "This comment mentions FF-M ; does it still make sense in the context of TF-A? Should it rather be \"FF\" or \"PSA Firmware Framework\"? Or are we actually using the M version of the protocol, due to the fact that AP is communicating with RSS, i.e. a Cortex-M environment?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 3
+      },
+      "revId": "545f308d1973cd1160222ba72e5113edd81fc208",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35ef069e_b719056f",
+        "filename": "include/lib/psa/psa/client.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2022-04-25T15:25:35Z",
+      "side": 1,
+      "message": "These client API elements are specified by the PSA Firmware Framework for M  document and the 1.1 version of the API refers to the Firmware Framework for M 1.1 Extensions document. I think using FF-M in the comment is correct and also because (as you mentioned) the services are provided by an M class core.\n@Tamas Ban, what is your opinion on this?",
+      "parentUuid": "f695717f_4a987cc4",
       "range": {
         "startLine": 21,
         "startChar": 0,
@@ -290,6 +356,30 @@
       "writtenOn": "2022-04-07T12:39:15Z",
       "side": 1,
       "message": "0U instead?",
+      "range": {
+        "startLine": 19,
+        "startChar": 29,
+        "endLine": 19,
+        "endChar": 30
+      },
+      "revId": "545f308d1973cd1160222ba72e5113edd81fc208",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ef5f7bb_e6a1cfce",
+        "filename": "lib/psa/measured_boot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2022-04-25T15:25:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b9b4af14_9b22bf6a",
       "range": {
         "startLine": 19,
         "startChar": 29,
