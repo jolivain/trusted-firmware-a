@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b1c31c6_fff49351",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2022-04-25T19:38:19Z",
+      "side": 1,
+      "message": "Thanks, fixed for next version.",
+      "revId": "efc2a91b93e424b3e39fe97c2ec31af2500dd34d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eccf426a_cf47d39d",
@@ -18,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10573e03_5318e118",
+        "filename": "plat/ti/k3/common/drivers/ti_sci/ti_sci_protocol.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2022-04-25T19:38:19Z",
+      "side": 1,
+      "message": "This is inconsistent in this header, as the PROC messages use TISCI_MSG_PROC_REQUEST (and the TISCI docs here https://software-dl.ti.com/tisci/esd/latest/2_tisci_msgs/pm/devices.html) but I will make the update, as most use the format you\u0027ve described.",
+      "parentUuid": "eccf426a_cf47d39d",
+      "revId": "efc2a91b93e424b3e39fe97c2ec31af2500dd34d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b34c0647_416392ec",
@@ -31,6 +66,24 @@
       "writtenOn": "2022-04-21T22:03:59Z",
       "side": 1,
       "message": "The other TI-SCI message structures follow the format `ti_sci_msg_{req,resp}_\u003cfunction\u003e`, I\u0027d say lets keep the standard here.",
+      "revId": "efc2a91b93e424b3e39fe97c2ec31af2500dd34d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1a1db85_a345195f",
+        "filename": "plat/ti/k3/common/drivers/ti_sci/ti_sci_protocol.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2022-04-25T19:38:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b34c0647_416392ec",
       "revId": "efc2a91b93e424b3e39fe97c2ec31af2500dd34d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
