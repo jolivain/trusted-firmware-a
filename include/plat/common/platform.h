@@ -13,6 +13,7 @@
 #if defined(SPD_spmd)
  #include <services/spm_core_manifest.h>
 #endif
+#include <services/rmm_core_manifest.h>
 #if TRNG_SUPPORT
 #include "plat_trng.h"
 #endif
@@ -310,7 +311,7 @@ int plat_get_cca_attest_token(uintptr_t buf, size_t *len,
 int plat_get_cca_realm_attest_key(uintptr_t buf, size_t *len,
 				   unsigned int type);
 size_t plat_rmmd_get_el3_shared_mem(uintptr_t *shared);
-
+int plat_rmmd_load_manifest(rmm_manifest_t *manifest);
 /*******************************************************************************
  * Optional BL31 functions (may be overridden)
  ******************************************************************************/

@@ -2043,20 +2043,6 @@ The parameters of the function are:
 
 The function returns 0 on success, -EINVAL on failure.
 
-Function : plat_get_el3_rmm_shared_memory()
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-::
-
-   Argument : uintptr_t *
-   Return   : size_t
-
-When ENABLE_RME is enabled, this function returns the size of the shared
-area between EL3 and RMM (or 0 on failure). A pointer to the shared area
-(or a NULL pointer on failure) is stored in the pointer passed as argument.
-
-When ENABLE_RME is disabled, this function is not used.
-
 Function : plat_get_cca_realm_attest_key() [mandatory when ENABLE_RME == 1]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -2082,6 +2068,31 @@ The parameters of the function are:
            belongs.
 
 The function returns 0 on success, -EINVAL on failure.
+
+Function : plat_get_el3_rmm_shared_memory()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+   Argument : uintptr_t *
+   Return   : size_t
+
+When ENABLE_RME is enabled, this function returns the size of the shared
+area between EL3 and RMM (or 0 on failure). A pointer to the shared area
+(or a NULL pointer on failure) is stored in the pointer passed as argument.
+
+Function : plat_rmmd_load_manifest() [when ENABLE_RME == 1]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Arguments : rmm_manifest_t *manifest
+    Return    : int
+
+When ENABLE_RME is enabled, this function populates a boot manifest for the
+RMM image and stores it in the area specified by manifest.
+
+When ENABLE_RME is disabled, this function is not used.
 
 Function : bl31_plat_enable_mmu [optional]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
