@@ -131,6 +131,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e8cb57d2_19fcaf0a",
+        "filename": "drivers/arm/mhu/mhu_v2_x.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2022-04-25T15:25:13Z",
+      "side": 1,
+      "message": "As I read there are no defined time limits for the access ready signal, I\u0027m afraid it cannot be detected in the driver if the transfer hangs.\nIt should be handled at a higher level (e.g. using a watchdog), using the time constraints defined by the system.",
+      "parentUuid": "ec4a13c1_d17f308b",
+      "range": {
+        "startLine": 316,
+        "startChar": 2,
+        "endLine": 317,
+        "endChar": 3
+      },
+      "revId": "2995c4111472aafc0118c6732c09942f21b22abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8bd51a67_e833d8d4",
         "filename": "drivers/arm/mhu/mhu_v2_x.h",
         "patchSetId": 1
@@ -225,6 +249,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "561abf83_09807ba5",
+        "filename": "drivers/arm/mhu/mhu_v2_x.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2022-04-25T15:25:13Z",
+      "side": 1,
+      "message": "I think the only reason for this is simplification. In this case, it is the user\u0027s responsibility passing valid parameters.",
+      "parentUuid": "8db1ee40_b65befe3",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 46
+      },
+      "revId": "2995c4111472aafc0118c6732c09942f21b22abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4097168a_dc278f53",
         "filename": "drivers/arm/mhu/mhu_v2_x.h",
         "patchSetId": 1
@@ -236,6 +284,30 @@
       "writtenOn": "2022-04-07T12:03:11Z",
       "side": 1,
       "message": "This is repeated at line no.76 and 78. Please remove it from line no. 76 \u0026 78.",
+      "range": {
+        "startLine": 72,
+        "startChar": 2,
+        "endLine": 72,
+        "endChar": 46
+      },
+      "revId": "2995c4111472aafc0118c6732c09942f21b22abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ed9303f_321649c9",
+        "filename": "drivers/arm/mhu/mhu_v2_x.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2022-04-25T15:25:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4097168a_dc278f53",
       "range": {
         "startLine": 72,
         "startChar": 2,
