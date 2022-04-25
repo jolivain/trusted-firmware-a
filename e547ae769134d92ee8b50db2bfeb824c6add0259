@@ -22,6 +22,30 @@
       },
       "revId": "e547ae769134d92ee8b50db2bfeb824c6add0259",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e7b4819_31f0189b",
+        "filename": "services/std_svc/spm/spmc/spmc_setup.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-25T17:06:12Z",
+      "side": 1,
+      "message": "IIUC now that the SPMC has been updated to use the v1.1 data structures the importance of the manifest name has now been reduced as most partitions will rely on the `type` field of the boot information descriptor to locate the required information. We still can provide a name as part of the descriptor so have left the existing UUID, if there is a preference for an alternative please let me know.",
+      "parentUuid": "641f3a17_9e6dd81a",
+      "range": {
+        "startLine": 45,
+        "startChar": 24,
+        "endLine": 45,
+        "endChar": 42
+      },
+      "revId": "e547ae769134d92ee8b50db2bfeb824c6add0259",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
