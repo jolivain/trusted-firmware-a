@@ -12,6 +12,7 @@
 
 .global trp_head
 .global trp_smc
+.global trp_boot_abort_with_ec
 
 .section ".head.text", "ax"
 
@@ -111,6 +112,7 @@ trp_head:
 	mov	x3, x23
 	bl	trp_setup
 	bl	trp_main
+
 warm_boot:
 	mov_imm	x0, RMMD_RMI_BOOT_COMPLETE
 	mov	x1, xzr /* RMM_BOOT_SUCCESS */
@@ -147,3 +149,22 @@ func trp_handler
 	restore_args_call_smc
 	b	trp_handler
 endfunc trp_handler
+
+/* -------------------------------------------------------------------------
+ * Immediately return to EL3 firware with FID RMMD_RMI_BOOT_COMPLETE and the
+ * error code passed on the argument.
+ *
+ * This function should be used by the manifest platform data handler to
+ * abort if an error occurs.
+ *
+ * Args:	ec: Error code to use for SMC_RMM_BOOT_COMPLETE SMC call.
+ * Return:	This function never returns once called.
+ * -------------------------------------------------------------------------
+ */
+func trp_boot_abort_with_ec
+	mov	x1, x0
+	mov_imm x0, RMMD_RMI_BOOT_COMPLETE
+	smc	#0
+	/* EL3 Firmware should never return here, so panic if it does */
+	b	.
+endfunc trp_boot_abort_with_ec
