@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a96b3028_7edd6589",
+        "filename": "docs/components/fconf/fconf_properties.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-25T15:06:52Z",
+      "side": 1,
+      "message": "Not necessarily in secure memory... For example, NT_FW_CONFIG gets loaded in non-secure DRAM @0x80000000 and this information is provided through the \u0027load-address\u0027 property. I suggest you leave it as it was. I think the documentation of \"ns-load-address\" below is enough to understand the difference.",
+      "range": {
+        "startLine": 23,
+        "startChar": 57,
+        "endLine": 23,
+        "endChar": 78
+      },
+      "revId": "0a21275142c58e9d131c214ec5dd723f604123b4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
