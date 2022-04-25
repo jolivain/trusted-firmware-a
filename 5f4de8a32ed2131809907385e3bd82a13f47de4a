@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c7010005_72ffe8d3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-25T15:35:01Z",
+      "side": 1,
+      "message": "This is not really related to this current implementation, this can be fixed separately IMO.",
+      "parentUuid": "9586b7b7_c5af37d1",
+      "revId": "5f4de8a32ed2131809907385e3bd82a13f47de4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d37d644_b11cc29a",
         "filename": "/COMMIT_MSG",
         "patchSetId": 8
@@ -60,6 +78,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "13f51dd9_7e35ae49",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-25T15:35:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2e400f96_2caef2e0",
+      "range": {
+        "startLine": 134,
+        "startChar": 17,
+        "endLine": 134,
+        "endChar": 33
+      },
+      "revId": "5f4de8a32ed2131809907385e3bd82a13f47de4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "613e9c38_a945745a",
         "filename": "docs/design/firmware-design.rst",
         "patchSetId": 8
@@ -88,6 +130,30 @@
       "writtenOn": "2022-04-25T15:03:52Z",
       "side": 1,
       "message": "Just wondering... What\u0027s this other \"CONFIG\"? Is that the FW_CONFIG?",
+      "range": {
+        "startLine": 1787,
+        "startChar": 18,
+        "endLine": 1787,
+        "endChar": 24
+      },
+      "revId": "5f4de8a32ed2131809907385e3bd82a13f47de4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca648362_e0ae95ad",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 1787,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-25T15:35:01Z",
+      "side": 1,
+      "message": "What is mean \u0027CONFIG\u0027 section is mentioned here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/14839/8/docs/design/firmware-design.rst#1740",
+      "parentUuid": "7cca6151_44db54c1",
       "range": {
         "startLine": 1787,
         "startChar": 18,
