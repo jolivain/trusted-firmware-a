@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdbbda92_c108b696",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-04-25T16:07:14Z",
+      "side": 1,
+      "message": "This looks good to me, I:\n- stared at the code line by line\n- compared the used nodes and properties against the DT binding in the Linux kernel tree\n- tested the code on a Pine64-LTS to see the changed DT nodes using U-Boot\u0027s fdt command\n- transplanted the generated DTB changes back into the DT source in the kernel and ran the quite sophisticated \"make dtbs_check\" on it: it didn\u0027t report any (new) issues.\n- ripped out the function and ran some manual, makeshift Linux userland unit tests on it. I tested all error paths using an initially too small, but ever increasing DT reservation size. There is some hair splitting corner case when the DTB reservation is too small to include *all* nodes. In this case it will leave the half-finished properties in the DTB, and reports back an error. I believe this is acceptable behaviour, short of complicating the code with rollback attempts. In the Allwinner case the reservation is 1MB, with a typical DT being at most 32KB, so this will never happen.",
+      "revId": "ce8998325a8b1d83f725e7f9774c05b1a1447fd5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
