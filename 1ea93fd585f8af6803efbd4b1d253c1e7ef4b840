@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97c51f09_640d21a9",
+        "filename": "bl32/tsp/ffa_helpers.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-25T17:06:45Z",
+      "side": 1,
+      "message": "Updated the `receivers` pointer name to `test_receivers` to avoid confusions with the `receivers` field in the ffa_memory_region struct.",
+      "revId": "1ea93fd585f8af6803efbd4b1d253c1e7ef4b840",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
