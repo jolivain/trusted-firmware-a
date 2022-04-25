@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bebe1c18_28df5809",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000786
+      },
+      "writtenOn": "2022-04-25T23:22:17Z",
+      "side": 1,
+      "message": "OK.  If we reuse RESET_TO_BL31 we have to explicitly define it on make command to get the legacy behaviour (skipping bl2).",
+      "parentUuid": "76cd249a_8edbbc00",
+      "revId": "8f54f1a7678c3635bf6c03e405f4ca2a419a8029",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "04ebedac_dc383cc8",
         "filename": "plat/socionext/synquacer/include/platform_def.h",
         "patchSetId": 2
@@ -72,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c6b99432_0a41b877",
+        "filename": "plat/socionext/synquacer/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000786
+      },
+      "writtenOn": "2022-04-25T23:22:17Z",
+      "side": 1,
+      "message": "OK.",
+      "parentUuid": "7b422404_c23c8238",
+      "revId": "8f54f1a7678c3635bf6c03e405f4ca2a419a8029",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2cbdbd4e_38475a6e",
         "filename": "plat/socionext/synquacer/sq_bl2_setup.c",
         "patchSetId": 2
@@ -89,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "57d39625_f69189f6",
+        "filename": "plat/socionext/synquacer/sq_bl2_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000786
+      },
+      "writtenOn": "2022-04-25T23:22:17Z",
+      "side": 1,
+      "message": "OK.",
+      "parentUuid": "2cbdbd4e_38475a6e",
+      "revId": "8f54f1a7678c3635bf6c03e405f4ca2a419a8029",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d8850507_a6089025",
         "filename": "plat/socionext/synquacer/sq_bl2_setup.c",
         "patchSetId": 2
@@ -100,6 +154,24 @@
       "writtenOn": "2022-04-05T08:43:40Z",
       "side": 1,
       "message": "Is there any specific requirement to have CONSOLE_FLAG_RUNTIME configured for BL2?",
+      "revId": "8f54f1a7678c3635bf6c03e405f4ca2a419a8029",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2661550f_6b7c670b",
+        "filename": "plat/socionext/synquacer/sq_bl2_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000786
+      },
+      "writtenOn": "2022-04-25T23:22:17Z",
+      "side": 1,
+      "message": "Dropped.",
+      "parentUuid": "d8850507_a6089025",
       "revId": "8f54f1a7678c3635bf6c03e405f4ca2a419a8029",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
