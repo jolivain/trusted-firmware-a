@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28916530_b2e2d1db",
+        "filename": "plat/intel/soc/common/include/socfpga_mailbox.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-04-25T23:18:13Z",
+      "side": 1,
+      "message": "Just cosmetic, but could you horizontally align these with the others here?",
+      "revId": "577f0b97e817813a1288758fa8726e1fdf90c99d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c481e897_768540e9",
+        "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-04-25T23:18:13Z",
+      "side": 1,
+      "message": "I gather that \"WORD_SIZE\" here means \"size in words,\" as opposed to in bytes.  If so, then looks good.",
+      "revId": "577f0b97e817813a1288758fa8726e1fdf90c99d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2dac159_539e710f",
+        "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-04-25T23:18:13Z",
+      "side": 1,
+      "message": "Admittedly, I\u0027m not sure how big FCS_CS_KEY_OBJ_MAX_WORD_SIZE is, but if it\u0027s sufficiently large, it may not be ideal to put it onto the stack?  Would it be better to make this variable static?",
+      "revId": "577f0b97e817813a1288758fa8726e1fdf90c99d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df69c46d_239fc631",
+        "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2022-04-25T23:18:13Z",
+      "side": 1,
+      "message": "If this was actually memory-mapped I/O, then I\u0027d expect it not to be cached (i.e., device memory)?",
+      "revId": "577f0b97e817813a1288758fa8726e1fdf90c99d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
