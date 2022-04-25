@@ -7,6 +7,7 @@
 
 #include <common/debug.h>
 #include <plat/common/platform.h>
+#include <services/rmm_core_manifest.h>
 #include <services/rmmd_svc.h>
 #include <services/trp/platform_trp.h>
 
@@ -16,6 +17,9 @@
 /* Parameters received from the previous image */
 static unsigned int trp_boot_abi_version;
 static uintptr_t trp_shared_region_start;
+
+/* Parameters received from boot manifest */
+uint32_t trp_boot_manifest_version;
 
 /*******************************************************************************
  * Per cpu data structure to populate parameters for an SMC in C code and use
@@ -75,7 +79,7 @@ void trp_setup(uint64_t x0,
 			   sizeof(trp_shared_region_start));
 
 	/* Perform early platform-specific setup */
-	trp_early_platform_setup();
+	trp_early_platform_setup((rmm_manifest_t *)trp_shared_region_start);
 }
 
 /* Main function for TRP */
@@ -85,6 +89,9 @@ void trp_main(void)
 	NOTICE("TRP: %s\n", build_message);
 	NOTICE("TRP: Boot Interface ABI : v.%u.%u\n",
 		TRP_BOOT_ABI_VERS_MAJOR, TRP_BOOT_ABI_VERS_MINOR);
+	NOTICE("TRP: Boot Manifest Version : v.%u.%u\n",
+		RMMD_GET_MANIFEST_VERSION_MAJOR(trp_boot_manifest_version),
+		RMMD_GET_MANIFEST_VERSION_MINOR(trp_boot_manifest_version));
 	INFO("TRP: Memory base : 0x%lx\n", (unsigned long)RMM_BASE);
 	INFO("TRP: Base address for the shared region : 0x%lx\n",
 			(unsigned long)trp_shared_region_start);
