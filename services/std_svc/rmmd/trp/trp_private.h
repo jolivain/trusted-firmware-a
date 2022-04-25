@@ -31,6 +31,8 @@
 
 #include <stdint.h>
 
+#include <plat/arm/common/plat_arm.h>
+
 /* Data structure to hold SMC arguments */
 typedef struct trp_args {
 	uint64_t regs[TRP_ARGS_END >> 3];

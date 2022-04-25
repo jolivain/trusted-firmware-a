@@ -5,12 +5,14 @@
  */
 #include <stdint.h>
 #include <string.h>
+
 #include <common/debug.h>
 #include <lib/spinlock.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
+#include <services/rmmd_svc.h>
+
 #include <plat/common/platform.h>
 #include "rmmd_private.h"
-#include <services/rmmd_svc.h>
 
 static spinlock_t lock;
 

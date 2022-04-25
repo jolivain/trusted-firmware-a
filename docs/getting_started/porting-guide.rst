@@ -1245,6 +1245,31 @@ When the MEASURED_BOOT flag is enabled:
 
 When the MEASURED_BOOT flag is disabled, this function doesn't do anything.
 
+Function : plat_get_el3_rmm_shared_memory()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+   Argument : uintptr_t *
+   Return   : size_t
+
+When ENABLE_RME is enabled, this function returns the size of the shared
+area between EL3 and RMM (or 0 on failure). A pointer to the shared area
+(or a NULL pointer on failure) is stored in the pointer passed as argument.
+
+Function : plat_rmmd_load_manifest() [when ENABLE_RME == 1]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Arguments : rmm_manifest_t *manifest
+    Return    : int
+
+When ENABLE_RME is enabled, this function populates a boot manifest for the
+RMM image and stores it in the area specified by rmm_manifest.
+
+When ENABLE_RME is disabled, this function is not used.
+
 Modifications specific to a Boot Loader stage
 ---------------------------------------------
 
