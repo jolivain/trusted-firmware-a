@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ca93a39_d7299973",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-25T13:39:49Z",
+      "side": 1,
+      "message": "(minor) This sentence needs an update - it is not necessarily BL31 image, it could also be SP_MIN now.\n\nHow about \"Get the entry point info of the next executable image...\"?",
+      "range": {
+        "startLine": 70,
+        "startChar": 4,
+        "endLine": 70,
+        "endChar": 42
+      },
+      "revId": "f530ed6d58fdafefd7ff7f8282d81f49934a8656",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0098b771_0c1ec748",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-25T13:39:49Z",
+      "side": 1,
+      "message": "It makes sense to me to skip copying HW_CONFIG in non-secure memory when booting an EL3 payload. But this got me into thinking... Why don\u0027t we skip the entire function? For example, it seems pointless to me to grab the BL31 entry point information and populate the FW_CONFIG address into it when we\u0027re booting an EL3 payload...\n\nShould we update line 48 to cover the EL3 payload config as well?\n\n #if !BL2_AT_EL3 \u0026\u0026 !EL3_PAYLOAD_BASE",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 24
+      },
+      "revId": "f530ed6d58fdafefd7ff7f8282d81f49934a8656",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cae909f_12b0417a",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-25T13:39:49Z",
+      "side": 1,
+      "message": "This does not look correct to me... I would imagine that hw_config_info-\u003econfig_max_size covers more than the actual size of HW_CONFIG file, in which case I suppose we\u0027ll end up copying some part of Trusted SRAM which NS world does not really need to see... Now I would imagine that we don\u0027t actually use the memory from the end of the HW_CONFIG file up to hw_config_info-\u003econfig_max_size for anything else so there should not be any sensitive data in here... But still, I think we\u0027d better avoid copying this extra memory if we can.\n\nNot sure how to get the actual size of HW_CONFIG, though. Is it accessible through get_bl_mem_params_node(HW_CONFIG_ID)-\u003eimage_info.image_size?",
+      "range": {
+        "startLine": 83,
+        "startChar": 8,
+        "endLine": 83,
+        "endChar": 47
+      },
+      "revId": "f530ed6d58fdafefd7ff7f8282d81f49934a8656",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
