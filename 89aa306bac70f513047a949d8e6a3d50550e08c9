@@ -34,6 +34,23 @@
       "parentUuid": "5ab57a66_0e4fece7",
       "revId": "89aa306bac70f513047a949d8e6a3d50550e08c9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c764d286_8941bff4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-04-26T11:16:16Z",
+      "side": 1,
+      "message": "\u003e Patch Set 3: Verified-1\n\u003e \n\u003e Build Failed \n\u003e \n\u003e https://jenkins.oss.arm.com/job/tf-gerrit-tforg-l1/4842/ : This Jenkins server is not publicly accessible. A core maintainer will let you know if this CI failure is blocking the merge of this patch.\n\n- static checks marks the new files as potentially needing build testing coverage. I added a \"DEBUG\u003d0 SUNXI_AMEND_DTB\u003d1 PLAT\u003dsun50i_a64\" line to tf-a-ci-scripts.git, but waiting for this series to reach the repo before pushing that to the CI repo.\n- The usual unrelated build failures due to whatever:\n18:04:13 CRITICAL:root:Job script returned error code 1\n- The \"make  CROSS_COMPILE\u003daarch64-none-elf- PLAT\u003dsun50i_a64  DEBUG\u003d1 V\u003d1 fiptool all\" build fails:\naarch64-none-elf-ld.bfd: region `RAM\u0027 overflowed by 224 bytes\nThis is somewhat surprising, since it succeeds on my not-really-new GCC 9.4 Ubuntu toolchain.\n\nSo either we specify ENABLE_LTO\u003d1 or we drop the DEBUG builds for A64. I couldn\u0027t find which GCC version the CI is using, so cannot easily verify what would be best.\n",
+      "revId": "89aa306bac70f513047a949d8e6a3d50550e08c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
