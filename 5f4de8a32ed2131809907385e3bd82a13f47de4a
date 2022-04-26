@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "46684ef9_e5e455c1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-26T19:45:36Z",
+      "side": 1,
+      "message": "I saw SGM775 platform is deprecated as per [1], and I don\u0027t think sgm_tb_fw_config.dts is getting used by any other platform. Let me confirm this then I will push a cleanup patch to remove this \u0027sgm_tb_fw_config.dts\u0027 file.\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/docs/plat/deprecated.rst#n17\n\nFVP specific documentation fix is available here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/14956",
+      "parentUuid": "78279797_8a5c3619",
+      "revId": "5f4de8a32ed2131809907385e3bd82a13f47de4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d37d644_b11cc29a",
         "filename": "/COMMIT_MSG",
         "patchSetId": 8
@@ -85,6 +103,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "9d37d644_b11cc29a",
+      "revId": "5f4de8a32ed2131809907385e3bd82a13f47de4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1f63e7f_6c7d5d8e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-26T19:45:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f08b543_ad507c36",
       "revId": "5f4de8a32ed2131809907385e3bd82a13f47de4a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -136,6 +172,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99f311fa_438fc010",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-26T19:45:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13f51dd9_7e35ae49",
+      "range": {
+        "startLine": 134,
+        "startChar": 17,
+        "endLine": 134,
+        "endChar": 33
+      },
+      "revId": "5f4de8a32ed2131809907385e3bd82a13f47de4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "613e9c38_a945745a",
@@ -167,6 +227,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "613e9c38_a945745a",
+      "revId": "5f4de8a32ed2131809907385e3bd82a13f47de4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7134c0f_1921ecb1",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-26T19:45:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f260564_2daee4b5",
       "revId": "5f4de8a32ed2131809907385e3bd82a13f47de4a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -249,6 +327,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "6ae21764_625ca559",
+      "revId": "5f4de8a32ed2131809907385e3bd82a13f47de4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efdb4d6f_8006365d",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 2754,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-26T19:45:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "365f5c64_8730cebe",
       "revId": "5f4de8a32ed2131809907385e3bd82a13f47de4a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
