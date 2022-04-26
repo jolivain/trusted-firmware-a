@@ -51,6 +51,24 @@
       "parentUuid": "2ee523f6_cda9f08b",
       "revId": "f004bbc4821b4afbf84c6187c7b9a78fb1fe1252",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e1d6292_b042f6b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-04-26T10:24:30Z",
+      "side": 1,
+      "message": "Ok, Done a CO review on the maintainer file and submitted that patch.\n\nAs you are the author of this patch and the review process likes to see submitters not reviewing their own changes can Benjamin then as the other code owner do the necessary CO reviews on the various patches in this stack?\n\nOnce that is done its just the CI issues that may need to be resolved run on this top patch that tests the whole stack.",
+      "parentUuid": "823e5d95_a9242166",
+      "revId": "f004bbc4821b4afbf84c6187c7b9a78fb1fe1252",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
