@@ -441,6 +441,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1afad3de_82e090ce",
+        "filename": "services/std_svc/spm/spmc/spmc_pm.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-26T09:58:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "055d5ada_b9eb1c4e",
+      "range": {
+        "startLine": 49,
+        "startChar": 36,
+        "endLine": 49,
+        "endChar": 47
+      },
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0f2438e_171d86b3",
@@ -454,6 +478,30 @@
       "writtenOn": "2022-03-09T11:53:04Z",
       "side": 1,
       "message": "full stop",
+      "range": {
+        "startLine": 52,
+        "startChar": 47,
+        "endLine": 52,
+        "endChar": 49
+      },
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62c18cef_338249ad",
+        "filename": "services/std_svc/spm/spmc/spmc_pm.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-26T09:58:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0f2438e_171d86b3",
       "range": {
         "startLine": 52,
         "startChar": 47,
@@ -487,6 +535,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd5d8fc4_b3306159",
+        "filename": "services/std_svc/spm/spmc/spmc_pm.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-26T09:58:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a85ab3de_23fffb93",
+      "range": {
+        "startLine": 53,
+        "startChar": 75,
+        "endLine": 53,
+        "endChar": 77
+      },
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bee4fb28_cdaba3b7",
@@ -500,6 +572,30 @@
       "writtenOn": "2022-03-09T11:53:04Z",
       "side": 1,
       "message": "I am confused by this.\nThe CPU ON interface is to turn on Secondary cores, right?\nSo I had a look into spmc_sp_common_setup, and it allocates an SP ID to the SP, checks if SP requires use of the boot protocol.\nThese are operations I\u0027d consider to be done not at secondary core bring up, but prior to initializing the SP in the primary core.\nSo, is this call really needed? Am I missing something?",
+      "range": {
+        "startLine": 74,
+        "startChar": 1,
+        "endLine": 74,
+        "endChar": 21
+      },
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eed607f5_d876e881",
+        "filename": "services/std_svc/spm/spmc/spmc_pm.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-26T09:58:20Z",
+      "side": 1,
+      "message": "That is a fair point, the idea here was in theory that this function would perform any generic initialization for any type of partition when bringing a core online, however in practice you\u0027re correct that we don\u0027t actually do any operations that should be required for secondary core bring up. I\u0027ve removed the call for now and if relevant information is required in the future it or some equivalent can be called here.",
+      "parentUuid": "bee4fb28_cdaba3b7",
       "range": {
         "startLine": 74,
         "startChar": 1,
@@ -533,6 +629,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c924df49_fa03721f",
+        "filename": "services/std_svc/spm/spmc/spmc_pm.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-26T09:58:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50166a57_291eb17c",
+      "range": {
+        "startLine": 78,
+        "startChar": 43,
+        "endLine": 78,
+        "endChar": 50
+      },
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5a2013b_a0bbe684",
@@ -546,6 +666,30 @@
       "writtenOn": "2022-03-09T17:24:31Z",
       "side": 1,
       "message": "\u0027... \u003d\u003d 0U\u0027 instead?",
+      "range": {
+        "startLine": 121,
+        "startChar": 5,
+        "endLine": 121,
+        "endChar": 50
+      },
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc7fc567_a80b6af5",
+        "filename": "services/std_svc/spm/spmc/spmc_pm.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-26T09:58:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5a2013b_a0bbe684",
       "range": {
         "startLine": 121,
         "startChar": 5,
@@ -581,6 +725,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d1b7aad3_b9360a2c",
+        "filename": "services/std_svc/spm/spmc/spmc_pm.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-26T09:58:20Z",
+      "side": 1,
+      "message": "Same comment as below, however I have updated the if statement content to match the subsequent failure conditions.",
+      "parentUuid": "d1ce6b40_694e3191",
+      "range": {
+        "startLine": 148,
+        "startChar": 1,
+        "endLine": 150,
+        "endChar": 2
+      },
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "540f560a_7c2874a0",
         "filename": "services/std_svc/spm/spmc/spmc_pm.c",
         "patchSetId": 14
@@ -592,6 +760,30 @@
       "writtenOn": "2022-03-09T17:24:31Z",
       "side": 1,
       "message": "panic?",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 5
+      },
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7de7730_d9136ea0",
+        "filename": "services/std_svc/spm/spmc/spmc_pm.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-26T09:58:20Z",
+      "side": 1,
+      "message": "I\u0027m not sure this is critical enough for a panic. In this case it means that that SP is sending incorrect responses and therefore is in an unexpected state. Ideally we would place the SP into an \"aborted\" state however this is not currently implemented, therefore we went for an assertion.",
+      "parentUuid": "540f560a_7c2874a0",
       "range": {
         "startLine": 164,
         "startChar": 0,
@@ -627,6 +819,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7c33373d_42a854f0",
+        "filename": "services/std_svc/spm/spmc/spmc_pm.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-26T09:58:20Z",
+      "side": 1,
+      "message": "As above.",
+      "parentUuid": "78ebb854_2569af5a",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 5
+      },
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9f29e670_75223fe9",
         "filename": "services/std_svc/spm/spmc/spmc_pm.c",
         "patchSetId": 14
@@ -638,6 +854,30 @@
       "writtenOn": "2022-03-09T17:24:31Z",
       "side": 1,
       "message": "... \u003d\u003d 0U?",
+      "range": {
+        "startLine": 179,
+        "startChar": 5,
+        "endLine": 179,
+        "endChar": 44
+      },
+      "revId": "995a0a3f9ad88e10d4fea581b316c3f044f0f6de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52115623_6af085ef",
+        "filename": "services/std_svc/spm/spmc/spmc_pm.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-26T09:58:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f29e670_75223fe9",
       "range": {
         "startLine": 179,
         "startChar": 5,
