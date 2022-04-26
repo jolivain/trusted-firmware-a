@@ -46,6 +46,30 @@
       },
       "revId": "e547ae769134d92ee8b50db2bfeb824c6add0259",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59921e11_ca895879",
+        "filename": "services/std_svc/spm/spmc/spmc_setup.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2022-04-26T08:37:55Z",
+      "side": 1,
+      "message": "I think the \"value\" for the name filed shall be dynamically set from the manifest. Otherwise either the SPs need to implement SPMC specific behavior, or all SPMCs need to adapt this sometimes \"un-natural\" value. (Or the SPs have to ignore the name value, which would be a limitation.) I.e. when OP-TEE implements v1.1, using TOS_FW_UUID part of the boot info of an S-EL0 SP would look strange. In that scenario TOS_FW_CONFIG is the config of the TOS implementing the SPMC and boot info is the config of the SP.\n\nWe have an agreement between the SPMC and the SP about the details of the boot information. This agreement shall be as SPMC and SP independent as possible to avoid introducing tensions between SP and SPMC implementations. Configuring identification values trough the manifest is a way to add the needed flexibility.\n\nFIY: meanwhile FF-A 1.0 boot protocol support has been up-streamed to OP-TEE SPMC. See: https://github.com/OP-TEE/optee_os/commit/7e8d05e4c35d46bbfacfe9fa7975583e6fc655c6",
+      "parentUuid": "6e7b4819_31f0189b",
+      "range": {
+        "startLine": 45,
+        "startChar": 24,
+        "endLine": 45,
+        "endChar": 42
+      },
+      "revId": "e547ae769134d92ee8b50db2bfeb824c6add0259",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
