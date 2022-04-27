@@ -543,6 +543,19 @@ uintptr_t sip_smc_handler(uint32_t smc_fid,
 					     &len_in_resp);
 		SMC_RET3(handle, status, mbox_status, len_in_resp);
 
+	case INTEL_SIP_SMC_FCS_CRYPTION:
+		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
+
+		if (x1 == FCS_MODE_DECRYPT) {
+			status = intel_fcs_decryption(x2, x3, x4, x5, &send_id);
+		} else if (x1 == FCS_MODE_ENCRYPT) {
+			status = intel_fcs_encryption(x2, x3, x4, x5, &send_id);
+		} else {
+			status = INTEL_SIP_SMC_STATUS_REJECTED;
+		}
+
+		SMC_RET3(handle, status, x4, x5);
+
 	case INTEL_SIP_SMC_GET_ROM_PATCH_SHA384:
 		status = intel_fcs_get_rom_patch_sha384(x1, &retval64,
 							&mbox_error);
