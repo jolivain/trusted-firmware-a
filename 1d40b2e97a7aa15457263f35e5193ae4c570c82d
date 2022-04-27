@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "096745fb_3ec1b514",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-27T13:55:10Z",
+      "side": 1,
+      "message": "Should we check that param_node is not NULL?",
+      "range": {
+        "startLine": 80,
+        "startChar": 1,
+        "endLine": 80,
+        "endChar": 51
+      },
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f10894d_568142c1",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-27T13:55:10Z",
+      "side": 1,
+      "message": "I think these lines deserve a comment to explain that:\n* arg2 is currently holding the *secure* address of HW_CONFIG.\n* but arm_bl31_early_platform_setup() below expects the *non-secure* address of HW_CONFIG (which it will pass to BL33).\n* This why we need to override arg2 here.",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 39
+      },
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "678fa73d_aaf0091a",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-27T13:55:10Z",
+      "side": 1,
+      "message": "Even though this is a temporary workaround, I think it\u0027s worth quickly explaining its rationale - namely that the code below relies on dynamic mapping capability, which is not supported by xlat tables lib v1.",
+      "range": {
+        "startLine": 85,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 20
+      },
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b99e443c_540cf70a",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-27T13:55:10Z",
+      "side": 1,
+      "message": "(minor) I am confused by this \"preferrably\"... AFAIK, mmap_add_dynamic_region() simply cannot cope with unaligned addresses [1] so re-aligning the base address and size of this region is not a \"nice-to-have\", it\u0027s mandatory...\n\nPerhaps we should reword this comment along these lines:\n\n /* Page-align this address and size if necessary. */\n\n[1] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/lib/xlat_tables_v2/xlat_tables_core.c#n689",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 15
+      },
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6df47de8_85e56a89",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-27T13:55:10Z",
+      "side": 1,
+      "message": "Consider adding an assertion to check that hw_config_info is not a null pointer, as we now rely on bl31_early_platform_setup2() to query its value and cache it.",
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55f269e8_3607648f",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 13
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-27T13:55:10Z",
+      "side": 1,
+      "message": "(minor) Add an indentation level for this second ifeq.",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 22
+      },
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c5da972_c7594e81",
+        "filename": "plat/arm/board/fvp/sp_min/fvp_sp_min_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-27T13:55:10Z",
+      "side": 1,
+      "message": "I believe that you cannot print messages at this point, as the console will only be initialized later by arm_sp_min_early_platform_setup().\n\nCan you actually see this message on the console?",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 23,
+        "endChar": 66
+      },
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5812fb34_6521697b",
+        "filename": "plat/arm/board/fvp/sp_min/fvp_sp_min_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-27T13:55:10Z",
+      "side": 1,
+      "message": "Same comment as for the AArch64 version.",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 20
+      },
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}

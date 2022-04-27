@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f48ed85_2fac58c0",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 13
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-27T13:55:10Z",
+      "side": 0,
+      "message": "Are you sure we can remove this? What was its purpose? What was special with Trusty SPD?",
+      "range": {
+        "startLine": 344,
+        "startChar": 0,
+        "endLine": 346,
+        "endChar": 9
+      },
+      "revId": "ac23a630eae84513812b3df0d0673989a7d0a50a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
