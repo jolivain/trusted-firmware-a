@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "439e3503_96ad147d",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-27T14:17:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "096745fb_3ec1b514",
+      "range": {
+        "startLine": 80,
+        "startChar": 1,
+        "endLine": 80,
+        "endChar": 51
+      },
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3f10894d_568142c1",
         "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
         "patchSetId": 13
@@ -37,6 +61,30 @@
       "writtenOn": "2022-04-27T13:55:10Z",
       "side": 1,
       "message": "I think these lines deserve a comment to explain that:\n* arg2 is currently holding the *secure* address of HW_CONFIG.\n* but arm_bl31_early_platform_setup() below expects the *non-secure* address of HW_CONFIG (which it will pass to BL33).\n* This why we need to override arg2 here.",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 39
+      },
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edc85f1d_949deb90",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-27T14:17:24Z",
+      "side": 1,
+      "message": "Ok, let me add verbose comment over here.",
+      "parentUuid": "3f10894d_568142c1",
       "range": {
         "startLine": 40,
         "startChar": 1,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "70a7a1c6_2ec86cf8",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-27T14:17:24Z",
+      "side": 1,
+      "message": "Is it quite understood by the check it seems that XLAT V1 does not support dynamic mapping? \nI have added this comment in order to remove \u0027..\u0026\u0026 !ARM_XLAT_TABLES_LIB_V1\u0027 check when it gets decided to deprecate this ARM_XLAT_TABLES_LIB_V1 macro.\n\nBut let me add rationale behind this check as you mentioned.",
+      "parentUuid": "678fa73d_aaf0091a",
+      "range": {
+        "startLine": 85,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 20
+      },
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b99e443c_540cf70a",
         "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
         "patchSetId": 13
@@ -83,6 +155,30 @@
       "writtenOn": "2022-04-27T13:55:10Z",
       "side": 1,
       "message": "(minor) I am confused by this \"preferrably\"... AFAIK, mmap_add_dynamic_region() simply cannot cope with unaligned addresses [1] so re-aligning the base address and size of this region is not a \"nice-to-have\", it\u0027s mandatory...\n\nPerhaps we should reword this comment along these lines:\n\n /* Page-align this address and size if necessary. */\n\n[1] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/lib/xlat_tables_v2/xlat_tables_core.c#n689",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 15
+      },
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "282c6e06_2ca93437",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-27T14:17:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b99e443c_540cf70a",
       "range": {
         "startLine": 90,
         "startChar": 4,
@@ -112,6 +208,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e4676570_0b3a0c7f",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-27T14:17:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6df47de8_85e56a89",
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "55f269e8_3607648f",
         "filename": "plat/arm/board/fvp/platform.mk",
         "patchSetId": 13
@@ -123,6 +237,30 @@
       "writtenOn": "2022-04-27T13:55:10Z",
       "side": 1,
       "message": "(minor) Add an indentation level for this second ifeq.",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 22
+      },
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c644bd0_c61da753",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 13
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-27T14:17:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "55f269e8_3607648f",
       "range": {
         "startLine": 337,
         "startChar": 0,
@@ -158,6 +296,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bc301156_02544f09",
+        "filename": "plat/arm/board/fvp/sp_min/fvp_sp_min_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-27T14:17:24Z",
+      "side": 1,
+      "message": "My bad! You are right. Let me correct this.",
+      "parentUuid": "0c5da972_c7594e81",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 23,
+        "endChar": 66
+      },
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5812fb34_6521697b",
         "filename": "plat/arm/board/fvp/sp_min/fvp_sp_min_setup.c",
         "patchSetId": 13
@@ -169,6 +331,30 @@
       "writtenOn": "2022-04-27T13:55:10Z",
       "side": 1,
       "message": "Same comment as for the AArch64 version.",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 20
+      },
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75e66463_6599c322",
+        "filename": "plat/arm/board/fvp/sp_min/fvp_sp_min_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-27T14:17:24Z",
+      "side": 1,
+      "message": "Ack, same as I replied for AArch64 version.",
+      "parentUuid": "5812fb34_6521697b",
       "range": {
         "startLine": 68,
         "startChar": 2,
