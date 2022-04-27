@@ -12,7 +12,8 @@ INCLUDES	+=	-Iservices/std_svc/spm/common/include
 
 SPM_SOURCES	:=	$(addprefix services/std_svc/spm/common/,	\
 			${ARCH}/spm_helpers.S				\
-			${ARCH}/spm_shim_exceptions.S)
+			${ARCH}/spm_shim_exceptions.S			\
+			spm_xlat_common.c)
 
 # Let the top-level Makefile know that we intend to include a BL32 image
 NEED_BL32		:=	yes
