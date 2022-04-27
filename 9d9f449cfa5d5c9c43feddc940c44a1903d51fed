@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99a994be_bfcbaf44",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-04-27T10:46:57Z",
+      "side": 1,
+      "message": "You can rephrase this like below\n\"This feature has trust dependency on BL31 for taking the measurements and recording them as per PSA DRTM specification. For platforms which use BL2 to load/authenticate BL31 TRUSTED_BOARD_BOOT can be used and for the platforms which RESET_TO_BL31 platform owners should have mechanism to authenticate BL31\"",
+      "range": {
+        "startLine": 645,
+        "startChar": 23,
+        "endLine": 648,
+        "endChar": 22
+      },
+      "revId": "9d9f449cfa5d5c9c43feddc940c44a1903d51fed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
