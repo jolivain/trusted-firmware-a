@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d9b15f1_52d1fda7",
+        "filename": "plat/socionext/synquacer/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-27T09:58:45Z",
+      "side": 1,
+      "message": "2022?",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "afbbbd112af6e618ddfe47bc6b44fc859e4cda62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f4bd97b_44f35208",
+        "filename": "plat/socionext/synquacer/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-27T09:58:45Z",
+      "side": 1,
+      "message": "align this macro.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 24
+      },
+      "revId": "afbbbd112af6e618ddfe47bc6b44fc859e4cda62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ecec5a4_7a5ac0b7",
+        "filename": "plat/socionext/synquacer/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-27T09:58:45Z",
+      "side": 1,
+      "message": "align these macros",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 42
+      },
+      "revId": "afbbbd112af6e618ddfe47bc6b44fc859e4cda62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82399319_8bee3e65",
+        "filename": "plat/socionext/synquacer/sq_bl2_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-27T09:58:45Z",
+      "side": 1,
+      "message": "use braces around the statement hat form the body of the conditional, as per coding guidelines https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html?highlight\u003dbraces#conditional-statement-bodies",
+      "revId": "afbbbd112af6e618ddfe47bc6b44fc859e4cda62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d3818c8_ebb2b76b",
+        "filename": "plat/socionext/synquacer/sq_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-27T09:58:45Z",
+      "side": 1,
+      "message": "Use braces around \u0027if\u0027\nSimilar comment for all \u0027if\u0027 statements in this file wherever applicable.",
+      "range": {
+        "startLine": 104,
+        "startChar": 1,
+        "endLine": 105,
+        "endChar": 13
+      },
+      "revId": "afbbbd112af6e618ddfe47bc6b44fc859e4cda62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
