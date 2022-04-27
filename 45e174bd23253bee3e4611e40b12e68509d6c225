@@ -286,6 +286,30 @@
       },
       "revId": "45e174bd23253bee3e4611e40b12e68509d6c225",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3118c639_4ac7c576",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-04-27T19:05:53Z",
+      "side": 1,
+      "message": "Sorry for the late response.\n\n\u003e\u003eThat is, our working assumption has been that DRTM may still rely on the SRTM trust chain, \u003e\u003enow that it can be shortened.\n[RK] Agreed. that makes sense to me. i\u0027ve had some internal discussions as well and it seems like completely elimnating SRTM may not be practically feasible, even though, in theory it can entirely be eliminated. I still feel we should get as close to possible as not relying on srtm since that is the ideal goal. Having any UEFI code in the DRTM TCB for example, is going to be difficult to explain from a security standpoint. The problem with relying on the SRTM chain is that DRTM attestation now MUST require SRTM attestation to first pass, otherwise, it would be meaningless. This is fine, but an inconvenience none-the-less. It would be great if Stuart can clarify this exact point in the spec. it is a crucial nuance. It is easy to interpret that as not requiring srtm attestation for DRTM.\n\n\u003e\u003eThe challenge with accepting signed blobs of TCB components would be how to entrust the key to the signer, who is in the Normal World.  Our working model has been that authenticated or measured boot (SRTM) could be leveraged.\n\n[RK] Understood. this is no different from any provisioning problem though and can be solved easily. In your implementatoin, you have delegated the authority to the signing key(in case of authenticated boot) or to the RTR (which means SRTM attestation is a pre-requisite for trustworthy DRTM). Again, practically this is what we may have to do, but would be good if we can discussion in our sync ups if this can be possibly eliminated. the problem with including different security features in each others TCB is we lose defense in depth. If authenticated boot or SRTM is broken, DRTM is useless. In reality, we should be able to allow DRTM to simply eliminate gap code and allow trustworthy attestation. Let me know if this makes sense. We can discuss more offline if that helps. I may have some misconceptions too that would be good if cleared.\n\n\u003e\u003eI have one observation on \"We dont Trust UEFI code\", By UEFI code do you mean all phases of UEFI including DXE ?\n[RK] Yes. No UEFI code. It doesnt make sense (at least to me) to bring in non-secure code into the tcb of secure world code. A compromise in NS world can compromise any guarantees offered by secure world then. UEFI code is large and doesnt have the best reputation (specifically EDK2, whatever the reality may be, but the perception is what matters here) and we should avoid having it in the TCB. If it is included in the TCB for the hashes, havent we include literally all the \"gap\" code in the drtm tcb? Let me know if i\u0027m misunderstanding.",
+      "parentUuid": "615fe505_31d2594f",
+      "range": {
+        "startLine": 539,
+        "startChar": 47,
+        "endLine": 539,
+        "endChar": 65
+      },
+      "revId": "45e174bd23253bee3e4611e40b12e68509d6c225",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
