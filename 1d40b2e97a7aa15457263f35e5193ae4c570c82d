@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f45dd996_83ba06ba",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-27T16:57:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "439e3503_96ad147d",
+      "range": {
+        "startLine": 80,
+        "startChar": 1,
+        "endLine": 80,
+        "endChar": 51
+      },
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f10894d_568142c1",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Ok, let me add verbose comment over here.",
       "parentUuid": "3f10894d_568142c1",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 39
+      },
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "011dfd28_1ef13a01",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-27T16:57:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edc85f1d_949deb90",
       "range": {
         "startLine": 40,
         "startChar": 1,
@@ -142,6 +190,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94570133_8578e070",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-27T16:57:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70a7a1c6_2ec86cf8",
+      "range": {
+        "startLine": 85,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 20
+      },
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b99e443c_540cf70a",
@@ -189,6 +261,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65fa5610_b6562166",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-27T16:57:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "282c6e06_2ca93437",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 15
+      },
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6df47de8_85e56a89",
@@ -220,6 +316,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "6df47de8_85e56a89",
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8330d043_1b0bc383",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-27T16:57:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4676570_0b3a0c7f",
       "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -261,6 +375,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "55f269e8_3607648f",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 22
+      },
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e8c776c_6c7158cd",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 13
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-27T16:57:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c644bd0_c61da753",
       "range": {
         "startLine": 337,
         "startChar": 0,
@@ -318,6 +456,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc2f43eb_0a3dd3b4",
+        "filename": "plat/arm/board/fvp/sp_min/fvp_sp_min_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-27T16:57:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc301156_02544f09",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 23,
+        "endChar": 66
+      },
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5812fb34_6521697b",
@@ -355,6 +517,30 @@
       "side": 1,
       "message": "Ack, same as I replied for AArch64 version.",
       "parentUuid": "5812fb34_6521697b",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 20
+      },
+      "revId": "1d40b2e97a7aa15457263f35e5193ae4c570c82d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f17ce6f_3defafaa",
+        "filename": "plat/arm/board/fvp/sp_min/fvp_sp_min_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-27T16:57:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75e66463_6599c322",
       "range": {
         "startLine": 68,
         "startChar": 2,
