@@ -22,6 +22,30 @@
       },
       "revId": "4bef44ffed9622a062cf52b3fda05f6bbb855b78",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa7887a3_feaf8bad",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 29
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-04-27T16:54:18Z",
+      "side": 1,
+      "message": "Removed this check to align with the Hafnium implementation.",
+      "parentUuid": "dcceca13_089a3616",
+      "range": {
+        "startLine": 538,
+        "startChar": 19,
+        "endLine": 538,
+        "endChar": 42
+      },
+      "revId": "4bef44ffed9622a062cf52b3fda05f6bbb855b78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
