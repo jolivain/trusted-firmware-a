@@ -87,6 +87,23 @@
       "parentUuid": "3e1d6292_b042f6b1",
       "revId": "f004bbc4821b4afbf84c6187c7b9a78fb1fe1252",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9da56428_108af2a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-04-27T08:40:32Z",
+      "side": 1,
+      "message": "Due to an upgrade to MbedTLS 2.28 all patches in this patch stack needs to been rebased before we can get a CI run that does not report MbedTLS issues. ",
+      "revId": "f004bbc4821b4afbf84c6187c7b9a78fb1fe1252",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
