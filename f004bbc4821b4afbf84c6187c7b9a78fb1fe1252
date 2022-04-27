@@ -122,6 +122,23 @@
       "parentUuid": "9da56428_108af2a7",
       "revId": "f004bbc4821b4afbf84c6187c7b9a78fb1fe1252",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf1f45b2_f79ea33f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-04-27T08:49:17Z",
+      "side": 1,
+      "message": "Just a word of advice for the future Large patch stacks like this can become unwieldy and take proportionally longer to review. So in future when large sets of changes need to be submitted it is often more efficient submitting multiple patches in groups of 10 patches or less serially after each group is approved can often get through the review process quicker than a single large patch stack.\n\nI appreciate it can be difficult to logically split patches up but it can be worth the effort.",
+      "revId": "f004bbc4821b4afbf84c6187c7b9a78fb1fe1252",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
