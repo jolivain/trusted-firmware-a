@@ -53,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f97b4a93_b1f27bc2",
+        "filename": "plat/ti/k3/common/drivers/ti_sci/ti_sci_protocol.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000106
+      },
+      "writtenOn": "2022-04-27T00:47:44Z",
+      "side": 1,
+      "message": "Yeah, and just checking even the Linux kernel driver does the same thing and mixes TI_SCI with TISCI. Would be nice to go in and standardize with some common protocol header.\n\nFor now, patches all look good to me.",
+      "parentUuid": "10573e03_5318e118",
+      "revId": "efc2a91b93e424b3e39fe97c2ec31af2500dd34d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b34c0647_416392ec",
