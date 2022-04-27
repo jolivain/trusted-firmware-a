@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcceca13_089a3616",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 29
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-04-27T14:42:16Z",
+      "side": 1,
+      "message": "I think FFA_ERROR_NOT_SUPPORTED should only be returned in the case the requested version is not valid. In this case it is better to still return the version number of the SPMC",
+      "range": {
+        "startLine": 538,
+        "startChar": 19,
+        "endLine": 538,
+        "endChar": 42
+      },
+      "revId": "4bef44ffed9622a062cf52b3fda05f6bbb855b78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
