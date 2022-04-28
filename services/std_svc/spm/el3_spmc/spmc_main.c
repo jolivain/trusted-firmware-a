@@ -1977,7 +1977,7 @@ static int find_and_prepare_sp_context(void)
 	 * context mgmt routine.
 	 */
 	if (sp->runtime_el == S_EL0) {
-		spmc_el0_sp_setup(sp, boot_info_reg);
+		spmc_el0_sp_setup(sp, boot_info_reg, sp_manifest);
 	}
 
 	return 0;
