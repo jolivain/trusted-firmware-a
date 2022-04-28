@@ -3,6 +3,9 @@ Secure Partition Manager
 
 .. contents::
 
+.. toctree::
+  ffa-manifest-binding
+
 Acronyms
 ========
 
@@ -63,24 +66,25 @@ Acronyms
 Foreword
 ========
 
-Two implementations of a Secure Partition Manager co-exist in the TF-A codebase:
+Three implementations of a Secure Partition Manager co-exist in the TF-A
+codebase:
 
-- SPM based on the FF-A specification `[1]`_.
-- SPM based on the MM interface to communicate with an S-EL0 partition `[2]`_.
+#. S-EL2 SPMC based on the FF-A specification `[1]`_, enabling virtualization in
+   the secure world, managing multiple S-EL1 or S-EL0 partitions.
+#. EL3 SPMC based on the FF-A specification, managing a single S-EL1 partition
+   without virtualization in the secure world.
+#. EL3 SPM based on the MM specification, legacy implementation managing a
+   single S-EL0 partition `[2]`_.
 
-Both implementations differ in their architectures and only one can be selected
-at build time.
+Those implementations differ in their respective SW architecture and only one
+can be selected at build time. This document:
 
-This document:
-
-- describes the FF-A implementation where the Secure Partition Manager
-  resides at EL3 and S-EL2 (or EL3 and S-EL1).
+- describes the implementation from bullet 1. when the SPMC resides at S-EL2.
 - is not an architecture specification and it might provide assumptions
   on sections mandated as implementation-defined in the specification.
-- covers the implications to TF-A used as a bootloader, and Hafnium
-  used as a reference code base for an S-EL2 secure firmware on
-  platforms implementing the FEAT_SEL2 (formerly Armv8.4 Secure EL2)
-  architecture extension.
+- covers the implications to TF-A used as a bootloader, and Hafnium used as a
+  reference code base for an S-EL2/SPMC secure firmware on platforms
+  implementing the FEAT_SEL2 architecture extension.
 
 Terminology
 -----------
@@ -98,19 +102,22 @@ Terminology
 Support for legacy platforms
 ----------------------------
 
-In the implementation, the SPM is split into SPMD and SPMC components.
-The SPMD is located at EL3 and mainly relays FF-A messages from
-NWd (Hypervisor or OS kernel) to SPMC located either at S-EL1 or S-EL2.
+The SPM is split into a dispatcher and a core component (respectively SPMD and
+SPMC) residing at different exception levels. To permit the FF-A specification
+adoption and a smooth migration, the SPMD supports a SPMC residing either at
+S-EL1 or S-EL2:
 
-Hence TF-A supports both cases where the SPMC is located either at:
+- The SPMD is located at EL3 and mainly relays the FF-A protocol from NWd
+  (Hypervisor or OS kernel) to the SPMC.
+- The same SPMD component is used for both S-EL1 and S-EL2 SPMC configurations.
+- The SPMC exception level is a build time choice.
 
-- S-EL1 supporting platforms not implementing the FEAT_SEL2 architecture
+TF-A supports both cases:
+
+- S-EL1 SPMC for platforms not supporting the FEAT_SEL2 architecture
   extension. The SPMD relays the FF-A protocol from EL3 to S-EL1.
-- or S-EL2 supporting platforms implementing the FEAT_SEL2 architecture
+- S-EL2 SPMC for platforms implementing the FEAT_SEL2 architecture
   extension. The SPMD relays the FF-A protocol from EL3 to S-EL2.
-
-The same TF-A SPMD component is used to support both configurations.
-The SPMC exception level is a build time choice.
 
 Sample reference stack
 ======================
@@ -137,7 +144,7 @@ SPMC located at S-EL1, S-EL2 or EL3:
   SPD=spmd is chosen.
 - **SPMC_AT_EL3**: this option adjusts the SPMC exception level to being
   at EL3.
-- If neither **SPMD_SPM_AT_SEL2** or **SPMC_AT_EL3** are enabled the SPMC
+- If neither ``SPMD_SPM_AT_SEL2`` or ``SPMC_AT_EL3`` are enabled the SPMC
   exception level is set to S-EL1.
 - **CTX_INCLUDE_EL2_REGS**: this option permits saving (resp.
   restoring) the EL2 system register context before entering (resp.
@@ -148,7 +155,7 @@ SPMC located at S-EL1, S-EL2 or EL3:
   providing paths to SP binary images and manifests in DTS format
   (see `Describing secure partitions`_). It
   is required when ``SPMD_SPM_AT_SEL2`` is enabled hence when multiple
-  secure partitions are to be loaded on behalf of the SPMC.
+  secure partitions are to be loaded by BL2 on behalf of the SPMC.
 
 +---------------+----------------------+------------------+-------------+
 |               | CTX_INCLUDE_EL2_REGS | SPMD_SPM_AT_SEL2 | SPMC_AT_EL3 |
@@ -168,9 +175,8 @@ Notes:
 
 - Only Arm's FVP platform is supported to use with the TF-A reference software
   stack.
-- The reference software stack uses FEAT_PAuth (formerly Armv8.3-PAuth) and
-  FEAT_BTI (formerly Armv8.5-BTI) architecture extensions by default at EL3
-  and S-EL2.
+- When ``SPMD_SPM_AT_SEL2=1``, the reference software stack assumes enablement
+  of FEAT_PAuth, FEAT_BTI and FEAT_MTE architecture extensions.
 - The ``CTX_INCLUDE_EL2_REGS`` option provides the generic support for
   barely saving/restoring EL2 registers from an Arm arch perspective. As such
   it is decoupled from the ``SPD=spmd`` option.
@@ -178,10 +184,10 @@ Notes:
   the Hafnium binary path (built for the secure world) or the path to a TEE
   binary implementing FF-A interfaces.
 - BL33 option can specify the TFTF binary or a normal world loader
-  such as U-Boot or the UEFI framework.
+  such as U-Boot or the UEFI framework payload.
 
-Sample TF-A build command line when SPMC is located at S-EL1
-(e.g. when the FEAT_EL2 architecture extension is not implemented):
+Sample TF-A build command line when the SPMC is located at S-EL1
+(e.g. when the FEAT_SEL2 architecture extension is not implemented):
 
 .. code:: shell
 
@@ -194,9 +200,8 @@ Sample TF-A build command line when SPMC is located at S-EL1
     PLAT=fvp \
     all fip
 
-Sample TF-A build command line for a FEAT_SEL2 enabled system where the SPMC is
-located at S-EL2:
-
+Sample TF-A build command line when FEAT_SEL2 architecture extension is
+implemented and the SPMC is located at S-EL2:
 .. code:: shell
 
     make \
@@ -207,13 +212,14 @@ located at S-EL2:
     ARM_ARCH_MINOR=5 \
     BRANCH_PROTECTION=1 \
     CTX_INCLUDE_PAUTH_REGS=1 \
+    CTX_INCLUDE_MTE_REGS=1 \
     BL32=<path-to-hafnium-binary> \
     BL33=<path-to-bl33-binary> \
     SP_LAYOUT_FILE=sp_layout.json \
     all fip
 
-Same as above with enabling secure boot in addition:
-
+Sample TF-A build command line when FEAT_SEL2 architecture extension is
+implemented, the SPMC is located at S-EL2, and enabling secure boot:
 .. code:: shell
 
     make \
@@ -224,6 +230,7 @@ Same as above with enabling secure boot in addition:
     ARM_ARCH_MINOR=5 \
     BRANCH_PROTECTION=1 \
     CTX_INCLUDE_PAUTH_REGS=1 \
+    CTX_INCLUDE_MTE_REGS=1 \
     BL32=<path-to-hafnium-binary> \
     BL33=<path-to-bl33-binary> \
     SP_LAYOUT_FILE=sp_layout.json \
@@ -235,7 +242,7 @@ Same as above with enabling secure boot in addition:
     GENERATE_COT=1 \
     all fip
 
-Sample TF-A build command line when SPMC is located at EL3:
+Sample TF-A build command line when the SPMC is located at EL3:
 
 .. code:: shell
 
@@ -270,29 +277,33 @@ The FVP command line needs the following options to exercise the S-EL2 SPMC:
 | - cluster0.has_branch_target_exception=1          | Implements FEAT_BTI.               |
 | - cluster1.has_branch_target_exception=1          |                                    |
 +---------------------------------------------------+------------------------------------+
-| - cluster0.restriction_on_speculative_execution=2 | Required by the EL2 context        |
-| - cluster1.restriction_on_speculative_execution=2 | save/restore routine.              |
+| - cluster0.has_pointer_authentication=2           | Implements FEAT_PAuth              |
+| - cluster1.has_pointer_authentication=2           |                                    |
++---------------------------------------------------+------------------------------------+
+| - cluster0.memory_tagging_support_level=2         | Implements FEAT_MTE2               |
+| - cluster1.memory_tagging_support_level=2         |                                    |
+| - bp.dram_metadata.is_enabled=1                   |                                    |
 +---------------------------------------------------+------------------------------------+
 
 Sample FVP command line invocation:
 
 .. code:: shell
 
-    <path-to-fvp-model>/FVP_Base_RevC-2xAEMv8A -C pctl.startup=0.0.0.0
+    <path-to-fvp-model>/FVP_Base_RevC-2xAEMvA -C pctl.startup=0.0.0.0 \
     -C cluster0.NUM_CORES=4 -C cluster1.NUM_CORES=4 -C bp.secure_memory=1 \
     -C bp.secureflashloader.fname=trusted-firmware-a/build/fvp/debug/bl1.bin \
     -C bp.flashloader0.fname=trusted-firmware-a/build/fvp/debug/fip.bin \
     -C bp.pl011_uart0.out_file=fvp-uart0.log -C bp.pl011_uart1.out_file=fvp-uart1.log \
     -C bp.pl011_uart2.out_file=fvp-uart2.log \
-    -C cluster0.has_arm_v8-5=1 -C cluster1.has_arm_v8-5=1 -C pci.pci_smmuv3.mmu.SMMU_AIDR=2 \
-    -C pci.pci_smmuv3.mmu.SMMU_IDR0=0x0046123B -C pci.pci_smmuv3.mmu.SMMU_IDR1=0x00600002 \
-    -C pci.pci_smmuv3.mmu.SMMU_IDR3=0x1714 -C pci.pci_smmuv3.mmu.SMMU_IDR5=0xFFFF0472 \
-    -C pci.pci_smmuv3.mmu.SMMU_S_IDR1=0xA0000002 -C pci.pci_smmuv3.mmu.SMMU_S_IDR2=0 \
-    -C pci.pci_smmuv3.mmu.SMMU_S_IDR3=0 \
-    -C cluster0.has_branch_target_exception=1 \
-    -C cluster1.has_branch_target_exception=1 \
-    -C cluster0.restriction_on_speculative_execution=2 \
-    -C cluster1.restriction_on_speculative_execution=2
+    -C cluster0.has_arm_v8-5=1 -C cluster1.has_arm_v8-5=1 \
+    -C cluster0.has_pointer_authentication=2 -C cluster1.has_pointer_authentication=2 \
+    -C cluster0.has_branch_target_exception=1 -C cluster1.has_branch_target_exception=1 \
+    -C cluster0.memory_tagging_support_level=2 -C cluster1.memory_tagging_support_level=2 \
+    -C bp.dram_metadata.is_enabled=1 \
+    -C pci.pci_smmuv3.mmu.SMMU_AIDR=2 -C pci.pci_smmuv3.mmu.SMMU_IDR0=0x0046123B \
+    -C pci.pci_smmuv3.mmu.SMMU_IDR1=0x00600002 -C pci.pci_smmuv3.mmu.SMMU_IDR3=0x1714 \
+    -C pci.pci_smmuv3.mmu.SMMU_IDR5=0xFFFF0472 -C pci.pci_smmuv3.mmu.SMMU_S_IDR1=0xA0000002 \
+    -C pci.pci_smmuv3.mmu.SMMU_S_IDR2=0 -C pci.pci_smmuv3.mmu.SMMU_S_IDR3=0
 
 Boot process
 ============
@@ -367,6 +378,8 @@ The UUID of the partition can be specified as a field in the description file or
 if it does not exist there the UUID is extracted from the DTS partition
 manifest.
 
+TODO: update SP layout format
+
 .. code:: shell
 
     {
@@ -403,7 +416,7 @@ two different cases:
     attribute {
         spmc_id = <0x8000>;
         maj_ver = <0x1>;
-        min_ver = <0x0>;
+        min_ver = <0x1>;
         exec_state = <0x0>;
         load_address = <0x0 0x6000000>;
         entrypoint = <0x0 0x6000000>;
@@ -422,11 +435,11 @@ two different cases:
   SPMD (currently matches ``BL32_BASE``) to enter the SPMC.
 
 Other nodes in the manifest are consumed by Hafnium in the secure world.
-A sample can be found at [7]:
+A sample can be found at `[7]`_:
 
 - The *hypervisor* node describes SPs. *is_ffa_partition* boolean attribute
   indicates a FF-A compliant SP. The *load_address* field specifies the load
-  address at which TF-A loaded the SP package.
+  address at which BL2 loaded the SP package.
 - *cpus* node provide the platform topology and allows MPIDR to VMPIDR mapping.
   Note the primary core is declared first, then secondary core are declared
   in reverse order.
@@ -460,7 +473,7 @@ below:
 
 Note this boot flow is an implementation sample on Arm's FVP platform.
 Platforms not using TF-A's *Firmware CONFiguration* framework would adjust to a
-different implementation.
+different boot flow.
 
 Secure boot
 ~~~~~~~~~~~
@@ -491,10 +504,10 @@ In the Hafnium reference implementation specific code parts are only relevant to
 the secure world. Such portions are isolated in architecture specific files
 and/or enclosed by a ``SECURE_WORLD`` macro.
 
-Secure partitions CPU scheduling
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Secure partitions scheduling
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The FF-A v1.0 specification `[1]`_ provides two ways to relinquinsh CPU time to
+The FF-A specification `[1]`_ provides two ways to relinquinsh CPU time to
 secure partitions. For this a VM (Hypervisor or OS kernel), or SP invokes one of:
 
 - the FFA_MSG_SEND_DIRECT_REQ interface.
@@ -504,7 +517,7 @@ Platform topology
 ~~~~~~~~~~~~~~~~~
 
 The *execution-ctx-count* SP manifest field can take the value of one or the
-total number of PEs. The FF-A v1.0 specification `[1]`_  recommends the
+total number of PEs. The FF-A specification `[1]`_  recommends the
 following SP types:
 
 - Pinned MP SPs: an execution context matches a physical PE. MP SPs must
@@ -1128,6 +1141,13 @@ When using the SPMD as a Secure Payload Dispatcher:
   ensures a minimal support for CPU hotplug e.g. when initiated by the NWd linux
   userspace.
 
+Arm architecture extensions for security hardening
+==================================================
+
+- FEAT_PAuth
+- FEAT_BTI
+- FEAT_MTE
+
 SMMUv3 support in Hafnium
 =========================
 
@@ -1237,7 +1257,7 @@ streams.
 -  No support for independent peripheral devices.
 
 S-EL0 Partition support
-=========================
+=======================
 The SPMC (Hafnium) has limited capability to run S-EL0 FF-A partitions using
 FEAT_VHE (mandatory with ARMv8.1 in non-secure state, and in secure world
 with ARMv8.4 and FEAT_SEL2).
