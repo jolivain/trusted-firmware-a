@@ -72,6 +72,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e47ecb14_6b22e769",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-28T14:12:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "46684ef9_e5e455c1",
+      "revId": "5f4de8a32ed2131809907385e3bd82a13f47de4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d37d644_b11cc29a",
@@ -286,6 +304,30 @@
       "side": 1,
       "message": "What is mean \u0027CONFIG\u0027 section is mentioned here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/14839/8/docs/design/firmware-design.rst#1740",
       "parentUuid": "7cca6151_44db54c1",
+      "range": {
+        "startLine": 1787,
+        "startChar": 18,
+        "endLine": 1787,
+        "endChar": 24
+      },
+      "revId": "5f4de8a32ed2131809907385e3bd82a13f47de4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2521e46_8d91e87c",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 1787,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-28T14:12:02Z",
+      "side": 1,
+      "message": "Thanks, and sorry, I should have looked for it by myself...",
+      "parentUuid": "ca648362_e0ae95ad",
       "range": {
         "startLine": 1787,
         "startChar": 18,
