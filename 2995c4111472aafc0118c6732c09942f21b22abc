@@ -155,6 +155,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c2a43176_dd3d1b85",
+        "filename": "drivers/arm/mhu/mhu_v2_x.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-28T10:35:48Z",
+      "side": 1,
+      "message": "Okay, watchdog may be the last resort. I still think it can be possible to have some implementation defined maximum timeout for this purpose to come out of this loop (this will help to know that system hangs in this particular loop by having the error log, returning error as a timeout)",
+      "parentUuid": "e8cb57d2_19fcaf0a",
+      "range": {
+        "startLine": 316,
+        "startChar": 2,
+        "endLine": 317,
+        "endChar": 3
+      },
+      "revId": "2995c4111472aafc0118c6732c09942f21b22abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8bd51a67_e833d8d4",
         "filename": "drivers/arm/mhu/mhu_v2_x.h",
         "patchSetId": 1
@@ -261,6 +285,30 @@
       "side": 1,
       "message": "I think the only reason for this is simplification. In this case, it is the user\u0027s responsibility passing valid parameters.",
       "parentUuid": "8db1ee40_b65befe3",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 46
+      },
+      "revId": "2995c4111472aafc0118c6732c09942f21b22abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b89eac87_b2fc91ef",
+        "filename": "drivers/arm/mhu/mhu_v2_x.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-04-28T10:35:48Z",
+      "side": 1,
+      "message": "Okay, thanks! Though it makes sense, but I think the function should not trust on the parameters passed by the caller, and hence it is better to do sanity checking of parameters inside the function.",
+      "parentUuid": "561abf83_09807ba5",
       "range": {
         "startLine": 66,
         "startChar": 0,
