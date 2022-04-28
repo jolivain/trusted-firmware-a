@@ -7,6 +7,7 @@
 #ifndef PLATFORM_DEF_H
 #define PLATFORM_DEF_H
 
+#include <sgi_sdei.h>
 #include <lib/utils_def.h>
 #include <sgi_sdei.h>
 #include <sgi_soc_platform_def_v2.h>
