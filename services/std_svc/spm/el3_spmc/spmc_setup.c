@@ -37,6 +37,12 @@ static uint8_t ffa_boot_info_mem[PAGE_SIZE] __aligned(PAGE_SIZE);
  * physical CPU the SP runs on.
  */
 #define SEL0_SP_EC_INDEX 0
+#define SP_MEM_READ 0x1
+#define SP_MEM_WRITE 0x2
+#define SP_MEM_EXECUTE 0x4
+#define SP_MEM_SECURE 0x8
+#define SP_MEM_READ_ONLY SP_MEM_READ
+#define SP_MEM_READ_WRITE (SP_MEM_READ | SP_MEM_WRITE)
 
 #if SPMC_AT_EL3_SEL0_SP
 /*
@@ -265,10 +271,103 @@ void spmc_el0_sp_spsr_setup(entry_point_info_t *ep_info)
 	ep_info->spsr = SPSR_64(MODE_EL0, MODE_SP_EL0, DISABLE_ALL_EXCEPTIONS);
 }
 
+static void read_optional_string(void *manifest, int32_t offset,
+				 char *property, char *out, size_t len)
+{
+	const fdt32_t *prop;
+	int lenp;
+
+	prop = fdt_getprop(manifest, offset, property, &lenp);
+	if (prop == NULL) {
+		out[0] = '\0';
+	} else {
+		memcpy(out, prop, MIN(lenp, (int)len));
+	}
+}
+
+/*******************************************************************************
+ * This function will parse the Secure Partition Manifest for fetching secure
+ * partition specific memory region details. It will find base address, size,
+ * memory attributes for each memory region and then add the respective region
+ * into secure parition's translation context.
+ ******************************************************************************/
+static void populate_sp_mem_regions(struct secure_partition_desc *sp,
+				    void *sp_manifest,
+				    int node)
+{
+	uintptr_t base_address;
+	uint32_t mem_attr, mem_region, size;
+	struct mmap_region sp_mem_regions;
+	int32_t offset, ret;
+	char description[10];
+	char *property;
+
+	if (fdt_node_check_compatible(sp_manifest, node,
+		"arm,ffa-manifest-memory-regions") != 0) {
+		WARN("Incompatible memory region node in manifest\n");
+		return;
+	}
+
+	INFO("Mapping SP's memory regions");
+	for (offset = fdt_first_subnode(sp_manifest, node), mem_region = 0;
+	     offset >= 0;
+	     offset = fdt_next_subnode(sp_manifest, offset), mem_region++) {
+		read_optional_string(sp_manifest, offset, "description",
+				description, sizeof(description));
+		INFO("Mapping: region: %d, %s\n", mem_region, description);
+		property = "base-address";
+		ret = fdt_read_uint64(sp_manifest, offset, property,
+					&base_address);
+		if (ret < 0) {
+			WARN("Missing:%s for %s.\n", property, description);
+			continue;
+		}
+
+		property = "pages-count";
+		ret = fdt_read_uint32(sp_manifest, offset, property, &size);
+		if (ret < 0) {
+			WARN("Missing: %s for %s.\n", property, description);
+			continue;
+		}
+		size *= PAGE_SIZE;
+
+		property = "attributes";
+		ret = fdt_read_uint32(sp_manifest, offset, property, &mem_attr);
+		if (ret < 0) {
+			WARN("Missing: %s for %s.\n", property, description);
+			continue;
+		}
+
+		sp_mem_regions.attr = MT_USER;
+		if ((mem_attr & SP_MEM_EXECUTE) == SP_MEM_EXECUTE) {
+			sp_mem_regions.attr |= MT_CODE;
+		} else if ((mem_attr & SP_MEM_READ_ONLY) == SP_MEM_READ_ONLY) {
+			sp_mem_regions.attr |= MT_RO_DATA;
+		} else if ((mem_attr & SP_MEM_READ_WRITE) ==
+				SP_MEM_READ_WRITE) {
+			sp_mem_regions.attr |= MT_RW_DATA;
+		}
+
+		if ((mem_attr & SP_MEM_SECURE) == SP_MEM_SECURE) {
+			sp_mem_regions.attr |= MT_SECURE;
+		} else {
+			sp_mem_regions.attr |= MT_NS;
+		}
+
+		sp_mem_regions.base_pa = base_address;
+		sp_mem_regions.base_va = base_address;
+		sp_mem_regions.size = size;
+		sp_mem_regions.granularity = XLAT_BLOCK_SIZE(3);
+		mmap_add_region_ctx(sp->xlat_ctx_handle, &sp_mem_regions);
+	}
+}
+
 /* Setup context of a EL0 Secure Partition */
 void spmc_el0_sp_setup(struct secure_partition_desc *sp,
-		       int32_t boot_info_reg)
+		       int32_t boot_info_reg,
+		       void *sp_manifest)
 {
+	int node, offset = 0;
 	cpu_context_t *ctx;
 
 	ctx = &sp->ec[SEL0_SP_EC_INDEX].cpu_ctx;
@@ -295,6 +394,42 @@ void spmc_el0_sp_setup(struct secure_partition_desc *sp,
 			MT_RO_DATA | MT_SECURE | MT_USER);
 		mmap_add_region_ctx(sp->xlat_ctx_handle, &ffa_boot_info_region);
 	}
+
+	/*
+	 * Parse the manifest for any memory regions that the SP wants to be
+	 * mapped in its translation regime.
+	 */
+	node = fdt_subnode_offset_namelen(sp_manifest, offset,
+					  "memory-regions",
+					  sizeof("memory-regions") - 1);
+	if (node < 0)
+		WARN("Not found memory-region configuration for SP.\n");
+	else {
+		populate_sp_mem_regions(sp, sp_manifest, node);
+	}
+
+	init_xlat_tables_ctx(sp->xlat_ctx_handle);
+
+	/*
+	 * MMU-related registers
+	 * ---------------------
+	 */
+	xlat_ctx_t *xlat_ctx = sp->xlat_ctx_handle;
+
+	uint64_t mmu_cfg_params[MMU_CFG_PARAM_MAX];
+
+	setup_mmu_cfg((uint64_t *)&mmu_cfg_params, 0, xlat_ctx->base_table,
+		      xlat_ctx->pa_max_address, xlat_ctx->va_max_address,
+		      EL1_EL0_REGIME);
+
+	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_MAIR_EL1,
+		      mmu_cfg_params[MMU_CFG_MAIR]);
+
+	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_TCR_EL1,
+		      mmu_cfg_params[MMU_CFG_TCR]);
+
+	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_TTBR0_EL1,
+		      mmu_cfg_params[MMU_CFG_TTBR0]);
 
 	/* Setup SCTLR_EL1 */
 	u_register_t sctlr_el1 = read_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_SCTLR_EL1);
