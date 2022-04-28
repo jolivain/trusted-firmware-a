@@ -66,7 +66,8 @@ Foreword
 Two implementations of a Secure Partition Manager co-exist in the TF-A codebase:
 
 - SPM based on the FF-A specification `[1]`_.
-- SPM based on the MM interface to communicate with an S-EL0 partition `[2]`_.
+- SPM (FF-A) at EL3: SPM residing at EL3 based on the FF-A interface to communicate with an S-EL1 partition.
+- SPM-MM: SPM residing at EL3 based on the MM interface to communicate with an S-EL0 partition `[2]`_.
 
 Both implementations differ in their architectures and only one can be selected
 at build time.
@@ -207,6 +208,7 @@ located at S-EL2:
     ARM_ARCH_MINOR=5 \
     BRANCH_PROTECTION=1 \
     CTX_INCLUDE_PAUTH_REGS=1 \
+    CTX_INCLUDE_MTE_REGS=1 \
     BL32=<path-to-hafnium-binary> \
     BL33=<path-to-bl33-binary> \
     SP_LAYOUT_FILE=sp_layout.json \
@@ -224,6 +226,7 @@ Same as above with enabling secure boot in addition:
     ARM_ARCH_MINOR=5 \
     BRANCH_PROTECTION=1 \
     CTX_INCLUDE_PAUTH_REGS=1 \
+    CTX_INCLUDE_MTE_REGS=1 \
     BL32=<path-to-hafnium-binary> \
     BL33=<path-to-bl33-binary> \
     SP_LAYOUT_FILE=sp_layout.json \
@@ -270,29 +273,33 @@ The FVP command line needs the following options to exercise the S-EL2 SPMC:
 | - cluster0.has_branch_target_exception=1          | Implements FEAT_BTI.               |
 | - cluster1.has_branch_target_exception=1          |                                    |
 +---------------------------------------------------+------------------------------------+
-| - cluster0.restriction_on_speculative_execution=2 | Required by the EL2 context        |
-| - cluster1.restriction_on_speculative_execution=2 | save/restore routine.              |
+| - cluster0.has_pointer_authentication=2           | Implements FEAT_PAuth              |
+| - cluster1.has_pointer_authentication=2           |                                    |
++---------------------------------------------------+------------------------------------+
+| - cluster0.memory_tagging_support_level=2         | Implements FEAT_MTE2               |
+| - cluster1.memory_tagging_support_level=2         |                                    |
+| - bp.dram_metadata.is_enabled=1                   |                                    |
 +---------------------------------------------------+------------------------------------+
 
 Sample FVP command line invocation:
 
 .. code:: shell
 
-    <path-to-fvp-model>/FVP_Base_RevC-2xAEMv8A -C pctl.startup=0.0.0.0
+    <path-to-fvp-model>/FVP_Base_RevC-2xAEMvA -C pctl.startup=0.0.0.0 \
     -C cluster0.NUM_CORES=4 -C cluster1.NUM_CORES=4 -C bp.secure_memory=1 \
     -C bp.secureflashloader.fname=trusted-firmware-a/build/fvp/debug/bl1.bin \
     -C bp.flashloader0.fname=trusted-firmware-a/build/fvp/debug/fip.bin \
     -C bp.pl011_uart0.out_file=fvp-uart0.log -C bp.pl011_uart1.out_file=fvp-uart1.log \
     -C bp.pl011_uart2.out_file=fvp-uart2.log \
-    -C cluster0.has_arm_v8-5=1 -C cluster1.has_arm_v8-5=1 -C pci.pci_smmuv3.mmu.SMMU_AIDR=2 \
-    -C pci.pci_smmuv3.mmu.SMMU_IDR0=0x0046123B -C pci.pci_smmuv3.mmu.SMMU_IDR1=0x00600002 \
-    -C pci.pci_smmuv3.mmu.SMMU_IDR3=0x1714 -C pci.pci_smmuv3.mmu.SMMU_IDR5=0xFFFF0472 \
-    -C pci.pci_smmuv3.mmu.SMMU_S_IDR1=0xA0000002 -C pci.pci_smmuv3.mmu.SMMU_S_IDR2=0 \
-    -C pci.pci_smmuv3.mmu.SMMU_S_IDR3=0 \
-    -C cluster0.has_branch_target_exception=1 \
-    -C cluster1.has_branch_target_exception=1 \
-    -C cluster0.restriction_on_speculative_execution=2 \
-    -C cluster1.restriction_on_speculative_execution=2
+    -C cluster0.has_arm_v8-5=1 -C cluster1.has_arm_v8-5=1 \
+    -C cluster0.has_pointer_authentication=2 -C cluster1.has_pointer_authentication=2 \
+    -C cluster0.has_branch_target_exception=1 -C cluster1.has_branch_target_exception=1 \
+    -C cluster0.memory_tagging_support_level=2 -C cluster1.memory_tagging_support_level=2 \
+    -C bp.dram_metadata.is_enabled=1 \
+    -C pci.pci_smmuv3.mmu.SMMU_AIDR=2 -C pci.pci_smmuv3.mmu.SMMU_IDR0=0x0046123B \
+    -C pci.pci_smmuv3.mmu.SMMU_IDR1=0x00600002 -C pci.pci_smmuv3.mmu.SMMU_IDR3=0x1714 \
+    -C pci.pci_smmuv3.mmu.SMMU_IDR5=0xFFFF0472 -C pci.pci_smmuv3.mmu.SMMU_S_IDR1=0xA0000002 \
+    -C pci.pci_smmuv3.mmu.SMMU_S_IDR2=0 -C pci.pci_smmuv3.mmu.SMMU_S_IDR3=0
 
 Boot process
 ============
@@ -1127,6 +1134,13 @@ When using the SPMD as a Secure Payload Dispatcher:
   In the current implementation no SP is resumed as a consequence. This behavior
   ensures a minimal support for CPU hotplug e.g. when initiated by the NWd linux
   userspace.
+
+Arm architecture extensions for security hardening
+==================================================
+
+- FEAT_PAuth
+- FEAT_BTI
+- FEAT_MTE
 
 SMMUv3 support in Hafnium
 =========================
