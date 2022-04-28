@@ -315,6 +315,11 @@ static uint64_t direct_req_smc_handler(uint32_t smc_fid,
 					     FFA_ERROR_INVALID_PARAMETER);
 	}
 
+	/* Protect the runtime state of a UP S-EL0 SP with a lock. */
+	if (sp->runtime_el == S_EL0) {
+		spin_lock(&sp->rt_state_lock);
+	}
+
 	/*
 	 * Check that the target execution context is in a waiting state before
 	 * forwarding the direct request to it.
@@ -323,6 +328,11 @@ static uint64_t direct_req_smc_handler(uint32_t smc_fid,
 	if (sp->ec[idx].rt_state != RT_STATE_WAITING) {
 		VERBOSE("SP context on core%u is not waiting (%u).\n",
 			idx, sp->ec[idx].rt_model);
+
+		if (sp->runtime_el == S_EL0) {
+			spin_unlock(&sp->rt_state_lock);
+		}
+
 		return spmc_ffa_error_return(handle, FFA_ERROR_BUSY);
 	}
 
@@ -332,6 +342,11 @@ static uint64_t direct_req_smc_handler(uint32_t smc_fid,
 	 */
 	sp->ec[idx].rt_state = RT_STATE_RUNNING;
 	sp->ec[idx].rt_model = RT_MODEL_DIR_REQ;
+
+	if (sp->runtime_el == S_EL0) {
+		spin_unlock(&sp->rt_state_lock);
+	}
+
 	return spmc_smc_return(smc_fid, secure_origin, x1, x2, x3, x4,
 			       handle, cookie, flags, dst_id);
 }
@@ -470,8 +485,18 @@ static uint64_t msg_wait_handler(uint32_t smc_fid,
 		panic();
 	}
 
+	/* Protect the runtime state of a S-EL0 SP with a lock. */
+	if (sp->runtime_el == S_EL0) {
+		spin_lock(&sp->rt_state_lock);
+	}
+
 	/* Update the state of the SP execution context. */
 	sp->ec[idx].rt_state = RT_STATE_WAITING;
+
+	/* Protect the runtime state of a S-EL0 SP with a lock. */
+	if (sp->runtime_el == S_EL0) {
+		spin_unlock(&sp->rt_state_lock);
+	}
 
 	/* Resume normal world if a secure interrupt was handled. */
 	if (sp->ec[idx].rt_model == RT_MODEL_INTR) {
@@ -1258,14 +1283,21 @@ static uint64_t ffa_run_handler(uint32_t smc_fid,
 	}
 
 	idx = get_ec_index(sp);
+
 	if (idx != vcpu_id) {
 		ERROR("Cannot run vcpu %d != %d.\n", idx, vcpu_id);
 		return spmc_ffa_error_return(handle,
 					     FFA_ERROR_INVALID_PARAMETER);
 	}
+	if (sp->runtime_el == S_EL0) {
+		spin_lock(&sp->rt_state_lock);
+	}
 	rt_state = &((sp->ec[idx]).rt_state);
 	rt_model = &((sp->ec[idx]).rt_model);
 	if (*rt_state == RT_STATE_RUNNING) {
+		if (sp->runtime_el == S_EL0) {
+			spin_unlock(&sp->rt_state_lock);
+		}
 		ERROR("Partition (0x%x) is already running.\n", target_id);
 		return spmc_ffa_error_return(handle, FFA_ERROR_BUSY);
 	}
@@ -1291,6 +1323,10 @@ static uint64_t ffa_run_handler(uint32_t smc_fid,
 	 * its state.
 	 */
 	*rt_state = RT_STATE_RUNNING;
+
+	if (sp->runtime_el == S_EL0) {
+		spin_unlock(&sp->rt_state_lock);
+	}
 
 	return spmc_smc_return(smc_fid, secure_origin, x1, 0, 0, 0,
 			       handle, cookie, flags, target_id);
