@@ -31,6 +31,93 @@
  */
 static uint8_t ffa_boot_info_mem[PAGE_SIZE] __aligned(PAGE_SIZE);
 
+#if SPMC_AT_EL3_SEL0_SP
+/*
+ * This function populates the extents of the SP image and memory in the SP
+ * manifest as generic boot information.
+ */
+static void spmc_populate_boot_info_inplace(void *sp_manifest,
+				            entry_point_info_t *ep_info)
+{
+	int32_t node, ret;
+	uint64_t val64;
+	char *property;
+	int len;
+
+	const fdt32_t *prop;
+
+	node = fdt_path_offset(sp_manifest, "/");
+	if (node < 0) {
+		ERROR("Did not find root node.\n");
+		panic();
+	}
+
+	/*
+	 * Check if the manifest contains the sp_image_base property. Update it
+	 * with the base address of the SP image if found. Panic if the update
+	 * fails even if everything checks out.
+	 */
+	property = "load-address";
+	prop = fdt_getprop(sp_manifest, node, property, &len);
+	if (prop == NULL) {
+		ERROR("Couldn't find property %s in SP manifest\n",
+		     property);
+		panic();
+	}
+
+	val64 = cpu_to_fdt64(ep_info->args.arg2);
+	ret = fdt_setprop_inplace(sp_manifest,
+				  node,
+				  property,
+				  (const void *) &val64,
+				  sizeof(ep_info->args.arg2));
+	if (ret) {
+		ERROR("Could not update <%s> property. error no. %d\n",
+		      property, ret);
+		panic();
+	}
+
+	ret = fdt_read_uint64(sp_manifest, node, property, &val64);
+	if (ret) {
+		ERROR("Could not read back <%s> property. error no. %d\n",
+		      property, ret);
+		panic();
+	}
+
+	VERBOSE("Read back %s -> 0x%lx\n", property, val64);
+
+	property = "image-size";
+
+	prop = fdt_getprop(sp_manifest, node, property, &len);
+	if (prop == NULL) {
+		ERROR("Couldn't find property %s in SP manifest\n",
+		     property);
+		panic();
+	}
+
+	val64 = cpu_to_fdt64(ep_info->args.arg3);
+	ret = fdt_setprop_inplace(sp_manifest,
+				  node,
+				  property,
+				  (const void *) &val64,
+				  sizeof(ep_info->args.arg3));
+	if (ret) {
+		ERROR("Could not update <%s> property. error no. %d\n",
+		      property, ret);
+		panic();
+	}
+
+	ret = fdt_read_uint64(sp_manifest, node, property, &val64);
+	if (ret) {
+		ERROR("Could not read back <%s> property. error no. %d\n",
+		      property, ret);
+		panic();
+	}
+
+	INFO("Read back %s -> 0x%lx\n", property, val64);
+}
+#endif /* SPMC_AT_EL3_SEL0_SP */
+
 /*
  * This function creates a initialization descriptor in the memory reserved
  * for passing boot information to an SP. It then copies the partition manifest
@@ -141,6 +228,15 @@ static void spmc_create_boot_info(entry_point_info_t *ep_info,
 	INFO("SP manifest @ 0x%lx, size: %u bytes.\n",
 	     boot_descriptor->content,
 	     boot_descriptor->size_boot_info);
+
+#if SPMC_AT_EL3_SEL0_SP
+	/*
+	 * Update the SP manifest with common boot information if requested by
+	 * the SP.
+	 */
+	spmc_populate_boot_info_inplace((void *) boot_descriptor->content,
+					ep_info);
+#endif /* SPMC_AT_EL3_SEL0_SP */
 }
 
 /*
