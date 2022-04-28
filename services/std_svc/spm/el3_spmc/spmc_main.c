@@ -1811,7 +1811,7 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 	 * since this is currently a hardcoded value for S-EL1 partitions
 	 * we don't need to save it here, just validate.
 	 */
-	if (config_32 != PLATFORM_CORE_COUNT) {
+	if ((sp->runtime_el == S_EL1) && (config_32 != PLATFORM_CORE_COUNT)) {
 		ERROR("SP Execution Context Count (%u) must be %u.\n",
 			config_32, PLATFORM_CORE_COUNT);
 		return -EINVAL;
@@ -1927,13 +1927,17 @@ static int find_and_prepare_sp_context(void)
 	 * the manifest as boot information later.
 	 */
 	next_image_ep_info->args.arg1 = fdt_totalsize(sp_manifest);
-	INFO("Manifest size = %lu bytes.\n", next_image_ep_info->args.arg1);
+	INFO("Manifest adr = %lx , size = %lu bytes\n", manifest_base,
+	     next_image_ep_info->args.arg1);
 
 	/*
 	 * Select an SP descriptor for initialising the partition's execution
 	 * context on the primary CPU.
 	 */
 	sp = spmc_get_current_sp_ctx();
+
+	/* Assign translation tables context. */
+	sp_desc->xlat_ctx_handle = spm_get_sp_xlat_context();
 
 	/* Initialize entry point information for the SP */
 	SET_PARAM_HEAD(next_image_ep_info, PARAM_EP, VERSION_1,
@@ -1948,8 +1952,7 @@ static int find_and_prepare_sp_context(void)
 	}
 
 	/* Check that the runtime EL in the manifest was correct. */
-	if (sp->runtime_el != S_EL1) {
-		ERROR("Unexpected runtime EL: %d\n", sp->runtime_el);
+	if (sp->runtime_el != S_EL0 && sp->runtime_el != S_EL1) {
 		return -EINVAL;
 	}
 
@@ -1957,10 +1960,25 @@ static int find_and_prepare_sp_context(void)
 	spmc_sp_common_setup(sp, next_image_ep_info, boot_info_reg);
 
 	/* Perform any initialisation specific to S-EL1 SPs. */
-	spmc_el1_sp_setup(sp, next_image_ep_info);
+	if (sp->runtime_el == S_EL1) {
+		spmc_el1_sp_setup(sp, next_image_ep_info);
+	}
+
+	/* Setup spsr in ep info for common context mgmt routine. */
+	if (sp->runtime_el == S_EL0) {
+		spmc_el0_sp_spsr_setup(next_image_ep_info);
+	}
 
 	/* Initialize the SP context with the required ep info. */
 	spmc_sp_common_ep_commit(sp, next_image_ep_info);
+
+	/*
+	 * Perform any initialisation specific to S-EL0 not set by common
+	 * context mgmt routine.
+	 */
+	if (sp->runtime_el == S_EL0) {
+		spmc_el0_sp_setup(sp, boot_info_reg);
+	}
 
 	return 0;
 }
