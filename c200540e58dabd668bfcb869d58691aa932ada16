@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2b581b2_bb85dd65",
+        "filename": "Makefile",
+        "patchSetId": 8
+      },
+      "lineNbr": 1137,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-29T12:13:34Z",
+      "side": 1,
+      "message": "It looks like the list of options here is sorted alphabetically so we should follow this convention for DRTM_SUPPORT.\n\nSame comment for assert_booleans list above.",
+      "range": {
+        "startLine": 1137,
+        "startChar": 0,
+        "endLine": 1137,
+        "endChar": 22
+      },
+      "revId": "c200540e58dabd668bfcb869d58691aa932ada16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
