@@ -22,6 +22,29 @@
       },
       "revId": "aec3c6b1e1169c0e9c12ce9bdfe8771504ca8f82",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e20017d9_6fdd875f",
+        "filename": "include/lib/cpus/aarch64/cortex_x1.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-04-29T22:40:44Z",
+      "side": 1,
+      "message": "We\u0027re trying to move away from single bit definitions like this for unnamed bit fields. Can you just use the BIT(1) and BIT(2) macros in the .S file so we can avoid this?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 48
+      },
+      "revId": "aec3c6b1e1169c0e9c12ce9bdfe8771504ca8f82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
