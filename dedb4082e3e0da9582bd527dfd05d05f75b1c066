@@ -88,6 +88,24 @@
       "parentUuid": "c68fad42_f350a492",
       "revId": "dedb4082e3e0da9582bd527dfd05d05f75b1c066",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff71de48_c6d2e00a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-04-29T13:27:33Z",
+      "side": 1,
+      "message": "Hi Joanna,\n\nSince it\u0027s only the MIDR that\u0027s different, would it make sense to rename the MIDR macro `CORTEX_X1_MIDR` to be `CORTEX_X1_CXC_GOOGLE_MIDR` while keep the rest of the code same? Changing file names means we also change symbol names such as reset function, power down function and errata workaround handlers to contain *_cxc_google suffix, while all those functions apply to Cortex-X1 in general and are not specific to cxc_google. This way we can extend this same code to include any other CXC by adding one more MIDR and updating `declare_cpu_ops` accordingly, instead of having to duplicate the code and all the errata workarounds.\n\nLet me know what you think.\n\nThanks,\nOkash",
+      "parentUuid": "5ed06ebc_e5c67606",
+      "revId": "dedb4082e3e0da9582bd527dfd05d05f75b1c066",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
