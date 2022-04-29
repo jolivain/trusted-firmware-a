@@ -16,6 +16,29 @@
       "message": "Looks ok once the MIDR value is fixed and applied where applicable.",
       "revId": "9ad8dcc12a667afbe52fd1cfdffc9931218443ef",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4081626f_31e8402d",
+        "filename": "lib/cpus/aarch64/cortex_x1.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-04-29T22:43:48Z",
+      "side": 1,
+      "message": "We will need an entry in the CPU ops for the spectre smc workaround. See cortex_a75.S for an example of this.",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 23
+      },
+      "revId": "9ad8dcc12a667afbe52fd1cfdffc9931218443ef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
