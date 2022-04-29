@@ -141,6 +141,29 @@
       "parentUuid": "ff71de48_c6d2e00a",
       "revId": "dedb4082e3e0da9582bd527dfd05d05f75b1c066",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2281091_1aa7e6a9",
+        "filename": "include/lib/cpus/aarch64/cortex_x1.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-04-29T21:53:18Z",
+      "side": 1,
+      "message": "Can you confirm/include in comment of using r0p0 version of the core? I mean both major and minor revisions.",
+      "range": {
+        "startLine": 11,
+        "startChar": 29,
+        "endLine": 11,
+        "endChar": 37
+      },
+      "revId": "dedb4082e3e0da9582bd527dfd05d05f75b1c066",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
