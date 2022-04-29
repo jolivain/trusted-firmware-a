@@ -143,6 +143,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ee351c9_ef7d26c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-04-29T22:16:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dc86007d_a4abc0f2",
+      "revId": "dedb4082e3e0da9582bd527dfd05d05f75b1c066",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2281091_1aa7e6a9",
@@ -156,6 +174,30 @@
       "writtenOn": "2022-04-29T21:53:18Z",
       "side": 1,
       "message": "Can you confirm/include in comment of using r0p0 version of the core? I mean both major and minor revisions.",
+      "range": {
+        "startLine": 11,
+        "startChar": 29,
+        "endLine": 11,
+        "endChar": 37
+      },
+      "revId": "dedb4082e3e0da9582bd527dfd05d05f75b1c066",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8c9a512_a6623c74",
+        "filename": "include/lib/cpus/aarch64/cortex_x1.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-04-29T22:16:14Z",
+      "side": 1,
+      "message": "Ignore this as you will update this to CORTEX_X1_CXC_GOOGLE_MIDR. (31:24) You also might want to make sure the major \u0026 minor versions of the core used. If it\u0027s r0p0, rest of the fields are the same.",
+      "parentUuid": "f2281091_1aa7e6a9",
       "range": {
         "startLine": 11,
         "startChar": 29,
