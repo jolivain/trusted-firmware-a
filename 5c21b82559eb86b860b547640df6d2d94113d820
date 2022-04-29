@@ -140,6 +140,30 @@
       },
       "revId": "5c21b82559eb86b860b547640df6d2d94113d820",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59285174_7da3f7a7",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-29T09:12:55Z",
+      "side": 1,
+      "message": "OK thanks. I would suggest adding a comment for line 154, something along these lines (if that makes sense!):\n\n /* No need to distinguish callers - this driver does not support concurrent calls. */",
+      "parentUuid": "a9ae1eb3_b288fb18",
+      "range": {
+        "startLine": 154,
+        "startChar": 2,
+        "endLine": 154,
+        "endChar": 17
+      },
+      "revId": "5c21b82559eb86b860b547640df6d2d94113d820",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
