@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46cd9212_37ffbbbb",
+        "filename": "plat/arm/board/n1sdp/n1sdp_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000523
+      },
+      "writtenOn": "2022-04-29T05:55:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7999e10_9a630121",
+      "range": {
+        "startLine": 23,
+        "startChar": 35,
+        "endLine": 23,
+        "endChar": 36
+      },
+      "revId": "f16962bf7c38e9b37c31cb75e139e2ec35c5c5e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8c44650_bdffe990",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-04-28T14:45:40Z",
       "side": 1,
       "message": "In such case, could you invoke panic() as part of this function call?",
+      "range": {
+        "startLine": 26,
+        "startChar": 72,
+        "endLine": 27,
+        "endChar": 27
+      },
+      "revId": "f16962bf7c38e9b37c31cb75e139e2ec35c5c5e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f85f652_4d4b2b70",
+        "filename": "plat/arm/board/n1sdp/n1sdp_trusted_boot.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000523
+      },
+      "writtenOn": "2022-04-29T05:55:41Z",
+      "side": 1,
+      "message": "Hi Madhukar,\nthere was similar discussion for the same patch aimed at Morello.\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/12836/comment/c31410e7_c6212b85/\n\nShould I still add?",
+      "parentUuid": "a8c44650_bdffe990",
       "range": {
         "startLine": 26,
         "startChar": 72,
