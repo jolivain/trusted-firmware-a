@@ -179,6 +179,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "380353b7_818a6195",
+        "filename": "drivers/arm/mhu/mhu_v2_x.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-29T08:13:27Z",
+      "side": 1,
+      "message": "Relying on the watchdog makes sense to me, if David says there is no defined time limits (even an implementation specific one). I guess this applies to all places where we use such an unbounded loop? e.g. https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/14651/1/drivers/arm/mhu/mhu_wrapper_v2_x.c#59\n\nManish, if we want to notify the user that the system hung then I guess we could always do that in the watchdog interrupt handler, just before resetting the system. I can imagine we could print a backtrace of the interrupted code (in debug builds only).",
+      "parentUuid": "c2a43176_dd3d1b85",
+      "range": {
+        "startLine": 316,
+        "startChar": 2,
+        "endLine": 317,
+        "endChar": 3
+      },
+      "revId": "2995c4111472aafc0118c6732c09942f21b22abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8bd51a67_e833d8d4",
         "filename": "drivers/arm/mhu/mhu_v2_x.h",
         "patchSetId": 1
@@ -309,6 +333,30 @@
       "side": 1,
       "message": "Okay, thanks! Though it makes sense, but I think the function should not trust on the parameters passed by the caller, and hence it is better to do sanity checking of parameters inside the function.",
       "parentUuid": "561abf83_09807ba5",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 46
+      },
+      "revId": "2995c4111472aafc0118c6732c09942f21b22abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3134c0cb_0d727cdd",
+        "filename": "drivers/arm/mhu/mhu_v2_x.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-29T08:13:27Z",
+      "side": 1,
+      "message": "I agree with Manish. If the function documentation sets expectations on the caller, then the implementation should use assertions to enforce them.",
+      "parentUuid": "b89eac87_b2fc91ef",
       "range": {
         "startLine": 66,
         "startChar": 0,
