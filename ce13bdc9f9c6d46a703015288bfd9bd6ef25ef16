@@ -156,6 +156,24 @@
       "message": "why not unsigned int?",
       "revId": "ce13bdc9f9c6d46a703015288bfd9bd6ef25ef16",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5efc10a_63e6a436",
+        "filename": "lib/libc/snprintf.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-04-29T17:35:30Z",
+      "side": 1,
+      "message": "Gentle reminder to address the review comment.",
+      "parentUuid": "0c50a1d5_7df90fc7",
+      "revId": "ce13bdc9f9c6d46a703015288bfd9bd6ef25ef16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
