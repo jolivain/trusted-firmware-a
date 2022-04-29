@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c18596c9_7ea5ef54",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-29T12:50:11Z",
+      "side": 1,
+      "message": "(minor) Scope \"plat/imx8m\" is deprecated. It should be:\n\n fix(imx8m): check the validation of domain id",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 14
+      },
+      "revId": "ee6be1ad42defc8d2c783c5ae81f45b34b1dd1fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccc3b970_e46bf0ee",
+        "filename": "plat/imx/imx8m/imx8mp/gpc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-29T12:50:11Z",
+      "side": 1,
+      "message": "(minor) Remove extra space after opening parenthese as per TF-A coding style.",
+      "range": {
+        "startLine": 179,
+        "startChar": 5,
+        "endLine": 179,
+        "endChar": 6
+      },
+      "revId": "ee6be1ad42defc8d2c783c5ae81f45b34b1dd1fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
