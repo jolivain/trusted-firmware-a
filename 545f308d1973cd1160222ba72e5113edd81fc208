@@ -85,6 +85,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c8471e1a_94f4051e",
+        "filename": "include/lib/psa/measured_boot_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-29T09:02:10Z",
+      "side": 1,
+      "message": "OK, thanks, that makes sense to me.\n\nThen let\u0027s keep them split in this way but perhaps just consider renaming them. In TF-A, the \"*_defs.h \" naming convention usually is for splitting out macros definitions (which can be included from asm files) from functions \u0026 types definitions. As an example, compare include/lib/utils.h [1] with include/lib/utils_def.h [2].\n\nFor separating private definitions from public ones like you want to do here, it is more customary to:\n* have the public definitions in include/\n* have the private definitions in a \u0027*_private.h\u0027 file, under the driver\u0027s implementation directory.\n\nAs an example, see the xlat_mpu lib:\n* Public header file: include/lib/xlat_mpu/xlat_mpu.h [3]\n* Private header file: lib/xlat_mpu/xlat_mpu_private.h [4].\n\n[1] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/lib/utils.h\n[2] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/lib/utils_def.h\n[3] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/lib/xlat_mpu/xlat_mpu.h\n[4] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/lib/xlat_mpu/xlat_mpu_private.h",
+      "parentUuid": "525cae69_b82e8357",
+      "revId": "545f308d1973cd1160222ba72e5113edd81fc208",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "feb28d6e_f67e0c7f",
         "filename": "include/lib/psa/psa/client.h",
         "patchSetId": 1
@@ -215,6 +233,30 @@
       "side": 1,
       "message": "Agree with David. Here the cores are communicating based on FF-M spec. There is an A-class specific version of PSA Firmware Framework: FF-A.  Better to make explicit which one is used here.",
       "parentUuid": "35ef069e_b719056f",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 3
+      },
+      "revId": "545f308d1973cd1160222ba72e5113edd81fc208",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4667ccd0_4269d9e9",
+        "filename": "include/lib/psa/psa/client.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-04-29T09:02:10Z",
+      "side": 1,
+      "message": "OK! Thanks.",
+      "parentUuid": "0950deaa_331c4e52",
       "range": {
         "startLine": 21,
         "startChar": 0,
