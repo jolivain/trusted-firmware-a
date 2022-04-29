@@ -100,7 +100,7 @@ static enum pm_ret_status pm_ioctl_config_boot_addr(enum pm_node_id nid,
 		rpu_cfg_addr = ZYNQMP_RPU0_CFG;
 	} else if (nid == NODE_RPU_1) {
 		rpu_cfg_addr = ZYNQMP_RPU1_CFG;
-	} else
+	} else {
 		return PM_RET_ERROR_ARGS;
 	}
 
