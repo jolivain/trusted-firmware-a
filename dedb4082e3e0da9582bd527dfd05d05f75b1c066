@@ -179,6 +179,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22c13b95_9b35dc1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-05-01T14:55:36Z",
+      "side": 1,
+      "message": "Thanks. denver.S names different MIDR\u0027s as DENVER_MIDR_PNx. Should I name it CORTEX_X1_MIDR_PN0 instead of CORTEX_X1_CXC_GOOGLE_MIDR, keeping the naming consistent with rest of the code?",
+      "parentUuid": "3f4968e3_c44c5ee2",
+      "revId": "dedb4082e3e0da9582bd527dfd05d05f75b1c066",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2281091_1aa7e6a9",
@@ -216,6 +234,30 @@
       "side": 1,
       "message": "Ignore this as you will update this to CORTEX_X1_CXC_GOOGLE_MIDR. (31:24) You also might want to make sure the major \u0026 minor versions of the core used. If it\u0027s r0p0, rest of the fields are the same.",
       "parentUuid": "f2281091_1aa7e6a9",
+      "range": {
+        "startLine": 11,
+        "startChar": 29,
+        "endLine": 11,
+        "endChar": 37
+      },
+      "revId": "dedb4082e3e0da9582bd527dfd05d05f75b1c066",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fc03cb2_4a1888fe",
+        "filename": "include/lib/cpus/aarch64/cortex_x1.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-05-01T14:55:36Z",
+      "side": 1,
+      "message": "I kept it r0p0 because it seems like the code doesn\u0027t care about revision and variant in this macro. Is it used somewhere that I missed?",
+      "parentUuid": "b8c9a512_a6623c74",
       "range": {
         "startLine": 11,
         "startChar": 29,
