@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f12a952_4e560172",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-05-01T17:09:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2270eca_55861703",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "aec3c6b1e1169c0e9c12ce9bdfe8771504ca8f82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e20017d9_6fdd875f",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-04-29T22:40:44Z",
       "side": 1,
       "message": "We\u0027re trying to move away from single bit definitions like this for unnamed bit fields. Can you just use the BIT(1) and BIT(2) macros in the .S file so we can avoid this?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 48
+      },
+      "revId": "aec3c6b1e1169c0e9c12ce9bdfe8771504ca8f82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d78f14ce_18b4e81a",
+        "filename": "include/lib/cpus/aarch64/cortex_x1.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-05-01T17:09:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e20017d9_6fdd875f",
       "range": {
         "startLine": 22,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6c23a22_4c300c5d",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-05-01T17:09:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "355337c9_6f25fb21",
+      "range": {
+        "startLine": 352,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 41
+      },
+      "revId": "aec3c6b1e1169c0e9c12ce9bdfe8771504ca8f82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02e4f3c3_47aa9a06",
@@ -93,6 +165,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a00b527_c51bffa4",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-05-01T17:09:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02e4f3c3_47aa9a06",
+      "range": {
+        "startLine": 357,
+        "startChar": 34,
+        "endLine": 357,
+        "endChar": 41
+      },
+      "revId": "aec3c6b1e1169c0e9c12ce9bdfe8771504ca8f82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0694947_1f00e0ca",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-04-29T22:44:27Z",
       "side": 1,
       "message": "Same as above.",
+      "range": {
+        "startLine": 361,
+        "startChar": 34,
+        "endLine": 361,
+        "endChar": 41
+      },
+      "revId": "aec3c6b1e1169c0e9c12ce9bdfe8771504ca8f82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "906eb8c6_7b267448",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-05-01T17:09:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0694947_1f00e0ca",
       "range": {
         "startLine": 361,
         "startChar": 34,
