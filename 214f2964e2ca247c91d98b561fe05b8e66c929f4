@@ -16,6 +16,24 @@
       "message": "Just to reiterate files names need to be cortex_x1_cxc_google not cortex_x1 as this is a cxc core only.",
       "revId": "214f2964e2ca247c91d98b561fe05b8e66c929f4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc56e14d_f2aa62c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-05-01T22:09:11Z",
+      "side": 1,
+      "message": "Hi Joanna,\n\nThe problem with changing the file name is that the code will become tied to cxc_google but in reality the code applies to Cortex-X1 in general. E.g. the errata workarounds are for Cortex-X1 in general and not specific to Cortex-X1 for Google. If another cortex_x1_cxc partner wants to use Cortex-X1, they will have to duplicate the code. Keeping the file names cortex_x1 but changing MIDR macro to include CXC_GOOGLE will allow any other partner to use the same code simply by adding their own macro for CXC_GOOGLE, without having to duplicate the code.\n\nLet me know if I\u0027ve missed something in my understanding of this.",
+      "parentUuid": "b15acba4_dc38e96c",
+      "revId": "214f2964e2ca247c91d98b561fe05b8e66c929f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
