@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee7bad83_5febf430",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-02T16:14:33Z",
+      "side": 1,
+      "message": "Just checking, can you recall the reason for such a increase? What is special with BL32 when the EL3 SPMC is used?",
+      "range": {
+        "startLine": 158,
+        "startChar": 33,
+        "endLine": 158,
+        "endChar": 36
+      },
+      "revId": "7f1efaab5517e80374d45900c3650f413e38e8b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
