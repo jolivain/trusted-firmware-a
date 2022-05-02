@@ -217,6 +217,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2d6965cc_23dfe9bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-05-02T19:58:31Z",
+      "side": 1,
+      "message": "I wonder if we could rename this something other than with google in the title, perhaps a product specific name? I see this name was requested through the Arm partner team, but maybe we could keep crc and add a code name/product name instead of the company name?",
+      "parentUuid": "7f565e00_1436314f",
+      "revId": "dedb4082e3e0da9582bd527dfd05d05f75b1c066",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f2281091_1aa7e6a9",
         "filename": "include/lib/cpus/aarch64/cortex_x1.h",
         "patchSetId": 1
