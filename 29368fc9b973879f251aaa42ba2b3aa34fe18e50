@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b1fb65b_c9ad9f93",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 37
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-03T09:38:36Z",
+      "side": 1,
+      "message": "IIUC these structures should be aligned by design and therefore I\u0027m not sure what the benefit of packing them here would be? However perhaps to be consistent with other data structures, we could add CASSERTs to ensure that the size of the struct is the size that we are expecting?",
+      "parentUuid": "dc81bdac_a3896dbf",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 2
+      },
+      "revId": "29368fc9b973879f251aaa42ba2b3aa34fe18e50",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a5520951_f51d4b58",
         "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
         "patchSetId": 37
@@ -37,6 +61,30 @@
       "writtenOn": "2022-05-03T00:50:51Z",
       "side": 1,
       "message": "The original patch had manifest UUID initialization.\nuuid_t manifest_uuid \u003d UUID_TOS_FW_CONFIG;\nWhy is this removed?",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 25
+      },
+      "revId": "29368fc9b973879f251aaa42ba2b3aa34fe18e50",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9db51c1_d05e643f",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-03T09:38:36Z",
+      "side": 1,
+      "message": "This was due to feedback [1] that this value may not be portable across SPMCs and would not make sense for all types of SPs. The conclusion of the discussion was that now we have updated to the v1.1 format the \"type\" field can be used to locate the DTB and we were not aware of a current usecase that would use the name field and therefore we should leave the field blank for now. \n\n[1] https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/13280/comment/9b507415_7f1c0b88",
+      "parentUuid": "a5520951_f51d4b58",
       "range": {
         "startLine": 45,
         "startChar": 0,
