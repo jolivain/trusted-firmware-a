@@ -310,6 +310,30 @@
       },
       "revId": "45e174bd23253bee3e4611e40b12e68509d6c225",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b422f2f_5b48503f",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1000621
+      },
+      "writtenOn": "2022-05-03T18:31:32Z",
+      "side": 1,
+      "message": "\u003e Sorry for the late response.\n\u003e \n\u003e \u003e\u003eThat is, our working assumption has been that DRTM may still rely on the SRTM trust chain, \u003e\u003enow that it can be shortened.\n\u003e [RK] Agreed. that makes sense to me. i\u0027ve had some internal discussions as well and it seems like completely elimnating SRTM may not be practically feasible, even though, in theory it can entirely be eliminated. I still feel we should get as close to possible as not relying on srtm since that is the ideal goal.\n\nWith firmware-based DRTM I don\u0027t think it is possible to not rely on measured boot, or authenticated boot, or an other way to ensure integrity of BL31.  That is because the D-CRTM is firmware (TF-A BL31), albeit Secure World firmware.  A hardware-backed DRTM is needed to avoid this dependency, where the D-CRTM runs on a processor other than the AP.\n\n\n\u003e Having any UEFI code in the DRTM TCB for example, is going to be difficult to explain from a security standpoint. The problem with relying on the SRTM chain is that DRTM attestation now MUST require SRTM attestation to first pass, otherwise, it would be meaningless. This is fine, but an inconvenience none-the-less. It would be great if Stuart can clarify this exact point in the spec. it is a crucial nuance. It is easy to interpret that as not requiring srtm attestation for DRTM.\n\nYes, I think that is correct: With respect to the runtime TCB hashes feature, currently the spec implies that DRTM attestation should be done in conjunction with SRTM attestation if that is the mechanism to guarantee Normal World firmware integrity.  However, thinking about this further, I wonder whether it is an abstraction leakage problem that the user of DRTM measurements is being exposed to the presumably-platform-specific choice of mechanism to guarantee firmware integrity.  Before, the user of SRTM measurements only had the (obvious) dependency on SRTM (TF-A Measured Boot).  Now, the user of DRTM measurements has the (obvious) dependency on DRTM, but also the (non-obvious) dependency on whether the firmware integrity was guaranteed via SRTM or not.\n\n\n\u003e \u003e\u003eI have one observation on \"We dont Trust UEFI code\", By UEFI code do you mean all phases of UEFI including DXE ?\n\u003e [RK] Yes. No UEFI code. It doesnt make sense (at least to me) to bring in non-secure code into the tcb of secure world code. A compromise in NS world can compromise any guarantees offered by secure world then. UEFI code is large and doesnt have the best reputation (specifically EDK2, whatever the reality may be, but the perception is what matters here) and we should avoid having it in the TCB. If it is included in the TCB for the hashes, havent we include literally all the \"gap\" code in the drtm tcb? Let me know if i\u0027m misunderstanding.\n\nNot literally all the \"gap\" code, because UEFI would be included in the TCB by means of the restricted DRTM_SET_TCB_HASH interface, which is a temporary pinhole closed by DRTM_LOCK_TCB_HASHES.  So we are only including in the TCB Normal World software that executes up to the first call to DRTM_LOCK_TCB_HASHES.  But, as you have suggested offline, we should also consider that we are implicitly trusting all Non-secure hardware.",
+      "parentUuid": "3118c639_4ac7c576",
+      "range": {
+        "startLine": 539,
+        "startChar": 47,
+        "endLine": 539,
+        "endChar": 65
+      },
+      "revId": "45e174bd23253bee3e4611e40b12e68509d6c225",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
