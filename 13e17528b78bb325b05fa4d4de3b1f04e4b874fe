@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ecdcc5f_b837794c",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 39
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-03T12:18:17Z",
+      "side": 1,
+      "message": "Refactored to allow reuse of code from cpu suspend related functions.",
+      "revId": "13e17528b78bb325b05fa4d4de3b1f04e4b874fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e424048_bce2cfaf",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 39
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-03T12:18:17Z",
+      "side": 1,
+      "message": "The current implementation only supports CPU_OFF and CPU_ON power events however when cpu idle is enabled in linux this causes the TSP to no longer be able to configure the secure generic timer as expected, and therefore after the first CPU_SUSPEND call on each core the timer interrupt would no longer fire. \n\nThe SPMC implementation has been updated to forward SUSPEND and SUSPEND_RESUME power management events to the SP if subscribed, therefore update the TSP implementation to handle these events and call the appropriate handling function which now also support FF-A.",
+      "revId": "13e17528b78bb325b05fa4d4de3b1f04e4b874fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
