@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80d0378e_fc60c8fd",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 35
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-03T12:18:13Z",
+      "side": 1,
+      "message": "In this implementation we only support forwarding CPU_OFF and CPU_ON power events to the SP. In the case of the TSP partition in order to save/restore the secure generic timer around a CPU_SUSPEND event we also need to forward the suspend and resume events to the SP. Therefore update the implementation to support this and allow for subscribing to these additional power events if desired.",
+      "revId": "8c37034a8e0773bbccae10215c1d2f1c1e59762f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
