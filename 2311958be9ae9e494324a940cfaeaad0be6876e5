@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2a09f58_46c4e2fe",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2022-05-03T15:05:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6cdb25b_cff220dd",
+      "range": {
+        "startLine": 71,
+        "startChar": 10,
+        "endLine": 71,
+        "endChar": 11
+      },
+      "revId": "2311958be9ae9e494324a940cfaeaad0be6876e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85009652_22801c1f",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-04-29T09:12:55Z",
       "side": 1,
       "message": "I think this memset() call deserves a comment. Perhaps something along these lines:\n\n Poison the message buffer. Helps in detecting hypothetical RSS communication bugs.",
+      "range": {
+        "startLine": 182,
+        "startChar": 1,
+        "endLine": 182,
+        "endChar": 41
+      },
+      "revId": "2311958be9ae9e494324a940cfaeaad0be6876e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaf7632d_4bc08150",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2022-05-03T15:05:02Z",
+      "side": 1,
+      "message": "Yes, thank you.",
+      "parentUuid": "85009652_22801c1f",
       "range": {
         "startLine": 182,
         "startChar": 1,
