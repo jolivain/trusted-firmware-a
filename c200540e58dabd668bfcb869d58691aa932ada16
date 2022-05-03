@@ -46,6 +46,30 @@
       },
       "revId": "c200540e58dabd668bfcb869d58691aa932ada16",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3606105_f4741098",
+        "filename": "Makefile",
+        "patchSetId": 8
+      },
+      "lineNbr": 1137,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-05-03T09:45:02Z",
+      "side": 1,
+      "message": "I again thought about this. The \u0027sort\u0027 function in the makefile performs two kinds of tasks [1]\n1. Sort the \u0027words\u0027 of the \u0027list\u0027 in the lexical order\n2. Remove duplicate words\n\nDo you still think sorted \u0027list\u0027 should be passed to the \u0027sort\u0027 function?\n\n[1]: https://www.gnu.org/software/make/manual/html_node/Text-Functions.html",
+      "parentUuid": "ecebf5e4_aed1f6b0",
+      "range": {
+        "startLine": 1137,
+        "startChar": 0,
+        "endLine": 1137,
+        "endChar": 22
+      },
+      "revId": "c200540e58dabd668bfcb869d58691aa932ada16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
