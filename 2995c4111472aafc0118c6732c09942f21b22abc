@@ -106,6 +106,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff8dca14_deab7754",
+        "filename": "drivers/arm/mhu/mhu_v2_x.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2022-05-03T15:04:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9dd4ee1f_32aa35b9",
+      "revId": "2995c4111472aafc0118c6732c09942f21b22abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ec4a13c1_d17f308b",
@@ -215,6 +233,30 @@
       "side": 1,
       "message": "Yes, it makes sense if watchdog interrupt handler is matured enough as you mentioned and if the implementation defined timeout is not possible at all.",
       "parentUuid": "380353b7_818a6195",
+      "range": {
+        "startLine": 316,
+        "startChar": 2,
+        "endLine": 317,
+        "endChar": 3
+      },
+      "revId": "2995c4111472aafc0118c6732c09942f21b22abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31254d56_4b733727",
+        "filename": "drivers/arm/mhu/mhu_v2_x.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2022-05-03T15:04:31Z",
+      "side": 1,
+      "message": "As a conclusion, the loops in the drive code can be left as they are, right?",
+      "parentUuid": "b5e50328_96eebed4",
       "range": {
         "startLine": 316,
         "startChar": 2,
@@ -391,6 +433,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b8af50d_321c1abc",
+        "filename": "drivers/arm/mhu/mhu_v2_x.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2022-05-03T15:04:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3134c0cb_0d727cdd",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 46
+      },
+      "revId": "2995c4111472aafc0118c6732c09942f21b22abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4097168a_dc278f53",
@@ -463,6 +529,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b599bc2a_6dc7834c",
+        "filename": "drivers/arm/mhu/mhu_wrapper_v2_x.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2022-05-03T15:04:31Z",
+      "side": 1,
+      "message": "Yes, probably it\u0027s better to explain it.",
+      "parentUuid": "98ee7073_ee157018",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 26
+      },
+      "revId": "2995c4111472aafc0118c6732c09942f21b22abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e421db4f_3f6aeead",
         "filename": "drivers/arm/mhu/mhu_wrapper_v2_x.c",
         "patchSetId": 1
@@ -474,6 +564,30 @@
       "writtenOn": "2022-04-14T13:02:35Z",
       "side": 1,
       "message": "I wonder whether we should bind this loop, either in time or using a maximum number of iterations. It could potentially make the firmware unresponsive.\n\nNow, one could argue that the APIS implemented on top of the MHU driver (namely measured boot and attestation) implement blocking calls semantics anyways and if something goes wrong, the firmware should not proceed further anyway. But at least, breaking out of the lop would allow us to panic and print some error messages on the firmware\u0027s console to give a clue to the user about what happened...",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 20
+      },
+      "revId": "2995c4111472aafc0118c6732c09942f21b22abc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f72d7ff_ba23e33e",
+        "filename": "drivers/arm/mhu/mhu_wrapper_v2_x.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2022-05-03T15:04:31Z",
+      "side": 1,
+      "message": "I think the timings, time constraints are platforms/system specific (there is no specified timeout for the MHU), so in the driver\nwe cannot tell what is \"too long\". Are there any commonly used pattern in TF-A to handle such cases?\nIMHO it should be handled at a higher level, but in any case I would rather handle it in the protocol layer or in the generic MHU API implementation.",
+      "parentUuid": "e421db4f_3f6aeead",
       "range": {
         "startLine": 54,
         "startChar": 0,
