@@ -309,6 +309,7 @@ ifneq (${DEBUG}, 0)
              ASFLAGS		+= 	-g
         else
              ASFLAGS		+= 	-g -Wa,--gdwarf-2
+             TF_CFLAGS		+=	-gdwarf-4
         endif
 
         # Use LOG_LEVEL_INFO by default for debug builds
