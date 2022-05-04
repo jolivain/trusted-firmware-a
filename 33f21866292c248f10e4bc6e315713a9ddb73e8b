@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88dfeef7_c63c1804",
+        "filename": "Makefile",
+        "patchSetId": 2
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-04T08:23:07Z",
+      "side": 1,
+      "message": "I see that we\u0027ve not done the same change for clang. However, I found this page, which seems to suggest that clang as well has now switched to using DWARF v5 by default:\n\nhttps://www.phoronix.com/scan.php?page\u003dnews_item\u0026px\u003dLLVM-Clang-DWARFv5-Default\n\nDid you test with clang as well?",
+      "range": {
+        "startLine": 308,
+        "startChar": 0,
+        "endLine": 309,
+        "endChar": 28
+      },
+      "revId": "33f21866292c248f10e4bc6e315713a9ddb73e8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2f745c6_1f8bd6c7",
+        "filename": "Makefile",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-04T08:23:07Z",
+      "side": 1,
+      "message": "Why are we not using the same version of DWARF for assembly and C files? Is that not going to cause incompatibilities?",
+      "range": {
+        "startLine": 311,
+        "startChar": 33,
+        "endLine": 311,
+        "endChar": 43
+      },
+      "revId": "33f21866292c248f10e4bc6e315713a9ddb73e8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c95010bb_f2bb17a3",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-04T08:23:07Z",
+      "side": 1,
+      "message": "DS-5 is the old product name [1], the new name is Arm-DS [2]. I am guessing you\u0027ve tested this with Arm-DS? (this seems to be implied from the commit message)\n\nCould you please update the reference to DS-5 here?\n\n[1] https://developer.arm.com/tools-and-software/embedded/legacy-tools/ds-5-development-studio\n[2] https://developer.arm.com/tools-and-software/embedded/arm-development-studio",
+      "range": {
+        "startLine": 1036,
+        "startChar": 13,
+        "endLine": 1036,
+        "endChar": 17
+      },
+      "revId": "33f21866292c248f10e4bc6e315713a9ddb73e8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ef6433f_bfc13dcd",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1040,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-04T08:23:07Z",
+      "side": 1,
+      "message": "Presumably this should be Arm-DS here as well?",
+      "range": {
+        "startLine": 1040,
+        "startChar": 12,
+        "endLine": 1040,
+        "endChar": 16
+      },
+      "revId": "33f21866292c248f10e4bc6e315713a9ddb73e8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
