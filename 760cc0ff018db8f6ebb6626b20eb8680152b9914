@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a1d55c83_dba3abf3",
+        "filename": "plat/arm/board/fvp/fvp_common_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-04T09:13:19Z",
+      "side": 1,
+      "message": "I tend to agree with David, I think it is a grey area. plat_rss_mboot_get_metadata() only needs implementing if:\n* measured boot is enabled on the platform\n* RSS is chosen as the backend.\n\nThese are very specific circumstances and I wonder whether it is really relevant/useful to add an entry for this to the porting guide...",
+      "parentUuid": "8deb0107_8add2b46",
+      "range": {
+        "startLine": 24,
+        "startChar": 27,
+        "endLine": 24,
+        "endChar": 54
+      },
+      "revId": "760cc0ff018db8f6ebb6626b20eb8680152b9914",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "efb97b38_fac68889",
         "filename": "plat/arm/board/fvp/fvp_common_measured_boot.c",
         "patchSetId": 2
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "I have restructured the code, now it makes more sense.\nIf both functions return with their own error codes, -1 is returned as a general error.",
       "parentUuid": "efb97b38_fac68889",
+      "range": {
+        "startLine": 52,
+        "startChar": 24,
+        "endLine": 52,
+        "endChar": 26
+      },
+      "revId": "760cc0ff018db8f6ebb6626b20eb8680152b9914",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "341489e1_53255969",
+        "filename": "plat/arm/board/fvp/fvp_common_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-04T09:13:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7b487cdd_4c2ab71f",
       "range": {
         "startLine": 52,
         "startChar": 24,
