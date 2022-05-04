@@ -84,6 +84,24 @@
       "message": "This matches the A64 documentation, but I don\u0027t think this is common among all SoCs. If I remember correctly, recent SoCs have the \"bonding ID\" somewhere in the first few bytes of the SID, and not all the same place either. I haven\u0027t looked at this in detail before, so I do not know the specifics offhand.",
       "revId": "1cf90dd868707a7de12a47d9cd974f4145fd227e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "020627a9_3d5ed4ae",
+        "filename": "plat/allwinner/common/sunxi_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-05-04T00:29:22Z",
+      "side": 1,
+      "message": "So there does not seem to be anything documented. I found some traces of super convoluted code in some BSP code base to figure out some kind of die revision, but even in the best case there were just two different revisions.\nI don\u0027t know how much we really care about those minor revisions, I was wondering if we should introduce them only if there is a real need? So far it seems that this A64 revision register is RES0 for the other SoCs, so I consider this little harm for now.",
+      "parentUuid": "fa817896_df7fc670",
+      "revId": "1cf90dd868707a7de12a47d9cd974f4145fd227e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
