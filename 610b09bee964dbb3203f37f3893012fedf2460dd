@@ -193,6 +193,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5ff85c33_5253ca5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-05-04T08:49:57Z",
+      "side": 1,
+      "message": "The Test LP should be moved to FVP.\nOtherwise, it might be seen as to encourage integrators to directly modify services/std_svc/spm/el3_spmc/logical_sp_test.c.\nPossibly remove the `_test` part of the file name also, to make copy and past easier.",
+      "parentUuid": "8e297139_6bfeab76",
+      "revId": "610b09bee964dbb3203f37f3893012fedf2460dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d20a2dc5_689d7e30",
         "filename": "services/std_svc/spm/spmc/logical_sp_test.c",
         "patchSetId": 14
