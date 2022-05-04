@@ -52,6 +52,24 @@
       "parentUuid": "da092095_4b8b2289",
       "revId": "0eb49ec21f540ee40d48b85bd06d92e71f969d8f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d4b9ae3_ec6da00c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000523
+      },
+      "writtenOn": "2022-05-04T13:32:33Z",
+      "side": 1,
+      "message": "Yes, these changes are also connected with changes in SCP and edk2-platforms.\nI plan to enable both build and boot CI for these changes soon after the patches are merged.",
+      "parentUuid": "8f7c03e3_181aa5d7",
+      "revId": "0eb49ec21f540ee40d48b85bd06d92e71f969d8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
