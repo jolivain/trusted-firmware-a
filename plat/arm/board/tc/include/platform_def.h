@@ -101,7 +101,7 @@
  * PLAT_ARM_MAX_BL1_RW_SIZE is calculated using the current BL1 RW debug size
  * plus a little space for growth.
  */
-#define PLAT_ARM_MAX_BL1_RW_SIZE	0xC000
+#define PLAT_ARM_MAX_BL1_RW_SIZE	0xD000
 
 /*
  * PLAT_ARM_MAX_ROMLIB_RW_SIZE is define to use a full page
@@ -119,8 +119,8 @@
  * PLAT_ARM_MAX_BL2_SIZE is calculated using the current BL2 debug size plus a
  * little space for growth.
  */
-#if TRUSTED_BOARD_BOOT
-# define PLAT_ARM_MAX_BL2_SIZE		0x20000
+#if TRUSTED_BOARD_BOOT || MEASURED_BOOT
+# define PLAT_ARM_MAX_BL2_SIZE		0x26000
 #else
 # define PLAT_ARM_MAX_BL2_SIZE		0x14000
 #endif
@@ -130,8 +130,11 @@
  * calculated using the current BL31 PROGBITS debug size plus the sizes of
  * BL2 and BL1-RW
  */
+#if MEASURED_BOOT
+#define PLAT_ARM_MAX_BL31_SIZE		0x47000
+#else
 #define PLAT_ARM_MAX_BL31_SIZE		0x3F000
-
+#endif
 /*
  * Size of cacheable stacks
  */
