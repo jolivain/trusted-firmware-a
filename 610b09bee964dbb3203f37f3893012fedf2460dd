@@ -157,6 +157,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "14f6fa9f_82945953",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-05-04T08:11:23Z",
+      "side": 1,
+      "message": "I like this option.\nToday every platform needs a patch in generic code to disable the test LP.\nOr, you encourage platforms to directly modify the test LP C file.",
+      "parentUuid": "c6a31924_e4143045",
+      "revId": "610b09bee964dbb3203f37f3893012fedf2460dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d20a2dc5_689d7e30",
         "filename": "services/std_svc/spm/spmc/logical_sp_test.c",
         "patchSetId": 14
