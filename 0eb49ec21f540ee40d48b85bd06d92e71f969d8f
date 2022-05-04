@@ -16,6 +16,24 @@
       "message": "CI failing because of static check failures:\nhttps://ci.trustedfirmware.org/job/tf-a-static-checks/1134/\n\n\n****** Order of includes on the last patch(es) ******\n\nResult : FAILURE\n\nChecking files modified between patches origin/master and HEAD...\n\nb61d94a1a::services/std_svc/spm/common/include/spm_common.h:\nGroup ordering error, order should be:\n\t** #include \u003cstdint.h\u003e                 --\u003e system header, moved to group 1.\n\t** #include \u003ccontext.h\u003e                --\u003e project header, moved to group 2.\n\nPlease refer to the docs for further information on include statement ordering: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering.\n\n****** Newly added files detection check for Coverity Scan analysis on patch(es) ******\n\nResult : FAILURE\n\n\nNew source files have been identified in your patch..\nplat/arm/board/n1sdp/n1sdp_bl1_setup.c\nplat/arm/board/n1sdp/n1sdp_bl2_setup.c\nplat/arm/board/n1sdp/n1sdp_err.c\nplat/arm/board/n1sdp/n1sdp_image_load.c\nplat/arm/board/n1sdp/n1sdp_trusted_boot.c\n\n1. Kindly ensure these newly added source files are covered by : \n   a. Coverity scan analysis by adding them to \"tf-cov-make\" build script with the appropriate build configurations. \n   b. Built as part of one of the platform configurations present in \"tf-l1-build-plat\" test group.\n\n   Please refer to the tf-a documentation for more detailed explanation. \n   \"https://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#add-build-configurations\"\n\n2. Please ignore if your files are already updated. Further the Code Maintainer will \n   resolve the issue by taking appropriate action.\n",
       "revId": "0eb49ec21f540ee40d48b85bd06d92e71f969d8f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da092095_4b8b2289",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000523
+      },
+      "writtenOn": "2022-05-04T10:33:10Z",
+      "side": 1,
+      "message": "Hi Olivier,\nThanks for sharing this.\n\nFor the first error b61d94a1a::services/std_svc/spm/common/include/spm_common.h:\nI am not making any change in this file so I don\u0027t think this needs to fixed in this patch.\n\nFor the second error, in these patches we are shifting from RESET_TO_BL31 to TBB boot flow. I think the build in the CI is not using certain files and hence seeing this error. Once these patches are merged, I plan to re-enable the CI with proper build flags. Is it possible to ignore this error for now?",
+      "parentUuid": "cccbe11b_95652962",
+      "revId": "0eb49ec21f540ee40d48b85bd06d92e71f969d8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
