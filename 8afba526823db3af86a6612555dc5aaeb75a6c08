@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "678d01cf_7ddfa384",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-04T13:12:51Z",
+      "side": 1,
+      "message": "@David: The CI reported several failures: https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/240/\n\nFirst of all, there are some static checks failures. You can see the details here:\nhttps://ci.trustedfirmware.org/job/tf-a-static-checks/1184/\n\nThe \"Order of includes on the last patch(es)\" check failed but AFAICS this is a false negative. \nAccording to https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering, measured_boot_private.h should be included last, which is exactly what you\u0027ve done. I think the CI script needs a fix here. Please ignore this specific CI failure.\n\nThe \"Coding style on current patch\" also failed, it\u0027s mostly reporting indentation problems (using spaces instead of tabs). Please fix the reported errors (fixing the warnings is optional, your call).\n\nLast but not least, there is one specific build config which has failed:\nhttps://ci.trustedfirmware.org/job/tf-a-builder/955452/console\nwith the following error messages:\n\n  11:56:38 aarch64-none-elf-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/bl2/bl2.elf section `xlat_table\u0027 will not fit in region `RAM\u0027\n  11:56:38 aarch64-none-elf-ld.bfd: BL2 image has exceeded its limit.\n  11:56:38 aarch64-none-elf-ld.bfd: region `RAM\u0027 overflowed by 4096 bytes\n  11:56:38 Makefile:1271: recipe for target \u0027/home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/bl2/bl2.elf\u0027 failed\n\nThis one will be tricky to solve. We keep hitting this issue, not just for your patches. It is due to our memory budget being almost topped on FVP platform ; essentially, as soon as we add a bit too much code/data, we hit the memory limit. I\u0027ll get back to you on this one, as I don\u0027t have an immediate solution to propose.",
+      "revId": "8afba526823db3af86a6612555dc5aaeb75a6c08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
