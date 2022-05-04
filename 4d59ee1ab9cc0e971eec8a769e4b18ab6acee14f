@@ -52,6 +52,24 @@
       "parentUuid": "c57879c8_08c13710",
       "revId": "4d59ee1ab9cc0e971eec8a769e4b18ab6acee14f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "840e902c_9a36f213",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-04T14:52:01Z",
+      "side": 1,
+      "message": "Due to additional comments we now only return FFA_ERROR in the case of an invalid encoding. The SPMC will always return its version number even if it is an incompatible version to allow the client the opportunity to determine its own compatibility and to align with the behaviour of Hafnium.",
+      "parentUuid": "2d5a8b1e_401c810f",
+      "revId": "4d59ee1ab9cc0e971eec8a769e4b18ab6acee14f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
