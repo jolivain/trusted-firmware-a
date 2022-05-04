@@ -211,6 +211,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "95ee45a8_f027411c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-04T14:52:22Z",
+      "side": 1,
+      "message": "Fair point. Moved logical_sp_test.c to plat/fvp/el3_spmc_logical_sp.c.\n\nCurrently the platform implementation of the LP is still included from the main el3_spmc/spmc.mk however I\u0027m wondering if this should be moved to the platform makefile as well to prevent users from having to make any modifications if they do not wish to use a logical partition at all without requiring an additional build flag?\n\nAny thoughts on this?",
+      "parentUuid": "5ff85c33_5253ca5a",
+      "revId": "610b09bee964dbb3203f37f3893012fedf2460dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d20a2dc5_689d7e30",
         "filename": "services/std_svc/spm/spmc/logical_sp_test.c",
         "patchSetId": 14
