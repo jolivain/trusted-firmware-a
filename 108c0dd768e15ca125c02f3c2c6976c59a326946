@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39d71673_c0f0f4e8",
+        "filename": "services/std_svc/spm/el3_spmc/logical_sp.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-04T14:52:26Z",
+      "side": 1,
+      "message": "Relocated this file to include/services/el3_spmc_logical_sp.h to allow for inclusion from logical partitions in platform code.",
+      "revId": "108c0dd768e15ca125c02f3c2c6976c59a326946",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28b3b111_4a8877dc",
+        "filename": "services/std_svc/spm/el3_spmc/spmc.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-04T14:52:26Z",
+      "side": 1,
+      "message": "Moved these to ffa_svc.h to prevent logical partitions needing to include spmc.h.",
+      "revId": "108c0dd768e15ca125c02f3c2c6976c59a326946",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
