@@ -139,6 +139,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c6a31924_e4143045",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-04T05:48:22Z",
+      "side": 1,
+      "message": "Other option is moving the test logical partition to FVP specific platform port.\nThis way, it may build for FVP but build would break when a partner ports EL3 SPM to his platform and forces to re-implement (or strip out) as required.",
+      "parentUuid": "74aaa8e2_8a79dfea",
+      "revId": "610b09bee964dbb3203f37f3893012fedf2460dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d20a2dc5_689d7e30",
         "filename": "services/std_svc/spm/spmc/logical_sp_test.c",
         "patchSetId": 14
