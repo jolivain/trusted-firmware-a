@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9c3701c_8d35195f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-05-04T00:06:06Z",
+      "side": 1,
+      "message": "Build tested for all four Allwinner SoCs in debug and release builds, on GCC 9.4 and GCC 11.2.\nBoot tested final patch on A64, H6 and H616, using different build settings.\nInternal CI failed on final patch, but with unrelated (CI) errors.\n",
+      "revId": "3ccccc658093f0cd619ceb43f6bbfc238ed22881",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
