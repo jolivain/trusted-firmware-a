@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "298fb690_fa854822",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-04T09:52:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "df0307f0_60d15976",
+      "range": {
+        "startLine": 517,
+        "startChar": 2,
+        "endLine": 517,
+        "endChar": 29
+      },
+      "revId": "993c3365035399fc432a0b04fe3f43a6cb55a9ef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de13a891_3c794294",
@@ -142,6 +166,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "546a6541_326247dc",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-04T09:52:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "95419c89_f1661bdd",
+      "range": {
+        "startLine": 524,
+        "startChar": 2,
+        "endLine": 524,
+        "endChar": 29
+      },
+      "revId": "993c3365035399fc432a0b04fe3f43a6cb55a9ef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b64336ff_837559e8",
@@ -173,6 +221,24 @@
       "side": 1,
       "message": "This is just meant to be a sanity check that the SP is not reporting a different version number in the FFA_VERSION ABI to that it has specified in it\u0027s manifest. We assume that the manifest would contain the correct version that an SP implements.\n\nDo you have a preference on some other behavior to implement here?",
       "parentUuid": "b64336ff_837559e8",
+      "revId": "993c3365035399fc432a0b04fe3f43a6cb55a9ef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3818f09_fc6952fd",
+        "filename": "services/std_svc/spm/spmc/spmc_main.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-04T09:52:52Z",
+      "side": 1,
+      "message": "I\u0027m fine with the check, I\u0027m just hinting that this check is discarded in a release build.\nIn which case, in release builds (aka DEBUG\u003d0 on the command line), a SP can request a version through FFA_VERSION that doesn\u0027t match the one in its manifest.",
+      "parentUuid": "0d955fc9_552f6d6a",
       "revId": "993c3365035399fc432a0b04fe3f43a6cb55a9ef",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
