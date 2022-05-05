@@ -607,6 +607,8 @@ endif
 
 ifneq ($(findstring gcc,$(notdir $(LD))),)
 	PIE_LDFLAGS	+=	-Wl,-pie -Wl,--no-dynamic-linker
+else ifneq ($(findstring clang,$(notdir $(CC))),)
+	PIE_LDFLAGS	+=	-pie --no-dynamic-linker -z notext
 else
 	PIE_LDFLAGS	+=	-pie --no-dynamic-linker
 endif
