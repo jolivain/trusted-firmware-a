@@ -16,6 +16,23 @@
       "message": "Unrelated failures",
       "revId": "15e54148618012a4798467f4b98ef4ca23e55c6b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6017d80_ff62fd62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-05T08:12:35Z",
+      "side": 1,
+      "message": "By definition, I believe there is no code owner for SGM-775 platform (since it\u0027s deprecated!). So I am upgrading Harrison\u0027s CR+1 vote into a COR+1 to unblock patch submission.",
+      "revId": "15e54148618012a4798467f4b98ef4ca23e55c6b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
