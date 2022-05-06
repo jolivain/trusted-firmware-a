@@ -46,6 +46,30 @@
       },
       "revId": "309dde1cd3203f08db7857e852d6e5d05c24df1f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60d532be_a3012764",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-05-06T12:06:36Z",
+      "side": 1,
+      "message": "\u003e [1]: I found it difficult to make use of software based CRC as the change introducing this feature (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/10543/10) lacked the steps to import it. I can try reusing it if you can provide instructions to integrate it for a example platform like PLAT\u003dhikey.\n\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/10543/10 this change mainly introduces a sottware-crc function that platform can use it. Refer this example https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/st/stm32mp1/platform.mk#n324 where ST platform uses software CRC implementation. Let me know if you need any further details.\n\n\u003e [2]: If I understand correctly, hardware based CRC is only supported for ARM based platforms and would require the partition driver to assume this architecture. If not, kindly provide steps to integrate it.\n\nYes, hardware CRC is supported for Armv8.0 and on-wards if your platform using prior architecture (\u003c ARMv8.0) then you can use software CRC instead.",
+      "parentUuid": "fc49128d_a85e7ef9",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 41
+      },
+      "revId": "309dde1cd3203f08db7857e852d6e5d05c24df1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
