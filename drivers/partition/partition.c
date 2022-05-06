@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -16,6 +16,7 @@
 #include <drivers/partition/gpt.h>
 #include <drivers/partition/mbr.h>
 #include <plat/common/platform.h>
+#include <zlib.h>
 
 static uint8_t mbr_sector[PLAT_PARTITION_BLOCK_SIZE];
 static partition_entry_list_t list;
@@ -84,6 +85,7 @@ static int load_gpt_header(uintptr_t image_handle)
 	gpt_header_t header;
 	size_t bytes_read;
 	int result;
+	uint32_t header_crc, calc_crc;
 
 	result = io_seek(image_handle, IO_SEEK_SET, GPT_HEADER_OFFSET);
 	if (result != 0) {
@@ -98,6 +100,22 @@ static int load_gpt_header(uintptr_t image_handle)
 		   sizeof(header.signature)) != 0) {
 		return -EINVAL;
 	}
+
+	/*
+	 * UEFI Spec 2.8 March 2019 Page 119: HeaderCRC32 value is
+	 * computed by setting this field to 0, and computing the
+	 * 32-bit CRC for HeaderSize bytes.
+	 */
+	header_crc = header.header_crc;
+	header.header_crc = 0U;
+
+	calc_crc = crc32(0U, (uint8_t *)&header, DEFAULT_GPT_HEADER_SIZE);
+	if (header_crc != calc_crc) {
+		ERROR("Invalid GPT Header CRC: Expected 0x%x but got 0x%x.\n", header_crc, calc_crc);
+		return -EINVAL;
+	}
+
+	header.header_crc = header_crc;
 
 	/* partition numbers can't exceed PLAT_PARTITION_MAX_ENTRIES */
 	list.entry_count = header.list_num;
