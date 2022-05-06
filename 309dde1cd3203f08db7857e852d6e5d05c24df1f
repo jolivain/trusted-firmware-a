@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "865fb5f6_459da89a",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-05-06T10:42:49Z",
+      "side": 1,
+      "message": "Just wonderting, why do you need this function when we have software CRC [1] and hardware CRC [2] calculation functions in TF-A? \n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/lib/zlib/tf_gunzip.c#n112\n[2]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/common/tf_crc32.c#n27",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 41
+      },
+      "revId": "309dde1cd3203f08db7857e852d6e5d05c24df1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
