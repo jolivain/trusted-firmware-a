@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2019, Arm Limited. All rights reserved.
+ * Copyright (c) 2022, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -202,13 +203,104 @@ static void gic600_multichip_validate_data(
 }
 
 /*******************************************************************************
- * Intialize GIC-600 Multichip operation.
+ * Validates the GIC-700 Multichip data structure passed by the platform.
+ ******************************************************************************/
+static void gic700_multichip_validate_data(
+		struct gic600_multichip_data *multichip_data)
+{
+	unsigned int i, spi_id_min, spi_id_max, blocks_of_32;
+	unsigned int multichip_spi_blocks = 0, multichip_espi_blocks = 0;
+
+	assert(multichip_data != NULL);
+
+	if (multichip_data->chip_count > GIC600_MAX_MULTICHIP) {
+		ERROR("GIC-700 Multichip count (%u) should not exceed %u\n",
+				multichip_data->chip_count, GIC600_MAX_MULTICHIP);
+		panic();
+	}
+
+	for (i = 0U; i < multichip_data->chip_count; i++) {
+		spi_id_min = multichip_data->spi_ids[i][SPI_MIN_INDEX];
+		spi_id_max = multichip_data->spi_ids[i][SPI_MAX_INDEX];
+
+		if ((spi_id_min == 0U) || (spi_id_max == 0U)) {
+			continue;
+		}
+
+		/* MIN SPI ID check */
+		if ((spi_id_min < GIC700_SPI_ID_MIN) ||
+		    ((spi_id_min >= GIC700_SPI_ID_MAX) &&
+		     (spi_id_min < GIC700_ESPI_ID_MIN))) {
+			ERROR("Invalid MIN SPI ID {%u} passed for "
+					"Chip %u\n", spi_id_min, i);
+			panic();
+		}
+
+		if ((spi_id_min > spi_id_max) ||
+		    ((spi_id_max - spi_id_min + 1) % 32 != 0)) {
+			ERROR("Unaligned SPI IDs {%u, %u} passed for "
+					"Chip %u\n", spi_id_min,
+					spi_id_max, i);
+			panic();
+		}
+
+		/* ESPI IDs range check */
+		if ((spi_id_min >= GIC700_ESPI_ID_MIN) &&
+		    (spi_id_max > GIC700_ESPI_ID_MAX)) {
+			ERROR("Invalid ESPI IDs {%u, %u} passed for "
+					"Chip %u\n", spi_id_min,
+					spi_id_max, i);
+			panic();
+
+		}
+
+		/* SPI IDs range check */
+		if (((spi_id_min < GIC700_SPI_ID_MAX) &&
+		     (spi_id_max > GIC700_SPI_ID_MAX))) {
+			ERROR("Invalid SPI IDs {%u, %u} passed for "
+					"Chip %u\n", spi_id_min,
+					spi_id_max, i);
+			panic();
+		}
+
+		/* SPI IDs overlap check */
+		if (spi_id_max < GIC700_SPI_ID_MAX) {
+			blocks_of_32 = BLOCKS_OF_32(spi_id_min, spi_id_max);
+			if ((multichip_spi_blocks & blocks_of_32) != 0) {
+				ERROR("SPI IDs of Chip %u overlapping\n", i);
+				panic();
+			}
+			multichip_spi_blocks |= blocks_of_32;
+		}
+
+		/* ESPI IDs overlap check */
+		if (spi_id_max > GIC700_ESPI_ID_MIN) {
+			blocks_of_32 = BLOCKS_OF_32(spi_id_min - GIC700_ESPI_ID_MIN,
+					spi_id_max - GIC700_ESPI_ID_MIN);
+			if ((multichip_espi_blocks & blocks_of_32) != 0) {
+				ERROR("SPI IDs of Chip %u overlapping\n", i);
+				panic();
+			}
+			multichip_espi_blocks |= blocks_of_32;
+		}
+	}
+}
+
+/*******************************************************************************
+ * Intialize GIC-600 and GIC-700 Multichip operation.
  ******************************************************************************/
 void gic600_multichip_init(struct gic600_multichip_data *multichip_data)
 {
 	unsigned int i;
+	uint32_t gicd_iidr_val = gicd_read_iidr(multichip_data->rt_owner_base);
 
-	gic600_multichip_validate_data(multichip_data);
+	if ((gicd_iidr_val & IIDR_MODEL_MASK) == IIDR_MODEL_ARM_GIC_600) {
+		gic600_multichip_validate_data(multichip_data);
+	}
+
+	if ((gicd_iidr_val & IIDR_MODEL_MASK) == IIDR_MODEL_ARM_GIC_700) {
+		gic700_multichip_validate_data(multichip_data);
+	}
 
 	/*
 	 * Ensure that G0/G1S/G1NS interrupts are disabled. This also ensures
