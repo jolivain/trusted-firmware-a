@@ -56,6 +56,10 @@ BL2_SOURCES     +=	\
 		plat/intel/soc/common/drivers/wdt/watchdog.c		\
 		plat/intel/soc/common/drivers/ccu/ncore_ccu.c
 
+include lib/zlib/zlib.mk
+PLAT_INCLUDES		+=	-Ilib/zlib
+BL2_SOURCES		+=	$(ZLIB_SOURCES)
+
 BL31_SOURCES	+=	\
 		drivers/arm/cci/cci.c					\
 		lib/cpus/aarch64/aem_generic.S				\

@@ -180,8 +180,13 @@ $(eval $(call add_define,ARM_GPT_SUPPORT))
 
 # Include necessary sources to parse GPT image
 ifeq (${ARM_GPT_SUPPORT}, 1)
+  include lib/zlib/zlib.mk
+
+  PLAT_INCLUDES	+=	-Ilib/zlib
+
   BL2_SOURCES	+=	drivers/partition/gpt.c		\
-			drivers/partition/partition.c
+			drivers/partition/partition.c	\
+			$(ZLIB_SOURCES)
 endif
 
 # Enable CRC instructions via extension for ARMv8-A CPUs.
