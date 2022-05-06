@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61418f61_a10b04db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-05-06T00:17:41Z",
+      "side": 1,
+      "message": "The only fails were in static checks unrelated to this patch.\n\nAlso need to add BRBE file to coverity scan in the CI.",
+      "revId": "744ad97445ce7aa65adaef376d0b5bafc12a90d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
