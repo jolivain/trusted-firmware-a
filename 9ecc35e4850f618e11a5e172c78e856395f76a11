@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd82fe00_2a4774f7",
+        "filename": "plat/intel/soc/common/include/socfpga_sip_svc.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-05-06T19:29:21Z",
+      "side": 1,
+      "message": "remove(all instances as applicable)",
+      "range": {
+        "startLine": 79,
+        "startChar": 44,
+        "endLine": 79,
+        "endChar": 45
+      },
+      "revId": "9ecc35e4850f618e11a5e172c78e856395f76a11",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80157b5c_711e6c15",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-05-06T19:29:21Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "range": {
+        "startLine": 186,
+        "startChar": 5,
+        "endLine": 186,
+        "endChar": 51
+      },
+      "revId": "9ecc35e4850f618e11a5e172c78e856395f76a11",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35d2db33_f503108f",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-05-06T19:29:21Z",
+      "side": 1,
+      "message": "Please use braces",
+      "revId": "9ecc35e4850f618e11a5e172c78e856395f76a11",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4710ac0_ec999f47",
+        "filename": "plat/intel/soc/common/socfpga_sip_svc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-05-06T19:29:21Z",
+      "side": 1,
+      "message": "Please use braces( across all instances)",
+      "revId": "9ecc35e4850f618e11a5e172c78e856395f76a11",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
