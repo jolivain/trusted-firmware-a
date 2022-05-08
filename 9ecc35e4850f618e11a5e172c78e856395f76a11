@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bae86015_cc1e30d8",
+        "filename": "plat/intel/soc/common/include/socfpga_sip_svc.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-05-08T15:38:17Z",
+      "side": 1,
+      "message": "Fixed. Thanks.",
+      "parentUuid": "cd82fe00_2a4774f7",
+      "range": {
+        "startLine": 79,
+        "startChar": 44,
+        "endLine": 79,
+        "endChar": 45
+      },
+      "revId": "9ecc35e4850f618e11a5e172c78e856395f76a11",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80157b5c_711e6c15",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-05-06T19:29:21Z",
       "side": 1,
       "message": "!\u003d 0",
+      "range": {
+        "startLine": 186,
+        "startChar": 5,
+        "endLine": 186,
+        "endChar": 51
+      },
+      "revId": "9ecc35e4850f618e11a5e172c78e856395f76a11",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49618a11_11616a89",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-05-08T15:38:17Z",
+      "side": 1,
+      "message": "Fixed. Thanks.",
+      "parentUuid": "80157b5c_711e6c15",
       "range": {
         "startLine": 186,
         "startChar": 5,
@@ -64,6 +112,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d95502f8_bfef4514",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-05-08T15:38:17Z",
+      "side": 1,
+      "message": "Fixed. Thanks.",
+      "parentUuid": "35d2db33_f503108f",
+      "revId": "9ecc35e4850f618e11a5e172c78e856395f76a11",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4710ac0_ec999f47",
@@ -77,6 +143,24 @@
       "writtenOn": "2022-05-06T19:29:21Z",
       "side": 1,
       "message": "Please use braces( across all instances)",
+      "revId": "9ecc35e4850f618e11a5e172c78e856395f76a11",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d9ab417_0e71d493",
+        "filename": "plat/intel/soc/common/socfpga_sip_svc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-05-08T15:38:17Z",
+      "side": 1,
+      "message": "Fixed. Thanks.",
+      "parentUuid": "f4710ac0_ec999f47",
       "revId": "9ecc35e4850f618e11a5e172c78e856395f76a11",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
