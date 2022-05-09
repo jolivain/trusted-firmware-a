@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98deca6b_68ec5bf4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-05-09T23:24:08Z",
+      "side": 1,
+      "message": "I retriggered the failing CI test here and it passed: https://ci.trustedfirmware.org/job/tf-a-ci-gateway/9477/\n\nThe other fails were static check fails in other patches. It should be ready to merge.",
+      "revId": "5d796b3a25150faff68013880f5a9350cbc53889",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
