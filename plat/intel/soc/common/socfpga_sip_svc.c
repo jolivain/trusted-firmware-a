@@ -569,23 +569,9 @@ uint32_t intel_smc_service_completed(uint64_t addr, uint32_t size,
 		return INTEL_SIP_SMC_STATUS_REJECTED;
 	}
 
-	if (mode == SERVICE_COMPLETED_MODE_ASYNC) {
-		status = mailbox_read_response_async(job_id,
-				NULL, (uint32_t *) addr, &resp_len, 0);
-	} else {
-		status = mailbox_read_response(job_id,
-				(uint32_t *) addr, &resp_len);
-
-		if (status == MBOX_NO_RESPONSE) {
-			status = MBOX_BUSY;
-		}
-	}
+	status = mailbox_read_response(job_id, (uint32_t *) addr, &resp_len);
 
 	if (status == MBOX_NO_RESPONSE) {
-		return INTEL_SIP_SMC_STATUS_NO_RESPONSE;
-	}
-
-	if (status == MBOX_BUSY) {
 		return INTEL_SIP_SMC_STATUS_BUSY;
 	}
 
