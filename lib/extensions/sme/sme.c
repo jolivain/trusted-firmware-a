@@ -37,6 +37,8 @@ void sme_enable(cpu_context_t *context)
 
 	/* Make sure SME is implemented in hardware before continuing. */
 	if (!feat_sme_supported()) {
+		/* Perhaps the hardware supports SVE only */
+		sve_enable(context);
 		return;
 	}
 
@@ -83,6 +85,8 @@ void sme_disable(cpu_context_t *context)
 
 	/* Make sure SME is implemented in hardware before continuing. */
 	if (!feat_sme_supported()) {
+		/* Perhaps the hardware supports SVE only */
+		sve_disable(context);
 		return;
 	}
 
