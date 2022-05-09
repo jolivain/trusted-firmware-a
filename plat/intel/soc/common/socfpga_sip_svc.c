@@ -542,18 +542,6 @@ static int intel_smc_get_usercode(uint32_t *user_code)
 	return INTEL_SIP_SMC_STATUS_OK;
 }
 
-/* Miscellaneous HPS services */
-static uint32_t intel_hps_set_bridges(uint64_t enable)
-{
-	if (enable != 0U) {
-		socfpga_bridges_enable();
-	} else {
-		socfpga_bridges_disable();
-	}
-
-	return INTEL_SIP_SMC_STATUS_OK;
-}
-
 uint32_t intel_smc_service_completed(uint64_t addr, uint32_t size,
 				uint32_t mode, uint32_t *job_id,
 				uint32_t *ret_size, uint32_t *mbox_error)
@@ -595,6 +583,18 @@ uint32_t intel_smc_service_completed(uint64_t addr, uint32_t size,
 	if (status != MBOX_RET_OK) {
 		*mbox_error = -status;
 		return INTEL_SIP_SMC_STATUS_ERROR;
+	}
+
+	return INTEL_SIP_SMC_STATUS_OK;
+}
+
+/* Miscellaneous HPS services */
+static uint32_t intel_hps_set_bridges(uint64_t enable)
+{
+	if (enable != 0U) {
+		socfpga_bridges_enable();
+	} else {
+		socfpga_bridges_disable();
 	}
 
 	return INTEL_SIP_SMC_STATUS_OK;
