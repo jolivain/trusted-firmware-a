@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51dbd06f_3efd21e3",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-05-09T19:22:54Z",
+      "side": 1,
+      "message": "arm_common.mk inclusion at line no.384 already includes Event Log driver as a measured-boot backend and also adds EVENT_LOG_SOURCES to BL1 and BL2. IMO we should add only extra RSS backend makefile inclusion for Arm FVP platform.",
+      "range": {
+        "startLine": 374,
+        "startChar": 1,
+        "endLine": 374,
+        "endChar": 68
+      },
+      "revId": "393d0818bd5cc99ec8b4d9a845094684a301dfb6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
