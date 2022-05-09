@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56cf99e2_431e600d",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-05-09T18:27:07Z",
+      "side": 1,
+      "message": "Please enclose in {...} as per TFA coding style guidelines. https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "range": {
+        "startLine": 234,
+        "startChar": 3,
+        "endLine": 234,
+        "endChar": 46
+      },
+      "revId": "155d94a1e286b55fc4c6c7c7beaaf910e5114d1a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
