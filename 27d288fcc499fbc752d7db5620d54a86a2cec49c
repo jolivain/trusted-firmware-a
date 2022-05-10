@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca77d3a4_deb9dfc1",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-10T18:57:35Z",
+      "side": 1,
+      "message": "Add additional check that the sender populated in the memory transaction is not a secure world ID.",
+      "revId": "27d288fcc499fbc752d7db5620d54a86a2cec49c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
