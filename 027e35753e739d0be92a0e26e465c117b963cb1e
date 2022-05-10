@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3467e9b5_fd6c5e81",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 38
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-10T13:16:27Z",
+      "side": 1,
+      "message": "Does it correspond to a PSCI_SUSPEND call initiated by the OS?",
+      "range": {
+        "startLine": 17,
+        "startChar": 42,
+        "endLine": 17,
+        "endChar": 62
+      },
+      "revId": "027e35753e739d0be92a0e26e465c117b963cb1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cd4c04e_d235d38b",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 38
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-10T13:16:27Z",
+      "side": 1,
+      "message": "See https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/services/std_svc/spmd/spmd_private.h#n62",
+      "range": {
+        "startLine": 64,
+        "startChar": 8,
+        "endLine": 64,
+        "endChar": 37
+      },
+      "revId": "027e35753e739d0be92a0e26e465c117b963cb1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77c94383_a3af8e12",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 38
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-10T13:16:27Z",
+      "side": 1,
+      "message": "https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/services/std_svc/spmd/spmd_private.h#n63",
+      "range": {
+        "startLine": 67,
+        "startChar": 8,
+        "endLine": 67,
+        "endChar": 27
+      },
+      "revId": "027e35753e739d0be92a0e26e465c117b963cb1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a81d6b5_cb0c105a",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 38
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-10T13:16:27Z",
+      "side": 1,
+      "message": "This looks a bit convoluted. Can we just check x2 lower byte matches one of known/supported message (e.g. FFA_PM_MSG_PSCI_REQ)?",
+      "range": {
+        "startLine": 236,
+        "startChar": 9,
+        "endLine": 237,
+        "endChar": 38
+      },
+      "revId": "027e35753e739d0be92a0e26e465c117b963cb1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
