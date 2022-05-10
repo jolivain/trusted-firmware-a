@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd46606d_1bf4d3be",
+        "filename": "lib/cpus/aarch64/cortex_x1.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000340
+      },
+      "writtenOn": "2022-05-10T19:41:04Z",
+      "side": 1,
+      "message": "Shorten to just \"#include \u003ccortex_x1.h\u003e\", that directory is included by default.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 39
+      },
+      "revId": "842d517a5a3ba1d2756c4572afe3fb98c427d054",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
