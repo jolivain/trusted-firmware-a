@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21843bb7_a693c9cb",
+        "filename": "services/std_svc/spm/el3_spmc/spmc.h",
+        "patchSetId": 36
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-10T10:44:41Z",
+      "side": 1,
+      "message": "If I remove this then the compiler complains that I need 33 bits instead of 32 therefore we need to explicitly state that the shifted value is also unsigned.",
+      "parentUuid": "7bc67b17_14fce833",
+      "range": {
+        "startLine": 41,
+        "startChar": 38,
+        "endLine": 41,
+        "endChar": 39
+      },
+      "revId": "3dd3f2cb183e157183aa0a3f6341f068d97bc99e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0345809_5c897be5",
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "74a9aff3_6714e26d",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 36
+      },
+      "lineNbr": 1040,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-10T10:44:41Z",
+      "side": 1,
+      "message": "Added a uint32_t cast to both of these assignments, or should I add an explicit mask here?",
+      "parentUuid": "a0345809_5c897be5",
+      "range": {
+        "startLine": 1040,
+        "startChar": 24,
+        "endLine": 1040,
+        "endChar": 26
+      },
+      "revId": "3dd3f2cb183e157183aa0a3f6341f068d97bc99e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d2646c9d_bdc4a321",
         "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
         "patchSetId": 36
@@ -60,6 +108,30 @@
       "writtenOn": "2022-05-09T11:18:58Z",
       "side": 1,
       "message": "!\u003d 0U?",
+      "range": {
+        "startLine": 1051,
+        "startChar": 6,
+        "endLine": 1051,
+        "endChar": 44
+      },
+      "revId": "3dd3f2cb183e157183aa0a3f6341f068d97bc99e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5db73627_bffe2cc9",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 36
+      },
+      "lineNbr": 1051,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-10T10:44:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2646c9d_bdc4a321",
       "range": {
         "startLine": 1051,
         "startChar": 6,
