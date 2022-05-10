@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e165c0f_96287454",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 35
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-10T10:44:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e39bdb24_3531bfc3",
+      "revId": "8d68fa9c454d88d6d832cb460a3588bf2aa91b3c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "745a9d40_f68e31ac",
@@ -31,6 +49,41 @@
       "writtenOn": "2022-05-09T21:24:02Z",
       "side": 1,
       "message": "make it a static function?",
+      "revId": "8d68fa9c454d88d6d832cb460a3588bf2aa91b3c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd423d6c_63ab7262",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 35
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-10T10:44:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "745a9d40_f68e31ac",
+      "revId": "8d68fa9c454d88d6d832cb460a3588bf2aa91b3c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e29fb363_ae79e4ce",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 35
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-10T10:44:46Z",
+      "side": 1,
+      "message": "Updated to align with Hafnium\u0027s behaviour of handling PARTITION_INFO_GET. We should only explicitly check for a v1.0  client and use the corresponding data structures in that case, otherwise we should use the new v1.1 forwards compatible format to match the SPMC\u0027s version.",
       "revId": "8d68fa9c454d88d6d832cb460a3588bf2aa91b3c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
