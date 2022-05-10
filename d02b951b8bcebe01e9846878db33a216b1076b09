@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbcbc338_0ebcd87f",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-05-10T18:32:49Z",
+      "side": 1,
+      "message": "we additionally need to check if buf_size\u003d0",
+      "range": {
+        "startLine": 610,
+        "startChar": 0,
+        "endLine": 610,
+        "endChar": 1
+      },
+      "revId": "d02b951b8bcebe01e9846878db33a216b1076b09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b38158e_b0130c40",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-05-10T18:32:49Z",
+      "side": 1,
+      "message": "should be secure_origin instead of flags",
+      "revId": "d02b951b8bcebe01e9846878db33a216b1076b09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e310f091_6183617c",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-05-10T18:32:49Z",
+      "side": 1,
+      "message": "should be INVALID_PARAMETERS as per spec, if buffers were not mapped before unmap",
+      "revId": "d02b951b8bcebe01e9846878db33a216b1076b09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
