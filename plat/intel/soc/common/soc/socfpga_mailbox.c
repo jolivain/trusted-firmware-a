@@ -385,6 +385,12 @@ int iterate_resp(uint32_t mbox_resp_len, uint32_t *resp_buf,
 	return MBOX_RET_OK;
 }
 
+int mailbox_send_cmd_async_ext(uint32_t header_cmd, uint32_t *args,
+			unsigned int len)
+{
+	return fill_mailbox_circular_buffer(header_cmd, args, len);
+}
+
 int mailbox_send_cmd_async(uint32_t *job_id, uint32_t cmd, uint32_t *args,
 			  unsigned int len, unsigned int indirect)
 {
