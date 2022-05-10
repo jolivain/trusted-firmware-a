@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "393b9108_eb4eee08",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 38
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-10T18:54:53Z",
+      "side": 1,
+      "message": "Yes it should, updated the comment to indicate it is initiated by the OS.",
+      "parentUuid": "3467e9b5_fd6c5e81",
+      "range": {
+        "startLine": 17,
+        "startChar": 42,
+        "endLine": 17,
+        "endChar": 62
+      },
+      "revId": "027e35753e739d0be92a0e26e465c117b963cb1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5cd4c04e_d235d38b",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-05-10T13:16:27Z",
       "side": 1,
       "message": "See https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/services/std_svc/spmd/spmd_private.h#n62",
+      "range": {
+        "startLine": 64,
+        "startChar": 8,
+        "endLine": 64,
+        "endChar": 37
+      },
+      "revId": "027e35753e739d0be92a0e26e465c117b963cb1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20b13bec_baf9d2ed",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 38
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-10T18:54:53Z",
+      "side": 1,
+      "message": "Thanks for pointing these out I had missed them. I\u0027ve removed and updated the SPMD specific #defines to use the newly defined generic FF-A messages.\nIs this what you had in mind?",
+      "parentUuid": "5cd4c04e_d235d38b",
       "range": {
         "startLine": 64,
         "startChar": 8,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d045d8b2_c811fbb3",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 38
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-10T18:54:53Z",
+      "side": 1,
+      "message": "As above.",
+      "parentUuid": "77c94383_a3af8e12",
+      "range": {
+        "startLine": 67,
+        "startChar": 8,
+        "endLine": 67,
+        "endChar": 27
+      },
+      "revId": "027e35753e739d0be92a0e26e465c117b963cb1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6a81d6b5_cb0c105a",
         "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
         "patchSetId": 38
@@ -83,6 +155,30 @@
       "writtenOn": "2022-05-10T13:16:27Z",
       "side": 1,
       "message": "This looks a bit convoluted. Can we just check x2 lower byte matches one of known/supported message (e.g. FFA_PM_MSG_PSCI_REQ)?",
+      "range": {
+        "startLine": 236,
+        "startChar": 9,
+        "endLine": 237,
+        "endChar": 38
+      },
+      "revId": "027e35753e739d0be92a0e26e465c117b963cb1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "797cec03_db02c350",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 38
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-10T18:54:53Z",
+      "side": 1,
+      "message": "Fair point. The idea here is just to check that the MBZ bits are 0 and then it would be up to the handler to decide if the message was a supported message. Therefore to prevent having to update 2 lists with the known messages I was thinking after the #define renames I can rewrite this and update the error message as:\n\n```\nif (x2 \u0026 ~(FFA_FWK_MSG_MASK | FFA_FWK_MSG_BIT)) {\n    VERBOSE(\"Invalid message format 0x%lx.\\n\", x2);\n    return false;\n}\n```\n\nDoes that convey the intention better?",
+      "parentUuid": "6a81d6b5_cb0c105a",
       "range": {
         "startLine": 236,
         "startChar": 9,
