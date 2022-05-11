@@ -158,6 +158,24 @@
       "parentUuid": "a18fa355_2952adaa",
       "revId": "ac097fdf07ad63b567ca751dc518f8445a0baef6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c33471a_1847d6dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-05-11T14:26:56Z",
+      "side": 1,
+      "message": "For the Allow--CI label setting in your Gerrit settings (towards the bottom of the page) does it show the below under groups?\n\n\"Groups\n\nName\tDescription\tVisible to all\n....\ntrusted-firmware-a-ci-users\tUsers that may trigger the Open CI loop on TF-A patches.\tYes\n....\"\n\nIf not try logging out and in again. This is not normally needed though.",
+      "parentUuid": "02c8432c_33695408",
+      "revId": "ac097fdf07ad63b567ca751dc518f8445a0baef6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
