@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a878163e_c81436a7",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-05-11T19:36:57Z",
+      "side": 1,
+      "message": "-pie and --no-dynamic-linker don\u0027t seem to be valid options for clang 14 (the minimum required version). However, -pie seems to be working, although not documented.\n\nAlso, shouldn\u0027t the condition have $(LD) instead of $(CC)?",
+      "revId": "0c60bb9616ce27f9e0575aac8d683a2cd6694610",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
