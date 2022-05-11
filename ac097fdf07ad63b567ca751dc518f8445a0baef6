@@ -123,6 +123,23 @@
       "parentUuid": "a7d9c62e_49bdbabc",
       "revId": "ac097fdf07ad63b567ca751dc518f8445a0baef6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a18fa355_2952adaa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-05-11T13:31:48Z",
+      "side": 1,
+      "message": "I have tried to remove Verified-1 and Allow-CI then I still cannot set +1 on it. I guess I am the owner of this patch which system is not allow same person to trigger CI-build. Is that possible? \n\nThanks.",
+      "revId": "ac097fdf07ad63b567ca751dc518f8445a0baef6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
