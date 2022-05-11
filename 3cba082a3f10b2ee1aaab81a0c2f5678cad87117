@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "11ce131e_bb22c55f",
+        "filename": "services/std_svc/spm/el3_spmc/spmc.h",
+        "patchSetId": 37
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:51Z",
+      "side": 1,
+      "message": "I\u0027m not sure if a union would help make things clearer here as this would affect how the descriptors were populated in the buffers due to the differences in size. \nCurrently we can simply loop over an array of the descriptor for the appropriate version which IMO I think is simpler however open to suggestions if something else is preferred?",
+      "parentUuid": "02bb3138_f9e7f090",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 2
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5081e00f_799114fa",
         "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
         "patchSetId": 37
@@ -37,6 +61,30 @@
       "writtenOn": "2022-05-11T08:03:09Z",
       "side": 1,
       "message": "May this move to common/uuid.c?",
+      "range": {
+        "startLine": 726,
+        "startChar": 0,
+        "endLine": 743,
+        "endChar": 1
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6c5d19b_7ae9d880",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5081e00f_799114fa",
       "range": {
         "startLine": 726,
         "startChar": 0,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2e549d95_da3c1819",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:51Z",
+      "side": 1,
+      "message": "I\u0027ve tried to refactor this based upon Hafnium\u0027s implementation of using an in memory array to store the information before populating it in the callers buffer and have it down to two times however I can\u0027t think of any way to merge the LP and SP loops. Please let me know if this looks better or if there are any further refactors that can be made.",
+      "parentUuid": "793e9432_b29ddb4c",
+      "range": {
+        "startLine": 772,
+        "startChar": 1,
+        "endLine": 789,
+        "endChar": 2
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08606cc7_3e6257e8",
         "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
         "patchSetId": 37
@@ -89,6 +161,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5d1dd12f_8830bb8a",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:51Z",
+      "side": 1,
+      "message": "Sorry I may have addressed this in the refactor, however was the ask for an extra or removal of a blank line here?",
+      "parentUuid": "08606cc7_3e6257e8",
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "93f69f50_9250413d",
         "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
         "patchSetId": 37
@@ -100,6 +190,30 @@
       "writtenOn": "2022-05-11T08:03:09Z",
       "side": 1,
       "message": "uint32_t",
+      "range": {
+        "startLine": 827,
+        "startChar": 1,
+        "endLine": 827,
+        "endChar": 4
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e18d04d_cecb8c8b",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93f69f50_9250413d",
       "range": {
         "startLine": 827,
         "startChar": 1,
@@ -133,6 +247,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc773b59_38f2eb29",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9477ce8d_ae83d0f3",
+      "range": {
+        "startLine": 828,
+        "startChar": 1,
+        "endLine": 828,
+        "endChar": 4
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "102d340a_2ea82ee4",
@@ -146,6 +284,30 @@
       "writtenOn": "2022-05-11T08:03:09Z",
       "side": 1,
       "message": "0U",
+      "range": {
+        "startLine": 843,
+        "startChar": 14,
+        "endLine": 843,
+        "endChar": 15
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e151ca4b_e58a7635",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "102d340a_2ea82ee4",
       "range": {
         "startLine": 843,
         "startChar": 14,
@@ -179,6 +341,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfae83b9_7c69b043",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:51Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "5ae10a28_d34006a2",
+      "range": {
+        "startLine": 857,
+        "startChar": 3,
+        "endLine": 859,
+        "endChar": 4
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65492c66_87c75c51",
@@ -192,6 +378,30 @@
       "writtenOn": "2022-05-11T08:03:09Z",
       "side": 1,
       "message": "0U",
+      "range": {
+        "startLine": 864,
+        "startChar": 14,
+        "endLine": 864,
+        "endChar": 15
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "009d9c8e_388163f1",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65492c66_87c75c51",
       "range": {
         "startLine": 864,
         "startChar": 14,
@@ -221,6 +431,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b482bd6_0bc0bd98",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:51Z",
+      "side": 1,
+      "message": "As above.",
+      "parentUuid": "8b9afcf9_689de7f5",
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a5b11cd6_ab5dc2f9",
         "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
         "patchSetId": 37
@@ -232,6 +460,30 @@
       "writtenOn": "2022-05-11T08:03:09Z",
       "side": 1,
       "message": "uin32_t?",
+      "range": {
+        "startLine": 895,
+        "startChar": 1,
+        "endLine": 895,
+        "endChar": 4
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "850f8d7c_1a997a8d",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5b11cd6_ab5dc2f9",
       "range": {
         "startLine": 895,
         "startChar": 1,
@@ -265,6 +517,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57642f70_5cb9fb04",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e013ff0a_f79d80fe",
+      "range": {
+        "startLine": 898,
+        "startChar": 14,
+        "endLine": 898,
+        "endChar": 15
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4805789e_68a47fe3",
@@ -278,6 +554,30 @@
       "writtenOn": "2022-05-11T08:03:09Z",
       "side": 1,
       "message": "0U",
+      "range": {
+        "startLine": 906,
+        "startChar": 14,
+        "endLine": 906,
+        "endChar": 15
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff6d41e7_d8a582b3",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4805789e_68a47fe3",
       "range": {
         "startLine": 906,
         "startChar": 14,
@@ -311,6 +611,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4237fb4_8ee87804",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce527de2_8b1edd4c",
+      "range": {
+        "startLine": 931,
+        "startChar": 1,
+        "endLine": 931,
+        "endChar": 4
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2deab38_9f8cbcff",
@@ -324,6 +648,30 @@
       "writtenOn": "2022-05-11T08:03:09Z",
       "side": 1,
       "message": "Is this reference needed in this function? It looks it\u0027s only passed to sub functions.\nShould sub function get the reference themselves?",
+      "range": {
+        "startLine": 934,
+        "startChar": 21,
+        "endLine": 934,
+        "endChar": 33
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "819eaad8_d1e12168",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:51Z",
+      "side": 1,
+      "message": "Fair point, not sure why it was done this way now.",
+      "parentUuid": "d2deab38_9f8cbcff",
       "range": {
         "startLine": 934,
         "startChar": 21,
@@ -357,6 +705,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d29fea98_7d06e5d9",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2cebe777_44ef1e3a",
+      "range": {
+        "startLine": 946,
+        "startChar": 16,
+        "endLine": 947,
+        "endChar": 32
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43359c54_a92b1678",
@@ -370,6 +742,24 @@
       "writtenOn": "2022-05-11T08:03:09Z",
       "side": 1,
       "message": "Should it check is_null_uuid \u003d\u003d false?",
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "678862b4_1ebbc6a4",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:51Z",
+      "side": 1,
+      "message": "Sorry I might be missing something but why would we want to check for the null UUID at this point? The count_only handler should handle each case appropriately.",
+      "parentUuid": "43359c54_a92b1678",
       "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -397,6 +787,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62955367_da4252b6",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:51Z",
+      "side": 1,
+      "message": "That is true, I had kept it this way to be consistent with the other functions however it already has a different signature so have updated.",
+      "parentUuid": "e7293b77_2128508a",
+      "range": {
+        "startLine": 955,
+        "startChar": 2,
+        "endLine": 955,
+        "endChar": 8
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7454a056_193d307a",
@@ -410,6 +824,30 @@
       "writtenOn": "2022-05-11T08:03:09Z",
       "side": 1,
       "message": "NULL?",
+      "range": {
+        "startLine": 979,
+        "startChar": 25,
+        "endLine": 979,
+        "endChar": 26
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac61aab2_ddac4c4b",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 979,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7454a056_193d307a",
       "range": {
         "startLine": 979,
         "startChar": 25,
@@ -445,6 +883,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "42b36f79_a74a8ca4",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:51Z",
+      "side": 1,
+      "message": "Yes I think it should be, IIRC we aligned to Hafnium\u0027s implementation.",
+      "parentUuid": "c6e06d1d_3ac3c4bc",
+      "range": {
+        "startLine": 980,
+        "startChar": 9,
+        "endLine": 980,
+        "endChar": 23
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ae84c189_962e08db",
         "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
         "patchSetId": 37
@@ -456,6 +918,30 @@
       "writtenOn": "2022-05-11T08:03:09Z",
       "side": 1,
       "message": "Does it really have to be passed to the subfunction?\nCan\u0027t the subfunction determine itself?",
+      "range": {
+        "startLine": 1000,
+        "startChar": 13,
+        "endLine": 1000,
+        "endChar": 25
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb0a7202_afe1f050",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 1000,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:51Z",
+      "side": 1,
+      "message": "Fair point, updated to use the new helper instead.",
+      "parentUuid": "ae84c189_962e08db",
       "range": {
         "startLine": 1000,
         "startChar": 13,
