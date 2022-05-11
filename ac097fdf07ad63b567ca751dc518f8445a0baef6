@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a0f4239_737b93a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-05-11T09:48:58Z",
+      "side": 1,
+      "message": "\"Build Failed \n\nhttp://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l1/952/ : FAILURE\"\n\nBased on the above build failure, I have done the fix for\n1. 039c635b9::plat/intel/soc/common/socfpga_sip_svc_v2.c:\nPlatform includes not in order. Include order should be socfpga_mailbox.h, socfpga_sip_svc.h\n\n2. 11f4f0304::plat/intel/soc/common/soc/socfpga_reset_manager.c:\nGroup ordering error, order should be:\n\t** #include \u003cerrno.h\u003e                  --\u003e system header, moved to group 1.\n\t#include \u003ccommon/debug.h\u003e\n\t** #include \u003cdrivers/delay_timer.h\u003e    --\u003e project header, moved to group 2.\n\t#include \"socfpga_f2sdram_manager.h\"\n\t#include \"socfpga_mailbox.h\"\n\nPlease help to rerun CI-build or review. \n\n\nThanks. \nTang, Sieu Mun\n",
+      "revId": "ac097fdf07ad63b567ca751dc518f8445a0baef6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
