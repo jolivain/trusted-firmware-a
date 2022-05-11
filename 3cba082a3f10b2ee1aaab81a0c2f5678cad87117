@@ -826,6 +826,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6c431a30_24bfb247",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T18:12:54Z",
+      "side": 1,
+      "message": "\u003e Using a null UUID (and Flags[0]\u003d1) permits counting the total number of partitions (whichever UUID) without populating the RX buffer?\n\nYes that is my understanding as well. I think this should be covered in section 13.8.2:\n\n```\nIf this ABI is invoked with the Return information type flag in Flags input parameter \u003d b’1 and,\n  - If the Nil UUID is specified at the Non-secure physical FF-A instance, count of all partitions in the Secure state is returned.\n```\n\nIIRC one of the usecases retrieving for this was to accommodate the scenario where all the descriptors do not fit in the RX buffer, and by allowing the number of partitions to be retrieved a client is able to unmap and remap a buffer of a large enough size to accommodate the full list of partitions if it so wishes.\n\nHope this seems reasonable?",
+      "parentUuid": "5bc64f36_6f55d14a",
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e7293b77_2128508a",
         "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
         "patchSetId": 37
