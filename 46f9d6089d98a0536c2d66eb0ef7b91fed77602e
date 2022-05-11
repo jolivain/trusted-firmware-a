@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bea98474_3c41368d",
+        "filename": "services/std_svc/spm/el3_spmc/spmc.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:13:20Z",
+      "side": 1,
+      "message": "AFAIR the distinction between entering suspend event and suspend resume event is specific to the implementation. The spec only mentions about conveying a suspend pm event. I think what is done in this change is probably the way to go, but I wonder if the spec would require more elaboration?",
+      "range": {
+        "startLine": 58,
+        "startChar": 8,
+        "endLine": 58,
+        "endChar": 41
+      },
+      "revId": "46f9d6089d98a0536c2d66eb0ef7b91fed77602e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a2441238_c67d4f26",
         "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
         "patchSetId": 40
