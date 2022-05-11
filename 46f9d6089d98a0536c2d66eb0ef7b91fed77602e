@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2501adf_bd25cadb",
+        "filename": "services/std_svc/spm/el3_spmc/spmc.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:59Z",
+      "side": 1,
+      "message": "Good question, let me double check on this one.",
+      "parentUuid": "bea98474_3c41368d",
+      "range": {
+        "startLine": 58,
+        "startChar": 8,
+        "endLine": 58,
+        "endChar": 41
+      },
+      "revId": "46f9d6089d98a0536c2d66eb0ef7b91fed77602e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a2441238_c67d4f26",
         "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
         "patchSetId": 40
@@ -37,6 +61,30 @@
       "writtenOn": "2022-05-11T05:07:15Z",
       "side": 1,
       "message": "Can\u0027t those values be extracted from the non-secure GP registers context?\n(not a query to do this now)",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 18
+      },
+      "revId": "46f9d6089d98a0536c2d66eb0ef7b91fed77602e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc449500_9c6fea8b",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 40
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:59Z",
+      "side": 1,
+      "message": "Oh I see, I had thought we would need to update the mechanism to pass everything as arguments into the function, however it should be possible to extract the values directly from the registers? In which case I\u0027ll at least remove that part of the comment.",
+      "parentUuid": "a2441238_c67d4f26",
       "range": {
         "startLine": 121,
         "startChar": 4,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d921e30_548383eb",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 40
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c54536a8_8641a3a2",
+      "range": {
+        "startLine": 152,
+        "startChar": 21,
+        "endLine": 152,
+        "endChar": 49
+      },
+      "revId": "46f9d6089d98a0536c2d66eb0ef7b91fed77602e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "842d3286_e4e9c309",
@@ -87,6 +159,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14ebc71d_8de61d10",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 40
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "842d3286_e4e9c309",
+      "revId": "46f9d6089d98a0536c2d66eb0ef7b91fed77602e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3fce6885_39a3b0d4",
@@ -100,6 +190,30 @@
       "writtenOn": "2022-05-11T05:07:15Z",
       "side": 1,
       "message": "nit: this duplicates line 242, should it jump to a common exit point?",
+      "range": {
+        "startLine": 232,
+        "startChar": 2,
+        "endLine": 232,
+        "endChar": 42
+      },
+      "revId": "46f9d6089d98a0536c2d66eb0ef7b91fed77602e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9b413df_16b89b9a",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 40
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fce6885_39a3b0d4",
       "range": {
         "startLine": 232,
         "startChar": 2,
@@ -133,6 +247,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a7885e8_a1147db2",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 40
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01b49188_4bcd2469",
+      "range": {
+        "startLine": 261,
+        "startChar": 41,
+        "endLine": 261,
+        "endChar": 52
+      },
+      "revId": "46f9d6089d98a0536c2d66eb0ef7b91fed77602e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebff0ccd_a5037820",
@@ -156,6 +294,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49a9b8b4_4b42ccf9",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 40
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebff0ccd_a5037820",
+      "range": {
+        "startLine": 262,
+        "startChar": 18,
+        "endLine": 262,
+        "endChar": 25
+      },
+      "revId": "46f9d6089d98a0536c2d66eb0ef7b91fed77602e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "539d0aa5_90acd1fc",
@@ -169,6 +331,24 @@
       "writtenOn": "2022-05-11T05:07:15Z",
       "side": 1,
       "message": "nit: use a common exit point at line 272?",
+      "revId": "46f9d6089d98a0536c2d66eb0ef7b91fed77602e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f07a4ada_140a1ec3",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 40
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:09:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "539d0aa5_90acd1fc",
       "revId": "46f9d6089d98a0536c2d66eb0ef7b91fed77602e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
