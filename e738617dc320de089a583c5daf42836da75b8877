@@ -22,6 +22,30 @@
       },
       "revId": "e738617dc320de089a583c5daf42836da75b8877",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ce338f7_c45551c8",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 41
+      },
+      "lineNbr": 1877,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:10:54Z",
+      "side": 1,
+      "message": "Updated to use `!get_interrupt_src_ss`, and yes that makes sense, added.",
+      "parentUuid": "d25795fe_8a7b8904",
+      "range": {
+        "startLine": 1877,
+        "startChar": 45,
+        "endLine": 1877,
+        "endChar": 61
+      },
+      "revId": "e738617dc320de089a583c5daf42836da75b8877",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
