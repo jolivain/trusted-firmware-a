@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "107a1f22_f3d5ce92",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-05-11T13:19:59Z",
+      "side": 1,
+      "message": "Can we move the compilation decision of RSS measured boot files to the platform? As a part of this patch [1], you\u0027ve already moved the compilation decision of these files to Arm FVP platform, so better remove this.\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/14657/5/plat/arm/board/fvp/platform.mk#378",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 40
+      },
+      "revId": "a57401364d6b738883f404eb41c75965ec8f814f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
