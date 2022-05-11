@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7c97e50_78ed2570",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 44
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:06:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae701b25_69ddbc9e",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "5ca643793f4d470b2f69f5b1421d962ebdda6761",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b861d46a_05c0bd31",
@@ -41,6 +65,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08c4ee21_75fb8778",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:06:17Z",
+      "side": 1,
+      "message": "Sure, have moved them to the other patch so no SPMC code should be modified in this patch.",
+      "parentUuid": "b861d46a_05c0bd31",
+      "revId": "5ca643793f4d470b2f69f5b1421d962ebdda6761",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f2a26ff_457964c9",
@@ -54,6 +96,24 @@
       "writtenOn": "2022-05-11T05:23:27Z",
       "side": 1,
       "message": "nit: remove blank",
+      "revId": "5ca643793f4d470b2f69f5b1421d962ebdda6761",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4118d42_113f7584",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 44
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-11T12:06:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f2a26ff_457964c9",
       "revId": "5ca643793f4d470b2f69f5b1421d962ebdda6761",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
