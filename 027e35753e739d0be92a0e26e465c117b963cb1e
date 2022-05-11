@@ -95,6 +95,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8eee60e_3ed5409a",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 38
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T05:08:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "20b13bec_baf9d2ed",
+      "range": {
+        "startLine": 64,
+        "startChar": 8,
+        "endLine": 64,
+        "endChar": 37
+      },
+      "revId": "027e35753e739d0be92a0e26e465c117b963cb1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77c94383_a3af8e12",
@@ -142,6 +166,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecade1ea_e94a9487",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 38
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T05:08:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d045d8b2_c811fbb3",
+      "range": {
+        "startLine": 67,
+        "startChar": 8,
+        "endLine": 67,
+        "endChar": 27
+      },
+      "revId": "027e35753e739d0be92a0e26e465c117b963cb1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a81d6b5_cb0c105a",
@@ -179,6 +227,30 @@
       "side": 1,
       "message": "Fair point. The idea here is just to check that the MBZ bits are 0 and then it would be up to the handler to decide if the message was a supported message. Therefore to prevent having to update 2 lists with the known messages I was thinking after the #define renames I can rewrite this and update the error message as:\n\n```\nif (x2 \u0026 ~(FFA_FWK_MSG_MASK | FFA_FWK_MSG_BIT)) {\n    VERBOSE(\"Invalid message format 0x%lx.\\n\", x2);\n    return false;\n}\n```\n\nDoes that convey the intention better?",
       "parentUuid": "6a81d6b5_cb0c105a",
+      "range": {
+        "startLine": 236,
+        "startChar": 9,
+        "endLine": 237,
+        "endChar": 38
+      },
+      "revId": "027e35753e739d0be92a0e26e465c117b963cb1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28b99946_1b6fe547",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 38
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T05:08:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "797cec03_db02c350",
       "range": {
         "startLine": 236,
         "startChar": 9,
