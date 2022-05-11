@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2441238_c67d4f26",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 40
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T05:07:15Z",
+      "side": 1,
+      "message": "Can\u0027t those values be extracted from the non-secure GP registers context?\n(not a query to do this now)",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 18
+      },
+      "revId": "46f9d6089d98a0536c2d66eb0ef7b91fed77602e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c54536a8_8641a3a2",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 40
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T05:07:15Z",
+      "side": 1,
+      "message": "nit: use a local variable as it\u0027s referred to at multiple places in this function",
+      "range": {
+        "startLine": 152,
+        "startChar": 21,
+        "endLine": 152,
+        "endChar": 49
+      },
+      "revId": "46f9d6089d98a0536c2d66eb0ef7b91fed77602e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "842d3286_e4e9c309",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 40
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T05:07:15Z",
+      "side": 1,
+      "message": "nit: remove blank",
+      "revId": "46f9d6089d98a0536c2d66eb0ef7b91fed77602e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fce6885_39a3b0d4",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 40
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T05:07:15Z",
+      "side": 1,
+      "message": "nit: this duplicates line 242, should it jump to a common exit point?",
+      "range": {
+        "startLine": 232,
+        "startChar": 2,
+        "endLine": 232,
+        "endChar": 42
+      },
+      "revId": "46f9d6089d98a0536c2d66eb0ef7b91fed77602e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01b49188_4bcd2469",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 40
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T05:07:15Z",
+      "side": 1,
+      "message": "OFF?",
+      "range": {
+        "startLine": 261,
+        "startChar": 41,
+        "endLine": 261,
+        "endChar": 52
+      },
+      "revId": "46f9d6089d98a0536c2d66eb0ef7b91fed77602e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebff0ccd_a5037820",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 40
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T05:07:15Z",
+      "side": 1,
+      "message": "off",
+      "range": {
+        "startLine": 262,
+        "startChar": 18,
+        "endLine": 262,
+        "endChar": 25
+      },
+      "revId": "46f9d6089d98a0536c2d66eb0ef7b91fed77602e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "539d0aa5_90acd1fc",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 40
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T05:07:15Z",
+      "side": 1,
+      "message": "nit: use a common exit point at line 272?",
+      "revId": "46f9d6089d98a0536c2d66eb0ef7b91fed77602e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
