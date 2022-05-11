@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14494568_8bf85a08",
+        "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 768,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-05-11T20:19:48Z",
+      "side": 1,
+      "message": "I am wondering why cant you use direct indexing into the payload array?\n\n\t/* Crypto header */\n\tpayload[0] \u003d fcs_sha_get_digest_param.session_id;\n\tpayload[1] \u003d fcs_sha_get_digest_param.context_id;\n\tpayload[2] \u003d fcs_sha_get_digest_param.crypto_param_size\n\t\t\t\u0026 FCS_CS_FIELD_SIZE_MASK;\n\tpayload[2] |\u003d (FCS_CS_FIELD_FLAG_INIT | FCS_CS_FIELD_FLAG_UPDATE\n\t\t\t| FCS_CS_FIELD_FLAG_FINALIZE)\n\t\t\t\u003c\u003c FCS_CS_FIELD_FLAG_OFFSET;\n\tpayload[3] \u003d fcs_sha_get_digest_param.key_id;\n\nand so on ......",
+      "range": {
+        "startLine": 756,
+        "startChar": 0,
+        "endLine": 768,
+        "endChar": 46
+      },
+      "revId": "7e8249a2dbacfa751990c47644f0403311c6e260",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
