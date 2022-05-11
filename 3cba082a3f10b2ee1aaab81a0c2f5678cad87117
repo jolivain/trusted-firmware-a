@@ -1,0 +1,469 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02bb3138_f9e7f090",
+        "filename": "services/std_svc/spm/el3_spmc/spmc.h",
+        "patchSetId": 37
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:03:09Z",
+      "side": 1,
+      "message": "Would defining a single union help with factorizing the code for v1.0/v1.1 implementations of partition info get?",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 2
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5081e00f_799114fa",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:03:09Z",
+      "side": 1,
+      "message": "May this move to common/uuid.c?",
+      "range": {
+        "startLine": 726,
+        "startChar": 0,
+        "endLine": 743,
+        "endChar": 1
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "793e9432_b29ddb4c",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:03:09Z",
+      "side": 1,
+      "message": "It\u0027s a bit unfortunate this block is somehow repeated four times.\nThe only differences are whether using the lp array or sp array, populate v1.0 or v1.1 descriptors (copy uuid).\nIf there are ways to factorize I think it would be beneficial.",
+      "range": {
+        "startLine": 772,
+        "startChar": 1,
+        "endLine": 789,
+        "endChar": 2
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08606cc7_3e6257e8",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:03:09Z",
+      "side": 1,
+      "message": "nit: blank",
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93f69f50_9250413d",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:03:09Z",
+      "side": 1,
+      "message": "uint32_t",
+      "range": {
+        "startLine": 827,
+        "startChar": 1,
+        "endLine": 827,
+        "endChar": 4
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9477ce8d_ae83d0f3",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:03:09Z",
+      "side": 1,
+      "message": "uint32_t",
+      "range": {
+        "startLine": 828,
+        "startChar": 1,
+        "endLine": 828,
+        "endChar": 4
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "102d340a_2ea82ee4",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:03:09Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 843,
+        "startChar": 14,
+        "endLine": 843,
+        "endChar": 15
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ae10a28_d34006a2",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:03:09Z",
+      "side": 1,
+      "message": "repeats lines 847-849",
+      "range": {
+        "startLine": 857,
+        "startChar": 3,
+        "endLine": 859,
+        "endChar": 4
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65492c66_87c75c51",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:03:09Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 864,
+        "startChar": 14,
+        "endLine": 864,
+        "endChar": 15
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b9afcf9_689de7f5",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:03:09Z",
+      "side": 1,
+      "message": "nit: blank",
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5b11cd6_ab5dc2f9",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:03:09Z",
+      "side": 1,
+      "message": "uin32_t?",
+      "range": {
+        "startLine": 895,
+        "startChar": 1,
+        "endLine": 895,
+        "endChar": 4
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e013ff0a_f79d80fe",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:03:09Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 898,
+        "startChar": 14,
+        "endLine": 898,
+        "endChar": 15
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4805789e_68a47fe3",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:03:09Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 906,
+        "startChar": 14,
+        "endLine": 906,
+        "endChar": 15
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce527de2_8b1edd4c",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:03:09Z",
+      "side": 1,
+      "message": "uint32_t?",
+      "range": {
+        "startLine": 931,
+        "startChar": 1,
+        "endLine": 931,
+        "endChar": 4
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2deab38_9f8cbcff",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:03:09Z",
+      "side": 1,
+      "message": "Is this reference needed in this function? It looks it\u0027s only passed to sub functions.\nShould sub function get the reference themselves?",
+      "range": {
+        "startLine": 934,
+        "startChar": 21,
+        "endLine": 934,
+        "endChar": 33
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cebe777_44ef1e3a",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:03:09Z",
+      "side": 1,
+      "message": "May it deserve a helper in include/common/uuid.h?",
+      "range": {
+        "startLine": 946,
+        "startChar": 16,
+        "endLine": 947,
+        "endChar": 32
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43359c54_a92b1678",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:03:09Z",
+      "side": 1,
+      "message": "Should it check is_null_uuid \u003d\u003d false?",
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7293b77_2128508a",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:03:09Z",
+      "side": 1,
+      "message": "ret is unchecked.\nI\u0027m wondering if it could just return the partition count.",
+      "range": {
+        "startLine": 955,
+        "startChar": 2,
+        "endLine": 955,
+        "endChar": 8
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7454a056_193d307a",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 979,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:03:09Z",
+      "side": 1,
+      "message": "NULL?",
+      "range": {
+        "startLine": 979,
+        "startChar": 25,
+        "endLine": 979,
+        "endChar": 26
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6e06d1d_3ac3c4bc",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:03:09Z",
+      "side": 1,
+      "message": "nit: is busy the right error code?",
+      "range": {
+        "startLine": 980,
+        "startChar": 9,
+        "endLine": 980,
+        "endChar": 23
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae84c189_962e08db",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 1000,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T08:03:09Z",
+      "side": 1,
+      "message": "Does it really have to be passed to the subfunction?\nCan\u0027t the subfunction determine itself?",
+      "range": {
+        "startLine": 1000,
+        "startChar": 13,
+        "endLine": 1000,
+        "endChar": 25
+      },
+      "revId": "3cba082a3f10b2ee1aaab81a0c2f5678cad87117",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
