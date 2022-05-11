@@ -33,6 +33,24 @@
       "message": "I still see the failure appear but I cannot find where it this patch come from. Could anyone help on this?\n\n11f4f0304::plat/intel/soc/common/soc/socfpga_reset_manager.c:\nGroup ordering error, order should be:\n\t** #include \u003cerrno.h\u003e                  --\u003e system header, moved to group 1.\n\t#include \u003ccommon/debug.h\u003e\n\t** #include \u003cdrivers/delay_timer.h\u003e    --\u003e project header, moved to group 2.\n\t#include \"socfpga_f2sdram_manager.h\"\n\t#include \"socfpga_mailbox.h\"",
       "revId": "ac097fdf07ad63b567ca751dc518f8445a0baef6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16c1973b_f36fc82a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-05-11T10:27:44Z",
+      "side": 1,
+      "message": "From what I checked, \"11f4f0304\" has been merged as shown in below.\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/14418\n\nHence, I did the fix in \nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/14824/8/plat/intel/soc/common/soc/socfpga_reset_manager.c\n\nKindly advise on how to address this issue. \n\n\nThanks. \nTang, Sieu Mun",
+      "parentUuid": "26f42222_f494eb9e",
+      "revId": "ac097fdf07ad63b567ca751dc518f8445a0baef6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
