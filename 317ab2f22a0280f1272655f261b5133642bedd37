@@ -89,6 +89,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fdfab61_60b45d82",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 34
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T07:08:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "812c4ef9_decf84cc",
+      "revId": "317ab2f22a0280f1272655f261b5133642bedd37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a2333d12_e8a8b4b7",
@@ -120,6 +138,24 @@
       "side": 1,
       "message": "That would make sense, the original motivation behind this check was in the case of mismatching page sizes between FF-A and TF-A however IIUC any page size that TF-A uses will in fact be a multiple of 4K and therefore this check is redundant?",
       "parentUuid": "a2333d12_e8a8b4b7",
+      "revId": "317ab2f22a0280f1272655f261b5133642bedd37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b10ac919_a7a0d72c",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 34
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T07:08:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "51eb4a8b_baf772a1",
       "revId": "317ab2f22a0280f1272655f261b5133642bedd37",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -161,6 +197,30 @@
       "side": 1,
       "message": "We are mapping the TX buffer into the SPMC which should only be consuming data populated by the SP and therefore we should not require write access?",
       "parentUuid": "862dc195_63aabe8d",
+      "range": {
+        "startLine": 632,
+        "startChar": 14,
+        "endLine": 632,
+        "endChar": 24
+      },
+      "revId": "317ab2f22a0280f1272655f261b5133642bedd37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02f57d3b_0c1b6df9",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 34
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-11T07:08:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f08a331e_8d52d9e3",
       "range": {
         "startLine": 632,
         "startChar": 14,
