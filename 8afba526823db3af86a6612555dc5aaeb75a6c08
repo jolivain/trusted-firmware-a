@@ -70,6 +70,24 @@
       "parentUuid": "7bf1ff36_54326396",
       "revId": "8afba526823db3af86a6612555dc5aaeb75a6c08",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4ff4f7b_cdad7020",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-11T05:48:27Z",
+      "side": 1,
+      "message": "\u003e May I ask if these errors were caused by these patches?\n\u003e https://ci.trustedfirmware.org/job/tf-a-ci-gateway/9144/\n\nYes, the error messages in https://ci.trustedfirmware.org/job/tf-a-ci-gateway/9144/ are triggered by your patches.\n\nI\u0027ve seen this issue before, when I was trying to run the TF-A CI scripts on my local machine on an earlier version of your patches. I already know the root cause, this is a shortcoming in one of the expect scripts. I\u0027ve posted a patch to address this issue:\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/14672",
+      "parentUuid": "a212a81c_29b7cf97",
+      "revId": "8afba526823db3af86a6612555dc5aaeb75a6c08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
