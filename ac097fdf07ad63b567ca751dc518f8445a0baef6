@@ -51,6 +51,24 @@
       "parentUuid": "26f42222_f494eb9e",
       "revId": "ac097fdf07ad63b567ca751dc518f8445a0baef6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cba15b62_6fdcc622",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-05-11T10:56:21Z",
+      "side": 1,
+      "message": "I\u0027ve added you to be able to invoke the OpenCI runs with the Allow-CI label. Hopefully you can see you can set it now.\n\nIt takes a +1 or a +2 value. +1 is the lighter level of tests and can be used for patch stacks that don\u0027t change common code. Use the +2 if your changes are outside your platform code and may effect other areas and does a deeper level of testing that included all the +1 tests.\n\nWith any patch stack you only need to run the top most patch as it will test all parent patches. If the Verified is set to +1 by the CI you can manually set the verified+1 to all parent patches in the stack.",
+      "parentUuid": "6a0f4239_737b93a5",
+      "revId": "ac097fdf07ad63b567ca751dc518f8445a0baef6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
