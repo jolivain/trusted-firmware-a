@@ -20,6 +20,8 @@
 #include <lib/fconf/fconf_tbbr_getter.h>
 #include <plat/common/platform.h>
 
+/* Hello world! */
+
 /* ASN.1 tags */
 #define ASN1_INTEGER                 0x02
 
