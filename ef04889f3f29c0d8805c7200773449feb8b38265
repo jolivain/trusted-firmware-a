@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0dbff8e_b32e8a5b",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-12T15:07:08Z",
+      "side": 1,
+      "message": "Updated implementation to check for alignment and out of bound errors.",
+      "revId": "ef04889f3f29c0d8805c7200773449feb8b38265",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
