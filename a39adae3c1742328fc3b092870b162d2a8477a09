@@ -102,6 +102,29 @@
       },
       "revId": "a39adae3c1742328fc3b092870b162d2a8477a09",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea3df432_64241b4a",
+        "filename": "tools/cert_create/src/sha.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-05-12T08:15:34Z",
+      "side": 1,
+      "message": "The fclose() call is also needed in the error path if \u0027EVP_DigestInit_ex\u0027 fails.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 1
+      },
+      "revId": "a39adae3c1742328fc3b092870b162d2a8477a09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
