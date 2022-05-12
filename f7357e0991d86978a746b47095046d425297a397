@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ee09302_e04bc17c",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-12T15:06:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "951d52a2_0a81726e",
+      "range": {
+        "startLine": 595,
+        "startChar": 37,
+        "endLine": 595,
+        "endChar": 38
+      },
+      "revId": "f7357e0991d86978a746b47095046d425297a397",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "981a6f96_d0e2b4d6",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-05-12T09:11:20Z",
       "side": 1,
       "message": "Would it make sense to do a static assert, checking FFA_PAGE_SIZE aligns with PAGE_SIZE(TF-A translation granule)?\nsuch check would permit to neutralise this error at build, and there are probably other contexts in this implementation that would benefit.",
+      "range": {
+        "startLine": 606,
+        "startChar": 5,
+        "endLine": 606,
+        "endChar": 13
+      },
+      "revId": "f7357e0991d86978a746b47095046d425297a397",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dac9b062_e6b3f8e3",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-12T15:06:37Z",
+      "side": 1,
+      "message": "I had a (non static) check here to ensure that the buffer size was a multiple of PAGE_SIZE but due to previous comment I had removed it.\nIIUC PAGE_SIZE will always be a multiple of 4k (FFA_PAGE_SIZE) therefore these should always be aligned? If that is the case I\u0027m happy to add a static assert to verify this holds in any case if that is preferred?",
+      "parentUuid": "981a6f96_d0e2b4d6",
       "range": {
         "startLine": 606,
         "startChar": 5,
