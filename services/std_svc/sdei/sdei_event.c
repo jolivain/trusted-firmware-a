@@ -99,3 +99,24 @@ sdei_ev_map_t *find_event_map(int ev_num)
 
 	return NULL;
 }
+
+/*
+ * Return the total number of currently registered SDEI events.
+ */
+int sdei_get_registered_event_count(void)
+{
+	const sdei_mapping_t *mapping;
+	sdei_ev_map_t *map;
+	unsigned int i;
+	unsigned int j;
+	unsigned int count = 0;
+
+	/* Add up reg counts for each mapping. */
+	for_each_mapping_type(i, mapping) {
+		iterate_mapping(mapping, j, map) {
+			count = count + map->reg_count;
+		}
+	}
+
+	return count;
+}
