@@ -1,0 +1,199 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ee0c6ad_045a4713",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 45
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-12T18:27:18Z",
+      "side": 1,
+      "message": "its",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 16
+      },
+      "revId": "75e076d43fa3fd4275e2cd8c0a22c12ffc54a3cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d213ac9_e984d63b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 45
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-12T18:27:18Z",
+      "side": 1,
+      "message": "to?",
+      "range": {
+        "startLine": 11,
+        "startChar": 32,
+        "endLine": 11,
+        "endChar": 33
+      },
+      "revId": "75e076d43fa3fd4275e2cd8c0a22c12ffc54a3cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "056c4dd6_cfc38f81",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-12T18:27:18Z",
+      "side": 1,
+      "message": "Not a strong suggestion.\nThe spec defines a 7-bit boot information identifier, would it be worth defining mask and shift rather than single shifted bits?",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 282,
+        "endChar": 42
+      },
+      "revId": "75e076d43fa3fd4275e2cd8c0a22c12ffc54a3cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba271706_da7a63f3",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-12T18:27:18Z",
+      "side": 1,
+      "message": "The spec defines a 2-bit format of name field (same suggestion as above).",
+      "range": {
+        "startLine": 284,
+        "startChar": 0,
+        "endLine": 285,
+        "endChar": 47
+      },
+      "revId": "75e076d43fa3fd4275e2cd8c0a22c12ffc54a3cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1706a0c6_bc00d553",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-12T18:27:18Z",
+      "side": 1,
+      "message": "The spec defines a 2-bit format of contents field (same suggestion as above).",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 49
+      },
+      "revId": "75e076d43fa3fd4275e2cd8c0a22c12ffc54a3cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32ff6ad5_7bebe6fa",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-12T18:27:18Z",
+      "side": 1,
+      "message": "nit: move at top?",
+      "range": {
+        "startLine": 311,
+        "startChar": 0,
+        "endLine": 311,
+        "endChar": 38
+      },
+      "revId": "75e076d43fa3fd4275e2cd8c0a22c12ffc54a3cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29fcd720_7cbbe5b9",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 45
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-12T18:27:18Z",
+      "side": 1,
+      "message": "Should the boot information be passed only on cold boot ?\nIn the case of cpu hot (re)plug, is the boot information passed again to reach the secondary ep (on any core)?",
+      "revId": "75e076d43fa3fd4275e2cd8c0a22c12ffc54a3cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df3513cb_634055d1",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 45
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-12T18:27:18Z",
+      "side": 1,
+      "message": "Where is this argument used?",
+      "range": {
+        "startLine": 151,
+        "startChar": 17,
+        "endLine": 151,
+        "endChar": 30
+      },
+      "revId": "75e076d43fa3fd4275e2cd8c0a22c12ffc54a3cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b39d8f83_ade8ff3a",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 45
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-12T18:27:18Z",
+      "side": 1,
+      "message": "I believe we should provide a default case to satisfy MISRA.",
+      "revId": "75e076d43fa3fd4275e2cd8c0a22c12ffc54a3cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
