@@ -110,6 +110,29 @@
       },
       "revId": "fa5aeb5c575c851991aacd2f2dbb92962767fef4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da1d0db9_51a5f941",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 38
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-05-12T16:22:10Z",
+      "side": 1,
+      "message": "Can this be done outside of the mailbox lock? Only the part populating the buffer needs to be locked",
+      "range": {
+        "startLine": 923,
+        "startChar": 8,
+        "endLine": 923,
+        "endChar": 39
+      },
+      "revId": "fa5aeb5c575c851991aacd2f2dbb92962767fef4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
