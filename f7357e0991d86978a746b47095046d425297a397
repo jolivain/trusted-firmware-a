@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "951d52a2_0a81726e",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-12T09:11:20Z",
+      "side": 1,
+      "message": "error logs here, and subsequent checks.",
+      "range": {
+        "startLine": 595,
+        "startChar": 37,
+        "endLine": 595,
+        "endChar": 38
+      },
+      "revId": "f7357e0991d86978a746b47095046d425297a397",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "981a6f96_d0e2b4d6",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-12T09:11:20Z",
+      "side": 1,
+      "message": "Would it make sense to do a static assert, checking FFA_PAGE_SIZE aligns with PAGE_SIZE(TF-A translation granule)?\nsuch check would permit to neutralise this error at build, and there are probably other contexts in this implementation that would benefit.",
+      "range": {
+        "startLine": 606,
+        "startChar": 5,
+        "endLine": 606,
+        "endChar": 13
+      },
+      "revId": "f7357e0991d86978a746b47095046d425297a397",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
