@@ -90,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7556ddcd_1822cc22",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-12T09:05:52Z",
+      "side": 1,
+      "message": "Off the top of my head, I\u0027d say the TF-A coding style neither allows nor denies it. MISRA would forbid it but I don\u0027t think we mandate the host tools\u0027 source code to comply with MISRA.\n\nIn summary, yes I think this would be fine.",
+      "parentUuid": "c5941a0d_d9ef87e7",
+      "range": {
+        "startLine": 43,
+        "startChar": 15,
+        "endLine": 43,
+        "endChar": 21
+      },
+      "revId": "a39adae3c1742328fc3b092870b162d2a8477a09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "adf34903_a70607a4",
         "filename": "tools/cert_create/src/sha.c",
         "patchSetId": 5
