@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c96899b_8e1205f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-05-12T08:12:12Z",
+      "side": 1,
+      "message": "line is too long (max 72 chars)",
+      "revId": "d05e0967bbeb396b7938a438c4d24b63c615dc50",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03600038_1e28759e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-05-12T08:12:12Z",
+      "side": 1,
+      "message": "To avoid bisect issues, you should first modify platforms code, to include zlib, then make the modification in partition code.\nThis also does not compile for STM32MP1 platform, as zlib was only used in case of PSA_FWU_SUPPORT. The zlib things in plat/st/stm32mp1/platform.mk should then be outside ifeq (${PSA_FWU_SUPPORT},1):\n\n ifeq (${PSA_FWU_SUPPORT},1)\n-include lib/zlib/zlib.mk\n include drivers/fwu/fwu.mk\n-\n-BL2_SOURCES\t\t+\u003d\t$(ZLIB_SOURCES)\n endif\n+include lib/zlib/zlib.mk\n+PLAT_INCLUDES\t\t+\u003d\t-Ilib/zlib\n+BL2_SOURCES\t\t+\u003d\t$(ZLIB_SOURCES)\n \nWith those changes, this is correctly booting on STM32MP1.\n",
+      "revId": "d05e0967bbeb396b7938a438c4d24b63c615dc50",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e9821f4_c7eadcdc",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-05-12T08:12:12Z",
+      "side": 1,
+      "message": "Line is too long. As for Linux kernel, TF-A accepts up to 100 chars, but if possible it is better to limit the lines at 80 chars. You should put \u0027header_crc, calc_crc);\u0027 on the next line.",
+      "revId": "d05e0967bbeb396b7938a438c4d24b63c615dc50",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cd01961_87bbf608",
+        "filename": "include/drivers/partition/partition.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-05-12T08:12:12Z",
+      "side": 1,
+      "message": "keep 2022 (was OK on previous patch set)",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "d05e0967bbeb396b7938a438c4d24b63c615dc50",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
