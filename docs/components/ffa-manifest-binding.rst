@@ -137,6 +137,7 @@ Partition Properties
 
 - gp-register-num
    - value type: <u32>
+   - TODO: refine the description below.
    - Presence of this field indicates that the partition expects the
      ffa_init_info structure to be passed in via the specified general purpose
      register.
@@ -174,6 +175,7 @@ Memory Regions
       - 0x1: Read
       - 0x2: Write
       - 0x4: Execute
+      - 0x80: Non-secure
 
 - base-address
    - value type: <u64>
@@ -198,14 +200,7 @@ Device Regions
    - value type: <string>
    - Name of the device region e.g. for debugging purposes.
 
-- reg [mandatory]
-   - value type: <prop-encoded-array>
-   - A (address, num-pages) pair describing the device, where:
-
-      - address: The physical base address <u64> value of the device MMIO
-        region.
-      - num-pages: The <u32> number of pages of the region. The total size of
-        the region is this value multiplied by the translation granule size.
+- TODO: pages-count
 
 - attributes [mandatory]
    - value type: <u32>
@@ -214,6 +209,17 @@ Device Regions
      - 0x1: Read
      - 0x2: Write
      - 0x4: Execute
+     - 0x80: Non-secure
+
+- base-address [mandatory]
+   - TODO: align with memory regions?
+   - value type: <prop-encoded-array>
+   - A (address, num-pages) pair describing the device, where:
+
+      - address: The physical base address <u64> value of the device MMIO
+        region.
+      - num-pages: The <u32> number of pages of the region. The total size of
+        the region is this value multiplied by the translation granule size.
 
 - smmu-id
    - value type: <u32>
@@ -236,6 +242,7 @@ Device Regions
       - attributes: A <u32> value,
         containing the attributes for each interrupt ID:
 
+         - TODO: describe the attributes
          - Interrupt type: SPI, PPI, SGI
          - Interrupt configuration: Edge triggered, Level triggered
          - Interrupt security state: Secure, Non-secure
@@ -249,4 +256,4 @@ Device Regions
 
 --------------
 
-*Copyright (c) 2019-2021, Arm Limited and Contributors. All rights reserved.*
+*Copyright (c) 2019-2022, Arm Limited and Contributors. All rights reserved.*

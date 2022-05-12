@@ -3,6 +3,9 @@ Secure Partition Manager
 
 .. contents::
 
+.. toctree::
+   ffa-manifest-binding
+
 Acronyms
 ========
 
