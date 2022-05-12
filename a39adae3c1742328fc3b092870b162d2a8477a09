@@ -66,6 +66,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c5941a0d_d9ef87e7",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000681
+      },
+      "writtenOn": "2022-05-12T08:24:03Z",
+      "side": 1,
+      "message": "Would the coding style allow combing these two lines? e.g.\n\n    EVP_PKEY *rsa \u003d EVP_RSA_gen(key_bits);",
+      "parentUuid": "52ca86a8_5fab06bd",
+      "range": {
+        "startLine": 43,
+        "startChar": 15,
+        "endLine": 43,
+        "endChar": 21
+      },
+      "revId": "a39adae3c1742328fc3b092870b162d2a8477a09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "adf34903_a70607a4",
         "filename": "tools/cert_create/src/sha.c",
         "patchSetId": 5
