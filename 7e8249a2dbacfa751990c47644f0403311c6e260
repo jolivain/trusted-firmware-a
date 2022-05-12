@@ -22,6 +22,30 @@
       },
       "revId": "7e8249a2dbacfa751990c47644f0403311c6e260",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2eb4c38_e8b526c9",
+        "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 768,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2022-05-12T02:43:15Z",
+      "side": 1,
+      "message": "Hi, \nYes, ideally indexing is a good way. \nHowever, there is not if there is a change in the payload array from the header. \nIt might be not starting from 0. \nSo by maintaining current design, we can easily update i\u003d0 to other value if the payload array is updated instead of updating all the array index.",
+      "parentUuid": "14494568_8bf85a08",
+      "range": {
+        "startLine": 756,
+        "startChar": 0,
+        "endLine": 768,
+        "endChar": 46
+      },
+      "revId": "7e8249a2dbacfa751990c47644f0403311c6e260",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
