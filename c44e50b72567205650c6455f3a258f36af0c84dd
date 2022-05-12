@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbd0579d_bf4bac39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-12T06:38:45Z",
+      "side": 1,
+      "message": "There was one failure, which passed on re-trigger:\nhttps://ci.trustedfirmware.org/job/tf-a-ci-gateway/9801/\nI think the timing differed a bit and it didn\u0027t hit the timeout the second time.\n\nApart from that, the static checks failed but we\u0027ve already reviewed that and agreed it was fine.",
+      "revId": "c44e50b72567205650c6455f3a258f36af0c84dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c9adb65_6ad9a952",
