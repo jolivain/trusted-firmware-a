@@ -89,6 +89,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "13e1487b_2b6fb2a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-05-12T15:27:06Z",
+      "side": 1,
+      "message": "Just a heads up: I am happy to merge all those patches into one, if that\u0027s easier to handle. I just wanted to use the split to help review, and give more elaborate rationale for each change.\nSo let me know if that\u0027s useful and I can push a unified patch.",
+      "parentUuid": "15abc57b_8c586d1b",
+      "revId": "12842778523fd4dd4cb00a091992cde4d4b9aa62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fb9304d1_839d133a",
         "filename": "fdts/morello.dtsi",
         "patchSetId": 1
