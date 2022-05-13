@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e35ac9b5_3e1242c5",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-13T06:23:28Z",
+      "side": 0,
+      "message": "Should we at least check count is non-zero and bounded (to some limit)? What happens if emad_count happens to be very large unintentionally or maliciously? May emad array be accessed beyond its bounds?\nPerhaps this cannot \u0027happen\u0027 because the Hypervisor is trusted? In which case, what about the case when no Hypervisor is present?",
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
