@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "bb40ff7b_241256fd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-13T06:33:06Z",
+      "side": 1,
+      "message": "Thanks for this new commit message, I find it very helpful!",
+      "revId": "f9c5762dc58f1b84be6295431e1fe1f1343b8107",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "56227281_cf713da6",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 6
@@ -14,6 +31,52 @@
       "writtenOn": "2022-05-13T06:01:42Z",
       "side": 1,
       "message": "Adding Joao (code owner for fiptool) and Sumit (code owner of encrypt_fw tool) as reviewers.",
+      "revId": "f9c5762dc58f1b84be6295431e1fe1f1343b8107",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5c7fdbf_65ee6a9f",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-13T06:33:06Z",
+      "side": 1,
+      "message": "Do we really need to call EVP_PKEY_free() on this error path? \u0027rsa\u0027 pointer is NULL. I read in openssl EVP_RSA_gen() documentation that \"If key is NULL, nothing is done.\" so there does not seem to be any harm in doing it, but it\u0027s also pointless AFAIU. Consider just returning 0 here.",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 11
+      },
+      "revId": "f9c5762dc58f1b84be6295431e1fe1f1343b8107",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f863fa5c_5a7c6279",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-13T06:33:06Z",
+      "side": 1,
+      "message": "Same comment as on line 46.",
+      "range": {
+        "startLine": 63,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 11
+      },
       "revId": "f9c5762dc58f1b84be6295431e1fe1f1343b8107",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
