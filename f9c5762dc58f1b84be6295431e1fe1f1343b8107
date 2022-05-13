@@ -35,6 +35,40 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af756bd8_1eab7371",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000681
+      },
+      "writtenOn": "2022-05-13T07:26:54Z",
+      "side": 1,
+      "message": "Minor comments",
+      "revId": "f9c5762dc58f1b84be6295431e1fe1f1343b8107",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "342a336c_0a6c3343",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000681
+      },
+      "writtenOn": "2022-05-13T07:26:54Z",
+      "side": 1,
+      "message": "(minor) when targeting a POSIX system, errors would normally be written to stderr. Just confirming that stdout is what is desired here (and later on)",
+      "revId": "f9c5762dc58f1b84be6295431e1fe1f1343b8107",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5c7fdbf_65ee6a9f",
@@ -60,6 +94,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6e8ee302_9bc4dd32",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000681
+      },
+      "writtenOn": "2022-05-13T07:26:54Z",
+      "side": 1,
+      "message": "Agree with this. (Again, some coding standards require a single return from a function, others prefer all exits at the end of a function, but I find early returns in error cases make it easier to reason (less state to be kept in mind when reading the rest of a function - i.e. if we return 0 here we know that rsa is valid and not NULL for all the following lines).)\n\nAnd this becomes\n\n    EVP_PKEY *rsa \u003d EVP_RSA_gen(key_bits);\n    if (rsa \u003d\u003d NULL) {\n        printf(\"Cannot generate RSA key\\n\");\n        return 0;\n    }\n\n    key-\u003ekey \u003d rsa;\n    return 1;\n\nwhich seems very short and sweet",
+      "parentUuid": "a5c7fdbf_65ee6a9f",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 11
+      },
+      "revId": "f9c5762dc58f1b84be6295431e1fe1f1343b8107",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f863fa5c_5a7c6279",
         "filename": "tools/cert_create/src/key.c",
         "patchSetId": 6
@@ -71,6 +129,30 @@
       "writtenOn": "2022-05-13T06:33:06Z",
       "side": 1,
       "message": "Same comment as on line 46.",
+      "range": {
+        "startLine": 63,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 11
+      },
+      "revId": "f9c5762dc58f1b84be6295431e1fe1f1343b8107",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd59fe93_3178b6e9",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000681
+      },
+      "writtenOn": "2022-05-13T07:26:54Z",
+      "side": 1,
+      "message": "Agreed. And again I\u0027d suggest combining lines 58 and 60\n\n    EVP_PKEY *ec \u003d EVP_EC_gen(\"prime256v1\");\n    if (ec \u003d\u003d NULL) {\n        printf(\"Cannot generate EC key\\n\");\n        return 0;\n    }\n\n    key-\u003ekey \u003d ec;\n    return 1;",
+      "parentUuid": "f863fa5c_5a7c6279",
       "range": {
         "startLine": 63,
         "startChar": 2,
