@@ -93,6 +93,30 @@
       },
       "revId": "f7357e0991d86978a746b47095046d425297a397",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83a41bfd_8946235e",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-13T09:27:48Z",
+      "side": 1,
+      "message": "My preferred solution is the static assert.\nIt would help in other contexts where the assert needs to hold true as well.\n\nAnd looking at this specific case, the only way to return FFA_ERROR_INVALID_PARAMETER is if we\u0027d have these macros misaligned... So in fact the failure is in the system and not in the Endpoint\u0027s call and the provided arguments.",
+      "parentUuid": "dac9b062_e6b3f8e3",
+      "range": {
+        "startLine": 606,
+        "startChar": 5,
+        "endLine": 606,
+        "endChar": 13
+      },
+      "revId": "f7357e0991d86978a746b47095046d425297a397",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
