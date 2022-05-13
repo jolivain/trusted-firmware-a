@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecf5c4a6_437444cf",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-05-13T18:30:59Z",
+      "side": 1,
+      "message": "Hi Sandrine,\n\nJust FYI we do acknowledge here that this threat model doesn\u0027t consider Arm CCA. Given that, is it considered a threat if NS register state leaks into the secure world as described on Threat 9?",
+      "range": {
+        "startLine": 12,
+        "startChar": 1,
+        "endLine": 13,
+        "endChar": 41
+      },
+      "revId": "b2df118209c2171832a6ae3c4b922716f5db8507",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
