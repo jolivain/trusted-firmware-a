@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b4ff2f1c_eeaba2dd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-05-13T14:56:15Z",
+      "side": 1,
+      "message": "😊",
+      "parentUuid": "bb40ff7b_241256fd",
+      "revId": "f9c5762dc58f1b84be6295431e1fe1f1343b8107",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "56227281_cf713da6",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 6
@@ -118,6 +136,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9192ec64_96fa5aa4",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-05-13T14:56:15Z",
+      "side": 1,
+      "message": "You are right. It is not necessary anymore. I\u0027ll update accordingly.",
+      "parentUuid": "6e8ee302_9bc4dd32",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 11
+      },
+      "revId": "f9c5762dc58f1b84be6295431e1fe1f1343b8107",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f863fa5c_5a7c6279",
         "filename": "tools/cert_create/src/key.c",
         "patchSetId": 6
@@ -176,6 +218,24 @@
       "writtenOn": "2022-05-13T10:45:39Z",
       "side": 1,
       "message": "Why do we need path to OpenSSL binaries while linking? Did you meant OpenSSL libraries here?",
+      "revId": "f9c5762dc58f1b84be6295431e1fe1f1343b8107",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10fd8948_59c3ca70",
+        "filename": "tools/encrypt_fw/Makefile",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-05-13T14:56:15Z",
+      "side": 1,
+      "message": "Hi Sumit. Yes. I meant the library files (*.so). I\u0027ll change the comment so it looks more precise.\nBy default, the value for OPENSSL_DIR is /usr, but there are times when you want to use another version of OpenSSL to test and the OPENSSL_DIR variable allows you to do that without the need to install that other version. You can just point to the corresponding directory.",
+      "parentUuid": "e4fd2e4a_188131be",
       "revId": "f9c5762dc58f1b84be6295431e1fe1f1343b8107",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
