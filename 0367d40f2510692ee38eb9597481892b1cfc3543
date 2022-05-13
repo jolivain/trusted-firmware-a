@@ -104,6 +104,24 @@
       "parentUuid": "3b3badd5_d5408008",
       "revId": "0367d40f2510692ee38eb9597481892b1cfc3543",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e035b26_32422df4",
+        "filename": "services/std_svc/std_svc_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-13T18:40:30Z",
+      "side": 1,
+      "message": "Hi Varun,\n\nThere are other reasons for spmd_setup to fail (beyond missing the SPMC manifest) including failure in loading BL32 image, or failure conditions from spmd_spmc_init.\n\nAFAIU if std_svc_setup returns 1, then runtime_svc_init displays an error but doesn\u0027t prevent to continue booting and initialize services in a safe manner:\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/common/runtime_svc.c?h\u003dv2.6#n133\n\nI don\u0027t get why PSCI services would be improperly initialized (also provided psci init happens at line 49), but I may miss something (perhaps downstream changes?).\nIMO if we change the behavior for spmd_setup which follows a pattern used for all other services in this same function, then we should question the design of the whole function.",
+      "parentUuid": "519f29c1_4d9b44b3",
+      "revId": "0367d40f2510692ee38eb9597481892b1cfc3543",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
