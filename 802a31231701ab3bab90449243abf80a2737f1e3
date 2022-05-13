@@ -39,6 +39,30 @@
       },
       "revId": "802a31231701ab3bab90449243abf80a2737f1e3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b54eada3_717f209d",
+        "filename": "lib/extensions/brbe/brbe.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-05-13T08:51:47Z",
+      "side": 1,
+      "message": "Yes, you are right. \nCurrently, with feature-detection ( only phase-1 )in place and it\u0027s still being introduced as an experimental feature, this is still required.\nIf we enable the flag (FEATURE_DETECTION) then yes it\u0027s a repeating check. But with phase-2 discussion happening in parallel, this is still required for now. \nOnce we have both phase-1 and phase-2 and when we enable FEATURE_DETECTION flag by default, there will be no repetitions. All these scenarios will be handled.",
+      "parentUuid": "fa42fdb1_38082b57",
+      "range": {
+        "startLine": 15,
+        "startChar": 5,
+        "endLine": 15,
+        "endChar": 25
+      },
+      "revId": "802a31231701ab3bab90449243abf80a2737f1e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
