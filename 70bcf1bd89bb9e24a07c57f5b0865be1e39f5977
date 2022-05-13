@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "790fc779_320102ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000681
+      },
+      "writtenOn": "2022-05-13T16:30:55Z",
+      "side": 1,
+      "message": "more comments, but feel free to ignore if they are overly cautious",
+      "revId": "70bcf1bd89bb9e24a07c57f5b0865be1e39f5977",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7d0cbf1_472dc65e",
+        "filename": "tools/cert_create/src/sha.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000681
+      },
+      "writtenOn": "2022-05-13T16:30:55Z",
+      "side": 1,
+      "message": "sorry, just noticed: hash_alg is int, which can be negative, so the assert should probably be\n\n    assert(hash_alg \u003e\u003d 0 \u0026\u0026 hash_alg \u003c sizeof(nids) / sizeof(*nids));\n\nbut also, assert() is only usually present in debug builds, so this doesn\u0027t help in a production build.\n\nit shouldn\u0027t be possible for this to fail (because the code that determines hash_alg is correct) but since NIDs are non-zero, printing an error message and returning 0 might protect from out-of-bounds access if bugs are introduced in the future (which is the reason for adding something like an assert() anyway)",
+      "revId": "70bcf1bd89bb9e24a07c57f5b0865be1e39f5977",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
