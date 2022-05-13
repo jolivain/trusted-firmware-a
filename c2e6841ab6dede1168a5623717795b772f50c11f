@@ -1,0 +1,199 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae0b6922_759fa8d9",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 46
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-13T06:05:01Z",
+      "side": 1,
+      "message": "nit: Hafnium chose to use uint8_t name[16] for the case name represents a string. Not sure if worth aligning here.",
+      "range": {
+        "startLine": 292,
+        "startChar": 1,
+        "endLine": 292,
+        "endChar": 18
+      },
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "526714fc_b2af0e4f",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 46
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-13T06:05:01Z",
+      "side": 1,
+      "message": "nit: the spec calls it signature",
+      "range": {
+        "startLine": 302,
+        "startChar": 10,
+        "endLine": 302,
+        "endChar": 15
+      },
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a742bf97_bb6c8d63",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-13T06:05:01Z",
+      "side": 1,
+      "message": "Just to confirm, I understand the manifest/device tree cannot grow larger than a page (minus the boot info header/descriptors)?",
+      "range": {
+        "startLine": 31,
+        "startChar": 33,
+        "endLine": 31,
+        "endChar": 42
+      },
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5500dd99_432a747d",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-13T06:05:01Z",
+      "side": 1,
+      "message": "Is assert appropriate as it is removed from release build (similar q. as in an earlier change)?\nI appreciate the SPMC and SP can be developed/built separately and versions differ. They can also be updated independently. So this condition may happen beyond just development phase?",
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af571ebe_8731b401",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-13T06:05:01Z",
+      "side": 1,
+      "message": "Should ffa_boot_info_mem be preferably zeroed prior to populating fields?\ne.g. boot info desc name, reserved fields are not populated and rely on the ffa_boot_info_mem initialized content.",
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "761a702b_4d9e14cf",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-13T06:05:01Z",
+      "side": 1,
+      "message": "is this cast required?",
+      "range": {
+        "startLine": 83,
+        "startChar": 6,
+        "endLine": 83,
+        "endChar": 17
+      },
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0067413_812c93b4",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-13T06:05:01Z",
+      "side": 1,
+      "message": "repeats line 80",
+      "range": {
+        "startLine": 94,
+        "startChar": 1,
+        "endLine": 95,
+        "endChar": 40
+      },
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10611d99_466bc61f",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-13T06:05:01Z",
+      "side": 1,
+      "message": "A SP willing to interpret the fields would consume a null uuid from the name field by default.\nWould be it better using a default string type? Such that it resolves to an empty zero terminated string?",
+      "range": {
+        "startLine": 107,
+        "startChar": 26,
+        "endLine": 107,
+        "endChar": 54
+      },
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20c76080_1573fddd",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-13T06:05:01Z",
+      "side": 1,
+      "message": "Does it require bound checking it doesn\u0027t copy past ffa_boot_info_mem size?",
+      "range": {
+        "startLine": 121,
+        "startChar": 8,
+        "endLine": 121,
+        "endChar": 39
+      },
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
