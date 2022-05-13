@@ -16,6 +16,24 @@
       "message": "Added the v1_0 suffix to the ffa_mtd and emad structs as we introduce the v1.1 format in a later patch that is expected to be forwards compatible and should prevent the requirement to list future versions separately.",
       "revId": "ba046f7ab8a8945b9718dcb578ed232dce96b355",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd434274_6bcf3fd7",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.h",
+        "patchSetId": 34
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-13T04:32:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "759bb760_817a8d32",
+      "revId": "ba046f7ab8a8945b9718dcb578ed232dce96b355",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
