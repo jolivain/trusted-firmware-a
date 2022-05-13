@@ -16,6 +16,23 @@
       "message": "Should we at least check count is non-zero and bounded (to some limit)? What happens if emad_count happens to be very large unintentionally or maliciously? May emad array be accessed beyond its bounds?\nPerhaps this cannot \u0027happen\u0027 because the Hypervisor is trusted? In which case, what about the case when no Hypervisor is present?",
       "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "775c332e_faf5fad5",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-13T08:02:49Z",
+      "side": 0,
+      "message": "Should it check emad_count is at least 1 (up to some limit perhaps)?\nSection 10.11.3.1 says\n \"In an FFA_MEM_LEND and FFA_MEM_SHARE ABI invocation,\n – The Endpoint memory access descriptor count field in the transaction descriptor must be\n set to a non-zero value. This implies that the Owner must specify at least a single\n Borrower  endpoint in a transaction to lend or share memory.\"\n\nAlso notice donate (not supported yet AFAIR) restricts to one borrower hence count must be 1.",
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
