@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6894cd6d_4841d25e",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-05-13T09:32:37Z",
+      "side": 1,
+      "message": "S-El2 will need to initialize the S-EL1 regs before SP is run. So this init here is redundant.",
+      "parentUuid": "8af7d353_80c164fd",
+      "revId": "2c0aadd87dcfe1c70313dc82aa24138bd7b421c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5a031503_5bf016fd",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 2
@@ -84,6 +102,41 @@
       "side": 1,
       "message": "If CTX_INCLUDE_EL2_REGS is defined, we can assume EL2 is used right? If that is the case I think we only need to initialize SCTLR_EL2. That is already done in setup_ns_context().",
       "parentUuid": "5a031503_5bf016fd",
+      "revId": "2c0aadd87dcfe1c70313dc82aa24138bd7b421c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce52bc2c_3471d11c",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-05-13T09:32:37Z",
+      "side": 1,
+      "message": "Good point. yes, only sctlr_el2 needs to be initialized. so cm_prepare_el3_exit() will only be called #ifndef CTX_INCLUDE_EL2_REGS, which should be fine.",
+      "parentUuid": "fbe1adf4_0f9774d8",
+      "revId": "2c0aadd87dcfe1c70313dc82aa24138bd7b421c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4e34f53_9a72c16d",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-05-13T09:32:37Z",
+      "side": 1,
+      "message": "would be good to add an assertion for (scr_el3.hce\u003d\u003d1 \u0026\u0026 el_implemented(2) !\u003d EL_IMPL_NONE) to ensure no platform would have el2_unused in this config.",
       "revId": "2c0aadd87dcfe1c70313dc82aa24138bd7b421c6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
