@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c47c7a64_2fbe6513",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-13T16:22:37Z",
+      "side": 1,
+      "message": "Can this move to include/lib/utils_def.h ?",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 42
+      },
+      "revId": "c134dcf6c0f124f188be5a061ef29d049028ea1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a5a87d6_df11b447",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-13T16:22:37Z",
+      "side": 1,
+      "message": "ffa_mtd actually ?",
+      "range": {
+        "startLine": 194,
+        "startChar": 64,
+        "endLine": 194,
+        "endChar": 76
+      },
+      "revId": "c134dcf6c0f124f188be5a061ef29d049028ea1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acd9b28a_1e2c607c",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-13T16:22:37Z",
+      "side": 1,
+      "message": "FF-A v1.1 EAC0 spec, Table 10.16 still shows 8 bytes but I believe this is a typo.",
+      "range": {
+        "startLine": 203,
+        "startChar": 1,
+        "endLine": 204,
+        "endChar": 25
+      },
+      "revId": "c134dcf6c0f124f188be5a061ef29d049028ea1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e90343f8_184b146c",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-13T16:22:37Z",
+      "side": 1,
+      "message": "Must",
+      "range": {
+        "startLine": 219,
+        "startChar": 39,
+        "endLine": 219,
+        "endChar": 43
+      },
+      "revId": "c134dcf6c0f124f188be5a061ef29d049028ea1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75f16ad1_911abbf3",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-13T16:22:37Z",
+      "side": 1,
+      "message": "plus LEND/DONATE?",
+      "range": {
+        "startLine": 219,
+        "startChar": 53,
+        "endLine": 219,
+        "endChar": 62
+      },
+      "revId": "c134dcf6c0f124f188be5a061ef29d049028ea1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0c96587_0926241b",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-13T16:22:37Z",
+      "side": 1,
+      "message": "Must",
+      "range": {
+        "startLine": 251,
+        "startChar": 39,
+        "endLine": 251,
+        "endChar": 43
+      },
+      "revId": "c134dcf6c0f124f188be5a061ef29d049028ea1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65a11a3f_0fdfb4d8",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-13T16:22:37Z",
+      "side": 1,
+      "message": "plus LEND/DONATE?",
+      "range": {
+        "startLine": 251,
+        "startChar": 53,
+        "endLine": 251,
+        "endChar": 62
+      },
+      "revId": "c134dcf6c0f124f188be5a061ef29d049028ea1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
