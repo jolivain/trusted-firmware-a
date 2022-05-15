@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82e708eb_0b58dbef",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-15T13:31:12Z",
+      "side": 1,
+      "message": "These dummy implementations need to be moved to the FVP platform, however in order to access the memory descriptor struct from platform code we will also need to relocate the relevant definitions from the spmc memory code. \n\nTo facilitate this, the simplest option currently looks like we would need to move the majority of the memory descriptor definition code into a new header file under `include/services/` which would allow the platform code to access the full content of the descriptor and perform their required operations.\n\nIf this sounds reasonable then I can relocate the code in the appropriate patches?",
+      "revId": "8ef7050f9942c45dfa6b5af0db1257d5488afcba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
