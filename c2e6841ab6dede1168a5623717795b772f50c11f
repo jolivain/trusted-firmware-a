@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b96d75a6_370594ec",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 46
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-15T13:30:41Z",
+      "side": 1,
+      "message": "Sure, don\u0027t see the harm in keeping this consistent.",
+      "parentUuid": "ae0b6922_759fa8d9",
+      "range": {
+        "startLine": 292,
+        "startChar": 1,
+        "endLine": 292,
+        "endChar": 18
+      },
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "526714fc_b2af0e4f",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-05-13T06:05:01Z",
       "side": 1,
       "message": "nit: the spec calls it signature",
+      "range": {
+        "startLine": 302,
+        "startChar": 10,
+        "endLine": 302,
+        "endChar": 15
+      },
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88348cb0_cc2109d1",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 46
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-15T13:30:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "526714fc_b2af0e4f",
       "range": {
         "startLine": 302,
         "startChar": 10,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ab0c6370_8f77cc63",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-15T13:30:41Z",
+      "side": 1,
+      "message": "Yes you\u0027re correct we\u0027re assuming here that the manifest and headers will fit within a single page. Do you think this is reasonable for now?",
+      "parentUuid": "a742bf97_bb6c8d63",
+      "range": {
+        "startLine": 31,
+        "startChar": 33,
+        "endLine": 31,
+        "endChar": 42
+      },
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5500dd99_432a747d",
         "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
         "patchSetId": 46
@@ -89,6 +161,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "40de95a3_26a2d660",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-15T13:30:41Z",
+      "side": 1,
+      "message": "Fair enough, I\u0027ve updated this to print an error and exit the function however I\u0027m wondering if you think this would warrant a panic here?",
+      "parentUuid": "5500dd99_432a747d",
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "af571ebe_8731b401",
         "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
         "patchSetId": 46
@@ -100,6 +190,24 @@
       "writtenOn": "2022-05-13T06:05:01Z",
       "side": 1,
       "message": "Should ffa_boot_info_mem be preferably zeroed prior to populating fields?\ne.g. boot info desc name, reserved fields are not populated and rely on the ffa_boot_info_mem initialized content.",
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c62b6b6_246b6d4e",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-15T13:30:41Z",
+      "side": 1,
+      "message": "Added.",
+      "parentUuid": "af571ebe_8731b401",
       "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -127,6 +235,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a621d3b_a100bd21",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-15T13:30:41Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "761a702b_4d9e14cf",
+      "range": {
+        "startLine": 83,
+        "startChar": 6,
+        "endLine": 83,
+        "endChar": 17
+      },
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0067413_812c93b4",
@@ -140,6 +272,30 @@
       "writtenOn": "2022-05-13T06:05:01Z",
       "side": 1,
       "message": "repeats line 80",
+      "range": {
+        "startLine": 94,
+        "startChar": 1,
+        "endLine": 95,
+        "endChar": 40
+      },
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f95b3e0_d2b040e4",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-15T13:30:41Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "b0067413_812c93b4",
       "range": {
         "startLine": 94,
         "startChar": 1,
@@ -175,6 +331,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1c9991d1_8df839b5",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-15T13:30:41Z",
+      "side": 1,
+      "message": "Good question, I don\u0027t really have a strong preference either way but would there be a real difference between using the null UUID vs a empty terminated string?",
+      "parentUuid": "10611d99_466bc61f",
+      "range": {
+        "startLine": 107,
+        "startChar": 26,
+        "endLine": 107,
+        "endChar": 54
+      },
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "20c76080_1573fddd",
         "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
         "patchSetId": 46
@@ -186,6 +366,30 @@
       "writtenOn": "2022-05-13T06:05:01Z",
       "side": 1,
       "message": "Does it require bound checking it doesn\u0027t copy past ffa_boot_info_mem size?",
+      "range": {
+        "startLine": 121,
+        "startChar": 8,
+        "endLine": 121,
+        "endChar": 39
+      },
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6762de52_d72a8ac8",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-15T13:30:41Z",
+      "side": 1,
+      "message": "This should be checked on line 64 to ensure the manifest fits after we account for the headers.",
+      "parentUuid": "20c76080_1573fddd",
       "range": {
         "startLine": 121,
         "startChar": 8,
