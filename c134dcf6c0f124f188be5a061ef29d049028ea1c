@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "235f2afb_a5a2b387",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-15T13:30:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c47c7a64_2fbe6513",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 42
+      },
+      "revId": "c134dcf6c0f124f188be5a061ef29d049028ea1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a5a87d6_df11b447",
@@ -47,6 +71,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "507c51a3_3cdd0491",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-15T13:30:55Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "0a5a87d6_df11b447",
+      "range": {
+        "startLine": 194,
+        "startChar": 64,
+        "endLine": 194,
+        "endChar": 76
+      },
+      "revId": "c134dcf6c0f124f188be5a061ef29d049028ea1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "acd9b28a_1e2c607c",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-05-13T16:22:37Z",
       "side": 1,
       "message": "FF-A v1.1 EAC0 spec, Table 10.16 still shows 8 bytes but I believe this is a typo.",
+      "range": {
+        "startLine": 203,
+        "startChar": 1,
+        "endLine": 204,
+        "endChar": 25
+      },
+      "revId": "c134dcf6c0f124f188be5a061ef29d049028ea1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce01af78_6b418305",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-15T13:30:55Z",
+      "side": 1,
+      "message": "As discussed offline, in the final v1.1 EAC release this change was reverted therefore we don\u0027t need to introduce a separate emad descriptor yet. Removed for now.",
+      "parentUuid": "acd9b28a_1e2c607c",
       "range": {
         "startLine": 203,
         "startChar": 1,
@@ -116,6 +188,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "993d8c3f_8b0f0453",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-15T13:30:55Z",
+      "side": 1,
+      "message": "Added fix in previous commit.",
+      "parentUuid": "e90343f8_184b146c",
+      "range": {
+        "startLine": 219,
+        "startChar": 39,
+        "endLine": 219,
+        "endChar": 43
+      },
+      "revId": "c134dcf6c0f124f188be5a061ef29d049028ea1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20b1e043_8dc233e4",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-15T13:30:55Z",
+      "side": 1,
+      "message": "Added fix in previous commit.",
+      "parentUuid": "75f16ad1_911abbf3",
+      "range": {
+        "startLine": 219,
+        "startChar": 53,
+        "endLine": 219,
+        "endChar": 62
+      },
+      "revId": "c134dcf6c0f124f188be5a061ef29d049028ea1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0c96587_0926241b",
@@ -152,6 +272,54 @@
       "writtenOn": "2022-05-13T16:22:37Z",
       "side": 1,
       "message": "plus LEND/DONATE?",
+      "range": {
+        "startLine": 251,
+        "startChar": 53,
+        "endLine": 251,
+        "endChar": 62
+      },
+      "revId": "c134dcf6c0f124f188be5a061ef29d049028ea1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ab50fa9_55bcdfe2",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-15T13:30:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0c96587_0926241b",
+      "range": {
+        "startLine": 251,
+        "startChar": 39,
+        "endLine": 251,
+        "endChar": 43
+      },
+      "revId": "c134dcf6c0f124f188be5a061ef29d049028ea1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "773bcc8c_efcc1f3e",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-15T13:30:55Z",
+      "side": 1,
+      "message": "Updated to add LEND as we don\u0027t currently support the DONATE transaction to prevent confusion.",
+      "parentUuid": "65a11a3f_0fdfb4d8",
       "range": {
         "startLine": 251,
         "startChar": 53,
