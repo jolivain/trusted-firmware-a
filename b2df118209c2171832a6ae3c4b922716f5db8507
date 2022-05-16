@@ -22,6 +22,30 @@
       },
       "revId": "b2df118209c2171832a6ae3c4b922716f5db8507",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "297afdae_5bf07177",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-16T08:38:25Z",
+      "side": 1,
+      "message": "Hi Zelalem,\n\n\u003e is it considered a threat if NS register state leaks into the secure world\n\nNo, I\u0027d say it\u0027s not. I also think that leaking secure world state into the non-secure world is not necessarily a threat - it depends on what specific registers we\u0027re talking about. From a threat model perspective, I\u0027d say that TF-A should only care about protecting its own assets, in this case EL3 registers contents and S-EL1 registers that have an impact on TF-A.\n\nSo I think the new description proposed in this patch is more accurate. In the old version, the part about leaking register contents of other normal world clients does not seem correct to me. If TF-A leaks non-secure world state then I don\u0027t think this will endanger any of TF-A assets.\n\nPerhaps we should be more specific in threat 09 and reword into:\n\"When switching between worlds, *TF-A* register state  can leak to software in different security contexts\".\n\nJust to be clear, TF-A *is* responsible for saving and restoring CPU state across world switches to avoid any undesirable leakage. From a system-wide perspective, we rely on TF-A to provide this security guarantee. So I guess that if we had a TrustZone system-wide threat model, such leakage across worlds would be considered as a threat. But here, with the isolation boundaries we\u0027ve defined above, we\u0027re only concerned about TF-A in isolation. In this context, I think Secure clients should be considered in scope of threat #09.\n\nDoes it make sense?",
+      "parentUuid": "ecf5c4a6_437444cf",
+      "range": {
+        "startLine": 12,
+        "startChar": 1,
+        "endLine": 13,
+        "endChar": 41
+      },
+      "revId": "b2df118209c2171832a6ae3c4b922716f5db8507",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
