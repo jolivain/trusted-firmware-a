@@ -16,6 +16,29 @@
       "message": "Notice all SPM tests involving SEL2/Hafnium are failing.",
       "revId": "1c9afa4a2e1596062ee82e6d19fccbc76e4c93a9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a44bfc1_0fd08590",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-16T15:05:23Z",
+      "side": 1,
+      "message": "It may be that this assertion is false after a core resume from suspend:\n\"On a Warm reset, this field resets to an architecturally UNKNOWN value.\"",
+      "range": {
+        "startLine": 834,
+        "startChar": 9,
+        "endLine": 834,
+        "endChar": 45
+      },
+      "revId": "1c9afa4a2e1596062ee82e6d19fccbc76e4c93a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
