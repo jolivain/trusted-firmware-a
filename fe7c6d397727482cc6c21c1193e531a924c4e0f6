@@ -69,6 +69,30 @@
       },
       "revId": "fe7c6d397727482cc6c21c1193e531a924c4e0f6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e3a324a_da30ad69",
+        "filename": "tools/cert_create/src/sha.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000681
+      },
+      "writtenOn": "2022-05-16T09:32:04Z",
+      "side": 1,
+      "message": "(to make it clear, we could return `NID_undef` here instead of 0, and check for `NID_undef` in caller(s), but this function isn\u0027t static, so that would require NID_undef to be available wherever this might be used)\n\nwhich leads to: this function should probably be static",
+      "parentUuid": "cf8704a3_c9fef9d8",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 19,
+        "endChar": 11
+      },
+      "revId": "fe7c6d397727482cc6c21c1193e531a924c4e0f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
