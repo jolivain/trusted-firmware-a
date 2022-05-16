@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -23,6 +23,11 @@ REGISTER_PUBSUB_EVENT(psci_cpu_on_finish);
  */
 REGISTER_PUBSUB_EVENT(psci_suspend_pwrdown_start);
 REGISTER_PUBSUB_EVENT(psci_suspend_pwrdown_finish);
+
+/* Vendors create their events in vendor_pubsub_events.h */
+#if VENDOR_EXTEND_PUBEVENT_ENABLE
+#include <vendor_pubsub_events.h>
+#endif
 
 #ifdef __aarch64__
 /*
