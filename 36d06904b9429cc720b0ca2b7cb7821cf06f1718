@@ -72,6 +72,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cb21dfb_01d22d61",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 32
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-16T09:10:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7fc1d8f7_2be092fb",
+      "range": {
+        "startLine": 10,
+        "startChar": 46,
+        "endLine": 13,
+        "endChar": 62
+      },
+      "revId": "36d06904b9429cc720b0ca2b7cb7821cf06f1718",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "799121e1_5c6d9709",
@@ -227,6 +251,30 @@
       "side": 1,
       "message": "So these checks are a result of the initial implementation supporting retrieve of the memory descriptor from a hypervisor. \nThis means that the in the share request emad_count \u003d\u003d 0 would be rejected however if the Hypervisor was attempting to retrieve the descriptor then it would set the emad_count to 0 (along with the other fields) and therefore the SPMC should not need to check these fields. \n\nThis is not a use case that we were initially targeting for the El3 SPMC, therefore there maybe other gaps to support this use case, but the intention here was to follow the same pattern as the original implementation in case this support needs to be re-enabled.\n\nIf this doesn\u0027t seem reasonable I can remove these additional checks and they can be re-added if required. What do you think?",
       "parentUuid": "608288d8_b09ea3b2",
+      "range": {
+        "startLine": 628,
+        "startChar": 5,
+        "endLine": 628,
+        "endChar": 29
+      },
+      "revId": "36d06904b9429cc720b0ca2b7cb7821cf06f1718",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b064df53_706536dd",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-16T09:10:19Z",
+      "side": 1,
+      "message": "Thanks for clarifying. I believe that\u0027s ok to keep unless we know the mem retrieve from Hypervisor case is not going to happen any time soon? I remember discussions around this but I can\u0027t recall if this has been integrated in the spec (I can check). In which case it may be the implementation goes a bit beyond what the spec mandates?",
+      "parentUuid": "a1c29e1f_489b6f70",
       "range": {
         "startLine": 628,
         "startChar": 5,
