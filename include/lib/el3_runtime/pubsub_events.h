@@ -1,10 +1,17 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <lib/el3_runtime/pubsub.h>
+
+/*
+ * This file defines vendors' pubsub events.
+ */
+#if VENDOR_EXTEND_PUBEVENT_ENABLE
+#include <vendor_pubsub_events.h>
+#endif
 
 /*
  * This file defines a list of pubsub events, declared using
