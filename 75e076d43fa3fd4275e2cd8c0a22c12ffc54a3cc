@@ -95,6 +95,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0ea921b_7770c720",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 45
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-16T09:45:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b0d3d8e8_b7ce4635",
+      "range": {
+        "startLine": 11,
+        "startChar": 32,
+        "endLine": 11,
+        "endChar": 33
+      },
+      "revId": "75e076d43fa3fd4275e2cd8c0a22c12ffc54a3cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "056c4dd6_cfc38f81",
@@ -314,6 +338,24 @@
       "side": 1,
       "message": "Yes this is my understanding that it should only be passed on a cold boot. I think the relevant section from the spec (section 5.4) states:\n```\n2. Boot information is passed when the consumer execution context on the primary PE is first entered through an exception return from the producer.\n```",
       "parentUuid": "29fcd720_7cbbe5b9",
+      "revId": "75e076d43fa3fd4275e2cd8c0a22c12ffc54a3cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "458320a6_3b720357",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 45
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-16T09:45:00Z",
+      "side": 1,
+      "message": "Ok but I wonder that if a core is unplugged then plugged again, this is now a \u0027warm boot\u0027 (no longer a first entry into the SP execution context) and the boot info is passed again where it shouldn\u0027t be.\ne.g. the boot info should only be passed to the primary core on cold boot, and never again neither on primary nor secondary cores.",
+      "parentUuid": "9be34602_c77d6a1e",
       "revId": "75e076d43fa3fd4275e2cd8c0a22c12ffc54a3cc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },

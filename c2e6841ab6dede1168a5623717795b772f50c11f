@@ -142,6 +142,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "327cc44b_f230d85a",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-16T09:45:00Z",
+      "side": 1,
+      "message": "I think this is ok for this first iteration. But just to let you know at least for server cases we were told the manifest can grow to several hundred of KB. Hence the reason for recent changes to the TF-A SP packaging tool/build flow to permit larger manifest sizes (https://review.trustedfirmware.org/q/topic:%2522ja/boot_protocol%2522++status:merged)",
+      "parentUuid": "ab0c6370_8f77cc63",
+      "range": {
+        "startLine": 31,
+        "startChar": 33,
+        "endLine": 31,
+        "endChar": 42
+      },
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5500dd99_432a747d",
@@ -173,6 +197,47 @@
       "side": 1,
       "message": "Fair enough, I\u0027ve updated this to print an error and exit the function however I\u0027m wondering if you think this would warrant a panic here?",
       "parentUuid": "5500dd99_432a747d",
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfa8e91a_27cee174",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-16T09:45:00Z",
+      "side": 1,
+      "message": "I think this is ok with reporting an error.",
+      "parentUuid": "40de95a3_26a2d660",
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "015bf527_ec0e82d8",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-16T09:45:00Z",
+      "side": 1,
+      "message": "Can it be a const unsigned int?",
+      "range": {
+        "startLine": 58,
+        "startChar": 1,
+        "endLine": 58,
+        "endChar": 16
+      },
       "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -353,6 +418,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1848c19d_f645e00d",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-16T09:45:00Z",
+      "side": 1,
+      "message": "I just wondered how far a null uuid is valid compared to an all zeroed null-terminated string.\nI sensed the latter is more appropriate but I won\u0027t challenge this more. \ne.g. a string comparison would stop with the first zeroed character indicated string termination.",
+      "parentUuid": "1c9991d1_8df839b5",
+      "range": {
+        "startLine": 107,
+        "startChar": 26,
+        "endLine": 107,
+        "endChar": 54
+      },
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20c76080_1573fddd",
@@ -390,6 +479,30 @@
       "side": 1,
       "message": "This should be checked on line 64 to ensure the manifest fits after we account for the headers.",
       "parentUuid": "20c76080_1573fddd",
+      "range": {
+        "startLine": 121,
+        "startChar": 8,
+        "endLine": 121,
+        "endChar": 39
+      },
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cfa319c_0a659137",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-16T09:45:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6762de52_d72a8ac8",
       "range": {
         "startLine": 121,
         "startChar": 8,
