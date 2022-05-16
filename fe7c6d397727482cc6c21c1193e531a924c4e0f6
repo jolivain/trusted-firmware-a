@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afd2ce14_36eb96cb",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-16T09:18:23Z",
+      "side": 1,
+      "message": "We need to keep the original date so this should be:\n\n Copyright (c) 2021-2022",
+      "range": {
+        "startLine": 163,
+        "startChar": 15,
+        "endLine": 163,
+        "endChar": 19
+      },
+      "revId": "fe7c6d397727482cc6c21c1193e531a924c4e0f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ecb971d_e3f4564e",
+        "filename": "tools/cert_create/src/sha.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-16T09:18:23Z",
+      "side": 1,
+      "message": "Returning 0 here assumes that none of the NID_sha* constants are 0. This might happen to be true but we should not make this assumption because this code only knows about the macro names, not their values. I guess returning -1 would be less risky.",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 19,
+        "endChar": 11
+      },
+      "revId": "fe7c6d397727482cc6c21c1193e531a924c4e0f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
