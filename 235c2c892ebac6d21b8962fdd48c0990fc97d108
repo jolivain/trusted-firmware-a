@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c88859c2_3bbeef29",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-16T16:55:55Z",
+      "side": 1,
+      "message": "So eventually do we really want to retain all this logic around versioning the emad structure, now we know v1.0 and v1.1 are no different?\nI wonder if this function should be deferred to a later stage when the emad structure really changes, as there is still a risk this doesn\u0027t happen in a later spec?",
+      "revId": "235c2c892ebac6d21b8962fdd48c0990fc97d108",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
