@@ -16,6 +16,24 @@
       "message": "So eventually do we really want to retain all this logic around versioning the emad structure, now we know v1.0 and v1.1 are no different?\nI wonder if this function should be deferred to a later stage when the emad structure really changes, as there is still a risk this doesn\u0027t happen in a later spec?",
       "revId": "235c2c892ebac6d21b8962fdd48c0990fc97d108",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd9276f6_af36a24e",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-16T17:51:00Z",
+      "side": 1,
+      "message": "I did wonder about this as well, however I think most of the logic should still be required as the majority is actually dealing with the new way to access / position of the emad structure from the v1.0 vs v1.1 memory transaction descriptor (mtd), even if the emad structure itself has not changed format.\n\nIn the v1.0 case we can access the emad array directly from the mtd, however for v1.1 since the mtd descriptor is larger, the emad array still needs to be updated to be accessed via the new offset (and technically size) fields in the parent mtd. This will also still require the appropriate validation (i.e. it is an aligned access and do both the start and end addresses of the array lie within the descriptor.)\n\nI think the only extra logic that is not strictly required now that the emad structures remain the same is in the conversion functions where we currently copy each emad entry one at a time (to allow to for differing sizes) vs doing a single memcpy of the entire array, however my thinking was that the overhead of doing it this way would be minimal and we\u0027d still get the flexibility for future updates.\n\nDo you think this sounds reasonable?",
+      "parentUuid": "c88859c2_3bbeef29",
+      "revId": "235c2c892ebac6d21b8962fdd48c0990fc97d108",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
