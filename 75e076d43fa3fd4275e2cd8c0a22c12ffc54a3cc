@@ -362,6 +362,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0263f150_8c9511e4",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 45
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-16T12:00:22Z",
+      "side": 1,
+      "message": "\u003e and the boot info is passed again where it shouldn\u0027t be.\nSo in this case we shouldn\u0027t be passing the same information again, we had defined `boot_info_reg` as -1 to indicate an invalid value and therefore the setup function would skip populating the boot information. However as mentioned in another comment this was redundant and therefore we no longer call the function (spmc_sp_common_setup) which would optionally populate the boot information from this handler.\n\nHopefully I haven\u0027t misunderstood your comment here?",
+      "parentUuid": "458320a6_3b720357",
+      "revId": "75e076d43fa3fd4275e2cd8c0a22c12ffc54a3cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "df3513cb_634055d1",
         "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
         "patchSetId": 45
