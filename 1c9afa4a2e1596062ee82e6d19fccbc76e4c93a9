@@ -39,6 +39,30 @@
       },
       "revId": "1c9afa4a2e1596062ee82e6d19fccbc76e4c93a9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86e01874_9de72136",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-16T15:59:53Z",
+      "side": 1,
+      "message": "Eventually, SCR_EL3 as part of \u0027el3-ns-context\u0027 is restored at el3_exit just before eret to nwd. So this assert checking SCR_EL3 state happens a bit too early.",
+      "parentUuid": "1a44bfc1_0fd08590",
+      "range": {
+        "startLine": 834,
+        "startChar": 9,
+        "endLine": 834,
+        "endChar": 45
+      },
+      "revId": "1c9afa4a2e1596062ee82e6d19fccbc76e4c93a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
