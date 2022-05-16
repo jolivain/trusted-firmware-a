@@ -46,6 +46,30 @@
       },
       "revId": "b2df118209c2171832a6ae3c4b922716f5db8507",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f990530b_9caeb38c",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2022-05-16T18:54:11Z",
+      "side": 1,
+      "message": "Yes, that make sense. I agree that this threat model should be about protecting TF-A assets. \n\u003e Perhaps we should be more specific in threat 09 and reword into:\n\u003e \"When switching between worlds, *TF-A* register state  can leak to software in different security contexts\".\n\nI like that.",
+      "parentUuid": "297afdae_5bf07177",
+      "range": {
+        "startLine": 12,
+        "startChar": 1,
+        "endLine": 13,
+        "endChar": 41
+      },
+      "revId": "b2df118209c2171832a6ae3c4b922716f5db8507",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
