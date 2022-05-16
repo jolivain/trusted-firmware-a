@@ -16,6 +16,121 @@
       "message": "We were missing checks for input properties in some paths in the previous implementation. To prevent multiple code duplication refactor to explicitly check for ABIs with supported properties before ensuring that none are provided for the remaining ABIs.",
       "revId": "22b0eb29a6072bbdb281518b55357802dd00d275",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b33bce7_f185dbb6",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-16T09:46:06Z",
+      "side": 1,
+      "message": "WARN",
+      "range": {
+        "startLine": 842,
+        "startChar": 2,
+        "endLine": 842,
+        "endChar": 8
+      },
+      "revId": "22b0eb29a6072bbdb281518b55357802dd00d275",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c682eaec_3c89818f",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-16T09:46:06Z",
+      "side": 1,
+      "message": "implements a version greater than FF-A 1.0 ?",
+      "range": {
+        "startLine": 1147,
+        "startChar": 25,
+        "endLine": 1147,
+        "endChar": 47
+      },
+      "revId": "22b0eb29a6072bbdb281518b55357802dd00d275",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1e8fea5_e90ec66f",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-16T09:46:06Z",
+      "side": 1,
+      "message": "provided this is only used and happens on memory retrieve, should be renamed as such?",
+      "range": {
+        "startLine": 1155,
+        "startChar": 5,
+        "endLine": 1155,
+        "endChar": 24
+      },
+      "revId": "22b0eb29a6072bbdb281518b55357802dd00d275",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5953b286_aab930a8",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 1158,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-16T09:46:06Z",
+      "side": 1,
+      "message": "Can it use greater than ?",
+      "range": {
+        "startLine": 1158,
+        "startChar": 25,
+        "endLine": 1158,
+        "endChar": 27
+      },
+      "revId": "22b0eb29a6072bbdb281518b55357802dd00d275",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "874ed7d9_58a43f18",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 1302,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-16T09:46:06Z",
+      "side": 1,
+      "message": "WARN",
+      "range": {
+        "startLine": 1302,
+        "startChar": 2,
+        "endLine": 1302,
+        "endChar": 8
+      },
+      "revId": "22b0eb29a6072bbdb281518b55357802dd00d275",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
