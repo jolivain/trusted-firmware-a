@@ -16,6 +16,24 @@
       "message": "Will this not always return FFA_ERROR for RETRIEVE_REQ and RELINQUISH.\nIf from the secure world we will hit the end of the case and fall through were we then test\nif it is from the secure world and return FFA_ERROR in that case.\nSo I think there needs to be an SMC_RET1(handle, FFA_SUCCESS) here",
       "revId": "24c42afd52a4a7e1edf8ed920399bca10d28e489",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b7d103a_d50a32c7",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 49
+      },
+      "lineNbr": 1064,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-17T19:15:59Z",
+      "side": 1,
+      "message": "Good point, this must have gotten lost at some point. Fixed.",
+      "parentUuid": "fc55a7dc_9528aed2",
+      "revId": "24c42afd52a4a7e1edf8ed920399bca10d28e489",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
