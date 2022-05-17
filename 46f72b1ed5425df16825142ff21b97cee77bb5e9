@@ -16,6 +16,24 @@
       "message": "Maybe you should use 0x before %x or use %u instead.",
       "revId": "46f72b1ed5425df16825142ff21b97cee77bb5e9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5fb8d17_f27ef5fb",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-17T10:33:16Z",
+      "side": 1,
+      "message": "Added the 0x prefix.",
+      "parentUuid": "bd1bed21_2d661074",
+      "revId": "46f72b1ed5425df16825142ff21b97cee77bb5e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
