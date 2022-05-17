@@ -24,6 +24,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bf6eeee_5583d89f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 53
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-17T19:15:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d12a74b0_71cf2c85",
+      "range": {
+        "startLine": 10,
+        "startChar": 45,
+        "endLine": 10,
+        "endChar": 47
+      },
+      "revId": "6c9aea712e82d5ec244211035a53d73825239dd6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "556ed7fb_5b628c82",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 53
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-17T19:15:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d12a74b0_71cf2c85",
+      "range": {
+        "startLine": 10,
+        "startChar": 45,
+        "endLine": 10,
+        "endChar": 47
+      },
+      "revId": "6c9aea712e82d5ec244211035a53d73825239dd6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f27fe4af_feb7e602",
@@ -37,6 +85,30 @@
       "writtenOn": "2022-05-17T16:50:27Z",
       "side": 1,
       "message": "Can tsp_cpu_on_entry be externally referenced from tsp_main.c?\nThis would avoid this statement and changing the tsp_main signature.",
+      "range": {
+        "startLine": 188,
+        "startChar": 1,
+        "endLine": 188,
+        "endChar": 25
+      },
+      "revId": "6c9aea712e82d5ec244211035a53d73825239dd6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12e5fff8_dbb459e5",
+        "filename": "bl32/tsp/aarch64/tsp_entrypoint.S",
+        "patchSetId": 53
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-17T19:15:49Z",
+      "side": 1,
+      "message": "Yes, done.",
+      "parentUuid": "f27fe4af_feb7e602",
       "range": {
         "startLine": 188,
         "startChar": 1,
@@ -70,6 +142,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02bde1bd_8caea409",
+        "filename": "bl32/tsp/aarch64/tsp_entrypoint.S",
+        "patchSetId": 53
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-17T19:15:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a443a71f_d82cd148",
+      "range": {
+        "startLine": 196,
+        "startChar": 9,
+        "endLine": 196,
+        "endChar": 17
+      },
+      "revId": "6c9aea712e82d5ec244211035a53d73825239dd6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee97d422_1dc251e0",
@@ -83,6 +179,30 @@
       "writtenOn": "2022-05-17T16:50:27Z",
       "side": 1,
       "message": "unmask",
+      "range": {
+        "startLine": 198,
+        "startChar": 36,
+        "endLine": 198,
+        "endChar": 43
+      },
+      "revId": "6c9aea712e82d5ec244211035a53d73825239dd6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85a5aba0_a1847e11",
+        "filename": "bl32/tsp/aarch64/tsp_entrypoint.S",
+        "patchSetId": 53
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-17T19:15:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee97d422_1dc251e0",
       "range": {
         "startLine": 198,
         "startChar": 36,
@@ -139,6 +259,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e206fe1_1fe4bcd2",
+        "filename": "bl32/tsp/tsp_interrupt.c",
+        "patchSetId": 53
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-17T19:15:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "001cbf54_163e6c31",
+      "range": {
+        "startLine": 98,
+        "startChar": 10,
+        "endLine": 98,
+        "endChar": 14
+      },
+      "revId": "6c9aea712e82d5ec244211035a53d73825239dd6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf5b4639_b4717f65",
+        "filename": "bl32/tsp/tsp_interrupt.c",
+        "patchSetId": 53
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-17T19:15:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6e16292_820e3f30",
+      "range": {
+        "startLine": 98,
+        "startChar": 15,
+        "endLine": 98,
+        "endChar": 21
+      },
+      "revId": "6c9aea712e82d5ec244211035a53d73825239dd6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f8be744_3978441f",
@@ -152,6 +320,30 @@
       "writtenOn": "2022-05-17T17:07:11Z",
       "side": 1,
       "message": "this should ERROR instead?",
+      "range": {
+        "startLine": 101,
+        "startChar": 2,
+        "endLine": 101,
+        "endChar": 6
+      },
+      "revId": "6c9aea712e82d5ec244211035a53d73825239dd6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fff9edac_8569018c",
+        "filename": "bl32/tsp/tsp_interrupt.c",
+        "patchSetId": 53
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-17T19:15:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f8be744_3978441f",
       "range": {
         "startLine": 101,
         "startChar": 2,
@@ -199,6 +391,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "10c02a1d_7ec694bc",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 53
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-17T19:15:49Z",
+      "side": 1,
+      "message": "\u003e the tsp_main function itself may have to be redefined whether legacy TSP of FF-A TSP\nI think that seems reasonable however just to check, do you mean factor out the EL3 SPMC additions into a separate file and conditionally call into them from the original function? Or do you mean to create a duplicated completely separate tsp_ffa_main function and jump to that instead to prevent having multiple #if SPMC_AT_EL3\u0027s?",
+      "parentUuid": "363c8e04_3c84517b",
+      "revId": "6c9aea712e82d5ec244211035a53d73825239dd6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6ce60027_29ec096d",
         "filename": "bl32/tsp/tsp_main.c",
         "patchSetId": 53
@@ -210,6 +420,30 @@
       "writtenOn": "2022-05-17T17:07:11Z",
       "side": 1,
       "message": "can this be static function or you intend to export it?",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 10
+      },
+      "revId": "6c9aea712e82d5ec244211035a53d73825239dd6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34617611_c7c1d5aa",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 53
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-17T19:15:49Z",
+      "side": 1,
+      "message": "No this can be static.",
+      "parentUuid": "6ce60027_29ec096d",
       "range": {
         "startLine": 256,
         "startChar": 0,
@@ -233,6 +467,30 @@
       "writtenOn": "2022-05-17T17:07:11Z",
       "side": 1,
       "message": "can this be static function or you intend to export it?",
+      "range": {
+        "startLine": 605,
+        "startChar": 0,
+        "endLine": 605,
+        "endChar": 10
+      },
+      "revId": "6c9aea712e82d5ec244211035a53d73825239dd6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c121dd26_5acff8e7",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 53
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-17T19:15:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a18349c_2af32023",
       "range": {
         "startLine": 605,
         "startChar": 0,
