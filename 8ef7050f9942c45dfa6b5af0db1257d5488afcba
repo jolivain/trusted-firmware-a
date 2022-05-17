@@ -52,6 +52,24 @@
       "parentUuid": "c4ad042b_84b446d6",
       "revId": "8ef7050f9942c45dfa6b5af0db1257d5488afcba",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de4eb69a_67930cf7",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-17T12:47:29Z",
+      "side": 1,
+      "message": "\u003e as a consumer / implementer of the function does this mean they would need to create / copy the relevant descriptor to be able to perform any required operations\nIt looks to me the platform hook only misses the struct ffa_mtd definition?\nSomehow we should move the ffa_mtd structure definition (and perhaps few definitions that the structure depends on) to a \u0027common\u0027 header which can be included by fvp_el3_spmc.c (in addition to the core ffa mgt operations)?\nNot saying it should be done now, but a matter of refining it in future?\nWhy would the platform hook be required to copy the descriptor?",
+      "parentUuid": "e22ab581_d7b33ca0",
+      "revId": "8ef7050f9942c45dfa6b5af0db1257d5488afcba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
