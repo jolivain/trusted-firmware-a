@@ -88,6 +88,24 @@
       "parentUuid": "9d332090_d49e0720",
       "revId": "c159caed2648885ad2ad96f4125cac65a7ff229d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c48a374_8c80faa2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-17T15:31:25Z",
+      "side": 1,
+      "message": "That\u0027s my understanding as well (last reply from Marc above), I would go ahead with merging this change as a matter of claiming the EL3 SPMC matches the spec. Let us know if you consider this a blocker.",
+      "parentUuid": "8f871dd1_d1e9797d",
+      "revId": "c159caed2648885ad2ad96f4125cac65a7ff229d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
