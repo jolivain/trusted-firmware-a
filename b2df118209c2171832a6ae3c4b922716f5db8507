@@ -70,6 +70,30 @@
       },
       "revId": "b2df118209c2171832a6ae3c4b922716f5db8507",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f28ec85f_dc29f2c9",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-17T07:55:57Z",
+      "side": 1,
+      "message": "\u003e \u003e Perhaps we should be more specific in threat 09 and reword into:\n\u003e \u003e \"When switching between worlds, *TF-A* register state  can leak to software in different security contexts\".\n\u003e \n\u003e I like that.\n\nRephrased!",
+      "parentUuid": "f990530b_9caeb38c",
+      "range": {
+        "startLine": 12,
+        "startChar": 1,
+        "endLine": 13,
+        "endChar": 41
+      },
+      "revId": "b2df118209c2171832a6ae3c4b922716f5db8507",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
