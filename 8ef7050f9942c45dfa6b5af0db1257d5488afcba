@@ -16,6 +16,24 @@
       "message": "These dummy implementations need to be moved to the FVP platform, however in order to access the memory descriptor struct from platform code we will also need to relocate the relevant definitions from the spmc memory code. \n\nTo facilitate this, the simplest option currently looks like we would need to move the majority of the memory descriptor definition code into a new header file under `include/services/` which would allow the platform code to access the full content of the descriptor and perform their required operations.\n\nIf this sounds reasonable then I can relocate the code in the appropriate patches?",
       "revId": "8ef7050f9942c45dfa6b5af0db1257d5488afcba",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4ad042b_84b446d6",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-17T06:16:23Z",
+      "side": 1,
+      "message": "Passing ffa_mtd directly to the platform hook has the problem of determining the client version. How does a platform know it should use ffa_mtd or ffa_mtd_1_0 ?\n\nMay plat_spmc_shmem_begin/plat_spmc_shmem_reclaim move to fvp_spmc.c similarly to:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/13279/comment/d47ec687_9a1a801f/\n\nWould it be ok to pass an opaque pointer to the platform hook?\nThe problem of importing mem sharing structures/definitions can be moved generically at a later stage, or down to the platform port.\n\nI wonder if the platform hook should rather be called (or additionally) at the mem retrieve/relinquish provided this the place where memory is effectively mapped/unmapped at the PE (and hence the place requiring system wide permission adjustment)?\nCalling the platform hook at the first stage of the mem share transaction looks an overhead provided memory can be reclaimed and hence end up setting/unsetting system wide permissions inefficiently?",
+      "parentUuid": "82e708eb_0b58dbef",
+      "revId": "8ef7050f9942c45dfa6b5af0db1257d5488afcba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
