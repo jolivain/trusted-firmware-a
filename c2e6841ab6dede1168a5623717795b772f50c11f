@@ -141,6 +141,24 @@
       "parentUuid": "3575eafe_6c85e7ab",
       "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43c60161_115729ca",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-17T19:15:44Z",
+      "side": 0,
+      "message": "Ah apologies I had confused myself where this comment was located and had though this was part of the original share/lend transaction which would be covered by the in spmc_shmem_check_obj.\n\nUpdated this to ensure the emad array lies within the size of the retrieve descriptor.",
+      "parentUuid": "e8490308_4f35ad88",
+      "revId": "c2e6841ab6dede1168a5623717795b772f50c11f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
