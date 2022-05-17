@@ -34,6 +34,24 @@
       "parentUuid": "82e708eb_0b58dbef",
       "revId": "8ef7050f9942c45dfa6b5af0db1257d5488afcba",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e22ab581_d7b33ca0",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-17T10:34:19Z",
+      "side": 1,
+      "message": "\u003e How does a platform know it should use ffa_mtd or ffa_mtd_1_0 ?\nI realize this isn\u0027t written anywhere however since this is the final step in the memory sharing process the descriptor would always be converted to the latest version before we make this call therefore the by passing the ffa_mtd struct it should have been usable directly.\n\n\n\u003e May plat_spmc_shmem_begin/plat_spmc_shmem_reclaim move to fvp_spmc.c\nSure, updated. (I\u0027ve also updated the functions to use a void pointer for now as suggested below to support this move while we decide the best plan for the descriptor definitions.)\n\n\n\u003e Would it be ok to pass an opaque pointer to the platform hook?\n\u003e The problem of importing mem sharing structures/definitions can be moved generically at a later stage, or down to the platform port.\n\nI\u0027m not sure what the usual way this is done in TF-A, passing an opaque point would certainly be the simpler option, however as a consumer / implementer of the function does this mean they would need to create / copy the relevant descriptor to be able to perform any required operations?\n\n\n\u003e I wonder if the platform hook should rather be called (or additionally) at the mem retrieve/relinquish provided this the place where memory is effectively mapped/unmapped at the PE\n\nTrue this is a slight inefficiency if the transaction is not used, however the hook needs to be called on the initial share / reclaim as the IMPDEF functionality performed may be used to support sharing/lending to entities in the normal world along with the secure world. The SPMC would not have visibility for when a retrieve/relinquish call was made by a VM to a hypervisor and therefore could not perform the required operations at this time. By using the initial share/lend and reclaim calls we can be sure that the platform hooks have been called before any retrieve requests have been made in the system and after all the relinquish calls have been made.\n\nEnabling the hook for the retrieve/relinquish ABIs as well is a possibility however I am unaware of a use case that would benefit from having these later/early hooks as well as the other pair.",
+      "parentUuid": "c4ad042b_84b446d6",
+      "revId": "8ef7050f9942c45dfa6b5af0db1257d5488afcba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
