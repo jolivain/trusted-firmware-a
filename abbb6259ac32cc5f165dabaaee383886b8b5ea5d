@@ -16,6 +16,24 @@
       "message": "May this added block move to a new plat/arm/board/fvp/fvp_spmc.c?\nThis file would be conditionally built in the fvp makefile based on the SPMC_AT_EL3 build option?",
       "revId": "abbb6259ac32cc5f165dabaaee383886b8b5ea5d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdccdc1a_a992792b",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 49
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-17T15:27:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d47ec687_9a1a801f",
+      "revId": "abbb6259ac32cc5f165dabaaee383886b8b5ea5d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
