@@ -321,11 +321,12 @@ BL2_SOURCES		+=	drivers/io/io_dummy.c					\
 endif
 
 ifeq (${PSA_FWU_SUPPORT},1)
+endif
+
 include lib/zlib/zlib.mk
 include drivers/fwu/fwu.mk
 
 BL2_SOURCES		+=	$(ZLIB_SOURCES)
-endif
 
 BL2_SOURCES		+=	drivers/io/io_block.c					\
 				drivers/io/io_mtd.c					\
