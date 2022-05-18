@@ -16,6 +16,23 @@
       "message": "Merge waiting on a dependent patch in the patch stack to be receive code owner review from Jen\u0027s.",
       "revId": "c7d3147466f45a0d8b0d302918b5f3a2337fa086",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e06b9b44_3c1675e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000804
+      },
+      "writtenOn": "2022-05-18T04:44:29Z",
+      "side": 1,
+      "message": "`max` while added while back, I confirm that Qemu sbsa-ref board does not get to bl1_main().",
+      "revId": "c7d3147466f45a0d8b0d302918b5f3a2337fa086",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
