@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e952bdb6_443f8b2b",
+        "filename": "make_helpers/tbbr/tbbr_tools.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-18T12:33:20Z",
+      "side": 1,
+      "message": "This makefile is getting messy... With 2 chains of trust, the situation was already bad but with a third one it\u0027s becoming even more difficult to understand what the relevant options are...\n\nWe should start thinking about cleaning this up. Let\u0027s keep it like that for the time being but can we please create a backlog item to clean this up in the future?",
+      "revId": "523d6bfc862d4553eea9c9604b14613366b32ad6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca58c7b1_d7563945",
+        "filename": "make_helpers/tbbr/tbbr_tools.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-18T12:33:20Z",
+      "side": 1,
+      "message": "(minor) oem-key.crt would sound more aligned with existing key certificate names to me.",
+      "range": {
+        "startLine": 57,
+        "startChar": 45,
+        "endLine": 57,
+        "endChar": 54
+      },
+      "revId": "523d6bfc862d4553eea9c9604b14613366b32ad6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
