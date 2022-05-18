@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1588143_fc7fb3ec",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-18T06:32:13Z",
+      "side": 0,
+      "message": "A bit out of context but it may be worth updating the comment, the behavior of this bit has slightly changed. When SEL2 is present and enabled, the ST bit always behaves as 1 (secure physical timer registers not trapped).",
+      "range": {
+        "startLine": 216,
+        "startChar": 16,
+        "endLine": 217,
+        "endChar": 34
+      },
+      "revId": "0dc2b516812f013df8763f74fd164d277f01f824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
