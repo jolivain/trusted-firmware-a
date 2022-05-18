@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ff03fa7_8b68f9a7",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 51
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T16:38:50Z",
+      "side": 1,
+      "message": "nit: TYPE_ID to differentiate from the _STD and _IMPL macros?",
+      "range": {
+        "startLine": 291,
+        "startChar": 21,
+        "endLine": 291,
+        "endChar": 27
+      },
+      "revId": "c900c244245acbfa12a44b0a61b9dd5f07863099",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c47457ae_570d072c",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 51
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T16:38:50Z",
+      "side": 1,
+      "message": "AFAIU, this is small for a manifest.\nIs this the maximum expected size for the partition\u0027s manifest for EL3 SPMC?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 4
+      },
+      "revId": "c900c244245acbfa12a44b0a61b9dd5f07863099",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24f1156f_7c18b1fd",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 51
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T16:38:50Z",
+      "side": 1,
+      "message": "either make operator \u0027\u003d\u003d\u0027, or change version to v1.1",
+      "range": {
+        "startLine": 60,
+        "startChar": 5,
+        "endLine": 60,
+        "endChar": 46
+      },
+      "revId": "c900c244245acbfa12a44b0a61b9dd5f07863099",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba6aea6d_3c11472e",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 51
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T16:38:50Z",
+      "side": 1,
+      "message": "explicit cast to type of size_boot_info?",
+      "range": {
+        "startLine": 119,
+        "startChar": 35,
+        "endLine": 119,
+        "endChar": 54
+      },
+      "revId": "c900c244245acbfa12a44b0a61b9dd5f07863099",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "167af4b2_d1258352",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 51
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T16:38:50Z",
+      "side": 1,
+      "message": "full stop",
+      "revId": "c900c244245acbfa12a44b0a61b9dd5f07863099",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
