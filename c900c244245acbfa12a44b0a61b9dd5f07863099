@@ -24,6 +24,47 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f83c3225_6baa22ac",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 51
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-18T16:58:24Z",
+      "side": 1,
+      "message": "Updated, and also updated the below definitions to match instead of _IDEN.",
+      "parentUuid": "3ff03fa7_8b68f9a7",
+      "range": {
+        "startLine": 291,
+        "startChar": 21,
+        "endLine": 291,
+        "endChar": 27
+      },
+      "revId": "c900c244245acbfa12a44b0a61b9dd5f07863099",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51587943_bd33362e",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 51
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-18T16:58:24Z",
+      "side": 1,
+      "message": "Updated to _ID to match.",
+      "revId": "c900c244245acbfa12a44b0a61b9dd5f07863099",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c47457ae_570d072c",
@@ -37,6 +78,30 @@
       "writtenOn": "2022-05-18T16:38:50Z",
       "side": 1,
       "message": "AFAIU, this is small for a manifest.\nIs this the maximum expected size for the partition\u0027s manifest for EL3 SPMC?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 4
+      },
+      "revId": "c900c244245acbfa12a44b0a61b9dd5f07863099",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e468f1f_07ab687e",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 51
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-18T16:58:24Z",
+      "side": 1,
+      "message": "Yes as an initial implementation we\u0027re assuming that the manifest will be small enough to fit in a single page. I now understand this may not always be the case however for the initial implementation I think this should suffice. \nHope this sounds reasonable.",
+      "parentUuid": "c47457ae_570d072c",
       "range": {
         "startLine": 31,
         "startChar": 0,
@@ -70,6 +135,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14da5ccc_19ecb0ad",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 51
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-18T16:58:24Z",
+      "side": 1,
+      "message": "Thank you, fixed to check if \u003d\u003d v1.0.",
+      "parentUuid": "24f1156f_7c18b1fd",
+      "range": {
+        "startLine": 60,
+        "startChar": 5,
+        "endLine": 60,
+        "endChar": 46
+      },
+      "revId": "c900c244245acbfa12a44b0a61b9dd5f07863099",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba6aea6d_3c11472e",
@@ -93,6 +182,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa271da4_7e3e993c",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 51
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-18T16:58:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba6aea6d_3c11472e",
+      "range": {
+        "startLine": 119,
+        "startChar": 35,
+        "endLine": 119,
+        "endChar": 54
+      },
+      "revId": "c900c244245acbfa12a44b0a61b9dd5f07863099",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "167af4b2_d1258352",
@@ -106,6 +219,24 @@
       "writtenOn": "2022-05-18T16:38:50Z",
       "side": 1,
       "message": "full stop",
+      "revId": "c900c244245acbfa12a44b0a61b9dd5f07863099",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "920e680d_2f970e36",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 51
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-18T16:58:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "167af4b2_d1258352",
       "revId": "c900c244245acbfa12a44b0a61b9dd5f07863099",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
