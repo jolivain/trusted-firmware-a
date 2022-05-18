@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20e57279_babcfd79",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 54
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-18T16:21:43Z",
+      "side": 1,
+      "message": "Fair point, I had expected this to be used more frequently so have removed and swapped the arguments in the appropriate function call instead.",
+      "parentUuid": "9dbccb86_74909404",
+      "range": {
+        "startLine": 656,
+        "startChar": 0,
+        "endLine": 663,
+        "endChar": 1
+      },
+      "revId": "e5e7e53de59e163909e70401feca8b4d71715c7d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e14f3357_20aef37d",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-05-18T12:55:40Z",
       "side": 1,
       "message": "Few newly introduced function in this file can be made static.",
+      "range": {
+        "startLine": 668,
+        "startChar": 0,
+        "endLine": 668,
+        "endChar": 10
+      },
+      "revId": "e5e7e53de59e163909e70401feca8b4d71715c7d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d717e16_3e137da1",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 54
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-18T16:21:43Z",
+      "side": 1,
+      "message": "Updated.",
+      "parentUuid": "e14f3357_20aef37d",
       "range": {
         "startLine": 668,
         "startChar": 0,
