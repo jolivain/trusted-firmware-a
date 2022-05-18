@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3803e7e0_53012a60",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-18T12:17:53Z",
+      "side": 1,
+      "message": "(minor) \"feat(fconf)\" suggests to me that this is a generic fconf change, whereas this is rather an Arm platforms change. Suggest \"refactor(arm)\" instead.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 11
+      },
+      "revId": "bfff8aa71588ad50831ccfeb966f2f4707c260af",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d3a334f_cd653656",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-18T12:17:53Z",
+      "side": 1,
+      "message": "@ManishB: As the code owner for FCONF, could you please upgrade your CR+1 into a COR+1?",
+      "revId": "bfff8aa71588ad50831ccfeb966f2f4707c260af",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
