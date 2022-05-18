@@ -24,6 +24,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5becb0d4_100fca6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-18T13:02:19Z",
+      "side": 1,
+      "message": "We should also make changes such that the CCA chain of trust is used by default on RME systems. IOW, in Arm platforms makefile enforcing a dependency between ENABLE_RME\u003d1 and COT\u003dcca.\n\nCould you please prepare a new patch for that?",
+      "revId": "e874d883d132c86a9b7d43538f3659571bbbb7cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96c4fc50_66b699fe",
