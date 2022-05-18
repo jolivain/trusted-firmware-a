@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dbccb86_74909404",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 54
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-05-18T12:55:40Z",
+      "side": 1,
+      "message": "This function doesn\u0027t seems to be related to tsp functionality, it is more like a utility function. Also, IIUC it is used only once. I suggest instead of creating function for swapping, handle the swap operation at caller itself.",
+      "range": {
+        "startLine": 656,
+        "startChar": 0,
+        "endLine": 663,
+        "endChar": 1
+      },
+      "revId": "e5e7e53de59e163909e70401feca8b4d71715c7d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e14f3357_20aef37d",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 54
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-05-18T12:55:40Z",
+      "side": 1,
+      "message": "Few newly introduced function in this file can be made static.",
+      "range": {
+        "startLine": 668,
+        "startChar": 0,
+        "endLine": 668,
+        "endChar": 10
+      },
+      "revId": "e5e7e53de59e163909e70401feca8b4d71715c7d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
