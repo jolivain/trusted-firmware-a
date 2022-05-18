@@ -1,0 +1,504 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a96532a_ddfde32c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 50
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "It seems like a lot of comments, but there is a lot of repetition.\nI get this was taken from  another code-base and has been validated in other contexts. Most of comments are really to put code in line with practices used to see in TF-A.",
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56fec403_6d5b305f",
+        "filename": "include/services/el3_spmc_ffa_memory.h",
+        "patchSetId": 50
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "VM IDs?",
+      "range": {
+        "startLine": 20,
+        "startChar": 40,
+        "endLine": 20,
+        "endChar": 45
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79ea138a_15769299",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 50
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "U",
+      "range": {
+        "startLine": 44,
+        "startChar": 16,
+        "endLine": 44,
+        "endChar": 26
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f5ffca8_effdb785",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 50
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "!\u003d 0U",
+      "range": {
+        "startLine": 115,
+        "startChar": 5,
+        "endLine": 115,
+        "endChar": 15
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3409bea4_8a891f2c",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 50
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "both !\u003d 0U?",
+      "range": {
+        "startLine": 374,
+        "startChar": 5,
+        "endLine": 374,
+        "endChar": 26
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d02e756c_e54d870b",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 50
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "obj \u003d\u003d NULL",
+      "range": {
+        "startLine": 407,
+        "startChar": 4,
+        "endLine": 407,
+        "endChar": 10
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccc8ff1c_ab60bee7",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 50
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "obj \u003d\u003d NULL",
+      "range": {
+        "startLine": 455,
+        "startChar": 4,
+        "endLine": 455,
+        "endChar": 10
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46da8426_5405e55b",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 50
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be better/cleaner to shift sender_id to its place, and cast it to uint16_t before calling this function?",
+      "range": {
+        "startLine": 462,
+        "startChar": 18,
+        "endLine": 462,
+        "endChar": 53
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce86415f_2ae23cc7",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 50
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "... would avoid repeating this.",
+      "range": {
+        "startLine": 464,
+        "startChar": 17,
+        "endLine": 464,
+        "endChar": 53
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfa90967_429d8b8f",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 50
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "both !\u003d 0U?",
+      "range": {
+        "startLine": 534,
+        "startChar": 4,
+        "endLine": 534,
+        "endChar": 27
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0da5ae80_9960d486",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 50
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "obj \u003d\u003d NULL",
+      "range": {
+        "startLine": 586,
+        "startChar": 4,
+        "endLine": 586,
+        "endChar": 11
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de0ba9ca_effcec31",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 50
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "!\u003d 0U",
+      "range": {
+        "startLine": 612,
+        "startChar": 5,
+        "endLine": 612,
+        "endChar": 15
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6d827f9_7de7d179",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 50
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "!\u003d 0U\n\nIs it worth doing:\n if (req-\u003eflags !\u003d 0U) {...}\nAnd inside do the remaining two if clauses?\nI am thinking might help with the readability of these conditions",
+      "range": {
+        "startLine": 624,
+        "startChar": 5,
+        "endLine": 624,
+        "endChar": 15
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b643825e_d14a9e38",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 50
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "I think this part of the expression reads better as:\n(req-\u003eflags !\u003d FFA_MTD_FLAG_TYPE_SHARE_MEMORY) \u0026\u0026 (req-\u003eflags !\u003d FFA_MTD_FLAG_TYPE_LEND_MEMORY)",
+      "range": {
+        "startLine": 624,
+        "startChar": 19,
+        "endLine": 625,
+        "endChar": 51
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "555b5dab_77d2e735",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 50
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "obj \u003d\u003d NULL",
+      "range": {
+        "startLine": 711,
+        "startChar": 4,
+        "endLine": 711,
+        "endChar": 10
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b795d22_c35b65cd",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 50
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "!\u003d 0U",
+      "range": {
+        "startLine": 718,
+        "startChar": 5,
+        "endLine": 718,
+        "endChar": 14
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dda4e6c_c6d28324",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 50
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "As above... It would look cleaner to have \u0027sender_id\u0027 shifted 16 to right, and cast to uint16_t.",
+      "range": {
+        "startLine": 719,
+        "startChar": 17,
+        "endLine": 719,
+        "endChar": 53
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4a6f98c_3034c869",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 50
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "!\u003d 0U",
+      "range": {
+        "startLine": 813,
+        "startChar": 0,
+        "endLine": 813,
+        "endChar": 3
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91580e3e_ed2cc140",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 50
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "\u003d\u003d NULL",
+      "range": {
+        "startLine": 822,
+        "startChar": 6,
+        "endLine": 822,
+        "endChar": 9
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b77ed3d_eefc83ec",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 50
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "!\u003d 0U",
+      "range": {
+        "startLine": 889,
+        "startChar": 5,
+        "endLine": 889,
+        "endChar": 14
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84abbe6d_cb621c94",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 50
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "obj \u003d\u003d NULL ?",
+      "range": {
+        "startLine": 898,
+        "startChar": 5,
+        "endLine": 898,
+        "endChar": 9
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca2d0d57_8126a9aa",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.h",
+        "patchSetId": 50
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-18T14:54:15Z",
+      "side": 1,
+      "message": "why was this defined here and not in with the rest of the structures?",
+      "range": {
+        "startLine": 25,
+        "startChar": 7,
+        "endLine": 25,
+        "endChar": 36
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
