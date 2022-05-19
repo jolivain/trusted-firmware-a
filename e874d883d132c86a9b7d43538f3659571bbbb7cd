@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7988245f_21d67fc1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-05-19T22:03:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fff58847_ed4ce05e",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "e874d883d132c86a9b7d43538f3659571bbbb7cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5becb0d4_100fca6e",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -43,6 +67,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e084d994_d18be837",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-05-19T22:03:05Z",
+      "side": 1,
+      "message": "Ack, will do!",
+      "parentUuid": "5becb0d4_100fca6e",
+      "revId": "e874d883d132c86a9b7d43538f3659571bbbb7cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "96c4fc50_66b699fe",
         "filename": "plat/arm/board/common/board_common.mk",
         "patchSetId": 4
@@ -54,6 +96,30 @@
       "writtenOn": "2022-05-18T12:45:00Z",
       "side": 1,
       "message": "(minor) This comment is incomplete, as it does not mention the Secure World ROTPK.",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 35
+      },
+      "revId": "e874d883d132c86a9b7d43538f3659571bbbb7cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dabaf8f7_928dfc31",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-05-19T22:03:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96c4fc50_66b699fe",
       "range": {
         "startLine": 92,
         "startChar": 0,
@@ -110,6 +176,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "febcf82b_462d2bce",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-05-19T22:03:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac2cdd82_e8af7468",
+      "range": {
+        "startLine": 98,
+        "startChar": 22,
+        "endLine": 98,
+        "endChar": 25
+      },
+      "revId": "e874d883d132c86a9b7d43538f3659571bbbb7cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "695b0714_0a41b970",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-05-19T22:03:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd8aa889_4f139916",
+      "range": {
+        "startLine": 98,
+        "startChar": 56,
+        "endLine": 98,
+        "endChar": 58
+      },
+      "revId": "e874d883d132c86a9b7d43538f3659571bbbb7cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f0eeb0c_49f859dd",
@@ -123,6 +237,30 @@
       "writtenOn": "2022-05-18T12:45:00Z",
       "side": 1,
       "message": "The Platform ROTPK has \u0027_dev_\u0027 in its file name, which I think is good, because it emphasize that these keys should absolutely not be used on production systems. Can we please do the same for the development SWd ROTPK and name the file arm_dev_swd_rotpk.S?",
+      "range": {
+        "startLine": 106,
+        "startChar": 36,
+        "endLine": 106,
+        "endChar": 49
+      },
+      "revId": "e874d883d132c86a9b7d43538f3659571bbbb7cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c719325_1487b3d9",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-05-19T22:03:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f0eeb0c_49f859dd",
       "range": {
         "startLine": 106,
         "startChar": 36,
@@ -156,6 +294,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8e2bdbd_df61c552",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-05-19T22:03:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bb25184_e900a76c",
+      "range": {
+        "startLine": 111,
+        "startChar": 18,
+        "endLine": 111,
+        "endChar": 34
+      },
+      "revId": "e874d883d132c86a9b7d43538f3659571bbbb7cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8e4decd_84726d0f",
@@ -169,6 +331,30 @@
       "writtenOn": "2022-05-18T12:45:00Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 113,
+        "startChar": 18,
+        "endLine": 113,
+        "endChar": 34
+      },
+      "revId": "e874d883d132c86a9b7d43538f3659571bbbb7cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b47d45bc_e16230f0",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-05-19T22:03:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8e4decd_84726d0f",
       "range": {
         "startLine": 113,
         "startChar": 18,
