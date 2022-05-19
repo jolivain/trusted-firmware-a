@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0887bda8_6c56cbb0",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 39
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-19T13:39:35Z",
+      "side": 1,
+      "message": "*sorry above read \u0027must be 1\u0027.",
+      "parentUuid": "2f6f7542_be821abd",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 5
+      },
+      "revId": "8739948be985171f6d9a9347c15966322c99c91a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e84a438_8c95b13e",
         "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
         "patchSetId": 39
