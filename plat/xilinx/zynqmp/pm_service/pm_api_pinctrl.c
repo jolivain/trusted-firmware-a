@@ -2511,7 +2511,7 @@ static struct zynqmp_pin_group zynqmp_pin_groups[MAX_PIN] = {
  *
  * @return	Returns success.
  */
-enum pm_ret_status pm_api_pinctrl_get_num_pins(unsigned int *npins)
+enum pm_ret_status pm_api_pinctrl_get_num_pins(uint32_t *npins)
 {
 	*npins = MAX_PIN;
 
@@ -2526,7 +2526,7 @@ enum pm_ret_status pm_api_pinctrl_get_num_pins(unsigned int *npins)
  *
  * @return	Returns success.
  */
-enum pm_ret_status pm_api_pinctrl_get_num_functions(unsigned int *nfuncs)
+enum pm_ret_status pm_api_pinctrl_get_num_functions(uint32_t *nfuncs)
 {
 	*nfuncs = MAX_FUNCTION;
 
@@ -2543,10 +2543,10 @@ enum pm_ret_status pm_api_pinctrl_get_num_functions(unsigned int *nfuncs)
  *
  * @return	Returns success.
  */
-enum pm_ret_status pm_api_pinctrl_get_num_func_groups(unsigned int fid,
-						      unsigned int *ngroups)
+enum pm_ret_status pm_api_pinctrl_get_num_func_groups(uint32_t fid,
+						      uint32_t *ngroups)
 {
-	int i = 0;
+	int32_t i = 0;
 	uint16_t *grps;
 
 	if (fid >= MAX_FUNCTION) {
@@ -2575,7 +2575,7 @@ enum pm_ret_status pm_api_pinctrl_get_num_func_groups(unsigned int fid,
  * This function is used by master to get name of function specified
  * by given function ID.
  */
-void pm_api_pinctrl_get_function_name(unsigned int fid, char *name)
+void pm_api_pinctrl_get_function_name(uint32_t fid, char *name)
 {
 	if (fid >= MAX_FUNCTION) {
 		memcpy(name, END_OF_FUNCTION, FUNCTION_NAME_LEN);
@@ -2602,11 +2602,11 @@ void pm_api_pinctrl_get_function_name(unsigned int fid, char *name)
  *
  * Return: Returns status, either success or error+reason.
  */
-enum pm_ret_status pm_api_pinctrl_get_function_groups(unsigned int fid,
-						      unsigned int index,
+enum pm_ret_status pm_api_pinctrl_get_function_groups(uint32_t fid,
+						      uint32_t index,
 						      uint16_t *groups)
 {
-	unsigned int i;
+	uint32_t i;
 	uint16_t *grps;
 
 	if (fid >= MAX_FUNCTION) {
@@ -2655,11 +2655,11 @@ enum pm_ret_status pm_api_pinctrl_get_function_groups(unsigned int fid,
  *
  * Return: Returns status, either success or error+reason.
  */
-enum pm_ret_status pm_api_pinctrl_get_pin_groups(unsigned int pin,
-						 unsigned int index,
+enum pm_ret_status pm_api_pinctrl_get_pin_groups(uint32_t pin,
+						 uint32_t index,
 						 uint16_t *groups)
 {
-	unsigned int i;
+	uint32_t i;
 	uint16_t *grps;
 
 	if (pin >= MAX_PIN) {
