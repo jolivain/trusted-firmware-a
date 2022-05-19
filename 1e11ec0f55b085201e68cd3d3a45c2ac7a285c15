@@ -347,6 +347,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cb2617c_ec1a962b",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 50
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-19T09:20:58Z",
+      "side": 1,
+      "message": "What you suggest seems ok.",
+      "parentUuid": "e66d9423_1260ab2b",
+      "range": {
+        "startLine": 462,
+        "startChar": 18,
+        "endLine": 462,
+        "endChar": 53
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ce86415f_2ae23cc7",
@@ -736,6 +760,30 @@
       "side": 1,
       "message": "Will align with with we decide in the previous comment.",
       "parentUuid": "3dda4e6c_c6d28324",
+      "range": {
+        "startLine": 719,
+        "startChar": 17,
+        "endLine": 719,
+        "endChar": 53
+      },
+      "revId": "1e11ec0f55b085201e68cd3d3a45c2ac7a285c15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf504b06_294832ed",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 50
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-19T09:20:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a4225841_c435a483",
       "range": {
         "startLine": 719,
         "startChar": 17,
