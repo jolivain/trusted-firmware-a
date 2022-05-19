@@ -225,7 +225,7 @@ static inline unsigned int get_armv8_4_feat_nv_support(void)
 }
 
 /*******************************************************************************
- * Function to identify the presence of FEAT_BRBE ( Branch Record Buffer
+ * Function to identify the presence of FEAT_BRBE (Branch Record Buffer
  * Extension)
  ******************************************************************************/
 static inline bool is_feat_brbe_present(void)
@@ -234,5 +234,13 @@ static inline bool is_feat_brbe_present(void)
 		ID_AA64DFR0_BRBE_MASK) == ID_AA64DFR0_BRBE_SUPPORTED);
 }
 
+/*******************************************************************************
+ * Function to identify the presence of FEAT_TRBE (Trace Buffer Extension)
+ ******************************************************************************/
+static inline bool is_feat_trbe_present(void)
+{
+	return (((read_id_aa64dfr0_el1() >> ID_AA64DFR0_TRACEBUFFER_SHIFT) &
+		ID_AA64DFR0_TRACEBUFFER_MASK) == ID_AA64DFR0_TRACEBUFFER_SUPPORTED);
+}
 
 #endif /* ARCH_FEATURES_H */
