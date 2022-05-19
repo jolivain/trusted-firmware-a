@@ -1050,7 +1050,6 @@ $(eval $(call assert_booleans,\
         COT_DESC_IN_DTB \
         USE_SP804_TIMER \
         PSA_FWU_SUPPORT \
-        ENABLE_TRBE_FOR_NS \
         ENABLE_SYS_REG_TRACE_FOR_NS \
         ENABLE_MPMM \
         ENABLE_MPMM_FCONF \
@@ -1067,6 +1066,7 @@ $(eval $(call assert_numerics,\
         CTX_INCLUDE_MTE_REGS \
         CTX_INCLUDE_NEVE_REGS \
         ENABLE_BRBE_FOR_NS \
+        ENABLE_TRBE_FOR_NS \
         ENABLE_BTI \
         ENABLE_PAUTH \
         ENABLE_FEAT_AMUv1 \
