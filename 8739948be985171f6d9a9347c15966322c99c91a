@@ -69,6 +69,30 @@
       },
       "revId": "8739948be985171f6d9a9347c15966322c99c91a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b567869c_376d60f4",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 39
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-19T13:38:44Z",
+      "side": 1,
+      "message": "I see. I understand it was added a cast to (uintptr_t) to prevent the issue you pointed. However, I was making sure the reference to the position after the end of the array was intended. Adding a comment might help here I think (soft suggestion)",
+      "parentUuid": "a53186ae_b0b2de4d",
+      "range": {
+        "startLine": 678,
+        "startChar": 17,
+        "endLine": 678,
+        "endChar": 44
+      },
+      "revId": "8739948be985171f6d9a9347c15966322c99c91a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
