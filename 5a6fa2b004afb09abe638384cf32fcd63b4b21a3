@@ -39,6 +39,30 @@
       },
       "revId": "5a6fa2b004afb09abe638384cf32fcd63b4b21a3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68c53534_8f25a7d2",
+        "filename": "lib/debugfs/devfip.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-05-19T22:02:44Z",
+      "side": 1,
+      "message": "I think the majority are properly ordered apart from:\n\t{\"rot-k.crt\",\t\tUUID_ROT_KEY_CERT},\n\t{\"nt-k.crt\",\t\tUUID_NON_TRUSTED_WORLD_KEY_CERT},\nWhich appear to have their IDs initialized in firmware_image_package.h separately, not via tbbr_img_def.h, and are not a part of a current COT.. ? Was this meant for CCA and should be removed now?\n\nI will order the other certificates properly!",
+      "parentUuid": "3163f0da_1d3ab5dd",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 35
+      },
+      "revId": "5a6fa2b004afb09abe638384cf32fcd63b4b21a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
