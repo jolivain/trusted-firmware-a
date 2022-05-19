@@ -34,6 +34,24 @@
       "parentUuid": "426b7bcf_8124dc75",
       "revId": "7a756a57179414b92498717d92217defd1d2ae11",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25174eed_192f688a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000791
+      },
+      "writtenOn": "2022-05-19T05:35:59Z",
+      "side": 1,
+      "message": "Hi Benjamin,\n\nThis change intends to enforce the recommendation made in the UEFI specification v2.8 Section 5.3.1 [1]\n\u003e When the Partition Entry Array CRC32 is updated, the GPT Header CRC must also be updated.\nThis change is motivated by the fact that this is a platform independent recommendation (applicable to any platform making use of GPT standard) and in accordance with the linux driver [2].\n\n[1]: https://uefi.org/sites/default/files/resources/UEFI_Spec_2_8_final.pdf\n[2]: https://elixir.bootlin.com/linux/v5.18-rc7/source/block/partitions/efi.c#L372",
+      "parentUuid": "1934e948_fdec9537",
+      "revId": "7a756a57179414b92498717d92217defd1d2ae11",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
