@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e1d3178_623a01e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-05-20T02:50:10Z",
+      "side": 1,
+      "message": "Take wdt timeout as an example with code snippet\n 72 static int wdt_isr(void *cookie)\n 73 {\n 74     const uint32_t intr_num \u003d rgu_contr_p-\u003eirq_num;\n 75\n\n 83     /* aee dump for per cpu register */\n 84     aee_wdt_dump_all_core((void *)cookie);\n 85\n.....\n 95     /* Publish watch dog timeout event */\n 96     PUBLISH_EVENT(watchdog_timeout);\n 97     const struct interrupt_controller *intr_contr_p \u003d\n 98         intr_contr_singleton();\n 99\n100     if (intr_contr_p \u0026\u0026 intr_contr_p-\u003eeoi_intr)\n101         intr_contr_p-\u003eeoi_intr(intr_num);\n102     NOTICE(\"End of %s\\n\", __func__);\n\n\n",
+      "revId": "d2c0dced7fb75c15d3b6f5cd4f100ae7406e66e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
