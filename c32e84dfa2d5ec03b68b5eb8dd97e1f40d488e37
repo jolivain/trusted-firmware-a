@@ -33,6 +33,24 @@
       "message": "I am wondering if you have a sample vendor_pubsub_events.h file that can be made available in TF-A",
       "revId": "c32e84dfa2d5ec03b68b5eb8dd97e1f40d488e37",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc13ab7b_bcba9aad",
+        "filename": "include/lib/el3_runtime/pubsub_events.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-05-20T02:13:39Z",
+      "side": 1,
+      "message": "Submit another change which is header file defining MTK\u0027s event.(with topic vendor_extend_pubsub_event)\nThe SiP event publish is in the platform port(with abstraction layer) and scatter in several source files.\nWe will upstream platform port recently.\nPlease consider to allow SiP vendor extending pubsub events.",
+      "parentUuid": "56f9e03a_0ab5ddf5",
+      "revId": "c32e84dfa2d5ec03b68b5eb8dd97e1f40d488e37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
