@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75c4987c_c836792e",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-05-20T07:11:58Z",
+      "side": 1,
+      "message": "Sorry for the late comment. I believe this should be FFA_VERSION_COMPILED instead of ffa_version since the already accepted shmem objects are always converted to FFA_VERSION_COMPILED (currently 1.1). Without this there are unexpected errors if interfacing with a 1.0 client.",
+      "range": {
+        "startLine": 818,
+        "startChar": 8,
+        "endLine": 818,
+        "endChar": 19
+      },
+      "revId": "7e804f9695c48681c91e9e6fc6175eb6997df867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
