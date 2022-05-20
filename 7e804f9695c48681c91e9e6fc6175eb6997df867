@@ -22,6 +22,30 @@
       },
       "revId": "7e804f9695c48681c91e9e6fc6175eb6997df867",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7058469f_0ad0c970",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-05-20T10:42:07Z",
+      "side": 1,
+      "message": "Thanks, submitted a new patch to fix this https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/15277",
+      "parentUuid": "75c4987c_c836792e",
+      "range": {
+        "startLine": 818,
+        "startChar": 8,
+        "endLine": 818,
+        "endChar": 19
+      },
+      "revId": "7e804f9695c48681c91e9e6fc6175eb6997df867",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
