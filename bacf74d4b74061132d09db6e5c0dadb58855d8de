@@ -16,6 +16,24 @@
       "message": "These issues need to have changelog sections assigned to them in changelog.yaml (you\u0027ll need to regenerate the changelog afterwards). Some of them are using deprecated scopes (e.g. plat/mediatek/mt8186) which also need to be given a short, kebab-case name.",
       "revId": "bacf74d4b74061132d09db6e5c0dadb58855d8de",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da73ca82_28ff0a7e",
+        "filename": "docs/change-log.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-05-23T16:05:17Z",
+      "side": 1,
+      "message": "Thanks for highlighting it.\n\nIt will be handled in the following way:\nAt first, I will add the scopes wherever it\u0027s feasible under sub sections in the changelog.yaml file.\nBut since the patches are already merged, I will be manually adding them as the format \"plat/mediatek/mt8186\" is the deprecated format. So even after updating the yaml file with scope mt8186, these commits need to be manually resolved.",
+      "parentUuid": "4a60e9d5_05f2527a",
+      "revId": "bacf74d4b74061132d09db6e5c0dadb58855d8de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
