@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fb90d35_07affd2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000159
+      },
+      "writtenOn": "2022-05-23T11:34:09Z",
+      "side": 1,
+      "message": "Tests in the CI are failing due to undefined references to mbedtls symbols. Since there was an mbedtls update in TF-A I\u0027ve rebased the patch and I\u0027m running the tests again.",
+      "revId": "b5ccac0f81875187b1645ef070220f7d2b509caa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
