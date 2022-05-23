@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a60e9d5_05f2527a",
+        "filename": "docs/change-log.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2022-05-23T10:03:51Z",
+      "side": 1,
+      "message": "These issues need to have changelog sections assigned to them in changelog.yaml (you\u0027ll need to regenerate the changelog afterwards). Some of them are using deprecated scopes (e.g. plat/mediatek/mt8186) which also need to be given a short, kebab-case name.",
+      "revId": "bacf74d4b74061132d09db6e5c0dadb58855d8de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
