@@ -236,6 +236,8 @@ size_t mmc_erase_blocks(int lba, size_t size);
 size_t mmc_rpmb_read_blocks(int lba, uintptr_t buf, size_t size);
 size_t mmc_rpmb_write_blocks(int lba, const uintptr_t buf, size_t size);
 size_t mmc_rpmb_erase_blocks(int lba, size_t size);
+int mmc_part_switch_current_boot(void);
+int mmc_part_switch_user(void);
 size_t mmc_boot_part_read_blocks(int lba, uintptr_t buf, size_t size);
 int mmc_init(const struct mmc_ops *ops_ptr, unsigned int clk,
 	     unsigned int width, unsigned int flags,
