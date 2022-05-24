@@ -135,6 +135,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da442b17_326bba73",
+        "filename": "docs/change-log.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-05-24T17:15:04Z",
+      "side": 1,
+      "message": "Ok, it was not obvious, but I did not look too hard.",
+      "parentUuid": "cb6f0058_51759367",
+      "revId": "b0837fe908da597e6d396737ac26e09eed045464",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7df3fb9_9edc5d0f",
@@ -189,6 +207,24 @@
       "side": 1,
       "message": "I think it is OK like this. The ST scope is for generic code, that could be used for several ST platforms. STM32MP1 scope is for this SoC family. I may create 2 new scopes STM32MP15 and STM32MP13 for the 2 variants in this family.",
       "parentUuid": "cb200883_32709b85",
+      "revId": "b0837fe908da597e6d396737ac26e09eed045464",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a22ff52_402f2b5b",
+        "filename": "docs/change-log.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-05-24T17:15:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d032ea0c_aaef264c",
       "revId": "b0837fe908da597e6d396737ac26e09eed045464",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -262,6 +298,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c544784d_1d7a3599",
+        "filename": "docs/change-log.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-05-24T17:15:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8ba2235_120bc57b",
+      "revId": "b0837fe908da597e6d396737ac26e09eed045464",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa16c225_c4d824d0",
@@ -293,6 +347,24 @@
       "side": 1,
       "message": "I\u0027m OK to keep it here. I\u0027ve an internal patch that moves this to the common directory. If it is OK for you.",
       "parentUuid": "aa16c225_c4d824d0",
+      "revId": "b0837fe908da597e6d396737ac26e09eed045464",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "746e706c_67b7ddbc",
+        "filename": "docs/change-log.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-05-24T17:15:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "12eef3d9_1d2d59d1",
       "revId": "b0837fe908da597e6d396737ac26e09eed045464",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
