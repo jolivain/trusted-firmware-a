@@ -16,6 +16,23 @@
       "message": "fvp-fwu-aemv8a.aarch32.NVM_reboot: Known to fail not introduced by this patch\n",
       "revId": "4466cf8255aef834e79e5d69ddc4fbd71f6e3236",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f51595b7_f67eeab4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-05-24T13:10:53Z",
+      "side": 1,
+      "message": "tf-l2-boot-tests-juno/juno-mbedtls-ecdsa-opteed:juno-linux.optee Passed on rerun  (https://jenkins.oss.arm.com/job/tf-ci-gateway/116395/)\nCoverity tests expected to fail",
+      "revId": "4466cf8255aef834e79e5d69ddc4fbd71f6e3236",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
