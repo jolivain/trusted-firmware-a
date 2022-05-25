@@ -122,6 +122,24 @@
       "parentUuid": "519f29c1_4d9b44b3",
       "revId": "0367d40f2510692ee38eb9597481892b1cfc3543",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03b148bc_29e3258c",
+        "filename": "services/std_svc/std_svc_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-05-25T22:07:16Z",
+      "side": 1,
+      "message": "When one of the sub-services fails, entire std_svc fails and does not service any SMC FIDs. So it is important that all sub-tests pass or handle failures internally without impacting others. When any sub-service fails, we see \"ERROR:   Error initializing runtime service std_svc\" and this in turn kills std_svc.\n\nI agree, the design needs an overhaul. The current one is a mess. This patch fixes one of the platforms where we would like to still use PSCI after SPMD setup fails.",
+      "parentUuid": "5e035b26_32422df4",
+      "revId": "0367d40f2510692ee38eb9597481892b1cfc3543",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
