@@ -46,6 +46,11 @@
 #define MAP_FLASH1	MAP_REGION_FLAT(QEMU_FLASH1_BASE, QEMU_FLASH1_SIZE, \
 					MT_MEMORY | MT_RO | MT_SECURE)
 
+#ifdef TOS_FW_CONFIG_BASE
+#define MAP_TOS_FW_CONFIG \
+	MAP_REGION_FLAT(TOS_FW_CONFIG_BASE, TOS_FW_CONFIG_SIZE, \
+			MT_MEMORY | MT_RW | MT_SECURE)
+#endif
 /*
  * Table of regions for various BL stages to map using the MMU.
  * This doesn't include TZRAM as the 'mem_layout' argument passed to
@@ -83,6 +88,9 @@ static const mmap_region_t plat_qemu_mmap[] = {
 	QEMU_SP_IMAGE_MMAP,
 #else
 	MAP_BL32_MEM,
+#endif
+#ifdef MAP_TOS_FW_CONFIG
+	MAP_TOS_FW_CONFIG,
 #endif
 	{0}
 };

@@ -147,9 +147,18 @@
  * current BL3-1 debug size plus a little space for growth.
  */
 #define BL31_BASE			(BL31_LIMIT - 0x60000)
-#define BL31_LIMIT			(BL_RAM_BASE + BL_RAM_SIZE)
+#define BL31_LIMIT			(BL_RAM_BASE + BL_RAM_SIZE - \
+					 TOS_FW_CONFIG_SIZE)
 #define BL31_PROGBITS_LIMIT		BL1_RW_BASE
 
+#if defined(SPD_spmd)
+#define TOS_FW_CONFIG_BASE		BL31_LIMIT
+#define TOS_FW_CONFIG_LIMIT		(TOS_FW_CONFIG_BASE + \
+					 TOS_FW_CONFIG_SIZE)
+#define TOS_FW_CONFIG_SIZE		0x1000
+#else
+#define TOS_FW_CONFIG_SIZE		0
+#endif
 
 /*
  * BL3-2 specific defines.
@@ -168,12 +177,12 @@
 # define BL32_MEM_BASE			BL_RAM_BASE
 # define BL32_MEM_SIZE			BL_RAM_SIZE
 # define BL32_BASE			BL32_SRAM_BASE
-# define BL32_LIMIT			BL32_SRAM_LIMIT
+# define BL32_LIMIT			(BL32_SRAM_LIMIT - TOS_FW_CONFIG_SIZE)
 #elif BL32_RAM_LOCATION_ID == SEC_DRAM_ID
 # define BL32_MEM_BASE			SEC_DRAM_BASE
 # define BL32_MEM_SIZE			SEC_DRAM_SIZE
 # define BL32_BASE			BL32_DRAM_BASE
-# define BL32_LIMIT			BL32_DRAM_LIMIT
+# define BL32_LIMIT			(BL32_DRAM_LIMIT - TOS_FW_CONFIG_SIZE)
 #else
 # error "Unsupported BL32_RAM_LOCATION_ID value"
 #endif

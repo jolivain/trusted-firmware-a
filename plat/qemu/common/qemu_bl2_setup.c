@@ -149,8 +149,10 @@ static int qemu_bl2_handle_post_image_load(unsigned int image_id)
 	bl_mem_params_node_t *paged_mem_params = NULL;
 #endif
 #if defined(SPD_spmd)
-	unsigned int mode_rw = MODE_RW_64;
+	bl_mem_params_node_t *tos_mem_params = NULL;
+#if SPMC_OPTEE
 	uint64_t pagable_part = 0;
+#endif
 #endif
 
 	assert(bl_mem_params);
@@ -171,16 +173,18 @@ static int qemu_bl2_handle_post_image_load(unsigned int image_id)
 			WARN("OPTEE header parse error.\n");
 		}
 #if defined(SPD_spmd)
-		mode_rw = bl_mem_params->ep_info.args.arg0;
 		pagable_part = bl_mem_params->ep_info.args.arg1;
 #endif
 #endif
 
 #if defined(SPD_spmd)
-		bl_mem_params->ep_info.args.arg0 = ARM_PRELOADED_DTB_BASE;
+		tos_mem_params = get_bl_mem_params_node(TOS_FW_CONFIG_ID);
+		bl_mem_params->ep_info.args.arg0 =
+					tos_mem_params->image_info.image_base;
+#if SPMC_OPTEE
 		bl_mem_params->ep_info.args.arg1 = pagable_part;
-		bl_mem_params->ep_info.args.arg2 = mode_rw;
-		bl_mem_params->ep_info.args.arg3 = 0;
+		bl_mem_params->ep_info.args.arg2 = ARM_PRELOADED_DTB_BASE;
+#endif
 #elif defined(SPD_opteed)
 		/*
 		 * OP-TEE expect to receive DTB address in x2.
