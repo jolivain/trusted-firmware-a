@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "74fbdf27_83c59c92",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-25T09:28:38Z",
+      "side": 1,
+      "message": "Hum I see the spec section title is indeed \u00275.4 Boot information protocol\u0027 so you may ignore this.",
+      "parentUuid": "1000757a_d1b6feb5",
+      "range": {
+        "startLine": 9,
+        "startChar": 61,
+        "endLine": 10,
+        "endChar": 21
+      },
+      "revId": "0871438154e536ef011f4aad0fa903130608e6ac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "593f230d_dad50361",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -65,6 +89,345 @@
         "startChar": 2,
         "endLine": 11,
         "endChar": 3
+      },
+      "revId": "0871438154e536ef011f4aad0fa903130608e6ac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65b8f336_4fa74094",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-25T09:28:38Z",
+      "side": 1,
+      "message": "nit: remove",
+      "range": {
+        "startLine": 361,
+        "startChar": 57,
+        "endLine": 361,
+        "endChar": 60
+      },
+      "revId": "0871438154e536ef011f4aad0fa903130608e6ac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4602ad42_b3630189",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-25T09:28:38Z",
+      "side": 1,
+      "message": "nit: as well as to comply",
+      "range": {
+        "startLine": 366,
+        "startChar": 0,
+        "endLine": 366,
+        "endChar": 17
+      },
+      "revId": "0871438154e536ef011f4aad0fa903130608e6ac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de8596dc_80b44370",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-25T09:28:38Z",
+      "side": 1,
+      "message": "Text above should mention what are the pm and image offset defaults when they aren\u0027t specified in the json nodes.",
+      "revId": "0871438154e536ef011f4aad0fa903130608e6ac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d85793f_ef713348",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-25T09:28:38Z",
+      "side": 1,
+      "message": "nit: specifies (to avoid repetition)",
+      "range": {
+        "startLine": 567,
+        "startChar": 33,
+        "endLine": 567,
+        "endChar": 40
+      },
+      "revId": "0871438154e536ef011f4aad0fa903130608e6ac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08e5ef67_1b02e41f",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-25T09:28:38Z",
+      "side": 1,
+      "message": "for the boot information descriptor and boot information header *structures*",
+      "range": {
+        "startLine": 567,
+        "startChar": 52,
+        "endLine": 568,
+        "endChar": 38
+      },
+      "revId": "0871438154e536ef011f4aad0fa903130608e6ac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e6c8931_b130783c",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-25T09:28:38Z",
+      "side": 1,
+      "message": "is",
+      "range": {
+        "startLine": 572,
+        "startChar": 31,
+        "endLine": 572,
+        "endChar": 37
+      },
+      "revId": "0871438154e536ef011f4aad0fa903130608e6ac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91aa8d1b_40d13de7",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-25T09:28:38Z",
+      "side": 1,
+      "message": "nit: as",
+      "range": {
+        "startLine": 572,
+        "startChar": 63,
+        "endLine": 572,
+        "endChar": 65
+      },
+      "revId": "0871438154e536ef011f4aad0fa903130608e6ac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "775a664e_81d0c12b",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-25T09:28:38Z",
+      "side": 1,
+      "message": "nit: partition\u0027s",
+      "range": {
+        "startLine": 576,
+        "startChar": 0,
+        "endLine": 576,
+        "endChar": 10
+      },
+      "revId": "0871438154e536ef011f4aad0fa903130608e6ac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83c90cac_b6a036ef",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-25T09:28:38Z",
+      "side": 1,
+      "message": "boot information blob?",
+      "range": {
+        "startLine": 578,
+        "startChar": 19,
+        "endLine": 578,
+        "endChar": 46
+      },
+      "revId": "0871438154e536ef011f4aad0fa903130608e6ac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "682b7a4e_25de136f",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-25T09:28:38Z",
+      "side": 1,
+      "message": "boot information blob",
+      "range": {
+        "startLine": 582,
+        "startChar": 38,
+        "endLine": 582,
+        "endChar": 65
+      },
+      "revId": "0871438154e536ef011f4aad0fa903130608e6ac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b28c1f9_4322a576",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-25T09:28:38Z",
+      "side": 1,
+      "message": "updated",
+      "range": {
+        "startLine": 583,
+        "startChar": 65,
+        "endLine": 583,
+        "endChar": 78
+      },
+      "revId": "0871438154e536ef011f4aad0fa903130608e6ac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "127c8b8e_3be00975",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-25T09:28:38Z",
+      "side": 1,
+      "message": "defaults",
+      "range": {
+        "startLine": 584,
+        "startChar": 65,
+        "endLine": 584,
+        "endChar": 78
+      },
+      "revId": "0871438154e536ef011f4aad0fa903130608e6ac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a281c40_efb58e43",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-25T09:28:38Z",
+      "side": 1,
+      "message": "the Hafnium SPMC implementation",
+      "range": {
+        "startLine": 591,
+        "startChar": 13,
+        "endLine": 591,
+        "endChar": 20
+      },
+      "revId": "0871438154e536ef011f4aad0fa903130608e6ac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eda6f55f_afc7c46a",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-25T09:28:38Z",
+      "side": 1,
+      "message": "designated?",
+      "range": {
+        "startLine": 592,
+        "startChar": 0,
+        "endLine": 592,
+        "endChar": 8
+      },
+      "revId": "0871438154e536ef011f4aad0fa903130608e6ac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98c0db00_5656ffbb",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-25T09:28:38Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 604,
+        "startChar": 53,
+        "endLine": 604,
+        "endChar": 56
       },
       "revId": "0871438154e536ef011f4aad0fa903130608e6ac",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
