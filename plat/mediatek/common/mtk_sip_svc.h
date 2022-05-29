@@ -7,6 +7,7 @@
 #define MTK_SIP_SVC_H
 
 #include <stdint.h>
+#include <mtk_sip_inc.h>
 
 /* SMC function IDs for SiP Service queries */
 #define SIP_SVC_CALL_COUNT		0x8200ff00
@@ -25,19 +26,6 @@
 
 /* Mediatek SiP Service Calls function IDs */
 #define MTK_SIP_SET_AUTHORIZED_SECURE_REG	0x82000001
-
-/* For MTK SMC from Secure OS */
-/* 0x82000000 - 0x820000FF & 0xC2000000 - 0xC20000FF */
-#define MTK_SIP_KERNEL_BOOT_AARCH32		0x82000200
-#define MTK_SIP_KERNEL_BOOT_AARCH64		0xC2000200
-
-/* VCORE */
-#define MTK_SIP_VCORE_CONTROL_ARCH32		0x82000506
-#define MTK_SIP_VCORE_CONTROL_ARCH64		0xC2000506
-
-/* APUSYS SMC call */
-#define MTK_SIP_APUSYS_CONTROL_AARCH32		0x8200051E
-#define MTK_SIP_APUSYS_CONTROL_AARCH64		0xC200051E
 
 /* Mediatek SiP Calls error code */
 enum {
