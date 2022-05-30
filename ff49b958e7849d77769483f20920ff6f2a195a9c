@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "01540332_76eb4d4f",
+        "filename": "docs/change-log.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2022-05-30T08:16:42Z",
+      "side": 1,
+      "message": "We ought to push both v2.7 and v2.7.0 tags this release. This changelog generation tooling doesn\u0027t work if the previous vX.Y.Z tag is missing, which means whoever is doing the release currently needs to create a manual tag locally before running the tools.",
+      "parentUuid": "10d17ff9_e5453a07",
+      "range": {
+        "startLine": 6,
+        "startChar": 11,
+        "endLine": 6,
+        "endChar": 122
+      },
+      "revId": "ff49b958e7849d77769483f20920ff6f2a195a9c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "617f8f8c_bd72eac5",
         "filename": "docs/change-log.md",
         "patchSetId": 9
