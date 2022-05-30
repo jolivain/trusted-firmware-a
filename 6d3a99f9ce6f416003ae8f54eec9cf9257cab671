@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c904e8e_11efa769",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2022-05-30T17:14:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b1fbe7b_14e65f94",
+      "revId": "6d3a99f9ce6f416003ae8f54eec9cf9257cab671",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dfe2d318_c1acb3b2",
@@ -35,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c48d8a4_7f91bdbc",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2022-05-30T17:14:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfe2d318_c1acb3b2",
+      "revId": "6d3a99f9ce6f416003ae8f54eec9cf9257cab671",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81d459e0_28305ee6",
@@ -48,6 +84,24 @@
       "writtenOn": "2022-05-30T13:52:48Z",
       "side": 1,
       "message": "To follow MISRA requirements, you should have:\n\tif ((io_result !\u003d 0) || (bytes_read !\u003d sizeof(magic))) {\n\t\tpanic();\n\t}",
+      "revId": "6d3a99f9ce6f416003ae8f54eec9cf9257cab671",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "808a1218_e1003235",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2022-05-30T17:14:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81d459e0_28305ee6",
       "revId": "6d3a99f9ce6f416003ae8f54eec9cf9257cab671",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -77,6 +131,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "02b165d2_415420bb",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2022-05-30T17:14:18Z",
+      "side": 1,
+      "message": "Sorry, I missed that one. Replaced it with a proper VERBOSE print.",
+      "parentUuid": "10f3fdff_12d4740a",
+      "range": {
+        "startLine": 148,
+        "startChar": 7,
+        "endLine": 148,
+        "endChar": 13
+      },
+      "revId": "6d3a99f9ce6f416003ae8f54eec9cf9257cab671",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "834d58f0_99475687",
         "filename": "plat/st/common/bl2_io_storage.c",
         "patchSetId": 2
@@ -88,6 +166,24 @@
       "writtenOn": "2022-05-30T13:52:48Z",
       "side": 1,
       "message": "IMHO, I think this is easier to understand if we check the error case first:\n\n\t\tif (get_boot_part_fip_header() !\u003d TOC_HEADER_NAME) {\n\t\t\tWARN(\"%s: Can\u0027t find FIP header on eMMC boot partition\\n\", __func__);\n\t\t\tio_result \u003d mmc_part_switch_user();\n\t\t\tassert(io_result \u003d\u003d 0);\n\t\t\treturn;\n\t\t}\n\n\t\tVERBOSE(\"%s, FIP header found on eMMC boot partition\\n\", __func__);\n\t\timage_block_spec.offset \u003d STM32MP_EMMC_BOOT_FIP_OFFSET;\n\n\nMaybe the WARN message could also mention something like: try GPT",
+      "revId": "6d3a99f9ce6f416003ae8f54eec9cf9257cab671",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37def4d1_d29eb0e8",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2022-05-30T17:14:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "834d58f0_99475687",
       "revId": "6d3a99f9ce6f416003ae8f54eec9cf9257cab671",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -105,6 +201,24 @@
       "writtenOn": "2022-05-30T13:52:48Z",
       "side": 1,
       "message": "missing braces",
+      "revId": "6d3a99f9ce6f416003ae8f54eec9cf9257cab671",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7370668e_a70c879d",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2022-05-30T17:14:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed07060e_81fe52c9",
       "revId": "6d3a99f9ce6f416003ae8f54eec9cf9257cab671",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
