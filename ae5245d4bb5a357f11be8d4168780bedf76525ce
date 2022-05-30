@@ -34,6 +34,455 @@
       "parentUuid": "8ef1ffe6_dc8539db",
       "revId": "ae5245d4bb5a357f11be8d4168780bedf76525ce",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be72c92e_e907b8c0",
+        "filename": "plat/mediatek/common/mtk_sip_svc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-05-30T02:00:41Z",
+      "side": 1,
+      "message": "hmm..\nI think it may ok if these three header files are combine in one file and move it to\nplat/mediatek/include.",
+      "parentUuid": "8ef1ffe6_dc8539db",
+      "revId": "ae5245d4bb5a357f11be8d4168780bedf76525ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d93549b8_2c20025c",
+        "filename": "plat/mediatek/include/mtk_sip_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-05-30T02:00:41Z",
+      "side": 1,
+      "message": "2022",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "ae5245d4bb5a357f11be8d4168780bedf76525ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f35919d3_00b87ce7",
+        "filename": "plat/mediatek/include/mtk_sip_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-05-30T02:00:41Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s a good idea using this definition to define so many function.\nMaybe we should remove\nMTK_SIP_SMC_FROM_NS_EL1_TABLE\nMTK_SIP_SMC_FROM_S_EL1_TABLE\nMTK_SIP_SMC_FROM_NS_EL2_TABLE\nMTK_SIP_SMC_FROM_BL33_TABLE",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 36
+      },
+      "revId": "ae5245d4bb5a357f11be8d4168780bedf76525ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aedfade0_c427f3fd",
+        "filename": "plat/mediatek/include/mtk_sip_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-05-30T02:00:41Z",
+      "side": 1,
+      "message": "empty define for what?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 44
+      },
+      "revId": "ae5245d4bb5a357f11be8d4168780bedf76525ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67e4b2a0_5f23ec56",
+        "filename": "plat/mediatek/include/mtk_sip_inc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-05-30T02:00:41Z",
+      "side": 1,
+      "message": "I think you can reorder the\n#define\nstruct {..}\nfunction call",
+      "revId": "ae5245d4bb5a357f11be8d4168780bedf76525ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb11b5ff_202bc7b1",
+        "filename": "plat/mediatek/include/mtk_sip_inc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-05-30T02:00:41Z",
+      "side": 1,
+      "message": "2022",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "ae5245d4bb5a357f11be8d4168780bedf76525ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfc8544d_ac2a3e74",
+        "filename": "plat/mediatek/include/mtk_sip_inc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-05-30T02:00:41Z",
+      "side": 1,
+      "message": "what is GZ?",
+      "range": {
+        "startLine": 11,
+        "startChar": 4,
+        "endLine": 11,
+        "endChar": 17
+      },
+      "revId": "ae5245d4bb5a357f11be8d4168780bedf76525ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "892a7d1c_43cc5abc",
+        "filename": "plat/mediatek/include/mtk_sip_inc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-05-30T02:00:41Z",
+      "side": 1,
+      "message": "one blank line",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 2
+      },
+      "revId": "ae5245d4bb5a357f11be8d4168780bedf76525ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac5b00da_2d2d1a8a",
+        "filename": "plat/mediatek/include/mtk_sip_inc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-05-30T02:00:41Z",
+      "side": 1,
+      "message": "alignment",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 25
+      },
+      "revId": "ae5245d4bb5a357f11be8d4168780bedf76525ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "512cc2ce_7408a1a8",
+        "filename": "plat/mediatek/include/mtk_sip_inc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-05-30T02:00:41Z",
+      "side": 1,
+      "message": "one line",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 51
+      },
+      "revId": "ae5245d4bb5a357f11be8d4168780bedf76525ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a571b146_871ce364",
+        "filename": "plat/mediatek/include/mtk_sip_inc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-05-30T02:00:41Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 31
+      },
+      "revId": "ae5245d4bb5a357f11be8d4168780bedf76525ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d03c20f4_57a27308",
+        "filename": "plat/mediatek/include/mtk_sip_inc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-05-30T02:00:41Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 21
+      },
+      "revId": "ae5245d4bb5a357f11be8d4168780bedf76525ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "562d0954_daeabc6a",
+        "filename": "plat/mediatek/include/mtk_sip_inc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-05-30T02:00:41Z",
+      "side": 1,
+      "message": "please follow on rule:\n...(space)\\\nor\n...(tab)\\",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 36
+      },
+      "revId": "ae5245d4bb5a357f11be8d4168780bedf76525ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4809f8d0_03e2b7b1",
+        "filename": "plat/mediatek/include/mtk_sip_inc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-05-30T02:00:41Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 74,
+        "startChar": 60,
+        "endLine": 74,
+        "endChar": 62
+      },
+      "revId": "ae5245d4bb5a357f11be8d4168780bedf76525ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ad9f672_34252af2",
+        "filename": "plat/mediatek/include/mtk_sip_inc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-05-30T02:00:41Z",
+      "side": 1,
+      "message": "why extra \",\"?\nI don\u0027t think this is ok..",
+      "range": {
+        "startLine": 81,
+        "startChar": 3,
+        "endLine": 81,
+        "endChar": 37
+      },
+      "revId": "ae5245d4bb5a357f11be8d4168780bedf76525ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd63aaca_406084b1",
+        "filename": "plat/mediatek/include/mtk_sip_inc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-05-30T02:00:41Z",
+      "side": 1,
+      "message": "alignment",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 63
+      },
+      "revId": "ae5245d4bb5a357f11be8d4168780bedf76525ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f169b97_436800a8",
+        "filename": "plat/mediatek/include/mtk_sip_inc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-05-30T02:00:41Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 40
+      },
+      "revId": "ae5245d4bb5a357f11be8d4168780bedf76525ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38121816_22d8ff38",
+        "filename": "plat/mediatek/include/mtk_sip_inc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-05-30T02:00:41Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 44
+      },
+      "revId": "ae5245d4bb5a357f11be8d4168780bedf76525ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eff85fe6_e718fd68",
+        "filename": "plat/mediatek/include/mtk_sip_inc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-05-30T02:00:41Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 3
+      },
+      "revId": "ae5245d4bb5a357f11be8d4168780bedf76525ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66a5703f_af13211b",
+        "filename": "plat/mediatek/include/mtk_sip_inc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-05-30T02:00:41Z",
+      "side": 1,
+      "message": "this enum is strange..\nplease remove them and just add MTK_SIP_SMC_MAX_NUMBER",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 2
+      },
+      "revId": "ae5245d4bb5a357f11be8d4168780bedf76525ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
