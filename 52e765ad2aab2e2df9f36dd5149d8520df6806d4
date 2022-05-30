@@ -1,0 +1,135 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1426a24_8053aa9e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-05-30T13:34:13Z",
+      "side": 1,
+      "message": "mmc",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 16
+      },
+      "revId": "52e765ad2aab2e2df9f36dd5149d8520df6806d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "498b88e6_35b037de",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-05-30T13:34:13Z",
+      "side": 1,
+      "message": "this should go on next line, to avoid warning about lines longer than 72 characters.",
+      "range": {
+        "startLine": 12,
+        "startChar": 56,
+        "endLine": 12,
+        "endChar": 78
+      },
+      "revId": "52e765ad2aab2e2df9f36dd5149d8520df6806d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b88b896c_e2ac4fac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-05-30T13:34:13Z",
+      "side": 1,
+      "message": "Hi Ahmad,\nThanks for your patch.\nI had also prepared something for that on my side, but checking your code, I see that I missed the fallback to GPT mode when FIP is not found in boot partition.\nI\u0027ve several minor comment on this patch.\n\nBest regards,\nYann",
+      "revId": "52e765ad2aab2e2df9f36dd5149d8520df6806d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b708b10_399ec12a",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-05-30T13:34:13Z",
+      "side": 1,
+      "message": "keep the braces even for 1 line, this is required by MISRA",
+      "revId": "52e765ad2aab2e2df9f36dd5149d8520df6806d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4aa16d71_58cba2ff",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-05-30T13:34:13Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "52e765ad2aab2e2df9f36dd5149d8520df6806d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "297eb1b7_ee6341bf",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-05-30T13:34:13Z",
+      "side": 1,
+      "message": "diito",
+      "revId": "52e765ad2aab2e2df9f36dd5149d8520df6806d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0679b4f_b642f742",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-05-30T13:34:13Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "52e765ad2aab2e2df9f36dd5149d8520df6806d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
