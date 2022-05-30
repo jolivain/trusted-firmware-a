@@ -52,6 +52,24 @@
       "parentUuid": "22ce77ac_44886b0e",
       "revId": "453abc80b2eacbf2816c838e47e40f063227d934",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8228d272_01cf36a2",
+        "filename": "changelog.yaml",
+        "patchSetId": 9
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-30T13:15:42Z",
+      "side": 0,
+      "message": "It would be good to understand how this was generated, I don\u0027t believe SPMD and SPMC can be claimed as \u0027deprecated\u0027. Perhaps this comes from another context (aka not the FF-A SPMD/SPMC concepts).",
+      "parentUuid": "100ff1f1_9f448ba1",
+      "revId": "453abc80b2eacbf2816c838e47e40f063227d934",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
