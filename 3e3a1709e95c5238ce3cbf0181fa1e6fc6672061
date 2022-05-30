@@ -16,6 +16,24 @@
       "message": "Just `spmc`?",
       "revId": "3e3a1709e95c5238ce3cbf0181fa1e6fc6672061",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4439f4ad_8c6ce239",
+        "filename": "changelog.yaml",
+        "patchSetId": 11
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-05-30T14:24:47Z",
+      "side": 1,
+      "message": "Up to you but just notice we now have three TF-A \u0027SPM\u0027 implementations:\n-EL3 SPMC (FF-A interface compliant)\n-SPM-MM (legacy MM interface compliant)\n-SEL2 SPMC/Hafnium (in a separate three and has its own change log)\n\nThere also exists an OP-TEE based SEL1 SPMC (not part of TF-A).\n\nChoosing el3-spmc permits to be explicit about which implementations TF-A changes refer to.",
+      "parentUuid": "10ff1a2c_1db3e78f",
+      "revId": "3e3a1709e95c5238ce3cbf0181fa1e6fc6672061",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
