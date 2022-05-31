@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a63ebc3_26b189c1",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-05-31T10:13:26Z",
+      "side": 1,
+      "message": "This is not true anymore.\nThis was the initial implementation, that was changed after the previous release. The NPI is injected in the target SP after ffa_run/dir msg req from the NWd to the target SP.\n\nI\u0027d say this sentence can be removed entirely.",
+      "range": {
+        "startLine": 923,
+        "startChar": 0,
+        "endLine": 924,
+        "endChar": 31
+      },
+      "revId": "a1aa15d410bb05587b4a3911c76a79c4785708c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
