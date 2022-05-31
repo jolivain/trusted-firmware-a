@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c4a3cf0_2d2f07bc",
+        "filename": "plat/arm/board/fvp/fdts/fvp_tb_fw_config.dts",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-05-31T14:13:01Z",
+      "side": 1,
+      "message": "This needs to be renamed if it gets decided to s/oem/plat as per Sandrine\u0027s comment in the previous patch. Same comment for OEM/oem instances in this patch.",
+      "range": {
+        "startLine": 52,
+        "startChar": 3,
+        "endLine": 52,
+        "endChar": 16
+      },
+      "revId": "0e532d12364685ddd61a43e3ba1b237744c82600",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
