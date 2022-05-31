@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d86508e3_749f0803",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-05-31T07:50:01Z",
+      "side": 1,
+      "message": "Ahmad, it seems you missed one remark from Manish.\nMaybe you could have something like:\n#define BOOT_PART_NO_ACCESS\t0U\n#define BOOT_PART_1\t\t1U\n#define BOOT_PART_2\t\t2U\n\nUse BOOT_PART_NO_ACCESS here, and the other macros in mmc_part_switch_current_boot() when checking current_boot_part.",
+      "range": {
+        "startLine": 781,
+        "startChar": 23,
+        "endLine": 781,
+        "endChar": 24
+      },
+      "revId": "6ab9d5df43fed0d5b327ae76f73f8cf7293ea020",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
