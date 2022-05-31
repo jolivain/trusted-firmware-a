@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12729f56_fa4579d7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2022-05-31T08:07:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd92c9dd_5f7ce7bf",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 4
+      },
+      "revId": "e863690205aba3fc9fa90aa37eede38faafdfb34",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "beb2b70a_a5e97d8e",
@@ -60,6 +84,30 @@
       "writtenOn": "2022-05-31T07:50:01Z",
       "side": 1,
       "message": "Hi Manish, the gain is that we do no more use directly this function (see next patch), but just the switch function at the beginning, and then the mmc_read_blocks() function is used. Maybe that could be better explained.",
+      "parentUuid": "beb2b70a_a5e97d8e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 60
+      },
+      "revId": "e863690205aba3fc9fa90aa37eede38faafdfb34",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4c49507_f7192e37",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2022-05-31T08:07:59Z",
+      "side": 1,
+      "message": "You\u0027re right. This is the rationale for not wanting to use mmc_boot_part_read_blocks() in the follow-up commit. The goal of this patch is described in the lines below. By exporting the mmc_part switch functions, consumers can decide when to switch to and back from the boot partition instead of having to do it on every single block read.",
       "parentUuid": "beb2b70a_a5e97d8e",
       "range": {
         "startLine": 9,

@@ -22,6 +22,30 @@
       },
       "revId": "6ab9d5df43fed0d5b327ae76f73f8cf7293ea020",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3e72223_43cecebe",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2022-05-31T08:07:59Z",
+      "side": 1,
+      "message": "I have a commit using the NO_ACCESS define. Defining macros for the boot partition is confusing IMO.",
+      "parentUuid": "d86508e3_749f0803",
+      "range": {
+        "startLine": 781,
+        "startChar": 23,
+        "endLine": 781,
+        "endChar": 24
+      },
+      "revId": "6ab9d5df43fed0d5b327ae76f73f8cf7293ea020",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
