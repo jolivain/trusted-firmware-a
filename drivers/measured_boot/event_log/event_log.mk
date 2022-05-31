@@ -7,20 +7,20 @@
 # Default log level to dump the event log (LOG_LEVEL_INFO)
 EVENT_LOG_LEVEL         ?= 40
 
-# TPM hash algorithm.
+# Measured Boot hash algorithm.
 # SHA-256 (or stronger) is required for all devices that are TPM 2.0 compliant.
-TPM_HASH_ALG			:=	sha256
+MBOOT_HASH_ALG			:=	sha256
 
-ifeq (${TPM_HASH_ALG}, sha512)
+ifeq (${MBOOT_HASH_ALG}, sha512)
     TPM_ALG_ID			:=	TPM_ALG_SHA512
     TCG_DIGEST_SIZE		:=	64U
-else ifeq (${TPM_HASH_ALG}, sha384)
+else ifeq (${MBOOT_HASH_ALG}, sha384)
     TPM_ALG_ID			:=	TPM_ALG_SHA384
     TCG_DIGEST_SIZE		:=	48U
 else
     TPM_ALG_ID			:=	TPM_ALG_SHA256
     TCG_DIGEST_SIZE		:=	32U
-endif #TPM_HASH_ALG
+endif #MBOOT_HASH_ALG
 
 # Set definitions for Measured Boot driver.
 $(eval $(call add_defines,\
