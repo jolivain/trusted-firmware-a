@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f294821_01aec73e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-05-31T12:49:39Z",
+      "side": 1,
+      "message": "Looks like tools/cert_create/include/cca/cca_cot.h is missing in the latest version of the patch. I guess it got lost when you renamed it from cot.h?",
+      "revId": "335e5bf1b0149abd1d4b32e4daaa7ac67d2897be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
