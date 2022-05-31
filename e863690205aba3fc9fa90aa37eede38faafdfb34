@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd92c9dd_5f7ce7bf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-05-31T07:10:54Z",
+      "side": 1,
+      "message": "Change this to \u0027refactor\u0027 instead if you agree this patch only does the refactoring.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 4
+      },
+      "revId": "e863690205aba3fc9fa90aa37eede38faafdfb34",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "beb2b70a_a5e97d8e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-05-31T07:10:54Z",
+      "side": 1,
+      "message": "According to my understanding, \u0027mmc_boot_part_read_blocks\u0027 function works in the same manner after this change, i.e. switching to the boot partition, reading the blocks, and then switching back to the user partition. This patch only refactors the code to create few export APIs that look good to me. \nHowever, the patch does not appear to have reduced the overhead of reading the small chunks. Please correct me if I\u0027m wrong.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 60
+      },
+      "revId": "e863690205aba3fc9fa90aa37eede38faafdfb34",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50afa73e_4fa562d5",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-05-31T07:10:54Z",
+      "side": 1,
+      "message": "nit: better convert this to macro for better readability.",
+      "range": {
+        "startLine": 781,
+        "startChar": 23,
+        "endLine": 781,
+        "endChar": 24
+      },
+      "revId": "e863690205aba3fc9fa90aa37eede38faafdfb34",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
