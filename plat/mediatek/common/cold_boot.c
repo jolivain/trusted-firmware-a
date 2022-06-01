@@ -27,28 +27,7 @@ static struct kernel_info k_info;
 static entry_point_info_t bl32_image_ep_info;
 static entry_point_info_t bl33_image_ep_info;
 static bool el1_is_2nd_bootloader = true;
-static struct atf_arg_t atfarg;
-
-static int init_mtk_bl32_arg(void)
-{
-	struct mtk_bl_param_t *p_mtk_bl_param;
-	struct atf_arg_t *p_atfarg;
-
-	p_mtk_bl_param = (struct mtk_bl_param_t *) get_mtk_bl31_fw_config(BOOT_ARG_FROM_BL2);
-	if (p_mtk_bl_param == NULL) {
-		assert(p_mtk_bl_param != NULL);
-		ERROR("p_mtk_bl_param is NULL!\n");
-		return -1;
-	}
-	p_atfarg = (struct atf_arg_t *)p_mtk_bl_param->atf_arg_addr;
-	if (p_atfarg == NULL) {
-		NOTICE("bl32 argument is NULL!\n");
-		return -1;
-	}
-	memcpy((void *)&atfarg, (void *)p_atfarg, sizeof(struct atf_arg_t));
-	return 0;
-}
-MTK_EARLY_PLAT_INIT(init_mtk_bl32_arg);
+struct atf_arg_t gatfarg;
 
 static void save_kernel_info(uint64_t pc,
 			uint64_t r0,
@@ -129,7 +108,7 @@ static void populate_bl32_image_ep(entry_point_info_t *bl32_ep_instance,
 				PARAM_EP,
 				VERSION_1,
 				populated_ep_bl32->h.attr);
-	populated_ep_bl32->pc = atfarg.tee_entry;
+	populated_ep_bl32->pc = gatfarg.tee_entry;
 	populated_ep_bl32->spsr = plat_get_spsr_for_bl32_64_entry();
 }
 
