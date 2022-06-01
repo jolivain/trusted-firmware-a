@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, MediaTek Inc. All rights reserved.
+ * Copyright (c) 2020, MediaTek Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,3 +13,4 @@ SECTIONS
 	}
 }
 INSERT BEFORE .rodata;
+

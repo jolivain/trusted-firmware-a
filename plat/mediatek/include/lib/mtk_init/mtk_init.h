@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, MediaTek Inc. All rights reserved.
+ * Copyright (c) 2020, MediaTek Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -39,13 +39,13 @@
 
 #define DECLARE_MTK_INITCALL(_fn, _level) \
 	const struct initcall _mtk_initcall_##_fn \
-	__used \
+	__attribute__((used)) \
 	__aligned(sizeof(void *)) \
 	__section(".mtk_plat_initcall_"#_level) \
 	= { \
 		.name = #_fn, \
 		.fn = _fn \
-	}
+	};
 
 #ifndef __ASSEMBLER__
 struct initcall {

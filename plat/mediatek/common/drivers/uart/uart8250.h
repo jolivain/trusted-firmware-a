@@ -6,6 +6,8 @@
 #ifndef UART8250_H
 #define UART8250_H
 
+#include <drivers/console.h>
+
 /* UART register */
 #define UART_RBR		0x00	/* Receive buffer register */
 #define UART_DLL		0x00	/* Divisor latch lsb */
@@ -17,6 +19,8 @@
 #define UART_MCR		0x10	/* Modem control register */
 #define UART_LSR		0x14	/* Line status register */
 #define UART_HIGHSPEED		0x24	/* High speed UART */
+#define UART_SAMPLE_COUNT	0x28	/* UART_SAMPLE_COUNT */
+#define UART_SAMPLE_POINT	0x2c	/* UART_SAMPLE_POINT */
 
 /* FCR */
 #define UART_FCR_FIFO_EN	0x01	/* enable FIFO */
@@ -33,6 +37,18 @@
 
 /* LSR */
 #define UART_LSR_DR		0x01	/* Data ready */
-#define UART_LSR_THRE		0x20	/* Xmit holding register empty */
+#define UART_LSR_THRE	0x20	/* Xmit holding register empty */
+#define UART_LSR_TEMT	0x40	/* Xmit Shift Register Empty */
 
+/* Fractional Divider */
+#define UART_FRACDIV_L	0x54
+#define UART_FRACDIV_M	0x58
+
+#ifndef __ASSEMBLER__
+#include <stdint.h>
+
+int console_8250_register(uintptr_t baseaddr, uint32_t clock, uint32_t baud,
+			   console_t *console);
+
+#endif
 #endif /* UART8250_H */
