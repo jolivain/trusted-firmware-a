@@ -1,0 +1,46 @@
+#
+# Copyright (c) 2020, MediaTek Inc. All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+
+# Separate text code and read only data
+SEPARATE_CODE_AND_RODATA := 1
+# ARMv8.2 and above need enable HW assist coherence
+HW_ASSISTED_COHERENCY := 1
+# No need coherency memory because of HW assistency
+USE_COHERENT_MEM := 0
+# GIC600
+GICV3_SUPPORT_GIC600 := 1
+#
+# MTK options
+#
+ENABLE_MTK_MODULE_INIT := 1
+MTK_EXTRA_LINKERFILE := 1
+UART_CLOCK := 26000000
+MTK_BL33_IS_64BIT := 1
+MTK_CONSOLE_RUNTIME_DISABLE := y
+
+#
+# MTK HYP/EL2 options
+#
+CONFIG_MTK_GZ := y
+CONFIG_MTK_GZ_SMC := n
+CONFIG_MTK_GZ_SECIO := n
+
+# MTK CONFIG
+CONFIG_GICV3_IMPL := y
+CONFIG_UART_8250 := y
+CONFIG_ARCH_ARM_V9 := y
+
+CONFIG_BOOT_TAG := y
+CONFIG_MTK_AEE := n
+CONFIG_MEM_CONSOLE := n
+CONFIG_MTK_RGU := n
+CONFIG_MTK_RGUV1_IMPL := n
+MCUSYS_VERSION := v2
+CPU_PM_IRQ_REMAIN_ENABLE := n
+CPU_PM_DOMAIN_CORE_ONLY := n
+CPU_PM_CORE_ARCH64_ONLY := n
+CPU_PM_TINYSYS_SUPPORT := n
+CPU_PM_FSM_SUPPORT := n
