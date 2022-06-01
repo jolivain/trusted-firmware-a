@@ -5,6 +5,8 @@
 #
 
 # call add_defined_option to evaluate MTK defined value
+$(eval $(call add_defined_option,CONFIG_BOOT_TAG))
+$(eval $(call add_defined_option,CONFIG_MTK_GZ))
 $(eval $(call add_defined_option,MTK_SIP_KERNEL_BOOT_ENABLE))
 $(eval $(call add_defined_option,PLAT_EXTRA_LD_SCRIPT))
 $(eval $(call add_defined_option,MTK_EXTRA_LINKERFILE))
@@ -15,3 +17,4 @@ $(eval $(call add_defined_option,MTK_ADAPTED))
 $(eval $(call add_defined_option,MTK_SOC))
 $(eval $(call add_defined_option,UART_CLOCK))
 $(eval $(call add_defined_option,UART_BAUDRATE))
+$(eval $(call add_defined_option,VENDOR_EXTEND_PUBEVENT_ENABLE))
