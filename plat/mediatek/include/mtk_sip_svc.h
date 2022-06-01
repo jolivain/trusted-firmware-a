@@ -45,6 +45,14 @@
 #define SMC_ID_EXPAND_AS_EXTERN_SMC_INDEX(_smc_id, _smc_num) \
 	extern short _smc_id##_descriptor_index;
 
+#define SMC_ID_EXPAND_AS_DESCRIPTOR_INDEX(_smc_id, _smc_num) \
+	short _smc_id##_descriptor_index __section("mtk_plat_ro") = -1;
+
+#define SMC_ID_EXPAND_AS_FUNC_EXTERN(_smc_id, _smc_handler) \
+	u_register_t _smc_handler(u_register_t x1, \
+			u_register_t x2, u_register_t x3, \
+			u_register_t x4, void *handle);
+
 /* Bind SMC handler with SMC ID */
 #define DECLARE_SMC_HANDLER(_smc_id, _smc_handler) \
 	const struct smc_descriptor _smc_id##_descriptor \
@@ -76,6 +84,37 @@ enum {
 	MTK_SIP_E_PERMISSION_DENY = -4,
 	MTK_SIP_E_LOCK_FAIL = -5
 };
+
+/*
+ * These macros below are used to identify SIP calls from Kernel,
+ * Hypervisor, or 2ndBootloader
+ */
+#define SIP_FID_ORI_MASK		0xc000
+#define SIP_FID_ORI_SHIFT		14
+#define SIP_FID_KERNEL			0x0
+#define SIP_FID_KERNEL_VIA_GZ		0x1
+#define SIP_FID_GZ			0x2
+
+#define GET_SMC_ORI(_fid) \
+	(((_fid) & SIP_FID_ORI_MASK) >> SIP_FID_ORI_SHIFT)
+#define GET_SMC_ORI_NUM(_fid) \
+	((_fid) & ~(SIP_FID_ORI_MASK))
+
+#define is_from_nsel2(_ori) \
+	(_ori == SIP_FID_GZ)
+#define is_from_bl33(_ori) \
+	((_ori != SIP_FID_GZ) && (is_el1_2nd_bootloader()))
+#define is_from_nsel1(_ori) \
+	(((_ori == SIP_FID_KERNEL) || (_ori == SIP_FID_KERNEL_VIA_GZ)) \
+		&& (!is_el1_2nd_bootloader()))
+
+#ifdef CONFIG_MTK_GZ
+#define is_smc_forbidden(_ori) \
+	(is_el2_enabled() && _ori == SIP_FID_KERNEL)
+#else
+#define is_smc_forbidden(_ori) \
+	(_ori == SIP_FID_KERNEL_VIA_GZ)
+#endif
 
 struct smccc_res {
 	uint64_t a1;
