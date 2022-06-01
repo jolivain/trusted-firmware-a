@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2022, MediaTek Inc. All rights reserved.
+# Copyright (c) 2020, MediaTek Inc. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -12,8 +12,9 @@ MODULE := mtk_common
 
 # Add your source code here
 LOCAL_SRCS-y := ${LOCAL_DIR}/mtk_bl31_setup.c
+LOCAL_SRCS-y += ${LOCAL_DIR}/mtk_plat_log.c
 LOCAL_SRCS-y += ${LOCAL_DIR}/mtk_smc_handlers.c
-LOCAL_SRCS-$(MTK_SIP_KERNEL_BOOT_ENABLE) += ${LOCAL_DIR}/cold_boot.c
+LOCAL_SRCS-y += ${LOCAL_DIR}/cold_boot.c
 
 ifneq ($(MTK_EXTRA_LINKERFILE),)
 $(eval EXTRA_LINKERFILE += ${LOCAL_DIR}/mtk_smc_descriptor_pool.ld)

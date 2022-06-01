@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, MediaTek Inc. All rights reserved.
+ * Copyright (c) 2020, MediaTek Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -27,7 +27,7 @@ void mtk_init_one_level(uint32_t level)
 	}
 	INFO("init calling level:%u\n", level);
 	for (entry = initcall_list[level];
-		(entry != NULL) && (entry < initcall_list[level + 1]);
+		(entry != 0) && (entry < initcall_list[level + 1]);
 		entry++) {
 		INFO("calling %s\n", entry->name);
 		error = entry->fn();

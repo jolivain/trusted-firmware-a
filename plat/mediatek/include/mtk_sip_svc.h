@@ -9,6 +9,9 @@
 
 #include <stdint.h>
 #include <lib/smccc.h>
+#if CONFIG_MTK_GZ
+#include <mtk_gz_api.h>
+#endif
 #include <mtk_sip_def.h>
 
 /* SMC function IDs for SiP Service queries */
@@ -42,6 +45,11 @@
 #define SMC_ID_EXPAND_AS_EXTERN_SMC_INDEX(_smc_id, _smc_num) \
 	extern short _smc_id##_descriptor_index;
 
+#define SMC_ID_EXPAND_AS_FUNC_EXTERN(_smc_id, _smc_handler) \
+	u_register_t _smc_handler(u_register_t x1, \
+			u_register_t x2, u_register_t x3, \
+			u_register_t x4, void *handle);
+
 /* Bind SMC handler with SMC ID */
 #define DECLARE_SMC_HANDLER(_smc_id, _smc_handler) \
 	const struct smc_descriptor _smc_id##_descriptor \
@@ -53,7 +61,7 @@
 			.smc_id_aarch32 = _smc_id##_AARCH32, \
 			.smc_id_aarch64 = _smc_id##_AARCH64, \
 			.smc_descriptor_index = &_smc_id##_descriptor_index \
-		}
+		};
 MTK_SIP_SMC_FROM_BL33_TABLE(SMC_ID_EXPAND_AS_EXTERN_SMC_INDEX);
 MTK_SIP_SMC_FROM_NS_EL1_TABLE(SMC_ID_EXPAND_AS_EXTERN_SMC_INDEX);
 
@@ -79,12 +87,12 @@ struct smccc_res {
 	uint64_t a2;
 	uint64_t a3;
 };
-typedef uintptr_t (*smc_handler_t)(u_register_t,
-				   u_register_t,
-				   u_register_t,
-				   u_register_t,
-				   void *,
-				   struct smccc_res *);
+typedef u_register_t (*smc_handler_t)(u_register_t,
+									u_register_t,
+									u_register_t,
+									u_register_t,
+									void *,
+									struct smccc_res *);
 struct smc_descriptor {
 	smc_handler_t smc_handler;
 	const uint32_t smc_id_aarch32;
