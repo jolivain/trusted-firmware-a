@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2022, MediaTek Inc. All rights reserved.
+# Copyright (c) 2020, MediaTek Inc. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -23,12 +23,29 @@ ENABLE_AMU := 1
 VENDOR_EXTEND_PUBEVENT_ENABLE := 1
 
 # MTK define options
+MTK_SIP_KERNEL_BOOT_ENABLE := 1
 MTK_BL33_IS_64BIT := 0
 MTK_ADAPTED := 1
+MT_MPU_DEBUG := 0
 
-# MTK module config
+#MTK module config
+CONFIG_BOOT_TAG := n
+CONFIG_MTK_AEE := n
+CONFIG_MTK_BOOT_TIME_PROFILE := n
+CONFIG_MTK_MBLOCK := n
 CONFIG_MTK_INTERRUPT := y
+CONFIG_MTK_RGU := y
 CONFIG_MTK_UART := y
+CONFIG_MTK_SYSTIMER := y
+CONFIG_MEM_CONSOLE := y
+CONFIG_MTK_IPI := y
+CONFIG_MTK_BSP_UT := n
 
-# UART baudrate
+#UART baudrate
 UART_BAUDRATE := 921600
+
+# TF-A ram dump
+CONFIG_MTK_BL31_RAMDUMP := n
+
+# Map debug buffer as non cacheable
+MTK_DEBUG_BUF_MAP_NON_CACHEABLE := y

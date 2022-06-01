@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, MediaTek Inc. All rights reserved.
+ * Copyright (c) 2020, MediaTek Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -16,9 +16,10 @@ IMPORT_SYM(uintptr_t, __MTK_MMAP_POINTER_POOL_START__, MTK_MMAP_POINTER_POOL_STA
 IMPORT_SYM(uintptr_t, __MTK_MMAP_POINTER_POOL_END_UNALIGNED__, MTK_MMAP_POINTER_POOL_END_UNALIGNED);
 IMPORT_SYM(uintptr_t, __RW_START__, RW_START);
 IMPORT_SYM(uintptr_t, __DATA_START__, DATA_START);
-#define MAP_MTK_SECTIONS	MAP_REGION_FLAT(RW_START,	\
-				DATA_START - RW_START,		\
-				MT_MEMORY | MT_RO | MT_SECURE)
+#define MAP_MTK_SECTIONS		MAP_REGION_FLAT(			\
+					RW_START,			\
+					DATA_START - RW_START,		\
+					MT_MEMORY | MT_RO | MT_SECURE)
 
 #endif
 static void print_mmap(const mmap_region_t *regions)

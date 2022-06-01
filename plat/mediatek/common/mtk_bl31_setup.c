@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <assert.h>
 #include <arch.h>
+#include <assert.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
@@ -14,10 +14,21 @@
 #include <lib/xlat_tables/xlat_tables_v2.h>
 #endif
 #include <plat/common/platform.h>
-/* MTK headers */
-#include <cold_boot.h>
+#include <drivers/el3_uptime.h>
+#include <drivers/mtk_console.h>
+#if CONFIG_BOOT_TAG
+#include <lib/boot_tag/boot_tag.h>
+#endif
+#if CONFIG_MTK_BOOT_TIME_PROFILE
+#include <lib/boot_time/boot_time.h>
+#endif
+#if CONFIG_MTK_DEBUG_BUF
+#include <lib/debug_buf/debug_buf_export.h>
+#endif
 #include <lib/mtk_init/mtk_init.h>
+#include <cold_boot.h>
 #include <mtk_mmap_pool.h>
+#include <mtk_common.h>
 
 /* Weak definitions can be overridden in specific platform */
 #pragma weak bl31_early_platform_setup2
@@ -26,7 +37,23 @@
 #pragma weak bl31_plat_runtime_setup
 #pragma weak bl31_plat_get_next_image_ep_info
 #pragma weak plat_get_syscnt_freq2
-
+/*
+ * TF-A BL31 memory layout
+ * |----------------|
+ * |     TEXT       |
+ * |----------------|
+ * |     RODATA     |
+ * |----------------| <-- __RW_START__
+ * |  MTK sections  |
+ * |(ex,mtk_plat_ro)|
+ * |----------------| <-- __DATA_START__
+ * |     RWDATA     |
+ * |----------------|
+ * |     stacks     |
+ * |----------------|
+ * |    xlat_table  |
+ * |----------------|
+ */
 #define MAP_BL_RW		MAP_REGION_FLAT(			\
 						DATA_START,			\
 						BL_END - DATA_START,	\
@@ -84,10 +111,17 @@ void bl31_early_platform_setup2(u_register_t from_bl2,
 	bl31_fw_config.soc_fw_config = (void *)soc_fw_config;
 	bl31_fw_config.hw_config = (void *)hw_config;
 	bl31_fw_config.reserved = (void *)plat_params_from_bl2;
+	/* Reset wall time */
+	el3_uptime_init(el3_uptime(), 0);
+#if CONFIG_BOOT_TAG
+	/* Parse boot tag from bootloader in early stage to get log port */
+	boot_tag_parse();
+#endif
+	/* Initialize the console to provide early debug support */
+	mtk_console_core_init();
 	INFO("MTK BL31 start\n");
 	/* Init delay function */
 	generic_delay_timer_init();
-	/* Initialize module initcall */
 	mtk_init_one_level(MTK_INIT_LVL_EARLY_PLAT);
 }
 
@@ -124,6 +158,9 @@ void bl31_platform_setup(void)
 void bl31_plat_runtime_setup(void)
 {
 	mtk_init_one_level(MTK_INIT_LVL_PLAT_RUNTIME);
+#ifdef CONFIG_MTK_BOOT_TIME_PROFILE
+	set_tfa_boot_time();
+#endif
 }
 
 unsigned int plat_get_syscnt_freq2(void)

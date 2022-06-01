@@ -13,7 +13,14 @@
 #include <lib/el3_runtime/context_mgmt.h>
 /* Vendors headers */
 #include <cold_boot.h>
+#ifdef CONFIG_MTK_EMI
+#include <drivers/emi_mpu.h>
+#endif
+#include <drivers/mtk_console.h>
 #include <lib/mtk_init/mtk_init.h>
+#if CONFIG_MTK_GZ
+#include <mtk_gz_api.h>
+#endif
 #include <mtk_sip_svc.h>
 
 static struct kernel_info k_info;
@@ -70,17 +77,7 @@ static uint32_t plat_get_spsr_for_bl32_64_entry(void)
 	return SPSR_64(MODE_EL1, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 }
 
-#if MTK_BL33_IS_64BIT
-static uint32_t plat_get_spsr_for_bl33_64_entry(void)
-{
-	uint32_t spsr;
-	uint32_t mode;
-
-	mode = MODE_EL1;
-	spsr = SPSR_64(mode, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
-	return spsr;
-}
-#else
+#if !MTK_BL33_IS_64BIT
 static uint32_t plat_get_spsr_for_bl33_entry(void)
 {
 	unsigned int mode;
@@ -102,6 +99,22 @@ static uint32_t plat_get_spsr_for_bl33_entry(void)
 }
 #endif
 
+static uint32_t plat_get_spsr_for_bl33_64_entry(void)
+{
+	uint32_t spsr;
+	uint32_t mode;
+
+	mode = MODE_EL1;
+#if CONFIG_MTK_GZ
+	if (is_el2_enabled()) {
+		INFO("Booting from EL2!\n");
+		mode = MODE_EL2;
+	}
+#endif
+	spsr = SPSR_64(mode, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
+	return spsr;
+}
+
 static void populate_bl32_image_ep(entry_point_info_t *bl32_ep_instance,
 		struct mtk_bl_param_t *p_mtk_bl_param)
 {
@@ -113,9 +126,9 @@ static void populate_bl32_image_ep(entry_point_info_t *bl32_ep_instance,
 	}
 	SET_SECURITY_STATE(bl32_ep_instance->h.attr, SECURE);
 	SET_PARAM_HEAD(populated_ep_bl32,
-			PARAM_EP,
-			VERSION_1,
-			populated_ep_bl32->h.attr);
+				PARAM_EP,
+				VERSION_1,
+				populated_ep_bl32->h.attr);
 	populated_ep_bl32->pc = atfarg.tee_entry;
 	populated_ep_bl32->spsr = plat_get_spsr_for_bl32_64_entry();
 }
@@ -131,21 +144,31 @@ static void populate_bl33_image_ep(entry_point_info_t *bl33_ep_instance,
 	}
 	SET_SECURITY_STATE(bl33_ep_instance->h.attr, NON_SECURE);
 	SET_PARAM_HEAD(populated_ep_bl33,
-			PARAM_EP,
-			VERSION_1,
-			populated_ep_bl33->h.attr);
+				PARAM_EP,
+				VERSION_1,
+				populated_ep_bl33->h.attr);
 	populated_ep_bl33->pc = p_mtk_bl_param->bl33_start_addr;
 	/* standardize 2nd bootloader input argument */
 	populated_ep_bl33->args.arg0 = p_mtk_bl_param->bootarg_loc;
 	/* compatible to old GZ version */
 	populated_ep_bl33->args.arg4 = p_mtk_bl_param->bootarg_loc;
 	populated_ep_bl33->args.arg5 = p_mtk_bl_param->bootarg_size;
+#if CONFIG_MTK_GZ
+	populated_ep_bl33->args.arg3 = get_el2_exec_start_offset();
+	populated_ep_bl33->args.arg6 = UART0_BASE;
+	populated_ep_bl33->args.arg7 = get_el2_reserved_mem_size();
+#endif
 
 /* GZ is 64bit */
 #if MTK_BL33_IS_64BIT
 	populated_ep_bl33->spsr = plat_get_spsr_for_bl33_64_entry();
 #else
 	populated_ep_bl33->spsr = plat_get_spsr_for_bl33_entry();
+#endif
+#if CONFIG_MTK_GZ
+	if (is_el2_enabled()) {
+		populated_ep_bl33->spsr = plat_get_spsr_for_bl33_64_entry();
+	}
 #endif
 }
 
@@ -216,9 +239,9 @@ static entry_point_info_t *bl31_plat_get_next_kernel64_ep_info(void)
 	next_image_info->args.arg1 = get_kernel_info_r1();
 
 	INFO("pc=0x%lx, r0=0x%" PRIx64 ", r1=0x%" PRIx64 "\n",
-	     next_image_info->pc,
-	     next_image_info->args.arg0,
-	     next_image_info->args.arg1);
+			next_image_info->pc,
+			next_image_info->args.arg0,
+			next_image_info->args.arg1);
 
 
 	SET_SECURITY_STATE(next_image_info->h.attr, NON_SECURE);
@@ -258,10 +281,10 @@ static entry_point_info_t *bl31_plat_get_next_kernel32_ep_info(void)
 	next_image_info->args.arg2 = get_kernel_info_r2();
 
 	INFO("pc=0x%lx, r0=0x%" PRIx64 ", r1=0x%" PRIx64 ", r2=0x%" PRIx64 "\n",
-	     next_image_info->pc,
-	     next_image_info->args.arg0,
-	     next_image_info->args.arg1,
-	     next_image_info->args.arg2);
+			next_image_info->pc,
+			next_image_info->args.arg0,
+			next_image_info->args.arg1,
+			next_image_info->args.arg2);
 
 	SET_SECURITY_STATE(next_image_info->h.attr, NON_SECURE);
 
@@ -283,6 +306,13 @@ static void bl31_prepare_kernel_entry(uint64_t k32_64)
 
 	/* Leave 2nd bootloader then jump to kernel */
 	el1_is_2nd_bootloader = false;
+
+#if CONFIG_MTK_GZ
+	if (is_el2_enabled()) {
+		INFO("%s: return to GZ!\n", __func__);
+		return;
+	}
+#endif
 
 	/* Program EL3 registers to enable entry into the next EL */
 	if (k32_64 == 0) {
