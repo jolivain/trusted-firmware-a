@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Mediatek Inc. All rights reserved.
+ * Copyright (c) 2020, Mediatek Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,44 +11,24 @@
 #include <common/debug.h>
 #include <common/runtime_svc.h>
 #include <lib/el3_runtime/context_mgmt.h>
-/* Vendors headers */
-#include <cold_boot.h>
+#include <common/mtk_sip_svc.h>
+#include <lib/mtk_init/mtk_init.h>
 #ifdef CONFIG_MTK_EMI
 #include <drivers/emi_mpu.h>
 #endif
 #include <drivers/mtk_console.h>
-#include <lib/mtk_init/mtk_init.h>
+#include <mtk_common.h>
 #if CONFIG_MTK_GZ
 #include <mtk_gz_api.h>
 #endif
-#include <mtk_sip_svc.h>
+#include <mtk_sip_inc.h>
 
+#if MTK_SIP_KERNEL_BOOT_ENABLE
 static struct kernel_info k_info;
 static entry_point_info_t bl32_image_ep_info;
 static entry_point_info_t bl33_image_ep_info;
-static bool el1_is_2nd_bootloader = true;
-static struct atf_arg_t atfarg;
-
-static int init_mtk_bl32_arg(void)
-{
-	struct mtk_bl_param_t *p_mtk_bl_param;
-	struct atf_arg_t *p_atfarg;
-
-	p_mtk_bl_param = (struct mtk_bl_param_t *) get_mtk_bl31_fw_config(BOOT_ARG_FROM_BL2);
-	if (p_mtk_bl_param == NULL) {
-		assert(p_mtk_bl_param != NULL);
-		ERROR("p_mtk_bl_param is NULL!\n");
-		return -1;
-	}
-	p_atfarg = (struct atf_arg_t *)p_mtk_bl_param->atf_arg_addr;
-	if (p_atfarg == NULL) {
-		NOTICE("bl32 argument is NULL!\n");
-		return -1;
-	}
-	memcpy((void *)&atfarg, (void *)p_atfarg, sizeof(struct atf_arg_t));
-	return 0;
-}
-MTK_EARLY_PLAT_INIT(init_mtk_bl32_arg);
+uint32_t el1_is_2nd_bootloader;
+struct atf_arg_t gatfarg;
 
 static void save_kernel_info(uint64_t pc,
 			uint64_t r0,
@@ -72,13 +52,12 @@ static void save_kernel_info(uint64_t pc,
 	}
 }
 
-static uint32_t plat_get_spsr_for_bl32_64_entry(void)
+uint32_t plat_get_spsr_for_bl32_64_entry(void)
 {
 	return SPSR_64(MODE_EL1, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 }
 
-#if !MTK_BL33_IS_64BIT
-static uint32_t plat_get_spsr_for_bl33_entry(void)
+uint32_t plat_get_spsr_for_bl33_entry(void)
 {
 	unsigned int mode;
 	uint32_t spsr;
@@ -97,9 +76,8 @@ static uint32_t plat_get_spsr_for_bl33_entry(void)
 	spsr = SPSR_MODE32(mode, 0, ee, daif);
 	return spsr;
 }
-#endif
 
-static uint32_t plat_get_spsr_for_bl33_64_entry(void)
+uint32_t plat_get_spsr_for_bl33_64_entry(void)
 {
 	uint32_t spsr;
 	uint32_t mode;
@@ -115,7 +93,7 @@ static uint32_t plat_get_spsr_for_bl33_64_entry(void)
 	return spsr;
 }
 
-static void populate_bl32_image_ep(entry_point_info_t *bl32_ep_instance,
+void populate_bl32_image_ep(entry_point_info_t *bl32_ep_instance,
 		struct mtk_bl_param_t *p_mtk_bl_param)
 {
 	entry_point_info_t *populated_ep_bl32 = bl32_ep_instance;
@@ -129,11 +107,11 @@ static void populate_bl32_image_ep(entry_point_info_t *bl32_ep_instance,
 				PARAM_EP,
 				VERSION_1,
 				populated_ep_bl32->h.attr);
-	populated_ep_bl32->pc = atfarg.tee_entry;
+	populated_ep_bl32->pc = gatfarg.tee_entry;
 	populated_ep_bl32->spsr = plat_get_spsr_for_bl32_64_entry();
 }
 
-static void populate_bl33_image_ep(entry_point_info_t *bl33_ep_instance,
+void populate_bl33_image_ep(entry_point_info_t *bl33_ep_instance,
 		struct mtk_bl_param_t *p_mtk_bl_param)
 {
 	entry_point_info_t *populated_ep_bl33 = bl33_ep_instance;
@@ -164,53 +142,77 @@ static void populate_bl33_image_ep(entry_point_info_t *bl33_ep_instance,
 	populated_ep_bl33->spsr = plat_get_spsr_for_bl33_64_entry();
 #else
 	populated_ep_bl33->spsr = plat_get_spsr_for_bl33_entry();
-#endif
 #if CONFIG_MTK_GZ
-	if (is_el2_enabled()) {
+	if (is_el2_enabled())
 		populated_ep_bl33->spsr = plat_get_spsr_for_bl33_64_entry();
-	}
+#endif
 #endif
 }
 
-static int populate_bl_images_ep(struct mtk_bl_param_t *p_mtk_bl_param)
+/*******************************************************************************
+ * Return a pointer to the 'entry_point_info' structure of the next image for
+ * the security state specified. BL33 corresponds to the non-secure image type
+ * while BL32 corresponds to the secure image type. A NULL pointer is returned
+ * if the image does not exist.
+ ******************************************************************************/
+entry_point_info_t *bl31_plat_get_next_image_ep_info(uint32_t type)
 {
+	entry_point_info_t *next_image_info;
+
+	next_image_info = (type == NON_SECURE) ? &bl33_image_ep_info : &bl32_image_ep_info;
+
+	/* None of the images on this platform can have 0x0 as the entrypoint */
+	if (next_image_info->pc)
+		return next_image_info;
+	else
+		return NULL;
+}
+
+int populate_bl_images_ep(struct mtk_bl_param_t *p_mtk_bl_param)
+{
+	int ret = 0;
+
 	/*
 	 * Tell BL3-1 where the non-trusted software image
 	 * is located and the entry state information
 	 */
 	populate_bl33_image_ep(&bl33_image_ep_info, p_mtk_bl_param);
 	populate_bl32_image_ep(&bl32_image_ep_info, p_mtk_bl_param);
-	return 0;
+	/* So far no need to populate BL32 entrypoint, leave it to SPD */
+	return ret;
 }
 
-static int populate_bl_images_ep_init(void)
+int populate_bl_images_ep_init(void)
 {
-	return populate_bl_images_ep(get_mtk_bl31_fw_config(BOOT_ARG_FROM_BL2));
+	int ret;
+
+	ret = populate_bl_images_ep(get_mtk_bl31_fw_config(BOOT_ARG_FROM_BL2));
+	return ret;
 }
 
 MTK_PLAT_SETUP_0_INIT(populate_bl_images_ep_init);
 
-static uint64_t get_kernel_info_pc(void)
+uint64_t get_kernel_info_pc(void)
 {
 	return k_info.pc;
 }
 
-static uint64_t get_kernel_info_r0(void)
+uint64_t get_kernel_info_r0(void)
 {
 	return k_info.r0;
 }
 
-static uint64_t get_kernel_info_r1(void)
+uint64_t get_kernel_info_r1(void)
 {
 	return k_info.r1;
 }
 
-static uint64_t get_kernel_info_r2(void)
+uint64_t get_kernel_info_r2(void)
 {
 	return k_info.r2;
 }
 
-static entry_point_info_t *bl31_plat_get_next_kernel64_ep_info(void)
+entry_point_info_t *bl31_plat_get_next_kernel64_ep_info(void)
 {
 	entry_point_info_t *next_image_info;
 	unsigned long el_status;
@@ -227,11 +229,11 @@ static entry_point_info_t *bl31_plat_get_next_kernel64_ep_info(void)
 	el_status &= ID_AA64PFR0_ELX_MASK;
 
 	INFO("Kernel_EL %d\n", el_status?2:1);
-	if (el_status) {
+	if (el_status)
 		mode = MODE_EL2;
-	} else {
+	else
 		mode = MODE_EL1;
-	}
+
 	INFO("Kernel is 64Bit\n");
 	next_image_info->spsr = SPSR_64(mode, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 	next_image_info->pc = get_kernel_info_pc();
@@ -247,14 +249,13 @@ static entry_point_info_t *bl31_plat_get_next_kernel64_ep_info(void)
 	SET_SECURITY_STATE(next_image_info->h.attr, NON_SECURE);
 
 	/* None of the images on this platform can have 0x0 as the entrypoint */
-	if (next_image_info->pc) {
+	if (next_image_info->pc)
 		return next_image_info;
-	} else {
+	else
 		return NULL;
-	}
 }
 
-static entry_point_info_t *bl31_plat_get_next_kernel32_ep_info(void)
+entry_point_info_t *bl31_plat_get_next_kernel32_ep_info(void)
 {
 	entry_point_info_t *next_image_info;
 	unsigned int mode;
@@ -289,14 +290,13 @@ static entry_point_info_t *bl31_plat_get_next_kernel32_ep_info(void)
 	SET_SECURITY_STATE(next_image_info->h.attr, NON_SECURE);
 
 	/* None of the images on this platform can have 0x0 as the entrypoint */
-	if (next_image_info->pc) {
+	if (next_image_info->pc)
 		return next_image_info;
-	} else {
+	else
 		return NULL;
-	}
 }
 
-static void bl31_prepare_kernel_entry(uint64_t k32_64)
+void bl31_prepare_kernel_entry(uint64_t k32_64)
 {
 	entry_point_info_t *next_image_info = NULL;
 	uint32_t image_type;
@@ -305,7 +305,7 @@ static void bl31_prepare_kernel_entry(uint64_t k32_64)
 	image_type = NON_SECURE; /* bl31_get_next_image_type(); */
 
 	/* Leave 2nd bootloader then jump to kernel */
-	el1_is_2nd_bootloader = false;
+	el1_is_2nd_bootloader = 0;
 
 #if CONFIG_MTK_GZ
 	if (is_el2_enabled()) {
@@ -331,31 +331,6 @@ static void bl31_prepare_kernel_entry(uint64_t k32_64)
 	INFO("BL3-1: Next image spsr = 0x%x\n", next_image_info->spsr);
 	cm_init_my_context(next_image_info);
 	cm_prepare_el3_exit(image_type);
-}
-
-bool is_el1_2nd_bootloader(void)
-{
-	return el1_is_2nd_bootloader;
-}
-
-/*******************************************************************************
- * Return a pointer to the 'entry_point_info' structure of the next image for
- * the security state specified. BL33 corresponds to the non-secure image type
- * while BL32 corresponds to the secure image type. A NULL pointer is returned
- * if the image does not exist.
- ******************************************************************************/
-entry_point_info_t *bl31_plat_get_next_image_ep_info(uint32_t type)
-{
-	entry_point_info_t *next_image_info;
-
-	next_image_info = (type == NON_SECURE) ? &bl33_image_ep_info : &bl32_image_ep_info;
-
-	/* None of the images on this platform can have 0x0 as the entrypoint */
-	if (next_image_info->pc) {
-		return next_image_info;
-	} else {
-		return NULL;
-	}
 }
 
 u_register_t boot_to_kernel(u_register_t x1,
@@ -396,3 +371,4 @@ u_register_t boot_to_kernel(u_register_t x1,
 }
 /* Register SiP SMC service */
 DECLARE_SMC_HANDLER(MTK_SIP_KERNEL_BOOT, boot_to_kernel);
+#endif
