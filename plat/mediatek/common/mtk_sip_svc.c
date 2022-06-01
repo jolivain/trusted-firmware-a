@@ -69,11 +69,6 @@ uintptr_t mediatek_sip_handler(uint32_t smc_fid,
 			SMC_RET1(handle, ret);
 		}
 #endif
-#if MTK_SIP_KERNEL_BOOT_ENABLE
-		case MTK_SIP_KERNEL_BOOT_AARCH32:
-			boot_to_kernel(x1, x2, x3, x4);
-			SMC_RET0(handle);
-#endif
 		default:
 			/* Do nothing in default case */
 			break;

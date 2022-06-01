@@ -57,4 +57,5 @@ struct mtk_bl_param_t {
 };
 
 void *get_mtk_bl31_fw_config(int index);
+bool is_el1_2nd_bootloader(void);
 #endif

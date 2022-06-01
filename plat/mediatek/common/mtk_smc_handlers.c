@@ -6,6 +6,7 @@
 
 #include <assert.h>
 #include <errno.h>
+#include <cold_boot.h>
 #include <common/debug.h>
 #include <common/runtime_svc.h>
 #include <lib/mtk_init/mtk_init.h>
@@ -68,27 +69,16 @@
 		SMC_HANDLER_DEBUG(SMC_HANDLER_DEBUG_END_MSG, #_smc_id, smc_id); \
 		break;
 
-#define SMC_ID_EXPAND_AS_DESCRIPTOR_INDEX(_smc_id, _smc_num) \
-	short _smc_id##_descriptor_index __section("mtk_plat_ro") = -1;
-
 MTK_SIP_SMC_FROM_BL33_TABLE(SMC_ID_EXPAND_AS_DESCRIPTOR_INDEX);
 MTK_SIP_SMC_FROM_NS_EL1_TABLE(SMC_ID_EXPAND_AS_DESCRIPTOR_INDEX);
+MTK_SIP_SMC_FROM_S_EL1_TABLE(SMC_ID_EXPAND_AS_DESCRIPTOR_INDEX);
+MTK_SIP_SMC_FROM_NS_EL2_TABLE(SMC_ID_EXPAND_AS_DESCRIPTOR_INDEX);
 
 IMPORT_SYM(uintptr_t, __MTK_SMC_POOL_START__, MTK_SMC_POOL_START);
 IMPORT_SYM(uintptr_t, __MTK_SMC_POOL_END_UNALIGNED__, MTK_SMC_POOL_END_UNALIGNED);
 
 static const struct smc_descriptor *smc_handler_pool;
 static short smc_id_descriptor_max;
-
-#pragma weak is_el1_2nd_bootloader
-/*
- * If there is no SMC request needs to be served in 2nd bootloader,
- * disable the service path inherently.
- */
-bool is_el1_2nd_bootloader(void)
-{
-	return false;
-}
 
 static void print_smc_descriptor(const struct smc_descriptor pool[])
 {
@@ -129,6 +119,52 @@ static int mtk_smc_handler_init(void)
 	return ret;
 }
 MTK_EARLY_PLAT_INIT(mtk_smc_handler_init);
+
+/* This function handles Mediatek defined SiP Calls from Secure world */
+static u_register_t mtk_smc_handler_sel1(uint32_t smc_id,
+			u_register_t x1,
+			u_register_t x2,
+			u_register_t x3,
+			u_register_t x4,
+			void *cookie,
+			void *handle,
+			u_register_t flags)
+{
+	u_register_t ret = MTK_SIP_E_SUCCESS;
+	struct smccc_res smc_ret = {0};
+
+	switch (smc_id) {
+		MTK_SIP_SMC_FROM_S_EL1_TABLE(SMC_ID_EXPAND_AS_SMC_OPERATION);
+	default:
+		INFO("SEL1 SMC ID:0x%x not support\n", smc_id);
+		ret = SMC_UNK;
+	}
+	SMC_RET4(handle, ret, smc_ret.a1, smc_ret.a2, smc_ret.a3);
+}
+
+#ifdef CONFIG_MTK_GZ
+/* This function handles Mediatek defined SiP Calls from Hypervisor */
+static u_register_t mtk_smc_handler_nsel2(uint32_t smc_id,
+			u_register_t x1,
+			u_register_t x2,
+			u_register_t x3,
+			u_register_t x4,
+			void *cookie,
+			void *handle,
+			u_register_t flags)
+{
+	u_register_t ret = MTK_SIP_E_SUCCESS;
+	struct smccc_res smc_ret = {0};
+
+	switch (smc_id) {
+		MTK_SIP_SMC_FROM_NS_EL2_TABLE(SMC_ID_EXPAND_AS_SMC_OPERATION);
+	default:
+		INFO("NSEL2 SMC ID:0x%x not support\n", smc_id);
+		ret = SMC_UNK;
+	}
+	SMC_RET4(handle, ret, smc_ret.a1, smc_ret.a2, smc_ret.a3);
+}
+#endif
 
 /* This function handles Mediatek defined SiP Calls from Bootloader */
 static u_register_t mtk_smc_handler_bl33(uint32_t smc_id,
@@ -205,13 +241,19 @@ static u_register_t mtk_smc_handler(uint32_t smc_id,
 
 	if (!ns) {
 		/* SiP SMC service secure world's call */
-		INFO("Secure SMC ID:0x%x not support\n", smc_id);
-		ret = SMC_UNK;
+		ret = mtk_smc_handler_sel1(smc_num, x1, x2, x3, x4,
+					cookie, handle, flags);
 	} else {
 		if (is_from_bl33(smc_ori)) {
 			/* SiP SMC service secure bootloader's call */
 			ret = mtk_smc_handler_bl33(smc_num, x1, x2, x3, x4,
 						cookie, handle, flags);
+#ifdef CONFIG_MTK_GZ
+		} else if (is_from_nsel2(smc_ori)) {
+			/* SiP SMC service hypervisor's call */
+			ret = mtk_smc_handler_nsel2(smc_num, x1, x2, x3, x4,
+						cookie, handle, flags);
+#endif
 		} else if (is_from_nsel1(smc_ori)) {
 			/* SiP SMC service kernel's call */
 			ret = mtk_smc_handler_nsel1(smc_num, x1, x2, x3, x4,

@@ -45,6 +45,14 @@
 #define SMC_ID_EXPAND_AS_EXTERN_SMC_INDEX(_smc_id, _smc_num) \
 	extern short _smc_id##_descriptor_index;
 
+#define SMC_ID_EXPAND_AS_DESCRIPTOR_INDEX(_smc_id, _smc_num) \
+	short _smc_id##_descriptor_index __section("mtk_plat_ro") = -1;
+
+#define SMC_ID_EXPAND_AS_FUNC_EXTERN(_smc_id, _smc_handler) \
+	u_register_t _smc_handler(u_register_t x1, \
+			u_register_t x2, u_register_t x3, \
+			u_register_t x4, void *handle);
+
 /* Bind SMC handler with SMC ID */
 #define DECLARE_SMC_HANDLER(_smc_id, _smc_handler) \
 	const struct smc_descriptor _smc_id##_descriptor \
