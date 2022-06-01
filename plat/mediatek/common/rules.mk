@@ -12,6 +12,7 @@ MODULE := mtk_common
 
 # Add your source code here
 LOCAL_SRCS-y := ${LOCAL_DIR}/mtk_bl31_setup.c
+LOCAL_SRCS-y += ${LOCAL_DIR}/mtk_plat_log.c
 LOCAL_SRCS-y += ${LOCAL_DIR}/mtk_smc_handlers.c
 LOCAL_SRCS-y += ${LOCAL_DIR}/cold_boot.c
 
