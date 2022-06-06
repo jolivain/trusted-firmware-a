@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b687d8a_3bd51121",
+        "filename": "bl32/tsp/aarch64/tsp_entrypoint.S",
+        "patchSetId": 59
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-06-06T13:10:14Z",
+      "side": 1,
+      "message": "Would it be possible to implement this loop logic from within tsp_main?\nThere would be two implementations for tsp_main (legacy TSP and newly introduced FF-A TSP) selected by the makefile\nThis would prevent modifying this startup file and add the FF-A loop related logic in a localized FF-A TSP file.",
+      "revId": "c13c8e7cb9e7b3c3b64302274c8a42400bac8fdf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecdd5845_5551a1f8",
+        "filename": "bl32/tsp/aarch64/tsp_entrypoint.S",
+        "patchSetId": 59
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-06-06T13:10:14Z",
+      "side": 1,
+      "message": "same here, tsp_cpu_on_main would have two different implementations be it legacy TSP or FF-A TSP but the entrypoint file remains unchanged.",
+      "revId": "c13c8e7cb9e7b3c3b64302274c8a42400bac8fdf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8ab51b9_72946efb",
+        "filename": "bl32/tsp/tsp_interrupt.c",
+        "patchSetId": 59
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-06-06T13:10:14Z",
+      "side": 1,
+      "message": "This comment looks a bit restrictive, it seems a secure interrupt can actually happen (the secure EL3/SEL1 physical timer) rather than none?",
+      "range": {
+        "startLine": 98,
+        "startChar": 28,
+        "endLine": 99,
+        "endChar": 12
+      },
+      "revId": "c13c8e7cb9e7b3c3b64302274c8a42400bac8fdf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f32e44a_bee45e00",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 59
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-06-06T13:10:14Z",
+      "side": 1,
+      "message": "nit: use braces even for single line \u0027if\u0027 statements.",
+      "range": {
+        "startLine": 168,
+        "startChar": 52,
+        "endLine": 170,
+        "endChar": 28
+      },
+      "revId": "c13c8e7cb9e7b3c3b64302274c8a42400bac8fdf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c27c76d9_ff4dd3ea",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 59
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-06-06T13:10:14Z",
+      "side": 1,
+      "message": "nit: use braces even for single line statements",
+      "revId": "c13c8e7cb9e7b3c3b64302274c8a42400bac8fdf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d47a569_40882065",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 59
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-06-06T13:10:14Z",
+      "side": 1,
+      "message": "nit: rename smc_fid?",
+      "range": {
+        "startLine": 640,
+        "startChar": 36,
+        "endLine": 640,
+        "endChar": 40
+      },
+      "revId": "c13c8e7cb9e7b3c3b64302274c8a42400bac8fdf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
