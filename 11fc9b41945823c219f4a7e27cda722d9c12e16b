@@ -105,6 +105,30 @@
       },
       "revId": "11fc9b41945823c219f4a7e27cda722d9c12e16b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "def28de1_02169423",
+        "filename": "plat/hisilicon/hikey960/hikey960_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-06-06T13:23:30Z",
+      "side": 1,
+      "message": "Those failures are normally spotted by MISRA checks.\n(although I appreciate coverity/MISRA runs are flaky these days)",
+      "parentUuid": "b57e4035_01185c0a",
+      "range": {
+        "startLine": 276,
+        "startChar": 2,
+        "endLine": 276,
+        "endChar": 12
+      },
+      "revId": "11fc9b41945823c219f4a7e27cda722d9c12e16b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
