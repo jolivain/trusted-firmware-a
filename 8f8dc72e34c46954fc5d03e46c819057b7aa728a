@@ -376,6 +376,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1fb0ff72_74b17caa",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 59
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-06-06T14:08:55Z",
+      "side": 1,
+      "message": "just checking, is it expected to check a single borrower\u0027s permissions?",
+      "range": {
+        "startLine": 852,
+        "startChar": 3,
+        "endLine": 852,
+        "endChar": 18
+      },
+      "revId": "8f8dc72e34c46954fc5d03e46c819057b7aa728a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c1dd55f5_63d0984b",
         "filename": "bl32/tsp/tsp_main.c",
         "patchSetId": 59
