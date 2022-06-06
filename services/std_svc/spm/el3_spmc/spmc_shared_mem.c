@@ -1657,6 +1657,8 @@ int spmc_ffa_mem_relinquish(uint32_t smc_fid,
 	struct mailbox *mbox = spmc_get_mbox_desc(secure_origin);
 	struct spmc_shmem_obj *obj;
 	const struct ffa_mem_relinquish_descriptor *req;
+	struct secure_partition_desc *sp_ctx = spmc_get_current_sp_ctx();
+	bool found = false;
 
 	if (!secure_origin) {
 		WARN("%s: unsupported relinquish direction.\n", __func__);
@@ -1694,36 +1696,44 @@ int spmc_ffa_mem_relinquish(uint32_t smc_fid,
 		goto err_unlock_all;
 	}
 
-	if (obj->desc.emad_count != req->endpoint_count) {
-		WARN("%s: mismatch of endpoint count %u != %u\n", __func__,
-		     obj->desc.emad_count, req->endpoint_count);
+	/*
+	 * Validate the endpoint ID was populated correctly. We don't currently
+	 * support proxy endpoints so the endpoint count should always be 1.
+	 */
+	if (req->endpoint_count != 1U) {
+		WARN("%s: unsupported endpoint count %u != 1\n", __func__,
+		     req->endpoint_count);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_all;
 	}
 
-	/* Validate requested endpoint IDs match descriptor. */
-	for (size_t i = 0; i < req->endpoint_count; i++) {
-		bool found = false;
+	/* Validate provided endpoint ID matches the partition ID. */
+	if (req->endpoint_array[0] != sp_ctx->sp_id) {
+		WARN("%s: invalid endpoint ID %u != %u\n", __func__,
+		     req->endpoint_array[0], sp_ctx->sp_id);
+		ret = FFA_ERROR_INVALID_PARAMETER;
+		goto err_unlock_all;
+	}
+
+	/* Validate the partition is a valid participant. */
+	for (unsigned int i = 0; i < obj->desc.emad_count; i++) {
 		size_t emad_size;
 		struct ffa_emad_v1_0 *emad;
-
-		for (unsigned int j = 0; j < obj->desc.emad_count; j++) {
-			emad = spmc_shmem_obj_get_emad(&obj->desc, j,
-							MAKE_FFA_VERSION(1, 1),
-							&emad_size);
-			if (req->endpoint_array[i] ==
-			    emad->mapd.endpoint_id) {
-				found = true;
-				break;
-			}
+		emad = spmc_shmem_obj_get_emad(&obj->desc, i,
+					       MAKE_FFA_VERSION(1, 1),
+					       &emad_size);
+		if (req->endpoint_array[0] ==
+			emad->mapd.endpoint_id) {
+			found = true;
+			break;
 		}
+	}
 
-		if (!found) {
-			WARN("%s: Invalid endpoint ID (0x%x).\n",
-			     __func__, req->endpoint_array[i]);
-			ret = FFA_ERROR_INVALID_PARAMETER;
-			goto err_unlock_all;
-		}
+	if (!found) {
+		WARN("%s: Invalid endpoint ID (0x%x).\n",
+			__func__, req->endpoint_array[0]);
+		ret = FFA_ERROR_INVALID_PARAMETER;
+		goto err_unlock_all;
 	}
 
 	if (obj->in_use == 0U) {
