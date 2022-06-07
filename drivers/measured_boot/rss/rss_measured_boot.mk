@@ -6,7 +6,11 @@
 
 # Hash algorithm for measured boot
 # SHA-256 (or stronger) is required.
+ifdef MBOOT_RSS_HASH_ALG
+MBOOT_HASH_ALG			:=	${MBOOT_RSS_HASH_ALG}
+else
 MBOOT_HASH_ALG			:=	sha256
+endif #MBOOT_RSS_HASH_ALG
 
 ifeq (${MBOOT_HASH_ALG}, sha512)
     MBOOT_ALG_ID		:=	MBOOT_ALG_SHA512

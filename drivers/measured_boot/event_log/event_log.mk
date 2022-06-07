@@ -9,7 +9,11 @@ EVENT_LOG_LEVEL         ?= 40
 
 # Measured Boot hash algorithm.
 # SHA-256 (or stronger) is required for all devices that are TPM 2.0 compliant.
+ifdef MBOOT_EL_HASH_ALG
+MBOOT_HASH_ALG			:=	${MBOOT_EL_HASH_ALG}
+else
 MBOOT_HASH_ALG			:=	sha256
+endif #MBOOT_EL_HASH_ALG
 
 ifeq (${MBOOT_HASH_ALG}, sha512)
     TPM_ALG_ID			:=	TPM_ALG_SHA512

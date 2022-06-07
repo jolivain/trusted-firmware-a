@@ -84,6 +84,9 @@
 	(TF_MBEDTLS_MBOOT_HASH_ALG_ID != TF_MBEDTLS_SHA256)
 #define MBEDTLS_SHA512_C
 #endif
+#if (MBOOT_RSS_HASH_ALG != sha256 || MBOOT_EL_HASH_ALG != sha256)
+#define MBEDTLS_SHA512_C
+#endif
 #endif
 
 #define MBEDTLS_VERSION_C
