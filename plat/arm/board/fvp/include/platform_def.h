@@ -197,6 +197,12 @@
 # define PLAT_ARM_MAX_BL2_SIZE	(UL(0x1E000) - FVP_BL2_ROMLIB_OPTIMIZATION)
 #elif CRYPTO_SUPPORT
 # define PLAT_ARM_MAX_BL2_SIZE	(UL(0x1D000) - FVP_BL2_ROMLIB_OPTIMIZATION)
+#elif ARM_BL31_IN_DRAM
+/*
+ * Without compiler optimizations, ARM_BL31_IN_DRAM is set and bl2.bin grows
+ * in size. 0xC000 additonal space is added to accommodate this.
+ */
+# define PLAT_ARM_MAX_BL2_SIZE	(UL(0x1F000) - FVP_BL2_ROMLIB_OPTIMIZATION)
 #else
 # define PLAT_ARM_MAX_BL2_SIZE	(UL(0x13000) - FVP_BL2_ROMLIB_OPTIMIZATION)
 #endif
