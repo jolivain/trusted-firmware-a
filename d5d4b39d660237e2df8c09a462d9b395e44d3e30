@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60a2d5e2_a12e919c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-06-08T14:30:21Z",
+      "side": 1,
+      "message": "I believe we still need separate hash algorithm per backend i.e. for Event Log and RSS as the generic hash algorithm macro is not guaranteed to work for every measured-boot backend supported by the platform.",
+      "revId": "d5d4b39d660237e2df8c09a462d9b395e44d3e30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
