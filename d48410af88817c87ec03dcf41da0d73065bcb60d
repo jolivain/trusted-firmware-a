@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d53898a7_0c836cea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-06-09T19:41:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b6ebbe6_4d3de9b9",
+      "range": {
+        "startLine": 7,
+        "startChar": 9,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "d48410af88817c87ec03dcf41da0d73065bcb60d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f759d9a_264cc47a",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-06-09T15:30:51Z",
       "side": 1,
       "message": "I would add a sentence which explains that this is only really a problem when using both backends in the same firmware build. Without this piece of information, it might be hard to understand why we cannot have a single, common MBOOT_HASH_ALG variable.",
+      "range": {
+        "startLine": 9,
+        "startChar": 59,
+        "endLine": 11,
+        "endChar": 58
+      },
+      "revId": "d48410af88817c87ec03dcf41da0d73065bcb60d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b80b90a2_d4ec74fb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-06-09T19:41:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f759d9a_264cc47a",
       "range": {
         "startLine": 9,
         "startChar": 59,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d0ab19d_ab2a4afe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-06-09T19:41:21Z",
+      "side": 1,
+      "message": "Whoops! Ok yeah I don\u0027t know what I was referring to there, I\u0027ll remove.",
+      "parentUuid": "ec253d1d_3670140f",
+      "range": {
+        "startLine": 15,
+        "startChar": 52,
+        "endLine": 17,
+        "endChar": 15
+      },
+      "revId": "d48410af88817c87ec03dcf41da0d73065bcb60d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "efab9e77_555b8e4e",
@@ -87,6 +159,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d993805_fa857295",
+        "filename": "drivers/measured_boot/event_log/event_log.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-06-09T19:41:21Z",
+      "side": 1,
+      "message": "Ack, will add a corresponding CI patch",
+      "parentUuid": "efab9e77_555b8e4e",
+      "revId": "d48410af88817c87ec03dcf41da0d73065bcb60d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db6c7794_dc3a1ded",
@@ -100,6 +190,24 @@
       "writtenOn": "2022-06-09T15:30:51Z",
       "side": 1,
       "message": "When a patch affects both the generic code and the platform code, it\u0027s usually a good idea to split them up in 2 patches (when possible). That way, it is easier for people to cherry-pick just the patch that changes the generic code.\n\nThat\u0027s just a guideline for next time, I won\u0027t push for this patch to be reworked now, as the patch is mostly ready and splitting it up while not breaking the build would require some rework.",
+      "revId": "d48410af88817c87ec03dcf41da0d73065bcb60d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8a41f8a_26c65784",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-06-09T19:41:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "db6c7794_dc3a1ded",
       "revId": "d48410af88817c87ec03dcf41da0d73065bcb60d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
