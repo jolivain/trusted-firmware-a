@@ -1236,7 +1236,7 @@ endif
 # Generate and include sp_gen.mk if SPD is spmd and SP_LAYOUT_FILE is defined
 ifeq (${SPD},spmd)
 ifdef SP_LAYOUT_FILE
-        -include $(BUILD_PLAT)/sp_gen.mk
+        include $(BUILD_PLAT)/sp_gen.mk
         FIP_DEPS += sp
         CRT_DEPS += sp
         NEED_SP_PKG := yes
