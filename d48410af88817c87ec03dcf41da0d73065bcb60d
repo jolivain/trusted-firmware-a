@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b6ebbe6_4d3de9b9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-09T15:30:51Z",
+      "side": 1,
+      "message": "This change is more closely related to measured boot than to the authentication framework. Suggest changing the scope into:\n\n refactor(measured-boot)",
+      "range": {
+        "startLine": 7,
+        "startChar": 9,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "d48410af88817c87ec03dcf41da0d73065bcb60d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f759d9a_264cc47a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-09T15:30:51Z",
+      "side": 1,
+      "message": "I would add a sentence which explains that this is only really a problem when using both backends in the same firmware build. Without this piece of information, it might be hard to understand why we cannot have a single, common MBOOT_HASH_ALG variable.",
+      "range": {
+        "startLine": 9,
+        "startChar": 59,
+        "endLine": 11,
+        "endChar": 58
+      },
+      "revId": "d48410af88817c87ec03dcf41da0d73065bcb60d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec253d1d_3670140f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-09T15:30:51Z",
+      "side": 1,
+      "message": "This sentence is not clear to me.. We\u0027ve removed the word \"TPM\" from the variable name, which is not a hash algorithm...",
+      "range": {
+        "startLine": 15,
+        "startChar": 52,
+        "endLine": 17,
+        "endChar": 15
+      },
+      "revId": "d48410af88817c87ec03dcf41da0d73065bcb60d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efab9e77_555b8e4e",
+        "filename": "drivers/measured_boot/event_log/event_log.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-09T15:30:51Z",
+      "side": 1,
+      "message": "I\u0027ve just realized that TPM_HASH_ALG was the way to configure the hash algorithm used by the event log driver until now. By changing the name, we might break some partners\u0027 build scripts which relied on it. The worst thing is, it might be a silent breakage, as the variable simply no longer has any effect on the code base.\n\nAs a matter of fact, some of the TF-A CI scripts still rely on it. Could you please push a patch to update them? The only CI patch I\u0027ve seen in review is https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/15083 and it does seem to take care of the renaming.\n\nI think it would be good to make changes in a backward compatible way. Something like that might be enough (I can\u0027t guarantee the syntax is correct!):\n\n ifdef TPM_HASH_ALG\n   $(warning \"TPM_HASH_ALG is deprecated. Please use MBOOT_EL_HASH_ALG instead.\")\n   MBOOT_EL_HASH_ALG\t\t:\u003d\t${TPM_HASH_ALG}\n else\n   MBOOT_EL_HASH_ALG\t\t:\u003d\tsha256\n endif\n\nBasically, the idea is that if the TPM_HASH_ALG variable is defined by the user, it should take precedence.",
+      "revId": "d48410af88817c87ec03dcf41da0d73065bcb60d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db6c7794_dc3a1ded",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-09T15:30:51Z",
+      "side": 1,
+      "message": "When a patch affects both the generic code and the platform code, it\u0027s usually a good idea to split them up in 2 patches (when possible). That way, it is easier for people to cherry-pick just the patch that changes the generic code.\n\nThat\u0027s just a guideline for next time, I won\u0027t push for this patch to be reworked now, as the patch is mostly ready and splitting it up while not breaking the build would require some rework.",
+      "revId": "d48410af88817c87ec03dcf41da0d73065bcb60d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
