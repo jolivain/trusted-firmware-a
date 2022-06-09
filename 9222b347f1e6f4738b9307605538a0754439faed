@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9391843_ee5b9cae",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-06-09T15:10:32Z",
+      "side": 1,
+      "message": "The type of \"(const uintptr_t (*smmus_out)[]\" looks very complicated and hard to use properly.\nWhat\u0027s the rationale behind this? Do we really need it?",
+      "range": {
+        "startLine": 414,
+        "startChar": 26,
+        "endLine": 414,
+        "endChar": 56
+      },
+      "revId": "9222b347f1e6f4738b9307605538a0754439faed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
