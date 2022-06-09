@@ -46,6 +46,30 @@
       },
       "revId": "9222b347f1e6f4738b9307605538a0754439faed",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04bb37cb_678e2d76",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-06-09T15:56:03Z",
+      "side": 1,
+      "message": "My concern was the strange way of passing an array to this function. I assume that in the end it\u0027s an array or uintptr_t that we\u0027re interested in.",
+      "parentUuid": "37d67a81_6504648a",
+      "range": {
+        "startLine": 414,
+        "startChar": 26,
+        "endLine": 414,
+        "endChar": 56
+      },
+      "revId": "9222b347f1e6f4738b9307605538a0754439faed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
