@@ -815,6 +815,12 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 				FFA_PARAM_MBZ, FFA_PARAM_MBZ,
 				FFA_PARAM_MBZ);
 		} else {
+			if(!secure_origin) {
+				/* Validate source endpoint is non-secure for non-secure caller. */
+				if (ffa_is_secure_world_id(ffa_endpoint_source(x1))) {
+					return spmd_ffa_error_return(handle, FFA_ERROR_INVALID_PARAMETER);
+				}
+			}
 			/* Forward direct message to the other world */
 			return spmd_smc_forward(smc_fid, secure_origin,
 						x1, x2, x3, x4, cookie,
@@ -861,8 +867,14 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 		}
 
 		/* Fall through to forward the call to the other world */
-	case FFA_MSG_SEND:
 	case FFA_MSG_SEND_DIRECT_REQ_SMC64:
+                if(!secure_origin) {
+                        /* Validate source endpoint is non-secure for non-secure caller. */
+                        if (ffa_is_secure_world_id(ffa_endpoint_source(x1))) {
+                                return spmd_ffa_error_return(handle, FFA_ERROR_INVALID_PARAMETER);
+                        }
+                }
+	case FFA_MSG_SEND:
 	case FFA_MSG_SEND_DIRECT_RESP_SMC64:
 	case FFA_MEM_DONATE_SMC32:
 	case FFA_MEM_DONATE_SMC64:
