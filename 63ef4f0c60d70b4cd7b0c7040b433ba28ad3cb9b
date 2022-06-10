@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1e5c070_b0cd16fd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-06-10T20:40:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ab0a866_247af3e4",
+      "range": {
+        "startLine": 7,
+        "startChar": 9,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "63ef4f0c60d70b4cd7b0c7040b433ba28ad3cb9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28b9a3b9_71e658f5",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-06-10T06:36:15Z",
       "side": 1,
       "message": "If I am not mistaken, there\u0027s nothing in this patch that is tied to compiler optimizations being disabled so suggest removing this part of the sentence.",
+      "range": {
+        "startLine": 9,
+        "startChar": 25,
+        "endLine": 9,
+        "endChar": 65
+      },
+      "revId": "63ef4f0c60d70b4cd7b0c7040b433ba28ad3cb9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf78fb6a_2593a434",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-06-10T20:40:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28b9a3b9_71e658f5",
       "range": {
         "startLine": 9,
         "startChar": 25,
@@ -100,6 +148,54 @@
       "writtenOn": "2022-06-10T10:08:31Z",
       "side": 1,
       "message": "Likewise, I prefer to leave a comment about the reasoning behind this size decision.",
+      "range": {
+        "startLine": 201,
+        "startChar": 35,
+        "endLine": 201,
+        "endChar": 42
+      },
+      "revId": "63ef4f0c60d70b4cd7b0c7040b433ba28ad3cb9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcca1552_a9258617",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-06-10T20:40:41Z",
+      "side": 1,
+      "message": "Yes!",
+      "parentUuid": "4f51cc9c_86ec94a5",
+      "range": {
+        "startLine": 201,
+        "startChar": 31,
+        "endLine": 201,
+        "endChar": 74
+      },
+      "revId": "63ef4f0c60d70b4cd7b0c7040b433ba28ad3cb9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89467594_5cf2de67",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-06-10T20:40:41Z",
+      "side": 1,
+      "message": "Added a comment, let me know what you think.",
+      "parentUuid": "d10dfceb_f1e4320c",
       "range": {
         "startLine": 201,
         "startChar": 35,
