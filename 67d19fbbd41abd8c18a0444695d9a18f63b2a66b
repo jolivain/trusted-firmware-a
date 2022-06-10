@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4ffe3558_cfdb3ab8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-06-10T20:27:33Z",
+      "side": 1,
+      "message": "Ah true! I\u0027ll update",
+      "parentUuid": "4be820b4_827085cb",
+      "range": {
+        "startLine": 20,
+        "startChar": 8,
+        "endLine": 20,
+        "endChar": 22
+      },
+      "revId": "67d19fbbd41abd8c18a0444695d9a18f63b2a66b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9eea64ab_a15d4f9e",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -81,6 +105,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6240ed5_350731b5",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-06-10T20:27:33Z",
+      "side": 1,
+      "message": "Ack, I can look in to adding this separately",
+      "parentUuid": "f206e651_724a022a",
+      "range": {
+        "startLine": 12,
+        "startChar": 4,
+        "endLine": 12,
+        "endChar": 16
+      },
+      "revId": "67d19fbbd41abd8c18a0444695d9a18f63b2a66b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7edd7aa_a026206c",
@@ -94,6 +142,30 @@
       "writtenOn": "2022-06-10T10:04:04Z",
       "side": 1,
       "message": "I believe this change is needed for partner platforms those are using EventLog with mbedTLS as crypto engine for hash calculation. May be better to put note be in commit message to let them aware?",
+      "range": {
+        "startLine": 404,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 9
+      },
+      "revId": "67d19fbbd41abd8c18a0444695d9a18f63b2a66b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fc74950_8c9a7b68",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-06-10T20:27:33Z",
+      "side": 1,
+      "message": "The changes in this file or the patch? Sorry I\u0027m confused, could you clarify what you mean? Thanks!",
+      "parentUuid": "e7edd7aa_a026206c",
       "range": {
         "startLine": 404,
         "startChar": 0,
