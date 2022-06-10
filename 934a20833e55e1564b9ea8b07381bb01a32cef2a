@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecd277c9_19c9cb6e",
+        "filename": "bl32/tsp/ffa_helpers.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-06-10T18:08:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2b3e6af_eb80bd3e",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 9
+      },
+      "revId": "934a20833e55e1564b9ea8b07381bb01a32cef2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0a0c950_42a3bb6f",
@@ -47,6 +71,47 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "53ddd5f2_e10efd34",
+        "filename": "bl32/tsp/ffa_helpers.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-06-10T18:08:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0a0c950_42a3bb6f",
+      "range": {
+        "startLine": 74,
+        "startChar": 6,
+        "endLine": 74,
+        "endChar": 9
+      },
+      "revId": "934a20833e55e1564b9ea8b07381bb01a32cef2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba999d1d_c1124dea",
+        "filename": "bl32/tsp/ffa_helpers.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-06-10T18:08:01Z",
+      "side": 1,
+      "message": "In the relinquish flow we should only specify the current endpoint therefore remove this change",
+      "revId": "934a20833e55e1564b9ea8b07381bb01a32cef2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b65c08a4_f79c7a1b",
@@ -60,6 +125,30 @@
       "writtenOn": "2022-06-06T14:11:20Z",
       "side": 1,
       "message": "use an unsigned type",
+      "range": {
+        "startLine": 320,
+        "startChar": 6,
+        "endLine": 320,
+        "endChar": 9
+      },
+      "revId": "934a20833e55e1564b9ea8b07381bb01a32cef2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f68811d_13c87483",
+        "filename": "bl32/tsp/ffa_helpers.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-06-10T18:08:01Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "b65c08a4_f79c7a1b",
       "range": {
         "startLine": 320,
         "startChar": 6,
