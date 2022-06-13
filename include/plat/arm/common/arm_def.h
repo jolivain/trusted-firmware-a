@@ -519,10 +519,17 @@
 /*******************************************************************************
  * BL2 specific defines.
  ******************************************************************************/
-#if BL2_AT_EL3
+#if BL2_AT_EL3 && ENABLE_PIE
+/* Leave sufficient space for BL31 in Trusted SRAM for ENABLE_PIE build */
+#define BL2_BASE			(ARM_TRUSTED_SRAM_BASE + \
+					(PLAT_ARM_TRUSTED_SRAM_SIZE >> 1) + \
+					0x3000)
+#elif BL2_AT_EL3
 /* Put BL2 towards the middle of the Trusted SRAM */
 #define BL2_BASE			(ARM_TRUSTED_SRAM_BASE + \
-						(PLAT_ARM_TRUSTED_SRAM_SIZE >> 1) + 0x2000)
+					(PLAT_ARM_TRUSTED_SRAM_SIZE >> 1) + \
+					0x2000)
+#endif /* BL2_AT_EL3 && ENABLE_PIE */
 #define BL2_LIMIT			(ARM_BL_RAM_BASE + ARM_BL_RAM_SIZE)
 
 #else
