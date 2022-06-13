@@ -174,6 +174,30 @@
       },
       "revId": "67d19fbbd41abd8c18a0444695d9a18f63b2a66b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d706f5c6_60d80db4",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-13T08:13:15Z",
+      "side": 1,
+      "message": "Good catch, Manish! I agree, these lines:\n\n    ifneq (${MBOOT_EL_HASH_ALG}, sha256)\n        $(eval $(call add_define,TF_MBEDTLS_MBOOT_USE_SHA512))\n    endif\n\nneed to be added into imx8mm platform makefile here [1] and in QEMU platform makefile here [2]. Otherwise, I believe that setting MBOOT_EL_HASH_ALG to sha-512 for these platforms won\u0027t properly pull in SHA-512 support from mbedtls library.\n\nI think we can prepare patches for these 2 platforms, it\u0027s not a lot of work for us and so it sounds more appropriate to me than just putting a note in the commit message to make them aware, like Manish was suggesting.\n\nLauren, could you please prepare 2 patches - one for each of these platforms - and add the relevent platform maintainers as reviewers?\n\n[1] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/imx/imx8m/imx8mm/platform.mk?id\u003d7460c41d274edbc3f0236bc5181a63517350a066#n164\n\n[2] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/qemu/qemu/platform.mk#n106",
+      "parentUuid": "9fc74950_8c9a7b68",
+      "range": {
+        "startLine": 404,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 9
+      },
+      "revId": "67d19fbbd41abd8c18a0444695d9a18f63b2a66b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
