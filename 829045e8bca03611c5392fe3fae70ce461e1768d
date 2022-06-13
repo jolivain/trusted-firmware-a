@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c99e9230_b055a469",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-13T06:31:10Z",
+      "side": 1,
+      "message": "\u003e Without compiler optimizations, ARM_BL31_IN_DRAM is set\n\nThat is only the case in our CI build config, it is not a requirement per se.\n\n\u003e 0xC000 additonal space is added to accommodate this.\n\nThis information is suitable for a commit message because it explains the size being added compared to the previous version. But IMO it does not make sense for a comment, which stays in the code base without any context of past versions.\n\nSuggest the following comment instead:\n\n When ARM_BL31_IN_DRAM is set, BL2 can use almost all of Trusted SRAM.",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 203,
+        "endChar": 64
+      },
+      "revId": "829045e8bca03611c5392fe3fae70ce461e1768d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
