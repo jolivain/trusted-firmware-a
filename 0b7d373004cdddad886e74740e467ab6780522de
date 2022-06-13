@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96e8e491_d6f7688b",
+        "filename": "bl32/tsp/ffa_helpers.c",
+        "patchSetId": 60
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-06-13T11:13:42Z",
+      "side": 1,
+      "message": "Same as in previous file. Could this be enforced in the Makefile? I.e. Add it to the srcs to be build only if SPMC_AT_EL3?",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 15
+      },
+      "revId": "0b7d373004cdddad886e74740e467ab6780522de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3aa70b0_e8ee1aee",
+        "filename": "bl32/tsp/ffa_helpers.h",
+        "patchSetId": 60
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-06-13T11:13:42Z",
+      "side": 1,
+      "message": "Is it possible to do this logic in the Makefile?\nI.e. add this file to the includes if the SPMC_AT_EL3 is set?\nThis helps with code portability... Also looks cleaner IMO.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 1
+      },
+      "revId": "0b7d373004cdddad886e74740e467ab6780522de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3545e583_abfb1cef",
+        "filename": "bl32/tsp/tsp.mk",
+        "patchSetId": 60
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-06-13T11:13:42Z",
+      "side": 1,
+      "message": "Check first if SPMC_AT_EL3 is set in the build arguments?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 9
+      },
+      "revId": "0b7d373004cdddad886e74740e467ab6780522de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
