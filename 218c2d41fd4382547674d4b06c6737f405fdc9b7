@@ -22,6 +22,30 @@
       },
       "revId": "218c2d41fd4382547674d4b06c6737f405fdc9b7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2353fe6_ca3d3f49",
+        "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-06-14T19:50:56Z",
+      "side": 1,
+      "message": "Yes, somehow missed to remove this. Removed in the latest patch.",
+      "parentUuid": "4054341f_a69a54f8",
+      "range": {
+        "startLine": 56,
+        "startChar": 3,
+        "endLine": 56,
+        "endChar": 23
+      },
+      "revId": "218c2d41fd4382547674d4b06c6737f405fdc9b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
