@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ff3f240_4ae60649",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-14T13:22:34Z",
+      "side": 1,
+      "message": "I would like to see a new CI test to exercise this config - measured boot + SPM. Is there already such a patch available?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 52
+      },
+      "revId": "e637a5e19da72599229fd2c70e793c123aaf14ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b4f46bd_3a56d6d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-14T13:22:34Z",
+      "side": 1,
+      "message": "I would like to see",
+      "revId": "e637a5e19da72599229fd2c70e793c123aaf14ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edf39ae2_739464d3",
+        "filename": "include/drivers/measured_boot/event_log/event_log.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-14T13:22:34Z",
+      "side": 1,
+      "message": "Looking at the Arm Server Base Security Guide, I think secure partitions would fall under the \"Secure EL0 runtime component\" category, in which case the measurements strings should be of the form \"SECURE_RT_EL0_%s\". How about SECURE_RT_EL0_SP0, SECURE_RT_EL0_SP1, and so on?",
+      "range": {
+        "startLine": 81,
+        "startChar": 26,
+        "endLine": 81,
+        "endChar": 31
+      },
+      "revId": "e637a5e19da72599229fd2c70e793c123aaf14ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aff640a8_3e22d235",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-14T13:22:34Z",
+      "side": 1,
+      "message": "Arguably we don\u0027t need this #if defined. We could add entries for secure partitions regardless of SPMD availability. This array only describes the superset of images we support measuring. There is no requirement that they must all be present. For example, notice the BL32_EXTRAn_IMAGE_ID entries above, AFAIU these are only present when using OP-TEE but we did not bother guarding them under some preprocessor condition.\n\nEven though this will unecessarily increase the size of the array for systems that don\u0027t use SPMD/SPs, I would be leaning towards removing this line, as I think #ifdefs are bad from a codebase maintainance perspective.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 21
+      },
+      "revId": "e637a5e19da72599229fd2c70e793c123aaf14ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
