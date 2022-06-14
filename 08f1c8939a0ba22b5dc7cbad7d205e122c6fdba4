@@ -1,0 +1,175 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d73a7b78_57c0e2e0",
+        "filename": "plat/imx/imx8m/ddr/clock.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-06-14T18:59:17Z",
+      "side": 1,
+      "message": "nitpick: Please define a macro",
+      "range": {
+        "startLine": 62,
+        "startChar": 34,
+        "endLine": 62,
+        "endChar": 44
+      },
+      "revId": "08f1c8939a0ba22b5dc7cbad7d205e122c6fdba4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9b4b3d3_4e6d9d9f",
+        "filename": "plat/imx/imx8m/ddr/ddr4_dvfs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-06-14T18:59:17Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "08f1c8939a0ba22b5dc7cbad7d205e122c6fdba4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99f8b8d0_763d4455",
+        "filename": "plat/imx/imx8m/ddr/ddr4_dvfs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-06-14T18:59:17Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "08f1c8939a0ba22b5dc7cbad7d205e122c6fdba4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1fe9261_8176dbc8",
+        "filename": "plat/imx/imx8m/ddr/dram.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-06-14T18:59:17Z",
+      "side": 1,
+      "message": "unsigned",
+      "range": {
+        "startLine": 36,
+        "startChar": 1,
+        "endLine": 36,
+        "endChar": 4
+      },
+      "revId": "08f1c8939a0ba22b5dc7cbad7d205e122c6fdba4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "352513bf_3b281526",
+        "filename": "plat/imx/imx8m/ddr/dram.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-06-14T18:59:17Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "08f1c8939a0ba22b5dc7cbad7d205e122c6fdba4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66f6f500_64f2dfca",
+        "filename": "plat/imx/imx8m/ddr/dram.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-06-14T18:59:17Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "08f1c8939a0ba22b5dc7cbad7d205e122c6fdba4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebd3c498_25e93d3a",
+        "filename": "plat/imx/imx8m/ddr/dram.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-06-14T18:59:17Z",
+      "side": 1,
+      "message": "rc \u003d\u003d NULL",
+      "range": {
+        "startLine": 156,
+        "startChar": 5,
+        "endLine": 156,
+        "endChar": 7
+      },
+      "revId": "08f1c8939a0ba22b5dc7cbad7d205e122c6fdba4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31ded3cc_fadb2318",
+        "filename": "plat/imx/imx8m/ddr/dram.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-06-14T18:59:17Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "08f1c8939a0ba22b5dc7cbad7d205e122c6fdba4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7fb7994_cd6aee61",
+        "filename": "plat/imx/imx8m/ddr/lpddr4_dvfs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-06-14T18:59:17Z",
+      "side": 1,
+      "message": "IS an mmio_write_32() operation missing after this line?",
+      "revId": "08f1c8939a0ba22b5dc7cbad7d205e122c6fdba4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
