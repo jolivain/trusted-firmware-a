@@ -72,6 +72,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "39ec87eb_235279c7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-15T08:37:14Z",
+      "side": 1,
+      "message": "OK thanks Manish, I think some of the information above would be useful in the commit message. Perhaps something along these lines:\n\n fix(measured-boot): clear the entire digest array of Startup Locality event\n\n According to TCG PC Client Platform Firmware Profile Specification\n (Section 10.2.2, TCG_PCR_EVENT2 Structure), all EV_NO_ACTION events\n shall set TCG_PCR_EVENT2.digests to all 0x00\u0027s for each allocated Hash\n algorithm.\n\n Right now, this is not enforced. Only part of the buffer is zeroed due\n to the wrong macro being used for the size of the buffer in the clearing\n operation (TPM_ALG_ID instead of TCG_DIGEST_SIZE). This could confuse\n a TPM event log parser.\n\n Also add an assertion to ensure that the Event Log size is large enough\n before writing the Event Log header.",
+      "parentUuid": "2f1f7bcc_018c6281",
+      "revId": "bf8e3237d6635156cd3110f893c5394eec7dd2a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b9e42dc4_88eca3fc",
