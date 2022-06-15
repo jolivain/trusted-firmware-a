@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c08cd207_30fb2085",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-15T08:04:55Z",
+      "side": 1,
+      "message": "I agree that a config with SPMC\u003dOP-TEE would be the most valuable because OP-TEE supports retrieving the event log so we can have a proper test checking the values of these measurements.\n\nHowever, I still see some value in a boot test with Hafnium, simply because this patch makes it now possible to boot a software stack with Hafnium and measured boot support. Previously this would have hit an assertion. IIUC, Hafnium in this config simply won\u0027t do anything with the measurements held in the event log so we cannot check the values of these measurements.\n\nSo ideally I would like both configs to be added in the CI.",
+      "parentUuid": "fee69fa4_7338887c",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 52
+      },
+      "revId": "e637a5e19da72599229fd2c70e793c123aaf14ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5b4f46bd_3a56d6d4",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "I believe this change will make it common to OP-TEE or Hafnium used as a SPMC.\nOP-TEE manages S-EL0 partitions.\nHafnium manages S-EL0 and S-EL1 partitions.\nI suspect such string wouldn\u0027t be accurate for the latter with EL0 in the name?",
       "parentUuid": "edf39ae2_739464d3",
+      "range": {
+        "startLine": 81,
+        "startChar": 26,
+        "endLine": 81,
+        "endChar": 31
+      },
+      "revId": "e637a5e19da72599229fd2c70e793c123aaf14ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "511d9a20_f283bbbc",
+        "filename": "include/drivers/measured_boot/event_log/event_log.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-15T08:04:55Z",
+      "side": 1,
+      "message": "OK fair enough. Then I suppose we can stick to the names originally proposed in this patch.",
+      "parentUuid": "c5fc8cae_1e936b38",
       "range": {
         "startLine": 81,
         "startChar": 26,
