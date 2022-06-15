@@ -43,6 +43,7 @@ static void log_measurement(uint8_t index,
 			    size_t measurement_value_size,
 			    bool lock_measurement)
 {
+#if LOG_LEVEL >= LOG_LEVEL_INFO
 	INFO("Measured boot extend measurement:\n");
 	INFO(" - slot        : %u\n", index);
 	INFO(" - signer_id   :");
@@ -53,6 +54,7 @@ static void log_measurement(uint8_t index,
 	INFO(" - measurement :");
 	print_byte_array(measurement_value, measurement_value_size);
 	INFO(" - locking     : %s\n", lock_measurement ? "true" : "false");
+#endif
 }
 
 #if !PLAT_RSS_NOT_SUPPORTED
