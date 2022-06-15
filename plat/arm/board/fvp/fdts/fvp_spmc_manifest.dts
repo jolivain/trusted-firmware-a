@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-2021, Arm Limited. All rights reserved.
+ * Copyright (c) 2020-2022, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -81,5 +81,11 @@
 	memory@6000000 {
 		device_type = "memory";
 		reg = <0x0 0x6000000 0x2000000>; /* Trusted DRAM */
+	};
+
+	tpm_event_log {
+		compatible = "arm,tpm_event_log";
+		tpm_event_log_addr = <0x0 0x0>;
+		tpm_event_log_size = <0x0>;
 	};
 };
