@@ -72,6 +72,47 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "71ecded1_9614a3a1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2022-06-15T09:31:43Z",
+      "side": 1,
+      "message": "\"OP-TEE supports retrieving the event log so we can have a proper test checking the values of these measurements\"\nI think that would mean enabling TS tests in the HF CI. I am unsure if the TA based solution would work with SPMC enabled in OP-TEE, that is something we are not looking at.",
+      "parentUuid": "c08cd207_30fb2085",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 52
+      },
+      "revId": "e637a5e19da72599229fd2c70e793c123aaf14ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "313f58f2_116eb51d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2022-06-15T09:31:43Z",
+      "side": 1,
+      "message": "Are there any plans to add measured boot support to HF? When TC updates the TS S-EL0 SPs, Initial Attestation SP may need to be enabled and that depends on measured boot. Not sure if there are such plans for TC.\nMoreover the OP-TEE as an S-EL1 SP use-case with the TA based measured boot enablement could be tested then. Again not sure if there is interest from OP-TEE side.",
+      "revId": "e637a5e19da72599229fd2c70e793c123aaf14ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5b4f46bd_3a56d6d4",
