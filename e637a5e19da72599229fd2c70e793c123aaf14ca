@@ -113,6 +113,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ad376e9_74e72ce2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-06-15T10:33:47Z",
+      "side": 1,
+      "message": "Hi George,\n\u003e Are there any plans to add measured boot support to HF?\nNo, it\u0027s not in the plans (even if I appreciate there may be an interest in particular to Infra).\n\u003e When TC updates the TS S-EL0 SPs, Initial Attestation SP may need to be enabled and that depends on measured boot. Not sure if there are such plans for TC.\nIndeed. Though I believe this has to be officially queried to Matteo.",
+      "parentUuid": "313f58f2_116eb51d",
+      "revId": "e637a5e19da72599229fd2c70e793c123aaf14ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5b4f46bd_3a56d6d4",
@@ -191,6 +209,30 @@
       "side": 1,
       "message": "OK fair enough. Then I suppose we can stick to the names originally proposed in this patch.",
       "parentUuid": "c5fc8cae_1e936b38",
+      "range": {
+        "startLine": 81,
+        "startChar": 26,
+        "endLine": 81,
+        "endChar": 31
+      },
+      "revId": "e637a5e19da72599229fd2c70e793c123aaf14ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6598597f_2ac8d707",
+        "filename": "include/drivers/measured_boot/event_log/event_log.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-06-15T10:33:47Z",
+      "side": 1,
+      "message": "Scratch that. Now you say it, I see value using standard event strings.\nFrom the SBSG I see the event string is qualified by its EL:\nSECURE_RT_EL0_%s\nSECURE_RT_EL1_%s\nSECURE_RT_EL2_%s\nSECURE_RT_EL3_%s\n\nSo ideally,\nBL32 would use SECURE_RT_EL2_BL32 when Hafnium is used (SECURE_RT_EL1_BL32 for OP-TEE).\nSecure partitions SECURE_RT_EL0_SP1 or SECURE_RT_EL1_SP1\n\nAlthough I admit the EL information is not necessarily easy to extract and requires more thinking (can be a future improvement).\n\nFor the Hafnium case, the most common usage for measured boot in Infra would be with SEL0 partitions. So eventually we could use SECURE_RT_EL0_%s to start with.",
+      "parentUuid": "511d9a20_f283bbbc",
       "range": {
         "startLine": 81,
         "startChar": 26,
