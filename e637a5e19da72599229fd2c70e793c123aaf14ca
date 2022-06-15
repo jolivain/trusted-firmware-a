@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fee69fa4_7338887c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-06-15T07:26:52Z",
+      "side": 1,
+      "message": "That would be SPMC\u003dOP-TEE to start with.\nHafnium doesn\u0027t support this configuration.",
+      "parentUuid": "3ff3f240_4ae60649",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 52
+      },
+      "revId": "e637a5e19da72599229fd2c70e793c123aaf14ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5b4f46bd_3a56d6d4",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-06-14T13:22:34Z",
       "side": 1,
       "message": "Looking at the Arm Server Base Security Guide, I think secure partitions would fall under the \"Secure EL0 runtime component\" category, in which case the measurements strings should be of the form \"SECURE_RT_EL0_%s\". How about SECURE_RT_EL0_SP0, SECURE_RT_EL0_SP1, and so on?",
+      "range": {
+        "startLine": 81,
+        "startChar": 26,
+        "endLine": 81,
+        "endChar": 31
+      },
+      "revId": "e637a5e19da72599229fd2c70e793c123aaf14ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5fc8cae_1e936b38",
+        "filename": "include/drivers/measured_boot/event_log/event_log.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-06-15T07:26:52Z",
+      "side": 1,
+      "message": "I believe this change will make it common to OP-TEE or Hafnium used as a SPMC.\nOP-TEE manages S-EL0 partitions.\nHafnium manages S-EL0 and S-EL1 partitions.\nI suspect such string wouldn\u0027t be accurate for the latter with EL0 in the name?",
+      "parentUuid": "edf39ae2_739464d3",
       "range": {
         "startLine": 81,
         "startChar": 26,
