@@ -16,6 +16,7 @@
 
 static void print_byte_array(const uint8_t *array, size_t len)
 {
+#if LOG_LEVEL >= LOG_LEVEL_INFO
 	size_t i;
 
 	if (array == NULL || len == 0U) {
@@ -31,6 +32,7 @@ static void print_byte_array(const uint8_t *array, size_t len)
 			}
 		}
 	}
+#endif
 }
 
 static void log_measurement(uint8_t index,
@@ -43,6 +45,7 @@ static void log_measurement(uint8_t index,
 			    size_t measurement_value_size,
 			    bool lock_measurement)
 {
+
 	INFO("Measured boot extend measurement:\n");
 	INFO(" - slot        : %u\n", index);
 	INFO(" - signer_id   :");
