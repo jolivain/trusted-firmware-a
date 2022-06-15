@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "939f850d_466a8959",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-15T17:42:18Z",
+      "side": 1,
+      "message": "That sentence might be too long. We try to keep it as short and concise as possible.",
+      "parentUuid": "9b8fe4f7_18de3aef",
+      "range": {
+        "startLine": 7,
+        "startChar": 40,
+        "endLine": 7,
+        "endChar": 69
+      },
+      "revId": "cfc88dd211bdfb4379376a16bff5291687af5041",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "34f752c0_faf8bcc4",
         "filename": "include/services/rmmd_svc.h",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2022-06-14T13:11:31Z",
       "side": 1,
       "message": "nit: vertical alignment",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 26
+      },
+      "revId": "cfc88dd211bdfb4379376a16bff5291687af5041",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c982b94_cb5d359d",
+        "filename": "include/services/rmmd_svc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-15T17:42:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34f752c0_faf8bcc4",
       "range": {
         "startLine": 84,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be90e507_0f972e8f",
+        "filename": "services/std_svc/rmmd/rmmd_attest.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-15T17:42:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0d82f0d_9317364d",
+      "range": {
+        "startLine": 62,
+        "startChar": 68,
+        "endLine": 62,
+        "endChar": 70
+      },
+      "revId": "cfc88dd211bdfb4379376a16bff5291687af5041",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd7bd7c1_a79c00af",
@@ -93,6 +165,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb6096b3_118be180",
+        "filename": "services/std_svc/rmmd/rmmd_attest.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-15T17:42:18Z",
+      "side": 1,
+      "message": "This is needed, as the call to plat_get_cca_attest_token() uses buf_pa to store the platform token and the hash needs to be passed from a different buffer.",
+      "parentUuid": "dd7bd7c1_a79c00af",
+      "range": {
+        "startLine": 86,
+        "startChar": 1,
+        "endLine": 86,
+        "endChar": 38
+      },
+      "revId": "cfc88dd211bdfb4379376a16bff5291687af5041",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cdbaf041_f1722916",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-06-14T13:11:31Z",
       "side": 1,
       "message": "I think an extra parameter will be needed:\n\n int rmmd_attest_get_signing_key(uint64_t buf_pa, uint64_t *buf_len,\n\t\t\t\tuint64_t ecc_curve, uint64_t pub_key_hash_algo_id)\n\nThis indicates the hash algo used by RMM to compute the hash of the public key (). RSS is going to use this param to validate whether the right public key hash is received in the rmmd_attest_get_platform_token(..) query. The goal is to include only the corresponding public key hash to the platform attestation token, which was previously derived as a response to the rmmd_attest_get_signing_key() query.",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 23
+      },
+      "revId": "cfc88dd211bdfb4379376a16bff5291687af5041",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fe319b6_ab4ad4d3",
+        "filename": "services/std_svc/rmmd/rmmd_attest.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-15T17:42:18Z",
+      "side": 1,
+      "message": "I think we should only add parameters here when we need them, to avoid make the patch too complicated. I guess we can add the parameters later, when needed, in a new patch.\n\nThat said, in rmmd_attest_get_platform_token() we check that challenge_hash_len corresponds to the len of the supported algorithms. Can we use that to derive the algorithm or am I talking about something different here?",
+      "parentUuid": "cdbaf041_f1722916",
       "range": {
         "startLine": 120,
         "startChar": 0,
@@ -152,6 +272,30 @@
       "writtenOn": "2022-06-14T13:11:31Z",
       "side": 1,
       "message": "could be removed",
+      "range": {
+        "startLine": 145,
+        "startChar": 1,
+        "endLine": 145,
+        "endChar": 24
+      },
+      "revId": "cfc88dd211bdfb4379376a16bff5291687af5041",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d183cd16_68058a82",
+        "filename": "services/std_svc/rmmd/rmmd_attest.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-15T17:42:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9770391_7ff762de",
       "range": {
         "startLine": 145,
         "startChar": 1,
