@@ -245,6 +245,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5b2afc7c_92ea2e5c",
+        "filename": "include/drivers/measured_boot/event_log/event_log.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-16T08:04:44Z",
+      "side": 1,
+      "message": "\u003e BL32 would use SECURE_RT_EL2_BL32 when Hafnium is used (SECURE_RT_EL1_BL32 for OP-TEE).\n\nI think we\u0027d rather use SECURE_RT_EL2_HAFNIUM / SECURE_RT_EL1_OPTEE. In fact the latter is already defined above. We could extend the #if chain starting at line 58 with:\n\n #if defined(SPD_spmd)\n   #define EVLOG_BL32_STRING\t\t\"SECURE_RT_EL2_HAFNIUM\"\n\nBut then again the problem is that it does not cover S-EL1 Hafnium... And when OPTEE is the SPMC, I guess it requires TF-A to be compiled with SPD\u003dspmd as well, is that right?\n\n\u003e For the Hafnium case, the most common usage for measured boot in Infra would be with SEL0 partitions. So eventually we could use SECURE_RT_EL0_%s to start with.\n\nSounds like a plan to me!",
+      "parentUuid": "6598597f_2ac8d707",
+      "range": {
+        "startLine": 81,
+        "startChar": 26,
+        "endLine": 81,
+        "endChar": 31
+      },
+      "revId": "e637a5e19da72599229fd2c70e793c123aaf14ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aff640a8_3e22d235",
         "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
         "patchSetId": 3
