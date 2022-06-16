@@ -1,0 +1,293 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f66c068_9df65d20",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-06-16T15:11:03Z",
+      "side": 1,
+      "message": "After RMM boot is completed?",
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1582fe52_a08840f4",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-06-16T15:11:03Z",
+      "side": 1,
+      "message": "why \"by EL3\"? RMI is issued by host in normal state. May be \"from EL3\"?",
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d817f61d_2ed8a7b5",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-06-16T15:11:03Z",
+      "side": 1,
+      "message": "entered.",
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0aedc9b_42508fc0",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-06-16T15:11:03Z",
+      "side": 1,
+      "message": "If we have 8 CPUs, then index [0..7] cannot be \"the maximum supported number of CPUs\".",
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adbb56b5_f17c9996",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-06-16T15:11:03Z",
+      "side": 1,
+      "message": "\"x0 and x1 to x7\" will be more clear.",
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6d844fd_d64128d7",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-06-16T15:11:03Z",
+      "side": 1,
+      "message": "See comment for line #92",
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65ec751a_cff5e565",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-06-16T15:11:03Z",
+      "side": 1,
+      "message": "\"argument of this SMC call\"?",
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdfb029a_36385f1e",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-06-16T15:11:03Z",
+      "side": 1,
+      "message": "\"returned in x1\"?",
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e81b44fc_557b049b",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-06-16T15:11:03Z",
+      "side": 1,
+      "message": "May be this format?\n``E_RMM_BOOT_SUCCESS``: 0 - Boot successful\netc.",
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65ba4b3d_d18a05ba",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-06-16T15:11:03Z",
+      "side": 1,
+      "message": "If RMMD reports maximum number of CPUs supported, then \"higher or equal\".",
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08b3f511_f61e190e",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-06-16T15:11:03Z",
+      "side": 1,
+      "message": "remove 1 tab to align",
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fc770ae_76f3e524",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-06-16T15:11:03Z",
+      "side": 1,
+      "message": "which",
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88236512_dc7a3da1",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-06-16T15:11:03Z",
+      "side": 1,
+      "message": "Please see the comment for line #153",
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0698e567_2097e47b",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-06-16T15:11:03Z",
+      "side": 1,
+      "message": "registers",
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87777964_d46a664b",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-06-16T15:11:03Z",
+      "side": 1,
+      "message": "does not need",
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b3ae044_d0419a14",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-06-16T15:11:03Z",
+      "side": 1,
+      "message": "127:64",
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eec25483_edab035e",
+        "filename": "docs/resources/diagrams/rmm_cold_boot.png",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-06-16T15:11:03Z",
+      "side": 1,
+      "message": "\"bot RMM in x9 to x7\"",
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
