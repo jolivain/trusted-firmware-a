@@ -127,6 +127,37 @@ int drtm_setup(void)
 	return 0;
 }
 
+static inline uint64_t drtm_features_tpm(void *ctx)
+{
+	SMC_RET2(ctx, 1ULL, /* TPM feature is supported */
+		 plat_drtm_features.tpm_features);
+}
+
+static inline uint64_t drtm_features_mem_req(void *ctx)
+{
+	SMC_RET2(ctx, 1ULL, /* memory req Feature is supported */
+		 plat_drtm_features.minimum_memory_requirement);
+}
+
+static inline uint64_t drtm_features_boot_pe_id(void *ctx)
+{
+	SMC_RET2(ctx, 1ULL, /* Boot PE feature is supported */
+		 plat_drtm_features.boot_pe_id);
+}
+
+static inline uint64_t drtm_features_dma_prot(void *ctx)
+{
+        SMC_RET2(ctx, 1ULL, /* DMA protection feature is supported */
+		 plat_drtm_features.dma_prot_features);
+}
+
+static inline uint64_t drtm_features_tcb_hashes(void *ctx)
+{
+	/*TODO: enable TCB hash support*/
+        SMC_RET2(ctx, 0ULL, /* TCB hash feature is not supported */
+                 plat_drtm_features.tcb_hash_features);
+}
+
 uint64_t drtm_smc_handler(uint32_t smc_fid,
 		uint64_t x1,
 		uint64_t x2,
@@ -192,6 +223,39 @@ uint64_t drtm_smc_handler(uint32_t smc_fid,
 
 			default:
 				ERROR("Unknown ARM DRTM service function feature\n");
+				SMC_RET1(handle, NOT_SUPPORTED);
+			}
+		} else {
+			uint8_t feat_id = x1;
+
+			/* Dispatch feature-based queries. */
+			switch (feat_id) {
+			case ARM_DRTM_FEATURES_TPM:
+				INFO("++ DRTM service handler: TPM features\n");
+				return drtm_features_tpm(handle);
+
+			case ARM_DRTM_FEATURES_MEM_REQ:
+				INFO("++ DRTM service handler: Min. mem."
+				     " requirement features\n");
+				return drtm_features_mem_req(handle);
+
+			case ARM_DRTM_FEATURES_DMA_PROT:
+				INFO("++ DRTM service handler: "
+				     "DMA protection features\n");
+				return drtm_features_dma_prot(handle);
+
+			case ARM_DRTM_FEATURES_BOOT_PE_ID:
+				INFO("++ DRTM service handler: "
+				     "Boot PE ID features\n");
+				return drtm_features_boot_pe_id(handle);
+
+			case ARM_DRTM_FEATURES_TCB_HASHES:
+				INFO("++ DRTM service handler: "
+				     "TCB-hashes features\n");
+				return drtm_features_tcb_hashes(handle);
+
+			default:
+				ERROR("Unknown ARM DRTM service feature\n");
 				SMC_RET1(handle, NOT_SUPPORTED);
 			}
 		}
