@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "379f50c4_49d35b8b",
+        "filename": "plat/xilinx/zynqmp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000182
+      },
+      "writtenOn": "2022-06-16T04:49:23Z",
+      "side": 1,
+      "message": "When FSBL is present and by enabling DEBUG\u003d1 for TF-A, we will be overwriting the OCM address of FSBL right? As the OCM address for TF-A is from 0xfffea000-0x100000000.",
+      "revId": "389594dfa7e60a720d60f0d55296f91ba1610de5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
