@@ -44,6 +44,12 @@
 #define ARM_DRTM_SVC_SET_TCB_HASH	DRTM_FID(DRTM_FNUM_SVC_SET_TCB_HASH)
 #define ARM_DRTM_SVC_LOCK_TCB_HASH	DRTM_FID(DRTM_FNUM_SVC_LOCK_TCB_HASH)
 
+#define ARM_DRTM_FEATURES_TPM		0x1U
+#define ARM_DRTM_FEATURES_MEM_REQ	0x2U
+#define ARM_DRTM_FEATURES_DMA_PROT	0x3U
+#define ARM_DRTM_FEATURES_BOOT_PE_ID	0x4U
+#define ARM_DRTM_FEATURES_TCB_HASHES	0x5U
+
 #define is_drtm_fid(_fid) \
 	(((_fid) >= ARM_DRTM_SVC_VERSION) && ((_fid) <= ARM_DRTM_SVC_LOCK_TCB_HASH))
 
@@ -65,6 +71,7 @@
 #define ARM_DRTM_FUNC_MASK	U(0x1)
 #define ARM_DRTM_FUNC_ID	U(0x0)
 #define ARM_DRTM_FEAT_ID	U(0x1)
+#define ARM_DRTM_FEAT_ID_MASK	U(0xff)
 
 /*
  * Definitions for DRTM features as per DRTM beta0 section 3.3,
