@@ -16,6 +16,24 @@
       "message": "Out of curiosity: wouldn\u0027t this cause \u0027unused parameters\u0027 type of build or lint problems (MISRA?...) ?",
       "revId": "94157281f505b932d95f8e77bd41df129ff901ad",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "139dd54f_55f2bd21",
+        "filename": "lib/psa/measured_boot.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-16T12:25:24Z",
+      "side": 1,
+      "message": "You\u0027re probably right. The compiler at least is not raising any warning. MISRA checker is another story.\n\nI think the simplest way to fix this would be to tag function parameters with __unused__ attribute. I\u0027ll do that in the next version of the patch.\n\nAnother option could be to compile out the entire function (as opposed to just the function\u0027s body) but this would require doing it throughout the call chain... Lots of #ifdery in perspective :(\n\nIMO the proper fix would be to implement a variant of the INFO() macro which does not print the \"INFO: \" prefix but still gets compiled in/out based on the log level. Not sure it\u0027s worth the effort in this case, as this is all just temporary, mocking code - ultimately the measurements would be pushed to RSS instead of being printed on the console...",
+      "parentUuid": "550e88cc_a3c78db8",
+      "revId": "94157281f505b932d95f8e77bd41df129ff901ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
