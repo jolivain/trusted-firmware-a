@@ -52,6 +52,24 @@
       "parentUuid": "139dd54f_55f2bd21",
       "revId": "94157281f505b932d95f8e77bd41df129ff901ad",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d101e1bc_4d7284b3",
+        "filename": "lib/psa/measured_boot.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-16T14:05:02Z",
+      "side": 1,
+      "message": "The intended output is for example:\n\n INFO:     - measurement : d9 09 bd 06 a6 e0 5d 80 2c d0 cd 16 68 ce 0e 8f\n INFO:    \t\t : a6 37 8a fa e4 8a f3 54 6b 30 16 43 f9 66 81 69\n\nI think this can only be achieved through a mix of printf (which does not prefix messages with \u0027INFO:\u0027) and INFO(). The alternative would be to construct the entire line string into a buffer and pass it to a single INFO() call.",
+      "parentUuid": "79c779b4_96bcbbbb",
+      "revId": "94157281f505b932d95f8e77bd41df129ff901ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
