@@ -39,6 +39,23 @@
       },
       "revId": "ccb67465f2dc31f105b9ee297f99d32eb8c782b2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "542cf731_93af5614",
+        "filename": "plat/arm/board/fvp/fdts/fvp_spmc_manifest.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2022-06-16T15:22:51Z",
+      "side": 1,
+      "message": "Just as an FIY:\nWe are up-streaming SPMC manifest for OP-TEE SPMC here: [1] from here [2]\n1: https://github.com/OP-TEE/build/pull/571/files#diff-35e7ff0cf1da3e00d1b9310d20fd44f5baf5e50ad19902ff6f446e898fc9148d\n2: https://git.trustedfirmware.org/OP-TEE/build.git/tree/fvp/spmc_manifest.dts?h\u003dpsa-development#n22",
+      "revId": "ccb67465f2dc31f105b9ee297f99d32eb8c782b2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
