@@ -16,6 +16,24 @@
       "message": "I think we should define an internal macro equivalent to (MEASURED_BOOT || DRTM_SUPPORT). This would make the #ifdefs a bit easier to digest throughout this code.\n\nUnfortunately I don\u0027t have any naming suggestion right now. Ideally I would have liked us to use\n\n #define MEASURED_BOOT (SRTM_SUPPORT || DRTM_SUPPORT)\n\nbut MEASURED_BOOT name is already taken today and redefining it would break backwards compatibilty...",
       "revId": "4216b0057d76c47fa91dff6e9301e10aaba5a01b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e58172b3_f817d18f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-06-17T08:44:56Z",
+      "side": 1,
+      "message": "Hi Sandrine,\n\nIn lieu of defining an internal macro, could we change Crypto_Support to a numeric macro as follows:\n\nCRYPTO_SUPPORT.  0 -\u003e No Crypto supported\nCRYPTO_SUPPORT   1 -\u003e Crypto supports authentication functionality only\nCRYPTO_SUPPORT   2 -\u003e Crypto supports hash calculation functionality only\nCRYPTO_SUPPORT   3 -\u003e Crypto supports both authentication and hash calculation.\n\nConsequently, this macro can be easily set up by the platform, and the crypto module can pull in functionality. With this, we can remove all #ifdefry added to the crypto abstraction module, Crypto engine for e.g. mbedTLS, and use the CRYPTO_SUPPORT macro instead wherever needed. Let me know what you think. \n\nIf you agree to the above, I will make a separate patch for this and then we can move forward with this patch as of now.",
+      "parentUuid": "dd5e2050_95af7990",
+      "revId": "4216b0057d76c47fa91dff6e9301e10aaba5a01b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
