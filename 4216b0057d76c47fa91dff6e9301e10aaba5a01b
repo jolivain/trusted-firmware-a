@@ -52,6 +52,24 @@
       "parentUuid": "e58172b3_f817d18f",
       "revId": "4216b0057d76c47fa91dff6e9301e10aaba5a01b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23af5a46_76975530",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-06-17T12:53:27Z",
+      "side": 1,
+      "message": "\u003e This sounds like a good idea to me!\n\u003e \n\u003e Just some comments on the following items.\n\u003e \n\u003e \u003e Consequently, this macro can be easily set up by the platform\n\u003e \n\u003e Wouldn\u0027t CRYPTO_SUPPORT be automatically defined based on measured boot (SRTM/DRTM) and/or trusted boot enablement? Right now this gets defined in the top Makefile [1] like this:\n\u003e \n\u003e  ifneq ($(filter 1,${MEASURED_BOOT} ${TRUSTED_BOARD_BOOT}),)\n\u003e     CRYPTO_SUPPORT :\u003d 1\n\u003e  else\n\u003e     CRYPTO_SUPPORT :\u003d 0\n\u003e  endif\n\u003e \n\u003e Are you suggesting that\n\u003e 1) we move away from this approach and let platforms define the macro on their own?\n\u003e or\n\u003e 2) we keep this approach and extend it with DRTM_SUPPORT, but let platforms override it if required (like Renenas does here [2])?\n\nApproach #2 sounds good to me. In this way, we can enforce Crypto support automatically instead of relying on the platform to do so. I was thinking of something like below.\n +ifeq ($(MEASURED_BOOT)-$(TRUSTED_BOARD_BOOT),1-1)\n +    CRYPTO_SUPPORT :\u003d 3\n +else ifeq ($(DRTM_SUPPORT)-$(TRUSTED_BOARD_BOOT),1-1)\n +    CRYPTO_SUPPORT :\u003d 3\n +else ifneq ($(filter 1,${MEASURED_BOOT} ${DRTM_SUPPORT}),)\n +    CRYPTO_SUPPORT :\u003d 2\n +else ifeq (${TRUSTED_BOARD_BOOT},1)\n      CRYPTO_SUPPORT :\u003d 1\n  else\n      CRYPTO_SUPPORT :\u003d 0\n\nand, platforms can override this macro if they wish.\n\n\u003e \n\u003e \u003e With this, we can remove all #ifdefry added to the crypto abstraction module, Crypto engine for e.g. mbedTLS, and use the CRYPTO_SUPPORT macro instead wherever needed. Let me know what you think.\n\u003e \n\u003e I don\u0027t quite see how we\u0027d be able to remove all #ifdery. AFAIU, this would only *simplify* the ifdery (which is already a good thing!) by essentially replacing long lines like\n\u003e \n\u003e  #if TRUSTED_BOOT || MEASURED_BOOT || DRTM_SUPPORT\n\u003e \n\u003e by\n\u003e \n\u003e  #if CRYPTO_SUPPORT\n\u003e \n\u003e Is that what you had in mind?\n\nI mean replacing all these #ifdefs with CRYPTO_SUPPORT check, so it looks cleaner. Sorry if I wasn\u0027t clear in my last comment.\n\n\u003e \n\u003e [1] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/Makefile?id\u003dffa3f9423b435154191057e0a662e8a0eb407bf4#n727\n\u003e \n\u003e [2] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/renesas/common/common.mk?id\u003dffa3f9423b435154191057e0a662e8a0eb407bf4#n23",
+      "parentUuid": "70e752a5_8b492450",
+      "revId": "4216b0057d76c47fa91dff6e9301e10aaba5a01b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
