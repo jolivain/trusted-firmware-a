@@ -34,6 +34,24 @@
       "parentUuid": "dd5e2050_95af7990",
       "revId": "4216b0057d76c47fa91dff6e9301e10aaba5a01b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70e752a5_8b492450",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-17T12:37:36Z",
+      "side": 1,
+      "message": "This sounds like a good idea to me!\n\nJust some comments on the following items.\n\n\u003e Consequently, this macro can be easily set up by the platform\n\nWouldn\u0027t CRYPTO_SUPPORT be automatically defined based on measured boot (SRTM/DRTM) and/or trusted boot enablement? Right now this gets defined in the top Makefile [1] like this:\n\n ifneq ($(filter 1,${MEASURED_BOOT} ${TRUSTED_BOARD_BOOT}),)\n    CRYPTO_SUPPORT :\u003d 1\n else\n    CRYPTO_SUPPORT :\u003d 0\n endif\n\nAre you suggesting that\n1) we move away from this approach and let platforms define the macro on their own?\nor\n2) we keep this approach and extend it with DRTM_SUPPORT, but let platforms override it if required (like Renenas does here [2])?\n\n\u003e With this, we can remove all #ifdefry added to the crypto abstraction module, Crypto engine for e.g. mbedTLS, and use the CRYPTO_SUPPORT macro instead wherever needed. Let me know what you think.\n\nI don\u0027t quite see how we\u0027d be able to remove all #ifdery. AFAIU, this would only *simplify* the ifdery (which is already a good thing!) by essentially replacing long lines like\n\n #if TRUSTED_BOOT || MEASURED_BOOT || DRTM_SUPPORT\n\nby\n\n #if CRYPTO_SUPPORT\n\nIs that what you had in mind?\n\n[1] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/Makefile?id\u003dffa3f9423b435154191057e0a662e8a0eb407bf4#n727\n\n[2] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/renesas/common/common.mk?id\u003dffa3f9423b435154191057e0a662e8a0eb407bf4#n23",
+      "parentUuid": "e58172b3_f817d18f",
+      "revId": "4216b0057d76c47fa91dff6e9301e10aaba5a01b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
