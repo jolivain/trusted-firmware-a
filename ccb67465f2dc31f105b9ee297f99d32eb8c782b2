@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf22ba40_b1ac7f21",
+        "filename": "plat/arm/board/fvp/fdts/fvp_spmc_manifest.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-06-17T15:27:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "370e7b15_9fc800c3",
+      "revId": "ccb67465f2dc31f105b9ee297f99d32eb8c782b2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a1e1db7_64998dd3",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-06-16T08:29:02Z",
       "side": 1,
       "message": "How about replacing these lines with:\n\n #include \"event_log.dtsi\"\n\n?",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 3
+      },
+      "revId": "ccb67465f2dc31f105b9ee297f99d32eb8c782b2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "332b74a8_9ad299ed",
+        "filename": "plat/arm/board/fvp/fdts/fvp_spmc_manifest.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-06-17T15:27:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a1e1db7_64998dd3",
       "range": {
         "startLine": 86,
         "startChar": 0,
