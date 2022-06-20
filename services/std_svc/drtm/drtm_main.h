@@ -13,6 +13,8 @@
 
 #include "drtm_dma_prot.h"
 
+#define DL_ARGS_GET_DMA_PROT_TYPE(a) (((a)->features >> 3) & 0x7U)
+
 enum drtm_retc {
 	SUCCESS = SMC_OK,
 	NOT_SUPPORTED = SMC_UNK,
