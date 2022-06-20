@@ -16,6 +16,24 @@
       "message": "When FSBL is present and by enabling DEBUG\u003d1 for TF-A, we will be overwriting the OCM address of FSBL right? As the OCM address for TF-A is from 0xfffea000-0x100000000.",
       "revId": "389594dfa7e60a720d60f0d55296f91ba1610de5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ea251e6_3a84d6a0",
+        "filename": "plat/xilinx/zynqmp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2022-06-20T08:03:06Z",
+      "side": 1,
+      "message": "Based on fsbl linker script the last remaining piece of code is handoff_params structure\nhttps://github.com/Xilinx/embeddedsw/blob/master/lib/sw_apps/zynqmp_fsbl/src/lscript_a53.ld#L310\n\nBitstream buffer is used before TF-A is loaded that\u0027s why the latest is handoff_params.\n\nI have checked all fsbls in 2022.1 and 2022.2 bsp and all of them have handoff params located at 0xfffe9e00. Which give us 512B for structure itself. Based on TF-A code with FSBL_MAX_PARTITIONS\u003d8 maximum size of handoff structure is 136B. \nThat\u0027s why I think by default placing it to OCM should be fine. (Even moving origin address of main TF-A to this address should be fine.",
+      "parentUuid": "379f50c4_49d35b8b",
+      "revId": "389594dfa7e60a720d60f0d55296f91ba1610de5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
