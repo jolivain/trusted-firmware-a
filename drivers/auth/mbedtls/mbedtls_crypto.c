@@ -24,7 +24,8 @@
 
 #define LIB_NAME		"mbed TLS"
 
-#if MEASURED_BOOT || DRTM_SUPPORT
+#if CRYPTO_SUPPORT == CRYPTO_HASH_CALC_ONLY || \
+CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_AND_HASH_CALC
 /*
  * CRYPTO_MD_MAX_SIZE value is as per current stronger algorithm available
  * so make sure that mbed TLS MD maximum size must be lesser than this.
@@ -60,7 +61,8 @@ static void init(void)
 	mbedtls_init();
 }
 
-#if TRUSTED_BOARD_BOOT
+#if CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_ONLY || \
+CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_AND_HASH_CALC
 /*
  * Verify a signature.
  *
@@ -219,9 +221,10 @@ static int verify_hash(void *data_ptr, unsigned int data_len,
 
 	return CRYPTO_SUCCESS;
 }
-#endif /* TRUSTED_BOARD_BOOT */
+#endif
 
-#if MEASURED_BOOT || DRTM_SUPPORT
+#if CRYPTO_SUPPORT == CRYPTO_HASH_CALC_ONLY || \
+CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_AND_HASH_CALC
 /*
  * Map a generic crypto message digest algorithm to the corresponding macro used
  * by Mbed TLS.
@@ -264,7 +267,7 @@ static int calc_hash(enum crypto_md_algo md_algo, void *data_ptr,
 	 */
 	return mbedtls_md(md_info, data_ptr, data_len, output);
 }
-#endif /* MEASURED_BOOT || DRTM_SUPPORT */
+#endif
 
 #if TF_MBEDTLS_USE_AES_GCM
 /*
@@ -368,8 +371,7 @@ static int auth_decrypt(enum crypto_dec_algo dec_algo, void *data_ptr,
 /*
  * Register crypto library descriptor
  */
-#if (MEASURED_BOOT && TRUSTED_BOARD_BOOT) || \
-	(DRTM_SUPPORT && TRUSTED_BOARD_BOOT)
+#if CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_AND_HASH_CALC
 #if TF_MBEDTLS_USE_AES_GCM
 REGISTER_CRYPTO_LIB(LIB_NAME, init, verify_signature, verify_hash, calc_hash,
 		    auth_decrypt);
@@ -377,14 +379,13 @@ REGISTER_CRYPTO_LIB(LIB_NAME, init, verify_signature, verify_hash, calc_hash,
 REGISTER_CRYPTO_LIB(LIB_NAME, init, verify_signature, verify_hash, calc_hash,
 		    NULL);
 #endif
-#elif TRUSTED_BOARD_BOOT
+#elif CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_ONLY
 #if TF_MBEDTLS_USE_AES_GCM
 REGISTER_CRYPTO_LIB(LIB_NAME, init, verify_signature, verify_hash,
 		    auth_decrypt);
 #else
 REGISTER_CRYPTO_LIB(LIB_NAME, init, verify_signature, verify_hash, NULL);
 #endif
-#elif MEASURED_BOOT || DRTM_SUPPORT
+#elif CRYPTO_SUPPORT == CRYPTO_HASH_CALC_ONLY
 REGISTER_CRYPTO_LIB(LIB_NAME, init, calc_hash);
-#endif /* (MEASURED_BOOT && TRUSTED_BOARD_BOOT) || \
-	  (DRTM_SUPPORT && TRUSTED_BOARD_BOOT) */
+#endif
