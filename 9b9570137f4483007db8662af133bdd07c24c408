@@ -16,6 +16,517 @@
       "message": "I seem to have given comments to a previous version of the patch but from a quick look, most of the comments apply\n",
       "revId": "9b9570137f4483007db8662af133bdd07c24c408",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05753af6_877552c7",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "and also the register save and restore convention between EL3 and RMM as part of RMI call handling.",
+      "range": {
+        "startLine": 227,
+        "startChar": 39,
+        "endLine": 227,
+        "endChar": 40
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "031a9d41_826639c2",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "EL3",
+      "range": {
+        "startLine": 230,
+        "startChar": 32,
+        "endLine": 230,
+        "endChar": 36
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "277280ce_b1115f5d",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "runtime service",
+      "range": {
+        "startLine": 238,
+        "startChar": 12,
+        "endLine": 238,
+        "endChar": 19
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae76e3f9_e59c0f60",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "\u003c-\u003e can be replaced with -\n\nSame comments for other instances.",
+      "range": {
+        "startLine": 238,
+        "startChar": 4,
+        "endLine": 238,
+        "endChar": 7
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c941cbb0_c8c156d6",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "As before , this can be -1.",
+      "range": {
+        "startLine": 253,
+        "startChar": 39,
+        "endLine": 253,
+        "endChar": 41
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f67058b5_1ec275a5",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "\"If multiple failure conditions are detected in an RMM to EL3 command, then EL3 is allowed to an error code corresponding to any of the failure condition.\"",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 84
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dbc2b04_b3f2a11e",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "EL3-RMM runtime services",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 20
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bcbdbde_c040d584",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "Could add delegate and undelegate commands",
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e709bf3_aa792ecb",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "The arguments seems to have a strange naming convention. Ideally this should be reflected in code and if that is the case, we should use small letter for naming.",
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa7d900c_fc425723",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "\"BufPA\" ?",
+      "range": {
+        "startLine": 288,
+        "startChar": 3,
+        "endLine": 288,
+        "endChar": 5
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3aec1cf0_ae260019",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "The PA where the RAK must be stored by EL3.",
+      "range": {
+        "startLine": 288,
+        "startChar": 33,
+        "endLine": 288,
+        "endChar": 35
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10ffe768_6a26fc14",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "\"BufSize\" ?",
+      "range": {
+        "startLine": 289,
+        "startChar": 3,
+        "endLine": 289,
+        "endChar": 8
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e00e28d9_9ca0b88f",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "PA+BSize must lie within the shared buffer.",
+      "range": {
+        "startLine": 289,
+        "startChar": 72,
+        "endLine": 289,
+        "endChar": 73
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffd8e460_93a51ada",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "Why is this called PTSize? KeySize seems to be a better name",
+      "range": {
+        "startLine": 300,
+        "startChar": 3,
+        "endLine": 300,
+        "endChar": 9
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ed467ed_89fe2857",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "Is this correct?",
+      "range": {
+        "startLine": 300,
+        "startChar": 10,
+        "endLine": 300,
+        "endChar": 13
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a0279e8_3afae12f",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "same comments as above.",
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1156579_9e314daf",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "replace with -",
+      "range": {
+        "startLine": 377,
+        "startChar": 4,
+        "endLine": 377,
+        "endChar": 8
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88f25349_b40f7da1",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "\"RMM-EL3 world switch register save restore convention\"",
+      "range": {
+        "startLine": 377,
+        "startChar": 13,
+        "endLine": 377,
+        "endChar": 25
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "795c3e5e_54b4bd02",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "As part of NS to realm world switch,...",
+      "range": {
+        "startLine": 380,
+        "startChar": 10,
+        "endLine": 380,
+        "endChar": 11
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5819e49_7514acc9",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "\"EL3\"",
+      "range": {
+        "startLine": 393,
+        "startChar": 0,
+        "endLine": 393,
+        "endChar": 3
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fa36e66_05db8c4b",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "\"could choose to not\" as this is an optimization ;)",
+      "range": {
+        "startLine": 403,
+        "startChar": 10,
+        "endLine": 403,
+        "endChar": 14
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9602e88_f7f95252",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "remove.",
+      "range": {
+        "startLine": 412,
+        "startChar": 30,
+        "endLine": 412,
+        "endChar": 33
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d9f72b0_cb489980",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:02:40Z",
+      "side": 1,
+      "message": "this is an implementation detail. No need to mention.",
+      "range": {
+        "startLine": 431,
+        "startChar": 0,
+        "endLine": 432,
+        "endChar": 54
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
