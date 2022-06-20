@@ -83,6 +83,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "11fd80a4_565d8e3c",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:25:55Z",
+      "side": 1,
+      "message": "add: \"....unless specified.\"",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 14
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "277280ce_b1115f5d",
         "filename": "docs/components/rmm-el3-comms-spec.rst",
         "patchSetId": 8
@@ -387,6 +410,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "90ea58c0_6392de20",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:25:55Z",
+      "side": 1,
+      "message": "One more IMPDEF command between RMM and EL3 is RMMD_RMI_REQ_COMPLETE SMC which is used to return an RMI command back to EL3.\n\nThe only difference with the other RMM-EL3 service is that this SMC will result in a world switch back NS.",
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c1156579_9e314daf",
         "filename": "docs/components/rmm-el3-comms-spec.rst",
         "patchSetId": 8
@@ -518,6 +558,29 @@
         "startChar": 30,
         "endLine": 412,
         "endChar": 33
+      },
+      "revId": "9b9570137f4483007db8662af133bdd07c24c408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "678ff4c5_43c83647",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-20T13:25:55Z",
+      "side": 1,
+      "message": "should be 30 here\nAdd RES0 for 31",
+      "range": {
+        "startLine": 428,
+        "startChar": 21,
+        "endLine": 428,
+        "endChar": 23
       },
       "revId": "9b9570137f4483007db8662af133bdd07c24c408",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
