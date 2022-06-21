@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88bed73f_1b836ae3",
+        "filename": "include/services/rmmd_svc.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-21T15:09:34Z",
+      "side": 1,
+      "message": "can be -1",
+      "range": {
+        "startLine": 92,
+        "startChar": 20,
+        "endLine": 92,
+        "endChar": 22
+      },
+      "revId": "22797f1bbb0efe376898cb245daa5540b7a8946a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3004d53_2b5e351f",
+        "filename": "services/std_svc/rmmd/rmmd_attest.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-21T15:09:34Z",
+      "side": 1,
+      "message": "would prefer to avoid using extern variables. Could invoke plat_rmmd_get_shared_buf() API here.",
+      "range": {
+        "startLine": 64,
+        "startChar": 15,
+        "endLine": 64,
+        "endChar": 30
+      },
+      "revId": "22797f1bbb0efe376898cb245daa5540b7a8946a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31cb7a50_29ffdd38",
+        "filename": "services/std_svc/rmmd/rmmd_private.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-21T15:09:34Z",
+      "side": 1,
+      "message": "could avoid the externs",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 0
+      },
+      "revId": "22797f1bbb0efe376898cb245daa5540b7a8946a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
