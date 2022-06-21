@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "14d1322a_2e0ffb8f",
+        "filename": "plat/arm/css/sgi/include/sgi_base_platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2022-06-21T00:15:22Z",
+      "side": 1,
+      "message": "Shared data storage\nhttps://confluence.arm.com/pages/viewpage.action?pageId\u003d92599000\u0026preview\u003d%2F92599000%2F120367012%2FShared+Data+Storage+-+Appendix+B.pptx",
+      "parentUuid": "32dc6d10_b13a5860",
+      "range": {
+        "startLine": 262,
+        "startChar": 3,
+        "endLine": 262,
+        "endChar": 6
+      },
+      "revId": "60b22481b915c250aa52f13ce8ca3dc44cdcc73a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "102104a8_2c467c23",
         "filename": "plat/arm/css/sgi/sgi_image_load.c",
         "patchSetId": 1
@@ -43,6 +67,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9a36c521_60a3caca",
+        "filename": "plat/arm/css/sgi/sgi_image_load.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2022-06-21T00:15:22Z",
+      "side": 1,
+      "message": "It is not added for RdN2",
+      "parentUuid": "102104a8_2c467c23",
+      "revId": "60b22481b915c250aa52f13ce8ca3dc44cdcc73a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "752ff492_4092d9a3",
         "filename": "plat/arm/css/sgi/sgi_image_load.c",
         "patchSetId": 1
@@ -54,6 +96,30 @@
       "writtenOn": "2022-06-17T14:52:53Z",
       "side": 1,
       "message": "nitpick: not needed",
+      "range": {
+        "startLine": 55,
+        "startChar": 2,
+        "endLine": 55,
+        "endChar": 9
+      },
+      "revId": "60b22481b915c250aa52f13ce8ca3dc44cdcc73a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "031d2458_f98cd0aa",
+        "filename": "plat/arm/css/sgi/sgi_image_load.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2022-06-21T00:15:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "752ff492_4092d9a3",
       "range": {
         "startLine": 55,
         "startChar": 2,
