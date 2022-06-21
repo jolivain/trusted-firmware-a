@@ -23,6 +23,7 @@
 #include <services/drtm_svc.h>
 
 #include "drtm_main.h"
+#include "drtm_measurements.h"
 
 #include <plat/common/platform.h>
 #include <platform_def.h>
@@ -393,6 +394,25 @@ static uint64_t drtm_dynamic_launch(uint64_t x1, void *handle)
 	if ((ret = drtm_dma_prot_engage(&args.dma_prot_args,
 					DL_ARGS_GET_DMA_PROT_TYPE(&args)))) {
 		SMC_RET1(handle, ret);
+	}
+
+        /*
+         * The DMA protection is now engaged.  Note that any failure mode that
+         * returns an error to the DRTM-launch caller must now disengage DMA
+         * protections before returning to the caller.
+         */
+
+        if ((ret = drtm_take_measurements(&args))) {
+                goto err_undo_dma_prot;
+        }
+
+	SMC_RET1(handle, ret);
+
+err_undo_dma_prot:
+	if ((dma_prot_ret = drtm_dma_prot_disengage())) {
+		ERROR("%s(): drtm_dma_prot_disengage() failed unexpectedly"
+		      " rc=%d\n", __func__, ret);
+		panic();
 	}
 
 	SMC_RET1(handle, ret);
