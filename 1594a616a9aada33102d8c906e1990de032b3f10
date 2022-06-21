@@ -16,6 +16,24 @@
       "message": "The multiple statements defined in SMC_ID_EXPAND_AS_SMC_OPERATION is the SMC handler switch-case expansion.\nBy these macro helpers, declare the unified SMC interface in order to modularize drivers.\nPlease consider it to waive static check fail case, thank you.",
       "revId": "1594a616a9aada33102d8c906e1990de032b3f10",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20aa2321_60ec556d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-06-21T17:23:00Z",
+      "side": 1,
+      "message": "There are few valid issues reported by static checks. Please fix them:\nhttps://ci.trustedfirmware.org/job/tf-a-static-checks/1441/\n\nI dont think they will stop you from having modularized drivers.",
+      "parentUuid": "eaade14e_8dd7f0c1",
+      "revId": "1594a616a9aada33102d8c906e1990de032b3f10",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
