@@ -1,0 +1,325 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bac0e788_bf2b97c4",
+        "filename": "include/plat/arm/common/arm_pas_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-21T13:30:50Z",
+      "side": 1,
+      "message": "Suggest: ..have the same PAS, so...",
+      "range": {
+        "startLine": 84,
+        "startChar": 25,
+        "endLine": 84,
+        "endChar": 50
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0944cdfa_f98fdf9c",
+        "filename": "include/plat/arm/common/arm_pas_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-21T13:30:50Z",
+      "side": 1,
+      "message": "In the GPT table, it could end up as Lvl1 table with a PAS setting each for the 2 regions. I think what you are trying to say that \"so consider them as a single PAS region to configure in GPT\".",
+      "range": {
+        "startLine": 84,
+        "startChar": 55,
+        "endLine": 85,
+        "endChar": 20
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d98f7fe_7e240156",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-21T13:30:50Z",
+      "side": 1,
+      "message": "PAS",
+      "range": {
+        "startLine": 60,
+        "startChar": 41,
+        "endLine": 60,
+        "endChar": 52
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42ec7565_d66574f8",
+        "filename": "include/services/rmmd_svc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-21T13:30:50Z",
+      "side": 1,
+      "message": "ERR_UNK can be assigned -1 (comment in the EL3-RMM spec).",
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad1afdbc_e952e119",
+        "filename": "include/services/rmmd_svc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-21T13:30:50Z",
+      "side": 1,
+      "message": "Keep the name matched to Spec for being grep friendly ;)",
+      "range": {
+        "startLine": 142,
+        "startChar": 8,
+        "endLine": 142,
+        "endChar": 32
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1874e862_fdbac084",
+        "filename": "include/services/rmmd_svc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-21T13:30:50Z",
+      "side": 1,
+      "message": "cater for the RES0 field.",
+      "range": {
+        "startLine": 163,
+        "startChar": 12,
+        "endLine": 163,
+        "endChar": 13
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd2e585b_1c1d4ec6",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-21T13:30:50Z",
+      "side": 1,
+      "message": "Will there be a compilation error if this #if is not present ?",
+      "range": {
+        "startLine": 517,
+        "startChar": 4,
+        "endLine": 517,
+        "endChar": 14
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a282c81_3a32a73a",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-21T13:30:50Z",
+      "side": 1,
+      "message": "That is a welcome change 😊\n\nCould you also please ensure DYNAMIC_XLAT is disabled for RME builds (this was enabled previoulsy to map memory dynamically) ?",
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60683668_9384fa22",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-21T13:30:50Z",
+      "side": 1,
+      "message": "I think it is more robust to have the logic inversed, and call it `rmm_initialized`.\n\nThis way , if rmmd_rmi_handler() is called directly, then it fails as rmm_initilized is false by default.",
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfb89592_c1b5908b",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-21T13:30:50Z",
+      "side": 1,
+      "message": "although this is neat to print string from error code, does it justify the extra array allocation for the strings in SRAM ? \n\nI would think think an error code is sufficient for most purposes.",
+      "range": {
+        "startLine": 176,
+        "startChar": 33,
+        "endLine": 176,
+        "endChar": 53
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6609045e_5aa91833",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-21T13:30:50Z",
+      "side": 1,
+      "message": "reduce this to an assert as platform API are meant to be implemented correctly. We just need to catch initial porting issues and assert is enough for that.",
+      "range": {
+        "startLine": 224,
+        "startChar": 2,
+        "endLine": 224,
+        "endChar": 10
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ef9c8d6_a9f92404",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-21T13:30:50Z",
+      "side": 1,
+      "message": "remove, as this is explained in the EL3 -RMM spec, comments for basic args is OK.",
+      "range": {
+        "startLine": 357,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 16
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2622f81_679b4abd",
+        "filename": "services/std_svc/rmmd/trp/trp_entry.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-21T13:30:50Z",
+      "side": 1,
+      "message": "trp_setup can take args x0 - x3 and do the verification in C code. The above checks in asm can move there I think.",
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a524d7f6_924b2ebf",
+        "filename": "services/std_svc/rmmd/trp/trp_private.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-21T13:30:50Z",
+      "side": 1,
+      "message": "can direcly use the RMM_ macros. No need for TRP_",
+      "range": {
+        "startLine": 25,
+        "startChar": 8,
+        "endLine": 25,
+        "endChar": 32
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "780eb065_a63713c7",
+        "filename": "services/std_svc/rmmd/trp/trp_private.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-21T13:30:50Z",
+      "side": 1,
+      "message": "This should be called RMM_EL3_IFC_VER_* I think.",
+      "range": {
+        "startLine": 53,
+        "startChar": 38,
+        "endLine": 53,
+        "endChar": 47
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
