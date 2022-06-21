@@ -5,7 +5,7 @@
  */
 
 #ifndef XLAT_TABLES_COMPAT_H
-#define XLAT_TABLES_COMPAT_H 
+#define XLAT_TABLES_COMPAT_H
 
 #if XLAT_TABLES_LIB_V2
 #include <lib/xlat_tables/xlat_tables_v2.h>
