@@ -335,6 +335,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "400d0dcb_829745e1",
+        "filename": "include/drivers/measured_boot/event_log/event_log.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000159
+      },
+      "writtenOn": "2022-06-22T10:48:44Z",
+      "side": 1,
+      "message": "Should we start with SECURE_RT_EL0_SP0 or SECURE_RT_EL0_SP1? It sounds reasonable to start indexing from zero, however it would be misleading to pair SECURE_RT_EL0_SP0 with SP_PKG1_ID.",
+      "parentUuid": "5b2afc7c_92ea2e5c",
+      "range": {
+        "startLine": 81,
+        "startChar": 26,
+        "endLine": 81,
+        "endChar": 31
+      },
+      "revId": "e637a5e19da72599229fd2c70e793c123aaf14ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aff640a8_3e22d235",
         "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
         "patchSetId": 3
@@ -346,6 +370,30 @@
       "writtenOn": "2022-06-14T13:22:34Z",
       "side": 1,
       "message": "Arguably we don\u0027t need this #if defined. We could add entries for secure partitions regardless of SPMD availability. This array only describes the superset of images we support measuring. There is no requirement that they must all be present. For example, notice the BL32_EXTRAn_IMAGE_ID entries above, AFAIU these are only present when using OP-TEE but we did not bother guarding them under some preprocessor condition.\n\nEven though this will unecessarily increase the size of the array for systems that don\u0027t use SPMD/SPs, I would be leaning towards removing this line, as I think #ifdefs are bad from a codebase maintainance perspective.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 21
+      },
+      "revId": "e637a5e19da72599229fd2c70e793c123aaf14ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2e28c36_0ee24df5",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000159
+      },
+      "writtenOn": "2022-06-22T10:48:44Z",
+      "side": 1,
+      "message": "I\u0027ve added the #if because SP_PKGx_IDs are defined under the same condition in include/common/tbbr/tbbr_img_def.h.",
+      "parentUuid": "aff640a8_3e22d235",
       "range": {
         "startLine": 35,
         "startChar": 0,
