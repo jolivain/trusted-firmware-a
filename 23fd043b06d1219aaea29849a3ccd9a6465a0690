@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ec81d88_52740079",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-06-22T10:30:36Z",
+      "side": 1,
+      "message": "Is it worth adding the same error for secure_origin ?\nIt is redundant with check in the SPMC... but IMO it makes sense to enforce this, to the SWd calls if enforcing for NWd calls.\nWhat do you think?",
+      "range": {
+        "startLine": 807,
+        "startChar": 2,
+        "endLine": 813,
+        "endChar": 3
+      },
+      "revId": "23fd043b06d1219aaea29849a3ccd9a6465a0690",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
