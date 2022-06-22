@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -261,3 +261,9 @@ $(eval $(call add_define,ARM_PRELOADED_DTB_BASE))
 
 # Do not enable SVE
 ENABLE_SVE_FOR_NS	:=	0
+ifeq ($(DRTM_SUPPORT), 1)
+BL31_SOURCES		+= \
+			drivers/arm/smmu/smmu_v3.c	\
+			plat/qemu/qemu/qemu_virt_drtm_dma_prot.c	\
+
+endif
