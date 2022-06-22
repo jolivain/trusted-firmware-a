@@ -22,6 +22,30 @@
       },
       "revId": "23fd043b06d1219aaea29849a3ccd9a6465a0690",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ad15cdf_d1818361",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-06-22T11:26:24Z",
+      "side": 1,
+      "message": "It might not be necessary as currently we do not support SWd to NWd Direct Requests, also SPMD can trust SPMC to have enforced this check if it were to forward request in future.",
+      "parentUuid": "8ec81d88_52740079",
+      "range": {
+        "startLine": 807,
+        "startChar": 2,
+        "endLine": 813,
+        "endChar": 3
+      },
+      "revId": "23fd043b06d1219aaea29849a3ccd9a6465a0690",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
