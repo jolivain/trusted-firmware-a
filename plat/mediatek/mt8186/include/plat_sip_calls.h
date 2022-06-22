@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, MediaTek Inc. All rights reserved.
+ * Copyright (c) 2021-2022, MediaTek Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -15,5 +15,9 @@
 /* DFD */
 #define MTK_SIP_KERNEL_DFD_AARCH32	(0x82000205)
 #define MTK_SIP_KERNEL_DFD_AARCH64	(0xC2000205)
+
+/* MSDC */
+#define MTK_SIP_KERNEL_MSDC_AARCH32	(0x82000273)
+#define MTK_SIP_KERNEL_MSDC_AARCH64	(0xC2000273)
 
 #endif /* PLAT_SIP_CALLS_H */
