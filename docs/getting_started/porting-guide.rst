@@ -562,6 +562,18 @@ behaviour of the ``assert()`` function (for example, to save memory).
    doesn't print anything to the console. If ``PLAT_LOG_LEVEL_ASSERT`` isn't
    defined, it defaults to ``LOG_LEVEL``.
 
+If the platform port uses the DRTM feature, the following constant must be
+defined:
+
+-  **PLAT_DRTM_EVENT_LOG_MAX_SIZE**
+   Maximum Event Log size used by the platform. Platform can decide the maximum
+   size of Event Log buffer depends upon the highest hash algorithm chosen and
+   number components decided to measure during DRTM execution flow.
+
+-  **PLAT_DRTM_MMAP_ENTRIES**
+   Number of the MMAP entries used by the DRTM implementation to calculate the
+   size of address map region of the platform.
+
 File : plat_macros.S [mandatory]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -786,6 +798,145 @@ be written to the NV counter.
 The function returns 0 on success. Any other value means the counter value
 either could not be updated or the authentication image descriptor indicates
 that it is not allowed to be updated.
+
+Dynamic Root of Trust support (in BL31)
+---------------------------------------
+
+The functions mentioned in this section are mandatory when platform enables
+DRTM_SUPPORT build flag.
+
+Function : plat_get_addr_mmap()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : void
+    Return   : const mmap_region_t *
+
+This function is used to return the address of the platform *address-map* table,
+which contains the mappings for all regions of normal memory, memory mapped I/O
+and non-volatile memory.
+
+Function : plat_has_non_host_platforms()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : void
+    Return   : bool
+
+This function returns *true* if the platform has any trusted devices capable of
+DMA, otherwise returns *false*.
+
+Function : plat_has_unmanaged_dma_peripherals()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : void
+    Return   : bool
+
+This function returns *true* if platforms uses peripherals whose DMA is not
+managed by an SMMU, otherwise returns *false*.
+
+Function : plat_get_total_num_smmus()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : void
+    Return   : unsigned int
+
+This function returns the total number of SMMUs in the platform.
+
+Function : plat_enumerate_smmus()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+::
+
+
+    Argument : void
+    Return   : const uintptr_t *, size_t
+
+This function returns an array of SMMU addresses and the actual number of SMMUs
+reported by the platform.
+
+Function : plat_drtm_get_dma_prot_features()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : void
+    Return   : plat_drtm_dma_prot_features_t*
+
+This function retuns address of plat_drtm_dma_prot_features_t structure
+containing maximum number of protected regions and bitmap with the types
+of DMA protection supported by the platform._
+For more details see section 3.3 Table 6 of `DRTM`_ specification.
+
+Function : plat_drtm_get_dma_protected_region_size()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : void
+    Return   : uint64_t
+
+This function returns the size of DMA protected regions of the platform.
+
+Function : plat_drtm_get_tpm_features()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : void
+    Return   : plat_drtm_tpm_features_t*
+
+This function retuns address of *plat_drtm_tpm_features_t* structure
+containing PCR usage schema, TPM-based hash, and firmware hash algorithm
+supported by the platform.
+
+Function : plat_drtm_get_min_size_normal_world_dce()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : void
+    Return   : uint64_t
+
+This function returns the size normal-world DCE of the platform.
+
+Function : plat_drtm_get_imp_def_dlme_region_size()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : void
+    Return   : uint64_t
+
+This function returns the size of implementation defined DLME region
+of the platform.
+
+Function : plat_drtm_get_tcb_hash_table_size()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : void
+    Return   : uint64_t
+
+This function returns size of TCB hash table of the platform.
+
+Function : plat_drtm_get_tcb_hash_features()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : void
+    Return   : uint64_t
+
+This function returns Maximum number of TCB hashes recorded by the
+platform.
+For more details see section 3.3 Table 6 of `DRTM`_ specification.
 
 Common mandatory function modifications
 ---------------------------------------
@@ -3198,3 +3349,4 @@ amount of open resources per driver.
 .. _3.0 (GICv3): http://infocenter.arm.com/help/topic/com.arm.doc.ihi0069b/index.html
 .. _FreeBSD: https://www.freebsd.org
 .. _SCC: http://www.simple-cc.org/
+.. _DRTM: https://developer.arm.com/documentation/den0113/a
