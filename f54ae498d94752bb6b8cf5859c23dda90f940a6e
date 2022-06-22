@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4621b5c1_7c4dfe0a",
+        "filename": "include/plat/arm/common/arm_pas_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-22T11:32:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bac0e788_bf2b97c4",
+      "range": {
+        "startLine": 84,
+        "startChar": 25,
+        "endLine": 84,
+        "endChar": 50
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0944cdfa_f98fdf9c",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-06-21T13:30:50Z",
       "side": 1,
       "message": "In the GPT table, it could end up as Lvl1 table with a PAS setting each for the 2 regions. I think what you are trying to say that \"so consider them as a single PAS region to configure in GPT\".",
+      "range": {
+        "startLine": 84,
+        "startChar": 55,
+        "endLine": 85,
+        "endChar": 20
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b513fe1_6ff6b08f",
+        "filename": "include/plat/arm/common/arm_pas_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-22T11:32:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0944cdfa_f98fdf9c",
       "range": {
         "startLine": 84,
         "startChar": 55,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6bb4b41_27dfa3d3",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-22T11:32:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d98f7fe_7e240156",
+      "range": {
+        "startLine": 60,
+        "startChar": 41,
+        "endLine": 60,
+        "endChar": 52
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42ec7565_d66574f8",
@@ -83,6 +155,24 @@
       "writtenOn": "2022-06-21T13:30:50Z",
       "side": 1,
       "message": "ERR_UNK can be assigned -1 (comment in the EL3-RMM spec).",
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebe41fb4_ad29ba28",
+        "filename": "include/services/rmmd_svc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-22T11:32:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42ec7565_d66574f8",
       "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -110,6 +200,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81666c8c_d5df4b05",
+        "filename": "include/services/rmmd_svc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-22T11:32:07Z",
+      "side": 1,
+      "message": "Yes, I missed this completely.",
+      "parentUuid": "ad1afdbc_e952e119",
+      "range": {
+        "startLine": 142,
+        "startChar": 8,
+        "endLine": 142,
+        "endChar": 32
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1874e862_fdbac084",
@@ -123,6 +237,30 @@
       "writtenOn": "2022-06-21T13:30:50Z",
       "side": 1,
       "message": "cater for the RES0 field.",
+      "range": {
+        "startLine": 163,
+        "startChar": 12,
+        "endLine": 163,
+        "endChar": 13
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dfd7218_c4114c5b",
+        "filename": "include/services/rmmd_svc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-22T11:32:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1874e862_fdbac084",
       "range": {
         "startLine": 163,
         "startChar": 12,
@@ -158,6 +296,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e5a54470_6c40dff9",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-22T11:32:07Z",
+      "side": 1,
+      "message": "Yes, it will fail",
+      "parentUuid": "fd2e585b_1c1d4ec6",
+      "range": {
+        "startLine": 517,
+        "startChar": 4,
+        "endLine": 517,
+        "endChar": 14
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1a282c81_3a32a73a",
         "filename": "plat/arm/board/fvp/include/platform_def.h",
         "patchSetId": 4
@@ -169,6 +331,24 @@
       "writtenOn": "2022-06-21T13:30:50Z",
       "side": 1,
       "message": "That is a welcome change 😊\n\nCould you also please ensure DYNAMIC_XLAT is disabled for RME builds (this was enabled previoulsy to map memory dynamically) ?",
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1fe4bcd_8be85125",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-22T11:32:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a282c81_3a32a73a",
       "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -190,6 +370,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6df290d8_8ce7b012",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-22T11:32:07Z",
+      "side": 1,
+      "message": "This flag is not only used to ignore RMI calls on a failure, but also to avoid trying to initialize RMM during a CPU bring up if it failed before on any other CPU (see line 346). Hence, what we need to know is if RMM failed to initialize on any CPU, not if it managed to initialize on all CPUs.",
+      "parentUuid": "60683668_9384fa22",
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dfb89592_c1b5908b",
@@ -203,6 +401,30 @@
       "writtenOn": "2022-06-21T13:30:50Z",
       "side": 1,
       "message": "although this is neat to print string from error code, does it justify the extra array allocation for the strings in SRAM ? \n\nI would think think an error code is sufficient for most purposes.",
+      "range": {
+        "startLine": 176,
+        "startChar": 33,
+        "endLine": 176,
+        "endChar": 53
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4671a0f_3ed39123",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-22T11:32:07Z",
+      "side": 1,
+      "message": "No, I think it doesn\u0027t. I will remove it to save some space.",
+      "parentUuid": "dfb89592_c1b5908b",
       "range": {
         "startLine": 176,
         "startChar": 33,
@@ -236,6 +458,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11952ed7_e7770edd",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-22T11:32:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6609045e_5aa91833",
+      "range": {
+        "startLine": 224,
+        "startChar": 2,
+        "endLine": 224,
+        "endChar": 10
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6ef9c8d6_a9f92404",
@@ -259,6 +505,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85743a3d_949b8891",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-22T11:32:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ef9c8d6_a9f92404",
+      "range": {
+        "startLine": 357,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 16
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2622f81_679b4abd",
@@ -272,6 +542,24 @@
       "writtenOn": "2022-06-21T13:30:50Z",
       "side": 1,
       "message": "trp_setup can take args x0 - x3 and do the verification in C code. The above checks in asm can move there I think.",
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "859413ac_88accbcc",
+        "filename": "services/std_svc/rmmd/trp/trp_entry.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-22T11:32:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2622f81_679b4abd",
       "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -301,6 +589,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "293365d4_56a0b16b",
+        "filename": "services/std_svc/rmmd/trp/trp_private.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-22T11:32:07Z",
+      "side": 1,
+      "message": "I used these macros here as I was considering adding build options in the future to TRP so we can trigger boot errors and therefore test RMMD more thoroughly.\n\nFor instance, one of the ideas that I had in mind WRT these macros was that, by default, TRP_BOOT_ABI_VERS_* would get the same value as their counterparts in RMMD (as they do now) so TRP would boot without erros, but we could override that at build time, so to induce an E_RMM_BOOT_VERSION_MISMATCH on TRP and verify that RMMD reacts accordingly.\n\nSo I think having these specific macros here for TRP would help with that.\n\nThoughts?",
+      "parentUuid": "a524d7f6_924b2ebf",
+      "range": {
+        "startLine": 25,
+        "startChar": 8,
+        "endLine": 25,
+        "endChar": 32
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "780eb065_a63713c7",
         "filename": "services/std_svc/rmmd/trp/trp_private.h",
         "patchSetId": 4
@@ -312,6 +624,30 @@
       "writtenOn": "2022-06-21T13:30:50Z",
       "side": 1,
       "message": "This should be called RMM_EL3_IFC_VER_* I think.",
+      "range": {
+        "startLine": 53,
+        "startChar": 38,
+        "endLine": 53,
+        "endChar": 47
+      },
+      "revId": "f54ae498d94752bb6b8cf5859c23dda90f940a6e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e787f28f_62d03122",
+        "filename": "services/std_svc/rmmd/trp/trp_private.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-22T11:32:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "780eb065_a63713c7",
       "range": {
         "startLine": 53,
         "startChar": 38,
