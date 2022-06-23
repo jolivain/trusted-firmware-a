@@ -25,6 +25,7 @@
 #include <plat/common/platform.h>
 #include <platform_def.h>
 #include <services/drtm_svc.h>
+#include <services/sdei.h>
 
 /* Structure to store DRTM features specific to the platform. */
 static drtm_features_t plat_drtm_features;
@@ -616,12 +617,12 @@ static uint64_t drtm_dynamic_launch(uint64_t x1, void *handle)
 	drtm_dl_reset_dlme_el_state(dlme_el);
 	drtm_dl_reset_dlme_context(dlme_el);
 
-	/*
-	 * TODO: Reset all SDEI event handlers, since they are untrusted.  Both
-	 * private and shared events for all cores must be unregistered.
-	 * Note that simply calling SDEI ABIs would not be adequate for this, since
-	 * there is currently no SDEI operation that clears private data for all PEs.
-	 */
+	/* Ensure that there are no SDEI event registered */
+#if SDEI_SUPPORT
+	if (sdei_get_registered_event_count() != 0) {
+		SMC_RET1(handle, DENIED);
+	}
+#endif
 
 	drtm_dl_prepare_eret_to_dlme(&args, dlme_el);
 
