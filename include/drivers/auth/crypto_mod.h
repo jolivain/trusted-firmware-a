@@ -145,10 +145,7 @@ int crypto_mod_calc_hash(enum crypto_md_algo alg, void *data_ptr,
 		.init = _init, \
 		.calc_hash = _calc_hash, \
 	}
-#endif	/*
-	 * (MEASURED_BOOT && TRUSTED_BOARD_BOOT)  || \
-	 * (DRTM_SUPPORT && TRUSTED_BOARD_BOOT)
-	 */
+#endif
 
 extern const crypto_lib_desc_t crypto_lib_desc;
 

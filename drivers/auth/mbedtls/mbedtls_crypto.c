@@ -33,7 +33,7 @@ CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_AND_HASH_CALC
 CASSERT(CRYPTO_MD_MAX_SIZE >= MBEDTLS_MD_MAX_SIZE,
 	assert_mbedtls_md_size_overflow);
 
-#endif /* MEASURED_BOOT || DRTM_SUPPORT */
+#endif
 
 /*
  * AlgorithmIdentifier  ::=  SEQUENCE  {
