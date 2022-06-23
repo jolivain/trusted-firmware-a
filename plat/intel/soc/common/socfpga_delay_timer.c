@@ -8,6 +8,15 @@
 #include <arch_helpers.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
+
+#if PLATFORM_MODEL == PLAT_SOCFPGA_AGILEX
+#include "agilex_clock_manager.h"
+#elif PLATFORM_MODEL == PLAT_SOCFPGA_N5X
+#include "n5x_clock_manager.h"
+#elif PLATFORM_MODEL == PLAT_SOCFPGA_STRATIX10
+#include "s10_clock_manager.h"
+#endif
+
 #include "socfpga_plat_def.h"
 
 #define SOCFPGA_GLOBAL_TIMER		0xffd01000
@@ -42,6 +51,8 @@ void socfpga_delay_timer_init(void)
 {
 	socfpga_delay_timer_init_args();
 	mmio_write_32(SOCFPGA_GLOBAL_TIMER, SOCFPGA_GLOBAL_TIMER_EN);
+
+	NOTICE("BL31 CLK freq = %d MHz\n", PLAT_SYS_COUNTER_FREQ_IN_MHZ);
 
 	asm volatile("msr cntp_ctl_el0, %0" : : "r" (SOCFPGA_GLOBAL_TIMER_EN));
 	asm volatile("msr cntp_tval_el0, %0" : : "r" (~0));
