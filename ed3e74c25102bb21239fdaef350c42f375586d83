@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0f682b7_79619f49",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-06-24T08:58:07Z",
+      "side": 1,
+      "message": "just stm32mp1",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 18
+      },
+      "revId": "ed3e74c25102bb21239fdaef350c42f375586d83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55facca9_adca8d9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-06-24T08:58:07Z",
+      "side": 1,
+      "message": "Hi Igor,\nThanks for your patch.\nEtienne forwarded me your mail explaining your change.\n\nOverall, the patch the patch looks OK excepts the place you use in the register (I\u0027ve made some remarks inline), and some minor other things.\nBe also aware, that by default, this register is writable by non-secure world. But this can of course be configured, as Etienne said.\n\nBest regards,\nYann",
+      "revId": "ed3e74c25102bb21239fdaef350c42f375586d83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cec1498_cc284415",
+        "filename": "plat/st/stm32mp1/stm32mp1_private.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-06-24T08:58:07Z",
+      "side": 1,
+      "message": "When seeing your path, I think I should update this to use GENMSAK, and introduce the shifts and masks for sub-fields (interface type and instance). That will avoid magic numbers inside the code. I can push a patch for this. Or could you do that?",
+      "revId": "ed3e74c25102bb21239fdaef350c42f375586d83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "246e445f_da806283",
+        "filename": "plat/st/stm32mp1/stm32mp1_private.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-06-24T08:58:07Z",
+      "side": 1,
+      "message": "Keep BOOT_MODE (TAMP_BOOT_MODE_AUTH_MASK) as it is the name we\u0027ve given to this TAMP backup register. Its definition can be seen there:\nhttps://wiki.st.com/stm32mpu/wiki/STM32MP15_backup_registers#Boot_mode_selection_feature\n\nWe already use the first byte, as explained in the wiki, for forcing reboot. But I\u0027ve just seen this part of code wasn\u0027t yet upstreamed.\nWould you mind changing the byte you use to [23:16]?",
+      "revId": "ed3e74c25102bb21239fdaef350c42f375586d83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3625c80_0e70212e",
+        "filename": "plat/st/stm32mp1/stm32mp1_private.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-06-24T08:58:07Z",
+      "side": 1,
+      "message": "minor: I used itf in the previous function as it was dealing with boot interface. Here the variable (and other ones with itf) do no more correspond to what it is. But as the byte you use contains 2 pieces of information not directly related, the correct name might not be easy to find. Maybe just replace all occurrences of itf in the 2 functions with boot_status?",
+      "range": {
+        "startLine": 753,
+        "startChar": 15,
+        "endLine": 753,
+        "endChar": 18
+      },
+      "revId": "ed3e74c25102bb21239fdaef350c42f375586d83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
