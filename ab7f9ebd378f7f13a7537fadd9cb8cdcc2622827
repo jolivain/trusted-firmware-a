@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9acdeda7_c497f1fa",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-24T15:17:03Z",
+      "side": 1,
+      "message": "I think it is better to have all RME plat API in one place. Also these API are only for BL31 and are not common for all BL images.",
+      "parentUuid": "d94b860d_9fa67617",
+      "range": {
+        "startLine": 1248,
+        "startChar": 0,
+        "endLine": 1258,
+        "endChar": 75
+      },
+      "revId": "ab7f9ebd378f7f13a7537fadd9cb8cdcc2622827",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0c8f9eec_440422aa",
         "filename": "docs/getting_started/porting-guide.rst",
         "patchSetId": 7
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "There are several conditionals to build code only when RME support is enabled scattered across the code, so I wanted to be consistent with them. Also, by removing this here, it might lead to build errors as other components needed for this might not be built (I haven\u0027t checked that point, though)",
       "parentUuid": "59e499f8_30b6554e",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 21
+      },
+      "revId": "ab7f9ebd378f7f13a7537fadd9cb8cdcc2622827",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68fbaf46_f7416923",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-24T15:17:03Z",
+      "side": 1,
+      "message": "Ideally if the code is organized properly, only the callers of a function need to have conditional ENABLE_RME compilation. The defines can remain and the linker will garbage collect them.\nThere are exceptions in some cases but it is better to have code with less conditionals as it makes it difficult to read and run static analysis on code.",
+      "parentUuid": "b5355913_d2768437",
       "range": {
         "startLine": 16,
         "startChar": 0,
@@ -238,6 +286,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "68514fa4_e759a09e",
+        "filename": "include/services/rmm_core_manifest.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-24T15:17:03Z",
+      "side": 1,
+      "message": "OK, We dont need to provide all variants of setting plat_data. I think the helpers set and get are enough. Platform can usually work out how to allocate.",
+      "parentUuid": "cbf7b01a_b3e8f964",
+      "range": {
+        "startLine": 51,
+        "startChar": 18,
+        "endLine": 51,
+        "endChar": 49
+      },
+      "revId": "ab7f9ebd378f7f13a7537fadd9cb8cdcc2622827",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ff242401_1b5a8d96",
         "filename": "include/services/rmm_core_manifest.h",
         "patchSetId": 7
@@ -273,6 +345,30 @@
       "side": 1,
       "message": "The core manifest is already page aligned as it starts at the base of the shared buffer, which is allocated by the platform.\n\nI can add the assertion here, though, if you still think it is necessary.",
       "parentUuid": "ff242401_1b5a8d96",
+      "range": {
+        "startLine": 57,
+        "startChar": 9,
+        "endLine": 57,
+        "endChar": 23
+      },
+      "revId": "ab7f9ebd378f7f13a7537fadd9cb8cdcc2622827",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a569659e_86d2ad1b",
+        "filename": "include/services/rmm_core_manifest.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-24T15:17:03Z",
+      "side": 1,
+      "message": "Then probably there is no need to apply mask applied here? \n\nassert((core_manifest \u003d\u003d (platform_manifest \u0026 ~(PAGE_SIZE_MASK))); is enough",
+      "parentUuid": "96737b75_5e548096",
       "range": {
         "startLine": 57,
         "startChar": 9,
@@ -448,6 +544,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "698c265c_244f6d97",
+        "filename": "include/services/rmm_core_manifest.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-24T15:17:03Z",
+      "side": 1,
+      "message": "See my comment above, this helper is not needed.",
+      "parentUuid": "8272d23e_3d04f710",
+      "range": {
+        "startLine": 100,
+        "startChar": 1,
+        "endLine": 102,
+        "endChar": 33
+      },
+      "revId": "ab7f9ebd378f7f13a7537fadd9cb8cdcc2622827",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95f8b3e6_22e3d648",
@@ -485,6 +605,30 @@
       "side": 1,
       "message": "We decided to have an API to process the manifest as if it grows in the future, it can all be handled from a single point.",
       "parentUuid": "95f8b3e6_22e3d648",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 65
+      },
+      "revId": "ab7f9ebd378f7f13a7537fadd9cb8cdcc2622827",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85334b56_a907fe3c",
+        "filename": "plat/arm/common/trp/arm_trp_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-24T15:17:03Z",
+      "side": 1,
+      "message": "Yes, but this is implemented in a platform specific file. Checking version and other generic parts of manifest should be in common plat code right ?",
+      "parentUuid": "07525bdb_40d522fe",
       "range": {
         "startLine": 35,
         "startChar": 0,
