@@ -190,6 +190,29 @@
       },
       "revId": "ed3e74c25102bb21239fdaef350c42f375586d83",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba13210a_066f910a",
+        "filename": "plat/st/stm32mp1/stm32mp1_private.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-06-24T16:07:04Z",
+      "side": 1,
+      "message": "Out of curiosity, in the patch I don\u0027t see this function being called anywhere. Where is it supposed to be called?",
+      "range": {
+        "startLine": 765,
+        "startChar": 5,
+        "endLine": 765,
+        "endChar": 24
+      },
+      "revId": "ed3e74c25102bb21239fdaef350c42f375586d83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
