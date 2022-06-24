@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bc42624_83798342",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-06-24T12:41:31Z",
+      "side": 1,
+      "message": "Hi Manish,\nThe CI failed tests do not seem related to this change, but it is not very clear for me what is really failing. Could you check that? And maybe run a legacy-CI, as this change could have impacts on other platforms?\nThanks,\nYann",
+      "revId": "c0a11cd8698394e1d3d3d7c9cedb19846ba59223",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
