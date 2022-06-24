@@ -36,7 +36,7 @@ endfunc a64fx_errata_report
          */
 .section .rodata.a64fx_regs, "aS"
 a64fx_regs:  /* The ascii list of register names to be reported */
-        .asciz  "" 
+        .asciz  ""
 
 func a64fx_cpu_reg_dump
         adr     x6, a64fx_regs
