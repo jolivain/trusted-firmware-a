@@ -16,6 +16,23 @@
       "message": "@Lauren: Did you test this patch? The best we can do is a build test where we set MBOOT_EL_HASH_ALG to sha512 and make sure this correctly pulls in SHA-512 support from mbedtls (you can use the \u0027nm\u0027 binutil for that, like we did for FVP). The rest (testing on the hardware) is left up to the platform maintainers.\n\nJust to be clear, I don\u0027t think we need to add this build test to the CI. A local test should be enough just to test the logic of the patch.",
       "revId": "4ee91ba98f7b86aa27b1e14a524c4429bf13fd2f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee296a53_2fc05094",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-06-24T09:41:08Z",
+      "side": 1,
+      "message": "@Bai Pin, could you please provide your votes ",
+      "revId": "4ee91ba98f7b86aa27b1e14a524c4429bf13fd2f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
