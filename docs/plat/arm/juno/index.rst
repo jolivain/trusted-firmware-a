@@ -248,6 +248,6 @@ configure it.
 .. _TF-A downloads page: https://downloads.trustedfirmware.org/tf-a/css_scp_2.8.0/juno/
 .. _build the binaries from source: https://github.com/ARM-software/SCP-firmware/blob/master/user_guide.md#scp-firmware-user-guide
 .. _Arm Platforms Portal: https://community.arm.com/dev-platforms/
-.. _Juno Getting Started Guide: http://infocenter.arm.com/help/topic/com.arm.doc.dui0928e/DUI0928E_juno_arm_development_platform_gsg.pdf
+.. _Juno Getting Started Guide: https://developer.arm.com/documentation/den0928/f/?lang=en
 .. _PSCI: http://infocenter.arm.com/help/topic/com.arm.doc.den0022d/Power_State_Coordination_Interface_PDD_v1_1_DEN0022D.pdf
 .. _Juno Arm Development Platform: http://www.arm.com/products/tools/development-boards/versatile-express/juno-arm-development-platform.php
