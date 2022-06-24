@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab50ca6d_b962397f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000804
+      },
+      "writtenOn": "2022-06-24T09:06:43Z",
+      "side": 1,
+      "message": "Yes, The qemu_sbsa platform.",
+      "parentUuid": "91156375_43edd075",
+      "revId": "9c2bb70793d461b4424293268a42863135b6cd64",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60ed1d7a_7a838102",
@@ -60,6 +78,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "675883d1_ad6253bf",
+        "filename": "lib/cpus/aarch64/a64fx.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000804
+      },
+      "writtenOn": "2022-06-24T09:06:43Z",
+      "side": 1,
+      "message": "Because they aren\u0027t required to test the boot sequence mandatated by SBSA, from TF-A, EFI, and then finally Linux.",
+      "parentUuid": "60ed1d7a_7a838102",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 29
+      },
+      "revId": "9c2bb70793d461b4424293268a42863135b6cd64",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "801523a6_b5df030e",
         "filename": "lib/cpus/aarch64/a64fx.S",
         "patchSetId": 1
@@ -71,6 +113,30 @@
       "writtenOn": "2022-06-23T19:48:44Z",
       "side": 1,
       "message": "remove the whitespace",
+      "range": {
+        "startLine": 39,
+        "startChar": 18,
+        "endLine": 39,
+        "endChar": 19
+      },
+      "revId": "9c2bb70793d461b4424293268a42863135b6cd64",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41862e96_9a903b90",
+        "filename": "lib/cpus/aarch64/a64fx.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000804
+      },
+      "writtenOn": "2022-06-24T09:06:43Z",
+      "side": 1,
+      "message": "Done. See the latest \"integration\" branch.",
+      "parentUuid": "801523a6_b5df030e",
       "range": {
         "startLine": 39,
         "startChar": 18,
