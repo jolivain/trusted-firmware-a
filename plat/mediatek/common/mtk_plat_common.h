@@ -21,38 +21,6 @@
 #define JEDEC_MTK_BKID U(4)
 #define JEDEC_MTK_MFID U(0x26)
 
-struct atf_arg_t {
-	unsigned int atf_magic;
-	unsigned int tee_support;
-	unsigned int tee_entry;
-	unsigned int tee_boot_arg_addr;
-	unsigned int hwuid[4];     /* HW Unique id for t-base used */
-	unsigned int HRID[2];      /* HW random id for t-base used */
-	unsigned int atf_log_port;
-	unsigned int atf_log_baudrate;
-	unsigned int atf_log_buf_start;
-	unsigned int atf_log_buf_size;
-	unsigned int atf_irq_num;
-	unsigned int devinfo[DEVINFO_SIZE];
-	unsigned int atf_aee_debug_buf_start;
-	unsigned int atf_aee_debug_buf_size;
-};
-
-struct kernel_info {
-	uint64_t pc;
-	uint64_t r0;
-	uint64_t r1;
-	uint64_t r2;
-	uint64_t k32_64;
-};
-
-struct mtk_bl_param_t {
-	uint64_t bootarg_loc;
-	uint64_t bootarg_size;
-	uint64_t bl33_start_addr;
-	uint64_t tee_info_addr;
-};
-
 struct mtk_bl31_params {
        param_header_t h;
        image_info_t *bl31_image_info;
