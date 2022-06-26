@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d33490c_099b977b",
+        "filename": "plat/mediatek/include/mtk_sip_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-06-26T07:58:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d03850fc_33bfbb26",
+      "revId": "a88a752045d596153cb9fcc846d74b90380d2173",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b70a1233_e0b926d5",
@@ -48,6 +66,30 @@
       "writtenOn": "2022-06-24T08:38:29Z",
       "side": 1,
       "message": "The header file is missing in this patch.\nCould you move CONFIG_MTK_GZ related change to a new patch ?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 6
+      },
+      "revId": "a88a752045d596153cb9fcc846d74b90380d2173",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d86064c_06c3e007",
+        "filename": "plat/mediatek/include/mtk_sip_svc.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-06-26T07:58:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b70a1233_e0b926d5",
       "range": {
         "startLine": 12,
         "startChar": 0,
@@ -81,6 +123,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "880b655f_e418fa13",
+        "filename": "plat/mediatek/include/mtk_sip_svc.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-06-26T07:58:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05b06afb_cf66f792",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 29
+      },
+      "revId": "a88a752045d596153cb9fcc846d74b90380d2173",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44fbdfce_ee730512",
@@ -94,6 +160,30 @@
       "writtenOn": "2022-06-24T08:38:29Z",
       "side": 1,
       "message": "sort this entry in alphabet order.",
+      "range": {
+        "startLine": 11,
+        "startChar": 17,
+        "endLine": 11,
+        "endChar": 41
+      },
+      "revId": "a88a752045d596153cb9fcc846d74b90380d2173",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0ff1bb6_c91fd78e",
+        "filename": "plat/mediatek/mt8195/platform.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-06-26T07:58:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44fbdfce_ee730512",
       "range": {
         "startLine": 11,
         "startChar": 17,
