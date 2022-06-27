@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9ee07da6_00a49d71",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000342
+      },
+      "writtenOn": "2022-06-27T16:02:26Z",
+      "side": 1,
+      "message": "fixed",
+      "parentUuid": "d0f682b7_79619f49",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 18
+      },
+      "revId": "ed3e74c25102bb21239fdaef350c42f375586d83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dcef57c9_2519ba50",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -37,6 +61,24 @@
       "writtenOn": "2022-06-24T09:25:18Z",
       "side": 1,
       "message": "Split the line to have less that 72 characters.\nThis warning (as  well as the one to change plat/stm32mp1 to stm32mp1) can be found there:\nhttps://ci.trustedfirmware.org/job/tf-a-commitlint/2405/console\n\nThe rule to have the length of the first line less than 50 characters is not mandatory.",
+      "revId": "ed3e74c25102bb21239fdaef350c42f375586d83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7cda949_bc1a6a7d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000342
+      },
+      "writtenOn": "2022-06-27T16:02:26Z",
+      "side": 1,
+      "message": "fixed",
+      "parentUuid": "dcef57c9_2519ba50",
       "revId": "ed3e74c25102bb21239fdaef350c42f375586d83",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -110,6 +152,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5b8d3bb_b5842690",
+        "filename": "plat/st/stm32mp1/stm32mp1_private.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000342
+      },
+      "writtenOn": "2022-06-27T16:02:26Z",
+      "side": 1,
+      "message": "fixed",
+      "parentUuid": "7f9fd8c7_43885712",
+      "revId": "ed3e74c25102bb21239fdaef350c42f375586d83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "246e445f_da806283",
@@ -141,6 +201,24 @@
       "side": 1,
       "message": "will fix",
       "parentUuid": "246e445f_da806283",
+      "revId": "ed3e74c25102bb21239fdaef350c42f375586d83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d079c5f7_5de62d94",
+        "filename": "plat/st/stm32mp1/stm32mp1_private.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000342
+      },
+      "writtenOn": "2022-06-27T16:02:26Z",
+      "side": 1,
+      "message": "fixed",
+      "parentUuid": "5dd0bac7_91597254",
       "revId": "ed3e74c25102bb21239fdaef350c42f375586d83",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -216,6 +294,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3613fb7_89d62b82",
+        "filename": "plat/st/stm32mp1/stm32mp1_private.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1000342
+      },
+      "writtenOn": "2022-06-27T16:02:26Z",
+      "side": 1,
+      "message": "fixed",
+      "parentUuid": "fdfb5e96_487261d1",
+      "range": {
+        "startLine": 753,
+        "startChar": 15,
+        "endLine": 753,
+        "endChar": 18
+      },
+      "revId": "ed3e74c25102bb21239fdaef350c42f375586d83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba13210a_066f910a",
@@ -229,6 +331,30 @@
       "writtenOn": "2022-06-24T16:07:04Z",
       "side": 1,
       "message": "Out of curiosity, in the patch I don\u0027t see this function being called anywhere. Where is it supposed to be called?",
+      "range": {
+        "startLine": 765,
+        "startChar": 5,
+        "endLine": 765,
+        "endChar": 24
+      },
+      "revId": "ed3e74c25102bb21239fdaef350c42f375586d83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3eb5c38d_6a2208af",
+        "filename": "plat/st/stm32mp1/stm32mp1_private.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1000342
+      },
+      "writtenOn": "2022-06-27T16:02:26Z",
+      "side": 1,
+      "message": "removed",
+      "parentUuid": "ba13210a_066f910a",
       "range": {
         "startLine": 765,
         "startChar": 5,
