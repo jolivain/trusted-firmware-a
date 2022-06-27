@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d8d3373_1c4fc350",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-27T13:59:52Z",
+      "side": 1,
+      "message": "I don\u0027t think FW_CONFIG is necessarily a good name here. If I am not mistaken, you mean firmware config in general, as in any of HW_CONFIG / SOC_FW_CONFIG / NT_FW_CONFIG / TOS_FW_CONFIG... But the trouble is that FW_CONFIG actually refers an existing config file so this could be confusing.\n\nHow about \"Couldn\u0027t find config_id %d in bl_mem_params_node\" instead, just like the message at line 155? Then you can even share the \"Couldn\u0027t find config_id %d in \" part of the string between the 2 messages...",
+      "range": {
+        "startLine": 148,
+        "startChar": 14,
+        "endLine": 148,
+        "endChar": 23
+      },
+      "revId": "22d74a66d1c1985f5434a49cd35d5f50f80d1322",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ce58cd9_ffacee24",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-27T13:59:52Z",
+      "side": 1,
+      "message": "Actually shouldn\u0027t this error and the following ones be fatal? As the comment suggests, such overflows would be porting errors and so the relevant DTBs should be corrected? What is the use case for letting the execution continue?",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 4
+      },
+      "revId": "22d74a66d1c1985f5434a49cd35d5f50f80d1322",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
