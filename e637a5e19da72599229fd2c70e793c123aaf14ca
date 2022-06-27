@@ -383,6 +383,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "969b3b0e_27849ac1",
+        "filename": "include/drivers/measured_boot/event_log/event_log.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-27T13:34:39Z",
+      "side": 1,
+      "message": "Hi Raghu,\n\nWe\u0027ve been trying to follow Arm\u0027s SBSG spec (see section 2.4 TPM 2.0 Integration and Measured Boot), which provides recommended strings for the event data that are used for Secure world firmware components. These recommended strings make the EL information appear in the image name.\n\nI think we\u0027ve not considered challenging whether that made sense or not. I guess this should be discussed further with the SBSG spec owners, and/or we could choose to diverge from these recommendations in TF-A implementation.\n\nI guess this all comes down to what information we want to capture along side a measurement. Naively I would think that the EL information does matter for a SP measurement because it is part of the nature of this SP. I imagine (but please correct me if I am wrong!) that SPs typically are meant to run at either S-EL0 or S-EL1, in which case their EL sounds like a property that defines them. Or do we actually have SPs which probe the exception level they are running into and adapt to either case?\n\nI think the root cause of our issues here is that, essentially the SP\u0027s exception level is related to the *execution* environment of the SP ; yet, it is embedded into TF-A BL2 which is just a loader and so it does not know about the execution environment of the images it loads. So I think this information is misplaced. Worse, it is currently statically hard-coded, which means that if a S-EL0 partition was to be replaced by a S-EL1 partition in the FIP, BL2 would need to be recompiled, which sounds wrong to me! I am not sure how to best address this, though...\n\nRegarding embedding the SPMC information in the SP measurement, I think there\u0027s been a misunderstanding. I completely agree with you, \"SPs need not be tied to the SPMC, and whether the SPMC is hafnium or optee should be captured in the measurement of the SPMC binary\". SECURE_RT_EL2_HAFNIUM / SECURE_RT_EL1_OPTEE were proposed as the strings describing the SPMC, not the SPs.",
+      "parentUuid": "3b0e321a_10e63f53",
+      "range": {
+        "startLine": 81,
+        "startChar": 26,
+        "endLine": 81,
+        "endChar": 31
+      },
+      "revId": "e637a5e19da72599229fd2c70e793c123aaf14ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aff640a8_3e22d235",
         "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
         "patchSetId": 3
