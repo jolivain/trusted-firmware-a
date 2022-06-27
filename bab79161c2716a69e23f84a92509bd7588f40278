@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "233c5d40_c15d4a3c",
+        "filename": "services/std_svc/drtm/drtm_dma_prot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-06-27T22:38:49Z",
+      "side": 1,
+      "message": "Could this ever happen? Maybe we should consider it as an error instead?",
+      "revId": "bab79161c2716a69e23f84a92509bd7588f40278",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00a556e3_40c58a2d",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-06-27T22:38:49Z",
+      "side": 1,
+      "message": "I don\u0027t see this value used anywhere further in the code. Can you please explain how it is used and why it has no further use beyond this line?",
+      "revId": "bab79161c2716a69e23f84a92509bd7588f40278",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
