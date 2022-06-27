@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4da320a4_9fe2b289",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d8d920f_1e846905",
+      "range": {
+        "startLine": 1,
+        "startChar": 21,
+        "endLine": 1,
+        "endChar": 22
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51c8177e_33252da6",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-06-20T12:35:56Z",
       "side": 1,
       "message": "As discussed, there are 2 parts in this interface as well. The first one, is as mentioned here. The second one is the register save-restore convention when handling an SMC call from NS.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 29
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6f8fdf5_0f9cedc8",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51c8177e_33252da6",
       "range": {
         "startLine": 13,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c451cf2f_51bb8b53",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fc0d8b0_eb477789",
+      "range": {
+        "startLine": 24,
+        "startChar": 14,
+        "endLine": 24,
+        "endChar": 32
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9b7da9e_b7acf533",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-06-20T12:35:56Z",
       "side": 1,
       "message": "Suggest: \"a separate version number but with the same scheme. However the manifest version is isolated to the manifest and is independent of the global RMM-EL3 communication version.\"",
+      "range": {
+        "startLine": 29,
+        "startChar": 9,
+        "endLine": 29,
+        "endChar": 32
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cbf8a8c_c6438f47",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9b7da9e_b7acf533",
       "range": {
         "startLine": 29,
         "startChar": 9,
@@ -139,6 +235,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07031ae0_97ca4828",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91ab6789_c2f7237f",
+      "range": {
+        "startLine": 32,
+        "startChar": 66,
+        "endLine": 32,
+        "endChar": 79
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f63b9be_ea1087be",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc1db35f_6b4dbc1c",
+      "range": {
+        "startLine": 32,
+        "startChar": 19,
+        "endLine": 32,
+        "endChar": 45
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1010abe9_9c495944",
@@ -152,6 +296,30 @@
       "writtenOn": "2022-06-20T12:35:56Z",
       "side": 1,
       "message": "Can add rationale for RES0.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 12
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bdc7f44_3845e924",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1010abe9_9c495944",
       "range": {
         "startLine": 39,
         "startChar": 0,
@@ -185,6 +353,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19f06f93_1547ae22",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08e04b9f_95f4e9b7",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 57
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b4d85f0_1d7fd65a",
@@ -198,6 +390,30 @@
       "writtenOn": "2022-06-20T12:35:56Z",
       "side": 1,
       "message": "remove since this same scheme is sued for manifest versioning.",
+      "range": {
+        "startLine": 43,
+        "startChar": 64,
+        "endLine": 44,
+        "endChar": 62
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b5e8fe0_8a6c9835",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b4d85f0_1d7fd65a",
       "range": {
         "startLine": 43,
         "startChar": 64,
@@ -231,6 +447,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07d9022f_a898de9b",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23eecaba_fbea2c7e",
+      "range": {
+        "startLine": 46,
+        "startChar": 58,
+        "endLine": 46,
+        "endChar": 59
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "720834b8_de27f57c",
@@ -244,6 +484,30 @@
       "writtenOn": "2022-06-20T12:35:56Z",
       "side": 1,
       "message": "remove.",
+      "range": {
+        "startLine": 50,
+        "startChar": 61,
+        "endLine": 51,
+        "endChar": 56
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ddeee6f_450982f3",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "720834b8_de27f57c",
       "range": {
         "startLine": 50,
         "startChar": 61,
@@ -277,6 +541,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "491b9f3c_da2cfe5c",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8833a2e9_e52a9c20",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 19
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5721585_45d98fd3",
@@ -290,6 +578,24 @@
       "writtenOn": "2022-06-20T12:35:56Z",
       "side": 1,
       "message": "We could add other requirements for the design like being decoupled from BL2 and agnostic of any particular format used for configuration files in the boot chain.",
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c5ace94_f4db4f93",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5721585_45d98fd3",
       "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -457,6 +763,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77fbc4f9_558120fb",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d897460_665547a6",
+      "range": {
+        "startLine": 93,
+        "startChar": 83,
+        "endLine": 93,
+        "endChar": 127
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23317011_3a6e3a7a",
@@ -470,6 +800,30 @@
       "writtenOn": "2022-06-20T12:35:56Z",
       "side": 1,
       "message": "Would prefer avoid reference to TF-A documentation as we intend this to be a stand alone spec. \"Max number of CPUs to be supported as per EL3 firmware\"",
+      "range": {
+        "startLine": 94,
+        "startChar": 8,
+        "endLine": 94,
+        "endChar": 27
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f0094c9_62b592ae",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23317011_3a6e3a7a",
       "range": {
         "startLine": 94,
         "startChar": 8,
@@ -503,6 +857,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d46f37f_ec0ffa1b",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9e61570_33b5980b",
+      "range": {
+        "startLine": 101,
+        "startChar": 24,
+        "endLine": 101,
+        "endChar": 25
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "258c43e6_57208a62",
@@ -516,6 +894,30 @@
       "writtenOn": "2022-06-20T12:35:56Z",
       "side": 1,
       "message": "EL3 ?",
+      "range": {
+        "startLine": 109,
+        "startChar": 20,
+        "endLine": 109,
+        "endChar": 24
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58198941_df1ac06f",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "258c43e6_57208a62",
       "range": {
         "startLine": 109,
         "startChar": 20,
@@ -549,6 +951,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a68c3535_a79d133b",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53905eab_713a3969",
+      "range": {
+        "startLine": 110,
+        "startChar": 75,
+        "endLine": 110,
+        "endChar": 79
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2477efac_6d2c7162",
@@ -572,6 +998,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "824378ee_85f4c1e5",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2477efac_6d2c7162",
+      "range": {
+        "startLine": 111,
+        "startChar": 72,
+        "endLine": 111,
+        "endChar": 73
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "954315cb_3681e182",
@@ -585,6 +1035,30 @@
       "writtenOn": "2022-06-20T12:35:56Z",
       "side": 1,
       "message": "We could have the EL3 generic diagram first. The TF-A specific diagram can be added later as a TF-A implementation detail ?",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 4
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a9b3bf6_63c8a399",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "954315cb_3681e182",
       "range": {
         "startLine": 122,
         "startChar": 0,
@@ -643,6 +1117,30 @@
       "writtenOn": "2022-06-20T12:35:56Z",
       "side": 1,
       "message": "Can  be made consistent. Either use Caps for regs or small everywhere.",
+      "range": {
+        "startLine": 131,
+        "startChar": 54,
+        "endLine": 131,
+        "endChar": 55
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17f3bf41_c08a1889",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4b63de3_51ccfae0",
       "range": {
         "startLine": 131,
         "startChar": 54,
@@ -851,6 +1349,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c0173f2_464ab4c2",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e0a599d_629ea550",
+      "range": {
+        "startLine": 160,
+        "startChar": 5,
+        "endLine": 160,
+        "endChar": 44
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13dcfd05_6f71b823",
@@ -864,6 +1386,30 @@
       "writtenOn": "2022-06-20T12:35:56Z",
       "side": 1,
       "message": "EL3",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 5
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bca3dc17_392aa56e",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13dcfd05_6f71b823",
       "range": {
         "startLine": 163,
         "startChar": 0,
@@ -891,6 +1437,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fb3a996_ea88d578",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Yes, there are plans to add build options on TRP to override the default platform parameters to induce errors. It should be easy then to use CI to test this functionality.",
+      "parentUuid": "8909b75f_80dabf0d",
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ec5448a_8852d07b",
@@ -914,6 +1478,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3defe700_b9d631c7",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ec5448a_8852d07b",
+      "range": {
+        "startLine": 177,
+        "startChar": 69,
+        "endLine": 178,
+        "endChar": 37
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "341aedfb_5b9920fe",
@@ -927,6 +1515,30 @@
       "writtenOn": "2022-06-20T12:35:56Z",
       "side": 1,
       "message": "\"and the rules explained in\n:ref:`rmm_el3_ifc_versioning` apply on this version as well.\"",
+      "range": {
+        "startLine": 179,
+        "startChar": 21,
+        "endLine": 180,
+        "endChar": 50
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0b6a373_50355cb6",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "341aedfb_5b9920fe",
       "range": {
         "startLine": 179,
         "startChar": 21,
@@ -983,6 +1595,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba549c51_738ea647",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5238f31_2af303d0",
+      "range": {
+        "startLine": 184,
+        "startChar": 20,
+        "endLine": 184,
+        "endChar": 75
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "469347e9_239d4a7e",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "190451d0_00bb7d5d",
+      "range": {
+        "startLine": 184,
+        "startChar": 77,
+        "endLine": 184,
+        "endChar": 112
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0a870f8_57df8c9d",
@@ -996,6 +1656,30 @@
       "writtenOn": "2022-06-20T12:35:56Z",
       "side": 1,
       "message": "We seem to just use \"EL3\" to refer to EL3 firmware. Suggest to stick to that for consistency.",
+      "range": {
+        "startLine": 188,
+        "startChar": 26,
+        "endLine": 188,
+        "endChar": 28
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90086953_07973ebf",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0a870f8_57df8c9d",
       "range": {
         "startLine": 188,
         "startChar": 26,
@@ -1047,6 +1731,54 @@
         "startChar": 73,
         "endLine": 189,
         "endChar": 77
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97f07650_1bb92958",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba16f195_d0bf54e9",
+      "range": {
+        "startLine": 189,
+        "startChar": 73,
+        "endLine": 189,
+        "endChar": 77
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b714b3d7_25ec6564",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee2dd051_526345f4",
+      "range": {
+        "startLine": 189,
+        "startChar": 27,
+        "endLine": 189,
+        "endChar": 28
       },
       "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
@@ -1110,6 +1842,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "852ddf11_dda50052",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "This has been removed as per review comments on https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/15342/comment/4756f10a_d0f8c7c7/",
+      "parentUuid": "7faeff87_0f9014a4",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 4
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "208af8f9_451fb053",
@@ -1133,6 +1889,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2e35aad_7aadfb42",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "208af8f9_451fb053",
+      "range": {
+        "startLine": 221,
+        "startChar": 8,
+        "endLine": 221,
+        "endChar": 28
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64360b12_3e29f179",
@@ -1146,6 +1926,30 @@
       "writtenOn": "2022-06-20T12:35:56Z",
       "side": 1,
       "message": "\"RMM-EL3 Runtime Service Interface\",\nInclude a link to this section from the top reference",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 224,
+        "endChar": 30
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59df22e9_e0fdd113",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64360b12_3e29f179",
       "range": {
         "startLine": 224,
         "startChar": 0,
@@ -1309,6 +2113,30 @@
       "writtenOn": "2022-06-20T12:35:56Z",
       "side": 1,
       "message": "remove \"1.0\"",
+      "range": {
+        "startLine": 413,
+        "startChar": 29,
+        "endLine": 413,
+        "endChar": 33
+      },
+      "revId": "f6fd16f946dfebfb017b2f66ea55f71a2a0b9622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "721f123e_ec11b0fb",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T17:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64d13ace_06f09af1",
       "range": {
         "startLine": 413,
         "startChar": 29,
