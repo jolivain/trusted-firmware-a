@@ -240,6 +240,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "197c81f5_4084d7ae",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-06-27T18:12:18Z",
+      "side": 1,
+      "message": "If rmm_core_manifest.h is included when building for aarch32, then the CASSERT on lines 45 and 47 will fail (see https://ci.trustedfirmware.org/job/tf-a-builder/1068897/console for instance). So I need to add this #if back (I could also include it only when ARCH \u003d\u003d aarch64 but if I have to add an #if, I rather build on ENABLE_RME\u003d1)\n\nIf rmm_core_manifest.h is not included, there will be some build errors (rmm_manifest_t will not be defined).\n\nOptions to fix this\n\n- Restore the #if macros or\n- wrap the CASSERTs inside #if macros (not happy with this at all) or\n- pack rmm_manifest so it will always use the same size.\n\nThoughts?",
+      "parentUuid": "dc27b418_3784b340",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 21
+      },
+      "revId": "ab7f9ebd378f7f13a7537fadd9cb8cdcc2622827",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1510f807_9a03380a",
         "filename": "include/plat/common/platform.h",
         "patchSetId": 7
