@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b23af5a_5931a2be",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-06-27T19:27:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70aea2bf_541a2761",
+      "range": {
+        "startLine": 148,
+        "startChar": 14,
+        "endLine": 148,
+        "endChar": 23
+      },
+      "revId": "22d74a66d1c1985f5434a49cd35d5f50f80d1322",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ce58cd9_ffacee24",
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "\u003e OK, it could be useful to sanity-check all configuration files to enable developers to fix them all at once rather than individually, but we can still fail hard at the end of the process, right? \nYes, that\u0027s right. There should be a hard failure at the end. This patch only added verbose message, but did not do much else; let me add this hard failure at the end.",
       "parentUuid": "699c3459_69af3f41",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 4
+      },
+      "revId": "22d74a66d1c1985f5434a49cd35d5f50f80d1322",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b6e43d5_7e12ca2b",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-06-27T19:27:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad44a8a8_0ed60075",
       "range": {
         "startLine": 170,
         "startChar": 0,
