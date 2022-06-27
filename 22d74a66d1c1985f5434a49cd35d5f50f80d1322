@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "70aea2bf_541a2761",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-06-27T14:21:38Z",
+      "side": 1,
+      "message": "Agree, let me rename this to config_id.",
+      "parentUuid": "0d8d3373_1c4fc350",
+      "range": {
+        "startLine": 148,
+        "startChar": 14,
+        "endLine": 148,
+        "endChar": 23
+      },
+      "revId": "22d74a66d1c1985f5434a49cd35d5f50f80d1322",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3ce58cd9_ffacee24",
         "filename": "plat/arm/common/arm_dyn_cfg.c",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2022-06-27T13:59:52Z",
       "side": 1,
       "message": "Actually shouldn\u0027t this error and the following ones be fatal? As the comment suggests, such overflows would be porting errors and so the relevant DTBs should be corrected? What is the use case for letting the execution continue?",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 4
+      },
+      "revId": "22d74a66d1c1985f5434a49cd35d5f50f80d1322",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7678463b_a265618c",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-06-27T14:21:38Z",
+      "side": 1,
+      "message": "By doing this, it would be possible to sanity-check all configurations instead of stopping at the first faulty one. This may enable developers to fix the configuration(s) at once rather than individually. Let me know what do you think?",
+      "parentUuid": "3ce58cd9_ffacee24",
       "range": {
         "startLine": 170,
         "startChar": 0,
