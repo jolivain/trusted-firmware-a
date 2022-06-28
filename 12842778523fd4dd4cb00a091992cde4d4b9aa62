@@ -105,6 +105,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1e662af_27505966",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-06-28T15:52:55Z",
+      "side": 1,
+      "message": "Please update copyright as mentioned, otherwise looks good to go!\n\n@Manoj\n@Chandni\nPlease upgrade/provide COR+1 votes for this patch stack once you review them.",
+      "revId": "12842778523fd4dd4cb00a091992cde4d4b9aa62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb9304d1_839d133a",
@@ -118,6 +135,30 @@
       "writtenOn": "2022-03-31T14:13:33Z",
       "side": 1,
       "message": "could this be changed to 2022?",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "12842778523fd4dd4cb00a091992cde4d4b9aa62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70313ba5_c5105480",
+        "filename": "fdts/morello.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-06-28T15:52:55Z",
+      "side": 1,
+      "message": "Yes, please update copyright to 2022",
+      "parentUuid": "fb9304d1_839d133a",
       "range": {
         "startLine": 2,
         "startChar": 22,
