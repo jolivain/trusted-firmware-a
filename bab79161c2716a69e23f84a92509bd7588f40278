@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd00e70b_975f7864",
+        "filename": "services/std_svc/drtm/drtm_dma_prot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-06-28T11:40:33Z",
+      "side": 1,
+      "message": "This was added from porter\u0027s PoV to check no SMMUs been present at unusual PA (0x0) address. I thought this check is really not needed. I confirmed about this with Lucian too, I will remove this check in the next version of the patch.",
+      "parentUuid": "233c5d40_c15d4a3c",
+      "revId": "bab79161c2716a69e23f84a92509bd7588f40278",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "00a556e3_40c58a2d",
         "filename": "services/std_svc/drtm/drtm_main.c",
         "patchSetId": 5
@@ -31,6 +49,24 @@
       "writtenOn": "2022-06-27T22:38:49Z",
       "side": 1,
       "message": "I don\u0027t see this value used anywhere further in the code. Can you please explain how it is used and why it has no further use beyond this line?",
+      "revId": "bab79161c2716a69e23f84a92509bd7588f40278",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4800fb18_437a5368",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-06-28T11:40:33Z",
+      "side": 1,
+      "message": "This value will be used to publicize the boot-PE id via the DRTM FEATURES SMC call, and also it will be used to verify whether DLME is being launched from boot PE in subsequent patches (that I will post it soon).",
+      "parentUuid": "00a556e3_40c58a2d",
       "revId": "bab79161c2716a69e23f84a92509bd7588f40278",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
