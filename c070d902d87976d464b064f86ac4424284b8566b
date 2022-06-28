@@ -144,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0a95e2e3_9216e1e7",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-28T14:27:17Z",
+      "side": 1,
+      "message": "For this version of RMM-EL3 IFC, only a 4K buffer will be shared. So we can enforce it here. If in future a larger buffer is needed, then it would force a spec version update and we can cater for this assert then.",
+      "parentUuid": "d0646970_6f9f61dc",
+      "range": {
+        "startLine": 206,
+        "startChar": 8,
+        "endLine": 206,
+        "endChar": 67
+      },
+      "revId": "c070d902d87976d464b064f86ac4424284b8566b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "622f06b6_01d513b7",
         "filename": "services/std_svc/rmmd/rmmd_main.c",
         "patchSetId": 5
@@ -226,6 +250,30 @@
       "side": 1,
       "message": "I don\u0027t think it is necessary at the moment. x2 is populated with the actual PLATFORM_CORE_COUNT, so we know that it is not out of bounds.\n\nBut I think the comment can be misleading, so I will just remove it.",
       "parentUuid": "990e8dc4_d0c1a0b5",
+      "range": {
+        "startLine": 83,
+        "startChar": 28,
+        "endLine": 83,
+        "endChar": 46
+      },
+      "revId": "c070d902d87976d464b064f86ac4424284b8566b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba834e5d_98b2a612",
+        "filename": "services/std_svc/rmmd/trp/trp_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-28T14:27:17Z",
+      "side": 1,
+      "message": "Hmm this is because TRP is build in TF-A tree. but from a spec PoV TRP needs to check this since it has no awareness whether EL3 has sent something it can handle. So checking here would be good ?",
+      "parentUuid": "ec99ac41_d7427128",
       "range": {
         "startLine": 83,
         "startChar": 28,
