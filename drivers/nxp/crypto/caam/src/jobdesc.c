@@ -101,8 +101,10 @@ int cnstr_rng_instantiate_jobdesc(uint32_t *desc)
 {
 	desc_init(desc);
 	desc_add_word(desc, U(0xb0800000));
-	/* Class1 Alg Operation,RNG Optype, Instantiate */
-	desc_add_word(desc, U(0x82500004));
+	/* Class1 Alg Operation,RNG Optype,
+	 * Instantiate with Predicitive Resistence enable.
+	 */
+	desc_add_word(desc, U(0x82500006));
 	/* Wait for done */
 	desc_add_word(desc, U(0xa2000001));
 	/*Load to clear written */
