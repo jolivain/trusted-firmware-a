@@ -157,6 +157,30 @@
       },
       "revId": "588b8e3538ff9427c09653897f1c30b415d09e12",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88d25021_aa7ea26b",
+        "filename": "lib/extensions/sme/sme.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000686
+      },
+      "writtenOn": "2022-06-29T11:48:24Z",
+      "side": 1,
+      "message": "Right, they are separate but sadly not independent which is rather user hostile as things stand.",
+      "parentUuid": "e1ad5698_9e284b2d",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 22
+      },
+      "revId": "588b8e3538ff9427c09653897f1c30b415d09e12",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
