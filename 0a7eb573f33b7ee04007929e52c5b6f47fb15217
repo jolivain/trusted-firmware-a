@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc1633c9_83459e9f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2022-06-30T08:59:53Z",
+      "side": 1,
+      "message": "nit: Please reformat this to comply with 50/72 line length rule in commit messages. (max 50 chars for header, 72 chars for the body)",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 49
+      },
+      "revId": "0a7eb573f33b7ee04007929e52c5b6f47fb15217",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "475765d7_628b0c26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2022-06-30T08:59:53Z",
+      "side": 1,
+      "message": "Looks good to me. ZCR_ELx is indeed just a software boundary and according to specification will not cause issues if the model/hardware do not implement such a vector lengths.\nPlease update the commit message though. I think code-style checks would complain",
+      "revId": "0a7eb573f33b7ee04007929e52c5b6f47fb15217",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
