@@ -68,6 +68,23 @@
       "message": "Ah, that\u0027s not really at all visible or particularly easy to run locally (it looks like it requires some NPM stuff people won\u0027t tend to have).",
       "revId": "e48431b516f4bb73c71f3a7ed5a802566644bc7d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9eef2429_3449e81f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-06-30T13:53:37Z",
+      "side": 1,
+      "message": "Regarding CI I had a suspicious looking failure from yesterdays run and then saw the patch had not been rebased recently and than can be a cause. So rebased and re run today and indeed some CI Infra issues seem to have occurred. Will try again. Once narrowed down you can re run tests on single tests.\n\nFor now I have restarted this failed section. https://ci.trustedfirmware.org/job/tf-a-ci-gateway/12535/",
+      "revId": "e48431b516f4bb73c71f3a7ed5a802566644bc7d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
