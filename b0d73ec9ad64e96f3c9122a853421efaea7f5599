@@ -1,0 +1,372 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0542eba1_5fa65852",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-30T06:02:15Z",
+      "side": 1,
+      "message": "need to be consistent. Use \"RMM-EL3 runtime interface\" to refer to the second part part.",
+      "range": {
+        "startLine": 26,
+        "startChar": 15,
+        "endLine": 26,
+        "endChar": 16
+      },
+      "revId": "b0d73ec9ad64e96f3c9122a853421efaea7f5599",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5b2b86a_83408cb0",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-30T06:02:15Z",
+      "side": 1,
+      "message": "This sentence is not needed to convey the idea as we already established that the it is a separate version in the prev sentence.",
+      "range": {
+        "startLine": 29,
+        "startChar": 57,
+        "endLine": 31,
+        "endChar": 22
+      },
+      "revId": "b0d73ec9ad64e96f3c9122a853421efaea7f5599",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5557f0b_06ca7596",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-30T06:02:15Z",
+      "side": 1,
+      "message": "\"version numbers\"",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 11
+      },
+      "revId": "b0d73ec9ad64e96f3c9122a853421efaea7f5599",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a0de092_a49c1d9d",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-30T06:02:15Z",
+      "side": 1,
+      "message": "repeated, not needed.",
+      "range": {
+        "startLine": 51,
+        "startChar": 41,
+        "endLine": 51,
+        "endChar": 74
+      },
+      "revId": "b0d73ec9ad64e96f3c9122a853421efaea7f5599",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a368e8c9_d87601cd",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-30T06:02:15Z",
+      "side": 1,
+      "message": "parts of RMM.",
+      "range": {
+        "startLine": 55,
+        "startChar": 58,
+        "endLine": 55,
+        "endChar": 71
+      },
+      "revId": "b0d73ec9ad64e96f3c9122a853421efaea7f5599",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "760a4a68_216d61d9",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-30T06:02:15Z",
+      "side": 1,
+      "message": "\"It should also allow RMM to be decoupled from other Boot loader images in the boot sequence and remain agnostic of any particular format used for configuration files.\"",
+      "range": {
+        "startLine": 71,
+        "startChar": 55,
+        "endLine": 71,
+        "endChar": 60
+      },
+      "revId": "b0d73ec9ad64e96f3c9122a853421efaea7f5599",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2066e8f6_8bd3128f",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-30T06:02:15Z",
+      "side": 1,
+      "message": "The boot manifest and the associated platform data in it can be dynamically created by EL3 and there is no restriction on how the data can be obtained (e.g by DTB, Hoblist, or other).",
+      "range": {
+        "startLine": 74,
+        "startChar": 71,
+        "endLine": 78,
+        "endChar": 0
+      },
+      "revId": "b0d73ec9ad64e96f3c9122a853421efaea7f5599",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc1d07aa_e0ec8e95",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-30T06:02:15Z",
+      "side": 1,
+      "message": "nit: T",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 1
+      },
+      "revId": "b0d73ec9ad64e96f3c9122a853421efaea7f5599",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24efc9c3_9a71a36a",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-30T06:02:15Z",
+      "side": 1,
+      "message": "add: \"..as part of RMI handling.\"",
+      "range": {
+        "startLine": 84,
+        "startChar": 16,
+        "endLine": 84,
+        "endChar": 17
+      },
+      "revId": "b0d73ec9ad64e96f3c9122a853421efaea7f5599",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b36ee9b_8b9b4d05",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-30T06:02:15Z",
+      "side": 1,
+      "message": "maximum number of CPUs to be supported at runtime  (passed in x2).",
+      "range": {
+        "startLine": 100,
+        "startChar": 78,
+        "endLine": 100,
+        "endChar": 132
+      },
+      "revId": "b0d73ec9ad64e96f3c9122a853421efaea7f5599",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5f1ee5c_e125d4af",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-30T06:02:15Z",
+      "side": 1,
+      "message": "\"..to be supported at runtime. RMM should ensure that it can support this maximum number.\"",
+      "range": {
+        "startLine": 102,
+        "startChar": 30,
+        "endLine": 102,
+        "endChar": 55
+      },
+      "revId": "b0d73ec9ad64e96f3c9122a853421efaea7f5599",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef6195da_62c0b202",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-30T06:02:15Z",
+      "side": 1,
+      "message": "sorry, I did not mean this to be pasted. This was something to find out.\n\n(IWB-OWB-ISH) is the correct attribute I think.",
+      "range": {
+        "startLine": 108,
+        "startChar": 25,
+        "endLine": 108,
+        "endChar": 33
+      },
+      "revId": "b0d73ec9ad64e96f3c9122a853421efaea7f5599",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3beada66_cae2b2fb",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-30T06:02:15Z",
+      "side": 1,
+      "message": "\"..less that maximum number of CPUs to be supported at runtime.",
+      "range": {
+        "startLine": 145,
+        "startChar": 68,
+        "endLine": 145,
+        "endChar": 133
+      },
+      "revId": "b0d73ec9ad64e96f3c9122a853421efaea7f5599",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1be4cbd5_af3b5269",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-30T06:02:15Z",
+      "side": 1,
+      "message": "to e consistent in name, lose this word in the heading.",
+      "range": {
+        "startLine": 204,
+        "startChar": 17,
+        "endLine": 204,
+        "endChar": 25
+      },
+      "revId": "b0d73ec9ad64e96f3c9122a853421efaea7f5599",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24fd2287_4d993362",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-30T06:02:15Z",
+      "side": 1,
+      "message": "\"return an\"",
+      "range": {
+        "startLine": 238,
+        "startChar": 13,
+        "endLine": 238,
+        "endChar": 17
+      },
+      "revId": "b0d73ec9ad64e96f3c9122a853421efaea7f5599",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd8c0951_d9ee0fb6",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-06-30T06:02:15Z",
+      "side": 1,
+      "message": "RAK is not std abbr. Need to expand,",
+      "range": {
+        "startLine": 271,
+        "startChar": 41,
+        "endLine": 271,
+        "endChar": 45
+      },
+      "revId": "b0d73ec9ad64e96f3c9122a853421efaea7f5599",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
