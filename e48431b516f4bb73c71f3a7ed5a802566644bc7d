@@ -121,6 +121,23 @@
       "parentUuid": "a83f2fb9_c4622235",
       "revId": "e48431b516f4bb73c71f3a7ed5a802566644bc7d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cb07b29_2715394b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000686
+      },
+      "writtenOn": "2022-06-30T14:18:22Z",
+      "side": 1,
+      "message": "I already pushed and rewrapped for both limits, it was more a suggestion that it\u0027d be good to make these things more visible/discoverable to avoid review round trips (especially the 50 characters for the subject, that\u0027s a very tight limit).",
+      "revId": "e48431b516f4bb73c71f3a7ed5a802566644bc7d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
