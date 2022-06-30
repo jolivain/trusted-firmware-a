@@ -405,6 +405,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4b69c72_83080608",
+        "filename": "include/drivers/measured_boot/event_log/event_log.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-06-30T14:46:17Z",
+      "side": 1,
+      "message": "This is the last open issue in this patch. This undoubtedly requires further discussion but I think this should not delay this patch further. I suggest we stick to the original names suggested by Imre (SP1 - SP8) for the time being and merge the patch. We can continue discussing the matter in parallel and if we find a satisfying solution, post a new patch to change these strings.",
+      "parentUuid": "969b3b0e_27849ac1",
+      "range": {
+        "startLine": 81,
+        "startChar": 26,
+        "endLine": 81,
+        "endChar": 31
+      },
+      "revId": "e637a5e19da72599229fd2c70e793c123aaf14ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aff640a8_3e22d235",
