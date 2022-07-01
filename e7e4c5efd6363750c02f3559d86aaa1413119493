@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0814efe_fc1be13d",
+        "filename": "bl32/tsp/ffa_helpers.c",
+        "patchSetId": 59
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-07-01T16:24:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "130f0d7b_32061a6c",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "e7e4c5efd6363750c02f3559d86aaa1413119493",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5eb34ad8_05ea10f7",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-06-06T13:17:42Z",
       "side": 1,
       "message": "remove",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 15
+      },
+      "revId": "e7e4c5efd6363750c02f3559d86aaa1413119493",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f2f1ed5_ecf1a0be",
+        "filename": "bl32/tsp/ffa_helpers.c",
+        "patchSetId": 59
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-07-01T16:24:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5eb34ad8_05ea10f7",
       "range": {
         "startLine": 7,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40b77d4e_0b7ad35a",
+        "filename": "bl32/tsp/ffa_helpers.h",
+        "patchSetId": 59
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-07-01T16:24:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "faebd806_bfb6ec88",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "e7e4c5efd6363750c02f3559d86aaa1413119493",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3d81f37_80ab61e4",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-06-06T13:17:42Z",
       "side": 1,
       "message": "Would it be possible to rather use this condition in the file(s) which include(s) this header?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 15
+      },
+      "revId": "e7e4c5efd6363750c02f3559d86aaa1413119493",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9585b3df_416d5473",
+        "filename": "bl32/tsp/ffa_helpers.h",
+        "patchSetId": 59
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-07-01T16:24:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3d81f37_80ab61e4",
       "range": {
         "startLine": 7,
         "startChar": 0,
@@ -212,6 +308,24 @@
       "side": 1,
       "message": "+1",
       "parentUuid": "552fb117_5836991f",
+      "revId": "e7e4c5efd6363750c02f3559d86aaa1413119493",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e96091d1_08a4fe12",
+        "filename": "bl32/tsp/ffa_helpers.h",
+        "patchSetId": 59
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-07-01T16:24:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "517bb45a_02dc7149",
       "revId": "e7e4c5efd6363750c02f3559d86aaa1413119493",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
