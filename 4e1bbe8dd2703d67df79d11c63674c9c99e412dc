@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7b63373_250dec67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-01T12:37:07Z",
+      "side": 1,
+      "message": "Unconditional increase in the MAX_XLAT_TABLES causes below build failed -\n\u0027make  BL2_AT_EL3\u003d1 CROSS_COMPILE\u003daarch64-none-elf- PLAT\u003dfvp ENABLE_PIE\u003d1  DEBUG\u003d1 V\u003d1 fiptool all’\nHence conditionally increased the MAX_XLAT_TABLES value.",
+      "revId": "4e1bbe8dd2703d67df79d11c63674c9c99e412dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
