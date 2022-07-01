@@ -67,6 +67,29 @@
       "message": "Please follow Coding Style, use\n{}",
       "revId": "8fead4b86ee5dd6f607af3f30caf4248708c1f14",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a221b29_f542faf0",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-01T08:43:03Z",
+      "side": 1,
+      "message": "Just a suggestion, looks like this function now handling both gic600 and gic700 cases, Will it makes sense to rename this function to gicx00_multichip_init or something similar?\nSimilarly, we should rename the source file name to gicx00_multichip.c(?)",
+      "range": {
+        "startLine": 291,
+        "startChar": 5,
+        "endLine": 291,
+        "endChar": 26
+      },
+      "revId": "8fead4b86ee5dd6f607af3f30caf4248708c1f14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
