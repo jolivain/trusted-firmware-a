@@ -155,6 +155,23 @@
       "message": "Trying the CI again. There were some general infra issues but on one run that looked to have no infra issues I saw a failure with https://ci.trustedfirmware.org/view/TF-A/job/tf-a-ci-gateway/12516/. However the last time I saw that was before a rebase and we have not had a non infra caused failure run since. I want to see a clean run on this test given its focus.",
       "revId": "e48431b516f4bb73c71f3a7ed5a802566644bc7d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63412445_fb96fa3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-07-01T16:47:37Z",
+      "side": 1,
+      "message": "Still having CI issues. Looks like someone is up with server loads. Raised a ticket with the CI Ops folks https://linaro.atlassian.net/browse/TFC-297\n",
+      "revId": "e48431b516f4bb73c71f3a7ed5a802566644bc7d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
