@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5515808_f3ed0640",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-07-01T14:07:10Z",
+      "side": 1,
+      "message": "nit: plat_get_total_smmus (num is slightly redundant)",
+      "range": {
+        "startLine": 413,
+        "startChar": 13,
+        "endLine": 413,
+        "endChar": 37
+      },
+      "revId": "fd7468cb6980cd420a3bea1696011fba58f58449",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad03a156_9ff1acc2",
+        "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-07-01T14:07:10Z",
+      "side": 1,
+      "message": "nit: is there a reason this is expressed in a more verbose manner than line 37?",
+      "range": {
+        "startLine": 41,
+        "startChar": 1,
+        "endLine": 46,
+        "endChar": 2
+      },
+      "revId": "fd7468cb6980cd420a3bea1696011fba58f58449",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
