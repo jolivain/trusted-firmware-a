@@ -138,6 +138,23 @@
       "message": "I already pushed and rewrapped for both limits, it was more a suggestion that it\u0027d be good to make these things more visible/discoverable to avoid review round trips (especially the 50 characters for the subject, that\u0027s a very tight limit).",
       "revId": "e48431b516f4bb73c71f3a7ed5a802566644bc7d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45fbd56e_4a9f3686",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-07-01T08:48:53Z",
+      "side": 1,
+      "message": "Trying the CI again. There were some general infra issues but on one run that looked to have no infra issues I saw a failure with https://ci.trustedfirmware.org/view/TF-A/job/tf-a-ci-gateway/12516/. However the last time I saw that was before a rebase and we have not had a non infra caused failure run since. I want to see a clean run on this test given its focus.",
+      "revId": "e48431b516f4bb73c71f3a7ed5a802566644bc7d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
