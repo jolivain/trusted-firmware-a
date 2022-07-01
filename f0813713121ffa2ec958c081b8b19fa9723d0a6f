@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9276023_1c109b28",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-07-01T12:07:40Z",
+      "side": 1,
+      "message": "Yeah, I already fixed this. For some reason my editor wasn\u0027t pointing out the conflicts.",
+      "parentUuid": "adeebbc0_487d88cd",
+      "revId": "f0813713121ffa2ec958c081b8b19fa9723d0a6f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1caa282_99632aea",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-06-30T05:14:00Z",
       "side": 1,
       "message": "#if ENABLE_RME\n\nI still get why this #if is needed. Better to have a chat to resolve quickly.",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 21
+      },
+      "revId": "f0813713121ffa2ec958c081b8b19fa9723d0a6f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59d1e51f_bdcc4ce4",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-07-01T12:07:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1caa282_99632aea",
       "range": {
         "startLine": 16,
         "startChar": 4,
@@ -64,6 +106,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f53cfa8_dd3cc4d2",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-07-01T12:07:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45bd287d_c57a2012",
+      "range": {
+        "startLine": 311,
+        "startChar": 4,
+        "endLine": 311,
+        "endChar": 21
+      },
+      "revId": "f0813713121ffa2ec958c081b8b19fa9723d0a6f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ec4df79_7c0b2b68",
@@ -77,6 +143,24 @@
       "writtenOn": "2022-06-30T05:14:00Z",
       "side": 1,
       "message": "not needed.",
+      "revId": "f0813713121ffa2ec958c081b8b19fa9723d0a6f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5323d346_99c77ece",
+        "filename": "include/services/rmm_core_manifest.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-07-01T12:07:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ec4df79_7c0b2b68",
       "revId": "f0813713121ffa2ec958c081b8b19fa9723d0a6f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -98,6 +182,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7dcacbb_b082e85b",
+        "filename": "include/services/trp/trp_helpers.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-07-01T12:07:40Z",
+      "side": 1,
+      "message": "This had to be moved to trp_helpers.c, actually",
+      "parentUuid": "2d3ef687_489eb8a6",
+      "revId": "f0813713121ffa2ec958c081b8b19fa9723d0a6f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e472252f_f46799c9",
@@ -111,6 +213,24 @@
       "writtenOn": "2022-06-30T05:14:00Z",
       "side": 1,
       "message": "this file should not be included in a generic header.",
+      "revId": "f0813713121ffa2ec958c081b8b19fa9723d0a6f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3f20976_121e1808",
+        "filename": "include/services/trp/trp_helpers.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-07-01T12:07:40Z",
+      "side": 1,
+      "message": "replaced by platform_def.h",
+      "parentUuid": "e472252f_f46799c9",
       "revId": "f0813713121ffa2ec958c081b8b19fa9723d0a6f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -134,6 +254,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e8395a77_42a4b00a",
+        "filename": "plat/arm/common/trp/arm_trp_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-07-01T12:07:40Z",
+      "side": 1,
+      "message": "I am not sure but I think we have discussed this before:\n\n* From the maintenance point of view, it might be better to have an API for processing the manifest rather than embedding the code in another API, in case, for instance, that the manifest changes/grows.\n\n* It is expected that the manifest can carry platform data and memory mappings (e.g the PA of peripherals such as the UART). In this case, the manifest must be processed as early as possible. In this particular case, we want to process it before the UART is enabled, so when we pass its PA through the manifest the changes needed are minimal.",
+      "parentUuid": "481aa137_faf29685",
+      "revId": "f0813713121ffa2ec958c081b8b19fa9723d0a6f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "351bc26f_8e87411d",
         "filename": "plat/common/plat_rmmd_manifest.c",
         "patchSetId": 13
@@ -145,6 +283,24 @@
       "writtenOn": "2022-06-30T05:14:00Z",
       "side": 1,
       "message": "Lets not add a common plat function yet, Implement next to other rmmd plat fns implementations",
+      "revId": "f0813713121ffa2ec958c081b8b19fa9723d0a6f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "895a7d56_5424eec6",
+        "filename": "plat/common/plat_rmmd_manifest.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-07-01T12:07:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "351bc26f_8e87411d",
       "revId": "f0813713121ffa2ec958c081b8b19fa9723d0a6f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -166,6 +322,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dee2e7a_0ead935b",
+        "filename": "services/std_svc/rmmd/rmmd_attest.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-07-01T12:07:40Z",
+      "side": 1,
+      "message": "This is needed to separate the header groups: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering",
+      "parentUuid": "14af2cc3_4df72321",
+      "revId": "f0813713121ffa2ec958c081b8b19fa9723d0a6f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4824625_8b2f20f4",
@@ -179,6 +353,24 @@
       "writtenOn": "2022-06-30T05:14:00Z",
       "side": 1,
       "message": "do not add plat specifc header in a generic header.",
+      "revId": "f0813713121ffa2ec958c081b8b19fa9723d0a6f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e320fdc_a3b539e4",
+        "filename": "services/std_svc/rmmd/trp/trp_private.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-07-01T12:07:40Z",
+      "side": 1,
+      "message": "Removed. Not needed",
+      "parentUuid": "e4824625_8b2f20f4",
       "revId": "f0813713121ffa2ec958c081b8b19fa9723d0a6f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
