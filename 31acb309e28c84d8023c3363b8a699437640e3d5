@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "152d3fe6_50a422d3",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-07-01T13:54:32Z",
+      "side": 1,
+      "message": "`psci_is_last_on_core_safe` suggests this function returns a boolean (on core safe || !safe), naming could be clearer about what the function does.",
+      "range": {
+        "startLine": 1030,
+        "startChar": 13,
+        "endLine": 1030,
+        "endChar": 38
+      },
+      "revId": "31acb309e28c84d8023c3363b8a699437640e3d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ea11d53_f9475e28",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-07-01T13:54:32Z",
+      "side": 1,
+      "message": "This explanation is slightly out of context and confusing. It might be worthwhile moving it closer to the code it explains at line 1045 and rewording it.",
+      "revId": "31acb309e28c84d8023c3363b8a699437640e3d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc76aa89_ca5d5fd7",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 1040,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-07-01T13:54:32Z",
+      "side": 1,
+      "message": "Not a comment but a question: why do we traverse invalid parents? Sounds slightly counter intuitive.",
+      "range": {
+        "startLine": 1039,
+        "startChar": 50,
+        "endLine": 1040,
+        "endChar": 14
+      },
+      "revId": "31acb309e28c84d8023c3363b8a699437640e3d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
