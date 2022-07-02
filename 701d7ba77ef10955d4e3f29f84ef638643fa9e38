@@ -16,6 +16,24 @@
       "message": "Shouldn\u0027t this be `a-\u003edlme_img_off + a-\u003edlme_img_size \u003c a-\u003edlme_size`?",
       "revId": "701d7ba77ef10955d4e3f29f84ef638643fa9e38",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4c79ac9_93813f64",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-02T18:24:41Z",
+      "side": 1,
+      "message": "The offset check is followed by more checks in this function. \nIs that the check you mentioned being implicitly tested on line 302 by ensuring that \u0027dlme_data_start \u003e dlme_img_end\u0027? (and dlme_data_start \u003c dlme_data_end).",
+      "parentUuid": "e0abbf7b_9fb3564c",
+      "revId": "701d7ba77ef10955d4e3f29f84ef638643fa9e38",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
