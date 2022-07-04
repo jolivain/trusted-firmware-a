@@ -940,6 +940,19 @@ This function returns Maximum number of TCB hashes recorded by the
 platform.
 For more details see section 3.3 Table 6 of `DRTM`_ specification.
 
+Function : plat_drtm_validate_dlme_ns_region()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : uintptr_t, uintptr_t
+    Return   : int
+
+This function validates that DLME data region is within the Non-
+Secure region of DRAM. This function takes DLME data start and
+end address as an input arguments, and returns 0 on success and
+-1 on failure.
+
 Common mandatory function modifications
 ---------------------------------------
 
