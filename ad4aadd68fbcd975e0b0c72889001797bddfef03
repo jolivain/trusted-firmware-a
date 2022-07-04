@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "148bfab0_b288f1ea",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-07-04T10:31:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "628d36e9_4d10c083",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 23
+      },
+      "revId": "ad4aadd68fbcd975e0b0c72889001797bddfef03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b0b7771_69b0ba5b",
@@ -61,6 +85,24 @@
       "writtenOn": "2022-07-04T08:20:10Z",
       "side": 1,
       "message": "nit: remove this file from the patch. Looks like no changes being done in this file.",
+      "revId": "ad4aadd68fbcd975e0b0c72889001797bddfef03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f456fec_0ef33c32",
+        "filename": "services/std_svc/rmmd/rmmd_attest.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-07-04T10:31:26Z",
+      "side": 1,
+      "message": "I added a space to separate the different include groups, as the static checks were failing.",
+      "parentUuid": "6b0b7771_69b0ba5b",
       "revId": "ad4aadd68fbcd975e0b0c72889001797bddfef03",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
