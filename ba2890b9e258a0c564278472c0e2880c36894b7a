@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dc66da5_801dfbf9",
+        "filename": "plat/mediatek/include/lib/mtk_init/mtk_init_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-07-04T01:17:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a29c0885_e93a3ad2",
+      "revId": "ba2890b9e258a0c564278472c0e2880c36894b7a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d35fcee_ac2e5ba8",
@@ -48,6 +66,30 @@
       "writtenOn": "2022-06-28T16:05:21Z",
       "side": 1,
       "message": "NULL ?",
+      "range": {
+        "startLine": 30,
+        "startChar": 12,
+        "endLine": 30,
+        "endChar": 13
+      },
+      "revId": "ba2890b9e258a0c564278472c0e2880c36894b7a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07c0c812_f908e22b",
+        "filename": "plat/mediatek/lib/mtk_init/mtk_init.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-07-04T01:17:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d35fcee_ac2e5ba8",
       "range": {
         "startLine": 30,
         "startChar": 12,
@@ -81,6 +123,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88688a13_0fcdd9c5",
+        "filename": "plat/mediatek/lib/mtk_init/mtk_mmap_init.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-07-04T01:17:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae47a5e1_d28f7786",
+      "range": {
+        "startLine": 19,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 35
+      },
+      "revId": "ba2890b9e258a0c564278472c0e2880c36894b7a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93e9e337_2db0796e",
@@ -94,6 +160,24 @@
       "writtenOn": "2022-06-28T16:05:21Z",
       "side": 1,
       "message": "Please consult with the ARM reviewer for Android Makefile.",
+      "revId": "ba2890b9e258a0c564278472c0e2880c36894b7a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04110502_cbab889f",
+        "filename": "plat/mediatek/lib/mtk_init/rules.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-07-04T01:17:20Z",
+      "side": 1,
+      "message": "This is not Android Makefile, it will be included in mt6983 platform.mk which will be uploaded later.",
+      "parentUuid": "93e9e337_2db0796e",
       "revId": "ba2890b9e258a0c564278472c0e2880c36894b7a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
