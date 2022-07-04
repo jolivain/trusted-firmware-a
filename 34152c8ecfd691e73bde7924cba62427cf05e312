@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0277b548_80634a4e",
+        "filename": "docs/getting_started/tools-build.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-04T14:07:34Z",
+      "side": 1,
+      "message": "I don\u0027t think we\u0027re explaining the right things here. IMO it\u0027s not TF-A\u0027s responsibility to explain how to download and build OpenSSL source code - this is better left to OpenSSL project documentation. Instead we should focus on how to build TF-A tools with a custom installation of OpenSSL.\n\nThis is somewhat covered by the modifications you\u0027ve done further down (starting from line 119) but rather than repeating OPENSSL_DIR\u003d${TOOLS_DIR}/${OPENSSL_DIRNAME} / LD_LIBRARY_PATH\u003d${TOOLS_DIR}/${OPENSSL_DIRNAME} options throughout the different build command lines, I would rather see an introductory note which provides these details upfront and avoid mentioning it anywhere else.\n\nAlso, typically we do not build certtool on its own or invoke cert_create / fiptool / encrypt_fw tools by hand. Instead, we build through \u0027make all\u0027 or \u0027make all fip\u0027 and the build system invokes the relevant TF-A tools under the hood based on the chosen build options. So I feel it\u0027s important to say somewhere this can be achieved through:\n\n LD_LIBRARY_PATH\u003d${TOOLS_DIR}/${OPENSSL_DIRNAME} \\\n   make OPENSSL_DIR\u003d${TOOLS_DIR}/${OPENSSL_DIRNAME} \\\n   \u003cother TF-A build options\u003e \\\n   all fip\n\nIn summary, I would remove this new section \"Building and installing OpenSSL 3.0\" you\u0027ve introduced, or rather replace it with a short note about the need to set LD_LIBRARY_PATH in the env and pass OPENSSL_DIR as an extra makefile build option, and give the \u0027make all fip\u0027 command as a typical example. The rest IMO can be omitted.",
+      "revId": "34152c8ecfd691e73bde7924cba62427cf05e312",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
