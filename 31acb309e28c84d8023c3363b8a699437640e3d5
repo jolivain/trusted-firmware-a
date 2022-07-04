@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1c828432_7001ad3a",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-04T08:09:36Z",
+      "side": 1,
+      "message": "This function can be refactored to return boolean instead, but I want ManishP/Lucian to comment on this?",
+      "parentUuid": "152d3fe6_50a422d3",
+      "range": {
+        "startLine": 1030,
+        "startChar": 13,
+        "endLine": 1030,
+        "endChar": 38
+      },
+      "revId": "31acb309e28c84d8023c3363b8a699437640e3d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4ea11d53_f9475e28",
         "filename": "lib/psci/psci_common.c",
         "patchSetId": 10
@@ -43,6 +67,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6b12ed1b_18e6ccba",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-04T08:09:36Z",
+      "side": 1,
+      "message": "I think wordings are fine, but let me know what part exactly leads you to the confusion.\nSurely, this can be moved to line no.1045.",
+      "parentUuid": "4ea11d53_f9475e28",
+      "revId": "31acb309e28c84d8023c3363b8a699437640e3d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cc76aa89_ca5d5fd7",
         "filename": "lib/psci/psci_common.c",
         "patchSetId": 10
@@ -54,6 +96,30 @@
       "writtenOn": "2022-07-01T13:54:32Z",
       "side": 1,
       "message": "Not a comment but a question: why do we traverse invalid parents? Sounds slightly counter intuitive.",
+      "range": {
+        "startLine": 1039,
+        "startChar": 50,
+        "endLine": 1040,
+        "endChar": 14
+      },
+      "revId": "31acb309e28c84d8023c3363b8a699437640e3d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23ccbe8e_6ff0868e",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 1040,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-04T08:09:36Z",
+      "side": 1,
+      "message": "Invalid parents are root nodes (with no parent) from where we start tracking the forest of PSCI nodes.",
+      "parentUuid": "cc76aa89_ca5d5fd7",
       "range": {
         "startLine": 1039,
         "startChar": 50,
