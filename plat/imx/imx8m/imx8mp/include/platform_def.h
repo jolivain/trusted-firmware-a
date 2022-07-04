@@ -35,11 +35,13 @@
 #define PLAT_WAIT_RET_STATE		U(1)
 #define PLAT_STOP_OFF_STATE		U(3)
 
+#define SZ_128K				U(0x20000)
+
 #if defined(NEED_BL2)
 #define BL2_BASE			U(0x970000)
-#define BL2_LIMIT			U(0x990000)
+#define BL2_SIZE			SZ_128K
+#define BL2_LIMIT			(BL2_BASE + BL2_SIZE)
 #define BL31_BASE			U(0x950000)
-#define BL31_LIMIT			U(0x970000)
 #define IMX_FIP_BASE			U(0x40310000)
 #define IMX_FIP_SIZE			U(0x000300000)
 #define IMX_FIP_LIMIT			U(FIP_BASE + FIP_SIZE)
@@ -50,8 +52,10 @@
 #define PLAT_IMX8MP_BOOT_MMC_BASE	U(0x30B50000) /* SD */
 #else
 #define BL31_BASE			U(0x970000)
-#define BL31_LIMIT			U(0x990000)
 #endif
+
+#define BL31_SIZE			SZ_128K
+#define BL31_LIMIT			(BL31_BASE + BL31_SIZE)
 
 #define PLAT_PRI_BITS			U(3)
 #define PLAT_SDEI_CRITICAL_PRI		0x10
