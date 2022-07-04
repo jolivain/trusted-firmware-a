@@ -1,21 +1,107 @@
 Firmware Update (FWU)
 =====================
 
-Introduction
-------------
 
-This document describes the design of the Firmware Update (FWU) feature, which
-enables authenticated firmware to update firmware images from external
+This document describes the design of the various Firmware Update (FWU) mechanisms
+available in TF-A.
+
+1. PSA Firmware Update (PSA FWU)
+2. TBBR Firmware Update (TBBR FWU)
+
+PSA Firmware Update implements the specification of the same name (Arm document
+IHI 0093), which defines a standard firmware interface for installing firmware
+updates.
+On the other hand, TBBR Firmware Update only covers firmware recovery. Arguably,
+its name is somewhat misleading but the TBBR specification and terminology
+predates PSA FWU. Both mechanisms are complementary in the sense that PSA FWU
+assumes that the device has a backup or recovery capability in the event of a
+failed update, which can be fulfilled with TBBR FWU implementation.
+
+.. _PSA Firmware Update:
+
+PSA Firmware Update (PSA FWU)
+-----------------------------
+
+Introduction
+~~~~~~~~~~~~
+In this method, the firmware updated images are provided by the update-client
+to the update-agent to flash them in NV storage.
+
+A common system design will place the Update Agent in the Secure World while
+the Client executes in the Non-secure World. The specification provides ABIs
+meant for a Normal world entity aka update-client to transmit the FW images
+to an FW Update Agent.
+
+Please refer `PSA FW update specification`_ for more details
+
+Scope
+~~~~~
+The design of the update-client and update-agent is out of scope of this
+document
+This document mainly covers ``platform boot`` details i.e. the role of secondary
+Bootloader after FWU being done by update client and agent.
+
+Overview
+~~~~~~~~
+
+Once Firmwares are updated in the ``update_index`` bank of NV-storage, then
+``update agent`` marks the ``update_index`` bank as a ``active bank``, and
+write updated FWU metadata in NV-storage. On subsequent reboot TF-A secondary
+Bootloader (BL2)
+
+-  Read FWU metadata in a memory
+-  Retrieve the image specification (offset and length) of updated images
+   present in NV storage with the help of FWU metadata
+-  Set these image specification in the corresponding I/O policies of the
+   updated images using the FWU platform functions
+   ``plat_fwu_set_images_source()`` and ``plat_fwu_set_metadata_image_source()``,
+   please refer :ref:`Porting Guide`
+-  Use these I/O policies to read the images from this address into the memory
+
+By default, the platform use ``active bank`` of NV storage to boot the images
+in ``trial state`` and if images pass through the authentication check and also
+if the system successfully booted the Normal-world image then ``update agent``
+mark this update as accepted update after further sanitisation checking at
+Normal-world.
+
+Secondary Bootloader (BL2) avoid upgrading the platform NV-counter until it's
+been confirmed that given update is accepted.
+
+The following sequence diagram shows platform-boot flow
+
+.. image:: ../resources/diagrams/PSA-FWU.png
+
+If the platform fails to boot from ``active bank`` due to various reasons such
+as authentication failure, watchdog reset due to non-functional software for
+maximum number of ``trial state`` run times then platform can decide to boot
+from ``previous_active_index``.
+Due to ageing effect of NV storage, or due any other reason if the images does
+not boot successfully from ``previous_active_index`` then platform can chose
+firmware recovery mechanism :ref:`TBBR Firmware Update` to bring system back
+to live.
+
+.. _TBBR Firmware Update:
+
+TBBR Firmware Update (TBBR FWU)
+-------------------------------
+
+Introduction
+~~~~~~~~~~~~
+
+This technique enables authenticated firmware to update firmware images from external
 interfaces such as USB, UART, SD-eMMC, NAND, NOR or Ethernet to SoC Non-Volatile
-memories such as NAND Flash, LPDDR2-NVM or any memory determined by the
-platform. This feature functions even when the current firmware in the system
-is corrupt or missing; it therefore may be used as a recovery mode. It may also
-be complemented by other, higher level firmware update software.
+memories such as NAND Flash, LPDDR2-NVM or any memory determined by the platform.
+This feature functions even when the current firmware in the system is corrupt or
+missing; it therefore may be used as a recovery mode. It may also be complemented
+by other, higher level firmware update software.
 
 FWU implements a specific part of the Trusted Board Boot Requirements (TBBR)
 specification, Arm DEN0006C-1. It should be used in conjunction with the
 :ref:`Trusted Board Boot` design document, which describes the image
 authentication parts of the Trusted Firmware-A (TF-A) TBBR implementation.
+
+It can be used as a last resort when all firmware updates that are carried out as
+part of the :ref:`PSA Firmware Update` procedure are failed to function.
 
 Scope
 ~~~~~
@@ -25,8 +111,8 @@ describe how normal world FWU images should operate. To implement normal world
 FWU images, please refer to the "Non-Trusted Firmware Updater" requirements in
 the TBBR.
 
-FWU Overview
-------------
+Overview
+~~~~~~~~
 
 The FWU boot flow is primarily mediated by BL1. Since BL1 executes in ROM, and
 it is usually desirable to minimize the amount of ROM code, the design allows
@@ -66,7 +152,7 @@ use all defined FWU images. Other platforms may use a subset of these.
 |Flow Diagram|
 
 Image Identification
---------------------
+~~~~~~~~~~~~~~~~~~~~
 
 Each FWU image and certificate is identified by a unique ID, defined by the
 platform, which BL1 uses to fetch an image descriptor (``image_desc_t``) via a
@@ -93,7 +179,7 @@ BL1 uses the FWU image descriptors to:
 -  Initialize the execution state of the next FWU image.
 
 FWU State Machine
------------------
+~~~~~~~~~~~~~~~~~
 
 BL1 maintains state for each FWU image during FWU execution. FWU images at lower
 Exception Levels raise SMCs to invoke FWU functionality in BL1, which causes
@@ -126,10 +212,10 @@ The following is a brief description of the supported states:
    requested BL1 to resume normal world execution.
 
 BL1 SMC Interface
------------------
+~~~~~~~~~~~~~~~~~
 
 BL1_SMC_CALL_COUNT
-~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -142,7 +228,7 @@ BL1_SMC_CALL_COUNT
 This SMC returns the number of SMCs supported by BL1.
 
 BL1_SMC_UID
-~~~~~~~~~~~
+^^^^^^^^^^^
 
 ::
 
@@ -156,7 +242,7 @@ This SMC returns the 128-bit `Universally Unique Identifier`_ for the
 BL1 SMC service.
 
 BL1_SMC_VERSION
-~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 ::
 
@@ -170,7 +256,7 @@ BL1_SMC_VERSION
 This SMC returns the current version of the BL1 SMC service.
 
 BL1_SMC_RUN_IMAGE
-~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -190,7 +276,7 @@ This SMC passes execution control to an EL3 image described by the provided
 this SMC for BL1 to pass execution control to BL31.
 
 FWU_SMC_IMAGE_COPY
-~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -239,7 +325,7 @@ contiguous memory.
 Once the SMC is handled, BL1 returns from exception to the normal world caller.
 
 FWU_SMC_IMAGE_AUTH
-~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -279,7 +365,7 @@ sets the image state to AUTHENTICATED. If authentication fails then BL1 returns
 the -EAUTH error and sets the image state back to RESET.
 
 FWU_SMC_IMAGE_EXECUTE
-~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -307,7 +393,7 @@ BL1 saves the normal world caller's context, sets the secure image state to
 EXECUTED, and returns from exception to the secure image.
 
 FWU_SMC_IMAGE_RESUME
-~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -334,7 +420,7 @@ the resuming world. If the call is successful then the caller provided
 returned to the caller.
 
 FWU_SMC_SEC_IMAGE_DONE
-~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -355,7 +441,7 @@ restores the normal world context and returns from exception into the normal
 world.
 
 FWU_SMC_UPDATE_DONE
-~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -371,7 +457,7 @@ function ``bl1_plat_fwu_done``, passing the optional argument ``client_cookie`` 
 a ``void *``. The SMC does not return.
 
 FWU_SMC_IMAGE_RESET
-~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -398,3 +484,4 @@ This is only allowed if the image is not being executed.
 .. _Universally Unique Identifier: https://tools.ietf.org/rfc/rfc4122.txt
 .. |Flow Diagram| image:: ../resources/diagrams/fwu_flow.png
 .. |FWU state machine| image:: ../resources/diagrams/fwu_states.png
+.. _PSA FW update specification: https://developer.arm.com/documentation/den0118/a/
