@@ -41,8 +41,11 @@
 #define PLAT_SDEI_NORMAL_PRI		0x20
 #define PLAT_SDEI_SGI_PRIVATE		U(9)
 
+#define SZ_128K				U(0x20000)
+
 #define BL31_BASE			U(0x960000)
-#define BL31_LIMIT			U(0x980000)
+#define BL31_SIZE			SZ_128K
+#define BL31_LIMIT			(BL31_BASE + BL31_SIZE)
 
 /* non-secure uboot base */
 #define PLAT_NS_IMAGE_OFFSET		U(0x40200000)
