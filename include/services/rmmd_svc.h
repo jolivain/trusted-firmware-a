@@ -38,7 +38,7 @@
  * RMM.
  */
 					/* 0x18F */
-#define RMMD_RMI_REQ_COMPLETE		SMC64_RMI_FID(U(0x3F))
+#define RMM_RMI_REQ_COMPLETE		SMC64_RMI_FID(U(0x3F))
 
 /* RMM_BOOT_COMPLETE arg0 error codes */
 #define E_RMM_BOOT_SUCCESS				(0)
@@ -80,8 +80,8 @@
 	((_fid & 0x00FE0000) == 0U)); })
 
 					/* 0x1B0 - 0x1B1 */
-#define RMMD_GTSI_DELEGATE		SMC64_RMMD_EL3_FID(U(0))
-#define RMMD_GTSI_UNDELEGATE		SMC64_RMMD_EL3_FID(U(1))
+#define RMM_GTSI_DELEGATE		SMC64_RMMD_EL3_FID(U(0))
+#define RMM_GTSI_UNDELEGATE		SMC64_RMMD_EL3_FID(U(1))
 
 /* Return error codes from RMM-EL3 SMCs */
 #define E_RMM_OK			 0
