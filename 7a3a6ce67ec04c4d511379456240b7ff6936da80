@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a589eea_e176a521",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 65
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-05T13:28:58Z",
+      "side": 1,
+      "message": "Looks better. I think there is still code duplication which could be avoided between tsp_main and tsp_ffa_main.",
+      "revId": "7a3a6ce67ec04c4d511379456240b7ff6936da80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb3a09c9_8978b04f",
+        "filename": "bl32/tsp/tsp.mk",
+        "patchSetId": 65
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-05T13:28:58Z",
+      "side": 1,
+      "message": "nit: 2022",
+      "range": {
+        "startLine": 2,
+        "startChar": 21,
+        "endLine": 2,
+        "endChar": 25
+      },
+      "revId": "7a3a6ce67ec04c4d511379456240b7ff6936da80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8004220_e1f9f406",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 65
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-05T13:28:58Z",
+      "side": 1,
+      "message": "There is a lot of code/definitions duplication in this file, is there an opportunity to define tsp_common.c and share between tsp_main and tsp_ffa_main?",
+      "revId": "7a3a6ce67ec04c4d511379456240b7ff6936da80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98a54cf2_334975b2",
+        "filename": "bl32/tsp/tsp_interrupt.c",
+        "patchSetId": 65
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-05T13:28:58Z",
+      "side": 1,
+      "message": "I feel it may be less error prone defining the body of the function like this:\n\n    if (id !\u003d TSP_IRQ_SEC_PHY_TIMER) {\n#if SPMC_AT_EL3\n        /*\n\t * With the EL3 FF-A SPMC we expect only Timer secure interrupt to fire in\n         * the TSP, so panic if any other interrupt does.\n         */\n         ERROR(\"Unexpected interrupt id %u\\n\", id);\n         panic();\n#else\n         return tsp_handle_preemption();\n#endif\n    }\n\nAlternatively, would it be possible to define two tsp_handle_preemption versions, one for legacy TSP and another for FF-A? They would be located in separate files like done for tsp_main / tsp_ffa_main..",
+      "range": {
+        "startLine": 94,
+        "startChar": 1,
+        "endLine": 106,
+        "endChar": 6
+      },
+      "revId": "7a3a6ce67ec04c4d511379456240b7ff6936da80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ce71fdb_3054e99a",
+        "filename": "bl32/tsp/tsp_private.h",
+        "patchSetId": 65
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-05T13:28:58Z",
+      "side": 1,
+      "message": "This is actually only used from tsp_ffa_main.c, so this definition may move there.",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 35
+      },
+      "revId": "7a3a6ce67ec04c4d511379456240b7ff6936da80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
