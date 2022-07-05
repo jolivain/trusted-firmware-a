@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad15ed4e_f91d2270",
+        "filename": "services/std_svc/drtm/drtm_main.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000621
+      },
+      "writtenOn": "2022-07-05T16:26:51Z",
+      "side": 1,
+      "message": "Hi Manish, when adding this accessor macro it would be nice to replace all explicit references to the dlme_img_ep_off struct member -- there is one left in drtm_main.c.  Just a small detail, probably lost in patch handling.",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 36,
+        "endChar": 39
+      },
+      "revId": "047c9e1e26c23e7f58e549f798029c3b7ac462f2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
