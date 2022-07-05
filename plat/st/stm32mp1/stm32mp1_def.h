@@ -252,7 +252,12 @@ enum ddr_type {
 /*******************************************************************************
  * STM32MP1 UART
  ******************************************************************************/
+#if STM32MP13
+#define USART1_BASE			U(0x4C000000)
+#endif
+#if STM32MP15
 #define USART1_BASE			U(0x5C000000)
+#endif
 #define USART2_BASE			U(0x4000E000)
 #define USART3_BASE			U(0x4000F000)
 #define UART4_BASE			U(0x40010000)
