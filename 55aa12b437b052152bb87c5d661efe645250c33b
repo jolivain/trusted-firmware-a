@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48b39cdd_e27e6253",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-06T09:03:50Z",
+      "side": 1,
+      "message": "nit: should this be described as MTK driver init level 0/1?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 16
+      },
+      "revId": "55aa12b437b052152bb87c5d661efe645250c33b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d712ba3_2530aaff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-06T09:03:50Z",
+      "side": 1,
+      "message": "nit: use up to 72 chars in commit msg body",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 75
+      },
+      "revId": "55aa12b437b052152bb87c5d661efe645250c33b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04e2d6e9_239ec009",
+        "filename": "plat/mediatek/include/lib/mtk_init/mtk_init.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-06T09:03:50Z",
+      "side": 1,
+      "message": "This should be defined before line 26.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 2
+      },
+      "revId": "55aa12b437b052152bb87c5d661efe645250c33b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed7990a0_034a56d5",
+        "filename": "plat/mediatek/lib/mtk_init/mtk_mmap_init.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-06T09:03:50Z",
+      "side": 1,
+      "message": "Would it work removing this and use VERBOSE at line 28?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 34
+      },
+      "revId": "55aa12b437b052152bb87c5d661efe645250c33b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ad2693a_8601665d",
+        "filename": "plat/mediatek/lib/mtk_init/rules.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-06T09:03:50Z",
+      "side": 1,
+      "message": "nit: rephrase or remove",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 25
+      },
+      "revId": "55aa12b437b052152bb87c5d661efe645250c33b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27ab312c_63e9a4a6",
+        "filename": "plat/mediatek/lib/mtk_init/rules.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-06T09:03:50Z",
+      "side": 1,
+      "message": "nit: rephrase or remove",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 27
+      },
+      "revId": "55aa12b437b052152bb87c5d661efe645250c33b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
