@@ -47,6 +47,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24d76ed3_5dc4bb07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-06T09:36:21Z",
+      "side": 1,
+      "message": "For new files introduced in this patch stack make sure to create a coverity coverage makefile update:\nNew source files have been identified in your patch..\nplat/mediatek/common/cold_boot.c\nplat/mediatek/common/mtk_bl31_setup.c\nplat/mediatek/common/mtk_smc_handlers.c\nplat/mediatek/lib/mtk_init/mtk_init.c\nplat/mediatek/lib/mtk_init/mtk_mmap_init.c",
+      "revId": "74eb238cda9a773c2600a3c1bf8eb003ef5a9d7d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6eb390c6_dc718925",
