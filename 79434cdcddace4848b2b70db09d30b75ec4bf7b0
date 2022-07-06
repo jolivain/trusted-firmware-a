@@ -69,6 +69,24 @@
       "parentUuid": "a786d373_2043fa7f",
       "revId": "79434cdcddace4848b2b70db09d30b75ec4bf7b0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed3c6e4b_1396d3b0",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-07-06T17:12:00Z",
+      "side": 1,
+      "message": "Just explaining my thoughts behind it: \n\nFor example, as part of feature detection mechanism, we enable features based on arch_version to verify their presence. So we will definitely use this function if in case we want to detect FEAT_PACQARMA,in future. \n\nAssume we are building TF-A for arch MAJOR\u003d8 and MINOR\u003d3, so in this case all the features till v8.3 get enabled and will be detected in feature detection mechanism. If in case we keep 8_8 naming, it will be confusing at later part. So keeping it as 8_3 will be safe and eliminates this confusion in my understanding.",
+      "parentUuid": "415c500e_b173f533",
+      "revId": "79434cdcddace4848b2b70db09d30b75ec4bf7b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
