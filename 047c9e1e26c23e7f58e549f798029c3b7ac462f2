@@ -22,6 +22,30 @@
       },
       "revId": "047c9e1e26c23e7f58e549f798029c3b7ac462f2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad7914fe_c56fcb70",
+        "filename": "services/std_svc/drtm/drtm_main.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-06T16:54:19Z",
+      "side": 1,
+      "message": "Hi Lucian,\nThanks for pointing this out! Addressed your comment in this patch [1]\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/15701/6..7/services/std_svc/drtm/drtm_main.c#530",
+      "parentUuid": "ad15ed4e_f91d2270",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 36,
+        "endChar": 39
+      },
+      "revId": "047c9e1e26c23e7f58e549f798029c3b7ac462f2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
