@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba412bd0_218a4878",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-06T08:34:18Z",
+      "side": 1,
+      "message": "nit: fix to 72 chars max.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 73
+      },
+      "revId": "3dd442d4b16b50230e65dadc2dfa0396032b07bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5a19ad5_b5f74a4a",
+        "filename": "plat/mediatek/common/mtk_smc_handlers.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-06T08:34:18Z",
+      "side": 1,
+      "message": "nit: \"These macros below\"",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 29
+      },
+      "revId": "3dd442d4b16b50230e65dadc2dfa0396032b07bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60da2885_3eea3ae1",
+        "filename": "plat/mediatek/common/mtk_smc_handlers.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-06T08:34:18Z",
+      "side": 1,
+      "message": "Just a suggestion, with this design the caller can forge the originator and fake EL3.\ne.g. it seems kernel can use SIP_FIP_GZ and call unauthorized services?\nit would be better identifying the caller by EL3 inferring the caller EL.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 36
+      },
+      "revId": "3dd442d4b16b50230e65dadc2dfa0396032b07bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03f8df9c_c2110ffa",
+        "filename": "plat/mediatek/common/mtk_smc_handlers.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-06T08:34:18Z",
+      "side": 1,
+      "message": "nit: supported",
+      "range": {
+        "startLine": 148,
+        "startChar": 29,
+        "endLine": 148,
+        "endChar": 36
+      },
+      "revId": "3dd442d4b16b50230e65dadc2dfa0396032b07bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52730ab7_806e666b",
+        "filename": "plat/mediatek/common/mtk_smc_handlers.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-06T08:34:18Z",
+      "side": 1,
+      "message": "nit: supported",
+      "range": {
+        "startLine": 170,
+        "startChar": 30,
+        "endLine": 170,
+        "endChar": 37
+      },
+      "revId": "3dd442d4b16b50230e65dadc2dfa0396032b07bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ee23c73_932c1ddb",
+        "filename": "plat/mediatek/common/mtk_smc_handlers.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-06T08:34:18Z",
+      "side": 1,
+      "message": "nit: supported",
+      "range": {
+        "startLine": 206,
+        "startChar": 31,
+        "endLine": 206,
+        "endChar": 38
+      },
+      "revId": "3dd442d4b16b50230e65dadc2dfa0396032b07bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5c4617a_c1cfb1ba",
+        "filename": "plat/mediatek/common/mtk_smc_handlers.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-06T08:34:18Z",
+      "side": 1,
+      "message": "return SMC_UNK",
+      "range": {
+        "startLine": 207,
+        "startChar": 2,
+        "endLine": 207,
+        "endChar": 16
+      },
+      "revId": "3dd442d4b16b50230e65dadc2dfa0396032b07bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34edfd10_236ecd0f",
+        "filename": "plat/mediatek/common/mtk_smc_handlers.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-06T08:34:18Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 208,
+        "startChar": 1,
+        "endLine": 208,
+        "endChar": 9
+      },
+      "revId": "3dd442d4b16b50230e65dadc2dfa0396032b07bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53fe8059_aada9280",
+        "filename": "plat/mediatek/common/mtk_smc_handlers.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-06T08:34:18Z",
+      "side": 1,
+      "message": "return",
+      "range": {
+        "startLine": 211,
+        "startChar": 3,
+        "endLine": 211,
+        "endChar": 9
+      },
+      "revId": "3dd442d4b16b50230e65dadc2dfa0396032b07bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43db6446_6bace13c",
+        "filename": "plat/mediatek/common/mtk_smc_handlers.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-06T08:34:18Z",
+      "side": 1,
+      "message": "return",
+      "range": {
+        "startLine": 215,
+        "startChar": 3,
+        "endLine": 215,
+        "endChar": 8
+      },
+      "revId": "3dd442d4b16b50230e65dadc2dfa0396032b07bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ad557d6_08e24618",
+        "filename": "plat/mediatek/common/mtk_smc_handlers.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-06T08:34:18Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 217,
+        "startChar": 2,
+        "endLine": 217,
+        "endChar": 10
+      },
+      "revId": "3dd442d4b16b50230e65dadc2dfa0396032b07bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2255ef68_2b8a77c5",
+        "filename": "plat/mediatek/common/mtk_smc_handlers.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-06T08:34:18Z",
+      "side": 1,
+      "message": "return",
+      "range": {
+        "startLine": 219,
+        "startChar": 3,
+        "endLine": 219,
+        "endChar": 8
+      },
+      "revId": "3dd442d4b16b50230e65dadc2dfa0396032b07bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
