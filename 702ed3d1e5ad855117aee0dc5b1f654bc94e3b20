@@ -1,0 +1,458 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b64291a3_58411400",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-06T13:39:16Z",
+      "side": 1,
+      "message": "(nit) As per TF-A commit message formatting guidelines, this should be:\n\n feat(rss):",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 21
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcc335c3_32eae892",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-06T13:39:16Z",
+      "side": 1,
+      "message": "(minor) I wonder whether v0/v1 are the right names... At first, I thought that v0 was made legacy and was superseded by v1. So I expected that we would choose at compile time whether to use v0 or v1. Then I realized we dynamically decided for each message whether to use v0 or v1 protocol based on the size of the message/reply. Perhaps we should consider renaming into short/extended or something like that?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 60
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72ef7d25_9ba97b06",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-06T13:39:16Z",
+      "side": 1,
+      "message": "Do you still need this?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 32
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dee661d_ee7bfb96",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-06T13:39:16Z",
+      "side": 1,
+      "message": "Do you still need this?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 25
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9be1fce6_79491778",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-06T13:39:16Z",
+      "side": 1,
+      "message": "I\u0027ve not completely thought this through but could we put these 2 buffers in a union, for the purpose of saving some memory? AFAIU, by the time we start using \u0027reply\u0027, we no longer need \u0027msg\u0027. IOW at any given point in time I think we only use one of these. Is that correct?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 49
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00e5d6ae_33c2ffc0",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-06T13:39:16Z",
+      "side": 1,
+      "message": "(minor) Make this a size_t, to align with the types of in/out_len? size_t definition differs across AArch32 and AArch64, which is why I think it\u0027d be more appropriate to use the exact same type length for i and in/out_len, especialy if we want to comply to MISRA guidelines.",
+      "range": {
+        "startLine": 30,
+        "startChar": 1,
+        "endLine": 30,
+        "endChar": 16
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b86f9bad_f83d3b6d",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-06T13:39:16Z",
+      "side": 1,
+      "message": "Should we be worried about integer overflows here? What if the sum of in_vecs or out_vecs length is so big that it wraps around, making us incorrectly select v0 over v1? Can it happen?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 2
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2be6678_e1dd64c3",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-06T13:39:16Z",
+      "side": 1,
+      "message": "Add extra parentheses around each of the conditions for MISRA compliance.\n\n if ((in_size_total \u003e 40) || (out_size_total \u003e 44)) {\n\nAlso would it be worth explaining how these 40/44 numbers have been chosen? The TODO comment suggests this was kind of empirical? Perhaps add a note about this in the commit message?",
+      "range": {
+        "startLine": 42,
+        "startChar": 5,
+        "endLine": 42,
+        "endChar": 46
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08961ccd_627c8ee4",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-06T13:39:16Z",
+      "side": 1,
+      "message": "(minor) The indentation looks weird.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 43
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2721066_b6e11568",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-06T13:39:16Z",
+      "side": 1,
+      "message": "What do we gain from initializing msg_size to sizeof(msg) here? AFAICS, rss_protocol_v0/v1_serialize_msg() override this value. To be honest, this confused me at first.",
+      "range": {
+        "startLine": 56,
+        "startChar": 1,
+        "endLine": 56,
+        "endChar": 31
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17fdb6a5_9fd0f79b",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-06T13:39:16Z",
+      "side": 1,
+      "message": "(nit) Remove one of the 2 blank lines.",
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1223f833_97d940b2",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-06T13:39:16Z",
+      "side": 1,
+      "message": "This memset() call used to be done after sending the message and before receiving the reply. The comment tries to explain the rationale, but here is the longer version we had in the internal Gerrit [1]:\n\n\u003e From AP perspective, I think it could desirable to clear the buffer just before reading the answer from RSS - i.e. the sequence would be 1) send data to RSS 2) clear buffer 3) read answer from RSS. It could help catching bugs if RSS ever returns an incorrect size, which happens to be bigger than the actual payload size. E.g. if RSS returns a message of 16 bytes but tells AP it is actually 20 bytes, AP would over-read 4 bytes in the buffer. If these last 4 bytes are all 0, it is easier to understand what\u0027s going on.\n\nBy moving it before we\u0027ve sent the message, I think it no longer serves this purpose. Any particular reason why it was moved here?\n\n[1] https://gerrit.oss.arm.com/c/pdcs-platforms/ap/tf-topics/+/215999/8/drivers/arm/rss/rss_comms.c#78",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 30
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "110afd79_4338ee47",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-06T13:39:16Z",
+      "side": 1,
+      "message": "Out of curiosity, do negative type values actually exist in existing PSA services? I guess the signedness is mandated by the PSA calling interface...",
+      "range": {
+        "startLine": 74,
+        "startChar": 25,
+        "endLine": 74,
+        "endChar": 41
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "889f2200_d9292011",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-06T13:39:16Z",
+      "side": 1,
+      "message": "(minor) Personally I prefer validating arguments on function entry, I think it makes the code more robust and easier to reason about. As an example, select_protocol_version() is called before validating arguments and thus uses a potentially invalid in_len/out_len value, which might make it access memory beyond the bounds of in_vec/out_vec buffers...\n\nAny reason why it can\u0027t be done as the first thing?",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 2
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f2a2232_10533355",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-06T13:39:16Z",
+      "side": 1,
+      "message": "I realize this was already there and you\u0027ve not changed this, but a question came to my mind... What happens if seq_num wraps around? It looks like we are not handling this case and we let it happen.\n\nFrom a C standard perspective, seq_num is an unsigned integer so we\u0027re not hitting any undefined behaviour, which is good. But from a protocol point of view, what would be the implications? What is the sequence number used for? Is it used to match out-of-order messages and replies on RSS side? But then I guess there should be some cod on AP side to match message and reply sequence numbers? Or is it preventing replay attacks, where an attacker would somehow gain access to the MHU bus and inject commands?\n\nI think we\u0027re way below the limit of 256 MHU messages per boot right now. AFAIK all RSS comms are currently initiated and controlled within root world and the set of messages we send is statically defined (e.g. one measurement extend operation per firmware image, the list of which is statically defined, + RMM querying the platform attestation token once). But this might change in the future, if we support other attestation models for example?",
+      "range": {
+        "startLine": 121,
+        "startChar": 1,
+        "endLine": 121,
+        "endChar": 11
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee72f3f2_4985a0a1",
+        "filename": "drivers/arm/rss/rss_comms_protocol.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-06T13:39:16Z",
+      "side": 1,
+      "message": "(minor) Maybe that\u0027s just personal style but I would have done it the other way, i.e. initialize msg_len with the header length on function entry, then rss_protocol_v*_serialize_msg adds to it. This seems more logical to me.",
+      "range": {
+        "startLine": 41,
+        "startChar": 1,
+        "endLine": 41,
+        "endChar": 58
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a059bda_3644ce11",
+        "filename": "drivers/arm/rss/rss_comms_protocol.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-06T13:39:16Z",
+      "side": 1,
+      "message": "Could you please drop these lines here and in other files throughout this patch? We don\u0027t usually worry about C++ callers in TF-A and I\u0027d rather remove it from here than doing it only in a few places like that.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 6
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "294e0c84_c63bcff7",
+        "filename": "drivers/arm/rss/rss_comms_protocol.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-06T13:39:16Z",
+      "side": 1,
+      "message": "IIUC,\n* psa_call() originally expects an \u0027in_len\u0027 parameter as a size_t.\n* It checks that \u0027in_len\u0027 is smaller than PSA_MAX_IOVEC.\n* This allows psa_call() to narrow its type down to a uint8_t when it gets passed down to rss_protocol_serialize_msg().\n\nHowever, this assumes that PSA_MAX_IOVEC is at most 255, which I think deserves a static assertion (see CASSERT() macro).",
+      "range": {
+        "startLine": 48,
+        "startChar": 5,
+        "endLine": 48,
+        "endChar": 19
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e5923c1_becc4552",
+        "filename": "drivers/arm/rss/rss_comms_protocol_v0.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-06T13:39:16Z",
+      "side": 1,
+      "message": "If I am not mistaken, this computation used to be expressed as (PSA_INITIAL_ATTEST_CHALLENGE_SIZE_64 + PLAT_ATTEST_TOKEN_MAX_SIZE) - although now we only account for the trailer[] field of the message in this computation, whereas PLAT_ATTEST_TOKEN_MAX_SIZE used to account for the whole size of the message.\n\nWhy replace them with hard-coded values? The macros looked more meaningful to me. Also PLAT_ATTEST_TOKEN_MAX_SIZE could be tuned per platform, which is no longer possible...",
+      "range": {
+        "startLine": 19,
+        "startChar": 35,
+        "endLine": 19,
+        "endChar": 49
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce69c08b_39c63b31",
+        "filename": "drivers/arm/rss/rss_comms_protocol_v1.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-06T13:39:16Z",
+      "side": 1,
+      "message": "In rss_comms_protocol_v0.[ch] and in the common layer rss_comms_protocol.[ch], \u0027type\u0027 is a signed 16-bit integer. Any reason why it is unsigned in v1?",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 22
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
