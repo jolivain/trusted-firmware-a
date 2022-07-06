@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd0738da_f567b6b1",
+        "filename": "plat/mediatek/include/vendor_pubsub_events.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-06T07:26:31Z",
+      "side": 1,
+      "message": "Is it preferable in the platform port to define a new pusub event C module and use the generic  REGISTER_PUBSUB_EVENT defined by include/lib/el3_runtime/pubsub.h ?",
+      "revId": "32aaae2f7145d4e44b9f0aa9b6b7895f31ebc6b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
