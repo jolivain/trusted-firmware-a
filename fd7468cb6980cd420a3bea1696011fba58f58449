@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c28219f_995d8810",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-06T08:13:13Z",
+      "side": 1,
+      "message": "Hi Harrison, I thought better rename this function as it sounds correct instead of waiting for other\u0027s review. Thanks!",
+      "parentUuid": "cf3444f4_0b912a7a",
+      "range": {
+        "startLine": 413,
+        "startChar": 13,
+        "endLine": 413,
+        "endChar": 37
+      },
+      "revId": "fd7468cb6980cd420a3bea1696011fba58f58449",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad03a156_9ff1acc2",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "It is written in this way so that it can be expanded with more conditions to return the total number of SMMUs (if needed) in the future, but yes, I agree currently it\u0027s the same as line no.37, so let me change this in a similar manner.",
       "parentUuid": "ad03a156_9ff1acc2",
+      "range": {
+        "startLine": 41,
+        "startChar": 1,
+        "endLine": 46,
+        "endChar": 2
+      },
+      "revId": "fd7468cb6980cd420a3bea1696011fba58f58449",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7673bd43_c60485f6",
+        "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-06T08:13:13Z",
+      "side": 1,
+      "message": "Further looking I saw the current implementation is fine as it checks using bitfield whether SMMU present in the FVP platform and accordingly return 1.",
+      "parentUuid": "3796fc8e_7f908a79",
       "range": {
         "startLine": 41,
         "startChar": 1,
