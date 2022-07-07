@@ -122,6 +122,24 @@
       "parentUuid": "b538b8d2_fbfbd48d",
       "revId": "443072c51c182db7e8420ee57d054ac9e5a23248",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cf0ca8a_dfaca343",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-07T13:43:23Z",
+      "side": 1,
+      "message": "TF-a-tests / SPM tests have this assumption as well:\nhttps://git.trustedfirmware.org/TF-A/tf-a-tests.git/tree/include/runtime_services/spm_common.h#n102",
+      "parentUuid": "a038a41c_60db13d4",
+      "revId": "443072c51c182db7e8420ee57d054ac9e5a23248",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
