@@ -246,6 +246,42 @@
       "parentUuid": "d995fb9e_22b8369c",
       "revId": "443072c51c182db7e8420ee57d054ac9e5a23248",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16d8f795_cb442c74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-07T16:10:10Z",
+      "side": 1,
+      "message": "Thanks for those findings. Yes those tests are most probably fragile on these aspects.\nTo be fair it wasn\u0027t the intent to test multiple VL, or even any basic or advanced SVE features for which component / arch testing exists.\nThe goal here is really to check that the SVE context is preserved on world switches and assumed the check done using one VL case is \u0027good enough\u0027.\nAgree it misses setting zcr_el2, checking fpsr/fpcr/ffr etc.",
+      "parentUuid": "da360bc9_20f1def9",
+      "revId": "443072c51c182db7e8420ee57d054ac9e5a23248",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6788caa3_6a0f4d51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-07T16:10:10Z",
+      "side": 1,
+      "message": "If you wish to integrate the change from this comment into your change I\u0027m happy.",
+      "parentUuid": "4148e751_54e2c29b",
+      "revId": "443072c51c182db7e8420ee57d054ac9e5a23248",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
