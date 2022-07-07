@@ -16,6 +16,24 @@
       "message": "Is this patch been tested? if yes, then will merge it.",
       "revId": "e516ba6de5e248e93156b5261cedbff811226e0e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5adfa0f2_6131b133",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-07T09:38:59Z",
+      "side": 1,
+      "message": "Jobs that failed in daily now pass when applying this change, so I believe it\u0027s safe.",
+      "parentUuid": "19b796a4_10d4842f",
+      "revId": "e516ba6de5e248e93156b5261cedbff811226e0e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
