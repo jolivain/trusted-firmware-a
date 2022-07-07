@@ -87,6 +87,41 @@
       "parentUuid": "521080eb_842a3787",
       "revId": "443072c51c182db7e8420ee57d054ac9e5a23248",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9eff38f_a71043d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-07T13:38:20Z",
+      "side": 1,
+      "message": "We need a bit more thinking about this.\nThere must be a system wide contract for firmware on the implemented vector length e.g. there is a possible threat that one (S/R)EL2 manager component uses a lower vector length than NS EL2. There is no discovery for the max. vector length atm and buffers are often statically allocated in the firmware space. All firmware components may not afford the large space required for saving/restoring the SVE context (multiplied by the number of cores).\nThe initial design was that EL3 sets this contract for all lower ELs that is there is no data leak possible because all lower ELs are aligned on the max. size.\nThere are different solutions to this,\n-Either fix Hafnium to statically allocate buffers required for a 2048b vector length with the static RAM cost it implies.\n-Or supply the vector length value on a platform basis. Default to 2048b but can be overridden for specific components on the TF-A command line. SPM tests would run with this override to 512b.\n\n",
+      "revId": "443072c51c182db7e8420ee57d054ac9e5a23248",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a038a41c_60db13d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-07T13:38:20Z",
+      "side": 1,
+      "message": "It fails for the good reason that SEL2 doesn\u0027t support more than a 512b vector length:\nhttps://git.trustedfirmware.org/hafnium/hafnium.git/tree/src/arch/aarch64/inc/hf/arch/sve.h#n12",
+      "parentUuid": "b538b8d2_fbfbd48d",
+      "revId": "443072c51c182db7e8420ee57d054ac9e5a23248",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
