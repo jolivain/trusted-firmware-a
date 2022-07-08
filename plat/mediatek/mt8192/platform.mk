@@ -10,6 +10,7 @@ MTK_PLAT_SOC  := ${MTK_PLAT}/${PLAT}
 PLAT_INCLUDES := -I${MTK_PLAT}/common/                            \
                  -I${MTK_PLAT}/common/drivers/gic600/             \
                  -I${MTK_PLAT}/common/drivers/gpio/               \
+                 -I${MTK_PLAT}/common/drivers/mcdi/               \
                  -I${MTK_PLAT}/common/drivers/rtc/                \
                  -I${MTK_PLAT}/common/drivers/timer/              \
                  -I${MTK_PLAT}/common/drivers/uart/               \
@@ -47,6 +48,9 @@ BL31_SOURCES    += common/desc_image_load.c                              \
                    plat/common/plat_gicv3.c                              \
                    ${MTK_PLAT}/common/drivers/gic600/mt_gic_v3.c         \
                    ${MTK_PLAT}/common/drivers/gpio/mtgpio_common.c       \
+                   ${MTK_PLAT}/common/drivers/mcdi/mt_cpu_pm.c           \
+                   ${MTK_PLAT}/common/drivers/mcdi/mt_cpu_pm_cpc.c       \
+                   ${MTK_PLAT}/common/drivers/mcdi/mt_mcdi.c             \
                    ${MTK_PLAT}/common/drivers/pmic_wrap/pmic_wrap_init_v2.c \
                    ${MTK_PLAT}/common/drivers/rtc/rtc_common.c           \
                    ${MTK_PLAT}/common/drivers/rtc/rtc_mt6359p.c          \
@@ -72,10 +76,7 @@ BL31_SOURCES    += common/desc_image_load.c                              \
                    ${MTK_PLAT_SOC}/drivers/dfd/plat_dfd.c                \
                    ${MTK_PLAT_SOC}/drivers/emi_mpu/emi_mpu.c             \
                    ${MTK_PLAT_SOC}/drivers/gpio/mtgpio.c                 \
-                   ${MTK_PLAT_SOC}/drivers/mcdi/mt_cpu_pm.c              \
-                   ${MTK_PLAT_SOC}/drivers/mcdi/mt_cpu_pm_cpc.c          \
                    ${MTK_PLAT_SOC}/drivers/mcdi/mt_lp_irqremain.c        \
-                   ${MTK_PLAT_SOC}/drivers/mcdi/mt_mcdi.c                \
                    ${MTK_PLAT_SOC}/drivers/ptp3/mtk_ptp3_main.c          \
                    ${MTK_PLAT_SOC}/drivers/spmc/mtspmc.c
 

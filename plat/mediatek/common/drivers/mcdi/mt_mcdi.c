@@ -9,6 +9,7 @@
 #include <lib/mmio.h>
 #include <lib/utils_def.h>
 #include <mt_mcdi.h>
+#include <platform_def.h>	/* for SSPM_MBOX_3_BASE */
 
 /* Read/Write */
 #define APMCU_MCUPM_MBOX_AP_READY	U(0)
@@ -54,8 +55,6 @@
 #define MCUPM_TASK_WAIT			U(3)
 #define MCUPM_TASK_RUN			U(4)
 #define MCUPM_TASK_PAUSE		U(5)
-
-#define SSPM_MBOX_3_BASE		U(0x10420000)
 
 #define MCDI_NOT_INIT			U(0)
 #define MCDI_INIT_1			U(1)
