@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdd4b329_89a06a4f",
+        "filename": "Makefile",
+        "patchSetId": 10
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-07-08T12:13:44Z",
+      "side": 1,
+      "message": "Not sure whether we need to guard add_define. If SVE or SME are not enabled, then this define gets ignored.",
+      "range": {
+        "startLine": 403,
+        "startChar": 0,
+        "endLine": 403,
+        "endChar": 29
+      },
+      "revId": "3c64a36d1a431656f54f6d96d9f55202f5d9b90b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61f0d06e_34da8dbb",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-07-08T12:13:44Z",
+      "side": 1,
+      "message": "# Default SVE vector len is set to max allowed by Arch",
+      "revId": "3c64a36d1a431656f54f6d96d9f55202f5d9b90b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be10393c_6fb78b3c",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-07-08T12:13:44Z",
+      "side": 1,
+      "message": "would need an update to build-options.rst to document this option I think.",
+      "revId": "3c64a36d1a431656f54f6d96d9f55202f5d9b90b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
