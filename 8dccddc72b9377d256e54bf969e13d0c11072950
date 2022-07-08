@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a52545c_6b3d7a4c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2022-07-08T23:27:43Z",
+      "side": 1,
+      "message": "Can\u0027t you just use the PLAT_EXTRA_LD_SCRIPT mechanism for this (and then #include more scripts from there if you need to)? As far as I\u0027m aware the default linker for TF-A is still binutils ld (unless ENABLE_LTO is set), it doesn\u0027t seem like a good idea to allow platforms that can only be built correctly with a custom linker (unless really necessary).",
+      "revId": "8dccddc72b9377d256e54bf969e13d0c11072950",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
