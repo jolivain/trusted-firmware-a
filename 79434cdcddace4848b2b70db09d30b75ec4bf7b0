@@ -128,6 +128,30 @@
       },
       "revId": "79434cdcddace4848b2b70db09d30b75ec4bf7b0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fe3d1e6_f5443dd4",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-07-08T22:26:11Z",
+      "side": 1,
+      "message": "Hmmmm... Maybe. But, according to the ARM ARM, the value 0 on these fields indicate that the algorithm is not present, and therefore it can be used (along with the fields in ID_AA64ISAR1_EL1) to determine whether PAuth is present or not too. So we know that QARMA3 is not present if the value is 0. Otherwise, we have QARMA3 in different flavors.\nMaybe what we can do is to make it not boolean. I can rename the function then, so it says check_armv8_3_pauth_qarma3_presence() (or similar) instead of is_armv8_8_pauth_qarma3_present(), as it wouldn\u0027t return a boolean value anymore.",
+      "parentUuid": "36ee76ff_01bd2fb5",
+      "range": {
+        "startLine": 117,
+        "startChar": 1,
+        "endLine": 122,
+        "endChar": 62
+      },
+      "revId": "79434cdcddace4848b2b70db09d30b75ec4bf7b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
