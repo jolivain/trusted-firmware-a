@@ -25,6 +25,12 @@
 #define UART0_BASE	(IO_PHYS + 0x01002000)
 #define UART_BAUDRATE	(115200)
 
+/*******************************************************************************
+ * GIC-600 & interrupt handling related constants
+ ******************************************************************************/
+/* Base MTK_platform compatible GIC memory map */
+#define BASE_GICD_BASE		MT_GIC_BASE
+#define MT_GIC_RDIST_BASE	(MT_GIC_BASE + 0x40000)
 
 /*******************************************************************************
  * System counter frequency related constants
