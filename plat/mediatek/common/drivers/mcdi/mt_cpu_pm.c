@@ -118,7 +118,6 @@ mt_pwr_mcusysoff_reflect:
 	mtk_cpc_mcusys_off_reflect();
 
 mt_pwr_mcusysoff_break:
-
 	plat_mt_lp_cpu_rc = -1;
 
 	return -1;
