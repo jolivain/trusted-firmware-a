@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9f240f80_a8b0c5b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000834
+      },
+      "writtenOn": "2022-07-08T13:14:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6dd4d7cc_5ba4f6ec",
+      "revId": "eef485abb13b6df9a94137edd82904aab0ecf02d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bf006d2c_620c5198",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -87,6 +105,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b294f11_6da29df7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000834
+      },
+      "writtenOn": "2022-07-08T13:14:04Z",
+      "side": 1,
+      "message": "I\u0027ll add two other boards with STM32MP153C this month and will address this minor comments then.",
+      "parentUuid": "93298c26_1a837953",
+      "revId": "eef485abb13b6df9a94137edd82904aab0ecf02d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0ef4cec_10d64b53",
@@ -100,6 +136,30 @@
       "writtenOn": "2022-07-08T12:49:41Z",
       "side": 1,
       "message": "minor: those 3 defines are no more used, and could be removed",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 31
+      },
+      "revId": "eef485abb13b6df9a94137edd82904aab0ecf02d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3bcae37_93fe8907",
+        "filename": "fdts/stm32mp15-ddr3-dhsom-2x4Gb-1066-binG.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000834
+      },
+      "writtenOn": "2022-07-08T13:14:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a0ef4cec_10d64b53",
       "range": {
         "startLine": 104,
         "startChar": 0,
@@ -133,6 +193,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "138bceca_2370f9f1",
+        "filename": "fdts/stm32mp15-ddr3-dhsom-2x4Gb-1066-binG.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000834
+      },
+      "writtenOn": "2022-07-08T13:14:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8861ce54_677e90fc",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 31
+      },
+      "revId": "eef485abb13b6df9a94137edd82904aab0ecf02d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c18438a7_fef30f2c",
@@ -146,6 +230,30 @@
       "writtenOn": "2022-07-08T12:49:41Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 31
+      },
+      "revId": "eef485abb13b6df9a94137edd82904aab0ecf02d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94a96c5b_6f6c082a",
+        "filename": "fdts/stm32mp15-ddr3-dhsom-2x4Gb-1066-binG.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000834
+      },
+      "writtenOn": "2022-07-08T13:14:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c18438a7_fef30f2c",
       "range": {
         "startLine": 112,
         "startChar": 0,
@@ -179,6 +287,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e51a331_00eef61e",
+        "filename": "fdts/stm32mp15-ddr3-dhsom-2x4Gb-1066-binG.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000834
+      },
+      "writtenOn": "2022-07-08T13:14:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "693ede49_a8726e7f",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 31
+      },
+      "revId": "eef485abb13b6df9a94137edd82904aab0ecf02d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28eff5c5_8254c54d",
@@ -202,6 +334,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88021527_d48542dd",
+        "filename": "fdts/stm32mp15xx-dhcom-som.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000834
+      },
+      "writtenOn": "2022-07-08T13:14:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "28eff5c5_8254c54d",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 6
+      },
+      "revId": "eef485abb13b6df9a94137edd82904aab0ecf02d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b1efaab_f8da34e3",
@@ -215,6 +371,30 @@
       "writtenOn": "2022-07-08T12:49:41Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 6
+      },
+      "revId": "eef485abb13b6df9a94137edd82904aab0ecf02d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8d5d419_49ae20f2",
+        "filename": "fdts/stm32mp15xx-dhcom-som.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000834
+      },
+      "writtenOn": "2022-07-08T13:14:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6b1efaab_f8da34e3",
       "range": {
         "startLine": 30,
         "startChar": 4,
