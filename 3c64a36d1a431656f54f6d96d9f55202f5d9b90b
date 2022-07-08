@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4cfee89_1809250b",
+        "filename": "Makefile",
+        "patchSetId": 10
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1000686
+      },
+      "writtenOn": "2022-07-08T12:21:46Z",
+      "side": 1,
+      "message": "It seems redundant to me, I was just taking an example from Olivier here so I assumed it was some stylistic thing for TF-A.",
+      "parentUuid": "cdd4b329_89a06a4f",
+      "range": {
+        "startLine": 403,
+        "startChar": 0,
+        "endLine": 403,
+        "endChar": 29
+      },
+      "revId": "3c64a36d1a431656f54f6d96d9f55202f5d9b90b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61f0d06e_34da8dbb",
@@ -41,6 +65,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59c02a2b_fcef7809",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000686
+      },
+      "writtenOn": "2022-07-08T12:21:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61f0d06e_34da8dbb",
+      "revId": "3c64a36d1a431656f54f6d96d9f55202f5d9b90b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be10393c_6fb78b3c",
@@ -54,6 +96,24 @@
       "writtenOn": "2022-07-08T12:13:44Z",
       "side": 1,
       "message": "would need an update to build-options.rst to document this option I think.",
+      "revId": "3c64a36d1a431656f54f6d96d9f55202f5d9b90b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64376a35_34eb861a",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1000686
+      },
+      "writtenOn": "2022-07-08T12:21:46Z",
+      "side": 1,
+      "message": "Sure",
+      "parentUuid": "be10393c_6fb78b3c",
       "revId": "3c64a36d1a431656f54f6d96d9f55202f5d9b90b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
