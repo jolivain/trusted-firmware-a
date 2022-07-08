@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, MediaTek Inc. All rights reserved.
+ * Copyright (c) 2020-2022, MediaTek Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -30,6 +30,6 @@
 
 void sched_clock_init(uint64_t normal_base, uint64_t atf_base);
 uint64_t sched_clock(void);
-void mt_systimer_init(void);
+int mt_systimer_init(void);
 
 #endif /* MT_TIMER_H */
