@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8673bef0_65a2a567",
+        "filename": "lib/extensions/sve/sve.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-08T14:05:33Z",
+      "side": 1,
+      "message": "I wonder if we should have a simple sanity check either in the Makefile or here in the code, to assert the vector length in bytes is a valid value e.g. multiple of 128, and less than 2048?",
+      "range": {
+        "startLine": 44,
+        "startChar": 41,
+        "endLine": 44,
+        "endChar": 55
+      },
+      "revId": "332c7d8265a20e194d11c7f744ff0943d3a3d0a0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
