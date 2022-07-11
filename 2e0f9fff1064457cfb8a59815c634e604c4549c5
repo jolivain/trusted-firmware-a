@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d85fe2b7_3647680f",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T12:53:09Z",
+      "side": 1,
+      "message": "(minor) Remove this word.",
+      "range": {
+        "startLine": 1027,
+        "startChar": 31,
+        "endLine": 1027,
+        "endChar": 35
+      },
+      "revId": "2e0f9fff1064457cfb8a59815c634e604c4549c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed101533_3e5e9c46",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T12:53:09Z",
+      "side": 1,
+      "message": "The function returns a boolean so I think this should be reworded as:\n\n  Returns true if the current CPU is the last ON CPU or false otherwise.",
+      "range": {
+        "startLine": 1029,
+        "startChar": 3,
+        "endLine": 1030,
+        "endChar": 13
+      },
+      "revId": "2e0f9fff1064457cfb8a59815c634e604c4549c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb11f8ae_e014d92d",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T12:53:09Z",
+      "side": 1,
+      "message": "When I read this sentence, I was expecting psci_is_last_on_core_safe() to mostly be a wrapper over psci_is_last_on_cpu(), which takes and releases the PSCI states locks around the call. This does not appear to be the case. Could we achieve that?\n\nWe might have to refactor psci_is_last_on_cpu() a bit to make it suitable for this use case (e.g. perhaps taking as an argument the number of core ids it should loop over).",
+      "range": {
+        "startLine": 1031,
+        "startChar": 0,
+        "endLine": 1033,
+        "endChar": 40
+      },
+      "revId": "2e0f9fff1064457cfb8a59815c634e604c4549c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3dbb35f_2f3d698b",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T12:53:09Z",
+      "side": 1,
+      "message": "Can we not call this psci_is_last_on_cpu_safe(), in reference of psci_is_last_on_cpu()?",
+      "range": {
+        "startLine": 1035,
+        "startChar": 5,
+        "endLine": 1035,
+        "endChar": 30
+      },
+      "revId": "2e0f9fff1064457cfb8a59815c634e604c4549c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d137d665_1175fd94",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1038,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T12:53:09Z",
+      "side": 1,
+      "message": "For MISRA compliance, I think that each variable definition has to be on its own line.",
+      "range": {
+        "startLine": 1038,
+        "startChar": 52,
+        "endLine": 1038,
+        "endChar": 58
+      },
+      "revId": "2e0f9fff1064457cfb8a59815c634e604c4549c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a47b7b90_400a47d5",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1041,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T12:53:09Z",
+      "side": 1,
+      "message": "(minor) Remove extra empty line?",
+      "range": {
+        "startLine": 1041,
+        "startChar": 0,
+        "endLine": 1041,
+        "endChar": 3
+      },
+      "revId": "2e0f9fff1064457cfb8a59815c634e604c4549c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20a103e3_2c48f609",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1064,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T12:53:09Z",
+      "side": 1,
+      "message": "I think this message should be printed by the caller. Imagine a case where we\u0027re calling psci_is_last_on_core_safe() just to figure out whether all cores are off, if yes we do something, if no we do something else. Right now, we\u0027ll get an error message on the UART, when it might not be an error at all! It depends on what we are trying to achieve.",
+      "range": {
+        "startLine": 1063,
+        "startChar": 0,
+        "endLine": 1064,
+        "endChar": 53
+      },
+      "revId": "2e0f9fff1064457cfb8a59815c634e604c4549c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
