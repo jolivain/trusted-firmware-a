@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, MediaTek Inc. All rights reserved.
+ * Copyright (c) 2020-2022, MediaTek Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,7 +8,7 @@
 
 #include <common/debug.h>
 #include <lib/mmio.h>
-#include <mt_dp.h>
+#include "mt_dp.h"
 #include <mtk_sip_svc.h>
 #include <platform_def.h>
 

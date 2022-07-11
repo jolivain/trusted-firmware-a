@@ -6,7 +6,7 @@
 
 #include <common/debug.h>
 #include <common/runtime_svc.h>
-#include <mt_dp.h>
+#include <drivers/dp/mt_dp.h>
 #include <mt_spm.h>
 #include <mt_spm_vcorefs.h>
 #include <mtk_apusys.h>
