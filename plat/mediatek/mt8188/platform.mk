@@ -23,6 +23,7 @@ MODULES-y += $(MTK_PLAT)/common
 MODULES-y += $(MTK_PLAT)/lib/mtk_init
 MODULES-y += $(MTK_PLAT)/lib/pm
 MODULES-y += $(MTK_PLAT)/common/drivers/cirq
+MODULES-y += $(MTK_PLAT)/common/drivers/dp
 MODULES-y += $(MTK_PLAT)/common/drivers/gic600
 MODULES-y += $(MTK_PLAT)/common/drivers/timer
 
