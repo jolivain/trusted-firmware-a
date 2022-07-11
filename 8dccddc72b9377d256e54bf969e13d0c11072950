@@ -34,6 +34,24 @@
       "parentUuid": "7a52545c_6b3d7a4c",
       "revId": "8dccddc72b9377d256e54bf969e13d0c11072950",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9efdb59b_f9dac9c9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2022-07-11T22:14:54Z",
+      "side": 1,
+      "message": "\u003e By PLAT_EXTRA_LD_SCRIPT include linker scripts seems cannot insert output section to another section(before or after)\n\nWhat is the problem you have with this? I thought that should work...\n\nI just feel like it would be better to avoid tying platforms to some specific non-standard linker if at all possible. If there\u0027s really no way to make INSERT BEFORE work with the existing include, maybe we could solve that in some other way? You really just need this to insert entry lists with a start and end symbol, right? So why not just create another include right in the .rodata section for that, like this\n\n .rodata . : {\n   __RODATA_START__ \u003d .;\n #if PLAT_EXTRA_RODATA_INCLUDES\n #include \u003cplat.ld.rodata.inc\u003e\n #endif\n   *(SORT_BY_ALIGNMENT(.rodata*))\n   ...\n\nThat seems less heavy-handed to me than splitting the whole linker script generation into a separate binutils path and a GCC path...",
+      "parentUuid": "188edde4_37aa4a78",
+      "revId": "8dccddc72b9377d256e54bf969e13d0c11072950",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
