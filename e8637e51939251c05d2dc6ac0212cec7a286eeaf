@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f3be95be_73eaab08",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T14:43:05Z",
+      "side": 1,
+      "message": "No, this is not tested yet.\nAs per my comment below, better I will retain changes pertaining to test I did as a part of PoC .",
+      "parentUuid": "ee100158_960bf8ff",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 8
+      },
+      "revId": "e8637e51939251c05d2dc6ac0212cec7a286eeaf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d8467a25_8f6b360d",
         "filename": "plat/arm/board/fvp/include/platform_def.h",
         "patchSetId": 7
@@ -37,6 +61,30 @@
       "writtenOn": "2022-07-11T14:24:51Z",
       "side": 1,
       "message": "No increase when using SPMC@EL3? Is that because the current count is fine in this config, or rather because we\u0027not claiming DRTM support along with SPMC@EL3? If this is the latter, I sense we should clearly say somewhere what configs can enable DRTM. Perhaps this can be stated in the document introduced in the last patch of the stack? Or we could also have makefile snippets to flag incompatible combinations of build options.",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 29
+      },
+      "revId": "e8637e51939251c05d2dc6ac0212cec7a286eeaf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da4d6216_3005e8b3",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T14:43:05Z",
+      "side": 1,
+      "message": "I think more suitable config in our case is [1],  so better will maintain this one and other\u0027s will remove it.\n\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/15488/7/plat/arm/board/fvp/include/platform_def.h#153",
+      "parentUuid": "d8467a25_8f6b360d",
       "range": {
         "startLine": 137,
         "startChar": 0,
