@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "efadffc0_f5381abf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T19:19:35Z",
+      "side": 1,
+      "message": "We have increased stack size to accommodate mbedTSL support in BL31.",
+      "parentUuid": "5ed5fea5_51428915",
+      "revId": "8ce78c4e85e20e42ef8420c36724f30bbc163565",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2c904912_d234fb9f",
         "filename": "plat/arm/board/fvp/include/platform_def.h",
         "patchSetId": 7
@@ -31,6 +49,30 @@
       "writtenOn": "2022-07-11T13:48:45Z",
       "side": 1,
       "message": "If I am not mistaken, this way of increasing the stack will impact all CPUs. Say, I\u0027ve got an 8-core platform, we\u0027ll reserve 8 * 0x800 extra bytes for DRTM support right now. My understanding is that DRTM implementation is handled purely by the boot CPU (as all other CPUs are guaranteed to be powered off). Based on that, could we increase only the boot CPU\u0027s stack and get 7 * 0x800 bytes back?",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 254,
+        "endChar": 26
+      },
+      "revId": "8ce78c4e85e20e42ef8420c36724f30bbc163565",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a7e485a_03de888d",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T19:19:35Z",
+      "side": 1,
+      "message": "This is good point! Yes, DRTM implementation runs on single CPU so ideally stack size increment is needed only for single/boot CPU. Is there any specific code in our TF-A to achieve this?",
+      "parentUuid": "2c904912_d234fb9f",
       "range": {
         "startLine": 250,
         "startChar": 0,
