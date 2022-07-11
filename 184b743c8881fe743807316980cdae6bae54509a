@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29526712_22ab23ff",
+        "filename": "plat/qemu/qemu/platform.mk",
+        "patchSetId": 13
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T13:42:58Z",
+      "side": 1,
+      "message": "(minor) Consider adding an empty line before this, it looks rather packed to me right now.",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 264,
+        "endChar": 25
+      },
+      "revId": "184b743c8881fe743807316980cdae6bae54509a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2467b093_6b2e0afa",
+        "filename": "plat/qemu/qemu/qemu_virt_drtm_dma_prot.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T13:42:58Z",
+      "side": 1,
+      "message": "Same question as for the FVP implementation in the previous patch - I don\u0027t understand whether this is a TODO comment or something else.",
+      "range": {
+        "startLine": 15,
+        "startChar": 1,
+        "endLine": 15,
+        "endChar": 68
+      },
+      "revId": "184b743c8881fe743807316980cdae6bae54509a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b20ea661_28738f28",
+        "filename": "plat/qemu/qemu/qemu_virt_drtm_dma_prot.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T13:42:58Z",
+      "side": 1,
+      "message": "I am guessing this was a note from Lucian? Better to remove this IMO, as we don\u0027t usually use this convention in TF-A project.",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 19,
+        "endChar": 12
+      },
+      "revId": "184b743c8881fe743807316980cdae6bae54509a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e534abb_6aadee07",
+        "filename": "plat/qemu/qemu/qemu_virt_drtm_dma_prot.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T13:42:58Z",
+      "side": 1,
+      "message": "@Jens Wiklander: Is that something you\u0027d be able to help clarifying?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 14
+      },
+      "revId": "184b743c8881fe743807316980cdae6bae54509a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
