@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59e34d99_5409c225",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T13:39:03Z",
+      "side": 1,
+      "message": "Thanks Sandrine for reviewing this patch!",
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c217fff0_f7387b35",
@@ -20,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f91be32_512dbb4f",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T13:39:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c217fff0_f7387b35",
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26496726_f100d831",
         "filename": "docs/design_documents/drtm_poc.rst",
         "patchSetId": 3
@@ -31,6 +66,30 @@
       "writtenOn": "2022-07-11T09:59:38Z",
       "side": 1,
       "message": "I feel something like \"DRTM Proof of Concept\" would a better title, as this document does not only cover the execution flow and also explains how to reproduce the test environment.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 19
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a93b1736_d3dd47e0",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T13:39:03Z",
+      "side": 1,
+      "message": "Ack, this intent is reflected in the name I have given the document, but somehow missed here.",
+      "parentUuid": "26496726_f100d831",
       "range": {
         "startLine": 1,
         "startChar": 0,
@@ -66,6 +125,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "73fdc4dc_52d566f2",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T13:39:03Z",
+      "side": 1,
+      "message": "Can we modify simply as below ?\n\"Dynamic Root of Trust for Measurement (DRTM) begins a new trust environment by measuring and executing a protected payload\"",
+      "parentUuid": "9f5ad245_b5f926e8",
+      "range": {
+        "startLine": 4,
+        "startChar": 58,
+        "endLine": 5,
+        "endChar": 5
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "39871e52_46868430",
         "filename": "docs/design_documents/drtm_poc.rst",
         "patchSetId": 3
@@ -89,6 +172,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c3ba996_dbca8bf7",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T13:39:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "39871e52_46868430",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 42
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3adbaf4f_78a6dd3c",
         "filename": "docs/design_documents/drtm_poc.rst",
         "patchSetId": 3
@@ -100,6 +207,30 @@
       "writtenOn": "2022-07-11T09:59:38Z",
       "side": 1,
       "message": "Suggest adding an empty line after the title for readability.\n\nAlso could add an introductory sentence, such as: \"The DRTM architecture involves a number of software components with specific responsibilities. Please refer to the DRTM specification for more details. This section outlines how these components map into TF-A design.\"",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 10
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01c2a2ce_473f0534",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T13:39:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3adbaf4f_78a6dd3c",
       "range": {
         "startLine": 10,
         "startChar": 0,
@@ -158,6 +289,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bc4f8f81_1f2ff22e",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T13:39:03Z",
+      "side": 1,
+      "message": "Current solution where both D-CRTM and DCE is single entity present in the BL31 without any difference. \n\nAFAIU, DCE components can be moved to non-secure world or separated into stage-1 at EL3 and stage-2 in non-secure worlds. In the former case, DCE is running in a non-secure world, so I would expect simple function calls to be made from DLME to DCE (running at the same NS exception level).\n\nAs for the latter case, I would agree that the DCE first stage component was involved in processing SMCs from the DLME.",
+      "parentUuid": "38018b75_5d2b4ba1",
+      "range": {
+        "startLine": 12,
+        "startChar": 5,
+        "endLine": 13,
+        "endChar": 51
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16de6bf7_77a09450",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T13:39:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "45b862b0_40ddf08e",
+      "range": {
+        "startLine": 13,
+        "startChar": 5,
+        "endLine": 13,
+        "endChar": 12
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "016bc359_8218ed99",
         "filename": "docs/design_documents/drtm_poc.rst",
         "patchSetId": 3
@@ -204,6 +383,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2dc00856_d11ae581",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T13:39:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "016bc359_8218ed99",
+      "range": {
+        "startLine": 14,
+        "startChar": 5,
+        "endLine": 14,
+        "endChar": 16
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acdb5b49_9a40eb62",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T13:39:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "98ac7748_bae04b76",
+      "range": {
+        "startLine": 14,
+        "startChar": 25,
+        "endLine": 14,
+        "endChar": 34
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "85252627_1f4c0934",
         "filename": "docs/design_documents/drtm_poc.rst",
         "patchSetId": 3
@@ -227,6 +454,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fb1e8b62_427c55d5",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T13:39:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "85252627_1f4c0934",
+      "range": {
+        "startLine": 15,
+        "startChar": 5,
+        "endLine": 15,
+        "endChar": 16
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d6096eb1_26d5c372",
         "filename": "docs/design_documents/drtm_poc.rst",
         "patchSetId": 3
@@ -238,6 +489,30 @@
       "writtenOn": "2022-07-11T09:59:38Z",
       "side": 1,
       "message": "Can we please expand acronyms?\n\"In this proof of concept,\"...",
+      "range": {
+        "startLine": 18,
+        "startChar": 32,
+        "endLine": 18,
+        "endChar": 48
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f966df1_42ba2c3b",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T13:39:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d6096eb1_26d5c372",
       "range": {
         "startLine": 18,
         "startChar": 32,
@@ -296,6 +571,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "46b1cded_92388b5d",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T13:39:03Z",
+      "side": 1,
+      "message": "\u003e This seems to suggest that DCE-Preamble and DLME are part of the same UEFI application. Is it the case? If no, then better to say \"are part of the EDK2 code base\" IMO.\n\nThe DLME and DCE-preamble are currently part of the same proof concept UEFI application.\n\n\u003e Also, I think it would be worth providing a link to the relevant modules in the EDK2 code base, in case people want to have a look at it, or rebuild the application(s) from scratch rather than re-using the prebuilt ones we provide.\n\nI had a chat with internally with ATG team, this solution is not yet upstreamed. I will update this section once more detailed information is available.\n\nI think for now, we should go ahead with pre-built UEFI application details only.",
+      "parentUuid": "345923fd_35855cfd",
+      "range": {
+        "startLine": 19,
+        "startChar": 17,
+        "endLine": 19,
+        "endChar": 33
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "020421e2_3cc9ae05",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T13:39:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c9a5d067_18b2f476",
+      "range": {
+        "startLine": 19,
+        "startChar": 57,
+        "endLine": 19,
+        "endChar": 65
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fa05a075_cfe16e40",
         "filename": "docs/design_documents/drtm_poc.rst",
         "patchSetId": 3
@@ -307,6 +630,30 @@
       "writtenOn": "2022-07-11T09:59:38Z",
       "side": 1,
       "message": "Consider adding a README file under https://downloads.trustedfirmware.org/tf-a/drtm/ to explain:\n\n- what source code was used to build FVP_AARCH64_EFI.fd binary (repository URL + commit SHA)\n- how this was built (provide the command line).\n\nThis will help reproducing the binary, both for partners and for us if we ever need to update the binary in the future.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 72
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff661370_71f18a13",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T13:39:03Z",
+      "side": 1,
+      "message": "The code-base for the DRTM application has not been upstreamed yet, as mentioned earlier in the comment. As soon as the source code of the DRTM application becomes available in upstream, I will add a ReadMe with details source code and build details.",
+      "parentUuid": "fa05a075_cfe16e40",
       "range": {
         "startLine": 29,
         "startChar": 0,
@@ -342,6 +689,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d5d0a4a_1a8f1d8a",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T13:39:03Z",
+      "side": 1,
+      "message": "As a convenience, I have added this link in order to provide users who are reading this document with more information if they want to try out this code in their setup. It has been added with the understanding it needs to be replaced by a proper one in the final version.\n\nBut, I\u0027m okay either to leave a placeholder here.",
+      "parentUuid": "cb2eadf3_4fd1a6b3",
+      "range": {
+        "startLine": 35,
+        "startChar": 5,
+        "endLine": 35,
+        "endChar": 140
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ed43a45a_f345d44c",
         "filename": "docs/design_documents/drtm_poc.rst",
         "patchSetId": 3
@@ -353,6 +724,30 @@
       "writtenOn": "2022-07-11T09:59:38Z",
       "side": 1,
       "message": "Avoid referring to a specific version of mbedTLS here. We are likely to forget about updating this document when we upgrade mbed TLS in the future...",
+      "range": {
+        "startLine": 43,
+        "startChar": 17,
+        "endLine": 43,
+        "endChar": 33
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "129dba5e_7f5f5bbf",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T13:39:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ed43a45a_f345d44c",
       "range": {
         "startLine": 43,
         "startChar": 17,
@@ -388,6 +783,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cddf170b_8692e5f5",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T13:39:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a9d3f925_23390cf7",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 43
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "12fc234f_328cc9f0",
         "filename": "docs/design_documents/drtm_poc.rst",
         "patchSetId": 3
@@ -399,6 +818,30 @@
       "writtenOn": "2022-07-11T09:59:38Z",
       "side": 1,
       "message": "(minor) We do not necessarily use the \"latest\" version of FVP_Base_RevC-2xAEMvA model. Perhaps just reword as, \"Please use the version of FVP_Base_RevC-2xAEMvA model advertised in the TF-A documentation.\"",
+      "range": {
+        "startLine": 51,
+        "startChar": 23,
+        "endLine": 52,
+        "endChar": 36
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baa3a330_a675c5b7",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T13:39:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "12fc234f_328cc9f0",
       "range": {
         "startLine": 51,
         "startChar": 23,
@@ -434,6 +877,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "812e7aa7_aa567101",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T13:39:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ed61c866_9b1ec8bf",
+      "range": {
+        "startLine": 57,
+        "startChar": 25,
+        "endLine": 57,
+        "endChar": 35
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8362f685_b9a13ed4",
         "filename": "docs/design_documents/drtm_poc.rst",
         "patchSetId": 3
@@ -445,6 +912,30 @@
       "writtenOn": "2022-07-11T09:59:38Z",
       "side": 1,
       "message": "to indicate *that the* last SMC to unprotect memory *has* been fired successfully",
+      "range": {
+        "startLine": 81,
+        "startChar": 10,
+        "endLine": 82,
+        "endChar": 13
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72032557_630dc531",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T13:39:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8362f685_b9a13ed4",
       "range": {
         "startLine": 81,
         "startChar": 10,
