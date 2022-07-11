@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "05b1c197_9635f05e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T12:54:57Z",
+      "side": 1,
+      "message": "(minor) I would slightly reword the commit message line, to make it clear than we\u0027re not doing this unconditionally but rather we are providing a helper function to do that.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 47
+      },
+      "revId": "2e0f9fff1064457cfb8a59815c634e604c4549c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d85fe2b7_3647680f",
         "filename": "lib/psci/psci_common.c",
         "patchSetId": 11
