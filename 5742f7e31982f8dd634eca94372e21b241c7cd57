@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b4c9e66_28376c17",
+        "filename": "docs/design/trusted-board-boot-build.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T08:39:38Z",
+      "side": 1,
+      "message": "If I am not mistaken, the commands mentioned further down in the document also require setting LD_LIBRARY_PATH. I suggest mentioning it here. Perhaps you can advise exporting the variable in the environment as a prerequisite.",
+      "range": {
+        "startLine": 38,
+        "startChar": 39,
+        "endLine": 39,
+        "endChar": 60
+      },
+      "revId": "5742f7e31982f8dd634eca94372e21b241c7cd57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df47f284_595023c2",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T08:39:38Z",
+      "side": 1,
+      "message": "Please remove trailing whitespaces.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 3
+      },
+      "revId": "5742f7e31982f8dd634eca94372e21b241c7cd57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ea38fb7_ea6a058a",
+        "filename": "docs/getting_started/tools-build.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T08:39:38Z",
+      "side": 1,
+      "message": "Please remove trailing whitespaces and break lines to 80 columns.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 63
+      },
+      "revId": "5742f7e31982f8dd634eca94372e21b241c7cd57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
