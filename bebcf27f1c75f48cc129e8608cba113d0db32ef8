@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50975d2b_0ce16008",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-11T14:50:55Z",
+      "side": 1,
+      "message": "\u003e Patch Set 12: Verified-1\n\u003e \n\u003e Build Failed \n\u003e \n\u003e https://jenkins.oss.arm.com/job/tf-gerrit-tforg-l2/2555/ : This Jenkins server is not publicly accessible. A core maintainer will let you know if this CI failure is blocking the merge of this patch.\n\nThere are two build failures caused by the TF-a-tests change. Looking at it.\n\nftf/tests/runtime_services/secure_service/test_spm_cpu_features.c: In function \u0027test_sve_vectors_preserved\u0027:\ntftf/tests/runtime_services/secure_service/test_spm_cpu_features.c:88:9: error: implicit declaration of function \u0027write_zcr_el2\u0027; did you mean \u0027write_hcr_el2\u0027? [-Werror\u003dimplicit-function-declaration]\n   88 |         write_zcr_el2(0xf);\n      |         ^~~~~~~~~~~~~\n      |         write_hcr_el2\ncc1: all warnings being treated as errors\nMakefile:515: recipe for target \u0027build/fvp/debug/tftf/test_spm_cpu_features.o\u0027 failed\nmake: *** [build/fvp/debug/tftf/test_spm_cpu_features.o] Error 1\n\n\naarch64-none-elf-gcc  -g -gdwarf-4 -nostdinc -ffreestanding -Wall\t-Werror -Wmissing-include-dirs -mgeneral-regs-only -mstrict-align -march\u003darmv8-a -std\u003dgnu99 -Os -ffunction-sections -fdata-sections  -Iinclude/lib/libfdt -Iinclude/lib/libc -Iinclude/lib/libc/aarch64  -I./build/fvp/debug/autogen -Itftf/framework/include -Iinclude -Iinclude/common -Iinclude/common/aarch64 -Iinclude/lib -Iinclude/lib/aarch64 -Iinclude/lib/extensions -Iinclude/lib/utils -Iinclude/lib/xlat_tables -Iinclude/plat/common -Iinclude/runtime_services -Iinclude/runtime_services/secure_el0_payloads -Iinclude/runtime_services/secure_el1_payloads -Ispm/cactus -Ispm/ivy -Ispm/quark -Ismc_fuzz/include -Ispm/cactus/plat/arm/fvp/include/ -Ispm/ivy/app/plat/arm/fvp/include/ -Iplat/arm/fvp/include/ -Iinclude/plat/arm/common/  -DPLAT_XLAT_TABLES_DYNAMIC\u003d1 -DFVP_CLUSTER_COUNT\u003d2 -DFVP_MAX_CPUS_PER_CLUSTER\u003d4 -DFVP_MAX_PE_PER_CPU\u003d1 -DPA_SIZE\u003d34 -DARM_ARCH_MAJOR\u003d8 -DARM_ARCH_MINOR\u003d0 -DDEBUG\u003d1 -DENABLE_ASSERTIONS\u003d1 -DENABLE_BTI\u003d0 -DENABLE_PAUTH\u003d0 -DLOG_LEVEL\u003d40 -DNEW_TEST_SESSION\u003d1 -DPLAT_fvp -DUSE_NVM\u003d0 -DIMAGE_TFTF -Wp,-MD,./build/fvp/debug/tftf/test_spm_cpu_features.d -MT build/fvp/debug/tftf/test_spm_cpu_features.o -c tftf/tests/runtime_services/secure_service/test_spm_cpu_features.c -o build/fvp/debug/tftf/test_spm_cpu_features.o\n/tmp/ccIK1NS9.s: Assembler messages:\n/tmp/ccIK1NS9.s:436: Error: selected processor does not support `rdvl x2,#1\u0027\nMakefile:515: recipe for target \u0027build/fvp/debug/tftf/test_spm_cpu_features.o\u0027 failed\nmake: *** [build/fvp/debug/tftf/test_spm_cpu_features.o] Error 1",
+      "revId": "bebcf27f1c75f48cc129e8608cba113d0db32ef8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
