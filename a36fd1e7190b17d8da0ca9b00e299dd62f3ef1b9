@@ -1,0 +1,458 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c217fff0_f7387b35",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T09:59:38Z",
+      "side": 1,
+      "message": "Side note: I think we should add entries for \"DRTM\" and \"TCB\" into the glossary.",
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26496726_f100d831",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T09:59:38Z",
+      "side": 1,
+      "message": "I feel something like \"DRTM Proof of Concept\" would a better title, as this document does not only cover the execution flow and also explains how to reproduce the test environment.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 19
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f5ad245_b5f926e8",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T09:59:38Z",
+      "side": 1,
+      "message": "I\u0027d like to avoid the \"chain of trust\" terminology here. I know this is the terminology used in the DRTM spec, but in the context of TF-A this usually refers to the *authentication* chain enforced by trusted boot so I am worried people might get confused.",
+      "range": {
+        "startLine": 4,
+        "startChar": 58,
+        "endLine": 5,
+        "endChar": 5
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39871e52_46868430",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T09:59:38Z",
+      "side": 1,
+      "message": "I think we need to expand a bit on the introduction here. Perhaps something along these lines:\n\n---8\u003c---\nThe current measured boot implementation in TF-A covers all firmware from the boot ROM up to the normal world bootloader. Together, they constitute the Trusted Computing Base (TCB) of the system. These boot measurements allow attesting to what software is running on the system and enable enforcing security policies.\n\nAs the number of components in the boot chain grows or when firmware is dynamically extensible, establishing an attestable TCB becomes increasingly difficult. Dynamic Root of Trust for Measurement (DRTM) helps addressing this issue by starting a new chain of measurements at any time. Because these measurements are stored separately from the boot-time measurements, they avoid increasing the size of the TCB, which in turn helps reducing the attack surface and the risk of executing un-trusted code which could compromise the security of the system.\n---8\u003c---",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 42
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3adbaf4f_78a6dd3c",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T09:59:38Z",
+      "side": 1,
+      "message": "Suggest adding an empty line after the title for readability.\n\nAlso could add an introductory sentence, such as: \"The DRTM architecture involves a number of software components with specific responsibilities. Please refer to the DRTM specification for more details. This section outlines how these components map into TF-A design.\"",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 10
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45b862b0_40ddf08e",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T09:59:38Z",
+      "side": 1,
+      "message": "handle",
+      "range": {
+        "startLine": 13,
+        "startChar": 5,
+        "endLine": 13,
+        "endChar": 12
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38018b75_5d2b4ba1",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T09:59:38Z",
+      "side": 1,
+      "message": "Not 100% sure, as I need to do some further reading on DRTM, but I think that D-CRTM handles SMCs fired from DCE-Preamble, while DCE handles SMCs fired from DLME. Is that correct? If yes, is it worth clarifying here?",
+      "range": {
+        "startLine": 12,
+        "startChar": 5,
+        "endLine": 13,
+        "endChar": 51
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "016bc359_8218ed99",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T09:59:38Z",
+      "side": 1,
+      "message": "\"They measure\"?",
+      "range": {
+        "startLine": 14,
+        "startChar": 5,
+        "endLine": 14,
+        "endChar": 16
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98ac7748_bae04b76",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T09:59:38Z",
+      "side": 1,
+      "message": "components",
+      "range": {
+        "startLine": 14,
+        "startChar": 25,
+        "endLine": 14,
+        "endChar": 34
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85252627_1f4c0934",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T09:59:38Z",
+      "side": 1,
+      "message": "\"They prepare\"?",
+      "range": {
+        "startLine": 15,
+        "startChar": 5,
+        "endLine": 15,
+        "endChar": 16
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6096eb1_26d5c372",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T09:59:38Z",
+      "side": 1,
+      "message": "Can we please expand acronyms?\n\"In this proof of concept,\"...",
+      "range": {
+        "startLine": 18,
+        "startChar": 32,
+        "endLine": 18,
+        "endChar": 48
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "345923fd_35855cfd",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T09:59:38Z",
+      "side": 1,
+      "message": "This seems to suggest that DCE-Preamble and DLME are part of the same UEFI application. Is it the case? If no, then better to say \"are part of the EDK2 code base\" IMO.\n\nAlso, I think it would be worth providing a link to the relevant modules in the EDK2 code base, in case people want to have a look at it, or rebuild the application(s) from scratch rather than re-using the prebuilt ones we provide.",
+      "range": {
+        "startLine": 19,
+        "startChar": 17,
+        "endLine": 19,
+        "endChar": 33
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9a5d067_18b2f476",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T09:59:38Z",
+      "side": 1,
+      "message": "the platform",
+      "range": {
+        "startLine": 19,
+        "startChar": 57,
+        "endLine": 19,
+        "endChar": 65
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa05a075_cfe16e40",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T09:59:38Z",
+      "side": 1,
+      "message": "Consider adding a README file under https://downloads.trustedfirmware.org/tf-a/drtm/ to explain:\n\n- what source code was used to build FVP_AARCH64_EFI.fd binary (repository URL + commit SHA)\n- how this was built (provide the command line).\n\nThis will help reproducing the binary, both for partners and for us if we ever need to update the binary in the future.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 72
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb2eadf3_4fd1a6b3",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T09:59:38Z",
+      "side": 1,
+      "message": "I am assuming we will update this command line once the patch stack is merged? Providing a link to https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/ seems better to me than a link to review.tf.org, as it allows anonymous downloads and is more user-friendly.\n\nPerhaps refrain from providing a link for now, just leave a placeholder? We can wait until the code changes land on master and merge this specific documentation patch after that?",
+      "range": {
+        "startLine": 35,
+        "startChar": 5,
+        "endLine": 35,
+        "endChar": 140
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed43a45a_f345d44c",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T09:59:38Z",
+      "side": 1,
+      "message": "Avoid referring to a specific version of mbedTLS here. We are likely to forget about updating this document when we upgrade mbed TLS in the future...",
+      "range": {
+        "startLine": 43,
+        "startChar": 17,
+        "endLine": 43,
+        "endChar": 33
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9d3f925_23390cf7",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T09:59:38Z",
+      "side": 1,
+      "message": "Could we add a short sentence explaining what this image contains?",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 43
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12fc234f_328cc9f0",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T09:59:38Z",
+      "side": 1,
+      "message": "(minor) We do not necessarily use the \"latest\" version of FVP_Base_RevC-2xAEMvA model. Perhaps just reword as, \"Please use the version of FVP_Base_RevC-2xAEMvA model advertised in the TF-A documentation.\"",
+      "range": {
+        "startLine": 51,
+        "startChar": 23,
+        "endLine": 52,
+        "endChar": 36
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed61c866_9b1ec8bf",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T09:59:38Z",
+      "side": 1,
+      "message": "Change this into \u003c/path/to/romlib.bin\u003e, like bl1.bin and fip.bin below?",
+      "range": {
+        "startLine": 57,
+        "startChar": 25,
+        "endLine": 57,
+        "endChar": 35
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8362f685_b9a13ed4",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-11T09:59:38Z",
+      "side": 1,
+      "message": "to indicate *that the* last SMC to unprotect memory *has* been fired successfully",
+      "range": {
+        "startLine": 81,
+        "startChar": 10,
+        "endLine": 82,
+        "endChar": 13
+      },
+      "revId": "a36fd1e7190b17d8da0ca9b00e299dd62f3ef1b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
