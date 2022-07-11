@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1941eb32_8f5d8d4b",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T16:52:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d85fe2b7_3647680f",
+      "range": {
+        "startLine": 1027,
+        "startChar": 31,
+        "endLine": 1027,
+        "endChar": 35
+      },
+      "revId": "2e0f9fff1064457cfb8a59815c634e604c4549c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ed101533_3e5e9c46",
         "filename": "lib/psci/psci_common.c",
         "patchSetId": 11
@@ -60,6 +84,30 @@
       "writtenOn": "2022-07-11T12:53:09Z",
       "side": 1,
       "message": "The function returns a boolean so I think this should be reworded as:\n\n  Returns true if the current CPU is the last ON CPU or false otherwise.",
+      "range": {
+        "startLine": 1029,
+        "startChar": 3,
+        "endLine": 1030,
+        "endChar": 13
+      },
+      "revId": "2e0f9fff1064457cfb8a59815c634e604c4549c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f53cd7bc_7512ab55",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T16:52:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ed101533_3e5e9c46",
       "range": {
         "startLine": 1029,
         "startChar": 3,
@@ -95,6 +143,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "705584fd_9000556b",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T16:52:43Z",
+      "side": 1,
+      "message": "I need to think about it.\nAlso, I think we should take this as a separate change in the subsequent patch if it cannot easily be achieved.",
+      "parentUuid": "cb11f8ae_e014d92d",
+      "range": {
+        "startLine": 1031,
+        "startChar": 0,
+        "endLine": 1033,
+        "endChar": 40
+      },
+      "revId": "2e0f9fff1064457cfb8a59815c634e604c4549c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d3dbb35f_2f3d698b",
         "filename": "lib/psci/psci_common.c",
         "patchSetId": 11
@@ -106,6 +178,30 @@
       "writtenOn": "2022-07-11T12:53:09Z",
       "side": 1,
       "message": "Can we not call this psci_is_last_on_cpu_safe(), in reference of psci_is_last_on_cpu()?",
+      "range": {
+        "startLine": 1035,
+        "startChar": 5,
+        "endLine": 1035,
+        "endChar": 30
+      },
+      "revId": "2e0f9fff1064457cfb8a59815c634e604c4549c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "267122ca_2c07981f",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T16:52:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d3dbb35f_2f3d698b",
       "range": {
         "startLine": 1035,
         "startChar": 5,
@@ -141,6 +237,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ddede41e_80991b13",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1038,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T16:52:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d137d665_1175fd94",
+      "range": {
+        "startLine": 1038,
+        "startChar": 52,
+        "endLine": 1038,
+        "endChar": 58
+      },
+      "revId": "2e0f9fff1064457cfb8a59815c634e604c4549c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a47b7b90_400a47d5",
         "filename": "lib/psci/psci_common.c",
         "patchSetId": 11
@@ -152,6 +272,30 @@
       "writtenOn": "2022-07-11T12:53:09Z",
       "side": 1,
       "message": "(minor) Remove extra empty line?",
+      "range": {
+        "startLine": 1041,
+        "startChar": 0,
+        "endLine": 1041,
+        "endChar": 3
+      },
+      "revId": "2e0f9fff1064457cfb8a59815c634e604c4549c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fc61928_d4222868",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1041,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-11T16:52:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a47b7b90_400a47d5",
       "range": {
         "startLine": 1041,
         "startChar": 0,
