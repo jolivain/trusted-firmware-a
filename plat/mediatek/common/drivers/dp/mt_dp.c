@@ -67,3 +67,15 @@ int32_t dp_secure_handler(uint64_t cmd, uint64_t para, uint32_t *val)
 
 	return ret;
 }
+
+u_register_t mtk_dp_sip_handler(u_register_t x1, u_register_t x2,
+				u_register_t x3, u_register_t x4,
+				void *handle, struct smccc_res *smccc_ret)
+{
+	uint32_t ret_val;
+
+	dp_secure_handler(x1, x2, &ret_val);
+
+	return 0;
+}
+DECLARE_SMC_HANDLER(MTK_SIP_DP_CONTROL, mtk_dp_sip_handler);
