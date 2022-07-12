@@ -1073,6 +1073,7 @@ $(eval $(call assert_numerics,\
         ENABLE_FEAT_HCX \
         ENABLE_FEAT_PAN \
         ENABLE_FEAT_RNG \
+        ENABLE_FEAT_RNG_TRAP \
         ENABLE_FEAT_SB \
         ENABLE_FEAT_SEL2 \
         ENABLE_FEAT_VHE \
@@ -1183,6 +1184,7 @@ $(eval $(call add_defines,\
         COT_DESC_IN_DTB \
         USE_SP804_TIMER \
         ENABLE_FEAT_RNG \
+        ENABLE_FEAT_RNG_TRAP \
         ENABLE_FEAT_SB \
         ENABLE_FEAT_DIT \
         NR_OF_FW_BANKS \
