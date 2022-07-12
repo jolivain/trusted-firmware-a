@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "702919c0_2cbaa3ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-07-12T14:27:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b94af05_ab9cfa73",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 54
+      },
+      "revId": "55aa12b437b052152bb87c5d661efe645250c33b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48b39cdd_e27e6253",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-07-06T09:03:50Z",
       "side": 1,
       "message": "nit: should this be described as MTK driver init level 0/1?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 16
+      },
+      "revId": "55aa12b437b052152bb87c5d661efe645250c33b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb7ec73f_dcd3d4ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-07-12T14:27:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48b39cdd_e27e6253",
       "range": {
         "startLine": 24,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "855c3d63_b29a2398",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-07-12T14:27:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d712ba3_2530aaff",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 75
+      },
+      "revId": "55aa12b437b052152bb87c5d661efe645250c33b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6de051ca_14cd74f2",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-07-06T09:08:10Z",
       "side": 1,
       "message": "nit: traps",
+      "range": {
+        "startLine": 30,
+        "startChar": 19,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "55aa12b437b052152bb87c5d661efe645250c33b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f2732d0_e1291547",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-07-12T14:27:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6de051ca_14cd74f2",
       "range": {
         "startLine": 30,
         "startChar": 19,
@@ -116,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ede79523_075945bc",
+        "filename": "plat/mediatek/include/lib/mtk_init/mtk_init.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-07-12T14:27:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04e2d6e9_239ec009",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 2
+      },
+      "revId": "55aa12b437b052152bb87c5d661efe645250c33b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed7990a0_034a56d5",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-07-06T09:03:50Z",
       "side": 1,
       "message": "Would it work removing this and use VERBOSE at line 28?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 34
+      },
+      "revId": "55aa12b437b052152bb87c5d661efe645250c33b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e388ffb_729307d5",
+        "filename": "plat/mediatek/lib/mtk_init/mtk_mmap_init.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-07-12T14:27:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed7990a0_034a56d5",
       "range": {
         "startLine": 26,
         "startChar": 0,
