@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34dbccd0_f443854d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2022-07-12T15:57:43Z",
+      "side": 1,
+      "message": "Ack, I copied this from the previous comms patch but will change.",
+      "parentUuid": "b64291a3_58411400",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 21
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bcc335c3_32eae892",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-07-06T13:39:16Z",
       "side": 1,
       "message": "(minor) I wonder whether v0/v1 are the right names... At first, I thought that v0 was made legacy and was superseded by v1. So I expected that we would choose at compile time whether to use v0 or v1. Then I realized we dynamically decided for each message whether to use v0 or v1 protocol based on the size of the message/reply. Perhaps we should consider renaming into short/extended or something like that?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 60
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb3f20f8_7cf18c0e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2022-07-12T15:57:43Z",
+      "side": 1,
+      "message": "I can see v0 being deprecated in future to save on code size, though it depends on what the performance characteristics of both look like.\n\nI think the names would have to be \"embed\" and \"pointer-copy\". Short and Long might end up being misleading if we change the way protocols are selected to be more complex / different.",
+      "parentUuid": "bcc335c3_32eae892",
       "range": {
         "startLine": 9,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad5007ab_fb968ed8",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2022-07-12T15:57:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72ef7d25_9ba97b06",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 32
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5dee661d_ee7bfb96",
@@ -93,6 +165,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3605edbc_c6ebdfbf",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2022-07-12T15:57:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5dee661d_ee7bfb96",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 25
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9be1fce6_79491778",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-07-06T13:39:16Z",
       "side": 1,
       "message": "I\u0027ve not completely thought this through but could we put these 2 buffers in a union, for the purpose of saving some memory? AFAIU, by the time we start using \u0027reply\u0027, we no longer need \u0027msg\u0027. IOW at any given point in time I think we only use one of these. Is that correct?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 49
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b9854e2_1ee8e489",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2022-07-12T15:57:43Z",
+      "side": 1,
+      "message": "Yes, that\u0027s correct.",
+      "parentUuid": "9be1fce6_79491778",
       "range": {
         "startLine": 22,
         "startChar": 0,
@@ -164,6 +284,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8127990d_eaf4c76a",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2022-07-12T15:57:43Z",
+      "side": 1,
+      "message": "So v0 vs v1 should only ever change performance. A check to fix this would be pretty trivial (check if the number is decrementing after each addition) but it _also_ has a performance penalty, so maybe it\u0027s not worth doing?",
+      "parentUuid": "b86f9bad_f83d3b6d",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 2
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2be6678_e1dd64c3",
         "filename": "drivers/arm/rss/rss_comms.c",
         "patchSetId": 2
@@ -175,6 +319,30 @@
       "writtenOn": "2022-07-06T13:39:16Z",
       "side": 1,
       "message": "Add extra parentheses around each of the conditions for MISRA compliance.\n\n if ((in_size_total \u003e 40) || (out_size_total \u003e 44)) {\n\nAlso would it be worth explaining how these 40/44 numbers have been chosen? The TODO comment suggests this was kind of empirical? Perhaps add a note about this in the commit message?",
+      "range": {
+        "startLine": 42,
+        "startChar": 5,
+        "endLine": 42,
+        "endChar": 46
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a15f0ccb_d1e8da30",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2022-07-12T15:57:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2be6678_e1dd64c3",
       "range": {
         "startLine": 42,
         "startChar": 5,
@@ -210,6 +378,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d146e3df_230d2c57",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2022-07-12T15:57:43Z",
+      "side": 1,
+      "message": "Yeah I wasn\u0027t sure how TF-A does indentation. Is it mixed with spaces for alignment? Or just full tabs?",
+      "parentUuid": "08961ccd_627c8ee4",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 43
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b2721066_b6e11568",
         "filename": "drivers/arm/rss/rss_comms.c",
         "patchSetId": 2
@@ -221,6 +413,30 @@
       "writtenOn": "2022-07-06T13:39:16Z",
       "side": 1,
       "message": "What do we gain from initializing msg_size to sizeof(msg) here? AFAICS, rss_protocol_v0/v1_serialize_msg() override this value. To be honest, this confused me at first.",
+      "range": {
+        "startLine": 56,
+        "startChar": 1,
+        "endLine": 56,
+        "endChar": 31
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64fdc47d_7bab595f",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2022-07-12T15:57:43Z",
+      "side": 1,
+      "message": "Ah yes, msg_size no longer needs initialising here (though reply_size does as it\u0027s used by the MHU layer)",
+      "parentUuid": "b2721066_b6e11568",
       "range": {
         "startLine": 56,
         "startChar": 1,
@@ -248,6 +464,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dec65a2b_1f23fb68",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2022-07-12T15:57:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17fdb6a5_9fd0f79b",
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1223f833_97d940b2",
@@ -261,6 +495,30 @@
       "writtenOn": "2022-07-06T13:39:16Z",
       "side": 1,
       "message": "This memset() call used to be done after sending the message and before receiving the reply. The comment tries to explain the rationale, but here is the longer version we had in the internal Gerrit [1]:\n\n\u003e From AP perspective, I think it could desirable to clear the buffer just before reading the answer from RSS - i.e. the sequence would be 1) send data to RSS 2) clear buffer 3) read answer from RSS. It could help catching bugs if RSS ever returns an incorrect size, which happens to be bigger than the actual payload size. E.g. if RSS returns a message of 16 bytes but tells AP it is actually 20 bytes, AP would over-read 4 bytes in the buffer. If these last 4 bytes are all 0, it is easier to understand what\u0027s going on.\n\nBy moving it before we\u0027ve sent the message, I think it no longer serves this purpose. Any particular reason why it was moved here?\n\n[1] https://gerrit.oss.arm.com/c/pdcs-platforms/ap/tf-topics/+/215999/8/drivers/arm/rss/rss_comms.c#78",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 30
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "699db124_0b8156dd",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2022-07-12T15:57:43Z",
+      "side": 1,
+      "message": "Ah yes, I was missing that extra information which I why it got moved to the wrong place.",
+      "parentUuid": "1223f833_97d940b2",
       "range": {
         "startLine": 63,
         "startChar": 0,
@@ -294,6 +552,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b4cacce_db1fc76d",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2022-07-12T15:57:43Z",
+      "side": 1,
+      "message": "I don\u0027t believe we have any in TF-M currently. I think yeah PSA specifies the type here so we have to accept it.",
+      "parentUuid": "110afd79_4338ee47",
+      "range": {
+        "startLine": 74,
+        "startChar": 25,
+        "endLine": 74,
+        "endChar": 41
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "889f2200_d9292011",
@@ -317,6 +599,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a17427c1_4ed25efe",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2022-07-12T15:57:43Z",
+      "side": 1,
+      "message": "I think this was because I was originally treating the header init as part of variable declaration, which of course isn\u0027t true now that performs a function call.",
+      "parentUuid": "889f2200_d9292011",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 2
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f2a2232_10533355",
@@ -330,6 +636,30 @@
       "writtenOn": "2022-07-06T13:39:16Z",
       "side": 1,
       "message": "I realize this was already there and you\u0027ve not changed this, but a question came to my mind... What happens if seq_num wraps around? It looks like we are not handling this case and we let it happen.\n\nFrom a C standard perspective, seq_num is an unsigned integer so we\u0027re not hitting any undefined behaviour, which is good. But from a protocol point of view, what would be the implications? What is the sequence number used for? Is it used to match out-of-order messages and replies on RSS side? But then I guess there should be some cod on AP side to match message and reply sequence numbers? Or is it preventing replay attacks, where an attacker would somehow gain access to the MHU bus and inject commands?\n\nI think we\u0027re way below the limit of 256 MHU messages per boot right now. AFAIK all RSS comms are currently initiated and controlled within root world and the set of messages we send is statically defined (e.g. one measurement extend operation per firmware image, the list of which is statically defined, + RMM querying the platform attestation token once). But this might change in the future, if we support other attestation models for example?",
+      "range": {
+        "startLine": 121,
+        "startChar": 1,
+        "endLine": 121,
+        "endChar": 11
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07a4e0dd_d5ebe3e7",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2022-07-12T15:57:43Z",
+      "side": 1,
+      "message": "Currently seq_num isn\u0027t used at all :) Because messages here are always sent and then immediately received, so there\u0027s no need to keep track of multiple concurrent messages. TF-M has some apparatus for multiple concurrent messages, but it doesn\u0027t use seq_num, which I think is intended for the AP to know which reply goes with which messages. I think how it would work currently is that our message queue is smaller than the max seq number, so if TF-A sent 256 messages before we could reply they would just start rejecting the new messages.\n\nSo yeah, wrapping is fine I think, provided that we make sure there can never be a seq_num collision with in-flight messages. All of this detail is on the TF-A side though, and the naive implementation here means this doesn\u0027t matter.",
+      "parentUuid": "5f2a2232_10533355",
       "range": {
         "startLine": 121,
         "startChar": 1,
@@ -365,6 +695,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ecb4cfad_e69ba092",
+        "filename": "drivers/arm/rss/rss_comms_protocol.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2022-07-12T15:57:43Z",
+      "side": 1,
+      "message": "I think my preference for this way is that the called function just needs to set `msg_len` to the length of the message it has serialized, which seems fairly natural in that function. Plus, the serialization function doesn\u0027t need to know the size of the header so passing it in seems unnecessary.",
+      "parentUuid": "ee72f3f2_4985a0a1",
+      "range": {
+        "startLine": 41,
+        "startChar": 1,
+        "endLine": 41,
+        "endChar": 58
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0a059bda_3644ce11",
         "filename": "drivers/arm/rss/rss_comms_protocol.h",
         "patchSetId": 2
@@ -376,6 +730,30 @@
       "writtenOn": "2022-07-06T13:39:16Z",
       "side": 1,
       "message": "Could you please drop these lines here and in other files throughout this patch? We don\u0027t usually worry about C++ callers in TF-A and I\u0027d rather remove it from here than doing it only in a few places like that.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 6
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85b93eca_5b6459a4",
+        "filename": "drivers/arm/rss/rss_comms_protocol.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2022-07-12T15:57:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a059bda_3644ce11",
       "range": {
         "startLine": 17,
         "startChar": 0,
@@ -409,6 +787,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe376534_2d3d161a",
+        "filename": "drivers/arm/rss/rss_comms_protocol.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2022-07-12T15:57:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "294e0c84_c63bcff7",
+      "range": {
+        "startLine": 48,
+        "startChar": 5,
+        "endLine": 48,
+        "endChar": 19
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e5923c1_becc4552",
@@ -432,6 +834,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a97b8e5_dc7e0456",
+        "filename": "drivers/arm/rss/rss_comms_protocol_v0.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2022-07-12T15:57:43Z",
+      "side": 1,
+      "message": "Ah, I was working from an earlier version of this. Fixed",
+      "parentUuid": "2e5923c1_becc4552",
+      "range": {
+        "startLine": 19,
+        "startChar": 35,
+        "endLine": 19,
+        "endChar": 49
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce69c08b_39c63b31",
@@ -445,6 +871,30 @@
       "writtenOn": "2022-07-06T13:39:16Z",
       "side": 1,
       "message": "In rss_comms_protocol_v0.[ch] and in the common layer rss_comms_protocol.[ch], \u0027type\u0027 is a signed 16-bit integer. Any reason why it is unsigned in v1?",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 22
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dd6a0a0_2bd52706",
+        "filename": "drivers/arm/rss/rss_comms_protocol_v1.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2022-07-12T15:57:43Z",
+      "side": 1,
+      "message": "Error when updating types. Done",
+      "parentUuid": "ce69c08b_39c63b31",
       "range": {
         "startLine": 31,
         "startChar": 8,
