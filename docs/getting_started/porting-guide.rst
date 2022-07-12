@@ -953,6 +953,28 @@ Secure region of DRAM. This function takes DLME data start and
 end address as an input arguments, and returns 0 on success and
 -1 on failure.
 
+Function : plat_set_drtm_error()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : long long
+    Return   : int
+
+This function writes 64 bit error code received as input into
+non-volatile storage and returns 0 on success and -1 on failure.
+
+Function : plat_get_drtm_error()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : long long*
+    Return   : int
+
+This function read 64 bit error code from the non-volatile storage
+into the received address, and returns 0 on success and -1 on failure.
+
 Common mandatory function modifications
 ---------------------------------------
 
@@ -1260,6 +1282,20 @@ environment is initialized.
 .. note::
    The address from where it was called is stored in x30 (Link Register).
    The default implementation simply spins.
+
+Function : plat_system_reset()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : void
+    Return   : void
+
+This function is used by the platform to reset the system. It can be used
+in any specific use-case where system needs to be resetted. For example,
+in case of DRTM implementation this function reset the system after
+writing the DRTM error code in the non-volatile storage. This function
+never returns. Failure in reset results in panic.
 
 Function : plat_get_bl_image_load_info()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
