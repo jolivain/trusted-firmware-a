@@ -46,6 +46,30 @@
       },
       "revId": "047c9e1e26c23e7f58e549f798029c3b7ac462f2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e119799_703e5f46",
+        "filename": "services/std_svc/drtm/drtm_main.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000621
+      },
+      "writtenOn": "2022-07-12T11:16:20Z",
+      "side": 1,
+      "message": "Hi,\nThere is a reference to dlme_img_ep_off in drtm_dl_check_args() that that patch does not remove.",
+      "parentUuid": "ad7914fe_c56fcb70",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 36,
+        "endChar": 39
+      },
+      "revId": "047c9e1e26c23e7f58e549f798029c3b7ac462f2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
