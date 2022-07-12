@@ -299,6 +299,16 @@ static void setup_context_common(cpu_context_t *ctx, const entry_point_info_t *e
 	scr_el3 |= SCR_HXEn_BIT;
 #endif
 
+	/*
+	 * If FEAT_RNG_TRAP is enabled, enable trapping to EL3 all accesses to
+	 * RNDR and RNDRRS registers.
+	 */
+#if ENABLE_FEAT_RNG_TRAP
+	if (is_feat_rng_trap_present()) {
+		scr_el3 |= SCR_TRNDR_BIT;
+	}
+#endif
+
 #if RAS_TRAP_LOWER_EL_ERR_ACCESS
 	/*
 	 * SCR_EL3.TERR: Trap Error record accesses. Accesses to the RAS ERR
