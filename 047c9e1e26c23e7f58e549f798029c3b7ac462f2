@@ -70,6 +70,30 @@
       },
       "revId": "047c9e1e26c23e7f58e549f798029c3b7ac462f2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "921e7512_08485224",
+        "filename": "services/std_svc/drtm/drtm_main.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-12T11:45:22Z",
+      "side": 1,
+      "message": "Are you saying that potentially [1], this one should also be replaced with macro? By using macro, I didn\u0027t see much gain since the arguments are already de-referenced in the function for various checks. Having said that I don\u0027t have any issue in using the macro here. I will do the necessary update in [1],\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/15695/6/services/std_svc/drtm/drtm_main.c#275",
+      "parentUuid": "3e119799_703e5f46",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 36,
+        "endChar": 39
+      },
+      "revId": "047c9e1e26c23e7f58e549f798029c3b7ac462f2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
