@@ -56,4 +56,15 @@ uint64_t plat_drtm_get_tcb_hash_table_size(void);
 uint64_t plat_drtm_get_imp_def_dlme_region_size(void);
 uint64_t plat_drtm_get_tcb_hash_features(void);
 
+/*
+ * Platform-specific function to ensure DLME data lies within
+ * Non-Secure region of DRAM
+ */
+int plat_drtm_validate_dlme_ns_region(uintptr_t dlme_data_start,
+				      uintptr_t dlme_data_end);
+
+/* DRTM error handling functions */
+int plat_set_drtm_error(long long error_code);
+int plat_get_drtm_error(long long *error_code);
+
 #endif /* PLAT_DRTM_H */
