@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72ace8ea_72d26a41",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-13T11:30:55Z",
+      "side": 1,
+      "message": "Ah yes, that makes sense! Still, it might be worth adding a short sentence in the commit message,",
+      "parentUuid": "efadffc0_f5381abf",
+      "revId": "8ce78c4e85e20e42ef8420c36724f30bbc163565",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c904912_d234fb9f",
@@ -73,6 +91,30 @@
       "side": 1,
       "message": "This is good point! Yes, DRTM implementation runs on single CPU so ideally stack size increment is needed only for single/boot CPU. Is there any specific code in our TF-A to achieve this?",
       "parentUuid": "2c904912_d234fb9f",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 254,
+        "endChar": 26
+      },
+      "revId": "8ce78c4e85e20e42ef8420c36724f30bbc163565",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acf1cb83_064fc93e",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-13T11:30:55Z",
+      "side": 1,
+      "message": "Unfortunately I am not aware of any specific code to tune the primary CPU stack independently of secondary stacks. We might have to design something from scratch.  Given the foreseen gain in memory footprint, I think it\u0027s worth investigating.",
+      "parentUuid": "9a7e485a_03de888d",
       "range": {
         "startLine": 250,
         "startChar": 0,
