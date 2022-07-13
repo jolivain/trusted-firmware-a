@@ -123,6 +123,30 @@
       },
       "revId": "8ce78c4e85e20e42ef8420c36724f30bbc163565",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f2c0306_40f74b8c",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-13T11:57:43Z",
+      "side": 1,
+      "message": "I also did not see any existing mechanism in the code. Considering it has to be written from scratch, I think we should take this as a separate task.",
+      "parentUuid": "acf1cb83_064fc93e",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 254,
+        "endChar": 26
+      },
+      "revId": "8ce78c4e85e20e42ef8420c36724f30bbc163565",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
