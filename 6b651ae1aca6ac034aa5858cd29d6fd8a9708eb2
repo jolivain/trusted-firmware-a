@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c05a0d23_285668ea",
+        "filename": "plat/mediatek/include/lib/mtk_init/mtk_init.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-07-13T05:12:48Z",
+      "side": 1,
+      "message": "one line:\n#define MTK_EARLY_PLAT_INIT(_fn) DECLARE_MTK_INITCALL(_fn, 0)",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 29
+      },
+      "revId": "6b651ae1aca6ac034aa5858cd29d6fd8a9708eb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6ab282e_c3b7ea56",
+        "filename": "plat/mediatek/include/lib/mtk_init/mtk_init.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-07-13T05:12:48Z",
+      "side": 1,
+      "message": "one blank one above",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 23
+      },
+      "revId": "6b651ae1aca6ac034aa5858cd29d6fd8a9708eb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "215c0d04_2b4f08d1",
+        "filename": "plat/mediatek/include/mtk_mmap_pool.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-07-13T05:12:48Z",
+      "side": 1,
+      "message": "one blank line above",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 28
+      },
+      "revId": "6b651ae1aca6ac034aa5858cd29d6fd8a9708eb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c2378dd_c8c146d1",
+        "filename": "plat/mediatek/lib/mtk_init/mtk_init.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-07-13T05:12:48Z",
+      "side": 1,
+      "message": "int error;",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 11
+      },
+      "revId": "6b651ae1aca6ac034aa5858cd29d6fd8a9708eb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc316150_1ab1a589",
+        "filename": "plat/mediatek/lib/mtk_init/mtk_init.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-07-13T05:12:48Z",
+      "side": 1,
+      "message": "alignment:\t\nfor (entry \u003d initcall_list[level];\n     (entry !\u003d NULL) \u0026\u0026 (entry \u003c initcall_list[level + 1]);\n     entry++) {\n...\n}",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 12
+      },
+      "revId": "6b651ae1aca6ac034aa5858cd29d6fd8a9708eb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec68a50c_89198cbc",
+        "filename": "plat/mediatek/lib/mtk_init/mtk_init.ld.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-07-13T05:12:48Z",
+      "side": 1,
+      "message": "one blank line above",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 8
+      },
+      "revId": "6b651ae1aca6ac034aa5858cd29d6fd8a9708eb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a107de5b_322b15a8",
+        "filename": "plat/mediatek/lib/mtk_init/mtk_mmap_init.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-07-13T05:12:48Z",
+      "side": 1,
+      "message": "use space?",
+      "range": {
+        "startLine": 19,
+        "startChar": 24,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "6b651ae1aca6ac034aa5858cd29d6fd8a9708eb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81a84747_84973e34",
+        "filename": "plat/mediatek/lib/mtk_init/mtk_mmap_init.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-07-13T05:12:48Z",
+      "side": 1,
+      "message": "one blank line above",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 52
+      },
+      "revId": "6b651ae1aca6ac034aa5858cd29d6fd8a9708eb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5f3bcae_0ff8a6f9",
+        "filename": "plat/mediatek/lib/mtk_init/mtk_mmap_init.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-07-13T05:12:48Z",
+      "side": 1,
+      "message": "alignment",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 19
+      },
+      "revId": "6b651ae1aca6ac034aa5858cd29d6fd8a9708eb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d38573a_592b4ab6",
+        "filename": "plat/mediatek/lib/mtk_init/mtk_mmap_init.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-07-13T05:12:48Z",
+      "side": 1,
+      "message": "alignment",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 12
+      },
+      "revId": "6b651ae1aca6ac034aa5858cd29d6fd8a9708eb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
