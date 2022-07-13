@@ -371,13 +371,12 @@ static enum drtm_retc drtm_dl_check_args(uint64_t x1,
 	dlme_data_start = a->dlme_paddr + a->dlme_data_off;
 	dlme_data_end = dlme_end;
 
-	/*
-	 * TODO: validate that the DLME physical address range is all NS memory,
-	 * return INVALID_PARAMETERS if it is not.
-	 * Note that this check relies on platform-specific information. For
-	 * examples, see psci_plat_pm_ops->validate_ns_entrypoint() or
-	 * arm_validate_ns_entrypoint().
-	 */
+	/* check DLME data region (paddr + size) is NS address region */
+	rc = plat_drtm_validate_dlme_ns_region(dlme_start, (size_t)a->dlme_size);
+	if (rc != 0) {
+		ERROR("DRTM: DLME data region lies within secure memory\n");
+		return INVALID_PARAMETERS;
+	}
 
 	/* Check the DLME regions arguments. */
 	if ((dlme_start % DRTM_PAGE_SIZE) != 0) {
