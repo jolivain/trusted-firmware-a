@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -30,9 +30,86 @@
 static ufs_params_t ufs_params;
 static int nutrs;	/* Number of UTP Transfer Request Slots */
 
+/* Returns true if the interrupt status is fatal, otherwise false */
+static bool is_fatal_err(uint32_t status)
+{
+	uint32_t data;
+
+	if ((status & UFS_INT_FATAL) != 0U) {
+		WARN("fatal error encountered, status: 0x%x\n", status);
+		return true;
+	}
+
+	if ((status & UFS_INT_UE) != 0U) {
+		data = mmio_read_32(ufs_params.reg_base + UECDL);
+		if ((data & PA_INIT_ERR) != 0U) {
+			WARN("pa_init error encountered, uecdl: 0x%x\n", data);
+			return true;
+		}
+	}
+
+	return false;
+}
+
+static int ufs_error_handler(uint32_t status, bool ignore_linereset)
+{
+	uint32_t data;
+
+	/*
+	 * PA_LAYER_GEN_ERR is a LINERESET (MPHY reset) indication
+	 * which is expected in case of LINK_STARTUP and DME_SET
+	 * Ignoring it as a general practice
+	 */
+	data = mmio_read_32(ufs_params.reg_base + UECPA);
+	if ((data & PA_LAYER_GEN_ERR) != 0U && ignore_linereset) {
+		return 0;
+	}
+
+	/* Return I/O error on fatal error, it is upto the caller to re-init UFS */
+	if (is_fatal_err(status)) {
+		return -EIO;
+	}
+
+	/* retry for non-fatal errors */
+	return -EAGAIN;
+}
+
+static int ufs_wait_for_int_status(const uint32_t expected_status,
+				   unsigned int timeout_ms,
+				   bool ignore_linereset)
+{
+	uint32_t data;
+	int result;
+
+	do {
+		data = mmio_read_32(ufs_params.reg_base + IS);
+		if ((data & UFS_INT_ERR) != 0U) {
+			mmio_write_32(ufs_params.reg_base + IS, data & UFS_INT_ERR);
+			result = ufs_error_handler(data, ignore_linereset);
+			if (result != 0) {
+				return result;
+			}
+		}
+
+		if (data & expected_status) {
+			break;
+		}
+		mdelay(1);
+	} while (timeout_ms-- > 0);
+
+	if ((data & expected_status) == 0) {
+		return -ETIMEDOUT;
+	}
+
+	mmio_write_32(ufs_params.reg_base + IS, expected_status);
+
+	return 0;
+}
+
 int ufshc_send_uic_cmd(uintptr_t base, uic_cmd_t *cmd)
 {
 	unsigned int data;
+	int result;
 
 	if (base == 0 || cmd == NULL)
 		return -EINVAL;
@@ -46,10 +123,12 @@ int ufshc_send_uic_cmd(uintptr_t base, uic_cmd_t *cmd)
 	mmio_write_32(base + UCMDARG3, cmd->arg3);
 	mmio_write_32(base + UICCMD, cmd->op);
 
-	do {
-		data = mmio_read_32(base + IS);
-	} while ((data & UFS_INT_UCCS) == 0);
-	mmio_write_32(base + IS, UFS_INT_UCCS);
+	result = ufs_wait_for_int_status(UFS_INT_UCCS, UIC_CMD_TIMEOUT_MS,
+					 (cmd->op == DME_SET ||
+					  cmd->op == DME_LINKSTARTUP));
+	assert(result == 0);
+
+	(void)result;
 	return mmio_read_32(base + UCMDARG2) & CONFIG_RESULT_CODE_MASK;
 }
 
@@ -490,20 +569,21 @@ static void ufs_send_request(int task_tag)
 	mmio_setbits_32(ufs_params.reg_base + UTRLDBR, 1 << slot);
 }
 
-static int ufs_check_resp(utp_utrd_t *utrd, int trans_type)
+static int ufs_check_resp(utp_utrd_t *utrd, int trans_type, unsigned int timeout_ms)
 {
 	utrd_header_t *hd;
 	resp_upiu_t *resp;
 	unsigned int data;
-	int slot;
+	int slot, result;
 
 	hd = (utrd_header_t *)utrd->header;
 	resp = (resp_upiu_t *)utrd->resp_upiu;
-	do {
-		data = mmio_read_32(ufs_params.reg_base + IS);
-		if ((data & ~(UFS_INT_UCCS | UFS_INT_UTRCS)) != 0)
-			return -EIO;
-	} while ((data & UFS_INT_UTRCS) == 0);
+
+	result = ufs_wait_for_int_status(UFS_INT_UTRCS, timeout_ms, false);
+	if (result != 0) {
+		return result;
+	}
+
 	slot = utrd->task_tag - 1;
 
 	data = mmio_read_32(ufs_params.reg_base + UTRLDBR);
@@ -516,6 +596,7 @@ static int ufs_check_resp(utp_utrd_t *utrd, int trans_type)
 	inv_dcache_range((uintptr_t)hd, UFS_DESC_SIZE);
 	assert(hd->ocs == OCS_SUCCESS);
 	assert((resp->trans_type & TRANS_TYPE_CODE_MASK) == trans_type);
+	(void)data;
 	(void)resp;
 	(void)slot;
 	return 0;
@@ -531,7 +612,7 @@ static void ufs_send_cmd(utp_utrd_t *utrd, uint8_t cmd_op, uint8_t lun, int lba,
 	result = ufs_prepare_cmd(utrd, cmd_op, lun, lba, buf, length);
 	assert(result == 0);
 	ufs_send_request(utrd->task_tag);
-	result = ufs_check_resp(utrd, RESPONSE_UPIU);
+	result = ufs_check_resp(utrd, RESPONSE_UPIU, CMD_TIMEOUT_MS);
 	assert(result == 0);
 	(void)result;
 }
@@ -578,7 +659,7 @@ static void ufs_verify_init(void)
 	get_utrd(&utrd);
 	ufs_prepare_nop_out(&utrd);
 	ufs_send_request(utrd.task_tag);
-	result = ufs_check_resp(&utrd, NOP_IN_UPIU);
+	result = ufs_check_resp(&utrd, NOP_IN_UPIU, NOP_OUT_TIMEOUT_MS);
 	assert(result == 0);
 	(void)result;
 }
@@ -611,7 +692,7 @@ static void ufs_query(uint8_t op, uint8_t idn, uint8_t index, uint8_t sel,
 	get_utrd(&utrd);
 	ufs_prepare_query(&utrd, op, idn, index, sel, buf, size);
 	ufs_send_request(utrd.task_tag);
-	result = ufs_check_resp(&utrd, QUERY_RESPONSE_UPIU);
+	result = ufs_check_resp(&utrd, QUERY_RESPONSE_UPIU, QUERY_REQ_TIMEOUT_MS);
 	assert(result == 0);
 	resp = (query_resp_upiu_t *)utrd.resp_upiu;
 #ifdef UFS_RESP_DEBUG
