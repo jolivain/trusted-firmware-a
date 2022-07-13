@@ -10,22 +10,27 @@
 
 #include <common/debug.h>
 #include <common/runtime_svc.h>
-
 #include "drtm_main.h"
-
+#include <plat/common/platform.h>
 
 static enum drtm_retc drtm_error_set(long long error_code)
 {
-	/* TODO: Store the error code in non-volatile memory. */
+	int ret = plat_set_drtm_error(error_code);
+
+	if (ret != 0) {
+		return INTERNAL_ERROR;
+	}
 
 	return SUCCESS;
 }
 
 static enum drtm_retc drtm_error_get(long long *error_code)
 {
-	/* TODO: Get error code from non-volatile memory. */
+	int ret = plat_get_drtm_error(error_code);
 
-	*error_code = 0;
+	if (ret != 0) {
+		return INTERNAL_ERROR;
+	}
 
 	return SUCCESS;
 }
@@ -43,9 +48,8 @@ void drtm_enter_remediation(long long err_code, const char *err_str)
 	NOTICE("DRTM: entering remediation of error:\n%lld\t\'%s\'\n",
 	       err_code, err_str);
 
-	/* TODO: Reset the system rather than panic(). */
 	ERROR("%s(): system reset is not yet supported\n", __func__);
-	panic();
+	plat_system_reset();
 }
 
 uintptr_t drtm_set_error(uint64_t x1, void *ctx)
