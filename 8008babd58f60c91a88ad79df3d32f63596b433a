@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85e959c1_c5ed3c86",
+        "filename": "lib/cpus/aarch64/cortex_a78c.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-13T20:14:30Z",
+      "side": 1,
+      "message": "nit: can we omit line no.77 and 78? rev_var received in x0 can be fed directly to errata_a78c_2132064_wa without copying it to x18 right?",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 12
+      },
+      "revId": "8008babd58f60c91a88ad79df3d32f63596b433a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
