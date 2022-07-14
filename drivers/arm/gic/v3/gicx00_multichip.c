@@ -6,21 +6,21 @@
  */
 
 /*
- * GIC-600 driver extension for multichip setup
+ * GIC-600 and GIC-700 driver extension for multichip setup
  */
 
 #include <assert.h>
 
 #include <common/debug.h>
 #include <drivers/arm/arm_gicv3_common.h>
-#include <drivers/arm/gic600_multichip.h>
+#include <drivers/arm/gicx00_multichip.h>
 #include <drivers/arm/gicv3.h>
 
 #include "../common/gic_common_private.h"
-#include "gic600_multichip_private.h"
+#include "gicx00_multichip_private.h"
 
 /*******************************************************************************
- * GIC-600 multichip operation related helper functions
+ * GIC-600 and GIC-700 multichip operation related helper functions
  ******************************************************************************/
 static void gicd_dchipr_wait_for_power_update_progress(uintptr_t base)
 {
@@ -28,7 +28,7 @@ static void gicd_dchipr_wait_for_power_update_progress(uintptr_t base)
 
 	while ((read_gicd_dchipr(base) & GICD_DCHIPR_PUP_BIT) != 0U) {
 		if (retry-- == 0) {
-			ERROR("GIC-600 connection to Routing Table Owner timed "
+			ERROR("GIC connection to Routing Table Owner timed "
 					 "out\n");
 			panic();
 		}
@@ -161,7 +161,7 @@ static void set_gicd_chipr_n(uintptr_t base,
  * Validates the GIC-600 Multichip data structure passed by the platform.
  ******************************************************************************/
 static void gic600_multichip_validate_data(
-		struct gic600_multichip_data *multichip_data)
+		struct gicx00_multichip_data *multichip_data)
 {
 	unsigned int i, spi_id_min, spi_id_max, blocks_of_32;
 	unsigned int multichip_spi_blocks = 0;
@@ -206,14 +206,14 @@ static void gic600_multichip_validate_data(
  * Validates the GIC-700 Multichip data structure passed by the platform.
  ******************************************************************************/
 static void gic700_multichip_validate_data(
-		struct gic600_multichip_data *multichip_data)
+		struct gicx00_multichip_data *multichip_data)
 {
 	unsigned int i, spi_id_min, spi_id_max, blocks_of_32;
 	unsigned int multichip_spi_blocks = 0, multichip_espi_blocks = 0;
 
 	assert(multichip_data != NULL);
 
-	if (multichip_data->chip_count > GIC600_MAX_MULTICHIP) {
+	if (multichip_data->chip_count > GICX00_MAX_MULTICHIP) {
 		ERROR("GIC-700 Multichip count (%u) should not exceed %u\n",
 				multichip_data->chip_count, GIC600_MAX_MULTICHIP);
 		panic();
@@ -289,7 +289,7 @@ static void gic700_multichip_validate_data(
 /*******************************************************************************
  * Intialize GIC-600 and GIC-700 Multichip operation.
  ******************************************************************************/
-void gic600_multichip_init(struct gic600_multichip_data *multichip_data)
+void gicx00_multichip_init(struct gic600_multichip_data *multichip_data)
 {
 	unsigned int i;
 	uint32_t gicd_iidr_val = gicd_read_iidr(multichip_data->rt_owner_base);

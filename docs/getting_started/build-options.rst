@@ -1030,8 +1030,8 @@ makefile:
    the FMU. Platforms should call the init function during boot to enable the
    FMU and its safety mechanisms. This option defaults to 0.
 
--  ``GICV3_IMPL_GIC600_MULTICHIP``: Selects GIC-600 variant with multichip
-   functionality. This option defaults to 0
+-  ``GICV3_IMPL_GICX00_MULTICHIP``: Selects GIC-600 and GIC-700 variant with
+   multichip functionality. This option defaults to 0
 
 -  ``GICV3_OVERRIDE_DISTIF_PWR_OPS``: Allows override of default implementation
    of ``arm_gicv3_distif_pre_save`` and ``arm_gicv3_distif_post_restore``

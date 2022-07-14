@@ -1,13 +1,14 @@
 /*
  * Copyright (c) 2019, ARM Limited. All rights reserved.
+ * Copyright (c) 2022, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#ifndef GIC600_MULTICHIP_PRIVATE_H
-#define GIC600_MULTICHIP_PRIVATE_H
+#ifndef GICX00_MULTICHIP_PRIVATE_H
+#define GICX00_MULTICHIP_PRIVATE_H
 
-#include <drivers/arm/gic600_multichip.h>
+#include <drivers/arm/gicx00_multichip.h>
 
 #include "gicv3_private.h"
 
@@ -107,4 +108,4 @@ static inline void write_gicd_chipr_n(uintptr_t base, uint8_t n, uint64_t val)
 	mmio_write_64(base + (GICD_CHIPR + (8U * n)), val);
 }
 
-#endif /* GIC600_MULTICHIP_PRIVATE_H */
+#endif /* GICX00_MULTICHIP_PRIVATE_H */

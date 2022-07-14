@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2019, ARM Limited. All rights reserved.
+ * Copyright (c) 2022, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,17 +11,17 @@
 #include <stdint.h>
 
 /*
- * GIC-600 microarchitecture supports coherent multichip environments containing
- * up to 16 chips.
+ * GIC-600 and GIC-700 microarchitectures support coherent multichip
+ * environments containing up to 16 chips.
  */
-#define GIC600_MAX_MULTICHIP	16
+#define GICX00_MAX_MULTICHIP	16
 
 /* SPI IDs array consist of min and max ids */
-#define GIC600_SPI_IDS_SIZE	2
+#define GICX00_SPI_IDS_SIZE	2
 
 /*******************************************************************************
- * GIC-600 multichip data structure describes platform specific attributes
- * related to GIC-600 multichip. Platform port is expected to define these
+ * GIC-X00 multichip data structure describes platform specific attributes
+ * related to GIC-X00 multichip. Platform port is expected to define these
  * attributes to initialize the multichip related registers and create
  * successful connections between the GIC-600s in a multichip system.
  *
@@ -43,13 +44,13 @@
  * a multiple of 32). If a chip doesn't own any SPI interrupts a value of {0, 0}
  * should be passed.
  ******************************************************************************/
-struct gic600_multichip_data {
+struct gicx00_multichip_data {
 	uintptr_t rt_owner_base;
 	unsigned int rt_owner;
 	unsigned int chip_count;
-	uint64_t chip_addrs[GIC600_MAX_MULTICHIP];
-	unsigned int spi_ids[GIC600_MAX_MULTICHIP][GIC600_SPI_IDS_SIZE];
+	uint64_t chip_addrs[GICX00_MAX_MULTICHIP];
+	unsigned int spi_ids[GICX00_MAX_MULTICHIP][GICX00_SPI_IDS_SIZE];
 };
 
-void gic600_multichip_init(struct gic600_multichip_data *multichip_data);
+void gicx00_multichip_init(struct gicx00_multichip_data *multichip_data);
 #endif /* GIC600_MULTICHIP_H */

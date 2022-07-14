@@ -5,7 +5,7 @@
 
 # Enable GICv4 extension with multichip driver
 GIC_ENABLE_V4_EXTN		:=	1
-GICV3_IMPL_GIC600_MULTICHIP	:=	1
+GICV3_IMPL_GICX00_MULTICHIP	:=	1
 
 include plat/arm/css/sgi/sgi-common.mk
 
@@ -32,7 +32,7 @@ BL31_SOURCES		+=	${SGI_CPU_SOURCES}			\
 				${RDV1MC_BASE}/rdv1mc_plat.c	\
 				${RDV1MC_BASE}/rdv1mc_topology.c	\
 				drivers/cfi/v2m/v2m_flash.c		\
-				drivers/arm/gic/v3/gic600_multichip.c	\
+				drivers/arm/gic/v3/gicx00_multichip.c	\
 				lib/utils/mem_region.c			\
 				plat/arm/common/arm_nor_psci_mem_protect.c
 
