@@ -11,6 +11,12 @@ BL1_SOURCES		+=	drivers/cfi/v2m/v2m_flash.c
 
 BL2_SOURCES		+=	drivers/cfi/v2m/v2m_flash.c
 
+ifeq ("$(wildcard ${OPENSSL_DIR}/bin)", "")
+    OPENSSL_BIN_PATH = ${OPENSSL_DIR}/apps
+else
+    OPENSSL_BIN_PATH = ${OPENSSL_DIR}/bin
+endif
+
 ifneq (${TRUSTED_BOARD_BOOT},0)
 ifneq (${ARM_CRYPTOCELL_INTEG}, 1)
 # ROTPK hash location
@@ -53,8 +59,8 @@ $(ARM_ROTPK_HASH) : $(HASH_PREREQUISITES)
 ifndef ROT_KEY
 	$(error Cannot generate hash: no ROT_KEY defined)
 endif
-	openssl ${CRYPTO_ALG} -in $< -pubout -outform DER | openssl dgst \
-		-sha256 -binary > $@
+	${OPENSSL_BIN_PATH}/openssl ${CRYPTO_ALG} -in $< -pubout -outform DER | \
+	${OPENSSL_BIN_PATH}/openssl dgst -sha256 -binary > $@
 
 # Certificate NV-Counters. Use values corresponding to tied off values in
 # ARM development platforms
