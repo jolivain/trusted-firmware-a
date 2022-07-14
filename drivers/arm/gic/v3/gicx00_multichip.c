@@ -13,11 +13,11 @@
 
 #include <common/debug.h>
 #include <drivers/arm/arm_gicv3_common.h>
-#include <drivers/arm/gic600_multichip.h>
+#include <drivers/arm/gicx00_multichip.h>
 #include <drivers/arm/gicv3.h>
 
 #include "../common/gic_common_private.h"
-#include "gic600_multichip_private.h"
+#include "gicx00_multichip_private.h"
 
 /*******************************************************************************
  * GIC-600 multichip operation related helper functions
@@ -289,7 +289,7 @@ static void gic700_multichip_validate_data(
 /*******************************************************************************
  * Intialize GIC-600 and GIC-700 Multichip operation.
  ******************************************************************************/
-void gic600_multichip_init(struct gic600_multichip_data *multichip_data)
+void gicx00_multichip_init(struct gic600_multichip_data *multichip_data)
 {
 	unsigned int i;
 	uint32_t gicd_iidr_val = gicd_read_iidr(multichip_data->rt_owner_base);
