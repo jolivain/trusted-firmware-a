@@ -21,7 +21,7 @@ GIC_ENABLE_V4_EXTN	:=	1
 
 #Enable GIC Multichip Extension only for Multichip Platforms
 ifeq (${CSS_SGI_PLATFORM_VARIANT}, 2)
-GICV3_IMPL_GIC600_MULTICHIP	:=	1
+GICV3_IMPL_GICX00_MULTICHIP	:=	1
 endif
 
 override CSS_SYSTEM_GRACEFUL_RESET	:= 1
@@ -62,7 +62,7 @@ BL2_SOURCES		+=	${RDN2_BASE}/rdn2_trusted_boot.c
 endif
 
 ifeq (${CSS_SGI_PLATFORM_VARIANT}, 2)
-BL31_SOURCES	+=	drivers/arm/gic/v3/gic600_multichip.c
+BL31_SOURCES	+=	drivers/arm/gic/v3/gicx00_multichip.c
 
 # Enable dynamic addition of MMAP regions in BL31
 BL31_CFLAGS		+=	-DPLAT_XLAT_TABLES_DYNAMIC
