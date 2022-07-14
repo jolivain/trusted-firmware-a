@@ -125,6 +125,12 @@ else
 
     ROTPK_HASH		= $(BUILD_PLAT)/rotpk_sha256.bin
 
+    ifeq ("$(wildcard ${OPENSSL_DIR}/bin)", "")
+        OPENSSL_BIN_PATH = ${OPENSSL_DIR}/apps
+    else
+        OPENSSL_BIN_PATH = ${OPENSSL_DIR}/bin
+    endif
+
     $(eval $(call add_define_val,ROTPK_HASH,'"$(ROTPK_HASH)"'))
 
     $(BUILD_PLAT)/bl2/nxp_rotpk.o: $(ROTPK_HASH)
@@ -133,13 +139,13 @@ else
     $(ROT_KEY): | $(BUILD_PLAT)
 	@echo "  OPENSSL $@"
 	@if [ ! -f $(ROT_KEY) ]; then \
-		openssl genrsa 2048 > $@ 2>/dev/null; \
+		${OPENSSL_BIN_PATH}/openssl genrsa 2048 > $@ 2>/dev/null; \
 	fi
 
     $(ROTPK_HASH): $(ROT_KEY)
 	@echo "  OPENSSL $@"
-	$(Q)openssl rsa -in $< -pubout -outform DER 2>/dev/null |\
-	openssl dgst -sha256 -binary > $@ 2>/dev/null
+	$(Q)${OPENSSL_BIN_PATH}/openssl rsa -in $< -pubout -outform DER 2>/dev/null |\
+	${OPENSSL_BIN_PATH}/openssl dgst -sha256 -binary > $@ 2>/dev/null
 
 endif #MBEDTLS_DIR
 

@@ -64,6 +64,12 @@ BL2_SOURCES		+=	drivers/auth/auth_mod.c			\
 				$(PLAT_PATH)/sq_rotpk.S		\
 				$(PLAT_PATH)/sq_tbbr.c
 
+ifeq ("$(wildcard ${OPENSSL_DIR}/bin)", "")
+	OPENSSL_BIN_PATH = ${OPENSSL_DIR}/apps
+else
+	OPENSSL_BIN_PATH = ${OPENSSL_DIR}/bin
+endif
+
 ROT_KEY			= $(BUILD_PLAT)/rot_key.pem
 ROTPK_HASH		= $(BUILD_PLAT)/rotpk_sha256.bin
 
@@ -73,12 +79,12 @@ $(BUILD_PLAT)/bl2/sq_rotpk.o: $(ROTPK_HASH)
 certificates: $(ROT_KEY)
 $(ROT_KEY): | $(BUILD_PLAT)
 	@echo "  OPENSSL $@"
-	$(Q)openssl genrsa 2048 > $@ 2>/dev/null
+	$(Q)${OPENSSL_BIN_PATH}/openssl genrsa 2048 > $@ 2>/dev/null
 
 $(ROTPK_HASH): $(ROT_KEY)
 	@echo "  OPENSSL $@"
-	$(Q)openssl rsa -in $< -pubout -outform DER 2>/dev/null |\
-	openssl dgst -sha256 -binary > $@ 2>/dev/null
+	$(Q)${OPENSSL_BIN_PATH}/openssl rsa -in $< -pubout -outform DER 2>/dev/null |\
+	${OPENSSL_BIN_PATH}/openssl dgst -sha256 -binary > $@ 2>/dev/null
 
 endif	# TRUSTED_BOARD_BOOT
 endif

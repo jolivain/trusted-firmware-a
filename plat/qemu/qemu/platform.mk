@@ -37,6 +37,12 @@ ifeq ($(NEED_BL32),yes)
 $(eval $(call add_define,QEMU_LOAD_BL32))
 endif
 
+ifeq ("$(wildcard ${OPENSSL_DIR}/bin)", "")
+	OPENSSL_BIN_PATH = ${OPENSSL_DIR}/apps
+else
+	OPENSSL_BIN_PATH = ${OPENSSL_DIR}/bin
+endif
+
 PLAT_QEMU_PATH               :=      plat/qemu/qemu
 PLAT_QEMU_COMMON_PATH        :=      plat/qemu/common
 PLAT_INCLUDES		:=	-Iinclude/plat/arm/common/		\
@@ -88,12 +94,12 @@ ifneq (${TRUSTED_BOARD_BOOT},0)
 
     $(ROT_KEY): | $(BUILD_PLAT)
 	@echo "  OPENSSL $@"
-	$(Q)openssl genrsa 2048 > $@ 2>/dev/null
+	$(Q)${OPENSSL_BIN_PATH}/openssl genrsa 2048 > $@ 2>/dev/null
 
     $(ROTPK_HASH): $(ROT_KEY)
 	@echo "  OPENSSL $@"
-	$(Q)openssl rsa -in $< -pubout -outform DER 2>/dev/null |\
-	openssl dgst -sha256 -binary > $@ 2>/dev/null
+	$(Q)${OPENSSL_BIN_PATH}/openssl rsa -in $< -pubout -outform DER 2>/dev/null |\
+	${OPENSSL_BIN_PATH}/openssl dgst -sha256 -binary > $@ 2>/dev/null
 endif
 
 # Include Measured Boot makefile before any Crypto library makefile.

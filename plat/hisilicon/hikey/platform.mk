@@ -144,6 +144,12 @@ BL2_SOURCES		+=	${AUTH_SOURCES}				\
 				plat/hisilicon/hikey/hikey_rotpk.S	\
 				drivers/auth/tbbr/tbbr_cot_bl2.c
 
+ifeq ("$(wildcard ${OPENSSL_DIR}/bin)", "")
+	OPENSSL_BIN_PATH = ${OPENSSL_DIR}/apps
+else
+	OPENSSL_BIN_PATH = ${OPENSSL_DIR}/bin
+endif
+
 ROT_KEY		=	$(BUILD_PLAT)/rot_key.pem
 ROTPK_HASH		=	$(BUILD_PLAT)/rotpk_sha256.bin
 
@@ -154,12 +160,12 @@ $(BUILD_PLAT)/bl2/hikey_rotpk.o: $(ROTPK_HASH)
 certificates: $(ROT_KEY)
 $(ROT_KEY): | $(BUILD_PLAT)
 	@echo "  OPENSSL $@"
-	$(Q)openssl genrsa 2048 > $@ 2>/dev/null
+	$(Q)${OPENSSL_BIN_PATH}/openssl genrsa 2048 > $@ 2>/dev/null
 
 $(ROTPK_HASH): $(ROT_KEY)
 	@echo "  OPENSSL $@"
-	$(Q)openssl rsa -in $< -pubout -outform DER 2>/dev/null |\
-	openssl dgst -sha256 -binary > $@ 2>/dev/null
+	$(Q)${OPENSSL_BIN_PATH}/openssl rsa -in $< -pubout -outform DER 2>/dev/null |\
+	${OPENSSL_BIN_PATH}/openssl dgst -sha256 -binary > $@ 2>/dev/null
 endif
 
 # Enable workarounds for selected Cortex-A53 errata.
