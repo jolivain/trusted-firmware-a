@@ -42,7 +42,7 @@ static scmi_channel_plat_info_t n1sdp_scmi_plat_info = {
 	.ring_doorbell = &mhu_ring_doorbell
 };
 
-static struct gic600_multichip_data n1sdp_multichip_data __init = {
+static struct gicx00_multichip_data n1sdp_multichip_data __init = {
 	.rt_owner_base = PLAT_ARM_GICD_BASE,
 	.rt_owner = 0,
 	.chip_count = 1,
@@ -117,7 +117,7 @@ void remote_dmc_ecc_setup(uint8_t remote_ddr_size)
 void n1sdp_bl31_multichip_setup(void)
 {
 	plat_arm_override_gicr_frames(n1sdp_multichip_gicr_frames);
-	gic600_multichip_init(&n1sdp_multichip_data);
+	gicx00_multichip_init(&n1sdp_multichip_data);
 }
 
 void bl31_platform_setup(void)

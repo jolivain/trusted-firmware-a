@@ -28,7 +28,7 @@ static const mmap_region_t rdv1mc_dynamic_mmap[] = {
 #endif
 };
 
-static struct gic600_multichip_data rdv1mc_multichip_data __init = {
+static struct gicx00_multichip_data rdv1mc_multichip_data __init = {
 	.rt_owner_base = PLAT_ARM_GICD_BASE,
 	.rt_owner = 0,
 	.chip_count = CSS_SGI_CHIP_COUNT,
@@ -123,7 +123,7 @@ void bl31_platform_setup(void)
 
 		plat_arm_override_gicr_frames(
 			rdv1mc_multichip_gicr_frames);
-		gic600_multichip_init(&rdv1mc_multichip_data);
+		gicx00_multichip_init(&rdv1mc_multichip_data);
 	}
 
 	sgi_bl31_common_platform_setup();
