@@ -215,6 +215,30 @@
       },
       "revId": "8fead4b86ee5dd6f607af3f30caf4248708c1f14",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f424316_0b9d7719",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-07-14T13:50:51Z",
+      "side": 1,
+      "message": "I think we will have to more than just rename the files. The function names, variable names etc need to be renamed too. This will make the driver generic.",
+      "parentUuid": "39e25fa3_36796edd",
+      "range": {
+        "startLine": 291,
+        "startChar": 5,
+        "endLine": 291,
+        "endChar": 26
+      },
+      "revId": "8fead4b86ee5dd6f607af3f30caf4248708c1f14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
