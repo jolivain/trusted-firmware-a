@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d68eb269_5dba2cae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-15T10:22:05Z",
+      "side": 1,
+      "message": "add support?",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "e91a2cdecbce21c3fffc935477c46c745f8c3162",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dce7c630_1d048aca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-15T10:22:05Z",
+      "side": 1,
+      "message": "for OP-TEE SPMC",
+      "range": {
+        "startLine": 7,
+        "startChar": 34,
+        "endLine": 7,
+        "endChar": 52
+      },
+      "revId": "e91a2cdecbce21c3fffc935477c46c745f8c3162",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7318260_1c175d5e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-15T10:22:05Z",
+      "side": 1,
+      "message": "should rather be feat(n1sdp)",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 14
+      },
+      "revId": "e91a2cdecbce21c3fffc935477c46c745f8c3162",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af5060fc_b08edcbe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-15T10:22:05Z",
+      "side": 1,
+      "message": "OP-TEE",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 8
+      },
+      "revId": "e91a2cdecbce21c3fffc935477c46c745f8c3162",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01a1b88c_000b461d",
+        "filename": "plat/arm/board/n1sdp/fdts/n1sdp_spmc_manifest.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-15T10:22:05Z",
+      "side": 1,
+      "message": "nit: 2022 as this is a new file",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "e91a2cdecbce21c3fffc935477c46c745f8c3162",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a295bec_8ca0f54b",
+        "filename": "plat/arm/board/n1sdp/fdts/n1sdp_spmc_manifest.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-15T10:22:05Z",
+      "side": 1,
+      "message": "Is it granted OP-TEE SPMC is FF-A v1.1 compliant?\nI\u0027m worried some of the SPMD support won\u0027t work if the SEL1 SPMC declares v1.1 when it isn\u0027t supporting v1.1.",
+      "range": {
+        "startLine": 23,
+        "startChar": 13,
+        "endLine": 23,
+        "endChar": 16
+      },
+      "revId": "e91a2cdecbce21c3fffc935477c46c745f8c3162",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
