@@ -33,6 +33,24 @@
       "message": "Are these patches planned to be progressed?",
       "revId": "bc1461237bf570e80aaed0e696ee55e34e5998e4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "591ddbf3_b7e03be8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-07-15T08:17:28Z",
+      "side": 1,
+      "message": "Yes. We plan to prepare these patches for inclusion in ATF 2.8.\nHowever, we would first need to integrate/validate with the changed patches for ffa_el3_spmc and ATF 2.7, we had no time for this for the moment.",
+      "parentUuid": "75bb8b57_8ed80605",
+      "revId": "bc1461237bf570e80aaed0e696ee55e34e5998e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
