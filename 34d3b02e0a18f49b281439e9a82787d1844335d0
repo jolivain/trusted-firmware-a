@@ -33,6 +33,42 @@
       "message": "Do you plan to add a build test for now similar to other TC platforms?\nhttps://git.trustedfirmware.org/ci/tf-a-ci-scripts.git/tree/group/tf-l1-build-plat",
       "revId": "34d3b02e0a18f49b281439e9a82787d1844335d0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02b7c2b3_f9cf3f09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000797
+      },
+      "writtenOn": "2022-07-15T16:56:47Z",
+      "side": 1,
+      "message": "yes, since we already have it for tco and tc1. We can add it for tc2 as well.",
+      "parentUuid": "a84a89bb_b3135034",
+      "revId": "34d3b02e0a18f49b281439e9a82787d1844335d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b85b761_d7a65373",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000797
+      },
+      "writtenOn": "2022-07-15T16:56:47Z",
+      "side": 1,
+      "message": "fixed the commit message and typo - \"\u003c was missing at the start of https URL\"",
+      "parentUuid": "e6c352ec_21f16ab8",
+      "revId": "34d3b02e0a18f49b281439e9a82787d1844335d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
