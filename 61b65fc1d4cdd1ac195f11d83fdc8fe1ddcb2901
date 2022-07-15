@@ -16,6 +16,24 @@
       "message": "@Manish can you please post the CI failure logs?",
       "revId": "61b65fc1d4cdd1ac195f11d83fdc8fe1ddcb2901",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "116f0dce_45438a8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-15T11:37:34Z",
+      "side": 1,
+      "message": "Looks like failures reported are due to infra as per the console log: \"curl: (56) OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 104\" \n\nAre you able to view the console logs of failure test configurations using this URL: https://ci.trustedfirmware.org/job/tf-a-ci-gateway/13303/?",
+      "parentUuid": "4a340223_b69f0481",
+      "revId": "61b65fc1d4cdd1ac195f11d83fdc8fe1ddcb2901",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
