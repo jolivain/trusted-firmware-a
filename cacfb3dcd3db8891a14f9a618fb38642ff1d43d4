@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd8408a8_9512387c",
+        "filename": "plat/arm/board/n1sdp/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-15T11:32:54Z",
+      "side": 1,
+      "message": "nit: use tabs and align this macro, similarly for all below lines.",
+      "range": {
+        "startLine": 120,
+        "startChar": 17,
+        "endLine": 120,
+        "endChar": 31
+      },
+      "revId": "cacfb3dcd3db8891a14f9a618fb38642ff1d43d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5377c174_2ca83d48",
+        "filename": "plat/arm/board/n1sdp/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-15T11:32:54Z",
+      "side": 1,
+      "message": "nit: use PLAT_ARM_SPMC_SIZE instead?",
+      "range": {
+        "startLine": 121,
+        "startChar": 45,
+        "endLine": 121,
+        "endChar": 58
+      },
+      "revId": "cacfb3dcd3db8891a14f9a618fb38642ff1d43d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2f62b0c_996f0a11",
+        "filename": "plat/arm/board/n1sdp/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-15T11:32:54Z",
+      "side": 1,
+      "message": "I\u0027m just curious why SPMC requires so much space?",
+      "range": {
+        "startLine": 124,
+        "startChar": 43,
+        "endLine": 124,
+        "endChar": 53
+      },
+      "revId": "cacfb3dcd3db8891a14f9a618fb38642ff1d43d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
