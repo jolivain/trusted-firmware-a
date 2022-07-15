@@ -16,6 +16,23 @@
       "message": "Please fix below failures -\n\n1. Commitlint error-\n✖   subject must not be sentence-case, start-case, pascal-case, upper-case [subject-case]\n✖   subject may not end with full stop [subject-full-stop]\n\n2. Doc build error -\nWarning, treated as error:\n/work/workspace/workspace/tf-worker/trusted_firmware/docs/plat/arm/tc/index.rst:38:Unknown target name: \"toolchain https://developer.arm.com/tools-and-software/ open-source-software/developer-tools/gnu-toolchain/downloads\u003e\".\nMakefile:25: recipe for target \u0027html\u0027 failed\nmake[1]: *** [html] Error 2\nMakefile:1497: recipe for target \u0027doc\u0027 failed\nmake: *** [doc] Error 2",
       "revId": "34d3b02e0a18f49b281439e9a82787d1844335d0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a84a89bb_b3135034",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-07-15T16:34:40Z",
+      "side": 1,
+      "message": "Do you plan to add a build test for now similar to other TC platforms?\nhttps://git.trustedfirmware.org/ci/tf-a-ci-scripts.git/tree/group/tf-l1-build-plat",
+      "revId": "34d3b02e0a18f49b281439e9a82787d1844335d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
