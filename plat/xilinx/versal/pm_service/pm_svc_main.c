@@ -255,13 +255,13 @@ static uintptr_t TF_A_specific_handler(uint32_t api_id, uint32_t *pm_arg,
 
 		pm_get_callbackdata(result, ARRAY_SIZE(result), security_flag);
 		SMC_RET2(handle,
-			(uint64_t)result[0] | ((uint64_t)result[1] << 32),
-			(uint64_t)result[2] | ((uint64_t)result[3] << 32));
+			(uint64_t)result[0] | ((uint64_t)result[1] << 32U),
+			(uint64_t)result[2] | ((uint64_t)result[3] << 32U));
 	}
 
 	case PM_GET_TRUSTZONE_VERSION:
 		SMC_RET1(handle, (uint64_t)PM_RET_SUCCESS |
-			 ((uint64_t)VERSAL_TZ_VERSION << 32));
+			 ((uint64_t)VERSAL_TZ_VERSION << 32U));
 
 	default:
 		return (uintptr_t)0;
@@ -297,13 +297,13 @@ static uintptr_t eemi_handler(uint32_t api_id, uint32_t *pm_arg,
 		if ((pm_arg[0] == XPM_QID_CLOCK_GET_NAME ||
 		    pm_arg[0] == XPM_QID_PINCTRL_GET_FUNCTION_NAME) &&
 		    ret == PM_RET_SUCCESS) {
-			SMC_RET2(handle, (uint64_t)buf[0] | ((uint64_t)buf[1] << 32),
-				(uint64_t)buf[2] | ((uint64_t)buf[3] << 32));
+			SMC_RET2(handle, (uint64_t)buf[0] | ((uint64_t)buf[1] << 32U),
+				(uint64_t)buf[2] | ((uint64_t)buf[3] << 32U));
 		}
 	}
 
-	SMC_RET2(handle, (uint64_t)ret | ((uint64_t)buf[0] << 32),
-		 (uint64_t)buf[1] | ((uint64_t)buf[2] << 32));
+	SMC_RET2(handle, (uint64_t)ret | ((uint64_t)buf[0] << 32U),
+		 (uint64_t)buf[1] | ((uint64_t)buf[2] << 32U));
 }
 
 /**
