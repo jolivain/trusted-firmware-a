@@ -281,6 +281,30 @@
       },
       "revId": "fe6e56c74c572b84a2e4edaadf105e07e231d503",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20d37146_b7b607af",
+        "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T12:27:33Z",
+      "side": 1,
+      "message": "Further thinking, there is no functionality part in this function to move these APIs to TF-A SMMU driver. In other words, these APIs are gathering information from the platform only and not doing anything specific SMMU operation.\nIf I want to move these to TF-A SMMU driver then I still need to introduce some platform APIs to retrieve details from the platform. I prefer let it be like this for now.\nPlease let me know what do you think?",
+      "parentUuid": "86bd611f_ab7c9ff4",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 1
+      },
+      "revId": "fe6e56c74c572b84a2e4edaadf105e07e231d503",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
