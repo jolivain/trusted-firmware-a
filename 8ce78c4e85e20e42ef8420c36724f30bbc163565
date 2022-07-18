@@ -189,6 +189,30 @@
       },
       "revId": "8ce78c4e85e20e42ef8420c36724f30bbc163565",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4f9075b_f557aa0a",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-07-18T18:27:58Z",
+      "side": 1,
+      "message": "Agree with Olivier. At this stage it is difficult to have a implementation to distinguish between primary and secondary cores specially when primary can be chosen randomly during each launch.",
+      "parentUuid": "5ab9ee7b_4b4ee200",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 254,
+        "endChar": 26
+      },
+      "revId": "8ce78c4e85e20e42ef8420c36724f30bbc163565",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
