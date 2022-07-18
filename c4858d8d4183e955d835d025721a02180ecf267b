@@ -273,6 +273,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "79e47290_d61adfb1",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-18T07:42:04Z",
+      "side": 1,
+      "message": "In general, I\u0027m worried about dummy services that are effectively unimplemented services returning success by default. It can easily end in a situation in months from now, that couple of services aren\u0027t implemented and this code turns out to be used in production. The INFO statement suggests that the service executed without errors. Can\u0027t we have a staged approach where by default the unimplemented services return an error code, or at least report a warning that the service is unimplemented?",
+      "parentUuid": "232b077c_a002a507",
+      "range": {
+        "startLine": 98,
+        "startChar": 19,
+        "endLine": 98,
+        "endChar": 25
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3d546f89_b0aa86c8",
         "filename": "services/std_svc/drtm/drtm_main.c",
         "patchSetId": 9
