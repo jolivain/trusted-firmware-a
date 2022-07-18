@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f853c4ed_2f7c2878",
+        "filename": "include/drivers/auth/crypto_mod.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T11:03:52Z",
+      "side": 1,
+      "message": "Is it okay to keep this patch that gives better reasoning behind this change [1]?\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/15574/8",
+      "parentUuid": "1da66cb1_cc43ef00",
+      "range": {
+        "startLine": 105,
+        "startChar": 5,
+        "endLine": 106,
+        "endChar": 37
+      },
+      "revId": "32458ae7d1d378629df7baf267e660f7e8552060",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7ca72771_2062c895",
         "filename": "include/drivers/auth/crypto_mod.h",
         "patchSetId": 10
@@ -37,6 +61,30 @@
       "writtenOn": "2022-07-18T07:34:39Z",
       "side": 1,
       "message": "nit: remove one space",
+      "range": {
+        "startLine": 136,
+        "startChar": 41,
+        "endLine": 136,
+        "endChar": 42
+      },
+      "revId": "32458ae7d1d378629df7baf267e660f7e8552060",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac647876_973cfeac",
+        "filename": "include/drivers/auth/crypto_mod.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T11:03:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7ca72771_2062c895",
       "range": {
         "startLine": 136,
         "startChar": 41,
