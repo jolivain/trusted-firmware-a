@@ -83,6 +83,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9baf5364_b104ad94",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 1046,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T09:10:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "578f7033_d046fdb0",
+      "revId": "0f1897cd80d9a490b1a12093fa5c45ebdac7e599",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2fabf92f_aa55d48f",
         "filename": "lib/psci/psci_common.c",
         "patchSetId": 13
@@ -94,6 +112,30 @@
       "writtenOn": "2022-07-18T07:22:32Z",
       "side": 1,
       "message": "nit: was there a reason to use a format for this string?",
+      "range": {
+        "startLine": 1064,
+        "startChar": 28,
+        "endLine": 1064,
+        "endChar": 51
+      },
+      "revId": "0f1897cd80d9a490b1a12093fa5c45ebdac7e599",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "342efe10_a529bc3c",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 1064,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T09:10:24Z",
+      "side": 1,
+      "message": "Hi Olivier, \n\nNo specific reason as such. The line was going beyond 80 chars so added this way.\n\nNote: As mentioned, I mistakenly reverted the changes posted by ManishP :(. I will post proper patch soon for review again.",
+      "parentUuid": "2fabf92f_aa55d48f",
       "range": {
         "startLine": 1064,
         "startChar": 28,
