@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "568c8d69_abb7fdb7",
+        "filename": "include/services/drtm_svc.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T10:54:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fc11835b_74fca55d",
+      "range": {
+        "startLine": 22,
+        "startChar": 30,
+        "endLine": 22,
+        "endChar": 41
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b65108bb_3ac9cae2",
         "filename": "include/services/drtm_svc.h",
         "patchSetId": 9
@@ -37,6 +61,30 @@
       "writtenOn": "2022-07-18T07:34:23Z",
       "side": 1,
       "message": "ARM_DRTM_SVC_LOCK_TCB_HASH?",
+      "range": {
+        "startLine": 33,
+        "startChar": 49,
+        "endLine": 33,
+        "endChar": 71
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ce3ab9d_662a33b5",
+        "filename": "include/services/drtm_svc.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T10:54:29Z",
+      "side": 1,
+      "message": "Thanks for pointing this out!  ARM_DRTM_SVC_TCB_HASH and ARM_DRTM_SVC_LOCK_TCB_HASH are only placeholders now and being recently added in specification document so missed to update this check.",
+      "parentUuid": "b65108bb_3ac9cae2",
       "range": {
         "startLine": 33,
         "startChar": 49,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "22bbc567_3cea5d22",
+        "filename": "include/services/drtm_svc.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T10:54:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f495256d_20b3b2ee",
+      "range": {
+        "startLine": 36,
+        "startChar": 31,
+        "endLine": 36,
+        "endChar": 38
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a4edea11_fc72e1b5",
         "filename": "include/services/drtm_svc.h",
         "patchSetId": 9
@@ -83,6 +155,30 @@
       "writtenOn": "2022-07-18T07:34:23Z",
       "side": 1,
       "message": "U(1)",
+      "range": {
+        "startLine": 37,
+        "startChar": 31,
+        "endLine": 37,
+        "endChar": 38
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3362fa5a_64bcfe73",
+        "filename": "include/services/drtm_svc.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T10:54:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a4edea11_fc72e1b5",
       "range": {
         "startLine": 37,
         "startChar": 31,
@@ -118,6 +214,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8ac32af5_f3fb1f79",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T10:54:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b435dd4d_13cb2ae2",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 6
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1f23897f_93762022",
         "filename": "services/std_svc/drtm/drtm_main.c",
         "patchSetId": 9
@@ -129,6 +249,24 @@
       "writtenOn": "2022-07-18T07:34:23Z",
       "side": 1,
       "message": "Even if SMC_RET1 resolves to returning from the function,\nI believe MISRA requires placing breaks ending each case statement.",
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58d7228e_0fcd1f59",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T10:54:29Z",
+      "side": 1,
+      "message": "Ack, thanks for pointing this out!",
+      "parentUuid": "1f23897f_93762022",
       "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -181,6 +319,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8845bad7_9cceadf1",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T10:54:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "79d3b10a_1e375a20",
+      "range": {
+        "startLine": 48,
+        "startChar": 27,
+        "endLine": 48,
+        "endChar": 28
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac75c95e_048a91a3",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T10:54:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e61a2368_d8bfd1a1",
+      "range": {
+        "startLine": 48,
+        "startChar": 12,
+        "endLine": 48,
+        "endChar": 22
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "922bfacd_f8e47a5d",
         "filename": "services/std_svc/drtm/drtm_main.c",
         "patchSetId": 9
@@ -192,6 +378,30 @@
       "writtenOn": "2022-07-18T07:34:23Z",
       "side": 1,
       "message": "use %s here and below to permit compiler string re-use",
+      "range": {
+        "startLine": 66,
+        "startChar": 38,
+        "endLine": 67,
+        "endChar": 28
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b43a1f4c_85fd42cb",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T10:54:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "922bfacd_f8e47a5d",
       "range": {
         "startLine": 66,
         "startChar": 38,
@@ -227,6 +437,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "16f00ba0_1605cb93",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T10:54:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c88f71d6_ef2e5c20",
+      "range": {
+        "startLine": 91,
+        "startChar": 11,
+        "endLine": 91,
+        "endChar": 52
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c853bf6a_92042ef0",
         "filename": "services/std_svc/drtm/drtm_main.c",
         "patchSetId": 9
@@ -238,6 +472,30 @@
       "writtenOn": "2022-07-18T07:34:23Z",
       "side": 1,
       "message": "VERBOSE here and below",
+      "range": {
+        "startLine": 97,
+        "startChar": 2,
+        "endLine": 97,
+        "endChar": 6
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68494834_22fa3906",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T10:54:29Z",
+      "side": 1,
+      "message": "This is still experimental feature and mostly we are using debug build, so i\u0027m in favour of keeping this for now and then in the production build will make these as VERBOSE message. \nPlease let me know if you disagree?",
+      "parentUuid": "c853bf6a_92042ef0",
       "range": {
         "startLine": 97,
         "startChar": 2,
@@ -297,6 +555,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64277ba9_75c82fd2",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T10:54:29Z",
+      "side": 1,
+      "message": "I agree these functions are not doing anything, but returning success from them does not harm anyways considering this feature is still experimental, I believe nobody will deploy this code into the production. In that case, do you think returning \u0027success\u0027 is fine for now?",
+      "parentUuid": "79e47290_d61adfb1",
+      "range": {
+        "startLine": 98,
+        "startChar": 19,
+        "endLine": 98,
+        "endChar": 25
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3d546f89_b0aa86c8",
         "filename": "services/std_svc/drtm/drtm_main.c",
         "patchSetId": 9
@@ -308,6 +590,30 @@
       "writtenOn": "2022-07-18T07:34:23Z",
       "side": 1,
       "message": "remove",
+      "range": {
+        "startLine": 110,
+        "startChar": 2,
+        "endLine": 111,
+        "endChar": 24
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eca3b30_956fda61",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T10:54:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3d546f89_b0aa86c8",
       "range": {
         "startLine": 110,
         "startChar": 2,
@@ -343,6 +649,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0509c1d5_7dfaccfe",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T10:54:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "994c2939_5e4ae395",
+      "range": {
+        "startLine": 113,
+        "startChar": 27,
+        "endLine": 113,
+        "endChar": 35
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ce442973_3ab5c18f",
         "filename": "services/std_svc/drtm/drtm_main.c",
         "patchSetId": 9
@@ -354,6 +684,30 @@
       "writtenOn": "2022-07-18T07:34:23Z",
       "side": 1,
       "message": "Unknown DRTM service function",
+      "range": {
+        "startLine": 120,
+        "startChar": 9,
+        "endLine": 120,
+        "endChar": 38
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4782b99_b8c5faad",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T10:54:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ce442973_3ab5c18f",
       "range": {
         "startLine": 120,
         "startChar": 9,
