@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "153b5268_03f96ef6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T11:44:19Z",
+      "side": 1,
+      "message": "\u003e I wonder if/how this could be rephrased for better readability. Perhaps by re-using exact wording from standards (TCG, TBBR, SBSG, etc.)\nI\u0027m not sure whether we really need to use any exact wording from the specification standards.\n@Sandrine do you have any opinion here?\n\n\u003e It looks to me 1 and 2 have the common operation of doing an image hash calculation. 2 in addition stores the hash result (e.g. to event log).\n\nYes, correct (1) and (2) have same common operation of hash calculation but in former, operation is not quite visible publicly while doing authentication verification. In latter, hence we added a separate function to do the hash calculation and exported it.",
+      "parentUuid": "d7721841_c69ebbd8",
+      "revId": "c53f28c7ce0de765b37dffc369be4c9539d2612b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c0743639_2a1fcdf0",
         "filename": "Makefile",
         "patchSetId": 8
@@ -59,6 +77,54 @@
         "startChar": 9,
         "endLine": 728,
         "endChar": 22
+      },
+      "revId": "c53f28c7ce0de765b37dffc369be4c9539d2612b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03e60307_872a62a9",
+        "filename": "Makefile",
+        "patchSetId": 8
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T11:44:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1c455a67_e34f2d00",
+      "range": {
+        "startLine": 728,
+        "startChar": 9,
+        "endLine": 728,
+        "endChar": 22
+      },
+      "revId": "c53f28c7ce0de765b37dffc369be4c9539d2612b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a75f3d7_63b5d2f1",
+        "filename": "Makefile",
+        "patchSetId": 8
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T11:44:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c0743639_2a1fcdf0",
+      "range": {
+        "startLine": 728,
+        "startChar": 0,
+        "endLine": 728,
+        "endChar": 2
       },
       "revId": "c53f28c7ce0de765b37dffc369be4c9539d2612b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
