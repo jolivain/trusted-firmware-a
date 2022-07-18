@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7eba71f8_425f2f7b",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T09:43:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "28bead8c_0ecc34e7",
+      "range": {
+        "startLine": 415,
+        "startChar": 16,
+        "endLine": 415,
+        "endChar": 17
+      },
+      "revId": "fe6e56c74c572b84a2e4edaadf105e07e231d503",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1a2f5310_5bebfce2",
         "filename": "include/plat/common/platform.h",
         "patchSetId": 14
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "32f34468_1d8d17c2",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T09:43:22Z",
+      "side": 1,
+      "message": "This comment is very much specific to the platform APIs listed in this patch. In subsequent patch [1], I moved this to separate file where all platform APIs related to DRTM are listed and these APIs are shown in the group with appropriate group header comment.\nDo you think I should create a plat_drtm.h file in this patch itself, or leave this comment as it is in this patch?\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/15499/13/include/plat/common/plat_drtm.h",
+      "parentUuid": "1a2f5310_5bebfce2",
+      "range": {
+        "startLine": 417,
+        "startChar": 0,
+        "endLine": 417,
+        "endChar": 48
+      },
+      "revId": "fe6e56c74c572b84a2e4edaadf105e07e231d503",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0a278fa4_1305af81",
         "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
         "patchSetId": 14
@@ -60,6 +108,30 @@
       "writtenOn": "2022-07-18T07:25:54Z",
       "side": 1,
       "message": "nit: capital",
+      "range": {
+        "startLine": 18,
+        "startChar": 3,
+        "endLine": 18,
+        "endChar": 4
+      },
+      "revId": "fe6e56c74c572b84a2e4edaadf105e07e231d503",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c5ceaf3_05035803",
+        "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T09:43:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0a278fa4_1305af81",
       "range": {
         "startLine": 18,
         "startChar": 3,
@@ -95,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dadeda45_8c3fa1f9",
+        "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T09:43:22Z",
+      "side": 1,
+      "message": "Yes, it does imply NHPs are part of TCB.",
+      "parentUuid": "23c4e86c_29f7147e",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 41
+      },
+      "revId": "fe6e56c74c572b84a2e4edaadf105e07e231d503",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c0609bf2_958cbe05",
         "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
         "patchSetId": 14
@@ -118,6 +214,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9f9cf4e6_867a64e4",
+        "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T09:43:22Z",
+      "side": 1,
+      "message": "\u003e  return (arm_config.flags \u0026 ARM_CONFIG_FVP_HAS_SMMUV3) \u003d\u003d 0;\nAck\n\n\u003e So a peripheral like UART might be DMA capable but not under control of the SMMU and hence unmanaged despite presence of an SMMU.\nIt is very much the bare minimum check we have performed in the FVP. Assumed that SMMU is behind all peripherals supported by FVP. @Lucian do you recall intention behind this check?",
+      "parentUuid": "c0609bf2_958cbe05",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 38,
+        "endChar": 54
+      },
+      "revId": "fe6e56c74c572b84a2e4edaadf105e07e231d503",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b4667b3d_baf63c19",
         "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
         "patchSetId": 14
@@ -129,6 +249,30 @@
       "writtenOn": "2022-07-18T07:25:54Z",
       "side": 1,
       "message": "Should this be relocated to TF-A\u0027s SMMU driver?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 1
+      },
+      "revId": "fe6e56c74c572b84a2e4edaadf105e07e231d503",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86bd611f_ab7c9ff4",
+        "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T09:43:22Z",
+      "side": 1,
+      "message": "Yes, I think it makes sense to move this to SMMU driver. \n(We have created these plat-APIs specifically for DRTM as there are no other consumers for these APIs apart from DRTM service).",
+      "parentUuid": "b4667b3d_baf63c19",
       "range": {
         "startLine": 41,
         "startChar": 0,
