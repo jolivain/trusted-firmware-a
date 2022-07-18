@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28bead8c_0ecc34e7",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-18T07:25:54Z",
+      "side": 1,
+      "message": "nit: remove",
+      "range": {
+        "startLine": 415,
+        "startChar": 16,
+        "endLine": 415,
+        "endChar": 17
+      },
+      "revId": "fe6e56c74c572b84a2e4edaadf105e07e231d503",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a2f5310_5bebfce2",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-18T07:25:54Z",
+      "side": 1,
+      "message": "remove, or move in above header description ?",
+      "range": {
+        "startLine": 417,
+        "startChar": 0,
+        "endLine": 417,
+        "endChar": 48
+      },
+      "revId": "fe6e56c74c572b84a2e4edaadf105e07e231d503",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a278fa4_1305af81",
+        "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-18T07:25:54Z",
+      "side": 1,
+      "message": "nit: capital",
+      "range": {
+        "startLine": 18,
+        "startChar": 3,
+        "endLine": 18,
+        "endChar": 4
+      },
+      "revId": "fe6e56c74c572b84a2e4edaadf105e07e231d503",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23c4e86c_29f7147e",
+        "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-18T07:25:54Z",
+      "side": 1,
+      "message": "Does it imply GPU is part of system\u0027s TCB?",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 41
+      },
+      "revId": "fe6e56c74c572b84a2e4edaadf105e07e231d503",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0609bf2_958cbe05",
+        "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-18T07:25:54Z",
+      "side": 1,
+      "message": "this expression resolves to an integer so it\u0027d be preferable to provide a boolean expresion e.g.\n\n return (arm_config.flags \u0026 ARM_CONFIG_FVP_HAS_SMMUV3) \u003d\u003d 0;\n\n\nBeyond that, is it the right condition to infer the platform has peripherals not sitting behind an SMMU. E.g. FVP implements an SMMU controlled by the PE but AFAIK only has a test engine upstream to it. So a peripheral like UART might be DMA capable but not under control of the SMMU and hence unmanaged despite presence of an SMMU.",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 38,
+        "endChar": 54
+      },
+      "revId": "fe6e56c74c572b84a2e4edaadf105e07e231d503",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4667b3d_baf63c19",
+        "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-18T07:25:54Z",
+      "side": 1,
+      "message": "Should this be relocated to TF-A\u0027s SMMU driver?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 1
+      },
+      "revId": "fe6e56c74c572b84a2e4edaadf105e07e231d503",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
