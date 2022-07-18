@@ -69,6 +69,24 @@
       "parentUuid": "e6c352ec_21f16ab8",
       "revId": "34d3b02e0a18f49b281439e9a82787d1844335d0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81d38bd8_382f2c5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T08:38:26Z",
+      "side": 1,
+      "message": "\u003e  typo - \"\u003c was missing at the start of https URL\"\n\nAccording to the doc error, this is not an actual issue. The doc build was unable to locate the reference to this target. The proper fix should be -\n\n --  Obtain arm `toolchain \u003chttps://developer.arm.com/tools-and-software/\n -  open-source-software/developer-tools/gnu-toolchain/downloads\u003e`_.\n -\n -   Set the CROSS_COMPILE environment variable to point to the toolchain folder.\n +-  Obtain `Arm Toolchain`_ and set the CROSS_COMPILE environment variable to\n +   point to the toolchain folder.\n \n  -  Build TF-A:\n \n @@ -57,4 +55,8 @@ Build Procedure (TF-A only)\n        ARM_ROTPK_LOCATION\u003ddevel_rsa  \\\n        ROT_KEY\u003dplat/arm/board/common/rotpk/arm_rotprivk_rsa.pem\n \n +--------------\n +\n  *Copyright (c) 2020-2022, Arm Limited. All rights reserved.*\n +\n +.. _Arm Toolchain: https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/downloads\n\nThis patch needs to be updated accordingly. Thanks!",
+      "parentUuid": "4b85b761_d7a65373",
+      "revId": "34d3b02e0a18f49b281439e9a82787d1844335d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
