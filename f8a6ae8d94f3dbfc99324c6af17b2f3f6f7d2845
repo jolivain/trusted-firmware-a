@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e3e4ecdc_132324df",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T11:31:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a1062c10_69178f6b",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 39
+      },
+      "revId": "f8a6ae8d94f3dbfc99324c6af17b2f3f6f7d2845",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0364804c_c4d3437a",
         "filename": "bl31/bl31.mk",
         "patchSetId": 10
@@ -61,6 +85,30 @@
       "side": 1,
       "message": "Looks like I need to handle this in Arm platform rather than in generic file. I will do the necessary change.",
       "parentUuid": "0364804c_c4d3437a",
+      "range": {
+        "startLine": 157,
+        "startChar": 19,
+        "endLine": 157,
+        "endChar": 34
+      },
+      "revId": "f8a6ae8d94f3dbfc99324c6af17b2f3f6f7d2845",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a7e0767_d6f2edd1",
+        "filename": "bl31/bl31.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T11:31:32Z",
+      "side": 1,
+      "message": "Further looking, i thought this is correct. \nIf a platform supports mbedTLS for DRTM, it will include mbedTLS_*.mk to resolve MBEDTLS_SOURCES files.\nPlatforms that support different crypto-engines for those MBEDTLS_SOURCES resolves to nothing right? \nWe have done in the similar way for BL2 https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/bl2/bl2.mk#n12",
+      "parentUuid": "d538995f_178edeb3",
       "range": {
         "startLine": 157,
         "startChar": 19,
