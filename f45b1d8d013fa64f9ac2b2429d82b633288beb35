@@ -16,6 +16,24 @@
       "message": "Rather than undoing, can this is done earlier in https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/15443/14/include/plat/common/platform.h ?",
       "revId": "f45b1d8d013fa64f9ac2b2429d82b633288beb35",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07c1ca45_d32630b7",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-18T11:47:00Z",
+      "side": 0,
+      "message": "Yes, will do that.",
+      "parentUuid": "2cff70a5_e02a6187",
+      "revId": "f45b1d8d013fa64f9ac2b2429d82b633288beb35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
