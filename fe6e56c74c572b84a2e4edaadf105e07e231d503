@@ -286,6 +286,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "213cdc91_61c6e002",
+        "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000621
+      },
+      "writtenOn": "2022-07-19T09:41:40Z",
+      "side": 1,
+      "message": "Hi,\n\nThis is code from the PoC part of DRTM spec development, so may be crude or idealised.  As mentioned in the comments, info on whether unmanaged peripherals exist did not seem to be readily available, except for whether an SMMU exists or not.  Hence I adopted a simple model that assumes if the SMMU exists then all peripherals are behind it.\n\nIf unmanaged peripherals exists, as per the useful comments from Olivier, then the DRTM service refuses to load, so returning \"true\" is not an option.  In this case, an investigation should be carried out to determine whether the peripherals can be trusted.  If they can be trusted, then they can be moved to the \"Non-host platforms\" category, for example by listing them in the comments under plat_has_non_host_platforms().\n\nTaking a step back, the intention behind these hooks which act a bit like a physical \"checklist\", is for the platform porter to consider the spec requirements and reason about the platform\u0027s suitability for DRTM.  It may be that this process should not entail any runtime code, since real platforms are likely fixed, or the relevant properties are fixed.  An alternative may be to document this process part of the TF-A documentation.",
+      "parentUuid": "e4860261_37fb5745",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 38,
+        "endChar": 54
+      },
+      "revId": "fe6e56c74c572b84a2e4edaadf105e07e231d503",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b4667b3d_baf63c19",
         "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
         "patchSetId": 14
