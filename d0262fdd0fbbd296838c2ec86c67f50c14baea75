@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99011955_26e6d7d8",
+        "filename": "include/services/drtm_svc.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:39:39Z",
+      "side": 1,
+      "message": "FEATURE_ID?",
+      "range": {
+        "startLine": 32,
+        "startChar": 17,
+        "endLine": 32,
+        "endChar": 25
+      },
+      "revId": "d0262fdd0fbbd296838c2ec86c67f50c14baea75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14e8d84a_fc0f0aba",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:39:39Z",
+      "side": 1,
+      "message": "Is this still relevant?",
+      "range": {
+        "startLine": 154,
+        "startChar": 1,
+        "endLine": 154,
+        "endChar": 34
+      },
+      "revId": "d0262fdd0fbbd296838c2ec86c67f50c14baea75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a6d08ef_fb800471",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:39:39Z",
+      "side": 1,
+      "message": "X0\u003d0 means \u0027The function ID or feature ID queried is implemented.\u0027\nIf not supported it should return the NOT_SUPPORTED error.",
+      "range": {
+        "startLine": 155,
+        "startChar": 15,
+        "endLine": 155,
+        "endChar": 60
+      },
+      "revId": "d0262fdd0fbbd296838c2ec86c67f50c14baea75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c78dc719_30f4df05",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:39:39Z",
+      "side": 1,
+      "message": "Rather than an implicit cast from uint64_t to uint8_t, prefer using\n x1 \u0026 0xff\nand remove definition line 227",
+      "range": {
+        "startLine": 230,
+        "startChar": 11,
+        "endLine": 230,
+        "endChar": 18
+      },
+      "revId": "d0262fdd0fbbd296838c2ec86c67f50c14baea75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
