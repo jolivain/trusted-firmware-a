@@ -310,6 +310,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c3553456_aa60d1a3",
+        "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-19T09:43:29Z",
+      "side": 1,
+      "message": "If the SMMU is not behind the DMA-capable peripherals then can those be treated as non-host-platforms and we need to trust them? non-host-platforms defined as below in the specification -\n\nA peripheral or controller in a system that has no DMA-protections and cannot be restricted from reading or writing the DCE or DLME.",
+      "parentUuid": "e4860261_37fb5745",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 38,
+        "endChar": 54
+      },
+      "revId": "fe6e56c74c572b84a2e4edaadf105e07e231d503",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b4667b3d_baf63c19",
         "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
         "patchSetId": 14
