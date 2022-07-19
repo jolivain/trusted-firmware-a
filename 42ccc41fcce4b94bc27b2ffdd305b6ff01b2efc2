@@ -22,6 +22,30 @@
       },
       "revId": "42ccc41fcce4b94bc27b2ffdd305b6ff01b2efc2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf260f5b_e6878b06",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-19T14:04:29Z",
+      "side": 1,
+      "message": "I think we are filling the DLME data only, so DLME data region is of concern as per line no. https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/15920/2/services/std_svc/drtm/drtm_main.c#245 Do you think we should be extra cautious and ensure the whole DLME region is non-secure?",
+      "parentUuid": "2ee7d181_a3662449",
+      "range": {
+        "startLine": 379,
+        "startChar": 1,
+        "endLine": 382,
+        "endChar": 62
+      },
+      "revId": "42ccc41fcce4b94bc27b2ffdd305b6ff01b2efc2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
