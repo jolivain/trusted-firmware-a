@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eede8e90_1fbea269",
+        "filename": "include/services/drtm_svc.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-19T09:32:05Z",
+      "side": 1,
+      "message": "This is not a feature ID of the TPM. It includes all the features of TPM such as -\n1. PCR usage schema\n2. TPM based hash support\n3. Firmware hash algorithm\n\nPlease refer the section 3.3 of DRTM specification https://developer.arm.com/documentation/den0113/a",
+      "parentUuid": "99011955_26e6d7d8",
+      "range": {
+        "startLine": 32,
+        "startChar": 17,
+        "endLine": 32,
+        "endChar": 25
+      },
+      "revId": "d0262fdd0fbbd296838c2ec86c67f50c14baea75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "14e8d84a_fc0f0aba",
         "filename": "services/std_svc/drtm/drtm_main.c",
         "patchSetId": 10
@@ -37,6 +61,30 @@
       "writtenOn": "2022-07-19T08:39:39Z",
       "side": 1,
       "message": "Is this still relevant?",
+      "range": {
+        "startLine": 154,
+        "startChar": 1,
+        "endLine": 154,
+        "endChar": 34
+      },
+      "revId": "d0262fdd0fbbd296838c2ec86c67f50c14baea75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76554eff_807447c7",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-19T09:32:05Z",
+      "side": 1,
+      "message": "As of now, we have a placeholder platform function to retrieve TCB hash features. Therefore, I added this comment.\nNow that we have some retrieval mechanism in place (but it is dummy as of now) so I agree this comment no longer applies.",
+      "parentUuid": "14e8d84a_fc0f0aba",
       "range": {
         "startLine": 154,
         "startChar": 1,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9cdc6807_45cb8db1",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-19T09:32:05Z",
+      "side": 1,
+      "message": "Thanks for correcting!\nNow I think, since we have placeholder plat API to grab TCB hashes details, should I return \u00271\u0027 instead?",
+      "parentUuid": "5a6d08ef_fb800471",
+      "range": {
+        "startLine": 155,
+        "startChar": 15,
+        "endLine": 155,
+        "endChar": 60
+      },
+      "revId": "d0262fdd0fbbd296838c2ec86c67f50c14baea75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c78dc719_30f4df05",
         "filename": "services/std_svc/drtm/drtm_main.c",
         "patchSetId": 10
@@ -83,6 +155,30 @@
       "writtenOn": "2022-07-19T08:39:39Z",
       "side": 1,
       "message": "Rather than an implicit cast from uint64_t to uint8_t, prefer using\n x1 \u0026 0xff\nand remove definition line 227",
+      "range": {
+        "startLine": 230,
+        "startChar": 11,
+        "endLine": 230,
+        "endChar": 18
+      },
+      "revId": "d0262fdd0fbbd296838c2ec86c67f50c14baea75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "479cc084_6f6bf183",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-19T09:32:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c78dc719_30f4df05",
       "range": {
         "startLine": 230,
         "startChar": 11,
