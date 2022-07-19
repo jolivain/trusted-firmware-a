@@ -144,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "29ad9020_326b8d38",
+        "filename": "services/std_svc/drtm/drtm_dma_prot.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000621
+      },
+      "writtenOn": "2022-07-19T11:20:58Z",
+      "side": 1,
+      "message": "The intent here was to emit a message that is visible by default.  This message was deemed to be a `warning\u0027 rather than an `info\u0027, because it is meant to express a certain degree of risk.\n\nOverall, I think it would be good to have a stronger reason than the comment above in order to change it to an INFO.  Could we remove \", for info only\" in the comment instead?",
+      "parentUuid": "1a76c1f9_a4a596d5",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 36,
+        "endChar": 6
+      },
+      "revId": "308bd3eb78af3a20b5e48d1aad980dcad9b49f44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "48a7fb8b_287258e0",
         "filename": "services/std_svc/drtm/drtm_dma_prot.c",
         "patchSetId": 11
