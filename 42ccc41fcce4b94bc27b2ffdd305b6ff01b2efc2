@@ -46,6 +46,30 @@
       },
       "revId": "42ccc41fcce4b94bc27b2ffdd305b6ff01b2efc2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03d2d951_adb45054",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1000621
+      },
+      "writtenOn": "2022-07-19T15:18:16Z",
+      "side": 1,
+      "message": "The recommendation in the TODO was about robustness, i.e. about avoiding unexpected exceptions as much as possible, and preferring to returning an error code to the caller instead.  Here, the unexpected exceptions could be from:\n\n- A Secure data write to memory mapped as Non-secure when writing the DLME data (the case you refer to); or\n- A Secure data read from memory mapped as Non-secure when measuring the DLME image, in drtm_take_measurements(); or\n- A Secure instruction access i.e. a jump to Secure memory in the Non-secure mode, when jumping to the DLME entry point.\n\nTo avoid unexpected exceptions due to the latter two, checking that the DLME image is Non-secure memory would be needed.  To avoid unexpected exceptions in all cases, checking that the entire DLME region is Non-secure memory would be needed.",
+      "parentUuid": "bf260f5b_e6878b06",
+      "range": {
+        "startLine": 379,
+        "startChar": 1,
+        "endLine": 382,
+        "endChar": 62
+      },
+      "revId": "42ccc41fcce4b94bc27b2ffdd305b6ff01b2efc2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
