@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec94b8a4_3aa74553",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:28:04Z",
+      "side": 1,
+      "message": "static checks:\n\n:1: WARNING: \u0027accomodate\u0027 may be misspelled - perhaps \u0027accommodate\u0027?",
+      "range": {
+        "startLine": 9,
+        "startChar": 32,
+        "endLine": 9,
+        "endChar": 42
+      },
+      "revId": "e2a89a482a7401b28ff327e89ba85b4c5a1c4e11",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3b1fe5ff_e80df6da",
