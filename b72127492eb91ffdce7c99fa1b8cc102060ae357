@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "71fea685_f15a5ff9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:39:26Z",
+      "side": 1,
+      "message": "nit: limit to 72 chars",
+      "range": {
+        "startLine": 9,
+        "startChar": 69,
+        "endLine": 9,
+        "endChar": 73
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "38acb580_2c7c75a8",
         "filename": "include/lib/xlat_tables/xlat_tables_compat.h",
         "patchSetId": 13
@@ -43,6 +66,161 @@
         "startChar": 17,
         "endLine": 2,
         "endChar": 21
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62028d7d_35b5abf7",
+        "filename": "include/plat/common/plat_drtm.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:39:26Z",
+      "side": 1,
+      "message": "Preferably [] provided the array size isn\u0027t known at build time.\nUsing [0] works but leads to an out of bound memory access?",
+      "range": {
+        "startLine": 32,
+        "startChar": 25,
+        "endLine": 32,
+        "endChar": 28
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "333c84f8_bdc5c1ca",
+        "filename": "include/plat/common/plat_drtm.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:39:26Z",
+      "side": 1,
+      "message": "Suggest adding the reference to the spec as comment:\n\nDRTM beta0 section 3.13 Table 11 MEMORY_REGION_DESCRIPTOR_TABLE",
+      "range": {
+        "startLine": 33,
+        "startChar": 26,
+        "endLine": 33,
+        "endChar": 63
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c13b4bc6_fe9d014b",
+        "filename": "include/services/drtm_svc.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:39:26Z",
+      "side": 1,
+      "message": "Add:\nDRTM beta0 section 3.3, Table 6 DRTM_FEATURES",
+      "range": {
+        "startLine": 41,
+        "startChar": 19,
+        "endLine": 41,
+        "endChar": 33
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66f66e0c_02fc9b76",
+        "filename": "include/services/drtm_svc.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:39:26Z",
+      "side": 1,
+      "message": "such macros should preferably be enclosed in a do {} while(0); statement",
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cc92a55_3041e824",
+        "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:39:26Z",
+      "side": 1,
+      "message": "Can it be defined as a constant structure definition with values specified lines 68-71?",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 55
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d835e009_3de85979",
+        "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:39:26Z",
+      "side": 1,
+      "message": "May this comment be more explicit?",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 10
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "644af4c1_b7bbeec1",
+        "filename": "plat/arm/board/fvp/fvp_drtm_measurement.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:39:26Z",
+      "side": 1,
+      "message": "define a constant structure with data from lines 22-25",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 45
       },
       "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
@@ -137,6 +315,207 @@
         "startChar": 9,
         "endLine": 20,
         "endChar": 10
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb01619b_d6280d5e",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:39:26Z",
+      "side": 1,
+      "message": "nit: add blank",
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b198cf82_229d8323",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:39:26Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 76,
+        "startChar": 3,
+        "endLine": 76,
+        "endChar": 14
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbfa30b1_b9f7f673",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:39:26Z",
+      "side": 1,
+      "message": "Is it intended to panic?",
+      "range": {
+        "startLine": 83,
+        "startChar": 2,
+        "endLine": 89,
+        "endChar": 2
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eec20e80_9ef38b7c",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:39:26Z",
+      "side": 1,
+      "message": "suggest simplifying this logic",
+      "range": {
+        "startLine": 100,
+        "startChar": 1,
+        "endLine": 104,
+        "endChar": 2
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d67866f_d8160841",
+        "filename": "services/std_svc/drtm/drtm_res_address_map.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:39:26Z",
+      "side": 1,
+      "message": "Can a platform specify more entries in mmap than what is defined by this macro?",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 26
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4823fdec_6a5287a8",
+        "filename": "services/std_svc/drtm/drtm_res_address_map.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:39:26Z",
+      "side": 1,
+      "message": "uint8_t?",
+      "range": {
+        "startLine": 22,
+        "startChar": 7,
+        "endLine": 22,
+        "endChar": 11
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c0f0f71_95aca830",
+        "filename": "services/std_svc/drtm/drtm_res_address_map.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:39:26Z",
+      "side": 1,
+      "message": "unsigned",
+      "range": {
+        "startLine": 35,
+        "startChar": 1,
+        "endLine": 35,
+        "endChar": 4
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb7d62e2_0c3a12d0",
+        "filename": "services/std_svc/drtm/drtm_res_address_map.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:39:26Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 38,
+        "endChar": 11
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cc2fc7d_3399bcb9",
+        "filename": "services/std_svc/drtm/drtm_res_address_map.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T08:39:26Z",
+      "side": 1,
+      "message": "Why doing the same loop twice?\nCan num_regions be updated at line 81?",
+      "range": {
+        "startLine": 47,
+        "startChar": 1,
+        "endLine": 47,
+        "endChar": 41
       },
       "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
