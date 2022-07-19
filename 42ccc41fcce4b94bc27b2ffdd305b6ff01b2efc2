@@ -70,6 +70,30 @@
       },
       "revId": "42ccc41fcce4b94bc27b2ffdd305b6ff01b2efc2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "108dc48f_7880b6ca",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-19T15:22:11Z",
+      "side": 1,
+      "message": "Yes, I was thinking of last case lately. Agree with your explanation, I will update caller arguments accordingly.",
+      "parentUuid": "03d2d951_adb45054",
+      "range": {
+        "startLine": 379,
+        "startChar": 1,
+        "endLine": 382,
+        "endChar": 62
+      },
+      "revId": "42ccc41fcce4b94bc27b2ffdd305b6ff01b2efc2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
