@@ -627,6 +627,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c4db3f03_8694008e",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-19T07:34:27Z",
+      "side": 1,
+      "message": "The subsequent patches handle some placeholder SMCs in this patch (Apart from CLOSE locality other SMCs are being handled, and I will add/update a patch to handle GET/SET error SMC)\nIn case you agree, then I\u0027ll put a warning when CLOSE locality returns SUCCESS (leaving some TODO comment) and leaving other INFO messages as it is.",
+      "parentUuid": "19d92ef8_7da9cfec",
+      "range": {
+        "startLine": 98,
+        "startChar": 19,
+        "endLine": 98,
+        "endChar": 25
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3d546f89_b0aa86c8",
         "filename": "services/std_svc/drtm/drtm_main.c",
         "patchSetId": 9
