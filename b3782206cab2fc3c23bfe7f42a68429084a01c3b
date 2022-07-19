@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de38799c_b28c0721",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-19T07:45:54Z",
+      "side": 1,
+      "message": "Re-use is_feat_pacqarma3_present rather than duplicating here and the mask id definition?",
+      "range": {
+        "startLine": 52,
+        "startChar": 3,
+        "endLine": 52,
+        "endChar": 49
+      },
+      "revId": "b3782206cab2fc3c23bfe7f42a68429084a01c3b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
