@@ -16,6 +16,24 @@
       "message": "Hi, noticed a possible problem with this change https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/commit/?h\u003dintegration\u0026id\u003d9335c28a019ee2d9ab7a0f9276b91415f3c9f1bc\n\nCan you rebase the current TF-A change to top of integration and run the new L3 test introduced by https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/15952 ?\n\nAdditionally please confirm L3 tests related to TC0/TC1 platforms are passing with those changes.\n\nDoes TC2 require an update to SCP fw binaries update?",
       "revId": "dcf56188031cd76961691b26b40464225637c0fc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfb68142_c9a1f938",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000797
+      },
+      "writtenOn": "2022-07-19T10:12:25Z",
+      "side": 1,
+      "message": "Will check on the base change patch and featurize it based on paltform.\nRebased the TF-A changes.\nAdded topic\nTC2 SCP uses different cores than TC1 SCP.",
+      "parentUuid": "8a7352b1_f8f65197",
+      "revId": "dcf56188031cd76961691b26b40464225637c0fc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
