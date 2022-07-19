@@ -72,6 +72,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f8ebdeca_01d8f1d5",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000621
+      },
+      "writtenOn": "2022-07-19T13:28:07Z",
+      "side": 1,
+      "message": "DRTM data structures are versioned independently from ARM_DRTM_VERSION_MAJOR, which is versioning the overall specification.  So ARM_DRTM_VERSION_MAJOR or the specification\u0027s minor version could advance with a new specification release, but the data structure\u0027s version could stay the same if the new spec version has the same data structure.\n\nThis code expects DRTM_PARAMETERS structure version `1\u0027.",
+      "parentUuid": "9a0a219a_b203a47e",
+      "range": {
+        "startLine": 261,
+        "startChar": 19,
+        "endLine": 261,
+        "endChar": 20
+      },
+      "revId": "3eaf3f12d3386ba267064707af8b63f879ca3a45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7c26c1d8_b26e11b5",
         "filename": "services/std_svc/drtm/drtm_main.c",
         "patchSetId": 8
