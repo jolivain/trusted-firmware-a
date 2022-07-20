@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20800d82_f1163034",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T19:32:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7061e97f_8bae3f6b",
+      "range": {
+        "startLine": 9,
+        "startChar": 69,
+        "endLine": 9,
+        "endChar": 73
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38acb580_2c7c75a8",
@@ -142,6 +166,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3298e75e_2fa38932",
+        "filename": "include/plat/common/plat_drtm.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T19:32:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8559965f_20885b2f",
+      "range": {
+        "startLine": 32,
+        "startChar": 25,
+        "endLine": 32,
+        "endChar": 28
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "333c84f8_bdc5c1ca",
@@ -179,6 +227,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "333c84f8_bdc5c1ca",
+      "range": {
+        "startLine": 33,
+        "startChar": 26,
+        "endLine": 33,
+        "endChar": 63
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b6d9abf_c6a5231e",
+        "filename": "include/plat/common/plat_drtm.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T19:32:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dec6639e_ec7ea118",
       "range": {
         "startLine": 33,
         "startChar": 26,
@@ -236,6 +308,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "548adaa0_6fc20a90",
+        "filename": "include/services/drtm_svc.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T19:32:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2e1c02c_49912636",
+      "range": {
+        "startLine": 41,
+        "startChar": 19,
+        "endLine": 41,
+        "endChar": 33
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66f66e0c_02fc9b76",
@@ -267,6 +363,24 @@
       "side": 1,
       "message": "I didn\u0027t get the reason behind enclosing these under do {} while(0) loop. Can you please elaborate?",
       "parentUuid": "66f66e0c_02fc9b76",
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f26d0a10_8354f851",
+        "filename": "include/services/drtm_svc.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T19:32:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76d09bdf_bbc92366",
       "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -308,6 +422,30 @@
       "side": 1,
       "message": "Yes, this is possible. I will remove lines 68-71",
       "parentUuid": "2cc92a55_3041e824",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 55
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00292792_fbadc303",
+        "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T19:32:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fee5c7a_f94a6c51",
       "range": {
         "startLine": 63,
         "startChar": 0,
@@ -365,6 +503,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b10fa5b8_b1b526db",
+        "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T19:32:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa50cfa2_fd846ed2",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 10
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "644af4c1_b7bbeec1",
@@ -402,6 +564,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "644af4c1_b7bbeec1",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 45
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "125e931e_f2fb5f60",
+        "filename": "plat/arm/board/fvp/fvp_drtm_measurement.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T19:32:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8cb2b8e_42e8667b",
       "range": {
         "startLine": 17,
         "startChar": 0,
@@ -541,6 +727,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b66f6807_b30f9d4f",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T19:32:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96034e21_ad810e95",
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b198cf82_229d8323",
@@ -578,6 +782,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "b198cf82_229d8323",
+      "range": {
+        "startLine": 76,
+        "startChar": 3,
+        "endLine": 76,
+        "endChar": 14
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "941f67a9_01e7c749",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T19:32:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d778aa3_a02dba13",
       "range": {
         "startLine": 76,
         "startChar": 3,
@@ -682,6 +910,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6e95594_bc3cdea6",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T19:32:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28817b14_0ea876f3",
+      "range": {
+        "startLine": 100,
+        "startChar": 1,
+        "endLine": 104,
+        "endChar": 2
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d67866f_d8160841",
@@ -776,6 +1028,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a389521_859df92d",
+        "filename": "services/std_svc/drtm/drtm_res_address_map.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T19:32:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28032ab7_d565ba7e",
+      "range": {
+        "startLine": 22,
+        "startChar": 7,
+        "endLine": 22,
+        "endChar": 11
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c0f0f71_95aca830",
@@ -813,6 +1089,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "7c0f0f71_95aca830",
+      "range": {
+        "startLine": 35,
+        "startChar": 1,
+        "endLine": 35,
+        "endChar": 4
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72ec21f6_240a987d",
+        "filename": "services/std_svc/drtm/drtm_res_address_map.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T19:32:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0857158_c9c71bc2",
       "range": {
         "startLine": 35,
         "startChar": 1,
@@ -870,6 +1170,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccc1541d_a8544a8f",
+        "filename": "services/std_svc/drtm/drtm_res_address_map.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T19:32:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "890bfd26_ffd663ea",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 38,
+        "endChar": 11
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5cc2fc7d_3399bcb9",
@@ -907,6 +1231,30 @@
       "side": 1,
       "message": "I will look into how to avoid two loops. First loop basically to get the count and second loop to fill region details.",
       "parentUuid": "5cc2fc7d_3399bcb9",
+      "range": {
+        "startLine": 47,
+        "startChar": 1,
+        "endLine": 47,
+        "endChar": 41
+      },
+      "revId": "b72127492eb91ffdce7c99fa1b8cc102060ae357",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "487caff5_a228c87c",
+        "filename": "services/std_svc/drtm/drtm_res_address_map.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T19:32:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3347d8bc_599551f5",
       "range": {
         "startLine": 47,
         "startChar": 1,
