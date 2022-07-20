@@ -87,6 +87,46 @@
       "parentUuid": "7601a334_e03ce153",
       "revId": "beb3a39e09faab3e94501f329ee1ac910d82b232",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "127547df_0d07412a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-20T13:54:35Z",
+      "side": 1,
+      "message": "One last minor comment from me.",
+      "revId": "beb3a39e09faab3e94501f329ee1ac910d82b232",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb737987_841e2241",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 1032,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-20T13:54:35Z",
+      "side": 1,
+      "message": "Based on the discussion in this review, should we also mention here that psci_is_last_on_cpu_safe() handles the \"forest\" topology, as opposed to psci_is_last_on_cpu() which only handles the \"tree\" topology? This is another difference AFAIU. Or this the same?\n\nI understand this difference will go away when we unify both APIs but until then this detail sounds important to me.",
+      "range": {
+        "startLine": 1030,
+        "startChar": 0,
+        "endLine": 1032,
+        "endChar": 40
+      },
+      "revId": "beb3a39e09faab3e94501f329ee1ac910d82b232",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
