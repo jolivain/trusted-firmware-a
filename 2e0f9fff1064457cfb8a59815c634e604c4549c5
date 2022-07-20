@@ -591,6 +591,30 @@
       },
       "revId": "2e0f9fff1064457cfb8a59815c634e604c4549c5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f7c911b_abd0ed9b",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1064,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-07-20T09:28:40Z",
+      "side": 1,
+      "message": "There are two differences between this API and psci_is_last_on_cpu()\n1. It acquires the lock to ensure that no other cpu is turned on\n2. It caters for forest topology while last_on_cpu() assumes that all cores derived from single parent.\n\nThe 2nd point can be unified in both APIs by modifying psci_is_last_on_cpu(). Along with this API we might need to revisit some more APIs in PSCI which assumes that topology is always tree.\n\nLet me know if we can merge this patch for now and re-visit this in future patch?",
+      "parentUuid": "848dea9d_fbcf0e4d",
+      "range": {
+        "startLine": 1063,
+        "startChar": 0,
+        "endLine": 1064,
+        "endChar": 53
+      },
+      "revId": "2e0f9fff1064457cfb8a59815c634e604c4549c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
