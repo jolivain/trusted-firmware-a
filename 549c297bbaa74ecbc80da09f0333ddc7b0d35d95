@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efa95a78_8c772837",
+        "filename": "docs/plat/arm/tc/index.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-07-20T18:08:42Z",
+      "side": 1,
+      "message": "nit:\nI believe you wanted these 3 lines to be shown as a list but , when this doc is built, it is being rendered as a single paragraph. Please refer to other rst files to find the correct syntax for specifying a list entry. Feel free to ignore this comment.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 48
+      },
+      "revId": "549c297bbaa74ecbc80da09f0333ddc7b0d35d95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
