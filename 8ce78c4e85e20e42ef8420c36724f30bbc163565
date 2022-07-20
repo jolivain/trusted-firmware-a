@@ -213,6 +213,30 @@
       },
       "revId": "8ce78c4e85e20e42ef8420c36724f30bbc163565",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "734f17ec_ee029826",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-20T14:10:51Z",
+      "side": 1,
+      "message": "OK, let\u0027s put that on the list of future improvements and let\u0027s carry on with the current approach for the time being.\n\nI agree with you Olivier that we\u0027ll need to carefully review the stack setup code to remove any assumption about all stacks being the same size but still this sounds achievable to me.\n\nAs per my understanding, DRTM is mostly used on infra. platforms, which typically have many cores. Although 1 page does not sound like a lot for a stack, it adds up if you\u0027ve got 100 cores...",
+      "parentUuid": "b4f9075b_f557aa0a",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 254,
+        "endChar": 26
+      },
+      "revId": "8ce78c4e85e20e42ef8420c36724f30bbc163565",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
