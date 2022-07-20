@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c8861fb_0ee936b2",
+        "filename": "include/services/drtm_svc.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T17:30:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "568c8d69_abb7fdb7",
+      "range": {
+        "startLine": 22,
+        "startChar": 30,
+        "endLine": 22,
+        "endChar": 41
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b65108bb_3ac9cae2",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Thanks for pointing this out!  ARM_DRTM_SVC_TCB_HASH and ARM_DRTM_SVC_LOCK_TCB_HASH are only placeholders now and being recently added in specification document so missed to update this check.",
       "parentUuid": "b65108bb_3ac9cae2",
+      "range": {
+        "startLine": 33,
+        "startChar": 49,
+        "endLine": 33,
+        "endChar": 71
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5525a28c_58a0afd4",
+        "filename": "include/services/drtm_svc.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T17:30:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ce3ab9d_662a33b5",
       "range": {
         "startLine": 33,
         "startChar": 49,
@@ -142,6 +190,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77893ebb_bd39f540",
+        "filename": "include/services/drtm_svc.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T17:30:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22bbc567_3cea5d22",
+      "range": {
+        "startLine": 36,
+        "startChar": 31,
+        "endLine": 36,
+        "endChar": 38
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4edea11_fc72e1b5",
@@ -179,6 +251,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "a4edea11_fc72e1b5",
+      "range": {
+        "startLine": 37,
+        "startChar": 31,
+        "endLine": 37,
+        "endChar": 38
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b231de6_a898b24e",
+        "filename": "include/services/drtm_svc.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T17:30:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3362fa5a_64bcfe73",
       "range": {
         "startLine": 37,
         "startChar": 31,
@@ -295,6 +391,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc25b1bb_484217a9",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T17:30:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58d7228e_0fcd1f59",
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79d3b10a_1e375a20",
@@ -391,6 +505,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "95f656bd_3dfbf269",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T17:30:59Z",
+      "side": 1,
+      "message": "Retained this \u0027if\u0027 loop as subsequent patches handles feature ID queries.",
+      "parentUuid": "8845bad7_9cceadf1",
+      "range": {
+        "startLine": 48,
+        "startChar": 27,
+        "endLine": 48,
+        "endChar": 28
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8810c043_b9c198d0",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T17:30:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac75c95e_048a91a3",
+      "range": {
+        "startLine": 48,
+        "startChar": 12,
+        "endLine": 48,
+        "endChar": 22
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "922bfacd_f8e47a5d",
         "filename": "services/std_svc/drtm/drtm_main.c",
         "patchSetId": 9
@@ -426,6 +588,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "922bfacd_f8e47a5d",
+      "range": {
+        "startLine": 66,
+        "startChar": 38,
+        "endLine": 67,
+        "endChar": 28
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e694eca_115b858e",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T17:30:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b43a1f4c_85fd42cb",
       "range": {
         "startLine": 66,
         "startChar": 38,
@@ -473,6 +659,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "c88f71d6_ef2e5c20",
+      "range": {
+        "startLine": 91,
+        "startChar": 11,
+        "endLine": 91,
+        "endChar": 52
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efaf0d9f_3c7e201c",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T17:30:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16f00ba0_1605cb93",
       "range": {
         "startLine": 91,
         "startChar": 11,
@@ -696,6 +906,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5813f49d_166c2c13",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T17:30:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2eca3b30_956fda61",
+      "range": {
+        "startLine": 110,
+        "startChar": 2,
+        "endLine": 111,
+        "endChar": 24
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "994c2939_5e4ae395",
@@ -743,6 +977,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a1a4776_c4fe65ac",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T17:30:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0509c1d5_7dfaccfe",
+      "range": {
+        "startLine": 113,
+        "startChar": 27,
+        "endLine": 113,
+        "endChar": 35
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce442973_3ab5c18f",
@@ -780,6 +1038,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "ce442973_3ab5c18f",
+      "range": {
+        "startLine": 120,
+        "startChar": 9,
+        "endLine": 120,
+        "endChar": 38
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18d00f6f_43201b7d",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T17:30:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4782b99_b8c5faad",
       "range": {
         "startLine": 120,
         "startChar": 9,
