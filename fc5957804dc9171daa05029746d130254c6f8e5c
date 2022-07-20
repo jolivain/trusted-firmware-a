@@ -16,6 +16,24 @@
       "message": "static checks:\n\n****** Newly added files detection check for Coverity Scan analysis on patch(es) ******\n\nResult : FAILURE\n\n\nNew source files have been identified in your patch..\nplat/arm/board/fvp/fvp_drtm_dma_prot.c",
       "revId": "fc5957804dc9171daa05029746d130254c6f8e5c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0897ee27_87a1c81b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-20T14:16:16Z",
+      "side": 1,
+      "message": "I guess this is covered by these CI changes:\n\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/15703\n\nSo I think we can mark this comment as resolved. Please reopen if I am wrong.",
+      "parentUuid": "914bb542_b64fb5e8",
+      "revId": "fc5957804dc9171daa05029746d130254c6f8e5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
