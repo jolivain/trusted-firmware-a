@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "889b366f_27d2ad6c",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T16:01:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7eba71f8_425f2f7b",
+      "range": {
+        "startLine": 415,
+        "startChar": 16,
+        "endLine": 415,
+        "endChar": 17
+      },
+      "revId": "fe6e56c74c572b84a2e4edaadf105e07e231d503",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a2f5310_5bebfce2",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "This comment is very much specific to the platform APIs listed in this patch. In subsequent patch [1], I moved this to separate file where all platform APIs related to DRTM are listed and these APIs are shown in the group with appropriate group header comment.\nDo you think I should create a plat_drtm.h file in this patch itself, or leave this comment as it is in this patch?\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/15499/13/include/plat/common/plat_drtm.h",
       "parentUuid": "1a2f5310_5bebfce2",
+      "range": {
+        "startLine": 417,
+        "startChar": 0,
+        "endLine": 417,
+        "endChar": 48
+      },
+      "revId": "fe6e56c74c572b84a2e4edaadf105e07e231d503",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4da9540e_632e6cba",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-20T16:01:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32f34468_1d8d17c2",
       "range": {
         "startLine": 417,
         "startChar": 0,
