@@ -1063,6 +1063,10 @@ $(eval $(call add_define,ERRATA_A710_2267065))
 $(eval $(call assert_boolean,ERRATA_A710_2136059))
 $(eval $(call add_define,ERRATA_A710_2136059))
 
+# Process ERRATA_A710_2147715 flag
+$(eval $(call assert_boolean,ERRATA_A710_2147715))
+$(eval $(call add_define,ERRATA_A710_2147715))
+
 # Process ERRATA_A710_2282622 flag
 $(eval $(call assert_boolean,ERRATA_A710_2282622))
 $(eval $(call add_define,ERRATA_A710_2282622))
