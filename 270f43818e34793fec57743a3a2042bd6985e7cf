@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7aa30a5_5603c2f2",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000621
+      },
+      "writtenOn": "2022-07-21T14:14:07Z",
+      "side": 1,
+      "message": "I believe \"DSB ISH\" is also needed after the invalidate and before the ISB.  According to my reading of the Arm ARM, and very happy to be corrected:\n\"All instruction cache maintenance instructions can execute in any order relative to other instruction cache instructions, data cache instructions, loads, and stores unless a DSB is executed between the instructions.\"",
+      "range": {
+        "startLine": 141,
+        "startChar": 1,
+        "endLine": 141,
+        "endChar": 37
+      },
+      "revId": "270f43818e34793fec57743a3a2042bd6985e7cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
