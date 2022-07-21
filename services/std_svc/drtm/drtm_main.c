@@ -322,8 +322,8 @@ static enum drtm_retc drtm_dl_check_args(uint64_t x1,
 	uint64_t dlme_start, dlme_end;
 	uint64_t dlme_img_start, dlme_img_ep, dlme_img_end;
 	uint64_t dlme_data_start, dlme_data_end;
-	uintptr_t args_mapping;
-	size_t args_mapping_size;
+	uintptr_t va_mapping;
+	size_t va_mapping_size;
 	struct_drtm_dl_args *a;
 	struct_drtm_dl_args args_buf;
 	int rc;
@@ -334,8 +334,8 @@ static enum drtm_retc drtm_dl_check_args(uint64_t x1,
 		return INVALID_PARAMETERS;
 	}
 
-	args_mapping_size = ALIGNED_UP(sizeof(struct_drtm_dl_args), DRTM_PAGE_SIZE);
-	rc = mmap_add_dynamic_region_alloc_va(x1, &args_mapping, args_mapping_size,
+	va_mapping_size = ALIGNED_UP(sizeof(struct_drtm_dl_args), DRTM_PAGE_SIZE);
+	rc = mmap_add_dynamic_region_alloc_va(x1, &va_mapping, va_mapping_size,
 					      MT_MEMORY | MT_NS | MT_RO |
 					      MT_SHAREABILITY_ISH);
 	if (rc != 0) {
@@ -343,15 +343,14 @@ static enum drtm_retc drtm_dl_check_args(uint64_t x1,
 		      __func__, rc);
 		return INTERNAL_ERROR;
 	}
-	a = (struct_drtm_dl_args *)args_mapping;
-	/*
-	 * TODO: invalidate all data cache before reading the data passed by the
-	 * DCE Preamble.  This is required to avoid / defend against racing with
-	 * cache evictions.
-	 */
+	a = (struct_drtm_dl_args *)va_mapping;
+
+	/* Sanitize cache of data passed in args by the DCE Preamble. */
+	flush_dcache_range(va_mapping, va_mapping_size);
+
 	args_buf = *a;
 
-	rc = mmap_remove_dynamic_region(args_mapping, args_mapping_size);
+	rc = mmap_remove_dynamic_region(va_mapping, va_mapping_size);
 	if (rc) {
 		ERROR("%s(): mmap_remove_dynamic_region() failed unexpectedly"
 		      " rc=%d\n", __func__, rc);
@@ -377,6 +376,28 @@ static enum drtm_retc drtm_dl_check_args(uint64_t x1,
 	dlme_img_end = dlme_img_start + a->dlme_img_size;
 	dlme_data_start = a->dlme_paddr + a->dlme_data_off;
 	dlme_data_end = dlme_end;
+
+	/*
+	 * Map and sanitize the cache of data range passed by DCE Preamble. This
+	 * is required to avoid / defend against racing with cache evictions
+	 */
+	va_mapping_size = ALIGNED_UP((dlme_img_end - dlme_img_start), DRTM_PAGE_SIZE);
+	rc = mmap_add_dynamic_region_alloc_va(dlme_img_start, &va_mapping, va_mapping_size,
+					      MT_MEMORY | MT_NS | MT_RO |
+					      MT_SHAREABILITY_ISH);
+	if (rc != 0) {
+		ERROR("DRTM: %s: mmap_add_dynamic_region_alloc_va() failed rc=%d\n",
+		      __func__, rc);
+		return INTERNAL_ERROR;
+	}
+	flush_dcache_range(va_mapping, va_mapping_size);
+
+	rc = mmap_remove_dynamic_region(va_mapping, va_mapping_size);
+	if (rc) {
+		ERROR("%s(): mmap_remove_dynamic_region() failed unexpectedly"
+		      " rc=%d\n", __func__, rc);
+		panic();
+	}
 
 	/* check DLME data region (paddr + size) is NS address region */
 	rc = plat_drtm_validate_dlme_ns_region(dlme_start, (size_t)a->dlme_size);
