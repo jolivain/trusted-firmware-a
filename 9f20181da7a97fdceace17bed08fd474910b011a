@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4f1b1a84_dbce2184",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-07-21T11:18:26Z",
+      "side": 1,
+      "message": "correct to \"RMM\"",
+      "revId": "9f20181da7a97fdceace17bed08fd474910b011a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d9f9e830_c41ee447",
         "filename": "docs/components/rmm-el3-comms-spec.rst",
         "patchSetId": 1
@@ -192,6 +209,29 @@
         "startChar": 21,
         "endLine": 352,
         "endChar": 77
+      },
+      "revId": "9f20181da7a97fdceace17bed08fd474910b011a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f95b425e_bf4050d0",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-07-21T11:18:26Z",
+      "side": 1,
+      "message": "nit: These macros can also be aligned.",
+      "range": {
+        "startLine": 428,
+        "startChar": 6,
+        "endLine": 428,
+        "endChar": 32
       },
       "revId": "9f20181da7a97fdceace17bed08fd474910b011a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
