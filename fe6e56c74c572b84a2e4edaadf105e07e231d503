@@ -382,6 +382,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d08bdb65_37f80732",
+        "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-21T06:42:59Z",
+      "side": 1,
+      "message": "\u003e This is code from the PoC part of DRTM spec development, so may be crude or idealised\nAck.\n\u003e info on whether unmanaged peripherals exist did not seem to be readily available, except for whether an SMMU exists or not\nI would be surprised this info exists on any platform at the firmware level. To me this is an assumption that firmware must make considering that a platform has been designed in HW with this property. I\u0027m ok with the shortcut (if SMMU is present then assume all platform DMA-capable peripherals are upstream to the SMMU) but the comment should reflect this isn\u0027t the case with FVP and a platform port must check that the hw platform adheres to this principle (as stated by the spec).\n\u003e  In this case, an investigation should be carried out to determine whether the peripherals can be trusted.\nIf you take the single example of a UART peripheral which I assume is DMA capable, there may be multiple entities (in NS or secure world) gaining control and programming a malicious transfer hitting the DLME.\n\u003e An alternative may be to document this process part of the TF-A documentation.\nEither this or comments in the code should reflect it.",
+      "parentUuid": "c3553456_aa60d1a3",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 38,
+        "endChar": 54
+      },
+      "revId": "fe6e56c74c572b84a2e4edaadf105e07e231d503",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b4667b3d_baf63c19",
         "filename": "plat/arm/board/fvp/fvp_drtm_dma_prot.c",
         "patchSetId": 14
