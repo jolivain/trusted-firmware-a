@@ -356,6 +356,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac946904_14ab6d2a",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-21T07:07:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f03abeb4_beb7151a",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 6
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f23897f_93762022",
@@ -553,6 +577,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "db3d5844_f4b58dc0",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-21T07:07:39Z",
+      "side": 1,
+      "message": "I wonder if the spec should tell to check bit 31 rather than 63.\nAt least this doesn\u0027t look consistent with other specs implementing the same \u0027feature presence check\u0027.\nIIUC the SMCCC defines a function identifier as a 32b value passed through w0 whichever using SMC32/64.\nThis is the reason you had to define ARM_DRTM_FUNC_SHIFT/ARM_DRTM_FUNC_MASK because they aren\u0027t defined by SMCCC for a function identifier.",
+      "parentUuid": "95f656bd_3dfbf269",
+      "range": {
+        "startLine": 48,
+        "startChar": 27,
+        "endLine": 48,
+        "endChar": 28
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "922bfacd_f8e47a5d",
         "filename": "services/std_svc/drtm/drtm_main.c",
         "patchSetId": 9
@@ -730,6 +778,30 @@
       "side": 1,
       "message": "This is still experimental feature and mostly we are using debug build, so i\u0027m in favour of keeping this for now and then in the production build will make these as VERBOSE message. \nPlease let me know if you disagree?",
       "parentUuid": "c853bf6a_92042ef0",
+      "range": {
+        "startLine": 97,
+        "startChar": 2,
+        "endLine": 97,
+        "endChar": 6
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15f96842_2891814d",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-07-21T07:07:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "68494834_22fa3906",
       "range": {
         "startLine": 97,
         "startChar": 2,
