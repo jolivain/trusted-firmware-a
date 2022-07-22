@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6471645_f78c4b29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-22T12:03:23Z",
+      "side": 1,
+      "message": "Apart from the coding style comments, the main thing from my point of view is whether to rename the protocols. That\u0027s the main reason for my COR-1. Else I don\u0027t have blocking comments. If this gets addressed in the next version of the patch, consider you have my COR+1 😊",
+      "revId": "cbd6f86009c976c0b08679bce7a4ae0f8c4ea625",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20e48d04_5811ec37",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-22T12:03:23Z",
+      "side": 1,
+      "message": "(minor) Please break comments to 80 characters throughout this patch.",
+      "range": {
+        "startLine": 17,
+        "startChar": 78,
+        "endLine": 17,
+        "endChar": 100
+      },
+      "revId": "cbd6f86009c976c0b08679bce7a4ae0f8c4ea625",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42f63e36_2a5fba4b",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-22T12:03:23Z",
+      "side": 1,
+      "message": "I suppose most of this information could be expressed as a static computation based on the sizeof() various data structures, rather than hard-coded values? However, this might not be worth it, given this will tuned in the future. I think the comment now leaves no doubt about the meaning of these hard-coded values so I\u0027ll let you decide whether to leave this as is or try to express this computationally...",
+      "range": {
+        "startLine": 41,
+        "startChar": 67,
+        "endLine": 44,
+        "endChar": 56
+      },
+      "revId": "cbd6f86009c976c0b08679bce7a4ae0f8c4ea625",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
