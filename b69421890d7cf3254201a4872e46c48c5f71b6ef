@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98be9e39_7bf0dcd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-07-22T14:21:21Z",
+      "side": 1,
+      "message": "please fix following static check failure\n\nplat/qti/common/src/qti_bl31_setup.c:42: ERROR: do not initialise globals to 0x0\n+uint32_t g_qti_bl31_cold_booted \u003d 0x0;\n",
+      "revId": "b69421890d7cf3254201a4872e46c48c5f71b6ef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
