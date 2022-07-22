@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe754493_0cea6eb4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-07-22T17:08:55Z",
+      "side": 1,
+      "message": "Sorry I broke the zynqmp build for everyone and was using this patch as a test of that.\n\nI\u0027ve reverted a zynqmp change that needed other as yet unreviewed changes submitted also.\n\nHopefully a re run of CI+1 will restore the verified.",
+      "revId": "fb5397a66b952499594eae044684bd19b9e21908",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
