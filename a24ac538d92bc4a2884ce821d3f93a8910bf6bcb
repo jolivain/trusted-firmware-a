@@ -16,6 +16,23 @@
       "message": "I have fixed the include ordering as reported by static-checks.sh. tf-cov-make still reports an error but I believe we are in the documented case where it does not take into account the changes made in tf-a-ci-scripts under review in https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/14540",
       "revId": "a24ac538d92bc4a2884ce821d3f93a8910bf6bcb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "716a9667_8bc75f71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-07-22T09:26:18Z",
+      "side": 1,
+      "message": "It seems the CI static checks are failing again on coverity test because it does not use the associated tf-a-ci-scripts commit. I am using the same provencore-spd topic, but maybe I am doing something wrong?",
+      "revId": "a24ac538d92bc4a2884ce821d3f93a8910bf6bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
