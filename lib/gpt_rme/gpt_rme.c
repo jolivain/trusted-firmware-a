@@ -693,13 +693,13 @@ int gpt_enable(void)
 		return -EPERM;
 	}
 
-	/* Invalidate any stale TLB entries */
-	tlbipaallos();
-	dsb();
-
 	/* Write the base address of the L0 tables into GPTBR */
 	write_gptbr_el3(((gpt_config.plat_gpt_l0_base >> GPTBR_BADDR_VAL_SHIFT)
 			>> GPTBR_BADDR_SHIFT) & GPTBR_BADDR_MASK);
+
+	/* Invalidate any stale TLB entries and any cached register fields */
+	tlbipaallos();
+	dsb();
 
 	/* GPCCR_EL3.PPS */
 	gpccr_el3 = SET_GPCCR_PPS(gpt_config.pps);
