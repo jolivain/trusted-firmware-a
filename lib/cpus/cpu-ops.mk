@@ -1171,6 +1171,10 @@ $(eval $(call add_define,ERRATA_A510_2218950))
 $(eval $(call assert_boolean,ERRATA_A510_2172148))
 $(eval $(call add_define,ERRATA_A510_2172148))
 
+# Process ERRATA_A510_2371937 flag
+$(eval $(call assert_boolean,ERRATA_A510_2371937))
+$(eval $(call add_define,ERRATA_A510_2371937))
+
 # Process ERRATA_DSU_798953 flag
 $(eval $(call assert_boolean,ERRATA_DSU_798953))
 $(eval $(call add_define,ERRATA_DSU_798953))
