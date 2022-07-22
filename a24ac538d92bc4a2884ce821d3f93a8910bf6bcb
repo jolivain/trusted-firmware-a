@@ -50,6 +50,23 @@
       "message": "There is an outstanding task to address the OpenCI syncing of changes across repos based on topic. This though is implemented on the Arm internal legacyCI so will do a run there.",
       "revId": "a24ac538d92bc4a2884ce821d3f93a8910bf6bcb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06bf58ea_02c0ab3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-07-22T13:06:00Z",
+      "side": 1,
+      "message": "The EL3 runtime and GIC changes need approvals before this stack can be progressed, I\u0027ve just dealt with the Xlinx platform changes. I\u0027m out on vacation myself until second week of August.",
+      "revId": "a24ac538d92bc4a2884ce821d3f93a8910bf6bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
