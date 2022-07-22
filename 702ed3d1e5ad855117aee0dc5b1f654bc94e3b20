@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7f15bc01_2e6ff218",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-22T11:13:51Z",
+      "side": 1,
+      "message": "\"embed\" and \"pointer-copy\" names sound good to me, definitely better than \"short\" / \"long\" for the reasons you mention.\n\nWe could still deprecate the \"embed\" variant in the future, if we think that the code size gain outweigh the performance penalty. Or not! I can imagine systems with better RSS performance and/or more memory for storing code, where the trade-off might look different. My point is, choosing the best protocol probably depends on system-specific characteristics so we can\u0027t quite make a call for that.",
+      "parentUuid": "bb3f20f8_7cf18c0e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 60
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "72ef7d25_9ba97b06",
         "filename": "drivers/arm/rss/rss_comms.c",
         "patchSetId": 2
@@ -330,6 +354,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9601aad_d2a26c4b",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-22T11:13:51Z",
+      "side": 1,
+      "message": "That\u0027s a good point. I agree, let\u0027s not add a check for this.",
+      "parentUuid": "8127990d_eaf4c76a",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 2
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2be6678_e1dd64c3",
@@ -414,6 +462,30 @@
       "side": 1,
       "message": "Yeah I wasn\u0027t sure how TF-A does indentation. Is it mixed with spaces for alignment? Or just full tabs?",
       "parentUuid": "08961ccd_627c8ee4",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 43
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "435c57a5_aba8b57b",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-22T11:13:51Z",
+      "side": 1,
+      "message": "TF-A uses mixed indentation: always start with tabs, then add spaces as necessary.",
+      "parentUuid": "d146e3df_230d2c57",
       "range": {
         "startLine": 50,
         "startChar": 0,
@@ -694,6 +766,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68a288c0_3618ee82",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-22T11:13:51Z",
+      "side": 1,
+      "message": "Thank you for the detailed explanation, that makes sense to me.",
+      "parentUuid": "07a4e0dd_d5ebe3e7",
+      "range": {
+        "startLine": 121,
+        "startChar": 1,
+        "endLine": 121,
+        "endChar": 11
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee72f3f2_4985a0a1",
@@ -731,6 +827,30 @@
       "side": 1,
       "message": "I think my preference for this way is that the called function just needs to set `msg_len` to the length of the message it has serialized, which seems fairly natural in that function. Plus, the serialization function doesn\u0027t need to know the size of the header so passing it in seems unnecessary.",
       "parentUuid": "ee72f3f2_4985a0a1",
+      "range": {
+        "startLine": 41,
+        "startChar": 1,
+        "endLine": 41,
+        "endChar": 58
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ffec44d_9418b0a2",
+        "filename": "drivers/arm/rss/rss_comms_protocol.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-07-22T11:13:51Z",
+      "side": 1,
+      "message": "Fair points. I don\u0027t feel strongly either way.",
+      "parentUuid": "ecb4cfad_e69ba092",
       "range": {
         "startLine": 41,
         "startChar": 1,
