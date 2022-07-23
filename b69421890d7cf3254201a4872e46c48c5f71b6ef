@@ -51,6 +51,24 @@
       "parentUuid": "144cba2f_d7cf0dbd",
       "revId": "b69421890d7cf3254201a4872e46c48c5f71b6ef",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "155bd283_d7f089d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000844
+      },
+      "writtenOn": "2022-07-23T07:07:30Z",
+      "side": 1,
+      "message": "I am facing below issue with compilation on Base ATF build, Can anybody help me resolve this issue \nmake PLAT\u003dzynqmp SPD\u003dpncd SPD_PNCD_NS_IRQ\u003d126 SPD_PNCD_S_IRQ\u003d15 DEBUG\u003d1 V\u003d1 memmap fiptool all\nMakefile:573: *** Error: No services/spd/pncd/pncd.mk located.  Stop.",
+      "parentUuid": "acbc6d0a_d962257a",
+      "revId": "b69421890d7cf3254201a4872e46c48c5f71b6ef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
