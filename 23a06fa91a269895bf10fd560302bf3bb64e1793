@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab7f04de_38ad49d4",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-25T15:23:00Z",
+      "side": 1,
+      "message": "We don\u0027t have this case now yet, but potentially we need to check \u0027dce_nwd\u0027 region lies within Non-Secure region.",
+      "revId": "23a06fa91a269895bf10fd560302bf3bb64e1793",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}

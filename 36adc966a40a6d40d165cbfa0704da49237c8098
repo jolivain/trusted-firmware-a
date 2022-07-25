@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c008b05_6d83f6e8",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-25T15:23:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf810a3c_757ea9e1",
+      "revId": "36adc966a40a6d40d165cbfa0704da49237c8098",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4ec1ed8_f5ce8885",
@@ -83,6 +101,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac0f8635_9c4bbea0",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-25T15:23:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2da9ec7_f9af7f2f",
+      "range": {
+        "startLine": 374,
+        "startChar": 10,
+        "endLine": 374,
+        "endChar": 26
+      },
+      "revId": "36adc966a40a6d40d165cbfa0704da49237c8098",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b866f232_0ef2041c",
@@ -120,6 +162,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "b866f232_0ef2041c",
+      "range": {
+        "startLine": 375,
+        "startChar": 0,
+        "endLine": 379,
+        "endChar": 2
+      },
+      "revId": "36adc966a40a6d40d165cbfa0704da49237c8098",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be41050c_6f4bf74b",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-25T15:23:00Z",
+      "side": 1,
+      "message": "Moved this check later after doing DLME region argument checks.",
+      "parentUuid": "f1736106_7072dc01",
       "range": {
         "startLine": 375,
         "startChar": 0,
