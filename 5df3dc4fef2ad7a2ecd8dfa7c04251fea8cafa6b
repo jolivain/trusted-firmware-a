@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "742b0ac6_2db52055",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-25T15:01:22Z",
+      "side": 1,
+      "message": "There are build and test configs added for DRTM implementation [1] that resolves below error -\n \n****** Newly added files detection check for Coverity Scan analysis on patch(es) ******\n\nResult : FAILURE\n\n\nNew source files have been identified in your patch..\nplat/arm/board/fvp/fvp_drtm_addr.c\nplat/arm/board/fvp/fvp_drtm_dma_prot.c\nplat/arm/board/fvp/fvp_drtm_err.c\nplat/arm/board/fvp/fvp_drtm_measurement.c\nplat/arm/board/fvp/fvp_drtm_stub.c\nservices/std_svc/drtm/drtm_dma_prot.c\nservices/std_svc/drtm/drtm_main.c\nservices/std_svc/drtm/drtm_measurements.c\nservices/std_svc/drtm/drtm_remediation.c\nservices/std_svc/drtm/drtm_res_address_map.c\n\n[1]: https://review.trustedfirmware.org/q/topic:%2522mb/drtm-preparatory-patches%2522+repo:ci/tf-a-ci-scripts",
+      "revId": "5df3dc4fef2ad7a2ecd8dfa7c04251fea8cafa6b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
