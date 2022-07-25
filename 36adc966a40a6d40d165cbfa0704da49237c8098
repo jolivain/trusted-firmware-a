@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cf810a3c_757ea9e1",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-25T15:15:22Z",
+      "side": 1,
+      "message": "Yes, makes sense! I will call this function \u0027plat_drtm_validate_dlme_ns_region\u0027 with x1 and args_mapping_size.",
+      "parentUuid": "05dd9db9_99c80ae0",
+      "revId": "36adc966a40a6d40d165cbfa0704da49237c8098",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d4ec1ed8_f5ce8885",
         "filename": "services/std_svc/drtm/drtm_main.c",
         "patchSetId": 9
@@ -31,6 +49,30 @@
       "writtenOn": "2022-07-25T11:00:47Z",
       "side": 1,
       "message": "\"DLME region\"",
+      "range": {
+        "startLine": 374,
+        "startChar": 10,
+        "endLine": 374,
+        "endChar": 26
+      },
+      "revId": "36adc966a40a6d40d165cbfa0704da49237c8098",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2da9ec7_f9af7f2f",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-25T15:15:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d4ec1ed8_f5ce8885",
       "range": {
         "startLine": 374,
         "startChar": 10,
@@ -66,6 +108,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f1736106_7072dc01",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-25T15:15:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b866f232_0ef2041c",
+      "range": {
+        "startLine": 375,
+        "startChar": 0,
+        "endLine": 379,
+        "endChar": 2
+      },
+      "revId": "36adc966a40a6d40d165cbfa0704da49237c8098",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8a652512_a4c9b35e",
         "filename": "services/std_svc/drtm/drtm_main.c",
         "patchSetId": 9
@@ -77,6 +143,24 @@
       "writtenOn": "2022-07-25T11:00:47Z",
       "side": 1,
       "message": "Here is \"just before the \u0027Check the DLME image region arguments\u0027 section\".",
+      "revId": "36adc966a40a6d40d165cbfa0704da49237c8098",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6ce6015_21d7a47e",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-07-25T15:15:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8a652512_a4c9b35e",
       "revId": "36adc966a40a6d40d165cbfa0704da49237c8098",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
