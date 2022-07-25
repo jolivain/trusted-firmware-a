@@ -107,15 +107,19 @@ static inline int32_t validate_ns_interrupt_rm(uint32_t x)
 
 static inline int32_t validate_el3_interrupt_rm(uint32_t x)
 {
-#if EL3_EXCEPTION_HANDLING
+#if defined (EL3_EXCEPTION_HANDLING) && !defined (SPMD_SPM_AT_SEL2)
 	/*
 	 * With EL3 exception handling, EL3 interrupts are always routed to EL3
-	 * from both Secure and Non-secure, and therefore INTR_EL3_VALID_RM1 is
-	 * the only valid routing model.
+	 * from both Secure and Non-secure, when the SPMC does not live in S-EL2
+	 * Therefore INTR_EL3_VALID_RM1 is the only valid routing model.
 	 */
 	if (x == INTR_EL3_VALID_RM1)
 		return 0;
 #else
+	/*
+	 * When SPMC lives at S-EL2, Group0 Interrupts are trapped to SPMC. The
+	 * SPMC may handle it itself or forward to EL3 for handling.
+	 */
 	if ((x == INTR_EL3_VALID_RM0) || (x == INTR_EL3_VALID_RM1))
 		return 0;
 #endif
