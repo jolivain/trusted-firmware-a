@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1297c628_1f086a0e",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000621
+      },
+      "writtenOn": "2022-07-25T10:36:19Z",
+      "side": 1,
+      "message": "This aspect escaped my attention previously:\n\nLogically, flushing the address region of the DLME image should be done after the DLME image region arguments are checked, once they seem valid.  Let\u0027s move this code to the end of the function.\n\nThe flushing of the DRTM_PARAMETERS is fine, although an additional check should be added -- I am going to remark this on the associated patch.",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 401,
+        "endChar": 0
+      },
+      "revId": "179d20c2017c91dd6c515c507d178b7caf847ee7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
