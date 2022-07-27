@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57ced750_049453c0",
+        "filename": "bl31/ehf.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-07-27T20:28:15Z",
+      "side": 1,
+      "message": "As discussed downstream, this patch has two issues.\n\n1. It takes away the flexibility to handle interrupts for EL3\n2. It depends on the implementation limitation of Hafnium\n3. It assumes that platforms will use Hafnium as the S-EL2 component",
+      "range": {
+        "startLine": 486,
+        "startChar": 1,
+        "endLine": 486,
+        "endChar": 38
+      },
+      "revId": "273f12a4e1a76632553e2bec4cdf38cc6cc5deb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
