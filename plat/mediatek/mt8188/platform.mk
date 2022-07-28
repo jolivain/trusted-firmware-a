@@ -26,6 +26,8 @@ MODULES-y += $(MTK_PLAT)/common/drivers/cirq
 MODULES-y += $(MTK_PLAT)/common/drivers/dp
 MODULES-y += $(MTK_PLAT)/common/drivers/gic600
 MODULES-y += $(MTK_PLAT)/common/drivers/iommu
+MODULES-y += $(MTK_PLAT)/common/drivers/pmic
+MODULES-y += $(MTK_PLAT)/common/drivers/pmic_wrap
 MODULES-y += $(MTK_PLAT)/common/drivers/timer
 
 PLAT_BL_COMMON_SOURCES := common/desc_image_load.c \
