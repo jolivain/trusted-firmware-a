@@ -22,6 +22,30 @@
       },
       "revId": "273f12a4e1a76632553e2bec4cdf38cc6cc5deb2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ffffaff_62a311dc",
+        "filename": "bl31/ehf.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-07-28T04:06:43Z",
+      "side": 1,
+      "message": "Hi Varun,\nfor #1, yes, but only in the case SPMD_SPM_AT_SEL2 is defined. The design of any SPMC, as i understand, for the longest time has been that all interrupts and EAs trap to SPMC. See FFA EAC spec where it states \"All interrupts are routed to the SPMC when execution is in the Secure state.\". So yes, this is by design.\n\n#2 is not a hafnium limitation. The FFA spec imposes this restriction.\n\n#3 again, this is what the FFA spec imposes. Note that trapping to SPMC does not mean timer interrupts cannot be handled in EL3. It just means it traps to the SPMC and it can be forwarded via an SMC (which we are attempting to create a SMC FID for), and the timer interrupt can be handled in EL3.\nThe SPMC was never meant to be pre-emptible bye EL3.\n\nAlso think about the case where SPMC is in EL3. You cannot handle timer interrupts anyway in EL3 when SPMC is running. When SPMC is in S-EL2, it is a logical extension of EL3 and has the same properties as EL3, except that it can use S-EL2 virutalisation features effective.\nHope that clarifies your concerns.",
+      "parentUuid": "57ced750_049453c0",
+      "range": {
+        "startLine": 486,
+        "startChar": 1,
+        "endLine": 486,
+        "endChar": 38
+      },
+      "revId": "273f12a4e1a76632553e2bec4cdf38cc6cc5deb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
