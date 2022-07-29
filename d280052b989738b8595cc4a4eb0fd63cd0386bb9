@@ -16,6 +16,24 @@
       "message": "could you an example of where in TF-A did you see this error?",
       "revId": "d280052b989738b8595cc4a4eb0fd63cd0386bb9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e660cd7_bb34b14a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000853
+      },
+      "writtenOn": "2022-07-29T13:07:11Z",
+      "side": 1,
+      "message": "I work on bsp code and I tried to print some variable using `INFO(\"%s: \" PRIxPTR \"\\n\", __func__, a)`, where `a` has type `uintptr_t`.\nUnfortunately compilation for aarch64 failed with an error above.",
+      "parentUuid": "c42256d3_6251f3c1",
+      "revId": "d280052b989738b8595cc4a4eb0fd63cd0386bb9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
