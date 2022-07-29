@@ -25,6 +25,7 @@ MODULES-y += $(MTK_PLAT)/lib/pm
 MODULES-y += $(MTK_PLAT)/common/drivers/cirq
 MODULES-y += $(MTK_PLAT)/common/drivers/dp
 MODULES-y += $(MTK_PLAT)/common/drivers/gic600
+MODULES-y += $(MTK_PLAT)/common/drivers/gpio
 MODULES-y += $(MTK_PLAT)/common/drivers/iommu
 MODULES-y += $(MTK_PLAT)/common/drivers/pmic
 MODULES-y += $(MTK_PLAT)/common/drivers/pmic_wrap
@@ -37,6 +38,7 @@ PLAT_BL_COMMON_SOURCES := common/desc_image_load.c \
 
 BL31_SOURCES += drivers/delay_timer/delay_timer.c \
 		drivers/delay_timer/generic_delay_timer.c \
+		drivers/gpio/gpio.c \
 		lib/cpus/aarch64/cortex_a55.S \
 		lib/cpus/aarch64/cortex_a78.S \
 		${GICV3_SOURCES} \
