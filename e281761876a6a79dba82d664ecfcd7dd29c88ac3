@@ -34,6 +34,24 @@
       "parentUuid": "9667a67a_ac768f7e",
       "revId": "e281761876a6a79dba82d664ecfcd7dd29c88ac3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b40896c_405f034a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2022-08-01T11:53:06Z",
+      "side": 1,
+      "message": "No doubt that OCM size is limiting factor here. And we can\u0027t do much about it.\n\nThis year we optimize pinctrl implementation in TF-A to reduce size to make sure that we can stay within current footprint in near future. There are some other places which can be optimized to find some space but still this won\u0027t solve problem with adding SPD to TF-A binary. \n\nLet me comment your post but before I dig into it. BL31_BASE/LIMIT can be configured before building to fit any of use case. And the address which I wanted to setup is an address which works fine with U-Boot SPL (not sure why origin patch didn\u0027t have it). And intentional debug configuration is without any SPD which should be possible to fit to OCM. \n\nBefore I did try pinctrl optimization I was thinking about couple of changes in SPL or FSBL which is that both of these SW have some low level code (a lot of the part of psu_init...) which is called only once. It means there is a option with marking initial functions before loading another images as init code and then free this space for using for other SW. It means FSBL will load TF-A from OCM start. This could give you additional space for also including SPD to the image. \nThe only use case which won\u0027t are any PM related configuration where APU restart only requires to still have FSBL in OCM. \nIt means there are ways but depends on use case you need to solve.\nAlso as you write using TCM memory can be also consider if can be used or not. \n\nI am not FSBL developer but that base addr which is setup for !DEBUG case should never be used by fsbl. Last page is maybe used for something but that location which is used for some time should be without any issue. It means you should take a look at sections in elf file to see what it is loaded where. \n\nAnyway as I said these addresses are supposed to target default cases which is without any SPD and for that we should be able to fit to OCM. \n\nAnd OPTEE is not supported by Xilinx. There is a support for ZynqMP done by me and Soren long time ago but we are no longer maintaining it.",
+      "parentUuid": "ac2ee4c5_798bfc3f",
+      "revId": "e281761876a6a79dba82d664ecfcd7dd29c88ac3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
