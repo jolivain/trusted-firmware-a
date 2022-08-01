@@ -16,6 +16,24 @@
       "message": "Hm. You are definitely right but trying to understand why I select this address. It should be 0xfffe5000. Can you please instead of revert to DDR just fix that address to stay in OCM? ",
       "revId": "e281761876a6a79dba82d664ecfcd7dd29c88ac3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac2ee4c5_798bfc3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000864
+      },
+      "writtenOn": "2022-08-01T11:02:46Z",
+      "side": 1,
+      "message": "I would love to keep both ATF and OP-TEE OS in OCM but unfortunately we have a bit of chicken egg problem in that and OCM is a bit small for that.\n\nI have tried to picture the boot flow in here:\nhttps://github.com/OP-TEE/optee_os/pull/5350#issuecomment-1200408103\n\n(Feel free to join the discussion to provide Xilinx/AMD view on things 😊)\n\nWhen ATF is compiled with OP-TEE support its memory usage is:\n\n$ nm -v deploy/arm-trusted-firmware.elf  | grep __BL31_\n0000000000001000 T __BL31_START__\n000000000001a000 B __BL31_END__\n\nWhich is 100 KiB.\n\nBut during the boot FSBL also occupies the OCM memory and that is the entity trying to load more stuff in memory.\n\nNow our FSBL build without PMUFW is about 114 KiB:\n\n-rw-r--r-- 2 vej vej   117448 heinä  29 23:01 boot-usb-0.18.0.unsigned.bin\n\nAnd if you observe source .elf for that:\n\n$ nm -v fsbl-usb.elf | grep -E \u0027 (_vector_table|_end)$\u0027\n00000000fffc0000 T _vector_table\n00000000fffffc40 B _end\n\nWhich more or less consumes the whole OCM.\n\nAnd it is not often a good idea to load next binary into the memory that would override running code.\n\nSo far only way that I have figured out to fix that issue would be to:\n\n- Make FSBL build for Cortex-R5/lock-step mode that gets initially executed from 0xFFFC0000 (OCM start) (ROM requirement)\n- Relocate code execution to R5\u0027s TCM memory (in lock-step mode we have 256 KiB there too)\n- Relocate interrupt vectors and such to TCM\n- Load next Xilinx Image container image containing:\n  - (verify \u0026 decrypt on the go)\n  - PMUFW (to PMU)\n  - Bitstream (to PL)\n  - ATF (to OCM)\n  - OP-TEE (to DDR)\n  - DTB (to DDR)\n  - U-Boot (to DDR)\n- Prepare ATF handoff in OCM(?)\n- Boot ATF from Cortex-A53#0\n- Move R5F to \"deep sleep\"\n- ATF: Shutdown R5F and make cleanups for memory\n- Continue the boot\n\nNow the problem with that is that the real Cortex-R5F image must be loaded after U-Boot has been started as R5F is reserved during the boot. And probably should be firewalled by ATF so that it cannot touch OCM or other Trust Zone protected memories.\n\nAnd then about the OP-TEE OS -- we are current at:\n-rw-r--r-- 2 vej vej  425240 heinä  29 22:29 tee_raw.bin\n\nWhich would not fit in OCM 😢.\n\nNow if we come back to the actual code (as previously):\n\n#ifndef ZYNQMP_ATF_MEM_BASE\n#if !DEBUG \u0026\u0026 defined(SPD_none) \u0026\u0026 !SDEI_SUPPORT\n# define BL31_BASE                      U(0xfffea000)\n# define BL31_LIMIT                     U(0x100000000)\n#else\n# define BL31_BASE                      U(0x1000)\n# define BL31_LIMIT                     U(0x7ffff)\n#endif\n#else\n# define BL31_BASE                      (ZYNQMP_ATF_MEM_BASE)\n# define BL31_LIMIT                     (ZYNQMP_ATF_MEM_BASE + ZYNQMP_ATF_MEM_SIZE - 1)\n# ifdef ZYNQMP_ATF_MEM_PROGBITS_SIZE\n#  define BL31_PROGBITS_LIMIT           (ZYNQMP_ATF_MEM_BASE + ZYNQMP_ATF_MEM_PROGBITS_SIZE - 1)\n# endif\n#endif\n\nNow if we would change the default address for OP-TEE enabled boot case (eg. SPD_none is not defined) then it would try to load ATF in OCM which would then override running FSBL which is not a good idea.\n\nI suppose this whole #ifdef structure would need to be thinked as a whole as there are different configurations and different allocations. To me that looks like if your ATF is small (\u003c 88 KiB) then we can try to put it on OCM assuming that FSBL would actually be is small enough (and would not use memory at ATF\u0027s point).\n\nEven if R5F boot flow would be in use (as described above) then I suppose that would need to be flagged somehow in ATF build so that one can use also A53 FSBL boot flow.\n\nAny thoughs?",
+      "parentUuid": "9667a67a_ac768f7e",
+      "revId": "e281761876a6a79dba82d664ecfcd7dd29c88ac3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
