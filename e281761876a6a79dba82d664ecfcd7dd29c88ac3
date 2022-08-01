@@ -52,6 +52,24 @@
       "parentUuid": "ac2ee4c5_798bfc3f",
       "revId": "e281761876a6a79dba82d664ecfcd7dd29c88ac3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5881409a_958060e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000864
+      },
+      "writtenOn": "2022-08-01T14:02:46Z",
+      "side": 1,
+      "message": "Just to clarify. I am talking about SPD_opteed which does not embed actual OP-TEE OS in there.\n\nOP-TEE OS is stored in DDR as there was no space elsewhere for it.\n\nWith currently open OP-TEE PR about HUK support with USER eFuses OP-TEE for ZynqMP support is starting to be in quite good shape. We have been updating the support in recent years.\n\nNow there is TRNG support (from PL IP core), HUK with either PUF or with USER eFuses support that were the most important missing items.\n\nAll current xtest\u0027s passes too. Might be a good idea to check it out how it has evolved as OP-TEE seems to be getting some traction and being supported in quite many platforms. If you would like to get demonstration that could also be arranged.\n\n-----\n\nAbout PM operations I suppose you are talking about deep power saving modes where DDR is in self-refresh and cores are powered down and then waken up. In our use we are always powered up and there is no such need at the moment.\n\nDon\u0027t know if you could have necessary PM support code in ATF that would be present in OCM all the time. If it requires whole psu_init stuff then that gets a bit bloated.\n\n-----\n\nAbout OCM addresses from FSBL with a bit more symbols:\n\n00000000fffdd2a0 b Iv\n00000000fffdd2c0 B __bss_end__\n00000000fffdd2c0 B _heap\n00000000fffdd2c0 B HeapBase\n00000000fffdd2c0 B _heap_start\n00000000fffdd6c0 B _el3_stack_end\n00000000fffdd6c0 B _heap_end\n00000000fffdd6c0 B HeapLimit\n00000000fffdf6c0 B __dup_data_start\n00000000fffdf6c0 B __el0_stack\n00000000fffdf6c0 B __el1_stack\n00000000fffdf6c0 B __el2_stack\n00000000fffdf6c0 B __el3_stack\n00000000fffe0988 B __dup_data_end\n00000000fffe9e00 b $d\n00000000fffe9e00 b ATFHandoffParams\n00000000ffff0040 b $d\n00000000ffff0040 b ReadBuffer\n00000000ffffe040 b HashsOfChunks\n00000000fffffc40 B _end\n\nAnd the !DEBUG address was 0xfffea000.\n\nIf ATF handoff fits in 0x200 and ReadBuffer and HashsOfChunks would not be an issue then there would be some space there.\n\nI believe HashsOfChunks and ReadBuffer are related to loading bistream with secure boot:\n\nhttps://github.com/Xilinx/embeddedsw/blob/d37a0e8824182597abf31ac3f1087a5321b33ad7/lib/sw_apps/zynqmp_fsbl/src/xfsbl_partition_load.c#L144\n\nhttps://github.com/Xilinx/embeddedsw/blob/d37a0e8824182597abf31ac3f1087a5321b33ad7/lib/sw_apps/zynqmp_fsbl/src/xfsbl_bs.c#L51\n\nOnce bitstream has been handled then that memory should be free.\n\nIn our image we anyway load bitstream before ATF + OP-TEE as we have some IP cores that are utilized by OP-TEE. So in that kind of configuration that should not be a problem. (other than the ATF does not fit in that area in our case).\n\nTaking out 12k from FSBL might be a bit challenging. Haven\u0027t really studied if that could be even more trimmed down.\n\nYour idea of discarding part of the code like what kernel does might work thou.\n\nFrom practicality point of view I would perhaps do it so that FSBL is from start of OCM so that it never needs to be relocated anywhere. And then ATF would occupy the end. Then we could have in FSBL \"init\" section after those stacks which could be then discarded and that memory could then be re-used. Debugger might get a bit hairy at some point ;). I recall in linker options there was some overlay support for old banked memories so perhaps that mechanism could work.\n\nAs ATF handoff pointer was on PMU_GLOBAL_GEN_STORAGE6 so that could be relocated dynamically I suppose.\n\nDon\u0027t know if SPL would be any tighter fit in here? Can you shed some light on SPL details? In theory the same discardable psu_init section could work there too.\n\n\"late\" inits after PL has been loaded cloud be placed just before \"normal\" inits to scale a bit more during runtime. Or it might be just enough to draw line that PL is now done (or there was no PL bitstream at all) and now all previous sections can be discarded. But your mentioned PM problem might still be there. Don\u0027t know if we can have OCM PM wakeup section there as a separate.",
+      "parentUuid": "6b40896c_405f034a",
+      "revId": "e281761876a6a79dba82d664ecfcd7dd29c88ac3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
