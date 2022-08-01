@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f2a4d2e_09598b94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-08-01T18:58:51Z",
+      "side": 1,
+      "message": "Hello Salomé, \n\nI\u0027ve seen that a lot of files have changed since my last review. I wonder if there is a better way to consolidate all this. Maybe it is worth defining the OPENSSL_BIN_PATH variable in the main Makefile only, and then make the specific *.mk files inherit it or receive it as a parameter. I would like to open the discussion around this to see what would be the best approach regarding this.",
+      "revId": "6e3243c3515d5e1649c1009567e8aad6b5eb320d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
