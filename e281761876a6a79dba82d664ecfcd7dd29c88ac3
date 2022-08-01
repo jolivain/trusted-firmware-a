@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9667a67a_ac768f7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2022-08-01T09:07:16Z",
+      "side": 1,
+      "message": "Hm. You are definitely right but trying to understand why I select this address. It should be 0xfffe5000. Can you please instead of revert to DDR just fix that address to stay in OCM? ",
+      "revId": "e281761876a6a79dba82d664ecfcd7dd29c88ac3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
