@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2549c4f8_92069fa0",
+        "filename": "plat/arm/css/common/css_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-08-02T16:04:09Z",
+      "side": 1,
+      "message": "I am curious why this setup function needs to be invoked every time the pwr domain is powered on. Cant it invoked just once, perhaps during platform setup?",
+      "range": {
+        "startLine": 117,
+        "startChar": 1,
+        "endLine": 117,
+        "endChar": 28
+      },
+      "revId": "9509416191134e9fba0544b96dcccd9c8a0c7ebc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
