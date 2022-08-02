@@ -185,12 +185,13 @@
 	 *  counts on every clock cycle.
 	 * ---------------------------------------------------------------------
 	 */
+#if ENABLE_FEAT_PMUV3
 	mov_imm	x0, ((PMCR_EL0_RESET_VAL | PMCR_EL0_LP_BIT | \
 		      PMCR_EL0_LC_BIT | PMCR_EL0_DP_BIT) & \
 		    ~(PMCR_EL0_X_BIT | PMCR_EL0_D_BIT))
 
 	msr	pmcr_el0, x0
-
+#endif /* ENABLE_FEAT_PMUV3 */
 	/* ---------------------------------------------------------------------
 	 * Enable External Aborts and SError Interrupts now that the exception
 	 * vectors have been setup.
