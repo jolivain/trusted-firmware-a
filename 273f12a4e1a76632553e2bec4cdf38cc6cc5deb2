@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7824654_4d864ede",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-02T15:43:58Z",
+      "side": 1,
+      "message": "As you mentioned in comments, can this be rephrased such that an FF-A compliant SPMC requires secure interrupts to be trapped by the SPMC when SEL1/0 runs?",
+      "range": {
+        "startLine": 15,
+        "startChar": 27,
+        "endLine": 15,
+        "endChar": 71
+      },
+      "revId": "273f12a4e1a76632553e2bec4cdf38cc6cc5deb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "eebc34ee_e714178e",
@@ -14,6 +37,69 @@
       "writtenOn": "2022-08-02T15:03:57Z",
       "side": 1,
       "message": "ping.",
+      "revId": "273f12a4e1a76632553e2bec4cdf38cc6cc5deb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20bf74c4_47bfc454",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-02T15:43:58Z",
+      "side": 1,
+      "message": "Hi Raghu,\nKey maintainers/code owners for EHF aren\u0027t available at the moment, so please expect some latency with reviews.",
+      "revId": "273f12a4e1a76632553e2bec4cdf38cc6cc5deb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35579579_1445c98a",
+        "filename": "bl31/ehf.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-02T15:43:58Z",
+      "side": 1,
+      "message": "nit: 2022",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "273f12a4e1a76632553e2bec4cdf38cc6cc5deb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7be331d_59184a74",
+        "filename": "bl31/ehf.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-02T15:43:58Z",
+      "side": 1,
+      "message": "nit: to be consistent with other places where this macro is used should this rather be\n\n #if !SPMD_SPM_AT_SEL2\n\nShould #if defined(SPD_spmd) be used to be on the safe side?\n\nAlso notice the SPMC_AT_EL3 toggle:\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/docs/getting_started/build-options.rst#n805\nShould it be taken into account?",
+      "range": {
+        "startLine": 485,
+        "startChar": 0,
+        "endLine": 485,
+        "endChar": 24
+      },
       "revId": "273f12a4e1a76632553e2bec4cdf38cc6cc5deb2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -60,6 +146,75 @@
         "startChar": 1,
         "endLine": 486,
         "endChar": 38
+      },
+      "revId": "273f12a4e1a76632553e2bec4cdf38cc6cc5deb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b6e62f8_b1f47a97",
+        "filename": "bl31/ehf.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-02T15:43:58Z",
+      "side": 1,
+      "message": "nit:\n #endif  /* SPMD_SPM_AT_SEL2 */",
+      "range": {
+        "startLine": 487,
+        "startChar": 0,
+        "endLine": 487,
+        "endChar": 6
+      },
+      "revId": "273f12a4e1a76632553e2bec4cdf38cc6cc5deb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3e7cff7_ed3a3996",
+        "filename": "include/bl31/interrupt_mgmt.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-02T15:43:58Z",
+      "side": 1,
+      "message": "Is it the right condition to check for [ SPD\u003dspmd and SPMD_SPM_AT_SEL2\u003d1 ] ?\n\ne.g. OP-TEE as S-EL1 SPMC would use SPMD_SPM_AT_SEL2\u003d0",
+      "range": {
+        "startLine": 110,
+        "startChar": 40,
+        "endLine": 110,
+        "endChar": 67
+      },
+      "revId": "273f12a4e1a76632553e2bec4cdf38cc6cc5deb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b457360_adb41670",
+        "filename": "include/bl31/interrupt_mgmt.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-02T15:43:58Z",
+      "side": 1,
+      "message": "when running at SEL1/0.",
+      "range": {
+        "startLine": 120,
+        "startChar": 30,
+        "endLine": 120,
+        "endChar": 67
       },
       "revId": "273f12a4e1a76632553e2bec4cdf38cc6cc5deb2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
