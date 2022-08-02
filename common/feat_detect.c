@@ -36,6 +36,17 @@ static void read_feat_csv2_2(void)
 #endif
 }
 
+/********************************************************
+ * Feature : FEAT_PMUv3 (Performance Monitors Extension)
+ *******************************************************/
+static void read_feat_pmuv3(void)
+{
+#if (ENABLE_FEAT_PMUV3 == FEAT_STATE_1)
+	feat_detect_panic((get_pmuv3_version() !=
+			ID_AA64DFR0_PMUVER_NOT_SUPPORTED), "PMUV3");
+#endif
+}
+
 /***********************************************
  * Feature : FEAT_PAN (Privileged Access Never)
  **********************************************/
@@ -291,6 +302,7 @@ void detect_arch_features(void)
 	/* v8.0 features */
 	read_feat_sb();
 	read_feat_csv2_2();
+	read_feat_pmuv3();
 
 	/* v8.1 features */
 	read_feat_pan();

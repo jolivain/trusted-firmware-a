@@ -1097,6 +1097,7 @@ $(eval $(call assert_numerics,\
         TWED_DELAY \
         ENABLE_FEAT_TWED \
         SVE_VECTOR_LEN \
+	ENABLE_FEAT_PMUV3 \
 )))
 
 ifdef KEY_SIZE
@@ -1220,6 +1221,7 @@ $(eval $(call add_defines,\
         FEATURE_DETECTION \
         TWED_DELAY \
         ENABLE_FEAT_TWED \
+	ENABLE_FEAT_PMUV3 \
 )))
 
 ifeq (${SANITIZE_UB},trap)
