@@ -847,6 +847,7 @@ endfunc fpregs_context_restore
 	tst	x9, x10
 	bne	1f
 
+#if ENABLE_FEAT_PMU
 	/* Secure Cycle Counter is not disabled */
 	mrs	x9, pmcr_el0
 
@@ -862,6 +863,8 @@ endfunc fpregs_context_restore
 2:	orr	x9, x9, #PMCR_EL0_DP_BIT
 	msr	pmcr_el0, x9
 	isb
+#endif /* ENABLE_FEAT_PMU */
+
 1:
 #if CTX_INCLUDE_PAUTH_REGS
 	/* ----------------------------------------------------------
@@ -961,8 +964,10 @@ func restore_gp_pmcr_pauth_regs
 	mrs	x0, mdcr_el3
 	tst	x0, x1
 	bne	2f
+#if ENABLE_FEAT_PMU
 	ldr	x0, [sp, #CTX_EL3STATE_OFFSET + CTX_PMCR_EL0]
 	msr	pmcr_el0, x0
+#endif /* ENABLE_FEAT_PMU */
 2:
 	ldp	x0, x1, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X0]
 	ldp	x2, x3, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X2]
