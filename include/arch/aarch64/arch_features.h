@@ -243,4 +243,24 @@ static inline bool is_feat_trbe_present(void)
 		ID_AA64DFR0_TRACEBUFFER_MASK) == ID_AA64DFR0_TRACEBUFFER_SUPPORTED);
 }
 
+/*******************************************************************************
+ * Function to identify the presence of FEAT_PMUv3 (Performance Monitors Extension)
+ *
+ * Return PMUv3 version:
+ *
+ * 0x0000: None
+ * 0x0001: v3.0 Armv8.0 or later
+ * 0x0100: v3.1 Armv8.1 or later
+ * 0x0101: v3.4 Armv8.4 or later
+ * 0x0110: v3.5 Armv8.5 or later
+ * 0x0111: v3.7 Armv8.7 or later
+ * 0x1000: v3.8 Armv8.8 or later
+ *******************************************************************************/
+
+static inline unsigned int get_pmuv3_version(void)
+{
+	return (unsigned int)((read_id_aa64dfr0_el1() >> ID_AA64DFR0_PMUVER_SHIFT) &
+				ID_AA64DFR0_PMUVER_MASK);
+}
+
 #endif /* ARCH_FEATURES_H */

@@ -172,6 +172,9 @@ ENABLE_FEAT_VHE 		:= 0
 # Flag to enable delayed trapping of WFE instruction (FEAT_TWED)
 ENABLE_FEAT_TWED		:= 0
 
+# Flag to enable Performance Monitor Extension (FEAT_PMUv3)
+ENABLE_FEAT_PMUV3			:= 0
+
 # By default BL31 encryption disabled
 ENCRYPT_BL31			:= 0
 
