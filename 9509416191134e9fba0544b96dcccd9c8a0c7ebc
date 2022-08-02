@@ -22,6 +22,30 @@
       },
       "revId": "9509416191134e9fba0544b96dcccd9c8a0c7ebc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eaf65a9e_8c988d82",
+        "filename": "plat/arm/css/common/css_pm.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000511
+      },
+      "writtenOn": "2022-08-02T19:06:31Z",
+      "side": 1,
+      "message": "This function will configure SGI15 as group0 EL3 interrupt. This needs to be configured in all the GIC redistributors. If done only during platform setup, this will be configured only for the primary CPU, and not for secondary CPUs.\n\nGot this inspiration from the redistributor init. In the API plat_arm_gic_pcpu_init() (line 111 above) we are calling the redistributo_init() api for each core. Similarly as we need to configure SGI15 for each core, we need to program the redistributor of each core.",
+      "parentUuid": "2549c4f8_92069fa0",
+      "range": {
+        "startLine": 117,
+        "startChar": 1,
+        "endLine": 117,
+        "endChar": 28
+      },
+      "revId": "9509416191134e9fba0544b96dcccd9c8a0c7ebc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
