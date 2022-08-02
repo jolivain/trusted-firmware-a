@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f22f6d7b_a7fb934e",
+        "filename": "bl32/tsp/tsp.mk",
+        "patchSetId": 65
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-08-02T12:58:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb3a09c9_8978b04f",
+      "range": {
+        "startLine": 2,
+        "startChar": 21,
+        "endLine": 2,
+        "endChar": 25
+      },
+      "revId": "7a3a6ce67ec04c4d511379456240b7ff6936da80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d8004220_e1f9f406",
@@ -54,6 +78,24 @@
       "writtenOn": "2022-07-05T13:28:58Z",
       "side": 1,
       "message": "There is a lot of code/definitions duplication in this file, is there an opportunity to define tsp_common.c and share between tsp_main and tsp_ffa_main?",
+      "revId": "7a3a6ce67ec04c4d511379456240b7ff6936da80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eb27a91_085c6e0d",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 65
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-08-02T12:58:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8004220_e1f9f406",
       "revId": "7a3a6ce67ec04c4d511379456240b7ff6936da80",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -81,6 +123,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49d036c5_937ac94b",
+        "filename": "bl32/tsp/tsp_interrupt.c",
+        "patchSetId": 65
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-08-02T12:58:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98a54cf2_334975b2",
+      "range": {
+        "startLine": 94,
+        "startChar": 1,
+        "endLine": 106,
+        "endChar": 6
+      },
+      "revId": "7a3a6ce67ec04c4d511379456240b7ff6936da80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ce71fdb_3054e99a",
@@ -94,6 +160,30 @@
       "writtenOn": "2022-07-05T13:28:58Z",
       "side": 1,
       "message": "This is actually only used from tsp_ffa_main.c, so this definition may move there.",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 35
+      },
+      "revId": "7a3a6ce67ec04c4d511379456240b7ff6936da80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61b7b859_7aced6d1",
+        "filename": "bl32/tsp/tsp_private.h",
+        "patchSetId": 65
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-08-02T12:58:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ce71fdb_3054e99a",
       "range": {
         "startLine": 111,
         "startChar": 0,
