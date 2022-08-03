@@ -34,6 +34,24 @@
       "parentUuid": "4f2a4d2e_09598b94",
       "revId": "6e3243c3515d5e1649c1009567e8aad6b5eb320d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "533c5a54_467e098b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000496
+      },
+      "writtenOn": "2022-08-03T14:45:29Z",
+      "side": 1,
+      "message": "Adding the OPENSSL_BIN_PATH definition to defaults.mk seems to do the trick. Please let me know if there\u0027s a more appropriate place to put it.",
+      "parentUuid": "eaa02869_049c18bc",
+      "revId": "6e3243c3515d5e1649c1009567e8aad6b5eb320d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
