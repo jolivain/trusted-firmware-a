@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cf6d449_a00d1462",
+        "filename": "plat/arm/board/rdn2/include/platform_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-08-04T14:27:21Z",
+      "side": 1,
+      "message": "why not GIC_HIGHEST_SEC_PRIORITY(\u003d0x0)",
+      "range": {
+        "startLine": 100,
+        "startChar": 25,
+        "endLine": 100,
+        "endChar": 29
+      },
+      "revId": "4ac822ca9e242e4079c8c03654ab528dfff7579c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
