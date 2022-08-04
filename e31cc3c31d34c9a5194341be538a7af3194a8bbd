@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7a966eca_800a247f",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000496
+      },
+      "writtenOn": "2022-08-04T15:08:52Z",
+      "side": 1,
+      "message": "I have tested it indeed, I get the custom bin path if OPENSSL_DIR is specified in the build flags, and /usr/bin if not.",
+      "parentUuid": "92ca611d_4d748e59",
+      "revId": "e31cc3c31d34c9a5194341be538a7af3194a8bbd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "783d391b_371e81c8",
         "filename": "plat/imx/imx7/common/imx7.mk",
         "patchSetId": 4
