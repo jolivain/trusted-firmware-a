@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "92ca611d_4d748e59",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-08-04T14:53:20Z",
+      "side": 1,
+      "message": "The latest patchset looks much better. My only concern is that the OPENSSL_BIN_PATH variable is set right after this assignment, so it could end up being always /usr/bin. I should check the Makefile documentation to make sure this is assigned correctly and the OPENSSL_DIR assignment does not override any values set on the command line. Maybe another reviewer wants comment on this. \nBy the way, if you tested it and got different values for OPENSSL_BIN_PATH depending on the value you set (or don\u0027t set) for OPENSSL_DIR, I guess it is enough to approve. Thanks.",
+      "revId": "e31cc3c31d34c9a5194341be538a7af3194a8bbd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "783d391b_371e81c8",
         "filename": "plat/imx/imx7/common/imx7.mk",
         "patchSetId": 4
