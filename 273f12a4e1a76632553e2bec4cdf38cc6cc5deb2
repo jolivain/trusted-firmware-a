@@ -58,6 +58,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "274c7527_59e5192f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-05T07:56:48Z",
+      "side": 1,
+      "message": "See static check failures https://ci.trustedfirmware.org/job/tf-a-commitlint/2583/console\n✖   subject must not be sentence-case, start-case, pascal-case, upper-case [subject-case]\n⚠   scope must be one of [ .. ]\n\nOne build failure may not be cause by this change, but needs rebase at least\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1133784/console",
+      "revId": "273f12a4e1a76632553e2bec4cdf38cc6cc5deb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35579579_1445c98a",
