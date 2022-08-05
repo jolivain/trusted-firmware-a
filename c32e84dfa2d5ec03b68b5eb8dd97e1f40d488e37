@@ -175,6 +175,24 @@
       "parentUuid": "6dd92223_6b59b7f0",
       "revId": "c32e84dfa2d5ec03b68b5eb8dd97e1f40d488e37",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd33b861_7133be87",
+        "filename": "include/lib/el3_runtime/pubsub_events.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-08-05T03:14:03Z",
+      "side": 1,
+      "message": "I raise another patch for adding vendor rodata in intrinsic rodata section. If the extend rodata patch is taken, this patch no longer needed.\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/16160",
+      "parentUuid": "02bc0b30_74800b65",
+      "revId": "c32e84dfa2d5ec03b68b5eb8dd97e1f40d488e37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
