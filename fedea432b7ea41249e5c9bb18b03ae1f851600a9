@@ -16,6 +16,46 @@
       "message": "Tested OK on STM32MP157C-DK2 board",
       "revId": "fedea432b7ea41249e5c9bb18b03ae1f851600a9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9bd0b93_5183be5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-08-08T15:11:26Z",
+      "side": 1,
+      "message": "It is not clear why the platform handlers need updates and what the use case is. It should be call the gic APIs directly from the platform.",
+      "revId": "fedea432b7ea41249e5c9bb18b03ae1f851600a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2e6af02_20e70304",
+        "filename": "drivers/arm/gic/v2/gicv2_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-08-08T15:11:26Z",
+      "side": 1,
+      "message": "I recommend adding your worn copyright header instead",
+      "range": {
+        "startLine": 2,
+        "startChar": 25,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "fedea432b7ea41249e5c9bb18b03ae1f851600a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
