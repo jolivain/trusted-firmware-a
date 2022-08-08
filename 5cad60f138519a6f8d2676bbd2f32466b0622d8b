@@ -41,6 +41,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99c6242d_c6542b38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-08-08T19:51:36Z",
+      "side": 1,
+      "message": "Not sure. It is listed under v8.8 extensions as \"Features added on earlier extensions\", but I don\u0027t understand why it is listed there as if it was part of v8.8, so it\u0027s not clear to me if it is part of v8.5 or v8.8.",
+      "parentUuid": "d4d58cd6_c50f6876",
+      "revId": "5cad60f138519a6f8d2676bbd2f32466b0622d8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c88c1b2_4c64281e",
@@ -54,6 +72,24 @@
       "writtenOn": "2022-08-08T17:19:35Z",
       "side": 1,
       "message": "I think this should be numeric and not a boolean option, as you have placed the build flag under numerics in Makefile.",
+      "revId": "5cad60f138519a6f8d2676bbd2f32466b0622d8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70d9dc68_60b835f9",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-08-08T19:51:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c88c1b2_4c64281e",
       "revId": "5cad60f138519a6f8d2676bbd2f32466b0622d8b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -94,6 +130,24 @@
       "writtenOn": "2022-08-08T17:19:35Z",
       "side": 1,
       "message": "ULL(0xf)",
+      "revId": "5cad60f138519a6f8d2676bbd2f32466b0622d8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfecd833_3582bd63",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-08-08T19:51:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e43d9816_45fe5afe",
       "revId": "5cad60f138519a6f8d2676bbd2f32466b0622d8b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
