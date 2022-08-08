@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "588eb862_df396191",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1000810
+      },
+      "writtenOn": "2022-08-08T20:47:15Z",
+      "side": 1,
+      "message": "Needs to be fully capitalized",
+      "range": {
+        "startLine": 356,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 45
+      },
+      "revId": "4bbb9f2d3ad3ed3e873ddb7e7da6fa2a5848221e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28e37e06_6be94439",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000810
+      },
+      "writtenOn": "2022-08-08T20:47:15Z",
+      "side": 1,
+      "message": "nit: Could this be aligned to the same alignment as line 340?",
+      "range": {
+        "startLine": 342,
+        "startChar": 0,
+        "endLine": 361,
+        "endChar": 0
+      },
+      "revId": "4bbb9f2d3ad3ed3e873ddb7e7da6fa2a5848221e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f1adc24_cef204db",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1000810
+      },
+      "writtenOn": "2022-08-08T20:47:15Z",
+      "side": 1,
+      "message": "Placement of MACRO definitions can be changed to maintain descending order of values.",
+      "range": {
+        "startLine": 494,
+        "startChar": 0,
+        "endLine": 495,
+        "endChar": 36
+      },
+      "revId": "4bbb9f2d3ad3ed3e873ddb7e7da6fa2a5848221e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9c5177e_10195b16",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000810
+      },
+      "writtenOn": "2022-08-08T20:47:15Z",
+      "side": 1,
+      "message": "Needs to be fully capitalized",
+      "range": {
+        "startLine": 135,
+        "startChar": 3,
+        "endLine": 136,
+        "endChar": 40
+      },
+      "revId": "4bbb9f2d3ad3ed3e873ddb7e7da6fa2a5848221e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
