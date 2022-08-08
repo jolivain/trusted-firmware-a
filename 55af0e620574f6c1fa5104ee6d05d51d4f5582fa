@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7efdad38_5dafb2cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-08-08T16:12:52Z",
+      "side": 1,
+      "message": "Maybe this file should then be removed (or like in kernel just have an include of the new file)?",
+      "range": {
+        "startLine": 9,
+        "startChar": 24,
+        "endLine": 9,
+        "endChar": 49
+      },
+      "revId": "55af0e620574f6c1fa5104ee6d05d51d4f5582fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "588b1521_2b0cb012",
@@ -66,6 +89,63 @@
       "side": 1,
       "message": "Hi Yann,\nI am not sure if I have to or can do anything yet?\nI\u0027ll be on vacation soon and won\u0027t be able to take care of requested changes until around the beginning/middle of September.\nRegards, Johann",
       "parentUuid": "554f2ec7_a4862a6e",
+      "revId": "55af0e620574f6c1fa5104ee6d05d51d4f5582fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65eb0801_7b2776e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-08-08T16:12:52Z",
+      "side": 1,
+      "message": "Just a few remarks/questions, otherwise the patch looks good to me.",
+      "revId": "55af0e620574f6c1fa5104ee6d05d51d4f5582fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9e63fc8_6ab96031",
+        "filename": "fdts/stm32mp15xx-dhcor-io1v8.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-08-08T16:12:52Z",
+      "side": 1,
+      "message": "It is 2.9V in kernel here. Is it awaited to have 1.8V in TF-A? Maybe I missed some on-going patch in kernel STM32 mailing list?",
+      "revId": "55af0e620574f6c1fa5104ee6d05d51d4f5582fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41fbfc0b_17b1268e",
+        "filename": "fdts/stm32mp15xx-dhcor-som.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-08-08T16:12:52Z",
+      "side": 1,
+      "message": "I\u0027m not sure you need this node. The board_id OTP is usually used only on ST boards. But maybe it is also populated on DH boards, I haven\u0027t checked. You can check what is done in stm32mp_print_boardinfo() function.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 2
+      },
       "revId": "55af0e620574f6c1fa5104ee6d05d51d4f5582fa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
