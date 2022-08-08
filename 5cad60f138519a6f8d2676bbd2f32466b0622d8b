@@ -24,6 +24,40 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4d58cd6_c50f6876",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-08-08T17:19:35Z",
+      "side": 1,
+      "message": "Is FEAT_RNG_TRAP a v8.8 feature or v8.5 feature? \nEven I am bit confused here. \n\nAs per Arm ARM, this feature has been added under 8.5 while releasing v8.8 features. So in my understanding its an v8.5 feature as stated in doc.\n\nCorrect me if I am wrong here. ",
+      "revId": "5cad60f138519a6f8d2676bbd2f32466b0622d8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c88c1b2_4c64281e",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-08-08T17:19:35Z",
+      "side": 1,
+      "message": "I think this should be numeric and not a boolean option, as you have placed the build flag under numerics in Makefile.",
+      "revId": "5cad60f138519a6f8d2676bbd2f32466b0622d8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8071ff77_4ec3a1c2",
@@ -43,6 +77,23 @@
         "endLine": 319,
         "endChar": 61
       },
+      "revId": "5cad60f138519a6f8d2676bbd2f32466b0622d8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e43d9816_45fe5afe",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-08-08T17:19:35Z",
+      "side": 1,
+      "message": "ULL(0xf)",
       "revId": "5cad60f138519a6f8d2676bbd2f32466b0622d8b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
