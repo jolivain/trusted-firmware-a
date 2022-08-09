@@ -3,6 +3,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7841f0e5_2ae61e8e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-08-09T10:14:05Z",
+      "side": 1,
+      "message": "Add a new scope for rng_trap in the changelog.\n\nYou can refer this patch, where drtm feature was added.\n\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/15693",
+      "revId": "4bbb9f2d3ad3ed3e873ddb7e7da6fa2a5848221e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f34be49_9e2bd974",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-08-09T10:14:05Z",
+      "side": 1,
+      "message": "Similar to FEAT_RNG , FEAT_RNG_TRAP could be also introduced under feature detection mechanism.\nPlease see this patch, where TRBE was introduced under feature detection procedure. Follow the similar steps for this feature too.\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/15269",
+      "revId": "4bbb9f2d3ad3ed3e873ddb7e7da6fa2a5848221e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "588eb862_df396191",
         "filename": "include/arch/aarch64/arch.h",
         "patchSetId": 3
@@ -89,6 +123,23 @@
         "endLine": 136,
         "endChar": 40
       },
+      "revId": "4bbb9f2d3ad3ed3e873ddb7e7da6fa2a5848221e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0681d90_0c300f02",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-08-09T10:14:05Z",
+      "side": 1,
+      "message": "If ENABLE_FEAT_RNG_TRAP, enabled by the user, this additional feature detection check is not needed.\n\nUsually the sequence is: \n\u003e You introduce a build flag for a feature.\n\u003e Then if in case the build flag is set by the user, you need to have an assert check wherein feature is present in the PE:\n\u003e assert(is_feat_rng_trap_present)\nthen if it passes that check, then this bit needs to be set.\n\nIn this case, you are trying to detect and if present you are setting the bit. But in case the feature is not present, we need to indicate that to the end user.\n\nSo to cover all these:\nRemove this if () section here, just the bit set part is sufficient.\nThen add this feature under feature detection mechanism. That will suffice.\n\nHope its clear. If not please revert.",
       "revId": "4bbb9f2d3ad3ed3e873ddb7e7da6fa2a5848221e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
