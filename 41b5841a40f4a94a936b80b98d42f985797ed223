@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3243b891_dcb95f5a",
+        "filename": "plat/mediatek/include/mtk_mmap_pool.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-08-09T08:25:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "795ac8aa_dc9c2f14",
+      "revId": "41b5841a40f4a94a936b80b98d42f985797ed223",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81edf9a4_1099450a",
@@ -78,6 +96,30 @@
       "writtenOn": "2022-08-08T12:42:35Z",
       "side": 1,
       "message": "fix the indentation",
+      "range": {
+        "startLine": 19,
+        "startChar": 1,
+        "endLine": 20,
+        "endChar": 34
+      },
+      "revId": "41b5841a40f4a94a936b80b98d42f985797ed223",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e6f2adf_fec2b747",
+        "filename": "plat/mediatek/lib/mtk_init/mtk_mmap_init.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-08-09T08:25:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45275007_6cc927d0",
       "range": {
         "startLine": 19,
         "startChar": 1,
