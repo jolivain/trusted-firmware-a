@@ -16,6 +16,23 @@
       "message": "MTK rodata section is defined in here\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/15552/10/plat/mediatek/include/plat.ld.rodata.inc",
       "revId": "3b4fd5bffbd5640500d83486ef596d6b61e70f9e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27b9d3d1_f38ed049",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-08-09T08:32:42Z",
+      "side": 1,
+      "message": "The build break of http://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l1/1360/ is tc project and n1sdp project, and the build error message shows that not related to bl31.ld.S modification.\nCould it be scored manually?",
+      "revId": "3b4fd5bffbd5640500d83486ef596d6b61e70f9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
