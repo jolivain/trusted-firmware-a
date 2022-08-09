@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6efd37b5_ee9c187a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000834
+      },
+      "writtenOn": "2022-08-09T10:11:02Z",
+      "side": 1,
+      "message": "I would prefer to include the new dts file as in the kernel in a separate commit. Do you prefer to include this in this patch set?",
+      "parentUuid": "7efdad38_5dafb2cf",
+      "range": {
+        "startLine": 9,
+        "startChar": 24,
+        "endLine": 9,
+        "endChar": 49
+      },
+      "revId": "55af0e620574f6c1fa5104ee6d05d51d4f5582fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "588b1521_2b0cb012",
@@ -110,6 +134,42 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ae6e548_c19a9f47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000834
+      },
+      "writtenOn": "2022-08-09T10:11:02Z",
+      "side": 1,
+      "message": "Thanks for your very good review. I\u0027ve addressed your two patch related remarks.",
+      "parentUuid": "65eb0801_7b2776e8",
+      "revId": "55af0e620574f6c1fa5104ee6d05d51d4f5582fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66642b61_bd321716",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000834
+      },
+      "writtenOn": "2022-08-09T10:11:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42647b86_21919d9a",
+      "revId": "55af0e620574f6c1fa5104ee6d05d51d4f5582fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9e63fc8_6ab96031",
@@ -127,6 +187,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ca2d8b7_52dec264",
+        "filename": "fdts/stm32mp15xx-dhcor-io1v8.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000834
+      },
+      "writtenOn": "2022-08-09T10:11:02Z",
+      "side": 1,
+      "message": "Currently there is only the variant with vdd set to 2.9V as the 1.8V is provided by the Enpirion EP3A8LQI U2 DC-DC converter on the DHCOR SoM. In a future hardware revision, the 1.8V are to be provided directly by the buck3, since the availability of the DC-DC converter is severely limited.\n\nSorry for this copy-paste error from the U-Boot Device Tree. The necessary change for the new hardware revision has already been made in U-Boot for test purposes, see: https://source.denx.de/u-boot/u-boot/-/commit/0adf10a87b1500c4d0970085ab102330721eb449",
+      "parentUuid": "d9e63fc8_6ab96031",
+      "revId": "55af0e620574f6c1fa5104ee6d05d51d4f5582fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41fbfc0b_17b1268e",
@@ -140,6 +218,30 @@
       "writtenOn": "2022-08-08T16:12:52Z",
       "side": 1,
       "message": "I\u0027m not sure you need this node. The board_id OTP is usually used only on ST boards. But maybe it is also populated on DH boards, I haven\u0027t checked. You can check what is done in stm32mp_print_boardinfo() function.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 2
+      },
+      "revId": "55af0e620574f6c1fa5104ee6d05d51d4f5582fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8771f17d_3993e58a",
+        "filename": "fdts/stm32mp15xx-dhcor-som.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000834
+      },
+      "writtenOn": "2022-08-09T10:11:02Z",
+      "side": 1,
+      "message": "This node is definitely not used on our DHSOM line as we encode the som and board revision with dedicated/unused GPIOs.",
+      "parentUuid": "41fbfc0b_17b1268e",
       "range": {
         "startLine": 21,
         "startChar": 0,
