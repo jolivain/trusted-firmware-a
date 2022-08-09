@@ -33,6 +33,24 @@
       "message": "The build break of http://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l1/1360/ is tc project and n1sdp project, and the build error message shows that not related to bl31.ld.S modification.\nCould it be scored manually?",
       "revId": "3b4fd5bffbd5640500d83486ef596d6b61e70f9e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b11db5b7_32ef4ef2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-09T08:41:19Z",
+      "side": 1,
+      "message": "This happens because the patchstack needs rebase to tip  of master. Can you proceed with rebase and re launch Allow CI+1? Thanks.",
+      "parentUuid": "27b9d3d1_f38ed049",
+      "revId": "3b4fd5bffbd5640500d83486ef596d6b61e70f9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
