@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d012167_f3f11be8",
+        "filename": "plat/arm/board/fvp/fvp_drtm_addr.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-08-09T20:45:00Z",
+      "side": 1,
+      "message": "I would add a new line here, so the comparison of region_start and region_end are kept separate for better legibility.",
+      "range": {
+        "startLine": 25,
+        "startChar": 28,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "fce765dcadb6c4bccc495ecfc6d2eef8120af868",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67a6409e_03552635",
+        "filename": "plat/arm/board/fvp/fvp_drtm_addr.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-08-09T20:45:00Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 31,
+        "startChar": 39,
+        "endLine": 31,
+        "endChar": 40
+      },
+      "revId": "fce765dcadb6c4bccc495ecfc6d2eef8120af868",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
