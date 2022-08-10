@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "767bba76_2c2983af",
+        "filename": "changelog.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-08-10T16:03:08Z",
+      "side": 1,
+      "message": "nit: use kebab-case (rng-trap). Snake_case is deprecated is what I see from other sections.",
+      "revId": "e22f410e56f4a5f36b64fd2031f73a06ae19695e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01ae9ae9_e5f7319d",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-08-10T16:03:08Z",
+      "side": 1,
+      "message": "Add this to specify feature is aligned with feature_detection:\n\nThis flag can take the values 0 to 2, to align with the `FEATURE_DETECTION`` mechanism. Default is ``0``.",
+      "revId": "e22f410e56f4a5f36b64fd2031f73a06ae19695e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
