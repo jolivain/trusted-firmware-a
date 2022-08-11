@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a79347b_cdb110e4",
+        "filename": "plat/mediatek/common/mtk_bl31_setup.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-08-11T09:16:19Z",
+      "side": 1,
+      "message": "#if MTK_SIP_KERNEL_BOOT_ENABLE\n#include \u003ccold_boot.h\u003e\n#endif",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 22
+      },
+      "revId": "2aba3e4f2a9de965c4b64d75452be33bfe4e97b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
