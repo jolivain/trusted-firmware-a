@@ -8,6 +8,9 @@
 #ifndef PSA_MANIFEST_SID_H
 #define PSA_MANIFEST_SID_H
 
+/******** RSS_SP_PLATFORM ********/
+#define RSS_PLATFORM_SERVICE_HANDLE			(0x40000105U)
+
 /******** PSA_SP_MEASURED_BOOT ********/
 #define RSS_MEASURED_BOOT_HANDLE			(0x40000110U)
 
