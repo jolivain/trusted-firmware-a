@@ -169,6 +169,30 @@
       },
       "revId": "fedea432b7ea41249e5c9bb18b03ae1f851600a9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c8ed64c_f4414bc1",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-08-12T21:21:03Z",
+      "side": 1,
+      "message": "It looks like gicv3_get_interrupt_type(sgi_num, plat_core_pos_by_mpidr(target)) is already used in the parent function (for example plat_ic_raise_el3_sgi() [1]). I am not sure either if this is dangerous. Since its a read access, may be its not much of a risk. \n\nCan you simply pass the interrupt type (eg: INTR_TYPE_EL3) as the argument instead of  gicv3_irq_group_t GICV3_G0? Let me know your thoughts on this.\n\n[1] https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/11339/8/plat/common/plat_gicv3.c#244",
+      "parentUuid": "52738cd0_8dd8e0ce",
+      "range": {
+        "startLine": 1134,
+        "startChar": 0,
+        "endLine": 1147,
+        "endChar": 2
+      },
+      "revId": "fedea432b7ea41249e5c9bb18b03ae1f851600a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
