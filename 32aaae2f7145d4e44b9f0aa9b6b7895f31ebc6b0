@@ -34,6 +34,24 @@
       "parentUuid": "dd0738da_f567b6b1",
       "revId": "32aaae2f7145d4e44b9f0aa9b6b7895f31ebc6b0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bed828cb_df853bf9",
+        "filename": "plat/mediatek/include/vendor_pubsub_events.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-08-12T01:21:25Z",
+      "side": 1,
+      "message": "This patch can fix pubsub vendor extend\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/16160",
+      "parentUuid": "87159f87_b07940f2",
+      "revId": "32aaae2f7145d4e44b9f0aa9b6b7895f31ebc6b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
