@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdb948d9_33e56f80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-08-12T09:54:42Z",
+      "side": 1,
+      "message": "As far as ProvenCore is concerned, we use SGIs as a way for Linux and the TEE to both signal to the other one that a message is available in a shared memory used as a communication channel between the two. Each NS-to-S and S-to-NS SGI is raised by the TF-A when a dedicated SMC is received. Generating an SGI from NS to S directly from NS-EL1 is not possible on platforms with a GICv2, hence the choice of a generic implementation with dedicated SMCs.\n\nBecause the handlers for these SMCs are platform independent (implemented in services/spd/pncd), we need generic plat_ic_raise_ns_sgi and plat_ic_raise_s_el1_sgi functions, in the same way as plat_ic_raise_el3_sgi.",
+      "parentUuid": "c9bd0b93_5183be5a",
+      "revId": "fedea432b7ea41249e5c9bb18b03ae1f851600a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2e6af02_20e70304",
@@ -60,6 +78,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "06031b7b_cec5c036",
+        "filename": "drivers/arm/gic/v2/gicv2_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-08-12T09:54:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c2e6af02_20e70304",
+      "range": {
+        "startLine": 2,
+        "startChar": 25,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "fedea432b7ea41249e5c9bb18b03ae1f851600a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "657b80c9_e53ab9b4",
         "filename": "drivers/arm/gic/v3/gicv3_main.c",
         "patchSetId": 8
@@ -71,6 +113,30 @@
       "writtenOn": "2022-08-08T17:58:46Z",
       "side": 1,
       "message": "I feel we dont need gicv3_irq_group_t group argument. Can you instead leverage gicv3_get_interrupt_type() ? Let me know.\n\nswitch (gicv3_get_interrupt_type(sgi_num, plat_my_core_pos()) {\ncase INTR_TYPE_EL3:\n\ncase INTR_TYPE_NS:\n\ncase INTR_TYPE_S_EL1:\n\ndefault:\n\n}",
+      "range": {
+        "startLine": 1134,
+        "startChar": 0,
+        "endLine": 1147,
+        "endChar": 2
+      },
+      "revId": "fedea432b7ea41249e5c9bb18b03ae1f851600a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52738cd0_8dd8e0ce",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-08-12T09:54:42Z",
+      "side": 1,
+      "message": "I am not sure. It should indeed be possible, but I think the correct way to implement it would be to switch on gicv3_get_interrupt_type(sgi_num, plat_core_pos_by_mpidr(target)). This means that we will access the GICR_IGROUPR and GICR_IGRPMODR registers of the GIC redistributor of another CPU. Isn\u0027t it somewhat dangerous? Shouldn\u0027t we be aware of possible hardware access control mechanisms on some platforms which may prevent us from accessing the redistributor of another CPU? It seems to me that the programming model of the GICv3 (see for instance \"8.1.10 Use of control registers for SGI forwarding\" in ARM IHI 0069C) is that the source CPU decides which kind of SGI is supposed to be raised (through the choice of the ICC_[A]SGI{0,1}R register) and the destination CPU independently affects a group to each SGI. The target\u0027s GIC redistributor then gets to decide whether to signal the interrupt based on both configurations. This is also coherent with the previous implementation of gicv3_raise_secure_g0_sgi, which was not checking that the specified SGI was indeed configured as group 0 in the target\u0027s redistributor.\n\nWhat do you think? Should I still go on with discarding the group parameter and using gicv3_get_interrupt_type instead?",
+      "parentUuid": "657b80c9_e53ab9b4",
       "range": {
         "startLine": 1134,
         "startChar": 0,
