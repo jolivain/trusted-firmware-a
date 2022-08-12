@@ -34,6 +34,24 @@
       "parentUuid": "773c154a_a753a7c7",
       "revId": "4df465a9b14c82987b4f1df3c3358d2aea96b41e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a7b5ee3_a17d332f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-08-12T22:25:43Z",
+      "side": 1,
+      "message": "I checked the Legacy CI results. It only fails for some build configs (in particular, when PLAT\u003dtc). Is it possible that those platforms for which it is trying to compile don\u0027t have an ID_AA64ISAR2_EL1 register?",
+      "parentUuid": "76acb4f5_49522096",
+      "revId": "4df465a9b14c82987b4f1df3c3358d2aea96b41e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
