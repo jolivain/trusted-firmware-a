@@ -16,6 +16,24 @@
       "message": "\u003e Patch Set 11: Verified-1\n\u003e \n\u003e Build Failed \n\u003e \n\u003e https://jenkins.oss.arm.com/job/tf-gerrit-tforg-l2/2567/ : This Jenkins server is not publicly accessible. A core maintainer will let you know if this CI failure is blocking the merge of this patch.\n\n@Juan, \n1. Check the static check fails.\n\n2.Did you miss the file include/arch/aarch64/arch_helpers.h in the patch? I don\u0027t see a \n\"DEFINE_SYSREG_READ_FUNC(id_aa64isar2_el1)\" corresponding to read_id_aa64isar2_el1(). Might be the cause of the others fails.\n\n21:59:58 /tmp/ccwqctZZ.s: Assembler messages:\n21:59:58 /tmp/ccwqctZZ.s:148: Error: unknown or missing system register name at operand 2 -- `mrs x0,id_aa64isar2_el1\u0027",
       "revId": "4df465a9b14c82987b4f1df3c3358d2aea96b41e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76acb4f5_49522096",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-08-12T20:46:24Z",
+      "side": 1,
+      "message": "Hmmm... This is very strange. DEFINE_SYSREG_READ_FUNC(id_aa64isar2_el1) is correctly defined in include/arch/aarch64/arch_helpers.h at line 253. I\u0027ll trigger the jobs again to see if it works. Done correcting the static checks.",
+      "parentUuid": "773c154a_a753a7c7",
+      "revId": "4df465a9b14c82987b4f1df3c3358d2aea96b41e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
