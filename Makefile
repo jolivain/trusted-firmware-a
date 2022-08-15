@@ -514,10 +514,6 @@ else
 
 endif #(LD = armlink)
 
-DTC_FLAGS		+=	-I dts -O dtb
-DTC_CPPFLAGS		+=	-P -nostdinc -Iinclude -Ifdts -undef \
-				-x assembler-with-cpp $(DEFINES)
-
 ################################################################################
 # Common sources and include directories
 ################################################################################
@@ -557,6 +553,10 @@ INCLUDES		+=	-Iinclude				\
 				-Iinclude/lib/el3_runtime/${ARCH}	\
 				${PLAT_INCLUDES}			\
 				${SPD_INCLUDES}
+
+DTC_FLAGS		+=	-I dts -O dtb
+DTC_CPPFLAGS		+=	-P -nostdinc $(INCLUDES) -Ifdts -undef \
+				-x assembler-with-cpp $(DEFINES)
 
 include common/backtrace/backtrace.mk
 
