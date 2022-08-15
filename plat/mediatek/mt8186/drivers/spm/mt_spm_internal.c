@@ -59,7 +59,8 @@ const char *wakeup_src_str[32] = {
 };
 
 /* Function and API */
-wake_reason_t __spm_output_wake_reason(int state_id, const struct wake_status *wakesta)
+wake_reason_t __spm_output_wake_reason(int state_id,
+				       const struct wake_status *wakesta)
 {
 	uint32_t i, bk_vtcxo_dur, spm_26m_off_pct = 0U;
 	wake_reason_t wr = WR_UNKNOWN;
@@ -139,8 +140,9 @@ void __spm_src_req_update(const struct pwr_ctrl *pwrctrl,
 			     1 : pwrctrl->reg_spm_vrf18_req;
 	uint8_t infra_req = ((resource_usage & MT_SPM_INFRA) != 0U) ?
 			     1 : pwrctrl->reg_spm_infra_req;
-	uint8_t f26m_req  = ((resource_usage & (MT_SPM_26M | MT_SPM_XO_FPM)) != 0U) ?
-			     1 : pwrctrl->reg_spm_f26m_req;
+	uint8_t f26m_req  = ((resource_usage &
+			      (MT_SPM_26M | MT_SPM_XO_FPM)) != 0U) ?
+			    1 : pwrctrl->reg_spm_f26m_req;
 
 	/*
 	 * if SPM_FLAG_SSPM_INFRA_SLEEP_MODE set,
@@ -386,7 +388,7 @@ void __spm_set_wakeup_event(const struct pwr_ctrl *pwrctrl)
 
 	/* toggle event counter clear */
 	mmio_setbits_32(PCM_CON1,
-			SPM_REGWR_CFG_KEY | REG_SPM_EVENT_COUNTER_CLR_LSB);
+			SPM_REGWR_CFG_KEY | SPM_EVENT_COUNTER_CLR_LSB);
 
 	/* toggle for reset SYS TIMER start point */
 	mmio_setbits_32(SYS_TIMER_CON, SYS_TIMER_START_EN_LSB);
@@ -417,7 +419,7 @@ void __spm_set_wakeup_event(const struct pwr_ctrl *pwrctrl)
 	mmio_setbits_32(SPM_IRQ_MASK, ISRM_RET_IRQ_AUX);
 
 	/* toggle event counter clear */
-	mmio_clrsetbits_32(PCM_CON1, REG_SPM_EVENT_COUNTER_CLR_LSB,
+	mmio_clrsetbits_32(PCM_CON1, SPM_EVENT_COUNTER_CLR_LSB,
 			   SPM_REGWR_CFG_KEY);
 	/* toggle for reset SYS TIMER start point */
 	mmio_clrbits_32(SYS_TIMER_CON, SYS_TIMER_START_EN_LSB);
@@ -469,7 +471,8 @@ void __spm_get_wakeup_status(struct wake_status *wakesta,
 	if ((ext_status & SPM_INTERNAL_STATUS_HW_S1) != 0U) {
 		wakesta->tr.comm.debug_flag |= (SPM_DBG_DEBUG_IDX_DDREN_WAKE |
 						SPM_DBG_DEBUG_IDX_DDREN_SLEEP);
-		mmio_write_32(PCM_WDT_LATCH_SPARE_0, wakesta->tr.comm.debug_flag);
+		mmio_write_32(PCM_WDT_LATCH_SPARE_0,
+			      wakesta->tr.comm.debug_flag);
 	}
 
 	wakesta->tr.comm.b_sw_flag0 = mmio_read_32(SPM_SW_RSV_7);
@@ -565,7 +568,8 @@ void __spm_set_pcm_wdt(int en)
 
 		mmio_write_32(PCM_WDT_VAL,
 			      mmio_read_32(PCM_TIMER_VAL) + PCM_WDT_TIMEOUT);
-		mmio_setbits_32(PCM_CON1, SPM_REGWR_CFG_KEY | RG_PCM_WDT_EN_LSB);
+		mmio_setbits_32(PCM_CON1,
+				SPM_REGWR_CFG_KEY | RG_PCM_WDT_EN_LSB);
 	}
 }
 
@@ -589,22 +593,23 @@ void __spm_xo_soc_bblpm(int en)
 {
 	if (en == 1) {
 		mmio_clrsetbits_32(RC_M00_SRCLKEN_CFG,
-				   RC_SW_SRCCLKEN_FPM, RC_SW_SRCCLKEN_RC);
+				   RC_SW_SRCLKEN_FPM, RC_SW_SRCLKEN_RC);
 		assert(mt_spm_bblpm_cnt == 0);
 		mt_spm_bblpm_cnt += 1;
 	} else {
 		mmio_clrsetbits_32(RC_M00_SRCLKEN_CFG,
-				   RC_SW_SRCCLKEN_RC, RC_SW_SRCCLKEN_FPM);
+				   RC_SW_SRCLKEN_RC, RC_SW_SRCLKEN_FPM);
 		mt_spm_bblpm_cnt -= 1;
 	}
 }
 
 void __spm_hw_s1_state_monitor(int en, unsigned int *status)
 {
-	unsigned int reg = mmio_read_32(SPM_ACK_CHK_CON_3);
+	unsigned int reg;
+
+	reg = mmio_read_32(SPM_ACK_CHK_CON_3);
 
 	if (en == 1) {
-		reg = mmio_read_32(SPM_ACK_CHK_CON_3);
 		reg &= ~SPM_ACK_CHK_3_CON_CLR_ALL;
 		mmio_write_32(SPM_ACK_CHK_CON_3, reg);
 		reg |= SPM_ACK_CHK_3_CON_EN;
@@ -620,4 +625,3 @@ void __spm_hw_s1_state_monitor(int en, unsigned int *status)
 				   SPM_ACK_CHK_3_CON_CLR_ALL);
 	}
 }
-

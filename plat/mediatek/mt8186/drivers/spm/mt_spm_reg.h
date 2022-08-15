@@ -505,8 +505,8 @@
 /* SPM_CLK_CON (0x10006000 + 0x00C) */
 #define REG_SRCCLKEN0_CTL_LSB			(1U << 0)	/* 2b */
 #define REG_SRCCLKEN1_CTL_LSB			(1U << 2)	/* 2b */
-#define RC_SW_SRCCLKEN_RC			(1U << 3)	/* 1b */
-#define RC_SW_SRCCLKEN_FPM			(1U << 4)	/* 1b */
+#define RC_SW_SRCLKEN_RC			(1U << 3)	/* 1b */
+#define RC_SW_SRCLKEN_FPM			(1U << 4)	/* 1b */
 #define SYS_SETTLE_SEL_LSB			(1U << 4)	/* 1b */
 #define REG_SPM_LOCK_INFRA_DCM_LSB		(1U << 5)	/* 1b */
 #define REG_SRCCLKEN_MASK_LSB			(1U << 6)	/* 3b */
@@ -545,7 +545,7 @@
 #define REG_SPM_SRAM_CTRL_MUX_LSB		(1U << 2)	/* 1b */
 #define RG_AHBMIF_APBEN_LSB			(1U << 3)	/* 1b */
 #define RG_PCM_TIMER_EN_LSB			(1U << 5)	/* 1b */
-#define REG_SPM_EVENT_COUNTER_CLR_LSB		(1U << 6)	/* 1b */
+#define SPM_EVENT_COUNTER_CLR_LSB		(1U << 6)	/* 1b */
 #define RG_DIS_MIF_PROT_LSB			(1U << 7)	/* 1b */
 #define RG_PCM_WDT_EN_LSB			(1U << 8)	/* 1b */
 #define RG_PCM_WDT_WAKE_LSB			(1U << 9)	/* 1b */
