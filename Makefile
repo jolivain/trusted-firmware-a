@@ -396,10 +396,6 @@ else
 
 endif #(LD = armlink)
 
-DTC_FLAGS		+=	-I dts -O dtb
-DTC_CPPFLAGS		+=	-P -nostdinc -Iinclude -Ifdts -undef \
-				-x assembler-with-cpp $(DEFINES)
-
 ################################################################################
 # Setup ARCH_MAJOR/MINOR before parsing arch_features.
 ################################################################################
@@ -441,6 +437,10 @@ INCLUDES		+=	-Iinclude				\
 				-Iinclude/lib/el3_runtime/${ARCH}	\
 				${PLAT_INCLUDES}			\
 				${SPD_INCLUDES}
+
+DTC_FLAGS		+=	-I dts -O dtb
+DTC_CPPFLAGS		+=	-P -nostdinc $(INCLUDES) -Ifdts -undef \
+				-x assembler-with-cpp $(DEFINES)
 
 include common/backtrace/backtrace.mk
 
