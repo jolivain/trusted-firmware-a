@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d919862_183a581f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-08-16T20:12:34Z",
+      "side": 1,
+      "message": "https://developer.arm.com/documentation/SDEN1775101/latest",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 65
+      },
+      "revId": "eaf9cd6422c3a6cb77073b0fa559cdf9c8d7a4f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88525d39_7bfa838d",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-08-16T20:12:34Z",
+      "side": 1,
+      "message": "Remove extra tabs and align to above lines.",
+      "range": {
+        "startLine": 293,
+        "startChar": 5,
+        "endLine": 293,
+        "endChar": 6
+      },
+      "revId": "eaf9cd6422c3a6cb77073b0fa559cdf9c8d7a4f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1333c19a_24aa36e5",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-08-16T20:12:34Z",
+      "side": 1,
+      "message": "same as above",
+      "range": {
+        "startLine": 294,
+        "startChar": 5,
+        "endLine": 294,
+        "endChar": 6
+      },
+      "revId": "eaf9cd6422c3a6cb77073b0fa559cdf9c8d7a4f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a80cf101_59b13d90",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-08-16T20:12:34Z",
+      "side": 1,
+      "message": "Remove extra tab",
+      "range": {
+        "startLine": 302,
+        "startChar": 5,
+        "endLine": 302,
+        "endChar": 6
+      },
+      "revId": "eaf9cd6422c3a6cb77073b0fa559cdf9c8d7a4f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce18d437_75a8bffe",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-08-16T20:12:34Z",
+      "side": 1,
+      "message": "Define a macro and use consistently.",
+      "range": {
+        "startLine": 302,
+        "startChar": 13,
+        "endLine": 302,
+        "endChar": 24
+      },
+      "revId": "eaf9cd6422c3a6cb77073b0fa559cdf9c8d7a4f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdf4c985_9649daf4",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-08-16T20:12:34Z",
+      "side": 1,
+      "message": "Remove tab. Same as above. Fix for all instances",
+      "range": {
+        "startLine": 305,
+        "startChar": 5,
+        "endLine": 305,
+        "endChar": 6
+      },
+      "revId": "eaf9cd6422c3a6cb77073b0fa559cdf9c8d7a4f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc2e1d4b_3d6c6f95",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-08-16T20:12:34Z",
+      "side": 1,
+      "message": "Since this applies to only one version(r2p0) in between, use of cpu_rev_var_range is better.",
+      "range": {
+        "startLine": 310,
+        "startChar": 5,
+        "endLine": 310,
+        "endChar": 19
+      },
+      "revId": "eaf9cd6422c3a6cb77073b0fa559cdf9c8d7a4f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c102afb_3a32f602",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-08-16T20:12:34Z",
+      "side": 1,
+      "message": "Use tab",
+      "range": {
+        "startLine": 506,
+        "startChar": 4,
+        "endLine": 506,
+        "endChar": 5
+      },
+      "revId": "eaf9cd6422c3a6cb77073b0fa559cdf9c8d7a4f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b69be42b_5962f538",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-08-16T20:12:34Z",
+      "side": 1,
+      "message": "Remove extra line",
+      "revId": "eaf9cd6422c3a6cb77073b0fa559cdf9c8d7a4f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
