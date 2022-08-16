@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "823d5205_534a404b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-08-16T19:57:53Z",
+      "side": 1,
+      "message": "Use the latest link always, we used in the past but I learned from the documentation team this one is better to access the latest. Works for all CPU SDENs. You can try and verify for future ones.\nhttps://developer.arm.com/documentation/SDEN1873351/latest\n\nBtw, it\u0027s interesting we have SDEN1873351 and SDEN1873361 for the A510 SDEN. Let me check on this. I found the other patch having SDEN1873361 and this one SDEN1873351",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 65
+      },
+      "revId": "48fe6f8c66c13fd9a4f67f48b2aab6221b0368fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "857add50_926184a3",
+        "filename": "include/lib/cpus/aarch64/cortex_a510.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-08-16T19:57:53Z",
+      "side": 1,
+      "message": "Use tabs and align to other entries in the file.",
+      "range": {
+        "startLine": 36,
+        "startChar": 41,
+        "endLine": 36,
+        "endChar": 47
+      },
+      "revId": "48fe6f8c66c13fd9a4f67f48b2aab6221b0368fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ddffde4_c48da8be",
+        "filename": "lib/cpus/aarch64/cortex_a510.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-08-16T19:57:53Z",
+      "side": 1,
+      "message": "Remove the white space",
+      "range": {
+        "startLine": 281,
+        "startChar": 3,
+        "endLine": 281,
+        "endChar": 4
+      },
+      "revId": "48fe6f8c66c13fd9a4f67f48b2aab6221b0368fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "856069a8_14d6e890",
+        "filename": "lib/cpus/aarch64/cortex_a510.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-08-16T19:57:53Z",
+      "side": 1,
+      "message": "Did you intend to use CORTEX_A510_CPUACTLR_EL1_BIT_17 defined in the .h file?",
+      "range": {
+        "startLine": 287,
+        "startChar": 13,
+        "endLine": 287,
+        "endChar": 23
+      },
+      "revId": "48fe6f8c66c13fd9a4f67f48b2aab6221b0368fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
