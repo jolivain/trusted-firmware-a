@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e3faa0c_87d8d703",
+        "filename": "plat/mediatek/common/cold_boot.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-08-16T13:52:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "85363c15_9f2d575c",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 41
+      },
+      "revId": "c85e9083a3b7ed76d03b8c6d6e96eb016be05df0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "577e6049_ea79043a",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-08-12T02:12:30Z",
       "side": 1,
       "message": "one blank line above",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 21
+      },
+      "revId": "c85e9083a3b7ed76d03b8c6d6e96eb016be05df0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e53c1f37_8d334ed4",
+        "filename": "plat/mediatek/common/cold_boot.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-08-16T13:52:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "577e6049_ea79043a",
       "range": {
         "startLine": 14,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14c4e027_50457d85",
+        "filename": "plat/mediatek/common/cold_boot.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-08-16T13:52:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "06f0f33a_656b74e6",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 24
+      },
+      "revId": "c85e9083a3b7ed76d03b8c6d6e96eb016be05df0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc32fac6_86648c02",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-08-12T02:12:30Z",
       "side": 1,
       "message": "alpha order",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 26
+      },
+      "revId": "c85e9083a3b7ed76d03b8c6d6e96eb016be05df0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94e40ce4_0001388e",
+        "filename": "plat/mediatek/common/mtk_bl31_setup.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-08-16T13:52:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dc32fac6_86648c02",
       "range": {
         "startLine": 7,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d38f5add_288744f3",
+        "filename": "plat/mediatek/common/mtk_bl31_setup.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-08-16T13:52:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "06b221c5_08590365",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 31
+      },
+      "revId": "c85e9083a3b7ed76d03b8c6d6e96eb016be05df0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9bc5b27_3e0d62b1",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-08-12T02:12:30Z",
       "side": 1,
       "message": "one line above",
+      "range": {
+        "startLine": 80,
+        "startChar": 1,
+        "endLine": 80,
+        "endChar": 26
+      },
+      "revId": "c85e9083a3b7ed76d03b8c6d6e96eb016be05df0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "221cc839_53a530a9",
+        "filename": "plat/mediatek/common/mtk_bl31_setup.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-08-16T13:52:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c9bc5b27_3e0d62b1",
       "range": {
         "startLine": 80,
         "startChar": 1,
@@ -162,6 +306,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5db95db_f64c5c95",
+        "filename": "plat/mediatek/common/rules.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-08-16T13:52:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ef338db4_49dea7fb",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 25
+      },
+      "revId": "c85e9083a3b7ed76d03b8c6d6e96eb016be05df0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f25b826_1e58a6ff",
@@ -175,6 +343,30 @@
       "writtenOn": "2022-08-12T02:12:30Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 51
+      },
+      "revId": "c85e9083a3b7ed76d03b8c6d6e96eb016be05df0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "234a4b4f_a2430d69",
+        "filename": "plat/mediatek/common/rules.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-08-16T13:52:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6f25b826_1e58a6ff",
       "range": {
         "startLine": 16,
         "startChar": 0,
@@ -231,6 +423,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26f0743f_a128e3a4",
+        "filename": "plat/mediatek/include/cold_boot.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-08-16T13:52:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8b047b6c_8ed3363e",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 25
+      },
+      "revId": "c85e9083a3b7ed76d03b8c6d6e96eb016be05df0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb01cac3_8988ce28",
@@ -244,6 +460,30 @@
       "writtenOn": "2022-08-12T02:12:30Z",
       "side": 1,
       "message": "one blank line below",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 40
+      },
+      "revId": "c85e9083a3b7ed76d03b8c6d6e96eb016be05df0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55f8f377_e674c396",
+        "filename": "plat/mediatek/include/cold_boot.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-08-16T13:52:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bb01cac3_8988ce28",
       "range": {
         "startLine": 58,
         "startChar": 0,
