@@ -52,6 +52,24 @@
       "parentUuid": "76acb4f5_49522096",
       "revId": "4df465a9b14c82987b4f1df3c3358d2aea96b41e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "442cb392_a6a6c306",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-08-16T23:19:36Z",
+      "side": 1,
+      "message": "Will have to check/reproduce the issue for the PLAT\u003dtc, since you mention it is building ok for other platforms.\n\nBtw, I see at least one feature FEAT_MOPS supported which means the ID_AA64ISAR2_EL1 is supported by the toolchain as this feature supported in part of the same register. https://developer.arm.com/Tools%20and%20Software/GNU%20Toolchain#Supported-Devices",
+      "parentUuid": "8a7b5ee3_a17d332f",
+      "revId": "4df465a9b14c82987b4f1df3c3358d2aea96b41e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
