@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bbf11e2_927da1de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-08-16T11:25:16Z",
+      "side": 1,
+      "message": "We\u0027re still discussing eventual ABI changes for OP-TEE with SPMC at among other places https://github.com/OP-TEE/optee_os/pull/5359.",
+      "revId": "af46d4ae950182871500746420bae7d6719ade44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f607b6f5_03e39e19",
@@ -31,6 +48,30 @@
       "writtenOn": "2022-07-19T12:18:08Z",
       "side": 1,
       "message": "I have experimental changes to run Hafnium/SPMC at S-EL2 on qemu. There is a similar addition to BL2 for loading TOS_FW_CONFIG. I will share those changes shortly and see if we can make it common, in which case we may have to separate cases using SPMD_SPM_AT_SEL2 toggle.",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 21
+      },
+      "revId": "af46d4ae950182871500746420bae7d6719ade44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb1097ca_efaed30a",
+        "filename": "plat/qemu/common/qemu_bl2_mem_params_desc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-08-16T11:25:16Z",
+      "side": 1,
+      "message": "Yes, a setup with Hafnium and QEMU should be quite useful.",
+      "parentUuid": "f607b6f5_03e39e19",
       "range": {
         "startLine": 125,
         "startChar": 0,
@@ -78,6 +119,30 @@
       "side": 1,
       "message": "Gentle reminder to comment on this.",
       "parentUuid": "e24a1d28_7ecd8811",
+      "range": {
+        "startLine": 153,
+        "startChar": 4,
+        "endLine": 153,
+        "endChar": 14
+      },
+      "revId": "af46d4ae950182871500746420bae7d6719ade44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a6d20c8_bf3acf18",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-08-16T11:25:16Z",
+      "side": 1,
+      "message": "I\u0027m sorry for taking my time to respond. We\u0027re currently discussing the ABI to OP-TEE at https://github.com/OP-TEE/optee_os/pull/5359.",
+      "parentUuid": "8f59c05f_3d0b0ab0",
       "range": {
         "startLine": 153,
         "startChar": 4,
