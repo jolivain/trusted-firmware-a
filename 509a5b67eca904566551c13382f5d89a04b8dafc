@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c9adeab_69df1481",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-08-17T22:04:02Z",
+      "side": 1,
+      "message": "OK. I checked again. It looks like I overlooked the feature detection part. Now it looks good to me. Also, if the only condition needed for PMCR_EL0 to exist is for PMUv3 to be implemented, the feature detection mechanism should be enough.",
+      "parentUuid": "07fe0d69_98fdcdfa",
+      "revId": "509a5b67eca904566551c13382f5d89a04b8dafc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d03ae08_8cc5d136",
