@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07fe0d69_98fdcdfa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-08-17T09:15:38Z",
+      "side": 1,
+      "message": "Hi,\n\n1. According to the ARM-ARM, register PMCR_EL0 is supported from PMUv3p7:\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nNo, it states The register is present only when FEAT_PMUv3 is implemented. (ARM DDI 0487H.a D13-6450)\nso we need not check for PMUv3p7. If we identify that PMUv3 is present in the system, it will suffice.\n\n2. Also, I don\u0027t see PMUv3 as a part of the feature detection mechanism :\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nI have added it in the feat_detect.c. Please check again. Its already taken care in this patch.\n\n3. Is it safe to just rely on the flag ENABLE_FEAT_PMU or shouldn\u0027t we check for the correct version (PMUv3p7) when accessing PMCR_EL0?\n\u003e In my understanding we need to control the unconditional access to PMCR_EL0 register. So with this build flag, we provide a conditional access, wherein if the ENABLE_FEAT_PMU flag is set, it will be detected under feature detection mechanism. So everything will fall in line.\n\nLet me know, if there are any other concerns here.",
+      "parentUuid": "e82e4102_3d1d3b77",
+      "revId": "509a5b67eca904566551c13382f5d89a04b8dafc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d03ae08_8cc5d136",
@@ -35,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9336228_f3eb8f18",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-08-17T09:15:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9d03ae08_8cc5d136",
+      "revId": "509a5b67eca904566551c13382f5d89a04b8dafc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6e470b4_43b5fcf2",
@@ -48,6 +84,30 @@
       "writtenOn": "2022-08-16T21:19:04Z",
       "side": 1,
       "message": "Maybe PMUVER instead, like the name of the field? Same for the other macros.",
+      "range": {
+        "startLine": 243,
+        "startChar": 20,
+        "endLine": 243,
+        "endChar": 23
+      },
+      "revId": "509a5b67eca904566551c13382f5d89a04b8dafc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7043ff89_142bdd47",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-08-17T09:15:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b6e470b4_43b5fcf2",
       "range": {
         "startLine": 243,
         "startChar": 20,
