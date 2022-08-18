@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "20dc750f_f3485116",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-08-18T11:29:45Z",
+      "side": 1,
+      "message": "So just picking this comment here exemplary, but this actually affects the whole series: I don\u0027t see anything in the PSCI spec that requires the *primary* core to issue the RESET request. I suspect the wording of \"other cores\" supports the idea that SYSTEM_RESET[2] can be issued from any core.\nFrom briefly looking over all patches, I don\u0027t see anything that actually relies on primary/secondary cores, but at least we should change the wording (everywhere) to remove that non-existing requirement.",
+      "revId": "f04e16f3056179042ff5724130a8dd2bec9c102d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a820d499_49981e7f",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
@@ -20,6 +37,23 @@
         "endLine": 16,
         "endChar": 22
       },
+      "revId": "f04e16f3056179042ff5724130a8dd2bec9c102d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28086300_db2cd2dd",
+        "filename": "plat/arm/css/common/css_pm.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-08-18T11:29:45Z",
+      "side": 1,
+      "message": "Why are these barriers here? I think you need a *DSB*, to make sure outstanding memory operations are executed, but I don\u0027t see a need for an ISB?\nCan you please check the requirements, and then add comments briefly explaining the reason for (any remaining) barriers?",
       "revId": "f04e16f3056179042ff5724130a8dd2bec9c102d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
