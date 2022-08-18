@@ -520,6 +520,7 @@ struct wake_status {
 struct spm_lp_scen {
 	struct pcm_desc *pcmdesc;
 	struct pwr_ctrl *pwrctrl;
+	unsigned int resume_opand;
 };
 
 extern struct spm_lp_scen __spm_vcorefs;

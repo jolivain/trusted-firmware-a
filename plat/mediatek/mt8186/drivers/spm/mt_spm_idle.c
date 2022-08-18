@@ -4,15 +4,10 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <common/debug.h>
-#include <lib/mmio.h>
 #include <mt_spm.h>
-#include <mt_spm_conservation.h>
 #include <mt_spm_idle.h>
 #include <mt_spm_internal.h>
 #include <mt_spm_reg.h>
-#include <mt_spm_resource_req.h>
-#include <plat_pm.h>
 
 #define __WAKE_SRC_FOR_SUSPEND_COMMON__	\
 	(R12_PCM_TIMER |		\
@@ -211,29 +206,12 @@ static struct pwr_ctrl idle_spm_pwr = {
 	/* Auto-gen End */
 };
 
-struct spm_lp_scen idle_spm_lp = {
+static struct spm_lp_scen idle_spm_lp = {
 	.pwrctrl = &idle_spm_pwr,
+	.resume_opand = (MT_SPM_EX_OP_TIME_CHECK | MT_SPM_EX_OP_TIME_OBS),
 };
 
-int mt_spm_idle_generic_enter(int state_id, unsigned int ext_opand,
-			      spm_idle_conduct fn)
+struct spm_lp_scen *get_lp_scen_spm_idle(void)
 {
-	unsigned int src_req = 0U;
-
-	if (fn != NULL) {
-		fn(&idle_spm_lp, &src_req);
-	}
-
-	return spm_conservation(state_id, ext_opand, &idle_spm_lp, src_req);
-}
-void mt_spm_idle_generic_resume(int state_id, unsigned int ext_opand,
-				struct wake_status **status)
-{
-	ext_opand |= (MT_SPM_EX_OP_TIME_CHECK | MT_SPM_EX_OP_TIME_OBS);
-	spm_conservation_finish(state_id, ext_opand, &idle_spm_lp, status);
-}
-
-void mt_spm_idle_generic_init(void)
-{
-	spm_conservation_pwrctrl_init(idle_spm_lp.pwrctrl);
+	return &idle_spm_lp;
 }
