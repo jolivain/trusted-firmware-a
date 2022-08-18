@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1982fda0_c87bbffa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-18T12:52:36Z",
+      "side": 1,
+      "message": "I wonder, most of the RAS oriented testing in TF-A CI relies on SError injection and none (to my knowledge) on Group0 interrupts qualified as RAS interrupt.\n1. is this specific to NV platforms to handle RAS errors through G0 interrupts? Isn\u0027t the SError signal used in those scenarios?\n2. If SError is handling, does it require a similar change around HANDLE_EA_FIRST option to trap SError at EL3 while normal world runs, but not while SEL1/0 runs (that would rather be trapped by SPMC and panic)?\n3. In light of 1., would it require adding RAS related tests using G0 interrupts?\n\nApologies if my questions look naive, I\u0027m discovering RAS handling quite a bit.",
+      "revId": "be88e8259a719dba07e4defab36b4db65f26ab68",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcb31d51_5bb87efb",
+        "filename": "include/bl31/interrupt_mgmt.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-18T12:52:36Z",
+      "side": 1,
+      "message": "nit: full stop",
+      "range": {
+        "startLine": 113,
+        "startChar": 65,
+        "endLine": 113,
+        "endChar": 73
+      },
+      "revId": "be88e8259a719dba07e4defab36b4db65f26ab68",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c275ae3_2b854826",
+        "filename": "include/bl31/interrupt_mgmt.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-18T12:52:36Z",
+      "side": 1,
+      "message": "This case actually covers 3 scenarios:\na. !EL3_EXCEPTION_HANDLING / SPMC not present\nb. EL3_EXCEPTION_HANDLING / SPMC is present\nc. !EL3_EXCEPTION_HANDLING / SPMC is present\n\na. is the legacy before SPMC existed.\nb. is the newly introduced scenario in context of EHF/RAS described by this comment.\nc. is the existing SPMC scenario we used so far.\n\nIs scenario c. still valid?\nShould a. and c. be documented here?\n\nShould https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/docs/getting_started/build-options.rst#n462 be amended?",
+      "range": {
+        "startLine": 119,
+        "startChar": 3,
+        "endLine": 122,
+        "endChar": 21
+      },
+      "revId": "be88e8259a719dba07e4defab36b4db65f26ab68",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
