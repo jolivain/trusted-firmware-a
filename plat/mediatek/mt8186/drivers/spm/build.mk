@@ -18,6 +18,7 @@ CUR_SPM_FOLDER = ${MTK_PLAT_SOC}/drivers/spm
 
 # spm common files
 PLAT_SPM_SOURCE_FILES_COMMON +=				\
+	${SPM_COMMON_FOLDER}/mt_spm_common.c		\
 	${CUR_SPM_FOLDER}/mt_spm.c			\
 	${CUR_SPM_FOLDER}/mt_spm_internal.c		\
 	${CUR_SPM_FOLDER}/mt_spm_pmic_wrap.c		\

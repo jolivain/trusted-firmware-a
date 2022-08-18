@@ -7,10 +7,13 @@
 MTK_PLAT      := plat/mediatek
 MTK_PLAT_SOC  := ${MTK_PLAT}/${PLAT}
 
+include ${MTK_PLAT}/build_helpers/plat_common.def.mk
+
 PLAT_INCLUDES := -I${MTK_PLAT}/common/                            \
                  -I${MTK_PLAT}/common/drivers/gic600/             \
                  -I${MTK_PLAT}/common/drivers/gpio/               \
                  -I${MTK_PLAT}/common/drivers/rtc/                \
+                 -I${MTK_PLAT}/common/drivers/spm/                \
                  -I${MTK_PLAT}/common/drivers/timer/              \
                  -I${MTK_PLAT}/common/drivers/uart/               \
                  -I${MTK_PLAT}/common/lpm/                        \

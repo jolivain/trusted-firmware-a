@@ -9,6 +9,7 @@
 
 #include <lib/bakery_lock.h>
 #include <lib/spinlock.h>
+
 #include <plat_mtk_lpm.h>
 
 /*
@@ -58,15 +59,6 @@ typedef enum {
 	WR_UNKNOWN = 9,
 } wake_reason_t;
 
-/* for suspend vol. bin settings */
-enum MT_PLAT_SUSPEND_VCORE {
-	SPM_SUSPEND_VCORE_5500 = 0,
-	SPM_SUSPEND_VCORE_5250 = 1,
-	SPM_SUSPEND_VCORE_5000 = 2,
-};
-
-extern void spm_boot_init(void);
-
 static inline void spm_lock_get(void)
 {
 	plat_spm_lock();
@@ -77,6 +69,9 @@ static inline void spm_lock_release(void)
 	plat_spm_unlock();
 }
 
-unsigned int spm_get_suspend_vcore_voltage_idx(void);
+extern void spm_boot_init(void);
 
+/* functions for platform dependent init sequence */
+void spm_boot_pre_init(void);
+void spm_boot_post_init(void);
 #endif /* MT_SPM_H */
