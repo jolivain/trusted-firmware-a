@@ -63,6 +63,7 @@ $(info --------------------------------------)
 PLAT_INCLUDES +=				\
 	${PLAT_SPM_DEBUG_CFLAGS}		\
 	-I${SPM_COMMON_FOLDER}/			\
+	-I${SPM_COMMON_FOLDER}/constraints/	\
 	-I${SPM_COMMON_FOLDER}/notifier/	\
 	-I${CUR_SPM_FOLDER}/			\
 	-I${CUR_SPM_FOLDER}/constraints/	\
