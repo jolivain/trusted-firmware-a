@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "686bd661_c8063be6",
+        "filename": "drivers/arm/css/scp/css_pm_scmi.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-08-18T11:06:33Z",
+      "side": 1,
+      "message": "The other SCMI_E_xxx codes are negative error codes, and it seems they have been designed this way. Shall we compare against \u003c 0 here then?",
+      "revId": "3a5e9f9a05fad8e58e0af58ed491da6e79f2806d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
