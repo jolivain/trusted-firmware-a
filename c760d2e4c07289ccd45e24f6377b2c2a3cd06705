@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eb68263_a25318b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-18T09:35:21Z",
+      "side": 1,
+      "message": "I wonder is this the right solution, as it exports an internal function to a public interface.\ne.g. the private header implements psci_do_* functions, and the public interface doesn\u0027t expose such functions. Would it be preferable to export a callback in the psci implementation that a platform can override?",
+      "revId": "c760d2e4c07289ccd45e24f6377b2c2a3cd06705",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
