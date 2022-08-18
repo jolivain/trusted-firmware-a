@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "76d42b96_60c5450c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-18T12:55:16Z",
+      "side": 1,
+      "message": "*correction bullet 2\n2. If SError handling is required, is a similar change around HANDLE_EA_FIRST option required to trap SError at EL3 while normal world runs, but not while SEL1/0 runs (that would rather be trapped by SPMC and panic)?\nI have a change along those lines if this helps.",
+      "parentUuid": "1982fda0_c87bbffa",
+      "revId": "be88e8259a719dba07e4defab36b4db65f26ab68",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fcb31d51_5bb87efb",
         "filename": "include/bl31/interrupt_mgmt.h",
         "patchSetId": 3
