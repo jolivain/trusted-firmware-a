@@ -49,6 +49,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c421a971_9bc3ff1c",
+        "filename": "plat/arm/css/common/css_common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-08-18T13:11:40Z",
+      "side": 1,
+      "message": "Is this too generously named? If I understand the current code correctly, we already support SYSTEM_RESET2/warm reset for CSS platforms, it\u0027s just that RDN2 requires each PE to cooperate, so we need the secure SGI dance. So probably some name better reflecting that?",
+      "revId": "4d018bc587852664ad6bfde1614a6a1e20dbe1f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5d89ddc1_d2a860e4",
         "filename": "plat/arm/css/common/css_pm.c",
         "patchSetId": 4
