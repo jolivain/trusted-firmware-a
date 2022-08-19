@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41b12232_af154635",
+        "filename": "plat/mediatek/common/cold_boot.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-08-19T06:03:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75b21857_191e9c17",
+      "range": {
+        "startLine": 257,
+        "startChar": 15,
+        "endLine": 257,
+        "endChar": 16
+      },
+      "revId": "e1d196f037eb65eda0b7fb763331bd141c749123",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b1e1873_ca8e4495",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-08-17T11:55:35Z",
       "side": 1,
       "message": "the comment on above says x0 ?",
+      "range": {
+        "startLine": 331,
+        "startChar": 9,
+        "endLine": 331,
+        "endChar": 11
+      },
+      "revId": "e1d196f037eb65eda0b7fb763331bd141c749123",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "255c54a7_f30feb15",
+        "filename": "plat/mediatek/common/cold_boot.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-08-19T06:03:03Z",
+      "side": 1,
+      "message": "The return value assign as x0 for linux kernel argument.",
+      "parentUuid": "2b1e1873_ca8e4495",
       "range": {
         "startLine": 331,
         "startChar": 9,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39a866d4_f0b4abb7",
+        "filename": "plat/mediatek/common/mtk_plat_common.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-08-19T06:03:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da5bd8ee_53368ea6",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 25
+      },
+      "revId": "e1d196f037eb65eda0b7fb763331bd141c749123",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "847e99ff_e8065e57",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-08-17T11:55:35Z",
       "side": 1,
       "message": "typo ?",
+      "range": {
+        "startLine": 17,
+        "startChar": 27,
+        "endLine": 17,
+        "endChar": 28
+      },
+      "revId": "e1d196f037eb65eda0b7fb763331bd141c749123",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd09c5b2_dc1ccf02",
+        "filename": "plat/mediatek/include/cold_boot.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-08-19T06:03:03Z",
+      "side": 1,
+      "message": "Fixed, thank you.",
+      "parentUuid": "847e99ff_e8065e57",
       "range": {
         "startLine": 17,
         "startChar": 27,
