@@ -1,0 +1,57 @@
+/*
+ * Copyright (c) 2021, MediaTek Inc. All rights reserved.
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+#ifndef MT_SPM_RC_BUS26M_PRIV_H
+#define MT_SPM_RC_BUS26M_PRIV_H
+
+#include <mt_spm.h>
+#include <mt_spm_reg.h>
+
+#define CONSTRAINT_BUS26M_PCM_FLAG		\
+	(SPM_FLAG_DISABLE_INFRA_PDN |		\
+	 SPM_FLAG_DISABLE_VCORE_DVS |		\
+	 SPM_FLAG_DISABLE_VCORE_DFS |		\
+	 SPM_FLAG_SRAM_SLEEP_CTRL |		\
+	 SPM_FLAG_ENABLE_TIA_WORKAROUND |	\
+	 SPM_FLAG_ENABLE_LVTS_WORKAROUND |	\
+	 SPM_FLAG_KEEP_CSYSPWRACK_HIGH |	\
+	 SPM_FLAG_DISABLE_DRAMC_MCU_SRAM_SLEEP)
+
+#define CONSTRAINT_BUS26M_PCM_FLAG1	(0U)
+
+#define CONSTRAINT_BUS26M_SUSPEND_EX_PAND	\
+	(MT_SPM_EX_OP_CLR_26M_RECORD |		\
+	 MT_SPM_EX_OP_SET_WDT |			\
+	 MT_SPM_EX_OP_HW_S1_DETECT)
+
+static struct mt_spm_cond_tables cond_bus26m = {
+	.name = "bus26m",
+	.table_cg = {
+		0xFFFFD408,	/* MTCMOS1 */
+		0x2284C802,	/* INFRA0  */
+		0x27AF8000,	/* INFRA1  */
+		0x86040650,	/* INFRA2  */
+		0x30038020,	/* INFRA3  */
+		0x80000000,	/* INFRA4  */
+		0x00080ABB,	/* PERI0   */
+		0x00004000,	/* VPPSYS0_0  */
+		0x08803000,	/* VPPSYS0_1  */
+		0x00000000,	/* VPPSYS0_2  */
+		0x80005555,	/* VPPSYS1_0  */
+		0x00009008,	/* VPPSYS1_1  */
+		0x60060000,	/* VDOSYS0_0  */
+		0x00000000,	/* VDOSYS0_1  */
+		0x201E01F8,	/* VDOSYS1_0  */
+		0x00800000,	/* VDOSYS1_1  */
+		0x00000000,	/* VDOSYS1_2  */
+		0x00000080,	/* I2C */
+	},
+	.table_pll = (PLL_BIT_UNIVPLL | PLL_BIT_MFGPLL |
+		      PLL_BIT_MSDCPLL | PLL_BIT_TVDPLL |
+		      PLL_BIT_MMPLL),
+};
+
+#endif /* MT_SPM_RC_BUS26M_PRIV_H */
