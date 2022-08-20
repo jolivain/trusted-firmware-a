@@ -8,19 +8,33 @@
 #define MT_SPM_SUSPEND_H
 
 #include <mt_spm_internal.h>
+#include <mt_spm_rc_internal.h>
+#include <mt_spm_reg.h>
+#include <mt_spm_suspend_common.h>
 
 #define MCUPM_MBOX_OFFSET_PDN	0x0C55FDA8
 #define MCUPM_POWER_DOWN	0x4D50444E
 
-enum MT_SPM_SUSPEND_MODE {
-	MT_SPM_SUSPEND_SYSTEM_PDN,
-	MT_SPM_SUSPEND_SLEEP,
-};
+#define SPM_SUSPEND_SLEEP_PCM_FLAG		\
+	(SPM_FLAG_DISABLE_INFRA_PDN |		\
+	 SPM_FLAG_DISABLE_VCORE_DVS |		\
+	 SPM_FLAG_DISABLE_VCORE_DFS |		\
+	 SPM_FLAG_KEEP_CSYSPWRACK_HIGH |	\
+	 SPM_FLAG_USE_SRCCLKENO2 |		\
+	 SPM_FLAG_ENABLE_MD_MUMTAS |		\
+	 SPM_FLAG_SRAM_SLEEP_CTRL)
 
-extern int mt_spm_suspend_mode_set(int mode);
-extern int mt_spm_suspend_enter(int state_id, unsigned int ext_opand,
-				unsigned int reosuce_req);
-extern void mt_spm_suspend_resume(int state_id, unsigned int ext_opand,
-				  struct wake_status **status);
-extern void mt_spm_suspend_init(void);
+#define SPM_SUSPEND_SLEEP_PCM_FLAG1		\
+	(SPM_FLAG1_DISABLE_MD26M_CK_OFF)
+
+#define SPM_SUSPEND_PCM_FLAG			\
+	(SPM_FLAG_DISABLE_VCORE_DVS |		\
+	 SPM_FLAG_DISABLE_VCORE_DFS |		\
+	 SPM_FLAG_ENABLE_TIA_WORKAROUND |	\
+	 SPM_FLAG_ENABLE_MD_MUMTAS |		\
+	 SPM_FLAG_SRAM_SLEEP_CTRL)
+
+#define SPM_SUSPEND_PCM_FLAG1			\
+	(SPM_FLAG1_DISABLE_MD26M_CK_OFF)
+
 #endif /* MT_SPM_SUSPEND_H */
