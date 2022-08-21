@@ -787,6 +787,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7149a8af_085c2647",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 59
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-08-21T21:53:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ecdaac6_fe9ffd1a",
+      "range": {
+        "startLine": 852,
+        "startChar": 3,
+        "endLine": 852,
+        "endChar": 18
+      },
+      "revId": "8f8dc72e34c46954fc5d03e46c819057b7aa728a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1dd55f5_63d0984b",
@@ -800,6 +824,30 @@
       "writtenOn": "2022-06-06T14:04:47Z",
       "side": 1,
       "message": "nit: needs a more meaningful error message?",
+      "range": {
+        "startLine": 854,
+        "startChar": 9,
+        "endLine": 854,
+        "endChar": 10
+      },
+      "revId": "8f8dc72e34c46954fc5d03e46c819057b7aa728a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e5e47e3_9447e833",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 59
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-08-21T21:53:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1dd55f5_63d0984b",
       "range": {
         "startLine": 854,
         "startChar": 9,
@@ -964,6 +1012,24 @@
       "writtenOn": "2022-06-06T14:04:47Z",
       "side": 1,
       "message": "Not a request for now, but should it unwind the already applied mappings?",
+      "revId": "8f8dc72e34c46954fc5d03e46c819057b7aa728a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a051c5a_722d2f30",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 59
+      },
+      "lineNbr": 877,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-08-21T21:53:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6c96154_38380f38",
       "revId": "8f8dc72e34c46954fc5d03e46c819057b7aa728a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
