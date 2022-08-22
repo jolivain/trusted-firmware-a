@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc2d1ac2_702ebc64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2022-08-22T05:21:02Z",
+      "side": 1,
+      "message": "First of all message itself is confusing. Versal is not using FSBL but only PLM. Subject is not following formatting rules too.\n\nAnd regarding change. PLM failure should be primary solved in PLM not in TF-A. If address is not passed then setting up hardcoded address can create also security concern.\n",
+      "revId": "c723e85ecaf0270a6a134e71a2b4cecf8ce03c65",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
