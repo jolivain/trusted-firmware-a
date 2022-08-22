@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2897c95c_93b04d91",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-08-22T04:24:20Z",
+      "side": 1,
+      "message": "For #1, complex SOCs have many errors that can only be reported by interrupts and may not translate to SErrors. I\u0027ve seen this in non NV SoCs as well and is not uncommon on server SoCs.\nFor #2, ideally yes, but in our design we have accepted that SErrors occurring during secure world execution is treated like a double fault and we are accepting of panic in SPMC. On Server SoCs, execution is expected to be almost always in normal world\nFor #3, same issue as espi. What G0 interrupt could i use on FVP? Happy to add a test where i have G0 interrupt routed to SEL1/EL0 in presence of SPMC. Thinking i could re-use the spm-mm interrupts.\n\nlet me know your thoughts.",
+      "parentUuid": "76d42b96_60c5450c",
+      "revId": "be88e8259a719dba07e4defab36b4db65f26ab68",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fcb31d51_5bb87efb",
         "filename": "include/bl31/interrupt_mgmt.h",
         "patchSetId": 3
@@ -72,6 +90,30 @@
       "writtenOn": "2022-08-18T12:52:36Z",
       "side": 1,
       "message": "This case actually covers 3 scenarios:\na. !EL3_EXCEPTION_HANDLING / SPMC not present\nb. EL3_EXCEPTION_HANDLING / SPMC is present\nc. !EL3_EXCEPTION_HANDLING / SPMC is present\n\na. is the legacy before SPMC existed.\nb. is the newly introduced scenario in context of EHF/RAS described by this comment.\nc. is the existing SPMC scenario we used so far.\n\nIs scenario c. still valid?\nShould a. and c. be documented here?\n\nShould https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/docs/getting_started/build-options.rst#n462 be amended?",
+      "range": {
+        "startLine": 119,
+        "startChar": 3,
+        "endLine": 122,
+        "endChar": 21
+      },
+      "revId": "be88e8259a719dba07e4defab36b4db65f26ab68",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a863ed87_0ed581b4",
+        "filename": "include/bl31/interrupt_mgmt.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-08-22T04:24:20Z",
+      "side": 1,
+      "message": "Olivier, not sure i follow. The only change in behavior from what was previously there is when both SPD_spmd is defined and SPMC_SPM_AT_SEL2 is 1. in all other cases, the behavior is exactly the same as before.\nwhy would scenario C be invalid? SPMC can be present regardless of whether el3_EXCEPTION_HANDLING is defined or not, which is the purpose of this patch.\nI can add comments and changes to the doc to the effect of the new scenario, but all other scenarios remain exactly the same, so im not sure what you want me to document..",
+      "parentUuid": "4c275ae3_2b854826",
       "range": {
         "startLine": 119,
         "startChar": 3,
