@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b96d67af_569dd896",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-22T08:13:04Z",
+      "side": 1,
+      "message": "Ack #1.\nAck #2, presently when HANDLE_EA_EL3_FIRST\u003d1 execution traps to EL3 whichever running normal/secure(/realm!) world: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/lib/el3_runtime/aarch64/context_mgmt.c. The fix would be to dispatch this condition from setup_context_common to setup_ns_context (trap to EL3) and setup_realm_context/setup_secure_context (no trap to EL3). Anyways this is beyond the current change.\nOn #3.: it\u0027s not an immediate query wrt current change, more a general brainstorm on the test coverage. On FVP the trusted watchdog is able to generate secure interrupts. Tf-a-tests SPMC/secure interrupts tests configure them as Group1S. I\u0027m thinking we could have a dedicated test configuring those secure interrupts to Group0 specifically cover those cases. I\u0027m not sure about what spm-mm uses but worth a look.\nPlease resolve if you agree with above.",
+      "parentUuid": "2897c95c_93b04d91",
+      "revId": "be88e8259a719dba07e4defab36b4db65f26ab68",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fcb31d51_5bb87efb",
         "filename": "include/bl31/interrupt_mgmt.h",
         "patchSetId": 3
@@ -114,6 +132,30 @@
       "side": 1,
       "message": "Olivier, not sure i follow. The only change in behavior from what was previously there is when both SPD_spmd is defined and SPMC_SPM_AT_SEL2 is 1. in all other cases, the behavior is exactly the same as before.\nwhy would scenario C be invalid? SPMC can be present regardless of whether el3_EXCEPTION_HANDLING is defined or not, which is the purpose of this patch.\nI can add comments and changes to the doc to the effect of the new scenario, but all other scenarios remain exactly the same, so im not sure what you want me to document..",
       "parentUuid": "4c275ae3_2b854826",
+      "range": {
+        "startLine": 119,
+        "startChar": 3,
+        "endLine": 122,
+        "endChar": 21
+      },
+      "revId": "be88e8259a719dba07e4defab36b4db65f26ab68",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9749f958_a8d9536b",
+        "filename": "include/bl31/interrupt_mgmt.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-22T08:13:04Z",
+      "side": 1,
+      "message": "\u003e in all other cases, the behavior is exactly the same as before.\nYes, agree. Apologies if this wasn\u0027t clear, and this is a nitpick. I\u0027m alluding to that comment added line 120 seems to suggest \u0027SPMC at S-EL2\u0027 is the most common condition to land here, whereas this code path is exercised by the vast majority of test cases when EL3_EXCEPTION_HANDLING\u003d0 (and SPMC not present case a.). So ideally the comment might be amended to mention this latter case.\n\u003e why would scenario C be invalid? SPMC can be present regardless of whether el3_EXCEPTION_HANDLING is defined or not, which is the purpose of this patch.\nAck.",
+      "parentUuid": "a863ed87_0ed581b4",
       "range": {
         "startLine": 119,
         "startChar": 3,
