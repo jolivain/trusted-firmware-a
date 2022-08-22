@@ -1009,11 +1009,11 @@ int psci_stop_other_cores(unsigned int wait_ms,
 
 	/* Need to wait for other cores to shutdown */
 	if (wait_ms != 0U) {
-		while ((wait_ms-- != 0U) && (psci_is_last_on_cpu() != 0U)) {
+		while ((wait_ms-- != 0U) && (psci_is_last_on_cpu() != 1U)) {
 			mdelay(1U);
 		}
 
-		if (psci_is_last_on_cpu() != 0U) {
+		if (psci_is_last_on_cpu() != 1U) {
 			WARN("Failed to stop all cores!\n");
 			psci_print_power_domain_map();
 			return PSCI_E_DENIED;
@@ -1031,7 +1031,6 @@ int psci_stop_other_cores(unsigned int wait_ms,
  * This API has following differences with psci_is_last_on_cpu
  *  1. PSCI states are locked
  *  2. It caters for "forest" topology instead of just "tree"
- *  TODO : Revisit both API's and unify them
  ******************************************************************************/
 bool psci_is_last_on_cpu_safe(void)
 {
@@ -1052,21 +1051,13 @@ bool psci_is_last_on_cpu_safe(void)
 
 		psci_acquire_pwr_domain_locks(PLAT_MAX_PWR_LVL, parent_nodes);
 
-		for (unsigned int core = 0U;
-		     core < psci_non_cpu_pd_nodes[i].ncpus; core++) {
-			if (core == this_core) {
-				continue;
-			}
+		psci_plat_core_count = psci_non_cpu_pd_nodes[i].ncpus;
 
-			if (psci_get_aff_info_state_by_idx(core) !=
-			    AFF_STATE_OFF) {
-				psci_release_pwr_domain_locks(PLAT_MAX_PWR_LVL,
-							      parent_nodes);
-				VERBOSE("core=%u other than boot core=%u %s\n",
-				       core, this_core, "running in the system");
-
-				return false;
-			}
+		if (psci_is_last_on_cpu() != 1U) {
+			psci_release_pwr_domain_locks(PLAT_MAX_PWR_LVL, parent_nodes);
+			VERBOSE("core=%u other than boot core=%u %s\n",
+				core, this_core, "running in the system");
+			return false;
 		}
 
 		psci_release_pwr_domain_locks(PLAT_MAX_PWR_LVL, parent_nodes);
