@@ -72,6 +72,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc24f5f9_65e372cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-08-22T19:55:38Z",
+      "side": 1,
+      "message": "Olivier, for #2, great point. i thought the architecture when SPMC was present SEAs and SEIs are trapped to SPMC correct? If yes, i think the fix you are tlaking about is required. We do plan to have RAS_EXTENSIONS enabled, which means HANDLE_EA_EL3_FIRST has to be set (per the docs), and would trap to EL3. We have logic to know this occured in secure world and die but to keep it clean, it would be best to do what you said. Would you be opposed to me providing a patch for this?\n\nAck on #3. Let me explore spmm and G0 interrupt separately. Definitely need to add test for this.\n\nResolving.",
+      "parentUuid": "b96d67af_569dd896",
+      "revId": "be88e8259a719dba07e4defab36b4db65f26ab68",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fcb31d51_5bb87efb",
