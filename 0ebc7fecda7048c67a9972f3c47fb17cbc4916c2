@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d476c048_90c2bc0f",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-08-22T21:41:23Z",
+      "side": 1,
+      "message": "*events",
+      "range": {
+        "startLine": 614,
+        "startChar": 34,
+        "endLine": 614,
+        "endChar": 39
+      },
+      "revId": "0ebc7fecda7048c67a9972f3c47fb17cbc4916c2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97b60715_54f192c1",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-08-22T21:41:23Z",
+      "side": 1,
+      "message": "Is it possible to unregister all the handlers rather than returning, so the execution can continue instead?",
+      "range": {
+        "startLine": 617,
+        "startChar": 2,
+        "endLine": 617,
+        "endChar": 26
+      },
+      "revId": "0ebc7fecda7048c67a9972f3c47fb17cbc4916c2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
