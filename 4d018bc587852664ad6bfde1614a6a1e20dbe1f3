@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "019db29a_6f3d1271",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000511
+      },
+      "writtenOn": "2022-08-22T14:21:46Z",
+      "side": 1,
+      "message": "Hi Olivier, Andre,\n\nThanks for your time in reviewing this patch. Will update the doc as suggested by Olivier on the next patch.\n\nAndre,\nCould you please have a look at my reply to your comment? If it looks okay, I\u0027ll mark it as resolved. Else please correct me, will take the correction in next version of this patch.",
+      "revId": "4d018bc587852664ad6bfde1614a6a1e20dbe1f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47f8ba1b_d21b9813",
@@ -14,6 +31,30 @@
       "writtenOn": "2022-08-18T09:22:38Z",
       "side": 1,
       "message": "remove if function can be static in plat/arm/css/common/css_pm.c",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 39
+      },
+      "revId": "4d018bc587852664ad6bfde1614a6a1e20dbe1f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8b70f5e_12b3b7dc",
+        "filename": "include/plat/arm/css/common/css_pm.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000511
+      },
+      "writtenOn": "2022-08-22T14:21:46Z",
+      "side": 1,
+      "message": "This function is used in plat/arm/css/sgi/sgi_bl31_setup.c as well, so recommend not to keep this static.\n\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/16074/6/plat/arm/css/sgi/sgi_bl31_setup.c",
+      "parentUuid": "47f8ba1b_d21b9813",
       "range": {
         "startLine": 43,
         "startChar": 0,
@@ -66,6 +107,48 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "292b8428_0abcf87d",
+        "filename": "plat/arm/css/common/css_common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000511
+      },
+      "writtenOn": "2022-08-22T14:21:46Z",
+      "side": 1,
+      "message": "The answer to this query is provided in the last paragraph, sorry to add big story here!\n\nThe non secure OS (Linux kernel) will issue shutdown/reset/reset2 from primary CPU under the assumption the supervisor software will do the power down sequence of all the cores. The power to the core can be cut either forcefully or gracefully. \n\nIn forceful shutdown (power off the PPU without checking the devpactive signal), what we observed in RTL is the coherency state is not maintained, and the CPUs fails to boot back after the powerdown.\n\nAs a solution for this, the move with graceful shutdown, where the each secondary CPU will do the powerdown sequence and execute a WFI, by which the devpactive signal will also be in OFF state and the power controller (SCP in this case) can powerdown the PPUs gracefully.\n\nCurrently I didn\u0027t find any platforms doing warm reboot, instead the platforms are doing either shutdown or reboot. For the case of shutdown/reboot what I found is the SysTop is also getting power cycled. Checked this in two platforms, N1SDP and Juno. In N1SDP the power cycling is achieved just because of the presence of MCC hardware (external component) and for the case of Juno the PMIC is supporting the shutdown/reboot by cutting the power. In these platforms, the SCP will also power cycle, which is equivalent to a cold reboot (forceful reboot). I recommended to adopt this for all platforms (even for shutdown and cold reboot), as plugging out the CPUs harshly looks unfair.",
+      "parentUuid": "c421a971_9bc3ff1c",
+      "revId": "4d018bc587852664ad6bfde1614a6a1e20dbe1f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba8bb39e_b257381d",
+        "filename": "plat/arm/css/common/css_common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000511
+      },
+      "writtenOn": "2022-08-22T14:21:46Z",
+      "side": 1,
+      "message": "Will update the doc in next version of this patch.",
+      "parentUuid": "0d7666e7_5160f7f2",
+      "range": {
+        "startLine": 91,
+        "startChar": 10,
+        "endLine": 91,
+        "endChar": 31
+      },
+      "revId": "4d018bc587852664ad6bfde1614a6a1e20dbe1f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5d89ddc1_d2a860e4",
         "filename": "plat/arm/css/common/css_pm.c",
         "patchSetId": 4
@@ -77,6 +160,30 @@
       "writtenOn": "2022-08-18T09:22:38Z",
       "side": 1,
       "message": "can it be a static function?",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 38
+      },
+      "revId": "4d018bc587852664ad6bfde1614a6a1e20dbe1f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bbbc6a3_769c5952",
+        "filename": "plat/arm/css/common/css_pm.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000511
+      },
+      "writtenOn": "2022-08-22T14:21:46Z",
+      "side": 1,
+      "message": "No,\n\nFor configuring SGI for primary CPU, this function is called from plat/arm/css/sgi/sgi_bl31_setup.c.\n\nReference: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/16074/6/plat/arm/css/sgi/sgi_bl31_setup.c",
+      "parentUuid": "5d89ddc1_d2a860e4",
       "range": {
         "startLine": 345,
         "startChar": 0,
