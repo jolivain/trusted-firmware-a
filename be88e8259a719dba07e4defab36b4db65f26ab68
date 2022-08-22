@@ -113,6 +113,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4034e751_cdc410a0",
+        "filename": "include/bl31/interrupt_mgmt.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-08-22T22:23:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcb31d51_5bb87efb",
+      "range": {
+        "startLine": 113,
+        "startChar": 65,
+        "endLine": 113,
+        "endChar": 73
+      },
+      "revId": "be88e8259a719dba07e4defab36b4db65f26ab68",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c275ae3_2b854826",
@@ -174,6 +198,30 @@
       "side": 1,
       "message": "\u003e in all other cases, the behavior is exactly the same as before.\nYes, agree. Apologies if this wasn\u0027t clear, and this is a nitpick. I\u0027m alluding to that comment added line 120 seems to suggest \u0027SPMC at S-EL2\u0027 is the most common condition to land here, whereas this code path is exercised by the vast majority of test cases when EL3_EXCEPTION_HANDLING\u003d0 (and SPMC not present case a.). So ideally the comment might be amended to mention this latter case.\n\u003e why would scenario C be invalid? SPMC can be present regardless of whether el3_EXCEPTION_HANDLING is defined or not, which is the purpose of this patch.\nAck.",
       "parentUuid": "a863ed87_0ed581b4",
+      "range": {
+        "startLine": 119,
+        "startChar": 3,
+        "endLine": 122,
+        "endChar": 21
+      },
+      "revId": "be88e8259a719dba07e4defab36b4db65f26ab68",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52ef1588_cf39667b",
+        "filename": "include/bl31/interrupt_mgmt.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-08-22T22:23:45Z",
+      "side": 1,
+      "message": "Understood. Updated comment and docs.",
+      "parentUuid": "9749f958_a8d9536b",
       "range": {
         "startLine": 119,
         "startChar": 3,
