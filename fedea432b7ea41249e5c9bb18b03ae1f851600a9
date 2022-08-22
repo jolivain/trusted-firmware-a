@@ -193,6 +193,30 @@
       },
       "revId": "fedea432b7ea41249e5c9bb18b03ae1f851600a9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00cfb8ef_72119e77",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-08-22T08:10:36Z",
+      "side": 1,
+      "message": "The plat_ic_raise_*_sgi functions indeed call plat_ic_get_interrupt_type, but the call is made in an assert. It seemed to me that doing this verification in an assert is somewhat coherent with the programming model of the GIC: it is expected---but not required---that the SGI is configured on the destination CPU in a way that matches the group that the calling CPU was expecting. As it is called in an assert, I assume plat_ic_get_interrupt_type is actually not called when raising a SGI on most of the production platforms. Actually, it seems to me that there is an issue with this assert when all the following conditions hold:\n- the target CPU is different from the CPU calling plat_ic_raise_*_sgi\n- the configured group for this SGI on the target CPU is different from the expected group\n- the configured group for this SGI on the current CPU is indeed the expected group\nIndeed, plat_ic_get_interrupt_type does not take the target CPU as a parameter and always reads the GIC registers for the current CPU to determine the configured group. In the case I was mentioning, the assert will succeed, although the configuration on the target CPU is not as expected. Conversely, the assert could also fail while the configuration on the target CPU is correct.\n\nAs far as gicv3_irq_group_t is concerned, I can indeed replace it by a INTR_TYPE_* parameter. I initially introduced this new enum type as it seemed to me that it was more coherent with the GIC driver implementation in the TF-A: as far as I understand it, INTR_TYPE_* are abstract interrupt types which are used in the code base when calling generic interrupt functions (plat_ic_*). These abstract interrupt types are then translated by each specific ic driver implementation to a concrete group. For instance, in the GICv2 implementation, the GICV2_G0_FOR_EL3 compilation option is used in the generic function plat_ic_get_interrupt_type to map a concrete group (either GIV2_INTR_GROUP0 or GIV2_INTR_GROUP1) to the correct abstract interrupt type (INTR_TYPE_NS and INTR_TYPE_EL3 or INTR_TYPE_S_EL1 depending on GICV2_G0_FOR_EL3).\n\nIf I change the gicv3_raise_sgi signature to take a INTR_TYPE_* parameter, we need to choose between these 2 options:\n- either we also change the giv2_raise_sgi signature to take an INTR_TYPE_* parameter and we will have to test GICV2_G0_FOR_EL3 in drivers/arm/gic/v2/giv2_main.c, which was until now agnostic of such a feature (this file only deals with concrete interrupt groups)\n- or we leave gicv2_raise_sgi as it is. In this case, we will end up with gicv2_raise_sgi taking concrete interrupt types (in the form of a boolean saying whether the raised SGI should be S or NS) and gicv3_raise_sgi taking abstract INTR_TYPE_* interrupt types. It seems to be that this would be a bit confusing, but I am fine with doing this change if you wish so.\n\nCould you confirm me that you still think removing the newly introduced gicv3_irq_group_t type is the best way to go? And, in this case, which of the 2 proposed options you prefer?\n\nThank you",
+      "parentUuid": "5c8ed64c_f4414bc1",
+      "range": {
+        "startLine": 1134,
+        "startChar": 0,
+        "endLine": 1147,
+        "endChar": 2
+      },
+      "revId": "fedea432b7ea41249e5c9bb18b03ae1f851600a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
