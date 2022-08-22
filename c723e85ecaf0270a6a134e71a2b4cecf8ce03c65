@@ -16,6 +16,24 @@
       "message": "First of all message itself is confusing. Versal is not using FSBL but only PLM. Subject is not following formatting rules too.\n\nAnd regarding change. PLM failure should be primary solved in PLM not in TF-A. If address is not passed then setting up hardcoded address can create also security concern.\n",
       "revId": "c723e85ecaf0270a6a134e71a2b4cecf8ce03c65",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7fb5546_be18f261",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000540
+      },
+      "writtenOn": "2022-08-22T07:52:05Z",
+      "side": 1,
+      "message": "Interesting chose of wording but no, you cant have it both ways: the message is as coherent as the code...it would have cost you nothing to have the code mention PLM instead of FSBL (a simple mapping). why you chose not to and now you feel that you need commit messages to reference PLM makes zero sense and in fact adds confusion.\n\nOk on the formating rules.\n\nNot sure about the security concern since the image is being validated before booting in secure mode. Please extend what you mean.",
+      "parentUuid": "dc2d1ac2_702ebc64",
+      "revId": "c723e85ecaf0270a6a134e71a2b4cecf8ce03c65",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
