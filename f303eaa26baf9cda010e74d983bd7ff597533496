@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "767bc383_18ba03bb",
+        "filename": "services/spd/pncd/pncd_common.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-08-22T09:27:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "aa77141d_32e2d849",
+      "range": {
+        "startLine": 49,
+        "startChar": 7,
+        "endLine": 49,
+        "endChar": 14
+      },
+      "revId": "f303eaa26baf9cda010e74d983bd7ff597533496",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "660b4d99_d42dfdf2",
         "filename": "services/spd/pncd/pncd_common.c",
         "patchSetId": 9
@@ -54,6 +78,30 @@
       "writtenOn": "2022-08-16T19:09:26Z",
       "side": 1,
       "message": "in such case, shouldn\u0027t this be a panic() call with appropriate message?",
+      "range": {
+        "startLine": 108,
+        "startChar": 1,
+        "endLine": 109,
+        "endChar": 11
+      },
+      "revId": "f303eaa26baf9cda010e74d983bd7ff597533496",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9250ecdf_2340c658",
+        "filename": "services/spd/pncd/pncd_common.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-08-22T09:27:42Z",
+      "side": 1,
+      "message": "I do not really know. This was copied from services/spd/tspd/tspd_common.c, which has an assert(0)",
+      "parentUuid": "660b4d99_d42dfdf2",
       "range": {
         "startLine": 108,
         "startChar": 1,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "56ec0983_daa3bed3",
+        "filename": "services/spd/pncd/pncd_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-08-22T09:27:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b3e12c92_cf92df41",
+      "range": {
+        "startLine": 119,
+        "startChar": 6,
+        "endLine": 119,
+        "endChar": 8
+      },
+      "revId": "f303eaa26baf9cda010e74d983bd7ff597533496",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "29556b41_9ded586a",
         "filename": "services/spd/pncd/pncd_main.c",
         "patchSetId": 9
@@ -112,6 +184,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fb484dfd_c8bc1ec1",
+        "filename": "services/spd/pncd/pncd_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-08-22T09:27:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "29556b41_9ded586a",
+      "range": {
+        "startLine": 159,
+        "startChar": 5,
+        "endLine": 159,
+        "endChar": 6
+      },
+      "revId": "f303eaa26baf9cda010e74d983bd7ff597533496",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c404d1ef_a20e1389",
         "filename": "services/spd/pncd/pncd_main.c",
         "patchSetId": 9
@@ -123,6 +219,30 @@
       "writtenOn": "2022-08-16T19:09:26Z",
       "side": 1,
       "message": "ns \u003d\u003d 0U",
+      "range": {
+        "startLine": 379,
+        "startChar": 6,
+        "endLine": 379,
+        "endChar": 9
+      },
+      "revId": "f303eaa26baf9cda010e74d983bd7ff597533496",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "889c23cc_e627d990",
+        "filename": "services/spd/pncd/pncd_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-08-22T09:27:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c404d1ef_a20e1389",
       "range": {
         "startLine": 379,
         "startChar": 6,
