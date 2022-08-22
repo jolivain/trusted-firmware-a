@@ -159,22 +159,46 @@ void psci_query_sys_suspend_pwrstate(psci_power_state_t *state_info)
  * Returns 1 (true) if the current CPU is the last ON CPU or 0 (false)
  * otherwise.
  ******************************************************************************/
-unsigned int psci_is_last_on_cpu(void)
+bool psci_is_last_on_cpu(const unsigned int core_count)
 {
 	unsigned int cpu_idx, my_idx = plat_my_core_pos();
 
-	for (cpu_idx = 0; cpu_idx < psci_plat_core_count;
-			cpu_idx++) {
+	/* Ensuring core_count is a valid non-negative number */
+	assert(core_count > 0);
+
+	/**
+	 * 1. "psci_plat_core_count" holds the value of the total number of
+	 * the cores present in the platform. So validating the input value
+	 * "core_count" agianst it avoids false result.
+	 *
+	 * 2."psci_is_last_on_cpu_safe" function, which traverses through the
+	 * root nodes in the forest, passes the number of available cores
+	 * with respect to an individual tree.
+	 * Here, psci_plat_core_count is the summation of cpu_nodes of all trees
+	 * in the forest.
+	 *
+	 * This check covers both scenarios, wherein if there is a single tree,
+	 * it ensures the core_count passed is equal to psci_plat_core_count.
+	 * Also, if there are n trees, it verifies that the core_count passed
+	 * is equal to the cpu_nodes of an individual tree.
+	 */
+	assert(core_count == (psci_plat_core_count -
+			      (psci_plat_core_count - core_count)));
+
+	for (cpu_idx = 0; cpu_idx < core_count; cpu_idx++) {
 		if (cpu_idx == my_idx) {
 			assert(psci_get_aff_info_state() == AFF_STATE_ON);
 			continue;
 		}
 
-		if (psci_get_aff_info_state_by_idx(cpu_idx) != AFF_STATE_OFF)
-			return 0;
+		if (psci_get_aff_info_state_by_idx(cpu_idx) != AFF_STATE_OFF) {
+			VERBOSE("core=%u other than current core=%u %s\n",
+			        cpu_idx, my_idx, "running in the system");
+			return false;
+		}
 	}
 
-	return 1;
+	return true;
 }
 
 /*******************************************************************************
@@ -1009,11 +1033,11 @@ int psci_stop_other_cores(unsigned int wait_ms,
 
 	/* Need to wait for other cores to shutdown */
 	if (wait_ms != 0U) {
-		while ((wait_ms-- != 0U) && (psci_is_last_on_cpu() != 0U)) {
+		while ((wait_ms-- != 0U) && (!psci_is_last_on_cpu(psci_plat_core_count))) {
 			mdelay(1U);
 		}
 
-		if (psci_is_last_on_cpu() != 0U) {
+		if (!psci_is_last_on_cpu(psci_plat_core_count)) {
 			WARN("Failed to stop all cores!\n");
 			psci_print_power_domain_map();
 			return PSCI_E_DENIED;
@@ -1031,11 +1055,9 @@ int psci_stop_other_cores(unsigned int wait_ms,
  * This API has following differences with psci_is_last_on_cpu
  *  1. PSCI states are locked
  *  2. It caters for "forest" topology instead of just "tree"
- *  TODO : Revisit both API's and unify them
  ******************************************************************************/
 bool psci_is_last_on_cpu_safe(void)
 {
-	unsigned int this_core = plat_my_core_pos();
 	unsigned int parent_nodes[PLAT_MAX_PWR_LVL] = {0};
 	unsigned int i = 0;
 
@@ -1052,21 +1074,9 @@ bool psci_is_last_on_cpu_safe(void)
 
 		psci_acquire_pwr_domain_locks(PLAT_MAX_PWR_LVL, parent_nodes);
 
-		for (unsigned int core = 0U;
-		     core < psci_non_cpu_pd_nodes[i].ncpus; core++) {
-			if (core == this_core) {
-				continue;
-			}
-
-			if (psci_get_aff_info_state_by_idx(core) !=
-			    AFF_STATE_OFF) {
-				psci_release_pwr_domain_locks(PLAT_MAX_PWR_LVL,
-							      parent_nodes);
-				VERBOSE("core=%u other than boot core=%u %s\n",
-				       core, this_core, "running in the system");
-
-				return false;
-			}
+		if (!psci_is_last_on_cpu(psci_non_cpu_pd_nodes[i].ncpus)) {
+			psci_release_pwr_domain_locks(PLAT_MAX_PWR_LVL, parent_nodes);
+			return false;
 		}
 
 		psci_release_pwr_domain_locks(PLAT_MAX_PWR_LVL, parent_nodes);
