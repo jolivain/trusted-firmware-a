@@ -1,0 +1,210 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5708eae8_730908a8",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 71
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-23T12:15:59Z",
+      "side": 1,
+      "message": "nit: this doesn\u0027t concern the \u0027partition mailbox\u0027 as mentioned line 34, so move upper or after line 44.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 58
+      },
+      "revId": "3fc20c8522545055d76968fb2a0f3aeeab11d8ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05e2406e_4ba2a01b",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 71
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-23T12:15:59Z",
+      "side": 1,
+      "message": "Just curious should this be normally conveyed by a partition message?",
+      "range": {
+        "startLine": 118,
+        "startChar": 1,
+        "endLine": 119,
+        "endChar": 40
+      },
+      "revId": "3fc20c8522545055d76968fb2a0f3aeeab11d8ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d84e3b5d_59b3b91e",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 71
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-23T12:15:59Z",
+      "side": 1,
+      "message": "Check frag_length doesn\u0027t overflow mem_region_buffer size (minus recv_length)?",
+      "revId": "3fc20c8522545055d76968fb2a0f3aeeab11d8ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "649af35b_7412698b",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 71
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-23T12:15:59Z",
+      "side": 1,
+      "message": "assert sender is a normal world id?",
+      "revId": "3fc20c8522545055d76968fb2a0f3aeeab11d8ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b58df0cb_a3e3e983",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 71
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-23T12:15:59Z",
+      "side": 1,
+      "message": "%u",
+      "range": {
+        "startLine": 202,
+        "startChar": 46,
+        "endLine": 202,
+        "endChar": 48
+      },
+      "revId": "3fc20c8522545055d76968fb2a0f3aeeab11d8ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85de4896_779d605c",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 71
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-23T12:15:59Z",
+      "side": 1,
+      "message": "%u",
+      "range": {
+        "startLine": 202,
+        "startChar": 18,
+        "endLine": 202,
+        "endChar": 20
+      },
+      "revId": "3fc20c8522545055d76968fb2a0f3aeeab11d8ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1462180_9e939230",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 71
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-23T12:15:59Z",
+      "side": 1,
+      "message": "Define at top of the for loop and reuse lines 197, 198, 210,..",
+      "range": {
+        "startLine": 221,
+        "startChar": 2,
+        "endLine": 221,
+        "endChar": 59
+      },
+      "revId": "3fc20c8522545055d76968fb2a0f3aeeab11d8ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c8a1d69_2a72be4e",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 71
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-23T12:15:59Z",
+      "side": 1,
+      "message": "nit: add blank",
+      "revId": "3fc20c8522545055d76968fb2a0f3aeeab11d8ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbb8d583_f015ac0a",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 71
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-23T12:15:59Z",
+      "side": 1,
+      "message": "nit: remove blanks",
+      "revId": "3fc20c8522545055d76968fb2a0f3aeeab11d8ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91c2ee24_5dcf3b60",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 71
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-23T12:15:59Z",
+      "side": 1,
+      "message": "Is there a reason for this?",
+      "range": {
+        "startLine": 507,
+        "startChar": 54,
+        "endLine": 507,
+        "endChar": 65
+      },
+      "revId": "3fc20c8522545055d76968fb2a0f3aeeab11d8ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
