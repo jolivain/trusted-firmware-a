@@ -16,8 +16,7 @@ typedef int (*spm_idle_conduct_restore)(int state_id,
 int mt_spm_idle_generic_enter(int state_id, unsigned int ext_opand, spm_idle_conduct fn);
 
 void mt_spm_idle_generic_resume(int state_id, unsigned int ext_opand,
-				struct wake_status **status,
-				spm_idle_conduct_restore fn);
+				struct wake_status **status);
 
 void mt_spm_idle_generic_init(void);
 

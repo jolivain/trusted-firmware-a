@@ -232,7 +232,7 @@ int spm_reset_rc_bus26m(unsigned int cpu, int state_id)
 		mt_spm_suspend_resume(state_id, ext_op, NULL);
 		bus26m_ext_opand = 0U;
 	} else {
-		mt_spm_idle_generic_resume(state_id, ext_op, NULL, NULL);
+		mt_spm_idle_generic_resume(state_id, ext_op, NULL);
 		status.enter_cnt++;
 	}
 

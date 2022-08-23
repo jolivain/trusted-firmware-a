@@ -227,8 +227,7 @@ int mt_spm_idle_generic_enter(int state_id, unsigned int ext_opand,
 	return spm_conservation(state_id, ext_opand, &idle_spm_lp, src_req);
 }
 void mt_spm_idle_generic_resume(int state_id, unsigned int ext_opand,
-				struct wake_status **status,
-				spm_idle_conduct_restore fn)
+				struct wake_status **status)
 {
 	ext_opand |= (MT_SPM_EX_OP_TIME_CHECK | MT_SPM_EX_OP_TIME_OBS);
 	spm_conservation_finish(state_id, ext_opand, &idle_spm_lp, status);

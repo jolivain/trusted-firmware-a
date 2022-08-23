@@ -189,7 +189,7 @@ int spm_reset_rc_syspll(unsigned int cpu, int state_id)
 				       MT_SPM_EX_OP_HW_S1_DETECT),
 				      NULL);
 	} else {
-		mt_spm_idle_generic_resume(state_id, ext_op, NULL, NULL);
+		mt_spm_idle_generic_resume(state_id, ext_op, NULL);
 		status.enter_cnt++;
 	}
 

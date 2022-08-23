@@ -98,7 +98,7 @@ int spm_reset_rc_cpu_buck_ldo(unsigned int cpu, int state_id)
 	if (IS_PLAT_SUSPEND_ID(state_id)) {
 		mt_spm_suspend_resume(state_id, MT_SPM_EX_OP_SET_WDT, NULL);
 	} else {
-		mt_spm_idle_generic_resume(state_id, ext_op, NULL, NULL);
+		mt_spm_idle_generic_resume(state_id, ext_op, NULL);
 	}
 
 	return 0;
