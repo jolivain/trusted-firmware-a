@@ -47,6 +47,53 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc6ae207_cf2fb852",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 71
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-23T15:05:28Z",
+      "side": 1,
+      "message": "(sorry comment applies line 127)",
+      "parentUuid": "05e2406e_4ba2a01b",
+      "range": {
+        "startLine": 118,
+        "startChar": 1,
+        "endLine": 119,
+        "endChar": 40
+      },
+      "revId": "3fc20c8522545055d76968fb2a0f3aeeab11d8ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb84ebf1_46cc911e",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 71
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-23T15:05:28Z",
+      "side": 1,
+      "message": "Just curious should this be normally conveyed by a partition message?\nPerhaps the comment above can state this?",
+      "range": {
+        "startLine": 126,
+        "startChar": 1,
+        "endLine": 127,
+        "endChar": 58
+      },
+      "revId": "3fc20c8522545055d76968fb2a0f3aeeab11d8ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d84e3b5d_59b3b91e",
