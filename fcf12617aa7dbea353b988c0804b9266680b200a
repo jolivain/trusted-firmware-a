@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ea2466ab_0652bccd",
+        "filename": "include/lib/cpus/aarch64/cortex_a78c.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-08-23T23:12:22Z",
+      "side": 1,
+      "message": "nit: remove tab and align with other entries",
+      "range": {
+        "startLine": 19,
+        "startChar": 36,
+        "endLine": 19,
+        "endChar": 40
+      },
+      "revId": "fcf12617aa7dbea353b988c0804b9266680b200a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e05b0dd7_88fbd272",
         "filename": "include/lib/cpus/aarch64/cortex_a78c.h",
         "patchSetId": 5
@@ -19,6 +42,52 @@
         "startChar": 0,
         "endLine": 27,
         "endChar": 60
+      },
+      "revId": "fcf12617aa7dbea353b988c0804b9266680b200a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cb7f50a_2898a52e",
+        "filename": "lib/cpus/aarch64/cortex_a78c.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-08-23T23:12:22Z",
+      "side": 1,
+      "message": "Use tabs for instruction mnemonic to first operand for all lines applicable within this block. see line 145 as an e.g.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 28
+      },
+      "revId": "fcf12617aa7dbea353b988c0804b9266680b200a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "162df220_09f0eff7",
+        "filename": "lib/cpus/aarch64/cortex_a78c.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-08-23T23:12:22Z",
+      "side": 1,
+      "message": "Same as above",
+      "range": {
+        "startLine": 155,
+        "startChar": 1,
+        "endLine": 155,
+        "endChar": 7
       },
       "revId": "fcf12617aa7dbea353b988c0804b9266680b200a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
