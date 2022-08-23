@@ -90,6 +90,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "096c8b60_24fe4d7d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-08-23T08:44:01Z",
+      "side": 1,
+      "message": "I think many of the build options in TF-A related to RAS handling need to be changed for it to work well with SPMC. I would suggest that instead of retrofitting new behavior to HANDLE_EA_EL3_FIRST, it would be cleaner to deprecate that flag and introduce something new to fit with the Firmware First model envisaged with SPM.",
+      "parentUuid": "bc24f5f9_65e372cc",
+      "revId": "be88e8259a719dba07e4defab36b4db65f26ab68",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fcb31d51_5bb87efb",
