@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "476b0cbd_1a47d0a8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000511
+      },
+      "writtenOn": "2022-08-23T05:14:45Z",
+      "side": 1,
+      "message": "Will fix in next series",
+      "parentUuid": "c7dab89e_1d722e35",
+      "range": {
+        "startLine": 17,
+        "startChar": 21,
+        "endLine": 17,
+        "endChar": 22
+      },
+      "revId": "4d4bf6c8a97c70856eff92a8ba06d42e4151692e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78ed35e9_5a15453a",
         "filename": "drivers/arm/css/scp/css_pm_scmi.c",
         "patchSetId": 5
@@ -37,6 +61,24 @@
       "writtenOn": "2022-08-18T09:44:36Z",
       "side": 1,
       "message": "At this stage, it\u0027s not guaranteed secondary cores reached wfi.",
+      "revId": "4d4bf6c8a97c70856eff92a8ba06d42e4151692e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d275db04_a947fbd7",
+        "filename": "drivers/arm/css/scp/css_pm_scmi.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1000511
+      },
+      "writtenOn": "2022-08-23T05:14:45Z",
+      "side": 1,
+      "message": "Currently that overhead is given to the power controller (SCP), because the secondary cores powers down after executing the WFI and can\u0027t send a response back.\n\nPlease let me know if there are any other ways for the primary core to get confirmation on secondary cores has executed the WFI.",
+      "parentUuid": "78ed35e9_5a15453a",
       "revId": "4d4bf6c8a97c70856eff92a8ba06d42e4151692e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -58,6 +100,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7336ad77_0aeea483",
+        "filename": "plat/arm/css/common/css_common.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000511
+      },
+      "writtenOn": "2022-08-23T05:14:45Z",
+      "side": 1,
+      "message": "In https://github.com/ARM-software/arm-trusted-firmware/blob/master/lib/psci/psci_common.c#L1013 there is an mdelay used in psci_stop_other_cores() function, and which was resulting in a build error. Adding this to prevent build error.\n\nError logs for reference:\n\n/home/pramad01/workspace/rd-upstream/tools/gcc/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-ld: /data_sda/workspace/rd-upstream/arm-tf/build/rdn2/debug/bl31/psci_common.o: in function `psci_stop_other_cores\u0027:\n/home/pramad01/workspace/rd-upstream/arm-tf/lib/psci/psci_common.c:1013: undefined reference to `mdelay\u0027\n/home/pramad01/workspace/rd-upstream/arm-tf/lib/psci/psci_common.c:1013:(.text.psci_stop_other_cores+0x9c): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `mdelay\u0027\nmake: *** [Makefile:1306: /data_sda/workspace/rd-upstream/arm-tf/build/rdn2/debug/bl31/bl31.elf] Error 1\nmake: *** Waiting for unfinished jobs....",
+      "parentUuid": "0363a3cb_5e6aacab",
+      "revId": "4d4bf6c8a97c70856eff92a8ba06d42e4151692e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1169095_c654fa0a",
@@ -71,6 +131,24 @@
       "writtenOn": "2022-08-18T09:44:36Z",
       "side": 1,
       "message": "why is this required?",
+      "revId": "4d4bf6c8a97c70856eff92a8ba06d42e4151692e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17346930_b6792a55",
+        "filename": "plat/arm/css/common/sp_min/css_sp_min.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000511
+      },
+      "writtenOn": "2022-08-23T05:14:45Z",
+      "side": 1,
+      "message": "Same as above",
+      "parentUuid": "a1169095_c654fa0a",
       "revId": "4d4bf6c8a97c70856eff92a8ba06d42e4151692e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
