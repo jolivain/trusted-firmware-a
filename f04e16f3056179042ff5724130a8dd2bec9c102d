@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6ce0bc2b_e160ea0e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-08-23T09:55:27Z",
+      "side": 1,
+      "message": "Thanks, and just for the records: \"On a Linux based system, it is observed ...\" is not a valid rationale. First, there are many more non-secure OSes or users other than Linux, and secondly that is just the implementation of the current version of the kernel, which could change at any time. What\u0027s authoritative is the PSCI spec here, and that doesn\u0027t require RESET or RESET2 to be issued from the \"primary\" core (whatever that is).",
+      "parentUuid": "538bd2bd_7b3c68f1",
+      "revId": "f04e16f3056179042ff5724130a8dd2bec9c102d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a820d499_49981e7f",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
@@ -113,6 +131,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dbdc5be4_11a1651e",
+        "filename": "plat/arm/css/common/css_pm.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-08-23T09:55:27Z",
+      "side": 1,
+      "message": "So have you checked which barriers are really needed? There should be documents and implementations out there which give some hints. Barriers are really tricky, and I would like to see some rationale as comments, so this can be reasoned on and potentially fixed later on. Just me saying it *should* not be needed doesn\u0027t mean anything, really ;-)",
+      "parentUuid": "d7d5e4fd_a1ba48cd",
+      "revId": "f04e16f3056179042ff5724130a8dd2bec9c102d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d4a95db_b420a052",
         "filename": "plat/arm/css/common/css_pm.c",
         "patchSetId": 5
@@ -142,6 +178,24 @@
       "side": 1,
       "message": "Currently primary core is not ensuring secondary cores has reached here. The primary core issues SCMI command to the power controller (SCP in this case), which can ensure the secondary cores has reached this point by reading the PPU PWSR register.",
       "parentUuid": "9d4a95db_b420a052",
+      "revId": "f04e16f3056179042ff5724130a8dd2bec9c102d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5821e0e2_70663a3d",
+        "filename": "plat/arm/css/common/css_pm.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-08-23T09:55:27Z",
+      "side": 1,
+      "message": "Yes, I think this is the common approach: the SCP (or another power management agent) waits for all the required cores to have entered the WFI state, which is signalled through a line from each core. Typically this is reflected in a SoC specific MMIO register, so can be read from the \"outside\". This means we get the required synchronisation through hardware.",
+      "parentUuid": "f7239d50_f6304999",
       "revId": "f04e16f3056179042ff5724130a8dd2bec9c102d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
