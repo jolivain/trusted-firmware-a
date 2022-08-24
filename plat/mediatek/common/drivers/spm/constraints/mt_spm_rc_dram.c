@@ -1,62 +1,38 @@
 /*
- * Copyright (c) 2020, MediaTek Inc. All rights reserved.
+ * Copyright (c) 2022, MediaTek Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <arch_helpers.h>
 #include <common/debug.h>
-
 #include <mt_lp_rm.h>
 #include <mt_spm.h>
 #include <mt_spm_cond.h>
-#include <mt_spm_constraint.h>
 #include <mt_spm_conservation.h>
+#include <mt_spm_constraint.h>
 #include <mt_spm_idle.h>
 #include <mt_spm_internal.h>
 #include <mt_spm_notifier.h>
-#include <mt_spm_resource_req.h>
-#include <mt_spm_reg.h>
+#include <mt_spm_rc_dram_priv.h>
 #include <mt_spm_rc_internal.h>
+#include <mt_spm_reg.h>
+#include <mt_spm_resource_req.h>
 #include <mt_spm_suspend.h>
-#include <plat_pm.h>
 #include <plat_mtk_lpm.h>
+#include <plat_pm.h>
 
 #define CONSTRAINT_DRAM_ALLOW			\
 	(MT_RM_CONSTRAINT_ALLOW_DRAM_S0	|	\
 	 MT_RM_CONSTRAINT_ALLOW_DRAM_S1 |	\
 	 MT_RM_CONSTRAINT_ALLOW_CPU_BUCK_OFF)
 
-#define CONSTRAINT_DRAM_PCM_FLAG		\
-	(SPM_FLAG_DISABLE_INFRA_PDN |		\
-	 SPM_FLAG_DISABLE_VCORE_DVS |		\
-	 SPM_FLAG_DISABLE_VCORE_DFS |		\
-	 SPM_FLAG_SRAM_SLEEP_CTRL |		\
-	 SPM_FLAG_KEEP_CSYSPWRACK_HIGH)
+#define CONSTRAINT_DRAM_PCM_FLAG1	(0U)
 
-#define CONSTRAINT_DRAM_PCM_FLAG1		0U
-
-#define CONSTRAINT_DRAM_RESOURCE_REQ		\
-	(MT_SPM_SYSPLL |			\
-	 MT_SPM_INFRA |				\
+#define CONSTRAINT_DRAM_RESOURCE_REQ	\
+	(MT_SPM_SYSPLL |		\
+	 MT_SPM_INFRA |			\
 	 MT_SPM_26M)
-
-static struct mt_spm_cond_tables cond_dram = {
-	.name = "dram",
-	.table_cg = {
-		0x078BF1FC,	/* MTCMOS1 */
-		0x080D8856,	/* INFRA0  */
-		0x03AF9A00,	/* INFRA1  */
-		0x86000640,	/* INFRA2  */
-		0xC800C000,	/* INFRA3  */
-		0x00000000,     /* INFRA4  */
-		0x00000000,     /* INFRA5  */
-		0x200C0000,	/* MMSYS0  */
-		0x00000000,     /* MMSYS1  */
-		0x00000000,	/* MMSYS2  */
-	},
-	.table_pll = 0U,
-};
 
 static struct mt_spm_cond_tables cond_dram_res = {
 	.table_cg = { 0U },
@@ -86,7 +62,7 @@ bool spm_is_valid_rc_dram(unsigned int cpu, int state_id)
 	(void)cpu;
 	(void)state_id;
 
-	return (status.cond_block == 0U) && IS_MT_RM_RC_READY(status.valid);
+	return ((status.cond_block == 0U) && IS_MT_RM_RC_READY(status.valid));
 }
 
 int spm_update_rc_dram(int state_id, int type, const void *val)
@@ -96,17 +72,15 @@ int spm_update_rc_dram(int state_id, int type, const void *val)
 	int res = MT_RM_STATUS_OK;
 
 	if (val == NULL) {
-		return MT_RM_STATUS_BAD;
-	}
-
-	if (type == PLAT_RC_UPDATE_CONDITION) {
+		res = MT_RM_STATUS_BAD;
+	} else if (type == PLAT_RC_UPDATE_CONDITION) {
 		tlb = (const struct mt_spm_cond_tables *)val;
 		tlb_check = (const struct mt_spm_cond_tables *)&cond_dram;
 		status.cond_block =
 			mt_spm_cond_check(state_id, tlb, tlb_check,
 					  ((status.valid &
 					    MT_SPM_RC_VALID_COND_LATCH) != 0U) ?
-					  &cond_dram_res : NULL);
+					  (&cond_dram_res) : (NULL));
 	} else {
 		res = MT_RM_STATUS_BAD;
 	}
@@ -139,15 +113,14 @@ int spm_run_rc_dram(unsigned int cpu, int state_id)
 #ifndef ATF_PLAT_SPM_SSPM_NOTIFIER_UNSUPPORT
 	mt_spm_sspm_notify_u32(MT_SPM_NOTIFY_LP_ENTER, allows |
 			       (IS_PLAT_SUSPEND_ID(state_id) ?
-				MT_RM_CONSTRAINT_ALLOW_AP_SUSPEND : 0U));
+			       (MT_RM_CONSTRAINT_ALLOW_AP_SUSPEND) : (0U)));
 #else
 	(void)allows;
 #endif
 
 	if (IS_PLAT_SUSPEND_ID(state_id)) {
 		mt_spm_suspend_enter(state_id,
-				     (MT_SPM_EX_OP_SET_WDT |
-				      MT_SPM_EX_OP_HW_S1_DETECT),
+				     CONSTRAINT_DRAM_RESOURCE_EXT_OPAND,
 				     CONSTRAINT_DRAM_RESOURCE_REQ);
 	} else {
 		mt_spm_idle_generic_enter(state_id, ext_op, spm_dram_conduct);
@@ -176,7 +149,6 @@ int spm_reset_rc_dram(unsigned int cpu, int state_id)
 #else
 	(void)allows;
 #endif
-
 	if (IS_PLAT_SUSPEND_ID(state_id)) {
 		mt_spm_suspend_resume(state_id,
 				      (MT_SPM_EX_OP_SET_WDT |
