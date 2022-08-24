@@ -14,18 +14,12 @@
 #include <mt_spm_internal.h>
 #include <mt_spm_notifier.h>
 #include <mt_spm_rc_internal.h>
+#include <mt_spm_rc_cpu_buck_ldo_priv.h>
 #include <mt_spm_reg.h>
 #include <mt_spm_resource_req.h>
 #include <mt_spm_suspend.h>
 #include <plat_mtk_lpm.h>
 #include <plat_pm.h>
-
-#define CONSTRAINT_CPU_BUCK_PCM_FLAG	\
-	(SPM_FLAG_DISABLE_INFRA_PDN |	\
-	 SPM_FLAG_DISABLE_VCORE_DVS |	\
-	 SPM_FLAG_DISABLE_VCORE_DFS |	\
-	 SPM_FLAG_SRAM_SLEEP_CTRL |	\
-	 SPM_FLAG_KEEP_CSYSPWRACK_HIGH)
 
 #define CONSTRAINT_CPU_BUCK_PCM_FLAG1	(0U)
 
@@ -41,7 +35,7 @@ static unsigned int cpubuckldo_status = MT_SPM_RC_VALID_SW;
 static unsigned int cpubuckldo_enter_cnt;
 
 static void spm_cpu_bcuk_ldo_conduct(struct spm_lp_scen *spm_lp,
-				unsigned int *resource_req)
+				     unsigned int *resource_req)
 {
 	spm_lp->pwrctrl->pcm_flags = (uint32_t)CONSTRAINT_CPU_BUCK_PCM_FLAG;
 	spm_lp->pwrctrl->pcm_flags1 = (uint32_t)CONSTRAINT_CPU_BUCK_PCM_FLAG1;

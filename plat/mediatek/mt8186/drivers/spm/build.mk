@@ -31,8 +31,8 @@ PLAT_SPM_SOURCE_FILES_COMMON +=				\
 # spm platform dependcy files
 PLAT_SPM_SOURCE_FILES +=					\
 	${SPM_COMMON_FOLDER}/constraints/mt_spm_rc_syspll.c	\
+	${SPM_COMMON_FOLDER}/constraints/mt_spm_rc_cpu_buck_ldo.c	\
 	${CUR_SPM_FOLDER}/constraints/mt_spm_rc_bus26m.c	\
-	${CUR_SPM_FOLDER}/constraints/mt_spm_rc_cpu_buck_ldo.c	\
 	${CUR_SPM_FOLDER}/constraints/mt_spm_rc_dram.c		\
 	${CUR_SPM_FOLDER}/mt_spm_cond.c				\
 	${CUR_SPM_FOLDER}/mt_spm_suspend.c			\
