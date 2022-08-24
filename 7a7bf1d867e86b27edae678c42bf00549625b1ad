@@ -22,6 +22,23 @@
       },
       "revId": "7a7bf1d867e86b27edae678c42bf00549625b1ad",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "161620ca_c009ecfe",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-08-24T14:03:05Z",
+      "side": 1,
+      "message": "Need an intermediate gpc write here with all the barriers prior to GPC enable is set:\nwrite_gpccr_el3(gpccr_el3);\nisb();\ntlbipaallos();\ndsb();\nisb();",
+      "revId": "7a7bf1d867e86b27edae678c42bf00549625b1ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
