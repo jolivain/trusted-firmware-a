@@ -26,11 +26,4 @@
 #define MT_SPM_SSPM_INTC3_HIGH	MT_SPM_SSPM_INTC_TRIGGER(3, 1)
 #define MT_SPM_SSPM_INTC3_LOW	MT_SPM_SSPM_INTC_TRIGGER(3, 0)
 
-/*
- * mt8186 use cpc pbi as notify.
- * Therefore, it won't need be notified by spm driver.
- */
-#define DO_SPM_SSPM_LP_SUSPEND()
-#define DO_SPM_SSPM_LP_RESUME()
-
 #endif /* MT_SPM_SSPM_INTC_H */

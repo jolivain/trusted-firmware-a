@@ -19,6 +19,13 @@
 #define SSPM_MBOX_SPM_LP1		MT_SPM_MBOX(2)
 #define SSPM_MBOX_SPM_LP2		MT_SPM_MBOX(3)
 
+/*
+ * mt8186 use cpc pbi as notify.
+ * Therefore, it won't need be notified by spm driver.
+ */
+#define DO_SPM_SSPM_LP_SUSPEND()
+#define DO_SPM_SSPM_LP_RESUME()
+
 int mt_spm_sspm_notify(int type, unsigned int lp_mode)
 {
 	switch (type) {

@@ -19,6 +19,11 @@
 #define SSPM_MBOX_SPM_LP1		MT_SPM_MBOX(2)
 #define SSPM_MBOX_SPM_LP2		MT_SPM_MBOX(3)
 
+#define DO_SPM_SSPM_LP_SUSPEND()	\
+	mmio_write_32(SPM_MD32_IRQ, MT_SPM_SSPM_INTC0_HIGH)
+#define DO_SPM_SSPM_LP_RESUME()		\
+	mmio_write_32(SPM_MD32_IRQ, MT_SPM_SSPM_INTC0_LOW)
+
 int mt_spm_sspm_notify(int type, unsigned int lp_mode)
 {
 	switch (type) {
