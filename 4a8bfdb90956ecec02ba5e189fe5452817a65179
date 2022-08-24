@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43d22ab2_52d2a1a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 77
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-24T14:21:07Z",
+      "side": 1,
+      "message": "CI failed because because missing coverity check for following files\nbl32/tsp/tsp_common.c\nbl32/tsp/tsp_ffa_main.c\n\nThis will be covered by https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/16194\nwhen all changes from current patch stack are merged.",
+      "revId": "4a8bfdb90956ecec02ba5e189fe5452817a65179",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
