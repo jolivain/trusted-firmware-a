@@ -54,6 +54,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f3c4cb3_6aa61182",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000511
+      },
+      "writtenOn": "2022-08-24T05:19:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ce0bc2b_e160ea0e",
+      "revId": "f04e16f3056179042ff5724130a8dd2bec9c102d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a820d499_49981e7f",
@@ -67,6 +85,30 @@
       "writtenOn": "2022-08-18T09:51:11Z",
       "side": 1,
       "message": "nit: remove one space",
+      "range": {
+        "startLine": 16,
+        "startChar": 21,
+        "endLine": 16,
+        "endChar": 22
+      },
+      "revId": "f04e16f3056179042ff5724130a8dd2bec9c102d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "275ce72b_c55179e8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000511
+      },
+      "writtenOn": "2022-08-24T05:19:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a820d499_49981e7f",
       "range": {
         "startLine": 16,
         "startChar": 21,
@@ -147,6 +189,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae833919_746a1117",
+        "filename": "plat/arm/css/common/css_pm.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1000511
+      },
+      "writtenOn": "2022-08-24T05:19:53Z",
+      "side": 1,
+      "message": "Yes, only DSB is required to ensure all other instructions are executed before executing WFI.",
+      "parentUuid": "dbdc5be4_11a1651e",
+      "revId": "f04e16f3056179042ff5724130a8dd2bec9c102d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d4a95db_b420a052",
@@ -196,6 +256,24 @@
       "side": 1,
       "message": "Yes, I think this is the common approach: the SCP (or another power management agent) waits for all the required cores to have entered the WFI state, which is signalled through a line from each core. Typically this is reflected in a SoC specific MMIO register, so can be read from the \"outside\". This means we get the required synchronisation through hardware.",
       "parentUuid": "f7239d50_f6304999",
+      "revId": "f04e16f3056179042ff5724130a8dd2bec9c102d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82650d5e_cc09594d",
+        "filename": "plat/arm/css/common/css_pm.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000511
+      },
+      "writtenOn": "2022-08-24T05:19:53Z",
+      "side": 1,
+      "message": "I think this comment can be marked resolved.",
+      "parentUuid": "5821e0e2_70663a3d",
       "revId": "f04e16f3056179042ff5724130a8dd2bec9c102d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
