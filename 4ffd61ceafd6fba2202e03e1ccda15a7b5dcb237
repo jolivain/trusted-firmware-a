@@ -110,6 +110,30 @@
       },
       "revId": "4ffd61ceafd6fba2202e03e1ccda15a7b5dcb237",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e1c120c_b5b4f205",
+        "filename": "plat/arm/css/sgi/sgi_bl31_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000511
+      },
+      "writtenOn": "2022-08-24T11:57:02Z",
+      "side": 1,
+      "message": "Sorry, I missed this comment. It is not required, as the function css_setup_cpu_pwr_down_intr() (line 113) already has this guarding.",
+      "parentUuid": "fc658e5e_f1368cbb",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 25
+      },
+      "revId": "4ffd61ceafd6fba2202e03e1ccda15a7b5dcb237",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
