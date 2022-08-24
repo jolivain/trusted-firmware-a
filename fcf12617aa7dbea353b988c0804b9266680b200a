@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "502a287f_a0f48c0b",
+        "filename": "include/lib/cpus/aarch64/cortex_a78c.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000828
+      },
+      "writtenOn": "2022-08-24T14:14:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea2466ab_0652bccd",
+      "range": {
+        "startLine": 19,
+        "startChar": 36,
+        "endLine": 19,
+        "endChar": 40
+      },
+      "revId": "fcf12617aa7dbea353b988c0804b9266680b200a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e05b0dd7_88fbd272",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-08-23T21:27:54Z",
       "side": 1,
       "message": "I know it\u0027s not related to this patch, but would you mind renaming these to CORTEX_A78C_CPUECTLR_EL1_BIT_6 and CORTEX_A78C_CPUECTLR_EL1_BIT_7 respectively for consistency with other architectures and errata?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 60
+      },
+      "revId": "fcf12617aa7dbea353b988c0804b9266680b200a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "964e0e78_3e19198e",
+        "filename": "include/lib/cpus/aarch64/cortex_a78c.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000828
+      },
+      "writtenOn": "2022-08-24T14:14:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e05b0dd7_88fbd272",
       "range": {
         "startLine": 26,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "feac9d99_604bed87",
+        "filename": "lib/cpus/aarch64/cortex_a78c.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000828
+      },
+      "writtenOn": "2022-08-24T14:14:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cb7f50a_2898a52e",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 28
+      },
+      "revId": "fcf12617aa7dbea353b988c0804b9266680b200a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "162df220_09f0eff7",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-08-23T23:12:22Z",
       "side": 1,
       "message": "Same as above",
+      "range": {
+        "startLine": 155,
+        "startChar": 1,
+        "endLine": 155,
+        "endChar": 7
+      },
+      "revId": "fcf12617aa7dbea353b988c0804b9266680b200a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e89348b9_4b51c893",
+        "filename": "lib/cpus/aarch64/cortex_a78c.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000828
+      },
+      "writtenOn": "2022-08-24T14:14:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "162df220_09f0eff7",
       "range": {
         "startLine": 155,
         "startChar": 1,
