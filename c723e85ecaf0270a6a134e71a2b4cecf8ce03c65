@@ -52,6 +52,24 @@
       "parentUuid": "a7fb5546_be18f261",
       "revId": "c723e85ecaf0270a6a134e71a2b4cecf8ce03c65",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adc654e3_26b8f201",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2022-08-25T05:57:45Z",
+      "side": 1,
+      "message": "Sorry I am not following your description in the first paragraph. \n\nAlso can\u0027t see any reaction why PLM is not providing proper address for TEE. When PLM loads that SW it has to update that handoff structure. It means your tee-raw.bin should be placed to selected address and bl32_image_ep_info.pc already filled. If it is not the case then PLM has a bug which should be fixed.\n\nAnd regarding security concern. You use secure boot for booting system without BL32. You get to OS. You find a way how to write your SW to 0x60000000 and you do soft reboot. Then your SW will be automatically pick up from that address and run as secure OS.",
+      "parentUuid": "2e691802_fb36d4ea",
+      "revId": "c723e85ecaf0270a6a134e71a2b4cecf8ce03c65",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
