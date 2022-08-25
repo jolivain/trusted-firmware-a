@@ -523,7 +523,7 @@ static uint64_t ffa_error_handler(uint32_t smc_fid,
 	 * otherwise this is an invalid call.
 	 */
 	if (sp->ec[idx].rt_model == RT_MODEL_INIT) {
-		ERROR("SP 0x%x failed to initialize.\n", sp->sp_id);
+		VERBOSE("SP 0x%x failed to initialize.\n", sp->sp_id);
 		spmc_sp_synchronous_exit(&sp->ec[idx], x2);
 		/* Should not get here. */
 		panic();
@@ -610,21 +610,21 @@ static uint64_t rxtx_map_handler(uint32_t smc_fid,
 	 * ABI on behalf of a VM and reject it if this is the case.
 	 */
 	if (tx_address == 0 || rx_address == 0) {
-		WARN("Mapping RX/TX Buffers on behalf of VM not supported.\n");
+		VERBOSE("Mapping RX/TX Buffers on behalf of VM not supported.\n");
 		return spmc_ffa_error_return(handle,
 					     FFA_ERROR_INVALID_PARAMETER);
 	}
 
 	/* Ensure the specified buffers are not the same. */
 	if (tx_address == rx_address) {
-		WARN("TX Buffer must not be the same as RX Buffer.\n");
+		VERBOSE("TX Buffer must not be the same as RX Buffer.\n");
 		return spmc_ffa_error_return(handle,
 					     FFA_ERROR_INVALID_PARAMETER);
 	}
 
 	/* Ensure the buffer size is not 0. */
 	if (buf_size == 0U) {
-		WARN("Buffer size must not be 0\n");
+		VERBOSE("Buffer size must not be 0\n");
 		return spmc_ffa_error_return(handle,
 					     FFA_ERROR_INVALID_PARAMETER);
 	}
@@ -634,7 +634,7 @@ static uint64_t rxtx_map_handler(uint32_t smc_fid,
 	 * in TF-A.
 	 */
 	if (buf_size % PAGE_SIZE != 0U) {
-		WARN("Buffer size must be aligned to translation granule.\n");
+		VERBOSE("Buffer size must be aligned to translation granule.\n");
 		return spmc_ffa_error_return(handle,
 					     FFA_ERROR_INVALID_PARAMETER);
 	}
@@ -646,7 +646,7 @@ static uint64_t rxtx_map_handler(uint32_t smc_fid,
 
 	/* Check if buffers have already been mapped. */
 	if (mbox->rx_buffer != 0 || mbox->tx_buffer != 0) {
-		WARN("RX/TX Buffers already mapped (%p/%p)\n",
+		VERBOSE("RX/TX Buffers already mapped (%p/%p)\n",
 		     (void *) mbox->rx_buffer, (void *)mbox->tx_buffer);
 		error_code = FFA_ERROR_DENIED;
 		goto err;
@@ -661,7 +661,7 @@ static uint64_t rxtx_map_handler(uint32_t smc_fid,
 		/* Return the correct error code. */
 		error_code = (ret == -ENOMEM) ? FFA_ERROR_NO_MEMORY :
 						FFA_ERROR_INVALID_PARAMETER;
-		WARN("Unable to map TX buffer: %d\n", error_code);
+		VERBOSE("Unable to map TX buffer: %d\n", error_code);
 		goto err;
 	}
 
@@ -674,7 +674,7 @@ static uint64_t rxtx_map_handler(uint32_t smc_fid,
 	if (ret != 0) {
 		error_code = (ret == -ENOMEM) ? FFA_ERROR_NO_MEMORY :
 						FFA_ERROR_INVALID_PARAMETER;
-		WARN("Unable to map RX buffer: %d\n", error_code);
+		VERBOSE("Unable to map RX buffer: %d\n", error_code);
 		/* Unmap the TX buffer again. */
 		mmap_remove_dynamic_region(tx_address, buf_size);
 		goto err;
@@ -727,7 +727,7 @@ static uint64_t rxtx_unmap_handler(uint32_t smc_fid,
 	/* Unmap RX Buffer */
 	if (mmap_remove_dynamic_region((uintptr_t) mbox->rx_buffer,
 				       buf_size) != 0) {
-		WARN("Unable to unmap RX buffer!\n");
+		VERBOSE("Unable to unmap RX buffer!\n");
 	}
 
 	mbox->rx_buffer = 0;
@@ -735,7 +735,7 @@ static uint64_t rxtx_unmap_handler(uint32_t smc_fid,
 	/* Unmap TX Buffer */
 	if (mmap_remove_dynamic_region((uintptr_t) mbox->tx_buffer,
 				       buf_size) != 0) {
-		WARN("Unable to unmap TX buffer!\n");
+		VERBOSE("Unable to unmap TX buffer!\n");
 	}
 
 	mbox->tx_buffer = 0;
@@ -1205,21 +1205,21 @@ static uint64_t ffa_run_handler(uint32_t smc_fid,
 
 	/* Can only be called from the normal world. */
 	if (secure_origin) {
-		ERROR("FFA_RUN can only be called from NWd.\n");
+		VERBOSE("FFA_RUN can only be called from NWd.\n");
 		return spmc_ffa_error_return(handle,
 					     FFA_ERROR_INVALID_PARAMETER);
 	}
 
 	/* Cannot run a Normal world partition. */
 	if (ffa_is_normal_world_id(target_id)) {
-		ERROR("Cannot run a NWd partition (0x%x).\n", target_id);
+		VERBOSE("Cannot run a NWd partition (0x%x).\n", target_id);
 		return spmc_ffa_error_return(handle,
 					     FFA_ERROR_INVALID_PARAMETER);
 	}
 
 	/* Check that the target SP exists. */
 	sp = spmc_get_sp_ctx(target_id);
-		ERROR("Unknown partition ID (0x%x).\n", target_id);
+		VERBOSE("Unknown partition ID (0x%x).\n", target_id);
 	if (sp == NULL) {
 		return spmc_ffa_error_return(handle,
 					     FFA_ERROR_INVALID_PARAMETER);
@@ -1227,14 +1227,14 @@ static uint64_t ffa_run_handler(uint32_t smc_fid,
 
 	idx = get_ec_index(sp);
 	if (idx != vcpu_id) {
-		ERROR("Cannot run vcpu %d != %d.\n", idx, vcpu_id);
+		VERBOSE("Cannot run vcpu %d != %d.\n", idx, vcpu_id);
 		return spmc_ffa_error_return(handle,
 					     FFA_ERROR_INVALID_PARAMETER);
 	}
 	rt_state = &((sp->ec[idx]).rt_state);
 	rt_model = &((sp->ec[idx]).rt_model);
 	if (*rt_state == RT_STATE_RUNNING) {
-		ERROR("Partition (0x%x) is already running.\n", target_id);
+		VERBOSE("Partition (0x%x) is already running.\n", target_id);
 		return spmc_ffa_error_return(handle, FFA_ERROR_BUSY);
 	}
 
@@ -1342,35 +1342,35 @@ static uint64_t ffa_sec_ep_register_handler(uint32_t smc_fid,
 
 	/* This request cannot originate from the Normal world. */
 	if (!secure_origin) {
-		WARN("%s: Can only be called from SWd.\n", __func__);
+		VERBOSE("%s: Can only be called from SWd.\n", __func__);
 		return spmc_ffa_error_return(handle, FFA_ERROR_NOT_SUPPORTED);
 	}
 
 	/* Get the context of the current SP. */
 	sp = spmc_get_current_sp_ctx();
 	if (sp == NULL) {
-		WARN("%s: Cannot find SP context.\n", __func__);
+		VERBOSE("%s: Cannot find SP context.\n", __func__);
 		return spmc_ffa_error_return(handle,
 					     FFA_ERROR_INVALID_PARAMETER);
 	}
 
 	/* Only an S-EL1 SP should be invoking this ABI. */
 	if (sp->runtime_el != S_EL1) {
-		WARN("%s: Can only be called for a S-EL1 SP.\n", __func__);
+		VERBOSE("%s: Can only be called for a S-EL1 SP.\n", __func__);
 		return spmc_ffa_error_return(handle, FFA_ERROR_DENIED);
 	}
 
 	/* Ensure the SP is in its initialization state. */
 	sp_ctx = spmc_get_sp_ec(sp);
 	if (sp_ctx->rt_model != RT_MODEL_INIT) {
-		WARN("%s: Can only be called during SP initialization.\n",
+		VERBOSE("%s: Can only be called during SP initialization.\n",
 		     __func__);
 		return spmc_ffa_error_return(handle, FFA_ERROR_DENIED);
 	}
 
 	/* Perform initial validation of the secondary entry point. */
 	if (validate_secondary_ep(x1, sp)) {
-		WARN("%s: Invalid entry point provided (0x%lx).\n",
+		VERBOSE("%s: Invalid entry point provided (0x%lx).\n",
 		     __func__, x1);
 		return spmc_ffa_error_return(handle,
 					     FFA_ERROR_INVALID_PARAMETER);
@@ -1406,20 +1406,20 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 	 */
 	node = fdt_path_offset(sp_manifest, "/");
 	if (node < 0) {
-		ERROR("Did not find root node.\n");
+		VERBOSE("Did not find root node.\n");
 		return node;
 	}
 
 	ret = fdt_read_uint32_array(sp_manifest, node, "uuid",
 				    ARRAY_SIZE(sp->uuid), sp->uuid);
 	if (ret != 0) {
-		ERROR("Missing Secure Partition UUID.\n");
+		VERBOSE("Missing Secure Partition UUID.\n");
 		return ret;
 	}
 
 	ret = fdt_read_uint32(sp_manifest, node, "exception-level", &config_32);
 	if (ret != 0) {
-		ERROR("Missing SP Exception Level information.\n");
+		VERBOSE("Missing SP Exception Level information.\n");
 		return ret;
 	}
 
@@ -1427,7 +1427,7 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 
 	ret = fdt_read_uint32(sp_manifest, node, "ffa-version", &config_32);
 	if (ret != 0) {
-		ERROR("Missing Secure Partition FF-A Version.\n");
+		VERBOSE("Missing Secure Partition FF-A Version.\n");
 		return ret;
 	}
 
@@ -1435,7 +1435,7 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 
 	ret = fdt_read_uint32(sp_manifest, node, "execution-state", &config_32);
 	if (ret != 0) {
-		ERROR("Missing Secure Partition Execution State.\n");
+		VERBOSE("Missing Secure Partition Execution State.\n");
 		return ret;
 	}
 
@@ -1444,14 +1444,14 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 	ret = fdt_read_uint32(sp_manifest, node,
 			      "messaging-method", &config_32);
 	if (ret != 0) {
-		ERROR("Missing Secure Partition messaging method.\n");
+		VERBOSE("Missing Secure Partition messaging method.\n");
 		return ret;
 	}
 
 	/* Validate this entry, we currently only support direct messaging. */
 	if ((config_32 & ~(FFA_PARTITION_DIRECT_REQ_RECV |
 			  FFA_PARTITION_DIRECT_REQ_SEND)) != 0U) {
-		WARN("Invalid Secure Partition messaging method (0x%x)\n",
+		VERBOSE("Invalid Secure Partition messaging method (0x%x)\n",
 		     config_32);
 		return -EINVAL;
 	}
@@ -1462,7 +1462,7 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 			      "execution-ctx-count", &config_32);
 
 	if (ret != 0) {
-		ERROR("Missing SP Execution Context Count.\n");
+		VERBOSE("Missing SP Execution Context Count.\n");
 		return ret;
 	}
 
@@ -1472,7 +1472,7 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 	 * we don't need to save it here, just validate.
 	 */
 	if (config_32 != PLATFORM_CORE_COUNT) {
-		ERROR("SP Execution Context Count (%u) must be %u.\n",
+		VERBOSE("SP Execution Context Count (%u) must be %u.\n",
 			config_32, PLATFORM_CORE_COUNT);
 		return -EINVAL;
 	}
@@ -1483,10 +1483,10 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 	 */
 	ret = fdt_read_uint32(sp_manifest, node, "id", &config_32);
 	if (ret != 0) {
-		WARN("Missing Secure Partition ID.\n");
+		VERBOSE("Missing Secure Partition ID.\n");
 	} else {
 		if (!is_ffa_secure_id_valid(config_32)) {
-			ERROR("Invalid Secure Partition ID (0x%x).\n",
+			VERBOSE("Invalid Secure Partition ID (0x%x).\n",
 			      config_32);
 			return -EINVAL;
 		}
@@ -1496,7 +1496,7 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 	ret = fdt_read_uint32(sp_manifest, node,
 			      "power-management-messages", &config_32);
 	if (ret != 0) {
-		WARN("Missing Power Management Messages entry.\n");
+		VERBOSE("Missing Power Management Messages entry.\n");
 	} else {
 		/*
 		 * Ensure only the currently supported power messages have
@@ -1505,7 +1505,7 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 		if (config_32 & ~(FFA_PM_MSG_SUB_CPU_OFF |
 				  FFA_PM_MSG_SUB_CPU_SUSPEND |
 				  FFA_PM_MSG_SUB_CPU_SUSPEND_RESUME)) {
-			ERROR("Requested unsupported PM messages (%x)\n",
+			VERBOSE("Requested unsupported PM messages (%x)\n",
 			      config_32);
 			return -EINVAL;
 		}
@@ -1515,13 +1515,13 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 	ret = fdt_read_uint32(sp_manifest, node,
 			      "gp-register-num", &config_32);
 	if (ret != 0) {
-		WARN("Missing boot information register.\n");
+		VERBOSE("Missing boot information register.\n");
 	} else {
 		/* Check if a register number between 0-3 is specified. */
 		if (config_32 < 4) {
 			*boot_info_reg = config_32;
 		} else {
-			WARN("Incorrect boot information register (%u).\n",
+			VERBOSE("Incorrect boot information register (%u).\n",
 			     config_32);
 		}
 	}
@@ -1546,13 +1546,13 @@ static int find_and_prepare_sp_context(void)
 
 	next_image_ep_info = bl31_plat_get_next_image_ep_info(SECURE);
 	if (next_image_ep_info == NULL) {
-		WARN("No Secure Partition image provided by BL2.\n");
+		VERBOSE("No Secure Partition image provided by BL2.\n");
 		return -ENOENT;
 	}
 
 	sp_manifest = (void *)next_image_ep_info->args.arg0;
 	if (sp_manifest == NULL) {
-		WARN("Secure Partition manifest absent.\n");
+		VERBOSE("Secure Partition manifest absent.\n");
 		return -ENOENT;
 	}
 
@@ -1571,14 +1571,14 @@ static int find_and_prepare_sp_context(void)
 				      PAGE_SIZE * 2,
 				      MT_RO_DATA);
 	if (ret != 0) {
-		ERROR("Error while mapping SP manifest (%d).\n", ret);
+		VERBOSE("Error while mapping SP manifest (%d).\n", ret);
 		return ret;
 	}
 
 	ret = fdt_node_offset_by_compatible(sp_manifest, -1,
 					    "arm,ffa-manifest-1.0");
 	if (ret < 0) {
-		ERROR("Error happened in SP manifest reading.\n");
+		VERBOSE("Error happened in SP manifest reading.\n");
 		return -EINVAL;
 	}
 
@@ -1603,13 +1603,13 @@ static int find_and_prepare_sp_context(void)
 	ret = sp_manifest_parse(sp_manifest, ret, sp, next_image_ep_info,
 				&boot_info_reg);
 	if (ret != 0) {
-		ERROR("Error in Secure Partition manifest parsing.\n");
+		VERBOSE("Error in Secure Partition manifest parsing.\n");
 		return ret;
 	}
 
 	/* Check that the runtime EL in the manifest was correct. */
 	if (sp->runtime_el != S_EL1) {
-		ERROR("Unexpected runtime EL: %d\n", sp->runtime_el);
+		VERBOSE("Unexpected runtime EL: %d\n", sp->runtime_el);
 		return -EINVAL;
 	}
 
@@ -1637,7 +1637,7 @@ static int32_t logical_sp_init(void)
 	/* Perform initial validation of the Logical Partitions. */
 	rc = el3_sp_desc_validate();
 	if (rc != 0) {
-		ERROR("Logical Partition validation failed!\n");
+		VERBOSE("Logical Partition validation failed!\n");
 		return rc;
 	}
 
@@ -1647,7 +1647,7 @@ static int32_t logical_sp_init(void)
 	for (unsigned int i = 0U; i < EL3_LP_DESCS_COUNT; i++) {
 		rc = el3_lp_descs[i].init();
 		if (rc != 0) {
-			ERROR("Logical SP (0x%x) Failed to Initialize\n",
+			VERBOSE("Logical SP (0x%x) Failed to Initialize\n",
 			      el3_lp_descs[i].sp_id);
 			return rc;
 		}
@@ -1705,7 +1705,7 @@ static int32_t sp_init(void)
 	rc = spmc_sp_synchronous_entry(ec);
 	if (rc != 0) {
 		/* Indicate SP init was not successful. */
-		ERROR("SP (0x%x) failed to initialize (%lu).\n",
+		VERBOSE("SP (0x%x) failed to initialize (%lu).\n",
 		      sp->sp_id, rc);
 		return 0;
 	}
@@ -1778,7 +1778,7 @@ int32_t spmc_setup(void)
 	ret = plat_spmc_shmem_datastore_get(&spmc_shmem_obj_state.data,
 					    &spmc_shmem_obj_state.data_size);
 	if (ret != 0) {
-		ERROR("Failed to obtain memory descriptor backing store!\n");
+		VERBOSE("Failed to obtain memory descriptor backing store!\n");
 		return ret;
 	}
 	memset(spmc_shmem_obj_state.data, 0, spmc_shmem_obj_state.data_size);
@@ -1786,7 +1786,7 @@ int32_t spmc_setup(void)
 	/* Setup logical SPs. */
 	ret = logical_sp_init();
 	if (ret != 0) {
-		ERROR("Failed to initialize Logical Partitions.\n");
+		VERBOSE("Failed to initialize Logical Partitions.\n");
 		return ret;
 	}
 
@@ -1800,7 +1800,7 @@ int32_t spmc_setup(void)
 
 	ret = find_and_prepare_sp_context();
 	if (ret != 0) {
-		ERROR("Error in SP finding and context preparation.\n");
+		VERBOSE("Error in SP finding and context preparation.\n");
 		return ret;
 	}
 
@@ -1818,7 +1818,7 @@ int32_t spmc_setup(void)
 					      spmc_sp_interrupt_handler,
 					      flags);
 	if (ret != 0) {
-		ERROR("Failed to register interrupt handler! (%d)\n", ret);
+		VERBOSE("Failed to register interrupt handler! (%d)\n", ret);
 		panic();
 	}
 
@@ -1935,7 +1935,7 @@ uint64_t spmc_smc_handler(uint32_t smc_fid,
 					    x4, cookie, handle, flags);
 
 	default:
-		WARN("Unsupported FF-A call 0x%08x.\n", smc_fid);
+		VERBOSE("Unsupported FF-A call 0x%08x.\n", smc_fid);
 		break;
 	}
 	return spmc_ffa_error_return(handle, FFA_ERROR_NOT_SUPPORTED);
@@ -1963,7 +1963,7 @@ static uint64_t spmc_sp_interrupt_handler(uint32_t id,
 
 	/* Panic if not an S-EL1 Partition. */
 	if (sp->runtime_el != S_EL1) {
-		ERROR("Interrupt received for a non S-EL1 SP on core%u.\n",
+		VERBOSE("Interrupt received for a non S-EL1 SP on core%u.\n",
 		      linear_id);
 		panic();
 	}
@@ -1973,7 +1973,7 @@ static uint64_t spmc_sp_interrupt_handler(uint32_t id,
 
 	/* Ensure that the execution context is in waiting state else panic. */
 	if (ec->rt_state != RT_STATE_WAITING) {
-		ERROR("SP EC on core%u is not waiting (%u), it is (%u).\n",
+		VERBOSE("SP EC on core%u is not waiting (%u), it is (%u).\n",
 		      linear_id, RT_STATE_WAITING, ec->rt_state);
 		panic();
 	}
