@@ -81,6 +81,24 @@
       "parentUuid": "161620ca_c009ecfe",
       "revId": "7a7bf1d867e86b27edae678c42bf00549625b1ad",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1487c6d5_bf788e76",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-08-25T18:50:25Z",
+      "side": 1,
+      "message": "Do we really need to double this sequence? All fields including the GPC enable are updated to the same physical register and write to the register won\u0027t happen until we call \"write_gpccr_el3(gpccr_el3)\". isb fence for any speculation past the write_gpccr. This will set the GPC as well as other fields within the register all in the same cycle. So when GP check happens for subsequent instructions after ISB(as early as the tlbipaallos(), all attributes(irgn, orgn, pps, pgs and maybe even fault control) are set as per the new context.\nLet me know if I am missing something here.",
+      "parentUuid": "48f0febf_8483d13e",
+      "revId": "7a7bf1d867e86b27edae678c42bf00549625b1ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
