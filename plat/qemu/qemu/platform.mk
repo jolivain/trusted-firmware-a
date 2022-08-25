@@ -209,6 +209,7 @@ BL31_SOURCES		+=	lib/cpus/aarch64/aem_generic.S		\
 				${PLAT_QEMU_COMMON_PATH}/topology.c			\
 				${PLAT_QEMU_COMMON_PATH}/aarch64/plat_helpers.S	\
 				${PLAT_QEMU_COMMON_PATH}/qemu_bl31_setup.c		\
+				${PLAT_QEMU_COMMON_PATH}/plat_spmd_manifest.c	\
 				${QEMU_GIC_SOURCES}
 
 ifeq (${SPD},spmd)

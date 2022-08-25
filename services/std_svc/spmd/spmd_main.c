@@ -416,18 +416,8 @@ int spmd_setup(void)
 	/* Under no circumstances will this parameter be 0 */
 	assert(spmc_ep_info->pc != 0ULL);
 
-	/*
-	 * Check if BL32 ep_info has a reference to 'tos_fw_config'. This will
-	 * be used as a manifest for the SPM Core at the next lower EL/mode.
-	 */
-	spmc_manifest = (void *)spmc_ep_info->args.arg0;
-	if (spmc_manifest == NULL) {
-		ERROR("Invalid or absent SPM Core manifest.\n");
-		return -EINVAL;
-	}
-
 	/* Load manifest, init SPMC */
-	rc = spmd_spmc_init(spmc_manifest);
+	rc = spmd_spmc_init(NULL);
 	if (rc != 0) {
 		WARN("Booting device without SPM initialization.\n");
 	}
