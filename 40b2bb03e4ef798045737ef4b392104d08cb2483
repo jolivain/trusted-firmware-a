@@ -16,6 +16,144 @@
       "message": "CI failed because missing coverity for new files added which should recover after merging:\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/16194",
       "revId": "40b2bb03e4ef798045737ef4b392104d08cb2483",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7012c72d_d94903db",
+        "filename": "bl32/tsp/ffa_helpers.c",
+        "patchSetId": 78
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-25T10:26:10Z",
+      "side": 1,
+      "message": "align arguments and functions below",
+      "range": {
+        "startLine": 16,
+        "startChar": 3,
+        "endLine": 16,
+        "endChar": 4
+      },
+      "revId": "40b2bb03e4ef798045737ef4b392104d08cb2483",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0929542_a13d24c3",
+        "filename": "bl32/tsp/ffa_helpers.c",
+        "patchSetId": 78
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-25T10:26:10Z",
+      "side": 1,
+      "message": "nit: spaces and put operation between parenthesis.",
+      "range": {
+        "startLine": 190,
+        "startChar": 70,
+        "endLine": 190,
+        "endChar": 73
+      },
+      "revId": "40b2bb03e4ef798045737ef4b392104d08cb2483",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac1fa008_103f9a1f",
+        "filename": "bl32/tsp/ffa_helpers.h",
+        "patchSetId": 78
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-25T10:26:10Z",
+      "side": 1,
+      "message": "align arguments and below functions",
+      "range": {
+        "startLine": 96,
+        "startChar": 7,
+        "endLine": 96,
+        "endChar": 13
+      },
+      "revId": "40b2bb03e4ef798045737ef4b392104d08cb2483",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d3016a6_628d4ebc",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 78
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-25T10:26:10Z",
+      "side": 1,
+      "message": "soft suggestion: passing a 32-bit value with the func id here seems better to read below, and also make it a bit more usable for future changes.",
+      "range": {
+        "startLine": 107,
+        "startChar": 6,
+        "endLine": 107,
+        "endChar": 17
+      },
+      "revId": "40b2bb03e4ef798045737ef4b392104d08cb2483",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c991c7d_17bc84ea",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 78
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-25T10:26:10Z",
+      "side": 1,
+      "message": "space and parenthesis around operation",
+      "range": {
+        "startLine": 156,
+        "startChar": 72,
+        "endLine": 156,
+        "endChar": 75
+      },
+      "revId": "40b2bb03e4ef798045737ef4b392104d08cb2483",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b09088de_83e8a70c",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 78
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-08-25T10:26:10Z",
+      "side": 1,
+      "message": "delete?\n\nDO I understand correctly this isn\u0027t used?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 2
+      },
+      "revId": "40b2bb03e4ef798045737ef4b392104d08cb2483",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
