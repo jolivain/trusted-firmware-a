@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -95,11 +95,10 @@ static bl_mem_params_node_t bl2_mem_params_descs[] = {
 
 	   SET_STATIC_PARAM_HEAD(ep_info, PARAM_EP, VERSION_2,
 				 entry_point_info_t, SECURE | NON_EXECUTABLE),
-
-	   SET_STATIC_PARAM_HEAD(image_info, PARAM_EP, VERSION_2,
-				 image_info_t, IMAGE_ATTRIB_SKIP_LOADING),
-	   .image_info.image_base = BL32_BASE,
-	   .image_info.image_max_size = BL32_LIMIT - BL32_BASE,
+	   SET_STATIC_PARAM_HEAD(image_info, PARAM_IMAGE_BINARY, VERSION_2,
+				 image_info_t, 0),
+	    .image_info.image_base = 0xe300000,
+	    .image_info.image_max_size = 0x100000,
 
 	   .next_handoff_image_id = INVALID_IMAGE_ID,
 	},
@@ -121,6 +120,18 @@ static bl_mem_params_node_t bl2_mem_params_descs[] = {
 	   .image_info.image_max_size = QEMU_OPTEE_PAGEABLE_LOAD_SIZE,
 #endif
 	   .next_handoff_image_id = INVALID_IMAGE_ID,
+	},
+
+	/* Fill TOS_FW_CONFIG related information */
+	{
+	    .image_id = TOS_FW_CONFIG_ID,
+	    SET_STATIC_PARAM_HEAD(ep_info, PARAM_IMAGE_BINARY,
+		    VERSION_2, entry_point_info_t, SECURE | NON_EXECUTABLE),
+	    SET_STATIC_PARAM_HEAD(image_info, PARAM_IMAGE_BINARY,
+		    VERSION_2, image_info_t, 0),
+	    .image_info.image_base = 0xe030000,
+	    .image_info.image_max_size = 32768,
+	    .next_handoff_image_id = INVALID_IMAGE_ID,
 	},
 # endif /* QEMU_LOAD_BL32 */
 
