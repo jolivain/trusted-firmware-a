@@ -1,0 +1,141 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4dd56a1_c75fa5a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-08-25T14:43:35Z",
+      "side": 1,
+      "message": "Looks goid, but please keep the errata numbers in order. Thanks!",
+      "revId": "16405197695b10c3c393e8be6a274ca94e2a5e55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8eba06df_083b84ec",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 11
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-08-25T14:43:35Z",
+      "side": 1,
+      "message": "Can you re-order these by number? I think with rebase that maybe changed",
+      "range": {
+        "startLine": 604,
+        "startChar": 16,
+        "endLine": 604,
+        "endChar": 23
+      },
+      "revId": "16405197695b10c3c393e8be6a274ca94e2a5e55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c6110b9_495d6827",
+        "filename": "lib/cpus/aarch64/cortex_a510.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-08-25T14:43:35Z",
+      "side": 1,
+      "message": "Order by number",
+      "revId": "16405197695b10c3c393e8be6a274ca94e2a5e55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d20bbc4_20b1ca14",
+        "filename": "lib/cpus/aarch64/cortex_a510.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-08-25T14:43:35Z",
+      "side": 1,
+      "message": "re-order",
+      "revId": "16405197695b10c3c393e8be6a274ca94e2a5e55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2efdb76_e93ca754",
+        "filename": "lib/cpus/aarch64/cortex_a510.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-08-25T14:43:35Z",
+      "side": 1,
+      "message": "re-order",
+      "revId": "16405197695b10c3c393e8be6a274ca94e2a5e55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fd6442f_53d4becf",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 11
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-08-25T14:43:35Z",
+      "side": 1,
+      "message": "re-order",
+      "range": {
+        "startLine": 660,
+        "startChar": 24,
+        "endLine": 660,
+        "endChar": 31
+      },
+      "revId": "16405197695b10c3c393e8be6a274ca94e2a5e55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5273b071_5d0f8c52",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 11
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-08-25T14:43:35Z",
+      "side": 1,
+      "message": "re-order",
+      "range": {
+        "startLine": 1247,
+        "startChar": 22,
+        "endLine": 1247,
+        "endChar": 29
+      },
+      "revId": "16405197695b10c3c393e8be6a274ca94e2a5e55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
