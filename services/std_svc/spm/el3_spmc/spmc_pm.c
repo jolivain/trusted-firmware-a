@@ -60,7 +60,7 @@ static void spmc_cpu_on_finish_handler(u_register_t unused)
 	 * entrypoint into the primary execution context.
 	 */
 	if (sp->secondary_ep == 0) {
-		WARN("%s: No secondary ep on core%u\n", __func__, linear_id);
+		VERBOSE("%s: No secondary ep on core%u\n", __func__, linear_id);
 		return;
 	}
 
@@ -88,7 +88,7 @@ static void spmc_cpu_on_finish_handler(u_register_t unused)
 
 	rc = spmc_sp_synchronous_entry(ec);
 	if (rc != 0ULL) {
-		ERROR("%s failed (%lu) on CPU%u\n", __func__, rc, linear_id);
+		VERBOSE("%s failed (%lu) on CPU%u\n", __func__, rc, linear_id);
 	}
 
 	/* Update the runtime state of the partition. */
@@ -135,7 +135,7 @@ static int32_t spmc_send_pm_msg(uint8_t pm_msg_type,
 
 	rc = spmc_sp_synchronous_entry(ec);
 	if (rc != 0ULL) {
-		ERROR("%s failed (%lu) on CPU%u.\n", __func__, rc, linear_id);
+		VERBOSE("%s failed (%lu) on CPU%u.\n", __func__, rc, linear_id);
 		assert(false);
 		return -EINVAL;
 	}
@@ -151,7 +151,7 @@ static int32_t spmc_send_pm_msg(uint8_t pm_msg_type,
 	/* Expect a direct message response from the SP. */
 	resp = read_ctx_reg(gpregs_ctx, CTX_GPREG_X0);
 	if (resp != FFA_MSG_SEND_DIRECT_RESP_SMC32) {
-		ERROR("%s invalid SP response (%lx).\n", __func__, resp);
+		VERBOSE("%s invalid SP response (%lx).\n", __func__, resp);
 		assert(false);
 		return -EINVAL;
 	}
@@ -160,7 +160,7 @@ static int32_t spmc_send_pm_msg(uint8_t pm_msg_type,
 	resp = read_ctx_reg(gpregs_ctx, CTX_GPREG_X1);
 	if (!(ffa_endpoint_source(resp) == sp->sp_id &&
 	      ffa_endpoint_destination(resp) == FFA_SPMC_ID)) {
-		ERROR("%s invalid src/dst response (%lx).\n", __func__, resp);
+		VERBOSE("%s invalid src/dst response (%lx).\n", __func__, resp);
 		assert(false);
 		return -EINVAL;
 	}
@@ -169,7 +169,7 @@ static int32_t spmc_send_pm_msg(uint8_t pm_msg_type,
 	resp = read_ctx_reg(gpregs_ctx, CTX_GPREG_X2);
 	if ((resp & FFA_FWK_MSG_BIT) == 0U ||
 	    ((resp & FFA_FWK_MSG_MASK) != FFA_PM_MSG_PM_RESP)) {
-		ERROR("%s invalid PM response (%lx).\n", __func__, resp);
+		VERBOSE("%s invalid PM response (%lx).\n", __func__, resp);
 		assert(false);
 		return -EINVAL;
 	}
@@ -203,7 +203,7 @@ static void spmc_cpu_suspend_finish_handler(u_register_t unused)
 
 	rc = spmc_send_pm_msg(FFA_PM_MSG_WB_REQ, FFA_WB_TYPE_NOTS2RAM);
 	if (rc < 0) {
-		ERROR("%s failed (%d) on CPU%u\n", __func__, rc, linear_id);
+		VERBOSE("%s failed (%d) on CPU%u\n", __func__, rc, linear_id);
 		return;
 	}
 
@@ -233,7 +233,7 @@ static void spmc_cpu_suspend_handler(u_register_t unused)
 
 	rc = spmc_send_pm_msg(FFA_FWK_MSG_PSCI, PSCI_CPU_SUSPEND_AARCH64);
 	if (rc < 0) {
-		ERROR("%s failed (%d) on CPU%u\n", __func__, rc, linear_id);
+		VERBOSE("%s failed (%d) on CPU%u\n", __func__, rc, linear_id);
 		return;
 	}
 exit:
@@ -262,7 +262,7 @@ static int32_t spmc_cpu_off_handler(u_register_t unused)
 
 	ret = spmc_send_pm_msg(FFA_FWK_MSG_PSCI, PSCI_CPU_OFF);
 	if (ret < 0) {
-		ERROR("%s failed (%d) on CPU%u\n", __func__, ret, linear_id);
+		VERBOSE("%s failed (%d) on CPU%u\n", __func__, ret, linear_id);
 		return ret;
 	}
 
