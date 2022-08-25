@@ -268,7 +268,7 @@ spmc_shmem_obj_ffa_constituent_size(struct spmc_shmem_obj *obj,
  *
  * Return: true if ID is valid, else false.
  */
-bool spmc_shmem_obj_validate_id(const struct ffa_mtd *desc, uint16_t sp_id)
+bool spmc_shmem_obj_validate_id(const struct ffa_mtd *desc, size_t desc_size, uint16_t sp_id)
 {
 	bool found = false;
 
@@ -280,6 +280,20 @@ bool spmc_shmem_obj_validate_id(const struct ffa_mtd *desc, uint16_t sp_id)
 		emad = spmc_shmem_obj_get_emad(desc, i,
 					       MAKE_FFA_VERSION(1, 1),
 					       &emad_size);
+		if (emad == NULL) {
+			/* Invalid descriptor. */
+			break;
+		}
+		/*
+		 * Validate the calculated emad address resides within the
+		 * descriptor.
+		 */
+		if ((uintptr_t) emad >=
+		    (uintptr_t)((uint8_t *) desc + desc_size)) {
+			WARN("Invalid emad access.\n");
+			break;
+		}
+
 		if (sp_id == emad->mapd.endpoint_id) {
 			found = true;
 			break;
@@ -1432,7 +1446,7 @@ spmc_ffa_mem_retrieve_req(uint32_t smc_fid,
 	}
 
 	/* Validate the caller is a valid participant. */
-	if (!spmc_shmem_obj_validate_id(&obj->desc, sp_ctx->sp_id)) {
+	if (!spmc_shmem_obj_validate_id(&obj->desc, obj->desc_size, sp_ctx->sp_id)) {
 		WARN("%s: Invalid endpoint ID (0x%x).\n",
 			__func__, sp_ctx->sp_id);
 		ret = FFA_ERROR_INVALID_PARAMETER;
@@ -1751,7 +1765,7 @@ int spmc_ffa_mem_relinquish(uint32_t smc_fid,
 	}
 
 	/* Validate the caller is a valid participant. */
-	if (!spmc_shmem_obj_validate_id(&obj->desc, sp_ctx->sp_id)) {
+	if (!spmc_shmem_obj_validate_id(&obj->desc, obj->desc_size, sp_ctx->sp_id)) {
 		WARN("%s: Invalid endpoint ID (0x%x).\n",
 			__func__, req->endpoint_array[0]);
 		ret = FFA_ERROR_INVALID_PARAMETER;
