@@ -75,7 +75,7 @@ spmc_shmem_obj_alloc(struct spmc_shmem_obj_state *state, size_t desc_size)
 	size_t obj_size;
 
 	if (state->data == NULL) {
-		ERROR("Missing shmem datastore!\n");
+		VERBOSE("Missing shmem datastore!\n");
 		return NULL;
 	}
 
@@ -83,13 +83,13 @@ spmc_shmem_obj_alloc(struct spmc_shmem_obj_state *state, size_t desc_size)
 
 	/* Ensure the obj size has not overflowed. */
 	if (obj_size < desc_size) {
-		WARN("%s(0x%zx) desc_size overflow\n",
+		VERBOSE("%s(0x%zx) desc_size overflow\n",
 		     __func__, desc_size);
 		return NULL;
 	}
 
 	if (obj_size > free) {
-		WARN("%s(0x%zx) failed, free 0x%zx\n",
+		VERBOSE("%s(0x%zx) failed, free 0x%zx\n",
 		     __func__, desc_size, free);
 		return NULL;
 	}
@@ -207,7 +207,7 @@ spmc_shmem_obj_get_emad(const struct ffa_mtd *desc, uint32_t index,
 		*emad_size = sizeof(struct ffa_emad_v1_0);
 	} else {
 		if (!is_aligned(desc->emad_offset, 16)) {
-			WARN("Emad offset is not aligned.\n");
+			VERBOSE("Emad offset is not aligned.\n");
 			return NULL;
 		}
 		emad = ((uint8_t *) desc + desc->emad_offset);
@@ -243,7 +243,7 @@ spmc_shmem_obj_get_comp_mrd(struct spmc_shmem_obj *obj, uint32_t ffa_version)
 
 	/* Ensure the composite descriptor offset is aligned. */
 	if (!is_aligned(emad->comp_mrd_offset, 8)) {
-		WARN("Unaligned composite memory region descriptor offset.\n");
+		VERBOSE("Unaligned composite memory region descriptor offset.\n");
 		return NULL;
 	}
 
@@ -278,7 +278,7 @@ spmc_shmem_obj_ffa_constituent_size(struct spmc_shmem_obj *obj,
  *
  * Return: true if ID is valid, else false.
  */
-bool spmc_shmem_obj_validate_id(const struct ffa_mtd *desc, uint16_t sp_id)
+bool spmc_shmem_obj_validate_id(const struct ffa_mtd *desc, size_t desc_size, uint16_t sp_id)
 {
 	bool found = false;
 
@@ -290,6 +290,16 @@ bool spmc_shmem_obj_validate_id(const struct ffa_mtd *desc, uint16_t sp_id)
 		emad = spmc_shmem_obj_get_emad(desc, i,
 					       MAKE_FFA_VERSION(1, 1),
 					       &emad_size);
+		/*
+		 * Validate the calculated emad address resides within the
+		 * descriptor.
+		 */
+		if ((emad == NULL) || (uintptr_t) emad >=
+		    (uintptr_t)((uint8_t *) desc + desc_size)) {
+			VERBOSE("Invalid emad.\n");
+			break;
+		}
+
 		if (sp_id == emad->mapd.endpoint_id) {
 			found = true;
 			break;
@@ -343,7 +353,7 @@ overlapping_memory_regions(struct ffa_comp_mrd *region1,
 			/* Check if regions are not overlapping. */
 			if (!((region2_end <= region1_start) ||
 			      (region1_end <= region2_start))) {
-				WARN("Overlapping mem regions 0x%lx-0x%lx & 0x%lx-0x%lx\n",
+				VERBOSE("Overlapping mem regions 0x%lx-0x%lx & 0x%lx-0x%lx\n",
 				     region1_start, region1_end,
 				     region2_start, region2_end);
 				return true;
@@ -385,8 +395,7 @@ spmc_shm_get_v1_1_descriptor_size(struct ffa_mtd_v1_0 *orig, size_t desc_size)
 	      emad_array[0].comp_mrd_offset);
 
 	/* Check the calculated address is within the memory descriptor. */
-	if (((uintptr_t) mrd + sizeof(struct ffa_comp_mrd)) >
-	    (uintptr_t)((uint8_t *) orig + desc_size)) {
+	if ((uintptr_t) mrd >= (uintptr_t)((uint8_t *) orig + desc_size)) {
 		return 0;
 	}
 	size += mrd->address_range_count * sizeof(struct ffa_cons_mrd);
@@ -425,8 +434,7 @@ spmc_shm_get_v1_0_descriptor_size(struct ffa_mtd *orig, size_t desc_size)
 	      emad_array[0].comp_mrd_offset);
 
 	/* Check the calculated address is within the memory descriptor. */
-	if (((uintptr_t) mrd + sizeof(struct ffa_comp_mrd)) >
-	    (uintptr_t)((uint8_t *) orig + desc_size)) {
+	if ((uintptr_t) mrd >= (uintptr_t)((uint8_t *) orig + desc_size)) {
 		return 0;
 	}
 	size += mrd->address_range_count * sizeof(struct ffa_cons_mrd);
@@ -438,6 +446,7 @@ spmc_shm_get_v1_0_descriptor_size(struct ffa_mtd *orig, size_t desc_size)
  * spmc_shm_convert_shmem_obj_from_v1_0 - Converts a given v1.0 memory object.
  * @out_obj:	The shared memory object to populate the converted descriptor.
  * @orig:	The shared memory object containing the v1.0 descriptor.
+ * @desc_size:	size of the v1.0 descriptor.
  *
  * Return: true if the conversion is successful else false.
  */
@@ -477,6 +486,14 @@ spmc_shm_convert_shmem_obj_from_v1_0(struct spmc_shmem_obj *out_obj,
 
 	/* Copy across the emad structs. */
 	for (unsigned int i = 0U; i < out->emad_count; i++) {
+                /* Bound check for emad array. */
+                if (((uint8_t *)emad_array_in +  sizeof(struct ffa_emad_v1_0)) >=
+                                ((uint8_t *) mtd_orig + orig->desc_size))
+                {
+                        VERBOSE("%s: Invalid mtd structure.\n", __func__);
+                        return false;
+                }
+
 		memcpy(&emad_array_out[i], &emad_array_in[i],
 		       sizeof(struct ffa_emad_v1_0));
 	}
@@ -510,7 +527,7 @@ spmc_shm_convert_shmem_obj_from_v1_0(struct spmc_shmem_obj *out_obj,
 	     (uintptr_t)((uint8_t *) mtd_orig + orig->desc_size) ||
 	    ((uintptr_t)((uint8_t *) mrd_out + mrd_size) >
 	     (uintptr_t)((uint8_t *) out + out_obj->desc_size))) {
-		ERROR("%s: Invalid mrd structure.\n", __func__);
+		VERBOSE("%s: Invalid mrd structure.\n", __func__);
 		return false;
 	}
 
@@ -544,6 +561,7 @@ spmc_shm_convert_mtd_to_v1_0(struct spmc_shmem_obj *out_obj,
 	size_t mrd_out_offset;
 	size_t emad_out_array_size;
 	size_t mrd_size = 0;
+	size_t orig_desc_size = orig->desc_size;
 
 	/* Populate the v1.0 descriptor format from the v1.1 struct. */
 	out->sender_id = mtd_orig->sender_id;
@@ -561,6 +579,13 @@ spmc_shm_convert_mtd_to_v1_0(struct spmc_shmem_obj *out_obj,
 	/* Copy across the emad structs. */
 	emad_in = emad_array_in;
 	for (unsigned int i = 0U; i < out->emad_count; i++) {
+		/* Bound check for emad array. */
+		if (((uint8_t *)emad_in + sizeof(struct ffa_emad_v1_0)) >=
+				((uint8_t *) mtd_orig + orig_desc_size))
+		{
+			VERBOSE("%s: Invalid mtd structure.\n", __func__);
+			return false;
+		}
 		memcpy(&emad_array_out[i], emad_in,
 		       sizeof(struct ffa_emad_v1_0));
 
@@ -605,7 +630,7 @@ spmc_shm_convert_mtd_to_v1_0(struct spmc_shmem_obj *out_obj,
 	     (uintptr_t)((uint8_t *) mtd_orig + orig->desc_size) ||
 	    ((uintptr_t)((uint8_t *) mrd_out + mrd_size) >
 	     (uintptr_t)((uint8_t *) out + out_obj->desc_size))) {
-		ERROR("%s: Invalid mrd structure.\n", __func__);
+		VERBOSE("%s: Invalid mrd structure.\n", __func__);
 		return false;
 	}
 
@@ -643,7 +668,7 @@ spmc_populate_ffa_v1_0_descriptor(void *dst, struct spmc_shmem_obj *orig_obj,
 					&orig_obj->desc, orig_obj->desc_size);
 
 		if (*v1_0_desc_size == 0) {
-			ERROR("%s: cannot determine size of descriptor.\n",
+			VERBOSE("%s: cannot determine size of descriptor.\n",
 			      __func__);
 			return FFA_ERROR_INVALID_PARAMETER;
 		}
@@ -689,7 +714,7 @@ static int spmc_shmem_check_obj(struct spmc_shmem_obj *obj,
 	uint32_t comp_mrd_offset = 0;
 
 	if (obj->desc.emad_count == 0U) {
-		WARN("%s: unsupported attribute desc count %u.\n",
+		VERBOSE("%s: unsupported attribute desc count %u.\n",
 		     __func__, obj->desc.emad_count);
 		return -EINVAL;
 	}
@@ -709,7 +734,7 @@ static int spmc_shmem_check_obj(struct spmc_shmem_obj *obj,
 		emad = spmc_shmem_obj_get_emad(&obj->desc, emad_num,
 					       ffa_version, &emad_size);
 		if (emad == NULL) {
-			WARN("%s: invalid emad structure.\n", __func__);
+			VERBOSE("%s: invalid emad structure.\n", __func__);
 			return -EINVAL;
 		}
 
@@ -719,7 +744,7 @@ static int spmc_shmem_check_obj(struct spmc_shmem_obj *obj,
 		 */
 		if ((uintptr_t) emad >=
 		    (uintptr_t)((uint8_t *) &obj->desc + obj->desc_size)) {
-			WARN("Invalid emad access.\n");
+			VERBOSE("Invalid emad access.\n");
 			return -EINVAL;
 		}
 
@@ -735,7 +760,7 @@ static int spmc_shmem_check_obj(struct spmc_shmem_obj *obj,
 			(obj->desc.emad_count * emad_size);
 
 		if (offset < header_emad_size) {
-			WARN("%s: invalid object, offset %u < header + emad %zu\n",
+			VERBOSE("%s: invalid object, offset %u < header + emad %zu\n",
 			     __func__, offset, header_emad_size);
 			return -EINVAL;
 		}
@@ -743,14 +768,14 @@ static int spmc_shmem_check_obj(struct spmc_shmem_obj *obj,
 		size = obj->desc_size;
 
 		if (offset > size) {
-			WARN("%s: invalid object, offset %u > total size %zu\n",
+			VERBOSE("%s: invalid object, offset %u > total size %zu\n",
 			     __func__, offset, obj->desc_size);
 			return -EINVAL;
 		}
 		size -= offset;
 
 		if (size < sizeof(struct ffa_comp_mrd)) {
-			WARN("%s: invalid object, offset %u, total size %zu, no header space.\n",
+			VERBOSE("%s: invalid object, offset %u, total size %zu, no header space.\n",
 			     __func__, offset, obj->desc_size);
 			return -EINVAL;
 		}
@@ -761,12 +786,12 @@ static int spmc_shmem_check_obj(struct spmc_shmem_obj *obj,
 		comp = spmc_shmem_obj_get_comp_mrd(obj, ffa_version);
 
 		if (comp == NULL) {
-			WARN("%s: invalid comp_mrd offset\n", __func__);
+			VERBOSE("%s: invalid comp_mrd offset\n", __func__);
 			return -EINVAL;
 		}
 
 		if (comp->address_range_count != count) {
-			WARN("%s: invalid object, desc count %u != %zu\n",
+			VERBOSE("%s: invalid object, desc count %u != %zu\n",
 			     __func__, comp->address_range_count, count);
 			return -EINVAL;
 		}
@@ -776,7 +801,7 @@ static int spmc_shmem_check_obj(struct spmc_shmem_obj *obj,
 								    ffa_version);
 
 		if (expected_size != obj->desc_size) {
-			WARN("%s: invalid object, computed size %zu != size %zu\n",
+			VERBOSE("%s: invalid object, computed size %zu != size %zu\n",
 			       __func__, expected_size, obj->desc_size);
 			return -EINVAL;
 		}
@@ -798,7 +823,7 @@ static int spmc_shmem_check_obj(struct spmc_shmem_obj *obj,
 			comp_mrd_offset = offset;
 		} else {
 			if (comp_mrd_offset != offset) {
-				ERROR("%s: mismatching offsets provided, %u != %u\n",
+				VERBOSE("%s: mismatching offsets provided, %u != %u\n",
 				       __func__, offset, comp_mrd_offset);
 				return -EINVAL;
 			}
@@ -811,7 +836,7 @@ static int spmc_shmem_check_obj(struct spmc_shmem_obj *obj,
 				comp->address_range_array[i].page_count;
 		}
 		if (comp->total_page_count != total_page_count) {
-			WARN("%s: invalid object, desc total_page_count %u != %zu\n",
+			VERBOSE("%s: invalid object, desc total_page_count %u != %zu\n",
 			     __func__, comp->total_page_count,
 			total_page_count);
 			return -EINVAL;
@@ -885,20 +910,20 @@ static long spmc_ffa_fill_desc(struct mailbox *mbox,
 	struct ffa_emad_v1_0 *other_emad;
 
 	if (mbox->rxtx_page_count == 0U) {
-		WARN("%s: buffer pair not registered.\n", __func__);
+		VERBOSE("%s: buffer pair not registered.\n", __func__);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_arg;
 	}
 
 	if (fragment_length > mbox->rxtx_page_count * PAGE_SIZE_4KB) {
-		WARN("%s: bad fragment size %u > %u buffer size\n", __func__,
+		VERBOSE("%s: bad fragment size %u > %u buffer size\n", __func__,
 		     fragment_length, mbox->rxtx_page_count * PAGE_SIZE_4KB);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_arg;
 	}
 
 	if (fragment_length > obj->desc_size - obj->desc_filled) {
-		WARN("%s: bad fragment size %u > %zu remaining\n", __func__,
+		VERBOSE("%s: bad fragment size %u > %zu remaining\n", __func__,
 		     fragment_length, obj->desc_size - obj->desc_filled);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_arg;
@@ -909,7 +934,7 @@ static long spmc_ffa_fill_desc(struct mailbox *mbox,
 
 	/* Ensure that the sender ID resides in the normal world. */
 	if (ffa_is_secure_world_id(obj->desc.sender_id)) {
-		WARN("%s: Invalid sender ID 0x%x.\n",
+		VERBOSE("%s: Invalid sender ID 0x%x.\n",
 		     __func__, obj->desc.sender_id);
 		ret = FFA_ERROR_DENIED;
 		goto err_arg;
@@ -917,7 +942,7 @@ static long spmc_ffa_fill_desc(struct mailbox *mbox,
 
 	/* Ensure the NS bit is set to 0. */
 	if ((obj->desc.memory_region_attributes & FFA_MEM_ATTR_NS_BIT) != 0U) {
-		WARN("%s: NS mem attributes flags MBZ.\n", __func__);
+		VERBOSE("%s: NS mem attributes flags MBZ.\n", __func__);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_arg;
 	}
@@ -928,7 +953,7 @@ static long spmc_ffa_fill_desc(struct mailbox *mbox,
 	 */
 	if (obj->desc.flags != 0U && mtd_flag != 0U &&
 	    (obj->desc.flags != mtd_flag)) {
-		WARN("%s: invalid memory transaction flags %u != %u\n",
+		VERBOSE("%s: invalid memory transaction flags %u != %u\n",
 		     __func__, obj->desc.flags, mtd_flag);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_arg;
@@ -976,7 +1001,7 @@ static long spmc_ffa_fill_desc(struct mailbox *mbox,
 
 		if (ffa_is_secure_world_id(ep_id)) {
 			if (spmc_get_sp_ctx(ep_id) == NULL) {
-				WARN("%s: Invalid receiver id 0x%x\n",
+				VERBOSE("%s: Invalid receiver id 0x%x\n",
 				     __func__, ep_id);
 				ret = FFA_ERROR_INVALID_PARAMETER;
 				goto err_bad_desc;
@@ -1003,7 +1028,7 @@ static long spmc_ffa_fill_desc(struct mailbox *mbox,
 
 			if (emad->mapd.endpoint_id ==
 				other_emad->mapd.endpoint_id) {
-				WARN("%s: Duplicated endpoint id 0x%x\n",
+				VERBOSE("%s: Duplicated endpoint id 0x%x\n",
 				     __func__, emad->mapd.endpoint_id);
 				ret = FFA_ERROR_INVALID_PARAMETER;
 				goto err_bad_desc;
@@ -1013,7 +1038,7 @@ static long spmc_ffa_fill_desc(struct mailbox *mbox,
 
 	ret = spmc_shmem_check_state_obj(obj, ffa_version);
 	if (ret) {
-		ERROR("%s: invalid memory region descriptor.\n", __func__);
+		VERBOSE("%s: invalid memory region descriptor.\n", __func__);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_bad_desc;
 	}
@@ -1032,7 +1057,7 @@ static long spmc_ffa_fill_desc(struct mailbox *mbox,
 						      obj->desc_size);
 
 		if (v1_1_desc_size == 0U) {
-			ERROR("%s: cannot determine size of descriptor.\n",
+			VERBOSE("%s: cannot determine size of descriptor.\n",
 			      __func__);
 			goto err_arg;
 		}
@@ -1041,7 +1066,7 @@ static long spmc_ffa_fill_desc(struct mailbox *mbox,
 		v1_1_obj =
 		    spmc_shmem_obj_alloc(&spmc_shmem_obj_state, v1_1_desc_size);
 
-		if (!v1_1_obj) {
+		if (v1_1_obj == NULL) {
 			ret = FFA_ERROR_NO_MEMORY;
 			goto err_arg;
 		}
@@ -1050,7 +1075,7 @@ static long spmc_ffa_fill_desc(struct mailbox *mbox,
 		v1_1_obj->desc_size = v1_1_desc_size;
 		v1_1_obj->desc_filled = v1_1_desc_size;
 		if (!spmc_shm_convert_shmem_obj_from_v1_0(v1_1_obj, obj)) {
-			ERROR("%s: Could not convert mtd!\n", __func__);
+			VERBOSE("%s: Could not convert mtd!\n", __func__);
 			spmc_shmem_obj_free(&spmc_shmem_obj_state, v1_1_obj);
 			goto err_arg;
 		}
@@ -1063,7 +1088,7 @@ static long spmc_ffa_fill_desc(struct mailbox *mbox,
 		spmc_shmem_obj_free(&spmc_shmem_obj_state, obj);
 		obj = spmc_shmem_obj_lookup(&spmc_shmem_obj_state, mem_handle);
 		if (obj == NULL) {
-			ERROR("%s: Failed to find converted descriptor.\n",
+			VERBOSE("%s: Failed to find converted descriptor.\n",
 			     __func__);
 			ret = FFA_ERROR_INVALID_PARAMETER;
 			return spmc_ffa_error_return(smc_handle, ret);
@@ -1120,14 +1145,14 @@ long spmc_ffa_mem_send(uint32_t smc_fid,
 	uint32_t ffa_version = get_partition_ffa_version(secure_origin);
 
 	if (address != 0U || page_count != 0U) {
-		WARN("%s: custom memory region for message not supported.\n",
+		VERBOSE("%s: custom memory region for message not supported.\n",
 		     __func__);
 		return spmc_ffa_error_return(handle,
 					     FFA_ERROR_INVALID_PARAMETER);
 	}
 
 	if (secure_origin) {
-		WARN("%s: unsupported share direction.\n", __func__);
+		VERBOSE("%s: unsupported share direction.\n", __func__);
 		return spmc_ffa_error_return(handle,
 					     FFA_ERROR_INVALID_PARAMETER);
 	}
@@ -1137,7 +1162,7 @@ long spmc_ffa_mem_send(uint32_t smc_fid,
 	 * descriptor cannot be smaller than this structure.
 	 */
 	if (fragment_length < sizeof(struct ffa_mtd_v1_0)) {
-		WARN("%s: bad first fragment size %u < %zu\n",
+		VERBOSE("%s: bad first fragment size %u < %zu\n",
 		     __func__, fragment_length, sizeof(struct ffa_mtd_v1_0));
 		return spmc_ffa_error_return(handle,
 					     FFA_ERROR_INVALID_PARAMETER);
@@ -1148,7 +1173,7 @@ long spmc_ffa_mem_send(uint32_t smc_fid,
 	} else if ((smc_fid & FUNCID_NUM_MASK) == FFA_FNUM_MEM_LEND) {
 		mtd_flag = FFA_MTD_FLAG_TYPE_LEND_MEMORY;
 	} else {
-		WARN("%s: invalid memory management operation.\n", __func__);
+		VERBOSE("%s: invalid memory management operation.\n", __func__);
 		return spmc_ffa_error_return(handle,
 					     FFA_ERROR_INVALID_PARAMETER);
 	}
@@ -1207,7 +1232,7 @@ long spmc_ffa_mem_frag_tx(uint32_t smc_fid,
 
 	obj = spmc_shmem_obj_lookup(&spmc_shmem_obj_state, mem_handle);
 	if (obj == NULL) {
-		WARN("%s: invalid handle, 0x%lx, not a valid handle.\n",
+		VERBOSE("%s: invalid handle, 0x%lx, not a valid handle.\n",
 		     __func__, mem_handle);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock;
@@ -1215,14 +1240,14 @@ long spmc_ffa_mem_frag_tx(uint32_t smc_fid,
 
 	desc_sender_id = (uint32_t)obj->desc.sender_id << 16;
 	if (sender_id != desc_sender_id) {
-		WARN("%s: invalid sender_id 0x%x != 0x%x\n", __func__,
+		VERBOSE("%s: invalid sender_id 0x%x != 0x%x\n", __func__,
 		     sender_id, desc_sender_id);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock;
 	}
 
 	if (obj->desc_filled == obj->desc_size) {
-		WARN("%s: object desc already filled, %zu\n", __func__,
+		VERBOSE("%s: object desc already filled, %zu\n", __func__,
 		     obj->desc_filled);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock;
@@ -1319,13 +1344,13 @@ spmc_ffa_mem_retrieve_req(uint32_t smc_fid,
 	struct secure_partition_desc *sp_ctx = spmc_get_current_sp_ctx();
 
 	if (!secure_origin) {
-		WARN("%s: unsupported retrieve req direction.\n", __func__);
+		VERBOSE("%s: unsupported retrieve req direction.\n", __func__);
 		return spmc_ffa_error_return(handle,
 					     FFA_ERROR_INVALID_PARAMETER);
 	}
 
 	if (address != 0U || page_count != 0U) {
-		WARN("%s: custom memory region not supported.\n", __func__);
+		VERBOSE("%s: custom memory region not supported.\n", __func__);
 		return spmc_ffa_error_return(handle,
 					     FFA_ERROR_INVALID_PARAMETER);
 	}
@@ -1337,27 +1362,27 @@ spmc_ffa_mem_retrieve_req(uint32_t smc_fid,
 	buf_size = mbox->rxtx_page_count * FFA_PAGE_SIZE;
 
 	if (mbox->rxtx_page_count == 0U) {
-		WARN("%s: buffer pair not registered.\n", __func__);
+		VERBOSE("%s: buffer pair not registered.\n", __func__);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_mailbox;
 	}
 
 	if (mbox->state != MAILBOX_STATE_EMPTY) {
-		WARN("%s: RX Buffer is full! %d\n", __func__, mbox->state);
+		VERBOSE("%s: RX Buffer is full! %d\n", __func__, mbox->state);
 		ret = FFA_ERROR_DENIED;
 		goto err_unlock_mailbox;
 	}
 
 	if (fragment_length != total_length) {
-		WARN("%s: fragmented retrieve request not supported.\n",
+		VERBOSE("%s: fragmented retrieve request not supported.\n",
 		     __func__);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_mailbox;
 	}
 
 	if (req->emad_count == 0U) {
-		WARN("%s: unsupported attribute desc count %u.\n",
-		     __func__, obj->desc.emad_count);
+		VERBOSE("%s: unsupported attribute desc count 0.\n",
+		     __func__);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_mailbox;
 	}
@@ -1369,7 +1394,7 @@ spmc_ffa_mem_retrieve_req(uint32_t smc_fid,
 		min_desc_size = sizeof(struct ffa_mtd);
 	}
 	if (total_length < min_desc_size) {
-		WARN("%s: invalid length %u < %zu\n", __func__, total_length,
+		VERBOSE("%s: invalid length %u < %zu\n", __func__, total_length,
 		     min_desc_size);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_mailbox;
@@ -1384,28 +1409,28 @@ spmc_ffa_mem_retrieve_req(uint32_t smc_fid,
 	}
 
 	if (obj->desc_filled != obj->desc_size) {
-		WARN("%s: incomplete object desc filled %zu < size %zu\n",
+		VERBOSE("%s: incomplete object desc filled %zu < size %zu\n",
 		     __func__, obj->desc_filled, obj->desc_size);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_all;
 	}
 
 	if (req->emad_count != 0U && req->sender_id != obj->desc.sender_id) {
-		WARN("%s: wrong sender id 0x%x != 0x%x\n",
+		VERBOSE("%s: wrong sender id 0x%x != 0x%x\n",
 		     __func__, req->sender_id, obj->desc.sender_id);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_all;
 	}
 
 	if (req->emad_count != 0U && req->tag != obj->desc.tag) {
-		WARN("%s: wrong tag 0x%lx != 0x%lx\n",
+		VERBOSE("%s: wrong tag 0x%lx != 0x%lx\n",
 		     __func__, req->tag, obj->desc.tag);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_all;
 	}
 
 	if (req->emad_count != 0U && req->emad_count != obj->desc.emad_count) {
-		WARN("%s: mistmatch of endpoint counts %u != %u\n",
+		VERBOSE("%s: mistmatch of endpoint counts %u != %u\n",
 		     __func__, req->emad_count, obj->desc.emad_count);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_all;
@@ -1413,7 +1438,7 @@ spmc_ffa_mem_retrieve_req(uint32_t smc_fid,
 
 	/* Ensure the NS bit is set to 0 in the request. */
 	if ((req->memory_region_attributes & FFA_MEM_ATTR_NS_BIT) != 0U) {
-		WARN("%s: NS mem attributes flags MBZ.\n", __func__);
+		VERBOSE("%s: NS mem attributes flags MBZ.\n", __func__);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_all;
 	}
@@ -1425,7 +1450,7 @@ spmc_ffa_mem_retrieve_req(uint32_t smc_fid,
 			 * If the retrieve request specifies the memory
 			 * transaction ensure it matches what we expect.
 			 */
-			WARN("%s: wrong mem transaction flags %x != %x\n",
+			VERBOSE("%s: wrong mem transaction flags %x != %x\n",
 			__func__, req->flags, obj->desc.flags);
 			ret = FFA_ERROR_INVALID_PARAMETER;
 			goto err_unlock_all;
@@ -1437,15 +1462,15 @@ spmc_ffa_mem_retrieve_req(uint32_t smc_fid,
 			 * Current implementation does not support donate and
 			 * it supports no other flags.
 			 */
-			WARN("%s: invalid flags 0x%x\n", __func__, req->flags);
+			VERBOSE("%s: invalid flags 0x%x\n", __func__, req->flags);
 			ret = FFA_ERROR_INVALID_PARAMETER;
 			goto err_unlock_all;
 		}
 	}
 
 	/* Validate the caller is a valid participant. */
-	if (!spmc_shmem_obj_validate_id(&obj->desc, sp_ctx->sp_id)) {
-		WARN("%s: Invalid endpoint ID (0x%x).\n",
+	if (!spmc_shmem_obj_validate_id(&obj->desc, obj->desc_size, sp_ctx->sp_id)) {
+		VERBOSE("%s: Invalid endpoint ID (0x%x).\n",
 			__func__, sp_ctx->sp_id);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_all;
@@ -1459,14 +1484,14 @@ spmc_ffa_mem_retrieve_req(uint32_t smc_fid,
 		emad = spmc_shmem_obj_get_emad(req, i, ffa_version,
 					       &emad_size);
 		if (emad == NULL) {
-			WARN("%s: invalid emad structure.\n", __func__);
+			VERBOSE("%s: invalid emad structure.\n", __func__);
 			ret = FFA_ERROR_INVALID_PARAMETER;
 			goto err_unlock_all;
 		}
 
 		if ((uintptr_t) emad >= (uintptr_t)
 					((uint8_t *) req + total_length)) {
-			WARN("Invalid emad access.\n");
+			VERBOSE("Invalid emad access.\n");
 			ret = FFA_ERROR_INVALID_PARAMETER;
 			goto err_unlock_all;
 		}
@@ -1510,7 +1535,7 @@ spmc_ffa_mem_retrieve_req(uint32_t smc_fid,
 		}
 
 		if (!found) {
-			WARN("%s: invalid receiver id (0x%x).\n",
+			VERBOSE("%s: invalid receiver id (0x%x).\n",
 			     __func__, emad->mapd.endpoint_id);
 			ret = FFA_ERROR_INVALID_PARAMETER;
 			goto err_unlock_all;
@@ -1532,7 +1557,7 @@ spmc_ffa_mem_retrieve_req(uint32_t smc_fid,
 							&copy_size,
 							&out_desc_size);
 		if (ret != 0U) {
-			ERROR("%s: Failed to process descriptor.\n", __func__);
+			VERBOSE("%s: Failed to process descriptor.\n", __func__);
 			goto err_unlock_all;
 		}
 	} else {
@@ -1593,7 +1618,7 @@ long spmc_ffa_mem_frag_rx(uint32_t smc_fid,
 	uint32_t ffa_version = get_partition_ffa_version(secure_origin);
 
 	if (!secure_origin) {
-		WARN("%s: can only be called from swld.\n",
+		VERBOSE("%s: can only be called from swld.\n",
 		     __func__);
 		return spmc_ffa_error_return(handle,
 					     FFA_ERROR_INVALID_PARAMETER);
@@ -1603,7 +1628,7 @@ long spmc_ffa_mem_frag_rx(uint32_t smc_fid,
 
 	obj = spmc_shmem_obj_lookup(&spmc_shmem_obj_state, mem_handle);
 	if (obj == NULL) {
-		WARN("%s: invalid handle, 0x%lx, not a valid handle.\n",
+		VERBOSE("%s: invalid handle, 0x%lx, not a valid handle.\n",
 		     __func__, mem_handle);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_shmem;
@@ -1611,14 +1636,14 @@ long spmc_ffa_mem_frag_rx(uint32_t smc_fid,
 
 	desc_sender_id = (uint32_t)obj->desc.sender_id << 16;
 	if (sender_id != 0U && sender_id != desc_sender_id) {
-		WARN("%s: invalid sender_id 0x%x != 0x%x\n", __func__,
+		VERBOSE("%s: invalid sender_id 0x%x != 0x%x\n", __func__,
 		     sender_id, desc_sender_id);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_shmem;
 	}
 
 	if (fragment_offset >= obj->desc_size) {
-		WARN("%s: invalid fragment_offset 0x%x >= 0x%zx\n",
+		VERBOSE("%s: invalid fragment_offset 0x%x >= 0x%zx\n",
 		     __func__, fragment_offset, obj->desc_size);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_shmem;
@@ -1627,13 +1652,13 @@ long spmc_ffa_mem_frag_rx(uint32_t smc_fid,
 	spin_lock(&mbox->lock);
 
 	if (mbox->rxtx_page_count == 0U) {
-		WARN("%s: buffer pair not registered.\n", __func__);
+		VERBOSE("%s: buffer pair not registered.\n", __func__);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_all;
 	}
 
 	if (mbox->state != MAILBOX_STATE_EMPTY) {
-		WARN("%s: RX Buffer is full!\n", __func__);
+		VERBOSE("%s: RX Buffer is full!\n", __func__);
 		ret = FFA_ERROR_DENIED;
 		goto err_unlock_all;
 	}
@@ -1655,7 +1680,7 @@ long spmc_ffa_mem_frag_rx(uint32_t smc_fid,
 							&copy_size,
 							&out_desc_size);
 		if (ret != 0U) {
-			ERROR("%s: Failed to process descriptor.\n", __func__);
+			VERBOSE("%s: Failed to process descriptor.\n", __func__);
 			goto err_unlock_all;
 		}
 	} else {
@@ -1708,7 +1733,7 @@ int spmc_ffa_mem_relinquish(uint32_t smc_fid,
 	struct secure_partition_desc *sp_ctx = spmc_get_current_sp_ctx();
 
 	if (!secure_origin) {
-		WARN("%s: unsupported relinquish direction.\n", __func__);
+		VERBOSE("%s: unsupported relinquish direction.\n", __func__);
 		return spmc_ffa_error_return(handle,
 					     FFA_ERROR_INVALID_PARAMETER);
 	}
@@ -1716,7 +1741,7 @@ int spmc_ffa_mem_relinquish(uint32_t smc_fid,
 	spin_lock(&mbox->lock);
 
 	if (mbox->rxtx_page_count == 0U) {
-		WARN("%s: buffer pair not registered.\n", __func__);
+		VERBOSE("%s: buffer pair not registered.\n", __func__);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_mailbox;
 	}
@@ -1724,13 +1749,13 @@ int spmc_ffa_mem_relinquish(uint32_t smc_fid,
 	req = mbox->tx_buffer;
 
 	if (req->flags != 0U) {
-		WARN("%s: unsupported flags 0x%x\n", __func__, req->flags);
+		VERBOSE("%s: unsupported flags 0x%x\n", __func__, req->flags);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_mailbox;
 	}
 
 	if (req->endpoint_count == 0) {
-		WARN("%s: endpoint count cannot be 0.\n", __func__);
+		VERBOSE("%s: endpoint count cannot be 0.\n", __func__);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_mailbox;
 	}
@@ -1748,7 +1773,7 @@ int spmc_ffa_mem_relinquish(uint32_t smc_fid,
 	 * support proxy endpoints so the endpoint count should always be 1.
 	 */
 	if (req->endpoint_count != 1U) {
-		WARN("%s: unsupported endpoint count %u != 1\n", __func__,
+		VERBOSE("%s: unsupported endpoint count %u != 1\n", __func__,
 		     req->endpoint_count);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_all;
@@ -1756,15 +1781,15 @@ int spmc_ffa_mem_relinquish(uint32_t smc_fid,
 
 	/* Validate provided endpoint ID matches the partition ID. */
 	if (req->endpoint_array[0] != sp_ctx->sp_id) {
-		WARN("%s: invalid endpoint ID %u != %u\n", __func__,
+		VERBOSE("%s: invalid endpoint ID %u != %u\n", __func__,
 		     req->endpoint_array[0], sp_ctx->sp_id);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_all;
 	}
 
 	/* Validate the caller is a valid participant. */
-	if (!spmc_shmem_obj_validate_id(&obj->desc, sp_ctx->sp_id)) {
-		WARN("%s: Invalid endpoint ID (0x%x).\n",
+	if (!spmc_shmem_obj_validate_id(&obj->desc, obj->desc_size, sp_ctx->sp_id)) {
+		VERBOSE("%s: Invalid endpoint ID (0x%x).\n",
 			__func__, req->endpoint_array[0]);
 		ret = FFA_ERROR_INVALID_PARAMETER;
 		goto err_unlock_all;
@@ -1816,13 +1841,13 @@ int spmc_ffa_mem_reclaim(uint32_t smc_fid,
 	uint64_t mem_handle = handle_low | (((uint64_t)handle_high) << 32);
 
 	if (secure_origin) {
-		WARN("%s: unsupported reclaim direction.\n", __func__);
+		VERBOSE("%s: unsupported reclaim direction.\n", __func__);
 		return spmc_ffa_error_return(handle,
 					     FFA_ERROR_INVALID_PARAMETER);
 	}
 
 	if (mem_flags != 0U) {
-		WARN("%s: unsupported flags 0x%x\n", __func__, mem_flags);
+		VERBOSE("%s: unsupported flags 0x%x\n", __func__, mem_flags);
 		return spmc_ffa_error_return(handle,
 					     FFA_ERROR_INVALID_PARAMETER);
 	}
