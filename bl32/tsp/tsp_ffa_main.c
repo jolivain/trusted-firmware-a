@@ -126,7 +126,7 @@ static int test_memory_send(ffa_endpoint_id16_t sender, uint64_t handle,
 
 	/* Ensure that the sender ID resides in the normal world. */
 	if (ffa_is_secure_world_id(sender)) {
-		ERROR("Invalid sender ID 0x%x.\n", sender);
+		VERBOSE("Invalid sender ID 0x%x.\n", sender);
 		return FFA_ERROR_DENIED;
 	}
 
@@ -145,7 +145,7 @@ static int test_memory_send(ffa_endpoint_id16_t sender, uint64_t handle,
 		ffa_return = ffa_mem_frag_rx(handle, recv_length);
 
 		if (ffa_return._regs[0] == FFA_ERROR) {
-			WARN("TSP: failed to resume mem with handle %lx\n",
+			VERBOSE("TSP: failed to resume mem with handle %lx\n",
 			     handle);
 			return ffa_return._regs[2];
 		}
@@ -154,13 +154,13 @@ static int test_memory_send(ffa_endpoint_id16_t sender, uint64_t handle,
 		/* Validate frag_length is less than total_length and mailbox size. */
 		if (frag_length > total_length ||
 				frag_length > (mailbox.rxtx_page_count * PAGE_SIZE)) {
-			ERROR("Invalid parameters!\n");
+			VERBOSE("Invalid parameters!\n");
 			return FFA_ERROR_INVALID_PARAMETER;
 		}
 
 		/* Validate frag_length is less than remaining mem_region_buffer size. */
 		if (frag_length + recv_length >= REGION_BUF_SIZE) {
-			ERROR("Out of memory!\n");
+			VERBOSE("Out of memory!\n");
 			return FFA_ERROR_INVALID_PARAMETER;
 		}
 
@@ -168,7 +168,7 @@ static int test_memory_send(ffa_endpoint_id16_t sender, uint64_t handle,
 		       frag_length);
 
 		if (ffa_rx_release()) {
-			ERROR("Failed to release buffer!\n");
+			VERBOSE("Failed to release buffer!\n");
 			return FFA_ERROR_DENIED;
 		}
 
@@ -179,7 +179,7 @@ static int test_memory_send(ffa_endpoint_id16_t sender, uint64_t handle,
 
 	composite = ffa_memory_region_get_composite(m, 0);
 	if (composite == NULL) {
-		WARN("Failed to get composite descriptor!\n");
+		VERBOSE("Failed to get composite descriptor!\n");
 		return FFA_ERROR_INVALID_PARAMETER;
 	}
 
@@ -190,7 +190,7 @@ static int test_memory_send(ffa_endpoint_id16_t sender, uint64_t handle,
 	/* This test is only concerned with RW permissions. */
 	if (ffa_get_data_access_attr(
 	    receivers[0].mapd.memory_access_permissions) != FFA_MEM_PERM_RW) {
-		ERROR("Data permission in retrieve response %x does not match share/lend %x!\n",
+		VERBOSE("Data permission in retrieve response %x does not match share/lend %x!\n",
 		      ffa_get_data_access_attr(receivers[0].mapd.memory_access_permissions),
 		      FFA_MEM_PERM_RW);
 		return FFA_ERROR_INVALID_PARAMETER;
@@ -201,7 +201,7 @@ static int test_memory_send(ffa_endpoint_id16_t sender, uint64_t handle,
 	/* Only expecting to be sent memory from NWd so map accordingly. */
 	mem_attrs |= MT_NS;
 
-	for (uint32_t i = 0U; i < composite->address_range_count; i++) {
+	for (int i = 0; i < composite->address_range_count; i++) {
 		size_t size = composite->address_range_array[i].page_count * PAGE_SIZE;
 
 		ptr = (char *) composite->address_range_array[i].address;
@@ -211,19 +211,19 @@ static int test_memory_send(ffa_endpoint_id16_t sender, uint64_t handle,
 				size, mem_attrs);
 
 		if (ret != 0) {
-			ERROR("Failed [%u] mmap_add_dynamic_region %u (%lx) (%lx) (%x)!\n",
+			VERBOSE("Failed [%u] mmap_add_dynamic_region %u (%lx) (%lx) (%x)!\n",
 				i, ret,
 				(uint64_t)composite->address_range_array[i].address,
 				size, mem_attrs);
 
-			/* Remove mappings created in this transaction. */
-			for (i--; i >= 0U; i--) {
+			/* Remove mappings previously created in this transaction. */
+			for(i--; i >= 0; i--) {
 				ret = mmap_remove_dynamic_region(
-					(uint64_t)ptr,
+					(uint64_t)composite->address_range_array[i].address,
 					composite->address_range_array[i].page_count * PAGE_SIZE);
 
 				if (ret != 0) {
-					ERROR("Failed [%d] mmap_remove_dynamic_region!\n", i);
+					VERBOSE("Failed [%d] mmap_remove_dynamic_region!\n", i);
 					panic();
 				}
 			}
@@ -248,14 +248,14 @@ static int test_memory_send(ffa_endpoint_id16_t sender, uint64_t handle,
 			composite->address_range_array[i].page_count * PAGE_SIZE);
 
 		if (ret != 0) {
-			ERROR("Failed [%d] mmap_remove_dynamic_region!\n", i);
+			VERBOSE("Failed [%d] mmap_remove_dynamic_region!\n", i);
 			return FFA_ERROR_NO_MEMORY;
 		}
 	}
 
 	if (!memory_relinquish((struct ffa_mem_relinquish_descriptor *)mailbox.tx_buffer,
 				m->handle, tsp_id)) {
-		ERROR("Failed to relinquish memory region!\n");
+		VERBOSE("Failed to relinquish memory region!\n");
 		return FFA_ERROR_INVALID_PARAMETER;
 	}
 	return status;
@@ -298,8 +298,8 @@ smc_args_t *tsp_cpu_off_main(uint64_t arg0,
 	tsp_stats[linear_id].eret_count++;
 	tsp_stats[linear_id].cpu_off_count++;
 
-	INFO("TSP: cpu 0x%lx off request\n", read_mpidr());
-	INFO("TSP: cpu 0x%lx: %d smcs, %d erets %d cpu off requests\n",
+	VERBOSE("TSP: cpu 0x%lx off request\n", read_mpidr());
+	VERBOSE("TSP: cpu 0x%lx: %d smcs, %d erets %d cpu off requests\n",
 		read_mpidr(),
 		tsp_stats[linear_id].smc_count,
 		tsp_stats[linear_id].eret_count,
@@ -336,7 +336,7 @@ smc_args_t *tsp_cpu_suspend_main(uint64_t arg0,
 	tsp_stats[linear_id].eret_count++;
 	tsp_stats[linear_id].cpu_suspend_count++;
 
-	INFO("TSP: cpu 0x%lx: %d smcs, %d erets %d cpu suspend requests\n",
+	VERBOSE("TSP: cpu 0x%lx: %d smcs, %d erets %d cpu suspend requests\n",
 		read_mpidr(),
 		tsp_stats[linear_id].smc_count,
 		tsp_stats[linear_id].eret_count,
@@ -369,9 +369,9 @@ smc_args_t *tsp_cpu_resume_main(uint64_t max_off_pwrlvl,
 	tsp_stats[linear_id].eret_count++;
 	tsp_stats[linear_id].cpu_resume_count++;
 
-	INFO("TSP: cpu 0x%lx resumed. maximum off power level %" PRId64 "\n",
+	VERBOSE("TSP: cpu 0x%lx resumed. maximum off power level %" PRId64 "\n",
 	     read_mpidr(), max_off_pwrlvl);
-	INFO("TSP: cpu 0x%lx: %d smcs, %d erets %d cpu resume requests\n",
+	VERBOSE("TSP: cpu 0x%lx: %d smcs, %d erets %d cpu resume requests\n",
 		read_mpidr(),
 		tsp_stats[linear_id].smc_count,
 		tsp_stats[linear_id].eret_count,
@@ -416,7 +416,7 @@ static smc_args_t *handle_framework_message(uint64_t arg0,
 	}
 
 err:
-	ERROR("%s: Unknown framework message!\n", __func__);
+	VERBOSE("%s: Unknown framework message!\n", __func__);
 	panic();
 }
 
@@ -490,7 +490,7 @@ static smc_args_t *tsp_event_loop(uint64_t smc_fid,
 {
 	/* Panic if the SPMC did not forward an FF-A call. */
 	if (!is_ffa_fid(smc_fid)) {
-		ERROR("%s: Unknown SMC FID (0x%lx)\n", __func__, smc_fid);
+		VERBOSE("%s: Unknown SMC FID (0x%lx)\n", __func__, smc_fid);
 		panic();
 	}
 
@@ -514,7 +514,7 @@ static smc_args_t *tsp_event_loop(uint64_t smc_fid,
 							arg4, arg5, arg6, arg7);
 	}
 
-	ERROR("%s: Unsupported FF-A FID (0x%lx)\n", __func__, smc_fid);
+	VERBOSE("%s: Unsupported FF-A FID (0x%lx)\n", __func__, smc_fid);
 	panic();
 }
 
@@ -555,8 +555,8 @@ uint64_t tsp_main(void)
 
 	NOTICE("TSP: %s\n", version_string);
 	NOTICE("TSP: %s\n", build_message);
-	INFO("TSP: Total memory base : 0x%lx\n", (unsigned long) BL32_BASE);
-	INFO("TSP: Total memory size : 0x%lx bytes\n", BL32_TOTAL_SIZE);
+	VERBOSE("TSP: Total memory base : 0x%lx\n", (unsigned long) BL32_BASE);
+	VERBOSE("TSP: Total memory size : 0x%lx bytes\n", BL32_TOTAL_SIZE);
 	uint32_t linear_id = plat_my_core_pos();
 
 	/* Initialize the platform. */
@@ -570,25 +570,25 @@ uint64_t tsp_main(void)
 			(uint64_t) tsp_cpu_on_entry,
 			0, 0, 0, 0, 0, 0);
 	if (smc_args._regs[SMC_ARG0] != FFA_SUCCESS_SMC32) {
-		ERROR("TSP could not register secondary ep (0x%lx)\n",
+		VERBOSE("TSP could not register secondary ep (0x%lx)\n",
 				smc_args._regs[2]);
 		panic();
 	}
 	/* Get TSP's endpoint id. */
 	smc_args = smc_helper(FFA_ID_GET, 0, 0, 0, 0, 0, 0, 0);
 	if (smc_args._regs[SMC_ARG0] != FFA_SUCCESS_SMC32) {
-		ERROR("TSP could not get own ID (0x%lx) on core%d\n",
+		VERBOSE("TSP could not get own ID (0x%lx) on core%d\n",
 				smc_args._regs[2], linear_id);
 		panic();
 	}
 
 	tsp_id = smc_args._regs[2];
-	INFO("TSP FF-A endpoint id = 0x%x\n", tsp_id);
+	VERBOSE("TSP FF-A endpoint id = 0x%x\n", tsp_id);
 
 	/* Get the SPMC ID. */
 	smc_args = smc_helper(FFA_SPM_ID_GET, 0, 0, 0, 0, 0, 0, 0);
 	if (smc_args._regs[SMC_ARG0] != FFA_SUCCESS_SMC32) {
-		ERROR("TSP could not get SPMC ID (0x%lx) on core%d\n",
+		VERBOSE("TSP could not get SPMC ID (0x%lx) on core%d\n",
 				smc_args._regs[2], linear_id);
 		panic();
 	}
@@ -598,7 +598,7 @@ uint64_t tsp_main(void)
 	/* Call RXTX_MAP to map a 4k RX and TX buffer. */
 	if (ffa_rxtx_map((uintptr_t) send_page,
 			 (uintptr_t) recv_page, 1)) {
-		ERROR("TSP could not map it's RX/TX Buffers\n");
+		VERBOSE("TSP could not map it's RX/TX Buffers\n");
 		panic();
 	}
 
@@ -611,7 +611,7 @@ uint64_t tsp_main(void)
 	tsp_stats[linear_id].eret_count++;
 	tsp_stats[linear_id].cpu_on_count++;
 
-	INFO("TSP: cpu 0x%lx: %d smcs, %d erets %d cpu on requests\n",
+	VERBOSE("TSP: cpu 0x%lx: %d smcs, %d erets %d cpu on requests\n",
 			read_mpidr(),
 			tsp_stats[linear_id].smc_count,
 			tsp_stats[linear_id].eret_count,
@@ -640,8 +640,8 @@ smc_args_t *tsp_cpu_on_main(void)
 	tsp_stats[linear_id].smc_count++;
 	tsp_stats[linear_id].eret_count++;
 	tsp_stats[linear_id].cpu_on_count++;
-	INFO("TSP: cpu 0x%lx turned on\n", read_mpidr());
-	INFO("TSP: cpu 0x%lx: %d smcs, %d erets %d cpu on requests\n",
+	VERBOSE("TSP: cpu 0x%lx turned on\n", read_mpidr());
+	VERBOSE("TSP: cpu 0x%lx: %d smcs, %d erets %d cpu on requests\n",
 			read_mpidr(),
 			tsp_stats[linear_id].smc_count,
 			tsp_stats[linear_id].eret_count,

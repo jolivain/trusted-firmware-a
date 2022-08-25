@@ -113,7 +113,7 @@ bool ffa_mem_relinquish(void)
 
 	ret = smc_helper(FFA_MEM_RELINQUISH, 0, 0, 0, 0, 0, 0, 0);
 	if (ffa_func_id(ret) != FFA_SUCCESS_SMC32) {
-		ERROR("%s failed to relinquish memory! error: (%x) %x\n",
+		VERBOSE("%s failed to relinquish memory! error: (%x) %x\n",
 		      __func__, ffa_func_id(ret), ffa_error_code(ret));
 		return false;
 	}
@@ -149,12 +149,14 @@ bool memory_retrieve(struct mailbox *mb,
 {
 	smc_args_t ret;
 	uint32_t descriptor_size;
-	struct ffa_mtd *memory_region = (struct ffa_mtd *)mb->tx_buffer;
+	struct ffa_mtd *memory_region;
 
 	if (retrieved == NULL || mb == NULL) {
-		ERROR("Invalid parameters!\n");
+		VERBOSE("Invalid parameters!\n");
 		return false;
 	}
+
+	memory_region = (struct ffa_mtd *)mb->tx_buffer;
 
 	/* Clear TX buffer. */
 	memset(memory_region, 0, PAGE_SIZE);
@@ -171,7 +173,7 @@ bool memory_retrieve(struct mailbox *mb,
 	ret = ffa_mem_retrieve_req(descriptor_size, descriptor_size);
 
 	if (ffa_func_id(ret) == FFA_ERROR) {
-		ERROR("Couldn't retrieve the memory page. Error: %x\n",
+		VERBOSE("Couldn't retrieve the memory page. Error: %x\n",
 		      ffa_error_code(ret));
 		return false;
 	}
@@ -188,7 +190,7 @@ bool memory_retrieve(struct mailbox *mb,
 	/* Validate frag_length is less than total_length and mailbox size. */
 	if (*frag_length == 0U || *total_length == 0U ||
 	    *frag_length > *total_length || *frag_length > (mb->rxtx_page_count * PAGE_SIZE)) {
-		ERROR("Invalid parameters!\n");
+		VERBOSE("Invalid parameters!\n");
 		return false;
 	}
 
@@ -196,7 +198,7 @@ bool memory_retrieve(struct mailbox *mb,
 	memcpy(mem_region_buffer, mb->rx_buffer, *frag_length);
 
 	if (ffa_rx_release()) {
-		ERROR("Failed to release buffer!\n");
+		VERBOSE("Failed to release buffer!\n");
 		return false;
 	}
 
@@ -213,7 +215,7 @@ bool memory_retrieve(struct mailbox *mb,
 	 * bit was set by the SPMC.
 	 */
 	if (((*retrieved)->memory_region_attributes & FFA_MEM_ATTR_NS_BIT) == 0U) {
-		ERROR("SPMC has not set the NS bit! 0x%x\n",
+		VERBOSE("SPMC has not set the NS bit! 0x%x\n",
 		      (*retrieved)->memory_region_attributes);
 		return false;
 	}
