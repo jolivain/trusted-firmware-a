@@ -58,7 +58,7 @@ static void spmc_create_boot_info(entry_point_info_t *ep_info,
 	 * that a v1.0 SP has not requested use of the protocol.
 	 */
 	if (sp->ffa_version == MAKE_FFA_VERSION(1, 0)) {
-		ERROR("FF-A boot protocol not supported for v1.0 clients\n");
+		VERBOSE("FF-A boot protocol not supported for v1.0 clients\n");
 		return;
 	}
 
@@ -67,8 +67,8 @@ static void spmc_create_boot_info(entry_point_info_t *ep_info,
 	 * bail.
 	 */
 	if (ep_info->args.arg1 > max_manifest_sz) {
-		WARN("Unable to copy manifest into boot information. ");
-		WARN("Max sz = %u bytes. Manifest sz = %lu bytes\n",
+		VERBOSE("Unable to copy manifest into boot information. ");
+		VERBOSE("Max sz = %u bytes. Manifest sz = %lu bytes\n",
 		     max_manifest_sz, ep_info->args.arg1);
 		return;
 	}
@@ -204,7 +204,7 @@ void spmc_sp_common_setup(struct secure_partition_desc *sp,
 			sp_id++;
 
 			if (sp_id == FFA_SWD_ID_LIMIT) {
-				ERROR("Unable to determine valid SP ID.\n");
+				VERBOSE("Unable to determine valid SP ID.\n");
 				panic();
 			}
 		}
@@ -251,7 +251,7 @@ void spmc_sp_common_setup(struct secure_partition_desc *sp,
 			ep_info->args.arg3 = (uintptr_t) ffa_boot_info_mem;
 			break;
 		default:
-			ERROR("Invalid value for \"gp-register-num\" %d.\n",
+			VERBOSE("Invalid value for \"gp-register-num\" %d.\n",
 			      boot_info_reg);
 		}
 	} else {
