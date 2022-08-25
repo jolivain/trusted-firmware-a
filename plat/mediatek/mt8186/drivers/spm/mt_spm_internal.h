@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#ifndef MT_SPM_INTERNAL
-#define MT_SPM_INTERNAL
+#ifndef MT_SPM_INTERNAL_H
+#define MT_SPM_INTERNAL_H
 
 #include "mt_spm.h"
 
@@ -100,7 +100,7 @@
 	 SPM_DBG1_DEBUG_IDX_SCP_SLP_ACK_HIGH_ABORT |		\
 	 SPM_DBG1_DEBUG_IDX_SPM_DVFS_CMD_RDY_ABORT)
 
-#define MCUPM_MBOX_WAKEUP_CPU	(0x0C55FD10)
+#define MCUPM_MBOX_WAKEUP_CPU		(0x0C55FD10)
 
 struct pwr_ctrl {
 	uint32_t pcm_flags;
@@ -521,7 +521,7 @@ struct wake_status {
 	uint32_t r12_ext;		/* SPM_WAKEUP_EXT_STA */
 	uint32_t raw_sta;		/* SPM_WAKEUP_STA */
 	uint32_t raw_ext_sta;		/* SPM_WAKEUP_EXT_STA */
-	uint32_t md32pcm_wakeup_sta;	/* MD32CPM_WAKEUP_STA */
+	uint32_t md32pcm_wakeup_sta;	/* MD32PCM_WAKEUP_STA */
 	uint32_t md32pcm_event_sta;	/* MD32PCM_EVENT_STA */
 	uint32_t wake_misc;		/* SPM_BK_WAKE_MISC */
 	uint32_t timer_out;		/* SPM_BK_PCM_TIMER */
@@ -559,7 +559,6 @@ struct spm_lp_scen {
 };
 
 extern struct spm_lp_scen __spm_vcorefs;
-
 extern void __spm_set_cpu_status(unsigned int cpu);
 extern void __spm_reset_and_init_pcm(const struct pcm_desc *pcmdesc);
 extern void __spm_kick_im_to_fetch(const struct pcm_desc *pcmdesc);
@@ -572,19 +571,20 @@ extern void __spm_set_wakeup_event(const struct pwr_ctrl *pwrctrl);
 extern void __spm_kick_pcm_to_run(struct pwr_ctrl *pwrctrl);
 extern void __spm_set_pcm_flags(struct pwr_ctrl *pwrctrl);
 extern void __spm_send_cpu_wakeup_event(void);
-
 extern void __spm_get_wakeup_status(struct wake_status *wakesta,
 				    unsigned int ext_status);
 extern void __spm_clean_after_wakeup(void);
-extern wake_reason_t __spm_output_wake_reason(int state_id,
-					      const struct wake_status *wakesta);
-extern void __spm_sync_vcore_dvfs_power_control(struct pwr_ctrl *dest_pwr_ctrl,
-						const struct pwr_ctrl *src_pwr_ctrl);
+extern wake_reason_t
+__spm_output_wake_reason(int state_id, const struct wake_status *wakesta);
+extern void
+__spm_sync_vcore_dvfs_power_control(struct pwr_ctrl *dest_pwr_ctrl,
+				    const struct pwr_ctrl *src_pwr_ctrl);
 extern void __spm_set_pcm_wdt(int en);
 extern uint32_t _spm_get_wake_period(int pwake_time, wake_reason_t last_wr);
 extern void __spm_set_fw_resume_option(struct pwr_ctrl *pwrctrl);
 extern void __spm_ext_int_wakeup_req_clr(void);
 extern void __spm_xo_soc_bblpm(int en);
+void spm_dump_wakesta(const struct wake_status *wakesta);
 
 static inline void set_pwrctrl_pcm_flags(struct pwr_ctrl *pwrctrl,
 					 uint32_t flags)
@@ -617,5 +617,4 @@ static inline void spm_hw_s1_state_monitor_pause(unsigned int *status)
 {
 	__spm_hw_s1_state_monitor(0, status);
 }
-
 #endif /* MT_SPM_INTERNAL_H */

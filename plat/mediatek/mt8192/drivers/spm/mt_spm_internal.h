@@ -12,8 +12,8 @@
 /**************************************
  * Config and Parameter
  **************************************/
-#define POWER_ON_VAL0_DEF	0x0000F100
-#define POWER_ON_VAL1_DEF	0x80015860
+#define POWER_ON_VAL0_DEF	(0x0000F100)
+#define POWER_ON_VAL1_DEF	(0x80015860)
 #define PCM_WDT_TIMEOUT		(30 * 32768)	/* 30s */
 #define PCM_TIMER_MAX		(0xffffffff - PCM_WDT_TIMEOUT)
 
@@ -107,7 +107,7 @@
 	 SPM_DBG1_DEBUG_IDX_SCP_SLP_ACK_HIGH_ABORT |		\
 	 SPM_DBG1_DEBUG_IDX_SPM_DVFS_CMD_RDY_ABORT)
 
-#define MCUPM_MBOX_WAKEUP_CPU		0x0C55FD10
+#define MCUPM_MBOX_WAKEUP_CPU		(0x0C55FD10)
 
 struct pwr_ctrl {
 	uint32_t pcm_flags;
@@ -540,7 +540,7 @@ struct wake_status {
 	uint32_t r12_ext;		/* SPM_WAKEUP_EXT_STA */
 	uint32_t raw_sta;		/* SPM_WAKEUP_STA */
 	uint32_t raw_ext_sta;		/* SPM_WAKEUP_EXT_STA */
-	uint32_t md32pcm_wakeup_sta;	/* MD32CPM_WAKEUP_STA */
+	uint32_t md32pcm_wakeup_sta;	/* MD32PCM_WAKEUP_STA */
 	uint32_t md32pcm_event_sta;	/* MD32PCM_EVENT_STA */
 	uint32_t wake_misc;		/* SPM_BK_WAKE_MISC */
 	uint32_t timer_out;		/* SPM_BK_PCM_TIMER */
@@ -603,6 +603,7 @@ extern uint32_t _spm_get_wake_period(int pwake_time, wake_reason_t last_wr);
 extern void __spm_set_fw_resume_option(struct pwr_ctrl *pwrctrl);
 extern void __spm_ext_int_wakeup_req_clr(void);
 extern void __spm_xo_soc_bblpm(int en);
+void spm_dump_wakesta(const struct wake_status *wakesta);
 
 static inline void set_pwrctrl_pcm_flags(struct pwr_ctrl *pwrctrl,
 					 uint32_t flags)
