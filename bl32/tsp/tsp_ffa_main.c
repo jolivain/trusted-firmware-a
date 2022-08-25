@@ -216,17 +216,19 @@ static int test_memory_send(ffa_endpoint_id16_t sender, uint64_t handle,
 				(uint64_t)composite->address_range_array[i].address,
 				size, mem_attrs);
 
-			/* Remove mappings created in this transaction. */
-			for (i--; i >= 0U; i--) {
+			/* Remove mappings previously created in this transaction. */
+			do {
+				i--;
 				ret = mmap_remove_dynamic_region(
-					(uint64_t)ptr,
+					(uint64_t)composite->address_range_array[i].address,
 					composite->address_range_array[i].page_count * PAGE_SIZE);
 
 				if (ret != 0) {
 					ERROR("Failed [%d] mmap_remove_dynamic_region!\n", i);
 					panic();
 				}
-			}
+			} while (i != 0U);
+
 			return FFA_ERROR_NO_MEMORY;
 		}
 
