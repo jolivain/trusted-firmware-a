@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -151,6 +151,7 @@ static int qemu_bl2_handle_post_image_load(unsigned int image_id)
 #if defined(SPD_spmd)
 	unsigned int mode_rw = MODE_RW_64;
 	uint64_t pagable_part = 0;
+	bl_mem_params_node_t *bl32_mem_params;
 #endif
 
 	assert(bl_mem_params);
@@ -223,6 +224,10 @@ static int qemu_bl2_handle_post_image_load(unsigned int image_id)
 #endif
 
 		bl_mem_params->ep_info.spsr = qemu_get_spsr_for_bl33_entry();
+		break;
+	case TOS_FW_CONFIG_ID:
+		bl32_mem_params = get_bl_mem_params_node(BL32_IMAGE_ID);
+		bl32_mem_params->ep_info.args.arg0 = (u_register_t)0xe030000;
 		break;
 	default:
 		/* Do nothing in default case */
