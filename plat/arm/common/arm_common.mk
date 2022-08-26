@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015-2022, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -118,6 +118,21 @@ endif
 ARM_ETHOSN_NPU_DRIVER			:=	0
 $(eval $(call assert_boolean,ARM_ETHOSN_NPU_DRIVER))
 $(eval $(call add_define,ARM_ETHOSN_NPU_DRIVER))
+
+# Arm(R) Ethos(TM)-N NPU TZMP1
+ARM_ETHOSN_NPU_TZMP1			:=	0
+$(eval $(call assert_boolean,ARM_ETHOSN_NPU_TZMP1))
+$(eval $(call add_define,ARM_ETHOSN_NPU_TZMP1))
+ifeq (${ARM_ETHOSN_NPU_TZMP1},1)
+  ifeq (${ARM_ETHOSN_NPU_DRIVER},0)
+    $(error "ARM_ETHOSN_NPU_TZMP1 is only available if ARM_ETHOSN_NPU_DRIVER=1)
+  endif
+  ifeq (${PLAT},juno)
+    $(eval $(call add_define,JUNO_ETHOSN_TZMP1))
+  else
+    $(error "ARM_ETHOSN_NPU_TZMP1 only supported on Juno platform, not ", ${PLAT})
+  endif
+endif
 
 # Use an implementation of SHA-256 with a smaller memory footprint but reduced
 # speed.
