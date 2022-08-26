@@ -10,6 +10,8 @@
 #include <plat/arm/common/smccc_def.h>
 #include <plat/common/common_def.h>
 
+/* number of interrupt handlers. increase as required */
+#define MAX_INTR_EL3			2
 /* List all consoles */
 #define VERSAL_CONSOLE_ID_pl011	1
 #define VERSAL_CONSOLE_ID_pl011_0	1
