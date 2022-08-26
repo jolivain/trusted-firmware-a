@@ -10,6 +10,11 @@
 #include <lib/xlat_tables/xlat_tables.h>
 #include <bl31/interrupt_mgmt.h>
 
+typedef struct versal_intr_info_type_el3 {
+	uint32_t id;
+	interrupt_type_handler_t handler;
+} versal_intr_info_type_el3_t;
+
 void versal_config_setup(void);
 
 const mmap_region_t *plat_versal_get_mmap(void);
