@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "653c7734_b94ece99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-08-26T12:40:41Z",
+      "side": 1,
+      "message": "The checkpatch error is because of __unused not managed by the script on the declaration of nand2_param. If I change it to __maybe_unused, checkpatch does no more complain.\nMaybe we should introduce this __maybe_unused in cdefs.h and starting using it to have checkpatch happy with new patches. Changing all __unused to __maybe_unused can be huge (more than 240 occurrences) for no real gain.\n",
+      "revId": "f1e5605981c0d3775263011a486571c4f9058e8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
