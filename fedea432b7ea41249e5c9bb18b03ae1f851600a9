@@ -217,6 +217,30 @@
       },
       "revId": "fedea432b7ea41249e5c9bb18b03ae1f851600a9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5c7eed4_de8a323b",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-08-27T22:30:47Z",
+      "side": 1,
+      "message": "Thank you for the detailed response! Your observations regarding a possible mismatch between how an SGI is configured/perceived by current vs target CPU is very interesting.\n\nI looked into how TF-A gic driver configures the interrupt type(INTR_TYPE_*) for a specific interrupt ID. It looks like a particular interrupt (lets say ARM_IRQ_SEC_SGI_7 which is SGI 15 for Xilinx zynqmp ) is statically defined to be of a particular type through appropriate macros in the platform header file[1]. This marco (PLAT_ARM_G1S_IRQ_PROPS) further expands to a interrupt descriptor data structure that later gets fed to the GIC driver[2], [3]. This makes me believe that, programatically, it is legal for a current CPU to read the interrupt type, for a target CPU, by accessing its own redistributor registers. \n\nMoreover, I believe, it is the responsibility of the firmware to leverage the correct SGI to raise appropriate type of SGI in co-ordination with how the platform has specified the interrupt type. For example, ARM_IRQ_SEC_SGI_7 has been specified as G1S by Xilinx zynqmp platform. Hence, the SPD module can use this SGI only with plat_ic_raise_s_el1_sgi(). I believe the assert you mentioned earlier would be useful to ensure this.\n\nBased on my above observations, I think the 2nd option you listed above would be preferred.\ngicv2_raise_sgi() can be as it is. gicv3_raise_sgi() can take the additional argument INTR_TYPE_*. I believe this is justified since GICv3 architecture introduced additional interrupt type( G1 Secure) which did not exist in GICv2 architecture.\n\n\nPlease let me know if you disagree.\n\n[1] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/xilinx/zynqmp/include/platform_def.h#n133\n[2] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/drivers/arm/gic/v3/gicv3_main.c#n224\n[3] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/drivers/arm/gic/v3/gicv3_helpers.c#n307",
+      "parentUuid": "00cfb8ef_72119e77",
+      "range": {
+        "startLine": 1134,
+        "startChar": 0,
+        "endLine": 1147,
+        "endChar": 2
+      },
+      "revId": "fedea432b7ea41249e5c9bb18b03ae1f851600a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
