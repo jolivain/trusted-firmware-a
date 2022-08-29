@@ -33,6 +33,75 @@
       "message": "Hi, maintainers\nGentle ping for this patch.\nPlease give us some suggestions, thanks a lot.",
       "revId": "ab39b64b85bfb59c5ff32eb83ab6c8c0bcbb25b5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "364480cb_0e846f4c",
+        "filename": "plat/mediatek/include/mtk_sip_svc.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-29T08:55:04Z",
+      "side": 1,
+      "message": "Consider removing in favor of using macros from smccc.h ?\nThe only usage is in mtk_plat_common.c. GET_SMC_CC could be used as replacement.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 52
+      },
+      "revId": "ab39b64b85bfb59c5ff32eb83ab6c8c0bcbb25b5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dac6d40b_9a9171fc",
+        "filename": "plat/mediatek/include/mtk_sip_svc.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-29T08:55:04Z",
+      "side": 1,
+      "message": "Possible to reuse the generic smc_args_t from https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/arch/aarch64/smccc_helpers.h?h\u003dintegration#n101 ?",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 2
+      },
+      "revId": "ab39b64b85bfb59c5ff32eb83ab6c8c0bcbb25b5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92d02d0e_f13b53dd",
+        "filename": "plat/mediatek/mt8183/platform.mk",
+        "patchSetId": 14
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-29T08:55:04Z",
+      "side": 1,
+      "message": "nit: 2019-2022",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 20
+      },
+      "revId": "ab39b64b85bfb59c5ff32eb83ab6c8c0bcbb25b5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
