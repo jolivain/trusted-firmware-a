@@ -265,6 +265,30 @@
       },
       "revId": "fedea432b7ea41249e5c9bb18b03ae1f851600a9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab84b5f3_ffd94d77",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-08-29T21:51:06Z",
+      "side": 1,
+      "message": "I might have made some wrong assumptions. As seen here [1], gicv3_get_interrupt_type() takes proc_num as an argument which gave me the FALSE impression that the current CPU can invoke this API with the proc_num matching the target CPU. However, it looks like, this is not done in TF-A.\n\nYou have summarised my assumptions very well in your last post in the paragraph starting with \"My understanding is that the TF-A expects ...\"\n\nHowever, I now understand from your post that, in your case of ProvenCore software, the GIC configuration may not be static and hence the interrupt configuration could differ between source and target CPU.\n\nHence, I do not want to block your patch and I am happy with your change as it is. It would be good to hear the opinion of Varun, Raghu and Olivier who are well versed with GIC driver as well as TEE (Trusted OSs).\n\n\n[1] https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/refs/heads/master/drivers/arm/gic/v3/gicv3_main.c#428",
+      "parentUuid": "ea39fc05_2b76f62c",
+      "range": {
+        "startLine": 1134,
+        "startChar": 0,
+        "endLine": 1147,
+        "endChar": 2
+      },
+      "revId": "fedea432b7ea41249e5c9bb18b03ae1f851600a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
