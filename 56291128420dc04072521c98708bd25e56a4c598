@@ -33,6 +33,138 @@
       "message": "Hi, maintainers\nGentle ping for this patch.\nPlease give us some suggestions, thanks a lot.",
       "revId": "56291128420dc04072521c98708bd25e56a4c598",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f2a2a8c_232ec180",
+        "filename": "plat/mediatek/common/mtk_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-29T09:21:43Z",
+      "side": 1,
+      "message": "This definition should go here? https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/15552/15/plat/mediatek/include/mtk_mmap_pool.h#50",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 32
+      },
+      "revId": "56291128420dc04072521c98708bd25e56a4c598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb101939_aaee2638",
+        "filename": "plat/mediatek/common/mtk_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-29T09:21:43Z",
+      "side": 1,
+      "message": "check p_mtk_bl_param is not null?",
+      "revId": "56291128420dc04072521c98708bd25e56a4c598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ee5b54d_4a66ce46",
+        "filename": "plat/mediatek/common/mtk_plat_common.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-29T09:21:43Z",
+      "side": 1,
+      "message": "GET_SMC_CC(smc_fid)",
+      "range": {
+        "startLine": 29,
+        "startChar": 10,
+        "endLine": 29,
+        "endChar": 37
+      },
+      "revId": "56291128420dc04072521c98708bd25e56a4c598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f3f4690_bb47481b",
+        "filename": "plat/mediatek/include/cold_boot.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-29T09:21:43Z",
+      "side": 1,
+      "message": "already defined in mtk_plat_common.h",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 24
+      },
+      "revId": "56291128420dc04072521c98708bd25e56a4c598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62abd54b_e4124846",
+        "filename": "plat/mediatek/include/cold_boot.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-29T09:21:43Z",
+      "side": 1,
+      "message": "already defined in mtk_plat_common.h",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 37
+      },
+      "revId": "56291128420dc04072521c98708bd25e56a4c598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "051637f5_031ae968",
+        "filename": "plat/mediatek/include/cold_boot.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-29T09:21:43Z",
+      "side": 1,
+      "message": "#endif /* COLD_BOOT_H */",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 6
+      },
+      "revId": "56291128420dc04072521c98708bd25e56a4c598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
