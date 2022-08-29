@@ -39,6 +39,30 @@
       },
       "revId": "917e84566517aeb0558c2a6d5d7a40303f7e41ba",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f733dee_155dff59",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-08-29T07:40:49Z",
+      "side": 1,
+      "message": "Hi Varun,\n\nAccording to the DRTM specification (see figure 9 in section 3.14) this function is designed to pull various regions from the platform as shown below (though retrieval of some of the regions is still in the ToDo list).\n\n1. DLME data header (fixed across the platform)\n\nPlatform specific regions -\n2. Protected region list\n3. Address map\n4. DRTM Event Log\n5. TCB hash tables\n6. Implementation specific regions\n\nIn this function, all platform-defined regions are accumulated to create a final DLME data region. This function is much common/logical across platforms (if any regions are not supported by the platform, then it should return NULL for those regions).\n\nIt\u0027s possible to make this whole function platform-specific, but it will be quite a bit of duplicated work for every platform. Could you please let me know your thoughts or did I misunderstand your comment? Thanks!",
+      "parentUuid": "26cf4cc8_707a827b",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 1
+      },
+      "revId": "917e84566517aeb0558c2a6d5d7a40303f7e41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
