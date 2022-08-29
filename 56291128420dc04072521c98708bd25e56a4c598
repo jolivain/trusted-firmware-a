@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4ee3a34_cd5e743b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-29T09:27:52Z",
+      "side": 1,
+      "message": "\nThere are two target build failures (but may not be related to those changes). Can you please rebase current patch stack? Thanks.\n\nCan you provide the CI coverity makefile update?\n****** Newly added files detection check for Coverity Scan analysis on patch(es) ******\n\nResult : FAILURE\n\n\nNew source files have been identified in your patch..\nplat/mediatek/common/cold_boot.c\nplat/mediatek/common/mtk_bl31_setup.c\nplat/mediatek/common/mtk_smc_handlers.c\nplat/mediatek/lib/mtk_init/mtk_init.c\nplat/mediatek/lib/mtk_init/mtk_mmap_init.c\n\n\n",
+      "revId": "56291128420dc04072521c98708bd25e56a4c598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6f2a2a8c_232ec180",
         "filename": "plat/mediatek/common/mtk_bl31_setup.c",
         "patchSetId": 13
