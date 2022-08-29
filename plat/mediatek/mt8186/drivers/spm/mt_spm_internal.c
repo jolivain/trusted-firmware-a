@@ -226,7 +226,7 @@ void __spm_set_power_control(const struct pwr_ctrl *pwrctrl)
 		((pwrctrl->reg_ufs_infra_req_mask_b & 0x1) << 11) |
 		((pwrctrl->reg_ufs_apsrc_req_mask_b & 0x1) << 12) |
 		((pwrctrl->reg_ufs_vrf18_req_mask_b & 0x1) << 13) |
-		((pwrctrl->reg_ufs_ddren_req_mask_b & 0x1) << 14) |
+		((pwrctrl->reg_ufs_ddr_en_mask_b & 0x1) << 14) |
 		((pwrctrl->reg_disp0_apsrc_req_mask_b & 0x1) << 15) |
 		((pwrctrl->reg_disp0_ddren_req_mask_b & 0x1) << 16) |
 		((pwrctrl->reg_disp1_apsrc_req_mask_b & 0x1) << 17) |

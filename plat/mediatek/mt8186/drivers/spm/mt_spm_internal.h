@@ -191,7 +191,7 @@ struct pwr_ctrl {
 	uint8_t reg_ufs_infra_req_mask_b;
 	uint8_t reg_ufs_apsrc_req_mask_b;
 	uint8_t reg_ufs_vrf18_req_mask_b;
-	uint8_t reg_ufs_ddren_req_mask_b;
+	uint8_t reg_ufs_ddr_en_mask_b;
 	uint8_t reg_disp0_apsrc_req_mask_b;
 	uint8_t reg_disp0_ddren_req_mask_b;
 	uint8_t reg_disp1_apsrc_req_mask_b;

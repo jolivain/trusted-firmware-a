@@ -153,7 +153,7 @@ void spm_conservation_pwrctrl_init(struct pwr_ctrl *pwrctrl)
 			pwrctrl->reg_ufs_infra_req_mask_b = 0;
 			pwrctrl->reg_ufs_apsrc_req_mask_b = 0;
 			pwrctrl->reg_ufs_vrf18_req_mask_b = 0;
-			pwrctrl->reg_ufs_ddren_req_mask_b = 0;
+			pwrctrl->reg_ufs_ddr_en_mask_b = 0;
 		}
 	}
 }
