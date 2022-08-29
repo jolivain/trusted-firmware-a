@@ -17,9 +17,6 @@
 #include <plat_pm.h>
 #include <platform_def.h>
 
-#define MT_RESUMETIME_THRESHOLD_MAX	(5U) /*ms*/
-#define IS_RESUME_OVERTIME(delta)	(delta > MT_RESUMETIME_THRESHOLD_MAX)
-
 static struct wake_status spm_wakesta; /* record last wakesta */
 
 static int go_to_spm_before_wfi(int state_id, unsigned int ext_opand,
@@ -76,9 +73,6 @@ static void go_to_spm_after_wfi(int state_id, unsigned int ext_opand,
 				struct wake_status **status)
 {
 	unsigned int ext_status = 0U;
-
-	spm_wakesta.tr.comm.resumetime = 0;
-	spm_wakesta.tr.comm.times_h = spm_wakesta.tr.comm.times_l = 0;
 
 	/* system watchdog will be resumed at kernel stage */
 	if ((ext_opand & MT_SPM_EX_OP_SET_WDT) != 0U) {
