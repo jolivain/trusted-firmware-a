@@ -241,6 +241,30 @@
       },
       "revId": "fedea432b7ea41249e5c9bb18b03ae1f851600a9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea39fc05_2b76f62c",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-08-29T07:21:04Z",
+      "side": 1,
+      "message": "Thank you for your answer.\n\nI could not find among the places you are linking to in your last post, where a CPU was accessing another CPU\u0027s redistributor interface. It seems to me that gicv3_rdistif_init and gicv3_secure_ppi_sgi_config_props only access (write to) the current CPU redistributor. Would you be kind enough to point me to the exact line where this access takes place?\n\nMy understanding is that the TF-A expects that all CPUs share the same group configuration for SGIs/PPIs. So the current CPU should be able to infer the configuration of the SGI/PPI on the target CPU based on the configuration of its own redistributor interface.\n\nNote that the static GIC configuration that you are mentioning (through PLAT_ARM_G1S_IRQ_PROPS) is, as far as I understand, only an initial configuration. In the case of the ProvenCore SPD, the SGI used to signal to the TEE that a message has been pushed by Linux to the shared buffer is configured by the TEE itself. ProvenCore being single-core, it only updates the configuration for its own redistributor. We could however imagine that Linux, which is running on multiple cores, may want to trigger the SGI from another CPU (through a SMC). In this case, the redistributor configuration of the SGI for the source CPU (where Linux triggered the SMC) and the destination CPU (where ProvenCore is running) would be different and we cannot rely on the source CPU redistributor configuration to infer the SGI group, as it is done in the rest of the TF-A codebase.\n\nCan I ask for one last confirmation that the following changes are what you expect:\n- in drivers/arm/gic/v3/gicv3_main.c, gicv3_raise_sgi, remove the group parameter and pick the right SGIxR register to write to based on the destination CPU redistributor configuration\n- in plat/common/plat_gicv3.c, rewrite plat_ic_raise_el3_sgi, plat_ic_raise_ns_sgi and plat_ic_raise_s_el1_sgi so that there are all identical (except for asserts) and simply forward their parameters to gicv3_raise_sgi\n\nNote that this is indeed not how I would have implemented it, but I will obviously comply to your views on this matter.\n\nThank you",
+      "parentUuid": "d5c7eed4_de8a323b",
+      "range": {
+        "startLine": 1134,
+        "startChar": 0,
+        "endLine": 1147,
+        "endChar": 2
+      },
+      "revId": "fedea432b7ea41249e5c9bb18b03ae1f851600a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
