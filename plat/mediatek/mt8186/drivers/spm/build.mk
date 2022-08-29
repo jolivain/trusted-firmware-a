@@ -22,11 +22,11 @@ PLAT_SPM_SOURCE_FILES_COMMON +=				\
 	${SPM_COMMON_FOLDER}/mt_spm_idle_common.c	\
 	${SPM_COMMON_FOLDER}/mt_spm_suspend_common.c	\
 	${SPM_COMMON_FOLDER}/mt_spm_internal_common.c	\
+	${SPM_COMMON_FOLDER}/mt_spm_conservation.c	\
 	${CUR_SPM_FOLDER}/mt_spm.c			\
 	${CUR_SPM_FOLDER}/mt_spm_internal.c		\
 	${CUR_SPM_FOLDER}/mt_spm_pmic_wrap.c		\
 	${CUR_SPM_FOLDER}/mt_spm_vcorefs.c		\
-	${CUR_SPM_FOLDER}/mt_spm_conservation.c		\
 	${CUR_SPM_FOLDER}/mt_spm_extern.c
 
 # spm platform dependcy files
