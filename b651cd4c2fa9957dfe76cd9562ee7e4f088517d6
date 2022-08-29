@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14a63f16_03391800",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1015,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-08-29T22:22:47Z",
+      "side": 1,
+      "message": "As far as I can see, psci_is_last_on_cpu() is a boolean function. Wouldn\u0027t it be better to just ask if !psci_is_last_on_cpu() instead?",
+      "revId": "b651cd4c2fa9957dfe76cd9562ee7e4f088517d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b135aa2c_d8bc71a2",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-08-29T22:22:47Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "b651cd4c2fa9957dfe76cd9562ee7e4f088517d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ee801ff_97eaee0e",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1047,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-08-29T22:22:47Z",
+      "side": 1,
+      "message": "Performance-wise thinking, maybe it is a good idea to ask if psci_is_last_on_cpu() before entering the loop, as this function contains a loop too. Maybe it needs a little more work, but it would save some time.",
+      "revId": "b651cd4c2fa9957dfe76cd9562ee7e4f088517d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22052791_e81208ff",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-08-29T22:22:47Z",
+      "side": 1,
+      "message": "Why is this variable updated here? Isn\u0027t the number of cores a fixed value? Shouldn\u0027t this variable be set during initialization instead?",
+      "revId": "b651cd4c2fa9957dfe76cd9562ee7e4f088517d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d251082d_dc7435cf",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-08-29T22:22:47Z",
+      "side": 1,
+      "message": "Boolean check here too.\nAlso, how do you ensure that psci_is_last_on_cpu() does only check for CPUs that belong to domain i? As far as I can see, it would check from 0 to psci_plat_core_count - 1 for every domain. Is that correct?",
+      "revId": "b651cd4c2fa9957dfe76cd9562ee7e4f088517d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
