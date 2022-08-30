@@ -165,6 +165,7 @@ IMPORT_SYM(uintptr_t, __COHERENT_RAM_END__,	BL_COHERENT_RAM_END);
  ******************************************************************************/
 struct plat_try_images_ops {
 	int (*next_boot_source)(void);
+	int (*backup_partitions)(unsigned int image_id);
 };
 
 /*******************************************************************************
