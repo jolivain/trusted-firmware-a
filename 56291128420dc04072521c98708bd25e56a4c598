@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "85ab70ed_9d47cd75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-30T08:16:42Z",
+      "side": 1,
+      "message": "TF-A is building all targets and spots this lack of coverity coverage, see last section of the report:\nhttps://ci.trustedfirmware.org/job/tf-a-static-checks/1937/\n\nIt might concern files put in common to all mtk platforms:\nplat/mediatek/common/cold_boot.c\nplat/mediatek/common/mtk_bl31_setup.c\nplat/mediatek/common/mtk_smc_handlers.c\nplat/mediatek/lib/mtk_init/mtk_init.c\nplat/mediatek/lib/mtk_init/mtk_mmap_init.c",
+      "parentUuid": "b8737ab9_25b9abad",
+      "revId": "56291128420dc04072521c98708bd25e56a4c598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6f2a2a8c_232ec180",
         "filename": "plat/mediatek/common/mtk_bl31_setup.c",
         "patchSetId": 13
