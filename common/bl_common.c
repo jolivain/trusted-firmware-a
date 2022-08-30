@@ -22,7 +22,7 @@
 /*******************************************************************************
  * Pointer to functions exported by the platform to try other images to load
  ******************************************************************************/
-const struct plat_try_images_ops *plat_try_img_ops __maybe_unused;
+const struct plat_try_images_ops *plat_try_img_ops;
 
 #if TRUSTED_BOARD_BOOT
 # ifdef DYN_DISABLE_AUTH
@@ -216,6 +216,16 @@ static int try_next_boot_source(void)
 }
 #endif /* PSA_FWU_SUPPORT */
 
+static int try_backup_partitions(unsigned int image_id)
+{
+	if ((plat_try_img_ops != NULL) &&
+	    (plat_try_img_ops->backup_partitions != NULL)) {
+		return plat_try_img_ops->backup_partitions(image_id);
+	}
+
+	return 0;
+}
+
 /*******************************************************************************
  * Generic function to load and authenticate an image. The image is actually
  * loaded by calling the 'load_image()' function. Therefore, it returns the
@@ -233,11 +243,15 @@ int load_auth_image(unsigned int image_id, image_info_t *image_data)
  * when PSA FWU is enabled.
  */
 #if PSA_FWU_SUPPORT
-	err = load_auth_image_internal(image_id, image_data);
+	do {
+		err = load_auth_image_internal(image_id, image_data);
+	} while ((err != 0) && (try_backup_partitions(image_id) != 0));
 #else
 	do {
 		err = load_auth_image_internal(image_id, image_data);
-	} while ((err != 0) && (try_next_boot_source() != 0));
+	} while (((err != 0) && ((try_next_boot_source() != 0) ||
+				 (try_backup_partitions(image_id) != 0))));
+
 #endif /* PSA_FWU_SUPPORT */
 
 	if (err == 0) {
