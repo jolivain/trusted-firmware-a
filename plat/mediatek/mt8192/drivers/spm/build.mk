@@ -13,6 +13,7 @@ MT_SPM_CIRQ_FEATURE_SUPPORT = yes
 # sspm notifier support
 MT_SPM_SSPM_NOTIFIER_SUPPORT = yes
 
+SPM_COMMON_FOLDER = ${MTK_PLAT}/common/drivers/spm
 CUR_SPM_FOLDER = ${MTK_PLAT_SOC}/drivers/spm
 
 # spm common files
@@ -61,6 +62,8 @@ $(info --------------------------------------)
 # Common makefile for platform.mk
 PLAT_INCLUDES +=				\
 	${PLAT_SPM_DEBUG_CFLAGS}		\
+	-I${SPM_COMMON_FOLDER}/			\
+	-I${SPM_COMMON_FOLDER}/notifier/	\
 	-I${CUR_SPM_FOLDER}/			\
 	-I${CUR_SPM_FOLDER}/constraints/	\
 	-I${CUR_SPM_FOLDER}/notifier/
