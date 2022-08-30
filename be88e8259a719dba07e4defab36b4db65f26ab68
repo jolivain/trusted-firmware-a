@@ -144,6 +144,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0626d11a_540cea93",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-30T16:06:08Z",
+      "side": 1,
+      "message": "Hi Raghu,\n\u003e i thought the architecture when SPMC was present SEAs and SEIs are trapped to SPMC correct? If yes, i think the fix you are tlaking about is required.\nNot sure about the terminology but if this refers to trapping system error exception then per my trial I had to tweak Hafnium a bit to ensure HCR_EL2.AMO is set for SEL1 SPs. This might not be required for SEL0+VHE partitions.\n\n\u003e Would you be opposed to me providing a patch for this?\nThat\u0027s ok. My TF-A (trial) change is only few lines permitting HANDLE_EA_EL3_FIRST option for normal world to trap EAs at EL3, and ensure EAs are not trapped when running secure/realm worlds. We can compare with what you have.",
+      "parentUuid": "76431952_a1e083e1",
+      "revId": "be88e8259a719dba07e4defab36b4db65f26ab68",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fcb31d51_5bb87efb",
