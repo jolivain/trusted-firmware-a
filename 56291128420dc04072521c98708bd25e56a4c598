@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bcc24727_a7233a56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-30T08:01:26Z",
+      "side": 1,
+      "message": "Can you provide the CI coverity makefile update?\ne.g. similar to this https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/16194/5/script/tf-coverity/tf-cov-make",
+      "parentUuid": "652b5aee_c8b8ee48",
+      "revId": "56291128420dc04072521c98708bd25e56a4c598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6f2a2a8c_232ec180",
         "filename": "plat/mediatek/common/mtk_bl31_setup.c",
         "patchSetId": 13
