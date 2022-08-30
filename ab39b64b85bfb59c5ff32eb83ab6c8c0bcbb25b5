@@ -129,6 +129,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29cda785_531f852d",
+        "filename": "plat/mediatek/include/mtk_sip_svc.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-08-30T07:55:15Z",
+      "side": 1,
+      "message": "Hi, this change is buried in an FF-A related patch but eventually it really has to do with SMCCC. I agree it should have been properly separated out from FF-A. It defines a SMCCC common structure to handle SMC arguments and return values. So I believe it could be used here, independently from FF-A. It may not have to be done in current change but if you can think of it in a later change it\u0027d be great to avoid duplicating definitions in generic and platform implementations.",
+      "parentUuid": "83b200dc_f77b37bf",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 2
+      },
+      "revId": "ab39b64b85bfb59c5ff32eb83ab6c8c0bcbb25b5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92d02d0e_f13b53dd",
