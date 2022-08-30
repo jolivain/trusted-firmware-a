@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38138273_fded40a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2022-08-30T14:16:29Z",
+      "side": 1,
+      "message": "feat(mediatek): support coreboot BL31 loading\n\nThe ChromeOS project uses Coreboot as BL2 instead of MediaTek regular bootloader. So we use COREBOOT flag to support Coreboot boot flow.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 45
+      },
+      "revId": "aca49a9d046dc0c2b0320f9da0e20dab452c8632",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
