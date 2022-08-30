@@ -46,6 +46,7 @@ enum fw_enc_status_t;
  ******************************************************************************/
 struct plat_try_images_ops {
 	int (*next_boot_source)(void);
+	int (*backup_partitions)(unsigned int image_id);
 };
 
 /*******************************************************************************

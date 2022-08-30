@@ -1905,6 +1905,12 @@ This function moves the current boot redundancy source to the next
 element in the boot sequence. If there are no more boot sources then it
 must return 0, otherwise it must return 1.
 
+plat_try_images_ops.backup_partitions(unsigned int image_id)
+............................................................
+
+This optional function will try a backup partition defined for a given image
+ID. This is required for MTD devices like NAND.
+
 Boot Loader Stage 2 (BL2) at EL3
 --------------------------------
 
