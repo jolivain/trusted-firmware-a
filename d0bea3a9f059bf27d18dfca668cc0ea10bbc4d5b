@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b313b24_5f9b2c0c",
+        "filename": "plat/mediatek/include/mtk_sip_svc.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-08-30T03:25:48Z",
+      "side": 1,
+      "message": "nit:\nfor misra-c, this sould be (0x8200ff00)\ndefinitions below are the same.",
+      "range": {
+        "startLine": 15,
+        "startChar": 28,
+        "endLine": 15,
+        "endChar": 38
+      },
+      "revId": "d0bea3a9f059bf27d18dfca668cc0ea10bbc4d5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
