@@ -58,6 +58,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f3c3bb4_ea115ea6",
+        "filename": "plat/mediatek/common/mtk_smc_handlers.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-08-30T00:45:04Z",
+      "side": 1,
+      "message": "I wrap around with MTK_SIP_KERNEL_BOOT_ENABLE",
+      "parentUuid": "db2e74c5_2dd44c77",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 34
+      },
+      "revId": "a288e8f6af47d37389b4c3d2e041d7d36397a4e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54e1bd27_5365f42d",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-08-29T09:08:03Z",
       "side": 1,
       "message": "This really looks for debug purposes, asking if you consider keeping in production code? You can resolve this comment if yes.",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 1
+      },
+      "revId": "a288e8f6af47d37389b4c3d2e041d7d36397a4e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cd1c329_72aed59d",
+        "filename": "plat/mediatek/common/mtk_smc_handlers.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-08-30T00:45:04Z",
+      "side": 1,
+      "message": "Yes, this is debug purpose, INFO will be removed in release mode.",
+      "parentUuid": "54e1bd27_5365f42d",
       "range": {
         "startLine": 92,
         "startChar": 0,
