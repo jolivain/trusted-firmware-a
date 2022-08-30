@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b8737ab9_25b9abad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000556
+      },
+      "writtenOn": "2022-08-30T08:09:01Z",
+      "side": 1,
+      "message": "Hi Olivier,\nSo far no MTK project will build these patches.\nmt8188 will be upstream by Rex and build these patches, so he will update CI coverity makefile after mt8188 upstreamed, is that OK?",
+      "parentUuid": "bcc24727_a7233a56",
+      "revId": "56291128420dc04072521c98708bd25e56a4c598",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6f2a2a8c_232ec180",
         "filename": "plat/mediatek/common/mtk_bl31_setup.c",
         "patchSetId": 13
