@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a62cf68d_65e8be6a",
+        "filename": "plat/xilinx/versal/bl31_versal_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2022-08-31T21:04:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a052f5cb_5ed5d1cf",
+      "revId": "ec298c850b5cfb75d901ed2c6747a5674904d32f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f8c7faa_3dc72f15",
@@ -35,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "204fa9f3_3da041a0",
+        "filename": "plat/xilinx/versal/bl31_versal_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2022-08-31T21:04:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f8c7faa_3dc72f15",
+      "revId": "ec298c850b5cfb75d901ed2c6747a5674904d32f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bcb4b4f7_2b5c0d36",
@@ -48,6 +84,24 @@
       "writtenOn": "2022-08-31T05:35:26Z",
       "side": 1,
       "message": "I would prefer to update commit message to describe that index handling. Because as of today only 2 locations for IRQs are allocated. That pretty much means that you know that you need 2 and would be good if you can describe what are that interrupts used for.",
+      "revId": "ec298c850b5cfb75d901ed2c6747a5674904d32f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23e92bac_b48bcba7",
+        "filename": "plat/xilinx/versal/include/versal_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2022-08-31T21:04:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcb4b4f7_2b5c0d36",
       "revId": "ec298c850b5cfb75d901ed2c6747a5674904d32f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
