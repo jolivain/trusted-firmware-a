@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55ee15e9_abeceb53",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-08-31T13:21:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a149aefe_3661b002",
+      "range": {
+        "startLine": 18,
+        "startChar": 6,
+        "endLine": 18,
+        "endChar": 21
+      },
+      "revId": "1cac30931cf315d8e78476daf35dcdae4a5cb1df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f7ee6e9_4c44501d",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-08-31T12:26:19Z",
       "side": 1,
       "message": "should be ENABLE_FEAT_PMUV3",
+      "range": {
+        "startLine": 124,
+        "startChar": 4,
+        "endLine": 124,
+        "endChar": 19
+      },
+      "revId": "1cac30931cf315d8e78476daf35dcdae4a5cb1df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "080d6959_42d9fb98",
+        "filename": "include/arch/aarch64/el2_common_macros.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-08-31T13:21:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f7ee6e9_4c44501d",
       "range": {
         "startLine": 124,
         "startChar": 4,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5ea5697_69feaf2e",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-08-31T13:21:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e84552c_ce81c45b",
+      "range": {
+        "startLine": 188,
+        "startChar": 4,
+        "endLine": 188,
+        "endChar": 19
+      },
+      "revId": "1cac30931cf315d8e78476daf35dcdae4a5cb1df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bde63bc1_bc41d2a3",
@@ -93,6 +165,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ba918c8_1b2bb5cf",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-08-31T13:21:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bde63bc1_bc41d2a3",
+      "range": {
+        "startLine": 850,
+        "startChar": 4,
+        "endLine": 850,
+        "endChar": 19
+      },
+      "revId": "1cac30931cf315d8e78476daf35dcdae4a5cb1df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "103e5625_7b36e3fd",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-08-31T12:26:19Z",
       "side": 1,
       "message": "I think, we test \u0027PMU Leakage\u0027 for FVP platform. Can this option be \u00271\u0027 then for FVP platform?",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 23
+      },
+      "revId": "1cac30931cf315d8e78476daf35dcdae4a5cb1df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9be066d1_a86d4963",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-08-31T13:21:31Z",
+      "side": 1,
+      "message": "Yes. I saw a lot of failures in CI as well.\nThanks for highlighting it. I will set it to 1 for fvp platform.",
+      "parentUuid": "103e5625_7b36e3fd",
       "range": {
         "startLine": 176,
         "startChar": 0,
