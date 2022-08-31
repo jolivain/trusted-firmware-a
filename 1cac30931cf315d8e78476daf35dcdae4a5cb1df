@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a149aefe_3661b002",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-08-31T12:26:19Z",
+      "side": 1,
+      "message": "As per the patch implementation this should be ENABLE_FEAT_PMUv3. Also, I think ENABLE_FEAT_PMUV3 makes sense as it matches the with ARM specification document.",
+      "range": {
+        "startLine": 18,
+        "startChar": 6,
+        "endLine": 18,
+        "endChar": 21
+      },
+      "revId": "1cac30931cf315d8e78476daf35dcdae4a5cb1df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f7ee6e9_4c44501d",
+        "filename": "include/arch/aarch64/el2_common_macros.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-08-31T12:26:19Z",
+      "side": 1,
+      "message": "should be ENABLE_FEAT_PMUV3",
+      "range": {
+        "startLine": 124,
+        "startChar": 4,
+        "endLine": 124,
+        "endChar": 19
+      },
+      "revId": "1cac30931cf315d8e78476daf35dcdae4a5cb1df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e84552c_ce81c45b",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-08-31T12:26:19Z",
+      "side": 1,
+      "message": "should be ENABLE_FEAT_PMUV3",
+      "range": {
+        "startLine": 188,
+        "startChar": 4,
+        "endLine": 188,
+        "endChar": 19
+      },
+      "revId": "1cac30931cf315d8e78476daf35dcdae4a5cb1df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bde63bc1_bc41d2a3",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-08-31T12:26:19Z",
+      "side": 1,
+      "message": "should be ENABLE_FEAT_PMUV3",
+      "range": {
+        "startLine": 850,
+        "startChar": 4,
+        "endLine": 850,
+        "endChar": 19
+      },
+      "revId": "1cac30931cf315d8e78476daf35dcdae4a5cb1df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "103e5625_7b36e3fd",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-08-31T12:26:19Z",
+      "side": 1,
+      "message": "I think, we test \u0027PMU Leakage\u0027 for FVP platform. Can this option be \u00271\u0027 then for FVP platform?",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 23
+      },
+      "revId": "1cac30931cf315d8e78476daf35dcdae4a5cb1df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
