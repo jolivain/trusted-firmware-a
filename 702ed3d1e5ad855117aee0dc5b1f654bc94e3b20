@@ -119,6 +119,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "638756ca_a0c75a59",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-08-31T10:28:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f15bc01_2e6ff218",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 60
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72ef7d25_9ba97b06",
@@ -486,6 +510,30 @@
       "side": 1,
       "message": "TF-A uses mixed indentation: always start with tabs, then add spaces as necessary.",
       "parentUuid": "d146e3df_230d2c57",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 43
+      },
+      "revId": "702ed3d1e5ad855117aee0dc5b1f654bc94e3b20",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ee6bfe7_beaffb7a",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-08-31T10:28:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "435c57a5_aba8b57b",
       "range": {
         "startLine": 50,
         "startChar": 0,
