@@ -16,6 +16,98 @@
       "message": "Most of the reviewers are off but while we wait for their return we can address any CI issues\n\nAre there any tests accompanying these changes such as unit or functional?",
       "revId": "e68b86ae1d1e5c060c9a77e253967fd5694f6c9e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc1c9a9a_d6c3f466",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-08-31T09:28:10Z",
+      "side": 1,
+      "message": "This type does not exist ; did you mean struct rss_embed_msg_t?",
+      "range": {
+        "startLine": 47,
+        "startChar": 14,
+        "endLine": 47,
+        "endChar": 53
+      },
+      "revId": "e68b86ae1d1e5c060c9a77e253967fd5694f6c9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b59a0cad_98aa9afd",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-08-31T09:28:10Z",
+      "side": 1,
+      "message": "This type does not exist ; did you mean struct rss_embed_reply_t?",
+      "range": {
+        "startLine": 51,
+        "startChar": 23,
+        "endLine": 51,
+        "endChar": 57
+      },
+      "revId": "e68b86ae1d1e5c060c9a77e253967fd5694f6c9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b102f86_3066b901",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-08-31T09:28:10Z",
+      "side": 1,
+      "message": "I think we should remove this part of the comment. With the code being reworked to compute the message size based on the structures sizes, there\u0027s no longer any mention of any numeric values so it\u0027s hard to relate the comment to the code. Besides, there is a risk that this comment goes stale if we ever update the structures definitions.",
+      "range": {
+        "startLine": 55,
+        "startChar": 20,
+        "endLine": 59,
+        "endChar": 12
+      },
+      "revId": "e68b86ae1d1e5c060c9a77e253967fd5694f6c9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f90345d0_54ac1d2f",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-08-31T09:28:10Z",
+      "side": 1,
+      "message": "Why do we need to subtract sizeof(uint32_t) here?",
+      "range": {
+        "startLine": 66,
+        "startChar": 68,
+        "endLine": 66,
+        "endChar": 86
+      },
+      "revId": "e68b86ae1d1e5c060c9a77e253967fd5694f6c9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
