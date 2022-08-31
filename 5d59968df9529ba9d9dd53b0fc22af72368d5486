@@ -16,6 +16,24 @@
       "message": "Joanna: It is static checks failure which is coming from plat/mediatek/ not from this patch. I expect this issue is coming from integration branch.",
       "revId": "5d59968df9529ba9d9dd53b0fc22af72368d5486",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26f70ac1_733d53cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-08-31T07:19:07Z",
+      "side": 1,
+      "message": "It would appear so. Looks like the error has crept in through another review.",
+      "parentUuid": "b81f4578_35ab559b",
+      "revId": "5d59968df9529ba9d9dd53b0fc22af72368d5486",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
