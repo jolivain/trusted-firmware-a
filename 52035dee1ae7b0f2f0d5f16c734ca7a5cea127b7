@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5405e96_da3c5ab1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-08-31T07:26:20Z",
+      "side": 1,
+      "message": "Looks like the merging of this patch stack has some static analysis failures that have been highlighted as errors into integration branch and being picked up while testing another platform\u0027s patch https://ci.trustedfirmware.org/job/tf-a-static-checks/1964/\n\n[*] Checking style of \u00276a7e8ebf76a9e25614fd98634f26059953cd9309\u0027\n\nplat/mediatek/common/mtk_smc_handlers.c:71: WARNING: macros should not use a trailing semicolon\n+#define SMC_ID_EXPAND_AS_DESCRIPTOR_INDEX(_smc_id, _smc_num) \\\n+\tshort _smc_id##_descriptor_index __section(\"mtk_plat_ro\") \u003d -1;\n\ntotal: 0 errors, 1 warnings, 233 lines checked\n\n[*] Checking style of \u002752035dee1ae7b0f2f0d5f16c734ca7a5cea127b7\u0027\n\nplat/mediatek/include/lib/mtk_init/mtk_init.h:16: ERROR: Macros with multiple statements should be enclosed in a do - while loop\n+#define EXPAND_AS_LINK_SECTION(_section_enum, _section_name, _level) \\\n+\t__##_section_enum##_START__ \u003d .; \\\n+\tKEEP(*(_section_name##_level));\n\nplat/mediatek/include/lib/mtk_init/mtk_init.h:16: WARNING: macros should not use a trailing semicolon\n+#define EXPAND_AS_LINK_SECTION(_section_enum, _section_name, _level) \\\n+\t__##_section_enum##_START__ \u003d .; \\\n+\tKEEP(*(_section_name##_level));\n\nplat/mediatek/include/lib/mtk_init/mtk_init.h:20: WARNING: macros should not use a trailing semicolon\n+#define EXPAND_AS_EXTERN(_section_enum, _section_name, _level) \\\n+\textern struct initcall __##_section_enum##_START__[];\n\ntotal: 1 errors, 2 warnings, 297 lines checked\n",
+      "revId": "52035dee1ae7b0f2f0d5f16c734ca7a5cea127b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
