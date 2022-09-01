@@ -62,6 +62,7 @@
 #define CMD_EXTCSD_HS_TIMING		185
 #define CMD_EXTCSD_PART_SWITCH_TIME	199
 #define CMD_EXTCSD_SEC_CNT		212
+#define CMD_EXTCSD_BOOT_SIZE_MULT	226
 
 #define EXT_CSD_PART_CONFIG_ACC_MASK	GENMASK(2, 0)
 #define PART_CFG_BOOT_PARTITION1_ENABLE	(U(1) << 3)
@@ -260,6 +261,7 @@ struct mmc_device_info {
 size_t mmc_read_blocks(int lba, uintptr_t buf, size_t size);
 size_t mmc_write_blocks(int lba, const uintptr_t buf, size_t size);
 size_t mmc_erase_blocks(int lba, size_t size);
+size_t mmc_boot_part_size(void);
 int mmc_part_switch_current_boot(void);
 int mmc_part_switch_user(void);
 size_t mmc_boot_part_read_blocks(int lba, uintptr_t buf, size_t size);
