@@ -88,6 +88,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a75401b_64678723",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1047,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-01T19:19:26Z",
+      "side": 1,
+      "message": "Sorry, didn\u0027t completely get your thoughts here.\n\nAre you intending to call psci_is_last_on_cpu() before the while_loop() ?\n\nAs far as I see, in psci_is_last_on_cpu_safe function, they are traversing the forest, (ideally he is checking only the root node and utilising its properties to find the cpu_power_nodes, via ncpus paramter. (psci_non_cpu_pd_nodes[i].ncpus)\n\nLets take FVP as an example, its has one root node and the root node staruct has this values ( psci_non_cpu_pd_nodes[i].ncpus\u003d8, psci_non_cpu_pd_nodes[i].parentnode\u003d-1)\n\nSo in this case, while runs for the first iteration only(i\u003d0), as for i\u003d1 there are parent nodes.\n\nSo utilising this, this API locks all the cpu_power_domains which is nothing but the real core_count {\u003d8}\n\nThen we are trying to check whether all the cores are turned off or not, using the first api.\n\nCorrect me, if there is anything missing here.",
+      "parentUuid": "0ee801ff_97eaee0e",
+      "revId": "b651cd4c2fa9957dfe76cd9562ee7e4f088517d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22052791_e81208ff",
@@ -105,6 +123,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f9ac506_14705ca9",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-01T19:19:26Z",
+      "side": 1,
+      "message": "Well, the intention is to reuse the psci_is_last_on_cpu api in psci_is_last_on_cpu_safe.\n\nSo, originally psci_is_last_on_cpu api, was looping under the control of this variable.So I thought of updating it here.\nBut its a global one, so instead of that, I have modified the psci_is_last_on_cpu( ) to accept the paramter core_count and loop for it.",
+      "parentUuid": "22052791_e81208ff",
+      "revId": "b651cd4c2fa9957dfe76cd9562ee7e4f088517d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d251082d_dc7435cf",
@@ -118,6 +154,24 @@
       "writtenOn": "2022-08-29T22:22:47Z",
       "side": 1,
       "message": "Boolean check here too.\nAlso, how do you ensure that psci_is_last_on_cpu() does only check for CPUs that belong to domain i? As far as I can see, it would check from 0 to psci_plat_core_count - 1 for every domain. Is that correct?",
+      "revId": "b651cd4c2fa9957dfe76cd9562ee7e4f088517d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea6459ad_1a898bf6",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-01T19:19:26Z",
+      "side": 1,
+      "message": "Boolean check here too : \n\u003e Done\n\nhow do you ensure that psci_is_last_on_cpu() does only check for CPUs that belong to domain \n\u003e Not sure, what you exactly referred here.\nThis api, takes the total number of cores present in the system, and checks whether all of them are turned OFF or not, except the one which called it.\n\nEg: for FVP platform, we have two clusters, and each cluster contains 4 cpus per cluster.\n#define PLATFORM_CORE_COUNT  (U(FVP_CLUSTER_COUNT) * U(FVP_MAX_CPUS_PER_CLUSTER) * U(FVP_MAX_PE_PER_CPU))\n\nPLATFORM_CORE_COUNT \u003d 8 \nSo here it checks for all 8 cores.",
+      "parentUuid": "d251082d_dc7435cf",
       "revId": "b651cd4c2fa9957dfe76cd9562ee7e4f088517d6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
