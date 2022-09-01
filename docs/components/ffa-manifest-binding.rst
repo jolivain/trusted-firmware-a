@@ -115,6 +115,17 @@ Partition Properties
    - value type: <empty>
    - Specifies if managed exit is supported.
 
+- ns-interrupts-action [mandatory]
+   - value type: <u32>
+   - Specifies the action that the SPMC must take in response to a Non-secure
+     physical interrupt.
+
+      - 0x0: Non-secure interrupt is queued
+      - 0x1: Non-secure interrupt is signaled after a managed exit
+      - 0x2: Non-secure interrupt is signaled
+
+   - This field supersedes the managed-exit field in the FF-A v1.0 spec.
+
 - has-primary-scheduler
    - value type: <empty>
    - Presence of this field indicates that the partition implements the primary
