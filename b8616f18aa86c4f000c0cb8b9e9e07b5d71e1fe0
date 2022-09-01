@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5de26ca_e2cc7ebe",
+        "filename": "plat/mediatek/common/drivers/iommu/mt8188/mtk_iommu_plat.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2022-09-01T10:00:00Z",
+      "side": 1,
+      "message": "The path is weird to me.\nThe common folder holds SoC-specific code.\nI think it should move to plat/mediatek/{SOC}/drivers/{driver}/ instead of here.",
+      "revId": "b8616f18aa86c4f000c0cb8b9e9e07b5d71e1fe0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
