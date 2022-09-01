@@ -774,6 +774,11 @@ static unsigned char mmc_current_boot_part(void)
 	return PART_CFG_CURRENT_BOOT_PARTITION(mmc_ext_csd[CMD_EXTCSD_PARTITION_CONFIG]);
 }
 
+size_t mmc_boot_part_size(void)
+{
+	return mmc_ext_csd[CMD_EXTCSD_BOOT_SIZE_MULT] * SZ_128K;
+}
+
 int mmc_part_switch_current_boot(void)
 {
 	unsigned char current_boot_part = mmc_current_boot_part();
