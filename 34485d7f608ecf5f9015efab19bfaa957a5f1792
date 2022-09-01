@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "efcf1f1e_fe9383f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2022-09-01T06:40:15Z",
+      "side": 1,
+      "message": "The prupose of this patchset is to reuse upstreamed code for MT8188 MCDI driver.\nHeard from Rex(Bo-Chen) that MT8188 will apply new CPU hotplug architecture.\nI will revise this patchset once new driver patch is proposed.",
+      "parentUuid": "d2779cc4_2126238a",
+      "revId": "34485d7f608ecf5f9015efab19bfaa957a5f1792",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e57a2c79_e1acd161",
