@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f8dc0fb_abbfc622",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-01T09:28:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d714e4b3_e6a6a9d4",
+      "range": {
+        "startLine": 7,
+        "startChar": 31,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "4b3bb0c616b503b67d920517162717c1d914b59f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a36e795c_3459f60b",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-01T08:47:46Z",
       "side": 1,
       "message": "Some definitions can be shared among ..",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "4b3bb0c616b503b67d920517162717c1d914b59f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3617443_f1b4af34",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-01T09:28:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a36e795c_3459f60b",
       "range": {
         "startLine": 9,
         "startChar": 0,
@@ -78,6 +126,24 @@
       "side": 1,
       "message": "please forget this comment",
       "parentUuid": "80d429a3_5890c714",
+      "revId": "4b3bb0c616b503b67d920517162717c1d914b59f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64ac6d2c_36a44b63",
+        "filename": "plat/mediatek/common/drivers/pmic_wrap/pmic_wrap_init_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-01T09:28:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "06530f42_dcadc12d",
       "revId": "4b3bb0c616b503b67d920517162717c1d914b59f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
