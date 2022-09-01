@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdab5f0d_2881546e",
+        "filename": "plat/xilinx/versal/pm_service/pm_svc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2022-09-01T12:32:18Z",
+      "side": 1,
+      "message": "What\u0027s the reason to recast it from uint32_t to unsigned int? I think it should remain the same.",
+      "revId": "168d5a00a95d732465e7dabd60bc7d76ffa2e7c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec83d760_704ecb2d",
+        "filename": "plat/xilinx/versal/pm_service/pm_svc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2022-09-01T12:32:18Z",
+      "side": 1,
+      "message": "Likely 1U here.",
+      "revId": "168d5a00a95d732465e7dabd60bc7d76ffa2e7c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
