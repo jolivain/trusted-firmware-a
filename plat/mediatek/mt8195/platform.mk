@@ -50,6 +50,7 @@ BL31_SOURCES += common/desc_image_load.c                              \
                 plat/common/plat_gicv3.c                              \
                 ${MTK_PLAT}/common/drivers/gic600/mt_gic_v3.c         \
                 ${MTK_PLAT}/common/drivers/gpio/mtgpio_common.c       \
+		${MTK_PLAT}/common/drivers/pmic_wrap/pmic.c           \
                 ${MTK_PLAT}/common/drivers/pmic_wrap/pmic_wrap_init_v2.c \
                 ${MTK_PLAT}/common/drivers/rtc/rtc_common.c           \
                 ${MTK_PLAT}/common/drivers/rtc/rtc_mt6359p.c          \
@@ -77,7 +78,6 @@ BL31_SOURCES += common/desc_image_load.c                              \
                 ${MTK_PLAT_SOC}/drivers/mcdi/mt_mcdi.c                \
 		${MTK_PLAT_SOC}/drivers/mcdi/mt_lp_irqremain.c        \
                 ${MTK_PLAT_SOC}/drivers/gpio/mtgpio.c                 \
-                ${MTK_PLAT_SOC}/drivers/pmic/pmic.c                   \
                 ${MTK_PLAT_SOC}/drivers/ptp3/mtk_ptp3_main.c          \
                 ${MTK_PLAT_SOC}/drivers/spmc/mtspmc.c                 \
                 ${MTK_PLAT_SOC}/plat_pm.c                             \
