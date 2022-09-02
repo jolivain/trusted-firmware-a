@@ -22,6 +22,30 @@
       },
       "revId": "efc0fa47d244b09f91544422b0d5c77ee8df003e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80674736_0125e7ef",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-09-02T18:54:53Z",
+      "side": 1,
+      "message": "Correct. This patch gets the code in line with the gicv3 driver where the register is programmed earlier. The original code fails on one NVIDIA platform. This patch fixes that issue.",
+      "parentUuid": "211331bd_879dbc39",
+      "range": {
+        "startLine": 233,
+        "startChar": 42,
+        "endLine": 233,
+        "endChar": 54
+      },
+      "revId": "efc0fa47d244b09f91544422b0d5c77ee8df003e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
