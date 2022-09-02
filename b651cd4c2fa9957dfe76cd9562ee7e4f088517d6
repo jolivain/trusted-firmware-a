@@ -106,6 +106,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c79f1ad7_afebbabe",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1047,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-09-02T22:12:47Z",
+      "side": 1,
+      "message": "Nevermind. I thought that there was a way you could check all CPUs without iterating on clusters.",
+      "parentUuid": "4a75401b_64678723",
+      "revId": "b651cd4c2fa9957dfe76cd9562ee7e4f088517d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22052791_e81208ff",
@@ -141,6 +159,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1194500f_6c633b92",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-09-02T22:12:47Z",
+      "side": 1,
+      "message": "Yeah. This approach seems much better :)\n\nHowever, I see that psci_is_last_on_cpu() iterates only on the CPUs for the current cluster/domain, but if you want to check for the CPUs on another cluster/domain, you don\u0027t have that input. Shouldn\u0027t you have a parameter to indicate the domain for which you want to iterate on its CPUs?",
+      "parentUuid": "7f9ac506_14705ca9",
+      "revId": "b651cd4c2fa9957dfe76cd9562ee7e4f088517d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d251082d_dc7435cf",
@@ -172,6 +208,24 @@
       "side": 1,
       "message": "Boolean check here too : \n\u003e Done\n\nhow do you ensure that psci_is_last_on_cpu() does only check for CPUs that belong to domain \n\u003e Not sure, what you exactly referred here.\nThis api, takes the total number of cores present in the system, and checks whether all of them are turned OFF or not, except the one which called it.\n\nEg: for FVP platform, we have two clusters, and each cluster contains 4 cpus per cluster.\n#define PLATFORM_CORE_COUNT  (U(FVP_CLUSTER_COUNT) * U(FVP_MAX_CPUS_PER_CLUSTER) * U(FVP_MAX_PE_PER_CPU))\n\nPLATFORM_CORE_COUNT \u003d 8 \nSo here it checks for all 8 cores.",
       "parentUuid": "d251082d_dc7435cf",
+      "revId": "b651cd4c2fa9957dfe76cd9562ee7e4f088517d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11088bed_91eb14c9",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-09-02T22:12:47Z",
+      "side": 1,
+      "message": "OK. I think that I understand now. So the i variable is used to iterate on clusters, and then for each cluster you have psci_non_cpu_pd_nodes[i].ncpus CPUs, numbered from 0 to psci_non_cpu_pd_nodes[i].ncpus - 1, correct?",
+      "parentUuid": "ea6459ad_1a898bf6",
       "revId": "b651cd4c2fa9957dfe76cd9562ee7e4f088517d6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
