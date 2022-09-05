@@ -16,6 +16,24 @@
       "message": "Please trigger CIs. \n\nAdditionally, I would like to know whether this series is being tested via any existing CI test configuration or if it is being manually verified?",
       "revId": "4a81e91f2752a817364e1fccedb08bb453ad5a56",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "703879d5_2fb96a55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000523
+      },
+      "writtenOn": "2022-09-05T10:41:44Z",
+      "side": 1,
+      "message": "In the CI only busybox ACPI boot is tested. These changes will require some boot option changes and will not be during boot in CI, only build will be tested.",
+      "parentUuid": "aca0b0bd_c2373915",
+      "revId": "4a81e91f2752a817364e1fccedb08bb453ad5a56",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
