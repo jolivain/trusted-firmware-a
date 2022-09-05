@@ -7,6 +7,8 @@
 #ifndef PLATFORM_DEF_H
 #define PLATFORM_DEF_H
 
+#include <arch_def.h>
+
 #define PLAT_PRIMARY_CPU	(0x0)
 
 #define MT_GIC_BASE		(0x0C000000)
@@ -124,22 +126,7 @@
  * Generic platform constants
  ******************************************************************************/
 #define PLATFORM_STACK_SIZE		(0x800)
-
 #define FIRMWARE_WELCOME_STR		"Booting Trusted Firmware\n"
-
-#define PLAT_MAX_PWR_LVL		U(3)
-#define PLAT_MAX_RET_STATE		U(1)
-#define PLAT_MAX_OFF_STATE		U(9)
-
-#define PLATFORM_SYSTEM_COUNT		U(1)
-#define PLATFORM_MCUSYS_COUNT		U(1)
-#define PLATFORM_CLUSTER_COUNT		U(1)
-#define PLATFORM_CLUSTER0_CORE_COUNT	U(8)
-#define PLATFORM_CLUSTER1_CORE_COUNT	U(0)
-
-#define PLATFORM_CORE_COUNT		(PLATFORM_CLUSTER0_CORE_COUNT)
-#define PLATFORM_MAX_CPUS_PER_CLUSTER	U(8)
-
 #define SOC_CHIP_ID			U(0x8188)
 
 /*******************************************************************************
