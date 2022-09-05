@@ -142,6 +142,24 @@
       "parentUuid": "f7d9dd4a_d76d5688",
       "revId": "e281761876a6a79dba82d664ecfcd7dd29c88ac3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b61a794_3f06e9cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2022-09-05T13:49:49Z",
+      "side": 1,
+      "message": "Xilinx should be using 0xfffea000 as default location for !DEBUG use case. Above you are using 0xfffe5000 for both cases and based on my experience I didn\u0027t see any issue with using this lower address for TF-A. \nI would like to avoid DDR location and suggest people where TF-A should be placed. If there is no choice I would use address at the end of 2GB range. Expectation is that none will really run system with just 1GB of memory. \n\nThere is no way how to aligned FSBL for 2022.2 release and I don\u0027t think they will be even open to change anything in their linker script. \n\nThat\u0027s why I would keep 0xfffea000 as default for !DEBUG and 0xfffe5000 for DEBUG.\nDefinitely fine if you want to add comment which suggest DDR location which could be used.",
+      "parentUuid": "76606ed4_f23edd57",
+      "revId": "e281761876a6a79dba82d664ecfcd7dd29c88ac3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
