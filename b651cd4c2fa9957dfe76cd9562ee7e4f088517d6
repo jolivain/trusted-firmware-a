@@ -228,6 +228,24 @@
       "parentUuid": "ea6459ad_1a898bf6",
       "revId": "b651cd4c2fa9957dfe76cd9562ee7e4f088517d6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dafcc90_5ddf7a15",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-05T15:54:58Z",
+      "side": 1,
+      "message": "Yes. Clusters / Forest. In case of FVP we have only one and hence the while loops only once.",
+      "parentUuid": "11088bed_91eb14c9",
+      "revId": "b651cd4c2fa9957dfe76cd9562ee7e4f088517d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
