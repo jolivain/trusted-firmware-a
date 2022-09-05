@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33bbf397_73399504",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-09-05T10:10:42Z",
+      "side": 1,
+      "message": "You need to push a CI change for the newly added platform, please refer to static check failures\n\n****** Newly added files detection check for Coverity Scan analysis on patch(es) ******\n\nResult : FAILURE\n\n\nNew source files have been identified in your patch..\nplat/mediatek/drivers/gpio/mt8188/mtgpio.c\nplat/mediatek/drivers/iommu/mt8188/mtk_iommu_plat.c\nplat/mediatek/drivers/iommu/mtk_iommu_smc.c\nplat/mediatek/lib/pm/mtk_pm.c\nplat/mediatek/mt8188/plat_mmap.c\nplat/mediatek/mt8188/plat_topology.c\n\n1. Kindly ensure these newly added source files are covered by : \n   a. Coverity scan analysis by adding them to \"tf-cov-make\" build script with the appropriate build configurations. \n   b. Built as part of one of the platform configurations present in \"tf-l1-build-plat\" test group.\n\n   Please refer to the tf-a documentation for more detailed explanation. \n   \"https://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#add-build-configurations\"\n\n2. Please ignore if your files are already updated. Further the Code Maintainer will \n   resolve the issue by taking appropriate action.",
+      "revId": "1fd9489784ba9c45291c1c971764f55cddb86a2f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
