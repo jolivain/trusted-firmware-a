@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "176c3bae_ba21ce7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-05T14:53:55Z",
+      "side": 1,
+      "message": "Hi Yann,\n\nSorry I am coming late to the review but I wondered... What\u0027s the plan for existing uses of __unused? Are we going to move the whole TF-A codebase away from __unused in favour of __maybe_unused where that makes sense? I also notice the Linux kernel also has __always_unused, any plans to introduce this one too?",
+      "revId": "351f9cd8897fd3ea52db2421721a152494b16328",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
