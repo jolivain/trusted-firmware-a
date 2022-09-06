@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31ba59f8_a59a53a6",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-06T15:24:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3abf72c9_67c3e504",
+      "range": {
+        "startLine": 700,
+        "startChar": 1,
+        "endLine": 702,
+        "endChar": 7
+      },
+      "revId": "7a7bf1d867e86b27edae678c42bf00549625b1ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "161620ca_c009ecfe",
@@ -133,6 +157,24 @@
       "side": 1,
       "message": "The new patchset (#2) seems fine. We need the intermediate barriers and TLB invalidate (before GPC enable) to invalidate all GPT configuration in case reset does do it properly. Hence it is safer to enable the GPC as a later step. Probably this is needed only for the primary CPU whereas it can be optimized for the secondary CPUs.",
       "parentUuid": "6aa670a6_1e24954c",
+      "revId": "7a7bf1d867e86b27edae678c42bf00549625b1ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47803f4b_0b92d318",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-06T15:24:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5e0008b_b443528e",
       "revId": "7a7bf1d867e86b27edae678c42bf00549625b1ad",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
