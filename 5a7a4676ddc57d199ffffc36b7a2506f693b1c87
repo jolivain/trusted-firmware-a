@@ -239,6 +239,98 @@
       "parentUuid": "3a298e57_ea23dadb",
       "revId": "5a7a4676ddc57d199ffffc36b7a2506f693b1c87",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac77af49_daf1c92a",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-09-06T17:27:52Z",
+      "side": 1,
+      "message": "Define as a macro in file cortex_a710.h and use CORTEX_A710_CPUPSELR_EL3 instead",
+      "range": {
+        "startLine": 338,
+        "startChar": 5,
+        "endLine": 338,
+        "endChar": 18
+      },
+      "revId": "5a7a4676ddc57d199ffffc36b7a2506f693b1c87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63c3aec5_301177c0",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-09-06T17:27:52Z",
+      "side": 1,
+      "message": "Same here for CORTEX_A710_CPUPOR_EL3",
+      "range": {
+        "startLine": 340,
+        "startChar": 5,
+        "endLine": 340,
+        "endChar": 18
+      },
+      "revId": "5a7a4676ddc57d199ffffc36b7a2506f693b1c87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b4c7939_114fe9eb",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-09-06T17:27:52Z",
+      "side": 1,
+      "message": "Same here for CORTEX_A710_CPUPMR_EL3",
+      "range": {
+        "startLine": 342,
+        "startChar": 5,
+        "endLine": 342,
+        "endChar": 18
+      },
+      "revId": "5a7a4676ddc57d199ffffc36b7a2506f693b1c87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c09218d_d33ea1e8",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-09-06T17:27:52Z",
+      "side": 1,
+      "message": "Same here for CORTEX_A710_CPUPCR_EL3",
+      "range": {
+        "startLine": 344,
+        "startChar": 5,
+        "endLine": 344,
+        "endChar": 18
+      },
+      "revId": "5a7a4676ddc57d199ffffc36b7a2506f693b1c87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
