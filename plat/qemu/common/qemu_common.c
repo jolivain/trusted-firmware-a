@@ -131,9 +131,7 @@ static const mmap_region_t plat_qemu_mmap[] = {
 				   unsigned long code_start,		\
 				   unsigned long code_limit,		\
 				   unsigned long ro_start,		\
-				   unsigned long ro_limit,		\
-				   unsigned long coh_start,		\
-				   unsigned long coh_limit)		\
+				   unsigned long ro_limit)		\
 	{								\
 		mmap_add_region(total_base, total_base,			\
 				total_size,				\
@@ -144,9 +142,6 @@ static const mmap_region_t plat_qemu_mmap[] = {
 		mmap_add_region(ro_start, ro_start,			\
 				ro_limit - ro_start,			\
 				MT_RO_DATA | MT_SECURE);		\
-		mmap_add_region(coh_start, coh_start,			\
-				coh_limit - coh_start,			\
-				MT_DEVICE | MT_RW | MT_SECURE);		\
 		mmap_add(plat_qemu_mmap);				\
 		init_xlat_tables();					\
 									\

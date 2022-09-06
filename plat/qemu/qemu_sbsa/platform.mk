@@ -16,6 +16,13 @@ EL3_EXCEPTION_HANDLING	:=	1
 GICV2_G0_FOR_EL3	:=	1
 endif
 
+# System coherency is managed in hardware
+HW_ASSISTED_COHERENCY	:=	1
+
+# When building for systems with hardware-assisted coherency, there's no need
+# to use USE_COHERENT_MEM. Require that USE_COHERENT_MEM must be set to 0 too.
+USE_COHERENT_MEM	:=	0
+
 # Enable new version of image loading on QEMU platforms
 LOAD_IMAGE_V2		:=	1
 
