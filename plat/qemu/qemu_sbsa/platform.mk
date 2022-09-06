@@ -49,6 +49,9 @@ BL1_SOURCES		+=	drivers/io/io_semihosting.c			\
 				${PLAT_QEMU_COMMON_PATH}/${ARCH}/plat_helpers.S	\
 				${PLAT_QEMU_COMMON_PATH}/qemu_bl1_setup.c
 
+USE_COHERENT_MEM := 0
+HW_ASSISTED_COHERENCY:=1
+
 BL1_SOURCES		+=	lib/cpus/aarch64/cortex_a57.S			\
 				lib/cpus/aarch64/cortex_a72.S			\
 				lib/cpus/aarch64/qemu_max.S			\

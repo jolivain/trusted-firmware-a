@@ -16,14 +16,10 @@ void qemu_configure_mmu_svc_mon(unsigned long total_base,
 			unsigned long coh_start, unsigned long coh_limit);
 
 void qemu_configure_mmu_el1(unsigned long total_base, unsigned long total_size,
-			unsigned long code_start, unsigned long code_limit,
-			unsigned long ro_start, unsigned long ro_limit,
-			unsigned long coh_start, unsigned long coh_limit);
+			unsigned long code_start, unsigned long code_limit);
 
 void qemu_configure_mmu_el3(unsigned long total_base, unsigned long total_size,
-			unsigned long code_start, unsigned long code_limit,
-			unsigned long ro_start, unsigned long ro_limit,
-			unsigned long coh_start, unsigned long coh_limit);
+			unsigned long code_start, unsigned long code_limit);
 
 void plat_qemu_io_setup(void);
 unsigned int plat_qemu_calc_core_pos(u_register_t mpidr);
