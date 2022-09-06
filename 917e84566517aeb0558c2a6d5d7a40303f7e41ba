@@ -87,6 +87,30 @@
       },
       "revId": "917e84566517aeb0558c2a6d5d7a40303f7e41ba",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d080c16f_2b61cff1",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-06T18:41:24Z",
+      "side": 1,
+      "message": "Hi Varun,\n\nCould you explain with an example what services you specifically believe that the security co-processor may be able to provide for DLME memory setup?\n\nI still think this function is quite logical, and already consist of platform APIs to gather the platform-specific regions. This function works as below -\n1. It dynamically map the DLME region provided DCE-preamble (running in Non-Secure Wd)\n2. Collect the platform-specific regions from the platform\n3. Copy these regions into the DLME memory (mapped in step 1)\n4. Un-map DLME memory region",
+      "parentUuid": "443e2bdf_c1f28b01",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 1
+      },
+      "revId": "917e84566517aeb0558c2a6d5d7a40303f7e41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
