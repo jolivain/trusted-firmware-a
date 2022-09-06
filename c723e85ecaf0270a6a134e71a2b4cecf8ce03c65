@@ -70,6 +70,24 @@
       "parentUuid": "2e691802_fb36d4ea",
       "revId": "c723e85ecaf0270a6a134e71a2b4cecf8ce03c65",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d4bb9bb_beb8fc3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000540
+      },
+      "writtenOn": "2022-09-06T06:53:22Z",
+      "side": 1,
+      "message": "The first paragraph is about the Versal code not referencing PLM by maintainer choice. And now being asked to reference PLM in the commit message. It is inconsistent and arbitrary.\n\nSure - I didnt think that would be a concern since if that was the case there would never be a default config for the secure world. Why is there a jump to it when the XLNX signature is corrupted.\n\nStill easy to fix - both use cases - by just making it selectable by CFG.\n\nHowever not sure if doing that since I sense some pushback. I can do it if there is interest. Otherwise I\u0027ll stop here.",
+      "parentUuid": "adc654e3_26b8f201",
+      "revId": "c723e85ecaf0270a6a134e71a2b4cecf8ce03c65",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
