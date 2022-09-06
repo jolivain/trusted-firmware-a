@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ab6f268_796cde5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-06T11:56:57Z",
+      "side": 1,
+      "message": "The code looks good to me (I only have some minor comments) but I\u0027ve got some questions about the expected usage model for these interfaces. \n\n1. I think the DAK is an asymmetric key pair, is that right?\n\n2. If this is the case, which of the public or private part do we get from rss_delegated_attest_get_delegated_key()?\n\nI am confused because we need both AFAIU (the private part will be needed to sign the secondary attestation token, while the public part must be hashed to establish the hash lock with the platform attestation token), but the interface only seems to return one through \u0027key_buf\u0027...\n\n3. rss_delegated_attest_get_token() needs to be told which hash algorithm will be used on the DAK. Why? Does the \"get platform\" service on the RSS side use this information to make sense of the DAK hash it receives?",
+      "revId": "a2c23dfbd7de8782f0de2cae5dba08650df0b295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0967d2b_7dea201e",
+        "filename": "include/lib/psa/delegated_attestation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-06T11:56:57Z",
+      "side": 1,
+      "message": "Please remove this, as we do not worry about C++ callers in TF-A project.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 6
+      },
+      "revId": "a2c23dfbd7de8782f0de2cae5dba08650df0b295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "944be54a_5436899f",
+        "filename": "include/lib/psa/psa_manifest/sid.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-06T11:56:57Z",
+      "side": 1,
+      "message": "typo: DELEGATED?",
+      "range": {
+        "startLine": 18,
+        "startChar": 12,
+        "endLine": 18,
+        "endChar": 21
+      },
+      "revId": "a2c23dfbd7de8782f0de2cae5dba08650df0b295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a065225_7666bbd9",
+        "filename": "lib/psa/delegated_attestation.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-06T11:56:57Z",
+      "side": 1,
+      "message": "This should be\n\n if (key_size \u003d\u003d NULL)\n\nfor MISRA compliance.",
+      "range": {
+        "startLine": 31,
+        "startChar": 1,
+        "endLine": 31,
+        "endChar": 15
+      },
+      "revId": "a2c23dfbd7de8782f0de2cae5dba08650df0b295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d51dcf6_8bc494ac",
+        "filename": "lib/psa/delegated_attestation.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-06T11:56:57Z",
+      "side": 1,
+      "message": "(minor) The indentation looks here, probably because it\u0027s not using tabs on this line.",
+      "range": {
+        "startLine": 49,
+        "startChar": 17,
+        "endLine": 49,
+        "endChar": 24
+      },
+      "revId": "a2c23dfbd7de8782f0de2cae5dba08650df0b295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "846cd88b_ab42ba4a",
+        "filename": "lib/psa/delegated_attestation.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-06T11:56:57Z",
+      "side": 1,
+      "message": "This should be:\n\n if (token_size \u003d\u003d NULL)\n\nfor MISRA compliance.",
+      "range": {
+        "startLine": 61,
+        "startChar": 1,
+        "endLine": 61,
+        "endChar": 17
+      },
+      "revId": "a2c23dfbd7de8782f0de2cae5dba08650df0b295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
