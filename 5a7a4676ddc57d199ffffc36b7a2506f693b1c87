@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7deceefa_8f6fae3b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-06T16:39:47Z",
+      "side": 1,
+      "message": "errata topic has been deprecated:\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/changelog.yaml#n600.\n\nLet me know, if this needs to be changed.",
+      "parentUuid": "2d92ee22_4e2d9fa6",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "5a7a4676ddc57d199ffffc36b7a2506f693b1c87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d5a8b999_6a828dd0",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-06T16:24:37Z",
       "side": 1,
       "message": "apply an instruction patching sequence",
+      "range": {
+        "startLine": 11,
+        "startChar": 27,
+        "endLine": 11,
+        "endChar": 51
+      },
+      "revId": "5a7a4676ddc57d199ffffc36b7a2506f693b1c87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3388aaa6_b5333d8d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-06T16:39:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5a8b999_6a828dd0",
       "range": {
         "startLine": 11,
         "startChar": 27,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdcf6b6d_a912c6f5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-06T16:39:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62543499_f685cd8a",
+      "range": {
+        "startLine": 12,
+        "startChar": 13,
+        "endLine": 12,
+        "endChar": 18
+      },
+      "revId": "5a7a4676ddc57d199ffffc36b7a2506f693b1c87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fe1c891_b5c2cf86",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-09-06T16:24:37Z",
       "side": 1,
       "message": "Add the \"latest\" please:  https://developer.arm.com/documentation/SDEN1775101 -\u003e https://developer.arm.com/documentation/SDEN1775101/latest",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 51
+      },
+      "revId": "5a7a4676ddc57d199ffffc36b7a2506f693b1c87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "871edd40_a3f73101",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-06T16:39:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fe1c891_b5c2cf86",
       "range": {
         "startLine": 16,
         "startChar": 0,
@@ -123,6 +219,24 @@
       "writtenOn": "2022-09-06T16:24:37Z",
       "side": 1,
       "message": "Please place above bit_44 to keep in order",
+      "revId": "5a7a4676ddc57d199ffffc36b7a2506f693b1c87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb69a86d_e9da093b",
+        "filename": "include/lib/cpus/aarch64/cortex_a710.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-06T16:39:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a298e57_ea23dadb",
       "revId": "5a7a4676ddc57d199ffffc36b7a2506f693b1c87",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
