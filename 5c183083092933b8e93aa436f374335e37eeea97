@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84413d6e_8699efcd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-09-06T10:47:18Z",
+      "side": 1,
+      "message": "I\u0027m not sure this is quite correct. I think\n\"to force PLDW/PFRM ST to behave like PLD/PRFM LD and not cause\ninvalidations to other PE caches\"\n(taken from the SDEN) would be better",
+      "range": {
+        "startLine": 11,
+        "startChar": 50,
+        "endLine": 12,
+        "endChar": 12
+      },
+      "revId": "5c183083092933b8e93aa436f374335e37eeea97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
