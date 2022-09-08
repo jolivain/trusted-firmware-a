@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "204d7d17_836157d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-08T14:15:44Z",
+      "side": 1,
+      "message": "Many thanks for the detailed answer and the additional comments in the code. This is much clearer to me now.\n\nGiven that rss_delegated_attest_get_delegated_key() returns the *private* part of the DAK then I suppose it requires careful management to keep it safe in root world.\n* I suppose we will need to store it in root SRAM, and clear the key buffer once we\u0027re done with it. This is a caller\u0027s responsibility so it\u0027s outside the scope of this patch, but I am just making a note of it for the future.\n* Also I suppose the private DAK will be encrypted before it gets sent to RMM? Or will it just be passed through a realm-world owned buffer?",
+      "parentUuid": "b5cb4dfb_31f8f051",
+      "revId": "a2c23dfbd7de8782f0de2cae5dba08650df0b295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0967d2b_7dea201e",

@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "061b84a1_f77a1d4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-08T14:15:44Z",
+      "side": 1,
+      "message": "I have some more questions based on your previous answers but these don\u0027t gate the patch, which looks good to me.",
+      "revId": "3ae9706a7c0def2c9c00f74741cb2499bfb9455c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8271a741_166ad1de",
+        "filename": "include/lib/psa/delegated_attestation.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-08T14:15:44Z",
+      "side": 1,
+      "message": "(minor) I would remove this sentence, as it\u0027s already covered by the documentation of rss_delegated_attest_get_delegated_key() below.",
+      "range": {
+        "startLine": 32,
+        "startChar": 64,
+        "endLine": 33,
+        "endChar": 59
+      },
+      "revId": "3ae9706a7c0def2c9c00f74741cb2499bfb9455c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
