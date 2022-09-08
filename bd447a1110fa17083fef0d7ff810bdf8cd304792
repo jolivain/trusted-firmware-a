@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f13371f6_b1074bca",
+        "filename": "plat/mediatek/mt8186/include/plat_sip_calls.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2022-09-08T04:48:49Z",
+      "side": 1,
+      "message": "it should be 4 or 6 ? (VCOREFS\u0027s SIP Call IDs are defined in plat/mediatek/include/mtk_sip_def.h)",
+      "range": {
+        "startLine": 13,
+        "startChar": 33,
+        "endLine": 13,
+        "endChar": 34
+      },
+      "revId": "bd447a1110fa17083fef0d7ff810bdf8cd304792",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65ac91d5_262707d8",
+        "filename": "plat/mediatek/mt8186/include/plat_sip_calls.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2022-09-08T04:48:49Z",
+      "side": 1,
+      "message": "move them to plat/mediatek/include/mtk_sip_def.h ?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 48
+      },
+      "revId": "bd447a1110fa17083fef0d7ff810bdf8cd304792",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
