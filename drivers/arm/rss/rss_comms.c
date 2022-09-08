@@ -10,7 +10,6 @@
 #include <common/debug.h>
 #include <drivers/arm/mhu.h>
 #include <drivers/arm/rss_comms.h>
-#include <initial_attestation.h>
 #include <psa/client.h>
 
 #include <platform_def.h>
@@ -48,17 +47,8 @@ struct __packed packed_psa_reply_t {
 	uint16_t out_size[4];
 };
 
-/*
- * In the current implementation the RoT Service request that requires the
- * biggest message buffer is the RSS_ATTEST_GET_TOKEN. The maximum required
- * buffer size is calculated based on the platform-specific needs of
- * this request.
- */
-#define MAX_REQUEST_PAYLOAD_SIZE	(PSA_INITIAL_ATTEST_CHALLENGE_SIZE_64 \
-					 + PLAT_ATTEST_TOKEN_MAX_SIZE)
-
 /* Buffer to store the messages to be sent/received. */
-static uint8_t message_buf[MAX_REQUEST_PAYLOAD_SIZE] __aligned(4);
+static uint8_t message_buf[PLAT_RSS_AP_MAX_MSG_SIZE] __aligned(4);
 
 static int32_t pack_params(const psa_invec *invecs,
 			   size_t in_len,
