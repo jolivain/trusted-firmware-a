@@ -39,6 +39,24 @@
       "message": "Can we have assert here to check core_count is not equal to 0? to avoid any false positive result.",
       "revId": "8406348553570bd2b6675ff25254a73c3562bd7e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30168f2a_19d314f3",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-09-08T11:59:28Z",
+      "side": 1,
+      "message": "Along with that you can also add a check to make sure that core_count is not more than \"psci_plat_core_count\"",
+      "parentUuid": "506e10b7_e119a1d3",
+      "revId": "8406348553570bd2b6675ff25254a73c3562bd7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
