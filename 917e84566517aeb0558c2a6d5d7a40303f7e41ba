@@ -111,6 +111,30 @@
       },
       "revId": "917e84566517aeb0558c2a6d5d7a40303f7e41ba",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76a0fe3a_977ffcbf",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-08T09:41:30Z",
+      "side": 1,
+      "message": "Additionally, I believe that any services we expect from the security-processor can be handled in step 2 (to gather platform-specific regions) without modifying this function.\n\nMore details on how various platform-specific regions are retrieved -\n1. Platform-specific hooks are used to populate address regions quite early in the DRTM setup phase [1]\n2. As part of the DRTM Event Log work, required components are measured using the platform-supported crypto engine and then these measurements are recorded in DRTM Event Log buffer [2]\n3. There are still other regions in ToDos, but they can be made platform-specific and then eventually can be copied in the DLME memory\n\nHence making this whole function \u0027drtm_dl_prepare_dlme_data\u0027 platform-specific may not be a good idea. Let me know what do you think?\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/15700/23/services/std_svc/drtm/drtm_main.c#66\n[2]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/15700/23/services/std_svc/drtm/drtm_main.c#491",
+      "parentUuid": "d080c16f_2b61cff1",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 1
+      },
+      "revId": "917e84566517aeb0558c2a6d5d7a40303f7e41ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
