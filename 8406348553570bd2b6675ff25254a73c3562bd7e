@@ -99,6 +99,24 @@
       "parentUuid": "30168f2a_19d314f3",
       "revId": "8406348553570bd2b6675ff25254a73c3562bd7e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61a83a78_4d8e2331",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-09T12:58:53Z",
+      "side": 1,
+      "message": "In that case, more stricter check is possible as below:\n\n  assert((core_count \u003d\u003d psci_plat_core_count - (psci_plat_core_count - core_count)));\n\nConsidering, psci_plat_core_count is valid (and already been checked before). Then I think this check is sufficient enough.",
+      "parentUuid": "9c754330_e068c33b",
+      "revId": "8406348553570bd2b6675ff25254a73c3562bd7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
