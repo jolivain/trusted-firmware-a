@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f1fc70f_f94d9b0a",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-12T14:27:54Z",
+      "side": 1,
+      "message": "This macro as it\u0027s used here constitutes a porting requirement for the platform if it wants to use the RSS driver. Thus, it should be documented in the porting guide here:\n\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/docs/getting_started/porting-guide.rst#n94\n\nCould you please add a patch for this in the patch stack?\n\nI realize this was already the case before, as this patch is only changing its name, but it seems we originally overlooked this.",
+      "range": {
+        "startLine": 51,
+        "startChar": 27,
+        "endLine": 51,
+        "endChar": 51
+      },
+      "revId": "0b57864a8651e415c29711c0c8d2b2d2d2b8893e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
