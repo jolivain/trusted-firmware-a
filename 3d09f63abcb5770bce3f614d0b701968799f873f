@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5aee360e_8d7a903f",
+        "filename": "plat/arm/board/tc/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-12T15:12:49Z",
+      "side": 1,
+      "message": "If I am not mistaken, this change will also increase the maximum size of BL2 when trusted boot is enabled alone (i.e. without measured boot), although trusted boot per se does not involve RSS. Was that on purpose? I am wondering whether we should keep it to 0x20000 for trusted boot only, and have a separate case for trusted boot + measured boot where we bump it to 0x26000?\n\nI guess it all depends on how tight we are on memory usage on TC platform. If we\u0027ve got plenty of free space, then it might not be worth tuning it so finely... Could you please find out? There\u0027s a script in tools/memory/ that can help with that.",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 39
+      },
+      "revId": "3d09f63abcb5770bce3f614d0b701968799f873f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
