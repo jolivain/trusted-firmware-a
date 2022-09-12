@@ -94,6 +94,30 @@
       },
       "revId": "efc0fa47d244b09f91544422b0d5c77ee8df003e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c52f632a_c8a506fb",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-09-12T12:12:30Z",
+      "side": 1,
+      "message": "AFAIU on legacy platforms (when Armv8.4 SEL2 did not exist), access from EL3/EL2 to ICC_SRE_EL2 was only possible with SCR_EL3.NS\u003d1.\nSee https://documentation-service.arm.com/static/6012f2e54ccc190e5e681256?token\u003d\np. 8-242\n\nWe can debate of why EL3 had to configure this register from EL3, when it could be an EL2 component responsibility. It could be that when NS-EL2 is not present, 1. the register needs to have a default value programmed 2. lower EL sw components lazily relied on EL3 to configure the register and this has set a debt/legacy.\nI believe with future platforms, this configuration from EL3 could be omitted, and done by lower EL2 managers.",
+      "parentUuid": "d48b1a9c_919dbc92",
+      "range": {
+        "startLine": 233,
+        "startChar": 42,
+        "endLine": 233,
+        "endChar": 54
+      },
+      "revId": "efc0fa47d244b09f91544422b0d5c77ee8df003e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
