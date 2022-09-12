@@ -166,6 +166,30 @@
       },
       "revId": "efc0fa47d244b09f91544422b0d5c77ee8df003e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2420ca93_0287f21f",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-09-12T14:29:17Z",
+      "side": 1,
+      "message": "okay, thanks Olivier. i think it is worth adding these snippets or references into the commit message otherwise one needs to figure out exatly why this was done like above. not exactly trivial to do so.",
+      "parentUuid": "308dc03a_157b1906",
+      "range": {
+        "startLine": 233,
+        "startChar": 42,
+        "endLine": 233,
+        "endChar": 54
+      },
+      "revId": "efc0fa47d244b09f91544422b0d5c77ee8df003e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
