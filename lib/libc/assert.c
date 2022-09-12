@@ -9,7 +9,6 @@
 #include <stdio.h>
 
 #include <common/debug.h>
-#include <drivers/console.h>
 #include <plat/common/platform.h>
 
 /*
@@ -23,7 +22,6 @@ void __dead2 __assert(const char *file, unsigned int line,
 {
 	printf("ASSERT: %s:%u:%s\n", file, line, assertion);
 	backtrace("assert");
-	console_flush();
 	plat_panic_handler();
 }
 #elif PLAT_LOG_LEVEL_ASSERT >= LOG_LEVEL_INFO
@@ -31,14 +29,12 @@ void __dead2 __assert(const char *file, unsigned int line)
 {
 	printf("ASSERT: %s:%u\n", file, line);
 	backtrace("assert");
-	console_flush();
 	plat_panic_handler();
 }
 #else
 void __dead2 __assert(void)
 {
 	backtrace("assert");
-	console_flush();
 	plat_panic_handler();
 }
 #endif
