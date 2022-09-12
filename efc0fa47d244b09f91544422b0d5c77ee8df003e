@@ -142,6 +142,30 @@
       },
       "revId": "efc0fa47d244b09f91544422b0d5c77ee8df003e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c9f3479_507976b6",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-09-12T14:24:29Z",
+      "side": 1,
+      "message": "Thanks guys. Can you please review and post your gerrit scores? We can come up with a better solution, but I would like to fix the broken platform first with the merge of this patch.",
+      "parentUuid": "308dc03a_157b1906",
+      "range": {
+        "startLine": 233,
+        "startChar": 42,
+        "endLine": 233,
+        "endChar": 54
+      },
+      "revId": "efc0fa47d244b09f91544422b0d5c77ee8df003e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
