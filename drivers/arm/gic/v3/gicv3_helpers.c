@@ -11,6 +11,7 @@
 #include <common/debug.h>
 #include <common/interrupt_props.h>
 #include <drivers/arm/gic_common.h>
+#include <platform_def.h>
 
 #include "../common/gic_common_private.h"
 #include "gicv3_private.h"

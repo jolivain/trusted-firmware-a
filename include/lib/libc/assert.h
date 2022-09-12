@@ -9,8 +9,6 @@
 
 #include <cdefs.h>
 
-#include <platform_def.h>
-
 #include <common/debug.h>
 
 #ifndef PLAT_LOG_LEVEL_ASSERT
