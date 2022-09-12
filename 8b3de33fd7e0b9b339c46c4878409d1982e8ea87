@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d7ca8495_a800f1cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-12T14:13:00Z",
+      "side": 1,
+      "message": "This should be:\n\n feat(tc):\n\nOr even possibly:\n\n feat(tc2):\n\nIn the latter case, this would require adding a new scope for tc2 here:\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/changelog.yaml#n196",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "8b3de33fd7e0b9b339c46c4878409d1982e8ea87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6f2cd13c_54f8652a",
         "filename": "plat/arm/board/tc/include/platform_def.h",
         "patchSetId": 1
