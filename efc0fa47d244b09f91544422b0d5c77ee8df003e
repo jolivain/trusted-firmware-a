@@ -70,6 +70,30 @@
       },
       "revId": "efc0fa47d244b09f91544422b0d5c77ee8df003e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d48b1a9c_919dbc92",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-09-12T09:03:30Z",
+      "side": 1,
+      "message": "Scratch that. I recall ICC_SRE_EL2 is not banked secure/non-secure but has a dependency to SCR_EL3.EEL2 which might have led to a regression on older platform?\n\nExtracts from Arm ARM:\n\nICC_SRE_EL2 read/write accesses:\n [...]\n elsif PSTATE.EL \u003d\u003d EL2 then\n [...]\n     return ICC_SRE_EL2;\n [...]\n elsif PSTATE.EL \u003d\u003d EL3 then\n     if !EL2Enabled() then\n         UNDEFINED;\n\nEL2Enabled()\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nReturns TRUE if:\n- NS EL2 present and SCR_EL3.NS\u003d1\n- NS EL2 present and IsSecureEL2Enabled()\n\n boolean EL2Enabled()\n     return HaveEL(EL2) \u0026\u0026 (!HaveEL(EL3) || SCR_EL3.NS \u003d\u003d \u00271\u0027 || IsSecureEL2Enabled());\n\n\n// IsSecureEL2Enabled()\n// \u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n// Returns TRUE if Secure EL2 is enabled, FALSE otherwise.\n boolean IsSecureEL2Enabled()\n     if HaveEL(EL2) \u0026\u0026 HaveSecureEL2Ext() then\n         if HaveEL(EL3) then\n             if !ELUsingAArch32(EL3) \u0026\u0026 SCR_EL3.EEL2 \u003d\u003d \u00271\u0027 then\n                 return TRUE;\n             else\n                 return FALSE;\n         else\n             return IsSecure();\n     else\n         return FALSE;",
+      "parentUuid": "7fd3243e_fd8a5e2e",
+      "range": {
+        "startLine": 233,
+        "startChar": 42,
+        "endLine": 233,
+        "endChar": 54
+      },
+      "revId": "efc0fa47d244b09f91544422b0d5c77ee8df003e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
