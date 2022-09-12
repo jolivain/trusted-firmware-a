@@ -270,4 +270,6 @@ void backtrace(const char *cookie)
 	unwind_stack(fr, (uintptr_t)&backtrace, return_address);
 
 	printf("BACKTRACE: END: %s\n", cookie);
+
+	console_flush();
 }
