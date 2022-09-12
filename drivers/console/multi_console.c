@@ -6,6 +6,7 @@
 
 #include <assert.h>
 #include <stddef.h>
+#include <stdlib.h>
 
 #include <drivers/console.h>
 
@@ -96,9 +97,12 @@ int console_putc(int c)
 			if ((err == ERROR_NO_VALID_CONSOLE) || (ret < err))
 				err = ret;
 		}
-
-	return err;
+	if (err == 0)
+		return 0;
+	else
+		return EOF;
 }
+int putchar(int c)  __attribute__((alias("console_putc")));
 
 int console_getc(void)
 {
