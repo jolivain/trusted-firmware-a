@@ -9,8 +9,6 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#include <common/debug.h>
-
 #define get_num_va_args(_args, _lcount)				\
 	(((_lcount) > 1)  ? va_arg(_args, long long int) :	\
 	(((_lcount) == 1) ? va_arg(_args, long int) :		\
