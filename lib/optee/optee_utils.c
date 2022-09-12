@@ -8,6 +8,7 @@
 
 #include <common/debug.h>
 #include <lib/optee_utils.h>
+#include <platform_def.h>
 
 /*
  * load_addr_hi and load_addr_lo: image load address.
