@@ -33,6 +33,52 @@
       "message": "Only one unrelated failure. Manually providing +1",
       "revId": "fb2741550ca3d085d3cfb6fb125516dd405e5466",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d13941c3_28eee94b",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-09-13T15:27:25Z",
+      "side": 1,
+      "message": "function",
+      "range": {
+        "startLine": 174,
+        "startChar": 33,
+        "endLine": 174,
+        "endChar": 39
+      },
+      "revId": "fb2741550ca3d085d3cfb6fb125516dd405e5466",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b7b7271_554c6acd",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-09-13T15:27:25Z",
+      "side": 1,
+      "message": "You can do indentation like below (the rule is you can use whitspaces after tabs)\n(psci_plat_core_count -\n (psci_plat_core_count - core_count))\n\nSame for below",
+      "range": {
+        "startLine": 186,
+        "startChar": 3,
+        "endLine": 186,
+        "endChar": 4
+      },
+      "revId": "fb2741550ca3d085d3cfb6fb125516dd405e5466",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
