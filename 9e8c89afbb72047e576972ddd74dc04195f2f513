@@ -16,6 +16,24 @@
       "message": "Hi Claus,\n\nThe aarch32 platforms do not compile the file common/backtrace/backtrace.c, see backtrace.mk where ENABLE_BACKTRACE is forced to 0. The console flush would then no more be done for those platforms.\nIf you want to remove it from assert.c, then maybe backtrace.c should be reworked to support aarch32 (maybe a huge work), or at least just do the console flush in backtrace() function for aarch32.\n\nBest regards,\nYann\n",
       "revId": "9e8c89afbb72047e576972ddd74dc04195f2f513",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5bf8bea_97ca751c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000888
+      },
+      "writtenOn": "2022-09-13T22:40:22Z",
+      "side": 1,
+      "message": "Hi Yann,\n\nI think another approach should be considered to get the platform/project dependencies out of libc.\n\nAnother thing is, would you consider simplifying assert.c? In my opinion the additional information in the verbose version is redundant:\nprintf(\"ASSERT: %s:%u:%s\\n\", file, line, assertion);\n\nAssuming there is only one statement per line, `assertion` does not provide any additional info to `file` and `line`.\n\nMy suggestion would be to have only one implementation of `assert()` and toggle it based on NDEBUG similar to conventional libc libraries.",
+      "parentUuid": "72007bed_7acbb4b3",
+      "revId": "9e8c89afbb72047e576972ddd74dc04195f2f513",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
