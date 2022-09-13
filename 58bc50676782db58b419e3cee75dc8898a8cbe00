@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eb20932_515a0dbb",
+        "filename": "plat/arm/board/tc/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-13T07:51:33Z",
+      "side": 1,
+      "message": "I\u0027ve got a patch in review to outsource this to a sub-makefile:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/16479\n\nI suppose it could benefit the present patch if it gets rebased on top of it. Then the TC platform makefile would just need to do:\n\n    include drivers/arm/rss/rss_comms.mk\n    BL1_SOURCES\t\t+\u003d\t${RSS_COMMS_SOURCES}\n    BL2_SOURCES\t\t+\u003d\t${RSS_COMMS_SOURCES}\n\nfor the RSS \u0026 MHU source files (you\u0027d still need to include plat/arm/* and lib/psa/measured_boot.c on top of that).",
+      "range": {
+        "startLine": 176,
+        "startChar": 4,
+        "endLine": 178,
+        "endChar": 30
+      },
+      "revId": "58bc50676782db58b419e3cee75dc8898a8cbe00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6eecce1d_cc1ce8dd",
+        "filename": "plat/arm/board/tc/tc_bl1_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-13T07:51:33Z",
+      "side": 1,
+      "message": "(minor) Remove mention of FVP here?",
+      "range": {
+        "startLine": 16,
+        "startChar": 3,
+        "endLine": 16,
+        "endChar": 6
+      },
+      "revId": "58bc50676782db58b419e3cee75dc8898a8cbe00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47d52f3d_471d1530",
+        "filename": "plat/arm/board/tc/tc_bl2_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-13T07:51:33Z",
+      "side": 1,
+      "message": "Right now, RSS communication driver is initialized in both BL1 and BL2. Is that needed? And is that harmless?\n\nI notice the MHU driver (which RSS calls into for its initialization) has this check:\n\n if (dev-\u003eis_initialized) {\n   return MHU_V_2_X_ERR_ALREADY_INIT;\n }\n\nso it supports being called several times, but AFAIU this only applies to multiple calls within the same BL image...",
+      "range": {
+        "startLine": 51,
+        "startChar": 7,
+        "endLine": 51,
+        "endChar": 21
+      },
+      "revId": "58bc50676782db58b419e3cee75dc8898a8cbe00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
