@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16b34ef3_ab817f21",
+        "filename": "plat/mediatek/lib/pm/armv8_2/pwr_ctrl.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-13T15:41:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15fd1893_3e62de5d",
+      "revId": "1143ea576a3cefe12173fdb4a6107b8d4d87052e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c36d2583_64e73466",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-09-13T08:59:27Z",
       "side": 1,
       "message": "This variable is not visible to outside.\nWhat about removing leading `i` ?",
+      "range": {
+        "startLine": 67,
+        "startChar": 31,
+        "endLine": 67,
+        "endChar": 43
+      },
+      "revId": "1143ea576a3cefe12173fdb4a6107b8d4d87052e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3fe4ad0_6bcc4b57",
+        "filename": "plat/mediatek/lib/pm/armv8_2/pwr_ctrl.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-13T15:41:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c36d2583_64e73466",
       "range": {
         "startLine": 67,
         "startChar": 31,
@@ -87,6 +129,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "faa517f9_a86d6b3e",
+        "filename": "plat/mediatek/lib/pm/armv8_2/pwr_ctrl.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-13T15:41:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a330f53_b9e51a26",
+      "range": {
+        "startLine": 89,
+        "startChar": 1,
+        "endLine": 89,
+        "endChar": 4
+      },
+      "revId": "1143ea576a3cefe12173fdb4a6107b8d4d87052e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52bbdcfe_a711449b",
@@ -100,6 +166,30 @@
       "writtenOn": "2022-09-13T08:59:27Z",
       "side": 1,
       "message": "unsigned int",
+      "range": {
+        "startLine": 91,
+        "startChar": 11,
+        "endLine": 91,
+        "endChar": 14
+      },
+      "revId": "1143ea576a3cefe12173fdb4a6107b8d4d87052e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04258da2_fe32764a",
+        "filename": "plat/mediatek/lib/pm/armv8_2/pwr_ctrl.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-13T15:41:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52bbdcfe_a711449b",
       "range": {
         "startLine": 91,
         "startChar": 11,
@@ -133,6 +223,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64c94eb8_f5d4db9d",
+        "filename": "plat/mediatek/lib/pm/armv8_2/pwr_ctrl.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-13T15:41:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a441d485_f94cc3ca",
+      "range": {
+        "startLine": 97,
+        "startChar": 8,
+        "endLine": 97,
+        "endChar": 29
+      },
+      "revId": "1143ea576a3cefe12173fdb4a6107b8d4d87052e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c27242b_7ec3bc4d",
@@ -146,6 +260,30 @@
       "writtenOn": "2022-09-13T08:59:27Z",
       "side": 1,
       "message": "that behaves before entering mcusys off",
+      "range": {
+        "startLine": 119,
+        "startChar": 18,
+        "endLine": 119,
+        "endChar": 63
+      },
+      "revId": "1143ea576a3cefe12173fdb4a6107b8d4d87052e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af81bbca_db0b0c4e",
+        "filename": "plat/mediatek/lib/pm/armv8_2/pwr_ctrl.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-13T15:41:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c27242b_7ec3bc4d",
       "range": {
         "startLine": 119,
         "startChar": 18,
@@ -179,6 +317,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd826f71_7ac4fc5d",
+        "filename": "plat/mediatek/lib/pm/armv8_2/pwr_ctrl.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-13T15:41:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de07f7f7_7b676947",
+      "range": {
+        "startLine": 153,
+        "startChar": 4,
+        "endLine": 154,
+        "endChar": 29
+      },
+      "revId": "1143ea576a3cefe12173fdb4a6107b8d4d87052e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d8907f7c_10777e62",
@@ -192,6 +354,30 @@
       "writtenOn": "2022-09-13T08:59:27Z",
       "side": 1,
       "message": "down ?",
+      "range": {
+        "startLine": 166,
+        "startChar": 22,
+        "endLine": 166,
+        "endChar": 24
+      },
+      "revId": "1143ea576a3cefe12173fdb4a6107b8d4d87052e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f8cd607_ab3db12b",
+        "filename": "plat/mediatek/lib/pm/armv8_2/pwr_ctrl.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-13T15:41:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8907f7c_10777e62",
       "range": {
         "startLine": 166,
         "startChar": 22,
@@ -225,6 +411,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4b6b88e_5e0212b5",
+        "filename": "plat/mediatek/lib/pm/armv8_2/pwr_ctrl.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-13T15:41:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fba01374_b70b1ff7",
+      "range": {
+        "startLine": 219,
+        "startChar": 1,
+        "endLine": 226,
+        "endChar": 2
+      },
+      "revId": "1143ea576a3cefe12173fdb4a6107b8d4d87052e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3339610_01aa3d6a",
@@ -248,6 +458,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ebe21c5_683b3bfa",
+        "filename": "plat/mediatek/lib/pm/mtk_pm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-13T15:41:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3339610_01aa3d6a",
+      "range": {
+        "startLine": 54,
+        "startChar": 30,
+        "endLine": 54,
+        "endChar": 39
+      },
+      "revId": "1143ea576a3cefe12173fdb4a6107b8d4d87052e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "897c4bc8_37e0b319",
@@ -261,6 +495,30 @@
       "writtenOn": "2022-09-13T08:59:27Z",
       "side": 1,
       "message": "If `CONFIG_MTK_PM_SUPPORT` is not equal to `y`, then $(SUB_RULES-y) will be an empty variable.\nAnd, you can check if the parameter is empty in INCLUDE_MAKEFILE.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 33
+      },
+      "revId": "1143ea576a3cefe12173fdb4a6107b8d4d87052e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "311a353d_d0b2b1f3",
+        "filename": "plat/mediatek/lib/pm/rules.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-13T15:41:59Z",
+      "side": 1,
+      "message": "just remove them",
+      "parentUuid": "897c4bc8_37e0b319",
       "range": {
         "startLine": 16,
         "startChar": 0,
