@@ -22,6 +22,30 @@
       },
       "revId": "b781fcf139c3a609f1adffb8097a23eadbed53a9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3485d86_f48e1cf3",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-09-13T18:59:10Z",
+      "side": 1,
+      "message": "Since we use the macros with names of register, I think it is ok.",
+      "parentUuid": "20437d12_30a86357",
+      "range": {
+        "startLine": 338,
+        "startChar": 31,
+        "endLine": 338,
+        "endChar": 33
+      },
+      "revId": "b781fcf139c3a609f1adffb8097a23eadbed53a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
