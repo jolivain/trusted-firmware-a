@@ -16,6 +16,23 @@
       "message": "Hi Claus,\n\nCould you check the build errors (mostly on aarch32 platforms)?\nhttps://ci.trustedfirmware.org/job/tf-a-ci-gateway/16730/\n\nThanks,\nYann",
       "revId": "dd3276f17dcb88b67cf1cda61d7f8f41fc86139d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9c42fd2_cea7e8f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-09-13T08:13:47Z",
+      "side": 1,
+      "message": "Could you also rebase your series? At least one of the compilation issues is solved with:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/16648",
+      "revId": "dd3276f17dcb88b67cf1cda61d7f8f41fc86139d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
