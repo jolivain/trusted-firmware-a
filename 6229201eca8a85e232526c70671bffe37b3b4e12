@@ -52,6 +52,24 @@
       "parentUuid": "9e7adf87_3b0ee370",
       "revId": "6229201eca8a85e232526c70671bffe37b3b4e12",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "552bf9c1_8ce57fc5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-09-14T18:27:30Z",
+      "side": 1,
+      "message": "Thank you for your detailed reply. As far as I understand, I did indeed submit a patch for the CI Scripts repository : [1]. This patch has already been reviewed some time ago and, if I remember correctly, you even tried to merge it and reverted it later because the build test failed without the current patch in the arm-trusted-firmware repository. At that time, you said \"This change will have to come back and be submitted when the other changes are ready.\" ([2]). Should I then re-create the review corresponding to [1] or is there a way to replay it?\n\nThank you\n\n[1] https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/14540/3\n[2] https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/16026",
+      "parentUuid": "59cdfd90_cb035c82",
+      "revId": "6229201eca8a85e232526c70671bffe37b3b4e12",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
