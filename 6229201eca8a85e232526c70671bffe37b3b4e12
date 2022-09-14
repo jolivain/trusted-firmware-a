@@ -16,6 +16,24 @@
       "message": "Failures are in the Static checks and can be seen here:\nhttps://ci.trustedfirmware.org/job/tf-a-static-checks/2069/\n\nCan the Author please address these please.\n\n",
       "revId": "6229201eca8a85e232526c70671bffe37b3b4e12",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e7adf87_3b0ee370",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-09-14T14:33:43Z",
+      "side": 1,
+      "message": "I am a bit confused... The static checks that are failing are:\n- warnings on outdated ARM copyrights. My understanding of an earlier comment from Varun ([1]) was that I should add a ProvenRun copyright rather than updating the old ARM copyright\n- issues with include order in plat/xilinx/common/include/pm_ipi.h file. However, this file is not modified by this patch set. I also do not see on master the stddef.h include which is listed in the static check message. Could you help me understand what is going on here?\n- some files added by the patch set are not covered by the coverty scan analysis. This should be the object of the change in [2]. Should I do something to this regard?\n\nThank you\n\n[1] https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/11339/comment/c2e6af02_20e70304/\n[2] https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/14540/3/script/tf-coverity/tf-cov-make#58",
+      "parentUuid": "9814b2ee_6a3e39f8",
+      "revId": "6229201eca8a85e232526c70671bffe37b3b4e12",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
