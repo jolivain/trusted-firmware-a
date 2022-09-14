@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "361ea241_17809a2b",
+        "filename": "lib/libc/assert.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000888
+      },
+      "writtenOn": "2022-09-14T23:19:41Z",
+      "side": 1,
+      "message": "At least one target (juno) is overriding `PLAT_LOG_LEVEL_ASSERT` to 40. This construct depends on including the files in the right order, which is really bad.\n\nInstead, I am suggesting to remove the most verbose assert. It did not contain any additional information, as file and line number would already point towards the failed assertion.\n\nAlso, other targets may benefit from this, whenever building with LOG_LEVEL_VERBOSE.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 43
+      },
+      "revId": "9b3f894527f145806da6449e2b01598bc051f161",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
