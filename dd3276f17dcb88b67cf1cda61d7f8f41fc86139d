@@ -104,6 +104,30 @@
       },
       "revId": "dd3276f17dcb88b67cf1cda61d7f8f41fc86139d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d146936_47a53da6",
+        "filename": "lib/libc/snprintf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-09-14T08:59:24Z",
+      "side": 1,
+      "message": "\"Unless someone introduces a bug in this module, the radix check would not fail.\"\n\nYes, but this was the concern. There was an actual buffer overflow in here before, so we didn\u0027t want to take any chances. I agree that panicking is not a good idea, but at least it points to the problem ;-) I couldn\u0027t pull off a compile time check, even though constant propagation would make this seemingly possible.\n\nI guess just returning would work as well, anyone adding %o would then hopefully see that it just doesn\u0027t work. Can you please add a comment why we have this restriction (buffer sized for at least radix 10 only). Otherwise people might just replace the 10 with 8 ...",
+      "parentUuid": "edd9e95b_c6e0009d",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 9
+      },
+      "revId": "dd3276f17dcb88b67cf1cda61d7f8f41fc86139d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
