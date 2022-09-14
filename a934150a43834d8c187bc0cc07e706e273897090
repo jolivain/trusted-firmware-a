@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f05aab55_6591141e",
+        "filename": "plat/mediatek/drivers/dcm/mt8188/mtk_dcm_utils.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2022-09-14T08:05:44Z",
+      "side": 1,
+      "message": "use tab for indentation",
+      "range": {
+        "startLine": 11,
+        "startChar": 39,
+        "endLine": 11,
+        "endChar": 40
+      },
+      "revId": "a934150a43834d8c187bc0cc07e706e273897090",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b517f49_4e291744",
+        "filename": "plat/mediatek/drivers/dcm/mt8188/mtk_dcm_utils.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2022-09-14T08:05:44Z",
+      "side": 1,
+      "message": "what about creating a macro for checking the value ? then we can shorten the expression.\nfor example:\n\nstatic boot check_dcm_state(uintptr_t addr, unsigned int mask, unsigned int val)\n{\n    return ((mmio_read_32(addr) \u0026 mask) \u003d\u003d val);\n}",
+      "range": {
+        "startLine": 84,
+        "startChar": 9,
+        "endLine": 86,
+        "endChar": 46
+      },
+      "revId": "a934150a43834d8c187bc0cc07e706e273897090",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c280158_de70e94d",
+        "filename": "plat/mediatek/drivers/dcm/mt8188/mtk_dcm_utils.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2022-09-14T08:05:44Z",
+      "side": 1,
+      "message": "just \n\n`return check_dcm_state(MP_CPUSYS_TOP_BUS_PLLDIV_CFG, \n                        MP_CPUSYS_TOP_BUS_PLL_DIV_DCM_REG0_MASK, \n                        MP_CPUSYS_TOP_BUS_PLL_DIV_DCM_REG0_ON);\n`",
+      "range": {
+        "startLine": 132,
+        "startChar": 1,
+        "endLine": 138,
+        "endChar": 12
+      },
+      "revId": "a934150a43834d8c187bc0cc07e706e273897090",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3599d856_05d8e205",
+        "filename": "plat/mediatek/drivers/dcm/mt8188/mtk_dcm_utils.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2022-09-14T08:05:44Z",
+      "side": 1,
+      "message": "use tab for indentation",
+      "range": {
+        "startLine": 20,
+        "startChar": 37,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "a934150a43834d8c187bc0cc07e706e273897090",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68401fa2_44064e87",
+        "filename": "plat/mediatek/drivers/dcm/mt8188/mtk_dcm_utils.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2022-09-14T08:05:44Z",
+      "side": 1,
+      "message": "move to last entry",
+      "range": {
+        "startLine": 28,
+        "startChar": 8,
+        "endLine": 28,
+        "endChar": 54
+      },
+      "revId": "a934150a43834d8c187bc0cc07e706e273897090",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d35bc03e_3a243765",
+        "filename": "plat/mediatek/drivers/dcm/mtk_dcm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2022-09-14T08:05:44Z",
+      "side": 1,
+      "message": "dcm_set_init",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 72,
+        "endChar": 23
+      },
+      "revId": "a934150a43834d8c187bc0cc07e706e273897090",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96406d57_f1a37093",
+        "filename": "plat/mediatek/drivers/dcm/mtk_dcm.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2022-09-14T08:05:44Z",
+      "side": 1,
+      "message": "default ?",
+      "range": {
+        "startLine": 13,
+        "startChar": 13,
+        "endLine": 13,
+        "endChar": 21
+      },
+      "revId": "a934150a43834d8c187bc0cc07e706e273897090",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
