@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "606c456f_a88d9590",
+        "filename": "plat/mediatek/lib/pm/armv8_2/pwr_ctrl.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-14T06:15:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91d6aa30_48a2ea45",
+      "range": {
+        "startLine": 57,
+        "startChar": 11,
+        "endLine": 57,
+        "endChar": 17
+      },
+      "revId": "ad781fbc55dd2ea66c66887bf5fb8ae14aee6ce4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55828806_53156f14",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-14T04:47:46Z",
       "side": 1,
       "message": "should it be MTK_CPUPM_FN_MASK_DEFAULT ? because fn_mask always compares with MTK_CPUPM_FN_*.",
+      "range": {
+        "startLine": 58,
+        "startChar": 12,
+        "endLine": 58,
+        "endChar": 22
+      },
+      "revId": "ad781fbc55dd2ea66c66887bf5fb8ae14aee6ce4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22da61fe_44aae34b",
+        "filename": "plat/mediatek/lib/pm/armv8_2/pwr_ctrl.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-14T06:15:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55828806_53156f14",
       "range": {
         "startLine": 58,
         "startChar": 12,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80de7b28_fc99140f",
+        "filename": "plat/mediatek/lib/pm/armv8_2/pwr_ctrl.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-14T06:15:53Z",
+      "side": 1,
+      "message": "change to use function.",
+      "parentUuid": "f9e1560b_11ca2087",
+      "range": {
+        "startLine": 80,
+        "startChar": 5,
+        "endLine": 80,
+        "endChar": 9
+      },
+      "revId": "ad781fbc55dd2ea66c66887bf5fb8ae14aee6ce4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12707204_1a2e2088",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-09-14T04:47:46Z",
       "side": 1,
       "message": "what about just using `psci_find_max_off_lvl()` in `lib/psci/psci_common.c`",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 1
+      },
+      "revId": "ad781fbc55dd2ea66c66887bf5fb8ae14aee6ce4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3627bd51_f6177ccd",
+        "filename": "plat/mediatek/lib/pm/armv8_2/pwr_ctrl.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-14T06:15:53Z",
+      "side": 1,
+      "message": "it\u0027s declared in lib/psci/psci_private.h.\nSo I think we should add them here",
+      "parentUuid": "12707204_1a2e2088",
       "range": {
         "startLine": 85,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5797903c_e99754da",
+        "filename": "plat/mediatek/lib/pm/armv8_2/pwr_ctrl.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-14T06:15:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0cdddb_a509453b",
+      "range": {
+        "startLine": 350,
+        "startChar": 1,
+        "endLine": 350,
+        "endChar": 4
+      },
+      "revId": "ad781fbc55dd2ea66c66887bf5fb8ae14aee6ce4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31187974_045106da",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-09-14T04:47:46Z",
       "side": 1,
       "message": "unsigned int",
+      "range": {
+        "startLine": 352,
+        "startChar": 1,
+        "endLine": 352,
+        "endChar": 4
+      },
+      "revId": "ad781fbc55dd2ea66c66887bf5fb8ae14aee6ce4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "953e4054_906cdbe8",
+        "filename": "plat/mediatek/lib/pm/armv8_2/pwr_ctrl.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-14T06:15:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31187974_045106da",
       "range": {
         "startLine": 352,
         "startChar": 1,
@@ -164,6 +308,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a962a443_7ae697ab",
+        "filename": "plat/mediatek/lib/pm/armv8_2/pwr_ctrl.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-14T06:15:53Z",
+      "side": 1,
+      "message": "just remove ret",
+      "parentUuid": "9b7342ed_932bccdf",
+      "range": {
+        "startLine": 360,
+        "startChar": 2,
+        "endLine": 360,
+        "endChar": 29
+      },
+      "revId": "ad781fbc55dd2ea66c66887bf5fb8ae14aee6ce4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1732a5f7_f2279b6f",
         "filename": "plat/mediatek/lib/pm/armv8_2/pwr_ctrl.c",
         "patchSetId": 4
@@ -175,6 +343,30 @@
       "writtenOn": "2022-09-14T04:47:46Z",
       "side": 1,
       "message": "unsigned int lv;",
+      "range": {
+        "startLine": 383,
+        "startChar": 1,
+        "endLine": 383,
+        "endChar": 12
+      },
+      "revId": "ad781fbc55dd2ea66c66887bf5fb8ae14aee6ce4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fe99520_5fcb876d",
+        "filename": "plat/mediatek/lib/pm/armv8_2/pwr_ctrl.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-14T06:15:53Z",
+      "side": 1,
+      "message": "change to \"unsigned int i\"",
+      "parentUuid": "1732a5f7_f2279b6f",
       "range": {
         "startLine": 383,
         "startChar": 1,
@@ -198,6 +390,30 @@
       "writtenOn": "2022-09-14T04:47:46Z",
       "side": 1,
       "message": "It seems that this parameter is always 1. (true?)\nWhat\u0027s the condition that this parameter will be zero ?",
+      "range": {
+        "startLine": 464,
+        "startChar": 15,
+        "endLine": 464,
+        "endChar": 16
+      },
+      "revId": "ad781fbc55dd2ea66c66887bf5fb8ae14aee6ce4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98b50bc1_41871bcf",
+        "filename": "plat/mediatek/lib/pm/armv8_2/pwr_ctrl.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-14T06:15:53Z",
+      "side": 1,
+      "message": "removed",
+      "parentUuid": "dcbe21ac_704d9b8e",
       "range": {
         "startLine": 464,
         "startChar": 15,
