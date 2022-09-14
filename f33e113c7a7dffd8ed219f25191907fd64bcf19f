@@ -67,6 +67,41 @@
       "message": "\u003e Patch Set 1:\n\u003e \n\u003e Build Failed \n\u003e \n\u003e https://jenkins.oss.arm.com/job/tf-gerrit-tforg-l1/5027/ : This Jenkins server is not publicly accessible. A core maintainer will let you know if this CI failure is blocking the merge of this patch.\n\nUnrelated mbedTLS issues",
       "revId": "f33e113c7a7dffd8ed219f25191907fd64bcf19f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39471dae_3e0cb462",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-14T10:31:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "461e77c8_b70a2e67",
+      "revId": "f33e113c7a7dffd8ed219f25191907fd64bcf19f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4ee3230_63c8ae26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-14T10:31:47Z",
+      "side": 1,
+      "message": "CI failures are unrelated to these changes hence manually providing Verified+1",
+      "revId": "f33e113c7a7dffd8ed219f25191907fd64bcf19f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
