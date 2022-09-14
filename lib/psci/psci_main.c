@@ -57,9 +57,11 @@ int psci_cpu_suspend(unsigned int power_state,
 {
 	int rc;
 	unsigned int target_pwrlvl, is_power_down_state;
+	unsigned int cpu_idx = plat_my_core_pos();
 	entry_point_info_t ep;
 	psci_power_state_t state_info = { {PSCI_LOCAL_STATE_RUN} };
 	plat_local_state_t cpu_pd_state;
+	plat_local_state_t prev[PLAT_MAX_PWR_LVL];
 
 	/* Validate the power_state parameter */
 	rc = psci_validate_power_state(power_state, &state_info);
@@ -95,6 +97,16 @@ int psci_cpu_suspend(unsigned int power_state,
 		cpu_pd_state = state_info.pwr_domain_state[PSCI_CPU_PWR_LVL];
 		psci_set_cpu_local_state(cpu_pd_state);
 
+		/*
+		 * If in OS-initiated mode, save a copy of the previous
+		 * requested local power states and update the new requested
+		 * local power states for this CPU.
+		 */
+		if (psci_suspend_mode == OS_INIT) {
+			psci_update_req_local_pwr_states(target_pwrlvl, cpu_idx,
+							 &state_info, prev);
+		}
+
 #if ENABLE_PSCI_STAT
 		plat_psci_stat_accounting_start(&state_info);
 #endif
@@ -109,6 +121,14 @@ int psci_cpu_suspend(unsigned int power_state,
 
 		/* Upon exit from standby, set the state back to RUN. */
 		psci_set_cpu_local_state(PSCI_LOCAL_STATE_RUN);
+
+		/*
+		 * If in OS-initiated mode, restore the previous requested
+		 * local power states for this CPU.
+		 */
+		if (psci_suspend_mode == OS_INIT) {
+			psci_restore_req_local_pwr_states(cpu_idx, prev);
+		}
 
 #if ENABLE_RUNTIME_INSTRUMENTATION
 		PMF_CAPTURE_TIMESTAMP(rt_instr_svc,
@@ -142,12 +162,12 @@ int psci_cpu_suspend(unsigned int power_state,
 	 * might return if the power down was abandoned for any reason, e.g.
 	 * arrival of an interrupt
 	 */
-	psci_cpu_suspend_start(&ep,
-			    target_pwrlvl,
-			    &state_info,
-			    is_power_down_state);
+	rc = psci_cpu_suspend_start(&ep,
+				    target_pwrlvl,
+				    &state_info,
+				    is_power_down_state);
 
-	return PSCI_E_SUCCESS;
+	return rc;
 }
 
 
@@ -187,12 +207,12 @@ int psci_system_suspend(uintptr_t entrypoint, u_register_t context_id)
 	 * might return if the power down was abandoned for any reason, e.g.
 	 * arrival of an interrupt
 	 */
-	psci_cpu_suspend_start(&ep,
-			    PLAT_MAX_PWR_LVL,
-			    &state_info,
-			    PSTATE_TYPE_POWERDOWN);
+	rc = psci_cpu_suspend_start(&ep,
+				    PLAT_MAX_PWR_LVL,
+				    &state_info,
+				    PSTATE_TYPE_POWERDOWN);
 
-	return PSCI_E_SUCCESS;
+	return rc;
 }
 
 int psci_cpu_off(void)
