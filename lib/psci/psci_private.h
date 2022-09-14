@@ -24,7 +24,8 @@
 #define PSCI_GENERIC_CAP	\
 			(define_psci_cap(PSCI_VERSION) |		\
 			define_psci_cap(PSCI_AFFINITY_INFO_AARCH64) |	\
-			define_psci_cap(PSCI_FEATURES))
+			define_psci_cap(PSCI_FEATURES) |		\
+			define_psci_cap(PSCI_SET_SUSPEND_MODE))
 
 /*
  * The PSCI capabilities mask for 64 bit functions.
@@ -164,6 +165,14 @@ typedef struct cpu_pwr_domain_node {
 } cpu_pd_node_t;
 
 /*******************************************************************************
+ * The supported power state coordination modes that can be used in CPU_SUSPEND.
+ ******************************************************************************/
+typedef enum suspend_mode {
+	PLAT_COORD = 0,
+	OS_INIT = 1
+} suspend_mode_t;
+
+/*******************************************************************************
  * The following are helpers and declarations of locks.
  ******************************************************************************/
 #if HW_ASSISTED_COHERENCY
@@ -260,6 +269,7 @@ extern non_cpu_pd_node_t psci_non_cpu_pd_nodes[PSCI_NUM_NON_CPU_PWR_DOMAINS];
 extern cpu_pd_node_t psci_cpu_pd_nodes[PLATFORM_CORE_COUNT];
 extern unsigned int psci_caps;
 extern unsigned int psci_plat_core_count;
+extern suspend_mode_t psci_suspend_mode;
 
 /*******************************************************************************
  * SPD's power management hooks registered with PSCI
@@ -295,6 +305,7 @@ unsigned int psci_find_target_suspend_lvl(const psci_power_state_t *state_info);
 void psci_set_pwr_domains_to_run(unsigned int end_pwrlvl);
 void psci_print_power_domain_map(void);
 bool psci_is_last_on_cpu(void);
+bool psci_are_all_cpus_on(void);
 int psci_spd_migrate_info(u_register_t *mpidr);
 
 /*
