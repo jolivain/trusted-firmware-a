@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b83d4930_4ec96ef6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-09-14T13:49:30Z",
+      "side": 1,
+      "message": "The Arm internal CI has some additional tests including MISRA checking but reported failures are nearly all existing \"Required\" failures not related to these changes. So over ruling Verified-1. The one new is:\n\ndrivers/arm/gic/v3/gicv3_main.c:1145:[MISRA C-2012 Rule 10.1 (required)]\u003c2570383\u003e The expression \"0\" of non-boolean essential type is being interpreted as a boolean value for the operator \"? :\"\n\nBut given the number of other existing MISRA issues I\u0027m ok with this one for merging.\n\n",
+      "revId": "9c0f1d02ac2f01c37224ebeda10a63014f18f030",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
