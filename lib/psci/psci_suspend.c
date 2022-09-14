@@ -151,12 +151,13 @@ static void psci_suspend_to_pwrdown_start(unsigned int end_pwrlvl,
  * the state transition has been done, no further error is expected and it is
  * not possible to undo any of the actions taken beyond that point.
  ******************************************************************************/
-void psci_cpu_suspend_start(const entry_point_info_t *ep,
-			    unsigned int end_pwrlvl,
-			    psci_power_state_t *state_info,
-			    unsigned int is_power_down_state)
+int psci_cpu_suspend_start(const entry_point_info_t *ep,
+			   unsigned int end_pwrlvl,
+			   psci_power_state_t *state_info,
+			   unsigned int is_power_down_state)
 {
-	int skip_wfi = 0;
+	int rc = PSCI_E_SUCCESS;
+	bool skip_wfi = false;
 	unsigned int idx = plat_my_core_pos();
 	unsigned int parent_nodes[PLAT_MAX_PWR_LVL] = {0};
 
@@ -183,16 +184,28 @@ void psci_cpu_suspend_start(const entry_point_info_t *ep,
 	 * detection that a wake-up interrupt has fired.
 	 */
 	if (read_isr_el1() != 0U) {
-		skip_wfi = 1;
+		skip_wfi = true;
 		goto exit;
 	}
 
-	/*
-	 * This function is passed the requested state info and
-	 * it returns the negotiated state info for each power level upto
-	 * the end level specified.
-	 */
-	psci_do_state_coordination(end_pwrlvl, state_info);
+	if (psci_suspend_mode == OS_INIT) {
+		/*
+		 * This function is validates the requested state info for
+		 * OS-initiated mode.
+		 */
+		rc = psci_validate_state_coordination(end_pwrlvl, state_info);
+		if (rc != PSCI_E_SUCCESS) {
+			skip_wfi = true;
+			goto exit;
+		}
+	} else {
+		/*
+		 * This function is passed the requested state info and
+		 * it returns the negotiated state info for each power level upto
+		 * the end level specified.
+		 */
+		psci_do_state_coordination(end_pwrlvl, state_info);
+	}
 
 #if ENABLE_PSCI_STAT
 	/* Update the last cpu for each level till end_pwrlvl */
@@ -221,8 +234,9 @@ exit:
 	 */
 	psci_release_pwr_domain_locks(end_pwrlvl, parent_nodes);
 
-	if (skip_wfi == 1)
-		return;
+	if (skip_wfi) {
+		return rc;
+	}
 
 	if (is_power_down_state != 0U) {
 #if ENABLE_RUNTIME_INSTRUMENTATION
@@ -269,6 +283,8 @@ exit:
 	 * context retaining suspend finisher.
 	 */
 	psci_suspend_to_standby_finisher(idx, end_pwrlvl);
+
+	return rc;
 }
 
 /*******************************************************************************

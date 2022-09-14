@@ -23,6 +23,7 @@
 /* Required platform porting definitions */
 /* Juno supports system power domain */
 #define PLAT_MAX_PWR_LVL		ARM_PWR_LVL2
+#define PLAT_MAX_CPU_SUSPEND_PWR_LVL	ARM_PWR_LVL1
 #define PLAT_NUM_PWR_DOMAINS		(ARM_SYSTEM_COUNT + \
 					JUNO_CLUSTER_COUNT + \
 					PLATFORM_CORE_COUNT)
