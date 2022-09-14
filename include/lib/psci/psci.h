@@ -269,6 +269,11 @@ typedef struct psci_power_state {
 	 * for the CPU.
 	 */
 	plat_local_state_t pwr_domain_state[PLAT_MAX_PWR_LVL + U(1)];
+	/*
+	 * The highest power level at which the current CPU is the last running
+	 * CPU.
+	 */
+	unsigned int last_at_pwrlvl;
 } psci_power_state_t;
 
 /*******************************************************************************
