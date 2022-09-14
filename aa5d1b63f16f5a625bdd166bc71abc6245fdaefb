@@ -16,6 +16,24 @@
       "message": "Not sure why we\u0027d want to break the symmetry between console_putc/getc/flush here? If you want to define putchar here I\u0027d maybe just make it an alias to console_putc without removing that.\n\nIf you do remove console_putc note that there are a lot of assembly files calling into it that you would all have to update.",
       "revId": "aa5d1b63f16f5a625bdd166bc71abc6245fdaefb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e6c0597_329f4e15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000888
+      },
+      "writtenOn": "2022-09-14T01:53:22Z",
+      "side": 1,
+      "message": "Hi Julius,\n\nI would like to move this to make libc closer to what it is supposed to be; a library. Currently it has dependencies to platform/project specific functions.\n\nThere are currently only two assembly files which have references to console_putc:\nplat/nxp/common/aarch64/ls_helpers.S\nplat/common/aarch32/crash_console_helpers.S\n\nI assume these could be removed like they have been on other platforms.",
+      "parentUuid": "79fb2ae4_44f88030",
+      "revId": "aa5d1b63f16f5a625bdd166bc71abc6245fdaefb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
