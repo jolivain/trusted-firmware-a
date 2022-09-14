@@ -76,6 +76,14 @@ CASSERT((PLAT_MAX_PWR_LVL <= PSCI_MAX_PWR_LVL) &&
 	(PLAT_MAX_PWR_LVL >= PSCI_CPU_PWR_LVL),
 	assert_platform_max_pwrlvl_check);
 
+#if PSCI_OS_INIT_MODE
+/*******************************************************************************
+ * The power state coordination mode used in CPU_SUSPEND.
+ * Defaults to platform-coordinated mode.
+ ******************************************************************************/
+suspend_mode_t psci_suspend_mode = PLAT_COORD;
+#endif
+
 /*
  * The plat_local_state used by the platform is one of these types: RUN,
  * RETENTION and OFF. The platform can define further sub-states for each type
@@ -154,7 +162,7 @@ void psci_query_sys_suspend_pwrstate(psci_power_state_t *state_info)
 }
 
 /*******************************************************************************
- * This function verifies that the all the other cores in the system have been
+ * This function verifies that all the other cores in the system have been
  * turned OFF and the current CPU is the last running CPU in the system.
  * Returns true, if the current CPU is the last ON CPU or false otherwise.
  ******************************************************************************/
@@ -171,6 +179,23 @@ bool psci_is_last_on_cpu(void)
 		if (psci_get_aff_info_state_by_idx(cpu_idx) != AFF_STATE_OFF) {
 			VERBOSE("core=%u other than current core=%u %s\n",
 				cpu_idx, my_idx, "running in the system");
+			return false;
+		}
+	}
+
+	return true;
+}
+
+/*******************************************************************************
+ * This function verifies that all cores in the system have been turned ON.
+ * Returns true, if all CPUs are ON or false otherwise.
+ ******************************************************************************/
+bool psci_are_all_cpus_on(void)
+{
+	unsigned int cpu_idx;
+
+	for (cpu_idx = 0; cpu_idx < psci_plat_core_count; cpu_idx++) {
+		if (psci_get_aff_info_state_by_idx(cpu_idx) != AFF_STATE_ON) {
 			return false;
 		}
 	}
