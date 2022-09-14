@@ -531,6 +531,14 @@ memory layout implies some image overlaying like in Arm standard platforms.
 
    Defines the maximum address that the TSP's progbits sections can occupy.
 
+If the platform supports OS-initiated mode, and if the platform's maximum power
+domain level for PSCI_CPU_SUSPEND differs from ``PLAT_MAX_PWR_LVL``, the
+following constant should be defined.
+
+-  **#define : PLAT_MAX_CPU_SUSPEND_PWR_LVL**
+
+   Defines the maximum power domain level that PSCI_CPU_SUSPEND should apply to.
+
 If the platform port uses the PL061 GPIO driver, the following constant may
 optionally be defined:
 

@@ -25,6 +25,7 @@
 			      PLATFORM_CORE_COUNT + U(1))
 
 #define PLAT_MAX_PWR_LVL		ARM_PWR_LVL2
+#define PLAT_MAX_CPU_SUSPEND_PWR_LVL	ARM_PWR_LVL1
 
 /*
  * Other platform porting definitions are provided by included headers

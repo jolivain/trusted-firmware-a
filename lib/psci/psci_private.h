@@ -294,6 +294,8 @@ void psci_get_parent_pwr_domain_nodes(unsigned int cpu_idx,
 				      unsigned int *node_index);
 void psci_do_state_coordination(unsigned int end_pwrlvl,
 				psci_power_state_t *state_info);
+int psci_validate_state_coordination(unsigned int end_pwrlvl,
+				     psci_power_state_t *state_info);
 void psci_acquire_pwr_domain_locks(unsigned int end_pwrlvl,
 				   const unsigned int *parent_nodes);
 void psci_release_pwr_domain_locks(unsigned int end_pwrlvl,
@@ -325,10 +327,10 @@ void psci_cpu_on_finish(unsigned int cpu_idx, const psci_power_state_t *state_in
 int psci_do_cpu_off(unsigned int end_pwrlvl);
 
 /* Private exported functions from psci_suspend.c */
-void psci_cpu_suspend_start(const entry_point_info_t *ep,
-			unsigned int end_pwrlvl,
-			psci_power_state_t *state_info,
-			unsigned int is_power_down_state);
+int psci_cpu_suspend_start(const entry_point_info_t *ep,
+			   unsigned int end_pwrlvl,
+			   psci_power_state_t *state_info,
+			   unsigned int is_power_down_state);
 
 void psci_cpu_suspend_finish(unsigned int cpu_idx, const psci_power_state_t *state_info);
 
