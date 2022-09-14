@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eab16613_8625d2b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000888
+      },
+      "writtenOn": "2022-09-14T23:15:32Z",
+      "side": 1,
+      "message": "I have added `putchar()` as an alias for `console_putc()`, so no references should be broken.",
+      "revId": "c207cd038d4f92d74cdb2f3775058e5eb5527865",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
