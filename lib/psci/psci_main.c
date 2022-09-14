@@ -142,12 +142,12 @@ int psci_cpu_suspend(unsigned int power_state,
 	 * might return if the power down was abandoned for any reason, e.g.
 	 * arrival of an interrupt
 	 */
-	psci_cpu_suspend_start(&ep,
-			    target_pwrlvl,
-			    &state_info,
-			    is_power_down_state);
+	rc = psci_cpu_suspend_start(&ep,
+				    target_pwrlvl,
+				    &state_info,
+				    is_power_down_state);
 
-	return PSCI_E_SUCCESS;
+	return rc;
 }
 
 
@@ -187,10 +187,12 @@ int psci_system_suspend(uintptr_t entrypoint, u_register_t context_id)
 	 * might return if the power down was abandoned for any reason, e.g.
 	 * arrival of an interrupt
 	 */
-	psci_cpu_suspend_start(&ep,
-			    PLAT_MAX_PWR_LVL,
-			    &state_info,
-			    PSTATE_TYPE_POWERDOWN);
+	rc = psci_cpu_suspend_start(&ep,
+				    PLAT_MAX_PWR_LVL,
+				    &state_info,
+				    PSTATE_TYPE_POWERDOWN);
+	if (rc != PSCI_E_SUCCESS)
+		return rc;
 
 	return PSCI_E_SUCCESS;
 }
