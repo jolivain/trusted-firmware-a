@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c6bbdfa_47efa652",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-09-14T09:46:34Z",
+      "side": 1,
+      "message": "JFYI with a patch stack like this of 4 patches if you run the CI on the top most patch it will test all the changes in the stack. If it passes on this patch unfortunately it will not set the verified on the others but you can set that manually yourself or a maintainer will when a maintainer review is done.\n\nIf in doubt though feel free to run the CI on each patch.",
+      "revId": "f114fd3b10af3212650d78c2b443f95f190e220e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
