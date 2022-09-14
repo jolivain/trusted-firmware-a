@@ -66,7 +66,7 @@
 #define BL2_LIMIT			(BL2_BASE + BL2_SIZE)
 
 /* If BL2 is enabled, the BL31 is loaded on secure DRAM */
-#define BL31_BASE			0xfbe00000
+#define BL31_BASE			0xffb00000
 #define BL31_SIZE			0x00100000
 #else
 
@@ -77,7 +77,7 @@
 #define BL31_LIMIT			(BL31_BASE + BL31_SIZE)
 
 #define BL32_BASE			0xfc000000
-#define BL32_SIZE			0x03c00000
+#define BL32_SIZE			0x03b00000
 #define BL32_LIMIT			(BL32_BASE + BL32_SIZE)
 
 /* Alternative BL33 */
