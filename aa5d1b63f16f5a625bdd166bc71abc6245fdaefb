@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79fb2ae4_44f88030",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2022-09-14T01:42:28Z",
+      "side": 1,
+      "message": "Not sure why we\u0027d want to break the symmetry between console_putc/getc/flush here? If you want to define putchar here I\u0027d maybe just make it an alias to console_putc without removing that.\n\nIf you do remove console_putc note that there are a lot of assembly files calling into it that you would all have to update.",
+      "revId": "aa5d1b63f16f5a625bdd166bc71abc6245fdaefb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
