@@ -52,6 +52,24 @@
       "parentUuid": "f5bf8bea_97ca751c",
       "revId": "9e8c89afbb72047e576972ddd74dc04195f2f513",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e68f322_35e38b2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2022-09-14T23:41:32Z",
+      "side": 1,
+      "message": "The same problem exists for platforms that set DEBUG\u003d0. It is possible to set DEBUG and LOG_LEVEL independently (e.g. for all the coreboot-based platforms, by default we build with DEBUG\u003d0 LOG_LEVEL\u003d40 for release builds).\n\nI don\u0027t really understand the purpose of this in general, to be honest. The panic behavior after an assertion failed must by definition be specific to the TF-A use case. The backtrace, flush and final panic handling are all equal parts of that -- flushing isn\u0027t just a part of the backtrace, it is also relevant for the other messages printed before that (and this becomes important for the cases where backtracing is compiled out).\n\nSo if the goal here is to make the libc part agnostic of the rest of TF-A (though I don\u0027t quite understand why?), I think the most consistent approach would be to only print the assertion line and factor all the other stuff out into a separate function that\u0027s \"outside\" of the libc? In fact, the panic() function basically does all that already (backtrace, flush, and then some stuff that eventually ends in plat_panic_handler()). Maybe it would be easier to just rewrite assert() as\n\n printf(\"ASSERT: ...);\n panic();\n\n?",
+      "parentUuid": "8fd692d9_be30f399",
+      "revId": "9e8c89afbb72047e576972ddd74dc04195f2f513",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
