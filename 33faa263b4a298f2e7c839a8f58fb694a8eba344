@@ -81,6 +81,24 @@
       "parentUuid": "c5b11eaf_1136648f",
       "revId": "33faa263b4a298f2e7c839a8f58fb694a8eba344",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f7ce970_032ffead",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-15T14:16:24Z",
+      "side": 1,
+      "message": "\u003e We dont have internal TC CI\n\nWhat about the following test configs?\n\n tf-l3-boot-tests-css/fvp-tc1-tbb:fvp-linux.tc-fip.tc-tc1-debug\n tf-l3-boot-tests-css/fvp-tc0-tbb:fvp-linux.tc-fip.tc-tc0-debug\n\nWould they not test this patch?\n\nIf the issue is that you need to specify a different model version (11.18/20 in this case?) then I suspect you can configure that by injecting environment variable through tf-ci-gateway\u0027s \"CI_ENVIRONMENT\" job parameter:\n\n model_version\u003d11.18\n model_build\u003d20\n\nI am not entirely sure...",
+      "parentUuid": "19d90c0a_5b86ccc4",
+      "revId": "33faa263b4a298f2e7c839a8f58fb694a8eba344",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
