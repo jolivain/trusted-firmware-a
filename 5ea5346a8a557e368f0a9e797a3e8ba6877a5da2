@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e852ae81_1e9302d4",
+        "filename": "plat/mediatek/drivers/dfd/dfd.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2022-09-15T07:35:41Z",
+      "side": 1,
+      "message": "align with `u_register_t arg0`",
+      "range": {
+        "startLine": 14,
+        "startChar": 7,
+        "endLine": 14,
+        "endChar": 8
+      },
+      "revId": "5ea5346a8a557e368f0a9e797a3e8ba6877a5da2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffeee8a6_1d5f9c35",
+        "filename": "plat/mediatek/drivers/dfd/mt8188/plat_dfd.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2022-09-15T07:35:41Z",
+      "side": 1,
+      "message": "Add #include \u003cmmio.h\u003e ?",
+      "range": {
+        "startLine": 12,
+        "startChar": 36,
+        "endLine": 12,
+        "endChar": 49
+      },
+      "revId": "5ea5346a8a557e368f0a9e797a3e8ba6877a5da2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
