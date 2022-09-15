@@ -49,6 +49,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8e97dcce_f0444f19",
+        "filename": "docs/components/firmware-update.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-15T10:24:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c0177b3c_66bd05bf",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 48
+      },
+      "revId": "d752cf35493a15ea3b044e09f3533623c32a7a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae24f7af_2fe87c99",
+        "filename": "docs/components/firmware-update.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-15T10:24:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1860b19f_1c9edd6f",
+      "range": {
+        "startLine": 27,
+        "startChar": 37,
+        "endLine": 27,
+        "endChar": 47
+      },
+      "revId": "d752cf35493a15ea3b044e09f3533623c32a7a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6168d96a_dbf2ef47",
         "filename": "docs/components/firmware-update.rst",
         "patchSetId": 3
@@ -60,6 +108,30 @@
       "writtenOn": "2022-09-15T09:16:02Z",
       "side": 1,
       "message": "Why are these words emphasized? Is that special terminology borrowed from PSA FWU spec?",
+      "range": {
+        "startLine": 40,
+        "startChar": 28,
+        "endLine": 40,
+        "endChar": 45
+      },
+      "revId": "d752cf35493a15ea3b044e09f3533623c32a7a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6622592e_1d516860",
+        "filename": "docs/components/firmware-update.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-15T10:24:49Z",
+      "side": 1,
+      "message": "These terminologies/section names are from the specification [1].\n\n[1]: https://developer.arm.com/documentation/den0118/a/",
+      "parentUuid": "6168d96a_dbf2ef47",
       "range": {
         "startLine": 40,
         "startChar": 28,
@@ -95,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ef120f41_900a9141",
+        "filename": "docs/components/firmware-update.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-15T10:24:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7e26b24e_dc7a377b",
+      "range": {
+        "startLine": 40,
+        "startChar": 59,
+        "endLine": 41,
+        "endChar": 72
+      },
+      "revId": "d752cf35493a15ea3b044e09f3533623c32a7a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "71b09b2a_8b2dc2c2",
         "filename": "docs/components/firmware-update.rst",
         "patchSetId": 3
@@ -106,6 +202,30 @@
       "writtenOn": "2022-09-15T09:16:02Z",
       "side": 1,
       "message": "This is the first time you mention flash banks in this document. It might be worth adding a short introductory sentence about the A/B flash banks concepts as used by PSA FWU?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 70
+      },
+      "revId": "d752cf35493a15ea3b044e09f3533623c32a7a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f681e56_2aea0c35",
+        "filename": "docs/components/firmware-update.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-15T10:24:49Z",
+      "side": 1,
+      "message": "Sure let me provide some introduction about A/B flash banks concept.",
+      "parentUuid": "71b09b2a_8b2dc2c2",
       "range": {
         "startLine": 46,
         "startChar": 0,
@@ -164,6 +284,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b711e582_ef59847c",
+        "filename": "docs/components/firmware-update.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-15T10:24:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ec045925_079e9623",
+      "range": {
+        "startLine": 47,
+        "startChar": 54,
+        "endLine": 47,
+        "endChar": 69
+      },
+      "revId": "d752cf35493a15ea3b044e09f3533623c32a7a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "278dbf44_0d2c7f69",
+        "filename": "docs/components/firmware-update.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-15T10:24:49Z",
+      "side": 1,
+      "message": "\u003e Here, \u0027update agent\u0027 is emphasized but it wasn\u0027t in the previous section. Suggest to make it consistent (always or never emphasized) throughout the document.\n\n\u0027update agent\u0027 is the terminology from the specification, so I think it is fine to emphasize this term (I will emphsize it in the previous statement also) Please let me know what do you think? \n\n\u003e \n\u003e Also, would this be better?\n\u003e \n\u003e  The Update Agent marks the ``update_index`` bank as *the* active bank\n\u003e                                                      ^^^^^\n\nThe ``update agent`` marks the ``update_index`` bank as *the* active bank\n\n\u003e \n\u003e Or can there be multiple active banks?\n\nThere are no multiple active banks",
+      "parentUuid": "3354cdec_85bb71a8",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 16
+      },
+      "revId": "d752cf35493a15ea3b044e09f3533623c32a7a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9c408c52_eeeeeb29",
         "filename": "docs/components/firmware-update.rst",
         "patchSetId": 3
@@ -175,6 +343,30 @@
       "writtenOn": "2022-09-15T09:16:02Z",
       "side": 1,
       "message": "in memory?",
+      "range": {
+        "startLine": 51,
+        "startChar": 20,
+        "endLine": 51,
+        "endChar": 32
+      },
+      "revId": "d752cf35493a15ea3b044e09f3533623c32a7a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ae2ed44_b882f98a",
+        "filename": "docs/components/firmware-update.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-15T10:24:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9c408c52_eeeeeb29",
       "range": {
         "startLine": 51,
         "startChar": 20,
@@ -210,6 +402,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d8dfb264_2cd7e3d0",
+        "filename": "docs/components/firmware-update.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-15T10:24:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e76511f1_740b0da1",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 58
+      },
+      "revId": "d752cf35493a15ea3b044e09f3533623c32a7a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ac820891_277e828b",
         "filename": "docs/components/firmware-update.rst",
         "patchSetId": 3
@@ -221,6 +437,30 @@
       "writtenOn": "2022-09-15T09:16:02Z",
       "side": 1,
       "message": "Consider replacing \u0027and\u0027 word by a full dot, this would break this long sentence and make it easier to read IMHO.",
+      "range": {
+        "startLine": 61,
+        "startChar": 19,
+        "endLine": 61,
+        "endChar": 23
+      },
+      "revId": "d752cf35493a15ea3b044e09f3533623c32a7a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5b4717a_4ff1528e",
+        "filename": "docs/components/firmware-update.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-15T10:24:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ac820891_277e828b",
       "range": {
         "startLine": 61,
         "startChar": 19,
@@ -279,6 +519,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "101637e4_9aefae4c",
+        "filename": "docs/components/firmware-update.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-15T10:24:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4f251fa3_be121c5d",
+      "range": {
+        "startLine": 63,
+        "startChar": 29,
+        "endLine": 63,
+        "endChar": 35
+      },
+      "revId": "d752cf35493a15ea3b044e09f3533623c32a7a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e40006c_56402e35",
+        "filename": "docs/components/firmware-update.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-15T10:24:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "48e6e9c7_e325b682",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 4
+      },
+      "revId": "d752cf35493a15ea3b044e09f3533623c32a7a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "170cca30_5f4c5350",
         "filename": "docs/components/firmware-update.rst",
         "patchSetId": 3
@@ -290,6 +578,30 @@
       "writtenOn": "2022-09-15T09:16:02Z",
       "side": 1,
       "message": "Add a colon at the end of the line.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 55
+      },
+      "revId": "d752cf35493a15ea3b044e09f3533623c32a7a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "143538c1_1bb5c89b",
+        "filename": "docs/components/firmware-update.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-15T10:24:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "170cca30_5f4c5350",
       "range": {
         "startLine": 69,
         "startChar": 0,
@@ -325,6 +637,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0543494a_19b0e0a4",
+        "filename": "docs/components/firmware-update.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-15T10:24:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "47227e7e_4348444a",
+      "range": {
+        "startLine": 74,
+        "startChar": 27,
+        "endLine": 76,
+        "endChar": 31
+      },
+      "revId": "d752cf35493a15ea3b044e09f3533623c32a7a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "65eefc24_2c5b4342",
         "filename": "docs/components/firmware-update.rst",
         "patchSetId": 3
@@ -348,6 +684,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1966d652_6e1e19da",
+        "filename": "docs/components/firmware-update.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-15T10:24:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "65eefc24_2c5b4342",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 52
+      },
+      "revId": "d752cf35493a15ea3b044e09f3533623c32a7a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "10669a3e_19c6a8bb",
         "filename": "docs/components/firmware-update.rst",
         "patchSetId": 3
@@ -359,6 +719,30 @@
       "writtenOn": "2022-09-15T09:16:02Z",
       "side": 1,
       "message": "Put this reference between parentheses?",
+      "range": {
+        "startLine": 79,
+        "startChar": 28,
+        "endLine": 79,
+        "endChar": 55
+      },
+      "revId": "d752cf35493a15ea3b044e09f3533623c32a7a91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce3a339b_048d68b9",
+        "filename": "docs/components/firmware-update.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-15T10:24:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "10669a3e_19c6a8bb",
       "range": {
         "startLine": 79,
         "startChar": 28,
