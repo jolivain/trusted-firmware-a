@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6d754e5_d52a2d95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-09-15T10:39:49Z",
+      "side": 1,
+      "message": "The corresponding changes in the CI scripts repositories are under review in [1].\n\nI had to upload a new patch set as I messed up with an earlier rebase (updates on copyrights were erroneously merged into [2] instead of this commit). The commits should now be split correctly.\n\nThank you\n\n[1] https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/16725\n[2] https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/14540/3",
+      "revId": "4f232378b477997fbca9aa430182b60329386fae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
