@@ -68,6 +68,24 @@
       "message": "For the various copyright changes. Where these files originally derived from Arm versions with Povencore modifications? If so can the Arm copyright be left in place and the Povencore added on the line below. If they are totally new the Arm copyright is not necessary.",
       "revId": "4f232378b477997fbca9aa430182b60329386fae",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "910c188d_660a3c18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000707
+      },
+      "writtenOn": "2022-09-15T12:01:32Z",
+      "side": 1,
+      "message": "I indeed kept the original Arm copyright for existing files, adding ProvenRun copyright when the Arm copyright was not up to date. For new files, I simply added a ProvenRun copyright as advised by Varun above (although these files were mostly inspired by similar files in services/spd/tspd).",
+      "parentUuid": "228b8281_9cfc7674",
+      "revId": "4f232378b477997fbca9aa430182b60329386fae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
