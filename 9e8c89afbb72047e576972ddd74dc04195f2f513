@@ -70,6 +70,24 @@
       "parentUuid": "8fd692d9_be30f399",
       "revId": "9e8c89afbb72047e576972ddd74dc04195f2f513",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6aeb001_b93b4e16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000888
+      },
+      "writtenOn": "2022-09-15T00:10:22Z",
+      "side": 1,
+      "message": "Default for release builds is LOG_LEVEL\u003d20, but that doesn\u0027t change the point. I realized the point that flush should be moved somewhere else, which is why I abandoned this change.\n\nI may revisit this later, and try out your suggestion.",
+      "parentUuid": "6e68f322_35e38b2f",
+      "revId": "9e8c89afbb72047e576972ddd74dc04195f2f513",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
