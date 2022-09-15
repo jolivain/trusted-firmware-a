@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45c08ec3_9736bd77",
+        "filename": "drivers/arm/css/scp/css_pm_scmi.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000597
+      },
+      "writtenOn": "2022-09-15T11:53:50Z",
+      "side": 0,
+      "message": "I think you should keep this as it is.\nThe spec. does not define status code \u003e 0\n\n0 SUCCESS\n-1 NOT_SUPPORTED\n-2 INVALID_PARAMETERS\n-3 DENIED\n-4 NOT_FOUND\n-5 OUT_OF_RANGE\n-6 BUSY\n-7 COMMS_ERROR\n-8 GENERIC_ERROR\n-9 HARDWARE_ERROR\n-10 PROTOCOL_ERROR\n-11 to -127 Reserved\n\u003c -127 Vendor specific",
+      "range": {
+        "startLine": 315,
+        "startChar": 1,
+        "endLine": 315,
+        "endChar": 29
+      },
+      "revId": "187fedd08b56d7b8a38c96ddf84cb6454e52b64e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
