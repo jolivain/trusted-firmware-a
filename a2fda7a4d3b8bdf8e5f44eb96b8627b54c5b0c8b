@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5892d7b_d1ab2e19",
+        "filename": "plat/mediatek/drivers/dfd/mt8188/plat_dfd.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-16T03:45:55Z",
+      "side": 1,
+      "message": "removed",
+      "parentUuid": "db99343b_13a015d5",
+      "range": {
+        "startLine": 9,
+        "startChar": 1,
+        "endLine": 9,
+        "endChar": 24
+      },
+      "revId": "a2fda7a4d3b8bdf8e5f44eb96b8627b54c5b0c8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dfeafc25_8e7d2dd1",
@@ -41,6 +65,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "737b8aa0_ca6b6662",
+        "filename": "plat/mediatek/drivers/dfd/mt8188/plat_dfd.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-16T03:45:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfeafc25_8e7d2dd1",
+      "revId": "a2fda7a4d3b8bdf8e5f44eb96b8627b54c5b0c8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d839a5f_583fe5d0",
@@ -54,6 +96,30 @@
       "writtenOn": "2022-09-16T02:33:02Z",
       "side": 1,
       "message": "It seems that every platform needs to implement this function if DFD is supported.\nWhat about moving the declaration to dfd.h ?",
+      "range": {
+        "startLine": 78,
+        "startChar": 5,
+        "endLine": 78,
+        "endChar": 14
+      },
+      "revId": "a2fda7a4d3b8bdf8e5f44eb96b8627b54c5b0c8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ccd6e24_cc5fab91",
+        "filename": "plat/mediatek/drivers/dfd/mt8188/plat_dfd.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-09-16T03:45:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d839a5f_583fe5d0",
       "range": {
         "startLine": 78,
         "startChar": 5,
