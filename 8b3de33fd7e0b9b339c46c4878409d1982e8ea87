@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1d156afa_8aa3f45d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2022-09-16T14:32:52Z",
+      "side": 1,
+      "message": "As I see tc and tc2 are not really differentiated so I picked up feat(tc).",
+      "parentUuid": "d7ca8495_a800f1cc",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "8b3de33fd7e0b9b339c46c4878409d1982e8ea87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6f2cd13c_54f8652a",
         "filename": "plat/arm/board/tc/include/platform_def.h",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-12T14:09:58Z",
       "side": 1,
       "message": "Am I right in saying that TC2 platform has 2 MHUs:\n* one for AP/SCP communication (described by the existing set of macros: PLAT_CSS_MHU_BASE / PLAT_MHUV2_BASE)\n* one for AP/RSS communication (described by the new macros : PLAT_RSS_AP_SND/RCV_MHU_BASE)\n? In which case, I suppose the new set of macros don\u0027t make sense for TC0/TC1 FVPs, where there\u0027s no RSS?\n\nIf all of the above is correct, I think it\u0027d be worth a brief explanation in the comment above.",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 43
+      },
+      "revId": "8b3de33fd7e0b9b339c46c4878409d1982e8ea87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d558f91f_a33af219",
+        "filename": "plat/arm/board/tc/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2022-09-16T14:32:52Z",
+      "side": 1,
+      "message": "I\u0027m not sure about these, what platform are they for:\n\n #define PLAT_CSS_MHU_BASE\t\tUL(0x45400000)\n #define PLAT_MHUV2_BASE\t\tPLAT_CSS_MHU_BASE\n\nI have added a comment above the MHU address on TC2 to make it clearer.",
+      "parentUuid": "6f2cd13c_54f8652a",
       "range": {
         "startLine": 224,
         "startChar": 0,
