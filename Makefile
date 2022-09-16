@@ -1444,6 +1444,41 @@ checkpatch:		locate-checkpatch
 			${CHECKPATCH}  ${CHECKPATCH_OPTS} - || true;	\
 	done
 
+# If OPENSSL_DIR is not set to default, assume building opensll is needed.
+ifneq (${OPENSSL_DIR},/usr)
+$(warning OpenSSL will be built under ${OPENSSL_DIR})
+# Make the build .so files available during the build.
+export LD_LIBRARY_PATH=${OPENSSL_DIR}
+
+${OPENSSL_DIR}/Makefile:
+	cd "${OPENSSL_DIR}" && env -u CROSS_COMPILE ./config --prefix=${OPENSSL_DIR} --openssldir=${OPENSSL_DIR} shared zlib
+
+.PHONY: openssl-cfg
+openssl-cfg: | ${OPENSSL_DIR}/Makefile
+
+.PHONY: openssl
+openssl: openssl-cfg
+	make -C "${OPENSSL_DIR}"
+
+.PHONY: openssl-clean
+openssl-clean:
+	-make -C "${OPENSSL_DIR}" clean
+
+.PHONY: openssl-distclean
+openssl-distclean:
+	-make -C "${OPENSSL_DIR}" distclean
+
+
+clean:openssl-clean
+
+distclean:openssl-distclean
+
+${CRTTOOL}:openssl
+${FIPTOOL}:openssl
+${ENCTOOL}:openssl
+$(ROTPK_HASH):openssl
+$(ROT_KEY):openssl
+endif
 certtool: ${CRTTOOL}
 
 ${CRTTOOL}: FORCE
