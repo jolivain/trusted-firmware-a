@@ -94,7 +94,6 @@ BL1_SOURCES		+=	${INTERCONNECT_SOURCES}	\
 				${TC_BASE}/tc_err.c	\
 				drivers/arm/sbsa/sbsa.c
 
-
 BL2_SOURCES		+=	${TC_BASE}/tc_security.c	\
 				${TC_BASE}/tc_err.c		\
 				${TC_BASE}/tc_trusted_boot.c		\
@@ -161,6 +160,34 @@ override ENABLE_AMU_FCONF := 1
 
 override ENABLE_MPMM := 1
 override ENABLE_MPMM_FCONF := 1
+
+# Include Measured Boot makefile before any Crypto library makefile.
+# Crypto library makefile may need default definitions of Measured Boot build
+# flags present in Measured Boot makefile.
+ifeq (${MEASURED_BOOT},1)
+    MEASURED_BOOT_MK := drivers/measured_boot/rss/rss_measured_boot.mk
+    $(info Including ${MEASURED_BOOT_MK})
+    include ${MEASURED_BOOT_MK}
+
+    BL1_SOURCES		+=	${MEASURED_BOOT_SOURCES} \
+				plat/arm/board/tc/tc_common_measured_boot.c \
+				plat/arm/board/tc/tc_bl1_measured_boot.c \
+				lib/psa/measured_boot.c			 \
+				drivers/arm/rss/rss_comms.c		 \
+				drivers/arm/mhu/mhu_wrapper_v2_x.c	 \
+				drivers/arm/mhu/mhu_v2_x.c
+
+    BL2_SOURCES		+=	${MEASURED_BOOT_SOURCES} \
+				plat/arm/board/tc/tc_common_measured_boot.c \
+				plat/arm/board/tc/tc_bl2_measured_boot.c \
+				lib/psa/measured_boot.c			 \
+				drivers/arm/rss/rss_comms.c		 \
+				drivers/arm/mhu/mhu_wrapper_v2_x.c	 \
+				drivers/arm/mhu/mhu_v2_x.c
+
+PLAT_INCLUDES		+=	-Iinclude/lib/psa
+
+endif
 
 include plat/arm/common/arm_common.mk
 include plat/arm/css/common/css_common.mk
