@@ -88,6 +88,24 @@
       "parentUuid": "6e68f322_35e38b2f",
       "revId": "9e8c89afbb72047e576972ddd74dc04195f2f513",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa911713_c00e834f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2022-09-16T01:06:38Z",
+      "side": 1,
+      "message": "\u003e Default for release builds is LOG_LEVEL\u003d20, but that doesn\u0027t change the point.\n\nWhat I meant was that \"our\" (I mean specifically the ChromeOS devices that I work with, which run TF-A on top of coreboot) default (applied externally through the coreboot Makefiles that build TF-A in that context) is different from the normal TF-A default. I know you might look at the TF-A Makefiles and think that DEBUG an LOG_LEVEL always correlate and that in practice this code would never print the assert message when backtracing is disabled, but I wanted to highlight that there are real use cases where that actually is the case.",
+      "parentUuid": "a6aeb001_b93b4e16",
+      "revId": "9e8c89afbb72047e576972ddd74dc04195f2f513",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
