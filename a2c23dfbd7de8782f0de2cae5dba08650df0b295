@@ -72,6 +72,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "817475f0_258c4709",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2022-09-16T14:32:23Z",
+      "side": 1,
+      "message": "\u003e I suppose we will need to store it in root SRAM, and clear the key buffer once \u003ewe\u0027re done with it. This is a caller\u0027s responsibility so it\u0027s outside the scope \u003eof this patch, but I am just making a note of it for the future.\n\nMHU driver allocates a buffer in root SRAM (rss_comms.c:51) for message exchange, where data is stored temporarily until it is copied further to caller-provided buffers. The caller of PSA APIs allocates their own buffers where DAK key will end up. In the case of RMM, this buffer can be in shared memory (b/w BL31 and RMM). When SMC returns to RMM, then RMM is responsible for clearing the data from the shared memory and copy to its final location. But BL31 is responsible for clearing the temporary MHU message buffer in root SRAM, which does not happen right now. So I have added a patch to do it:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/16753/\n\n\u003eAlso I suppose the private DAK will be encrypted before it gets sent to RMM? Or \u003ewill it just be passed through a realm-world owned buffer?\n\nIt is passed without encryption. RMM needs to trust in BL31 anyway so I think there is no point to encrypt. DAK key is sent over this path RSS-BL31-RMM. If BL31 is compromised then it can read all memory (???).\n\n\u003e Just one more thought: this patch might require an update to TF-A threat model. \u003e As I understand, the DAK is a new asset to protect, from a threat modelling perepective.\n\nCould you point out the TF-A threat model. I will check and add DAK if necessary.",
+      "parentUuid": "9081a0b2_9a3f28c7",
+      "revId": "a2c23dfbd7de8782f0de2cae5dba08650df0b295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0967d2b_7dea201e",
