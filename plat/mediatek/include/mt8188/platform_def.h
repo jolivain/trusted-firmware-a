@@ -155,15 +155,9 @@
 #define MAX_MMAP_REGIONS		(16)
 
 /*******************************************************************************
- * Declarations and constants to access the mailboxes safely. Each mailbox is
- * aligned on the biggest cache line size in the platform. This is known only
- * to the platform as it might have a combination of integrated and external
- * caches. Such alignment ensures that two maiboxes do not sit on the same cache
- * line at any cache level. They could belong to different cpus/clusters &
- * get written while being protected by different locks causing corruption of
- * a valid mailbox address.
- ******************************************************************************/
-#define CACHE_WRITEBACK_SHIFT		(6)
-#define CACHE_WRITEBACK_GRANULE		(1 << CACHE_WRITEBACK_SHIFT)
+ * MCUSYS related constants
+ *******************************************************************************/
+#define MCUCFG_BASE		(0x0C530000)
+#define MCUCFG_REG_SIZE		(0x10000)
 
 #endif /* PLATFORM_DEF_H */
