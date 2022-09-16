@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69096617_611c5f6e",
+        "filename": "plat/mediatek/drivers/mcusys/v1/mcucfg.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2022-09-16T02:54:38Z",
+      "side": 1,
+      "message": "why some bit definitions are uppercase and some are lowercase ?\nAnd I never see those definitions have been used.",
+      "range": {
+        "startLine": 62,
+        "startChar": 8,
+        "endLine": 62,
+        "endChar": 23
+      },
+      "revId": "8d19605b973a9a532b3bebb8e3ec419b8fcbff1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
