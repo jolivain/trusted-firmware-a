@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ff23ab5_d5099137",
+        "filename": "plat/arm/board/fvp/fvp_drtm_err.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-09-16T20:36:19Z",
+      "side": 1,
+      "message": "Couldn\u0027t *error_code and the return value be unified? I guess it is separated so the return value can indicate whether the error code could be obtained or not, but maybe using the same return value with different ranges is a possibility.",
+      "revId": "f5dbb2659a0bc24fcf9ef22dd16ee0a711327dfe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
