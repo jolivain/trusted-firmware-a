@@ -33,6 +33,24 @@
       "message": "I don\u0027t think we\u0027d want to swallow the error code here... specifically, callers should be able to differentiate between NO_VALID_CONSOLE and an I/O error in a specific implementation. If you think it\u0027s important that putchar can only return success or EOF, perhaps it\u0027s better to write a one-line wrapper for it.",
       "revId": "c207cd038d4f92d74cdb2f3775058e5eb5527865",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae6a95c6_3691bade",
+        "filename": "drivers/console/multi_console.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000888
+      },
+      "writtenOn": "2022-09-16T04:52:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "747422ac_890af0dc",
+      "revId": "c207cd038d4f92d74cdb2f3775058e5eb5527865",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
