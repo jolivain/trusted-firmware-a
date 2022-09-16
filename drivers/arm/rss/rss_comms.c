@@ -183,6 +183,9 @@ psa_status_t psa_call(psa_handle_t handle, int32_t type,
 
 	deserialise_reply(&reply, out_vec, out_len, message_buf, message_size);
 
+	/* Clear the MHU message buffer to remove assets from memory */
+	memset(message_buf, 0x0, sizeof(message_buf));
+
 	seq_num++;
 
 	VERBOSE("[RSS-COMMS] Received reply\n");
