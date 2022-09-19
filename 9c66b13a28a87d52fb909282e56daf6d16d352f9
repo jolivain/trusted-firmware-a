@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1afc5492_fc20a3a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2022-09-19T08:01:01Z",
+      "side": 1,
+      "message": "CI reports failure in\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1242603/console \n\n09:40:40 lib/psci/psci_main.c: In function \u0027psci_node_hw_state\u0027:\n09:40:40 lib/psci/psci_main.c:330:38: error: comparison of integer expressions of different signedness: \u0027int\u0027 and \u0027unsigned int\u0027 [-Werror\u003dsign-compare]\n09:40:40   330 |         assert(((rc \u003e\u003d HW_ON) \u0026\u0026 (rc \u003c\u003d HW_STANDBY))\n09:40:40       |                                      ^~\n09:40:40 include/lib/libc/assert.h:24:27: note: in definition of macro \u0027assert\u0027\n09:40:40    24 | #  define assert(e)     ((e) ? (void)0 : __assert(__FILE__, __LINE__))\n09:40:40       |  \n\nI would prefer if you can move changes include/lib/psci/psci.h to different patch out of plat/xilinx related changes.",
+      "revId": "9c66b13a28a87d52fb909282e56daf6d16d352f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
