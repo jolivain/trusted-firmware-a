@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5944913e_af7fc66f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-19T10:03:30Z",
+      "side": 1,
+      "message": "\u003e MHU driver allocates a buffer in root SRAM (rss_comms.c:51) for message exchange, where data is stored temporarily until it is copied further to caller-provided buffers. The caller of PSA APIs allocates their own buffers where DAK key will end up. In the case of RMM, this buffer can be in shared memory (b/w BL31 and RMM). When SMC returns to RMM, then RMM is responsible for clearing the data from the shared memory and copy to its final location. But BL31 is responsible for clearing the temporary MHU message buffer in root SRAM, which does not happen right now. So I have added a patch to do it:\n\u003e https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/16753/\n\nGot it, thanks!\n\n\u003e It is passed without encryption. RMM needs to trust in BL31 anyway so I think there is no point to encrypt. DAK key is sent over this path RSS-BL31-RMM. If BL31 is compromised then it can read all memory (???).\n\nI agree that RMM needs to trust BL31. My comment was not about protecting RMM from BL31.\n\nInstead, I am concerned about *other* malicious entities being able to steal the private part of the DAK while BL31 sends it to RMM. AFAIU this would allow them to could forge valid attestation tokens, which presumably we want to prevent.\n\nMy thinking was, if we encrypt the DAK with a key known only by the RMM then even if the encrypted DAK gets intercepted then one wouldn\u0027t be able to use it as is.\n\nBut even encrypting it might not be needed. If we properly mark BL31/RMM shared buffer as realm PAS, only software running in realm world will be able to read this memory. Moreover, I believe that the DAK is retrieved once by RMM when it boots up and never again after that. If this is correct (?), then no other software is running in realm world at this time and so there is no risk of it being stealed.\n\nDoes this make sense? I mostly wanted to check my understanding with you and make sure the flow I have in mind is correct and that we can rely on the assumptions above.\n\n\u003e Could you point out the TF-A threat model. I will check and add DAK if necessary.\n\nSure, it is inside TF-A source tree: docs/threat_model/threat_model.rst\n\nhttps://trustedfirmware-a.readthedocs.io/en/latest/threat_model/threat_model.html",
+      "parentUuid": "817475f0_258c4709",
+      "revId": "a2c23dfbd7de8782f0de2cae5dba08650df0b295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d0967d2b_7dea201e",
         "filename": "include/lib/psa/delegated_attestation.h",
         "patchSetId": 1
