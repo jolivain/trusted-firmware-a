@@ -110,6 +110,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39652b5f_e88aa7c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2022-09-19T10:50:15Z",
+      "side": 1,
+      "message": "\u003eBut even encrypting it might not be needed. If we properly mark BL31/RMM shared \u003ebuffer as realm PAS, only software running in realm world will be able to read \u003ethis memory. Moreover, I believe that the DAK is retrieved once by RMM when it \u003eboots up and never again after that. If this is correct (?), then no other \u003esoftware is running in realm world at this time and so there is no risk of it \u003ebeing stealed.\n\nYour understanding is correct:\n- DAK (and platform attestation token) is retrieved only once at the boot stage.\n- BL31/RMM shared buffers are only accessible by them. https://review.trustedfirmware.org/q/topic:%22jas%252Frmm-el3-ifc%22+(status:open%20OR%20status:merged)",
+      "parentUuid": "5944913e_af7fc66f",
+      "revId": "a2c23dfbd7de8782f0de2cae5dba08650df0b295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d0967d2b_7dea201e",
         "filename": "include/lib/psa/delegated_attestation.h",
         "patchSetId": 1
