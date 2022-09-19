@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e081ae7a_1cc9e3f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2022-09-19T11:39:13Z",
+      "side": 1,
+      "message": "I don\u0027t think its an appropriate way to put BL31 in secure memory reserved for OP-TEE usage. I would rather suggest to modify SCP-firmware to allocate secure memory for BL31 instead here: https://github.com/ARM-software/SCP-firmware/blob/32e18008e7c69ce8c06a13108402f8cbb169fbfd/product/synquacer/module/synquacer_memc/src/ddr_init.c#L189",
+      "revId": "463aef601e7b694302305dcce5fb8d652ee04c06",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "743a7d5d_1ee6d570",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
