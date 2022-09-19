@@ -16,6 +16,24 @@
       "message": "Could you please fix the static checks failures reported by the CI here?\nhttps://ci.trustedfirmware.org/job/tf-a-static-checks/2025/\n\nThe build failure for \u0027k3-j784s4-default\u0027 config looks unrelated to this patch and can be safely ignored IMO.",
       "revId": "f14ab47025837ac055222f8820c7ff9bd7efdcf3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0e549ce_bf7003f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2022-09-19T11:55:34Z",
+      "side": 1,
+      "message": "ACK",
+      "parentUuid": "97cadecb_b169c6b9",
+      "revId": "f14ab47025837ac055222f8820c7ff9bd7efdcf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
