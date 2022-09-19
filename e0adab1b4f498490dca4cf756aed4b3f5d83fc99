@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9eac4ccd_735a38cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-19T11:46:12Z",
+      "side": 1,
+      "message": "This should be:\n\n fix(rss):\n\nto follow the TF-A guidelines on commit messages.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 15
+      },
+      "revId": "e0adab1b4f498490dca4cf756aed4b3f5d83fc99",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db6241e0_bfb1d674",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-19T11:46:12Z",
+      "side": 1,
+      "message": "Sorry, I missed to comment on the commit message in my first review. We need to fix it to make commitlint happy and turn the CI run to green.",
+      "revId": "e0adab1b4f498490dca4cf756aed4b3f5d83fc99",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
