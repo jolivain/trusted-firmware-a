@@ -210,6 +210,24 @@
       "parentUuid": "03b148bc_29e3258c",
       "revId": "0367d40f2510692ee38eb9597481892b1cfc3543",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd695416_f36d747f",
+        "filename": "services/std_svc/std_svc_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-09-19T13:43:35Z",
+      "side": 1,
+      "message": "Hi Varun, after discussing with TF-A folks, I would like to contain errors into the SPMD rather that from the higher level std_svc. As such would you please consider this alternative:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/16779\nIn short, spmd_setup always returns zero, even if an error occurred in the SPMD/SPMC and the SPMD then operates in a degraded mode further on.",
+      "parentUuid": "1608eefb_799c9155",
+      "revId": "0367d40f2510692ee38eb9597481892b1cfc3543",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
