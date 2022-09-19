@@ -16,6 +16,23 @@
       "message": "With these changes included, we confirm TF-A 2.7 with SPMC_AT_EL3 is working on Hikey960 in the Trustonic CI, passing 4076 automated tests.",
       "revId": "c0f55318af3a9832e989e1e488790d7551ed4e2d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "252ef3db_1c7099e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-09-19T10:08:01Z",
+      "side": 1,
+      "message": "I believe the three SPMC@EL3. patches should be in their own patch stack separate from the Hikey960 platform patches.",
+      "revId": "c0f55318af3a9832e989e1e488790d7551ed4e2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
