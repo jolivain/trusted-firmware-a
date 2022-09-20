@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a16802cc_4476affe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-20T11:01:56Z",
+      "side": 1,
+      "message": "This should be:\n\n fix(rcar3):\n\naccording to TF-A commit message guidelines (this is important for the change log generation). Essentially the word between parentheses must be one the \"scopes\" listed in changelog.yaml.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 15
+      },
+      "revId": "6f49f848ab5fa75e7b0e7b03e1dbfce99b88e4aa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5fb462ec_f9f77f76",
