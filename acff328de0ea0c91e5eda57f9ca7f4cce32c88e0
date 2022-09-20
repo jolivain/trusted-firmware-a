@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5adcbbc6_d9884e41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000888
+      },
+      "writtenOn": "2022-09-20T18:34:42Z",
+      "side": 1,
+      "message": "There were still a lot of CI failures caused by transitive includes through `assert.h`. I have resolved all of these in the latest patchset.",
+      "revId": "acff328de0ea0c91e5eda57f9ca7f4cce32c88e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
