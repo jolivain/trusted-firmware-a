@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fb462ec_f9f77f76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000896
+      },
+      "writtenOn": "2022-09-20T10:02:05Z",
+      "side": 1,
+      "message": "On Renesas R-Car Gen3 platforms, the SPI Multi I/O Bus Controllers\n(RPC-IF) provide access to HyperFlash or QSPI storage.  On production\nsystems, they are typically locked by the TF-A firmware, unless TF-A is\nbuilt with RCAR_RPC_HYPERFLASH_LOCKED\u003d0.  When unlocked, TF-A\ncommunicates this to subsequent software by passing a DT fragment that\nsets the \"status\" property of the RPC-IF device node to \"okay\".\n\nUnfortunately there are several issues preventing this from working all\nthe way to Linux:\n  1. TF-A (and U-Boot on the receiving side) uses a device node name\n     that does not conform to the DT specification nor the DT bindings\n     for RPC-IF,\n  2. While U-Boot receives the RPC-IF enablement from TF-A, it does not\n     propagate it to Linux yet,\n  3. Before v5.19-rc1, the DTS files that are part of Linux did not have\n     RPC HyperFlash support.\n\nThis patch takes care of the first issue in TF-A.\n\nThe related patches for U-Boot are upstream as of v2022.10-rc4.\n\nThanks for applying!\n",
+      "revId": "6f49f848ab5fa75e7b0e7b03e1dbfce99b88e4aa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
