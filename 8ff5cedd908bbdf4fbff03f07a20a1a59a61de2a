@@ -16,6 +16,63 @@
       "message": "Some comments from the internal gerrit:\n\nThis change would most likely need a documentation update describing how the openssl build process is integrated.\nNot sure wat level of detail would be needed as the TF-A docs are a bit sparse on the same matter related to e.g. MbedTLS.\n\nI am not sure if it is a good idea to add this build support in general. Maintaining this might not be worth for a host side only component needed for a single tool.\n\nAnyway this patch + a repo manifest fetching openssl too is a perfect solution for my short term needs. (I just needed a place from where repo can fetch the needed TF-A change.) The other option to extend our build environment with openssl3 would not align that well with our dependency handling methodology, as the build environment would have to work different based on the TF-A version.",
       "revId": "8ff5cedd908bbdf4fbff03f07a20a1a59a61de2a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f9cc6aa_d160fdd2",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1454,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2022-09-21T10:01:34Z",
+      "side": 1,
+      "message": "\"configure\" uses the CROSS_COMPILE variable from the environment. Unset it to avoid configure discovering a cross-compilation scenario while that is not what we need.",
+      "range": {
+        "startLine": 1454,
+        "startChar": 24,
+        "endLine": 1454,
+        "endChar": 44
+      },
+      "revId": "8ff5cedd908bbdf4fbff03f07a20a1a59a61de2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b46ff85_bbd62b37",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1476,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2022-09-21T10:01:34Z",
+      "side": 1,
+      "message": "TF-A build-flow has a lot of steps depending on openssl. Either on the .so file or on the openssl binary. It is very hard to come up with a robust dependency for all use-cases. E.g. if an openssl call is added to a make macro any target the macro is used from shall depend on the openssl target. Although this change works as-is for the FVP platform, it implements a wrong design.\n\nEither some generic target executed early in the build flow shall depend on the openssl target, or a new target for this \"early todo\" shall be added.",
+      "revId": "8ff5cedd908bbdf4fbff03f07a20a1a59a61de2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79855552_48a89eb2",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2022-09-21T10:01:34Z",
+      "side": 1,
+      "message": "Allow specifying build environment specific variable from the environment. Without this OPSSL_DIR needs to be passed to TF-A as a parameter, which needs special treatment in upper layers (yocto recipe of top level makefile). Either the upper layer needs to implement taking over environment variable value for this parameter, or will need file modification. \n\nHow this works?\nUsing :\u003d will override environment variable values. ?\u003d allows setting the value from the environment.\n\nNotes:\n1. There are high chances more (or even all) variable assignments in this file shall be changed. That would perhaps require a dedicated PR.\n2. This modifies the interface of the TF-A build system and may cause side effects. (e.g. risk of environment variable name collision).",
+      "revId": "8ff5cedd908bbdf4fbff03f07a20a1a59a61de2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
