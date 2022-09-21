@@ -16,6 +16,24 @@
       "message": "What\u0027s the intention behind this modification?",
       "revId": "207bda950d9cc741a9fa3767219ccc83d8dd2736",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4d54487_6c887870",
+        "filename": "plat/arm/board/juno/include/platform_def.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000888
+      },
+      "writtenOn": "2022-09-21T17:58:26Z",
+      "side": 0,
+      "message": "Unless it can be guaranteed that platform_def.h is always included before assert.h, this is causing an error.\n\nSince the difference of 40 and 50 is whether the asserted expression is printed or not, I suggested to change the maximum assertion level to 40, and thereby this hack could be removed.",
+      "parentUuid": "3d7a787c_37775d7c",
+      "revId": "207bda950d9cc741a9fa3767219ccc83d8dd2736",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
