@@ -16,6 +16,40 @@
       "message": "`drivers/auth/cryptocell/713/cryptocell_crypto.c` had an issue as well.",
       "revId": "f7bcde37d5ec65b106b26a2ad3280ccc54ffde01",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d58da1f4_535cf9f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-09-21T11:37:47Z",
+      "side": 1,
+      "message": "1 comment for QEMU, and I think you should rebase on latest integration branch to avoid zynqmp compilation issue",
+      "revId": "f7bcde37d5ec65b106b26a2ad3280ccc54ffde01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65a60574_70d5dd23",
+        "filename": "plat/qemu/qemu/qemu_helpers.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-09-21T11:37:47Z",
+      "side": 1,
+      "message": "it seems you also miss #include \u003cplatform_def.h\u003e",
+      "revId": "f7bcde37d5ec65b106b26a2ad3280ccc54ffde01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
