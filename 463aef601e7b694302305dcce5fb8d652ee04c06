@@ -56,6 +56,24 @@
       "message": "@JassiBrar Is this patch needed? as per the comment from Sumit secure memory allocation for BL31 should be done via SCP-firmware.",
       "revId": "463aef601e7b694302305dcce5fb8d652ee04c06",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96092cc8_5022039a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000786
+      },
+      "writtenOn": "2022-09-21T15:44:00Z",
+      "side": 1,
+      "message": "I think not. Kojima-san will submit a patch to carve extra secure dram in SCP f/w and I will submit another patch to use that address.\n\nThank you Sumit.",
+      "parentUuid": "9d9e7152_f4eadfea",
+      "revId": "463aef601e7b694302305dcce5fb8d652ee04c06",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
