@@ -50,6 +50,24 @@
       "message": "It would have probably been better to split this into multiple patches (header files, snprintf, loglevel), but that\u0027s OK for this time.\nAll builds seem to succeed now, thanks for fixing this. The snprintf change looks good to me now.\nThere is a boot test failure (fvp-spm.48bit_pa), I can\u0027t say whether this is unrelated or connected to the changed loglevel. It would be good if someone with more CI experience could have a look.\nIn general the header file inclusion changes look like a good idea: to not rely on implicit includes. Thanks for sorting this out.",
       "revId": "885e26830499284a7718f825579d6ebeb8b6cd89",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bef384b_aa0d902e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-09-22T16:01:55Z",
+      "side": 1,
+      "message": "\u003e There is a boot test failure (fvp-spm.48bit_pa), I can\u0027t say whether this is unrelated or connected to the changed loglevel.\nHi this is unrelated, and should recover from now onwards as a fix has just been merged.",
+      "parentUuid": "9e43e749_1e82101c",
+      "revId": "885e26830499284a7718f825579d6ebeb8b6cd89",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
