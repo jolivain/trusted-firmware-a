@@ -45,6 +45,30 @@
       },
       "revId": "0ebc7fecda7048c67a9972f3c47fb17cbc4916c2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df518b43_62d52fb0",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T10:49:17Z",
+      "side": 1,
+      "message": "Same query.\nTODO: was to reset the SDEI handlers, but we are checking for it and not unregister or resetting them.\nCould you please explain the thoughts behind it?",
+      "parentUuid": "97b60715_54f192c1",
+      "range": {
+        "startLine": 617,
+        "startChar": 2,
+        "endLine": 617,
+        "endChar": 26
+      },
+      "revId": "0ebc7fecda7048c67a9972f3c47fb17cbc4916c2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
