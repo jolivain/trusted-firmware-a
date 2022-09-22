@@ -1,0 +1,242 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00531725_a63b0778",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T10:11:37Z",
+      "side": 1,
+      "message": "constants",
+      "revId": "074734afa70f81a275e6359bc65845832bc4c924",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75b2569c_3903a85e",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T10:11:37Z",
+      "side": 1,
+      "message": "nit: could we follow this style\n\n-  **#define : PLAT_DRTM_EVENT_LOG_MAX_SIZE**\nand an empty line after this looks better.",
+      "revId": "074734afa70f81a275e6359bc65845832bc4c924",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf5a2a69_31a182e9",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T10:11:37Z",
+      "side": 1,
+      "message": "size of the Event Log buffer, depending upon the highest hash algorithm chosen and\nthe number of components selected to measure during the DRTM execution flow.",
+      "revId": "074734afa70f81a275e6359bc65845832bc4c924",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2be96ca_7621992c",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T10:11:37Z",
+      "side": 1,
+      "message": "mandatory, when the platform",
+      "revId": "074734afa70f81a275e6359bc65845832bc4c924",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60a771e3_699f3c65",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 841,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T10:11:37Z",
+      "side": 1,
+      "message": "platform",
+      "revId": "074734afa70f81a275e6359bc65845832bc4c924",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b24b9b8_7582d7fd",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 845,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T10:11:37Z",
+      "side": 1,
+      "message": "SSMU, then the platform",
+      "revId": "074734afa70f81a275e6359bc65845832bc4c924",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "169bb9f8_6d745393",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T10:11:37Z",
+      "side": 1,
+      "message": "returns \n\nalso use \"returns the\" phrase at all places. Reads better.",
+      "revId": "074734afa70f81a275e6359bc65845832bc4c924",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4fd43ce_1df3e166",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 880,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T10:11:37Z",
+      "side": 1,
+      "message": "containing the maximum",
+      "revId": "074734afa70f81a275e6359bc65845832bc4c924",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b470cd49_85c73888",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T10:11:37Z",
+      "side": 1,
+      "message": "nit: remove underscore at the end",
+      "revId": "074734afa70f81a275e6359bc65845832bc4c924",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10d23b20_1065ce1c",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T10:11:37Z",
+      "side": 1,
+      "message": "returns",
+      "revId": "074734afa70f81a275e6359bc65845832bc4c924",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a17579e8_29da5296",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 935,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T10:11:37Z",
+      "side": 1,
+      "message": "returns the",
+      "revId": "074734afa70f81a275e6359bc65845832bc4c924",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7e567d8_03aaed7f",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T10:11:37Z",
+      "side": 1,
+      "message": "same here as above.",
+      "revId": "074734afa70f81a275e6359bc65845832bc4c924",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be2e54f5_4910348a",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T10:11:37Z",
+      "side": 1,
+      "message": "reads a 64 bit",
+      "revId": "074734afa70f81a275e6359bc65845832bc4c924",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "704f6d43_5354532f",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 1301,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T10:11:37Z",
+      "side": 1,
+      "message": "resets the system",
+      "revId": "074734afa70f81a275e6359bc65845832bc4c924",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
