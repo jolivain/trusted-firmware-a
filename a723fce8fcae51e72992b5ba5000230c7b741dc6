@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63d6c906_89aabb4e",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-09-22T14:08:07Z",
+      "side": 1,
+      "message": "It also checks if Secure Cycle Counter are disabled in EL3/Secure (ARMv8.5-PMU) then no need to save/restore PMCCNTR_EL0 while doing world switch.",
+      "range": {
+        "startLine": 809,
+        "startChar": 3,
+        "endLine": 812,
+        "endChar": 26
+      },
+      "revId": "a723fce8fcae51e72992b5ba5000230c7b741dc6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc61288e_6f5a736d",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-09-22T14:08:07Z",
+      "side": 1,
+      "message": "MCCD bit set, Prohibits the Cycle Counter, PMCCNTR_EL0, from counting at EL3\nSCCD bit set, Secure Cycle Counter Disable. Prohibits PMCCNTR_EL0 from counting in Secure state",
+      "range": {
+        "startLine": 845,
+        "startChar": 10,
+        "endLine": 846,
+        "endChar": 77
+      },
+      "revId": "a723fce8fcae51e72992b5ba5000230c7b741dc6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "189d25f2_b37c59b0",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-09-22T14:08:07Z",
+      "side": 1,
+      "message": "Cycle Counters are not disabled in EL3/secure state, So PMCR_EL0 should be saved",
+      "range": {
+        "startLine": 847,
+        "startChar": 51,
+        "endLine": 848,
+        "endChar": 32
+      },
+      "revId": "a723fce8fcae51e72992b5ba5000230c7b741dc6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
