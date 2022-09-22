@@ -16,6 +16,24 @@
       "message": "May I know why enable PIE and benifit?",
       "revId": "6897b645349af9f7f95a65c8a28f4e5781015ae5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f74ecbb_72b248a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000874
+      },
+      "writtenOn": "2022-09-22T10:34:27Z",
+      "side": 1,
+      "message": "Sure, because there was a dance with the TF-A loadaddr for the MX8MP which breaks the boot process more than twice, see: https://github.com/saschahauer/barebox/commit/199aabdc7139ab5f988b85a5c1eed5cb8a77796d. With PIE in place there is only a misplaced TF-A but no boot breakage anymore.",
+      "parentUuid": "edd07236_76af645d",
+      "revId": "6897b645349af9f7f95a65c8a28f4e5781015ae5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
