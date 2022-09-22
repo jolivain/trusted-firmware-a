@@ -103,6 +103,23 @@
       "message": "Thanks Olivier for the confirmation! As this was the only CI failure, let\u0027s just override the Verify vote.",
       "revId": "885e26830499284a7718f825579d6ebeb8b6cd89",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3fe1ea8_72e032aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-09-22T17:02:52Z",
+      "side": 1,
+      "message": "Just putting a temporary hold on submitting the patch to ensure some further stakeholders have had a chance to comment. libc is after all fairly fundamental to all areas. Should only be for 24 hours. Nothing more than that at this point.",
+      "revId": "885e26830499284a7718f825579d6ebeb8b6cd89",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
