@@ -623,6 +623,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "403101ec_ab29f214",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-22T20:56:22Z",
+      "side": 1,
+      "message": "As per our internal discussion, it was decided that it is better to have an explicit bit that indicated whether the arg was a function ID or feature ID, hence resolving this comment.",
+      "parentUuid": "9ad743ff_c2a5a1a7",
+      "range": {
+        "startLine": 48,
+        "startChar": 27,
+        "endLine": 48,
+        "endChar": 28
+      },
+      "revId": "c4858d8d4183e955d835d025721a02180ecf267b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "922bfacd_f8e47a5d",
