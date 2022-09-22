@@ -79,10 +79,10 @@ enum {
 	PINCTRL_FUNC_TRACE0,
 	PINCTRL_FUNC_TRACE0_CLK,
 	PINCTRL_FUNC_TESTSCAN0,
-	END_FUNCTION,
+	END_FUNCTION = (57U),
 };
 
-#define MAX_FUNCTION (unsigned int)(END_FUNCTION)
+#define MAX_FUNCTION END_FUNCTION
 
 // pinctrl pin numbers
 enum {
@@ -164,10 +164,10 @@ enum {
 	PINCTRL_PIN_75,
 	PINCTRL_PIN_76,
 	PINCTRL_PIN_77,
-	END_PINS,
+	END_PINS = (78U),
 };
 
-#define MAX_PIN (unsigned int)(END_PINS)
+#define MAX_PIN END_PINS
 
 // pinctrl group ids
 enum  {
