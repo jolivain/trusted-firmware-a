@@ -16,6 +16,23 @@
       "message": "The build was failing for versal_net, which was just introduced. I rebased the patch to get that covered.",
       "revId": "885e26830499284a7718f825579d6ebeb8b6cd89",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "678a019b_120f272d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000888
+      },
+      "writtenOn": "2022-09-22T15:56:18Z",
+      "side": 1,
+      "message": "fvp-spm.48bit_pa appears to be consistently failing with this change, but it is not obvious to me why this test is failing nor what the test is doing. Can you help shed some light on reproducing this locally? Thanks in advance.",
+      "revId": "885e26830499284a7718f825579d6ebeb8b6cd89",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
