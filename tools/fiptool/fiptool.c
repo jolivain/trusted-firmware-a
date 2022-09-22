@@ -4,6 +4,10 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#ifndef _MSC_VER
+#include <sys/mount.h>
+#endif
+
 #include <sys/types.h>
 #include <sys/stat.h>
 
@@ -298,6 +302,7 @@ static int parse_fip(const char *filename, fip_toc_header_t *toc_header_out)
 	fip_toc_header_t *toc_header;
 	fip_toc_entry_t *toc_entry;
 	int terminated = 0;
+	size_t st_size;
 
 	fp = fopen(filename, "rb");
 	if (fp == NULL)
@@ -306,13 +311,21 @@ static int parse_fip(const char *filename, fip_toc_header_t *toc_header_out)
 	if (fstat(fileno(fp), &st) == -1)
 		log_err("fstat %s", filename);
 
-	buf = xmalloc(st.st_size, "failed to load file into memory");
-	if (fread(buf, 1, st.st_size, fp) != st.st_size)
+	st_size = st.st_size;
+
+#ifdef BLKGETSIZE64
+	if ((st.st_mode & S_IFBLK) != 0)
+		if (ioctl(fileno(fp), BLKGETSIZE64, &st_size) == -1)
+			log_err("ioctl %s", filename);
+#endif
+
+	buf = xmalloc(st_size, "failed to load file into memory");
+	if (fread(buf, 1, st_size, fp) != st_size)
 		log_errx("Failed to read %s", filename);
-	bufend = buf + st.st_size;
+	bufend = buf + st_size;
 	fclose(fp);
 
-	if (st.st_size < sizeof(fip_toc_header_t))
+	if (st_size < sizeof(fip_toc_header_t))
 		log_errx("FIP %s is truncated", filename);
 
 	toc_header = (fip_toc_header_t *)buf;
@@ -348,7 +361,7 @@ static int parse_fip(const char *filename, fip_toc_header_t *toc_header_out)
 		/* Overflow checks before memory copy. */
 		if (toc_entry->size > (uint64_t)-1 - toc_entry->offset_address)
 			log_errx("FIP %s is corrupted", filename);
-		if (toc_entry->size + toc_entry->offset_address > st.st_size)
+		if (toc_entry->size + toc_entry->offset_address > st_size)
 			log_errx("FIP %s is corrupted", filename);
 
 		memcpy(image->buffer, buf + toc_entry->offset_address,
