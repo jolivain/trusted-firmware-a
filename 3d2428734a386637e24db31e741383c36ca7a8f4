@@ -3,6 +3,142 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "10815591_160834a2",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T09:31:57Z",
+      "side": 1,
+      "message": "nit: trust word repeated here.\nCould be removed.\n\u003e Dynamic Root of Trust for Measurement (DRTM) begins a new trust environment by measuring and executing a protected payload.",
+      "revId": "3d2428734a386637e24db31e741383c36ca7a8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29ccf225_cb2cc37f",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T09:31:57Z",
+      "side": 1,
+      "message": "Maybe SRTM full form in ( ) would look good. also comma after SRTM is not required.",
+      "revId": "3d2428734a386637e24db31e741383c36ca7a8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb34c4f6_074efd52",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T09:31:57Z",
+      "side": 1,
+      "message": "currently used by TF-A covers all the firmwares",
+      "revId": "3d2428734a386637e24db31e741383c36ca7a8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae253087_501b3f65",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T09:31:57Z",
+      "side": 1,
+      "message": "They measure various components",
+      "revId": "3d2428734a386637e24db31e741383c36ca7a8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84410035_5a7f8703",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T09:31:57Z",
+      "side": 1,
+      "message": "They prepare the memory region",
+      "revId": "3d2428734a386637e24db31e741383c36ca7a8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a9f3b94_9360f07c",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T09:31:57Z",
+      "side": 1,
+      "message": "Point 1 and 3 seems a bit repetetive.\n\nI think, first step would be to clone the TF-A source code.\nsecond step is to download the prebuilt binaries from the  prebuilts-drtm-bins \nand third step could be the build command. \n\nPlease rearrange them.",
+      "revId": "3d2428734a386637e24db31e741383c36ca7a8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fa88a50_5ecf3248",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T09:31:57Z",
+      "side": 1,
+      "message": "nit: remove space after\u003d",
+      "revId": "3d2428734a386637e24db31e741383c36ca7a8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa7aa9fd_da1d9191",
+        "filename": "docs/design_documents/drtm_poc.rst",
+        "patchSetId": 20
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-22T09:31:57Z",
+      "side": 1,
+      "message": "that the last SMC",
+      "revId": "3d2428734a386637e24db31e741383c36ca7a8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "80801e6a_2585756f",
         "filename": "docs/glossary.rst",
         "patchSetId": 20
