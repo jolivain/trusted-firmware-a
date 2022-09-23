@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ef89470_3c534f44",
+        "filename": "include/lib/psci/psci.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-09-23T08:05:36Z",
+      "side": 1,
+      "message": "Hi HariBabu,\n\nAs this file is a generic file, I think it should be in a dedicated patch:\nfix(psci): ...\n\nThe U() macro and family were there to avoid issues with assembler files that include header files, see include/export/lib/utils_def_exp.h. This is the case for this file that is included by several assembler files (like lib/psci/aarch*/psci_helpers.S). That said, I couldn\u0027t reproduce the issue even with older toolchains (gcc-8). But it could occur with other compilers.\nMaybe other maintainers have a better view on this.",
+      "revId": "ed19d16cf83154f5dfc3f1622e46827b79590213",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "828120fa_cb5e2cf1",
+        "filename": "include/lib/psci/psci.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-09-23T08:05:36Z",
+      "side": 1,
+      "message": "you may change this one too?\nIt is OK now as we are under #ifndef __ASSEMBLER__\n\nThe parentheses could also be removed IMHO:\n\treturn 1U \u003c\u003c (x \u0026 0x1fU);\n\nThis is the same for all other changes.",
+      "range": {
+        "startLine": 177,
+        "startChar": 21,
+        "endLine": 177,
+        "endChar": 28
+      },
+      "revId": "ed19d16cf83154f5dfc3f1622e46827b79590213",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01438867_a2b4486f",
+        "filename": "include/lib/psci/psci.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-09-23T08:05:36Z",
+      "side": 1,
+      "message": "The function returns an int, you shouldn\u0027t change that. Or you need to change the function prototype and maybe all the function that use it in the whole TF-A code.",
+      "revId": "ed19d16cf83154f5dfc3f1622e46827b79590213",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d102467_71708d33",
+        "filename": "include/lib/psci/psci.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-09-23T08:05:36Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "ed19d16cf83154f5dfc3f1622e46827b79590213",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "581ddec3_c300631d",
+        "filename": "include/lib/psci/psci.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-09-23T08:05:36Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "ed19d16cf83154f5dfc3f1622e46827b79590213",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
