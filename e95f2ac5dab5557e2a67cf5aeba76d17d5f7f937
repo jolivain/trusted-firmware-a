@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d0b4558_218979f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-23T08:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6adc99cb_7c3d8e94",
+      "revId": "e95f2ac5dab5557e2a67cf5aeba76d17d5f7f937",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "efa39f4f_3ea82ef3",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-09-22T10:42:20Z",
       "side": 1,
       "message": "nit: return values could be added explaining the positive and negative cases in brief.",
+      "revId": "e95f2ac5dab5557e2a67cf5aeba76d17d5f7f937",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59dd4ee3_e20770b5",
+        "filename": "plat/arm/board/fvp/fvp_drtm_addr.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-23T08:20:29Z",
+      "side": 1,
+      "message": "This function is documented in: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/15758/20/docs/getting_started/porting-guide.rst#949\nso adding details here is a quite repetition.",
+      "parentUuid": "efa39f4f_3ea82ef3",
       "revId": "e95f2ac5dab5557e2a67cf5aeba76d17d5f7f937",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
