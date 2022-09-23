@@ -69,6 +69,30 @@
       },
       "revId": "0ebc7fecda7048c67a9972f3c47fb17cbc4916c2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3538572c_85e914fd",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-23T08:20:38Z",
+      "side": 1,
+      "message": "DRTM service responsibility is to check if any SDEI handler registered before launching DLME and error out back to DCE-preamble. \nI think it up-to DCE-preamble then to take the corrective action to de-register the active SDEI handlers safely and try DLME launch again.",
+      "parentUuid": "df518b43_62d52fb0",
+      "range": {
+        "startLine": 617,
+        "startChar": 2,
+        "endLine": 617,
+        "endChar": 26
+      },
+      "revId": "0ebc7fecda7048c67a9972f3c47fb17cbc4916c2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
