@@ -494,6 +494,10 @@ EL3 must maintain a separate register context for the following:
    #. General purpose registers (x0-x30) and ``sp_el0``, ``sp_el2`` stack pointers
    #. EL2 system register context for all enabled features by EL3. These include system registers with the ``_EL2`` prefix. The EL2 physical and virtual timer registers must not be included in this.
 
+As part of SMC forwarding between the NS world and Realm world, EL3 allows x0-x7 to be passed as arguments to Realm and x0-x4 to be used for return arguments back to Non Secure.
+As per SMCCCv1.2, x4 must be preserved if not being used as return argument by the SMC function and it is the responsibility of RMM to preserve this or use this as a return argument.
+EL3 will always copy x0-x4 from Realm context to NS Context.
+
 It is the responsibility of EL3 that the above registers will not be leaked to
 the NS Host and to maintain the confidentiality of the Realm World.
 
