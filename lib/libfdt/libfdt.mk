@@ -7,6 +7,7 @@
 LIBFDT_SRCS	:=	$(addprefix lib/libfdt/,	\
 			fdt.c				\
 			fdt_addresses.c			\
+			fdt_check.c			\
 			fdt_empty_tree.c		\
 			fdt_ro.c			\
 			fdt_rw.c			\
