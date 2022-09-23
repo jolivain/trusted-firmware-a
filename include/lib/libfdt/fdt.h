@@ -45,7 +45,7 @@ struct fdt_property {
 	char data[0];
 };
 
-#endif /* !__ASSEMBLER__*/
+#endif /* !__ASSEMBLER */
 
 #define FDT_MAGIC	0xd00dfeed	/* 4: version, 4: total size */
 #define FDT_TAGSIZE	sizeof(fdt32_t)
