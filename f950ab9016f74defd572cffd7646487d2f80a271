@@ -46,6 +46,30 @@
       },
       "revId": "f950ab9016f74defd572cffd7646487d2f80a271",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "130f43f5_3a2df45b",
+        "filename": "drivers/measured_boot/event_log/event_log.c",
+        "patchSetId": 22
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-26T11:06:16Z",
+      "side": 0,
+      "message": "Sorry, I had not realized DRTM did not use the id field either. In this case, please disregard my comment.",
+      "parentUuid": "ce62f067_d38040d3",
+      "range": {
+        "startLine": 99,
+        "startChar": 1,
+        "endLine": 99,
+        "endChar": 36
+      },
+      "revId": "f950ab9016f74defd572cffd7646487d2f80a271",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
