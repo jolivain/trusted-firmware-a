@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "decb427f_dc2bf5cd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2022-09-26T04:37:00Z",
+      "side": 1,
+      "message": "After looking at SCP f/w change (https://github.com/ARM-software/SCP-firmware/pull/712/files#diff-6bd8a30062f6e0f2afc24ecb4103dc3b9c70282388c689ef0918ad6eff6d9c21R192), Secure DRAM starts from 0xfbe00000. So is this change required?",
+      "revId": "74ea9194c92a2d172579b1d0c046608b02989b10",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c7c9f7b9_b270c001",
