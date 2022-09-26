@@ -68,3 +68,15 @@ When setting MEASURED_BOOT=1 on imx8mm we can let TF-A generate event logs
 with a DTB overlay. The overlay will be put at PLAT_IMX8M_DTO_BASE with
 maximum size PLAT_IMX8M_DTO_MAX_SIZE. Then in U-boot we can apply the DTB
 overlay and let U-boot to parse the event log and update the PCRs.
+
+High Assurance Boot (HABv4)
+---------------------------
+
+All actively maintained have a support for High Assurance Boot (HABv4),
+which is implemented via ROM Vector Table (RVT) API to extend the
+Root-of-Trust beyond the SPL. Those calls are done via SMC and are excuted
+in EL3, with results returned back to original caller.
+
+Details on HABv4 usage and implementation could be found in:
+- AN4581: "i.MX Secure Boot on HABv4 Supported Devices",  Rev. 4 - June 2020
+- AN12263: "HABv4 RVT Guidelines and Recommendations", Rev. 1 - 06/2020
