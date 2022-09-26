@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6d8544fb_0dbd22e6",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 23
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-26T09:26:19Z",
+      "side": 1,
+      "message": "Thank you for pointing this out. In the next version, I will correct this. Are you in favor of adding the following check?\n\n ifeq (${MEASURED_BOOT},1)\n     BL1_SOURCES\t\t+\u003d \t${EVENT_LOG_SOURCES}\n     BL2_SOURCES\t\t+\u003d \t${EVENT_LOG_SOURCES}\n endif\n ifeq (${DRTM_SUPPORT},1)\n     BL31_SOURCES\t        +\u003d \t${EVENT_LOG_SOURCES}\n endif",
+      "parentUuid": "85b9c04c_d98dd20e",
+      "range": {
+        "startLine": 409,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 41
+      },
+      "revId": "b1a59afea12bc190a6a0c64dfdbec055b8b3d7e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4b96505f_21d70e30",
         "filename": "services/std_svc/drtm/drtm_measurements.c",
         "patchSetId": 23
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-26T08:57:03Z",
       "side": 1,
       "message": "This comment does not make much sense to me, as we\u0027re forging a local metadata structure... What does the \u0027base\u0027 mean in this context?",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 39
+      },
+      "revId": "b1a59afea12bc190a6a0c64dfdbec055b8b3d7e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5072c4e_83f8ea41",
+        "filename": "services/std_svc/drtm/drtm_measurements.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-26T09:26:19Z",
+      "side": 1,
+      "message": "I will remove this comment, it was somehow been added during the development and left like this.",
+      "parentUuid": "4b96505f_21d70e30",
       "range": {
         "startLine": 44,
         "startChar": 1,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9c5dd496_43bc7a5a",
+        "filename": "services/std_svc/drtm/drtm_measurements.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-26T09:26:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d09797ec_49d1cd1a",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 50
+      },
+      "revId": "b1a59afea12bc190a6a0c64dfdbec055b8b3d7e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "38e4fefd_9f0d43e7",
         "filename": "services/std_svc/drtm/drtm_measurements.h",
         "patchSetId": 23
@@ -83,6 +155,30 @@
       "writtenOn": "2022-09-26T08:57:03Z",
       "side": 1,
       "message": "It feels weird to have _ARM_ constants in a generic header file. Should these be moved to the Arm platform layer? Or should they be renamed, if they\u0027re not specific to Arm platforms in the end?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 52
+      },
+      "revId": "b1a59afea12bc190a6a0c64dfdbec055b8b3d7e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2be89cc7_4187e459",
+        "filename": "services/std_svc/drtm/drtm_measurements.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-26T09:26:19Z",
+      "side": 1,
+      "message": "I have listed these event names according to the specification document [1]. If you still think we should remove _ARM_ names from the definitions, please let me know.\n\n[1]: https://developer.arm.com/documentation/den0113/a",
+      "parentUuid": "38e4fefd_9f0d43e7",
       "range": {
         "startLine": 15,
         "startChar": 0,
