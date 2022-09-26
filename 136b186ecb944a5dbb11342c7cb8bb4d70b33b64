@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66e4b6be_2e237ded",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-26T10:08:05Z",
+      "side": 1,
+      "message": "this should be \"add ..\" as per below error:\n\n  run `npm audit fix` to fix them, or `npm audit` for details\n[Pipeline] sh\n+ BASH_ENV\u003d/usr/local/nvm/nvm.sh bash -c npx commitlint --from\u003dcdbea24097a0c94fcfacc9487c732125a325fde5\n⧗   input: docs(maintainers): Add myself as TC code owner\n\nSigned-off-by: Anders Dellien \u003canders.dellien@arm.com\u003e\nChange-Id: Ic67334bf1a979cb7b7355d0dcca7eb94752c4611\n✖   subject must not be sentence-case, start-case, pascal-case, upper-case [subject-case]",
+      "range": {
+        "startLine": 7,
+        "startChar": 19,
+        "endLine": 7,
+        "endChar": 22
+      },
+      "revId": "136b186ecb944a5dbb11342c7cb8bb4d70b33b64",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
