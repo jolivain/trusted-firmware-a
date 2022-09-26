@@ -22,6 +22,30 @@
       },
       "revId": "f950ab9016f74defd572cffd7646487d2f80a271",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce62f067_d38040d3",
+        "filename": "drivers/measured_boot/event_log/event_log.c",
+        "patchSetId": 22
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-26T09:55:31Z",
+      "side": 0,
+      "message": "DRTM does not use \u0027metadata_ptr-\u003eid\u0027. \nIs it necessary to populate \u0027id\u0027 in the metadata structure in the DRTM implementation? I don\u0027t think so since these Ids are not required to fill any TCG event log structures. Could you please let me know what you think?",
+      "parentUuid": "50db2567_910b04f9",
+      "range": {
+        "startLine": 99,
+        "startChar": 1,
+        "endLine": 99,
+        "endChar": 36
+      },
+      "revId": "f950ab9016f74defd572cffd7646487d2f80a271",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
