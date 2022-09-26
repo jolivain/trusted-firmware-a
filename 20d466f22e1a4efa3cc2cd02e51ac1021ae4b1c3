@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d4b9c3b_b51b3efd",
+        "filename": "plat/xilinx/zynqmp/pm_service/pm_api_pinctrl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2022-09-26T07:48:14Z",
+      "side": 1,
+      "message": "Can you please also put there numbers for all others? You put there 57 but if this is visible from 0-57 it would be better.\n\nEND_PINS below are much cleaner because numbers are visible.",
+      "revId": "20d466f22e1a4efa3cc2cd02e51ac1021ae4b1c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
