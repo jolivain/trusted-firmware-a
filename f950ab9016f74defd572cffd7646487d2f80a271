@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50db2567_910b04f9",
+        "filename": "drivers/measured_boot/event_log/event_log.c",
+        "patchSetId": 22
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-26T07:42:34Z",
+      "side": 0,
+      "message": "This assertion used to check that the metadata pointed to by \u0027metadata_ptr\u0027 was valid. I understand the \u0027name\u0027 field is no longer a good candidate for that in the context of DRTM, but could we use the \u0027id\u0027 field instead? As in:\n\n assert(metadata_ptr-\u003eid !\u003d EVLOG_INVALID_ID)",
+      "range": {
+        "startLine": 99,
+        "startChar": 1,
+        "endLine": 99,
+        "endChar": 36
+      },
+      "revId": "f950ab9016f74defd572cffd7646487d2f80a271",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
