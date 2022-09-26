@@ -20,92 +20,92 @@
 #ifdef PLAT_NUM_PWR_DOMAINS
 #define PSCI_NUM_PWR_DOMAINS	PLAT_NUM_PWR_DOMAINS
 #else
-#define PSCI_NUM_PWR_DOMAINS	(U(2) * PLATFORM_CORE_COUNT)
+#define PSCI_NUM_PWR_DOMAINS	((2U) * PLATFORM_CORE_COUNT)
 #endif
 
 #define PSCI_NUM_NON_CPU_PWR_DOMAINS	(PSCI_NUM_PWR_DOMAINS - \
 					 PLATFORM_CORE_COUNT)
 
 /* This is the power level corresponding to a CPU */
-#define PSCI_CPU_PWR_LVL	U(0)
+#define PSCI_CPU_PWR_LVL	(0U)
 
 /*
  * The maximum power level supported by PSCI. Since PSCI CPU_SUSPEND
  * uses the old power_state parameter format which has 2 bits to specify the
  * power level, this constant is defined to be 3.
  */
-#define PSCI_MAX_PWR_LVL	U(3)
+#define PSCI_MAX_PWR_LVL	(3U)
 
 /*******************************************************************************
  * Defines for runtime services function ids
  ******************************************************************************/
-#define PSCI_VERSION			U(0x84000000)
-#define PSCI_CPU_SUSPEND_AARCH32	U(0x84000001)
-#define PSCI_CPU_SUSPEND_AARCH64	U(0xc4000001)
-#define PSCI_CPU_OFF			U(0x84000002)
-#define PSCI_CPU_ON_AARCH32		U(0x84000003)
-#define PSCI_CPU_ON_AARCH64		U(0xc4000003)
-#define PSCI_AFFINITY_INFO_AARCH32	U(0x84000004)
-#define PSCI_AFFINITY_INFO_AARCH64	U(0xc4000004)
-#define PSCI_MIG_AARCH32		U(0x84000005)
-#define PSCI_MIG_AARCH64		U(0xc4000005)
-#define PSCI_MIG_INFO_TYPE		U(0x84000006)
-#define PSCI_MIG_INFO_UP_CPU_AARCH32	U(0x84000007)
-#define PSCI_MIG_INFO_UP_CPU_AARCH64	U(0xc4000007)
-#define PSCI_SYSTEM_OFF			U(0x84000008)
-#define PSCI_SYSTEM_RESET		U(0x84000009)
-#define PSCI_FEATURES			U(0x8400000A)
-#define PSCI_NODE_HW_STATE_AARCH32	U(0x8400000d)
-#define PSCI_NODE_HW_STATE_AARCH64	U(0xc400000d)
-#define PSCI_SYSTEM_SUSPEND_AARCH32	U(0x8400000E)
-#define PSCI_SYSTEM_SUSPEND_AARCH64	U(0xc400000E)
-#define PSCI_STAT_RESIDENCY_AARCH32	U(0x84000010)
-#define PSCI_STAT_RESIDENCY_AARCH64	U(0xc4000010)
-#define PSCI_STAT_COUNT_AARCH32		U(0x84000011)
-#define PSCI_STAT_COUNT_AARCH64		U(0xc4000011)
-#define PSCI_SYSTEM_RESET2_AARCH32	U(0x84000012)
-#define PSCI_SYSTEM_RESET2_AARCH64	U(0xc4000012)
-#define PSCI_MEM_PROTECT		U(0x84000013)
-#define PSCI_MEM_CHK_RANGE_AARCH32	U(0x84000014)
-#define PSCI_MEM_CHK_RANGE_AARCH64	U(0xc4000014)
+#define PSCI_VERSION			(0x84000000U)
+#define PSCI_CPU_SUSPEND_AARCH32	(0x84000001U)
+#define PSCI_CPU_SUSPEND_AARCH64	(0xc4000001U)
+#define PSCI_CPU_OFF			(0x84000002U)
+#define PSCI_CPU_ON_AARCH32		(0x84000003U)
+#define PSCI_CPU_ON_AARCH64		(0xc4000003U)
+#define PSCI_AFFINITY_INFO_AARCH32	(0x84000004U)
+#define PSCI_AFFINITY_INFO_AARCH64	(0xc4000004U)
+#define PSCI_MIG_AARCH32		(0x84000005U)
+#define PSCI_MIG_AARCH64		(0xc4000005U)
+#define PSCI_MIG_INFO_TYPE		(0x84000006U)
+#define PSCI_MIG_INFO_UP_CPU_AARCH32	(0x84000007U)
+#define PSCI_MIG_INFO_UP_CPU_AARCH64	(0xc4000007U)
+#define PSCI_SYSTEM_OFF			(0x84000008U)
+#define PSCI_SYSTEM_RESET		(0x84000009U)
+#define PSCI_FEATURES			(0x8400000AU)
+#define PSCI_NODE_HW_STATE_AARCH32	(0x8400000dU)
+#define PSCI_NODE_HW_STATE_AARCH64	(0xc400000dU)
+#define PSCI_SYSTEM_SUSPEND_AARCH32	(0x8400000EU)
+#define PSCI_SYSTEM_SUSPEND_AARCH64	(0xc400000EU)
+#define PSCI_STAT_RESIDENCY_AARCH32	(0x84000010U)
+#define PSCI_STAT_RESIDENCY_AARCH64	(0xc4000010U)
+#define PSCI_STAT_COUNT_AARCH32		(0x84000011U)
+#define PSCI_STAT_COUNT_AARCH64		(0xc4000011U)
+#define PSCI_SYSTEM_RESET2_AARCH32	(0x84000012U)
+#define PSCI_SYSTEM_RESET2_AARCH64	(0xc4000012U)
+#define PSCI_MEM_PROTECT		(0x84000013U)
+#define PSCI_MEM_CHK_RANGE_AARCH32	(0x84000014U)
+#define PSCI_MEM_CHK_RANGE_AARCH64	(0xc4000014U)
 
 /*
  * Number of PSCI calls (above) implemented
  */
 #if ENABLE_PSCI_STAT
-#define PSCI_NUM_CALLS			U(22)
+#define PSCI_NUM_CALLS			(22U)
 #else
-#define PSCI_NUM_CALLS			U(18)
+#define PSCI_NUM_CALLS			(18U)
 #endif
 
 /* The macros below are used to identify PSCI calls from the SMC function ID */
-#define PSCI_FID_MASK			U(0xffe0)
-#define PSCI_FID_VALUE			U(0)
+#define PSCI_FID_MASK			(0xffe0U)
+#define PSCI_FID_VALUE			(0U)
 #define is_psci_fid(_fid) \
 	(((_fid) & PSCI_FID_MASK) == PSCI_FID_VALUE)
 
 /*******************************************************************************
  * PSCI Migrate and friends
  ******************************************************************************/
-#define PSCI_TOS_UP_MIG_CAP	0
-#define PSCI_TOS_NOT_UP_MIG_CAP	1
-#define PSCI_TOS_NOT_PRESENT_MP	2
+#define PSCI_TOS_UP_MIG_CAP	(0U)
+#define PSCI_TOS_NOT_UP_MIG_CAP	(1U)
+#define PSCI_TOS_NOT_PRESENT_MP	(2U)
 
 /*******************************************************************************
  * PSCI CPU_SUSPEND 'power_state' parameter specific defines
  ******************************************************************************/
-#define PSTATE_ID_SHIFT		U(0)
+#define PSTATE_ID_SHIFT		(0U)
 
 #if PSCI_EXTENDED_STATE_ID
-#define PSTATE_VALID_MASK	U(0xB0000000)
-#define PSTATE_TYPE_SHIFT	U(30)
-#define PSTATE_ID_MASK		U(0xfffffff)
+#define PSTATE_VALID_MASK	(0xB0000000U)
+#define PSTATE_TYPE_SHIFT	(30U)
+#define PSTATE_ID_MASK		(0xfffffffU)
 #else
-#define PSTATE_VALID_MASK	U(0xFCFE0000)
-#define PSTATE_TYPE_SHIFT	U(16)
-#define PSTATE_PWR_LVL_SHIFT	U(24)
-#define PSTATE_ID_MASK		U(0xffff)
-#define PSTATE_PWR_LVL_MASK	U(0x3)
+#define PSTATE_VALID_MASK	(0xFCFE0000U)
+#define PSTATE_TYPE_SHIFT	(16U)
+#define PSTATE_PWR_LVL_SHIFT	(24U)
+#define PSTATE_ID_MASK		(0xffffU)
+#define PSTATE_PWR_LVL_MASK	(0x3U)
 
 #define psci_get_pstate_pwrlvl(pstate)	(((pstate) >> PSTATE_PWR_LVL_SHIFT) & \
 					PSTATE_PWR_LVL_MASK)
@@ -115,17 +115,17 @@
 			(((pwrlvl) & PSTATE_PWR_LVL_MASK) << PSTATE_PWR_LVL_SHIFT)
 #endif /* __PSCI_EXTENDED_STATE_ID__ */
 
-#define PSTATE_TYPE_STANDBY	U(0x0)
-#define PSTATE_TYPE_POWERDOWN	U(0x1)
-#define PSTATE_TYPE_MASK	U(0x1)
+#define PSTATE_TYPE_STANDBY	(0x0U)
+#define PSTATE_TYPE_POWERDOWN	(0x1U)
+#define PSTATE_TYPE_MASK	(0x1U)
 
 /*******************************************************************************
  * PSCI CPU_FEATURES feature flag specific defines
  ******************************************************************************/
 /* Features flags for CPU SUSPEND power state parameter format. Bits [1:1] */
-#define FF_PSTATE_SHIFT		U(1)
-#define FF_PSTATE_ORIG		U(0)
-#define FF_PSTATE_EXTENDED	U(1)
+#define FF_PSTATE_SHIFT		(1U)
+#define FF_PSTATE_ORIG		(0U)
+#define FF_PSTATE_EXTENDED	(1U)
 #if PSCI_EXTENDED_STATE_ID
 #define FF_PSTATE		FF_PSTATE_EXTENDED
 #else
@@ -133,14 +133,14 @@
 #endif
 
 /* Features flags for CPU SUSPEND OS Initiated mode support. Bits [0:0] */
-#define FF_MODE_SUPPORT_SHIFT		U(0)
-#define FF_SUPPORTS_OS_INIT_MODE	U(1)
+#define FF_MODE_SUPPORT_SHIFT		(0U)
+#define FF_SUPPORTS_OS_INIT_MODE	(1U)
 
 /*******************************************************************************
  * PSCI version
  ******************************************************************************/
-#define PSCI_MAJOR_VER		(U(1) << 16)
-#define PSCI_MINOR_VER		U(0x1)
+#define PSCI_MAJOR_VER		((1U) << 16)
+#define PSCI_MINOR_VER		(0x1U)
 
 /*******************************************************************************
  * PSCI error codes
@@ -161,10 +161,10 @@
 /*
  * SYSTEM_RESET2 macros
  */
-#define PSCI_RESET2_TYPE_VENDOR_SHIFT	U(31)
-#define PSCI_RESET2_TYPE_VENDOR		(U(1) << PSCI_RESET2_TYPE_VENDOR_SHIFT)
-#define PSCI_RESET2_TYPE_ARCH		(U(0) << PSCI_RESET2_TYPE_VENDOR_SHIFT)
-#define PSCI_RESET2_SYSTEM_WARM_RESET	(PSCI_RESET2_TYPE_ARCH | U(0))
+#define PSCI_RESET2_TYPE_VENDOR_SHIFT	(31U)
+#define PSCI_RESET2_TYPE_VENDOR		((1U) << PSCI_RESET2_TYPE_VENDOR_SHIFT)
+#define PSCI_RESET2_TYPE_ARCH		((0U) << PSCI_RESET2_TYPE_VENDOR_SHIFT)
+#define PSCI_RESET2_SYSTEM_WARM_RESET	(PSCI_RESET2_TYPE_ARCH | (0U))
 
 #ifndef __ASSEMBLER__
 
@@ -174,7 +174,7 @@
 
 static inline unsigned int define_psci_cap(unsigned int x)
 {
-	return U(1) << (x & U(0x1f));
+	return (1U) << (x & U(0x1f));
 }
 
 
@@ -201,9 +201,9 @@ static inline unsigned int psci_check_power_state(unsigned int power_state)
  * PSCI specification (ARM DEN 0022C).
  */
 typedef enum {
-	AFF_STATE_ON = U(0),
-	AFF_STATE_OFF = U(1),
-	AFF_STATE_ON_PENDING = U(2)
+	AFF_STATE_ON = (0U),
+	AFF_STATE_OFF = (1U),
+	AFF_STATE_ON_PENDING = (2U)
 } aff_info_state_t;
 
 /*
@@ -218,7 +218,7 @@ typedef enum {
 /*
  * Macro to represent invalid affinity level within PSCI.
  */
-#define PSCI_INVALID_PWR_LVL	(PLAT_MAX_PWR_LVL + U(1))
+#define PSCI_INVALID_PWR_LVL	(PLAT_MAX_PWR_LVL + (1U))
 
 /*
  * Type for representing the local power state at a particular level.
@@ -226,7 +226,7 @@ typedef enum {
 typedef uint8_t plat_local_state_t;
 
 /* The local state macro used to represent RUN state. */
-#define PSCI_LOCAL_STATE_RUN	U(0)
+#define PSCI_LOCAL_STATE_RUN	(0U)
 
 /*
  * Function to test whether the plat_local_state is RUN state
@@ -267,7 +267,7 @@ typedef struct psci_power_state {
 	 * The pwr_domain_state[] stores the local power state at each level
 	 * for the CPU.
 	 */
-	plat_local_state_t pwr_domain_state[PLAT_MAX_PWR_LVL + U(1)];
+	plat_local_state_t pwr_domain_state[PLAT_MAX_PWR_LVL + (1U)];
 } psci_power_state_t;
 
 /*******************************************************************************
