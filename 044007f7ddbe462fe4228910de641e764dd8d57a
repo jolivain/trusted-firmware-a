@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afc5d71c_a5afe3eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-09-26T07:17:20Z",
+      "side": 1,
+      "message": "Hi Daniel, \n\nAny reason to take this particular version? This could be good to add something about what issue you want to correct by updating libfdt.\nEspecially because it could cause regression. I remember a boot time penalty when we took v1.4.7 (see issue here: https://github.com/ARM-software/tf-issues/issues/643).\n\nI\u0027ll run some test today or tomorrow on STM32MP1 to check.",
+      "revId": "044007f7ddbe462fe4228910de641e764dd8d57a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c714fc0_e3b50599",
+        "filename": "include/lib/libfdt/fdt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-09-26T07:17:20Z",
+      "side": 1,
+      "message": "It was changed on purpose from __ASSEMBLY__ to __ASSEMBLER__ in this patch:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/1496\nIt should then be kept IMHO.",
+      "revId": "044007f7ddbe462fe4228910de641e764dd8d57a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8658fb8c_da82a408",
+        "filename": "lib/libfdt/fdt_check.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-09-26T07:17:20Z",
+      "side": 1,
+      "message": "Please see Madhukar\u0027s comment there about adding this new file:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/4596/4#message-ad5a7baf0dfc3eb66969e07032f3d93f61a4b139",
+      "revId": "044007f7ddbe462fe4228910de641e764dd8d57a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
