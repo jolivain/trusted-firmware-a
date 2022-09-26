@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "930ed994_1051682c",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-26T10:06:51Z",
+      "side": 1,
+      "message": "I have a concern here. Please correct me if I am wrong.\nIf either MEASURED_BOOT or DRTM_SUPPORT is enabled which equates to CRYPTO_HASH_CALC_ONLY \u003d2 , as per Makefile change, we should enable this block \n\nBut here you also check for this CRYPTO_AUTH_VERIFY_AND_HASH_CALC, which is set only when the TRUSTED_BOARD_BOOT is also set.\nSo my question here is, should we consider this block when TRUSTED_BOARD_BOOT is enaled as well ? \n\nthis is sufficient right ?\n#if CRYPTO_SUPPORT \u003d\u003d CRYPTO_HASH_CALC_ONLY\n\nplease explain.",
+      "revId": "a4c00a74f814df95cf09162c4d8ef2869ebde9cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "832274b6_6ed9b0ee",
+        "filename": "include/drivers/auth/crypto_mod.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-26T10:06:51Z",
+      "side": 1,
+      "message": "nit: remove the extra line here.",
+      "revId": "a4c00a74f814df95cf09162c4d8ef2869ebde9cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a86b93d_126b5768",
+        "filename": "include/drivers/auth/crypto_mod.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-09-26T10:06:51Z",
+      "side": 1,
+      "message": "nit: /* CRYPTO_SUPPORT \u003d\u003d CRYPTO_AUTH_VERIFY_AND_HASH_CALC */\n\nWould be better to consider this change at other places in this file.",
+      "revId": "a4c00a74f814df95cf09162c4d8ef2869ebde9cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
