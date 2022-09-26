@@ -33,6 +33,24 @@
       "message": "Is there any particular reason we use 0 here for success? The manpage says it returns the character written, and this is how it is implemented currently. I think we should stick to the spec\u0027ed semantics if we implement those standard library calls. Admittedly this doesn\u0027t make a difference, looking at how it\u0027s called today, but this might change.",
       "revId": "9b8a14bc82204e6a1e077838cfdf97f4ea5e4902",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e11151a_5f73756b",
+        "filename": "drivers/console/multi_console.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000888
+      },
+      "writtenOn": "2022-09-26T05:27:44Z",
+      "side": 1,
+      "message": "It was changed by mistake, due to some changes back and forth. It was never the intention to change the semantics. Thanks for pointing this out.",
+      "parentUuid": "62c75921_22097dbd",
+      "revId": "9b8a14bc82204e6a1e077838cfdf97f4ea5e4902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
