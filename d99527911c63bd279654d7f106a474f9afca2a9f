@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "36803570_22eefb48",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-09-27T13:45:43Z",
+      "side": 1,
+      "message": "Need to understand why the previous usage caused the MISRA violation. U(2) is ideally same as 2U, but it allows usage of these values with assembly and C files.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 46
+      },
+      "revId": "d99527911c63bd279654d7f106a474f9afca2a9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5d6b7f31_8d9c86f0",
         "filename": "include/lib/psci/psci.h",
         "patchSetId": 1
