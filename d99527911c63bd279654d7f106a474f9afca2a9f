@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d6b7f31_8d9c86f0",
+        "filename": "include/lib/psci/psci.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-09-27T13:19:07Z",
+      "side": 1,
+      "message": "For the record, ULL macro was introduced by this patch to correct an issue with GCC-6:\nhttps://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/9edac0479d562a5cb62b57961ad6288d0537e9f1\nThe issue cannot be reproduced since GCC-7, but I couldn\u0027t find any info about this in GCC changelog.\n\nMaybe those macros could then be removed in all the TF-A code, but that would be a huge work.\nWe also need to be sure that old gcc version are no more used. I know that there is a ticket for GCC-7 (https://developer.trustedfirmware.org/T999).\nAnd as I said in my previous reviews (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/16814/5#message-7f965833a232708ac843c20cabedd35c815e321a) this should be checked with other maintainers.\n\nSo for me those changes should be OK, but I still think that the parentheses are useless and should be removed.",
+      "revId": "d99527911c63bd279654d7f106a474f9afca2a9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "057b3f0b_4427feb4",
+        "filename": "include/lib/psci/psci.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-09-27T13:19:07Z",
+      "side": 1,
+      "message": "you missed this one",
+      "range": {
+        "startLine": 177,
+        "startChar": 21,
+        "endLine": 177,
+        "endChar": 28
+      },
+      "revId": "d99527911c63bd279654d7f106a474f9afca2a9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
