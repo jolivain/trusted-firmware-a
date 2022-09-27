@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c2160431_69cd2b60",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-27T08:47:26Z",
+      "side": 1,
+      "message": "The change is intended to remove the TRUSTED_BOARD_BOOT, MEASURED_BOOT, and DRTM_SUPPORT defines from the mbedTLS file and replace them with CRYPTO definitions.\n\nThis CASSERT is needed if TRUSTED_BOARD_BOOT is defined with either \u0027MEASURED_BOOT\u0027 or \u0027DRTM_SUPPORT\u0027 (or both). See this change [1]\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/15574/21/Makefile#733",
+      "parentUuid": "930ed994_1051682c",
+      "revId": "a4c00a74f814df95cf09162c4d8ef2869ebde9cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "832274b6_6ed9b0ee",
         "filename": "include/drivers/auth/crypto_mod.h",
         "patchSetId": 21
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c50aebcf_c9c909b4",
+        "filename": "include/drivers/auth/crypto_mod.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-27T08:47:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "832274b6_6ed9b0ee",
+      "revId": "a4c00a74f814df95cf09162c4d8ef2869ebde9cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a86b93d_126b5768",
         "filename": "include/drivers/auth/crypto_mod.h",
         "patchSetId": 21
@@ -48,6 +84,24 @@
       "writtenOn": "2022-09-26T10:06:51Z",
       "side": 1,
       "message": "nit: /* CRYPTO_SUPPORT \u003d\u003d CRYPTO_AUTH_VERIFY_AND_HASH_CALC */\n\nWould be better to consider this change at other places in this file.",
+      "revId": "a4c00a74f814df95cf09162c4d8ef2869ebde9cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7946bcf_61f7c875",
+        "filename": "include/drivers/auth/crypto_mod.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-27T08:47:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3a86b93d_126b5768",
       "revId": "a4c00a74f814df95cf09162c4d8ef2869ebde9cd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
