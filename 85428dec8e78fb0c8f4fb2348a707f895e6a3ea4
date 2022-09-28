@@ -33,6 +33,23 @@
       "message": "Don\u0027t merge this patch, we should ideally remove the warning from static checks",
       "revId": "85428dec8e78fb0c8f4fb2348a707f895e6a3ea4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12a697e4_09a158aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-09-28T16:39:16Z",
+      "side": 1,
+      "message": "When I merged this patch https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/16063 that introduced these canes the CI did not report anything. I did miss the copyright update but that should not fail the CI especially as a warning.",
+      "revId": "85428dec8e78fb0c8f4fb2348a707f895e6a3ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
