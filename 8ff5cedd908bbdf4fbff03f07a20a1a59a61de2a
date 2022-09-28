@@ -71,6 +71,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb4b54d6_411bfd86",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1448,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2022-09-28T06:09:06Z",
+      "side": 1,
+      "message": "Hi,\n\ngood idea, but I do have some concerns. Usually makefiles do not implement system discovery and instead use static configuration. Discovery is usually implemented in a higher layer like autoconf (or cmake). Of course we can go our own ways, but aligning to well established patterns might make maintenance easier by avoiding surprises. Moreover static configuration adapts to the the \"KISS\" principle better. \n\nFor me Yanns suggestion to use static configuration but avoid mixing the \"location of openssl\" with the \"please build openssl\" setting seems to be a better choice. Only my two cent\u0027s tough.",
+      "parentUuid": "692fd04c_6d5412e5",
+      "revId": "8ff5cedd908bbdf4fbff03f07a20a1a59a61de2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5f9cc6aa_d160fdd2",
