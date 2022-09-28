@@ -16,6 +16,23 @@
       "message": "The previous CI run looks good to me. Although it failed, I looked into the failures and they all apply to another unrelated patch.\n\nRe-trigerring the CI loop on patch set #9, just in case... If it does not flag anything new, I\u0027ll override the Verified score manually.\n\n@Manish: Could you please provide MR+1 if you\u0027re happy with the way Raef addressed your comments in patch set #9? Then we can merge this patch.",
       "revId": "31259019235aebf7aa533d5c893940f597fb1a8b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39b96a0d_8beb9c1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-28T14:12:20Z",
+      "side": 1,
+      "message": "CI failures were either unrelated to this patch or addressed by separate CI patches.",
+      "revId": "31259019235aebf7aa533d5c893940f597fb1a8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
