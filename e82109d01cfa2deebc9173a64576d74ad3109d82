@@ -16,6 +16,24 @@
       "message": "“Note, TCM block is required on this SoC as HAB implementation would use\nit to store internal Event Data.”\n\nThis is not accurate per my understanding, mapping TCM is only used to authenticate M4 image loaded in TCM area.",
       "revId": "e82109d01cfa2deebc9173a64576d74ad3109d82",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d25905b9_993cb40f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000887
+      },
+      "writtenOn": "2022-09-28T06:32:17Z",
+      "side": 1,
+      "message": "True, this was a mistake from my side. Thanks for pointing this out!\n\nWould drop the TCM mapping, and come back to it later in the follow-up series.",
+      "parentUuid": "14fd371a_c1b4e2bd",
+      "revId": "e82109d01cfa2deebc9173a64576d74ad3109d82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
