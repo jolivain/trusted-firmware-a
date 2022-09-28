@@ -1,0 +1,187 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6873ab0_13014b7b",
+        "filename": "drivers/arm/mhu/mhu_wrapper_v2_x.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-28T10:34:17Z",
+      "side": 1,
+      "message": "can this be 0 if not then putting assert in next line for num_channels !\u003d 0 makes sense?",
+      "range": {
+        "startLine": 307,
+        "startChar": 10,
+        "endLine": 307,
+        "endChar": 22
+      },
+      "revId": "f7b49732de2777557ed9be38c81dcaf45221a597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1169118_8b070b6c",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-28T10:34:17Z",
+      "side": 1,
+      "message": "Why does this need to be defined as global, I can\u0027t see its usage outside of \u0027psa_call\u0027? Is there something I\u0027m missing?",
+      "range": {
+        "startLine": 25,
+        "startChar": 34,
+        "endLine": 25,
+        "endChar": 42
+      },
+      "revId": "f7b49732de2777557ed9be38c81dcaf45221a597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fead4bb_5a7107be",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-28T10:34:17Z",
+      "side": 1,
+      "message": "0U?",
+      "range": {
+        "startLine": 139,
+        "startChar": 12,
+        "endLine": 139,
+        "endChar": 13
+      },
+      "revId": "f7b49732de2777557ed9be38c81dcaf45221a597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9ce015c_1d30e1ad",
+        "filename": "drivers/arm/rss/rss_comms_protocol.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-28T10:34:17Z",
+      "side": 1,
+      "message": "can we check \u0027msg !\u003d NULL\u0027 via assert before dereferencing?",
+      "revId": "f7b49732de2777557ed9be38c81dcaf45221a597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "218594fb_a4db28e9",
+        "filename": "drivers/arm/rss/rss_comms_protocol.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-28T10:34:17Z",
+      "side": 1,
+      "message": "can we check \u0027reply !\u003d NULL\u0027 via assert before dereferencing?",
+      "revId": "f7b49732de2777557ed9be38c81dcaf45221a597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fcedc86_e9d98e6d",
+        "filename": "drivers/arm/rss/rss_comms_protocol_embed.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-28T10:34:17Z",
+      "side": 1,
+      "message": "can we check \u0027msg !\u003d NULL\u0027 via assert before dereferencing in next line?",
+      "revId": "f7b49732de2777557ed9be38c81dcaf45221a597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9a3f566_c61727b4",
+        "filename": "drivers/arm/rss/rss_comms_protocol_pointer_access.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-28T10:34:17Z",
+      "side": 1,
+      "message": "can we check \u0027msg !\u003d NULL\u0027 via assert before dereferencing in next line?",
+      "revId": "f7b49732de2777557ed9be38c81dcaf45221a597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "012bb6af_d1410380",
+        "filename": "drivers/arm/rss/rss_comms_protocol_pointer_access.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-28T10:34:17Z",
+      "side": 1,
+      "message": "Looks like this function always return success, will it makes sense to have its return type void then?",
+      "range": {
+        "startLine": 48,
+        "startChar": 1,
+        "endLine": 48,
+        "endChar": 20
+      },
+      "revId": "f7b49732de2777557ed9be38c81dcaf45221a597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af6fe6e1_3c5dafd8",
+        "filename": "drivers/arm/rss/rss_comms_protocol_pointer_access.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-28T10:34:17Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 65,
+        "startChar": 1,
+        "endLine": 65,
+        "endChar": 20
+      },
+      "revId": "f7b49732de2777557ed9be38c81dcaf45221a597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
