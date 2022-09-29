@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c1cd1cc_430de62d",
+        "filename": "include/lib/psci/psci.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000895
+      },
+      "writtenOn": "2022-09-29T05:29:57Z",
+      "side": 1,
+      "message": "I see that U() is not resolving the MISRA warnings. However, a separate patch for psci.h will be created.",
+      "parentUuid": "9ef89470_3c534f44",
+      "revId": "ed19d16cf83154f5dfc3f1622e46827b79590213",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "828120fa_cb5e2cf1",
