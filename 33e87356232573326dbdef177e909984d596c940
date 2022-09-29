@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "743c4018_df91be54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2022-09-29T21:40:22Z",
+      "side": 1,
+      "message": "Please follow the submission guidelines: https://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#submitting-changes\n\nCode-Owner-Review+1 should only be set by someone listed as a code owner for this platform in https://trustedfirmware-a.readthedocs.io/en/latest/about/maintainers.html#code-owners . Currently for plat/qti that\u0027s just Saurabh, Lachit and Sreevyshanavi. If you want quic_mkf to be added as a code owner you\u0027ll have to upload a CL to docs/about/maintainers.rst for that -- but even then, self-review is prohibited so the +1 must come from someone other than the uploader.",
+      "revId": "33e87356232573326dbdef177e909984d596c940",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
