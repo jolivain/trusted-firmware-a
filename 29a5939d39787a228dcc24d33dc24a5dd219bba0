@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1412997_4dafb134",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 1050,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-09-29T14:18:07Z",
+      "side": 1,
+      "message": "You dont need a loop here, you can take the current CPU and acquire the lock on its parent\n\n        psci_get_parent_pwr_domain_nodes(this_core, PLAT_MAX_PWR_LVL, parent_nodes);\n\n        psci_acquire_pwr_domain_locks(PLAT_MAX_PWR_LVL, parent_nodes);",
+      "range": {
+        "startLine": 1045,
+        "startChar": 1,
+        "endLine": 1050,
+        "endChar": 36
+      },
+      "revId": "29a5939d39787a228dcc24d33dc24a5dd219bba0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
