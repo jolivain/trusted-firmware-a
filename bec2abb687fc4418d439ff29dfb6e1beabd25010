@@ -16,6 +16,24 @@
       "message": "Sorry if I wasn\u0027t clear on my first request. My idea was to have (2U * PLATFORM_CORE_COUNT), and remove all parentheses around figures, e.g. U(2) replaced with just 2U.\n\nThat said, let\u0027s wait for the general discussion about this change.",
       "revId": "bec2abb687fc4418d439ff29dfb6e1beabd25010",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b69b605_048240f5",
+        "filename": "include/lib/psci/psci.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000895
+      },
+      "writtenOn": "2022-09-29T12:08:28Z",
+      "side": 1,
+      "message": "I have done as suggested.",
+      "parentUuid": "85b1ee93_98b85403",
+      "revId": "bec2abb687fc4418d439ff29dfb6e1beabd25010",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
