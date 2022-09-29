@@ -63,7 +63,12 @@ SECTIONS {
     ro . : {
         __RO_START__ = .;
 
+#if ENABLE_RME
+        *bl2_rme_entrypoint.o(.text*)
+#else /* ENABLE_RME */
         *bl2_entrypoint.o(.text*)
+#endif /* ENABLE_RME */
+
         *(SORT_BY_ALIGNMENT(.text*))
         *(SORT_BY_ALIGNMENT(.rodata*))
 
