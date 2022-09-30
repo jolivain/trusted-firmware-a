@@ -157,6 +157,24 @@
       "parentUuid": "502ff035_075bf61e",
       "revId": "c5862af72d5c2f2b637d9d54c29d2d5e43a3b991",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "596c9d3e_6ae5206a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-09-30T08:53:21Z",
+      "side": 1,
+      "message": "Slight correction Allow-CI can take tow values +1 for light tests (inc Static checks, docs build and platform builds only) and +2 for full tests (inc lots of functional tests on FVP models and physical boards). \n\nI did an Allow-CI+2 for safety sake.",
+      "parentUuid": "3488c87d_2e7013ab",
+      "revId": "c5862af72d5c2f2b637d9d54c29d2d5e43a3b991",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
