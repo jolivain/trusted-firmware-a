@@ -16,6 +16,24 @@
       "message": "FYI the CI error is:\n\n\n****** Coding style on current patch ******\n\nResult : FAILURE\n\n  CHECKING STYLE\n\n[*] Checking style of \u0027d2185d9ffe179a18a95e52e712023895faca3df2\u0027\n\nplat/xilinx/zynqmp/pm_service/pm_api_clock.c:2991: ERROR: do not use assignment in if condition\n+\tif ((pll \u003d NULL) || !mode) {\n\ntotal: 1 errors, 0 warnings, 296 lines checked\n\n[*] Checking style of \u0027364b4cddbab859a56e63813aab4e983433187191\u0027\n\n\n[*] Checking style of \u002718af644279b36e841068db0e1c857dedf1456b38\u0027\n\n:1: WARNING: Possible unwrapped commit description (prefer a maximum 75 chars per line)\nDDR4 Chip is EOL during redesign of ls1043ardb pd version. The replacement from MT is MT40A1G8SA-062E:R.\n\ntotal: 0 errors, 1 warnings, 0 lines checked",
       "revId": "d2185d9ffe179a18a95e52e712023895faca3df2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21097d1a_8106e607",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000895
+      },
+      "writtenOn": "2022-09-30T08:41:19Z",
+      "side": 1,
+      "message": "Done. Addressed.",
+      "parentUuid": "f0372846_b046ddbd",
+      "revId": "d2185d9ffe179a18a95e52e712023895faca3df2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
