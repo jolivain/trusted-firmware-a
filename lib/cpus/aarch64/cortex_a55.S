@@ -18,6 +18,7 @@
 
 	.globl cortex_a55_reset_func
 	.globl cortex_a55_core_pwr_dwn
+	.globl cortex_a55_dsu_pwr_dwn
 
 /* ERRATA_DSU_798953:
  * The errata is defined in dsu_helpers.S but applies to cortex_a55
@@ -127,6 +128,13 @@ func cortex_a55_core_pwr_dwn
 	isb
 	ret
 endfunc cortex_a55_core_pwr_dwn
+
+func cortex_a55_dsu_pwr_dwn
+	mov     x1, #0x00
+	msr     CORTEX_A55_CLUSTERPWRCTLR_EL1, x0
+	isb
+	ret
+endfunc cortex_a55_dsu_pwr_dwn
 
 	/* ---------------------------------------------
 	 * This function provides cortex_a55 specific
