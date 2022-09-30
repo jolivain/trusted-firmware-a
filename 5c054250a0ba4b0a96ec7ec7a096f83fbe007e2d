@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3e4c61f_358ae3fd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000887
+      },
+      "writtenOn": "2022-09-30T13:21:19Z",
+      "side": 1,
+      "message": "True, it is the wording of this statement in the commit message that is misleading.\n\nAccording to my understanding of \"HAB RVT Guidelines and Recommendations\" document (AN12263), RVT API is used by a post-ROM code to authenticate additional images (which extends the RoT). Since most of the post-ROM code code is executed in EL3, HAB does not place any restrictions on the Caller\u0027s security state, and therefore the check is not needed.\n\nI will just drop this line from the commit message, in order not to create any confusion.",
+      "parentUuid": "57afddd5_875fca09",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 64
+      },
+      "revId": "5c054250a0ba4b0a96ec7ec7a096f83fbe007e2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7ab61106_ec5f50ae",
@@ -64,6 +88,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8a5084d_36d789d8",
+        "filename": "plat/imx/common/include/imx_sip_svc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000887
+      },
+      "writtenOn": "2022-09-30T13:21:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b383cd58_f56b1489",
+      "range": {
+        "startLine": 38,
+        "startChar": 32,
+        "endLine": 38,
+        "endChar": 36
+      },
+      "revId": "5c054250a0ba4b0a96ec7ec7a096f83fbe007e2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "459220cc_109b1de2",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-09-30T09:48:43Z",
       "side": 1,
       "message": "(minor) You might want to use a more inclusive terminology, like \"Check memory acceptance list\".",
+      "range": {
+        "startLine": 42,
+        "startChar": 44,
+        "endLine": 42,
+        "endChar": 54
+      },
+      "revId": "5c054250a0ba4b0a96ec7ec7a096f83fbe007e2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23d220ed_380dd401",
+        "filename": "plat/imx/imx8m/imx_hab.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000887
+      },
+      "writtenOn": "2022-09-30T13:21:19Z",
+      "side": 1,
+      "message": "Thanks for the note, would re-phrase it!\n\nJust FYI: this (and 2 consecutive) comments are taken as-is from HABv4 API Reference Manual, which is the part of CST package.",
+      "parentUuid": "459220cc_109b1de2",
       "range": {
         "startLine": 42,
         "startChar": 44,
@@ -110,6 +182,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e181ed9e_714df1a5",
+        "filename": "plat/imx/imx8m/imx_hab.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000887
+      },
+      "writtenOn": "2022-09-30T13:21:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7e5bec13_c50b25c3",
+      "range": {
+        "startLine": 54,
+        "startChar": 17,
+        "endLine": 54,
+        "endChar": 23
+      },
+      "revId": "5c054250a0ba4b0a96ec7ec7a096f83fbe007e2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "657870cd_b4a273fb",
@@ -133,6 +229,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf90b9a0_7102a14e",
+        "filename": "plat/imx/imx8m/imx_hab.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000887
+      },
+      "writtenOn": "2022-09-30T13:21:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "657870cd_b4a273fb",
+      "range": {
+        "startLine": 56,
+        "startChar": 50,
+        "endLine": 56,
+        "endChar": 62
+      },
+      "revId": "5c054250a0ba4b0a96ec7ec7a096f83fbe007e2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5248b343_352233ac",
@@ -146,6 +266,30 @@
       "writtenOn": "2022-09-30T09:48:43Z",
       "side": 1,
       "message": "I am just curious... This last HAB function is currently not exposed via an SMC interface in imx_hab_handler(). Is that on purpose?",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 42
+      },
+      "revId": "5c054250a0ba4b0a96ec7ec7a096f83fbe007e2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0679161_fbc2cb07",
+        "filename": "plat/imx/imx8m/imx_hab.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000887
+      },
+      "writtenOn": "2022-09-30T13:21:19Z",
+      "side": 1,
+      "message": "Yes, this function is mapped as it is present in the RVT, but not exposed in this patchset as I was not able to test it so far. Having that function mapped in the struct completes the RVT API description, but until it can be verified - I was contemplating to expose it.\n\nThis can be addressed in consecutive patchset though.",
+      "parentUuid": "5248b343_352233ac",
       "range": {
         "startLine": 78,
         "startChar": 0,
