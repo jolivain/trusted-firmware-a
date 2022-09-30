@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3df8f517_a0763d99",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-09-30T06:02:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d9ce7bc_37bf52ab",
+      "range": {
+        "startLine": 9,
+        "startChar": 51,
+        "endLine": 9,
+        "endChar": 52
+      },
+      "revId": "4611d7289b6e09db6c94bcec64b8b172b297793c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01e41908_0bc9b361",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-13T10:04:36Z",
       "side": 1,
       "message": "nit: single space before and after while",
+      "range": {
+        "startLine": 230,
+        "startChar": 4,
+        "endLine": 230,
+        "endChar": 9
+      },
+      "revId": "4611d7289b6e09db6c94bcec64b8b172b297793c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "661d9d74_999f5ab1",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-09-30T06:02:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01e41908_0bc9b361",
       "range": {
         "startLine": 230,
         "startChar": 4,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "027c0917_5b9cb934",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-09-30T06:02:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "158c5613_c53fe658",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 283,
+        "endChar": 1
+      },
+      "revId": "4611d7289b6e09db6c94bcec64b8b172b297793c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "37a3dbb7_2506c063",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-09-13T10:04:36Z",
       "side": 1,
       "message": "Condition in the \u0027if\u0027 should be boolean hence change this to (v1_1_obj \u003d\u003d NULL)",
+      "range": {
+        "startLine": 1047,
+        "startChar": 7,
+        "endLine": 1047,
+        "endChar": 15
+      },
+      "revId": "4611d7289b6e09db6c94bcec64b8b172b297793c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7b8757b_f34019b1",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1047,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-09-30T06:02:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37a3dbb7_2506c063",
       "range": {
         "startLine": 1047,
         "startChar": 7,
