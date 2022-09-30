@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b296ef2_83544cbb",
+        "filename": "plat/imx/imx8m/imx8mm/imx8mm_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-30T09:47:02Z",
+      "side": 1,
+      "message": "I understand the rationale for the other 3 mappings above, but could you please explain what is the DRAM involvement in HAB ROM code operations?",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 85
+      },
+      "revId": "9819135e76ce89fdea989fc4ae104bbee88ba44f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
