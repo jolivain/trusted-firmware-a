@@ -56,6 +56,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c63b5beb_615959bb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000695
+      },
+      "writtenOn": "2022-09-30T00:04:19Z",
+      "side": 1,
+      "message": "This is the error we were seeing if you\u0027re curious\n```\nIn file included from lib/libc/printf.c:7:\nlib/libc/printf.c: In function ‘string_print’:\nlib/libc/printf.c:26:23: error: ‘NULL’ undeclared (first use in this function)\n   26 |         assert(str !\u003d NULL);\n      |                       ^~~~\nlib/libc/printf.c:11:1: note: ‘NULL’ is defined in header ‘\u003cstddef.h\u003e’; did you forget to ‘#include \u003cstddef.h\u003e’?\n   10 | #include \u003cstdint.h\u003e\n  +++ |+#include \u003cstddef.h\u003e\n   11 |\nlib/libc/printf.c:26:23: note: each undeclared identifier is reported only once for each function it appears in\n   26 |         assert(str !\u003d NULL);\n      |                       ^~~~\nlib/libc/printf.c:29:23: warning: implicit declaration of function ‘putchar’ [-Wimplicit-function-declaration]\n   29 |                 (void)putchar(*str);\n      |                       ^~~~~~~\nlib/libc/printf.c:11:1: note: include ‘\u003cstdio.h\u003e’ or provide a declaration of ‘putchar’\n   10 | #include \u003cstdint.h\u003e\n  +++ |+#include \u003cstdio.h\u003e\n   11 |\nlib/libc/printf.c: In function ‘vprintf’:\nlib/libc/printf.c:151:44: error: ‘size_t’ undeclared (first use in this function)\n  151 |                                 if (sizeof(size_t) \u003d\u003d 8U)\n      |                                            ^~~~~~\nlib/libc/printf.c:151:44: note: ‘size_t’ is defined in header ‘\u003cstddef.h\u003e’; did you forget to ‘#include \u003cstddef.h\u003e’?\n```\nIt\u0027s easy to reproduce. Just run `gcc -c lib/libc/printf.c`",
+      "parentUuid": "191571c8_3c26c769",
+      "revId": "c5862af72d5c2f2b637d9d54c29d2d5e43a3b991",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2a1b7eb8_fe105905",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -84,6 +102,41 @@
       "writtenOn": "2022-09-29T07:29:12Z",
       "side": 1,
       "message": "Just curious, are you using any particular unit test solution to test libc? Its technical debt on the project to provide more test coverage with libc unit testing a known gap so anything suitable for use in the OpenCI would be of interest to the project.",
+      "revId": "c5862af72d5c2f2b637d9d54c29d2d5e43a3b991",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71f59402_1b9a1492",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000695
+      },
+      "writtenOn": "2022-09-30T00:04:19Z",
+      "side": 1,
+      "message": "We\u0027re using googletest for unit testing but it\u0027s a bit difficult to port to upstream trusted-firmware-a because it relies on the bazel build system",
+      "parentUuid": "46ab6411_e93f4e90",
+      "revId": "c5862af72d5c2f2b637d9d54c29d2d5e43a3b991",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "502ff035_075bf61e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000695
+      },
+      "writtenOn": "2022-09-30T00:04:19Z",
+      "side": 1,
+      "message": "What is the next step for submitting this change?",
       "revId": "c5862af72d5c2f2b637d9d54c29d2d5e43a3b991",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
