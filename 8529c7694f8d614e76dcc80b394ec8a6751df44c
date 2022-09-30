@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6500ccba_3642f8c8",
+        "filename": "plat/xilinx/versal_net/plat_psci.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-09-30T12:38:01Z",
+      "side": 1,
+      "message": "It does not appear to be in-line with SMCCC specification, it should be U(0xffffffff). Furthermore, this define does not seem to be platform-specific and should be included in smccc.h. \nThere is already a patch that adds this define to smccc.h header [1].  The following build error is currently occurring with patch [1]:\n\n  make CROSS_COMPILE\u003daarch64-none-elf- PLAT\u003dversal_net RESET_TO_BL31\u003d1 VERSAL_CONSOLE\u003dpl011_1 \n  TFA_NO_PM\u003d1\n  Building versal_net\n    CC      plat/xilinx/versal_net/plat_psci.c\n  plat/xilinx/versal_net/plat_psci.c:21: error: \"FUNCID_MASK\" redefined [-Werror]\n     21 | #define FUNCID_MASK U(0xffff)\n        |\n  In file included from include/arch/aarch64/smccc_helpers.h:10,\n                 from include/common/runtime_svc.h:13,\n                 from plat/xilinx/versal_net/plat_psci.c:12:\n  include/lib/smccc.h:44: note: this is the location of the previous definition\n     44 | #define FUNCID_MASK   U(0xffffffff)\n        | \n  cc1: all warnings being treated as errors\n\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/15489/",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 29
+      },
+      "revId": "8529c7694f8d614e76dcc80b394ec8a6751df44c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
