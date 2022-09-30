@@ -16,6 +16,24 @@
       "message": "This needs virtualization extension. It then fails to build on Cortex-A5. I\u0027ll update the patch accordingly.",
       "revId": "6739184cfe4a1c134362e8e1308e4afc30849e4c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a85383a_c904c25e",
+        "filename": "common/aarch32/debug.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-09-30T09:09:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a0d0aa7_e9bb3706",
+      "revId": "6739184cfe4a1c134362e8e1308e4afc30849e4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
