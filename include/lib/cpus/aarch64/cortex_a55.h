@@ -45,4 +45,7 @@
 #define CPUPOR_EL3	S3_6_C15_C8_2
 #define CPUPMR_EL3	S3_6_C15_C8_3
 
+#ifndef __ASSEMBLER__
+void __dead2 cortex_a55_dbgprcr_pwr_dwn_wfi(void);
+#endif /* __ASSEMBLER__ */
 #endif /* CORTEX_A55_H */

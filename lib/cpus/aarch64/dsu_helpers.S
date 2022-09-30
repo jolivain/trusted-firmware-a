@@ -24,6 +24,7 @@
 	 */
 	.globl	check_errata_dsu_798953
 	.globl	errata_dsu_798953_wa
+	.globl	dsu_pwr_dwn
 
 func check_errata_dsu_798953
 	mov	x2, #ERRATA_APPLIES
@@ -192,3 +193,16 @@ func errata_dsu_2313941_wa
 1:
 	ret	x8
 endfunc errata_dsu_2313941_wa
+
+	/* ---------------------------------------------
+	 * controls power features of the cluster
+	 * 1. Cache portion power not request
+	 * 2. Disable the retention circuit
+	 * ---------------------------------------------
+	 */
+func dsu_pwr_dwn
+	mov	x0, xzr
+	msr	CLUSTERPWRCTLR_EL1, x0
+	isb
+	ret
+endfunc dsu_pwr_dwn
