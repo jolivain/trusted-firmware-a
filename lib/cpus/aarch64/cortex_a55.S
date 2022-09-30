@@ -120,9 +120,11 @@ errata_report_shim cortex_a55
 
 	/* ---------------------------------------------
 	 * HW will do the cache maintenance while powering down
+	 * Clear DBGPRCR_EL1 to disable powerdown *emulation*.
 	 * ---------------------------------------------
 	 */
 func cortex_a55_core_pwr_dwn
+	msr	DBGPRCR_EL1, xzr
 	sysreg_bit_set CORTEX_A55_CPUPWRCTLR_EL1, CORTEX_A55_CORE_PWRDN_EN_MASK
 	isb
 	ret
