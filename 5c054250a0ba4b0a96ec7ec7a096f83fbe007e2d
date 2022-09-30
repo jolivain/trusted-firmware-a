@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "57afddd5_875fca09",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-30T09:48:43Z",
+      "side": 1,
+      "message": "If I am not mistaken, the HAB SMC handler currently does not enforce that they are called from NS world. I don\u0027t see any check on the caller\u0027s security state. Is that something that should be considered?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 64
+      },
+      "revId": "5c054250a0ba4b0a96ec7ec7a096f83fbe007e2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7ab61106_ec5f50ae",
@@ -14,6 +37,121 @@
       "writtenOn": "2022-09-28T02:01:29Z",
       "side": 1,
       "message": "looks good to me",
+      "revId": "5c054250a0ba4b0a96ec7ec7a096f83fbe007e2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b383cd58_f56b1489",
+        "filename": "plat/imx/common/include/imx_sip_svc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-30T09:48:43Z",
+      "side": 1,
+      "message": "(minor) Indentation of this value differs from others around it, you might want to add one more tab.",
+      "range": {
+        "startLine": 38,
+        "startChar": 32,
+        "endLine": 38,
+        "endChar": 36
+      },
+      "revId": "5c054250a0ba4b0a96ec7ec7a096f83fbe007e2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "459220cc_109b1de2",
+        "filename": "plat/imx/imx8m/imx_hab.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-30T09:48:43Z",
+      "side": 1,
+      "message": "(minor) You might want to use a more inclusive terminology, like \"Check memory acceptance list\".",
+      "range": {
+        "startLine": 42,
+        "startChar": 44,
+        "endLine": 42,
+        "endChar": 54
+      },
+      "revId": "5c054250a0ba4b0a96ec7ec7a096f83fbe007e2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e5bec13_c50b25c3",
+        "filename": "plat/imx/imx8m/imx_hab.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-30T09:48:43Z",
+      "side": 1,
+      "message": "typo: ordered",
+      "range": {
+        "startLine": 54,
+        "startChar": 17,
+        "endLine": 54,
+        "endChar": 23
+      },
+      "revId": "5c054250a0ba4b0a96ec7ec7a096f83fbe007e2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "657870cd_b4a273fb",
+        "filename": "plat/imx/imx8m/imx_hab.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-30T09:48:43Z",
+      "side": 1,
+      "message": "typo: description",
+      "range": {
+        "startLine": 56,
+        "startChar": 50,
+        "endLine": 56,
+        "endChar": 62
+      },
+      "revId": "5c054250a0ba4b0a96ec7ec7a096f83fbe007e2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5248b343_352233ac",
+        "filename": "plat/imx/imx8m/imx_hab.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-09-30T09:48:43Z",
+      "side": 1,
+      "message": "I am just curious... This last HAB function is currently not exposed via an SMC interface in imx_hab_handler(). Is that on purpose?",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 42
+      },
       "revId": "5c054250a0ba4b0a96ec7ec7a096f83fbe007e2d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
