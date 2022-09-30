@@ -45,4 +45,7 @@
 #define CPUPOR_EL3	S3_6_C15_C8_2
 #define CPUPMR_EL3	S3_6_C15_C8_3
 
+#ifndef __ASSEMBLER__
+void cortex_a55_core_pwr_dwn(void);
+#endif /* __ASSEMBLER__ */
 #endif /* CORTEX_A55_H */
