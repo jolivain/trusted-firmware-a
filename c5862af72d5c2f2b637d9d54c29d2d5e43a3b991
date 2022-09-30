@@ -139,6 +139,24 @@
       "message": "What is the next step for submitting this change?",
       "revId": "c5862af72d5c2f2b637d9d54c29d2d5e43a3b991",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3488c87d_2e7013ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-09-30T08:29:26Z",
+      "side": 1,
+      "message": "For any patch we need positive scores (+1) on Verified, Maintainer and Code-Owner labels.\n\nVerified is normally set by the CI system and that can be run on the patch/patchstack by setting the Allow-CI to +1. I\u0027ll set a run going and I have ensured you can do this yourself as people need adding to a gerrit access list to help protect the CI system. If its felt the CI system is in error we can override and manually set the Verified+1.\n\nCode-Owner is normally set by one of the project specialists in that code area.\n\nMaintainer is set by one of the general project maintainers.\n\nMaintainers and Code Owners are listed here: https://trustedfirmware-a.readthedocs.io/en/latest/about/maintainers.html#project-maintenance\n\nMultiple Code-Review setting is good to see as it means multiple eyes have looked at the patch.",
+      "parentUuid": "502ff035_075bf61e",
+      "revId": "c5862af72d5c2f2b637d9d54c29d2d5e43a3b991",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
