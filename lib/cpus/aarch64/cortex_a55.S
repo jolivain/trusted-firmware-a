@@ -18,6 +18,7 @@
 
 	.globl cortex_a55_reset_func
 	.globl cortex_a55_core_pwr_dwn
+	.globl cortex_a55_dbgprcr_pwr_dwn_wfi
 
 /* ERRATA_DSU_798953:
  * The errata is defined in dsu_helpers.S but applies to cortex_a55
@@ -127,6 +128,25 @@ func cortex_a55_core_pwr_dwn
 	isb
 	ret
 endfunc cortex_a55_core_pwr_dwn
+
+	/* ---------------------------------------------
+	 * Debug Power/Reset Control Register(DBGPRCR_EL1)
+	 * CORENPDRQ, bit[0]
+	 * Core no powerdown request. Requests emulation of powerdown.
+	 * Possible values of this bit are:
+	 *   0:  On a powerdown request, the system powers down the Core power domain
+	 *   1:  On a powerdown request, the system emulates powerdown of the Core power domain.
+	 * In this emulation mode the Core power domain is not actually powered down.
+	 * On Cold reset, the field resets to the value of EDPRCR.COREPURQ.
+	 * ---------------------------------------------
+	 */
+func cortex_a55_dbgprcr_pwr_dwn_wfi
+	msr	DBGPRCR_EL1, xzr
+	b	cortex_a55_core_pwr_dwn
+1:
+	wfi
+	b	1b
+endfunc cortex_a55_dbgprcr_pwr_dwn_wfi
 
 	/* ---------------------------------------------
 	 * This function provides cortex_a55 specific
