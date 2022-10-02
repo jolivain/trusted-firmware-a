@@ -22,6 +22,30 @@
       },
       "revId": "9819135e76ce89fdea989fc4ae104bbee88ba44f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eb55bc1_55b3336a",
+        "filename": "plat/imx/imx8m/imx8mm/imx8mm_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000216
+      },
+      "writtenOn": "2022-10-02T12:18:25Z",
+      "side": 1,
+      "message": "It is for SPL authenticate U-Boot in DRAM, and DRAM authenticate Linux in DRAM.",
+      "parentUuid": "5b296ef2_83544cbb",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 85
+      },
+      "revId": "9819135e76ce89fdea989fc4ae104bbee88ba44f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
