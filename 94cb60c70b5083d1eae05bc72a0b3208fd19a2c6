@@ -16,6 +16,24 @@
       "message": "Patch looks good to me. I was wondering if you list the style preferences here:\n\n\u003e spaces preferred over tabs for indentation\n\u003e Opening brace is not put on a separate line etc.",
       "revId": "94cb60c70b5083d1eae05bc72a0b3208fd19a2c6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa48e379_4b00bc3e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2022-10-03T10:52:30Z",
+      "side": 1,
+      "message": "I haven\u0027t; it\u0027s just based on what seems to be used elsewhere (`MEMORY` already uses the braces on the same line, and all of the files already use spaces 99% of the time). I\u0027m not sure whether it\u0027s worth the time explicitly defining a linker script code style considering how infrequently they\u0027re updated, and as well because I\u0027ve only updated the ones we maintain.",
+      "parentUuid": "e8eda862_345876cb",
+      "revId": "94cb60c70b5083d1eae05bc72a0b3208fd19a2c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
