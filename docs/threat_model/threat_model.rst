@@ -918,6 +918,48 @@ These are highlighted in the ``Mitigations implemented?`` box.
 | Mitigations            | | Yes / Platform specific                           |
 +------------------------+-----------------------------------------------------+
 
++------------------------+-----------------------------------------------------+
+| ID                     | 14                                                  |
++========================+=====================================================+
+| Threat                 | | **Security vulnerabilities in the Non-secure OS   |
+|                        |   can lead to secure world compromise if the option |
+|                        |   OPTEE_ALLOW_SMC_LOAD is enabled.**                |
+|                        |                                                     |
+|                        | | This option trusts the non-secure world up until  |
+|                        |   the point it issues the SMC call to load the      |
+|                        |   Secure BL32 payload. If a compromise occurs       |
+|                        |   before the SMC call is invoked, then arbitrary    |
+|                        |   code execution in SEL-1 can occur.                |
++------------------------+-----------------------------------------------------+
+| Diagram Elements       | DF5                                                 |
++------------------------+-----------------------------------------------------+
+| Affected TF-A          | BL31, BL32                                          |
+| Components             |                                                     |
++------------------------+-----------------------------------------------------+
+| Assets                 | Code Execution, Sensitive Data                      |
++------------------------+-----------------------------------------------------+
+| Threat Agent           | NSCode                                              |
++------------------------+-----------------------------------------------------+
+| Threat Type            | Tampering, Information Disclosure,                  |
+|                        | Elevation of privilege                              |
++------------------------+-------------------+----------------+----------------+
+| Application            | Server          | IoT             | Mobile          |
++------------------------+-----------------+-----------------+-----------------+
+| Impact                 | Critical (5)    | Critical (5)    | Critical (5)    |
++------------------------+-------------------+----------------+----------------+
+| Likelihood             | Low (2)         | Low (2)         | Low (2)         |
++------------------------+-------------------+----------------+----------------+
+| Total Risk Rating      | Medium (10)     | Medium (10)     | Medium (10)     |
++------------------------+-------------------+----------------+----------------+
+| Mitigations            | When enabling the option OPTEE_ALLOW_SMC_LOAD,      |
+|                        | the non-secure OS must be considered a close        |
+|                        | up until the point the SMC can be invoked to load   |
+|                        | OP-TEE.                                             |
++------------------------+-----------------------------------------------------+
+| Mitigations            | | Yes / platform specific.                          |
+| implemented?           |                                                     |
++------------------------+-----------------------------------------------------+
+
 --------------
 
 *Copyright (c) 2021-2022, Arm Limited. All rights reserved.*
