@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9caaaa0_5a713c4c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2022-10-03T10:03:09Z",
+      "side": 1,
+      "message": "Suggestion - feel free to skip my comment",
+      "revId": "9ecc9c0a29f8e85a85e33f07a1736e13118ef1ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d008d68c_b30de88d",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2022-10-03T10:03:09Z",
+      "side": 1,
+      "message": "Since the file is already modified, may I ask you to update this comment?\nsuggestion.1 : \"of the provided PSA APIs.\"\nsuggestion.2 : \"of PSA Measured Boot and Initial Attestation APIs.\"",
+      "range": {
+        "startLine": 397,
+        "startChar": 2,
+        "endLine": 397,
+        "endChar": 28
+      },
+      "revId": "9ecc9c0a29f8e85a85e33f07a1736e13118ef1ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
