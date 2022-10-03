@@ -9,8 +9,10 @@
 #ifndef TEESMC_OPTEED_H
 #define TEESMC_OPTEED_H
 
+#include "teesmc_opteed_macros.h"
+
 /*
- * This file specifies SMC function IDs used when returning from TEE to the
+ * This section specifies SMC function IDs used when returning from TEE to the
  * secure monitor.
  *
  * All SMC Function IDs indicates SMC32 Calling Convention but will carry
@@ -119,5 +121,40 @@
 #define TEESMC_OPTEED_FUNCID_RETURN_SYSTEM_RESET_DONE	8
 #define TEESMC_OPTEED_RETURN_SYSTEM_RESET_DONE \
 	TEESMC_OPTEED_RV(TEESMC_OPTEED_FUNCID_RETURN_SYSTEM_RESET_DONE)
+
+/*
+ * This section specifies SMC function IDs used when the secure monitor is
+ * invoked from the non-secure world.
+ */
+
+/*
+ * Load OP-TEE image from the payload specified in the registers.
+ *
+ * WARNING: Use this cautiously as it could lead to insecure loading of the
+ * Trusted OS. Further details are in opteed.mk.
+ *
+ * Call register usage:
+ * x0 SMC Function ID, OPTEE_SMC_CALL_LOAD_IMAGE
+ * x1 Upper 32bit of a 64bit size for the payload
+ * x2 Lower 32bit of a 64bit size for the payload
+ * x3 Upper 32bit of the physical address for the payload
+ * x4 Lower 32bit of the physical address for the payload
+ *
+ * The payload consists of a optee_image_info struct that contains
+ * optee_segment structs in a flex array, immediately following that in memory
+ * is the data referenced by the optee_segment structs.
+ * Example:
+ *
+ * struct optee_image_info (with n segments specified)
+ * segment 0 data
+ * segment 1 data
+ * ...
+ * segment n-1 data
+ *
+ * Returns 0 on success and an error code otherwise.
+ */
+#define NSSMC_OPTEED_FUNCID_LOAD_IMAGE 2
+#define NSSMC_OPTEED_CALL_LOAD_IMAGE \
+	NSSMC_OPTEED_CALL(NSSMC_OPTEED_FUNCID_LOAD_IMAGE)
 
 #endif /*TEESMC_OPTEED_H*/
