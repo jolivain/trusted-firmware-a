@@ -22,6 +22,30 @@
       },
       "revId": "8529c7694f8d614e76dcc80b394ec8a6751df44c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40019ea9_bfb5c852",
+        "filename": "plat/xilinx/versal_net/plat_psci.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2022-10-03T12:09:14Z",
+      "side": 1,
+      "message": "Actually there is no need to use this mask because api_id is already extracted with using FUNCID_NUM_MASK.\nI have sent fix here.\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/16977",
+      "parentUuid": "6500ccba_3642f8c8",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 29
+      },
+      "revId": "8529c7694f8d614e76dcc80b394ec8a6751df44c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
