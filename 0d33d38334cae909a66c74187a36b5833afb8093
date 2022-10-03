@@ -16,6 +16,24 @@
       "message": "I\u0027ve seen with this patch that the USB and UART compilations are not done. I\u0027ll add the corresponding tests in CI.",
       "revId": "0d33d38334cae909a66c74187a36b5833afb8093",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7473ea27_ee53e348",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-10-03T08:41:47Z",
+      "side": 1,
+      "message": "As part of tf-coverity, UART and USB compilations are already performed. \nBut yes, it would be great if tf-l1-build-plat included these compilations.",
+      "parentUuid": "11212cb9_64c39e63",
+      "revId": "0d33d38334cae909a66c74187a36b5833afb8093",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
