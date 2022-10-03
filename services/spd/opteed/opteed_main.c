@@ -24,12 +24,13 @@
 #include <common/debug.h>
 #include <common/runtime_svc.h>
 #include <lib/el3_runtime/context_mgmt.h>
+#include <lib/xlat_tables/xlat_tables_v2.h>
 #include <plat/common/platform.h>
 #include <tools_share/uuid.h>
 
+#include "nssmc_opteed.h"
 #include "opteed_private.h"
 #include "teesmc_opteed.h"
-#include "teesmc_opteed_macros.h"
 
 /*******************************************************************************
  * Address of the entrypoint vector table in OPTEE. It is
@@ -42,6 +43,7 @@ struct optee_vectors *optee_vector_table;
  ******************************************************************************/
 optee_context_t opteed_sp_context[OPTEED_CORE_COUNT];
 uint32_t opteed_rw;
+bool opteed_allow_load;
 
 static int32_t opteed_init(void);
 
@@ -93,6 +95,11 @@ static uint64_t opteed_sel1_interrupt_handler(uint32_t id,
  ******************************************************************************/
 static int32_t opteed_setup(void)
 {
+#if OPTEE_ALLOW_SMC_LOAD
+	opteed_allow_load = true;
+	INFO("Delaying OPTEE setup until we receive the SMC call to load it\n");
+	return 0;
+#else
 	entry_point_info_t *optee_ep_info;
 	uint32_t linear_id;
 	uint64_t opteed_pageable_part;
@@ -142,6 +149,7 @@ static int32_t opteed_setup(void)
 	bl31_register_bl32_init(&opteed_init);
 
 	return 0;
+#endif  // OPTEE_ALLOW_SMC_LOAD
 }
 
 /*******************************************************************************
@@ -153,18 +161,12 @@ static int32_t opteed_setup(void)
  * non-secure state. This function performs a synchronous entry into
  * OPTEE. OPTEE passes control back to this routine through a SMC.
  ******************************************************************************/
-static int32_t opteed_init(void)
+static int32_t opteed_init_with_entry_point(
+			entry_point_info_t *optee_entry_point)
 {
 	uint32_t linear_id = plat_my_core_pos();
 	optee_context_t *optee_ctx = &opteed_sp_context[linear_id];
-	entry_point_info_t *optee_entry_point;
 	uint64_t rc;
-
-	/*
-	 * Get information about the OPTEE (BL32) image. Its
-	 * absence is a critical failure.
-	 */
-	optee_entry_point = bl31_plat_get_next_image_ep_info(SECURE);
 	assert(optee_entry_point);
 
 	cm_init_my_context(optee_entry_point);
@@ -178,7 +180,127 @@ static int32_t opteed_init(void)
 
 	return rc;
 }
+static int32_t opteed_init(void)
+{
+	entry_point_info_t *optee_entry_point;
+	/*
+	 * Get information about the OPTEE (BL32) image. Its
+	 * absence is a critical failure.
+	 */
+	optee_entry_point = bl31_plat_get_next_image_ep_info(SECURE);
+	return opteed_init_with_entry_point(optee_entry_point);
+}
 
+#if OPTEE_ALLOW_SMC_LOAD
+/*******************************************************************************
+ * This function is responsible for handling the SMC that loads the OPTEE ELF
+ * file via a non-secure SMC call. It takes the size and physical address of the
+ * payload as parameters.
+ ******************************************************************************/
+static int32_t opteed_handle_smc_load_elf(uint64_t data_size, uint32_t data_pa)
+{
+	uintptr_t data_va = (uintptr_t) data_pa;
+	uint64_t mapped_data_pa;
+	uintptr_t mapped_data_va;
+	uint64_t data_map_size;
+	optee_image_info_t *image_info;
+	uint64_t image_info_size;
+	uint8_t *image_ptr;
+	uint64_t target_pa;
+	uint64_t target_end_pa;
+	uintptr_t target_va;
+	uint64_t target_size;
+	uint32_t image_data_offset = 0;
+	entry_point_info_t optee_ep_info;
+	uint64_t opteed_pageable_part = 0;
+	uint64_t opteed_mem_limit = 0;
+	uint64_t dt_addr;
+	uint32_t linear_id = plat_my_core_pos();
+
+	mapped_data_pa = page_align(data_pa, DOWN);
+	mapped_data_va = (uintptr_t) mapped_data_pa;
+	data_map_size = page_align(data_size + (mapped_data_pa - data_pa), UP);
+
+	int32_t rc = mmap_add_dynamic_region(mapped_data_pa, mapped_data_va,
+			data_map_size, MT_MEMORY | MT_RO | MT_NS);
+	if (rc)
+		return rc;
+
+	image_info = (optee_image_info_t *) data_va;
+	image_info_size = image_info->image_info_size;
+	image_ptr = (uint8_t *)data_va + image_info_size;
+
+	if (image_info->magic != MAGIC_OPTEE_SMC_IMAGE) {
+		mmap_remove_dynamic_region(mapped_data_va, data_map_size);
+		return -EINVAL;
+	}
+
+	dt_addr = image_info->entry_point;
+	opteed_rw = image_info->arch;
+
+	// Determine the min and max addresses we need to write to.
+	target_pa = target_end_pa = dt_addr;
+	for (int i = 0; i < image_info->num_segments; ++i) {
+		target_pa = MIN(target_pa, image_info->segments[i].segment_pa);
+		target_end_pa = MAX(target_end_pa,
+				    image_info->segments[i].segment_pa +
+				    image_info->segments[i].segment_mem_size);
+	}
+
+	// Now also map the memory we want to copy it to.
+	target_pa = page_align(target_pa, DOWN);
+	target_va = (uintptr_t) target_pa;
+	target_size = page_align(target_end_pa, UP) - target_pa;
+
+	rc = mmap_add_dynamic_region(target_pa, target_va, target_size,
+			MT_MEMORY | MT_RW | MT_SECURE);
+	if (rc) {
+		mmap_remove_dynamic_region(mapped_data_va, data_map_size);
+		return rc;
+	}
+
+	INFO("Loaded OPTEE via SMC of size %ld at addr 0x%lx\n",
+				target_size, target_pa);
+
+	for (int i = 0; i < image_info->num_segments; ++i) {
+		uint64_t segment_pa = image_info->segments[i].segment_pa;
+		uint64_t segment_data_size =
+				image_info->segments[i].segment_data_size;
+		uint64_t segment_mem_size =
+				image_info->segments[i].segment_mem_size;
+		memcpy((void *)segment_pa, image_ptr + image_data_offset,
+				segment_data_size);
+		image_data_offset += segment_data_size;
+		if (segment_mem_size > segment_data_size) {
+			memset((void *)(segment_pa + segment_data_size), 0,
+					segment_mem_size - segment_data_size);
+		}
+	}
+
+	flush_dcache_range(target_pa, target_size);
+
+	mmap_remove_dynamic_region(mapped_data_va, data_map_size);
+	mmap_remove_dynamic_region(target_va, target_size);
+
+	/* Save the non-secure state */
+	cm_el1_sysregs_context_save(NON_SECURE);
+
+	opteed_init_optee_ep_state(&optee_ep_info,
+			opteed_rw,
+			dt_addr,
+			opteed_pageable_part,
+			opteed_mem_limit,
+			dt_addr,
+			&opteed_sp_context[linear_id]);
+	opteed_init_with_entry_point(&optee_ep_info);
+
+	/* Restore non-secure state */
+	cm_el1_sysregs_context_restore(NON_SECURE);
+	cm_set_next_eret_context(NON_SECURE);
+
+	return 0;
+}
+#endif  // OPTEE_ALLOW_SMC_LOAD
 
 /*******************************************************************************
  * This function is responsible for handling all SMCs in the Trusted OS/App
@@ -207,6 +329,32 @@ static uintptr_t opteed_smc_handler(uint32_t smc_fid,
 	 */
 
 	if (is_caller_non_secure(flags)) {
+#if OPTEE_ALLOW_SMC_LOAD
+		if (smc_fid == NSSMC_OPTEED_CALL_LOAD_ELF) {
+			if (!opteed_allow_load) {
+				SMC_RET1(handle, -EPERM);
+			}
+
+			opteed_allow_load = false;
+			uint64_t data_size =
+					(((uint64_t)x1 & UINT32_MAX) << 32) |
+					(x2 & UINT32_MAX);
+			uint64_t data_pa =
+					(((uint64_t)x3 & UINT32_MAX) << 32) |
+					(x4 & UINT32_MAX);
+			if (!data_size || !data_pa) {
+				/*
+				 * This is invoked when the OpTee image didn't
+				 * load correctly in the kernel but we want to
+				 * block off loading of it later for security
+				 * reasons.
+				 */
+				SMC_RET1(handle, -EINVAL);
+			}
+			SMC_RET1(handle, opteed_handle_smc_load_elf(
+					data_size, data_pa));
+		}
+#endif  // OPTEE_ALLOW_SMC_LOAD
 		/*
 		 * This is a fresh request from the non-secure client.
 		 * The parameters are in x1 and x2. Figure out which
@@ -219,8 +367,13 @@ static uintptr_t opteed_smc_handler(uint32_t smc_fid,
 
 		/*
 		 * We are done stashing the non-secure context. Ask the
-		 * OPTEE to do the work now.
+		 * OPTEE to do the work now. If we are loading vi an SMC,
+		 * then we also need to init this CPU context if not done
+		 * already.
 		 */
+
+		if (get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_UNKNOWN)
+			opteed_cpu_on_finish_handler(0);
 
 		/*
 		 * Verify if there is a valid context to use, copy the
