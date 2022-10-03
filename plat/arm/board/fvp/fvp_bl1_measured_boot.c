@@ -31,18 +31,21 @@ struct rss_mboot_metadata fvp_rss_mboot_metadata[] = {
 		.slot = U(6),
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = RSS_MBOOT_FW_CONFIG_STRING,
+		.sw_type_size = sizeof(RSS_MBOOT_FW_CONFIG_STRING),
 		.lock_measurement = true },
 	{
 		.id = TB_FW_CONFIG_ID,
 		.slot = U(7),
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = RSS_MBOOT_TB_FW_CONFIG_STRING,
+		.sw_type_size = sizeof(RSS_MBOOT_TB_FW_CONFIG_STRING),
 		.lock_measurement = true },
 	{
 		.id = BL2_IMAGE_ID,
 		.slot = U(8),
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = RSS_MBOOT_BL2_STRING,
+		.sw_type_size = sizeof(RSS_MBOOT_BL2_STRING),
 		.lock_measurement = true },
 
 	{
