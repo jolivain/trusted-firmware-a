@@ -11,6 +11,7 @@
 #include <common/bl_common.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/utils.h>
+#include <plat/common/platform.h>
 
 #include "opteed_private.h"
 

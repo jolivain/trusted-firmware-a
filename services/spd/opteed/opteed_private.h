@@ -18,9 +18,10 @@
  * OPTEE PM state information e.g. OPTEE is suspended, uninitialised etc
  * and macros to access the state information in the per-cpu 'state' flags
  ******************************************************************************/
-#define OPTEE_PSTATE_OFF		0
-#define OPTEE_PSTATE_ON			1
-#define OPTEE_PSTATE_SUSPEND		2
+#define OPTEE_PSTATE_OFF			1
+#define OPTEE_PSTATE_ON				2
+#define OPTEE_PSTATE_SUSPEND	3
+#define OPTEE_PSTATE_UNKNOWN	0
 #define OPTEE_PSTATE_SHIFT		0
 #define OPTEE_PSTATE_MASK		0x3
 #define get_optee_pstate(state)	((state >> OPTEE_PSTATE_SHIFT) & \
@@ -135,6 +136,48 @@ typedef struct optee_context {
 extern const spd_pm_ops_t opteed_pm;
 
 /*******************************************************************************
+ * Structures used for loading the OPTEE image via an SMC. The SMC call will
+ * send a PA pointing to the optee_image_info struct and image data. The image
+ * segments will be copied to the entry point at the specified offsets. Any gaps
+ * in the range will be filled with zeros.
+ * struct optee_image_info
+ * 'magic'          - contains the magic identifier bytes MAGIC_OPTEE_SMC_IMAGE
+ * 'version'        - version of the data, only 0 is currently supported
+ * 'arch'           - machine architecture, corresponds to a OPTEE_AARCH* value
+ * 'num_segments'   - number of optee_segment_t items in the segments flex array
+ * 'image_info_size'- total size of the optee_image_info structure
+ * 'entry_point'    - entry point for execution of OPTEE
+ * 'segments'       - array of all the segments which make up the OPTEED image
+ *
+ * struct optee_segment
+ * 'segment_pa'        - physical address to load this segment to
+ * 'segment_data_size' - size in bytes of this segment to be copied
+ * 'segment_mem_size'  - size in bytes of the segment in memory, anything beyond
+ *                       segment_data_size should be zero'd out
+ *
+ * The PA received in the SMC will point to memory that is laid out as follows:
+ * struct optee_image_info (with optee_segment flex array)
+ * segment 1
+ * segment 2
+ * ...
+ ******************************************************************************/
+#define MAGIC_OPTEE_SMC_IMAGE 0x4F505445
+typedef struct optee_segment {
+	uint64_t segment_pa;
+	uint64_t segment_data_size;
+	uint64_t segment_mem_size;
+} optee_segment_t;
+typedef struct optee_image_info {
+	uint32_t magic;
+	uint8_t version;
+	uint8_t arch;
+	uint16_t num_segments;
+	uint64_t image_info_size;
+	uint64_t entry_point;
+	optee_segment_t segments[];
+} optee_image_info_t;
+
+/*******************************************************************************
  * Forward declarations
  ******************************************************************************/
 struct optee_vectors;
@@ -153,6 +196,7 @@ void opteed_init_optee_ep_state(struct entry_point_info *optee_entry_point,
 				uint64_t mem_limit,
 				uint64_t dt_addr,
 				optee_context_t *optee_ctx);
+void opteed_cpu_on_finish_handler(u_register_t unused);
 
 extern optee_context_t opteed_sp_context[OPTEED_CORE_COUNT];
 extern uint32_t opteed_rw;

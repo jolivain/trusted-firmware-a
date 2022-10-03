@@ -9,6 +9,8 @@
 #ifndef TEESMC_OPTEED_H
 #define TEESMC_OPTEED_H
 
+#include "teesmc_opteed_macros.h"
+
 /*
  * This file specifies SMC function IDs used when returning from TEE to the
  * secure monitor.
