@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e13d5f13_63ea81ca",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1000621
+      },
+      "writtenOn": "2022-10-03T13:45:01Z",
+      "side": 1,
+      "message": "drtm_get_error(handle);\n\nIf I understand correctly, the parameter to drtm_get_error() is a context handle rather than a pointer to x1.",
+      "range": {
+        "startLine": 516,
+        "startChar": 17,
+        "endLine": 516,
+        "endChar": 20
+      },
+      "revId": "8ed64055a8e7ac5d10159bad4f94330423d3322f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
