@@ -32,6 +32,9 @@ static int32_t opteed_cpu_off_handler(u_register_t unused)
 	uint32_t linear_id = plat_my_core_pos();
 	optee_context_t *optee_ctx = &opteed_sp_context[linear_id];
 
+	if (get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_UNKNOWN)
+		return 0;
+
 	assert(optee_vector_table);
 	assert(get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_ON);
 
@@ -65,6 +68,9 @@ static void opteed_cpu_suspend_handler(u_register_t max_off_pwrlvl)
 	uint32_t linear_id = plat_my_core_pos();
 	optee_context_t *optee_ctx = &opteed_sp_context[linear_id];
 
+	if (get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_UNKNOWN)
+		return;
+
 	assert(optee_vector_table);
 	assert(get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_ON);
 
@@ -92,7 +98,7 @@ static void opteed_cpu_suspend_handler(u_register_t max_off_pwrlvl)
  * after initialising minimal architectural state that guarantees safe
  * execution.
  ******************************************************************************/
-static void opteed_cpu_on_finish_handler(u_register_t unused)
+void opteed_cpu_on_finish_handler(u_register_t unused)
 {
 	int32_t rc = 0;
 	uint32_t linear_id = plat_my_core_pos();
@@ -100,7 +106,8 @@ static void opteed_cpu_on_finish_handler(u_register_t unused)
 	entry_point_info_t optee_on_entrypoint;
 
 	assert(optee_vector_table);
-	assert(get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_OFF);
+	assert(get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_OFF ||
+	       get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_UNKNOWN);
 
 	opteed_init_optee_ep_state(&optee_on_entrypoint, opteed_rw,
 				(uint64_t)&optee_vector_table->cpu_on_entry,
@@ -133,6 +140,9 @@ static void opteed_cpu_suspend_finish_handler(u_register_t max_off_pwrlvl)
 	int32_t rc = 0;
 	uint32_t linear_id = plat_my_core_pos();
 	optee_context_t *optee_ctx = &opteed_sp_context[linear_id];
+
+	if (get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_UNKNOWN)
+		return;
 
 	assert(optee_vector_table);
 	assert(get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_SUSPEND);
@@ -173,6 +183,13 @@ static void opteed_system_off(void)
 	uint32_t linear_id = plat_my_core_pos();
 	optee_context_t *optee_ctx = &opteed_sp_context[linear_id];
 
+	/*
+	 * OP-TEE must have been initialized in order to reach this location so
+	 * it is safe to init the CPU context if not already done for this core.
+	 */
+	if (get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_UNKNOWN)
+		opteed_cpu_on_finish_handler(0);
+
 	assert(optee_vector_table);
 	assert(get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_ON);
 
@@ -192,6 +209,13 @@ static void opteed_system_reset(void)
 {
 	uint32_t linear_id = plat_my_core_pos();
 	optee_context_t *optee_ctx = &opteed_sp_context[linear_id];
+
+	/*
+	 * OP-TEE must have been initialized in order to reach this location so
+	 * it is safe to init the CPU context if not already done for this core.
+	 */
+	if (get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_UNKNOWN)
+		opteed_cpu_on_finish_handler(0);
 
 	assert(optee_vector_table);
 	assert(get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_ON);
