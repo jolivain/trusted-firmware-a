@@ -81,6 +81,7 @@ endif
 ifeq (${TARGET_PLATFORM}, 2)
 TC_CPU_SOURCES	+=	lib/cpus/aarch64/cortex_hayes.S \
 			lib/cpus/aarch64/cortex_hunter.S
+			lib/cpus/aarch64/cortex_hunter_elp_arm.S
 endif
 
 INTERCONNECT_SOURCES	:=	${TC_BASE}/tc_interconnect.c
