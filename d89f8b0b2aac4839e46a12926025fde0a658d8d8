@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6954a473_85eb40e5",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 23
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-10-03T16:31:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc234118_360f1f51",
+      "range": {
+        "startLine": 820,
+        "startChar": 6,
+        "endLine": 820,
+        "endChar": 35
+      },
+      "revId": "d89f8b0b2aac4839e46a12926025fde0a658d8d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2714bf23_de8cfb7b",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "\u003e The name of the API and this description may be misleading.  They read as if it should return the total size of the regions being protected, whereas I presume it is the size of the region descriptors array that should be returned instead.\n\nDo you have any suggestion for renaming this API, like  plat_drtm_get_dma_protected_region_descs_size (?)\n\n\u003e I cannot find a site where this API is being called.  Is it meant to be called when calculating the DLME data space requirement for the Protected Regions table, or when advertising region-based memory protection via DRTM_FEATURES?\n\nThe current implementation does not call this function. This is just a dummy function for completeness and will be refactored when protected regions are supported in later patches.",
       "parentUuid": "2714bf23_de8cfb7b",
+      "range": {
+        "startLine": 885,
+        "startChar": 0,
+        "endLine": 894,
+        "endChar": 0
+      },
+      "revId": "d89f8b0b2aac4839e46a12926025fde0a658d8d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eeab748d_c9594909",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 23
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-10-03T16:31:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aeec444a_b7e7f7c1",
       "range": {
         "startLine": 885,
         "startChar": 0,
