@@ -22,6 +22,30 @@
       },
       "revId": "30ed78c91ba44da7d9b4c8fc7ef9de6b1c2a0d99",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30ba4627_454f9526",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 29
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1000621
+      },
+      "writtenOn": "2022-10-04T15:28:07Z",
+      "side": 1,
+      "message": "Nit: the error handling here is lacking a console message stating the error condition.  Throughout the DRTM service, every path returning an error to the caller has a console message briefly stating the error condition, so that the source code can be determined without any further debugging.",
+      "parentUuid": "802eabd1_76d82264",
+      "range": {
+        "startLine": 618,
+        "startChar": 2,
+        "endLine": 618,
+        "endChar": 27
+      },
+      "revId": "30ed78c91ba44da7d9b4c8fc7ef9de6b1c2a0d99",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
