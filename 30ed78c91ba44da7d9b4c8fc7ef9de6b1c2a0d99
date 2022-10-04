@@ -46,6 +46,30 @@
       },
       "revId": "30ed78c91ba44da7d9b4c8fc7ef9de6b1c2a0d99",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c074a1d2_4fb47952",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 29
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-10-04T15:45:31Z",
+      "side": 1,
+      "message": "Moved the check before dma protection enabled.\n\nAgree on printing error conditions, which needs to be done everywhere. However We are returning error types to get some idea.",
+      "parentUuid": "30ba4627_454f9526",
+      "range": {
+        "startLine": 618,
+        "startChar": 2,
+        "endLine": 618,
+        "endChar": 27
+      },
+      "revId": "30ed78c91ba44da7d9b4c8fc7ef9de6b1c2a0d99",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
