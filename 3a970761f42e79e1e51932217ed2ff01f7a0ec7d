@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88a4fcd5_dfdfee07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-04T12:34:06Z",
+      "side": 1,
+      "message": "Sorry, these build issues would have been caught by the CI if I had moved forward with the following 2 patches:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/16480\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/16477\n\nI\u0027ll make sure these are merged soon, then we can rebase the present patch on top of them so we can be sure it actually fixes all builds issues this time...",
+      "revId": "3a970761f42e79e1e51932217ed2ff01f7a0ec7d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
