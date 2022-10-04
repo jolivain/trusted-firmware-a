@@ -43,7 +43,8 @@ static void log_measurement(uint8_t index,
 			    const uint8_t *sw_type,     /* string */
 			    const uint8_t *measurement_value,
 			    size_t measurement_value_size,
-			    bool lock_measurement)
+			    bool lock_measurement,
+			    const char *tfa_version)
 {
 	INFO("Measured boot extend measurement:\n");
 	INFO(" - slot        : %u\n", index);
@@ -55,6 +56,7 @@ static void log_measurement(uint8_t index,
 	INFO(" - measurement :");
 	print_byte_array(measurement_value, measurement_value_size);
 	INFO(" - locking     : %s\n", lock_measurement ? "true" : "false");
+	INFO(" - tf-a version: %s\n", tfa_version);
 }
 
 #if !PLAT_RSS_NOT_SUPPORTED
@@ -69,7 +71,8 @@ rss_measured_boot_extend_measurement(uint8_t index,
 				     size_t sw_type_size,
 				     const uint8_t *measurement_value,
 				     size_t measurement_value_size,
-				     bool lock_measurement)
+				     bool lock_measurement,
+				     const char *tfa_version)
 {
 	struct measured_boot_extend_iovec_t extend_iov = {
 		.index = index,
@@ -98,7 +101,7 @@ rss_measured_boot_extend_measurement(uint8_t index,
 	log_measurement(index, signer_id, signer_id_size,
 			version, measurement_algo, sw_type,
 			measurement_value, measurement_value_size,
-			lock_measurement);
+			lock_measurement, tfa_version);
 
 	return psa_call(RSS_MEASURED_BOOT_HANDLE,
 			RSS_MEASURED_BOOT_EXTEND,
@@ -119,12 +122,13 @@ rss_measured_boot_extend_measurement(uint8_t index,
 				     size_t sw_type_size,
 				     const uint8_t *measurement_value,
 				     size_t measurement_value_size,
-				     bool lock_measurement)
+				     bool lock_measurement,
+				     const char *tfa_version)
 {
 	log_measurement(index, signer_id, signer_id_size,
 			version, measurement_algo, sw_type,
 			measurement_value, measurement_value_size,
-			lock_measurement);
+			lock_measurement, tfa_version);
 
 	return PSA_SUCCESS;
 }

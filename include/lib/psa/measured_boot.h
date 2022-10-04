@@ -44,6 +44,7 @@
  * measurement_value_size	Size of the measurement_value buffer in bytes.
  * lock_measurement		Boolean flag requesting whether the measurement
  *				is to be locked.
+ * tfa_version			Pointer to the TF-A version.
  *
  * PSA_SUCCESS:
  *	- Success.
@@ -72,6 +73,7 @@ rss_measured_boot_extend_measurement(uint8_t index,
 				     size_t sw_type_size,
 				     const uint8_t *measurement_value,
 				     size_t measurement_value_size,
-				     bool lock_measurement);
+				     bool lock_measurement,
+				     const char *tfa_version);
 
 #endif /* PSA_MEASURED_BOOT_H */

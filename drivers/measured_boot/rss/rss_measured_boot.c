@@ -7,6 +7,7 @@
 #include <stdint.h>
 #include <string.h>
 
+#include <common/bl_common.h>
 #include <common/debug.h>
 #include <drivers/auth/crypto_mod.h>
 #include <drivers/measured_boot/rss/rss_measured_boot.h>
@@ -54,6 +55,7 @@ int rss_mboot_measure_and_record(uintptr_t data_base, uint32_t data_size,
 	int rc;
 	psa_status_t ret;
 	const struct rss_mboot_metadata *metadata_ptr = plat_metadata_ptr;
+	const char *tfa_version = get_version();
 
 	/* Get the metadata associated with this image. */
 	while ((metadata_ptr->id != RSS_MBOOT_INVALID_ID) &&
@@ -84,7 +86,8 @@ int rss_mboot_measure_and_record(uintptr_t data_base, uint32_t data_size,
 						metadata_ptr->sw_type_size,
 						hash_data,
 						MBOOT_DIGEST_SIZE,
-						metadata_ptr->lock_measurement);
+						metadata_ptr->lock_measurement,
+						tfa_version);
 	if (ret != PSA_SUCCESS) {
 		return ret;
 	}
