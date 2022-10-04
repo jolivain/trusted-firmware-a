@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4dd8a9c_2b2c6a02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-10-04T08:43:19Z",
+      "side": 1,
+      "message": "\u0027Versal-net\u0027 platform build failure has been fixed [1], and static-check failed due to code coverage being covered [2].\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/16977\n[2]: https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/15703",
+      "revId": "ec6eb350179438b2166e5f2c70aa8a897dbb712d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
