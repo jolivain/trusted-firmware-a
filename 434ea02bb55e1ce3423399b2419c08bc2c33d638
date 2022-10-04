@@ -45,6 +45,121 @@
       },
       "revId": "434ea02bb55e1ce3423399b2419c08bc2c33d638",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43181ff3_2d814f8c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-10-04T17:45:10Z",
+      "side": 1,
+      "message": "nit: restrict to the max chars per line to avoid this newline.",
+      "range": {
+        "startLine": 10,
+        "startChar": 72,
+        "endLine": 11,
+        "endChar": 3
+      },
+      "revId": "434ea02bb55e1ce3423399b2419c08bc2c33d638",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21a5245b_80d1077e",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-10-04T17:45:10Z",
+      "side": 1,
+      "message": "nit: remove \"only\"",
+      "range": {
+        "startLine": 277,
+        "startChar": 34,
+        "endLine": 277,
+        "endChar": 38
+      },
+      "revId": "434ea02bb55e1ce3423399b2419c08bc2c33d638",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a05f1c79_f7a7a1fe",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-10-04T17:45:10Z",
+      "side": 1,
+      "message": "revisions",
+      "range": {
+        "startLine": 277,
+        "startChar": 50,
+        "endLine": 277,
+        "endChar": 51
+      },
+      "revId": "434ea02bb55e1ce3423399b2419c08bc2c33d638",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e8c1131_2c62c1b2",
+        "filename": "lib/cpus/aarch64/cortex_a77.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-10-04T17:45:10Z",
+      "side": 1,
+      "message": "Move up in ascending order of the erratum number.",
+      "range": {
+        "startLine": 357,
+        "startChar": 1,
+        "endLine": 357,
+        "endChar": 54
+      },
+      "revId": "434ea02bb55e1ce3423399b2419c08bc2c33d638",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61fa46af_0e4e3e0f",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-10-04T17:45:10Z",
+      "side": 1,
+      "message": "revisions",
+      "range": {
+        "startLine": 311,
+        "startChar": 17,
+        "endLine": 311,
+        "endChar": 18
+      },
+      "revId": "434ea02bb55e1ce3423399b2419c08bc2c33d638",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
