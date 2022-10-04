@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0792e6ab_0583b88a",
+        "filename": "plat/mediatek/drivers/cpu_pm/cpcv3_2/mt_cpu_pm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-10-04T01:58:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7f68763_cc9b5654",
+      "range": {
+        "startLine": 40,
+        "startChar": 47,
+        "endLine": 43,
+        "endChar": 53
+      },
+      "revId": "33522370953c7b10f72094b386385d15aae8b0e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67f94114_f023fa15",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-03T12:35:16Z",
       "side": 1,
       "message": "suggest to remove this snippet if the corresponding code isn\u0027t published in TF-A codebase",
+      "range": {
+        "startLine": 105,
+        "startChar": 1,
+        "endLine": 106,
+        "endChar": 34
+      },
+      "revId": "33522370953c7b10f72094b386385d15aae8b0e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3f9e34d_f5c4a501",
+        "filename": "plat/mediatek/drivers/cpu_pm/cpcv3_2/mt_cpu_pm_cpc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-10-04T01:58:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67f94114_f023fa15",
       "range": {
         "startLine": 105,
         "startChar": 1,
@@ -64,6 +112,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7a0961e_c1de2df3",
+        "filename": "plat/mediatek/drivers/cpu_pm/cpcv3_2/mt_cpu_pm_cpc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-10-04T01:58:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f0f7f17_87a9063b",
+      "revId": "33522370953c7b10f72094b386385d15aae8b0e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54d82835_92704970",
@@ -77,6 +143,30 @@
       "writtenOn": "2022-10-03T12:35:16Z",
       "side": 1,
       "message": "nit:\n return -ENXIO",
+      "range": {
+        "startLine": 85,
+        "startChar": 3,
+        "endLine": 85,
+        "endChar": 16
+      },
+      "revId": "33522370953c7b10f72094b386385d15aae8b0e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e872b464_cfe77ef5",
+        "filename": "plat/mediatek/drivers/cpu_pm/cpcv3_2/mt_cpu_pm_mbox.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-10-04T01:58:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54d82835_92704970",
       "range": {
         "startLine": 85,
         "startChar": 3,
@@ -110,6 +200,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b574862_e5a8a790",
+        "filename": "plat/mediatek/drivers/cpu_pm/cpcv3_2/mt_cpu_pm_mbox.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-10-04T01:58:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e602b94_f9409b5d",
+      "range": {
+        "startLine": 93,
+        "startChar": 3,
+        "endLine": 93,
+        "endChar": 16
+      },
+      "revId": "33522370953c7b10f72094b386385d15aae8b0e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffe39859_c954af75",
@@ -133,6 +247,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebec1f81_b6c9590b",
+        "filename": "plat/mediatek/drivers/cpu_pm/cpcv3_2/mt_cpu_pm_mbox.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-10-04T01:58:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffe39859_c954af75",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 6
+      },
+      "revId": "33522370953c7b10f72094b386385d15aae8b0e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7f0972a_337a49fd",
@@ -146,6 +284,30 @@
       "writtenOn": "2022-10-03T12:35:16Z",
       "side": 1,
       "message": "nit:\n #endif /* MT_SMP_H */",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 6
+      },
+      "revId": "33522370953c7b10f72094b386385d15aae8b0e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa9ce8f2_4c348afe",
+        "filename": "plat/mediatek/drivers/cpu_pm/cpcv3_2/mt_smp.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-10-04T01:58:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7f0972a_337a49fd",
       "range": {
         "startLine": 27,
         "startChar": 0,
