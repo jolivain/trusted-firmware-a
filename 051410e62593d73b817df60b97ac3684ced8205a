@@ -33,6 +33,23 @@
       "message": "Can someone please review this change? Thanks in advance.",
       "revId": "051410e62593d73b817df60b97ac3684ced8205a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5859dad5_c8c83543",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000888
+      },
+      "writtenOn": "2022-10-04T05:53:59Z",
+      "side": 1,
+      "message": "It seems like `stm32mp1-usb` is a recently enabled test which is failing due to a change unrelated to this patchset.",
+      "revId": "051410e62593d73b817df60b97ac3684ced8205a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
