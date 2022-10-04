@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b03acd7b_51f7fc39",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-10-04T13:11:07Z",
+      "side": 1,
+      "message": "Patch looks good to me. Just curious why this inverted version was chosen over PLAT_RSS_SUPPORTED.",
+      "range": {
+        "startLine": 398,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 22
+      },
+      "revId": "29e6fc5cc7d0c8bc4ba615fd97df4cb65d3c7ba3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
