@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7316b893_d7c61093",
+        "filename": "drivers/arm/rss/rss_comms.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2022-10-04T10:19:40Z",
+      "side": 1,
+      "message": "In order to support usecases in future where we might be sending sensitive data to the RSS, it might be better to clear the whole io_buf, in case the message data is retained.",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 2
+      },
+      "revId": "cc0e9df3c160d1b2e444ee0d812f770bf1562fb0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
