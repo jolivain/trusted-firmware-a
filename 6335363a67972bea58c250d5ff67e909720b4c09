@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e87ab538_2bb967d6",
+        "filename": "drivers/arm/rss/rss_comms_protocol_embed.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-04T12:47:31Z",
+      "side": 0,
+      "message": "If RSS_COMMS_PAYLOAD_MAX_SIZE macro definition is meant to be provided by platforms, then it would be more customary to prefix it with PLAT_ (like it was done in patch set #3):\n\n PLAT_RSS_COMMS_PAYLOAD_MAX_SIZE",
+      "range": {
+        "startLine": 24,
+        "startChar": 8,
+        "endLine": 24,
+        "endChar": 34
+      },
+      "revId": "6335363a67972bea58c250d5ff67e909720b4c09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
