@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "802eabd1_76d82264",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 29
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1000621
+      },
+      "writtenOn": "2022-10-04T15:07:04Z",
+      "side": 1,
+      "message": "We cannot return here without jumping to err_undo_dma_prot, as per the comment above about DMA protection being engaged.\n\nThere is no reason to delay this check until this point in the procedure.  At this point, if the check fails then we are entering remediation, as that\u0027s what jumping to err_undo_dma_prot currently does.  A better place for this check is after calling drtm_dl_check_cores().",
+      "range": {
+        "startLine": 618,
+        "startChar": 2,
+        "endLine": 618,
+        "endChar": 27
+      },
+      "revId": "30ed78c91ba44da7d9b4c8fc7ef9de6b1c2a0d99",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
