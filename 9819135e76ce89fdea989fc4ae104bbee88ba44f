@@ -46,6 +46,30 @@
       },
       "revId": "9819135e76ce89fdea989fc4ae104bbee88ba44f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7e7a3ff_aa78f592",
+        "filename": "plat/imx/imx8m/imx8mm/imx8mm_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-04T09:25:36Z",
+      "side": 1,
+      "message": "OK I understand.\n\nThat being said, mapping the entire DRAM in BL31 for the lifetime of the system is not ideal from a security point of view... Have you considered making this a temporary mapping instead?\n\nThe translation table library in TF-A supports the concept of \"dynamic\" mapping [1], which need not be declared statically as above. You could potentially leave the DRAM initially ummapped in BL31; then when you receive the authentication request in BL31 you map the required region of DRAM to access U-boot/Linux (so presumably you don\u0027t even need to map the entire DRAM here, but just the region holding the payload to authenticate), authenticate, then unmap. Would that work for your use case? This does not come for free, though, there will be a performance impact. So this is a security/performance trade-off.\n\nBTW, why does the DRAM need to be mapped as read-write here? Why not read-only? AFAIU, authenticating an image only requires read access, but is there something I am missing? \n\n[1] Build option PLAT_XLAT_TABLES_DYNAMIC,\nhttps://trustedfirmware-a.readthedocs.io/en/latest/components/xlat-tables-lib-v2-design.html#static-and-dynamic-memory-regions",
+      "parentUuid": "5eb55bc1_55b3336a",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 85
+      },
+      "revId": "9819135e76ce89fdea989fc4ae104bbee88ba44f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
