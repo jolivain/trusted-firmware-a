@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c270b190_26650350",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-04T08:29:24Z",
+      "side": 1,
+      "message": "for this change and foll. changes, limit commit title to 50 chars",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 78
+      },
+      "revId": "d5d630b8b9478067997af5ea8cb8ebf4d5c55a09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dd08bbb4_71ab3511",
         "filename": "plat/mediatek/mt8192/drivers/spm/build.mk",
         "patchSetId": 1
