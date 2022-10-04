@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af77ae06_df6be65d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-04T12:42:02Z",
+      "side": 1,
+      "message": "The static checks in the CI report an issue in file lib/cpus/aarch64/neoverse_v2.S, which clearly is unrelated to this patch. I am not sure why it\u0027s flagging it in this patch... Anyway, this can be safely ignored so I am overriding the Verified score.",
+      "revId": "ef9f442172c6ff1e6509d10c49acd4f8cce17bc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
