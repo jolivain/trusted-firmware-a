@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d48e13e5_9dd2c49d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-10-05T08:23:09Z",
+      "side": 1,
+      "message": "The missing edk2.bin in one of the CI failures is a known CI issue that has crept in over the last day or so. https://ci.trustedfirmware.org/job/tf-a-builder/1300993/console\n\nThe stm32mp1-usb platform build issue also looks unrelated to this patch https://ci.trustedfirmware.org/job/tf-a-builder/1300889/console\n\nManually setting verified+1",
+      "revId": "b139f1cf975f9968eb8bd1182a173b976ecf06f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
