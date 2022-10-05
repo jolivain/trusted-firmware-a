@@ -16,6 +16,24 @@
       "message": "It could be that I am missing something here - but would it be possible to express\nthis constant in terms of some \"sizeof\"? Otherwise I suppose we might run into problems\nwhen the message sizes increase and we forget to update this macro.",
       "revId": "6335363a67972bea58c250d5ff67e909720b4c09",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aef63cf1_4073edcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2022-10-05T11:44:15Z",
+      "side": 1,
+      "message": "Unfortunately, I cannot come up with a better solution. If the message size exceeds this limit, the call returns with an error. Then we can increase it.",
+      "parentUuid": "988733d5_9f5fb618",
+      "revId": "6335363a67972bea58c250d5ff67e909720b4c09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
