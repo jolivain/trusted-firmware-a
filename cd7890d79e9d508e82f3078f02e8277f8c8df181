@@ -52,6 +52,24 @@
       "parentUuid": "218ddc6c_bdecaf8b",
       "revId": "cd7890d79e9d508e82f3078f02e8277f8c8df181",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e79ba25_1df2f525",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-10-05T09:56:11Z",
+      "side": 1,
+      "message": "I am not sure why, but I think mt8188 is included?\nhttps://git.trustedfirmware.org/ci/tf-a-ci-scripts.git/tree/script/tf-coverity/tf-cov-make#n333\n\nmake PLAT\u003dmt8188 $(common_flags) COREBOOT\u003d1 all\n\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/16449",
+      "parentUuid": "6b29310f_7d4b44e5",
+      "revId": "cd7890d79e9d508e82f3078f02e8277f8c8df181",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
