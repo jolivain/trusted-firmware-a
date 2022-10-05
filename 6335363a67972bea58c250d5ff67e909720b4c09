@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "988733d5_9f5fb618",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000436
+      },
+      "writtenOn": "2022-10-05T08:24:21Z",
+      "side": 1,
+      "message": "It could be that I am missing something here - but would it be possible to express\nthis constant in terms of some \"sizeof\"? Otherwise I suppose we might run into problems\nwhen the message sizes increase and we forget to update this macro.",
+      "revId": "6335363a67972bea58c250d5ff67e909720b4c09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
