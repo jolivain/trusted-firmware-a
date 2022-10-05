@@ -22,6 +22,30 @@
       },
       "revId": "4df8815fcb18f5e8ffb200b2a8d995f6c06ee465",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9d6b4eb_db4efccf",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 26
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-10-05T08:45:15Z",
+      "side": 1,
+      "message": "\"plat_drtm_get_dma_prot_features\" is quite aligned with specification naming conventions.\nIn addition, it aligns with other feature retrieval functions, such as -\n1. plat_drtm_get_tpm_features\n3. plat_drtm_get_tcb_hash_features",
+      "parentUuid": "432b08fd_d7285b59",
+      "range": {
+        "startLine": 874,
+        "startChar": 11,
+        "endLine": 874,
+        "endChar": 44
+      },
+      "revId": "4df8815fcb18f5e8ffb200b2a8d995f6c06ee465",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
