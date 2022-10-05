@@ -16,6 +16,23 @@
       "message": "Need a CI run to see the rendered version from a docs build job.\n",
       "revId": "fc137312f8513fb271b767fc4a2e20a0e864cd75",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3b521ea_27c6c647",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-10-05T11:23:00Z",
+      "side": 1,
+      "message": "Build of the docs worked but other issues with the patch that can be seen in the CI.\n\nHere is the built docs https://ci.trustedfirmware.org/job/tf-a-builder/1305781/artifact/artefacts/release/build/html/\n\nWith I guess the main changes here https://ci-builds.trustedfirmware.org/static-files/Oh3bdllqjv88C1AbHlDGqFtacMB7IWS82BI18_Jr3fQxNjY0OTY4ODcyMjgxOjE2OmpvYW5uYWZhcmxleS1hcm06am9iL3RmLWEtYnVpbGRlci8xMzA1NzgxL2FydGlmYWN0/artefacts/release/build/html/threat_model/threat_model_el3_spm.html\n\nJust glanced at it and I see there is a lot of content to review :-)\n",
+      "revId": "fc137312f8513fb271b767fc4a2e20a0e864cd75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
