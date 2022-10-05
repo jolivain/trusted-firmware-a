@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3db6f49_25c02f20",
+        "filename": "services/std_svc/drtm/drtm_main.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1000621
+      },
+      "writtenOn": "2022-10-05T09:18:23Z",
+      "side": 1,
+      "message": "Nit: the error handling here is missing a console message stating the error condition.",
+      "range": {
+        "startLine": 576,
+        "startChar": 2,
+        "endLine": 576,
+        "endChar": 27
+      },
+      "revId": "8d78847c29cb502228cd8fec0e8b1a5d15ad437a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
