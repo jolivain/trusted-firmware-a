@@ -22,6 +22,30 @@
       },
       "revId": "4b839f4effaa3b0fd1fd91ff32d363b4181371a9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bec8863_9e469b00",
+        "filename": "plat/imx/imx8m/imx8mm/imx8mm_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000874
+      },
+      "writtenOn": "2022-10-05T08:53:36Z",
+      "side": 1,
+      "message": "Clang as well as GCC supports empty initializer. Also it is a common pattern in Linux Kernel development to mark the end of an array. I can change it if it is really a no-go.",
+      "parentUuid": "af463824_18f086fb",
+      "range": {
+        "startLine": 197,
+        "startChar": 2,
+        "endLine": 197,
+        "endChar": 20
+      },
+      "revId": "4b839f4effaa3b0fd1fd91ff32d363b4181371a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
