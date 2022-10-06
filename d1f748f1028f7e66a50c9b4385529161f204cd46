@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b186f181_26f81ced",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-06T17:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abdeeb99_df4915c4",
+      "range": {
+        "startLine": 15,
+        "startChar": 35,
+        "endLine": 15,
+        "endChar": 45
+      },
+      "revId": "d1f748f1028f7e66a50c9b4385529161f204cd46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f1bf18eb_f57d2792",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-06T12:34:15Z",
       "side": 1,
       "message": "Would it be better to avoid saying \"only the FVP is supported\" here as it could be misinterpreted that the SPMC is only designed to be used on the FVP rather than just an reference implementation? Also IIUC there are ongoing changes to upstream support for the Hikey960 as well.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 8
+      },
+      "revId": "d1f748f1028f7e66a50c9b4385529161f204cd46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea961118_89f8b9e1",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-06T17:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1bf18eb_f57d2792",
       "range": {
         "startLine": 45,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "174f1571_7b972b32",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-06T17:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1926861_066a0e34",
+      "range": {
+        "startLine": 120,
+        "startChar": 72,
+        "endLine": 120,
+        "endChar": 81
+      },
+      "revId": "d1f748f1028f7e66a50c9b4385529161f204cd46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab00c2e1_2f9cb893",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-10-06T12:34:15Z",
       "side": 1,
       "message": "Should this be non secure physical instance?",
+      "range": {
+        "startLine": 209,
+        "startChar": 57,
+        "endLine": 209,
+        "endChar": 81
+      },
+      "revId": "d1f748f1028f7e66a50c9b4385529161f204cd46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54eac3ae_dbf3e668",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-06T17:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab00c2e1_2f9cb893",
       "range": {
         "startLine": 209,
         "startChar": 57,
@@ -116,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ab90011_2dbb6f72",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-06T17:33:55Z",
+      "side": 1,
+      "message": "Added clarification, to support NS Client",
+      "parentUuid": "a6df57ea_53241e26",
+      "range": {
+        "startLine": 211,
+        "startChar": 5,
+        "endLine": 211,
+        "endChar": 19
+      },
+      "revId": "d1f748f1028f7e66a50c9b4385529161f204cd46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e52bb96_fda5c8dd",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-10-06T12:34:15Z",
       "side": 1,
       "message": "nit: Extra space",
+      "range": {
+        "startLine": 245,
+        "startChar": 68,
+        "endLine": 245,
+        "endChar": 69
+      },
+      "revId": "d1f748f1028f7e66a50c9b4385529161f204cd46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5471c144_9b6bfa0b",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-06T17:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e52bb96_fda5c8dd",
       "range": {
         "startLine": 245,
         "startChar": 68,
@@ -162,6 +306,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76fce135_cd447a61",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-06T17:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78237e75_14f6dacb",
+      "range": {
+        "startLine": 270,
+        "startChar": 9,
+        "endLine": 270,
+        "endChar": 12
+      },
+      "revId": "d1f748f1028f7e66a50c9b4385529161f204cd46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55eeb41a_04da12c9",
@@ -175,6 +343,30 @@
       "writtenOn": "2022-10-06T12:34:15Z",
       "side": 1,
       "message": "or OS kernel if the Hyp is not present?",
+      "range": {
+        "startLine": 274,
+        "startChar": 62,
+        "endLine": 274,
+        "endChar": 72
+      },
+      "revId": "d1f748f1028f7e66a50c9b4385529161f204cd46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39905f9f_6fd8ad31",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-06T17:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55eeb41a_04da12c9",
       "range": {
         "startLine": 274,
         "startChar": 62,
@@ -208,6 +400,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eff0f597_0595cce3",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-06T17:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0956aa3_66eeb7fa",
+      "range": {
+        "startLine": 277,
+        "startChar": 26,
+        "endLine": 278,
+        "endChar": 46
+      },
+      "revId": "d1f748f1028f7e66a50c9b4385529161f204cd46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27a19a38_251b81ca",
@@ -221,6 +437,30 @@
       "writtenOn": "2022-10-06T12:34:15Z",
       "side": 1,
       "message": "participating?",
+      "range": {
+        "startLine": 310,
+        "startChar": 52,
+        "endLine": 310,
+        "endChar": 63
+      },
+      "revId": "d1f748f1028f7e66a50c9b4385529161f204cd46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a1ec427_71f34934",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-06T17:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27a19a38_251b81ca",
       "range": {
         "startLine": 310,
         "startChar": 52,
@@ -254,6 +494,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a859a86d_1a331e0c",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-06T17:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3e41b5a_f51f6a49",
+      "range": {
+        "startLine": 313,
+        "startChar": 37,
+        "endLine": 314,
+        "endChar": 54
+      },
+      "revId": "d1f748f1028f7e66a50c9b4385529161f204cd46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a8a894b_575cbbb4",
@@ -267,6 +531,30 @@
       "writtenOn": "2022-10-06T12:34:15Z",
       "side": 1,
       "message": "Remove \"another\" in these as LSPs and SP\u0027s?",
+      "range": {
+        "startLine": 315,
+        "startChar": 2,
+        "endLine": 315,
+        "endChar": 50
+      },
+      "revId": "d1f748f1028f7e66a50c9b4385529161f204cd46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13aa015e_0acd66fe",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-06T17:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a8a894b_575cbbb4",
       "range": {
         "startLine": 315,
         "startChar": 2,
@@ -300,6 +588,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c48a770_b0152d8c",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-06T17:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2334824_9fd4de16",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 318,
+        "endChar": 73
+      },
+      "revId": "d1f748f1028f7e66a50c9b4385529161f204cd46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "edd0b7d8_3b19446a",
@@ -313,6 +625,30 @@
       "writtenOn": "2022-10-06T12:34:15Z",
       "side": 1,
       "message": "Should both SPM_ID_GET and ID_GET be included in the title if this section talks about both ABIs?",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 320,
+        "endChar": 14
+      },
+      "revId": "d1f748f1028f7e66a50c9b4385529161f204cd46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d709d28_e474207b",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-06T17:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edd0b7d8_3b19446a",
       "range": {
         "startLine": 320,
         "startChar": 0,
@@ -346,6 +682,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c3125f2_e175e49d",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-06T17:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb65e7f1_2af36e95",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 14
+      },
+      "revId": "d1f748f1028f7e66a50c9b4385529161f204cd46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8e1e17f_c8d03989",
@@ -359,6 +719,30 @@
       "writtenOn": "2022-10-06T12:34:15Z",
       "side": 1,
       "message": "Should this be here if the EL3 SPMC doesn\u0027t support this functionality?",
+      "range": {
+        "startLine": 346,
+        "startChar": 0,
+        "endLine": 346,
+        "endChar": 51
+      },
+      "revId": "d1f748f1028f7e66a50c9b4385529161f204cd46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08649c85_82b130ed",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-06T17:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8e1e17f_c8d03989",
       "range": {
         "startLine": 346,
         "startChar": 0,
@@ -392,6 +776,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "024295b6_a3d89378",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-06T17:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3270e3cb_3fb7f7ba",
+      "range": {
+        "startLine": 350,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 86
+      },
+      "revId": "d1f748f1028f7e66a50c9b4385529161f204cd46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23144d5a_017d63f7",
@@ -415,6 +823,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95da6940_d9ccab3b",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-06T17:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23144d5a_017d63f7",
+      "range": {
+        "startLine": 351,
+        "startChar": 0,
+        "endLine": 351,
+        "endChar": 18
+      },
+      "revId": "d1f748f1028f7e66a50c9b4385529161f204cd46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "643c726b_650d4148",
@@ -428,6 +860,30 @@
       "writtenOn": "2022-10-06T12:34:15Z",
       "side": 1,
       "message": "Should this mention the transmission of a fragmented descriptor during a MEM_SHARE/LEND as well?",
+      "range": {
+        "startLine": 370,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 80
+      },
+      "revId": "d1f748f1028f7e66a50c9b4385529161f204cd46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09f8f56b_949f1988",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-06T17:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "643c726b_650d4148",
       "range": {
         "startLine": 370,
         "startChar": 0,
