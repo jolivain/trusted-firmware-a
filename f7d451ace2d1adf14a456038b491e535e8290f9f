@@ -93,6 +93,30 @@
       },
       "revId": "f7d451ace2d1adf14a456038b491e535e8290f9f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ea8bbf5_741b5635",
+        "filename": "plat/arm/board/fvp/fvp_bl1_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-06T12:25:08Z",
+      "side": 1,
+      "message": "\u003e I had an idea in the past that struct rss_mboot_metadata fvp_rss_mboot_metadata[] could be generated at compile time. We could stick to string literals, something like this:\n\u003e .version \u003d \"x.y.z\",\n\u003e .version_size sizeof(\"x.y.z\"),\n\u003e .sw_type \u003d \"HW_CONFIG\"\n\u003e .sw_type_size \u003d sizeof(\"HW_config\"),\n\u003e \n\u003e Not sure whether this really helps.\n\nWe talked about this in the past, didn\u0027t we? That rings a bell to me.\n\nJust want to make sure I understand your suggestion. Do you mean that the we would only provide a text form description (e.g. a YAML file) of the RSS metadata, and have a script invoked from TF-A build system to transform it to C code (or data structures in this case)?\n\n\u003e Other idea could be to add a check:\n\u003e \n\u003e if (strlen(sw_type) !\u003d sw_type_size - 1) {\n\u003e    return -1;\n\u003e }\n\nI am not very keen about this. At least, this should be a debug assertion. I don\u0027t think we need to keep this check in release builds.\n\nIdeally we\u0027d have a compile time assertion for that kind of things. Perhaps we can have one leveraging typeof, that would (conceptually) check that typeof(RSS_MBOOT_FW_CONFIG_STRING) \u003d\u003d typeof(const char[])? I don\u0027t know whether such a thing is possible.\n\nOther options could be:\n\n1) Compute the size at runtime rather than just checking it.\n\nIf we are using strlen() anyway, we might as well use it to initialize the field. In bl1_plat_mboot_init(), we\u0027d go through each entry in fvp_rss_mboot_metadata[] array and fill in the .sw_type_size field dynamically:\n\n entry.sw_type_size \u003d strlen(sw_type_size) + 1;\n\n2) Define RSS_MBOOT_TB_FW_CONFIG_STRING_LENGTH along side RSS_MBOOT_TB_FW_CONFIG_STRING.\n\n #define RSS_MBOOT_TB_FW_CONFIG_STRING  \"TB_FW_CONFIG\"\n #define RSS_MBOOT_TB_FW_CONFIG_STRING_LENGTH 12\n\nChances are, if both are defined at the same place, we won\u0027t forget updating them in tandem... But choosing the right string length could be error-prone...",
+      "parentUuid": "048ebc07_62e34940",
+      "range": {
+        "startLine": 34,
+        "startChar": 18,
+        "endLine": 34,
+        "endChar": 24
+      },
+      "revId": "f7d451ace2d1adf14a456038b491e535e8290f9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
