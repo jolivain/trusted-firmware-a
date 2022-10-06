@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "264993b3_1c6707c4",
+        "filename": "include/lib/cpus/aarch64/cortex_hunter_elp_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-10-06T22:07:13Z",
+      "side": 1,
+      "message": "Is r0p0 the right Hunter-ELP version that goes into TC22? Asking since I could only find a TRM with r0p1 which means the MIDR would be U(0x410FD821). Just curious.",
+      "range": {
+        "startLine": 10,
+        "startChar": 39,
+        "endLine": 10,
+        "endChar": 52
+      },
+      "revId": "78c4a77be2bf13fd7426efadb12130d01a85a505",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ec94d67_ad78786c",
+        "filename": "lib/cpus/aarch64/cortex_hunter_elp_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-10-06T22:07:13Z",
+      "side": 1,
+      "message": "Since we are mitigating the Spectre-BHB for Hunter-ELP along with this, update the following document to include Hunter-ELP in the table for mitigated CPUs as a separate patch after this one is merged.\n\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/docs/security_advisories/security-advisory-tfv-9.rst",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 38
+      },
+      "revId": "78c4a77be2bf13fd7426efadb12130d01a85a505",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
