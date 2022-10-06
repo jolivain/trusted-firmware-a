@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e1184b5_8ca06ace",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-10-06T13:34:58Z",
+      "side": 1,
+      "message": "Static check failures are knows. Mentioned files in the failure job are already covered as a part of CI patch: https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/15703\nHence manually providing Verified+1.",
+      "revId": "50a43b0f6491a7ea76c23edf0c20a2c3699d7b87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
