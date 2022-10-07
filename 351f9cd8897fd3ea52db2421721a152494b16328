@@ -52,6 +52,24 @@
       "parentUuid": "33ab86a7_373a0c09",
       "revId": "351f9cd8897fd3ea52db2421721a152494b16328",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8873097b_4a31349c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-10-07T11:16:56Z",
+      "side": 1,
+      "message": "Hi Sandrine,\nThanks for your answer, no worries for the delay.\n\nModifying checkpatch.pl was my first thought some time ago:\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/11116\n\nBut the preference at that time was to keep the checkpatch script untouched.\nMaybe we could re-open the debate.\nEither solution is OK with me.\n\nBest regards,\nYann",
+      "parentUuid": "6891cc95_3f91bbd5",
+      "revId": "351f9cd8897fd3ea52db2421721a152494b16328",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
