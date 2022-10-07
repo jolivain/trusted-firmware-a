@@ -16,6 +16,24 @@
       "message": "In that case you need to change functions return values from bool to uregister_t.\nRemoval of \u003d\u003d makes the code violating MISRA-C 14.4 rule.",
       "revId": "e5f1031b8bd9e65296b0dd7b13db396c68f6a868",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3631fb24_0aff0618",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-10-07T16:37:38Z",
+      "side": 1,
+      "message": "Ah right, I saw that pattern below (get_armv8_5_mte_support()), so copied that, but this function is actually using the number, not just a bool.\nI would like to go with explicitly comparing against 0 - which is more readable anyway.",
+      "parentUuid": "da9086c8_eb338ce1",
+      "revId": "e5f1031b8bd9e65296b0dd7b13db396c68f6a868",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
