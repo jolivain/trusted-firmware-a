@@ -141,6 +141,30 @@
       },
       "revId": "f7d451ace2d1adf14a456038b491e535e8290f9f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33a98783_dbb0e9b1",
+        "filename": "plat/arm/board/fvp/fvp_bl1_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-07T08:43:54Z",
+      "side": 1,
+      "message": "\u003e \u003e Just want to make sure I understand your suggestion. Do you mean that the we would only provide a text form description (e.g. a YAML file) of the RSS metadata, and have a script invoked from TF-A build system to transform it to C code (or data structures in this case)?\n\u003e \n\u003e Yes, but it is primarily targeting the use case when an offline tool also computing the images\u0027 hash value (measuring them) to validate the result of the measured boot process. In this case, a common machine-readable descriptor file can be handy, which is readable by the measuring script and the code generation script (it can be a single script). I think this can be more of a long-term change.\n\nGot it, thanks.\n\n\u003e \u003e 1) Compute the size at runtime rather than just checking it.\n\u003e I think this is the best option. Should I update the patch accordingly?\n\nYes OK, let\u0027s do that.",
+      "parentUuid": "d0e6d393_6fb9ac15",
+      "range": {
+        "startLine": 34,
+        "startChar": 18,
+        "endLine": 34,
+        "endChar": 24
+      },
+      "revId": "f7d451ace2d1adf14a456038b491e535e8290f9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
