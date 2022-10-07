@@ -211,7 +211,7 @@ int32_t pm_setup(void)
 
 	status = pm_ipi_init(primary_proc);
 
-	ret = pm_get_api_version(&pm_ctx.api_version);
+	pm_get_api_version(&pm_ctx.api_version);
 	if (pm_ctx.api_version < PM_VERSION) {
 		ERROR("BL31: Platform Management API version error. Expected: "
 		      "v%d.%d - Found: v%d.%d\n", PM_VERSION_MAJOR,
