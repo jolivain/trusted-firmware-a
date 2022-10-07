@@ -34,6 +34,24 @@
       "parentUuid": "176c3bae_ba21ce7b",
       "revId": "351f9cd8897fd3ea52db2421721a152494b16328",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6891cc95_3f91bbd5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-07T07:52:13Z",
+      "side": 1,
+      "message": "Sorry Yann, somehow I did not receive any email notification for your answer and so I missed it...\n\nI am between 2 minds about __always_unused, or even __maybe_unused for that matter. On one hand, they self-document the code, which is good. On the other hand, they are purely informational, as they both map to __unused so this has no meaning for the compiler. This means we could have occurences of __always_unused variables that in fact are used in some cases. This could easily happen as interfaces evolve over time (but we forget to update __always_unused into __maybe_unused), or just because the variable is used in a very specific build configuration that is not obvious. So in this case, the self-documentation value goes away, worse it becomes misleading!\n\nTBH my preference would have been not to introduce __maybe_unused in the first place and instead find a way to silent checkpatch.pl by declaring TF-A does not want to enforce this. But I don\u0027t know how easy that would be...",
+      "parentUuid": "33ab86a7_373a0c09",
+      "revId": "351f9cd8897fd3ea52db2421721a152494b16328",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
