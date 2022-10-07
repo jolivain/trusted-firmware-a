@@ -33,12 +33,10 @@ DEFINE_BAKERY_LOCK(pm_secure_lock);
  *
  * Called from pm_setup initialization function
  */
-int32_t pm_ipi_init(const struct pm_proc *proc)
+void pm_ipi_init(const struct pm_proc *proc)
 {
 	bakery_lock_init(&pm_secure_lock);
 	ipi_mb_open(proc->ipi->local_ipi_id, proc->ipi->remote_ipi_id);
-
-	return 0;
 }
 
 /**
