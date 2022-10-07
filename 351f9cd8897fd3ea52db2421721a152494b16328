@@ -70,6 +70,24 @@
       "parentUuid": "6891cc95_3f91bbd5",
       "revId": "351f9cd8897fd3ea52db2421721a152494b16328",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6df1535_67880517",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-07T15:17:37Z",
+      "side": 1,
+      "message": "I too think we should keep checkpatch script untouched, both for licensing reasons and ease of updating it in the future. I was hoping there would be a way to tell checkpatch to ignore __unused attribute. I know you can do that for various warnings through the --ignore script argument. As a matter of fact, there exists \u0027-ignore PREFER_DEFINED_ATTRIBUTE_MACRO\u0027, which I was expecting to do exactly what we want.\n\nBut unfortunately, the problem at hand sounds more complex than that... It looks like checkpatch is throwing the \"Missing blank line\" warning because when it\u0027s trying to distinguish declarations from statements in a function body, it does not recognize the __unused attribute on the variable declaration and so it thinks it is a statement, which should be preceded by a blank line...\n\nApparently it\u0027s not the first time this type of issues happens. I found the following patch from last year that apparently improved the situation, but evidently did not solve our specific problem:\n\nhttps://lore.kernel.org/linux-mm/20210226012140.hrF7kKAVD%25akpm@linux-foundation.org/\n\nI suppose we could contribute a patch to relax checkpatch\u0027s parser to include *all* attributes and not just the ones specified in the script itself. But TBH that sounds like a lot of effort to me, for something the kernel maintainers might not approve to merge at the end of the day.\n\nIt feels like I just reached the same conclusion as you guys in https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/11116 ...\n\nThanks for explaining the background to me anyway!",
+      "parentUuid": "8873097b_4a31349c",
+      "revId": "351f9cd8897fd3ea52db2421721a152494b16328",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
