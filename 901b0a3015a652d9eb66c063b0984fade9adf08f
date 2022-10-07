@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc4b9704_4cd557f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-07T10:34:12Z",
+      "side": 1,
+      "message": "The CI job only reported an issue with Coverity coverage. Right now, we do no understand its root cause, as we thought it would have been addressed by the following patch:\n\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/16813/2\n\nThis issue will be investigated separately after the present patch stack is merged. With this in mind, I am overriding the Verified score.",
+      "revId": "901b0a3015a652d9eb66c063b0984fade9adf08f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
