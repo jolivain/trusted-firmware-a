@@ -64,19 +64,19 @@ static inline bool is_armv8_3_pauth_present(void)
 static inline bool is_armv8_4_dit_present(void)
 {
 	return ((read_id_aa64pfr0_el1() >> ID_AA64PFR0_DIT_SHIFT) &
-		ID_AA64PFR0_DIT_MASK) == 1U;
+		ID_AA64PFR0_DIT_MASK);
 }
 
 static inline bool is_armv8_4_ttst_present(void)
 {
 	return ((read_id_aa64mmfr2_el1() >> ID_AA64MMFR2_EL1_ST_SHIFT) &
-		ID_AA64MMFR2_EL1_ST_MASK) == 1U;
+		ID_AA64MMFR2_EL1_ST_MASK);
 }
 
 static inline bool is_armv8_5_bti_present(void)
 {
 	return ((read_id_aa64pfr1_el1() >> ID_AA64PFR1_EL1_BT_SHIFT) &
-		ID_AA64PFR1_EL1_BT_MASK) == BTI_IMPLEMENTED;
+		ID_AA64PFR1_EL1_BT_MASK);
 }
 
 static inline unsigned int get_armv8_5_mte_support(void)
@@ -88,19 +88,19 @@ static inline unsigned int get_armv8_5_mte_support(void)
 static inline bool is_armv8_4_sel2_present(void)
 {
 	return ((read_id_aa64pfr0_el1() >> ID_AA64PFR0_SEL2_SHIFT) &
-		ID_AA64PFR0_SEL2_MASK) == 1ULL;
+		ID_AA64PFR0_SEL2_MASK);
 }
 
 static inline bool is_armv8_6_twed_present(void)
 {
-	return (((read_id_aa64mmfr1_el1() >> ID_AA64MMFR1_EL1_TWED_SHIFT) &
-		ID_AA64MMFR1_EL1_TWED_MASK) == ID_AA64MMFR1_EL1_TWED_SUPPORTED);
+	return ((read_id_aa64mmfr1_el1() >> ID_AA64MMFR1_EL1_TWED_SHIFT) &
+		ID_AA64MMFR1_EL1_TWED_MASK);
 }
 
 static inline bool is_armv8_6_fgt_present(void)
 {
 	return ((read_id_aa64mmfr0_el1() >> ID_AA64MMFR0_EL1_FGT_SHIFT) &
-		ID_AA64MMFR0_EL1_FGT_MASK) == ID_AA64MMFR0_EL1_FGT_SUPPORTED;
+		ID_AA64MMFR0_EL1_FGT_MASK);
 }
 
 static inline unsigned long int get_armv8_6_ecv_support(void)
@@ -117,8 +117,8 @@ static inline bool is_armv8_5_rng_present(void)
 
 static inline bool is_armv8_6_feat_amuv1p1_present(void)
 {
-	return (((read_id_aa64pfr0_el1() >> ID_AA64PFR0_AMU_SHIFT) &
-		ID_AA64PFR0_AMU_MASK) >= ID_AA64PFR0_AMU_V1P1);
+	return ((read_id_aa64pfr0_el1() >> ID_AA64PFR0_AMU_SHIFT) &
+		ID_AA64PFR0_AMU_MASK);
 }
 
 /*
