@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5aaa52e5_234b7a3e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-10-10T08:15:52Z",
+      "side": 1,
+      "message": "Please add what you just wrote here.",
+      "parentUuid": "ec8707b6_7bdf2d55",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 41
+      },
+      "revId": "e0608bc8d7fce1c34ad8b5577e0e91b3995ddfbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a5d2187f_2d2b4164",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "These are Trusty tests. (you\u0027ll note that this function is specifically for the Trusty SPD)",
       "parentUuid": "a5d2187f_2d2b4164",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 23
+      },
+      "revId": "e0608bc8d7fce1c34ad8b5577e0e91b3995ddfbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f9de584_96008b27",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-10-10T08:15:52Z",
+      "side": 1,
+      "message": "Let me rephrase. Are these tags needed in upstream TF-A?\nI think this is the first occurrence in any commit.",
+      "parentUuid": "e34c7614_6188ba1f",
       "range": {
         "startLine": 11,
         "startChar": 0,
@@ -144,6 +192,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b6e32c21_31f96ffa",
+        "filename": "plat/qemu/common/shared_mem.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-10-10T08:15:52Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "684acf1d_717130f9",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 51
+      },
+      "revId": "e0608bc8d7fce1c34ad8b5577e0e91b3995ddfbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3fcce3b7_34b65971",
         "filename": "plat/qemu/common/shared_mem.c",
         "patchSetId": 1
@@ -185,6 +257,70 @@
         "endLine": 18,
         "endChar": 57
       },
+      "revId": "e0608bc8d7fce1c34ad8b5577e0e91b3995ddfbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df633e98_e678ebe1",
+        "filename": "plat/qemu/common/shared_mem.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-10-10T08:15:52Z",
+      "side": 1,
+      "message": "That sound more like a documentation issue. You should be able to minimize that risk with a suitably discouraging name for the configuration option.\n\nOn the other hand, if you don\u0027t think this would make sense for any other platform even for testing purposes we can keep it here. If so please rename this file to trusty_shared_mem.c since it is Trusty specific.",
+      "parentUuid": "f5168fb8_73dfb1fc",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 57
+      },
+      "revId": "e0608bc8d7fce1c34ad8b5577e0e91b3995ddfbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "890b98c6_70da33f3",
+        "filename": "plat/qemu/common/shared_mem.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-10-10T08:15:52Z",
+      "side": 1,
+      "message": "No need for the !!, the return type bool guarantees that the value can be only true or false.\n\nPlease add an empty line before this.",
+      "range": {
+        "startLine": 24,
+        "startChar": 8,
+        "endLine": 24,
+        "endChar": 10
+      },
+      "revId": "e0608bc8d7fce1c34ad8b5577e0e91b3995ddfbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2890c84f_cfc23528",
+        "filename": "plat/qemu/common/shared_mem.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-10-10T08:15:52Z",
+      "side": 1,
+      "message": "Please add an empty line before this.",
       "revId": "e0608bc8d7fce1c34ad8b5577e0e91b3995ddfbe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
