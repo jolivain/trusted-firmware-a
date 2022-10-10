@@ -22,6 +22,30 @@
       },
       "revId": "d91645c0bae3edd08110b856575d16c032a48b79",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f73a3cd6_5e380bfc",
+        "filename": "fdts/fvp-base-psci-common.dtsi",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-10-10T22:57:06Z",
+      "side": 1,
+      "message": "The GIC_CPU_MASK_SIMPLE(n) macro sets the lowest \u003cn\u003e bits to 1, to form a mask covering \u003cn\u003e cores. The mainline base DT (rtsm_ve-aemv8a.dts) only shows 4 cores, because this is the default for any pre-RevC model. The TF-A DT supports up to 8 cores, depending on what the CPUS macros expands to.\nI think it does not hurt to have a bigger mask, so we should go with 8 here.\nThanks for finding that!",
+      "parentUuid": "acb2c1db_1ec239af",
+      "range": {
+        "startLine": 165,
+        "startChar": 28,
+        "endLine": 165,
+        "endChar": 50
+      },
+      "revId": "d91645c0bae3edd08110b856575d16c032a48b79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
