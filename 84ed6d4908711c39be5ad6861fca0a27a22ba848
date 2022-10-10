@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "08a4ce4b_0f62d3d4",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-10T13:57:26Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 8,
+        "startChar": 25,
+        "endLine": 8,
+        "endChar": 34
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f54e016_7cfc3151",
         "filename": "docs/threat_model/threat_model_el3_spm.rst",
         "patchSetId": 6
@@ -37,6 +60,30 @@
       "writtenOn": "2022-10-10T11:04:59Z",
       "side": 1,
       "message": "This part of the sentence sounds unclear to me. It sounds like we don\u0027t quite know whether the target of evaluation is the EL3 firmware of the SPMC... Consider rephrasing as \"the SPMC component within the EL3 firmware\".",
+      "range": {
+        "startLine": 14,
+        "startChar": 50,
+        "endLine": 15,
+        "endChar": 50
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb1a854a_6936d894",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-10T13:57:26Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "2f54e016_7cfc3151",
       "range": {
         "startLine": 14,
         "startChar": 50,
@@ -233,6 +280,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f8f51a85_7affa27e",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-10T13:57:26Z",
+      "side": 1,
+      "message": "I wonder if this is fully correct, or if this is a consequence of the EL3 SPMC to manage a single SEL1 partition.\nIt is still possible for a NS endpoint to use whichever partition id as a destination.\nThere is no routing control such as a NS-Endpoint is allowed/disallowed to send a partition message to a LSP or SP. I think this was the original intent for this threat. Perhaps it could be made more explicit that the control here is about validity of the \u0027world id bit\u0027 in message exchanges.",
+      "range": {
+        "startLine": 158,
+        "startChar": 27,
+        "endLine": 158,
+        "endChar": 63
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9346c66d_f7a07925",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-10T13:57:26Z",
+      "side": 1,
+      "message": "Perhaps consider mentionning both version v1.0/v1.1?",
+      "range": {
+        "startLine": 194,
+        "startChar": 46,
+        "endLine": 194,
+        "endChar": 50
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b0fefd06_c646d114",
         "filename": "docs/threat_model/threat_model_el3_spm.rst",
         "patchSetId": 6
@@ -256,6 +349,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c37f1f28_e5009221",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-10T13:57:26Z",
+      "side": 1,
+      "message": "IIUC, the EL3 SPMC implements the said partition run time models?",
+      "range": {
+        "startLine": 249,
+        "startChar": 35,
+        "endLine": 250,
+        "endChar": 60
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c9b4c542_a17fa637",
         "filename": "docs/threat_model/threat_model_el3_spm.rst",
         "patchSetId": 6
@@ -267,6 +383,30 @@
       "writtenOn": "2022-10-10T11:04:59Z",
       "side": 1,
       "message": "This sentence is essentially saying that we test FF-A communication - I don\u0027t think this qualifies as a mitigation. Mitigations are rather countermeasures implemented in TF-A code. I suggest removing this sentence.",
+      "range": {
+        "startLine": 251,
+        "startChar": 27,
+        "endLine": 252,
+        "endChar": 77
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfddd068_c73cc5d9",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-10T13:57:26Z",
+      "side": 1,
+      "message": "I think this sentence suggested (at time of writing the S-EL2 SPMC threat model) that the implementation is regularly tested against the FF-A compliance test suite (soon to be automated for the SEL2 SPMC at least).\nThe argument is that this test suite is the golden standard by the architecture, and passing it gives confidence that the implementation is robust to the said validity checks in SP/SPMC state transitions.\nI\u0027m fine with either rewording, or removing if you\u0027re not convinced.",
+      "parentUuid": "c9b4c542_a17fa637",
       "range": {
         "startLine": 251,
         "startChar": 27,
@@ -325,6 +465,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4b159be0_1ac90907",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-10T13:57:26Z",
+      "side": 1,
+      "message": "We should crosscheck how does this apply to the EL3 SPMC.",
+      "range": {
+        "startLine": 328,
+        "startChar": 27,
+        "endLine": 330,
+        "endChar": 31
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3129d5c4_060b7a14",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-10T13:57:26Z",
+      "side": 1,
+      "message": "IIUC, the EL3 SPMC implements the said partition run time models?",
+      "range": {
+        "startLine": 369,
+        "startChar": 27,
+        "endLine": 371,
+        "endChar": 46
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8bc61a8f_02e91cf8",
         "filename": "docs/threat_model/threat_model_el3_spm.rst",
         "patchSetId": 6
@@ -336,6 +522,30 @@
       "writtenOn": "2022-10-10T11:04:59Z",
       "side": 1,
       "message": "Sounds like this is a mitigation implemented in the kernel? In which case it is likely out of scope for the SPMC threat model.",
+      "range": {
+        "startLine": 443,
+        "startChar": 60,
+        "endLine": 445,
+        "endChar": 68
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54901bbd_777297d8",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-10T13:57:26Z",
+      "side": 1,
+      "message": "This is correct in context of the SEL2 SPMC, but probably not the EL3 SPMC.",
+      "parentUuid": "8bc61a8f_02e91cf8",
       "range": {
         "startLine": 443,
         "startChar": 60,
