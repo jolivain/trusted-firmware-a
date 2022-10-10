@@ -95,12 +95,11 @@ void plat_default_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *co
 	ERROR("Unhandled External Abort received on 0x%lx from %s\n",
 		read_mpidr_el1(), get_el_str(level));
 	ERROR("exception reason=%u syndrome=0x%" PRIx64 "\n", ea_reason, syndrome);
-#if HANDLE_EA_EL3_FIRST
-	/* Skip backtrace for lower EL */
+
+	/* Skip backtrace and print crash dump of lower EL*/
 	if (level != MODE_EL3) {
 		console_flush();
 		do_panic();
 	}
-#endif
 	panic();
 }
