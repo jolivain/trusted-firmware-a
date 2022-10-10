@@ -1,0 +1,418 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f964f97_e4ba938e",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-10T11:04:59Z",
+      "side": 1,
+      "message": "(minor) Remove asterisks/equal signs to fit to title length throughout the document.",
+      "range": {
+        "startLine": 4,
+        "startChar": 12,
+        "endLine": 4,
+        "endChar": 24
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f54e016_7cfc3151",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-10T11:04:59Z",
+      "side": 1,
+      "message": "This part of the sentence sounds unclear to me. It sounds like we don\u0027t quite know whether the target of evaluation is the EL3 firmware of the SPMC... Consider rephrasing as \"the SPMC component within the EL3 firmware\".",
+      "range": {
+        "startLine": 14,
+        "startChar": 50,
+        "endLine": 15,
+        "endChar": 50
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "852fc67d_22020ae4",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-10T11:04:59Z",
+      "side": 1,
+      "message": "(minor) In TF-A, this is most commonly called \"trusted boot\".",
+      "range": {
+        "startLine": 80,
+        "startChar": 38,
+        "endLine": 80,
+        "endChar": 49
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a822847_5be63572",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-10T11:04:59Z",
+      "side": 1,
+      "message": "This second diagram looks a bit redundant with the first one in section \"Data Flow Diagram\" above. Would it be possible to merge them in a single diagram? It might just be a matter of adding data flow relationship in this second diagram? \n\nHaving a single diagram would reduce the amount of maintenance work we have to do in the future, if we ever make changes.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 30
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "725decb8_3361f9d9",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-10T11:04:59Z",
+      "side": 1,
+      "message": "This asset is not at threat in any of the threats below. Either consider removing it from the assets list here or adjust some of the threats\u0027 assets below (for example threat #11 might be a good candidate).",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 20
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "802cc421_371cacb2",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-10T11:04:59Z",
+      "side": 1,
+      "message": "I didn\u0027t understand this sentence at first... I was confused by the \"non-secure endpoint\" terminology being mentioned twice. How about rewording like that?\n\n - Non-secure endpoint (thereafter referred as `NS-Endpoint`): ...",
+      "range": {
+        "startLine": 105,
+        "startChar": 2,
+        "endLine": 105,
+        "endChar": 46
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a78977e_92fb94dd",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-10T11:04:59Z",
+      "side": 1,
+      "message": "(minor) Add a comma before \"typically\"?",
+      "range": {
+        "startLine": 107,
+        "startChar": 42,
+        "endLine": 107,
+        "endChar": 51
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "356e38ac_31024af9",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-10T11:04:59Z",
+      "side": 1,
+      "message": "(minor) Could you please remove back quotes throughout the threat tables in this document to align with TF-A general threat model style?",
+      "range": {
+        "startLine": 136,
+        "startChar": 2,
+        "endLine": 136,
+        "endChar": 12
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78662613_ce5cd4de",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-10T11:04:59Z",
+      "side": 1,
+      "message": "TF-A generic threat model also considers the IoT segment in its analysis. Any reason why it\u0027s not being mentioned here? Is that because EL3 SPMC is not viable in the IoT segment? If yes then I\u0027d suggest adding a short explanation about IoT in section 3.3.4, when you say,\n\n \"Similarly this threat model re-uses the same threat risk ratings. The risk analysis is evaluated based on the environment being Server or Mobile.\"\n\nIn any case, consider removing this empty column.",
+      "range": {
+        "startLine": 150,
+        "startChar": 29,
+        "endLine": 150,
+        "endChar": 58
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e64f2485_a911c727",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-10T11:04:59Z",
+      "side": 1,
+      "message": "In TF-A general threat model, there was an effort to better explain what the mitigations of a threat could be, separatately from whether TF-A implements some / all of them. See the \"Mitigations\" and \"Mitigations in place?\" cells.\n\nCould you please attempt to do the same for EL3 SPMC threat model?",
+      "range": {
+        "startLine": 158,
+        "startChar": 2,
+        "endLine": 158,
+        "endChar": 17
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0fefd06_c646d114",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-10T11:04:59Z",
+      "side": 1,
+      "message": "The list does not render well in the HTML version, all the text is packed on a single line. You might have to skip empty lines to turn this into proper bullet points in the rendered version.",
+      "range": {
+        "startLine": 212,
+        "startChar": 26,
+        "endLine": 212,
+        "endChar": 29
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9b4c542_a17fa637",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-10T11:04:59Z",
+      "side": 1,
+      "message": "This sentence is essentially saying that we test FF-A communication - I don\u0027t think this qualifies as a mitigation. Mitigations are rather countermeasures implemented in TF-A code. I suggest removing this sentence.",
+      "range": {
+        "startLine": 251,
+        "startChar": 27,
+        "endLine": 252,
+        "endChar": 77
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9221434f_ac02ec23",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-10T11:04:59Z",
+      "side": 1,
+      "message": "endpoints",
+      "range": {
+        "startLine": 261,
+        "startChar": 63,
+        "endLine": 261,
+        "endChar": 71
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfd18cef_e86d6fa9",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-10T11:04:59Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 279,
+        "startChar": 27,
+        "endLine": 279,
+        "endChar": 39
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bc61a8f_02e91cf8",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-10T11:04:59Z",
+      "side": 1,
+      "message": "Sounds like this is a mitigation implemented in the kernel? In which case it is likely out of scope for the SPMC threat model.",
+      "range": {
+        "startLine": 443,
+        "startChar": 60,
+        "endLine": 445,
+        "endChar": 68
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bc5ab6f_f348436a",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-10T11:04:59Z",
+      "side": 1,
+      "message": "We\u0027re jumping from threat 8 to threat 11 here... I suppose the numbers should be made contiguous?",
+      "range": {
+        "startLine": 449,
+        "startChar": 2,
+        "endLine": 449,
+        "endChar": 31
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b339bf68_3d2fd0e3",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-10T11:04:59Z",
+      "side": 1,
+      "message": "There is already a threat #11 just above.",
+      "range": {
+        "startLine": 488,
+        "startChar": 2,
+        "endLine": 488,
+        "endChar": 32
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27880eca_db2bec16",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-10T11:04:59Z",
+      "side": 1,
+      "message": "I suppose we\u0027re missing commas between each of these verbs?",
+      "range": {
+        "startLine": 490,
+        "startChar": 65,
+        "endLine": 491,
+        "endChar": 48
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
