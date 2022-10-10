@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db02bb13_7ac0f8dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-10T12:42:21Z",
+      "side": 1,
+      "message": "Hi,\n\nPlease fix individual commit lint failures throughout the patch set:\nhttps://ci.trustedfirmware.org/job/tf-a-commitlint/3013/console\n✖   type must be one of [build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test] [type-enum]\n✖   subject must not be sentence-case, start-case, pascal-case, upper-case [subject-case]\n⚠   header must not be longer than 50 characters, current length is 58 [header-max-length]\n\n\nPleas fix static check failures\nhttps://ci.trustedfirmware.org/job/tf-a-static-checks/2354/\nFor check patch, please consider ones reported as ERROR\n\n\nThere are platform build failures, looks to sum up as two kinds of issues e.g.\n\n1/\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1318774/console\n14:13:29 plat/xilinx/common/ipi_mailbox_service/ipi_mailbox_svc.c:24:10: fatal error: ../../../services/spd/trusty/smcall.h: No such file or directory\n14:13:29    24 | #include \"../../../services/spd/trusty/smcall.h\"\n14:13:29       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n2/\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1318907/console\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1318889/console\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1318873/console\n\n14:16:06 aarch64-none-elf-ld.bfd: build/tegra/t210/debug/bl31/bl31.elf section `.bss\u0027 will not fit in region `RAM\u0027\n14:16:06 aarch64-none-elf-ld.bfd: BL31 image has exceeded its limit.\n14:16:06 aarch64-none-elf-ld.bfd: region `RAM\u0027 overflowed by 438273 bytes\n\n\nThanks.",
+      "revId": "528d1a555cb1f5dc55cd656700cebdf169857250",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
