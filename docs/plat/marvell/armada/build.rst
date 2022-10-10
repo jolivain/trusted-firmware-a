@@ -165,14 +165,14 @@ Globalscale MOCHAbin specific build options:
 
 Armada37x0 specific build options:
 
-- HANDLE_EA_EL3_FIRST
+- HANDLE_NS_EA_IN_EL3_FIRST
 
-        When ``HANDLE_EA_EL3_FIRST=1``, External Aborts and SError Interrupts will be always trapped
+        When ``HANDLE_NS_EA_IN_EL3_FIRST=1``, External Aborts and SError Interrupts will be always trapped
         in TF-A. TF-A in this case enables dirty hack / workaround for a bug found in U-Boot and
         Linux kernel PCIe controller driver pci-aardvark.c, traps and then masks SError interrupt
         caused by AXI SLVERR on external access (syndrome 0xbf000002).
 
-        Otherwise when ``HANDLE_EA_EL3_FIRST=0``, these exceptions will be trapped in the current
+        Otherwise when ``HANDLE_NS_EA_IN_EL3_FIRST=0``, these exceptions will be trapped in the current
         exception level (or in EL1 if the current exception level is EL0). So exceptions caused by
         U-Boot will be trapped in U-Boot, exceptions caused by Linux kernel (or user applications)
         will be trapped in Linux kernel.

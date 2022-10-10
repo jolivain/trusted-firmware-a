@@ -711,8 +711,8 @@ endif
 
 # For RAS_EXTENSION, require that EAs are handled in EL3 first
 ifeq ($(RAS_EXTENSION),1)
-    ifneq ($(HANDLE_EA_EL3_FIRST),1)
-        $(error For RAS_EXTENSION, HANDLE_EA_EL3_FIRST must also be 1)
+    ifneq ($(HANDLE_NS_EA_IN_EL3_FIRST),1)
+        $(error For RAS_EXTENSION, HANDLE_NS_EA_IN_EL3_FIRST must also be 1)
     endif
 endif
 
@@ -1013,7 +1013,7 @@ $(eval $(call assert_booleans,\
         FAULT_INJECTION_SUPPORT \
         GENERATE_COT \
         GICV2_G0_FOR_EL3 \
-        HANDLE_EA_EL3_FIRST \
+        HANDLE_NS_EA_IN_EL3_FIRST \
         HW_ASSISTED_COHERENCY \
         INVERTED_MEMMAP \
         MEASURED_BOOT \
@@ -1152,7 +1152,7 @@ $(eval $(call add_defines,\
         ERROR_DEPRECATED \
         FAULT_INJECTION_SUPPORT \
         GICV2_G0_FOR_EL3 \
-        HANDLE_EA_EL3_FIRST \
+        HANDLE_NS_EA_IN_EL3_FIRST \
         HW_ASSISTED_COHERENCY \
         LOG_LEVEL \
         MEASURED_BOOT \

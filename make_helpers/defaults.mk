@@ -218,7 +218,7 @@ GICV2_G0_FOR_EL3		:= 0
 
 # Route External Aborts to EL3. Disabled by default; External Aborts are handled
 # by lower ELs.
-HANDLE_EA_EL3_FIRST		:= 0
+HANDLE_NS_EA_IN_EL3_FIRST		:= 0
 
 # Secure hash algorithm flag, accepts 3 values: sha256, sha384 and sha512.
 # The default value is sha256.

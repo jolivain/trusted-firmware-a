@@ -6,10 +6,12 @@ Serviceability (RAS) extensions. RAS is a mandatory extension for Armv8.2 and
 later CPUs, and also an optional extension to the base Armv8.0 architecture.
 
 In conjunction with the |EHF|, support for RAS extension enables firmware-first
-paradigm for handling platform errors: exceptions resulting from errors are
-routed to and handled in EL3. Said errors are Synchronous External Abort (SEA),
-Asynchronous External Abort (signalled as SErrors), Fault Handling and Error
-Recovery interrupts.  The |EHF| document mentions various :ref:`error handling
+paradigm for handling platform errors(originating from NS world). Errors originating
+in secure/realm world are always handled in corresponding world first.
+Exceptions resulting from errors are routed to and handled in EL3. Said errors are
+Synchronous External Abort (SEA), Asynchronous External Abort (signalled as SErrors),
+Fault Handling and Error Recovery interrupts.
+The |EHF| document mentions various :ref:`error handling
 use-cases <delegation-use-cases>` .
 
 For the description of Arm RAS extensions, Standard Error Records, and the
@@ -29,7 +31,7 @@ introduced by the RAS extensions.
 .. __: `Standard Error Record helpers`_
 
 The build option ``RAS_EXTENSION`` when set to ``1`` includes the RAS in run
-time firmware; ``EL3_EXCEPTION_HANDLING`` and ``HANDLE_EA_EL3_FIRST`` must also
+time firmware; ``EL3_EXCEPTION_HANDLING`` and ``HANDLE_NS_EA_IN_EL3_FIRST`` must also
 be set ``1``. ``RAS_TRAP_NS_ERR_REC_ACCESS`` controls the access to the RAS
 error record registers from Non-secure.
 
@@ -198,7 +200,7 @@ related, build options:
 -  ``EL3_EXCEPTION_HANDLING=1`` enables handling of exceptions at EL3. See
    `Interaction with Exception Handling Framework`_;
 
--  ``HANDLE_EA_EL3_FIRST=1`` enables routing of External Aborts and SErrors to
+-  ``HANDLE_NS_EA_IN_EL3_FIRST=1`` enables routing of External Aborts and SErrors to
    EL3.
 
 The RAS support in |TF-A| introduces a default implementation of
