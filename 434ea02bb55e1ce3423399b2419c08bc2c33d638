@@ -47,6 +47,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf4d9361_1f246644",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-10-10T08:14:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a290ba3c_bdd3389e",
+      "range": {
+        "startLine": 10,
+        "startChar": 42,
+        "endLine": 10,
+        "endChar": 43
+      },
+      "revId": "434ea02bb55e1ce3423399b2419c08bc2c33d638",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "700cd2c9_6d8b9ddf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-10-10T08:14:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dde5cbf7_2d82a63a",
+      "range": {
+        "startLine": 10,
+        "startChar": 69,
+        "endLine": 10,
+        "endChar": 72
+      },
+      "revId": "434ea02bb55e1ce3423399b2419c08bc2c33d638",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43181ff3_2d814f8c",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-10-04T17:45:10Z",
       "side": 1,
       "message": "nit: restrict to the max chars per line to avoid this newline.",
+      "range": {
+        "startLine": 10,
+        "startChar": 72,
+        "endLine": 11,
+        "endChar": 3
+      },
+      "revId": "434ea02bb55e1ce3423399b2419c08bc2c33d638",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c4173e7_05968aa6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-10-10T08:14:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43181ff3_2d814f8c",
       "range": {
         "startLine": 10,
         "startChar": 72,
@@ -111,6 +183,54 @@
         "startChar": 50,
         "endLine": 277,
         "endChar": 51
+      },
+      "revId": "434ea02bb55e1ce3423399b2419c08bc2c33d638",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08603223_c9b1a2f1",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-10-10T08:14:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a05f1c79_f7a7a1fe",
+      "range": {
+        "startLine": 277,
+        "startChar": 50,
+        "endLine": 277,
+        "endChar": 51
+      },
+      "revId": "434ea02bb55e1ce3423399b2419c08bc2c33d638",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c145277_ee7d482f",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-10-10T08:14:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21a5245b_80d1077e",
+      "range": {
+        "startLine": 277,
+        "startChar": 34,
+        "endLine": 277,
+        "endChar": 38
       },
       "revId": "434ea02bb55e1ce3423399b2419c08bc2c33d638",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
@@ -187,6 +307,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0371ed2d_0593936b",
+        "filename": "lib/cpus/aarch64/cortex_a77.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-10-10T08:14:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eeb02207_8e44aa0c",
+      "range": {
+        "startLine": 357,
+        "startChar": 1,
+        "endLine": 357,
+        "endChar": 54
+      },
+      "revId": "434ea02bb55e1ce3423399b2419c08bc2c33d638",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61fa46af_0e4e3e0f",
@@ -200,6 +344,30 @@
       "writtenOn": "2022-10-04T17:45:10Z",
       "side": 1,
       "message": "revisions",
+      "range": {
+        "startLine": 311,
+        "startChar": 17,
+        "endLine": 311,
+        "endChar": 18
+      },
+      "revId": "434ea02bb55e1ce3423399b2419c08bc2c33d638",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0d06fcf_f0d16f1e",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-10-10T08:14:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61fa46af_0e4e3e0f",
       "range": {
         "startLine": 311,
         "startChar": 17,
