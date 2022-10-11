@@ -25,7 +25,7 @@ static uintptr_t trng_rnd32(uint32_t nbits, void *handle)
 	uint32_t mask = ~0U;
 	uint64_t ent[2];
 
-	if (nbits == 0U || nbits > 96U) {
+	if (nbits == 0U || nbits > TRNG_RND32_ENTROPY_MAXBITS) {
 		SMC_RET1(handle, TRNG_E_INVALID_PARAMS);
 	}
 
@@ -61,7 +61,7 @@ static uintptr_t trng_rnd64(uint32_t nbits, void *handle)
 	uint64_t mask = ~0ULL;
 	uint64_t ent[3];
 
-	if (nbits == 0U || nbits > 192U) {
+	if (nbits == 0U || nbits > TRNG_RND64_ENTROPY_MAXBITS) {
 		SMC_RET1(handle, TRNG_E_INVALID_PARAMS);
 	}
 
@@ -117,9 +117,9 @@ uintptr_t trng_smc_handler(uint32_t smc_fid, u_register_t x1, u_register_t x2,
 	switch (smc_fid) {
 	case ARM_TRNG_VERSION:
 		SMC_RET1(handle, MAKE_SMCCC_VERSION(
-			TRNG_VERSION_MAJOR, TRNG_VERSION_MINOR
-		));
+			TRNG_VERSION_MAJOR, TRNG_VERSION_MINOR));
 		break; /* unreachable */
+
 	case ARM_TRNG_FEATURES:
 		if (is_trng_fid((uint32_t)x1)) {
 			SMC_RET1(handle, TRNG_E_SUCCESS);
@@ -127,16 +127,19 @@ uintptr_t trng_smc_handler(uint32_t smc_fid, u_register_t x1, u_register_t x2,
 			SMC_RET1(handle, TRNG_E_NOT_SUPPORTED);
 		}
 		break; /* unreachable */
+
 	case ARM_TRNG_GET_UUID:
 		SMC_UUID_RET(handle, plat_trng_uuid);
 		break; /* unreachable */
+
 	case ARM_TRNG_RND32:
 		return trng_rnd32((uint32_t)x1, handle);
+
 	case ARM_TRNG_RND64:
 		return trng_rnd64((uint32_t)x1, handle);
+
 	default:
-		WARN("Unimplemented TRNG Service Call: 0x%x\n",
-			smc_fid);
+		WARN("Unimplemented TRNG Service Call: 0x%x\n",	smc_fid);
 		SMC_RET1(handle, TRNG_E_NOT_IMPLEMENTED);
 		break; /* unreachable */
 	}
