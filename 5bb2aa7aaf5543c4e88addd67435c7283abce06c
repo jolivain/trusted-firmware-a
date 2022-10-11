@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdbc2cb0_eb27e90b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-10-11T10:14:53Z",
+      "side": 1,
+      "message": "Few of the test_configs failed were unrelated to this change. Triggering CI again to ensure those tests are getting passed (as failed test_configs are now fixed by other patches).",
+      "revId": "5bb2aa7aaf5543c4e88addd67435c7283abce06c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
