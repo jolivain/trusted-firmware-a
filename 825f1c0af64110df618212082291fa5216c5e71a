@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b2b5c45_ada687e2",
+        "filename": "plat/xilinx/zynqmp/pm_service/pm_svc_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2022-10-11T06:34:53Z",
+      "side": 1,
+      "message": "This function return status. It is 0 all the time but this is not the right way how to fix it. You should handle return or you should change prototype of pm_ipi_init() to return void.",
+      "revId": "825f1c0af64110df618212082291fa5216c5e71a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba73ad37_8ef58812",
+        "filename": "plat/xilinx/zynqmp/pm_service/pm_svc_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2022-10-11T06:34:53Z",
+      "side": 1,
+      "message": "pm_ipi_send_sync() which is called from pm_get_api_version() can return error that\u0027s why you should handle it properly instead of ignoring. I expect ignoring return value is misra-c violation.",
+      "revId": "825f1c0af64110df618212082291fa5216c5e71a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d9c6e4d_d26794ad",
+        "filename": "plat/xilinx/zynqmp/pm_service/pm_svc_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2022-10-11T06:34:53Z",
+      "side": 1,
+      "message": "Defining variables in the middle of code shouldn\u0027t be misra-c complient.",
+      "revId": "825f1c0af64110df618212082291fa5216c5e71a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
