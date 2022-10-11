@@ -16,6 +16,23 @@
       "message": "Few of the test_configs failed were unrelated to this change. Triggering CI again to ensure those tests are getting passed (as failed test_configs are now fixed by other patches).",
       "revId": "5bb2aa7aaf5543c4e88addd67435c7283abce06c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "badf0c3f_830dd1cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-10-11T15:36:19Z",
+      "side": 1,
+      "message": "Failed test_configs are unrelated to this change.\n\nAlso on rebuild: few have passed. Manually providing +1.",
+      "revId": "5bb2aa7aaf5543c4e88addd67435c7283abce06c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
