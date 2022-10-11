@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05492ca8_5df56eef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2022-10-11T06:30:03Z",
+      "side": 1,
+      "message": "Both failures are unrelated to this patch.\n\n12:23:28 aarch64-none-elf-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/bl1/measured_boot.o: in function `rss_measured_boot_extend_measurement\u0027:\n12:23:28 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/lib/psa/measured_boot.c:103: undefined reference to `psa_call\u0027\n\n12:23:08 aarch64-none-elf-ld: cannot find -lmbedtls: No such file or directory\n12:23:08 Makefile:62: recipe for target \u0027/home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/romlib/romlib.elf\u0027 failed\n12:23:08 make[1]: *** [/home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/romlib/romlib.elf] Error 1",
+      "revId": "572efe947af796a9d17035543daf1a9902d3f77c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
