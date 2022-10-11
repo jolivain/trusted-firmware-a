@@ -195,23 +195,29 @@ endfunc delegate_sync_ea
  */
 func delegate_async_ea
 #if RAS_EXTENSION
+	/* Check Exception Class to ensure SError, if so, use ISS encoding
+	 * to get further information about SError interrupt.
+	ubfx	x2, x1, #ESR_EC_SHIFT, #ESR_EC_LENGTH
+	cmp	x2, EC_SERROR
+	b.ne	1f
+
 	/*
 	 * Check for Implementation Defined Syndrome. If so, skip checking
 	 * Uncontainable error type from the syndrome as the format is unknown.
 	 */
 	tbnz	x1, #SERROR_IDS_BIT, 1f
 
+	/* First Check DFSC for SError type */
+	ubfx	x3, x1, #EABORT_DFSC_SHIFT, #EABORT_DFSC_WIDTH
+	cmp	x3, #DFSC_SERROR
+	b.ne	1f
+
 	/*
 	 * Check for Uncontainable error type. If so, route to the platform
 	 * fatal error handler rather than the generic EA one.
 	 */
-	ubfx	x2, x1, #EABORT_AET_SHIFT, #EABORT_AET_WIDTH
-	cmp	x2, #ERROR_STATUS_UET_UC
-	b.ne	1f
-
-	/* Check DFSC for SError type */
-	ubfx	x3, x1, #EABORT_DFSC_SHIFT, #EABORT_DFSC_WIDTH
-	cmp	x3, #DFSC_SERROR
+	ubfx	x4, x1, #EABORT_AET_SHIFT, #EABORT_AET_WIDTH
+	cmp	x4, #ERROR_STATUS_UET_UC
 	b.ne	1f
 
 	no_ret	plat_handle_uncontainable_ea
