@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ffeb208_10a0697c",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f964f97_e4ba938e",
+      "range": {
+        "startLine": 4,
+        "startChar": 12,
+        "endLine": 4,
+        "endChar": 24
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08a4ce4b_0f62d3d4",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-10T13:57:26Z",
       "side": 1,
       "message": "remove",
+      "range": {
+        "startLine": 8,
+        "startChar": 25,
+        "endLine": 8,
+        "endChar": 34
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71cc4318_d8eb4aa2",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08a4ce4b_0f62d3d4",
       "range": {
         "startLine": 8,
         "startChar": 25,
@@ -94,6 +142,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef6788a3_57f4d03d",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1a854a_6936d894",
+      "range": {
+        "startLine": 14,
+        "startChar": 50,
+        "endLine": 15,
+        "endChar": 50
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "852fc67d_22020ae4",
@@ -107,6 +179,30 @@
       "writtenOn": "2022-10-10T11:04:59Z",
       "side": 1,
       "message": "(minor) In TF-A, this is most commonly called \"trusted boot\".",
+      "range": {
+        "startLine": 80,
+        "startChar": 38,
+        "endLine": 80,
+        "endChar": 49
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19f7c357_7a8318b0",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "852fc67d_22020ae4",
       "range": {
         "startLine": 80,
         "startChar": 38,
@@ -140,6 +236,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "887ddb71_6c9f6abd",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "removed",
+      "parentUuid": "5a822847_5be63572",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 30
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "725decb8_3361f9d9",
@@ -153,6 +273,30 @@
       "writtenOn": "2022-10-10T11:04:59Z",
       "side": 1,
       "message": "This asset is not at threat in any of the threats below. Either consider removing it from the assets list here or adjust some of the threats\u0027 assets below (for example threat #11 might be a good candidate).",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 20
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6af914b4_892c640c",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "725decb8_3361f9d9",
       "range": {
         "startLine": 97,
         "startChar": 0,
@@ -186,6 +330,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d6e10fa_cb404472",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "802cc421_371cacb2",
+      "range": {
+        "startLine": 105,
+        "startChar": 2,
+        "endLine": 105,
+        "endChar": 46
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a78977e_92fb94dd",
@@ -199,6 +367,30 @@
       "writtenOn": "2022-10-10T11:04:59Z",
       "side": 1,
       "message": "(minor) Add a comma before \"typically\"?",
+      "range": {
+        "startLine": 107,
+        "startChar": 42,
+        "endLine": 107,
+        "endChar": 51
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f83c6ade_c3b00f57",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a78977e_92fb94dd",
       "range": {
         "startLine": 107,
         "startChar": 42,
@@ -232,6 +424,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16ad0fa8_fe177251",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "356e38ac_31024af9",
+      "range": {
+        "startLine": 136,
+        "startChar": 2,
+        "endLine": 136,
+        "endChar": 12
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78662613_ce5cd4de",
@@ -245,6 +461,30 @@
       "writtenOn": "2022-10-10T11:04:59Z",
       "side": 1,
       "message": "TF-A generic threat model also considers the IoT segment in its analysis. Any reason why it\u0027s not being mentioned here? Is that because EL3 SPMC is not viable in the IoT segment? If yes then I\u0027d suggest adding a short explanation about IoT in section 3.3.4, when you say,\n\n \"Similarly this threat model re-uses the same threat risk ratings. The risk analysis is evaluated based on the environment being Server or Mobile.\"\n\nIn any case, consider removing this empty column.",
+      "range": {
+        "startLine": 150,
+        "startChar": 29,
+        "endLine": 150,
+        "endChar": 58
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0889ad7a_0b5ccccf",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78662613_ce5cd4de",
       "range": {
         "startLine": 150,
         "startChar": 29,
@@ -301,6 +541,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37ec30e9_0e6fea3e",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64f2485_a911c727",
+      "range": {
+        "startLine": 158,
+        "startChar": 2,
+        "endLine": 158,
+        "endChar": 17
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c701162_94f5be07",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "I think we should separate both these threats. First threat can be about identification of source endpoint. SPM guarantees that source ffa-id cannot be spoofed.\nSecond one can talk about destination and routing/filtering.",
+      "parentUuid": "f8f51a85_7affa27e",
+      "range": {
+        "startLine": 158,
+        "startChar": 27,
+        "endLine": 158,
+        "endChar": 63
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9346c66d_f7a07925",
@@ -314,6 +602,30 @@
       "writtenOn": "2022-10-10T13:57:26Z",
       "side": 1,
       "message": "Perhaps consider mentionning both version v1.0/v1.1?",
+      "range": {
+        "startLine": 194,
+        "startChar": 46,
+        "endLine": 194,
+        "endChar": 50
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee9ec66b_282cb2eb",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9346c66d_f7a07925",
       "range": {
         "startLine": 194,
         "startChar": 46,
@@ -347,6 +659,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d12599d3_f343ffcc",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0fefd06_c646d114",
+      "range": {
+        "startLine": 212,
+        "startChar": 26,
+        "endLine": 212,
+        "endChar": 29
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c37f1f28_e5009221",
@@ -360,6 +696,30 @@
       "writtenOn": "2022-10-10T13:57:26Z",
       "side": 1,
       "message": "IIUC, the EL3 SPMC implements the said partition run time models?",
+      "range": {
+        "startLine": 249,
+        "startChar": 35,
+        "endLine": 250,
+        "endChar": 60
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6fdf001_9cd0fdbc",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c37f1f28_e5009221",
       "range": {
         "startLine": 249,
         "startChar": 35,
@@ -417,6 +777,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9e21143_cccc57db",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfddd068_c73cc5d9",
+      "range": {
+        "startLine": 251,
+        "startChar": 27,
+        "endLine": 252,
+        "endChar": 77
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9221434f_ac02ec23",
@@ -430,6 +814,30 @@
       "writtenOn": "2022-10-10T11:04:59Z",
       "side": 1,
       "message": "endpoints",
+      "range": {
+        "startLine": 261,
+        "startChar": 63,
+        "endLine": 261,
+        "endChar": 71
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed11d8dd_69e27804",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9221434f_ac02ec23",
       "range": {
         "startLine": 261,
         "startChar": 63,
@@ -463,6 +871,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "506cf0bc_9c548105",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfd18cef_e86d6fa9",
+      "range": {
+        "startLine": 279,
+        "startChar": 27,
+        "endLine": 279,
+        "endChar": 39
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b159be0_1ac90907",
@@ -486,6 +918,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34324bb2_3c31cf0e",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b159be0_1ac90907",
+      "range": {
+        "startLine": 328,
+        "startChar": 27,
+        "endLine": 330,
+        "endChar": 31
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3129d5c4_060b7a14",
@@ -499,6 +955,30 @@
       "writtenOn": "2022-10-10T13:57:26Z",
       "side": 1,
       "message": "IIUC, the EL3 SPMC implements the said partition run time models?",
+      "range": {
+        "startLine": 369,
+        "startChar": 27,
+        "endLine": 371,
+        "endChar": 46
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "baf201f0_4c6406fb",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3129d5c4_060b7a14",
       "range": {
         "startLine": 369,
         "startChar": 27,
@@ -556,6 +1036,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "790d4c03_8e43577b",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54901bbd_777297d8",
+      "range": {
+        "startLine": 443,
+        "startChar": 60,
+        "endLine": 445,
+        "endChar": 68
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7bc5ab6f_f348436a",
@@ -569,6 +1073,30 @@
       "writtenOn": "2022-10-10T11:04:59Z",
       "side": 1,
       "message": "We\u0027re jumping from threat 8 to threat 11 here... I suppose the numbers should be made contiguous?",
+      "range": {
+        "startLine": 449,
+        "startChar": 2,
+        "endLine": 449,
+        "endChar": 31
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d7eda0f_4083c599",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bc5ab6f_f348436a",
       "range": {
         "startLine": 449,
         "startChar": 2,
@@ -602,6 +1130,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbd4e249_314361c8",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b339bf68_3d2fd0e3",
+      "range": {
+        "startLine": 488,
+        "startChar": 2,
+        "endLine": 488,
+        "endChar": 32
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27880eca_db2bec16",
@@ -615,6 +1167,30 @@
       "writtenOn": "2022-10-10T11:04:59Z",
       "side": 1,
       "message": "I suppose we\u0027re missing commas between each of these verbs?",
+      "range": {
+        "startLine": 490,
+        "startChar": 65,
+        "endLine": 491,
+        "endChar": 48
+      },
+      "revId": "84ed6d4908711c39be5ad6861fca0a27a22ba848",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47f460bc_969b2392",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-11T15:09:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27880eca_db2bec16",
       "range": {
         "startLine": 490,
         "startChar": 65,
