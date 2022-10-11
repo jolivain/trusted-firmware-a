@@ -201,17 +201,17 @@ func delegate_async_ea
 	 */
 	tbnz	x1, #SERROR_IDS_BIT, 1f
 
+	/* AET only valid when DFSC is 0x11 */
+	ubfx	x2, x1, #EABORT_DFSC_SHIFT, #EABORT_DFSC_WIDTH
+	cmp	x2, #DFSC_SERROR
+	b.ne	1f
+
 	/*
 	 * Check for Uncontainable error type. If so, route to the platform
 	 * fatal error handler rather than the generic EA one.
 	 */
-	ubfx	x2, x1, #EABORT_AET_SHIFT, #EABORT_AET_WIDTH
-	cmp	x2, #ERROR_STATUS_UET_UC
-	b.ne	1f
-
-	/* Check DFSC for SError type */
-	ubfx	x3, x1, #EABORT_DFSC_SHIFT, #EABORT_DFSC_WIDTH
-	cmp	x3, #DFSC_SERROR
+	ubfx	x3, x1, #EABORT_AET_SHIFT, #EABORT_AET_WIDTH
+	cmp	x3, #ERROR_STATUS_UET_UC
 	b.ne	1f
 
 	no_ret	plat_handle_uncontainable_ea
