@@ -304,7 +304,7 @@ $(eval BL_CFLAGS := $($(call uppercase,$(3))_CFLAGS))
 
 $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | $(3)_dirs
 	$$(ECHO) "  CC      $$<"
-	$$(Q)$$(CC) $$(LTO_CFLAGS) $$(TF_CFLAGS) $$(CFLAGS) $(BL_CPPFLAGS) $(BL_CFLAGS) $(MAKE_DEP) -c $$< -o $$@
+	$$(Q)$$(CC) $$(LTO_CFLAGS) $$(TF_CFLAGS) $$(CFLAGS) $(BL_CPPFLAGS) $(BL_CFLAGS) $($(patsubst %.c,%,$(notdir $(2)))_CFLAGS) $(MAKE_DEP) -c $$< -o $$@
 
 -include $(DEP)
 
