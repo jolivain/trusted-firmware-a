@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a377497d_d117ce9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000789
+      },
+      "writtenOn": "2022-10-13T03:23:11Z",
+      "side": 1,
+      "message": "The latest set of patches hopefully fixes the remaining include ordering errors, as well as the Tegra T186 build error. There were a few other build errors, but those appear to be unrelated to these patches. For example: https://ci.trustedfirmware.org/job/tf-a-builder/1327466/console\n",
+      "revId": "8de3cf522aad3570d02ec4c696c301b1ad668075",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
