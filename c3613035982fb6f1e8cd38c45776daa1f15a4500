@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46a9465f_f83feabc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-13T12:22:32Z",
+      "side": 1,
+      "message": "To me, \u0027without\u0027 or \u0027with no\u0027 make no difference but I\u0027ll change it anyway to \u0027with no\u0027.",
+      "parentUuid": "509bc43c_d983331b",
+      "range": {
+        "startLine": 23,
+        "startChar": 31,
+        "endLine": 23,
+        "endChar": 39
+      },
+      "revId": "c3613035982fb6f1e8cd38c45776daa1f15a4500",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "268914ed_4d0e5e4e",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-13T11:26:38Z",
       "side": 1,
       "message": "Could these lines be moved to platform specific platfrom_def.h?",
+      "range": {
+        "startLine": 417,
+        "startChar": 22,
+        "endLine": 417,
+        "endChar": 53
+      },
+      "revId": "c3613035982fb6f1e8cd38c45776daa1f15a4500",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9c5bf50_a788ad1c",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-13T12:22:32Z",
+      "side": 1,
+      "message": "That does not sound like a good idea to me. Note that we\u0027re in a very specific config here, where we purposedly set PLAT_RSS_NOT_SUPPORTED\u003d0 from an ad-hoc build config [1], even though AEM FVP does not support RSS. This is really just to test building the RSS but the resulting firmware won\u0027t be functional, as mentioned in the comment above. My point is, it\u0027s an abnormal config that should never actually be needed in practice. So I don\u0027t want to encourage it or give the impression that it is supported. IMO defining PLAT_RSS_COMMS_PAYLOAD_MAX_SIZE macro in platform_def.h would be misleading in that regard.\n\n[1] https://git.trustedfirmware.org/ci/tf-a-ci-scripts.git/tree/tf_config/fvp-mb-romlib-rme-rss",
+      "parentUuid": "268914ed_4d0e5e4e",
       "range": {
         "startLine": 417,
         "startChar": 22,
