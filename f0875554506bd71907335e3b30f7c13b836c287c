@@ -33,6 +33,41 @@
       "message": "Please fix the static checks issues reported by the CI [1].\n\nThere are also some build failures. Can you please take a look at build failures for \u0027imx8mn-sdei\u0027 [2], \u0027imx8mm-default\u0027 [3], \u0027imx8mm-mb_hash256-tbb-embedtls-debug\u0027 [4], which all seem to be related to some missing function declaration?\n\nThe build failure for \u0027stm32mp1-usb\u0027 can be safely ignored. This should go away when the patch stack is rebased on the integration branch.\n\n[1] https://ci.trustedfirmware.org/job/tf-a-static-checks/2299/\n[2] https://ci.trustedfirmware.org/job/tf-a-builder/1298724/console\n[3] https://ci.trustedfirmware.org/job/tf-a-builder/1298783/console\n[4] https://ci.trustedfirmware.org/job/tf-a-builder/1298816/console",
       "revId": "f0875554506bd71907335e3b30f7c13b836c287c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c3562c6_ea2d44d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000887
+      },
+      "writtenOn": "2022-10-13T09:20:30Z",
+      "side": 1,
+      "message": "I\u0027ve been working on the static check and have it fixed locally, would be pushing the updated version shortly.\n\nI would have couple of points there, specifically:\n1. Outdated Copyright note warning cannot be fixed from my side, as it refers to NXP note which I cannot modify. It has been taken from the downstream fork, as the base of the development comes from there and according to BSD license I cannot change the Copyright note. So this I have to leave intact.\n2. Warning regarding the new file addition: I was trying to look for how to add this to the check, but it seems that the platform this file is included into is already present in the `tf-a-ci-scripts.git/tree/script/tf-coverity/tf-cov-make`. Hence I\u0027m not sure what shall be done in addition.\n\nFailures in the build were caused by missing `imx_hab_handler` which is defined in `plat/imx/imx8m/imx_hab.c` file. I guess since the CI does not pull the entire patch set, the Makefile changes were not included, hence the `imx_hab.c` was not compiled, causing the missing identifier error during linking.\n\nI believe that in order to solve it, I would either have to squash all the changes in one commit (entire HAB support), or have a CI to build the entire series at once.\n\nCan you please advise on what would be more preferred solution here?",
+      "parentUuid": "fcfee3e4_a053d0f1",
+      "revId": "f0875554506bd71907335e3b30f7c13b836c287c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92f4761e_a0e2e8fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000887
+      },
+      "writtenOn": "2022-10-13T09:20:30Z",
+      "side": 1,
+      "message": "Hello Sandrine,\n\nSorry for delayed response here, I was traveling last week.\n\n-- andrey",
+      "revId": "f0875554506bd71907335e3b30f7c13b836c287c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
