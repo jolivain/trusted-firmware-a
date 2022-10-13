@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d66ed5e_22cc7730",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-10-13T13:05:06Z",
+      "side": 1,
+      "message": "nit: can we put comment over this line as \"This dependency is not at the source code level (attestation code does not invoke any measured boot interfaces) but it is rather a logical dependency to fulfil the code coverage and static analysis, similar to what you mentioned in commit message?\n\nI believe other platforms takes the reference of FVP platform makefile in order to adopt the feature so it is better to provide this comment in this file.\n\nFeel free to ignore :).",
+      "range": {
+        "startLine": 395,
+        "startChar": 0,
+        "endLine": 395,
+        "endChar": 48
+      },
+      "revId": "fe50fca2256734adc76bccd25b8e7fd27aca9fc4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
