@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9ca66ed_3496bddb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000811
+      },
+      "writtenOn": "2022-10-13T14:21:57Z",
+      "side": 1,
+      "message": "There are more violations in the file",
+      "revId": "f109eb3831b4d543f4d9923af9ce15c1f779e3dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2536bdb6_77eddd82",
+        "filename": "plat/xilinx/common/pm_service/pm_ipi.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000811
+      },
+      "writtenOn": "2022-10-13T14:21:57Z",
+      "side": 1,
+      "message": "Event misra_c_2012_directive_4_6_violation:\tUsing basic numerical type \"unsigned int\" rather than a typedef that includes size and signedness information.",
+      "range": {
+        "startLine": 56,
+        "startChar": 1,
+        "endLine": 56,
+        "endChar": 25
+      },
+      "revId": "f109eb3831b4d543f4d9923af9ce15c1f779e3dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9275d24_8b507733",
+        "filename": "plat/xilinx/common/pm_service/pm_ipi.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000811
+      },
+      "writtenOn": "2022-10-13T14:21:57Z",
+      "side": 1,
+      "message": "Event misra_c_2012_directive_4_6_violation:\tUsing basic numerical type \"unsigned int\" rather than a typedef that includes size and signedness information.",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 48
+      },
+      "revId": "f109eb3831b4d543f4d9923af9ce15c1f779e3dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05759e96_517ee16b",
+        "filename": "plat/xilinx/common/pm_service/pm_ipi.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000811
+      },
+      "writtenOn": "2022-10-13T14:21:57Z",
+      "side": 1,
+      "message": "Should be defined as\n#define IPI_BUFFER_MAX_WORDS    U(8)",
+      "range": {
+        "startLine": 192,
+        "startChar": 13,
+        "endLine": 192,
+        "endChar": 33
+      },
+      "revId": "f109eb3831b4d543f4d9923af9ce15c1f779e3dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71964f07_bd31e70c",
+        "filename": "plat/xilinx/zynqmp/pm_service/pm_svc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000811
+      },
+      "writtenOn": "2022-10-13T14:21:57Z",
+      "side": 1,
+      "message": "Event misra_c_2012_rule_10_4_violation:\tEssential type of the left hand operand \"ipi_irq_flag\" (signed) is not the same as that of the right operand \"0U\"(unsigned).",
+      "range": {
+        "startLine": 333,
+        "startChar": 3,
+        "endLine": 333,
+        "endChar": 28
+      },
+      "revId": "f109eb3831b4d543f4d9923af9ce15c1f779e3dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22752cb3_726235b6",
+        "filename": "plat/xilinx/zynqmp/pm_service/pm_svc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1000811
+      },
+      "writtenOn": "2022-10-13T14:21:57Z",
+      "side": 1,
+      "message": "Event misra_c_2012_rule_12_1_violation:\tMissing explicit parentheses on sub-expression: \"(uint64_t)value \u003c\u003c 32\".",
+      "range": {
+        "startLine": 356,
+        "startChar": 35,
+        "endLine": 356,
+        "endChar": 59
+      },
+      "revId": "f109eb3831b4d543f4d9923af9ce15c1f779e3dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
