@@ -16,6 +16,24 @@
       "message": "The latest set of patches hopefully fixes the remaining include ordering errors, as well as the Tegra T186 build error. There were a few other build errors, but those appear to be unrelated to these patches. For example: https://ci.trustedfirmware.org/job/tf-a-builder/1327466/console\n",
       "revId": "8de3cf522aad3570d02ec4c696c301b1ad668075",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98f23928_9385c923",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-13T09:32:53Z",
+      "side": 1,
+      "message": "Following ones are related this change:\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1327610/console\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1328107/console\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1328120/console\nNot yet sure about other failures, but first thing to do would be to rebase to tip of master.",
+      "parentUuid": "a377497d_d117ce9c",
+      "revId": "8de3cf522aad3570d02ec4c696c301b1ad668075",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }

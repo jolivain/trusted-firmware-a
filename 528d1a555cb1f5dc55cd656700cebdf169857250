@@ -69,6 +69,24 @@
       "parentUuid": "ed2d59ab_cf425290",
       "revId": "528d1a555cb1f5dc55cd656700cebdf169857250",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dccab855_7cdf25d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-13T09:32:53Z",
+      "side": 1,
+      "message": "My guess is the checker might be confused because of using plat in the path name. Essentially any platform related code shall be in topdir/plat.\nI understand this is about providing function signatures that platforms shall implement specifically.\nWoult it be possible to relocate boot_args.h and shared_mem.h to services/spd/trusty/include/trusty ?\n\nSee this example for FVP:\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/services/std_svc/spm/el3_spmc/spmc_shared_mem.h#n51\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/board/fvp/fvp_el3_spmc.c#n40\n\nBTW I did not dig into the code yet, but are plat_mem_set_shared and plat_spmc_shmem_begin/plat_spmc_shmem_reclaim targeting same usage?",
+      "parentUuid": "4d4b7e59_9552581b",
+      "revId": "528d1a555cb1f5dc55cd656700cebdf169857250",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
