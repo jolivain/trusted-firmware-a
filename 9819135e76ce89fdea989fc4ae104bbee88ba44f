@@ -166,6 +166,30 @@
       },
       "revId": "9819135e76ce89fdea989fc4ae104bbee88ba44f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52f89c22_3e35b6bd",
+        "filename": "plat/imx/imx8m/imx8mm/imx8mm_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-14T09:03:15Z",
+      "side": 1,
+      "message": "\u003e mapping the entire DRAM doesn\u0027t use additional page table as it will use 32MB block mapping in level2, if we use fine grain mapping, additional level-3 page table is required\n\nI agree, we are on the same page here 😊",
+      "parentUuid": "adb08545_84c485db",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 85
+      },
+      "revId": "9819135e76ce89fdea989fc4ae104bbee88ba44f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
