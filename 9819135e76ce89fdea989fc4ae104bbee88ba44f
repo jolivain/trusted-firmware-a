@@ -190,6 +190,30 @@
       },
       "revId": "9819135e76ce89fdea989fc4ae104bbee88ba44f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7983cb0a_c3697cc8",
+        "filename": "plat/imx/imx8m/imx8mm/imx8mm_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000887
+      },
+      "writtenOn": "2022-10-14T09:11:16Z",
+      "side": 1,
+      "message": "Hello all,\n\nFirst of, thanks a lot for the throughout review and your comments here here!\n\nHad a second look at the cache coherency, and indeed it should not be an issue since the mapping is originating from NS to S world.\n\nThanks Sandrine and Bai Ping!\n\n\u003e \u003e mapping the entire DRAM doesn\u0027t use additional page table as it will use 32MB block mapping in level2, if we use fine grain mapping, additional level-3 page table is required\n\u003e \n\u003e I agree, we are on the same page here 😊\n\nAs a compromise, would the `MT_RO` mapping assist here to mitigate the security aspects, and still use L1 translation regime not to clutter the page table?\n\nIf that is what we can all agree to, then I can push the updated patch set which includes those changes. Otherwise, I would need to go and change the implementation to include dynamic mapping instead.",
+      "parentUuid": "52f89c22_3e35b6bd",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 85
+      },
+      "revId": "9819135e76ce89fdea989fc4ae104bbee88ba44f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
