@@ -94,6 +94,30 @@
       },
       "revId": "9819135e76ce89fdea989fc4ae104bbee88ba44f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "179cbc67_0dbf41f9",
+        "filename": "plat/imx/imx8m/imx8mm/imx8mm_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000216
+      },
+      "writtenOn": "2022-10-14T03:14:56Z",
+      "side": 1,
+      "message": "\u003e Hello Sandrine,\n\u003e \n\u003e \u003e OK I understand.\n\u003e \u003e \n\u003e \u003e That being said, mapping the entire DRAM in BL31 for the lifetime of the system is not ideal from a security point of view... Have you considered making this a temporary mapping instead?\n\u003e \n\u003e This is indeed a good point to consider! After second-glancing at the implementation, I believe that the entire static DRAM mapping might not be necessary, and only regions that are requested for authentication needs to be mapped in.\n\u003e \n\u003e \u003e \n\u003e \u003e The translation table library in TF-A supports the concept of \"dynamic\" mapping [1], which need not be declared statically as above. You could potentially leave the DRAM initially ummapped in BL31; then when you receive the authentication request in BL31 you map the required region of DRAM to access U-boot/Linux (so presumably you don\u0027t even need to map the entire DRAM here, but just the region holding the payload to authenticate), authenticate, then unmap. Would that work for your use case? This does not come for free, though, there will be a performance impact. So this is a security/performance trade-off.\n\u003e \n\u003e I would have a look at the feature, and try it out. Without much knowledge of it now, my concern is about cache coherency here, as the DRAM region which needs to be dynamically mapped shall be consistent between S and NS worlds via TZ MMU extension.\n\nThis may consume more MMU mapping table to runtime map, and need pass which range is required for authentication using SIP args.\n\n\u003e \n\u003e \u003e \n\u003e \u003e BTW, why does the DRAM need to be mapped as read-write here? Why not read-only? AFAIU, authenticating an image only requires read access, but is there something I am missing? \n\u003e \n\u003e Good point, let me check this! I believe there is no need to do RW mapping here, RO shall be sufficient since HAB shall not modify the input data subject for authentication. Otherwise, any input from NXP would be really appreciated here to clarify whether RW is required.\n\n\nI not see RW is required in HAB authenticate case.\n\n\u003e \n\u003e \u003e \n\u003e \u003e [1] Build option PLAT_XLAT_TABLES_DYNAMIC,\n\u003e \u003e https://trustedfirmware-a.readthedocs.io/en/latest/components/xlat-tables-lib-v2-design.html#static-and-dynamic-memory-regions\n\u003e \n\u003e -- andrey",
+      "parentUuid": "ff20a794_e166d2f3",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 85
+      },
+      "revId": "9819135e76ce89fdea989fc4ae104bbee88ba44f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
