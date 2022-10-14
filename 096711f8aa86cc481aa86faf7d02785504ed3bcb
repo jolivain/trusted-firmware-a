@@ -16,6 +16,414 @@
       "message": "Rendered version for patch set 9: https://ci-builds.trustedfirmware.org/static-files/F4D2bhlB2GmD5RvkSpxWHUfwA78qyLvSr8gt_jOwk04xNjY1NzQyNjk5ODgwOjk6YW5vbnltb3VzOmpvYi90Zi1hLWJ1aWxkZXIvMTMzNjkzMC9hcnRpZmFjdA\u003d\u003d/artefacts/release/build/html/threat_model/threat_model_el3_spm.html",
       "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b19b4a27_cc9f0e22",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-14T10:57:38Z",
+      "side": 1,
+      "message": "(minor) If this is not too much of a hassle, try to truncate lines to 80 columns please.",
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79c71ca6_aaf377fe",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-14T10:57:38Z",
+      "side": 1,
+      "message": "What\u0027s LSP? Consider adding it to TF-A glossary: https://trustedfirmware-a.readthedocs.io/en/latest/glossary.html",
+      "range": {
+        "startLine": 54,
+        "startChar": 32,
+        "endLine": 54,
+        "endChar": 35
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dea597a_dbaf5162",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-14T10:57:38Z",
+      "side": 1,
+      "message": "(minor) Consider adding an empty line before this line. This looks a bit packed in the rendered version right now.",
+      "range": {
+        "startLine": 55,
+        "startChar": 26,
+        "endLine": 55,
+        "endChar": 57
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fe0ea75_8a32f5e2",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-14T10:57:38Z",
+      "side": 1,
+      "message": "Out of curiosity, why?",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 21
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4543ec3_b35f1b00",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-14T10:57:38Z",
+      "side": 1,
+      "message": "(minor) Suggest avoiding abbreviations: implementation defined means.",
+      "range": {
+        "startLine": 205,
+        "startChar": 56,
+        "endLine": 205,
+        "endChar": 68
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c752202b_1de73fd0",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-14T10:57:38Z",
+      "side": 1,
+      "message": "(minor) Add an empty line after the first sentence?\n\nAnd maybe more empty lines somewhere below, as this appears as one single paragraph in the rendered version, which I find difficult to digest.",
+      "range": {
+        "startLine": 207,
+        "startChar": 27,
+        "endLine": 207,
+        "endChar": 71
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9469e2d2_2dda2de4",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-14T10:57:38Z",
+      "side": 1,
+      "message": "(minor) Add an empty line after first sentence?",
+      "range": {
+        "startLine": 228,
+        "startChar": 42,
+        "endLine": 228,
+        "endChar": 43
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e29cde7_649c8f50",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-14T10:57:38Z",
+      "side": 1,
+      "message": "I question whether mentioning FF-A v1.0 is appropriate here, given that the assumptions list at the start of the document requires FF-A v1.1.",
+      "range": {
+        "startLine": 254,
+        "startChar": 27,
+        "endLine": 254,
+        "endChar": 55
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8854963b_fa335ce5",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-14T10:57:38Z",
+      "side": 1,
+      "message": "memory sharing",
+      "range": {
+        "startLine": 256,
+        "startChar": 49,
+        "endLine": 256,
+        "endChar": 52
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dac7c63_eb6f4c71",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-14T10:57:38Z",
+      "side": 1,
+      "message": "\"must copy\" leaves a doubt as to whether SPMC does do it today. Suggest using simple present tense instead, as in: The SPMC copies the contents...",
+      "range": {
+        "startLine": 257,
+        "startChar": 27,
+        "endLine": 257,
+        "endChar": 58
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45be2a62_f556012b",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-14T10:57:38Z",
+      "side": 1,
+      "message": "The SPMC implements...",
+      "range": {
+        "startLine": 259,
+        "startChar": 41,
+        "endLine": 259,
+        "endChar": 64
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c885eb5f_5b55545f",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-14T10:57:38Z",
+      "side": 1,
+      "message": "Naive question, as I am not familiar with the spec... Is that statement clear enough? Would it be worth specifying which section of the spec we\u0027re referring to? Or is that obvious?",
+      "range": {
+        "startLine": 306,
+        "startChar": 27,
+        "endLine": 306,
+        "endChar": 63
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "843543cf_786458c7",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-14T10:57:38Z",
+      "side": 1,
+      "message": "I would drop the first part of this paragraph. This does not answer the question \"Are the mitigations implemented?\", but rather looks like a description of the threat (which has already been covered in details in the first row of the table.).",
+      "range": {
+        "startLine": 308,
+        "startChar": 27,
+        "endLine": 311,
+        "endChar": 73
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cd501b0_bfa41762",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-14T10:57:38Z",
+      "side": 1,
+      "message": "I think a simple \u0027No.\u0027 would be clearer, as it would stand out more and be shorter to read in a glance.\n\nThe generic threat model answers this question with 3 possible answers:\n* Yes.\n* Platform-specific.\n* No.\n\nThe first two answers can be combined when the mitigations is spread across generic and platform code.\n\nIt would be great if we could align the EL3 SPMC threat model with that convention, such that all threat models have the same \"look and feel\".",
+      "range": {
+        "startLine": 352,
+        "startChar": 27,
+        "endLine": 352,
+        "endChar": 71
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7708bd89_4ff9d30f",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-14T10:57:38Z",
+      "side": 1,
+      "message": "This sounds like a mitigation for Secure partitions, rather than SPMC? Should we rather say something like, \"SPMC must be prepared to receive incorrect input data from secure partitions and reject them appropriately\"? Feel free to change my words of course, as I am clearly not an expert here.",
+      "range": {
+        "startLine": 385,
+        "startChar": 28,
+        "endLine": 391,
+        "endChar": 49
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05c23a57_c2d824c3",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-14T10:57:38Z",
+      "side": 1,
+      "message": "(minor) e.g. (no leading dot)",
+      "range": {
+        "startLine": 408,
+        "startChar": 28,
+        "endLine": 408,
+        "endChar": 33
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4df719c2_258a0a0f",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-14T10:57:38Z",
+      "side": 1,
+      "message": "Consider rewording to better answer the questions, what are the mitigations? For example:\n\n Implement DRAM contents protection techniques using hardware countermeasures\n at the platform or chipset level.",
+      "range": {
+        "startLine": 472,
+        "startChar": 27,
+        "endLine": 473,
+        "endChar": 70
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e3884ad_795b152a",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-14T10:57:38Z",
+      "side": 1,
+      "message": "This does not read well, I suspect something went wrong while reworking the patch. Perhaps:\n\n The TF-A SPMC does not mitigate this threat. This is left to the integrator.",
+      "range": {
+        "startLine": 475,
+        "startChar": 27,
+        "endLine": 476,
+        "endChar": 69
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
