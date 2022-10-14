@@ -182,6 +182,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d83db8e_899d04d4",
+        "filename": "plat/xilinx/zynqmp/pm_service/pm_svc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000895
+      },
+      "writtenOn": "2022-10-14T06:21:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71964f07_bd31e70c",
+      "range": {
+        "startLine": 333,
+        "startChar": 3,
+        "endLine": 333,
+        "endChar": 28
+      },
+      "revId": "f109eb3831b4d543f4d9923af9ce15c1f779e3dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22752cb3_726235b6",
@@ -195,6 +219,30 @@
       "writtenOn": "2022-10-13T14:21:57Z",
       "side": 1,
       "message": "Event misra_c_2012_rule_12_1_violation:\tMissing explicit parentheses on sub-expression: \"(uint64_t)value \u003c\u003c 32\".",
+      "range": {
+        "startLine": 356,
+        "startChar": 35,
+        "endLine": 356,
+        "endChar": 59
+      },
+      "revId": "f109eb3831b4d543f4d9923af9ce15c1f779e3dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3d54735_02e3ec6f",
+        "filename": "plat/xilinx/zynqmp/pm_service/pm_svc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1000895
+      },
+      "writtenOn": "2022-10-14T06:21:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22752cb3_726235b6",
       "range": {
         "startLine": 356,
         "startChar": 35,
