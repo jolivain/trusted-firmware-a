@@ -122,6 +122,24 @@
       "parentUuid": "410b985a_c91f99e6",
       "revId": "f0875554506bd71907335e3b30f7c13b836c287c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f82dde59_2dcb701d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000887
+      },
+      "writtenOn": "2022-10-14T09:20:09Z",
+      "side": 1,
+      "message": "Hello Sandrine,\n\n\u003e Sorry, I should have been clearer, only static checks *errors* need fixing, warnings are optional.\n\nGot it, thanks!\n\n\u003e \n\u003e 1. The outdated copyright note is a warning only. Moreover, the copyright line format looks compliant to me (let aside the old date) and Bai Ping also confirmed it looks alright. So we can ignore this one.\n\nI\u0027ve seen the message from Bai Ping, and left the NXP Copyright note as-is.\n\n\u003e \n\u003e 2. I had a closer look and I agree with your assessment. I expect that this warning will go away with the next patch in the series that include plat/imx/imx8m/imx_hab.c file into the build. This is the same issue as the link errors you\u0027ve analysed. So that\u0027s fine, this can be ignored as well.\n\nI\u0027ve re-worked the patch series here, so that the `platform.mk` files are now made part of this commit. This would allow to also do a clean bisect later if needed, and CI can pick each individual commit from the series.\n\n\u003e \n\u003e It is possible to make the CI pull the entire patch set and I agree this is preferrable in this case. For that, please kind I request you to:\n\u003e \n\u003e a) Post your latest version of the present patch for review, including fixes for the coding style violations reported by the CI (which I assume is what you\u0027ve fixed locally?) Again, only errors really need fixing, for warnings it\u0027s up to you.\n\nYes, Ive already have this locally. I\u0027m now running internal tests and would push the updates series shortly. Then I guess we can continue to discuss the DRAM mapping scheme.\n\n\u003e \n\u003e b) Rebase the next patches in the series on top of a).\n\u003e \n\u003e Then I will trigger the CI loop again but on the top patch in the series this time. This will have the effect to test all patches in the series. So there is no need to squash the patch stack.\n\nThanks a lot!\n\nRegards,\nAndrey",
+      "parentUuid": "222437aa_6cbc1ca2",
+      "revId": "f0875554506bd71907335e3b30f7c13b836c287c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
