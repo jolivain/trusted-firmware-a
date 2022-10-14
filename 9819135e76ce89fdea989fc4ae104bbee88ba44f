@@ -262,6 +262,30 @@
       },
       "revId": "9819135e76ce89fdea989fc4ae104bbee88ba44f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ccbc765_86e43ca9",
+        "filename": "plat/imx/imx8m/imx8mm/imx8mm_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000887
+      },
+      "writtenOn": "2022-10-14T13:11:50Z",
+      "side": 1,
+      "message": "Hello all,\n\n\u003e \u003e As a compromise, would the `MT_RO` mapping assist here to mitigate the security aspects, and still use L1 translation regime not to clutter the page table?\n\u003e \n\u003e \u003e If that is what we can all agree to, then I can push the updated patch set which includes those changes. Otherwise, I would need to go and change the implementation to include dynamic mapping instead.\n\u003e \n\u003e That sounds reasonable to me too!\n\nI\u0027ve did some testing on the DRAM mapping with MT_RO attributes, and unfortunately have to confirm that it is not the end solution...\n\nSMC API to get the status and events is called from NS world passing destination pointers which are located in DRAM. Mapping DRAM as MT_RO causes those locations not to be filled, and NS World effectively hangs... Changing the mapping back to MT_RW solved this, and I was able to receive HAB status and events.\n\nI guess this does clarifies the point on why the DRAM mapping is done as MT_RW: while technically it is not required for authentication purposes, it is required for data exchange in the chain HAB -\u003e TF-A -\u003e U-Boot. Moreover, since the exact location of the destination is not known in advance, simply mapping one part of DRAM as RW would also not be helpful to mitigate this.\n\nIn addition, I\u0027ve looked a the implementation of both U-Boot and Barebox, and it looks like that both of them are performing RVT API calls to via SMC using local variables to receive the data back. Changing DRAM mapping to MT_RO would break the compatibility with at least those 2 bootloaders.\n\nNot sure what can be the best course of action here, would really appreciate any feedback.",
+      "parentUuid": "34d57e50_5c4638c3",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 85
+      },
+      "revId": "9819135e76ce89fdea989fc4ae104bbee88ba44f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
