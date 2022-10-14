@@ -86,6 +86,42 @@
       "parentUuid": "92f4761e_a0e2e8fb",
       "revId": "f0875554506bd71907335e3b30f7c13b836c287c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "222437aa_6cbc1ca2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-14T08:24:55Z",
+      "side": 1,
+      "message": "Sorry, I should have been clearer, only static checks *errors* need fixing, warnings are optional.\n\n1. The outdated copyright note is a warning only. Moreover, the copyright line format looks compliant to me (let aside the old date) and Bai Ping also confirmed it looks alright. So we can ignore this one.\n\n2. I had a closer look and I agree with your assessment. I expect that this warning will go away with the next patch in the series that include plat/imx/imx8m/imx_hab.c file into the build. This is the same issue as the link errors you\u0027ve analysed. So that\u0027s fine, this can be ignored as well.\n\nIt is possible to make the CI pull the entire patch set and I agree this is preferrable in this case. For that, please kind I request you to:\n\na) Post your latest version of the present patch for review, including fixes for the coding style violations reported by the CI (which I assume is what you\u0027ve fixed locally?) Again, only errors really need fixing, for warnings it\u0027s up to you.\n\nb) Rebase the next patches in the series on top of a).\n\nThen I will trigger the CI loop again but on the top patch in the series this time. This will have the effect to test all patches in the series. So there is no need to squash the patch stack.",
+      "parentUuid": "0c3562c6_ea2d44d4",
+      "revId": "f0875554506bd71907335e3b30f7c13b836c287c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "026a6eed_54bfe59d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-14T08:24:55Z",
+      "side": 1,
+      "message": "\u003e Hello Sandrine,\n\u003e \n\u003e Sorry for delayed response here, I was traveling last week.\n\nHello Andrey,\n\nNo worries for the delay!",
+      "parentUuid": "410b985a_c91f99e6",
+      "revId": "f0875554506bd71907335e3b30f7c13b836c287c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
