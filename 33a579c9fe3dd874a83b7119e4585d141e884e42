@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "746a292f_20c00499",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-10-17T23:01:51Z",
+      "side": 1,
+      "message": "AFAICS, This function is meant to be called from SError vector in which case this check is probably redundant ? If EC is not corresponding to SError, then there is a programming error in which case an assert would be useful.\n\nThe DFSC check will also probably be true and would be redundant I think (but would be good to confirm)",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 8
+      },
+      "revId": "33a579c9fe3dd874a83b7119e4585d141e884e42",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
