@@ -1,0 +1,187 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27269080_26ce8eb3",
+        "filename": "common/aarch64/debug.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-10-17T22:23:10Z",
+      "side": 1,
+      "message": "use _NS as a suffix as this will follow the convention for config flags applicable to NS world.\n\nHANDLE_EA_IN_EL3_FIRST_NS",
+      "range": {
+        "startLine": 171,
+        "startChar": 5,
+        "endLine": 171,
+        "endChar": 30
+      },
+      "revId": "b4ab22d65b0514cf709113a6c02bbaf055028b5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2db371f3_8f80f203",
+        "filename": "common/aarch64/debug.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-10-17T22:23:10Z",
+      "side": 1,
+      "message": "Didn\u0027t really get the intention of the below code (lines 175 - 183)",
+      "revId": "b4ab22d65b0514cf709113a6c02bbaf055028b5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e7fd427_d4a41cb7",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-10-17T22:23:10Z",
+      "side": 1,
+      "message": "This sentence is not very clear to me. Suggest the following wording:\n\n\"... support for RAS extension enables firmware-first paradigm for handling platform errors: exceptions resulting from errors in Non Secure world are routed to and handled in EL3. Said errors are ....\"",
+      "range": {
+        "startLine": 8,
+        "startChar": 30,
+        "endLine": 11,
+        "endChar": 66
+      },
+      "revId": "b4ab22d65b0514cf709113a6c02bbaf055028b5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ea9abde_da1a374c",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-10-17T22:23:10Z",
+      "side": 1,
+      "message": "reword to add Non Secure world.",
+      "range": {
+        "startLine": 203,
+        "startChar": 35,
+        "endLine": 204,
+        "endChar": 7
+      },
+      "revId": "b4ab22d65b0514cf709113a6c02bbaf055028b5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf0895e7_912ee786",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-10-17T22:23:10Z",
+      "side": 1,
+      "message": "reword to add Non Secure world.",
+      "range": {
+        "startLine": 572,
+        "startChar": 53,
+        "endLine": 573,
+        "endChar": 48
+      },
+      "revId": "b4ab22d65b0514cf709113a6c02bbaf055028b5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e8cc942_b996d49e",
+        "filename": "docs/plat/marvell/armada/build.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-10-17T22:23:10Z",
+      "side": 1,
+      "message": "Note: This needs approval from marvel plat maintainers. Hopefully this only applies to NS world  but needs confirmation.",
+      "revId": "b4ab22d65b0514cf709113a6c02bbaf055028b5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "feea2f07_a2024979",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-10-17T22:23:10Z",
+      "side": 1,
+      "message": "It seems EA is always set by default for other worlds and it is only being cleared for NS. Previously it was being cleared globally. Does not look right to me.",
+      "revId": "b4ab22d65b0514cf709113a6c02bbaf055028b5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11b0d92f_79c2cab6",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-10-17T22:23:10Z",
+      "side": 1,
+      "message": "modify comment to say Non Secure.",
+      "range": {
+        "startLine": 219,
+        "startChar": 2,
+        "endLine": 219,
+        "endChar": 30
+      },
+      "revId": "b4ab22d65b0514cf709113a6c02bbaf055028b5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dfd5587_753e549c",
+        "filename": "plat/common/aarch64/plat_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-10-17T22:23:10Z",
+      "side": 1,
+      "message": "This seems to be a code optimization for not much benefit IMO. If that is the case, the #if can be removed.",
+      "revId": "b4ab22d65b0514cf709113a6c02bbaf055028b5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
