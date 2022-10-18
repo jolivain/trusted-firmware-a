@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49ca0c1e_65820ab8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-18T14:18:14Z",
+      "side": 1,
+      "message": "Actually I\u0027ve killed the CI+2 job. The previous build reported that all tests passed except commitlint (for a reason that seemed to be related to some missing tool on the CI infrastructure) - CI+1 will cover that.",
+      "revId": "0271eddb0c00b01033bf651f0eeaf659c0c2dd39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
