@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b12fc041_2454fbb0",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-18T14:11:06Z",
+      "side": 1,
+      "message": "Sorry, I should have been clearer. I think the answer ought to be just \"Platform specific\" here (and below). \"no\" would be when the mitigations should be implemented by generic code but they are not.\n\nIOW, to align with TF-A generic threat model, possible answers and their meanings are:\n\n1) Yes.\nMitigations belong entirely to generic code.\nGeneric code implements them.\n\n2) Yes / Platform specific.\nMitigations belong partly to generic code, partly to platform specific code.\nGeneric code implements its bits.\n\n3) Platform specific.\nMitigations belong entirely to platform code.\n\n4) No.\nMitigations belong entirely to generic code.\nGeneric code does not implement them.",
+      "range": {
+        "startLine": 211,
+        "startChar": 27,
+        "endLine": 211,
+        "endChar": 50
+      },
+      "revId": "d5fb746339b486551df27b26cbc97d3b3d316959",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7f139045_99bbc49d",
         "filename": "docs/threat_model/threat_model_el3_spm.rst",
         "patchSetId": 10
