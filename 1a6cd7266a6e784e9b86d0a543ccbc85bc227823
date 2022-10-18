@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd51ed26_9776f8ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-10-18T19:58:05Z",
+      "side": 1,
+      "message": "Current patch looks good from errata perspective if you can replace all the following references in the patch.\nMakalu ELP \u003d\u003e Cortex-X3\nMAKALU_ELP_ARM \u003d\u003e CORTEX_X3\nmakalu_elp_arm \u003d\u003e cortex_x3\n\n2. The .S file in this patch is missing a few pieces like the declare_cpu_ops which you can find towards end of the file in the earlier version of lib/cpus/aarch64/cortex_x3.S. Is that intentional?\n\n3. Rename the header file to cortex_x3.h",
+      "revId": "1a6cd7266a6e784e9b86d0a543ccbc85bc227823",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e99214c_22fe0674",
