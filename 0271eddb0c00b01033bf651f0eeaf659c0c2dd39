@@ -16,6 +16,23 @@
       "message": "Actually I\u0027ve killed the CI+2 job. The previous build reported that all tests passed except commitlint (for a reason that seemed to be related to some missing tool on the CI infrastructure) - CI+1 will cover that.",
       "revId": "0271eddb0c00b01033bf651f0eeaf659c0c2dd39",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c58d1ed4_ea680b64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-18T14:19:53Z",
+      "side": 1,
+      "message": "Sorry for the CI mess... https://ci.trustedfirmware.org/job/tf-a-commitlint/3083/ confirmed that commitlint is happy with the commit message so I killed all other jobs (no need to overload the CI).",
+      "revId": "0271eddb0c00b01033bf651f0eeaf659c0c2dd39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
