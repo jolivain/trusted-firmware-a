@@ -149,6 +149,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "17969c05_36c922f4",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-18T14:38:32Z",
+      "side": 1,
+      "message": "this will likely generate more threats than there are. Can you explain why you needed to simplify it?",
+      "range": {
+        "startLine": 56,
+        "startChar": 26,
+        "endLine": 59,
+        "endChar": 72
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c43313e5_effce33d",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-18T14:38:32Z",
+      "side": 1,
+      "message": "not sure why these need to be in scope. clearly tf-a does not do anything against this so it might as well be left out of scope and threats relevant to this removed?",
+      "range": {
+        "startLine": 115,
+        "startChar": 2,
+        "endLine": 115,
+        "endChar": 18
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5fe0ea75_8a32f5e2",
         "filename": "docs/threat_model/threat_model_el3_spm.rst",
         "patchSetId": 9
@@ -282,6 +328,29 @@
         "startChar": 42,
         "endLine": 228,
         "endChar": 43
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf411177_db3dc6a9",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-18T14:38:32Z",
+      "side": 1,
+      "message": "inputs",
+      "range": {
+        "startLine": 252,
+        "startChar": 40,
+        "endLine": 252,
+        "endChar": 46
       },
       "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
