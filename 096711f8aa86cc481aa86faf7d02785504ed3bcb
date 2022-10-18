@@ -106,6 +106,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "323ac20f_de9d596c",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-18T13:39:06Z",
+      "side": 1,
+      "message": "The EL3 SPMC is primarily (if not only) meant for use in Client.\nThus the rating for server is also debatable.",
+      "parentUuid": "5fe0ea75_8a32f5e2",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 21
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e4543ec3_b35f1b00",
         "filename": "docs/threat_model/threat_model_el3_spm.rst",
         "patchSetId": 9
