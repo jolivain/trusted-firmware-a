@@ -334,6 +334,30 @@
       },
       "revId": "9819135e76ce89fdea989fc4ae104bbee88ba44f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdc01158_fb124ce5",
+        "filename": "plat/imx/imx8m/imx8mm/imx8mm_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000887
+      },
+      "writtenOn": "2022-10-19T11:23:19Z",
+      "side": 1,
+      "message": "\u003e Yes, I agree with Bai Ping. We seem to have explored all alternatives I could think of, and none of them are suitable for the current use case. So let\u0027s just keep mapping the whole DRAM as read-write...\n\nACK, thank you all for the review and discussion here!\n\n\u003e \n\u003e I would just suggest adding a comment to explain this mapping. I think it\u0027s fair to say this is not obvious, since we\u0027ve had to have this conversation in Gerrit!\n\nI would add the comment in the code, and also note in commit message regarding the DRAM mapping scheme. It does make sense to indicate this, as it would remove potential confusion later when someone else would have a glance at the code.\n\nThis does apply to all platforms in this series, so I would add it to all of them.",
+      "parentUuid": "49685fd2_bcab5168",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 85
+      },
+      "revId": "9819135e76ce89fdea989fc4ae104bbee88ba44f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
