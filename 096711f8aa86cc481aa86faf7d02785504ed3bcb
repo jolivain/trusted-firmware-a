@@ -285,6 +285,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1d6dad02_92f38f15",
+        "filename": "docs/threat_model/threat_model_el3_spm.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-19T15:24:16Z",
+      "side": 1,
+      "message": "Is it actually still worth mentioning that effectively this threat agent is identified (better than ignoring it), not mitigated by the reference sw stack, and the platform must implement required mitigations?\ne.g. see https://trustedfirmware-a.readthedocs.io/en/latest/threat_model/threat_model.html#threat-agents and Threat ID 4 in the generic TF-A threat model.",
+      "parentUuid": "c43313e5_effce33d",
+      "range": {
+        "startLine": 115,
+        "startChar": 2,
+        "endLine": 115,
+        "endChar": 18
+      },
+      "revId": "096711f8aa86cc481aa86faf7d02785504ed3bcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5fe0ea75_8a32f5e2",
         "filename": "docs/threat_model/threat_model_el3_spm.rst",
         "patchSetId": 9
