@@ -49,6 +49,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c1bb5eec_c110be1d",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1080,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-19T17:00:25Z",
+      "side": 1,
+      "message": "It should be same indent as \u0027Non-secure interrupt handling\u0027\ne.g. ~~~~~~~~~",
+      "range": {
+        "startLine": 1080,
+        "startChar": 0,
+        "endLine": 1080,
+        "endChar": 10
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "06ba398c_8974694b",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 2
@@ -210,6 +233,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ab8051e1_93b7df41",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1194,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-19T17:00:25Z",
+      "side": 1,
+      "message": "Is it worth stating the vCPU resumes with the SPMC scheduled mode?",
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d906419_95348a97",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1199,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-19T17:00:25Z",
+      "side": 1,
+      "message": "Is this still correct?\n\nPhysical interrupt de-activation happened at step 7) ?",
+      "range": {
+        "startLine": 1198,
+        "startChar": 43,
+        "endLine": 1199,
+        "endChar": 16
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0ee6e3af_d29d79dc",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 2
@@ -272,6 +335,138 @@
         "startChar": 1,
         "endLine": 1215,
         "endChar": 8
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6fa5b82_f8dfc6b1",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1239,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-19T17:00:25Z",
+      "side": 1,
+      "message": "This is a detail but there is neither an Hypervisor, nor a VM shown in the picture. Perhaps you can mention OS kernel?\nThis isn\u0027t shown as \u0027Step 1\u0027 in the diagram.",
+      "range": {
+        "startLine": 1239,
+        "startChar": 7,
+        "endLine": 1239,
+        "endChar": 13
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75655b0c_673a3fe5",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1240,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-19T17:00:25Z",
+      "side": 1,
+      "message": "Perhaps you can detail the intention of this description, saying SP1 is blocked, SP2 runs.",
+      "range": {
+        "startLine": 1239,
+        "startChar": 62,
+        "endLine": 1240,
+        "endChar": 30
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1532ef76_ef489a2a",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-19T17:00:25Z",
+      "side": 1,
+      "message": "SP2 remains in pre-empted state.",
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3caad512_ecdbb0f8",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1250,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-19T17:00:25Z",
+      "side": 1,
+      "message": "Is this applicable as covered by step 6?",
+      "range": {
+        "startLine": 1250,
+        "startChar": 44,
+        "endLine": 1250,
+        "endChar": 79
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42b16a31_c5a386a1",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1253,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-19T17:00:25Z",
+      "side": 1,
+      "message": "I would rephrase:\nSince SP1 direct request completed with FFA_INTERRUPT, it resumes the direct request to SP2 by invoking FFA_RUN\n\nIn my mind, this conveys better what the SP main loop should do without assuming the state it is into (blocked).",
+      "range": {
+        "startLine": 1252,
+        "startChar": 7,
+        "endLine": 1253,
+        "endChar": 19
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a287bc8d_209fd0fd",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-19T17:00:25Z",
+      "side": 1,
+      "message": "I have a doubt,\nIs this the result of step 8 (FFA_RUN)?\nOr because SP2 was running before resuming SP1 and the SPMC takes action to resume SP2 vCPU?",
+      "range": {
+        "startLine": 1254,
+        "startChar": 6,
+        "endLine": 1254,
+        "endChar": 47
       },
       "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
