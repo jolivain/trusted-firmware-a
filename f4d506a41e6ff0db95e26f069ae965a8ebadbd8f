@@ -45,6 +45,29 @@
       },
       "revId": "f4d506a41e6ff0db95e26f069ae965a8ebadbd8f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70ae2303_ab721a89",
+        "filename": "docs/plat/imx8m.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-19T09:45:15Z",
+      "side": 1,
+      "message": "This list does not render well in the HTML version:\nhttps://ci-builds.trustedfirmware.org/static-files/HDM7IUkVB1USyPn1Ny9aUTithzUItfoKmXmOYC1AouAxNjY2MTcyNjAyODEzOjk6YW5vbnltb3VzOmpvYi90Zi1hLWJ1aWxkZXIvMTM1MTE3MS9hcnRpZmFjdA\u003d\u003d/artefacts/debug/build/html/plat/imx8m.html#high-assurance-boot-habv4\n\nI suggest you check the exact lists syntax in RestructuredText format.",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 71
+      },
+      "revId": "f4d506a41e6ff0db95e26f069ae965a8ebadbd8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
