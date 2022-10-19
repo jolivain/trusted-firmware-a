@@ -106,6 +106,23 @@
       "parentUuid": "8c2301a5_aba08040",
       "revId": "dd2b251deea522c1f3c3a2c0af2c07ccaf0f7088",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6693089e_5c5559a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-10-19T21:28:36Z",
+      "side": 1,
+      "message": "@Lukas\nThe patch stack seems out of sync with integration. Can you try to rebase from here without losing the votes? We can try to merge these before the upcoming TF-A release.",
+      "revId": "dd2b251deea522c1f3c3a2c0af2c07ccaf0f7088",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
