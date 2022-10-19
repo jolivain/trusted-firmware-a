@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9771bf8a_7a520710",
+        "filename": "docs/components/ffa-manifest-binding.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-19T10:21:16Z",
+      "side": 1,
+      "message": "Add similar note as below, stating this field deprecates in favor of ns-interrupts-action.",
+      "revId": "821922984cf57268780791871cb8e3ebcc5409ed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5667010_55e85623",
+        "filename": "docs/components/ffa-manifest-binding.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-19T10:21:16Z",
+      "side": 1,
+      "message": "It is mentioned mandatory in the spec, but actually not in the (Hafnium) implementation (?)\n\nShould we be worried this mention doesn\u0027t reflect what exists in the SPMC implementations?\nI believe we won\u0027t fix that in this change, but I\u0027ll keep as a action for a later doc. refresh.",
+      "range": {
+        "startLine": 118,
+        "startChar": 23,
+        "endLine": 118,
+        "endChar": 34
+      },
+      "revId": "821922984cf57268780791871cb8e3ebcc5409ed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
