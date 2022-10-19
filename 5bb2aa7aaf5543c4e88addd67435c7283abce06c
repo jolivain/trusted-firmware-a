@@ -69,6 +69,42 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1385db24_374954fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-10-19T15:25:22Z",
+      "side": 1,
+      "message": "I am wondering as well. I think I just wanted to test the waters on this issue (to trigger comments like Soby\u0027s), and focused on the features that were easy to verify.\nI will have a go at covering the other bits as well.",
+      "parentUuid": "3952ea63_e04b7a57",
+      "revId": "5bb2aa7aaf5543c4e88addd67435c7283abce06c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "424bb2c8_92f64dff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-10-19T15:25:22Z",
+      "side": 1,
+      "message": "I don\u0027t think the ARM ARM says this explicitly, but if a new feature introduces more registers or more state needs to be saved, we would get a separate feature field, otherwise it\u0027s just not usable for lower ELs (including EL0).\nEven if that would be the case, those would be two separate issues:\n- We need to enable access to the feature if the ID registers are visible to lower ELs. Otherwise a kernel/hypervisor/userland has no way of telling if it can use the feature. The Linux kernel boot protocol explicitly lists this requirement.\n- Saving state should only be needed if EL3 or secure world would use those new registers. We would surely know about that.\n\nBeing very specific about a platform requirement is only feasible for fixed hardware platforms, and doesn\u0027t really work for flexible platforms like the FVP, QEMU, or the ARM FPGAs.\n\nAnd also: if EL3 decides to trap a feature (by not enabling it for lower ELs), it should at least handle that exception. At we moment we just hang *without any clue* whatsoever.\n\nAnd I actually checked all those features handled in this patch explicitly against the ARM ARM and their current usage in TF-A: those feature fields are safe to use with a \"!\u003d 0\" comparison.",
+      "parentUuid": "d3489ecf_5a7c82ae",
+      "revId": "5bb2aa7aaf5543c4e88addd67435c7283abce06c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6dfcf8a0_d40a514e",
@@ -82,6 +118,30 @@
       "writtenOn": "2022-10-19T10:05:56Z",
       "side": 1,
       "message": "BTI_IMPLEMENTED was an unsigned long long constant (ULL(1)). Which makes me wonder... Should we rather have !\u003d 0ULL here? Presumably read_id_aa64pfr1_el1() returns a 64-bit value, given that the register is 64-bit? So it would more appropriate to compare it against a 64-bit constant? Especially if we want to keep the code MISRA compliant - the type model is quite strict on that.",
+      "range": {
+        "startLine": 79,
+        "startChar": 30,
+        "endLine": 79,
+        "endChar": 32
+      },
+      "revId": "5bb2aa7aaf5543c4e88addd67435c7283abce06c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95784c23_ec583d1c",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-10-19T15:25:22Z",
+      "side": 1,
+      "message": "I was always questioning the purpose of an unsigned 0 to begin with. MISRA is really annoying here, as per the C standard everything between 0 and 127 is unambiguous when it comes to signedness.\nOn top of that comparing against zero is in practise never actually using that constant, but is always special cased in assembly, by checking the Z or N bits in PSTATE, or using other tricks.\n\nI think most of us agree that arguing against MISRA is pointless, so I am fine with having a 0U, if that makes the checker happy. But I don\u0027t think we should go beyond that.",
+      "parentUuid": "6dfcf8a0_d40a514e",
       "range": {
         "startLine": 79,
         "startChar": 30,
