@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f6d7c32_5bb7b8cc",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-10-19T10:48:10Z",
+      "side": 1,
+      "message": "\u0027a\u0027 non-secure",
+      "range": {
+        "startLine": 1058,
+        "startChar": 67,
+        "endLine": 1058,
+        "endChar": 69
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06ba398c_8974694b",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1099,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-10-19T10:48:10Z",
+      "side": 1,
+      "message": "For clarity is it worth adding?\n\"... whilst CPU in ...\"\n\nor instead of cpu maybe \u0027PE\u0027 (processing element) as used in the spec...\n\n----\n\nAlso noted the chosen wording is \"security state\".\nSo I think you could make this section here uniform with that, to ease understanding.\n(in doing so the first part of this comment perhaps won\u0027t apply anymore).",
+      "range": {
+        "startLine": 1099,
+        "startChar": 40,
+        "endLine": 1099,
+        "endChar": 45
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4b51a85_1d259db2",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-10-19T10:48:10Z",
+      "side": 1,
+      "message": "This is sentence is big, and does not have a pause. Which makes it harder to capture the idea.\nCould help to break it down from \"depends on...\". Suggestion:\n\"... dependes on: the state of the execution context of the SP that is responsible for handling the interrupt; whether the interrupt triggers while execution was in normal world or\nsecure world.\"",
+      "range": {
+        "startLine": 1103,
+        "startChar": 48,
+        "endLine": 1106,
+        "endChar": 13
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd1a1669_5fa16725",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1153,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-10-19T10:48:10Z",
+      "side": 1,
+      "message": "Line cut short too early?",
+      "range": {
+        "startLine": 1153,
+        "startChar": 26,
+        "endLine": 1153,
+        "endChar": 27
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9327c019_471abb6f",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1158,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-10-19T10:48:10Z",
+      "side": 1,
+      "message": "nit: lower \u0027s\u0027",
+      "range": {
+        "startLine": 1158,
+        "startChar": 14,
+        "endLine": 1158,
+        "endChar": 15
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18fea633_fecfdc9e",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1158,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-10-19T10:48:10Z",
+      "side": 1,
+      "message": "security state was described differently above.\n\nMight be a good idea to uniform the words and change this to refer to \"execution in NWd\"... Or change in the respective previous paragraph. (refer to respective comment)",
+      "range": {
+        "startLine": 1158,
+        "startChar": 45,
+        "endLine": 1158,
+        "endChar": 61
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2779042_240aa838",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1169,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-10-19T10:48:10Z",
+      "side": 1,
+      "message": "For sake of clarity, is it worth mentioning when the interrupt is signaled in this case?\nOr until when is the interrupt queued?\n\nYou explained it in table below. Might be good to add it here as well.",
+      "range": {
+        "startLine": 1168,
+        "startChar": 33,
+        "endLine": 1169,
+        "endChar": 59
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4598bfc_b3f4598e",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1177,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-10-19T10:48:10Z",
+      "side": 1,
+      "message": "by \u0027a\u0027 secure interrupt",
+      "range": {
+        "startLine": 1177,
+        "startChar": 39,
+        "endLine": 1177,
+        "endChar": 49
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ee6e3af_d29d79dc",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1204,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-10-19T10:48:10Z",
+      "side": 1,
+      "message": "lower-case",
+      "range": {
+        "startLine": 1204,
+        "startChar": 14,
+        "endLine": 1204,
+        "endChar": 15
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2611711_d7313661",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1215,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-10-19T10:48:10Z",
+      "side": 1,
+      "message": "For sake of clarity would it help adding?\n\"... to handle the most recent secure interrupt.\"\nIf you disagree, please ignore comment. :)",
+      "range": {
+        "startLine": 1215,
+        "startChar": 33,
+        "endLine": 1215,
+        "endChar": 49
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
