@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81c2d2d1_ccef0b13",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-19T10:05:56Z",
+      "side": 0,
+      "message": "Should we remove these macros, if this was their sole purpose? Just to discourage their usage going forward.",
+      "range": {
+        "startLine": 79,
+        "startChar": 30,
+        "endLine": 79,
+        "endChar": 45
+      },
+      "revId": "7042fa6d39e3a8341f9318d0b57b83bd51dd8124",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}

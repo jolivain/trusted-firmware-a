@@ -33,6 +33,115 @@
       "message": "Failed test_configs are unrelated to this change.\n\nAlso on rebuild: few have passed. Manually providing +1.",
       "revId": "5bb2aa7aaf5543c4e88addd67435c7283abce06c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3952ea63_e04b7a57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-19T10:05:56Z",
+      "side": 1,
+      "message": "Hi Andre, I noticed a few more cases where we could apply the same logic. I\u0027ve pointed out 3 examples but then got tired ;) Any reason why these other cases were not covered in the patch?",
+      "revId": "5bb2aa7aaf5543c4e88addd67435c7283abce06c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dfcf8a0_d40a514e",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-19T10:05:56Z",
+      "side": 1,
+      "message": "BTI_IMPLEMENTED was an unsigned long long constant (ULL(1)). Which makes me wonder... Should we rather have !\u003d 0ULL here? Presumably read_id_aa64pfr1_el1() returns a 64-bit value, given that the register is 64-bit? So it would more appropriate to compare it against a 64-bit constant? Especially if we want to keep the code MISRA compliant - the type model is quite strict on that.",
+      "range": {
+        "startLine": 79,
+        "startChar": 30,
+        "endLine": 79,
+        "endChar": 32
+      },
+      "revId": "5bb2aa7aaf5543c4e88addd67435c7283abce06c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57bb187d_3ff2ce12",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-19T10:05:56Z",
+      "side": 1,
+      "message": "Should this be \u003e\u003d here?",
+      "range": {
+        "startLine": 144,
+        "startChar": 29,
+        "endLine": 144,
+        "endChar": 31
+      },
+      "revId": "5bb2aa7aaf5543c4e88addd67435c7283abce06c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00d63605_86336e3d",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-19T10:05:56Z",
+      "side": 1,
+      "message": "Should this be !\u003d 0 here?",
+      "range": {
+        "startLine": 151,
+        "startChar": 3,
+        "endLine": 151,
+        "endChar": 40
+      },
+      "revId": "5bb2aa7aaf5543c4e88addd67435c7283abce06c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d901dce8_77ea7cfd",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-19T10:05:56Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "range": {
+        "startLine": 171,
+        "startChar": 24,
+        "endLine": 171,
+        "endChar": 52
+      },
+      "revId": "5bb2aa7aaf5543c4e88addd67435c7283abce06c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
