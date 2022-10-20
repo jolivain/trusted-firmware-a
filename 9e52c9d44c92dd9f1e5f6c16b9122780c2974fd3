@@ -16,6 +16,24 @@
       "message": "There are some static check failures, i am not sure if they are related to this patch. but may be its worth rebasing on latest integration and running CI again on top patch of the series.",
       "revId": "9e52c9d44c92dd9f1e5f6c16b9122780c2974fd3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4528f8c0_93c9c3f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2022-10-20T12:37:46Z",
+      "side": 1,
+      "message": "I\u0027ll do it. No issue seen on my side, rebase will probably fix it.",
+      "parentUuid": "06332cbd_7d34b8eb",
+      "revId": "9e52c9d44c92dd9f1e5f6c16b9122780c2974fd3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
