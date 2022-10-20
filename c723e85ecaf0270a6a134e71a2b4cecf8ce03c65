@@ -141,6 +141,24 @@
       "message": "Jorge, are you planning to progress this patch? When patches appear abandoned we put the into abandoned state. They can be easily brought back into review state. I\u0027ll check back in a few days.",
       "revId": "c723e85ecaf0270a6a134e71a2b4cecf8ce03c65",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9a3a47c_bf36198a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000540
+      },
+      "writtenOn": "2022-10-20T11:24:48Z",
+      "side": 1,
+      "message": "hi Joanna, if the AMD/Xilinx maintainers would rather wait for their engineering teams to resolve the issue internally that is fine by me of course. The platform is rather expensive so I doubt this not being functional will impact the average embedded customer (the development board is over USD15K)\n\nBut as things stand, AMD/Xilinx Versal users will not be able to use OP-TEE\u0027s features - TRNG, crypto, gpio, etc- without this patch.\n\nSo from my side it is ok to abandon it - I was trying to help/support everyone with this while things get fixed in the PLM.",
+      "parentUuid": "61107557_62ac4a2f",
+      "revId": "c723e85ecaf0270a6a134e71a2b4cecf8ce03c65",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
