@@ -159,6 +159,24 @@
       "parentUuid": "61107557_62ac4a2f",
       "revId": "c723e85ecaf0270a6a134e71a2b4cecf8ce03c65",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1af9efee_b9449318",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2022-10-20T17:58:13Z",
+      "side": 1,
+      "message": "Hi Jorge,\n\nagain. Default setting (exact as you have) is done in bl31_set_default_config() if structure from plm is not passed properly (likely we could just error out here instead of using). \n\nAnd in normal cases where structure is read properly it is decoded directly in fsbl_atf_handover().\nThere you can see that information about bl32 image is filled.\nbl32-\u003espsr\nimage-\u003epc \u003d ATFHandoffParams-\u003epartition[i].entry_point; \n\nI am happy to discuss if we should change behaviour for this case\n131         if (ret \u003d\u003d FSBL_HANDOFF_NO_STRUCT || ret \u003d\u003d FSBL_HANDOFF_INVAL_STRUCT) {\n132                 bl31_set_default_config();\n\nBut not when PLM doesn\u0027t provide proper information. If PLM should provide different information which is already the part of boot image (and bif file) we can look at incorrect PLM behaviour but not try to workaround it in TF-A.",
+      "parentUuid": "c9a3a47c_bf36198a",
+      "revId": "c723e85ecaf0270a6a134e71a2b4cecf8ce03c65",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
