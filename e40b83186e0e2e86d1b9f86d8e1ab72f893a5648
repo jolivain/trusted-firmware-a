@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de5bc1b2_246bfc68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2022-10-20T09:01:53Z",
+      "side": 1,
+      "message": "Although the test failed part of it was due to static tests on the files in zlib which I think are ok to ignore.\nThen 2 tests failed but passed after retrying them\nhttps://jenkins.oss.arm.com/job/tf-ci-gateway/123080/\nhttps://jenkins.oss.arm.com/job/tf-ci-gateway/123161/\n\nSo giving manual verified +1",
+      "revId": "e40b83186e0e2e86d1b9f86d8e1ab72f893a5648",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
