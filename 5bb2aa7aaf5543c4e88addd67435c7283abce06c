@@ -193,6 +193,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a2d650b_5e2cffec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-10-20T15:09:53Z",
+      "side": 1,
+      "message": "So there is indeed more to that: ECV is really a case where the \"\u003e\u003d rule\" breaks, but only for *firmware* (EL3), because EL2 and EL1 can control the features that \"their lower ELs\" see.\nSo after discussion with Soby this is what we came up with:\n- For the pure boolean feature check functions, we should use \"!\u003d 0U\". Anything adding registers in later versions (like ECV) would need two (or more) check functions then.\n- We need a separate check that each ID register field value does not exceed our expectations. This should be fatal (stop the boot), so that it will be fixed quickly. To avoid bloat, this should be a build time option, only enabled for \"flexible\" platforms like FVP or QEMU.\n\nFor now I will confine this patch just to FGT, to fix the issue at hand quickly.\nI will send a separate patch with the rest (including the others that Sandrine mentioned), after verifying them again. We can then discuss this separately there, but it wouldn\u0027t block this specific FGT patch.",
+      "revId": "5bb2aa7aaf5543c4e88addd67435c7283abce06c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6dfcf8a0_d40a514e",
