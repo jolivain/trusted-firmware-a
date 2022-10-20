@@ -159,6 +159,42 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "278ad571_8d7ac19c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-10-20T10:47:02Z",
+      "side": 1,
+      "message": "Please note that there is an immediate issue: if you run the FVP with ARMv8.9 features enabled, the kernel crashes, because BL31 misses to enable FGT.\nWe should fix that ASAP.\nI think I verified that all the features I touched in this initial version of the patch are safe - there is nothing that needs saving or context switching. I can double check that again.",
+      "parentUuid": "f0eb6e23_887092fb",
+      "revId": "5bb2aa7aaf5543c4e88addd67435c7283abce06c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3be52b9_bdc0dd85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-10-20T10:47:02Z",
+      "side": 1,
+      "message": "Regarding FEAT_ECV: I think there is something off here, I will investigate. The description of CNTPOFF_EL2 doesn\u0027t mention version 1 or 2, it just speaks of FEAT_ECV.\n\nSo maybe those feature detection macros should be split up, then? I think there are two somewhat separate cases:\n1) FEAT_xxx requires enablement for lower ELs. EL3/BL31 has no interest in those features otherwise.\n2) FEAT_xxx introduces new registers that need to be handled / context-switched.\n\nThe vast majority is in case 1, actually many features don\u0027t even trigger any setting, they are just checked against build time config - which I find a bit odd, as it\u0027s not clear to me what people should do about it. For fixed platforms, the default config should do everything correctly, if people mess with that deliberately, it\u0027s their problem, I think.",
+      "parentUuid": "fceaff6d_de8e583b",
+      "revId": "5bb2aa7aaf5543c4e88addd67435c7283abce06c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6dfcf8a0_d40a514e",
         "filename": "include/arch/aarch64/arch_features.h",
         "patchSetId": 2
