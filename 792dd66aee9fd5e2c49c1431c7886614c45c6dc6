@@ -63,6 +63,30 @@
       },
       "revId": "792dd66aee9fd5e2c49c1431c7886614c45c6dc6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19e89f89_4106b874",
+        "filename": "include/lib/psci/psci.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000677
+      },
+      "writtenOn": "2022-10-20T16:07:38Z",
+      "side": 1,
+      "message": "I don\u0027t think this change is needed in such case. removing +1.",
+      "parentUuid": "26e3694a_76705435",
+      "range": {
+        "startLine": 76,
+        "startChar": 25,
+        "endLine": 76,
+        "endChar": 30
+      },
+      "revId": "792dd66aee9fd5e2c49c1431c7886614c45c6dc6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
