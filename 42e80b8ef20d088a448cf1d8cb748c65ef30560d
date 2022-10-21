@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d653f58_ee34da38",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-10-21T19:57:15Z",
+      "side": 1,
+      "message": "nitpick: reword\nfix(build): arch32 build issue for clang",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 45
+      },
+      "revId": "42e80b8ef20d088a448cf1d8cb748c65ef30560d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9151fdc3_ac684746",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-10-21T19:57:15Z",
+      "side": 1,
+      "message": "Can you add this build config to https://git.trustedfirmware.org/ci/tf-a-ci-scripts.git/tree/group/tf-l1-build-clang?",
+      "revId": "42e80b8ef20d088a448cf1d8cb748c65ef30560d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b4b4b28f_2009bcce",
@@ -32,6 +72,29 @@
       "side": 1,
       "message": "The thing is march32-directive is already part of the TF_CFLAGS for gcc builds but for clang builds , since we use :\u003d instead of \u003d (which is used for gcc) , $(march32-directive) is not lazy expanded. So your solution might result in march32-directive duplicates being created for gcc build but would result in proper options for clang build.",
       "parentUuid": "b4b4b28f_2009bcce",
+      "revId": "42e80b8ef20d088a448cf1d8cb748c65ef30560d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21dadca5_3babdc7e",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-10-21T19:57:15Z",
+      "side": 1,
+      "message": "Do other set operations like this need the fix as well?",
+      "range": {
+        "startLine": 278,
+        "startChar": 20,
+        "endLine": 278,
+        "endChar": 22
+      },
       "revId": "42e80b8ef20d088a448cf1d8cb748c65ef30560d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
