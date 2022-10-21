@@ -16,6 +16,24 @@
       "message": "Hi Arvind,\n\nI had an internal patch for this where I set this in make_helpers/armv7-a-cpus.mk (line 35):\nTF_CFLAGS\t+\u003d\t$(march32-directive)\n\nBut I don\u0027t know if it is better.\n\n\nBest regards,\nYann",
       "revId": "42e80b8ef20d088a448cf1d8cb748c65ef30560d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1909530e_188d7366",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-10-21T18:20:23Z",
+      "side": 1,
+      "message": "The thing is march32-directive is already part of the TF_CFLAGS for gcc builds but for clang builds , since we use :\u003d instead of \u003d (which is used for gcc) , $(march32-directive) is not lazy expanded. So your solution might result in march32-directive duplicates being created for gcc build but would result in proper options for clang build.",
+      "parentUuid": "b4b4b28f_2009bcce",
+      "revId": "42e80b8ef20d088a448cf1d8cb748c65ef30560d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
