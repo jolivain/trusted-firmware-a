@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4b4b28f_2009bcce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-10-21T07:03:24Z",
+      "side": 1,
+      "message": "Hi Arvind,\n\nI had an internal patch for this where I set this in make_helpers/armv7-a-cpus.mk (line 35):\nTF_CFLAGS\t+\u003d\t$(march32-directive)\n\nBut I don\u0027t know if it is better.\n\n\nBest regards,\nYann",
+      "revId": "42e80b8ef20d088a448cf1d8cb748c65ef30560d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
