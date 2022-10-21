@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -17,6 +17,8 @@
 #include <lib/fconf/fconf_dyn_cfg_getter.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
+
+#include "platform_test.h"
 
 static scmi_channel_plat_info_t tc_scmi_plat_info[] = {
 	{
@@ -52,6 +54,16 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 void tc_bl31_common_platform_setup(void)
 {
 	arm_bl31_platform_setup();
+#ifdef PLATFORM_TEST
+	/*
+	 * Calling tf-m-extras testsuites for delegated attestation and measured
+	 * boot.
+	 */
+	run_platform_tests();
+
+	/* Suspend booting */
+	plat_error_handler(-1);
+#endif
 }
 
 const plat_psci_ops_t *plat_arm_psci_override_pm_ops(plat_psci_ops_t *ops)

@@ -193,6 +193,7 @@ PLAT_INCLUDES		+=	-Iinclude/lib/psa
 
 endif
 
+include plat/arm/board/tc/platform_test.mk
 include plat/arm/common/arm_common.mk
 include plat/arm/css/common/css_common.mk
 include plat/arm/soc/common/soc_css.mk
