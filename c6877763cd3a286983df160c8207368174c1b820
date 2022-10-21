@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2fe7e7b_ecbc4a51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-21T10:47:19Z",
+      "side": 1,
+      "message": "There appears to be issues in the CI related to FVP_Base_Cortex-A32x4 and FVP_Base_Neoverse-N1x4 models. Looks like they are not installed on the FVP Docker images used by the OpenCI. We\u0027re looking into it.",
+      "revId": "c6877763cd3a286983df160c8207368174c1b820",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
