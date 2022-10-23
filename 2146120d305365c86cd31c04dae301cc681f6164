@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a0a59ef_d61e5b2e",
+        "filename": "plat/hisilicon/hikey960/hikey960_bl2_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-23T20:54:27Z",
+      "side": 1,
+      "message": "suggest VERBOSE, as it\u0027s already printed as INFO from BL31",
+      "range": {
+        "startLine": 342,
+        "startChar": 1,
+        "endLine": 342,
+        "endChar": 5
+      },
+      "revId": "2146120d305365c86cd31c04dae301cc681f6164",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9404788_898b7b14",
+        "filename": "plat/hisilicon/hikey960/hikey960_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-23T20:54:27Z",
+      "side": 1,
+      "message": "suggest removing as this is TEE specific, not specific to this platform",
+      "range": {
+        "startLine": 36,
+        "startChar": 26,
+        "endLine": 36,
+        "endChar": 72
+      },
+      "revId": "2146120d305365c86cd31c04dae301cc681f6164",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
