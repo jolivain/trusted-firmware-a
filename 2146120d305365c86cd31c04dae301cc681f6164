@@ -45,6 +45,30 @@
       },
       "revId": "2146120d305365c86cd31c04dae301cc681f6164",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79fe4412_1ae19473",
+        "filename": "plat/hisilicon/hikey960/hikey960_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-24T13:00:34Z",
+      "side": 1,
+      "message": "This is in response to this question:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/14321/comment/abf9f8cd_81b40bc9/\n\ngpd.tee.deviceId is relevant to any TEE.",
+      "parentUuid": "a9404788_898b7b14",
+      "range": {
+        "startLine": 36,
+        "startChar": 26,
+        "endLine": 36,
+        "endChar": 72
+      },
+      "revId": "2146120d305365c86cd31c04dae301cc681f6164",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
