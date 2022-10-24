@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "92d3e460_4703d911",
+        "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-24T07:54:50Z",
+      "side": 1,
+      "message": "BTW I wonder if this file should really be committed in this tree provided the corresponding payload isn\u0027t an open source project and cannot be reproduced?\n\nWould you consider keeping this file downstream?",
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "54d52e89_fc00b975",
         "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
         "patchSetId": 4
