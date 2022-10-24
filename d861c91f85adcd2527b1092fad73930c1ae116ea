@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "100ec953_988a0d1e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-24T15:11:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e9819658_bd4b1ccf",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 10
+      },
+      "revId": "d861c91f85adcd2527b1092fad73930c1ae116ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ca7c3ea_1e1d4af3",
@@ -61,6 +85,30 @@
       "writtenOn": "2022-10-23T20:27:30Z",
       "side": 1,
       "message": "This is from Arm generic timers, not specific to this platform.\nCan you check this isn\u0027t already defined in a generic TF-A header?",
+      "range": {
+        "startLine": 53,
+        "startChar": 8,
+        "endLine": 53,
+        "endChar": 34
+      },
+      "revId": "d861c91f85adcd2527b1092fad73930c1ae116ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7814baed_3c05e04e",
+        "filename": "plat/hisilicon/hikey960/hikey960_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-24T15:11:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ca7c3ea_1e1d4af3",
       "range": {
         "startLine": 53,
         "startChar": 8,
@@ -94,6 +142,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da50aeed_c813bde6",
+        "filename": "plat/hisilicon/hikey960/tsp/hikey960_tsp_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-24T15:11:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc97c440_b2d9ebcb",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "d861c91f85adcd2527b1092fad73930c1ae116ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e009e35f_d4f665e4",
@@ -117,6 +189,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d351e4a_f41b6efa",
+        "filename": "plat/hisilicon/hikey960/tsp/hikey960_tsp_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-24T15:11:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e009e35f_d4f665e4",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 24
+      },
+      "revId": "d861c91f85adcd2527b1092fad73930c1ae116ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16a6333a_430e627e",
@@ -130,6 +226,30 @@
       "writtenOn": "2022-10-23T20:27:30Z",
       "side": 1,
       "message": "nit: 2022",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 25
+      },
+      "revId": "d861c91f85adcd2527b1092fad73930c1ae116ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "198c9890_c8c7a2d4",
+        "filename": "plat/hisilicon/hikey960/tsp/tsp-hikey960.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-24T15:11:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16a6333a_430e627e",
       "range": {
         "startLine": 2,
         "startChar": 16,
