@@ -717,6 +717,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee49f2f6_cff52f97",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1239,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-10-24T18:39:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6fa5b82_f8dfc6b1",
+      "range": {
+        "startLine": 1239,
+        "startChar": 7,
+        "endLine": 1239,
+        "endChar": 13
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75655b0c_673a3fe5",
@@ -730,6 +754,30 @@
       "writtenOn": "2022-10-19T17:00:25Z",
       "side": 1,
       "message": "Perhaps you can detail the intention of this description, saying SP1 is blocked, SP2 runs.",
+      "range": {
+        "startLine": 1239,
+        "startChar": 62,
+        "endLine": 1240,
+        "endChar": 30
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9668b84a_be96c08f",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1240,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-10-24T18:39:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75655b0c_673a3fe5",
       "range": {
         "startLine": 1239,
         "startChar": 62,
@@ -757,6 +805,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8829dbe_e58e28f5",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-10-24T18:39:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1532ef76_ef489a2a",
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3caad512_ecdbb0f8",
@@ -770,6 +836,30 @@
       "writtenOn": "2022-10-19T17:00:25Z",
       "side": 1,
       "message": "Is this applicable as covered by step 6?",
+      "range": {
+        "startLine": 1250,
+        "startChar": 44,
+        "endLine": 1250,
+        "endChar": 79
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f5ecd3b_5b710094",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1250,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-10-24T18:39:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3caad512_ecdbb0f8",
       "range": {
         "startLine": 1250,
         "startChar": 44,
@@ -803,6 +893,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9f1c69a_3d586417",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1253,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-10-24T18:39:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42b16a31_c5a386a1",
+      "range": {
+        "startLine": 1252,
+        "startChar": 7,
+        "endLine": 1253,
+        "endChar": 19
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a287bc8d_209fd0fd",
@@ -816,6 +930,30 @@
       "writtenOn": "2022-10-19T17:00:25Z",
       "side": 1,
       "message": "I have a doubt,\nIs this the result of step 8 (FFA_RUN)?\nOr because SP2 was running before resuming SP1 and the SPMC takes action to resume SP2 vCPU?",
+      "range": {
+        "startLine": 1254,
+        "startChar": 6,
+        "endLine": 1254,
+        "endChar": 47
+      },
+      "revId": "c9140acbe1cda290432468f5efe1d869a3d41fde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b1021a3_02e6d697",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-10-24T18:39:30Z",
+      "side": 1,
+      "message": "In this scenario, there are no intermediate SPs. SP2 is resumed because of cycle allocation by SP1 through FF-A RUN.",
+      "parentUuid": "a287bc8d_209fd0fd",
       "range": {
         "startLine": 1254,
         "startChar": 6,
