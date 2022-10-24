@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06915b0e_55daadb1",
+        "filename": "plat/hisilicon/hikey960/hikey960_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-24T12:40:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dba0dd67_e416e997",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 35
+      },
+      "revId": "938ff958d3e7560a8013e88e4d1beb03ec1ea687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bfec6815_cf0ea9d3",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-23T20:47:49Z",
       "side": 1,
       "message": "suggest moving definitions at top of file",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 88
+      },
+      "revId": "938ff958d3e7560a8013e88e4d1beb03ec1ea687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6765c94_4b6ebb8b",
+        "filename": "plat/hisilicon/hikey960/hikey960_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-24T12:40:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bfec6815_cf0ea9d3",
       "range": {
         "startLine": 175,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bbd0a4f_0706b52f",
+        "filename": "plat/hisilicon/hikey960/include/plat.ld.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-24T12:40:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "daf105eb_e67c17c9",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "938ff958d3e7560a8013e88e4d1beb03ec1ea687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f4f3525_93e382e2",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-10-23T20:47:49Z",
       "side": 1,
       "message": "this should be conditioned by SPMC_AT_EL3",
+      "range": {
+        "startLine": 128,
+        "startChar": 4,
+        "endLine": 128,
+        "endChar": 23
+      },
+      "revId": "938ff958d3e7560a8013e88e4d1beb03ec1ea687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3c2d770_d884735b",
+        "filename": "plat/hisilicon/hikey960/include/platform_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-24T12:40:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7f4f3525_93e382e2",
       "range": {
         "startLine": 128,
         "startChar": 4,
