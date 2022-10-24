@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "871b8602_4601845e",
+        "filename": "lib/cpus/aarch64/wa_cve_2022_23960_bhb.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-10-24T18:58:32Z",
+      "side": 0,
+      "message": "choose_barrier translates to dsb_nsh + isb. Is it intended?",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 28,
+        "endChar": 4
+      },
+      "revId": "c45d2febb98058efa77d812b094bd1456a916c29",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
