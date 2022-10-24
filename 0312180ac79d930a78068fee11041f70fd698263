@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2dbf023c_e6b14fed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-24T12:38:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "539982d4_0c2fa1ae",
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "761ba822_37ec8399",
@@ -55,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fcd4a47d_d20fd644",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-24T12:38:19Z",
+      "side": 1,
+      "message": "I would be happy to see that, and I imagine a couple of additional changes here and there could be required to make it happen.",
+      "parentUuid": "a8f8ab84_364d5cd5",
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92d3e460_4703d911",
         "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
         "patchSetId": 4
@@ -66,6 +102,24 @@
       "writtenOn": "2022-10-24T07:54:50Z",
       "side": 1,
       "message": "BTW I wonder if this file should really be committed in this tree provided the corresponding payload isn\u0027t an open source project and cannot be reproduced?\n\nWould you consider keeping this file downstream?",
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dff93fc_2b0c2e80",
+        "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-24T12:38:19Z",
+      "side": 1,
+      "message": "Of course we have this file also downstream.\nThe main purpose of this patchset is to show silicon partners how to upgrade the TF-A port to include a manifest that is required with FF-A. If I remove the manifest, the patchset looses it\u0027s purpose. I may as well not upstream it.",
+      "parentUuid": "92d3e460_4703d911",
       "revId": "0312180ac79d930a78068fee11041f70fd698263",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -95,6 +149,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fc966963_3a94f9c4",
+        "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-24T12:38:19Z",
+      "side": 1,
+      "message": "But the file was created in 2020? The Pull-Request is on-going since 2021, I don\u0027t understand why I should update all copyrights to remove the \"2021-\" on new files. Is this stated as a policy somewhere?",
+      "parentUuid": "54d52e89_fc00b975",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b6218c3c_6aeda0e7",
         "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
         "patchSetId": 4
@@ -106,6 +184,30 @@
       "writtenOn": "2022-10-23T20:43:33Z",
       "side": 1,
       "message": "could be 0x10001 ?",
+      "range": {
+        "startLine": 15,
+        "startChar": 21,
+        "endLine": 15,
+        "endChar": 26
+      },
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f9a0f7c_c033d7f5",
+        "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-24T12:38:19Z",
+      "side": 1,
+      "message": "Have you tested it works with FFA 1.1?\nWe tested it with FFA 1.0 only.",
+      "parentUuid": "b6218c3c_6aeda0e7",
       "range": {
         "startLine": 15,
         "startChar": 21,
@@ -187,6 +289,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "59295728_75c26990",
+        "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-24T12:38:19Z",
+      "side": 1,
+      "message": "customers ask us what settings we use.\nThe easiest way to tell them, is to point at the configuration files.\nWhen we use default values, we have to do reverse engineering in the TF-A code-base to find out the behavior.",
+      "parentUuid": "6aed19bb_9d48c6dc",
+      "range": {
+        "startLine": 26,
+        "startChar": 1,
+        "endLine": 26,
+        "endChar": 44
+      },
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "04168174_2641f82d",
         "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
         "patchSetId": 4
@@ -210,6 +336,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ca6239d6_0ecaab0b",
+        "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-24T12:38:19Z",
+      "side": 1,
+      "message": "Yes, this is not for direct consumption by the EL3 SPMC.\nInstead, the SPMC shares this manifest with the SP.\nKinibi, being a closed source SP, it needs boot information/device tree to know the peripherals of the platform. Since the EL3 SPMC removes similar mechanisms in the tbase-SPD, we now put such information this manifest.",
+      "parentUuid": "04168174_2641f82d",
+      "range": {
+        "startLine": 28,
+        "startChar": 1,
+        "endLine": 48,
+        "endChar": 3
+      },
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f0cf9a03_abba7471",
         "filename": "plat/hisilicon/hikey960/hikey960_bl2_mem_params_desc.c",
         "patchSetId": 4
@@ -221,6 +371,30 @@
       "writtenOn": "2022-10-23T20:43:33Z",
       "side": 1,
       "message": "use C standard comments /* */",
+      "range": {
+        "startLine": 142,
+        "startChar": 16,
+        "endLine": 142,
+        "endChar": 26
+      },
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "700a0213_dd8c36fc",
+        "filename": "plat/hisilicon/hikey960/hikey960_bl2_mem_params_desc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-24T12:38:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f0cf9a03_abba7471",
       "range": {
         "startLine": 142,
         "startChar": 16,
@@ -273,6 +447,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4ff6f49b_75d0488b",
+        "filename": "plat/hisilicon/hikey960/hikey960_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-24T12:38:19Z",
+      "side": 1,
+      "message": "I don\u0027t agree.\nThe in-line doc is more readable than the header in line 23-30.\n\nI don\u0027t think Hikey960 is a future proof platform.\nThe day somebody puts a bigger config file, it will fail in many ways and the integrator can just add more pages.\nWhat size do you recommend?",
+      "parentUuid": "b623b9aa_fed81368",
+      "range": {
+        "startLine": 33,
+        "startChar": 40,
+        "endLine": 33,
+        "endChar": 70
+      },
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "361802e0_62d58e45",
         "filename": "plat/hisilicon/hikey960/platform.mk",
         "patchSetId": 4
@@ -284,6 +482,24 @@
       "writtenOn": "2022-10-23T20:43:33Z",
       "side": 1,
       "message": "nit: remove one blank",
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d48f57d_8cc07309",
+        "filename": "plat/hisilicon/hikey960/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-24T12:38:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "361802e0_62d58e45",
       "revId": "0312180ac79d930a78068fee11041f70fd698263",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -301,6 +517,24 @@
       "writtenOn": "2022-10-23T20:43:33Z",
       "side": 1,
       "message": "I\u0027m unsure we should tie this platform SPD\u003dspmd option with using Kinibi by default?\nI would throw a build error if undefined rather than using this device tree file by default.",
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1612b3e2_fc86b354",
+        "filename": "plat/hisilicon/hikey960/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-24T12:38:19Z",
+      "side": 1,
+      "message": "My goal will be to have a working build for SPMC_AT_EL3\u003d1 with PLAT\u003dhikey960.",
+      "parentUuid": "68dc9197_755fcf2f",
       "revId": "0312180ac79d930a78068fee11041f70fd698263",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
