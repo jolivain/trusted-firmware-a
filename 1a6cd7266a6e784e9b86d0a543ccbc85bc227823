@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "949c35e9_fe74bb45",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-10-25T09:49:40Z",
+      "side": 1,
+      "message": "I will add a patch at the bottom of the stack.",
+      "parentUuid": "cd95df4c_5703eda5",
+      "revId": "1a6cd7266a6e784e9b86d0a543ccbc85bc227823",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cd51ed26_9776f8ad",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -89,6 +107,30 @@
       "writtenOn": "2022-10-19T11:08:23Z",
       "side": 1,
       "message": "nit: To keep it aligned with other functions, a tab is required here ( Entire Comments block)",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 3
+      },
+      "revId": "1a6cd7266a6e784e9b86d0a543ccbc85bc227823",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c588198_8b3b04fe",
+        "filename": "lib/cpus/aarch64/cortex_x3.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-10-25T09:49:40Z",
+      "side": 1,
+      "message": "this is a bit inconsistent. Within the file itself, the errata_report function sticks to the left. Across files it\u0027s inconsistent too but most tend to be without a tab. Maybe I can push them all to the left if I change function names?",
+      "parentUuid": "b7e292bd_6e99b833",
       "range": {
         "startLine": 78,
         "startChar": 0,
