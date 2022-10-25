@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3009e6b_d8740409",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-10-25T09:48:58Z",
+      "side": 1,
+      "message": "i\u0027m pretty sure it\u0027s not a newline but a wrap. I\u0027ve moved the word \u0027bit\u0027 to the next line so it prevents this.",
+      "parentUuid": "8afa663f_52b86471",
+      "revId": "497ac2aba5b75de5153efd9e73571c3a776f07ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b1bde164_6a342b4a",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-10-18T18:06:36Z",
       "side": 1,
       "message": "Please keep in numerical order",
+      "revId": "497ac2aba5b75de5153efd9e73571c3a776f07ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43bc9517_1a3694ee",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-10-25T09:48:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1bde164_6a342b4a",
       "revId": "497ac2aba5b75de5153efd9e73571c3a776f07ae",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -58,6 +94,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0c5e7eb_6f721e6b",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-10-25T09:48:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2508b6fa_ae091b5e",
+      "range": {
+        "startLine": 544,
+        "startChar": 66,
+        "endLine": 544,
+        "endChar": 79
+      },
+      "revId": "497ac2aba5b75de5153efd9e73571c3a776f07ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4e5d863_8100196c",
@@ -75,6 +135,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad39936a_7ca1e2f4",
+        "filename": "lib/cpus/aarch64/neoverse_n2.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-10-25T09:48:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4e5d863_8100196c",
+      "revId": "497ac2aba5b75de5153efd9e73571c3a776f07ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0450ef0_59348216",
@@ -88,6 +166,30 @@
       "writtenOn": "2022-10-18T18:06:36Z",
       "side": 1,
       "message": "fixed in r0p1",
+      "range": {
+        "startLine": 414,
+        "startChar": 49,
+        "endLine": 414,
+        "endChar": 65
+      },
+      "revId": "497ac2aba5b75de5153efd9e73571c3a776f07ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9eb1ec12_330b9d8a",
+        "filename": "lib/cpus/aarch64/neoverse_n2.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-10-25T09:48:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0450ef0_59348216",
       "range": {
         "startLine": 414,
         "startChar": 49,
@@ -123,6 +225,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a28fdec6_f3ee1e52",
+        "filename": "lib/cpus/aarch64/neoverse_n2.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-10-25T09:48:58Z",
+      "side": 1,
+      "message": "The core_pwr_dwn gets called from C and the caller expects to do more stuff after return. X15 is caller saved so it it is free to be used. The PCS advises against using x18 which is why I didn\u0027t use that.",
+      "parentUuid": "ab5ad6cf_e14f74ef",
+      "range": {
+        "startLine": 564,
+        "startChar": 5,
+        "endLine": 564,
+        "endChar": 8
+      },
+      "revId": "497ac2aba5b75de5153efd9e73571c3a776f07ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "114e4827_7bf08d0f",
         "filename": "lib/cpus/aarch64/neoverse_n2.S",
         "patchSetId": 1
@@ -134,6 +260,24 @@
       "writtenOn": "2022-10-18T18:06:36Z",
       "side": 1,
       "message": "Please keep in numerical order",
+      "revId": "497ac2aba5b75de5153efd9e73571c3a776f07ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cebb152f_645e810b",
+        "filename": "lib/cpus/aarch64/neoverse_n2.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-10-25T09:48:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "114e4827_7bf08d0f",
       "revId": "497ac2aba5b75de5153efd9e73571c3a776f07ae",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -155,6 +299,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e93f346_2469e193",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-10-25T09:48:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdc8c097_f6802db5",
+      "revId": "497ac2aba5b75de5153efd9e73571c3a776f07ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80c7630f_3295417a",
@@ -168,6 +330,24 @@
       "writtenOn": "2022-10-18T18:06:36Z",
       "side": 1,
       "message": "Please keep in numerical order",
+      "revId": "497ac2aba5b75de5153efd9e73571c3a776f07ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfe22155_0e0c82a1",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 1203,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-10-25T09:48:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80c7630f_3295417a",
       "revId": "497ac2aba5b75de5153efd9e73571c3a776f07ae",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
