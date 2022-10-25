@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -613,6 +613,7 @@ int main(int argc, char *argv[])
 			free(ptr);
 		}
 	}
+	free(keys);
 	for (i = 0; i < num_extensions; i++) {
 		if (extensions[i].arg != NULL) {
 			void *ptr = (void *)extensions[i].arg;

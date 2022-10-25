@@ -39,7 +39,11 @@ int rand_serial(BIGNUM *b, ASN1_INTEGER *ai)
 	if (!btmp)
 		return 0;
 
+#if USING_OPENSSL3
 	if (!BN_rand(btmp, SERIAL_RAND_BITS, 0, 0))
+#else
+	if (!BN_pseudo_rand(btmp, SERIAL_RAND_BITS, 0, 0))
+#endif
 		goto error;
 	if (ai && !BN_to_ASN1_INTEGER(btmp, ai))
 		goto error;

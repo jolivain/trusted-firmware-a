@@ -7,6 +7,7 @@
 MAKE_HELPERS_DIRECTORY := ../../make_helpers/
 include ${MAKE_HELPERS_DIRECTORY}build_macros.mk
 include ${MAKE_HELPERS_DIRECTORY}build_env.mk
+include ${MAKE_HELPERS_DIRECTORY}defaults.mk
 
 FIPTOOL ?= fiptool${BIN_EXT}
 PROJECT := $(notdir ${FIPTOOL})
@@ -22,6 +23,12 @@ ifeq (${DEBUG},1)
 else
   HOSTCCFLAGS += -O2
 endif
+
+# Select OpenSSL version flag according to the OpenSSL build selected
+# from setting the OPENSSL_DIR path.
+$(eval $(call SELECT_OPENSSL_API_VERSION))
+
+HOSTCCFLAGS += ${DEFINES}
 
 # Include library directories where OpenSSL library files are located.
 # For a normal installation (i.e.: when ${OPENSSL_DIR} = /usr or
@@ -55,7 +62,7 @@ endif
 
 all: ${PROJECT}
 
-${PROJECT}: ${OBJECTS} Makefile
+${PROJECT}: --openssl ${OBJECTS} Makefile
 	@echo "  HOSTLD  $@"
 	${Q}${HOSTCC} ${OBJECTS} -o $@ ${LDLIBS}
 	@${ECHO_BLANK_LINE}
@@ -65,6 +72,12 @@ ${PROJECT}: ${OBJECTS} Makefile
 %.o: %.c Makefile
 	@echo "  HOSTCC  $<"
 	${Q}${HOSTCC} -c ${CPPFLAGS} ${HOSTCCFLAGS} ${INCLUDE_PATHS} $< -o $@
+
+--openssl:
+ifeq ($(DEBUG),1)
+	@echo "Selected OpenSSL version: ${OPENSSL_CURRENT_VER}"
+endif
+
 
 clean:
 	$(call SHELL_DELETE_ALL, ${PROJECT} ${OBJECTS})
