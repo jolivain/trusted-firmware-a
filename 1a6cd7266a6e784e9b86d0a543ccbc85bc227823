@@ -139,6 +139,30 @@
       },
       "revId": "1a6cd7266a6e784e9b86d0a543ccbc85bc227823",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73acf043_5ee25b95",
+        "filename": "lib/cpus/aarch64/cortex_x3.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-10-25T10:09:01Z",
+      "side": 1,
+      "message": "Considering this file alone, a simple change could be to add tabs (lines 78 to 85) and (107 to 109).",
+      "parentUuid": "8c588198_8b3b04fe",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 3
+      },
+      "revId": "1a6cd7266a6e784e9b86d0a543ccbc85bc227823",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
