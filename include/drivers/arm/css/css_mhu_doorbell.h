@@ -22,6 +22,13 @@
 #define SENDER_REG_STAT(_channel)	(0x20 * (_channel))
 #define SENDER_REG_SET(_channel)	((0x20 * (_channel)) + 0xC)
 
+/* MHUv3 sender frame offsets */
+#define MHU_V3_PDBCW_PAGE_OFFSET		UL(0x00001000)
+#define MHU_V3_SENDER_REG_STAT(_channel)	(MHU_V3_PDBCW_PAGE_OFFSET + \
+						 SENDER_REG_STAT(_channel))
+#define MHU_V3_SENDER_REG_SET(_channel)		(MHU_V3_PDBCW_PAGE_OFFSET + \
+						 SENDER_REG_SET(_channel))
+
 /* Helper macro to ring doorbell */
 #define MHU_RING_DOORBELL(addr, modify_mask, preserve_mask)	do {	\
 		uint32_t db = mmio_read_32(addr) & (preserve_mask);	\
