@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "595feb53_fd78c349",
+        "filename": "drivers/st/crypto/stm32_pka.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-25T15:44:08Z",
+      "side": 1,
+      "message": "Enclose len parameter in parentheses?",
+      "range": {
+        "startLine": 32,
+        "startChar": 50,
+        "endLine": 32,
+        "endChar": 53
+      },
+      "revId": "43591b65d6491881a70dbc6774f3e78bc96ec151",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94de49b6_4822faac",
+        "filename": "drivers/st/crypto/stm32_pka.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-25T15:44:08Z",
+      "side": 1,
+      "message": "Do these curve parameters really need to be mutable? Or could they be marked as const?",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 42
+      },
+      "revId": "43591b65d6491881a70dbc6774f3e78bc96ec151",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf3e1137_ceab5000",
+        "filename": "drivers/st/crypto/stm32_pka.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-25T15:44:08Z",
+      "side": 1,
+      "message": "I don\u0027t see any verification check on cid before it gets passed to get_ecc_op_nbword(), and the latter uses it as an index into the curve_def[] array. Should there be a check upfront to avoid any risk of out-of-bound access? Or maybe just an assertion? Or is it safe?",
+      "range": {
+        "startLine": 618,
+        "startChar": 23,
+        "endLine": 618,
+        "endChar": 45
+      },
+      "revId": "43591b65d6491881a70dbc6774f3e78bc96ec151",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
