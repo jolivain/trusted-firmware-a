@@ -9,12 +9,12 @@ V		?= 0
 DEBUG		:= 0
 CRTTOOL		?= cert_create${BIN_EXT}
 BINARY		:= $(notdir ${CRTTOOL})
-OPENSSL_DIR	:= /usr
 COT		:= tbbr
 
 MAKE_HELPERS_DIRECTORY := ../../make_helpers/
 include ${MAKE_HELPERS_DIRECTORY}build_macros.mk
 include ${MAKE_HELPERS_DIRECTORY}build_env.mk
+include ${MAKE_HELPERS_DIRECTORY}defaults.mk
 
 ifneq (${PLAT},none)
 TF_PLATFORM_ROOT	:=	../../plat/
@@ -44,6 +44,10 @@ endif
 ifneq (,$(wildcard ${PLAT_CERT_CREATE_HELPER_MK}))
 include ${PLAT_CERT_CREATE_HELPER_MK}
 endif
+
+# Select OpenSSL version flag according to the OpenSSL build selected
+# from setting the OPENSSL_DIR path.
+$(eval $(call SELECT_OPENSSL_API_VERSION))
 
 HOSTCCFLAGS := -Wall -std=c99
 
@@ -76,11 +80,11 @@ LIB := -lssl -lcrypto
 
 HOSTCC ?= gcc
 
-.PHONY: all clean realclean
+.PHONY: all clean realclean openssl
 
 all: ${BINARY}
 
-${BINARY}: ${OBJECTS} Makefile
+${BINARY}: --openssl ${OBJECTS} Makefile
 	@echo "  HOSTLD  $@"
 	@echo 'const char build_msg[] = "Built : "__TIME__", "__DATE__; \
                 const char platform_msg[] = "${PLAT_MSG}";' | \
@@ -90,6 +94,11 @@ ${BINARY}: ${OBJECTS} Makefile
 %.o: %.c
 	@echo "  HOSTCC  $<"
 	${Q}${HOSTCC} -c ${HOSTCCFLAGS} ${INC_DIR} $< -o $@
+
+--openssl:
+ifeq ($(DEBUG),1)
+	@echo "Selected OpenSSL version: ${OPENSSL_CURRENT_VER}"
+endif
 
 clean:
 	$(call SHELL_DELETE_ALL, src/build_msg.o ${OBJECTS})

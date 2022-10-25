@@ -238,6 +238,21 @@ check_$(1):
 	$(check_$(1)_cmd)
 endef
 
+# SELECT_OPENSSL_API_VERSION selects the OpenSSL API version to be used to 
+# build the host tools by checking the version of OpenSSL located under
+# the path defined by the OPENSSL_DIR variable. It receives no parameters.
+define SELECT_OPENSSL_API_VERSION
+    # Obtain the OpenSSL version for the build located under OPENSSL_DIR
+    $(eval OPENSSL_INFO := $(shell LD_LIBRARY_PATH=${OPENSSL_DIR}:${OPENSSL_DIR}/lib ${OPENSSL_BIN_PATH}/openssl version))
+    $(eval OPENSSL_CURRENT_VER = $(word 2, ${OPENSSL_INFO}))
+    $(eval OPENSSL_CURRENT_VER_MAJOR = $(firstword $(subst ., ,$(OPENSSL_CURRENT_VER))))
+    # If OpenSSL version is 3.x, then set USING_OPENSSL3 flag to 1
+    $(if $(filter 3,$(OPENSSL_CURRENT_VER_MAJOR)), $(eval USING_OPENSSL3 = 1))
+    # USING_OPENSSL3 flag will be added to the DEFINES variable with the proper
+    # value.
+    $(eval $(call add_define_val,USING_OPENSSL3,$(USING_OPENSSL3)))
+endef
+
 ################################################################################
 # Generic image processing filters
 ################################################################################

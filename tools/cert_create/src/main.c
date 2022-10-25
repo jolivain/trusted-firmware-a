@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -430,11 +430,6 @@ int main(int argc, char *argv[])
 
 	/* Load private keys from files (or generate new ones) */
 	for (i = 0 ; i < num_keys ; i++) {
-		if (!key_new(&keys[i])) {
-			ERROR("Failed to allocate key container\n");
-			exit(1);
-		}
-
 		/* First try to load the key from disk */
 		if (key_load(&keys[i], &err_code)) {
 			/* Key loaded successfully */
@@ -613,6 +608,7 @@ int main(int argc, char *argv[])
 			free(ptr);
 		}
 	}
+	free(keys);
 	for (i = 0; i < num_extensions; i++) {
 		if (extensions[i].arg != NULL) {
 			void *ptr = (void *)extensions[i].arg;

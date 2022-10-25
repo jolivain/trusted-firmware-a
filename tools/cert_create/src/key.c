@@ -24,6 +24,7 @@
 key_t *keys;
 unsigned int num_keys;
 
+#if !USING_OPENSSL3
 /*
  * Create a new key container
  */
@@ -37,9 +38,11 @@ int key_new(key_t *key)
 
 	return 1;
 }
+#endif
 
 static int key_create_rsa(key_t *key, int key_bits)
 {
+#if USING_OPENSSL3
 	EVP_PKEY *rsa = EVP_RSA_gen(key_bits);
 	if (rsa == NULL) {
 		printf("Cannot generate RSA key\n");
@@ -47,11 +50,51 @@ static int key_create_rsa(key_t *key, int key_bits)
 	}
 	key->key = rsa;
 	return 1;
+#else
+	BIGNUM *e;
+	RSA *rsa = NULL;
+
+	e = BN_new();
+	if (e == NULL) {
+		printf("Cannot create RSA exponent\n");
+		goto err;
+	}
+
+	if (!BN_set_word(e, RSA_F4)) {
+		printf("Cannot assign RSA exponent\n");
+		goto err;
+	}
+
+	rsa = RSA_new();
+	if (rsa == NULL) {
+		printf("Cannot create RSA key\n");
+		goto err;
+	}
+
+	if (!RSA_generate_key_ex(rsa, key_bits, e, NULL)) {
+		printf("Cannot generate RSA key\n");
+		goto err;
+	}
+
+	if (!EVP_PKEY_assign_RSA(key->key, rsa)) {
+		printf("Cannot assign RSA key\n");
+		goto err;
+	}
+
+	BN_free(e);
+	return 1;
+
+err:
+	RSA_free(rsa);
+	BN_free(e);
+	return 0;
+#endif
 }
 
 #ifndef OPENSSL_NO_EC
 static int key_create_ecdsa(key_t *key, int key_bits)
 {
+#if USING_OPENSSL3
 	EVP_PKEY *ec = EVP_EC_gen("prime256v1");
 	if (ec == NULL) {
 		printf("Cannot generate EC key\n");
@@ -59,6 +102,31 @@ static int key_create_ecdsa(key_t *key, int key_bits)
 	}
 	key->key = ec;
 	return 1;
+#else
+	EC_KEY *ec;
+
+	ec = EC_KEY_new_by_curve_name(NID_X9_62_prime256v1);
+	if (ec == NULL) {
+		printf("Cannot create EC key\n");
+		goto err;
+	}
+	if (!EC_KEY_generate_key(ec)) {
+		printf("Cannot generate EC key\n");
+		goto err;
+	}
+	EC_KEY_set_flags(ec, EC_PKEY_NO_PARAMETERS);
+	EC_KEY_set_asn1_flag(ec, OPENSSL_EC_NAMED_CURVE);
+	if (!EVP_PKEY_assign_EC_KEY(key->key, ec)) {
+		printf("Cannot assign EC key\n");
+		goto err;
+	}
+
+	return 1;
+
+err:
+	EC_KEY_free(ec);
+	return 0;
+#endif
 }
 #endif /* OPENSSL_NO_EC */
 
