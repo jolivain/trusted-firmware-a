@@ -419,8 +419,12 @@ RAS_TRAP_NS_ERR_REC_ACCESS	:= 0
 # Build option to create cot descriptors using fconf
 COT_DESC_IN_DTB			:= 0
 
-# Build option to provide openssl directory path
+# Build option to provide OpenSSL directory path
 OPENSSL_DIR			:= /usr
+
+# Flag that indicates the OpenSSL whether OpenSSL 3.0 API is to be used
+# or 1.x (added for backwards compatibility). Defaults to 0 (using v1.x)
+USING_OPENSSL3			:= 0
 
 # Select the openssl binary provided in OPENSSL_DIR variable
 ifeq ("$(wildcard ${OPENSSL_DIR}/bin)", "")

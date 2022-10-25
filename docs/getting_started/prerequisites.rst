@@ -54,15 +54,15 @@ The following tools are required to obtain and build |TF-A|:
 The following libraries must be available to build one or more components or
 supporting tools:
 
-- OpenSSL >= 3.0
+- OpenSSL >= 1.1.1
 
    Required to build the cert_create tool.
 
    .. note::
 
-    OpenSSL 3.0 has to be built from source code, as it's not available in
-    the default package repositories in recent Ubuntu versions. Please refer
-    to the OpenSSL project documentation for more information.
+    Older Linux versions may require OpenSSL 3.0 to be built from source
+    code, as it may not be available in the default package repositories.
+    Please refer to the OpenSSL project documentation for more information.
 
 The following libraries are required for Trusted Board Boot and Measured Boot
 support:
