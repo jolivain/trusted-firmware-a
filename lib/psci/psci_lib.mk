@@ -21,7 +21,8 @@ PSCI_LIB_SOURCES	:=	lib/el3_runtime/cpu_data_array.c	\
 				lib/psci/${ARCH}/psci_helpers.S
 
 ifeq (${ARCH}, aarch64)
-PSCI_LIB_SOURCES	+=	lib/el3_runtime/aarch64/context.S
+PSCI_LIB_SOURCES	+=	lib/el3_runtime/aarch64/context.S	\
+				lib/el3_runtime/${ARCH}/el3_regs.S
 endif
 
 ifeq (${USE_COHERENT_MEM}, 1)
