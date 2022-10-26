@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56cf402c_7c09b26b",
+        "filename": "plat/st/common/stm32mp_crypto_lib.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-26T09:55:39Z",
+      "side": 1,
+      "message": "In the intent to reduce the amount of duplicated code, I think there would be value in moving this helper function into the generic authentication framework. Then the default crypto lib (drivers/auth/mbedtls/mbedtls_crypto.c) could call it from verify_hash() and so could any platform-specific crypto library, like yours. I imagine this is a common use case for crypto libs based on hardware crypto accelerators.\n\nWhat do you think? I could not see anything specific in your implementation, except you\u0027re assuming a SHA-256 digest, which I suppose could be enforced outside of this helper function?\n\nSame comment would apply to get_plain_pk_from_asn1().",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 287,
+        "endChar": 1
+      },
+      "revId": "fac688033e9f6ae3de3eba11986a07db5497c9a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
