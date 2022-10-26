@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "45198f3a_a483d3bb",
+        "filename": "plat/st/common/stm32mp_crypto_lib.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-26T12:01:30Z",
+      "side": 1,
+      "message": "Should you run some (debug?) checks on alg_params to make sure it\u0027s actually a BrainPool curve, rather than assuming it is (if it\u0027s not a P256-NIST one)?",
+      "range": {
+        "startLine": 113,
+        "startChar": 3,
+        "endLine": 113,
+        "endChar": 51
+      },
+      "revId": "fac688033e9f6ae3de3eba11986a07db5497c9a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "56cf402c_7c09b26b",
         "filename": "plat/st/common/stm32mp_crypto_lib.c",
         "patchSetId": 6
@@ -43,6 +66,29 @@
         "startChar": 0,
         "endLine": 287,
         "endChar": 1
+      },
+      "revId": "fac688033e9f6ae3de3eba11986a07db5497c9a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f92bcb5f_613abaab",
+        "filename": "plat/st/common/stm32mp_crypto_lib.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-26T12:01:30Z",
+      "side": 1,
+      "message": "Should the key be wiped from memory before exiting the function here?\n\nAnd perhaps also at line 525, even though only part of the key might be available, this might be worth wiping out as well.",
+      "range": {
+        "startLine": 537,
+        "startChar": 0,
+        "endLine": 537,
+        "endChar": 17
       },
       "revId": "fac688033e9f6ae3de3eba11986a07db5497c9a5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
