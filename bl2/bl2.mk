@@ -7,6 +7,7 @@
 BL2_SOURCES		+=	bl2/bl2_image_load_v2.c			\
 				bl2/bl2_main.c				\
 				bl2/${ARCH}/bl2_arch_setup.c		\
+				lib/el3_runtime/${ARCH}/context.S	\
 				lib/locks/exclusive/${ARCH}/spinlock.S	\
 				plat/common/${ARCH}/platform_up_stack.S	\
 				${MBEDTLS_SOURCES}

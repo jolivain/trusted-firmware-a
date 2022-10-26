@@ -16,6 +16,7 @@ INCLUDES		+=	-Iinclude/bl32/sp_min
 BL32_SOURCES		+=	bl32/sp_min/sp_min_main.c		\
 				bl32/sp_min/aarch32/entrypoint.S	\
 				common/runtime_svc.c			\
+				lib/el3_runtime/${ARCH}/context.S	\
 				plat/common/aarch32/plat_sp_min_common.c\
 				services/std_svc/std_svc_setup.c	\
 				${PSCI_LIB_SOURCES}
