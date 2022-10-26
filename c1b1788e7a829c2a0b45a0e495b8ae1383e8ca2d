@@ -34,6 +34,24 @@
       "parentUuid": "526d1c07_a0760f80",
       "revId": "c1b1788e7a829c2a0b45a0e495b8ae1383e8ca2d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12215250_c3e48965",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2022-10-26T12:30:00Z",
+      "side": 1,
+      "message": "The patch from CI repo seems to be taken in the last build, by the way, the check of the new added file (which seems to be properly built in the log, are not taken in account from the coverity check.",
+      "parentUuid": "fe85d818_a496bc3c",
+      "revId": "c1b1788e7a829c2a0b45a0e495b8ae1383e8ca2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
