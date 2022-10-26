@@ -562,6 +562,10 @@ void fpregs_context_save(fp_regs_t *regs);
 void fpregs_context_restore(fp_regs_t *regs);
 #endif
 
+/* Functions called during boot sequence */
+void el3_init_unchanged_regs(void);
+void el3_init_root_regs(void);
+
 #endif /* __ASSEMBLER__ */
 
 #endif /* CONTEXT_H */

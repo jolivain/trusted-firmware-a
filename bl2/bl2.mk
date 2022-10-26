@@ -22,6 +22,7 @@ include lib/gpt_rme/gpt_rme.mk
 BL2_SOURCES		+=      bl2/${ARCH}/bl2_rme_entrypoint.S	\
 				bl2/${ARCH}/bl2_el3_exceptions.S	\
 				bl2/${ARCH}/bl2_run_next_image.S	\
+				lib/el3_runtime/${ARCH}/el3_regs.S	\
 				${GPT_LIB_SRCS}
 BL2_LINKERFILE		:=	bl2/bl2.ld.S
 
@@ -36,7 +37,8 @@ BL2_SOURCES		+=	bl2/${ARCH}/bl2_el3_entrypoint.S	\
 				bl2/${ARCH}/bl2_el3_exceptions.S	\
 				bl2/${ARCH}/bl2_run_next_image.S        \
 				lib/cpus/${ARCH}/cpu_helpers.S		\
-				lib/cpus/errata_report.c
+				lib/cpus/errata_report.c		\
+				lib/el3_runtime/${ARCH}/el3_regs.S
 
 ifeq (${DISABLE_MTPMU},1)
 BL2_SOURCES		+=	lib/extensions/mtpmu/${ARCH}/mtpmu.S
