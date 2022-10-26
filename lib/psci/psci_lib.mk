@@ -7,6 +7,7 @@
 PSCI_LIB_SOURCES	:=	lib/el3_runtime/cpu_data_array.c	\
 				lib/el3_runtime/${ARCH}/cpu_data.S	\
 				lib/el3_runtime/${ARCH}/context_mgmt.c	\
+				lib/el3_runtime/${ARCH}/context.S	\
 				lib/cpus/${ARCH}/cpu_helpers.S		\
 				lib/cpus/errata_report.c		\
 				lib/locks/exclusive/${ARCH}/spinlock.S	\
@@ -21,8 +22,7 @@ PSCI_LIB_SOURCES	:=	lib/el3_runtime/cpu_data_array.c	\
 				lib/psci/${ARCH}/psci_helpers.S
 
 ifeq (${ARCH}, aarch64)
-PSCI_LIB_SOURCES	+=	lib/el3_runtime/aarch64/context.S	\
-				lib/cpus/aarch64/runtime_errata.S
+PSCI_LIB_SOURCES	+=	lib/cpus/aarch64/runtime_errata.S
 endif
 
 ifeq (${USE_COHERENT_MEM}, 1)
