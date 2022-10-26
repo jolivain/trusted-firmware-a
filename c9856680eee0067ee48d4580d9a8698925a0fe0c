@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43a58484_11f0c89d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-10-26T23:07:37Z",
+      "side": 1,
+      "message": "\u003e Patch Set 4:\n\u003e \n\u003e MISRA delta report: http://ci.trustedfirmware.org/job/tf-a-eclair-delta/TF_CONFIG\u003dfvp-default,label\u003ddocker-tf-a-eclair/74/artifact/\n\u003e \n\u003e \u003d MISRA delta report for the patch (issues resolved and/or newly added) \u003d\n\u003e \n\u003e Added for MC3R1.R10.4: (required) Both operands of an operator in which the usual arithmetic conversions are performed shall have the same essential type category\n\u003e   violation: 1\n\u003e \n\u003e   service MC3R1.R10.4 --\u003e first file drivers/arm/gic/v3/gicv3_main.c\n\u003e     violation: 1\n\u003e \n\u003e violation for rule MC3R1.R10.4: (required) Both operands of an operator in which the usual arithmetic conversions are performed shall have the same essential type category. (untagged)\n\u003e drivers/arm/gic/v3/gicv3_main.c:137.13-137.39: Loc #1 [culprit: first operand has essential type 64-bit unsigned integer]\n\u003e drivers/arm/gic/v3/gicv3_main.c:137.44-137.44: Loc #2 [culprit: second operand has essential type 8-bit signed integer]\n\u003e drivers/arm/gic/v3/gicv3_main.c:137.41-137.42: Loc #3 [context: `!\u003d\u0027 inequality operator]\n\u003e \n\u003e \n\u003e ---------------\n\nHi Paul,\n\nThis dummy patch has multiple violations across 6 lines. It looks like only the first violation (line 137) is being reported in the results. \n",
+      "revId": "c9856680eee0067ee48d4580d9a8698925a0fe0c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
