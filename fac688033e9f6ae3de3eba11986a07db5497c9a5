@@ -22,6 +22,30 @@
       },
       "revId": "fac688033e9f6ae3de3eba11986a07db5497c9a5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "082e43c7_910b3b3e",
+        "filename": "plat/st/common/stm32mp_crypto_lib.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-26T11:33:01Z",
+      "side": 1,
+      "message": "\u003e Same comment would apply to get_plain_pk_from_asn1().\n\nHmm, maybe not... I see that drivers/auth/mbedtls/mbedtls_crypto.c uses mbedtls_x509_get_sig_alg() to parse the ASN.1-wrapped public key, whereas you do something more targeted at ECDSA keys, since this is what you\u0027re using on STMP32MP1 platforms and you want to avoid pulling the x509 module of mbedtls... This one might be hard to share across crypto libs.",
+      "parentUuid": "56cf402c_7c09b26b",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 287,
+        "endChar": 1
+      },
+      "revId": "fac688033e9f6ae3de3eba11986a07db5497c9a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
