@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2269eea_613c53e7",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1054,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2022-10-26T18:37:50Z",
+      "side": 1,
+      "message": "exclusive what? \"exclusive access\" maybe?",
+      "range": {
+        "startLine": 1054,
+        "startChar": 18,
+        "endLine": 1054,
+        "endChar": 28
+      },
+      "revId": "0c4c5c617289c722d693710f4b82ecea2b5dafc0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0037b346_2f59dab0",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2022-10-26T18:37:50Z",
+      "side": 1,
+      "message": "typo - \"Hafnium\" with capital H",
+      "range": {
+        "startLine": 1062,
+        "startChar": 27,
+        "endLine": 1062,
+        "endChar": 34
+      },
+      "revId": "0c4c5c617289c722d693710f4b82ecea2b5dafc0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bea2abe_2e983ac0",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2022-10-26T18:37:50Z",
+      "side": 1,
+      "message": "typo - \"of\"",
+      "range": {
+        "startLine": 1062,
+        "startChar": 5,
+        "endLine": 1062,
+        "endChar": 7
+      },
+      "revId": "0c4c5c617289c722d693710f4b82ecea2b5dafc0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2050c2c4_2f6a6438",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2022-10-26T18:37:50Z",
+      "side": 1,
+      "message": "Ambiguous - \"The SPMC\" is the allocator?",
+      "range": {
+        "startLine": 1072,
+        "startChar": 0,
+        "endLine": 1072,
+        "endChar": 2
+      },
+      "revId": "0c4c5c617289c722d693710f4b82ecea2b5dafc0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "babee33e_50997bb9",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1083,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2022-10-26T18:37:50Z",
+      "side": 1,
+      "message": "\"can be used to obtain that state information, do the necessary validations, and update S2 memory translation\"\n\nOr if you are trying to group together the first two actions, I would write \"can be used to obtain that state information and do the necessary validations, and to update S2 memory translation\"",
+      "range": {
+        "startLine": 1081,
+        "startChar": 50,
+        "endLine": 1083,
+        "endChar": 11
+      },
+      "revId": "0c4c5c617289c722d693710f4b82ecea2b5dafc0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c84f8963_c3b7111c",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1085,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2022-10-26T18:37:50Z",
+      "side": 1,
+      "message": "This has already been stated above in line 1056. maybe group this paragraph and that one together?",
+      "range": {
+        "startLine": 1085,
+        "startChar": 0,
+        "endLine": 1085,
+        "endChar": 74
+      },
+      "revId": "0c4c5c617289c722d693710f4b82ecea2b5dafc0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4867c39f_dfe476a8",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2022-10-26T18:37:50Z",
+      "side": 1,
+      "message": "capital H \"Hafnium\"",
+      "range": {
+        "startLine": 1093,
+        "startChar": 4,
+        "endLine": 1093,
+        "endChar": 11
+      },
+      "revId": "0c4c5c617289c722d693710f4b82ecea2b5dafc0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea12b19a_13023f46",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2022-10-26T18:37:50Z",
+      "side": 1,
+      "message": "capital H \"Hafnium\"",
+      "range": {
+        "startLine": 1094,
+        "startChar": 18,
+        "endLine": 1094,
+        "endChar": 25
+      },
+      "revId": "0c4c5c617289c722d693710f4b82ecea2b5dafc0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
