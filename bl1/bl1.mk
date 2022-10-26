@@ -14,6 +14,7 @@ BL1_SOURCES		+=	bl1/${ARCH}/bl1_arch_setup.c		\
 				lib/el3_runtime/${ARCH}/context_mgmt.c	\
 				plat/common/plat_bl1_common.c		\
 				plat/common/${ARCH}/platform_up_stack.S \
+				lib/el3_runtime/${ARCH}/el3_regs.S	\
 				${MBEDTLS_SOURCES}
 
 ifeq (${DISABLE_MTPMU},1)
