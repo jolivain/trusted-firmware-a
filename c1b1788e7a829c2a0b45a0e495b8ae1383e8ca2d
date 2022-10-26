@@ -16,6 +16,24 @@
       "message": "There appears to be a problem with the CI. You\u0027ve done the right thing by pushing the CI patch [1] under the same Gerrit topic name as the TF-A patch series (stm32mp1-trusted-boot) in an attempt to test the latter with the former. Unfortunately, looking at the job\u0027s console log [2], it does not work as expected. It started well with this message:\n\n Got Gerrit Topic: stm32mp1-trusted-boot\n\nwhich proves that the scripts have seen that the patches are under a Gerrit topic. But then it is trying to find CI patches under the same topic names and fails finding them:\n\n Warning: Permanently added \u0027[review.trustedfirmware.org]:29418,[51.159.18.17]:29418\u0027 (ECDSA) to the list of known hosts.\n Traceback (most recent call last):\n  File \"/srv/shared/tf-a-gerrit-tforg-l1/1854/tf-a-job-configs/scripts/parse_refspec.py\", line 49, in \u003cmodule\u003e\n    raise Exception(\"Can not find anything.\")\n Exception: Can not find anything.\n Roll back to \"refs/heads/master\" for \"ci/tf-a-ci-scripts\"\n\nAnd it ends up using the master branch of the CI scripts repo...\n\nNot sure what is happening, I don\u0027t have the bandwith to look further into it right now. You could try asking Arthur She from Linaro, who worked on this script. Do you have access to the following ticket?\n\n https://linaro.atlassian.net/browse/TFC-75\n\nIf yes, I suppose you could reopen the ticket with the error message details.\n\n[1] https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/17196\n[2] https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l1/1854/console",
       "revId": "c1b1788e7a829c2a0b45a0e495b8ae1383e8ca2d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe85d818_a496bc3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-10-26T08:16:48Z",
+      "side": 1,
+      "message": "I think. at the time Allow-CI+1 triggered, tf-a and CI repo had different topic names, which is why this error was reported. Let me trigger Allow-CI+1 at the top of the patch in this series to see the behaviour.",
+      "parentUuid": "526d1c07_a0760f80",
+      "revId": "c1b1788e7a829c2a0b45a0e495b8ae1383e8ca2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
