@@ -12,6 +12,7 @@ BL1_SOURCES		+=	bl1/${ARCH}/bl1_arch_setup.c		\
 				lib/cpus/${ARCH}/cpu_helpers.S		\
 				lib/cpus/errata_report.c		\
 				lib/el3_runtime/${ARCH}/context_mgmt.c	\
+				lib/el3_runtime/${ARCH}/context.S	\
 				plat/common/plat_bl1_common.c		\
 				plat/common/${ARCH}/platform_up_stack.S \
 				${MBEDTLS_SOURCES}
@@ -21,8 +22,7 @@ BL1_SOURCES		+=	lib/extensions/mtpmu/${ARCH}/mtpmu.S
 endif
 
 ifeq (${ARCH},aarch64)
-BL1_SOURCES		+=	lib/cpus/aarch64/dsu_helpers.S		\
-				lib/el3_runtime/aarch64/context.S
+BL1_SOURCES		+=	lib/cpus/aarch64/dsu_helpers.S
 endif
 
 ifeq (${TRUSTED_BOARD_BOOT},1)
