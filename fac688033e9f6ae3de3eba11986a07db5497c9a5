@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "574d00b0_91be89b5",
+        "filename": "plat/st/common/stm32mp_crypto_lib.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2022-10-26T16:09:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "45198f3a_a483d3bb",
+      "range": {
+        "startLine": 113,
+        "startChar": 3,
+        "endLine": 113,
+        "endChar": 51
+      },
+      "revId": "fac688033e9f6ae3de3eba11986a07db5497c9a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56cf402c_7c09b26b",
@@ -84,6 +108,30 @@
       "writtenOn": "2022-10-26T12:01:30Z",
       "side": 1,
       "message": "Should the key be wiped from memory before exiting the function here?\n\nAnd perhaps also at line 525, even though only part of the key might be available, this might be worth wiping out as well.",
+      "range": {
+        "startLine": 537,
+        "startChar": 0,
+        "endLine": 537,
+        "endChar": 17
+      },
+      "revId": "fac688033e9f6ae3de3eba11986a07db5497c9a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ef4a278_c30247cc",
+        "filename": "plat/st/common/stm32mp_crypto_lib.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2022-10-26T16:09:12Z",
+      "side": 1,
+      "message": "I think, rechecking, that there is no reason to check the code error return as the function always return true.\nOtherwise, you\u0027re right, the key might be clear in case of error.",
+      "parentUuid": "f92bcb5f_613abaab",
       "range": {
         "startLine": 537,
         "startChar": 0,
