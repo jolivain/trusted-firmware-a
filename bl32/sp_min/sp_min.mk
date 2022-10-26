@@ -15,6 +15,7 @@ INCLUDES		+=	-Iinclude/bl32/sp_min
 
 BL32_SOURCES		+=	bl32/sp_min/sp_min_main.c		\
 				bl32/sp_min/aarch32/entrypoint.S	\
+				lib/el3_runtime/${ARCH}/el3_regs.S	\
 				common/runtime_svc.c			\
 				plat/common/aarch32/plat_sp_min_common.c\
 				services/std_svc/std_svc_setup.c	\

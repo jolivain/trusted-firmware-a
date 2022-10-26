@@ -10,6 +10,7 @@
 #include <asm_macros.S>
 #include <common/bl_common.h>
 #include <el3_common_macros.S>
+#include <lib/el3_runtime/aarch64/context.h>
 
 	.globl	bl2_entrypoint
 
