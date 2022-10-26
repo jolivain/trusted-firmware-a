@@ -22,6 +22,30 @@
       },
       "revId": "840a57b6936a95c72db6cc37e0a3047f355868f0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "653259b9_7e1bd8b8",
+        "filename": "drivers/st/crypto/stm32_saes.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2022-10-26T15:41:41Z",
+      "side": 1,
+      "message": "No, we are in the final stage here, whatever the error logged or no error, the saes_end (IP reset) must be called.",
+      "parentUuid": "659e54f1_e43fc19d",
+      "range": {
+        "startLine": 808,
+        "startChar": 0,
+        "endLine": 808,
+        "endChar": 20
+      },
+      "revId": "840a57b6936a95c72db6cc37e0a3047f355868f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
