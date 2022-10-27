@@ -46,6 +46,30 @@
       },
       "revId": "637d0b8d669c663c6b196fe5a834bc2ab443bf23",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef780dc2_d0bd2083",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-27T15:51:29Z",
+      "side": 1,
+      "message": "I see, thanks for explaining.\n\nTBH, I think it would be good to enable -Wsign-compare across TF-A codebase, because it is inline with MISRA essential type model. But just in generic code - platform maintainers are free to opt into MISRA compliance. Unfortunately I don\u0027t think TF-A build system currently supports per file/directory CFLAGS so it can only be an all/nothing policy...\n\nSo from a MISRA compliance point of view (and just for good, robust code) I think it\u0027s really good you\u0027re fixing line 120.\n\nNow for the extra check at line 117, I think we can keep it. It\u0027s cheap and as you say, it makes sense before casting oid_len into an unsigned integer. \n\nAlternatively, or on top of that, we could add the following debug assertion:\n\n ASSERT((oid_len \u003d\u003d MBEDTLS_ERR_OID_BUF_TOO_SMALL) || (oid_len \u003e\u003d 0);\n\nI think the main motivation would be to help us with future MbedTLS API changes (if any), such that if new error codes are added, it gets flagged to us more explicitly. Else, it\u0027ll just be silently swallowed by the new (oid_len \u003c 0) check and be reported as a parser error - which might be the right answer, or not!\n\nWhat do you think? Is it an overkill?",
+      "parentUuid": "3f054c87_f59e0c8c",
+      "range": {
+        "startLine": 117,
+        "startChar": 49,
+        "endLine": 117,
+        "endChar": 65
+      },
+      "revId": "637d0b8d669c663c6b196fe5a834bc2ab443bf23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
