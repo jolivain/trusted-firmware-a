@@ -157,6 +157,30 @@
       },
       "revId": "42e80b8ef20d088a448cf1d8cb748c65ef30560d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bdde5e9_f1dfb3c4",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-10-27T15:03:21Z",
+      "side": 1,
+      "message": "There seem to be 4 configurations. Qemu aarch32+clang, qemu aarch32+gcc , qemu aarch64+clang,qemu aarch64+clang and the build issue occurs only for qemu aarch32+clang and I feel modifying the assignment operator for aarch64 might turn out to be redundant. If you think there are other cases that I have not considered please let me know",
+      "parentUuid": "21dadca5_3babdc7e",
+      "range": {
+        "startLine": 278,
+        "startChar": 20,
+        "endLine": 278,
+        "endChar": 22
+      },
+      "revId": "42e80b8ef20d088a448cf1d8cb748c65ef30560d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
