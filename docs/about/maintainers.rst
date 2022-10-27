@@ -191,8 +191,6 @@ Power State Coordination Interface (PSCI)
 :|G|: `madhukar-Arm`_
 :|M|: Lauren Wehrmeister <Lauren.Wehrmeister@arm.com>
 :|G|: `laurenw-arm`_
-:|M|: Zelalem Aweke <Zelalem.Aweke@arm.com>
-:|G|: `zelalem-aweke`_
 :|F|: lib/psci/
 
 DebugFS
@@ -239,25 +237,11 @@ Activity Monitors Unit (AMU) extensions
 :|G|: `CJKay`_
 :|F|: lib/extensions/amu/
 
-Memory Partitioning And Monitoring (MPAM) extensions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-:|M|: Zelalem Aweke <Zelalem.Aweke@arm.com>
-:|G|: `zelalem-aweke`_
-:|F|: lib/extensions/mpam/
-
 Pointer Authentication (PAuth) and Branch Target Identification (BTI) extensions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 :|M|: Alexei Fedorov <Alexei.Fedorov@arm.com>
 :|G|: `AlexeiFedorov`_
-:|M|: Zelalem Aweke <Zelalem.Aweke@arm.com>
-:|G|: `zelalem-aweke`_
 :|F|: lib/extensions/pauth/
-
-Statistical Profiling Extension (SPE)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-:|M|: Zelalem Aweke <Zelalem.Aweke@arm.com>
-:|G|: `zelalem-aweke`_
-:|F|: lib/extensions/spe/
 
 Standard C library
 ^^^^^^^^^^^^^^^^^^
@@ -827,8 +811,6 @@ Build system
 
 Threat Model
 ~~~~~~~~~~~~~
-:|M|: Zelalem Aweke <Zelalem.Aweke@arm.com>
-:|G|: `zelalem-aweke`_
 :|M|: Sandrine Bailleux <sandrine.bailleux@arm.com>
 :|G|: `sandrine-bailleux-arm`_
 :|M|: Joanna Farley <joanna.farley@arm.com>
@@ -904,7 +886,6 @@ Conventional Changelog Extensions
 .. _max-shvetsov: https://github.com/max-shvetsov
 .. _javieralso-arm: https://github.com/javieralso-arm
 .. _laurenw-arm: https://github.com/laurenw-arm
-.. _zelalem-aweke: https://github.com/zelalem-aweke
 .. _J-Alves: https://github.com/J-Alves
 .. _madhukar-Arm: https://github.com/madhukar-Arm
 .. _raghuncstate: https://github.com/raghuncstate
