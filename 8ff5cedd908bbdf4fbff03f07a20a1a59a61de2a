@@ -162,6 +162,24 @@
       "parentUuid": "79855552_48a89eb2",
       "revId": "8ff5cedd908bbdf4fbff03f07a20a1a59a61de2a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0425d9fe_8bc23b36",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2022-10-27T07:20:08Z",
+      "side": 1,
+      "message": "In short this is how make works (see docs here [1]):\n  - make will convert all environment variables to make variables.\n  - when using :\u003d or \u003d in a makefile, this will define a make variable and override environment variables\n  - ?\u003d can be used to avoid overriding values taken over from the environment\n  - command line params (e.g. variable\u003dvalue) will override the variable values set with the above methods.\n  - makefile can use the override directive to override any value set with the methods above. But IHMO this is not used in TF-A makefiles.\n\nTo answer your question, yes, the command line parameter has the highest precedence (as TF-A makefiles do not use the override directive, and assuming you are not running make with -e).\nThe biggest risk IMHO is name collision when using ?\u003d. If anything in the build environment uses an environment variable with the same name as a TF-A makefile variable set with ?\u003d, there is a collision. The same environment variable will be used for two different purposes, which will not work. To be on the safe side, the best might be to use a project specific prefix for such variables (e.g. CFGTFA_ for this project).\n\n1: https://ftp.gnu.org/old-gnu/Manuals/make-3.79.1/html_chapter/make_6.html#SEC63",
+      "parentUuid": "7e8b04b2_08bd173d",
+      "revId": "8ff5cedd908bbdf4fbff03f07a20a1a59a61de2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
