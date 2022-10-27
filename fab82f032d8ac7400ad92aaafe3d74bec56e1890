@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f39302e_0427f67e",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-27T10:40:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14048fd5_d122c596",
+      "revId": "fab82f032d8ac7400ad92aaafe3d74bec56e1890",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6616b33e_6bbbc314",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-10-27T09:51:24Z",
       "side": 1,
       "message": "I\u0027d rephrase:\nThe SPMD and SPMC are built into the BL31 image along with TF-A\u0027s runtime components.\nBL2 is loading BL31 as part of the (secure) boot process.",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 43
+      },
+      "revId": "fab82f032d8ac7400ad92aaafe3d74bec56e1890",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a66c4ca_a0e8fd34",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-27T10:40:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6616b33e_6bbbc314",
       "range": {
         "startLine": 129,
         "startChar": 0,
@@ -64,6 +106,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "252a345e_f54b1458",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-27T10:40:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5983a3c6_5562cadb",
+      "range": {
+        "startLine": 156,
+        "startChar": 20,
+        "endLine": 156,
+        "endChar": 25
+      },
+      "revId": "fab82f032d8ac7400ad92aaafe3d74bec56e1890",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0991d92_20f4ceec",
@@ -77,6 +143,30 @@
       "writtenOn": "2022-10-27T09:51:24Z",
       "side": 1,
       "message": "This describes the scenario of a secure interrupt pre-empting normal world.\n\nIt would be worth stating the scenario of a secure interrupt occurring while the secure partition runs. In this case, the SPMC is not involved and the handling is implementation defined in the TOS.",
+      "range": {
+        "startLine": 462,
+        "startChar": 0,
+        "endLine": 468,
+        "endChar": 69
+      },
+      "revId": "fab82f032d8ac7400ad92aaafe3d74bec56e1890",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fd5f5cf_c67ba2bd",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-27T10:40:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0991d92_20f4ceec",
       "range": {
         "startLine": 462,
         "startChar": 0,
@@ -104,6 +194,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f90a626f_06dd4b9d",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-27T10:40:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2623863b_3e965389",
+      "revId": "fab82f032d8ac7400ad92aaafe3d74bec56e1890",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0e59b22_2560ff48",
@@ -127,6 +235,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a07bfa3a_1969c202",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-27T10:40:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0e59b22_2560ff48",
+      "range": {
+        "startLine": 482,
+        "startChar": 4,
+        "endLine": 482,
+        "endChar": 28
+      },
+      "revId": "fab82f032d8ac7400ad92aaafe3d74bec56e1890",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45205aa5_aeb93e13",
@@ -140,6 +272,30 @@
       "writtenOn": "2022-10-27T09:51:24Z",
       "side": 1,
       "message": "replace by a colon",
+      "range": {
+        "startLine": 492,
+        "startChar": 17,
+        "endLine": 492,
+        "endChar": 18
+      },
+      "revId": "fab82f032d8ac7400ad92aaafe3d74bec56e1890",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40778329_fc733a2d",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-10-27T10:40:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45205aa5_aeb93e13",
       "range": {
         "startLine": 492,
         "startChar": 17,
