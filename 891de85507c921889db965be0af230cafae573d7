@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ce9776c_b0769d89",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000709
+      },
+      "writtenOn": "2022-10-27T17:32:27Z",
+      "side": 0,
+      "message": "This one is being caught, as we can see.",
+      "revId": "891de85507c921889db965be0af230cafae573d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "838a34e8_07de8a29",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000709
+      },
+      "writtenOn": "2022-10-27T17:32:27Z",
+      "side": 0,
+      "message": "This is inside assert, and those are disabled in the build.",
+      "revId": "891de85507c921889db965be0af230cafae573d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec80fda3_96b14ed3",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1000709
+      },
+      "writtenOn": "2022-10-27T17:32:27Z",
+      "side": 0,
+      "message": "As I mentioned before in the email threads, I don\u0027t have access to the MISRA standard text. So, I cannot assess whether it has a clause like \"Whenever an expression/statement has an unsigned context, any literal constant used in it shall have an \u0027U\u0027 suffix\".\n\nGiven that ECLAIR doesn\u0027t flag this case, and as know, ECLAIR should be pretty thorough in following MISRA (given that people behind ECLAIR are on the MISRA committee), I may conjecture that U suffix is require in expressions when there\u0027s a possibility of mixing signed and unsigned, which in turn can lead to unexpected/undefined behavior. Here\u0027s however an assignment, and there\u0027s no ambiguity - \"0\" alone can fit into an unsigned int variable without any undefined/unpexpected behavior.",
+      "revId": "891de85507c921889db965be0af230cafae573d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a4c4cd8_6f091265",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1000709
+      },
+      "writtenOn": "2022-10-27T17:32:27Z",
+      "side": 0,
+      "message": "Ditto as above.",
+      "revId": "891de85507c921889db965be0af230cafae573d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a4ba336_a5d876f8",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1000709
+      },
+      "writtenOn": "2022-10-27T17:32:27Z",
+      "side": 0,
+      "message": "This is inside an \"#if\" which is not enabled in this config.",
+      "revId": "891de85507c921889db965be0af230cafae573d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
