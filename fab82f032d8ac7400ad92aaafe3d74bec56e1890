@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14048fd5_d122c596",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-27T09:51:24Z",
+      "side": 1,
+      "message": "The function name is on same line as the text description in the rendered document.\nNot sure how to tell the text should be on next line as shown here.\nPerhaps you can at least add a colon after plat_spmc_shmem_datastore_get.",
+      "revId": "fab82f032d8ac7400ad92aaafe3d74bec56e1890",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6616b33e_6bbbc314",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-27T09:51:24Z",
+      "side": 1,
+      "message": "I\u0027d rephrase:\nThe SPMD and SPMC are built into the BL31 image along with TF-A\u0027s runtime components.\nBL2 is loading BL31 as part of the (secure) boot process.",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 43
+      },
+      "revId": "fab82f032d8ac7400ad92aaafe3d74bec56e1890",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5983a3c6_5562cadb",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-27T09:51:24Z",
+      "side": 1,
+      "message": "it may be better putting a scalar value here, provided this macro definition isn\u0027t provided",
+      "range": {
+        "startLine": 156,
+        "startChar": 20,
+        "endLine": 156,
+        "endChar": 25
+      },
+      "revId": "fab82f032d8ac7400ad92aaafe3d74bec56e1890",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0991d92_20f4ceec",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-27T09:51:24Z",
+      "side": 1,
+      "message": "This describes the scenario of a secure interrupt pre-empting normal world.\n\nIt would be worth stating the scenario of a secure interrupt occurring while the secure partition runs. In this case, the SPMC is not involved and the handling is implementation defined in the TOS.",
+      "range": {
+        "startLine": 462,
+        "startChar": 0,
+        "endLine": 468,
+        "endChar": 69
+      },
+      "revId": "fab82f032d8ac7400ad92aaafe3d74bec56e1890",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2623863b_3e965389",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-27T09:51:24Z",
+      "side": 1,
+      "message": "You can state the \u0027managed exit\u0027 scenario is the responsibility of the TOS and the SPMC is not involved.",
+      "revId": "fab82f032d8ac7400ad92aaafe3d74bec56e1890",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0e59b22_2560ff48",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-27T09:51:24Z",
+      "side": 1,
+      "message": "suggesting:\n\nConsuming power management messages",
+      "range": {
+        "startLine": 482,
+        "startChar": 4,
+        "endLine": 482,
+        "endChar": 28
+      },
+      "revId": "fab82f032d8ac7400ad92aaafe3d74bec56e1890",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45205aa5_aeb93e13",
+        "filename": "docs/components/el3-spmc.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-27T09:51:24Z",
+      "side": 1,
+      "message": "replace by a colon",
+      "range": {
+        "startLine": 492,
+        "startChar": 17,
+        "endLine": 492,
+        "endChar": 18
+      },
+      "revId": "fab82f032d8ac7400ad92aaafe3d74bec56e1890",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
