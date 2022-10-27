@@ -146,6 +146,7 @@ endif
 
 ifeq ($(FEATURE_DETECTION),1)
 BL31_SOURCES		+=	common/feat_detect.c
+BL31_SOURCES		+=	common/feat_check.c
 endif
 
 ifeq (${DRTM_SUPPORT},1)

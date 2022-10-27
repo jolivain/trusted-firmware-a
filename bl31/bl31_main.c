@@ -116,6 +116,8 @@ void bl31_main(void)
 	NOTICE("BL31: %s\n", build_message);
 
 #if FEATURE_DETECTION
+	/* Detect if feature fields got higher values in ID register fields. */
+	check_arch_features();
 	/* Detect if features enabled during compilation are supported by PE. */
 	detect_arch_features();
 #endif /* FEATURE_DETECTION */

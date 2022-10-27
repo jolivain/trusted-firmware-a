@@ -240,6 +240,8 @@
 #define ID_AA64DFR0_BRBE_MASK		ULL(0xf)
 #define ID_AA64DFR0_BRBE_SUPPORTED	ULL(1)
 
+#define ID_AA64DFR1_EL1			S3_0_C0_C5_1
+
 /* ID_AA64ISAR0_EL1 definitions */
 #define ID_AA64ISAR0_RNDR_SHIFT	U(60)
 #define ID_AA64ISAR0_RNDR_MASK	ULL(0xf)
@@ -264,6 +266,7 @@
 
 /* ID_AA64ISAR2_EL1 definitions */
 #define ID_AA64ISAR2_EL1		S3_0_C0_C6_2
+#define ID_AA64ISAR3_EL1		S3_0_C0_C6_3
 
 #define ID_AA64ISAR2_GPA3_SHIFT		U(8)
 #define ID_AA64ISAR2_GPA3_MASK		ULL(0xf)
@@ -332,6 +335,7 @@
 
 /* ID_AA64MMFR2_EL1 definitions */
 #define ID_AA64MMFR2_EL1			S3_0_C0_C7_2
+#define ID_AA64MMFR3_EL1			S3_0_C0_C7_3
 
 #define ID_AA64MMFR2_EL1_ST_SHIFT		U(28)
 #define ID_AA64MMFR2_EL1_ST_MASK		ULL(0xf)
@@ -368,6 +372,8 @@
 
 #define ID_AA64PFR1_EL1_RNG_TRAP_SUPPORTED	ULL(0x1)
 #define ID_AA64PFR1_EL1_RNG_TRAP_NOT_SUPPORTED	ULL(0x0)
+
+#define ID_AA64PFR2_EL1			S3_0_C0_C4_2
 
 /* Memory Tagging Extension is not implemented */
 #define MTE_UNIMPLEMENTED	U(0)

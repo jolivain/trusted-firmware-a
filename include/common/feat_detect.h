@@ -9,6 +9,7 @@
 
 /* Function Prototypes */
 void detect_arch_features(void);
+void check_arch_features(void);
 
 /* Macro Definitions */
 #define FEAT_STATE_DISABLED	0
