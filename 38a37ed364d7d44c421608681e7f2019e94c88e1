@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22150db4_449beb92",
+        "filename": "plat/st/common/include/stm32mp_auth.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-27T15:20:40Z",
+      "side": 1,
+      "message": "It looks like plat/st/stm32mp1/stm32mp1_def.h is still including this file. Supposedly you should remove the #include there?",
+      "revId": "38a37ed364d7d44c421608681e7f2019e94c88e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
