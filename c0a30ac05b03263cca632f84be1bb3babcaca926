@@ -22,6 +22,30 @@
       },
       "revId": "c0a30ac05b03263cca632f84be1bb3babcaca926",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf0aa524_4677491a",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-10-27T08:55:51Z",
+      "side": 1,
+      "message": "From the comment on line 603, that\u0027s for the case where EL2 is present but unused. The patch is for the case where EL2 is in use.",
+      "parentUuid": "1f51c433_844ba20f",
+      "range": {
+        "startLine": 254,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 65
+      },
+      "revId": "c0a30ac05b03263cca632f84be1bb3babcaca926",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
