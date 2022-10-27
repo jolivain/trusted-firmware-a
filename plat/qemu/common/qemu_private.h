@@ -33,6 +33,9 @@ void qemu_console_init(void);
 void plat_qemu_gic_init(void);
 void qemu_pwr_gic_on_finish(void);
 void qemu_pwr_gic_off(void);
+#if SPMD_SPM_AT_SEL2
+void qemu_bl1_platform_setup(void);
+#endif
 
 int qemu_set_tos_fw_info(uintptr_t config_base, uintptr_t log_addr,
 			size_t log_size);
