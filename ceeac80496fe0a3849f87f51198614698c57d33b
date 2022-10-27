@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "13203e1b_f8b5c1bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-10-27T15:38:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b7371a3_4ea0c1d7",
+      "range": {
+        "startLine": 7,
+        "startChar": 26,
+        "endLine": 7,
+        "endChar": 43
+      },
+      "revId": "ceeac80496fe0a3849f87f51198614698c57d33b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2c423141_4bbe9742",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -54,6 +78,30 @@
       "writtenOn": "2022-10-26T19:38:56Z",
       "side": 1,
       "message": "nit: extend and align the top and bottom lines to the text in between, within the max char allowed per line",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 53
+      },
+      "revId": "ceeac80496fe0a3849f87f51198614698c57d33b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d8c97f3_5d0ee4a4",
+        "filename": "lib/cpus/aarch64/cortex_x3.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-10-27T15:38:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "694e9ea9_c5c58bf5",
       "range": {
         "startLine": 78,
         "startChar": 0,
