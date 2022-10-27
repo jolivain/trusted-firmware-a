@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f51c433_844ba20f",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-10-27T08:45:26Z",
+      "side": 1,
+      "message": "Is this not already covered here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17440/2/lib/el3_runtime/aarch64/context_mgmt.c#757? or am I missing something?",
+      "range": {
+        "startLine": 254,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 65
+      },
+      "revId": "c0a30ac05b03263cca632f84be1bb3babcaca926",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
