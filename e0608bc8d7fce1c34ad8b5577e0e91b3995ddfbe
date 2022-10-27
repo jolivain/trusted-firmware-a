@@ -72,6 +72,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a0cc088_e85c0a4f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000789
+      },
+      "writtenOn": "2022-10-27T01:25:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5aaa52e5_234b7a3e",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 41
+      },
+      "revId": "e0608bc8d7fce1c34ad8b5577e0e91b3995ddfbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5d2187f_2d2b4164",
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "Let me rephrase. Are these tags needed in upstream TF-A?\nI think this is the first occurrence in any commit.",
       "parentUuid": "e34c7614_6188ba1f",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 23
+      },
+      "revId": "e0608bc8d7fce1c34ad8b5577e0e91b3995ddfbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23d3eff7_3bbb8234",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000789
+      },
+      "writtenOn": "2022-10-27T01:25:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f9de584_96008b27",
       "range": {
         "startLine": 11,
         "startChar": 0,
@@ -214,6 +262,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2afa5998_c890cd44",
+        "filename": "plat/qemu/common/shared_mem.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000789
+      },
+      "writtenOn": "2022-10-27T01:25:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6e32c21_31f96ffa",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 51
+      },
+      "revId": "e0608bc8d7fce1c34ad8b5577e0e91b3995ddfbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3fcce3b7_34b65971",
@@ -285,6 +357,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61cef64d_bfcafd41",
+        "filename": "plat/qemu/common/shared_mem.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000789
+      },
+      "writtenOn": "2022-10-27T01:25:15Z",
+      "side": 1,
+      "message": "Renamed to trusty_shared_mem.c\nI also moved this change to the end of the patch stack, so we can (start)submitting preceding changes even if this one is delayed or ends up not making the cut.",
+      "parentUuid": "df633e98_e678ebe1",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 57
+      },
+      "revId": "e0608bc8d7fce1c34ad8b5577e0e91b3995ddfbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "890b98c6_70da33f3",
@@ -308,6 +404,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb46abd8_ddf0e6a1",
+        "filename": "plat/qemu/common/shared_mem.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000789
+      },
+      "writtenOn": "2022-10-27T01:25:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "890b98c6_70da33f3",
+      "range": {
+        "startLine": 24,
+        "startChar": 8,
+        "endLine": 24,
+        "endChar": 10
+      },
+      "revId": "e0608bc8d7fce1c34ad8b5577e0e91b3995ddfbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2890c84f_cfc23528",
@@ -321,6 +441,24 @@
       "writtenOn": "2022-10-10T08:15:52Z",
       "side": 1,
       "message": "Please add an empty line before this.",
+      "revId": "e0608bc8d7fce1c34ad8b5577e0e91b3995ddfbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87d1c81b_b35dff1f",
+        "filename": "plat/qemu/common/shared_mem.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000789
+      },
+      "writtenOn": "2022-10-27T01:25:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2890c84f_cfc23528",
       "revId": "e0608bc8d7fce1c34ad8b5577e0e91b3995ddfbe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
