@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "296452d6_e6de075e",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-27T14:25:33Z",
+      "side": 1,
+      "message": "MbedTLS documentation is explicit about mbedtls_oid_get_numeric_string() error codes - it can only return MBEDTLS_ERR_OID_BUF_TOO_SMALL on error. So the existing check should cover all error cases.\n\nhttps://github.com/Mbed-TLS/mbedtls/blob/v2.28.0/include/mbedtls/oid.h#L458\n\nWhy this extra check? Are you worried about future versions of mbedTLS evolving this API contract? Or is it meant to give static analyzers (and the like) insight into the API contract in use here - which they can\u0027t be aware of - such that they do not complain about us casting oid_len into an unsigned integer type below at line 120?\n\nI am not saying this is not reasonable, just trying to understand the motivation for this change (e.g. did you hit an issue with this code in practice?).",
+      "range": {
+        "startLine": 117,
+        "startChar": 49,
+        "endLine": 117,
+        "endChar": 65
+      },
+      "revId": "637d0b8d669c663c6b196fe5a834bc2ab443bf23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
