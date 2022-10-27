@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f94733a1_6d263cb2",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-10-27T19:33:02Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "2ce9776c_b0769d89",
+      "revId": "891de85507c921889db965be0af230cafae573d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "838a34e8_07de8a29",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-10-27T17:32:27Z",
       "side": 0,
       "message": "This is inside assert, and those are disabled in the build.",
+      "revId": "891de85507c921889db965be0af230cafae573d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "153fd3d3_0817c35e",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-10-27T19:33:02Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "838a34e8_07de8a29",
       "revId": "891de85507c921889db965be0af230cafae573d7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -69,6 +105,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5108be2a_5189917b",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-10-27T19:33:02Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "9a4c4cd8_6f091265",
+      "revId": "891de85507c921889db965be0af230cafae573d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a4ba336_a5d876f8",
@@ -82,6 +136,24 @@
       "writtenOn": "2022-10-27T17:32:27Z",
       "side": 0,
       "message": "This is inside an \"#if\" which is not enabled in this config.",
+      "revId": "891de85507c921889db965be0af230cafae573d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3344cb2d_38d2497f",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-10-27T19:33:02Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "4a4ba336_a5d876f8",
       "revId": "891de85507c921889db965be0af230cafae573d7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
