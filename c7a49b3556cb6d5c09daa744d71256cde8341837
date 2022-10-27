@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ac2b779_6a26fb46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-27T14:14:22Z",
+      "side": 1,
+      "message": "It took me a while to understand the issue that this patch is trying to solve but I think I managed to get my head around it now. Please let me check my understanding with you.\n\nThe authentication framework in TF-A currently assumes that:\n- the ROTPK stored in a root certificate\n- the ROTPK (or a hash of it) stored in hardware protected storage\nmatch.\n\nThis is true on all platforms I know about, but *not* on STM32MP1 platforms. On STMP32MP1, the OTP memory does not hold (ROTPK#) but rather (curve-id || ROTPK#) [1].\n\nBecause they do not match, the last step of a root certificate signature verification, which is checking the validity of the subject public key from the root certificate against the hardware-provided hash, fails.\n\nThis is why you need a function (plat_get_hashed_key()) to convert:\n- the ROTPK from the root certificate \n- into: cid || ROTPK from the root certificate.\n\nIt\u0027s the only way to solve the issue. You cannot take the problem the other way around and convert the OTP hash, from #(cid || ROTPK) to #(ROTPK) because this is not how hashes work, you cannot \"unhash\" the data...\n\nThe commit message, and also to some degree the porting guide updates, emphasize on DER format vs plain key incompatibilities but I believe this is not the main issue here. You do encode the hash value retrieved from OTP into DER format (in plat_get_rotpk_hash()), and flatten/strip out the DER header on the other side (in crypto_verify_hash()). The main issue here rather is what\u0027s (arguably briefly) referred to as \"a platform specific encapsulated public key\" (cid || ROTPK in your case).\n\nIs my understanding correct?\n\nAssuming it is, I\u0027ve got a few comments:\n\n1. I am not convinved this is the best approach to solve the issue. I can see how this new plat_get_hashed_pk() solves the issue, and I can see such a conversion will be needed at some point in the flow ; I am just not sure this is the best place to do it.\n\nPerhaps a more elegant way would be to introduce a new platform hook to check the correctness of the public key extracted from a root certificate. The default implementation would remain\na. compute hash of certificate key\nb. get ROTPK hash from platform\nc. Compare a. and b.\nbut platforms like STM32MP1 could deviate from that.\n\nI need more time to think about it... I might end up reaching the same conclusion as you!\n\n2. The name plat_get_hashed_pk() confuses me. With such a name, I was expecting it would return the hash of a key (hashed_key) but IIUC it rathers return a full key: the key whose hash matches the OTP one.\n\nI don\u0027t have any good alternatives to suggest at the moment, I\u0027ll try to find something.\n\n3. plat_get_hashed_pk() is a new weak function, while we are trying to get rid of weak functions as much as possible in TF-A project because it can be hard in some cases to reason about them and be sure which implementation actually gets pulled into the firmware. We\u0027ve even had bugs because of weak functions in the past.\n\nSimilarly here, if we go with the plat_get_hashed_pk() approach, I would like us to implement it for every platform. This would mean that the default (weak) implementation you\u0027ve provided in this patch could be moved under plat/common/ (as a \"strong\" function) and all platforms for which this is a suitable implementation would pull it from their makefile. It does mean we\u0027ll need to update all platforms makefiles. But I believe it\u0027s better to make that decision consciously rather than silently introducing a new platform hook, without other platform maintainers necessarily realizing it.\n\n[1] || here is the concatenation operator.",
+      "revId": "c7a49b3556cb6d5c09daa744d71256cde8341837",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
