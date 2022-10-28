@@ -211,6 +211,19 @@ static int auth_signature(const auth_method_param_sig_t *param,
 			rc = crypto_mod_verify_hash(pk_ptr, pk_len,
 				    pk_hash_ptr, pk_hash_len);
 		}
+	} else if (!flags && !img_desc->parent) {
+		/* If the PK is the full key and the ROTPK is deployed on
+		 * the platform, retrieve the key from the image */
+		rc = img_parser_get_auth_param(img_desc->img_type,
+					param->pk, img, img_len,
+					&pk_ptr, &pk_len);
+		return_if_error(rc);
+
+		/* Ask the crypto module to verify the signature */
+		rc = crypto_mod_verify_signature(data_ptr, data_len,
+						 sig_ptr, sig_len,
+						 sig_alg_ptr, sig_alg_len,
+						 pk_ptr, pk_len);
 	} else {
 		/* Ask the crypto module to verify the signature */
 		rc = crypto_mod_verify_signature(data_ptr, data_len,
