@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f1fcce2c_e715c03b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-28T12:39:49Z",
+      "side": 1,
+      "message": "So what should we do? I wonder if we merge those changes, it might break the OP-TEE build, is this acceptable?",
+      "parentUuid": "fcd4a47d_d20fd644",
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92d3e460_4703d911",
         "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
         "patchSetId": 4
@@ -120,6 +138,24 @@
       "side": 1,
       "message": "Of course we have this file also downstream.\nThe main purpose of this patchset is to show silicon partners how to upgrade the TF-A port to include a manifest that is required with FF-A. If I remove the manifest, the patchset looses it\u0027s purpose. I may as well not upstream it.",
       "parentUuid": "92d3e460_4703d911",
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7007b89_bc5f24dd",
+        "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-28T12:39:49Z",
+      "side": 1,
+      "message": "Right, I understand the intent, but this file neither concerns the TF-A Hikey960 port, nor the generic EL3 SPMC.\nIt is the specific TEE secure partition configuration.\nI\u0027ll check with others, but perhaps this file should be stripped out as a separate change, moved to top of the patch set, and remain unmerged. Some time later when the integration is done at partners, it can be abandoned. What do you think?",
+      "parentUuid": "8dff93fc_2b0c2e80",
       "revId": "0312180ac79d930a78068fee11041f70fd698263",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -173,6 +209,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "08123280_c7622962",
+        "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-28T12:39:49Z",
+      "side": 1,
+      "message": "Did this Kinibi specific file exist in the TF-A tree in 2020?\nIt is marked \u0027Added\u0027 file in the gerrit change set, so naturally its history starts in 2022?\nI won\u0027t be too strong about this nevertheless.",
+      "parentUuid": "fc966963_3a94f9c4",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b6218c3c_6aeda0e7",
         "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
         "patchSetId": 4
@@ -208,6 +268,30 @@
       "side": 1,
       "message": "Have you tested it works with FFA 1.1?\nWe tested it with FFA 1.0 only.",
       "parentUuid": "b6218c3c_6aeda0e7",
+      "range": {
+        "startLine": 15,
+        "startChar": 21,
+        "endLine": 15,
+        "endChar": 26
+      },
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f3ccf7f_32302302",
+        "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-28T12:39:49Z",
+      "side": 1,
+      "message": "No, I cannot reproduce a setup with Kinibi.\nHowever, the trend is for FF-A v1.0 to deprecate and any new development to adopt FF-A v1.1.\ne.g. the EL3 SPMC and Hafnium are meant to be FF-A v1.1 compatible.\nThis can be updated later if you\u0027re more comfortable, but something to keep in mind.",
+      "parentUuid": "9f9a0f7c_c033d7f5",
       "range": {
         "startLine": 15,
         "startChar": 21,
@@ -313,6 +397,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2b462e0b_9dba18db",
+        "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-28T12:39:49Z",
+      "side": 1,
+      "message": "\u0027run-time-model\u0027 is neither consumed by the EL3 SPMC, nor Hafnium. This is a remnant flag from early prototype days and won\u0027t be used any time.\n\n\u0027xlat-granule\u0027 shall only be used by S-EL0 partitions (some day later).\n\n\u0027entrypoint-offset\u0027 is commented out.\n\nSo to me this adds more confusion than it specifies anything meaningful.",
+      "parentUuid": "59295728_75c26990",
+      "range": {
+        "startLine": 26,
+        "startChar": 1,
+        "endLine": 26,
+        "endChar": 44
+      },
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "04168174_2641f82d",
         "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
         "patchSetId": 4
@@ -348,6 +456,30 @@
       "side": 1,
       "message": "Yes, this is not for direct consumption by the EL3 SPMC.\nInstead, the SPMC shares this manifest with the SP.\nKinibi, being a closed source SP, it needs boot information/device tree to know the peripherals of the platform. Since the EL3 SPMC removes similar mechanisms in the tbase-SPD, we now put such information this manifest.",
       "parentUuid": "04168174_2641f82d",
+      "range": {
+        "startLine": 28,
+        "startChar": 1,
+        "endLine": 48,
+        "endChar": 3
+      },
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4b420de_3da55d1f",
+        "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-28T12:39:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ca6239d6_0ecaab0b",
       "range": {
         "startLine": 28,
         "startChar": 1,
@@ -440,6 +572,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31e95081_320d48a8",
+        "filename": "plat/hisilicon/hikey960/hikey960_bl2_mem_params_desc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-28T12:39:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b768862d_db6fe4a3",
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b623b9aa_fed81368",
@@ -477,6 +627,30 @@
       "side": 1,
       "message": "I don\u0027t agree.\nThe in-line doc is more readable than the header in line 23-30.\n\nI don\u0027t think Hikey960 is a future proof platform.\nThe day somebody puts a bigger config file, it will fail in many ways and the integrator can just add more pages.\nWhat size do you recommend?",
       "parentUuid": "b623b9aa_fed81368",
+      "range": {
+        "startLine": 33,
+        "startChar": 40,
+        "endLine": 33,
+        "endChar": 70
+      },
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2c440ae_9d5a66c0",
+        "filename": "plat/hisilicon/hikey960/hikey960_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-28T12:39:49Z",
+      "side": 1,
+      "message": "Integration at partners claim for several kB or hundreds of kB.\nBut ok to keep as is.",
+      "parentUuid": "4ff6f49b_75d0488b",
       "range": {
         "startLine": 33,
         "startChar": 40,
@@ -553,6 +727,24 @@
       "side": 1,
       "message": "My goal will be to have a working build for SPMC_AT_EL3\u003d1 with PLAT\u003dhikey960.",
       "parentUuid": "68dc9197_755fcf2f",
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "594eb94a_7c73871d",
+        "filename": "plat/hisilicon/hikey960/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-28T12:39:49Z",
+      "side": 1,
+      "message": "Ok but why set the Kinibi config file as a default.\nIMO it is preferable to override ARM_SP_MANIFEST_DTS on the command line rather than hardcoding in the platform port.",
+      "parentUuid": "1612b3e2_fc86b354",
       "revId": "0312180ac79d930a78068fee11041f70fd698263",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
