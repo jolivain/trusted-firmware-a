@@ -71,6 +71,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e03432df_91d1d38a",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-10-28T23:01:48Z",
+      "side": 0,
+      "message": "Is it possible to set DEBUG\u003d1 by default for (every) build config?",
+      "parentUuid": "153fd3d3_0817c35e",
+      "revId": "891de85507c921889db965be0af230cafae573d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ec80fda3_96b14ed3",
@@ -84,6 +102,24 @@
       "writtenOn": "2022-10-27T17:32:27Z",
       "side": 0,
       "message": "As I mentioned before in the email threads, I don\u0027t have access to the MISRA standard text. So, I cannot assess whether it has a clause like \"Whenever an expression/statement has an unsigned context, any literal constant used in it shall have an \u0027U\u0027 suffix\".\n\nGiven that ECLAIR doesn\u0027t flag this case, and as know, ECLAIR should be pretty thorough in following MISRA (given that people behind ECLAIR are on the MISRA committee), I may conjecture that U suffix is require in expressions when there\u0027s a possibility of mixing signed and unsigned, which in turn can lead to unexpected/undefined behavior. Here\u0027s however an assignment, and there\u0027s no ambiguity - \"0\" alone can fit into an unsigned int variable without any undefined/unpexpected behavior.",
+      "revId": "891de85507c921889db965be0af230cafae573d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bd085d2_b154add3",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-10-28T23:01:48Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "ec80fda3_96b14ed3",
       "revId": "891de85507c921889db965be0af230cafae573d7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
