@@ -33,6 +33,24 @@
       "message": "Awaiting Hikey960 Code Owner review from Haojian.",
       "revId": "163b7c9a619142c4b8e2499737c55d792b02258c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83772f55_b0bc7fc5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-28T12:02:08Z",
+      "side": 1,
+      "message": "I believe this is because you used different Change-Id in which case gerrit lost track of history.",
+      "parentUuid": "69847a55_de6cbf40",
+      "revId": "163b7c9a619142c4b8e2499737c55d792b02258c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
