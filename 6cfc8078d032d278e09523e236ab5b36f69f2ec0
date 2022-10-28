@@ -16,6 +16,24 @@
       "message": "Verified+1. The single failure concerns the added file covered by the CI change https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/17202",
       "revId": "6cfc8078d032d278e09523e236ab5b36f69f2ec0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4546daf_029eddfd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-28T12:07:05Z",
+      "side": 1,
+      "message": "Actually the file (plat/hisilicon/hikey960/hikey960_el3_spmc_logical_sp.c) is added as part of https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17396",
+      "parentUuid": "0030a629_5a1e35c3",
+      "revId": "6cfc8078d032d278e09523e236ab5b36f69f2ec0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
