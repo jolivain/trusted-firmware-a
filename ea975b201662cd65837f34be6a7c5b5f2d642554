@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8efd811b_16d19b3e",
+        "filename": "drivers/st/crypto/stm32_pka.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-10-28T11:33:43Z",
+      "side": 1,
+      "message": "keep the static:\nstatic const struct curve_parameters curve_def[] \u003d {",
+      "revId": "ea975b201662cd65837f34be6a7c5b5f2d642554",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
