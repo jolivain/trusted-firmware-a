@@ -866,6 +866,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "74ab617b_a841346a",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-10-28T14:47:00Z",
+      "side": 1,
+      "message": "yes, that is the case.\n\nYour threat description:\n\"Moreover, a malicious secure endpoint might attempt to deactivate a virtual secure\ninterrupt that was signalled to another endpoint execution context by the SPMC even before the secure interrupt was handled.\"\n\nIs it possible to attempt to do the above without spoofing its identity?\n\nThis was where I was coming from... if you disagree, feel free to ignore the comment.",
+      "parentUuid": "8b60354b_9d29ef3f",
+      "range": {
+        "startLine": 984,
+        "startChar": 3,
+        "endLine": 984,
+        "endChar": 16
+      },
+      "revId": "99bdd40262153a4dd8b1724c1c9d9a3bee52ffdc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6d8d9d6_ab8f63f9",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 1
