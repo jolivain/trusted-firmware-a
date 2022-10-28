@@ -21,10 +21,10 @@ SECTIONS {
     ASSERT(. == ALIGN(PAGE_SIZE),
         "BL2_BASE address is not aligned on a page boundary.")
 
-#if SEPARATE_CODE_AND_RODATA
-    .text . : {
-        __TEXT_START__ = .;
+    __RO_START__ = .;
+    __TEXT_START__ = .;
 
+    .text . : {
 #if ENABLE_RME
         *bl2_rme_entrypoint.o(.text*)
 #else /* ENABLE_RME */
@@ -33,13 +33,21 @@ SECTIONS {
 
         *(SORT_BY_ALIGNMENT(.text*))
         *(.vectors)
-
-        . = ALIGN(PAGE_SIZE);
-
-        __TEXT_END__ = .;
     } >RAM
 
-    /* .ARM.extab and .ARM.exidx are only added because Clang needs them */
+#if SEPARATE_CODE_AND_RODATA
+    . = ALIGN(PAGE_SIZE);
+#endif /* SEPARATE_CODE_AND_RODATA */
+
+    __TEXT_END__ = .;
+    __RODATA_START__ = .;
+
+    .rodata . : {
+        *(SORT_BY_ALIGNMENT(.rodata*))
+
+        RODATA_COMMON
+    } >RAM
+
     .ARM.extab . : {
         *(.ARM.extab* .gnu.linkonce.armextab.*)
     } >RAM
@@ -48,41 +56,10 @@ SECTIONS {
         *(.ARM.exidx* .gnu.linkonce.armexidx.*)
     } >RAM
 
-    .rodata . : {
-        __RODATA_START__ = .;
+    . = ALIGN(PAGE_SIZE);
 
-        *(SORT_BY_ALIGNMENT(.rodata*))
-
-        RODATA_COMMON
-
-        . = ALIGN(PAGE_SIZE);
-
-        __RODATA_END__ = .;
-    } >RAM
-#else /* SEPARATE_CODE_AND_RODATA */
-    ro . : {
-        __RO_START__ = .;
-
-        *bl2_entrypoint.o(.text*)
-        *(SORT_BY_ALIGNMENT(.text*))
-        *(SORT_BY_ALIGNMENT(.rodata*))
-
-        RODATA_COMMON
-
-        *(.vectors)
-
-        __RO_END_UNALIGNED__ = .;
-
-        /*
-         * Memory page(s) mapped to this section will be marked as read-only,
-         * executable. No RW data from the next section must creep in. Ensure
-         * that the rest of the current memory page is unused.
-         */
-        . = ALIGN(PAGE_SIZE);
-
-        __RO_END__ = .;
-    } >RAM
-#endif /* SEPARATE_CODE_AND_RODATA */
+    __RODATA_END__ = .;
+    __RO_END__ = .;
 
     __RW_START__ = .;
 
