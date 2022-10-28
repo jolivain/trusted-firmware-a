@@ -888,6 +888,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eb4ab54_eb01a009",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-10-28T19:19:29Z",
+      "side": 1,
+      "message": "In general, every SP can have access to the same range/number of virtual interrupts based on the GICv3 programming model.\n\nHowever, in current implementation, we map virtual interrupt ID to a physical interrupt ID for keeping the virtual Interrupt controller interface simple. This means each SP has acccess to different set of virtual interrupt ids.\nSo a malicious secure endpoint can attempt deactivating virtual secure interrupt without spoofing.",
+      "parentUuid": "74ab617b_a841346a",
+      "range": {
+        "startLine": 984,
+        "startChar": 3,
+        "endLine": 984,
+        "endChar": 16
+      },
+      "revId": "99bdd40262153a4dd8b1724c1c9d9a3bee52ffdc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6d8d9d6_ab8f63f9",
