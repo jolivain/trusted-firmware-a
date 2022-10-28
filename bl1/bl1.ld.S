@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -29,20 +29,22 @@ SECTIONS {
     ASSERT(. == ALIGN(PAGE_SIZE),
         "BL1_RO_BASE address is not aligned on a page boundary.")
 
-#if SEPARATE_CODE_AND_RODATA
     .text . : {
+        __RO_START__ = .;
         __TEXT_START__ = .;
 
         *bl1_entrypoint.o(.text*)
+
         *(SORT_BY_ALIGNMENT(.text*))
         *(.vectors)
 
+#if SEPARATE_CODE_AND_RODATA
         . = ALIGN(PAGE_SIZE);
+#endif /* SEPARATE_CODE_AND_RODATA */
 
         __TEXT_END__ = .;
     } >ROM
 
-    /* .ARM.extab and .ARM.exidx are only added because Clang needs them */
     .ARM.extab . : {
         *(.ARM.extab* .gnu.linkonce.armextab.*)
     } >ROM
@@ -58,6 +60,9 @@ SECTIONS {
 
         RODATA_COMMON
 
+        __RODATA_END__ = .;
+        __RO_END__ = .;
+
         /*
          * No need to pad out the .rodata section to a page boundary. Next is
          * the .data section, which can mapped in ROM with the same memory
@@ -67,32 +72,8 @@ SECTIONS {
          * aligned and lld does not align the LMA to the alignment specified
          * on the .data section.
          */
-        __RODATA_END__ = .;
-
         . = ALIGN(16);
     } >ROM
-#else /* SEPARATE_CODE_AND_RODATA */
-    ro . : {
-        __RO_START__ = .;
-
-        *bl1_entrypoint.o(.text*)
-        *(SORT_BY_ALIGNMENT(.text*))
-        *(SORT_BY_ALIGNMENT(.rodata*))
-
-        RODATA_COMMON
-
-        *(.vectors)
-
-        __RO_END__ = .;
-
-        /*
-         * Pad out to 16 bytes as the .data section needs to be 16-byte aligned
-         * and lld does not align the LMA to the alignment specified on the
-         * .data section.
-         */
-        . = ALIGN(16);
-    } >ROM
-#endif /* SEPARATE_CODE_AND_RODATA */
 
     ASSERT(__CPU_OPS_END__ > __CPU_OPS_START__,
         "cpu_ops not defined for this platform.")
