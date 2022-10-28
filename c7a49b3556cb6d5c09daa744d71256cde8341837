@@ -34,6 +34,24 @@
       "parentUuid": "5ac2b779_6a26fb46",
       "revId": "c7a49b3556cb6d5c09daa744d71256cde8341837",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17299925_6fe9d73a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-10-28T14:37:49Z",
+      "side": 1,
+      "message": "\u003e 1. a. Extract the key:\n\u003e The problem here is that the key extract in the first round is to verify the signature, without any modification.\n\nYes, so we\u0027ve got to keep this part untouched.\n* That\u0027s the img_parser_get_auth_param() call to get the subject public key from the certificate\n* and the subsequent crypto_mod_verify_signature() call to check the certificate signature against the subject public key.\n\n\u003e b. Compare the key using the crypto_mod_verify_hash which is a generic function that verify the public key against a hash part.\n\u003e It remains difficult in this standard approach to manage this platform specific configuration.\n\nYes, I agree that\u0027s the part to change to fit your use case.\n* That\u0027s the plat_get_rotpk_info() call to retrieve the ROTPK hash (or platform-specific hash in your case)\n* and the subsequent crypto_mod_verify_hash() call, which is just a generic hash verification function, as you said.\n\nWhat I was initially suggesting was to replace the last call to crypto_mod_verify_hash() by some platform specific function, say plat_check_rotpk(), which would receive in input\n* the result from plat_get_rotpk_info()\n* and the subject public key extracted from the root certificate.\n\nAnd the default implementation of plat_check_rotpk() would just call crypto_mod_verify_hash(), while ST platforms would essentially concatenate the curve it to the input rotpk then only call crypto_mod_verify_hash().\n\nSomething like that... Unfortunately, I\u0027ve not had time to think more about it and I will be on leave next week...\n\nAs it stands, I am a little bit uncomfortable merging the patch as it is. At the very least I\u0027d like plat_get_hashed_pk() to be renamed but you\u0027ve already agreed to that 😊. And ditto for not making that a weak function.\n\nBut then it\u0027s a different question whether we stick to the current plat_get_hashed_pk() approach or move to the plat_check_rotpk() approach or do something different.\n\nI\u0027m gonna add a couple of folks in review, who usually have an interested in trusted boot and security related features. Also, other Arm folks might chime in.",
+      "parentUuid": "c0432d4e_881e1aed",
+      "revId": "c7a49b3556cb6d5c09daa744d71256cde8341837",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
