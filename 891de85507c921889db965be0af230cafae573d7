@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fc81a10d_f4366e46",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000709
+      },
+      "writtenOn": "2022-10-29T16:00:49Z",
+      "side": 0,
+      "message": "\u003e Is it possible to set DEBUG\u003d1 by default for (every) build config?\n\nIt\u0027s an interesting question. What do we want to test for MISRA compliance? Production (release) build or the debug build (which arguably might have more freedom to be \"less compliant\")? I unfortunately know very little about the TF-A codebase (e.g. how release vs debug code differs), and would like to grow more knowledgeable about it to be able to answer questions like above. In the meantime, I posted https://review.trustedfirmware.org/c/ci/tf-a-job-configs/+/17499, https://review.trustedfirmware.org/c/ci/tf-a-job-configs/+/17500 which allow to specify DEBUG setting (while still keeping default at 0, at least as far as those patches are concerned).",
+      "parentUuid": "e03432df_91d1d38a",
+      "revId": "891de85507c921889db965be0af230cafae573d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ec80fda3_96b14ed3",
         "filename": "drivers/arm/gic/v3/gicv3_main.c",
         "patchSetId": 4
