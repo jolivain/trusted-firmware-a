@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a76e6fb_b23a14bf",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T16:20:38Z",
+      "side": 1,
+      "message": "couldnt this result in invalid free? for example, if we hit line 60, we would free e which could be NULL and same with RSA.",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 89,
+        "endChar": 12
+      },
+      "revId": "efce3a77433df37d2209d072527da2a08d0c9de1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
