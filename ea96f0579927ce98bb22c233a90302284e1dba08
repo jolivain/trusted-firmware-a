@@ -1,0 +1,326 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfc7a66f_9d8097c4",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T17:51:28Z",
+      "side": 1,
+      "message": "not sure this is DOS. This is tampering right? The threat is attempting to tamper with the internal state of the SPMC.\nAlso, as far as i can tell, the FFA spec does not do much (or anything that i can think of now), to guarantee availability of cycles to secure partitions, except for interrupts (which is guaranteed by the architecture if secure interrupts are prioritized higher).",
+      "range": {
+        "startLine": 903,
+        "startChar": 27,
+        "endLine": 903,
+        "endChar": 44
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f26a705d_a619bea0",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T17:51:28Z",
+      "side": 1,
+      "message": "this is not enforced by the SPMC right? Anybody in the NS world can spoof the identity of the primary scheduler and the SPMC has no idea. It just knows SOME NS entity is calling into the SPMC with some ID. Unless the spmc manages the NS scheduler context as well (which it does not), i dont think this statement is accurate.\nWould be okay to remove it or leave it as is and add a statement to the effect that the SPMC cannot be compromised even if something else turns on execution contexts or it does not matter to the integrity and security promises of the system.",
+      "range": {
+        "startLine": 918,
+        "startChar": 56,
+        "endLine": 920,
+        "endChar": 37
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4afea321_00579ed2",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T17:51:28Z",
+      "side": 1,
+      "message": "i think this is tampering just like above. A DoS means you are taking away availability of the assert, but by invoking FFA_INTERURPT, you are tampering with spmc state and sp state, that COULD cause availability issues with scheduling cycles. \nMight be okay to mark a threat as both DOS and tampering.\nAlso, you can combine this into threat 19. both are similar, just using different APIs and you can show ffa_interrupt and ffa_run as examples. There are many other invalid transitions and not sure it helps to add one threat for each transition, that then becomes the ffa spec for runtime models 😊",
+      "range": {
+        "startLine": 944,
+        "startChar": 27,
+        "endLine": 944,
+        "endChar": 44
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "255a47f1_d1a8fcc3",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T17:51:28Z",
+      "side": 1,
+      "message": "same. this threat is not causing an availability issue with SPMC state or SP state. It is tampering with it and you are losing integrity if you allow the threat to occur.",
+      "range": {
+        "startLine": 987,
+        "startChar": 27,
+        "endLine": 987,
+        "endChar": 44
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5542d44_c5c88e9b",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1041,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T17:51:28Z",
+      "side": 1,
+      "message": "scheduling cycles also has to be an asset here since you are choking the system and starving availability of cycles to other endpoints, including NS world, cpu cycles.",
+      "range": {
+        "startLine": 1041,
+        "startChar": 27,
+        "endLine": 1041,
+        "endChar": 47
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5835c63d_79840847",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T17:51:28Z",
+      "side": 1,
+      "message": "this is both tampering and DOS.",
+      "range": {
+        "startLine": 1045,
+        "startChar": 27,
+        "endLine": 1045,
+        "endChar": 46
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11e641ad_1241e88a",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T17:51:28Z",
+      "side": 1,
+      "message": "i dont think we need to write how we COULD achieve it. I would rephrase it as a limitation of the current SPMC implmentation, that needs to be updated when it changes. The FFA spec itself allows interleaving of itnerrupts arbitrarily and if we enahnce our code, this threat would be mitigated.",
+      "range": {
+        "startLine": 1055,
+        "startChar": 26,
+        "endLine": 1061,
+        "endChar": 37
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da0f4a8d_64e26e32",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T17:51:28Z",
+      "side": 1,
+      "message": "this is tampering for SPMC state and SP state (corrupting state to form loops), and DOS as well (once the deadlock occurs).",
+      "range": {
+        "startLine": 1082,
+        "startChar": 27,
+        "endLine": 1082,
+        "endChar": 44
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "818deb64_a42930c8",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1098,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T17:51:28Z",
+      "side": 1,
+      "message": "might be worth combining with 19 and listing as mitigation..any threat that is mitigated by run time model and implemneted, can be combined into 19 i think. and call out explicitly those that are not mitigated (if such threats exist).",
+      "range": {
+        "startLine": 1092,
+        "startChar": 27,
+        "endLine": 1098,
+        "endChar": 41
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4de0808b_05c0be14",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T17:51:28Z",
+      "side": 1,
+      "message": "any example of how not handling in a timely manner could cause SPMC or SP state to get compromised or corrupt?\nI\u0027m thinking of state as things like VM and VCPU structs etc. State within the SP could get compromised but not sure i understand the SPMC state..",
+      "range": {
+        "startLine": 1108,
+        "startChar": 63,
+        "endLine": 1109,
+        "endChar": 52
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8eb0e7d_6ace0807",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T17:51:28Z",
+      "side": 1,
+      "message": "tampering as well, since you say it could compromise the state of the SP and spmc. DOS since system is unrepsonsive. No reason a single threat cannot be of multiple types.",
+      "range": {
+        "startLine": 1121,
+        "startChar": 34,
+        "endLine": 1121,
+        "endChar": 37
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75fbd6db_3e6c401a",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1137,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T17:51:28Z",
+      "side": 1,
+      "message": "really the mitigation to this threat is higher level system design and interrupt prioritization by system integrators. if you do it incorrectly, this threat could occur. So the mitigation for an SP whose state can get compromised if a secure interrupt is not processed in a timely manner is to not allow pre-emption by normal world interrupts and the SPMC implementation today supports it right?\nmight want to rephrase to say it is mitigated by system design, and SPMC provides hooks to do so via manifest.",
+      "range": {
+        "startLine": 1131,
+        "startChar": 26,
+        "endLine": 1137,
+        "endChar": 36
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2cd0204_a5f6b743",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T17:51:28Z",
+      "side": 1,
+      "message": "i think there are two separate threats. the first one is that any ffa endpoint depends on normal world scheduler to provide it cycles. The second threat is that a NS interrupt could DOS a secure interrupt, which seems like the previous threat.\nAt least i cant see how the priority inversion here is different from the previous threat.",
+      "range": {
+        "startLine": 1145,
+        "startChar": 69,
+        "endLine": 1148,
+        "endChar": 70
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aea562ef_bc9e8231",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T17:51:28Z",
+      "side": 1,
+      "message": "feel like this be the mitigation to previous threat based on my comment for that threat.",
+      "range": {
+        "startLine": 1169,
+        "startChar": 27,
+        "endLine": 1180,
+        "endChar": 39
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
