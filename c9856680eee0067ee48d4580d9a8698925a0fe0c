@@ -50,6 +50,23 @@
       "message": "P.S. View to the preprocessed source, re: behavior of asserts and ifdefs: https://ci-builds.trustedfirmware.org/static-files/2QO6VFhQkjZ4psi_VP20xb0IhrmjMyTo7wiOjCQQAbMxNjY2ODg3ODA2MzA3Ojc6cGZhbGNvbjpqb2IvdGYtYS1lY2xhaXItZGVsdGEvVEZfQ09ORklHPWZ2cC1kZWZhdWx0LGxhYmVsPWRvY2tlci10Zi1hLWVjbGFpci83NC9hcnRpZmFjdA\u003d\u003d/ECLAIR/full_html/sources/_PREPROCESSED/drivers/arm/gic/v3/gicv3_main.c.html#R3907_2",
       "revId": "c9856680eee0067ee48d4580d9a8698925a0fe0c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83824157_3c4f7c8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000709
+      },
+      "writtenOn": "2022-10-30T07:06:51Z",
+      "side": 1,
+      "message": "Madhukar, the latest rebuild with DEBUG\u003d1 enabled and comment from it above shows that the assert case is detected, as expected. Again, please give me some time to poke at the TF-A codebase to see if making DEBUG\u003d1 is the best action we can take.\n",
+      "revId": "c9856680eee0067ee48d4580d9a8698925a0fe0c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
