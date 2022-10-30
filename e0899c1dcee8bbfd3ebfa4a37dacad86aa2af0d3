@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33df9138_99c364cc",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T18:20:22Z",
+      "side": 1,
+      "message": "if it occurs during secure world execution.",
+      "range": {
+        "startLine": 1057,
+        "startChar": 45,
+        "endLine": 1058,
+        "endChar": 24
+      },
+      "revId": "e0899c1dcee8bbfd3ebfa4a37dacad86aa2af0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "955303f3_ead27c2a",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T18:20:22Z",
+      "side": 1,
+      "message": "would change this to say the SPMC follows the guidance in the EAC spec w.r.t to how it is prioritized and call out execptions if any.\nNot sure we should be repeating what the spec says. If we are fully compliant with the spec, best to say refer to the spec since the implmentation is 100% compliant.",
+      "range": {
+        "startLine": 1075,
+        "startChar": 0,
+        "endLine": 1086,
+        "endChar": 43
+      },
+      "revId": "e0899c1dcee8bbfd3ebfa4a37dacad86aa2af0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bb6d54f_3db0ce36",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T18:20:22Z",
+      "side": 1,
+      "message": "is this effectively excluding S-EL0 partitions? vaguely remember there being ptaches to enable support for s-el0 partitions too.\nor perhaps even for UP migratable S-EL1 partitions.\nDoes this mean we will panic if the interrupt is targeted to a core different from where the SP is running or blocked?",
+      "range": {
+        "startLine": 1104,
+        "startChar": 26,
+        "endLine": 1106,
+        "endChar": 17
+      },
+      "revId": "e0899c1dcee8bbfd3ebfa4a37dacad86aa2af0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5e27dbb_3606c494",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T18:20:22Z",
+      "side": 1,
+      "message": "seems like an incomplete repetition of the spec. Would rather say the current SPMC handles interrupts from both secure and normal world and meets the spec, except for so and so cases.\nI think that would be more meaningful.",
+      "range": {
+        "startLine": 1110,
+        "startChar": 0,
+        "endLine": 1117,
+        "endChar": 0
+      },
+      "revId": "e0899c1dcee8bbfd3ebfa4a37dacad86aa2af0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9183a71f_731a5a3a",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1157,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T18:20:22Z",
+      "side": 1,
+      "message": "i dont think this is correct based on the latest spec. The latest spec doesnt mention anything about interrupt completion, and only talks about moving states. Basically, this is automtaically enforced by the run time model. it does not matter whether interrupt handling completed or not..\none of the gaps in the implementation (if i remember right) is that we dont enforce that the SP deactivates and drops priority of the interrupt when it calls ffa_run or ffa_msg_wait. I would have liked it to return denied, or force priority drop/deactivation if these two events occured.\nLet me know if either of above is implemented..",
+      "range": {
+        "startLine": 1153,
+        "startChar": 0,
+        "endLine": 1157,
+        "endChar": 48
+      },
+      "revId": "e0899c1dcee8bbfd3ebfa4a37dacad86aa2af0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4d7642f_d772dd2c",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T18:20:22Z",
+      "side": 1,
+      "message": "this statement bothers me a bit. The resuming of the SP that was running is a consequence of the run time models and state management, and has nothing to do with completing an interrupt..\nThis comment goes hand in hand with my comment above about interrupt completion signalling..",
+      "range": {
+        "startLine": 1164,
+        "startChar": 43,
+        "endLine": 1165,
+        "endChar": 42
+      },
+      "revId": "e0899c1dcee8bbfd3ebfa4a37dacad86aa2af0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff26f5ee_bc863d05",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1187,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T18:20:22Z",
+      "side": 1,
+      "message": "is this necessary? can we say we are compliant with the spec and point to a section that more or less describes this?",
+      "range": {
+        "startLine": 1167,
+        "startChar": 0,
+        "endLine": 1187,
+        "endChar": 66
+      },
+      "revId": "e0899c1dcee8bbfd3ebfa4a37dacad86aa2af0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14d31ad5_0fb002f8",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1214,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T18:20:22Z",
+      "side": 1,
+      "message": "somewhere, it might be worth calling out what happens if the SP does not call deactivation. Is it force deactivated or is state transition denied with ffa_msg_wait and ffa_run?",
+      "range": {
+        "startLine": 1213,
+        "startChar": 7,
+        "endLine": 1214,
+        "endChar": 29
+      },
+      "revId": "e0899c1dcee8bbfd3ebfa4a37dacad86aa2af0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "885ef29a_9a93a56a",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-10-30T18:20:22Z",
+      "side": 1,
+      "message": "point to section in ffa spec and only call out exceptions?",
+      "range": {
+        "startLine": 1220,
+        "startChar": 0,
+        "endLine": 1220,
+        "endChar": 15
+      },
+      "revId": "e0899c1dcee8bbfd3ebfa4a37dacad86aa2af0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
