@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b29d82c9_b9065e08",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-31T17:49:41Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 889,
+        "startChar": 60,
+        "endLine": 889,
+        "endChar": 68
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cfc7a66f_9d8097c4",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 3
@@ -19,6 +42,29 @@
         "startChar": 27,
         "endLine": 903,
         "endChar": 44
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a8b24b2_f19f027d",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-31T17:49:41Z",
+      "side": 1,
+      "message": "It may be time to amend threat IDs 03 and 08:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17279/3/docs/threat_model/threat_model_spm.rst#291\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17279/3/docs/threat_model/threat_model_spm.rst#485",
+      "range": {
+        "startLine": 913,
+        "startChar": 27,
+        "endLine": 915,
+        "endChar": 78
       },
       "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
@@ -66,6 +112,115 @@
         "endLine": 944,
         "endChar": 44
       },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "850d5d8b_c1916ac1",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-31T17:49:41Z",
+      "side": 1,
+      "message": "nit: remove (repeated line 954)",
+      "range": {
+        "startLine": 955,
+        "startChar": 47,
+        "endLine": 955,
+        "endChar": 51
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fea333c6_fdf03127",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-31T17:49:41Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 955,
+        "startChar": 27,
+        "endLine": 955,
+        "endChar": 33
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3740e1e7_c5af7358",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-31T17:49:41Z",
+      "side": 1,
+      "message": "status interface",
+      "range": {
+        "startLine": 956,
+        "startChar": 69,
+        "endLine": 956,
+        "endChar": 73
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "947ef6d6_d3c5a72e",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-31T17:49:41Z",
+      "side": 1,
+      "message": "I see two types of checks:\n1. the SPMC checks that the secure interrupt concerns a secure partition that has registered to it though its manifest\n2. the SPMC checks the secure interrupt is pending by reading GIC IAR (and physically acknowledging the interrupt) and matches the INTID reported by the SPMD.\n\nIs the mitigation covering 1., 2. or both?\n\nBriefly looking at the code it seems Hafnium panics if it gets passed an INTID which doesn\u0027t match any INTID registered by a SP.",
+      "range": {
+        "startLine": 957,
+        "startChar": 74,
+        "endLine": 959,
+        "endChar": 62
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "842d92cd_2dffd140",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-10-31T17:49:41Z",
+      "side": 1,
+      "message": "On the text above, I think we should state that virtual interrupt INTIDs map to physical interrupt INTIDs.\n\u0027deactivating a virtual interrupt\u0027 would better read as \u0027deactivating a physical interrupt\u0027 eventually.\nThis brings this interesting threat about secure partitions physical interrupt resources being \u0027leaked\u0027 between two secure partitions because of above assumption (that I did not think about).",
       "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
