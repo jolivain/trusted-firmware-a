@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c4128a61_2c4718cc",
+        "filename": "plat/hisilicon/hikey960/hikey960_bl31_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-31T09:53:15Z",
+      "side": 1,
+      "message": "I see.\nMaybe something to improve for the next one debugging/validating the boot of the board?\nIdeally, I want to do only cosmetic fixes.",
+      "parentUuid": "10c44f01_00d0ea5a",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 6
+      },
+      "revId": "f355ddc4e918182d4ceb5905c5051d3254671a38",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "879e4197_043841c7",
         "filename": "plat/hisilicon/hikey960/hikey960_def.h",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-28T15:09:30Z",
       "side": 1,
       "message": "nit: for other definitions in this file, size if specified first and base specified second\nperhaps good to swap definitions here for better readability",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 34
+      },
+      "revId": "f355ddc4e918182d4ceb5905c5051d3254671a38",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e365d6c0_d4c44894",
+        "filename": "plat/hisilicon/hikey960/hikey960_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-31T09:53:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "879e4197_043841c7",
       "range": {
         "startLine": 35,
         "startChar": 0,
@@ -60,6 +108,30 @@
       "writtenOn": "2022-10-28T15:09:30Z",
       "side": 1,
       "message": "Should be conditioned by SPMC_AT_EL3 (there seems to be no use when SPMC is at SEL1 or SEL2)?",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 47
+      },
+      "revId": "f355ddc4e918182d4ceb5905c5051d3254671a38",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5567319e_d9ca8d47",
+        "filename": "plat/hisilicon/hikey960/platform.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-31T09:53:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6cd23028_6fe37584",
       "range": {
         "startLine": 167,
         "startChar": 0,
