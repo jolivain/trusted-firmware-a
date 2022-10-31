@@ -127,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "33c7bcd5_624c6026",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-31T09:34:32Z",
+      "side": 1,
+      "message": "My preference would be for OPTEE guys to add the OPTEE manifest, and make this the default once such setup is working and supported.",
+      "parentUuid": "ef3fc418_ec267411",
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92d3e460_4703d911",
         "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
         "patchSetId": 4
@@ -174,6 +192,24 @@
       "side": 1,
       "message": "Right, I understand the intent, but this file neither concerns the TF-A Hikey960 port, nor the generic EL3 SPMC.\nIt is the specific TEE secure partition configuration.\nI\u0027ll check with others, but perhaps this file should be stripped out as a separate change, moved to top of the patch set, and remain unmerged. Some time later when the integration is done at partners, it can be abandoned. What do you think?",
       "parentUuid": "8dff93fc_2b0c2e80",
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03067c23_d39b3ff8",
+        "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-31T09:34:32Z",
+      "side": 1,
+      "message": "If I remove the file, I create a FIP image that cannot boot, it will add hours of debugging to downstream users of this.\nAlso, ATF contains SPD\u0027s of TEEs without the TEE being open-source or reproducible to everyone.\nToday, Kinibi is only supported TEE on Hikey960-SPMC_AT_EL3, and the change is under `#ifeq (${SPD},spmd)`.",
+      "parentUuid": "f7007b89_bc5f24dd",
       "revId": "0312180ac79d930a78068fee11041f70fd698263",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -249,6 +285,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa29a498_220eb4e5",
+        "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-31T09:34:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "08123280_c7622962",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6218c3c_6aeda0e7",
@@ -310,6 +370,30 @@
       "side": 1,
       "message": "No, I cannot reproduce a setup with Kinibi.\nHowever, the trend is for FF-A v1.0 to deprecate and any new development to adopt FF-A v1.1.\ne.g. the EL3 SPMC and Hafnium are meant to be FF-A v1.1 compatible.\nThis can be updated later if you\u0027re more comfortable, but something to keep in mind.",
       "parentUuid": "9f9a0f7c_c033d7f5",
+      "range": {
+        "startLine": 15,
+        "startChar": 21,
+        "endLine": 15,
+        "endChar": 26
+      },
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1985b62_9a207b66",
+        "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-31T09:34:32Z",
+      "side": 1,
+      "message": "Yes, we have 1.1 branch in development, but it is too difficult to validate on a stable setup. Too many branches are still floating. It is way too early to deprecate 1.0 IMO.",
+      "parentUuid": "1f3ccf7f_32302302",
       "range": {
         "startLine": 15,
         "startChar": 21,
@@ -427,6 +511,30 @@
       "side": 1,
       "message": "\u0027run-time-model\u0027 is neither consumed by the EL3 SPMC, nor Hafnium. This is a remnant flag from early prototype days and won\u0027t be used any time.\n\n\u0027xlat-granule\u0027 shall only be used by S-EL0 partitions (some day later).\n\n\u0027entrypoint-offset\u0027 is commented out.\n\nSo to me this adds more confusion than it specifies anything meaningful.",
       "parentUuid": "59295728_75c26990",
+      "range": {
+        "startLine": 26,
+        "startChar": 1,
+        "endLine": 26,
+        "endChar": 44
+      },
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82e21d1d_ef7f9b11",
+        "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-31T09:34:32Z",
+      "side": 1,
+      "message": "In docs/components/ffa-manifest-binding.rst:\n\u003e xlat-granule [mandatory]\n\nOk.",
+      "parentUuid": "2b462e0b_9dba18db",
       "range": {
         "startLine": 26,
         "startChar": 1,
@@ -763,6 +871,24 @@
       "side": 1,
       "message": "Ok but why set the Kinibi config file as a default.\nIMO it is preferable to override ARM_SP_MANIFEST_DTS on the command line rather than hardcoding in the platform port.",
       "parentUuid": "1612b3e2_fc86b354",
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "875ae431_7bb05bde",
+        "filename": "plat/hisilicon/hikey960/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-31T09:34:32Z",
+      "side": 1,
+      "message": "Because it is only one supported today on Hikey960 SPMC_AT_EL3.",
+      "parentUuid": "594eb94a_7c73871d",
       "revId": "0312180ac79d930a78068fee11041f70fd698263",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
