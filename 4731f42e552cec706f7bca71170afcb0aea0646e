@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "244374bb_0d4ef616",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-10-31T10:06:20Z",
+      "side": 1,
+      "message": "Sorry, I don\u0027t understand what you want me to do?\nModify the generic code in spmc.mk? As far as I can tell, there is no \"generic option\" in this file, a platform has to provide ${PLAT}_el3_spmc_logical_sp.c.\n\nAnd this makes perfect sense, since the logical partition should be filled with actual platform-specific stuff. For example, we could upstream the command to retrieve the serial number from the following patch as gpd.tee.deviceid.",
+      "parentUuid": "10ff7689_3808f8c8",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 38
+      },
+      "revId": "4731f42e552cec706f7bca71170afcb0aea0646e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c6d83765_3600ac09",
         "filename": "plat/hisilicon/hikey960/hikey960_el3_spmc_logical_sp.c",
         "patchSetId": 1
