@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a685201a_b444004c",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-10-31T22:52:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a76e6fb_b23a14bf",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 89,
+        "endChar": 12
+      },
+      "revId": "efce3a77433df37d2209d072527da2a08d0c9de1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "399526cf_3c9df9a6",
@@ -47,6 +71,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6f3fb75_5a2f7765",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-10-31T22:52:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "399526cf_3c9df9a6",
+      "range": {
+        "startLine": 127,
+        "startChar": 1,
+        "endLine": 127,
+        "endChar": 17
+      },
+      "revId": "efce3a77433df37d2209d072527da2a08d0c9de1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "06b0d284_f028b07e",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-10-31T22:29:56Z",
       "side": 1,
       "message": "nit: The location of free is logical but from a readability standpoint I think it would be better if we move the free() to the end of this function.",
+      "range": {
+        "startLine": 618,
+        "startChar": 1,
+        "endLine": 618,
+        "endChar": 12
+      },
+      "revId": "efce3a77433df37d2209d072527da2a08d0c9de1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b68e5f5_1b835cdf",
+        "filename": "tools/cert_create/src/main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-10-31T22:52:40Z",
+      "side": 1,
+      "message": "Hmmm... maybe. I like it to be there as it relates with the elements being freed right before. I\u0027ll add a new line to improve readability.",
+      "parentUuid": "06b0d284_f028b07e",
       "range": {
         "startLine": 618,
         "startChar": 1,
