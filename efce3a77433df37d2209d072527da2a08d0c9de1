@@ -22,6 +22,52 @@
       },
       "revId": "efce3a77433df37d2209d072527da2a08d0c9de1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "399526cf_3c9df9a6",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-10-31T22:29:56Z",
+      "side": 1,
+      "message": "Similar to what Raghu pointed out. This free also needs input validation\n\nif(ec !\u003d NULL){\n        EC_KEY_free(ec);\n}",
+      "range": {
+        "startLine": 127,
+        "startChar": 1,
+        "endLine": 127,
+        "endChar": 17
+      },
+      "revId": "efce3a77433df37d2209d072527da2a08d0c9de1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06b0d284_f028b07e",
+        "filename": "tools/cert_create/src/main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-10-31T22:29:56Z",
+      "side": 1,
+      "message": "nit: The location of free is logical but from a readability standpoint I think it would be better if we move the free() to the end of this function.",
+      "range": {
+        "startLine": 618,
+        "startChar": 1,
+        "endLine": 618,
+        "endChar": 12
+      },
+      "revId": "efce3a77433df37d2209d072527da2a08d0c9de1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
