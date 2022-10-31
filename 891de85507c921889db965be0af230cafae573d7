@@ -127,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b6244b5f_57a2b586",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000709
+      },
+      "writtenOn": "2022-10-31T20:23:23Z",
+      "side": 0,
+      "message": "After reviewing how DEBUG is used in the TF-A codebase, I agree that it makes sense to use DEBUG\u003d1 for ECLAIR analysis, hence I posted https://review.trustedfirmware.org/c/ci/tf-a-job-configs/+/17514 .",
+      "parentUuid": "6ff41eca_a8b8d335",
+      "revId": "891de85507c921889db965be0af230cafae573d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ec80fda3_96b14ed3",
         "filename": "drivers/arm/gic/v3/gicv3_main.c",
         "patchSetId": 4
