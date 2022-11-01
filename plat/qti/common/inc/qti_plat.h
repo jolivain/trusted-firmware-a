@@ -54,4 +54,9 @@ void gic_set_spi_routing(unsigned int id, unsigned int irm, u_register_t mpidr);
 void qti_pmic_prepare_reset(void);
 void qti_pmic_prepare_shutdown(void);
 
+typedef struct chip_id_info {
+	uint32_t jtag_id;
+	uint32_t chipinfo_id;
+} chip_id_info_t;
+
 #endif /* QTI_PLAT_H */
