@@ -131,6 +131,9 @@ subsections:
       - title: Performance Monitors Extension (FEAT_PMUv3)
         scope: pmu
 
+      - title: Pointer Authentication
+        scope: pauth
+
   - title: Platforms
 
     subsections:
@@ -155,11 +158,18 @@ subsections:
               - arm_fpga
               - plat/arm_fpga
 
+          - title: CSS
+            scope: css
+
+            deprecated:
+              - plat/arm/css
+
           - title: FVP
             scope: fvp
 
             deprecated:
               - plat/fvp
+              - fvp/tsp_manifest
 
           - title: FVP-R
             scope: fvp-r
@@ -426,6 +436,9 @@ subsections:
       - title: QTI
         scope: qti
 
+        deprecated:
+          - plat/qti
+
         subsections:
           - title: SC1780
             scope: sc7180
@@ -514,6 +527,9 @@ subsections:
           - title: K3
             scope: k3
 
+            deprecated:
+              - ti-k3
+
       - title: Xilinx
         scope: xilinx
 
@@ -528,6 +544,13 @@ subsections:
               - plat/xilinx/versal/include
               - plat/xilinx/versal
               - plat/versal
+
+            subsections:
+             - title: Versal NET
+               scope: versal-net
+
+               deprecated:
+                 - versal_net
 
           - title: ZynqMP
             scope: zynqmp
@@ -856,6 +879,9 @@ subsections:
             deprecated:
               - plat/mediatek/pmic_wrap
 
+          - title: MT8188
+            scope: mt8188
+
           - title: MT8192
             scope: mt8192-drivers
 
@@ -1170,6 +1196,9 @@ subsections:
 
       - title: Certificate Creation Tool
         scope: cert-create
+
+        deprecated:
+          - cert_create
 
   - title: Dependencies
     scope: deps
