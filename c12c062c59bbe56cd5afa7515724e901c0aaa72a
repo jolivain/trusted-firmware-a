@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8cafec4_d21e97a5",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-11-01T11:39:53Z",
+      "side": 1,
+      "message": "Is it possible to move the default setting of USING_OPENSSL3 to SELECT_OPENSSL_API_VERSION\u0027s definition, rather than this file?\nGenerally, default settings in default.mk apply to user-facing definitions and USING_OPENSSL3 is not user-facing macro IIUC.",
+      "range": {
+        "startLine": 425,
+        "startChar": 0,
+        "endLine": 427,
+        "endChar": 21
+      },
+      "revId": "c12c062c59bbe56cd5afa7515724e901c0aaa72a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
