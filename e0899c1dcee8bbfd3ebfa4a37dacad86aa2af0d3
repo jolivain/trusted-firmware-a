@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec6b4802_1159be3f",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-01T21:47:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33df9138_99c364cc",
+      "range": {
+        "startLine": 1057,
+        "startChar": 45,
+        "endLine": 1058,
+        "endChar": 24
+      },
+      "revId": "e0899c1dcee8bbfd3ebfa4a37dacad86aa2af0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "955303f3_ead27c2a",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-30T18:20:22Z",
       "side": 1,
       "message": "would change this to say the SPMC follows the guidance in the EAC spec w.r.t to how it is prioritized and call out execptions if any.\nNot sure we should be repeating what the spec says. If we are fully compliant with the spec, best to say refer to the spec since the implmentation is 100% compliant.",
+      "range": {
+        "startLine": 1075,
+        "startChar": 0,
+        "endLine": 1086,
+        "endChar": 43
+      },
+      "revId": "e0899c1dcee8bbfd3ebfa4a37dacad86aa2af0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d38a0deb_f3f78747",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-01T21:47:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "955303f3_ead27c2a",
       "range": {
         "startLine": 1075,
         "startChar": 0,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "406be6b5_15f9a935",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-01T21:47:59Z",
+      "side": 1,
+      "message": "As noted in the 2nd bullet point, currently this support is only for S-EL1 partitions.\nThe patches to add corresponding support for S-EL0 partitions is still in review and I dont think they will make it to the release.\n| Does this mean we will panic if the interrupt is targeted to a core different from where the SP is running or blocked?\nYes",
+      "parentUuid": "5bb6d54f_3db0ce36",
+      "range": {
+        "startLine": 1104,
+        "startChar": 26,
+        "endLine": 1106,
+        "endChar": 17
+      },
+      "revId": "e0899c1dcee8bbfd3ebfa4a37dacad86aa2af0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d5e27dbb_3606c494",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 4
@@ -83,6 +155,30 @@
       "writtenOn": "2022-10-30T18:20:22Z",
       "side": 1,
       "message": "seems like an incomplete repetition of the spec. Would rather say the current SPMC handles interrupts from both secure and normal world and meets the spec, except for so and so cases.\nI think that would be more meaningful.",
+      "range": {
+        "startLine": 1110,
+        "startChar": 0,
+        "endLine": 1117,
+        "endChar": 0
+      },
+      "revId": "e0899c1dcee8bbfd3ebfa4a37dacad86aa2af0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f0ca1bd_bc54b742",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-01T21:47:59Z",
+      "side": 1,
+      "message": "I will reduce the repetition. However, I couldn\u0027t avoid a little bit of repetition of the spec to make sure the documentation feels a little relevant.",
+      "parentUuid": "d5e27dbb_3606c494",
       "range": {
         "startLine": 1110,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bbca52d_c30fb567",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1157,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-01T21:47:59Z",
+      "side": 1,
+      "message": "You are right, Raghu. This is based on implementation from v1.0 version of the spec. I will put a note stating this deviates from v1.1 since the purpose of this document is capture any behaviour of the implementation deviating from spec. I have already captured the gaps in implementation in a phabricator ticket.\nLet me know if it looks okay.",
+      "parentUuid": "9183a71f_731a5a3a",
+      "range": {
+        "startLine": 1153,
+        "startChar": 0,
+        "endLine": 1157,
+        "endChar": 48
+      },
+      "revId": "e0899c1dcee8bbfd3ebfa4a37dacad86aa2af0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4d7642f_d772dd2c",
@@ -139,6 +259,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f292cc82_97bb3c37",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-01T21:47:59Z",
+      "side": 1,
+      "message": "The action of SPMC when a Other S-Int occurs is implementation defined(Section 8.3.2.2 bullet 3 subbullet 1). Hence, I  captured this implementation behaviour by the SPMC here. Hence, I repurposed the signal completion to resume current SP.\nI dont think it is related to runtime models or state management.",
+      "parentUuid": "a4d7642f_d772dd2c",
+      "range": {
+        "startLine": 1164,
+        "startChar": 43,
+        "endLine": 1165,
+        "endChar": 42
+      },
+      "revId": "e0899c1dcee8bbfd3ebfa4a37dacad86aa2af0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff26f5ee_bc863d05",
@@ -152,6 +296,30 @@
       "writtenOn": "2022-10-30T18:20:22Z",
       "side": 1,
       "message": "is this necessary? can we say we are compliant with the spec and point to a section that more or less describes this?",
+      "range": {
+        "startLine": 1167,
+        "startChar": 0,
+        "endLine": 1187,
+        "endChar": 66
+      },
+      "revId": "e0899c1dcee8bbfd3ebfa4a37dacad86aa2af0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4302a6f5_5cdebd0a",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1187,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-01T21:47:59Z",
+      "side": 1,
+      "message": "Other reviewers have found it useful especially the description column since it captured implementation defined behaviour. For ex: When the target state is BLOCKED, spec says to queue it. But implementation doesn\u0027t support it.\nI think it is helpful to capture this.",
+      "parentUuid": "ff26f5ee_bc863d05",
       "range": {
         "startLine": 1167,
         "startChar": 0,
@@ -187,6 +355,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7b47ceec_b4e8d421",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1214,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-01T21:47:59Z",
+      "side": 1,
+      "message": "I just realized that I missed this scenario. Thanks for bringing it up. Is it okay if I work on adding support for this ?i.e. return an error upon ffa_msg_wait or ffa_run if the SP didn\u0027t perform explicit deactivation?",
+      "parentUuid": "14d31ad5_0fb002f8",
+      "range": {
+        "startLine": 1213,
+        "startChar": 7,
+        "endLine": 1214,
+        "endChar": 29
+      },
+      "revId": "e0899c1dcee8bbfd3ebfa4a37dacad86aa2af0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "885ef29a_9a93a56a",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 4
@@ -198,6 +390,30 @@
       "writtenOn": "2022-10-30T18:20:22Z",
       "side": 1,
       "message": "point to section in ffa spec and only call out exceptions?",
+      "range": {
+        "startLine": 1220,
+        "startChar": 0,
+        "endLine": 1220,
+        "endChar": 15
+      },
+      "revId": "e0899c1dcee8bbfd3ebfa4a37dacad86aa2af0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c9fa09e_27ad87aa",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-01T21:47:59Z",
+      "side": 1,
+      "message": "We found the description column to be helpful to capture imp def behaviour.",
+      "parentUuid": "885ef29a_9a93a56a",
       "range": {
         "startLine": 1220,
         "startChar": 0,
