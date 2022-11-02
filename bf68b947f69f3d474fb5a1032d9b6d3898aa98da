@@ -47,6 +47,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e910f45_aa167cb9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-02T14:09:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "328a6909_822c73be",
+      "range": {
+        "startLine": 11,
+        "startChar": 44,
+        "endLine": 11,
+        "endChar": 48
+      },
+      "revId": "bf68b947f69f3d474fb5a1032d9b6d3898aa98da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "538c3626_916c7284",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-02T14:09:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fb79deb_734d4cbe",
+      "range": {
+        "startLine": 11,
+        "startChar": 3,
+        "endLine": 11,
+        "endChar": 7
+      },
+      "revId": "bf68b947f69f3d474fb5a1032d9b6d3898aa98da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c78ca7ac_539f3fa3",
@@ -83,6 +131,54 @@
       "writtenOn": "2022-11-02T11:31:21Z",
       "side": 1,
       "message": "space before (",
+      "range": {
+        "startLine": 12,
+        "startChar": 14,
+        "endLine": 12,
+        "endChar": 37
+      },
+      "revId": "bf68b947f69f3d474fb5a1032d9b6d3898aa98da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b597b775_d5677ed4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-02T14:09:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c78ca7ac_539f3fa3",
+      "range": {
+        "startLine": 12,
+        "startChar": 4,
+        "endLine": 12,
+        "endChar": 7
+      },
+      "revId": "bf68b947f69f3d474fb5a1032d9b6d3898aa98da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5522ef20_36ca188c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-02T14:09:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b20f320f_5b02ef76",
       "range": {
         "startLine": 12,
         "startChar": 14,
@@ -139,6 +235,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce94cf11_be06df99",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-02T14:09:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae17f527_d69118a8",
+      "range": {
+        "startLine": 13,
+        "startChar": 15,
+        "endLine": 13,
+        "endChar": 21
+      },
+      "revId": "bf68b947f69f3d474fb5a1032d9b6d3898aa98da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6e22aa9_40074433",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-02T14:09:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ccafc1c_2e8b37bf",
+      "range": {
+        "startLine": 13,
+        "startChar": 4,
+        "endLine": 13,
+        "endChar": 10
+      },
+      "revId": "bf68b947f69f3d474fb5a1032d9b6d3898aa98da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "103be7bd_206ff565",
@@ -152,6 +296,30 @@
       "writtenOn": "2022-11-02T11:31:21Z",
       "side": 1,
       "message": "move between \"PLAT_INCLUDES\" and \"$(eval $(call MAKE_MODULE,$(MODULE),$(LOCAL_SRCS-y),$(MTK_BL)))\"",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 37
+      },
+      "revId": "bf68b947f69f3d474fb5a1032d9b6d3898aa98da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "193d8ef4_5e0f7d3a",
+        "filename": "plat/mediatek/drivers/audio/rules.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-02T14:09:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "103be7bd_206ff565",
       "range": {
         "startLine": 18,
         "startChar": 0,
@@ -185,6 +353,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c024e02d_239574f6",
+        "filename": "plat/mediatek/mt8188/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-02T14:09:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35adbd7d_ca078654",
+      "range": {
+        "startLine": 28,
+        "startChar": 20,
+        "endLine": 28,
+        "endChar": 32
+      },
+      "revId": "bf68b947f69f3d474fb5a1032d9b6d3898aa98da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d955b91_1c8e3cb3",
+        "filename": "plat/mediatek/mt8188/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-02T14:09:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35adbd7d_ca078654",
+      "range": {
+        "startLine": 28,
+        "startChar": 20,
+        "endLine": 28,
+        "endChar": 32
+      },
+      "revId": "bf68b947f69f3d474fb5a1032d9b6d3898aa98da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc68daaa_e65f39b3",
@@ -208,6 +424,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20790905_7560c766",
+        "filename": "plat/mediatek/mt8188/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-02T14:09:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc68daaa_e65f39b3",
+      "range": {
+        "startLine": 33,
+        "startChar": 18,
+        "endLine": 33,
+        "endChar": 19
+      },
+      "revId": "bf68b947f69f3d474fb5a1032d9b6d3898aa98da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0de27690_dc6e5755",
+        "filename": "plat/mediatek/mt8188/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-02T14:09:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc68daaa_e65f39b3",
+      "range": {
+        "startLine": 33,
+        "startChar": 18,
+        "endLine": 33,
+        "endChar": 19
+      },
+      "revId": "bf68b947f69f3d474fb5a1032d9b6d3898aa98da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "17dc53fa_2caccd72",
@@ -221,6 +485,54 @@
       "writtenOn": "2022-11-02T11:31:21Z",
       "side": 1,
       "message": "do we need this?",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 31
+      },
+      "revId": "bf68b947f69f3d474fb5a1032d9b6d3898aa98da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d16ca79b_c526f86d",
+        "filename": "plat/mediatek/mt8188/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-02T14:09:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17dc53fa_2caccd72",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 31
+      },
+      "revId": "bf68b947f69f3d474fb5a1032d9b6d3898aa98da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e86ba7ce_b4679832",
+        "filename": "plat/mediatek/mt8188/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-02T14:09:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17dc53fa_2caccd72",
       "range": {
         "startLine": 34,
         "startChar": 0,
