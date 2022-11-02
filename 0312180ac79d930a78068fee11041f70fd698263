@@ -234,6 +234,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "569e2d4d_9d974d2c",
+        "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-02T13:35:50Z",
+      "side": 1,
+      "message": "As mentioned here:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/16284/comment/68dc9197_755fcf2f/\n\nIt would be preferable for the developer/integrator to specify the configuration file on the command line through ARM_SP_MANIFEST_DTS (which by the way should be rather called PLAT_SP_MANIFEST_DTS).\nIf not defined then the platform makefile would break the build, throwing an error, hence it would not be possible to build without the configuration file.",
+      "parentUuid": "03067c23_d39b3ff8",
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "54d52e89_fc00b975",
         "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
         "patchSetId": 4
@@ -422,6 +440,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d873060_465bf598",
+        "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-02T13:35:50Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b1985b62_9a207b66",
+      "range": {
+        "startLine": 15,
+        "startChar": 21,
+        "endLine": 15,
+        "endChar": 26
+      },
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9e4741b_5aedcc4b",
@@ -445,6 +487,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c39e533_5c640834",
+        "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-02T13:35:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9e4741b_5aedcc4b",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 36
+      },
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "405ae115_0bdce005",
@@ -458,6 +524,30 @@
       "writtenOn": "2022-10-23T20:43:33Z",
       "side": 1,
       "message": "suggest removing",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 23,
+        "endChar": 31
+      },
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71017221_8ac73d23",
+        "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-02T13:35:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "405ae115_0bdce005",
       "range": {
         "startLine": 23,
         "startChar": 1,
