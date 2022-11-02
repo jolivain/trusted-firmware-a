@@ -181,6 +181,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "71c0c28a_940d4532",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-02T17:15:19Z",
+      "side": 1,
+      "message": "Right OP-TEE on this platform currently uses opteed dispatcher rather than SPMD, so it is unaffected. OP-TEE additions to support SPMD can come later.",
+      "parentUuid": "345cbf43_3bcae50a",
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92d3e460_4703d911",
         "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
         "patchSetId": 4
@@ -282,6 +300,24 @@
       "side": 1,
       "message": "I removed the dts file and added an error when the variable is not defined.\nBut now my simple command line does not work anymore.\n\nI guess, now I also need to modify the command line in the Coverity run script?\nBut since no DTS file is present anymore, what file should I use now?",
       "parentUuid": "569e2d4d_9d974d2c",
+      "revId": "0312180ac79d930a78068fee11041f70fd698263",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad1cf8a1_8fd829d4",
+        "filename": "plat/hisilicon/hikey960/fdts/kinibi_sp_manifest.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-02T17:15:19Z",
+      "side": 1,
+      "message": "\u003e But now my simple command line does not work anymore.\nEven by specifying ARM_SP_MANIFEST_DTS on the command line?\n\n\u003e I guess, now I also need to modify the command line in the Coverity run script?\n\u003e But since no DTS file is present anymore, what file should I use now?\nI believe you can do this:\nmake [...] ARM_SP_MANIFEST_DTS\u003dfoo NEED_FDT\u003dno all",
+      "parentUuid": "08bb8cfb_2672d6a3",
       "revId": "0312180ac79d930a78068fee11041f70fd698263",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
