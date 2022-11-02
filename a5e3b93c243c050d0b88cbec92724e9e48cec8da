@@ -16,6 +16,24 @@
       "message": "Seems most things are in place, I have 2 comments\n\n1. The do_panic() call from plat_ea_handler seems to have changed with this patch, although I cannot detect any problem, there is some change on caller side. Ideally the do_panic() has the logic to correctly detect EL and do the crash dump and there is no need to differentiate between HANDLE_EA_IN_EL3_FIRST_NS flag. Can we have a single crash dump logic without conditional compilation ? \n\n2. The SPMD had some changes related to this flag for RAS handling. Would like Olivier to give an ACK as well.",
       "revId": "a5e3b93c243c050d0b88cbec92724e9e48cec8da",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7d13e8b_1518a8ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-11-02T17:28:07Z",
+      "side": 1,
+      "message": "1. I have left the do_panic() logic change for now, and just did the name change. Will refactor do_panic() \u0026 the logic https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17122/9/plat/common/aarch64/plat_common.c#97 in a separate patch.\n\n2. gentle ping @Olivier",
+      "parentUuid": "576c197e_4aff5a2e",
+      "revId": "a5e3b93c243c050d0b88cbec92724e9e48cec8da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
