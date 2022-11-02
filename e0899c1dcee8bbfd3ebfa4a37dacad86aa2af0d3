@@ -142,6 +142,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c97e9fe_6aa8c3da",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:50:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "406be6b5_15f9a935",
+      "range": {
+        "startLine": 1104,
+        "startChar": 26,
+        "endLine": 1106,
+        "endChar": 17
+      },
+      "revId": "e0899c1dcee8bbfd3ebfa4a37dacad86aa2af0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5e27dbb_3606c494",
@@ -367,6 +391,30 @@
       "side": 1,
       "message": "I just realized that I missed this scenario. Thanks for bringing it up. Is it okay if I work on adding support for this ?i.e. return an error upon ffa_msg_wait or ffa_run if the SP didn\u0027t perform explicit deactivation?",
       "parentUuid": "14d31ad5_0fb002f8",
+      "range": {
+        "startLine": 1213,
+        "startChar": 7,
+        "endLine": 1214,
+        "endChar": 29
+      },
+      "revId": "e0899c1dcee8bbfd3ebfa4a37dacad86aa2af0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "702c0950_fb564710",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1214,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:50:47Z",
+      "side": 1,
+      "message": "Please help to review https://review.trustedfirmware.org/c/hafnium/hafnium/+/17559",
+      "parentUuid": "7b47ceec_b4e8d421",
       "range": {
         "startLine": 1213,
         "startChar": 7,
