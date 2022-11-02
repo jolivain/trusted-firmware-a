@@ -337,7 +337,7 @@ at address ``addr`` (first argument) address and of size ``size`` (second argume
 This function invalidates (flushes) the data cache for memory at address
 ``addr`` (first argument) address and of size ``size`` (second argument).
 
-**Function : do_panic()**
+**Function : panic()**
 
 ::
 
