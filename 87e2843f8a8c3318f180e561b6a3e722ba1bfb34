@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2243e4f5_707845c8",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1022,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T13:13:25Z",
+      "side": 1,
+      "message": "As per spec, more than one SPMC scheduled call chain can exist on a PE. But as we restrict processing one secure interrupt at a time, only one SPMC scheduled call chain can exist on a PE in current implementation.",
+      "parentUuid": "9d8b1b54_5618c5c2",
+      "range": {
+        "startLine": 1021,
+        "startChar": 55,
+        "endLine": 1022,
+        "endChar": 58
+      },
+      "revId": "87e2843f8a8c3318f180e561b6a3e722ba1bfb34",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e13673a1_28f5e9ce",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 4
