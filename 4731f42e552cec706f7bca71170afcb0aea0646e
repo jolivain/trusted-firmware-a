@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c03f565_b4c3c8bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-02T13:55:21Z",
+      "side": 1,
+      "message": "Yes we discussed in the mentioned change that not all platforms might want to build the sample logical SP.\nIf you have a need for a logical SP then we can keep as is.\nIt just seemed to me that you just copied the sample from FVP to Hikey960 but there is no usefulness in there (just an echo test) and remains as dead code in the platform port (with the risk that later this lands into a product).",
+      "parentUuid": "244374bb_0d4ef616",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 38
+      },
+      "revId": "4731f42e552cec706f7bca71170afcb0aea0646e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c6d83765_3600ac09",
         "filename": "plat/hisilicon/hikey960/hikey960_el3_spmc_logical_sp.c",
         "patchSetId": 1
