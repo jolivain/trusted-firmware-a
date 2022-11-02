@@ -16,6 +16,23 @@
       "message": "Can someone kick off presubmit checks again?\nAlso, is it possible for me to start presubmit checks myself?",
       "revId": "e27cbde56376a3f93b9d746d4592309748d206d9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbd80a91_e767c163",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000789
+      },
+      "writtenOn": "2022-11-02T21:01:56Z",
+      "side": 1,
+      "message": "It\u0027s still complaining about include file ordering for this one file. I think maybe the include ordering didn\u0027t start getting enforced until after the file in question, plat/xilinx/common/ipi_mailbox_service/ipi_mailbox_svc.c, was written, since this was wrong before my change too. The original file does:\n```\n#include \"../../../services/spd/trusty/smcall.h\"\n```\nwhich is not a system, project or platform include. Perhaps this is why this #include was in a 4th include section. The include-ordering checker didn\u0027t seem to like that though, and every time I follow its instructions, it complains again that that #include is in the wrong spot. Maybe I\u0027ll get lucky this time and it\u0027ll stop complaining, but I doubt it. If someone could run the checker again, that\u0027d be great. (Is there a way I could run the include ordering checker locally myself? That might save some roundtrips)\n\nOtherwise, not sure what the right solution is here. We moved the include file in question to a subfolder, so the existing line in ipi_mailbox_svc.c needs to be updated.\n\n\n",
+      "revId": "e27cbde56376a3f93b9d746d4592309748d206d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
