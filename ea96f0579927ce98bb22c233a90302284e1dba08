@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "752fa044_55f4c4a3",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:48:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b29d82c9_b9065e08",
+      "range": {
+        "startLine": 889,
+        "startChar": 60,
+        "endLine": 889,
+        "endChar": 68
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cfc7a66f_9d8097c4",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-30T17:51:28Z",
       "side": 1,
       "message": "not sure this is DOS. This is tampering right? The threat is attempting to tamper with the internal state of the SPMC.\nAlso, as far as i can tell, the FFA spec does not do much (or anything that i can think of now), to guarantee availability of cycles to secure partitions, except for interrupts (which is guaranteed by the architecture if secure interrupts are prioritized higher).",
+      "range": {
+        "startLine": 903,
+        "startChar": 27,
+        "endLine": 903,
+        "endChar": 44
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9420bc3_b08c8db1",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:48:30Z",
+      "side": 1,
+      "message": "My bad. Thanks for the comment. I will make the necessary changes.",
+      "parentUuid": "cfc7a66f_9d8097c4",
       "range": {
         "startLine": 903,
         "startChar": 27,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a65d985_f97d1f18",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:48:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a8b24b2_f19f027d",
+      "range": {
+        "startLine": 913,
+        "startChar": 27,
+        "endLine": 915,
+        "endChar": 78
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f26a705d_a619bea0",
@@ -93,6 +165,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a106e2a_9a88aa8f",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:48:30Z",
+      "side": 1,
+      "message": "I will make the necessary fix. Thanks for pointing it out. I was under the assumption that NWd Hypervisor would not allow a VM to spoof identity of a Primary Scheduler. Perhaps, we cant assume the robustness of NWD Hypervisor.",
+      "parentUuid": "f26a705d_a619bea0",
+      "range": {
+        "startLine": 918,
+        "startChar": 56,
+        "endLine": 920,
+        "endChar": 37
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4afea321_00579ed2",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-10-30T17:51:28Z",
       "side": 1,
       "message": "i think this is tampering just like above. A DoS means you are taking away availability of the assert, but by invoking FFA_INTERURPT, you are tampering with spmc state and sp state, that COULD cause availability issues with scheduling cycles. \nMight be okay to mark a threat as both DOS and tampering.\nAlso, you can combine this into threat 19. both are similar, just using different APIs and you can show ffa_interrupt and ffa_run as examples. There are many other invalid transitions and not sure it helps to add one threat for each transition, that then becomes the ffa spec for runtime models 😊",
+      "range": {
+        "startLine": 944,
+        "startChar": 27,
+        "endLine": 944,
+        "endChar": 44
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82c48ede_dbdb351a",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:48:30Z",
+      "side": 1,
+      "message": "I will update the threat type accordingly.\nBased on the feedback, the mitigations are a bit different (code paths) for threat 19, 20 and help us to capture the ability of SPMC to deal with such threats. Hence, I felt its good to have them separate.",
+      "parentUuid": "4afea321_00579ed2",
       "range": {
         "startLine": 944,
         "startChar": 27,
@@ -162,6 +282,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e808879e_ce5cea5e",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:48:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "850d5d8b_c1916ac1",
+      "range": {
+        "startLine": 955,
+        "startChar": 47,
+        "endLine": 955,
+        "endChar": 51
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56e5ba39_252c6e9f",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:48:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fea333c6_fdf03127",
+      "range": {
+        "startLine": 955,
+        "startChar": 27,
+        "endLine": 955,
+        "endChar": 33
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3740e1e7_c5af7358",
@@ -175,6 +343,30 @@
       "writtenOn": "2022-10-31T17:49:41Z",
       "side": 1,
       "message": "status interface",
+      "range": {
+        "startLine": 956,
+        "startChar": 69,
+        "endLine": 956,
+        "endChar": 73
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0fea199_306d9f9d",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:48:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3740e1e7_c5af7358",
       "range": {
         "startLine": 956,
         "startChar": 69,
@@ -208,6 +400,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2785f41b_b9fa095b",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:48:30Z",
+      "side": 1,
+      "message": "Only the first check. If I am not mistaken, it looks the 2nd check is not supported by SPMD+SPMC since TF-A doesn\u0027t pass interrupt_id in x1 register.\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/services/std_svc/spmd/spmd_main.c#n219",
+      "parentUuid": "947ef6d6_d3c5a72e",
+      "range": {
+        "startLine": 957,
+        "startChar": 74,
+        "endLine": 959,
+        "endChar": 62
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "842d92cd_2dffd140",
@@ -225,6 +441,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cae58fdf_a317cc2f",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:48:30Z",
+      "side": 1,
+      "message": "I will make the necessary update.\n\nRegarding your observation about physical interrupt resources being \u0027leaked\u0027 between two secure partitions, how can a malicious endpoint leverage this info? Should we add another threat entry?",
+      "parentUuid": "842d92cd_2dffd140",
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "255a47f1_d1a8fcc3",
@@ -238,6 +472,30 @@
       "writtenOn": "2022-10-30T17:51:28Z",
       "side": 1,
       "message": "same. this threat is not causing an availability issue with SPMC state or SP state. It is tampering with it and you are losing integrity if you allow the threat to occur.",
+      "range": {
+        "startLine": 987,
+        "startChar": 27,
+        "endLine": 987,
+        "endChar": 44
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c217da04_6056206f",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:48:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "255a47f1_d1a8fcc3",
       "range": {
         "startLine": 987,
         "startChar": 27,
@@ -271,6 +529,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bdba7e6_cf4c0ca2",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1041,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:48:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5542d44_c5c88e9b",
+      "range": {
+        "startLine": 1041,
+        "startChar": 27,
+        "endLine": 1041,
+        "endChar": 47
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5835c63d_79840847",
@@ -284,6 +566,30 @@
       "writtenOn": "2022-10-30T17:51:28Z",
       "side": 1,
       "message": "this is both tampering and DOS.",
+      "range": {
+        "startLine": 1045,
+        "startChar": 27,
+        "endLine": 1045,
+        "endChar": 46
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8787f39e_5ea5a0f1",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:48:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5835c63d_79840847",
       "range": {
         "startLine": 1045,
         "startChar": 27,
@@ -319,6 +625,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b038e81c_fa9650d0",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:48:30Z",
+      "side": 1,
+      "message": "I think I received review comment in the past to put this text as the mitigation. I will let others review this. If no one objects, I will amend it as per your suggestion.",
+      "parentUuid": "11e641ad_1241e88a",
+      "range": {
+        "startLine": 1055,
+        "startChar": 26,
+        "endLine": 1061,
+        "endChar": 37
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "da0f4a8d_64e26e32",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 3
@@ -330,6 +660,30 @@
       "writtenOn": "2022-10-30T17:51:28Z",
       "side": 1,
       "message": "this is tampering for SPMC state and SP state (corrupting state to form loops), and DOS as well (once the deadlock occurs).",
+      "range": {
+        "startLine": 1082,
+        "startChar": 27,
+        "endLine": 1082,
+        "endChar": 44
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7360d9d_233a6e03",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:48:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da0f4a8d_64e26e32",
       "range": {
         "startLine": 1082,
         "startChar": 27,
@@ -363,6 +717,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa9a9ee3_08608467",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1098,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:48:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "818deb64_a42930c8",
+      "range": {
+        "startLine": 1092,
+        "startChar": 27,
+        "endLine": 1098,
+        "endChar": 41
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4de0808b_05c0be14",
@@ -376,6 +754,30 @@
       "writtenOn": "2022-10-30T17:51:28Z",
       "side": 1,
       "message": "any example of how not handling in a timely manner could cause SPMC or SP state to get compromised or corrupt?\nI\u0027m thinking of state as things like VM and VCPU structs etc. State within the SP could get compromised but not sure i understand the SPMC state..",
+      "range": {
+        "startLine": 1108,
+        "startChar": 63,
+        "endLine": 1109,
+        "endChar": 52
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12adebda_3c11e018",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:48:30Z",
+      "side": 1,
+      "message": "When I thought about this scenario, what I had in my mind was a secure watchdog timer. If not serviced by the time it triggers again, it could lead to system reboot/reset. I am guessing there are other scenarios which could render the system unresponsive.",
+      "parentUuid": "4de0808b_05c0be14",
       "range": {
         "startLine": 1108,
         "startChar": 63,
@@ -409,6 +811,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fa60489_18842421",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:48:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8eb0e7d_6ace0807",
+      "range": {
+        "startLine": 1121,
+        "startChar": 34,
+        "endLine": 1121,
+        "endChar": 37
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75fbd6db_3e6c401a",
@@ -422,6 +848,30 @@
       "writtenOn": "2022-10-30T17:51:28Z",
       "side": 1,
       "message": "really the mitigation to this threat is higher level system design and interrupt prioritization by system integrators. if you do it incorrectly, this threat could occur. So the mitigation for an SP whose state can get compromised if a secure interrupt is not processed in a timely manner is to not allow pre-emption by normal world interrupts and the SPMC implementation today supports it right?\nmight want to rephrase to say it is mitigated by system design, and SPMC provides hooks to do so via manifest.",
+      "range": {
+        "startLine": 1131,
+        "startChar": 26,
+        "endLine": 1137,
+        "endChar": 36
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d36db50c_cfd5f78a",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1137,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:48:30Z",
+      "side": 1,
+      "message": "Thanks for the feedback. I will make the necessary update.",
+      "parentUuid": "75fbd6db_3e6c401a",
       "range": {
         "startLine": 1131,
         "startChar": 26,
@@ -457,6 +907,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1553c364_8473425d",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:48:30Z",
+      "side": 1,
+      "message": "Ack. I will try to merge it with previous threat once other reviewers have gone through this document. Keeping this unresolved.",
+      "parentUuid": "e2cd0204_a5f6b743",
+      "range": {
+        "startLine": 1145,
+        "startChar": 69,
+        "endLine": 1148,
+        "endChar": 70
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aea562ef_bc9e8231",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 3
@@ -468,6 +942,30 @@
       "writtenOn": "2022-10-30T17:51:28Z",
       "side": 1,
       "message": "feel like this be the mitigation to previous threat based on my comment for that threat.",
+      "range": {
+        "startLine": 1169,
+        "startChar": 27,
+        "endLine": 1180,
+        "endChar": 39
+      },
+      "revId": "ea96f0579927ce98bb22c233a90302284e1dba08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a70190b1_ed31ad5c",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-02T20:48:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "aea562ef_bc9e8231",
       "range": {
         "startLine": 1169,
         "startChar": 27,
