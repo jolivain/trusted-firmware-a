@@ -70,6 +70,30 @@
       },
       "revId": "87d9618945550658ef9fe28898b8dc637457fd50",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbf1d993_f2b4216d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-11-02T17:41:11Z",
+      "side": 1,
+      "message": "Maybe this is a philosophical question when does a defect/bug become a security bug? My first answer is when it can be used as a vulnerability attack vector to compromise the security of a deployed system. \n\nI\u0027ll like to think being experimental code/feature would preclude the latter while at this time the vulnerability attack vector has yet to be confirmed but it might well exist.",
+      "parentUuid": "3f2e10d6_18f9bbc0",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "87d9618945550658ef9fe28898b8dc637457fd50",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
