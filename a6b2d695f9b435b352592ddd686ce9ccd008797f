@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7117224_50086f6f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-11-02T19:28:44Z",
+      "side": 1,
+      "message": "Per https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17521/2/changelog.yaml#613, the scope is \"el3-spmc\". Do you mind fixing this?\n\"\n      - title: SPM\n        scope: spm\n\n        subsections:\n          - title: EL3 SPMC\n            scope: el3-spmc\n\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "a6b2d695f9b435b352592ddd686ce9ccd008797f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
