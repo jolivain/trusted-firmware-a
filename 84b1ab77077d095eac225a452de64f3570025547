@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fcb14fe_4b2f4a66",
+        "filename": "fdts/stm32mp1-cot-descriptors.dtsi",
+        "patchSetId": 12
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-11-02T21:06:09Z",
+      "side": 1,
+      "message": "Does ST platform use non-volatile counters like Arm platform?  If yes, then we need to move driver [1] to some common place or duplicate this driver code for ST platform.\n\nantirollback-counter in the manifests node above is an optional property, so if ST platforms does not use this counter so I prefer you remove this property from all above nodes along with this non_volatile_counters node.\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/common/fconf/fconf_nv_cntr_getter.c",
+      "range": {
+        "startLine": 144,
+        "startChar": 1,
+        "endLine": 144,
+        "endChar": 42
+      },
+      "revId": "84b1ab77077d095eac225a452de64f3570025547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3746c8c5_39f54b44",
+        "filename": "fdts/stm32mp13-bl2.dtsi",
+        "patchSetId": 12
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-11-02T21:06:09Z",
+      "side": 1,
+      "message": "Remove this comment if it is not placeholder.",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 5
+      },
+      "revId": "84b1ab77077d095eac225a452de64f3570025547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e8fc29a_afc3a4e2",
+        "filename": "fdts/stm32mp13-bl2.dtsi",
+        "patchSetId": 12
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-11-02T21:06:09Z",
+      "side": 1,
+      "message": "Is this typo?",
+      "range": {
+        "startLine": 81,
+        "startChar": 43,
+        "endLine": 81,
+        "endChar": 53
+      },
+      "revId": "84b1ab77077d095eac225a452de64f3570025547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "862fe9e2_d952b354",
+        "filename": "fdts/stm32mp13-bl2.dtsi",
+        "patchSetId": 12
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-11-02T21:06:09Z",
+      "side": 1,
+      "message": "Is this a placeholder or actual heap-address? \nIf it is a placeholder then I don\u0027t think mbedtls_heap_addr property gets written as writing this property is currently part of Arm platform code [1] (part of bl1 code)\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/common/arm_dyn_cfg.c#n73",
+      "range": {
+        "startLine": 81,
+        "startChar": 27,
+        "endLine": 81,
+        "endChar": 37
+      },
+      "revId": "84b1ab77077d095eac225a452de64f3570025547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78773175_cbffa916",
+        "filename": "fdts/stm32mp13-bl2.dtsi",
+        "patchSetId": 12
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-11-02T21:06:09Z",
+      "side": 1,
+      "message": "Is this typo?",
+      "range": {
+        "startLine": 82,
+        "startChar": 35,
+        "endLine": 82,
+        "endChar": 45
+      },
+      "revId": "84b1ab77077d095eac225a452de64f3570025547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39253ef5_180c5c89",
+        "filename": "fdts/stm32mp13-bl2.dtsi",
+        "patchSetId": 12
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-11-02T21:06:09Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "84b1ab77077d095eac225a452de64f3570025547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6302c748_179b2a1e",
+        "filename": "fdts/stm32mp15-bl2.dtsi",
+        "patchSetId": 12
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-11-02T21:06:09Z",
+      "side": 1,
+      "message": "Same comments applies here as given in this file: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17184/12/fdts/stm32mp13-bl2.dtsi",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 27
+      },
+      "revId": "84b1ab77077d095eac225a452de64f3570025547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
