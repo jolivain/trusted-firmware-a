@@ -17,4 +17,7 @@ enum PTP3_CFG {
 	NR_PTP3_CFG,
 };
 
+/* prototype */
+void ptp3_core_init(unsigned int core);
+
 #endif /* PTP3_COMMON_H */
