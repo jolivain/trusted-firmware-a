@@ -141,6 +141,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ab72356_9e0527b3",
+        "filename": "fdts/stm32mp13-bl2.dtsi",
+        "patchSetId": 12
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-11-03T10:25:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2ce93672_b233cae4",
+      "range": {
+        "startLine": 81,
+        "startChar": 27,
+        "endLine": 81,
+        "endChar": 37
+      },
+      "revId": "84b1ab77077d095eac225a452de64f3570025547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78773175_cbffa916",
@@ -218,6 +242,30 @@
       "side": 1,
       "message": "On STM32MP15, SYSRAM is 256kB, so we do not need to put the MbedTLS heap in a dedicated location.",
       "parentUuid": "6302c748_179b2a1e",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 27
+      },
+      "revId": "84b1ab77077d095eac225a452de64f3570025547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6cad56b_6fa32608",
+        "filename": "fdts/stm32mp15-bl2.dtsi",
+        "patchSetId": 12
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-11-03T10:25:11Z",
+      "side": 1,
+      "message": "Then I wonder why we need these properties. Can we remove these properties from the device tree?",
+      "parentUuid": "0b71adf5_089adea7",
       "range": {
         "startLine": 106,
         "startChar": 0,
