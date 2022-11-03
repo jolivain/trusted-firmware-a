@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "49820e14_f0e43af0",
+        "filename": "fdts/stm32mp1-cot-descriptors.dtsi",
+        "patchSetId": 12
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-11-03T11:24:45Z",
+      "side": 1,
+      "message": "\u003e To retrieve the properties of nv-counter node, you still need another driver [1].\n\nCorrecting the typo: To retrieve the properties of nv-counter node, you still need another driver [2].",
+      "parentUuid": "cb5d6631_2d67e90b",
+      "range": {
+        "startLine": 144,
+        "startChar": 1,
+        "endLine": 144,
+        "endChar": 42
+      },
+      "revId": "84b1ab77077d095eac225a452de64f3570025547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3746c8c5_39f54b44",
         "filename": "fdts/stm32mp13-bl2.dtsi",
         "patchSetId": 12
