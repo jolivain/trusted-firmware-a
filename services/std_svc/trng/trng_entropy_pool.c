@@ -66,7 +66,7 @@ static bool trng_fill_entropy(uint32_t nbits)
 bool trng_pack_entropy(uint32_t nbits, uint64_t *out)
 {
 	bool ret = true;
-
+	uint32_t bits_to_discard = nbits;
 	spin_lock(&trng_pool_lock);
 
 	if (!trng_fill_entropy(nbits)) {
@@ -114,6 +114,21 @@ bool trng_pack_entropy(uint32_t nbits, uint64_t *out)
 		out[word_i] = 0;
 		out[word_i] |= entropy[ENTROPY_WORD_INDEX(word_i)] >> rshift;
 
+		/**
+		 * Entropy bits packed to be discarded by overwriting them with
+		 * zeroes. As illustarted above, in each iteration we pack valid
+		 * bits from the lower word (word[i]) and here we discard them.
+		 * bits_to_discard : tracks the remaining amount of bits to be
+		 * discarded after each iteration, till it reads zero.
+		 */
+		if (bits_to_discard < (BITS_PER_WORD - rshift)) {
+			entropy[ENTROPY_WORD_INDEX(word_i)] &=
+			(~0ULL << ((bits_to_discard+rshift) % BITS_PER_WORD));
+			bits_to_discard = 0;
+		} else {
+			entropy[ENTROPY_WORD_INDEX(word_i)] = 0;
+			bits_to_discard -= (BITS_PER_WORD - rshift);
+		}
 		/*
 		 * Note that a shift of 64 bits is treated as a shift of 0 bits.
 		 * When the shift amount is the same as the BITS_PER_WORD, we
@@ -123,6 +138,21 @@ bool trng_pack_entropy(uint32_t nbits, uint64_t *out)
 		if (lshift != BITS_PER_WORD) {
 			out[word_i] |= entropy[ENTROPY_WORD_INDEX(word_i + 1)]
 				<< lshift;
+		/**
+		 * Discarding the remaining packed bits from the upper word
+		 * (word[i+1]) which was copied to output buffer by overwriting
+		 * with zeros.
+		 */
+		if (bits_to_discard < (BITS_PER_WORD - lshift)) {
+			entropy[ENTROPY_WORD_INDEX(word_i+1)]  &=
+				(~0ULL << ((bits_to_discard) % BITS_PER_WORD));
+			bits_to_discard = 0;
+		} else {
+			entropy[ENTROPY_WORD_INDEX(word_i+1)]  &=
+			(~0ULL << ((BITS_PER_WORD - lshift) % BITS_PER_WORD));
+			bits_to_discard -= (BITS_PER_WORD - lshift);
+		}
+
 		}
 	}
 	const uint64_t mask = ~0ULL >> (BITS_PER_WORD - (nbits % BITS_PER_WORD));
