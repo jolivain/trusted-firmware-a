@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0a8bdbf3_f47803b4",
+        "filename": "fdts/stm32mp1-cot-descriptors.dtsi",
+        "patchSetId": 12
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-11-03T10:11:14Z",
+      "side": 1,
+      "message": "Hi Manish,\nI think those are there to have antirollback-counter set for certificates, and use it there:\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/lib/fconf/fconf_cot_getter.c#n265\n\nBut I\u0027ll let Lionel comment on the details, when he is back on Monday.",
+      "parentUuid": "0fcb14fe_4b2f4a66",
+      "range": {
+        "startLine": 144,
+        "startChar": 1,
+        "endLine": 144,
+        "endChar": 42
+      },
+      "revId": "84b1ab77077d095eac225a452de64f3570025547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3746c8c5_39f54b44",
         "filename": "fdts/stm32mp13-bl2.dtsi",
         "patchSetId": 12
@@ -95,6 +119,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2ce93672_b233cae4",
+        "filename": "fdts/stm32mp13-bl2.dtsi",
+        "patchSetId": 12
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-11-03T10:11:14Z",
+      "side": 1,
+      "message": "On STM32MP13, there is only 128kB of SYSRAM, where we put TF-A. That\u0027s why we need to put MBEDTLS heap in another embedded SRAM: SRAM2 which starts at 0x30004000 and has a size of 8kB.\nThere is then no typo.\nThose values are used in ST code in a previous patch there:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17181/10/plat/st/common/stm32mp_trusted_boot.c#188",
+      "parentUuid": "862fe9e2_d952b354",
+      "range": {
+        "startLine": 81,
+        "startChar": 27,
+        "endLine": 81,
+        "endChar": 37
+      },
+      "revId": "84b1ab77077d095eac225a452de64f3570025547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78773175_cbffa916",
         "filename": "fdts/stm32mp13-bl2.dtsi",
         "patchSetId": 12
@@ -146,6 +194,30 @@
       "writtenOn": "2022-11-02T21:06:09Z",
       "side": 1,
       "message": "Same comments applies here as given in this file: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17184/12/fdts/stm32mp13-bl2.dtsi",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 27
+      },
+      "revId": "84b1ab77077d095eac225a452de64f3570025547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b71adf5_089adea7",
+        "filename": "fdts/stm32mp15-bl2.dtsi",
+        "patchSetId": 12
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-11-03T10:11:14Z",
+      "side": 1,
+      "message": "On STM32MP15, SYSRAM is 256kB, so we do not need to put the MbedTLS heap in a dedicated location.",
+      "parentUuid": "6302c748_179b2a1e",
       "range": {
         "startLine": 106,
         "startChar": 0,
