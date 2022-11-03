@@ -46,6 +46,30 @@
       },
       "revId": "33a579c9fe3dd874a83b7119e4585d141e884e42",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c7f6dba_9e0d313a",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-03T17:33:47Z",
+      "side": 1,
+      "message": "Sorry to come back on this.\nx1 contains ESR_EL3 as freshly retrieved at line 150:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17130/2..7/bl31/aarch64/ea_delegate.S#150\n\nThe checks following below are only meaningful when ESR_EL3.EC\u003d0x2f (SError interrupt).\nI don\u0027t see why it would relate to a programming error if the HW reported another EC value for some reason when read from the system register.\nAssuming the EC value reported by the HW is correct because it has hit the SError vector looks a short cut to me.",
+      "parentUuid": "4b0075ea_3a2f94de",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 8
+      },
+      "revId": "33a579c9fe3dd874a83b7119e4585d141e884e42",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
