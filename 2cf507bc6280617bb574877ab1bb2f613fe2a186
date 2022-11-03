@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c8f375ed_ff6c53ea",
+        "filename": "changelog.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-11-03T20:29:06Z",
+      "side": 1,
+      "message": "I could, are there any others to add too? There I didn\u0027t see any uncategorized security extension scopes currently, but if we want to be proactive we could.",
+      "parentUuid": "a5b23101_19933c65",
+      "revId": "2cf507bc6280617bb574877ab1bb2f613fe2a186",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d159858c_43384688",
         "filename": "changelog.yaml",
         "patchSetId": 2
@@ -48,6 +66,30 @@
       "writtenOn": "2022-11-03T19:52:31Z",
       "side": 1,
       "message": "I am curious what is tsp_manifest used for.",
+      "range": {
+        "startLine": 172,
+        "startChar": 16,
+        "endLine": 172,
+        "endChar": 32
+      },
+      "revId": "2cf507bc6280617bb574877ab1bb2f613fe2a186",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39d248af_eb5824fc",
+        "filename": "changelog.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-11-03T20:29:06Z",
+      "side": 1,
+      "message": "This was the patch with uncategorized scope: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/13285, this could be put under el3_spmc if you think that is a better descriptive scope name.",
+      "parentUuid": "d159858c_43384688",
       "range": {
         "startLine": 172,
         "startChar": 16,
