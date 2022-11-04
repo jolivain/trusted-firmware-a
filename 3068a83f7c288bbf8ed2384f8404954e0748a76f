@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e91b481e_a9f10770",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-11-04T20:18:50Z",
+      "side": 1,
+      "message": "understood. should we add cache as sub-scope or should we replace cache here with something else?",
+      "parentUuid": "dc9dc917_414cc1ce",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 11
+      },
+      "revId": "3068a83f7c288bbf8ed2384f8404954e0748a76f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6252cad3_a276b4d8",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-04T19:59:43Z",
       "side": 1,
       "message": "nit: move \"debugging\" to new line.",
+      "range": {
+        "startLine": 19,
+        "startChar": 67,
+        "endLine": 19,
+        "endChar": 76
+      },
+      "revId": "3068a83f7c288bbf8ed2384f8404954e0748a76f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9f03478_5f7f4a6e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-11-04T20:18:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6252cad3_a276b4d8",
       "range": {
         "startLine": 19,
         "startChar": 67,
@@ -77,6 +125,30 @@
       "writtenOn": "2022-11-04T19:59:43Z",
       "side": 1,
       "message": "I assume there is a downstream implementation of this which conditionally sets/clears this?",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 20
+      },
+      "revId": "3068a83f7c288bbf8ed2384f8404954e0748a76f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "439eba85_c1fdec08",
+        "filename": "plat/common/aarch64/platform_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-11-04T20:18:50Z",
+      "side": 1,
+      "message": "correct, platforms can implement this however they like. i guess in a later patch we can improve this to check cpu debug recovery mode. for now i wanted to keep the old behaviour unchanged. hope that makes sense.",
+      "parentUuid": "77576bc2_21dc1120",
       "range": {
         "startLine": 131,
         "startChar": 0,
