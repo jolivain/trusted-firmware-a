@@ -138,6 +138,30 @@
       },
       "revId": "859c5882339a3191a6931a5263e953858563440c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "011cc8ca_4cfaad68",
+        "filename": "plat/mediatek/mt8195/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2022-11-04T05:58:18Z",
+      "side": 1,
+      "message": "Is it necessary for ptp3 including this header file ?",
+      "parentUuid": "e9bf9e55_8e94196c",
+      "range": {
+        "startLine": 23,
+        "startChar": 17,
+        "endLine": 23,
+        "endChar": 67
+      },
+      "revId": "859c5882339a3191a6931a5263e953858563440c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
