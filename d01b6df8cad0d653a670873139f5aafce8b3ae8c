@@ -34,6 +34,24 @@
       "parentUuid": "e66f0c90_af40e10d",
       "revId": "d01b6df8cad0d653a670873139f5aafce8b3ae8c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49479b5d_1a353fe3",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2022-11-04T16:32:18Z",
+      "side": 1,
+      "message": "I\u0027m a bit concerned that by putting this line in the prerequisites, rather than just not installing anything at all and getting the \"no such module error\" when it comes to running the make command, people are going to try and open up that file and install things in whatever way makes sense to them (e.g. through Apt), which is going to pollute their environment and make it impossible for them to keep in sync with the actual prerequisites.\n\nIt might perhaps be better to split it into clearly-marked section below the listed prerequisites to make it clear that it\u0027s necessary, and you can\u0027t just skip it.\n\nI think we need to give them an actual command to run as well - people like to skip ahead and copy-paste things. We can give them:\n\n    pip3 install --user -r docs/requirements.txt\n\nAnd at that point it doesn\u0027t matter too much if they\u0027ve neglected to actually read the documentation, because everything\u0027s installed to their local user, which is the best-case scenario outside of setting up a virtual environment (which they might not be familiar with).",
+      "parentUuid": "595b88f6_88147ae1",
+      "revId": "d01b6df8cad0d653a670873139f5aafce8b3ae8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
