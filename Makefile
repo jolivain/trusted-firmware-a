@@ -1079,6 +1079,7 @@ $(eval $(call assert_booleans,\
         ENABLE_MPMM_FCONF \
         SIMICS_BUILD \
         FEATURE_DETECTION \
+	CONDITIONAL_CMO \
 )))
 
 $(eval $(call assert_numerics,\
@@ -1240,6 +1241,7 @@ $(eval $(call add_defines,\
         FEATURE_DETECTION \
         TWED_DELAY \
         ENABLE_FEAT_TWED \
+	CONDITIONAL_CMO \
 )))
 
 ifeq (${SANITIZE_UB},trap)
