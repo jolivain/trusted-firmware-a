@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bc7c611c_ba88dff5",
+        "filename": "changelog.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-04T13:27:34Z",
+      "side": 1,
+      "message": "I cant recall any other extensions. Perhaps other reviewers can pitch in.",
+      "parentUuid": "c8f375ed_ff6c53ea",
+      "revId": "2cf507bc6280617bb574877ab1bb2f613fe2a186",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d159858c_43384688",
         "filename": "changelog.yaml",
         "patchSetId": 2
@@ -90,6 +108,30 @@
       "side": 1,
       "message": "This was the patch with uncategorized scope: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/13285, this could be put under el3_spmc if you think that is a better descriptive scope name.",
       "parentUuid": "d159858c_43384688",
+      "range": {
+        "startLine": 172,
+        "startChar": 16,
+        "endLine": 172,
+        "endChar": 32
+      },
+      "revId": "2cf507bc6280617bb574877ab1bb2f613fe2a186",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "473ec752_c0153a34",
+        "filename": "changelog.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-04T13:27:34Z",
+      "side": 1,
+      "message": "I think we could create a new (sub)scope \"logical_sp\" under existing el3_spmc scope. \"fvp/tsp_manifest\" itself could be put as a deprecated version of the new scope. Perhaps, Olivier can advise if there is a relevant scope already defined.",
+      "parentUuid": "39d248af_eb5824fc",
       "range": {
         "startLine": 172,
         "startChar": 16,
