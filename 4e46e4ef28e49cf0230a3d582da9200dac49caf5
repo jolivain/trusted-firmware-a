@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c7c0b8f_4948ad97",
+        "filename": "plat/xilinx/common/ipi_mailbox_service/ipi_mailbox_svc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000789
+      },
+      "writtenOn": "2022-11-04T17:20:43Z",
+      "side": 1,
+      "message": "The presubmit checker keeps complaining about this line. This include is not a system, project or platform include, and uses a relative path, and that seems to trip up the include ordering checker. Not sure what to do about this. I suspect the include ordering rules enforcement didn\u0027t go into effect until after this file was created.\nThe include appears to be used to get the value of SMC_ENTITY_TRUSTED_APP, used on line 77 below.",
+      "revId": "4e46e4ef28e49cf0230a3d582da9200dac49caf5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
