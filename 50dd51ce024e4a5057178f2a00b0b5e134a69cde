@@ -16,6 +16,75 @@
       "message": "We can also apply the common code for MT8195.",
       "revId": "50dd51ce024e4a5057178f2a00b0b5e134a69cde",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fef3ca06_b3c4b0b1",
+        "filename": "plat/mediatek/drivers/ptp3/mt8188/mtk_ptp3_main.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-11-04T02:06:46Z",
+      "side": 1,
+      "message": "remove one tab",
+      "range": {
+        "startLine": 17,
+        "startChar": 29,
+        "endLine": 17,
+        "endChar": 30
+      },
+      "revId": "50dd51ce024e4a5057178f2a00b0b5e134a69cde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8eb9c8b_dbe00e9c",
+        "filename": "plat/mediatek/drivers/ptp3/mtk_ptp3_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-11-04T02:06:46Z",
+      "side": 1,
+      "message": "alignment",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 34
+      },
+      "revId": "50dd51ce024e4a5057178f2a00b0b5e134a69cde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b98c20d_eb4a6cac",
+        "filename": "plat/mediatek/drivers/ptp3/mtk_ptp3_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2022-11-04T02:06:46Z",
+      "side": 1,
+      "message": "please push another patch for applying this function for mt8195",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 50
+      },
+      "revId": "50dd51ce024e4a5057178f2a00b0b5e134a69cde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
