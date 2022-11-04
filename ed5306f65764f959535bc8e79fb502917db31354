@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "022337df_57f4c21e",
+        "filename": "plat/mediatek/drivers/ptp3/mt8188/ptp3_plat.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-04T07:42:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05e6c87b_1dd37fa6",
+      "range": {
+        "startLine": 30,
+        "startChar": 49,
+        "endLine": 30,
+        "endChar": 60
+      },
+      "revId": "ed5306f65764f959535bc8e79fb502917db31354",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "169f5ecb_98709e32",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-04T05:54:54Z",
       "side": 1,
       "message": "just include ptp3_plat.h",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 22
+      },
+      "revId": "ed5306f65764f959535bc8e79fb502917db31354",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ba4bb25_d85bf159",
+        "filename": "plat/mediatek/drivers/ptp3/ptp3_common.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-04T07:42:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "169f5ecb_98709e32",
       "range": {
         "startLine": 9,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0830e99_505b43e9",
+        "filename": "plat/mediatek/drivers/ptp3/ptp3_common.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-04T07:42:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70d38f57_f66e3191",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 1
+      },
+      "revId": "ed5306f65764f959535bc8e79fb502917db31354",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c73a5cf_43382401",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-11-04T05:54:54Z",
       "side": 1,
       "message": "no necessary",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 26
+      },
+      "revId": "ed5306f65764f959535bc8e79fb502917db31354",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc8c88f4_94eac966",
+        "filename": "plat/mediatek/drivers/ptp3/ptp3_common.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-04T07:42:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c73a5cf_43382401",
       "range": {
         "startLine": 10,
         "startChar": 0,

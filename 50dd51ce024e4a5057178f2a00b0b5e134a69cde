@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f27678c6_a6ef3d32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-04T07:42:34Z",
+      "side": 1,
+      "message": "Push another patch: refator(mt8195): use ptp3 common drivers",
+      "parentUuid": "da01523d_b3881703",
+      "revId": "50dd51ce024e4a5057178f2a00b0b5e134a69cde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c48190ea_f437513b",
@@ -52,6 +70,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7135062b_c8b37269",
+        "filename": "plat/mediatek/drivers/ptp3/mt8188/mtk_ptp3_main.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-04T07:42:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c48190ea_f437513b",
+      "revId": "50dd51ce024e4a5057178f2a00b0b5e134a69cde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fef3ca06_b3c4b0b1",
@@ -65,6 +101,30 @@
       "writtenOn": "2022-11-04T02:06:46Z",
       "side": 1,
       "message": "remove one tab",
+      "range": {
+        "startLine": 17,
+        "startChar": 29,
+        "endLine": 17,
+        "endChar": 30
+      },
+      "revId": "50dd51ce024e4a5057178f2a00b0b5e134a69cde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3675f1b_46ad6815",
+        "filename": "plat/mediatek/drivers/ptp3/mt8188/mtk_ptp3_main.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-04T07:42:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fef3ca06_b3c4b0b1",
       "range": {
         "startLine": 17,
         "startChar": 29,
@@ -98,6 +158,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35727aee_296ab651",
+        "filename": "plat/mediatek/drivers/ptp3/mtk_ptp3_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-04T07:42:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8eb9c8b_dbe00e9c",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 34
+      },
+      "revId": "50dd51ce024e4a5057178f2a00b0b5e134a69cde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b98c20d_eb4a6cac",
@@ -111,6 +195,30 @@
       "writtenOn": "2022-11-04T02:06:46Z",
       "side": 1,
       "message": "please push another patch for applying this function for mt8195",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 50
+      },
+      "revId": "50dd51ce024e4a5057178f2a00b0b5e134a69cde",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4effaee_2edfedac",
+        "filename": "plat/mediatek/drivers/ptp3/mtk_ptp3_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-04T07:42:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b98c20d_eb4a6cac",
       "range": {
         "startLine": 63,
         "startChar": 0,
