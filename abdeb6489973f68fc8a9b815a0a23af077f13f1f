@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff6b119a_f0302bf5",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-04T15:57:48Z",
+      "side": 1,
+      "message": "..Test Realm Payload (TRP) in TF-A will be built..",
+      "range": {
+        "startLine": 167,
+        "startChar": 44,
+        "endLine": 167,
+        "endChar": 68
+      },
+      "revId": "abdeb6489973f68fc8a9b815a0a23af077f13f1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ef5fc79_0be15446",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-04T15:57:48Z",
+      "side": 1,
+      "message": "Running the tests for a 3 World FVP setup",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 17
+      },
+      "revId": "abdeb6489973f68fc8a9b815a0a23af077f13f1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54313ca2_bb90d376",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-04T15:57:48Z",
+      "side": 1,
+      "message": "Add:\n\n-C pci.pci_smmuv3.mmu.SMMU_ROOT_IDR0\u003d3\n-C pci.pci_smmuv3.mmu.SMMU_ROOT_IIDR\u003d0x43B \t\n-C pci.pci_smmuv3.mmu.root_register_page_offset\u003d0x20000",
+      "revId": "abdeb6489973f68fc8a9b815a0a23af077f13f1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c977f1c_6c290629",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-04T15:57:48Z",
+      "side": 1,
+      "message": "This print might be changed now, need to confirm.",
+      "range": {
+        "startLine": 246,
+        "startChar": 1,
+        "endLine": 247,
+        "endChar": 70
+      },
+      "revId": "abdeb6489973f68fc8a9b815a0a23af077f13f1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0ce2dca_f54d4be2",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-04T15:57:48Z",
+      "side": 1,
+      "message": "Boot and Run RME enabled kernel",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 274,
+        "endChar": 17
+      },
+      "revId": "abdeb6489973f68fc8a9b815a0a23af077f13f1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75a20d6f_bb79780e",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-04T15:57:48Z",
+      "side": 1,
+      "message": "....to boot the kernel on FVP.",
+      "range": {
+        "startLine": 277,
+        "startChar": 42,
+        "endLine": 277,
+        "endChar": 62
+      },
+      "revId": "abdeb6489973f68fc8a9b815a0a23af077f13f1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7f2e94e_111ae63c",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-04T15:57:48Z",
+      "side": 1,
+      "message": "Change the address to :\n\n0x84000000",
+      "range": {
+        "startLine": 281,
+        "startChar": 45,
+        "endLine": 281,
+        "endChar": 55
+      },
+      "revId": "abdeb6489973f68fc8a9b815a0a23af077f13f1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9555ca73_ddb58822",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-04T15:57:48Z",
+      "side": 1,
+      "message": "I think this be in generic options.",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 61
+      },
+      "revId": "abdeb6489973f68fc8a9b815a0a23af077f13f1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de845c73_7d49fc6d",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-04T15:57:48Z",
+      "side": 1,
+      "message": "same comments as above.",
+      "range": {
+        "startLine": 338,
+        "startChar": 0,
+        "endLine": 339,
+        "endChar": 61
+      },
+      "revId": "abdeb6489973f68fc8a9b815a0a23af077f13f1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c51c73c8_06b30237",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-04T15:57:48Z",
+      "side": 1,
+      "message": "index.rst is a better place to point to.",
+      "range": {
+        "startLine": 358,
+        "startChar": 101,
+        "endLine": 358,
+        "endChar": 114
+      },
+      "revId": "abdeb6489973f68fc8a9b815a0a23af077f13f1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
