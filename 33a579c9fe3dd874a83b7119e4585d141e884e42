@@ -70,6 +70,30 @@
       },
       "revId": "33a579c9fe3dd874a83b7119e4585d141e884e42",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dafdd6bf_b52c05bc",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-04T09:46:11Z",
+      "side": 1,
+      "message": "This function is only meant to be invoked for SError. The enter_lower_el_async_ea() and handle_lower_el_async_ea() are invoked when SError is encoutered. The other callers of this function also do the same thing (AFAICS).\n\nSo, in case ESR does not correspond to SError, then it can only mean one of the 2 things: the hardware is broken (in which case we should probably panic) or the developer has made a mistake  in calling this function for some other exception (in which case we should assert). Returning silently from here if Syndrome is not SError will  only hide a bigger problem IMO.\n\nHaving an assert here would be good to establish function expectation that this is only to be invoked for SError.",
+      "parentUuid": "1c7f6dba_9e0d313a",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 8
+      },
+      "revId": "33a579c9fe3dd874a83b7119e4585d141e884e42",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
