@@ -20,6 +20,7 @@
 	.weak	plat_handle_uncontainable_ea
 	.weak	plat_handle_double_fault
 	.weak	plat_handle_el3_ea
+	.weak	plat_can_cmo
 
 #define MPIDR_RES_BIT_MASK	0xff000000
 
@@ -120,3 +121,17 @@ endfunc plat_handle_double_fault
 func plat_handle_el3_ea
 	b	report_unhandled_exception
 endfunc plat_handle_el3_ea
+
+	/* -----------------------------------------------------
+	 * Platform hook to indicate whether cache management
+	 * operations should be performed. This accepts no
+	 * argument and it returns 0 if CMOs should be skipped
+	 * and non-zero otherwise. This implemenataion always
+	 * returns 1 meaning CMOs should be performed.
+	 * clobbers: x0
+	 * -----------------------------------------------------
+	 */
+func plat_can_cmo
+	mov	x0, #1
+	ret
+endfunc plat_can_cmo

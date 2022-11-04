@@ -15,6 +15,7 @@
 	.weak	bl1_plat_prepare_exit
 	.weak	platform_mem_init
 	.weak	plat_panic_handler
+	.weak	plat_can_cmo
 
 	/* -----------------------------------------------------
 	 * Placeholder function which should be redefined by
@@ -87,3 +88,17 @@ endfunc bl1_plat_prepare_exit
 func plat_panic_handler
 	b	plat_panic_handler
 endfunc plat_panic_handler
+
+	/* -----------------------------------------------------
+	 * Platform hook to indicate whether cache management
+	 * operations should be performed. This accepts no
+	 * argument and it returns 0 if CMOs should be skipped
+	 * and non-zero otherwise. This implemenataion always
+	 * returns 1 meaning CMOs should be performed.
+	 * clobbers: r0
+	 * -----------------------------------------------------
+	 */
+func plat_can_cmo
+	mov	r0, #1
+	bx	lr
+endfunc plat_can_cmo
