@@ -1461,6 +1461,21 @@ When the MEASURED_BOOT flag is enabled:
 
 When the MEASURED_BOOT flag is disabled, this function doesn't do anything.
 
+Function : plat_can_cmo()
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : void
+    Return   : uint64_t
+
+When CONDITIONAL_CMO flag is enabled:
+
+- This function indicates whether cache management operations should be
+  performed. It returns 0 if CMOs should be skipped and non-zero
+  otherwise.
+- The function can only clobber x0/r0. It also must not use stack.
+
 Modifications specific to a Boot Loader stage
 ---------------------------------------------
 
