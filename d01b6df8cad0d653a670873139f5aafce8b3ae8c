@@ -16,6 +16,24 @@
       "message": "I\u0027m not completely convinced that this clarifies the documentation more than it complicates it. The existing installation instructions do appear to already go over how to install the Python dependencies on line 40. I think unlike with binary dependencies like Python and PlantUML where we don\u0027t know what package manager the reader is using, we know exactly how to install Python dependencies, and we can integrate them into our installation instructions (like we\u0027ve done).\n\nI think adding additional information about the virtual environment and how to set one up for newbies is a good shout, but honestly I feel like the existing order looks less \"scary\" to people with no Python experience, who aren\u0027t going to know what \"these Python modules from this file are a prerequisite\" means.\n\nThat\u0027s my personal opinion, mind. Is this part of out-of-box testing?",
       "revId": "d01b6df8cad0d653a670873139f5aafce8b3ae8c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "595b88f6_88147ae1",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-11-04T10:23:22Z",
+      "side": 1,
+      "message": "Yes, this is part of out of box testing, but not mine. This patch in particular tries to address feedback from 2.7 where they had issues with the python environment setup on several counts.\n\nThe install instructions on (the old) line 40 are kept, they just move down a bit. I\u0027ve tried to order it in two logical parts (which is consistent with the previous section): 1) here\u0027s what you need and some details on how/why and 2) here\u0027s a sample command on how to get it on Ubuntu. First part is to cover the differing package managers and the second one is just the \"get me going\" part. Strictly speaking, we don\u0027t even need the pip command we supply, and the feedback seemed to stem from them trying to install these from the system repositories. Even though we can\u0027t rely on apt being present, we give instructions for it and hope anyone using anything else is advanced enough to figure out the differences.\n\nIn my opinion, the problem with the existing instructions is that the paragraph on line 28 is really easy to get interpreted as not a dependency because it\u0027s not part of the bulleted list. It\u0027s also split with the paragraph on line 47. As a result what I think happens is people install python and plantUML, run the code snippet and watch things blow up. So I\u0027m afraid the scariness is unavoidable. I\u0027ve tried to make it a bit less verbose and to make it explicitly a dependency. I also cover the most likely corner cases that could result in failures (specifically the PATH and root privileges bit). Then I just hint at venvs and leave it there because we don\u0027t require it.\n\nPerhaps I can rephrase a little, something like:\ninstall them locally -\u003e install for the current user\ninstalled globally -\u003e installed system wide\nroot privileges -\u003e root privileges with sudo",
+      "parentUuid": "e66f0c90_af40e10d",
+      "revId": "d01b6df8cad0d653a670873139f5aafce8b3ae8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
