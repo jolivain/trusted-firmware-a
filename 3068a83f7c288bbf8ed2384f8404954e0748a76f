@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc9dc917_414cc1ce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-11-04T19:59:43Z",
+      "side": 1,
+      "message": "feat(cpus), we don\u0027t currently have cache scope/sub-scope per https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17521/2/changelog.yaml",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 11
+      },
+      "revId": "3068a83f7c288bbf8ed2384f8404954e0748a76f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6252cad3_a276b4d8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-11-04T19:59:43Z",
+      "side": 1,
+      "message": "nit: move \"debugging\" to new line.",
+      "range": {
+        "startLine": 19,
+        "startChar": 67,
+        "endLine": 19,
+        "endChar": 76
+      },
+      "revId": "3068a83f7c288bbf8ed2384f8404954e0748a76f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f7ee116c_110a2456",
@@ -14,6 +60,29 @@
       "writtenOn": "2022-11-04T13:57:56Z",
       "side": 1,
       "message": "Hi,\n\nHere\u0027s the CL following from the email thread https://lists.trustedfirmware.org/archives/list/tf-a@lists.trustedfirmware.org/thread/IYEWINLGKY5XCH7PR6QYMDSSIYM3X4GV/. Can you please review.\n\nI\u0027ve added Etienne for aarch32. Please add other related maintainers if I\u0027ve missed.\n\nThanks,\nOkash",
+      "revId": "3068a83f7c288bbf8ed2384f8404954e0748a76f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77576bc2_21dc1120",
+        "filename": "plat/common/aarch64/platform_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-11-04T19:59:43Z",
+      "side": 1,
+      "message": "I assume there is a downstream implementation of this which conditionally sets/clears this?",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 20
+      },
       "revId": "3068a83f7c288bbf8ed2384f8404954e0748a76f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
