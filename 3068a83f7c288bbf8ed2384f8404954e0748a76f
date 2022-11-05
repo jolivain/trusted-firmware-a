@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "40619570_01df5d9b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-11-05T03:42:25Z",
+      "side": 1,
+      "message": "Either we add the new sub scope or use feat(cpus).",
+      "parentUuid": "e91b481e_a9f10770",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 11
+      },
+      "revId": "3068a83f7c288bbf8ed2384f8404954e0748a76f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6252cad3_a276b4d8",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -189,6 +213,30 @@
       "side": 1,
       "message": "correct, platforms can implement this however they like. i guess in a later patch we can improve this to check cpu debug recovery mode. for now i wanted to keep the old behaviour unchanged. hope that makes sense.",
       "parentUuid": "77576bc2_21dc1120",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 20
+      },
+      "revId": "3068a83f7c288bbf8ed2384f8404954e0748a76f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da37a788_e971bafa",
+        "filename": "plat/common/aarch64/platform_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-11-05T03:42:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "439eba85_c1fdec08",
       "range": {
         "startLine": 131,
         "startChar": 0,
