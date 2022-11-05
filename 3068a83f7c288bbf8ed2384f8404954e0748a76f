@@ -72,6 +72,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ee2376b_d30c276c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-11-05T11:58:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40619570_01df5d9b",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 11
+      },
+      "revId": "3068a83f7c288bbf8ed2384f8404954e0748a76f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6252cad3_a276b4d8",
@@ -159,6 +183,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9860d2ba_6214b99b",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-11-05T11:58:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "541370a8_58b90f30",
+      "range": {
+        "startLine": 40,
+        "startChar": 7,
+        "endLine": 40,
+        "endChar": 17
+      },
+      "revId": "3068a83f7c288bbf8ed2384f8404954e0748a76f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b43d8d9_1bc458e2",
@@ -172,6 +220,24 @@
       "writtenOn": "2022-11-04T21:14:37Z",
       "side": 1,
       "message": "Can you state here which registers are used and which registers need to be preserved and which registers are clobbered?",
+      "revId": "3068a83f7c288bbf8ed2384f8404954e0748a76f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41a7e7f6_470be2aa",
+        "filename": "plat/common/aarch64/platform_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-11-05T11:58:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b43d8d9_1bc458e2",
       "revId": "3068a83f7c288bbf8ed2384f8404954e0748a76f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
