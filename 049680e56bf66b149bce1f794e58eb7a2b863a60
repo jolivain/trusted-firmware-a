@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "458fe14a_515cc66e",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-11-07T14:52:47Z",
+      "side": 1,
+      "message": "This could increase the execution time substantially. Should we mention somewhere that the cache can be disabled if we wanted to speed up the execution as long as we don\u0027t need to test any change that could be affected by coherence?",
+      "range": {
+        "startLine": 199,
+        "startChar": 1,
+        "endLine": 199,
+        "endChar": 65
+      },
+      "revId": "049680e56bf66b149bce1f794e58eb7a2b863a60",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c1761945_cd835a21",
         "filename": "docs/components/realm-management-extension.rst",
         "patchSetId": 4
@@ -14,6 +37,23 @@
       "writtenOn": "2022-11-07T12:33:48Z",
       "side": 1,
       "message": "add the following options as well: \n\n-C cluster0.stage12_tlb_size\u003d1024 \\\n-C cluster0.check_memory_attributes\u003d0 \\\n-C cluster0.ish_is_osh\u003d1\n\nalso for cluster 1 as well.",
+      "revId": "049680e56bf66b149bce1f794e58eb7a2b863a60",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00d561ce_89b77db2",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-11-07T14:52:47Z",
+      "side": 1,
+      "message": "During TF-RMM bring up, a message stating version and other info is also printed. Should we mention it here as well?",
       "revId": "049680e56bf66b149bce1f794e58eb7a2b863a60",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
