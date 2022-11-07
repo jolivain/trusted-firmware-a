@@ -1117,7 +1117,7 @@ int gpt_delegate_pas(uint64_t base, size_t size, unsigned int src_sec_state)
 	 * The isb() will be done as part of context
 	 * synchronization when returning to lower EL
 	 */
-	VERBOSE("[GPT] Granule 0x%" PRIx64 ", GPI 0x%x->0x%x\n",
+	NOTICE("[GPT] Granule 0x%" PRIx64 ", GPI 0x%x->0x%x\n",
 		base, gpi_info.gpi, target_pas);
 
 	return 0;

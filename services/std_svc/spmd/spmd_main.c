@@ -31,7 +31,18 @@
 #include <services/spmc_svc.h>
 #include <services/spmd_svc.h>
 #include <smccc_helpers.h>
+#include "lib/xlat_tables/xlat_tables_defs.h"
 #include "spmd_private.h"
+#include <lib/gpt_rme/gpt_rme.h>
+
+/*
+ * SMC IDs for calls from SPM to update security state of memory region.
+ */
+#define SPM_FNUM_GTSI_DELEGATE U(0x90)
+#define SPM_FNUM_GTSI_UNDELEGATE U(0x91)
+
+#define SPM_GTSI_DELEGATE		FFA_FID(SMC_64, SPM_FNUM_GTSI_DELEGATE)
+#define SPM_GTSI_UNDELEGATE		FFA_FID(SMC_64, SPM_FNUM_GTSI_UNDELEGATE)
 
 /*******************************************************************************
  * SPM Core context information.
@@ -832,7 +843,7 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 	unsigned int linear_id = plat_my_core_pos();
 	spmd_spm_core_context_t *ctx = spmd_get_context();
 	bool secure_origin;
-	int32_t ret;
+	int32_t ret = -1;
 	uint32_t input_version;
 
 	/* Determine which security state this SMC originated from */
@@ -846,6 +857,70 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 		    SMC_GET_GP(handle, CTX_GPREG_X7));
 
 	switch (smc_fid) {
+#if ENABLE_RME && SPMD_SPM_AT_SEL2
+	case SPM_GTSI_DELEGATE:
+		uint64_t end;
+		if (!secure_origin) {
+			return spmd_ffa_error_return(handle, FFA_ERROR_NOT_SUPPORTED);
+		}
+
+		/* Check for overflow. */
+		if (UINT64_MAX - x1 < x2) {
+			return spmd_ffa_error_return(handle, FFA_ERROR_INVALID_PARAMETER);
+		}
+
+		/* Base + size. */
+		end = x1 + x2;
+
+		for (uint64_t it = x1; it < end; it += PAGE_SIZE_4KB) {
+			ret = gpt_delegate_pas(it, PAGE_SIZE_4KB, SMC_FROM_SECURE);
+		}
+
+		if (ret == 0) {
+			SMC_RET8(handle, FFA_SUCCESS_SMC64,
+				FFA_PARAM_MBZ, FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+				FFA_PARAM_MBZ, FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+				FFA_PARAM_MBZ);
+		}
+
+		SMC_RET8(handle, FFA_ERROR_SMC64,
+			FFA_TARGET_INFO_MBZ, ret,
+			FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+			FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+			FFA_PARAM_MBZ);
+		break; /* not reached */
+
+	case SPM_GTSI_UNDELEGATE:
+		if (!secure_origin) {
+			return spmd_ffa_error_return(handle, FFA_ERROR_NOT_SUPPORTED);
+		}
+
+		/* Check for overflow. */
+		if (UINT64_MAX - x1 < x2) {
+			return spmd_ffa_error_return(handle, FFA_ERROR_INVALID_PARAMETER);
+		}
+
+		/* Base + size. */
+		end = x1 + x2;
+
+		for (uint64_t it = x1; it < end; it += PAGE_SIZE_4KB) {
+			ret = gpt_undelegate_pas(it, PAGE_SIZE_4KB, SMC_FROM_SECURE);
+		}
+		NOTICE("FFA_GTSI_UNDELEGATE: %lx %lx %d\n", x1, x2, ret);
+		if (ret == 0) {
+			SMC_RET8(handle, FFA_SUCCESS_SMC64,
+				FFA_PARAM_MBZ, FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+				FFA_PARAM_MBZ, FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+				FFA_PARAM_MBZ);
+		}
+
+		SMC_RET8(handle, FFA_ERROR_SMC64,
+			FFA_TARGET_INFO_MBZ, ret,
+			FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+			FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+			FFA_PARAM_MBZ);
+		break; /* not reached */
+#endif /* ENABLE_RME  && SPMD_SPM_AT_SEL2 */
 	case FFA_ERROR:
 		/*
 		 * Check if this is the first invocation of this interface on
