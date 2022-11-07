@@ -26,6 +26,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eae9d584_8944d11a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-11-07T15:21:48Z",
+      "side": 1,
+      "message": "The commit message does not capture the problem on Tegra platforms. On Tegra platforms, TF-A BL2 is not used. The bootloader there only loads the Trusty image from external storage to DRAM and passes the entrypoint to TF-A via its boot parameters. When BL31, enters the Trusty SPD, we see a crash. Obviously, this is because the first 4K memory is not mapped.",
+      "revId": "2786d1c93f37c4b11c345599c74455ea31a9c007",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c351fe7e_6282ff8e",
         "filename": "services/spd/trusty/trusty.c",
         "patchSetId": 6
@@ -152,6 +169,30 @@
       "writtenOn": "2022-11-07T08:57:40Z",
       "side": 1,
       "message": "Can\u0027t this be done in Tegra platform makefiles rather than in the generic SPD?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 5
+      },
+      "revId": "2786d1c93f37c4b11c345599c74455ea31a9c007",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67c3e4d6_e1b53a96",
+        "filename": "services/spd/trusty/trusty.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-11-07T15:21:48Z",
+      "side": 1,
+      "message": "I agree with Olivier",
+      "parentUuid": "6557c593_0b49f51b",
       "range": {
         "startLine": 16,
         "startChar": 0,
