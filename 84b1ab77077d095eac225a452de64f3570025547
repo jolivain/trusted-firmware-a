@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b752d56_c8da4ce3",
+        "filename": "fdts/stm32mp1-cot-descriptors.dtsi",
+        "patchSetId": 12
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-11-07T14:39:28Z",
+      "side": 1,
+      "message": "Hi Lionel, thanks for sharing your intentions behind this change. In the context of nonvolatile counters, IIUC - \n\n1. CoT was used to add a non-volatile counter as an authentication method\n2. However, the NV-counter register information is not part of the device tree and you prefer to retrieve it through a platform-specific method (without needing the device tree).\n\nIt appears that NV-counter information is included in both the device tree and the platform-specific file. Better solution would be to have all NV-counter information in the device tree, which can be accomplished by making the NV-counter driver common in fconf.",
+      "parentUuid": "eab3b527_3a6f7bb0",
+      "range": {
+        "startLine": 144,
+        "startChar": 1,
+        "endLine": 144,
+        "endChar": 42
+      },
+      "revId": "84b1ab77077d095eac225a452de64f3570025547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3746c8c5_39f54b44",
         "filename": "fdts/stm32mp13-bl2.dtsi",
         "patchSetId": 12
