@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "932d2206_a0540ebd",
+        "filename": "services/spd/trusty/trusty.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-07T09:36:58Z",
+      "side": 1,
+      "message": "move definitions at top of file",
+      "range": {
+        "startLine": 306,
+        "startChar": 0,
+        "endLine": 307,
+        "endChar": 31
+      },
+      "revId": "91df82ec6d3d4ada2b57714b4ceb894d6f2940c2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81cce7b0_bb7bfd6b",
+        "filename": "services/spd/trusty/trusty.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-07T09:36:58Z",
+      "side": 1,
+      "message": "Is this ok for this variable to be accessed concurrently without using a lock?\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17034/6/services/spd/trusty/trusty.c#434\n\nI believe this is ok because of how things boot chronologically in the best case scenario, but still I thought worth mentioning.",
+      "range": {
+        "startLine": 318,
+        "startChar": 6,
+        "endLine": 318,
+        "endChar": 24
+      },
+      "revId": "91df82ec6d3d4ada2b57714b4ceb894d6f2940c2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "928f300e_96f55a82",
+        "filename": "services/spd/trusty/trusty.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-07T09:36:58Z",
+      "side": 1,
+      "message": "preferably move at top",
+      "range": {
+        "startLine": 361,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 6
+      },
+      "revId": "91df82ec6d3d4ada2b57714b4ceb894d6f2940c2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc3806e1_5f8be23e",
+        "filename": "services/spd/trusty/trusty.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-07T09:36:58Z",
+      "side": 1,
+      "message": "Isn\u0027t it possible for a platform to boot from a core different from core linear id 0?",
+      "range": {
+        "startLine": 386,
+        "startChar": 1,
+        "endLine": 387,
+        "endChar": 17
+      },
+      "revId": "91df82ec6d3d4ada2b57714b4ceb894d6f2940c2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
