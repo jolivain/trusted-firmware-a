@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44988f08_c1dc8eab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000789
+      },
+      "writtenOn": "2022-11-07T17:33:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "33ea17e2_ec846370",
+      "revId": "9c60d8dd1c36ca3eabfd3cb4b9926f0bbfbf6ead",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c221e4ff_0399b3ba",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-11-07T09:51:12Z",
       "side": 1,
       "message": "remove",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 11
+      },
+      "revId": "9c60d8dd1c36ca3eabfd3cb4b9926f0bbfbf6ead",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "679f4c4e_d409ade7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000789
+      },
+      "writtenOn": "2022-11-07T17:33:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c221e4ff_0399b3ba",
       "range": {
         "startLine": 9,
         "startChar": 0,
@@ -78,6 +120,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f2da0ddf_d0fe2d39",
+        "filename": "services/spd/trusty/include/trusty/plat/boot_args.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000789
+      },
+      "writtenOn": "2022-11-07T17:33:06Z",
+      "side": 1,
+      "message": "Not sure I understand Olivier\u0027s comment about .../plat/nvidia/tegra\nThe trusty boot args are not specific to nvidia or tegra. They are specific to the Trusty SPD.\ntegra_bl31_setup.c happened to be using the same definition of plat_trusty_set_boot_args function that Trusty SPD uses, but without it ever being declared anywhere. In my opinion that should have failed with an \"implicit function declaration\" error, but it looks like TF-A is not using that compile option. If the signature of the boot args function ever got changed it would subtly break things, as things would still build, but nvidia/tegra would probably no longer work properly.\n\nThis change aims to fix that by defining the function in a header and making tegra include it.\n\ninclude/bl32/payloads/ doesn\u0027t really seem like the right place for that, based on what\u0027s already there (I only see include/bl32/payloads/tlk.h, which defines a bunch of constants, but no function interfaces)",
+      "parentUuid": "de6e448b_a68bb4cf",
+      "revId": "9c60d8dd1c36ca3eabfd3cb4b9926f0bbfbf6ead",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "21a54192_2abbf7d3",
         "filename": "services/spd/trusty/trusty.mk",
         "patchSetId": 6
@@ -89,6 +149,30 @@
       "writtenOn": "2022-11-07T09:51:12Z",
       "side": 1,
       "message": "nit: 2022",
+      "range": {
+        "startLine": 2,
+        "startChar": 21,
+        "endLine": 2,
+        "endChar": 25
+      },
+      "revId": "9c60d8dd1c36ca3eabfd3cb4b9926f0bbfbf6ead",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22481dff_bd2da73b",
+        "filename": "services/spd/trusty/trusty.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000789
+      },
+      "writtenOn": "2022-11-07T17:33:06Z",
+      "side": 1,
+      "message": "Just to confirm: is the policy that copyright years should be updated whenever a file is changed?",
+      "parentUuid": "21a54192_2abbf7d3",
       "range": {
         "startLine": 2,
         "startChar": 21,
