@@ -32,7 +32,18 @@
 #include <services/spmc_svc.h>
 #include <services/spmd_svc.h>
 #include <smccc_helpers.h>
+#include "lib/xlat_tables/xlat_tables_defs.h"
 #include "spmd_private.h"
+#include <lib/gpt_rme/gpt_rme.h>
+
+/*
+ * SMC IDs for calls from SPM to update security state of memory region.
+ */
+#define SPM_FNUM_GTSI_DELEGATE U(0x90)
+#define SPM_FNUM_GTSI_UNDELEGATE U(0x91)
+
+#define SPM_GTSI_DELEGATE		FFA_FID(SMC_64, SPM_FNUM_GTSI_DELEGATE)
+#define SPM_GTSI_UNDELEGATE		FFA_FID(SMC_64, SPM_FNUM_GTSI_UNDELEGATE)
 
 /*******************************************************************************
  * SPM Core context information.
@@ -822,6 +833,58 @@ uint64_t spmd_ffa_smc_handler(uint32_t smc_fid,
 				handle, flags);
 }
 
+#if ENABLE_RME && SPMD_SPM_AT_SEL2
+static uint64_t spmd_protect_memory(bool protect,
+				    bool secure_origin,
+				    const uint64_t base,
+				    const size_t size,
+				    void* handle)
+{
+	const uint64_t end = base + size;
+	uint64_t ret = 0;
+
+	if (!secure_origin) {
+		ERROR("Calls for SPMD to protect memory must be done from SWd.\n");
+		return spmd_ffa_error_return(handle, FFA_ERROR_NOT_SUPPORTED);
+	}
+
+	if (UINT64_MAX - base < end) {
+		ERROR("Overflow: %lx + %lx\n", base, size);
+		return spmd_ffa_error_return(handle, FFA_ERROR_INVALID_PARAMETER);
+	}
+
+	/*
+	 * TODO: Once GPT library supports updating more than a page at a time,
+	 * then drop this loop.
+	 */
+	for (uint64_t it = base; it < end; it += PAGE_SIZE_4KB) {
+		/*
+		 * If protect is true, add memory to secure GPT.
+		 * Else unprotect it, making part of non-secure GPT.
+		 */
+		ret = protect
+			? gpt_delegate_pas(it, PAGE_SIZE_4KB, SMC_FROM_SECURE)
+			: gpt_undelegate_pas(it, PAGE_SIZE_4KB, SMC_FROM_SECURE);
+
+		if (ret != 0) {
+			ERROR("Can't update security state of: %lx\n", it);
+
+			SMC_RET8(handle, FFA_ERROR_SMC64,
+				 FFA_TARGET_INFO_MBZ, ret,
+				 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+				 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+				 FFA_PARAM_MBZ);
+			/* Execution shall not get here. */
+		}
+	}
+
+	SMC_RET8(handle, FFA_SUCCESS_SMC64,
+		 FFA_PARAM_MBZ, FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+		 FFA_PARAM_MBZ, FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+		 FFA_PARAM_MBZ);
+}
+#endif /* ENABLE_RME  && SPMD_SPM_AT_SEL2 */
+
 /*******************************************************************************
  * This function handles all SMCs in the range reserved for FFA. Each call is
  * either forwarded to the other security state or handled by the SPM dispatcher
@@ -838,7 +901,7 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 	unsigned int linear_id = plat_my_core_pos();
 	spmd_spm_core_context_t *ctx = spmd_get_context();
 	bool secure_origin;
-	int32_t ret;
+	int32_t ret = -1;
 	uint32_t input_version;
 
 	/* Determine which security state this SMC originated from */
@@ -862,6 +925,12 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 	}
 
 	switch (smc_fid) {
+#if ENABLE_RME && SPMD_SPM_AT_SEL2
+	case SPM_GTSI_DELEGATE:
+		return spmd_protect_memory(true, secure_origin, x1, x2, handle);
+	case SPM_GTSI_UNDELEGATE:
+		return spmd_protect_memory(false, secure_origin, x1, x2, handle);
+#endif /* ENABLE_RME  && SPMD_SPM_AT_SEL2 */
 	case FFA_ERROR:
 		/*
 		 * Check if this is the first invocation of this interface on
