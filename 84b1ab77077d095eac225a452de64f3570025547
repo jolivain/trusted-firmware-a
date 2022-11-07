@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eab3b527_3a6f7bb0",
+        "filename": "fdts/stm32mp1-cot-descriptors.dtsi",
+        "patchSetId": 12
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2022-11-07T09:58:09Z",
+      "side": 1,
+      "message": "Manish, you\u0027re right.\n\nI\u0027ve planned to use the arm implementation but the finally, I\u0027ve quickly used a platform dedicated approach in a first time to fix the anti rollback counter addresses.\nI think, your fconf driver to retrieve the reg address for the counter might by common as it is a trivial reg address set, I\u0027ll be interested to move it to update that.\n\nCurrently, the rollback counter address are defined in the platform specific part [1], by the way, I need the node description to keep the binding of the CoT and use the generic get_oid functionality.\n\nIs it ok for you if I just remove the arm compatible from this node ?\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17181/10/plat/st/common/stm32mp_trusted_boot.c#n172",
+      "parentUuid": "49820e14_f0e43af0",
+      "range": {
+        "startLine": 144,
+        "startChar": 1,
+        "endLine": 144,
+        "endChar": 42
+      },
+      "revId": "84b1ab77077d095eac225a452de64f3570025547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3746c8c5_39f54b44",
         "filename": "fdts/stm32mp13-bl2.dtsi",
         "patchSetId": 12
