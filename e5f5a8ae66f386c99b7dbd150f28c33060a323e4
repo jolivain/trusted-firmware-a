@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af968bff_0f68c87a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-07T10:37:07Z",
+      "side": 1,
+      "message": "The failure reported by the CI is on test config \u0027tf-l1-build-clang/fvp-aarch32-clang:nil\u0027, which is unrelated to this patch. So I am overriding the Verified score.",
+      "revId": "e5f5a8ae66f386c99b7dbd150f28c33060a323e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
