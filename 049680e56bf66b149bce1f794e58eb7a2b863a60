@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fc5765d8_d63f464f",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-07T15:05:25Z",
+      "side": 1,
+      "message": "Move this to after line 127.",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 26
+      },
+      "revId": "049680e56bf66b149bce1f794e58eb7a2b863a60",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e3aced2_a60c7360",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-07T15:05:25Z",
+      "side": 1,
+      "message": "nit: \".. Realm world tests.\"",
+      "range": {
+        "startLine": 189,
+        "startChar": 36,
+        "endLine": 189,
+        "endChar": 45
+      },
+      "revId": "049680e56bf66b149bce1f794e58eb7a2b863a60",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "458fe14a_515cc66e",
         "filename": "docs/components/realm-management-extension.rst",
         "patchSetId": 4
@@ -83,6 +129,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "71c1484b_9a71fd20",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-07T15:05:25Z",
+      "side": 1,
+      "message": "..in each security state: ...",
+      "range": {
+        "startLine": 294,
+        "startChar": 50,
+        "endLine": 294,
+        "endChar": 52
+      },
+      "revId": "049680e56bf66b149bce1f794e58eb7a2b863a60",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3083075a_4f05b317",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-07T15:05:25Z",
+      "side": 1,
+      "message": "Suggest:\n\n`Hafnium SPM` is the reference Secure world component and the software components for the other 2 worlds (Realm and Non-Secure) are as described in the previous section.",
+      "range": {
+        "startLine": 296,
+        "startChar": 59,
+        "endLine": 298,
+        "endChar": 19
+      },
+      "revId": "049680e56bf66b149bce1f794e58eb7a2b863a60",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06b33686_bdb6ad47",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-07T15:05:25Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 301,
+        "endChar": 67
+      },
+      "revId": "049680e56bf66b149bce1f794e58eb7a2b863a60",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1a742300_a178b52d",
         "filename": "docs/components/realm-management-extension.rst",
         "patchSetId": 4
@@ -94,6 +209,98 @@
       "writtenOn": "2022-11-07T11:16:00Z",
       "side": 1,
       "message": "We cannot enable MTE on a four world system.\nNeed to disable it in Hafnium for 4 worlds",
+      "revId": "049680e56bf66b149bce1f794e58eb7a2b863a60",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40a241ca_5fdca23b",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-07T15:05:25Z",
+      "side": 1,
+      "message": "Running the tests for a 4 world FVP setup",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 17
+      },
+      "revId": "049680e56bf66b149bce1f794e58eb7a2b863a60",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30cea941_1514de8d",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-07T15:05:25Z",
+      "side": 1,
+      "message": "Use the following arguments in addition to `3 world FVP setup` (add ref to above section) to run tests for 4 world setup.",
+      "range": {
+        "startLine": 340,
+        "startChar": 39,
+        "endLine": 340,
+        "endChar": 41
+      },
+      "revId": "049680e56bf66b149bce1f794e58eb7a2b863a60",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51d3a486_3ddd9cd3",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-07T15:05:25Z",
+      "side": 1,
+      "message": "As mentioned previously, this is to be removed.",
+      "range": {
+        "startLine": 352,
+        "startChar": 0,
+        "endLine": 354,
+        "endChar": 33
+      },
+      "revId": "049680e56bf66b149bce1f794e58eb7a2b863a60",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fca0ac6c_b7f5868d",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-07T15:05:25Z",
+      "side": 1,
+      "message": "Hafnium SPM",
+      "range": {
+        "startLine": 361,
+        "startChar": 3,
+        "endLine": 361,
+        "endChar": 11
+      },
       "revId": "049680e56bf66b149bce1f794e58eb7a2b863a60",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
