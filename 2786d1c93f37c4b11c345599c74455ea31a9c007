@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc97785e_e0be2ec9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-07T08:57:40Z",
+      "side": 1,
+      "message": "I wonder if this is a correct explanation. Is this instead that on Tegra, BL31 doesn\u0027t map BL32?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 59
+      },
+      "revId": "2786d1c93f37c4b11c345599c74455ea31a9c007",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c351fe7e_6282ff8e",
+        "filename": "services/spd/trusty/trusty.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-07T08:57:40Z",
+      "side": 1,
+      "message": "should update year date to 2022",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "2786d1c93f37c4b11c345599c74455ea31a9c007",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58050b4e_1ed72de2",
+        "filename": "services/spd/trusty/trusty.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-07T08:57:40Z",
+      "side": 1,
+      "message": "Does it require updating docs/components/spd/trusty-dispatcher.rst and perhaps docs/plat/nvidia-tegra.rst ?\nUnless we consider this flag remains internal and isn\u0027t exposed to the command line?",
+      "range": {
+        "startLine": 441,
+        "startChar": 7,
+        "endLine": 441,
+        "endChar": 23
+      },
+      "revId": "2786d1c93f37c4b11c345599c74455ea31a9c007",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ceb374b0_2bfdee8b",
+        "filename": "services/spd/trusty/trusty.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-07T08:57:40Z",
+      "side": 1,
+      "message": "nit: 2022",
+      "range": {
+        "startLine": 2,
+        "startChar": 21,
+        "endLine": 2,
+        "endChar": 25
+      },
+      "revId": "2786d1c93f37c4b11c345599c74455ea31a9c007",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81e27491_ab814aa1",
+        "filename": "services/spd/trusty/trusty.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-07T08:57:40Z",
+      "side": 1,
+      "message": "nit: SPD\n\nBL31 inits SPDs and BL32, so is the problem that BL31 doesn\u0027t map BL32 on this platform?",
+      "range": {
+        "startLine": 16,
+        "startChar": 55,
+        "endLine": 16,
+        "endChar": 58
+      },
+      "revId": "2786d1c93f37c4b11c345599c74455ea31a9c007",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85dfdbd6_6607db70",
+        "filename": "services/spd/trusty/trusty.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-07T08:57:40Z",
+      "side": 1,
+      "message": "Does it mean \u0027execution state\u0027?",
+      "range": {
+        "startLine": 18,
+        "startChar": 21,
+        "endLine": 18,
+        "endChar": 28
+      },
+      "revId": "2786d1c93f37c4b11c345599c74455ea31a9c007",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6557c593_0b49f51b",
+        "filename": "services/spd/trusty/trusty.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-07T08:57:40Z",
+      "side": 1,
+      "message": "Can\u0027t this be done in Tegra platform makefiles rather than in the generic SPD?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 5
+      },
+      "revId": "2786d1c93f37c4b11c345599c74455ea31a9c007",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
