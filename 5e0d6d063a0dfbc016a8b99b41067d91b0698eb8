@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1218ca3f_70e7dd9c",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-07T16:05:22Z",
+      "side": 1,
+      "message": "I wonder if we could directly branch to ea_proceed here and lines 209, 222\nthen remove the label line 225?",
+      "range": {
+        "startLine": 214,
+        "startChar": 6,
+        "endLine": 214,
+        "endChar": 8
+      },
+      "revId": "5e0d6d063a0dfbc016a8b99b41067d91b0698eb8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
