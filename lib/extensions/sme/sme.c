@@ -48,6 +48,17 @@ void sme_enable(cpu_context_t *context)
 		VERBOSE("[SME] FA64 enabled\n");
 		reg |= SMCR_ELX_FA64_BIT;
 	}
+
+	/*
+	 * Enable access to ZT0 register.
+	 * Make sure FEAT_SME2 is supported by the hardware before continuing.
+	 * If supported, Set the EZT0 bit in SMCR_EL3 to allow instructions to
+	 * access ZT0 register without trapping.
+	 */
+	if (is_feat_sme2_supported()) {
+		VERBOSE("SME2 enabled\n");
+		reg |= SMCR_ELX_EZT0_BIT;
+	}
 	write_smcr_el3(reg);
 
 	/* Reset CPTR_EL3 value. */
