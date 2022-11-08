@@ -52,6 +52,24 @@
       "parentUuid": "595b88f6_88147ae1",
       "revId": "d01b6df8cad0d653a670873139f5aafce8b3ae8c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09acbc62_dd7a86bb",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-11-08T11:38:28Z",
+      "side": 1,
+      "message": "The issue is that this exact scenario you describe happened to both me and the feedback we got on 2.7 with the current phrasing. Currently, skimming over the prerequisites prompts you to install python3 and plantuml. Then you run `make` and it blows up with a missing sphinx. You `apt install sphinx` or whatever and it now works. So at worst, my change maintains the status quo, but I think that it improves things because the initial list is expanded to include those dependencies. It\u0027s the next bullet so it cannot be missed. Then follows the skippable blurb of extra information that is not strictly necessary but will help with maintaining a clean environment. It is also indented to make it clear it\u0027s part of this bullet and not a global thing.\n\nThis is the clearly marked section. It IS a prerequisite. It\u0027s not optional, you can\u0027t skip it even if you wanted to.\n\nAs for the command, that\u0027s exactly what I do in my change. For the tl;dr crowd that goes to the end of the section and copies the sample commands, this exact command you suggest is there (on the new line 45).\n\nI agree with your last point, except that everything will be installed for the local user and will just work. At least on Ubuntu, pip\u0027s user install directory is not part of the $PATH. Pip emits a warning for this (what I try to explain on lines 27 to 29) but the same crowd that emphasises on the quick in quickstart will probably miss it and get the make error anyway. So the only foolproof way to be sure they installed the modules is giving them `sudo pip install`. Everything else is sadly advanced usage which I give in the blurb. And for the people who end up with a newer version of sphinx despite all of this, the previous patch in this series makes sure it at least builds.",
+      "parentUuid": "49479b5d_1a353fe3",
+      "revId": "d01b6df8cad0d653a670873139f5aafce8b3ae8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
