@@ -228,6 +228,8 @@ void detect_arch_features(void)
 	/* v9.2 features */
 	check_feature(ENABLE_SME_FOR_NS, read_feat_sme_id_field(),
 		      "SME", 1, 2);
+	check_feature(ENABLE_SME2_FOR_NS, read_feat_sme_id_field(),
+		      "SME2", 2, 2);
 	read_feat_rme();
 
 	if (tainted) {
