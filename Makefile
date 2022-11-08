@@ -864,6 +864,15 @@ endif
 ifneq ($(ENABLE_SME_FOR_NS), 0)
     $(info ENABLE_SME_FOR_NS is an experimental feature)
 endif
+    
+ifneq ($(ENABLE_SME2_FOR_NS), 0)
+    ifeq (${ENABLE_SME_FOR_NS}, 0)
+        $(warning "ENABLE_SME2_FOR_NS requires ENABLE_SME_FOR_NS also to be set")
+        $(warning "Forced ENABLE_SME_FOR_NS=1")
+        override ENABLE_SME_FOR_NS	:= 1
+    endif
+    $(info ENABLE_SME2_FOR_NS is an experimental feature)
+endif
 
 ifeq (${ARM_XLAT_TABLES_LIB_V1}, 1)
     ifeq (${ALLOW_RO_XLAT_TABLES}, 1)
@@ -884,6 +893,11 @@ ifeq (${ARCH},aarch32)
     ifneq (${ENABLE_SME_FOR_NS},0)
         $(error "ENABLE_SME_FOR_NS cannot be used with ARCH=aarch32")
     endif
+
+    ifneq (${ENABLE_SME2_FOR_NS},0)
+        $(error "ENABLE_SME2_FOR_NS cannot be used with ARCH=aarch32")
+    endif
+
     ifeq (${ENABLE_SVE_FOR_NS},1)
         # Warning instead of error due to CI dependency on this
         $(error "ENABLE_SVE_FOR_NS cannot be used with ARCH=aarch32")
@@ -925,6 +939,7 @@ ifeq (${CTX_INCLUDE_FPREGS},1)
     ifneq (${ENABLE_SME_FOR_NS},0)
         $(error "ENABLE_SME_FOR_NS cannot be used with CTX_INCLUDE_FPREGS")
     endif
+
     ifeq (${ENABLE_SVE_FOR_NS},1)
         # Warning instead of error due to CI dependency on this
         $(warning "ENABLE_SVE_FOR_NS cannot be used with CTX_INCLUDE_FPREGS")
@@ -1247,6 +1262,7 @@ $(eval $(call add_defines,\
         ENABLE_RME \
         ENABLE_RUNTIME_INSTRUMENTATION \
         ENABLE_SME_FOR_NS \
+        ENABLE_SME2_FOR_NS \
         ENABLE_SME_FOR_SWD \
         ENABLE_SPE_FOR_NS \
         ENABLE_SVE_FOR_NS \
