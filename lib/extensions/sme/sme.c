@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,6 +7,7 @@
 #include <stdbool.h>
 
 #include <arch.h>
+#include <arch_features.h>
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <lib/el3_runtime/context_mgmt.h>
@@ -65,10 +66,23 @@ void sme_enable(cpu_context_t *context)
 	 * to be the least restrictive, then lower ELs can restrict as needed
 	 * using SMCR_EL2 and SMCR_EL1.
 	 */
-	reg = SMCR_ELX_LEN_MASK;
+	reg = read_smcr_el3();
+	reg |= SMCR_ELX_LEN_MAX;
+
 	if (feat_sme_fa64_supported()) {
 		VERBOSE("[SME] FA64 enabled\n");
 		reg |= SMCR_ELX_FA64_BIT;
+	}
+
+	/*
+	 * Enable access to ZT0 register.
+	 * Make sure FEAT_SME2 is supported by the hardware before continuing.
+	 * If supported, Set the EZT0 bit in SMCR_EL3 to allow instructions to
+	 * access ZT0 register without trapping.
+	 */
+	if (is_feat_sme2_supported()) {
+		VERBOSE("SME2 enabled\n");
+		reg |= SMCR_ELX_EZT0_BIT;
 	}
 	write_smcr_el3(reg);
 
