@@ -474,10 +474,13 @@ ENABLE_FEAT_VHE			:= 2
 ENABLE_MPAM_FOR_LOWER_ELS	:= 2
 
 # Enable SME access to NS by default
+# only enable for aarch64
+# do not enable when ENABLE_RME=1 and SPM_MM=1
 ifeq (${ARCH},aarch64)
 ifeq (${SPM_MM}, 0)
 ifeq (${ENABLE_RME}, 0)
 	ENABLE_SME_FOR_NS		:= 2
+	ENABLE_SME2_FOR_NS		:= 2
 endif
 endif
 endif
