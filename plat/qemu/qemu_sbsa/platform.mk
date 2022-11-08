@@ -63,3 +63,6 @@ $(eval $(call add_define,ARM_LINUX_KERNEL_AS_BL33))
 
 ARM_PRELOADED_DTB_BASE := PLAT_QEMU_DT_BASE
 $(eval $(call add_define,ARM_PRELOADED_DTB_BASE))
+
+TRNG_SUPPORT		:=	1
+ENABLE_FEAT_RNG		:=	2
