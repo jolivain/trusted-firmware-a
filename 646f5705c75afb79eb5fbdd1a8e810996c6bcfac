@@ -71,6 +71,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6a9b927_d2f6b41d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-08T21:47:50Z",
+      "side": 1,
+      "message": "However, I think the OPENSSL_DIR ?\u003d change is a good idea and you should keep it.",
+      "parentUuid": "9627a3bf_a60a4c12",
+      "revId": "646f5705c75afb79eb5fbdd1a8e810996c6bcfac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23bb858f_4fa17d1f",
@@ -118,6 +136,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46254745_b5b13e35",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-08T21:47:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23b048d1_eda611e6",
+      "range": {
+        "startLine": 59,
+        "startChar": 3,
+        "endLine": 59,
+        "endChar": 42
+      },
+      "revId": "646f5705c75afb79eb5fbdd1a8e810996c6bcfac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f71ed5ac_6ee801f7",
@@ -155,6 +197,30 @@
       "side": 1,
       "message": "I can make it look like OpenSSL 3 is optional.",
       "parentUuid": "f71ed5ac_6ee801f7",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 63,
+        "endChar": 72
+      },
+      "revId": "646f5705c75afb79eb5fbdd1a8e810996c6bcfac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "494fd493_2a91f7f2",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-08T21:47:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57d5ab37_481a06eb",
       "range": {
         "startLine": 63,
         "startChar": 4,
