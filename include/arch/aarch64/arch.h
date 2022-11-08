@@ -379,7 +379,8 @@
 #define ID_AA64PFR1_EL1_BT_SHIFT	U(0)
 #define ID_AA64PFR1_EL1_BT_MASK		ULL(0xf)
 
-#define BTI_IMPLEMENTED		ULL(1)	/* The BTI mechanism is implemented */
+/* The BTI mechanism is implemented */
+#define BTI_IMPLEMENTED			ULL(1)
 
 #define ID_AA64PFR1_EL1_MTE_SHIFT	U(8)
 #define ID_AA64PFR1_EL1_MTE_MASK	ULL(0xf)
@@ -409,6 +410,7 @@
 #define ID_AA64PFR1_EL1_SME_MASK		ULL(0xf)
 #define ID_AA64PFR1_EL1_SME_NOT_SUPPORTED	ULL(0x0)
 #define ID_AA64PFR1_EL1_SME_SUPPORTED		ULL(0x1)
+#define ID_AA64PFR1_EL1_SME2_SUPPORTED		ULL(0x2)
 
 /* ID_PFR1_EL1 definitions */
 #define ID_PFR1_VIRTEXT_SHIFT	U(12)
@@ -516,6 +518,8 @@
 #define CPACR_EL1_FP_TRAP_EL0	UL(0x1)
 #define CPACR_EL1_FP_TRAP_ALL	UL(0x2)
 #define CPACR_EL1_FP_TRAP_NONE	UL(0x3)
+#define CPACR_EL1_SMEN_SHIFT	U(24)
+#define CPACR_EL1_SMEN_MASK	ULL(0x3)
 
 /* SCR definitions */
 #define SCR_RES1_BITS		((U(1) << 4) | (U(1) << 5))
@@ -1022,11 +1026,16 @@
 #define ID_AA64SMFR0_EL1_SME_FA64_SHIFT		U(63)
 #define ID_AA64SMFR0_EL1_SME_FA64_MASK		U(0x1)
 #define ID_AA64SMFR0_EL1_SME_FA64_SUPPORTED	U(0x1)
+#define ID_AA64SMFR0_EL1_SME_VER_SHIFT		U(55)
+#define ID_AA64SMFR0_EL1_SME_VER_MASK		(0xf)
+#define ID_AA64SMFR0_EL1_SME_INST_SUPPORTED	ULL(0x0)
+#define ID_AA64SMFR0_EL1_SME2_INST_SUPPORTED	ULL(0x1)
 
 /* SMCR_ELx definitions */
 #define SMCR_ELX_LEN_SHIFT		U(0)
-#define SMCR_ELX_LEN_MASK		U(0x1ff)
+#define SMCR_ELX_LEN_MAX		U(0x1ff)
 #define SMCR_ELX_FA64_BIT		(U(1) << 31)
+#define SMCR_ELX_EZT0_BIT		(U(1) << 30)
 
 /*******************************************************************************
  * Definitions of MAIR encodings for device and normal memory
@@ -1321,7 +1330,7 @@
 /*******************************************************************************
  * FEAT_HCX - Extended Hypervisor Configuration Register
  ******************************************************************************/
-#define HCRX_EL2		S3_4_C1_C2_2
+#define HCRX_EL2		S3_4_C1_C2_2git 
 #define HCRX_EL2_MSCEn_BIT	(UL(1) << 11)
 #define HCRX_EL2_MCE2_BIT	(UL(1) << 10)
 #define HCRX_EL2_CMOW_BIT	(UL(1) << 9)
