@@ -9,6 +9,7 @@ PLAT_QEMU_COMMON_PATH	:=      plat/qemu/common
 
 SEPARATE_CODE_AND_RODATA := 1
 ENABLE_STACK_PROTECTOR	 := 0
+TRNG_SUPPORT		 := 1
 
 include plat/qemu/common/common.mk
 
