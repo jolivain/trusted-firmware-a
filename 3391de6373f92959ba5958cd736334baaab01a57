@@ -63,6 +63,30 @@
       },
       "revId": "3391de6373f92959ba5958cd736334baaab01a57",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2c75f36_2745da41",
+        "filename": "docs/plat/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-11-08T16:41:32Z",
+      "side": 1,
+      "message": "\u003e I asked myself the same question... I think it\u0027s a grey area and I am still between 2 minds. I decided to keep it nonetheless because SGI-575 is being deprecated but the source code will still be available in the source tree for some time. So I chose to be conservative until it is actually removed in v3.0.\n\nAs we have not removed the SGI-575 code from the TF-A code base, I too feel it should remain here.",
+      "parentUuid": "dd3e84d0_8c112a3a",
+      "range": {
+        "startLine": 61,
+        "startChar": 5,
+        "endLine": 61,
+        "endChar": 16
+      },
+      "revId": "3391de6373f92959ba5958cd736334baaab01a57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
