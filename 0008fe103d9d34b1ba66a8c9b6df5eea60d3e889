@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e5ce248_aefe0cb5",
+        "filename": "drivers/st/crypto/stm32_hash.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2022-11-08T20:36:31Z",
+      "side": 1,
+      "message": "I dont see this for HASH_VER \u003d\u003d 4. Is that expected?",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 24
+      },
+      "revId": "0008fe103d9d34b1ba66a8c9b6df5eea60d3e889",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
