@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a918a54_73ac0ade",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-11-08T10:11:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afb1bd57_3394dccc",
+      "revId": "81db48967fc5b14bfadb6ad3cbffc4ad2fb34b2b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6fba3bda_1765cc0d",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-11-08T09:54:13Z",
       "side": 1,
       "message": "remove 1 empty line",
+      "revId": "81db48967fc5b14bfadb6ad3cbffc4ad2fb34b2b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d576c4c3_b1bdccad",
+        "filename": "include/common/debug.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-11-08T10:11:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fba3bda_1765cc0d",
       "revId": "81db48967fc5b14bfadb6ad3cbffc4ad2fb34b2b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -72,6 +108,30 @@
       "side": 1,
       "message": "Yes, see original implementation.",
       "parentUuid": "9434b8d4_ca26dafd",
+      "range": {
+        "startLine": 76,
+        "startChar": 3,
+        "endLine": 76,
+        "endChar": 9
+      },
+      "revId": "81db48967fc5b14bfadb6ad3cbffc4ad2fb34b2b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ffa2bb8_d7ac22c2",
+        "filename": "plat/common/aarch64/plat_common.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-11-08T10:11:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bae51423_c0c31019",
       "range": {
         "startLine": 76,
         "startChar": 3,
