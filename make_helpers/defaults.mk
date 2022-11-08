@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016-2022, Arm Limited. All rights reserved.
+# Copyright (c) 2016-2023, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -389,6 +389,9 @@ ifeq (${ENABLE_SME_FOR_NS},1)
 	override ENABLE_SVE_FOR_NS	:= 0
 	override ENABLE_SVE_FOR_SWD	:= 0
 endif
+
+# SME2 defaults to disabled
+ENABLE_SME2_FOR_NS		:= 0
 
 SANITIZE_UB := off
 
