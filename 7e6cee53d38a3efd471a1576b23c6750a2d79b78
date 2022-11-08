@@ -22,6 +22,30 @@
       },
       "revId": "7e6cee53d38a3efd471a1576b23c6750a2d79b78",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "920910e1_19e3109f",
+        "filename": "drivers/arm/rss/rss_comms.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-08T16:29:59Z",
+      "side": 1,
+      "message": "I considered it but decided not to. RSS measured boot makefile anyway relies on the present RSS makefile so I think it would just be redundant, I believe that 1 such message is enough.",
+      "parentUuid": "89217597_cbe7a291",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 50
+      },
+      "revId": "7e6cee53d38a3efd471a1576b23c6750a2d79b78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
