@@ -476,6 +476,7 @@ ENABLE_MPAM_FOR_LOWER_ELS	:= 2
 # Enable SME access to NS by default
 ifneq (${SPM_MM}, 1)
 ENABLE_SME_FOR_NS		:= 2
+ENABLE_SME2_FOR_NS		:= 2
 endif
 
 # Enable SVE access to NS by default
