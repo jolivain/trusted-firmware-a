@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016-2022, Arm Limited. All rights reserved.
+# Copyright (c) 2016-2023, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -383,6 +383,9 @@ SVE_VECTOR_LEN			:= 2048
 # SME defaults to disabled
 ENABLE_SME_FOR_NS		:= 0
 ENABLE_SME_FOR_SWD		:= 0
+
+# SME2 defaults to disabled
+ENABLE_SME2_FOR_NS		:= 0
 
 # If SME is enabled then force SVE off
 ifeq (${ENABLE_SME_FOR_NS},1)
