@@ -92,7 +92,7 @@ subsections:
       - title: Branch Record Buffer Extension (FEAT_BRBE)
         scope: brbe
 
-      - title: Branch Target Identification Extension
+      - title: Branch Target Identification Extension (FEAT_BTI)
         scope: bti
 
       - title: Confidential Compute Architecture (CCA)
@@ -110,10 +110,10 @@ subsections:
       - title: Memory Partitioning and Monitoring (MPAM) Extension (FEAT_MPAM)
         scope: mpam
 
-      - title: Memory Tagging Extension
+      - title: Memory Tagging Extension (FEAT_MTE, FEAT_MTE2, FEAT_MTE3)
         scope: mte
 
-      - title: Pointer Authentication Extension
+      - title: Pointer Authentication Extension (FEAT_PAuth)
         scope: pauth
 
       - title: Performance Monitors Extension (FEAT_PMUv3)
@@ -122,7 +122,7 @@ subsections:
       - title: Trapping support for RNDR/RNDRRS (FEAT_RNG_TRAP)
         scope: rng-trap
 
-      - title: Scalable Matrix Extension (FEAT_SME)
+      - title: Scalable Matrix Extension (FEAT_SME, FEAT_SME2)
         scope: sme
 
       - title: Statistical profiling Extension (FEAT_SPE)
