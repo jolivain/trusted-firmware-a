@@ -9,7 +9,6 @@ Platform Ports
 
    allwinner
    arm/index
-   deprecated
    meson-axg
    meson-gxbb
    meson-gxl
@@ -61,6 +60,31 @@ documentation associated with them.
    - Arm Neoverse Reference Design E1 Edge (RD-E1-Edge) FVP
    - Arm SGI-575
    - MediaTek MT8173 SoCs
+
+Deprecated platforms
+--------------------
+
+Process of deprecating a platform
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When a platform is deprecated, its source code can be kept in the repository for
+a cooling off period before deleting it, or it can be deleted straight away. In
+the latter case, the *Deprecated* and *Deleted* versions would be the same.
+
+List of deprecated platforms
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++----------------+----------------+--------------------+--------------------+
+|    Platform    |     Vendor     | Deprecated version |  Deleted version   |
++================+================+====================+====================+
+|    sgm775      |      Arm       |        2.5         |       2.7          |
++----------------+----------------+--------------------+--------------------+
+|    mt6795      |      MTK       |        2.5         |       2.7          |
++----------------+----------------+--------------------+--------------------+
+|    sgi575      |      Arm       |        2.8         |       3.0          |
++----------------+----------------+--------------------+--------------------+
+|    rdn1edge    |      Arm       |        2.8         |       3.0          |
++----------------+----------------+--------------------+--------------------+
 
 --------------
 
