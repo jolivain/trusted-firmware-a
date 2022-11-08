@@ -242,3 +242,5 @@ endif
 ifeq (${EL3_EXCEPTION_HANDLING},1)
 BL31_SOURCES		+=	plat/common/aarch64/plat_ehf.c
 endif
+
+TRNG_SUPPORT		:= 1
