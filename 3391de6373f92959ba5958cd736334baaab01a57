@@ -39,6 +39,30 @@
       },
       "revId": "3391de6373f92959ba5958cd736334baaab01a57",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd3e84d0_8c112a3a",
+        "filename": "docs/plat/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-08T16:38:51Z",
+      "side": 1,
+      "message": "I asked myself the same question... I think it\u0027s a grey area and I am still between 2 minds. I decided to keep it nonetheless because SGI-575 is being deprecated but the source code will still be available in the source tree for some time. So I chose to be conservative until it is actually removed in v3.0.\n\nOn the other hand, the text above talks about \"supported platforms\", which arguably SGI-575 is no longer...\n\nPlease let me know if you would still like me to remove it with this in mind.",
+      "parentUuid": "0b1af067_4e6335f7",
+      "range": {
+        "startLine": 61,
+        "startChar": 5,
+        "endLine": 61,
+        "endChar": 16
+      },
+      "revId": "3391de6373f92959ba5958cd736334baaab01a57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
