@@ -239,6 +239,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8d59d4f_2f13844c",
+        "filename": "fdts/stm32mp1-cot-descriptors.dtsi",
+        "patchSetId": 12
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2022-11-08T10:40:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7db93140_af45b48a",
+      "range": {
+        "startLine": 144,
+        "startChar": 1,
+        "endLine": 144,
+        "endChar": 42
+      },
+      "revId": "84b1ab77077d095eac225a452de64f3570025547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3746c8c5_39f54b44",
@@ -252,6 +276,30 @@
       "writtenOn": "2022-11-02T21:06:09Z",
       "side": 1,
       "message": "Remove this comment if it is not placeholder.",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 5
+      },
+      "revId": "84b1ab77077d095eac225a452de64f3570025547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40771285_507dee4e",
+        "filename": "fdts/stm32mp13-bl2.dtsi",
+        "patchSetId": 12
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2022-11-08T10:40:04Z",
+      "side": 1,
+      "message": "OK, I\u0027ll remove the comment.",
+      "parentUuid": "3746c8c5_39f54b44",
       "range": {
         "startLine": 76,
         "startChar": 0,
@@ -356,6 +404,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1da22a1_b7edd05d",
+        "filename": "fdts/stm32mp13-bl2.dtsi",
+        "patchSetId": 12
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2022-11-08T10:40:04Z",
+      "side": 1,
+      "message": "As mentioned by Yann, no typo issue.",
+      "parentUuid": "7e8fc29a_afc3a4e2",
+      "range": {
+        "startLine": 81,
+        "startChar": 43,
+        "endLine": 81,
+        "endChar": 53
+      },
+      "revId": "84b1ab77077d095eac225a452de64f3570025547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78773175_cbffa916",
@@ -392,6 +464,48 @@
       "writtenOn": "2022-11-02T21:06:09Z",
       "side": 1,
       "message": "ditto",
+      "revId": "84b1ab77077d095eac225a452de64f3570025547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62577670_28438e5e",
+        "filename": "fdts/stm32mp13-bl2.dtsi",
+        "patchSetId": 12
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2022-11-08T10:40:04Z",
+      "side": 1,
+      "message": "Same as previous",
+      "parentUuid": "39253ef5_180c5c89",
+      "revId": "84b1ab77077d095eac225a452de64f3570025547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c0f3afe_cae4799f",
+        "filename": "fdts/stm32mp13-bl2.dtsi",
+        "patchSetId": 12
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2022-11-08T10:40:04Z",
+      "side": 1,
+      "message": "No",
+      "parentUuid": "78773175_cbffa916",
+      "range": {
+        "startLine": 82,
+        "startChar": 35,
+        "endLine": 82,
+        "endChar": 45
+      },
       "revId": "84b1ab77077d095eac225a452de64f3570025547",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
