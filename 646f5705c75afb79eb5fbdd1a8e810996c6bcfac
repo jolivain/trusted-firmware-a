@@ -53,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9627a3bf_a60a4c12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-08T21:35:49Z",
+      "side": 1,
+      "message": "Yes. I thought that I had left a comment on your patch. We decided not to take many responsibilities on dependencies, at least for now.",
+      "parentUuid": "092789c8_6c394893",
+      "revId": "646f5705c75afb79eb5fbdd1a8e810996c6bcfac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23bb858f_4fa17d1f",
@@ -78,6 +96,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "23b048d1_eda611e6",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-08T21:35:49Z",
+      "side": 1,
+      "message": "That\u0027s true. I can change it.",
+      "parentUuid": "23bb858f_4fa17d1f",
+      "range": {
+        "startLine": 59,
+        "startChar": 3,
+        "endLine": 59,
+        "endChar": 42
+      },
+      "revId": "646f5705c75afb79eb5fbdd1a8e810996c6bcfac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f71ed5ac_6ee801f7",
         "filename": "docs/getting_started/prerequisites.rst",
         "patchSetId": 6
@@ -89,6 +131,30 @@
       "writtenOn": "2022-11-08T07:40:30Z",
       "side": 1,
       "message": "Is this sentence correct? It can be understood like building openssl 3.x is mandatory whereas this is only needed if an opessl version not supported by the host of is to be used. But IMHO this is the choice of the integrator. Isn\u0027t making this build step optional the aim of this patch?",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 63,
+        "endChar": 72
+      },
+      "revId": "646f5705c75afb79eb5fbdd1a8e810996c6bcfac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57d5ab37_481a06eb",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-08T21:35:49Z",
+      "side": 1,
+      "message": "I can make it look like OpenSSL 3 is optional.",
+      "parentUuid": "f71ed5ac_6ee801f7",
       "range": {
         "startLine": 63,
         "startChar": 4,
