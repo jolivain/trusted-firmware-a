@@ -16,6 +16,24 @@
       "message": "Would you be able to update the table https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/lib/smccc.h#n114",
       "revId": "b160d4e4d70ddd3fc76de4dab7e862d9dcc14917",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dadce703_49ccf848",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-08T08:29:48Z",
+      "side": 1,
+      "message": "Good spot, done.",
+      "parentUuid": "17a85eee_1555878e",
+      "revId": "b160d4e4d70ddd3fc76de4dab7e862d9dcc14917",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
