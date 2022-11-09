@@ -16,6 +16,24 @@
       "message": "I wonder if using r2 \u0026 r3 here cannot be a problem: plat_can_cmo could overwrite them, as they are not saved by default. From what you said in the commit message that could be OK, as plat_can_cmo should only clobber r0 (or x0). But that depends on this function implementation.",
       "revId": "55dfa88a907c546db1698136b79048f70d3d8d77",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb04aff6_ad54c48d",
+        "filename": "lib/aarch32/cache_helpers.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-11-09T17:58:02Z",
+      "side": 1,
+      "message": "plat_can_cmo should be simple, probably read a flag. i can do it without touching stack and only using x0. if some implementation needs more registers, we can always update this code. without any data, i suggest we keep it simple.\n\nlike Dan commented, we can update docs/getting_started/porting-guide.rst to clarify the semantics.",
+      "parentUuid": "07f0e744_ef870e92",
+      "revId": "55dfa88a907c546db1698136b79048f70d3d8d77",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
