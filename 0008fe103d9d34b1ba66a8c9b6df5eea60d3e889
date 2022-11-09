@@ -22,6 +22,30 @@
       },
       "revId": "0008fe103d9d34b1ba66a8c9b6df5eea60d3e889",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "610b0e79_a613366e",
+        "filename": "drivers/st/crypto/stm32_hash.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2022-11-09T08:48:09Z",
+      "side": 1,
+      "message": "Yes it is, no more supported on V\u003d4",
+      "parentUuid": "6e5ce248_aefe0cb5",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 24
+      },
+      "revId": "0008fe103d9d34b1ba66a8c9b6df5eea60d3e889",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
