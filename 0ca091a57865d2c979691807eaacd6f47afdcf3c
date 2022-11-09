@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3466a38_36725922",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-09T22:00:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "71d862e1_e0f6c211",
+      "revId": "0ca091a57865d2c979691807eaacd6f47afdcf3c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "76b0991e_bdb0bf5d",
@@ -48,6 +66,30 @@
       "writtenOn": "2022-11-09T21:15:47Z",
       "side": 1,
       "message": "I am curious what is the significance of -- here",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 2
+      },
+      "revId": "0ca091a57865d2c979691807eaacd6f47afdcf3c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b75f3527_359a59d1",
+        "filename": "tools/cert_create/Makefile",
+        "patchSetId": 8
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-09T22:00:14Z",
+      "side": 1,
+      "message": "It means that it\u0027s an internal target to the Makefile, so you can\u0027t do `make --openssl` or `make openssl` from the command line.",
+      "parentUuid": "76b0991e_bdb0bf5d",
       "range": {
         "startLine": 98,
         "startChar": 0,
