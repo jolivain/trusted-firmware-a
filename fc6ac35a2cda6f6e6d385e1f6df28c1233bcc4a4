@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dccc0b6_ebf6414b",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-09T23:55:29Z",
+      "side": 1,
+      "message": "I don\u0027t know the guidelines about the use of goto, but I would strongly discourage its use. \nIt was already there, so don\u0027t stress out too much about it.",
+      "range": {
+        "startLine": 74,
+        "startChar": 2,
+        "endLine": 74,
+        "endChar": 10
+      },
+      "revId": "fc6ac35a2cda6f6e6d385e1f6df28c1233bcc4a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "004139a9_e5da94cf",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-09T23:55:29Z",
+      "side": 1,
+      "message": "Can\u0027t you combine both and use \u003d instead?",
+      "range": {
+        "startLine": 114,
+        "startChar": 2,
+        "endLine": 115,
+        "endChar": 63
+      },
+      "revId": "fc6ac35a2cda6f6e6d385e1f6df28c1233bcc4a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "530b4953_cc15b470",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-09T23:55:29Z",
+      "side": 1,
+      "message": "Can all the bits of the word be cleaned? Isn\u0027t it possible for the remaining bits to contain valid entropy values? I\u0027m thinking in terms of word_i (first one). \nMy reasoning is: bits_to_discard is more than one word size. However, you might be taking only BITS_PER_WORD - rshift bits from the first word as valid values, then you should clean only those bits, not the whole word (unless you are sure the rest of the bits in that word are invalid/clean).",
+      "range": {
+        "startLine": 129,
+        "startChar": 3,
+        "endLine": 129,
+        "endChar": 43
+      },
+      "revId": "fc6ac35a2cda6f6e6d385e1f6df28c1233bcc4a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b148a49_a0d8a225",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-09T23:55:29Z",
+      "side": 1,
+      "message": "... and this seems to be correct for the first word, so you should clean BITS_PER_WORD - rshift bits only, following the previous comment.\nHowever, if you have to discard an entire word, you should do -\u003d BITS_PER_WORD. \nThis is assuming there is no restriction on the number of entropy bits that can be requested, as long as is not higher than BITS_IN_POOL. E.g.: You request 128 bits and entropy_bit_index is 32, so you have to read from 3 words: BITS_PER_WORD - rshift (\u003d32) bits from word_i, BITS_PER_WORD (\u003d64) bits from word_i+1, and BITS_PER_WORD - lshift (\u003d32) bits from word_i+2.",
+      "range": {
+        "startLine": 130,
+        "startChar": 3,
+        "endLine": 130,
+        "endChar": 46
+      },
+      "revId": "fc6ac35a2cda6f6e6d385e1f6df28c1233bcc4a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "264baa14_f50a1976",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-09T23:55:29Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be in the opposite direction?",
+      "range": {
+        "startLine": 148,
+        "startChar": 11,
+        "endLine": 148,
+        "endChar": 13
+      },
+      "revId": "fc6ac35a2cda6f6e6d385e1f6df28c1233bcc4a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b338c6c_bc603196",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-09T23:55:29Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 152,
+        "startChar": 10,
+        "endLine": 152,
+        "endChar": 12
+      },
+      "revId": "fc6ac35a2cda6f6e6d385e1f6df28c1233bcc4a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "deb645d6_f1d5b6b1",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-09T23:55:29Z",
+      "side": 1,
+      "message": "In this case, it would only work for the last word. Again, it works only if you assume that you have no more than BITS_PER_WORD requested.",
+      "range": {
+        "startLine": 153,
+        "startChar": 3,
+        "endLine": 153,
+        "endChar": 47
+      },
+      "revId": "fc6ac35a2cda6f6e6d385e1f6df28c1233bcc4a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}

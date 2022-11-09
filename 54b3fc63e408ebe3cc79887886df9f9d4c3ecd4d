@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4241bb1e_15a6eea7",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-09T23:55:29Z",
+      "side": 0,
+      "message": "Success is more meaningful than ret, IMO. Especially because it\u0027s boolean.",
+      "range": {
+        "startLine": 68,
+        "startChar": 6,
+        "endLine": 68,
+        "endChar": 14
+      },
+      "revId": "54b3fc63e408ebe3cc79887886df9f9d4c3ecd4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
