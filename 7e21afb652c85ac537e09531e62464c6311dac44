@@ -22,6 +22,30 @@
       },
       "revId": "7e21afb652c85ac537e09531e62464c6311dac44",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eccacff_f3ff9949",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-11-09T19:07:06Z",
+      "side": 1,
+      "message": "Good point, no it just so happened to give the same output. Thanks for spotting that.",
+      "parentUuid": "c5f80a38_84bf7b84",
+      "range": {
+        "startLine": 760,
+        "startChar": 1,
+        "endLine": 762,
+        "endChar": 42
+      },
+      "revId": "7e21afb652c85ac537e09531e62464c6311dac44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
