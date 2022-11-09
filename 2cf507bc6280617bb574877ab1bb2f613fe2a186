@@ -199,6 +199,30 @@
       },
       "revId": "2cf507bc6280617bb574877ab1bb2f613fe2a186",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84f39484_fe02c754",
+        "filename": "changelog.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-09T12:56:42Z",
+      "side": 1,
+      "message": "This relates to the manifest DT file added when TSP is used as FF-A secure partition atop the EL3 SPMC.\n\nI think it could have been simply worded test(tsp) or feat(tsp) as this refers to the BL32/TSP component build.\n\nThat said I\u0027m not sure about what should be done in present file.",
+      "parentUuid": "4d241656_9f529985",
+      "range": {
+        "startLine": 172,
+        "startChar": 16,
+        "endLine": 172,
+        "endChar": 32
+      },
+      "revId": "2cf507bc6280617bb574877ab1bb2f613fe2a186",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
