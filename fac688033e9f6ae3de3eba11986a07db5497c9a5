@@ -212,6 +212,30 @@
       },
       "revId": "fac688033e9f6ae3de3eba11986a07db5497c9a5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fab3b6cb_94f88d38",
+        "filename": "plat/st/common/stm32mp_crypto_lib.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2022-11-10T15:11:13Z",
+      "side": 1,
+      "message": "You\u0027re right, we might have a partial key copied here, need to be wiped too.",
+      "parentUuid": "5c14cffc_6e9cf70a",
+      "range": {
+        "startLine": 537,
+        "startChar": 0,
+        "endLine": 537,
+        "endChar": 17
+      },
+      "revId": "fac688033e9f6ae3de3eba11986a07db5497c9a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
