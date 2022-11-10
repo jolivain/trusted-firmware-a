@@ -65,6 +65,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebb14156_0486bed0",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-11-10T14:03:30Z",
+      "side": 1,
+      "message": "we have now merged it into a single command \nmake CROSS_COMPILE\u003daarch64-none-elf- PLAT\u003dfvp DEBUG\u003d1 all pack_realm",
+      "parentUuid": "66b65d4d_c1acf9f5",
+      "revId": "ba1c9fad9449310c7256bd8d71ba349a11b98795",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe9083d1_e6792166",
