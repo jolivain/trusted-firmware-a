@@ -51,6 +51,25 @@ check_feature(int state, unsigned long field, const char *feat_name)
 	}
 }
 
+/*******************************************************************************
+ * Function : check_feature_required
+ * On top of the check_feature() functionality above, we also panic if a
+ * feature is available on the PE, but is not enabled via the build time flag.
+ *
+ * We force inlining here to let the compiler optimise away the whole check
+ * if the feature is enabled at build time (FEAT_STATE_ALWAYS/CHECK).
+ ******************************************************************************/
+static inline void __attribute((__always_inline__))
+check_feature_required(int state, unsigned long field, const char *feat_name)
+{
+	if (state == FEAT_STATE_DISABLED && field != 0U) {
+		ERROR("FEAT_%s disabled, but supported by the PE\n", feat_name);
+		tainted = true;
+	}
+
+	check_feature(state, field, feat_name);
+}
+
 /******************************************
  * Feature : FEAT_SB (Speculation Barrier)
  *****************************************/
@@ -326,12 +345,12 @@ void detect_arch_features(void)
 
 	/* v8.6 features */
 	read_feat_amuv1p1();
-	check_feature(ENABLE_FEAT_FGT, read_feat_fgt_id_field(), "FGT");
+	check_feature_required(ENABLE_FEAT_FGT, read_feat_fgt_id_field(), "FGT");
 	read_feat_ecv();
 	read_feat_twed();
 
 	/* v8.7 features */
-	check_feature(ENABLE_FEAT_HCX, read_feat_hcx_id_field(), "HCX");
+	check_feature_required(ENABLE_FEAT_HCX, read_feat_hcx_id_field(), "HCX");
 
 	/* v9.0 features */
 	read_feat_brbe();
