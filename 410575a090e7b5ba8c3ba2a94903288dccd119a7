@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "15e75201_a10052f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-10T15:23:15Z",
+      "side": 1,
+      "message": "Thanks. I had no doubt you\u0027ve tested it on your side but if we had CI tests on top of that it would help catching potential regressions in the future. As I said, I would be happy with just a couple of build tests, is it possible to add them as part of your CI patch [1] please?\n\nTo be clear, I am talking about adding 2 build config files under tf-a-ci-scripts/tf_config/. One with KEY_ALG\u003decdsa-brainpool-regular and another one with KEY_ALG\u003decdsa-brainpool-twisted. I suppose these could target STM32MP platforms? It doesn\u0027t matter so much for build-only tests I suppose. And then we\u0027d add the corresponding tf-a-ci-scripts/group/tf-l1-build-plat/*ecdsa-brainpool-regulat/twisted*:nil test configs.\n\n[1] https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/17196",
+      "parentUuid": "188925bb_284cd57a",
+      "revId": "410575a090e7b5ba8c3ba2a94903288dccd119a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "71eb5acb_d7b1ab3e",
         "filename": "tools/cert_create/src/main.c",
         "patchSetId": 6
