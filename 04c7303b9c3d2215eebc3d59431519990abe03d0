@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "681e5894_fe5b2dab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-11-10T18:26:37Z",
+      "side": 1,
+      "message": "+1 to enabling this in CI. not sure about how to implement plat_can_cmo. perhaps we can write an implementation for fvp platform?",
+      "parentUuid": "84476f18_9dfb9810",
+      "revId": "04c7303b9c3d2215eebc3d59431519990abe03d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "df7aa2ea_6d52ebb7",
         "filename": "make_helpers/defaults.mk",
         "patchSetId": 10
