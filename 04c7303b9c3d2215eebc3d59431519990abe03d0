@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b3178056_dc5b7bc1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-11-10T18:37:59Z",
+      "side": 1,
+      "message": "Default(no-ops) implementation of plat_can_cmo for FVP makes sense, but if there is any real platform that properly implements plat_can_cmo, then that would be great.",
+      "parentUuid": "681e5894_fe5b2dab",
+      "revId": "04c7303b9c3d2215eebc3d59431519990abe03d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "df7aa2ea_6d52ebb7",
         "filename": "make_helpers/defaults.mk",
         "patchSetId": 10
