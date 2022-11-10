@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bd27ca5_d06f494c",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-11-10T16:15:05Z",
+      "side": 1,
+      "message": "Its not part of this change.",
+      "parentUuid": "5dccc0b6_ebf6414b",
+      "range": {
+        "startLine": 74,
+        "startChar": 2,
+        "endLine": 74,
+        "endChar": 10
+      },
+      "revId": "fc6ac35a2cda6f6e6d385e1f6df28c1233bcc4a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "004139a9_e5da94cf",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-09T23:55:29Z",
       "side": 1,
       "message": "Can\u0027t you combine both and use \u003d instead?",
+      "range": {
+        "startLine": 114,
+        "startChar": 2,
+        "endLine": 115,
+        "endChar": 63
+      },
+      "revId": "fc6ac35a2cda6f6e6d385e1f6df28c1233bcc4a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cee0778_241215c9",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-11-10T16:15:05Z",
+      "side": 1,
+      "message": "ok.",
+      "parentUuid": "004139a9_e5da94cf",
       "range": {
         "startLine": 114,
         "startChar": 2,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d646abeb_70b7578a",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-11-10T16:15:05Z",
+      "side": 1,
+      "message": "No, I am discarding the packed bits only.\nI have tested for all the corner cases listed below and have seen the expected output. Its better to list them here. That would answer most of the questions. I will attach the log output after zeroing here. For different cases I have tested below. Please take a look and let me know if any case is left out.",
+      "parentUuid": "530b4953_cc15b470",
+      "range": {
+        "startLine": 129,
+        "startChar": 3,
+        "endLine": 129,
+        "endChar": 43
+      },
+      "revId": "fc6ac35a2cda6f6e6d385e1f6df28c1233bcc4a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b148a49_a0d8a225",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-11-09T23:55:29Z",
       "side": 1,
       "message": "... and this seems to be correct for the first word, so you should clean BITS_PER_WORD - rshift bits only, following the previous comment.\nHowever, if you have to discard an entire word, you should do -\u003d BITS_PER_WORD. \nThis is assuming there is no restriction on the number of entropy bits that can be requested, as long as is not higher than BITS_IN_POOL. E.g.: You request 128 bits and entropy_bit_index is 32, so you have to read from 3 words: BITS_PER_WORD - rshift (\u003d32) bits from word_i, BITS_PER_WORD (\u003d64) bits from word_i+1, and BITS_PER_WORD - lshift (\u003d32) bits from word_i+2.",
+      "range": {
+        "startLine": 130,
+        "startChar": 3,
+        "endLine": 130,
+        "endChar": 46
+      },
+      "revId": "fc6ac35a2cda6f6e6d385e1f6df28c1233bcc4a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c8d7d9e_1416c18d",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-11-10T16:15:05Z",
+      "side": 1,
+      "message": "Same here. I will share the log.",
+      "parentUuid": "9b148a49_a0d8a225",
       "range": {
         "startLine": 130,
         "startChar": 3,
@@ -118,6 +214,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "243bb877_a354cb2d",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-11-10T16:15:05Z",
+      "side": 1,
+      "message": "No.",
+      "parentUuid": "264baa14_f50a1976",
+      "range": {
+        "startLine": 148,
+        "startChar": 11,
+        "endLine": 148,
+        "endChar": 13
+      },
+      "revId": "fc6ac35a2cda6f6e6d385e1f6df28c1233bcc4a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1b338c6c_bc603196",
         "filename": "services/std_svc/trng/trng_entropy_pool.c",
         "patchSetId": 2
@@ -141,6 +261,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "43222313_15650dde",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-11-10T16:15:05Z",
+      "side": 1,
+      "message": "No",
+      "parentUuid": "1b338c6c_bc603196",
+      "range": {
+        "startLine": 152,
+        "startChar": 10,
+        "endLine": 152,
+        "endChar": 12
+      },
+      "revId": "fc6ac35a2cda6f6e6d385e1f6df28c1233bcc4a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "deb645d6_f1d5b6b1",
         "filename": "services/std_svc/trng/trng_entropy_pool.c",
         "patchSetId": 2
@@ -152,6 +296,30 @@
       "writtenOn": "2022-11-09T23:55:29Z",
       "side": 1,
       "message": "In this case, it would only work for the last word. Again, it works only if you assume that you have no more than BITS_PER_WORD requested.",
+      "range": {
+        "startLine": 153,
+        "startChar": 3,
+        "endLine": 153,
+        "endChar": 47
+      },
+      "revId": "fc6ac35a2cda6f6e6d385e1f6df28c1233bcc4a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "412b6897_643eca82",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-11-10T16:15:05Z",
+      "side": 1,
+      "message": "Same as above",
+      "parentUuid": "deb645d6_f1d5b6b1",
       "range": {
         "startLine": 153,
         "startChar": 3,
