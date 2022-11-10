@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9fcf083_fea392b9",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-10T09:16:28Z",
+      "side": 1,
+      "message": "A couple of renaming suggestions:\nplat_convert_pk()\nplat_convert_subject_pk()\nplat_convert_cert_pk()\n\nDo any of these sound good to you?",
+      "range": {
+        "startLine": 207,
+        "startChar": 8,
+        "endLine": 207,
+        "endChar": 26
+      },
+      "revId": "722c166d89c184eba422ebb51eed8264e0a3957a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
