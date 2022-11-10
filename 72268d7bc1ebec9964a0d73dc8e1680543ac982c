@@ -189,6 +189,30 @@
       },
       "revId": "72268d7bc1ebec9964a0d73dc8e1680543ac982c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f680fd77_806d35aa",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 9
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2022-11-10T12:55:06Z",
+      "side": 1,
+      "message": "Perhaps this could be made more generic being able to print any variable and be renamed e.g. to \"print-var\" then turned to be a feature and being added to TF-A documentation. If so then it might be a good idea to move this to one of the helper makefiles.\nJust my two cents though.",
+      "parentUuid": "240d5a28_c46392b8",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 9
+      },
+      "revId": "72268d7bc1ebec9964a0d73dc8e1680543ac982c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
