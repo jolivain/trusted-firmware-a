@@ -83,6 +83,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2247d183_3377f667",
+        "filename": "common/aarch64/debug.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-10T16:44:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "388d93ed_166f3a86",
+      "revId": "b4ab22d65b0514cf709113a6c02bbaf055028b5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e7fd427_d4a41cb7",
@@ -372,6 +390,24 @@
       "writtenOn": "2022-10-17T22:23:10Z",
       "side": 1,
       "message": "This seems to be a code optimization for not much benefit IMO. If that is the case, the #if can be removed.",
+      "revId": "b4ab22d65b0514cf709113a6c02bbaf055028b5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a3a0ce8_bb9dc358",
+        "filename": "plat/common/aarch64/plat_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-10T16:44:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0dfd5587_753e549c",
       "revId": "b4ab22d65b0514cf709113a6c02bbaf055028b5c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
