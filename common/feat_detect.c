@@ -267,6 +267,17 @@ static void read_feat_rng_trap(void)
 #endif
 }
 
+static inline void __attribute((__always_inline__))
+check_feature_required(int state, unsigned long field, const char *feat_name)
+{
+	if (state == FEAT_STATE_DISABLED && field != 0U) {
+		ERROR("FEAT_%s disabled, but supported by the PE\n", feat_name);
+		panic();
+	}
+
+	check_feature(state, field, feat_name);
+}
+
 /***********************************************************************************
  * TF-A supports many Arm architectural features starting from arch version
  * (8.0 till 8.7+). These features are mostly enabled through build flags. This
@@ -322,12 +333,12 @@ void detect_arch_features(void)
 
 	/* v8.6 features */
 	read_feat_amuv1p1();
-	check_feature(ENABLE_FEAT_FGT, read_feat_fgt_field(), "FGT");
+	check_feature_required(ENABLE_FEAT_FGT, read_feat_fgt_field(), "FGT");
 	read_feat_ecv();
 	read_feat_twed();
 
 	/* v8.7 features */
-	check_feature(ENABLE_FEAT_HCX, read_feat_hcx_field(), "HCX");
+	check_feature_required(ENABLE_FEAT_HCX, read_feat_hcx_field(), "HCX");
 
 	/* v9.0 features */
 	read_feat_brbe();
