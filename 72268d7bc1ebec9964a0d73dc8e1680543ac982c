@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "908ca593_b90b2357",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-10T12:19:30Z",
+      "side": 1,
+      "message": "IIUC you\u0027ve done some improvements on resource releasing along the way. Would be worth mentioning in the commit message.",
+      "revId": "72268d7bc1ebec9964a0d73dc8e1680543ac982c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1463793d_6503d465",
@@ -14,6 +31,138 @@
       "writtenOn": "2022-11-10T09:38:20Z",
       "side": 1,
       "message": "LGTM. This patch has been tested with both versions of OpenSSL.",
+      "revId": "72268d7bc1ebec9964a0d73dc8e1680543ac982c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be1f0078_81468530",
+        "filename": "Makefile",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-10T12:19:30Z",
+      "side": 1,
+      "message": "Changes in this file look unrelated to the main intent of the patch. Could we please move them to a separate patch dedicated to propagate DEBUG and V build options to certtool\u0027s makefile?",
+      "revId": "72268d7bc1ebec9964a0d73dc8e1680543ac982c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "395e5ae8_f6b9bf0d",
+        "filename": "make_helpers/build_macros.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-10T12:19:30Z",
+      "side": 1,
+      "message": "I am uncomfortable with this use of the \u0027add_define_val\u0027 macro, which will affect firmware code build as well (in addition to host tools). It sounds like we are stretching their use...\n\nCan we not remove this from SELECT_OPENSSL_API_VERSION, and have the tools makefiles directly add USING_OPENSSL3 to their HOSTCCFLAGS?",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 67
+      },
+      "revId": "72268d7bc1ebec9964a0d73dc8e1680543ac982c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ac2b7b9_0827281d",
+        "filename": "tools/cert_create/Makefile",
+        "patchSetId": 9
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-10T12:19:30Z",
+      "side": 1,
+      "message": "Should this rather be --openssl?\n\nAnd why is this target not a .PHONY one like in other makefiles (fiptool and encryptfw)? Could you please check whether certtool\u0027s incremental build is working properly and that we don\u0027t rebuilt part of it when no file has changed?",
+      "range": {
+        "startLine": 83,
+        "startChar": 28,
+        "endLine": 83,
+        "endChar": 35
+      },
+      "revId": "72268d7bc1ebec9964a0d73dc8e1680543ac982c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45f681b6_7099c7b8",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-10T12:19:30Z",
+      "side": 1,
+      "message": "Why is this specific to OpenSSL 1.x? I don\u0027t see EVP_PKEY_new() being deprecated on [1], only EVP_PKEY_new_CMAC_key seems to be deprecated in this family of functions... Also I don\u0027t see any change to key_new() in your original patch 9bc52d330fccb0e4df22006630350a42457d3306 \"refactor(security): upgrade tools to OpenSSL 3.0\"... I might be missing something.\n\n[1] https://www.openssl.org/docs/man3.0/man3/EVP_PKEY_new.html",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 6
+      },
+      "revId": "72268d7bc1ebec9964a0d73dc8e1680543ac982c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14f9713c_5b30a31d",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-10T12:19:30Z",
+      "side": 1,
+      "message": "(minor) Out of curiosity, why not the following?\n\n free(keys[i].fn);\n keys[i].fn \u003d NULL;",
+      "range": {
+        "startLine": 273,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 13
+      },
+      "revId": "72268d7bc1ebec9964a0d73dc8e1680543ac982c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dce0ef3f_4a8a2944",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 9
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-10T12:19:30Z",
+      "side": 1,
+      "message": "I find it very confusing to have a makefile target starting with dashes (it makes it look like a command flag)... Is this is common practice in makefiles-based builds systems? At least in TF-A build system I don\u0027t know any usage of this... If possible, I would prefer it to be renamed into something like \u0027print-openssl-version\u0027.",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 9
+      },
       "revId": "72268d7bc1ebec9964a0d73dc8e1680543ac982c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
