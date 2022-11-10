@@ -34,6 +34,24 @@
       "parentUuid": "576c197e_4aff5a2e",
       "revId": "a5e3b93c243c050d0b88cbec92724e9e48cec8da",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aeff748_50f136dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-10T16:40:50Z",
+      "side": 1,
+      "message": "I think it\u0027s fine as it is. While running in secure world (with S-EL2) present, provided that SCR_EL3.EA\u003d0 by default, I expect RAS errors to trap to S-EL2 without changing the SPMD or setup_secure_context.",
+      "parentUuid": "f7d13e8b_1518a8ff",
+      "revId": "a5e3b93c243c050d0b88cbec92724e9e48cec8da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
