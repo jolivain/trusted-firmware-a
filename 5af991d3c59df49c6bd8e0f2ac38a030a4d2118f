@@ -1,0 +1,199 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a553249_09e8c1d5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-10T14:44:23Z",
+      "side": 1,
+      "message": "(minor) Can we please just rephrase this sentence to\n* de-emphasize DER VS plain format\n* rather emphasize DER VS platform-specific OTP format?\n\nAs this is AFAIU the true motivation for this patch.",
+      "range": {
+        "startLine": 11,
+        "startChar": 11,
+        "endLine": 13,
+        "endChar": 11
+      },
+      "revId": "5af991d3c59df49c6bd8e0f2ac38a030a4d2118f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c39536f_f67118d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-10T14:44:23Z",
+      "side": 1,
+      "message": "The code changes look good to me, keeping in mind our strategy going forward.\n\nI just have some comments on the associated documentation. I hope this is not too much churn to rework. Even if this is a temporary solution, I feel we should get the documentation right, as sometimes temporary solutions last longer than originally expected...",
+      "revId": "5af991d3c59df49c6bd8e0f2ac38a030a4d2118f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "259440be_62ac41e4",
+        "filename": "docs/about/release-information.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-10T14:44:23Z",
+      "side": 1,
+      "message": "(nit) plat_convert_pk() function rather? (note the parentheses position)",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 28
+      },
+      "revId": "5af991d3c59df49c6bd8e0f2ac38a030a4d2118f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "402b5318_8af3936e",
+        "filename": "docs/about/release-information.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-10T14:44:23Z",
+      "side": 1,
+      "message": "The \"removed after release\" info ought to after v2.8, right? Else I think we\u0027d be saying that it\u0027s going to be removed in v2.8, i.e. about now.\n\nLet me check what the next version number will be, as it\u0027s not yet announced in the section above.",
+      "range": {
+        "startLine": 70,
+        "startChar": 51,
+        "endLine": 70,
+        "endChar": 54
+      },
+      "revId": "5af991d3c59df49c6bd8e0f2ac38a030a4d2118f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd0ae06d_457e6c15",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-10T14:44:23Z",
+      "side": 1,
+      "message": "(nit) Remove trailing ~ characters to fit title length.",
+      "range": {
+        "startLine": 813,
+        "startChar": 27,
+        "endLine": 813,
+        "endChar": 30
+      },
+      "revId": "5af991d3c59df49c6bd8e0f2ac38a030a4d2118f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f4bac2d_5aa79f28",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-10T14:44:23Z",
+      "side": 1,
+      "message": "I believe that we rather use DER (Distinguished Encoding Rules), which according to Wikipedia [1], is a subset of BER. So arguably this sentence is correct ;) but still I think it would be less confusing to change into DER, as this is what is used throughout the TF-A documentation and source code.\n\n[1] https://en.wikipedia.org/wiki/X.690#DER_encoding",
+      "range": {
+        "startLine": 822,
+        "startChar": 22,
+        "endLine": 822,
+        "endChar": 48
+      },
+      "revId": "5af991d3c59df49c6bd8e0f2ac38a030a4d2118f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82d1de9f_5ab5e35e",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-10T14:44:23Z",
+      "side": 1,
+      "message": "AFAIU this is not quite true. I think most platforms save the hash of the plain ROTPK in their OTP/eFuses/whatever, and plat_get_rotpk_info() does the encapsulation in DER format. I think it would be wasteful to store the DER metadata into OTP memory, which is typically quite expensive and spare.\n\nUnless I misunderstood something, I would drop this part:\n\n\"Most platforms save the hash of the BER ROTPK, but some may save the hash of a non encapsulated public key\"\n\nand reword it into:\n\n\"Most platforms save the hash of the ROTPK, but some may save slightly different information - e.g. the hash of [the ROTPK plus some related information].\"",
+      "range": {
+        "startLine": 828,
+        "startChar": 0,
+        "endLine": 828,
+        "endChar": 45
+      },
+      "revId": "5af991d3c59df49c6bd8e0f2ac38a030a4d2118f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2595aaf_11396a3f",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-10T14:44:23Z",
+      "side": 1,
+      "message": "It would be good to add a sentence about what the default implementation does. Something like \"The default implementation of this function performs no conversion whatsoever and just returns the DER ROTPK as is.\"",
+      "revId": "5af991d3c59df49c6bd8e0f2ac38a030a4d2118f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb2438da_04a84c49",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-10T14:44:23Z",
+      "side": 1,
+      "message": "I was going to request this to be turned into a \"strong\" implementation by essentially\n* moving the default implementation you currently have at line 309 to some file under plat/common.\n* Have all platform ports that currently pull drivers/auth/auth_mod.c also pull the file under plat/common/.\n\nBut then I realized this will create quite a bit of \"noise\" in this patch, which might be pointless if we are going to evolve this API just after the release... So I\u0027ll let this weak function being introduced this time, for the sake of avoiding changes to all platform makefiles twice in a short period of time.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 28
+      },
+      "revId": "5af991d3c59df49c6bd8e0f2ac38a030a4d2118f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
