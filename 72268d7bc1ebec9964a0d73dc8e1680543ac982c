@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "56acac4e_bf2a1492",
+        "filename": "Makefile",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-10T17:54:20Z",
+      "side": 1,
+      "message": "This was done to enable the --openssl target that appears in the project Makefiles. I can move it to another patch, but the --openssl target will stop working.",
+      "parentUuid": "be1f0078_81468530",
+      "revId": "72268d7bc1ebec9964a0d73dc8e1680543ac982c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "395e5ae8_f6b9bf0d",
         "filename": "make_helpers/build_macros.mk",
         "patchSetId": 9
@@ -65,6 +83,30 @@
       "writtenOn": "2022-11-10T12:19:30Z",
       "side": 1,
       "message": "I am uncomfortable with this use of the \u0027add_define_val\u0027 macro, which will affect firmware code build as well (in addition to host tools). It sounds like we are stretching their use...\n\nCan we not remove this from SELECT_OPENSSL_API_VERSION, and have the tools makefiles directly add USING_OPENSSL3 to their HOSTCCFLAGS?",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 67
+      },
+      "revId": "72268d7bc1ebec9964a0d73dc8e1680543ac982c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91c96b05_9b316bb4",
+        "filename": "make_helpers/build_macros.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-10T17:54:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "395e5ae8_f6b9bf0d",
       "range": {
         "startLine": 253,
         "startChar": 0,
@@ -88,6 +130,30 @@
       "writtenOn": "2022-11-10T12:19:30Z",
       "side": 1,
       "message": "Should this rather be --openssl?\n\nAnd why is this target not a .PHONY one like in other makefiles (fiptool and encryptfw)? Could you please check whether certtool\u0027s incremental build is working properly and that we don\u0027t rebuilt part of it when no file has changed?",
+      "range": {
+        "startLine": 83,
+        "startChar": 28,
+        "endLine": 83,
+        "endChar": 35
+      },
+      "revId": "72268d7bc1ebec9964a0d73dc8e1680543ac982c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9d1223b_69e5054c",
+        "filename": "tools/cert_create/Makefile",
+        "patchSetId": 9
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-10T17:54:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ac2b7b9_0827281d",
       "range": {
         "startLine": 83,
         "startChar": 28,
@@ -123,6 +189,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "83609430_36ec188d",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-10T17:54:20Z",
+      "side": 1,
+      "message": "EVP_PKEY_new is not deprecated in OpenSSL 3, but is not needed anymore, as the RSA or EC keys can be generated directly by using EVP_RSA_gen() and EVP_EC_gen() respectively without having to allocate a generic EVP_PKEY before assigning. See line 46, for instance.",
+      "parentUuid": "45f681b6_7099c7b8",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 6
+      },
+      "revId": "72268d7bc1ebec9964a0d73dc8e1680543ac982c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "14f9713c_5b30a31d",
         "filename": "tools/cert_create/src/key.c",
         "patchSetId": 9
@@ -134,6 +224,30 @@
       "writtenOn": "2022-11-10T12:19:30Z",
       "side": 1,
       "message": "(minor) Out of curiosity, why not the following?\n\n free(keys[i].fn);\n keys[i].fn \u003d NULL;",
+      "range": {
+        "startLine": 273,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 13
+      },
+      "revId": "72268d7bc1ebec9964a0d73dc8e1680543ac982c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dab4e3bb_495e5352",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-10T17:54:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14f9713c_5b30a31d",
       "range": {
         "startLine": 273,
         "startChar": 0,
@@ -205,6 +319,30 @@
       "side": 1,
       "message": "Perhaps this could be made more generic being able to print any variable and be renamed e.g. to \"print-var\" then turned to be a feature and being added to TF-A documentation. If so then it might be a good idea to move this to one of the helper makefiles.\nJust my two cents though.",
       "parentUuid": "240d5a28_c46392b8",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 9
+      },
+      "revId": "72268d7bc1ebec9964a0d73dc8e1680543ac982c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86f4f141_e293c157",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 9
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-10T17:54:20Z",
+      "side": 1,
+      "message": "Hi György, this sound like a good idea. However, given the fact that the code freeze is tomorrow, I would stick to this for this patch, and consider your idea for the next release :)",
+      "parentUuid": "f680fd77_806d35aa",
       "range": {
         "startLine": 76,
         "startChar": 0,
