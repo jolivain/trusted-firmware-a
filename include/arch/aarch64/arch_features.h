@@ -129,10 +129,15 @@ static inline bool is_armv8_5_rng_present(void)
 		ID_AA64ISAR0_RNDR_MASK);
 }
 
+static unsigned int get_armv8_4_amu_support(void)
+{
+	return (read_id_aa64pfr0_el1() >> ID_AA64PFR0_AMU_SHIFT) &
+		ID_AA64PFR0_AMU_MASK;
+}
+
 static inline bool is_armv8_6_feat_amuv1p1_present(void)
 {
-	return (((read_id_aa64pfr0_el1() >> ID_AA64PFR0_AMU_SHIFT) &
-		ID_AA64PFR0_AMU_MASK) >= ID_AA64PFR0_AMU_V1P1);
+	return get_armv8_4_amu_support() >= ID_AA64PFR0_AMU_V1P1;
 }
 
 /*
@@ -246,8 +251,15 @@ static inline bool is_arm8_4_feat_trf_present(void)
  ******************************************************************************/
 static inline bool is_armv8_4_feat_amuv1_present(void)
 {
-	return (((read_id_aa64pfr0_el1() >> ID_AA64PFR0_AMU_SHIFT) &
-		ID_AA64PFR0_AMU_MASK) >= ID_AA64PFR0_AMU_V1);
+	if (ENABLE_FEAT_AMUv1 == FEAT_STATE_DISABLED) {
+		return false;
+	}
+
+	if (ENABLE_FEAT_AMUv1 == FEAT_STATE_ALWAYS) {
+		return true;
+	}
+
+	return get_armv8_4_amu_support() >= ID_AA64PFR0_AMU_V1;
 }
 
 /********************************************************************************
