@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "84476f18_9dfb9810",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-11-10T17:42:09Z",
+      "side": 1,
+      "message": "I assume there is no platform implementation at the moment but was added as some platforms requested it (https://lists.trustedfirmware.org/archives/list/tf-a@lists.trustedfirmware.org/thread/IYEWINLGKY5XCH7PR6QYMDSSIYM3X4GV/). There was a default implementation that existed earlier in this patch(version 1 of the patch) which was removed after adding the CONDITIONAL_CMO compile flag so the default functionality isn\u0027t impacted. But agree to add this build suggestion if/once some platforms implement plat_can_cmo .",
+      "parentUuid": "1f892812_b8dc5de7",
+      "revId": "04c7303b9c3d2215eebc3d59431519990abe03d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "df7aa2ea_6d52ebb7",
         "filename": "make_helpers/defaults.mk",
         "patchSetId": 10
