@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62d12ded_5880b4d5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000789
+      },
+      "writtenOn": "2022-11-10T02:45:23Z",
+      "side": 1,
+      "message": "Correct, these refer to Google\u0027s bug tracker. I will remove them.",
+      "parentUuid": "fa6e9604_788b39ec",
+      "range": {
+        "startLine": 9,
+        "startChar": 39,
+        "endLine": 9,
+        "endChar": 46
+      },
+      "revId": "20a91850e7fb2e59afcfabfe6f247040c6f094d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b0b882d_db0bcd38",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-11-07T15:39:49Z",
       "side": 1,
       "message": "Why not merge this commit with the one that introduced the anomaly?",
+      "revId": "20a91850e7fb2e59afcfabfe6f247040c6f094d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee968ed6_f9644a53",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000789
+      },
+      "writtenOn": "2022-11-10T02:45:23Z",
+      "side": 1,
+      "message": "Mainly because this entire patch stack is just a \"git merge\" of the Trusty SPD changes from AOSP, where this exists as a separate change. I think the reason for this is that the change that introduced the anomaly as you say, was done before we merged upstream 2.6 into AOSP Trusty SPD, and this commit was needed to make things work again after that merge.",
+      "parentUuid": "8b0b882d_db0bcd38",
       "revId": "20a91850e7fb2e59afcfabfe6f247040c6f094d0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
