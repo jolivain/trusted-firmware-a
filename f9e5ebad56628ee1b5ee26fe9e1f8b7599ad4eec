@@ -39,6 +39,30 @@
       },
       "revId": "f9e5ebad56628ee1b5ee26fe9e1f8b7599ad4eec",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d40a715_bddfdf46",
+        "filename": "lib/psci/psci_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000106
+      },
+      "writtenOn": "2022-11-11T18:00:37Z",
+      "side": 1,
+      "message": "Seems more consistent to check the return code still. Although now below should be left as\n\nreturn PSCI_E_SUCCESS;\n}",
+      "parentUuid": "32e08aa1_40149779",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 12
+      },
+      "revId": "f9e5ebad56628ee1b5ee26fe9e1f8b7599ad4eec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
