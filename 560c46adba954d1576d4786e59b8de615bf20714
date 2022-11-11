@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8770504_21291391",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-11-11T15:27:32Z",
+      "side": 1,
+      "message": "we dont need to call mmap_remove_dynamic_region on the failed mmap memory region",
+      "parentUuid": "cccdeb21_364808a8",
+      "revId": "560c46adba954d1576d4786e59b8de615bf20714",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ddf3f4cf_1e27a3be",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-11-11T15:20:17Z",
       "side": 1,
       "message": "Do we need this second decrement here?",
+      "revId": "560c46adba954d1576d4786e59b8de615bf20714",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4bd8413_41b203f3",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-11-11T15:27:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddf3f4cf_1e27a3be",
       "revId": "560c46adba954d1576d4786e59b8de615bf20714",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
