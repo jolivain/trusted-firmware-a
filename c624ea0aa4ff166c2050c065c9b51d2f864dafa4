@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21425b45_83b2d748",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-11-11T16:35:31Z",
+      "side": 1,
+      "message": "Various platform build failures reported by the CI. Follow the links and look at the console logs such as https://ci.trustedfirmware.org/job/tf-a-builder/1435463/console\n\n\n15:32:40 plat/xilinx/versal/pm_service/pm_svc_main.c: In function \u0027pm_setup\u0027:\n15:32:40 plat/xilinx/versal/pm_service/pm_svc_main.c:124:16: error: void value not ignored as it ought to be\n15:32:40   124 |         status \u003d pm_ipi_init(primary_proc);\n15:32:40       |                ^\n15:32:40 Makefile:1338: recipe for target \u0027/home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/versal/debug/bl31/pm_svc_main.o\u0027 failed",
+      "revId": "c624ea0aa4ff166c2050c065c9b51d2f864dafa4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
