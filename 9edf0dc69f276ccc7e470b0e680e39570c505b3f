@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65f0c7f8_3016b6f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2022-11-11T05:20:36Z",
+      "side": 1,
+      "message": "Hi Govindraj,\n\nThanks for your review! I\u0027ve addressed your comments.\n\nWing",
+      "parentUuid": "4285caf1_7439ff0e",
+      "revId": "9edf0dc69f276ccc7e470b0e680e39570c505b3f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7438e8d_aa1437f7",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-11-10T11:34:29Z",
       "side": 1,
       "message": "Can be `bool`?",
+      "range": {
+        "startLine": 168,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 12
+      },
+      "revId": "9edf0dc69f276ccc7e470b0e680e39570c505b3f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3f07d2c_78285b48",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2022-11-11T05:20:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7438e8d_aa1437f7",
       "range": {
         "startLine": 168,
         "startChar": 0,
@@ -64,6 +106,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef4810a2_9d6f5765",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2022-11-11T05:20:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6a764f7_de5b39f7",
+      "range": {
+        "startLine": 175,
+        "startChar": 9,
+        "endLine": 175,
+        "endChar": 10
+      },
+      "revId": "9edf0dc69f276ccc7e470b0e680e39570c505b3f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d20d546_30caa381",
@@ -77,6 +143,30 @@
       "writtenOn": "2022-11-10T11:34:29Z",
       "side": 1,
       "message": "return false;",
+      "range": {
+        "startLine": 196,
+        "startChar": 10,
+        "endLine": 196,
+        "endChar": 11
+      },
+      "revId": "9edf0dc69f276ccc7e470b0e680e39570c505b3f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87716740_a02c9afe",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2022-11-11T05:20:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d20d546_30caa381",
       "range": {
         "startLine": 196,
         "startChar": 10,
@@ -110,6 +200,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2562ee67_840704ed",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2022-11-11T05:20:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d05ce7ca_54bfcc7f",
+      "range": {
+        "startLine": 625,
+        "startChar": 0,
+        "endLine": 625,
+        "endChar": 12
+      },
+      "revId": "9edf0dc69f276ccc7e470b0e680e39570c505b3f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56a4dbc3_62017301",
@@ -123,6 +237,30 @@
       "writtenOn": "2022-11-10T11:34:29Z",
       "side": 1,
       "message": "could this be just:\n\nreturn rc;",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 23
+      },
+      "revId": "9edf0dc69f276ccc7e470b0e680e39570c505b3f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d474acd7_d26524c3",
+        "filename": "lib/psci/psci_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2022-11-11T05:20:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56a4dbc3_62017301",
       "range": {
         "startLine": 194,
         "startChar": 0,
@@ -156,6 +294,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d07e947_2ddeb949",
+        "filename": "lib/psci/psci_suspend.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2022-11-11T05:20:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72872825_c80e8c92",
+      "range": {
+        "startLine": 160,
+        "startChar": 1,
+        "endLine": 160,
+        "endChar": 4
+      },
+      "revId": "9edf0dc69f276ccc7e470b0e680e39570c505b3f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16d6874c_298c7ba1",
@@ -169,6 +331,30 @@
       "writtenOn": "2022-11-10T11:34:29Z",
       "side": 1,
       "message": "true? if bool?",
+      "range": {
+        "startLine": 198,
+        "startChar": 14,
+        "endLine": 198,
+        "endChar": 15
+      },
+      "revId": "9edf0dc69f276ccc7e470b0e680e39570c505b3f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d852d6f_2dee1c71",
+        "filename": "lib/psci/psci_suspend.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2022-11-11T05:20:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16d6874c_298c7ba1",
       "range": {
         "startLine": 198,
         "startChar": 14,
