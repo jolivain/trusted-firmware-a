@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d98e95ad_6e94abac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000789
+      },
+      "writtenOn": "2022-11-11T19:49:54Z",
+      "side": 1,
+      "message": "My bad. I had edited the commit message in gerrit for patch set 6, but forgot to update locally as well. I have removed all references to Bug: and Test: in my local tree, so they should be gone for good next time I push.",
+      "parentUuid": "4e61c691_8d37cfe4",
+      "range": {
+        "startLine": 14,
+        "startChar": 1,
+        "endLine": 15,
+        "endChar": 23
+      },
+      "revId": "c022f6ae19b9f2a000afbea719184caddf3fbbfa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5449b42f_ffc8c383",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 8
