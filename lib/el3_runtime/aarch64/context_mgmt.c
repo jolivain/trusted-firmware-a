@@ -821,7 +821,18 @@ void cm_el2_sysregs_context_save(uint32_t security_state)
 		el2_sysregs_context_save_mte(el2_sysregs_ctx);
 #endif
 #if ENABLE_MPAM_FOR_LOWER_ELS
-		el2_sysregs_context_save_mpam(el2_sysregs_ctx);
+		/*
+		 * It is possible that ENABLE_MPAM_FOR_LOWER_ELS was enabled on
+		 * a platform with MPAM not actually being present on the
+		 * system. MPAM specification states that MPAM2_EL2 and
+		 * MPAMIDR_EL1 should only be accessed if feat_mpam is defined.
+		 * Accessing feature registers within the actual context save
+		 * routine would consume more instructions/cycles. Hence,
+		 * proceed with MPAM EL2 context management only if we have some
+		 * version of MPAM available on the platform.
+		 */
+		if (mpam_version != 0U)
+			el2_sysregs_context_save_mpam(el2_sysregs_ctx);
 #endif
 #if ENABLE_FEAT_FGT
 		el2_sysregs_context_save_fgt(el2_sysregs_ctx);
@@ -879,7 +890,18 @@ void cm_el2_sysregs_context_restore(uint32_t security_state)
 		el2_sysregs_context_restore_mte(el2_sysregs_ctx);
 #endif
 #if ENABLE_MPAM_FOR_LOWER_ELS
-		el2_sysregs_context_restore_mpam(el2_sysregs_ctx);
+		/*
+		 * It is possible that ENABLE_MPAM_FOR_LOWER_ELS was enabled on
+		 * a platform with MPAM not actually being present on the
+		 * system. MPAM specification states that MPAM2_EL2 and
+		 * MPAMIDR_EL1 should only be accessed if feat_mpam is defined.
+		 * Accessing feature registers within the actual context restore
+		 * routine would consume more instructions/cycles. Hence,
+		 * proceed with MPAM EL2 context management only if we have some
+		 * version of MPAM available on the platform.
+		 */
+		if (mpam_version != 0U)
+			el2_sysregs_context_restore_mpam(el2_sysregs_ctx);
 #endif
 #if ENABLE_FEAT_FGT
 		el2_sysregs_context_restore_fgt(el2_sysregs_ctx);

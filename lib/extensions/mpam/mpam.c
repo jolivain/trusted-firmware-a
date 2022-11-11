@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2022, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,10 +11,13 @@
 #include <arch_helpers.h>
 #include <lib/extensions/mpam.h>
 
+/* global to store mpam_version information */
+uint8_t mpam_version;
+
 void mpam_enable(bool el2_unused)
 {
 	/* Check if MPAM is implemented */
-	if (get_mpam_version() == 0U) {
+	if ((mpam_version = get_mpam_version()) == 0U) {
 		return;
 	}
 

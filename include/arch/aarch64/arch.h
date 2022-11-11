@@ -1063,13 +1063,17 @@
 #define PMBLIMITR_EL1		S3_0_C9_C10_0
 
 /*******************************************************************************
- * Definitions for system register interface to MPAM
+ * Definitions for system register interface, shifts and masks for MPAM
  ******************************************************************************/
 #define MPAMIDR_EL1		S3_0_C10_C4_4
 #define MPAM2_EL2		S3_4_C10_C5_0
 #define MPAMHCR_EL2		S3_4_C10_C4_0
 #define MPAM3_EL3		S3_6_C10_C5_0
 
+#define MPAMIDR_EL1_HAS_HCR_SHIFT	ULL(0x11)
+#define MPAMIDR_EL1_VPMR_MAX_SHIFT	ULL(0x12)
+#define MPAMIDR_EL1_VPMR_MAX_WIDTH	ULL(0x3)
+#define MPAMIDR_EL1_VPMR_MAX_POSSIBLE	ULL(0x7)
 /*******************************************************************************
  * Definitions for system register interface to AMU for FEAT_AMUv1
  ******************************************************************************/

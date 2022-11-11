@@ -265,52 +265,149 @@ func el2_sysregs_context_save_mpam
 	mrs	x10, MPAM2_EL2
 	str	x10, [x0, #CTX_MPAM2_EL2]
 
+	mrs	x10, MPAMIDR_EL1
+
+	/*
+	 * The context registers that we intend to save would be part of the
+	 * PE's system register frame only if MPAMIDR_EL1.HAS_HCR == 1.
+	 */
+	tbz	w10, #MPAMIDR_EL1_HAS_HCR_SHIFT, 2f
+
+	/*
+	 * MPAMHCR_EL2, MPAMVPMV_EL2 and MPAMVPM0_EL2 would be present in the
+	 * system register frame if MPAMIDR_EL1.HAS_HCR == 1. Proceed to save
+	 * the context of these registers.
+	 */
 	mrs	x11, MPAMHCR_EL2
 	mrs	x12, MPAMVPM0_EL2
 	stp	x11, x12, [x0, #CTX_MPAMHCR_EL2]
 
-	mrs	x13, MPAMVPM1_EL2
-	mrs	x14, MPAMVPM2_EL2
-	stp	x13, x14, [x0, #CTX_MPAMVPM1_EL2]
+	mrs	x13, MPAMVPMV_EL2
+	str	x13, [x0, #CTX_MPAMVPMV_EL2]
 
-	mrs	x15, MPAMVPM3_EL2
-	mrs	x16, MPAMVPM4_EL2
-	stp	x15, x16, [x0, #CTX_MPAMVPM3_EL2]
+	/*
+	 * MPAMIDR_EL1.VPMR_MAX has to be probed to obtain the maximum supported
+	 * VPMR value. Proceed to save the context of registers from
+	 * MPAMVPM1_EL2 to MPAMVPM<x>_EL2 where x is VPMR_MAX. From MPAM spec,
+	 * VPMR_MAX should not be zero if HAS_HCR == 1.
+	 */
+	ubfx	x10, x10, #MPAMIDR_EL1_VPMR_MAX_SHIFT, \
+		#MPAMIDR_EL1_VPMR_MAX_WIDTH
 
-	mrs	x9, MPAMVPM5_EL2
-	mrs	x10, MPAMVPM6_EL2
-	stp	x9, x10, [x0, #CTX_MPAMVPM5_EL2]
+	/*
+	 * Once VPMR_MAX has been identified, calculate the offset relative to
+	 * PC to jump to so that relevant context can be saved. The offset is
+	 * calculated as (VPMR_POSSIBLE_MAX - VPMR_MAX) * (2*INSTRUCTION_WIDTH)
+	 * + (absolute address of label "1"). Saving each register would take (2
+	 * * INSTRUCTION_WIDTH) size.
+	 */
+	mov	w11, #MPAMIDR_EL1_VPMR_MAX_POSSIBLE
+	sub	w10, w11, w10
+	lsl	w10, w10, #3
+	adr	x11, 1f
+	add	x11, x11, x10
+	br	x11
 
-	mrs	x11, MPAMVPM7_EL2
-	mrs	x12, MPAMVPMV_EL2
-	stp	x11, x12, [x0, #CTX_MPAMVPM7_EL2]
-	ret
+	/*
+	 * The branch above would land properly on one of the ldr following
+	 * label "1". Make sure that the order of save is retained.
+	 */
+1:	mrs	x10, MPAMVPM7_EL2
+	str	x10, [x0, #CTX_MPAMVPM7_EL2]
+
+	mrs	x11, MPAMVPM6_EL2
+	str	x11, [x0, #CTX_MPAMVPM6_EL2]
+
+	mrs	x12, MPAMVPM5_EL2
+	str	x12, [x0, #CTX_MPAMVPM5_EL2]
+
+	mrs	x13, MPAMVPM4_EL2
+	str	x13, [x0, #CTX_MPAMVPM4_EL2]
+
+	mrs	x14, MPAMVPM3_EL2
+	str	x14, [x0, #CTX_MPAMVPM3_EL2]
+
+	mrs	x15, MPAMVPM2_EL2
+	str	x15, [x0, #CTX_MPAMVPM2_EL2]
+
+	mrs	x16, MPAMVPM1_EL2
+	str	x16, [x0, #CTX_MPAMVPM1_EL2]
+
+2:	ret
 endfunc el2_sysregs_context_save_mpam
 
 func el2_sysregs_context_restore_mpam
 	ldr	x10, [x0, #CTX_MPAM2_EL2]
 	msr	MPAM2_EL2, x10
 
+	mrs	x10, MPAMIDR_EL1
+	/*
+	 * The context registers that we intend to restore would be part of the
+	 * PE's system register frame only if MPAMIDR_EL1.HAS_HCR == 1.
+	 */
+	tbz	w10, #MPAMIDR_EL1_HAS_HCR_SHIFT, 2f
+
+	/*
+	 * MPAMHCR_EL2, MPAMVPMV_EL2 and MPAMVPM0_EL2 would be present in the
+	 * system register frame if MPAMIDR_EL1.HAS_HCR == 1. Proceed to restore
+	 * the context of these registers
+	 */
 	ldp	x11, x12, [x0, #CTX_MPAMHCR_EL2]
 	msr	MPAMHCR_EL2, x11
 	msr	MPAMVPM0_EL2, x12
 
-	ldp	x13, x14, [x0, #CTX_MPAMVPM1_EL2]
-	msr	MPAMVPM1_EL2, x13
-	msr	MPAMVPM2_EL2, x14
+	ldr	x13, [x0, #CTX_MPAMVPMV_EL2]
+	msr	MPAMVPMV_EL2, x13
 
-	ldp	x15, x16, [x0, #CTX_MPAMVPM3_EL2]
-	msr	MPAMVPM3_EL2, x15
-	msr	MPAMVPM4_EL2, x16
+	/*
+	 * MPAMIDR_EL1.VPMR_MAX has to be probed to obtain the maximum supported
+	 * VPMR value. Proceed to restore the context of registers from
+	 * MPAMVPM1_EL2 to MPAMVPM<x>_EL2 where x is VPMR_MAX. from MPAM spec,
+	 * VPMR_MAX should not be zero if HAS_HCR == 1.
+	 */
+	ubfx	x10, x10, #MPAMIDR_EL1_VPMR_MAX_SHIFT,	\
+		#MPAMIDR_EL1_VPMR_MAX_WIDTH
 
-	ldp	x9, x10, [x0, #CTX_MPAMVPM5_EL2]
-	msr	MPAMVPM5_EL2, x9
-	msr	MPAMVPM6_EL2, x10
+	/*
+	 * Once VPMR_MAX has been identified, calculate the offset relative to
+	 * PC to jump to, so that relevant context can be restored. The offset
+	 * is calculated as (VPMR_POSSIBLE_MAX - VPMR_MAX) *
+	 * (2*INSTRUCTION_WIDTH) + (absolute address of label "1"). Restore of
+	 * each register would take (2 * INSTRUCTION_WIDTH) size.
+	 */
+	mov	w11, #MPAMIDR_EL1_VPMR_MAX_POSSIBLE
+	sub	w10, w11, w10
+	lsl	w10, w10, #3
+	adr	x11, 1f
+	add	x11, x11, x10
+	br	x11
 
-	ldp	x11, x12, [x0, #CTX_MPAMVPM7_EL2]
-	msr	MPAMVPM7_EL2, x11
-	msr	MPAMVPMV_EL2, x12
-	ret
+	/*
+	 * The branch above would land properly on one of the ldr following
+	 * label "1". Make sure that the order of restore is retained.
+	 */
+1:	ldr	x10, [x0, #CTX_MPAMVPM7_EL2]
+	msr	MPAMVPM7_EL2, x10
+
+	ldr	x11, [x0, #CTX_MPAMVPM6_EL2]
+	msr	MPAMVPM6_EL2, x11
+
+	ldr	x12, [x0, #CTX_MPAMVPM5_EL2]
+	msr	MPAMVPM5_EL2, x12
+
+	ldr	x13, [x0, #CTX_MPAMVPM4_EL2]
+	msr	MPAMVPM4_EL2, x13
+
+	ldr	x14, [x0, #CTX_MPAMVPM3_EL2]
+	msr	MPAMVPM3_EL2, x14
+
+	ldr	x15, [x0, #CTX_MPAMVPM2_EL2]
+	msr	MPAMVPM2_EL2, x15
+
+	ldr	x16, [x0, #CTX_MPAMVPM1_EL2]
+	msr	MPAMVPM1_EL2, x16
+
+2:	ret
 endfunc el2_sysregs_context_restore_mpam
 #endif /* ENABLE_MPAM_FOR_LOWER_ELS */
 
