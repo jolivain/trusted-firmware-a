@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "237eabd2_f22b0cdb",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-11-11T13:59:54Z",
+      "side": 1,
+      "message": "That\u0027s a good point, I agree that this check is currently broken. However I think changing i to be signed might be the better option here.\n\nWith the currently proposed approach if we take the example where i \u003d\u003d 0 in the outer loop and the first call to `mmap_add_dynamic_region` fails.\nOnce we enter the inner do loop, the first operation is to decrement i, which will cause it to wrap around. Therefore we\u0027ll get out of bounds accesses to `address_range_array` as part of the call to `mmap_remove_dynamic_region`?",
+      "parentUuid": "7a055ee5_5b22e158",
+      "revId": "899f03b47c35691a37077b1f63ef49d7c31906f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03ca62e0_91cc2c98",
         "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
         "patchSetId": 12
