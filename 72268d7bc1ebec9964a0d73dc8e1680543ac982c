@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "40a2a9c2_53dc6f7e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-11T18:00:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "908ca593_b90b2357",
+      "revId": "72268d7bc1ebec9964a0d73dc8e1680543ac982c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1463793d_6503d465",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 9
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "This was done to enable the --openssl target that appears in the project Makefiles. I can move it to another patch, but the --openssl target will stop working.",
       "parentUuid": "be1f0078_81468530",
+      "revId": "72268d7bc1ebec9964a0d73dc8e1680543ac982c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5147379_55cac0fe",
+        "filename": "Makefile",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-11T18:00:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "56acac4e_bf2a1492",
       "revId": "72268d7bc1ebec9964a0d73dc8e1680543ac982c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -201,6 +237,30 @@
       "side": 1,
       "message": "EVP_PKEY_new is not deprecated in OpenSSL 3, but is not needed anymore, as the RSA or EC keys can be generated directly by using EVP_RSA_gen() and EVP_EC_gen() respectively without having to allocate a generic EVP_PKEY before assigning. See line 46, for instance.",
       "parentUuid": "45f681b6_7099c7b8",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 6
+      },
+      "revId": "72268d7bc1ebec9964a0d73dc8e1680543ac982c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "162d6837_ef2ad5a2",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-11T18:00:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83609430_36ec188d",
       "range": {
         "startLine": 27,
         "startChar": 0,
