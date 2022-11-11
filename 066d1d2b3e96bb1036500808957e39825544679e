@@ -16,6 +16,24 @@
       "message": "The only failures are static check related with newly added files, in the build logs from CI i can see that all files are being compiled except  \"plat/st/stm32mp1/stm32mp1_tbb_cert.c\" \ndrivers/st/crypto/stm32_pka.c\ndrivers/st/crypto/stm32_rng.c\ndrivers/st/crypto/stm32_saes.c\nplat/st/common/stm32mp_crypto_lib.c\nplat/st/common/stm32mp_trusted_boot.c\nplat/st/stm32mp1/plat_def_uuid_config.c\nplat/st/stm32mp1/stm32mp1_tbb_cert.c",
       "revId": "066d1d2b3e96bb1036500808957e39825544679e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e787de8_ba63c033",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-11-11T15:57:39Z",
+      "side": 1,
+      "message": "Hi Manish, the new files are compiled with the patch pushed by Lionel in tf-a-ci-scripts with the same topic.",
+      "parentUuid": "27b9f558_54fc2557",
+      "revId": "066d1d2b3e96bb1036500808957e39825544679e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
