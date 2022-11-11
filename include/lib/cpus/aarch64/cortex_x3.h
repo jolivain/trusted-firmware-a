@@ -20,8 +20,10 @@
 /*******************************************************************************
  * CPU Power Control register specific definitions
  ******************************************************************************/
-#define CORTEX_X3_CPUPWRCTLR_EL1			S3_0_C15_C2_7
-#define CORTEX_X3_CPUPWRCTLR_EL1_CORE_PWRDN_BIT	U(1)
+#define CORTEX_X3_IMP_CPUPWRCTLR_EL1			S3_0_C15_C2_7
+#define CORTEX_X3_IMP_CPUPWRCTLR_EL1_CORE_PWRDN_BIT	U(1)
+#define CORTEX_X3_IMP_CPUPWRCTLR_EL1_WFI_RET_CTRL_BITS_SHIFT	U(4)
+#define CORTEX_X3_IMP_CPUPWRCTLR_EL1_WFE_RET_CTRL_BITS_SHIFT	U(7)
 
 /*******************************************************************************
  * CPU Auxiliary Control register 2 specific definitions.
