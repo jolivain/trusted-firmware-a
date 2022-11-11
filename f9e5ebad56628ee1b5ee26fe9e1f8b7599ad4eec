@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdd24d4d_3cd81c82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2022-11-11T10:45:05Z",
+      "side": 1,
+      "message": "Thanks Wing for fixing the comments.",
+      "revId": "f9e5ebad56628ee1b5ee26fe9e1f8b7599ad4eec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32e08aa1_40149779",
+        "filename": "lib/psci/psci_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2022-11-11T10:45:05Z",
+      "side": 1,
+      "message": "Not sure if these 2 lines are still needed we could return rc?",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 12
+      },
+      "revId": "f9e5ebad56628ee1b5ee26fe9e1f8b7599ad4eec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
