@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4116f07_af886da5",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-11-11T16:09:47Z",
+      "side": 1,
+      "message": "Ok great. In which case I think this should be functionally correct, thanks for fixing this.\n\nMy only remaining question is whether stylistically the equivalent (i--; i \u003e\u003d 0; i--) form would be preferred, but happy to let others comment.",
+      "parentUuid": "f8770504_21291391",
+      "revId": "560c46adba954d1576d4786e59b8de615bf20714",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ddf3f4cf_1e27a3be",
