@@ -161,6 +161,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aec34f2_4252d3a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-11-11T16:41:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba433f9e_376efca1",
+      "revId": "04c7303b9c3d2215eebc3d59431519990abe03d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df7aa2ea_6d52ebb7",
@@ -222,6 +240,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "68b44856_9c1b1a5d",
+      "range": {
+        "startLine": 486,
+        "startChar": 0,
+        "endLine": 486,
+        "endChar": 15
+      },
+      "revId": "04c7303b9c3d2215eebc3d59431519990abe03d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc27c488_b2613f8c",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-11-11T16:41:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b54d68ef_4e57249c",
       "range": {
         "startLine": 486,
         "startChar": 0,
