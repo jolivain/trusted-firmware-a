@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a055ee5_5b22e158",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-11-11T10:04:13Z",
+      "side": 1,
+      "message": "it should exit the loop when i becomes 0, other alternative is to make i as signed int.\ncoverity tool detected infinite loop, if i is uint i\u003e\u003d0 is always true",
+      "parentUuid": "8a5a174c_3695c76b",
+      "revId": "899f03b47c35691a37077b1f63ef49d7c31906f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03ca62e0_91cc2c98",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-11-10T15:17:11Z",
       "side": 1,
       "message": "This should be updated to reflect the new parameter.",
+      "revId": "899f03b47c35691a37077b1f63ef49d7c31906f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "645a83a3_2d5e506d",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-11-11T10:04:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03ca62e0_91cc2c98",
       "revId": "899f03b47c35691a37077b1f63ef49d7c31906f1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -52,6 +88,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da851dfd_c0280321",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-11-11T10:04:13Z",
+      "side": 1,
+      "message": "sorry that was error in rebasing, corrected it.",
+      "parentUuid": "082c4ef8_b5323e3f",
+      "revId": "899f03b47c35691a37077b1f63ef49d7c31906f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "629b6bed_4973d298",
@@ -69,6 +123,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bc79737_787e554d",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-11-11T10:04:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "629b6bed_4973d298",
+      "revId": "899f03b47c35691a37077b1f63ef49d7c31906f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba459a99_50a204c0",
@@ -82,6 +154,30 @@
       "writtenOn": "2022-11-10T15:17:11Z",
       "side": 1,
       "message": "nit: Double space",
+      "range": {
+        "startLine": 489,
+        "startChar": 48,
+        "endLine": 489,
+        "endChar": 49
+      },
+      "revId": "899f03b47c35691a37077b1f63ef49d7c31906f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e916aaf_493667c7",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-11-11T10:04:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba459a99_50a204c0",
       "range": {
         "startLine": 489,
         "startChar": 48,
