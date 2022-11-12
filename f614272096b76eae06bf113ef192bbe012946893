@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c0fab49_ee0e7b81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-11-12T00:53:12Z",
+      "side": 1,
+      "message": "Sorry for the late response. Was out of office. I saw Sandrine\u0027s email about being careful about adding platform APIs. Since we are okay with short term solutions, why can\u0027t your platform create a wrapper crypto mod (which is already customizable) and add this internally?\nThat way this change does not need to make it upstream.\nIs there a reason to not hook crypto_mod_verify_hash to do the same thing?\napologies if this was already discussed. ",
+      "revId": "f614272096b76eae06bf113ef192bbe012946893",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
