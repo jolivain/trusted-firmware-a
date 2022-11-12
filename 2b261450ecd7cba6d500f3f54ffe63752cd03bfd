@@ -33,6 +33,23 @@
       "message": "Hi can you please rebase and update based on the review comments? Thanks.",
       "revId": "2b261450ecd7cba6d500f3f54ffe63752cd03bfd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d3c3a90_156dadb8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000917
+      },
+      "writtenOn": "2022-11-12T01:37:30Z",
+      "side": 1,
+      "message": "Apologies if I\u0027m responding the wrong way, this is my first usage of Gerrit...\n\nI noticed when I built this that it doesn\u0027t include the clock code like the binaries shipped by Rockchip. As a result the devicetree in Linux mainline was incorrect (as there was no scmi_clk). Will this change or should the devicetree for Linux be updated?\n\nI do appreciate the posting of the sources though and look forward to working with them in the future.\n\nThank you.",
+      "revId": "2b261450ecd7cba6d500f3f54ffe63752cd03bfd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
