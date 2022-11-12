@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bbe1f3d7_5fbeb18a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-11-12T11:34:58Z",
+      "side": 1,
+      "message": "sorry about late address this due to busy around for internal task. I will try to fix this.",
+      "parentUuid": "25fb766b_36cff752",
+      "revId": "8c915b2ce08957e39f52cd91d34f7390ec78949e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "21bfc304_8532aa1d",
         "filename": "make_helpers/defaults.mk",
         "patchSetId": 1
@@ -49,6 +67,30 @@
       "writtenOn": "2022-09-16T06:20:03Z",
       "side": 1,
       "message": "This looks misplaced to me. defaults.mk file is for general options that apply to all platforms. Here EMULATOR looks like something specific to Intel platform, in which case it should be moved to some makefile under plat/intel/.",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 15
+      },
+      "revId": "8c915b2ce08957e39f52cd91d34f7390ec78949e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "990b6e45_cb6e0d04",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-11-12T11:34:58Z",
+      "side": 1,
+      "message": "I will move this back to plat/intel/ for each device.",
+      "parentUuid": "21bfc304_8532aa1d",
       "range": {
         "startLine": 96,
         "startChar": 0,
