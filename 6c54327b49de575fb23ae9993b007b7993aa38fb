@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67918b5e_dc3cca5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-11-13T12:31:15Z",
+      "side": 1,
+      "message": "Thanks for your comments Juan.",
+      "revId": "6c54327b49de575fb23ae9993b007b7993aa38fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b0dcdb7_d00e1806",
@@ -43,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "66168f8b_54dc86b0",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-11-13T12:31:15Z",
+      "side": 1,
+      "message": "Yes. The output buffer is cleared up and set to 0 before being sent to this API.\nPlease check the trng_main.c file, from where this API is been called.",
+      "parentUuid": "5b0dcdb7_d00e1806",
+      "range": {
+        "startLine": 114,
+        "startChar": 14,
+        "endLine": 114,
+        "endChar": 16
+      },
+      "revId": "6c54327b49de575fb23ae9993b007b7993aa38fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1b7106e2_dbc65a86",
         "filename": "services/std_svc/trng/trng_entropy_pool.c",
         "patchSetId": 4
@@ -54,6 +95,24 @@
       "writtenOn": "2022-11-11T23:42:06Z",
       "side": 1,
       "message": "I think that this should be something like this: `entropy[...] |\u003d (1 \u003c\u003c rshift) - 1` or similar. That way you only clear the bits you are taking from the entropy, not the whole word, as it may have more valid bits of entropy (the most recent ones). See my example on Slack.",
+      "revId": "6c54327b49de575fb23ae9993b007b7993aa38fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04b2c243_622154cd",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-11-13T12:31:15Z",
+      "side": 1,
+      "message": "As I have mentioned in the comments section line 164, we move linearly upwards from the lowest index.\nI saw your example on slack and I think that\u0027s not a valid case.\n\nWe clear only the bits picked from the word_i in the (if case)line 159, when we reach (else case)here, wherein the bisttodiscard is more than the valid entropy bits in word_i.\n\nThis clearly implies that this word_i is completely been used/packed, and needs to be cleared up.\nwhich is simply setting it to zero, instead of setting individual bits (which again ultimately does the same, wherein the word_i will be zero).\nI picked the easiest one of setting the word_i to 0.\n\nHope this clears the confusion. Let me know your thoughts. We could discuss again id needed.",
+      "parentUuid": "1b7106e2_dbc65a86",
       "revId": "6c54327b49de575fb23ae9993b007b7993aa38fb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
