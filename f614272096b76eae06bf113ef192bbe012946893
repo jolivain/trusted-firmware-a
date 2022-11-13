@@ -33,6 +33,24 @@
       "message": "In any case, I don\u0027t want to block merge if others are okay, just posting my 2 cents on a potential way to do it, without having to merge this in a hurry.",
       "revId": "f614272096b76eae06bf113ef192bbe012946893",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "919b4902_b40e42dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2022-11-13T21:30:11Z",
+      "side": 1,
+      "message": "No issue Raghu, the problem is about to check the specific way to manage only the ROTPK hash and not the other keys.\n\nThere is nothing to differentiate the crypto API call between the root key and another key.\nThe crypto_mod_verify_hash must be at least just to verify the hash whereas the issue comes from the ROTPK which is not only the key but a key + addons.",
+      "parentUuid": "0c0fab49_ee0e7b81",
+      "revId": "f614272096b76eae06bf113ef192bbe012946893",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }

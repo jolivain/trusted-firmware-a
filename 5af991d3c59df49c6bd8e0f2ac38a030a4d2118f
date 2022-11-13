@@ -404,6 +404,30 @@
       },
       "revId": "5af991d3c59df49c6bd8e0f2ac38a030a4d2118f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a470a0c1_89848e27",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2022-11-13T21:30:11Z",
+      "side": 1,
+      "message": "Agree with that. We\u0027re aligned with Sandrine (maybe not the most beautiful way) to go with this implementation with a deprecated mark and iterate to go with a better approach.",
+      "parentUuid": "81ba0178_3e01a2e6",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 28
+      },
+      "revId": "5af991d3c59df49c6bd8e0f2ac38a030a4d2118f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
