@@ -105,6 +105,24 @@
       "message": "There appears to be merge conflict, would you please rebase it on integration",
       "revId": "066d1d2b3e96bb1036500808957e39825544679e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59b71ca0_63275813",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2022-11-14T10:18:26Z",
+      "side": 1,
+      "message": "I\u0027ve made the rebase, it impacts a cert_tool patch that have been updated for OPENSSL3 and previous version.\nI\u0027ve made the adaptation to manage that too.",
+      "parentUuid": "9785468d_33e914dc",
+      "revId": "066d1d2b3e96bb1036500808957e39825544679e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
