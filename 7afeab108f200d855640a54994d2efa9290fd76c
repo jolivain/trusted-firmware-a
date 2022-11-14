@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5344a94e_d7725b63",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-11-14T12:08:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcb259cd_c764bc65",
+      "range": {
+        "startLine": 494,
+        "startChar": 78,
+        "endLine": 494,
+        "endChar": 80
+      },
+      "revId": "7afeab108f200d855640a54994d2efa9290fd76c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90f60770_43c64702",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-11T16:09:47Z",
       "side": 1,
       "message": "Should this just be `\u003e`? \nIf the emad array is located at the very end of the descriptor is it possible for emad_in + size to be equal to the the descriptor + size and for it still to be valid?",
+      "range": {
+        "startLine": 587,
+        "startChar": 58,
+        "endLine": 587,
+        "endChar": 60
+      },
+      "revId": "7afeab108f200d855640a54994d2efa9290fd76c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e434b725_ef07d877",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-11-14T12:08:46Z",
+      "side": 1,
+      "message": "yes \u003e would be better to check absolute bound of descriptor.",
+      "parentUuid": "90f60770_43c64702",
       "range": {
         "startLine": 587,
         "startChar": 58,
