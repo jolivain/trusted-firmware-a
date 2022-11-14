@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c689587_e0ed5146",
+        "filename": "include/lib/psa/measured_boot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-14T16:13:57Z",
+      "side": 1,
+      "message": "Will sw_type always necessarily be a string? Or could it be some arbitrary byte buffer?\n\nI think it might make more sense to request the caller, who knows better about the sw_type contents, to pass the appropriate length, i.e. without the \\0 in case that\u0027s a string. IOW removing the \"+1\" added to the result of strlen() here:\n\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/drivers/measured_boot/rss/rss_measured_boot.c#n56",
+      "range": {
+        "startLine": 42,
+        "startChar": 18,
+        "endLine": 42,
+        "endChar": 44
+      },
+      "revId": "6f36d72ee093680d493b0f6fb62bc288cf3a78e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
