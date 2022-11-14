@@ -129,6 +129,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54e239b3_a3a92185",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-14T23:39:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66168f8b_54dc86b0",
+      "range": {
+        "startLine": 114,
+        "startChar": 14,
+        "endLine": 114,
+        "endChar": 16
+      },
+      "revId": "6c54327b49de575fb23ae9993b007b7993aa38fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b7106e2_dbc65a86",
@@ -160,6 +184,24 @@
       "side": 1,
       "message": "As I have mentioned in the comments section line 164, we move linearly upwards from the lowest index.\nI saw your example on slack and I think that\u0027s not a valid case.\n\nWe clear only the bits picked from the word_i in the (if case)line 159, when we reach (else case)here, wherein the bisttodiscard is more than the valid entropy bits in word_i.\n\nThis clearly implies that this word_i is completely been used/packed, and needs to be cleared up.\nwhich is simply setting it to zero, instead of setting individual bits (which again ultimately does the same, wherein the word_i will be zero).\nI picked the easiest one of setting the word_i to 0.\n\nHope this clears the confusion. Let me know your thoughts. We could discuss again id needed.",
       "parentUuid": "1b7106e2_dbc65a86",
+      "revId": "6c54327b49de575fb23ae9993b007b7993aa38fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c48ff32e_5b7f3210",
+        "filename": "services/std_svc/trng/trng_entropy_pool.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-14T23:39:12Z",
+      "side": 1,
+      "message": "It\u0027s clear now after we talked about it. I thought that entropy bits were filled one at a time, but as they are filled only when a word is ready, this will work.",
+      "parentUuid": "04b2c243_622154cd",
       "revId": "6c54327b49de575fb23ae9993b007b7993aa38fb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
