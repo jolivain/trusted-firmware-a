@@ -16,6 +16,24 @@
       "message": "Hi Zhaohui, what\u0027s your use-case for this (I see `-pg` is used in your commit message, but why not apply it to the entirety of BL31?)? I\u0027ve not seen this done before - usually CFLAGS is applied on a per-program/library basis - and I think this will have an impact on our migration to CMake.",
       "revId": "4fda6003a316e270cab3297419ddc6a38283701f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1154aa39_6075d27e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000492
+      },
+      "writtenOn": "2022-11-14T02:25:02Z",
+      "side": 1,
+      "message": "Yes, Understand. I use this to add some track information to my platform code. \nWe can\u0027t apply this if we will migrate to CMake.",
+      "parentUuid": "d1b9aac0_09634b88",
+      "revId": "4fda6003a316e270cab3297419ddc6a38283701f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
