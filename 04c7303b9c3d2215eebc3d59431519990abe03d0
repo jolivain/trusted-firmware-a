@@ -234,6 +234,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "49436355_cb7c3a6d",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-11-14T11:46:40Z",
+      "side": 1,
+      "message": "\u003e Seems x1 will be clobbered and is not mentioned as clobbered in the documentation.\n\nmay be i missed something. x1 should not be clobbered. a simple implementation of plat_can_cmo will read a register value in x0, and it with a mask and return the result in x0. why do you think x1 will be clobbered?",
+      "parentUuid": "b92c24de_0c679161",
+      "revId": "04c7303b9c3d2215eebc3d59431519990abe03d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "df7aa2ea_6d52ebb7",
         "filename": "make_helpers/defaults.mk",
         "patchSetId": 10
