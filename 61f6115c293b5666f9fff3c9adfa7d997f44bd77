@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "566f3be1_8356c124",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-14T07:59:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b0d8df8_08d14013",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 56
+      },
+      "revId": "61f6115c293b5666f9fff3c9adfa7d997f44bd77",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75034622_779a001c",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-14T07:48:01Z",
       "side": 1,
       "message": "CPU PM driver accesses CPU idle SRAM during the system suspend process. The region of CPU idle SRAM needs to be added as mmap entry. Otherwise, the exception would occur.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "61f6115c293b5666f9fff3c9adfa7d997f44bd77",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f314661_8d20b1e0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2022-11-14T07:59:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75034622_779a001c",
       "range": {
         "startLine": 9,
         "startChar": 0,
