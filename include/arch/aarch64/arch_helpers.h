@@ -19,11 +19,11 @@
  * registers
  *********************************************************************/
 
-#define _DEFINE_SYSREG_READ_FUNC(_name, _reg_name)		\
+#define _DEFINE_SYSREG_READ_FUNC(_name, _reg_name, _volatile)	\
 static inline u_register_t read_ ## _name(void)			\
 {								\
 	u_register_t v;						\
-	__asm__ volatile ("mrs %0, " #_reg_name : "=r" (v));	\
+	__asm__ _volatile ("mrs %0, " #_reg_name : "=r" (v));	\
 	return v;						\
 }
 
@@ -38,25 +38,33 @@ static inline void write_ ## _name(u_register_t v)			\
 
 /* Define read function for system register */
 #define DEFINE_SYSREG_READ_FUNC(_name) 			\
-	_DEFINE_SYSREG_READ_FUNC(_name, _name)
+	_DEFINE_SYSREG_READ_FUNC(_name, _name, volatile)
 
 /* Define read & write function for system register */
 #define DEFINE_SYSREG_RW_FUNCS(_name)			\
-	_DEFINE_SYSREG_READ_FUNC(_name, _name)		\
+	_DEFINE_SYSREG_READ_FUNC(_name, _name, volatile)	\
 	_DEFINE_SYSREG_WRITE_FUNC(_name, _name)
 
 /* Define read & write function for renamed system register */
 #define DEFINE_RENAME_SYSREG_RW_FUNCS(_name, _reg_name)	\
-	_DEFINE_SYSREG_READ_FUNC(_name, _reg_name)	\
+	_DEFINE_SYSREG_READ_FUNC(_name, _reg_name, volatile)	\
 	_DEFINE_SYSREG_WRITE_FUNC(_name, _reg_name)
 
 /* Define read function for renamed system register */
 #define DEFINE_RENAME_SYSREG_READ_FUNC(_name, _reg_name)	\
-	_DEFINE_SYSREG_READ_FUNC(_name, _reg_name)
+	_DEFINE_SYSREG_READ_FUNC(_name, _reg_name, volatile)
 
 /* Define write function for renamed system register */
 #define DEFINE_RENAME_SYSREG_WRITE_FUNC(_name, _reg_name)	\
 	_DEFINE_SYSREG_WRITE_FUNC(_name, _reg_name)
+
+/* Define read function for ID register (w/o volatile qualifier) */
+#define DEFINE_IDREG_READ_FUNC(_name) 			\
+	_DEFINE_SYSREG_READ_FUNC(_name, _name, )
+
+/* Define read function for renamed ID register (w/o volatile qualifier) */
+#define DEFINE_RENAME_IDREG_READ_FUNC(_name, _reg_name)	\
+	_DEFINE_SYSREG_READ_FUNC(_name, _reg_name, )
 
 /**********************************************************************
  * Macros to create inline functions for system instructions
@@ -247,14 +255,14 @@ void disable_mpu_icache_el2(void);
 #define write_daifset(val) SYSREG_WRITE_CONST(daifset, val)
 
 DEFINE_SYSREG_RW_FUNCS(par_el1)
-DEFINE_SYSREG_READ_FUNC(id_pfr1_el1)
-DEFINE_SYSREG_READ_FUNC(id_aa64isar0_el1)
-DEFINE_SYSREG_READ_FUNC(id_aa64isar1_el1)
-DEFINE_RENAME_SYSREG_READ_FUNC(id_aa64isar2_el1, ID_AA64ISAR2_EL1)
-DEFINE_SYSREG_READ_FUNC(id_aa64pfr0_el1)
-DEFINE_SYSREG_READ_FUNC(id_aa64pfr1_el1)
-DEFINE_SYSREG_READ_FUNC(id_aa64dfr0_el1)
-DEFINE_SYSREG_READ_FUNC(id_afr0_el1)
+DEFINE_IDREG_READ_FUNC(id_pfr1_el1)
+DEFINE_IDREG_READ_FUNC(id_aa64isar0_el1)
+DEFINE_IDREG_READ_FUNC(id_aa64isar1_el1)
+DEFINE_RENAME_IDREG_READ_FUNC(id_aa64isar2_el1, ID_AA64ISAR2_EL1)
+DEFINE_IDREG_READ_FUNC(id_aa64pfr0_el1)
+DEFINE_IDREG_READ_FUNC(id_aa64pfr1_el1)
+DEFINE_IDREG_READ_FUNC(id_aa64dfr0_el1)
+DEFINE_IDREG_READ_FUNC(id_afr0_el1)
 DEFINE_SYSREG_READ_FUNC(CurrentEl)
 DEFINE_SYSREG_READ_FUNC(ctr_el0)
 DEFINE_SYSREG_RW_FUNCS(daif)
@@ -367,10 +375,10 @@ void __dead2 smc(uint64_t x0, uint64_t x1, uint64_t x2, uint64_t x3,
 /*******************************************************************************
  * System register accessor prototypes
  ******************************************************************************/
-DEFINE_SYSREG_READ_FUNC(midr_el1)
+DEFINE_IDREG_READ_FUNC(midr_el1)
 DEFINE_SYSREG_READ_FUNC(mpidr_el1)
-DEFINE_SYSREG_READ_FUNC(id_aa64mmfr0_el1)
-DEFINE_SYSREG_READ_FUNC(id_aa64mmfr1_el1)
+DEFINE_IDREG_READ_FUNC(id_aa64mmfr0_el1)
+DEFINE_IDREG_READ_FUNC(id_aa64mmfr1_el1)
 
 DEFINE_SYSREG_RW_FUNCS(scr_el3)
 DEFINE_SYSREG_RW_FUNCS(hcr_el2)
@@ -516,7 +524,7 @@ DEFINE_RENAME_SYSREG_RW_FUNCS(pmblimitr_el1, PMBLIMITR_EL1)
 DEFINE_RENAME_SYSREG_WRITE_FUNC(zcr_el3, ZCR_EL3)
 DEFINE_RENAME_SYSREG_WRITE_FUNC(zcr_el2, ZCR_EL2)
 
-DEFINE_RENAME_SYSREG_READ_FUNC(id_aa64smfr0_el1, ID_AA64SMFR0_EL1)
+DEFINE_RENAME_IDREG_READ_FUNC(id_aa64smfr0_el1, ID_AA64SMFR0_EL1)
 DEFINE_RENAME_SYSREG_RW_FUNCS(smcr_el3, SMCR_EL3)
 
 DEFINE_RENAME_SYSREG_READ_FUNC(erridr_el1, ERRIDR_EL1)
@@ -530,7 +538,7 @@ DEFINE_RENAME_SYSREG_READ_FUNC(erxmisc0_el1, ERXMISC0_EL1)
 DEFINE_RENAME_SYSREG_READ_FUNC(erxmisc1_el1, ERXMISC1_EL1)
 
 /* Armv8.2 Registers */
-DEFINE_RENAME_SYSREG_READ_FUNC(id_aa64mmfr2_el1, ID_AA64MMFR2_EL1)
+DEFINE_RENAME_IDREG_READ_FUNC(id_aa64mmfr2_el1, ID_AA64MMFR2_EL1)
 
 /* Armv8.3 Pointer Authentication Registers */
 DEFINE_RENAME_SYSREG_RW_FUNCS(apiakeyhi_el1, APIAKeyHi_EL1)
