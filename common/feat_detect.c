@@ -31,6 +31,24 @@ static void feature_panic(char *feat_name)
 	panic();
 }
 
+/*******************************************************************************
+ * Function : check_feature
+ * Check for a valid combination of build time flags (ENABLE_FEAT_xxx) and
+ * feature availability on the hardware.
+ * Panics if a feature is forcefully enabled, but not available on the PE.
+ *
+ * We force inlining here to let the compiler optimise away the whole check
+ * if the feature is disabled at build time (FEAT_STATE_DISABLED).
+ ******************************************************************************/
+static inline void __attribute((__always_inline__))
+check_feature(int state, unsigned long field, const char *feat_name)
+{
+	if (state == FEAT_STATE_ALWAYS && field == 0U) {
+		ERROR("FEAT_%s not supported by the PE\n", feat_name);
+		panic();
+	}
+}
+
 /******************************************
  * Feature : FEAT_SB (Speculation Barrier)
  *****************************************/
@@ -185,16 +203,6 @@ static void read_feat_bti(void)
 #endif
 }
 
-/****************************************
- * Feature : FEAT_FGT (Fine Grain Traps)
- ***************************************/
-static void read_feat_fgt(void)
-{
-#if (ENABLE_FEAT_FGT == FEAT_STATE_ALWAYS)
-	feat_detect_panic(is_armv8_6_fgt_present(), "FGT");
-#endif
-}
-
 /***********************************************
  * Feature : FEAT_AMUv1p1 (AMU Extensions v1.1)
  **********************************************/
@@ -334,7 +342,7 @@ void detect_arch_features(void)
 
 	/* v8.6 features */
 	read_feat_amuv1p1();
-	read_feat_fgt();
+	check_feature(ENABLE_FEAT_FGT, is_armv8_6_fgt_present(), "FGT");
 	read_feat_ecv();
 	read_feat_twed();
 
