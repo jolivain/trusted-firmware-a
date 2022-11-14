@@ -270,6 +270,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "48a8ef51_412bbc46",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2022-11-14T12:12:09Z",
+      "side": 1,
+      "message": "ah i see. yeah i know x1 contains size so must be preserved. that\u0027s why initial versions of the patch said only x0 can be clobbered which is the minimum amount of change that we know of. then we changed it based on feedback.\n\n\u003e I was suggesting that it would be simpler to make it so that x0-x2 must not be clobbered, so that plat_can_cmo uses x3 (or some other register) instead.\n\nand the caller expects the result in x3? wouldn\u0027t it be simpler to have the caller expect result in x0. that way it can be called from C.\n\nre aarch32, i can remove it. also add check for `dcsw_op_louis` (sorry i somehow missed that).",
+      "parentUuid": "ede345bc_b22f54ec",
+      "revId": "04c7303b9c3d2215eebc3d59431519990abe03d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "df7aa2ea_6d52ebb7",
         "filename": "make_helpers/defaults.mk",
         "patchSetId": 10
