@@ -63,6 +63,30 @@
       },
       "revId": "f9e5ebad56628ee1b5ee26fe9e1f8b7599ad4eec",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91492ad1_e03cd90b",
+        "filename": "lib/psci/psci_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2022-11-14T06:35:41Z",
+      "side": 1,
+      "message": "Looks like psci_cpu_on, psci_cpu_off, and psci_cpu_suspend are returning the return code directly; removed the check for consistency.",
+      "parentUuid": "9d40a715_bddfdf46",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 12
+      },
+      "revId": "f9e5ebad56628ee1b5ee26fe9e1f8b7599ad4eec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
