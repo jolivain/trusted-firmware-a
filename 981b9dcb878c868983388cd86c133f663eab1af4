@@ -16,6 +16,24 @@
       "message": "@Yann, is this also targeted for release? As we are going to tag the release in next few hours",
       "revId": "981b9dcb878c868983388cd86c133f663eab1af4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a2270c8_3cb3d461",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-11-14T13:26:12Z",
+      "side": 1,
+      "message": "Hi Manish,\nThat would be great to have that in this release (as announced in release-information.rst). I was waiting for Lionel\u0027s series to be merged before pushing it due to lot of dependencies. I\u0027m preparing the corresponding compilation removal in tf-a-ci-scripts.",
+      "parentUuid": "4469140d_65e8b175",
+      "revId": "981b9dcb878c868983388cd86c133f663eab1af4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
