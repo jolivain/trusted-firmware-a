@@ -129,7 +129,7 @@ non-secure payload (BL33).
 
  git clone https://git.trustedfirmware.org/TF-A/tf-a-tests.git
  cd tf-a-tests
- make CROSS_COMPILE=aarch64-none-elf- PLAT=fvp DEBUG=1 all pack_realm
+ make CROSS_COMPILE=aarch64-none-elf- PLAT=fvp DEBUG=1 all
 
 This produces a TF-A Tests binary (**tftf.bin**) with Realm payload packaged
 and **sp_layout.json** in the **build/fvp/debug** directory.
@@ -346,7 +346,8 @@ The Hafnium binary should be located at
 
 Build TF-A with RME as well as SPM enabled.
 
-Use sp_layout.json previously generated in tf-a-test build.
+Use sp_layout.json previously generated in tf-a-tests
+**build/fvp/debug** directory.
 
 .. code:: shell
 
