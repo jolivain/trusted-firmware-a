@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9a5545a_36dbf210",
+        "filename": "plat/qemu/common/qemu_bl1_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-11-15T08:29:38Z",
+      "side": 0,
+      "message": "This isn\u0027t part of coherent memory, why is this removed?",
+      "revId": "e1d24114a6ca11d4896986202c2467fca5a4e62a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82356190_1bc0dbec",
+        "filename": "plat/qemu/common/qemu_bl1_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-11-15T08:29:38Z",
+      "side": 0,
+      "message": "How about use USE_COHERENT_MEM to determine if coherent memory is needed or not?",
+      "revId": "e1d24114a6ca11d4896986202c2467fca5a4e62a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
