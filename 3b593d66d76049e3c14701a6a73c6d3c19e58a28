@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7c4aa223_e5e980e4",
+        "filename": "lib/cpus/aarch64/cortex_x3.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-11-15T21:16:39Z",
+      "side": 1,
+      "message": "Example from A78(lib/cpus/aarch64/cortex_a78.S)    \n\"\nfunc cortex_a78_reset_func\n        mov     x19, x30\n        bl      cpu_get_rev_var\n        mov     x18, x0\n\n#if ERRATA_A78_1688305\n        mov     x0, x18\n        bl      errata_a78_1688305_wa\n#endif\n\n#if ERRATA_A78_1941498\n        mov     x0, x18\n        bl      errata_a78_1941498_wa\n#endif\n   \n\n...\n        ret     x19\nendfunc cortex_a78_reset_func\n\"",
+      "parentUuid": "a662c353_05f72969",
+      "revId": "3b593d66d76049e3c14701a6a73c6d3c19e58a28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dd1124cd_c14504c8",
         "filename": "lib/cpus/aarch64/cortex_x3.S",
         "patchSetId": 1
