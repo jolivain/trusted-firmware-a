@@ -22,6 +22,30 @@
       },
       "revId": "946245745203f38e5b2796ea14a82720279c0303",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "364cad20_99523e83",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2022-11-15T15:17:03Z",
+      "side": 1,
+      "message": "I don\u0027t think USE_COHERENT_MEM is really required for mach-virt either. And istr it caused problems there too. Marcin?",
+      "parentUuid": "459af596_9d2fb4d9",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "946245745203f38e5b2796ea14a82720279c0303",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
