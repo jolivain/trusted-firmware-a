@@ -157,10 +157,23 @@ static inline unsigned int get_mpam_version(void)
 		ID_AA64PFR1_MPAM_FRAC_SHIFT) & ID_AA64PFR1_MPAM_FRAC_MASK));
 }
 
+static inline unsigned int get_feat_hcx_support(void)
+{
+	return (read_id_aa64mmfr1_el1() >> ID_AA64MMFR1_EL1_HCX_SHIFT) &
+		ID_AA64MMFR1_EL1_HCX_MASK;
+}
+
 static inline bool is_feat_hcx_present(void)
 {
-	return (((read_id_aa64mmfr1_el1() >> ID_AA64MMFR1_EL1_HCX_SHIFT) &
-		ID_AA64MMFR1_EL1_HCX_MASK) == ID_AA64MMFR1_EL1_HCX_SUPPORTED);
+	if (ENABLE_FEAT_HCX == FEAT_STATE_DISABLED) {
+		return false;
+	}
+
+	if (ENABLE_FEAT_HCX == FEAT_STATE_ALWAYS) {
+		return true;
+	}
+
+	return get_feat_hcx_support() != 0U;
 }
 
 static inline bool is_feat_rng_trap_present(void)
