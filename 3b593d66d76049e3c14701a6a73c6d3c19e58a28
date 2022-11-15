@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a054f9b_dd8a944d",
+        "filename": "include/lib/cpus/aarch64/cortex_x3.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-11-15T17:35:44Z",
+      "side": 1,
+      "message": "I see convention has changed in the TRM. Could you propagate the change across the whole file so it\u0027s consistent? It would also be good if we maintained consistency at least across the cortex X cores. Although I checked the 510 and it also has the new naming, so the change might be widespread and we might be better off sticking to the old naming.",
+      "revId": "3b593d66d76049e3c14701a6a73c6d3c19e58a28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbba97bb_43c67f01",
+        "filename": "lib/cpus/aarch64/cortex_x3.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-11-15T17:35:44Z",
+      "side": 1,
+      "message": "These two should be moved out of the #ifdef. See the a77 on a template way we do this.",
+      "revId": "3b593d66d76049e3c14701a6a73c6d3c19e58a28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd1124cd_c14504c8",
+        "filename": "lib/cpus/aarch64/cortex_x3.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-11-15T17:35:44Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "3b593d66d76049e3c14701a6a73c6d3c19e58a28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
