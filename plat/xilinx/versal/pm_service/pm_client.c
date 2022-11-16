@@ -120,7 +120,7 @@ static void pm_client_set_wakeup_sources(uint32_t node_id)
 {
 	uint32_t reg_num;
 	uint32_t device_id;
-	uint8_t pm_wakeup_nodes_set[XPM_NODEIDX_DEV_MAX];
+	uint8_t pm_wakeup_nodes_set[XPM_NODEIDX_DEV_MAX] = { 0U };
 	uintptr_t isenabler1 = PLAT_VERSAL_GICD_BASE + GICD_ISENABLER + 4;
 
 	zeromem(&pm_wakeup_nodes_set, (u_register_t)sizeof(pm_wakeup_nodes_set));
