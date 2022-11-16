@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08803605_954d1e21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-11-16T11:26:07Z",
+      "side": 1,
+      "message": "\nLGTM. Minor comments.",
+      "revId": "d5728f1ceaebc453b3255186a5fa0c4d4825fd75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64248911_60da2b95",
+        "filename": "include/lib/cpus/aarch64/cortex_x3.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-11-16T11:26:07Z",
+      "side": 1,
+      "message": "nit: add more tabs as applicable to keep all the four macros aligned. (looks neat)",
+      "revId": "d5728f1ceaebc453b3255186a5fa0c4d4825fd75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f0e0c23_4ba757cf",
+        "filename": "lib/cpus/aarch64/cortex_x3.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-11-16T11:26:07Z",
+      "side": 1,
+      "message": "typo: retention ?",
+      "revId": "d5728f1ceaebc453b3255186a5fa0c4d4825fd75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
