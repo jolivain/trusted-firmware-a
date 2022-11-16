@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fa1ed45c_df655194",
+        "filename": "include/lib/cpus/aarch64/cortex_x3.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-11-16T10:26:20Z",
+      "side": 1,
+      "message": "I agree with both perspectives here. It makes sense to treat the register names consistently, however, that is probably out of the scope of this patch. A second path to refactor this and other platforms would probably be appropriate.",
+      "parentUuid": "8daa885b_ce8e63cd",
+      "revId": "3b593d66d76049e3c14701a6a73c6d3c19e58a28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cbba97bb_43c67f01",
         "filename": "lib/cpus/aarch64/cortex_x3.S",
         "patchSetId": 1
@@ -89,6 +107,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e243e8f5_847e8d05",
+        "filename": "lib/cpus/aarch64/cortex_x3.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-11-16T10:26:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c4aa223_e5e980e4",
+      "revId": "3b593d66d76049e3c14701a6a73c6d3c19e58a28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd1124cd_c14504c8",
@@ -129,6 +165,48 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f91ae447_0a91cb65",
+        "filename": "lib/cpus/aarch64/cortex_x3.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-11-16T10:26:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99ab2b52_3a192756",
+      "range": {
+        "startLine": 78,
+        "startChar": 1,
+        "endLine": 78,
+        "endChar": 13
+      },
+      "revId": "3b593d66d76049e3c14701a6a73c6d3c19e58a28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "104c8f38_3485a3a9",
+        "filename": "lib/cpus/aarch64/cortex_x3.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-11-16T10:26:20Z",
+      "side": 1,
+      "message": "Stashed lr in x19 at the top of the function and returning directly to it.",
+      "parentUuid": "dd1124cd_c14504c8",
+      "revId": "3b593d66d76049e3c14701a6a73c6d3c19e58a28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6bc0a516_431a708b",
@@ -142,6 +220,30 @@
       "writtenOn": "2022-11-15T21:07:25Z",
       "side": 1,
       "message": "You can use \"ret x19\" if you replace x15 with x19 in the suggested changes above.",
+      "range": {
+        "startLine": 82,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 4
+      },
+      "revId": "3b593d66d76049e3c14701a6a73c6d3c19e58a28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fc97bf1_812b50ea",
+        "filename": "lib/cpus/aarch64/cortex_x3.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-11-16T10:26:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bc0a516_431a708b",
       "range": {
         "startLine": 82,
         "startChar": 1,
