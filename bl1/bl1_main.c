@@ -22,6 +22,8 @@
 #include <plat/common/platform.h>
 #include <smccc_helpers.h>
 #include <tools_share/uuid.h>
+#include <lib/pmf/pmf.h>
+#include <lib/runtime_instr.h>
 
 #include "bl1_private.h"
 
@@ -29,6 +31,10 @@ static void bl1_load_bl2(void);
 
 #if ENABLE_PAUTH
 uint64_t bl1_apiakey[2];
+#endif
+
+#if ENABLE_PMF
+PMF_REGISTER_SERVICE(boot_marker_svc, 2, 1, PMF_STORE_ENABLE) // Can be dump on uart using PMF_DUMP_ENABLE flag
 #endif
 
 /*******************************************************************************
@@ -154,6 +160,9 @@ void bl1_main(void)
 	/* Teardown the measured boot driver */
 	bl1_plat_mboot_finish();
 
+#if ENABLE_PMF
+	PMF_CAPTURE_TIMESTAMP(boot_marker_svc, 0, PMF_NO_CACHE_MAINT);
+#endif
 	bl1_prepare_next_image(image_id);
 
 	console_flush();
