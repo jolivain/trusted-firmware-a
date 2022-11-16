@@ -404,13 +404,13 @@ int spmd_setup(void)
 		if (rc != 0) {
 			ERROR("SPMC initialisation failed 0x%x.\n", rc);
 		}
-		return rc;
+		return 0;
 	}
 
 	spmc_ep_info = bl31_plat_get_next_image_ep_info(SECURE);
 	if (spmc_ep_info == NULL) {
 		WARN("No SPM Core image provided by BL2 boot loader.\n");
-		return -EINVAL;
+		return 0;
 	}
 
 	/* Under no circumstances will this parameter be 0 */
@@ -423,7 +423,7 @@ int spmd_setup(void)
 	spmc_manifest = (void *)spmc_ep_info->args.arg0;
 	if (spmc_manifest == NULL) {
 		ERROR("Invalid or absent SPM Core manifest.\n");
-		return -EINVAL;
+		return 0;
 	}
 
 	/* Load manifest, init SPMC */
@@ -432,7 +432,7 @@ int spmd_setup(void)
 		WARN("Booting device without SPM initialization.\n");
 	}
 
-	return rc;
+	return 0;
 }
 
 /*******************************************************************************
