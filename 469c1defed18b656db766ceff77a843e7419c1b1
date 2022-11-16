@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a25a5cc_224c96d2",
+        "filename": "docs/getting_started/image-terminology.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-11-16T13:48:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2358adb7_26479d47",
+      "revId": "469c1defed18b656db766ceff77a843e7419c1b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74b53ed2_d3978bd2",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-11-16T13:27:03Z",
       "side": 1,
       "message": "\"platform specific\" -\u003e \"platform-specific\"",
+      "revId": "469c1defed18b656db766ceff77a843e7419c1b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea22666c_e3e5ecaf",
+        "filename": "docs/getting_started/image-terminology.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-11-16T13:48:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74b53ed2_d3978bd2",
       "revId": "469c1defed18b656db766ceff77a843e7419c1b1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3e4d5ca9_0e63d1a4",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-11-16T13:48:36Z",
+      "side": 1,
+      "message": "The link is the \"Arm Developer website\" bit above. It points to all downloads. I\u0027ve opted for a descriptive navigation rather than a direct link because the page exposes aarch64 and x86 host downloads (as well as Windows) and letting the user choose felt more complete. The page is also not bad when you know exactly what to click on. The link is also kind of weird (and resolves to windows.net) so it seems unnecessary.",
+      "parentUuid": "9431c9c8_a3ce6720",
+      "revId": "469c1defed18b656db766ceff77a843e7419c1b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0fd2b78_9421e959",
         "filename": "docs/getting_started/tools-build.rst",
         "patchSetId": 4
@@ -65,6 +119,24 @@
       "writtenOn": "2022-11-16T13:27:03Z",
       "side": 1,
       "message": "It\u0027s probably better to put this in the context of the examples below seeing as that\u0027s presumably how this became an out-of-box issue, so:\n\n\u003e The following snippets build a :ref:`FIP\u003cImage Terminology\u003e` for the FVP platform. While it is not an intrinsic part of the FIP format, a BL33 image is required for these examples. For the purposes of experimentation, `Trusted Firmware-A Tests`_ (``tftf.bin``) may be used. Refer to to the `TFTF documentation`_ for instructions on building a TFTF binary.\n\nThe reason being that FIPs are mostly generic containers - BL33 is completely optional, so we don\u0027t want to give the user the impression that a BL33 image is some intrinsic part of building a FIP.",
+      "revId": "469c1defed18b656db766ceff77a843e7419c1b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4f2a413_cde8629f",
+        "filename": "docs/getting_started/tools-build.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-11-16T13:48:36Z",
+      "side": 1,
+      "message": "Yeah that seems reasonable, I\u0027ll add it.",
+      "parentUuid": "a0fd2b78_9421e959",
       "revId": "469c1defed18b656db766ceff77a843e7419c1b1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
