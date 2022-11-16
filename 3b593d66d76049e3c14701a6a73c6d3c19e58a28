@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f8b9ff81_9ec58994",
+        "filename": "include/lib/cpus/aarch64/cortex_x3.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2022-11-16T23:08:03Z",
+      "side": 1,
+      "message": "Sounds reasonable since name change is across CPUs and could be done all together later, will keep it consistent.",
+      "parentUuid": "ac81f7ed_9a2cbaa2",
+      "revId": "3b593d66d76049e3c14701a6a73c6d3c19e58a28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cbba97bb_43c67f01",
         "filename": "lib/cpus/aarch64/cortex_x3.S",
         "patchSetId": 1
