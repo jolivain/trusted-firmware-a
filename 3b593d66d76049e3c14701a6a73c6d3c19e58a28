@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ac81f7ed_9a2cbaa2",
+        "filename": "include/lib/cpus/aarch64/cortex_x3.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-11-16T11:42:50Z",
+      "side": 1,
+      "message": "Could you then revert the naming change until this patch? Would be good to keep it consistent until then.",
+      "parentUuid": "fa1ed45c_df655194",
+      "revId": "3b593d66d76049e3c14701a6a73c6d3c19e58a28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cbba97bb_43c67f01",
         "filename": "lib/cpus/aarch64/cortex_x3.S",
         "patchSetId": 1
