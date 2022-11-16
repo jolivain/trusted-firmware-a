@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f4a43b8_3dcf5592",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-16T14:51:30Z",
+      "side": 1,
+      "message": "There are mostly nit comments and few formatting issues needing fix. Marking -1 for now.",
+      "revId": "68e941d518e59747a59726abfa65fc2982399dc2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b677c3b1_64261e34",
@@ -134,6 +151,98 @@
         "startChar": 71,
         "endLine": 1211,
         "endChar": 75
+      },
+      "revId": "68e941d518e59747a59726abfa65fc2982399dc2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a1bf944_05b53648",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 1255,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-16T14:51:30Z",
+      "side": 1,
+      "message": "Perhaps this text has to move above as pre-conditions, because corresponding item 1 in the picture only relates to the secure interrupt triggering while SP2 runs.",
+      "range": {
+        "startLine": 1253,
+        "startChar": 7,
+        "endLine": 1255,
+        "endChar": 11
+      },
+      "revId": "68e941d518e59747a59726abfa65fc2982399dc2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2006ef52_1341ac14",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 1256,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-16T14:51:30Z",
+      "side": 1,
+      "message": "nit: traps",
+      "range": {
+        "startLine": 1256,
+        "startChar": 40,
+        "endLine": 1256,
+        "endChar": 52
+      },
+      "revId": "68e941d518e59747a59726abfa65fc2982399dc2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98fc8d77_616029ca",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-16T14:51:30Z",
+      "side": 1,
+      "message": "nit: remains",
+      "range": {
+        "startLine": 1260,
+        "startChar": 68,
+        "endLine": 1261,
+        "endChar": 16
+      },
+      "revId": "68e941d518e59747a59726abfa65fc2982399dc2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ca817b5_b832ffd4",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-16T14:51:30Z",
+      "side": 1,
+      "message": "Should be step 5 (then need fix subsequent bullets numbering).",
+      "range": {
+        "startLine": 1262,
+        "startChar": 4,
+        "endLine": 1262,
+        "endChar": 5
       },
       "revId": "68e941d518e59747a59726abfa65fc2982399dc2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
