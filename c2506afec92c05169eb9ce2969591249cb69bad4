@@ -50,6 +50,23 @@
       "message": "Can we confirm with Mikael Olsson that the NPU change really is a breaking change. I can see there is an updated API but not clear if it is a breaking change.",
       "revId": "c2506afec92c05169eb9ce2969591249cb69bad4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c99f3402_e44ec888",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-11-16T15:52:38Z",
+      "side": 1,
+      "message": "Few instances as below, I can\u0027t see in the Change-log (if I\u0027m not missing) -\n\n1. https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17358\n2. https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17710\n3. https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17560\n4. https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17651\n \nStill reviewing, but looks like you need to generate the change log again(?).",
+      "revId": "c2506afec92c05169eb9ce2969591249cb69bad4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
