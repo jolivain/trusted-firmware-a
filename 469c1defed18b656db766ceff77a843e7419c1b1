@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2358adb7_26479d47",
+        "filename": "docs/getting_started/image-terminology.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2022-11-16T13:27:03Z",
+      "side": 1,
+      "message": "\"Common Image Features\"? Just following the style of other titles on this page",
+      "revId": "469c1defed18b656db766ceff77a843e7419c1b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74b53ed2_d3978bd2",
+        "filename": "docs/getting_started/image-terminology.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2022-11-16T13:27:03Z",
+      "side": 1,
+      "message": "\"platform specific\" -\u003e \"platform-specific\"",
+      "revId": "469c1defed18b656db766ceff77a843e7419c1b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9431c9c8_a3ce6720",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2022-11-16T13:27:03Z",
+      "side": 1,
+      "message": "Perhaps we ought to include a link to these?",
+      "revId": "469c1defed18b656db766ceff77a843e7419c1b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0fd2b78_9421e959",
+        "filename": "docs/getting_started/tools-build.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2022-11-16T13:27:03Z",
+      "side": 1,
+      "message": "It\u0027s probably better to put this in the context of the examples below seeing as that\u0027s presumably how this became an out-of-box issue, so:\n\n\u003e The following snippets build a :ref:`FIP\u003cImage Terminology\u003e` for the FVP platform. While it is not an intrinsic part of the FIP format, a BL33 image is required for these examples. For the purposes of experimentation, `Trusted Firmware-A Tests`_ (``tftf.bin``) may be used. Refer to to the `TFTF documentation`_ for instructions on building a TFTF binary.\n\nThe reason being that FIPs are mostly generic containers - BL33 is completely optional, so we don\u0027t want to give the user the impression that a BL33 image is some intrinsic part of building a FIP.",
+      "revId": "469c1defed18b656db766ceff77a843e7419c1b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
