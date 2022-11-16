@@ -33,6 +33,24 @@
       "message": "I can confirm that this resolves a boot issue I have been seeing.\nHowever, it seems less than ideal that things that are completely qemu generic have been fixed for \"qemu\" (virt) but not \"qemu_sbsa\" (sbsa-ref).\n\nCould we resolve this, and prevent future repetitions, by creating a common cpu.mk\nand including in each platform.mk?\n\nThat could also include the cpu sources (lib/cpus), so we don\u0027t need to keep chasing\nnew ones in both places.",
       "revId": "9bff7ce37545162d417953ac36c6878216815b94",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19c37c3c_bafa9866",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-11-16T14:18:37Z",
+      "side": 1,
+      "message": "Sharing more sounds good. It would be nice with a qemu_sbsa maintainer too.",
+      "parentUuid": "713bdbb9_98d48787",
+      "revId": "9bff7ce37545162d417953ac36c6878216815b94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
