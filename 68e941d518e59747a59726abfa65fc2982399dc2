@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ca954d9_10020b07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-16T21:05:06Z",
+      "side": 1,
+      "message": "Thank you for the reviews!",
+      "parentUuid": "0f4a43b8_3dcf5592",
+      "revId": "68e941d518e59747a59726abfa65fc2982399dc2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b677c3b1_64261e34",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-11-14T14:35:29Z",
       "side": 1,
       "message": "nit: *the* virtual GIC interface",
+      "range": {
+        "startLine": 1091,
+        "startChar": 68,
+        "endLine": 1092,
+        "endChar": 13
+      },
+      "revId": "68e941d518e59747a59726abfa65fc2982399dc2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f20019f4_d6510750",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 1092,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-16T21:05:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b677c3b1_64261e34",
       "range": {
         "startLine": 1091,
         "startChar": 68,
@@ -64,6 +106,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3370f8e_8c25552e",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 1152,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-16T21:05:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af90520e_444ab0c7",
+      "range": {
+        "startLine": 1151,
+        "startChar": 50,
+        "endLine": 1152,
+        "endChar": 14
+      },
+      "revId": "68e941d518e59747a59726abfa65fc2982399dc2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "033fe745_94b294b0",
@@ -77,6 +143,30 @@
       "writtenOn": "2022-11-14T14:35:29Z",
       "side": 1,
       "message": "nit: *the* para-virtualized HVC interface",
+      "range": {
+        "startLine": 1153,
+        "startChar": 45,
+        "endLine": 1153,
+        "endChar": 61
+      },
+      "revId": "68e941d518e59747a59726abfa65fc2982399dc2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d031eb3_d3928732",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 1153,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-16T21:05:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "033fe745_94b294b0",
       "range": {
         "startLine": 1153,
         "startChar": 45,
@@ -110,6 +200,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc91a423_089fe19c",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-16T21:05:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7df1846d_0c05f731",
+      "range": {
+        "startLine": 1154,
+        "startChar": 73,
+        "endLine": 1155,
+        "endChar": 6
+      },
+      "revId": "68e941d518e59747a59726abfa65fc2982399dc2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0abf276c_e207687c",
@@ -123,6 +237,30 @@
       "writtenOn": "2022-11-14T14:35:29Z",
       "side": 1,
       "message": "scheduled? per definition line 1015",
+      "range": {
+        "startLine": 1204,
+        "startChar": 31,
+        "endLine": 1204,
+        "endChar": 39
+      },
+      "revId": "68e941d518e59747a59726abfa65fc2982399dc2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42d6f7df_d7b2e282",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 1204,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-16T21:05:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0abf276c_e207687c",
       "range": {
         "startLine": 1204,
         "startChar": 31,
@@ -156,6 +294,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47ad4143_c41ca7de",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-16T21:05:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13d359e7_36b144aa",
+      "range": {
+        "startLine": 1211,
+        "startChar": 71,
+        "endLine": 1211,
+        "endChar": 75
+      },
+      "revId": "68e941d518e59747a59726abfa65fc2982399dc2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a1bf944_05b53648",
@@ -169,6 +331,30 @@
       "writtenOn": "2022-11-16T14:51:30Z",
       "side": 1,
       "message": "Perhaps this text has to move above as pre-conditions, because corresponding item 1 in the picture only relates to the secure interrupt triggering while SP2 runs.",
+      "range": {
+        "startLine": 1253,
+        "startChar": 7,
+        "endLine": 1255,
+        "endChar": 11
+      },
+      "revId": "68e941d518e59747a59726abfa65fc2982399dc2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1193cb4e_22045b37",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 1255,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-16T21:05:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a1bf944_05b53648",
       "range": {
         "startLine": 1253,
         "startChar": 7,
@@ -202,6 +388,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9abf276e_93f474df",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 1256,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-16T21:05:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2006ef52_1341ac14",
+      "range": {
+        "startLine": 1256,
+        "startChar": 40,
+        "endLine": 1256,
+        "endChar": 52
+      },
+      "revId": "68e941d518e59747a59726abfa65fc2982399dc2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98fc8d77_616029ca",
@@ -225,6 +435,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54fbf68b_ba9583e9",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-16T21:05:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98fc8d77_616029ca",
+      "range": {
+        "startLine": 1260,
+        "startChar": 68,
+        "endLine": 1261,
+        "endChar": 16
+      },
+      "revId": "68e941d518e59747a59726abfa65fc2982399dc2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ca817b5_b832ffd4",
@@ -238,6 +472,30 @@
       "writtenOn": "2022-11-16T14:51:30Z",
       "side": 1,
       "message": "Should be step 5 (then need fix subsequent bullets numbering).",
+      "range": {
+        "startLine": 1262,
+        "startChar": 4,
+        "endLine": 1262,
+        "endChar": 5
+      },
+      "revId": "68e941d518e59747a59726abfa65fc2982399dc2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a788661e_89d56d60",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-16T21:05:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ca817b5_b832ffd4",
       "range": {
         "startLine": 1262,
         "startChar": 4,
