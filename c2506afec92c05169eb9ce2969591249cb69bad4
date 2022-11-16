@@ -141,6 +141,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "73b7d151_0526fc39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-11-16T18:21:32Z",
+      "side": 1,
+      "message": "*Changelog.yaml file. Sections with hidden status.\n\nWe might need to manually edit and add documentation patches if they are important and not picked as in these scenarios. Hope I am correct here. @Chris could you please confirm this as this is what we followed last time.",
+      "parentUuid": "1fb3d181_e398318f",
+      "revId": "c2506afec92c05169eb9ce2969591249cb69bad4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8fbb2fae_da974b6b",
         "filename": "docs/change-log.md",
         "patchSetId": 2
