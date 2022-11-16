@@ -159,6 +159,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fa75f26a_661d0d54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-11-16T18:45:50Z",
+      "side": 1,
+      "message": "Oh ok! There are some documentation and build patches listed in the resolved issues section so I got confused there, it looks we have them being added if they are of type \"fix\". I\u0027m wondering if we should have the same approach for both new features and resolved issues. Yeah maybe Chris has more context on the approach there and we could decide if there needs to be a change or not.",
+      "parentUuid": "73b7d151_0526fc39",
+      "revId": "c2506afec92c05169eb9ce2969591249cb69bad4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8fbb2fae_da974b6b",
         "filename": "docs/change-log.md",
         "patchSetId": 2
