@@ -1170,6 +1170,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32fd5028_c04c74c8",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1009,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-16T21:05:01Z",
+      "side": 1,
+      "message": "In the current implementation, virtual interrupt ids are tied to physical interrupt ids.\n\nAlso, these are very similar threats and have similar mitigation. Hence I would like to keep them as a single entry here.",
+      "parentUuid": "8dd33a71_6b6eac58",
+      "range": {
+        "startLine": 1009,
+        "startChar": 27,
+        "endLine": 1009,
+        "endChar": 29
+      },
+      "revId": "99bdd40262153a4dd8b1724c1c9d9a3bee52ffdc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a4c8cf2_8817ddd7",
