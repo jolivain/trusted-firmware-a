@@ -326,6 +326,30 @@
       },
       "revId": "c2506afec92c05169eb9ce2969591249cb69bad4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bdac48c_d5b608eb",
+        "filename": "docs/change-log.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2022-11-16T23:54:34Z",
+      "side": 1,
+      "message": "The Automation was always meant to be the starting point. I fully expected we may need some manual adjustment of the automated changelog. \n\nThat was what my questions/comments was about mainly.\n\nOn this topic of fixes applied to new features introduced since the last release its depends on how you view the changelog. Is the fixes section only mean t to be existing features introduced in previous releases or also fixes introduced to features introduced earlier in this release.\n\nAll I can offer if you see some things obvious then maybe move them. If not leave the where they are.\n\nI\u0027m not sure we can do much more beyond that with out investing in more automation to try and work this out. But we have no time for that.\n\nI suggest to raise a post release ticket where we can discuss what we should or should not do in the future. \n\nThat all changes are listed in the changelog may be the best we can do even if they may not always be in the right place.",
+      "parentUuid": "bd5975e7_0ca1fa2e",
+      "range": {
+        "startLine": 699,
+        "startChar": 6,
+        "endLine": 699,
+        "endChar": 65
+      },
+      "revId": "c2506afec92c05169eb9ce2969591249cb69bad4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
