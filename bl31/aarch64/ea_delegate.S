@@ -255,9 +255,8 @@ func ea_proceed
 	 * Save ESR as handling might involve lower ELs, and returning back to
 	 * EL3 from there would trample the original ESR.
 	 */
-	mrs	x4, scr_el3
-	mrs	x5, esr_el3
-	stp	x4, x5, [sp, #CTX_EL3STATE_OFFSET + CTX_SCR_EL3]
+	mrs	x4, esr_el3
+	str	x4, [sp, #CTX_EL3STATE_OFFSET + CTX_ESR_EL3]
 
 	/*
 	 * Setup rest of arguments, and call platform External Abort handler.

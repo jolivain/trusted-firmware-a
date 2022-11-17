@@ -788,6 +788,20 @@ endfunc fpregs_context_restore
 #endif /* CTX_INCLUDE_FPREGS */
 
 	/*
+	 * Save incoming SCR_EL3 and restore it for EL3 context.
+	 * TODO: This can also be used as the place holder to save/restore
+	 * root context which will be introduced in future.
+	 */
+	.macro save_restore_scr_el3
+	mrs	x8, scr_el3
+	str	x8, [sp, #CTX_EL3STATE_OFFSET + CTX_SCR_EL3]
+
+	/* Set SCR_EL3.EA bit to enable SErrors in EL3*/
+	orr     x8, x8, #SCR_EA_BIT
+	msr     scr_el3, x8
+	.endm
+
+	/*
 	 * Set the PSTATE bits not set when the exception was taken as
 	 * described in the AArch64.TakeException() pseudocode function
 	 * in ARM DDI 0487F.c page J1-7635 to a default value.
@@ -909,6 +923,7 @@ endfunc fpregs_context_restore
  * state, preparing entry to el3.
  * Save all the general purpose and ARMv8.3-PAuth (if enabled)
  * registers.
+ * Save incoming SCR_EL3 and restore it for root context.
  * Then set any of the PSTATE bits that are not set by hardware
  * according to the Aarch64.TakeException pseudocode in the Arm
  * Architecture Reference Manual to a default value for EL3.
@@ -917,6 +932,7 @@ endfunc fpregs_context_restore
  */
 func prepare_el3_entry
 	save_gp_pmcr_pauth_regs
+	save_restore_scr_el3
 	/*
 	 * Set the PSTATE bits not described in the Aarch64.TakeException
 	 * pseudocode to their default values.
