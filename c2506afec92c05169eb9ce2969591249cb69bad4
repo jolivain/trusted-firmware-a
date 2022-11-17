@@ -211,6 +211,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15e5af1e_a0f252fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-11-17T15:27:46Z",
+      "side": 1,
+      "message": "Sounds good! I will leave as is for now and we can add in build and doc changes as required!",
+      "parentUuid": "8cf33e0a_9631877b",
+      "revId": "c2506afec92c05169eb9ce2969591249cb69bad4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fbb2fae_da974b6b",
@@ -402,6 +420,30 @@
       "side": 1,
       "message": "This is kind of an artefact of our versioning scheme, and has been happening since before we begun automation. Were we to have a more automated, granular versioning scheme then it\u0027d be clearer at which point changes are introduced and fixes, but without it somebody just scanning the commit log (either a script or a person) doesn\u0027t really stand much of a chance.",
       "parentUuid": "3bdac48c_d5b608eb",
+      "range": {
+        "startLine": 699,
+        "startChar": 6,
+        "endLine": 699,
+        "endChar": 65
+      },
+      "revId": "c2506afec92c05169eb9ce2969591249cb69bad4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6494bd55_6bbf2750",
+        "filename": "docs/change-log.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-11-17T15:27:46Z",
+      "side": 1,
+      "message": "Yeah that makes sense! I\u0027ll do as you suggest Joanna and file a post release ticket to discuss this further for determining if there\u0027s something we should do or not to address in the future",
+      "parentUuid": "317a2137_538a5b29",
       "range": {
         "startLine": 699,
         "startChar": 6,
