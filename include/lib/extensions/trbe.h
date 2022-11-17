@@ -7,6 +7,12 @@
 #ifndef TRBE_H
 #define TRBE_H
 
+#if ENABLE_TRBE_FOR_NS
 void trbe_enable(void);
+#else
+static inline void trbe_enable(void)
+{
+}
+#endif
 
 #endif /* TRBE_H */
