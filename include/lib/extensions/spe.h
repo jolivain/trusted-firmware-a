@@ -9,7 +9,6 @@
 
 #include <stdbool.h>
 
-bool spe_supported(void);
 void spe_enable(bool el2_unused);
 void spe_disable(void);
 
