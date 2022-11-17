@@ -7,6 +7,12 @@
 #ifndef TRF_H
 #define TRF_H
 
+#if ENABLE_TRF_FOR_NS
 void trf_enable(void);
+#else
+static inline void trf_enable(void)
+{
+}
+#endif
 
 #endif /* TRF_H */
