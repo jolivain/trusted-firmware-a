@@ -1105,7 +1105,6 @@ $(eval $(call assert_booleans,\
         COT_DESC_IN_DTB \
         USE_SP804_TIMER \
         PSA_FWU_SUPPORT \
-        ENABLE_SYS_REG_TRACE_FOR_NS \
         ENABLE_MPMM \
         ENABLE_MPMM_FCONF \
         SIMICS_BUILD \
@@ -1142,6 +1141,7 @@ $(eval $(call assert_numerics,\
         ENABLE_FEAT_VHE \
         ENABLE_MPAM_FOR_LOWER_ELS \
         ENABLE_SPE_FOR_LOWER_ELS \
+        ENABLE_SYS_REG_TRACE_FOR_NS \
         ENABLE_RME \
         ENABLE_TRF_FOR_NS \
         FW_ENC_STATUS \

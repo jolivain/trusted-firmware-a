@@ -7,23 +7,15 @@
 #include <stdbool.h>
 
 #include <arch.h>
+#include <arch_features.h>
 #include <arch_helpers.h>
 #include <lib/extensions/sys_reg_trace.h>
-
-static bool sys_reg_trace_supported(void)
-{
-	uint64_t features;
-
-	features = read_id_aa64dfr0_el1() >> ID_AA64DFR0_TRACEVER_SHIFT;
-	return ((features & ID_AA64DFR0_TRACEVER_MASK) ==
-		ID_AA64DFR0_TRACEVER_SUPPORTED);
-}
 
 void sys_reg_trace_enable(cpu_context_t *ctx)
 {
 	uint64_t val;
 
-	if (sys_reg_trace_supported()) {
+	if (is_feat_sys_reg_trace_supported()) {
 		/* Retrieve CPTR_EL3 value from the given context 'ctx',
 		 * and update CPTR_EL3.TTA bit to 0.
 		 * This function is called while switching context to NS to
