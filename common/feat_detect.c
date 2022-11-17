@@ -87,16 +87,6 @@ static void read_feat_pan(void)
 #endif
 }
 
-/******************************************************
- * Feature : FEAT_VHE (Virtualization Host Extensions)
- *****************************************************/
-static void read_feat_vhe(void)
-{
-#if (ENABLE_FEAT_VHE == FEAT_STATE_ALWAYS)
-	feat_detect_panic(is_armv8_1_vhe_present(), "VHE");
-#endif
-}
-
 /*******************************************************************************
  * Feature : FEAT_RAS (Reliability, Availability, and Serviceability Extension)
  ******************************************************************************/
@@ -268,7 +258,7 @@ void detect_arch_features(void)
 
 	/* v8.1 features */
 	read_feat_pan();
-	read_feat_vhe();
+	check_feature(ENABLE_FEAT_VHE, read_feat_vhe_id_field(), "VHE", 1, 1);
 
 	/* v8.2 features */
 	read_feat_ras();
