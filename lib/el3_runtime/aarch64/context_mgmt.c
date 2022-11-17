@@ -465,9 +465,7 @@ void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 static void manage_extensions_nonsecure(bool el2_unused, cpu_context_t *ctx)
 {
 #if IMAGE_BL31
-#if ENABLE_SPE_FOR_LOWER_ELS
 	spe_enable(el2_unused);
-#endif
 
 #if ENABLE_AMU
 	amu_enable(el2_unused, ctx);
@@ -837,9 +835,10 @@ void cm_el2_sysregs_context_save(uint32_t security_state)
 		el2_sysregs_ctx = get_el2_sysregs_ctx(ctx);
 
 		el2_sysregs_context_save_common(el2_sysregs_ctx);
-#if ENABLE_SPE_FOR_LOWER_ELS
-		el2_sysregs_context_save_spe(el2_sysregs_ctx);
-#endif
+		if (is_feat_spe_supported()) {
+			write_ctx_reg(el2_sysregs_ctx, CTX_PMSCR_EL2,
+				      read_pmscr_el2());
+		}
 #if CTX_INCLUDE_MTE_REGS
 		el2_sysregs_context_save_mte(el2_sysregs_ctx);
 #endif
@@ -895,9 +894,9 @@ void cm_el2_sysregs_context_restore(uint32_t security_state)
 		el2_sysregs_ctx = get_el2_sysregs_ctx(ctx);
 
 		el2_sysregs_context_restore_common(el2_sysregs_ctx);
-#if ENABLE_SPE_FOR_LOWER_ELS
-		el2_sysregs_context_restore_spe(el2_sysregs_ctx);
-#endif
+		if (is_feat_spe_supported()) {
+			write_pmscr_el2(read_ctx_reg(el2_sysregs_ctx, CTX_PMSCR_EL2));
+		}
 #if CTX_INCLUDE_MTE_REGS
 		el2_sysregs_context_restore_mte(el2_sysregs_ctx);
 #endif
