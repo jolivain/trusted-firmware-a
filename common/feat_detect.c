@@ -153,16 +153,6 @@ static void read_feat_sel2(void)
 #endif
 }
 
-/****************************************************
- * Feature : FEAT_TRF (Self-hosted Trace Extensions)
- ***************************************************/
-static void read_feat_trf(void)
-{
-#if (ENABLE_TRF_FOR_NS == FEAT_STATE_ALWAYS)
-	feat_detect_panic(is_arm8_4_feat_trf_present(), "TRF");
-#endif
-}
-
 /************************************************
  * Feature : FEAT_MTE (Memory Tagging Extension)
  ***********************************************/
@@ -296,7 +286,7 @@ void detect_arch_features(void)
 	read_feat_mpam();
 	read_feat_nv2();
 	read_feat_sel2();
-	read_feat_trf();
+	check_feature(ENABLE_TRF_FOR_NS, read_feat_trf_id_field(), "TRF");
 
 	/* v8.5 features */
 	read_feat_mte();
