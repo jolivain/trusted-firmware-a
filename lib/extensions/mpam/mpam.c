@@ -13,8 +13,7 @@
 
 void mpam_enable(bool el2_unused)
 {
-	/* Check if MPAM is implemented */
-	if (get_mpam_version() == 0U) {
+	if (!is_feat_mpam_supported()) {
 		return;
 	}
 

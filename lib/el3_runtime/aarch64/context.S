@@ -17,10 +17,6 @@
 	.global	el2_sysregs_context_save_mte
 	.global	el2_sysregs_context_restore_mte
 #endif /* CTX_INCLUDE_MTE_REGS */
-#if ENABLE_MPAM_FOR_LOWER_ELS
-	.global	el2_sysregs_context_save_mpam
-	.global	el2_sysregs_context_restore_mpam
-#endif /* ENABLE_MPAM_FOR_LOWER_ELS */
 #if ENABLE_FEAT_ECV
 	.global	el2_sysregs_context_save_ecv
 	.global	el2_sysregs_context_restore_ecv
@@ -229,60 +225,6 @@ func el2_sysregs_context_restore_mte
 	ret
 endfunc el2_sysregs_context_restore_mte
 #endif /* CTX_INCLUDE_MTE_REGS */
-
-#if ENABLE_MPAM_FOR_LOWER_ELS
-func el2_sysregs_context_save_mpam
-	mrs	x10, MPAM2_EL2
-	str	x10, [x0, #CTX_MPAM2_EL2]
-
-	mrs	x11, MPAMHCR_EL2
-	mrs	x12, MPAMVPM0_EL2
-	stp	x11, x12, [x0, #CTX_MPAMHCR_EL2]
-
-	mrs	x13, MPAMVPM1_EL2
-	mrs	x14, MPAMVPM2_EL2
-	stp	x13, x14, [x0, #CTX_MPAMVPM1_EL2]
-
-	mrs	x15, MPAMVPM3_EL2
-	mrs	x16, MPAMVPM4_EL2
-	stp	x15, x16, [x0, #CTX_MPAMVPM3_EL2]
-
-	mrs	x9, MPAMVPM5_EL2
-	mrs	x10, MPAMVPM6_EL2
-	stp	x9, x10, [x0, #CTX_MPAMVPM5_EL2]
-
-	mrs	x11, MPAMVPM7_EL2
-	mrs	x12, MPAMVPMV_EL2
-	stp	x11, x12, [x0, #CTX_MPAMVPM7_EL2]
-	ret
-endfunc el2_sysregs_context_save_mpam
-
-func el2_sysregs_context_restore_mpam
-	ldr	x10, [x0, #CTX_MPAM2_EL2]
-	msr	MPAM2_EL2, x10
-
-	ldp	x11, x12, [x0, #CTX_MPAMHCR_EL2]
-	msr	MPAMHCR_EL2, x11
-	msr	MPAMVPM0_EL2, x12
-
-	ldp	x13, x14, [x0, #CTX_MPAMVPM1_EL2]
-	msr	MPAMVPM1_EL2, x13
-	msr	MPAMVPM2_EL2, x14
-
-	ldp	x15, x16, [x0, #CTX_MPAMVPM3_EL2]
-	msr	MPAMVPM3_EL2, x15
-	msr	MPAMVPM4_EL2, x16
-
-	ldp	x9, x10, [x0, #CTX_MPAMVPM5_EL2]
-	msr	MPAMVPM5_EL2, x9
-	msr	MPAMVPM6_EL2, x10
-
-	ldp	x11, x12, [x0, #CTX_MPAMVPM7_EL2]
-	msr	MPAMVPM7_EL2, x11
-	msr	MPAMVPMV_EL2, x12
-	ret
-endfunc el2_sysregs_context_restore_mpam
-#endif /* ENABLE_MPAM_FOR_LOWER_ELS */
 
 #if ENABLE_FEAT_ECV
 func el2_sysregs_context_save_ecv
