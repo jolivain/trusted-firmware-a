@@ -7,23 +7,15 @@
 #include <stdbool.h>
 
 #include <arch.h>
+#include <arch_features.h>
 #include <arch_helpers.h>
 #include <lib/extensions/sys_reg_trace.h>
-
-static bool sys_reg_trace_supported(void)
-{
-	uint32_t features;
-
-	features = read_id_dfr0() >> ID_DFR0_COPTRC_SHIFT;
-	return ((features & ID_DFR0_COPTRC_MASK) ==
-		ID_DFR0_COPTRC_SUPPORTED);
-}
 
 void sys_reg_trace_enable(void)
 {
 	uint32_t val;
 
-	if (sys_reg_trace_supported()) {
+	if (is_feat_sys_reg_trace_supported()) {
 		/*
 		 * NSACR.NSTRCDIS = b0
 		 * enable NS system register access to implemented trace
