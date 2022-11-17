@@ -22,6 +22,30 @@
       },
       "revId": "6f36d72ee093680d493b0f6fb62bc288cf3a78e1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58dce3a7_859f6165",
+        "filename": "include/lib/psa/measured_boot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2022-11-17T15:11:39Z",
+      "side": 1,
+      "message": "In the PSA Attestation API documentation the SW (measurement) type and SW version properties of the SW components claim (in the attestation token/report) are described as:\n    - \"..short string representing the role..\" and\n    - \"..version in the form of a text string..\".\nhttps://github.com/ARM-software/psa-api/blob/main/doc/attestation/overview/report.rst#software-components\n\nI understand your point, my first approach was the same as waht you suggest. But with a null-terminator (as C expects it) it is easier to manage. In our case it\u0027s easier to copy/move it and to log/print it and I ended up with this solution./",
+      "parentUuid": "3c689587_e0ed5146",
+      "range": {
+        "startLine": 42,
+        "startChar": 18,
+        "endLine": 42,
+        "endChar": 44
+      },
+      "revId": "6f36d72ee093680d493b0f6fb62bc288cf3a78e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
