@@ -1052,6 +1052,7 @@ $(eval $(call assert_booleans,\
         ENABLE_AMU_FCONF \
         AMU_RESTRICT_COUNTERS \
         ENABLE_ASSERTIONS \
+        ENABLE_FEAT_SB \
         ENABLE_PIE \
         ENABLE_PMF \
         ENABLE_PSCI_STAT \
@@ -1136,7 +1137,6 @@ $(eval $(call assert_numerics,\
         ENABLE_FEAT_PAN \
         ENABLE_FEAT_RNG \
         ENABLE_FEAT_RNG_TRAP \
-        ENABLE_FEAT_SB \
         ENABLE_FEAT_SEL2 \
         ENABLE_FEAT_VHE \
         ENABLE_MPAM_FOR_LOWER_ELS \
