@@ -487,9 +487,7 @@ static void manage_extensions_nonsecure(bool el2_unused, cpu_context_t *ctx)
 
 	trbe_enable();
 
-#if ENABLE_BRBE_FOR_NS
 	brbe_enable();
-#endif /* ENABLE_BRBE_FOR_NS */
 
 #if ENABLE_SYS_REG_TRACE_FOR_NS
 	sys_reg_trace_enable(ctx);

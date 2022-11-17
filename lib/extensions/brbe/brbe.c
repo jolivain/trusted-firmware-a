@@ -12,7 +12,7 @@ void brbe_enable(void)
 {
 	uint64_t val;
 
-	if (is_feat_brbe_present()) {
+	if (is_feat_brbe_supported()) {
 		/*
 		 * MDCR_EL3.SBRBE = 0b01
 		 *
