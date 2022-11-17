@@ -902,9 +902,12 @@ void cm_el2_sysregs_context_save(uint32_t security_state)
 		if (is_feat_trf_supported()) {
 			write_ctx_reg(el2_sysregs_ctx, CTX_TRFCR_EL2, read_trfcr_el2());
 		}
-#if ENABLE_FEAT_CSV2_2
-		el2_sysregs_context_save_csv2(el2_sysregs_ctx);
-#endif
+
+		if (is_feat_csv2_2_supported()) {
+			write_ctx_reg(el2_sysregs_ctx, CTX_SCXTNUM_EL2,
+				      read_scxtnum_el2());
+		}
+
 		if (is_feat_hcx_supported()) {
 			write_ctx_reg(el2_sysregs_ctx, CTX_HCRX_EL2, read_hcrx_el2());
 		}
@@ -958,9 +961,12 @@ void cm_el2_sysregs_context_restore(uint32_t security_state)
 		if (is_feat_trf_supported()) {
 			write_trfcr_el2(read_ctx_reg(el2_sysregs_ctx, CTX_TRFCR_EL2));
 		}
-#if ENABLE_FEAT_CSV2_2
-		el2_sysregs_context_restore_csv2(el2_sysregs_ctx);
-#endif
+
+		if (is_feat_csv2_2_supported()) {
+			write_scxtnum_el2(read_ctx_reg(el2_sysregs_ctx,
+						       CTX_SCXTNUM_EL2));
+		}
+
 		if (is_feat_hcx_supported()) {
 			write_hcrx_el2(read_ctx_reg(el2_sysregs_ctx, CTX_HCRX_EL2));
 		}
