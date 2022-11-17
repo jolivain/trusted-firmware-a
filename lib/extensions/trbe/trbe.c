@@ -23,7 +23,7 @@ void trbe_enable(void)
 {
 	uint64_t val;
 
-	if (is_feat_trbe_present()) {
+	if (is_feat_trbe_supported()) {
 		/*
 		 * MDCR_EL3.NSTB = 0b11
 		 * Allow access of trace buffer control registers from NS-EL1
@@ -38,7 +38,7 @@ void trbe_enable(void)
 
 static void *trbe_drain_trace_buffers_hook(const void *arg __unused)
 {
-	if (is_feat_trbe_present()) {
+	if (is_feat_trbe_supported()) {
 		/*
 		 * Before switching from normal world to secure world
 		 * the trace buffers need to be drained out to memory. This is
