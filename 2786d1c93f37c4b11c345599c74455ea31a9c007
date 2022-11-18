@@ -90,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5ef0c152_2490cf53",
+        "filename": "services/spd/trusty/trusty.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000789
+      },
+      "writtenOn": "2022-11-18T23:04:12Z",
+      "side": 1,
+      "message": "and as a followup question to that: if that _is_ the policy, shouldn\u0027t the existing copyrights both be 2020, assuming that is when this file was last modified?\nOr should I be adding a new \"Copyright 2022 Google\" line rather than updating the existing copyrights?",
+      "parentUuid": "56598192_fb3c8598",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "2786d1c93f37c4b11c345599c74455ea31a9c007",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58050b4e_1ed72de2",
         "filename": "services/spd/trusty/trusty.c",
         "patchSetId": 6
