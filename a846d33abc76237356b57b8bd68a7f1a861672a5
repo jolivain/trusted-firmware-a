@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a0615ec_57781a58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-11-18T09:17:20Z",
+      "side": 1,
+      "message": "putting -1 just for time being",
+      "revId": "a846d33abc76237356b57b8bd68a7f1a861672a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77bb63b6_b84f467f",
+        "filename": "docs/about/release-information.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-11-18T09:17:20Z",
+      "side": 1,
+      "message": "Are we sure about v2.9? because of this uncertainty there is a patch from SThttps://trustedfirmware-a.readthedocs.io/en/latest/about/release-information.html#project-release-cadence where we marked next release after 2.8",
+      "range": {
+        "startLine": 55,
+        "startChar": 2,
+        "endLine": 55,
+        "endChar": 7
+      },
+      "revId": "a846d33abc76237356b57b8bd68a7f1a861672a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
