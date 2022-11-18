@@ -13,17 +13,13 @@
 
 extern event_log_metadata_t qemu_event_log_metadata[];
 
-const event_log_metadata_t *plat_event_log_get_metadata(void)
-{
-	return qemu_event_log_metadata;
-}
-
 int plat_mboot_measure_image(unsigned int image_id, image_info_t *image_data)
 {
 	/* Calculate image hash and record data in Event Log */
 	int err = event_log_measure_and_record(image_data->image_base,
 					       image_data->image_size,
-					       image_id);
+					       image_id,
+					       qemu_event_log_metadata);
 	if (err != 0) {
 		ERROR("%s%s image id %u (%i)\n",
 		      "Failed to ", "record", image_id, err);
