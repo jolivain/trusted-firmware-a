@@ -153,7 +153,7 @@ int disable_unused_ddrc(struct ddr_info *priv,
 		priv->ddr[1] = NULL;
 		priv->phy[1] = NULL;
 		debug("Disable second DDR controller\n");
-		/* fallthrough */
+		fallthrough;
 	case 0:
 		break;
 	default:

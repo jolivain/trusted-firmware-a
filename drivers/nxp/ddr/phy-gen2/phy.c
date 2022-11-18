@@ -2310,7 +2310,7 @@ static void parse_odt(const unsigned int val,
 		break;
 	case DDR_ODT_CS_AND_OTHER_DIMM:
 		odt[i] |= (1 << i) << 4;
-		/* fallthrough */
+		fallthrough;
 	case DDR_ODT_OTHER_DIMM:
 		for (j = 0; j < DDRC_NUM_CS; j++) {
 			if ((((cs_d0 & (1 << i)) != 0) &&
