@@ -485,7 +485,7 @@ int bl2_plat_handle_pre_image_load(unsigned int image_id)
 			break;
 		}
 #endif
-		/* fallthrough */
+		fallthrough;
 	case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_SD:
 		if (!gpt_init_done) {
 /*

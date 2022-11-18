@@ -358,6 +358,7 @@ WARNING1 := -Wextra
 WARNING1 += -Wmissing-format-attribute
 WARNING1 += -Wmissing-prototypes
 WARNING1 += -Wold-style-definition
+WARNING1 += -Wimplicit-fallthrough=5
 
 # Level 2
 WARNING2 := -Waggregate-return
