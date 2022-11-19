@@ -6842,7 +6842,7 @@ releases of TF-A.
 
 ______________________________________________________________________
 
-*Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.*
+*Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.*
 
 [mbed tls releases]: https://tls.mbed.org/tech-updates/releases
 [pr#1002]: https://github.com/ARM-software/arm-trusted-firmware/pull/1002#issuecomment-312650193
