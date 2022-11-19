@@ -90,7 +90,15 @@ ifeq (${ENABLE_SPE_FOR_LOWER_ELS},1)
 BL31_SOURCES		+=	lib/extensions/spe/spe.c
 endif
 
+<<<<<<< HEAD   (ff0bd5 Merge "docs(changelog): changelog for lts-v2.8.6 release" in)
 ifeq (${ENABLE_AMU},1)
+=======
+ifeq (${ERRATA_ABI_SUPPORT},1)
+BL31_SOURCES		+=	services/std_svc/errata_abi/errata_abi_main.c
+endif
+
+ifneq (${ENABLE_FEAT_AMU},0)
+>>>>>>> CHANGE (ffea38 feat(errata_abi): errata management firmware interface)
 BL31_SOURCES		+=	${AMU_SOURCES}
 endif
 

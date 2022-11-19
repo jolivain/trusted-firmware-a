@@ -46,7 +46,15 @@ BL32_SOURCES		+=	services/std_svc/trng/trng_main.c	\
 				services/std_svc/trng/trng_entropy_pool.c
 endif
 
+<<<<<<< HEAD   (ff0bd5 Merge "docs(changelog): changelog for lts-v2.8.6 release" in)
 ifeq (${ENABLE_SYS_REG_TRACE_FOR_NS},1)
+=======
+ifeq (${ERRATA_ABI_SUPPORT}, 1)
+BL32_SOURCES		+=	services/std_svc/errata_abi/errata_abi_main.c
+endif
+
+ifneq (${ENABLE_SYS_REG_TRACE_FOR_NS},0)
+>>>>>>> CHANGE (ffea38 feat(errata_abi): errata management firmware interface)
 BL32_SOURCES		+=	lib/extensions/sys_reg_trace/aarch32/sys_reg_trace.c
 endif
 
