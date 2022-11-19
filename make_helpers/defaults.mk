@@ -273,6 +273,12 @@ SDEI_SUPPORT			:= 0
 # True Random Number firmware Interface support
 TRNG_SUPPORT			:= 0
 
+# Non-Arm Interconnect flag for Demeter
+ERRATA_NON_ARM_INTERCONNECT	:= 0
+
+# Check to see if Errata ABI is supported
+ERRATA_ABI_SUPPORT		:= 0
+
 # SMCCC PCI support
 SMC_PCI_SUPPORT			:= 0
 

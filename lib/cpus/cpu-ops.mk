@@ -366,6 +366,10 @@ ERRATA_A78_2772019	?=0
 # to revision r0p0, r1p0, r1p1 and r1p2 of the A78 cpu. It is still open.
 ERRATA_A78_2779479	?=0
 
+# Flag to apply erratum 2712571 workaround for non-arm ip. This erratum applies
+# to revision r0p0, r1p0, r1p1, and r1p2 of the A78 cpu. It is fixed in r1p2.
+ERRATA_A78_2712571	?=0
+
 # Flag to apply erratum 1941500 workaround during reset. This erratum applies
 # to revisions r0p0 and r0p1 of the A78 AE cpu. It is still open.
 ERRATA_A78_AE_1941500	?=0
@@ -381,6 +385,10 @@ ERRATA_A78_AE_2376748	?=0
 # Flag to apply erratum 2395408 workaround during reset. This erratum applies
 # to revisions r0p0 and r0p1 of the A78 AE cpu. It is still open.
 ERRATA_A78_AE_2395408	?=0
+
+# Flag to apply erratum 2712574 workaround for non-arm ip. This erratum applies
+# to revisions r0p0, r0p1 and r0p2 of the A78 AE cpu. It is still open.
+ERRATA_A78_AE_2712574	?=0
 
 # Flag to apply erratum 2132064 workaround during reset. This erratum applies
 # to revisions r0p1 and r0p2 of the A78C cpu. It is still open.
@@ -401,6 +409,10 @@ ERRATA_A78C_2395411 	?=0
 # Flag to apply erratum 2772121 workaround during powerdown. This erratum
 # applies to revisions r0p0, r0p1 and r0p2 of the A78C cpu. It is still open.
 ERRATA_A78C_2772121 	?=0
+
+# Flag to apply erratum 2712575 workaround for non-arm ip. This erratum
+# applied to revisions r0p1 and r0p2 of the A78C cpu. It is still open.
+ERRATA_A78C_2712575	?=0
 
 # Flag to apply erratum 1821534 workaround during reset. This erratum applies
 # to revisions r0p0 - r1p0 of the X1 cpu and fixed in r1p1.
@@ -535,6 +547,10 @@ ERRATA_V1_2743093	?=0
 # still open.
 ERRATA_V1_2779461       ?=0
 
+# Flag to apply erratum 2701953 workaround to non-arm ip. This erratum applies
+# to revisions r0p0, r1p0, r1p1 of the Neoverse V1 cpu, it is fixed in r1p2.
+ERRATA_V1_2701953	?=0
+
 # Flag to apply erratum 1987031 workaround during reset. This erratum applies
 # to revisions r0p0, r1p0 and r2p0 of the Cortex-A710 cpu and is still open.
 ERRATA_A710_1987031	?=0
@@ -597,6 +613,11 @@ ERRATA_A710_2371105	?=0
 # still open.
 ERRATA_A710_2768515	?=0
 
+# Flag to apply erratum 2701952 workaround for non-arm-ip. This erratum
+# applies to revision r0p0, r1p0, r2p0, r2p1 of the Cortex-A710 cpu and is
+# still open.
+ERRATA_A710_2701952	?=0
+
 # Flag to apply erratum 2002655 workaround during reset. This erratum applies
 # to revisions r0p0 of the Neoverse-N2 cpu, it is still open.
 ERRATA_N2_2002655	?=0
@@ -653,6 +674,10 @@ ERRATA_N2_2388450	?=0
 # applies to all revisions <= r0p2 of the Neoverse N2 cpu, it is fixed in r0p3.
 ERRATA_N2_2743089	?=0
 
+# Flag to apply erratum 2728475 workaround for non-arm ip. This erratum applies
+# to revisions r0p0, r0p1, r0p2 of the Neoverse N2 cpu, it is fixed in r0p3.
+ERRATA_N2_2728475	?=0
+
 # Flag to apply erratum 2002765 workaround during reset. This erratum applies
 # to revisions r0p0, r1p0, and r2p0 of the Cortex-X2 cpu and is still open.
 ERRATA_X2_2002765	?=0
@@ -697,6 +722,10 @@ ERRATA_X2_2371105	?=0
 # applies to revision r0p0, r1p0, r2p0 and r2p1 of the Cortex-X2 cpu and is
 # still open.
 ERRATA_X2_2768515	?=0
+
+# Flag to apply erratum 2701952 workaround for non-arm ip. This erratum applies
+# to revisions r0p0, r1p0, r2p0, r2p1 of the Cortex-x2 cpu and is still open.
+ERRATA_X2_2701952	?=0
 
 # Flag to apply erratum 2313909 workaround on powerdown. This erratum applies
 # to revisions r0p0 and r1p0 of the Cortex-X3 cpu, it is fixed in r1p1.
@@ -753,6 +782,14 @@ ERRATA_A510_2666669	?=0
 # applies to revision r0p0, r0p1, r0p2, r0p3, r1p0, r1p1 and r1p2 of the
 # Cortex-A510 cpu and is fixed in r1p3.
 ERRATA_A510_2684597	?=0
+
+# Flag to apply erratum 2719103 workaround for non-arm ip. This erratum applies
+# to revisions r0p0, rop1. Fixed in r0p2.
+ERRATA_V2_2719103	?=0
+
+# Flag to apply erratum 2701951 workaround for non-arm ip. This erratum applies
+# to revisions r0p0, r1p0, and r1p1. Its is fixed in r1p2.
+ERRATA_A715_2701951	?=0
 
 # Flag to apply DSU erratum 798953. This erratum applies to DSUs revision r0p0.
 # Applying the workaround results in higher DSU power consumption on idle.
@@ -1052,6 +1089,10 @@ $(eval $(call add_define,ERRATA_A78_2772019))
 $(eval $(call assert_boolean,ERRATA_A78_2779479))
 $(eval $(call add_define,ERRATA_A78_2779479))
 
+# Process ERRATA_A78_2712571 flag
+$(eval $(call assert_boolean,ERRATA_A78_2712571))
+$(eval $(call add_define,ERRATA_A78_2712571))
+
 # Process ERRATA_A78_AE_1941500 flag
 $(eval $(call assert_boolean,ERRATA_A78_AE_1941500))
 $(eval $(call add_define,ERRATA_A78_AE_1941500))
@@ -1067,6 +1108,10 @@ $(eval $(call add_define,ERRATA_A78_AE_2376748))
 # Process ERRATA_A78_AE_2395408 flag
 $(eval $(call assert_boolean,ERRATA_A78_AE_2395408))
 $(eval $(call add_define,ERRATA_A78_AE_2395408))
+
+# Process ERRATA_A78_AE_2712574 flag
+$(eval $(call assert_boolean,ERRATA_A78_AE_2712574))
+$(eval $(call add_define,ERRATA_A78_AE_2712574))
 
 # Process ERRATA_A78C_2132064 flag
 $(eval $(call assert_boolean,ERRATA_A78C_2132064))
@@ -1087,6 +1132,10 @@ $(eval $(call add_define,ERRATA_A78C_2395411))
 # Process ERRATA_A78C_2772121 flag
 $(eval $(call assert_boolean,ERRATA_A78C_2772121))
 $(eval $(call add_define,ERRATA_A78C_2772121))
+
+# Process ERRATA_A78C_2712575 FLAG
+$(eval $(call assert_boolean,ERRATA_A78C_2712575))
+$(eval $(call add_define,ERRATA_A78C_2712575))
 
 # Process ERRATA_X1_1821534 flag
 $(eval $(call assert_boolean,ERRATA_X1_1821534))
@@ -1216,6 +1265,10 @@ $(eval $(call add_define,ERRATA_V1_2743093))
 $(eval $(call assert_boolean,ERRATA_V1_2779461))
 $(eval $(call add_define,ERRATA_V1_2779461))
 
+# Process ERRATA_V1_2701953 flag
+$(eval $(call assert_boolean,ERRATA_V1_2701953))
+$(eval $(call add_define,ERRATA_V1_2701953))
+
 # Process ERRATA_A710_1987031 flag
 $(eval $(call assert_boolean,ERRATA_A710_1987031))
 $(eval $(call add_define,ERRATA_A710_1987031))
@@ -1276,6 +1329,10 @@ $(eval $(call add_define,ERRATA_A710_2371105))
 $(eval $(call assert_boolean,ERRATA_A710_2768515))
 $(eval $(call add_define,ERRATA_A710_2768515))
 
+# Process ERRATA_A710_2701952 flag
+$(eval $(call assert_boolean,ERRATA_A710_2701952))
+$(eval $(call add_define,ERRATA_A710_2701952))
+
 # Process ERRATA_N2_2002655 flag
 $(eval $(call assert_boolean,ERRATA_N2_2002655))
 $(eval $(call add_define,ERRATA_N2_2002655))
@@ -1332,6 +1389,10 @@ $(eval $(call add_define,ERRATA_N2_2388450))
 $(eval $(call assert_boolean,ERRATA_N2_2743089))
 $(eval $(call add_define,ERRATA_N2_2743089))
 
+# Process ERRATA_N2_2728475 flag
+$(eval $(call assert_boolean,ERRATA_N2_2728475))
+$(eval $(call add_define,ERRATA_N2_2728475))
+
 # Process ERRATA_X2_2002765 flag
 $(eval $(call assert_boolean,ERRATA_X2_2002765))
 $(eval $(call add_define,ERRATA_X2_2002765))
@@ -1371,6 +1432,10 @@ $(eval $(call add_define,ERRATA_X2_2371105))
 # Process ERRATA_X2_2768515 flag
 $(eval $(call assert_boolean,ERRATA_X2_2768515))
 $(eval $(call add_define,ERRATA_X2_2768515))
+
+# Process ERRATA_X2_2701952 flag
+$(eval $(call assert_boolean,ERRATA_X2_2701952))
+$(eval $(call add_define,ERRATA_X2_2701952))
 
 # Process ERRATA_X3_2313909 flag
 $(eval $(call assert_boolean,ERRATA_X3_2313909))
@@ -1423,6 +1488,14 @@ $(eval $(call add_define,ERRATA_A510_2666669))
 # Process ERRATA_A510_2684597 flag
 $(eval $(call assert_boolean,ERRATA_A510_2684597))
 $(eval $(call add_define,ERRATA_A510_2684597))
+
+# Process ERRATA_V2_2719103 flag
+$(eval $(call assert_boolean,ERRATA_V2_2719103))
+$(eval $(call add_define,ERRATA_V2_2719103))
+
+# Process ERRATA_A715_2701951 flag
+$(eval $(call assert_boolean,ERRATA_A715_2701951))
+$(eval $(call add_define,ERRATA_A715_2701951))
 
 #Process ERRATA_DSU_798953 flag
 $(eval $(call assert_boolean,ERRATA_DSU_798953))

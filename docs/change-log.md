@@ -3279,6 +3279,7 @@ issues in each release of Trusted Firmware-A.
 
 - Services
 
+  - Added support for errata ABI management firmware interface service
   - Added support for TRNG firmware interface service
   - Arm
     - Added SiP service to configure Ethos-N NPU
