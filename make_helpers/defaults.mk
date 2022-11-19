@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016-2022, Arm Limited. All rights reserved.
+# Copyright (c) 2016-2023, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -272,6 +272,9 @@ SDEI_SUPPORT			:= 0
 
 # True Random Number firmware Interface support
 TRNG_SUPPORT			:= 0
+
+# Check to see if Errata ABI is supported
+ERRATA_ABI_SUPPORT		:= 0
 
 # SMCCC PCI support
 SMC_PCI_SUPPORT			:= 0
