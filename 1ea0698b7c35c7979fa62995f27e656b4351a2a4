@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f92dcbc_5eb50669",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2022-11-21T02:42:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6dbb067f_0e028b3c",
+      "range": {
+        "startLine": 168,
+        "startChar": 5,
+        "endLine": 168,
+        "endChar": 39
+      },
+      "revId": "1ea0698b7c35c7979fa62995f27e656b4351a2a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e286f1c6_f97003e9",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-14T16:06:13Z",
       "side": 1,
       "message": "I am just thinking, this could be just:\n\nparent_idx \u003d psci_cpu_pd_nodes[plat_my_core_pos()].parent_node;\n\nLoop may not be necessary? (parent_idx may have the same value since we use my_idx?)",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 2
+      },
+      "revId": "1ea0698b7c35c7979fa62995f27e656b4351a2a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8dd99a7_ea6beaa1",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2022-11-21T02:42:45Z",
+      "side": 1,
+      "message": "The for loop is necessary because the parent_idx will have a different value at each level for power domain topologies with more than two levels.",
+      "parentUuid": "e286f1c6_f97003e9",
       "range": {
         "startLine": 178,
         "startChar": 0,
