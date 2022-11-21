@@ -375,6 +375,8 @@ WARNING2 += -Wmissing-format-attribute
 WARNING2 += -Wimplicit-fallthrough=5
 # TF-A aims to comply with this eventually. Effort too large at present
 WARNING2 += -Wundef
+# currently very involved and many platforms set this off
+WARNING2 += -Wunused-const-variable=2
 
 # Level 3 - very pedantic, frequently ignored
 WARNING3 := -Wbad-function-cast
