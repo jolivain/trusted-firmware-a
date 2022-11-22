@@ -9,7 +9,8 @@
 #include <arch.h>
 #include <lib/cpus/errata_report.h>
 
-#if defined(IMAGE_BL1) || defined(IMAGE_BL32)  || (defined(IMAGE_BL2) && BL2_AT_EL3)
+#if defined(IMAGE_BL1) || defined(IMAGE_BL32)  \
+	|| (defined(IMAGE_BL2) && BL2_AT_EL3_TWO_WORLD)
 #define IMAGE_AT_EL3
 #endif
 
