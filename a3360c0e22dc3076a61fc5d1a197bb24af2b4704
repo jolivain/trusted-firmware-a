@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e4d8cf8_c3b2298e",
+        "filename": "drivers/nxp/flexspi/nor/fspi.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-22T21:00:21Z",
+      "side": 1,
+      "message": "why is \\r needed?",
+      "range": {
+        "startLine": 127,
+        "startChar": 28,
+        "endLine": 127,
+        "endChar": 30
+      },
+      "revId": "a3360c0e22dc3076a61fc5d1a197bb24af2b4704",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
