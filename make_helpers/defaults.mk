@@ -30,13 +30,13 @@ ARM_ARCH_MINOR			:= 0
 BASE_COMMIT			:= origin/master
 
 # Execute BL2 at EL3
-BL2_AT_EL3			:= 0
+BL2_AT_EL3_TWO_WORLD			:= 0
 
 # Only use SP packages if SP layout JSON is defined
 BL2_ENABLE_SP_LOAD		:= 0
 
 # BL2 image is stored in XIP memory, for now, this option is only supported
-# when BL2_AT_EL3 is 1.
+# when BL2_AT_EL3_TWO_WORLD is 1.
 BL2_IN_XIP_MEM			:= 0
 
 # Do dcache invalidate upon BL2 entry at EL3
