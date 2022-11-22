@@ -34,6 +34,24 @@
       "parentUuid": "acd1933b_0a016fa9",
       "revId": "c8ae2bd4da4429d9a2c600ad92ff22c8f74ae11c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "546319e6_15ac2000",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-22T15:11:14Z",
+      "side": 1,
+      "message": "I believe this is still required. This test config fails without it:\nhttp://jenkins.oss.arm.com:8080/job/tf-ci-gateway/125096/\n\nI assume for the case of SPD\u003dspmd SPMD_SPM_AT_SEL2\u003d0, then CTX_INCLUDE_EL2_REGS has no value defined and breaks something in the code.",
+      "parentUuid": "f6115f1f_bb7cb012",
+      "revId": "c8ae2bd4da4429d9a2c600ad92ff22c8f74ae11c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
