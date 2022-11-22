@@ -1,12 +1,12 @@
 #
-# Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
 ARM_CORTEX_A7		:=	yes
 ARM_WITH_NEON		:=	yes
-BL2_AT_EL3		:=	1
+BL2_AS_ENTRY_POINT	:=	1
 USE_COHERENT_MEM	:=	0
 
 STM32MP_EARLY_CONSOLE	?=	0

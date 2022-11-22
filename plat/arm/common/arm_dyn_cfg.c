@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -45,9 +45,9 @@ int arm_get_mbedtls_heap(void **heap_addr, size_t *heap_size)
 	assert(heap_addr != NULL);
 	assert(heap_size != NULL);
 
-#if defined(IMAGE_BL1) || BL2_AT_EL3 || defined(IMAGE_BL31)
+#if defined(IMAGE_BL1) || BL2_AS_ENTRY_POINT || defined(IMAGE_BL31)
 
-	/* If in BL1 or BL2_AT_EL3 define a heap */
+	/* If in BL1 or BL2_AS_ENTRY_POINT define a heap */
 	static unsigned char heap[TF_MBEDTLS_HEAP_SIZE];
 
 	*heap_addr = heap;

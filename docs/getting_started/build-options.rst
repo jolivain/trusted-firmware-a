@@ -52,8 +52,8 @@ Common build options
 -  ``BL2U``: This is an optional build option which specifies the path to
    BL2U image. In this case, the BL2U in TF-A will not be built.
 
--  ``BL2_AT_EL3``: This is an optional build option that enables the use of
-   BL2 at EL3 execution level.
+-  ``BL2_AS_ENTRY_POINT``: This is an optional build option that enables
+   the use of BL2 at EL3 execution level.
 
 -  ``BL2_ENABLE_SP_LOAD``: Boolean option to enable loading SP packages from the
    FIP. Automatically enabled if ``SP_LAYOUT_FILE`` is provided.
@@ -61,8 +61,8 @@ Common build options
 -  ``BL2_IN_XIP_MEM``: In some use-cases BL2 will be stored in eXecute In Place
    (XIP) memory, like BL1. In these use-cases, it is necessary to initialize
    the RW sections in RAM, while leaving the RO sections in place. This option
-   enable this use-case. For now, this option is only supported when BL2_AT_EL3
-   is set to '1'.
+   enable this use-case. For now, this option is only supported
+   when BL2_AS_ENTRY_POINT is set to '1'.
 
 -  ``BL31``: This is an optional build option which specifies the path to
    BL31 image for the ``fip`` target. In this case, the BL31 in TF-A will not
@@ -377,8 +377,8 @@ Common build options
 
 -  ``ENABLE_PIE``: Boolean option to enable Position Independent Executable(PIE)
    support within generic code in TF-A. This option is currently only supported
-   in BL2_AT_EL3, BL31, and BL32 (TSP) for AARCH64 binaries, and in BL32
-   (SP_min) for AARCH32. Default is 0.
+   in BL2, BL31, and BL32 (TSP) for AARCH64 binaries, and
+   in BL32 (SP_min) for AARCH32. Default is 0.
 
 -  ``ENABLE_PMF``: Boolean option to enable support for optional Performance
    Measurement Framework(PMF). Default is 0.
@@ -1199,7 +1199,7 @@ Firmware update options
 
 --------------
 
-*Copyright (c) 2019-2022, Arm Limited. All rights reserved.*
+*Copyright (c) 2019-2023, Arm Limited. All rights reserved.*
 
 .. _DEN0115: https://developer.arm.com/docs/den0115/latest
 .. _PSA FW update specification: https://developer.arm.com/documentation/den0118/a/
