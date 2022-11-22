@@ -16,6 +16,24 @@
       "message": "Is this all that\u0027s needed to enable pointer authentication in a platform port?",
       "revId": "057ca32b7dd17b8cd56573b6ca118ebed3229159",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bf4c873_511ba0f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000108
+      },
+      "writtenOn": "2022-11-22T07:28:53Z",
+      "side": 1,
+      "message": "Yes, this patch will enable PAUTH feature for Arm trusted firmware boot images (like BL1, BL2, BL31, etc).  To be clear, we need to enable Linux kernel configuration separately so kernel can do pointer authetication.\n\nActually I referred Arm FVP platform for the enabling PAUTH in Arm TF-a, see  plat/arm/common/arm_common.mk.",
+      "parentUuid": "50a3e2b0_decbce0b",
+      "revId": "057ca32b7dd17b8cd56573b6ca118ebed3229159",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
