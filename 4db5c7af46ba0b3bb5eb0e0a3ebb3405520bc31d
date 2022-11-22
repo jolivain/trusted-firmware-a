@@ -16,6 +16,24 @@
       "message": "I would still like it to be documented somewhere(ofcourse not in build-options.rst). Temporally putting -1 ",
       "revId": "4db5c7af46ba0b3bb5eb0e0a3ebb3405520bc31d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78ff5857_bd85dbd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2022-11-22T14:57:08Z",
+      "side": 1,
+      "message": "Not sure were would be the right place to document it, one approach maybe to add a\n\u0027docs/getting_started/build-internal.rst\u0027 file that could describe macros that are enabled and used internally by the framework, without exposing them through build -options.rst\n\nAny thoughts?",
+      "parentUuid": "2686288e_f9cd9f98",
+      "revId": "4db5c7af46ba0b3bb5eb0e0a3ebb3405520bc31d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
