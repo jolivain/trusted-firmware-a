@@ -73,6 +73,10 @@ ARM_BL31_IN_DRAM		:=	0
 $(eval $(call assert_boolean,ARM_BL31_IN_DRAM))
 $(eval $(call add_define,ARM_BL31_IN_DRAM))
 
+ifeq (${ENABLE_RME},1)
+	BL2_AT_EL3_RME_ENABLED	:=	1
+endif
+
 # As per CCA security model, all root firmware must execute from on-chip secure
 # memory. This means we must not run BL31 from TZC-protected DRAM.
 ifeq (${ARM_BL31_IN_DRAM},1)
@@ -283,7 +287,7 @@ DYN_CFG_SOURCES		+=	${FDT_WRAPPERS_SOURCES}
 BL1_SOURCES		+=	${DYN_CFG_SOURCES}
 BL2_SOURCES		+=	${DYN_CFG_SOURCES}
 
-ifeq (${BL2_AT_EL3},1)
+ifeq (${BL2_AT_EL3_TWO_WORLD},1)
 BL2_SOURCES		+=	plat/arm/common/arm_bl2_el3_setup.c
 endif
 

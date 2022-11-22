@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
-override BL2_AT_EL3			:= 1
+override BL2_AT_EL3_TWO_WORLD			:= 1
 override COLD_BOOT_SINGLE_CPU		:= 1
 override PROGRAMMABLE_RESET_ADDRESS	:= 1
 override USE_COHERENT_MEM		:= 1

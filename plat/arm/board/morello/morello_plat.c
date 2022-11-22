@@ -42,7 +42,7 @@ const mmap_region_t plat_arm_mmap[] = {
 	MORELLO_MAP_NS_SRAM,
 	ARM_MAP_DRAM1,
 	ARM_MAP_DRAM2,
-#if TRUSTED_BOARD_BOOT && !BL2_AT_EL3
+#if TRUSTED_BOARD_BOOT && !BL2_AT_EL3_TWO_WORLD
 	ARM_MAP_BL1_RW,
 #endif
 	{0}

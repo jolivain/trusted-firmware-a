@@ -164,7 +164,7 @@ func zeromem_dczva
 	 * register value and panic if the MMU is disabled.
 	 */
 #if defined(IMAGE_BL1) || defined(IMAGE_BL31) || (defined(IMAGE_BL2) && \
-	(BL2_AT_EL3 || ENABLE_RME))
+	(BL2_AT_EL3_RME_ENABLED))
 	mrs	tmp1, sctlr_el3
 #else
 	mrs	tmp1, sctlr_el1

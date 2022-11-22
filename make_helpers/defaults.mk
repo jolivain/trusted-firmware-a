@@ -30,13 +30,13 @@ ARM_ARCH_MINOR			:= 0
 BASE_COMMIT			:= origin/master
 
 # Execute BL2 at EL3
-BL2_AT_EL3			:= 0
+BL2_AT_EL3_TWO_WORLD			:= 0
 
 # Only use SP packages if SP layout JSON is defined
 BL2_ENABLE_SP_LOAD		:= 0
 
 # BL2 image is stored in XIP memory, for now, this option is only supported
-# when BL2_AT_EL3 is 1.
+# when BL2_AT_EL3_TWO_WORLD is 1.
 BL2_IN_XIP_MEM			:= 0
 
 # Do dcache invalidate upon BL2 entry at EL3
@@ -55,6 +55,9 @@ COREBOOT			:= 0
 
 # For Chain of Trust
 CREATE_KEYS			:= 1
+
+# For RME systems which have BL2 running at EL3
+BL2_AT_EL3_RME_ENABLED	:=	0
 
 # Build flag to include AArch32 registers in cpu context save and restore during
 # world switch. This flag must be set to 0 for AArch64-only platforms.
@@ -484,3 +487,8 @@ DRTM_SUPPORT			:= 0
 # Check platform if cache management operations should be performed.
 # Disabled by default.
 CONDITIONAL_CMO			:= 0
+
+# This macro must be enabled only for RME systems
+ifeq (${ENABLE_RME},1)
+	BL2_AT_EL3_RME_ENABLED	:=	1
+endif

@@ -76,5 +76,5 @@ BL31_SOURCES	+=	\
 		plat/intel/soc/common/soc/socfpga_reset_manager.c
 
 PROGRAMMABLE_RESET_ADDRESS	:= 0
-BL2_AT_EL3			:= 1
+BL2_AT_EL3_TWO_WORLD			:= 1
 USE_COHERENT_MEM		:= 1
