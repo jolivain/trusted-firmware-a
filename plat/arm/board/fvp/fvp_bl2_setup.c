@@ -45,7 +45,7 @@ struct bl_params *plat_get_next_bl_params(void)
 
 	arm_bl_params = arm_get_next_bl_params();
 
-#if !BL2_AT_EL3 && !EL3_PAYLOAD_BASE
+#if !BL2_AS_TFA_ENTRY_POINT && !EL3_PAYLOAD_BASE
 	const struct dyn_cfg_dtb_info_t *fw_config_info;
 	uintptr_t fw_config_base = 0UL;
 	entry_point_info_t *ep_info;
@@ -99,7 +99,7 @@ struct bl_params *plat_get_next_bl_params(void)
 
 	/* Update BL33's ep info with NS HW config address  */
 	param_node->ep_info.args.arg1 = hw_config_info->secondary_config_addr;
-#endif /* !BL2_AT_EL3 && !EL3_PAYLOAD_BASE */
+#endif /* !BL2_AS_TFA_ENTRY_POINT && !EL3_PAYLOAD_BASE */
 
 	return arm_bl_params;
 }
