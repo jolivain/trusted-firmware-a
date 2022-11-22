@@ -484,8 +484,8 @@ to execute at EL3. On these platforms, TF-A BL1 is a waste of memory
 as its only purpose is to ensure TF-A BL2 is entered at S-EL1. To avoid
 this waste, a special mode enables BL2 to execute at EL3, which allows
 a non-TF-A Boot ROM to load and jump directly to BL2. This mode is selected
-when the build flag BL2_AT_EL3 is enabled. The main differences in this
-mode are:
+when the build flag BL2_AT_EL3_TWO_WORLD_TWO_WORLD is enabled.
+The main differences in this mode are:
 
 #. BL2 includes the reset code and the mailbox mechanism to differentiate
    cold boot and warm boot. It runs at EL3 doing the arch

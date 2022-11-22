@@ -374,7 +374,7 @@
 	 * ---------------------------------------------------------------------
 	 */
 	.if \_init_c_runtime
-#if defined(IMAGE_BL32) || (defined(IMAGE_BL2) && BL2_AT_EL3)
+#if defined(IMAGE_BL32) || (defined(IMAGE_BL2) && BL2_AT_EL3_TWO_WORLD)
 		/* -----------------------------------------------------------------
 		 * Invalidate the RW memory used by the image. This
 		 * includes the data and NOBITS sections. This is done to
@@ -426,7 +426,7 @@
 		/* Restore r12 */
 		mov	r12, r7
 
-#if defined(IMAGE_BL1) || (defined(IMAGE_BL2) && BL2_AT_EL3 && BL2_IN_XIP_MEM)
+#if defined(IMAGE_BL1) || (defined(IMAGE_BL2) && BL2_AT_EL3_TWO_WORLD && BL2_IN_XIP_MEM)
 		/* -----------------------------------------------------
 		 * Copy data from ROM to RAM.
 		 * -----------------------------------------------------
