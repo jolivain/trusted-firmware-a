@@ -21,7 +21,7 @@
 # define BL_STRING	"BL31"
 #elif !defined(__aarch64__) && defined(IMAGE_BL32)
 # define BL_STRING	"BL32"
-#elif defined(IMAGE_BL2) && BL2_AT_EL3
+#elif defined(IMAGE_BL2) && BL2_AT_EL3_TWO_WORLD
 # define BL_STRING "BL2"
 #else
 # error This image should not be printing errata status

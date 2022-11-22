@@ -83,7 +83,7 @@ $(if ${NON_TRUSTED_WORLD_KEY},$(eval $(call CERT_ADD_CMD_OPT,${NON_TRUSTED_WORLD
 
 # Add the BL2 CoT (image cert)
 ifeq (${NEED_BL2},yes)
-ifeq (${BL2_AT_EL3}, 0)
+ifeq (${BL2_AT_EL3_TWO_WORLD}, 0)
 ifneq (${COT},cca)
 $(eval $(call TOOL_ADD_PAYLOAD,${BUILD_PLAT}/tb_fw.crt,--tb-fw-cert))
 endif

@@ -17,7 +17,7 @@ override TRUSTED_BOARD_BOOT     := 0
 SQ_USE_SCMI_DRIVER              ?= 0
 else
 override RESET_TO_BL31          := 0
-override BL2_AT_EL3             := 1
+override BL2_AT_EL3_TWO_WORLD	:= 1
 SQ_USE_SCMI_DRIVER              := 1
 BL2_CPPFLAGS                    += -DPLAT_XLAT_TABLES_DYNAMIC
 endif

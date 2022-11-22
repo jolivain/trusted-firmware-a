@@ -283,7 +283,7 @@ DYN_CFG_SOURCES		+=	${FDT_WRAPPERS_SOURCES}
 BL1_SOURCES		+=	${DYN_CFG_SOURCES}
 BL2_SOURCES		+=	${DYN_CFG_SOURCES}
 
-ifeq (${BL2_AT_EL3},1)
+ifeq (${BL2_AT_EL3_TWO_WORLD},1)
 BL2_SOURCES		+=	plat/arm/common/arm_bl2_el3_setup.c
 endif
 

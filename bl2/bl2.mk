@@ -25,7 +25,7 @@ BL2_SOURCES		+=      bl2/${ARCH}/bl2_rme_entrypoint.S	\
 				${GPT_LIB_SRCS}
 BL2_LINKERFILE		:=	bl2/bl2.ld.S
 
-else ifeq (${BL2_AT_EL3},0)
+else ifeq (${BL2_AT_EL3_TWO_WORLD},0)
 # Normal operation, no RME, no BL2 at EL3
 BL2_SOURCES		+=	bl2/${ARCH}/bl2_entrypoint.S
 BL2_LINKERFILE		:=	bl2/bl2.ld.S

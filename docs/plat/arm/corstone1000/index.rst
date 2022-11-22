@@ -47,7 +47,7 @@ Build Procedure (TF-A only)
       ARCH=aarch64 \
       TARGET_PLATFORM=<fpga or fvp> \
       ENABLE_PIE=1 \
-      BL2_AT_EL3=1 \
+      BL2_AT_EL3_TWO_WORLD=1 \
       CREATE_KEYS=1 \
       GENERATE_COT=1 \
       TRUSTED_BOARD_BOOT=1 \

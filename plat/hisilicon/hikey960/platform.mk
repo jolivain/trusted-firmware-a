@@ -5,7 +5,7 @@
 #
 
 # Non-TF Boot ROM
-BL2_AT_EL3	:=	1
+BL2_AT_EL3_TWO_WORLD	:=	1
 
 # On Hikey960, the TSP can execute from TZC secure area in DRAM.
 HIKEY960_TSP_RAM_LOCATION	?=	dram

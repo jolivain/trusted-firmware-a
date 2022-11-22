@@ -433,7 +433,7 @@
 	 */
 	.if \_init_c_runtime
 #if defined(IMAGE_BL31) || (defined(IMAGE_BL2) && \
-	((BL2_AT_EL3 && BL2_INV_DCACHE) || ENABLE_RME))
+	((BL2_AT_EL3_TWO_WORLD && BL2_INV_DCACHE) || ENABLE_RME))
 		/* -------------------------------------------------------------
 		 * Invalidate the RW memory used by the BL31 image. This
 		 * includes the data and NOBITS sections. This is done to
@@ -495,7 +495,8 @@
 		bl	zeromem
 #endif
 
-#if defined(IMAGE_BL1) || (defined(IMAGE_BL2) && BL2_AT_EL3 && BL2_IN_XIP_MEM)
+#if defined(IMAGE_BL1) ||	\
+	(defined(IMAGE_BL2) && BL2_AT_EL3_TWO_WORLD && BL2_IN_XIP_MEM)
 		adrp	x0, __DATA_RAM_START__
 		add	x0, x0, :lo12:__DATA_RAM_START__
 		adrp	x1, __DATA_ROM_START__
