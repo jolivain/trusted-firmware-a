@@ -11,7 +11,8 @@
 #include <common/bl_common.h>
 #include <lib/el3_runtime/cpu_data.h>
 
-#if defined(IMAGE_BL1) || defined(IMAGE_BL32) || (defined(IMAGE_BL2) && BL2_AT_EL3)
+#if defined(IMAGE_BL1) || defined(IMAGE_BL32) || \
+	(defined(IMAGE_BL2) && BL2_AT_EL3_TWO_WORLD)
 	/*
 	 * The reset handler common to all platforms.  After a matching
 	 * cpu_ops structure entry is found, the correponding reset_handler

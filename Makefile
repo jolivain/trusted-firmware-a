@@ -596,6 +596,19 @@ endif
 
 include ${PLAT_MAKEFILE_FULL}
 
+# This internal flag is common option which is set to 1 for scenarios
+# when the BL2 is running in EL3 level. This occurs in two scenarios -
+# 4 world system running BL2 at EL3 and two world system without BL1 running
+# BL2 in EL3
+
+ifeq (${BL2_AT_EL3_TWO_WORLD},1)
+	BL2_RUNNING_AT_EL3	:=	1
+else ifeq (${ENABLE_RME},1)
+	BL2_RUNNING_AT_EL3	:=	1
+else
+	BL2_RUNNING_AT_EL3	:=	0
+endif
+
 $(eval $(call MAKE_PREREQ_DIR,${BUILD_PLAT}))
 
 ifeq (${ARM_ARCH_MAJOR},7)
@@ -617,7 +630,7 @@ else
 endif
 
 ifeq ($(ENABLE_PIE),1)
-ifeq ($(BL2_AT_EL3),1)
+ifeq ($(BL2_AT_EL3_TWO_WORLD),1)
 ifneq ($(BL2_IN_XIP_MEM),1)
 	BL2_CFLAGS	+=	-fpie
 	BL2_LDFLAGS	+=	$(PIE_LDFLAGS)
@@ -631,7 +644,7 @@ endif
 
 ifeq (${ARCH},aarch64)
 BL1_CPPFLAGS += -DIMAGE_AT_EL3
-ifeq ($(BL2_AT_EL3),1)
+ifeq ($(BL2_AT_EL3_TWO_WORLD),1)
 BL2_CPPFLAGS += -DIMAGE_AT_EL3
 else
 BL2_CPPFLAGS += -DIMAGE_AT_EL1
@@ -708,9 +721,9 @@ ifeq ($(HW_ASSISTED_COHERENCY)-$(USE_COHERENT_MEM),1-1)
 $(error USE_COHERENT_MEM cannot be enabled with HW_ASSISTED_COHERENCY)
 endif
 
-#For now, BL2_IN_XIP_MEM is only supported when BL2_AT_EL3 is 1.
-ifeq ($(BL2_AT_EL3)-$(BL2_IN_XIP_MEM),0-1)
-$(error "BL2_IN_XIP_MEM is only supported when BL2_AT_EL3 is enabled")
+#For now, BL2_IN_XIP_MEM is only supported when BL2_AT_EL3_TWO_WORLD is 1.
+ifeq ($(BL2_AT_EL3_TWO_WORLD)-$(BL2_IN_XIP_MEM),0-1)
+$(error "BL2_IN_XIP_MEM is only supported when BL2_AT_EL3_TWO_WORLD is enabled")
 endif
 
 # For RAS_EXTENSION, require that EAs are handled in EL3 first
@@ -1063,7 +1076,7 @@ $(eval $(call assert_booleans,\
         USE_ROMLIB \
         USE_TBBR_DEFS \
         WARMBOOT_ENABLE_DCACHE_EARLY \
-        BL2_AT_EL3 \
+        BL2_AT_EL3_TWO_WORLD \
         BL2_IN_XIP_MEM \
         BL2_INV_DCACHE \
         USE_SPINLOCK_CAS \
@@ -1208,7 +1221,8 @@ $(eval $(call add_defines,\
         USE_ROMLIB \
         USE_TBBR_DEFS \
         WARMBOOT_ENABLE_DCACHE_EARLY \
-        BL2_AT_EL3 \
+        BL2_AT_EL3_TWO_WORLD \
+        BL2_RUNNING_AT_EL3	\
         BL2_IN_XIP_MEM \
         BL2_INV_DCACHE \
         USE_SPINLOCK_CAS \
@@ -1315,7 +1329,7 @@ $(eval $(call MAKE_BL,bl1))
 endif
 
 ifeq (${NEED_BL2},yes)
-ifeq (${BL2_AT_EL3}, 0)
+ifeq (${BL2_AT_EL3_TWO_WORLD}, 0)
 FIP_BL2_ARGS := tb-fw
 endif
 

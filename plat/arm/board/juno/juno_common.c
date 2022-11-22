@@ -50,7 +50,7 @@ const mmap_region_t plat_arm_mmap[] = {
 	ARM_MAP_OPTEE_CORE_MEM,
 	ARM_OPTEE_PAGEABLE_LOAD_MEM,
 #endif
-#if TRUSTED_BOARD_BOOT && !BL2_AT_EL3
+#if TRUSTED_BOARD_BOOT && !BL2_AT_EL3_TWO_WORLD
 	ARM_MAP_BL1_RW,
 #endif
 	{0}
