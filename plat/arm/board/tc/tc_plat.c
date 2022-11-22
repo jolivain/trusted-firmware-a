@@ -48,7 +48,7 @@ const mmap_region_t plat_arm_mmap[] = {
 #if SPM_MM
 	ARM_SP_IMAGE_MMAP,
 #endif
-#if TRUSTED_BOARD_BOOT && !BL2_AT_EL3
+#if TRUSTED_BOARD_BOOT && !BL2_LOADED_BY_BL1
 	ARM_MAP_BL1_RW,
 #endif
 #ifdef SPD_opteed

@@ -22,7 +22,7 @@ WORKAROUND_CVE_2017_5715	:= 0
 RESET_TO_BL31			:= 0
 
 # Non-TF Boot ROM
-BL2_AT_EL3			:= 1
+BL2_WITHOUT_BL1			:= 1
 
 # Indicate single-core
 COLD_BOOT_SINGLE_CPU		:= 1
