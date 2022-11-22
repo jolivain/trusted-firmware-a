@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "939b8b1a_dc9dcf18",
+        "filename": "plat/arm/board/fvp/fvp_sync_traps.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-22T23:29:44Z",
+      "side": 1,
+      "message": "*RNDRRS",
+      "range": {
+        "startLine": 17,
+        "startChar": 26,
+        "endLine": 17,
+        "endChar": 32
+      },
+      "revId": "723aa53d6eb9ee3710ddd1137f4cc414e37ad858",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79e89c41_6bc50172",
+        "filename": "plat/arm/board/fvp/fvp_sync_traps.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-22T23:29:44Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to be platform-dependent, so I would move it somewhere else. There is no C file for helpers like this, but maybe adding it to plat/common/aarch64/platform_helpers.h (to be created) is the right place.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 1
+      },
+      "revId": "723aa53d6eb9ee3710ddd1137f4cc414e37ad858",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5581c899_97f2d39b",
+        "filename": "plat/arm/board/fvp/fvp_sync_traps.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-22T23:29:44Z",
+      "side": 1,
+      "message": "Although this is just a proof of concept, I would have a different block for *RNDRRS",
+      "revId": "723aa53d6eb9ee3710ddd1137f4cc414e37ad858",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fa02b05_4e726580",
+        "filename": "plat/arm/board/fvp/fvp_sync_traps.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-22T23:29:44Z",
+      "side": 1,
+      "message": "The only problem I see here is that a concurrent access to RNDR/RNDRRS would not be trapped (unlikely but possible) when RNG_TRAP is disabled. Maybe we should mask this type of trap for EL3 only to prevent ignoring traps coming from lower ELs.",
+      "revId": "723aa53d6eb9ee3710ddd1137f4cc414e37ad858",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81385cce_9485a709",
+        "filename": "plat/arm/board/fvp/fvp_sync_traps.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-22T23:29:44Z",
+      "side": 1,
+      "message": "you can use rnd \u003d read_rndr() (and read_rndrrs()) instead ;)",
+      "revId": "723aa53d6eb9ee3710ddd1137f4cc414e37ad858",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
