@@ -1,0 +1,740 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90004207_ac3030d8",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "I imagine there are other ways to integrate RSS in a system. We should say at the beginning of this section that this document focuses on the chosen design for Arm solutions.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 35
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ab9e794_8328707b",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "from its private ROM code?",
+      "range": {
+        "startLine": 9,
+        "startChar": 28,
+        "endLine": 9,
+        "endChar": 43
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12d1dc9c_5384c7ff",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "I know what you mean by \"as usual\" but I think we should elaborate. Perhaps:\n\n When AP and SCP are released from reset and their initial code is loaded then they \n continue their own boot process, which is the same as on non-RSS systems.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 8
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4b8fa8d_6f563d7f",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "I think this deserves a bit more explanation. Suggest something along these lines:\n\n The last stage of RSS firmware is a persistent, runtime component.\n Much like AP_BL31, this is a passive entity which has no periodical task to do\n and just waits for external requests from other subsystems.",
+      "range": {
+        "startLine": 12,
+        "startChar": 10,
+        "endLine": 13,
+        "endChar": 50
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cf0dc31_bcc66455",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "(minor) All sections titles in this document currently use the same underlying character (\u003d), and as a result the table of contents does not look as expected. See the rendered version here:\nhttps://ci-builds.trustedfirmware.org/static-files/cRQt0cVIY68Omwn3QU6jvJpqGJPxRknIhUKR-CdVcKMxNjY5MTA4MDczMTA1Ojk6YW5vbnltb3VzOmpvYi90Zi1hLWJ1aWxkZXIvMTQ1NDA3Ny9hcnRpZmFjdA\u003d\u003d/artefacts/debug/build/html/design_documents/index.html\n\n\n 1. TF-A CMake buildsystem\n 2. Enhance Context Management library for EL3 firmware\n 3. Interaction between Measured Boot and an fTPM (PoC)\n 4. DRTM Proof of Concept\n 5. Introduction                        \u003c\u003c\u003c\u003c\n 6. RSS based boot flow                 \u003c\u003c\u003c\u003c These should\n 7. RSS communication layer             \u003c\u003c\u003c\u003c not appear\n 8. RSS provided runtime services       \u003c\u003c\u003c\u003c there.\n 9. RSS based Measured Boot             \u003c\u003c\u003c\u003c\n 10. Delegated Attestation              \u003c\u003c\u003c\u003c\n 11. Verification                       \u003c\u003c\u003c\u003c\n\nPlease have a look at docs/design_documents/cmake_framework.rst for an example. We need to add a top-level title, such as:\n\n Runtime Security Subsystem (RSS) backend\n \u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\nThen sections titles should be underlined with the \u0027-\u0027 character. Sub-sections must use another character (there are instances of \u0027~\u0027 and \u0027^\u0027 across the code base).",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efd034a0_9d055352",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "This is somewhat covered by section 9.4. Do we need more? What else did you have in mind?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 3
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95fe8079_d625899e",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "(minor) capable of mapping",
+      "range": {
+        "startLine": 29,
+        "startChar": 26,
+        "endLine": 29,
+        "endChar": 40
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "638a6815_5dbfd058",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "Redundant with the first sentence in the paragraph? Or are we saying that an MHU interface consists of 4 MHUs? If it\u0027s the latter, perhaps we could reword to make that clearer?\n\nEDIT: Looking at the diagram below, I think we\u0027re talking about 2 MHU interfaces, 4 MHUs in total, 4 MHU channels. Is that correct? Sorry, I don\u0027t know a lot about MHU and I am confused by the terminology...",
+      "range": {
+        "startLine": 35,
+        "startChar": 15,
+        "endLine": 35,
+        "endChar": 62
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b0f95fb_c203ea25",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "(minor) capable of delivering",
+      "range": {
+        "startLine": 44,
+        "startChar": 48,
+        "endLine": 44,
+        "endChar": 66
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a552372_e64de236",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "(minor) Consider starting a new paragraph here, to make the text easier to digest.",
+      "range": {
+        "startLine": 46,
+        "startChar": 65,
+        "endLine": 47,
+        "endChar": 9
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0be15f44_c4cbb55b",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "signalling",
+      "range": {
+        "startLine": 48,
+        "startChar": 12,
+        "endLine": 48,
+        "endChar": 21
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da59342b_b79b71bd",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "This part does not read well for me...",
+      "range": {
+        "startLine": 50,
+        "startChar": 68,
+        "endLine": 51,
+        "endChar": 27
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbfd210e_87dc46ab",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "allocate",
+      "range": {
+        "startLine": 52,
+        "startChar": 28,
+        "endLine": 52,
+        "endChar": 37
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a9cd697_c0a31176",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "I am a bit confused... My understanding was that there\u0027s 2 versions of the RSS communication protocol. We\u0027ve called them \"pointer access\" and \"embedded\" [1]. The RSS driver dynamically chooses between the two on a per-message basis, based on the size of the message to send [2].\n\nHow does that relate to \"in-band\" vs \"out-of-band\" messaging? Are they the same thing, or are they orthogonal?\n\n[1] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/drivers/arm/rss/rss_comms_protocol.h#n18\n[2] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/drivers/arm/rss/rss_comms.c#n93",
+      "range": {
+        "startLine": 54,
+        "startChar": 3,
+        "endLine": 54,
+        "endChar": 27
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcff12f2_f9dce3b7",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "I think this last sentence answers my comment above: it is the same thing. So then I think we should rename in-band/out-band messaging into embedded/pointer-access messaging. It will make it easier to relate this document to the implementation.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 0
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8df38356_d9f364d1",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "only a single core is running *and* the rest of the cores",
+      "range": {
+        "startLine": 103,
+        "startChar": 20,
+        "endLine": 103,
+        "endChar": 71
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4af6da12_4d1381ed",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "Again here need to change into\n\n /* embedded OR pointer-access */\n\nto match the code.",
+      "range": {
+        "startLine": 116,
+        "startChar": 34,
+        "endLine": 116,
+        "endChar": 62
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b97788c_2233a3b9",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "Perhaps we could add a comment on the side here:\n\n /* Currently unused on AP side. */\n\nas we do not do anything useful with it right now.\n\nRefer to Raef\u0027s answer here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/15683/comment/5f2a2232_10533355/\n\nCopied here for reference:\n------------8\u003c----------------\nCurrently seq_num isn\u0027t used at all :) Because messages here are always sent and then immediately received, so there\u0027s no need to keep track of multiple concurrent messages. TF-M has some apparatus for multiple concurrent messages, but it doesn\u0027t use seq_num, which I think is intended for the AP to know which reply goes with which messages. I think how it would work currently is that our message queue is smaller than the max seq number, so if TF-A sent 256 messages before we could reply they would just start rejecting the new messages.\n\nSo yeah, wrapping is fine I think, provided that we make sure there can never be a seq_num collision with in-flight messages. All of this detail is on the TF-A side though, and the naive implementation here means this doesn\u0027t matter.\n------------8\u003c----------------",
+      "range": {
+        "startLine": 117,
+        "startChar": 12,
+        "endLine": 117,
+        "endChar": 28
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc8f50f3_c4a471c1",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "Change name here as well.",
+      "range": {
+        "startLine": 122,
+        "startChar": 12,
+        "endLine": 122,
+        "endChar": 35
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa91e8d1_7ec94e1a",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "And here.",
+      "range": {
+        "startLine": 130,
+        "startChar": 12,
+        "endLine": 130,
+        "endChar": 39
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bf4a584_0828697c",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "Securely store?",
+      "range": {
+        "startLine": 158,
+        "startChar": 21,
+        "endLine": 158,
+        "endChar": 26
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af8da1df_8ebf6760",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "I would avoid mentioning \"version info\" as an example here, since we\u0027ve not implemented it in TF-A yet. Perhaps pick another one, such as \"image description\"?",
+      "range": {
+        "startLine": 159,
+        "startChar": 48,
+        "endLine": 159,
+        "endChar": 60
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01092811_72b4f633",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "RSS also provides access for AP to non-volatile counters used for anti-rollback protection. Either we add a 4th bullet point for that, or maybe bundle it with the 3rd one, which we broaden to \"OTP assets management\" or something like that?",
+      "range": {
+        "startLine": 173,
+        "startChar": 2,
+        "endLine": 173,
+        "endChar": 64
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d3560ce_e0d5686d",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "I am a bit confused by the word \"exported\" here. I think we\u0027re saying that RSS, which holds these keys, can export them outside of RSS towards AP. So this is an export from RSS point of view. Since this is a TF-A document, I think we should rather express it the other way around, as in \"Public keys used by AP during the trusted boot process can be requested from RSS\", or \"can be imported from RSS on request\".",
+      "range": {
+        "startLine": 175,
+        "startChar": 21,
+        "endLine": 176,
+        "endChar": 25
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc46b461_b8c0401a",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "I am not convinced the size details add value here...",
+      "range": {
+        "startLine": 264,
+        "startChar": 62,
+        "endLine": 264,
+        "endChar": 76
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff6a4c91_c1d7c406",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "Suggest adding a note to this, to say this is not implemented in TF-A yet.",
+      "range": {
+        "startLine": 315,
+        "startChar": 0,
+        "endLine": 315,
+        "endChar": 78
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d45ff176_a01614b4",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "\"The hash algorithm which was used\", or \"The hash algorithm used\"",
+      "range": {
+        "startLine": 316,
+        "startChar": 39,
+        "endLine": 316,
+        "endChar": 66
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a7e3362_93794c62",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "Out of curiosity (no need to write the answer down into this document), is the default value the same at each reboot? I suppose it must be, else we would not have comparable measurements from one boot to the next...",
+      "range": {
+        "startLine": 324,
+        "startChar": 58,
+        "endLine": 325,
+        "endChar": 6
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28f99ee0_2beb568b",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "I just want to fully understand the expected behaviour on error. So if the signer id/measurement algo is NOT the same as in the previous call, this specific extend operation will fail. Then what happens? Is this measurement slot still extendable further by subsequent, valid requests? Or is it locked? And are other measurement slots affected by this failure, like, do we forbid recording any further measurement to RSS for the lifetime of the system?",
+      "range": {
+        "startLine": 330,
+        "startChar": 0,
+        "endLine": 333,
+        "endChar": 34
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86092a2d_c2c08ce5",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "responsible for composing",
+      "range": {
+        "startLine": 462,
+        "startChar": 38,
+        "endLine": 462,
+        "endChar": 60
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac5d177c_75038259",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "Did you mean RMM here?",
+      "range": {
+        "startLine": 468,
+        "startChar": 16,
+        "endLine": 468,
+        "endChar": 20
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ebe3c9e_742458d3",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-11-22T14:59:43Z",
+      "side": 1,
+      "message": "The part about \"interact between RMM and RSS\" does not read well for me. I would suggest dropping it, as it\u0027s somewhat redundant anyway:\n\n The RMM dispatcher module of the BL31 is responsible for delivering\n the calls between the two parties.",
+      "range": {
+        "startLine": 470,
+        "startChar": 59,
+        "endLine": 472,
+        "endChar": 34
+      },
+      "revId": "66c76f73632746daf458ebdbf36455e99e7d45da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
