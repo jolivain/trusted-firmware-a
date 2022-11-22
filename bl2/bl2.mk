@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2021, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -25,7 +25,7 @@ BL2_SOURCES		+=      bl2/${ARCH}/bl2_rme_entrypoint.S	\
 				${GPT_LIB_SRCS}
 BL2_LINKERFILE		:=	bl2/bl2.ld.S
 
-else ifeq (${BL2_AT_EL3},0)
+else ifeq (${BL2_AT_EL3_TWO_WORLD},0)
 # Normal operation, no RME, no BL2 at EL3
 BL2_SOURCES		+=	bl2/${ARCH}/bl2_entrypoint.S
 BL2_LINKERFILE		:=	bl2/bl2.ld.S
