@@ -65,7 +65,7 @@ FVP_GIC_SOURCES		:=	${GICV3_SOURCES}			\
 				plat/common/plat_gicv3.c		\
 				plat/arm/common/arm_gicv3.c
 
-	ifeq ($(filter 1,${BL2_AT_EL3} ${RESET_TO_BL31} ${RESET_TO_SP_MIN}),)
+	ifeq ($(filter 1,${BL2_AT_EL3_TWO_WORLD} ${RESET_TO_BL31} ${RESET_TO_SP_MIN}),)
 		FVP_GIC_SOURCES += plat/arm/board/fvp/fvp_gicv3.c
 	endif
 
@@ -198,7 +198,7 @@ BL31_SOURCES		+=	plat/arm/board/fvp/fvp_plat_attest_token.c	\
 				plat/arm/board/fvp/fvp_realm_attest_key.c
 endif
 
-ifeq (${BL2_AT_EL3},1)
+ifeq (${BL2_AT_EL3_TWO_WORLD},1)
 BL2_SOURCES		+=	plat/arm/board/fvp/${ARCH}/fvp_helpers.S	\
 				plat/arm/board/fvp/fvp_bl2_el3_setup.c		\
 				${FVP_CPU_LIBS}					\
@@ -234,7 +234,7 @@ BL31_SOURCES		+=	drivers/arm/fvp/fvp_pwrc.c			\
 
 # Support for fconf in BL31
 # Added separately from the above list for better readability
-ifeq ($(filter 1,${BL2_AT_EL3} ${RESET_TO_BL31}),)
+ifeq ($(filter 1,${BL2_AT_EL3_TWO_WORLD} ${RESET_TO_BL31}),)
 BL31_SOURCES		+=	lib/fconf/fconf.c				\
 				lib/fconf/fconf_dyn_cfg_getter.c		\
 				plat/arm/board/fvp/fconf/fconf_hw_config_getter.c
@@ -334,7 +334,7 @@ ifeq (${ARCH},aarch32)
 endif
 
 # Enable the dynamic translation tables library.
-ifeq ($(filter 1,${BL2_AT_EL3} ${ARM_XLAT_TABLES_LIB_V1}),)
+ifeq ($(filter 1,${BL2_AT_EL3_TWO_WORLD} ${ARM_XLAT_TABLES_LIB_V1}),)
     ifeq (${ARCH},aarch32)
         BL32_CPPFLAGS	+=	-DPLAT_XLAT_TABLES_DYNAMIC
     else # AArch64
@@ -360,7 +360,7 @@ endif
 # Add support for platform supplied linker script for BL31 build
 $(eval $(call add_define,PLAT_EXTRA_LD_SCRIPT))
 
-ifneq (${BL2_AT_EL3}, 0)
+ifneq (${BL2_AT_EL3_TWO_WORLD}, 0)
     override BL1_SOURCES =
 endif
 

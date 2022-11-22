@@ -23,7 +23,7 @@ BL32_SOURCES		+=	drivers/arm/fvp/fvp_pwrc.c			\
 
 # Support for fconf in SP_MIN(BL32)
 # Added separately from the above list for better readability
-ifeq ($(filter 1,${BL2_AT_EL3} ${RESET_TO_SP_MIN}),)
+ifeq ($(filter 1,${BL2_AT_EL3_TWO_WORLD} ${RESET_TO_SP_MIN}),)
 BL32_SOURCES		+=	lib/fconf/fconf.c				\
 				lib/fconf/fconf_dyn_cfg_getter.c		\
 				plat/arm/board/fvp/fconf/fconf_hw_config_getter.c \
