@@ -16,6 +16,24 @@
       "message": "Since we are changing what these functions mean it might be good to revisit their naming. I think `is_armv8_6_fgt_present()` returning false when ENABLE_FEAT_FGT\u003dFEAT_STATE_DISABLED and FEAT_FGT is present in hardware is not correct and we have no checks elsewhere to prevent this.",
       "revId": "a7e6f3dfc19a9406351d9d1a2a15a68e46fe62f6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "418109df_b4559fc5",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-11-22T17:31:54Z",
+      "side": 1,
+      "message": "Yes, I wasn\u0027t really happy with that either, but wanted to avoid the churn of changing every user (though there are not too many).\nPlus there will probably as many preferences in naming as there are reviewers ;-)\nThat being said: do you have any suggestions?\nI was thinking along the lines of \"is_armv8_6_fgt_supported()\" for the boolean version (observing the build time flags), and \"get_armv8_6_fgt_support\" (or _field?) for the actual hardware version.",
+      "parentUuid": "1414190b_fa685c42",
+      "revId": "a7e6f3dfc19a9406351d9d1a2a15a68e46fe62f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
