@@ -16,6 +16,24 @@
       "message": "nit: I\u0027m not sure that this zeromem is still required?",
       "revId": "ed8b231070f19fa945a55b6cc24e775bead4c78a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d085915_62143641",
+        "filename": "plat/xilinx/versal/pm_service/pm_client.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000930
+      },
+      "writtenOn": "2022-11-23T06:13:38Z",
+      "side": 1,
+      "message": "Removed zeromem as we are initializing the array with 0U. Uploaded patchset 4 for the same.",
+      "parentUuid": "2954b514_b4f2635d",
+      "revId": "ed8b231070f19fa945a55b6cc24e775bead4c78a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
