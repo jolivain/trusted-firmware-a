@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "627b9c35_de2560a6",
+        "filename": "plat/arm/board/fvp/fvp_sync_traps.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-23T21:30:50Z",
+      "side": 1,
+      "message": "Right. It won\u0027t probably be used anywhere else. We can move it later if we need.",
+      "parentUuid": "42d1a36d_7f328f85",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 1
+      },
+      "revId": "723aa53d6eb9ee3710ddd1137f4cc414e37ad858",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5581c899_97f2d39b",
         "filename": "plat/arm/board/fvp/fvp_sync_traps.c",
         "patchSetId": 1
@@ -178,6 +202,24 @@
       "side": 1,
       "message": "Which concurrent access? Both the instruction and the trap bit are per core, so who should execute those instructions between those two calls? Definitely not lower EL.\nAnd mask how? This is a synchronous exception.",
       "parentUuid": "0fa02b05_4e726580",
+      "revId": "723aa53d6eb9ee3710ddd1137f4cc414e37ad858",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba3007b1_e458aa71",
+        "filename": "plat/arm/board/fvp/fvp_sync_traps.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-23T21:30:50Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e6e92434_85d50308",
       "revId": "723aa53d6eb9ee3710ddd1137f4cc414e37ad858",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
