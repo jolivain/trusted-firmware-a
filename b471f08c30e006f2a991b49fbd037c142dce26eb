@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d3b26f0_6a253d52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2022-11-23T17:14:05Z",
+      "side": 1,
+      "message": "Following the philosophy of no double negatives, perhaps it makes more sense to use something like `BL2_LOADED_BY_BL1` and have that default to `1`? Just to avoid mental overload conditions like `!BL2_WITHOUT_BL1`.",
+      "revId": "b471f08c30e006f2a991b49fbd037c142dce26eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9bab03ac_0f99259c",
