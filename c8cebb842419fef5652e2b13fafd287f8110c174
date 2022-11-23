@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a74fdb88_cff2a75b",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-23T22:24:04Z",
+      "side": 1,
+      "message": "Hmmm... I don\u0027t know if it\u0027s a good idea to put this inside a function whose name starts with \"smc\", as this is not an SMC exception. Maybe we can rename smc_handler64 to something more generic or create a different subroutine for the shared part of the code between SMC and SYS exceptions.",
+      "revId": "c8cebb842419fef5652e2b13fafd287f8110c174",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8762da77_8ee802a2",
+        "filename": "include/bl31/sync_handle.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2022-11-23T22:24:04Z",
+      "side": 1,
+      "message": "Shouldn\u0027t it be f here? Not that it\u0027s gonna make much of a difference for RNDR and RNDRRS, but maybe it does for other registers with Op2 !\u003d 0.",
+      "range": {
+        "startLine": 10,
+        "startChar": 35,
+        "endLine": 10,
+        "endChar": 36
+      },
+      "revId": "c8cebb842419fef5652e2b13fafd287f8110c174",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
