@@ -16,6 +16,24 @@
       "message": "Your patch is checking errors comes from pm_get_api_version().\nAnd because it wasn\u0027t done you are getting MISRA warning. \n\nIt means you should describe what you have fixed and you can say that it was reported as MISRA warning.",
       "revId": "66d629d6061a3bb83b2e25d2244ddda77f9c5601",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cd26216_f7ff7fd6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000930
+      },
+      "writtenOn": "2022-11-24T12:43:41Z",
+      "side": 1,
+      "message": "Added descriptive commit message for better understanding.",
+      "parentUuid": "a707d990_2ac508c5",
+      "revId": "66d629d6061a3bb83b2e25d2244ddda77f9c5601",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
