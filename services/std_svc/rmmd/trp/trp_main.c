@@ -4,7 +4,6 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-
 #include <common/debug.h>
 #include <plat/common/platform.h>
 #include <services/rmm_core_manifest.h>
@@ -89,62 +88,76 @@ void trp_main(void)
 /*******************************************************************************
  * Returning RMI version back to Normal World
  ******************************************************************************/
-static trp_args_t *trp_ret_rmi_version(void)
+static trp_args_t *trp_ret_rmi_version(struct trp_smc_result *smc_ret)
 {
 	VERBOSE("RMM version is %u.%u\n", RMI_ABI_VERSION_MAJOR,
 					  RMI_ABI_VERSION_MINOR);
-	return set_smc_args(RMM_RMI_REQ_COMPLETE, RMI_ABI_VERSION,
+	smc_ret->x[0] = RMI_ABI_VERSION;
+	return set_smc_args(RMM_RMI_REQ_COMPLETE, smc_ret->x[0],
 			    0, 0, 0, 0, 0, 0);
 }
 
 /*******************************************************************************
  * Transitioning granule of NON-SECURE type to REALM type
  ******************************************************************************/
-static trp_args_t *trp_asc_mark_realm(unsigned long long x1)
+static trp_args_t *trp_asc_mark_realm(unsigned long long x1,
+				      struct trp_smc_result *smc_ret)
 {
-	unsigned long long ret;
-
 	VERBOSE("Delegating granule 0x%llx\n", x1);
-	ret = trp_smc(set_smc_args(RMM_GTSI_DELEGATE, x1, 0, 0, 0, 0, 0, 0));
+	smc_ret->x[0] = trp_smc(set_smc_args(RMM_GTSI_DELEGATE, x1, 0, 0, 0, 0, 0, 0));
 
-	if (ret != 0ULL) {
+	if (smc_ret->x[0] != 0ULL) {
 		ERROR("Granule transition from NON-SECURE type to REALM type "
-			"failed 0x%llx\n", ret);
+			"failed 0x%llx\n", smc_ret->x[0]);
 	}
-	return set_smc_args(RMM_RMI_REQ_COMPLETE, ret, 0, 0, 0, 0, 0, 0);
+	return set_smc_args(RMM_RMI_REQ_COMPLETE, smc_ret->x[0], 0, 0, 0, 0, 0, 0);
 }
 
 /*******************************************************************************
  * Transitioning granule of REALM type to NON-SECURE type
  ******************************************************************************/
-static trp_args_t *trp_asc_mark_nonsecure(unsigned long long x1)
+static trp_args_t *trp_asc_mark_nonsecure(unsigned long long x1,
+					  struct trp_smc_result *smc_ret)
 {
-	unsigned long long ret;
-
 	VERBOSE("Undelegating granule 0x%llx\n", x1);
-	ret = trp_smc(set_smc_args(RMM_GTSI_UNDELEGATE, x1, 0, 0, 0, 0, 0, 0));
+	smc_ret->x[0] = trp_smc(set_smc_args(RMM_GTSI_UNDELEGATE, x1, 0, 0, 0, 0, 0, 0));
 
-	if (ret != 0ULL) {
+	if (smc_ret->x[0] != 0ULL) {
 		ERROR("Granule transition from REALM type to NON-SECURE type "
-			"failed 0x%llx\n", ret);
+			"failed 0x%llx\n", smc_ret->x[0]);
 	}
-	return set_smc_args(RMM_RMI_REQ_COMPLETE, ret, 0, 0, 0, 0, 0, 0);
+	return set_smc_args(RMM_RMI_REQ_COMPLETE, smc_ret->x[0], 0, 0, 0, 0, 0, 0);
 }
 
 /*******************************************************************************
  * Main RMI SMC handler function
  ******************************************************************************/
-trp_args_t *trp_rmi_handler(unsigned long fid, unsigned long long x1)
+trp_args_t *trp_rmi_handler(unsigned long fid,
+			    unsigned long long x1,
+			    unsigned long long x2,
+			    unsigned long long x3,
+			    unsigned long long x4,
+			    unsigned long long x5,
+			    unsigned long long x6,
+			    struct trp_smc_result *smc_ret)
+
 {
+	/* Not used in current implementation */
+	(void)x2;
+	(void)x3;
+	(void)x4;
+	(void)x5;
+	(void)x6;
+
 	switch (fid) {
 	case RMI_RMM_REQ_VERSION:
-		return trp_ret_rmi_version();
+		return trp_ret_rmi_version(smc_ret);
 	case RMI_RMM_GRANULE_DELEGATE:
-		return trp_asc_mark_realm(x1);
+		return trp_asc_mark_realm(x1, smc_ret);
 	case RMI_RMM_GRANULE_UNDELEGATE:
-		return trp_asc_mark_nonsecure(x1);
+		return trp_asc_mark_nonsecure(x1, smc_ret);
 	default:
-		ERROR("Invalid SMC code to %s, FID %lu\n", __func__, fid);
+		ERROR("Invalid SMC code to %s, FID %lx\n", __func__, fid);
 	}
 	return set_smc_args(SMC_UNK, 0, 0, 0, 0, 0, 0, 0);
 }
