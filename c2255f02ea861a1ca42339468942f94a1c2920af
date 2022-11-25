@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b1aa761_4563fff4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-25T14:55:53Z",
+      "side": 1,
+      "message": "Some thoughts on whether these regs need to be saved and restored in the first place. But this patch need not do anything. Something for TF-A team to discuss.",
+      "revId": "c2255f02ea861a1ca42339468942f94a1c2920af",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59938f51_428bdaf9",
@@ -31,6 +48,23 @@
       "writtenOn": "2022-11-25T14:52:03Z",
       "side": 1,
       "message": "nit: these can go into arch_helpers.h",
+      "revId": "c2255f02ea861a1ca42339468942f94a1c2920af",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10e54ad8_676edbd9",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-25T14:55:53Z",
+      "side": 1,
+      "message": "The Secure world (and RMM doesn\u0027t use FEAT_FGT), so it is possible to think of a case that registers need not be saved and restored at all. We just need to ensure SPMD and RMMD sets up appropriate trap enable for this feature so there will be a panic in case there  is some access and can be fixed up appropriately.",
       "revId": "c2255f02ea861a1ca42339468942f94a1c2920af",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
