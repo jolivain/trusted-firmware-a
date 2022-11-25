@@ -34,6 +34,24 @@
       "parentUuid": "05ff2b22_56088660",
       "revId": "9142d73d318cffc7dae082178919b1cf59c3b2b6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "432760ff_f5505948",
+        "filename": "lib/el3_runtime/aarch64/el3_regs.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-11-25T13:07:21Z",
+      "side": 1,
+      "message": "alright when we add pauth here and putting the two points in the comment it makes sense to me",
+      "parentUuid": "002a4797_81eb414d",
+      "revId": "9142d73d318cffc7dae082178919b1cf59c3b2b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
