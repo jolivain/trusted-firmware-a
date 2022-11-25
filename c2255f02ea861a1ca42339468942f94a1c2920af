@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "77fc1428_d2c086e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-11-25T17:23:52Z",
+      "side": 1,
+      "message": "So that\u0027s the old code:\n   0:   d53c318d        mrs     x13, s3_4_c3_c1_4\n   4:   d53c31ce        mrs     x14, s3_4_c3_c1_6\n   8:   a916380d        stp     x13, x14, [x0, #352]\n   c:   d53c31af        mrs     x15, s3_4_c3_c1_5\n  10:   d53c11d0        mrs     x16, s3_4_c1_c1_6\n  14:   a917400f        stp     x15, x16, [x0, #368]\n  18:   d53c1189        mrs     x9, s3_4_c1_c1_4\n  1c:   d53c11aa        mrs     x10, s3_4_c1_c1_5\n  20:   a9182809        stp     x9, x10, [x0, #384]\n  24:   d65f03c0        ret\n\nThat\u0027s the new code for ENABLE_FEAT_FGT\u003d2:\n  44:   d5380700        mrs     x0, id_aa64mmfr0_el1\n  48:   f2480c1f        tst     x0, #0xf00000000000000\n  4c:   54000200        b.eq    8c \u003ccm_el2_sysregs_context_save+0x8c\u003e  // b.none\n  50:   d53c3180        mrs     x0, s3_4_c3_c1_4\n  54:   f900b260        str     x0, [x19, #352]\n  58:   d5380400        mrs     x0, id_aa64pfr0_el1\n  5c:   f2540c1f        tst     x0, #0xf00000000000\n  60:   54000060        b.eq    6c \u003ccm_el2_sysregs_context_save+0x6c\u003e  // b.none\n  64:   d53c31c0        mrs     x0, s3_4_c3_c1_6\n  68:   f900b660        str     x0, [x19, #360]\n  6c:   d53c31a0        mrs     x0, s3_4_c3_c1_5\n  70:   f900ba60        str     x0, [x19, #368]\n  74:   d53c11c0        mrs     x0, s3_4_c1_c1_6\n  78:   f900be60        str     x0, [x19, #376]\n  7c:   d53c1180        mrs     x0, s3_4_c1_c1_4\n  80:   f900c260        str     x0, [x19, #384]\n  84:   d53c11a0        mrs     x0, s3_4_c1_c1_5\n  88:   f900c660        str     x0, [x19, #392]\n\nWith ENABLE_FEAT_FGT\u003d1 we just lose the three instructions for the check, for \u003d0 the compilers skips all of that, just like with the #if before.\n\nSo yes, it\u0027s slightly bigger, because it doesn\u0027t use stp, but otherwise it\u0027s the same.",
+      "parentUuid": "f93381dd_cea3a9a5",
+      "revId": "c2255f02ea861a1ca42339468942f94a1c2920af",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "59938f51_428bdaf9",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 2
@@ -48,6 +66,24 @@
       "writtenOn": "2022-11-25T14:52:03Z",
       "side": 1,
       "message": "nit: these can go into arch_helpers.h",
+      "revId": "c2255f02ea861a1ca42339468942f94a1c2920af",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99d64e19_6d14bfde",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-11-25T17:23:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "59938f51_428bdaf9",
       "revId": "c2255f02ea861a1ca42339468942f94a1c2920af",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -65,6 +101,24 @@
       "writtenOn": "2022-11-25T14:55:53Z",
       "side": 1,
       "message": "The Secure world (and RMM doesn\u0027t use FEAT_FGT), so it is possible to think of a case that registers need not be saved and restored at all. We just need to ensure SPMD and RMMD sets up appropriate trap enable for this feature so there will be a panic in case there  is some access and can be fixed up appropriately.",
+      "revId": "c2255f02ea861a1ca42339468942f94a1c2920af",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21fc7cab_48607845",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-11-25T17:23:52Z",
+      "side": 1,
+      "message": "Yes, but as you mention, the optimisation is a separate issue. Now that we have it in C, this can be more cleanly done on top, I think.\nI have another patch to cover the case of missed enablement, that panics in early boot if the feature is not compiled in, but the CPU has it. Will push it as part of v2.",
+      "parentUuid": "10e54ad8_676edbd9",
       "revId": "c2255f02ea861a1ca42339468942f94a1c2920af",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
