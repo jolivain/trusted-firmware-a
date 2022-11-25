@@ -220,7 +220,7 @@
 	 */
 	.macro speculation_barrier
 #if ENABLE_FEAT_SB
-	sb
+	msr	SYSREG_SB, xzr			// equivalent of "sb"
 #else
 	dsb	sy
 	isb
@@ -234,7 +234,7 @@
 	.macro exception_return
 	eret
 #if ENABLE_FEAT_SB
-	sb
+	msr	SYSREG_SB, xzr			// equivalent of "sb"
 #else
 	dsb	nsh
 	isb
