@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e5bca77_235d22b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-25T14:44:01Z",
+      "side": 1,
+      "message": "agree with the changes being proposed in the patch.",
+      "revId": "a7e6f3dfc19a9406351d9d1a2a15a68e46fe62f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1414190b_fa685c42",
@@ -68,6 +85,24 @@
       "side": 1,
       "message": "\u003e True, although going through all of them might not be a bad idea.\n\nYeah, possibly would need to check them anyway.\n\n\u003e We can have read_armv8_6_fgt_field() for the hardware version to stick with the sysreg accessor convention for the most part (not exactly since this is a bit more involved). Other than that sounds good.\n\nYeah, read...field sounds better.\n\n\u003e Also, I think we can drop the arm8_6 from names. I believe it\u0027s leftover from a while ago when these things were checked against architecture version only. I suppose it was a bit of redundancy for that check but we don\u0027t really need it anymore.\n\nAh good, I was wondering already, since the usage is both inconsistent and somewhat lengthy and indeed redundant.",
       "parentUuid": "c7e76bea_82705494",
+      "revId": "a7e6f3dfc19a9406351d9d1a2a15a68e46fe62f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f431661b_a875ee60",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-25T14:44:01Z",
+      "side": 1,
+      "message": "+1 to the suggestions.\n\nis_feat_fgt_supported() seems like a good name for the boolean version.",
+      "parentUuid": "078af8bb_b7ed052d",
       "revId": "a7e6f3dfc19a9406351d9d1a2a15a68e46fe62f6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
