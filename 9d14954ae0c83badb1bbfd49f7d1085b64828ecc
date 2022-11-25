@@ -16,6 +16,24 @@
       "message": "Thanks for the review!\nI have one question: the static analysis complained about the empty third macro argument:\n#define DEFINE_IDREG_READ_FUNC(_name)\t\t\t\\\n\t_DEFINE_SYSREG_READ_FUNC(_name, _name,)\nIt doesn\u0027t like the \",)\" sequence. This is arguably a bit dodgy, but IIUC the common way to handle those cases? I think there are more advanced VAR_ARGS ways of handling default parameters, but they are probably a bit overkill here. And rewriting as two macros also sounds a bit over the top to me.\nAny suggestions?\nI don\u0027t think we can ignore it, as the CI will flag every subsequent patch.",
       "revId": "9d14954ae0c83badb1bbfd49f7d1085b64828ecc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09dacb8d_a5c80dda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-25T15:43:32Z",
+      "side": 1,
+      "message": "I would just define another variant of the macro say _DEFINE_SYSREG_READ_FUNC_NV which removes the volatile keyword.",
+      "parentUuid": "d5b056fa_60992ced",
+      "revId": "9d14954ae0c83badb1bbfd49f7d1085b64828ecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
