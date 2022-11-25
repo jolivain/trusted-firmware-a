@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "89a56d25_e1c17600",
+        "filename": "include/lib/psa/measured_boot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-11-25T14:10:17Z",
+      "side": 1,
+      "message": "This return value seems to be signalling an internal error, which cannot be triggered by invalid parameters. So removing it from the description.",
+      "parentUuid": "5099a6d1_a5cff8d4",
+      "range": {
+        "startLine": 105,
+        "startChar": 3,
+        "endLine": 105,
+        "endChar": 28
+      },
+      "revId": "2724632ec65d210ed85e429583a05af16f690e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f1bb9d39_55055f3d",
         "filename": "include/lib/psa/measured_boot.h",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-23T12:38:30Z",
       "side": 1,
       "message": "Just want to check my understanding... I imagine we will never get PSA_ERROR_NOT_PERMITTED error code in TF-A, as I don\u0027t think we use the \"client ID\" scheme on TF-A side and so RSS has no way to know who issued the call. Is that correct?",
+      "range": {
+        "startLine": 109,
+        "startChar": 5,
+        "endLine": 111,
+        "endChar": 9
+      },
+      "revId": "2724632ec65d210ed85e429583a05af16f690e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81e87a1f_6b3aff8d",
+        "filename": "include/lib/psa/measured_boot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-11-25T14:10:17Z",
+      "side": 1,
+      "message": "You are right, I removed this.",
+      "parentUuid": "f1bb9d39_55055f3d",
       "range": {
         "startLine": 109,
         "startChar": 5,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "05aa3d35_25eead23",
+        "filename": "lib/psa/measured_boot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-11-25T14:10:17Z",
+      "side": 1,
+      "message": "The PSA service API enables at most 4 iovecs (so the sum of invec_count and outvec_count must be less than or equal to 4). \n1 \u0027slot\u0027 is used for the invec, so 3 outvecs can be used at most. As here is more than 3 output parameters for this service, some of them are packed in a single outvec using measured_boot_read_iovec_out_t.\n\nAs the parameters of this function requires the packed parameters to be returned in separate buffers, this function needs to copy the packed data to their respective buffers.\n\nWhich parameters needs to be packed are defined by the service implementation.",
+      "parentUuid": "aa77c4ed_e475d3c4",
+      "range": {
+        "startLine": 145,
+        "startChar": 2,
+        "endLine": 146,
+        "endChar": 60
+      },
+      "revId": "2724632ec65d210ed85e429583a05af16f690e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0891630e_eb8594c8",
         "filename": "lib/psa/measured_boot_private.h",
         "patchSetId": 1
@@ -83,6 +155,30 @@
       "writtenOn": "2022-11-23T12:38:30Z",
       "side": 1,
       "message": "(minor) Move this one above RSS_MEASURED_BOOT_EXTEND macro to keep values sorted in ascending order?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 37
+      },
+      "revId": "2724632ec65d210ed85e429583a05af16f690e80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81bbc691_67ad6345",
+        "filename": "lib/psa/measured_boot_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-11-25T14:10:17Z",
+      "side": 1,
+      "message": "Right, I did it",
+      "parentUuid": "0891630e_eb8594c8",
       "range": {
         "startLine": 15,
         "startChar": 0,
