@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fb088e2_961e6b66",
+        "filename": "include/arch/aarch32/el3_common_macros.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-11-28T18:12:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9455422_7cee3b3e",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 3
+      },
+      "revId": "9142d73d318cffc7dae082178919b1cf59c3b2b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc4267dc_67d91638",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-25T14:22:51Z",
       "side": 1,
       "message": "Imo this comment reads like a function description, it should be wherever we define the function. Seems we do that already in lib/el3_runtime/aarch32/el3_regs.S, do we need to describe it again here?",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 31,
+        "endChar": 4
+      },
+      "revId": "9142d73d318cffc7dae082178919b1cf59c3b2b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "618f8201_837228d4",
+        "filename": "include/arch/aarch32/el3_common_macros.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-11-28T18:12:44Z",
+      "side": 1,
+      "message": "Removed redundant comments",
+      "parentUuid": "fc4267dc_67d91638",
       "range": {
         "startLine": 22,
         "startChar": 1,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf76c991_9bfef2bb",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-11-28T18:12:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "456e0300_6aa11932",
+      "range": {
+        "startLine": 44,
+        "startChar": 33,
+        "endLine": 44,
+        "endChar": 43
+      },
+      "revId": "9142d73d318cffc7dae082178919b1cf59c3b2b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c541213_cb05e940",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-11-25T14:22:51Z",
       "side": 1,
       "message": "nit: The following registers are",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 23
+      },
+      "revId": "9142d73d318cffc7dae082178919b1cf59c3b2b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7d1533b_e171e590",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-11-28T18:12:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c541213_cb05e940",
       "range": {
         "startLine": 45,
         "startChar": 4,
@@ -116,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cb3e397_2a01d82c",
+        "filename": "lib/el3_runtime/aarch32/el3_regs.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-11-28T18:12:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f69382d_11d55770",
+      "range": {
+        "startLine": 15,
+        "startChar": 4,
+        "endLine": 15,
+        "endChar": 14
+      },
+      "revId": "9142d73d318cffc7dae082178919b1cf59c3b2b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aab7e44d_7d7e3352",
@@ -139,6 +259,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e40a2f00_75b3fad1",
+        "filename": "lib/el3_runtime/aarch32/el3_regs.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-11-28T18:12:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aab7e44d_7d7e3352",
+      "range": {
+        "startLine": 17,
+        "startChar": 4,
+        "endLine": 17,
+        "endChar": 48
+      },
+      "revId": "9142d73d318cffc7dae082178919b1cf59c3b2b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ee32ed6_cf082921",
@@ -152,6 +296,30 @@
       "writtenOn": "2022-11-25T14:22:51Z",
       "side": 1,
       "message": "The formatting here looks a little off, misaligned with above.",
+      "range": {
+        "startLine": 19,
+        "startChar": 12,
+        "endLine": 22,
+        "endChar": 11
+      },
+      "revId": "9142d73d318cffc7dae082178919b1cf59c3b2b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "257a1f30_74cda820",
+        "filename": "lib/el3_runtime/aarch32/el3_regs.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-11-28T18:12:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee32ed6_cf082921",
       "range": {
         "startLine": 19,
         "startChar": 12,
