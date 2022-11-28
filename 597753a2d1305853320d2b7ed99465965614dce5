@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e311c5b_9507c51c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 17
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-28T16:35:10Z",
+      "side": 1,
+      "message": "I wonder about the motivation for this change. First should this be a separate change? As this doesn\u0027t really have to do with fixing coverity warnings?\n\nThen is this to reduce the verbosity in general?\nIs it required to change the verbosity for error reporting (WARN or ERROR as a result of a failed condition check)?\n\nIt looks to me the main change to do is:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/16413/17/bl32/tsp/tsp_common.c\nbecause it generates a lot of traffic in the test case output?\nBut others are not strictly necessary?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 23
+      },
+      "revId": "597753a2d1305853320d2b7ed99465965614dce5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
