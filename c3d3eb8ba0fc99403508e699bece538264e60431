@@ -16,6 +16,75 @@
       "message": "Rerun of failures passes them all.\n\nhttps://jenkins.oss.arm.com/job/tf-ci-gateway/125307/",
       "revId": "c3d3eb8ba0fc99403508e699bece538264e60431",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adc3623b_80516ff6",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-28T14:27:24Z",
+      "side": 1,
+      "message": "It\u0027s ok to use this asterisk to refer to somewhere else in the document, but actually there is no such reference e.g. line 181?",
+      "range": {
+        "startLine": 162,
+        "startChar": 38,
+        "endLine": 162,
+        "endChar": 39
+      },
+      "revId": "c3d3eb8ba0fc99403508e699bece538264e60431",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c4a2fbb_05bfe605",
+        "filename": "docs/getting_started/build-internals.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-28T14:27:24Z",
+      "side": 1,
+      "message": "This description pre-dates introduction for RME extension.\n\nAs indicated here https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17938/7/make_helpers/defaults.mk#405\nIt is also for use in an RME enabled system nowadays.",
+      "range": {
+        "startLine": 11,
+        "startChar": 63,
+        "endLine": 12,
+        "endChar": 58
+      },
+      "revId": "c3d3eb8ba0fc99403508e699bece538264e60431",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0efb274a_613147d1",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-28T14:27:24Z",
+      "side": 1,
+      "message": "ENABLE_RME",
+      "range": {
+        "startLine": 405,
+        "startChar": 41,
+        "endLine": 405,
+        "endChar": 44
+      },
+      "revId": "c3d3eb8ba0fc99403508e699bece538264e60431",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
