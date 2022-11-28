@@ -225,6 +225,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26903467_7ebe42b4",
+        "filename": "plat/arm/board/fvp/fvp_sync_traps.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-11-28T23:43:54Z",
+      "side": 1,
+      "message": "Yeah, but as you said I don\u0027t think this is meaningful in this context - especially as this is demonstration code. In the real world chances are we trap because the h/w instructions have some issues, so executing them in EL3 is not really useful in practice.\nBut I am happy either way, let\u0027s see what Manish or Madhu say.",
+      "parentUuid": "dd2ea8d4_7d8182a9",
+      "revId": "723aa53d6eb9ee3710ddd1137f4cc414e37ad858",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0fa02b05_4e726580",
@@ -345,6 +363,24 @@
       "side": 1,
       "message": "I don\u0027t think that this would be much of a problem, but just FYI: FEAT_RNG is a v8.5 feature, shouldn\u0027t we expect those registers to be available from that version on?",
       "parentUuid": "7ffbf125_213193df",
+      "revId": "723aa53d6eb9ee3710ddd1137f4cc414e37ad858",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35ea5eae_0431aa70",
+        "filename": "plat/arm/board/fvp/fvp_sync_traps.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-11-28T23:43:54Z",
+      "side": 1,
+      "message": "So I see different problems here:\n- RNG is an *optional* v8.5 feature, many SoCs might not have an entropy source. And it stays optional, even with implementations using a higher architecture level.\n- The assembler *complains* unless we specify -march\u003darmv8.5-a during build. This is a somewhat questionable molly-guard, if you ask me, because the compiler does not generate RND instructions, it\u0027s just explicitly warning us about using instructions that *might* not run on every machine. Now in this case we know it works, because otherwise we wouldn\u0027t have ended up in the trap here in the first place.\n- The FVP is highly configurable, you can turn on and off features on the command line. Specifying an architecture level at compile time in unrelated to the option you start the FVP with. We acknowledge this by checking the availability of features at runtime, using the architected way of reading the ID registers (at least we aim at that, see my other series).\n- There is also the chance that your compiler/assembler version might simply not know about the instruction or the specific -march *string*, so we unnecessarily restrict the user\u0027s choice of a toolchain.\n- From a pure technical point of view the architecture level is not very meaningful: some features can be backported, some are optional, others are cherry-picked from higher levels. All we need to know is: does this particular CPU have this particular *feature*?\n\nThe best thing is: there is a simple solution to all of this: Just use the explicit S3_... encoding. We sign the waiver by saying we know what we are doing, and we are using this explicitly in places that we checked it works.",
+      "parentUuid": "c6e775cf_f794352a",
       "revId": "723aa53d6eb9ee3710ddd1137f4cc414e37ad858",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
