@@ -55,7 +55,7 @@
 
 /* Device memory 0 to 2GB */
 #define ARM_PAS_1_BASE			(U(0))
-#define ARM_PAS_1_SIZE			((ULL(1)<<31)) /* 2GB */
+#define ARM_PAS_1_SIZE			((ULL(1) << 31)) /* 2GB */
 
 /* NS memory 2GB to (end - 64MB) */
 #define ARM_PAS_2_BASE			(ARM_PAS_1_BASE + ARM_PAS_1_SIZE)
@@ -69,9 +69,14 @@
 #define ARM_PAS_3_BASE			(ARM_AP_TZC_DRAM1_BASE)
 #define ARM_PAS_3_SIZE			(ARM_AP_TZC_DRAM1_SIZE)
 
+/* NS memory 2GB */
+#define	ARM_PAS_4_BASE			ARM_DRAM2_BASE
+#define	ARM_PAS_4_SIZE			((ULL(1) << 31)) /* 2GB */
+
 #define ARM_PAS_GPI_ANY			MAP_GPT_REGION(ARM_PAS_1_BASE, \
 						       ARM_PAS_1_SIZE, \
 						       GPT_GPI_ANY)
+
 #define	ARM_PAS_KERNEL			GPT_MAP_REGION_GRANULE(ARM_PAS_2_BASE, \
 							       ARM_PAS_2_SIZE, \
 							       GPT_GPI_NS)
@@ -80,6 +85,9 @@
 							       ARM_PAS_3_SIZE, \
 							       GPT_GPI_SECURE)
 
+#define	ARM_PAS_KERNEL_1		GPT_MAP_REGION_GRANULE(ARM_PAS_4_BASE, \
+							       ARM_PAS_4_SIZE, \
+							       GPT_GPI_NS)
 /*
  * REALM and Shared area share the same PAS, so consider them a single
  * PAS region to configure in GPT.
