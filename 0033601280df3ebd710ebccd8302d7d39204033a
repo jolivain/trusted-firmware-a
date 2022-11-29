@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65feb728_fe293620",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-11-29T17:51:23Z",
+      "side": 1,
+      "message": "Apologies if I wasn\u0027t clear Arvind, I think a couple of the comments are still misplaced. Please feel free to disagree if I\u0027m being too pedantic. Only a minor detail.",
+      "revId": "0033601280df3ebd710ebccd8302d7d39204033a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "256e652c_65f59ead",
+        "filename": "include/arch/aarch32/el3_common_macros.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-11-29T17:51:23Z",
+      "side": 1,
+      "message": "Same here...",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 11
+      },
+      "revId": "0033601280df3ebd710ebccd8302d7d39204033a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dcfebe7_bcb9340e",
+        "filename": "include/arch/aarch32/el3_common_macros.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-11-29T17:51:23Z",
+      "side": 1,
+      "message": "I meant this comment should be placed in the function definition site. Unless I\u0027ve missed something, it reads like a generic comment that describes what the function does. Does that make sense?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 4
+      },
+      "revId": "0033601280df3ebd710ebccd8302d7d39204033a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cca60033_4ab8db0c",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-11-29T17:51:23Z",
+      "side": 1,
+      "message": "Move to definition in lib/el3_runtime/aarch32/el3_regs.S.",
+      "range": {
+        "startLine": 19,
+        "startChar": 28,
+        "endLine": 25,
+        "endChar": 14
+      },
+      "revId": "0033601280df3ebd710ebccd8302d7d39204033a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afb0eba9_2dc0c07b",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-11-29T17:51:23Z",
+      "side": 1,
+      "message": "Move to definition in lib/el3_runtime/aarch32/el3_regs.S.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 29
+      },
+      "revId": "0033601280df3ebd710ebccd8302d7d39204033a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
