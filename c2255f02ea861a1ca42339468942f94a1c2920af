@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5b935646_380e2e67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-11-30T14:24:51Z",
+      "side": 1,
+      "message": "Maybe, but this is clearly an optimisation. I am not sure if stp is really better in any way, it\u0027s just the canonical way of doing registers saves/restores in assembly. I guess modern CPUs would just merge the writes anyway (write streaming), so all you save is a bit on code size and cache utilisation.\n\nI think this overly clever \"second-guessing the compiler\" on what\u0027s best for a core might lead to more problems that it solves. The fragile spread of register usage in the current assembly code is one example: register renaming solves this problems entirely in hardware.\n\nSo I am happy to do that in a separate patch, but ideally only if the advantage of this code is backed up by numbers, to justify complicating the code.",
+      "parentUuid": "b494aad9_66a78abf",
+      "revId": "c2255f02ea861a1ca42339468942f94a1c2920af",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "59938f51_428bdaf9",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 2
