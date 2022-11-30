@@ -16,6 +16,52 @@
       "message": "Patch v7 had tested with CI+2 and had some failures and re-submission made it pass again\nand they are not related to this patch, From v7..v9 changes done are only on comments and doc update\nso now testing v9 with CI+1 for doc changes.",
       "revId": "e354522f17c70e410ff0c02a29c23fb8774935de",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7faba4a5_01e05adf",
+        "filename": "docs/getting_started/build-internals.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-30T16:24:56Z",
+      "side": 1,
+      "message": "nit: Options",
+      "range": {
+        "startLine": 1,
+        "startChar": 15,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "e354522f17c70e410ff0c02a29c23fb8774935de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dc65904_af3f8e67",
+        "filename": "docs/getting_started/build-internals.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-11-30T16:24:56Z",
+      "side": 1,
+      "message": "I wonder about this formatting, should it mimic the one from build-options.rst?\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/docs/getting_started/build-options.rst#n16\nActually the rendering absorbs the dashes into the text:\n\n\"This boolean option provides context save/restore - operations when entering/exiting an EL2 execution context. This is of primary - interest when Armv8.4-SecEL2 or RME extension is implemented. Default is 0 (disabled). - This option will be set to 1 (enabled) when SPD\u003dspmd and SPMD_SPM_AT_SEL2 is set - or when ENABLE_RME is set to 1 (enabled).\"",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 2
+      },
+      "revId": "e354522f17c70e410ff0c02a29c23fb8774935de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
