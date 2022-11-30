@@ -38,6 +38,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d1443b2f_60b8b42d",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-11-30T10:17:23Z",
+      "side": 1,
+      "message": "This expression is heavy to read with all these parenthesis and ! at the beginning... I wonder if something like bellow would suffice, and would simplify?\n\nif ((secure_origin \u0026\u0026 src !\u003d spmc_get_current_sp_ctx()-\u003esp_id) || \n    (!secure_origin \u0026\u0026 !ffa_is_normal_world_id(src_id))) \n{ ... }",
+      "range": {
+        "startLine": 344,
+        "startChar": 5,
+        "endLine": 345,
+        "endChar": 58
+      },
+      "revId": "0a16be80e7088356fdb2158982774219cb709aac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d5fa7c8_7e1a7f5c",
         "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
         "patchSetId": 1
@@ -67,6 +90,24 @@
       "side": 1,
       "message": "The problem is that the handler in the LSP is not expecting a return code. I.e.from its perspective the response is the end/return of the function and there is no context to reenter and handle the error.\nThe thinking behind this was that if we have an entity in EL3 is not doing what it\u0027s supposed to do, then something quite serious is wrong and the best option would be to panic.\n\nWhat do you reckon?",
       "parentUuid": "1d5fa7c8_7e1a7f5c",
+      "revId": "0a16be80e7088356fdb2158982774219cb709aac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fdc2e4f_7dd429ca",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-11-30T10:17:23Z",
+      "side": 1,
+      "message": "Thinking about this...\nI think Shruti\u0027s point is fare.\n\nI understood what you are saying @Marc. Would it better to have a panic inside the logical partition in that case?\n\nHaving this in a common area of code opens up to the risk Shruti mentioned... Granted we\u0027d still have a panic at EL3, but at least would be out of the code path between LP and non-LP endpoints?",
+      "parentUuid": "5ce77a77_e0a474e2",
       "revId": "0a16be80e7088356fdb2158982774219cb709aac",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
