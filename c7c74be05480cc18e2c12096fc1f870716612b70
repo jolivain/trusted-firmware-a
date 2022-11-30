@@ -1,6 +1,75 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6189884b_0cf804e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-30T10:17:49Z",
+      "side": 1,
+      "message": "specify the build flag here.",
+      "range": {
+        "startLine": 10,
+        "startChar": 30,
+        "endLine": 10,
+        "endChar": 45
+      },
+      "revId": "c7c74be05480cc18e2c12096fc1f870716612b70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c1c15ea_478aba38",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-30T10:17:49Z",
+      "side": 1,
+      "message": "....EL3, Async EAs (delivered as SErrors) are implicitly masked and hence any Aync EA by EL3 will remain pending and will trap at the exception level EA is targeted to and unmasked.",
+      "range": {
+        "startLine": 13,
+        "startChar": 49,
+        "endLine": 14,
+        "endChar": 6
+      },
+      "revId": "c7c74be05480cc18e2c12096fc1f870716612b70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "591d9afb_3f68857b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-30T10:17:49Z",
+      "side": 1,
+      "message": "\"This causes an unexpected SError at the lower EL\"",
+      "range": {
+        "startLine": 14,
+        "startChar": 63,
+        "endLine": 15,
+        "endChar": 46
+      },
+      "revId": "c7c74be05480cc18e2c12096fc1f870716612b70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e064c19b_10e035ed",
@@ -31,6 +100,23 @@
       "writtenOn": "2022-11-29T15:41:28Z",
       "side": 1,
       "message": "Gentle ping",
+      "revId": "c7c74be05480cc18e2c12096fc1f870716612b70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40def15a_4bfdd15d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-30T10:17:49Z",
+      "side": 1,
+      "message": "minor comments ",
       "revId": "c7c74be05480cc18e2c12096fc1f870716612b70",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
