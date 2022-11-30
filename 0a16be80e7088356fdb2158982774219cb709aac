@@ -61,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fef44847_15ae683a",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-11-30T11:05:05Z",
+      "side": 1,
+      "message": "Sure, shall update this if that\u0027s easier to read.",
+      "parentUuid": "d1443b2f_60b8b42d",
+      "range": {
+        "startLine": 344,
+        "startChar": 5,
+        "endLine": 345,
+        "endChar": 58
+      },
+      "revId": "0a16be80e7088356fdb2158982774219cb709aac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d5fa7c8_7e1a7f5c",
         "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
         "patchSetId": 1
@@ -108,6 +132,24 @@
       "side": 1,
       "message": "Thinking about this...\nI think Shruti\u0027s point is fare.\n\nI understood what you are saying @Marc. Would it better to have a panic inside the logical partition in that case?\n\nHaving this in a common area of code opens up to the risk Shruti mentioned... Granted we\u0027d still have a panic at EL3, but at least would be out of the code path between LP and non-LP endpoints?",
       "parentUuid": "5ce77a77_e0a474e2",
+      "revId": "0a16be80e7088356fdb2158982774219cb709aac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c486be53_ed6fffbe",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2022-11-30T11:05:05Z",
+      "side": 1,
+      "message": "\u003e Would it better to have a panic inside the logical partition in that case?\nHmm.. ideally yes, however this change came from finding a mistake I\u0027d made in the LSP response. So I think that the SPMC needs to be responsible for performing this final check similar to how it would validate any other direct response.\n\n\u003e Having this in a common area of code opens up to the risk Shruti mentioned... Granted we\u0027d still have a panic at EL3, but at least would be out of the code path between LP and non-LP endpoints?\nI might be missing some design concept, however what would be the benefit of moving the panic location between the two entities if they both reside in EL3? My thinking here was that the panic is clear in its location and would hopefully be easy to debug the root cause.\n\nI\u0027m now trying to think whether I can refactor this flow further to remove the assumption that the LSP will respond directly to an SP. Therefore I\u0027m wondering if there is scope for moving the panic location to an exit/validation function if that would be preferred?",
+      "parentUuid": "0fdc2e4f_7dd429ca",
       "revId": "0a16be80e7088356fdb2158982774219cb709aac",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
