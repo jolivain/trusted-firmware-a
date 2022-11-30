@@ -1287,12 +1287,18 @@ int gicv3_rdistif_probe(const uintptr_t gicr_frame)
 
 	assert(gicv3_driver_data->gicr_base == 0U);
 
+#if CONDITIONAL_CMO
+	if (plat_can_cmo()) {
+#endif /* CONDITIONAL_CMO */
 	/* Ensure this function is called with Data Cache enabled */
 #ifndef __aarch64__
 	assert((read_sctlr() & SCTLR_C_BIT) != 0U);
 #else
 	assert((read_sctlr_el3() & SCTLR_C_BIT) != 0U);
 #endif /* !__aarch64__ */
+#if CONDITIONAL_CMO
+	}
+#endif /* CONDITIONAL_CMO */
 
 	mpidr_self = read_mpidr_el1() & MPIDR_AFFINITY_MASK;
 	rdistif_base = gicr_frame;
