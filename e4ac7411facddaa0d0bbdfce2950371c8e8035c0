@@ -1,0 +1,377 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25e6655f_f2aae948",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-30T15:01:10Z",
+      "side": 1,
+      "message": "make necessary updates to docs as well since there are multiple references to BL2_AT_EL3",
+      "revId": "e4ac7411facddaa0d0bbdfce2950371c8e8035c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "feafb4fc_3e37a22d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-30T15:01:10Z",
+      "side": 1,
+      "message": "Please run L2 tests after amending the patch.",
+      "revId": "e4ac7411facddaa0d0bbdfce2950371c8e8035c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "933e1280_299d211b",
+        "filename": "bl2/bl2_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-30T15:01:10Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 150,
+        "startChar": 33,
+        "endLine": 150,
+        "endChar": 46
+      },
+      "revId": "e4ac7411facddaa0d0bbdfce2950371c8e8035c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f395dea_2c58dcc7",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-30T15:01:10Z",
+      "side": 1,
+      "message": "nitpick: put it in next line",
+      "range": {
+        "startLine": 258,
+        "startChar": 79,
+        "endLine": 258,
+        "endChar": 87
+      },
+      "revId": "e4ac7411facddaa0d0bbdfce2950371c8e8035c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dc5943b_891b9be9",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-30T15:01:10Z",
+      "side": 1,
+      "message": "I think this is not a user facing build flag. Does it need to have a default value here?",
+      "revId": "e4ac7411facddaa0d0bbdfce2950371c8e8035c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f3bcf41_02edb8ba",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-30T15:01:10Z",
+      "side": 1,
+      "message": "looks redundant given https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/18011/4/make_helpers/defaults.mk#492",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 5
+      },
+      "revId": "e4ac7411facddaa0d0bbdfce2950371c8e8035c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28a6d376_3b26df85",
+        "filename": "plat/imx/imx7/picopi/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-30T15:01:10Z",
+      "side": 1,
+      "message": "remove tab",
+      "range": {
+        "startLine": 25,
+        "startChar": 22,
+        "endLine": 25,
+        "endChar": 23
+      },
+      "revId": "e4ac7411facddaa0d0bbdfce2950371c8e8035c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c79ef105_1d84f21b",
+        "filename": "plat/imx/imx7/warp7/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-30T15:01:10Z",
+      "side": 1,
+      "message": "remove this tab to align with other definitions",
+      "range": {
+        "startLine": 25,
+        "startChar": 22,
+        "endLine": 25,
+        "endChar": 23
+      },
+      "revId": "e4ac7411facddaa0d0bbdfce2950371c8e8035c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c35d17f7_09845b1d",
+        "filename": "plat/imx/imx8m/imx8mm/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-30T15:01:10Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 104,
+        "startChar": 21,
+        "endLine": 104,
+        "endChar": 22
+      },
+      "revId": "e4ac7411facddaa0d0bbdfce2950371c8e8035c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0283274c_4379914e",
+        "filename": "plat/intel/soc/agilex/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-30T15:01:10Z",
+      "side": 1,
+      "message": "nitpick: remove",
+      "range": {
+        "startLine": 80,
+        "startChar": 22,
+        "endLine": 80,
+        "endChar": 23
+      },
+      "revId": "e4ac7411facddaa0d0bbdfce2950371c8e8035c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fad8f5b8_7a36e9f7",
+        "filename": "plat/intel/soc/n5x/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-30T15:01:10Z",
+      "side": 1,
+      "message": "nitpick: remove",
+      "range": {
+        "startLine": 49,
+        "startChar": 22,
+        "endLine": 49,
+        "endChar": 23
+      },
+      "revId": "e4ac7411facddaa0d0bbdfce2950371c8e8035c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9334b1d4_feab5464",
+        "filename": "plat/intel/soc/stratix10/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-30T15:01:10Z",
+      "side": 1,
+      "message": "nitpick: remove",
+      "range": {
+        "startLine": 79,
+        "startChar": 22,
+        "endLine": 79,
+        "endChar": 23
+      },
+      "revId": "e4ac7411facddaa0d0bbdfce2950371c8e8035c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e2d1601_6d87401d",
+        "filename": "plat/nxp/common/setup/common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-30T15:01:10Z",
+      "side": 1,
+      "message": "nitpick: remove",
+      "range": {
+        "startLine": 10,
+        "startChar": 22,
+        "endLine": 10,
+        "endChar": 23
+      },
+      "revId": "e4ac7411facddaa0d0bbdfce2950371c8e8035c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e13c214_b828bead",
+        "filename": "plat/renesas/common/common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-30T15:01:10Z",
+      "side": 1,
+      "message": "nitpick: remove",
+      "range": {
+        "startLine": 13,
+        "startChar": 22,
+        "endLine": 13,
+        "endChar": 23
+      },
+      "revId": "e4ac7411facddaa0d0bbdfce2950371c8e8035c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86213dea_c562fb18",
+        "filename": "plat/socionext/synquacer/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-30T15:01:10Z",
+      "side": 1,
+      "message": "align with other definitions",
+      "range": {
+        "startLine": 20,
+        "startChar": 29,
+        "endLine": 20,
+        "endChar": 42
+      },
+      "revId": "e4ac7411facddaa0d0bbdfce2950371c8e8035c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3f9ebd6_0507e227",
+        "filename": "plat/socionext/uniphier/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-30T15:01:10Z",
+      "side": 1,
+      "message": "nitpick: remove",
+      "range": {
+        "startLine": 7,
+        "startChar": 31,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "e4ac7411facddaa0d0bbdfce2950371c8e8035c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f527c12_8b435b55",
+        "filename": "plat/st/stm32mp1/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-11-30T15:01:10Z",
+      "side": 1,
+      "message": "nitpick: remove",
+      "range": {
+        "startLine": 9,
+        "startChar": 21,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "e4ac7411facddaa0d0bbdfce2950371c8e8035c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
