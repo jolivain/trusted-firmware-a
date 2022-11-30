@@ -39,6 +39,30 @@
       },
       "revId": "cb7bb9edff2f9514fb74269c0ba081dc404ba85c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbf77541_eaad7390",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-30T10:27:53Z",
+      "side": 1,
+      "message": "I see that there is a check which check that the L0 tables are of the required size.",
+      "parentUuid": "b0098749_d6eca3d2",
+      "range": {
+        "startLine": 151,
+        "startChar": 24,
+        "endLine": 151,
+        "endChar": 38
+      },
+      "revId": "cb7bb9edff2f9514fb74269c0ba081dc404ba85c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
