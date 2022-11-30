@@ -51,6 +51,24 @@
       "message": "I think we also need BL2_RUNNING_AT_EL3:\u003d1 here. Else we wouldn\u0027t execute the part of code in bl2_main.c that is under this flag.\nI can run a test to confirm.",
       "revId": "b471f08c30e006f2a991b49fbd037c142dce26eb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1654b78c_f05845f4",
+        "filename": "plat/st/stm32mp1/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-11-30T22:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9bab03ac_0f99259c",
+      "revId": "b471f08c30e006f2a991b49fbd037c142dce26eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
