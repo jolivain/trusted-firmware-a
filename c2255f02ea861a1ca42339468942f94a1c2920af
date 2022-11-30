@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b494aad9_66a78abf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-30T13:06:10Z",
+      "side": 1,
+      "message": "ok,  that\u0027s not too bad and seems like a small price to pay for Compiled code.\n\nJust a thought, would another macro like\n\nWRITE_CTX_PAR(reg1, reg2)\n\n/* verify offsets of reg1 and reg2 and ensure they are adjacent using offsetof etc */\n\nwrite_ctx_reg_pair(ctx, CTX_REG1, read_reg1(), read_reg2())\n\nthe write ctx_reg_apr can probably do a 128 bit write, and this would enable compiler to generate `stp` instructions.",
+      "parentUuid": "77fc1428_d2c086e1",
+      "revId": "c2255f02ea861a1ca42339468942f94a1c2920af",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "59938f51_428bdaf9",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 2
@@ -119,6 +137,24 @@
       "side": 1,
       "message": "Yes, but as you mention, the optimisation is a separate issue. Now that we have it in C, this can be more cleanly done on top, I think.\nI have another patch to cover the case of missed enablement, that panics in early boot if the feature is not compiled in, but the CPU has it. Will push it as part of v2.",
       "parentUuid": "10e54ad8_676edbd9",
+      "revId": "c2255f02ea861a1ca42339468942f94a1c2920af",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8eb9e94_dc83a04e",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-30T13:06:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "21fc7cab_48607845",
       "revId": "c2255f02ea861a1ca42339468942f94a1c2920af",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
