@@ -34,6 +34,24 @@
       "parentUuid": "27b144e5_c259b1ee",
       "revId": "eb64940f115ae9164610c5c9642210e7bf5a3619",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19fcb805_37868d63",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-11-30T14:15:39Z",
+      "side": 1,
+      "message": "Yes, but that would be a separate patch. I just need AMUv1 here because it is used in the FGT save/restore code - and it was easy enough. I have more patches lined up that convert the other features over, one by one. Will add them to the next version, but I wanted to get the basics in first and agreed upon.\nAlso the AMU code is a bit more complex than the other features, so I didn\u0027t want to jeopardise the basic with that.",
+      "parentUuid": "8f37db7b_0f56fae3",
+      "revId": "eb64940f115ae9164610c5c9642210e7bf5a3619",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
