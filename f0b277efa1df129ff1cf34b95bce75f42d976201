@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03b2dcac_8a90a603",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2022-11-30T10:20:11Z",
+      "side": 0,
+      "message": "should you check that tsp_id is the one arriving from arg1 and returning error otherwise?\n\nThe caller to this function might attempt doing things that are not allowed/meant to happen according to this function\u0027s implementation, and have no meaningful feedback it attempted to do something wrong... In this case, use a different ID then tsp_id.",
+      "range": {
+        "startLine": 94,
+        "startChar": 46,
+        "endLine": 94,
+        "endChar": 71
+      },
+      "revId": "f0b277efa1df129ff1cf34b95bce75f42d976201",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
