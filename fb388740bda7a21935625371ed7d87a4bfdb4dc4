@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ee260662_a332c026",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-11-30T13:17:04Z",
+      "side": 1,
+      "message": "I think _required should be the default behaviour for NS world. The only case I think _required is not needed for NS is perhaps during platform bring up phase.\n\nSo perhaps , we need detect_required_arch_features_ns() which calls the _required versions of the features and panics. detect_required_arch_features_ns() can be called during NS world context setup().\n\nIdeally all features should have FEAT_XXX_NS which will enable exclusively NS world. WE can add that gradually later.",
+      "parentUuid": "96462889_8f71803a",
+      "revId": "fb388740bda7a21935625371ed7d87a4bfdb4dc4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a0407f4_c695c8c7",
         "filename": "common/feat_detect.c",
         "patchSetId": 1
