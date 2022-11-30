@@ -35,6 +35,40 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21173472_4323ffc7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-11-30T16:10:55Z",
+      "side": 1,
+      "message": "Hi Arvind,\nI\u0027ve a major concern about this patch, see my comment in bl2_main.c.\nCould you also check the comment I made in patch set 3 for the Makefile?\n\nThanks,\nYann",
+      "revId": "e4ac7411facddaa0d0bbdfce2950371c8e8035c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3623c547_330f459b",
+        "filename": "bl2/bl2_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-11-30T16:10:55Z",
+      "side": 1,
+      "message": "I think this flag is very confusing (for me at least). As I said in one of my previous comments, STM32MP1 (which is an Armv7, and so doesn\u0027t have RME) must execute the code in this #else part. For it works, we should then enable BL2_AT_EL3_RME_ENABLED, which will seem strange for an Armv7.",
+      "revId": "e4ac7411facddaa0d0bbdfce2950371c8e8035c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "933e1280_299d211b",
