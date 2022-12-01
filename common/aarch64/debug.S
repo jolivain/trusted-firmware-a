@@ -168,10 +168,6 @@ func do_panic
 	mrs	x0, currentel
 	ubfx	x0, x0, #MODE_EL_SHIFT, #MODE_EL_WIDTH
 	cmp	x0, #MODE_EL3
-#if !HANDLE_EA_EL3_FIRST_NS
-	ldr	x0, [sp], #0x10
-	b.eq	el3_panic
-#else
 	b.ne	to_panic_common
 
 	/* Check EL the exception taken from */
@@ -184,7 +180,6 @@ func do_panic
 
 to_panic_common:
 	ldr	x0, [sp], #0x10
-#endif /* HANDLE_EA_EL3_FIRST_NS */
 #endif /* CRASH_REPORTING */
 
 panic_common:

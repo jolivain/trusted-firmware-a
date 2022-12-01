@@ -65,7 +65,8 @@ x30_msg:
 	.asciz "x30"
 excpt_msg_el:
 	.asciz "Unhandled Exception from EL"
-
+unexcpt_beh_msg:
+	.asciz "Unexpected behaviour ELx panic Handler called from secured world.\n"
 	/*
 	 * Helper function to print from crash buf.
 	 * The print loop is controlled by the buf size and
@@ -204,6 +205,18 @@ endfunc report_unhandled_interrupt
 	 * -----------------------------------------------------
 	 */
 func elx_panic
+	mrs	x2, scr_el3
+	tst	x2, #SCR_NS_BIT
+	/* -----------------------------------------------
+	 * If we reached here from Secure world print the
+	 * unexpected behaviour message.
+	 * -----------------------------------------------
+	 */
+	bne	print_excpt_msg
+	adr	x4, unexcpt_beh_msg
+	bl	asm_print_str
+
+print_excpt_msg:
 	msr	spsel, #MODE_SP_ELX
 	mov	x8, x0
 
