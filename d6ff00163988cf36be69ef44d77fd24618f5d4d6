@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c64906e_ff0d20f2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-01T13:09:32Z",
+      "side": 1,
+      "message": "Could you please point me to the section that mandates that in RFC5280?",
+      "range": {
+        "startLine": 7,
+        "startChar": 19,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "d6ff00163988cf36be69ef44d77fd24618f5d4d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35513471_affd7ff1",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-01T13:09:32Z",
+      "side": 1,
+      "message": "(minor) I think this last part of the comment can be dropped, as it seems pretty obvious.",
+      "range": {
+        "startLine": 328,
+        "startChar": 17,
+        "endLine": 329,
+        "endChar": 50
+      },
+      "revId": "d6ff00163988cf36be69ef44d77fd24618f5d4d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
