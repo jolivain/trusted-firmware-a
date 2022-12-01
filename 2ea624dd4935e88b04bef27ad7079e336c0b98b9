@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d6146d05_e0ac071f",
+        "filename": "Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-12-01T16:12:28Z",
+      "side": 1,
+      "message": "if this flag is set before -Wextra, then specifying -Wextra overrides it, leading the build to fail with hundreds of warnings. This only happens on clag, gcc does not have this behaviour",
+      "parentUuid": "a9384130_b1595776",
+      "range": {
+        "startLine": 359,
+        "startChar": 0,
+        "endLine": 360,
+        "endChar": 34
+      },
+      "revId": "2ea624dd4935e88b04bef27ad7079e336c0b98b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a9584f7c_63637c79",
         "filename": "Makefile",
         "patchSetId": 4
@@ -54,6 +78,30 @@
       "writtenOn": "2022-12-01T15:21:14Z",
       "side": 1,
       "message": "Do we need this check?",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 7
+      },
+      "revId": "2ea624dd4935e88b04bef27ad7079e336c0b98b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f39ffef_f59355a1",
+        "filename": "Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-12-01T16:12:28Z",
+      "side": 1,
+      "message": "I believe so. If W is not set on the command line, then the check below succeeds and errors are disabled.",
+      "parentUuid": "a9584f7c_63637c79",
       "range": {
         "startLine": 392,
         "startChar": 0,
