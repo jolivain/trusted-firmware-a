@@ -89,6 +89,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30d928f7_62565f5b",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-12-01T14:43:46Z",
+      "side": 1,
+      "message": "I mean in general. FGT does not need this, but I found others that do. Since this will establish a pattern I thought it would be worth considering.\n\nYeah, I understand that about C and the stack hence the suggestions to put them in assembly.\n\nBut if the thought is it\u0027s not worth it, that\u0027s fine by me",
+      "parentUuid": "f7b3325b_f8dc32c6",
+      "revId": "63094b3ed5fb9a25d59805895f8208a9842b36ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2fa70fe9_8c7d1486",
