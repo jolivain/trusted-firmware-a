@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7b3325b_f8dc32c6",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-12-01T13:58:43Z",
+      "side": 1,
+      "message": "I couldn\u0027t find any instance of FGT checking or even any id_aa64mmfr0_el1 access in assembly, so is that the right function? I see that there are some ID register checks in the macros, and we might want to revisit them later, to see if they are actually needed or need to be amended (for instance I doubt we need to set trap filter controls for lower ELs in early code).\n\nIn general I would also say that it\u0027s not worth to share the three-ish instructions we need to read and mask an ID register.\n\nRegarding calling C functions from early assembly: it\u0027s up to the compiler to include stack usage or not, you cannot assume that just because the function is simple or because the compiler doesn\u0027t emit any stack accesses *today* that this is safe (think function annotation or instrumentation).",
+      "parentUuid": "c1435bee_4a87f622",
+      "revId": "63094b3ed5fb9a25d59805895f8208a9842b36ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2fa70fe9_8c7d1486",
         "filename": "include/arch/aarch64/arch_features.h",
         "patchSetId": 3
