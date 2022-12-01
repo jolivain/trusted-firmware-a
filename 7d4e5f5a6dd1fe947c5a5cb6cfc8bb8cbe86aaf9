@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26ed2b9c_594e13b0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-01T13:42:38Z",
+      "side": 1,
+      "message": "I am afraid auth/mbedtls is not a valid scope. Valid scopes are listed in changelog.yaml. I think the most appropriate one here would be just \"auth\":\n\n fix(auth): Only accept v3 X.509 certificates",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 16
+      },
+      "revId": "7d4e5f5a6dd1fe947c5a5cb6cfc8bb8cbe86aaf9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1443ede_485dacfb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-01T13:42:38Z",
+      "side": 1,
+      "message": "Which one? What is the mandatory extension you\u0027re referring to here?",
+      "range": {
+        "startLine": 9,
+        "startChar": 27,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "7d4e5f5a6dd1fe947c5a5cb6cfc8bb8cbe86aaf9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddbb7efb_239253db",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-01T13:42:38Z",
+      "side": 1,
+      "message": "TF-A coding style requires using tabs to indent code. Please replace all spaces with tabs.",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 8
+      },
+      "revId": "7d4e5f5a6dd1fe947c5a5cb6cfc8bb8cbe86aaf9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79e809ea_268012c6",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-01T13:42:38Z",
+      "side": 1,
+      "message": "Instead of crafting a byte structure, could we rather use a struct mbedtls_asn1_buf? This would be more meaningful and easier to understand IMO, because then we could have field names against the values.\n\nIf it\u0027s not possible, please consider adding comments for each of the fields, like so:\n\n static const char v3[] \u003d {\n   /* Tag */\n   MBEDTLS_ASN1_CONSTRUCTED | MBEDTLS_ASN1_CONTEXT_SPECIFIC,\n\n   /* Length */\n   3,\n\n   /* Value */\n   MBEDTLS_ASN1_INTEGER, 1, 2,\n };\n\nArguably, people reading this code should be well-versed in ASN.1 grammar so maybe that\u0027s just because I wasn\u0027t...",
+      "range": {
+        "startLine": 153,
+        "startChar": 8,
+        "endLine": 153,
+        "endChar": 18
+      },
+      "revId": "7d4e5f5a6dd1fe947c5a5cb6cfc8bb8cbe86aaf9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56c4abed_9d7b2270",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-01T13:42:38Z",
+      "side": 1,
+      "message": "I find it confusing to include the following tag in this structure, as it\u0027s not part of the v3 extension field per se. I\u0027d rather remove it from here and continue calling mbedtls_asn1_get_tag() for the certificate serial number at line 209, even if it results in slightly less efficient code.",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 33
+      },
+      "revId": "7d4e5f5a6dd1fe947c5a5cb6cfc8bb8cbe86aaf9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86bd4d0e_e646ba09",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-01T13:42:38Z",
+      "side": 1,
+      "message": "What does the \u0027EXPLICIT\u0027 keyword mean in the ASN.1 grammar? I could not easily find it in RFC 5280 but I suspect I might have missed it.",
+      "range": {
+        "startLine": 196,
+        "startChar": 22,
+        "endLine": 196,
+        "endChar": 30
+      },
+      "revId": "7d4e5f5a6dd1fe947c5a5cb6cfc8bb8cbe86aaf9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
