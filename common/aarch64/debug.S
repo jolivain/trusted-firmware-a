@@ -14,6 +14,7 @@
 	.globl	asm_print_newline
 	.globl	asm_assert
 	.globl	do_panic
+	.globl	el3_panic
 
 /* Since the max decimal input number is 65536 */
 #define MAX_DEC_DIVISOR		10000
@@ -158,41 +159,24 @@ endfunc asm_print_newline
  * ---------------------------------------------------------------------------
  */
 
-/* This is for the non el3 BL stages to compile through */
-	.weak el3_panic
-	.weak elx_panic
-
 func do_panic
-#if CRASH_REPORTING
+#if CRASH_REPORTING && defined(IMAGE_BL31)
 	str	x0, [sp, #-0x10]!
 	mrs	x0, currentel
 	ubfx	x0, x0, #MODE_EL_SHIFT, #MODE_EL_WIDTH
 	cmp	x0, #MODE_EL3
-#if !HANDLE_EA_EL3_FIRST_NS
 	ldr	x0, [sp], #0x10
 	b.eq	el3_panic
-#else
-	b.ne	to_panic_common
+#endif /* CRASH_REPORTING && IMAGE_BL31 */
 
-	/* Check EL the exception taken from */
-	mrs	x0, spsr_el3
-	ubfx	x0, x0, #SPSR_EL_SHIFT, #SPSR_EL_WIDTH
-	cmp	x0, #MODE_EL3
-	b.ne	elx_panic
-	ldr	x0, [sp], #0x10
 	b	el3_panic
+endfunc do_panic
 
-to_panic_common:
-	ldr	x0, [sp], #0x10
-#endif /* HANDLE_EA_EL3_FIRST_NS */
+func el3_panic
+#if CRASH_REPORTING && defined(IMAGE_BL31)
+	b	el3_panic_report
 #endif /* CRASH_REPORTING */
 
-panic_common:
-/*
- * el3_panic will be redefined by the BL31
- * crash reporting mechanism (if enabled)
- */
-el3_panic:
 	mov	x6, x30
 	bl	plat_crash_console_init
 
@@ -218,4 +202,4 @@ _panic_handler:
 	 * called, not the address of the call from el3_panic. */
 	mov	x30, x6
 	b	plat_panic_handler
-endfunc do_panic
+endfunc el3_panic

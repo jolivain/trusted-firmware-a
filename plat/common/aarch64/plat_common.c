@@ -17,6 +17,11 @@
 #include <lib/xlat_tables/xlat_mmu_helpers.h>
 #include <plat/common/platform.h>
 
+#if CRASH_REPORTING
+#include <context.h>
+#include <lib/el3_runtime/context_mgmt.h>
+#endif
+
 /*
  * The following platform setup functions are weakly defined. They
  * provide typical implementations that may be re-used by multiple
@@ -77,6 +82,54 @@ const char *get_el_str(unsigned int el)
 	return "EL1";
 }
 
+#if CRASH_REPORTING
+/*******************************************************************************
+ * This function is used to dump contents of GP Regs which are context saved.
+ ******************************************************************************/
+void context_dump_gpregs(uint32_t security_state)
+{
+	cpu_context_t *ctx = cm_get_context(security_state);
+
+	printf("\nContext Saved General Purpose Registers\n");
+
+	printf("x0\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X0));
+	printf("x1\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X1));
+	printf("x2\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X2));
+	printf("x3\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X3));
+	printf("x4\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X4));
+	printf("x5\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X5));
+	printf("x6\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X6));
+	printf("x7\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X7));
+	printf("x8\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X8));
+	printf("x9\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X9));
+	printf("x10\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X10));
+	printf("x11\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X11));
+	printf("x12\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X12));
+	printf("x13\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X13));
+	printf("x14\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X14));
+	printf("x15\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X15));
+	printf("x16\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X16));
+	printf("x17\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X17));
+	printf("x18\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X18));
+	printf("x19\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X19));
+	printf("x20\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X20));
+	printf("x21\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X21));
+	printf("x22\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X22));
+	printf("x23\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X23));
+	printf("x24\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X24));
+	printf("x25\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X25));
+	printf("x26\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X26));
+	printf("x27\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X27));
+	printf("x28\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X28));
+	printf("x29\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X29));
+	printf("GPREG_LR\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_LR));
+	printf("GPREG_SP_EL0\t = 0x%016" PRIx64 "\n",read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_SP_EL0));
+
+	console_flush();
+}
+#endif
+
+
 /* RAS functions common to AArch64 ARM platforms */
 void plat_default_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *cookie,
 		void *handle, uint64_t flags)
@@ -87,18 +140,16 @@ void plat_default_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *co
 	if (handled != 0)
 		return;
 #endif
-	unsigned int level = (unsigned int)GET_EL(read_spsr_el3());
-
 	ERROR_NL();
-	ERROR("Unhandled External Abort received on 0x%lx from %s\n",
-		read_mpidr_el1(), get_el_str(level));
+	ERROR("Unhandled External Abort received on 0x%lx \n", read_mpidr_el1());
 	ERROR("exception reason=%u syndrome=0x%" PRIx64 "\n", ea_reason, syndrome);
-#if HANDLE_EA_EL3_FIRST_NS
-	/* Skip backtrace for lower EL */
-	if (level != MODE_EL3) {
-		console_flush();
-		do_panic();
-	}
+
+#if CRASH_REPORTING
+	/* Assuming this the default plat_ea_handler and no handlers are registered
+	 * and we are reaching here from a non secure world we could dump out context saved
+	 * General Purpose register for debug purpose.
+	 */
+	context_dump_gpregs(NON_SECURE);
 #endif
 	panic();
 }
