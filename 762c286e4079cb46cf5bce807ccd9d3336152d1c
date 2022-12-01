@@ -33,6 +33,42 @@
       "message": "Regarding the CI issues, thank you for fixing a number of these in the previous versions of the patch stack! After an initial look at the remaining ones, they all look related to the ROMLib feature of TF-A. I can help solving these, as it might not be obvious to you what these are about... I suspect we can solve them by adding the relevant function names to this file:\n\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/lib/romlib/jmptbl.i\n\nI\u0027ll provide a more definitive answer ASAP. In the meantime, if you want to have a go at fixing them by yourself, this design document might be helpful to understand what this \"ROMlib\" is:\n\nhttps://trustedfirmware-a.readthedocs.io/en/latest/components/romlib-design.html",
       "revId": "762c286e4079cb46cf5bce807ccd9d3336152d1c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d039b83_254a9703",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2022-12-01T18:46:17Z",
+      "side": 1,
+      "message": "Help would be great, as I am not an embedded developer.",
+      "parentUuid": "e00c72d8_2a281ebf",
+      "revId": "762c286e4079cb46cf5bce807ccd9d3336152d1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acc25a70_569d5cb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2022-12-01T18:46:17Z",
+      "side": 1,
+      "message": "\u003e Hi Demi Marie,\n\u003e \n\u003e Thank you for the patch stack! And sorry for the delay in progressing these... We recently made a release of TF-A, which kept a number of us busy, and the dust is just starting to settle down. Also I needed some time to refresh my memory on X509/ASN1 ; this code was implemented years ago and has hardly been modified / revisited ever since!\n\u003e \n\u003e I am curious to know what prompted these changes.\n\nWhen I saw that Trusted Board Boot uses X.509 certificates, I decided to check to see if there was a buffer overflow or similar vulerability in the firmware.  X.509 is complex, and parsing X.509 certificates in C code that runs with the highest privileges and (in the case of BL1) is not patchable violates what I consider to be best practices from a security perspective, which is to avoid complex parsing in a memory-unsafe language in non-sandboxed code.  In particular, the USB Armory V1’s High-Assurance Boot feature was broken by a buffer overflow in the boot ROM’s X.509 certificate parser.  Thankfully, I did not find any vulnerabilities here.\n\n\u003e Did you encounter any particular issue with the existing code? Or just spotted these deviations by manual code inspection?\n\nAll of these were found by manual code inspection.  I do not even have a dev board running TF-A.\n\n\u003e Also, may I ask how you tested these patches?\n\nFor the most part, I haven’t.  I did figure out how to build TF-A against a git checkout of mbedTLS, so they should compile in at least one configuration, but I am not surprised that CI is showing problems.\n\n\u003e By any chance, would you have any ill-formatted X.509 certificates that used to be incorrectly accepted by TF-A X509 parser but are now properly being rejected by your changes? If yes then would you be happy to contribute these to TF-A CI system, so we can integrate them as regression tests?\n\nI do not have any right now.  mbedTLS also has areas where it accepts ill-formed DER, and I have filed PRs on GitHub for that.",
+      "parentUuid": "7818a56c_f13555a4",
+      "revId": "762c286e4079cb46cf5bce807ccd9d3336152d1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
