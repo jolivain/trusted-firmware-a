@@ -49,6 +49,47 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "562039a0_02208227",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2022-12-01T18:44:05Z",
+      "side": 1,
+      "message": "From my understanding of the Trusted Board Boot flow, subsequent code will try to obtain an extension from the certificate and panic if it cannot.  I am not sure which extension in particular is required, and it may be different for different certificates, but I am almost certain that each certificate must have at least one.",
+      "parentUuid": "e1443ede_485dacfb",
+      "range": {
+        "startLine": 9,
+        "startChar": 27,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "7d4e5f5a6dd1fe947c5a5cb6cfc8bb8cbe86aaf9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "862c96ae_6ca288e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2022-12-01T18:44:05Z",
+      "side": 1,
+      "message": "Sorry for the confusion.  I don’t expect people to be able to encode ASN.1 DER “by hand”.  The easiest way to validate this patch is to note that since DER requires unique encodings, either this would work for all valid certificates or it would work for none of them.",
+      "revId": "7d4e5f5a6dd1fe947c5a5cb6cfc8bb8cbe86aaf9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ddbb7efb_239253db",
         "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
         "patchSetId": 4
@@ -60,6 +101,30 @@
       "writtenOn": "2022-12-01T13:42:38Z",
       "side": 1,
       "message": "TF-A coding style requires using tabs to indent code. Please replace all spaces with tabs.",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 8
+      },
+      "revId": "7d4e5f5a6dd1fe947c5a5cb6cfc8bb8cbe86aaf9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "877cb5eb_b15a8bc5",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2022-12-01T18:44:05Z",
+      "side": 1,
+      "message": "Will fix.",
+      "parentUuid": "ddbb7efb_239253db",
       "range": {
         "startLine": 149,
         "startChar": 0,
@@ -95,6 +160,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "88de3022_d85afdae",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2022-12-01T18:44:05Z",
+      "side": 1,
+      "message": "Something like this?\n\n```c\n static const char v3[] \u003d {\n   /* Outer [CONTEXT SPECIFIC 0] EXPLICIT tag */\n   MBEDTLS_ASN1_CONSTRUCTED | MBEDTLS_ASN1_CONTEXT_SPECIFIC,\n   /* Length of contained INTEGER */\n   3,\n   /* Tag of version number */\n   MBEDTLS_ASN1_INTEGER,\n   /* Length of version number\n   1,\n   /* v3 version number (2) */\n   2,\n };\n```\n\nThis is the manual DER encoding of the v3 extension field.",
+      "parentUuid": "79e809ea_268012c6",
+      "range": {
+        "startLine": 153,
+        "startChar": 8,
+        "endLine": 153,
+        "endChar": 18
+      },
+      "revId": "7d4e5f5a6dd1fe947c5a5cb6cfc8bb8cbe86aaf9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "56c4abed_9d7b2270",
         "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
         "patchSetId": 4
@@ -106,6 +195,30 @@
       "writtenOn": "2022-12-01T13:42:38Z",
       "side": 1,
       "message": "I find it confusing to include the following tag in this structure, as it\u0027s not part of the v3 extension field per se. I\u0027d rather remove it from here and continue calling mbedtls_asn1_get_tag() for the certificate serial number at line 209, even if it results in slightly less efficient code.",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 33
+      },
+      "revId": "7d4e5f5a6dd1fe947c5a5cb6cfc8bb8cbe86aaf9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c69edcc5_42ceac81",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2022-12-01T18:44:05Z",
+      "side": 1,
+      "message": "That is fair.",
+      "parentUuid": "56c4abed_9d7b2270",
       "range": {
         "startLine": 159,
         "startChar": 0,
@@ -129,6 +242,30 @@
       "writtenOn": "2022-12-01T13:42:38Z",
       "side": 1,
       "message": "What does the \u0027EXPLICIT\u0027 keyword mean in the ASN.1 grammar? I could not easily find it in RFC 5280 but I suspect I might have missed it.",
+      "range": {
+        "startLine": 196,
+        "startChar": 22,
+        "endLine": 196,
+        "endChar": 30
+      },
+      "revId": "7d4e5f5a6dd1fe947c5a5cb6cfc8bb8cbe86aaf9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6989eb3b_2ce72f40",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2022-12-01T18:44:05Z",
+      "side": 1,
+      "message": "EXPLICIT means that both the outer tag and inner tag are present, instead of the inner tag being omitted.",
+      "parentUuid": "86bd4d0e_e646ba09",
       "range": {
         "startLine": 196,
         "startChar": 22,
