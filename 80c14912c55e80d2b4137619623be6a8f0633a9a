@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f804d728_4ba6be7c",
+        "filename": "plat/xilinx/common/ipi_mailbox_service/ipi_mailbox_svc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2022-12-01T15:19:20Z",
+      "side": 1,
+      "message": "First of all there shouldn\u0027t be any dependency on this file. \n\nWould be good if someone can review this.\n\ndiff --git a/plat/xilinx/common/ipi_mailbox_service/ipi_mailbox_svc.c b/plat/xilinx/common/ipi_mailbox_service/ipi_mailbox_svc.c\nindex cb6aaa5df9f6..459be4ab3151 100644\n--- a/plat/xilinx/common/ipi_mailbox_service/ipi_mailbox_svc.c\n+++ b/plat/xilinx/common/ipi_mailbox_service/ipi_mailbox_svc.c\n@@ -21,7 +21,6 @@\n #include \u003cplat_private.h\u003e\n \n #include \"ipi_mailbox_svc.h\"\n-#include \"../../../services/spd/trusty/smcall.h\"\n \n /*********************************************************************\n  * Macros definitions\n@@ -75,17 +74,18 @@ uint64_t ipi_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,\n        ipi_local_id \u003d x1 \u0026 UNSIGNED32_MASK;\n        ipi_remote_id \u003d x2 \u0026 UNSIGNED32_MASK;\n \n-       if (SMC_ENTITY(smc_fid) \u003e\u003d SMC_ENTITY_TRUSTED_APP)\n+       if ((smc_fid \u0026 GENMASK(OEN_TAP_END, OEN_TAP_START)) !\u003d 0 ) {\n                is_secure \u003d 1;\n-       else\n+       } else {\n                is_secure \u003d 0;\n+       }\n \n        /* Validate IPI mailbox access */\n        ret \u003d ipi_mb_validate(ipi_local_id, ipi_remote_id, is_secure);\n        if (ret)\n                SMC_RET1(handle, ret);\n \n-       switch (SMC_FUNCTION(smc_fid)) {\n+       switch (GET_SMC_NUM(smc_fid)) {\n        case IPI_MAILBOX_OPEN:\n                ipi_mb_open(ipi_local_id, ipi_remote_id);\n                SMC_RET1(handle, 0);",
+      "revId": "80c14912c55e80d2b4137619623be6a8f0633a9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
