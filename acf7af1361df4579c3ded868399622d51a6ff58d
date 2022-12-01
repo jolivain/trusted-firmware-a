@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c30368a_dcfe9eaa",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-12-01T23:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d9bcec0_7e17d5c5",
+      "range": {
+        "startLine": 487,
+        "startChar": 40,
+        "endLine": 487,
+        "endChar": 50
+      },
+      "revId": "acf7af1361df4579c3ded868399622d51a6ff58d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecb88156_fcf12093",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-01T23:33:33Z",
       "side": 1,
       "message": "The build flag should not be mentioned here. I think you just need to mention BL2",
+      "range": {
+        "startLine": 380,
+        "startChar": 6,
+        "endLine": 380,
+        "endChar": 26
+      },
+      "revId": "acf7af1361df4579c3ded868399622d51a6ff58d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a9afef1_c673b4ac",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-12-01T23:42:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecb88156_fcf12093",
       "range": {
         "startLine": 380,
         "startChar": 6,
