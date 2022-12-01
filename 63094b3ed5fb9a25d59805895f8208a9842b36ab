@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "55cc3b70_3ce0f921",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-01T12:37:13Z",
+      "side": 1,
+      "message": "I am not sure it is worth to make an exception for a single function. Moving the check to asm is probably the wrong direction we want to take (even if it means some duplication in asm). Also this will be probably be inlined by compiler so having a branch to asm function is probably less efficient at runtime.  \n\nEven if we make a C macro to have inline asm , this cannot be called from early asm code.",
+      "parentUuid": "33f576fb_b9b6cc48",
+      "revId": "63094b3ed5fb9a25d59805895f8208a9842b36ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2fa70fe9_8c7d1486",
         "filename": "include/arch/aarch64/arch_features.h",
         "patchSetId": 3
@@ -72,6 +90,30 @@
       "side": 1,
       "message": "But that is one of the existing problems that we need to solve. Just putting in some arbitrary boundary is requiring heavy maintenance, and the cases where it breaks are really rare - I think the one you found might indeed be the only one so far. The cases where we miss a feature field update and upset NS world are much more frequent.\n\nI propose another solution for that: have a separate check function that verifies our highest-known-good values for each feature field against the hardware. I posted this patch internally, and am happy to put this up here as well.\nThis optional debug feature would then panic if a higher field number is encountered, and then we will most likely just need to look up the ARM ARM to confirm it\u0027s fine, and update the number in that check function.\n\nThe point is: both solutions (strictly compare against known versions only vs. allowing all versions) are wrong in one way or another. But we should settle for the one that causes less damage, and cover the rest separately.",
       "parentUuid": "2fa70fe9_8c7d1486",
+      "range": {
+        "startLine": 117,
+        "startChar": 30,
+        "endLine": 117,
+        "endChar": 35
+      },
+      "revId": "63094b3ed5fb9a25d59805895f8208a9842b36ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5388282b_2905978c",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-01T12:37:13Z",
+      "side": 1,
+      "message": "hmm, ok, this one will do the enable and the separate check can verify the highest known good values and panic otherwise. works for me.",
+      "parentUuid": "91358c03_a22be3d1",
       "range": {
         "startLine": 117,
         "startChar": 30,
