@@ -22,6 +22,30 @@
       },
       "revId": "597753a2d1305853320d2b7ed99465965614dce5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82d833b3_5e3429b8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 17
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2022-12-01T12:14:01Z",
+      "side": 1,
+      "message": "I will split the changes in 2 patches.\nYes agree that we can use WARN for error reporting in case input validation fails, I will do that.\nusing ERROR for input validation does not feel right as system is not compromised, these are recoverable errors, and in case of negative testcases they flood the output.",
+      "parentUuid": "5e311c5b_9507c51c",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 23
+      },
+      "revId": "597753a2d1305853320d2b7ed99465965614dce5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
