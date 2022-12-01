@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7818a56c_f13555a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-01T15:11:53Z",
+      "side": 1,
+      "message": "Hi Demi Marie,\n\nThank you for the patch stack! And sorry for the delay in progressing these... We recently made a release of TF-A, which kept a number of us busy, and the dust is just starting to settle down. Also I needed some time to refresh my memory on X509/ASN1 ; this code was implemented years ago and has hardly been modified / revisited ever since!\n\nI am curious to know what prompted these changes. Did you encounter any particular issue with the existing code? Or just spotted these deviations by manual code inspection?\n\nAlso, may I ask how you tested these patches? By any chance, would you have any ill-formatted X.509 certificates that used to be incorrectly accepted by TF-A X509 parser but are now properly being rejected by your changes? If yes then would you be happy to contribute these to TF-A CI system, so we can integrate them as regression tests?",
+      "revId": "762c286e4079cb46cf5bce807ccd9d3336152d1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
