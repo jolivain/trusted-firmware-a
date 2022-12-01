@@ -3212,8 +3212,8 @@ Function : do_panic()
     Return   : void
 
 This API is called from assembly files when encountering a critical failure that
-cannot be recovered from. It also invokes elx_panic() which allows to report a
-crash from lower exception level. This function assumes that it is invoked from
+cannot be recovered from. It internally invokes el3_panic() which allows to even
+report a crash from lower exception level. This function assumes that it is invoked from
 a C runtime environment i.e. valid stack exists. This call **must not** return.
 
 Function : panic()
