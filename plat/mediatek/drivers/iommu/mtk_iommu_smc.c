@@ -5,7 +5,7 @@
  */
 
 #include <stddef.h>
-#include <mtk_iommu_plat.h>
+#include <mtk_iommu_priv.h>
 
 /* defination */
 /* smi larb */
@@ -29,6 +29,8 @@
  * configurated in security world.
  * And the SRAM path is also configurated here to enhance security.
  */
+#ifdef ATF_MTK_SMI_LARB_CFG_SUPPORT
+
 static void mtk_smi_larb_port_config_to_sram(
 				const struct mtk_smi_larb_config *larb,
 				uint32_t port_id)
@@ -55,7 +57,7 @@ static int mtk_smi_larb_port_config_sec(uint32_t larb_id, uint32_t mmu_en_msk)
 	uint32_t to_sram;
 	uint8_t mmu_en;
 
-	if (larb_id >= SMI_LARB_NUM) {
+	if (larb_id >= g_larb_num) {
 		return MTK_SIP_E_INVALID_PARAM;
 	}
 
@@ -75,6 +77,11 @@ static int mtk_smi_larb_port_config_sec(uint32_t larb_id, uint32_t mmu_en_msk)
 	return MTK_SIP_E_SUCCESS;
 }
 
+#endif /* ATF_MTK_SMI_LARB_CFG_SUPPORT */
+
+/* infra iommu configure */
+#ifdef ATF_MTK_INFRA_MASTER_CFG_SUPPORT
+
 static int mtk_infra_master_config_sec(uint32_t dev_id_msk, uint32_t enable)
 {
 	const struct mtk_ifr_mst_config *ifr_cfg;
@@ -82,7 +89,7 @@ static int mtk_infra_master_config_sec(uint32_t dev_id_msk, uint32_t enable)
 
 	mtk_infra_iommu_enable_protect();
 
-	if (dev_id_msk >= BIT(MMU_DEV_NUM)) {
+	if (dev_id_msk >= g_ifr_mst_num) {
 		return MTK_SIP_E_INVALID_PARAM;
 	}
 
@@ -105,6 +112,7 @@ static int mtk_infra_master_config_sec(uint32_t dev_id_msk, uint32_t enable)
 
 	return MTK_SIP_E_SUCCESS;
 }
+#endif /* ATF_MTK_INFRA_MASTER_CFG_SUPPORT */
 
 static u_register_t mtk_iommu_handler(u_register_t x1, u_register_t x2,
 				      u_register_t x3, u_register_t x4,
@@ -117,12 +125,16 @@ static u_register_t mtk_iommu_handler(u_register_t x1, u_register_t x2,
 	(void)handle;
 
 	switch (cmd_id) {
+#ifdef ATF_MTK_SMI_LARB_CFG_SUPPORT
 	case IOMMU_ATF_CMD_CONFIG_SMI_LARB:
 		ret = mtk_smi_larb_port_config_sec(mdl_id, val);
 		break;
+#endif
+#ifdef ATF_MTK_INFRA_MASTER_CFG_SUPPORT
 	case IOMMU_ATF_CMD_CONFIG_INFRA_IOMMU:
 		ret = mtk_infra_master_config_sec(mdl_id, val);
 		break;
+#endif
 	default:
 		break;
 	}
