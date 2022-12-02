@@ -41,4 +41,21 @@ struct mtk_ifr_mst_config {
 	uint8_t r_mmu_en_bit;
 };
 
+#include <mtk_iommu_plat.h>
+
+#ifdef ATF_MTK_SMI_LARB_CFG_SUPPORT
+/* mm smi larb security feature is used */
+extern struct mtk_smi_larb_config *g_larb_cfg;
+extern const unsigned int g_larb_num;
+#endif
+
+#ifdef ATF_MTK_INFRA_MASTER_CFG_SUPPORT
+/* infra iommu is used */
+extern struct mtk_ifr_mst_config *g_ifr_mst_cfg;
+extern const unsigned int g_ifr_mst_num;
+extern uint32_t *g_ifr_mst_cfg_base;
+extern uint32_t *g_ifr_mst_cfg_offs;
+extern void mtk_infra_iommu_enable_protect(void);
+#endif
+
 #endif	/* IOMMU_PRIV_H */
