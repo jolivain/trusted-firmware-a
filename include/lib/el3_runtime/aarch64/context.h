@@ -316,8 +316,6 @@
 #define SIMD_VECTOR_LEN_BYTES	U(16) /* 128 bits fixed vector length for FPE */
 #endif
 
-#if CTX_INCLUDE_SIMD_REGS
-
 #define CTX_SIMD_VECTORS	U(0)
 /* there are 32 vector registers, each of size SVE_VECTOR_LEN_BYTES */
 #define CTX_SIMD_FPSR		(CTX_SIMD_VECTORS + (32 * SIMD_VECTOR_LEN_BYTES))
@@ -334,8 +332,6 @@
  * predicate registers
  */
 #define CTX_SIMD_FFR		(CTX_SIMD_PREDICATES + (16 * (SIMD_VECTOR_LEN_BYTES / 8)))
-
-#endif /* CTX_INCLUDE_SIMD_REGS */
 
 /*******************************************************************************
  * Registers related to CVE-2018-3639
