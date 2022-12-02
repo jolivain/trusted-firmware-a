@@ -7,6 +7,7 @@
 #include <arch.h>
 #include <asm_macros.S>
 #include <assert_macros.S>
+#include <platform_def.h>
 #include <context.h>
 #include <el3_common_macros.S>
 
@@ -16,6 +17,12 @@
 	.global	fpregs_context_save
 	.global	fpregs_context_restore
 #endif /* CTX_INCLUDE_FPREGS */
+
+#if CTX_INCLUDE_SVE_REGS
+	.global sve_context_save
+	.global sve_context_restore
+#endif /* CTX_INCLUDE_SVE_REGS */
+
 	.global	prepare_el3_entry
 	.global	restore_gp_pmcr_pauth_regs
 	.global save_and_update_ptw_el1_sys_regs
@@ -220,6 +227,47 @@ func el1_sysregs_context_restore
 	ret
 endfunc el1_sysregs_context_restore
 
+/* Following macros will be used if any of CTX_INCLUDE_FPREGS or CTX_INCLUDE_SVE_REGS is enabled */
+#if CTX_INCLUDE_SIMD_REGS
+.macro fpregs_non_vec_save base:req hold:req
+	mrs	\hold, fpsr
+	str	\hold, [\base, #CTX_SIMD_FPSR]
+
+	mrs	\hold, fpcr
+	str	\hold, [\base, #CTX_SIMD_FPCR]
+
+#if CTX_INCLUDE_AARCH32_REGS && CTX_INCLUDE_FPREGS
+	mrs	\hold, fpexc32_el2
+	str	\hold, [\base, #CTX_FP_FPEXC32_EL2]
+#endif
+	/*
+	 * No explict ISB required here as ERET to
+	 * switch to secure EL1 or non-secure world
+	 * covers it
+	 */
+.endm
+
+.macro fpregs_non_vec_restore base:req hold:req
+	ldr	\hold, [\base, #CTX_SIMD_FPSR]
+	msr	fpsr, \hold
+
+	ldr	\hold, [\base, #CTX_SIMD_FPCR]
+	msr	fpcr, \hold
+
+#if CTX_INCLUDE_AARCH32_REGS && CTX_INCLUDE_FPREGS
+	ldr	\hold, [\base, #CTX_FP_FPEXC32_EL2]
+	msr	fpexc32_el2, \hold
+#endif
+
+	/*
+	 * No explict ISB required here as ERET to
+	 * switch to secure EL1 or non-secure world
+	 * covers it
+	 */
+.endm
+
+#endif /* CTX_INCLUDE_SIMD_REGS */
+
 /* ------------------------------------------------------------------
  * The following function follows the aapcs_64 strictly to use
  * x9-x17 (temporary caller-saved registers according to AArch64 PCS)
@@ -253,16 +301,8 @@ func fpregs_context_save
 	stp	q28, q29, [x0, #CTX_FP_Q28]
 	stp	q30, q31, [x0, #CTX_FP_Q30]
 
-	mrs	x9, fpsr
-	str	x9, [x0, #CTX_FP_FPSR]
+	fpregs_non_vec_save x0, x9
 
-	mrs	x10, fpcr
-	str	x10, [x0, #CTX_FP_FPCR]
-
-#if CTX_INCLUDE_AARCH32_REGS
-	mrs	x11, fpexc32_el2
-	str	x11, [x0, #CTX_FP_FPEXC32_EL2]
-#endif /* CTX_INCLUDE_AARCH32_REGS */
 	ret
 endfunc fpregs_context_save
 
@@ -298,26 +338,163 @@ func fpregs_context_restore
 	ldp	q28, q29, [x0, #CTX_FP_Q28]
 	ldp	q30, q31, [x0, #CTX_FP_Q30]
 
-	ldr	x9, [x0, #CTX_FP_FPSR]
-	msr	fpsr, x9
-
-	ldr	x10, [x0, #CTX_FP_FPCR]
-	msr	fpcr, x10
-
-#if CTX_INCLUDE_AARCH32_REGS
-	ldr	x11, [x0, #CTX_FP_FPEXC32_EL2]
-	msr	fpexc32_el2, x11
-#endif /* CTX_INCLUDE_AARCH32_REGS */
-
-	/*
-	 * No explict ISB required here as ERET to
-	 * switch to secure EL1 or non-secure world
-	 * covers it
-	 */
+	fpregs_non_vec_restore x0, x9
 
 	ret
 endfunc fpregs_context_restore
 #endif /* CTX_INCLUDE_FPREGS */
+
+#if CTX_INCLUDE_SVE_REGS
+/*
+ * Helper macros for SVE predicates save/restore operations.
+ */
+.macro sve_predicate_op op:req reg:req
+	\op p0, [\reg, #0, MUL VL]
+	\op p1, [\reg, #1, MUL VL]
+	\op p2, [\reg, #2, MUL VL]
+	\op p3, [\reg, #3, MUL VL]
+	\op p4, [\reg, #4, MUL VL]
+	\op p5, [\reg, #5, MUL VL]
+	\op p6, [\reg, #6, MUL VL]
+	\op p7, [\reg, #7, MUL VL]
+	\op p8, [\reg, #8, MUL VL]
+	\op p9, [\reg, #9, MUL VL]
+	\op p10, [\reg, #10, MUL VL]
+	\op p11, [\reg, #11, MUL VL]
+	\op p12, [\reg, #12, MUL VL]
+	\op p13, [\reg, #13, MUL VL]
+	\op p14, [\reg, #14, MUL VL]
+	\op p15, [\reg, #15, MUL VL]
+.endm
+
+.macro sve_op_vectors op:req reg:req
+	\op z0, [\reg, #0, MUL VL]
+	\op z1, [\reg, #1, MUL VL]
+	\op z2, [\reg, #2, MUL VL]
+	\op z3, [\reg, #3, MUL VL]
+	\op z4, [\reg, #4, MUL VL]
+	\op z5, [\reg, #5, MUL VL]
+	\op z6, [\reg, #6, MUL VL]
+	\op z7, [\reg, #7, MUL VL]
+	\op z8, [\reg, #8, MUL VL]
+	\op z9, [\reg, #9, MUL VL]
+	\op z10, [\reg, #10, MUL VL]
+	\op z11, [\reg, #11, MUL VL]
+	\op z12, [\reg, #12, MUL VL]
+	\op z13, [\reg, #13, MUL VL]
+	\op z14, [\reg, #14, MUL VL]
+	\op z15, [\reg, #15, MUL VL]
+	\op z16, [\reg, #16, MUL VL]
+	\op z17, [\reg, #17, MUL VL]
+	\op z18, [\reg, #18, MUL VL]
+	\op z19, [\reg, #19, MUL VL]
+	\op z20, [\reg, #20, MUL VL]
+	\op z21, [\reg, #21, MUL VL]
+	\op z22, [\reg, #22, MUL VL]
+	\op z23, [\reg, #23, MUL VL]
+	\op z24, [\reg, #24, MUL VL]
+	\op z25, [\reg, #25, MUL VL]
+	\op z26, [\reg, #26, MUL VL]
+	\op z27, [\reg, #27, MUL VL]
+	\op z28, [\reg, #28, MUL VL]
+	\op z29, [\reg, #29, MUL VL]
+	\op z30, [\reg, #30, MUL VL]
+	\op z31, [\reg, #31, MUL VL]
+.endm
+
+/* ------------------------------------------------------------------
+ * The following function follows the aapcs_64 strictly to use x9-x17
+ * (temporary caller-saved registers according to AArch64 PCS) to
+ * restore SVE register context. It assumes that 'x0' is
+ * pointing to a 'sve_regs_t' structure to which the register context
+ * will be saved.
+ * ------------------------------------------------------------------
+ */
+func sve_context_save
+.arch_extension sve
+	/* Temporarily enable SVE */
+	mrs     x10, cptr_el3
+	orr     x11, x10, #CPTR_EZ_BIT
+	bic     x11, x11, #TFP_BIT
+	msr     cptr_el3, x11
+	isb
+
+	/* zcr_el3 */
+	mrs     x12, S3_6_C1_C2_0
+	mov     x13, #3 /* 512/128 - 1 */
+	msr     S3_6_C1_C2_0, x13
+	isb
+
+	/* Predicate registers */
+	add	x9, x0, #CTX_SVE_PREDICATES
+	sve_predicate_op str, x9
+
+	/* Save FFR after predicates */
+	add	x9, x0, #CTX_SVE_FFR
+	rdffr   p0.b
+	str     p0, [x9]
+
+	/* Save vector registers */
+	add     x9, x0, #CTX_SVE_VECTORS
+	sve_op_vectors  str, x9
+	/* Restore SVE enablement */
+	msr     S3_6_C1_C2_0, x12 /* zcr_el3 */
+	msr     cptr_el3, x10
+	isb
+.arch_extension nosve
+
+	/* Save FPSR, FPCR and FPEXC32 */
+	fpregs_non_vec_save x0, x9
+
+	ret
+endfunc sve_context_save
+
+/* ------------------------------------------------------------------
+ * The following function follows the aapcs_64 strictly to use x9-x17
+ * (temporary caller-saved registers according to AArch64 PCS) to
+ * restore SVE register context. It assumes that 'x0' is pointing to
+ * a 'sve_regs_t' structure from where the register context will be
+ * restored.
+ * ------------------------------------------------------------------
+ */
+func sve_context_restore
+.arch_extension sve
+	/* Temporarily enable SVE for EL3 */
+	mrs	x10, cptr_el3
+	orr	x11, x10, #CPTR_EZ_BIT
+	bic	x11, x11, #TFP_BIT
+	msr	cptr_el3, x11
+	isb
+
+	/* zcr_el3 */
+	mrs	x12, S3_6_C1_C2_0
+	mov	x13, #3 /* 512/128 - 1 */
+	msr	S3_6_C1_C2_0, x13
+	isb
+
+	/* Restore FFR register before predicates */
+	add	x9, x0, #CTX_SVE_FFR
+	ldr	p0, [x9]
+	wrffr	p0.b
+
+	/* Restore predicate registers */
+	add	x9, x0, #CTX_SVE_PREDICATES
+	sve_predicate_op ldr, x9
+
+	/* Restore vector registers */
+	add	x9, x0, #CTX_SVE_VECTORS
+	sve_op_vectors	ldr, x9
+	/* Restore CPTR EZ bit */
+	msr	S3_6_C1_C2_0, x12 /* zcr_el3 */
+	msr	cptr_el3, x10
+	isb
+.arch_extension nosve
+
+	/* Restore FPSR, FPCR and FPEXC32 */
+	fpregs_non_vec_restore x0, x9
+	ret
+endfunc sve_context_restore
+#endif /* CTX_INCLUDE_SVE_REGS */
 
 	/*
 	 * Set SCR_EL3.EA bit to enable SErrors at EL3
