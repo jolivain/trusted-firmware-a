@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b64730e1_0fb92c23",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-05T14:33:54Z",
+      "side": 1,
+      "message": "Sorry Lauren, I think I had overlooked these changes... We absolutely don\u0027t want to do this, as this would completely break the root of trust and undermine all security guarantees normally brought by trusted boot...\n\nIn this patch, root certificates are now only self-verified against their own key. This means I can craft a certificate with a custom key, sign it with this same key, deploy that on the target as a \"root\" certificate and TF-A will happily let it go! Without proper verification of the root certificate key against the hardware-provided ROTPK (which I originally said was something we could add in the future...), \"root\" certificates would no longer be rooted into the hardware ROTPK!\n\nSo please revert these changes and only keep Arm platform specific changes. The scenario at hand will fall into lines 228-232, which means root certificates are properly verified against the hardware-provided ROTPK. We can add the missing memcmp(hardware_rotpk, root_certificate_pk) operation in a subsequent patch.",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 23
+      },
+      "revId": "c4ee97135fec8f7a715baba14119d949c22a219a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0595ecf5_2269abc2",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-05T14:33:54Z",
+      "side": 1,
+      "message": "Suggest adding a small comment to clarify that ARM_ROTPK_KEY_LEN account for the DER header + raw key material. This sounds important to me, as it contrasts with ARM_ROTPK_HASH_LEN, which only accounts for the raw key hash (no DER header).",
+      "revId": "c4ee97135fec8f7a715baba14119d949c22a219a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
