@@ -35,7 +35,7 @@ The scope for this threat model is:
 - The TF-A implementation for the S-EL2 SPMC based on the Hafnium hypervisor
   running in the secure world of TrustZone (at S-EL2 exception level).
   The threat model is not related to the normal world Hypervisor or VMs.
-  The S-EL1 SPMC solution is not covered.
+  The S-EL1 and EL3 SPMC solutions are not covered.
 - The implementation complies with the FF-A v1.0 specification, and a few
   features of FF-A v1.1 specification.
 - Secure partitions are statically provisioned at boot time.
@@ -235,8 +235,8 @@ element of the data flow diagram.
 +------------------------+------------------+-----------------+---------------+
 | ``Total Risk Rating``  | High (16)        | High (16)       |               |
 +------------------------+------------------+-----------------+---------------+
-| ``Mitigations``        | In context of FF-A v1.0 this is the case of sharing|
-|                        | the RX/TX buffer pair and usage in the             |
+| ``Mitigations``        | In context of FF-A v1.0 and v1.1 this is the case  |
+|                        | of sharing the RX/TX buffer pair and usage in the  |
 |                        | PARTITION_INFO_GET or mem sharing primitives.      |
 |                        | The SPMC must copy the contents of the TX buffer   |
 |                        | to an internal temporary buffer before processing  |
@@ -1151,6 +1151,177 @@ element of the data flow diagram.
 |                        | interrupted.                                       |
 +------------------------+----------------------------------------------------+
 
++------------------------+----------------------------------------------------+
+| ID                     | 25                                                 |
++========================+====================================================+
+| ``Threat``             | **A rogue FF-A endpoint can use memory sharing     |
+|                        | calls to exhaust SPMC resources.**                 |
+|                        | For each on-going operation that involves an SP,   |
+|                        | the SPMC allocates resources to track its state.   |
+|                        | If the operation is never concluded, the resources |
+|                        | are never freed.                                   |
+|                        | In the worst scenario, multiple operations that    |
+|                        | never conclude may exhaust the SPMC resources to a |
+|                        | point in which renders memory sharing operations   |
+|                        | impossible. This could affect other, non-harmful   |
+|                        | FF-A endpoints to legitly use memory sharing       |
+|                        | functionality. The intent might even be to         |
+|                        | interfere with SPMC execution.                     |
++------------------------+----------------------------------------------------+
+| ``Diagram Elements``   | DF1, DF2                                           |
++------------------------+----------------------------------------------------+
+| ``Affected TF-A        | SPMC, SPMD                                         |
+| Components``           |                                                    |
++------------------------+----------------------------------------------------+
+| ``Assets``             | SPMC state                                         |
++------------------------+----------------------------------------------------+
+| ``Threat Agent``       | NS-Endpoint, S-Endpoint                            |
++------------------------+----------------------------------------------------+
+| ``Threat Type``        | Denial of Service                                  |
++------------------------+------------------+-----------------+---------------+
+| ``Application``        |   ``Server``     |   ``Mobile``    |               |
++------------------------+------------------+-----------------+---------------+
+| ``Impact``             | Low (2)          | Medium (3)      |               |
++------------------------+------------------+-----------------+---------------+
+| ``Likelihood``         | Medium (3)       | Medium (3)      |               |
++------------------------+------------------+-----------------+---------------+
+| ``Total Risk Rating``  | Medium (6)       | Medium (9)      |               |
++------------------------+------------------+-----------------+---------------+
+| ``Mitigations``        | The TF-A SPMC uses a statically allocated pool of  |
+|                        | memory to keep track of on-going memory sharing    |
+|                        | operations. After a possible attack, would fail    |
+|                        | due to unsuficient memory, and return an error     |
+|                        | to the caller. At this point, any other endpoint   |
+|                        | that requires use of memory sharing for its        |
+|                        | operation would get itself in an unusable state.   |
++------------------------+----------------------------------------------------+
+
++------------------------+----------------------------------------------------+
+| ID                     | 26                                                 |
++========================+====================================================+
+| ``Threat``             | **A borrower may interfere with lender's           |
+|                        | operation, if it terminates due to a fatal error   |
+|                        | condition withouth releasing the memory            |
+|                        | shared/lent.**                                     |
+|                        | Such scenario, may render the lender inoperable.   |
++------------------------+----------------------------------------------------+
+| ``Diagram Elements``   | DF1, DF2                                           |
++------------------------+----------------------------------------------------+
+| ``Affected TF-A        | SPMC                                               |
+| Components``           |                                                    |
++------------------------+----------------------------------------------------+
+| ``Assets``             | SP state                                           |
++------------------------+----------------------------------------------------+
+| ``Threat Agent``       | NS-Endpoint, S-Endpoint                            |
++------------------------+----------------------------------------------------+
+| ``Threat Type``        | Denial of Service                                  |
++------------------------+------------------+-----------------+---------------+
+| ``Application``        |   ``Server``     |   ``Mobile``    |               |
++------------------------+------------------+-----------------+---------------+
+| ``Impact``             | Low (2)          | Low (2)         |               |
++------------------------+------------------+-----------------+---------------+
+| ``Likelihood``         | Medium (3)       | Medium (3)      |               |
++------------------------+------------------+-----------------+---------------+
+| ``Total Risk Rating``  | Medium (6)       | Medium(6)       |               |
++------------------------+------------------+-----------------+---------------+
+| ``Mitigations``        | The TF-A SPMC does not provide mitigation for such |
+|                        | scenario. The FF-A endpoints must attempt to       |
+|                        | relinquish memory shared/lent them selfs in        |
+|                        | case of failure. The memory used to track the      |
+|                        | operation in the SPMC will also remain usuable.    |
++------------------------+----------------------------------------------------+
+
++------------------------+----------------------------------------------------+
+| ID                     | 27                                                 |
++========================+====================================================+
+| ``Threat``             | **A rogue FF-A endpoint may attempt to tamper with |
+|                        | the content of the memory shared/lent, whilst      |
+|                        | being accessed by other FF-A endpoints.**          |
+|                        | It might attempt to do so:                         |
+|                        | - Using one of the clear flags, when either        |
+|                        | retrieving or relinquishing access to the memory   |
+|                        | via the respective FF-A calls.                     |
+|                        | - Directly accessing memory without respecting the |
+|                        | synchronization protocol between all involved      |
+|                        | endpoints.                                         |
++------------------------+----------------------------------------------------+
+| ``Diagram Elements``   | DF1, DF2                                           |
++------------------------+----------------------------------------------------+
+| ``Affected TF-A        | SPMC, FF-A endpoint                                |
+| Components``           |                                                    |
++------------------------+----------------------------------------------------+
+| ``Assets``             | SP state                                           |
++------------------------+----------------------------------------------------+
+| ``Threat Agent``       | NS-Endpoint, S-Endpoint                            |
++------------------------+----------------------------------------------------+
+| ``Threat Type``        | Denial of Service, Tampering                       |
++------------------------+------------------+-----------------+---------------+
+| ``Application``        |   ``Server``     |   ``Mobile``    |               |
++------------------------+------------------+-----------------+---------------+
+| ``Impact``             | Low (2)          | Low (2)         |               |
++------------------------+------------------+-----------------+---------------+
+| ``Likelihood``         | Medium (3)       | Medium (3)      |               |
++------------------------+------------------+-----------------+---------------+
+| ``Total Risk Rating``  | Medium (6)       | Medium(6)       |               |
++------------------------+------------------+-----------------+---------------+
+| ``Mitigations``        | - The first case defined in thread, the TF-A SPMC  |
+|                        | mitigates it, by ensuring a memory is cleared      |
+|                        | only when all borrowers have relinquished access   |
+|                        | to the memory, in a scenario involving multiple    |
+|                        | borrowers. Also, if the receiver is granted RO,    |
+|                        | permissions, the SPMC will reject any request      |
+|                        | to clear memory on behalf of the borrower, by      |
+|                        | return an error to the respective FF-A call.       |
+|                        | - The second case defined in thread can't be       |
+|                        | mitigated by the SPMC. It is up to the NS/S FF-A   |
+|                        | endpoints to establish a robust protocol for using |
+|                        | the shared memory.                                 |
++------------------------+----------------------------------------------------+
+
++------------------------+----------------------------------------------------+
+| ID                     | 28                                                 |
++========================+====================================================+
+| ``Threat``             | **A rogue FF-A endpoint may attempt to share       |
+|                        | memory that is not in its translation regime, or   |
+|                        | attempt to specify attributes more permissive than |
+|                        | those it possesses at a given time.**              |
+|                        | Both ways could be an attempt for escalating its   |
+|                        | priveleges.                                        |
++------------------------+----------------------------------------------------+
+| ``Diagram Elements``   | DF1, DF2                                           |
++------------------------+----------------------------------------------------+
+| ``Affected TF-A        | SPMC, FF-A endpoint                                |
+| Components``           |                                                    |
++------------------------+----------------------------------------------------+
+| ``Assets``             | SP state                                           |
++------------------------+----------------------------------------------------+
+| ``Threat Agent``       | NS-Endpoint, S-Endpoint                            |
++------------------------+----------------------------------------------------+
+| ``Threat Type``        | Denial of Service, Tampering                       |
++------------------------+------------------+-----------------+---------------+
+| ``Application``        |   ``Server``     |   ``Mobile``    |               |
++------------------------+------------------+-----------------+---------------+
+| ``Impact``             | Low (2)          | Low (2)         |               |
++------------------------+------------------+-----------------+---------------+
+| ``Likelihood``         | Medium (3)       | Low (2)         |               |
++------------------------+------------------+-----------------+---------------+
+| ``Total Risk Rating``  | Medium (3)       | Low (2)         |               |
++------------------------+------------------+-----------------+---------------+
+| ``Mitigations``        | The TF-A SPMC mitigates this threat by doing       |
+|                        | sanity checks to the provided memory region        |
+|                        | descriptor.                                        |
+|                        | Once the full memory descriptor is provided,       |
+|                        | the SPMC validates that the memory is part of the  |
+|                        | caller's translation regime. The SPMC also checks  |
+|                        | that the memory attributes provided are within     |
+|                        | those the owner possesses, in terms of             |
+|                        | permissiveness. If more permissive attributes are  |
+|                        | specified, the SPMC returns an error               |
+|                        | FFA_INVALID_PARAMETERS. The permissiveness rules   |
+|                        | are enforeced in both any call to share/lend or    |
+|                        | donate the memory, and in retrieve requests.       |
++------------------------+----------------------------------------------------+
+
 --------------
 
 *Copyright (c) 2021-2022, Arm Limited. All rights reserved.*
@@ -1159,3 +1330,4 @@ element of the data flow diagram.
 .. _Secure Partition Manager: ../components/secure-partition-manager.html
 .. _Generic TF-A threat model: ./threat_model.html#threat-analysis
 .. _FF-A ACS: https://github.com/ARM-software/ff-a-acs/releases
+
