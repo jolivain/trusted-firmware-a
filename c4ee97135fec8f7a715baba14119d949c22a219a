@@ -107,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d4888486_f89bfe6b",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-05T16:08:44Z",
+      "side": 1,
+      "message": "I\u0027d rather not change any of the existing build options, as I think it will create unnecessary churn in TF-A codebase, not to mention TF-A CI scripts updates.",
+      "parentUuid": "6e20c074_91855275",
+      "range": {
+        "startLine": 160,
+        "startChar": 8,
+        "endLine": 160,
+        "endChar": 30
+      },
+      "revId": "c4ee97135fec8f7a715baba14119d949c22a219a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d03c9ce6_1cc25dea",
         "filename": "include/plat/arm/common/plat_arm.h",
         "patchSetId": 1
