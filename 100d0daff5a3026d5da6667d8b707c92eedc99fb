@@ -16,6 +16,24 @@
       "message": "There is recent patch to restrict EL2 regs save/restore, would you please check how its going to impact your work.\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17938",
       "revId": "100d0daff5a3026d5da6667d8b707c92eedc99fb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97b5999d_7152e41b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2022-12-05T15:00:34Z",
+      "side": 1,
+      "message": "Hi Manish, just checked the changes. Not being able to explicitly enable CTX_INCLUDE_EL2_REGS should be fine wrt to this patch.\n\nThis patch would only come into effect when CTX_INCLUDE_EL2_REGS is enabled somehow (internally or externally) and MPAM EL2 registers need to saved/restored as a result",
+      "parentUuid": "f0b759b8_64140152",
+      "revId": "100d0daff5a3026d5da6667d8b707c92eedc99fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
