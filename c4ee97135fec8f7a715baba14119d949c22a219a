@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "feac0aac_161bc05d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-12-05T21:50:11Z",
+      "side": 1,
+      "message": "CCA will use full key, but RSS will provide later, so for the time being there is not a platform need and just a hole in the ROTPK variants as far as I know. @Sandrine do you disagree?",
+      "parentUuid": "d3a3cabd_94fa443d",
+      "revId": "c4ee97135fec8f7a715baba14119d949c22a219a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a26c5817_db0bae66",
@@ -82,6 +100,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d92c460_dd144750",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-12-05T21:50:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "94b51d34_2e6b8710",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 23
+      },
+      "revId": "c4ee97135fec8f7a715baba14119d949c22a219a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0595ecf5_2269abc2",
@@ -95,6 +137,24 @@
       "writtenOn": "2022-12-05T14:33:54Z",
       "side": 1,
       "message": "Suggest adding a small comment to clarify that ARM_ROTPK_KEY_LEN account for the DER header + raw key material. This sounds important to me, as it contrasts with ARM_ROTPK_HASH_LEN, which only accounts for the raw key hash (no DER header).",
+      "revId": "c4ee97135fec8f7a715baba14119d949c22a219a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c62a188c_6fba6c05",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-12-05T21:50:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0595ecf5_2269abc2",
       "revId": "c4ee97135fec8f7a715baba14119d949c22a219a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -195,6 +255,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7a56282a_8ea26dfe",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-12-05T21:50:11Z",
+      "side": 1,
+      "message": "With keeping ARM_ROTPK_DEVEL_RSA_ID, is there a better name for ARM_ROTPK_DEVEL_FULL_DEV_KEY_ID that would work?",
+      "parentUuid": "d03c9ce6_1cc25dea",
+      "range": {
+        "startLine": 162,
+        "startChar": 8,
+        "endLine": 162,
+        "endChar": 39
+      },
+      "revId": "c4ee97135fec8f7a715baba14119d949c22a219a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "977d9f7b_7d2ab354",
         "filename": "plat/arm/board/common/board_common.mk",
         "patchSetId": 1
@@ -206,6 +290,30 @@
       "writtenOn": "2022-12-05T14:52:08Z",
       "side": 1,
       "message": "Do we need to handle full key for PROT and SWD_ROT also?",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 82
+      },
+      "revId": "c4ee97135fec8f7a715baba14119d949c22a219a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77bb176d_32da48ce",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-12-05T21:50:11Z",
+      "side": 1,
+      "message": "@Sandrine, what do you think? Should I add or wait for cca case for using full key from RSS?",
+      "parentUuid": "977d9f7b_7d2ab354",
       "range": {
         "startLine": 105,
         "startChar": 0,
