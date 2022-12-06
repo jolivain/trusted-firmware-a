@@ -87,6 +87,24 @@
       "parentUuid": "e4015e3d_2e16bb46",
       "revId": "81ccd7970f28f1ee2ee7c922df4b53ed07d1923e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e2f11af_0a0875e2",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-06T16:58:57Z",
+      "side": 1,
+      "message": "The plan would be just restore scr_el3. There is no need to save as the values in scr_el3 is cannot be modified by lower EL execution. \n\nSo better to remove all saves of SCR_EL3 in the entry code paths to BL31. this will lay the foundations to introduce root_context later.",
+      "parentUuid": "0ffe3786_47e9da2b",
+      "revId": "81ccd7970f28f1ee2ee7c922df4b53ed07d1923e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
