@@ -33,6 +33,24 @@
       "message": "Not sure we need to treat Secure world differently. Is it to prevent Secure world info leak ?",
       "revId": "b2ee2c89fba985c369c97a5fcc4e72f1d510e41d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52ac26a2_bf062e14",
+        "filename": "bl31/aarch64/crash_reporting.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-12-06T17:09:16Z",
+      "side": 1,
+      "message": "Realm world also should be included here too, The reason for this check is to avoid the trapping to EL3 for EAs coming from S/R world(respective Managers will take care). We only expect NS world to come till here.",
+      "parentUuid": "3fda14c5_d542e51a",
+      "revId": "b2ee2c89fba985c369c97a5fcc4e72f1d510e41d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
