@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc5f03a5_fbe73293",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-06T16:31:22Z",
+      "side": 1,
+      "message": "I think the logic of checking SPSR_EL3 at runtime is flawed. After boot, SPSR_EL3 will always have a value corresponding to lower EL. Which means even a fault from EL3 firmware will be treated as an error from lower EL and `elx_panic` will be invoked.\n\nSuggest to remove elx_panic and just have el3_panic to print all relevant info.",
+      "revId": "b2ee2c89fba985c369c97a5fcc4e72f1d510e41d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fda14c5_d542e51a",
+        "filename": "bl31/aarch64/crash_reporting.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-06T16:31:22Z",
+      "side": 1,
+      "message": "Not sure we need to treat Secure world differently. Is it to prevent Secure world info leak ?",
+      "revId": "b2ee2c89fba985c369c97a5fcc4e72f1d510e41d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
