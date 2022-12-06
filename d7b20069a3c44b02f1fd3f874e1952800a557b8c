@@ -22,6 +22,30 @@
       },
       "revId": "d7b20069a3c44b02f1fd3f874e1952800a557b8c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d02a7b40_c679f427",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-12-06T17:52:57Z",
+      "side": 1,
+      "message": "I am bit puzzled what LR has to do with that? Surely the \"eret\" instruction returns to what it finds in ELR_EL3, which we put there with:\n        ldp     x16, x17, [sp, #CTX_EL3STATE_OFFSET + CTX_SPSR_EL3]\n        ...\n        msr     elr_el3, x17\nbefore calling exception_return.\nCan you check that again, or send me the TFTF binary? I test-booted with Linux, both with the sent version, but also with master, to confirm the fix. I also tested with a hack to inject arch counter values instead of RNG results, and could confirm this works with a tiny Linux userland tool. That all works fine for me.",
+      "parentUuid": "5cd413b8_fcbd1c29",
+      "range": {
+        "startLine": 607,
+        "startChar": 16,
+        "endLine": 607,
+        "endChar": 49
+      },
+      "revId": "d7b20069a3c44b02f1fd3f874e1952800a557b8c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
