@@ -117,6 +117,30 @@
       },
       "revId": "d75a9ecdaa8caa7f845297958a3f606b66bc2264",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa54da13_583c6fa4",
+        "filename": "Makefile",
+        "patchSetId": 7
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-12-06T08:35:28Z",
+      "side": 1,
+      "message": "These three blow up in quite a few places and I judged them too laborious to silence at this time. They also didn\u0027t seem important enough to go thorough with it regardless.\n\nThey are reenabled for W\u003d1, though, and the goal is to have the full -Wextra on eventually.",
+      "parentUuid": "792df191_b53404fc",
+      "range": {
+        "startLine": 358,
+        "startChar": 21,
+        "endLine": 358,
+        "endChar": 38
+      },
+      "revId": "d75a9ecdaa8caa7f845297958a3f606b66bc2264",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
