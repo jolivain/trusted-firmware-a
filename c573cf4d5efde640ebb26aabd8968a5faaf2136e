@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cd5b8744_23828db8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-12-06T23:37:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ddb1140_931c1901",
+      "range": {
+        "startLine": 10,
+        "startChar": 24,
+        "endLine": 10,
+        "endChar": 31
+      },
+      "revId": "c573cf4d5efde640ebb26aabd8968a5faaf2136e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0a50d9fb_2c27e3f8",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 8
@@ -58,6 +82,42 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8439b8dd_8e0862cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-12-06T23:37:53Z",
+      "side": 1,
+      "message": "I ran checkpatch and noticed a few more irregularities as you mentioned and have resolved them.",
+      "parentUuid": "6a657d70_c6a36c13",
+      "revId": "c573cf4d5efde640ebb26aabd8968a5faaf2136e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e80df59d_01883ae5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-12-06T23:37:53Z",
+      "side": 1,
+      "message": "I feel like adding BL2_RUNNING_AT_EL3 in each platform.mk doesn\u0027t seem like an efficient solution so I took your advice and defined BL2_RUNNING_AT_EL3 after platform specific makefiles are imported.",
+      "parentUuid": "0a50d9fb_2c27e3f8",
+      "revId": "c573cf4d5efde640ebb26aabd8968a5faaf2136e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f0a8623_fb60ec70",
@@ -71,6 +131,30 @@
       "writtenOn": "2022-12-06T16:02:02Z",
       "side": 1,
       "message": "space here as well",
+      "range": {
+        "startLine": 1212,
+        "startChar": 26,
+        "endLine": 1212,
+        "endChar": 27
+      },
+      "revId": "c573cf4d5efde640ebb26aabd8968a5faaf2136e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35dd7b2b_1316d94d",
+        "filename": "Makefile",
+        "patchSetId": 8
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-12-06T23:37:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f0a8623_fb60ec70",
       "range": {
         "startLine": 1212,
         "startChar": 26,
@@ -104,6 +188,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9f4b714_998ccc23",
+        "filename": "include/arch/aarch32/el3_common_macros.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-12-06T23:37:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39cbacda_7f5c62a2",
+      "range": {
+        "startLine": 429,
+        "startChar": 0,
+        "endLine": 429,
+        "endChar": 3
+      },
+      "revId": "c573cf4d5efde640ebb26aabd8968a5faaf2136e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0f30426_fa67a6a1",
@@ -117,6 +225,30 @@
       "writtenOn": "2022-12-06T16:59:07Z",
       "side": 1,
       "message": "nit: wrap at 80 characters",
+      "range": {
+        "startLine": 350,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 3
+      },
+      "revId": "c573cf4d5efde640ebb26aabd8968a5faaf2136e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85aad623_0ea541d1",
+        "filename": "include/arch/aarch64/el2_common_macros.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-12-06T23:37:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0f30426_fa67a6a1",
       "range": {
         "startLine": 350,
         "startChar": 0,
@@ -150,6 +282,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb1e0ba2_440794fc",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-12-06T23:37:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c616d70_370c703a",
+      "range": {
+        "startLine": 498,
+        "startChar": 0,
+        "endLine": 498,
+        "endChar": 3
+      },
+      "revId": "c573cf4d5efde640ebb26aabd8968a5faaf2136e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "390b5a91_1a8ca063",
@@ -173,6 +329,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a0af9bb_c3a67592",
+        "filename": "include/lib/cpus/aarch32/cpu_macros.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-12-06T23:37:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "390b5a91_1a8ca063",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 3
+      },
+      "revId": "c573cf4d5efde640ebb26aabd8968a5faaf2136e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1156c533_eb318731",
@@ -186,6 +366,30 @@
       "writtenOn": "2022-12-06T16:59:07Z",
       "side": 1,
       "message": "nit: wrap characters at 80",
+      "range": {
+        "startLine": 612,
+        "startChar": 2,
+        "endLine": 614,
+        "endChar": 77
+      },
+      "revId": "c573cf4d5efde640ebb26aabd8968a5faaf2136e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ec7e0d9_05740b6f",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-12-06T23:37:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1156c533_eb318731",
       "range": {
         "startLine": 612,
         "startChar": 2,
@@ -221,6 +425,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7989eac7_56366dfb",
+        "filename": "lib/aarch64/misc_helpers.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-12-06T23:37:53Z",
+      "side": 1,
+      "message": "Can I know why do you think this is redundant? This macro replaces cases where BL2_AT_EL3 or ENABLE_RME is 1.",
+      "parentUuid": "55436b85_1cfbf825",
+      "range": {
+        "startLine": 167,
+        "startChar": 1,
+        "endLine": 167,
+        "endChar": 2
+      },
+      "revId": "c573cf4d5efde640ebb26aabd8968a5faaf2136e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "080be51b_ef63be28",
         "filename": "lib/cpus/aarch32/cpu_helpers.S",
         "patchSetId": 8
@@ -232,6 +460,30 @@
       "writtenOn": "2022-12-06T16:59:07Z",
       "side": 1,
       "message": "nit: line length",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 3
+      },
+      "revId": "c573cf4d5efde640ebb26aabd8968a5faaf2136e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4081528c_ee530f34",
+        "filename": "lib/cpus/aarch32/cpu_helpers.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-12-06T23:37:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "080be51b_ef63be28",
       "range": {
         "startLine": 14,
         "startChar": 0,
@@ -255,6 +507,30 @@
       "writtenOn": "2022-12-06T16:59:07Z",
       "side": 1,
       "message": "nit: line length",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 4
+      },
+      "revId": "c573cf4d5efde640ebb26aabd8968a5faaf2136e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60b4a9fd_4deafa36",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2022-12-06T23:37:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfcca931_771574fd",
       "range": {
         "startLine": 68,
         "startChar": 0,
