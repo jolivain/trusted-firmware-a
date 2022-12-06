@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9866df4_e1e0e1c7",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-06T13:46:17Z",
+      "side": 1,
+      "message": "We have lost scr_el3 save here , which means some of the leaf functions which are called after this will not have scr_el3 saved in the context (eg: enter_lower_el_sync_ea()).\n\nIt is questionable why we need to save scr_el3 every time we enter EL3. This is part of a larger knot that needs to be untied in TF-A.",
+      "revId": "1a03533eab9d9a6c271fb7e0701558d1a7d74387",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
