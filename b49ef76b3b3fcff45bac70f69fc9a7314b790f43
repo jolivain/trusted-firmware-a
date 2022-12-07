@@ -16,6 +16,29 @@
       "message": "Manish, Madhukar: Can you please take a look?",
       "revId": "b49ef76b3b3fcff45bac70f69fc9a7314b790f43",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f797bffd_dc3e69ac",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2022-12-07T12:08:31Z",
+      "side": 1,
+      "message": "I am interested in looking at your implementation of this function? can this be a generic one or very specific to you platform. The reason i am asking this is to implement this function inline in this header (an empty one when !CONDITIONAL_CMO). This will help reducing usage of CONDITIONAL_CMO in generic files(gicv3 etc)",
+      "range": {
+        "startLine": 428,
+        "startChar": 9,
+        "endLine": 428,
+        "endChar": 21
+      },
+      "revId": "b49ef76b3b3fcff45bac70f69fc9a7314b790f43",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
