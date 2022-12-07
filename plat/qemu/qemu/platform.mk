@@ -138,11 +138,11 @@ BL1_SOURCES		+=	drivers/io/io_semihosting.c		\
 				${PLAT_QEMU_COMMON_PATH}/qemu_bl1_setup.c
 
 ifeq (${ARM_ARCH_MAJOR},8)
-BL1_SOURCES		+=	lib/cpus/aarch64/aem_generic.S		\
-				lib/cpus/aarch64/cortex_a53.S		\
-				lib/cpus/aarch64/cortex_a57.S		\
-				lib/cpus/aarch64/cortex_a72.S		\
-				lib/cpus/aarch64/qemu_max.S		\
+BL1_SOURCES		+=	lib/cpus/${ARCH}/aem_generic.S		\
+				lib/cpus/${ARCH}/cortex_a53.S		\
+				lib/cpus/${ARCH}/cortex_a57.S		\
+				lib/cpus/${ARCH}/cortex_a72.S		\
+				lib/cpus/${ARCH}/qemu_max.S		\
 
 else
 BL1_SOURCES		+=	lib/cpus/${ARCH}/cortex_a15.S
