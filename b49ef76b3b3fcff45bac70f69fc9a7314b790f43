@@ -39,6 +39,30 @@
       },
       "revId": "b49ef76b3b3fcff45bac70f69fc9a7314b790f43",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9940ccd8_31b097ee",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000767
+      },
+      "writtenOn": "2022-12-07T17:49:01Z",
+      "side": 1,
+      "message": "Yes the plat_can_cmo implementation is specific to my platform. I can add an empty implementation here inlined similar to other APIs.",
+      "parentUuid": "f797bffd_dc3e69ac",
+      "range": {
+        "startLine": 428,
+        "startChar": 9,
+        "endLine": 428,
+        "endChar": 21
+      },
+      "revId": "b49ef76b3b3fcff45bac70f69fc9a7314b790f43",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
