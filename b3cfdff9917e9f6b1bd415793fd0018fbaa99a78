@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d60679b_0a5ceaa9",
+        "filename": "include/services/rmm_core_manifest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-12-07T18:54:45Z",
+      "side": 1,
+      "message": "Hmm, cppcheck used to complain a lot when using (void *) pointers, plus the coding standard suggests to use uintptr_t for general pointers (I guess for the same reason): https://tf-rmm.readthedocs.io/en/latest/process/coding-standard.html#data-types-structures-and-typedefs",
+      "parentUuid": "ddbb85a1_c084c561",
+      "revId": "b3cfdff9917e9f6b1bd415793fd0018fbaa99a78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62e049fe_f60be968",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-12-06T15:52:37Z",
       "side": 1,
       "message": "add 1 empty line after \"b   1f\"",
+      "revId": "b3cfdff9917e9f6b1bd415793fd0018fbaa99a78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9df4501_08d680a0",
+        "filename": "services/std_svc/rmmd/trp/trp_entry.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-12-07T18:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62e049fe_f60be968",
       "revId": "b3cfdff9917e9f6b1bd415793fd0018fbaa99a78",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -52,6 +88,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ee0cdcc_f0a0e64b",
+        "filename": "services/std_svc/rmmd/trp/trp_entry.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-12-07T18:54:45Z",
+      "side": 1,
+      "message": "Label 1 is needed for the branch in line 86\n\nUsing cbnz, thanks for the suggestion.",
+      "parentUuid": "68b01863_de15486d",
+      "revId": "b3cfdff9917e9f6b1bd415793fd0018fbaa99a78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9e420ea_d7d73ac8",
@@ -65,6 +119,24 @@
       "writtenOn": "2022-12-06T15:52:37Z",
       "side": 1,
       "message": "return ((x1 | x2 | x3) \u003d\u003d 0UL) ? 0 : E_RMM_BOOT_UNKNOWN;",
+      "revId": "b3cfdff9917e9f6b1bd415793fd0018fbaa99a78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5cbfd4a_cd63e9a7",
+        "filename": "services/std_svc/rmmd/trp/trp_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-12-07T18:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9e420ea_d7d73ac8",
       "revId": "b3cfdff9917e9f6b1bd415793fd0018fbaa99a78",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
