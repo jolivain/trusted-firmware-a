@@ -87,6 +87,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "546a7f8b_8fe6b04f",
+        "filename": "include/services/trp/trp_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-07T11:11:08Z",
+      "side": 1,
+      "message": "ignore for now.",
+      "parentUuid": "87803448_8f03c8a4",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "2c75f6e5c454455c306e9d90ee92828a1656d4f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28a66aff_70b122d0",
@@ -100,6 +124,30 @@
       "writtenOn": "2022-12-07T05:16:39Z",
       "side": 1,
       "message": "this may not be needed,",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 25
+      },
+      "revId": "2c75f6e5c454455c306e9d90ee92828a1656d4f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac4c9310_c419ec62",
+        "filename": "include/services/trp/trp_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-07T11:11:08Z",
+      "side": 1,
+      "message": "ignore",
+      "parentUuid": "28a66aff_70b122d0",
       "range": {
         "startLine": 23,
         "startChar": 0,
@@ -128,6 +176,53 @@
         "startChar": 0,
         "endLine": 29,
         "endChar": 48
+      },
+      "revId": "2c75f6e5c454455c306e9d90ee92828a1656d4f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47030eec_cb8f4b89",
+        "filename": "include/services/trp/trp_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-07T11:11:08Z",
+      "side": 1,
+      "message": "ignore",
+      "parentUuid": "839dbde1_606333ab",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 48
+      },
+      "revId": "2c75f6e5c454455c306e9d90ee92828a1656d4f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c889ea9_20846ed9",
+        "filename": "services/std_svc/rmmd/trp/trp_entry.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-07T11:11:08Z",
+      "side": 1,
+      "message": "Ah, I see why trp_args are still needed. maybe we should just use smc_ret or directly use x0-x4 here for args and smc_result can be used as return. \n\nokay this is a different work, so not needed to it in this patch",
+      "range": {
+        "startLine": 109,
+        "startChar": 1,
+        "endLine": 109,
+        "endChar": 22
       },
       "revId": "2c75f6e5c454455c306e9d90ee92828a1656d4f0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
