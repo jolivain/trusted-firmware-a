@@ -119,6 +119,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb723ab1_ca6a3eb7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2022-12-07T17:27:28Z",
+      "side": 1,
+      "message": "Right now, the code requires that the Extensions field be present, but allows it to be an empty SEQUENCE (containing no extensions).  Such a certificate is ill-formed, but is (harmlessly) accepted by the current code.  However, it would cause an authentication failure later on, as get_ext() (and thus get_auth_param()) will return IMG_PARSER_ERR_NOT_FOUND.  Therefore, it is preferable to just reject the malformed certificate earlier.",
+      "parentUuid": "0b465cd4_f24dfa2b",
+      "range": {
+        "startLine": 9,
+        "startChar": 27,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "7d4e5f5a6dd1fe947c5a5cb6cfc8bb8cbe86aaf9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "862c96ae_6ca288e3",
@@ -272,6 +296,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e40bf0c5_cd7334e9",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2022-12-07T17:27:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88de3022_d85afdae",
+      "range": {
+        "startLine": 153,
+        "startChar": 8,
+        "endLine": 153,
+        "endChar": 18
+      },
+      "revId": "7d4e5f5a6dd1fe947c5a5cb6cfc8bb8cbe86aaf9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56c4abed_9d7b2270",
@@ -380,6 +428,30 @@
       "side": 1,
       "message": "OK, thanks. So does this mean that if the version number had been IMPLICIT, then its encoding would have looked something like that instead?\n\n            MBEDTLS_ASN1_CONSTRUCTED | MBEDTLS_ASN1_CONTEXT_SPECIFIC | 0,\n            1,\n            2,\n\nOne more question... Sorry, I am taking advantage of your expertise in ASN.1/X.509, feel free to point me to the RFC 5280 if you don\u0027t have time to answer my questions...\n\nSo I noticed that the issuerUniqueID field in the TBSCertificate sequence is an IMPLICIT one. However, when I compare the way they are parsed in TF-A code right now, I don\u0027t see much difference, both are handled through a call to mbedtls_asn1_get_tag(). I suppose mbedTLS library abstracts that? Do you know?",
       "parentUuid": "6989eb3b_2ce72f40",
+      "range": {
+        "startLine": 196,
+        "startChar": 22,
+        "endLine": 196,
+        "endChar": 30
+      },
+      "revId": "7d4e5f5a6dd1fe947c5a5cb6cfc8bb8cbe86aaf9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e494d3fa_83640706",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2022-12-07T17:27:28Z",
+      "side": 1,
+      "message": "\u003e OK, thanks. So does this mean that if the version number had been IMPLICIT, then its encoding would have looked something like that instead?\n\u003e \n\u003e             MBEDTLS_ASN1_CONSTRUCTED | MBEDTLS_ASN1_CONTEXT_SPECIFIC | 0,\n\u003e             1,\n\u003e             2,\n\nCorrect.\n\n\u003e One more question... Sorry, I am taking advantage of your expertise in ASN.1/X.509, feel free to point me to the RFC 5280 if you don\u0027t have time to answer my questions...\n\nThe actual ITU-T X.690 standard for ASN.1 DER is X.690 at https://www.itu.int/ITU-T/studygroups/com10/languages/.\n\n\u003e So I noticed that the issuerUniqueID field in the TBSCertificate sequence is an IMPLICIT one. However, when I compare the way they are parsed in TF-A code right now, I don\u0027t see much difference, both are handled through a call to mbedtls_asn1_get_tag(). I suppose mbedTLS library abstracts that? Do you know?\n\nFor an EXPLICIT tag one would use two calls to mbedtls_asn1_get_tag(): the first to get the outer tag, the second to get the inner one.  An IMPLICIT tag only uses the outer call.  Validating the unique ID fields is pointless, since they are unused in practice and no other code actually cares about them.",
+      "parentUuid": "2634c4aa_536470a0",
       "range": {
         "startLine": 196,
         "startChar": 22,

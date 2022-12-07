@@ -119,6 +119,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e652648_708d39d9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2022-12-07T17:27:28Z",
+      "side": 1,
+      "message": "\u003e \u003e as it avoids having to change every commit message.\n\u003e \n\u003e Just a note about that, in case you don\u0027t know... If you\u0027ve got the right git hook in your local TF-A git repo, the change-Id should be automatically added to your commit message so you don\u0027t need to it manually.\n\u003e \n\u003e  scp -p -P 29418 \u003cusername\u003e@review.trustedfirmware.org:hooks/commit-msg \"trusted-firmware-a/.git/hooks/\"\n\nI do have a Git hook (one I wrote myself) that does this.  What I meant is that *Linux* does not accept patches that have Change-Id trailers, but is fine with Link trailers.  So when writing code (such as a driver) that is intended to be upstreamed to Linux at some point, it is best to use Link instead.  This does not apply here.",
+      "parentUuid": "f27f3f06_092a3c14",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 85
+      },
+      "revId": "5e6d9941ecdfac860be8498342c2066b928778bb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5196c51e_7b5978f9",
