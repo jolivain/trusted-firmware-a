@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eacb1c5d_253fe7d6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-07T05:16:39Z",
+      "side": 1,
+      "message": "nit: RMI SMC call",
+      "range": {
+        "startLine": 12,
+        "startChar": 17,
+        "endLine": 12,
+        "endChar": 29
+      },
+      "revId": "2c75f6e5c454455c306e9d90ee92828a1656d4f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a09ef3d_5e187e5d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-07T05:16:39Z",
+      "side": 1,
+      "message": "The comment needs to be articulate. Suggest:\n\n\"This patch adds X2-X6 and \u0027smc_ret\u0027 parameters to trp_rmi_handler(). The last \u0027smc_ret\u0027 parameter passed in X7 contains address of \u0027trp_smc_result\u0027 structure on stack to\nreturn result of RMI SMC call.\n\nThis allows to preserve X4 if not used as a return argument as per SMCCCv1.2.  The patch also removes use of trp_args_t.\"",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 55
+      },
+      "revId": "2c75f6e5c454455c306e9d90ee92828a1656d4f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d768a896_8106a993",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-07T05:16:39Z",
+      "side": 1,
+      "message": "minor comments",
+      "revId": "2c75f6e5c454455c306e9d90ee92828a1656d4f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87803448_8f03c8a4",
+        "filename": "include/services/trp/trp_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-07T05:16:39Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "2c75f6e5c454455c306e9d90ee92828a1656d4f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28a66aff_70b122d0",
+        "filename": "include/services/trp/trp_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-07T05:16:39Z",
+      "side": 1,
+      "message": "this may not be needed,",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 25
+      },
+      "revId": "2c75f6e5c454455c306e9d90ee92828a1656d4f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "839dbde1_606333ab",
+        "filename": "include/services/trp/trp_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-07T05:16:39Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 48
+      },
+      "revId": "2c75f6e5c454455c306e9d90ee92828a1656d4f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
