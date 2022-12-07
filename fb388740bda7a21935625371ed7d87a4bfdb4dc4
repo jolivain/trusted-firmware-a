@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6eef4bb1_d7bead4a",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-12-07T11:16:00Z",
+      "side": 1,
+      "message": "\u003e So perhaps , we need detect_required_arch_features_ns() which calls the _required versions of the features and panics. detect_required_arch_features_ns() can be called during NS world context setup().\n\nIsn\u0027t the whole point of having this file here to let context setup not care about this?\n\n\u003e Now I see several solutions:\n\u003e * This \"every feature is checked against 0\" becomes a separate build time option.\n\u003e * We enable every feature by default (\u003d2). This is actually somewhat the goal, but we are not there yet.\n\nThe way I understand it we want the check against 0 and the default\u003d2 at the same time. But I think I see a compromise: As each flag gets converted to the new scheme, have it checked with _required and defaulted to 2 on fvp at the same time, while keeping the rest as is. So an unconverted flag will keep its global value of 0 and be unchecked. Nothing changes and the converted ones can silently work. Once all flags are converted, the _required function is absorbed into the default one.\n\nSo once this happens, all features will be converted, fvp will have set them all to 2s, and all other platforms will have all (default) 0s. Platforms set the features they use to 1 (except a couple of notable exceptions but they could probably default to 2 eventually) so they will be fine. If a platform blows up we found a bug, as the way I understand it we are aiming for a 1:1 mapping of hardware and software features everywhere.\n\nDoes this make sense? Am I missing something?\n\n\u003e * We keep reporting missing features, but only panic after we have finished the whole check.\nThis might be a nice QoL feature, but won\u0027t be strictly needed with the above.",
+      "parentUuid": "4833f999_cbf91233",
+      "revId": "fb388740bda7a21935625371ed7d87a4bfdb4dc4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a0407f4_c695c8c7",
         "filename": "common/feat_detect.c",
         "patchSetId": 1
@@ -85,6 +103,24 @@
       "side": 1,
       "message": "Do you mean the AMUv1p1 feature? *Every* feature will be converted over, but in separate patches. I have about seven of them already piled up as patches, but am waiting for this groundwork here to be agreed upon.",
       "parentUuid": "9a0407f4_c695c8c7",
+      "revId": "fb388740bda7a21935625371ed7d87a4bfdb4dc4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c307ce9b_30d080fc",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-12-07T11:16:00Z",
+      "side": 1,
+      "message": "Alright, I though it belonged on this patchstack and was missed since there already are some AMU changes",
+      "parentUuid": "2cb5d830_a0c86037",
       "revId": "fb388740bda7a21935625371ed7d87a4bfdb4dc4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
