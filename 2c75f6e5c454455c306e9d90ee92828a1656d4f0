@@ -113,6 +113,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c6bce1f_dceba1ff",
+        "filename": "include/services/trp/trp_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-12-07T11:18:49Z",
+      "side": 1,
+      "message": "I already tried this before submitting the patch. Removal gives errors like:\n\n 25 | #define write_trp_arg(args, offset, val) (((args)-\u003eregs[offset \u003e\u003e 3])   \\\n      |                                                         ^~~~~~\nservices/std_svc/rmmd/trp/trp_helpers.c:40:38: error: \u0027TRP_ARG1\u0027 undeclared (first use in this function)\n   40 |         write_trp_arg(pcpu_smc_args, TRP_ARG1, arg1);\n      |                                      ^~~~~~~~\nservices/std_svc/rmmd/trp/trp_private.h:25:57: note: in definition of macro \u0027write_trp_arg\u0027\n   25 | #define write_trp_arg(args, offset, val) (((args)-\u003eregs[offset \u003e\u003e 3])   \\\n      |                                                         ^~~~~~\nservices/std_svc/rmmd/trp/trp_helpers.c:41:38: error: \u0027TRP_ARG2\u0027 undeclared (first use in this function)\n   41 |         write_trp_arg(pcpu_smc_args, TRP_ARG2, arg2);",
+      "parentUuid": "87803448_8f03c8a4",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "2c75f6e5c454455c306e9d90ee92828a1656d4f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "28a66aff_70b122d0",
         "filename": "include/services/trp/trp_helpers.h",
         "patchSetId": 3
@@ -194,6 +218,30 @@
       "writtenOn": "2022-12-07T11:11:08Z",
       "side": 1,
       "message": "ignore",
+      "parentUuid": "839dbde1_606333ab",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 48
+      },
+      "revId": "2c75f6e5c454455c306e9d90ee92828a1656d4f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69c33942_eb308cb2",
+        "filename": "include/services/trp/trp_helpers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2022-12-07T11:18:49Z",
+      "side": 1,
+      "message": "trp_args_t is used on line #31",
       "parentUuid": "839dbde1_606333ab",
       "range": {
         "startLine": 26,
