@@ -46,6 +46,29 @@
       },
       "revId": "075a26b6c93695d6ee0037be515c375af59f5fb5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16e36d0c_3fa60062",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-12-07T21:14:19Z",
+      "side": 1,
+      "message": "In spmd_setup function, I see some issues reported as ERRORs while some reported as WARNings. Since we are taking a fail safe approach, would it be meaningful to unify them?",
+      "range": {
+        "startLine": 405,
+        "startChar": 3,
+        "endLine": 405,
+        "endChar": 8
+      },
+      "revId": "075a26b6c93695d6ee0037be515c375af59f5fb5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
