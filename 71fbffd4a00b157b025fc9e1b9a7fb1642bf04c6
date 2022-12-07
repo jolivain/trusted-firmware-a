@@ -52,6 +52,24 @@
       "parentUuid": "486428c3_c4941847",
       "revId": "71fbffd4a00b157b025fc9e1b9a7fb1642bf04c6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d03f5c97_8f58e20e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-12-07T20:27:47Z",
+      "side": 1,
+      "message": "I am not familiar with sparse tool.\nUsing the keyword static gives the impression that the scope of the struct stm32mp_io__populator is only limited to the source file plat/st/common/stm32mp_fconf_io.c\n\nBut, fconf framework accesses it indirectly in the fconf.c source file using some linker symbols.",
+      "parentUuid": "16533aab_ef841609",
+      "revId": "71fbffd4a00b157b025fc9e1b9a7fb1642bf04c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
