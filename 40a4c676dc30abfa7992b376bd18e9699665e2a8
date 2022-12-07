@@ -54,6 +54,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e00a4df_0a17a4ce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2022-12-07T17:47:44Z",
+      "side": 1,
+      "message": "\u003e \u003e \u003e If it\u0027s the latter, could these issues be exploited in any way to undermine the security of the firmware?\n\u003e \u003e \n\u003e \u003e None of the issues I found could be exploited.\n\u003e \n\u003e That\u0027s good to hear!\n\nThanks!  The ASN.1 code seems to be of pretty good quality.  I was concerned that there was a buffer overflow somewhere (NXP had had such a problem in the past) and was glad to find that there was not any.\n\n\u003e I suppose this might just be because the \"Extensions\" field is the last one in a TBSCertificate sequence, and the ASN.1 grammar does not allow for any padding between fields, as everything is assumed to be consecutive in the absence of a header/top-level metadata?\n\nPretty much.  DER does not allow padding in general, but the ends of constructed tags are the only places where it must be checked for explicitly.  C’s lack of lambdas/closures makes this error-prone.",
+      "parentUuid": "ccf89a7f_2e28db4e",
+      "revId": "40a4c676dc30abfa7992b376bd18e9699665e2a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3497a9ef_f36a9be0",
@@ -88,6 +106,30 @@
         "id": 1000043
       },
       "writtenOn": "2022-12-07T14:32:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3497a9ef_f36a9be0",
+      "range": {
+        "startLine": 310,
+        "startChar": 1,
+        "endLine": 310,
+        "endChar": 32
+      },
+      "revId": "40a4c676dc30abfa7992b376bd18e9699665e2a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc63a5db_38d9f8b2",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2022-12-07T17:47:44Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "3497a9ef_f36a9be0",
