@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f129d741_8481ad53",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2022-12-08T14:37:54Z",
+      "side": 1,
+      "message": "minor - maybe update comments as below:\n\n\"Full system DSB before ISB of power down sequence */",
+      "range": {
+        "startLine": 497,
+        "startChar": 4,
+        "endLine": 497,
+        "endChar": 7
+      },
+      "revId": "b87b02cf1d93f2be2113192cd5f1927e33121a80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
