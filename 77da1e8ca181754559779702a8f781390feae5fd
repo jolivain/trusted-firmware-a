@@ -22,6 +22,30 @@
       },
       "revId": "77da1e8ca181754559779702a8f781390feae5fd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd4ab995_cfe3768e",
+        "filename": "common/aarch64/debug.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2022-12-08T12:20:55Z",
+      "side": 1,
+      "message": "Answering my own question, its a redirection when crash reporting is enabled and disabled.",
+      "parentUuid": "2c905cec_b7a834b2",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 15
+      },
+      "revId": "77da1e8ca181754559779702a8f781390feae5fd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
