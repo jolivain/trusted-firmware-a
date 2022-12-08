@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f0d26855_17c7259c",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-12-08T17:15:34Z",
+      "side": 1,
+      "message": "So my understanding is that detect_arch_features() is a pure debug function: For a fixed platform you would run it once, initially, during bringup, and maybe some times later to check for new features that TF-A learned meanwhile. For a given build the result would be constant, so there is no point in checking this for normal builds, not even in debug ones.\nIt\u0027s a different story for QEMU or the FVP, but it\u0027s still a debug feature, by design.\n@Soby: do you plan to promote this to something that\u0027s included in every build?\nI think there are legitimate reasons to disable certain features, and only some of them are fatal when EL3 initialisation is missed. Hence the selective nature of the _required() variant.",
+      "parentUuid": "6eef4bb1_d7bead4a",
+      "revId": "fb388740bda7a21935625371ed7d87a4bfdb4dc4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a0407f4_c695c8c7",
         "filename": "common/feat_detect.c",
         "patchSetId": 1
