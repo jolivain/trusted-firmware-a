@@ -167,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "619f8a1d_a4e711b8",
+        "filename": "plat/qemu/common/qemu_bl2_mem_params_desc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-12-08T13:20:01Z",
+      "side": 1,
+      "message": "This is the arbitrary maximum value that TF-A supports:\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/common/tbbr/tbbr_img_def.h#n23",
+      "parentUuid": "1e6199a0_e2870bfd",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 26
+      },
+      "revId": "a5b0d904400a0691a0701e9a28c02e559b310153",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8debff41_d5492e77",
         "filename": "plat/qemu/common/qemu_bl2_setup.c",
         "patchSetId": 2
