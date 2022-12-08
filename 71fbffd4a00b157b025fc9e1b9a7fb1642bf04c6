@@ -70,6 +70,24 @@
       "parentUuid": "16533aab_ef841609",
       "revId": "71fbffd4a00b157b025fc9e1b9a7fb1642bf04c6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "735f8ef1_2f5f35a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-12-08T08:30:42Z",
+      "side": 1,
+      "message": "Hi Madhukar,\n\nI agree that the memory where the struct is stored is reused by fconf framework, but not the symbol itself. That\u0027s why it could be static, and there is a warning from sparse tool.\n\nWhen I re-read the MISRA report, it is not very clear if the patch adds a MISRA violation or resoles one. Especially the resolved issues page (https://ci-builds.trustedfirmware.org/static-files/FMubbFD0X5l5AfT-fOyL5WoSPj65bQGnJrzrRB3yj4AxNjcwNDg4MDYwMzg3Ojk6YW5vbnltb3VzOmpvYi90Zi1hLWVjbGFpci1kZWx0YS9URl9DT05GSUc9ZnZwLWRlZmF1bHQsbGFiZWw9ZG9ja2VyLXRmLWEtZWNsYWlyLzMyNS9hcnRpZmFjdA\u003d\u003d/resolved_issues_html/by_service.html#first_file/service\u0026kind) showing lines in red.\n@Paul, could you give us some advice about this?\n\nThanks,\nYann",
+      "parentUuid": "d03f5c97_8f58e20e",
+      "revId": "71fbffd4a00b157b025fc9e1b9a7fb1642bf04c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
