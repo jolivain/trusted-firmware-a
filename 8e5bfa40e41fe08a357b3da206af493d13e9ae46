@@ -66,6 +66,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "611bff42_968b54ed",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-12-08T13:17:56Z",
+      "side": 1,
+      "message": "Former is using FF-A as transport. Latter is using legacy OP-TEE SMCs/GP client API as I understand it but Jens surely knows better.\n\nOn SPMC/FF-A there is some information here https://optee.readthedocs.io/en/latest/architecture/spmc.html#spmc-config-options\n\nI wonder if SPMC_OPTEE could be equivalent to (defined(SPD_spmd) \u0026\u0026 (SPMD_SPM_AT_SEL2 \u003d\u003d 0)) ?",
+      "parentUuid": "1f356779_d761c53c",
+      "range": {
+        "startLine": 174,
+        "startChar": 12,
+        "endLine": 174,
+        "endChar": 22
+      },
+      "revId": "8e5bfa40e41fe08a357b3da206af493d13e9ae46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fada8cb0_187e85e5",
         "filename": "plat/qemu/common/qemu_bl2_setup.c",
         "patchSetId": 2
@@ -77,6 +101,30 @@
       "writtenOn": "2022-12-08T10:28:38Z",
       "side": 1,
       "message": "Not related to this change but want to check my understanding system DTB consumption.\nIs this secure/non-secure address? I think it is consumed by both BL32 and BL33 that doesn\u0027t seems to be correct. \nIf it is Non-Secure address - It is possible to be consumed by the BL32 and BL33, but it can be attacked by NS agent.\nIf it is Secure address - It is not possible to consume it by BL33.\n\nDo we need two copies System DTB then (secure and non-secure)?",
+      "range": {
+        "startLine": 183,
+        "startChar": 37,
+        "endLine": 183,
+        "endChar": 59
+      },
+      "revId": "8e5bfa40e41fe08a357b3da206af493d13e9ae46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aca9fd5b_023048b2",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-12-08T13:17:56Z",
+      "side": 1,
+      "message": "As I understand it, OP-TEE amends the device tree with the reserved / secure carve out region that NS components (bootloader/linux) aren\u0027t meant to touch. So from the initial dtb loaded by TF-A, OP-TEE/BL32 updates it early at boot, and the same device tree is passed later to BL33.\n\nThe two dtb copies concept exists in FVP but doens\u0027t exist in qemu, they would have to be made consistent (copy secure version to ns version) after OP-TEE has updated the blob, and before being passed to BL33.",
+      "parentUuid": "fada8cb0_187e85e5",
       "range": {
         "startLine": 183,
         "startChar": 37,
