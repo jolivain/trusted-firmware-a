@@ -236,6 +236,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fbc8721_9f589406",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-12-08T14:38:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8debff41_d5492e77",
+      "range": {
+        "startLine": 163,
+        "startChar": 7,
+        "endLine": 163,
+        "endChar": 11
+      },
+      "revId": "a5b0d904400a0691a0701e9a28c02e559b310153",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47867709_be70d19f",
@@ -249,6 +273,30 @@
       "writtenOn": "2022-12-08T13:02:11Z",
       "side": 1,
       "message": "uuid !\u003d NULL instead?",
+      "range": {
+        "startLine": 168,
+        "startChar": 7,
+        "endLine": 168,
+        "endChar": 11
+      },
+      "revId": "a5b0d904400a0691a0701e9a28c02e559b310153",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec827f19_aa995b42",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-12-08T14:38:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "47867709_be70d19f",
       "range": {
         "startLine": 168,
         "startChar": 7,
@@ -282,6 +330,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfe0ffd3_4dc90f38",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-12-08T14:38:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ca3de939_40d952d9",
+      "range": {
+        "startLine": 177,
+        "startChar": 62,
+        "endLine": 177,
+        "endChar": 63
+      },
+      "revId": "a5b0d904400a0691a0701e9a28c02e559b310153",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ac29ab3_2fd5e469",
@@ -295,6 +367,30 @@
       "writtenOn": "2022-12-08T13:02:11Z",
       "side": 1,
       "message": "unsigned but returning signed value?",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 12
+      },
+      "revId": "a5b0d904400a0691a0701e9a28c02e559b310153",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6c8a574_9983ca38",
+        "filename": "plat/qemu/common/qemu_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-12-08T14:38:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4ac29ab3_2fd5e469",
       "range": {
         "startLine": 345,
         "startChar": 0,
@@ -328,6 +424,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "565ba6ec_ed47acf1",
+        "filename": "plat/qemu/common/qemu_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-12-08T14:38:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5e6cbe5a_92e879da",
+      "range": {
+        "startLine": 356,
+        "startChar": 6,
+        "endLine": 356,
+        "endChar": 16
+      },
+      "revId": "a5b0d904400a0691a0701e9a28c02e559b310153",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "06433e35_faa479fa",
@@ -341,6 +461,24 @@
       "writtenOn": "2022-12-08T13:02:11Z",
       "side": 1,
       "message": "braces around if",
+      "revId": "a5b0d904400a0691a0701e9a28c02e559b310153",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d5462de_4d1fbe41",
+        "filename": "plat/qemu/common/qemu_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-12-08T14:38:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "06433e35_faa479fa",
       "revId": "a5b0d904400a0691a0701e9a28c02e559b310153",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -362,6 +500,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3eb14379_6709b2d0",
+        "filename": "plat/qemu/common/qemu_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-12-08T14:38:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1adf829a_b088682b",
+      "revId": "a5b0d904400a0691a0701e9a28c02e559b310153",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5047b64b_d4b46521",
@@ -375,6 +531,30 @@
       "writtenOn": "2022-12-08T13:02:11Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 399,
+        "startChar": 0,
+        "endLine": 399,
+        "endChar": 1
+      },
+      "revId": "a5b0d904400a0691a0701e9a28c02e559b310153",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f218f9c4_6c36a8b4",
+        "filename": "plat/qemu/common/qemu_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2022-12-08T14:38:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5047b64b_d4b46521",
       "range": {
         "startLine": 399,
         "startChar": 0,
