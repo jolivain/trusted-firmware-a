@@ -86,6 +86,24 @@
       "message": "\nHi Demi Marie,\n\nPlease look at the CI failure[1] and take necessary action to fix those. Please let us know if you need any help in fixing these CI failures. Thanks!\n\n[1]: http://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/550/",
       "revId": "762c286e4079cb46cf5bce807ccd9d3336152d1c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a683daf7_431fc337",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-08T16:01:14Z",
+      "side": 1,
+      "message": "\u003e \u003e Hi Demi Marie,\n\u003e \u003e \n\u003e \u003e Thank you for the patch stack! And sorry for the delay in progressing these... We recently made a release of TF-A, which kept a number of us busy, and the dust is just starting to settle down. Also I needed some time to refresh my memory on X509/ASN1 ; this code was implemented years ago and has hardly been modified / revisited ever since!\n\u003e \u003e \n\u003e \u003e I am curious to know what prompted these changes.\n\u003e \n\u003e When I saw that Trusted Board Boot uses X.509 certificates, I decided to check to see if there was a buffer overflow or similar vulerability in the firmware.  X.509 is complex, and parsing X.509 certificates in C code that runs with the highest privileges and (in the case of BL1) is not patchable violates what I consider to be best practices from a security perspective, which is to avoid complex parsing in a memory-unsafe language in non-sandboxed code.  In particular, the USB Armory V1’s High-Assurance Boot feature was broken by a buffer overflow in the boot ROM’s X.509 certificate parser.  Thankfully, I did not find any vulnerabilities here.\n\nI see, thanks for providing the background, that\u0027s useful information.\n\nRegarding this HAB buffer overflow you mentioned, that\u0027s interesting, I\u0027ve googled that and found a few links, which I\u0027ll go through.\n\nhttps://blog.quarkslab.com/vulnerabilities-in-high-assurance-boot-of-nxp-imx-microprocessors.html\n\n\u003e \u003e Did you encounter any particular issue with the existing code? Or just spotted these deviations by manual code inspection?\n\u003e \n\u003e All of these were found by manual code inspection.  I do not even have a dev board running TF-A.\n\nOK. FYI you don\u0027t actually need a dev board ; you can run TF-A on a couple of emulation platforms, including QEMU and Arm FVPs.\n\n\u003e \u003e Also, may I ask how you tested these patches?\n\u003e \n\u003e For the most part, I haven’t.  I did figure out how to build TF-A against a git checkout of mbedTLS, so they should compile in at least one configuration, but I am not surprised that CI is showing problems.\n\nOK.\n\n\u003e \u003e By any chance, would you have any ill-formatted X.509 certificates that used to be incorrectly accepted by TF-A X509 parser but are now properly being rejected by your changes? If yes then would you be happy to contribute these to TF-A CI system, so we can integrate them as regression tests?\n\u003e \n\u003e I do not have any right now.  mbedTLS also has areas where it accepts ill-formed DER, and I have filed PRs on GitHub for that.\n\nOK.\n\nJFYI, I am planning to send an email to TF-A project\u0027s mailing list to advertise your patch stack. I\u0027d like to encourage platform maintainers to test these changes on their side. Since we are now forbidding some things that were previously allowed in certificates, I\u0027d like to give them a heads up, in case it breaks their setup, so we can find a solution early.",
+      "parentUuid": "acc25a70_569d5cb3",
+      "revId": "762c286e4079cb46cf5bce807ccd9d3336152d1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
