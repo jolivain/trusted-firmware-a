@@ -63,6 +63,30 @@
       },
       "revId": "b49ef76b3b3fcff45bac70f69fc9a7314b790f43",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad133b99_e3a86400",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1000767
+      },
+      "writtenOn": "2022-12-08T21:11:29Z",
+      "side": 1,
+      "message": "Manish, added an empty API to avoid adding CONDITIONAL_CMO #ifdef everywhere in common code.",
+      "parentUuid": "9940ccd8_31b097ee",
+      "range": {
+        "startLine": 428,
+        "startChar": 9,
+        "endLine": 428,
+        "endChar": 21
+      },
+      "revId": "b49ef76b3b3fcff45bac70f69fc9a7314b790f43",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
