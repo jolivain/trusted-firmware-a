@@ -140,6 +140,201 @@
       "message": "A friendly reminder to please help reviewing this.",
       "revId": "a5b0d904400a0691a0701e9a28c02e559b310153",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e6199a0_e2870bfd",
+        "filename": "plat/qemu/common/qemu_bl2_mem_params_desc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-12-08T13:02:11Z",
+      "side": 1,
+      "message": "why specifically 8 entries are mentioned?",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 26
+      },
+      "revId": "a5b0d904400a0691a0701e9a28c02e559b310153",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8debff41_d5492e77",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-12-08T13:02:11Z",
+      "side": 1,
+      "message": "name !\u003d NULL instead?",
+      "range": {
+        "startLine": 163,
+        "startChar": 7,
+        "endLine": 163,
+        "endChar": 11
+      },
+      "revId": "a5b0d904400a0691a0701e9a28c02e559b310153",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47867709_be70d19f",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-12-08T13:02:11Z",
+      "side": 1,
+      "message": "uuid !\u003d NULL instead?",
+      "range": {
+        "startLine": 168,
+        "startChar": 7,
+        "endLine": 168,
+        "endChar": 11
+      },
+      "revId": "a5b0d904400a0691a0701e9a28c02e559b310153",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca3de939_40d952d9",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-12-08T13:02:11Z",
+      "side": 1,
+      "message": "put braces around if",
+      "range": {
+        "startLine": 177,
+        "startChar": 62,
+        "endLine": 177,
+        "endChar": 63
+      },
+      "revId": "a5b0d904400a0691a0701e9a28c02e559b310153",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ac29ab3_2fd5e469",
+        "filename": "plat/qemu/common/qemu_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-12-08T13:02:11Z",
+      "side": 1,
+      "message": "unsigned but returning signed value?",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 12
+      },
+      "revId": "a5b0d904400a0691a0701e9a28c02e559b310153",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e6cbe5a_92e879da",
+        "filename": "plat/qemu/common/qemu_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-12-08T13:02:11Z",
+      "side": 1,
+      "message": "mem_params !\u003d NULL instead?",
+      "range": {
+        "startLine": 356,
+        "startChar": 6,
+        "endLine": 356,
+        "endChar": 16
+      },
+      "revId": "a5b0d904400a0691a0701e9a28c02e559b310153",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06433e35_faa479fa",
+        "filename": "plat/qemu/common/qemu_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-12-08T13:02:11Z",
+      "side": 1,
+      "message": "braces around if",
+      "revId": "a5b0d904400a0691a0701e9a28c02e559b310153",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1adf829a_b088682b",
+        "filename": "plat/qemu/common/qemu_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-12-08T13:02:11Z",
+      "side": 1,
+      "message": "braces around if",
+      "revId": "a5b0d904400a0691a0701e9a28c02e559b310153",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5047b64b_d4b46521",
+        "filename": "plat/qemu/common/qemu_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-12-08T13:02:11Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 399,
+        "startChar": 0,
+        "endLine": 399,
+        "endChar": 1
+      },
+      "revId": "a5b0d904400a0691a0701e9a28c02e559b310153",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
