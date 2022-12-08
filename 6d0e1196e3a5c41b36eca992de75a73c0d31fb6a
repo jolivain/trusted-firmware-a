@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0df68041_f7550d27",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2022-12-08T13:05:10Z",
+      "side": 1,
+      "message": "All the information here looks great but I wonder if some of it already exist in the TF-M RSS documentation (or if it should)? If so, would it be better to link there where possible, specifying the version of the RSS interfaces that TF-A uses?",
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bddf20a4_f5cacfd0",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2022-12-08T13:05:10Z",
+      "side": 1,
+      "message": "OK, but wouldn\u0027t it be good to have a link to the code showing the exact definition? Presumably the code in TF-A conforms to a specific protocol_ver?",
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
