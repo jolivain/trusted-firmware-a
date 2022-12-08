@@ -143,6 +143,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "683c4263_48534f02",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-08T12:48:27Z",
+      "side": 1,
+      "message": "\u003e Right now, the code requires that the Extensions field be present, but allows it to be an empty SEQUENCE (containing no extensions).  Such a certificate is ill-formed, but is (harmlessly) accepted by the current code.\n\nThanks, I had missed that.",
+      "parentUuid": "cb723ab1_ca6a3eb7",
+      "range": {
+        "startLine": 9,
+        "startChar": 27,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "7d4e5f5a6dd1fe947c5a5cb6cfc8bb8cbe86aaf9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "862c96ae_6ca288e3",
@@ -452,6 +476,30 @@
       "side": 1,
       "message": "\u003e OK, thanks. So does this mean that if the version number had been IMPLICIT, then its encoding would have looked something like that instead?\n\u003e \n\u003e             MBEDTLS_ASN1_CONSTRUCTED | MBEDTLS_ASN1_CONTEXT_SPECIFIC | 0,\n\u003e             1,\n\u003e             2,\n\nCorrect.\n\n\u003e One more question... Sorry, I am taking advantage of your expertise in ASN.1/X.509, feel free to point me to the RFC 5280 if you don\u0027t have time to answer my questions...\n\nThe actual ITU-T X.690 standard for ASN.1 DER is X.690 at https://www.itu.int/ITU-T/studygroups/com10/languages/.\n\n\u003e So I noticed that the issuerUniqueID field in the TBSCertificate sequence is an IMPLICIT one. However, when I compare the way they are parsed in TF-A code right now, I don\u0027t see much difference, both are handled through a call to mbedtls_asn1_get_tag(). I suppose mbedTLS library abstracts that? Do you know?\n\nFor an EXPLICIT tag one would use two calls to mbedtls_asn1_get_tag(): the first to get the outer tag, the second to get the inner one.  An IMPLICIT tag only uses the outer call.  Validating the unique ID fields is pointless, since they are unused in practice and no other code actually cares about them.",
       "parentUuid": "2634c4aa_536470a0",
+      "range": {
+        "startLine": 196,
+        "startChar": 22,
+        "endLine": 196,
+        "endChar": 30
+      },
+      "revId": "7d4e5f5a6dd1fe947c5a5cb6cfc8bb8cbe86aaf9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ec35360_21bedac3",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-08T12:48:27Z",
+      "side": 1,
+      "message": "Thanks a lot for the explanations, that all makes sense to me now.",
+      "parentUuid": "e494d3fa_83640706",
       "range": {
         "startLine": 196,
         "startChar": 22,
