@@ -74,6 +74,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d1f4b002_36b6126b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-12-08T21:14:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d283e002_1a4094b7",
+      "revId": "c4ee97135fec8f7a715baba14119d949c22a219a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a26c5817_db0bae66",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -314,6 +332,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea725aaa_a0dc47fa",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-12-08T21:14:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b86d02b2_2d728d32",
+      "range": {
+        "startLine": 160,
+        "startChar": 8,
+        "endLine": 160,
+        "endChar": 30
+      },
+      "revId": "c4ee97135fec8f7a715baba14119d949c22a219a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d03c9ce6_1cc25dea",
@@ -351,6 +393,30 @@
       "side": 1,
       "message": "With keeping ARM_ROTPK_DEVEL_RSA_ID, is there a better name for ARM_ROTPK_DEVEL_FULL_DEV_KEY_ID that would work?",
       "parentUuid": "d03c9ce6_1cc25dea",
+      "range": {
+        "startLine": 162,
+        "startChar": 8,
+        "endLine": 162,
+        "endChar": 39
+      },
+      "revId": "c4ee97135fec8f7a715baba14119d949c22a219a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b654a4dd_1032f4ff",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2022-12-08T21:14:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a56282a_8ea26dfe",
       "range": {
         "startLine": 162,
         "startChar": 8,
