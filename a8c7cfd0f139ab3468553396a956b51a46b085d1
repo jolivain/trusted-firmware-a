@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76c4aece_c7c3642c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-08T15:41:46Z",
+      "side": 1,
+      "message": "This patch appears to be a subset of this one:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17904/5\n\nI guess that was not intentional? I\u0027d rather keep the present one (as it nicely explains the changes in isolation in the commit message) and reduce #17904 to just switching to mbedtls_asn1_get_bitstring_null(), if that is not too much hassle.",
+      "revId": "a8c7cfd0f139ab3468553396a956b51a46b085d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
