@@ -143,6 +143,7 @@ endfunc do_stack_maintenance
  */
 func psci_power_down_wfi
 	dsb	sy		// ensure write buffer empty
+1:
 	wfi
-	no_ret	plat_panic_handler
+	b	1b
 endfunc psci_power_down_wfi
