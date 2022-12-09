@@ -579,6 +579,30 @@
       },
       "revId": "7d4e5f5a6dd1fe947c5a5cb6cfc8bb8cbe86aaf9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "114198d5_1db5a4e0",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2022-12-09T15:10:49Z",
+      "side": 1,
+      "message": "The mbedTLS functions themselves do not check for valid DER encodings of lengths.  I have a PR with mbedTLS to fix that, but such a check could also be added to TF-A as well.",
+      "parentUuid": "823ea51f_d551a7cb",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 65
+      },
+      "revId": "7d4e5f5a6dd1fe947c5a5cb6cfc8bb8cbe86aaf9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
