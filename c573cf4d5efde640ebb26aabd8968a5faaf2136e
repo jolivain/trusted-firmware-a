@@ -449,6 +449,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2c4381ec_0c1343dd",
+        "filename": "lib/aarch64/misc_helpers.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2022-12-09T11:10:31Z",
+      "side": 1,
+      "message": "Not the macro itself but the brackets around BL2_RUNNING_AT_EL3. More a pedantic note, but doesn\u0027t seem necessary to encase a single macro in brackets.",
+      "parentUuid": "7989eac7_56366dfb",
+      "range": {
+        "startLine": 167,
+        "startChar": 1,
+        "endLine": 167,
+        "endChar": 2
+      },
+      "revId": "c573cf4d5efde640ebb26aabd8968a5faaf2136e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "080be51b_ef63be28",
         "filename": "lib/cpus/aarch32/cpu_helpers.S",
         "patchSetId": 8
