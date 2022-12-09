@@ -16,6 +16,23 @@
       "message": "Hi,\nIt looks like there is still no SCMI implementation (required by Linux kernel) and no DDR settings like in the available Rockchip binary. \n ",
       "revId": "b558369199d8c03c8714ba3c01a1400aa906ca6c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eef1980e_6a0bb46e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2022-12-09T11:13:50Z",
+      "side": 1,
+      "message": "please fix the commit title\n✖   type must be one of [build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test] [type-enum]\n\nThere seems to be build failures related to rockchip platform:\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1527449/console\n\nOther platforms build failures may not be related to this change, but require a rebase to confirm.\n\nNew files will have to be covered by a coverity makefile update:\nplat/rockchip/rk3568/drivers/pmu/pmu.c\nplat/rockchip/rk3568/drivers/soc/soc.c\nplat/rockchip/rk3568/plat_sip_calls.c",
+      "revId": "b558369199d8c03c8714ba3c01a1400aa906ca6c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
