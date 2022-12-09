@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d902819_73e88161",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-09T13:38:41Z",
+      "side": 1,
+      "message": "With the renaming of ARM_ROTPK_DEVEL_FULL_DEV_KEY_ID into ARM_ROTPK_DEVEL_FULL_DEV_RSA_KEY_ID, I feel we should also rename this into devel_full_dev_rsa_key, to go along existing devel_rsa and devel_ecdsa.\n\n(If you agree with this, please remember to update the name in the CI patch as well).",
+      "range": {
+        "startLine": 9,
+        "startChar": 35,
+        "endLine": 9,
+        "endChar": 53
+      },
+      "revId": "3a5819c898e494dd32828fcdf2b30cc21ac02998",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
