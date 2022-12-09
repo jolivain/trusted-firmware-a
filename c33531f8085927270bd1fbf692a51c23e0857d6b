@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb32e622_dc86bde3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-09T16:19:58Z",
+      "side": 1,
+      "message": "Hi,\n\nI had a look at the CI failures. I think only the following ones need attention, the rest I believe are general CI issues we\u0027re looking into right now:\n\n* Commitlint errors: https://ci.trustedfirmware.org/job/tf-a-commitlint/3518/console\n* Static checks errors: https://ci.trustedfirmware.org/job/tf-a-static-checks/3050/\n* Build errors in STM32 platforms, due to them enabling -Wno-sign-compare: https://ci.trustedfirmware.org/job/tf-a-builder/1527953/console\n\n drivers/auth/mbedtls/mbedtls_x509_parser.c: In function \u0027cert_parse\u0027:\ndrivers/auth/mbedtls/mbedtls_x509_parser.c:194:24: error: comparison of integer expressions of different signedness: \u0027int\u0027 and \u0027unsigned int\u0027 [-Werror\u003dsign-compare]\n  194 |         if (((end - p) \u003c\u003d sizeof(v3)) || (0 !\u003d memcmp(p, v3, sizeof(v3)))) {\n      |                        ^~\ndrivers/auth/mbedtls/mbedtls_x509_parser.c:344:32: error: comparison of integer expressions of different signedness: \u0027size_t\u0027 {aka \u0027unsigned int\u0027} and \u0027int\u0027 [-Werror\u003dsign-compare]\n  344 |         if ((ret !\u003d 0) || (len !\u003d end - p)) {\n      |                                ^~\ndrivers/auth/mbedtls/mbedtls_x509_parser.c:354:32: error: comparison of integer expressions of different signedness: \u0027size_t\u0027 {aka \u0027unsigned int\u0027} and \u0027int\u0027 [-Werror\u003dsign-compare]\n  354 |         if ((ret !\u003d 0) || (len !\u003d end - p)) {\n      |                                ^~\ndrivers/auth/mbedtls/mbedtls_x509_parser.c:409:22: error: comparison of integer expressions of different signedness: \u0027int\u0027 and \u0027size_t\u0027 {aka \u0027unsigned int\u0027} [-Werror\u003dsign-compare]\n  409 |         if ((end - p \u003c\u003d sig_alg1.len) ||\n      |                      ^~\ncc1: all warnings being treated as errors\nMakefile:1330: recipe for target \u0027/home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/stm32mp1/debug/bl2/mbedtls_x509_parser.o\u0027 failed\n\nCould you please fix these?",
+      "revId": "c33531f8085927270bd1fbf692a51c23e0857d6b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
