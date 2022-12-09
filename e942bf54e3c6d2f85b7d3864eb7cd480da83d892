@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c14e8d0_b10301d2",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-12-09T16:57:20Z",
+      "side": 1,
+      "message": "Hi Demi,\n\nYou missed adding inline comments to each field. Such comments will be helpful in the future I think.",
+      "range": {
+        "startLine": 154,
+        "startChar": 5,
+        "endLine": 154,
+        "endChar": 7
+      },
+      "revId": "e942bf54e3c6d2f85b7d3864eb7cd480da83d892",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
