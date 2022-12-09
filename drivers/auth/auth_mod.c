@@ -259,15 +259,15 @@ static int auth_nvctr(const auth_method_param_nv_ctr_t *param,
 	/* Parse the DER encoded integer */
 	assert(data_ptr);
 	p = (char *)data_ptr;
-	if (*p != ASN1_INTEGER) {
+	if ((data_len < 3) || (*p != ASN1_INTEGER)) {
 		/* Invalid ASN.1 integer */
 		return 1;
 	}
 	p++;
 
 	/* NV-counters are unsigned integers up to 32-bit */
-	len = (unsigned int)(*p & 0x7f);
-	if ((*p & 0x80) || (len > 4)) {
+	len = (unsigned int)*p;
+	if ((len > 4) || (data_len - 2 != len)) {
 		return 1;
 	}
 	p++;
