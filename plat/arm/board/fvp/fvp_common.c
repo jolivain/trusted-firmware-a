@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -112,6 +112,12 @@ const mmap_region_t plat_arm_mmap[] = {
 	 */
 	ARM_MAP_TRUSTED_DRAM,
 #if ENABLE_RME
+	/*
+	 * Required to load TOS_FW_CONFIG in Root/Secure Memory in
+	 * 4-world/2-world system.
+	 */
+	ARM_MAP_TOS_FW_CONFIG_DRAM1,
+
 	ARM_MAP_RMM_DRAM,
 	ARM_MAP_GPT_L1_DRAM,
 #endif /* ENABLE_RME */
