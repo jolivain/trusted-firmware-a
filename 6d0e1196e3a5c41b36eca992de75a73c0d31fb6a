@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d54bd5a4_32c3db4f",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2022-12-12T14:30:46Z",
+      "side": 1,
+      "message": "The TF-M RSS docs are here: https://tf-m-user-guide.trustedfirmware.org/platform/arm/rss/index.html\n\nThere is a more complete description of the message structure in \"RSS communication design\" there, so a link to that could replace the \"message structure\" section here.\n\n\"RSS based boot flow\" is covered (very) briefly in \"RSS introduction\" in the TF-M docs, so a link could replace the TBD here. Although it may still make sense to add any details about e.g. AP using public keys from RSS OTP in boot process here.\n\nThe measured boot \u0026 delegated attestation APIs are documented in TF-M, but compared to here they are missing the explanation of how it all fits together to meet the CCA usecase.\n\nHope that helps!",
+      "parentUuid": "0df68041_f7550d27",
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bddf20a4_f5cacfd0",
         "filename": "docs/design_documents/rss.rst",
         "patchSetId": 3
