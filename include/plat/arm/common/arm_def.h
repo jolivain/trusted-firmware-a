@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -82,19 +82,22 @@
  *   - L1 GPT DRAM: Reserved for L1 GPT if RME is enabled
  *   - REALM DRAM: Reserved for Realm world if RME is enabled
  *   - TF-A <-> RMM SHARED: Area shared for communication between TF-A and RMM
+ *   - TOS_FW_CONFIG region: Area for TOS FW config if RME is enabled
  *   - AP TZC DRAM: The remaining TZC secured DRAM reserved for AP use
  *
  *              RME enabled(64MB)                RME not enabled(16MB)
  *              --------------------             -------------------
  *              |                  |             |                 |
- *              |  AP TZC (~28MB)  |             |  AP TZC (~14MB) |
+ *              |  AP TZC (~27.5MB)|             |  AP TZC (~14MB) |
  *              --------------------             -------------------
- *              |                  |             |                 |
- *              |   REALM (RMM)    |             |  EL3 TZC (2MB)  |
- *              |   (32MB - 4KB)   |             -------------------
- *              --------------------             |                 |
- *              |                  |             |    SCP TZC      |
- *              |   TF-A <-> RMM   |  0xFFFF_FFFF-------------------
+ *              |  TOS_FW_CONFIG   |             |                 |
+ *              |      (0.5MB)     |             |  EL3 TZC (2MB)  |
+ *              --------------------             -------------------
+ *              |   REALM (RMM)    |             |                 |
+ *              |   (32MB - 4KB)   |             |    SCP TZC      |
+ *              --------------------  0xFFFF_FFFF-------------------
+ *              |                  |
+ *              |   TF-A <-> RMM   |
  *              |   SHARED (4KB)   |
  *              --------------------
  *              |                  |
@@ -114,6 +117,7 @@
  */
 #define ARM_EL3_TZC_DRAM1_SIZE		UL(0x00300000) /* 3MB */
 #define ARM_L1_GPT_SIZE			UL(0x00100000) /* 1MB */
+#define ARM_TOS_FW_CONFIG_DRAM1_SIZE	UL(0x00080000)	/* 0.5MB */
 
 /* 32MB - ARM_EL3_RMM_SHARED_SIZE */
 #define ARM_REALM_SIZE			(UL(0x02000000) -		\
@@ -123,9 +127,12 @@
 #define ARM_TZC_DRAM1_SIZE		UL(0x01000000) /* 16MB */
 #define ARM_EL3_TZC_DRAM1_SIZE		UL(0x00200000) /* 2MB */
 #define ARM_L1_GPT_SIZE			UL(0)
+/* TOS FW config lies in SRAM in Non-RME systems */
+#define ARM_TOS_FW_CONFIG_DRAM1_SIZE	UL(0x0)
 #define ARM_REALM_SIZE			UL(0)
 #define ARM_EL3_RMM_SHARED_SIZE		UL(0)
 #endif /* ENABLE_RME */
+
 
 #define ARM_SCP_TZC_DRAM1_BASE		(ARM_DRAM1_BASE +		\
 					ARM_DRAM1_SIZE -		\
@@ -140,6 +147,13 @@
 					ARM_L1_GPT_SIZE)
 #define ARM_L1_GPT_END			(ARM_L1_GPT_ADDR_BASE +		\
 					ARM_L1_GPT_SIZE - 1U)
+
+#define ARM_TOS_FW_CONFIG_DRAM1_BASE	(ARM_REALM_BASE -		\
+					 ARM_TOS_FW_CONFIG_DRAM1_SIZE)
+
+#define ARM_TOS_FW_CONFIG_DRAM1_END	(ARM_TOS_FW_CONFIG_DRAM1_BASE + \
+					 ARM_TOS_FW_CONFIG_DRAM1_SIZE - \
+					 1U)
 
 #define ARM_REALM_BASE			(ARM_EL3_RMM_SHARED_BASE -	\
 					 ARM_REALM_SIZE)
@@ -170,7 +184,9 @@
 					ARM_EL3_TZC_DRAM1_SIZE +	\
 					ARM_EL3_RMM_SHARED_SIZE +	\
 					ARM_REALM_SIZE +		\
-					ARM_L1_GPT_SIZE))
+					ARM_L1_GPT_SIZE +		\
+					ARM_TOS_FW_CONFIG_DRAM1_SIZE))
+
 #define ARM_AP_TZC_DRAM1_END		(ARM_AP_TZC_DRAM1_BASE +	\
 					ARM_AP_TZC_DRAM1_SIZE - 1U)
 
@@ -334,6 +350,11 @@
 					ARM_EL3_RMM_SHARED_SIZE,	\
 					MT_MEMORY | MT_RW | MT_REALM)
 
+#define ARM_MAP_TOS_FW_CONFIG_DRAM1					\
+				MAP_REGION_FLAT(			\
+					ARM_TOS_FW_CONFIG_DRAM1_BASE,	\
+					ARM_TOS_FW_CONFIG_DRAM1_SIZE,	\
+					MT_MEMORY | MT_RW | EL3_PAS)
 #endif /* ENABLE_RME */
 
 /*
