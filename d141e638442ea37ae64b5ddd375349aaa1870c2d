@@ -16,6 +16,24 @@
       "message": "Assuming -Wunused-const-variable\u003d1 does less invasive checks that -Wunused-const-variable\u003d2, would it be a good idea to add -Wunused-const-variable\u003d1 to W\u003d1?",
       "revId": "d141e638442ea37ae64b5ddd375349aaa1870c2d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3e3c279_1d0a43d5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-12-12T15:22:56Z",
+      "side": 1,
+      "message": "-Wunused-const-variable\u003d1 is enabled by -Wunused-variable which is in turn enabled by -Wall, so no action needed there. As I noticed it was previously ruled out to be added by default due to the size of effort required, I thought adding it to W\u003d2 (which I\u0027m redefining to be the more difficult to get to wishlist of warnings more or less) would be good for visibility and could get tackled at some point.",
+      "parentUuid": "eebcd1ad_2529b8df",
+      "revId": "d141e638442ea37ae64b5ddd375349aaa1870c2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
