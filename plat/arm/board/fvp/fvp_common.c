@@ -111,6 +111,16 @@ const mmap_region_t plat_arm_mmap[] = {
 	 * Required to load HW_CONFIG, SPMC and SPs to trusted DRAM.
 	 */
 	ARM_MAP_TRUSTED_DRAM,
+
+	/*
+	 * Required to load Event Log in Secure Memory
+	 */
+#if MEASURED_BOOT
+#if defined(SPD_tspd) || defined(SPD_opteed) || defined(SPD_spmd)
+	ARM_MAP_EVENT_LOG_DRAM1,
+#endif /* SPD_tspd || SPD_opteed || SPD_spmd */
+#endif /* MEASURED_BOOT */
+
 #if ENABLE_RME
 	ARM_MAP_RMM_DRAM,
 	ARM_MAP_GPT_L1_DRAM,
