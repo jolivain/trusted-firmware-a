@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -40,7 +40,13 @@
 /* If required, SPD should enable loading of trusted OS fw config */
 #if defined(SPD_tspd) || defined(SPD_spmd)
 		tos_fw-config {
+
+#if ENABLE_RME
+			load-address = <0x0 0xfdb80000>;
+			s-load-address = <0x0 0x7e00000>;
+#else
 			load-address = <0x0 0x04001500>;
+#endif /* ENABLE_RME */
 			max-size = <0xB00>;
 			id = <TOS_FW_CONFIG_ID>;
 		};
