@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -164,7 +164,11 @@
 # define MAX_XLAT_TABLES		5
 #else
 # define PLAT_ARM_MMAP_ENTRIES		12
-# define MAX_XLAT_TABLES		6
+# if defined(IMAGE_BL2)
+#  define MAX_XLAT_TABLES		7
+# else
+#  define MAX_XLAT_TABLES		6
+# endif
 #endif
 
 /*
