@@ -16,6 +16,24 @@
       "message": "Just trying to understand why you are restricting it to just fvp platform? Since you have already taken care generic code shouldn\u0027t you enable it by default for all platforms? In future we want to get away with platform specific enablement ",
       "revId": "a5bbea65c8fd222b7820cde77d8e082b9b36e043",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a42e8c3_17f39120",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-12-12T14:35:30Z",
+      "side": 1,
+      "message": "But this is still firmware, so by design tailored to a specific system, right? There is no point in enabling FGT support for everyone, when only QEMU and the FVP actually support it (because the rest of the platforms are v8.2 systems, at best). IIUC, the specification of an ARM architecture level (make_helpers/arch_features.mk) during build should cover the bulk of the features. We can try to strengthen that part, to set features to \"2\" when they are introduced into the architecture, even before they become mandatory.\n\nBut in general I am bit wary of tying this to ARMv8.x, since this becomes less and less meaningful. A better way would be to tie this to the *cores* supported, maybe.\n\nAlso keep in mind that the FVP (and also QEMU) are special cases here, since their feature exposure can vary greatly. For the actual TF-A hardware platforms this is not true, they don\u0027t gain features overnight. So introducing support for some ARMv8.9 feature will not affect Juno, for instance.",
+      "parentUuid": "3c2e2d6d_36c2bf0d",
+      "revId": "a5bbea65c8fd222b7820cde77d8e082b9b36e043",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
