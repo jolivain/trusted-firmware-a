@@ -37,3 +37,11 @@ contains, and must be formed with the following fields:
       Only needed by those configuration files which require being loaded
       in secure memory (at load-address) as well as in non-secure memory
       e.g. HW_CONFIG
+
+- s-load-address [optional]
+    - value type: <u64>
+    - Physical loading base address of the configuration in the secure
+      memory.
+      Only needed by those configuration files which require being loaded
+      in root memory (at load-address) as well as in secure memory e.g.
+      TOS_FW_CONFIG. This property is needed only in RME enabled systems.
