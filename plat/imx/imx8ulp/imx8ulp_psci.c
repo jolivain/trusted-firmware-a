@@ -22,6 +22,7 @@ extern void cgc1_restore(void);
 extern void imx_apd_ctx_save(unsigned int cpu);
 extern void imx_apd_ctx_restore(unsigned int cpu);
 extern void usb_wakeup_enable(bool enable);
+extern void imx8ulp_init_scmi_server(void);
 
 static uintptr_t secure_entrypoint;
 
@@ -366,7 +367,7 @@ void imx_domain_suspend(const psci_power_state_t *target_state)
 	}
 }
 
-extern void imx8ulp_init_scmi_server(void);
+#define DRAM_LPM_STATUS		U(0x2802b004)
 void imx_domain_suspend_finish(const psci_power_state_t *target_state)
 {
 	unsigned int cpu = MPIDR_AFFLVL0_VAL(read_mpidr_el1());
@@ -394,6 +395,14 @@ void imx_domain_suspend_finish(const psci_power_state_t *target_state)
 
 		/* re-init the SCMI channel */
 		imx8ulp_init_scmi_server();
+	}
+
+	/*
+	 * wait for DDR is ready when DDR is under the RTD
+	 * side control for power saving
+	 */
+	while (mmio_read_32(DRAM_LPM_STATUS) != 0) {
+		;
 	}
 
 	/* clear cluster's LPM setting. */
