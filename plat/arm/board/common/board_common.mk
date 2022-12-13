@@ -12,6 +12,7 @@ BL1_SOURCES		+=	drivers/cfi/v2m/v2m_flash.c
 BL2_SOURCES		+=	drivers/cfi/v2m/v2m_flash.c
 
 ifneq (${TRUSTED_BOARD_BOOT},0)
+ARM_ROTPK_S = plat/arm/board/common/rotpk/arm_dev_rotpk.S
 ifneq (${ARM_CRYPTOCELL_INTEG}, 1)
 # ROTPK hash location
 ifeq (${ARM_ROTPK_LOCATION}, regs)
