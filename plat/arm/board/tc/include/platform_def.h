@@ -129,7 +129,7 @@
  * BL2 and BL1-RW. Current size is considering that TRUSTED_BOARD_BOOT and
  * MEASURED_BOOT is enabled.
  */
-#define PLAT_ARM_MAX_BL31_SIZE		0x47000
+#define PLAT_ARM_MAX_BL31_SIZE		0x48000
 
 /*
  * Size of cacheable stacks
