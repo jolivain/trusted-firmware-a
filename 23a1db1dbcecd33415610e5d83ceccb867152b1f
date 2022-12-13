@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26033776_0e3d6ec8",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-13T16:09:06Z",
+      "side": 1,
+      "message": "hmm, I think there is a case that plat_ea_handler can transtion to secure world and come back thus trampling the original scr_el3. This function can continue entry into EL3 after EA is handled in which case scr_el3 must be saved and restored. Suggest to keep this code path unaffected.",
+      "revId": "23a1db1dbcecd33415610e5d83ceccb867152b1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
