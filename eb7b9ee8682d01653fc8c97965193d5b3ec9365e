@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5e52cffd_4e3375b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-14T11:58:49Z",
+      "side": 1,
+      "message": "I agree with the changes, but need to be followed by proper framework and removal of weak function by TF-A team. Not blocking this patch as it performs the intended PoC.",
+      "revId": "eb7b9ee8682d01653fc8c97965193d5b3ec9365e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8dac5515_1a02217c",
         "filename": "plat/arm/board/fvp/fvp_sync_traps.c",
         "patchSetId": 4
@@ -37,6 +54,64 @@
         "endLine": 2,
         "endChar": 35
       },
+      "revId": "eb7b9ee8682d01653fc8c97965193d5b3ec9365e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e0244af_27bcf6eb",
+        "filename": "plat/arm/board/fvp/fvp_sync_traps.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-14T11:58:49Z",
+      "side": 1,
+      "message": "This is the right notice. The \"... and Contributors\" is not encouraged anymore for new files.",
+      "parentUuid": "8dac5515_1a02217c",
+      "range": {
+        "startLine": 2,
+        "startChar": 34,
+        "endLine": 2,
+        "endChar": 35
+      },
+      "revId": "eb7b9ee8682d01653fc8c97965193d5b3ec9365e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8989b71_b92d2796",
+        "filename": "plat/arm/board/fvp/fvp_sync_traps.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-14T11:58:49Z",
+      "side": 1,
+      "message": "might need an isb() here.",
+      "revId": "eb7b9ee8682d01653fc8c97965193d5b3ec9365e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd7bd92a_f59194eb",
+        "filename": "plat/arm/board/fvp/fvp_sync_traps.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-14T11:58:49Z",
+      "side": 1,
+      "message": "I think this implementation can be made architectural. As long as FEAT_RDNR is implemented this should work. But platform may have other reasons for trapping this.\n\nAs per TF-A, any platforms specific implementation should be preceded by plat_ prefix. \n\nAlso it would be worth getting rid of using weak functions (which are problematic on several fronts). \n\nSo this can be first implementation (with appropriate test in TFTF if possible), but needs to be followed by a small framework:\n\nTop level APIs to register sysreg trap handler by platform. A generic API to initialize the sysreg trap handler mechanism. A default behaviour of panic() is not suitable handler is register by platform.",
       "revId": "eb7b9ee8682d01653fc8c97965193d5b3ec9365e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
