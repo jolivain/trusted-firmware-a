@@ -24,6 +24,10 @@
 #include <services/spm_mm_partition.h>
 #endif
 
+#if ENABLE_RME
+#include <plat/arm/common/arm_dram.h>
+#include <plat/arm/common/arm_pas_def.h>
+#endif
 #include <plat/arm/common/arm_config.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
@@ -531,15 +535,23 @@ size_t plat_rmmd_get_el3_rmm_shared_mem(uintptr_t *shared)
 	return (size_t)RMM_SHARED_SIZE;
 }
 
+CASSERT(DRAM_BANKS_NUM == 2, DRAM_BANKS_NUM_mismatch);
+
+/* FVP DRAM banks memory layout */
+const struct dram_bank dram_layout[DRAM_BANKS_NUM] = {
+	{ARM_PAS_2_BASE, ARM_PAS_2_SIZE},
+	{ARM_PAS_4_BASE, ARM_PAS_4_SIZE}
+};
+
 int plat_rmmd_load_manifest(rmm_manifest_t *manifest)
 {
 	assert(manifest != NULL);
 
 	manifest->version = RMMD_MANIFEST_VERSION;
 	manifest->padding = 0U; /* RES0 */
-	manifest->plat_data = (uintptr_t)NULL;
+	manifest->plat_data = (uintptr_t)&manifest->plat_data + sizeof(manifest->plat_data);
+	(void)memcpy((void *)manifest->plat_data, &dram_layout, sizeof(dram_layout));
 
 	return 0;
 }
-
-#endif
+#endif	/* ENABLE_RME */
