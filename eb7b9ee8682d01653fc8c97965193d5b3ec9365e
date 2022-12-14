@@ -35,6 +35,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9bca9fe_e438b44a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-12-14T15:30:11Z",
+      "side": 1,
+      "message": "Thanks Soby for your comments!",
+      "revId": "eb7b9ee8682d01653fc8c97965193d5b3ec9365e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8dac5515_1a02217c",
@@ -101,6 +118,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e6e62994_8263d790",
+        "filename": "plat/arm/board/fvp/fvp_sync_traps.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-12-14T15:30:11Z",
+      "side": 1,
+      "message": "Ah, good catch. I could swear I had that in, in some earlier version, but somehow it got lost.",
+      "parentUuid": "b8989b71_b92d2796",
+      "revId": "eb7b9ee8682d01653fc8c97965193d5b3ec9365e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cd7bd92a_f59194eb",
         "filename": "plat/arm/board/fvp/fvp_sync_traps.c",
         "patchSetId": 4
@@ -112,6 +147,24 @@
       "writtenOn": "2022-12-14T11:58:49Z",
       "side": 1,
       "message": "I think this implementation can be made architectural. As long as FEAT_RDNR is implemented this should work. But platform may have other reasons for trapping this.\n\nAs per TF-A, any platforms specific implementation should be preceded by plat_ prefix. \n\nAlso it would be worth getting rid of using weak functions (which are problematic on several fronts). \n\nSo this can be first implementation (with appropriate test in TFTF if possible), but needs to be followed by a small framework:\n\nTop level APIs to register sysreg trap handler by platform. A generic API to initialize the sysreg trap handler mechanism. A default behaviour of panic() is not suitable handler is register by platform.",
+      "revId": "eb7b9ee8682d01653fc8c97965193d5b3ec9365e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c263b02e_c8df4289",
+        "filename": "plat/arm/board/fvp/fvp_sync_traps.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2022-12-14T15:30:11Z",
+      "side": 1,
+      "message": "Right, plat_handle_sysreg_trap() might be a better choice, at least for now. I don\u0027t know if we will ever see architectural sysreg handlers, but apparently TF-A did get away without them so far (which surprised me a bit, actually).\nA TFTF test is in the making:  https://review.trustedfirmware.org/c/TF-A/tf-a-tests/+/18329\n\nAs for a generic sysreg handler API: I see the idea of making this pretty, possibly with even registering multiple handler functions (for each (group of) system register), selected by masks and patterns (so that the if statement goes into the generic code). This would allow a platform to say: \"I want this (generic) and that (platform specific) handler.\"\nBut then again this might be premature work, since we don\u0027t know what we will need and if the designed framework will fit those needs. Not needing anything so far supports this.\n\nAlso there is some idea of a trap being handled fast, this case here is a good example. So jumping through a lot of administrative loops to fire up just the only possible function anyway does not sound very appealing.\n\nAnother alternative would be to have a fixed handle_sysreg_trap, then do the sysreg filtering in there, calling into platform specific handlers:\nint handle_sysreg_trap(uint64_t esr_el3, cpu_context_t *ctx)\n{\n#ifdef ENABLE_FEAT_RNG_TRAP\n\tif ((esr_el3 \u0026 ISS_SYSREG_OPCODE_MASK) \u003d\u003d ISS_SYSREG_OPCODE_RNDR ||\n\t    (esr_el3 \u0026 ISS_SYSREG_OPCODE_MASK) \u003d\u003d ISS_SYSREG_OPCODE_RNDRRS) {\n                return plat_handle_rng_trap(esr_el3, ctx);\n        }\n#endif\n        return -1;\n}    \nSo enabling ENABLE_FEAT_RNG_TRAP would force you to implement a handler.",
+      "parentUuid": "cd7bd92a_f59194eb",
       "revId": "eb7b9ee8682d01653fc8c97965193d5b3ec9365e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
