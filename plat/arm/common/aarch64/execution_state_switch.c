@@ -162,7 +162,7 @@ int arm_execution_state_switch(unsigned int smc_fid,
 	 * calling EL.
 	 */
 	cm_init_my_context(&ep);
-	cm_prepare_el3_exit_ns();
+	cm_prepare_el3_exit(NON_SECURE);
 
 	/*
 	 * State switch success. The caller of SMC wouldn't see the SMC

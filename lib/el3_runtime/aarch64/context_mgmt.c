@@ -583,21 +583,22 @@ void cm_init_my_context(const entry_point_info_t *ep)
  * If execution is requested to EL2 or hyp mode, SCTLR_EL2 is initialized
  * If execution is requested to non-secure EL1 or svc mode, and the CPU supports
  * EL2 then EL2 is disabled by configuring all necessary EL2 registers.
+ * If CTX_INCLUDE_EL2_REGS is enabled, restore EL2 sysreg context instead for NS
  * For all entries, the EL1 registers are initialized from the cpu_context
  ******************************************************************************/
 void cm_prepare_el3_exit(uint32_t security_state)
 {
-	u_register_t sctlr_elx, scr_el3, mdcr_el2;
 	cpu_context_t *ctx = cm_get_context(security_state);
 	bool el2_unused = false;
-	uint64_t hcr_el2 = 0U;
 
 	assert(ctx != NULL);
 
 	if (security_state == NON_SECURE) {
-		scr_el3 = read_ctx_reg(get_el3state_ctx(ctx),
+#if !CTX_INCLUDE_EL2_REGS
+		u_register_t scr_el3 = read_ctx_reg(get_el3state_ctx(ctx),
 						 CTX_SCR_EL3);
 		if ((scr_el3 & SCR_HCE_BIT) != 0U) {
+			u_register_t sctlr_elx;
 			/* Use SCTLR_EL1.EE value to initialise sctlr_el2 */
 			sctlr_elx = read_ctx_reg(get_el1_sysregs_ctx(ctx),
 							   CTX_SCTLR_EL1);
@@ -613,6 +614,8 @@ void cm_prepare_el3_exit(uint32_t security_state)
 #endif
 			write_sctlr_el2(sctlr_elx);
 		} else if (el_implemented(2) != EL_IMPL_NONE) {
+			u_register_t hcr_el2 = 0U;
+			u_register_t mdcr_el2;
 			el2_unused = true;
 
 			/*
@@ -794,7 +797,35 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			write_cnthp_ctl_el2(CNTHP_CTL_RESET_VAL &
 						~(CNTHP_CTL_ENABLE_BIT));
 		}
+#endif /* CTX_INCLUDE_EL2_REGS */
+
+		/* this has to happen in both cases */
 		manage_extensions_nonsecure(el2_unused, ctx);
+
+#if CTX_INCLUDE_EL2_REGS
+#if ENABLE_ASSERTIONS
+		u_register_t scr_el3 = read_ctx_reg(get_el3state_ctx(ctx),
+						 CTX_SCR_EL3);
+		/* Assert that EL2 is used. */
+		assert(((scr_el3 & SCR_HCE_BIT) != 0UL) &&
+				(el_implemented(2U) != EL_IMPL_NONE));
+#endif /* ENABLE_ASSERTIONS */
+
+		/*
+		 * Set the NS bit to be able to access the ICC_SRE_EL2
+		 * register when restoring context.
+		 */
+		write_scr_el3(read_scr_el3() | SCR_NS_BIT);
+
+		/*
+		 * Ensure the NS bit change is committed before the EL2/EL1
+		 * state restoration.
+		 */
+		isb();
+
+		/* Restore EL2 sysreg context */
+		cm_el2_sysregs_context_restore(NON_SECURE);
+#endif /* CTX_INCLUDE_EL2_REGS */
 	}
 
 	cm_el1_sysregs_context_restore(security_state);
@@ -947,54 +978,6 @@ void cm_el2_sysregs_context_restore(uint32_t security_state)
 	}
 }
 #endif /* CTX_INCLUDE_EL2_REGS */
-
-/*******************************************************************************
- * This function is used to exit to Non-secure world. If CTX_INCLUDE_EL2_REGS
- * is enabled, it restores EL1 and EL2 sysreg contexts instead of directly
- * updating EL1 and EL2 registers. Otherwise, it calls the generic
- * cm_prepare_el3_exit function.
- ******************************************************************************/
-void cm_prepare_el3_exit_ns(void)
-{
-#if CTX_INCLUDE_EL2_REGS
-	cpu_context_t *ctx = cm_get_context(NON_SECURE);
-	assert(ctx != NULL);
-
-	/* Assert that EL2 is used. */
-#if ENABLE_ASSERTIONS
-	el3_state_t *state = get_el3state_ctx(ctx);
-	u_register_t scr_el3 = read_ctx_reg(state, CTX_SCR_EL3);
-#endif
-	assert(((scr_el3 & SCR_HCE_BIT) != 0UL) &&
-			(el_implemented(2U) != EL_IMPL_NONE));
-
-	/*
-	 * Currently some extensions are configured using
-	 * direct register updates. Therefore, do this here
-	 * instead of when setting up context.
-	 */
-	manage_extensions_nonsecure(0, ctx);
-
-	/*
-	 * Set the NS bit to be able to access the ICC_SRE_EL2
-	 * register when restoring context.
-	 */
-	write_scr_el3(read_scr_el3() | SCR_NS_BIT);
-
-	/*
-	 * Ensure the NS bit change is committed before the EL2/EL1
-	 * state restoration.
-	 */
-	isb();
-
-	/* Restore EL2 and EL1 sysreg contexts */
-	cm_el2_sysregs_context_restore(NON_SECURE);
-	cm_el1_sysregs_context_restore(NON_SECURE);
-	cm_set_next_eret_context(NON_SECURE);
-#else
-	cm_prepare_el3_exit(NON_SECURE);
-#endif /* CTX_INCLUDE_EL2_REGS */
-}
 
 /*******************************************************************************
  * The next four functions are used by runtime services to save and restore
