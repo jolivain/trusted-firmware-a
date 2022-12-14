@@ -34,7 +34,6 @@ void cm_init_context_by_index(unsigned int cpu_idx,
 			      const struct entry_point_info *ep);
 void cm_setup_context(cpu_context_t *ctx, const struct entry_point_info *ep);
 void cm_prepare_el3_exit(uint32_t security_state);
-void cm_prepare_el3_exit_ns(void);
 
 #ifdef __aarch64__
 #if IMAGE_BL31
