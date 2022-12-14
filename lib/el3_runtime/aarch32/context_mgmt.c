@@ -340,12 +340,3 @@ void cm_prepare_el3_exit(uint32_t security_state)
 		enable_extensions_nonsecure(el2_unused);
 	}
 }
-
-/*******************************************************************************
- * This function is used to exit to Non-secure world. It simply calls the
- * cm_prepare_el3_exit function for AArch32.
- ******************************************************************************/
-void cm_prepare_el3_exit_ns(void)
-{
-	cm_prepare_el3_exit(NON_SECURE);
-}
