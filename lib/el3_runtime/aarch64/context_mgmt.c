@@ -629,6 +629,7 @@ static __unused void enable_pauth_el2(void)
  * Enable architecture extensions in-place at EL2 on first entry to Non-secure
  * world when EL2 is empty and unused.
  ******************************************************************************/
+#if !CTX_INCLUDE_EL2_REGS
 static void manage_extensions_nonsecure_el2_unused(void)
 {
 #if IMAGE_BL31
@@ -671,6 +672,7 @@ static void manage_extensions_nonsecure_el2_unused(void)
 #endif /* ENABLE_PAUTH */
 #endif /* IMAGE_BL31 */
 }
+#endif /* !CTX_INCLUDE_EL2_REGS */
 
 /*******************************************************************************
  * Enable architecture extensions on first entry to Secure world.
@@ -745,7 +747,8 @@ void cm_init_my_context(const entry_point_info_t *ep)
 }
 
 /* EL2 present but unused, need to disable safely */
-static __unused void init_nonsecure_el2_unused(cpu_context_t *ctx)
+#if !CTX_INCLUDE_EL2_REGS
+static void init_nonsecure_el2_unused(cpu_context_t *ctx)
 {
 	u_register_t hcr_el2 = HCR_RESET_VAL;
 	u_register_t mdcr_el2;
@@ -845,18 +848,15 @@ static __unused void init_nonsecure_el2_unused(cpu_context_t *ctx)
 
 	manage_extensions_nonsecure_el2_unused();
 }
+#endif /* !CTX_INCLUDE_EL2_REGS */
 
 /*******************************************************************************
- * Prepare the CPU system registers for first entry into realm, secure, or
- * normal world.
- *
- * If execution is requested to EL2 or hyp mode, SCTLR_EL2 is initialized
- * If execution is requested to non-secure EL1 or svc mode, and the CPU supports
- * EL2 then EL2 is disabled by configuring all necessary EL2 registers.
- * For all entries, the EL1 registers are initialized from the cpu_context
+ * Prepare the CPU system registers for entry to a lower EL. Should be used for
+ * entry into NS, but also works for S/R worlds for legacy applications.
  ******************************************************************************/
 void cm_prepare_el3_exit(uint32_t security_state)
 {
+#if !CTX_INCLUDE_EL2_REGS
 	u_register_t scr_el3;
 	cpu_context_t *ctx = cm_get_context(security_state);
 
@@ -870,6 +870,7 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			init_nonsecure_el2_unused(ctx);
 		}
 	}
+#endif /* !CTX_INCLUDE_EL2_REGS */
 
 	cm_el2_sysregs_context_restore(security_state);
 	cm_el1_sysregs_context_restore(security_state);
@@ -1264,34 +1265,6 @@ void cm_el2_sysregs_context_restore(uint32_t security_state)
 	}
 #endif /* CTX_INCLUDE_EL2_REGS */
 #endif /* IMAGE_BL31 */
-}
-
-/*******************************************************************************
- * This function is used to exit to Non-secure world. If CTX_INCLUDE_EL2_REGS
- * is enabled, it restores EL1 and EL2 sysreg contexts instead of directly
- * updating EL1 and EL2 registers. Otherwise, it calls the generic
- * cm_prepare_el3_exit function.
- ******************************************************************************/
-void cm_prepare_el3_exit_ns(void)
-{
-#if CTX_INCLUDE_EL2_REGS
-#if ENABLE_ASSERTIONS
-	cpu_context_t *ctx = cm_get_context(NON_SECURE);
-	assert(ctx != NULL);
-
-	/* Assert that EL2 is used. */
-	u_register_t scr_el3 = read_ctx_reg(get_el3state_ctx(ctx), CTX_SCR_EL3);
-	assert(((scr_el3 & SCR_HCE_BIT) != 0UL) &&
-			(el_implemented(2U) != EL_IMPL_NONE));
-#endif /* ENABLE_ASSERTIONS */
-
-	/* Restore EL2 and EL1 sysreg contexts */
-	cm_el2_sysregs_context_restore(NON_SECURE);
-	cm_el1_sysregs_context_restore(NON_SECURE);
-	cm_set_next_eret_context(NON_SECURE);
-#else
-	cm_prepare_el3_exit(NON_SECURE);
-#endif /* CTX_INCLUDE_EL2_REGS */
 }
 
 /*******************************************************************************
