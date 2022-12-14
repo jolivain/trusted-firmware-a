@@ -850,21 +850,17 @@ static __unused void init_el2_no_hypervisor(cpu_context_t *ctx)
 }
 
 /*******************************************************************************
- * Prepare the CPU system registers for first entry into realm, secure, or
- * normal world.
- *
- * If execution is requested to EL2 or hyp mode, SCTLR_EL2 is initialized
- * If execution is requested to non-secure EL1 or svc mode, and the CPU supports
- * EL2 then EL2 is disabled by configuring all necessary EL2 registers.
- * For all entries, the EL1 registers are initialized from the cpu_context
+ * Prepare the CPU system registers for entry to a lower EL. Should be used for
+ * entry into NS, but also works for S/R worlds for legacy applications.
  ******************************************************************************/
 void cm_prepare_el3_exit(uint32_t security_state)
 {
-	u_register_t scr_el3;
 	cpu_context_t *ctx = cm_get_context(security_state);
 
 	assert(ctx != NULL);
-	scr_el3 = read_ctx_reg(get_el3state_ctx(ctx), CTX_SCR_EL3);
+
+#if !CTX_INCLUDE_EL2_REGS
+	u_register_t scr_el3 = read_ctx_reg(get_el3state_ctx(ctx), CTX_SCR_EL3);
 
 	if (security_state == NON_SECURE) {
 		/* EL2 will be empty */
@@ -873,6 +869,7 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			init_el2_no_hypervisor(ctx);
 		}
 	}
+#endif /* !CTX_INCLUDE_EL2_REGS */
 
 	cm_el2_sysregs_context_restore(security_state);
 	cm_el1_sysregs_context_restore(security_state);
@@ -1253,33 +1250,6 @@ void cm_el2_sysregs_context_restore(uint32_t security_state)
 		write_gcspr_el2(read_ctx_reg(el2_sysregs_ctx, CTX_GCSPR_EL2));
 	}
 #endif /* CTX_INCLUDE_EL2_REGS && IMAGE_BL31 */
-}
-
-/*******************************************************************************
- * This function is used to exit to Non-secure world. If CTX_INCLUDE_EL2_REGS
- * is enabled, it restores EL1 and EL2 sysreg contexts instead of directly
- * updating EL1 and EL2 registers. Otherwise, it calls the generic
- * cm_prepare_el3_exit function.
- ******************************************************************************/
-void cm_prepare_el3_exit_ns(void)
-{
-#if CTX_INCLUDE_EL2_REGS
-#if ENABLE_ASSERTIONS
-	cpu_context_t *ctx = cm_get_context(NON_SECURE);
-	assert(ctx != NULL);
-
-	/* Assert that EL2 is used. */
-	u_register_t scr_el3 = read_ctx_reg(get_el3state_ctx(ctx), CTX_SCR_EL3);
-	assert(((scr_el3 & SCR_HCE_BIT) != 0UL) &&
-			(el_implemented(2U) != EL_IMPL_NONE));
-#endif
-	/* Restore EL2 and EL1 sysreg contexts */
-	cm_el2_sysregs_context_restore(NON_SECURE);
-	cm_el1_sysregs_context_restore(NON_SECURE);
-	cm_set_next_eret_context(NON_SECURE);
-#else
-	cm_prepare_el3_exit(NON_SECURE);
-#endif /* CTX_INCLUDE_EL2_REGS */
 }
 
 /*******************************************************************************
