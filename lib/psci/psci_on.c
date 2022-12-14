@@ -229,5 +229,5 @@ void psci_cpu_on_finish(unsigned int cpu_idx, const psci_power_state_t *state_in
 	 * information that we had stashed away during the cpu_on
 	 * call to set this cpu on its way.
 	 */
-	cm_prepare_el3_exit_ns();
+	cm_prepare_el3_exit(NON_SECURE);
 }
