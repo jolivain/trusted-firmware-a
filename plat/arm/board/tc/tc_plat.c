@@ -154,3 +154,8 @@ void plat_arm_secure_wdt_stop(void)
 {
 	sbsa_wdog_stop(SBSA_SECURE_WDOG_BASE);
 }
+
+void plat_arm_secure_wdt_refresh(void)
+{
+	sbsa_wdog_refresh(SBSA_SECURE_WDOG_REFRESH_BASE);
+}

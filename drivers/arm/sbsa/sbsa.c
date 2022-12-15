@@ -40,3 +40,8 @@ void sbsa_wdog_stop(uintptr_t base)
 {
 	mmio_write_32(base + SBSA_WDOG_WCS_OFFSET, (0x0));
 }
+
+void sbsa_wdog_refresh(uintptr_t base)
+{
+	mmio_write_32(base + SBSA_WDOG_WRR_OFFSET, SBSA_WDOG_WRR_REFRESH);
+}

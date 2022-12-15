@@ -29,6 +29,12 @@
 #include <smccc_helpers.h>
 #include "spmd_private.h"
 
+#define SPMD_SECURE_WATCHDOG
+
+#if defined(SPMD_SECURE_WATCHDOG)
+#include <plat/arm/common/plat_arm.h> /* plat_arm_secure_wdt_xxx */
+#endif /* SPMD_SECURE_WATCHDOG */
+
 /*******************************************************************************
  * SPM Core context information.
  ******************************************************************************/
@@ -384,6 +390,49 @@ static int spmd_spmc_init(void *pm_addr)
 	return 0;
 }
 
+#if defined(SPMD_SECURE_WATCHDOG)
+
+static uint64_t spmd_el3_interrupt_handler(uint32_t id,
+				       uint32_t flags,
+				       void *handle,
+				       void *cookie)
+{
+	static uint64_t counter = 0;
+	uint32_t intid;
+
+	assert(id == INTR_ID_UNAVAILABLE);
+
+	assert(plat_ic_get_pending_interrupt_type() == INTR_TYPE_EL3);
+
+	intid = plat_ic_get_pending_interrupt_id();
+	if (intid == SBSA_SECURE_WDOG_INTID) {
+		plat_arm_secure_wdt_refresh();
+		plat_ic_end_of_interrupt(intid);
+		NOTICE("TWTD %lu\n", counter++);
+	}
+
+	SMC_RET0(0);
+}
+
+static void setup_watchdog(void)
+{
+	uint32_t flags;
+
+	/* Configure Trusted Watchdog as EL3 / Secure Group0 interrupt. */
+	plat_ic_set_interrupt_type(SBSA_SECURE_WDOG_INTID, INTR_TYPE_EL3);
+
+	/* Route EL3 interrupts to SPMD while the normal world runs. */
+	flags = 0;
+	set_interrupt_rm_flag(flags, NON_SECURE);
+	(void)register_interrupt_type_handler(INTR_TYPE_EL3,
+					     spmd_el3_interrupt_handler,
+					     flags);
+
+	plat_arm_secure_wdt_start();
+}
+
+#endif /* SPMD_SECURE_WATCHDOG */
+
 /*******************************************************************************
  * Initialize context of SPM Core.
  ******************************************************************************/
@@ -431,6 +480,10 @@ int spmd_setup(void)
 	if (rc != 0) {
 		WARN("Booting device without SPM initialization.\n");
 	}
+
+#if defined(SPMD_SECURE_WATCHDOG)
+	setup_watchdog();
+#endif
 
 	return rc;
 }
@@ -603,6 +656,30 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 		    SMC_GET_GP(handle, CTX_GPREG_X5),
 		    SMC_GET_GP(handle, CTX_GPREG_X6),
 		    SMC_GET_GP(handle, CTX_GPREG_X7));
+
+#if defined(SPMD_SECURE_WATCHDOG)
+	uint32_t intr_type;
+	uint32_t intr_id;
+
+	/*
+	 * This code is just informational, to figure out the reason for the
+	 * SPMC to return to SPMD via FFA_INTERRUPT. It can be either because
+	 * of a secure G0 or a Group1NS interrupt occuring while SEL1/0 runs.
+	 */
+	if (smc_fid == FFA_INTERRUPT) {
+		assert(secure_origin == true);
+
+		intr_type = plat_ic_get_pending_interrupt_type();
+		if (intr_type == INTR_TYPE_EL3) {
+			intr_id =  plat_ic_get_pending_interrupt_id();
+			NOTICE("G0 #%u\n", intr_id);
+		} else if (intr_type == INTR_TYPE_NS) {
+			intr_id = read_icc_hppir1_el1();
+			NOTICE("G1NS #%u\n", intr_id);
+		}
+	}
+
+#endif /* SPMD_SECURE_WATCHDOG */
 
 	switch (smc_fid) {
 	case FFA_ERROR:
