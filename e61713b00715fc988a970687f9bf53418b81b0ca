@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b62ea9d_98c1f2de",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-15T14:03:25Z",
+      "side": 1,
+      "message": "nit: \"Load SCR_EL3 from context\"",
+      "range": {
+        "startLine": 504,
+        "startChar": 17,
+        "endLine": 504,
+        "endChar": 19
+      },
+      "revId": "e61713b00715fc988a970687f9bf53418b81b0ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
