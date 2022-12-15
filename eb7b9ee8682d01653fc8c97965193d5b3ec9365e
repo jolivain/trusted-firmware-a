@@ -167,6 +167,24 @@
       "parentUuid": "cd7bd92a_f59194eb",
       "revId": "eb7b9ee8682d01653fc8c97965193d5b3ec9365e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3de7fe8_a58f0d1e",
+        "filename": "plat/arm/board/fvp/fvp_sync_traps.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-15T10:32:46Z",
+      "side": 1,
+      "message": "int handle_sysreg_trap(uint64_t esr_el3, cpu_context_t *ctx)\n{\n#ifdef ENABLE_FEAT_RNG_TRAP\n\n\tif ((esr_el3 \u0026 ISS_SYSREG_OPCODE_MASK) \u003d\u003d ISS_SYSREG_OPCODE_RNDR ||\n\t    (esr_el3 \u0026 ISS_SYSREG_OPCODE_MASK) \u003d\u003d ISS_SYSREG_OPCODE_RNDRRS) {\n                return plat_handle_rng_trap(esr_el3, ctx);\n        }\n#endif\n        return -1;\n}  \n\nThat would be perfect I think and it would get rid of weak function. The platform shouldn\u0027t set that trap unless the platform intends to provide the emulation function.\n\nWe can see EL3 is evolving in this respect and have a more elaborate framework if needed.",
+      "parentUuid": "c263b02e_c8df4289",
+      "revId": "eb7b9ee8682d01653fc8c97965193d5b3ec9365e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
