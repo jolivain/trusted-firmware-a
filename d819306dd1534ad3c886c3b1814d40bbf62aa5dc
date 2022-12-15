@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5b1d559_b842c6dd",
+        "filename": "lib/el3_runtime/aarch64/el3_regs.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2022-12-15T10:39:27Z",
+      "side": 1,
+      "message": "new idea: would it not make sense to stick these in context.S? They are quite closely related and I think it makes logical sense to keep them together. Especially as they get swapped in and out of context switching (ala root context) I imagine these registers to end up in that file (and context_mgmt.c)",
+      "revId": "d819306dd1534ad3c886c3b1814d40bbf62aa5dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
