@@ -56,6 +56,24 @@
       "message": "After seeing this construction, I don\u0027t feel particularly happy with the plat_data field. Looks redundant and cumbersome. Maybe it should be removed and just assume that the platform data section of the boot manifest (if used) is located right after common manifest (manifest).\n\nAnyway, that is just an idea for a later optimization of RMM/RMMD. It is outside the scope of this patch.",
       "revId": "8da2ed93da8c318815429afa91851682add2250b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1d438db_724022b4",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2022-12-15T11:57:06Z",
+      "side": 1,
+      "message": "from what I gather, this line is trying to point plat_data to end manifest area. \n\nIn that case, add a comment to what this is trying to do. Perhaps can be written as\n\n(unitptr_r)manifest + sizeof(*manifest); ?\n\nAlso given how this dram_bank field is needed across multiple platforms, perhaps this should be more generic.\n\n\nHow about embedding a new struct dram_info in rmm_manifest ? dram info can be defined as follows:\n\nstruct dram_info{\n  uint64_t num_dram_banks;\n  struct *dram_bank;   --\u003e this can be variable sized array\n  uint64_t chksum; --\u003e this is to ensure robustness. can be as simple as mod(sum of all bytes of dram_bank[]\n}\n\nplat_data can be still be held as platform specific data, which is still NULL of FVP as dram_info is generic now.",
+      "parentUuid": "4ff36ddc_092c17c5",
+      "revId": "8da2ed93da8c318815429afa91851682add2250b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
