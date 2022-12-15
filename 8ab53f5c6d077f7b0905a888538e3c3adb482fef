@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "25d6b7b0_0f563942",
+        "filename": "plat/arm/board/tc/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-15T12:46:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f00db1d_ee5dbc89",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 36
+      },
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c5fe7e82_149e6393",
         "filename": "plat/arm/board/tc/plat_tc_mbedtls_config.h",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-14T13:15:09Z",
       "side": 1,
       "message": "(coding style) Please add spaces around the \u0027*\u0027 sign.",
+      "range": {
+        "startLine": 15,
+        "startChar": 46,
+        "endLine": 15,
+        "endChar": 47
+      },
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b00cf24f_a30cc50f",
+        "filename": "plat/arm/board/tc/plat_tc_mbedtls_config.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-15T12:46:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5fe7e82_149e6393",
       "range": {
         "startLine": 15,
         "startChar": 46,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fa9b050c_3d1f04fb",
+        "filename": "plat/arm/board/tc/plat_tc_mbedtls_config.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-15T12:46:41Z",
+      "side": 1,
+      "message": "The condition was referring to the way TF_MBEDTLS_HEAP_SIZE is defined in include/drivers/auth/mbedtls/mbedtls_config.h. It was selecting the case when a smaller value is set than PLATFORM_TEST_MIN_MBEDTLS_HEAP_SIZE. \n\nYour suggestion would be much cleaner, but it unfortunately won\u0027t work, as TF_MBEDTLS_HEAP_SIZE is defined to be U(size), and this confuses the preprocessor:\n\n    include/drivers/auth/mbedtls/mbedtls_config.h:137:42: error: missing binary operator before token \"(\"\n      137 | #define TF_MBEDTLS_HEAP_SIZE            U(7168)",
+      "parentUuid": "82a13c73_18d87488",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 6
+      },
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fd92ff17_eedaebb6",
         "filename": "plat/arm/board/tc/plat_tc_mbedtls_config.h",
         "patchSetId": 3
@@ -83,6 +155,30 @@
       "writtenOn": "2022-12-14T13:15:09Z",
       "side": 1,
       "message": "Just want to check my understanding... These defines are added on top of the existing ones in mbedtls_config.h (included from this file at line 10). AFAIU it means we are enabling both legacy crypto related macros, and MBEDTLS_PSA_CRYPTO_C, and it works fine. Right? Does it mean that the resulting mbedtls library file contains both legacy and PSA crypto APIs?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 0
+      },
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b6e12d7_2f78b232",
+        "filename": "plat/arm/board/tc/plat_tc_mbedtls_config.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-15T12:46:41Z",
+      "side": 1,
+      "message": "Yes, this is my understanding as well.",
+      "parentUuid": "fd92ff17_eedaebb6",
       "range": {
         "startLine": 23,
         "startChar": 0,
@@ -118,6 +214,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7ec57500_f26516ca",
+        "filename": "plat/arm/board/tc/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-15T12:46:41Z",
+      "side": 1,
+      "message": "Moving this line seems not to be working actually. \n\nplat/arm/common/arm_common.mk builds the Mbed TLS library. if the platform_test.mk moved below it, then Mbed TLS is built without the additional objects added in plat/arm/board/tc/platform_test.mk.\n\nThis results in undefined symbols when linking with the test test code.",
+      "parentUuid": "cfd044da_8e53dabf",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 42
+      },
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eb2274a3_074a3d3a",
         "filename": "plat/arm/board/tc/platform_test.h",
         "patchSetId": 3
@@ -135,6 +255,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c19020de_47777a67",
+        "filename": "plat/arm/board/tc/platform_test.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-15T12:46:41Z",
+      "side": 1,
+      "message": "Done (moved to plat/arm/board/tc/include/tc_plat.h)",
+      "parentUuid": "eb2274a3_074a3d3a",
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b232539c_e1523d73",
         "filename": "plat/arm/board/tc/platform_test.mk",
         "patchSetId": 3
@@ -146,6 +284,30 @@
       "writtenOn": "2022-12-14T13:15:09Z",
       "side": 1,
       "message": "Can we choose sane, default values for these (e.g. 32 and PSA_ALG_SHA_256), instead of requiring the user to always set them? \n\nJust to be clear, I think it\u0027s fine to ask the user to set TF_M_TESTS_PATH and TF_M_EXTRAS_PATH, because I can\u0027t imagine a default value that makes sense for these, as it\u0027s completely dependent of the user\u0027s setup.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 9
+      },
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a8515c7_782bebf0",
+        "filename": "plat/arm/board/tc/platform_test.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-15T12:46:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b232539c_e1523d73",
       "range": {
         "startLine": 17,
         "startChar": 0,
@@ -181,6 +343,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a00439fb_c34b68fd",
+        "filename": "plat/arm/board/tc/platform_test.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-15T12:46:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f38a912f_048f103b",
+      "range": {
+        "startLine": 29,
+        "startChar": 27,
+        "endLine": 29,
+        "endChar": 55
+      },
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1fe3ab1d_38e96332",
         "filename": "plat/arm/board/tc/platform_test.mk",
         "patchSetId": 3
@@ -192,6 +378,30 @@
       "writtenOn": "2022-12-14T13:15:09Z",
       "side": 1,
       "message": "Where are these used? I suspect they are a duplicate of MBEDTLS_CONFIG_FILE at line 29? If not, could you please explain the difference between PLATFORM_MBEDTLS_CONFIG_FILE and MBEDTLS_CONFIG_FILE?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 59
+      },
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cca6673f_40007f54",
+        "filename": "plat/arm/board/tc/platform_test.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-15T12:46:41Z",
+      "side": 1,
+      "message": "This is a leftover from an earlier version of the patchset. I removed it. Thanks for noticing.",
+      "parentUuid": "1fe3ab1d_38e96332",
       "range": {
         "startLine": 44,
         "startChar": 0,
@@ -227,6 +437,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "83bd43d3_29c84153",
+        "filename": "plat/arm/board/tc/platform_test.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-15T12:46:41Z",
+      "side": 1,
+      "message": "It is needed because of plat/arm/board/tc/tc_plat.c uses arm_get_mbedtls_heap. plat/arm/common/arm_dyn_cfg.c is enough.",
+      "parentUuid": "7beb975d_86d57d62",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 22
+      },
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a1f01099_ec7422eb",
         "filename": "plat/arm/board/tc/platform_test.mk",
         "patchSetId": 3
@@ -238,6 +472,30 @@
       "writtenOn": "2022-12-14T13:15:09Z",
       "side": 1,
       "message": "Could you please add a comment above this line to explain why this is needed?",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 44
+      },
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df86dc76_b37fb5a3",
+        "filename": "plat/arm/board/tc/platform_test.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-15T12:46:41Z",
+      "side": 1,
+      "message": "Added comment.\n\nSome of the definitions are present in \"crypto_struct.h\" and \"crypto_extra.h\" (e.g. psa_set_key_domain_parameters). Both are included in psa/crypto.h: https://github.com/Mbed-TLS/mbedtls/blob/development/include/psa/crypto.h#L4058\n\nThis is mentioned in \"crypto_struct.h\": https://github.com/Mbed-TLS/mbedtls/blob/development/include/psa/crypto_struct.h#L463",
+      "parentUuid": "a1f01099_ec7422eb",
       "range": {
         "startLine": 72,
         "startChar": 4,
@@ -273,6 +531,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e672a029_3deb5179",
+        "filename": "plat/arm/board/tc/platform_test.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-15T12:46:41Z",
+      "side": 1,
+      "message": "Used in $(MEASURED_BOOT_TESTS_PATH)/measured_boot_common.c:\nhttps://git.trustedfirmware.org/TF-M/tf-m-extras.git/tree/partitions/measured_boot/test/measured_boot_common.c?h\u003drefs/heads/master#n49",
+      "parentUuid": "ff9605dc_0f5baca0",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 53
+      },
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b57377be_d98a658c",
         "filename": "plat/arm/board/tc/platform_test.mk",
         "patchSetId": 3
@@ -284,6 +566,30 @@
       "writtenOn": "2022-12-14T13:15:09Z",
       "side": 1,
       "message": "Ditto for this one. Should that rather be MBOOT_RSS_HASH_ALG?",
+      "range": {
+        "startLine": 78,
+        "startChar": 29,
+        "endLine": 78,
+        "endChar": 51
+      },
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22b2b05f_5f71f25d",
+        "filename": "plat/arm/board/tc/platform_test.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-15T12:46:41Z",
+      "side": 1,
+      "message": "In the same file as above:\nhttps://git.trustedfirmware.org/TF-M/tf-m-extras.git/tree/partitions/measured_boot/test/measured_boot_common.c?h\u003drefs/heads/master#n180",
+      "parentUuid": "b57377be_d98a658c",
       "range": {
         "startLine": 78,
         "startChar": 29,
@@ -319,6 +625,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4b484305_fc32a2e2",
+        "filename": "plat/arm/board/tc/platform_test.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-15T12:46:41Z",
+      "side": 1,
+      "message": "Used in $(DELEGATED_ATTEST_TESTS_PATH)/delegated_attest_test.c\nhttps://git.trustedfirmware.org/TF-M/tf-m-extras.git/tree/partitions/delegated_attestation/test/delegated_attest_test.c?h\u003drefs/heads/master#n23",
+      "parentUuid": "59b0b06f_75a9e796",
+      "range": {
+        "startLine": 79,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 62
+      },
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cd9cb5c6_f9d206cc",
         "filename": "plat/arm/board/tc/region_defs.h",
         "patchSetId": 3
@@ -336,6 +666,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b32a61b5_0b8d8767",
+        "filename": "plat/arm/board/tc/region_defs.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-15T12:46:41Z",
+      "side": 1,
+      "message": "A file with this name is explicitly included by \n$(DELEGATED_ATTEST_TESTS_PATH)/delegated_attest_test.h\nvhich is included by \n$(DELEGATED_ATTEST_TESTS_PATH)/delegated_attest_test.c\n\nDeleting this file causes build error.\n\nThis single macro is used from this file.",
+      "parentUuid": "cd9cb5c6_f9d206cc",
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8705f0ae_662681d4",
         "filename": "plat/arm/board/tc/rss_ap_test_stubs.c",
         "patchSetId": 3
@@ -347,6 +695,30 @@
       "writtenOn": "2022-12-14T13:15:09Z",
       "side": 1,
       "message": "(minor) It does not look necessary to initialize count to 0 here, since it\u0027s not used before it is assigned a value at line 112.",
+      "range": {
+        "startLine": 108,
+        "startChar": 11,
+        "endLine": 108,
+        "endChar": 14
+      },
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03b3d9c2_f1ee03b9",
+        "filename": "plat/arm/board/tc/rss_ap_test_stubs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-15T12:46:41Z",
+      "side": 1,
+      "message": "Removed init value",
+      "parentUuid": "8705f0ae_662681d4",
       "range": {
         "startLine": 108,
         "startChar": 11,
@@ -382,6 +754,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6887f19c_49160ff9",
+        "filename": "plat/arm/board/tc/rss_ap_tests.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-15T12:46:41Z",
+      "side": 1,
+      "message": "This is a serious error, maybe it would be better to panic.",
+      "parentUuid": "076a22bc_42f4bfc0",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 16
+      },
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f87c61e9_a2e071cc",
         "filename": "plat/arm/board/tc/rss_ap_tests.c",
         "patchSetId": 3
@@ -393,6 +789,30 @@
       "writtenOn": "2022-12-14T13:15:09Z",
       "side": 1,
       "message": "IIUC, this line means that we will stop as soon as we encounter an error (at least in debug builds). Is my understanding correct? I can\u0027t really tell if that\u0027s the best call or whether we should try running subsequent tests nonetheless, as it depends on the type of tests, but I just wanted to raise the question, in case it hadn\u0027t been considered...",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 41
+      },
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29e08a8b_2048d5de",
+        "filename": "plat/arm/board/tc/rss_ap_tests.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-15T12:46:41Z",
+      "side": 1,
+      "message": "If TEST_SUITE_ERR_NO_ERROR is returned, that means the suite neither \u0027passed\u0027 nor \u0027failed\u0027, but there was an unexpected error during execution. This probably means some configuration error, which needs to be fixed, as testcases might not work correctly.",
+      "parentUuid": "f87c61e9_a2e071cc",
       "range": {
         "startLine": 41,
         "startChar": 2,
@@ -422,6 +842,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39dc89bf_6369f600",
+        "filename": "plat/arm/board/tc/rss_ap_testsuites.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-15T12:46:41Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "30bed99f_fa9c52be",
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16853b93_81b2afd7",
         "filename": "plat/arm/board/tc/rss_ap_testsuites.c",
         "patchSetId": 3
@@ -445,6 +883,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ae220291_615102a9",
+        "filename": "plat/arm/board/tc/rss_ap_testsuites.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-15T12:46:41Z",
+      "side": 1,
+      "message": "This actually doesn\u0027t makes a lot of sense here. Removed.",
+      "parentUuid": "16853b93_81b2afd7",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 6
+      },
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e0072ca5_4f142ab4",
         "filename": "plat/arm/board/tc/tc_bl31_setup.c",
         "patchSetId": 3
@@ -456,6 +918,30 @@
       "writtenOn": "2022-12-14T13:15:09Z",
       "side": 1,
       "message": "I would remove this comment. It will go stale as soon as we add more platform tests.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 9
+      },
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8e778da_23927e3d",
+        "filename": "plat/arm/board/tc/tc_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-15T12:46:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0072ca5_4f142ab4",
       "range": {
         "startLine": 59,
         "startChar": 0,
