@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a1a359d9_e125e0da",
+        "filename": "plat/arm/board/tc/platform_test.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-16T16:21:12Z",
+      "side": 1,
+      "message": "Sure, Done",
+      "parentUuid": "f0a14607_61bd13f9",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 35
+      },
+      "revId": "fee9c61f8de6492d63ff48cf5597e0c71c9b0c23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ef644fb_8a38002e",
         "filename": "plat/arm/board/tc/platform_test.mk",
         "patchSetId": 4
@@ -66,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7c9cc166_01efcd50",
+        "filename": "plat/arm/board/tc/platform_test.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-16T16:21:12Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "8ef644fb_8a38002e",
+      "range": {
+        "startLine": 21,
+        "startChar": 31,
+        "endLine": 21,
+        "endChar": 32
+      },
+      "revId": "fee9c61f8de6492d63ff48cf5597e0c71c9b0c23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8d6f1083_936d58f8",
         "filename": "plat/arm/board/tc/rss_ap_tests.c",
         "patchSetId": 4
@@ -77,6 +125,30 @@
       "writtenOn": "2022-12-16T15:42:46Z",
       "side": 1,
       "message": "Did you mean \u003d\u003d here? Based on what you explained, I assume you want to catch cases where the test failed because of a config error?",
+      "range": {
+        "startLine": 42,
+        "startChar": 10,
+        "endLine": 42,
+        "endChar": 12
+      },
+      "revId": "fee9c61f8de6492d63ff48cf5597e0c71c9b0c23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e998f1d_50b66677",
+        "filename": "plat/arm/board/tc/rss_ap_tests.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000010
+      },
+      "writtenOn": "2022-12-16T16:21:12Z",
+      "side": 1,
+      "message": "There\u0027s a double-negation here:\n(ret !\u003d TEST_SUITE_ERR_NO_ERROR)  would be equal to  (ret \u003d\u003d TEST_SUITE_ERR_ERROR)",
+      "parentUuid": "8d6f1083_936d58f8",
       "range": {
         "startLine": 42,
         "startChar": 10,
