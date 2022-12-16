@@ -65,6 +65,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa1caa2b_e78cab2e",
+        "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-12-16T16:40:45Z",
+      "side": 1,
+      "message": "Hi Sandrine, \n\nAfter review, the current sequence is correct. No change is needed.\n\nLet say, it is expected to continue after getting MBOX_RET_SDOS_DECRYPTION_ERROR_102 or MBOX_RET_SDOS_DECRYPTION_ERROR_103. Yes, it also should be overriden by line 423 if resp_len is not matched with FCS_CRYPTION_RESP_WORD_SIZE. Also, it should update *mbox_error with MBOX_RET_ERROR instead of \"status\". \n\nAnother case is it is expected to continue after getting MBOX_RET_SDOS_DECRYPTION_ERROR_102 or MBOX_RET_SDOS_DECRYPTION_ERROR_103. And, there is no issue with resp_len.  It is expected to pass and update *mbox_error with status only. in other word, there is no overriden happen. \n\nThanks for pointing this out for discussion. Let me know if you still have doubt on theses.",
+      "parentUuid": "f2395e9a_8a98a215",
+      "range": {
+        "startLine": 416,
+        "startChar": 2,
+        "endLine": 416,
+        "endChar": 24
+      },
+      "revId": "76ed32236aa396cb0e15eb049bea03710ca1992d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "73ed27f4_e326e85c",
