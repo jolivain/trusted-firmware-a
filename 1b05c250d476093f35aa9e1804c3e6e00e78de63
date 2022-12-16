@@ -22,6 +22,30 @@
       },
       "revId": "1b05c250d476093f35aa9e1804c3e6e00e78de63",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf53a848_3f16a495",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-12-16T16:32:46Z",
+      "side": 1,
+      "message": "*I think we can remove this from here as well as from line no. 33. line no. 41 is needed for full ROTPK",
+      "parentUuid": "a15dd97d_a0946469",
+      "range": {
+        "startLine": 24,
+        "startChar": 1,
+        "endLine": 24,
+        "endChar": 12
+      },
+      "revId": "1b05c250d476093f35aa9e1804c3e6e00e78de63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
