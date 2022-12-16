@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f2395e9a_8a98a215",
+        "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-12-16T16:08:23Z",
+      "side": 1,
+      "message": "Hi Sandrine, thanks for the catch. I will update the sequence. It should check the resp_len first before checking the status. Also, these 2 errors are intended to update the *mbox_error only.",
+      "parentUuid": "94de5028_f6848c0d",
+      "range": {
+        "startLine": 416,
+        "startChar": 2,
+        "endLine": 416,
+        "endChar": 24
+      },
+      "revId": "76ed32236aa396cb0e15eb049bea03710ca1992d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "73ed27f4_e326e85c",
         "filename": "plat/intel/soc/common/socfpga_sip_svc.c",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2022-12-16T14:42:22Z",
       "side": 1,
       "message": "Same question here, although in this instance there is no risk to override *mbox_error. But it will return INTEL_SIP_SMC_STATUS_OK in this case, is this correcy?",
+      "range": {
+        "startLine": 616,
+        "startChar": 2,
+        "endLine": 616,
+        "endChar": 24
+      },
+      "revId": "76ed32236aa396cb0e15eb049bea03710ca1992d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d40a63a0_2426a187",
+        "filename": "plat/intel/soc/common/socfpga_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-12-16T16:08:23Z",
+      "side": 1,
+      "message": "Hi Sandrine, these 2 errors are intended to update the *mbox_error only. This is correct and expected.",
+      "parentUuid": "73ed27f4_e326e85c",
       "range": {
         "startLine": 616,
         "startChar": 2,
