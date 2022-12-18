@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -408,8 +408,8 @@ int bl2_plat_handle_post_image_load(unsigned int image_id)
 	switch (image_id) {
 	case FW_CONFIG_ID:
 		/* Set global DTB info for fixed fw_config information */
-		set_config_info(STM32MP_FW_CONFIG_BASE, ~0UL, STM32MP_FW_CONFIG_MAX_SIZE,
-				FW_CONFIG_ID);
+		set_config_info(STM32MP_FW_CONFIG_BASE, ~0UL, ~0UL,
+				STM32MP_FW_CONFIG_MAX_SIZE, FW_CONFIG_ID);
 		fconf_populate("FW_CONFIG", STM32MP_FW_CONFIG_BASE);
 
 		idx = dyn_cfg_dtb_info_get_index(TOS_FW_CONFIG_ID);
