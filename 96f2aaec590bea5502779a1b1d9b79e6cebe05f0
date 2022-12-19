@@ -51,6 +51,24 @@
       "parentUuid": "f215d5bc_73d2e5a7",
       "revId": "96f2aaec590bea5502779a1b1d9b79e6cebe05f0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8cff7ca_b035a958",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-12-19T15:53:33Z",
+      "side": 1,
+      "message": "Hi Madhukar,\nI can abandon the last patch, but for me, the 2 others could be merged.\nThe first one is to announce that io_dummy is deprecated, and should no more be used. The second one removes an ST driver that is no more used, and for which I don\u0027t think it needs to be documented in docs/about/release-information.rst .",
+      "parentUuid": "18124777_e7c67533",
+      "revId": "96f2aaec590bea5502779a1b1d9b79e6cebe05f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
