@@ -33,6 +33,24 @@
       "message": "Hi Manish,\nI\u0027ve created a new patch to inform the deprecation of this driver:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17988\n\nThis removal patch should then be merged after v2.9 (and updated to remove the line in docs/about/release-information.rst)",
       "revId": "96f2aaec590bea5502779a1b1d9b79e6cebe05f0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18124777_e7c67533",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2022-12-19T15:46:53Z",
+      "side": 1,
+      "message": "Hi Yann\nSince the target for v2.9 release is May 2023, could you temporarily abandon these 3 patches and re-enable them after v2.9? If not, these patches show up in our internal dashboards where we track patches needing reviews.",
+      "parentUuid": "f215d5bc_73d2e5a7",
+      "revId": "96f2aaec590bea5502779a1b1d9b79e6cebe05f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
