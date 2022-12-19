@@ -9,7 +9,6 @@
 
 #include <arch.h>
 #include <asm_macros.S>
-#include <assert_macros.S>
 #include <lib/el3_runtime/aarch64/context.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
 
