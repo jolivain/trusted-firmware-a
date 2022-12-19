@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ad2b68e7_811ef123",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-19T16:11:24Z",
+      "side": 1,
+      "message": "Although I agree with the rest of the commit message, I am not sure about this part. I don\u0027t think the authentication module enforces that the non-volatile counter extension is parsed after any signature verification. Standard TF-A chains of trust (as provided under drivers/auth/) typically do it in this way (through defining the non-volatile counter check \"authentication method\" last for all images) but platform ports are free to re-define their own chain of trust, which might do things in a different order.\n\nAFAICT, the only guarantee that the authentication module provides is if the non-volatile counter value inside the certificate requires incrementing the value in hardware, then the increment operation itself will be delayed after any signature verification on the certificate ; but the parsing of the non-volatile counter extension may still happen before that.\n\nI don\u0027t think that changes the rest of your conclusions below, though.",
+      "range": {
+        "startLine": 10,
+        "startChar": 20,
+        "endLine": 11,
+        "endChar": 57
+      },
+      "revId": "5cf941c83069f051af47121e689fa835535fc65c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc72effb_1f448337",
         "filename": "drivers/auth/auth_mod.c",
         "patchSetId": 2
