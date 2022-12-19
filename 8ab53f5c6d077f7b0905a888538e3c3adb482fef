@@ -238,6 +238,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "868a3b30_a0a10b80",
+        "filename": "plat/arm/board/tc/plat_tc_mbedtls_config.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-19T07:41:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a9b7a302_36837fb4",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 6
+      },
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd92ff17_eedaebb6",
@@ -394,6 +418,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "7f0181db_b1a570fd",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 42
+      },
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0dc4521_53c67961",
+        "filename": "plat/arm/board/tc/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-19T07:41:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "eb035ed6_286172a4",
       "range": {
         "startLine": 196,
         "startChar": 0,
@@ -897,6 +945,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "4414288c_2591c543",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 53
+      },
+      "revId": "8ab53f5c6d077f7b0905a888538e3c3adb482fef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfadc97d_07dfa9c5",
+        "filename": "plat/arm/board/tc/platform_test.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-19T07:41:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "56160b47_1eb7a7bc",
       "range": {
         "startLine": 77,
         "startChar": 4,

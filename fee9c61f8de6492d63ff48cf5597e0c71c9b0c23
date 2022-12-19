@@ -65,6 +65,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30acc628_cc72f5f8",
+        "filename": "plat/arm/board/tc/platform_test.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-19T07:41:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a1a359d9_e125e0da",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 35
+      },
+      "revId": "fee9c61f8de6492d63ff48cf5597e0c71c9b0c23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ef644fb_8a38002e",
@@ -112,6 +136,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3177d63_e94c3154",
+        "filename": "plat/arm/board/tc/platform_test.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-19T07:41:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7c9cc166_01efcd50",
+      "range": {
+        "startLine": 21,
+        "startChar": 31,
+        "endLine": 21,
+        "endChar": 32
+      },
+      "revId": "fee9c61f8de6492d63ff48cf5597e0c71c9b0c23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d6f1083_936d58f8",
@@ -149,6 +197,30 @@
       "side": 1,
       "message": "There\u0027s a double-negation here:\n(ret !\u003d TEST_SUITE_ERR_NO_ERROR)  would be equal to  (ret \u003d\u003d TEST_SUITE_ERR_ERROR)",
       "parentUuid": "8d6f1083_936d58f8",
+      "range": {
+        "startLine": 42,
+        "startChar": 10,
+        "endLine": 42,
+        "endChar": 12
+      },
+      "revId": "fee9c61f8de6492d63ff48cf5597e0c71c9b0c23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53c41cc1_97c8ed4d",
+        "filename": "plat/arm/board/tc/rss_ap_tests.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-19T07:41:37Z",
+      "side": 1,
+      "message": "Oh yes, I had missed that, thanks for pointing it out!",
+      "parentUuid": "7e998f1d_50b66677",
       "range": {
         "startLine": 42,
         "startChar": 10,
