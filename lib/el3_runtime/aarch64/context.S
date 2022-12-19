@@ -1325,18 +1325,23 @@ func el3_init_root_regs
 	/*
 	 * If Data Independent Timing (DIT) functionality is implemented,
 	 * always enable DIT in EL3.
-	 * First assert that the FEAT_DIT build flag matches the feature id
-	 * register value for DIT.
+	 * Only set it if implemented in hardware. The FEAT_DIT flag mismatch
+	 * will be caught by feat_detect if relevant
 	 */
 #if ENABLE_FEAT_DIT
-#if ENABLE_ASSERTIONS
+	/*
+	 * Release builds should have flags matched to hardware
+	 * For debug, have it silently fail so it can get to feat_detect report
+	 */
+#if DEBUG
 	mrs	x0, id_aa64pfr0_el1
 	ubfx	x0, x0, #ID_AA64PFR0_DIT_SHIFT, #ID_AA64PFR0_DIT_LENGTH
 	cmp	x0, #ID_AA64PFR0_DIT_SUPPORTED
-	ASM_ASSERT(eq)
-#endif /* ENABLE_ASSERTIONS */
+	b.ne	1f
+#endif
 	mov	x0, #DIT_BIT
 	msr	DIT, x0
+1:
 #endif
 	ret
 endfunc el3_init_root_regs
