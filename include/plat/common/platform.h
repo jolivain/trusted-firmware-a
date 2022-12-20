@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -323,7 +323,7 @@ int plat_rmmd_get_cca_realm_attest_key(uintptr_t buf, size_t *len,
 				       unsigned int type);
 size_t plat_rmmd_get_el3_rmm_shared_mem(uintptr_t *shared);
 int plat_rmmd_load_manifest(rmm_manifest_t *manifest);
-#endif
+#endif /* ENABLE_RME */
 
 /*******************************************************************************
  * Optional BL31 functions (may be overridden)
@@ -434,4 +434,11 @@ static inline uint64_t plat_can_cmo(void)
 }
 #endif /* CONDITIONAL_CMO */
 
+/*
+ * This function retrieves the addresses (primary and secondary load-addresses)
+ * and maximum size of the given image.
+ */
+int plat_get_image_load_info(unsigned int image_id,
+			     uintptr_t *pri_load_addr,
+			     uintptr_t *sec_load_addr, size_t *max_size);
 #endif /* PLATFORM_H */
