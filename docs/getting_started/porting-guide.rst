@@ -2354,6 +2354,34 @@ RMM image and stores it in the area specified by manifest.
 
 When ENABLE_RME is disabled, this function is not used.
 
+Function : plat_get_image_load_info()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Arguments : unsigned int, uintptr_t *, uintptr_t *, size_t *
+    Return    : void
+
+The function retrieves the primary and secondary load-addresses, as well as
+the maximum size of the given image.
+
+Parameters of the function are -
+
+    arg0 - Image id to retrieve its load addresses and size
+
+    arg1 - A pointer to return the address of the given config in primary
+           load-address. The loader uses this address to load the given
+           image(arg0).
+
+    arg2 - A pointer to return the address of the given config in secondary
+           load-address. This is the address used by the platform to copy
+           the given image(arg0) at alternate location.
+
+    arg3 - A pointer to return the maximum size of the given image
+
+In case the primary load-address and maximum size of the given image is
+invalid, this function returns -1, otherwise returns 0.
+
 Function : bl31_plat_enable_mmu [optional]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -3540,7 +3568,7 @@ amount of open resources per driver.
 
 --------------
 
-*Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.*
+*Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.*
 
 .. _PSCI: http://infocenter.arm.com/help/topic/com.arm.doc.den0022c/DEN0022C_Power_State_Coordination_Interface.pdf
 .. _Arm Generic Interrupt Controller version 2.0 (GICv2): http://infocenter.arm.com/help/topic/com.arm.doc.ihi0048b/index.html
