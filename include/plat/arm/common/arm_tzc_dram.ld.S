@@ -9,12 +9,20 @@
 #include <lib/xlat_tables/xlat_tables_defs.h>
 
 MEMORY {
+#ifdef SPMC_AT_EL3
+    EL3_SEC_DRAM (rw): ORIGIN = ARM_EL3_TZC_DRAM1_BASE + PLAT_SPMC_SHMEM_DATASTORE_SIZE, LENGTH = ARM_EL3_TZC_DRAM1_SIZE - PLAT_SPMC_SHMEM_DATASTORE_SIZE
+#else
     EL3_SEC_DRAM (rw): ORIGIN = ARM_EL3_TZC_DRAM1_BASE, LENGTH = ARM_EL3_TZC_DRAM1_SIZE
+#endif
 }
 
 SECTIONS
 {
+#ifdef SPMC_AT_EL3
+        . = ARM_EL3_TZC_DRAM1_BASE + PLAT_SPMC_SHMEM_DATASTORE_SIZE;
+#else
 	. = ARM_EL3_TZC_DRAM1_BASE;
+#endif
 	ASSERT(. == ALIGN(PAGE_SIZE),
 	"ARM_EL3_TZC_DRAM_BASE address is not aligned on a page boundary.")
 	.el3_tzc_dram (NOLOAD) : ALIGN(PAGE_SIZE) {
