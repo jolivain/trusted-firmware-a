@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -323,7 +323,9 @@ int plat_rmmd_get_cca_realm_attest_key(uintptr_t buf, size_t *len,
 				       unsigned int type);
 size_t plat_rmmd_get_el3_rmm_shared_mem(uintptr_t *shared);
 int plat_rmmd_load_manifest(rmm_manifest_t *manifest);
-#endif
+void plat_get_config_addrs(unsigned int config_id, uintptr_t *root_base_addr,
+			   uintptr_t *sec_base_addr, size_t *size);
+#endif /* ENABLE_RME */
 
 /*******************************************************************************
  * Optional BL31 functions (may be overridden)

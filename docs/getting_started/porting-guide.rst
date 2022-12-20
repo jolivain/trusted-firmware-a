@@ -2354,6 +2354,29 @@ RMM image and stores it in the area specified by manifest.
 
 When ENABLE_RME is disabled, this function is not used.
 
+Function : plat_get_config_addrs() [when ENABLE_RME == 1]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Arguments : unsigned int, uintptr_t *, uintptr_t *, size_t *
+    Return    : void
+
+When ENABLE_RME is enabled, this function obtains the addresses of
+the given config in the secure and root memory region.
+
+Parameters of the function are -
+
+    arg0 - Config id to retrieve its load addresses and size
+    
+    arg1 - A pointer to return the address of the given config in root memory
+
+    arg2 - A pointer to return the address of the given config in secure memory
+
+    arg3 - A pointer to return the maximum size of the given config
+
+When ENABLE_RME is disabled, this function is not used.
+
 Function : bl31_plat_enable_mmu [optional]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

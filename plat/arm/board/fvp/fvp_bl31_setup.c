@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -154,3 +154,21 @@ unsigned int plat_get_syscnt_freq2(void)
 
 	return counter_base_frequency;
 }
+
+#if ENABLE_RME && SPMD_SPM_AT_SEL2 && !RESET_TO_BL31
+void plat_get_config_addrs(unsigned int config_id, uintptr_t *root_base_addr,
+			   uintptr_t *sec_base_addr, size_t *size)
+{
+	const struct dyn_cfg_dtb_info_t *tos_config_info;
+
+	tos_config_info = FCONF_GET_PROPERTY(dyn_cfg, dtb, config_id);
+	assert(tos_config_info != NULL);
+	assert(tos_config_info->config_addr != 0UL);
+	assert(tos_config_info->s_config_addr != 0UL);
+	assert(tos_config_info->config_max_size != 0UL);
+
+	*root_base_addr = tos_config_info->config_addr;
+	*sec_base_addr = tos_config_info->s_config_addr;
+	*size = tos_config_info->config_max_size;
+}
+#endif /* ENABLE_RME && SPMD_SPM_AT_SEL2 && !RESET_TO_BL31 */
