@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad37e1b2_9307ca87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2022-12-20T07:48:19Z",
+      "side": 1,
+      "message": "There is one outstanding coding style violation reported by the CI on commit \u0027891db32f24317c6b37cf438fe5e1d2356943d11b\u0027:\n\n drivers/auth/mbedtls/mbedtls_x509_parser.c:203: ERROR: space prohibited before that close parenthesis \n \u0027)\u0027\n +\t    (memcmp(p, v3, sizeof(v3)) !\u003d 0 )) {\n\nThere is also a fatal warning reported on the following line:\n\n drivers/auth/mbedtls/mbedtls_x509_parser.c: In function \u0027cert_parse\u0027:\n drivers/auth/mbedtls/mbedtls_x509_parser.c:400:22: error: comparison of integer expressions of \n different signedness: \u0027int\u0027 and \u0027size_t\u0027 {aka \u0027unsigned int\u0027} [-Werror\u003dsign-compare]\n   400 |         if ((end - p \u003c\u003d sig_alg1.len) ||\n       |                      ^~\n\nCould you please fix these 2 errors?",
+      "revId": "3267f0bee64eb11b9e842630b03acb6d1ff9aedd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
