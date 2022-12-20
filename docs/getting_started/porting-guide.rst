@@ -2354,6 +2354,34 @@ RMM image and stores it in the area specified by manifest.
 
 When ENABLE_RME is disabled, this function is not used.
 
+Function : plat_get_config_addrs_and_size()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Arguments : unsigned int, uintptr_t *, uintptr_t *, size_t *
+    Return    : void
+
+The function retrieves the primary and secondary load-addresses, as well as
+the maximum size of the given config.
+
+Parameters of the function are -
+
+    arg0 - Config id to retrieve its load addresses and size
+
+    arg1 - A pointer to return the address of the given config in primary
+           load-address. The loader uses this address to load the given
+           config(arg1).
+
+    arg2 - A pointer to return the address of the given config in secondary
+           load-address. This is the address used by the platform to copy
+           the given config(arg1) at alternate location.
+
+    arg3 - A pointer to return the maximum size of the given config
+
+In case the primary load-address and maximum size of the given config is
+invalid, this function returns -1, otherwise returns 0.
+
 Function : bl31_plat_enable_mmu [optional]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

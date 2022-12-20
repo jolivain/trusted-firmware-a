@@ -12,6 +12,8 @@
 #include <drivers/arm/gicv2.h>
 #include <drivers/arm/sp804_delay_timer.h>
 #include <drivers/generic_delay_timer.h>
+#include <lib/fconf/fconf.h>
+#include <lib/fconf/fconf_dyn_cfg_getter.h>
 #include <lib/mmio.h>
 #include <lib/smccc.h>
 #include <lib/xlat_tables/xlat_tables_compat.h>
@@ -546,3 +548,25 @@ int plat_rmmd_load_manifest(rmm_manifest_t *manifest)
 }
 
 #endif
+
+int plat_get_config_addrs_and_size(unsigned int config_id,
+				   uintptr_t *pri_load_addr,
+				   uintptr_t *sec_load_addr, size_t *max_size)
+{
+	const struct dyn_cfg_dtb_info_t *tos_config_info;
+
+	tos_config_info = FCONF_GET_PROPERTY(dyn_cfg, dtb, config_id);
+	assert(tos_config_info != NULL);
+
+
+	if ((tos_config_info->config_addr != 0UL) ||
+	    (tos_config_info->config_max_size != 0UL)) {
+		return -1;
+	}
+
+	*pri_load_addr = tos_config_info->config_addr;
+	*sec_load_addr = tos_config_info->secondary_config_addr;
+	*max_size = tos_config_info->config_max_size;
+
+	return 0;
+}
