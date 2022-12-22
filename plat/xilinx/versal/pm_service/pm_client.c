@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2019-2022, Xilinx, Inc. All rights reserved.
+ * Copyright (c) 2022-2023, Advanced Micro Devices, Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -24,8 +25,6 @@
 #include "pm_defs.h"
 
 #define UNDEFINED_CPUID		(~0)
-#define IRQ_MAX		142U
-#define NUM_GICD_ISENABLER	((IRQ_MAX >> 5U) + 1U)
 
 DEFINE_BAKERY_LOCK(pm_client_secure_lock);
 
@@ -105,7 +104,7 @@ static enum pm_device_node_idx irq_node_map[IRQ_MAX + 1] = {
  *
  * Return:	PM node index corresponding to the specified interrupt
  */
-static enum pm_device_node_idx irq_to_pm_node_idx(uint32_t irq)
+enum pm_device_node_idx irq_to_pm_node_idx(uint32_t irq)
 {
 	assert(irq <= IRQ_MAX);
 	return irq_node_map[irq];

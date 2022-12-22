@@ -71,7 +71,7 @@ static uint32_t versal_net_gicv3_mpidr_hash(u_register_t mpidr)
 }
 
 static const gicv3_driver_data_t versal_net_gic_data __unused = {
-	.gicd_base = PLAT_VERSAL_NET_GICD_BASE,
+	.gicd_base = PLAT_GICD_BASE_VALUE,
 	.gicr_base = 0U,
 	.interrupt_props = versal_net_interrupt_props,
 	.interrupt_props_num = ARRAY_SIZE(versal_net_interrupt_props),
