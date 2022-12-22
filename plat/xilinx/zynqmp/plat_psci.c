@@ -16,7 +16,7 @@
 #include <plat/common/platform.h>
 
 #include <plat_private.h>
-#include "pm_api_sys.h"
+#include "zynqmp_pm_api_sys.h"
 #include "pm_client.h"
 
 static uintptr_t zynqmp_sec_entry;

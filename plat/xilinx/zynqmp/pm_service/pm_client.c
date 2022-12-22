@@ -21,7 +21,7 @@
 
 #include <plat_ipi.h>
 #include <zynqmp_def.h>
-#include "pm_api_sys.h"
+#include "zynqmp_pm_api_sys.h"
 #include "pm_client.h"
 #include "pm_ipi.h"
 

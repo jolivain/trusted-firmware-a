@@ -86,10 +86,10 @@ BL31_SOURCES		+=	drivers/arm/cci/cci.c				\
 				lib/cpus/aarch64/cortex_a78.S			\
 				plat/common/plat_psci_common.c
 ifeq ($(TFA_NO_PM), 0)
-BL31_SOURCES		+=	plat/xilinx/versal/pm_service/pm_api_sys.c	\
+BL31_SOURCES		+=	plat/xilinx/common/pm_service/pm_api_sys.c	\
 				plat/xilinx/common/pm_service/pm_ipi.c		\
 				${PLAT_PATH}/plat_psci_pm.c			\
-				plat/xilinx/versal/pm_service/pm_svc_main.c	\
+				plat/xilinx/common/pm_service/pm_svc_main.c	\
 				${PLAT_PATH}/pm_service/pm_client.c		\
 				${PLAT_PATH}/versal_net_ipi.c
 else

@@ -16,7 +16,7 @@
 #include <plat/common/platform.h>
 
 #include "pm_api_clock.h"
-#include "pm_api_sys.h"
+#include "zynqmp_pm_api_sys.h"
 #include "pm_client.h"
 #include "pm_common.h"
 #include "pm_ipi.h"

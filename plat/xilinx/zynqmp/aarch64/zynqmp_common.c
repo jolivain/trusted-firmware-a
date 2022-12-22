@@ -15,7 +15,7 @@
 #include <plat_private.h>
 #include <plat/common/platform.h>
 
-#include "pm_api_sys.h"
+#include "zynqmp_pm_api_sys.h"
 
 /*
  * Table of regions to map using the MMU.
