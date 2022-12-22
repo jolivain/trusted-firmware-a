@@ -1,21 +1,15 @@
 /*
- * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
-
-/*
- * The .data section gets copied from ROM to RAM at runtime. Its LMA should be
- * 16-byte aligned to allow efficient copying of 16-bytes aligned regions in it.
- * Its VMA must be page-aligned as it marks the first read/write page.
- */
-#define DATA_ALIGN	16
 
 #include <common/bl_common.ld.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
 
 OUTPUT_FORMAT(PLATFORM_LINKER_FORMAT)
 OUTPUT_ARCH(PLATFORM_LINKER_ARCH)
+
 ENTRY(bl1_entrypoint)
 
 MEMORY {
@@ -24,117 +18,244 @@ MEMORY {
 }
 
 SECTIONS {
-    . = BL1_RO_BASE;
+    /*
+     * Miscellaneous comments with no specific purpose, represented by a table
+     * of null-terminated strings. Often used to attach information about the
+     * toolchain to the binary.
+     */
+    .comment : { *(.comment) }
+
+    /*
+     * DWARF 2 debug information. These sections must be placed, otherwise the
+     * ELF image cannot be used for debugging.
+     */
+    .debug_info : { *(.debug_info .gnu.linkonce.wi.*) }
+    .debug_abbrev : { *(.debug_abbrev) }
+    .debug_line : { *(.debug_line .debug_line.* .debug_line_end) }
+    .debug_frame : { *(.debug_frame) }
+    .debug_str : { *(.debug_str) }
+    .debug_loc : { *(.debug_loc) }
+    .debug_macinfo : { *(.debug_macinfo) }
+
+    /*
+     * The Procedure Linkage Table (PLT).
+     *
+     * When the image is loaded by a dynamic linker, this table is populated
+     * with trampolines which look up a symbol in the PLT GOT, resolve its
+     * absolute address if necessary, then jump to it.
+     *
+     * BL1 doesn't support dynamic linkage, so we discard this section.
+     */
+    /DISCARD/ /* .plt */ : {
+        *(.plt .iplt)
+    }
+
+    /*
+     * Relocation table for the PLT section.
+     *
+     * When the image is loaded by a dynamic linker, this table contains
+     * relocation information for functions in the PLT,
+     *
+     * BL1 doesn't support dynamic linkage, so we discard this section.
+     */
+    /DISCARD/ /* .rela.plt */ : {
+        *(.rela.plt .rela.iplt)
+    }
+
+    /*
+     * Relocation tables for other sections.
+     *
+     * When the image is loaded by a dynamic linker, these tables contain
+     * relocation information for symbols not in the PLT.
+     *
+     * BL1 doesn't support dynamic linkage, so relocation information is
+     * discarded.
+     */
+    /DISCARD/ /* .rela.dyn */ : {
+        *(.rela.init)
+        *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+        *(.rela.fini)
+        *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+        *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+        *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+        *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+        *(.rela.ctors)
+        *(.rela.dtors)
+        *(.rela.got)
+        *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+        *(.rela.ifunc)
+    }
+
+    /*
+     * Global Offset Table (GOT) of functions in the PLT.
+     *
+     * When the image is loaded by a dynamic linker, this table is filled in at
+     * runtime with the real addresses of functions resolved by the linker.
+     *
+     * BL1 doesn't support dynamic linkage, so relocation information is
+     * discarded.
+     */
+    /DISCARD/ /* .got.plt */ : {
+        *(.got.plt .igot.plt)
+    }
+}
+
+SECTIONS {
+    . = ORIGIN(ROM);
 
     ASSERT(. == ALIGN(PAGE_SIZE),
-        "BL1_RO_BASE address is not aligned on a page boundary.")
+        "BL1 ROM address not aligned on a page boundary")
 
-    __RO_START__ = .;
-    __TEXT_START__ = .;
-
-    .text . : {
-        *bl1_entrypoint.o(.text*)
-
-        *(SORT_BY_ALIGNMENT(.text*))
+    .text : {
+        /*
+         * Exception vector table.
+         *
+         * This is a table of AArch32/AArch64 exception vector entries, which
+         * are small trampolines that jump into the relevant exception handler.
+         */
         *(.vectors)
+
+        /*
+         * Executable data.
+         *
+         * Note that functions on the cold path are placed first, further away
+         * from hotter functions, which can take advantage of cache locality and
+         * more compact relative addressing instructions.
+         */
+        *(.text.unlikely .text.*_unlikely .text.unlikely.*)
+        *(.text.exit .text.exit.*)
+        *(.text.startup .text.startup.*)
+        *(.text.hot .text.hot.*)
+        *(SORT_BY_NAME(.text.sorted.*))
+        *(.text .stub .text.* .gnu.linkonce.t.*)
+
+        /*
+         * GNU LD linker warnings.
+         *
+         * This is an interesting mechanic introduced by GNU LD which allows the
+         * developer to trigger arbitrary linker warnings when a particular
+         * symbol is linked.
+         */
+        *(.gnu.warning .gnu.warning.*)
     } >ROM
 
+    /*
+     * If we've been asked to keep executable and non-executable data separate,
+     * zero the rest of the page. This prevents non-executable data from
+     * overlapping an executable page.
+     */
 #if SEPARATE_CODE_AND_RODATA
     . = ALIGN(PAGE_SIZE);
 #endif /* SEPARATE_CODE_AND_RODATA */
 
+    __TEXT_START__ = ADDR(.text);
     __TEXT_END__ = .;
-    __RODATA_START__ = .;
 
-    .rodata . : {
-        *(SORT_BY_ALIGNMENT(.rodata*))
+    .rodata : {
+        *(.rodata .rodata.* .gnu.linkonce.r.*)
 
-        RODATA_COMMON
+#if PLAT_RO_XLAT_TABLES
+        __BASE_XLAT_TABLE_START__ = .;
+        *(base_xlat_table)
+        __BASE_XLAT_TABLE_END__ = .;
+#endif /* PLAT_RO_XLAT_TABLES */
+
+        __CPU_OPS_START__ = .;
+        KEEP(*(cpu_ops))
+        __CPU_OPS_END__ = .;
     } >ROM
 
-    .ARM.extab . : {
-        *(.ARM.extab* .gnu.linkonce.armextab.*)
-    } >ROM
-
-    .ARM.exidx . : {
-        *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-    } >ROM
-
+    __RODATA_START__ = ADDR(.rodata);
     __RODATA_END__ = .;
-    __RO_END__ = .;
+
+    __RO_START__ = __TEXT_START__;
+    __RO_END__ = __RODATA_END__;
 
     /*
-     * No need to pad out the read-only segment to a page boundary, because the
-     * read-write segment that follows it is not used until it has been copied
-     * to read-write memory.
-     *
-     * Pad out to 16 bytes though, as the `.data` section needs to be 16-byte
-     * aligned and LLVM does not align the LMA to the aligmnent specified on the
-     * section.
+     * Read/write data is copied from ROM to RAM during initialization of the C
+     * runtime. Our CRT implementation requires that the LMA be 16-byte aligned
+     * to allow us to copy in 16-byte blocks without alignment checks.
      */
     . = ALIGN(16);
 
-    ASSERT(__CPU_OPS_END__ > __CPU_OPS_START__,
-        "cpu_ops not defined for this platform.")
+    __BL1_ROM_START__ = ORIGIN(ROM);
+    __BL1_ROM_END__ = __DATA_ROM_START__ + __DATA_SIZE__;
+}
 
-    . = BL1_RW_BASE;
+SECTIONS {
+    . = ORIGIN(RAM);
 
-    ASSERT(BL1_RW_BASE == ALIGN(PAGE_SIZE),
-        "BL1_RW_BASE address is not aligned on a page boundary.")
+    ASSERT(. == ALIGN(PAGE_SIZE),
+        "BL1 RAM address not aligned on a page boundary")
 
-    DATA_SECTION >RAM AT>ROM
+    .data : ALIGN_WITH_INPUT {
+        *(.data .data.* .gnu.linkonce.d.*)
+    } >RAM AT>ROM
 
-    __DATA_RAM_START__ = __DATA_START__;
-    __DATA_RAM_END__ = __DATA_END__;
+    __DATA_SIZE__ = __DATA_RAM_END__ - __DATA_RAM_START__;
+    __DATA_ROM_START__ = LOADADDR(.data);
+    __DATA_RAM_START__ = ADDR(.data);
+    __DATA_RAM_END__ = .;
 
-    STACK_SECTION >RAM
-    BSS_SECTION >RAM
-    XLAT_TABLE_SECTION >RAM
+    /*
+     * There's no need to pad out the read-write segment to a page boundary
+     * because zero-initialized data can be safely allocated within the same
+     * page (it's all non-executable read-write).
+     */
+
+    .bss (NOLOAD) : {
+        *(.dynbss)
+        *(.bss .bss.* .gnu.linkonce.b.*)
+        *(COMMON)
+
+#if !PLAT_RO_XLAT_TABLES
+        __BASE_XLAT_TABLE_START__ = .;
+        *(base_xlat_table)
+        __BASE_XLAT_TABLE_END__ = .;
+#endif /* !PLAT_RO_XLAT_TABLES */
+
+        __XLAT_TABLE_START__ = .;
+        *(xlat_table)
+        __XLAT_TABLE_END__ = .;
+    } >RAM
+
+    __BSS_START__ = ADDR(.bss);
+    __BSS_END__ = .;
+
+    /*
+     * The stacks for each core are allocated by the `tzfw_normal_stacks` input
+     * sections. The contents of these sections are already aligned, so we don't
+     * need to specify an explicit alignment.
+     */
+    .stacks (NOLOAD) : {
+        __STACKS_START__ = .;
+        *(tzfw_normal_stacks)
+        __STACKS_END__ = .;
+    } >RAM
 
 #if USE_COHERENT_MEM
     /*
      * The base address of the coherent memory section must be page-aligned to
-     * guarantee that the coherent data are stored on their own pages and are
+     * guarantee that the coherent data are stored in their own pages and are
      * not mixed with normal data. This is required to set up the correct memory
      * attributes for the coherent data page tables.
      */
-    coherent_ram (NOLOAD) : ALIGN(PAGE_SIZE) {
-        __COHERENT_RAM_START__ = .;
+    .coherent_ram (NOLOAD) : ALIGN(PAGE_SIZE) {
         *(tzfw_coherent_mem)
-        __COHERENT_RAM_END_UNALIGNED__ = .;
-
-        /*
-         * Memory page(s) mapped to this section will be marked as device
-         * memory. No other unexpected data must creep in. Ensure the rest of
-         * the current memory page is unused.
-         */
-        . = ALIGN(PAGE_SIZE);
-
-        __COHERENT_RAM_END__ = .;
     } >RAM
-#endif /* USE_COHERENT_MEM */
-
-    __BL1_RAM_START__ = ADDR(.data);
-    __BL1_RAM_END__ = .;
-
-    __DATA_ROM_START__ = LOADADDR(.data);
-    __DATA_SIZE__ = SIZEOF(.data);
 
     /*
-     * The .data section is the last PROGBITS section so its end marks the end
-     * of BL1's actual content in Trusted ROM.
+     * Memory page(s) mapped to this section will be marked as device
+     * memory. No other unexpected data must creep in. Ensure the rest of
+     * the current memory page is unused.
      */
-    __BL1_ROM_END__ =  __DATA_ROM_START__ + __DATA_SIZE__;
+    . = ALIGN(PAGE_SIZE);
 
-    ASSERT(__BL1_ROM_END__ <= BL1_RO_LIMIT,
-        "BL1's ROM content has exceeded its limit.")
-
-    __BSS_SIZE__ = SIZEOF(.bss);
-
-#if USE_COHERENT_MEM
-    __COHERENT_RAM_UNALIGNED_SIZE__ =
-        __COHERENT_RAM_END_UNALIGNED__ - __COHERENT_RAM_START__;
+    __COHERENT_RAM_START__ = ADDR(.coherent_ram);
+    __COHERENT_RAM_END_UNALIGNED__ = __COHERENT_RAM_START__ + SIZEOF(.coherent_ram);
+    __COHERENT_RAM_END__ = .;
 #endif /* USE_COHERENT_MEM */
 
-    ASSERT(. <= BL1_RW_LIMIT, "BL1's RW section has exceeded its limit.")
+    __BL1_RAM_START__ = ORIGIN(RAM);
+    __BL1_RAM_END__ = .;
 }
