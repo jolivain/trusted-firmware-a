@@ -1,6 +1,7 @@
 #
 # Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
 # Portions copyright (c) 2021-2022, ProvenRun S.A.S. All rights reserved.
+# Copyright (c) 2022-2023, Advanced Micro Devices, Inc. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
@@ -124,8 +125,8 @@ BL31_SOURCES		+=	drivers/arm/cci/cci.c				\
 				plat/xilinx/zynqmp/plat_zynqmp.c		\
 				plat/xilinx/zynqmp/plat_topology.c		\
 				plat/xilinx/zynqmp/sip_svc_setup.c		\
-				plat/xilinx/zynqmp/pm_service/pm_svc_main.c	\
-				plat/xilinx/zynqmp/pm_service/pm_api_sys.c	\
+				plat/xilinx/zynqmp/pm_service/zynqmp_pm_svc_main.c	\
+				plat/xilinx/zynqmp/pm_service/zynqmp_pm_api_sys.c	\
 				plat/xilinx/zynqmp/pm_service/pm_api_pinctrl.c	\
 				plat/xilinx/zynqmp/pm_service/pm_api_ioctl.c	\
 				plat/xilinx/zynqmp/pm_service/pm_api_clock.c	\
