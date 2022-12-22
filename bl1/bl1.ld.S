@@ -4,19 +4,20 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-/*
- * The .data section gets copied from ROM to RAM at runtime. Its LMA should be
- * 16-byte aligned to allow efficient copying of 16-bytes aligned regions in it.
- * Its VMA must be page-aligned as it marks the first read/write page.
- */
-#define DATA_ALIGN	16
-
 #include <common/bl_common.ld.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
 
 OUTPUT_FORMAT(PLATFORM_LINKER_FORMAT)
 OUTPUT_ARCH(PLATFORM_LINKER_ARCH)
+
 ENTRY(bl1_entrypoint)
+
+/*
+ * Our C runtime places constraints on how some output sections may be aligned,
+ * described here.
+ */
+#define CRT_DATA_ALIGN 16 /* The `.data` section must be 16-byte aligned */
+#define CRT_BSS_ALIGN 16 /* The `.bss` section must be 16-byte aligned */
 
 MEMORY {
     ROM (rx): ORIGIN = BL1_RO_BASE, LENGTH = BL1_RO_LIMIT - BL1_RO_BASE
@@ -155,110 +156,283 @@ SECTIONS {
 }
 
 SECTIONS {
-    . = BL1_RO_BASE;
+    . = ORIGIN(ROM);
 
     ASSERT(. == ALIGN(PAGE_SIZE),
-        "BL1_RO_BASE address is not aligned on a page boundary.")
+        "BL1 ROM address not aligned on a page boundary")
 
-    .text . : {
-        __RO_START__ = .;
-        __TEXT_START__ = .;
-
-        *bl1_entrypoint.o(.text*)
-
-        *(.text*)
+    /* Read-only executable data */
+    .text : {
+        /*
+         * Exception vector table.
+         *
+         * This is a table of AArch32/AArch64 exception vector entries, which
+         * are small trampolines that jump into the relevant exception handler.
+         *
+         * The exception handlers themselves live in standard `.text` sections.
+         */
         *(.vectors)
 
-#if SEPARATE_CODE_AND_RODATA
-        . = ALIGN(PAGE_SIZE);
-#endif /* SEPARATE_CODE_AND_RODATA */
-
-        __TEXT_END__ = .;
-    } >ROM
-
-    .rodata . : {
-        __RODATA_START__ = .;
-
-        *(.rodata*)
-
-        RODATA_COMMON
-
-        __RODATA_END__ = .;
-        __RO_END__ = .;
+        /*
+         * Read-only executable data.
+         *
+         * Note that functions on the hot path are allocated together, which can
+         * allow us to take advantage of cache locality after profiling.
+         */
+        *(.text.unlikely .text.*_unlikely .text.unlikely.*)
+        *(.text.exit .text.exit.*)
+        *(.text.startup .text.startup.*)
+        *(.text.hot .text.hot.*)
+        *(SORT_BY_NAME(.text.sorted.*))
+        *(.text .stub .text.* .gnu.linkonce.t.*)
 
         /*
-         * No need to pad out the .rodata section to a page boundary. Next is
-         * the .data section, which can mapped in ROM with the same memory
-         * attributes as the .rodata section.
+         * GNU LD linker warnings.
          *
-         * Pad out to 16 bytes though as .data section needs to be 16-byte
-         * aligned and lld does not align the LMA to the alignment specified
-         * on the .data section.
+         * This is an interesting mechanic introduced by GNU LD which allows
+         * arbitrary linker warnings to be triggered when a particular symbol is
+         * linked.
          */
-        . = ALIGN(16);
+        *(.gnu.warning .gnu.warning.*)
+
+        /*
+         * Arm/Thumb interworking code.
+         *
+         * These sections contain glue code to support Arm/Thumb interworking
+         * on mixed-mode architectures prior to ARMv5T.
+         *
+         * We only support ARMv7-A or later, but the linker generates stub
+         * sections anyway.
+         */
+        *(.glue_7t)
+        *(.glue_7)
+
+        /*
+         * VFP11 coprocessor erratum veneer.
+         *
+         * This section contains a veneer to work around an erratum in the VFP11
+         * coprocessor, enabled via `--vfp11-denorm-fix` in GNU LD.
+         *
+         * We don't support any processor with which the VFP11 might be used,
+         * but the linker generates a stub section anyway.
+         */
+        *(.vfp11_veneer)
+
+        /*
+         * BX instruction support for ARMv4.
+         *
+         * This section contains a veneer which enables Thumb interworking
+         * between code compiled for ARMv4 and ARMv4T, while also allowing the
+         * callee to remain ARMv4-compatible.
+         *
+         * We don't support any processor with which the VFP11 might be used,
+         * but the linker generates a stub section anyway.
+         */
+        *(.v4_bx)
     } >ROM
 
-    ASSERT(__CPU_OPS_END__ > __CPU_OPS_START__,
-        "cpu_ops not defined for this platform.")
+    /*
+     * If we've been asked to keep executable and non-executable data in
+     * separate pages, pad the rest of the page to ensure that no non-executable
+     * data is mapped into an executable page.
+     */
+#if SEPARATE_CODE_AND_RODATA
+    . = ALIGN(PAGE_SIZE);
+#endif /* SEPARATE_CODE_AND_RODATA */
 
-    . = BL1_RW_BASE;
+    __TEXT_START__ = ADDR(.text);
+    __TEXT_END__ = .;
 
-    ASSERT(BL1_RW_BASE == ALIGN(PAGE_SIZE),
-        "BL1_RW_BASE address is not aligned on a page boundary.")
+    /* Read-only non-executable data */
+    .rodata : {
+        /* Read-only non-executable data */
+        *(.rodata .rodata.* .gnu.linkonce.r.*)
 
-    DATA_SECTION >RAM AT>ROM
+        /* Runtime service descriptor table */
+        PROVIDE(__RT_SVC_DESCS_START__ = .);
+        KEEP(*(rt_svc_descs))
+        PROVIDE(__RT_SVC_DESCS_END__ = .);
 
-    __DATA_RAM_START__ = __DATA_START__;
-    __DATA_RAM_END__ = __DATA_END__;
+        /* Firmware Configuration Framework (FCONF) populator table */
+        PROVIDE(__FCONF_POPULATOR_START__ = .);
+        KEEP(*(.fconf_populator))
+        PROVIDE(__FCONF_POPULATOR_END__ = .);
 
-    STACK_SECTION >RAM
-    BSS_SECTION >RAM
-    XLAT_TABLE_SECTION >RAM
+        /* Performance Measurement Framework (PMF) service descriptor table */
+        PROVIDE(__PMF_SVC_DESCS_START__ = .);
+        KEEP(*(pmf_svc_descs))
+        PROVIDE(__PMF_SVC_DESCS_END__ = .);
+
+        /* Image Parsing library descriptor table */
+       	PROVIDE(__PARSER_LIB_DESCS_START__ = .);
+        KEEP(*(.img_parser_lib_descs))
+        PROVIDE(__PARSER_LIB_DESCS_END__ = .);
+
+        /* CPU operations table */
+        PROVIDE(__CPU_OPS_START__ = .);
+        KEEP(*(cpu_ops))
+        PROVIDE(__CPU_OPS_END__ = .);
+
+#if PLAT_RO_XLAT_TABLES
+        /* Base translation tables */
+        PROVIDE(__BASE_XLAT_TABLE_START__ = .);
+        KEEP{*(base_xlat_table))
+        PROVIDE(__BASE_XLAT_TABLE_END__ = .);
+#endif /* PLAT_RO_XLAT_TABLES */
+
+#if SPMC_AT_EL3
+        /* SPMC Logical Partition descriptor table */
+        PROVIDE(__EL3_LP_DESCS_START__ = .);
+        KEEP(*(el3_lp_descs))
+        PROVIDE(__EL3_LP_DESCS_END__ = .);
+#endif /* SPMC_AT_EL3 */
+    } >ROM
+
+    __RODATA_START__ = ADDR(.rodata);
+    __RODATA_END__ = .;
+
+    __RO_START__ = __TEXT_START__;
+    __RO_END__ = __RODATA_END__;
+
+    /*
+     * Read/write data is copied from ROM to RAM during initialization of the C
+     * runtime. There's no syntax to specify the alignment of the LMA of an
+     * output section, but aligning the location counter has the same effect.
+     */
+    . = ALIGN(CRT_DATA_ALIGN);
+
+    __BL1_ROM_START__ = ORIGIN(ROM);
+    __BL1_ROM_END__ = __DATA_ROM_START__ + __DATA_SIZE__;
+}
+
+SECTIONS {
+    . = ORIGIN(RAM);
+
+    ASSERT(. == ALIGN(PAGE_SIZE),
+        "BL1 RAM address not aligned on a page boundary")
+
+    /* Read/write non-executable data */
+    .data : ALIGN(CRT_DATA_ALIGN) {
+        /* Read/write non-executable data */
+        *(.data .data.* .gnu.linkonce.d.*)
+    } >RAM AT>ROM
+
+    __DATA_ROM_START__ = LOADADDR(.data);
+    __DATA_RAM_START__ = ADDR(.data);
+    __DATA_RAM_END__ = .;
+
+    __DATA_START__ = __DATA_RAM_START__;
+    __DATA_END__ = __DATA_RAM_END__;
+    __DATA_SIZE__ = __DATA_END__ - __DATA_START__;
+
+    /* Per-core stack space */
+    .stacks (NOLOAD) : {
+        /* Per-core stack space */
+        __STACKS_START__ = .;
+        *(tzfw_normal_stacks)
+        __STACKS_END__ = .;
+    } >RAM
+
+    /* Zero-initialized non-executable data */
+    .bss (NOLOAD) : ALIGN(CRT_BSS_ALIGN) {
+        /* Zero-initialized non-executable data */
+        *(.dynbss)
+        *(.bss .bss.* .gnu.linkonce.b.*)
+        *(COMMON)
+
+#if !USE_COHERENT_MEM
+        . = ALIGN(CACHE_WRITEBACK_GRANULE);
+
+        __BAKERY_LOCK_START__ = .;
+        __PERCPU_BAKERY_LOCK_START__ = .;
+
+        *(bakery_lock)
+
+        . = ALIGN(CACHE_WRITEBACK_GRANULE);
+
+        __PERCPU_BAKERY_LOCK_END__ = .;
+        __PERCPU_BAKERY_LOCK_SIZE__ =
+            __PERCPU_BAKERY_LOCK_END__ - __PERCPU_BAKERY_LOCK_START__;
+
+        . += (__PERCPU_BAKERY_LOCK_SIZE__ * (PLATFORM_CORE_COUNT - 1));
+
+        __BAKERY_LOCK_END__ = .;
+
+#   ifdef PLAT_PERCPU_BAKERY_LOCK_SIZE
+        ASSERT(
+            (__PERCPU_BAKERY_LOCK_SIZE__ == 0) ||
+                (__PERCPU_BAKERY_LOCK_SIZE__ == PLAT_PERCPU_BAKERY_LOCK_SIZE),
+            "Per-core bakery lock size does not meet size requirements");
+#   endif /* PLAT_PERCPU_BAKERY_LOCK_SIZE */
+#endif /* !USE_COHERENT_MEM */
+
+        /*
+         * Performance Measurement Framework timestamps.
+         *
+         * The compiler will allocate enough memory for one CPU's
+         * time-stamps, the remaining memory for other CPUs is allocated by
+         * the linker script.
+         */
+        . = ALIGN(CACHE_WRITEBACK_GRANULE);
+
+        __PMF_TIMESTAMP_START__ = .;
+
+        KEEP(*(pmf_timestamp_array))
+
+        . = ALIGN(CACHE_WRITEBACK_GRANULE);
+
+        __PMF_PERCPU_TIMESTAMP_END__ = .;
+        __PERCPU_TIMESTAMP_SIZE__ = ABSOLUTE(. - __PMF_TIMESTAMP_START__);
+
+        . += (__PERCPU_TIMESTAMP_SIZE__ * (PLATFORM_CORE_COUNT - 1));
+
+        __PMF_TIMESTAMP_END__ = .;
+
+        BASE_XLAT_TABLE_BSS			\
+
+#if !PLAT_RO_XLAT_TABLES
+        /* Base translation table */
+        __BASE_XLAT_TABLE_START__ = .;
+        KEEP(*(base_xlat_table))
+        __BASE_XLAT_TABLE_END__ = .;
+#endif /* !PLAT_RO_XLAT_TABLES */
+    } >RAM
+
+    __BSS_START__ = ADDR(.bss);
+    __BSS_END__ = .;
+
+    /* Translation tables */
+    .xlat_table (NOLOAD) : {
+        __XLAT_TABLE_START__ = .;
+        *(xlat_table)
+        __XLAT_TABLE_END__ = .;
+    }
 
 #if USE_COHERENT_MEM
     /*
+     * Coherent memory region.
+     *
      * The base address of the coherent memory section must be page-aligned to
-     * guarantee that the coherent data are stored on their own pages and are
+     * guarantee that the coherent data are stored in their own pages and are
      * not mixed with normal data. This is required to set up the correct memory
      * attributes for the coherent data page tables.
      */
-    coherent_ram (NOLOAD) : ALIGN(PAGE_SIZE) {
-        __COHERENT_RAM_START__ = .;
+    .coherent_ram (NOLOAD) : ALIGN(PAGE_SIZE) {
         *(tzfw_coherent_mem)
-        __COHERENT_RAM_END_UNALIGNED__ = .;
-
-        /*
-         * Memory page(s) mapped to this section will be marked as device
-         * memory. No other unexpected data must creep in. Ensure the rest of
-         * the current memory page is unused.
-         */
-        . = ALIGN(PAGE_SIZE);
-
-        __COHERENT_RAM_END__ = .;
     } >RAM
-#endif /* USE_COHERENT_MEM */
-
-    __BL1_RAM_START__ = ADDR(.data);
-    __BL1_RAM_END__ = .;
-
-    __DATA_ROM_START__ = LOADADDR(.data);
-    __DATA_SIZE__ = SIZEOF(.data);
 
     /*
-     * The .data section is the last PROGBITS section so its end marks the end
-     * of BL1's actual content in Trusted ROM.
+     * Memory page(s) mapped to this section will be marked as device memory; no
+     * other unexpected data must creep in. Ensure the rest of the current
+     * memory page is unused.
      */
-    __BL1_ROM_END__ =  __DATA_ROM_START__ + __DATA_SIZE__;
+    . = ALIGN(PAGE_SIZE);
 
-    ASSERT(__BL1_ROM_END__ <= BL1_RO_LIMIT,
-        "BL1's ROM content has exceeded its limit.")
-
-    __BSS_SIZE__ = SIZEOF(.bss);
-
-#if USE_COHERENT_MEM
-    __COHERENT_RAM_UNALIGNED_SIZE__ =
-        __COHERENT_RAM_END_UNALIGNED__ - __COHERENT_RAM_START__;
+    __COHERENT_RAM_START__ = ADDR(.coherent_ram);
+    __COHERENT_RAM_END_UNALIGNED__ = __COHERENT_RAM_START__ + SIZEOF(.coherent_ram);
+    __COHERENT_RAM_END__ = .;
 #endif /* USE_COHERENT_MEM */
 
-    ASSERT(. <= BL1_RW_LIMIT, "BL1's RW section has exceeded its limit.")
+    __BL1_RAM_START__ = ORIGIN(RAM);
+    __BL1_RAM_END__ = .;
 }
