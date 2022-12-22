@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edd5c380_a3a45838",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-12-22T15:46:11Z",
+      "side": 1,
+      "message": "Hi Demi, Sandrine\n\nThere are multiple job failures due to the authentication failures, I suppose the robustness Demi added in the X.509 parser uncovered some legacy issues. These job failures need to be investigated further before merging these changes.",
+      "revId": "1edf2187f827e8d88ef6ab9a8dcabc9251f7d177",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
