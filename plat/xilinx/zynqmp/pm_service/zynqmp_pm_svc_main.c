@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2022-2023, Advanced Micro Devices, Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -21,10 +22,10 @@
 #endif
 
 #include <plat_private.h>
-#include "pm_api_sys.h"
 #include "pm_client.h"
 #include "pm_defs.h"
 #include "pm_ipi.h"
+#include "zynqmp_pm_api_sys.h"
 
 /* pm_up = !0 - UP, pm_up = 0 - DOWN */
 static int32_t pm_up, ipi_irq_flag;

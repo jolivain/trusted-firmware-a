@@ -1,11 +1,12 @@
 /*
  * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2022-2023, Advanced Micro Devices, Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#ifndef PM_API_SYS_H
-#define PM_API_SYS_H
+#ifndef ZYNQMP_PM_API_SYS_H
+#define ZYNQMP_PM_API_SYS_H
 
 #include <stdint.h>
 
@@ -194,4 +195,4 @@ enum pm_ret_status pm_feature_check(uint32_t api_id, uint32_t *version,
 				    uint32_t *bit_mask, uint8_t len);
 enum pm_ret_status check_api_dependency(uint8_t id);
 
-#endif /* PM_API_SYS_H */
+#endif /* ZYNQMP_PM_API_SYS_H */
