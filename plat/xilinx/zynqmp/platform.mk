@@ -130,8 +130,8 @@ BL31_SOURCES		+=	drivers/arm/cci/cci.c				\
 				plat/xilinx/zynqmp/plat_zynqmp.c		\
 				plat/xilinx/zynqmp/plat_topology.c		\
 				plat/xilinx/zynqmp/sip_svc_setup.c		\
-				plat/xilinx/zynqmp/pm_service/pm_svc_main.c	\
-				plat/xilinx/zynqmp/pm_service/pm_api_sys.c	\
+				plat/xilinx/zynqmp/pm_service/zynqmp_pm_svc_main.c	\
+				plat/xilinx/zynqmp/pm_service/zynqmp_pm_api_sys.c	\
 				plat/xilinx/zynqmp/pm_service/pm_api_pinctrl.c	\
 				plat/xilinx/zynqmp/pm_service/pm_api_ioctl.c	\
 				plat/xilinx/zynqmp/pm_service/pm_api_clock.c	\
