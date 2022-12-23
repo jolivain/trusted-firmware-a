@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dfc54a7_36f5a698",
+        "filename": "include/services/rmm_core_manifest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2022-12-23T12:31:51Z",
+      "side": 1,
+      "message": "Hmmm, I\u0027ve been thinking more about this. I guess plat_dram is needed/common to all platforms, whereas \"plat_data\" is more platform specific, so I think it is OK to leave it as it is. My previous comment was mostly a thought.",
+      "parentUuid": "178c16cb_2b865bf3",
+      "range": {
+        "startLine": 68,
+        "startChar": 18,
+        "endLine": 68,
+        "endChar": 27
+      },
+      "revId": "2f7abf9713f0aa027c4b69e1b7fe408c577ba638",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c27b90b_36779e6f",
