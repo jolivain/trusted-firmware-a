@@ -16,6 +16,23 @@
       "message": "False failure.",
       "revId": "090007aedf345b7efac1e1517aed41a3737fe6e4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83681328_a8b0216d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-12-27T09:40:48Z",
+      "side": 1,
+      "message": "Some real failures(similar) are seen in CI+2 job both at internal as well as at open CI.\n\nAll are related to RME test suite. @Soby kindly share your thoughts here.\n\nCopying the log here, as CI results are deleted over time.\n\n\n\u003e Test suite \u0027Realm payload at EL1\u0027  Failed\n\nRunning test suite \u0027Realm payload at EL1\u0027\nDescription: Test Realm EL1 framework capabilities\n\u003e Executing \u0027Realm payload boot\u0027\nERROR:   RMI SMC 0xc4000150 corrupted registers: X4   \nERROR:   RMI registers comparison failed\n  TEST COMPLETE                                                 Failed\nRMM version is: 0.0\n\n\u003e Executing \u0027Realm payload multi CPU request\u0027\nERROR:   RMI SMC 0xc4000150 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000150 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000150 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000150 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000150 corrupted registers: X4   \nERROR:   RMI registers comparison failed\nERROR:   RMI registers comparison failed\nERROR:   RMI registers comparison failed\nERROR:   RMI SMC 0xc4000150 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000150 corrupted registers: X4   \nERROR:   RMI registers comparison failed\nERROR:   RMI registers comparison failed\nERROR:   RMI SMC 0xc4000150 corrupted registers: X4   \nERROR:   RMI registers comparison failed\n  TEST COMPLETE                                                 Failed\nMulti CPU RMM version on CPU 1000100 is: 0.0\nMulti CPU RMM version on CPU 1000200 is: 0.0\nMulti CPU RMM version on CPU 1010000 is: 0.0\nMulti CPU RMM version on CPU 1000000 is: 0.0\nMulti CPU RMM version on CPU 1000300 is: 0.0\nMulti CPU RMM version on CPU 1010100 is: 0.0\nMulti CPU RMM version on CPU 1010200 is: 0.0\nMulti CPU RMM version on CPU 1010300 is: 0.0\n\n\u003e Executing \u0027Realm payload Delegate and Undelegate\u0027\nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000152 corrupted registers: X4   \nERROR:   RMI registers comparison failed\n  TEST COMPLETE                                                 Failed\nDelegate and undelegate of buffer 0x88033000 succeeded\n\n\u003e Executing \u0027Multi CPU Realm payload Delegate and Undelegate\u0027\nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI registers comparison failed\n  TEST COMPLETE                                                 Failed\n\n\u003e Executing \u0027Testing delegation fails\u0027\nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000151 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000152 corrupted registers: X4   \nERROR:   RMI SMC 0xc4000152 corrupted registers: X4   \nERROR:   RMI registers comparison failed\n  TEST COMPLETE                                                 Failed",
+      "revId": "090007aedf345b7efac1e1517aed41a3737fe6e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
