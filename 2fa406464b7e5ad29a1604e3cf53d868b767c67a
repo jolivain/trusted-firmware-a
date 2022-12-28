@@ -16,6 +16,24 @@
       "message": "Hi Leo Yan,\nThanks for your patch. It\u0027s a good add-on for debugging.\n\nCurrently, another refactored patch stack related to the feature detection mechanism is in review.\nFYI: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17869\n\nThis is in the final review phase. \nHere they have introduced a generic function and tried to get rid of trivial feature-specific functions.\nSo, if we get them merged, we might remove the macro.\nfeat_detect_panic(a, b)\t\t((a) ? feature_detected(b) : feature_panic(b))\n\nHowever, your change could be tuned into the generic function check_feature().\nSo could we wait and pull in your changes at the later phase accordingly? \nOr please add your changes on top of this patch stack itself. Either way it\u0027s fine.\n\nLet me know your thoughts here.",
       "revId": "2fa406464b7e5ad29a1604e3cf53d868b767c67a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06af698c_0eb42029",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000108
+      },
+      "writtenOn": "2022-12-28T09:02:49Z",
+      "side": 1,
+      "message": "Hi,\n\nThanks a lot for the info and good to know the refactoring.  Please consider to pull in this change if you will respin the refactoring patch set and I am glad to drop my patch, I think this is the most effective way.\n\nAnyway, if you want me to rebase this patch on the top of the refactoring patch set, please let me know.  I can follow up later.\n\nSo far, let me firstly close this PR.  Thanks for the suggestion!",
+      "parentUuid": "3aecb5c4_e688a55f",
+      "revId": "2fa406464b7e5ad29a1604e3cf53d868b767c67a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
