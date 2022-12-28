@@ -168,6 +168,23 @@
       "message": "fails are fvp and ignorning nit comments from me.",
       "revId": "9bff7ce37545162d417953ac36c6878216815b94",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21639d63_40ecbca4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-12-28T13:19:34Z",
+      "side": 1,
+      "message": "Hi Marcin Juszkiewicz,\n\nplease note that SPM_MM is not compatible with ENABLE_SME_FOR_NS support.\n\nWith this patch, we see build failure for the below combination in our CI setup.\n\nmake CROSS_COMPILE\u003daarch64-none-elf- PLAT\u003dqemu_sbsa -j 40 DEBUG\u003d1 -s BL32\u003dMakefile SPM_MM\u003d1 EL3_EXCEPTION_HANDLING\u003d1 ENABLE_SVE_FOR_NS\u003d0\n\nSo to fix this, guard these build flags under the SPM_MM flag, similar to what you have done for the arch32 version in your other patch.\n\nifneq (${SPM_MM},1)\nENABLE_SVE_FOR_NS\t:\u003d 1\nENABLE_SME_FOR_NS\t:\u003d 1\nendif\n\nKindly fix this soon. \nThank you!",
+      "revId": "9bff7ce37545162d417953ac36c6878216815b94",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
