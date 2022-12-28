@@ -34,6 +34,24 @@
       "parentUuid": "edd5c380_a3a45838",
       "revId": "1edf2187f827e8d88ef6ab9a8dcabc9251f7d177",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa8dd0c9_0e6f6cf1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2022-12-28T15:58:32Z",
+      "side": 1,
+      "message": "Please see the failure logs [1], all failures are due the authentication. This build does not include your suspected patch [2] but still failures are observed. You can see failure logs under Build Artifacts-\u003elava-uart*.log file. I too look into those failures and provide you some feedback soon.\n\n[1]: https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/600/\n[2]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/18140",
+      "parentUuid": "bfaa8456_4d011639",
+      "revId": "1edf2187f827e8d88ef6ab9a8dcabc9251f7d177",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
