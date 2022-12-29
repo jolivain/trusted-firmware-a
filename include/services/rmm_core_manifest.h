@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -22,17 +22,17 @@
  *	- Bits [30:16] Major version
  *	- Bits [15:0] Minor version
  */
-#define _RMMD_MANIFEST_VERSION(_major, _minor)				\
+#define SET_RMMD_MANIFEST_VERSION(_major, _minor)		\
 	((((_major) & 0x7FFF) << 16) | ((_minor) & 0xFFFF))
 
-#define RMMD_MANIFEST_VERSION _RMMD_MANIFEST_VERSION(			\
-				RMMD_MANIFEST_VERSION_MAJOR,		\
+#define RMMD_MANIFEST_VERSION	SET_RMMD_MANIFEST_VERSION(	\
+				RMMD_MANIFEST_VERSION_MAJOR,	\
 				RMMD_MANIFEST_VERSION_MINOR)
 
-#define RMMD_GET_MANIFEST_VERSION_MAJOR(_version)			\
+#define RMMD_GET_MANIFEST_VERSION_MAJOR(_version)		\
 	((_version >> 16) & 0x7FFF)
 
-#define RMMD_GET_MANIFEST_VERSION_MINOR(_version)			\
+#define RMMD_GET_MANIFEST_VERSION_MINOR(_version)		\
 	(_version & 0xFFFF)
 
 /* DRAM bank structure */
@@ -48,17 +48,17 @@ CASSERT(offsetof(struct dram_bank, size) == 8,
 
 /* DRAM layout info structure */
 struct dram_info {
-	uint64_t banks_num;		/* Number of DRAM banks */
+	uint64_t num_banks;		/* Number of DRAM banks */
 	struct dram_bank *dram_data;	/* Pointer to dram_bank[] */
-	uint64_t check_sum;		/* Checksum of dram_info data */
+	uint64_t checksum;		/* Checksum of dram_info data */
 };
 
-CASSERT(offsetof(struct dram_info, banks_num) == 0,
-			rmm_manifest_banks_num_unaligned);
+CASSERT(offsetof(struct dram_info, num_banks) == 0,
+			rmm_manifest_num_banks_unaligned);
 CASSERT(offsetof(struct dram_info, dram_data) == 8,
 			rmm_manifest_dram_data_unaligned);
-CASSERT(offsetof(struct dram_info, check_sum) == 16,
-			rmm_manifest_check_sum_unaligned);
+CASSERT(offsetof(struct dram_info, checksum) == 16,
+			rmm_manifest_checksum_unaligned);
 
 /* Boot manifest core structure as per v0.2 */
 struct rmm_manifest {
