@@ -7,10 +7,10 @@
 #include <bl31/interrupt_mgmt.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <plat/common/platform.h>
-#include <platform_def.h>
 #include <services/sdei.h>
 #include <services/spm_mm_svc.h>
 
+#include <platform_def.h>
 #include <sgi_ras.h>
 
 /* Base Element RAM Error Record offsets. */
