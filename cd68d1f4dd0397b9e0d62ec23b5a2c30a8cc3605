@@ -22,6 +22,30 @@
       },
       "revId": "cd68d1f4dd0397b9e0d62ec23b5a2c30a8cc3605",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d980497_3fcc42ff",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2022-12-30T01:55:43Z",
+      "side": 1,
+      "message": "The check is actually necessary, as otherwise a truncated certificate would result in an out-of-bounds read.  However, “sig_alg1.len !\u003d (size_t)(end - p)” is wrong, as this will always be true unless the signature is missing!  I replaced it with “sig_alg1.len \u003e\u003d (size_t)(end - p)”, though “sig_alg1.len \u003e (size_t)(end - p)” would also be correct.",
+      "parentUuid": "bce1323b_372b26ec",
+      "range": {
+        "startLine": 406,
+        "startChar": 5,
+        "endLine": 406,
+        "endChar": 40
+      },
+      "revId": "cd68d1f4dd0397b9e0d62ec23b5a2c30a8cc3605",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
