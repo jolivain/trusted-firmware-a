@@ -68,6 +68,30 @@
       },
       "revId": "5cf941c83069f051af47121e689fa835535fc65c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5365ef8d_a7f9fdc4",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-12-31T22:21:57Z",
+      "side": 1,
+      "message": "i\u0027m skeptical about removing the check too..is there a harm in keeping the 0x80 check?",
+      "parentUuid": "d8da4cad_8fe5d046",
+      "range": {
+        "startLine": 270,
+        "startChar": 6,
+        "endLine": 270,
+        "endChar": 13
+      },
+      "revId": "5cf941c83069f051af47121e689fa835535fc65c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
