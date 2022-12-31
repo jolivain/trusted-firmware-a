@@ -254,5 +254,8 @@ struct ffa_mtd {
 	uint64_t reserved_40_47;
 };
 CASSERT(sizeof(struct ffa_mtd) == 48, assert_ffa_mtd_size_mismatch);
+CASSERT(offsetof(struct ffa_mtd, emad_count) ==
+	offsetof(struct ffa_mtd_v1_0, emad_count),
+	assert_ffa_mtd_emad_count_offset_mismatch);
 
 #endif /* EL3_SPMC_FFA_MEM_H */
