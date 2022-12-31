@@ -201,15 +201,12 @@ spmc_shmem_obj_get_emad(const struct ffa_mtd *desc, uint32_t index,
 	 * format, otherwise assume it is a v1.1 format.
 	 */
 	if (ffa_version == MAKE_FFA_VERSION(1, 0)) {
-		/* Cast our descriptor to the v1.0 format. */
-		struct ffa_mtd_v1_0 *mtd_v1_0 =
-					(struct ffa_mtd_v1_0 *) desc;
-		emad = (uint8_t *)  &(mtd_v1_0->emad);
+		emad = (uint8_t *)desc + offsetof(struct ffa_mtd_v1_0, emad);
 		*emad_size = sizeof(struct ffa_emad_v1_0);
 	} else {
 		if (!is_aligned(desc->emad_offset, 16)) {
-			WARN("Emad offset is not aligned.\n");
-			return NULL;
+			ERROR("If offset is not aligned we should not be here.\n");
+			panic();
 		}
 		emad = ((uint8_t *) desc + desc->emad_offset);
 		*emad_size = desc->emad_size;
@@ -237,10 +234,6 @@ spmc_shmem_obj_get_comp_mrd(struct spmc_shmem_obj *obj, uint32_t ffa_version)
 	struct ffa_emad_v1_0 *emad = spmc_shmem_obj_get_emad(&obj->desc, 0,
 							     ffa_version,
 							     &emad_size);
-	/* Ensure the emad array was found. */
-	if (emad == NULL) {
-		return NULL;
-	}
 
 	/* Ensure the composite descriptor offset is aligned. */
 	if (!is_aligned(emad->comp_mrd_offset, 8)) {
@@ -829,10 +822,6 @@ static int spmc_shmem_check_obj(struct spmc_shmem_obj *obj,
 
 		emad = spmc_shmem_obj_get_emad(&obj->desc, emad_num,
 					       ffa_version, &emad_size);
-		if (emad == NULL) {
-			WARN("%s: invalid emad structure.\n", __func__);
-			return -EINVAL;
-		}
 
 		/*
 		 * Validate the calculated emad address resides within the
@@ -1094,10 +1083,6 @@ static long spmc_ffa_fill_desc(struct mailbox *mbox,
 	for (size_t i = 0; i < obj->desc.emad_count; i++) {
 		emad = spmc_shmem_obj_get_emad(&obj->desc, i, ffa_version,
 					       &emad_size);
-		if (emad == NULL) {
-			ret = FFA_ERROR_INVALID_PARAMETER;
-			goto err_bad_desc;
-		}
 
 		ffa_endpoint_id16_t ep_id = emad->mapd.endpoint_id;
 
@@ -1109,24 +1094,27 @@ static long spmc_ffa_fill_desc(struct mailbox *mbox,
 				goto err_bad_desc;
 			}
 		}
-	}
 
-	/* Ensure partition IDs are not duplicated. */
-	for (size_t i = 0; i < obj->desc.emad_count; i++) {
-		emad = spmc_shmem_obj_get_emad(&obj->desc, i, ffa_version,
-					       &emad_size);
-		if (emad == NULL) {
+		if (emad->reserved_8_15) {
+			WARN("%s: Reserved entry in emad 0x%016" PRIx64 ", not 0.\n",
+			     __func__, emad->reserved_8_15);
 			ret = FFA_ERROR_INVALID_PARAMETER;
 			goto err_bad_desc;
 		}
+	}
+
+	/*
+	 * Ensure partition IDs are not duplicated.  FIXME: this is O(n^2),
+	 * should the partition IDs be required to be sorted instead?
+	 */
+	for (size_t i = 0; i < obj->desc.emad_count; i++) {
+		emad = spmc_shmem_obj_get_emad(&obj->desc, i, ffa_version,
+					       &emad_size);
+
 		for (size_t j = i + 1; j < obj->desc.emad_count; j++) {
 			other_emad = spmc_shmem_obj_get_emad(&obj->desc, j,
 							     ffa_version,
 							     &emad_size);
-			if (other_emad == NULL) {
-				ret = FFA_ERROR_INVALID_PARAMETER;
-				goto err_bad_desc;
-			}
 
 			if (emad->mapd.endpoint_id ==
 				other_emad->mapd.endpoint_id) {
@@ -1593,11 +1581,6 @@ spmc_ffa_mem_retrieve_req(uint32_t smc_fid,
 
 		emad = spmc_shmem_obj_get_emad(req, i, ffa_version,
 					       &emad_size);
-		if (emad == NULL) {
-			WARN("%s: invalid emad structure.\n", __func__);
-			ret = FFA_ERROR_INVALID_PARAMETER;
-			goto err_unlock_all;
-		}
 
 		if ((uintptr_t) emad >= (uintptr_t)
 					((uint8_t *) req + total_length)) {
@@ -1621,20 +1604,11 @@ spmc_ffa_mem_retrieve_req(uint32_t smc_fid,
 
 		emad = spmc_shmem_obj_get_emad(req, i, ffa_version,
 					       &emad_size);
-		if (emad == NULL) {
-			ret = FFA_ERROR_INVALID_PARAMETER;
-			goto err_unlock_all;
-		}
 
 		for (size_t j = 0; j < obj->desc.emad_count; j++) {
 			other_emad = spmc_shmem_obj_get_emad(
 					&obj->desc, j, MAKE_FFA_VERSION(1, 1),
 					&emad_size);
-
-			if (other_emad == NULL) {
-				ret = FFA_ERROR_INVALID_PARAMETER;
-				goto err_unlock_all;
-			}
 
 			if (req->emad_count &&
 			    emad->mapd.endpoint_id ==
