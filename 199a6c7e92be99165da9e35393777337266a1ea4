@@ -3,6 +3,98 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f4e9e5d_73dbe967",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1167,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-12-31T22:16:48Z",
+      "side": 1,
+      "message": "legitimately",
+      "range": {
+        "startLine": 1167,
+        "startChar": 45,
+        "endLine": 1167,
+        "endChar": 53
+      },
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1783cd21_d98758e8",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1184,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-12-31T22:16:48Z",
+      "side": 1,
+      "message": "impact is very high to have DOS on server systems. Availability is much more important on server systems than on mobile devices, because on mobile devices you could simply \"pcoket restart\" to fix issues. Doing so in servers is extremely costly.\nThe impact has to be high for this.",
+      "range": {
+        "startLine": 1184,
+        "startChar": 27,
+        "endLine": 1184,
+        "endChar": 34
+      },
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c55330db_af2eb0a2",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-12-31T22:16:48Z",
+      "side": 1,
+      "message": "likelihood should be high. this is very easy to do. from the SPMC threat model perspective, NS world is entirely untrusted, so a malicious hypervisor can mount this DOS attack very easily.",
+      "range": {
+        "startLine": 1186,
+        "startChar": 27,
+        "endLine": 1186,
+        "endChar": 37
+      },
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1662970b_affe649a",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-12-31T22:16:48Z",
+      "side": 1,
+      "message": "change total risk rating based on above two?",
+      "range": {
+        "startLine": 1188,
+        "startChar": 27,
+        "endLine": 1188,
+        "endChar": 34
+      },
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9c6d7f8a_c748a3a2",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 1
@@ -14,6 +106,52 @@
       "writtenOn": "2022-12-30T02:30:08Z",
       "side": 1,
       "message": "“this could”",
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f45742e3_ee7aa73b",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-12-31T22:16:48Z",
+      "side": 1,
+      "message": "insufficient",
+      "range": {
+        "startLine": 1193,
+        "startChar": 34,
+        "endLine": 1193,
+        "endChar": 46
+      },
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64e75629_8c15a400",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1196,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-12-31T22:16:48Z",
+      "side": 1,
+      "message": "so basically there is no mitigation. I would suggest to add that this is a possibility and there is no current mitigation. In general this is a problem for systems that need to use memory sharing extensively. It might also be worth calling out that the resources for memory sharing are separate from other functionality, so even if this DOS occurs, rest of the SPMC can work.\nAS i understand from the FF-A SRA, it seems like availability is not a comprehensive goal for FFA and hafnium is an implementation of the SPMC, and that might help justify why we are okay with not implementing a mitigation.",
+      "range": {
+        "startLine": 1196,
+        "startChar": 37,
+        "endLine": 1196,
+        "endChar": 75
+      },
       "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -54,6 +192,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b5f3ac56_f3b2d8ba",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1221,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-12-31T22:16:48Z",
+      "side": 1,
+      "message": "generally, impact to servers w.r.t to DOS is medium or high. extremely expensive to reboot for example, to recover from it.",
+      "range": {
+        "startLine": 1221,
+        "startChar": 27,
+        "endLine": 1221,
+        "endChar": 35
+      },
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a81f6e1b_ba70d2c3",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-12-31T22:16:48Z",
+      "side": 1,
+      "message": "themselves",
+      "range": {
+        "startLine": 1229,
+        "startChar": 57,
+        "endLine": 1229,
+        "endChar": 65
+      },
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "86bf0c74_af20ce4a",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 1
@@ -65,6 +249,93 @@
       "writtenOn": "2022-12-30T02:30:08Z",
       "side": 1,
       "message": "This allows one secure partition to DoS another secure partition.  This is a potentially significant problem in some scenarios, such as secure worlds that allow the non-secure world to upload arbitrary trustlets and provide a means of attesting these trustlets.  I consider it the responsibility of each secure partition’s kernel to ensure that all resources are cleaned up if a process crashes.  The hypervisor should also be able to enforce quotas on each partition.",
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcf1365a_35bcd322",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-12-31T22:16:48Z",
+      "side": 1,
+      "message": "Agree with the comment in general but, DoS is generally hard to prevent without adding significant complexity and as a general rule, bad partition behaviors are very difficult to monitor and prevent against, specially if they are dynamically loaded.\nFF-A also does not put preventing DoS very high on the list of security goals afaik.",
+      "parentUuid": "86bf0c74_af20ce4a",
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03bea01f_4e0d6596",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1267,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-12-31T22:16:48Z",
+      "side": 1,
+      "message": "threat",
+      "range": {
+        "startLine": 1267,
+        "startChar": 55,
+        "endLine": 1267,
+        "endChar": 61
+      },
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0cdb483_cdf5792f",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1275,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-12-31T22:16:48Z",
+      "side": 1,
+      "message": "threat",
+      "range": {
+        "startLine": 1275,
+        "startChar": 56,
+        "endLine": 1275,
+        "endChar": 63
+      },
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26b179f8_6da68cd6",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1310,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2022-12-31T22:16:48Z",
+      "side": 1,
+      "message": "performing",
+      "range": {
+        "startLine": 1310,
+        "startChar": 66,
+        "endLine": 1310,
+        "endChar": 71
+      },
       "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
