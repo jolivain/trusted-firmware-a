@@ -72,6 +72,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "242b048f_7355e1da",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-01-01T23:53:24Z",
+      "side": 1,
+      "message": "Under what threat models are DoS attacks by the NS hypervisor worth guarding against?  The NS world can typically reboot the system anyway, and I believe at least OP-TEE relies on the NS world for scheduling.  The only use-case I can think of where this has a nonzero severity is if a cloud provider is hosting their management software in the secure world and needs it to keep running no matter what the non-secure world does.  Such software should not be relying on shared memory with the NS world anyway.\n\nPersonally, I am much more concerned with DoS attacks by a secure partition.  Secure-world hypervisors should be able to protect themselves and the normal world from such attacks.",
+      "parentUuid": "c55330db_af2eb0a2",
+      "range": {
+        "startLine": 1186,
+        "startChar": 27,
+        "endLine": 1186,
+        "endChar": 37
+      },
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1662970b_affe649a",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 1
@@ -146,6 +170,30 @@
       "writtenOn": "2022-12-31T22:16:48Z",
       "side": 1,
       "message": "so basically there is no mitigation. I would suggest to add that this is a possibility and there is no current mitigation. In general this is a problem for systems that need to use memory sharing extensively. It might also be worth calling out that the resources for memory sharing are separate from other functionality, so even if this DOS occurs, rest of the SPMC can work.\nAS i understand from the FF-A SRA, it seems like availability is not a comprehensive goal for FFA and hafnium is an implementation of the SPMC, and that might help justify why we are okay with not implementing a mitigation.",
+      "range": {
+        "startLine": 1196,
+        "startChar": 37,
+        "endLine": 1196,
+        "endChar": 75
+      },
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78127477_b7e2b8aa",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1196,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-01-01T23:53:24Z",
+      "side": 1,
+      "message": "I know nothing about hafnium, but seL4 ought to be able to run in the secure world and is not subject to this vulnerability.",
+      "parentUuid": "64e75629_8c15a400",
       "range": {
         "startLine": 1196,
         "startChar": 37,
@@ -267,6 +315,24 @@
       "side": 1,
       "message": "Agree with the comment in general but, DoS is generally hard to prevent without adding significant complexity and as a general rule, bad partition behaviors are very difficult to monitor and prevent against, specially if they are dynamically loaded.\nFF-A also does not put preventing DoS very high on the list of security goals afaik.",
       "parentUuid": "86bf0c74_af20ce4a",
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36a3a6bc_d7982758",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-01-01T23:53:24Z",
+      "side": 1,
+      "message": "seL4 in the secure world is more than capable of doing this.  That said, an SPMC could provide a “Destroy this trustlet NOW!” endpoint to the NS world, and release the resources of a trustlet so destroyed.",
+      "parentUuid": "bcf1365a_35bcd322",
       "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
