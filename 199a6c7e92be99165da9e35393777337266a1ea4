@@ -96,6 +96,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3c642ef9_89315842",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-01-02T16:44:37Z",
+      "side": 1,
+      "message": "\u003e\u003eif a cloud provider is hosting their management software in the secure world and needs it to keep running no matter what the non-secure world does\n[RK] This is one the usage models and is very common.\n\n\u003e\u003eSuch software should not be relying on shared memory with the NS world anyway.\n[RK] Yes, that would be one way to solve it. In practice, that is a lot harder to do. My comment is saying that in practice, not having any communication with NWd is not practical, so this threat exists and the likelihood should be marked as such to inform readers that a mitigation does not exist, today.\n\n\u003e\u003e I am much more concerned with DoS attacks by a secure partition\n[RK] DoS of what? of the SPMC? other partitions? normal world? In generally, i agree this is a problem, and we have talked about this many times in the past, that the SPMC should be able to protect themselves. I\u0027m just saying it is non trivial to do, and has not been high on the list of things to yet. Patches are welcome of course, so long as the complexity of impl vs benefit is worth it.",
+      "parentUuid": "242b048f_7355e1da",
+      "range": {
+        "startLine": 1186,
+        "startChar": 27,
+        "endLine": 1186,
+        "endChar": 37
+      },
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1662970b_affe649a",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 1
@@ -194,6 +218,30 @@
       "side": 1,
       "message": "I know nothing about hafnium, but seL4 ought to be able to run in the secure world and is not subject to this vulnerability.",
       "parentUuid": "64e75629_8c15a400",
+      "range": {
+        "startLine": 1196,
+        "startChar": 37,
+        "endLine": 1196,
+        "endChar": 75
+      },
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b0d458f_8aee49f8",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1196,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-01-02T16:44:37Z",
+      "side": 1,
+      "message": "afaik, hafnium is neither competing with sel4, nor is it trying to provide the same guarantees. They may be similar. Agree that it would be great to be not subject to this, but until such time, the document can/should accurately reflect the reality. If we do fix it, this can be updated to reflect that reality.",
+      "parentUuid": "78127477_b7e2b8aa",
       "range": {
         "startLine": 1196,
         "startChar": 37,
@@ -333,6 +381,24 @@
       "side": 1,
       "message": "seL4 in the secure world is more than capable of doing this.  That said, an SPMC could provide a “Destroy this trustlet NOW!” endpoint to the NS world, and release the resources of a trustlet so destroyed.",
       "parentUuid": "bcf1365a_35bcd322",
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f1c9df5_8fe01074",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-01-02T16:44:37Z",
+      "side": 1,
+      "message": "same as above, sel4 is not hf and vice versa, and i dont believe the goals are to compete with one another or be the same as one another. There may be overlapping goals.\nWouldnt destroy this trustlet (\"partition\" in FF-A parlance) create yet another DoS? NWd is considered untrusted in the TrustZone threat model (although people are free to invert it) and providing such an API/Interface, would simply mean NWd kills of trustlets and cause DoS on services that partitions typically provide.\nCould you elaborate more on how you envision \"Destroy this trustlet NOW?\" be used? Not sure i follow your comment entirely.",
+      "parentUuid": "36a3a6bc_d7982758",
       "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
