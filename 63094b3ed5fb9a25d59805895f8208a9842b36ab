@@ -162,6 +162,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "33681a52_ee1fbce9",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-01-03T16:26:00Z",
+      "side": 1,
+      "message": "So yes, checking that the build time settings (\u003d1) match the hardware this is running on (feature present) is a reasonable idea. However this is a molly guard, that adds to the code size, which platforms that are short on memory cannot spare. And also this currently is implemented as a debug feature, because *no* platform actually enables FEATURE_DETECTION at the moment.\n\nSo if I understand you correctly, the question is just whether FEATURE_DETECTION should always be enabled. Because of the code size issue mentioned above, I would not do this unconditionally.\nIt should be a platform choice, or at least allow a platform opt-out. Soby was thinking of tying this to DEBUG\u003d1.\n\nI am not fully convinced this is the best idea, but what about this:\n- We enable FEATURE_DETECTION on every platform when DEBUG\u003d1.\n- We allow platforms to opt out, so to set FEATURE_DETECTION\u003d0, even for DEBUG\u003d1.\n- We allow platforms to always include FEATURE_DETECTION, even with DEBUG\u003d0.\n\nThe platform opt-in/opt-outs would need to be carefully chosen, initially, though,\nwhich makes we wonder if we should start with opt-out by default for every platform (mimicking the current implementation), and let platform maintainers remove this if they think it\u0027s useful.\n\nOn a more general side: This is firmware, mostly build for one particular SoC or even board. I appreciate the idea of \"making sure\", but this is not a generic piece of software that needs to run everywhere and cover every mistake.",
+      "parentUuid": "98051fc3_f6116a9a",
+      "revId": "63094b3ed5fb9a25d59805895f8208a9842b36ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2fa70fe9_8c7d1486",
         "filename": "include/arch/aarch64/arch_features.h",
         "patchSetId": 3
