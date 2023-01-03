@@ -50,6 +50,24 @@
       "message": "Not necessarily need to be part of this patch. Just a point to add here.\n\nIf we are not accessing any registers under the influence of FEAT_HCX before the completion of bl31 initialization, we could remove this block as we cover the same \nin detect_arch_features function. So might be a redundant check, but need to analysed.",
       "revId": "2282549807c3cdc20ad6bd9853c967267dda399d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67169baa_d04d9dfb",
+        "filename": "bl31/bl31_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-01-03T12:29:27Z",
+      "side": 1,
+      "message": "Yes, but we are not quite there yet with this patch, so the removal is part of the next patch.",
+      "parentUuid": "5203afb2_e84726b9",
+      "revId": "2282549807c3cdc20ad6bd9853c967267dda399d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
