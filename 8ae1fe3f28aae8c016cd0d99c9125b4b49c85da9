@@ -47,6 +47,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "967daeb7_723e8de2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-01-03T05:26:25Z",
+      "side": 1,
+      "message": "Did my change to the commit message help?",
+      "parentUuid": "3097733e_ea28a5ec",
+      "range": {
+        "startLine": 9,
+        "startChar": 19,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "8ae1fe3f28aae8c016cd0d99c9125b4b49c85da9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6abbe52_08f7d6fb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-01-03T05:26:25Z",
+      "side": 1,
+      "message": "The OOB read is harmless, as it turns out to be an intra-object read.",
+      "parentUuid": "5b296e1f_4dd5e2fe",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 5
+      },
+      "revId": "8ae1fe3f28aae8c016cd0d99c9125b4b49c85da9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "28857fda_297acccd",
@@ -64,6 +112,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e576c46c_22fb0b0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-01-03T05:26:25Z",
+      "side": 1,
+      "message": "Updated commit message.",
+      "revId": "8ae1fe3f28aae8c016cd0d99c9125b4b49c85da9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a72d1c1_e7e441fa",
@@ -77,6 +142,30 @@
       "writtenOn": "2023-01-02T16:55:01Z",
       "side": 1,
       "message": "based on your other comments, is this even necessary then? If NV counters are unsigned integers, what is the problem if the top bit is set?\nALso, it appears len can be from 1, 2, 3 or 4 bytes. And *p in line 284 is reading the first byte. What is the endianness of the number being read? big endian? otherwise this check seems incorrect. It would check the top bit of the lowest byte of say, a 2, 3 or 4 byte number.",
+      "range": {
+        "startLine": 284,
+        "startChar": 1,
+        "endLine": 286,
+        "endChar": 2
+      },
+      "revId": "8ae1fe3f28aae8c016cd0d99c9125b4b49c85da9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ac19a47_abfe37d8",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-01-03T05:26:25Z",
+      "side": 1,
+      "message": "ASN.1 DER specifies that integers are always big-endian and signed.",
+      "parentUuid": "1a72d1c1_e7e441fa",
       "range": {
         "startLine": 284,
         "startChar": 1,
