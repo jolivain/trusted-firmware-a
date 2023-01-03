@@ -513,6 +513,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4e4b66da_a7f1b947",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-01-03T07:30:00Z",
+      "side": 1,
+      "message": "also about the reboot, in theory, NWd calls PSCI to reboot the system and cannot directly reboot via access to, say, SoC registers, and it is entirely possible for PSCI, for example, to query some of these critical partitions if a reboot is acceptable and approve or deny reboot requests. Yet again, TZ is generally more privileged and we could have authorization mechanisms to prevent normal world from running amok, so while it is typical for NWd to be able to reboot, yet again, not always the case. Some of those designs may accept security risks that comes with it.",
+      "parentUuid": "0b169df8_97cbd920",
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03bea01f_4e0d6596",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 1
