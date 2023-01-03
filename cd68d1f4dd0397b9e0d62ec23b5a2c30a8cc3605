@@ -70,6 +70,30 @@
       },
       "revId": "cd68d1f4dd0397b9e0d62ec23b5a2c30a8cc3605",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c39eab92_f6d9e3a7",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-03T16:47:07Z",
+      "side": 1,
+      "message": "I need a bit more time to properly understand this change. I\u0027ll do that tomorrow. Since most of the other patches in the patch stack are ready to be merged, I\u0027ll isolate this one and merge the others. I hope you don\u0027t mind.",
+      "parentUuid": "d649602a_c4749d3f",
+      "range": {
+        "startLine": 406,
+        "startChar": 5,
+        "endLine": 406,
+        "endChar": 40
+      },
+      "revId": "cd68d1f4dd0397b9e0d62ec23b5a2c30a8cc3605",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
