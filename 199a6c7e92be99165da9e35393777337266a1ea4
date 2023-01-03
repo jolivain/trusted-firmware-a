@@ -120,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "01c86cb9_8b48fdad",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-01-03T06:43:56Z",
+      "side": 1,
+      "message": "\u003e [RK] This is one the usage models and is very common.\n\nCan you provide any specific examples of using the secure world for remote management in this way?\n\n\u003e \u003e Such software should not be relying on shared memory with the NS world anyway.\n\u003e \n\u003e [RK] Yes, that would be one way to solve it. In practice, that is a lot harder to do. My comment is saying that in practice, not having any communication with NWd is not practical, so this threat exists and the likelihood should be marked as such to inform readers that a mitigation does not exist, today.\n\nWhat I meant is that such software must not fail because the NS world exhausted resources used for cross-world communication.  The NS world could always just refuse to share any buffers, after all.",
+      "parentUuid": "3c642ef9_89315842",
+      "range": {
+        "startLine": 1186,
+        "startChar": 27,
+        "endLine": 1186,
+        "endChar": 37
+      },
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1662970b_affe649a",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 1
@@ -242,6 +266,30 @@
       "side": 1,
       "message": "afaik, hafnium is neither competing with sel4, nor is it trying to provide the same guarantees. They may be similar. Agree that it would be great to be not subject to this, but until such time, the document can/should accurately reflect the reality. If we do fix it, this can be updated to reflect that reality.",
       "parentUuid": "78127477_b7e2b8aa",
+      "range": {
+        "startLine": 1196,
+        "startChar": 37,
+        "endLine": 1196,
+        "endChar": 75
+      },
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acd1b739_b59a3c2c",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1196,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-01-03T06:43:56Z",
+      "side": 1,
+      "message": "Makes sense.",
+      "parentUuid": "4b0d458f_8aee49f8",
       "range": {
         "startLine": 1196,
         "startChar": 37,
@@ -399,6 +447,24 @@
       "side": 1,
       "message": "same as above, sel4 is not hf and vice versa, and i dont believe the goals are to compete with one another or be the same as one another. There may be overlapping goals.\nWouldnt destroy this trustlet (\"partition\" in FF-A parlance) create yet another DoS? NWd is considered untrusted in the TrustZone threat model (although people are free to invert it) and providing such an API/Interface, would simply mean NWd kills of trustlets and cause DoS on services that partitions typically provide.\nCould you elaborate more on how you envision \"Destroy this trustlet NOW?\" be used? Not sure i follow your comment entirely.",
       "parentUuid": "36a3a6bc_d7982758",
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a6886ff_4541f164",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-01-03T06:43:56Z",
+      "side": 1,
+      "message": "\u003e Wouldnt destroy this trustlet (\"partition\" in FF-A parlance) create yet another DoS? NWd is considered untrusted in the TrustZone threat model (although people are free to invert it) and providing such an API/Interface, would simply mean NWd kills of trustlets and cause DoS on services that partitions typically provide.\n\nWhat services are these?  Can you point to open-source projects that rely on NWd not being able to DoS SWd?  In the devices I am somewhat familiar with (Android), the device is completely unusable without NWd and NWd is allowed to reboot the system.  SWd exists only to protect information that is considered too sensitive for NWd to be allowed to access.  In fact, I believe OP-TEE relies entirely on NWd for scheduling.\n\n\u003e Could you elaborate more on how you envision \"Destroy this trustlet NOW?\" be used? Not sure i follow your comment entirely.\n\nSome SWd TEEs allow NWd to provide trustlets for SWd to execute, with signature checks being used to ensure that only valid, signed trustlets are loaded.  In this model, it is perfectly reasonable for NWd to wish to terminate a trustlet that it loaded and reclaim the trustlet’s resources.\n\nOne could even imagine a scenario in which SWd allows NWd to create secure partitions at will (provided suitable resources are available) and to destroy the partitions that it created (but not others).  Integrity and confidentiality of these partitions’ data would be guaranteed by cryptographic attestation.  This is the exact same threat model as ARM CCA realms or AMD SEV-SNP or Intel TDX guests: the hypervisor can deny service at will, but cannot access or tamper with guest guest code or data.",
+      "parentUuid": "7f1c9df5_8fe01074",
       "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
