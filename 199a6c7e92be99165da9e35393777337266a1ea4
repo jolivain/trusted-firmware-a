@@ -144,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d476b4c0_17c91773",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-01-03T07:12:44Z",
+      "side": 1,
+      "message": "\u003e\u003eCan you provide any specific examples of using the secure world for remote management in this way?\n[RK] I wont be able to share publicly. We definitely do this and i\u0027m aware of other ARM server SoC vendors that do this as well.\n\n\u003e\u003eThe NS world could always just refuse to share any buffers, after all.\n[RK] Agree, we are on the same page. This is ultimately my point and i have added a comment to that effect in a related review as well. The DoS attack exists, the likelihood of it is high given the threat model, and no mitigation exists. So the document should ideally reflect that and warn vendors of this situation.",
+      "parentUuid": "01c86cb9_8b48fdad",
+      "range": {
+        "startLine": 1186,
+        "startChar": 27,
+        "endLine": 1186,
+        "endChar": 37
+      },
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1662970b_affe649a",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 1
@@ -465,6 +489,24 @@
       "side": 1,
       "message": "\u003e Wouldnt destroy this trustlet (\"partition\" in FF-A parlance) create yet another DoS? NWd is considered untrusted in the TrustZone threat model (although people are free to invert it) and providing such an API/Interface, would simply mean NWd kills of trustlets and cause DoS on services that partitions typically provide.\n\nWhat services are these?  Can you point to open-source projects that rely on NWd not being able to DoS SWd?  In the devices I am somewhat familiar with (Android), the device is completely unusable without NWd and NWd is allowed to reboot the system.  SWd exists only to protect information that is considered too sensitive for NWd to be allowed to access.  In fact, I believe OP-TEE relies entirely on NWd for scheduling.\n\n\u003e Could you elaborate more on how you envision \"Destroy this trustlet NOW?\" be used? Not sure i follow your comment entirely.\n\nSome SWd TEEs allow NWd to provide trustlets for SWd to execute, with signature checks being used to ensure that only valid, signed trustlets are loaded.  In this model, it is perfectly reasonable for NWd to wish to terminate a trustlet that it loaded and reclaim the trustlet’s resources.\n\nOne could even imagine a scenario in which SWd allows NWd to create secure partitions at will (provided suitable resources are available) and to destroy the partitions that it created (but not others).  Integrity and confidentiality of these partitions’ data would be guaranteed by cryptographic attestation.  This is the exact same threat model as ARM CCA realms or AMD SEV-SNP or Intel TDX guests: the hypervisor can deny service at will, but cannot access or tamper with guest guest code or data.",
       "parentUuid": "7f1c9df5_8fe01074",
+      "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b169df8_97cbd920",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-01-03T07:12:44Z",
+      "side": 1,
+      "message": "\u003e\u003eWhat services are these?  Can you point to open-source projects that rely on NWd not being able to DoS SWd? \n[RK] No open source projects, but as mentioned, we have use cases for remote management where allowing NWd to kill secure partitions would kill out of band services/management for example. Yes, reboot is always an option for NWd to DoS the system in such cases, so adding such an API would need some access control, say via the partition manifest, to signal whether killing via NWd is allowed or not, and may not blanket apply to all partitions.\nAnd yes, most, but not all partitions rely on NWd for scehduling, yet again, we have purely secure interrupt driven services, that dont have any reliance on NWd for scheduling but provide critical system services. OPTEE is one example of a secure OS and what you are thinking of is one form of system design ( mobile focused). Generally server focused designs have different constraints and use cases, leading to different outcomes that dont fit very well into the paradigm you may be thinking about.\n\n\u003e\u003e In this model, it is perfectly reasonable for NWd to wish to terminate a trustlet that it loaded and reclaim the trustlet’s resources.\n[RK] Agree, perhaps there are multiple classes of partitions, ones that you are thinking about for which killing is reasonable, and ones i\u0027m, thinking about, which is a mix of those that can be killed without impact, and those that cannot.\n\n\u003e\u003e the hypervisor can deny service at will, but cannot access or tamper with guest guest code or data.\n[RK] Agree, but as mentioned above, not all use cases fit well into that model, where DoS/killing of the service is acceptable.",
+      "parentUuid": "9a6886ff_4541f164",
       "revId": "199a6c7e92be99165da9e35393777337266a1ea4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
