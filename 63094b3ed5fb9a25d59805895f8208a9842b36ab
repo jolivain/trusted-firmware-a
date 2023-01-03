@@ -144,6 +144,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "98051fc3_f6116a9a",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-01-03T15:11:51Z",
+      "side": 1,
+      "message": "Thanks for your explanation.\n\nJust to explain my understanding, excuse if its repetetion:\nIn our initial design, when the feature detection mechanism was introduced, we agreed on the following approach.\nWe split the feature flags usage across these sections:\nBoot   |  Context Management       | Save and Restore registers |\n\nAccordingly, during the boot phase, In the detect_arch_features function, if FEATURE-specific build flags are set to 1, they are evaluated at an early stage and if any failure panic at boot phase itself. If the detect_arch_features function is passed, then don\u0027t do any ID register read again at other sections ( Context and Save and restore routines).\n\nIn case the if FEATURE specific build flags are set to 2, they are evaluated at runtime ( at context management / save and restore routines). This wasn\u0027t covered but was thought of in the phase 1.\n\nWith your patch, I was worried because, if FEATURE_DETECTION is disabled, we never run \"detect_arch_features\" fucntion to read the registers. Also wasn\u0027t completely aware of this ( wherein for fixed platforms we could assume that the end user never enables any features which are not present in it by mistake, and hence we could potentially remove the ID check ) and for platforms like QEMU and FVP force the flags to 2.\n\nIf we are heading towards setting the build flags to 2 for FVP and QEMU, then your patch covers that explicitly here.\n\nHowever, I don\u0027t see setting the FEATURE_DETECTION flag to 1 causing any harm here.\nPlease do correct, If I am wrong, but we are running detect_arch_features function under FEATURE_DETECTION flag only at bootphase.\nSetting FEATURE_DETECTION to 1, will enable this function and reads through all registers once for all ( **if they are set to FEAT_STATE_ALWAYS). From there onwards, during context mangement phase and at save and restore-routine phase, we can use \"is_feat_fgt_supported\" function as per your patch. We are still not doing any runtime check here.",
+      "parentUuid": "c7b6542f_f266f663",
+      "revId": "63094b3ed5fb9a25d59805895f8208a9842b36ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2fa70fe9_8c7d1486",
         "filename": "include/arch/aarch64/arch_features.h",
         "patchSetId": 3
