@@ -33,6 +33,24 @@
       "message": "nit: optional scope for FEAT_FGT could be added to changelog.yaml file. \nSimilar to other features, FGT could be added to the list under the architecture section.\n\ni.e: \n- title: Fine Grain Traps Extension (FEAT_FGT)\n  scope: fgt",
       "revId": "a29299e8c43b9bbc5e090f1248b1f5a3a787a878",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c98968d6_10a0e56e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-01-03T12:26:37Z",
+      "side": 1,
+      "message": "I don\u0027t know if this is really necessary, for those features. All we do here is to enable and context-switch them (for NS), TF-A itself is not really using them. So adding tags for all those dozen or so features seems a bit over the top to me. But I don\u0027t have a strong opinion, and if people agree to adding them to changelog.yaml, I am happy to do that.",
+      "parentUuid": "b1a3e62d_f257dd0f",
+      "revId": "a29299e8c43b9bbc5e090f1248b1f5a3a787a878",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
