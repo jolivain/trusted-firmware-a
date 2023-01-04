@@ -694,6 +694,8 @@ else
 	BL2_RUNS_AT_EL3	:=	0
 endif
 
+$(eval $(call add_define,SVE_VECTOR_LEN))
+
 $(eval $(call MAKE_PREREQ_DIR,${BUILD_PLAT}))
 
 ifeq (${ARM_ARCH_MAJOR},7)
