@@ -34,6 +34,29 @@
       "parentUuid": "f0b759b8_64140152",
       "revId": "100d0daff5a3026d5da6667d8b707c92eedc99fb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc5b8cac_592ccf5e",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-01-04T16:05:09Z",
+      "side": 1,
+      "message": "If you enable FEATURE_DETECTION, then it will catch the problem which you are trying to avoid.\nThis will keep the code clean as well.",
+      "range": {
+        "startLine": 834,
+        "startChar": 0,
+        "endLine": 834,
+        "endChar": 25
+      },
+      "revId": "100d0daff5a3026d5da6667d8b707c92eedc99fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
