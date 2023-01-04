@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "686e6538_4f5e0110",
+        "filename": "tools/fiptool/fiptool.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-01-04T18:11:50Z",
+      "side": 1,
+      "message": "Not related to your patch, but I think you can improvise these logs as a part of this patch giving more verbose details about the failure. Currently, both error logs are exactly similar (at line no. 362 and 364)",
+      "range": {
+        "startLine": 362,
+        "startChar": 0,
+        "endLine": 364,
+        "endChar": 45
+      },
+      "revId": "66229980fddb81711c40bc8f61d5e2455d3da954",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
