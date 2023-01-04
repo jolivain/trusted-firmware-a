@@ -433,8 +433,6 @@ TF_CFLAGS		+=	$(CPPFLAGS) $(TF_CFLAGS_$(ARCH))		\
 				-ffreestanding -fno-builtin -fno-common		\
 				-Os -std=gnu99
 
-$(eval $(call add_define,SVE_VECTOR_LEN))
-
 ifeq (${SANITIZE_UB},on)
 TF_CFLAGS		+=	-fsanitize=undefined -fno-sanitize-recover
 endif
@@ -668,6 +666,8 @@ else ifeq (${ENABLE_RME},1)
 else
 	BL2_RUNS_AT_EL3	:=	0
 endif
+
+$(eval $(call add_define,SVE_VECTOR_LEN))
 
 $(eval $(call MAKE_PREREQ_DIR,${BUILD_PLAT}))
 
