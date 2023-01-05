@@ -506,8 +506,10 @@ Arm Reference Design platform ports
 
 Arm Total Compute platform port
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-:|M|: Anders Dellien <anders.dellien@arm.com>
-:|G|: `andersdellien-arm`_
+:|M|: Vishnu Banavath <vishnu.banavath@arm.com>
+:|G|: `vishnu-banavath`_
+:|M|: Rupinderjit Singh <rupinderjit.singh@arm.com>
+:|G|: `rupsin01`_
 :|F|: plat/arm/board/tc
 
 HiSilicon HiKey and HiKey960 platform ports
