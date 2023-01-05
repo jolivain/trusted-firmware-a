@@ -16,6 +16,23 @@
       "message": "The corresponding Linux kernel driver source is currently available here: https://chromium-review.googlesource.com/c/chromiumos/third_party/kernel/+/4004284\n\nLet me know if you\u0027d like me to upload that as well (and where it gets uploaded to) as I see you are also the maintainer for the kernel driver.",
       "revId": "35ee74c15530239016292e82409fcf66452ad1c3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a89ced5_f128f6cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-01-05T12:22:47Z",
+      "side": 1,
+      "message": "I\u0027m not sure this is such a good idea. With this you add a wide open door into secure world. How can you guarantee that an attacker isn\u0027t able to block this SMC and leave it open post boot?\n\nI guess you\u0027re adding this for added flexibility. I\u0027ve seen other solutions where for instance U-Boot is used to load TF-A before switching over to normal world. Perhaps that\u0027s an option instead?",
+      "revId": "35ee74c15530239016292e82409fcf66452ad1c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
