@@ -33,6 +33,24 @@
       "message": "I\u0027m not sure this is such a good idea. With this you add a wide open door into secure world. How can you guarantee that an attacker isn\u0027t able to block this SMC and leave it open post boot?\n\nI guess you\u0027re adding this for added flexibility. I\u0027ve seen other solutions where for instance U-Boot is used to load TF-A before switching over to normal world. Perhaps that\u0027s an option instead?",
       "revId": "35ee74c15530239016292e82409fcf66452ad1c3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b6f78bd_e982b2e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-01-05T15:53:20Z",
+      "side": 1,
+      "message": "Just to add some context, we had brought the basic idea for this up on the mailing list before writing this patch: https://lists.trustedfirmware.org/archives/list/tf-a@lists.trustedfirmware.org/thread/D2HEKDEGRBLMMLAQ6OKC3AQDM4ELSJPL/#D2HEKDEGRBLMMLAQ6OKC3AQDM4ELSJPL\n\nOf course we\u0027re aware of the security implications of this patch, and that\u0027s why it\u0027s supposed to be a default-off build option with a big warning next to it to make sure nobody turns this on without really understanding the implications. It is something that we need for our particular use case and solves problems for us (e.g. with the update flow) that any model that bundles OpTee with the boot firmware wouldn\u0027t, so that\u0027s why we want to add it as an option. We\u0027re not trying to say that this flow is a generally good idea for the majority of TF-A users. We just want it to be available by choice to those who really need it and can make it work with their threat model. Happy to take feedback on what else we should to the comments or documentation or whatever to make this clearer in the code and avoid accidental use.",
+      "parentUuid": "4a89ced5_f128f6cb",
+      "revId": "35ee74c15530239016292e82409fcf66452ad1c3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
