@@ -1,0 +1,106 @@
+# Memory Mapping Script
+
+TF-A's memory mapping script `memmap` is a tool that is useful for
+visualizing the contents of ELF format binaries. It uses the information
+contained in section and segment headers, along with the symbol tables, to
+create views of memory consumption.
+
+## Pre-requisites
+
+Dependencies for this script can be found in `tools/memory/requirements.txt`.
+
+To install those dependencies, run the following command:
+
+``` bash
+pip install -r tools/memory/requirements.txt
+```
+
+## Usage
+
+The memory tool provides utilities for visualizing memory consumption of a TF-A
+build. Currently, the script supports generating a virtual address map based on
+the symbol table; static memory consumption data for each form of memory (i.e.
+ROM, RAM); as well as, a hierarchical view of the modules, segments, and
+sections.
+
+You can get more information about the options supported by `memmap` in the
+tool's help menu.
+
+``` bash
+tools/memory/src/memmap.py --help
+```
+
+### Virtual Address Map
+
+A common use case that was supported by the previous memory mapping script is
+the virtual address map of sections based on symbols in the symbol table. This
+tool builds on that feature, addings several enhancements. You can generate this
+view with the options `-s`, or `--symbols`.
+
+### Memory Footprint
+
+The memory footprint utility shows the static memory ranges and sizes for all
+bootloader stages in each type of memory. You can generate this view with either
+`-f` or `--footprint`.
+
+``` bash
+$ tools/memory/src/memmap.py -f
+build-path: /tmp/tmp.AWXqoebCwr/build/fvp/release
++---------------------------------------------------------------+
+|                   Memory Usage (bytes) [RAM]                  |
++-----------+------------+------------+------------+------------+
+| Component |   Start    |    End     | Allocated  |    Free    |
++-----------+------------+------------+------------+------------+
+|    BL1    |   67325952 |   67354624 |   67399680 |      45056 |
+|    BL2    |   67248128 |   67301376 |   67379200 |      77824 |
+|    BL2U   |   67248128 |   67289088 |   67366912 |      77824 |
+|    BL31   |   67121152 |   67244032 |   67493888 |     249856 |
++-----------+------------+------------+------------+------------+ 
+
++---------------------------------------------------------------+
+|                   Memory Usage (bytes) [ROM]                  |
++-----------+------------+------------+------------+------------+
+| Component |   Start    |    End     | Allocated  |    Free    |
++-----------+------------+------------+------------+------------+
+|    BL1    |          0 |      25173 |   67134037 |   67108864 |
++-----------+------------+------------+------------+------------+ 
+```
+
+The tool searches for symbols matching the format `<type>_REGION_<parameter>` i.e. `ROM_REGION_START`, `ROM_REGION_LENGTH`. 
+
+> **_NOTE:_**  Modules without memory region definitions are ignored in the final output.
+
+### ELF Memory Topology
+
+The tool provides a mechanism for displaying information about the memory
+hierarchy of the analysed ELF files. With `-t` or `--tree`, the tool displays
+segment to section mappings, along with their memory ranges and size.
+
+You can control the height of the tree by providing a depth with `-d` or
+`--depth`.
+
+``` bash
+$ tools/memory/src/memmap.py -td 1
+build-path: /tmp/tmp.AWXqoebCwr/build/fvp/release
+name             start        end       size
+bl1                  0  134533717  134533717
+bl2           67248128  134627328   67379200
+bl2u          67248128  134615040   67366912
+bl31          67121152  134615040   67493888 
+```
+
+### Other Options
+
+In certain instances you may want to modify the number format. The tool defaults
+to decimal base numbers, but hex may be specified with the option `-x`.
+
+``` bash
+$ tools/memory/src/memmap.py -x -td 1
+build-path: /tmp/tmp.P757fG7AJk/build/fvp/release
+build-path: /tmp/tmp.P757fG7AJk/build/fvp/release
+name             start        end       size
+bl1                  0    804d255    804d255
+bl2            4022000    8064000    4042000
+bl2u           4022000    8061000    403f000
+bl31           4003000    8061000    405e000 
+```
