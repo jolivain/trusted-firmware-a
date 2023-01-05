@@ -216,6 +216,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21e4cb29_4f88fad0",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-05T14:43:35Z",
+      "side": 1,
+      "message": "I am referring to the code at https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17870/3/lib/el3_runtime/aarch64/context_mgmt.c#362 in my example for TF-A bug above.",
+      "parentUuid": "7deb5c82_cb5674a0",
+      "revId": "63094b3ed5fb9a25d59805895f8208a9842b36ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2fa70fe9_8c7d1486",
         "filename": "include/arch/aarch64/arch_features.h",
         "patchSetId": 3
