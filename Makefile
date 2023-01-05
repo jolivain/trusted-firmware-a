@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -1002,7 +1002,7 @@ PYTHON			?=	python3
 
 # Variables for use with PRINT_MEMORY_MAP
 PRINT_MEMORY_MAP_PATH		?=	tools/memory
-PRINT_MEMORY_MAP		?=	${PRINT_MEMORY_MAP_PATH}/print_memory_map.py
+PRINT_MEMORY_MAP		?=	${PRINT_MEMORY_MAP_PATH}/memmap.py
 
 # Variables for use with documentation build using Sphinx tool
 DOCS_PATH		?=	docs
@@ -1559,7 +1559,7 @@ romlib.bin: libraries FORCE
 
 # Call print_memory_map tool
 memmap: all
-	${Q}${PYTHON} ${PRINT_MEMORY_MAP} ${BUILD_PLAT} ${INVERTED_MEMMAP}
+	${Q}${PYTHON} ${PRINT_MEMORY_MAP} -fm -p ${PLAT} -b ${BUILD_PLAT}
 
 doc:
 	@echo "  BUILD DOCUMENTATION"
