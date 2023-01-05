@@ -22,6 +22,30 @@
       },
       "revId": "fa6b903997d488487c87ba5a2e944bcab3ea2c37",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1904e830_f713fbc7",
+        "filename": "bl31/bl31.ld.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-01-05T19:07:51Z",
+      "side": 1,
+      "message": "There are several levels of nested preprocessor directives (see line 55 as well), so the spaces is just to make it obvious that we\u0027re inside a condition coming from somewhere above.",
+      "parentUuid": "3f2e2c6d_0b3fd2bc",
+      "range": {
+        "startLine": 62,
+        "startChar": 1,
+        "endLine": 62,
+        "endChar": 4
+      },
+      "revId": "fa6b903997d488487c87ba5a2e944bcab3ea2c37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
