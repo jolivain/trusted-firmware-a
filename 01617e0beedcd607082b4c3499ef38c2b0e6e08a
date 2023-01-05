@@ -22,6 +22,30 @@
       },
       "revId": "01617e0beedcd607082b4c3499ef38c2b0e6e08a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcbb52ee_59a575d6",
+        "filename": "bl31/bl31.ld.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-01-05T19:10:48Z",
+      "side": 0,
+      "message": "It doesn\u0027t add any additional information; it\u0027s just repeating the code in English. A bit like commenting \"int x \u003d 5\" with \"declare X to be 5\".",
+      "parentUuid": "96581dae_fde15b2c",
+      "range": {
+        "startLine": 178,
+        "startChar": 4,
+        "endLine": 181,
+        "endChar": 7
+      },
+      "revId": "01617e0beedcd607082b4c3499ef38c2b0e6e08a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
