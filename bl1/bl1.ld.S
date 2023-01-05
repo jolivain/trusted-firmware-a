@@ -24,6 +24,116 @@ MEMORY {
 }
 
 SECTIONS {
+    /*
+     * Miscellaneous comments with no specific purpose, represented by a table
+     * of null-terminated strings. Often used to attach information about the
+     * toolchain to the binary.
+     */
+    .comment : { *(.comment) }
+
+    /*
+     * DWARF 2 debug information. These sections must be placed, otherwise the
+     * ELF image cannot be used for debugging.
+     */
+    .debug_info : { *(.debug_info .gnu.linkonce.wi.*) }
+    .debug_abbrev : { *(.debug_abbrev) }
+    .debug_line : { *(.debug_line .debug_line.* .debug_line_end) }
+    .debug_frame : { *(.debug_frame) }
+    .debug_str : { *(.debug_str) }
+    .debug_loc : { *(.debug_loc) }
+    .debug_macinfo : { *(.debug_macinfo) }
+
+    /*
+     * The Procedure Linkage Table (PLT).
+     *
+     * When the image is loaded by a dynamic linker, this table is populated
+     * with trampolines which look up a symbol in the PLT GOT, resolve its
+     * absolute address if necessary, then jump to it.
+     *
+     * BL1 doesn't support dynamic linkage, so we discard this section.
+     */
+    /DISCARD/ /* .plt */ : {
+        *(.plt .iplt)
+    }
+
+    /*
+     * Relocation table for the PLT section.
+     *
+     * When the image is loaded by a dynamic linker, this table contains
+     * relocation information for functions in the PLT,
+     *
+     * BL1 doesn't support dynamic linkage, so we discard this section.
+     */
+    /DISCARD/ /* .rela.plt */ : {
+        *(.rela.plt .rela.iplt)
+    }
+
+    /*
+     * Relocation tables for other sections.
+     *
+     * When the image is loaded by a dynamic linker, these tables contain
+     * relocation information for symbols not in the PLT.
+     *
+     * BL1 doesn't support dynamic linkage, so relocation information is
+     * discarded.
+     */
+    /DISCARD/ /* .rela.dyn */ : {
+        *(.rela.init)
+        *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+        *(.rela.fini)
+        *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+        *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+        *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+        *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+        *(.rela.ctors)
+        *(.rela.dtors)
+        *(.rela.got)
+        *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+        *(.rela.ifunc)
+    }
+
+    /*
+     * Global Offset Table (GOT) of functions in the PLT.
+     *
+     * When the image is loaded by a dynamic linker, this table is filled in at
+     * runtime with the real addresses of functions resolved by the linker.
+     *
+     * BL1 doesn't support dynamic linkage, so relocation information is
+     * discarded.
+     */
+    /DISCARD/ /* .got.plt */ : {
+        *(.got.plt .igot.plt)
+    }
+
+    /*
+     * Arm ELF32 exception-handling table.
+     *
+     * When exception handling is enabled, this table contains variable-size
+     * entries encoding, in a vendor- and language-specific way, the actions
+     * required to propagate an exception through a function.
+     *
+     * BL1 doesn't support exception handling, so exception-handling information
+     * is discarded.
+     */
+    /DISCARD/ /* .ARM.extab */ : {
+        *(.ARM.extab* .gnu.linkonce.armextab.*)
+    } >ROM
+
+    /*
+     * Arm ELF32 exception-handling index table.
+     *
+     * When exception handling is enabled, this table contains the offsets of
+     * every entry in the exception-handling table.
+     *
+     * BL1 doesn't support exception handling, so exception-handling information
+     * is discarded.
+     */
+    /DISCARD/ /* .ARM.exidx */ : {
+        *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+    } >ROM
+}
+
+SECTIONS {
     . = BL1_RO_BASE;
 
     ASSERT(. == ALIGN(PAGE_SIZE),
@@ -43,14 +153,6 @@ SECTIONS {
 #endif /* SEPARATE_CODE_AND_RODATA */
 
         __TEXT_END__ = .;
-    } >ROM
-
-    .ARM.extab . : {
-        *(.ARM.extab* .gnu.linkonce.armextab.*)
-    } >ROM
-
-    .ARM.exidx . : {
-        *(.ARM.exidx* .gnu.linkonce.armexidx.*)
     } >ROM
 
     .rodata . : {
