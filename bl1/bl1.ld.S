@@ -24,6 +24,137 @@ MEMORY {
 }
 
 SECTIONS {
+    /*
+     * The Procedure Linkage Table (PLT).
+     *
+     * When the image is loaded by a dynamic linker, this table is populated
+     * with trampolines which look up a symbol in the PLT GOT, resolve its
+     * absolute address if necessary, and then jump to it.
+     *
+     * BL1 doesn't support dynamic linkage, so we discard these sections.
+     */
+    /DISCARD/ /* .plt */ : { *(.plt) }
+    /DISCARD/ /* .iplt */ : { *(.iplt) }
+
+    /*
+     * Relocation table for the PLT section.
+     *
+     * When the image is loaded by a dynamic linker, this table contains
+     * relocation information for functions in the PLT.
+     *
+     * BL1 doesn't support dynamic linkage, so we discard these sections.
+     */
+    /DISCARD/ /* .rel.iplt */ : { *(.rel.iplt) }
+    /DISCARD/ /* .rela.iplt */ : { *(.rela.iplt) }
+    /DISCARD/ /* .rel.plt */ : { *(.rel.plt) }
+    /DISCARD/ /* .rela.plt */ : { *(.rela.plt) }
+
+    /*
+     * Relocation tables for other sections.
+     *
+     * When the image is loaded by a dynamic linker, these tables contain
+     * relocation information for symbols not in the PLT.
+     *
+     * BL1 doesn't support dynamic linkage, so we discard these sections.
+     */
+    /DISCARD/ /* .rel.init */ : { *(.rel.init) }
+    /DISCARD/ /* .rela.init */ : { *(.rela.init) }
+    /DISCARD/ /* .rel.text */ : { *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*) }
+    /DISCARD/ /* .rela.text */ : { *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*) }
+    /DISCARD/ /* .rel.fini */ : { *(.rel.fini) }
+    /DISCARD/ /* .rela.fini */ : { *(.rela.fini) }
+    /DISCARD/ /* .rel.rodata */ : { *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*) }
+    /DISCARD/ /* .rela.rodata */ : { *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*) }
+    /DISCARD/ /* .rel.data.rel.ro */ : { *(.rel.data.rel.ro .rel.data.rel.ro.* .rel.gnu.linkonce.d.rel.ro.*) }
+    /DISCARD/ /* .rela.data.rel.ro */ : { *(.rela.data.rel.ro .rela.data.rel.ro.* .rela.gnu.linkonce.d.rel.ro.*) }
+    /DISCARD/ /* .rel.data */ : { *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*) }
+    /DISCARD/ /* .rela.data */ : { *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*) }
+    /DISCARD/ /* .rel.tdata */ : { *(.rel.tdata .rel.tdata.* .rel.gnu.linkonce.td.*) }
+    /DISCARD/ /* .rela.tdata */ : { *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*) }
+    /DISCARD/ /* .rel.tbss */ : { *(.rel.tbss .rel.tbss.* .rel.gnu.linkonce.tb.*) }
+    /DISCARD/ /* .rela.tbss */ : { *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*) }
+    /DISCARD/ /* .rel.ctors */ : { *(.rel.ctors) }
+    /DISCARD/ /* .rela.ctors */ : { *(.rela.ctors) }
+    /DISCARD/ /* .rel.dtors */ : { *(.rel.dtors) }
+    /DISCARD/ /* .rela.dtors */ : { *(.rela.dtors) }
+    /DISCARD/ /* .rel.got */ : { *(.rel.got) }
+    /DISCARD/ /* .rela.got */ : { *(.rela.got) }
+    /DISCARD/ /* .rel.bss */ : { *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*) }
+    /DISCARD/ /* .rela.bss */ : { *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*) }
+
+    /*
+     * Global Offset Tables (GOT).
+     *
+     * When the image is loaded by a dynamic linker, these tables are filled in
+     * at runtime with the real addresses of symbols resolved by the linker.
+     *
+     * BL1 doesn't support dynamic linkage, so we discard these sections.
+     */
+    /DISCARD/ /* .got */ : { *(.got) *(.igot) }
+    /DISCARD/ /* .got.plt */ : { *(.got.plt) *(.igot.plt) }
+
+    /*
+     * Arm ELF32 exception-handling table.
+     *
+     * When exception handling is enabled, this table contains variable-size
+     * entries encoding, in a vendor- and language-specific way, the actions
+     * required to propagate an exception through a function.
+     *
+     * BL1 doesn't support exception handling, so we discard these sections.
+     */
+    /DISCARD/ /* .ARM.extab */ : { *(.ARM.extab* .gnu.linkonce.armextab.*) }
+
+    /*
+     * Arm ELF32 exception-handling index table.
+     *
+     * When exception handling is enabled, this table contains the offsets of
+     * every entry in the exception-handling table given in the same order as
+     * the addresses of their associated functions.
+     *
+     * BL1 doesn't support exception handling, so we discard these sections.
+     */
+    /DISCARD/ /* .ARM.exidx */ : { *(.ARM.exidx* .gnu.linkonce.armexidx.*) }
+}
+
+SECTIONS {
+    /*
+     * Miscellaneous comments with no specific purpose, represented by a table
+     * of null-terminated strings. Often used to attach information about the
+     * toolchain to the binary.
+     */
+    .comment 0 : { *(.comment) }
+
+    /* DWARF 1.1 debug information */
+    .debug_aranges 0 : { *(.debug_aranges) }
+    .debug_pubnames 0 : { *(.debug_pubnames) }
+
+    /* DWARF 2 debug information */
+    .debug_info 0 : { *(.debug_info .gnu.linkonce.wi.*) }
+    .debug_abbrev 0 : { *(.debug_abbrev) }
+    .debug_line 0 : { *(.debug_line .debug_line.* .debug_line_end) }
+    .debug_frame 0 : { *(.debug_frame) }
+    .debug_str 0 : { *(.debug_str) }
+    .debug_loc 0 : { *(.debug_loc) }
+    .debug_macinfo 0 : { *(.debug_macinfo) }
+
+    /* DWARF 3 debug information  */
+    .debug_pubtypes 0 : { *(.debug_pubtypes) }
+    .debug_ranges 0 : { *(.debug_ranges) }
+
+    /*
+     * Arm/GNU build attributes.
+     *
+     * Build attributes record data that a linker needs to reason mechanically
+     * about the compatibility, or incompatibility, of a set of relocatable
+     * files.
+     */
+    .ARM.attributes 0 : {
+        KEEP(*(.ARM.attributes))
+        KEEP(*(.gnu.attributes))
+    }
+}
+
+SECTIONS {
     . = BL1_RO_BASE;
 
     ASSERT(. == ALIGN(PAGE_SIZE),
@@ -43,14 +174,6 @@ SECTIONS {
 #endif /* SEPARATE_CODE_AND_RODATA */
 
         __TEXT_END__ = .;
-    } >ROM
-
-    .ARM.extab . : {
-        *(.ARM.extab* .gnu.linkonce.armextab.*)
-    } >ROM
-
-    .ARM.exidx . : {
-        *(.ARM.exidx* .gnu.linkonce.armexidx.*)
     } >ROM
 
     .rodata . : {
