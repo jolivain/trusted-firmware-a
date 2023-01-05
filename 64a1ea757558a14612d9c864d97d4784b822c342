@@ -50,6 +50,24 @@
       "message": "Further optimization is possible (need not be part of Andre\u0027s refactor). \n\nCurrently allocation of space in CPU Context is dependant on CTX_INCLUDE_EL2_REGS. So even if ENABLE_FEAT_FGT\u003d0 but CTX_INCLUDE_EL2_REGS\u003d1, we still allocate space in the CPU context which is wasteful.\n\n\nIf this can  be a made separate C data structure and can be accessed as a regular C object here (we dont need fancy write_ctx_regs as it is a C data structure), then the linker will take care removing the allocated space if they are not referenced during the compilation. This will save space in EL3 firmware.\n\n@Jayanth, could you capture this as a JIRA to be followed up later ?",
       "revId": "64a1ea757558a14612d9c864d97d4784b822c342",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59297c88_a8989f17",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-01-05T15:09:25Z",
+      "side": 1,
+      "message": "Ok. I will create a Jira task.",
+      "parentUuid": "25559695_51ce4c90",
+      "revId": "64a1ea757558a14612d9c864d97d4784b822c342",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
