@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47132edf_1c7f1681",
+        "filename": "bl2u/bl2u.ld.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-01-06T17:41:06Z",
+      "side": 1,
+      "message": "This isn\u0027t a blocking comment, but could/should we try and make this common between the linker scripts (if it is possible). There are several sections like this that are just duplicated i.e. .ARM.extab above.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 23
+      },
+      "revId": "79f1728c44fbcc68aeeff185f3cd12e4458f616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
