@@ -127,11 +127,12 @@ void css_pwr_domain_on_finish_late(const psci_power_state_t *target_state)
  ******************************************************************************/
 static void css_power_down_common(const psci_power_state_t *target_state)
 {
+	/* Turn redistributor off */
+	plat_arm_gic_redistif_off();
+
 	/* Prevent interrupts from spuriously waking up this cpu */
 	plat_arm_gic_cpuif_disable();
 
-	/* Turn redistributor off */
-	plat_arm_gic_redistif_off();
 
 	/* Cluster is to be turned off, so disable coherency */
 	if (CSS_CLUSTER_PWR_STATE(target_state) == ARM_LOCAL_STATE_OFF) {

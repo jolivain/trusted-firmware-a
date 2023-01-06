@@ -208,11 +208,11 @@ static void fvp_pwr_domain_off(const psci_power_state_t *target_state)
 	 * by the cluster specific operations if applicable.
 	 */
 
-	/* Prevent interrupts from spuriously waking up this cpu */
-	plat_arm_gic_cpuif_disable();
-
 	/* Turn redistributor off */
 	plat_arm_gic_redistif_off();
+
+	/* Prevent interrupts from spuriously waking up this cpu */
+	plat_arm_gic_cpuif_disable();
 
 	/* Program the power controller to power off this cpu. */
 	fvp_pwrc_write_ppoffr(read_mpidr_el1());
