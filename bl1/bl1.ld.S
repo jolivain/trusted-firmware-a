@@ -166,7 +166,7 @@ SECTIONS {
 
         *bl1_entrypoint.o(.text*)
 
-        *(SORT_BY_ALIGNMENT(.text*))
+        *(.text*)
         *(.vectors)
 
 #if SEPARATE_CODE_AND_RODATA
@@ -179,7 +179,7 @@ SECTIONS {
     .rodata . : {
         __RODATA_START__ = .;
 
-        *(SORT_BY_ALIGNMENT(.rodata*))
+        *(.rodata*)
 
         RODATA_COMMON
 
