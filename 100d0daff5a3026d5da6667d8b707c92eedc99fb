@@ -57,6 +57,30 @@
       },
       "revId": "100d0daff5a3026d5da6667d8b707c92eedc99fb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e45d9570_d8d5014e",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2023-01-06T14:52:41Z",
+      "side": 1,
+      "message": "Would this mean automatically enabling FEATURE_DETECTION whenever MPAM is enabled? I can try to add this change if that\u0027s okay.\n\nThis would however cause a panic in case MPAM is not supported. Just wondering if that\u0027s okay.",
+      "parentUuid": "cc5b8cac_592ccf5e",
+      "range": {
+        "startLine": 834,
+        "startChar": 0,
+        "endLine": 834,
+        "endChar": 25
+      },
+      "revId": "100d0daff5a3026d5da6667d8b707c92eedc99fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
