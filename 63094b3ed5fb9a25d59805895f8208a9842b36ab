@@ -234,6 +234,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b7022d1e_7f7501a4",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-01-06T10:44:40Z",
+      "side": 1,
+      "message": "if (ENABLE_FEAT_FGT \u003d\u003d FEAT_STATE_ALWAYS) {\n\n   assert(read_feat_fgt_field() !\u003d 0U);\n   return true;\n}\nI guess, there is no harm in putting assert but if platform integrator is putting a feature as ALWAYS,it means they are sure that they know what they are doing.",
+      "parentUuid": "21e4cb29_4f88fad0",
+      "revId": "63094b3ed5fb9a25d59805895f8208a9842b36ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2fa70fe9_8c7d1486",
         "filename": "include/arch/aarch64/arch_features.h",
         "patchSetId": 3
