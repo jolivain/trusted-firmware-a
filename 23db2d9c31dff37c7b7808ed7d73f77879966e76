@@ -16,6 +16,40 @@
       "message": "I am advised the CI failure might go away if the patch gets rebased on latest integration.",
       "revId": "23db2d9c31dff37c7b7808ed7d73f77879966e76",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9090c502_127d4341",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-01-06T18:23:32Z",
+      "side": 1,
+      "message": "Looks good!",
+      "revId": "23db2d9c31dff37c7b7808ed7d73f77879966e76",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6ea5ee7_a10bf670",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-01-06T18:23:32Z",
+      "side": 1,
+      "message": "Should ((size_t)(end_ext_data - p) !\u003d len) be written as (p + len !\u003d end_ext_data)?  Both are equivalent since mbedtls_asn1_get_tag() guarantees that (end_ext_data \u003e\u003d p + len) if it succeeds, but I am not sure which is easier to read and makes the correctness of the code more obvious.",
+      "revId": "23db2d9c31dff37c7b7808ed7d73f77879966e76",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
