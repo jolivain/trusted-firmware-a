@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -27,6 +27,12 @@ endif
 
 ifeq (${TRUSTED_BOARD_BOOT},1)
 BL1_SOURCES		+=	bl1/bl1_fwu.c
+endif
+
+ifneq ($(findstring gcc,$(notdir $(LD))),)
+        BL1_LDFLAGS	+=	-Wl,--orphan-handling=error
+else ifneq ($(findstring ld,$(notdir $(LD))),)
+        BL1_LDFLAGS	+=	--orphan-handling=error
 endif
 
 BL1_LINKERFILE		:=	bl1/bl1.ld.S
