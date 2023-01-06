@@ -31,8 +31,10 @@ endif
 
 ifneq ($(findstring gcc,$(notdir $(LD))),)
         BL1_LDFLAGS	+=	-Wl,--orphan-handling=error
+        BL1_LDFLAGS	+=	-Wl,--sort-section=alignment
 else ifneq ($(findstring ld,$(notdir $(LD))),)
         BL1_LDFLAGS	+=	--orphan-handling=error
+        BL1_LDFLAGS	+=	--sort-section=alignment
 endif
 
 BL1_LINKERFILE		:=	bl1/bl1.ld.S
