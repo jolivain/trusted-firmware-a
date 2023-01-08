@@ -22,6 +22,30 @@
       },
       "revId": "79f1728c44fbcc68aeeff185f3cd12e4458f616e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e0c5b91_7828b1a8",
+        "filename": "bl2u/bl2u.ld.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-01-08T11:40:27Z",
+      "side": 1,
+      "message": "As part of the RWX segment fixes I need to refactor some of these sections anyway, which means expanding out these preprocessor macros (naturally, duplicating them). Towards the end though we can certainly reduce down the common sections again, including those that weren\u0027t originally factored down.",
+      "parentUuid": "47132edf_1c7f1681",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 23
+      },
+      "revId": "79f1728c44fbcc68aeeff185f3cd12e4458f616e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
