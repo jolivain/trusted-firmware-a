@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ad23717_1021539d",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-01-09T09:42:33Z",
+      "side": 1,
+      "message": "Earlier we had these get_armvX_Y_featZ_support type of functions (see line 120), is it reasonable to state they will be replaced by read_feat_Z_field moving forward?",
+      "range": {
+        "startLine": 135,
+        "startChar": 20,
+        "endLine": 135,
+        "endChar": 39
+      },
+      "revId": "85bb536d93a4e1c56daf96a644e4d914e0aa9879",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
