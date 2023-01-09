@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b740b298_d974c881",
+        "filename": "services/spd/opteed/nssmc_opteed.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-09T19:57:22Z",
+      "side": 1,
+      "message": "Renamed to \u0027*_LOAD_IMAGE\u0027 and moved to teesmc_opteed.h.",
+      "parentUuid": "b13dfb2f_c6d9697c",
+      "range": {
+        "startLine": 43,
+        "startChar": 8,
+        "endLine": 43,
+        "endChar": 36
+      },
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96cbda5b_7154bec5",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-09T11:51:43Z",
       "side": 1,
       "message": "OP-TEE",
+      "range": {
+        "startLine": 20,
+        "startChar": 35,
+        "endLine": 20,
+        "endChar": 40
+      },
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2ef4371_14b97693",
+        "filename": "services/spd/opteed/opteed.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-09T19:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96cbda5b_7154bec5",
       "range": {
         "startLine": 20,
         "startChar": 35,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "234a1904_48f99b07",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-09T19:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f67af9c4_93bb1639",
+      "range": {
+        "startLine": 152,
+        "startChar": 8,
+        "endLine": 152,
+        "endChar": 10
+      },
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54ccfc4b_b1707cb6",
@@ -83,6 +155,24 @@
       "writtenOn": "2023-01-09T11:51:43Z",
       "side": 1,
       "message": "Please break the line as:\n\nstatic int32_t\nopteed_init_with_entry_point(entry_point_info_t *optee_entry_point)\n\ninstead",
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d8afa2a_8af97930",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-09T19:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54ccfc4b_b1707cb6",
       "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -110,6 +200,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9f31564_7cc35d2e",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-09T19:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85b16d2e_d33b078d",
+      "range": {
+        "startLine": 196,
+        "startChar": 68,
+        "endLine": 196,
+        "endChar": 77
+      },
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6f2145d_ba80231b",
@@ -127,6 +241,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eff8677f_26865615",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-09T19:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6f2145d_ba80231b",
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b38add3_92b7db82",
@@ -140,6 +272,24 @@
       "writtenOn": "2023-01-09T11:51:43Z",
       "side": 1,
       "message": "Cast is not needed",
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09e4baa2_cfbcfb53",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-09T19:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b38add3_92b7db82",
       "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -167,6 +317,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94c8007a_2465e98b",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-09T19:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9dbef21_03d8aeda",
+      "range": {
+        "startLine": 224,
+        "startChar": 1,
+        "endLine": 224,
+        "endChar": 12
+      },
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e9c4749_b15bc860",
@@ -184,6 +358,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c1147f6_9676e97f",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-09T19:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e9c4749_b15bc860",
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6270a08_21146c53",
@@ -197,6 +389,30 @@
       "writtenOn": "2023-01-09T11:51:43Z",
       "side": 1,
       "message": "Please remove the space between (optee_image_info_t *) and data_va",
+      "range": {
+        "startLine": 229,
+        "startChar": 36,
+        "endLine": 229,
+        "endChar": 37
+      },
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20b2ec56_feafd4e2",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-09T19:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6270a08_21146c53",
       "range": {
         "startLine": 229,
         "startChar": 36,
@@ -230,6 +446,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7f584eb_55753720",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-09T19:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52821795_8601a5d5",
+      "range": {
+        "startLine": 243,
+        "startChar": 10,
+        "endLine": 243,
+        "endChar": 11
+      },
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f87a740e_068e9840",
@@ -243,6 +483,24 @@
       "writtenOn": "2023-01-09T11:51:43Z",
       "side": 1,
       "message": "No need to cast.",
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccc712ad_0de593f8",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-09T19:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f87a740e_068e9840",
       "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -264,6 +522,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48cb333e_639803eb",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-09T19:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "288ddb27_a46f4653",
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5836a2ba_e1094b48",
@@ -281,6 +557,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5398d1fd_dc4d0dea",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-09T19:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5836a2ba_e1094b48",
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b8c55271_76834a25",
@@ -294,6 +588,30 @@
       "writtenOn": "2023-01-09T11:51:43Z",
       "side": 1,
       "message": "OP-TEE",
+      "range": {
+        "startLine": 347,
+        "startChar": 32,
+        "endLine": 347,
+        "endChar": 37
+      },
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c8cb917_bbcce960",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-09T19:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8c55271_76834a25",
       "range": {
         "startLine": 347,
         "startChar": 32,
@@ -323,6 +641,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0145f2b5_53870090",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-09T19:57:22Z",
+      "side": 1,
+      "message": "When OP-TEE is loaded the usual way by the firmware, when we switch to the non-secure world we will power on all of the cores and receive all the PM callbacks for optee_cpu_on_finish_handler.  If we load OP-TEE via an SMC, then when we receive later SMC calls for OP-TEE invocations, the corresponding context for that CPU will not have been setup yet so we are doing that here by detecting the UNKNOWN state (we know the CPU is on, because it\u0027s invoking the SMC; and we know the context isn\u0027t initialized because it\u0027s in the UNKNOWN state).",
+      "parentUuid": "1f2530c0_f88570e5",
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ea296d62_3d65561c",
         "filename": "services/spd/opteed/opteed_pm.c",
         "patchSetId": 2
@@ -334,6 +670,24 @@
       "writtenOn": "2023-01-09T11:51:43Z",
       "side": 1,
       "message": "Please align with the opening ( on the line above.",
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8363d7b0_1298a317",
+        "filename": "services/spd/opteed/opteed_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-09T19:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea296d62_3d65561c",
       "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -351,6 +705,24 @@
       "writtenOn": "2023-01-09T11:51:43Z",
       "side": 1,
       "message": "Please add an empty line above. Same for this other places where the local variables aren\u0027t separated from code with an empty line.",
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f157a704_eeb63eab",
+        "filename": "services/spd/opteed/opteed_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-09T19:57:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80b84468_098de949",
       "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -380,6 +752,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "523f6c66_693be223",
+        "filename": "services/spd/opteed/opteed_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-09T19:57:22Z",
+      "side": 1,
+      "message": "This is handling the same situation that https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/18635/2/services/spd/opteed/opteed_main.c#376 is dealing with. If this is invoked from a core that we have not initialized for OP-TEE yet, then we wouldn\u0027t have a valid context to use for invoking the PM handler in OP-TEE...so this detects that and establishes that context.",
+      "parentUuid": "c94f4d44_9eee77e7",
+      "range": {
+        "startLine": 183,
+        "startChar": 2,
+        "endLine": 183,
+        "endChar": 30
+      },
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6fb2e09_85e3947d",
         "filename": "services/spd/opteed/opteed_private.h",
         "patchSetId": 2
@@ -391,6 +787,30 @@
       "writtenOn": "2023-01-09T11:51:43Z",
       "side": 1,
       "message": "Do we need another image format? Can\u0027t the one in lib/optee/optee_utils.c be used instead?",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 21
+      },
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f4cd76c_e2c1c308",
+        "filename": "services/spd/opteed/opteed_private.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-09T19:57:22Z",
+      "side": 1,
+      "message": "The one in optee_utils.c is missing a couple things to make it clean. Specifically it doesn\u0027t have a field for the \u0027entry_point\u0027 address, and also doesn\u0027t have 2 separate size fields for each image.\n\nIf you really want me to re-use that image format, I could...but it\u0027d be somewhat hacky. I could make the first optee_image_t have a zero size, and then use the addr in there to indicate the entry point. And then I could reuse the \u0027image_id\u0027 field in there as the \u0027segment_mem_size\u0027.  But I\u0027d prefer to keep things cleaner and define a new format like I\u0027ve done.",
+      "parentUuid": "a6fb2e09_85e3947d",
       "range": {
         "startLine": 139,
         "startChar": 0,
