@@ -252,6 +252,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9c417a73_9aa1a2c5",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-01-09T09:36:45Z",
+      "side": 1,
+      "message": "Can this be resolved?",
+      "parentUuid": "b7022d1e_7f7501a4",
+      "revId": "63094b3ed5fb9a25d59805895f8208a9842b36ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2fa70fe9_8c7d1486",
         "filename": "include/arch/aarch64/arch_features.h",
         "patchSetId": 3
@@ -311,6 +329,30 @@
       "side": 1,
       "message": "hmm, ok, this one will do the enable and the separate check can verify the highest known good values and panic otherwise. works for me.",
       "parentUuid": "91358c03_a22be3d1",
+      "range": {
+        "startLine": 117,
+        "startChar": 30,
+        "endLine": 117,
+        "endChar": 35
+      },
+      "revId": "63094b3ed5fb9a25d59805895f8208a9842b36ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f202a2bc_30240c74",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-01-09T09:36:45Z",
+      "side": 1,
+      "message": "Can this be resolved?",
+      "parentUuid": "5388282b_2905978c",
       "range": {
         "startLine": 117,
         "startChar": 30,
