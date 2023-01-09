@@ -16,6 +16,24 @@
       "message": "@Rohit, please take of static check failure",
       "revId": "1192cbd6198301903287dee7f7c0058f451e95b8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6771a974_9a8082c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2023-01-09T16:03:27Z",
+      "side": 1,
+      "message": "Failure seems to be from https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17818/1 and not this patch? \n\nI\u0027ll fix this along with the new set of feature detection changes.",
+      "parentUuid": "dd5ad8ed_80d362c3",
+      "revId": "1192cbd6198301903287dee7f7c0058f451e95b8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
