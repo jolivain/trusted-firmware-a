@@ -70,6 +70,30 @@
       },
       "revId": "8a464dc2435e28b0e5d28b2a7b1e0a41f82ea9da",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6875d12c_ae8fb0ee",
+        "filename": "bl1/bl1.ld.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-01-09T17:18:04Z",
+      "side": 1,
+      "message": "That\u0027s right - the `w` attribute is for read/write sections (.data, .bss), whereas `r` is for read-only sections (.text, .rodata).",
+      "parentUuid": "5e724ef8_1a9c388f",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 3
+      },
+      "revId": "8a464dc2435e28b0e5d28b2a7b1e0a41f82ea9da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
