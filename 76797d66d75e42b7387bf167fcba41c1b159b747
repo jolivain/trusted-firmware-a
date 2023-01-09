@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4225f30d_2d5643cb",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-01-09T14:30:45Z",
+      "side": 1,
+      "message": "Along with Olivier\u0027s comment you should also modify the comments on this function as well detect_arch_features() and the place where it is called in BL31.\nThis new check is doing other half of check (HW enabled/SW disabled) which was not part of original feat_detect() mechanish (HW disabled/SW enabled)\n\nnit: Naming is not very clear, can we think of any more explicit name?",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 22
+      },
+      "revId": "76797d66d75e42b7387bf167fcba41c1b159b747",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c5324bcf_a742c6bf",
         "filename": "common/feat_detect.c",
         "patchSetId": 2
