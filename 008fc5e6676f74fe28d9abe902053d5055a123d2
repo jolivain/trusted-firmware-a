@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dff2eaa_c9497db5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-01-09T09:51:47Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 18,
+        "startChar": 5,
+        "endLine": 18,
+        "endChar": 14
+      },
+      "revId": "008fc5e6676f74fe28d9abe902053d5055a123d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7523085b_54ff030c",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 798,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-01-09T09:51:47Z",
+      "side": 1,
+      "message": "Is it reasonable to say FEAT_STATE_CHECK should preferably be avoided, as this adds two ID register reads per each an every context switch?",
+      "range": {
+        "startLine": 798,
+        "startChar": 1,
+        "endLine": 798,
+        "endChar": 31
+      },
+      "revId": "008fc5e6676f74fe28d9abe902053d5055a123d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
