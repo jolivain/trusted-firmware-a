@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d52d33fc_7a7c68d4",
+        "filename": "bl31/bl31_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-01-09T12:16:02Z",
+      "side": 0,
+      "message": "This may have be mentioned in earlier changes, but does it now mandate use of FEAT_DETECTION\u003d1?\n\nThis assert being removed means, that feature detection must be enabled to achieve the same check?\n\nI understood the intention is to force FEAT_DETECTION\u003d1 when DEBUG\u003d1?",
+      "revId": "317b1359046865a301029219c55999e55879b0b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
