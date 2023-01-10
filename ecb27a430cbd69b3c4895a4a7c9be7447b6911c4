@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d49c6b48_0495ea0c",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-01-10T15:47:32Z",
+      "side": 1,
+      "message": "This is just copied from feat_detect.h.\nThis function will eventually go away after we have converted all features (it\u0027s already gone in my tree), so I didn\u0027t bother to fix those things.",
+      "parentUuid": "5fdab44d_bd7262fc",
+      "range": {
+        "startLine": 25,
+        "startChar": 20,
+        "endLine": 25,
+        "endChar": 26
+      },
+      "revId": "ecb27a430cbd69b3c4895a4a7c9be7447b6911c4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08ab93fa_040a6ce2",
         "filename": "common/feat_detect.c",
         "patchSetId": 4
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-09T08:58:45Z",
       "side": 1,
       "message": "I wonder if this is really to be checked provided this is an internal makefile flag not to be used on the command line?",
+      "range": {
+        "startLine": 89,
+        "startChar": 4,
+        "endLine": 89,
+        "endChar": 39
+      },
+      "revId": "ecb27a430cbd69b3c4895a4a7c9be7447b6911c4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a593067d_d7a7aa97",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-01-10T15:47:32Z",
+      "side": 1,
+      "message": "But this would be a separate patch, wouldn\u0027t it? This one here is just refactoring the existing code, replacing FEAT_STATE_1 (\u003d1) with FEAT_STATE_ALWAYS(\u003d1).",
+      "parentUuid": "08ab93fa_040a6ce2",
       "range": {
         "startLine": 89,
         "startChar": 4,
