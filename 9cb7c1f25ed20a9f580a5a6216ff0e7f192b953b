@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1aeb6f7a_77dacb7b",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-01-10T05:19:07Z",
+      "side": 1,
+      "message": "Will note this along with some clean up planned that applies to all/most errata w.r.t documentation",
+      "parentUuid": "78c126d8_eeeb8e24",
+      "revId": "9cb7c1f25ed20a9f580a5a6216ff0e7f192b953b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e308fa3_b1801d85",
         "filename": "lib/cpus/aarch64/cortex_x2.S",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2022-12-23T12:10:21Z",
       "side": 1,
       "message": "revision -\u003e revisions",
+      "revId": "9cb7c1f25ed20a9f580a5a6216ff0e7f192b953b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d82aa3d3_067cf604",
+        "filename": "lib/cpus/aarch64/cortex_x2.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-01-10T05:19:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3e308fa3_b1801d85",
       "revId": "9cb7c1f25ed20a9f580a5a6216ff0e7f192b953b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -52,6 +88,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28d8c785_46b2f94d",
+        "filename": "lib/cpus/aarch64/cortex_x2.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-01-10T05:19:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bfd5bb16_b1904f05",
+      "revId": "9cb7c1f25ed20a9f580a5a6216ff0e7f192b953b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a227035f_2e5de84e",
@@ -69,6 +123,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1366362b_2843ee47",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-01-10T05:19:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a227035f_2e5de84e",
+      "revId": "9cb7c1f25ed20a9f580a5a6216ff0e7f192b953b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2fcaed57_24e8b87a",
@@ -82,6 +154,24 @@
       "writtenOn": "2022-12-23T12:10:21Z",
       "side": 1,
       "message": "as above",
+      "revId": "9cb7c1f25ed20a9f580a5a6216ff0e7f192b953b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8868200b_e82722c2",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-01-10T05:19:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2fcaed57_24e8b87a",
       "revId": "9cb7c1f25ed20a9f580a5a6216ff0e7f192b953b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
