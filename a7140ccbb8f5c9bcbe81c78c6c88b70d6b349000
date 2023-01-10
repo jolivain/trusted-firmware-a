@@ -659,6 +659,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ad3b09cf_44b702c9",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-01-10T12:15:16Z",
+      "side": 1,
+      "message": "If NSSMC_OPTEED_CALL_LOAD_IMAGE hasn\u0027t been called yet we\u0027ll crash in opteed_cpu_on_finish_handler() when dereferencing optee_vector_table.",
+      "parentUuid": "0145f2b5_53870090",
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ea296d62_3d65561c",
         "filename": "services/spd/opteed/opteed_pm.c",
         "patchSetId": 2
@@ -776,6 +794,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5a24f65a_9fc2a4a1",
+        "filename": "services/spd/opteed/opteed_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-01-10T12:15:16Z",
+      "side": 1,
+      "message": "OK, same problem here, crash in opteed_cpu_on_finish_handler() if OP-TEE hasn\u0027t been initialized on any CPU yet.",
+      "parentUuid": "523f6c66_693be223",
+      "range": {
+        "startLine": 183,
+        "startChar": 2,
+        "endLine": 183,
+        "endChar": 30
+      },
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6fb2e09_85e3947d",
         "filename": "services/spd/opteed/opteed_private.h",
         "patchSetId": 2
@@ -811,6 +853,30 @@
       "side": 1,
       "message": "The one in optee_utils.c is missing a couple things to make it clean. Specifically it doesn\u0027t have a field for the \u0027entry_point\u0027 address, and also doesn\u0027t have 2 separate size fields for each image.\n\nIf you really want me to re-use that image format, I could...but it\u0027d be somewhat hacky. I could make the first optee_image_t have a zero size, and then use the addr in there to indicate the entry point. And then I could reuse the \u0027image_id\u0027 field in there as the \u0027segment_mem_size\u0027.  But I\u0027d prefer to keep things cleaner and define a new format like I\u0027ve done.",
       "parentUuid": "a6fb2e09_85e3947d",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 21
+      },
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0b46ee1_509cf3b1",
+        "filename": "services/spd/opteed/opteed_private.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-01-10T12:15:16Z",
+      "side": 1,
+      "message": "Upstream OP-TEE has the entry point at the load address and is able to zero all memory that should be zeroed itself. Why do you need to do it differently here?",
+      "parentUuid": "5f4cd76c_e2c1c308",
       "range": {
         "startLine": 139,
         "startChar": 0,
