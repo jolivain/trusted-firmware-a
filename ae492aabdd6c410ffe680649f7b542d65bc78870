@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ea22b2e8_c6bfdce8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2023-01-10T10:49:41Z",
+      "side": 1,
+      "message": "We\u0027ve updated the RSS a bit. Previously we were just using some flash emulated in the RSS SRAMs, but now it loads images from the host flash. To avoid having to have a fixed area of the host flash designated for RSS use, I\u0027ve added code to load the RSS images from the FIP (with and without GPT support) so now we can just package all the firmware images together.\n\nThe only thing we need this for is so we have a version of `fiptool` that has the UUIDs we use, to allow us to do the packaging.",
+      "parentUuid": "fe36fe6d_b0c2a0b7",
+      "range": {
+        "startLine": 9,
+        "startChar": 51,
+        "endLine": 10,
+        "endChar": 38
+      },
+      "revId": "ae492aabdd6c410ffe680649f7b542d65bc78870",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d0c89bc7_02acfe6c",
         "filename": "plat/arm/board/tc/plat_def_fip_uuid.h",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-10T10:24:19Z",
       "side": 1,
       "message": "Just out of curiosity, what are \"SIC tables\"?",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 30
+      },
+      "revId": "ae492aabdd6c410ffe680649f7b542d65bc78870",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08232fd5_c36457b8",
+        "filename": "plat/arm/board/tc/plat_def_fip_uuid.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2023-01-10T10:49:41Z",
+      "side": 1,
+      "message": "They\u0027re a set of hash-tables used by the Secure I-Cache to execute images from host flash while transparently decrypting and authenticating them. Pretty neat bit of hardware :) We need to authenticate the tables themselves though, so they\u0027re loaded as an image in the bootloader separately with their own signature etc.",
+      "parentUuid": "d0c89bc7_02acfe6c",
       "range": {
         "startLine": 31,
         "startChar": 8,
