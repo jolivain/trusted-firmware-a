@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "373dd9c7_d09563b5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-01-10T17:50:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0dff2eaa_c9497db5",
+      "range": {
+        "startLine": 18,
+        "startChar": 5,
+        "endLine": 18,
+        "endChar": 14
+      },
+      "revId": "008fc5e6676f74fe28d9abe902053d5055a123d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7523085b_54ff030c",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "STATE_CHECK would ideally be the state for all features for platforms like FVP. For fixed hardware, it depends whether a platform owner would like to keep dynamic capability trading off performance for flexibility.",
       "parentUuid": "d07ffd4d_99c584b6",
+      "range": {
+        "startLine": 798,
+        "startChar": 1,
+        "endLine": 798,
+        "endChar": 31
+      },
+      "revId": "008fc5e6676f74fe28d9abe902053d5055a123d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2d4f0b5_627c434e",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 798,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-01-10T17:50:42Z",
+      "side": 1,
+      "message": "Please note that reading CPU_IDAA64... registers is most likely incredibly cheap: they are per core, constant, read-only registers, so they could be already handled in the decoder, or are potentially just swallowed up by the pipeline. Every memory access (if you wanted to cache that) is much more expensive. Also the masking is just another instruction (either tst or ubfx), so the impact should be negligible, especially if you consider that you are about to write hundreds of bytes of context to memory.",
+      "parentUuid": "ee69ae1a_e0ac6700",
       "range": {
         "startLine": 798,
         "startChar": 1,
