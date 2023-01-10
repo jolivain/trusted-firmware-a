@@ -112,6 +112,9 @@ a72:
 	/* Set L2 cache data RAM latency to 3 cycles */
 	orr x0, x0, #(CORTEX_A72_L2_DATA_RAM_LATENCY_3_CYCLES << CORTEX_A72_L2CTLR_DATA_RAM_LATENCY_SHIFT)
 #endif
+	/* Enable L2 ECC and parity with inline data */
+	orr x0, x0, #CORTEX_A72_L2CTLR_EL1_ECC_AND_PARITY_ENABLE
+	orr x0, x0, #CORTEX_A72_L2CTLR_EL1_DATA_INLINE_ECC_ENABLE
 	msr CORTEX_A72_L2CTLR_EL1, x0
 	isb
 	ret
