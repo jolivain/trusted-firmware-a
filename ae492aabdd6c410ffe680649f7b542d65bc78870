@@ -96,6 +96,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5f79a11_c29c5fd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-10T15:35:27Z",
+      "side": 1,
+      "message": "The other thing the CI flagged is, we need to add plat/arm/board/tc/plat_def_uuid_config.c file to\nhttps://git.trustedfirmware.org/ci/tf-a-ci-scripts.git/tree/script/tf-coverity/coverity_tf_conf.py#n109 . That will tell the CI scripts that it\u0027s expected for this file not to be scanned through Coverity (since it\u0027s tools code, not firmware code).",
+      "revId": "ae492aabdd6c410ffe680649f7b542d65bc78870",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0c89bc7_02acfe6c",
@@ -162,6 +179,29 @@
         "startChar": 8,
         "endLine": 31,
         "endChar": 30
+      },
+      "revId": "ae492aabdd6c410ffe680649f7b542d65bc78870",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d526b4d_2d00df29",
+        "filename": "plat/arm/board/tc/plat_def_uuid_config.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-10T15:35:27Z",
+      "side": 1,
+      "message": "The CI flagged some coding-style issues with the order of inclusion here [1]. I also think stddef.h should be a system header file (included between \u003c\u003e). \n\nAccording to TF-A guidelines [2], I think this ought to be:\n\n #include \u003cstddef.h\u003e\n\n #include \u003cfirmware_image_package.h\u003e\n\n #include \"tbbr_config.h\"\n\nI\u0027ve not checked whether this sequence will make the CI checks happy, though.\n\n[1] https://ci.trustedfirmware.org/job/tf-a-static-checks/3225/\n[2] https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#headers-and-inclusion",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 0
       },
       "revId": "ae492aabdd6c410ffe680649f7b542d65bc78870",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
