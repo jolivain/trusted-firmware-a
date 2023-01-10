@@ -72,6 +72,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ddcce38_55be2f54",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-10T15:07:21Z",
+      "side": 1,
+      "message": "Thanks Raef.\n\nI suppose we\u0027ll need changes in TF-A OpenCI scripts to accomodate with these boot flow changes, as today we load a separate RSS flash image into RSS memory on TC2 FVP. We use a prebuilt RSS flash image for that [1], in which we inject AP_BL1 image. Once the changes you describe become effective, I suppose we\u0027ll still need a prebuilt image but this will rather be a FIP, and the process to inject/replace AP_BL1 inside it will become more standard from a TF-A perspective (standard \u0027fiptool update\u0027 command, as opposed to a custom \u0027dd\u0027 command today).\n\nAnyway, that\u0027s something for the future. This patch per se only adds capability into fiptool so nothing will break in TF-A OpenCI, until these RSS patches are merged *and* we upgrade our prebuilt RSS images in the CI.\n\n[1] Hosted here: https://downloads.trustedfirmware.org/tf-a/total_compute/tc2/",
+      "parentUuid": "5ae46946_46960321",
+      "range": {
+        "startLine": 9,
+        "startChar": 51,
+        "endLine": 10,
+        "endChar": 38
+      },
+      "revId": "ae492aabdd6c410ffe680649f7b542d65bc78870",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0c89bc7_02acfe6c",
@@ -109,6 +133,30 @@
       "side": 1,
       "message": "They\u0027re a set of hash-tables used by the Secure I-Cache to execute images from host flash while transparently decrypting and authenticating them. Pretty neat bit of hardware :) We need to authenticate the tables themselves though, so they\u0027re loaded as an image in the bootloader separately with their own signature etc.",
       "parentUuid": "d0c89bc7_02acfe6c",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 30
+      },
+      "revId": "ae492aabdd6c410ffe680649f7b542d65bc78870",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c3ecfc3_02b060e9",
+        "filename": "plat/arm/board/tc/plat_def_fip_uuid.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-10T15:07:21Z",
+      "side": 1,
+      "message": "I see, thanks!",
+      "parentUuid": "08232fd5_c36457b8",
       "range": {
         "startLine": 31,
         "startChar": 8,
