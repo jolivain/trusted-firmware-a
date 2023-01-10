@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6ffa2ded_32bf9a16",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-01-10T14:15:44Z",
+      "side": 1,
+      "message": "Yes. I just wanted to make it more MISRA-C Rule 14.4 compliant. I\u0027ll change it to the existing format.",
+      "parentUuid": "de3d5b51_f65f39f9",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 21
+      },
+      "revId": "03e4cfd562f7bf84de4b66298c9ef7b2abd49536",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3d453f6f_fc207621",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-06T11:16:20Z",
       "side": 1,
       "message": "It is better to have CASSERT at the top of file i.e. after line no. 25",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 64
+      },
+      "revId": "03e4cfd562f7bf84de4b66298c9ef7b2abd49536",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e9c9e92_888b9638",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-01-10T14:15:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3d453f6f_fc207621",
       "range": {
         "startLine": 300,
         "startChar": 0,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "78b3f171_a9f55a5c",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-01-10T14:15:44Z",
+      "side": 1,
+      "message": "No. Please see include\\lib\\libfdt\\libfdt.h:\n * fdt_node_offset_by_prop_value - find nodes with a given property value\n * @fdt: pointer to the device tree blob\n * @startoffset: only find nodes after this offset\n * @propname: property name to check\n * @propval: property value to search for\n * @proplen: length of the value in propval\n\n, so sizeof(\"memory\") is the length of \"memory\" string, including trailing 0:\n\n0000000004008ba4 \u003cfconf_populate_dram_layout\u003e:\n 4008ba4:\ta9ba7bfd \tstp\tx29, x30, [sp, #-96]!\n 4008ba8:\t528000e4 \tmov\tw4, #0x7                   \t// #7\n 4008bac:\tb0000063 \tadrp\tx3, 4015000 \u003c__func__.0+0x104\u003e\n 4008bb0:\t910003fd \tmov\tx29, sp\n 4008bb4:\t910eac63 \tadd\tx3, x3, #0x3ab\n 4008bb8:\tb0000062 \tadrp\tx2, 4015000 \u003c__func__.0+0x104\u003e\n 4008bbc:\t12800001 \tmov\tw1, #0xffffffff            \t// #-1\n 4008bc0:\t910ec842 \tadd\tx2, x2, #0x3b2\n 4008bc4:\ta90153f3 \tstp\tx19, x20, [sp, #16]\n 4008bc8:\ta9025bf5 \tstp\tx21, x22, [sp, #32]\n 4008bcc:\taa0003f6 \tmov\tx22, x0\n 4008bd0:\ta90363f7 \tstp\tx23, x24, [sp, #48]\n 4008bd4:\tf90023f9 \tstr\tx25, [sp, #64]\n 4008bd8:\t97ffedb8 \tbl\t40042b8 \u003cfdt_node_offset_by_prop_value\u003e\n\n@proplen is \u003csizeof(\"memory\")\u003e and is pased in X4 which is set to 7 at 0x4008ba8.",
+      "parentUuid": "1af1c900_7ec72d1e",
+      "range": {
+        "startLine": 312,
+        "startChar": 20,
+        "endLine": 312,
+        "endChar": 36
+      },
+      "revId": "03e4cfd562f7bf84de4b66298c9ef7b2abd49536",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a4ce9da1_76120d5b",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
         "patchSetId": 2
@@ -95,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "df241f20_26298930",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-01-10T14:15:44Z",
+      "side": 1,
+      "message": "What\u0027s about\n#define DRAM_ENTRY_SIZE (4 * sizeof(uint32_t))\n?",
+      "parentUuid": "a4ce9da1_76120d5b",
+      "range": {
+        "startLine": 325,
+        "startChar": 7,
+        "endLine": 325,
+        "endChar": 27
+      },
+      "revId": "03e4cfd562f7bf84de4b66298c9ef7b2abd49536",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1b677708_3b1e3eed",
         "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
         "patchSetId": 2
@@ -106,6 +202,30 @@
       "writtenOn": "2023-01-06T11:16:20Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 328,
+        "startChar": 7,
+        "endLine": 328,
+        "endChar": 27
+      },
+      "revId": "03e4cfd562f7bf84de4b66298c9ef7b2abd49536",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0716b4bc_9d6e54fc",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-01-10T14:15:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1b677708_3b1e3eed",
       "range": {
         "startLine": 328,
         "startChar": 7,
