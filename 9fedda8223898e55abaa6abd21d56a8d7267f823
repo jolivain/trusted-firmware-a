@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98b9ce44_9ee45250",
+        "filename": "lib/libc/putchar.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-01-10T19:49:27Z",
+      "side": 1,
+      "message": "Feel free to ignore this comment.\n\nTF-A has numerous weak functions( and their implementations). They seem to follow the below style:\n\n#pragma weak putchar\n\nint putchar(int c)\n{\n\treturn c;\n}",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 1
+      },
+      "revId": "9fedda8223898e55abaa6abd21d56a8d7267f823",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
