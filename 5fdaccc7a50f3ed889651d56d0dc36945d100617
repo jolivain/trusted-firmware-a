@@ -46,6 +46,47 @@
       },
       "revId": "5fdaccc7a50f3ed889651d56d0dc36945d100617",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d63c8ad1_75253847",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-10T08:25:34Z",
+      "side": 1,
+      "message": "OK thanks for the information. I will make a note of that for the future.",
+      "parentUuid": "31d659ba_83a62fa1",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 36
+      },
+      "revId": "5fdaccc7a50f3ed889651d56d0dc36945d100617",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe14d34f_95e2357d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-10T08:25:34Z",
+      "side": 1,
+      "message": "After reviewing the CI results, I think there\u0027s no concerns.\n\nThe measured boot config seems to have failed because of a communication issue between Jenkins and LAVA. The LAVA logs themselves show tests passing.\n\nThe BRBE and trace configs are known failures, I believe.",
+      "revId": "5fdaccc7a50f3ed889651d56d0dc36945d100617",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
