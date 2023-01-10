@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe36fe6d_b0c2a0b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-10T10:24:19Z",
+      "side": 1,
+      "message": "What is the use case for inserting RSS images into a FIP?\n\nMy understanding was that there was:\n- the RSS flash image, embedding all of RSS firmware images, as well as SCP_BL1 and AP_BL1.\n- the FIP image, with the same images as usual, no RSS images in that.\n\nAre you planning to use the FIP format on RSS side? Otherwise I don\u0027t see why AP should have knowledge of RSS images, it should be transparent from its point of view...",
+      "range": {
+        "startLine": 9,
+        "startChar": 51,
+        "endLine": 10,
+        "endChar": 38
+      },
+      "revId": "ae492aabdd6c410ffe680649f7b542d65bc78870",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0c89bc7_02acfe6c",
+        "filename": "plat/arm/board/tc/plat_def_fip_uuid.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-10T10:24:19Z",
+      "side": 1,
+      "message": "Just out of curiosity, what are \"SIC tables\"?",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 30
+      },
+      "revId": "ae492aabdd6c410ffe680649f7b542d65bc78870",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
