@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8e064ebd_fc1a9249",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-10T14:20:18Z",
+      "side": 1,
+      "message": "I think eventually every feature eventually should be checked against hardware capability. Hence we may not need this wrapper and perhaps can be folder into check_feature()  itself ?\n\nSee related comment below.",
+      "parentUuid": "4225f30d_2d5643cb",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 22
+      },
+      "revId": "76797d66d75e42b7387bf167fcba41c1b159b747",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c5324bcf_a742c6bf",
         "filename": "common/feat_detect.c",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2023-01-09T09:34:56Z",
       "side": 1,
       "message": "Is this really a panic situation or just a warning? Do we mean that some feature must be enabled by the platform if PE supports it?",
+      "range": {
+        "startLine": 275,
+        "startChar": 2,
+        "endLine": 275,
+        "endChar": 10
+      },
+      "revId": "76797d66d75e42b7387bf167fcba41c1b159b747",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fff9531_98d192a9",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-10T14:20:18Z",
+      "side": 1,
+      "message": "I think this has to be warning. Having features set to ALWAYS, being present in hardware features is essential to prevent runtime failure in EL3. The converse , viz, TF-A has DISABLED a feature but the feature is present in hardware, is not fatal to TF-A but could be a blocker for lower EL software (for linux it is a blocker, but there can be other NS software for which this may not be a blocker). hence this is a guidance to platform integrators/users and we should allow forward progress IMO.",
+      "parentUuid": "c5324bcf_a742c6bf",
       "range": {
         "startLine": 275,
         "startChar": 2,
