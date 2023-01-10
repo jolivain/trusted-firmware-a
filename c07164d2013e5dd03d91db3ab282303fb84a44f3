@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6660990e_675772e6",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-10T22:48:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6093126b_f93122b5",
+      "revId": "c07164d2013e5dd03d91db3ab282303fb84a44f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4669ff13_47550213",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-01-10T12:15:16Z",
       "side": 1,
       "message": "This doesn\u0027t do anything useful, better to supply a 0 to opteed_init_optee_ep_state() directly instead. Same for opteed_mem_limit below.",
+      "revId": "c07164d2013e5dd03d91db3ab282303fb84a44f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5e73716_13d109bc",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-10T22:48:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4669ff13_47550213",
       "revId": "c07164d2013e5dd03d91db3ab282303fb84a44f3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -60,6 +96,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b9ee47ad_159eddf2",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-10T22:48:32Z",
+      "side": 1,
+      "message": "Removed dt_addr, I think I saw this value equal to the entry point when I was doing some initial investigation, which is why I did this. I now pass zero for the dt_addr to opteed_init_optee_ep_state and removed the dt_addr local variable.",
+      "parentUuid": "612b4d24_439b9dbf",
+      "range": {
+        "startLine": 242,
+        "startChar": 1,
+        "endLine": 242,
+        "endChar": 8
+      },
+      "revId": "c07164d2013e5dd03d91db3ab282303fb84a44f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "80857359_84ba0345",
         "filename": "services/spd/opteed/opteed_main.c",
         "patchSetId": 3
@@ -71,6 +131,24 @@
       "writtenOn": "2023-01-10T12:15:16Z",
       "side": 1,
       "message": "target_size and target_pa are uint64_t\u0027s, please use PRIu64 and PRIx64 instead.",
+      "revId": "c07164d2013e5dd03d91db3ab282303fb84a44f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b50bc52_09294cdc",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-10T22:48:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80857359_84ba0345",
       "revId": "c07164d2013e5dd03d91db3ab282303fb84a44f3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -88,6 +166,30 @@
       "writtenOn": "2023-01-10T12:15:16Z",
       "side": 1,
       "message": "Why do you pass this address (the entry point address) here?",
+      "range": {
+        "startLine": 295,
+        "startChar": 7,
+        "endLine": 295,
+        "endChar": 14
+      },
+      "revId": "c07164d2013e5dd03d91db3ab282303fb84a44f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f933c1d_ad8e7b11",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-10T22:48:32Z",
+      "side": 1,
+      "message": "Answered above (it was a mistake, removed)",
+      "parentUuid": "f771c6e9_bf837807",
       "range": {
         "startLine": 295,
         "startChar": 7,
