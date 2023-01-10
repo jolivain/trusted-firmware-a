@@ -34,6 +34,24 @@
       "parentUuid": "144558b9_98ad7cba",
       "revId": "7ff4118d9e52ee1478486243a2b64720d539e44a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70df157d_a37d6b53",
+        "filename": "lib/libc/putchar.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-01-10T16:20:17Z",
+      "side": 1,
+      "message": "I don\u0027t mean to get rid of the weak link, just the alias, e.g.\n\n    int putchar(int c) __attribute__((weak))) {\n        return c;\n    }\n\nThe console driver remains the same, but it saves us an extra function prototype that doesn\u0027t seem to do anything.",
+      "parentUuid": "70f6862e_682f997b",
+      "revId": "7ff4118d9e52ee1478486243a2b64720d539e44a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
