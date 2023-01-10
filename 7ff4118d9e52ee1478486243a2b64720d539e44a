@@ -52,6 +52,24 @@
       "parentUuid": "70f6862e_682f997b",
       "revId": "7ff4118d9e52ee1478486243a2b64720d539e44a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa53ca1d_16ffb22a",
+        "filename": "lib/libc/putchar.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-10T17:04:12Z",
+      "side": 1,
+      "message": "OK, that makes sense and simplifies the file. But I\u0027d prefer having Claus\u0027view on this. Maybe he had a good reason to do that like this.",
+      "parentUuid": "70df157d_a37d6b53",
+      "revId": "7ff4118d9e52ee1478486243a2b64720d539e44a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
