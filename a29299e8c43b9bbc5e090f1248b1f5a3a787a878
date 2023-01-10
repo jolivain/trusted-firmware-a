@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c3af2df8_9a59a567",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-01-10T16:19:24Z",
+      "side": 1,
+      "message": "I think I commented on this elsewhere: FGT is an EL2 feature, TF-A has little business in this other than enabling and context-switching it. I don\u0027t think this justifies adding another category in changelog.yaml.\nI added a new \"cpufeat\" category, that should cover all those \"lesser\" features and CPU ID register handling in general.",
+      "parentUuid": "a969530c_e457aa25",
+      "revId": "a29299e8c43b9bbc5e090f1248b1f5a3a787a878",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b1a3e62d_f257dd0f",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
