@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed9bb299_5592629f",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-01-11T08:16:50Z",
+      "side": 1,
+      "message": "I guess we can drop the _elf suffix.",
+      "revId": "4f20bdcca3a4aa9b61be4f0cdf5045a475922dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "000603c1_778613c8",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-01-11T08:16:50Z",
+      "side": 1,
+      "message": "I think we can depend on image_header-\u003enb_images to be 1 too. Two images are only used if OP-TEE has paging enabled and that\u0027s obviously not the case here. With image_header-\u003enb_images \u003d\u003d 1 we can simplify a bit and skip the loops below.",
+      "revId": "4f20bdcca3a4aa9b61be4f0cdf5045a475922dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fd88fb4_7d5b5928",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-01-11T08:16:50Z",
+      "side": 1,
+      "message": "It looks like a helper function to convert two uint32_t\u0027s into a uint64_t could simplify things a bit. There are 3 or 4 places in this patch that would benefit from that.",
+      "revId": "4f20bdcca3a4aa9b61be4f0cdf5045a475922dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}

@@ -695,6 +695,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bceb42e3_c69be842",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-01-11T08:16:50Z",
+      "side": 1,
+      "message": "Returning an error makes the most sense to me.",
+      "parentUuid": "40dfe03c_20ba7932",
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ea296d62_3d65561c",
         "filename": "services/spd/opteed/opteed_pm.c",
         "patchSetId": 2
@@ -848,6 +866,30 @@
       "side": 1,
       "message": "AFAIK, this won\u0027t get invoked if we haven\u0027t initialized OP-TEE yet, because psci_register_spd_pm_hook() will not have been invoked yet (and that only happens if optee_vector_table is valid).",
       "parentUuid": "5a24f65a_9fc2a4a1",
+      "range": {
+        "startLine": 183,
+        "startChar": 2,
+        "endLine": 183,
+        "endChar": 30
+      },
+      "revId": "a7140ccbb8f5c9bcbe81c78c6c88b70d6b349000",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "970d69ff_cf1e54fb",
+        "filename": "services/spd/opteed/opteed_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-01-11T08:16:50Z",
+      "side": 1,
+      "message": "OK, please add a short comment explaining that OP-TEE has to have been initialized for at least one CPU to reach this function and so on.",
+      "parentUuid": "4b4340e5_339c2a05",
       "range": {
         "startLine": 183,
         "startChar": 2,
