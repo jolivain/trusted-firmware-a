@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -14,7 +14,7 @@
 #include <common/desc_image_load.h>
 #include <common/tbbr/tbbr_img_def.h>
 #if CRYPTO_SUPPORT
-#include MBEDTLS_CONFIG_FILE
+#include <mbedtls/version.h>
 #endif /* CRYPTO_SUPPORT */
 #include <lib/fconf/fconf.h>
 #include <lib/fconf/fconf_dyn_cfg_getter.h>

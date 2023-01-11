@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,7 +7,7 @@
 #include <stddef.h>
 
 #include <drivers/auth/auth_mod.h>
-#include MBEDTLS_CONFIG_FILE
+#include <mbedtls/version.h>
 #include <drivers/auth/tbbr_cot_common.h>
 
 #if USE_TBBR_DEFS
