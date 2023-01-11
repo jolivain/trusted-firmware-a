@@ -109,6 +109,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "be636e13_d8ef2142",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-01-11T12:06:10Z",
+      "side": 1,
+      "message": "Or maybe we just change if it triggers a panic?\nIn my new current version, I replaced the direct panic() with \"tainted \u003d true;\", and panic only at the end. This allows to list *all* the incriminating features in one run.\nWe could *always* check and report if a feature is disabled in the build, but present on the hardware. But only for the _required versions would trigger the panic.",
+      "parentUuid": "98e5fafb_565a7ed4",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 22
+      },
+      "revId": "76797d66d75e42b7387bf167fcba41c1b159b747",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c5324bcf_a742c6bf",
         "filename": "common/feat_detect.c",
         "patchSetId": 2
