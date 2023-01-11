@@ -39,7 +39,11 @@
 
 /* Service version  */
 #define ETHOSN_VERSION_MAJOR U(2)
+<<<<<<< HEAD   (ff0bd5 Merge "docs(changelog): changelog for lts-v2.8.6 release" in)
 #define ETHOSN_VERSION_MINOR U(0)
+=======
+#define ETHOSN_VERSION_MINOR U(3)
+>>>>>>> CHANGE (5a8994 fix(ethos-n): add workaround for erratum 2838783)
 
 /* Return codes for function calls */
 #define ETHOSN_SUCCESS			 0
