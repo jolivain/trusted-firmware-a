@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d35e5b45_ef12ab8b",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-11T20:04:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed9bb299_5592629f",
+      "revId": "4f20bdcca3a4aa9b61be4f0cdf5045a475922dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "000603c1_778613c8",
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d430c977_28fc960d",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-11T20:04:56Z",
+      "side": 1,
+      "message": "I end up with 2 images from the ELF file generated for OpTee when I\u0027m building it for ChromeOS. I\u0027m referring to the 2 LOAD sections below. \n\nElf file type is EXEC (Executable file)\nEntry point 0x43200000\nThere are 3 program headers, starting at offset 64\n\nProgram Headers:\n  Type           Offset             VirtAddr           PhysAddr\n                 FileSiz            MemSiz              Flags  Align\n  LOAD           0x0000000000010000 0x0000000043200000 0x0000000043200000\n                 0x00000000000588b0 0x000000000009c680  RWE    0x10000\n  LOAD           0x0000000000070000 0x0000000043400000 0x0000000043400000\n                 0x0000000000005910 0x0000000000005910  RW     0x10000\n  DYNAMIC        0x0000000000070000 0x0000000043400000 0x0000000043400000\n                 0x0000000000000100 0x0000000000000100  RW     0x8\n\n Section to Segment mapping:\n  Segment Sections...\n   00     .text .rodata .data.rel.ro .got .data .bss .heap1 .nozi \n   01     .dynamic .hash .dynsym .dynstr .rela \n   02     .dynamic",
+      "parentUuid": "000603c1_778613c8",
+      "revId": "4f20bdcca3a4aa9b61be4f0cdf5045a475922dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6fd88fb4_7d5b5928",
         "filename": "services/spd/opteed/opteed_main.c",
         "patchSetId": 4
@@ -48,6 +84,24 @@
       "writtenOn": "2023-01-11T08:16:50Z",
       "side": 1,
       "message": "It looks like a helper function to convert two uint32_t\u0027s into a uint64_t could simplify things a bit. There are 3 or 4 places in this patch that would benefit from that.",
+      "revId": "4f20bdcca3a4aa9b61be4f0cdf5045a475922dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "416fac03_cc079354",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-11T20:04:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fd88fb4_7d5b5928",
       "revId": "4f20bdcca3a4aa9b61be4f0cdf5045a475922dd0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
