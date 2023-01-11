@@ -17,12 +17,6 @@
 #ifdef CONFIG_MVEBU_SECURE_BOOT
 #include <libconfig.h>	/* for parsing config file */
 
-#if !defined(MBEDTLS_CONFIG_FILE)
-#include "mbedtls/config.h"
-#else
-#include MBEDTLS_CONFIG_FILE
-#endif
-
 /* mbedTLS stuff */
 #if defined(MBEDTLS_BIGNUM_C) && defined(MBEDTLS_ENTROPY_C) && \
 	defined(MBEDTLS_SHA256_C) && \
@@ -35,6 +29,7 @@
 #include <mbedtls/pk.h>
 #include <mbedtls/sha256.h>
 #include <mbedtls/x509.h>
+#include <mbedtls/version.h>
 #else
 #error "Bad mbedTLS configuration!"
 #endif
