@@ -16,6 +16,24 @@
       "message": "This may have be mentioned in earlier changes, but does it now mandate use of FEAT_DETECTION\u003d1?\n\nThis assert being removed means, that feature detection must be enabled to achieve the same check?\n\nI understood the intention is to force FEAT_DETECTION\u003d1 when DEBUG\u003d1?",
       "revId": "317b1359046865a301029219c55999e55879b0b9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b71b314_78f8db7d",
+        "filename": "bl31/bl31_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-01-11T11:37:15Z",
+      "side": 0,
+      "message": "No, it does not mandate it. And FEAT_DETECTION\u003d1 with DEBUG\u003d1 would be an override-able default at best, I am definitely not having this for Allwinner.\nI think removing this is safe. Setting a feature to \"1\" now means you know what you are doing. For fixed hardware platforms this is an easy thing to do. If you are unsure, compile with FEAT_DETECTION\u003d1 *once* and see if it complains.\nIf you don\u0027t know, set it to 2, we now do all the necessary checks at runtime.",
+      "parentUuid": "d52d33fc_7a7c68d4",
+      "revId": "317b1359046865a301029219c55999e55879b0b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
