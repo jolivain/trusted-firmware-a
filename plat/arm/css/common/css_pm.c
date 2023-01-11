@@ -130,8 +130,13 @@ static void css_power_down_common(const psci_power_state_t *target_state)
 	/* Prevent interrupts from spuriously waking up this cpu */
 	plat_arm_gic_cpuif_disable();
 
-	/* Turn redistributor off */
-	plat_arm_gic_redistif_off();
+	/* Perform system domain state saving if issuing system suspend */
+	if (css_system_pwr_state(target_state) == ARM_LOCAL_STATE_OFF) {
+		arm_system_pwr_domain_save();
+
+		/* Power off the Redistributor after having saved its context */
+		plat_arm_gic_redistif_off();
+	}
 
 	/* Cluster is to be turned off, so disable coherency */
 	if (CSS_CLUSTER_PWR_STATE(target_state) == ARM_LOCAL_STATE_OFF) {
@@ -185,14 +190,6 @@ void css_pwr_domain_suspend(const psci_power_state_t *target_state)
 
 	assert(CSS_CORE_PWR_STATE(target_state) == ARM_LOCAL_STATE_OFF);
 	css_power_down_common(target_state);
-
-	/* Perform system domain state saving if issuing system suspend */
-	if (css_system_pwr_state(target_state) == ARM_LOCAL_STATE_OFF) {
-		arm_system_pwr_domain_save();
-
-		/* Power off the Redistributor after having saved its context */
-		plat_arm_gic_redistif_off();
-	}
 
 	css_scp_suspend(target_state);
 }
