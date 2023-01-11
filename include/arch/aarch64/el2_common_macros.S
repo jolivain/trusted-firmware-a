@@ -388,9 +388,9 @@
 	 * branching and also, save x29 which will be used in the called
 	 * function
 	 */
-	stp	x29, x30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X29]
+	str	x29, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X29]
 	bl	save_and_update_ptw_el1_sys_regs
-	ldp	x29, x30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X29]
+	ldr	x29, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X29]
 #endif
 	.endm
 
