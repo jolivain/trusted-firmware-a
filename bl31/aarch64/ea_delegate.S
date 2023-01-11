@@ -16,7 +16,6 @@
 #include <context.h>
 
 	.globl	handle_lower_el_ea_esb
-	.globl  handle_lower_el_async_ea
 	.globl	enter_lower_el_sync_ea
 	.globl	enter_lower_el_async_ea
 
@@ -120,18 +119,12 @@ endfunc enter_lower_el_sync_ea
 /*
  * This function handles SErrors from lower ELs.
  *
- * Since it's part of exception vector, this function doesn't expect any GP
- * registers to have been saved. It delegates the handling of the EA to platform
- * handler, and upon successfully handling the EA, exits EL3; otherwise panics.
+ * It delegates the handling of the EA to platform handler, and upon successfully
+ * handling the EA, exits EL3; otherwise panics.
+ * This function expects x30 to be saved before calling
  */
 func enter_lower_el_async_ea
-	/*
-	 * Explicitly save x30 so as to free up a register and to enable
-	 * branching
-	 */
-	str	x30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_LR]
 
-handle_lower_el_async_ea:
 	/*
 	 * Save general purpose and ARMv8.3-PAuth registers (if enabled).
 	 * If Secure Cycle Counter is not disabled in MDCR_EL3 when

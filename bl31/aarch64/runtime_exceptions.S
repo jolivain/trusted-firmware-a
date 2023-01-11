@@ -319,7 +319,7 @@ vector_entry serror_sp_elx
 	cbnz	x30, 1f
 
 	/* Handle asynchronous external abort from lower EL */
-	b	handle_lower_el_async_ea
+	b	enter_lower_el_async_ea
 1:
 #endif
 	no_ret	plat_handle_el3_ea
@@ -361,11 +361,11 @@ vector_entry serror_aarch64
 	apply_at_speculative_wa
 #if RAS_EXTENSION
 	msr	daifclr, #DAIF_ABT_BIT
-	b	enter_lower_el_async_ea
 #else
 	check_and_unmask_ea
-	b handle_lower_el_async_ea
 #endif
+	b	enter_lower_el_async_ea
+
 end_vector_entry serror_aarch64
 
 	/* ---------------------------------------------------------------------
@@ -404,11 +404,11 @@ vector_entry serror_aarch32
 	apply_at_speculative_wa
 #if RAS_EXTENSION
 	msr	daifclr, #DAIF_ABT_BIT
-	b	enter_lower_el_async_ea
 #else
 	check_and_unmask_ea
-	b handle_lower_el_async_ea
 #endif
+	b	enter_lower_el_async_ea
+
 end_vector_entry serror_aarch32
 
 #ifdef MONITOR_TRAPS
