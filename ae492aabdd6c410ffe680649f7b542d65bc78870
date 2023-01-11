@@ -115,6 +115,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c464cac5_9031e549",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2023-01-11T13:37:27Z",
+      "side": 1,
+      "message": "Should I prepare a patch for that as well?",
+      "parentUuid": "f5f79a11_c29c5fd7",
+      "revId": "ae492aabdd6c410ffe680649f7b542d65bc78870",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d0c89bc7_02acfe6c",
         "filename": "plat/arm/board/tc/plat_def_fip_uuid.h",
         "patchSetId": 1
@@ -197,6 +215,30 @@
       "writtenOn": "2023-01-10T15:35:27Z",
       "side": 1,
       "message": "The CI flagged some coding-style issues with the order of inclusion here [1]. I also think stddef.h should be a system header file (included between \u003c\u003e). \n\nAccording to TF-A guidelines [2], I think this ought to be:\n\n #include \u003cstddef.h\u003e\n\n #include \u003cfirmware_image_package.h\u003e\n\n #include \"tbbr_config.h\"\n\nI\u0027ve not checked whether this sequence will make the CI checks happy, though.\n\n[1] https://ci.trustedfirmware.org/job/tf-a-static-checks/3225/\n[2] https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#headers-and-inclusion",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 0
+      },
+      "revId": "ae492aabdd6c410ffe680649f7b542d65bc78870",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfc9cc09_4fbcb454",
+        "filename": "plat/arm/board/tc/plat_def_uuid_config.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2023-01-11T13:37:27Z",
+      "side": 1,
+      "message": "Done, from reading the guidelines I think that\u0027s the sequence as well.",
+      "parentUuid": "3d526b4d_2d00df29",
       "range": {
         "startLine": 8,
         "startChar": 0,
