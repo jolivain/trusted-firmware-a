@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2021,2023 ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,9 +8,6 @@
 #define PLATFORM_DEF_H
 
 #include <drivers/arm/tzc400.h>
-#if TRUSTED_BOARD_BOOT
-#include MBEDTLS_CONFIG_FILE
-#endif
 #include <plat/arm/board/common/board_css_def.h>
 #include <plat/arm/board/common/v2m_def.h>
 #include <plat/arm/common/arm_def.h>
