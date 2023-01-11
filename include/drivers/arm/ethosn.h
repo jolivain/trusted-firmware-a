@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -40,7 +40,7 @@
 
 /* Service version  */
 #define ETHOSN_VERSION_MAJOR U(2)
-#define ETHOSN_VERSION_MINOR U(2)
+#define ETHOSN_VERSION_MINOR U(3)
 
 /* Return codes for function calls */
 #define ETHOSN_SUCCESS			 0
