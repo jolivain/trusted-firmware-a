@@ -898,14 +898,6 @@ static int spmc_shmem_check_obj(struct spmc_shmem_obj *obj,
 			return -EINVAL;
 		}
 
-		if (obj->desc_filled < obj->desc_size) {
-			/*
-			 * The whole descriptor has not yet been received.
-			 * Skip final checks.
-			 */
-			return 0;
-		}
-
 		/*
 		 * The offset provided to the composite memory region descriptor
 		 * should be consistent across endpoint descriptors. Store the
@@ -1064,11 +1056,6 @@ static long spmc_ffa_fill_desc(struct mailbox *mbox,
 	}
 
 	obj->desc_filled += fragment_length;
-	ret = spmc_shmem_check_obj(obj, ffa_version);
-	if (ret != 0) {
-		ret = FFA_ERROR_INVALID_PARAMETER;
-		goto err_bad_desc;
-	}
 
 	handle_low = (uint32_t)obj->desc.handle;
 	handle_high = obj->desc.handle >> 32;
@@ -1080,6 +1067,12 @@ static long spmc_ffa_fill_desc(struct mailbox *mbox,
 	}
 
 	/* The full descriptor has been received, perform any final checks. */
+
+	ret = spmc_shmem_check_obj(obj, ffa_version);
+	if (ret != 0) {
+		ret = FFA_ERROR_INVALID_PARAMETER;
+		goto err_bad_desc;
+	}
 
 	/*
 	 * If a partition ID resides in the secure world validate that the
