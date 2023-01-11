@@ -65,6 +65,48 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4136102f_b4fbae4a",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-01-11T11:59:44Z",
+      "side": 1,
+      "message": "Yeah, I think I had it there, but this was lost over a rebase.",
+      "parentUuid": "725ebce4_28c2ae71",
+      "revId": "76797d66d75e42b7387bf167fcba41c1b159b747",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98e5fafb_565a7ed4",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-01-11T11:59:44Z",
+      "side": 1,
+      "message": "I am still undecided about promoting every check to _required.\nThere are features which are special, FGT and HCX being examples: if the system supports them, we HAVE to enable them in EL3. Non-secure world has no architectural way of verifying this has been done, it just sees the field in the ID register. This is arguably an architecture flaw, but there is not much we can do about it.\nHowever this is not true for other features, like ENABLE_FEAT_SEL2.",
+      "parentUuid": "8e064ebd_fc1a9249",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 22
+      },
+      "revId": "76797d66d75e42b7387bf167fcba41c1b159b747",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5324bcf_a742c6bf",
@@ -102,6 +144,30 @@
       "side": 1,
       "message": "I think this has to be warning. Having features set to ALWAYS, being present in hardware features is essential to prevent runtime failure in EL3. The converse , viz, TF-A has DISABLED a feature but the feature is present in hardware, is not fatal to TF-A but could be a blocker for lower EL software (for linux it is a blocker, but there can be other NS software for which this may not be a blocker). hence this is a guidance to platform integrators/users and we should allow forward progress IMO.",
       "parentUuid": "c5324bcf_a742c6bf",
+      "range": {
+        "startLine": 275,
+        "startChar": 2,
+        "endLine": 275,
+        "endChar": 10
+      },
+      "revId": "76797d66d75e42b7387bf167fcba41c1b159b747",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d8c0644_2f82fa71",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-01-11T11:59:44Z",
+      "side": 1,
+      "message": "In my experience warnings are just getting ignored. If you really want to enforce something, make it fatal, that forces people to fix things.\nPlease keep in mind that this is still a debug feature. So I think people should get what they ask for. And fixing those issues is easy, just set the feature to either 1 or 0 in the Makefile, depending on the output.\nAs for \"for linux it is a blocker, but there can be other NS software for which this may not be a blocker\": It is an architectural problem: An ID register field advertises a feature, but it traps to EL3 upon usage. That would affect every non-secure software. The only reason it might not be fatal for some of them, is if they don\u0027t use that feature. But as they might in the future, I am very much for keeping this on the safe side.\nI think this should be the safe rule:\nFEAT_DETECTION\u003d1 could be the default for DEBUG\u003d1, unless a platform explicitly opts out (I hereby pull this card for Allwinner already). Failures are fatal and panic before reaching non-secure.",
+      "parentUuid": "7fff9531_98d192a9",
       "range": {
         "startLine": 275,
         "startChar": 2,
