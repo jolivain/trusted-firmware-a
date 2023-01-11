@@ -33,6 +33,24 @@
       "message": "I wonder if this is really required based on:\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/make_helpers/arch_features.mk#n29\n\nYou can argue tying arch features to arch extension version wasn\u0027t necessarily a good idea from start?",
       "revId": "3780f6dd59377739db542b7aa22062b970963ef0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbad341d_dfc54df3",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-01-11T11:29:34Z",
+      "side": 1,
+      "message": "Yes, in the kernel we mostly gave up on arch extension versions (leave alone grouping in Kconfig), they don\u0027t have much technical meaning these days anymore. You can much more freely mix and match features (read: backport and cherry-pick). Even the FVP allows this: -C cluster0.has_fgt\u003d1. I don\u0027t think QEMU ever bothered to align with some ARMv8.x version.\nSome features are even officially \"back-dated\" to v8.0, but are of course optional (FEAT_SB is a prominent example).\nSo I think there is still merit in supporting to set ARM_ARCH_MINOR in the build system, but we should not rely on this alone.\n\nBtw.: I have another patch that sets features to CHECK(2) when they are *introduced* into the architecture, but stay optional:\n# Enable the features which are optional from ARCH version 8.2 and upwards.\nifeq \"8.2\" \"$(word 1, $(sort 8.1 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))\"\nENABLE_MPAM_FOR_LOWER_ELS       \u003d       2\nendif",
+      "parentUuid": "c9c8ae76_2f0a2df5",
+      "revId": "3780f6dd59377739db542b7aa22062b970963ef0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
