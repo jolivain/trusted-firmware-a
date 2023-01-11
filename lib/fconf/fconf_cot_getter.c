@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2020-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,12 +8,13 @@
 #include <stddef.h>
 
 #include <common/fdt_wrappers.h>
-#include MBEDTLS_CONFIG_FILE
+#include <common/tbbr/cot_def.h>
 #include <drivers/auth/auth_mod.h>
 #include <lib/fconf/fconf.h>
 #include <lib/object_pool.h>
 #include <libfdt.h>
 
+#include <mbedtls/version.h>
 #include <tools_share/tbbr_oid.h>
 
 /* static structures used during authentication process */
