@@ -7,6 +7,7 @@
 #ifndef TBBR_COT_COMMON_H
 #define TBBR_COT_COMMON_H
 
+#include <common/tbbr/cot_def.h>
 #include <drivers/auth/auth_mod.h>
 
 extern unsigned char tb_fw_hash_buf[HASH_DER_LEN];
