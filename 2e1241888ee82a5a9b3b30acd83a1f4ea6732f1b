@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6c95fa9_4ff0e0bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-01-12T22:23:37Z",
+      "side": 1,
+      "message": "Two unrelated failures of which, one passed on rebuild.\nStatic check failure is due to an other patch above this in the relation chain.\nHence Manually providing +1 to this and other patches in the stack below this patch.",
+      "revId": "2e1241888ee82a5a9b3b30acd83a1f4ea6732f1b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
