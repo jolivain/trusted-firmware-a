@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "692f88c4_1ed0c955",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-12T20:42:00Z",
+      "side": 1,
+      "message": "Is this possibly different for us given that ChromeOS doesn\u0027t use TF-A for all boot stages, but only for the BL3 stage?  I know in our build system, if we bundle OP-TEE into the firmware, then we provide the tee.elf file to be built w/ coreboot and it bundles that in. On boot, when it gets to executing BL32, the contents of the memory for BL32 matches what it would be if I copied the 2 LOAD sections from the ELF file to their corresponding addresses (which is why I implemented it this way where the kernel parses the ELF file and then passes the corresponding LOAD sections to EL3 for execution).\n\nI tried changing things to use the generated tee-header_v2.bin + tee-pager_v2.bin files and get an exception in EL3 once it tries to execute OP-TEE. I can debug OP-TEE startup further if you think this should work to figure out where it\u0027s failing  if you think this should work; but wanted to get your feedback before I spent a bunch of time on that. (OP-TEE doesn\u0027t get to the part where it does it\u0027s normal startup logging when using the bin files)\n\nOr is there more I need to do to prepare OP-TEE for execution when using those bin files? (the TF-A code I was testing w/ is functionally the same as what\u0027s in this change, just added more logging)",
+      "parentUuid": "cee43d42_8c528843",
+      "revId": "4f20bdcca3a4aa9b61be4f0cdf5045a475922dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6fd88fb4_7d5b5928",
         "filename": "services/spd/opteed/opteed_main.c",
         "patchSetId": 4
