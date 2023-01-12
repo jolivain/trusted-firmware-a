@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b64018c9_db712258",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-12T19:35:44Z",
+      "side": 1,
+      "message": "I checked the CI failures. Most of them are known issues on the CI side, I think. The other one passed on rebuild. I suspect the CI timeout is too low for this one and so it fails intermittently. No concerns related to the patches.",
+      "revId": "f5c51855d36e399e6e22cc1eb94f6b58e51b3b6d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
