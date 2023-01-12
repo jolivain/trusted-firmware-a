@@ -932,8 +932,7 @@ static int spmc_shmem_check_obj(struct spmc_shmem_obj *obj,
 		}
 
 		expected_size = offset + sizeof(*comp) +
-				spmc_shmem_obj_ffa_constituent_size(obj,
-								    ffa_version);
+			count * sizeof(struct ffa_cons_mrd);
 
 		if (expected_size != obj->desc_size) {
 			WARN("%s: invalid object, computed size %zu != size %zu\n",
