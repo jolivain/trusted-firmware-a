@@ -70,6 +70,30 @@
       },
       "revId": "6777562ea2c7083a716a3618753cb9ffd02ecfe3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f16db48_8f69e6be",
+        "filename": "common/aarch64/debug.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-01-12T17:42:21Z",
+      "side": 1,
+      "message": "Unfortunately el3_panic needs to be weak i think otherwise also leads to compilation error with the patch implementing the comments:\n\naarch64-none-elf-ld.bfd: /ssd/tfa/trusted-firmware-a/build/fvp/debug/bl1/bl1_entrypoint.o: in function `do_cold_boot\u0027:\n/ssd/tfa/trusted-firmware-a/bl1/aarch64/bl1_entrypoint.S:29: undefined reference to `el3_panic\u0027\nmake: *** [Makefile:1341: /ssd/tfa/trusted-firmware-a/build/fvp/debug/bl1/bl1.elf] Error 1",
+      "parentUuid": "6bb1f943_f6bbf646",
+      "range": {
+        "startLine": 171,
+        "startChar": 6,
+        "endLine": 171,
+        "endChar": 15
+      },
+      "revId": "6777562ea2c7083a716a3618753cb9ffd02ecfe3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
