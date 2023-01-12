@@ -16,6 +16,24 @@
       "message": "Even k3_validate_power_state is empty. Would it be removed?",
       "revId": "33e599d8daa7eed062c88d54d902b46473e3bdc2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9146eb9d_c5a52e1c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000106
+      },
+      "writtenOn": "2023-01-12T03:25:08Z",
+      "side": 1,
+      "message": "We may still add some power state validation.\n\nOn the other hand validating the enterypoint on this system doesn\u0027t make sense (any address valid) so it won\u0027t be done, easier to just remove the forever \"TODO\".",
+      "parentUuid": "4d861da2_708d2fe3",
+      "revId": "33e599d8daa7eed062c88d54d902b46473e3bdc2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
