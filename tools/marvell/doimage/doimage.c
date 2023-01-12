@@ -30,6 +30,11 @@
 #include <mbedtls/sha256.h>
 #include <mbedtls/version.h>
 #include <mbedtls/x509.h>
+
+#if (MBEDTLS_VERSION_MAJOR >= 3)
+#define mbedtls_sha256_ret mbedtls_sha256
+#endif
+
 #else
 #error "Bad mbedTLS configuration!"
 #endif
@@ -301,11 +306,19 @@ int create_rsa_signature(mbedtls_pk_context	*pk_ctx,
 	mbedtls_sha256_ret(input, ilen, hash, 0);
 
 	/* Then calculate the hash signature */
+#if (MBEDTLS_VERSION_MAJOR == 3)
 	rval = mbedtls_rsa_rsassa_pss_sign(mbedtls_pk_rsa(*pk_ctx),
 					   mbedtls_ctr_drbg_random,
 					   &ctr_drbg,
 					   MBEDTLS_RSA_PRIVATE,
 					   MBEDTLS_MD_SHA256, 0, hash, buf);
+#else
+	rval = mbedtls_rsa_rsassa_pss_sign(mbedtls_pk_rsa(*pk_ctx),
+					   mbedtls_ctr_drbg_random,
+					   &ctr_drbg,
+					   MBEDTLS_MD_SHA256, ilen,
+					   hash, buf);
+#endif
 	if (rval != 0) {
 		fprintf(stderr,
 			"Failed to create RSA signature for %s. Error %d\n",
@@ -384,12 +397,19 @@ int verify_rsa_signature(const unsigned char	*pub_key,
 	/* Compute the SHA256 hash for the input buffer */
 	mbedtls_sha256_ret(input, ilen, hash, 0);
 
+#if (MBEDTLS_VERSION_MAJOR == 3)
 	rval = mbedtls_rsa_rsassa_pss_verify(mbedtls_pk_rsa(pk_ctx),
 					     mbedtls_ctr_drbg_random,
 					     &ctr_drbg,
 					     MBEDTLS_RSA_PUBLIC,
 					     MBEDTLS_MD_SHA256, 0,
 					     hash, signature);
+#else
+	rval = mbedtls_rsa_rsassa_pss_verify(mbedtls_pk_rsa(pk_ctx),
+					     MBEDTLS_MD_SHA256,
+					     ilen, hash,
+					     signature);
+#endif
 	if (rval != 0)
 		fprintf(stderr, "Failed to verify signature (%d)!\n", rval);
 
@@ -804,6 +824,13 @@ int format_sec_ext(char *filename, FILE *out_fd)
 	sec_entry_t	sec_ext;
 	int		index;
 	int		written;
+	int		ret;
+
+#if (MBEDTLS_VERSION_MAJOR >= 3)
+	mbedtls_ctr_drbg_context ctr_drbg;
+
+	mbedtls_ctr_drbg_init(&ctr_drbg);
+#endif
 
 #define DER_BUF_SZ	1600
 
@@ -857,7 +884,15 @@ int format_sec_ext(char *filename, FILE *out_fd)
 		/* Read the private RSA key into the context
 		 * and verify it (no password)
 		 */
-		if (mbedtls_pk_parse_keyfile(pk_ctx, fname, "") != 0) {
+#if (MBEDTLS_VERSION_MAJOR < 3)
+		ret = mbedtls_pk_parse_keyfile(pk_ctx, fname, "");
+#else
+		ret = mbedtls_pk_parse_keyfile(pk_ctx, fname, "",
+					       mbedtls_ctr_drbg_random, &ctr_drbg);
+#endif
+
+
+		if (ret != 0) {
 			fprintf(stderr,
 				"Cannot read RSA private key file %s\n", fname);
 			return 1;
