@@ -13,12 +13,12 @@
 #include <common/debug.h>
 #include <common/desc_image_load.h>
 #include <common/tbbr/tbbr_img_def.h>
-#if CRYPTO_SUPPORT
-#include <mbedtls/version.h>
-#endif /* CRYPTO_SUPPORT */
 #include <lib/fconf/fconf.h>
 #include <lib/fconf/fconf_dyn_cfg_getter.h>
 #include <lib/fconf/fconf_tbbr_getter.h>
+#if CRYPTO_SUPPORT
+#include <mbedtls/version.h>
+#endif /* CRYPTO_SUPPORT */
 
 #include <plat/arm/common/arm_dyn_cfg_helpers.h>
 #include <plat/arm/common/plat_arm.h>
