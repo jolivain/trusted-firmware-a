@@ -16,6 +16,23 @@
       "message": "****** Newly added files detection check for Coverity Scan analysis on patch(es) ******\n\nResult : FAILURE\n\n\nNew source files have been identified in your patch..",
       "revId": "a321337bd2fe5620e19edf4eea60549c5810d109",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16a06653_5480bcff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000608
+      },
+      "writtenOn": "2023-01-12T03:16:31Z",
+      "side": 1,
+      "message": "Hello Oliver and Manish,\n\npatches inside the topic \"mtk_spm\" are built by the bot.\nThe reason of failed result is \"new files\".\nAnd I think there is no any other issue for this series.\n\nPlease spare some time to review this series.\nThanks!",
+      "revId": "a321337bd2fe5620e19edf4eea60549c5810d109",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
