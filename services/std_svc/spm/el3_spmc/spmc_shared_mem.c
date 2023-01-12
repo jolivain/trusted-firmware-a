@@ -807,7 +807,9 @@ spmc_validate_mtd_start(struct ffa_mtd *desc, uint32_t ffa_version,
 static int spmc_shmem_check_obj(struct spmc_shmem_obj *obj,
 				uint32_t ffa_version)
 {
+	const struct ffa_emad_v1_0 *emad, *first_emad;
 	uint32_t comp_mrd_offset = 0;
+
 	if (obj->desc_filled != obj->desc_size) {
 		ERROR("BUG: spmc_shm_check_obj called on incomplete object (%zu != %zu)\n",
 		      obj->desc_filled, obj->desc_size);
@@ -820,6 +822,9 @@ static int spmc_shmem_check_obj(struct spmc_shmem_obj *obj,
 		panic();
 	}
 
+	first_emad = emad = spmc_shmem_obj_get_emad(&obj->desc, emad_num,
+						    ffa_version, &emad_size);
+
 	for (size_t emad_num = 0; emad_num < obj->desc.emad_count; emad_num++) {
 		size_t size;
 		size_t count;
@@ -829,21 +834,18 @@ static int spmc_shmem_check_obj(struct spmc_shmem_obj *obj,
 		size_t header_emad_size;
 		uint32_t offset;
 		struct ffa_comp_mrd *comp;
-		struct ffa_emad_v1_0 *emad;
-
-		emad = spmc_shmem_obj_get_emad(&obj->desc, emad_num,
-					       ffa_version, &emad_size);
 
 		/*
 		 * Validate the calculated emad address resides within the
 		 * descriptor.
 		 */
-		if ((uintptr_t) emad >=
-		    (uintptr_t)((uint8_t *) &obj->desc + obj->desc_size)) {
-			WARN("Invalid emad access.\n");
-			return -EINVAL;
+		if ((uintptr_t) emad >
+		    ((uintptr_t) &obj->desc + obj->desc_size - emad_size)) {
+			ERROR("BUG: Invalid emad access not detected earlier.\n");
+			panic();
 		}
 
+		emad = (const struct ffa_emad_v1_0 *)((const uint8_t *)emad + emad_size);
 		offset = emad->comp_mrd_offset;
 
 		/*
