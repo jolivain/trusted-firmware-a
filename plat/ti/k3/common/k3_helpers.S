@@ -122,6 +122,11 @@ a72:
 	orr x0, x0, #CORTEX_A72_L2ACTLR_ENABLE_UNIQUE_CLEAN
 	msr CORTEX_A72_L2ACTLR_EL1, x0
 
+	mrs	x0, CORTEX_A72_CPUACTLR_EL1
+	/* Set Snoop-delayed exclusive handling */
+	orr	x0, x0, #CORTEX_A72_CPUACTLR_EL1_DELAY_EXCLUSIVE_SNOOP
+	msr	CORTEX_A72_CPUACTLR_EL1, x0
+
 	isb
 	ret
 endfunc plat_reset_handler
