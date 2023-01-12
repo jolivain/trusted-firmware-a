@@ -8,10 +8,6 @@
 #include <stddef.h>
 #include <string.h>
 
-#include <common/debug.h>
-#include <drivers/auth/crypto_mod.h>
-#include <drivers/auth/mbedtls/mbedtls_common.h>
-
 /* mbed TLS headers */
 #include <mbedtls/gcm.h>
 #include <mbedtls/md.h>
@@ -20,6 +16,10 @@
 #include <mbedtls/platform.h>
 #include <mbedtls/version.h>
 #include <mbedtls/x509.h>
+
+#include <common/debug.h>
+#include <drivers/auth/crypto_mod.h>
+#include <drivers/auth/mbedtls/mbedtls_common.h>
 
 #include <plat/common/platform.h>
 
@@ -295,6 +295,7 @@ static int aes_gcm_decrypt(void *data_ptr, size_t len, const void *key,
 	unsigned char *pt = data_ptr;
 	size_t dec_len;
 	int diff, i, rc;
+	size_t output_length __unused;
 
 	mbedtls_gcm_init(&ctx);
 
@@ -304,7 +305,11 @@ static int aes_gcm_decrypt(void *data_ptr, size_t len, const void *key,
 		goto exit_gcm;
 	}
 
+#if (MBEDTLS_VERSION_MAJOR < 3)
 	rc = mbedtls_gcm_starts(&ctx, MBEDTLS_GCM_DECRYPT, iv, iv_len, NULL, 0);
+#else
+	rc = mbedtls_gcm_starts(&ctx, MBEDTLS_GCM_DECRYPT, iv, iv_len);
+#endif
 	if (rc != 0) {
 		rc = CRYPTO_ERR_DECRYPTION;
 		goto exit_gcm;
@@ -313,7 +318,12 @@ static int aes_gcm_decrypt(void *data_ptr, size_t len, const void *key,
 	while (len > 0) {
 		dec_len = MIN(sizeof(buf), len);
 
+#if (MBEDTLS_VERSION_MAJOR < 3)
 		rc = mbedtls_gcm_update(&ctx, dec_len, pt, buf);
+#else
+		rc = mbedtls_gcm_update(&ctx, pt, dec_len, buf, sizeof(buf), &output_length);
+#endif
+
 		if (rc != 0) {
 			rc = CRYPTO_ERR_DECRYPTION;
 			goto exit_gcm;
@@ -324,7 +334,12 @@ static int aes_gcm_decrypt(void *data_ptr, size_t len, const void *key,
 		len -= dec_len;
 	}
 
+#if (MBEDTLS_VERSION_MAJOR < 3)
 	rc = mbedtls_gcm_finish(&ctx, tag_buf, sizeof(tag_buf));
+#else
+	rc = mbedtls_gcm_finish(&ctx, NULL, 0, &output_length, tag_buf, sizeof(tag_buf));
+#endif
+
 	if (rc != 0) {
 		rc = CRYPTO_ERR_DECRYPTION;
 		goto exit_gcm;

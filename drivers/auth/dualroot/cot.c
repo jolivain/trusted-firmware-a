@@ -6,13 +6,14 @@
 
 #include <stddef.h>
 
-#include <platform_def.h>
+#include <mbedtls/version.h>
 
 #include <common/tbbr/cot_def.h>
 #include <drivers/auth/auth_mod.h>
-#include <mbedtls/version.h>
 
 #include <tools_share/dualroot_oid.h>
+
+#include <platform_def.h>
 
 /*
  * Allocate static buffers to store the authentication parameters extracted from

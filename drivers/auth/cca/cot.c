@@ -6,9 +6,10 @@
 
 #include <stddef.h>
 
+#include <mbedtls/version.h>
+
 #include <common/tbbr/cot_def.h>
 #include <drivers/auth/auth_mod.h>
-#include <mbedtls/version.h>
 #include <tools_share/cca_oid.h>
 
 #include <platform_def.h>

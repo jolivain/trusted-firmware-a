@@ -6,9 +6,10 @@
 
 #include <stddef.h>
 
+#include <mbedtls/version.h>
+
 #include <drivers/auth/auth_mod.h>
 #include <drivers/auth/tbbr_cot_common.h>
-#include <mbedtls/version.h>
 
 #if USE_TBBR_DEFS
 #include <tools_share/tbbr_oid.h>

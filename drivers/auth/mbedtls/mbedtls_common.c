@@ -10,10 +10,11 @@
 /* mbed TLS headers */
 #include <mbedtls/memory_buffer_alloc.h>
 #include <mbedtls/platform.h>
+#include <mbedtls/version.h>
 
 #include <common/debug.h>
 #include <drivers/auth/mbedtls/mbedtls_common.h>
-#include <mbedtls/version.h>
+
 #include <plat/common/platform.h>
 
 static void cleanup(void)

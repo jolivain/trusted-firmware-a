@@ -7,6 +7,8 @@
 #include <assert.h>
 #include <stddef.h>
 
+#include <mbedtls/version.h>
+
 #include <common/fdt_wrappers.h>
 #include <common/tbbr/cot_def.h>
 #include <drivers/auth/auth_mod.h>
@@ -14,7 +16,6 @@
 #include <lib/object_pool.h>
 #include <libfdt.h>
 
-#include <mbedtls/version.h>
 #include <tools_share/tbbr_oid.h>
 
 /* static structures used during authentication process */
