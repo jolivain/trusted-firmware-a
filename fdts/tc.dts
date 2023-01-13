@@ -519,6 +519,15 @@
 		};
 	};
 
+	/*
+	 * L3 cache in the DSU is the Memory System Component (MSC)
+	 * The MPAM registers are accessed through utility bus in the DSU
+	 */
+	msc0 {
+		compatible = "arm,mpam-msc";
+		reg = <0x1 0x00010000 0x0 0x2000>;
+	};
+
 	ete0 {
 		compatible = "arm,embedded-trace-extension";
 		cpu = <&CPU0>;
