@@ -68,6 +68,7 @@ void bl1_setup(void)
 	 * Assert that the ARMv8.3-PAuth registers are present or an access
 	 * fault will be triggered when they are being saved or restored.
 	 */
+	// this can go away when andrea does it
 	assert(is_armv8_3_pauth_present());
 #endif /* CTX_INCLUDE_PAUTH_REGS */
 }
