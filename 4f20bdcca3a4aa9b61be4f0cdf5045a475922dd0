@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bedd7e2b_b409c852",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-01-13T01:15:26Z",
+      "side": 1,
+      "message": "Note that coreboot\u0027s BL32 loading mechanism wasn\u0027t designed for OP-TEE specifically, it was originally written for other secure OSes and just provides the option to load a normal ELF according to normal ELF-loading rules. Sounds like that isn\u0027t the right thing to do for OP-TEE(?) and what you tested previously probably just worked by accident.",
+      "parentUuid": "692f88c4_1ed0c955",
+      "revId": "4f20bdcca3a4aa9b61be4f0cdf5045a475922dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6fd88fb4_7d5b5928",
         "filename": "services/spd/opteed/opteed_main.c",
         "patchSetId": 4
