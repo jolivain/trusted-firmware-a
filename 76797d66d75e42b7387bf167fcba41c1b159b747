@@ -248,6 +248,30 @@
       },
       "revId": "76797d66d75e42b7387bf167fcba41c1b159b747",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c96b3a6a_11f354ec",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-01-13T12:24:00Z",
+      "side": 1,
+      "message": "Re: diagnostics with warning during boot and trap later on\u003e\nTheoretically I agree, but that\u0027s not easy to correlate. The BL31 warning will just scroll by (definitely wiped away by the bootloader), and the trap will not manifest itself easily. For a start, the trap only appears on the firmware console, and then you just see a long list of registers at best. But on the primary console the NS world will just hang, so there is no diagnostics there.\nSure, if you know exactly what you are looking for, you will find the culprit, but that\u0027s not obvious and requires experience (read: having once spent a day on a similar problem before).\n\nRe: MTE needs to be enabled or disabled\u003e and that\u0027s exactly the reason why I made this extra function: you wouldn\u0027t use _required for MTE. _required is really for features that are required, like FGT or HCX. TF-A has no business in those functions, and there is no platform requirement to enable them, they are pure EL2 CPU features. So by enforcing a panic here, we will force the firmware engineer that does the platform port to just set those build flags to 1 (or 2), and be done. And then we have those checks still in to prevent regressions.\n\nSo I am not sure if we actually disagree here or not, maybe should talk in person.",
+      "parentUuid": "f759b7fe_65868ff5",
+      "range": {
+        "startLine": 275,
+        "startChar": 2,
+        "endLine": 275,
+        "endChar": 10
+      },
+      "revId": "76797d66d75e42b7387bf167fcba41c1b159b747",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
