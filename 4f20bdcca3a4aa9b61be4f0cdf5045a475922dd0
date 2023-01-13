@@ -127,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "508165e0_9c03d138",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-01-13T14:05:19Z",
+      "side": 1,
+      "message": "@jeffrey, it is expected to work. There\u0027s an example of how this is done upstream in qemu_bl2_handle_post_image_load(). I\u0027m afraid it isn\u0027t that easy to follow, but who knows it\u0027s perhaps enough for you to see what you\u0027re missing.",
+      "parentUuid": "bedd7e2b_b409c852",
+      "revId": "4f20bdcca3a4aa9b61be4f0cdf5045a475922dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6fd88fb4_7d5b5928",
         "filename": "services/spd/opteed/opteed_main.c",
         "patchSetId": 4
