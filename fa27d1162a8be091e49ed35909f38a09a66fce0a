@@ -16,6 +16,24 @@
       "message": "I suppose there\u0027s the question of whether we should make use of the oss-security list (https://oss-security.openwall.org/wiki/) more generally (rather than just for this latest vulnerability as requested by the reporter). I don\u0027t see a strong benefit to this; the TF-A list seems good enough and monitoring that high-traffic list would be onerous for us. Happy to hear other opinions, though.",
       "revId": "fa27d1162a8be091e49ed35909f38a09a66fce0a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c7bb04c_3795d4ba",
+        "filename": "docs/process/security.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-13T10:27:51Z",
+      "side": 1,
+      "message": "I think oss-security list could help in reaching more people. People that don\u0027t necessarily work on TF-A on a day to day basis so they don\u0027t bother subscribing to the project\u0027s development mailing list, but still they are interested to hear about TF-A security issues.\n\nWhy would we need to monitor the list? Is it not enough to monitor answers to our own posts when we announce a new vulnerability? In this case, it does not seem that onerous to me.",
+      "parentUuid": "18e17370_2a280896",
+      "revId": "fa27d1162a8be091e49ed35909f38a09a66fce0a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
