@@ -133,6 +133,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ee084a4e_18c927fa",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-13T11:36:46Z",
+      "side": 1,
+      "message": "Hmm, in my view, every feature available to the NS should be enabled from firmware and hence be checked. but there is a case that some features will need to be disabled for Secure and Realm but TF-A cannot control them separately. The split of feature flags between Secure/NS/RL will need to be taken up separately. So for now, we can enable some required ones as part of this patch. Other features and Secure/RL world split can be taken up after this.\n\n@Jayanth, Could you please created another JIRA to split up options between 3 worlds and enforce mandatory checks for NS for all features ?",
+      "parentUuid": "be636e13_d8ef2142",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 22
+      },
+      "revId": "76797d66d75e42b7387bf167fcba41c1b159b747",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c5324bcf_a742c6bf",
         "filename": "common/feat_detect.c",
         "patchSetId": 2
@@ -192,6 +216,30 @@
       "side": 1,
       "message": "In my experience warnings are just getting ignored. If you really want to enforce something, make it fatal, that forces people to fix things.\nPlease keep in mind that this is still a debug feature. So I think people should get what they ask for. And fixing those issues is easy, just set the feature to either 1 or 0 in the Makefile, depending on the output.\nAs for \"for linux it is a blocker, but there can be other NS software for which this may not be a blocker\": It is an architectural problem: An ID register field advertises a feature, but it traps to EL3 upon usage. That would affect every non-secure software. The only reason it might not be fatal for some of them, is if they don\u0027t use that feature. But as they might in the future, I am very much for keeping this on the safe side.\nI think this should be the safe rule:\nFEAT_DETECTION\u003d1 could be the default for DEBUG\u003d1, unless a platform explicitly opts out (I hereby pull this card for Allwinner already). Failures are fatal and panic before reaching non-secure.",
       "parentUuid": "7fff9531_98d192a9",
+      "range": {
+        "startLine": 275,
+        "startChar": 2,
+        "endLine": 275,
+        "endChar": 10
+      },
+      "revId": "76797d66d75e42b7387bf167fcba41c1b159b747",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f759b7fe_65868ff5",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-13T11:36:46Z",
+      "side": 1,
+      "message": "Hmm, I think there is a balance. If the firmware pushes out a warning and the NS world triggers a trap to EL3 later on, this should be a good enough diagnostic for fixing up the problem. The problem of enforcing the panic() for this case is detrimental to the goal of having this check for all NS features.  In some cases, it might be necessary to keep a feature disabled for NS even though CPU ID says the feature is available.\n\nOne case I can think of is, currently MTE needs to be enabled or disabled on certain platforms due to System limitations but there is no way to reflect that info in the ID regs. Introducing the panic() here will mean that platforms are forced to turn OFF FEATURE_DETECTION for such legal cases. This is counter productive IMO.",
+      "parentUuid": "4d8c0644_2f82fa71",
       "range": {
         "startLine": 275,
         "startChar": 2,
