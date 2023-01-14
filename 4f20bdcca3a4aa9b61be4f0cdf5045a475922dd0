@@ -163,6 +163,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2c99bb85_0b29af47",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-14T00:27:56Z",
+      "side": 1,
+      "message": "I\u0027ve spent all day trying to get this to work and no luck so far. I didn\u0027t discover anything from looking at the qemu_bl2_handle_post_image_load() function unfortunately.\n\nIt doesn\u0027t even appear to be getting into the entry point for OP-TEE from what I can tell ( logging in TF-A right up until it enters OP-TEE is getting hit).\n\nSorry for a naive question (this is the first time I\u0027m touching ASM code in probably 25 years), but I\u0027m assuming the memory contents at the entry point are getting executed first, right?  And those contents should be what\u0027s in __start in entry_a64.S from OP-TEE, right?  https://github.com/OP-TEE/optee_os/blob/203ee23d005b2cec2f21b5de334c5a246be32599/core/arch/arm/kernel/entry_a64.S#L57\n\nBecause if I put an SMC call as the first thing there, it\u0027s not getting hit using the bin loading. (I know my code is right, because if I use the ELF loading technique with the same build of OP-TEE and TF-A, then I can see the logging from my SMC call).\n\nAs a side note, I think I know why it was working with my ELF technique. The code that handles the embedded data and does the relocations here: https://github.com/OP-TEE/optee_os/blob/203ee23d005b2cec2f21b5de334c5a246be32599/core/arch/arm/kernel/entry_a64.S#L104d will end up with a zero size for the relocations, so it wouldn\u0027t bother to do that code and the ELF loading likely put everything in the right spots already so that wasn\u0027t needed. We are buillding without CFG_WITH_PAGER (the platform Makefile for Mediatek indicates it isn\u0027t supported for ARM64).",
+      "parentUuid": "0c73279e_e2be0abf",
+      "revId": "4f20bdcca3a4aa9b61be4f0cdf5045a475922dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6fd88fb4_7d5b5928",
         "filename": "services/spd/opteed/opteed_main.c",
         "patchSetId": 4
