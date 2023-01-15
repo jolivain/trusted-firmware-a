@@ -935,6 +935,13 @@ static int spmc_shmem_check_obj(struct spmc_shmem_obj *obj,
 			     __func__, i, (unsigned long long)mrd->address);
 		}
 
+		if (mrd->reserved_12_15) {
+			WARN("%s: invalid object, reserved field in "
+			     "region descriptor %zu not zero (got %u)",
+			     __func__, i, mrd->reserved_12_15);
+			return FFA_ERROR_INVALID_PARAMETER;
+		}
+
 		total_page_count += mrd->page_count;
 	}
 	if (comp->total_page_count != total_page_count) {
