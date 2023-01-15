@@ -927,8 +927,15 @@ static int spmc_shmem_check_obj(struct spmc_shmem_obj *obj,
 	total_page_count = 0;
 
 	for (size_t i = 0; i < count; i++) {
-		total_page_count +=
-			comp->address_range_array[i].page_count;
+		const struct ffa_cons_mrd *mrd = comp->address_range_array + i;
+
+		if (mrd->address & 4095) {
+			WARN("%s: invalid object, address in region descriptor "
+			     "%zu not 4K aligned (got 0x%016llx)",
+			     __func__, i, (unsigned long long)mrd->address);
+		}
+
+		total_page_count += mrd->page_count;
 	}
 	if (comp->total_page_count != total_page_count) {
 		WARN("%s: invalid object, desc total_page_count %u != %" PRIu64 "\n",
