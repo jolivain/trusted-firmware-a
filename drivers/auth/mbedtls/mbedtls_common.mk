@@ -22,7 +22,7 @@ $(eval $(call add_define,MBEDTLS_CONFIG_FILE))
 MBEDTLS_SOURCES	+=		drivers/auth/mbedtls/mbedtls_common.c
 
 
-LIBMBEDTLS_SRCS		+= $(addprefix ${MBEDTLS_DIR}/library/,	\
+LIBMBEDTLS_SRCS		:= $(if 1,$(wildcard ${MBEDTLS_DIR}/library/*.c),	\
 					aes.c 					\
 					asn1parse.c 				\
 					asn1write.c 				\

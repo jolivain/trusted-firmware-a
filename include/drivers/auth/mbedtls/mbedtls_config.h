@@ -71,6 +71,7 @@
 #endif
 
 #define MBEDTLS_SHA256_C
+#define MBEDTLS_SHA224_C
 
 /*
  * If either Trusted Boot or Measured Boot require a stronger algorithm than
