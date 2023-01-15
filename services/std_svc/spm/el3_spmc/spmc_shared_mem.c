@@ -780,6 +780,12 @@ spmc_validate_mtd_start(struct ffa_mtd *desc, uint32_t ffa_version,
 	return 0;
 }
 
+static inline const struct ffa_emad_v1_0 *
+emad_advance(const struct ffa_emad_v1_0 *emad, size_t offset)
+{
+	return (const struct ffa_emad_v1_0 *)((const uint8_t *)emad + offset);
+}
+
 /**
  * spmc_shmem_check_obj - Check that counts in descriptor match overall size.
  * @obj:	  Object containing ffa_memory_region_descriptor.
