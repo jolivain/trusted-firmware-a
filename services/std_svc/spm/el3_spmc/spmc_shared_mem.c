@@ -713,7 +713,19 @@ spmc_validate_mtd_start(struct ffa_mtd *desc, uint32_t ffa_version,
 	 * format, otherwise assume it is a v1.1 format.
 	 */
 	if (ffa_version == MAKE_FFA_VERSION(1, 0)) {
-		emad_offset = emad_size = sizeof(struct ffa_emad_v1_0);
+		struct ffa_mtd_v1_0 *desc_v1_0 = (struct ffa_mtd_v1_0 *)desc;
+
+		emad_offset = emad_size = sizeof(*desc_v1_0);
+		if (desc_v1_0->reserved_24_27 != 0) {
+			WARN("%s: MBZ field reserved_24_27 is 0x%08" PRIx32 ", not 0.\n",
+			     __func__, desc_v1_0->reserved_24_27);
+			return FFA_ERROR_INVALID_PARAMETER;
+		}
+		if (desc_v1_0->reserved_3 != 0) {
+			WARN("%s: MBZ field reserved_3 is 0x%08" PRIx32 ", not 0.\n",
+			     __func__, desc_v1_0->reserved_3);
+			return FFA_ERROR_INVALID_PARAMETER;
+		}
 	} else {
 		if (!is_aligned(desc->emad_offset, 16)) {
 			WARN("%s: Emad offset %" PRIx32 " is not 16-byte aligned.\n",
@@ -738,6 +750,17 @@ spmc_validate_mtd_start(struct ffa_mtd *desc, uint32_t ffa_version,
 			return FFA_ERROR_INVALID_PARAMETER;
 		}
 		emad_size = desc->emad_size;
+		if (desc->reserved_36_39 != 0) {
+			WARN("%s: MBZ field reserved_36_39 is 0x%08" PRIx32 ", not 0.\n",
+			     __func__, desc->reserved_36_39);
+			return FFA_ERROR_INVALID_PARAMETER;
+		}
+
+		if (desc->reserved_40_47 != 0) {
+			WARN("%s: MBZ field reserved_40_47 is 0x%016" PRIx64 ", not 0.\n",
+			     __func__, desc->reserved_40_47);
+			return FFA_ERROR_INVALID_PARAMETER;
+		}
 	}
 
 	/*
@@ -822,6 +845,16 @@ static int spmc_shmem_check_obj(struct spmc_shmem_obj *obj,
 				     __func__, ep_id);
 				return FFA_ERROR_INVALID_PARAMETER;
 			}
+		}
+
+		/*
+		 * Validate that the reserved field in the emad is in fact
+		 * zero.
+		 */
+		if (emad->reserved_8_15 != 0) {
+			WARN("%s: Reserved entry in emad is 0x%016" PRIx64 ", not 0.\n",
+			     __func__, emad->reserved_8_15);
+			return FFA_ERROR_INVALID_PARAMETER;
 		}
 
 		/*
@@ -925,6 +958,13 @@ static int spmc_shmem_check_obj(struct spmc_shmem_obj *obj,
 			WARN("%s: invalid object, address in region descriptor "
 			     "%zu not 4K aligned (got 0x%016llx)",
 			     __func__, i, (unsigned long long)mrd->address);
+		}
+
+		if (mrd->reserved_12_15) {
+			WARN("%s: invalid object, reserved field in "
+			     "region descriptor %zu not zero (got %u)",
+			     __func__, i, mrd->reserved_12_15);
+			return FFA_ERROR_INVALID_PARAMETER;
 		}
 
 		/*
