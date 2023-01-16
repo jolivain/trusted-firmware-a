@@ -94,5 +94,8 @@ void plat_default_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *co
 		read_mpidr_el1(), get_el_str(level));
 	ERROR("exception reason=%u syndrome=0x%" PRIx64 "\n", ea_reason, syndrome);
 
-	panic();
+	/* We reached here due to a panic a from lower-El and this the default
+	 * registered platform handler.
+	 */
+	lower_el_panic();
 }

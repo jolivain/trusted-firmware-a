@@ -108,6 +108,17 @@ void __dead2 do_panic(void);
 		do_panic();		\
 	} while (false)
 
+#if CRASH_REPORTING
+#define lower_el_panic()
+	do {				\
+		backtrace(__func__);	\
+		console_flush();	\
+		do_lower_el_panic();	\
+	} while (false)
+#else
+#define	lower_el_panic()
+#endif
+
 /* Function called when stack protection check code detects a corrupted stack */
 void __dead2 __stack_chk_fail(void);
 

@@ -15,6 +15,10 @@
 	.globl	asm_assert
 	.globl	do_panic
 
+#if CRASH_REPORTING
+	.globl	do_lower_el_panic
+#endif
+
 /* Since the max decimal input number is 65536 */
 #define MAX_DEC_DIVISOR		10000
 /* The offset to add to get ascii for numerals '0 - 9' */
@@ -151,6 +155,20 @@ endfunc asm_print_newline
 .section .rodata.panic_str, "aS"
 	panic_msg: .asciz "PANIC at PC : 0x"
 
+/* --------------------------------------------------------------------
+ * do_lower_el_panic assumes its called due to a panic from a lower EL
+ * This call will not return.
+ * --------------------------------------------------------------------
+ */
+#if CRASH_REPORTING
+func do_lower_el_panic
+	mrs	x0, spsr_el3
+	ubfx	x0, x0, #SPSR_EL_SHIFT, #SPSR_EL_WIDTH
+	cmp	x0, #MODE_EL3
+	b.ne	elx_panic
+endfunc lower_el_panic
+#endif
+
 /* ---------------------------------------------------------------------------
  * do_panic assumes that it is invoked from a C Runtime Environment ie a
  * valid stack exists. This call will not return.
@@ -160,7 +178,6 @@ endfunc asm_print_newline
 
 /* This is for the non el3 BL stages to compile through */
 	.weak el3_panic
-	.weak elx_panic
 
 func do_panic
 #if CRASH_REPORTING
@@ -168,23 +185,8 @@ func do_panic
 	mrs	x0, currentel
 	ubfx	x0, x0, #MODE_EL_SHIFT, #MODE_EL_WIDTH
 	cmp	x0, #MODE_EL3
-#if !HANDLE_EA_EL3_FIRST_NS
 	ldr	x0, [sp], #0x10
 	b.eq	el3_panic
-#else
-	b.ne	to_panic_common
-
-	/* Check EL the exception taken from */
-	mrs	x0, spsr_el3
-	ubfx	x0, x0, #SPSR_EL_SHIFT, #SPSR_EL_WIDTH
-	cmp	x0, #MODE_EL3
-	b.ne	elx_panic
-	ldr	x0, [sp], #0x10
-	b	el3_panic
-
-to_panic_common:
-	ldr	x0, [sp], #0x10
-#endif /* HANDLE_EA_EL3_FIRST_NS */
 #endif /* CRASH_REPORTING */
 
 panic_common:
