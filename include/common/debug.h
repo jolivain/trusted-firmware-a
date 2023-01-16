@@ -100,6 +100,7 @@ void backtrace(const char *cookie);
 #endif
 
 void __dead2 do_panic(void);
+void __dead2 do_lower_el_panic(void);
 
 #define panic()				\
 	do {				\
@@ -109,14 +110,14 @@ void __dead2 do_panic(void);
 	} while (false)
 
 #if CRASH_REPORTING
-#define lower_el_panic()
+#define lower_el_panic()		\
 	do {				\
 		backtrace(__func__);	\
 		console_flush();	\
 		do_lower_el_panic();	\
 	} while (false)
 #else
-#define	lower_el_panic()
+#define lower_el_panic()
 #endif
 
 /* Function called when stack protection check code detects a corrupted stack */
