@@ -34,6 +34,24 @@
       "parentUuid": "18e17370_2a280896",
       "revId": "fa27d1162a8be091e49ed35909f38a09a66fce0a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ca8a148_98a5ea05",
+        "filename": "docs/process/security.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2023-01-16T09:55:08Z",
+      "side": 1,
+      "message": "Regarding the monitoring, I guess I was concerned about the risk of TF-A vulnerabilities getting reported to oss-security without the knowledge of TF-A-Security, but I suppose that risk is already there and wouldn\u0027t get worse if we started using that list.\n\nSo I have no objections to to using oss-security. Perhaps this is worth a wider discussion with all the tf.org security teams?",
+      "parentUuid": "7c7bb04c_3795d4ba",
+      "revId": "fa27d1162a8be091e49ed35909f38a09a66fce0a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
