@@ -1,0 +1,210 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90149057_d0964025",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-16T13:02:25Z",
+      "side": 1,
+      "message": "This change can be part of prev patch",
+      "revId": "6c84f677d22ab0fbc3797ed735869cc00e6e0ef1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6096fd5_108128c9",
+        "filename": "include/services/rmm_core_manifest.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-16T13:02:25Z",
+      "side": 1,
+      "message": "all changes to this file can be in prev patch",
+      "revId": "6c84f677d22ab0fbc3797ed735869cc00e6e0ef1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d966d6f_7d2b2716",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-16T13:02:25Z",
+      "side": 1,
+      "message": "not needed.",
+      "range": {
+        "startLine": 307,
+        "startChar": 1,
+        "endLine": 307,
+        "endChar": 14
+      },
+      "revId": "6c84f677d22ab0fbc3797ed735869cc00e6e0ef1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcd1e853_472c3eda",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-16T13:02:25Z",
+      "side": 1,
+      "message": "\"num\" is a better name",
+      "range": {
+        "startLine": 310,
+        "startChar": 11,
+        "endLine": 310,
+        "endChar": 14
+      },
+      "revId": "6c84f677d22ab0fbc3797ed735869cc00e6e0ef1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df89a9db_94db288a",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-16T13:02:25Z",
+      "side": 1,
+      "message": "this can be just\n\nif (len \u003e ARM_DRAM_NUM_BANKS) {\n   ERROR(\"FCONF: Invalid \u0027memory\u0027 node\\n\");\n   return -FDT_ERR_BADLAYOUT;\n}\n\ndram_layout.num_banks \u003d len;",
+      "range": {
+        "startLine": 330,
+        "startChar": 1,
+        "endLine": 342,
+        "endChar": 2
+      },
+      "revId": "6c84f677d22ab0fbc3797ed735869cc00e6e0ef1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d28bd23_448d09d9",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-16T13:02:25Z",
+      "side": 1,
+      "message": "add an assert here:\n\nassert(num_banks \u003c\u003d ARM_DRAM_BANKS_NUM)",
+      "revId": "6c84f677d22ab0fbc3797ed735869cc00e6e0ef1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a34d5d72_bcc23bcb",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-16T13:02:25Z",
+      "side": 1,
+      "message": "would be good to have an ASCII art of the manifest layout here or in the header.",
+      "range": {
+        "startLine": 549,
+        "startChar": 1,
+        "endLine": 549,
+        "endChar": 53
+      },
+      "revId": "6c84f677d22ab0fbc3797ed735869cc00e6e0ef1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "269eeee5_310d64f9",
+        "filename": "plat/arm/board/fvp/include/fconf_hw_config_getter.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-16T13:02:25Z",
+      "side": 1,
+      "message": "avoid #if unless necessary to avoid build issues.",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 14
+      },
+      "revId": "6c84f677d22ab0fbc3797ed735869cc00e6e0ef1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01d17ae0_a563b843",
+        "filename": "plat/arm/board/fvp/include/fconf_hw_config_getter.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-16T13:02:25Z",
+      "side": 1,
+      "message": "avoid #if if possible. Same comments below.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 14
+      },
+      "revId": "6c84f677d22ab0fbc3797ed735869cc00e6e0ef1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69b89c05_2eec7715",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-16T13:02:25Z",
+      "side": 1,
+      "message": "is this needed ?",
+      "revId": "6c84f677d22ab0fbc3797ed735869cc00e6e0ef1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
