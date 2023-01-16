@@ -52,6 +52,24 @@
       "parentUuid": "7c7bb04c_3795d4ba",
       "revId": "fa27d1162a8be091e49ed35909f38a09a66fce0a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73a24159_b6df66e3",
+        "filename": "docs/process/security.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-16T10:40:48Z",
+      "side": 1,
+      "message": "Thanks Dan for clarifying.\n\nYou\u0027re right, we should discuss this with a wider audience. I\u0027ll start a discussion with all tf.org security teams, as you suggest.\n\nIn the meantime, I\u0027ll avoid mentioning it in TF-A documentation. I guess this patch can be merged as is, as it\u0027s still a worthy update IMO, and we can revisit later.",
+      "parentUuid": "6ca8a148_98a5ea05",
+      "revId": "fa27d1162a8be091e49ed35909f38a09a66fce0a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
