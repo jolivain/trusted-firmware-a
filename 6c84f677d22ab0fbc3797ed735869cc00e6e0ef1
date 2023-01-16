@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a631d5fd_1331e58f",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-01-16T17:42:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "90149057_d0964025",
+      "revId": "6c84f677d22ab0fbc3797ed735869cc00e6e0ef1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6096fd5_108128c9",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-01-16T13:02:25Z",
       "side": 1,
       "message": "all changes to this file can be in prev patch",
+      "revId": "6c84f677d22ab0fbc3797ed735869cc00e6e0ef1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a0de4ad_95012738",
+        "filename": "include/services/rmm_core_manifest.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-01-16T17:42:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f6096fd5_108128c9",
       "revId": "6c84f677d22ab0fbc3797ed735869cc00e6e0ef1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -72,6 +108,30 @@
       "side": 1,
       "message": "...then lines #333 and #337 will generate errors.",
       "parentUuid": "5d966d6f_7d2b2716",
+      "range": {
+        "startLine": 307,
+        "startChar": 1,
+        "endLine": 307,
+        "endChar": 14
+      },
+      "revId": "6c84f677d22ab0fbc3797ed735869cc00e6e0ef1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17e5f052_c625d5a0",
+        "filename": "plat/arm/board/fvp/fconf/fconf_hw_config_getter.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-01-16T17:42:43Z",
+      "side": 1,
+      "message": "dram_layout is defined on line #22, and\n#if ENABLE_RME\non line #21 also cannot be removed because of\n- dram_layout_t in plat\\arm\\board\\fvp\\include\\fconf_hw_config_getter.h\nstruct dram_layout_t {\n\tuint64_t num_banks;\n\tstruct dram_bank dram_bank[ARM_DRAM_NUM_BANKS];\n};\n- struct dram_bank is defined in include\\services\\rmm_core_manifest.h, which also\ndefines\nstruct dram_info {\n\tuint64_t num_banks;\t\t/* Number of DRAM banks */\n\tstruct dram_bank *banks;\t/* Pointer to dram_bank[] */\n\tuint64_t checksum;\t\t/* Checksum of dram_info data */\n};\n, but there is another definition of struct dram_info in \nplat\\imx\\imx8m\\include\\dram.h\n, which gives build error for that platform.",
+      "parentUuid": "9ebd6915_5849faf0",
       "range": {
         "startLine": 307,
         "startChar": 1,
