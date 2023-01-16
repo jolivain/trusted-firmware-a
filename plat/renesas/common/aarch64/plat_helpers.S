@@ -91,16 +91,16 @@ func plat_get_my_entrypoint
 	/* Check the reset info */
 	and	x1, x21, #0x000c
 	cmp	x1, #0x0008
-	beq	el3_panic
+	beq	do_panic
 	cmp	x1, #0x000c
-	beq	el3_panic
+	beq	do_panic
 
 	/* Check the boot kind */
 	and	x1, x21, #0x0003
 	cmp	x1, #0x0002
-	beq	el3_panic
+	beq	do_panic
 	cmp	x1, #0x0003
-	beq	el3_panic
+	beq	do_panic
 
 	/* warm boot or cold boot */
 	and	x1, x21, #1
