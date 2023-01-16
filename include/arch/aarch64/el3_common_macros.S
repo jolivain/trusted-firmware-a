@@ -408,7 +408,7 @@
 		/* This is a cold boot on a secondary CPU */
 		bl	plat_secondary_cold_boot_setup
 		/* plat_secondary_cold_boot_setup() is not supposed to return */
-		bl	el3_panic
+		bl	do_panic
 
 	do_primary_cold_boot:
 	.endif /* _secondary_cold_boot */

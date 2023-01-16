@@ -14,7 +14,6 @@
 	.globl	asm_print_newline
 	.globl	asm_assert
 	.globl	do_panic
-	.globl	el3_panic
 #if CRASH_REPORTING
 	.globl	do_lower_el_panic
 #endif
@@ -155,8 +154,24 @@ endfunc asm_print_newline
 .section .rodata.panic_str, "aS"
 	panic_msg: .asciz "PANIC at PC : 0x"
 
-func el3_panic
-	mov	x6, x30
+/* ---------------------------------------------------------------------------
+ * do_panic assumes that it is invoked from a C Runtime Environment ie a
+ * valid stack exists. This call will not return.
+ * Clobber list : if CRASH_REPORTING is not enabled then x30, x0 - x6
+ * ---------------------------------------------------------------------------
+ */
+
+func do_panic
+#if CRASH_REPORTING && defined(IMAGE_BL31)
+	str	x0, [sp, #-0x10]!
+	mrs	x0, currentel
+	ubfx	x0, x0, #MODE_EL_SHIFT, #MODE_EL_WIDTH
+	cmp	x0, #MODE_EL3
+	ldr	x0, [sp], #0x10
+	b.eq	report_el3_panic
+#endif /* CRASH_REPORTING && IMAGE_BL31 */
+
+mov	x6, x30
 	bl	plat_crash_console_init
 
 	/* Check if the console is initialized */
@@ -177,30 +192,10 @@ func el3_panic
 	bl	plat_crash_console_flush
 
 _panic_handler:
-	/* Pass to plat_panic_handler the address from where el3_panic was
-	 * called, not the address of the call from el3_panic. */
+	/* Pass to plat_panic_handler the address from where do_panic was
+	 * called, not the address of the call from do_panic. */
 	mov	x30, x6
 	b	plat_panic_handler
-endfunc el3_panic
-
-/* ---------------------------------------------------------------------------
- * do_panic assumes that it is invoked from a C Runtime Environment ie a
- * valid stack exists. This call will not return.
- * Clobber list : if CRASH_REPORTING is not enabled then x30, x0 - x6
- * ---------------------------------------------------------------------------
- */
-
-func do_panic
-#if CRASH_REPORTING && defined(IMAGE_BL31)
-	str	x0, [sp, #-0x10]!
-	mrs	x0, currentel
-	ubfx	x0, x0, #MODE_EL_SHIFT, #MODE_EL_WIDTH
-	cmp	x0, #MODE_EL3
-	ldr	x0, [sp], #0x10
-	b.eq	report_el3_panic
-#endif /* CRASH_REPORTING && IMAGE_BL31 */
-
-	b	el3_panic
 
 endfunc do_panic
 
