@@ -16,7 +16,7 @@
 	.globl	report_unhandled_exception
 	.globl	report_unhandled_interrupt
 	.globl	el3_panic
-	.globl	elx_panic
+	.globl	report_elx_panic
 
 #if CRASH_REPORTING
 
@@ -64,7 +64,7 @@ intr_excpt_msg:
 x30_msg:
 	.asciz "x30"
 excpt_msg_el:
-	.asciz "Unhandled Exception from EL"
+	.asciz "Unhandled Exception from lower EL.\n"
 
 	/*
 	 * Helper function to print from crash buf.
@@ -194,27 +194,18 @@ endfunc report_unhandled_interrupt
 	/* -----------------------------------------------------
 	 * This function allows to report a crash from the lower
 	 * exception level (if crash reporting is enabled) when
-	 * panic() is invoked from C Runtime.
+	 * lower_el_panic() is invoked from C Runtime.
 	 * It prints the CPU state via the crash console making
 	 * use of 'cpu_context' structure where general purpose
 	 * registers are saved and the crash buf.
 	 * This function will not return.
-	 *
- 	 * x0: Exception level
 	 * -----------------------------------------------------
 	 */
-func elx_panic
-	msr	spsel, #MODE_SP_ELX
-	mov	x8, x0
+func report_elx_panic
 
 	/* Print the crash message */
 	adr	x4, excpt_msg_el
 	bl	asm_print_str
-
-	/* Print exception level */
-	add	x0, x8, #'0'
-	bl	plat_crash_console_putc
-	bl	asm_print_newline
 
 	/* Report x0 - x29 values stored in 'gpregs_ctx' structure */
 	/* Store the ascii list pointer in x6 */
@@ -295,7 +286,7 @@ from_el1:
 	mrs	x2, sctlr_el1
 	mrs	x1, tcr_el1
 	b	test_pauth
-endfunc	elx_panic
+endfunc	report_elx_panic
 
 	/* -----------------------------------------------------
 	 * This function allows to report a crash (if crash
