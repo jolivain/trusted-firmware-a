@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26a15bd7_cbc8cb74",
+        "filename": "common/aarch64/debug.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-01-16T10:55:26Z",
+      "side": 1,
+      "message": "Since crash reporting is enabled only for BL31, does it make sense to enable \"CRASH_REPORTING\" via BL31_CFLAGS ?\nIn addition, this refactoring change should be treated as a separate patch rather than being bundled into this patch. Please let me know what do you think?",
+      "range": {
+        "startLine": 163,
+        "startChar": 20,
+        "endLine": 163,
+        "endChar": 42
+      },
+      "revId": "9e6b0dceb175ce01cdf9cf87dedd0bcc0381127a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
