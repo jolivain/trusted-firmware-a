@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2a4e779_926192e1",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2023-01-16T17:50:08Z",
+      "side": 1,
+      "message": "Hmm, it looks like you have 1 shot at installing OP-TEE. If there\u0027s any error from opteed_handle_smc_load, there won\u0027t be another chance until reboot. Is that what you want?",
+      "revId": "650c5c0ac959e160c7eb5424643f80feae964887",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
