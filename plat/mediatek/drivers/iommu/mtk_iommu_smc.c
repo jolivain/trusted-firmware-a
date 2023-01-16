@@ -185,9 +185,9 @@ static int mtk_secure_iommu_fault_report(uint32_t sec_mmu_base,
 #endif /* DEBUG */
 #endif /* ATF_MTK_IOMMU_CFG_SUPPORT */
 
-static u_register_t mtk_iommu_handler(u_register_t x1, u_register_t x2,
-				      u_register_t x3, u_register_t x4,
-				      void *handle, struct smccc_res *smccc_ret)
+u_register_t mtk_iommu_handler(u_register_t x1, u_register_t x2,
+			       u_register_t x3, u_register_t x4,
+			       void *handle, struct smccc_res *smccc_ret)
 {
 	uint32_t cmd_id = x1, mdl_id = x2, val = x3;
 	int ret = MTK_SIP_E_NOT_SUPPORTED;
