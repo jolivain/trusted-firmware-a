@@ -15,8 +15,8 @@
 
 	.globl	report_unhandled_exception
 	.globl	report_unhandled_interrupt
-	.globl	el3_panic
-	.globl	elx_panic
+	.globl	report_el3_panic
+	.globl	report_elx_panic
 
 #if CRASH_REPORTING
 
@@ -203,7 +203,7 @@ endfunc report_unhandled_interrupt
  	 * x0: Exception level
 	 * -----------------------------------------------------
 	 */
-func elx_panic
+func report_elx_panic
 	msr	spsel, #MODE_SP_ELX
 	mov	x8, x0
 
@@ -295,7 +295,7 @@ from_el1:
 	mrs	x2, sctlr_el1
 	mrs	x1, tcr_el1
 	b	test_pauth
-endfunc	elx_panic
+endfunc	report_elx_panic
 
 	/* -----------------------------------------------------
 	 * This function allows to report a crash (if crash
@@ -305,7 +305,7 @@ endfunc	elx_panic
 	 * will not return.
 	 * -----------------------------------------------------
 	 */
-func el3_panic
+func report_el3_panic
 	msr	spsel, #MODE_SP_ELX
 	prepare_crash_buf_save_x0_x1
 	adr	x0, panic_msg
@@ -463,7 +463,7 @@ print_el3_sys_regs:
 
 	/* Done reporting */
 	no_ret	plat_panic_handler
-endfunc el3_panic
+endfunc report_el3_panic
 
 #else	/* CRASH_REPORTING */
 func report_unhandled_exception
