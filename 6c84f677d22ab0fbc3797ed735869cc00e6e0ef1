@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35ba7036_8040fba3",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-01-16T19:02:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a631d5fd_1331e58f",
+      "revId": "6c84f677d22ab0fbc3797ed735869cc00e6e0ef1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6096fd5_108128c9",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "f6096fd5_108128c9",
+      "revId": "6c84f677d22ab0fbc3797ed735869cc00e6e0ef1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e5bd664_0f650757",
+        "filename": "include/services/rmm_core_manifest.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-01-16T19:02:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a0de4ad_95012738",
       "revId": "6c84f677d22ab0fbc3797ed735869cc00e6e0ef1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -271,6 +307,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "453504bb_68b93cb1",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-01-16T19:02:44Z",
+      "side": 1,
+      "message": "ARM_DRAM_NUM_BANKS",
+      "parentUuid": "dbe5328f_402054b6",
+      "revId": "6c84f677d22ab0fbc3797ed735869cc00e6e0ef1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a34d5d72_bcc23bcb",
@@ -308,6 +362,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "a34d5d72_bcc23bcb",
+      "range": {
+        "startLine": 549,
+        "startChar": 1,
+        "endLine": 549,
+        "endChar": 53
+      },
+      "revId": "6c84f677d22ab0fbc3797ed735869cc00e6e0ef1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7d53f96_588f97d2",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-01-16T19:02:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7a69933_c7553f45",
       "range": {
         "startLine": 549,
         "startChar": 1,
