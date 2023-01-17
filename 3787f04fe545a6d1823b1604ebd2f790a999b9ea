@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ada2726_10395b84",
+        "filename": "common/aarch64/debug.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-17T15:27:41Z",
+      "side": 1,
+      "message": "We need to do something if this comparison is equal to EL3? The problem is that there are cases when RAS extension is not enabled, which can trigger this panic with SPSR_EL showing as `EL3`.\n\nMy suggestion is for the caller to call elx_panic() unconditionally.",
+      "revId": "3787f04fe545a6d1823b1604ebd2f790a999b9ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
