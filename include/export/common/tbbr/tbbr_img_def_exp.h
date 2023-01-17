@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -113,7 +113,12 @@
 /* Platform Key Certificate ID */
 #define PLAT_KEY_CERT_ID		U(37)
 
+/* Arm(R) Ethos(TM)-N NPU images */
+#define ARM_ETHOSN_NPU_FW_KEY_CERT_ID	U(38)
+#define ARM_ETHOSN_NPU_FW_CONTENT_CERT_ID	U(39)
+#define ARM_ETHOSN_NPU_FW_IMAGE_ID	U(40)
+
 /* Max Images */
-#define MAX_IMAGE_IDS			U(38)
+#define MAX_IMAGE_IDS			U(41)
 
 #endif /* ARM_TRUSTED_FIRMWARE_EXPORT_COMMON_TBBR_TBBR_IMG_DEF_EXP_H */
