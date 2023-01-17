@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015-2022, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -132,7 +132,29 @@ ifeq (${ARM_ETHOSN_NPU_TZMP1},1)
   else
     $(error "ARM_ETHOSN_NPU_TZMP1 only supported on Juno platform, not ", ${PLAT})
   endif
-endif
+
+  ifeq (${TRUSTED_BOARD_BOOT},0)
+    # We rely on TRUSTED_BOARD_BOOT to prevent the firmware code from being
+    # tampered with, which is required to protect the confidentiality of protected
+    # inference data.
+    $(error "ARM_ETHOSN_NPU_TZMP1 is only available if TRUSTED_BOARD_BOOT is enabled)
+  endif
+
+  # We need the FW certificate and key certificate
+  $(eval $(call TOOL_ADD_PAYLOAD,${BUILD_PLAT}/npu_fw_key.crt,--npu-fw-key-cert))
+  $(eval $(call TOOL_ADD_PAYLOAD,${BUILD_PLAT}/npu_fw_content.crt,--npu-fw-cert))
+  # Needed for our OIDs to be available in tbbr_cot_bl2.c
+  $(eval $(call add_define, PLAT_DEF_OID))
+  PLAT_INCLUDES	+=	-I${PLAT_DIR}certificate/include
+  PLAT_INCLUDES	+=	-Iinclude/drivers/arm/
+
+  # We need the firmware to be built into the FIP
+  $(eval $(call TOOL_ADD_IMG,ARM_ETHOSN_NPU_FW,--npu-fw))
+
+  # Needed so that UUIDs from the FIP are available in BL2
+  $(eval $(call add_define,PLAT_DEF_FIP_UUID))
+  PLAT_INCLUDES		+=	-I${PLAT_DIR}fip
+endif # ARM_ETHOSN_NPU_TZMP1
 
 # Use an implementation of SHA-256 with a smaller memory footprint but reduced
 # speed.
