@@ -199,6 +199,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c9461ede_1a80a2a4",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-17T19:05:12Z",
+      "side": 1,
+      "message": "Yeah, I\u0027ve already hex-dumped the memory and it\u0027s exactly what I expect it to be. What I\u0027m not sure about is if the __start instructions are at the entry point address or not. I\u0027ll see if I can analyze that more and figure out what\u0027s going on there.",
+      "parentUuid": "47ab2246_acc022a6",
+      "revId": "4f20bdcca3a4aa9b61be4f0cdf5045a475922dd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6fd88fb4_7d5b5928",
         "filename": "services/spd/opteed/opteed_main.c",
         "patchSetId": 4
