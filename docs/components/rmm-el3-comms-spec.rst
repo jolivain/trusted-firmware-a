@@ -526,7 +526,7 @@ RMM-EL3 Boot Manifest structure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The RMM-EL3 Boot Manifest structure contains platform boot information passed
-from EL3 to RMM. The width of the Boot Manifest is 128 bits
+from EL3 to RMM. The width of the Boot Manifest is 320 bits
 
 .. image:: ../resources/diagrams/rmm_el3_manifest_struct.png
 
@@ -541,3 +541,7 @@ table:
    ``Version Major``,30:16,uint16_t,Version Major part of the Boot Manifest Version.
    ``RES0``,31,bit,Reserved. Set to 0.
    ``Platform Data``,127:64,Address,Pointer to the Platform Data section of the Boot Manifest.
+   ``Number of Banks``,128:191,uint64_t,Number of DRAM banks.
+   ``Pointer to Banks``,192:255,Address,Pointer to the platform's DRAM banks data.
+   ``Checksum``,256:319,uint64_t,Two's complement sum of Number of Banks and Pointer to Banks and DRAM banks data.
+
