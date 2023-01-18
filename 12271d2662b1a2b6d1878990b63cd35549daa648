@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d73cf258_69a45112",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000132
+      },
+      "writtenOn": "2023-01-18T07:55:09Z",
+      "side": 1,
+      "message": "Apologies for the delayed review as I was pre-occupied in other projects.\n\nThese changes doesn\u0027t address majority of the concerns raised here: https://lists.trustedfirmware.org/archives/list/tf-a@lists.trustedfirmware.org/thread/D2HEKDEGRBLMMLAQ6OKC3AQDM4ELSJPL/#D2HEKDEGRBLMMLAQ6OKC3AQDM4ELSJPL\n\nJust to re-iterate the major concerns here:\n\n1. Missing authentication of OP-TEE OS by a secure world loader.\n2. With this option enabled, trusted computing base includes Linux kernel and initial filesystem. So I am not sure if the said use-case requires a trusted execution environment in the first place.\n3. I can\u0027t see either corresponding updates to TF-A threat model here: https://trustedfirmware-a.readthedocs.io/en/latest/threat_model/index.html\n4. This option isn\u0027t platform specific but rather a generic option available to all the platforms supporting OP-TEE.\n\nI am failing to understand the resistance behind implementing a bare minimum S-EL1 OP-TEE OS loader [1] that could leverage the existing PKI infrastructure for OP-TEE OS as we use for trusted applications loaded from Linux file-system. So I am registering my NACK here.\n\n[1] I think this loader can be another stripped off binary generated from OP-TEE OS code base that would just include the crypto libraries from OP-TEE OS along with the same public key as the one used for TAs. This way we don\u0027t have to either depend upon BL2 or SPL.",
+      "revId": "12271d2662b1a2b6d1878990b63cd35549daa648",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
