@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "246cd4e6_149942ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-18T20:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a692fd4_d8f246bd",
+      "revId": "12271d2662b1a2b6d1878990b63cd35549daa648",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "774ae06b_206b4a19",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-01-18T09:47:36Z",
       "side": 1,
       "message": "Can a variation of this warning be repeated during build time so that people building with this option turned on get a message in their build log. We have precedence for this type of build time warning for features marked as experimental. I realise this is not experimental but it is a more limited type of deployment security model and not the default operated by most platforms fully supporting trustzone.",
+      "revId": "12271d2662b1a2b6d1878990b63cd35549daa648",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7c0e3c6_b42011d3",
+        "filename": "services/spd/opteed/opteed.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-18T20:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "774ae06b_206b4a19",
       "revId": "12271d2662b1a2b6d1878990b63cd35549daa648",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
