@@ -34,6 +34,14 @@ static int arm_sip_setup(void)
 
 #endif /* USE_DEBUGFS */
 
+#if ARM_ETHOSN_NPU_DRIVER
+
+	if (ethosn_smc_setup() != 0) {
+		return 1;
+	}
+
+#endif /* ARM_ETHOSN_NPU_DRIVER */
+
 	return 0;
 }
 
