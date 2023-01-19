@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "702da5c6_321c63eb",
+        "filename": "docs/design_documents/psci_osi_mode.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000937
+      },
+      "writtenOn": "2023-01-19T11:40:27Z",
+      "side": 1,
+      "message": "I don\u0027t think this document has mentioned that OSI is optional to support for a platform, which I think would be quite valuable information here too. Please consider adding that somewhere.",
+      "revId": "cb058156889b8986ae8ec2438fa559bf7e5beb8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4565b0d9_ea7d001d",
+        "filename": "docs/design_documents/psci_osi_mode.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000937
+      },
+      "writtenOn": "2023-01-19T11:40:27Z",
+      "side": 1,
+      "message": "This is a bit confusing. In fact, it\u0027s perfectly fine to use the hierarchical power domain representation in DT, with both OSI and PC mode. However, if the Linux kernel realizes that OSI mode isn\u0027t supported, the \"cluster states\" becomes disabled. That said, I suggest to remove this paragraph.\n\nIn regards to motivation, I think there are a couple of other interesting things that could be be said here instead. I can suggest them, but I am not sure we want to dive into too much of details - or do we?",
+      "revId": "cb058156889b8986ae8ec2438fa559bf7e5beb8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b3a3744_19ab17a7",
+        "filename": "docs/design_documents/psci_osi_mode.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000937
+      },
+      "writtenOn": "2023-01-19T11:40:27Z",
+      "side": 1,
+      "message": "As above, this is a bit confusing, so I suggest to drop this.",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 60
+      },
+      "revId": "cb058156889b8986ae8ec2438fa559bf7e5beb8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
