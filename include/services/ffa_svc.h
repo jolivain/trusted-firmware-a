@@ -186,6 +186,9 @@
 #define FFA_PARTITION_INFO_GET_REGS_SMC64 \
 	FFA_FID(SMC_64, FFA_FNUM_PARTITION_INFO_GET_REGS)
 
+/* Implementation-defined ABIs. */
+#define FFA_CONSOLE_LOG_32                  0x8400008A
+#define FFA_CONSOLE_LOG_64                  0xC400008A
 /*
  * FF-A partition properties values.
  */
