@@ -6,6 +6,7 @@
 
 #include <assert.h>
 #include <errno.h>
+#include <stdio.h>
 
 #include <arch_helpers.h>
 #include <bl31/bl31.h>
@@ -1289,6 +1290,53 @@ static uint64_t rx_release_handler(uint32_t smc_fid,
 	SMC_RET1(handle, FFA_SUCCESS_SMC32);
 }
 
+static size_t arg_to_char_helper(const uint64_t src, size_t src_size,
+				  size_t to_write)
+{
+	size_t size = src_size < to_write ? src_size : to_write;
+	size_t written = 0;
+
+	if (size == 0) {
+		return 0;
+	}
+
+	while (written < size) {
+		char c = ((char *)&src)[written++];
+		if (c != '\0')
+		putchar((int)c);
+	}
+
+	return written;
+}
+
+static uint64_t spmc_ffa_console_log(uint32_t smc_fid,
+				     bool secure_origin,
+				     uint64_t x1,
+				     uint64_t x2,
+				     uint64_t x3,
+				     uint64_t x4,
+				     void *cookie,
+				     void *handle,
+				     uint64_t flags)
+{
+	size_t chars_in_param = (smc_fid == FFA_CONSOLE_LOG_32
+				? sizeof(uint32_t)
+				: sizeof(uint64_t));
+	size_t total_to_write = x1;
+
+	if ((x1 == 0) || (x1 > chars_in_param * 6))
+		return spmc_ffa_error_return(handle,
+				             FFA_ERROR_INVALID_PARAMETER);
+
+	total_to_write -= arg_to_char_helper(x2, chars_in_param, total_to_write);
+	total_to_write -= arg_to_char_helper(x3, chars_in_param, total_to_write);
+	total_to_write -= arg_to_char_helper(x4, chars_in_param, total_to_write);
+	total_to_write -= arg_to_char_helper(SMC_GET_GP(handle, CTX_GPREG_X5), chars_in_param, total_to_write);
+	total_to_write -= arg_to_char_helper(SMC_GET_GP(handle, CTX_GPREG_X6), chars_in_param, total_to_write);
+	total_to_write -= arg_to_char_helper(SMC_GET_GP(handle, CTX_GPREG_X7), chars_in_param, total_to_write);
+	SMC_RET1(handle, FFA_SUCCESS_SMC32);
+}
+
 /*
  * Perform initial validation on the provided secondary entry point.
  * For now ensure it does not lie within the BL31 Image or the SP's
@@ -1933,6 +1981,10 @@ uint64_t spmc_smc_handler(uint32_t smc_fid,
 	case FFA_MEM_RECLAIM:
 		return spmc_ffa_mem_reclaim(smc_fid, secure_origin, x1, x2, x3,
 					    x4, cookie, handle, flags);
+	case FFA_CONSOLE_LOG_32:
+	case FFA_CONSOLE_LOG_64:
+		return spmc_ffa_console_log(smc_fid, secure_origin, x1, x2, x3,
+                                            x4, cookie, handle, flags);
 
 	default:
 		WARN("Unsupported FF-A call 0x%08x.\n", smc_fid);
