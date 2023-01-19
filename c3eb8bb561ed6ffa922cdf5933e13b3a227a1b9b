@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a723d0bc_0fa4859f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000457
+      },
+      "writtenOn": "2023-01-19T14:14:20Z",
+      "side": 1,
+      "message": "Hi Rohit, the BR instruction is not BTI safe. I have done changes like below to make it work with BTI enabled.  Can you please incorporate this (or whatever that can work with BTI enabled) in this patch,\n\n--- a/lib/el3_runtime/aarch64/context.S\n+++ b/lib/el3_runtime/aarch64/context.S\n@@ -297,13 +297,14 @@ func el2_sysregs_context_save_mpam\n        /*\n         * Once VPMR_MAX has been identified, calculate the offset relative to\n         * PC to jump to so that relevant context can be saved. The offset is\n-        * calculated as (VPMR_POSSIBLE_MAX - VPMR_MAX) * (2*INSTRUCTION_WIDTH)\n-        * + (absolute address of label \"1\"). Saving each register would take (2\n+        * calculated as (VPMR_POSSIBLE_MAX - VPMR_MAX) * (3*INSTRUCTION_WIDTH)\n+        * + (absolute address of label \"1\"). Saving each register would take (3\n         * * INSTRUCTION_WIDTH) size.\n         */\n        mov     w11, #MPAMIDR_EL1_VPMR_MAX_POSSIBLE\n        sub     w10, w11, w10\n-       lsl     w10, w10, #3\n+       mov     w11, #12\n+       mul     w10, w11, w10\n        adr     x11, 1f\n        add     x11, x11, x10\n        br      x11\n@@ -312,24 +313,31 @@ func el2_sysregs_context_save_mpam\n         * The branch above would land properly on one of the ldr following\n         * label \"1\". Make sure that the order of save is retained.\n         */\n-1:     mrs     x10, MPAMVPM7_EL2\n+1:     bti     jc\n+       mrs     x10, MPAMVPM7_EL2\n        str     x10, [x0, #CTX_MPAMVPM7_EL2]\n \n+       bti     jc\n        mrs     x11, MPAMVPM6_EL2\n        str     x11, [x0, #CTX_MPAMVPM6_EL2]\n \n+       bti     jc\n        mrs     x12, MPAMVPM5_EL2\n        str     x12, [x0, #CTX_MPAMVPM5_EL2]\n",
+      "revId": "c3eb8bb561ed6ffa922cdf5933e13b3a227a1b9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e9a8dbc_e270c352",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1000457
+      },
+      "writtenOn": "2023-01-19T14:14:20Z",
+      "side": 1,
+      "message": "the BR instruction is not BTI safe. In a BTI enabled system, it will throw an exception",
+      "revId": "c3eb8bb561ed6ffa922cdf5933e13b3a227a1b9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
