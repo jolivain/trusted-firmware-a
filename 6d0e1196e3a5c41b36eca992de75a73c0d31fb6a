@@ -38,6 +38,70 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "26aa9d27_3804dcd2",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-19T16:26:39Z",
+      "side": 1,
+      "message": "\u003e it may still make sense to add any details about e.g. AP using public keys from RSS OTP in boot process here.\n\nThis is briefly mentioned below in section \"RSS provided runtime services\", \"OTP assets management\". I agree this needs elaboration but I would imagine a separate section for that, say \"RSS based trusted boot\". Although I am not keen about this name, as this could be misinterpreted as RSS exposing a service to authenticate AP images beyond AP_BL1. But hopefully you get my point.\n\nLauren is currently working on some of these interfaces:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/18898\n\nOnce we\u0027ve completed this piece of work, we can contribute details around that in this document. So I would suggest leaving it like that for now.",
+      "parentUuid": "d54bd5a4_32c3db4f",
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dc50590_78ccb36a",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-19T16:26:39Z",
+      "side": 1,
+      "message": "Suggest adding:\n\n Please refer to the RSS documentation [1] for more details about the RSS boot flow.\n\n [1] https://tf-m-user-guide.trustedfirmware.org/platform/arm/rss/readme.html\n\nAlso consider breaking the paragraph after that additional sentence.",
+      "range": {
+        "startLine": 14,
+        "startChar": 58,
+        "endLine": 14,
+        "endChar": 60
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0700c4b2_ba2c9f27",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-19T16:26:39Z",
+      "side": 1,
+      "message": "(minor) And I would merge this paragraph with the previous one, as this feels like a continuation of the last sentence in the previous paragraph.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 23
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bddf20a4_f5cacfd0",
         "filename": "docs/design_documents/rss.rst",
         "patchSetId": 3
@@ -49,6 +113,277 @@
       "writtenOn": "2022-12-08T13:05:10Z",
       "side": 1,
       "message": "OK, but wouldn\u0027t it be good to have a link to the code showing the exact definition? Presumably the code in TF-A conforms to a specific protocol_ver?",
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b50cb00_40557b6e",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-19T16:26:39Z",
+      "side": 1,
+      "message": "I agree with Dan. In fact, I\u0027d go one step further and remove this \"Message structure\" section entirely. I think the \"high-level\" structure below does not abstract enough information to add value, and section \"API for communication over MHU\" below already points the reader to the actual structure definition in include/drivers/arm/rss_comms.h.\n\n@Dan: No, TF-A does not conform to a specific protocol_ver. It\u0027s actually using *both* protocols (\"embed\" and \"pointer access\") and chooses which one to use on a message basis. Tamas explains that at line 70 above.",
+      "parentUuid": "bddf20a4_f5cacfd0",
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97824d6c_53d4ce4e",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-19T16:26:39Z",
+      "side": 1,
+      "message": "This seems to be a repetition of what the linked \"Delegated Attestation Service Integration Guide\" covers. I think we can remove this part and keep the link only. Or at least shorten it to something like what you have above for trusted boot. For example:\n\n Delegated attestation: Query the platform attestation token, derive a\n delegated attestation key. More info on delegated attestation service\n in RSS can be found in the ``delegated_attestation_integration_guide`` [2]_",
+      "range": {
+        "startLine": 166,
+        "startChar": 29,
+        "endLine": 174,
+        "endChar": 52
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "609c68ee_dfbccb0f",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-19T16:26:39Z",
+      "side": 1,
+      "message": "(minor) There\u0027s a dangling quote character here.",
+      "range": {
+        "startLine": 177,
+        "startChar": 4,
+        "endLine": 177,
+        "endChar": 5
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25b2dc54_7d7e2dba",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-19T16:26:39Z",
+      "side": 1,
+      "message": "I wonder whether a reference to the following RSS document would be useful:\n\nhttps://tf-m-user-guide.trustedfirmware.org/platform/arm/rss/rss_key_management.html\n\nIt might be a bit too detailed... What do you think?",
+      "range": {
+        "startLine": 181,
+        "startChar": 55,
+        "endLine": 181,
+        "endChar": 56
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "796c1ed1_33cbfa3b",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-19T16:26:39Z",
+      "side": 1,
+      "message": "I wonder whether this information is relevant in the context of this document... It sounds like this rather belongs to RSS document IMO.\n\nEDIT: I now see that line 352 relies on this being explained beforehand... So maybe we need to keep it.",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 7
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1445f5ba_9c8fc209",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-19T16:26:39Z",
+      "side": 1,
+      "message": "Is this the structure definition on RSS side? If yes, then I don\u0027t think it belongs to this document... IMO this document should only cover the interfaces and public data structures defined in TF-A.",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 282,
+        "endChar": 6
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7bdfe4c_5f51cb88",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-19T16:26:39Z",
+      "side": 1,
+      "message": "Do we want to elaborate on the supported hash algorithms?",
+      "range": {
+        "startLine": 291,
+        "startChar": 36,
+        "endLine": 291,
+        "endChar": 40
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b57662d0_49908c3a",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-19T16:26:39Z",
+      "side": 1,
+      "message": "Arguably this is already covered by https://git.trustedfirmware.org/TF-M/tf-m-extras.git/tree/partitions/measured_boot/measured_boot_integration_guide.rst#n19 already. But maybe this is short enough to be kept and is useful to understand the rest of the section. What do you think? Should we remove it?",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 324,
+        "endChar": 76
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65bd778a_398a02fc",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-19T16:26:39Z",
+      "side": 1,
+      "message": "This is a great diagram but I wonder whether this is the right place for it... To start with, it covers RSS boot (and SCP\u0027s to some extent), which arguably is not relevant to AP firmware. Then the second part (\"RSS Runtime / AP Boot phase\") feels quite generic to me, there\u0027s no a lot specific to an RSS platform. Effectively, if you replace \"RSS_S\" with something like \"Measured boot backend (RSS, TPM, ...)\" then it becomes quite generic. I feel this would be better off in TF-A measured boot design document. There isn\u0027t any at the moment, but Manish plans to write one soon.\n\nSo my current thinking is that we should have this diagram in RSS documentation, and when Manish gets round to writing the measured boot design document for TF-A, he can reuse the \"RSS Runtime / AP Boot phase\" part of it.\n\nAny thoughts?",
+      "range": {
+        "startLine": 394,
+        "startChar": 3,
+        "endLine": 394,
+        "endChar": 60
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "408fd81b_da258258",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-19T16:26:39Z",
+      "side": 1,
+      "message": "Looks like a copy \u0026 paste of https://git.trustedfirmware.org/TF-M/tf-m-extras.git/tree/partitions/delegated_attestation/delegated_attest_integration_guide.rst. A link to this guide would be better I think.",
+      "range": {
+        "startLine": 449,
+        "startChar": 0,
+        "endLine": 472,
+        "endChar": 30
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b45063f_39e909ad",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-19T16:26:39Z",
+      "side": 1,
+      "message": "I believe we\u0027ve not implemented that on FVP yet, we\u0027re missing the link between RMMd and PSA/RSS layer. Should we add a note to this effect? Like you\u0027ve done for the signer id / version in the measured boot section.",
+      "range": {
+        "startLine": 474,
+        "startChar": 0,
+        "endLine": 480,
+        "endChar": 49
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59316189_88e06866",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-19T16:26:39Z",
+      "side": 1,
+      "message": "I think you can remove this for now. We can add the details later on.\n\nBTW, I believe there\u0027s no precedence in TF-A to mention what kind of testing is done on a module in the documentation. This is usually hidden in the CI scripts / separate tests repo, which is not ideal. But why not starting doing this!",
+      "range": {
+        "startLine": 669,
+        "startChar": 0,
+        "endLine": 671,
+        "endChar": 3
+      },
       "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
