@@ -35,4 +35,5 @@ else ifneq ($(findstring ld,$(notdir $(LD))),)
         BL1_LDFLAGS	+=	--sort-section=alignment
 endif
 
-BL1_DEFAULT_LINKER_SCRIPT_SOURCE := bl1/bl1.ld.S
+BL1_DEFAULT_LINKER_SCRIPT_SOURCE := bootloader/bootloader.ld.S
+BL1_LINKER_SCRIPT_SOURCES := bl1/bl1.ld.S $(BL1_LINKER_SCRIPT_SOURCES)
