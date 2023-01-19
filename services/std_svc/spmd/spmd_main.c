@@ -931,6 +931,12 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 			return spmd_ffa_error_return(handle, FFA_ERROR_DENIED);
 		}
 		break; /* Not reached */
+	case FFA_CONSOLE_LOG_32:
+	case FFA_CONSOLE_LOG_64:
+		/* This interface must not be forwarded to other worlds. */
+		return spmd_ffa_error_return(handle, FFA_ERROR_NOT_SUPPORTED);
+                break; /* not reached */
+
 
 	default:
 		WARN("SPM: Unsupported call 0x%08x\n", smc_fid);
