@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2dbb3304_014b36fd",
+        "filename": "drivers/auth/tbbr/tbbr_cot_bl2.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-01-20T15:13:04Z",
+      "side": 1,
+      "message": "\u003e the convention we\u0027ve used so far is to place mbedtls #includes between system and project header files, like Govindraj has done here. So I would keep it that way.\n\nOkay. To be consistent, it should be followed in same way in other files as well then.",
+      "parentUuid": "cb963f6a_44e67b05",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 28
+      },
+      "revId": "eed4a7f2dde80333504093ae9417dbd707b96310",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7c72d0b8_2ba04870",
         "filename": "drivers/auth/tbbr/tbbr_cot_common.c",
         "patchSetId": 7
