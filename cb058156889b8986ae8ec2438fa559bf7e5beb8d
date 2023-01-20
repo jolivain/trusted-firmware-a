@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3fa6e5e_857b97da",
+        "filename": "docs/design_documents/psci_osi_mode.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2023-01-20T03:14:46Z",
+      "side": 1,
+      "message": "Added in the OS-initiated section, thanks!",
+      "parentUuid": "702da5c6_321c63eb",
+      "revId": "cb058156889b8986ae8ec2438fa559bf7e5beb8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4565b0d9_ea7d001d",
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0bd24022_ab51f08b",
+        "filename": "docs/design_documents/psci_osi_mode.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2023-01-20T03:14:46Z",
+      "side": 1,
+      "message": "I was trying to convey what you have described, that we can\u0027t use hierarchical / cluster states if OSI mode isn\u0027t supported. But yes, I removed the paragraph to reduce confusion.\n\nI think it\u0027s definitely worthwhile to dive into details of other motivating factors here, and I\u0027d love to hear your suggestions!",
+      "parentUuid": "4565b0d9_ea7d001d",
+      "revId": "cb058156889b8986ae8ec2438fa559bf7e5beb8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7b3a3744_19ab17a7",
         "filename": "docs/design_documents/psci_osi_mode.rst",
         "patchSetId": 2
@@ -48,6 +84,30 @@
       "writtenOn": "2023-01-19T11:40:27Z",
       "side": 1,
       "message": "As above, this is a bit confusing, so I suggest to drop this.",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 60
+      },
+      "revId": "cb058156889b8986ae8ec2438fa559bf7e5beb8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f611964_8f75113e",
+        "filename": "docs/design_documents/psci_osi_mode.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2023-01-20T03:14:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b3a3744_19ab17a7",
       "range": {
         "startLine": 331,
         "startChar": 0,
