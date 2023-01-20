@@ -99,6 +99,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cbefb74_283e4f18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-20T16:16:03Z",
+      "side": 1,
+      "message": "Hi,\nI made a quick test with mbedTLS 3.3.0.\nI had one compilation issue with SHA224, which is corrected but not in 3.3 (should be in next version):\nhttps://github.com/Mbed-TLS/mbedtls/issues/6702\n\nTo workaround this, I had to add:\n#define MBEDTLS_SHA224_C\nBut I don\u0027t know what could be the impacts of this.\n\nAnd I should run more tests with this new version.",
+      "parentUuid": "c56908e5_799b9e56",
+      "revId": "7f0a1fc4f812a6043181299d7f3cd4db9eb27d0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14afb17a_c02d3b15",
