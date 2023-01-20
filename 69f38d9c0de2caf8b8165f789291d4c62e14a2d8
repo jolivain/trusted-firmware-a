@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a137f3e_10fc3c11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-01-20T00:04:47Z",
+      "side": 1,
+      "message": "CI passed except for the commitment issues. The AllowCI+2 does various boot tests involving OPTEE so looks like your changes are good without your new option.\n\n\nI\u0027ll do a AllowCI+1 as that is a lighter test load to check out your commitment fix.",
+      "revId": "69f38d9c0de2caf8b8165f789291d4c62e14a2d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
