@@ -33,6 +33,24 @@
       "message": "For what it\u0027s worth, I can roll a proper fix for this into the patch stack here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/18661/12",
       "revId": "ebac6922d1f6fc16c5d3953dfb512553001dcdd3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e31f0854_da0591a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000969
+      },
+      "writtenOn": "2023-01-20T19:22:00Z",
+      "side": 1,
+      "message": "Go ahead if you know a better fix or need to move it somewhere else. I only want to get the problem fixed ASAP. The problem has happened for about one year, and is blocking compiler update in Android Trusty.",
+      "parentUuid": "c244c211_900c6b81",
+      "revId": "ebac6922d1f6fc16c5d3953dfb512553001dcdd3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
