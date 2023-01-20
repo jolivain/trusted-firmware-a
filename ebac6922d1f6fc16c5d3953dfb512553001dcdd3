@@ -16,6 +16,23 @@
       "message": "The related bug was reported at https://developer.trustedfirmware.org/T1017.",
       "revId": "ebac6922d1f6fc16c5d3953dfb512553001dcdd3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c244c211_900c6b81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-01-20T13:20:37Z",
+      "side": 1,
+      "message": "For what it\u0027s worth, I can roll a proper fix for this into the patch stack here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/18661/12",
+      "revId": "ebac6922d1f6fc16c5d3953dfb512553001dcdd3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
