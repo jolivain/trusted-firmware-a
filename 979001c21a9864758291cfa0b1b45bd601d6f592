@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8936a12_61672c73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-20T15:28:49Z",
+      "side": 1,
+      "message": "@Konstantin Porotchkin: I think the initial question for you is, do you want to upgrade the doimage tool to mbedTLS 3.3? If yes, do you want to do it in a backwards compatible way? Or do you want to do a hard switch to 3.3? If yes to the latter then we can remove the mbedtls 2.x/3.x compilation switches from the patch.",
+      "revId": "979001c21a9864758291cfa0b1b45bd601d6f592",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
