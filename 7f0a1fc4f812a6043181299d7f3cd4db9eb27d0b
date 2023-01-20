@@ -1,6 +1,69 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d90a2561_14375810",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-20T15:22:18Z",
+      "side": 1,
+      "message": "We should explain why we are doing that. I think it\u0027s enough to say this is for using the latest and greatest version of mbedTLS, as advised in TF-A documentation. You could also say we were overdue on this for a number of releases.\n\nWe should also mention that mbedTLS 3.x introduces API breakages with regards to mbedTLS 2.x, and that where appropriate this commit calls the mbedtls 3.x variant, while maintaining support for the 2.x API. All of this being handled at compile time through build flags, so no runtime overhead is expected.",
+      "revId": "7f0a1fc4f812a6043181299d7f3cd4db9eb27d0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b63ee64f_00e0c0c4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-20T15:22:18Z",
+      "side": 1,
+      "message": "(minor) Remove? This just repeats the commit title.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 28
+      },
+      "revId": "7f0a1fc4f812a6043181299d7f3cd4db9eb27d0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fbfc004_ea5acd63",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-20T15:22:18Z",
+      "side": 1,
+      "message": "(minor) typo",
+      "range": {
+        "startLine": 12,
+        "startChar": 30,
+        "endLine": 12,
+        "endChar": 38
+      },
+      "revId": "7f0a1fc4f812a6043181299d7f3cd4db9eb27d0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8806ef84_8471b4e4",
@@ -43,6 +106,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "28fda712_2b7b3e08",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-20T15:22:18Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "14afb17a_c02d3b15",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 43
+      },
+      "revId": "7f0a1fc4f812a6043181299d7f3cd4db9eb27d0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d5b013a1_01c3bfc6",
         "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
         "patchSetId": 8
@@ -54,6 +141,30 @@
       "writtenOn": "2023-01-19T19:27:44Z",
       "side": 1,
       "message": "What is the purpose of introducing this compilation switch for MBEDTLS 3.*?\nAlso, setting this compilation switch via global TF_CFLAGS compiles all files with this option instead of just MBEDTLS files. If possible, should this be removed by introducing necessary changes?",
+      "range": {
+        "startLine": 70,
+        "startChar": 1,
+        "endLine": 70,
+        "endChar": 40
+      },
+      "revId": "7f0a1fc4f812a6043181299d7f3cd4db9eb27d0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b5f5b5d_d89619b9",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-20T15:22:18Z",
+      "side": 1,
+      "message": "\u003e What is the purpose of introducing this compilation switch for MBEDTLS 3.*?\n\nSee https://github.com/Mbed-TLS/mbedtls/issues/6910\n\n\u003e Also, setting this compilation switch via global TF_CFLAGS compiles all files with this option instead of just MBEDTLS files. If possible, should this be removed by introducing necessary changes?\n\nI agree it would be desirable to limit this flag to mbedTLS source files but unfortunately I don\u0027t think TF-A build system supports per-file (or even per-module) compilation flags right now, does it? Do you have any solution in mind?",
+      "parentUuid": "d5b013a1_01c3bfc6",
       "range": {
         "startLine": 70,
         "startChar": 1,
