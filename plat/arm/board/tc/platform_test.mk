@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Arm Limited. All rights reserved.
+# Copyright (c) 2022-2023, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -24,7 +24,11 @@ ifeq (${PLATFORM_TEST},1)
     DELEGATED_ATTEST_TESTS_PATH	=	$(TF_M_EXTRAS_PATH)/partitions/delegated_attestation/test
     MEASURED_BOOT_TESTS_PATH	=	$(TF_M_EXTRAS_PATH)/partitions/measured_boot/test
 
+ifeq (${MBEDTLS_MAJOR}, 2)
     MBEDTLS_CONFIG_FILE		=	"<plat_tc_mbedtls_config.h>"
+else
+	$(error Error: MBEDTLS_DIR provided may not work with plat_tc_mbedtls_config file)
+endif
 
     LIBMBEDTLS_SRCS		+= 	$(addprefix ${MBEDTLS_DIR}/library/,	\
 					entropy.c				\
