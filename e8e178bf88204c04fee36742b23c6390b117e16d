@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c234cb61_eb2a1d4f",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 2366,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-23T16:06:45Z",
+      "side": 1,
+      "message": "This platform interface does not sound right to me... Despite its generic name, it\u0027s actually very specific, in that it assumes that it\u0027s being called for a configuration file that needs loading in both root and secure memory. I think that\u0027s more or less the same concern as what Olivier raised internally.\n\nPerhaps we could instead make it return the primary and secondary load addresses of the image, aligned with my other comments in this patch review.\n\nBut TBH I think the code would be clearer if each DTB property was queried separatey, instead of a bulk query of both addresses and size. I\u0027ve put another comment to show what I have in mind in the next patch:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/18802/comment/a8111835_3366188e/",
+      "range": {
+        "startLine": 2365,
+        "startChar": 0,
+        "endLine": 2366,
+        "endChar": 54
+      },
+      "revId": "e8e178bf88204c04fee36742b23c6390b117e16d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d78bb9bf_e2fa1113",
         "filename": "docs/getting_started/porting-guide.rst",
         "patchSetId": 3
