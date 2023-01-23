@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d14f76f_b4fa6586",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-23T13:44:46Z",
+      "side": 1,
+      "message": "This mapping is under #if ENABLE_RME so presumably this is not for 2-world systems and the comment needs fixing, right?",
+      "range": {
+        "startLine": 117,
+        "startChar": 11,
+        "endLine": 117,
+        "endChar": 27
+      },
+      "revId": "7c42c4a738b8dab0cdf0662fd5507342f7b168cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
