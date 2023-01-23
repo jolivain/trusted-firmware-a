@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6839a8d9_10bf4745",
+        "filename": "docs/components/fconf/fconf_properties.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-23T14:48:01Z",
+      "side": 1,
+      "message": "Coming back to the naming conventions for the *load_address properties...\n\nFirst of all, one observation is that the security state qualifier (\"s-\" / \"ns-\") in these properties names appears to be purely informational right now. I could not find any code that verifies that the address passed in the \"ns-load-address\" property truly belongs to Normal world memory for this platform.\n\nSince the prefix in the property name does not conceptually matter, perhaps we should omit it and provide a single property for both, such as \u0027secondary-load-address\u0027. So effectively \u0027load-address\u0027 would be the primary load address, which all platforms relying on DTB config files would need to define. This could be any address - root/secure/non-secure/real memory. And for those platforms that need to copy the image to some other location at a certain time in the boot flow, they would use the \u0027secondary-load-address\u0027 property for that, and again this could be any kind of address.\n\nThis would require renaming existing usages of the \u0027ns-load-address\u0027 property into \u0027secondary-load-address\u0027 but AFAIK this is only used on Arm platforms right now.\n\nOf course, this solution does not scale well. If we ever need to have a third copy of some image then we\u0027d need a \u0027tertiary-load-address\u0027 and so on. But I don\u0027t foresee a need to do that any time soon.\n\nAn alternative solution would be to turn the load-address property into a list of addresses - address #1 being the primary load address, address #2 the secondary load address, and so on. It would be more flexible but this might add some unnecessary complexity in the DTB parsing code for platforms that only use the primary address? It also requires changes to all platforms relying on the \u0027load-address\u0027 property right now (i.e. ST platforms and most Arm Ltd platforms).\n\nAny thoughts?",
+      "revId": "ed2f1193986194af86b3a37761684abbc7aeb59d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
