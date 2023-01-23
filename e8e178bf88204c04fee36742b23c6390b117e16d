@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b2ed5c1a_cb714dd4",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 2366,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-01-23T20:14:19Z",
+      "side": 1,
+      "message": "\u003e Perhaps we could instead make it return the primary and secondary load addresses of the image, aligned with my other comments in this patch review.\n\nI agree, this can be done to align with what we\u0027ve discussed in other patches.\n\n\u003e But TBH I think the code would be clearer if each DTB property was queried separatey, instead of a bulk query of both addresses and size. I\u0027ve put another comment to show what I have in mind in the next patch:\n\u003e https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/18802/comment/a8111835_3366188e/\n\nI\u0027m not sure if making many separate platform functions is worth it. The single platform function can return all details (primary and secondary addresses, and size), as we are introducing \u0027primary\u0027 and \u0027secondary\u0027 load addresses that make this platform function generic and no longer dependent on RME. The primary load-address is valid, but the secondary address can be valid or NULL, depending on config file.\n\nThe secondary address should be valid in some cases, e.g. here [1], where the root(primary) address should not be passed to BL32. Please let me know what do you think?\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/18802/3/services/std_svc/spmd/spmd_main.c#438",
+      "parentUuid": "c234cb61_eb2a1d4f",
+      "range": {
+        "startLine": 2365,
+        "startChar": 0,
+        "endLine": 2366,
+        "endChar": 54
+      },
+      "revId": "e8e178bf88204c04fee36742b23c6390b117e16d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d78bb9bf_e2fa1113",
         "filename": "docs/getting_started/porting-guide.rst",
         "patchSetId": 3
