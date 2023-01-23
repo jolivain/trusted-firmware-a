@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cf3d293b_fc05c23e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-01-23T17:35:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b6d6a53_7afdd9ce",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 4
+      },
+      "revId": "7f5dcbf30dcb2d0cdadc624ea693413351dff22d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b95abfb1_dc390563",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2023-01-23T11:36:21Z",
       "side": 1,
       "message": "Should this be updated to be %d ?",
+      "range": {
+        "startLine": 214,
+        "startChar": 18,
+        "endLine": 214,
+        "endChar": 20
+      },
+      "revId": "7f5dcbf30dcb2d0cdadc624ea693413351dff22d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1b1e406_d2f38af3",
+        "filename": "bl32/tsp/tsp_ffa_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-01-23T17:35:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da276116_52bfd81c",
       "range": {
         "startLine": 214,
         "startChar": 18,
