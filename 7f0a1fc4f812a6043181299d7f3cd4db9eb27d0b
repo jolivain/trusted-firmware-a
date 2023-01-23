@@ -119,6 +119,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0c6bf147_a9b57854",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-01-23T09:40:48Z",
+      "side": 1,
+      "message": "This seems to be the reason why Govindraj included this option MBEDTLS_SHA224_C here https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/18887/8/include/drivers/auth/mbedtls/mbedtls_config-3.h#73. \n\n\u003e And I should run more tests with this new version.\nYes, to verify the sanity of this configuration file, I suggest running as many tests as possible.",
+      "parentUuid": "1cbefb74_283e4f18",
+      "revId": "7f0a1fc4f812a6043181299d7f3cd4db9eb27d0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "14afb17a_c02d3b15",
         "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
         "patchSetId": 8
@@ -201,6 +219,30 @@
       "side": 1,
       "message": "\u003e What is the purpose of introducing this compilation switch for MBEDTLS 3.*?\n\nSee https://github.com/Mbed-TLS/mbedtls/issues/6910\n\n\u003e Also, setting this compilation switch via global TF_CFLAGS compiles all files with this option instead of just MBEDTLS files. If possible, should this be removed by introducing necessary changes?\n\nI agree it would be desirable to limit this flag to mbedTLS source files but unfortunately I don\u0027t think TF-A build system supports per-file (or even per-module) compilation flags right now, does it? Do you have any solution in mind?",
       "parentUuid": "d5b013a1_01c3bfc6",
+      "range": {
+        "startLine": 70,
+        "startChar": 1,
+        "endLine": 70,
+        "endChar": 40
+      },
+      "revId": "7f0a1fc4f812a6043181299d7f3cd4db9eb27d0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "424b2ed6_98af952c",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-01-23T09:40:48Z",
+      "side": 1,
+      "message": "\u003e I agree it would be desirable to limit this flag to mbedTLS source files but unfortunately I don\u0027t think TF-A build system supports per-file (or even per-module) compilation flags right now, does it?\n\nNo, TF-A does not have that capability at the moment. I think it would be better to add the compilation switch only to the library. Here are some changes I\u0027ve got in mind that work (haven\u0027t tested fully though):\n\n diff --git a/make_helpers/build_macros.mk b/make_helpers/build_macros.mk\n index 426e34494..75135e99e 100644\n --- a/make_helpers/build_macros.mk\n +++ b/make_helpers/build_macros.mk\n @@ -279,10 +279,11 @@ MAKE_DEP \u003d -Wp,-MD,$(DEP) -MT $$@ -MP\n  define MAKE_C_LIB\n  $(eval OBJ :\u003d $(1)/$(patsubst %.c,%.o,$(notdir $(2))))\n  $(eval DEP :\u003d $(patsubst %.o,%.d,$(OBJ)))\n +$(eval LIB :\u003d $(call uppercase, $(notdir $(1))))\n \n  $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | lib$(3)_dirs\n         $$(ECHO) \"  CC      $$\u003c\"\n -       $$(Q)$$(CC) $$(TF_CFLAGS) $$(CFLAGS) $(MAKE_DEP) -c $$\u003c -o $$@\n +       $$(Q)$$(CC) $$($(LIB)_CFLAGS) $$(TF_CFLAGS) $$(CFLAGS) $(MAKE_DEP) -c $$\u003c \n -o $$@",
+      "parentUuid": "3b5f5b5d_d89619b9",
       "range": {
         "startLine": 70,
         "startChar": 1,
