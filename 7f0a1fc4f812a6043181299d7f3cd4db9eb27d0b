@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "884236d4_19705bc6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-01-23T13:40:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d90a2561_14375810",
+      "revId": "7f0a1fc4f812a6043181299d7f3cd4db9eb27d0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b63ee64f_00e0c0c4",
@@ -54,6 +72,30 @@
       "writtenOn": "2023-01-20T15:22:18Z",
       "side": 1,
       "message": "(minor) typo",
+      "range": {
+        "startLine": 12,
+        "startChar": 30,
+        "endLine": 12,
+        "endChar": 38
+      },
+      "revId": "7f0a1fc4f812a6043181299d7f3cd4db9eb27d0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9e5050e_3a31d965",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-01-23T13:40:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fbfc004_ea5acd63",
       "range": {
         "startLine": 12,
         "startChar": 30,
@@ -172,6 +214,30 @@
       "side": 1,
       "message": "+1",
       "parentUuid": "14afb17a_c02d3b15",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 43
+      },
+      "revId": "7f0a1fc4f812a6043181299d7f3cd4db9eb27d0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6081e137_4b6f59f7",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-01-23T13:40:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28fda712_2b7b3e08",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -301,6 +367,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f0ba293_1bb65432",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-01-23T13:40:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b097fde6_458cf5f5",
+      "range": {
+        "startLine": 70,
+        "startChar": 1,
+        "endLine": 70,
+        "endChar": 40
+      },
+      "revId": "7f0a1fc4f812a6043181299d7f3cd4db9eb27d0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd1848a5_9b1c9fcd",
@@ -324,6 +414,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f13ae13_ffc23125",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-01-23T13:40:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd1848a5_9b1c9fcd",
+      "range": {
+        "startLine": 300,
+        "startChar": 1,
+        "endLine": 300,
+        "endChar": 21
+      },
+      "revId": "7f0a1fc4f812a6043181299d7f3cd4db9eb27d0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "247bddcf_7795cffa",
@@ -337,6 +451,24 @@
       "writtenOn": "2023-01-19T19:27:44Z",
       "side": 1,
       "message": "Could you please confirm that all these options are being tested for our various CI configurations?",
+      "revId": "7f0a1fc4f812a6043181299d7f3cd4db9eb27d0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "746008b6_37a1c267",
+        "filename": "include/drivers/auth/mbedtls/mbedtls_config-3.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-01-23T13:40:01Z",
+      "side": 1,
+      "message": "Yes I plan to add CI support to test with 3.3, options are same as 2.x expect one the dependency have changed and certain options have been made defaults.",
+      "parentUuid": "247bddcf_7795cffa",
       "revId": "7f0a1fc4f812a6043181299d7f3cd4db9eb27d0b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
