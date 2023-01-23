@@ -54,6 +54,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40f75e50_9f33fe39",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2023-01-23T10:55:07Z",
+      "side": 1,
+      "message": "@Jamie: Thanks, for the link I have replaced the \"Message structure\" chapter with the link.\n\n@Sandrine: I have removed the \"RSS based boot flow\" chapter.",
+      "parentUuid": "26aa9d27_3804dcd2",
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9dc50590_78ccb36a",
@@ -77,6 +95,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d65609d8_e3bd08be",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2023-01-23T10:55:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9dc50590_78ccb36a",
+      "range": {
+        "startLine": 14,
+        "startChar": 58,
+        "endLine": 14,
+        "endChar": 60
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0700c4b2_ba2c9f27",
@@ -90,6 +132,30 @@
       "writtenOn": "2023-01-19T16:26:39Z",
       "side": 1,
       "message": "(minor) And I would merge this paragraph with the previous one, as this feels like a continuation of the last sentence in the previous paragraph.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 23
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2ed4bc6_3bd0a355",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2023-01-23T10:55:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0700c4b2_ba2c9f27",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -135,6 +201,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86a57b0f_94537f77",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2023-01-23T10:55:07Z",
+      "side": 1,
+      "message": "I have replaced the structures with a link to the RSS documentation (pointed out by Jamie).",
+      "parentUuid": "2b50cb00_40557b6e",
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97824d6c_53d4ce4e",
@@ -148,6 +232,30 @@
       "writtenOn": "2023-01-19T16:26:39Z",
       "side": 1,
       "message": "This seems to be a repetition of what the linked \"Delegated Attestation Service Integration Guide\" covers. I think we can remove this part and keep the link only. Or at least shorten it to something like what you have above for trusted boot. For example:\n\n Delegated attestation: Query the platform attestation token, derive a\n delegated attestation key. More info on delegated attestation service\n in RSS can be found in the ``delegated_attestation_integration_guide`` [2]_",
+      "range": {
+        "startLine": 166,
+        "startChar": 29,
+        "endLine": 174,
+        "endChar": 52
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5805989c_2d1a4bff",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2023-01-23T10:55:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "97824d6c_53d4ce4e",
       "range": {
         "startLine": 166,
         "startChar": 29,
@@ -181,6 +289,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb3f39b5_d8a8d795",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2023-01-23T10:55:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "609c68ee_dfbccb0f",
+      "range": {
+        "startLine": 177,
+        "startChar": 4,
+        "endLine": 177,
+        "endChar": 5
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25b2dc54_7d7e2dba",
@@ -194,6 +326,30 @@
       "writtenOn": "2023-01-19T16:26:39Z",
       "side": 1,
       "message": "I wonder whether a reference to the following RSS document would be useful:\n\nhttps://tf-m-user-guide.trustedfirmware.org/platform/arm/rss/rss_key_management.html\n\nIt might be a bit too detailed... What do you think?",
+      "range": {
+        "startLine": 181,
+        "startChar": 55,
+        "endLine": 181,
+        "endChar": 56
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b583b893_1487de32",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2023-01-23T10:55:07Z",
+      "side": 1,
+      "message": "I have added. Indeed it contains a lot of details but I think it is better to collect all pointers in a single doc. The reader can ignore details in which he is not interested.",
+      "parentUuid": "25b2dc54_7d7e2dba",
       "range": {
         "startLine": 181,
         "startChar": 55,
@@ -227,6 +383,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0d8ebf6_73718300",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2023-01-23T10:55:07Z",
+      "side": 1,
+      "message": "I would keep it.",
+      "parentUuid": "796c1ed1_33cbfa3b",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 7
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1445f5ba_9c8fc209",
@@ -240,6 +420,30 @@
       "writtenOn": "2023-01-19T16:26:39Z",
       "side": 1,
       "message": "Is this the structure definition on RSS side? If yes, then I don\u0027t think it belongs to this document... IMO this document should only cover the interfaces and public data structures defined in TF-A.",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 282,
+        "endChar": 6
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fcb76a5_a734fbee",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2023-01-23T10:55:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1445f5ba_9c8fc209",
       "range": {
         "startLine": 262,
         "startChar": 0,
@@ -273,6 +477,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ceff9054_d79ef9c1",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2023-01-23T10:55:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7bdfe4c_5f51cb88",
+      "range": {
+        "startLine": 291,
+        "startChar": 36,
+        "endLine": 291,
+        "endChar": 40
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b57662d0_49908c3a",
@@ -286,6 +514,30 @@
       "writtenOn": "2023-01-19T16:26:39Z",
       "side": 1,
       "message": "Arguably this is already covered by https://git.trustedfirmware.org/TF-M/tf-m-extras.git/tree/partitions/measured_boot/measured_boot_integration_guide.rst#n19 already. But maybe this is short enough to be kept and is useful to understand the rest of the section. What do you think? Should we remove it?",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 324,
+        "endChar": 76
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbca0589_507de5b5",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2023-01-23T10:55:07Z",
+      "side": 1,
+      "message": "I would keep it. It helps to understand the details.",
+      "parentUuid": "b57662d0_49908c3a",
       "range": {
         "startLine": 318,
         "startChar": 0,
@@ -321,6 +573,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "36dad7ae_060dca42",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2023-01-23T10:55:07Z",
+      "side": 1,
+      "message": "\u003e To start with, it covers RSS boot (and SCP\u0027s to some extent), which arguably is not relevant to AP firmware.\n\nThis is true on the traditional platforms but on recent platforms (TC, infra) where RSS is present there it has a crucial role in the boot process. This document is about the interface and relationship between RSS and AP, so I think this is the right place for it.\nI have checked the RSS documentation and currently, there is no place where it could fit better.\n\n\u003e So my current thinking is that we should have this diagram in RSS documentation, and when Manish gets round to writing the measured boot design document for TF-A, he can reuse the \"RSS Runtime / AP Boot phase\" part of it.\n\nI would keep it in this document until there is no better place for it. We can move edit/improve or move later somewhere else.\n\nI think the two figures about the data flow help a lot to explain what happens at boot time, in which order, and which firmware components are involved. Keeping them in a single document gives a comprehensive view.",
+      "parentUuid": "65bd778a_398a02fc",
+      "range": {
+        "startLine": 394,
+        "startChar": 3,
+        "endLine": 394,
+        "endChar": 60
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "408fd81b_da258258",
         "filename": "docs/design_documents/rss.rst",
         "patchSetId": 3
@@ -332,6 +608,30 @@
       "writtenOn": "2023-01-19T16:26:39Z",
       "side": 1,
       "message": "Looks like a copy \u0026 paste of https://git.trustedfirmware.org/TF-M/tf-m-extras.git/tree/partitions/delegated_attestation/delegated_attest_integration_guide.rst. A link to this guide would be better I think.",
+      "range": {
+        "startLine": 449,
+        "startChar": 0,
+        "endLine": 472,
+        "endChar": 30
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "386fb1c3_6cc15ea9",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2023-01-23T10:55:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "408fd81b_da258258",
       "range": {
         "startLine": 449,
         "startChar": 0,
@@ -365,6 +665,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32df35ca_222c6055",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2023-01-23T10:55:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b45063f_39e909ad",
+      "range": {
+        "startLine": 474,
+        "startChar": 0,
+        "endLine": 480,
+        "endChar": 49
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59316189_88e06866",
@@ -378,6 +702,30 @@
       "writtenOn": "2023-01-19T16:26:39Z",
       "side": 1,
       "message": "I think you can remove this for now. We can add the details later on.\n\nBTW, I believe there\u0027s no precedence in TF-A to mention what kind of testing is done on a module in the documentation. This is usually hidden in the CI scripts / separate tests repo, which is not ideal. But why not starting doing this!",
+      "range": {
+        "startLine": 669,
+        "startChar": 0,
+        "endLine": 671,
+        "endChar": 3
+      },
+      "revId": "6d0e1196e3a5c41b36eca992de75a73c0d31fb6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8be8149a_ccd03669",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2023-01-23T10:55:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "59316189_88e06866",
       "range": {
         "startLine": 669,
         "startChar": 0,
