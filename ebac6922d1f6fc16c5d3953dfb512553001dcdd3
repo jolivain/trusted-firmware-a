@@ -69,6 +69,24 @@
       "parentUuid": "e31f0854_da0591a2",
       "revId": "ebac6922d1f6fc16c5d3953dfb512553001dcdd3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "634e8210_d54e0f5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000969
+      },
+      "writtenOn": "2023-01-23T17:46:18Z",
+      "side": 1,
+      "message": "It can be reproduced on clang 15 and 16. So It is a new version of LLD if you are using an older version. It can be reproduced by running \"make CC\u003d/ssd/android/master/prebuilts/clang/host/linux-x86/clang-r475365b/bin/clang PLAT\u003dqemu all\", with clang-r475365b downloaded from https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/.",
+      "parentUuid": "c38b4649_3055c888",
+      "revId": "ebac6922d1f6fc16c5d3953dfb512553001dcdd3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
