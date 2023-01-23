@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c66764ca_f2e6fab1",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2023-01-23T15:41:24Z",
+      "side": 1,
+      "message": "Any opinions on adr vs adrp? Since this is a \"nearby\" branch, I thought we could save on the \"add\" by going with adr. The spec says we could have a +/- 1MB window with adr and this appears to fall within the range.",
+      "revId": "ed804406bf2ee04bde1c17683cec6f679ea1e160",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
