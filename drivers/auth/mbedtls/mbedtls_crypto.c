@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -380,17 +380,17 @@ static int auth_decrypt(enum crypto_dec_algo dec_algo, void *data_ptr,
 #if CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_AND_HASH_CALC
 #if TF_MBEDTLS_USE_AES_GCM
 REGISTER_CRYPTO_LIB(LIB_NAME, init, verify_signature, verify_hash, calc_hash,
-		    auth_decrypt);
+		    auth_decrypt, NULL);
 #else
 REGISTER_CRYPTO_LIB(LIB_NAME, init, verify_signature, verify_hash, calc_hash,
-		    NULL);
+		    NULL, NULL);
 #endif
 #elif CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_ONLY
 #if TF_MBEDTLS_USE_AES_GCM
 REGISTER_CRYPTO_LIB(LIB_NAME, init, verify_signature, verify_hash,
-		    auth_decrypt);
+		    auth_decrypt, NULL);
 #else
-REGISTER_CRYPTO_LIB(LIB_NAME, init, verify_signature, verify_hash, NULL);
+REGISTER_CRYPTO_LIB(LIB_NAME, init, verify_signature, verify_hash, NULL, NULL);
 #endif
 #elif CRYPTO_SUPPORT == CRYPTO_HASH_CALC_ONLY
 REGISTER_CRYPTO_LIB(LIB_NAME, init, calc_hash);
