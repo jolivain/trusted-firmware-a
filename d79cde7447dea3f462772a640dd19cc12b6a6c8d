@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43288e96_97f7d383",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-24T10:04:25Z",
+      "side": 1,
+      "message": "Just a couple of comments on issues I faced while trying to run this script. I\u0027ve not looked at the code yet.",
+      "revId": "d79cde7447dea3f462772a640dd19cc12b6a6c8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce5f2d49_779c116f",
+        "filename": "Makefile",
+        "patchSetId": 3
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-24T10:04:25Z",
+      "side": 1,
+      "message": "I believe this needs to be tools/memory/src.\n\nWithout this change, I had the following error when invoking \u0027make memmap\u0027:\n\n python3: can\u0027t open file \u0027tools/memory/memmap.py\u0027: [Errno 2] No such file or directory",
+      "range": {
+        "startLine": 1004,
+        "startChar": 26,
+        "endLine": 1004,
+        "endChar": 38
+      },
+      "revId": "d79cde7447dea3f462772a640dd19cc12b6a6c8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dadbab5_c8012ad7",
+        "filename": "tools/memory/src/memmap.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-24T10:04:25Z",
+      "side": 1,
+      "message": "We might need to add python3-pyelftools package as a prerequisite in https://trustedfirmware-a.readthedocs.io/en/latest/getting_started/prerequisites.html\n\nOr should this be handled transparently through a requirements.txt file which the user must pass to \u0027pip3 install -r\u0027, just like in docs/?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 40
+      },
+      "revId": "d79cde7447dea3f462772a640dd19cc12b6a6c8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a20e6062_85450850",
+        "filename": "tools/memory/src/printer.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-24T10:04:25Z",
+      "side": 1,
+      "message": "python3-prettytable package also needs adding to the list of prerequisite in docs/ or in a requirements.txt file.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 35
+      },
+      "revId": "d79cde7447dea3f462772a640dd19cc12b6a6c8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
