@@ -238,12 +238,21 @@ functions must be provided by the CL:
                             void *pk_ptr, unsigned int pk_len);
     int (*verify_hash)(void *data_ptr, unsigned int data_len,
                        void *digest_info_ptr, unsigned int digest_info_len);
+    int (*auth_decrypt)(enum crypto_dec_algo dec_algo, void *data_ptr,
+                        size_t len, const void *key, unsigned int key_len,
+                        unsigned int key_flags, const void *iv,
+                        unsigned int iv_len, const void *tag,
+                        unsigned int tag_len);
 
 These functions are registered in the CM using the macro:
 
 .. code:: c
 
-    REGISTER_CRYPTO_LIB(_name, _init, _verify_signature, _verify_hash);
+    REGISTER_CRYPTO_LIB(_name,
+                        _init,
+                        _verify_signature,
+                        _verify_hash,
+                        _auth_decrypt);
 
 ``_name`` must be a string containing the name of the CL. This name is used for
 debugging purposes.
@@ -975,6 +984,6 @@ The mbedTLS library algorithm support is configured by both the
 
 --------------
 
-*Copyright (c) 2017-2020, Arm Limited and Contributors. All rights reserved.*
+*Copyright (c) 2017-2023, Arm Limited and Contributors. All rights reserved.*
 
 .. _TBBR-Client specification: https://developer.arm.com/docs/den0006/latest/trusted-board-boot-requirements-client-tbbr-client-armv8-a
