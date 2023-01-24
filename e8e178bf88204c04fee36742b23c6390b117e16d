@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0f0050bc_f0344caa",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 2366,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-24T08:49:57Z",
+      "side": 1,
+      "message": "\u003e I\u0027m not sure if making many separate platform functions is worth it. The single platform function can return all details (primary and secondary addresses, and size), as we are introducing \u0027primary\u0027 and \u0027secondary\u0027 load addresses that make this platform function generic and no longer dependent on RME. The primary load-address is valid, but the secondary address can be valid or NULL, depending on config file.\n\u003e \n\u003e The secondary address should be valid in some cases, e.g. here [1], where the root(primary) address should not be passed to BL32. Please let me know what do you think?\n\nAlright. I don\u0027t feel strongly about it.",
+      "parentUuid": "b2ed5c1a_cb714dd4",
+      "range": {
+        "startLine": 2365,
+        "startChar": 0,
+        "endLine": 2366,
+        "endChar": 54
+      },
+      "revId": "e8e178bf88204c04fee36742b23c6390b117e16d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d78bb9bf_e2fa1113",
         "filename": "docs/getting_started/porting-guide.rst",
         "patchSetId": 3
