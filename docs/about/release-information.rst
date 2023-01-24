@@ -67,11 +67,9 @@ after which it will be removed.
 |                                | Date        | after   |                                                         |
 |                                |             | Release |                                                         |
 +================================+=============+=========+=========================================================+
-| plat_convert_pk() function     |   Nov'22    |   2.9   | Platform conversion to manage specific PK hash          |
-+--------------------------------+-------------+---------+---------------------------------------------------------+
 | io_dummy driver                |   Nov'22    |   2.9   | No more used by any upstream platform                   |
 +--------------------------------+-------------+---------+---------------------------------------------------------+
 
 --------------
 
-*Copyright (c) 2018-2022, Arm Limited and Contributors. All rights reserved.*
+*Copyright (c) 2018-2023, Arm Limited and Contributors. All rights reserved.*
