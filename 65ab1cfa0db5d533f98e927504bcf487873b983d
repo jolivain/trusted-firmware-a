@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe610bf2_f74c5411",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-01-24T17:47:26Z",
+      "side": 1,
+      "message": "ENABLE_SPE_FOR_LOWER_ELS is defaulted to 1 (for all platforms) in make_helpers/defaults.mk:355. Would it not make sense to set it to 2 now? I think it was identified as a mistake and is kept like this to not break any platforms that might rely on it. It should be very small overhead for any that don\u0027t explicitly specify.",
+      "revId": "65ab1cfa0db5d533f98e927504bcf487873b983d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad40941f_345feb00",
+        "filename": "Makefile",
+        "patchSetId": 2
+      },
+      "lineNbr": 1144,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-01-24T17:47:26Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be after RME?",
+      "revId": "65ab1cfa0db5d533f98e927504bcf487873b983d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
