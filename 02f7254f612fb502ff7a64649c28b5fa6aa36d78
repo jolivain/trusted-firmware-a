@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cf76ec3_ec68f3a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-01-24T15:33:33Z",
+      "side": 1,
+      "message": "\u003e Patch Set 1:\n\u003e \n\u003e MISRA delta report: http://ci.trustedfirmware.org/job/tf-a-eclair-delta/TF_CONFIG\u003dfvp-default,label\u003ddocker-tf-a-eclair/533/artifact/\n\u003e \n\u003e \u003d MISRA delta report for the patch (issues resolved and/or newly added) \u003d\n\u003e \n\u003e Added for MC3R1.R10.3: (required) The value of an expression shall not be assigned to an object with a narrower essential type or of a different essential type category\n\u003e   violation: 30\n\u003e \n\u003e   service MC3R1.R10.3 --\u003e first file include/arch/aarch64/arch_features.h\n\u003e     violation: 30\n\u003e \n\u003e violation for rule MC3R1.R10.3: (required) The value of an expression shall not be assigned to an object with a narrower essential type or of a different essential type category. (untagged)\n\u003e include/arch/aarch64/arch_features.h:244.16-245.36: (MACRO) Loc #1 [culprit: `\u0026\u0027 bitwise AND operator has essential type 64-bit unsigned integer and standard type `unsigned long long\u0027]\n\u003e \u003cpreprocessed bl1/bl1_main.c\u003e:1006.9-1007.10: for #1 [culprit: preprocessed tokens]\n\u003e include/export/lib/utils_def_exp.h:31.33-31.33: for #1 [culprit: expanded from macro `ULL\u0027]\n\u003e include/arch/aarch64/arch.h:263.41-263.48: for #1 [culprit: expanded from macro `ID_AA64ISAR1_SB_MASK\u0027]\n\u003e include/arch/aarch64/arch_features.h:244.9-244.14: Loc #2 [context: `return\u0027 statement expects a boolean]\n\u003e \n\u003e [...]\n\u003e \n\u003e WARNING: The report was trimmed due to size limit of a Gerrit comment.\n\u003e Follow the link at the beginning to see the full report.\n\nWhat MISRA really struggles to say here is:\nA boolean function should not return an int. Proper bug, fixed.",
+      "revId": "02f7254f612fb502ff7a64649c28b5fa6aa36d78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
