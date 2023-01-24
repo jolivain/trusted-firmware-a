@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6b8f1344_1ca67610",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2023-01-24T16:43:13Z",
+      "side": 1,
+      "message": "v0.2",
+      "range": {
+        "startLine": 185,
+        "startChar": 47,
+        "endLine": 185,
+        "endChar": 51
+      },
+      "revId": "21a1873cbe765ba0d2877aaf19c562704b353608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "06c41a4e_1bb2f45c",
         "filename": "docs/components/rmm-el3-comms-spec.rst",
         "patchSetId": 2
@@ -37,6 +60,30 @@
       "writtenOn": "2023-01-19T12:00:41Z",
       "side": 1,
       "message": "The boot manifest v0.2 has the following fields:\n   - version : This is the version of the Manifest  (v0.2)\t\n   - plat_data : Pointer to the platform specific data and is not specified by this document. This data is optional and can be NULL. \n   - plat_dram : Structure encoding the NS DRAM information on the platform. This field is also optional and platform can choose to zero out this structure if RMM does not EL3 to send this information during Boot.\n\nEL3 must ensure that the boot manifest including the platform specific data is laid out within the RMM EL3 shared buffer.",
+      "range": {
+        "startLine": 188,
+        "startChar": 29,
+        "endLine": 191,
+        "endChar": 109
+      },
+      "revId": "21a1873cbe765ba0d2877aaf19c562704b353608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0549c431_9b3dd507",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2023-01-24T16:43:13Z",
+      "side": 1,
+      "message": "I think the current explanation points out that the boot manifest might contain vendor platform data, so I don\u0027t think it should be removed.\n\nI can be expanded, though, to point out that the \u0027Core Manifest\u0027 contains the \u0027version\u0027 and \u0027plat_dram\u0027 fields whereas the \u0027Platform data\u0027 is pointed by \u0027plat_data\u0027",
+      "parentUuid": "06c41a4e_1bb2f45c",
       "range": {
         "startLine": 188,
         "startChar": 29,
