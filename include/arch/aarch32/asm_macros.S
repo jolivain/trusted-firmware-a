@@ -8,6 +8,7 @@
 
 #include <arch.h>
 #include <common/asm_macros_common.S>
+#include <lib/cpus/cpu_ops.h>
 #include <lib/spinlock.h>
 
 /*
@@ -23,8 +24,6 @@
 #define TLB_INVALIDATE(_reg, _coproc) \
 	stcopr	_reg, _coproc
 #endif
-
-#define WORD_SIZE	4
 
 	/*
 	 * Co processor register accessors
@@ -49,14 +48,14 @@
 	.macro	dcache_line_size  reg, tmp
 	ldcopr	\tmp, CTR
 	ubfx	\tmp, \tmp, #CTR_DMINLINE_SHIFT, #CTR_DMINLINE_WIDTH
-	mov	\reg, #WORD_SIZE
+	mov	\reg, #CPU_WORD_SIZE
 	lsl	\reg, \reg, \tmp
 	.endm
 
 	.macro	icache_line_size  reg, tmp
 	ldcopr	\tmp, CTR
 	and	\tmp, \tmp, #CTR_IMINLINE_MASK
-	mov	\reg, #WORD_SIZE
+	mov	\reg, #CPU_WORD_SIZE
 	lsl	\reg, \reg, \tmp
 	.endm
 
