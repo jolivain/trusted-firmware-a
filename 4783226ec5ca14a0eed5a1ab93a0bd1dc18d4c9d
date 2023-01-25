@@ -26,6 +26,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a0f5bf95_bd5573cc",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-01-25T12:52:09Z",
+      "side": 1,
+      "message": "Can we update the setup toolchain page for RMM [1] build similar to TF-A [2]? as RMM page is still referring to 10.2-2020.11 version.\n\n[1]: https://tf-rmm.readthedocs.io/en/latest/getting_started/getting-started.html?highlight\u003darch64-none-elf-#setup-toolchain\n[2]: https://trustedfirmware-a.readthedocs.io/en/latest/getting_started/prerequisites.html?highlight\u003dtoolchain#toolchain",
+      "range": {
+        "startLine": 130,
+        "startChar": 3,
+        "endLine": 130,
+        "endChar": 20
+      },
+      "revId": "4783226ec5ca14a0eed5a1ab93a0bd1dc18d4c9d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0ed66be_08064d79",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-01-25T12:52:09Z",
+      "side": 1,
+      "message": "Just confirming that whether this command is still valid since I used below command last time with some extra parameters?\n\n cmake -DRMM_CONFIG\u003dfvp_defcfg -G Ninja -S . -B build -DCMAKE_BUILD_TYPE\u003dDebug - \n DRMM_TOOLCHAIN\u003dgnu -DRMM_FPU_USE_AT_REL2\u003dOFF",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 44
+      },
+      "revId": "4783226ec5ca14a0eed5a1ab93a0bd1dc18d4c9d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "04fd1ede_fffc4c88",
         "filename": "docs/components/realm-management-extension.rst",
         "patchSetId": 3
