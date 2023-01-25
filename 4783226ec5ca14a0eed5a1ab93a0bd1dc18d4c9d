@@ -95,6 +95,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a7fa9f8_204740c4",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-01-25T13:05:53Z",
+      "side": 1,
+      "message": "\u003e We might need another section in the docs to mention the versions being tested in CI perhaps.\n\nYes, that will be better!",
+      "parentUuid": "397eca43_c92a6979",
+      "range": {
+        "startLine": 130,
+        "startChar": 3,
+        "endLine": 130,
+        "endChar": 20
+      },
+      "revId": "4783226ec5ca14a0eed5a1ab93a0bd1dc18d4c9d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0ed66be_08064d79",
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "Yes, those are the additional optional parameters and are not needed if doing a basic build. These options are further explained in the RMM documentation, so it is better to leave out the optional ones from OOB here.",
       "parentUuid": "e0ed66be_08064d79",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 44
+      },
+      "revId": "4783226ec5ca14a0eed5a1ab93a0bd1dc18d4c9d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b00e7b86_69199a47",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-01-25T13:05:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "791d8aa4_7d330744",
       "range": {
         "startLine": 140,
         "startChar": 0,
