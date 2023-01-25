@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cce1f2c_84a5dc23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-01-25T09:52:27Z",
+      "side": 1,
+      "message": "Hi Jeffrey, \n\nOn the topic of what else is required to get this stack ready to merge here are my thoughts.\n\nI\u0027ve invited some other maintainers to comment, I see one of them has posted some comments today. Once we have consensus with maintainers one of us will sign off the stack.\n\nCode Owner is Jens (https://trustedfirmware-a.readthedocs.io/en/latest/about/maintainers.html?highlight\u003dJens#op-tee-dispatcher) so clearing that for him to sign off when he is ready.\n\nI would like to see some tests introduced. At the minimum a build job with this option selected should be added to ensure other changes can be checked to avoid breaking this new support. Better yet would be some boot testing to ensure the intended purpose of the changes stays operational. One option would be to include this option in the new boot test on the Chromebook platform now in the OpenCI. Or a second boot test more targeted to this.\n\nI also have some other documentation suggestions which I will post separately.\n\nJoanna",
+      "revId": "01133850c5b0057a39cf606a88b3fc67f0e63fce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40c9844c_4d51854d",
