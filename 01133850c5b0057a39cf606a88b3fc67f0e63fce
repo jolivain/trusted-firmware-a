@@ -16,6 +16,29 @@
       "message": "What else needs to be done in order to get this merged?",
       "revId": "01133850c5b0057a39cf606a88b3fc67f0e63fce",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40c9844c_4d51854d",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-25T09:37:29Z",
+      "side": 1,
+      "message": "opteed_init_with_entry_point() may fail so I think we should propagate its error code up. Right now, opteed_handle_smc_load() will unconditionally return success (0) from this point onwards.",
+      "range": {
+        "startLine": 286,
+        "startChar": 1,
+        "endLine": 286,
+        "endChar": 46
+      },
+      "revId": "01133850c5b0057a39cf606a88b3fc67f0e63fce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
