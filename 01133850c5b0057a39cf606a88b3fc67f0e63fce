@@ -52,6 +52,42 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a27f7cf_f475dbc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-25T19:47:21Z",
+      "side": 1,
+      "message": "No problem, appreciate the feedback!",
+      "parentUuid": "09ef41f1_fc3a7896",
+      "revId": "01133850c5b0057a39cf606a88b3fc67f0e63fce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd3f8f15_e7eeff8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-25T19:47:21Z",
+      "side": 1,
+      "message": "Sorry about the Code-Owners vote...wasn\u0027t sure exactly what that meant, but now I understand.\n\nI will add the build job with this option selected.\n\nAs for further automated boot testing, we discussed this internally and testing on the upstream CI Chromebooks is something we can consider in the future but it requires a lot more than we have currently set up there. So we\u0027d like to work on stabilizing that first, but expanding it to the point where we could test OP-TEE loading will take a lot more time and we can add that in when we get to that stage.",
+      "parentUuid": "5cce1f2c_84a5dc23",
+      "revId": "01133850c5b0057a39cf606a88b3fc67f0e63fce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ff53f40_b3bb6db6",
@@ -71,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "665eb090_a381b9ef",
+        "filename": "docs/components/spd/optee-dispatcher.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-25T19:47:21Z",
+      "side": 1,
+      "message": "We don\u0027t have public documentation currently on this since this is the first time we are using S-EL1 for anything.  I will expand both this and the threat model to explain that this is a specific change for ChromeOS and why we think it is secure for our model.",
+      "parentUuid": "3ff53f40_b3bb6db6",
+      "revId": "01133850c5b0057a39cf606a88b3fc67f0e63fce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0dd3fefa_80ac3ce8",
         "filename": "docs/threat_model/threat_model.rst",
         "patchSetId": 12
@@ -82,6 +136,30 @@
       "writtenOn": "2023-01-25T10:17:33Z",
       "side": 1,
       "message": "I think the consequences could be even worse. IIUC, we trust the OPTEE header in the image to tell us where to load the OPTEE image to. So if this is compromised then BL31 could end up writing anywhere. Potentially overwriting its own code or data. So it\u0027s not just affecting S-EL1. Is my understanding correct?",
+      "range": {
+        "startLine": 930,
+        "startChar": 50,
+        "endLine": 932,
+        "endChar": 63
+      },
+      "revId": "01133850c5b0057a39cf606a88b3fc67f0e63fce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8311f23a_ad249201",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-25T19:47:21Z",
+      "side": 1,
+      "message": "Yes, you are correct. I\u0027ve changed this to indicate it can also overwrite arbitrary memory in EL3 as well.",
+      "parentUuid": "0dd3fefa_80ac3ce8",
       "range": {
         "startLine": 930,
         "startChar": 50,
@@ -117,6 +195,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2b8f356b_8feeb199",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-25T19:47:21Z",
+      "side": 1,
+      "message": "I would agree with that assessment. I\u0027ve changed the text here to reflect that and then link back to the other documentation change I made which describes the security model on ChromeOS that mitigates this threat.",
+      "parentUuid": "45fee00e_2fa53585",
+      "range": {
+        "startLine": 959,
+        "startChar": 29,
+        "endLine": 959,
+        "endChar": 53
+      },
+      "revId": "01133850c5b0057a39cf606a88b3fc67f0e63fce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0a8f933_ea5c39b3",
         "filename": "services/spd/opteed/opteed_main.c",
         "patchSetId": 12
@@ -128,6 +230,30 @@
       "writtenOn": "2023-01-25T11:22:47Z",
       "side": 1,
       "message": "The statement must be enclosed in braces as per coding guidelines [1] and the \u0027condition\u0027 must be boolean to avoid MISRA warnings. Same applies to other changes in the patch, wherever applicable.\n[1]: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#braces",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 233,
+        "endChar": 8
+      },
+      "revId": "01133850c5b0057a39cf606a88b3fc67f0e63fce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd5932f0_cb576f7d",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-25T19:47:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0a8f933_ea5c39b3",
       "range": {
         "startLine": 233,
         "startChar": 0,
@@ -161,6 +287,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "522507ec_ae9f1bcb",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-25T19:47:21Z",
+      "side": 1,
+      "message": "Done.  image_va didn\u0027t exist yet, so I had to add it...but it is cleaner that way.",
+      "parentUuid": "80a85e82_e2830f67",
+      "range": {
+        "startLine": 270,
+        "startChar": 16,
+        "endLine": 270,
+        "endChar": 24
+      },
+      "revId": "01133850c5b0057a39cf606a88b3fc67f0e63fce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40c9844c_4d51854d",
@@ -184,6 +334,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a88fce3_801ffc96",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-25T19:47:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40c9844c_4d51854d",
+      "range": {
+        "startLine": 286,
+        "startChar": 1,
+        "endLine": 286,
+        "endChar": 46
+      },
+      "revId": "01133850c5b0057a39cf606a88b3fc67f0e63fce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "610ecafc_165a1b2d",
@@ -197,6 +371,30 @@
       "writtenOn": "2023-01-25T09:49:16Z",
       "side": 1,
       "message": "I see we disable this SMC handler once it\u0027s been called, which is good. What would be even nicer is if we could entirely wipe this code out of memory so we don\u0027t leave any potential gadgets or code that could be exploited.\n\nNow I realize this might not be easy to implement right now but maybe that\u0027s something we could investigate in the future?\n\nThat\u0027s similar to what we already do under RECLAIM_INIT build flag, except that RECLAIM_INIT logic reclaims code at the end of BL31 initialization, which in your case would be too early. But hopefully we can extend the RECLAIM_INIT logic and reuse some of the code...",
+      "range": {
+        "startLine": 325,
+        "startChar": 0,
+        "endLine": 329,
+        "endChar": 29
+      },
+      "revId": "01133850c5b0057a39cf606a88b3fc67f0e63fce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c810ebc_ee3bd14e",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-25T19:47:21Z",
+      "side": 1,
+      "message": "OK, I added a TODO in the code to consider this for the future.",
+      "parentUuid": "610ecafc_165a1b2d",
       "range": {
         "startLine": 325,
         "startChar": 0,
