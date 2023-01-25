@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "208a6297_82b73854",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-01-25T14:43:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63f89c74_a544c411",
+      "range": {
+        "startLine": 13,
+        "startChar": 8,
+        "endLine": 13,
+        "endChar": 13
+      },
+      "revId": "d358688eedcf68f5a7134070cf90c551c1c25a4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb801766_f9894be8",
@@ -70,6 +94,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b1dd798_cd079a07",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-01-25T14:43:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb801766_f9894be8",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 30
+      },
+      "revId": "d358688eedcf68f5a7134070cf90c551c1c25a4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e303f8e1_1e5852ef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-01-25T14:43:35Z",
+      "side": 1,
+      "message": "yes thats the intention use el3_panic for any panics from el3 but were the panic occurred whether in el3 or in lower el is depicted with spsr which may be incorrect handling.",
+      "parentUuid": "b8256c63_e0664984",
+      "range": {
+        "startLine": 14,
+        "startChar": 26,
+        "endLine": 14,
+        "endChar": 29
+      },
+      "revId": "d358688eedcf68f5a7134070cf90c551c1c25a4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ab78401_6c5c6c18",
@@ -95,6 +167,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "eafcc21a_dbcdfd0d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-01-25T14:43:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ab78401_6c5c6c18",
+      "range": {
+        "startLine": 21,
+        "startChar": 16,
+        "endLine": 21,
+        "endChar": 20
+      },
+      "revId": "d358688eedcf68f5a7134070cf90c551c1c25a4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d634d44b_98fd5aa1",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 6
@@ -106,6 +202,24 @@
       "writtenOn": "2023-01-24T22:55:34Z",
       "side": 1,
       "message": "Hi Govind, \n\nthe code seems to be OK. My only question is about the possible use case for which you end up having an exception from EL3t instead of EL3h. According to the patch description, the previous code assumed panic coming from EL3 as EL3h, thus returned el3_panic, even for panic coming from EL3t, correct? So my question is: why should I not return el3_panic from panic coming from EL3t too, as I\u0027m still on EL3? What would be the case in which I would end up in EL3t?",
+      "revId": "d358688eedcf68f5a7134070cf90c551c1c25a4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "def7e6c4_0ba1cf2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-01-25T14:43:35Z",
+      "side": 1,
+      "message": "Hi Juan,\n\nI have tried to clarify a bit more on this in cmt-msg,\n\nafter we boot into a OS and a panic can occur from os or bl31 when handling any SM/ABI calls, but when the panic occurs we use spsr[3:0] we will get always EL3h as value so we dont have any mechanism to find if panic occurred from lower el or from el3. so we are trying to cleanup the code to rectify this path.",
+      "parentUuid": "d634d44b_98fd5aa1",
       "revId": "d358688eedcf68f5a7134070cf90c551c1c25a4a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
