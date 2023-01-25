@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "397eca43_c92a6979",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-25T13:00:11Z",
+      "side": 1,
+      "message": "hmm, this the version we currently test in CI.  RMM doesn\u0027t move necessarily to the latest toolchain along with TF-A. Even if we upgrade in CI in future, the policy is not to impose a compiler upgrade on user unless required.\n\nWe might need another section in the docs to mention the versions being tested in CI perhaps.",
+      "parentUuid": "a0f5bf95_bd5573cc",
+      "range": {
+        "startLine": 130,
+        "startChar": 3,
+        "endLine": 130,
+        "endChar": 20
+      },
+      "revId": "4783226ec5ca14a0eed5a1ab93a0bd1dc18d4c9d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e0ed66be_08064d79",
         "filename": "docs/components/realm-management-extension.rst",
         "patchSetId": 3
@@ -84,6 +108,30 @@
       "writtenOn": "2023-01-25T12:52:09Z",
       "side": 1,
       "message": "Just confirming that whether this command is still valid since I used below command last time with some extra parameters?\n\n cmake -DRMM_CONFIG\u003dfvp_defcfg -G Ninja -S . -B build -DCMAKE_BUILD_TYPE\u003dDebug - \n DRMM_TOOLCHAIN\u003dgnu -DRMM_FPU_USE_AT_REL2\u003dOFF",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 44
+      },
+      "revId": "4783226ec5ca14a0eed5a1ab93a0bd1dc18d4c9d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "791d8aa4_7d330744",
+        "filename": "docs/components/realm-management-extension.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-25T13:00:11Z",
+      "side": 1,
+      "message": "Yes, those are the additional optional parameters and are not needed if doing a basic build. These options are further explained in the RMM documentation, so it is better to leave out the optional ones from OOB here.",
+      "parentUuid": "e0ed66be_08064d79",
       "range": {
         "startLine": 140,
         "startChar": 0,
