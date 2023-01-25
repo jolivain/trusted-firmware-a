@@ -35,6 +35,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09ef41f1_fc3a7896",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-25T10:17:33Z",
+      "side": 1,
+      "message": "Hi Jeffrey, Sorry, I came late to this review... I know it\u0027s been up for review for some time...",
+      "revId": "01133850c5b0057a39cf606a88b3fc67f0e63fce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ff53f40_b3bb6db6",
@@ -48,6 +65,75 @@
       "writtenOn": "2023-01-25T10:16:38Z",
       "side": 1,
       "message": "All the changes are framed as a generic option and comments here and in the threat model section mention the risks involved again in a generic way.\n\nIn reality though these changes are being added to support Chromebook use and the Chromebook security model.\n\nWhat would be useful to the community that read this documentation is being able to reference how Chromebook is ensuring the management of the risks when using this option.\n\nIs that mentioned somewhere on Chromebook public developer documentation? Having a reference to that would be useful I feel as a practical demonstration of using this option and managing these risks.",
+      "revId": "01133850c5b0057a39cf606a88b3fc67f0e63fce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dd3fefa_80ac3ce8",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-25T10:17:33Z",
+      "side": 1,
+      "message": "I think the consequences could be even worse. IIUC, we trust the OPTEE header in the image to tell us where to load the OPTEE image to. So if this is compromised then BL31 could end up writing anywhere. Potentially overwriting its own code or data. So it\u0027s not just affecting S-EL1. Is my understanding correct?",
+      "range": {
+        "startLine": 930,
+        "startChar": 50,
+        "endLine": 932,
+        "endChar": 63
+      },
+      "revId": "01133850c5b0057a39cf606a88b3fc67f0e63fce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45fee00e_2fa53585",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-25T10:17:33Z",
+      "side": 1,
+      "message": "Could you please explain this?\n\nMy understanding was that TF-A does not implement any mitigations against that, neither in generic code nor in platform code. It\u0027s up to the upper layers - i.e. the early phase of normal world OS - to ensure it\u0027s secure. So in this document, which considers TF-A in isolation, I think this should be a \"no\".\n\nWould you agree? Or did I misunderstand something?",
+      "range": {
+        "startLine": 959,
+        "startChar": 29,
+        "endLine": 959,
+        "endChar": 53
+      },
+      "revId": "01133850c5b0057a39cf606a88b3fc67f0e63fce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80a85e82_e2830f67",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-25T10:17:33Z",
+      "side": 1,
+      "message": "(minor) Conceptually I think this should be image_va, right? Not that it matters much, since image_pa \u003d\u003d image_va...",
+      "range": {
+        "startLine": 270,
+        "startChar": 16,
+        "endLine": 270,
+        "endChar": 24
+      },
       "revId": "01133850c5b0057a39cf606a88b3fc67f0e63fce",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
