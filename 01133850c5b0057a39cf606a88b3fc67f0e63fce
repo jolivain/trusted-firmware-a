@@ -39,6 +39,29 @@
       },
       "revId": "01133850c5b0057a39cf606a88b3fc67f0e63fce",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "610ecafc_165a1b2d",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-25T09:49:16Z",
+      "side": 1,
+      "message": "I see we disable this SMC handler once it\u0027s been called, which is good. What would be even nicer is if we could entirely wipe this code out of memory so we don\u0027t leave any potential gadgets or code that could be exploited.\n\nNow I realize this might not be easy to implement right now but maybe that\u0027s something we could investigate in the future?\n\nThat\u0027s similar to what we already do under RECLAIM_INIT build flag, except that RECLAIM_INIT logic reclaims code at the end of BL31 initialization, which in your case would be too early. But hopefully we can extend the RECLAIM_INIT logic and reuse some of the code...",
+      "range": {
+        "startLine": 325,
+        "startChar": 0,
+        "endLine": 329,
+        "endChar": 29
+      },
+      "revId": "01133850c5b0057a39cf606a88b3fc67f0e63fce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
