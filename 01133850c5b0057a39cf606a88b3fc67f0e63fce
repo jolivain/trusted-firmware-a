@@ -117,6 +117,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a0a8f933_ea5c39b3",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-01-25T11:22:47Z",
+      "side": 1,
+      "message": "The statement must be enclosed in braces as per coding guidelines [1] and the \u0027condition\u0027 must be boolean to avoid MISRA warnings. Same applies to other changes in the patch, wherever applicable.\n[1]: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#braces",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 233,
+        "endChar": 8
+      },
+      "revId": "01133850c5b0057a39cf606a88b3fc67f0e63fce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "80a85e82_e2830f67",
         "filename": "services/spd/opteed/opteed_main.c",
         "patchSetId": 12
