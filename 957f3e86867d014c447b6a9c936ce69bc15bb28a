@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "189ec86f_48f34167",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-01-26T09:35:45Z",
+      "side": 1,
+      "message": "nit: Please update the copyright year to 2023 for all modified files.",
+      "revId": "957f3e86867d014c447b6a9c936ce69bc15bb28a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a18a98f_cf9a8fc7",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-01-26T09:35:45Z",
+      "side": 1,
+      "message": "This should be boolean condition \"rc !\u003d 0\" to avoid MISRA warnings.",
+      "range": {
+        "startLine": 234,
+        "startChar": 5,
+        "endLine": 234,
+        "endChar": 7
+      },
+      "revId": "957f3e86867d014c447b6a9c936ce69bc15bb28a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3d7d665_a3f675ab",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-01-26T09:35:45Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 266,
+        "startChar": 5,
+        "endLine": 266,
+        "endChar": 7
+      },
+      "revId": "957f3e86867d014c447b6a9c936ce69bc15bb28a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
