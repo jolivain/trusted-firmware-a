@@ -17,6 +17,8 @@ BL2U_LINKER_SCRIPT_SOURCES := bl2u/bl2u.ld.S
 
 ifneq ($(findstring gcc,$(notdir $(LD))),)
         BL2U_LDFLAGS	+=	-Wl,--sort-section=alignment
+        BL2U_LDFLAGS	+=	-Wl,--orphan-handling=error
 else ifneq ($(findstring ld,$(notdir $(LD))),)
         BL2U_LDFLAGS	+=	--sort-section=alignment
+        BL2U_LDFLAGS	+=	--orphan-handling=error
 endif
