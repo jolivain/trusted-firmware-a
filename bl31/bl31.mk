@@ -162,8 +162,10 @@ BL31_LINKER_SCRIPT_SOURCES := bl31/bl31.ld.S $(BL31_LINKER_SCRIPT_SOURCES)
 
 ifneq ($(findstring gcc,$(notdir $(LD))),)
         BL31_LDFLAGS	+=	-Wl,--sort-section=alignment
+        BL31_LDFLAGS	+=	-Wl,--orphan-handling=error
 else ifneq ($(findstring ld,$(notdir $(LD))),)
         BL31_LDFLAGS	+=	--sort-section=alignment
+        BL31_LDFLAGS	+=	--orphan-handling=error
 endif
 
 # Flag used to indicate if Crash reporting via console should be included
