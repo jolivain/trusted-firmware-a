@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e237468_1ee96857",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-01-26T17:33:57Z",
+      "side": 1,
+      "message": "The OpenCI when testing patches across repos should sync all involved and hopefully should run your test changes. Let\u0027s see as this is a build only tests an AllowCI+1 should do the trick.\n\nBTW I\u0027ve added you to the users who are allowed to start CI runs so the Allow-CI label should be available to you soon. +1 is the light tests and does some static tests, docs build and platform builds. +2 is a lot larger set of runtime tests. Beware false failures as the CI is a little fragile at the moment but I can help interpret results if in doubt.",
+      "revId": "957f3e86867d014c447b6a9c936ce69bc15bb28a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a18a98f_cf9a8fc7",
