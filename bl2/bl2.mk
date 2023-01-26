@@ -17,8 +17,10 @@ endif
 
 ifneq ($(findstring gcc,$(notdir $(LD))),)
         BL2_LDFLAGS	+=	-Wl,--sort-section=alignment
+        BL2_LDFLAGS	+=	-Wl,--orphan-handling=error
 else ifneq ($(findstring ld,$(notdir $(LD))),)
         BL2_LDFLAGS	+=	--sort-section=alignment
+        BL2_LDFLAGS	+=	--orphan-handling=error
 endif
 
 BL2_DEFAULT_LINKER_SCRIPT_SOURCE := bootloader/bootloader.ld.S
