@@ -21,6 +21,8 @@ else ifneq ($(findstring ld,$(notdir $(LD))),)
         BL2_LDFLAGS	+=	--sort-section=alignment
 endif
 
+BL2_DEFAULT_LINKER_SCRIPT_SOURCE := bootloader/bootloader.ld.S
+
 ifeq (${ENABLE_RME},1)
 # Using RME, run BL2 at EL3
 include lib/gpt_rme/gpt_rme.mk
@@ -29,12 +31,13 @@ BL2_SOURCES		+=      bl2/${ARCH}/bl2_rme_entrypoint.S	\
 				bl2/${ARCH}/bl2_el3_exceptions.S	\
 				bl2/${ARCH}/bl2_run_next_image.S	\
 				${GPT_LIB_SRCS}
-BL2_DEFAULT_LINKER_SCRIPT_SOURCE := bl2/bl2.ld.S
+
+BL2_LINKER_SCRIPT_SOURCES := bl2/bl2.ld.S $(BL2_LINKER_SCRIPT_SOURCES)
 
 else ifeq (${RESET_TO_BL2},0)
 # Normal operation, no RME, no BL2 at EL3
 BL2_SOURCES		+=	bl2/${ARCH}/bl2_entrypoint.S
-BL2_DEFAULT_LINKER_SCRIPT_SOURCE := bl2/bl2.ld.S
+BL2_LINKER_SCRIPT_SOURCES := bl2/bl2.ld.S $(BL2_LINKER_SCRIPT_SOURCES)
 
 else
 # BL2 at EL3, no RME
@@ -52,5 +55,5 @@ ifeq (${ARCH},aarch64)
 BL2_SOURCES		+=	lib/cpus/aarch64/dsu_helpers.S
 endif
 
-BL2_DEFAULT_LINKER_SCRIPT_SOURCE := bl2/bl2_el3.ld.S
+BL2_LINKER_SCRIPT_SOURCES := bl2/bl2_el3.ld.S $(BL2_LINKER_SCRIPT_SOURCES)
 endif
