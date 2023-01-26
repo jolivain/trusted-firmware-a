@@ -525,8 +525,14 @@ endfunc fpregs_context_restore
 	 * always enable DIT in EL3
 	 */
 #if ENABLE_FEAT_DIT
+#if ENABLE_FEAT_DIT == 2
+	mrs	x8, id_aa64pfr0_el1
+	and	x8, x8, #(0xf << 48)
+	cbz	1f
+#endif
 	mov     x8, #DIT_BIT
 	msr     DIT, x8
+1:
 #endif /* ENABLE_FEAT_DIT */
 	.endm /* set_unset_pstate_bits */
 
