@@ -33,6 +33,24 @@
       "message": "\u003e Patch Set 1:\n\u003e \n\u003e MISRA delta report: http://ci.trustedfirmware.org/job/tf-a-eclair-delta/TF_CONFIG\u003dfvp-default,label\u003ddocker-tf-a-eclair/551/artifact/\n\u003e \n\u003e \u003d MISRA delta report for the patch (issues resolved and/or newly added) \u003d\n\u003e \n\u003e Resolved for MC3R1.R10.3: (required) The value of an expression shall not be assigned to an object with a narrower essential type or of a different essential type category\n\u003e   violation: 81\n\u003e \n\u003e   service MC3R1.R10.3 --\u003e first file include/arch/aarch64/arch_features.h\n\u003e     violation: 81\n\u003e \n\u003e violation for rule MC3R1.R10.3: (required) The value of an expression shall not be assigned to an object with a narrower essential type or of a different essential type category. (untagged)\n\u003e include/arch/aarch64/arch_features.h:103.16-104.41: (MACRO) Loc #1 [culprit: `\u0026\u0027 bitwise AND operator has essential type 64-bit unsigned integer and standard type `unsigned long long\u0027]\n\u003e \u003cpreprocessed bl1/bl1_main.c\u003e:870.9-871.10: for #1 [culprit: preprocessed tokens]\n\u003e include/export/lib/utils_def_exp.h:31.33-31.33: for #1 [culprit: expanded from macro `ULL\u0027]\n\u003e include/arch/aarch64/arch.h:293.49-293.56: for #1 [culprit: expanded from macro `ID_AA64MMFR0_EL1_FGT_MASK\u0027]\n\u003e include/arch/aarch64/arch_features.h:103.9-103.14: Loc #2 [context: `return\u0027 statement expects a 32-bit unsigned integer]\n\u003e \n\nWhat is going on here? Those two lines and the other two occurrences are exactly the ones that this patch fixes. Following the link I see the old code still, so where does the MISRA test takes its code from, and why is it replying to this patch?",
       "revId": "23b1cb75952861fd5614794605596d25e0518a98",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85ed9dba_d98fee06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-01-26T12:36:51Z",
+      "side": 1,
+      "message": "To answer to one of your question,\nI see you had triggered AllowCI+1 for the toppatch, (Align FEAT_SB).and the MISRA report has been sent there accordingly.\nSince Juan had triggered AllowCI+1 this patch explicitly, report shared here as well. \nI see the consolelog, where in the HEAD is picked from this patch only.\nNot sure though on how the old code being for MISRA analysis here. I will check with the team and update here soon. \n\nAlso, we need to run CI+2 from the top patch stack. But Open-CI has some load issues and seems broken(or taking more duration than normal). We are in discussion with Linaro to resolve it. So will trigger CI+2 from top patch stack at sometime and see the final MISRA report.\n\nWe could then verify whether MISRA still complains or not ( ideally shouldn\u0027t) and pick it from there accordingly.",
+      "parentUuid": "9842fec2_4773a982",
+      "revId": "23b1cb75952861fd5614794605596d25e0518a98",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
