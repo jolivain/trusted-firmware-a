@@ -6,7 +6,6 @@
 #ifndef CPU_MACROS_S
 #define CPU_MACROS_S
 
-#include <arch.h>
 #include <lib/cpus/cpu_ops.h>
 #include <lib/cpus/errata.h>
 
@@ -94,10 +93,34 @@
 	.endif
 
 	/*
-	 * Mandatory errata status printing function for CPUs of
-	 * this class.
+	 * It is possible (although unlikely) that a cpu may have no errata in
+	 * code. In that case the start label will not be defined. The list is
+	 * inteded to be used in a loop, so define it as zero-length for
+	 * predictable behaviour. Since this macro is always called at the end
+	 * of the cpu file (after all errata have been parsed) we can be sure
+	 * that we are at the end of the list. Used by the errata ABI
 	 */
-	.word \_name\()_errata_report
+	.pushsection .data.errata_entries
+	.ifndef \_name\()_errata_list_start
+	    \_name\()_errata_list_start:
+	.endif
+	\_name\()_errata_list_end:
+	.word 0
+	.popsection
+
+	/*
+	 * Maintain compatibility with the old scheme of each cpu has it's own.
+	 * TODO: remove entirely once all cpus have been converted
+	 */
+	.ifdef \_name\()_errata_report
+		.word \_name\()_errata_report
+	.else
+		.word 0
+	.endif
+	/* and now put them in cpu_ops */
+	.word \_name\()_errata_list_start
+	.word \_name\()_errata_list_end
+	.word \_name\()_cpu_str
 
 #ifdef IMAGE_BL32
 	/* Pointers to errata lock and reported flag */
@@ -160,4 +183,44 @@
 	beq	\_label
 	.endm
 
+/*
+ * NOTE an erratum and CVE id could clash. However, both numbers are very large
+ * and the probablity is minuscule. Working around this makes code very
+ * complicated and extremely difficult to read so it is not considered. In the
+ * unlikely event that this does happen, prepending the CVE id with a 0 should
+ * resolve the conflict
+ */
+
+/*
+* Necessary, since the errata framework is not being ported to
+* Aarch32. We need to "link" to the exisiting stuff
+*/
+.macro add_erratum_entry _cpu:req, _cve:req, _id:req, _chosen:req, _special
+	.pushsection .data.errata_entries
+		.align	2
+		.ifndef \_cpu\()_errata_list_start
+		\_cpu\()_errata_list_start:
+		.endif
+
+		/* unused on Aarch32, maintain for portability */
+		.word	0
+		/* TODO(errata ABI): this prevents all checker functions from
+		 * being optimised away. Can be done away with unless the ABI
+		 * needs them */
+		.ifnb \_special
+			.word	check_errata_\_special
+		.elseif \_cve
+			.word	check_errata_cve_\_cve\()_\_id
+		.else
+			.word	check_errata_\_id
+		.endif
+		/* Will fit CVEs with up to 10 character in the ID field */
+		.word	\_id
+		.hword	\_cve
+		.byte	\_chosen
+		/* TODO(errata ABI): mitigated field for known but unmitigated
+		 * errata*/
+		.byte	0x1
+	.popsection
+.endm
 #endif /* CPU_MACROS_S */
