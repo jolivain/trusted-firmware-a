@@ -12,7 +12,7 @@
 #include <common/bl_common.h>
 #include <context.h>
 #include <lib/el3_runtime/context_mgmt.h>
-#include <lib/cpus/errata_report.h>
+#include <lib/cpus/errata.h>
 #include <plat/common/platform.h>
 
 #include "psci_private.h"
