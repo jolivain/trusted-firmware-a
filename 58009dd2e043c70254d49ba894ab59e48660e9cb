@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c99db20b_f2c3017a",
+        "filename": "plat/qemu/common/qemu_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-01-27T11:37:27Z",
+      "side": 1,
+      "message": "I tried to make version which would add #if USE_COHERENT_MEM where needed. But failed on this macro.",
+      "revId": "58009dd2e043c70254d49ba894ab59e48660e9cb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "db20855d_411e33dd",
         "filename": "plat/qemu/qemu_sbsa/platform.mk",
         "patchSetId": 2
