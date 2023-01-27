@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "355cf919_470a40f2",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-01-27T09:24:20Z",
+      "side": 1,
+      "message": "I would really like to, but I can\u0027t. This function modifies some registers in place and I can\u0027t be sure it will function the same if I moved it. I hope to do it eventually, but that will happen after I refactor it (I have WIP patches) and the register setting above",
+      "parentUuid": "3b3143a0_ea2a2647",
+      "revId": "66affd1326611aaf3d83443da2a059364b9b58d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e15c8bab_01393c99",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 2
@@ -48,6 +66,24 @@
       "writtenOn": "2023-01-26T22:21:31Z",
       "side": 1,
       "message": "I noticed that this does not involve an assertion, so it can be moved outside the #if CTX_INCLUDE_EL2_REGS macro. In fact. Line 588, which is identical, can be moved ouside too (to line 587), therefore they can be unified.",
+      "revId": "66affd1326611aaf3d83443da2a059364b9b58d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7dade44_0f50fca0",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-01-27T09:24:20Z",
+      "side": 1,
+      "message": "the problem with these two is that when security_state !\u003d NON_SECURE they are unused, producing a warning. Sadly I think this is the best way to do it.",
+      "parentUuid": "e15c8bab_01393c99",
       "revId": "66affd1326611aaf3d83443da2a059364b9b58d3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
