@@ -809,8 +809,8 @@ ifeq ($(RAS_FFH_SUPPORT),1)
 endif
 # When FAULT_INJECTION_SUPPORT is used, require that FEAT_RAS is enabled
 ifeq ($(FAULT_INJECTION_SUPPORT),1)
-    ifneq ($(ENABLE_FEAT_RAS),1)
-        $(error For FAULT_INJECTION_SUPPORT, ENABLE_FEAT_RAS must also be 1)
+    ifeq ($(ENABLE_FEAT_RAS),0)
+        $(error For FAULT_INJECTION_SUPPORT, ENABLE_FEAT_RAS must not be 0)
     endif
 endif
 
@@ -1175,7 +1175,7 @@ $(eval $(call assert_booleans,\
         FEATURE_DETECTION \
 	TRNG_SUPPORT \
 	CONDITIONAL_CMO \
-	ENABLE_FEAT_RAS \
+	RAS_FFH_SUPPORT \
 )))
 
 $(eval $(call assert_numerics,\
