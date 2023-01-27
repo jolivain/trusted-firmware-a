@@ -112,10 +112,29 @@
 	.endif
 
 	/*
+	 * It is possible (although unlikely) that a cpu may have no errata in
+	 * code. In that case the start label will not be defined. The list is
+	 * inteded to be used in a loop, so define it as zero-length for
+	 * predictable behaviour. Since this macro is always called at the end
+	 * of the cpu file (after all errata have been parsed) we can be sure
+	 * that we are at the end of the list. Used by the errata ABI
+	 */
+	.pushsection .rodata.errata_entries
+	.ifndef \_name\()_errata_list_start
+		\_name\()_errata_list_start:
+	.endif
+	\_name\()_errata_list_end:
+	.popsection
+
+	/*
 	 * Mandatory errata status printing function for CPUs of
 	 * this class.
 	 */
 	.quad \_name\()_errata_report
+	/* and now put them in cpu_ops */
+	.quad \_name\()_errata_list_start
+	.quad \_name\()_errata_list_end
+	.quad \_name\()_cpu_str
 
 #ifdef IMAGE_BL31
 	/* Pointers to errata lock and reported flag */
@@ -148,6 +167,7 @@
 			\_extra1, \_extra2, \_extra3, 0, \_power_down_ops
 	.endm
 
+/* TODO can be deleted once all CPUs have been converted */
 #if REPORT_ERRATA
 	/*
 	 * Print status of a CPU errata
@@ -230,4 +250,199 @@
 	b.eq	\_label
 	.endm
 
+
+// TODO what's the best way to do this? I think this is okish?
+.equ ERRATA_WA_OFF, 0
+.equ ERRATA_CHOSEN_OFF, 8
+.equ ERRATA_ENTRY_SIZE, 24
+
+/*
+ * NOTE an erratum and CVE id could clash. However, both numbers are very large
+ * and the probablity is minuscule. Working around this makes code very
+ * complicated and extremely difficult to read so it is not considered. In the
+ * unlikely event that this does happen, prepending the CVE id with a 0 should
+ * resolve the conflict
+ */
+.macro add_erratum_entry _cpu:req, _cve:req, _id:req, _chosen:req, _apply_at_reset:req
+	.pushsection .rodata.errata_entries
+		.align	3
+		.ifndef \_cpu\()_errata_list_start
+		\_cpu\()_errata_list_start:
+		.endif
+
+		/* check if unused and compile out if no references */
+		.if \_apply_at_reset && \_chosen
+			.quad	erratum_\_cpu\()_\_id\()_wa
+		.else
+			.quad	0
+		.endif
+		/* TODO(errata ABI): this prevents all checker functions from
+		 * being optimised away. Can be done away with unless the ABI
+		 * needs them */
+		.quad	check_erratum_\_cpu\()_\_id
+		/* Will fit CVEs with up to 10 character in the ID field */
+		.word	\_id
+		.hword	\_cve
+		.byte	\_chosen
+		/* TODO(errata ABI): mitigated field for known but unmitigated
+		 * errata*/
+		.byte	0x1
+	.popsection
+.endm
+
+.macro _workaround_start _cpu:req, _cve:req, _id:req, _chosen:req, _apply_at_reset:req
+	add_erratum_entry \_cpu, \_cve, \_id, \_chosen, \_apply_at_reset
+
+	func erratum_\_cpu\()_\_id\()_wa
+		mov	x8, x30
+
+		/* save rev_var for workarounds that might need it but don't
+		 * restore to x0 because few will care */
+		mov	x5, x0
+		bl	check_erratum_\_cpu\()_\_id
+		cbz	x0, erratum_\_cpu\()_\_id\()_skip
+.endm
+
+.macro _workaround_end _cpu:req, _id:req
+	erratum_\_cpu\()_\_id\()_skip:
+		ret	x8
+	endfunc erratum_\_cpu\()_\_id\()_wa
+.endm
+
+/*******************************************************************************
+ * Errata workaround wrappers
+ ******************************************************************************/
+.macro workaround_reset_start _cpu:req, _cve:req, _id:req, _chosen:req
+	_workaround_start \_cpu, \_cve, \_id, \_chosen, 1
+.endm
+
+.macro workaround_runtime_start _cpu:req, _cve:req, _id:req, _chosen:req, _midr
+	/*
+	 * Let errata specify if they need MIDR checking. Sadly, storing the
+	 * MIDR in an .equ to retrieve automatically blows up as it stores some
+	 * brackets in the symbol
+	 */
+	.ifnb \_midr
+		jump_if_cpu_midr \_midr, 1f
+		b	erratum_\_cpu\()_\_id\()_skip
+
+		1:
+	.endif
+	_workaround_start \_cpu, \_cve, \_id, \_chosen, 0
+.endm
+
+/* keep the _cve argument here so the same #define can be used as the start */
+.macro workaround_reset_end _cpu:req, _cve:req, _id:req
+	_workaround_end \_cpu, \_id
+.endm
+
+.macro workaround_runtime_end _cpu:req, _cve:req, _id:req
+	/*
+	 * Runtime errata do not have a reset function to call the isb for them
+	 * and missing the isb could be very problematic. It is also likely as
+	 * they tend to be scattered in generic code.
+	 */
+	isb
+	_workaround_end \_cpu, \_id
+.endm
+
+/*******************************************************************************
+ * Errata workaround helpers
+ ******************************************************************************/
+.macro sysreg_bit_set _reg:req, _bit:req, _assert=1
+	mrs	x1, \_reg
+	orr	x1, x1, #\_bit
+	msr	\_reg, x1
+
+#if ENABLE_ASSERTIONS
+	/* allow disabling for misbehaving registers */
+	.if \_assert
+		mrs	x1, \_reg
+		tst	x1, #\_bit
+		ASM_ASSERT(ne)
+	.endif
+#endif
+.endm
+
+.macro apply_erratum _cpu:req, _cve:req, _id:req, _chosen:req
+	.if \_chosen
+		mov	x9, x30
+		bl	cpu_get_rev_var
+		bl	erratum_\_cpu\()_\_id\()_wa
+		mov	x30, x9
+
+	.endif
+.endm
+
+/*
+ * Helpers to select which revisions errata apply to. Don't leave a link
+ * register as the cpu_rev_var_*** will call the ret and we can save on one. The
+ * _cve argument is again kept to allow the same #defines to be used as above
+ */
+.macro check_erratum_ls _cpu:req, _cve:req, _id:req, _rev_num:req
+	func check_erratum_\_cpu\()_\_id
+		mov	x1, #\_rev_num
+		b	cpu_rev_var_ls
+	endfunc check_erratum_\_cpu\()_\_id
+.endm
+
+.macro check_erratum_hs _cpu:req, _cve:req, _id:req, _rev_num:req
+	func check_erratum_\_cpu\()_\_id
+		mov	x1, #\_rev_num
+		b	cpu_rev_var_hs
+	endfunc check_erratum_\_cpu\()_\_id
+.endm
+
+.macro check_erratum_range _cpu:req, _cve:req, _id:req, _rev_num_lo:req, _rev_num_hi:req
+	func check_erratum_\_cpu\()_\_id
+		mov	x1, #\_rev_num_lo
+		mov	x2, #\_rev_num_hi
+		b	cpu_rev_var_range
+	endfunc check_erratum_\_cpu\()_\_id
+.endm
+
+/*******************************************************************************
+ * CPU reset function wrapper
+ ******************************************************************************/
+.macro cpu_reset_func_start _cpu:req
+	func \_cpu\()_reset_func
+		mov	x9, x30
+		bl	cpu_get_rev_var
+		mov	x10, x0
+
+		/* short circuit the location to avoid searching the list */
+		adrp	x11, \_cpu\()_errata_list_start
+		add	x11, x11, :lo12:\_cpu\()_errata_list_start
+		adrp	x12, \_cpu\()_errata_list_end
+		add	x12, x12, :lo12:\_cpu\()_errata_list_end
+
+	errata_begin:
+		/* if head catches up with end of list, exit */
+		cmp	x11, x12
+		b.eq	errata_end
+
+		ldr	x13, [x11, #ERRATA_WA_OFF]
+		/* TODO(errata ABI): check mitigated and checker function fields
+		 * for 0 */
+		ldrb	w14, [x11, #ERRATA_CHOSEN_OFF]
+
+		/* skip if not chosen */
+		cbz	x14, 1f
+		/* skip if runtime erratum */
+		cbz	x13, 1f
+
+		/* put cpu revision in x0 and call workaround */
+		mov	x0, x10
+		blr	x13
+	1:
+		add	x11, x11, #ERRATA_ENTRY_SIZE
+		b	errata_begin
+	errata_end:
+.endm
+
+.macro cpu_reset_func_end _cpu:req
+		isb
+		ret	x9
+	endfunc \_cpu\()_reset_func
+.endm
 #endif /* CPU_MACROS_S */

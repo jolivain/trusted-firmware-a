@@ -55,6 +55,9 @@
 /* Fields required to print errata status  */
 #if REPORT_ERRATA
 #define	CPU_ERRATA_FUNC_SIZE	CPU_WORD_SIZE
+#define CPU_ERRATA_LIST_START_SIZE	CPU_WORD_SIZE
+#define CPU_ERRATA_LIST_END_SIZE	CPU_WORD_SIZE
+#define CPU_CPU_STR_SIZE	CPU_WORD_SIZE
 /* BL1 doesn't require mutual exclusion and printed flag. */
 #if defined(IMAGE_BL31) || defined(IMAGE_BL32)
 #define	CPU_ERRATA_LOCK_SIZE	CPU_WORD_SIZE
@@ -92,7 +95,10 @@
 #define	CPU_PWR_DWN_OPS		CPU_RESET_FUNC + CPU_RESET_FUNC_SIZE
 #endif /* __aarch64__ */
 #define	CPU_ERRATA_FUNC		CPU_PWR_DWN_OPS + CPU_PWR_DWN_OPS_SIZE
-#define	CPU_ERRATA_LOCK		CPU_ERRATA_FUNC + CPU_ERRATA_FUNC_SIZE
+#define CPU_ERRATA_LIST_START   CPU_ERRATA_FUNC + CPU_ERRATA_FUNC_SIZE
+#define CPU_ERRATA_LIST_END     CPU_ERRATA_LIST_START + CPU_ERRATA_LIST_START_SIZE
+#define CPU_CPU_STR		CPU_ERRATA_LIST_END + CPU_ERRATA_LIST_END_SIZE
+#define CPU_ERRATA_LOCK         CPU_CPU_STR + CPU_CPU_STR_SIZE
 #define	CPU_ERRATA_PRINTED	CPU_ERRATA_LOCK + CPU_ERRATA_LOCK_SIZE
 #if __aarch64__
 #define	CPU_REG_DUMP		CPU_ERRATA_PRINTED + CPU_ERRATA_PRINTED_SIZE
@@ -121,6 +127,9 @@ struct cpu_ops {
 #endif /* (defined(IMAGE_BL31) || defined(IMAGE_BL32)) && CPU_MAX_PWR_DWN_OPS */
 #if REPORT_ERRATA
 	void (*errata_func)(void);
+	void *errata_list_start;
+	void *errata_list_end;
+	char *cpu_str;
 #if defined(IMAGE_BL31) || defined(IMAGE_BL32)
 	spinlock_t *errata_lock;
 	long *errata_reported;
