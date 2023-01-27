@@ -7,6 +7,7 @@
 
 #include <stdbool.h>
 
+#include <arch_features.h>
 #include <arch_helpers.h>
 #include <bl31/ea_handle.h>
 #include <bl31/ehf.h>
@@ -99,9 +100,9 @@ int ras_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *cookie,
 	return (n_handled != 0U) ? 1 : 0;
 }
 
-#if ENABLE_ASSERTIONS
 static void assert_interrupts_sorted(void)
 {
+#if ENABLE_ASSERTIONS
 	unsigned int i, last;
 	struct ras_interrupt *start = ras_interrupt_mappings.intrs;
 
@@ -113,8 +114,8 @@ static void assert_interrupts_sorted(void)
 		assert(start[i].intr_number > last);
 		last = start[i].intr_number;
 	}
-}
 #endif
+}
 
 /*
  * Given an RAS interrupt number, locate the registered handler and call it. If
@@ -174,11 +175,12 @@ static int ras_interrupt_handler(uint32_t intr_raw, uint32_t flags,
 
 void __init ras_init(void)
 {
-#if ENABLE_ASSERTIONS
-	/* Check RAS interrupts are sorted */
-	assert_interrupts_sorted();
-#endif
+	if (is_feat_ras_supported()) {
+		/* Check RAS interrupts are sorted */
+		assert_interrupts_sorted();
 
-	/* Register RAS priority handler */
-	ehf_register_priority_handler(PLAT_RAS_PRI, ras_interrupt_handler);
+		/* Register RAS priority handler */
+		ehf_register_priority_handler(PLAT_RAS_PRI,
+					      ras_interrupt_handler);
+	}
 }

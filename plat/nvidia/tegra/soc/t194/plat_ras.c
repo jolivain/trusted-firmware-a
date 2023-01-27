@@ -8,6 +8,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#include <arch_features.h>
 #include <common/debug.h>
 #include <lib/bakery_lock.h>
 #include <lib/cassert.h>
@@ -484,9 +485,10 @@ REGISTER_RAS_INTERRUPTS(carmel_ras_interrupts);
 void plat_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *cookie,
 		void *handle, uint64_t flags)
 {
-#if RAS_EXTENSION
-	tegra194_ea_handler(ea_reason, syndrome, cookie, handle, flags);
-#else
-	plat_default_ea_handler(ea_reason, syndrome, cookie, handle, flags);
-#endif
+	if (is_feat_ras_supported()) {
+		tegra194_ea_handler(ea_reason, syndrome, cookie, handle, flags);
+	} else {
+		plat_default_ea_handler(ea_reason, syndrome, cookie, handle,
+					flags);
+	}
 }

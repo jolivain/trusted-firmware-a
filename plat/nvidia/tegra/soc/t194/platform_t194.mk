@@ -68,7 +68,7 @@ BL31_SOURCES		+=	${TEGRA_DRIVERS}/spe/shared_console.S
 endif
 
 # RAS sources
-ifeq (${RAS_EXTENSION},1)
+ifneq (${RAS_EXTENSION},0)
 BL31_SOURCES		+=	lib/extensions/ras/std_err_record.c		\
 				lib/extensions/ras/ras_common.c			\
 				${SOC_DIR}/plat_ras.c
