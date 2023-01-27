@@ -72,6 +72,7 @@ ENABLE_SYS_REG_TRACE_FOR_NS	:= 2
 ENABLE_FEAT_CSV2_2		:= 2
 ENABLE_FEAT_PAN			:= 2
 ENABLE_FEAT_VHE			:= 2
+ENABLE_FEAT_RAS			:= 2
 CTX_INCLUDE_NEVE_REGS		:= 2
 ENABLE_FEAT_SEL2		:= 2
 ENABLE_TRF_FOR_NS		:= 2
@@ -379,6 +380,8 @@ $(eval FVP_HW_CONFIG	:=	${BUILD_PLAT}/$(patsubst %.dts,%.dtb,$(FVP_HW_CONFIG_DTS
 # Add the HW_CONFIG to FIP and specify the same to certtool
 $(eval $(call TOOL_ADD_PAYLOAD,${FVP_HW_CONFIG},--hw-config,${FVP_HW_CONFIG}))
 endif
+
+EL3_EXCEPTION_HANDLING		:=	1
 
 # Enable dynamic mitigation support by default
 DYNAMIC_WORKAROUND_CVE_2018_3639	:=	1
