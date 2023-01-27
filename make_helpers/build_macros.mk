@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015-2022, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -279,10 +279,11 @@ MAKE_DEP = -Wp,-MD,$(DEP) -MT $$@ -MP
 define MAKE_C_LIB
 $(eval OBJ := $(1)/$(patsubst %.c,%.o,$(notdir $(2))))
 $(eval DEP := $(patsubst %.o,%.d,$(OBJ)))
+$(eval LIB := $(call uppercase, $(notdir $(1))))
 
 $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | lib$(3)_dirs
 	$$(ECHO) "  CC      $$<"
-	$$(Q)$$(CC) $$(TF_CFLAGS) $$(CFLAGS) $(MAKE_DEP) -c $$< -o $$@
+	$$(Q)$$(CC) $$($(LIB)_CFLAGS) $$(TF_CFLAGS) $$(CFLAGS) $(MAKE_DEP) -c $$< -o $$@
 
 -include $(DEP)
 
