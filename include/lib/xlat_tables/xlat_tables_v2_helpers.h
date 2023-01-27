@@ -143,15 +143,16 @@ struct xlat_ctx {
 									\
 	static mmap_region_t _ctx_name##_mmap[_mmap_count + 1];		\
 									\
+	__asm__(".section " _table_section ",\"aw\",%nobits");		\
 	static uint64_t _ctx_name##_xlat_tables[_xlat_tables_count]	\
 		[XLAT_TABLE_ENTRIES]					\
-		__aligned(XLAT_TABLE_SIZE) __section(_table_section);	\
+		__aligned(XLAT_TABLE_SIZE);				\
 									\
+	__asm__(".section " _base_table_section ",\"aw\",%nobits");	\
 	static uint64_t _ctx_name##_base_xlat_table			\
 		[GET_NUM_BASE_LEVEL_ENTRIES(_virt_addr_space_size)]	\
 		__aligned(GET_NUM_BASE_LEVEL_ENTRIES(_virt_addr_space_size)\
-			* sizeof(uint64_t))				\
-		__section(_base_table_section);				\
+			* sizeof(uint64_t));				\
 									\
 	XLAT_ALLOC_DYNMAP_STRUCT(_ctx_name, _xlat_tables_count)		\
 									\
