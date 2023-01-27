@@ -122,8 +122,12 @@ void sp_min_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 void sp_min_plat_arch_setup(void)
 {
 	qemu_configure_mmu_svc_mon(BL32_RO_BASE, BL32_END - BL32_RO_BASE,
+#if USE_COHERENT_MEM
 				  BL_CODE_BASE, BL_CODE_END,
 				  BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END);
+#else
+				  BL_CODE_BASE, BL_CODE_END);
+#endif
 
 }
 

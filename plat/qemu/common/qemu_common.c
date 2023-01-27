@@ -126,15 +126,25 @@ static const mmap_region_t plat_qemu_mmap[] = {
  * the platform memory map & initialize the mmu, for the given exception level
  ******************************************************************************/
 
+#if USE_COHERENT_MEM
+#define MMAP_COHERENT mmap_add_region(coh_start, coh_start,		\
+				coh_limit - coh_start,			\
+				MT_DEVICE | MT_RW | MT_SECURE);
+#define QEMU_CONFIGURE_MMU_LAST_ARGS   unsigned long ro_limit,		\
+				unsigned long coh_start,		\
+				unsigned long coh_limit
+#else
+#define MMAP_COHERENT
+#define QEMU_CONFIGURE_MMU_LAST_ARGS   unsigned long ro_limit
+#endif
+
 #define DEFINE_CONFIGURE_MMU_EL(_el)					\
 	void qemu_configure_mmu_##_el(unsigned long total_base,	\
 				   unsigned long total_size,		\
 				   unsigned long code_start,		\
 				   unsigned long code_limit,		\
 				   unsigned long ro_start,		\
-				   unsigned long ro_limit,		\
-				   unsigned long coh_start,		\
-				   unsigned long coh_limit)		\
+				   QEMU_CONFIGURE_MMU_LAST_ARGS)	\
 	{								\
 		mmap_add_region(total_base, total_base,			\
 				total_size,				\
@@ -145,9 +155,7 @@ static const mmap_region_t plat_qemu_mmap[] = {
 		mmap_add_region(ro_start, ro_start,			\
 				ro_limit - ro_start,			\
 				MT_RO_DATA | MT_SECURE);		\
-		mmap_add_region(coh_start, coh_start,			\
-				coh_limit - coh_start,			\
-				MT_DEVICE | MT_RW | MT_SECURE);		\
+		MMAP_COHERENT						\
 		mmap_add(plat_qemu_mmap);				\
 		init_xlat_tables();					\
 									\
