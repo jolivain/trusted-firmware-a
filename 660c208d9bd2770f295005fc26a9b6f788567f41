@@ -16,6 +16,24 @@
       "message": "Hello,\n\nWhen validating ATF v2.8 on Hikey960, in FF-A configuration (SPMC_AT_EL3\u003d1), we are hitting this assert().\nReverting the patch allows us to boot the board.\n\nInterestingly, the issue does not appear on non-FFA configuration (SPD\u003dtbase).\n\nThanks,\nLukas",
       "revId": "660c208d9bd2770f295005fc26a9b6f788567f41",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b84af23d_810db89d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000350
+      },
+      "writtenOn": "2023-01-27T09:52:48Z",
+      "side": 1,
+      "message": "Madhukar, could it be reverted since it fails on hikey960?",
+      "parentUuid": "8c1e9ef4_df6e6b97",
+      "revId": "660c208d9bd2770f295005fc26a9b6f788567f41",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
