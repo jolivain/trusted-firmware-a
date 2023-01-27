@@ -127,10 +127,15 @@
 	.popsection
 
 	/*
-	 * Mandatory errata status printing function for CPUs of
-	 * this class.
+	 * Maintain compatibility with the old scheme of each cpu has its own.
+	 * TODO: remove entirely once all cpus have been converted
 	 */
-	.quad \_name\()_errata_report
+	.ifdef \_name\()_errata_report
+		.quad \_name\()_errata_report
+	.else
+		.quad 0
+	.endif
+
 	/* and now put them in cpu_ops */
 	.quad \_name\()_errata_list_start
 	.quad \_name\()_errata_list_end
