@@ -6,7 +6,7 @@ critical data used at boot time, for example using a TPM, so that the
 security state can be attested later.
 
 The current implementation of the driver included in Trusted Firmware-A
-(TF-A) stores the measurements into a `TGC event log`_ in secure
+(TF-A) stores the measurements into a `TCG event log`_ in secure
 memory. No other means of recording measurements (such as a discrete TPM) is
 supported right now.
 
@@ -24,7 +24,7 @@ a firmware TPM (fTPM) service implemented on top of OP-TEE.
    platforms might have different needs and configurations (e.g. different
    SHA algorithms) and they might also use different types of TPM services
    (or even a different type of service to provide the attestation)
-   and therefore the instuctions given here might not apply in such scenarios.
+   and therefore the instructions given here might not apply in such scenarios.
 
 Components
 ~~~~~~~~~~
@@ -497,7 +497,7 @@ The most relevant options for Measured Boot support are:
 
 --------------
 
-*Copyright (c) 2021, Arm Limited. All rights reserved.*
+*Copyright (c) 2021-2023, Arm Limited. All rights reserved.*
 
 .. _OP-TEE Toolkit: https://github.com/OP-TEE/build
 .. _ms-tpm-20-ref: https://github.com/microsoft/ms-tpm-20-ref
