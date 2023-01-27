@@ -49,6 +49,7 @@ ifneq (${SPD}, tspd)
 	ENABLE_MPAM_FOR_LOWER_ELS	:= 2
 	ENABLE_FEAT_RNG			:= 2
 	ENABLE_FEAT_TWED		:= 2
+ENABLE_FEAT_RAS			:= 2
 ifeq (${ARCH},aarch64)
 ifeq (${SPM_MM}, 0)
 ifeq (${ENABLE_RME}, 0)
@@ -378,6 +379,8 @@ $(eval FVP_HW_CONFIG	:=	${BUILD_PLAT}/$(patsubst %.dts,%.dtb,$(FVP_HW_CONFIG_DTS
 # Add the HW_CONFIG to FIP and specify the same to certtool
 $(eval $(call TOOL_ADD_PAYLOAD,${FVP_HW_CONFIG},--hw-config,${FVP_HW_CONFIG}))
 endif
+
+EL3_EXCEPTION_HANDLING		:=	1
 
 # Enable dynamic mitigation support by default
 DYNAMIC_WORKAROUND_CVE_2018_3639	:=	1
