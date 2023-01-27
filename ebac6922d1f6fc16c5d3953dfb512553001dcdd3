@@ -139,6 +139,24 @@
       "message": "@yabinc Could you tell me whether this patch resolves your issue? https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19051",
       "revId": "ebac6922d1f6fc16c5d3953dfb512553001dcdd3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47e39607_2790993a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000969
+      },
+      "writtenOn": "2023-01-27T20:09:12Z",
+      "side": 1,
+      "message": "It passes the xlat_table error. But more sections need to be fixed.\n\n  LD      /ssd/android/trusty/build-root/build-qemu-generic-arm32-gicv3-test-debug/atf/qemu/debug/bl31/bl31.elf\nld.lld: error: section type mismatch for bakery_lock\n\u003e\u003e\u003e /ssd/android/trusty/build-root/build-qemu-generic-arm32-gicv3-test-debug/atf/qemu/debug/bl31/psci_common.o:(bakery_lock): SHT_PROGBITS\n\u003e\u003e\u003e output section coherent_ram: SHT_NOBITS\n\nld.lld: error: section type mismatch for tzfw_coherent_mem\n\u003e\u003e\u003e /ssd/android/trusty/build-root/build-qemu-generic-arm32-gicv3-test-debug/atf/qemu/debug/bl31/psci_common.o:(tzfw_coherent_mem): SHT_PROGBITS\n\u003e\u003e\u003e output section coherent_ram: SHT_NOBITS\n\nI can\u0027t tell if there is more. You can download android clang in https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+/refs/heads/master/clang-r475365b/, and test with\n\"make CC\u003d/ssd/android/master/prebuilts/clang/host/linux-x86/clang-r475365b/bin/clang PLAT\u003dqemu all\"",
+      "parentUuid": "f2658633_f9aa1803",
+      "revId": "ebac6922d1f6fc16c5d3953dfb512553001dcdd3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
