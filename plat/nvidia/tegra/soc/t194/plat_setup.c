@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <arch_features.h>
 #include <arch_helpers.h>
 #include <assert.h>
 #include <bl31/bl31.h>
@@ -254,10 +255,10 @@ void plat_early_platform_setup(void)
 	/* sanity check MCE firmware compatibility */
 	mce_verify_firmware_version();
 
-#if RAS_EXTENSION
-	/* Enable Uncorrectable RAS error */
-	tegra194_ras_enable();
-#endif
+	if (is_feat_ras_supported()) {
+		/* Enable Uncorrectable RAS error */
+		tegra194_ras_enable();
+	}
 
 	/*
 	 * Program XUSB STREAMIDs
