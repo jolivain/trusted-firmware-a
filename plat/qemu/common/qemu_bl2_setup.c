@@ -94,8 +94,12 @@ void bl2_plat_arch_setup(void)
 	QEMU_CONFIGURE_BL2_MMU(bl2_tzram_layout.total_base,
 			      bl2_tzram_layout.total_size,
 			      BL_CODE_BASE, BL_CODE_END,
+#if USE_COHERENT_MEM
 			      BL_RO_DATA_BASE, BL_RO_DATA_END,
 			      BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END);
+#else
+			      BL_RO_DATA_BASE, BL_RO_DATA_END);
+#endif
 }
 
 /*******************************************************************************

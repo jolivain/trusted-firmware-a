@@ -52,8 +52,12 @@ void bl1_plat_arch_setup(void)
 	QEMU_CONFIGURE_BL1_MMU(bl1_tzram_layout.total_base,
 				bl1_tzram_layout.total_size,
 				BL_CODE_BASE, BL1_CODE_END,
+#if USE_COHERENT_MEM
 				BL1_RO_DATA_BASE, BL1_RO_DATA_END,
 				BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END);
+#else
+				BL1_RO_DATA_BASE, BL1_RO_DATA_END);
+#endif
 }
 
 void bl1_platform_setup(void)
