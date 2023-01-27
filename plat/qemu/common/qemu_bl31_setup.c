@@ -66,8 +66,12 @@ void bl31_plat_arch_setup(void)
 {
 	qemu_configure_mmu_el3(BL31_BASE, (BL31_END - BL31_BASE),
 			      BL_CODE_BASE, BL_CODE_END,
+#if USE_COHERENT_MEM
 			      BL_RO_DATA_BASE, BL_RO_DATA_END,
 			      BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END);
+#else
+			      BL_RO_DATA_BASE, BL_RO_DATA_END);
+#endif
 }
 
 static void qemu_gpio_init(void)
