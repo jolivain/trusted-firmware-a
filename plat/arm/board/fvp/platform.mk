@@ -313,6 +313,9 @@ endif
 # Enable Activity Monitor Unit extensions by default
 ENABLE_AMU			:=	1
 
+EL3_EXCEPTION_HANDLING		:=	1
+RAS_EXTENSION			:=	2
+
 # Enable dynamic mitigation support by default
 DYNAMIC_WORKAROUND_CVE_2018_3639	:=	1
 
@@ -326,7 +329,7 @@ BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a75_pubsub.c	\
 endif
 endif
 
-ifeq (${RAS_EXTENSION},1)
+ifneq (${RAS_EXTENSION},0)
 BL31_SOURCES		+=	plat/arm/board/fvp/aarch64/fvp_ras.c
 endif
 
