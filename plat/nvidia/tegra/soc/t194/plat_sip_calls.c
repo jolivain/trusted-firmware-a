@@ -71,9 +71,13 @@ int32_t plat_sip_handler(uint32_t smc_fid,
 
 		break;
 
-#if RAS_EXTENSION
 	case TEGRA_SIP_CLEAR_RAS_CORRECTED_ERRORS:
 	{
+		if (!is_feat_ras_supported()) {
+			ret = -ENOTSUP;
+			break;
+		}
+
 		/*
 		 * clear all RAS error records for corrected errors at first.
 		 * x1 shall be 0 for first SMC call after FHI is asserted.
@@ -92,7 +96,6 @@ int32_t plat_sip_handler(uint32_t smc_fid,
 
 		break;
 	}
-#endif
 
 	default:
 		ret = -ENOTSUP;
