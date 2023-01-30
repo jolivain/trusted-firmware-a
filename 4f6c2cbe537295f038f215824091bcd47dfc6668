@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b035fbea_9a5d530e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-30T10:46:28Z",
+      "side": 1,
+      "message": "Usually we want the entire binary to be build using the same CFlags. Else we could introduce subtle binary incomptibility issues (like say PAUTH enabled for main binary and not set for libs). \n\n\nWe would need justification for this change.\n",
+      "revId": "4f6c2cbe537295f038f215824091bcd47dfc6668",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
