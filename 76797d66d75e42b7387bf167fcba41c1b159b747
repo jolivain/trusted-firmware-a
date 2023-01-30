@@ -272,6 +272,30 @@
       },
       "revId": "76797d66d75e42b7387bf167fcba41c1b159b747",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55365bbf_5972659c",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-30T11:02:38Z",
+      "side": 1,
+      "message": "Yes, it might be better to talk in person.\n\nTaking the example of MTE again, As I understand, if the platform needs to ensure Tag/memory caches are not allocated or not used, the feature needs to be disabled at EL3. So the firmware engineer needs to disable the MTE feature (even though it is present in hardware). \n\nAlso _required is a bit subjective depending on which entity is running at EL2. what is _required for Linux may not be required for other Hypervisors and vice versa. \n\nPerhaps there is a way to make panic() reporting more clear.",
+      "parentUuid": "c96b3a6a_11f354ec",
+      "range": {
+        "startLine": 275,
+        "startChar": 2,
+        "endLine": 275,
+        "endChar": 10
+      },
+      "revId": "76797d66d75e42b7387bf167fcba41c1b159b747",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
