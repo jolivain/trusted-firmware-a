@@ -86,6 +86,24 @@
       "parentUuid": "791c2de3_a80ce185",
       "revId": "23b1cb75952861fd5614794605596d25e0518a98",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cff06a1b_cfde6a2a",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-01-30T14:01:33Z",
+      "side": 1,
+      "message": "Well, I am happy to adopt those macros, but they also use ##, so what would we win?\nWe can actually make this a lot simpler, by acknowledging the fact the CPU ID register fields are *always* 4 bits wide, so the *_MASK symbol is always 0xf:\n$ grep ID_AA64.*_MASK include/arch/aarch64/arch.h\nSo we could just hardcode the mask, and use the full symbol name for the shift value as input to the macro.\nIt\u0027s either that or we decide to ignore the ## warning from MISRA, not sure why it puts that up anyway (I guess since it\u0027s MISRA we will never know).",
+      "parentUuid": "14dbd17e_638ae163",
+      "revId": "23b1cb75952861fd5614794605596d25e0518a98",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
