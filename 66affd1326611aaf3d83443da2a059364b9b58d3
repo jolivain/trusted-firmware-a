@@ -53,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4924009f_78b9fd39",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-01-30T23:26:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "355cf919_470a40f2",
+      "revId": "66affd1326611aaf3d83443da2a059364b9b58d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e15c8bab_01393c99",
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "the problem with these two is that when security_state !\u003d NON_SECURE they are unused, producing a warning. Sadly I think this is the best way to do it.",
       "parentUuid": "e15c8bab_01393c99",
+      "revId": "66affd1326611aaf3d83443da2a059364b9b58d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "569f816f_a8031f19",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-01-30T23:26:54Z",
+      "side": 1,
+      "message": "I see. But even if that happens, line 587 is within the if (security_state \u003d\u003d NON_SECURE) condition, therefore there shouldn\u0027t be a warning, right? Or perhaps there\u0027s something that I\u0027m not seeing.",
+      "parentUuid": "a7dade44_0f50fca0",
       "revId": "66affd1326611aaf3d83443da2a059364b9b58d3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
