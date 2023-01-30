@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "033d7f03_edebeb2e",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-01-30T09:20:54Z",
+      "side": 1,
+      "message": "Every time the function is successful, both if needs to be evaluated. What is the purpose of reordering these \u0027if\u0027 conditions?",
+      "range": {
+        "startLine": 300,
+        "startChar": 3,
+        "endLine": 300,
+        "endChar": 18
+      },
+      "revId": "ac4912747da4017da000a368c0d02d3b31281810",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
