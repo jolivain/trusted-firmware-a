@@ -320,6 +320,30 @@
       },
       "revId": "76797d66d75e42b7387bf167fcba41c1b159b747",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7210fd03_6f9a5821",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-30T17:18:31Z",
+      "side": 1,
+      "message": "We could be talking about the same things but applying different rules on _required.\n\nIMO, *all* features shown in the ID regs are `_required` for NS as it is an architectural property and firmware is supposed to enable them. Firmware should not make assumption of NSWD entity either. Hence, taking the MTE example, MTE would be _required feature. So a hard panic() failure for _required means the only way forward for platform integrator is to disable feature detection as well.\n\nThe hard/soft check would not be a problem for FVP or other models since we would set features to `2` for these modelling platforms. I think, we are at much better state with WARNINGs in TF-A for features not enabled. The goal is to get FEATURE DETECTION enabled for most platforms without much resistance and soft check helps in that regard.",
+      "parentUuid": "b7aff356_cda9ce95",
+      "range": {
+        "startLine": 275,
+        "startChar": 2,
+        "endLine": 275,
+        "endChar": 10
+      },
+      "revId": "76797d66d75e42b7387bf167fcba41c1b159b747",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
