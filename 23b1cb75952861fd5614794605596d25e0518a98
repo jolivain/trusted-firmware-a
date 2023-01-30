@@ -104,6 +104,24 @@
       "parentUuid": "14dbd17e_638ae163",
       "revId": "23b1cb75952861fd5614794605596d25e0518a98",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba89b4ab_84ad103a",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-30T14:12:08Z",
+      "side": 1,
+      "message": "Yeah, there is not much to gain for this patch. ## warning should probably be disabled in the Misra tool.",
+      "parentUuid": "cff06a1b_cfde6a2a",
+      "revId": "23b1cb75952861fd5614794605596d25e0518a98",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
