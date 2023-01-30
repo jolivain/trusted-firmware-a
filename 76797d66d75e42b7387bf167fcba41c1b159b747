@@ -296,6 +296,30 @@
       },
       "revId": "76797d66d75e42b7387bf167fcba41c1b159b747",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7aff356_cda9ce95",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-01-30T14:50:02Z",
+      "side": 1,
+      "message": "\"the firmware engineer needs to disable the MTE feature\"\u003e Yes, but this is what I am saying. MTE would *not* use the _required version of the check. Or are you not arguing this?\n\n\"what is _required for Linux may not be required for other Hypervisors and vice versa\" \u003e\nI would say it\u0027s not a Linux thing, it\u0027s an architectural property: If your CPU implements those features, and you see the CPU ID feature bit, there is no way for non-secure world to know whether EL3 has enabled it or not. NSWD now has to make an assumption about that, and assuming it is enabled is the far more useful choice.\nFrom a firmware point of view we should not make any assumptions about the NSWD, I think. Linux *could* be running there, so we should prepare for that.\n\nMaybe we could split this up: Can\u0027t we just *always* set the SCR_HXEn_BIT bit in SCR_EL3? Regardless of whether the feature is available and/or enabled? In implementations without FEAT_HCX, this bit is RES0, so we can set it and it should have no effect on the PE0 (per the RES0 definition in the ARM ARM).\nThis would solve the hard problem of the EL3 trap, for any user. Then we could demote the check, since the remaining functionality (context save/restore) is no longer that critical.\n\nOr we just keep that patch as is and just force any user to do the right thing, since it\u0027s not really a hard thing to do.",
+      "parentUuid": "55365bbf_5972659c",
+      "range": {
+        "startLine": 275,
+        "startChar": 2,
+        "endLine": 275,
+        "endChar": 10
+      },
+      "revId": "76797d66d75e42b7387bf167fcba41c1b159b747",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
