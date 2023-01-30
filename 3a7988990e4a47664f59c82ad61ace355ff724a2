@@ -33,6 +33,23 @@
       "message": "2022-2023",
       "revId": "3a7988990e4a47664f59c82ad61ace355ff724a2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2061de12_d224ef48",
+        "filename": "lib/extensions/brbe/brbe.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-30T10:41:22Z",
+      "side": 1,
+      "message": "See comment for TRBE. This can be reflected at caller side and this function can do the necessary enable unconditionally.",
+      "revId": "3a7988990e4a47664f59c82ad61ace355ff724a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
