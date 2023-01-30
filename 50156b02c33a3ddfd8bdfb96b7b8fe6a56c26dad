@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ada31a4e_5ce588be",
+        "filename": "common/feat_check.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-30T11:38:57Z",
+      "side": 1,
+      "message": "This would be painful to maintain and review. IMO, it is better to encode the know version in the existing version check. That would be more reader friendly.\n\nIe. during boot phase, instead of check against non-zero value for a feature, it can be a range check. There is an optimization at context_save and restore, wherein the range check can be replaced with a more efficient check (either a flag which is set at boot time or a non_zero check of ID reg).",
+      "revId": "50156b02c33a3ddfd8bdfb96b7b8fe6a56c26dad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
