@@ -51,6 +51,24 @@
       "message": "Joanna,\n\nI took a look at the CI+2 failures and there are some relating to optee...but they\u0027re not configs I\u0027ve changed so I think they may be general flakes.  Can you take a look and let me know what you think? Do you normally just rerun the failed jobs to then see if they\u0027re all clean, or just CI+2 the whole thing again?",
       "revId": "4d7dc2bc738d60e010021014874e029e11ecca3c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca0d1d44_f93bfe4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-01-30T18:16:38Z",
+      "side": 1,
+      "message": "We have been having issues where part of the CI system is timing out where tests are still running. This appears to be the case for these failure I think given I can see no obvious errors and uart\u0027s are showing a boot to user prompts which is what the test are looking for.\n\nWe are in the midst of discussions on if timeouts should be extended as over the last week or so CI runs seem to be taking longer.\n\nI restarted a couple of the tests that failed to see if they pass on rerun as they sometimes do.\n\nhttps://ci.trustedfirmware.org/job/tf-a-ci-gateway/27981/\n\nFYI I emailed you separately on enabling you so you can try this in future if needed.",
+      "parentUuid": "c883417b_ba0b2837",
+      "revId": "4d7dc2bc738d60e010021014874e029e11ecca3c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
