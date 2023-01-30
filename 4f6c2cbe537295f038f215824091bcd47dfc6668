@@ -16,6 +16,24 @@
       "message": "Usually we want the entire binary to be build using the same CFlags. Else we could introduce subtle binary incomptibility issues (like say PAUTH enabled for main binary and not set for libs). \n\n\nWe would need justification for this change.\n",
       "revId": "4f6c2cbe537295f038f215824091bcd47dfc6668",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aac49558_5f9bac4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-01-30T11:15:35Z",
+      "side": 1,
+      "message": "In this case, I believe we may not have a situation where some feature is enabled for the main binary but not for libraries. This is because we build the library with TF_CFLAGS along with the explicit options needed for the library. Please correct me if I\u0027m wrong.\nWe are making this change due to mbedTLS latest version avoiding \u0027redundant declaration\u0027 errors[1], so we do not want to pass this flag via global TF_CFLAGS.\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/18887/15/drivers/auth/mbedtls/mbedtls_common.mk#71",
+      "parentUuid": "b035fbea_9a5d530e",
+      "revId": "4f6c2cbe537295f038f215824091bcd47dfc6668",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
