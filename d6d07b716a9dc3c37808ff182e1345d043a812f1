@@ -39,6 +39,30 @@
       },
       "revId": "d6d07b716a9dc3c37808ff182e1345d043a812f1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fe92c0c_de67a03f",
+        "filename": "lib/extensions/trbe/trbe.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-01-30T14:18:51Z",
+      "side": 1,
+      "message": "I am not convinced doing this at the caller site is better. For a start it requires that the caller (and every caller!) knows the connection between the feature and the function name, which is something that this function here can nicely abstract away, especially if we have a separate file for this feature.\n\nI guess you still want to replace the #ifdefs, but using the function now? This would be a bit fragile, TBH, since we would rely on the compiler really removing the function call, otherwise we get a linker error (trbe.c is not compiled when ENABLE_TRBE_FOR_NS\u003d\u003d0).\nLet me know if you are OK with that.",
+      "parentUuid": "564bda7f_588cb976",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 29
+      },
+      "revId": "d6d07b716a9dc3c37808ff182e1345d043a812f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
