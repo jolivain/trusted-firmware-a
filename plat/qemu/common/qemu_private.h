@@ -9,6 +9,11 @@
 
 #include <stdint.h>
 
+#if !USE_COHERENT_MEM
+#define BL_COHERENT_RAM_BASE 0
+#define BL_COHERENT_RAM_END  0
+#endif
+
 void qemu_configure_mmu_svc_mon(unsigned long total_base,
 			unsigned long total_size,
 			unsigned long code_start, unsigned long code_limit,
