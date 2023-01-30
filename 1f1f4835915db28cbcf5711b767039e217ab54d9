@@ -33,6 +33,24 @@
       "message": "Hi Marcin,\n\nI\u0027m wondering if this couldn\u0027t be achieved in a simpler way. If the size of a region is 0, mmap_add_region just returns.\nSo maybe by just adding those lines in some of your header file, that could do:\n#if !USE_COHERENT_MEM\n#define BL_COHERENT_RAM_BASE 0\n#define BL_COHERENT_RAM_END 0\n#endif",
       "revId": "1f1f4835915db28cbcf5711b767039e217ab54d9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33c0783b_e3ee7055",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-01-30T08:45:15Z",
+      "side": 1,
+      "message": "Yann: thanks! Simple, nice solution.",
+      "parentUuid": "dd3c8e6a_1e4ae82c",
+      "revId": "1f1f4835915db28cbcf5711b767039e217ab54d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
