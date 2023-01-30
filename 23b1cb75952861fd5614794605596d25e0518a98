@@ -68,6 +68,24 @@
       "message": "I see there are two violations reported by the misra job:\n1. The value of an expression shall not be assigned to an object with a narrower essential type or of a different essential type category\n2. non-compliant use of `##\u0027 operators\n\nAs Andre mentioned, I agree the first violation seems like a false positive. In fact ,the patch is trying to fix the same by using explicit typecast.\n\nAlso, I dont think we should be concerned with the 2nd violation. We need the operator ## for implementing common operations through use of macros.",
       "revId": "23b1cb75952861fd5614794605596d25e0518a98",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14dbd17e_638ae163",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-30T10:26:13Z",
+      "side": 1,
+      "message": "May I suggest the following macros we use in RMM : https://github.com/TF-RMM/tf-rmm/blob/main/lib/common/include/utils_def.h#L190\n\nThese are more general purpose and may take care of type issues flagged by MISRA.",
+      "parentUuid": "791c2de3_a80ce185",
+      "revId": "23b1cb75952861fd5614794605596d25e0518a98",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
