@@ -34,6 +34,24 @@
       "parentUuid": "b035fbea_9a5d530e",
       "revId": "4f6c2cbe537295f038f215824091bcd47dfc6668",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bb9f603_1851cf96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-30T11:32:18Z",
+      "side": 1,
+      "message": "Ah, I see, so essentially we want to pass flags in addition to TF_CFLAGS which is a valid case. \n\nOK, the commit message can be reframed as such as it seemed to suggest different.\nSuggest :\n\"allow additional custom CFLAGS for library build\"\n\n\"Allow additional flags to be specified to Library build via \u003cLIBNAME\u003e_CFLAGS.\"",
+      "parentUuid": "aac49558_5f9bac4d",
+      "revId": "4f6c2cbe537295f038f215824091bcd47dfc6668",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
