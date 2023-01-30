@@ -157,6 +157,24 @@
       "parentUuid": "f2658633_f9aa1803",
       "revId": "ebac6922d1f6fc16c5d3953dfb512553001dcdd3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa21542e_26f22064",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-01-30T10:20:02Z",
+      "side": 1,
+      "message": "Thanks. This issue appears to happen because Clang marks any object which would otherwise have been SHT_NOBITS as SHT_PROGBITS when it has been given explicit section, so it\u0027s predictable which section we will see this error with. I\u0027ll go ahead and apply this workaround to any that fit that criteria, including the one you\u0027ve pointed out.",
+      "parentUuid": "47e39607_2790993a",
+      "revId": "ebac6922d1f6fc16c5d3953dfb512553001dcdd3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
