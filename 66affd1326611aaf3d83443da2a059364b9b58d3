@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d783e98a_33cc2d97",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-31T10:11:22Z",
+      "side": 1,
+      "message": "This is a good cleanup, although there is a slight legacy case being missed here (which may not be working as intended anyway, so good to remove it). Even when EL2 exists in all the worlds, the previous code allowed to initialize NS EL1 ctx. Whether this is a valid config to support in a S-EL2 based system is questionable, but I would have voted to remove that legacy support anyway for these new systems. \n\nMy suggestion is to call this aspect of the patch in the commit message as a NOTE so platform integrators are aware of what this change entails.",
+      "revId": "66affd1326611aaf3d83443da2a059364b9b58d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "53607e4d_46e8950c",
