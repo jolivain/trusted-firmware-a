@@ -70,6 +70,24 @@
       "parentUuid": "d8bfde2a_6ef4fff9",
       "revId": "660c208d9bd2770f295005fc26a9b6f788567f41",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42b457c6_0e18559f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-01-31T09:23:16Z",
+      "side": 1,
+      "message": "Hi Anand, I hit the DP assert.\nIt would seem to me, that the board is not aligned with the spec.\nMaybe an errata should be issued and then we can keep the loop (possibly adding a bound), and annotate it with the reference of the errata.\nI have not yet tried a release build, since still few other blockers with v2.8.\nI could imagine that we could also remove the assert completely.",
+      "parentUuid": "ee270118_b077b45e",
+      "revId": "660c208d9bd2770f295005fc26a9b6f788567f41",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
