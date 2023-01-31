@@ -106,6 +106,24 @@
       "parentUuid": "42b457c6_0e18559f",
       "revId": "660c208d9bd2770f295005fc26a9b6f788567f41",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d39d41cd_85f01259",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-01-31T09:38:14Z",
+      "side": 1,
+      "message": "Hi,\nActually, I just checked with the our engineer, the problem is different than what I said.\nThe assert should say \n`assert((mmio_read_32(base + HCS) \u0026 HCS_DP) \u003d\u003d 1);`\nInstead of\n`assert((mmio_read_32(base + HCS) \u0026 HCS_DP) \u003d\u003d 0);`\nThe loop was waiting for it to be not 0 anymore. But as you said, we expect it to be 1 immediately.",
+      "parentUuid": "312ff595_369bc833",
+      "revId": "660c208d9bd2770f295005fc26a9b6f788567f41",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
