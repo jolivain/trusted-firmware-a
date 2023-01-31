@@ -16,6 +16,24 @@
       "message": "@Sandrine I will refactor this patch-series to use Root SRAM instead of TZC protected DRAM for the primary copy of TOS_FW_CONFIG to be consumed by the SPMD, based on our offline conversation.",
       "revId": "3d571c120a797a8f9d9af4f08ffe7830b7365476",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "388652b3_bd3344c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-01-31T15:20:14Z",
+      "side": 1,
+      "message": "Ack, thanks.\n\nPerhaps you should toggle the patch series in \u0027WIP\u0027 state in Gerrit to make that clear to all other reviewers.",
+      "parentUuid": "f54d5657_490124b9",
+      "revId": "3d571c120a797a8f9d9af4f08ffe7830b7365476",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
