@@ -63,6 +63,30 @@
       },
       "revId": "d6d07b716a9dc3c37808ff182e1345d043a812f1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cd3e283_70b3f2c4",
+        "filename": "lib/extensions/trbe/trbe.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-31T10:28:17Z",
+      "side": 1,
+      "message": "There is a major fault with the current implementation of trbe_enable(). It programs mdcr_el3 sys reg directly, thus enabling TRBE for all the worlds (which is wrong).\n\nIn future, TF-A would need to program to EL3 context specific to NS and mdcr_el3 would enable TRBE only for NS and leave it disabled for Secure and Realm.\n\nSo, I would envisage that this function , trbe_enable() would take a context as an argument so that this function will modify the EL3 context (and not the sysreg directly).\n\nIn this future world, SPMD and RMMD would not use `is_trbe_supported()` as this is a helper taking into account only the NS enablement flag. It might either read the sys reg directly and decide to call trbe_enable() with the right context to program the right values for EL3 context.\n\nWe are not there yet, and hence your patch tries to preserve the existing code. \n\n\u003e #ifdefs, but using the function now? This would be a bit fragile, TBH, since we would rely on the compiler really removing the function call, otherwise we get a linker error (trbe.c is not compiled when ENABLE_TRBE_FOR_NS\u003d\u003d0).\n\nI think modern compilers should remove this but you are right, it is a bit fragile to rely on this (perhaps -O0 ?). My view would be to include trbe.c unconditionally and let the linker garbage collection to remove the unreferenced section when ENABLE_TBRE_FOR_NS\u003d\u003d0. This will cater for the case when compiler doesn\u0027t remove this code due to some option",
+      "parentUuid": "8fe92c0c_de67a03f",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 29
+      },
+      "revId": "d6d07b716a9dc3c37808ff182e1345d043a812f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
