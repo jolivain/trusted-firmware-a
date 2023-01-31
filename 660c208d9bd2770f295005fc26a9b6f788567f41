@@ -124,6 +124,24 @@
       "parentUuid": "312ff595_369bc833",
       "revId": "660c208d9bd2770f295005fc26a9b6f788567f41",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49e65a2d_e1a858b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000700
+      },
+      "writtenOn": "2023-01-31T09:42:02Z",
+      "side": 1,
+      "message": "Ah, correct, that\u0027s most likely the issue here. Thanks for clarifying!\n\nOne question: you still have a scenario where this assert works? Wonder if a loop is needed in that case.",
+      "parentUuid": "d39d41cd_85f01259",
+      "revId": "660c208d9bd2770f295005fc26a9b6f788567f41",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
