@@ -144,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "88bf7aa2_b2c28e39",
+        "filename": "docs/components/rmm-el3-comms-spec.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-01-31T11:23:40Z",
+      "side": 1,
+      "message": "\u003e I think the current explanation points out that the boot manifest might contain vendor platform data, so I don\u0027t think it should be removed.\n\u003e I can be expanded, though, to point out that the \u0027Core Manifest\u0027 contains the \u0027version\u0027 and \u0027plat_dram\u0027 fields whereas the \u0027Platform data\u0027 is pointed by \u0027plat_data\u0027\n\nTo answer Javier concerns, I think previously we had a clean distinction between core and platform. Now plat_dram is a platform specific data and optional for platforms but a specific data structure. So hence the thought to remove the strict distinction : core vs platform. \n\nThis also prepares the doc for future updates where we could have hybrid reponsibility between core and platform.",
+      "parentUuid": "db9d1637_8124dfcd",
+      "range": {
+        "startLine": 188,
+        "startChar": 29,
+        "endLine": 191,
+        "endChar": 109
+      },
+      "revId": "21a1873cbe765ba0d2877aaf19c562704b353608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d99971f0_6abd0428",
         "filename": "docs/components/rmm-el3-comms-spec.rst",
         "patchSetId": 2
