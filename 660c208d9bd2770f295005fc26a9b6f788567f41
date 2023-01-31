@@ -52,6 +52,24 @@
       "parentUuid": "b84af23d_810db89d",
       "revId": "660c208d9bd2770f295005fc26a9b6f788567f41",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee270118_b077b45e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000700
+      },
+      "writtenOn": "2023-01-31T08:30:19Z",
+      "side": 1,
+      "message": "Hello LukasHanel, which assert are you hitting? \n\nThe spec clearly says HCS DP will be set along with IS.UCCS and no polling is required:\n```\nIn case the GenericErrorCode of the completed DME_LINKSTARTUP command is SUCCESS, the HCS.DP is set in addition to the IS.UCCS bit.\n```\nSo after we see IS.UCCS bit and GenericErrorCode, we should instantly see HCS DP set (https://elixir.bootlin.com/linux/v6.1.7/source/drivers/ufs/core/ufshcd.c#L4764)\n\nAs for the other assert, I see this in JEDEC spec:\n```\nUTP Transfer Request List Ready (UTRLRDY): This field indicates whether the host\ncontroller is ready to process UTP Transfer Request.\nThis field is cleared to ‘0’ by host controller when one of the following conditions occur:\n The device presence is not detected;\n UTP Transfer Request List is full;\n There is an error with host controller or device that is not command specific.\nHost software shall only set the UTRLRSR bit to ‘1’ if HCS. UTRLRDY is set to ‘1\u0027\n```\nIf you are hitting the UTRLRSR assert, then we should check if HCS.UTRLRDY is set before setting UTRLRSR, if it isn\u0027t then it\u0027s an IO error (https://elixir.bootlin.com/linux/v6.1.7/source/drivers/ufs/core/ufshcd.c#L4556)",
+      "parentUuid": "d8bfde2a_6ef4fff9",
+      "revId": "660c208d9bd2770f295005fc26a9b6f788567f41",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
