@@ -111,6 +111,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb58b47c_b5d48531",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 15
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-31T18:39:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac51f489_952afe75",
+      "range": {
+        "startLine": 950,
+        "startChar": 43,
+        "endLine": 950,
+        "endChar": 45
+      },
+      "revId": "4d7dc2bc738d60e010021014874e029e11ecca3c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff3828d8_484365b0",
@@ -124,6 +148,30 @@
       "writtenOn": "2023-01-31T14:55:31Z",
       "side": 1,
       "message": "(nit) Print image_va here? Again, the current code is correct...",
+      "range": {
+        "startLine": 275,
+        "startChar": 24,
+        "endLine": 275,
+        "endChar": 32
+      },
+      "revId": "4d7dc2bc738d60e010021014874e029e11ecca3c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1137704b_d6d5c8bf",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-01-31T18:39:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff3828d8_484365b0",
       "range": {
         "startLine": 275,
         "startChar": 24,
