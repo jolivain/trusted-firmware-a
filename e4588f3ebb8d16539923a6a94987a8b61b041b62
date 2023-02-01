@@ -16,6 +16,24 @@
       "message": "Caused by checkpatch error in previous patch.\n\nplat/xilinx/versal_net/bl31_versal_net_setup.c:111: ERROR: space required before the open parenthesis \u0027(\u0027\n+\t} else if(VERSAL_NET_CONSOLE_IS(dcc)) {",
       "revId": "e4588f3ebb8d16539923a6a94987a8b61b041b62",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a92b192d_785e6fad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000811
+      },
+      "writtenOn": "2023-02-01T06:28:49Z",
+      "side": 1,
+      "message": "V2 of previous patch resolves this!",
+      "parentUuid": "d5c576fa_3e59e2a2",
+      "revId": "e4588f3ebb8d16539923a6a94987a8b61b041b62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
