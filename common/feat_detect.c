@@ -43,10 +43,16 @@ static inline void feature_panic(char *feat_name)
  * if the feature is disabled at build time (FEAT_STATE_DISABLED).
  ******************************************************************************/
 static inline void __attribute((__always_inline__))
-check_feature(int state, unsigned long field, const char *feat_name)
+check_feature(int state, unsigned long field, const char *feat_name,
+	      unsigned int min, unsigned int max)
 {
-	if (state == FEAT_STATE_ALWAYS && field == 0U) {
+	if (state == FEAT_STATE_ALWAYS && field < min) {
 		ERROR("FEAT_%s not supported by the PE\n", feat_name);
+		tainted = true;
+	}
+	if (state >= FEAT_STATE_ALWAYS && field > max) {
+		ERROR("FEAT_%s is version %ld, but is only known up to version %d\n",
+		      feat_name, field, max);
 		tainted = true;
 	}
 }
@@ -312,7 +318,8 @@ void detect_arch_features(void)
 
 	/* v8.4 features */
 	read_feat_dit();
-	check_feature(ENABLE_FEAT_AMUv1, read_feat_amu_id_field(), "AMUv1");
+	check_feature(ENABLE_FEAT_AMUv1, read_feat_amu_id_field(),
+		      "AMUv1", 1, 2);
 	read_feat_mpam();
 	read_feat_nv2();
 	read_feat_sel2();
@@ -326,12 +333,12 @@ void detect_arch_features(void)
 
 	/* v8.6 features */
 	read_feat_amuv1p1();
-	check_feature(ENABLE_FEAT_FGT, read_feat_fgt_id_field(), "FGT");
+	check_feature(ENABLE_FEAT_FGT, read_feat_fgt_id_field(), "FGT", 1, 1);
 	read_feat_ecv();
 	read_feat_twed();
 
 	/* v8.7 features */
-	check_feature(ENABLE_FEAT_HCX, read_feat_hcx_id_field(), "HCX");
+	check_feature(ENABLE_FEAT_HCX, read_feat_hcx_id_field(), "HCX", 1, 1);
 
 	/* v9.0 features */
 	read_feat_brbe();
