@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddc18ee9_ba6a22c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-02-01T12:03:18Z",
+      "side": 1,
+      "message": "Thanks a lot for your reviews, and valuable feedback!\n\nWould you be able to point us to the exact location of where you detected such cases?\nSome memory sharing related patches are on review here:\nhttps://review.trustedfirmware.org/q/topic:%22ja%252Fffa_mem_share_v1_1%22+(status:open%20OR%20status:merged)\n\nAlternatively, you can provide links to the hafnium tree to the areas that raise any concerns:\nhttps://git.trustedfirmware.org/hafnium/hafnium.git/tree\n\nI will proceed to have a look for the opportunities of improvement.",
+      "parentUuid": "0a28627b_17e3011a",
+      "revId": "9dab96dc8a6911342ceb44213c2b66ffa2aeb1f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c620623_1895961b",
@@ -35,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12d5766b_c2110661",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1169,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-02-01T12:03:18Z",
+      "side": 1,
+      "message": "Rewrote.\nLet me know if it is not clear.\nThanks!",
+      "parentUuid": "8c620623_1895961b",
+      "revId": "9dab96dc8a6911342ceb44213c2b66ffa2aeb1f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13813c77_3ea38a5c",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-01-25T19:36:39Z",
       "side": 1,
       "message": "These mitigations have not been implemented.",
+      "revId": "9dab96dc8a6911342ceb44213c2b66ffa2aeb1f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07edf11d_c04c1ae2",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1323,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-02-01T12:03:18Z",
+      "side": 1,
+      "message": "Hafnium validates sender permission over the memory region function below:\nhttps://git.trustedfirmware.org/hafnium/hafnium.git/tree/src/ffa_memory.c#n429\nThis applies for the secure partitions.\nFor endpoints in the NWd, sharing memory with SPs from the sender\u0027s perspective this can\u0027t really be enforced by the SPMC. Should effectively validated by the Hypervisor.\nThat said, memory sharing between NWd and SPs is being subjected to some harnessing, for which I should provide patches anytime soon.\n\nAt the time of retrieval of the memory region the, check function below:\nhttps://git.trustedfirmware.org/hafnium/hafnium.git/tree/src/ffa_memory.c#n1765\nIt checks permissions requested by the borrower are within those provided by the sender.\n\nLet me know if you find there is anything missing.\nCheers.",
+      "parentUuid": "13813c77_3ea38a5c",
       "revId": "9dab96dc8a6911342ceb44213c2b66ffa2aeb1f6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
