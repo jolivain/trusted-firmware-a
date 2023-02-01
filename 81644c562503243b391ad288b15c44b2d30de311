@@ -16,6 +16,57 @@
       "message": "I am not sure this is the final solution, as this for instance breaks (native) power off on the Pine H64. Admittedly we were using the RSB bus somewhat illegally there, but it worked, so could be considered a regression. Not sure if it\u0027s worth to bring back the I2C driver, and even decide between the two buses at runtime, or if we delegate this to crust and ignore the missing native PSCI_SYSTEM_OFF functionality.",
       "revId": "81644c562503243b391ad288b15c44b2d30de311",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd04f0ec_047a6ee5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-02-01T23:38:31Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "81644c562503243b391ad288b15c44b2d30de311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2f2feb8_710ffbd4",
+        "filename": "plat/allwinner/sun50i_h6/sunxi_power.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-02-01T23:38:31Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "81644c562503243b391ad288b15c44b2d30de311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "837985d6_1cba0ea7",
+        "filename": "plat/allwinner/sun50i_h6/sunxi_power.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-02-01T23:38:31Z",
+      "side": 1,
+      "message": "nitpick:\nif (prop !\u003d NULL \u0026\u0026 strcmp(prop, \"okay) !\u003d 0) {",
+      "revId": "81644c562503243b391ad288b15c44b2d30de311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
