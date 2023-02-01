@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dd967982_635950f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-02-01T19:12:37Z",
+      "side": 1,
+      "message": "EL3 firmware currently uses an O(n²) loop to check for duplicate partition IDs, and a loop that is at least O(number of regions being shared * number of regions already shared) to check for sharing a memory region that is currently in the middle of a transaction.  Also, freeing an object is O(size of reserved memory), and there is no check that e.g. memory being shared with Secure world is page-aligned and has not been already given to Realm or Root worlds.  There is no check I can see that address ranges within a transaction do not overlap.\n\nMaking individual transactions easier to validate is easy: just require address ranges and partition IDs to be sorted, and drop support for v1.0 transactions outright.  Fixing the remaining problems would require substantially more complex data structures in EL3, which means significantly increased attack surface.  Furthermore, unless the RMMD is aware of memory sharing, there will be unavoidable TOCTOU races.  Instead, I recommend piggybacking on the existing GPT code: if a piece of memory is not in Normal state, trying to change it to Secure or Realm state will fail.  This may require using bits in the GPT that are reserved for firmware use (assuming such bits exist) to indicate states like “this page is reserved by Secure world, do not transition it to Realm or Root world”.  Memory sharing messages could then be entirely opaque to Root world, minimizing its attack surface.  Secure world would be responsible for gracefully handling mapping errors.",
+      "parentUuid": "ddc18ee9_ba6a22c7",
+      "revId": "9dab96dc8a6911342ceb44213c2b66ffa2aeb1f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c620623_1895961b",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 2
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "Hafnium validates sender permission over the memory region function below:\nhttps://git.trustedfirmware.org/hafnium/hafnium.git/tree/src/ffa_memory.c#n429\nThis applies for the secure partitions.\nFor endpoints in the NWd, sharing memory with SPs from the sender\u0027s perspective this can\u0027t really be enforced by the SPMC. Should effectively validated by the Hypervisor.\nThat said, memory sharing between NWd and SPs is being subjected to some harnessing, for which I should provide patches anytime soon.\n\nAt the time of retrieval of the memory region the, check function below:\nhttps://git.trustedfirmware.org/hafnium/hafnium.git/tree/src/ffa_memory.c#n1765\nIt checks permissions requested by the borrower are within those provided by the sender.\n\nLet me know if you find there is anything missing.\nCheers.",
       "parentUuid": "13813c77_3ea38a5c",
+      "revId": "9dab96dc8a6911342ceb44213c2b66ffa2aeb1f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed55e7d8_da14864d",
+        "filename": "docs/threat_model/threat_model_spm.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1323,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-02-01T19:12:37Z",
+      "side": 1,
+      "message": "I am referring to the EL3 checks that prevent memory being shared that currently belongs to Realm or Root worlds.",
+      "parentUuid": "07edf11d_c04c1ae2",
       "revId": "9dab96dc8a6911342ceb44213c2b66ffa2aeb1f6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
