@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17af7259_396e75aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000917
+      },
+      "writtenOn": "2023-02-02T15:29:15Z",
+      "side": 1,
+      "message": "Compiled against master and used to boot an RK3566 based device (Anbernic RG503). Note that the SCMI clock function is not present, so received warnings about that in Linux dmesg, but no other obvious issues found. Assume SCMI clock will be added with a follow-up patch?\n\nTested-by: Chris Morga \u003cmacromorgan@hotmail.com\u003e",
+      "revId": "9bad2e22ecc7ceb79896082cc19acfd55c14f595",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
