@@ -9,8 +9,6 @@
 
 #include <lib/xlat_tables/xlat_tables_defs.h>
 
-#define SPM_SHIM_EXCEPTIONS_VMA		SP_DRAM
-
 MEMORY {
 	SP_DRAM (rw): ORIGIN = PLAT_SQ_SP_PRIV_BASE, LENGTH = PLAT_SQ_SP_PRIV_SIZE
 }

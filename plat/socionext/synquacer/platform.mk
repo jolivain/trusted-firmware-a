@@ -8,6 +8,10 @@ override PROGRAMMABLE_RESET_ADDRESS	:= 1
 override USE_COHERENT_MEM		:= 1
 override SEPARATE_CODE_AND_RODATA	:= 1
 override ENABLE_SVE_FOR_NS		:= 0
+
+# The SPM exceptions shim is copied into secure DRAM
+override SPM_MM_RELOCATE_SHIM_EXCEPTIONS := 1
+
 # Enable workarounds for selected Cortex-A53 erratas.
 ERRATA_A53_855873		:= 1
 
