@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1619deb5_92c64f6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-02-02T18:41:45Z",
+      "side": 1,
+      "message": "\u003e You make a fair point about the current efficiency of some of the operations performed, however as you say, the trade off for fixing some of these would increase the complexity of the code which would also be undesirable.\n\nShould there be some sort of limit or timeout to prevent DoS of the secure world?  Does Hafnium implement these operations more efficiently?\n\n\u003e \u003e Making individual transactions easier to validate is easy: just require address ranges and partition IDs to be sorted, and drop support for v1.0 transactions outright.\n\u003e \n\u003e Unfortunately we cannot make these assumptions as these conditions are not mandated by the v1.1 FF-A spec, therefore the SPMC implementation must support address ranges and partition IDs in any order.\n\nWould sorting them be an option?  What about changing the spec in v1.2?\n\n\u003e Additionally one of the initial use cases of the EL3 SPMC was to be able to support v1.0 client so dropping support would also not be an option at the moment.\n\nWhat is the intended use of EL3 SPMC?  It seems to add a bunch of code in EL3 that could just as easily be in S-EL2, and therefore *should* be in S-EL2.\n\n\u003e \u003e there is no check that e.g. memory being shared with Secure world is page-aligned \n\u003e \u003e There is no check I can see that address ranges within a transaction do not overlap.\n\u003e \n\u003e Thanks for pointing these out, I will need to double check the code and look into adding the appropriate checks.\n\nThere are also some bounds checks that do not actually work.\n\n\u003e \u003e unless the RMMD is aware of memory sharing, there will be unavoidable TOCTOU races\n\u003e \n\u003e The EL3 SPMC is not designed to run with the RME enabled and this is prevented at build time [1] to avoid the issues you have highlighted.\n\nAck.\n\n\u003e Please let me know if you spot anything else or if you have any other comments.\n\nI think this is everything.",
+      "parentUuid": "66626393_b7e67e90",
+      "revId": "9dab96dc8a6911342ceb44213c2b66ffa2aeb1f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c620623_1895961b",
         "filename": "docs/threat_model/threat_model_spm.rst",
         "patchSetId": 2
