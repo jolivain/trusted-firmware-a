@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "398ef9d6_58cafc8c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-02-02T08:18:06Z",
+      "side": 1,
+      "message": "Please extend commit message to explain logic around XPM_NODEIDX_DEV_MAX.\nI think XPM_NODEIDX_DEV_MAX can be removed from \n if (node_idx \u003e XPM_NODEIDX_DEV_MIN \u0026\u0026 node_idx \u003c XPM_NODEIDX_DEV_MAX)\nin pm_client_set_wakeup_sources() (Can be done by separate patch)\n\nbecause that value is just used for storing temporary values to avoid enabling wakeup source for the same device because multiple IRQs are assigned to the same IP.",
+      "revId": "6d1d0903f2ae6169a63973b6434964f1d5a1b8ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
