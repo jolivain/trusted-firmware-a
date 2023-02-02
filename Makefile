@@ -1101,6 +1101,7 @@ $(eval $(call assert_booleans,\
         SEPARATE_NOBITS_REGION \
         SPIN_ON_BL1_EXIT \
         SPM_MM \
+        SPM_MM_RELOCATE_SHIM_EXCEPTIONS \
         SPMC_AT_EL3 \
         SPMD_SPM_AT_SEL2 \
         TRUSTED_BOARD_BOOT \
@@ -1244,6 +1245,7 @@ $(eval $(call add_defines,\
         SPD_${SPD} \
         SPIN_ON_BL1_EXIT \
         SPM_MM \
+        SPM_MM_RELOCATE_SHIM_EXCEPTIONS \
         SPMC_AT_EL3 \
         SPMD_SPM_AT_SEL2 \
         TRUSTED_BOARD_BOOT \
