@@ -222,6 +222,11 @@ static void setup_ns_context(cpu_context_t *ctx, const struct entry_point_info *
 	scr_el3 |= SCR_TERR_BIT;
 #endif
 
+#if ENABLE_FEAT_CSV2_2
+	/* Enable access to the SCXTNUM_ELx registers. */
+	scr_el3 |= SCR_EnSCXT_BIT;
+#endif
+
 #ifdef IMAGE_BL31
 	/*
 	 * SCR_EL3.IRQ, SCR_EL3.FIQ: Enable the physical FIQ and IRQ routing as
