@@ -33,6 +33,24 @@
       "message": "please fix the commit title\n✖   type must be one of [build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test] [type-enum]\n\nThere seems to be build failures related to rockchip platform:\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1527449/console\n\nOther platforms build failures may not be related to this change, but require a rebase to confirm.\n\nNew files will have to be covered by a coverity makefile update:\nplat/rockchip/rk3568/drivers/pmu/pmu.c\nplat/rockchip/rk3568/drivers/soc/soc.c\nplat/rockchip/rk3568/plat_sip_calls.c",
       "revId": "b558369199d8c03c8714ba3c01a1400aa906ca6c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcea0a27_a407884f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000917
+      },
+      "writtenOn": "2023-02-02T15:24:25Z",
+      "side": 1,
+      "message": "What DDR settings are you referring to? Just curious.",
+      "parentUuid": "05c1fc80_d0083ef4",
+      "revId": "b558369199d8c03c8714ba3c01a1400aa906ca6c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
