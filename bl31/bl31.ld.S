@@ -25,6 +25,14 @@ MEMORY {
 #   include <plat.ld.S>
 #endif /* PLAT_EXTRA_LD_SCRIPT */
 
+#if SPM_MM
+#   if SPM_MM_RELOCATE_SHIM_EXCEPTIONS
+#       include <spm_shim_exceptions.ld.S>
+#   else /* SPM_SHIM_EXCEPTIONS_VMA */
+#       define SPM_SHIM_EXCEPTIONS_VMA RAM
+#   endif /* SPM_SHIM_EXCEPTIONS_VMA */
+#endif /* SPM_MM */
+
 SECTIONS {
     . = BL31_BASE;
 
@@ -98,10 +106,6 @@ SECTIONS {
         "cpu_ops not defined for this platform.")
 
 #if SPM_MM
-#   ifndef SPM_SHIM_EXCEPTIONS_VMA
-#       define SPM_SHIM_EXCEPTIONS_VMA RAM
-#   endif /* SPM_SHIM_EXCEPTIONS_VMA */
-
     /*
      * Exception vectors of the SPM shim layer. They must be aligned to a 2K
      * address but we need to place them in a separate page so that we can set
