@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9f3cdde_341e7f06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-02-02T08:19:49Z",
+      "side": 1,
+      "message": "I see compilation issue for versal\nmake -j8 DEBUG\u003d1 VERSAL_PLATFORM\u003dsilicon VERSAL_CONSOLE\u003dpl011 RESET_TO_BL31\u003d1 PLAT\u003dversal bl31\n\n\nplat/xilinx/versal/pm_service/pm_client.c:118:13: error: static declaration of \u0027pm_client_set_wakeup_sources\u0027 follows non-static declaration\n  118 | static void pm_client_set_wakeup_sources(uint32_t node_id)\n      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from plat/xilinx/versal/pm_service/pm_client.c:23:\nplat/xilinx/common/include/pm_api_sys.h:43:6: note: previous declaration of \u0027pm_client_set_wakeup_sources\u0027 with type \u0027void(uint32_t)\u0027 {aka \u0027void(unsigned int)\u0027}\n   43 | void pm_client_set_wakeup_sources(uint32_t node_id);\n      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~\nplat/xilinx/versal/pm_service/pm_client.c: In function \u0027pm_client_set_wakeup_sources\u0027:\nplat/xilinx/versal/pm_service/pm_client.c:123:32: error: \u0027PLAT_VERSAL_GICD_BASE\u0027 undeclared (first use in this function); did you mean \u0027PLAT_VERSAL_GICR_BASE\u0027?\n  123 |         uintptr_t isenabler1 \u003d PLAT_VERSAL_GICD_BASE + GICD_ISENABLER + 4;\n      |                                ^~~~~~~~~~~~~~~~~~~~~\n      |                                PLAT_VERSAL_GICR_BASE\nplat/xilinx/versal/pm_service/pm_client.c:123:32: note: each undeclared identifier is reported only once for each function it appears in\n  CC      services/arm_arch_svc/arm_arch_svc_setup.c\nplat/xilinx/versal/pm_service/pm_client.c:125:38: error: \u0027NUM_GICD_ISENABLER\u0027 undeclared (first use in this function); did you mean \u0027GICD_ISENABLER\u0027?\n  125 |         for (reg_num \u003d 0U; reg_num \u003c NUM_GICD_ISENABLER; reg_num++) {\n      |                                      ^~~~~~~~~~~~~~~~~~\n      |                                      GICD_ISENABLER\n",
+      "revId": "361f18c255a624758a1a24e8caa97ac25c07ecdd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f029921f_517720b1",
