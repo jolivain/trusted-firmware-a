@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd884cad_f311d099",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-02-02T09:57:52Z",
+      "side": 1,
+      "message": "Thanks Madhukar for having a look. Will fix the two issues - failed context switching from writing Linux patches ;-), but waiting for Samuel\u0027s opinion on the approach in general first.",
+      "parentUuid": "bd04f0ec_047a6ee5",
+      "revId": "81644c562503243b391ad288b15c44b2d30de311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2f2feb8_710ffbd4",
@@ -52,6 +70,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f693452_ca8319de",
+        "filename": "plat/allwinner/sun50i_h6/sunxi_power.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-02-02T09:57:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e2f2feb8_710ffbd4",
+      "revId": "81644c562503243b391ad288b15c44b2d30de311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "837985d6_1cba0ea7",
@@ -65,6 +101,24 @@
       "writtenOn": "2023-02-01T23:38:31Z",
       "side": 1,
       "message": "nitpick:\nif (prop !\u003d NULL \u0026\u0026 strcmp(prop, \"okay) !\u003d 0) {",
+      "revId": "81644c562503243b391ad288b15c44b2d30de311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "519e3c53_c853edd1",
+        "filename": "plat/allwinner/sun50i_h6/sunxi_power.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-02-02T09:57:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "837985d6_1cba0ea7",
       "revId": "81644c562503243b391ad288b15c44b2d30de311",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
