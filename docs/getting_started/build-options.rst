@@ -871,6 +871,18 @@ Common build options
    (disabled). This option cannot be enabled (``1``) when SPM Dispatcher is
    enabled (``SPD=spmd``).
 
+-  ``SPM_MM_RELOCATE_SHIM_EXCEPTIONS`` : Boolean option for platforms which wish
+   to relocate the SPM MM shim exceptions table to another memory region. The
+   default value is ``0``, which places the table with other executable data.
+
+   When this build option is enabled, the platform is expected to provide an
+   include file - ``spm_shim_exceptions.ld.S`` - which defines the following
+   preprocessor macro:
+
+   - ``SPM_SHIM_EXCEPTIONS_VMA``: destination memory region for the shim
+
+   When this build option is disabled, this defaults to ``RAM``.
+
 -  ``SP_LAYOUT_FILE``: Platform provided path to JSON file containing the
    description of secure partitions. The build system will parse this file and
    package all secure partition blobs into the FIP. This file is not

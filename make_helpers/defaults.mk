@@ -310,6 +310,9 @@ SPD				:= none
 # Enable the Management Mode (MM)-based Secure Partition Manager implementation
 SPM_MM				:= 0
 
+# Rrelocate the SPM MM shim exceptions table to another memory region
+SPM_MM_RELOCATE_SHIM_EXCEPTIONS	:= 0
+
 # Use the FF-A SPMC implementation in EL3.
 SPMC_AT_EL3			:= 0
 
