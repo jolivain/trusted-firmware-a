@@ -16,6 +16,24 @@
       "message": "I am curious why this was not considered a security vulnerability fix and treated accordingly, as my X.509 certificate parser fixes were.",
       "revId": "ba33cd69cbf84037ae379bd4129f578a08778afc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21972a3b_bee975c8",
+        "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1645,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-02-02T11:42:51Z",
+      "side": 1,
+      "message": "Sorry, dont understand the question. Do you mean why TF-A didnt publish a security advisory for this code?",
+      "parentUuid": "e9b0d5a2_17208c47",
+      "revId": "ba33cd69cbf84037ae379bd4129f578a08778afc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
