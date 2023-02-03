@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -15,7 +15,9 @@ static unsigned char power_domain_tree_desc[] = {
 	/* Number of root nodes */
 	PLATFORM_CLUSTER_COUNT,
 	/* Number of children for the first node */
-	PLATFORM_CLUSTER0_CORE_COUNT
+	PLATFORM_CLUSTER0_CORE_COUNT,
+	/* No of children for the second cluster node */
+	PLATFORM_CLUSTER1_CORE_COUNT
 };
 
 /*******************************************************************************
