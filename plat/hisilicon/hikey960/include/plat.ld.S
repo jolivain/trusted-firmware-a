@@ -8,15 +8,20 @@
 
 #include <lib/xlat_tables/xlat_tables_defs.h>
 
-MEMORY {
-    RAM2 (rw): ORIGIN = DDR2_SEC_BASE, LENGTH = DDR2_SEC_SIZE
+PHDRS {
+    ram2_n PT_LOAD FLAGS(6 /* RW_ */);
 }
 
-SECTIONS
-{
-	ram2_region (NOLOAD) : {
-	*(ram2_region)
-	}>RAM2
+MEMORY {
+    ram2 (rw): ORIGIN = DDR2_SEC_BASE, LENGTH = DDR2_SEC_SIZE
 }
+
+SECTIONS {
+    .ram2 (NOLOAD) : {
+        *(ram2_region)
+    } >ram2 AT>ram2 :ram2_n
+}
+
+INSERT BEFORE .text.start;
 
 #endif /* PLAT_LD_S */
