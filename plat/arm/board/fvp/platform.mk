@@ -429,7 +429,7 @@ ifeq (${USE_DEBUGFS},1)
 endif
 
 # Add support for platform supplied linker script for BL31 build
-$(eval $(call add_define,PLAT_EXTRA_LD_SCRIPT))
+BL31_LINKER_SCRIPT_SOURCES += include/plat/arm/common/arm_tzc_dram.ld.S
 
 ifneq (${RESET_TO_BL2}, 0)
     override BL1_SOURCES =

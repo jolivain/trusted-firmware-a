@@ -876,12 +876,14 @@ Common build options
    default value is ``0``, which places the table with other executable data.
 
    When this build option is enabled, the platform is expected to provide an
-   include file - ``spm_shim_exceptions.ld.S`` - which defines the following
-   preprocessor macro:
+   include file - ``bootloader/spm_shim_exceptions.config.ld.S`` - which defines
+   the following preprocessor macros:
 
-   - ``SPM_SHIM_EXCEPTIONS_VMA``: destination memory region for the shim
+   - ``SPM_SHIM_EXCEPTIONS_REGION``: destination memory region for the shim
+   - ``SPM_SHIM_EXCEPTIONS_PHDR``: destination program header for the shim
 
-   When this build option is disabled, this defaults to ``RAM``.
+   When this build option is disabled, these default to ``x`` and ``text``
+   respectively.
 
 -  ``SP_LAYOUT_FILE``: Platform provided path to JSON file containing the
    description of secure partitions. The build system will parse this file and
