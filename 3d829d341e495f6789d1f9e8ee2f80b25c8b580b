@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "962deff0_1a56c5ea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-03T21:07:20Z",
+      "side": 1,
+      "message": "plat_fiptool instead?",
+      "range": {
+        "startLine": 14,
+        "startChar": 43,
+        "endLine": 14,
+        "endChar": 62
+      },
+      "revId": "3d829d341e495f6789d1f9e8ee2f80b25c8b580b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f7dc40b_d9abc566",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-03T21:07:20Z",
+      "side": 1,
+      "message": "Suggesting to change as below:\n\"It enables fiptool to support multiple platforms or a specific one\"",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 6
+      },
+      "revId": "3d829d341e495f6789d1f9e8ee2f80b25c8b580b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aec74394_63e8d6a2",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-03T21:07:20Z",
+      "side": 1,
+      "message": "Can we initialise COMBINED_PATH_FRAG :\u003d plat_fiptool?\nMay be rename this to PLAT_FIPTOOL_PATH instead?",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 21
+      },
+      "revId": "3d829d341e495f6789d1f9e8ee2f80b25c8b580b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f30059f0_abc54277",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-03T21:07:20Z",
+      "side": 1,
+      "message": "then remove this.",
+      "range": {
+        "startLine": 60,
+        "startChar": 16,
+        "endLine": 60,
+        "endChar": 28
+      },
+      "revId": "3d829d341e495f6789d1f9e8ee2f80b25c8b580b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "489eddab_bbe62eb6",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-03T21:07:20Z",
+      "side": 1,
+      "message": "why this is needed?",
+      "range": {
+        "startLine": 63,
+        "startChar": 21,
+        "endLine": 63,
+        "endChar": 29
+      },
+      "revId": "3d829d341e495f6789d1f9e8ee2f80b25c8b580b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
