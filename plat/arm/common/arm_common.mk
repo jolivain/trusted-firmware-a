@@ -6,6 +6,8 @@
 
 include common/fdt_wrappers.mk
 
+PLAT_INCLUDES += -Iinclude/plat/arm
+
 ifeq (${ARCH}, aarch64)
   # On ARM standard platorms, the TSP can execute from Trusted SRAM, Trusted
   # DRAM (if available) or the TZC secured area of DRAM.

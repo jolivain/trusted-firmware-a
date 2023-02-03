@@ -157,7 +157,8 @@ BL31_SOURCES		+=	services/std_svc/drtm/drtm_main.c		\
 				${MBEDTLS_SOURCES}
 endif
 
-BL31_DEFAULT_LINKER_SCRIPT_SOURCE := bl31/bl31.ld.S
+BL31_DEFAULT_LINKER_SCRIPT_SOURCE := bootloader/bootloader.ld.S
+BL31_LINKER_SCRIPT_SOURCES := bl31/bl31.ld.S $(BL31_LINKER_SCRIPT_SOURCES)
 
 ifneq ($(findstring gcc,$(notdir $(LD))),)
         BL31_LDFLAGS	+=	-Wl,--sort-section=alignment
