@@ -1,14 +1,14 @@
 /*
  * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
- * Copyright (c) 2022-2023, Advanced Micro Devices Inc. All rights reserved.
+ * Copyright (c) 2022-2023, Advanced Micro Devices, Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 /* ZynqMP power management enums and defines */
 
-#ifndef PM_DEFS_H
-#define PM_DEFS_H
+#ifndef ZYNQMP_PM_DEFS_H
+#define ZYNQMP_PM_DEFS_H
 
 /*********************************************************************
  * Macro definitions
@@ -40,13 +40,6 @@
 #define PM_CAP_ACCESS	0x1U
 #define PM_CAP_CONTEXT	0x2U
 
-#define MAX_LATENCY	(~0U)
-#define MAX_QOS		100U
-
-/* State arguments of the self suspend */
-#define PM_STATE_CPU_IDLE		0x0U
-#define PM_STATE_SUSPEND_TO_RAM		0xFU
-
 /* APU processor states */
 #define PM_PROC_STATE_FORCEDOFF		0U
 #define PM_PROC_STATE_ACTIVE		1U
@@ -55,82 +48,11 @@
 
 #define EM_FUNID_NUM_MASK    0xF0000U
 
-#define PM_GET_CALLBACK_DATA		0xa01
 #define PM_SET_SUSPEND_MODE		0xa02
-#define PM_GET_TRUSTZONE_VERSION	0xa03
 
 /*********************************************************************
  * Enum definitions
  ********************************************************************/
-
-enum pm_api_id {
-	/* Miscellaneous API functions: */
-	PM_GET_API_VERSION = 1, /* Do not change or move */
-	PM_SET_CONFIGURATION,
-	PM_GET_NODE_STATUS,
-	PM_GET_OP_CHARACTERISTIC,
-	PM_REGISTER_NOTIFIER,
-	/* API for suspending of PUs: */
-	PM_REQ_SUSPEND,
-	PM_SELF_SUSPEND,
-	PM_FORCE_POWERDOWN,
-	PM_ABORT_SUSPEND,
-	PM_REQ_WAKEUP,
-	PM_SET_WAKEUP_SOURCE,
-	PM_SYSTEM_SHUTDOWN,
-	/* API for managing PM slaves: */
-	PM_REQ_NODE,
-	PM_RELEASE_NODE,
-	PM_SET_REQUIREMENT,
-	PM_SET_MAX_LATENCY,
-	/* Direct control API functions: */
-	PM_RESET_ASSERT,
-	PM_RESET_GET_STATUS,
-	PM_MMIO_WRITE,
-	PM_MMIO_READ,
-	PM_INIT_FINALIZE,
-	PM_FPGA_LOAD,
-	PM_FPGA_GET_STATUS,
-	PM_GET_CHIPID,
-	PM_SECURE_RSA_AES,
-	PM_SECURE_SHA,
-	PM_SECURE_RSA,
-	PM_PINCTRL_REQUEST,
-	PM_PINCTRL_RELEASE,
-	PM_PINCTRL_GET_FUNCTION,
-	PM_PINCTRL_SET_FUNCTION,
-	PM_PINCTRL_CONFIG_PARAM_GET,
-	PM_PINCTRL_CONFIG_PARAM_SET,
-	PM_IOCTL,
-	/* API to query information from firmware */
-	PM_QUERY_DATA,
-	/* Clock control API functions */
-	PM_CLOCK_ENABLE,
-	PM_CLOCK_DISABLE,
-	PM_CLOCK_GETSTATE,
-	PM_CLOCK_SETDIVIDER,
-	PM_CLOCK_GETDIVIDER,
-	PM_CLOCK_SETRATE,
-	PM_CLOCK_GETRATE,
-	PM_CLOCK_SETPARENT,
-	PM_CLOCK_GETPARENT,
-	PM_SECURE_IMAGE,
-	/* FPGA PL Readback */
-	PM_FPGA_READ,
-	PM_SECURE_AES,
-	/* PLL control API functions */
-	PM_PLL_SET_PARAMETER,
-	PM_PLL_GET_PARAMETER,
-	PM_PLL_SET_MODE,
-	PM_PLL_GET_MODE,
-	/* PM Register Access API */
-	PM_REGISTER_ACCESS,
-	PM_EFUSE_ACCESS,
-	PM_FEATURE_CHECK = 63,
-	PM_FPGA_GET_VERSION = 72,
-	PM_FPGA_GET_FEATURE_LIST,
-	PM_API_MAX
-};
 
 enum pm_node_id {
 	NODE_UNKNOWN = 0,
@@ -220,13 +142,6 @@ enum pm_request_ack {
 	REQ_ACK_NON_BLOCKING,
 };
 
-enum pm_abort_reason {
-	ABORT_REASON_WKUP_EVENT = 100,
-	ABORT_REASON_PU_BUSY,
-	ABORT_REASON_NO_PWRDN,
-	ABORT_REASON_UNKNOWN,
-};
-
 enum pm_suspend_reason {
 	SUSPEND_REASON_PU_REQ = 201,
 	SUSPEND_REASON_ALERT,
@@ -237,42 +152,6 @@ enum pm_ram_state {
 	PM_RAM_STATE_OFF = 1,
 	PM_RAM_STATE_RETENTION,
 	PM_RAM_STATE_ON,
-};
-
-enum pm_opchar_type {
-	PM_OPCHAR_TYPE_POWER = 1,
-	PM_OPCHAR_TYPE_TEMP,
-	PM_OPCHAR_TYPE_LATENCY,
-};
-
-/**
- * @PM_RET_SUCCESS:		success
- * @PM_RET_ERROR_ARGS:		illegal arguments provided (deprecated)
- * @PM_RET_ERROR_NOTSUPPORTED:	feature not supported  (deprecated)
- * @PM_RET_ERROR_NOT_ENABLED:	feature is not enabled
- * @PM_RET_ERROR_INTERNAL:	internal error
- * @PM_RET_ERROR_CONFLICT:	conflict
- * @PM_RET_ERROR_ACCESS:	access rights violation
- * @PM_RET_ERROR_INVALID_NODE:	invalid node
- * @PM_RET_ERROR_DOUBLE_REQ:	duplicate request for same node
- * @PM_RET_ERROR_ABORT_SUSPEND:	suspend procedure has been aborted
- * @PM_RET_ERROR_TIMEOUT:	timeout in communication with PMU
- * @PM_RET_ERROR_NODE_USED:	node is already in use
- */
-enum pm_ret_status {
-	PM_RET_SUCCESS = (0U),
-	PM_RET_ERROR_ARGS = (1U),
-	PM_RET_ERROR_NOTSUPPORTED = (4U),
-	PM_RET_ERROR_NOT_ENABLED = (29U),
-	PM_RET_ERROR_INTERNAL = (2000U),
-	PM_RET_ERROR_CONFLICT = (2001U),
-	PM_RET_ERROR_ACCESS = (2002U),
-	PM_RET_ERROR_INVALID_NODE = (2003U),
-	PM_RET_ERROR_DOUBLE_REQ = (2004U),
-	PM_RET_ERROR_ABORT_SUSPEND = (2005U),
-	PM_RET_ERROR_TIMEOUT = (2006U),
-	PM_RET_ERROR_NODE_USED = (2007U),
-	PM_RET_ERROR_NO_FEATURE = (2008U)
 };
 
 /**
@@ -309,32 +188,6 @@ enum pm_shutdown_subtype {
 };
 
 /**
- * @PM_PLL_PARAM_DIV2:		Enable for divide by 2 function inside the PLL
- * @PM_PLL_PARAM_FBDIV:		Feedback divisor integer portion for the PLL
- * @PM_PLL_PARAM_DATA:		Feedback divisor fractional portion for the PLL
- * @PM_PLL_PARAM_PRE_SRC:	Clock source for PLL input
- * @PM_PLL_PARAM_POST_SRC:	Clock source for PLL Bypass mode
- * @PM_PLL_PARAM_LOCK_DLY:	Lock circuit config settings for lock windowsize
- * @PM_PLL_PARAM_LOCK_CNT:	Lock circuit counter setting
- * @PM_PLL_PARAM_LFHF:		PLL loop filter high frequency capacitor control
- * @PM_PLL_PARAM_CP:		PLL charge pump control
- * @PM_PLL_PARAM_RES:		PLL loop filter resistor control
- */
-enum pm_pll_param {
-	PM_PLL_PARAM_DIV2,
-	PM_PLL_PARAM_FBDIV,
-	PM_PLL_PARAM_DATA,
-	PM_PLL_PARAM_PRE_SRC,
-	PM_PLL_PARAM_POST_SRC,
-	PM_PLL_PARAM_LOCK_DLY,
-	PM_PLL_PARAM_LOCK_CNT,
-	PM_PLL_PARAM_LFHF,
-	PM_PLL_PARAM_CP,
-	PM_PLL_PARAM_RES,
-	PM_PLL_PARAM_MAX,
-};
-
-/**
  * @PM_PLL_MODE_RESET:		PLL is in reset (not locked)
  * @PM_PLL_MODE_INTEGER:	PLL is locked in integer mode
  * @PM_PLL_MODE_FRACTIONAL:	PLL is locked in fractional mode
@@ -364,4 +217,4 @@ enum em_api_id {
 	EM_SEND_ERRORS,
 };
 
-#endif /* PM_DEFS_H */
+#endif /* ZYNQMP_PM_DEFS_H */
