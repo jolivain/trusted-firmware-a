@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, Arm Limited and Contributors. All rights reserved.
  * Copyright (c) 2018-2022, Xilinx, Inc. All rights reserved.
  * Copyright (C) 2022-2023, Advanced Micro Devices, Inc. All rights reserved.
  *
@@ -39,8 +39,8 @@ static const interrupt_prop_t versal_net_interrupt_props[] = {
  * We save and restore the GICv3 context on system suspend. Allocate the
  * data in the designated EL3 Secure carve-out memory.
  */
-static gicv3_redist_ctx_t rdist_ctx __section(".versal_net_el3_tzc_dram");
-static gicv3_dist_ctx_t dist_ctx __section(".versal_net_el3_tzc_dram");
+static gicv3_redist_ctx_t rdist_ctx;
+static gicv3_dist_ctx_t dist_ctx;
 
 /*
  * MPIDR hashing function for translating MPIDRs read from GICR_TYPER register
