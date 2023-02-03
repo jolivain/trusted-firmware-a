@@ -8,8 +8,4 @@
 
 #include <plat/arm/common/arm_tzc_dram.ld.S>
 
-#if RECLAIM_INIT_CODE
-#include <plat/arm/common/arm_reclaim_init.ld.S>
-#endif /* RECLAIM_INIT_CODE */
-
 #endif /* PLAT_LD_S */
