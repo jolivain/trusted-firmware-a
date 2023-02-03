@@ -10,21 +10,19 @@
 #include <arch.h>
 #include <lib/utils_def.h>
 
-#include "../gxbb_def.h"
+#include "../gxm_def.h"
 
 #define PLATFORM_LINKER_FORMAT		"elf64-littleaarch64"
 #define PLATFORM_LINKER_ARCH		aarch64
 
-/* Special value used to verify platform parameters from BL2 to BL31 */
-#define AML_BL31_PLAT_PARAM_VAL	ULL(0x0F1E2D3C4B5A6978)
-
 #define PLATFORM_STACK_SIZE		UL(0x1000)
 
 #define PLATFORM_MAX_CPUS_PER_CLUSTER	U(4)
-#define PLATFORM_CLUSTER_COUNT		U(1)
+#define PLATFORM_CLUSTER_COUNT		U(2)
 #define PLATFORM_CLUSTER0_CORE_COUNT	PLATFORM_MAX_CPUS_PER_CLUSTER
-#define PLATFORM_CLUSTER1_CORE_COUNT	U(0)
-#define PLATFORM_CORE_COUNT		PLATFORM_CLUSTER0_CORE_COUNT
+#define PLATFORM_CLUSTER1_CORE_COUNT	PLATFORM_MAX_CPUS_PER_CLUSTER
+#define PLATFORM_CORE_COUNT		(PLATFORM_CLUSTER0_CORE_COUNT + \
+					 PLATFORM_CLUSTER1_CORE_COUNT)
 
 #define AML_PRIMARY_CPU			U(0)
 
@@ -62,6 +60,6 @@
 #define PLAT_VIRT_ADDR_SPACE_SIZE	(ULL(1) << 32)
 
 #define MAX_MMAP_REGIONS		12
-#define MAX_XLAT_TABLES			5
+#define MAX_XLAT_TABLES			6
 
 #endif /* PLATFORM_DEF_H */
