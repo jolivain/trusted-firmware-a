@@ -52,6 +52,24 @@
       "parentUuid": "bcfeed3a_ca4ba423",
       "revId": "355dc3d4deacf73a3d354682bcda454e6d13ed66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "faa36a6b_b914c5db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-02-03T08:29:59Z",
+      "side": 1,
+      "message": "ok. Yes that\u0027s where we are going. Not just this series but in general we are taking shared code to common folder to share it across SOCs. Obvious reason is that if any issue happens it is fixed in all SOCs and we don\u0027t get them out of sync. Definitely feel free to create patches if we are not fast enough.",
+      "parentUuid": "e2592681_db96210d",
+      "revId": "355dc3d4deacf73a3d354682bcda454e6d13ed66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
