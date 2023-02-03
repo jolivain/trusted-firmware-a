@@ -122,6 +122,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "189d0762_ffb74e02",
+        "filename": "plat/allwinner/sun50i_h6/sunxi_power.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-02-03T09:59:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5cc3cf7_93201644",
+      "revId": "81644c562503243b391ad288b15c44b2d30de311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e5460e4_ebf5caba",
@@ -135,6 +153,24 @@
       "writtenOn": "2023-02-03T01:48:57Z",
       "side": 1,
       "message": "FWIW we have is_node_disabled() already if you want to try reusing it.",
+      "revId": "81644c562503243b391ad288b15c44b2d30de311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecc2e101_55cca075",
+        "filename": "plat/allwinner/sun50i_h6/sunxi_power.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-02-03T09:59:19Z",
+      "side": 1,
+      "message": "Yeah, I thought about that, but that is in the AXP driver. And there is also fdt_node_is_enabled() under plat/arm/common and fdt_get_status() in plat/st/common. Both two have actually bugs in corner cases, so I came up with one version that can replace all of them, and would live in common/fdt_wrappers.c.\nI am just testing the effect on code size for this, and whether the secure/non-secure split in the STM version works.",
+      "parentUuid": "9e5460e4_ebf5caba",
       "revId": "81644c562503243b391ad288b15c44b2d30de311",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -187,6 +223,24 @@
       "writtenOn": "2023-02-03T01:48:57Z",
       "side": 1,
       "message": "A message probably isn\u0027t necessary here, since there is one just below (and you were worried about code size).",
+      "revId": "81644c562503243b391ad288b15c44b2d30de311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d960d19b_b62d7c16",
+        "filename": "plat/allwinner/sun50i_h6/sunxi_power.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-02-03T09:59:19Z",
+      "side": 1,
+      "message": "I though it would be nice to have an explicit negative message, but we can indeed skip this.",
+      "parentUuid": "3cfc6b21_2d29d404",
       "revId": "81644c562503243b391ad288b15c44b2d30de311",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
