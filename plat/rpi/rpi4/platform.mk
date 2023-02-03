@@ -48,7 +48,7 @@ else
 endif
 
 # Add support for platform supplied linker script for BL31 build
-$(eval $(call add_define,PLAT_EXTRA_LD_SCRIPT))
+BL31_LINKER_SCRIPT_SOURCES += plat/rpi/rpi4/include/plat.ld.S
 
 # Enable all errata workarounds for Cortex-A72
 ERRATA_A72_859971		:= 1
@@ -113,4 +113,3 @@ endif
 ifeq ($(SMC_PCI_SUPPORT), 1)
 BL31_SOURCES            +=      plat/rpi/rpi4/rpi4_pci_svc.c
 endif
-
