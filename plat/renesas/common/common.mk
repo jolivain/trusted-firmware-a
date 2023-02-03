@@ -22,7 +22,7 @@ HANDLE_EA_EL3_FIRST_NS		:= 1
 # Crypto module.
 override CRYPTO_SUPPORT		:= 0
 
-$(eval $(call add_define,PLAT_EXTRA_LD_SCRIPT))
+BL31_LINKER_SCRIPT_SOURCES += plat/renesas/common/include/plat.ld.S
 
 ifeq (${SPD},none)
   SPD_NONE:=1

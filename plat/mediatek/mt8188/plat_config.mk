@@ -15,9 +15,11 @@ GICV3_SUPPORT_GIC600 := 1
 #
 # MTK options
 #
-PLAT_EXTRA_RODATA_INCLUDES := 1
 USE_PMIC_WRAP_INIT_V2 := 1
 USE_RTC_MT6359P := 1
+
+# Additional read-only data sections
+BL31_LINKER_SCRIPT_SOURCES += plat/mediatek/include/plat.rodata.ld.S
 
 # Configs for A78 and A55
 CTX_INCLUDE_AARCH32_REGS := 0

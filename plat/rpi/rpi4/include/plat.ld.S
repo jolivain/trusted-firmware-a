@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  *
@@ -10,14 +10,19 @@
  * and find our DTB more flexibly.
  */
 
-MEMORY {
-    PRERAM (rwx): ORIGIN = 0, LENGTH = 4096
+PHDRS {
+    preram_x PT_LOAD FLAGS(5 /* R_E */);
 }
 
-SECTIONS
-{
-    .armstub8 . : {
+MEMORY {
+    preram (x): ORIGIN = 0, LENGTH = 4096
+}
+
+SECTIONS {
+    .preram.text.armstub8 : {
         *armstub8_header.o(.text*)
         KEEP(*(.armstub8))
-    } >PRERAM
+    } >preram AT>preram :preram_x
 }
+
+INSERT BEFORE .text.start;
