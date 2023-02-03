@@ -408,12 +408,7 @@ SECTIONS {
      */
     .rodata.rela.dyn : {
         __RELA_DYN_START__ = .;
-        *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
-        *(.rela.rodata .rela.rodata.* .relacpu_ops .rela.gnu.linkonce.r.*)
-        *(.rela.got)
-        *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
-        *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
-        *(.rela.ifunc)
+        *(.rela.*)
         __RELA_DYN_END__ = .;
     } >r AT>r :r
 
@@ -426,11 +421,7 @@ SECTIONS {
      */
     .rodata.rel.dyn : {
         __REL_DYN_START__ = .;
-        *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
-        *(.rel.rodata .rel.rodata.* .relcpu_ops .rel.gnu.linkonce.r.*)
-        *(.rel.got)
-        *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
-        *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+        *(.rel.*)
         __REL_DYN_END__ = .;
     } >r AT>r :r
 
