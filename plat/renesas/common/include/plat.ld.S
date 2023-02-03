@@ -33,4 +33,6 @@ SECTIONS
 
 }
 
+INSERT AFTER .noinit.end;
+
 #endif /* RCAR_PLAT_LD_S */

@@ -95,4 +95,6 @@ SECTIONS
 	} >PMUSRAM
 }
 
+INSERT AFTER .noinit.end;
+
 #endif /* ROCKCHIP_PLAT_LD_S */

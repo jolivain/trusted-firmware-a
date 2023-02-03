@@ -9,8 +9,13 @@
 
 #include <lib/xlat_tables/xlat_tables_defs.h>
 
+PHDRS {
+    sp_dram_x PT_LOAD FLAGS(5 /* R_E */);
+    sp_dram_n PT_LOAD FLAGS(6 /* RW_ */);
+}
+
 MEMORY {
-	SP_DRAM (rw): ORIGIN = PLAT_SQ_SP_PRIV_BASE, LENGTH = PLAT_SQ_SP_PRIV_SIZE
+	sp_dram (rw): ORIGIN = PLAT_SQ_SP_PRIV_BASE, LENGTH = PLAT_SQ_SP_PRIV_SIZE
 }
 
 SECTIONS
@@ -23,7 +28,9 @@ SECTIONS
 	 */
 	sp_xlat_table (NOLOAD) : ALIGN(PAGE_SIZE) {
 		*(sp_xlat_table)
-	} >SP_DRAM
+	} >sp_dram AT>sp_dram :sp_dram_n
 }
+
+INSERT AFTER .noinit.end;
 
 #endif /* SYNQUACER_PLAT_LD_S__ */

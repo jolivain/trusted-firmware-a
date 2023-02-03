@@ -19,4 +19,6 @@ SECTIONS
 	}>RAM2
 }
 
+INSERT AFTER .noinit.end;
+
 #endif /* PLAT_LD_S */
