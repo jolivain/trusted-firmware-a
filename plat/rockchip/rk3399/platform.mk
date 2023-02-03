@@ -74,7 +74,7 @@ BL31_SOURCES	+=	${RK_GIC_SOURCES}				\
 include lib/coreboot/coreboot.mk
 include lib/libfdt/libfdt.mk
 
-$(eval $(call add_define,PLAT_EXTRA_LD_SCRIPT))
+BL31_LINKER_SCRIPT_SOURCES += plat/rockchip/rk3399/include/plat.ld.S
 
 # Enable workarounds for selected Cortex-A53 erratas.
 ERRATA_A53_855873	:=	1

@@ -68,6 +68,7 @@ MULTI_CONSOLE_API	:=	1
 
 include lib/libfdt/libfdt.mk
 
-$(eval $(call add_define,PLAT_EXTRA_LD_SCRIPT))
+BL31_LINKER_SCRIPT_SOURCES += plat/rockchip/px30/include/plat.ld.S
+
 $(eval $(call add_define,PLAT_SKIP_OPTEE_S_EL1_INT_REGISTER))
 $(eval $(call add_define,PLAT_WARMBOOT_ADDR_NOT_ALIGN))

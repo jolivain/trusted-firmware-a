@@ -66,7 +66,8 @@ include lib/libfdt/libfdt.mk
 # Enable workarounds for selected Cortex-A53 errata
 ERRATA_A53_855873	:=	1
 
-$(eval $(call add_define,PLAT_EXTRA_LD_SCRIPT))
+BL31_LINKER_SCRIPT_SOURCES += plat/rockchip/rk3328/include/plat.ld.S
+
 $(eval $(call add_define,PLAT_SKIP_OPTEE_S_EL1_INT_REGISTER))
 
 # Do not enable SVE
