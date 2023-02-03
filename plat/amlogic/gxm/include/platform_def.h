@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,7 +10,7 @@
 #include <arch.h>
 #include <lib/utils_def.h>
 
-#include "../gxl_def.h"
+#include "../gxm_def.h"
 
 #define PLATFORM_LINKER_FORMAT		"elf64-littleaarch64"
 #define PLATFORM_LINKER_ARCH		aarch64
@@ -18,10 +18,11 @@
 #define PLATFORM_STACK_SIZE		UL(0x1000)
 
 #define PLATFORM_MAX_CPUS_PER_CLUSTER	U(4)
-#define PLATFORM_CLUSTER_COUNT		U(1)
+#define PLATFORM_CLUSTER_COUNT		U(2)
 #define PLATFORM_CLUSTER0_CORE_COUNT	PLATFORM_MAX_CPUS_PER_CLUSTER
-#define PLATFORM_CLUSTER1_CORE_COUNT	U(0)
-#define PLATFORM_CORE_COUNT		PLATFORM_CLUSTER0_CORE_COUNT
+#define PLATFORM_CLUSTER1_CORE_COUNT	PLATFORM_MAX_CPUS_PER_CLUSTER
+#define PLATFORM_CORE_COUNT		(PLATFORM_CLUSTER0_CORE_COUNT + \
+					 PLATFORM_CLUSTER1_CORE_COUNT)
 
 #define AML_PRIMARY_CPU			U(0)
 
