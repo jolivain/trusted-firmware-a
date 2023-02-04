@@ -68,6 +68,92 @@
       "message": "Awesome, thanks everyone for the feedback and assistance!",
       "revId": "05c69cf75edf53478e23fce157fea72372b49597",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbf76b44_d05c5193",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-02-04T16:36:32Z",
+      "side": 1,
+      "message": "sorry realize i\u0027m late, but possible to still address the comments in a new patch. ",
+      "revId": "05c69cf75edf53478e23fce157fea72372b49597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97eb89f0_59e98617",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-02-04T16:36:32Z",
+      "side": 1,
+      "message": "i think this is the \"vulnerability\" (what is used to achieved the threat). The threat (what the attacker wants to do, in simple terms) is execute an arbitrary secure OS. Would reword to say \"attacker wants to execute an arbitrary or untrusted binary as a secure OS. And then say an attacker can use OPTEE_ALLOW_SMC_LOAD and a compromise in NS OS to achieve this.",
+      "range": {
+        "startLine": 924,
+        "startChar": 29,
+        "endLine": 926,
+        "endChar": 62
+      },
+      "revId": "05c69cf75edf53478e23fce157fea72372b49597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1718cb4f_800db8e9",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-02-04T16:36:32Z",
+      "side": 1,
+      "message": "the likelihood of the threat is high. The total risk rating BEFORE mitigation, is high IMO and the risk is transferred to the implementer/vendor to mitigate against this risk via mechanisms described in the commit message.",
+      "range": {
+        "startLine": 951,
+        "startChar": 27,
+        "endLine": 951,
+        "endChar": 35
+      },
+      "revId": "05c69cf75edf53478e23fce157fea72372b49597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9669f12f_51d28fca",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-02-04T16:36:32Z",
+      "side": 1,
+      "message": "can you add a comment here that says we dont validate the NS address because we trust the parameters that arrive from NS world when the option is used.?",
+      "range": {
+        "startLine": 235,
+        "startChar": 6,
+        "endLine": 235,
+        "endChar": 29
+      },
+      "revId": "05c69cf75edf53478e23fce157fea72372b49597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
