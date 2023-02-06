@@ -144,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "24ab6af0_7ef5a7e7",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-06T09:43:27Z",
+      "side": 1,
+      "message": "Hmm .. I had the same thought later as well. Although it\u0027s better not to rename this, we can still initialise it rather than keep it empty, right?",
+      "parentUuid": "ab401013_2c6b98de",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 21
+      },
+      "revId": "3d829d341e495f6789d1f9e8ee2f80b25c8b580b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f30059f0_abc54277",
         "filename": "tools/fiptool/Makefile",
         "patchSetId": 1
@@ -226,6 +250,30 @@
       "side": 1,
       "message": "Doing a for-loop with a break in make script is hard, so the better approach is to use foreach() to map the wildcard() function over the list of path fragments. This produces a list of plat_fiptool.mk files that exist, in order of generality (so [\"arm/plat_fiptool.mk\", \"arm/board/tc/plat_fiptool.mk\"] would be a valid output, with the middle directory being skipped as it doesn\u0027t contain a plat_fiptool.mk). We want to select the most specific fiptool, so we always take the last item of the list.",
       "parentUuid": "489eddab_bbe62eb6",
+      "range": {
+        "startLine": 63,
+        "startChar": 21,
+        "endLine": 63,
+        "endChar": 29
+      },
+      "revId": "3d829d341e495f6789d1f9e8ee2f80b25c8b580b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0278b46a_3417fdf8",
+        "filename": "tools/fiptool/Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-06T09:43:27Z",
+      "side": 1,
+      "message": "Ah okay! I got what do you mean. Thanks then this makes sense.",
+      "parentUuid": "743e167a_4d7598d9",
       "range": {
         "startLine": 63,
         "startChar": 21,
