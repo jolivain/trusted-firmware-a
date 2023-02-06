@@ -133,6 +133,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6e9cc934_8a02744d",
+        "filename": "drivers/auth/tbbr/tbbr_cot_bl2.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-06T16:18:35Z",
+      "side": 1,
+      "message": "@Govindraj: Actually I think Manish and I had reached an agreement on keeping things like they were in patch set 7. That is:\n\n 1. system header files\n 2. mbedtls header files\n 3. project header files\n 4. platform header files\n\nThere is no firm rule on this but it seemed like the most commonly used convention in existing code.",
+      "parentUuid": "95bdfd27_04876c76",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 28
+      },
+      "revId": "eed4a7f2dde80333504093ae9417dbd707b96310",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7c72d0b8_2ba04870",
         "filename": "drivers/auth/tbbr/tbbr_cot_common.c",
         "patchSetId": 7
