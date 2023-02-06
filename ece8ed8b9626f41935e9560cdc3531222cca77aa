@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bcab1a74_14c598dd",
+        "filename": "plat/arm/board/juno/include/platform_def.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-02-06T17:17:10Z",
+      "side": 1,
+      "message": "Unfortunately the `MBEDTLS_CONFIG_FILE` file usage is tied to trusted boot in build system having a default option will make it fail with\nincluding null value on default builds.\n\nI believe translating any macro to null and using it with include will result in compilation error?",
+      "parentUuid": "59ddb992_bdaf9404",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 22
+      },
+      "revId": "ece8ed8b9626f41935e9560cdc3531222cca77aa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b907d492_6b98bf8c",
         "filename": "plat/arm/common/arm_dyn_cfg.c",
         "patchSetId": 15
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-06T16:18:35Z",
       "side": 1,
       "message": "Same here, if possible, I\u0027d like this to be included all the time, not just when CRYPTO_SUPPORT\u003d1.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 28
+      },
+      "revId": "ece8ed8b9626f41935e9560cdc3531222cca77aa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fb3389f_8e09935f",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-02-06T17:17:10Z",
+      "side": 1,
+      "message": "the same problem here, by default version.h is not available and is available only when mbedtls folder is provided in\nbuild options, so by having this include by default will cause a compilation failure.",
+      "parentUuid": "b907d492_6b98bf8c",
       "range": {
         "startLine": 20,
         "startChar": 0,
