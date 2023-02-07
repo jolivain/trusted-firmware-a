@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57d97f3d_a3e7b41b",
+        "filename": "plat/arm/board/juno/include/platform_def.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-07T07:34:34Z",
+      "side": 1,
+      "message": "Yes, sorry you\u0027re right.",
+      "parentUuid": "bcab1a74_14c598dd",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 22
+      },
+      "revId": "ece8ed8b9626f41935e9560cdc3531222cca77aa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b907d492_6b98bf8c",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "the same problem here, by default version.h is not available and is available only when mbedtls folder is provided in\nbuild options, so by having this include by default will cause a compilation failure.",
       "parentUuid": "b907d492_6b98bf8c",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 28
+      },
+      "revId": "ece8ed8b9626f41935e9560cdc3531222cca77aa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ff4b862_47ddca1b",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-07T07:34:34Z",
+      "side": 1,
+      "message": "Yes, you\u0027re right, sorry.",
+      "parentUuid": "4fb3389f_8e09935f",
       "range": {
         "startLine": 20,
         "startChar": 0,
