@@ -130,6 +130,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5314c3b2_a330d3b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-07T11:30:22Z",
+      "side": 1,
+      "message": "As discussed offline, this API is not needed anymore as it is currently only used by FVP platform with configuration: ENABLE_RME \u0026\u0026 SPMD_SPM_AT_SEL2 \u0026\u0026 !RESET_TO_BL31. \nIn the future, if any other platform want to use TOS_FW_CONFIG in RME enabled system, they can make use of FCONF to use the generic code implemented in the SPMD.\n\nHence dropping this patch.",
+      "revId": "3eb7af33c0f9d0f6f6e24823f7e93167c9843d87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b6715da_b74cd8f0",
