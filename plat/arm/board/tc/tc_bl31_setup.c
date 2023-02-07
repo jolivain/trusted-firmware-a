@@ -15,6 +15,7 @@
 #include <drivers/arm/css/scmi.h>
 #include <lib/fconf/fconf.h>
 #include <lib/fconf/fconf_dyn_cfg_getter.h>
+#include <lib/psa/nv_counter_test.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 
@@ -53,10 +54,14 @@ void tc_bl31_common_platform_setup(void)
 {
 	arm_bl31_platform_setup();
 #ifdef PLATFORM_TEST
-	run_platform_tests();
+	if (nv_counter_test()) {
+		while(1){}
+	}
+
+	//run_platform_tests();
 
 	/* Suspend booting */
-	plat_error_handler(-1);
+	//plat_error_handler(-1);
 #endif
 }
 

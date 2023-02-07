@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2022, Arm Limited. All rights reserved.
+# Copyright (c) 2021-2023, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -199,7 +199,21 @@ endif
 # Add this include as first, before arm_common.mk. This is necessary because
 # arm_common.mk builds Mbed TLS, and platform_test.mk can change the list of
 # Mbed TLS files that are to be compiled (LIBMBEDTLS_SRCS).
-include plat/arm/board/tc/platform_test.mk
+#include plat/arm/board/tc/platform_test.mk
+ifeq (${PLATFORM_TEST},1)
+    include drivers/arm/rss/rss_comms.mk
+
+    BL31_SOURCES	+=	lib/psa/rss_platform.c \
+				lib/psa/nv_counter_test.c \
+				drivers/arm/rss/rss_comms.c \
+				drivers/arm/mhu/mhu_wrapper_v2_x.c \
+				drivers/arm/mhu/mhu_v2_x.c \
+				${RSS_COMMS_SOURCES}
+
+    PLAT_INCLUDES	+=	-Iinclude/lib/psa
+
+    $(eval $(call add_define,PLATFORM_TEST))
+endif
 
 include plat/arm/common/arm_common.mk
 include plat/arm/css/common/css_common.mk
