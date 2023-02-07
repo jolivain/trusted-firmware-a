@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30098e68_3be7816d",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 17
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-07T09:18:48Z",
+      "side": 1,
+      "message": "(nit) Add one more tab to align this with other slash characters?",
+      "range": {
+        "startLine": 39,
+        "startChar": 22,
+        "endLine": 39,
+        "endChar": 23
+      },
+      "revId": "415694ce93e3e2867d82434afdb6648ed5ceea78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c09aa727_d3232d99",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 17
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-07T09:18:48Z",
+      "side": 1,
+      "message": "(nit) Remove extra tabs to align this with other slash characters?",
+      "range": {
+        "startLine": 63,
+        "startChar": 22,
+        "endLine": 63,
+        "endChar": 27
+      },
+      "revId": "415694ce93e3e2867d82434afdb6648ed5ceea78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bfd0d51_579599e8",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 17
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-07T09:18:48Z",
+      "side": 1,
+      "message": "(nit) ditto",
+      "range": {
+        "startLine": 67,
+        "startChar": 21,
+        "endLine": 69,
+        "endChar": 25
+      },
+      "revId": "415694ce93e3e2867d82434afdb6648ed5ceea78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54d20fba_76a463f1",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 17
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-07T09:18:48Z",
+      "side": 1,
+      "message": "Could you please reference mbedtls issue [1] above this line to provide a bit of context?\n\n[1] https://github.com/Mbed-TLS/mbedtls/issues/6910",
+      "range": {
+        "startLine": 71,
+        "startChar": 1,
+        "endLine": 71,
+        "endChar": 48
+      },
+      "revId": "415694ce93e3e2867d82434afdb6648ed5ceea78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
