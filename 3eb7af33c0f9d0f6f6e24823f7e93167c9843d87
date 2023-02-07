@@ -1,0 +1,147 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "272e3385_28a1e2ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-07T10:28:14Z",
+      "side": 1,
+      "message": "I think this patch should be split in 2: first patch to introduce the API (i.e. documentation changes and prototype in platform.h), second patch to provide the FVP implementation. This is so partners can easily cherry-pick the first patch without pulling FVP code. And also to make it clearer to partners that they\u0027ve got a new platform interface to implement, rather than tagging this patch as FVP-specific which is likely to make it disregarded.",
+      "revId": "3eb7af33c0f9d0f6f6e24823f7e93167c9843d87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d3d4af1_10f38e53",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-07T10:28:14Z",
+      "side": 1,
+      "message": "image",
+      "range": {
+        "startLine": 7,
+        "startChar": 60,
+        "endLine": 7,
+        "endChar": 66
+      },
+      "revId": "3eb7af33c0f9d0f6f6e24823f7e93167c9843d87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbc7da1c_cb17ff68",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-07T10:28:14Z",
+      "side": 1,
+      "message": "image",
+      "range": {
+        "startLine": 10,
+        "startChar": 10,
+        "endLine": 10,
+        "endChar": 16
+      },
+      "revId": "3eb7af33c0f9d0f6f6e24823f7e93167c9843d87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b6715da_b74cd8f0",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 2373,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-07T10:28:14Z",
+      "side": 1,
+      "message": "I think the following would read better:\n\n A pointer to return the primary load address of the given image.",
+      "range": {
+        "startLine": 2372,
+        "startChar": 11,
+        "endLine": 2373,
+        "endChar": 24
+      },
+      "revId": "3eb7af33c0f9d0f6f6e24823f7e93167c9843d87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be2a86b2_ff3f2448",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 2377,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-07T10:28:14Z",
+      "side": 1,
+      "message": "Likewise:\n\n A pointer to return the secondary load address of the given image.",
+      "range": {
+        "startLine": 2376,
+        "startChar": 11,
+        "endLine": 2377,
+        "endChar": 24
+      },
+      "revId": "3eb7af33c0f9d0f6f6e24823f7e93167c9843d87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2ccd07a_44e23d6f",
+        "filename": "docs/getting_started/porting-guide.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 2384,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-07T10:28:14Z",
+      "side": 1,
+      "message": "Suggest adding:\n\n If the image has no secondary load address then 0 will be returned through arg2.\n This is not an error.",
+      "revId": "3eb7af33c0f9d0f6f6e24823f7e93167c9843d87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70618b2b_dd41f89e",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-07T10:28:14Z",
+      "side": 1,
+      "message": "Suggest adding:\n\n If the image has no secondary load address (only primary) then *sec_load_addr\n is set to 0.",
+      "revId": "3eb7af33c0f9d0f6f6e24823f7e93167c9843d87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
