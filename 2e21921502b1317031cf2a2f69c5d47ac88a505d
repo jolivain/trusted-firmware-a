@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6d5dd995_556bba9e",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 54
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-02-08T16:01:48Z",
+      "side": 1,
+      "message": "Thanks for the information. S-EL1 should have access to the full address space and therefore able to access the memory. \n\nThe SPMC should be writing to the memory with the caches enabled as it expects the memory to be mapped with the attributes listed in section 5.4.4. Therefore, if the MMU is not enabled at this stage in S-EL1, then agree it could be an cache issue and may require flushing before the data becomes visible. \n\nWould you be able to perform a cache flush on the provided memory address from S-EL1 and see if that allows the data to be accessed?",
+      "parentUuid": "0d6ad2d3_d9d5a73d",
+      "revId": "2e21921502b1317031cf2a2f69c5d47ac88a505d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3c1be0f6_cb987919",
         "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
         "patchSetId": 54
