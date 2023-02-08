@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bf36933_47e009e8",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-02-08T17:15:52Z",
+      "side": 1,
+      "message": "`fragment_length` is correct, as if the request is fragmented only `fragment_length` bytes of memory will be initialized.",
+      "parentUuid": "44f85789_c4b8ede3",
+      "range": {
+        "startLine": 718,
+        "startChar": 5,
+        "endLine": 718,
+        "endChar": 21
+      },
+      "revId": "18a0733a14320b49d31d998b430bc44a1ca88bb1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d4e19dd_752f7374",
@@ -47,6 +71,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0111e699_41c310d3",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-02-08T17:15:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d4e19dd_752f7374",
+      "range": {
+        "startLine": 743,
+        "startChar": 6,
+        "endLine": 743,
+        "endChar": 10
+      },
+      "revId": "18a0733a14320b49d31d998b430bc44a1ca88bb1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71668de1_8c13f33f",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-02-08T16:19:41Z",
       "side": 1,
       "message": "Should this be checking `reserved_24_27` and `reserved_3` as a v1.0 descriptor does not have `emad_size`.",
+      "range": {
+        "startLine": 743,
+        "startChar": 2,
+        "endLine": 747,
+        "endChar": 3
+      },
+      "revId": "18a0733a14320b49d31d998b430bc44a1ca88bb1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ba718ee_9436d452",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-02-08T17:15:52Z",
+      "side": 1,
+      "message": "`emad_size` in the v1.1 descriptor is at the same offset as `reserved_24_27` in the v1.0 descriptor, and this is checked with a CASSERT.  Nevertheless, casting the pointer is simpler.",
+      "parentUuid": "71668de1_8c13f33f",
       "range": {
         "startLine": 743,
         "startChar": 2,

@@ -22,6 +22,30 @@
       },
       "revId": "567bd00fb38512043108e4f5839933d9c0d496ab",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30e5fc8d_f70ec329",
+        "filename": "include/services/el3_spmc_ffa_memory.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-02-08T17:15:52Z",
+      "side": 0,
+      "message": "It’s moved into services/std_svc/spm/el3_spmc/spmc_shared_mem.c.",
+      "parentUuid": "14e23842_3002f96c",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 44
+      },
+      "revId": "567bd00fb38512043108e4f5839933d9c0d496ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
