@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44f85789_c4b8ede3",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-02-08T16:19:41Z",
+      "side": 1,
+      "message": "Should this be `total_length`?",
+      "range": {
+        "startLine": 718,
+        "startChar": 5,
+        "endLine": 718,
+        "endChar": 21
+      },
+      "revId": "18a0733a14320b49d31d998b430bc44a1ca88bb1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d4e19dd_752f7374",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-02-08T16:19:41Z",
+      "side": 1,
+      "message": "This should be accessed via `desc_v1_0` rather than the v1.1 structure.",
+      "range": {
+        "startLine": 743,
+        "startChar": 6,
+        "endLine": 743,
+        "endChar": 10
+      },
+      "revId": "18a0733a14320b49d31d998b430bc44a1ca88bb1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71668de1_8c13f33f",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-02-08T16:19:41Z",
+      "side": 1,
+      "message": "Should this be checking `reserved_24_27` and `reserved_3` as a v1.0 descriptor does not have `emad_size`.",
+      "range": {
+        "startLine": 743,
+        "startChar": 2,
+        "endLine": 747,
+        "endChar": 3
+      },
+      "revId": "18a0733a14320b49d31d998b430bc44a1ca88bb1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
