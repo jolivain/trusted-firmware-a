@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "32c22f33_ff226c65",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 54
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-02-08T10:03:35Z",
+      "side": 1,
+      "message": "IIUC S-EL1 should be able to map the address it recieves from the SPMC into its own adress space and then access the content. Are you currently creating this mapping in SEL1 or is this the part that is having issues?",
+      "parentUuid": "186bf835_c82ef53c",
+      "revId": "2e21921502b1317031cf2a2f69c5d47ac88a505d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3c1be0f6_cb987919",
         "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
         "patchSetId": 54
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "38045f9a_e964b30e",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 54
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-02-08T10:03:35Z",
+      "side": 1,
+      "message": "See comment below.",
+      "parentUuid": "3c1be0f6_cb987919",
+      "revId": "2e21921502b1317031cf2a2f69c5d47ac88a505d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0c6738c0_cafba694",
         "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
         "patchSetId": 54
@@ -48,6 +84,24 @@
       "writtenOn": "2023-02-03T17:10:40Z",
       "side": 1,
       "message": "Why did you not simply store the address from ep_info-\u003eargs.arg0 here?",
+      "revId": "2e21921502b1317031cf2a2f69c5d47ac88a505d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87017959_f27f63b8",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 54
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-02-08T10:03:35Z",
+      "side": 1,
+      "message": "The design of the boot protocol was to be a self contained structure, including the protocol header, descriptor array and its payloads. In this implementation we currently have a single entry in the descriptor and its accosiated SP manifest blob. Therefore we need to copy the manifest from its original location into the page of memory that is to be shared with the SP via the boot protocol.",
+      "parentUuid": "0c6738c0_cafba694",
       "revId": "2e21921502b1317031cf2a2f69c5d47ac88a505d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
