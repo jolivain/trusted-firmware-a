@@ -16,6 +16,24 @@
       "message": "Setting to verified, failed static check, but will naturally be covered in coverity when added to COT. Please change is disagree. ",
       "revId": "28b8f1c7b896f0ad688334bdc6821d53c56201b2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "debd7aa6_ee10825b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-08T08:24:05Z",
+      "side": 1,
+      "message": "I don\u0027t think rss_platform.c gets compiled in any of the build configurations, right? Could we include this file in exclusion list [1] until your code is developed to use this file for compilation?\n\n[1]: https://git.trustedfirmware.org/ci/tf-a-ci-scripts.git/tree/script/tf-coverity/coverity_tf_conf.py#n17",
+      "parentUuid": "c03ebf75_a20ebd68",
+      "revId": "28b8f1c7b896f0ad688334bdc6821d53c56201b2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
