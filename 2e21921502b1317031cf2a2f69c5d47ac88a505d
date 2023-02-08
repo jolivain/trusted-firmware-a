@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d6ad2d3_d9d5a73d",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 54
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-02-08T11:03:59Z",
+      "side": 1,
+      "message": "In the past, we can access \"x0\" content directly without setting up any mapping. We just copy the buffer to a memory area we control and then throw away x0 content.\nOnly then we setup MMU tables and activate our MMU settings.\n\nI try to use the memory without creating a mapping.\nIs this not possible?\nWhat needs to be done in EL3 for this to work?",
+      "parentUuid": "32c22f33_ff226c65",
+      "revId": "2e21921502b1317031cf2a2f69c5d47ac88a505d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3c1be0f6_cb987919",
         "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
         "patchSetId": 54
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "See comment below.",
       "parentUuid": "3c1be0f6_cb987919",
+      "revId": "2e21921502b1317031cf2a2f69c5d47ac88a505d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3ca9b37_65bfbfd1",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 54
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-02-08T11:03:59Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "38045f9a_e964b30e",
       "revId": "2e21921502b1317031cf2a2f69c5d47ac88a505d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -102,6 +138,24 @@
       "side": 1,
       "message": "The design of the boot protocol was to be a self contained structure, including the protocol header, descriptor array and its payloads. In this implementation we currently have a single entry in the descriptor and its accosiated SP manifest blob. Therefore we need to copy the manifest from its original location into the page of memory that is to be shared with the SP via the boot protocol.",
       "parentUuid": "0c6738c0_cafba694",
+      "revId": "2e21921502b1317031cf2a2f69c5d47ac88a505d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e642e96_75c29741",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 54
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-02-08T11:03:59Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "87017959_f27f63b8",
       "revId": "2e21921502b1317031cf2a2f69c5d47ac88a505d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
