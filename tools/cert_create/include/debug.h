@@ -20,8 +20,8 @@
 
 #define LOG_LEVEL_NONE			0
 #define LOG_LEVEL_ERROR			10
-#define LOG_LEVEL_NOTICE		20
-#define LOG_LEVEL_WARNING		30
+#define LOG_LEVEL_WARNING		20
+#define LOG_LEVEL_NOTICE		30
 #define LOG_LEVEL_INFO			40
 #define LOG_LEVEL_VERBOSE		50
 
