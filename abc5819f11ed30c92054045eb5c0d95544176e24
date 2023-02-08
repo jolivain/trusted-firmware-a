@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f14865fa_07ec248d",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1098,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-02-08T17:21:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bdbc1a1_e7312f03",
+      "range": {
+        "startLine": 1098,
+        "startChar": 6,
+        "endLine": 1098,
+        "endChar": 25
+      },
+      "revId": "abc5819f11ed30c92054045eb5c0d95544176e24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69b09e97_e2550a1b",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-08T16:20:09Z",
       "side": 1,
       "message": "For the existing implementation we cannot mandate the order of the partition IDs therefore we will still need this check otherwise we would introduce a breaking change.\n\nAdding a recommendation for ordering is something we could look into to in future revisions, however do you know if this is causing a performance impact on real systems? We would not expect the number of borrowers participating in a memory transaction to be very large to cause significant overhead.",
+      "range": {
+        "startLine": 1107,
+        "startChar": 45,
+        "endLine": 1108,
+        "endChar": 62
+      },
+      "revId": "abc5819f11ed30c92054045eb5c0d95544176e24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69914739_0e33b7f4",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-02-08T17:21:51Z",
+      "side": 1,
+      "message": "\u003e do you know if this is causing a performance impact on real systems?\n\nI have no idea, as I do not have any real systems (or even emulated ones) to test on.\n\n\u003e We would not expect the number of borrowers participating in a memory transaction to be very large to cause significant overhead.\n\nIs this enforced anywhere?  Otherwise, the O(n²) loop would allow denial-of-service attacks.",
+      "parentUuid": "69b09e97_e2550a1b",
       "range": {
         "startLine": 1107,
         "startChar": 45,
