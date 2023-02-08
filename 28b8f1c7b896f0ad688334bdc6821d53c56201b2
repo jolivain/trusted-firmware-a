@@ -34,6 +34,47 @@
       "parentUuid": "c03ebf75_a20ebd68",
       "revId": "28b8f1c7b896f0ad688334bdc6821d53c56201b2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ac5240a_77ef145c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-08T08:32:18Z",
+      "side": 1,
+      "message": "\u003e will naturally be covered in coverity when added to COT. \n\nThat\u0027s true but this could take a few weeks. We don\u0027t want the static checks job to fail every time until then. So I think we\u0027ll need a CI patch to ignore lib/psa/rss_platform.c in this file until then:\nhttps://git.trustedfirmware.org/ci/tf-a-ci-scripts.git/tree/script/tf-coverity/coverity_tf_conf.py\n\nI\u0027ll submit a CI patch to this effect so we can get this patch merged sooner. I hope you don\u0027t mind, Lauren.",
+      "parentUuid": "c03ebf75_a20ebd68",
+      "revId": "28b8f1c7b896f0ad688334bdc6821d53c56201b2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d9e00e3_d772c430",
+        "filename": "include/lib/psa/rss_platform_api.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-08T08:32:18Z",
+      "side": 1,
+      "message": "Sorry, I should have noticed it earlier, this should be RSS_PLATFORM_API_H according to TF-A coding guidelines:\n\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#headers-and-inclusion\n\nI\u0027ll go ahead and do the changes myself to avoid another round of reviews just for that.",
+      "range": {
+        "startLine": 8,
+        "startChar": 8,
+        "endLine": 8,
+        "endChar": 24
+      },
+      "revId": "28b8f1c7b896f0ad688334bdc6821d53c56201b2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
