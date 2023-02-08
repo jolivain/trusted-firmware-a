@@ -171,7 +171,7 @@
  * PLAT_ARM_MAX_BL1_RW_SIZE is calculated using the current BL1 RW debug size
  * plus a little space for growth.
  */
-#define PLAT_ARM_MAX_BL1_RW_SIZE	UL(0xB000)
+#define PLAT_ARM_MAX_BL1_RW_SIZE	UL(0xC000)
 
 /*
  * PLAT_ARM_MAX_ROMLIB_RW_SIZE is define to use a full page
@@ -191,10 +191,8 @@
  * PLAT_ARM_MAX_BL2_SIZE is calculated using the current BL2 debug size plus a
  * little space for growth.
  */
-#if TRUSTED_BOARD_BOOT && COT_DESC_IN_DTB
+#if TRUSTED_BOARD_BOOT
 # define PLAT_ARM_MAX_BL2_SIZE	(UL(0x1E000) - FVP_BL2_ROMLIB_OPTIMIZATION)
-#elif CRYPTO_SUPPORT
-# define PLAT_ARM_MAX_BL2_SIZE	(UL(0x1D000) - FVP_BL2_ROMLIB_OPTIMIZATION)
 #elif ARM_BL31_IN_DRAM
 /* When ARM_BL31_IN_DRAM is set, BL2 can use almost all of Trusted SRAM. */
 # define PLAT_ARM_MAX_BL2_SIZE	(UL(0x1F000) - FVP_BL2_ROMLIB_OPTIMIZATION)
