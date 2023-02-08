@@ -461,9 +461,40 @@ There are, however, legitimate uses of assembly language. These include:
   - Low-level code where specific system-level instructions must be used, such
     as cache maintenance operations.
 
+Do not use weak functions
+-------------------------
+
+The use of weak functions is highly discouraged in the TF-A codebase. Newly
+introduced platform interfaces should be strongly defined, wherever possible. In
+the rare cases where this is not possible or where weak functions appear as the
+best tool to solve the problem at hand, this should be discussed with the
+project's maintainers and justified in the code.
+
+.. note::
+
+   Weak functions may sound useful to simplify the initial porting effort to a
+   new platform, such that one can quickly get the firmware to build and link,
+   without implementing all platform interfaces from the beginning. For this
+   reason, the TF-A project used to make heavy use of weak functions and there
+   are still many outstanding usages of them across the code base today. We
+   intend to convert them to strongly-defined functions over time.
+
+   However, weak functions also have major drawbacks, which we consider
+   outweighing their benefits. They can make it hard to identify which
+   implementation gets built into the firmware, especially when using multiple
+   levels of "weakness". This has resulted in bugs in the past.
+
+   Weak functions are also forbidden by MISRA coding guidelines, which TF-A aims to
+   comply with.
+
+For the purpose of providing a default implementation of a platform interface,
+an alternative to weak functions is to provide a strongly-defined implementation
+under the ``plat/common/`` directory, which platform makefiles can pull in as a
+conscious decision.
+
 --------------
 
-*Copyright (c) 2020, 2022, Arm Limited and Contributors. All rights reserved.*
+*Copyright (c) 2020 - 2023, Arm Limited and Contributors. All rights reserved.*
 
 .. _`Linux master tree`: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/
 .. _`Procedure Call Standard for the Arm Architecture`: https://github.com/ARM-software/abi-aa/blob/main/aapcs32/aapcs32.rst
