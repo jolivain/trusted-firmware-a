@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2782c0d3_772b0234",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-09T14:56:13Z",
+      "side": 1,
+      "message": "Looking at the rest of the function code above, we seem to return errno values in case of errors. It feels like we should do it here as well. Not sure which errno value would be the most appropriate, though. TOS_FW_CONFIG is not a function argument (although it is a form of input data) so EINVAL might not be the best fit...",
+      "range": {
+        "startLine": 445,
+        "startChar": 2,
+        "endLine": 445,
+        "endChar": 12
+      },
+      "revId": "6c1d66f12353eaf9caa3cca4a245eeb877ef48c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
