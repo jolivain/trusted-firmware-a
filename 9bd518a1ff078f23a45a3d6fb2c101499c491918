@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdc85fd0_f46ef9e3",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-09T15:08:56Z",
+      "side": 1,
+      "message": "Off the top of my head, I think MISRA coding guidelines forbid assigning multiple variables on the same line like that. As this file is common code (i.e. not platform code), we should make it compliant. Could you please rewrite this as 2 assignments on different lines?",
+      "range": {
+        "startLine": 164,
+        "startChar": 1,
+        "endLine": 164,
+        "endChar": 25
+      },
+      "revId": "9bd518a1ff078f23a45a3d6fb2c101499c491918",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
