@@ -22,7 +22,8 @@ BL32_SOURCES		+=	bl32/tsp/aarch64/tsp_entrypoint.S	\
 				common/aarch64/early_exceptions.S	\
 				lib/locks/exclusive/aarch64/spinlock.S
 
-BL32_DEFAULT_LINKER_SCRIPT_SOURCE := bl32/tsp/tsp.ld.S
+BL32_DEFAULT_LINKER_SCRIPT_SOURCE := bootloader/bootloader.ld.S
+BL32_LINKER_SCRIPT_SOURCES  := bl32/tsp/tsp.ld.S
 
 # This flag determines if the TSPD initializes BL32 in tspd_init() (synchronous
 # method) or configures BL31 to pass control to BL32 instead of BL33
