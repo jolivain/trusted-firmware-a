@@ -87,6 +87,10 @@ BL31_SOURCES		+=	services/std_svc/trng/trng_main.c	\
 				services/std_svc/trng/trng_entropy_pool.c
 endif
 
+ifeq (${CBCON_SVC_SUPPORT},1)
+BL31_SOURCES		+=	services/std_svc/cbcon/cbcon_main.c
+endif
+
 ifneq (${ENABLE_SPE_FOR_NS},0)
 BL31_SOURCES		+=	lib/extensions/spe/spe.c
 endif

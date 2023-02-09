@@ -13,6 +13,7 @@
 #include <lib/pmf/pmf.h>
 #include <lib/psci/psci.h>
 #include <lib/runtime_instr.h>
+#include <services/cbcon_svc.h>
 #include <services/drtm_svc.h>
 #include <services/pci_svc.h>
 #include <services/rmmd_svc.h>
@@ -203,6 +204,13 @@ static uintptr_t std_svc_smc_handler(uint32_t smc_fid,
 					flags);
 	}
 #endif /* DRTM_SUPPORT */
+
+#if CBCON_SVC_SUPPORT
+	if (is_cbcon_fid(smc_fid)) {
+		return cbcon_smc_handler(smc_fid, x1, x2, x3, x4, cookie,
+					 handle, flags);
+	}
+#endif /* CBCON_SVC_SUPPORT */
 
 	switch (smc_fid) {
 	case ARM_STD_SVC_CALL_COUNT:

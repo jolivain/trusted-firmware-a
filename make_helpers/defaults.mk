@@ -276,6 +276,9 @@ SDEI_SUPPORT			:= 0
 # True Random Number firmware Interface support
 TRNG_SUPPORT			:= 0
 
+# CBMEM Console address query service support
+CBCON_SVC_SUPPORT		:= 0
+
 # SMCCC PCI support
 SMC_PCI_SUPPORT			:= 0
 
