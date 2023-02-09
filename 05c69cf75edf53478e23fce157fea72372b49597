@@ -110,6 +110,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f17e5eb_91005a7d",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-02-09T18:56:20Z",
+      "side": 1,
+      "message": "Submitting another change to address this.",
+      "parentUuid": "97eb89f0_59e98617",
+      "range": {
+        "startLine": 924,
+        "startChar": 29,
+        "endLine": 926,
+        "endChar": 62
+      },
+      "revId": "05c69cf75edf53478e23fce157fea72372b49597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1718cb4f_800db8e9",
@@ -133,6 +157,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ea0e74a_a7ba925d",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-02-09T18:56:20Z",
+      "side": 1,
+      "message": "Submitting another change to address this.",
+      "parentUuid": "1718cb4f_800db8e9",
+      "range": {
+        "startLine": 951,
+        "startChar": 27,
+        "endLine": 951,
+        "endChar": 35
+      },
+      "revId": "05c69cf75edf53478e23fce157fea72372b49597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9669f12f_51d28fca",
@@ -146,6 +194,30 @@
       "writtenOn": "2023-02-04T16:36:32Z",
       "side": 1,
       "message": "can you add a comment here that says we dont validate the NS address because we trust the parameters that arrive from NS world when the option is used.?",
+      "range": {
+        "startLine": 235,
+        "startChar": 6,
+        "endLine": 235,
+        "endChar": 29
+      },
+      "revId": "05c69cf75edf53478e23fce157fea72372b49597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5d80f4f_acfd043a",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-02-09T18:56:20Z",
+      "side": 1,
+      "message": "Submitting another change to address this.",
+      "parentUuid": "9669f12f_51d28fca",
       "range": {
         "startLine": 235,
         "startChar": 6,
