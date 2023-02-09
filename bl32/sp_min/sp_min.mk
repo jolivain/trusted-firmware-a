@@ -54,7 +54,8 @@ ifeq (${ENABLE_TRF_FOR_NS},1)
 BL32_SOURCES		+=	lib/extensions/trf/aarch32/trf.c
 endif
 
-BL32_DEFAULT_LINKER_SCRIPT_SOURCE := bl32/sp_min/sp_min.ld.S
+BL32_DEFAULT_LINKER_SCRIPT_SOURCE := bootloader/bootloader.ld.S
+BL32_LINKER_SCRIPT_SOURCES  := bl32/sp_min/sp_min.ld.S
 
 # Include the platform-specific SP_MIN Makefile
 # If no platform-specific SP_MIN Makefile exists, it means SP_MIN is not supported
