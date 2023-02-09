@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c83db629_62e9b451",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-02-09T17:57:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fb7d2fef_ebf35c86",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 5
+      },
+      "revId": "fd61522af0cd2962c6701f2deb22fe5ddac8bef6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c5dd36e_47605551",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-09T10:17:25Z",
       "side": 1,
       "message": "I think the email address has to be enclosed between \u003c\u003e to make the CI commitlint checks happy.",
+      "range": {
+        "startLine": 14,
+        "startChar": 28,
+        "endLine": 14,
+        "endChar": 45
+      },
+      "revId": "fd61522af0cd2962c6701f2deb22fe5ddac8bef6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dae180fd_ae7efcd9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-02-09T17:57:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c5dd36e_47605551",
       "range": {
         "startLine": 14,
         "startChar": 28,
