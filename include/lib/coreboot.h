@@ -7,6 +7,7 @@
 #ifndef COREBOOT_H
 #define COREBOOT_H
 
+#include <stddef.h>
 #include <stdint.h>
 
 typedef struct {
@@ -41,5 +42,6 @@ typedef enum {
 
 coreboot_memory_t coreboot_get_memory_type(uintptr_t start, size_t size);
 void coreboot_table_setup(void *base);
+uintptr_t get_cbmem_console_base();
 
 #endif /* COREBOOT_H */

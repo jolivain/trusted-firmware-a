@@ -1159,6 +1159,7 @@ $(eval $(call assert_booleans,\
         FEATURE_DETECTION \
 	TRNG_SUPPORT \
 	CONDITIONAL_CMO \
+	CBCON_SVC_SUPPORT \
 )))
 
 $(eval $(call assert_numerics,\
@@ -1327,6 +1328,7 @@ $(eval $(call add_defines,\
         TWED_DELAY \
         ENABLE_FEAT_TWED \
 	CONDITIONAL_CMO \
+	CBCON_SVC_SUPPORT \
 )))
 
 ifeq (${SANITIZE_UB},trap)
