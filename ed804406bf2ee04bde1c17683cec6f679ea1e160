@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ae2c88c_0e447ed0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-02-09T13:39:55Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "ed804406bf2ee04bde1c17683cec6f679ea1e160",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c66764ca_f2e6fab1",
@@ -32,6 +49,24 @@
       "side": 1,
       "message": "yes, adr is fine here.",
       "parentUuid": "c66764ca_f2e6fab1",
+      "revId": "ed804406bf2ee04bde1c17683cec6f679ea1e160",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7ffd347_6f88d88c",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-02-09T13:39:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ce79b857_76f669da",
       "revId": "ed804406bf2ee04bde1c17683cec6f679ea1e160",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -103,6 +138,24 @@
       "side": 1,
       "message": "Yes, it should be a short term thing.",
       "parentUuid": "681c5a5e_e332b808",
+      "revId": "ed804406bf2ee04bde1c17683cec6f679ea1e160",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f1b2268_f436bea6",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-02-09T13:39:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "368f6dac_b0ecf581",
       "revId": "ed804406bf2ee04bde1c17683cec6f679ea1e160",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
