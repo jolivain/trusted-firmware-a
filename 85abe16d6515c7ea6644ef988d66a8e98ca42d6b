@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce77f125_328530ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-09T10:14:06Z",
+      "side": 1,
+      "message": "Although I don\u0027t disagree with you in principle, I don\u0027t think we can change the log levels now. This policy is too well established in the project now and changing it might break many scripts / tests setups out there that depend on that. Moreover, the same log levels are used for cert_create tool code and for the firmware code and I\u0027d rather not have them misaligned...\n\nIn case that helps, the rationale for organizing log levels in this way is briefly described in TF-A guidelines here:\n\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-guidelines.html#avoid-printf-and-use-logging-macros\n\nEssentially, in release builds, only serious errors (LOG_LEVEL_ERROR) and important messages (LOG_LEVEL_NOTICE) are printed. Debug builds are more verbose and also print warning messages (LOG_LEVEL_WARNING) and informational messages (LOG_LEVEL_INFO). The way this is implemented is, there is a threshold - set to LOG_LEVEL_NOTICE - above which messages are printed (or not) depending on the type of build (debug/release).",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 25
+      },
+      "revId": "85abe16d6515c7ea6644ef988d66a8e98ca42d6b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
