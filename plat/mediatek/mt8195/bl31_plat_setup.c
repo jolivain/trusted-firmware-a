@@ -77,6 +77,8 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 
 	NOTICE("MT8195 bl31_setup\n");
 
+  NOTICE("Coreboot addr is 0x%p\n", (void*)get_cbmem_console_base());
+
 	bl31_params_parse_helper(arg0, &bl32_ep_info, &bl33_ep_info);
 }
 

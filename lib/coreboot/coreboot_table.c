@@ -46,6 +46,7 @@ typedef struct {
 
 coreboot_memrange_t coreboot_memranges[COREBOOT_MAX_MEMRANGES];
 coreboot_serial_t coreboot_serial;
+uintptr_t cbmem_console_base;
 
 /*
  * The coreboot table is parsed before the MMU is enabled (i.e. with strongly
@@ -87,6 +88,7 @@ static void setup_cbmem_console(uintptr_t baseaddr)
 	console_set_scope(&console.console, CONSOLE_FLAG_BOOT |
 					    CONSOLE_FLAG_RUNTIME |
 					    CONSOLE_FLAG_CRASH);
+  cbmem_console_base = baseaddr;
 }
 
 coreboot_memory_t coreboot_get_memory_type(uintptr_t start, size_t size)
@@ -106,6 +108,10 @@ coreboot_memory_t coreboot_get_memory_type(uintptr_t start, size_t size)
 	}
 
 	return CB_MEM_NONE;
+}
+
+uintptr_t get_cbmem_console_base() {
+  return cbmem_console_base;
 }
 
 void coreboot_table_setup(void *base)
