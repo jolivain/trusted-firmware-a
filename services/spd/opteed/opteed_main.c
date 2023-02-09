@@ -24,9 +24,11 @@
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <common/runtime_svc.h>
+#include <lib/coreboot.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/optee_utils.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
+#include <libfdt.h>
 #include <plat/common/platform.h>
 #include <tools_share/uuid.h>
 
@@ -51,6 +53,10 @@ static bool opteed_allow_load;
 DEFINE_SVC_UUID2(optee_image_load_uuid,
 	0xb1eafba3, 0x5d31, 0x4612, 0xb9, 0x06,
 	0xc4, 0xc7, 0xa4, 0xbe, 0x3c, 0xc0);
+
+#define OPTEED_FDT_SIZE 256
+static uint8_t fdt_buf[OPTEED_FDT_SIZE] __aligned(CACHE_WRITEBACK_GRANULE);
+
 #else
 static int32_t opteed_init(void);
 #endif
@@ -209,6 +215,76 @@ static int32_t opteed_init(void)
 #endif  /* !OPTEE_ALLOW_SMC_LOAD */
 
 #if OPTEE_ALLOW_SMC_LOAD
+/*
+ * Creates a device tree for passing into OP-TEE. Currently is populated with
+ * the coreboot table address.
+ * Returns 0 on success, error code otherwise.
+ */
+static int create_opteed_dt(void)
+{
+	int ret = fdt_create(fdt_buf, OPTEED_FDT_SIZE);
+	if (ret)
+		return ret;
+
+	ret = fdt_finish_reservemap(fdt_buf);
+	if (ret)
+		return ret;
+
+	ret = fdt_begin_node(fdt_buf, "");
+	if (ret)
+		return ret;
+
+#if COREBOOT
+	uint64_t coreboot_table_addr;
+	uint32_t coreboot_table_size;
+	struct {
+		uint64_t addr;
+		uint32_t size;
+	} reg_node;
+	coreboot_get_table_location(&coreboot_table_addr, &coreboot_table_size);
+	if (coreboot_table_addr && coreboot_table_size) {
+		ret = fdt_begin_node(fdt_buf, "firmware");
+		if (ret)
+			return ret;
+
+		ret = fdt_property(fdt_buf, "ranges", NULL, 0);
+		if (ret)
+			return ret;
+
+		ret = fdt_begin_node(fdt_buf, "coreboot");
+		if (ret)
+			return ret;
+
+		ret = fdt_property_string(fdt_buf, "compatible", "coreboot");
+		if (ret)
+			return ret;
+
+		reg_node.addr = cpu_to_fdt64(coreboot_table_addr);
+		reg_node.size = cpu_to_fdt32(coreboot_table_size);
+		ret = fdt_property(fdt_buf, "reg", &reg_node,
+				   sizeof(uint64_t) + sizeof(uint32_t));
+		if (ret)
+			return ret;
+
+		ret = fdt_end_node(fdt_buf);
+		if (ret)
+			return ret;
+
+		ret = fdt_end_node(fdt_buf);
+		if (ret)
+			return ret;
+	} else {
+		WARN("Unable to get coreboot table location for device tree");
+	}
+#endif /* COREBOOT */
+
+	ret = fdt_end_node(fdt_buf);
+	if (ret)
+		return ret;
+
+	return fdt_finish(fdt_buf);
+}
+
 /*******************************************************************************
  * This function is responsible for handling the SMC that loads the OP-TEE
  * binary image via a non-secure SMC call. It takes the size and physical
@@ -232,6 +308,7 @@ static int32_t opteed_handle_smc_load(uint64_t data_size, uint32_t data_pa)
 	uint64_t target_size;
 	entry_point_info_t optee_ep_info;
 	uint32_t linear_id = plat_my_core_pos();
+	uint64_t dt_addr = 0;
 
 	mapped_data_pa = page_align(data_pa, DOWN);
 	mapped_data_va = mapped_data_pa;
@@ -292,12 +369,20 @@ static int32_t opteed_handle_smc_load(uint64_t data_size, uint32_t data_pa)
 	/* Save the non-secure state */
 	cm_el1_sysregs_context_save(NON_SECURE);
 
+	rc = create_opteed_dt();
+	if (rc) {
+		ERROR("Failed device tree creation %d\n", rc);
+		return rc;
+	}
+	dt_addr = (uint64_t)fdt_buf;
+	flush_dcache_range(dt_addr, OPTEED_FDT_SIZE);
+
 	opteed_init_optee_ep_state(&optee_ep_info,
 				   opteed_rw,
 				   image_pa,
 				   0,
 				   0,
-				   0,
+				   dt_addr,
 				   &opteed_sp_context[linear_id]);
 	if (opteed_init_with_entry_point(&optee_ep_info) == 0) {
 		rc = -EFAULT;
