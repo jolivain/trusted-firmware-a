@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8251aa03_977a7c72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-02-09T15:32:14Z",
+      "side": 1,
+      "message": "This looks good to me. I\u0027m fully aligned with this direction. Another alternative to providing interfaces is using const function pointers. People may barf at function pointers as a security issue, but conscious use of const function pointers that defines platform interfaces, that must be filled, is another way to get similar effect to weak functions without breaking security or potential for causing bugs.\nFeel free to add documentation or leave out. looks good as is.",
+      "revId": "343ed362037d041c73a307bebf13d2925719295b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c00a289_331f14dc",
