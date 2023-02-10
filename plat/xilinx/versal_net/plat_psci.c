@@ -17,6 +17,7 @@
 #include <plat_arm.h>
 
 #include <plat_private.h>
+#include "pm_defs.h"
 
 #define PM_RET_ERROR_NOFEATURE U(19)
 
