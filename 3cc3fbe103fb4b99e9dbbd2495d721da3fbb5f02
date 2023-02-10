@@ -110,6 +110,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f495477_06381d87",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-02-10T14:03:17Z",
+      "side": 1,
+      "message": "Yes, that is also a possible soln. el2_empty is a legacy config which probably needs to be removed. In most cases, the code to enable a feature for NS/S/Realm is the same. The root world might need a different variant.\n\nAnother thing which I haven\u0027t thought through is, we have different flavours of SPDs although there is only SPMD for S-El2 in TF-A. If we had a enable_mte_secure() which internally assumes Hafnium SPMD, that may trip up other SPDs.\n\nSome of this is speculation and I dont have a strong argument in favour of either direction. Perhaps, we just do what makes most sense today and then refactor as we need when situation arises. We just need to be consistent through out, that is the important thing.",
+      "parentUuid": "f495201f_62f4798a",
+      "revId": "3cc3fbe103fb4b99e9dbbd2495d721da3fbb5f02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dda06d96_f353cf09",
         "filename": "lib/extensions/trbe/trbe.c",
         "patchSetId": 3
