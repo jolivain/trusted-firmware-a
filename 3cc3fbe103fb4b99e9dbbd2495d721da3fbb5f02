@@ -146,6 +146,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "52458501_ac3d09ce",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-02-10T14:28:16Z",
+      "side": 1,
+      "message": "hmm, no, We dont have those macros today.\n\nIdeally we dont want to give this configurability to TF-A unless the platforms face a dire memory situation. Taking the FGT example, if FGT is legal to be enabled for 3 worlds, the is_fgt_supported() depending on NS flag is OK. We can use is_fgt_supported() to enable FGT for Secure and Realm.\n\nIf some platform is running low on memory and want to save some EL3 SRAM, then we might need a separate Realm and Secure option so as to enable only for NS and keep it disabled for Secure and Realm (as long as RMM and SPM is also informed/configured to ignore FGT).\n\nSo it not clear whether we will need these RMMD/SPMD specific build flags per feature. \n\nFor now, lets keep it simple and use the is_fgt_supported() in all cases. So having the check inside the function is fine.",
+      "parentUuid": "7469c7ca_d83322ab",
+      "revId": "3cc3fbe103fb4b99e9dbbd2495d721da3fbb5f02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dda06d96_f353cf09",
         "filename": "lib/extensions/trbe/trbe.c",
         "patchSetId": 3
