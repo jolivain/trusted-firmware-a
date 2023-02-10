@@ -61,7 +61,9 @@
 #define SEC_DEL_ADDR_EXT_VAL            U(0x1)
 
 #define SEC_SYSCTRL0_REG		U(0x0018)
+#define SEC_SYSCTRL0_CPU_WAIT		U(1)
 #define SEC_SYSCTRL0_SLEEPING		U(1U << 4)
+#define SEC_SYSCTRL0_INITVTOR_MASK	U(0x1FFFFF80)
 #define SEC_SYSCTRL0_SOFT_RESET		U(3U << 29)
 #define SEC_SYSCTRL0_HARD_RESET		U(1U << 31)
 
@@ -97,6 +99,14 @@
 #if ARM_ETHOSN_NPU_TZMP1
 CASSERT(ARM_ETHOSN_NPU_FW_IMAGE_BASE > 0U, assert_ethosn_invalid_fw_image_base);
 static const struct ethosn_big_fw *big_fw;
+
+#define FW_INITVTOR_ADDR(big_fw) \
+	((ETHOSN_FW_VA_BASE + big_fw->vector_table_offset) & \
+	 SEC_SYSCTRL0_INITVTOR_MASK)
+
+#define SYSCTRL0_INITVTOR_ADDR(value) \
+	(value & SEC_SYSCTRL0_INITVTOR_MASK)
+
 #endif
 
 static bool ethosn_get_device_and_core(uintptr_t core_addr,
@@ -153,6 +163,13 @@ static void ethosn_configure_stream_nsaid(const struct ethosn_core_t *core,
 			      streams[i]);
 	}
 }
+
+static void ethosn_configure_vector_table(uintptr_t core_addr)
+{
+	mmio_setbits_32(ETHOSN_CORE_SEC_REG(core_addr, SEC_SYSCTRL0_REG),
+			FW_INITVTOR_ADDR(big_fw));
+}
+
 #endif
 
 static void ethosn_configure_events(uintptr_t core_addr)
@@ -306,6 +323,31 @@ static bool ethosn_core_reset(uintptr_t core_addr, bool hard_reset)
 	return timeout < ETHOSN_RESET_TIMEOUT_US;
 }
 
+static int ethosn_core_boot_fw(uintptr_t core_addr)
+{
+#if ARM_ETHOSN_NPU_TZMP1
+	const uintptr_t sysctrl0_reg = ETHOSN_CORE_SEC_REG(core_addr, SEC_SYSCTRL0_REG);
+	const uint32_t sysctrl0_val = mmio_read_32(sysctrl0_reg);
+	const bool waiting = (sysctrl0_val & SEC_SYSCTRL0_CPU_WAIT);
+
+	if (!waiting) {
+		WARN("ETHOSN: Firmware is already running.\n");
+		return ETHOSN_INVALID_STATE;
+	}
+
+	if (SYSCTRL0_INITVTOR_ADDR(sysctrl0_val) != FW_INITVTOR_ADDR(big_fw)) {
+		WARN("ETHOSN: Unknown vector table won't boot firmware.\n");
+		return ETHOSN_INVALID_CONFIGURATION;
+	}
+
+	mmio_clrbits_32(sysctrl0_reg, SEC_SYSCTRL0_CPU_WAIT);
+
+	return ETHOSN_SUCCESS;
+#else
+	return ETHOSN_NOT_SUPPORTED;
+#endif
+}
+
 static int ethosn_core_full_reset(const struct ethosn_device_t *device,
 				  const struct ethosn_core_t *core,
 				  bool hard_reset,
@@ -339,6 +381,10 @@ static int ethosn_core_full_reset(const struct ethosn_device_t *device,
 
 	ethosn_configure_stream_addr_extends(device, core->addr);
 	ethosn_configure_stream_attr_ctlr(core->addr);
+
+#if ARM_ETHOSN_NPU_TZMP1
+	ethosn_configure_vector_table(core->addr);
+#endif
 
 	ethosn_delegate_to_ns(core->addr);
 
@@ -406,6 +452,8 @@ static uintptr_t ethosn_smc_core_handler(uint32_t fid,
 						     is_protected,
 						     aux_features,
 						     handle);
+	case ETHOSN_FNUM_BOOT_FW:
+		SMC_RET1(handle, ethosn_core_boot_fw(core->addr));
 	default:
 		WARN("ETHOSN: Unimplemented SMC call: 0x%x\n", fid);
 		SMC_RET1(handle, SMC_UNK);
@@ -469,7 +517,7 @@ uintptr_t ethosn_smc_handler(uint32_t smc_fid,
 		x4 &= 0xFFFFFFFF;
 	}
 
-	if (!is_ethosn_fid(smc_fid) || (fid > ETHOSN_FNUM_GET_FW_PROP)) {
+	if (!is_ethosn_fid(smc_fid) || (fid > ETHOSN_FNUM_BOOT_FW)) {
 		WARN("ETHOSN: Unknown SMC call: 0x%x\n", smc_fid);
 		SMC_RET1(handle, SMC_UNK);
 	}
@@ -508,6 +556,11 @@ int ethosn_smc_setup(void)
 	}
 
 	dev = ETHOSN_GET_DEVICE(0U);
+	if (dev->has_reserved_memory) {
+		ERROR("ETHOSN: TZMP1 doesn't support using reserved memory\n");
+		panic();
+	}
+
 	arch_ver = ethosn_core_read_arch_version(dev->cores[0U].addr);
 	big_fw = (struct ethosn_big_fw *)ARM_ETHOSN_NPU_FW_IMAGE_BASE;
 
