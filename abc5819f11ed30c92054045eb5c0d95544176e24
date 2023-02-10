@@ -93,6 +93,30 @@
       },
       "revId": "abc5819f11ed30c92054045eb5c0d95544176e24",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9eb7d775_7bc4539b",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-02-10T16:54:10Z",
+      "side": 1,
+      "message": "\u003e Is this enforced anywhere?  Otherwise, the O(n²) loop would allow denial-of-service attacks.\n\nThat\u0027s a fair point, no this isn\u0027t currently enforced as there is no hard limit to the number of borrowers other than the number of partitions in the system. Practially I think the current limit would be number of emad descriptors that would fit inside the memory descriptor.",
+      "parentUuid": "69914739_0e33b7f4",
+      "range": {
+        "startLine": 1107,
+        "startChar": 45,
+        "endLine": 1108,
+        "endChar": 62
+      },
+      "revId": "abc5819f11ed30c92054045eb5c0d95544176e24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
