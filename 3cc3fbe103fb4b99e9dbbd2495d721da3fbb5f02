@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f30a5e8d_84ca6ba2",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-02-10T12:37:35Z",
+      "side": 1,
+      "message": "Couple of reasons I thought the check on the caller side makes more sense.\n\n1. As mentioned by Andre, it avoids the multiple declarations in the header.\n2. Today TRBE is only being used by NS, but in future it may be enabled by Realm. So the implicit check for build flag `ENABLE_TRBE_FOR_NS` in trb_enable()  might make it inconvenient. [trbe_enable() would need enhancement to take additional parameters like a world specific context and enum to indicate the world].\n\nPoint 1 was the main motivation and point 2 is a bit of blue sky thinking at the moment. Since there is no down side for making the check at caller side, thought it preferable.",
+      "parentUuid": "44f8f71b_458a6124",
+      "revId": "3cc3fbe103fb4b99e9dbbd2495d721da3fbb5f02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dda06d96_f353cf09",
         "filename": "lib/extensions/trbe/trbe.c",
         "patchSetId": 3
