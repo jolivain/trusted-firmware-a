@@ -33,6 +33,29 @@
       "message": "Documentation build checks passed.\nOne static check failure was raised, I think it\u0027s a false positive (line ending in plantuml file...). I guess the script got confused by \\n characters in the file\u0027s contents...",
       "revId": "7e60428fcdec976393d8846b394a4beac4e89d7e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86986de1_d2a08ca2",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-10T12:18:38Z",
+      "side": 1,
+      "message": "The measurement slots are cleared only on reset, or is there another mechanism available to do so? IMO it is good to mention initial state of slots and also, how slots are assigned to Normal, Secure, and Root worlds.",
+      "range": {
+        "startLine": 219,
+        "startChar": 17,
+        "endLine": 219,
+        "endChar": 62
+      },
+      "revId": "7e60428fcdec976393d8846b394a4beac4e89d7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
