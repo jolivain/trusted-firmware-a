@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7736fac6_8e8ddb41",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-02-10T12:58:40Z",
+      "side": 1,
+      "message": "Hmm, It is better to have consistent pattern for enable/disable and save/restore.\n\nI realized that the save and restore helpers are doing the check inside the implementation. Which means that either save/restore would need to move the check to the caller as well or enable/disable would need to have the checks inside them.\n\nIn the case save/restore, if we want to support different dispatchers to independently control this via separate build config options, then the check has to be done at caller side. Today I believe we dont have such a case. But a hypothetical case would be, say RMMD_ENABLE_FGT :\n\nrmmd_init() {\n\nif (is_fgt_supported() \u0026\u0026 RMMD_ENABLE_FGT)\n   enable_fgt(REALM);\n\n}\n\nrmmd_smc_handler() {\n\nif (is_fgt_supported() \u0026\u0026 RMMD_ENABLE_FGT)\n   el2_save_fgt_context();\n\n---\n}\n\nWe should align enable/disable and save/restore whichever direction we take",
+      "parentUuid": "f30a5e8d_84ca6ba2",
+      "revId": "3cc3fbe103fb4b99e9dbbd2495d721da3fbb5f02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dda06d96_f353cf09",
         "filename": "lib/extensions/trbe/trbe.c",
         "patchSetId": 3
