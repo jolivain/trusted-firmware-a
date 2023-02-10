@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dda06d96_f353cf09",
+        "filename": "lib/extensions/trbe/trbe.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-02-10T10:40:54Z",
+      "side": 1,
+      "message": "Just a comment not related to this patch. TRBE buffers should be drained when entering Realm world as well. Will take a action to see if this scheme will scale for Realm world.",
+      "range": {
+        "startLine": 53,
+        "startChar": 19,
+        "endLine": 53,
+        "endChar": 43
+      },
+      "revId": "3cc3fbe103fb4b99e9dbbd2495d721da3fbb5f02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
