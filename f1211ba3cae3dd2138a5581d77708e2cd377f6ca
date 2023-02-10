@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a6ecf4e_151d36ee",
+        "filename": "drivers/auth/cryptocell/713/cryptocell_crypto.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-10T10:22:10Z",
+      "side": 1,
+      "message": "Not related to your patch, but body of an \u0027if\u0027 should be covered under the braces. It can be handled separately as a clean-up patch.",
+      "range": {
+        "startLine": 140,
+        "startChar": 1,
+        "endLine": 140,
+        "endChar": 13
+      },
+      "revId": "f1211ba3cae3dd2138a5581d77708e2cd377f6ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
