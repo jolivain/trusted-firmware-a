@@ -128,6 +128,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7469c7ca_d83322ab",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-02-10T14:10:25Z",
+      "side": 1,
+      "message": "So U-Boot uses something to hide config decision for different parts or builds of the code base nicely:\n    if (CONFIG_IS_ENABLED(DM_MMC))\nwill consider CONFIG_SPL_DM_MMC if this compilation run is for the SPL (compare to IMAGE_BL1), and CONFIG_DM_MMC if it is for U-Boot proper (cf. IMAGE_BL31). This is all wrapped by some simple macro definitions.\nWe could maybe have something along that idea, if we can identify a limited number of different groups, like SEC, NS, RMM.\nIs there a way to automatically identify the context we need that enablement decision for? So can we work out automatically (by checking some macros?) if this is for RME/SEC/NS? Can this be derived from the file we are in, or is there already some macro defined (like IMAGE_BL1/IMAGE_BL31)?\nThen we can hide all those tedious combinations in one file, and users just ask for is_fgt_supported().",
+      "parentUuid": "7736fac6_8e8ddb41",
+      "revId": "3cc3fbe103fb4b99e9dbbd2495d721da3fbb5f02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dda06d96_f353cf09",
         "filename": "lib/extensions/trbe/trbe.c",
         "patchSetId": 3
