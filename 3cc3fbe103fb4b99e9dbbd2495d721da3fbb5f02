@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "44f8f71b_458a6124",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-02-10T12:03:57Z",
+      "side": 1,
+      "message": "Yeah, I am not convinced of that either, but if I got Soby correctly, he wanted it that way. On the plus side we save the not-so-nice stubbing in the header file: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/18992/2/include/lib/extensions/trbe.h\nSo this is one question I hoped to get some comments on. The other one is whether we want to have extra checks in the functions. I dropped them here, for this version, since they are now somewhat redundant, but we could put them back, just to be consistent and more future-proof.\nSoby, can you say what you think of this?",
+      "parentUuid": "b41ffeb7_399dd3c7",
+      "revId": "3cc3fbe103fb4b99e9dbbd2495d721da3fbb5f02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dda06d96_f353cf09",
         "filename": "lib/extensions/trbe/trbe.c",
         "patchSetId": 3
