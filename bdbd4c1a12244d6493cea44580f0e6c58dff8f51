@@ -16,6 +16,24 @@
       "message": "We may want to ensure that this feature is set to ALWAYS.\n\nThe asm code conditional is \n\n#if ENABLE_FEAT_SB\n    sb\n#endif\n\nwhich means that if the feature is CHECK, the asm code conditional will still go through and cause runtime failure on a h/w without sb feature.",
       "revId": "bdbd4c1a12244d6493cea44580f0e6c58dff8f51",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba2524b0_4df2dd86",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-02-10T12:18:28Z",
+      "side": 1,
+      "message": "Perhaps we need a check_feature_always() which will ensure that if FEAT_SB is enabled, it will need to be present in hardware always due to limitations in doing a dynamic check.",
+      "parentUuid": "3c2333d1_507a52cc",
+      "revId": "bdbd4c1a12244d6493cea44580f0e6c58dff8f51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
