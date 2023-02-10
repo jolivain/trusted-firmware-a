@@ -17,10 +17,9 @@
 #include <plat_arm.h>
 
 #include <plat_private.h>
+#include "pm_defs.h"
 
 #define PM_RET_ERROR_NOFEATURE U(19)
-
-#define PM_IOCTL	34U
 
 static uintptr_t versal_net_sec_entry;
 
