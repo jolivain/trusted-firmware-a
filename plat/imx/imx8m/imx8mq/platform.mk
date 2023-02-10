@@ -59,3 +59,6 @@ $(eval $(call add_define,IMX_BOOT_UART_BASE))
 ifeq (${SPD},trusty)
 	BL31_CFLAGS    +=      -DPLAT_XLAT_TABLES_DYNAMIC=1
 endif
+
+# Required with gcc version >= 12
+$(BUILD_PLAT)/bl31/imx8mq_bl31_setup.o: CFLAGS += --param=min-pagesize=0
