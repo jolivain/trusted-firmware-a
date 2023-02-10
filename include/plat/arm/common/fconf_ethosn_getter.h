@@ -45,6 +45,7 @@ struct ethosn_core_t {
 
 struct ethosn_device_t {
 	bool has_reserved_memory;
+	uint64_t reserved_memory_addr;
 	uint32_t num_cores;
 	struct ethosn_core_t cores[ETHOSN_DEV_CORE_NUM_MAX];
 	uint32_t num_allocators;
