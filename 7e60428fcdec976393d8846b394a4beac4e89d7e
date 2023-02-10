@@ -56,6 +56,30 @@
       },
       "revId": "7e60428fcdec976393d8846b394a4beac4e89d7e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3aa3562_9d8883a0",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000487
+      },
+      "writtenOn": "2023-02-10T13:16:42Z",
+      "side": 1,
+      "message": "Regarding the first question; the slots are cleared only on reset (when measured boot service is initialised).",
+      "parentUuid": "86986de1_d2a08ca2",
+      "range": {
+        "startLine": 219,
+        "startChar": 17,
+        "endLine": 219,
+        "endChar": 62
+      },
+      "revId": "7e60428fcdec976393d8846b394a4beac4e89d7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
