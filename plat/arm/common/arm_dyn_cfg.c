@@ -8,9 +8,9 @@
 #include <string.h>
 #include <libfdt.h>
 
-#if CRYPTO_SUPPORT
+#if TRUSTED_BOARD_BOOT
 #include <mbedtls/version.h>
-#endif /* CRYPTO_SUPPORT */
+#endif /* TRUSTED_BOARD_BOOT */
 
 #include <common/debug.h>
 #include <common/desc_image_load.h>
@@ -23,7 +23,7 @@
 #include <plat/arm/common/arm_dyn_cfg_helpers.h>
 #include <plat/arm/common/plat_arm.h>
 
-#if CRYPTO_SUPPORT
+#if TRUSTED_BOARD_BOOT
 
 static void *mbedtls_heap_addr;
 static size_t mbedtls_heap_size;
@@ -118,7 +118,7 @@ void arm_bl1_set_mbedtls_heap(void)
 #endif /* !MEASURED_BOOT */
 	}
 }
-#endif /* CRYPTO_SUPPORT */
+#endif /* TRUSTED_BOARD_BOOT */
 
 /*
  * BL2 utility function to initialize dynamic configuration specified by

@@ -203,10 +203,10 @@ void arm_bl1_platform_setup(void)
 	assert(desc != NULL);
 	desc->ep_info.args.arg0 = fw_config_info->config_addr;
 
-#if CRYPTO_SUPPORT
+#if TRUSTED_BOARD_BOOT
 	/* Share the Mbed TLS heap info with other images */
 	arm_bl1_set_mbedtls_heap();
-#endif /* CRYPTO_SUPPORT */
+#endif /* TRUSTED_BOARD_BOOT */
 
 	/*
 	 * Allow access to the System counter timer module and program
