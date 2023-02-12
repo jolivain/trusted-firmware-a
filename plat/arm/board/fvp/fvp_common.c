@@ -123,13 +123,13 @@ const mmap_region_t plat_arm_mmap[] = {
 	MAP_DEVICE2,
 #endif /* TRUSTED_BOARD_BOOT */
 
-#if CRYPTO_SUPPORT && !BL2_AT_EL3
+#if TRUSTED_BOARD_BOOT && !BL2_AT_EL3
 	/*
 	 * To access shared the Mbed TLS heap while booting the
 	 * system with Crypto support
 	 */
 	ARM_MAP_BL1_RW,
-#endif /* CRYPTO_SUPPORT && !BL2_AT_EL3 */
+#endif /* TRUSTED_BOARD_BOOT && !BL2_AT_EL3 */
 #if SPM_MM || SPMC_AT_EL3
 	ARM_SP_IMAGE_MMAP,
 #endif
@@ -450,7 +450,7 @@ void fvp_interconnect_disable(void)
 #endif
 }
 
-#if CRYPTO_SUPPORT
+#if TRUSTED_BOARD_BOOT
 int plat_get_mbedtls_heap(void **heap_addr, size_t *heap_size)
 {
 	assert(heap_addr != NULL);
@@ -458,7 +458,7 @@ int plat_get_mbedtls_heap(void **heap_addr, size_t *heap_size)
 
 	return arm_get_mbedtls_heap(heap_addr, heap_size);
 }
-#endif /* CRYPTO_SUPPORT */
+#endif /* TRUSTED_BOARD_BOOT */
 
 void fvp_timer_init(void)
 {
