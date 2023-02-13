@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b49b1b8d_ff69d96c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-02-13T14:17:16Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 13,
+        "startChar": 27,
+        "endLine": 13,
+        "endChar": 32
+      },
+      "revId": "83ac1793efb17dd8d978538daecc759abb0ddf1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1affddaf_5c16889a",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-02-13T14:17:16Z",
+      "side": 1,
+      "message": "Would it be fair creating SMC_RET18 for a generic re-use in context of SMCCCv1.2?\n\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/arch/aarch64/smccc_helpers.h#n64",
+      "revId": "83ac1793efb17dd8d978538daecc759abb0ddf1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f910f84_cdabc114",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-02-13T14:17:16Z",
+      "side": 1,
+      "message": "nit: is this required?",
+      "range": {
+        "startLine": 597,
+        "startChar": 15,
+        "endLine": 597,
+        "endChar": 16
+      },
+      "revId": "83ac1793efb17dd8d978538daecc759abb0ddf1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
