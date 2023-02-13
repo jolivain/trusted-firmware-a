@@ -16,6 +16,24 @@
       "message": "apply_at_speculative_wa also saves x30. Shouldn\u0027t that be dropped too?",
       "revId": "ee29c2652f5e8caaa7beee6559e59b97ebdbe73f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "239fc8a4_b603dde6",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-02-13T10:47:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e4abee9_294e9eb0",
+      "revId": "ee29c2652f5e8caaa7beee6559e59b97ebdbe73f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
