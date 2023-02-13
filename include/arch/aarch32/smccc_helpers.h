@@ -90,21 +90,21 @@ typedef struct smc_ctx {
  * ensure that the assembler and the compiler view of the offsets of
  * the structure members is the same.
  */
-CASSERT(SMC_CTX_GPREG_R0 == __builtin_offsetof(smc_ctx_t, r0), \
+CASSERT(SMC_CTX_GPREG_R0 == __builtin_offsetof(smc_ctx_t, r0),
 	assert_smc_ctx_greg_r0_offset_mismatch);
-CASSERT(SMC_CTX_GPREG_R1 == __builtin_offsetof(smc_ctx_t, r1), \
+CASSERT(SMC_CTX_GPREG_R1 == __builtin_offsetof(smc_ctx_t, r1),
 	assert_smc_ctx_greg_r1_offset_mismatch);
-CASSERT(SMC_CTX_GPREG_R2 == __builtin_offsetof(smc_ctx_t, r2), \
+CASSERT(SMC_CTX_GPREG_R2 == __builtin_offsetof(smc_ctx_t, r2),
 	assert_smc_ctx_greg_r2_offset_mismatch);
-CASSERT(SMC_CTX_GPREG_R3 == __builtin_offsetof(smc_ctx_t, r3), \
+CASSERT(SMC_CTX_GPREG_R3 == __builtin_offsetof(smc_ctx_t, r3),
 	assert_smc_ctx_greg_r3_offset_mismatch);
-CASSERT(SMC_CTX_GPREG_R4 == __builtin_offsetof(smc_ctx_t, r4), \
+CASSERT(SMC_CTX_GPREG_R4 == __builtin_offsetof(smc_ctx_t, r4),
 	assert_smc_ctx_greg_r4_offset_mismatch);
-CASSERT(SMC_CTX_SP_USR == __builtin_offsetof(smc_ctx_t, sp_usr), \
+CASSERT(SMC_CTX_SP_USR == __builtin_offsetof(smc_ctx_t, sp_usr),
 	assert_smc_ctx_sp_usr_offset_mismatch);
-CASSERT(SMC_CTX_LR_MON == __builtin_offsetof(smc_ctx_t, lr_mon), \
+CASSERT(SMC_CTX_LR_MON == __builtin_offsetof(smc_ctx_t, lr_mon),
 	assert_smc_ctx_lr_mon_offset_mismatch);
-CASSERT(SMC_CTX_SPSR_MON == __builtin_offsetof(smc_ctx_t, spsr_mon), \
+CASSERT(SMC_CTX_SPSR_MON == __builtin_offsetof(smc_ctx_t, spsr_mon),
 	assert_smc_ctx_spsr_mon_offset_mismatch);
 
 CASSERT((sizeof(smc_ctx_t) & 0x7U) == 0U, assert_smc_ctx_not_aligned);
@@ -112,39 +112,39 @@ CASSERT(SMC_CTX_SIZE == sizeof(smc_ctx_t), assert_smc_ctx_size_mismatch);
 
 /* Convenience macros to return from SMC handler */
 #define SMC_RET0(_h) {				\
-	return (uintptr_t)(_h);			\
+	return (uintptr_t)(_h)
 }
 #define SMC_RET1(_h, _r0) {			\
 	((smc_ctx_t *)(_h))->r0 = (_r0);	\
-	SMC_RET0(_h);				\
+	SMC_RET0(_h)
 }
 #define SMC_RET2(_h, _r0, _r1) {		\
 	((smc_ctx_t *)(_h))->r1 = (_r1);	\
-	SMC_RET1(_h, (_r0));			\
+	SMC_RET1(_h, (_r0))
 }
 #define SMC_RET3(_h, _r0, _r1, _r2) {		\
 	((smc_ctx_t *)(_h))->r2 = (_r2);	\
-	SMC_RET2(_h, (_r0), (_r1));		\
+	SMC_RET2(_h, (_r0), (_r1))
 }
 #define SMC_RET4(_h, _r0, _r1, _r2, _r3) {	\
 	((smc_ctx_t *)(_h))->r3 = (_r3);	\
-	SMC_RET3(_h, (_r0), (_r1), (_r2));	\
+	SMC_RET3(_h, (_r0), (_r1), (_r2))
 }
 #define SMC_RET5(_h, _r0, _r1, _r2, _r3, _r4) {	\
 	((smc_ctx_t *)(_h))->r4 = (_r4);	\
-	SMC_RET4(_h, (_r0), (_r1), (_r2), (_r3));	\
+	SMC_RET4(_h, (_r0), (_r1), (_r2), (_r3))
 }
 #define SMC_RET6(_h, _r0, _r1, _r2, _r3, _r4, _r5) {	\
 	((smc_ctx_t *)(_h))->r5 = (_r5);	\
-	SMC_RET5(_h, (_r0), (_r1), (_r2), (_r3), (_r4));	\
+	SMC_RET5(_h, (_r0), (_r1), (_r2), (_r3), (_r4))
 }
 #define SMC_RET7(_h, _r0, _r1, _r2, _r3, _r4, _r5, _r6) {	\
 	((smc_ctx_t *)(_h))->r6 = (_r6);	\
-	SMC_RET6(_h, (_r0), (_r1), (_r2), (_r3), (_r4), (_r5));	\
+	SMC_RET6(_h, (_r0), (_r1), (_r2), (_r3), (_r4), (_r5))
 }
 #define SMC_RET8(_h, _r0, _r1, _r2, _r3, _r4, _r5, _r6, _r7) {	\
 	((smc_ctx_t *)(_h))->r7 = (_r7);	\
-	SMC_RET7(_h, (_r0), (_r1), (_r2), (_r3), (_r4), (_r5), (_r6));	\
+	SMC_RET7(_h, (_r0), (_r1), (_r2), (_r3), (_r4), (_r5), (_r6))
 }
 
 /*
