@@ -34,6 +34,52 @@
       "parentUuid": "e983e918_a27ededc",
       "revId": "3be776c332b997750639c7e8dcc3e7e81c7ab77e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc234549_8c266601",
+        "filename": "docs/change-log.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-13T10:37:11Z",
+      "side": 1,
+      "message": "Going forward, I suspect we\u0027ll want to list issues resolved since the last LTS release, right? This list could be different than the list of issues resolved since the last (non-LTS) TF-A release, as some issues may not apply to LTS release, or on the contrary some issues might be specific to LTS releases.\n\nSince this is the first ever LTS release, I suppose we\u0027re listing issues resolved since (non-LTS) v2.7 release this time, is that correct? I feel this should be clarified, perhaps the title should be extended like that: \"Issues resolved since TF-A v2.7\".\n\nNext LTS releases can simply use \u0027Resolved issues\u0027 going forward IMO.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 19
+      },
+      "revId": "3be776c332b997750639c7e8dcc3e7e81c7ab77e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f1ed8ee_a9c6cb63",
+        "filename": "docs/change-log.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-13T10:37:11Z",
+      "side": 1,
+      "message": "Should be a dash, not an underscore. This messes up with the rendering of the list.",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 3
+      },
+      "revId": "3be776c332b997750639c7e8dcc3e7e81c7ab77e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
