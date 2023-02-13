@@ -63,6 +63,30 @@
       },
       "revId": "c7e8bdabc9b4af4d729fb547e4ce57790f3e1cb9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cbdd746_7cc68dd9",
+        "filename": "Makefile",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-13T12:04:33Z",
+      "side": 1,
+      "message": "Thanks, I think we should move this documentation into ReadDocs sooner (may be after this release?). Furthermore, I think it would be better to explicitly clarify the version scheme, currently the doc mentions this -\n\n 6. The maintainers shall publish a versioning mechanism for the LTS branch\n   a. Bump minor version for every “logical” fix that gets merged.\n\nShould this be a version patch instead?",
+      "parentUuid": "64c167fc_e07dc13e",
+      "range": {
+        "startLine": 13,
+        "startChar": 50,
+        "endLine": 13,
+        "endChar": 63
+      },
+      "revId": "c7e8bdabc9b4af4d729fb547e4ce57790f3e1cb9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
