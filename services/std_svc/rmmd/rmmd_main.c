@@ -18,11 +18,15 @@
 #include <context.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/el3_runtime/pubsub.h>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 #include <lib/extensions/sys_reg_trace.h>
 #include <lib/extensions/pmuv3.h>
 >>>>>>> Stashed changes
+=======
+#include <lib/extensions/sys_reg_trace.h>
+>>>>>>> 3ac8fe075... refactor(cm): set MDCR_EL3/CPTR_EL3 bits in respective feat_enable_el3() only
 #include <lib/gpt_rme/gpt_rme.h>
 
 #include <lib/spinlock.h>
@@ -129,6 +133,11 @@ static void manage_extensions_realm(cpu_context_t *ctx)
 	 * contexts are properly managed.
 	 */
 		sve_enable(ctx);
+	}
+
+	/* NS can access this but Realm shouldn't */
+	if (is_feat_sys_reg_trace_supported()) {
+		sys_reg_trace_disable(ctx);
 	}
 
 	pmuv3_enable(ctx);
