@@ -1,44 +1,114 @@
 Reliability, Availability, and Serviceability (RAS) Extensions
-==============================================================
+**************************************************************
 
 This document describes |TF-A| support for Arm Reliability, Availability, and
 Serviceability (RAS) extensions. RAS is a mandatory extension for Armv8.2 and
 later CPUs, and also an optional extension to the base Armv8.0 architecture.
 
-In conjunction with the |EHF|, support for RAS extension enables firmware-first
-paradigm for handling platform errors: exceptions resulting from errors in
-Non-secure world are routed to and handled in EL3.
-Said errors are Synchronous External Abort (SEA), Asynchronous External Abort
-(signalled as SErrors), Fault Handling and Error Recovery interrupts.
-The |EHF| document mentions various :ref:`error handling
-use-cases <delegation-use-cases>` .
-
 For the description of Arm RAS extensions, Standard Error Records, and the
 precise definition of RAS terminology, please refer to the Arm Architecture
-Reference Manual. The rest of this document assumes familiarity with
-architecture and terminology.
+Reference Manual and RAS supplement ddi0587. The rest of this document assumes
+familiarity with architecture and terminology.
+
+The RAS Extension deals mostly with errors detected by components outside of the PE, such
+as memory, and consumed by the PE. An **error exception** is generated when a detected error
+is signaled to the PE as an in-band error response(external aborts).
+An **error exception** can be taken as
+
+- Asynchronous External Abort (SError)
+- Synchronous External Abort
+
+Most of the **error exceptions** are taken as SError. Few exceptions (mentioned below)
+where it is IMPDEF
+
+- Explicit access to memory made by an instruction.
+- Cache maintenance operation.
+- Translation table walk or hardware update of translation tables. etc
+
+The current implementation of TF-A is based on the assumption that all RAS errors generate
+SError.
+
+There are two philosophies for handling RAS errors from Non-secure world point of view
+
+- :ref:`Firmware First Handling (FFH)`
+- :ref:`Kernel First Handling (KFH)`
+
+.. _Firmware First Handling (FFH):
+
+Firmware First Handling (FFH)
+=============================
+
+Introduction
+------------
+
+EA’s and Error interrupts corresponding to NS nodes are handled first in firmware
+
+-  Errors signaled back to NS world via suitable mechanism
+-  Kernel is prohibited from accessing the RAS error records directly
+-  Firmware creates CPER records for kernel to navigate and process
 
 Overview
 --------
 
-As mentioned above, the RAS support in |TF-A| enables routing to and handling of
-exceptions resulting from platform errors in EL3. It allows the platform to
-define an External Abort handler, and to register RAS nodes and interrupts. RAS
-framework also provides `helpers`__ for accessing Standard Error Records as
-introduced by the RAS extensions.
+FFH works in conjunction with `Exception Handling Framework`. Exceptions resulting from
+errors in Non-secure world are routed to and handled in EL3. Said errors are Synchronous
+External Abort (SEA), Asynchronous External Abort (signalled as SErrors), Fault Handling
+and Error Recovery interrupts.
+RAS Framework in TF-A allows the platform to define an external abort handler and to
+register RAS nodes and interrupts. It also provides `helpers`__ for accessing Standard
+Error Records as introduced by the RAS extensions
+
 
 .. __: `Standard Error Record helpers`_
 
-The build option ``RAS_EXTENSION`` when set to ``1`` includes the RAS in run
-time firmware; ``EL3_EXCEPTION_HANDLING`` and ``HANDLE_EA_EL3_FIRST_NS`` must also
-be set ``1``. ``RAS_TRAP_NS_ERR_REC_ACCESS`` controls the access to the RAS
-error record registers from Non-secure.
+.. _Kernel First Handling (KFH):
+
+Kernel First Handling (KFH)
+===========================
+
+Introduction
+------------
+
+EA's originating/attributed to NS world are handled first in NS
+
+-  Error interrupts corresponding to NS nodes are configured as Non-Secure interrupts
+-  Kernel navigates the std error records directly
+-  Need some support from Firmware
+
+Overview
+--------
+
+This is default handling if RAS is present in the system. Except for Signaling synchronized error
+back to NS, TF-A does not have any involvement in KFH.
+
+Signal synchronized error back to NS
+------------------------------------
+An Async EA pertaining to NS world can be synchronized on entry to EL3, this need
+to be signaled back to NS. The ideal soulution would be to inject SError back to
+lower EL but (unlike EL2) EL3 does not have this capability.
+
+**TODO** TF-A need to have a workaround to reflect these errors back to NS world.
+
+TF-A build options
+==================
+
+- **ENABLE_FEAT_RAS**: Support for RAS architecture feature, defaults to Kernel first handling(KFH)
+- **RAS_FFH_SUPPORT**: Firmware first handling of RAS errors
+- **RAS_ALLOW_ERR_REC_ACCESS_NS**: Allow Non-secure to access RAS error record registers.
+
+RAS feature has dependency on some other TF-A build flags
+
+- **EL3_EXCEPTION_HANDLING**: Required for FFH
+- **HANDLE_EA_EL3_FIRST_NS**: Required for FFH
+- **FAULT_INJECTION_SUPPORT**: Required for testing RAS feature on fvp platform
+
+RAS Framework
+=============
+
 
 .. _ras-figure:
 
 .. image:: ../resources/diagrams/draw.io/ras.svg
-
-See more on `Engaging the RAS framework`_.
 
 Platform APIs
 -------------
@@ -191,19 +261,10 @@ doesn't return.
 Engaging the RAS framework
 --------------------------
 
-Enabling RAS support is a platform choice constructed from three distinct, but
-related, build options:
-
--  ``RAS_EXTENSION=1`` includes the RAS framework in the run time firmware;
-
--  ``EL3_EXCEPTION_HANDLING=1`` enables handling of exceptions at EL3. See
-   `Interaction with Exception Handling Framework`_;
-
--  ``HANDLE_EA_EL3_FIRST_NS=1`` enables routing of External Aborts and SErrors,
-   resulting from errors in NS world, to EL3.
+Enabling RAS support is a platform choice
 
 The RAS support in |TF-A| introduces a default implementation of
-``plat_ea_handler``, the External Abort handler in EL3. When ``RAS_EXTENSION``
+``plat_ea_handler``, the External Abort handler in EL3. When ``RAS_FFH_SUPPORT``
 is set to ``1``, it'll first call ``ras_ea_handler()`` function, which is the
 top-level RAS exception handler. ``ras_ea_handler`` is responsible for iterating
 to through platform-supplied error records, probe them, and when an error is
@@ -239,4 +300,4 @@ for non-interrupt exceptions, they're explicit using :ref:`EHF APIs
 
 --------------
 
-*Copyright (c) 2018-2019, Arm Limited and Contributors. All rights reserved.*
+*Copyright (c) 2018-2023, Arm Limited and Contributors. All rights reserved.*
