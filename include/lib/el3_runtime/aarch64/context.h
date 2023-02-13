@@ -531,10 +531,10 @@ void el2_sysregs_context_restore_ecv(el2_sysregs_t *regs);
 void el2_sysregs_context_save_vhe(el2_sysregs_t *regs);
 void el2_sysregs_context_restore_vhe(el2_sysregs_t *regs);
 #endif /* ENABLE_FEAT_VHE */
-#if RAS_EXTENSION
+#if ENABLE_FEAT_RAS
 void el2_sysregs_context_save_ras(el2_sysregs_t *regs);
 void el2_sysregs_context_restore_ras(el2_sysregs_t *regs);
-#endif /* RAS_EXTENSION */
+#endif /* ENABLE_FEAT_RAS */
 #if CTX_INCLUDE_NEVE_REGS
 void el2_sysregs_context_save_nv2(el2_sysregs_t *regs);
 void el2_sysregs_context_restore_nv2(el2_sysregs_t *regs);
