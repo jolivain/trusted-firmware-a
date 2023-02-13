@@ -45,7 +45,7 @@
  * the structure members is the same.
  */
 CASSERT(ENTRY_POINT_INFO_PC_OFFSET ==
-		__builtin_offsetof(entry_point_info_t, pc), \
+		__builtin_offsetof(entry_point_info_t, pc),
 		assert_BL31_pc_offset_mismatch);
 
 #ifndef __aarch64__
@@ -54,13 +54,13 @@ CASSERT(ENTRY_POINT_INFO_LR_SVC_OFFSET ==
 		assert_entrypoint_lr_offset_error);
 #endif
 
-CASSERT(ENTRY_POINT_INFO_ARGS_OFFSET == \
-		__builtin_offsetof(entry_point_info_t, args), \
+CASSERT(ENTRY_POINT_INFO_ARGS_OFFSET ==
+		__builtin_offsetof(entry_point_info_t, args),
 		assert_BL31_args_offset_mismatch);
 
 CASSERT(sizeof(uintptr_t) ==
-		__builtin_offsetof(entry_point_info_t, spsr) - \
-		__builtin_offsetof(entry_point_info_t, pc), \
+		__builtin_offsetof(entry_point_info_t, spsr) -
+		__builtin_offsetof(entry_point_info_t, pc),
 		assert_entrypoint_and_spsr_should_be_adjacent);
 
 #endif /*__ASSEMBLER__*/
