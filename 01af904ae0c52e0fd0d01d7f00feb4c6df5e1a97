@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d9698bd_7360b106",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-02-13T20:32:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "17cca009_c36a53da",
+      "range": {
+        "startLine": 7,
+        "startChar": 20,
+        "endLine": 7,
+        "endChar": 21
+      },
+      "revId": "01af904ae0c52e0fd0d01d7f00feb4c6df5e1a97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c6e0bfe_1b52d903",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-10T16:55:21Z",
       "side": 1,
       "message": "`first_emad` does not appear to be used anywhere after assignment.",
+      "range": {
+        "startLine": 832,
+        "startChar": 1,
+        "endLine": 832,
+        "endChar": 12
+      },
+      "revId": "01af904ae0c52e0fd0d01d7f00feb4c6df5e1a97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd8753ed_c888de64",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-02-13T20:32:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0c6e0bfe_1b52d903",
       "range": {
         "startLine": 832,
         "startChar": 1,
