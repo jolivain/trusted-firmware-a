@@ -131,22 +131,10 @@
 	 *  in Secure state. This bit is RES0 in versions of the architecture
 	 *  earlier than ARMv8.5, setting it to 1 doesn't have any effect on
 	 *  them.
-	 *
-	 * SDCR.TTRF: Set to one so that access to trace filter control
-	 *  registers in non-monitor mode generate Monitor trap exception,
-	 *  unless the access generates a higher priority exception when
-	 *  trace filter control(FEAT_TRF) is implemented.
-	 *  When FEAT_TRF is not implemented, this bit is RES0.
 	 * ---------------------------------------------------------------------
 	 */
 	ldr	r0, =((SDCR_RESET_VAL | SDCR_SPD(SDCR_SPD_DISABLE) | \
-		      SDCR_SCCD_BIT) & ~SDCR_TTRF_BIT)
-	ldcopr	r1, ID_DFR0
-	ubfx	r1, r1, #ID_DFR0_TRACEFILT_SHIFT, #ID_DFR0_TRACEFILT_LENGTH
-	cmp	r1, #ID_DFR0_TRACEFILT_SUPPORTED
-	bne	1f
-	orr	r0, r0, #SDCR_TTRF_BIT
-1:
+		      SDCR_SCCD_BIT))
 	stcopr	r0, SDCR
 
 	/* ---------------------------------------------------------------------
