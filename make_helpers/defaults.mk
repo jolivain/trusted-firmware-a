@@ -255,8 +255,9 @@ PROGRAMMABLE_RESET_ADDRESS	:= 0
 # Flag used to choose the power state format: Extended State-ID or Original
 PSCI_EXTENDED_STATE_ID		:= 0
 
-# Enable RAS support
-RAS_EXTENSION			:= 0
+# Enable RAS Support
+ENABLE_FEAT_RAS			:= 0
+RAS_FFH_SUPPORT_NS		:= 0
 
 # By default, BL1 acts as the reset handler, not BL31
 RESET_TO_BL31			:= 0
