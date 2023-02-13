@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "156f58f8_9903f26d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-13T14:30:40Z",
+      "side": 1,
+      "message": "There might be something wrong with this change because most (if not all) of the trusted-boot-enabled test configs fail in the CI with the following error message from BL1:\n\n ERROR:   Loading of FW_CONFIG failed -80\n\nOff the top of my head, 80 \u003d\u003d EAUTH.\n\nThere seems to be an issue with the export of LAVA logs from our CI right now (we\u0027re looking into it) so I am copying and pasting the boot log from one of the tests below for reference:\n\n NOTICE:  Booting Trusted Firmware\n NOTICE:  BL1: v2.8(debug):v2.8-346-g408c13279\n NOTICE:  BL1: Built : 09:34:01, Feb 10 2023\n INFO:    BL1: RAM 0x4035000 - 0x403f000\n WARNING: BL1: cortex_a57: CPU workaround for 813419 was missing!\n WARNING: BL1: cortex_a57: CPU workaround for 817169 was missing!\n INFO:    BL1: cortex_a57: CPU workaround for disable_ldnp_overread was applied\n WARNING: BL1: cortex_a57: CPU workaround for 826974 was missing!\n WARNING: BL1: cortex_a57: CPU workaround for 826977 was missing!\n WARNING: BL1: cortex_a57: CPU workaround for 828024 was missing!\n WARNING: BL1: cortex_a57: CPU workaround for 829520 was missing!\n WARNING: BL1: cortex_a57: CPU workaround for 833471 was missing!\n WARNING: BL1: cortex_a57: CPU workaround for 859972 was missing!\n WARNING: BL1: cortex_a57: CPU workaround for 1319537 was missing!\n INFO:    BL1: cortex_a57: CPU workaround for cve_2017_5715 was applied\n INFO:    BL1: cortex_a57: CPU workaround for cve_2018_3639 was applied\n INFO:    BL1: cortex_a57: CPU workaround for cve_2022_23960 was applied\n INFO:    Using crypto library \u0027mbed TLS\u0027\n INFO:    Loading image id\u003d6 at address 0x4001010\n INFO:    Image id\u003d6 loaded: 0x4001010 - 0x40014ce\n ERROR:   Loading of FW_CONFIG failed -80\n\nAnd then reboots.",
+      "revId": "408c13279c093066399f70eadd7105241df7b51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
