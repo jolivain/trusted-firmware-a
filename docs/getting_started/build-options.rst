@@ -741,15 +741,14 @@ Common build options
    enabled on Arm platforms, the option ``ARM_RECOM_STATE_ID_ENC`` needs to be
    set to 1 as well.
 
--  ``RAS_EXTENSION``: Numeric value to enable Armv8.2 RAS features. RAS features
+-  ``FEAT_RAS_ENABLE``: Numeric value to enable Armv8.2 RAS features. RAS features
    are an optional extension for pre-Armv8.2 CPUs, but are mandatory for Armv8.2
    or later CPUs. This flag can take the values 0 to 2, to align with the
    ``FEATURE_DETECTION`` mechanism.
 
-   When ``RAS_EXTENSION`` is set to ``1``, ``HANDLE_EA_EL3_FIRST_NS`` must also be
-   set to ``1``.
-
-   This option is disabled by default.
+-  ``RAS_FFH_SUPPORT``: Support to enable Firmware first handling of RAS errors
+   originating from NS world. When ``RAS_FFH_SUPPORT`` is set to ``1``,
+   ``HANDLE_EA_EL3_FIRST_NS`` must also be set to ``1``.
 
 -  ``RESET_TO_BL31``: Enable BL31 entrypoint as the CPU reset vector instead
    of the BL1 entrypoint. It can take the value 0 (CPU reset to BL1
