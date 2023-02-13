@@ -16,6 +16,29 @@
       "message": "that wasn\u0027t going to work... Only changed text",
       "revId": "7bc28256c11548b1af255d721116b7e914aa4015",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f56f90c0_2a36f307",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-02-13T15:53:49Z",
+      "side": 1,
+      "message": "This is predominantly because TF-A carries its own copy of compiler-rt, which may be older than the version expected by the compiler.",
+      "range": {
+        "startLine": 41,
+        "startChar": 9,
+        "endLine": 42,
+        "endChar": 32
+      },
+      "revId": "7bc28256c11548b1af255d721116b7e914aa4015",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
