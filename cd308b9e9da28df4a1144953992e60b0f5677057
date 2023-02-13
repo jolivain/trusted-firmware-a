@@ -16,6 +16,23 @@
       "message": "Hi Govindraj,\n\nTRUSTED_BOARD_BOOT should not be used instead of CRYPTO_SUPPORT. The CRYPTO_SUPPORT auto-build option was created so that it could be used across MEASURED_BOOT and TRUSTED_BOARD_BOOT cases. Therefore, if you guard Crypto related things under TRUSTED_BOARD_BOOT, these changes will not work for MEASURED_BOOT.",
       "revId": "cd308b9e9da28df4a1144953992e60b0f5677057",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef2e03b2_672efa28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-13T09:36:35Z",
+      "side": 1,
+      "message": "See Manish\u0027s comment (which I agree with).",
+      "revId": "cd308b9e9da28df4a1144953992e60b0f5677057",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
