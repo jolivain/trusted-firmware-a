@@ -98,7 +98,7 @@ static void trigger_wdt_restart(void)
  * for warm restart.
  *
  * In presence of non-secure software layers (EL1/2) sets the interrupt
- * at registered entrance in GIC and informs that PMU responsed or demands
+ * at registered entrance in GIC and informs that PMU responded or demands
  * action.
  */
 static uint64_t ttc_fiq_handler(uint32_t id, uint32_t flags, void *handle,
