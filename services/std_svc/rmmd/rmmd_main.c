@@ -18,6 +18,7 @@
 #include <context.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/el3_runtime/pubsub.h>
+#include <lib/extensions/sys_reg_trace.h>
 #include <lib/gpt_rme/gpt_rme.h>
 
 #include <lib/spinlock.h>
@@ -124,6 +125,11 @@ static void manage_extensions_realm(cpu_context_t *ctx)
 	 * contexts are properly managed.
 	 */
 		sve_enable(ctx);
+	}
+
+	/* NS can access this but Realm shouldn't */
+	if (is_feat_sys_reg_trace_supported()) {
+		sys_reg_trace_disable(ctx);
 	}
 }
 
