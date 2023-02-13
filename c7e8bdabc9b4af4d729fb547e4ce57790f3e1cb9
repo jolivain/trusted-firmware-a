@@ -22,6 +22,30 @@
       },
       "revId": "c7e8bdabc9b4af4d729fb547e4ce57790f3e1cb9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64c167fc_e07dc13e",
+        "filename": "Makefile",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-02-13T11:46:47Z",
+      "side": 1,
+      "message": "We already addressed this in the proposal for LTS. We plan to increment it for every \"logical\" change. The full proposal is at https://developer.trustedfirmware.org/file/data/yhf5nfsofaqobwja5ss3/PHID-FILE-e2hxgf66tgkg3qzayfyv/TF-A_LTS_Proposal.pdf",
+      "parentUuid": "18b339e7_94683079",
+      "range": {
+        "startLine": 13,
+        "startChar": 50,
+        "endLine": 13,
+        "endChar": 63
+      },
+      "revId": "c7e8bdabc9b4af4d729fb547e4ce57790f3e1cb9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
