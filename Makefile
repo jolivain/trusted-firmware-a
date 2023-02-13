@@ -783,17 +783,17 @@ ifeq ($(RESET_TO_BL2)-$(BL2_IN_XIP_MEM),0-1)
 $(error "BL2_IN_XIP_MEM is only supported when RESET_TO_BL2 is enabled")
 endif
 
-# For RAS_EXTENSION, require that EAs are handled in EL3 first
-ifeq ($(RAS_EXTENSION),1)
+# RAS firmware first handling requires that EAs are handled in EL3 first
+ifeq ($(RAS_FFH_SUPPORT),1)
     ifneq ($(HANDLE_EA_EL3_FIRST_NS),1)
-        $(error For RAS_EXTENSION, HANDLE_EA_EL3_FIRST_NS must also be 1)
+        $(error For RAS_FFH_SUPPORT, HANDLE_EA_EL3_FIRST_NS must also be 1)
     endif
 endif
 
-# When FAULT_INJECTION_SUPPORT is used, require that RAS_EXTENSION is enabled
+# When FAULT_INJECTION_SUPPORT is used, require that FEAT_RAS is enabled
 ifeq ($(FAULT_INJECTION_SUPPORT),1)
-    ifneq ($(RAS_EXTENSION),1)
-        $(error For FAULT_INJECTION_SUPPORT, RAS_EXTENSION must also be 1)
+    ifneq ($(ENABLE_FEAT_RAS),1)
+        $(error For FAULT_INJECTION_SUPPORT, ENABLE_FEAT_RAS must also be 1)
     endif
 endif
 
@@ -1168,6 +1168,7 @@ $(eval $(call assert_numerics,\
         ENABLE_FEAT_AMUv1 \
         ENABLE_FEAT_AMUv1p1 \
         ENABLE_FEAT_CSV2_2 \
+        ENABLE_FEAT_RAS	\
         ENABLE_FEAT_DIT \
         ENABLE_FEAT_ECV \
         ENABLE_FEAT_FGT \
@@ -1186,7 +1187,6 @@ $(eval $(call assert_numerics,\
         FW_ENC_STATUS \
         NR_OF_FW_BANKS \
         NR_OF_IMAGES_IN_FW_BANK \
-        RAS_EXTENSION \
         TWED_DELAY \
         ENABLE_FEAT_TWED \
         SVE_VECTOR_LEN \
@@ -1256,7 +1256,8 @@ $(eval $(call add_defines,\
         PLAT_RSS_NOT_SUPPORTED \
         PROGRAMMABLE_RESET_ADDRESS \
         PSCI_EXTENDED_STATE_ID \
-        RAS_EXTENSION \
+        ENABLE_FEAT_RAS \
+        RAS_FFH_SUPPORT \
         RESET_TO_BL31 \
         RESET_TO_BL31_WITH_PARAMS \
         SEPARATE_CODE_AND_RODATA \
