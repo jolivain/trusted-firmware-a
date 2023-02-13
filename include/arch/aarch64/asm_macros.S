@@ -186,7 +186,7 @@
 	.space	SPINLOCK_ASM_SIZE
 	.endm
 
-#if RAS_EXTENSION
+#if ENABLE_FEAT_RAS
 	.macro esb
 	.inst	0xd503221f
 	.endm
