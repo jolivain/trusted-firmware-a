@@ -871,7 +871,7 @@ void cm_el2_sysregs_context_save(uint32_t security_state)
 #if ENABLE_FEAT_VHE
 		el2_sysregs_context_save_vhe(el2_sysregs_ctx);
 #endif
-#if RAS_EXTENSION
+#if ENABLE_FEAT_RAS
 		el2_sysregs_context_save_ras(el2_sysregs_ctx);
 #endif
 #if CTX_INCLUDE_NEVE_REGS
@@ -929,7 +929,7 @@ void cm_el2_sysregs_context_restore(uint32_t security_state)
 #if ENABLE_FEAT_VHE
 		el2_sysregs_context_restore_vhe(el2_sysregs_ctx);
 #endif
-#if RAS_EXTENSION
+#if ENABLE_FEAT_RAS
 		el2_sysregs_context_restore_ras(el2_sysregs_ctx);
 #endif
 #if CTX_INCLUDE_NEVE_REGS
