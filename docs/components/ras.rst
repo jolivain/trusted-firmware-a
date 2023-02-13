@@ -29,8 +29,18 @@ introduced by the RAS extensions.
 
 .. __: `Standard Error Record helpers`_
 
-The build option ``RAS_EXTENSION`` when set to ``1`` includes the RAS in run
-time firmware; ``EL3_EXCEPTION_HANDLING`` and ``HANDLE_EA_EL3_FIRST_NS`` must also
+The build option ``ENABLE_FEAT_RAS`` is default set to 1 for Armv8.2 and later cpus.
+There can be two configurations for handling RAS errors originating for NS world.
+
+-  ``RAS_FFH_SUPPORT_NS`` Firwmare First handling of RAS errors originating from Non-secure
+   world;
+
+-  ``RAS_KFH_SUPPORT`` Handling of RAS errors by non-EL3 components.
+
+We do not expect RAS errors originating from secure world but this can be extended in
+future to cover secure/realm world.
+
+For RAS_FFH_SUPPORT_NS ``EL3_EXCEPTION_HANDLING`` and ``HANDLE_EA_EL3_FIRST_NS`` must also
 be set ``1``. ``RAS_TRAP_NS_ERR_REC_ACCESS`` controls the access to the RAS
 error record registers from Non-secure.
 
@@ -194,7 +204,11 @@ Engaging the RAS framework
 Enabling RAS support is a platform choice constructed from three distinct, but
 related, build options:
 
--  ``RAS_EXTENSION=1`` includes the RAS framework in the run time firmware;
+-  ``ENABLE_FEAT_RAS=1`` RAS extension is supported;
+
+-  ``RAS_FFH_SUPPORT_NS=1`` Firmware First handling;
+
+-  ``RAS_KFH_SUPPORT=1`` Kernel First handling; (Default configuration for FEAT_RAS);
 
 -  ``EL3_EXCEPTION_HANDLING=1`` enables handling of exceptions at EL3. See
    `Interaction with Exception Handling Framework`_;
@@ -203,7 +217,7 @@ related, build options:
    resulting from errors in NS world, to EL3.
 
 The RAS support in |TF-A| introduces a default implementation of
-``plat_ea_handler``, the External Abort handler in EL3. When ``RAS_EXTENSION``
+``plat_ea_handler``, the External Abort handler in EL3. When ``RAS_FFH_SUPPORT_NS``
 is set to ``1``, it'll first call ``ras_ea_handler()`` function, which is the
 top-level RAS exception handler. ``ras_ea_handler`` is responsible for iterating
 to through platform-supplied error records, probe them, and when an error is
