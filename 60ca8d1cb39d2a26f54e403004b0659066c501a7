@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bb345df_34d1f8d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-02-13T11:56:29Z",
+      "side": 1,
+      "message": "full tf-a-main[1] job passed. First failure passed on rerun [2]. Second failure is present in the daily run and looked at by Linaro [3].\n[1]: https://ci.staging.trustedfirmware.org/job/loosper-arm-tf-a-main/7/\n[2]: https://ci.staging.trustedfirmware.org/job/loosper-arm-tf-a-ci-gateway/133/\n[3]: https://linaro.atlassian.net/browse/TFC-400",
+      "revId": "60ca8d1cb39d2a26f54e403004b0659066c501a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
