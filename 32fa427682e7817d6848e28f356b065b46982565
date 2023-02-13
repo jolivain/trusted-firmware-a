@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4271feb_d6b0c594",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-13T13:21:18Z",
+      "side": 1,
+      "message": "As you hint to in the commit message, BL2_AT_EL3 support as it exists today is twofold:\n1. It\u0027s about running BL2 at EL3.\n2. It\u0027s also about BL2 being the *first* TF-A image running on the target after some proprietary Boot ROM code has handed over to it.\n\n2. has consequences on the behaviour of early BL2 code, which has to take on some of the responsibilities which usually fall on BL1 - e.g handling the warm boot mailbox, running the CPU reset code, errata reporting, ...\n\nIMO, the current BL2_AT_EL3 name correctly conveys 1. but not enough 2. So I agree about renaming it, but I think we should choose something that encompasses both 1. and 2.\n\nAlso, I am uncomfortable with the idea of decoupling BL2_AT_EL3 from ENABLE_RME in the first place. Amongst those of our partners who use BL2_AT_EL3\u003d1 option today, I could imagine that some of them will want to add RME support into their existing (2-world) boot ROMs solutions, because it might be simpler for them than switching to TF-A BL1. Although we do not support ENABLE_RME + BL2_AT_EL3 (as in requirement 2. above) combination today in TF-A upstream, I don\u0027t think we should rule that out.\n\nSo rather than decoupling them, I think we should have a build-time error message that tells the user that ENABLE_RME\u003d1 + BL2_AT_EL3\u003d1 config is not supported (I don\u0027t think it is, right?). And optionally we could rename BL2_AT_EL3 into something that better conveys 2. (although I don\u0027t have any good suggestions right now), just for clarity.\n\nNote: The rest of my comments in this review assume that we are going with the changes as you propose. IOW they are not aligned with the text above.",
+      "revId": "32fa427682e7817d6848e28f356b065b46982565",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9518f8e6_bb9765ea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-13T13:21:18Z",
+      "side": 1,
+      "message": "Chris said this should be a footer, i.e. should be moved towards the end of the commit message. I don\u0027t know whether putting it at the start of the commit message like that will cause an issue with the changelog generation. Could you please double-check? Or can somebody answer this question off the top of their head?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 11
+      },
+      "revId": "32fa427682e7817d6848e28f356b065b46982565",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a89f794_08a9a56c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-13T13:21:18Z",
+      "side": 1,
+      "message": "I suppose you meant BL1, not EL1?\n\nSuggest rewording the sentence as:\n\nHowever, this name is primarily meant to be used for 2 world systems, and caters for platforms where BL2 needs to execute at the highest exception level without any dependancy on TF-A BL1. This enables platforms which already have a non-TF-A Boot ROM to directly load and execute BL2  without need for BL1.",
+      "range": {
+        "startLine": 13,
+        "startChar": 27,
+        "endLine": 13,
+        "endChar": 30
+      },
+      "revId": "32fa427682e7817d6848e28f356b065b46982565",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c60529bd_89e8eadc",
+        "filename": "Makefile",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-13T13:21:18Z",
+      "side": 1,
+      "message": "I think we need a warning message (or even an error message) to flag usages of BL2_AT_EL3. This could say something like, \"Warning: BL2_AT_EL3 option is deprecated and will have no effect going forward. Please use BL2_AT_EL3_TWO_WORLD or ENABLE_RME instead.\" I would like this change to be obvious for whoever attempts to compile TF-A with this build option renaming.",
+      "revId": "32fa427682e7817d6848e28f356b065b46982565",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
