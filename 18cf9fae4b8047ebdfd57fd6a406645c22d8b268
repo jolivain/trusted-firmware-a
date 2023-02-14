@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e19a225_48fade8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-02-14T10:57:29Z",
+      "side": 1,
+      "message": "Check commit lint checker issues:\n[Pipeline] sh\n+ bash -c npx commitlint --from\u003dc1dd9e63bfc6298905441a79e4a06ee29b789483\n⧗   input: refactor(el3-spmc) CASSERT that emad_count offset is version-independent\n\nSubsequent code will assume this.\n\nChange-Id: I233b51ef700103f1a0789d5608e3b02c96d0eeb7\nSigned-off-by: Demi Marie Obenour \u003cdemiobenour@gmail.com\u003e\n✖   subject may not be empty [subject-empty]\n✖   type may not be empty [type-empty]\n⚠   header must not be longer than 50 characters, current length is 72 [header-max-length]\n\n✖   found 2 problems, 1 warnings\nⓘ   Get help: https://github.com/conventional-changelog/commitlint/#what-is-commitlint\n\nhttps://ci.trustedfirmware.org/job/tf-a-commitlint/3887/console\n\nIt states title must be 50 chars long maximum.",
+      "revId": "18cf9fae4b8047ebdfd57fd6a406645c22d8b268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
