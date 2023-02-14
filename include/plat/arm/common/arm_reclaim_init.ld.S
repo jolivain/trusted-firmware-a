@@ -28,7 +28,7 @@ SECTIONS
 #define STACK_SECTION							\
 	stacks (NOLOAD) : {						\
 		__STACKS_START__ = .;					\
-		*(tzfw_normal_stacks)					\
+		*(.tzfw_normal_stacks)					\
 		__STACKS_END__ = .;					\
 		/* Allow room for the init section where necessary. */	\
 		OFFSET = ABS(SIZEOF(.init) - (. - __STACKS_START__));	\

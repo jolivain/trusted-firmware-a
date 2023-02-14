@@ -62,7 +62,7 @@ SECTIONS {
         __RODATA_END__ = .;
     } >RAM
 #else /* SEPARATE_CODE_AND_RODATA */
-    ro . : {
+    .ro . : {
         __RO_START__ = .;
 
         *entrypoint.o(.text*)
@@ -122,8 +122,8 @@ SECTIONS {
          * Bakery locks are stored in coherent memory. Each lock's data is
          * contiguous and fully allocated by the compiler.
          */
-        *(bakery_lock)
-        *(tzfw_coherent_mem)
+        *(.bakery_lock)
+        *(.tzfw_coherent_mem)
 
         __COHERENT_RAM_END_UNALIGNED__ = .;
 
