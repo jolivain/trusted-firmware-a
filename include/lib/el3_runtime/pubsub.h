@@ -54,7 +54,7 @@
 #define __pubsub_end_sym(event)		__pubsub_##event##_end
 #endif
 
-#define __pubsub_section(event)		__section("__pubsub_" #event)
+#define __pubsub_section(event)		__section(".__pubsub_" #event)
 
 /*
  * In compiler context, REGISTER_PUBSUB_EVENT declares the per-event symbols
