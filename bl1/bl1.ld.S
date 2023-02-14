@@ -72,7 +72,7 @@ SECTIONS {
         . = ALIGN(16);
     } >ROM
 #else /* SEPARATE_CODE_AND_RODATA */
-    ro . : {
+    .ro . : {
         __RO_START__ = .;
 
         *bl1_entrypoint.o(.text*)
@@ -120,7 +120,7 @@ SECTIONS {
      */
     coherent_ram (NOLOAD) : ALIGN(PAGE_SIZE) {
         __COHERENT_RAM_START__ = .;
-        *(tzfw_coherent_mem)
+        *(.tzfw_coherent_mem)
         __COHERENT_RAM_END_UNALIGNED__ = .;
 
         /*
