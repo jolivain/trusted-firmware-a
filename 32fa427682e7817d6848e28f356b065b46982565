@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eb9788a9_db869fae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-14T08:46:47Z",
+      "side": 1,
+      "message": "\u003e @Sandrine, Just to confirm my understanding, when you say BL2_AT_EL3 in RME context you mean BL2 as Boot ROM code? As i understand the RME currently expects BL2 to run at EL3 Exception level.\n\nNo, I don\u0027t mean BL2 as Boot ROM code. I mean BL2 as the first *TF-A* image in the bootflow, but not as the first image. IOW, at power up execution starts into a proprietary, non-TF-A Boot ROM image, which then hands over to TF-A BL2 (built with BL2_AT_EL3\u003d1). Both the proprietay Boot ROM and TF-A (mutable) BL2 image run at EL3.\n\nYes, Arm CCA currently expects BL2 to run at EL3. That is a requirement of Arm CCA security model. In fact, it expects all root firmware (Boot ROM + mutable boot firmware + runtime firmware) to run into root world, i.e. EL3.\n\n\u003e Coming to your points 1 \u0026 2, am i correct in re-phrasing as below\n\u003e 1. BL2 running at EL3 exception level\n\u003e 2. BL2 running as BootRoM\n\nYes about 1. No about 2. As I tried to explain above, BL2 would *not* be a ROM image, but rather a mutable one which runs after the Boot ROM. That is the original use case of BL2_AT_EL3 build flag AFAIK. Maybe the original commit message will help explaining that better / in another way:\n\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/commit/?id\u003db1d27b484f4172542eca074fdac42ffd13736a0f\n\nPerhaps the confusion comes from the fact that on FVP, when using BL2_AT_EL3, BL2 *is* the first image to run. But AFAIU this was a testing artefact. See the commit message here, where we explain that we do not have non-TF-A Boot ROM and so we emulate this through model parameters that load BL2 in memory (something that the boot ROM would normally do):\n\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/commit/?id\u003d81528dbcf12882fae1d9a6e43b17f8e2abce32d9\n\n\u003e Can we use BL2_RUNNING_AT_EL3(1) and BL2_AS_BOOT_ROM(2). Valid combinations would be \n\u003e BL2_AS_BOOT_ROM mandates enabling BL2_RUNNING_AT_EL3 \n\u003e ENABLE_RME mandates BL2_RUNNING_AT_EL3\n\u003e Stop the build if BL2_RUNNING_AT_EL3 with ENABLE_RME is enabled.\n\nBL2_AS_BOOT_ROM would not be a good name, for the reasons I mentioned above. It should rather be the opposite. Even though I don\u0027t like this name, let\u0027s just say we call is BL2_WITHOUT_TFA_BL1. Then I think the valid combinations would be:\n\nBL2_WITHOUT_TFA_BL1 mandates BL2_RUNNING_AT_EL3.\nENABLE_RME mandates BL2_RUNNING_AT_EL3 (Arm CCA security requirement).\nStop the build if ENABLE_RME and BL2_WITHOUT_TFA_BL1 are both enabled (because that\u0027s not something we support right now, but maybe we will one day).\n\nDoes that help?",
+      "parentUuid": "4250870c_d3724da4",
+      "revId": "32fa427682e7817d6848e28f356b065b46982565",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9518f8e6_bb9765ea",
         "filename": "/COMMIT_MSG",
         "patchSetId": 15
