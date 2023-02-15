@@ -154,6 +154,10 @@ ENABLE_FEAT_DIT			:= 0
 # Flag to enable access to Privileged Access Never bit of PSTATE.
 ENABLE_FEAT_PAN			:= 0
 
+# Flag to enable use of the Perfomance Monitor Unit. Default to 1 as virtually
+# all platforms implement it
+ENABLE_FEAT_PMUV3_FOR_NS	:= 1
+
 # Flag to enable access to the Random Number Generator registers
 ENABLE_FEAT_RNG			:= 0
 
