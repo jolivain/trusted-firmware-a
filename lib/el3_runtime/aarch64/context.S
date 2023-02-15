@@ -590,12 +590,20 @@ endfunc fpregs_context_restore
 	stp	x28, x29, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X28]
 	mrs	x18, sp_el0
 	str	x18, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_SP_EL0]
+#if ENABLE_FEAT_PMUV3_FOR_NS
+#if ENABLE_FEAT_PMUV3_FOR_NS == 2
+	mrs	x9, id_aa64dfr0_el1
+	ubfx	x9, x9, #ID_AA64DFR0_PMUVER_SHIFT, #ID_AA64DFR0_PMUVER_LENGTH
+	cbz	x0, 1f
+#endif
 	mrs	x9, pmcr_el0
 	str	x9, [sp, #CTX_EL3STATE_OFFSET + CTX_PMCR_EL0]
 	/* Disable cycle counter when event counting is prohibited */
 	orr	x9, x9, #PMCR_EL0_DP_BIT
 	msr	pmcr_el0, x9
 	isb
+1:
+#endif /* ENABLE_FEAT_PMUV3_FOR_NS */
 #if CTX_INCLUDE_PAUTH_REGS
 	/* ----------------------------------------------------------
  	 * Save the ARMv8.3-PAuth keys as they are not banked
@@ -673,8 +681,16 @@ func restore_gp_pmcr_pauth_regs
 	msr	APGAKeyLo_EL1, x8
 	msr	APGAKeyHi_EL1, x9
 #endif /* CTX_INCLUDE_PAUTH_REGS */
+#if ENABLE_FEAT_PMUV3_FOR_NS
+#if ENABLE_FEAT_PMUV3_FOR_NS == 2
+	mrs	x9, id_aa64dfr0_el1
+	ubfx	x9, x9, #ID_AA64DFR0_PMUVER_SHIFT, #ID_AA64DFR0_PMUVER_LENGTH
+	cbz	x0, 1f
+#endif
 	ldr	x0, [sp, #CTX_EL3STATE_OFFSET + CTX_PMCR_EL0]
 	msr	pmcr_el0, x0
+1:
+#endif /* ENABLE_FEAT_PMUV3_FOR_NS */
 	ldp	x0, x1, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X0]
 	ldp	x2, x3, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X2]
 	ldp	x4, x5, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X4]
