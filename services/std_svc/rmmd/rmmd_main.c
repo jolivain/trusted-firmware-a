@@ -125,6 +125,10 @@ static void manage_extensions_realm(cpu_context_t *ctx)
 	 */
 		sve_enable(ctx);
 	}
+
+	if (is_feat_pmuv3_supported()) {
+		pmuv3_enable();
+	}
 }
 
 /*******************************************************************************
