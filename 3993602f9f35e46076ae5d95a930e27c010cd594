@@ -16,6 +16,24 @@
       "message": "nit: maybe set to 2 in the patch above?",
       "revId": "3993602f9f35e46076ae5d95a930e27c010cd594",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efd39e17_476a48e5",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-02-15T14:43:42Z",
+      "side": 1,
+      "message": "Thanks, that looks like a rebase artefact, the commit message of the next patch even says so.",
+      "parentUuid": "94352fa7_7f238e24",
+      "revId": "3993602f9f35e46076ae5d95a930e27c010cd594",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
