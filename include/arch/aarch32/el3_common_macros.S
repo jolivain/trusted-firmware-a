@@ -127,11 +127,6 @@
 	 * SDCR.SPD: Disable AArch32 privileged debug. Debug exceptions from
 	 *  Secure EL1 are disabled.
 	 *
-	 * SDCR.SCCD: Set to one so that cycle counting by PMCCNTR is prohibited
-	 *  in Secure state. This bit is RES0 in versions of the architecture
-	 *  earlier than ARMv8.5, setting it to 1 doesn't have any effect on
-	 *  them.
-	 *
 	 * SDCR.TTRF: Set to one so that access to trace filter control
 	 *  registers in non-monitor mode generate Monitor trap exception,
 	 *  unless the access generates a higher priority exception when
@@ -139,8 +134,7 @@
 	 *  When FEAT_TRF is not implemented, this bit is RES0.
 	 * ---------------------------------------------------------------------
 	 */
-	ldr	r0, =((SDCR_RESET_VAL | SDCR_SPD(SDCR_SPD_DISABLE) | \
-		      SDCR_SCCD_BIT) & ~SDCR_TTRF_BIT)
+	ldr	r0, =((SDCR_RESET_VAL | SDCR_SPD(SDCR_SPD_DISABLE)) & ~SDCR_TTRF_BIT)
 	ldcopr	r1, ID_DFR0
 	ubfx	r1, r1, #ID_DFR0_TRACEFILT_SHIFT, #ID_DFR0_TRACEFILT_LENGTH
 	cmp	r1, #ID_DFR0_TRACEFILT_SUPPORTED
@@ -148,33 +142,7 @@
 	orr	r0, r0, #SDCR_TTRF_BIT
 1:
 	stcopr	r0, SDCR
-
-	/* ---------------------------------------------------------------------
-	 * Initialise PMCR, setting all fields rather than relying
-	 * on hw. Some fields are architecturally UNKNOWN on reset.
-	 *
-	 * PMCR.LP: Set to one so that event counter overflow, that
-	 *  is recorded in PMOVSCLR[0-30], occurs on the increment
-	 *  that changes PMEVCNTR<n>[63] from 1 to 0, when ARMv8.5-PMU
-	 *  is implemented. This bit is RES0 in versions of the architecture
-	 *  earlier than ARMv8.5, setting it to 1 doesn't have any effect
-	 *  on them.
-	 *  This bit is Reserved, UNK/SBZP in ARMv7.
-	 *
-	 * PMCR.LC: Set to one so that cycle counter overflow, that
-	 *  is recorded in PMOVSCLR[31], occurs on the increment
-	 *  that changes PMCCNTR[63] from 1 to 0.
-	 *  This bit is Reserved, UNK/SBZP in ARMv7.
-	 *
-	 * PMCR.DP: Set to one to prohibit cycle counting whilst in Secure mode.
-	 * ---------------------------------------------------------------------
-	 */
-	ldr	r0, =(PMCR_RESET_VAL | PMCR_DP_BIT | PMCR_LC_BIT | \
-		      PMCR_LP_BIT)
-#else
-	ldr	r0, =(PMCR_RESET_VAL | PMCR_DP_BIT)
 #endif
-	stcopr	r0, PMCR
 
 	/*
 	 * If Data Independent Timing (DIT) functionality is implemented,
