@@ -1190,6 +1190,7 @@ $(eval $(call assert_numerics,\
         ENABLE_FEAT_FGT \
         ENABLE_FEAT_HCX \
         ENABLE_FEAT_PAN \
+        ENABLE_FEAT_PMUV3_FOR_NS \
         ENABLE_FEAT_RNG \
         ENABLE_FEAT_RNG_TRAP \
         ENABLE_FEAT_SEL2 \
@@ -1340,6 +1341,7 @@ $(eval $(call add_defines,\
         ENABLE_FEAT_S2POE \
         ENABLE_FEAT_S1POE \
         ENABLE_FEAT_GCS \
+        ENABLE_FEAT_PMUV3_FOR_NS \
         FEATURE_DETECTION \
         TWED_DELAY \
         ENABLE_FEAT_TWED \

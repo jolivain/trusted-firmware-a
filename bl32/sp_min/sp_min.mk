@@ -54,6 +54,9 @@ ifneq (${ENABLE_TRF_FOR_NS},0)
 BL32_SOURCES		+=	lib/extensions/trf/aarch32/trf.c
 endif
 
+ifneq (${ENABLE_PMUV3_FOR_NS},0)
+BL32_SOURCES		+=	lib/extensions/pmuv3/aarch32/pmuv3.c
+endif
 BL32_DEFAULT_LINKER_SCRIPT_SOURCE := bl32/sp_min/sp_min.ld.S
 
 # Include the platform-specific SP_MIN Makefile
