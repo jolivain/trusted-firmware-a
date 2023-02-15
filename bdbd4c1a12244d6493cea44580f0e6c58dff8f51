@@ -34,6 +34,24 @@
       "parentUuid": "3c2333d1_507a52cc",
       "revId": "bdbd4c1a12244d6493cea44580f0e6c58dff8f51",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b11a65b_c1534335",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-02-15T15:26:07Z",
+      "side": 1,
+      "message": "Yes, SB is different (hence the different subject), so we must not set it to CHECKED (2). That\u0027s why it stays in the assert_booleans list in the toplevel Makefile, and is not moved to assert_numerics like the other features.\n\"Perhaps we need a check_feature_always() ...\": but this is what check_feature() does, doesn\u0027t it? It\u0027s either FEAT_STATE_DISABLED or FEAT_STATE_ALWAYS, and if it\u0027s the latter, it will be checked correctly by the existing function?",
+      "parentUuid": "ba2524b0_4df2dd86",
+      "revId": "bdbd4c1a12244d6493cea44580f0e6c58dff8f51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
