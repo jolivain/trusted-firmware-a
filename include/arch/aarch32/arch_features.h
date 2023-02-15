@@ -116,4 +116,9 @@ static inline bool is_feat_spe_supported(void)
 	return false;
 }
 
+static inline unsigned int read_feat_pmuv3_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_dfr0(), ID_DFR0_PERFMON);
+}
+
 #endif /* ARCH_FEATURES_H */
