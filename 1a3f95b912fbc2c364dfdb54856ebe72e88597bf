@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "504a0753_fce648c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-02-15T14:34:25Z",
+      "side": 1,
+      "message": "Thanks for the heads up, I ported this over to C.",
+      "parentUuid": "cf732fa4_a9008b2e",
+      "revId": "1a3f95b912fbc2c364dfdb54856ebe72e88597bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6f21c73_7fd60d25",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-02-10T13:04:31Z",
       "side": 1,
       "message": "To align with other similar checks https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/18996/4/lib/el3_runtime/aarch64/context_mgmt.c#898 and enable/disable, this check can be done at caller side.",
+      "range": {
+        "startLine": 826,
+        "startChar": 0,
+        "endLine": 826,
+        "endChar": 30
+      },
+      "revId": "1a3f95b912fbc2c364dfdb54856ebe72e88597bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcbbf0c5_8ddc911e",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-02-15T14:34:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6f21c73_7fd60d25",
       "range": {
         "startLine": 826,
         "startChar": 0,
