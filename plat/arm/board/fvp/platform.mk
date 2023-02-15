@@ -82,6 +82,7 @@ ENABLE_FEAT_S2PIE		:= 2
 ENABLE_FEAT_S1PIE		:= 2
 ENABLE_FEAT_S2POE		:= 2
 ENABLE_FEAT_S1POE		:= 2
+ENABLE_FEAT_PMUV3_FOR_NS	:= 2
 endif
 
 # The FVP platform depends on this macro to build with correct GIC driver.
