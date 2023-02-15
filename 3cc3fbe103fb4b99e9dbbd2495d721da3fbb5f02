@@ -162,6 +162,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd7d365a_8605e323",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-02-15T15:43:42Z",
+      "side": 1,
+      "message": "Not sure where this discussion is really going, it looks like this is more something for the future, when we will get actual support beyond NS.\nFor now I will keep the check outside of the function, which is what we do for other features (including MPAM now).",
+      "parentUuid": "52458501_ac3d09ce",
+      "revId": "3cc3fbe103fb4b99e9dbbd2495d721da3fbb5f02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dda06d96_f353cf09",
