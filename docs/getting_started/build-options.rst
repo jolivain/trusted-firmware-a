@@ -354,6 +354,12 @@ Common build options
    flag can take the values 0 to 2, to align  with the ``FEATURE_DETECTION``
    mechanism. Default value is ``0``.
 
+- ``ENABLE_FEAT_PMUV3_FOR_NS``: Numberic value to enable the ``FEAT_PMU``
+  (Performance Monitor Unit) extension. Will also enable PMU < v3 on Aarch32.
+  ``FEAT_PMU`` is an optional feature.  This flag can take the values 0 to 2, to
+  align with the ``FEATURE_DETECTION`` mechanism. Default value is ``0``.
+  Default value is ``1``.
+
 -  ``ENABLE_LTO``: Boolean option to enable Link Time Optimization (LTO)
    support in GCC for TF-A. This option is currently only supported for
    AArch64. Default is 0.

@@ -164,6 +164,8 @@ void detect_arch_features(void)
 	check_feature(ENABLE_FEAT_SB, read_feat_sb_id_field(), "SB", 1, 1);
 	check_feature(ENABLE_FEAT_CSV2_2, read_feat_csv2_id_field(),
 		      "CSV2_2", 2, 3);
+	check_feature(ENABLE_FEAT_PMUv3_FOR_NS, read_feat_pmuv3_id_field(),
+		      "PMUv3", 1, ID_AA64DFR0_PMUVER_PMUV3P7);
 
 	/* v8.1 features */
 	check_feature(ENABLE_FEAT_PAN, read_feat_pan_id_field(), "PAN", 1, 3);
