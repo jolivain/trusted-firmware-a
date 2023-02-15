@@ -69,6 +69,24 @@
       "parentUuid": "c7724afb_252e0186",
       "revId": "f90fe02f061b8a203391e566682221396b656c6f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2175a39_46866afa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 33
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-02-15T10:22:30Z",
+      "side": 1,
+      "message": "That\u0027s not entirely clear to me, actually. They both call the tf-a-static-checks job, but L1 passes `ENABLE_STATIC_CHECK\u003dtrue`. I can\u0027t find its usage, though, so I\u0027m not sure whether that even affects anything.",
+      "parentUuid": "416dbabd_3f05182a",
+      "revId": "f90fe02f061b8a203391e566682221396b656c6f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
