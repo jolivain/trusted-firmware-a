@@ -18,6 +18,11 @@
 #include <context.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/el3_runtime/pubsub.h>
+<<<<<<< Updated upstream
+=======
+#include <lib/extensions/sys_reg_trace.h>
+#include <lib/extensions/pmuv3.h>
+>>>>>>> Stashed changes
 #include <lib/gpt_rme/gpt_rme.h>
 
 #include <lib/spinlock.h>
@@ -125,6 +130,8 @@ static void manage_extensions_realm(cpu_context_t *ctx)
 	 */
 		sve_enable(ctx);
 	}
+
+	pmuv3_enable(ctx);
 }
 
 /*******************************************************************************
