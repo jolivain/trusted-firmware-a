@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2ce79e12_0f820a1a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2023-02-15T15:27:11Z",
+      "side": 1,
+      "message": "All points agreed.\nRenamed BL2_AT_EL3 to BL2_AS_ENTRY_POINT\nBL2_RUNNING_AT_EL3 define added.\nCompilation error with both BL2_AS_ENTRY_POINT\u003d1 and ENABLE_RME\u003d1 added to the Makefile",
+      "parentUuid": "11a05e84_4d1049f3",
+      "revId": "32fa427682e7817d6848e28f356b065b46982565",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9518f8e6_bb9765ea",
         "filename": "/COMMIT_MSG",
         "patchSetId": 15
@@ -137,6 +155,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad8cb9c2_bf331fb2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2023-02-15T15:27:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60240a95_833bf9bb",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 11
+      },
+      "revId": "32fa427682e7817d6848e28f356b065b46982565",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a89f794_08a9a56c",
@@ -150,6 +192,30 @@
       "writtenOn": "2023-02-13T13:21:18Z",
       "side": 1,
       "message": "I suppose you meant BL1, not EL1?\n\nSuggest rewording the sentence as:\n\nHowever, this name is primarily meant to be used for 2 world systems, and caters for platforms where BL2 needs to execute at the highest exception level without any dependancy on TF-A BL1. This enables platforms which already have a non-TF-A Boot ROM to directly load and execute BL2  without need for BL1.",
+      "range": {
+        "startLine": 13,
+        "startChar": 27,
+        "endLine": 13,
+        "endChar": 30
+      },
+      "revId": "32fa427682e7817d6848e28f356b065b46982565",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cbd0691_5f7023b3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2023-02-15T15:27:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a89f794_08a9a56c",
       "range": {
         "startLine": 13,
         "startChar": 27,
