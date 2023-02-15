@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f22b547_416b5bd8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-02-15T11:05:13Z",
+      "side": 1,
+      "message": "Based on https://ci.trustedfirmware.org/job/tf-a-builder/1714268/console\nUnrelated error message.\n\n09:43:07 ld.lld: error: undefined symbol: __aeabi_memclr8\n09:43:07 \u003e\u003e\u003e referenced by arm_bl1_setup.c:119 (plat/arm/common/arm_bl1_setup.c:119)\n09:43:07 \u003e\u003e\u003e               /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/bl1/arm_bl1_setup.o:(arm_bl1_plat_arch_setup)\n09:43:07 make: *** [Makefile:1348: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/bl1/bl1.elf] Error 1",
+      "revId": "815b7a6bb1d628855e4959a5a52dddc1a68f10cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
