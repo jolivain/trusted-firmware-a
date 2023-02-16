@@ -10,10 +10,14 @@
 #include <stdbool.h>
 
 #if ENABLE_SPE_FOR_NS
-void spe_enable(bool el2_unused);
+void spe_enable_el3(void);
+void spe_enable_el2(void);
 void spe_disable(void);
 #else
-static inline void spe_enable(bool el2_unused)
+static inline void spe_enable_el3(void)
+{
+}
+static inline void spe_enable_el2(void)
 {
 }
 static inline void spe_disable(void)
