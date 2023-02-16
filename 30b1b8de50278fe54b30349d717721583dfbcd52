@@ -151,6 +151,24 @@
       "parentUuid": "8e336b59_6599b186",
       "revId": "30b1b8de50278fe54b30349d717721583dfbcd52",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63136380_f523f907",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-16T13:25:37Z",
+      "side": 1,
+      "message": "In the event that full testing of RTD is not possible in staging, I\u0027m fine with merging it and seeing how it affects things.\nOur \u0027tf-a-docs-watcher\u0027 is currently set up with Bionic. It may also be changed to Jammy. See this WIP [1]\n\nAlso, I believe this fix need to be propagated to tf-a-tests also.\n\n[1]: https://review.trustedfirmware.org/c/ci/tf-a-job-configs/+/18717/1/tf-a-tftf-docs-watcher.yaml and https://review.trustedfirmware.org/c/ci/tf-a-job-configs/+/18717/1/tf-a-tftf-docs-watcher.yaml",
+      "parentUuid": "aad39324_bfc294b5",
+      "revId": "30b1b8de50278fe54b30349d717721583dfbcd52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
