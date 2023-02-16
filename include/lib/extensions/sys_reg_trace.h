@@ -12,18 +12,25 @@
 #if ENABLE_SYS_REG_TRACE_FOR_NS
 #if __aarch64__
 void sys_reg_trace_enable(cpu_context_t *context);
+void sys_reg_trace_enable_el2(void);
 #else
-void sys_reg_trace_enable(void);
+void sys_reg_trace_enable_el3(void);
 #endif /* __aarch64__ */
 
 #else /* !ENABLE_SYS_REG_TRACE_FOR_NS */
 
 #if __aarch64__
-static inline void sys_reg_trace_enable(cpu_context_t *context)
+void sys_reg_trace_enable(cpu_context_t *context)
+{
+}
+void sys_reg_trace_disable(cpu_context_t *context)
+{
+}
+void sys_reg_trace_enable_el2(void)
 {
 }
 #else
-static inline void sys_reg_trace_enable(void)
+void sys_reg_trace_enable_el3(void)
 {
 }
 #endif /* __aarch64__ */
