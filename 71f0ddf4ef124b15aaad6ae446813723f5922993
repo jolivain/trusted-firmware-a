@@ -16,6 +16,24 @@
       "message": "Would it not make sense to have a macro helper for the is_xxx_supported too? It\u0027s just as template-y",
       "revId": "71f0ddf4ef124b15aaad6ae446813723f5922993",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08ac7734_22e55336",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-02-16T12:17:31Z",
+      "side": 1,
+      "message": "If I get you correctly, you want some macro to generate the whole is_feat_xxx_supported() function? I thought about it, but am not a big fan of those macros generating whole functions. The macro in this patch here is a one-liner, and doesn\u0027t play with names, so it\u0027s easy to understand and follow.\n\nHaving such a macro would save some repetitive lines, but at the cost of cross reference tools (or even grep) now no longer being able to find the definitions, and readers also getting confused.\nI can have a try at some prototype, to see how this looks, though.",
+      "parentUuid": "d7140891_a7433ea8",
+      "revId": "71f0ddf4ef124b15aaad6ae446813723f5922993",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
