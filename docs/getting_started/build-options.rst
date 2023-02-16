@@ -769,6 +769,10 @@ Common build options
    originating from NS world. When ``RAS_FFH_SUPPORT`` is set to ``1``,
    ``HANDLE_EA_EL3_FIRST_NS`` must also be set to ``1``.
 
+-  ``RAS_ALLOW_ERR_REC_ACCESS_NS``: With RAS FFH support default behaviour is NS
+   world not allowed to access record registers. Use this macro to override this
+   defualt behaviour. The default value of this macro is 0.
+
 -  ``RESET_TO_BL31``: Enable BL31 entrypoint as the CPU reset vector instead
    of the BL1 entrypoint. It can take the value 0 (CPU reset to BL1
    entrypoint) or 1 (CPU reset to BL31 entrypoint).
@@ -1065,10 +1069,6 @@ Common build options
       If this option is enabled for the EL3 software then EL2 software also must
       implement this workaround due to the behaviour of the errata mentioned
       in new SDEN document which will get published soon.
-
-- ``RAS_TRAP_NS_ERR_REC_ACCESS``: This flag enables/disables the SCR_EL3.TERR
-  bit, to trap access to the RAS ERR and RAS ERX registers from lower ELs.
-  This flag is disabled by default.
 
 - ``OPENSSL_DIR``: This option is used to provide the path to a directory on the
   host machine where a custom installation of OpenSSL is located, which is used
