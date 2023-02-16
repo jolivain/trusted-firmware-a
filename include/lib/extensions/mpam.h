@@ -10,9 +10,13 @@
 #include <stdbool.h>
 
 #if ENABLE_MPAM_FOR_LOWER_ELS
-void mpam_enable(bool el2_unused);
+void mpam_enable_el3(void);
+void mpam_init_el2_unused(void);
 #else
-static inline void mpam_enable(bool el2_unused)
+static inline void mpam_enable_el3(void)
+{
+}
+static inline void mpam_init_el2_unused(void)
 {
 }
 #endif
