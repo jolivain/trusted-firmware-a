@@ -50,6 +50,42 @@
       "message": "IIUC, It is overriding default options given in RTD. how this change has been tested?  If not, then can we test this change in staging CI setup before merging?",
       "revId": "30b1b8de50278fe54b30349d717721583dfbcd52",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdb1cacf_624dba5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-02-16T13:10:02Z",
+      "side": 1,
+      "message": "The goal is to replicate what is there at the moment and bump the Ubuntu version only. The webui would become pointless but this gives _much_ more control.\n\nThis has not been tested. I have no way of testing it as I do not have access to the readthedocs deployment. The CI has no control over this either. All the CI (staging or not) does is trigger the change and readthedocs does the rest which is not incorporated in the CI in any way.\n\nMy thinking is that since the deployment is already broken, there is no harm in trying it there and fixing it until it works. I could try setting up a readthedocs for myself but that would be a one-time solution.",
+      "parentUuid": "8e336b59_6599b186",
+      "revId": "30b1b8de50278fe54b30349d717721583dfbcd52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e370263_d465f043",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-02-16T13:10:02Z",
+      "side": 1,
+      "message": "And the environment it\u0027s defaulting to is too old...",
+      "parentUuid": "dfd4b012_23882acf",
+      "revId": "30b1b8de50278fe54b30349d717721583dfbcd52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
