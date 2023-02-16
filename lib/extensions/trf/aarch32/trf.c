@@ -10,7 +10,7 @@
 #include <arch_helpers.h>
 #include <lib/extensions/trf.h>
 
-void trf_enable(void)
+void trf_enable_el3(void)
 {
 	uint32_t val;
 
