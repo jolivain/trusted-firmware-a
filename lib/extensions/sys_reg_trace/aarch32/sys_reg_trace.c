@@ -10,7 +10,7 @@
 #include <arch_helpers.h>
 #include <lib/extensions/sys_reg_trace.h>
 
-void sys_reg_trace_enable(void)
+void sys_reg_trace_enable_el3(void)
 {
 	uint32_t val;
 
