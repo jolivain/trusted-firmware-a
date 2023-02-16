@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa0187bc_e7aa0c9e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-02-16T03:25:52Z",
+      "side": 1,
+      "message": "SPMD?",
+      "range": {
+        "startLine": 13,
+        "startChar": 15,
+        "endLine": 13,
+        "endChar": 19
+      },
+      "revId": "eaaf517cd1bd8c9d5e3e6d2d202a69a0cbcb45bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c611658_0c5e7586",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-02-16T03:25:52Z",
+      "side": 1,
+      "message": "In the draft spec I read, this was TBD. So its not 0x88?",
+      "revId": "eaaf517cd1bd8c9d5e3e6d2d202a69a0cbcb45bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcf46eb5_dedfb662",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1075,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-02-16T03:25:52Z",
+      "side": 1,
+      "message": "Shouldn\u0027t the comparison be strictly `\u003c`? Because this ABI was introduced only in FF-A v1.2",
+      "range": {
+        "startLine": 1075,
+        "startChar": 4,
+        "endLine": 1075,
+        "endChar": 50
+      },
+      "revId": "eaaf517cd1bd8c9d5e3e6d2d202a69a0cbcb45bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
