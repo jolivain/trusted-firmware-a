@@ -1149,7 +1149,6 @@ $(eval $(call assert_booleans,\
         ENCRYPT_BL31 \
         ENCRYPT_BL32 \
         ERRATA_SPECULATIVE_AT \
-        RAS_TRAP_NS_ERR_REC_ACCESS \
         COT_DESC_IN_DTB \
         USE_SP804_TIMER \
         PSA_FWU_SUPPORT \
@@ -1270,6 +1269,7 @@ $(eval $(call add_defines,\
         PSCI_OS_INIT_MODE \
         ENABLE_FEAT_RAS \
         RAS_FFH_SUPPORT \
+        RAS_ALLOW_ERR_REC_ACCESS_NS \
         RESET_TO_BL31 \
         RESET_TO_BL31_WITH_PARAMS \
         SEPARATE_CODE_AND_RODATA \
@@ -1298,7 +1298,6 @@ $(eval $(call add_defines,\
         BL2_INV_DCACHE \
         USE_SPINLOCK_CAS \
         ERRATA_SPECULATIVE_AT \
-        RAS_TRAP_NS_ERR_REC_ACCESS \
         COT_DESC_IN_DTB \
         USE_SP804_TIMER \
         ENABLE_FEAT_RNG \
