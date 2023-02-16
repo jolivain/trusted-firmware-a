@@ -310,4 +310,10 @@
 /* Number of SCMI channels on the platform */
 #define PLAT_ARM_SCMI_CHANNEL_COUNT	U(1)
 
+/* Protected memory NSAIDs for the Arm(R) Ethos(TM)-N NPU driver */
+#ifdef JUNO_ETHOSN_TZMP1
+#define ARM_ETHOSN_NPU_PROT_FW_NSAID JUNO_ETHOSN_TZC400_NSAID_FW_PROT
+#define ARM_ETHOSN_NPU_PROT_DATA_NSAID JUNO_ETHOSN_TZC400_NSAID_DATA_PROT
+#endif
+
 #endif /* PLATFORM_DEF_H */
