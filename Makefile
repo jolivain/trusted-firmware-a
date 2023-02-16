@@ -1014,9 +1014,6 @@ SP_MK_GEN		?=	${SPTOOLPATH}/sp_mk_generator.py
 # Variables for use with ROMLIB
 ROMLIBPATH		?=	lib/romlib
 
-# Variable for use with Python
-PYTHON			?=	python3
-
 # Variables for use with PRINT_MEMORY_MAP
 PRINT_MEMORY_MAP_PATH		?=	tools/memory
 PRINT_MEMORY_MAP		?=	${PRINT_MEMORY_MAP_PATH}/print_memory_map.py
@@ -1439,7 +1436,7 @@ endif
 # Add Secure Partition packages
 ifeq (${NEED_SP_PKG},yes)
 $(BUILD_PLAT)/sp_gen.mk: ${SP_MK_GEN} ${SP_LAYOUT_FILE} | ${BUILD_PLAT}
-	${Q}${PYTHON} "$<" "$@" $(filter-out $<,$^) $(BUILD_PLAT) ${COT}
+	${Q}poetry run "$<" "$@" $(filter-out $<,$^) $(BUILD_PLAT) ${COT}
 sp: $(DTBS) $(BUILD_PLAT)/sp_gen.mk $(SP_PKGS)
 	@${ECHO_BLANK_LINE}
 	@echo "Built SP Images successfully"
@@ -1578,7 +1575,7 @@ romlib.bin: libraries FORCE
 
 # Call print_memory_map tool
 memmap: all
-	${Q}${PYTHON} ${PRINT_MEMORY_MAP} ${BUILD_PLAT} ${INVERTED_MEMMAP}
+	${Q}poetry run ${PRINT_MEMORY_MAP} ${BUILD_PLAT} ${INVERTED_MEMMAP}
 
 doc:
 	@echo "  BUILD DOCUMENTATION"
