@@ -22,9 +22,17 @@
 
 #if ENABLE_SME_FOR_NS
 void sme_enable(cpu_context_t *context);
+void sme_enable_el3(void);
+void sme_enable_el2(void);
 void sme_disable(cpu_context_t *context);
 #else
 static inline void sme_enable(cpu_context_t *context)
+{
+}
+static inline void sme_enable_el3(void)
+{
+}
+static inline void sme_enable_el2(void)
 {
 }
 static inline void sme_disable(cpu_context_t *context)
