@@ -51,6 +51,24 @@
       "parentUuid": "88300371_64a0467a",
       "revId": "496d708154d893fb9f412390acd433337faccecc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50ae6e43_eb42dc3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-02-16T19:41:15Z",
+      "side": 1,
+      "message": "I see. The purpose of this test is that the Coverity run is limited to a single run daily on integration branch so there are some scripts to check if newly added files are accounted for in the make file for the Coverity build. So it\u0027s trying to predict if we may have issues once patches are merged into that branch and try to get builds updated. In the past we were forever breaking the Coverity build and having to chase people to fix it.\n\nI guess the scripts are not intelligent enough to spot the use of wide cards.\n\nSounds like you are sure and we will soon find out if the Coverity build fails when this patch is merged.",
+      "parentUuid": "32063245_e9b1e91c",
+      "revId": "496d708154d893fb9f412390acd433337faccecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
