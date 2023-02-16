@@ -33,6 +33,23 @@
       "message": "I suppose it can\u0027t hurt to be more specific about our environment requirements.",
       "revId": "30b1b8de50278fe54b30349d717721583dfbcd52",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e336b59_6599b186",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-16T12:26:20Z",
+      "side": 1,
+      "message": "IIUC, It is overriding default options given in RTD. how this change has been tested?  If not, then can we test this change in staging CI setup before merging?",
+      "revId": "30b1b8de50278fe54b30349d717721583dfbcd52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
