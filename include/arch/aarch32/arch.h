@@ -120,6 +120,7 @@
 #define ID_DFR1_MTPMU_SHIFT	U(0)
 #define ID_DFR1_MTPMU_MASK	U(0xf)
 #define ID_DFR1_MTPMU_SUPPORTED	U(1)
+#define ID_DFR1_MTPMU_DISABLED	U(15)
 
 /* ID_MMFR4 definitions */
 #define ID_MMFR4_CNP_SHIFT	U(12)
