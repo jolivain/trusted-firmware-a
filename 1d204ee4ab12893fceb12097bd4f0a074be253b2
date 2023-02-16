@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96ccee82_7b0212ab",
+        "filename": "fdts/stm32mp15-bl2.dtsi",
+        "patchSetId": 11
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-02-16T10:02:30Z",
+      "side": 1,
+      "message": "Hi Vyacheslav,\nSorry for late answer, I was out-of-office the last seven days.\nWe\u0027ve had an internal discussion about that, and this needs to be fixed.\nThe issue we have is always the size of the DT in embedded SRAM.\nWe could use /omit-if-no-ref/ to avoid including too much stuff in the DT (like pinctrl nodes), but that mandates a 1.4.7 version for dtc. And then an update of platform.mk to check the proper version.\n\nRemoving the line adds 272 bytes to dtb files, so it should still fit in the allocated sizes (STM32MP_BL2_DTB_SIZE \u0026 STM32MP_BL32_DTB_SIZE).\n\nCould you send a patch that removes /delete-node/ i2c@5c009000; line in both fdts/stm32mp15-bl2.dtsi \u0026 fdts/stm32mp15-bl32.dtsi files?\n\nThanks,\nYann",
+      "parentUuid": "c43d5ee7_b9ebbe36",
+      "revId": "1d204ee4ab12893fceb12097bd4f0a074be253b2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79bc7243_308e7206",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-02-10T08:16:57Z",
       "side": 1,
       "message": "Same question as for fdts/stm32mp15-bl2.dtsi.",
+      "revId": "1d204ee4ab12893fceb12097bd4f0a074be253b2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb5f176e_539e95f7",
+        "filename": "fdts/stm32mp15-bl32.dtsi",
+        "patchSetId": 11
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-02-16T10:02:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "79bc7243_308e7206",
       "revId": "1d204ee4ab12893fceb12097bd4f0a074be253b2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
