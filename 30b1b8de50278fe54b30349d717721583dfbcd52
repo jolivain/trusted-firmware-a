@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6787e98_8eaa9b92",
+        "filename": ".readthedocs.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-16T13:13:37Z",
+      "side": 1,
+      "message": "Is HTML a default format? Or does it need listing here as well?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 7
+      },
+      "revId": "30b1b8de50278fe54b30349d717721583dfbcd52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7fd92630_52a38881",
@@ -84,6 +107,24 @@
       "side": 1,
       "message": "And the environment it\u0027s defaulting to is too old...",
       "parentUuid": "dfd4b012_23882acf",
+      "revId": "30b1b8de50278fe54b30349d717721583dfbcd52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aad39324_bfc294b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-16T13:13:37Z",
+      "side": 1,
+      "message": "I think Boyan answered this question:\n\n\u003e I\u0027m not sure we have a readthedocs staging so I will be testing this in production as it\u0027s already broken",
+      "parentUuid": "8e336b59_6599b186",
       "revId": "30b1b8de50278fe54b30349d717721583dfbcd52",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
