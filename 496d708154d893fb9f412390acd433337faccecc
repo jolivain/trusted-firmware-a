@@ -16,6 +16,23 @@
       "message": "Hi Joanna,\n\nReferring https://ci.trustedfirmware.org/job/tf-a-static-checks/3634/\nthe new file plat/xilinx/zynqmp/custom_sip_svc.c is buildable as part of \nxilinx zynqmp platform configuration. so this issue is needed to be ignored.\nPlease help to get this issue resolved with latest build for this patch.\n\nRegards\nAmit\n",
       "revId": "496d708154d893fb9f412390acd433337faccecc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88300371_64a0467a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-02-16T16:22:33Z",
+      "side": 1,
+      "message": "Hi Amit,\n\nI take it we are not talking about the header order issue as I think your patchset 3 addresses that which we should see in the next CI run https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19288/2..3/plat/xilinx/zynqmp/sip_svc_setup.c\n\nThe other failure is the newly added files. So here as this patch introduces 2 new files that need to be added to a CI patch for the build of this platform so the Coverity job will pass when run.\n\nIf you have done that just indicate a pointer to the patch and we can ignore this failure then.",
+      "revId": "496d708154d893fb9f412390acd433337faccecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
