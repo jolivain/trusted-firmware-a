@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "178c7b1d_341d24b9",
+        "filename": "fdts/stm32mp151a-prtt1a.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-02-16T17:23:26Z",
+      "side": 1,
+      "message": "This should be removed, the RCC security is managed with a new compatible: \"st,stm32mp1-rcc-secure\".\nSee this patch: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/13775\nBut the bindings file was not upstream. It can be seen here:\nhttps://github.com/STMicroelectronics/arm-trusted-firmware/blob/v2.6-stm32mp/docs/devicetree/bindings/clock/st%2Cstm32mp1-rcc.txt",
+      "revId": "780fd34edea5fcdfe63a388338459eb0bad311ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4befbd4_a163296e",
+        "filename": "fdts/stm32mp151a-prtt1a.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-02-16T17:23:26Z",
+      "side": 1,
+      "message": "This node is not needed. BSEC is always secured and enabled by default, and secure-status is no more checked in BSEC driver.",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 0
+      },
+      "revId": "780fd34edea5fcdfe63a388338459eb0bad311ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d591ea8b_11ecbb07",
+        "filename": "fdts/stm32mp151a-prtt1a.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-02-16T17:23:26Z",
+      "side": 1,
+      "message": "Ideally the nodes should be sorted alphabetically. And it may help checking the diffs with the kernel file.",
+      "revId": "780fd34edea5fcdfe63a388338459eb0bad311ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5af0b020_23eafe89",
+        "filename": "fdts/stm32mp151a-prtt1a.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-02-16T17:23:26Z",
+      "side": 1,
+      "message": "To align with kernel, it may be: flash@0",
+      "revId": "780fd34edea5fcdfe63a388338459eb0bad311ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "882daf25_3fb8fe85",
+        "filename": "fdts/stm32mp151a-prtt1a.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-02-16T17:23:26Z",
+      "side": 1,
+      "message": "\"spi-nand\"",
+      "revId": "780fd34edea5fcdfe63a388338459eb0bad311ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a6ca290_3bb1a2d5",
+        "filename": "fdts/stm32mp151a-prtt1a.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-02-16T17:23:26Z",
+      "side": 1,
+      "message": "The kernel file has 104000000\nShould that be updated?",
+      "revId": "780fd34edea5fcdfe63a388338459eb0bad311ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
