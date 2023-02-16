@@ -8,9 +8,9 @@
 #define BRBE_H
 
 #if ENABLE_BRBE_FOR_NS
-void brbe_enable(void);
+void brbe_enable_el3(void);
 #else
-static inline void brbe_enable(void)
+void brbe_enable_el3(void)
 {
 }
 #endif /* ENABLE_BRBE_FOR_NS */
