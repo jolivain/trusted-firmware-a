@@ -7,8 +7,9 @@
 #include <arch.h>
 #include <arch_features.h>
 #include <arch_helpers.h>
+#include <lib/extensions/brbe.h>
 
-void brbe_enable(void)
+void brbe_enable_el3(void)
 {
 	uint64_t val;
 
