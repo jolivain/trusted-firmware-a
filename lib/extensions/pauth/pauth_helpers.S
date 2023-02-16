@@ -83,7 +83,7 @@ func pauth_init_enable_el3
 
 	ldp	x29, x30, [sp], #16
 	ret
-endfunc pauth_init_enable_el3
+endfunc pauth_init_init_el3
 
 /* -------------------------------------------------------------
  * Disable pointer authentication in EL3
