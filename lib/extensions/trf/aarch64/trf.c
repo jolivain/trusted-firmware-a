@@ -9,9 +9,9 @@
 #include <arch_helpers.h>
 #include <lib/extensions/trf.h>
 
-void trf_enable(void)
+void trf_enable_el3(void)
 {
-	uint64_t val;
+	u_register_t val;
 
 	/*
 	 * MDCR_EL3.TTRF = b0
@@ -21,4 +21,16 @@ void trf_enable(void)
 	val = read_mdcr_el3();
 	val &= ~MDCR_TTRF_BIT;
 	write_mdcr_el3(val);
+}
+
+void trf_enable_el2(void)
+{
+	/*
+	 * MDCR_EL2.TTRF: Set to zero so that access to Trace
+	 *  Filter Control register TRFCR_EL1 at EL1 is not
+	 *  trapped to EL2. This bit is RES0 in versions of
+	 *  the architecture earlier than ARMv8.4.
+	 *
+	 */
+	write_mdcr_el2(read_mdcr_el2() & ~MDCR_EL2_TTRF);
 }
