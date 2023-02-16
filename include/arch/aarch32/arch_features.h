@@ -117,4 +117,24 @@ static inline bool is_feat_pmuv3_supported(void)
 	return read_feat_pmuv3_id_field() != 0U;
 }
 
+static inline unsigned int read_feat_mtpmu_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_dfr1(), ID_DFR1_MTPMU);
+}
+
+static inline bool is_feat_mtpmu_supported(void)
+{
+	if (DISABLE_MTPMU == FEAT_STATE_DISABLED) {
+		return false;
+	}
+
+	if (DISABLE_MTPMU == FEAT_STATE_ALWAYS) {
+		return true;
+	}
+
+	unsigned int mtpmu = read_feat_mtpmu_id_field();
+
+	return mtpmu != 0U && mtpmu != ID_DFR1_MTPMU_DISABLED;
+}
+
 #endif /* ARCH_FEATURES_H */
