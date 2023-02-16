@@ -40,8 +40,7 @@ We do not expect RAS errors originating from secure world but this can be extend
 future to cover secure/realm world.
 
 For RAS_FFH_SUPPORT_NS ``EL3_EXCEPTION_HANDLING`` and ``HANDLE_EA_EL3_FIRST_NS`` must also
-be set ``1``. ``RAS_TRAP_NS_ERR_REC_ACCESS`` controls the access to the RAS
-error record registers from Non-secure.
+be set ``1``.
 
 .. _ras-figure:
 
