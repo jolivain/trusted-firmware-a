@@ -882,6 +882,12 @@ ifneq (${DECRYPTION_SUPPORT},none)
     endif
 endif
 
+ifneq ($(DISABLE_MTPMU),0)
+    ifeq ($(ENABLE_FEAT_PMUV3_FOR_NS),0)
+        $(error DISABLE_MTPMU requires ENABLE_FEAT_PMUV3_FOR_NS)
+    endif
+endif
+
 # Ensure that no Aarch64-only features are enabled in Aarch32 build
 ifeq (${ARCH},aarch32)
 
