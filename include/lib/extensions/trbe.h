@@ -8,9 +8,13 @@
 #define TRBE_H
 
 #if ENABLE_TRBE_FOR_NS
-void trbe_enable(void);
+void trbe_enable_el3(void);
+void trbe_enable_el2(void);
 #else
-static inline void trbe_enable(void)
+static inline void trbe_enable_el3(void)
+{
+}
+static inline void trbe_enable_el2(void)
 {
 }
 #endif /* ENABLE_TRBE_FOR_NS */
