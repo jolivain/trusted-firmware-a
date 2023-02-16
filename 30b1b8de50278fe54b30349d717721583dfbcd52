@@ -211,6 +211,24 @@
       "parentUuid": "63136380_f523f907",
       "revId": "30b1b8de50278fe54b30349d717721583dfbcd52",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a37d1e7d_c6277242",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-16T13:53:55Z",
+      "side": 1,
+      "message": "\u003e Upgrading the watcher won\u0027t do anything. I\u0027d rather give that patch a +1 and get all the rest at once.\n\nI\u0027m not sure whether that patch tested fully or not. Instead I will take incremental approach to merge just doc-watcher job changes (that moved doc build on Jammy setup) along with this patch where RTD deployment been done with Jammy setup.",
+      "parentUuid": "bc18c4a8_b50eb9f9",
+      "revId": "30b1b8de50278fe54b30349d717721583dfbcd52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
