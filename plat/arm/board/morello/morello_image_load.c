@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, Arm Limited. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -34,6 +34,7 @@ struct morello_plat_info {
  *	- remote_chip_count
  *	- multichip mode
  *	- scc configuration
+ *	- silicon revision
  */
 struct morello_plat_info {
 	uint64_t local_ddr_size;
@@ -41,6 +42,7 @@ struct morello_plat_info {
 	uint8_t remote_chip_count;
 	bool multichip_mode;
 	uint32_t scc_config;
+	uint32_t silicon_revision;
 } __packed;
 #endif
 
@@ -61,6 +63,7 @@ static inline uint64_t get_mem_client_mode(uint64_t size)
  *		remote-chip-count = <0x0>;
  *		multichip-mode = <0x0>;
  *		scc-config = <0x0>;
+ *		silicon-revision = <0x0>;
  *#endif
  *	};
  ******************************************************************************/
@@ -124,6 +127,14 @@ static int plat_morello_append_config_node(struct morello_plat_info *plat_info)
 
 	if (plat_info->scc_config & MORELLO_SCC_CLIENT_MODE_MASK) {
 		usable_mem_size = get_mem_client_mode(plat_info->local_ddr_size);
+	}
+
+	/* populate the silicon revision */
+	err = fdt_setprop_u32(fdt, nodeoffset, "silicon-revision",
+			plat_info->silicon_revision);
+	if (err < 0) {
+		ERROR("NT_FW_CONFIG: Failed to set silicon-revision\n");
+		return -1;
 	}
 #endif
 	err = fdt_setprop_u64(fdt, nodeoffset, "local-ddr-size",

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, Arm Limited. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -21,6 +21,7 @@
 		remote-chip-count = <0x0>;
 		multichip-mode = <0x0>;
 		scc-config = <0x0>;
+		silicon-revision = <0x0>;
 #endif
 	};
 };
