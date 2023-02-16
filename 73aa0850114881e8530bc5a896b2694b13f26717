@@ -16,6 +16,24 @@
       "message": "I\u0027ve just noticed this, but all flags have a little blurb in docs/getting_started/build-options.rst that needs to be updated too. Most of them say they are boolean, but now they become numeric. I think we missed this for the previous batch as well",
       "revId": "73aa0850114881e8530bc5a896b2694b13f26717",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1dfed8f_df281db7",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-02-16T10:19:50Z",
+      "side": 1,
+      "message": "I wouldn\u0027t say \"most\", it seems like all but a few of the options actually (somewhat prematurely) speak of numeric already. Definitely ENABLE_TRBE_FOR_NS does, I just see that ENABLE_SYS_REG_TRACE_FOR_NS and SPE don\u0027t - which should indeed be fixed in their respective patches. And FEAT_SB needs to be adjusted the other way.",
+      "parentUuid": "70c4c70d_8aa0ac51",
+      "revId": "73aa0850114881e8530bc5a896b2694b13f26717",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
