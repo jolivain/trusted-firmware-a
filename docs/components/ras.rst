@@ -104,7 +104,6 @@ it back to NS world for handling.
 RAS Framework
 =============
 
-
 .. _ras-figure:
 
 .. image:: ../resources/diagrams/draw.io/ras.svg
