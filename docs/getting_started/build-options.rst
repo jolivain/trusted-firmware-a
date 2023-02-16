@@ -1042,10 +1042,6 @@ Common build options
       implement this workaround due to the behaviour of the errata mentioned
       in new SDEN document which will get published soon.
 
-- ``RAS_TRAP_NS_ERR_REC_ACCESS``: This flag enables/disables the SCR_EL3.TERR
-  bit, to trap access to the RAS ERR and RAS ERX registers from lower ELs.
-  This flag is disabled by default.
-
 - ``OPENSSL_DIR``: This option is used to provide the path to a directory on the
   host machine where a custom installation of OpenSSL is located, which is used
   to build the certificate generation, firmware encryption and FIP tools. If
