@@ -271,6 +271,24 @@
       "parentUuid": "a37d1e7d_c6277242",
       "revId": "30b1b8de50278fe54b30349d717721583dfbcd52",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6191738c_ec26b305",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-16T14:16:09Z",
+      "side": 1,
+      "message": "Okay, I\u0027m not asking to take a whole patch. Only take these changes: https://review.trustedfirmware.org/c/ci/tf-a-job-configs/+/18717/1/tf-a-tftf-docs-watcher.yaml and https://review.trustedfirmware.org/c/ci/tf-a-job-configs/+/18717/1/tf-a-tftf-docs-watcher.yaml as they look relevant in this work though not really needed to fix anything.\n\nAnyways, let me take take your patch first as it is i.e. deployment using Jammy\u0027s setup but I think it is preferrable to run the doc build on Jammy setup instead of Bionic (though currently we are not seeing any issue).",
+      "parentUuid": "bb4322f0_81b4e532",
+      "revId": "30b1b8de50278fe54b30349d717721583dfbcd52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
