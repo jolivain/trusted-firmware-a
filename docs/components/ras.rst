@@ -158,7 +158,6 @@ FAULT_INJECTION_SUPPORT=1
 RAS Framework
 =============
 
-
 .. _ras-figure:
 
 .. image:: ../resources/diagrams/draw.io/ras.svg
