@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5994e465_ca8e9003",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-02-16T19:20:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27dd70ce_4191835f",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 11
+      },
+      "revId": "956f4440011e22ed2b35e240560aae59cbd2d038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b47724ab_9b8330be",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-16T15:18:07Z",
       "side": 1,
       "message": "we will",
+      "range": {
+        "startLine": 19,
+        "startChar": 65,
+        "endLine": 19,
+        "endChar": 69
+      },
+      "revId": "956f4440011e22ed2b35e240560aae59cbd2d038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd862eda_49c0e002",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-02-16T19:20:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b47724ab_9b8330be",
       "range": {
         "startLine": 19,
         "startChar": 65,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7061fe0d_f171f14a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-02-16T19:20:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdc20797_63637032",
+      "range": {
+        "startLine": 20,
+        "startChar": 55,
+        "endLine": 20,
+        "endChar": 65
+      },
+      "revId": "956f4440011e22ed2b35e240560aae59cbd2d038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "beb6bf54_4784b252",
@@ -83,6 +155,24 @@
       "writtenOn": "2023-02-16T15:18:07Z",
       "side": 1,
       "message": "Can we omit the version field? If not, we need to add to add it to the `.versionrs.js` bump files list.",
+      "revId": "956f4440011e22ed2b35e240560aae59cbd2d038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a58463e9_71c86203",
+        "filename": "pyproject.toml",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-02-16T19:20:04Z",
+      "side": 1,
+      "message": "The version field is a requirement unfortunately. I\u0027ve added the config the bump files list.",
+      "parentUuid": "beb6bf54_4784b252",
       "revId": "956f4440011e22ed2b35e240560aae59cbd2d038",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
