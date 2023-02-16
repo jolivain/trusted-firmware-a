@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f448d53f_7283aa99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000731
+      },
+      "writtenOn": "2023-02-16T15:53:18Z",
+      "side": 1,
+      "message": "Hi Joanna,\n\nReferring https://ci.trustedfirmware.org/job/tf-a-static-checks/3634/\nthe new file plat/xilinx/zynqmp/custom_sip_svc.c is buildable as part of \nxilinx zynqmp platform configuration. so this issue is needed to be ignored.\nPlease help to get this issue resolved with latest build for this patch.\n\nRegards\nAmit\n",
+      "revId": "496d708154d893fb9f412390acd433337faccecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
