@@ -105,7 +105,6 @@ RAS feature has dependency on some other TF-A build flags
 RAS Framework
 =============
 
-
 .. _ras-figure:
 
 .. image:: ../resources/diagrams/draw.io/ras.svg

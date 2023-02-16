@@ -275,7 +275,8 @@ PSCI_OS_INIT_MODE		:= 0
 
 # Enable RAS Support
 ENABLE_FEAT_RAS			:= 0
-RAS_FFH_SUPPORT		:= 0
+RAS_FFH_SUPPORT			:= 0
+RAS_ALLOW_ERR_REC_ACCESS_NS	:= 0
 
 # By default, BL1 acts as the reset handler, not BL31
 RESET_TO_BL31			:= 0
@@ -429,9 +430,6 @@ SUPPORT_STACK_MEMTAG		:= no
 
 # Select workaround for AT speculative behaviour.
 ERRATA_SPECULATIVE_AT		:= 0
-
-# Trap RAS error record access from Non secure
-RAS_TRAP_NS_ERR_REC_ACCESS	:= 0
 
 # Build option to create cot descriptors using fconf
 COT_DESC_IN_DTB			:= 0
