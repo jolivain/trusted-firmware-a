@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70c4c70d_8aa0ac51",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-02-16T08:53:36Z",
+      "side": 1,
+      "message": "I\u0027ve just noticed this, but all flags have a little blurb in docs/getting_started/build-options.rst that needs to be updated too. Most of them say they are boolean, but now they become numeric. I think we missed this for the previous batch as well",
+      "revId": "73aa0850114881e8530bc5a896b2694b13f26717",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
