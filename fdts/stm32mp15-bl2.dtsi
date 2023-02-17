@@ -3,6 +3,30 @@
  * Copyright (c) 2020-2023, STMicroelectronics - All Rights Reserved
  */
 
+/omit-if-no-ref/ &timers12;
+/omit-if-no-ref/ &timers15;
+/omit-if-no-ref/ &pwr_mcu;
+/omit-if-no-ref/ &cryp1;
+/omit-if-no-ref/ &rng1;
+/omit-if-no-ref/ &rtc;
+/omit-if-no-ref/ &etzpc;
+/omit-if-no-ref/ &tamp;
+
+#if !STM32MP_USB_PROGRAMMER
+	/omit-if-no-ref/ &usbotg_hs;
+	/omit-if-no-ref/ &usbphyc;
+#endif
+#if !STM32MP_RAW_NAND
+	/omit-if-no-ref/ &fmc;
+#endif
+#if !STM32MP_SPI_NAND && !STM32MP_SPI_NOR
+	/omit-if-no-ref/ &qspi;
+#endif
+#if !STM32MP_EMMC && !STM32MP_SDMMC
+	/omit-if-no-ref/ &sdmmc1;
+	/omit-if-no-ref/ &sdmmc2;
+#endif
+
 / {
 #if !STM32MP_EMMC && !STM32MP_SDMMC
 	aliases {
@@ -10,42 +34,6 @@
 		/delete-property/ mmc1;
 	};
 #endif
-
-	cpus {
-		/delete-node/ cpu@1;
-	};
-
-	/delete-node/ psci;
-
-	soc {
-		/delete-node/ timer@40006000;
-		/delete-node/ timer@44006000;
-#if !STM32MP_USB_PROGRAMMER
-		/delete-node/ usb-otg@49000000;
-#endif
-		/delete-node/ pwr_mcu@50001014;
-		/delete-node/ cryp@54001000;
-		/delete-node/ rng@54003000;
-#if !STM32MP_RAW_NAND
-		/delete-node/ memory-controller@58002000;
-#endif
-#if !STM32MP_SPI_NAND && !STM32MP_SPI_NOR
-		/delete-node/ spi@58003000;
-#endif
-#if !STM32MP_EMMC && !STM32MP_SDMMC
-		/delete-node/ mmc@58005000;
-		/delete-node/ mmc@58007000;
-#endif
-#if !STM32MP_USB_PROGRAMMER
-		/delete-node/ usbphyc@5a006000;
-#endif
-		/delete-node/ spi@5c001000;
-		/delete-node/ rtc@5c004000;
-		/delete-node/ etzpc@5c007000;
-		/delete-node/ stgen@5c008000;
-		/delete-node/ i2c@5c009000;
-		/delete-node/ tamp@5c00a000;
-	};
 
 	/*
 	 * UUID's here are UUID RFC 4122 compliant meaning fieds are stored in
