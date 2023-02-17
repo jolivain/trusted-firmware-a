@@ -37,6 +37,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ade72331_4e74dc81",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-17T22:58:43Z",
+      "side": 1,
+      "message": "When \u0027oid \u003d\u003d NULL\u0027, \u0027get_ext\u0027 should return failure as per its implementation. I think we should retain the previous implementation or rather divide the \u0027get_ext\u0027 function into sub-functions, as follows:\n\n         |- get_ext_data() (extension ID + optional critical + data sanity) \nget_ext -|\n         |- detect_req_ext()\n\nthen you can call get_ext_data() here instead of get_ext(). Do you have any thoughts on this?\n\nFurthermore, this may be the reason behind the CI failure.",
+      "range": {
+        "startLine": 359,
+        "startChar": 1,
+        "endLine": 359,
+        "endChar": 39
+      },
+      "revId": "408c13279c093066399f70eadd7105241df7b51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d2d830c_f6d8748e",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-17T22:58:43Z",
+      "side": 1,
+      "message": "I rather think there is no need of this check. There is no-way \u0027get_ext\u0027 function returns \u0027IMG_PARSER_OK\u0027 as per this function implementation. get_ext is a static function and it always returns some error when \u0027oid \u003d\u003d NULL\u0027. Please correct me if I\u0027m wrong.",
+      "range": {
+        "startLine": 360,
+        "startChar": 2,
+        "endLine": 360,
+        "endChar": 29
+      },
+      "revId": "408c13279c093066399f70eadd7105241df7b51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "41570baf_9084f271",
         "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
         "patchSetId": 4
