@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b05e4490_c54ed74b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-02-17T14:21:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "96a7df4d_24d220b4",
+      "range": {
+        "startLine": 13,
+        "startChar": 15,
+        "endLine": 13,
+        "endChar": 19
+      },
+      "revId": "eaaf517cd1bd8c9d5e3e6d2d202a69a0cbcb45bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c611658_0c5e7586",
@@ -120,6 +144,30 @@
       "side": 1,
       "message": "thought this was 1.1.. We can change it based on where it finally lands if thats okay?",
       "parentUuid": "dcf46eb5_dedfb662",
+      "range": {
+        "startLine": 1075,
+        "startChar": 4,
+        "endLine": 1075,
+        "endChar": 50
+      },
+      "revId": "eaaf517cd1bd8c9d5e3e6d2d202a69a0cbcb45bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ef51c73_a1490af4",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1075,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-02-17T14:21:00Z",
+      "side": 1,
+      "message": "Yeah, sounds good to me.\nAnyways, this ABI is not available in any public version of FF-A spec. Should we mark it as experimental or implementation defined?",
+      "parentUuid": "4ac3310f_7d0ca2ae",
       "range": {
         "startLine": 1075,
         "startChar": 4,
