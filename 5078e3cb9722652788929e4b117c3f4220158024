@@ -33,6 +33,24 @@
       "message": "The issue with CI is related to this patch: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19405, which is now merged.",
       "revId": "5078e3cb9722652788929e4b117c3f4220158024",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1eadb9e9_73da70c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000874
+      },
+      "writtenOn": "2023-02-17T09:09:14Z",
+      "side": 1,
+      "message": "Why wasn\u0027t this patch CI tested? Anyway, this patch isn\u0027t the failure how do we proceed?",
+      "parentUuid": "666170af_8190d711",
+      "revId": "5078e3cb9722652788929e4b117c3f4220158024",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
