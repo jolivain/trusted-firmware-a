@@ -200,6 +200,30 @@
       },
       "revId": "eaaf517cd1bd8c9d5e3e6d2d202a69a0cbcb45bf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dfc3676_c92ea675",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1075,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-02-17T18:50:42Z",
+      "side": 1,
+      "message": "I\u0027m merging the change now as companion changes were merged for Hafnium.\nYes a doc update will be welcome, to state what this ABI is doing, and that it\u0027s impdef to Hafnium as of now.",
+      "parentUuid": "9acbc6fb_35fb0b44",
+      "range": {
+        "startLine": 1075,
+        "startChar": 4,
+        "endLine": 1075,
+        "endChar": 50
+      },
+      "revId": "eaaf517cd1bd8c9d5e3e6d2d202a69a0cbcb45bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
