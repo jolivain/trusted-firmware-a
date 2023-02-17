@@ -24,7 +24,7 @@
 		};
 	};
 
-	psci {
+	/omit-if-no-ref/ psci {
 		compatible = "arm,psci-1.0";
 		method = "smc";
 	};
@@ -410,7 +410,7 @@
 			status = "disabled";
 		};
 
-		spi6: spi@5c001000 {
+		/omit-if-no-ref/ spi6: spi@5c001000 {
 			#address-cells = <1>;
 			#size-cells = <0>;
 			compatible = "st,stm32h7-spi";
@@ -502,12 +502,12 @@
 			clocks = <&rcc TZPC>;
 		};
 
-		stgen: stgen@5c008000 {
+		/omit-if-no-ref/ stgen: stgen@5c008000 {
 			compatible = "st,stm32-stgen";
 			reg = <0x5C008000 0x1000>;
 		};
 
-		i2c6: i2c@5c009000 {
+		/omit-if-no-ref/ i2c6: i2c@5c009000 {
 			compatible = "st,stm32mp15-i2c";
 			reg = <0x5c009000 0x400>;
 			interrupt-names = "event", "error";
