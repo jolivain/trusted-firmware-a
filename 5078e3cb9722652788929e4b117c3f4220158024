@@ -16,6 +16,23 @@
       "message": "Thanks, that corrects the build issue we had with gcc12 (which will be used in the next version of yocto)",
       "revId": "5078e3cb9722652788929e4b117c3f4220158024",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "666170af_8190d711",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-02-17T09:04:47Z",
+      "side": 1,
+      "message": "The issue with CI is related to this patch: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19405, which is now merged.",
+      "revId": "5078e3cb9722652788929e4b117c3f4220158024",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
