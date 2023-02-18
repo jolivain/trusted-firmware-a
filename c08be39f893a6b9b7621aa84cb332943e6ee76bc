@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d091aae5_ba4c824c",
+        "filename": "include/arch/aarch32/el3_common_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-18T20:53:44Z",
+      "side": 0,
+      "message": "When PE supports TTRF, setting this bit prevents TTRF usage from lower exception/non-monitor mode by default (when when TTRF is not compiled in). This bit is explicitly set as warm reset clears it. Removing this code will lose this functionality.",
+      "range": {
+        "startLine": 148,
+        "startChar": 14,
+        "endLine": 148,
+        "endChar": 27
+      },
+      "revId": "c08be39f893a6b9b7621aa84cb332943e6ee76bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
