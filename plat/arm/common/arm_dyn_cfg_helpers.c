@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -219,6 +219,12 @@ int arm_set_tos_fw_info(uintptr_t log_addr, size_t log_size)
 	assert(cfg_mem_params != NULL);
 
 	config_base = cfg_mem_params->image_info.image_base;
+
+	if ((ARM_EVENT_LOG_DRAM1_BASE + log_size) >
+	    ARM_EVENT_LOG_DRAM1_SIZE) {
+		ERROR("Reserved DRAM1 area is not enough to hold Event Log\n");
+		return -1;
+	}
 
 	/* Write the Event Log address and its size in the DTB */
 	err = arm_set_event_log_info(config_base,
