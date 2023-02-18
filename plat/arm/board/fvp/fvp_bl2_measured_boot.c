@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -221,14 +221,26 @@ void bl2_plat_mboot_finish(void)
 	flush_dcache_range(ns_log_addr, event_log_cur_size);
 
 #if defined(SPD_tspd) || defined(SPD_spmd)
+	if ((ARM_EVENT_LOG_DRAM1_BASE + event_log_cur_size) >
+	    ARM_EVENT_LOG_DRAM1_SIZE) {
+		ERROR("Reserved DRAM1 area is not enough to hold Event Log\n");
+		panic();
+	}
+
+	/* Copy Event Log to Secure memory */
+        (void)memcpy((void *)ARM_EVENT_LOG_DRAM1_BASE,
+		     (const void *)event_log_base,
+                     event_log_cur_size);
+
 	/* Set Event Log data in TOS_FW_CONFIG */
-	rc = arm_set_tos_fw_info((uintptr_t)event_log_base,
+	rc = arm_set_tos_fw_info((uintptr_t)ARM_EVENT_LOG_DRAM1_BASE,
 				 event_log_cur_size);
 	if (rc != 0) {
 		ERROR("%s(): Unable to update %s_FW_CONFIG\n",
 		      __func__, "TOS");
 		panic();
 	}
+
 #endif /* defined(SPD_tspd) || defined(SPD_spmd) */
 
 	dump_event_log((uint8_t *)event_log_base, event_log_cur_size);
