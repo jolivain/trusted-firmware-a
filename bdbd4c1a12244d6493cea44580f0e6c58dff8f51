@@ -52,6 +52,24 @@
       "parentUuid": "ba2524b0_4df2dd86",
       "revId": "bdbd4c1a12244d6493cea44580f0e6c58dff8f51",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d697f02_52933a78",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-02-20T16:37:36Z",
+      "side": 1,
+      "message": "Yes, there is a makefile check. It would be good to have some reference here, just in case someone removes it from the Makefile in future by mistake.\n\nPerhaps a comment here that ENABLE_FEAT_SB is not allowed to be in CHECK state and is ensured by the Makefile and similarly a comment in Makefile should prevent any errors in future.",
+      "parentUuid": "7b11a65b_c1534335",
+      "revId": "bdbd4c1a12244d6493cea44580f0e6c58dff8f51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
