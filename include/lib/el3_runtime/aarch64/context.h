@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -228,6 +228,9 @@
 
 // Register for FEAT_HCX
 #define CTX_HCRX_EL2            U(0x1d0)
+
+// Config register for SVE vector length
+#define CTX_ZCR_EL2		U(0x1d8)
 
 /* Align to the next 16 byte boundary */
 #define CTX_EL2_SYSREGS_END	U(0x1e0)
@@ -547,6 +550,10 @@ void el2_sysregs_context_restore_trf(el2_sysregs_t *regs);
 void el2_sysregs_context_save_csv2(el2_sysregs_t *regs);
 void el2_sysregs_context_restore_csv2(el2_sysregs_t *regs);
 #endif /* ENABLE_FEAT_CSV2_2 */
+#if ENABLE_SVE_FOR_NS
+void el2_sysregs_context_save_sve_zcr(el2_sysregs_t *regs);
+void el2_sysregs_context_restore_sve_zcr(el2_sysregs_t *regs);
+#endif /* ENABLE_SVE_FOR_NS */
 #endif /* CTX_INCLUDE_EL2_REGS */
 
 #if CTX_INCLUDE_FPREGS

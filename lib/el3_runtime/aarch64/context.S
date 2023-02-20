@@ -49,6 +49,10 @@
 	.global	el2_sysregs_context_save_csv2
 	.global	el2_sysregs_context_restore_csv2
 #endif /* ENABLE_FEAT_CSV2_2 */
+#if ENABLE_SVE_FOR_NS
+	.global el2_sysregs_context_save_sve_zcr
+	.global el2_sysregs_context_restore_sve_zcr
+#endif /* ENABLE_SVE_FOR_NS */
 #endif /* CTX_INCLUDE_EL2_REGS */
 
 	.global	el1_sysregs_context_save
@@ -575,6 +579,26 @@ func el2_sysregs_context_restore_csv2
 	ret
 endfunc el2_sysregs_context_restore_csv2
 #endif /* ENABLE_FEAT_CSV2_2 */
+
+#if ENABLE_SVE_FOR_NS
+func el2_sysregs_context_save_sve_zcr
+	/*
+	 * ZCR_EL2 register is saved when FEAT_SVE is supported and enabled.
+	 */
+	mrs	x11, ZCR_EL2
+	str	x11, [x0, #CTX_ZCR_EL2]
+	ret
+endfunc el2_sysregs_context_save_sve_zcr
+
+func el2_sysregs_context_restore_sve_zcr
+	/*
+	 * ZCR_EL2 register is restored when FEAT_SVE is supported and enabled.
+	 */
+	ldr	x11, [x0, #CTX_ZCR_EL2]
+	msr	ZCR_EL2, x11
+	ret
+endfunc el2_sysregs_context_restore_sve_zcr
+#endif /* ENABLE_SVE_FOR_NS */
 
 #endif /* CTX_INCLUDE_EL2_REGS */
 

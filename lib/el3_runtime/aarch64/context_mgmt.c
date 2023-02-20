@@ -883,6 +883,11 @@ void cm_el2_sysregs_context_save(uint32_t security_state)
 #if ENABLE_FEAT_CSV2_2
 		el2_sysregs_context_save_csv2(el2_sysregs_ctx);
 #endif
+#if ENABLE_SVE_FOR_NS
+		if (is_armv8_2_feat_sve_present()) {
+			el2_sysregs_context_save_sve_zcr(el2_sysregs_ctx);
+		}
+#endif
 		if (is_feat_hcx_supported()) {
 			write_ctx_reg(el2_sysregs_ctx, CTX_HCRX_EL2, read_hcrx_el2());
 		}
@@ -940,6 +945,11 @@ void cm_el2_sysregs_context_restore(uint32_t security_state)
 #endif
 #if ENABLE_FEAT_CSV2_2
 		el2_sysregs_context_restore_csv2(el2_sysregs_ctx);
+#endif
+#if ENABLE_SVE_FOR_NS
+		if (is_armv8_2_feat_sve_present()) {
+			el2_sysregs_context_restore_sve_zcr(el2_sysregs_ctx);
+		}
 #endif
 		if (is_feat_hcx_supported()) {
 			write_hcrx_el2(read_ctx_reg(el2_sysregs_ctx, CTX_HCRX_EL2));
