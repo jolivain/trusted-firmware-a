@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdd9d664_659cfcde",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-02-20T13:39:04Z",
+      "side": 1,
+      "message": "Fix line lenght, according to TF-A\u0027s guidelines.",
+      "revId": "9398ab22db4eb34a1f44d6986b8d35aa4419ebfc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd903ff5_128e0159",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-02-20T13:39:04Z",
+      "side": 1,
+      "message": "TF-A",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 3
+      },
+      "revId": "9398ab22db4eb34a1f44d6986b8d35aa4419ebfc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c93b5c4_775d9615",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-02-20T13:39:04Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 9,
+        "startChar": 23,
+        "endLine": 9,
+        "endChar": 33
+      },
+      "revId": "9398ab22db4eb34a1f44d6986b8d35aa4419ebfc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8eb1eba_8f60a24e",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1005,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-02-20T13:39:04Z",
+      "side": 1,
+      "message": "Could you investigate where are the files being output to, and use the same directory?",
+      "range": {
+        "startLine": 1005,
+        "startChar": 0,
+        "endLine": 1005,
+        "endChar": 45
+      },
+      "revId": "9398ab22db4eb34a1f44d6986b8d35aa4419ebfc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16b3b9cb_fc8e890e",
+        "filename": "tools/sptool/sp_mk_generator.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-02-20T13:39:04Z",
+      "side": 1,
+      "message": "add doc comment like the above helpers.",
+      "range": {
+        "startLine": 116,
+        "startChar": 4,
+        "endLine": 116,
+        "endChar": 12
+      },
+      "revId": "9398ab22db4eb34a1f44d6986b8d35aa4419ebfc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7281c654_6009d92c",
+        "filename": "tools/sptool/sp_mk_generator.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-02-20T13:39:04Z",
+      "side": 1,
+      "message": "Doc comment... and remaining added functions.\nnitpick: rename to something more meaningful. Something that relates to the fconf dts.",
+      "range": {
+        "startLine": 230,
+        "startChar": 4,
+        "endLine": 230,
+        "endChar": 24
+      },
+      "revId": "9398ab22db4eb34a1f44d6986b8d35aa4419ebfc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f10ed905_e575ca65",
+        "filename": "tools/sptool/sp_mk_generator.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-02-20T13:39:04Z",
+      "side": 1,
+      "message": "should this be the right permission?\nShouldn\u0027t it be \"w\"?\nAppending makes it prone to the problem you were trying to solve with this patch?",
+      "range": {
+        "startLine": 231,
+        "startChar": 40,
+        "endLine": 231,
+        "endChar": 43
+      },
+      "revId": "9398ab22db4eb34a1f44d6986b8d35aa4419ebfc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bde4be2_edc6f3a5",
+        "filename": "tools/sptool/sp_mk_generator.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-02-20T13:39:04Z",
+      "side": 1,
+      "message": "delete",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 19
+      },
+      "revId": "9398ab22db4eb34a1f44d6986b8d35aa4419ebfc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d06916d_be149d3d",
+        "filename": "tools/sptool/sp_mk_generator.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-02-20T13:39:04Z",
+      "side": 1,
+      "message": "Why making this argument 2?\nI think it is safer to add argument to the end of argument list, and make the argument optional...\nI am thinking there is the opportunity to improve this, by using a argument parser...",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 59
+      },
+      "revId": "9398ab22db4eb34a1f44d6986b8d35aa4419ebfc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5916e04f_e84e9fbd",
+        "filename": "tools/sptool/sp_mk_generator.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-02-20T13:39:04Z",
+      "side": 1,
+      "message": "Why here and not in the newly added function itself?",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 264,
+        "endChar": 12
+      },
+      "revId": "9398ab22db4eb34a1f44d6986b8d35aa4419ebfc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
