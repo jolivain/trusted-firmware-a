@@ -129,6 +129,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6530db8f_292b59a9",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-20T15:36:05Z",
+      "side": 1,
+      "message": "Converting this as an assert is fine deal! Resolving this comment.",
+      "parentUuid": "1d2d830c_f6d8748e",
+      "range": {
+        "startLine": 360,
+        "startChar": 2,
+        "endLine": 360,
+        "endChar": 29
+      },
+      "revId": "408c13279c093066399f70eadd7105241df7b51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41570baf_9084f271",
@@ -213,6 +237,24 @@
       "writtenOn": "2023-02-18T18:28:40Z",
       "side": 1,
       "message": "\u0027p\u0027 does not point to the \u0027end of extension\u0027, it still points to the extension base, see line no. 355, should this be changed? IMO \u0027p\u0027 should be \u0027p \u003d p + len\u0027 (where \u0027len\u0027 is the length of extension). Otherwise later on checks in this function may fail.",
+      "revId": "408c13279c093066399f70eadd7105241df7b51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25807284_0fe72480",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-20T15:36:05Z",
+      "side": 1,
+      "message": "Done, looks like it is resolved at line no. 357.",
+      "parentUuid": "730c831c_c883f730",
       "revId": "408c13279c093066399f70eadd7105241df7b51a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e811e933_74ef6666",
+        "filename": "drivers/auth/mbedtls/mbedtls_x509_parser.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-20T15:36:05Z",
+      "side": 1,
+      "message": "Could you please let me know why the actual error is not returned, and why the return needs to be overridden?",
+      "range": {
+        "startLine": 362,
+        "startChar": 9,
+        "endLine": 362,
+        "endChar": 30
+      },
+      "revId": "260d341a838e5801cb108812bdad0d07d8c8e528",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
