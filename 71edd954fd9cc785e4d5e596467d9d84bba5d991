@@ -39,6 +39,24 @@
       "message": "Sorry it is not obvious to me what the change is doing. I think we\u0027re just aiming to rewrite these conditions in a more straight-forward, concise manner but we do not want to introduce any functional change. Is that correct?",
       "revId": "71edd954fd9cc785e4d5e596467d9d84bba5d991",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a93437b_3da6b698",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-02-20T16:33:53Z",
+      "side": 1,
+      "message": "Yes correct, Manish B had suggested in one of the patch-set just a condition optimisation no major functional change.",
+      "parentUuid": "7573fb4d_4e7fa80a",
+      "revId": "71edd954fd9cc785e4d5e596467d9d84bba5d991",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
