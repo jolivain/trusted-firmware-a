@@ -52,6 +52,24 @@
       "parentUuid": "08ac7734_22e55336",
       "revId": "71f0ddf4ef124b15aaad6ae446813723f5922993",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "924808d3_1bb77ef5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-02-20T15:40:30Z",
+      "side": 1,
+      "message": "So I tried this, and while it reduces the clutter a bit, it somewhat hides the \"return;\" statement, so it\u0027s not immediately obvious to the reader what is happening:\nstatic inline bool is_feat_fgt_supported(void)\n{\n    CHECK_DISABLED(ENABLE_FEAT_FGT)\n    CHECK_ALWAYS(ENABLE_FEAT_FGT)\n\n    return read_feat_fgt_id_field() !\u003d 0U;\n}\n\nSo I\u0027d rather not use this more cosmetic optimisation.",
+      "parentUuid": "b90c10fd_aa5e0b9f",
+      "revId": "71f0ddf4ef124b15aaad6ae446813723f5922993",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
