@@ -308,4 +308,18 @@
 /* virtual address used by dynamic mem_protect for chunk_base */
 #define PLAT_ARM_MEM_PROTEC_VA_FRAME	UL(0xc0000000)
 
+/* UART related constants */
+
+#undef PLAT_ARM_BOOT_UART_BASE
+#define PLAT_ARM_BOOT_UART_BASE		0x2A410000
+
+#undef PLAT_ARM_RUN_UART_BASE
+#define PLAT_ARM_RUN_UART_BASE		0x2A400000
+
+#undef PLAT_ARM_SP_MIN_RUN_UART_BASE
+#define PLAT_ARM_SP_MIN_RUN_UART_BASE	0x2A400000
+
+#undef PLAT_ARM_CRASH_UART_BASE
+#define PLAT_ARM_CRASH_UART_BASE	PLAT_ARM_RUN_UART_BASE
+
 #endif /* PLATFORM_DEF_H */
