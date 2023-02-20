@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -124,11 +124,6 @@ static void manage_extensions_realm(cpu_context_t *ctx)
 	 * contexts are properly managed.
 	 */
 	sve_enable(ctx);
-#else
-	/*
-	 * Disable SVE and FPU in realm context when it is disabled for NS.
-	 */
-	sve_disable(ctx);
 #endif /* ENABLE_SVE_FOR_NS */
 }
 
