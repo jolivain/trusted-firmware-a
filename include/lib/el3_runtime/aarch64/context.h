@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -235,8 +235,11 @@
 #define CTX_PIR_EL2             U(0x1f0)
 #define CTX_S2PIR_EL2		U(0x1f8)
 
+// Config register for SVE vector length
+#define CTX_ZCR_EL2		U(0x200)
+
 /* Align to the next 16 byte boundary */
-#define CTX_EL2_SYSREGS_END	U(0x200)
+#define CTX_EL2_SYSREGS_END	U(0x210)
 
 #endif /* CTX_INCLUDE_EL2_REGS */
 

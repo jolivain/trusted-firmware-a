@@ -234,6 +234,17 @@
 	cbz	x1, 1f
 	orr	x0, x0, #TTA_BIT
 1:
+#if defined(IMAGE_BL31) && ENABLE_SVE_FOR_NS && CTX_INCLUDE_EL2_REGS
+	/*
+	 * CPTR_EL3.EZ: Set to one so that access to SVE control register zcr_el2
+	 * in el2_sysregs_context save/restore do not trap.
+	 */
+	mrs	x1, id_aa64dfr0_el1
+	ubfx	x1, x1, #ID_AA64PFR0_SVE_SHIFT, #ID_AA64PFR0_SVE_LENGTH
+	cbz	x1, 2f
+	orr	x0, x0, #CPTR_EZ_BIT
+2:
+#endif /* IMAGE_BL31 */
 	msr	cptr_el3, x0
 
 	/*
