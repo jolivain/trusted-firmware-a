@@ -994,6 +994,11 @@ void cm_el2_sysregs_context_save(uint32_t security_state)
 		if (is_feat_tcr2_supported()) {
 			write_ctx_reg(el2_sysregs_ctx, CTX_TCR2_EL2, read_tcr2_el2());
 		}
+		if (is_feat_sve_supported()) {
+			write_ctx_reg(el2_sysregs_ctx, CTX_ZCR_EL2,
+				      read_zcr_el2());
+		}
+
 	}
 }
 
@@ -1060,6 +1065,10 @@ void cm_el2_sysregs_context_restore(uint32_t security_state)
 		}
 		if (is_feat_tcr2_supported()) {
 			write_tcr2_el2(read_ctx_reg(el2_sysregs_ctx, CTX_TCR2_EL2));
+		}
+		if (is_feat_sve_supported()) {
+			write_zcr_el2(read_ctx_reg(el2_sysregs_ctx,
+						   CTX_ZCR_EL2));
 		}
 	}
 }
