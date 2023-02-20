@@ -281,7 +281,9 @@ ifeq (${JUNO_AARCH32_EL3_RUNTIME},1)
 BL2_SOURCES		+=	plat/arm/common/aarch32/arm_bl2_mem_params_desc.c
 else
 ifneq (${PLAT}, corstone1000)
+ifneq (${PLAT}, rd1ae)
 BL2_SOURCES		+=	plat/arm/common/${ARCH}/arm_bl2_mem_params_desc.c
+endif
 endif
 endif
 BL2_SOURCES		+=	plat/arm/common/arm_image_load.c		\
