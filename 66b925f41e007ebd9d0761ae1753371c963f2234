@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2cccf08_b360b524",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-02-21T10:31:59Z",
+      "side": 0,
+      "message": "The intention here was to ensure that the calculated address of the mrds remains within the bounds of the desriptor, would you be able to elaborate on what logic was missing here?",
+      "revId": "66b925f41e007ebd9d0761ae1753371c963f2234",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
