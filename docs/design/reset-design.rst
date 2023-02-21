@@ -151,6 +151,10 @@ Additionally, platform software is responsible for carrying out any security
 initialisation, for example programming a TrustZone address space controller.
 This might be done by the Trusted Boot Firmware or by platform code in BL31.
 
+.. note::
+   Some platforms that configure ``RESET_TO_BL31`` might still be able to
+   receive parameters in registers depending on their actual boot sequence.
+
 --------------
 
 *Copyright (c) 2015-2019, Arm Limited and Contributors. All rights reserved.*
