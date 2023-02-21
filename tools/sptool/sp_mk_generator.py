@@ -21,7 +21,7 @@ param1: Generated mk file "sp_gen.mk"
 param2: "SP_LAYOUT_FILE", json file containing platform provided information
 param3: plat out directory
 param4: CoT parameter
-param5: Generated dts file "sp_list_fragment.dts"
+param5: Generated dts file "sp_list_fragment.dts" (optional)
 
 Generated "sp_gen.mk" file contains triplet of following information for each
 Secure Partition entry
@@ -47,6 +47,7 @@ A typical SP_LAYOUT_FILE file will look like
 }
 
 """
+import argparse
 import json
 import os
 import re
@@ -231,6 +232,9 @@ def gen_fiptool_args(sp_layout, sp, args :dict):
 @SpSetupActions.sp_action
 def gen_fconf_fragment(sp_layout, sp, args: dict):
     ''' Generate the fconf fragment file'''
+    if "fconf_fragment" not in args:
+        return args
+
     with open(args["fconf_fragment"], "w+") as f:
         uuid = get_uuid(sp_layout, sp, args)
         load_address = get_load_address(sp_layout, sp, args)
@@ -249,13 +253,22 @@ f'''\
 
 def init_sp_actions(sys):
     # Initialize arguments for the SP actions framework
+    parser = argparse.ArgumentParser()
+    parser.add_argument("sp_gen_mk")
+    parser.add_argument("sp_layout_file")
+    parser.add_argument("out_dir",)
+    parser.add_argument("dualroot")
+    parser.add_argument("fconf_fragment", nargs="?", default = None)
+    parsed_args = parser.parse_args()
+
     args = {}
-    args["sp_gen_mk"] = os.path.abspath(sys.argv[1])
-    sp_layout_file = os.path.abspath(sys.argv[2])
+    args["sp_gen_mk"] = os.path.abspath(parsed_args.sp_gen_mk)
+    sp_layout_file = os.path.abspath(parsed_args.sp_layout_file)
     args["sp_layout_dir"] = os.path.dirname(sp_layout_file)
-    args["out_dir"] = os.path.abspath(sys.argv[3])
-    args["dualroot"] = sys.argv[4] == "dualroot"
-    args["fconf_fragment"] = os.path.abspath(sys.argv[5])
+    args["out_dir"] = os.path.abspath(parsed_args.out_dir)
+    args["dualroot"] = parsed_args.dualroot == "dualroot"
+    if parsed_args.fconf_fragment is not None:
+        args["fconf_fragment"] = os.path.abspath(parsed_args.fconf_fragment)
 
     with open(sp_layout_file) as json_file:
         sp_layout = json.load(json_file)
