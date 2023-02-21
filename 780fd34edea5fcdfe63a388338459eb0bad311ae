@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44ecde28_ab0de883",
+        "filename": "fdts/stm32mp151a-prtt1a.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000982
+      },
+      "writtenOn": "2023-02-21T10:00:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "178c7b1d_341d24b9",
+      "revId": "780fd34edea5fcdfe63a388338459eb0bad311ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4befbd4_a163296e",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-02-16T17:23:26Z",
       "side": 1,
       "message": "This node is not needed. BSEC is always secured and enabled by default, and secure-status is no more checked in BSEC driver.",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 0
+      },
+      "revId": "780fd34edea5fcdfe63a388338459eb0bad311ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7f306a5_48865b66",
+        "filename": "fdts/stm32mp151a-prtt1a.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000982
+      },
+      "writtenOn": "2023-02-21T10:00:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4befbd4_a163296e",
       "range": {
         "startLine": 138,
         "startChar": 0,
@@ -58,6 +100,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "511e4ec6_b54a99ce",
+        "filename": "fdts/stm32mp151a-prtt1a.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000982
+      },
+      "writtenOn": "2023-02-21T10:00:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d591ea8b_11ecbb07",
+      "revId": "780fd34edea5fcdfe63a388338459eb0bad311ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5af0b020_23eafe89",
@@ -71,6 +131,24 @@
       "writtenOn": "2023-02-16T17:23:26Z",
       "side": 1,
       "message": "To align with kernel, it may be: flash@0",
+      "revId": "780fd34edea5fcdfe63a388338459eb0bad311ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0609851c_dba85e4c",
+        "filename": "fdts/stm32mp151a-prtt1a.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000982
+      },
+      "writtenOn": "2023-02-21T10:00:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5af0b020_23eafe89",
       "revId": "780fd34edea5fcdfe63a388338459eb0bad311ae",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -92,6 +170,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea4c9c67_f6ca2cf8",
+        "filename": "fdts/stm32mp151a-prtt1a.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000982
+      },
+      "writtenOn": "2023-02-21T10:00:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "882daf25_3fb8fe85",
+      "revId": "780fd34edea5fcdfe63a388338459eb0bad311ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a6ca290_3bb1a2d5",
@@ -105,6 +201,24 @@
       "writtenOn": "2023-02-16T17:23:26Z",
       "side": 1,
       "message": "The kernel file has 104000000\nShould that be updated?",
+      "revId": "780fd34edea5fcdfe63a388338459eb0bad311ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ea92c3e_0945a26f",
+        "filename": "fdts/stm32mp151a-prtt1a.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000982
+      },
+      "writtenOn": "2023-02-21T10:00:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a6ca290_3bb1a2d5",
       "revId": "780fd34edea5fcdfe63a388338459eb0bad311ae",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
