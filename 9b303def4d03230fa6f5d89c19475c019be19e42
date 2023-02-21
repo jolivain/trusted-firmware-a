@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "644d3b4c_ea142275",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-02-21T16:08:00Z",
+      "side": 1,
+      "message": "can this not overflow?\nThis is a static function, so again we can ensure things are sane by using asserts.",
+      "range": {
+        "startLine": 204,
+        "startChar": 20,
+        "endLine": 204,
+        "endChar": 25
+      },
+      "revId": "9b303def4d03230fa6f5d89c19475c019be19e42",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a00b96ec_4e19b341",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-02-21T16:08:00Z",
+      "side": 1,
+      "message": "Assert. Static function so is a programming error. Callers can enforce this elsewhere.",
+      "range": {
+        "startLine": 209,
+        "startChar": 3,
+        "endLine": 209,
+        "endChar": 8
+      },
+      "revId": "9b303def4d03230fa6f5d89c19475c019be19e42",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b1be937_4a875714",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-02-21T16:08:00Z",
+      "side": 1,
+      "message": "overflows possible so good to have asserts.",
+      "range": {
+        "startLine": 214,
+        "startChar": 9,
+        "endLine": 215,
+        "endChar": 1
+      },
+      "revId": "9b303def4d03230fa6f5d89c19475c019be19e42",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
