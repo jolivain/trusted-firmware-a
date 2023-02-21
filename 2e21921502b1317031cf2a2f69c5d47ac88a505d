@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4a597d16_e0cd6988",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 54
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-02-21T09:59:19Z",
+      "side": 1,
+      "message": "The cache flush works.\nHowever, we did the cache flush in SPMC, just after writing this data.\n\nToday, we do our memcpy in SEL1 before switching on MMU.\nSo it is easy to do the cache flush in SPMC, since we already have MMU and run in C code.\nPossibly we could rewrite our boot code to just store the pointer, switch on MMU, and then try to retrieve this data, map in the physical page of bootargs into the MMU, flush cache and then continue with the parsing code.",
+      "parentUuid": "6d5dd995_556bba9e",
+      "revId": "2e21921502b1317031cf2a2f69c5d47ac88a505d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3c1be0f6_cb987919",
         "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
         "patchSetId": 54
