@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97a38057_f4d69206",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-02-21T15:57:49Z",
+      "side": 1,
+      "message": "static function. Panic just adds unnecessary code. Please use assert per coding guidelines here: This is a programming error so the assumption can be documented and checked via asserts.\n\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-guidelines.html#using-assert-to-check-for-programming-errors",
+      "range": {
+        "startLine": 200,
+        "startChar": 1,
+        "endLine": 204,
+        "endChar": 2
+      },
+      "revId": "16bbdb5352819d6638bd68058b21fdffdf8005f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
