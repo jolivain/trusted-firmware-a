@@ -50,6 +50,23 @@
       "message": "Final reminder before putting into abandoned state, Patches can always be brought back to active state.",
       "revId": "3d6d5741631e51d1bc025466f7ba7f12cb70685d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ef740b7_ef3a3612",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-02-21T20:58:10Z",
+      "side": 1,
+      "message": "@Rebecca Cran\nKeeping this in hold state till the issue in commit header is fixed. That will help resolve the failure. Also, do any rebase if required.",
+      "revId": "3d6d5741631e51d1bc025466f7ba7f12cb70685d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
