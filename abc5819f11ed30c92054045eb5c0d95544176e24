@@ -141,6 +141,30 @@
       },
       "revId": "abc5819f11ed30c92054045eb5c0d95544176e24",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17c69709_20a9e66a",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-02-21T10:29:23Z",
+      "side": 1,
+      "message": "Good question, so from a spec perspective there is not an upper bound as, although we only support a single SP in this implemenation, it is IMPDEF how many VMs in the normal world could be involved in any given transaction.\n\nIf you think this is a sticking point we could look to introduce an IMPDEF transaction partition limit for the SPMC to reject any transactions that exceed this?",
+      "parentUuid": "25ca1bd1_b4e97ecc",
+      "range": {
+        "startLine": 1107,
+        "startChar": 45,
+        "endLine": 1108,
+        "endChar": 62
+      },
+      "revId": "abc5819f11ed30c92054045eb5c0d95544176e24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
