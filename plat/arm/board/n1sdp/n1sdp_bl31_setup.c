@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -16,6 +16,7 @@
 #include <plat/arm/common/plat_arm.h>
 
 #include "n1sdp_def.h"
+#include "n1sdp_private.h"
 
 /*
  * Platform information structure stored in SDS.
@@ -81,6 +82,8 @@ scmi_channel_plat_info_t *plat_css_get_scmi_info(int channel_id)
 
 const plat_psci_ops_t *plat_arm_psci_override_pm_ops(plat_psci_ops_t *ops)
 {
+	ops->pwr_domain_off = n1sdp_pwr_domain_off;
+	ops->pwr_domain_suspend = n1sdp_pwr_domain_suspend;
 	return css_scmi_override_pm_ops(ops);
 }
 
