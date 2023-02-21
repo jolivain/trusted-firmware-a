@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87f92529_fc6fe5f5",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-02-21T10:29:16Z",
+      "side": 1,
+      "message": "Testing these MBZ checks out locally is causing some issues when operating with other components. I\u0027m still looking into what the best course of action here so that we can stay aligned.",
+      "revId": "bd97292b3833c02129006abe46f45d2de183f7e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
