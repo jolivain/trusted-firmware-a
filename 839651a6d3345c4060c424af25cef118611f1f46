@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2b71e85_1fff1d5d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-02-21T11:12:13Z",
+      "side": 1,
+      "message": "I have reworded the cmt-msg now",
+      "parentUuid": "77ed8684_e3d87d50",
+      "range": {
+        "startLine": 10,
+        "startChar": 8,
+        "endLine": 11,
+        "endChar": 16
+      },
+      "revId": "839651a6d3345c4060c424af25cef118611f1f46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d5b6380d_5f813f4e",
@@ -78,6 +102,30 @@
       "writtenOn": "2023-02-21T09:26:38Z",
       "side": 1,
       "message": "put braces around this",
+      "range": {
+        "startLine": 203,
+        "startChar": 4,
+        "endLine": 203,
+        "endChar": 54
+      },
+      "revId": "839651a6d3345c4060c424af25cef118611f1f46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d103bda9_e291a991",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-02-21T11:12:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ab24349_d347e934",
       "range": {
         "startLine": 203,
         "startChar": 4,
