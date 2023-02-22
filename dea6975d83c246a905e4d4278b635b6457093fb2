@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "da0dbe3a_b234cc5a",
+        "filename": "plat/xilinx/common/include/pm_defs.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000894
+      },
+      "writtenOn": "2023-02-22T11:20:37Z",
+      "side": 1,
+      "message": "XPM_NODECLASS_DEVICE, XPM_NODESUBCL_DEV_PERIPH, XPM_NODETYPE_DEV_PERIPH are not defined as U() its enum type.",
+      "parentUuid": "bfba5263_b05bb727",
+      "range": {
+        "startLine": 34,
+        "startChar": 42,
+        "endLine": 34,
+        "endChar": 63
+      },
+      "revId": "dea6975d83c246a905e4d4278b635b6457093fb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bbfbb118_976b8905",
         "filename": "plat/xilinx/common/include/pm_node.h",
         "patchSetId": 3
