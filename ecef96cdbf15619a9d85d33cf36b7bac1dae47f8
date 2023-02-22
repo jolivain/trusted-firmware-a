@@ -16,6 +16,23 @@
       "message": "Please document elx_panic in porting guide",
       "revId": "ecef96cdbf15619a9d85d33cf36b7bac1dae47f8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0fac802_1ea87d02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-02-22T14:11:58Z",
+      "side": 1,
+      "message": "I can see that if EL3 traps RMM access to some system registers, x30 \u0026 elr_el3 values are reported correctly now, pointing to RMM code page.",
+      "revId": "ecef96cdbf15619a9d85d33cf36b7bac1dae47f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
