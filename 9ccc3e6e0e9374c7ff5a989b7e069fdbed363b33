@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a55b9ee0_3e97502a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000159
+      },
+      "writtenOn": "2023-02-22T12:03:07Z",
+      "side": 1,
+      "message": "Generally, it would be beneficial to decouple any dependency between the SP manifest and TF-A. The manifest format is not standard and it can be SPMC specific.\nFrom TF-A\u0027s point of view the SP binary and the SP manifest are just two blobs. TF-A should pack these binaries into an SP package at build time and then load it to the required physical address without doing anything with the contents of the binaries.",
+      "revId": "9ccc3e6e0e9374c7ff5a989b7e069fdbed363b33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
