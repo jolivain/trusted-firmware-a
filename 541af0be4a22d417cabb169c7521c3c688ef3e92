@@ -16,6 +16,24 @@
       "message": "Hm, I assume \"ld.lld: error: undefined symbol: __aeabi_memclr8\" is not related to this patch.",
       "revId": "541af0be4a22d417cabb169c7521c3c688ef3e92",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e03ef3ed_899f65a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-02-22T08:31:38Z",
+      "side": 1,
+      "message": "Could you rebase your patch on top of integration branch? The 2 issues reported by CI seem now corrected.",
+      "parentUuid": "28eb19d0_dec74e03",
+      "revId": "541af0be4a22d417cabb169c7521c3c688ef3e92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
