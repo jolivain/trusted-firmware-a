@@ -326,12 +326,15 @@ static void setup_context_common(cpu_context_t *ctx, const entry_point_info_t *e
 		scr_el3 |= SCR_ST_BIT;
 	}
 
-	/*
-	 * If FEAT_HCX is enabled, enable access to HCRX_EL2 by setting
-	 * SCR_EL3.HXEn.
-	 */
 	if (is_feat_hcx_supported()) {
+		/*
+		 * If FEAT_HCX is enabled, enable access to HCRX_EL2 by setting
+		 * SCR_EL3.HXEn.
+		 */
 		scr_el3 |= SCR_HXEn_BIT;
+
+		/* Initialize register HCRX_EL2 with its reset value */
+		write_hcrx_el2(HCRX_EL2_RESET_VAL);
 	}
 
 	/*
