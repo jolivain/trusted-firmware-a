@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a20a017_ef224d2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000811
+      },
+      "writtenOn": "2023-02-22T07:06:12Z",
+      "side": 1,
+      "message": "The patch seems to do more than resolving MISRA C violations.",
+      "revId": "dea6975d83c246a905e4d4278b635b6457093fb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfba5263_b05bb727",
+        "filename": "plat/xilinx/common/include/pm_defs.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000811
+      },
+      "writtenOn": "2023-02-22T07:06:12Z",
+      "side": 1,
+      "message": "is this not defined as U()? What error is resolved with this?",
+      "range": {
+        "startLine": 34,
+        "startChar": 42,
+        "endLine": 34,
+        "endChar": 63
+      },
+      "revId": "dea6975d83c246a905e4d4278b635b6457093fb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbfbb118_976b8905",
+        "filename": "plat/xilinx/common/include/pm_node.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000811
+      },
+      "writtenOn": "2023-02-22T07:06:12Z",
+      "side": 1,
+      "message": "we can start using GENMASK()",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 41
+      },
+      "revId": "dea6975d83c246a905e4d4278b635b6457093fb2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
