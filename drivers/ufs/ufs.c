@@ -234,21 +234,12 @@ static int ufshc_link_startup(uintptr_t base)
 	return -EIO;
 }
 
-/* Check Door Bell register to get an empty slot */
-static int get_empty_slot(int *slot)
+/* Read Door Bell register to check if slot zero is available */
+static int is_slot_available(void)
 {
-	unsigned int data;
-	int i;
-
-	data = mmio_read_32(ufs_params.reg_base + UTRLDBR);
-	for (i = 0; i < nutrs; i++) {
-		if ((data & 1) == 0)
-			break;
-		data = data >> 1;
-	}
-	if (i >= nutrs)
+	if (mmio_read_32(ufs_params.reg_base + UTRLDBR) & 0x1) {
 		return -EBUSY;
-	*slot = i;
+	}
 	return 0;
 }
 
@@ -259,7 +250,7 @@ static void get_utrd(utp_utrd_t *utrd)
 	utrd_header_t *hd;
 
 	assert(utrd != NULL);
-	result = get_empty_slot(&slot);
+	result = is_slot_available();
 	assert(result == 0);
 
 	/* clear utrd */
