@@ -33,6 +33,24 @@
       "message": "It\u0027s not strictly true that we guarantee that none of the bootloader images have been ELF-loaded even if none of the upstream platforms do so, but the patch stack to resolve this issue once and for all (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19448/13) is currently triggering a segfault in LD, so I think it\u0027s better that we expedite this patch.",
       "revId": "efbb2dd6290abf64091422d69f6de2894bac33cf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "696cfae9_05148338",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000874
+      },
+      "writtenOn": "2023-02-22T12:17:45Z",
+      "side": 1,
+      "message": "Hm.. if I get it right, the TF-A is loaded either by the ROM loader or by a $bootloader. I never saw a ROM loader nor a bootloader which does honor the ELF format. I\u0027m not again your solution :) It is just about being pragmatic.",
+      "parentUuid": "2bb98d92_962559f4",
+      "revId": "efbb2dd6290abf64091422d69f6de2894bac33cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
