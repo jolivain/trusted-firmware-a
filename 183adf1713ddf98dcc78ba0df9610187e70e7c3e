@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1c61c23_1327c676",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-02-22T16:48:52Z",
+      "side": 1,
+      "message": "Testing Patch-7 from Feb 21 8:44 PM \n\nhttp://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/739/\n\nThere is one failure seen, its unrelated to mbedtls change. Resubmitting the failed test again:\n\nhttps://ci.trustedfirmware.org/job/tf-a-ci-gateway/30226/\n\nIt passes now. Thus setting manual verified +1\n\n",
+      "revId": "183adf1713ddf98dcc78ba0df9610187e70e7c3e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
