@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72cffabd_89f6d94a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 22
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-02-22T08:57:14Z",
+      "side": 1,
+      "message": "The scope should be stm32mp1, and then the \u0027for stm\u0027 at the end of the line can be removed",
+      "revId": "8a9b004645001e476e858a00280cd999fae354d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72f671c3_0781ba00",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 22
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-02-22T08:57:14Z",
+      "side": 1,
+      "message": "stm32mp1",
+      "range": {
+        "startLine": 9,
+        "startChar": 48,
+        "endLine": 9,
+        "endChar": 51
+      },
+      "revId": "8a9b004645001e476e858a00280cd999fae354d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bddeb905_cd42b98c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-02-22T08:57:14Z",
+      "side": 1,
+      "message": "Hi Govindraj,\nSorry for late answer.\nI\u0027ve asked a colleague to test this series on STM32MP1 platform. It should be done by the end of the week.\nI added some minor comments for the commit message. Otherwise, the patch looks OK. I\u0027ll set the COR+1 when the tests are done.\n\nBest regards,\nYann",
+      "revId": "8a9b004645001e476e858a00280cd999fae354d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
