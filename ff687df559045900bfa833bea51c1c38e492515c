@@ -33,6 +33,24 @@
       "message": "Looks like the CI found something:\n\n10:08:02 Warning, treated as error:\n10:08:02 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/docs/design_documents/psci_osi_mode.rst:30:Title underline too short.\n10:08:02 \n10:08:02 Platform-coordinated\n10:08:02 ~~~~~~~~~~~~~~~~~~~\n10:08:02 make[1]: *** [Makefile:25: html] Error 2\n10:08:02 make: *** [Makefile:1575: doc] Error 2\n\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1743530/console",
       "revId": "ff687df559045900bfa833bea51c1c38e492515c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32c8d583_a41480ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2023-02-22T22:36:18Z",
+      "side": 1,
+      "message": "Fixed in the latest patchset. Thanks Joanna!",
+      "parentUuid": "b4333c6f_a5191994",
+      "revId": "ff687df559045900bfa833bea51c1c38e492515c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
