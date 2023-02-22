@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "255b1901_cc3558b4",
+        "filename": "include/lib/cpus/errata.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-02-22T22:12:51Z",
+      "side": 1,
+      "message": "I would put this condition inside the definition of print_errata_status(). \n\nE.g.:\n void print_errata_status(void) {\n   #if REPORT_ERRATA \n   ...\n   \u003cyour code\u003e\n   ...\n   #endif\n }",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 26
+      },
+      "revId": "9a8a5946fa35b4a90fa00961de31c8aee89f1ea6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d6ed6f8_02c67488",
+        "filename": "lib/cpus/errata_report.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-02-22T22:12:51Z",
+      "side": 1,
+      "message": "when",
+      "range": {
+        "startLine": 62,
+        "startChar": 7,
+        "endLine": 62,
+        "endChar": 11
+      },
+      "revId": "9a8a5946fa35b4a90fa00961de31c8aee89f1ea6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
