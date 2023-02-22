@@ -19,6 +19,9 @@ endif
 # Enable new version of image loading on QEMU platforms
 LOAD_IMAGE_V2		:=	1
 
+# Treating this as a memory-constrained port for now
+USE_COHERENT_MEM	:= 0
+
 ifeq ($(NEED_BL32),yes)
 $(eval $(call add_define,QEMU_LOAD_BL32))
 endif
@@ -49,9 +52,23 @@ BL1_SOURCES		+=	drivers/io/io_semihosting.c			\
 				${PLAT_QEMU_COMMON_PATH}/${ARCH}/plat_helpers.S	\
 				${PLAT_QEMU_COMMON_PATH}/qemu_bl1_setup.c
 
+# select a different set of CPU files, depending on whether we compile for
+# hardware assisted coherency cores or not
+ifeq (${HW_ASSISTED_COHERENCY}, 0)
 BL1_SOURCES		+=	lib/cpus/aarch64/cortex_a57.S			\
 				lib/cpus/aarch64/cortex_a72.S			\
 				lib/cpus/aarch64/qemu_max.S			\
+
+else
+# AArch64-only cores
+CTX_INCLUDE_AARCH32_REGS := 0
+ifeq (${CTX_INCLUDE_AARCH32_REGS}, 1)
+$(error "This is an AArch64-only port; CTX_INCLUDE_AARCH32_REGS must be disabled")
+endif
+
+BL1_SOURCES		+=	lib/cpus/aarch64/neoverse_n1.S	\
+
+endif
 
 BL2_SOURCES		+=	drivers/io/io_semihosting.c			\
 				drivers/io/io_storage.c				\
@@ -77,9 +94,14 @@ QEMU_GIC_SOURCES	:=	${GICV3_SOURCES}				\
 				plat/common/plat_gicv3.c			\
 				${PLAT_QEMU_COMMON_PATH}/qemu_gicv3.c
 
+ifeq (${HW_ASSISTED_COHERENCY}, 0)
 BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a57.S			\
-				lib/cpus/aarch64/cortex_a72.S			\
-				lib/cpus/aarch64/qemu_max.S			\
+				lib/cpus/aarch64/cortex_a72.S
+else
+BL31_SOURCES		+= lib/cpus/aarch64/neoverse_n1.S
+endif
+
+BL31_SOURCES +=	lib/cpus/aarch64/qemu_max.S			\
 				lib/semihosting/semihosting.c			\
 				lib/semihosting/${ARCH}/semihosting_call.S	\
 				plat/common/plat_psci_common.c			\
