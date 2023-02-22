@@ -274,6 +274,18 @@ static void setup_ns_context(cpu_context_t *ctx, const struct entry_point_info *
 	u_register_t mdcr_el2 = ((read_pmcr_el0() >> PMCR_EL0_N_SHIFT) &
 			PMCR_EL0_N_MASK);
 	write_ctx_reg(get_el2_sysregs_ctx(ctx), CTX_MDCR_EL2, mdcr_el2);
+
+	if (is_feat_hcx_supported()) {
+		/*
+		 * Initialize register HCRX_EL2 with its reset value.
+		 * As the value of HCRX_EL2 is UNKNOWN on reset, there is a
+		 * chance that this could lead to unexpected behavior in
+		 * lower ELs if not properly initialized, especially when it
+		 * comes to those bits that enable/disable traps.
+		 */
+		write_ctx_reg(get_el2_sysregs_ctx(ctx), CTX_HCRX_EL2,
+			HCRX_EL2_INIT_VAL);
+	}
 #endif /* CTX_INCLUDE_EL2_REGS */
 }
 
@@ -633,6 +645,14 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			hcr_el2 |= (HCR_API_BIT | HCR_APK_BIT);
 
 			write_hcr_el2(hcr_el2);
+
+			/*
+			 * If context is not being used for EL2, initialize
+			 * HCRX_EL2 with its reset value here.
+			 */
+			if (is_feat_hcx_supported()) {
+				write_hcrx_el2(HCRX_EL2_INIT_VAL);
+			}
 
 			/*
 			 * Initialise CPTR_EL2 setting all fields rather than
