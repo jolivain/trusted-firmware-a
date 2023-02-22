@@ -326,12 +326,18 @@ static void setup_context_common(cpu_context_t *ctx, const entry_point_info_t *e
 		scr_el3 |= SCR_ST_BIT;
 	}
 
-	/*
-	 * If FEAT_HCX is enabled, enable access to HCRX_EL2 by setting
-	 * SCR_EL3.HXEn.
-	 */
 	if (is_feat_hcx_supported()) {
+		/*
+		 * If FEAT_HCX is enabled, enable access to HCRX_EL2 by setting
+		 * SCR_EL3.HXEn.
+		 */
 		scr_el3 |= SCR_HXEn_BIT;
+
+#if CTX_INCLUDE_EL2_REGS
+		/* Initialize register HCRX_EL2 with its reset value */
+		write_ctx_reg(get_el2_sysregs_ctx(ctx), CTX_HCRX_EL2,
+			HCRX_EL2_RESET_VAL);
+#endif /* CTX_INCLUDE_EL2_REGS */
 	}
 
 	/*
@@ -633,6 +639,17 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			hcr_el2 |= (HCR_API_BIT | HCR_APK_BIT);
 
 			write_hcr_el2(hcr_el2);
+
+#if !CTX_INCLUDE_EL2_REGS
+			/*
+			 * If context is not being used for EL2, initialize
+			 * HCRX_EL2 with its reset value here.
+			 */
+			if (is_feat_hcx_supported())
+			{
+				write_hcrx_el2(HCRX_EL2_RESET_VAL);
+			}
+#endif /* !CTX_INCLUDE_EL2_REGS */
 
 			/*
 			 * Initialise CPTR_EL2 setting all fields rather than
