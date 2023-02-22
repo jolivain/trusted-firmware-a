@@ -473,6 +473,7 @@ ENABLE_FEAT_ECV			:= 2
 ENABLE_FEAT_PAN			:= 2
 ENABLE_FEAT_TWED		:= 2
 ENABLE_FEAT_VHE			:= 2
+ENABLE_FEAT_SEL2		:= 2
 
 ifeq (${SPMC_AT_EL3}, 1)
 PLAT_BL_COMMON_SOURCES	+=	plat/arm/board/fvp/fvp_el3_spmc.c
