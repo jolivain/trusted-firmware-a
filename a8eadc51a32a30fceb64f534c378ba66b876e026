@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adba3455_eb445fa3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-23T15:17:21Z",
+      "side": 1,
+      "message": "I think we should update the coding guidelines doumentation based on the below decision as a part of separate patch. We can say any third-party headers instead of mbedTLS headers. What are your thoughts?\n\n  /* system header files */\n  #include \u003cstddef.h\u003e\n  /* mbedtls header files */\n  #include \u003cmbedtls/version.h\u003e\n  /* project header files */\n  #include \u003cdrivers/auth/auth_mod.h\u003e\n  #include \u003cdrivers/auth/tbbr_cot_common.h\u003e\n  /* platform header files */\n  #if USE_TBBR_DEFS\n  #include \u003ctools_share/tbbr_oid.h\u003e\n  #else\n  #include \u003cplatform_oid.h\u003e\n  #endif\n  #include \u003cplatform_def.h\u003e",
+      "revId": "a8eadc51a32a30fceb64f534c378ba66b876e026",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
