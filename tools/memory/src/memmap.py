@@ -32,6 +32,12 @@ from printer import TfaPrettyPrinter
     help="The target build type (typically debug or release).",
 )
 @click.option(
+    "-f",
+    "--footprint",
+    is_flag=True,
+    help="Generate a high level view of memory usage by memory types.",
+)
+@click.option(
     "-s",
     "--symbols",
     is_flag=True,
@@ -44,7 +50,7 @@ from printer import TfaPrettyPrinter
     default=False,
     help="Display numbers in hex.",
 )
-def main(root, platform, build_type, symbols, width, x):
+def main(root, platform, build_type, footprint, symbols, width, x):
     build_path = Path(root) if root else Path("build/", platform, build_type)
     click.echo(f"build-path: {build_path.resolve()}")
 
@@ -52,6 +58,9 @@ def main(root, platform, build_type, symbols, width, x):
     printer = TfaPrettyPrinter(columns=width, num_as_hex=x)
 
     modules = parser.get_sorted_mod_names()
+
+    if footprint:
+        printer.print_footprint(parser.get_mem_usage_dict())
 
     if symbols:
         expr = (
