@@ -375,6 +375,18 @@ files = [
 ]
 
 [[package]]
+name = "pyelftools"
+version = "0.29"
+description = "Library for analyzing ELF files and DWARF debugging information"
+category = "dev"
+optional = false
+python-versions = "*"
+files = [
+    {file = "pyelftools-0.29-py2.py3-none-any.whl", hash = "sha256:519f38cf412f073b2d7393aa4682b0190fa901f7c3fa0bff2b82d537690c7fc1"},
+    {file = "pyelftools-0.29.tar.gz", hash = "sha256:ec761596aafa16e282a31de188737e5485552469ac63b60cfcccf22263fd24ff"},
+]
+
+[[package]]
 name = "pygments"
 version = "2.14.0"
 description = "Pygments is a syntax highlighting package written in Python."
@@ -701,4 +713,4 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "d3ed490ba8cc32e2010d69c9f187bd8b2f9f0c65afa604c4ce93d905e32b5005"
+content-hash = "88e4ff9745c89ae105b990898d066761edbb04dcb2522d091b0772acc15b8b3f"
