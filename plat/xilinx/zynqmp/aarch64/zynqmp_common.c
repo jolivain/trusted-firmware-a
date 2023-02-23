@@ -367,9 +367,9 @@ static void zynqmp_print_platform_name(void)
 		break;
 	}
 
-	VERBOSE("TF-A running on %s/%s at 0x%x\n",
+	NOTICE("TF-A running on %s/%s at 0x%x\n",
 		zynqmp_print_silicon_idcode(), label, BL31_BASE);
-	VERBOSE("TF-A running on v%d/RTL%d.%d\n",
+	NOTICE("TF-A running on v%d/RTL%d.%d\n",
 	       zynqmp_get_ps_ver(), (rtl & 0xf0) >> 4, rtl & 0xf);
 }
 #else
