@@ -38,6 +38,17 @@ from memory.printer import TfaPrettyPrinter
     help="Generate a high level view of memory usage by memory types.",
 )
 @click.option(
+    "-t",
+    "--tree",
+    is_flag=True,
+    help="Generate a hierarchical view of the modules, segments and sections.",
+)
+@click.option(
+    "--depth",
+    default=3,
+    help="Generate a virtual address map of important TF symbols.",
+)
+@click.option(
     "-s",
     "--symbols",
     is_flag=True,
@@ -50,7 +61,7 @@ from memory.printer import TfaPrettyPrinter
     default=False,
     help="Display numbers in decimal base.",
 )
-def main(root, platform, build_type, footprint, symbols, width, d):
+def main(root, platform, build_type, footprint, tree, symbols, depth, width, d):
     build_path = Path(root) if root else Path("build/", platform, build_type)
     click.echo(f"build-path: {build_path.resolve()}")
 
@@ -59,8 +70,13 @@ def main(root, platform, build_type, footprint, symbols, width, d):
 
     modules = parser.get_sorted_mod_names()
 
-    if footprint or not symbols:
+    if footprint or not (tree or symbols):
         printer.print_footprint(parser.get_mem_usage_dict())
+
+    if tree:
+        printer.print_mem_tree(
+            parser.get_mem_tree_as_dict(), modules, depth=depth
+        )
 
     if symbols:
         expr = (
