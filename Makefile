@@ -1015,8 +1015,8 @@ SP_MK_GEN		?=	${SPTOOLPATH}/sp_mk_generator.py
 ROMLIBPATH		?=	lib/romlib
 
 # Variables for use with PRINT_MEMORY_MAP
-PRINT_MEMORY_MAP_PATH		?=	tools/memory
-PRINT_MEMORY_MAP		?=	${PRINT_MEMORY_MAP_PATH}/print_memory_map.py
+PRINT_MEMORY_MAP_PATH		?=	tools/memory/src
+PRINT_MEMORY_MAP		?=	${PRINT_MEMORY_MAP_PATH}/memmap.py
 
 # Variables for use with documentation build using Sphinx tool
 DOCS_PATH		?=	docs
@@ -1575,7 +1575,7 @@ romlib.bin: libraries FORCE
 
 # Call print_memory_map tool
 memmap: all
-	${Q}poetry run ${PRINT_MEMORY_MAP} ${BUILD_PLAT} ${INVERTED_MEMMAP}
+	${Q}poetry run ${PRINT_MEMORY_MAP} -sx -p ${PLAT} -b ${BUILD_TYPE}
 
 doc:
 	@echo "  BUILD DOCUMENTATION"
