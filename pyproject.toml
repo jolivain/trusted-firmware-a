@@ -18,6 +18,7 @@ sphinx-rtd-theme = "1.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
+anytree = "^2.8.0"
 pyelftools = "^0.29"
 prettytable = "^3.6.0"
 
