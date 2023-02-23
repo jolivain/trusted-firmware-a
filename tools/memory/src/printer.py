@@ -9,8 +9,10 @@ from prettytable import PrettyTable
 
 
 class TfaPrettyPrinter:
+
     def __init__(self, columns=None, num_as_hex=True):
         self.term_size = columns if columns and columns > 120 else 120
+        self._tree = None
         self._footprint = None
         self._symbol_map = None
         self._num_as_hex = num_as_hex
@@ -19,6 +21,10 @@ class TfaPrettyPrinter:
         if not fmt and type(args[0]) is int:
             fmt = f">{width}x" if self._num_as_hex else f">{width}"
         return [f"{arg:{fmt}}" if fmt else arg for arg in args]
+
+    def format_row(self, leading, *args, width=10, fmt=None):
+        formatted_args = self.format_args(*args, width=width, fmt=fmt)
+        return leading + " ".join(formatted_args)
 
     @staticmethod
     def map_elf_symbol(
@@ -112,3 +118,31 @@ class TfaPrettyPrinter:
         self._symbol_map = ["Virtual Address Map:"]
         self._symbol_map += list(reversed(_symbol_map))
         print("\n".join(self._symbol_map))
+
+    def print_mem_tree(self, mem_map_dict, modules, depth=1):
+        # Start column should have some padding between itself and its data
+        # values.
+        anchor = (depth - 1) * 13 + 12
+
+        self._tree = [
+            (
+                f"{'name':<{anchor}}"
+                + " ".join(
+                    f"{arg:>10}" for arg in ["start", "end", "size"]
+                )
+            )
+        ]
+
+        for mod in sorted(modules):
+            root = DictImporter().import_(mem_map_dict[mod])
+            for pre, fill, node in RenderTree(root, maxlevel=depth):
+                leading = f"{pre}{node.name}".ljust(anchor)
+                self._tree.append(
+                    self.format_row(
+                        leading,
+                        node.start,
+                        node.end,
+                        node.size,
+                    )
+                )
+        print("\n".join(self._tree), "\n")
