@@ -16,3 +16,7 @@ myst-parser = "^0.18.1"
 sphinxcontrib-plantuml = "^0.24.1"
 sphinx-rtd-theme = "1.0.0"
 
+
+[tool.poetry.group.dev.dependencies]
+pyelftools = "^0.29"
+
