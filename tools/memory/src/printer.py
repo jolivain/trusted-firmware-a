@@ -11,6 +11,7 @@ from prettytable import PrettyTable
 class TfaPrettyPrinter:
     def __init__(self, columns=None, num_as_hex=True):
         self.term_size = columns if columns and columns > 120 else 120
+        self._footprint = None
         self._symbol_map = None
         self._num_as_hex = num_as_hex
 
@@ -40,6 +41,35 @@ class TfaPrettyPrinter:
         )
 
         return leading + sec_row_l + sec_row + sec_row_r
+
+    def print_footprint(
+        self, app_mem_usage: dict, sort_key: str = None, fields: list = None
+    ):
+        assert len(app_mem_usage), "Empty memory layout dictionary!"
+        if not fields:
+            fields = ["Component", "Start", "Limit", "Size", "Free", "Total"]
+
+        sort_key = fields[0] if not sort_key else sort_key
+
+        # Iterate through all the memory types, create a table for each
+        # type, rows represent a single module.
+        for mem in sorted(set(k for _, v in app_mem_usage.items() for k in v)):
+            table = PrettyTable(
+                sortby=sort_key,
+                title=f"Memory Usage (bytes) [{mem.upper()}]",
+                field_names=fields,
+            )
+
+            for mod, vals in app_mem_usage.items():
+                if mem in vals.keys():
+                    val = vals[mem]
+                    table.add_row(
+                        [
+                            mod.upper(),
+                            *self.format_args(*[val[k.lower()] for k in fields[1:]])
+                        ]
+                    )
+            print(table, "\n")
 
     def print_symbol_table(
         self,

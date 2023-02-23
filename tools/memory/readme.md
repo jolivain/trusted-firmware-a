@@ -110,3 +110,36 @@ For more detailed help instructions, run:
 ``` shell
 poetry run tools/memory/src/memmap.py --help
 ```
+
+## Memory Footprint
+
+The tool enables users to view static memory consumption. When the options
+`-f`, or `--footprint` are provided, the script analyses the ELF binaries in
+the build path to generate a table (per memory type), showing memory allocation
+and usage.
+
+``` shell
+$ poetry run tools/memory/src/memmap.py -f
+build-path: build/fvp/release
++----------------------------------------------------------------------------+
+|                         Memory Usage (bytes) [RAM]                         |
++-----------+------------+------------+------------+------------+------------+
+| Component |   Start    |   Limit    |    Size    |    Free    |   Total    |
++-----------+------------+------------+------------+------------+------------+
+|    BL1    |   67321856 |   67371008 |      28672 |      20480 |      49152 |
+|    BL2    |   67244032 |   67321856 |      53248 |      24576 |      77824 |
+|    BL2U   |   67244032 |   67321856 |      40960 |      36864 |      77824 |
+|    BL31   |   67121152 |   67371008 |     122880 |     126976 |     249856 |
++-----------+------------+------------+------------+------------+------------+
+
++----------------------------------------------------------------------------+
+|                         Memory Usage (bytes) [ROM]                         |
++-----------+------------+------------+------------+------------+------------+
+| Component |   Start    |   Limit    |    Size    |    Free    |   Total    |
++-----------+------------+------------+------------+------------+------------+
+|    BL1    |          0 |   67108864 |      24032 |   67084832 |   67108864 |
++-----------+------------+------------+------------+------------+------------+
+```
+
+The script relies on symbols in the symbol table to determine the start, end,
+and limit addresses of each bootloader stage.
