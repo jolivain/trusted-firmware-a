@@ -375,6 +375,24 @@ files = [
 ]
 
 [[package]]
+name = "prettytable"
+version = "3.6.0"
+description = "A simple Python library for easily displaying tabular data in a visually appealing ASCII table format"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "prettytable-3.6.0-py3-none-any.whl", hash = "sha256:3b767129491767a3a5108e6f305cbaa650f8020a7db5dfe994a2df7ef7bad0fe"},
+    {file = "prettytable-3.6.0.tar.gz", hash = "sha256:2e0026af955b4ea67b22122f310b90eae890738c08cb0458693a49b6221530ac"},
+]
+
+[package.dependencies]
+wcwidth = "*"
+
+[package.extras]
+tests = ["pytest", "pytest-cov", "pytest-lazy-fixture"]
+
+[[package]]
 name = "pyelftools"
 version = "0.29"
 description = "Library for analyzing ELF files and DWARF debugging information"
@@ -710,7 +728,19 @@ brotli = ["brotli (>=1.0.9)", "brotlicffi (>=0.8.0)", "brotlipy (>=0.6.0)"]
 secure = ["certifi", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "ipaddress", "pyOpenSSL (>=0.14)", "urllib3-secure-extra"]
 socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
+[[package]]
+name = "wcwidth"
+version = "0.2.6"
+description = "Measures the displayed width of unicode strings in a terminal"
+category = "dev"
+optional = false
+python-versions = "*"
+files = [
+    {file = "wcwidth-0.2.6-py2.py3-none-any.whl", hash = "sha256:795b138f6875577cd91bba52baf9e445cd5118fd32723b460e30a0af30ea230e"},
+    {file = "wcwidth-0.2.6.tar.gz", hash = "sha256:a5220780a404dbe3353789870978e472cfe477761f06ee55077256e509b156d0"},
+]
+
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "88e4ff9745c89ae105b990898d066761edbb04dcb2522d091b0772acc15b8b3f"
+content-hash = "7222595658bc4f1b55b8060902284bccf41c901ad1490b85244a5c6c33c91b77"
