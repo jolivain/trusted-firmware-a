@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bb06cde0_b62d96cd",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-02-23T16:02:32Z",
+      "side": 1,
+      "message": "minor nit not sure we need a brackets here... it could be just macro with braces?",
+      "range": {
+        "startLine": 142,
+        "startChar": 39,
+        "endLine": 142,
+        "endChar": 40
+      },
+      "revId": "d229fdad21bbd6dfdf9bfd8d781d4363127a51d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9386b4bd_0ed7a2d8",
         "filename": "include/plat/arm/common/arm_def.h",
         "patchSetId": 6
