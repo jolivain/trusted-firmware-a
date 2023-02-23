@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4f9e43ad_86450f17",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-23T21:17:56Z",
+      "side": 1,
+      "message": "Thanks, it should be TZC secured DRAM. Let me correct it. \nWe have Trusted DRAM separately in FVP from 0x00_0600_0000 to 0x00_07FF_FFFF (32MB)",
+      "parentUuid": "ea428ff4_baf737f9",
+      "range": {
+        "startLine": 9,
+        "startChar": 47,
+        "endLine": 9,
+        "endChar": 59
+      },
+      "revId": "6aca02615eb7bc0151b42b238604619e6a781c06",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b9bc91a6_88c3f72d",
         "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
         "patchSetId": 8
