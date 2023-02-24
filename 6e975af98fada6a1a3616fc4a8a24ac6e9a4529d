@@ -69,6 +69,24 @@
       "message": "So looking at the earlier patch (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/18044/6), there seemed to be three reasons to not go with the statement type:\n1) Coverity recommends against using the __attribute__ directive\n2) zlib does not build with higher -Wimplicit-fallthrough\u003dx levels (and we cannot change that code)\n3) compilers strip comments before expanding macros\n\nFrom what I can see, 3) is not relevant, the original macro from the Linux tree needs to cover compilers before GCC v7.1.0, which we don\u0027t support. So we can just drop the #else part, like done here in this patch.\nWe can\u0027t do anything about 2) anyway, but this does not prevent the statement solution, it just blocks -Wimplicit-fallthrough\u003e3, which the comment version wouldn\u0027t allow either, for *all* code.\n\nWhich leaves 1), and I am wondering why this is? Is there any rationale from Coverity, and does this apply to every version? Are there any pointers to previous discussions? It seems like everyone seems to agree that the attribute is the right solution going forward, because it doesn\u0027t abuse a comment. The statement is derived from \"[[fallthrough]];\" which is part of the official C++17 standard, but is only applicable to C++, although there are reportedly effort to allow that directly in C as well. And having a macro to the attribute seems to be the best option to me, because it allows to change the exact annotation in one central place.\nThere is a 5 year old Linux kernel thread discussing several options, with their pros and cons:\nhttps://patchwork.kernel.org/project/linux-kbuild/patch/20181021171414.22674-2-miguel.ojeda.sandonis@gmail.com/\n\nSo I would like to pick up that discussion again, and am happy to push a patch that changes the comments to statements (like done in Boyan\u0027s original version), if we agree on that.",
       "revId": "6e975af98fada6a1a3616fc4a8a24ac6e9a4529d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "741c8238_2cce4973",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-02-24T17:29:44Z",
+      "side": 1,
+      "message": "I think we need not be concerned by Coverity MISRA recommendation against using __attribute__ directive. We are anyway moving away from it (in favor of Eclair tool that is publicly deployed in OpenCI). Moreover, I see numerous instances where __attribute__ directive is used in TF-A.\n\nI have no objection to creating a new macro that leverages fallthrough attribute directive.",
+      "parentUuid": "9daa9ee2_1fd8a803",
+      "revId": "6e975af98fada6a1a3616fc4a8a24ac6e9a4529d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
