@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3cf05e1_e9de020b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-24T15:11:55Z",
+      "side": 1,
+      "message": "I\u0027ve analysed the CI failures. \n\nCommit linter checks failed, please fix:\n  subject must not be sentence-case, start-case, pascal-case, upper-case [subject-case]\n\nCoding style checks failed, please fix:\n  drivers/auth/mbedtls/mbedtls_x509_parser.c:103: ERROR: code indent should use tabs where possible\n\nOne build failure (config tf-l2-build-juno/juno-tzmp-mbedtls-ecdsa-opteed:nil):\n\n  aarch64-none-elf-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/juno/debug/bl2/bl2.elf section `xlat_table\u0027 will not fit in region `RAM\u0027\n  aarch64-none-elf-ld.bfd: BL2 image has exceeded its limit.\n  aarch64-none-elf-ld.bfd: region `RAM\u0027 overflowed by 4096 bytes\n\nThis means one of the firmware images has grown passed its memory footprint allowance.\nI suspect it\u0027s unrelated to this patch - if anything, we are *removing* code!\nI\u0027ll try rebasing the patch set, maybe that got fixed upstream in the meantime.\n\nOne test failure (config tf-l2-boot-tests-rootfs/fvp-tspd-aarch64-only-with-nstimer:fvp-linux.rootfs-dtb.1t-fip.uboot-aemv8a.64only-tspd-debug):  \nSuccessfully booted all the way through the kernel and beyond but timed out.\nRetriggered: https://ci.trustedfirmware.org/job/tf-a-ci-gateway/30509/console\nLet\u0027s see how it goes this time...",
+      "revId": "260d341a838e5801cb108812bdad0d07d8c8e528",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e811e933_74ef6666",
