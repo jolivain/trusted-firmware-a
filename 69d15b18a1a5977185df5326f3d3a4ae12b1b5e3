@@ -34,6 +34,24 @@
       "parentUuid": "246b54aa_bc2ecbb9",
       "revId": "69d15b18a1a5977185df5326f3d3a4ae12b1b5e3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5434817_73c634c4",
+        "filename": "include/arch/aarch32/arch_features.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-02-24T17:14:52Z",
+      "side": 1,
+      "message": "Ok. I missed that.\nWe in the team, thought of merging few patches from the bottom of the stack, which had received few votes. Hence triggered CI+2 from this patch and CI failed for few build configs. Hence notified.\nThanks!",
+      "parentUuid": "4691dc60_a969c8ad",
+      "revId": "69d15b18a1a5977185df5326f3d3a4ae12b1b5e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
