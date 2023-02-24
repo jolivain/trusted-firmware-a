@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c61e093_5656a5ce",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-24T11:48:16Z",
+      "side": 1,
+      "message": "Can we enable SVE in the \u0027else\u0027 part that avoids checking SME support again at line no. 492?",
+      "revId": "cf0848c8c5761445444857ee82a8eaca8a268569",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
