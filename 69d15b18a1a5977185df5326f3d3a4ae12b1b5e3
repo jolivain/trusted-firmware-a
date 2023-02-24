@@ -16,6 +16,24 @@
       "message": "We need to include #include \u003ccommon/feat_detect.h\u003e header here to resolve build issue.\nFEAT_STATE_ALWAYS and DISABLED macros are defined in it.",
       "revId": "69d15b18a1a5977185df5326f3d3a4ae12b1b5e3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4691dc60_a969c8ad",
+        "filename": "include/arch/aarch32/arch_features.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-02-24T16:57:30Z",
+      "side": 1,
+      "message": "Ah yeah, I did this in a later patch (SYS_REG_TRACE), but missed that this is the first one to need this. Thanks for spotting.",
+      "parentUuid": "246b54aa_bc2ecbb9",
+      "revId": "69d15b18a1a5977185df5326f3d3a4ae12b1b5e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
