@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72e99e62_f143c68c",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-02-24T18:38:54Z",
+      "side": 0,
+      "message": "Is there a reason to remove this check and save always no matter the security state you are coming from? In such case, you should explain it in the patch description.",
+      "revId": "41fb18aa80119c5f4d5331b303c239781c3b6ff4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
