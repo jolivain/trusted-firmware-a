@@ -16,6 +16,24 @@
       "message": "Were the tests updated to account for these changes? I see failures on staging (which thus may have incomplete snapshot of the code, just checking).\n",
       "revId": "7e619ecc89355136c27d0295858e08c808aa6373",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "482b19a6_664d37fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-02-24T15:43:38Z",
+      "side": 1,
+      "message": "Hi Paul, Yes the necessary CI patches are now merged:\n\nhttps://review.trustedfirmware.org/q/project:ci/tf-a-ci-scripts+topic:%2522panic_cleanup%2522",
+      "parentUuid": "78cd6231_a7fb3250",
+      "revId": "7e619ecc89355136c27d0295858e08c808aa6373",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
