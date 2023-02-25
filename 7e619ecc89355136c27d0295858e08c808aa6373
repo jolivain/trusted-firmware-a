@@ -34,6 +34,24 @@
       "parentUuid": "78cd6231_a7fb3250",
       "revId": "7e619ecc89355136c27d0295858e08c808aa6373",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1ce2305_8966780a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000709
+      },
+      "writtenOn": "2023-02-25T04:00:55Z",
+      "side": 1,
+      "message": "Thanks Govindraj! Those seem to be fixed. But there\u0027re still some build failures exposed by the latest daily build:\n\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1760890/console\n\nfvp-aarch32-roxlattables,fvp-aarch32-default:fvp-tftf-fip.tftf-aemv8a.aarch32.roxlattables.spmin_panic-debug\n\n00:01:43.780 arm-none-eabi-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/bl32/entrypoint.o: in function `sp_min_vector_table\u0027:\n00:01:43.780 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/bl32/sp_min/aarch32/entrypoint.S:55: undefined reference to `do_panic\u0027\n\n---\n\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1760904/\n\nfvp-aarch64-roxlattables-tspd,fvp-default:fvp-tftf-fip.tftf-aemv8a.roxlattables.tspd_panic-debug\n\n00:02:50.052 aarch64-none-elf-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/bl32/tsp_exceptions.o: in function `sync_exception_sp_elx\u0027:\n00:02:50.052 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/bl32/tsp/aarch64/tsp_exceptions.S:105: undefined reference to `do_panic\u0027",
+      "parentUuid": "482b19a6_664d37fc",
+      "revId": "7e619ecc89355136c27d0295858e08c808aa6373",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
