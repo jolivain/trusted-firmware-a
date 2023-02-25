@@ -16,6 +16,24 @@
       "message": "The intention here was to ensure that the calculated address of the mrds remains within the bounds of the desriptor, would you be able to elaborate on what logic was missing here?",
       "revId": "66b925f41e007ebd9d0761ae1753371c963f2234",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2f4c3d4_b354bd86",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-02-25T04:06:02Z",
+      "side": 0,
+      "message": "This code only checked that the first mrd is within bounds, not that every mrd is within bounds.",
+      "parentUuid": "e2cccf08_b360b524",
+      "revId": "66b925f41e007ebd9d0761ae1753371c963f2234",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
