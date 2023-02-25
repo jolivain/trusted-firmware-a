@@ -22,6 +22,30 @@
       },
       "revId": "16bbdb5352819d6638bd68058b21fdffdf8005f0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8393ca51_43217071",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-02-25T04:08:16Z",
+      "side": 1,
+      "message": "Panic would be better for security in the event the code has a bug, but I will switch.",
+      "parentUuid": "97a38057_f4d69206",
+      "range": {
+        "startLine": 200,
+        "startChar": 1,
+        "endLine": 204,
+        "endChar": 2
+      },
+      "revId": "16bbdb5352819d6638bd68058b21fdffdf8005f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
