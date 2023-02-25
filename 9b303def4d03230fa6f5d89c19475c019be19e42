@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c2fa03c3_d42b50b4",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-02-25T14:00:32Z",
+      "side": 1,
+      "message": "not sure i follow. Which two are equivalent? and which new version?\nCan you explain your comment another way? i\u0027m not drawing the line between the two compiler options and what i\u0027m asking for.",
+      "parentUuid": "4b3eaf90_e4b365fb",
+      "range": {
+        "startLine": 204,
+        "startChar": 20,
+        "endLine": 204,
+        "endChar": 25
+      },
+      "revId": "9b303def4d03230fa6f5d89c19475c019be19e42",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a00b96ec_4e19b341",
         "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
         "patchSetId": 5
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "Asserts will be added later.",
       "parentUuid": "1b1be937_4a875714",
+      "range": {
+        "startLine": 214,
+        "startChar": 9,
+        "endLine": 215,
+        "endChar": 1
+      },
+      "revId": "9b303def4d03230fa6f5d89c19475c019be19e42",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6de24ba3_c4d9ec51",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-02-25T14:00:32Z",
+      "side": 1,
+      "message": "have they been added? if yes, can you point to those reviews?",
+      "parentUuid": "bff645bc_706e5958",
       "range": {
         "startLine": 214,
         "startChar": 9,
