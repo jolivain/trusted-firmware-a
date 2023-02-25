@@ -52,6 +52,24 @@
       "parentUuid": "482b19a6_664d37fc",
       "revId": "7e619ecc89355136c27d0295858e08c808aa6373",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "150c21a6_0d7887e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000709
+      },
+      "writtenOn": "2023-02-25T04:28:54Z",
+      "side": 1,
+      "message": "\u003e Those seem to be fixed.\n\nActually no, even there seems to be problem, e.g. https://ci.trustedfirmware.org/job/tf-a-builder/1760668/ -\u003e https://tf.validation.linaro.org/scheduler/job/1384607 : \n\n\u003e Waiting for \u0027PANIC in EL3.\u0027\n\nBut there\u0027s no such message output, there\u0027s\n\n\u003e Unhandled Exception from lower EL.\n\u003e x0             \u003d 0x0000000000000001\n\u003e x1             \u003d 0x0000000000000000",
+      "parentUuid": "a1ce2305_8966780a",
+      "revId": "7e619ecc89355136c27d0295858e08c808aa6373",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
