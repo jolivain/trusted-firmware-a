@@ -54,6 +54,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d1c9a9c_2ff37006",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-02-25T04:13:30Z",
+      "side": 1,
+      "message": "\u003e @Demi: Do you have any idea why this patch set might cause the firmware binaries to grow?\n\nNope.  Probably something to do with compiler optimizations.  I recommend asking Arm’s compiler and/or linker teams; they will have a better answer than I.",
+      "parentUuid": "b04bf00e_89ae3c45",
+      "revId": "260d341a838e5801cb108812bdad0d07d8c8e528",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e811e933_74ef6666",
