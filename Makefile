@@ -627,6 +627,15 @@ ifneq (${SPD},none)
     # over the sources.
 endif
 
+ifeq (${ENABLE_SPMD_LP}, 1)
+ifeq (${SPD},none)
+        $(error Error: ENABLE_SPMD_LP requires SPD=spmd.)
+endif
+ifeq ($(SPMC_AT_EL3),1)
+        $(error SPMC at EL3 not supported when enabling SPMD Logical partitions.)
+endif
+endif
+
 ifeq (${CTX_INCLUDE_EL2_REGS}, 1)
 ifeq (${SPD},none)
 ifeq (${ENABLE_RME},0)
@@ -1164,6 +1173,7 @@ $(eval $(call assert_booleans,\
         SPM_MM \
         SPMC_AT_EL3 \
         SPMD_SPM_AT_SEL2 \
+        ENABLE_SPMD_LP \
         TRUSTED_BOARD_BOOT \
         USE_COHERENT_MEM \
         USE_DEBUGFS \
@@ -1377,6 +1387,7 @@ $(eval $(call add_defines,\
         ENABLE_FEAT_TWED \
 	CONDITIONAL_CMO \
 	IMPDEF_SYSREG_TRAP \
+        ENABLE_SPMD_LP \
 )))
 
 ifeq (${SANITIZE_UB},trap)
