@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d45e4e53_37a417f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 23
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-02-27T12:46:19Z",
+      "side": 1,
+      "message": "Hi Govindraj,\n\nThis mbedtls-3.3 series has been tested OK on STM32MP15 and STM32MP13.\nWith both MBEDTLS v2.28.1 and v3.3.\nYou can then change the commit header to:\nfeat(stm32mp1): add mbedtls-3.3 support config\n\n\nThanks,\nYann",
+      "revId": "5bb4b79503fc9afc411e3d4dce126a7fb2501564",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
