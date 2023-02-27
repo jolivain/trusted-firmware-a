@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c2a6df9_7ae2fd72",
+        "filename": "lib/psa/nv_counter_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-27T13:55:46Z",
+      "side": 1,
+      "message": "I think we should move this file under plat/arm/board/tc. This is not a generic test because it uses platform-specific counter ids (0, 1, 2).\n\nIf we wanted to make it generic we\u0027d need the platform layer to export a structure describing the NV-counters ids to test, but that is more involved and I don\u0027t think we need this type of flexibility right now.",
+      "revId": "deae0b079441ccf65230020cd5f91e56777af00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "445d82be_95fc9c7d",
+        "filename": "lib/psa/nv_counter_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-27T13:55:46Z",
+      "side": 1,
+      "message": "Arm Limited.\n(no other contributors)",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 52
+      },
+      "revId": "deae0b079441ccf65230020cd5f91e56777af00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d990ede_6dbaaf87",
+        "filename": "lib/psa/nv_counter_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-27T13:55:46Z",
+      "side": 1,
+      "message": "Use existing PLAT_RSS_AP_SND_MHU_BASE and PLAT_RSS_AP_RCV_MHU_BASE macros.",
+      "range": {
+        "startLine": 21,
+        "startChar": 25,
+        "endLine": 21,
+        "endChar": 51
+      },
+      "revId": "deae0b079441ccf65230020cd5f91e56777af00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4681fb5a_ef6bc591",
+        "filename": "lib/psa/nv_counter_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-27T13:55:46Z",
+      "side": 1,
+      "message": "if (status !\u003d PSA_SUCCESS)",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 11
+      },
+      "revId": "deae0b079441ccf65230020cd5f91e56777af00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1aad76e5_3ea6b9dd",
+        "filename": "lib/psa/nv_counter_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-27T13:55:46Z",
+      "side": 1,
+      "message": "This feels very much like an early-days debug print. I would remove it, or replace it with something more descriptive, such as \"Failed to initialize RSS communication channel.\".",
+      "range": {
+        "startLine": 23,
+        "startChar": 2,
+        "endLine": 23,
+        "endChar": 75
+      },
+      "revId": "deae0b079441ccf65230020cd5f91e56777af00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2b9a5e0_b9a1b003",
+        "filename": "lib/psa/nv_counter_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-27T13:55:46Z",
+      "side": 1,
+      "message": "Again this feels very much like an early-days debug print. I would remove it.\n\nSame comment applies to the rest of this function body.",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 48
+      },
+      "revId": "deae0b079441ccf65230020cd5f91e56777af00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35f230d0_2253b438",
+        "filename": "lib/psa/nv_counter_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-27T13:55:46Z",
+      "side": 1,
+      "message": "Remove or replace with something more descriptive.\n\nSame comment applies to the rest of this function body.",
+      "range": {
+        "startLine": 32,
+        "startChar": 3,
+        "endLine": 32,
+        "endChar": 76
+      },
+      "revId": "deae0b079441ccf65230020cd5f91e56777af00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93598fd3_34ed24d8",
+        "filename": "lib/psa/nv_counter_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-27T13:55:46Z",
+      "side": 1,
+      "message": "Coding style: Add a space between \u0027if\u0027 keyword and opening parenthesis.",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 5
+      },
+      "revId": "deae0b079441ccf65230020cd5f91e56777af00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d02640c6_b8655fbf",
+        "filename": "plat/arm/board/tc/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-27T13:55:46Z",
+      "side": 1,
+      "message": "Sorry Lauren, I now realize you misunderstood what I had in mind, probably I was not clear enough. In my mind, commenting out the platform_test.mk makefile inclusion was always a temporary hack to make some further progress on your local machine, but I don\u0027t think it is an acceptable solution for upstream TF-A. Even though the TF-M test suite is not run in the OpenCI right now, we still need to retain the ability to run it locally.\n\nFor upstream TF-A, we need to do some refactoring to support both TF-M testsuite and the RSS/AP non-volatile counter test you are introducing. One way to do this (which Jimmy suggested in the past) is to turn the PLATFORM_TEST macro into a string-like build option (instead of a boolean one), where the string specifies the type of tests we want to run. For example, PLATFORM_TEST\u003dtfm-testsuite vs PLATFORM_TEST\u003drss-nv-counters. Based on the value of PLATFORM_TEST in this makefile, we can pull in different source files.\n\nPLATFORM_TEST\u003dtfm-testsuite -\u003e Pull in tf-m-tests and tf-m-extra repositories, attestation and measured boot test cases, libmbedtls files.\n\nPLATFORM_TEST\u003drss-nv-counters -\u003e Pull in PSA layer, RSS \u0026 MHU drivers.",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 216,
+        "endChar": 5
+      },
+      "revId": "deae0b079441ccf65230020cd5f91e56777af00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "810967d3_1c8660f2",
+        "filename": "plat/arm/board/tc/tc_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-27T13:55:46Z",
+      "side": 1,
+      "message": "We need to retain this behaviour, i.e. replace the while(1) loop above by a call to the platform error handler. After executing any sort of platform tests, we should panic, regardless of whether the said tests passed or failed. This is to reduce the risk of shipping firmware with temporary test code in it. If we panic, it makes it very clear that this is not a production-ready build.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 26
+      },
+      "revId": "deae0b079441ccf65230020cd5f91e56777af00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
