@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c29e1198_218bba22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-02-27T10:40:40Z",
+      "side": 1,
+      "message": "PLAT_VERSAL_GICD_BASE are renamed but not the whole code is updated.\n\nI think you should have separate patch for creating more generic PLAT_GICD_BASE_VALUE (and also PLAT_GICR_BASE_VALUE)\n\nAnd you need to fix also \nplat/xilinx/versal/include/plat_macros.S:105:   mov_imm x17, PLAT_VERSAL_GICD_BASE\nplat/xilinx/versal_net/include/plat_macros.S:112:       mov_imm x17, PLAT_VERSAL_NET_GICD_BASE\n\n",
+      "revId": "9c225eea1a71ece53b0affbf381758f5f6fe95e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
