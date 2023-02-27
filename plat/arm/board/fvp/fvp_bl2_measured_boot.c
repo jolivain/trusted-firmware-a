@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -196,9 +196,7 @@ void bl2_plat_mboot_finish(void)
 	event_log_cur_size = event_log_get_cur_size((uint8_t *)event_log_base);
 
 	rc = arm_set_nt_fw_info(
-#ifdef SPD_opteed
 			    (uintptr_t)event_log_base,
-#endif
 			    event_log_cur_size, &ns_log_addr);
 	if (rc != 0) {
 		ERROR("%s(): Unable to update %s_FW_CONFIG\n",

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -129,9 +129,7 @@ int arm_set_dtb_mbedtls_heap_info(void *dtb, void *heap_addr, size_t heap_size)
  *    < 0 = error
  */
 static int arm_set_event_log_info(uintptr_t config_base,
-#ifdef SPD_opteed
-				  uintptr_t sm_log_addr,
-#endif
+				  __unused uintptr_t sm_log_addr,
 				  uintptr_t log_addr, size_t log_size)
 {
 	/* As libfdt uses void *, we can't avoid this cast */
@@ -222,10 +220,8 @@ int arm_set_tos_fw_info(uintptr_t log_addr, size_t log_size)
 
 	/* Write the Event Log address and its size in the DTB */
 	err = arm_set_event_log_info(config_base,
-#ifdef SPD_opteed
-					0UL,
-#endif
-					log_addr, log_size);
+				     0UL,
+				     log_addr, log_size);
 	if (err < 0) {
 		ERROR("%sEvent Log data to TOS_FW_CONFIG\n",
 					"Unable to write ");
@@ -244,11 +240,8 @@ int arm_set_tos_fw_info(uintptr_t log_addr, size_t log_size)
  *	0 = success
  *    < 0 = error
  */
-int arm_set_nt_fw_info(
-#ifdef SPD_opteed
-			uintptr_t log_addr,
-#endif
-			size_t log_size, uintptr_t *ns_log_addr)
+int arm_set_nt_fw_info(__unused uintptr_t log_addr,
+		       size_t log_size, uintptr_t *ns_log_addr)
 {
 	uintptr_t config_base;
 	uintptr_t ns_addr;
@@ -274,10 +267,8 @@ int arm_set_nt_fw_info(
 
 	/* Write the Event Log address and its size in the DTB */
 	err = arm_set_event_log_info(config_base,
-#ifdef SPD_opteed
-					log_addr,
-#endif
-					ns_addr, log_size);
+				     log_addr,
+				     ns_addr, log_size);
 
 	/* Return Event Log address in Non-secure memory */
 	*ns_log_addr = (err < 0) ? 0UL : ns_addr;
@@ -310,9 +301,7 @@ int arm_set_tb_fw_info(uintptr_t log_addr, size_t log_size)
 	tb_fw_cfg_dtb = tb_fw_config_info->config_addr;
 
 	err = arm_set_event_log_info(tb_fw_cfg_dtb,
-#ifdef SPD_opteed
 				     0UL,
-#endif
 				     log_addr, log_size);
 	return err;
 }
