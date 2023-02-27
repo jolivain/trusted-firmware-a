@@ -212,6 +212,30 @@
       },
       "revId": "9b303def4d03230fa6f5d89c19475c019be19e42",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fb1d313_1794e449",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-02-27T19:03:54Z",
+      "side": 1,
+      "message": "Not yet, but the asserts were not there to begin with, so this does not make the situation any worse.",
+      "parentUuid": "6de24ba3_c4d9ec51",
+      "range": {
+        "startLine": 214,
+        "startChar": 9,
+        "endLine": 215,
+        "endChar": 1
+      },
+      "revId": "9b303def4d03230fa6f5d89c19475c019be19e42",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
