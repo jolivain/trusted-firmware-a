@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "78598fa1_633e839c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-02-27T11:25:17Z",
+      "side": 1,
+      "message": "Look at my other response.",
+      "parentUuid": "68de385a_dddbbf67",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 60
+      },
+      "revId": "09b342a9d3aa030bde6d52e39203b9b8c8e6b106",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e548550a_969bc28c",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -89,6 +113,30 @@
       "writtenOn": "2023-02-27T08:15:14Z",
       "side": 1,
       "message": "From SMCCCv1.3, Bit 16 (SVE hint) shall be allowed to be either 0 or 1.\nThe spec changed to ensure bits 23:17 are zero and the mask does no longer include bit 16.",
+      "range": {
+        "startLine": 76,
+        "startChar": 1,
+        "endLine": 76,
+        "endChar": 30
+      },
+      "revId": "09b342a9d3aa030bde6d52e39203b9b8c8e6b106",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0948696d_11888c24",
+        "filename": "plat/xilinx/zynqmp/sip_svc_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-02-27T11:25:17Z",
+      "side": 1,
+      "message": "Bit 16 is masked and cleared by the core already that\u0027s why it should be 0 all the time. I hope that we would be able to remove this checking once this is checked by the core.",
+      "parentUuid": "0d7aa568_600bd5ea",
       "range": {
         "startLine": 76,
         "startChar": 1,
