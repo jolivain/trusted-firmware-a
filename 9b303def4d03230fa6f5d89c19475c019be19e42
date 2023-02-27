@@ -72,6 +72,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bdf89ae_3904a8a3",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-02-27T19:03:39Z",
+      "side": 1,
+      "message": "If my understanding of the C standard is correct, ‘(uint8_t *)\u0026desc-\u003eemad’ gives a pointer that can only validly be used for accessing `emad`, while ‘(uint8_t *)desc + offsetof(struct ffa_mtd_v1_0, emad’ gives a pointer that can be used for accessing all of ‘desc‘.  -fno-strict-aliasing and -fno-strict-overflow tell the compiler to not assume that one will not perform out-of-bounds pointer arithmetic.",
+      "parentUuid": "c2fa03c3_d42b50b4",
+      "range": {
+        "startLine": 204,
+        "startChar": 20,
+        "endLine": 204,
+        "endChar": 25
+      },
+      "revId": "9b303def4d03230fa6f5d89c19475c019be19e42",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a00b96ec_4e19b341",
