@@ -87,6 +87,24 @@
       "parentUuid": "9daa9ee2_1fd8a803",
       "revId": "6e975af98fada6a1a3616fc4a8a24ac6e9a4529d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48b27836_adae312a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-02-27T12:03:15Z",
+      "side": 1,
+      "message": "I\u0027d really like to have the macro, it\u0027s what I originally wanted to get but couldn\u0027t. I don\u0027t think anyone had any objections at the time either (besides MISRA of course). There was one small problem that I never documented: there is one platform that uses an ancient GCC version (even though I don\u0027t think it\u0027s meant to) which gave further trouble. So 3) might not be strictly irrelevant (even though it should probably be)",
+      "parentUuid": "741c8238_2cce4973",
+      "revId": "6e975af98fada6a1a3616fc4a8a24ac6e9a4529d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
