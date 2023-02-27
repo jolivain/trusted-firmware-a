@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c6f2bb4_d8e76193",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-02-27T16:42:46Z",
+      "side": 1,
+      "message": "Seems like we need not support -O0 build.\n\nBut for the FVP , if MPAM is present, shouldn\u0027t MPAM be programmed correctly to protect Secure world (in which case MPAM should also default to CHECK for FVP)? Also I dont find mpam_enable() being called in Secure world init path. \n\nSo if mpam is disabled for Secure world, should it be saved and restored ?\n\nI may be missing something for MPAM wrt to Secure world.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 0
+      },
+      "revId": "46daeb9e830b69e287cae3f02675ecdfae5018e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c0cc36ac_a010f943",
         "filename": "include/lib/extensions/mpam.h",
         "patchSetId": 7
