@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "68de385a_dddbbf67",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-02-27T08:15:14Z",
+      "side": 1,
+      "message": "Note, for the record, this is true for fast calls until SMCCC v1.2.\nFrom SMCCCv1.3, bit 16 shall be ignored and the SiP handler may not return an error in case this bit is set.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 60
+      },
+      "revId": "09b342a9d3aa030bde6d52e39203b9b8c8e6b106",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e548550a_969bc28c",
@@ -49,6 +72,29 @@
       "side": 1,
       "message": "I was thinking to break that line to fit inside 80 chars but long lines were problem long time ago but not now that\u0027s why decided to keep it on single line.",
       "parentUuid": "e548550a_969bc28c",
+      "revId": "09b342a9d3aa030bde6d52e39203b9b8c8e6b106",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d7aa568_600bd5ea",
+        "filename": "plat/xilinx/zynqmp/sip_svc_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-02-27T08:15:14Z",
+      "side": 1,
+      "message": "From SMCCCv1.3, Bit 16 (SVE hint) shall be allowed to be either 0 or 1.\nThe spec changed to ensure bits 23:17 are zero and the mask does no longer include bit 16.",
+      "range": {
+        "startLine": 76,
+        "startChar": 1,
+        "endLine": 76,
+        "endChar": 30
+      },
       "revId": "09b342a9d3aa030bde6d52e39203b9b8c8e6b106",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
