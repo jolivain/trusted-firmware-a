@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5971f6ab_d345dc33",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1306,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-02-27T19:05:56Z",
+      "side": 1,
+      "message": "nit: One line if statements should use brackets.",
+      "range": {
+        "startLine": 1305,
+        "startChar": 2,
+        "endLine": 1306,
+        "endChar": 18
+      },
+      "revId": "006044988e4059fcc20b80552e602d91a5f09464",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2877f065_71614a52",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1334,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-02-27T19:05:56Z",
+      "side": 1,
+      "message": "nit: Could these lines be wrapped?",
+      "range": {
+        "startLine": 1334,
+        "startChar": 71,
+        "endLine": 1334,
+        "endChar": 72
+      },
+      "revId": "006044988e4059fcc20b80552e602d91a5f09464",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
