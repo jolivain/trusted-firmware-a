@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "922e06d1_8183dc0f",
+        "filename": "docs/design_documents/psci_osi_mode.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-02-27T11:27:10Z",
+      "side": 1,
+      "message": "I propose adding \"for the cluster\" to this sentence. IIUC, the CPU power state management works well with platform initiated model. The cluster power state management is the problem, right?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 6
+      },
+      "revId": "da22b10009de25b4edfb6a8a9ae010c038465116",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bacd2dfc_2758a41b",
+        "filename": "docs/design_documents/psci_osi_mode.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-02-27T11:27:10Z",
+      "side": 1,
+      "message": "Are you saying that TF-A will need to check the system state? Or is this a flexibility in the design to also support an external power management controller? If yes, shouldn\u0027t we they enable platform initiated mode instead and allow the PM controller take control?",
+      "range": {
+        "startLine": 203,
+        "startChar": 29,
+        "endLine": 204,
+        "endChar": 43
+      },
+      "revId": "da22b10009de25b4edfb6a8a9ae010c038465116",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b9439a0_19df4517",
+        "filename": "docs/design_documents/psci_osi_mode.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-02-27T11:27:10Z",
+      "side": 1,
+      "message": "Does this mean platforms deny any CPU_ON requests after this point too? Wouldn\u0027t this add latency to the CPU ON sequence?\n\nPlease let me know if this seems like a hypothetical scenario and cannot occur in the real world.",
+      "range": {
+        "startLine": 220,
+        "startChar": 2,
+        "endLine": 221,
+        "endChar": 71
+      },
+      "revId": "da22b10009de25b4edfb6a8a9ae010c038465116",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3840c7f8_ca0f155d",
+        "filename": "docs/design_documents/psci_osi_mode.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-02-27T11:27:10Z",
+      "side": 1,
+      "message": "Can you also document the modified sequence with the newly introduced functions? A sequence diagram would be best, but other means should be OK too.",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 312,
+        "endChar": 38
+      },
+      "revId": "da22b10009de25b4edfb6a8a9ae010c038465116",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
