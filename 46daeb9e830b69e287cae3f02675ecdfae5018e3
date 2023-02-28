@@ -149,6 +149,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a541423c_d3ffc2f8",
+        "filename": "include/lib/extensions/mpam.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-02-28T12:18:13Z",
+      "side": 1,
+      "message": "The FVPs supports MPAM, but the implementation is very minimal, also the functionality cannot really be verified, partly because the FVP does not model things like cache or memory bandwidth.\nIn general MPAM is a feature that relies heavily on system integration (having MSCs that implement it), so I would expect it to be turned on explicitly by certain platforms only.\nIf we enable it for the FVP, it would be for the sake of the CI only, which tells me we should do it in CI scripts instead of platform.mk. Also we should come up with some tests that verify at least some basic functionality (like register accessibility, save/restore functionality).",
+      "parentUuid": "d3af6ae2_b0a701f9",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 6
+      },
+      "revId": "46daeb9e830b69e287cae3f02675ecdfae5018e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "49ace014_a58d86d3",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 7
