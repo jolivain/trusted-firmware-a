@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ac0339e_7b615225",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-02-28T14:37:51Z",
+      "side": 1,
+      "message": "Hmm, this function is very complex when EL2 is present in all worlds (el2_unused is not relevant and probably broken for newer CPUs) even though this is compiled out as a result of conditional flags. And in BL31, this function is only used for exit NS when EL2 is present in all worlds.\n\nSo, a simplified cm_prepare_el3_exit_ns() is the function that should matter for BL31 for newer CPUs.  \n\nI can see that the current implementation is a bit convoluted. But a smaller function for BL31 catering for NS exit and avoiding legacy cases is desirable. Perhaps bl31_prepare_next_image_entry() should just call this function directly and remove capability to transition to S world (this was legacy) when CTX_INCLUDE_EL2_REGS is set.",
+      "range": {
+        "startLine": 589,
+        "startChar": 5,
+        "endLine": 589,
+        "endChar": 24
+      },
+      "revId": "dd180b732680b32d85cac51f768192983fc19f0a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
