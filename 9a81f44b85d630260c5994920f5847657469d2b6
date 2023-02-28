@@ -22,6 +22,30 @@
       },
       "revId": "9a81f44b85d630260c5994920f5847657469d2b6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c75ddef_c9bac278",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-28T13:11:46Z",
+      "side": 0,
+      "message": "As per my reading in spec about RES0, below details are mentioned\n\nReserved, Should-Be-Zero (SBZ) or RES0.\nIn instruction encoding diagrams, and sometimes in other descriptions, (0) indicates an SBZ bit. If the bit is set to 1, behavior is CONSTRAINED UNPREDICTABLE, and must be one of the following:\n• The instruction is UNDEFINED.\n• The instruction is treated as a NOP.\n• The instruction executes as if the value of the bit was 0.\n• Any destination registers of the instruction become UNKNOWN.\nThis notation can be expanded for fields, so a three-bit field can be shown as either (0)(0)(0) or as (000).\n\nAs a result, setting RES0 bit to 1 gives some unpredictable results, so this implementation avoided it. Could you please let me know if this understanding is correct.",
+      "parentUuid": "f8f54b36_aaaa07ce",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 2
+      },
+      "revId": "9a81f44b85d630260c5994920f5847657469d2b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
