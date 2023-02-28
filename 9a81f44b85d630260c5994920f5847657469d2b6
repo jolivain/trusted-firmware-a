@@ -34,6 +34,24 @@
       "parentUuid": "fb480e46_e7c7838b",
       "revId": "9a81f44b85d630260c5994920f5847657469d2b6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43111937_5737f724",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-02-28T17:04:27Z",
+      "side": 1,
+      "message": "\u003e Then, why is preventing RMM/SPM accessing something by mistake a bad thing?\n\nPreventing SPM/RMM accessing TRBE by mistake is a good thing :). And hence we need to the setting in reset code which prevents this access for RMM and SPM.\n\nI see that the original code is doing the inverse which is wrong. it is enabling for secure world and I have no idea why it was done that way. This should corrected so that we set 0x11 for MDCR_NSTB_EL1 and clear MDCR_NSTBE bit.\n\nmov_imm\tx0, ((MDCR_EL3_RESET_VAL | MDCR_SDD_BIT | \\\n\t\t      MDCR_SPD32(MDCR_SPD32_DISABLE) | MDCR_SCCD_BIT | \\\n\t\t      MDCR_MCCD_BIT |  MDCR_NSTB(MDCR_NSTB_EL1) \u0026 ~(MDCR_SPME_BIT \n                      | MDCR_TDOSA_BIT | MDCR_TDA_BIT | MDCR_TPM_BIT |) | \\\n\t\t      MDCR_NSTBE | MDCR_TTRF_BIT))\n\n\nDoing this in reset code is important so that RMM and SPM init cannot accidently touch trace. The code comments should also be corrected.",
+      "parentUuid": "11649c7f_7ae02d92",
+      "revId": "9a81f44b85d630260c5994920f5847657469d2b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
