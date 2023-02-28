@@ -94,6 +94,30 @@
       },
       "revId": "c08be39f893a6b9b7621aa84cb332943e6ee76bc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc8ad20b_3d3dd511",
+        "filename": "include/arch/aarch32/el3_common_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-02-28T19:07:42Z",
+      "side": 0,
+      "message": "\u003e But this isn\u0027t enabling it for higher ELs if the PE supports it.\nI think EL3 is having access of this feature (if PE supports it) irrespective of the setting of the TTRF bit. TTRF basically provided to control access of TRF registers from lower ELs IIUC.\n\n  TTRF\n  Trap Trace Filter controls. Traps use of the Trace Filter control registers at \n  EL2 and EL1 to EL3. The Trace Filter registers trapped by this control are:\n  STE, bit [18]\n\n  0b0 \n  TRFCR_EL2, TRFCR_EL12, TRFCR_EL1, reported using EC syndrome value 0x18. \n  HTRFCR and TRFCR, reported using EC syndrome value 0x03.\n  0b1\n  Accesses to Trace Filter registers at EL2 and EL1 generate a Trap exception to \n  EL3, unless the access generates a higher priority exception.\n\n\u003e The PE supporting TRF and TF-A not is an error (and why Andre wanted to introduce a check for this).\n\nAs mentioned earlier, when PE supports TRF and TF-A does not, and if it is considered as an error, I am fine with the removal of this initial setting.",
+      "parentUuid": "4ee87361_93c9a92c",
+      "range": {
+        "startLine": 148,
+        "startChar": 14,
+        "endLine": 148,
+        "endChar": 27
+      },
+      "revId": "c08be39f893a6b9b7621aa84cb332943e6ee76bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
