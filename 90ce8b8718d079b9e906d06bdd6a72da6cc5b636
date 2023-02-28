@@ -22,6 +22,30 @@
       },
       "revId": "90ce8b8718d079b9e906d06bdd6a72da6cc5b636",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf2c9578_f40076d3",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-02-28T14:28:32Z",
+      "side": 0,
+      "message": "They are. However, as they are parts of higher Arm revisions, checking them is not consistent on lower revisions, which is what this whole sequence is concerned with.",
+      "parentUuid": "8358147a_c50d3c8c",
+      "range": {
+        "startLine": 926,
+        "startChar": 15,
+        "endLine": 926,
+        "endChar": 44
+      },
+      "revId": "90ce8b8718d079b9e906d06bdd6a72da6cc5b636",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
