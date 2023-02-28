@@ -16,6 +16,24 @@
       "message": "I think it is good to initialize the values to sane values and then modify it later to more appropriate ones later. These values are used during cold boot path (i.e prior to exit to NS world) and would prevent SPM or RMM cold boot accessing SPE by mistake. \n\nAlso el3_common_macros are reused by all BL images running at EL3 (BL1/BL2/BL31). Hence would be good to have these reset values in.",
       "revId": "9a81f44b85d630260c5994920f5847657469d2b6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11649c7f_7ae02d92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-02-28T14:41:42Z",
+      "side": 1,
+      "message": "I\u0027m not sure why this is relevant. \n\nSPE and TRBE are explicitly only enabled for nonsecure world (in manage_extensions_secure()). Secure and realm worlds aren\u0027t meant to have it available (the implementation seems to allow it but that\u0027s a different topic, no?). \n\nThen, why is preventing RMM/SPM accessing something by mistake a bad thing? If they aren\u0027t meant to do it, then they shouldn\u0027t be? If they are indeed meant to, then the context management code is (at least semantically) wrong.\n\nFinally, yes BL !\u003d 31 also use these macros, but they are not concerned with most of the extensions that are set up since they won\u0027t be used ({spe, trbe}_enable are only called on BL31 so I doubt the intention was to make them usable on BL1 for example). Doing this there unnecessarily convolutes tracking down what the feature enablement looks like.",
+      "parentUuid": "fb480e46_e7c7838b",
+      "revId": "9a81f44b85d630260c5994920f5847657469d2b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
