@@ -46,6 +46,30 @@
       },
       "revId": "9a81f44b85d630260c5994920f5847657469d2b6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc4055ae_d703cd0c",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-02-28T15:02:59Z",
+      "side": 0,
+      "message": "yes, but the bit is set later so this code doesn\u0027t need to be here anyway. I also understand the Arm arm this way but it\u0027s not the reasoning for this change in particular.",
+      "parentUuid": "1c75ddef_c9bac278",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 2
+      },
+      "revId": "9a81f44b85d630260c5994920f5847657469d2b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }

@@ -70,6 +70,30 @@
       },
       "revId": "c08be39f893a6b9b7621aa84cb332943e6ee76bc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ee87361_93c9a92c",
+        "filename": "include/arch/aarch32/el3_common_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-02-28T15:02:59Z",
+      "side": 0,
+      "message": "But this isn\u0027t enabling it for higher ELs if the PE supports it. It just delays the setting of this bit until the first cm_prepare_el3_exit, which is way before any lower EL has ran even a single instruction. This bit will be set, just later. If the PE supports TRF, then TF-A should too. If the PE doesn\u0027t support TRF, TF-A is allowed not to. The PE supporting TRF and TF-A not is an error (and why Andre wanted to introduce a check for this). I don\u0027t see why this needs to be considered.",
+      "parentUuid": "9530ee12_192a6807",
+      "range": {
+        "startLine": 148,
+        "startChar": 14,
+        "endLine": 148,
+        "endChar": 27
+      },
+      "revId": "c08be39f893a6b9b7621aa84cb332943e6ee76bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
