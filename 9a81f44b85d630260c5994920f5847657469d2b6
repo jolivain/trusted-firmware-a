@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb480e46_e7c7838b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-02-28T12:12:50Z",
+      "side": 1,
+      "message": "I think it is good to initialize the values to sane values and then modify it later to more appropriate ones later. These values are used during cold boot path (i.e prior to exit to NS world) and would prevent SPM or RMM cold boot accessing SPE by mistake. \n\nAlso el3_common_macros are reused by all BL images running at EL3 (BL1/BL2/BL31). Hence would be good to have these reset values in.",
+      "revId": "9a81f44b85d630260c5994920f5847657469d2b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
