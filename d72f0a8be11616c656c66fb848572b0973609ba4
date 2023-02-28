@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcac4550_85c93323",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-02-28T12:19:51Z",
+      "side": 1,
+      "message": "The feature check was not required, but I am a bit hesitant to remove this disable outright from reset code. \n\nAs mentioned in my previous patch, this sets up EL3 for SPM and RMM initialization and this happens before the context is initialized for NS world.\n\nOr another way to think about this is, when root context is introduced, this can be programmed as part of that and it needs to be done early in the boot path.",
+      "revId": "d72f0a8be11616c656c66fb848572b0973609ba4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
