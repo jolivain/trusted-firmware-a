@@ -111,4 +111,6 @@
 
 #define PLAT_VERSAL_NET_G0_IRQ_PROPS(grp)
 
+#define IRQ_MAX		200U
+
 #endif /* PLATFORM_DEF_H */
