@@ -7,7 +7,9 @@
 #ifndef COT_DEF_H
 #define COT_DEF_H
 
+#ifdef MBEDTLS_CONFIG_FILE
 #include <mbedtls/version.h>
+#endif
 
 /* TBBR CoT definitions */
 #if defined(SPD_spmd)
