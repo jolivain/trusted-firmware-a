@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd3c81d8_5b3c15f6",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2023-02-28T11:30:58Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be (1 \u003c\u003c MPAMIDR_EL1_VPMR_MAX_WIDTH) - 1)? We have MPAMIDR_EL1_VPMR_MAX_POSSIBLE  macro defined which could be used here, though its not the exact conversion of ubfx?\n\nMPAMIDR_EL1_HAS_HCR_SHIFT and MPAMIDR_EL1_VPMR_MAX_POSSIBLE could be removed if they are not used as they were introduced in the runtime check patch.\n\nSame comment for save routine.",
+      "range": {
+        "startLine": 895,
+        "startChar": 52,
+        "endLine": 895,
+        "endChar": 78
+      },
+      "revId": "247da3d87c25b35ad35e1d1f6a882c9d442816cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
