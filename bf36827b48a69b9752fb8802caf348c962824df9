@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f91ed4b_715aa6ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-02-28T08:44:44Z",
+      "side": 1,
+      "message": "The build failure got fixed in a more recent version of the patch, thank you.\n\nHowever, the coding style violations which I reported earlier still need fixing please:\n\nCommit linter checks failed, please fix:\n\n  subject must not be sentence-case, start-case, pascal-case, upper-case [subject-case]\n\nCoding style checks failed, please fix:\n\n  drivers/auth/mbedtls/mbedtls_x509_parser.c:103: ERROR: code indent should use tabs where possible\n\nOnce that\u0027s addressed we can merge the patches.",
+      "revId": "bf36827b48a69b9752fb8802caf348c962824df9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
