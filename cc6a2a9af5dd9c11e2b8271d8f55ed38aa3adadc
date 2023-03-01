@@ -46,6 +46,30 @@
       },
       "revId": "cc6a2a9af5dd9c11e2b8271d8f55ed38aa3adadc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7731e5a7_8a1b96f7",
+        "filename": "include/lib/extensions/brbe.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-01T16:27:01Z",
+      "side": 1,
+      "message": "Thanks Govind, good to know. Wasn\u0027t aware of it.\n\nTried this, but still facing errors. Let me know, if I missed anything here.\nSo instead of if_else block, you suggest me this right ?\n\nvoid brbe_enable(void) __maybe_unused;\nor\n[[maybe_unused]] void trbe_enable(void);",
+      "parentUuid": "baa3a280_bf0888f2",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 31
+      },
+      "revId": "cc6a2a9af5dd9c11e2b8271d8f55ed38aa3adadc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
