@@ -16,6 +16,24 @@
       "message": "Marek Vasut, Jorge Ramirez-Ortiz: Please provide your code-owner-review vote on this patch. This patch is waiting for your approval to be merged. Thanks in advance.",
       "revId": "cb82872a6a4bd2d035c593f7233e5cc18ab26a97",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1f49c57_f51cfa31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000121
+      },
+      "writtenOn": "2023-03-01T23:19:03Z",
+      "side": 1,
+      "message": "I would suggest you to pull the entire code from line 1102 `#if (RCAR_LOSSY_ENABLE \u003d\u003d 1)` until `#endif` into separate function, something like `bl2_create_fcnl_reserved_memory()`, and place that function right past `bl2_lossy_setting() {}` function . Like this:\n\n```\nbl2_lossy_setting() {\n...\n}\n\nstatic void bl2_create_fcnl_reserved_memory() {\n...\ncreate the #address-cells and #size cells\n...\nbl2_lossy_setting(0, ...);\nbl2_lossy_setting(1, ...);\nbl2_lossy_setting(2, ...);\n}\n#else\nstatic void bl2_create_fcnl_reserved_memory() {\n#endif\n```\n\nAnd that would get rid of extra ifdef too.",
+      "parentUuid": "15a7593e_0ba6714d",
+      "revId": "cb82872a6a4bd2d035c593f7233e5cc18ab26a97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
