@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c97dce6d_5778ddf4",
+        "filename": "include/lib/extensions/brbe.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-03-01T16:05:11Z",
+      "side": 1,
+      "message": "this looks ok, Did you try to force compiler to say its used or unused?\n\nusing `__used` or `__may_be_unused` attributes?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 31
+      },
+      "revId": "cc6a2a9af5dd9c11e2b8271d8f55ed38aa3adadc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
