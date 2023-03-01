@@ -57,6 +57,42 @@
       "parentUuid": "fcac4550_85c93323",
       "revId": "d72f0a8be11616c656c66fb848572b0973609ba4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7409c034_2e31d253",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-01T10:14:17Z",
+      "side": 1,
+      "message": "Hmm, as mentioned in my comment for previous patch, the reset initialization is having a different intent to feature enablement. The intent for root context is also overlapping with the reset initialization intent (i.e have a safe value for EL3 execution including cold boot) which means this can be coupled together.\n\nYes, Perhaps I can clarify on the root context intent clearly and a discussion will be better.",
+      "parentUuid": "9561be84_891c813f",
+      "revId": "d72f0a8be11616c656c66fb848572b0973609ba4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebb931b6_4676365a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-01T10:14:17Z",
+      "side": 1,
+      "message": "Hmm, as mentioned in my comment for previous patch, the reset initialization is having a different intent to feature enablement. The intent for root context is also overlapping with the reset initialization intent (i.e have a safe value for EL3 execution) which means this can be coupled together.\n\nYes, Perhaps we need to have a discussion on the original intent for root context.",
+      "parentUuid": "9561be84_891c813f",
+      "revId": "d72f0a8be11616c656c66fb848572b0973609ba4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }

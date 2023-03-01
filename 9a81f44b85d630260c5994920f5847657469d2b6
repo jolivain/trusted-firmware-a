@@ -94,6 +94,30 @@
       },
       "revId": "9a81f44b85d630260c5994920f5847657469d2b6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca8a9321_bad2b631",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-01T10:14:17Z",
+      "side": 0,
+      "message": "This covering all the possibilities of RES0 as per Arm ARM. In this case, it will fall into the 3 or 4 bullet. AFAIK, this is a regular pattern to set bits when Arch is upgraded and when software needs to cater for higher arch version without worrying the capability present. We can get this clarified with the Architecture team as well.\n\n\u003e yes, but the bit is set later so this code doesn\u0027t need to be here anyway. I also understand the Arm arm this way but it\u0027s not the reasoning for this change in particular.\n\n\nThe later setting has different intent to reset initialization here.",
+      "parentUuid": "a10ffbeb_3483b500",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 2
+      },
+      "revId": "9a81f44b85d630260c5994920f5847657469d2b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
