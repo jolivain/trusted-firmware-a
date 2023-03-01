@@ -39,6 +39,30 @@
       },
       "revId": "ff491036603c34bd80137f5fd43878eae5585197",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a4af026_84d82bcc",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-01T18:18:30Z",
+      "side": 1,
+      "message": "\u003e may lead compilation errors or forcing to have dummy implementation of functions\nNot necessarily, because the compiler optimises the whole call away, and the symbol never makes it into the object file. Unless you compile with -O0, that is, which is a bit annoying, and indeed might force us to have stub functions. Meh.\n\n\u003e Why not enable it by default ....\nBecause this increases the memory footprint. Outside of the FVP world, a certain build only runs on a well known implementation, which either has or does not have the feature. For instance for a Juno (ARMv8.0), we don\u0027t need *any* of those extra features - and never will. Some platforms are very tight in their SRAM already, so cannot afford any extra instructions.",
+      "parentUuid": "729e9f12_6ac2ca32",
+      "range": {
+        "startLine": 502,
+        "startChar": 0,
+        "endLine": 504,
+        "endChar": 2
+      },
+      "revId": "ff491036603c34bd80137f5fd43878eae5585197",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
