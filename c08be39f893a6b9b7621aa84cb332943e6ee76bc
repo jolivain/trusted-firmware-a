@@ -118,6 +118,30 @@
       },
       "revId": "c08be39f893a6b9b7621aa84cb332943e6ee76bc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a89e29b_8139f33c",
+        "filename": "include/arch/aarch32/el3_common_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-01T10:16:54Z",
+      "side": 0,
+      "message": "As mentioned in previous comment, the reset init is different from feature enablement. The setting here to have a safe execution environment for EL3 to execute (which usually means disabling any trace and debug capabilities even for lower ELs).",
+      "parentUuid": "cc8ad20b_3d3dd511",
+      "range": {
+        "startLine": 148,
+        "startChar": 14,
+        "endLine": 148,
+        "endChar": 27
+      },
+      "revId": "c08be39f893a6b9b7621aa84cb332943e6ee76bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
