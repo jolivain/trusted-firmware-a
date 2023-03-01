@@ -221,6 +221,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6eaebc23_84d139fc",
+        "filename": "include/lib/extensions/mpam.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-01T17:17:44Z",
+      "side": 1,
+      "message": "I think we would need workaround similar to what is done here for all features. It seems Juno  also has a -O0 build in Daily CI which fails for the other features merged so far. Jayanth is doing a patch on these lines for those features.",
+      "parentUuid": "aa23bea7_45885307",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 6
+      },
+      "revId": "46daeb9e830b69e287cae3f02675ecdfae5018e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "49ace014_a58d86d3",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 7
