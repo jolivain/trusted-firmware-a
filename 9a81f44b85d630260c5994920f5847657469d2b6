@@ -88,6 +88,24 @@
       "parentUuid": "13de686e_01257062",
       "revId": "9a81f44b85d630260c5994920f5847657469d2b6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93e75972_24e39b21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-01T09:49:26Z",
+      "side": 1,
+      "message": "Hi Soby,\n\n\u003e Hence the code is supposed to set these UNKNOWN values. Now having looked at Arm ARM, clearing MDCR_NSTB_EL1 to 0x00 will make the trace buffers secure only and trap any access from EL2/EL1 to EL3. This means, trace buffers are not really usable by lower ELs as they cannot access any control registers. So from the reset purpose listed above , this is a safe sane initialization value. The comments in the code are a bit misleading without the full context of why this is done this way.\n\nAFAIU code comment implies to say the same thing that  \"Access to Trace Buffer control registers at EL2 and EL1 in any security state generates trap exceptions at EL3\" though it is not providing the full context so better amend the comment from that perspective.\n\nI agree that there is one missing comment here regarding MDCR_EL3.STE, It would be better to add a comment to the STE bit, which has blanket control to prevent tracing on the secure side. Currently it is set to 0 i.e. MDCR_EL3.STE\u003d0 on reset.\n\nNote, FEAT_TRBE requires FEAT_TRF, STE bit is available when FEAT_TRF is present. So putting STE to 0 ensures that tracing is not possible in the secure side.",
+      "parentUuid": "2f64fe2a_e3c748b0",
+      "revId": "9a81f44b85d630260c5994920f5847657469d2b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
