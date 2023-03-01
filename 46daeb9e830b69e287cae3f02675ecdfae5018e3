@@ -173,6 +173,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e87ef1b6_12b30055",
+        "filename": "include/lib/extensions/mpam.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-01T08:52:07Z",
+      "side": 1,
+      "message": "hmm, I agree MPAM cannot be functionally verified on FVP. do we need to make this distinction from TF-A PoV for FVP ? TF-A tries to enable MPAM and then manage MPAM context as part world switch which still can be verified on FVP (i.e if EL3 is leaking any values between worlds).  Also, if the feature can be optionally enabled on FVP, we again have a situation wherein the feature is architecturally advertised as available but not enabled by EL3. It may be better to follow the convention for other features and keep this feature as enabled dynamically and depending on whether MPAM is enabled on model or not, this feature gets activated.\n\nIt makes CI configuration a bit easier as we can have one build to run on FVP variations. So I am of the view that lets not try to make a distinction of whether a feature is actually usable on FVP and stick to the convention to enable all features dynamically (as long as memory allows).",
+      "parentUuid": "a541423c_d3ffc2f8",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 6
+      },
+      "revId": "46daeb9e830b69e287cae3f02675ecdfae5018e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "49ace014_a58d86d3",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 7
