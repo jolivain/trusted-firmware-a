@@ -197,6 +197,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aa23bea7_45885307",
+        "filename": "include/lib/extensions/mpam.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-01T14:46:32Z",
+      "side": 1,
+      "message": "Fair enough, I will go ahead and enable it.\nPlease keep in mind that this just hides the non-optimisation problem from the CI, though. Anyone who is using -O0 and ENABLE_xxx\u003d0 will see face the problem - including some other features. I don\u0027t know what we want to do about this:\n- Deprecate -O0 completely, which would mean to remove tf_config/fvp-no-optimize-default from the CI.\n- Go ahead and do the \"stub\"ing for the other features as well, possibly adding a CI run with those features disabled and the -O0 override.\n- Add explicit ENABLE_FEAT_xxx\u003d2 line to the fvp-no-optimize-default CI script, to make sure it will never run into the problem.\n- Ignore the problem and acknowledge that -O0 remains a niche use case that is guaranteed to work with all configurations.",
+      "parentUuid": "e87ef1b6_12b30055",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 6
+      },
+      "revId": "46daeb9e830b69e287cae3f02675ecdfae5018e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "49ace014_a58d86d3",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 7
