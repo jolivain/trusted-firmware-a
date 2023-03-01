@@ -70,6 +70,30 @@
       },
       "revId": "dd180b732680b32d85cac51f768192983fc19f0a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "243c8feb_b12079f1",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-01T14:19:50Z",
+      "side": 1,
+      "message": "I don\u0027t understand a few things: What\u0027s the new method for feature enablement? As far as I can see there\u0027s only 1 (or do you mean Andre\u0027s changes?). Then, what would the new API to exit to S be? I can\u0027t see anything besides the cm_prepare_el3_exit.",
+      "parentUuid": "9a9c11ce_0f1f6e0a",
+      "range": {
+        "startLine": 589,
+        "startChar": 5,
+        "endLine": 589,
+        "endChar": 24
+      },
+      "revId": "dd180b732680b32d85cac51f768192983fc19f0a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
