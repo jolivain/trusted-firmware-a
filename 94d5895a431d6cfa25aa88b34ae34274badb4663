@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b21e57b6_f48c4913",
+        "filename": "plat/mediatek/mt8195/drivers/emi_mpu/emi_mpu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000985
+      },
+      "writtenOn": "2023-03-01T08:24:21Z",
+      "side": 1,
+      "message": "As a region for memory protection, it should be set in the region with the highest region number that we are currently setting.",
+      "parentUuid": "e4f6f15e_3ea92c20",
+      "range": {
+        "startLine": 144,
+        "startChar": 1,
+        "endLine": 144,
+        "endChar": 24
+      },
+      "revId": "94d5895a431d6cfa25aa88b34ae34274badb4663",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b23148cb_13640975",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-01T07:44:40Z",
       "side": 1,
       "message": "remove this line",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 45
+      },
+      "revId": "94d5895a431d6cfa25aa88b34ae34274badb4663",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44e43f09_fe156905",
+        "filename": "plat/mediatek/mt8195/drivers/emi_mpu/emi_mpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000985
+      },
+      "writtenOn": "2023-03-01T08:24:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b23148cb_13640975",
       "range": {
         "startLine": 97,
         "startChar": 0,
@@ -64,6 +112,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5cf5fd4_c2db917b",
+        "filename": "plat/mediatek/mt8195/drivers/emi_mpu/emi_mpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000985
+      },
+      "writtenOn": "2023-03-01T08:24:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e6bcfec_61d46435",
+      "revId": "94d5895a431d6cfa25aa88b34ae34274badb4663",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b2d3b2c_2e961156",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-03-01T07:44:40Z",
       "side": 1,
       "message": "0x7FFFFFFF,",
+      "range": {
+        "startLine": 103,
+        "startChar": 31,
+        "endLine": 103,
+        "endChar": 41
+      },
+      "revId": "94d5895a431d6cfa25aa88b34ae34274badb4663",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8453ac04_04eabf33",
+        "filename": "plat/mediatek/mt8195/drivers/emi_mpu/emi_mpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000985
+      },
+      "writtenOn": "2023-03-01T08:24:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b2d3b2c_2e961156",
       "range": {
         "startLine": 103,
         "startChar": 31,
