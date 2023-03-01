@@ -52,6 +52,24 @@
       "parentUuid": "11649c7f_7ae02d92",
       "revId": "9a81f44b85d630260c5994920f5847657469d2b6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13de686e_01257062",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-01T09:28:19Z",
+      "side": 1,
+      "message": "OK, I think some common fundamentals need to be set out so that we dont have adhoc policy for each feature.\n\nThe purpose of the reset initialization is to ensure EL3 firmware has a secure execution environment. The reset init is not related to \"feature enablement\" for lower ELs although sometimes this could match. \n\nThe feature enablement is on a per-world basis is done later in the boot sequence just prior to exiting to that world.\n\nWith this purpose in mind, the reset code is meant to initialize any security related bits which could have UNKNOWN reset values to a sane safe value. That is the case for these bits as Arm ARM says \"On a Warm reset, this field resets to an architecturally UNKNOWN value\".\n\nHence the code is supposed to set these UNKNOWN values. Now having looked at Arm ARM, clearing MDCR_NSTB_EL1 to 0x00 will make the trace buffers secure only and trap any access from EL2/EL1 to EL3. This means, trace buffers are not really usable by lower ELs as they cannot access any control registers. So from the reset purpose listed above , this is a safe sane initialization value. The comments in the code are a bit misleading without the full context of why this is done this way.\n\nLet me know if you have doubts.",
+      "parentUuid": "43111937_5737f724",
+      "revId": "9a81f44b85d630260c5994920f5847657469d2b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
