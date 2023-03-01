@@ -46,6 +46,30 @@
       },
       "revId": "dd180b732680b32d85cac51f768192983fc19f0a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a9c11ce_0f1f6e0a",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-01T10:25:14Z",
+      "side": 1,
+      "message": "Hmm, redundancy is good to avoid but here in this case, we are coupling the new method for feature enablement with a legacy case. The reason to detach the new case was to ensure that we dont have any latent issues from legacy way affecting the new one and have a clean implementation.\n\nEventually, the intention is to deprecate the old API and have only the `_ns` version for BL31. BL31 needs to call only the new API and the capability to specify S image after BL31 can be removed IMO. This can be tried and if CI passes, the old API can be made BL1 only.",
+      "parentUuid": "d8f9fcd0_51f671e3",
+      "range": {
+        "startLine": 589,
+        "startChar": 5,
+        "endLine": 589,
+        "endChar": 24
+      },
+      "revId": "dd180b732680b32d85cac51f768192983fc19f0a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
