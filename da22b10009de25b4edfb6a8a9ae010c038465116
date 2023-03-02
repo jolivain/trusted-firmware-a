@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08197de6_17ac285e",
+        "filename": "docs/design_documents/psci_osi_mode.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2023-03-02T03:05:28Z",
+      "side": 1,
+      "message": "Yes correct, added for clarity!",
+      "parentUuid": "922e06d1_8183dc0f",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 6
+      },
+      "revId": "da22b10009de25b4edfb6a8a9ae010c038465116",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bacd2dfc_2758a41b",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-27T11:27:10Z",
       "side": 1,
       "message": "Are you saying that TF-A will need to check the system state? Or is this a flexibility in the design to also support an external power management controller? If yes, shouldn\u0027t we they enable platform initiated mode instead and allow the PM controller take control?",
+      "range": {
+        "startLine": 203,
+        "startChar": 29,
+        "endLine": 204,
+        "endChar": 43
+      },
+      "revId": "da22b10009de25b4edfb6a8a9ae010c038465116",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6a0fe0a_1518dc77",
+        "filename": "docs/design_documents/psci_osi_mode.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2023-03-02T03:05:28Z",
+      "side": 1,
+      "message": "The PSCI library in TF-A must check that the request is valid from its point of view, and this validation will happen in `psci_validate_state_coordination`. Each platform can optionally perform further validations (e.g. HW states, etc.) in the platform specific `pwr_domain_suspend` handler. If a platform relies on an external PM controller to perform validations, the PM controller still must not modify the request in any way if the request isn\u0027t valid from its point of view, and should instead reject the request and return control to the OS so that the OS can re-evaluate.",
+      "parentUuid": "bacd2dfc_2758a41b",
       "range": {
         "startLine": 203,
         "startChar": 29,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d7e0ff7_75e3c5e3",
+        "filename": "docs/design_documents/psci_osi_mode.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2023-03-02T03:05:28Z",
+      "side": 1,
+      "message": "This is only in the context of determining whether a CPU_SUSPEND request is valid in OS-initiated mode, and won\u0027t affect any other PSCI functions. I updated the wording for clarity. Let me know if this is better?",
+      "parentUuid": "7b9439a0_19df4517",
+      "range": {
+        "startLine": 220,
+        "startChar": 2,
+        "endLine": 221,
+        "endChar": 71
+      },
+      "revId": "da22b10009de25b4edfb6a8a9ae010c038465116",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3840c7f8_ca0f155d",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-02-27T11:27:10Z",
       "side": 1,
       "message": "Can you also document the modified sequence with the newly introduced functions? A sequence diagram would be best, but other means should be OK too.",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 312,
+        "endChar": 38
+      },
+      "revId": "da22b10009de25b4edfb6a8a9ae010c038465116",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5885447b_ebfa955a",
+        "filename": "docs/design_documents/psci_osi_mode.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2023-03-02T03:05:28Z",
+      "side": 1,
+      "message": "Sounds good, added a sequence diagram below!",
+      "parentUuid": "3840c7f8_ca0f155d",
       "range": {
         "startLine": 288,
         "startChar": 0,
