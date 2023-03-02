@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81689127_de6c871c",
+        "filename": "lib/psa/nv_counter_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-02T20:55:33Z",
+      "side": 1,
+      "message": "Ah good point, done!",
+      "parentUuid": "7c2a6df9_7ae2fd72",
+      "revId": "deae0b079441ccf65230020cd5f91e56777af00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "445d82be_95fc9c7d",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-02-27T13:55:46Z",
       "side": 1,
       "message": "Arm Limited.\n(no other contributors)",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 52
+      },
+      "revId": "deae0b079441ccf65230020cd5f91e56777af00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab2e83e8_a7cbd983",
+        "filename": "lib/psa/nv_counter_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-02T20:55:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "445d82be_95fc9c7d",
       "range": {
         "startLine": 2,
         "startChar": 23,
@@ -64,6 +106,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc730be7_f55ff0f8",
+        "filename": "lib/psa/nv_counter_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-02T20:55:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d990ede_6dbaaf87",
+      "range": {
+        "startLine": 21,
+        "startChar": 25,
+        "endLine": 21,
+        "endChar": 51
+      },
+      "revId": "deae0b079441ccf65230020cd5f91e56777af00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4681fb5a_ef6bc591",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-02-27T13:55:46Z",
       "side": 1,
       "message": "if (status !\u003d PSA_SUCCESS)",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 11
+      },
+      "revId": "deae0b079441ccf65230020cd5f91e56777af00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a0f0db3_4519ba0e",
+        "filename": "lib/psa/nv_counter_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-02T20:55:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4681fb5a_ef6bc591",
       "range": {
         "startLine": 22,
         "startChar": 5,
@@ -110,6 +200,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a919fd63_18beb556",
+        "filename": "lib/psa/nv_counter_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-02T20:55:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1aad76e5_3ea6b9dd",
+      "range": {
+        "startLine": 23,
+        "startChar": 2,
+        "endLine": 23,
+        "endChar": 75
+      },
+      "revId": "deae0b079441ccf65230020cd5f91e56777af00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2b9a5e0_b9a1b003",
@@ -123,6 +237,30 @@
       "writtenOn": "2023-02-27T13:55:46Z",
       "side": 1,
       "message": "Again this feels very much like an early-days debug print. I would remove it.\n\nSame comment applies to the rest of this function body.",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 48
+      },
+      "revId": "deae0b079441ccf65230020cd5f91e56777af00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b540776_d175b82c",
+        "filename": "lib/psa/nv_counter_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-02T20:55:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2b9a5e0_b9a1b003",
       "range": {
         "startLine": 27,
         "startChar": 1,
@@ -156,6 +294,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95713d42_21fe9c76",
+        "filename": "lib/psa/nv_counter_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-02T20:55:33Z",
+      "side": 1,
+      "message": "Ack, I aligned the prints to be more like the tfm test suite ones, let me know if you think it should be different or removed!",
+      "parentUuid": "35f230d0_2253b438",
+      "range": {
+        "startLine": 32,
+        "startChar": 3,
+        "endLine": 32,
+        "endChar": 76
+      },
+      "revId": "deae0b079441ccf65230020cd5f91e56777af00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93598fd3_34ed24d8",
@@ -169,6 +331,30 @@
       "writtenOn": "2023-02-27T13:55:46Z",
       "side": 1,
       "message": "Coding style: Add a space between \u0027if\u0027 keyword and opening parenthesis.",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 5
+      },
+      "revId": "deae0b079441ccf65230020cd5f91e56777af00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4c3dfad_6bdd21ff",
+        "filename": "lib/psa/nv_counter_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-02T20:55:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93598fd3_34ed24d8",
       "range": {
         "startLine": 54,
         "startChar": 2,
@@ -202,6 +388,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6580614_12fb9f9f",
+        "filename": "plat/arm/board/tc/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-02T20:55:33Z",
+      "side": 1,
+      "message": "Ah yes this felt too temporary! Added the string-like build options",
+      "parentUuid": "d02640c6_b8655fbf",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 216,
+        "endChar": 5
+      },
+      "revId": "deae0b079441ccf65230020cd5f91e56777af00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "810967d3_1c8660f2",
@@ -215,6 +425,30 @@
       "writtenOn": "2023-02-27T13:55:46Z",
       "side": 1,
       "message": "We need to retain this behaviour, i.e. replace the while(1) loop above by a call to the platform error handler. After executing any sort of platform tests, we should panic, regardless of whether the said tests passed or failed. This is to reduce the risk of shipping firmware with temporary test code in it. If we panic, it makes it very clear that this is not a production-ready build.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 26
+      },
+      "revId": "deae0b079441ccf65230020cd5f91e56777af00e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba88a84b_756a4e78",
+        "filename": "plat/arm/board/tc/tc_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-02T20:55:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "810967d3_1c8660f2",
       "range": {
         "startLine": 63,
         "startChar": 0,
