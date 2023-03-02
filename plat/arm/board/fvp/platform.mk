@@ -505,3 +505,7 @@ PLAT_BL_COMMON_SOURCES	+=	plat/arm/board/fvp/fvp_el3_spmc.c
 endif
 
 PSCI_OS_INIT_MODE	:=	1
+
+ifeq (${SPD},spmd)
+BL31_SOURCES	+=	plat/arm/board/fvp/fvp_spmd.c
+endif
