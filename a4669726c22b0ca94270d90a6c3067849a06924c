@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6c162e5_2f765f2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-03-02T16:40:12Z",
+      "side": 1,
+      "message": "Hi Oleksij,\nCould you rebase your patch (once again, sorry) to the latest integration branch?\nThere was a mismatch between the TF-A branch and the TF-A-CI-scripts used to test the patch.\nI\u0027ll run the CI tests afterwards.\n\nThanks,\nYann",
+      "revId": "a4669726c22b0ca94270d90a6c3067849a06924c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
