@@ -410,6 +410,37 @@ Example (bl1_fwu.c):
 
   #include "bl1_private.h"
 
+Using Third-party includes
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Most prefrerable approach to including a thirdparty header in |TF-A|
+codebase is to include thirdparty include headers immediately after System header
+files, like in below example including version.h header from mbedtls library
+immediately after system header sttddef.h
+
+Example (tbbr_cot_bl1_r64.c):
+
+.. code:: c
+
+  /* system header files */
+  #include <stddef.h>
+
+  /* mbedtls header files */
+  #include <mbedtls/version.h>
+
+  /* project header files */
+  #include <drivers/auth/auth_mod.h>
+  #include <drivers/auth/tbbr_cot_common.h>
+
+  /* platform header files */
+  #if USE_TBBR_DEFS
+  #include <tools_share/tbbr_oid.h>
+  #else
+  #include <platform_oid.h>
+  #endif
+
+  #include <platform_def.h>
+
 Typedefs
 --------
 
@@ -463,7 +494,7 @@ Existing typedefs will be retained for compatibility.
 
 --------------
 
-*Copyright (c) 2020, Arm Limited. All rights reserved.*
+*Copyright (c) 2020-2023, Arm Limited. All rights reserved.*
 
 .. _`Linux kernel coding style`: https://www.kernel.org/doc/html/latest/process/coding-style.html
 .. _`MISRA C:2012 Guidelines`: https://www.misra.org.uk/Activities/MISRAC/tabid/160/Default.aspx
