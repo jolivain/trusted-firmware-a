@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -469,4 +469,8 @@ ENABLE_FEAT_HCX			:= 2
 
 ifeq (${SPMC_AT_EL3}, 1)
 PLAT_BL_COMMON_SOURCES	+=	plat/arm/board/fvp/fvp_el3_spmc.c
+endif
+
+ifeq (${SPD},spmd)
+BL31_SOURCES	+=	plat/arm/board/fvp/fvp_spmd.c
 endif
