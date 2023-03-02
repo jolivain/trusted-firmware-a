@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae41993c_b1a6413a",
+        "filename": "lib/cpus/aarch64/cortex_a78.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-02T21:53:32Z",
+      "side": 1,
+      "message": "Can we do the following similar to https://gerrit.oss.arm.com/c/pdcs-platforms/ap/tf-topics/+/254363/4/lib/cpus/aarch64/neoverse_v1.S#565\n\tbic\tx1, x1, #BIT(56)\n\torr\tx1, x1, #BIT(55)\nIts easier to understand and doesnt need the additional macros.",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 346,
+        "endChar": 82
+      },
+      "revId": "cdde2fa47651d34efe82a2e55c58df36db38121e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
