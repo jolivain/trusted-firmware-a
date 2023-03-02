@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f00fdce0_39344f51",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2023-03-02T03:06:18Z",
+      "side": 1,
+      "message": "Agreed! Updated to check that none of the cores are OFF instead.",
+      "parentUuid": "30403a38_48ae5b36",
+      "range": {
+        "startLine": 198,
+        "startChar": 49,
+        "endLine": 198,
+        "endChar": 61
+      },
+      "revId": "590fc0d7392c01a596824f472ceac2d4025d880f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f622f1a_a68ecf51",
@@ -47,6 +71,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb9f9d59_5f02dc90",
+        "filename": "lib/psci/psci_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2023-03-02T03:06:18Z",
+      "side": 1,
+      "message": "This sounds reasonable to me, updated!",
+      "parentUuid": "7f622f1a_a68ecf51",
+      "range": {
+        "startLine": 382,
+        "startChar": 7,
+        "endLine": 382,
+        "endChar": 26
+      },
+      "revId": "590fc0d7392c01a596824f472ceac2d4025d880f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84aa27f8_ae954aff",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-02-28T23:00:44Z",
       "side": 1,
       "message": "I was wondering, similar to psci_is_last_on_cpu_safe, should the safe version of this api be created and used?",
+      "range": {
+        "startLine": 392,
+        "startChar": 8,
+        "endLine": 392,
+        "endChar": 28
+      },
+      "revId": "590fc0d7392c01a596824f472ceac2d4025d880f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9700c6c6_15821725",
+        "filename": "lib/psci/psci_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2023-03-02T03:06:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84aa27f8_ae954aff",
       "range": {
         "startLine": 392,
         "startChar": 8,
