@@ -174,16 +174,6 @@ static void read_feat_bti(void)
 #endif
 }
 
-/***********************************************
- * Feature : FEAT_AMUv1p1 (AMU Extensions v1.1)
- **********************************************/
-static void read_feat_amuv1p1(void)
-{
-#if (ENABLE_FEAT_AMUv1p1 == FEAT_STATE_ALWAYS)
-	feat_detect_panic(is_armv8_6_feat_amuv1p1_present(), "AMUv1p1");
-#endif
-}
-
 /*******************************************************
  * Feature : FEAT_ECV (Enhanced Counter Virtualization)
  ******************************************************/
@@ -287,7 +277,8 @@ void detect_arch_features(void)
 	read_feat_rng_trap();
 
 	/* v8.6 features */
-	read_feat_amuv1p1();
+	check_feature(ENABLE_FEAT_AMUv1p1, read_feat_amu_id_field(),
+		      "AMUv1p1", 2, 2);
 	check_feature(ENABLE_FEAT_FGT, read_feat_fgt_id_field(), "FGT", 1, 1);
 	read_feat_ecv();
 	read_feat_twed();
