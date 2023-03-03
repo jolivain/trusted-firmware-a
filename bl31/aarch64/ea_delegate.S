@@ -18,6 +18,7 @@
 	.globl	handle_lower_el_ea_esb
 	.globl	handle_lower_el_sync_ea
 	.globl	handle_lower_el_async_ea
+	.globl	reflect_ea_to_lower_el
 
 
 /*
@@ -144,6 +145,51 @@ func handle_lower_el_async_ea
 	b	el3_exit
 endfunc handle_lower_el_async_ea
 
+#if ENABLE_FEAT_RAS && !RAS_FFH_SUPPORT
+func reflect_ea_to_lower_el
+	/*
+	 * This special handling is required to cater for handling SError from lower EL
+	 * being trapped in EL3 because of exception level switch(sync barriers).
+	 * It need to be reflected back to lower EL.
+	 * For sync exception we eret to elr-4 (Label "2"). For IRQ/FIQ we need to simply eret.
+	 * In this process there is risk of To and fro between EL3  and lower EL. To get away
+	 * from the infinte loop use a counter value to keep the track of previous ELR and break
+	 * if it reaches 100. Label "1" handles that.
+	 */
+	stp	x28, x29, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X28]
+	ldr	x29, [sp, #CTX_GPREGS_OFFSET + CTX_SAVED_ELR_EL3]
+	mrs	x28, elr_el3
+	cmp	x29, x28
+	b.eq	1f
+	str	x28, [sp, #CTX_GPREGS_OFFSET + CTX_SAVED_ELR_EL3]
+	mov	x29, xzr
+	str	x29, [sp, #CTX_GPREGS_OFFSET + CTX_SAVED_ELR_EL3_COUNT]
+	b	2f
+1:
+	ldr	x29, [sp, #CTX_GPREGS_OFFSET + CTX_SAVED_ELR_EL3_COUNT]
+	add	x29, x29, #1
+	str	x29, [sp, #CTX_GPREGS_OFFSET + CTX_SAVED_ELR_EL3_COUNT]
+	cmp	x29, #100
+	b.ge	el3_panic
+2:
+	/*
+	 * Logic to distinguish if we came from sync exception path
+	 * Use vbar_el3 and LR to get the address from where we came, if the offset
+	 * is less than 0x80 in vector entry it means it came from sync exception.
+	 */
+	mrs	x29, vbar_el3
+	sub	x30, x30, x29
+	and	x30, x30, #0x1ff
+	cmp	x30, #0x80
+	b.ge	3f
+	sub	x28, x28, #4
+3:
+	msr	elr_el3, x28
+	ldp	x28, x29, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X28]
+	ldr	x30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_LR]
+	exception_return
+endfunc reflect_ea_to_lower_el
+#endif
 
 /*
  * Prelude for Synchronous External Abort handling. This function assumes that

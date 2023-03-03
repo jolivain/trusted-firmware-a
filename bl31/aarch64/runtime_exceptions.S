@@ -60,6 +60,7 @@
 	 */
 	.macro check_and_unmask_ea
 #if ENABLE_FEAT_RAS
+#if RAS_FFH_SUPPORT
 	/* Synchronize pending External Aborts */
 	esb
 
@@ -82,6 +83,14 @@
 
 	/* Restore general purpose, PMCR_EL0 and ARMv8.3-PAuth registers */
 	bl	restore_gp_pmcr_pauth_regs
+#else
+	dsb	sy
+	mrs	x30, ISR_EL1
+	tbz	x30, #ISR_A_SHIFT, 1f
+	/* Not expected to come back here but use bl to save LR */
+	bl	reflect_ea_to_lower_el
+
+#endif /* RAS_FFH_SUPPORT */
 1:
 #else
 	/*
