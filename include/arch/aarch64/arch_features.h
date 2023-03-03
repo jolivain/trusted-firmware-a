@@ -237,7 +237,7 @@ static inline bool is_feat_amu_supported(void)
 	return read_feat_amu_id_field() >= ID_AA64PFR0_AMU_V1;
 }
 
-static inline bool is_armv8_6_feat_amuv1p1_present(void)
+static inline bool is_feat_amuv1p1_supported(void)
 {
 	return read_feat_amu_id_field() >= ID_AA64PFR0_AMU_V1P1;
 }
