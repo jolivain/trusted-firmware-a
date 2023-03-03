@@ -16,6 +16,24 @@
       "message": "Can we actually fix things in core zlib? I was under the impression that this is imported as-is from the upstream project, and any changes would need to be done there?",
       "revId": "9b88e4739ecd531fe73843a640251a6e881a2a77",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f2de908_ccd3f005",
+        "filename": "lib/zlib/crc32.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1000971
+      },
+      "writtenOn": "2023-03-03T16:17:28Z",
+      "side": 1,
+      "message": "restored.\nThx",
+      "parentUuid": "77fda3d3_a54ca813",
+      "revId": "9b88e4739ecd531fe73843a640251a6e881a2a77",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
