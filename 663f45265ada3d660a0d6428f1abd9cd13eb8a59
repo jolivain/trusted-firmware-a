@@ -52,6 +52,24 @@
       "parentUuid": "3e728250_3594c4e0",
       "revId": "663f45265ada3d660a0d6428f1abd9cd13eb8a59",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f43ec403_711b4efd",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-03-03T15:14:07Z",
+      "side": 1,
+      "message": "This value to cptr_el3 is required before the first el3_exit happens as part of restoring el2 sysregs context.\n\u003e the value above will never be written back.\nThis value will be retained as enabling SVE_FOR_NS and CTX_INCLUDE_EL2_REGS, will set this bit as part of sve_enable extension call. Setting this bit closer to el2_ctx_save/restore is not clean and will force to add an isb. I agree that this can be later refactored when adding support for root cpu_ctx.",
+      "parentUuid": "3e9591dd_9df4d170",
+      "revId": "663f45265ada3d660a0d6428f1abd9cd13eb8a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
