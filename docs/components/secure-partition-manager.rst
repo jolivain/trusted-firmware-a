@@ -1318,6 +1318,17 @@ A brief description of the events:
        direct request to SP2 by invoking FFA_RUN.
   - 9) SPMC resumes the pre-empted vCPU of SP2.
 
+EL3 interrupt handling
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In GICv3 based systems, EL3 interrupts are configured as Group0 secure
+interrupts. Execution traps to SPMC when a Group0 interrupt triggers while an
+SP is running. Further, SPMC running at S-LE2 uses FFA_EL3_INTR_HANDLE ABI to
+request secure firmware to handle a pending Group0 interrupt at EL3.
+Similarly, SPMD registers a handler with interrupt management framework to
+delegate handling of Group0 interrupt to the platform if the interrupt triggers
+in normal world.
+
 Power management
 ----------------
 
@@ -1557,4 +1568,4 @@ Client <https://developer.arm.com/documentation/den0006/d/>`__
 
 --------------
 
-*Copyright (c) 2020-2022, Arm Limited and Contributors. All rights reserved.*
+*Copyright (c) 2020-2023, Arm Limited and Contributors. All rights reserved.*
