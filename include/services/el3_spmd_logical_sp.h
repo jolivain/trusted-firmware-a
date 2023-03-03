@@ -11,6 +11,7 @@
 /*******************************************************************************
  * Structure definition, typedefs & constants for the SPMD Logical Partitions.
  ******************************************************************************/
+typedef struct spmd_spm_core_context spmd_spm_core_context_t;
 
 /* Prototype for SPMD logical partition initializing function. */
 typedef int32_t (*ffa_spmd_lp_init_t)(void);
@@ -22,6 +23,17 @@ struct el3_spmd_lp_desc {
 	uint32_t properties;
 	uint32_t uuid[4];  /* Little Endian. */
 	const char *debug_name;
+};
+
+struct ffa_value {
+	uint64_t func;
+	uint64_t arg1;
+	uint64_t arg2;
+	uint64_t arg3;
+	uint64_t arg4;
+	uint64_t arg5;
+	uint64_t arg6;
+	uint64_t arg7;
 };
 
 /* Convenience macro to declare a SPDM logical partition descriptor. */
@@ -47,12 +59,36 @@ IMPORT_SYM(uintptr_t, __EL3_SPMD_LP_DESCS_END__,	EL3_SPMD_LP_DESCS_END);
 
 static inline bool is_el3_spmd_lp_id(unsigned int id)
 {
+#if ENABLE_SPMD_EL3_LP
 	return (id >= EL3_SPMD_LP_ID_START && id <= EL3_SPMD_LP_ID_END);
+#else
+	return false;
+#endif
+}
+
+static inline bool is_ffa_error(struct ffa_value *retval)
+{
+	return retval->func == FFA_ERROR;
+}
+
+static inline bool is_ffa_direct_msg_resp(struct ffa_value *retval)
+{
+	return (retval->func == FFA_MSG_SEND_DIRECT_RESP_SMC32) ||
+		(retval->func == FFA_MSG_SEND_DIRECT_RESP_SMC64);
 }
 
 void spmd_logical_sp_set_spmc_inited(void);
 void spmc_logical_sp_set_spmc_failure(void);
 
 int32_t spmd_logical_sp_init(void);
+bool is_spmd_logical_sp_dir_req_in_progress(
+		spmd_spm_core_context_t *ctx);
+
+bool spmd_el3_ffa_msg_direct_req(uint64_t x1,
+				 uint64_t x2,
+				 uint64_t x3,
+				 uint64_t x4,
+				 void *handle,
+				 struct ffa_value *retval);
 
 #endif /* EL3_SPMD_LOGICAL_SP_H */
