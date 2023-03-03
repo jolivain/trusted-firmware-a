@@ -1,0 +1,163 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13cb287a_30f2f281",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-03T10:36:01Z",
+      "side": 1,
+      "message": "why are these placeholders?",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a69229b_a6a37e8b",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-03T10:36:01Z",
+      "side": 1,
+      "message": "nit: multiline comment style should be like https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#comments",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "933e4cf3_ee770e33",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-03T10:36:01Z",
+      "side": 1,
+      "message": "nit: spaces around single line comments",
+      "range": {
+        "startLine": 543,
+        "startChar": 49,
+        "endLine": 543,
+        "endChar": 52
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65abf95e_c46fa9d3",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-03T10:36:01Z",
+      "side": 1,
+      "message": "since this if has no corresponding else, couldn\u0027t it be merged with the else above it and drop a level of indentation?",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ac68034_fefaf0f5",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-03T10:36:01Z",
+      "side": 1,
+      "message": "why not use the cpu_get_rev_var function? saves on a lot of lines",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbd59896_d15f2e11",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-03T10:36:01Z",
+      "side": 1,
+      "message": "are the braces necessary?",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7480966a_f640e023",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-03T10:36:01Z",
+      "side": 1,
+      "message": "nit: space after if (some more below)",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8090338a_e71d4556",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-03T10:36:01Z",
+      "side": 1,
+      "message": "nit: put on line above",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "148a60ae_1108f188",
+        "filename": "services/std_svc/std_svc_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-03T10:36:01Z",
+      "side": 1,
+      "message": "this might be redundant or is missing something?",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66e2c9d4_f2e408d8",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-03T10:36:01Z",
+      "side": 0,
+      "message": "wouldn\u0027t it make sense to have all of these in a separate patch? I don\u0027t understand why they are added here",
+      "revId": "3d2da6f5d3a931d97e0294f0a565b1810a55ab98",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b113cff4_c8cbdac8",
+        "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-03T10:36:01Z",
+      "side": 0,
+      "message": "Would it make sense to merge this file with the errata_report.h? They have similar purposes IMO",
+      "revId": "3d2da6f5d3a931d97e0294f0a565b1810a55ab98",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
