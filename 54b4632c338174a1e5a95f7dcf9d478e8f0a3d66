@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b2ed89fe_fd55b843",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-03T16:48:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44d5f2dd_89728c3e",
+      "revId": "54b4632c338174a1e5a95f7dcf9d478e8f0a3d66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1d60177e_7a78c760",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -31,6 +49,24 @@
       "writtenOn": "2023-03-03T14:48:19Z",
       "side": 1,
       "message": "There are lots of build failures in the CI run. Are they related to this patch? At least all the ones I\u0027ve glanced to are trusted boot related but maybe it\u0027s just a matter of rebasing the patch on the latest integration branch?",
+      "revId": "54b4632c338174a1e5a95f7dcf9d478e8f0a3d66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "268a0a7e_34a0fa6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-03T16:48:58Z",
+      "side": 1,
+      "message": "Believe it should just need the integration rebase, done!",
+      "parentUuid": "1d60177e_7a78c760",
       "revId": "54b4632c338174a1e5a95f7dcf9d478e8f0a3d66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -48,6 +84,30 @@
       "writtenOn": "2023-03-03T14:48:19Z",
       "side": 1,
       "message": "As per TF-A coding guidelines [1], this line should be the last #include directive, below platform.h.\n\n[1] https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "54b4632c338174a1e5a95f7dcf9d478e8f0a3d66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d52acc5_92377d64",
+        "filename": "plat/arm/board/tc/nv_counter_test.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-03T16:48:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2f7e3840_26021dca",
       "range": {
         "startLine": 7,
         "startChar": 0,
@@ -81,6 +141,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a62fbd2_c5affff4",
+        "filename": "plat/arm/board/tc/nv_counter_test.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-03T16:48:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4e981fe4_682fa933",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 16
+      },
+      "revId": "54b4632c338174a1e5a95f7dcf9d478e8f0a3d66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2078285_59cd7498",
@@ -94,6 +178,30 @@
       "writtenOn": "2023-03-03T14:48:19Z",
       "side": 1,
       "message": "This needs to be moved closer to line 216, which it applies to.",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 59
+      },
+      "revId": "54b4632c338174a1e5a95f7dcf9d478e8f0a3d66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "909b1487_5efe8056",
+        "filename": "plat/arm/board/tc/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-03T16:48:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2078285_59cd7498",
       "range": {
         "startLine": 199,
         "startChar": 0,
@@ -127,6 +235,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6332e525_a823cb8c",
+        "filename": "plat/arm/board/tc/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-03T16:48:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a76f1c17_a75ddef6",
+      "range": {
+        "startLine": 205,
+        "startChar": 1,
+        "endLine": 207,
+        "endChar": 33
+      },
+      "revId": "54b4632c338174a1e5a95f7dcf9d478e8f0a3d66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "083ff3b5_f95917b9",
@@ -150,6 +282,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "60592996_8b559700",
+        "filename": "plat/arm/board/tc/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-03T16:48:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "083ff3b5_f95917b9",
+      "range": {
+        "startLine": 208,
+        "startChar": 4,
+        "endLine": 209,
+        "endChar": 32
+      },
+      "revId": "54b4632c338174a1e5a95f7dcf9d478e8f0a3d66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "018a85ff_c9196c7b",
@@ -163,6 +319,30 @@
       "writtenOn": "2023-03-03T14:48:19Z",
       "side": 1,
       "message": "Suggest moving this line out of the #if blocks. No matter the type of platform tests we run, we should always suspend booting at the end. This will avoid us forgetting to call it if we add another PLATFORM_TEST variant in the future.",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 24
+      },
+      "revId": "54b4632c338174a1e5a95f7dcf9d478e8f0a3d66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ce42be5_826d02af",
+        "filename": "plat/arm/board/tc/tc_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-03T16:48:58Z",
+      "side": 1,
+      "message": "Since it still needs to only be added if PLATFORM_TEST is defined, it still needs to be an if I believe but moved to ifdef, let me know if this works!",
+      "parentUuid": "018a85ff_c9196c7b",
       "range": {
         "startLine": 58,
         "startChar": 0,
