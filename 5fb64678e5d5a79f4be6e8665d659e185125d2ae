@@ -161,6 +161,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "614ff746_ec55dfe4",
+        "filename": "bl2/bl2.mk",
+        "patchSetId": 17
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-03-03T13:39:29Z",
+      "side": 1,
+      "message": "I wonder whether this is the right build flag to use in this condition check... It pulls in bl2_entrypoint.S, which is definitely S-EL1 specific (e.g. it configures SCTLR_EL1 and VBAR_EL1 system registers). So I would think that the following would be a better fit here...\n\n ifeq (${BL2_RUNNING_AT_EL3},0) # BL2 runs at S-EL1.\n\nRight now, the check is based on the fact that TF-A BL1 runs before BL2. But that in itself does not control whether BL2 runs at S-EL1 or EL3. Or does it?\n\nThe opposite would be true, though. If you do *not* have BL1 running before BL2 (*) then that implies that BL2 is running at EL3 (by design choice).\n\n(*) ifeq (${BL2_AS_TFA_ENTRY_POINT},1)",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 39
+      },
+      "revId": "5fb64678e5d5a79f4be6e8665d659e185125d2ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcfe8f90_06b8b840",
+        "filename": "bl2/bl2_main.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-03-03T13:39:29Z",
+      "side": 1,
+      "message": "This comment makes me think that the reason we need to execute this code is tied to BL1 running before BL2, at the same privilege level. In that sense, !BL2_RUNNING_AT_EL3 does not sound like the appropriate build flag here...",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 4
+      },
+      "revId": "5fb64678e5d5a79f4be6e8665d659e185125d2ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2856266b_29c94415",
         "filename": "docs/getting_started/build-options.rst",
         "patchSetId": 17
