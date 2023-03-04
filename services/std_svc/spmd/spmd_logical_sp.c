@@ -437,7 +437,7 @@ uint64_t spmd_el3_populate_logical_partition_info(void *handle, uint64_t x1,
 	spmd_fill_lp_info_array(&partitions, target_uuid, &lp_count);
 
 	if (lp_count == 0) {
-		VERBOSE("No SPDM EL3 logical partitions exist. \n");
+		VERBOSE("No SPMD EL3 logical partitions exist. \n");
 		return spmd_ffa_error_return(handle, FFA_ERROR_NOT_SUPPORTED);
 	}
 
