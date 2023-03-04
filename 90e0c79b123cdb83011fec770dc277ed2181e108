@@ -16,6 +16,23 @@
       "message": "I was just aware that Marcin had already pushed the patch about “hardware assisted coherency” after I finished this. Not sure if these two patches were preferable. Any comments is welcome.",
       "revId": "90e0c79b123cdb83011fec770dc277ed2181e108",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1e0d41c_f8e20d18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-03-04T21:15:33Z",
+      "side": 1,
+      "message": "Does tf-a boots in qemu/sbsa-ref/neoverse-n1 for you with this patch?",
+      "revId": "90e0c79b123cdb83011fec770dc277ed2181e108",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
