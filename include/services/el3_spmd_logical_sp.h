@@ -127,7 +127,7 @@ static inline uint16_t ffa_partition_info_regs_get_desc_size(
 	return (args.arg2 >> 48);
 }
 
-uint64_t spmd_el3_get_logical_partition_info(void *handle, uint64_t x1,
+uint64_t spmd_el3_populate_logical_partition_info(void *handle, uint64_t x1,
 						uint64_t x2, uint64_t x3);
 
 bool ffa_partition_info_regs_get_part_info(

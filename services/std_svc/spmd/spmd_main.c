@@ -1229,7 +1229,7 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 #if MAKE_FFA_VERSION(1, 1) <= FFA_VERSION_COMPILED
 	case FFA_PARTITION_INFO_GET_REGS_SMC64:
 		if (secure_origin) {
-			return spmd_el3_get_logical_partition_info(handle, x1,
+			return spmd_el3_populate_logical_partition_info(handle, x1,
 								   x2, x3);
 		}
 

@@ -364,7 +364,14 @@ bool ffa_partition_info_regs_get_part_info(
 	return true;
 }
 
-uint64_t spmd_el3_get_logical_partition_info(void *handle, uint64_t x1,
+/*
+ * This function is called by the SPMD in response to
+ * a FFA_PARTITION_INFO_GET_REG ABI invocation by the SPMC. Secure partitions
+ * are allowed to discover the presence of EL3 SPMD logical partitions by
+ * invoking the aforementioned ABI and this function populates the required
+ * information about EL3 SPMD logical partitions.
+ */
+uint64_t spmd_el3_populate_logical_partition_info(void *handle, uint64_t x1,
 						uint64_t x2, uint64_t x3)
 {
 #if ENABLE_SPMD_LP
@@ -408,7 +415,7 @@ uint64_t spmd_el3_get_logical_partition_info(void *handle, uint64_t x1,
 	spmd_fill_lp_info_array(&partitions, target_uuid, &lp_count);
 
 	if (lp_count == 0) {
-		VERBOSE("No SPDM EL3 logical partitions exist. \n");
+		VERBOSE("No SPMD EL3 logical partitions exist. \n");
 		return spmd_ffa_error_return(handle, FFA_ERROR_NOT_SUPPORTED);
 	}
 
