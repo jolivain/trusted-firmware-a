@@ -120,6 +120,24 @@
       "parentUuid": "1dd769e0_63ea2b7b",
       "revId": "90e0c79b123cdb83011fec770dc277ed2181e108",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23f046cb_b11e0356",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-03-06T10:57:02Z",
+      "side": 1,
+      "message": "Both BSA and SBSA suck in this regard:\n\n\"It is consistent with this specification to implement PEs with support for the AArch32 Execution state.\"\n\nWithout \"mandatory\" or \"optional\" it feels like \"you are free to ignore this sentence\" to me.",
+      "parentUuid": "7d69d481_092233ef",
+      "revId": "90e0c79b123cdb83011fec770dc277ed2181e108",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
