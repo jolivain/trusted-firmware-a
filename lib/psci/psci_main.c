@@ -337,7 +337,7 @@ int psci_features(unsigned int psci_fid)
 {
 	unsigned int local_caps = psci_caps;
 
-	if (psci_fid == SMCCC_VERSION)
+	if ((psci_fid == SMCCC_VERSION) || (psci_fid == SMCCC_ARCH_FEATURES))
 		return PSCI_E_SUCCESS;
 
 	/* Check if it is a 64 bit function */
