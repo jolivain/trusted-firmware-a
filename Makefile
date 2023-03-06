@@ -877,7 +877,7 @@ endif
 ifeq (${ARCH},aarch32)
 
     # SME/SVE only supported on AArch64
-    ifeq (${ENABLE_SME_FOR_NS},1)
+    ifneq (${ENABLE_SME_FOR_NS},0)
         $(error "ENABLE_SME_FOR_NS cannot be used with ARCH=aarch32")
     endif
     ifeq (${ENABLE_SVE_FOR_NS},1)
@@ -898,7 +898,7 @@ endif
 
 # Ensure ENABLE_RME is not used with SME
 ifeq (${ENABLE_RME},1)
-    ifeq (${ENABLE_SME_FOR_NS},1)
+    ifneq (${ENABLE_SME_FOR_NS},0)
         $(error "ENABLE_SME_FOR_NS cannot be used with ENABLE_RME")
     endif
 endif
@@ -918,7 +918,7 @@ endif
 # SVE and SME cannot be used with CTX_INCLUDE_FPREGS since secure manager does
 # its own context management including FPU registers.
 ifeq (${CTX_INCLUDE_FPREGS},1)
-    ifeq (${ENABLE_SME_FOR_NS},1)
+    ifneq (${ENABLE_SME_FOR_NS},0)
         $(error "ENABLE_SME_FOR_NS cannot be used with CTX_INCLUDE_FPREGS")
     endif
     ifeq (${ENABLE_SVE_FOR_NS},1)
@@ -1101,7 +1101,6 @@ $(eval $(call assert_booleans,\
         ENABLE_PMF \
         ENABLE_PSCI_STAT \
         ENABLE_RUNTIME_INSTRUMENTATION \
-        ENABLE_SME_FOR_NS \
         ENABLE_SME_FOR_SWD \
         ENABLE_SVE_FOR_NS \
         ENABLE_SVE_FOR_SWD \
@@ -1189,6 +1188,7 @@ $(eval $(call assert_numerics,\
         ENABLE_MPAM_FOR_LOWER_ELS \
         ENABLE_RME \
         ENABLE_SPE_FOR_NS \
+        ENABLE_SME_FOR_NS \
         ENABLE_TRF_FOR_NS \
         FW_ENC_STATUS \
         NR_OF_FW_BANKS \
