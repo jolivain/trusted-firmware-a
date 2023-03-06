@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "01a75d2f_2b103567",
+        "filename": "docs/process/coding-style.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-03-06T09:43:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba039370_115aa562",
+      "range": {
+        "startLine": 413,
+        "startChar": 0,
+        "endLine": 414,
+        "endChar": 26
+      },
+      "revId": "ae1112efa9365d703bc78a5c627244b83da5b3b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27f87c81_682219a4",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-03-06T07:21:46Z",
       "side": 1,
       "message": "The following would sound better to me:\n\n\"The preferred approach for third-party headers is to include them immediately...\"",
+      "range": {
+        "startLine": 416,
+        "startChar": 0,
+        "endLine": 416,
+        "endChar": 16
+      },
+      "revId": "ae1112efa9365d703bc78a5c627244b83da5b3b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f902d71_d2b1da63",
+        "filename": "docs/process/coding-style.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-03-06T09:43:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27f87c81_682219a4",
       "range": {
         "startLine": 416,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "638b9c41_e024cbb7",
+        "filename": "docs/process/coding-style.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-03-06T09:43:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7f5383e_f5dd7fa9",
+      "range": {
+        "startLine": 418,
+        "startChar": 39,
+        "endLine": 418,
+        "endChar": 48
+      },
+      "revId": "ae1112efa9365d703bc78a5c627244b83da5b3b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffee986c_bdaafd60",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-03-06T07:21:46Z",
       "side": 1,
       "message": "Add some formatting:\n\n ``stddef.h``",
+      "range": {
+        "startLine": 419,
+        "startChar": 32,
+        "endLine": 419,
+        "endChar": 41
+      },
+      "revId": "ae1112efa9365d703bc78a5c627244b83da5b3b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b6386a5_837917ec",
+        "filename": "docs/process/coding-style.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-03-06T09:43:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffee986c_bdaafd60",
       "range": {
         "startLine": 419,
         "startChar": 32,
@@ -133,6 +229,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "752de263_4e5715bd",
+        "filename": "docs/process/coding-style.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-03-06T09:43:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09f6939f_68f527ec",
+      "range": {
+        "startLine": 421,
+        "startChar": 0,
+        "endLine": 421,
+        "endChar": 29
+      },
+      "revId": "ae1112efa9365d703bc78a5c627244b83da5b3b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81fdca5f_4058014c",
@@ -146,6 +266,30 @@
       "writtenOn": "2023-03-06T07:21:46Z",
       "side": 1,
       "message": "Let\u0027s get rid of the #if USE_TBBR_DEFS here. It makes the example more complex, and we want examples in this document to be as simple and unambiguous as possible. It\u0027s even ok if they are not \"real\" examples extracted from the codebase, as in line 382 above.\n\nI would replace this block by:\n\n /* platform header files */\n #include \u003cplatform_oid.h\u003e",
+      "range": {
+        "startLine": 435,
+        "startChar": 0,
+        "endLine": 441,
+        "endChar": 0
+      },
+      "revId": "ae1112efa9365d703bc78a5c627244b83da5b3b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cbec658_04128261",
+        "filename": "docs/process/coding-style.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-03-06T09:43:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81fdca5f_4058014c",
       "range": {
         "startLine": 435,
         "startChar": 0,
