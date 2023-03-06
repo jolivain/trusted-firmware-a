@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae1ea442_2b13492e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-03-06T07:10:15Z",
+      "side": 1,
+      "message": "Please also look at the static checks failures in the CI. It looks like the #include directives are still in the wrong order...\n\nFor the Coverity error, I suppose we\u0027ll have to accept it. We cannot fix it until the whole TC2 FVP testing story is fixed.",
+      "revId": "305490560722cac39d566ff438de335c7b9c6d70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d42d525_19b6356a",
+        "filename": "plat/arm/board/tc/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-03-06T07:10:15Z",
+      "side": 1,
+      "message": "The CI flagged the following error on all TC builds (fvp-tc0-tbb / fvp-tc1-tbb / fvp-tc2-tbb):\n\n plat/arm/board/tc/platform.mk:220: *** \"Unsupported PLATFORM_TEST value\".  Stop.\n\nI believe this happens when PLATFORM_TEST is undefined. We could put this block of code under some empty string test to solve the issue? IOW we should skip it if ${PLATFORM_TEST} is the empty string?",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 5
+      },
+      "revId": "305490560722cac39d566ff438de335c7b9c6d70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
