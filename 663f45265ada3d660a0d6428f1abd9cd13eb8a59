@@ -106,6 +106,24 @@
       "parentUuid": "c75806cc_28942bdb",
       "revId": "663f45265ada3d660a0d6428f1abd9cd13eb8a59",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93cf446d_6e6448cd",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-06T19:11:57Z",
+      "side": 1,
+      "message": "I understand that but I\u0027m talking about a different scenario: the cpu supports SVE, SVE is enabled for NS (ENABLE_SVE_FOR_NS\u003d1), SVE is not enabled for secure world (ENABLE_SVE_FOR_SWD\u003d0), SEL2 is populated (SPD\u003dspmd) and does not want to use SVE or floating point. I don\u0027t see why this wouldn\u0027t be plausible and the TF-A makefile allows this.\n\nIn that scenario, as you mention cptr_el3.ez will not be set. However, as soon as NS makes a secure call, the zcr register will be attempted to be saved (by cm_el2_sysregs_context_save) as this save has no reference to the _SWD flag. This should produce an exception as the ez bit isn\u0027t set.\n\nI\u0027m struggling to run a test config to demonstrate what I mean but I can try to make one if I still can\u0027t explain it.",
+      "parentUuid": "177b90f7_fcc61778",
+      "revId": "663f45265ada3d660a0d6428f1abd9cd13eb8a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
