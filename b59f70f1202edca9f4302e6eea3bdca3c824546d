@@ -89,6 +89,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03ac78d4_c44a30aa",
+        "filename": "lib/extensions/sme/sme.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-06T20:32:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8d0dfd3_0d955afe",
+      "revId": "b59f70f1202edca9f4302e6eea3bdca3c824546d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d41fefcd_fa4b67d1",
@@ -120,6 +138,24 @@
       "side": 1,
       "message": "Ok",
       "parentUuid": "d41fefcd_fa4b67d1",
+      "revId": "b59f70f1202edca9f4302e6eea3bdca3c824546d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48ec6cd4_aed04843",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-06T20:32:17Z",
+      "side": 1,
+      "message": "Will take care of this in the patch addressing feature detection support of SME2.",
+      "parentUuid": "7b65eb74_1d118e47",
       "revId": "b59f70f1202edca9f4302e6eea3bdca3c824546d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
