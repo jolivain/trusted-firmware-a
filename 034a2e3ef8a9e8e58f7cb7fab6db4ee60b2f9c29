@@ -50,6 +50,41 @@
       "message": "Can somebody from NXP approve this patch? ",
       "revId": "034a2e3ef8a9e8e58f7cb7fab6db4ee60b2f9c29",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85630015_3ec6735b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2023-03-06T10:21:47Z",
+      "side": 1,
+      "message": "I will propose the corresponding changes, which is working for NXP platforms.",
+      "revId": "034a2e3ef8a9e8e58f7cb7fab6db4ee60b2f9c29",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b52ee96_d4269a50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000209
+      },
+      "writtenOn": "2023-03-06T10:21:47Z",
+      "side": 1,
+      "message": "Applied this patch locally, at the integration branch.\nFor NXP platform \u003d lx2162aqds, the compilation is broken.",
+      "parentUuid": "0c352d78_fae053c8",
+      "revId": "034a2e3ef8a9e8e58f7cb7fab6db4ee60b2f9c29",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
