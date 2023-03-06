@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -466,6 +466,12 @@ ENABLE_TRF_FOR_NS		:= 2
 # Linux relies on EL3 enablement if those features are present
 ENABLE_FEAT_FGT			:= 2
 ENABLE_FEAT_HCX			:= 2
+
+# Enable SME access to NS by default
+ifneq (${SPM_MM}, 1)
+ENABLE_SME_FOR_NS		:= 2
+ENABLE_SME2_FOR_NS		:= 2
+endif
 
 ifeq (${SPMC_AT_EL3}, 1)
 PLAT_BL_COMMON_SOURCES	+=	plat/arm/board/fvp/fvp_el3_spmc.c
