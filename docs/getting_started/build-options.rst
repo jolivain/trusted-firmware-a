@@ -413,7 +413,7 @@ Common build options
    instrumented. Enabling this option enables the ``ENABLE_PMF`` build option
    as well. Default is 0.
 
--  ``ENABLE_SME_FOR_NS``: Boolean option to enable Scalable Matrix Extension
+-  ``ENABLE_SME_FOR_NS``: Numeric value to enable Scalable Matrix Extension
    (SME), SVE, and FPU/SIMD for the non-secure world only. These features share
    registers so are enabled together. Using this option without
    ENABLE_SME_FOR_SWD=1 will cause SME, SVE, and FPU/SIMD instructions in secure
