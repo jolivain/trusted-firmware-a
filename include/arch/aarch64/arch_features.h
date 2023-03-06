@@ -394,4 +394,33 @@ static inline bool is_feat_trbe_supported(void)
 	return read_feat_trbe_id_field() != 0U;
 
 }
+/*******************************************************************************
+ * Function to identify the presence of FEAT_SMEx (Scalar Matrix Extension)
+ ******************************************************************************/
+static inline bool feat_sme_fa64_supported(void)
+{
+	uint64_t features;
+
+	features = read_id_aa64smfr0_el1();
+	return (features & ID_AA64SMFR0_EL1_FA64_BIT) != 0U;
+}
+
+static inline unsigned int read_feat_sme_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64pfr1_el1(), ID_AA64PFR1_EL1_SME);
+}
+
+static inline bool is_feat_sme_supported(void)
+{
+	if (ENABLE_SME_FOR_NS == FEAT_STATE_DISABLED) {
+		return false;
+	}
+
+	if (ENABLE_SME_FOR_NS == FEAT_STATE_ALWAYS) {
+		return true;
+	}
+
+	return read_feat_sme_id_field() >= ID_AA64PFR1_EL1_SME_SUPPORTED;
+}
+
 #endif /* ARCH_FEATURES_H */
