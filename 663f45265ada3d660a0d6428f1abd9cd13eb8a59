@@ -88,6 +88,24 @@
       "parentUuid": "f43ec403_711b4efd",
       "revId": "663f45265ada3d660a0d6428f1abd9cd13eb8a59",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "177b90f7_fcc61778",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2023-03-06T15:20:47Z",
+      "side": 1,
+      "message": "\u003e secure world with ENABLE_SVE_FOR_SWD not set\nI see your concern, the current design is that, if SVE is enabled for NS world then secure world must enable SVE, even if wants to only use floating point. So any SEL1 TOS (SPD\u003d\u003clegacy dispatcher\u003e) or SEL2 SPM (SPD\u003dspmd) must set ENABLE_SVE_FOR_SWD\u003d1 if it wants to use SVE in NS world and use FP or SVE in secure world.\n\nWithout S-EL2 or R-EL2, the NS world can enable SVE and disable it for Secure world, in that case setting is bit in cptr_el3 will be skipped as it is used only when saving/restoring el2 context register.",
+      "parentUuid": "c75806cc_28942bdb",
+      "revId": "663f45265ada3d660a0d6428f1abd9cd13eb8a59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
