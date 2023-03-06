@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57b1b89a_a3d9f648",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-06T20:29:36Z",
+      "side": 1,
+      "message": "Sure. Thanks for highlighting it.\nI will push a separate patch to address SME2 concerning the Feature Detection mechanism.\nDont want to mix both. Hence retaining it as boolean here. Hope thats fine.",
+      "parentUuid": "bd096cf7_525e9b33",
+      "revId": "cf0848c8c5761445444857ee82a8eaca8a268569",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c61e093_5656a5ce",
@@ -49,6 +67,24 @@
       "side": 1,
       "message": "Yeah. Thats possible too.\n\nBut ideally, we should have sve check as well instead of ensuring Negate of SME support.\ni.e \nif(is_feat_sme_supported()) {\nsme_enable(ctx);\n}\nelse if(is_feat_sve_supported()){\nsve_enable(ctx);\n}\nAs of today SVE helper fucntions are not aligned with Feature Detection support. Hence I opted for this approach.\n\nWill modify as per your suggestion in the next patch.",
       "parentUuid": "5c61e093_5656a5ce",
+      "revId": "cf0848c8c5761445444857ee82a8eaca8a268569",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1412153a_4da4c187",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-06T20:29:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db6eb85a_382b43db",
       "revId": "cf0848c8c5761445444857ee82a8eaca8a268569",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
