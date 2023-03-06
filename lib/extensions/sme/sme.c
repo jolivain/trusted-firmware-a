@@ -14,14 +14,6 @@
 #include <lib/extensions/sme.h>
 #include <lib/extensions/sve.h>
 
-static bool feat_sme_supported(void)
-{
-	uint64_t features;
-
-	features = read_id_aa64pfr1_el1() >> ID_AA64PFR1_EL1_SME_SHIFT;
-	return (features & ID_AA64PFR1_EL1_SME_MASK) != 0U;
-}
-
 static bool feat_sme_fa64_supported(void)
 {
 	uint64_t features;
@@ -37,7 +29,7 @@ void sme_enable(cpu_context_t *context)
 	el3_state_t *state;
 
 	/* Make sure SME is implemented in hardware before continuing. */
-	if (!feat_sme_supported()) {
+	if (!is_feat_sme_supported()) {
 		/* Perhaps the hardware supports SVE only */
 		sve_enable(context);
 		return;
@@ -99,7 +91,7 @@ void sme_disable(cpu_context_t *context)
 	el3_state_t *state;
 
 	/* Make sure SME is implemented in hardware before continuing. */
-	if (!feat_sme_supported()) {
+	if (!is_feat_sme_supported()) {
 		/* Perhaps the hardware supports SVE only */
 		sve_disable(context);
 		return;
