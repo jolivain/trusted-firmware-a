@@ -16,6 +16,24 @@
       "message": "weren\u0027t all of these meant to be in the caller? And then the asserts can go away?",
       "revId": "00a9ff8552e1f08d47f9886c74d30bd16ea8f910",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52fa75c6_b1ba2057",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-07T15:26:37Z",
+      "side": 1,
+      "message": "ACK for doing that in the caller.\nRegarding the asserts: I was just trying to copy the level of paranoia in the existing implementation here. The asserts are in static functions, and the callers check the availability of the feature already. So looking at this the asserts were redundant already.\nI am happy to remove them, but am not sure if they were put there with an intention.",
+      "parentUuid": "98f28304_e747df33",
+      "revId": "00a9ff8552e1f08d47f9886c74d30bd16ea8f910",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
