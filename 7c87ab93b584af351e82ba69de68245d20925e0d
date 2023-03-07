@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c020c34_74612a33",
+        "filename": "include/arch/aarch64/asm_macros.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-07T23:25:36Z",
+      "side": 1,
+      "message": "just curious. If we directly use the instruction opcode, would it not be picked by disassember?\n.inst 0xd50330ff",
+      "range": {
+        "startLine": 249,
+        "startChar": 1,
+        "endLine": 249,
+        "endChar": 16
+      },
+      "revId": "7c87ab93b584af351e82ba69de68245d20925e0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
