@@ -426,7 +426,7 @@ Common build options
    The default is 1 but is automatically disabled when the target architecture
    is AArch32.
 
--  ``ENABLE_SVE_FOR_NS``: Boolean option to enable Scalable Vector Extension
+-  ``ENABLE_SVE_FOR_NS``: Numeric value to enable Scalable Vector Extension
    (SVE) for the Non-secure world only. SVE is an optional architectural feature
    for AArch64. Note that when SVE is enabled for the Non-secure world, access
    to SIMD and floating-point functionality from the Secure world is disabled by
