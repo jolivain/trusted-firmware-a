@@ -20,13 +20,6 @@ void sme_enable(cpu_context_t *context)
 	u_register_t cptr_el3;
 	el3_state_t *state;
 
-	/* Make sure SME is implemented in hardware before continuing. */
-	if (!is_feat_sme_supported()) {
-		/* Perhaps the hardware supports SVE only */
-		sve_enable(context);
-		return;
-	}
-
 	/* Get the context state. */
 	state = get_el3state_ctx(context);
 
@@ -83,11 +76,24 @@ void sme_disable(cpu_context_t *context)
 	u_register_t reg;
 	el3_state_t *state;
 
+<<<<<<< HEAD
 	/* Make sure SME is implemented in hardware before continuing. */
 	if (!is_feat_sme_supported()) {
 		/* Perhaps the hardware supports SVE only */
 		sve_disable(context);
 		return;
+=======
+	/*
+	 * Disable access to ZT0 register.
+	 * Make sure SME2 is supported by the hardware before continuing.
+	 * If supported, unset the EZT0 bit in SMCR_EL3 to not allow instructions
+	 * to access ZT0 register and getting them trapped.
+	 */
+	if (is_feat_sme2_supported()) {
+		reg = read_smcr_el3();
+		reg &= ~SMCR_ELX_EZT0_BIT;
+		write_smcr_el3(reg);
+>>>>>>> 1c43fd527... feat(cpufeat): enable FEAT_SVE for FEAT_STATE_CHECKED
 	}
 
 	/* Get the context state. */
