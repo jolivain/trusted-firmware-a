@@ -105,6 +105,24 @@
       "parentUuid": "741c8238_2cce4973",
       "revId": "6e975af98fada6a1a3616fc4a8a24ac6e9a4529d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11a66163_6a2ce98e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-03-07T11:45:22Z",
+      "side": 1,
+      "message": "I haven\u0027t seen Coverity\u0027s specific complaint, but MISRA itself recommends against using compiler extensions (we\u0027ll probably get a similar warning from ECLAIR). It does acknowledge that they may be necessary, and TF-A doesn\u0027t claim to be MISRA-compliant anyway, so I don\u0027t think it\u0027s an issue.\n\nFWIW C23 is expected to introduce the [[fallthrough]] attribute, and the attribute syntax in general.",
+      "parentUuid": "48b27836_adae312a",
+      "revId": "6e975af98fada6a1a3616fc4a8a24ac6e9a4529d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
