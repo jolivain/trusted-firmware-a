@@ -54,6 +54,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbe21d8e_cb879c36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-03-07T09:33:53Z",
+      "side": 1,
+      "message": "\u003e Should I put the new file in the ignore area for coverity for now?\n\nYes, I think so.",
+      "parentUuid": "fb9ae334_e11b90a3",
+      "revId": "305490560722cac39d566ff438de335c7b9c6d70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d42d525_19b6356a",
@@ -91,6 +109,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "5d42d525_19b6356a",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 5
+      },
+      "revId": "305490560722cac39d566ff438de335c7b9c6d70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "951faa60_9b2f611b",
+        "filename": "plat/arm/board/tc/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-03-07T09:33:53Z",
+      "side": 1,
+      "message": "I agree that removing the \"else\" branch solves the issue at hand but we\u0027re losing the capability to flag an incorrect PLATFORM_TEST value. That\u0027s a shame, if I make a typo on the PLATFORM_TEST value (e.g. PLATFORM_TESTS\u003dtf-testsuite) then this will now be silently ignored.\n\nHow about adding the following final condition check instead:\n\n else ifneq (${PLATFORM_TEST},)\n    $(error \"Unsupported PLATFORM_TEST value\")\n endif",
+      "parentUuid": "f9c3e050_af7de570",
       "range": {
         "startLine": 199,
         "startChar": 0,
