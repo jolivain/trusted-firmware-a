@@ -46,6 +46,30 @@
       },
       "revId": "5fe64f4130ea8c2b7da738e83154bdec9b2cc81c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1f018c1_86fdd954",
+        "filename": "include/lib/libc/cdefs.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-03-07T21:19:37Z",
+      "side": 1,
+      "message": "Technically anything in this file that isn\u0027t part of the standard C library interface (per the standard) should be underscored to avoid conflicting with the rest of the code-base, but I mainly highlighted it just for consistency with the definitions above it.\n\nThe attribute name should definitely be underscored though to prevent collisions with anything else that might be called \"fallthrough\" (I\u0027ve run into this issue before, so it does happen!).",
+      "parentUuid": "ac2c0cc2_66b6b07d",
+      "range": {
+        "startLine": 18,
+        "startChar": 35,
+        "endLine": 18,
+        "endChar": 46
+      },
+      "revId": "5fe64f4130ea8c2b7da738e83154bdec9b2cc81c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
