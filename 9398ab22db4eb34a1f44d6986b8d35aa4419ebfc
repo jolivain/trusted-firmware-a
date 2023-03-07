@@ -243,6 +243,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "610d2226_39bf21f2",
+        "filename": "tools/sptool/sp_mk_generator.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-03-07T10:56:19Z",
+      "side": 1,
+      "message": "Hi,\n\nImre that is valuable feedback thanks a lot!\nKarl\u0027s fix worked on the assumption Hafnium is the designated SPMC.\nAs Hafnium uses a 1-to-1 mapping between VAs and PAs, fetching the load-address helped to avoid having duplicates of the same information, reduce the configuration burden and at the same time fix the issue that was reported related with fconf.\n\nSo I think it is fare to a field to the sp layout json file, to define the physical load address of the secure partition.\n\nKarl, thanks a lot for the fix! Let us know if anything is not clear.\nCheers",
+      "parentUuid": "e28b2c13_891661d5",
+      "revId": "9398ab22db4eb34a1f44d6986b8d35aa4419ebfc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7281c654_6009d92c",
         "filename": "tools/sptool/sp_mk_generator.py",
         "patchSetId": 1
