@@ -33,6 +33,24 @@
       "message": "why this change? The esb is a NOP when RAS isn\u0027t there and it would be missed on 2.",
       "revId": "23d311bbcf3794274f36a7fe031a802482377e1f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "000afb21_7c56480f",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-07T11:57:17Z",
+      "side": 1,
+      "message": "Yes, that\u0027s the problem: the ESB is a NOP, but we need a barrier. If we are not sure whether RAS is there (which is the case for \u003d2, if we cannot do a check), we must resort to the safe (but more expensive) DSB. The ESB is an optimisation, so it should be fine without it.",
+      "parentUuid": "85767742_1bcd12bc",
+      "revId": "23d311bbcf3794274f36a7fe031a802482377e1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
