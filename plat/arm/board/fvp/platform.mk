@@ -471,6 +471,9 @@ ENABLE_FEAT_HCX			:= 2
 ENABLE_SME_FOR_NS		:= 2
 ENABLE_SME2_FOR_NS		:= 2
 
+# Enable SVE access to NS by default
+ENABLE_SVE_FOR_NS		:= 2
+
 ifeq (${SPMC_AT_EL3}, 1)
 PLAT_BL_COMMON_SOURCES	+=	plat/arm/board/fvp/fvp_el3_spmc.c
 endif

@@ -1095,7 +1095,6 @@ $(eval $(call assert_booleans,\
         ENABLE_RUNTIME_INSTRUMENTATION \
         ENABLE_SME_FOR_SWD \
         ENABLE_SPE_FOR_LOWER_ELS \
-        ENABLE_SVE_FOR_NS \
         ENABLE_SVE_FOR_SWD \
         ERROR_DEPRECATED \
         FAULT_INJECTION_SUPPORT \
@@ -1181,6 +1180,7 @@ $(eval $(call assert_numerics,\
         ENABLE_RME \
         ENABLE_SME_FOR_NS \
         ENABLE_SME2_FOR_NS \
+        ENABLE_SVE_FOR_NS \
         ENABLE_TRF_FOR_NS \
         FW_ENC_STATUS \
         NR_OF_FW_BANKS \
