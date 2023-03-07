@@ -16,6 +16,23 @@
       "message": "@Manish B and @Boyan, have addressed your comments with explicit patches, to cover SVE and SME\nunder feature detection and added helper functions to get rid of the build macros.\nPlease take a look and add your comments.\n\nThanks!",
       "revId": "51f01bd4d71cbac069dfb7028d09e6ef101cb5e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3292f51_2ffebca5",
+        "filename": "Makefile",
+        "patchSetId": 9
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-07T17:23:01Z",
+      "side": 1,
+      "message": "This is more of a general question: if this is a dependency, why don\u0027t we enforce this instead of just complaining here? I saw this in several places, so perhaps there is a rationale here?\n\nFrom a practical standpoint, this moves the burden of enumerating all dependencies to the user, instead of declaring this in the source.",
+      "revId": "51f01bd4d71cbac069dfb7028d09e6ef101cb5e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
