@@ -22,6 +22,30 @@
       },
       "revId": "7c87ab93b584af351e82ba69de68245d20925e0d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccfed3cd_f7ddb008",
+        "filename": "include/arch/aarch64/asm_macros.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-07T23:49:34Z",
+      "side": 1,
+      "message": "\".inst 0xd50330ff\" would the be same as \"msr S0_3_C3_C0_7, xzr\", but I consider the latter less awkward and error prone, since you have a better chance to confirm the decoding using the Arm ARM. The *disassembler* would always decode it as just \"sb\", but that doesn\u0027t matter here, since it\u0027s the *assembler* that complains (in the \"sb\" case), and it ignores the S0_ or the .inst encoding (on purpose).",
+      "parentUuid": "4c020c34_74612a33",
+      "range": {
+        "startLine": 249,
+        "startChar": 1,
+        "endLine": 249,
+        "endChar": 16
+      },
+      "revId": "7c87ab93b584af351e82ba69de68245d20925e0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
