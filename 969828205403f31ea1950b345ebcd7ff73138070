@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c7682ffb_a6d3ced7",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-07T17:35:56Z",
+      "side": 1,
+      "message": "There is still the case where people hardcode DIT (\u003d11), but want to have an assert. I don\u0027t know if this is a valid use case (to some degree asserts are always a redundant molly guard), or this assert was the closest equivalent to a runtime \"detection\" that we have now a better solution for (\u003d2).",
+      "parentUuid": "7962453c_3791ee4e",
+      "revId": "969828205403f31ea1950b345ebcd7ff73138070",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bdafa993_f15cbc90",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 1
@@ -31,6 +49,30 @@
       "writtenOn": "2023-03-06T17:17:59Z",
       "side": 1,
       "message": "would ID_AA64PFR0_DIT_MASK and ID_AA64PFR0_DIT_SHIFT not work? Or even the ubfx sequence from above?",
+      "range": {
+        "startLine": 530,
+        "startChar": 22,
+        "endLine": 530,
+        "endChar": 24
+      },
+      "revId": "969828205403f31ea1950b345ebcd7ff73138070",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a5e0187_42b5683d",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-07T17:35:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bdafa993_f15cbc90",
       "range": {
         "startLine": 530,
         "startChar": 22,
