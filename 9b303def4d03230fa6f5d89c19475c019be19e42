@@ -120,6 +120,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88f53ab4_fbcf74a5",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-03-07T02:40:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "75fe49d9_fd80d114",
+      "range": {
+        "startLine": 204,
+        "startChar": 20,
+        "endLine": 204,
+        "endChar": 25
+      },
+      "revId": "9b303def4d03230fa6f5d89c19475c019be19e42",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a00b96ec_4e19b341",
@@ -276,6 +300,30 @@
       "side": 1,
       "message": "yes, but given that you are adding asserts and making modifications in relevant code, would it be possible to add?",
       "parentUuid": "8fb1d313_1794e449",
+      "range": {
+        "startLine": 214,
+        "startChar": 9,
+        "endLine": 215,
+        "endChar": 1
+      },
+      "revId": "9b303def4d03230fa6f5d89c19475c019be19e42",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff23f61e_4075fb2a",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-03-07T02:40:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "25c89f28_bdf3c89f",
       "range": {
         "startLine": 214,
         "startChar": 9,
