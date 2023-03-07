@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5659a461_68125cc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2023-03-07T10:38:29Z",
+      "side": 1,
+      "message": "Overwriting verified, the only failed job is false-negative: https://ci.trustedfirmware.org/job/tf-a-builder/1785020/\nLava job passed, but the result is registered as failed.\nMISRA report not relevant to the patch.",
+      "revId": "e09da7be3fe5f7a59f16abc6008a8a97c3e1c247",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
