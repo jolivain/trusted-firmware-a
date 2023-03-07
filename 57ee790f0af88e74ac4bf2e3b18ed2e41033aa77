@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b36b72da_473eed43",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-07T15:24:46Z",
+      "side": 1,
+      "message": "Missed it. Thanks for highlighting it.",
+      "parentUuid": "c584d552_c56c7dd2",
+      "revId": "57ee790f0af88e74ac4bf2e3b18ed2e41033aa77",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "68a33e28_39fe9b51",
         "filename": "lib/extensions/sme/sme.c",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2023-03-07T13:51:38Z",
       "side": 1,
       "message": "Further to the defaults.mk comment, this could be removed entirely and let the feature flags cover this case.",
+      "revId": "57ee790f0af88e74ac4bf2e3b18ed2e41033aa77",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8f01671_a8c1086b",
+        "filename": "lib/extensions/sme/sme.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-07T15:24:46Z",
+      "side": 1,
+      "message": "This is removed in the top patch (FEAT_SVE). Kindly take a look.",
+      "parentUuid": "68a33e28_39fe9b51",
       "revId": "57ee790f0af88e74ac4bf2e3b18ed2e41033aa77",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -48,6 +84,24 @@
       "writtenOn": "2023-03-07T13:51:38Z",
       "side": 1,
       "message": "I suppose this might be a good time to bring this up, but why is SVE forced _off_? If anything shouldn\u0027t it be forced _on_? Seeing as how the SME code depends on the SVE code? Then the implicit dependency wouldn\u0027t have to be in the sme enablement code (although it could still be).",
+      "revId": "57ee790f0af88e74ac4bf2e3b18ed2e41033aa77",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51c3fdbb_c49f7dd4",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-07T15:24:46Z",
+      "side": 1,
+      "message": "Agree.\nEven I have less expertise here on why its been done this way. \nI will add the SVE code owner to the review list. We could start the discussion accordingly.",
+      "parentUuid": "7f1a1383_cfcaa816",
       "revId": "57ee790f0af88e74ac4bf2e3b18ed2e41033aa77",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
