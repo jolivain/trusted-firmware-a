@@ -33,6 +33,24 @@
       "message": "This becomes 0xB200FF01 if my macro expansion is correct. This is not a valid SMC function ID for \"Call UID\". Only 0xBF00_FF01 is mentioned in the spec for Trusted OS.",
       "revId": "4872e923e843d608036d1590d5ac8653dda43901",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f9e7da8_4c83cd9e",
+        "filename": "services/spd/opteed/teesmc_opteed.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-03-07T19:16:15Z",
+      "side": 1,
+      "message": "I think you missed that I changed the definition of NSSMC_OPTEED_CALL in this change too...with that it maps to 0xBF00FF01.",
+      "parentUuid": "93d58788_9635da1d",
+      "revId": "4872e923e843d608036d1590d5ac8653dda43901",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
