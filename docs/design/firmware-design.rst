@@ -1760,6 +1760,10 @@ BL image during boot.
 
                    DRAM
     0xffffffff +----------+
+               | EL3 TZC  |
+    0xffe00000 +----------+  (secure)
+               | AP TZC   |
+    0xff000000 +----------+
                :          :
     0x82100000 |----------|
                |HW_CONFIG |
@@ -1801,6 +1805,10 @@ BL image during boot.
 
                      DRAM
     0xffffffff +--------------+
+               |   EL3 TZC    |
+    0xffe00000 +--------------+  (secure)
+               |   AP TZC     |
+    0xff000000 +--------------+
                :              :
     0x82100000 |--------------|
                |  HW_CONFIG   |
@@ -1841,7 +1849,12 @@ BL image during boot.
 
                    DRAM
     0xffffffff +----------+
-               |  BL32    |  (secure)
+               |  EL3 TZC |
+               |    and   |
+               |  SCP TZC |
+    0xffe00000 +----------+  (secure)
+               |  AP TZC  |
+               |  (BL32)  |
     0xff000000 +----------+
                |          |
     0x82100000 |----------|
@@ -1881,6 +1894,21 @@ BL image during boot.
 
 ::
 
+                  DRAM
+    0xFFFFFFFF +----------+
+               |  EL3 TZC |
+               |    and   |
+               |  SCP TZC |
+    0xFFE00000 +----------+  (secure)
+               |  AP TZC  |
+               |  (BL32)  |
+    0xFF000000 |----------|
+               |          |
+               :          :  (non-secure)
+               |          |
+    0x80000000 +----------+
+
+
                   Flash0
     0x0C000000 +----------+
                :          :
@@ -1910,8 +1938,11 @@ BL image during boot.
 ::
 
                    DRAM
-    0xFFE00000 +----------+
-               |  BL32    |  (secure)
+    0xFFFFFFFF +----------+
+               |  EL3 TZC |
+    0xFFE00000 +----------+  (secure)
+               |  AP TZC  |
+               |  (BL32)  |
     0xFF000000 |----------|
                |          |
                :          :  (non-secure)
@@ -2752,7 +2783,7 @@ kernel at boot time. These can be found in the ``fdts`` directory.
 
 --------------
 
-*Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.*
+*Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.*
 
 .. _Power State Coordination Interface PDD: http://infocenter.arm.com/help/topic/com.arm.doc.den0022d/Power_State_Coordination_Interface_PDD_v1_1_DEN0022D.pdf
 .. _SMCCC: https://developer.arm.com/docs/den0028/latest
