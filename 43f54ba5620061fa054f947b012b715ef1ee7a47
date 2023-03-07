@@ -34,6 +34,24 @@
       "parentUuid": "23c7291e_0441faa1",
       "revId": "43f54ba5620061fa054f947b012b715ef1ee7a47",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c3c247b_e29bebf0",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-07T16:22:54Z",
+      "side": 1,
+      "message": "Right, yeah the platform makefile runs later. So I guess platforms aren\u0027t concerned. Still the commandline (so the CI) and the documentation would be.",
+      "parentUuid": "2560b6d2_27faa109",
+      "revId": "43f54ba5620061fa054f947b012b715ef1ee7a47",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
