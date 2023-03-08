@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcc5354c_cc01cef5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-03-08T14:20:40Z",
+      "side": 1,
+      "message": "I don\u0027t think this patch is such a good idea. #defines were used in this code because they worked around OP-TEE\u0027s inability to read DTBs from secure memory. But this was thought to be a temporary workaround. Using #defines makes this workaround easy to remove. If we change the signature of arm_set_nt_fw_info() to always include this parameter, it\u0027s gonna be harder to revert it and it\u0027s gonna create unnecessary hassle for other SPDs.\n\nI believe this has now been fixed in OP-TEE. Let me reach out to OP-TEE maintainers to confirm my findings. I\u0027ll keep you in the loop.\n\nIf I am right about this, then a better solution would be to remove the #ifdef guards for SPD_opteed, and do not change the prototype for other SPDs. This will require us updating the OP-TEE binary used in the OpenCI, though (https://jira.arm.com/browse/GENFW-4273).",
+      "revId": "6e3c7b3af962a61ca06ddcfd3af0aec8f3acb595",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
