@@ -129,6 +129,7 @@ struct stm32mp_ddr_config {
 };
 
 int stm32mp1_ddr_clk_enable(struct stm32mp_ddr_priv *priv, uint32_t mem_speed);
-void stm32mp1_ddr_init(struct stm32mp_ddr_priv *priv, struct stm32mp_ddr_config *config);
+void stm32mp1_ddr_init(struct stm32mp_ddr_priv *priv,
+		       struct stm32mp_ddr_config *config);
 
 #endif /* STM32MP1_DDR_H */

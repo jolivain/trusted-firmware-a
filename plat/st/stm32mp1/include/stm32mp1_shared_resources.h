@@ -9,7 +9,7 @@
 
 #include <stm32mp_shared_resources.h>
 
-#define STM32MP1_SHRES_GPIOZ(i)		(STM32MP1_SHRES_GPIOZ_0 + (i))
+#define STM32MP1_SHRES_GPIOZ(i) (STM32MP1_SHRES_GPIOZ_0 + (i))
 
 enum stm32mp_shres {
 	STM32MP1_SHRES_CRYP1,

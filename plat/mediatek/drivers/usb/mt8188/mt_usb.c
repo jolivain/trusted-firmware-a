@@ -8,6 +8,7 @@
 #include <common/debug.h>
 #include <lib/mtk_init/mtk_init.h>
 #include <lpm/mt_lp_api.h>
+
 #include <platform_def.h>
 
 int mt_usb_init(void)

@@ -1,14 +1,10 @@
 /*
- * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-
-#include <libfdt.h>
-
-#include <platform_def.h>
 
 #include <arch.h>
 #include <arch_helpers.h>
@@ -20,12 +16,13 @@
 #include <drivers/generic_delay_timer.h>
 #include <drivers/ti/uart/uart_16550.h>
 #include <lib/mmio.h>
-#include <plat/common/platform.h>
-
+#include <libfdt.h>
 #include <sunxi_def.h>
 #include <sunxi_mmap.h>
 #include <sunxi_private.h>
 
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 static entry_point_info_t bl32_image_ep_info;
 static entry_point_info_t bl33_image_ep_info;
@@ -99,8 +96,8 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	 * is located and the entry state information
 	 */
 	bl33_image_ep_info.pc = PRELOADED_BL33_BASE;
-	bl33_image_ep_info.spsr = SPSR_64(MODE_EL2, MODE_SP_ELX,
-					  DISABLE_ALL_EXCEPTIONS);
+	bl33_image_ep_info.spsr =
+		SPSR_64(MODE_EL2, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 	SET_SECURITY_STATE(bl33_image_ep_info.h.attr, NON_SECURE);
 }
 
@@ -145,7 +142,7 @@ void bl31_platform_setup(void)
 
 		model = fdt_getprop(fdt, 0, "model", &length);
 		NOTICE("BL31: Found U-Boot DTB at %p, model: %s\n", fdt,
-		     model ?: "unknown");
+		       model ?: "unknown");
 	} else {
 		NOTICE("BL31: No DTB found.\n");
 	}

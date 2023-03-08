@@ -16,40 +16,40 @@
 #include <stdint.h>
 
 /* Generic Messages */
-#define TI_SCI_MSG_ENABLE_WDT		0x0000
-#define TI_SCI_MSG_WAKE_RESET		0x0001
-#define TI_SCI_MSG_VERSION		0x0002
-#define TI_SCI_MSG_WAKE_REASON		0x0003
-#define TI_SCI_MSG_GOODBYE		0x0004
-#define TI_SCI_MSG_SYS_RESET		0x0005
+#define TI_SCI_MSG_ENABLE_WDT 0x0000
+#define TI_SCI_MSG_WAKE_RESET 0x0001
+#define TI_SCI_MSG_VERSION 0x0002
+#define TI_SCI_MSG_WAKE_REASON 0x0003
+#define TI_SCI_MSG_GOODBYE 0x0004
+#define TI_SCI_MSG_SYS_RESET 0x0005
 
 /* Device requests */
-#define TI_SCI_MSG_SET_DEVICE_STATE	0x0200
-#define TI_SCI_MSG_GET_DEVICE_STATE	0x0201
-#define TI_SCI_MSG_SET_DEVICE_RESETS	0x0202
+#define TI_SCI_MSG_SET_DEVICE_STATE 0x0200
+#define TI_SCI_MSG_GET_DEVICE_STATE 0x0201
+#define TI_SCI_MSG_SET_DEVICE_RESETS 0x0202
 
 /* Low Power Mode Requests */
-#define TI_SCI_MSG_ENTER_SLEEP		0x0301
+#define TI_SCI_MSG_ENTER_SLEEP 0x0301
 
 /* Clock requests */
-#define TI_SCI_MSG_SET_CLOCK_STATE	0x0100
-#define TI_SCI_MSG_GET_CLOCK_STATE	0x0101
-#define TI_SCI_MSG_SET_CLOCK_PARENT	0x0102
-#define TI_SCI_MSG_GET_CLOCK_PARENT	0x0103
+#define TI_SCI_MSG_SET_CLOCK_STATE 0x0100
+#define TI_SCI_MSG_GET_CLOCK_STATE 0x0101
+#define TI_SCI_MSG_SET_CLOCK_PARENT 0x0102
+#define TI_SCI_MSG_GET_CLOCK_PARENT 0x0103
 #define TI_SCI_MSG_GET_NUM_CLOCK_PARENTS 0x0104
-#define TI_SCI_MSG_SET_CLOCK_FREQ	0x010c
-#define TI_SCI_MSG_QUERY_CLOCK_FREQ	0x010d
-#define TI_SCI_MSG_GET_CLOCK_FREQ	0x010e
+#define TI_SCI_MSG_SET_CLOCK_FREQ 0x010c
+#define TI_SCI_MSG_QUERY_CLOCK_FREQ 0x010d
+#define TI_SCI_MSG_GET_CLOCK_FREQ 0x010e
 
 /* Processor Control Messages */
-#define TISCI_MSG_PROC_REQUEST		0xc000
-#define TISCI_MSG_PROC_RELEASE		0xc001
-#define TISCI_MSG_PROC_HANDOVER		0xc005
-#define TISCI_MSG_SET_PROC_BOOT_CONFIG	0xc100
-#define TISCI_MSG_SET_PROC_BOOT_CTRL	0xc101
-#define TISCI_MSG_PROC_AUTH_BOOT_IMAGE	0xc120
-#define TISCI_MSG_GET_PROC_BOOT_STATUS	0xc400
-#define TISCI_MSG_WAIT_PROC_BOOT_STATUS	0xc401
+#define TISCI_MSG_PROC_REQUEST 0xc000
+#define TISCI_MSG_PROC_RELEASE 0xc001
+#define TISCI_MSG_PROC_HANDOVER 0xc005
+#define TISCI_MSG_SET_PROC_BOOT_CONFIG 0xc100
+#define TISCI_MSG_SET_PROC_BOOT_CTRL 0xc101
+#define TISCI_MSG_PROC_AUTH_BOOT_IMAGE 0xc120
+#define TISCI_MSG_GET_PROC_BOOT_STATUS 0xc400
+#define TISCI_MSG_WAIT_PROC_BOOT_STATUS 0xc401
 
 /**
  * struct ti_sci_msg_hdr - Generic Message Header for All messages and responses
@@ -62,12 +62,12 @@ struct ti_sci_msg_hdr {
 	uint16_t type;
 	uint8_t host;
 	uint8_t seq;
-#define TI_SCI_MSG_FLAG(val)			(1 << (val))
-#define TI_SCI_FLAG_REQ_GENERIC_NORESPONSE	0x0
-#define TI_SCI_FLAG_REQ_ACK_ON_RECEIVED		TI_SCI_MSG_FLAG(0)
-#define TI_SCI_FLAG_REQ_ACK_ON_PROCESSED	TI_SCI_MSG_FLAG(1)
-#define TI_SCI_FLAG_RESP_GENERIC_NACK		0x0
-#define TI_SCI_FLAG_RESP_GENERIC_ACK		TI_SCI_MSG_FLAG(1)
+#define TI_SCI_MSG_FLAG(val) (1 << (val))
+#define TI_SCI_FLAG_REQ_GENERIC_NORESPONSE 0x0
+#define TI_SCI_FLAG_REQ_ACK_ON_RECEIVED TI_SCI_MSG_FLAG(0)
+#define TI_SCI_FLAG_REQ_ACK_ON_PROCESSED TI_SCI_MSG_FLAG(1)
+#define TI_SCI_FLAG_RESP_GENERIC_NACK 0x0
+#define TI_SCI_FLAG_RESP_GENERIC_ACK TI_SCI_MSG_FLAG(1)
 	/* Additional Flags */
 	uint32_t flags;
 } __packed;
@@ -105,7 +105,7 @@ struct ti_sci_msg_resp_version {
  */
 struct ti_sci_msg_req_reboot {
 	struct ti_sci_msg_hdr hdr;
-#define TI_SCI_DOMAIN_FULL_SOC_RESET	0x0
+#define TI_SCI_DOMAIN_FULL_SOC_RESET 0x0
 	uint8_t domain;
 } __packed;
 
@@ -133,16 +133,16 @@ struct ti_sci_msg_req_reboot {
  */
 struct ti_sci_msg_req_set_device_state {
 	/* Additional hdr->flags options */
-#define MSG_FLAG_DEVICE_WAKE_ENABLED	TI_SCI_MSG_FLAG(8)
-#define MSG_FLAG_DEVICE_RESET_ISO	TI_SCI_MSG_FLAG(9)
-#define MSG_FLAG_DEVICE_EXCLUSIVE	TI_SCI_MSG_FLAG(10)
+#define MSG_FLAG_DEVICE_WAKE_ENABLED TI_SCI_MSG_FLAG(8)
+#define MSG_FLAG_DEVICE_RESET_ISO TI_SCI_MSG_FLAG(9)
+#define MSG_FLAG_DEVICE_EXCLUSIVE TI_SCI_MSG_FLAG(10)
 	struct ti_sci_msg_hdr hdr;
 	uint32_t id;
 	uint32_t reserved;
 
-#define MSG_DEVICE_SW_STATE_AUTO_OFF	0
-#define MSG_DEVICE_SW_STATE_RETENTION	1
-#define MSG_DEVICE_SW_STATE_ON		2
+#define MSG_DEVICE_SW_STATE_AUTO_OFF 0
+#define MSG_DEVICE_SW_STATE_RETENTION 1
+#define MSG_DEVICE_SW_STATE_ON 2
 	uint8_t state;
 } __packed;
 
@@ -177,9 +177,9 @@ struct ti_sci_msg_resp_get_device_state {
 	uint32_t context_loss_count;
 	uint32_t resets;
 	uint8_t programmed_state;
-#define MSG_DEVICE_HW_STATE_OFF		0
-#define MSG_DEVICE_HW_STATE_ON		1
-#define MSG_DEVICE_HW_STATE_TRANS	2
+#define MSG_DEVICE_HW_STATE_OFF 0
+#define MSG_DEVICE_HW_STATE_ON 1
+#define MSG_DEVICE_HW_STATE_TRANS 2
 	uint8_t current_state;
 } __packed;
 
@@ -237,15 +237,15 @@ struct ti_sci_msg_req_set_device_resets {
  */
 struct ti_sci_msg_req_set_clock_state {
 	/* Additional hdr->flags options */
-#define MSG_FLAG_CLOCK_ALLOW_SSC		TI_SCI_MSG_FLAG(8)
-#define MSG_FLAG_CLOCK_ALLOW_FREQ_CHANGE	TI_SCI_MSG_FLAG(9)
-#define MSG_FLAG_CLOCK_INPUT_TERM		TI_SCI_MSG_FLAG(10)
+#define MSG_FLAG_CLOCK_ALLOW_SSC TI_SCI_MSG_FLAG(8)
+#define MSG_FLAG_CLOCK_ALLOW_FREQ_CHANGE TI_SCI_MSG_FLAG(9)
+#define MSG_FLAG_CLOCK_INPUT_TERM TI_SCI_MSG_FLAG(10)
 	struct ti_sci_msg_hdr hdr;
 	uint32_t dev_id;
 	uint8_t clk_id;
-#define MSG_CLOCK_SW_STATE_UNREQ	0
-#define MSG_CLOCK_SW_STATE_AUTO		1
-#define MSG_CLOCK_SW_STATE_REQ		2
+#define MSG_CLOCK_SW_STATE_UNREQ 0
+#define MSG_CLOCK_SW_STATE_AUTO 1
+#define MSG_CLOCK_SW_STATE_REQ 2
 	uint8_t request_state;
 } __packed;
 
@@ -280,8 +280,8 @@ struct ti_sci_msg_req_get_clock_state {
 struct ti_sci_msg_resp_get_clock_state {
 	struct ti_sci_msg_hdr hdr;
 	uint8_t programmed_state;
-#define MSG_CLOCK_HW_STATE_NOT_READY	0
-#define MSG_CLOCK_HW_STATE_READY	1
+#define MSG_CLOCK_HW_STATE_NOT_READY 0
+#define MSG_CLOCK_HW_STATE_READY 1
 	uint8_t current_state;
 } __packed;
 
@@ -481,9 +481,9 @@ struct ti_sci_msg_resp_get_clock_freq {
 	uint64_t freq_hz;
 } __packed;
 
-#define TISCI_ADDR_LOW_MASK		0x00000000ffffffff
-#define TISCI_ADDR_HIGH_MASK		0xffffffff00000000
-#define TISCI_ADDR_HIGH_SHIFT		32
+#define TISCI_ADDR_LOW_MASK 0x00000000ffffffff
+#define TISCI_ADDR_HIGH_MASK 0xffffffff00000000
+#define TISCI_ADDR_HIGH_SHIFT 32
 
 /**
  * struct ti_sci_msg_req_proc_request - Request a processor
@@ -530,21 +530,21 @@ struct ti_sci_msg_req_proc_handover {
 } __packed;
 
 /* A53 Config Flags */
-#define PROC_BOOT_CFG_FLAG_ARMV8_DBG_EN         0x00000001
-#define PROC_BOOT_CFG_FLAG_ARMV8_DBG_NIDEN      0x00000002
-#define PROC_BOOT_CFG_FLAG_ARMV8_DBG_SPIDEN     0x00000004
-#define PROC_BOOT_CFG_FLAG_ARMV8_DBG_SPNIDEN    0x00000008
-#define PROC_BOOT_CFG_FLAG_ARMV8_AARCH32        0x00000100
+#define PROC_BOOT_CFG_FLAG_ARMV8_DBG_EN 0x00000001
+#define PROC_BOOT_CFG_FLAG_ARMV8_DBG_NIDEN 0x00000002
+#define PROC_BOOT_CFG_FLAG_ARMV8_DBG_SPIDEN 0x00000004
+#define PROC_BOOT_CFG_FLAG_ARMV8_DBG_SPNIDEN 0x00000008
+#define PROC_BOOT_CFG_FLAG_ARMV8_AARCH32 0x00000100
 
 /* R5 Config Flags */
-#define PROC_BOOT_CFG_FLAG_R5_DBG_EN            0x00000001
-#define PROC_BOOT_CFG_FLAG_R5_DBG_NIDEN         0x00000002
-#define PROC_BOOT_CFG_FLAG_R5_LOCKSTEP          0x00000100
-#define PROC_BOOT_CFG_FLAG_R5_TEINIT            0x00000200
-#define PROC_BOOT_CFG_FLAG_R5_NMFI_EN           0x00000400
-#define PROC_BOOT_CFG_FLAG_R5_TCM_RSTBASE       0x00000800
-#define PROC_BOOT_CFG_FLAG_R5_BTCM_EN           0x00001000
-#define PROC_BOOT_CFG_FLAG_R5_ATCM_EN           0x00002000
+#define PROC_BOOT_CFG_FLAG_R5_DBG_EN 0x00000001
+#define PROC_BOOT_CFG_FLAG_R5_DBG_NIDEN 0x00000002
+#define PROC_BOOT_CFG_FLAG_R5_LOCKSTEP 0x00000100
+#define PROC_BOOT_CFG_FLAG_R5_TEINIT 0x00000200
+#define PROC_BOOT_CFG_FLAG_R5_NMFI_EN 0x00000400
+#define PROC_BOOT_CFG_FLAG_R5_TCM_RSTBASE 0x00000800
+#define PROC_BOOT_CFG_FLAG_R5_BTCM_EN 0x00001000
+#define PROC_BOOT_CFG_FLAG_R5_ATCM_EN 0x00002000
 
 /**
  * struct ti_sci_msg_req_set_proc_boot_config - Set Processor boot configuration
@@ -570,12 +570,12 @@ struct ti_sci_msg_req_set_proc_boot_config {
 } __packed;
 
 /* ARMV8 Control Flags */
-#define PROC_BOOT_CTRL_FLAG_ARMV8_ACINACTM      0x00000001
-#define PROC_BOOT_CTRL_FLAG_ARMV8_AINACTS       0x00000002
-#define PROC_BOOT_CTRL_FLAG_ARMV8_L2FLUSHREQ    0x00000100
+#define PROC_BOOT_CTRL_FLAG_ARMV8_ACINACTM 0x00000001
+#define PROC_BOOT_CTRL_FLAG_ARMV8_AINACTS 0x00000002
+#define PROC_BOOT_CTRL_FLAG_ARMV8_L2FLUSHREQ 0x00000100
 
 /* R5 Control Flags */
-#define PROC_BOOT_CTRL_FLAG_R5_CORE_HALT        0x00000001
+#define PROC_BOOT_CTRL_FLAG_R5_CORE_HALT 0x00000001
 
 /**
  * struct ti_sci_msg_req_set_proc_boot_ctrl - Set Processor boot control flags
@@ -627,16 +627,16 @@ struct ti_sci_msg_req_get_proc_boot_status {
 } __packed;
 
 /* ARMv8 Status Flags */
-#define PROC_BOOT_STATUS_FLAG_ARMV8_WFE			0x00000001
-#define PROC_BOOT_STATUS_FLAG_ARMV8_WFI			0x00000002
-#define PROC_BOOT_STATUS_FLAG_ARMV8_L2F_DONE		0x00000010
-#define PROC_BOOT_STATUS_FLAG_ARMV8_STANDBYWFIL2	0x00000020
+#define PROC_BOOT_STATUS_FLAG_ARMV8_WFE 0x00000001
+#define PROC_BOOT_STATUS_FLAG_ARMV8_WFI 0x00000002
+#define PROC_BOOT_STATUS_FLAG_ARMV8_L2F_DONE 0x00000010
+#define PROC_BOOT_STATUS_FLAG_ARMV8_STANDBYWFIL2 0x00000020
 
 /* R5 Status Flags */
-#define PROC_BOOT_STATUS_FLAG_R5_WFE			0x00000001
-#define PROC_BOOT_STATUS_FLAG_R5_WFI			0x00000002
-#define PROC_BOOT_STATUS_FLAG_R5_CLK_GATED		0x00000004
-#define PROC_BOOT_STATUS_FLAG_R5_LOCKSTEP_PERMITTED	0x00000100
+#define PROC_BOOT_STATUS_FLAG_R5_WFE 0x00000001
+#define PROC_BOOT_STATUS_FLAG_R5_WFI 0x00000002
+#define PROC_BOOT_STATUS_FLAG_R5_CLK_GATED 0x00000004
+#define PROC_BOOT_STATUS_FLAG_R5_LOCKSTEP_PERMITTED 0x00000100
 
 /**
  * \brief Processor Status Response

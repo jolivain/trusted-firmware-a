@@ -1,14 +1,13 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <stdint.h>
 
-#include <lib/mmio.h>
-
 #include <imx_caam.h>
+#include <lib/mmio.h>
 
 void imx_caam_init(void)
 {

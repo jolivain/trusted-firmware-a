@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <stdlib.h>
 #include <stddef.h>
+#include <stdlib.h>
 
 #include "bcm_emmc.h"
+#include "emmc_chal_sd.h"
 #include "emmc_chal_types.h"
-#include "emmc_chal_sd.h"
-#include "emmc_csl_sdprot.h"
-#include "emmc_csl_sdcmd.h"
 #include "emmc_csl_sd.h"
-#include "emmc_chal_sd.h"
+#include "emmc_csl_sdcmd.h"
+#include "emmc_csl_sdprot.h"
 #include "emmc_pboot_hal_memory_drv.h"
 
 int sd_cmd0(struct sd_handle *handle)
@@ -77,8 +76,7 @@ int sd_cmd3(struct sd_handle *handle)
 	argument = handle->device->ctrl.rca << SD_CMD7_ARG_RCA_SHIFT;
 
 	options = SD_CMDR_RSP_TYPE_R1_5_6 << SD_CMDR_RSP_TYPE_S |
-		  SD4_EMMC_TOP_CMD_CCHK_EN_MASK |
-		  SD4_EMMC_TOP_CMD_CRC_EN_MASK;
+		  SD4_EMMC_TOP_CMD_CCHK_EN_MASK | SD4_EMMC_TOP_CMD_CRC_EN_MASK;
 
 	/* send cmd and parse result */
 	res = send_cmd(handle, SD_CMD_MMC_SET_RCA, argument, options, &resp);
@@ -106,8 +104,7 @@ int sd_cmd7(struct sd_handle *handle, uint32_t rca)
 	 * during init_mmc_card().
 	 */
 	options = SD_CMDR_RSP_TYPE_R1_5_6 << SD_CMDR_RSP_TYPE_S |
-		  SD4_EMMC_TOP_CMD_CCHK_EN_MASK |
-		  SD4_EMMC_TOP_CMD_CRC_EN_MASK;
+		  SD4_EMMC_TOP_CMD_CCHK_EN_MASK | SD4_EMMC_TOP_CMD_CRC_EN_MASK;
 
 	/* send cmd and parse result */
 	res = send_cmd(handle, SD_CMD_SELECT_DESELECT_CARD, argument, options,
@@ -120,7 +117,6 @@ int sd_cmd7(struct sd_handle *handle, uint32_t rca)
 	return res;
 }
 
-
 /*
  * CMD8 Get CSD_EXT
  */
@@ -130,7 +126,7 @@ int mmc_cmd8(struct sd_handle *handle, uint8_t *extCsdReg)
 	struct sd_resp resp;
 
 	data_xfer_setup(handle, extCsdReg, CEATA_EXT_CSDBLOCK_SIZE,
-			    SD_XFER_CARD_TO_HOST);
+			SD_XFER_CARD_TO_HOST);
 
 	options = SD_CMDR_RSP_TYPE_R1_5_6 << SD_CMDR_RSP_TYPE_S |
 		  SD4_EMMC_TOP_CMD_DPS_MASK | SD4_EMMC_TOP_CMD_DTDS_MASK |
@@ -177,9 +173,8 @@ int sd_cmd9(struct sd_handle *handle, struct sd_card_data *card)
 		card->csd.mmc.wrBlkMisalign = (resp.data.r2.rsp3 >> 6) & 0x1;
 		card->csd.mmc.rdBlkMisalign = (resp.data.r2.rsp3 >> 5) & 0x1;
 		card->csd.mmc.dsr = (resp.data.r2.rsp2 >> 4) & 0x01;
-		card->csd.mmc.size =
-		    ((resp.data.r2.rsp3 & 0x3) << 10) +
-		    ((resp.data.r2.rsp2 >> 22) & 0x3ff);
+		card->csd.mmc.size = ((resp.data.r2.rsp3 & 0x3) << 10) +
+				     ((resp.data.r2.rsp2 >> 22) & 0x3ff);
 		card->csd.mmc.vddRdCurrMin = (resp.data.r2.rsp2 >> 19) & 0x7;
 		card->csd.mmc.vddRdCurrMax = (resp.data.r2.rsp2 >> 16) & 0x7;
 		card->csd.mmc.vddWrCurrMin = (resp.data.r2.rsp2 >> 13) & 0x7;
@@ -187,12 +182,12 @@ int sd_cmd9(struct sd_handle *handle, struct sd_card_data *card)
 		card->csd.mmc.devSizeMulti = (resp.data.r2.rsp2 >> 7) & 0x7;
 		card->csd.mmc.eraseGrpSize = (resp.data.r2.rsp2 >> 2) & 0x1f;
 		card->csd.mmc.eraseGrpSizeMulti =
-		    ((resp.data.r2.rsp2 & 0x3) << 3) +
-		    ((resp.data.r2.rsp1 >> 29) & 0x7);
+			((resp.data.r2.rsp2 & 0x3) << 3) +
+			((resp.data.r2.rsp1 >> 29) & 0x7);
 		card->csd.mmc.wrProtGroupSize =
-		    ((resp.data.r2.rsp1 >> 24) & 0x1f);
-		card->csd.mmc.wrProtGroupEnable =
-		    (resp.data.r2.rsp1 >> 23) & 0x1;
+			((resp.data.r2.rsp1 >> 24) & 0x1f);
+		card->csd.mmc.wrProtGroupEnable = (resp.data.r2.rsp1 >> 23) &
+						  0x1;
 		card->csd.mmc.manuDefEcc = (resp.data.r2.rsp1 >> 21) & 0x3;
 		card->csd.mmc.wrSpeedFactor = (resp.data.r2.rsp1 >> 18) & 0x7;
 		card->csd.mmc.wrBlkLen = (resp.data.r2.rsp1 >> 14) & 0xf;
@@ -210,7 +205,7 @@ int sd_cmd9(struct sd_handle *handle, struct sd_card_data *card)
 		multiFactor = (1 << (card->csd.mmc.devSizeMulti + 2));
 
 		handle->card->size =
-		    iBlkNum * multiFactor * (1 << card->csd.mmc.rdBlkLen);
+			iBlkNum * multiFactor * (1 << card->csd.mmc.rdBlkLen);
 	}
 
 	handle->card->maxRdBlkLen = maxReadBlockLen;
@@ -250,8 +245,7 @@ int sd_cmd13(struct sd_handle *handle, uint32_t *status)
 	argument = handle->device->ctrl.rca << SD_CMD7_ARG_RCA_SHIFT;
 
 	options = SD_CMDR_RSP_TYPE_R1_5_6 << SD_CMDR_RSP_TYPE_S |
-		  SD4_EMMC_TOP_CMD_CCHK_EN_MASK |
-		  SD4_EMMC_TOP_CMD_CRC_EN_MASK;
+		  SD4_EMMC_TOP_CMD_CCHK_EN_MASK | SD4_EMMC_TOP_CMD_CRC_EN_MASK;
 
 	/* send cmd and parse result */
 	res = send_cmd(handle, SD_CMD_SEND_STATUS, argument, options, &resp);
@@ -272,8 +266,7 @@ int sd_cmd16(struct sd_handle *handle, uint32_t length)
 	argument = length;
 
 	options = SD_CMDR_RSP_TYPE_R1_5_6 << SD_CMDR_RSP_TYPE_S |
-		  SD4_EMMC_TOP_CMD_CRC_EN_MASK |
-		  SD4_EMMC_TOP_CMD_CCHK_EN_MASK;
+		  SD4_EMMC_TOP_CMD_CRC_EN_MASK | SD4_EMMC_TOP_CMD_CCHK_EN_MASK;
 
 	ntry = 0;
 	do {
@@ -309,8 +302,8 @@ int sd_cmd16(struct sd_handle *handle, uint32_t length)
 	return res;
 }
 
-int sd_cmd17(struct sd_handle *handle,
-	     uint32_t addr, uint32_t len, uint8_t *buffer)
+int sd_cmd17(struct sd_handle *handle, uint32_t addr, uint32_t len,
+	     uint8_t *buffer)
 {
 	int res;
 	uint32_t argument, options, ntry;
@@ -358,13 +351,14 @@ int sd_cmd17(struct sd_handle *handle,
 	if (res != SD_OK)
 		return res;
 
-	res = process_data_xfer(handle, buffer, addr, len, SD_XFER_CARD_TO_HOST);
+	res = process_data_xfer(handle, buffer, addr, len,
+				SD_XFER_CARD_TO_HOST);
 
 	return res;
 }
 
-int sd_cmd18(struct sd_handle *handle,
-	     uint32_t addr, uint32_t len, uint8_t *buffer)
+int sd_cmd18(struct sd_handle *handle, uint32_t addr, uint32_t len,
+	     uint8_t *buffer)
 {
 	int res;
 	uint32_t argument, options, ntry;
@@ -414,7 +408,8 @@ int sd_cmd18(struct sd_handle *handle,
 	if (res != SD_OK)
 		return res;
 
-	res = process_data_xfer(handle, buffer, addr, len, SD_XFER_CARD_TO_HOST);
+	res = process_data_xfer(handle, buffer, addr, len,
+				SD_XFER_CARD_TO_HOST);
 
 	return res;
 }
@@ -467,12 +462,11 @@ int sd_cmd35(struct sd_handle *handle, uint32_t start)
 	argument = start;
 
 	options = SD_CMDR_RSP_TYPE_R1_5_6 << SD_CMDR_RSP_TYPE_S |
-		  SD4_EMMC_TOP_CMD_CRC_EN_MASK |
-		  SD4_EMMC_TOP_CMD_CCHK_EN_MASK;
+		  SD4_EMMC_TOP_CMD_CRC_EN_MASK | SD4_EMMC_TOP_CMD_CCHK_EN_MASK;
 
 	/* send cmd and parse result */
-	res = send_cmd(handle, SD_CMD_ERASE_GROUP_START,
-		       argument, options, &resp);
+	res = send_cmd(handle, SD_CMD_ERASE_GROUP_START, argument, options,
+		       &resp);
 
 	if (res != SD_OK)
 		return res;
@@ -493,12 +487,11 @@ int sd_cmd36(struct sd_handle *handle, uint32_t end)
 	argument = end;
 
 	options = SD_CMDR_RSP_TYPE_R1_5_6 << SD_CMDR_RSP_TYPE_S |
-		  SD4_EMMC_TOP_CMD_CRC_EN_MASK |
-		  SD4_EMMC_TOP_CMD_CCHK_EN_MASK;
+		  SD4_EMMC_TOP_CMD_CRC_EN_MASK | SD4_EMMC_TOP_CMD_CCHK_EN_MASK;
 
 	/* send cmd and parse result */
-	res = send_cmd(handle, SD_CMD_ERASE_GROUP_END,
-		       argument, options, &resp);
+	res = send_cmd(handle, SD_CMD_ERASE_GROUP_END, argument, options,
+		       &resp);
 
 	if (res != SD_OK)
 		return res;
@@ -519,8 +512,7 @@ int sd_cmd38(struct sd_handle *handle)
 	argument = 0;
 
 	options = (SD_CMDR_RSP_TYPE_R1b_5b << SD_CMDR_RSP_TYPE_S) |
-		  SD4_EMMC_TOP_CMD_CRC_EN_MASK |
-		  SD4_EMMC_TOP_CMD_CCHK_EN_MASK;
+		  SD4_EMMC_TOP_CMD_CRC_EN_MASK | SD4_EMMC_TOP_CMD_CCHK_EN_MASK;
 
 	/* send cmd and parse result */
 	res = send_cmd(handle, SD_CMD_ERASE, argument, options, &resp);
@@ -534,8 +526,8 @@ int sd_cmd38(struct sd_handle *handle)
 
 #ifdef INCLUDE_EMMC_DRIVER_WRITE_CODE
 
-int sd_cmd24(struct sd_handle *handle,
-	     uint32_t addr, uint32_t len, uint8_t *buffer)
+int sd_cmd24(struct sd_handle *handle, uint32_t addr, uint32_t len,
+	     uint8_t *buffer)
 {
 	int res;
 	uint32_t argument, options, ntry;
@@ -547,7 +539,8 @@ int sd_cmd24(struct sd_handle *handle,
 		if (res != SD_OK) {
 			EMMC_TRACE(
 				"cmd 13 failed before cmd24: rca 0x%0x, return %d, response 0x%0x\n",
-				handle->device->ctrl.rca, res, &resp.cardStatus);
+				handle->device->ctrl.rca, res,
+				&resp.cardStatus);
 			return res;
 		}
 
@@ -583,13 +576,14 @@ int sd_cmd24(struct sd_handle *handle,
 	if (res != SD_OK)
 		return res;
 
-	res = process_data_xfer(handle, buffer, addr, len, SD_XFER_HOST_TO_CARD);
+	res = process_data_xfer(handle, buffer, addr, len,
+				SD_XFER_HOST_TO_CARD);
 
 	return res;
 }
 
-int sd_cmd25(struct sd_handle *handle,
-	     uint32_t addr, uint32_t len, uint8_t *buffer)
+int sd_cmd25(struct sd_handle *handle, uint32_t addr, uint32_t len,
+	     uint8_t *buffer)
 {
 	int res = SD_OK;
 	uint32_t argument, options, ntry;
@@ -601,7 +595,8 @@ int sd_cmd25(struct sd_handle *handle,
 		if (res != SD_OK) {
 			EMMC_TRACE(
 				"cmd 13 failed before cmd25: rca 0x%0x, return %d, response 0x%0x\n",
-				handle->device->ctrl.rca, res, &resp.cardStatus);
+				handle->device->ctrl.rca, res,
+				&resp.cardStatus);
 			return res;
 		}
 
@@ -633,13 +628,14 @@ int sd_cmd25(struct sd_handle *handle,
 		  BIT(SD4_EMMC_TOP_CMD_ACMDEN_SHIFT);
 
 	/* send cmd and parse result */
-	res = send_cmd(handle, SD_CMD_WRITE_MULTIPLE_BLOCK,
-		       argument, options, &resp);
+	res = send_cmd(handle, SD_CMD_WRITE_MULTIPLE_BLOCK, argument, options,
+		       &resp);
 
 	if (res != SD_OK)
 		return res;
 
-	res = process_data_xfer(handle, buffer, addr, len, SD_XFER_HOST_TO_CARD);
+	res = process_data_xfer(handle, buffer, addr, len,
+				SD_XFER_HOST_TO_CARD);
 
 	return res;
 }
@@ -686,17 +682,17 @@ int mmc_cmd6(struct sd_handle *handle, uint32_t argument)
 		} else {
 			EMMC_TRACE("cmd13 failed after cmd6: ");
 			EMMC_TRACE("rca 0x%0x, return %d, response 0x%0x\n",
-				handle->device->ctrl.rca, res, resp.cardStatus);
+				   handle->device->ctrl.rca, res,
+				   resp.cardStatus);
 		}
 	}
 
 	return res;
 }
 
-
-#define SD_BUSY_CHECK		0x00203000
-#define DAT0_LEVEL_MASK		0x100000	/* bit20 in PSTATE */
-#define DEV_BUSY_TIMEOUT	600000		/* 60 Sec : 600000 * 100us */
+#define SD_BUSY_CHECK 0x00203000
+#define DAT0_LEVEL_MASK 0x100000 /* bit20 in PSTATE */
+#define DEV_BUSY_TIMEOUT 600000 /* 60 Sec : 600000 * 100us */
 
 int send_cmd(struct sd_handle *handle, uint32_t cmdIndex, uint32_t argument,
 	     uint32_t options, struct sd_resp *resp)
@@ -715,8 +711,8 @@ int send_cmd(struct sd_handle *handle, uint32_t cmdIndex, uint32_t argument,
 RETRY_WRITE_CMD:
 	do {
 		/* Make sure it is ok to send command */
-		present =
-		    chal_sd_get_present_status((CHAL_HANDLE *) handle->device);
+		present = chal_sd_get_present_status(
+			(CHAL_HANDLE *)handle->device);
 		timeout++;
 
 		if (present & mask)
@@ -736,15 +732,14 @@ RETRY_WRITE_CMD:
 		check_error(handle, SD4_EMMC_TOP_INTR_CMDERROR_MASK);
 
 	handle->device->ctrl.argReg = argument;
-	chal_sd_send_cmd((CHAL_HANDLE *) handle->device, cmdIndex,
+	chal_sd_send_cmd((CHAL_HANDLE *)handle->device, cmdIndex,
 			 handle->device->ctrl.argReg, options);
 
 	handle->device->ctrl.cmdIndex = cmdIndex;
 
-	event = wait_for_event(handle,
-			       (SD4_EMMC_TOP_INTR_CMDDONE_MASK |
-				SD_ERR_INTERRUPTS),
-			       handle->device->cfg.wfe_retry);
+	event = wait_for_event(
+		handle, (SD4_EMMC_TOP_INTR_CMDDONE_MASK | SD_ERR_INTERRUPTS),
+		handle->device->cfg.wfe_retry);
 
 	if (handle->device->ctrl.cmdStatus == SD_CMD_MISSING) {
 		retry++;
@@ -755,26 +750,25 @@ RETRY_WRITE_CMD:
 				   cmdIndex, retry);
 		} else {
 			/* reset both DAT & CMD line if one of them is stuck */
-			present = chal_sd_get_present_status((CHAL_HANDLE *)
-							     handle->device);
+			present = chal_sd_get_present_status(
+				(CHAL_HANDLE *)handle->device);
 
 			if (present & mask)
 				check_error(handle,
 					    SD4_EMMC_TOP_INTR_CMDERROR_MASK);
 
-			EMMC_TRACE("cmd%d retry %d PSTATE[0x%08x]\n",
-				   cmdIndex, retry,
-				   chal_sd_get_present_status((CHAL_HANDLE *)
-							      handle->device));
+			EMMC_TRACE("cmd%d retry %d PSTATE[0x%08x]\n", cmdIndex,
+				   retry,
+				   chal_sd_get_present_status(
+					   (CHAL_HANDLE *)handle->device));
 			goto RETRY_WRITE_CMD;
 		}
 	}
 
 	if (handle->device->ctrl.cmdStatus == SD_OK) {
 		if (resp != NULL) {
-			status =
-			    chal_sd_get_response((CHAL_HANDLE *) handle->device,
-						 temp_resp);
+			status = chal_sd_get_response(
+				(CHAL_HANDLE *)handle->device, temp_resp);
 			process_cmd_response(handle,
 					     handle->device->ctrl.cmdIndex,
 					     temp_resp[0], temp_resp[1],
@@ -784,12 +778,10 @@ RETRY_WRITE_CMD:
 		/* Check Device busy after CMD */
 		if ((cmdIndex == 5) || (cmdIndex == 6) || (cmdIndex == 7) ||
 		    (cmdIndex == 28) || (cmdIndex == 29) || (cmdIndex == 38)) {
-
 			timeout = 0;
 			do {
-				present =
-				    chal_sd_get_present_status((CHAL_HANDLE *)
-							       handle->device);
+				present = chal_sd_get_present_status(
+					(CHAL_HANDLE *)handle->device);
 
 				timeout++;
 
@@ -797,8 +789,8 @@ RETRY_WRITE_CMD:
 				if ((present & DAT0_LEVEL_MASK) == 0) {
 					EMMC_TRACE("Device busy: ");
 					EMMC_TRACE(
-					  "cmd%d arg:0x%08x: PSTATE[0x%08x]\n",
-					  cmdIndex, argument, present);
+						"cmd%d arg:0x%08x: PSTATE[0x%08x]\n",
+						cmdIndex, argument, present);
 					SD_US_DELAY(100);
 				} else {
 					break;
@@ -824,8 +816,8 @@ RETRY_WRITE_CMD:
 			   (retry < handle->device->cfg.retryLimit)) {
 			EMMC_TRACE("cmd%d recoverable error ", cmdIndex);
 			EMMC_TRACE("retry %d PSTATE[0x%08x].\n", retry,
-				   chal_sd_get_present_status((CHAL_HANDLE *)
-							      handle->device));
+				   chal_sd_get_present_status(
+					   (CHAL_HANDLE *)handle->device));
 			goto RETRY_WRITE_CMD;
 		} else {
 			EMMC_TRACE("cmd%d retry reaches the limit %d\n",

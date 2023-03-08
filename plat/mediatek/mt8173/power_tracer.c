@@ -1,15 +1,14 @@
 /*
- * Copyright (c) 2015, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <arch.h>
 #include <common/debug.h>
-
 #include <power_tracer.h>
 
-#define trace_log(...)  INFO("psci: " __VA_ARGS__)
+#define trace_log(...) INFO("psci: " __VA_ARGS__)
 
 void trace_power_flow(unsigned long mpidr, unsigned char mode)
 {

@@ -24,8 +24,8 @@
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include <plat/common/platform.h>
 
+#include <plat/common/platform.h>
 #include <platform_def.h>
 
 /******************************************************************************
@@ -77,14 +77,14 @@ entry_point_info_t *sp_min_plat_get_bl33_ep_info(void)
 }
 
 CASSERT((STM32MP_SEC_SYSRAM_BASE == STM32MP_SYSRAM_BASE) &&
-	((STM32MP_SEC_SYSRAM_BASE + STM32MP_SEC_SYSRAM_SIZE) <=
-	 (STM32MP_SYSRAM_BASE + STM32MP_SYSRAM_SIZE)),
+		((STM32MP_SEC_SYSRAM_BASE + STM32MP_SEC_SYSRAM_SIZE) <=
+		 (STM32MP_SYSRAM_BASE + STM32MP_SYSRAM_SIZE)),
 	assert_secure_sysram_fits_at_begining_of_sysram);
 
 #ifdef STM32MP_NS_SYSRAM_BASE
 CASSERT((STM32MP_NS_SYSRAM_BASE >= STM32MP_SEC_SYSRAM_BASE) &&
-	((STM32MP_NS_SYSRAM_BASE + STM32MP_NS_SYSRAM_SIZE) ==
-	 (STM32MP_SYSRAM_BASE + STM32MP_SYSRAM_SIZE)),
+		((STM32MP_NS_SYSRAM_BASE + STM32MP_NS_SYSRAM_SIZE) ==
+		 (STM32MP_SYSRAM_BASE + STM32MP_SYSRAM_SIZE)),
 	assert_non_secure_sysram_fits_at_end_of_sysram);
 
 CASSERT((STM32MP_NS_SYSRAM_BASE & (PAGE_SIZE_4KB - U(1))) == 0U,
@@ -93,9 +93,9 @@ CASSERT((STM32MP_NS_SYSRAM_BASE & (PAGE_SIZE_4KB - U(1))) == 0U,
 #define TZMA1_SECURE_RANGE \
 	(((STM32MP_NS_SYSRAM_BASE - STM32MP_SYSRAM_BASE) >> FOUR_KB_SHIFT) - 1U)
 #else
-#define TZMA1_SECURE_RANGE		STM32MP1_ETZPC_TZMA_ALL_SECURE
+#define TZMA1_SECURE_RANGE STM32MP1_ETZPC_TZMA_ALL_SECURE
 #endif /* STM32MP_NS_SYSRAM_BASE */
-#define TZMA0_SECURE_RANGE		STM32MP1_ETZPC_TZMA_ALL_SECURE
+#define TZMA0_SECURE_RANGE STM32MP1_ETZPC_TZMA_ALL_SECURE
 
 static void stm32mp1_etzpc_early_setup(void)
 {
@@ -121,8 +121,7 @@ void sp_min_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	/* Imprecise aborts can be masked in NonSecure */
 	write_scr(read_scr() | SCR_AW_BIT);
 
-	mmap_add_region(BL_CODE_BASE, BL_CODE_BASE,
-			BL_CODE_END - BL_CODE_BASE,
+	mmap_add_region(BL_CODE_BASE, BL_CODE_BASE, BL_CODE_END - BL_CODE_BASE,
 			MT_CODE | MT_SECURE);
 
 	configure_mmu();

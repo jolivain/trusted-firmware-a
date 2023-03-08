@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -16,26 +16,25 @@
 #include "pm_svc_main.h"
 
 /* SMC function IDs for SiP Service queries */
-#define VERSAL_SIP_SVC_CALL_COUNT	U(0x8200ff00)
-#define VERSAL_SIP_SVC_UID		U(0x8200ff01)
-#define VERSAL_SIP_SVC_VERSION		U(0x8200ff03)
+#define VERSAL_SIP_SVC_CALL_COUNT U(0x8200ff00)
+#define VERSAL_SIP_SVC_UID U(0x8200ff01)
+#define VERSAL_SIP_SVC_VERSION U(0x8200ff03)
 
 /* SiP Service Calls version numbers */
-#define SIP_SVC_VERSION_MAJOR	U(0)
-#define SIP_SVC_VERSION_MINOR	U(1)
+#define SIP_SVC_VERSION_MAJOR U(0)
+#define SIP_SVC_VERSION_MINOR U(1)
 
 /* These macros are used to identify PM calls from the SMC function ID */
-#define SIP_FID_MASK	GENMASK(23, 16)
-#define XLNX_FID_MASK	GENMASK(23, 12)
-#define PM_FID_VALUE	0u
-#define IPI_FID_VALUE	0x1000u
-#define is_pm_fid(_fid) (((_fid) & XLNX_FID_MASK) == PM_FID_VALUE)
-#define is_ipi_fid(_fid) (((_fid) & XLNX_FID_MASK) == IPI_FID_VALUE)
+#define SIP_FID_MASK GENMASK(23, 16)
+#define XLNX_FID_MASK GENMASK(23, 12)
+#define PM_FID_VALUE 0u
+#define IPI_FID_VALUE 0x1000u
+#define is_pm_fid(_fid) (((_fid)&XLNX_FID_MASK) == PM_FID_VALUE)
+#define is_ipi_fid(_fid) (((_fid)&XLNX_FID_MASK) == IPI_FID_VALUE)
 
 /* SiP Service UUID */
-DEFINE_SVC_UUID2(versal_sip_uuid,
-		0x2ab9e4ecU, 0x93b9U, 0x11e7U, 0xa0U, 0x19U,
-		0xdfU, 0xe0U, 0xdbU, 0xadU, 0x0aU, 0xe0U);
+DEFINE_SVC_UUID2(versal_sip_uuid, 0x2ab9e4ecU, 0x93b9U, 0x11e7U, 0xa0U, 0x19U,
+		 0xdfU, 0xe0U, 0xdbU, 0xadU, 0x0aU, 0xe0U);
 
 /**
  * sip_svc_setup() - Setup SiP Service
@@ -56,16 +55,12 @@ static int32_t sip_svc_setup(void)
  * Handler for all SiP SMC calls. Handles standard SIP requests
  * and calls PM SMC handler if the call is for a PM-API function.
  */
-uintptr_t sip_svc_smc_handler(uint32_t smc_fid,
-			     u_register_t x1,
-			     u_register_t x2,
-			     u_register_t x3,
-			     u_register_t x4,
-			     void *cookie,
-			     void *handle,
-			     u_register_t flags)
+uintptr_t sip_svc_smc_handler(uint32_t smc_fid, u_register_t x1,
+			      u_register_t x2, u_register_t x3, u_register_t x4,
+			      void *cookie, void *handle, u_register_t flags)
 {
-	VERBOSE("SMCID: 0x%08x, x1: 0x%016" PRIx64 ", x2: 0x%016" PRIx64 ", x3: 0x%016" PRIx64 ", x4: 0x%016" PRIx64 "\n",
+	VERBOSE("SMCID: 0x%08x, x1: 0x%016" PRIx64 ", x2: 0x%016" PRIx64
+		", x3: 0x%016" PRIx64 ", x4: 0x%016" PRIx64 "\n",
 		smc_fid, x1, x2, x3, x4);
 
 	if (smc_fid & SIP_FID_MASK) {
@@ -82,7 +77,7 @@ uintptr_t sip_svc_smc_handler(uint32_t smc_fid,
 	/* Let IPI SMC handler deal with IPI-related requests */
 	if (is_ipi_fid(smc_fid)) {
 		return ipi_smc_handler(smc_fid, x1, x2, x3, x4, cookie, handle,
-				      flags);
+				       flags);
 	}
 
 	/* Let PM SMC handler deal with PM-related requests */
@@ -104,10 +99,5 @@ uintptr_t sip_svc_smc_handler(uint32_t smc_fid,
 }
 
 /* Register PM Service Calls as runtime service */
-DECLARE_RT_SVC(
-		sip_svc,
-		OEN_SIP_START,
-		OEN_SIP_END,
-		SMC_TYPE_FAST,
-		sip_svc_setup,
-		sip_svc_smc_handler);
+DECLARE_RT_SVC(sip_svc, OEN_SIP_START, OEN_SIP_END, SMC_TYPE_FAST,
+	       sip_svc_setup, sip_svc_smc_handler);

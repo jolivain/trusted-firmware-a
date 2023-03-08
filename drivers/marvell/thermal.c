@@ -39,8 +39,7 @@ int marvell_thermal_read(struct tsen_config *tsen_cfg, int *temp)
 		return -1;
 	}
 
-	if (tsen_cfg->ptr_tsen_read == NULL ||
-	    tsen_cfg->tsen_ready == 0) {
+	if (tsen_cfg->ptr_tsen_read == NULL || tsen_cfg->tsen_ready == 0) {
 		ERROR("thermal sensor was not initialized\n");
 		return -1;
 	}

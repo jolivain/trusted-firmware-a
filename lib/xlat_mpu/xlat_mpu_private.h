@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -19,7 +19,7 @@
  * Private shifts and masks to access fields of an mmap attribute
  */
 /* Dynamic or static */
-#define MT_DYN_SHIFT		U(31)
+#define MT_DYN_SHIFT U(31)
 
 /*
  * Memory mapping private attributes
@@ -36,28 +36,28 @@ uint64_t prlar_attr_value(uint32_t attr);
 /* Calculates the attr value for a given PRBAR and PRLAR entry value: */
 uint32_t region_attr(uint64_t prbar_attr, uint64_t prlar_attr);
 
-#define PRBAR_PRLAR_ADDR_MASK	UL(0xffffffffffc0)
-	/* mask for PRBAR & PRLAR MPU-region field */
+#define PRBAR_PRLAR_ADDR_MASK UL(0xffffffffffc0)
+/* mask for PRBAR & PRLAR MPU-region field */
 /* MPU region attribute bit fields: */
-#define PRBAR_SH_SHIFT		UL(4)
-#define PRBAR_SH_MASK		UL(0x3)
-#define PRBAR_AP_SHIFT		UL(2)
-#define PRBAR_AP_MASK		UL(0x3)
-#define PRBAR_XN_SHIFT		UL(1)
-#define PRBAR_XN_MASK		UL(0x3)
-#define PRLAR_NS_SHIFT		UL(4)
-#define PRLAR_NS_MASK		UL(0x3)
-#define PRBAR_ATTR_SHIFT	UL(0)
-#define PRBAR_ATTR_MASK		UL(0x3f)
-#define PRLAR_ATTR_SHIFT	UL(1)
-#define PRLAR_ATTR_MASK		UL(0x7)
-#define PRLAR_EN_SHIFT		UL(0)
-#define PRLAR_EN_MASK		UL(0x1)
+#define PRBAR_SH_SHIFT UL(4)
+#define PRBAR_SH_MASK UL(0x3)
+#define PRBAR_AP_SHIFT UL(2)
+#define PRBAR_AP_MASK UL(0x3)
+#define PRBAR_XN_SHIFT UL(1)
+#define PRBAR_XN_MASK UL(0x3)
+#define PRLAR_NS_SHIFT UL(4)
+#define PRLAR_NS_MASK UL(0x3)
+#define PRBAR_ATTR_SHIFT UL(0)
+#define PRBAR_ATTR_MASK UL(0x3f)
+#define PRLAR_ATTR_SHIFT UL(1)
+#define PRLAR_ATTR_MASK UL(0x7)
+#define PRLAR_EN_SHIFT UL(0)
+#define PRLAR_EN_MASK UL(0x1)
 /* Aspects of the source attributes not defined elsewhere: */
-#define MT_PERM_MASK		UL(0x1)
-#define MT_SEC_MASK		UL(0x1)
-#define MT_EXECUTE_MASK		UL(0x3)
-#define MT_TYPE_SHIFT		UL(0)
+#define MT_PERM_MASK UL(0x1)
+#define MT_SEC_MASK UL(0x1)
+#define MT_EXECUTE_MASK UL(0x3)
+#define MT_TYPE_SHIFT UL(0)
 
 extern uint64_t mmu_cfg_params[MMU_CFG_PARAM_MAX];
 

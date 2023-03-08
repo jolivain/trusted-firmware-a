@@ -10,39 +10,39 @@
 
 /* Helper defines  */
 
- /* Define used for setting a flag on  */
-#define  ON  1
- /* Define used for setting a flag off  */
-#define  OFF 0
+/* Define used for setting a flag on  */
+#define ON 1
+/* Define used for setting a flag off  */
+#define OFF 0
 
- /* SEC is configured to start work in polling mode,  */
-#define SEC_STARTUP_POLLING_MODE     0
+/* SEC is configured to start work in polling mode,  */
+#define SEC_STARTUP_POLLING_MODE 0
 /*
  * SEC is configured to start work in interrupt mode,
  *  when configured for NAPI notification style.
  */
-#define SEC_STARTUP_INTERRUPT_MODE   1
+#define SEC_STARTUP_INTERRUPT_MODE 1
 
 /*
  * SEC driver will use ONLY interrupts to receive notifications
  * for processed packets from SEC engine hardware.
  */
-#define SEC_NOTIFICATION_TYPE_IRQ   1
+#define SEC_NOTIFICATION_TYPE_IRQ 1
 /*
  * SEC driver will use ONLY polling to receive notifications
  * for processed packets from SEC engine hardware.
  */
-#define SEC_NOTIFICATION_TYPE_POLL  2
+#define SEC_NOTIFICATION_TYPE_POLL 2
 
 /*
  * Determines how SEC user space driver will receive notifications
  * for processed packets from SEC engine.
  * Valid values are: #SEC_NOTIFICATION_TYPE_POLL, #SEC_NOTIFICATION_TYPE_IRQ
  */
-#define SEC_NOTIFICATION_TYPE   SEC_NOTIFICATION_TYPE_POLL
+#define SEC_NOTIFICATION_TYPE SEC_NOTIFICATION_TYPE_POLL
 
- /* Maximum number of job rings supported by SEC hardware  */
-#define MAX_SEC_JOB_RINGS         1
+/* Maximum number of job rings supported by SEC hardware  */
+#define MAX_SEC_JOB_RINGS 1
 
 /*
  * Size of cryptographic context that is used directly in communicating
@@ -51,7 +51,7 @@
  *  for a SEC descriptor ( = 64 words).
  */
 
-#define SEC_CRYPTO_DESCRIPTOR_SIZE  256
+#define SEC_CRYPTO_DESCRIPTOR_SIZE 256
 
 /*
  * Size of job descriptor submitted to SEC device for each packet to be
@@ -70,7 +70,7 @@
  *  revised.
  */
 
-#define SEC_JOB_DESCRIPTOR_SIZE		64
+#define SEC_JOB_DESCRIPTOR_SIZE 64
 
 /*
  * Size of one entry in the input ring of a job ring.
@@ -79,7 +79,7 @@
  *  contiguous.
  */
 
-#define SEC_JOB_INPUT_RING_ENTRY_SIZE	sizeof(phys_addr_t)
+#define SEC_JOB_INPUT_RING_ENTRY_SIZE sizeof(phys_addr_t)
 
 /*
  * Size of one entry in the output ring of a job ring.
@@ -91,27 +91,26 @@
  *  ring entries, then 4 more bytes must be added to the size.
  */
 
-#define SEC_JOB_OUTPUT_RING_ENTRY_SIZE	(SEC_JOB_INPUT_RING_ENTRY_SIZE + 4)
+#define SEC_JOB_OUTPUT_RING_ENTRY_SIZE (SEC_JOB_INPUT_RING_ENTRY_SIZE + 4)
 
- /* DMA memory required for an input ring of a job ring.  */
-#define SEC_DMA_MEM_INPUT_RING_SIZE	\
-		((SEC_JOB_INPUT_RING_ENTRY_SIZE) * (SEC_JOB_RING_SIZE))
+/* DMA memory required for an input ring of a job ring.  */
+#define SEC_DMA_MEM_INPUT_RING_SIZE \
+	((SEC_JOB_INPUT_RING_ENTRY_SIZE) * (SEC_JOB_RING_SIZE))
 
 /*
  * DMA memory required for an output ring of a job ring.
  *  Required extra 4 byte for status word per each entry.
  */
-#define SEC_DMA_MEM_OUTPUT_RING_SIZE	\
-		((SEC_JOB_OUTPUT_RING_ENTRY_SIZE) * (SEC_JOB_RING_SIZE))
+#define SEC_DMA_MEM_OUTPUT_RING_SIZE \
+	((SEC_JOB_OUTPUT_RING_ENTRY_SIZE) * (SEC_JOB_RING_SIZE))
 
- /* DMA memory required for descriptors of a job ring.  */
-#define SEC_DMA_MEM_DESCRIPTORS		\
-		((SEC_CRYPTO_DESCRIPTOR_SIZE)*(SEC_JOB_RING_SIZE))
+/* DMA memory required for descriptors of a job ring.  */
+#define SEC_DMA_MEM_DESCRIPTORS \
+	((SEC_CRYPTO_DESCRIPTOR_SIZE) * (SEC_JOB_RING_SIZE))
 
- /* DMA memory required for a job ring, including both input output rings.  */
-#define SEC_DMA_MEM_JOB_RING_SIZE	\
-		((SEC_DMA_MEM_INPUT_RING_SIZE) +	\
-		(SEC_DMA_MEM_OUTPUT_RING_SIZE))
+/* DMA memory required for a job ring, including both input output rings.  */
+#define SEC_DMA_MEM_JOB_RING_SIZE \
+	((SEC_DMA_MEM_INPUT_RING_SIZE) + (SEC_DMA_MEM_OUTPUT_RING_SIZE))
 
 /*
  * When calling sec_init() UA will provide an area of virtual memory
@@ -121,8 +120,7 @@
  *  At initialization the UA provides specialized ptov/vtop functions/macros to
  *  translate addresses allocated from this memory area.
  */
-#define SEC_DMA_MEMORY_SIZE		\
-		((SEC_DMA_MEM_JOB_RING_SIZE) * (MAX_SEC_JOB_RINGS))
+#define SEC_DMA_MEMORY_SIZE ((SEC_DMA_MEM_JOB_RING_SIZE) * (MAX_SEC_JOB_RINGS))
 
 /*
  * SEC DEVICE related configuration.
@@ -163,7 +161,7 @@
  * For firmware choose this to be 16
  */
 
-#define SEC_JOB_RING_SIZE    16
+#define SEC_JOB_RING_SIZE 16
 
 /*
  * Interrupt coalescing related configuration.
@@ -175,7 +173,7 @@
 
 #if SEC_NOTIFICATION_TYPE != SEC_NOTIFICATION_TYPE_POLL
 
-#define SEC_INT_COALESCING_ENABLE   ON
+#define SEC_INT_COALESCING_ENABLE ON
 /*
  * Interrupt Coalescing Descriptor Count Threshold.
  * While interrupt coalescing is enabled (ICEN=1), this value determines
@@ -187,7 +185,7 @@
  * manner as a value of 1.
  *
  */
-#define SEC_INTERRUPT_COALESCING_DESCRIPTOR_COUNT_THRESH  10
+#define SEC_INTERRUPT_COALESCING_DESCRIPTOR_COUNT_THRESH 10
 
 /*
  * Interrupt Coalescing Timer Threshold.
@@ -199,7 +197,7 @@
  * A value of 0 results in behavior identical to that when interrupt
  * coalescing is disabled.
  */
-#define SEC_INTERRUPT_COALESCING_TIMER_THRESH  100
+#define SEC_INTERRUPT_COALESCING_TIMER_THRESH 100
 #endif /* SEC_NOTIFICATION_TYPE_POLL  */
 
 #endif /* _JR_DRIVER_CONFIG_H_  */

@@ -6,15 +6,11 @@
 
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
-
 #include <pmic_wrap_init.h>
 #include <rtc.h>
 
 /* RTC busy status polling interval and retry count */
-enum {
-	RTC_WRTGR_POLLING_DELAY_MS	= 10,
-	RTC_WRTGR_POLLING_CNT		= 100
-};
+enum { RTC_WRTGR_POLLING_DELAY_MS = 10, RTC_WRTGR_POLLING_CNT = 100 };
 
 uint16_t RTC_Read(uint32_t addr)
 {
@@ -61,4 +57,3 @@ int32_t Writeif_unlock(void)
 
 	return 1;
 }
-

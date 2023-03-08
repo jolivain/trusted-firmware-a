@@ -8,6 +8,7 @@
 #define DCC_H
 
 #include <stdint.h>
+
 #include <drivers/console.h>
 
 /*

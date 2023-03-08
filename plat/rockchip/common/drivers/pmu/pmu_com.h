@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -26,10 +26,7 @@ DECLARE_BAKERY_LOCK(rockchip_pd_lock);
 /*****************************************************************************
  * power domain on or off
  *****************************************************************************/
-enum pmu_pd_state {
-	pmu_pd_on = 0,
-	pmu_pd_off = 1
-};
+enum pmu_pd_state { pmu_pd_on = 0, pmu_pd_off = 1 };
 
 #pragma weak plat_ic_get_pending_interrupt_id
 #pragma weak pmu_power_domain_ctr
@@ -37,7 +34,7 @@ enum pmu_pd_state {
 
 static inline uint32_t pmu_power_domain_st(uint32_t pd)
 {
-	uint32_t pwrdn_st = mmio_read_32(PMU_BASE + PMU_PWRDN_ST) &  BIT(pd);
+	uint32_t pwrdn_st = mmio_read_32(PMU_BASE + PMU_PWRDN_ST) & BIT(pd);
 
 	if (pwrdn_st)
 		return pmu_pd_off;
@@ -55,7 +52,7 @@ static int pmu_power_domain_ctr(uint32_t pd, uint32_t pd_state)
 
 	val = mmio_read_32(PMU_BASE + PMU_PWRDN_CON);
 	if (pd_state == pmu_pd_off)
-		val |=  BIT(pd);
+		val |= BIT(pd);
 	else
 		val &= ~BIT(pd);
 
@@ -111,8 +108,8 @@ static int check_cpu_wfie(uint32_t cpu_id, uint32_t wfie_msk)
 	}
 
 	if ((mmio_read_32(CHECK_CPU_WFIE_BASE) & wfie_msk) == 0) {
-		WARN("%s: %d, %d, %d, error!\n", __func__,
-		     cluster_id, cpu_id, wfie_msk);
+		WARN("%s: %d, %d, %d, error!\n", __func__, cluster_id, cpu_id,
+		     wfie_msk);
 		return -EINVAL;
 	}
 

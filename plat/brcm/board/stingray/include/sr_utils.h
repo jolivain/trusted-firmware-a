@@ -7,10 +7,9 @@
 #ifndef SR_UTILS_H
 #define SR_UTILS_H
 
-#include <lib/mmio.h>
-
 #include <chip_id.h>
 #include <cmn_plat_util.h>
+#include <lib/mmio.h>
 #include <sr_def.h>
 
 static inline void brcm_stingray_set_qspi_mux(int enable_ap)
@@ -30,9 +29,7 @@ static inline void brcm_stingray_set_straps(uint32_t boot_source)
 			BIT(CDRU_CHIP_STRAP_CTRL__SOFTWARE_OVERRIDE));
 
 	/* set straps to the next boot source */
-	mmio_clrsetbits_32(CDRU_CHIP_STRAP_DATA,
-			   BOOT_SOURCE_MASK,
-			   boot_source);
+	mmio_clrsetbits_32(CDRU_CHIP_STRAP_DATA, BOOT_SOURCE_MASK, boot_source);
 
 	/* Disable software strap override */
 	mmio_clrbits_32(CDRU_CHIP_STRAP_CTRL,

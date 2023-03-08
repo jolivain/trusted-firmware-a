@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -16,4 +16,4 @@ void mhu_secure_message_end(unsigned int slot_id);
 
 void mhu_secure_init(void);
 
-#endif	/* BRCM_MHU_H */
+#endif /* BRCM_MHU_H */

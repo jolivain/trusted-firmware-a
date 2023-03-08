@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -37,18 +37,18 @@ struct object_pool {
 };
 
 /* Create a static pool of objects. */
-#define OBJECT_POOL(_pool_name, _obj_backstore, _obj_size, _obj_count)	\
-	struct object_pool _pool_name = {				\
-		.objects = (_obj_backstore),				\
-		.obj_size = (_obj_size),				\
-		.capacity = (_obj_count),				\
-		.used = 0U,						\
+#define OBJECT_POOL(_pool_name, _obj_backstore, _obj_size, _obj_count) \
+	struct object_pool _pool_name = {                              \
+		.objects = (_obj_backstore),                           \
+		.obj_size = (_obj_size),                               \
+		.capacity = (_obj_count),                              \
+		.used = 0U,                                            \
 	}
 
 /* Create a static pool of objects out of an array of pre-allocated objects. */
-#define OBJECT_POOL_ARRAY(_pool_name, _obj_array)			\
-	OBJECT_POOL(_pool_name, (_obj_array),				\
-		    sizeof((_obj_array)[0]), ARRAY_SIZE(_obj_array))
+#define OBJECT_POOL_ARRAY(_pool_name, _obj_array)                      \
+	OBJECT_POOL(_pool_name, (_obj_array), sizeof((_obj_array)[0]), \
+		    ARRAY_SIZE(_obj_array))
 
 /*
  * Allocate 'count' objects from a pool.

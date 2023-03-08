@@ -12,21 +12,20 @@
 #include "emmc_registers.h"
 #include "emmc_std.h"
 
-#define MIN_EMMC(a, b)	(((a) < (b)) ? (a) : (b))
-#define EMMC_RW_SECTOR_COUNT_MAX	0x0000ffffU
+#define MIN_EMMC(a, b) (((a) < (b)) ? (a) : (b))
+#define EMMC_RW_SECTOR_COUNT_MAX 0x0000ffffU
 
-static EMMC_ERROR_CODE emmc_multiple_block_read(uint32_t *buff_address_virtual,
-		uint32_t sector_number, uint32_t count,
-		HAL_MEMCARD_DATA_TRANSFER_MODE transfer_mode)
+static EMMC_ERROR_CODE
+emmc_multiple_block_read(uint32_t *buff_address_virtual, uint32_t sector_number,
+			 uint32_t count,
+			 HAL_MEMCARD_DATA_TRANSFER_MODE transfer_mode)
 {
 	EMMC_ERROR_CODE result;
 
 	/* parameter check */
-	if ((count > EMMC_RW_SECTOR_COUNT_MAX)
-	    || (count == 0)
-	    || ((transfer_mode != HAL_MEMCARD_DMA)
-		&& (transfer_mode != HAL_MEMCARD_NOT_DMA))
-	    ) {
+	if ((count > EMMC_RW_SECTOR_COUNT_MAX) || (count == 0) ||
+	    ((transfer_mode != HAL_MEMCARD_DMA) &&
+	     (transfer_mode != HAL_MEMCARD_NOT_DMA))) {
 		emmc_write_error_info(EMMC_FUNCNO_READ_SECTOR, EMMC_ERR_PARAM);
 		return EMMC_ERR_PARAM;
 	}
@@ -49,7 +48,7 @@ static EMMC_ERROR_CODE emmc_multiple_block_read(uint32_t *buff_address_virtual,
 			    transfer_mode);
 	result = emmc_exec_cmd(EMMC_R1_ERROR_MASK, mmc_drv_obj.response);
 	if (result != EMMC_SUCCESS) {
-		return result;	/* CMD18 error code */
+		return result; /* CMD18 error code */
 	}
 
 	/* CMD13 */
@@ -60,8 +59,8 @@ static EMMC_ERROR_CODE emmc_multiple_block_read(uint32_t *buff_address_virtual,
 	}
 #if RCAR_BL2_DCACHE == 1
 	if (transfer_mode == HAL_MEMCARD_NOT_DMA) {
-		flush_dcache_range((uint64_t) buff_address_virtual,
-				   ((size_t) count << EMMC_SECTOR_SIZE_SHIFT));
+		flush_dcache_range((uint64_t)buff_address_virtual,
+				   ((size_t)count << EMMC_SECTOR_SIZE_SHIFT));
 	}
 #endif /* RCAR_BL2_DCACHE == 1 */
 
@@ -83,8 +82,8 @@ static EMMC_ERROR_CODE emmc_multiple_block_read(uint32_t *buff_address_virtual,
 }
 
 EMMC_ERROR_CODE emmc_read_sector(uint32_t *buff_address_virtual,
-				 uint32_t sector_number,
-				 uint32_t count, uint32_t feature_flags)
+				 uint32_t sector_number, uint32_t count,
+				 uint32_t feature_flags)
 {
 	uint32_t trans_count;
 	uint32_t remain;
@@ -113,10 +112,9 @@ EMMC_ERROR_CODE emmc_read_sector(uint32_t *buff_address_virtual,
 	remain = count;
 	while (remain != 0) {
 		trans_count = MIN_EMMC(remain, EMMC_RW_SECTOR_COUNT_MAX);
-		result =
-		    emmc_multiple_block_read(buff_address_virtual,
-					     sector_number, trans_count,
-					     transfer_mode);
+		result = emmc_multiple_block_read(buff_address_virtual,
+						  sector_number, trans_count,
+						  transfer_mode);
 		if (result != EMMC_SUCCESS) {
 			return result;
 		}

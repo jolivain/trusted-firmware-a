@@ -10,10 +10,9 @@
 #include <inttypes.h>
 #include <stdint.h>
 
+#include <armada_common.h>
 #include <common/debug.h>
 #include <lib/mmio.h>
-
-#include <armada_common.h>
 #include <mvebu.h>
 #include <mvebu_def.h>
 
@@ -22,22 +21,22 @@
 #endif
 
 /* common defines */
-#define WIN_ENABLE_BIT			(0x1)
+#define WIN_ENABLE_BIT (0x1)
 
-#define MVEBU_AMB_ADEC_OFFSET		(0x70ff00)
+#define MVEBU_AMB_ADEC_OFFSET (0x70ff00)
 
-#define AMB_WIN_CR_OFFSET(win)		(amb_base + 0x0 + (0x8 * win))
-#define AMB_ATTR_OFFSET			8
-#define AMB_ATTR_MASK			0xFF
-#define AMB_SIZE_OFFSET			16
-#define AMB_SIZE_MASK			0xFF
+#define AMB_WIN_CR_OFFSET(win) (amb_base + 0x0 + (0x8 * win))
+#define AMB_ATTR_OFFSET 8
+#define AMB_ATTR_MASK 0xFF
+#define AMB_SIZE_OFFSET 16
+#define AMB_SIZE_MASK 0xFF
 
-#define AMB_WIN_BASE_OFFSET(win)	(amb_base + 0x4 + (0x8 * win))
-#define AMB_BASE_OFFSET			16
-#define AMB_BASE_ADDR_MASK		((1 << (32 - AMB_BASE_OFFSET)) - 1)
+#define AMB_WIN_BASE_OFFSET(win) (amb_base + 0x4 + (0x8 * win))
+#define AMB_BASE_OFFSET 16
+#define AMB_BASE_ADDR_MASK ((1 << (32 - AMB_BASE_OFFSET)) - 1)
 
-#define AMB_WIN_ALIGNMENT_64K		(0x10000)
-#define AMB_WIN_ALIGNMENT_1M		(0x100000)
+#define AMB_WIN_ALIGNMENT_64K (0x10000)
+#define AMB_WIN_ALIGNMENT_1M (0x100000)
 
 uintptr_t amb_base;
 
@@ -48,25 +47,27 @@ static void amb_check_win(struct addr_map_win *win, uint32_t win_num)
 	/* make sure the base address is in 16-bit range */
 	if (win->base_addr > AMB_BASE_ADDR_MASK) {
 		WARN("Window %d: base address is too big 0x%" PRIx64 "\n",
-		       win_num, win->base_addr);
+		     win_num, win->base_addr);
 		win->base_addr = AMB_BASE_ADDR_MASK;
 		WARN("Set the base address to 0x%" PRIx64 "\n", win->base_addr);
 	}
 
-	base_addr  = win->base_addr << AMB_BASE_OFFSET;
+	base_addr = win->base_addr << AMB_BASE_OFFSET;
 	/* for AMB The base is always 1M aligned */
 	/* check if address is aligned to 1M */
 	if (IS_NOT_ALIGN(base_addr, AMB_WIN_ALIGNMENT_1M)) {
 		win->base_addr = ALIGN_UP(base_addr, AMB_WIN_ALIGNMENT_1M);
-		WARN("Window %d: base address unaligned to 0x%x\n",
-		       win_num, AMB_WIN_ALIGNMENT_1M);
-		WARN("Align up the base address to 0x%" PRIx64 "\n", win->base_addr);
+		WARN("Window %d: base address unaligned to 0x%x\n", win_num,
+		     AMB_WIN_ALIGNMENT_1M);
+		WARN("Align up the base address to 0x%" PRIx64 "\n",
+		     win->base_addr);
 	}
 
 	/* size parameter validity check */
 	if (!IS_POWER_OF_2(win->win_size)) {
-		WARN("Window %d: window size is not power of 2 (0x%" PRIx64 ")\n",
-		       win_num, win->win_size);
+		WARN("Window %d: window size is not power of 2 (0x%" PRIx64
+		     ")\n",
+		     win_num, win->win_size);
 		win->win_size = ROUND_UP_TO_POW_OF_2(win->win_size);
 		WARN("Rounding size to 0x%" PRIx64 "\n", win->win_size);
 	}
@@ -109,8 +110,8 @@ static void dump_amb_adec(void)
 			attr = (ctrl >> AMB_ATTR_OFFSET) & AMB_ATTR_MASK;
 			size_count = (ctrl >> AMB_SIZE_OFFSET) & AMB_SIZE_MASK;
 			size = (size_count + 1) * AMB_WIN_ALIGNMENT_64K;
-			printf("amb   0x%04x        0x%08x    0x%08x\n",
-			       attr, base, size);
+			printf("amb   0x%04x        0x%08x    0x%08x\n", attr,
+			       base, size);
 		}
 	}
 }

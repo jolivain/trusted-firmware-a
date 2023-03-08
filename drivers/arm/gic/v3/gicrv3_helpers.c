@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,6 +9,7 @@
 #include <common/debug.h>
 #include <common/interrupt_props.h>
 #include <drivers/arm/gicv3.h>
+
 #include "gicv3_private.h"
 
 /*******************************************************************************
@@ -102,7 +103,7 @@ void gicr_set_icenabler(uintptr_t base, unsigned int id)
  */
 unsigned int gicr_get_isactiver(uintptr_t base, unsigned int id)
 {
-	return	GICR_GET_BIT(ISACTIVE, base, id);
+	return GICR_GET_BIT(ISACTIVE, base, id);
 }
 
 /*
@@ -134,6 +135,6 @@ void gicr_set_icfgr(uintptr_t base, unsigned int id, unsigned int cfg)
 
 	/* Clear the field, and insert required configuration */
 	mmio_clrsetbits_32(base + GICR_OFFSET(ICFG, id),
-				(uint32_t)GIC_CFG_MASK << bit_shift,
-				(cfg & GIC_CFG_MASK) << bit_shift);
+			   (uint32_t)GIC_CFG_MASK << bit_shift,
+			   (cfg & GIC_CFG_MASK) << bit_shift);
 }

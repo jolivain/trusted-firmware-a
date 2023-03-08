@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,45 +7,45 @@
 #include <assert.h>
 #include <stdint.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/io/io_block.h>
 #include <lib/mmio.h>
 #include <lib/utils_def.h>
 
+#include <platform_def.h>
+
 #include "uniphier.h"
 
-#define NAND_CMD_READ0		0
-#define NAND_CMD_READSTART	0x30
+#define NAND_CMD_READ0 0
+#define NAND_CMD_READSTART 0x30
 
-#define DENALI_ECC_ENABLE			0x0e0
-#define DENALI_PAGES_PER_BLOCK			0x150
-#define DENALI_DEVICE_MAIN_AREA_SIZE		0x170
-#define DENALI_DEVICE_SPARE_AREA_SIZE		0x180
-#define DENALI_TWO_ROW_ADDR_CYCLES		0x190
-#define DENALI_INTR_STATUS0			0x410
-#define   DENALI_INTR_ECC_UNCOR_ERR			BIT(1)
-#define   DENALI_INTR_DMA_CMD_COMP			BIT(2)
-#define   DENALI_INTR_INT_ACT				BIT(12)
+#define DENALI_ECC_ENABLE 0x0e0
+#define DENALI_PAGES_PER_BLOCK 0x150
+#define DENALI_DEVICE_MAIN_AREA_SIZE 0x170
+#define DENALI_DEVICE_SPARE_AREA_SIZE 0x180
+#define DENALI_TWO_ROW_ADDR_CYCLES 0x190
+#define DENALI_INTR_STATUS0 0x410
+#define DENALI_INTR_ECC_UNCOR_ERR BIT(1)
+#define DENALI_INTR_DMA_CMD_COMP BIT(2)
+#define DENALI_INTR_INT_ACT BIT(12)
 
-#define DENALI_DMA_ENABLE			0x700
+#define DENALI_DMA_ENABLE 0x700
 
-#define DENALI_HOST_ADDR			0x00
-#define DENALI_HOST_DATA			0x10
+#define DENALI_HOST_ADDR 0x00
+#define DENALI_HOST_DATA 0x10
 
-#define DENALI_MAP01				(1 << 26)
-#define DENALI_MAP10				(2 << 26)
-#define DENALI_MAP11				(3 << 26)
+#define DENALI_MAP01 (1 << 26)
+#define DENALI_MAP10 (2 << 26)
+#define DENALI_MAP11 (3 << 26)
 
-#define DENALI_MAP11_CMD			((DENALI_MAP11) | 0)
-#define DENALI_MAP11_ADDR			((DENALI_MAP11) | 1)
-#define DENALI_MAP11_DATA			((DENALI_MAP11) | 2)
+#define DENALI_MAP11_CMD ((DENALI_MAP11) | 0)
+#define DENALI_MAP11_ADDR ((DENALI_MAP11) | 1)
+#define DENALI_MAP11_DATA ((DENALI_MAP11) | 2)
 
-#define DENALI_ACCESS_DEFAULT_AREA		0x42
+#define DENALI_ACCESS_DEFAULT_AREA 0x42
 
-#define UNIPHIER_NAND_BBT_UNKNOWN		0xff
+#define UNIPHIER_NAND_BBT_UNKNOWN 0xff
 
 struct uniphier_nand {
 	uintptr_t host_base;
@@ -58,8 +58,8 @@ struct uniphier_nand {
 
 struct uniphier_nand uniphier_nand;
 
-static void uniphier_nand_host_write(struct uniphier_nand *nand,
-				     uint32_t addr, uint32_t data)
+static void uniphier_nand_host_write(struct uniphier_nand *nand, uint32_t addr,
+				     uint32_t data)
 {
 	mmio_write_32(nand->host_base + DENALI_HOST_ADDR, addr);
 	mmio_write_32(nand->host_base + DENALI_HOST_DATA, data);
@@ -151,8 +151,8 @@ static int uniphier_nand_read_pages(struct uniphier_nand *nand, uintptr_t buf,
 	mmio_write_32(nand->reg_base + DENALI_DMA_ENABLE, 0);
 
 	if (status & DENALI_INTR_ECC_UNCOR_ERR) {
-		ERROR("uncorrectable error in page range %d-%d",
-		      page_start, page_start + page_count - 1);
+		ERROR("uncorrectable error in page range %d-%d", page_start,
+		      page_start + page_count - 1);
 		return -EBADMSG;
 	}
 
@@ -194,9 +194,8 @@ static size_t __uniphier_nand_read(struct uniphier_nand *nand, int lba,
 
 		page_count = MIN(pages_per_block - page, pages_to_read);
 
-		ret = uniphier_nand_read_pages(nand, p,
-					       block * pages_per_block + page,
-					       page_count);
+		ret = uniphier_nand_read_pages(
+			nand, p, block * pages_per_block + page, page_count);
 		if (ret)
 			goto out;
 
@@ -241,7 +240,7 @@ static int uniphier_nand_hw_init(struct uniphier_nand *nand)
 	nand->reg_base = nand->host_base + 0x100000;
 
 	nand->pages_per_block =
-			mmio_read_32(nand->reg_base + DENALI_PAGES_PER_BLOCK);
+		mmio_read_32(nand->reg_base + DENALI_PAGES_PER_BLOCK);
 
 	nand->page_size =
 		mmio_read_32(nand->reg_base + DENALI_DEVICE_MAIN_AREA_SIZE);

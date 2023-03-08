@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -18,16 +18,15 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <libfdt.h>
-
 #include <arch.h>
 #include <common/debug.h>
 #include <common/fdt_fixup.h>
 #include <common/fdt_wrappers.h>
 #include <drivers/console.h>
 #include <lib/psci/psci.h>
-#include <plat/common/platform.h>
+#include <libfdt.h>
 
+#include <plat/common/platform.h>
 
 static int append_psci_compatible(void *fdt, int offs, const char *str)
 {
@@ -40,11 +39,11 @@ static int append_psci_compatible(void *fdt, int offs, const char *str)
  * Kernels running in AArch32 on an AArch64 TF-A should use PSCI v0.2.
  */
 #ifdef __aarch64__
-#define PSCI_CPU_SUSPEND_FNID	PSCI_CPU_SUSPEND_AARCH64
-#define PSCI_CPU_ON_FNID	PSCI_CPU_ON_AARCH64
+#define PSCI_CPU_SUSPEND_FNID PSCI_CPU_SUSPEND_AARCH64
+#define PSCI_CPU_ON_FNID PSCI_CPU_ON_AARCH64
 #else
-#define PSCI_CPU_SUSPEND_FNID	PSCI_CPU_SUSPEND_AARCH32
-#define PSCI_CPU_ON_FNID	PSCI_CPU_ON_AARCH32
+#define PSCI_CPU_SUSPEND_FNID PSCI_CPU_SUSPEND_AARCH32
+#define PSCI_CPU_ON_FNID PSCI_CPU_ON_AARCH32
 #endif
 
 /*******************************************************************************
@@ -124,8 +123,7 @@ static int dt_update_one_cpu_node(void *fdt, int offset)
 
 		/* Ignore any nodes which already use "psci". */
 		prop = fdt_getprop(fdt, offs, "enable-method", &len);
-		if ((prop != NULL) &&
-		    (strcmp(prop, "psci") == 0) && (len == 5))
+		if ((prop != NULL) && (strcmp(prop, "psci") == 0) && (len == 5))
 			continue;
 
 		ret = fdt_setprop_string(fdt, offs, "enable-method", "psci");
@@ -193,8 +191,8 @@ int dt_add_psci_cpu_enable_methods(void *fdt)
  *
  * Return: 0 on success, a negative error value otherwise.
  ******************************************************************************/
-int fdt_add_reserved_memory(void *dtb, const char *node_name,
-			    uintptr_t base, size_t size)
+int fdt_add_reserved_memory(void *dtb, const char *node_name, uintptr_t base,
+			    size_t size)
 {
 	int offs = fdt_path_offset(dtb, "/reserved-memory");
 	uint32_t addresses[4];
@@ -203,7 +201,7 @@ int fdt_add_reserved_memory(void *dtb, const char *node_name,
 
 	ac = fdt_address_cells(dtb, 0);
 	sc = fdt_size_cells(dtb, 0);
-	if (offs < 0) {			/* create if not existing yet */
+	if (offs < 0) { /* create if not existing yet */
 		offs = fdt_add_subnode(dtb, 0, "reserved-memory");
 		if (offs < 0) {
 			return offs;
@@ -253,40 +251,40 @@ static int fdt_add_cpu(void *dtb, int parent, u_register_t mpidr)
 	reg_prop = mpidr & MPID_MASK & ~MPIDR_MT_MASK;
 
 	snprintf(snode_name, sizeof(snode_name), "cpu@%x",
-					(unsigned int)reg_prop);
+		 (unsigned int)reg_prop);
 
 	cpu_offs = fdt_add_subnode(dtb, parent, snode_name);
 	if (cpu_offs < 0) {
-		ERROR ("FDT: add subnode \"%s\" failed: %i\n",
-							snode_name, cpu_offs);
+		ERROR("FDT: add subnode \"%s\" failed: %i\n", snode_name,
+		      cpu_offs);
 		return cpu_offs;
 	}
 
 	err = fdt_setprop_string(dtb, cpu_offs, "compatible", "arm,armv8");
 	if (err < 0) {
-		ERROR ("FDT: write to \"%s\" property of node at offset %i failed\n",
-			"compatible", cpu_offs);
+		ERROR("FDT: write to \"%s\" property of node at offset %i failed\n",
+		      "compatible", cpu_offs);
 		return err;
 	}
 
 	err = fdt_setprop_u64(dtb, cpu_offs, "reg", reg_prop);
 	if (err < 0) {
-		ERROR ("FDT: write to \"%s\" property of node at offset %i failed\n",
-			"reg", cpu_offs);
+		ERROR("FDT: write to \"%s\" property of node at offset %i failed\n",
+		      "reg", cpu_offs);
 		return err;
 	}
 
 	err = fdt_setprop_string(dtb, cpu_offs, "device_type", "cpu");
 	if (err < 0) {
-		ERROR ("FDT: write to \"%s\" property of node at offset %i failed\n",
-			"device_type", cpu_offs);
+		ERROR("FDT: write to \"%s\" property of node at offset %i failed\n",
+		      "device_type", cpu_offs);
 		return err;
 	}
 
 	err = fdt_setprop_string(dtb, cpu_offs, "enable-method", "psci");
 	if (err < 0) {
-		ERROR ("FDT: write to \"%s\" property of node at offset %i failed\n",
-			"enable-method", cpu_offs);
+		ERROR("FDT: write to \"%s\" property of node at offset %i failed\n",
+		      "enable-method", cpu_offs);
 		return err;
 	}
 
@@ -330,8 +328,8 @@ static int fdt_add_cpu(void *dtb, int parent, u_register_t mpidr)
  * Return the offset of the node or a negative value on error.
  ******************************************************************************/
 
-int fdt_add_cpus_node(void *dtb, unsigned int afflv0,
-		      unsigned int afflv1, unsigned int afflv2)
+int fdt_add_cpus_node(void *dtb, unsigned int afflv0, unsigned int afflv1,
+		      unsigned int afflv2)
 {
 	int offs;
 	int err;
@@ -345,21 +343,21 @@ int fdt_add_cpus_node(void *dtb, unsigned int afflv0,
 
 	offs = fdt_add_subnode(dtb, 0, "cpus");
 	if (offs < 0) {
-		ERROR ("FDT: add subnode \"cpus\" node to parent node failed");
+		ERROR("FDT: add subnode \"cpus\" node to parent node failed");
 		return offs;
 	}
 
 	err = fdt_setprop_u32(dtb, offs, "#address-cells", 2);
 	if (err < 0) {
-		ERROR ("FDT: write to \"%s\" property of node at offset %i failed\n",
-			"#address-cells", offs);
+		ERROR("FDT: write to \"%s\" property of node at offset %i failed\n",
+		      "#address-cells", offs);
 		return err;
 	}
 
 	err = fdt_setprop_u32(dtb, offs, "#size-cells", 0);
 	if (err < 0) {
-		ERROR ("FDT: write to \"%s\" property of node at offset %i failed\n",
-			"#size-cells", offs);
+		ERROR("FDT: write to \"%s\" property of node at offset %i failed\n",
+		      "#size-cells", offs);
 		return err;
 	}
 
@@ -381,9 +379,9 @@ int fdt_add_cpus_node(void *dtb, unsigned int afflv0,
 					/* Valid MPID found */
 					err = fdt_add_cpu(dtb, offs, mpidr);
 					if (err < 0) {
-						ERROR ("FDT: %s 0x%08x\n",
-							"error adding CPU",
-							(uint32_t)mpidr);
+						ERROR("FDT: %s 0x%08x\n",
+						      "error adding CPU",
+						      (uint32_t)mpidr);
 						return err;
 					}
 				}
@@ -438,8 +436,8 @@ int fdt_add_cpu_idle_states(void *dtb, const struct psci_cpu_idle_state *state)
 	for (count = 0U; state->name != NULL; count++, phandle++, state++) {
 		int idle_state_node;
 
-		idle_state_node = fdt_add_subnode(dtb, idle_states_node,
-						  state->name);
+		idle_state_node =
+			fdt_add_subnode(dtb, idle_states_node, state->name);
 		if (idle_state_node < 0) {
 			return idle_state_node;
 		}
@@ -520,8 +518,8 @@ int fdt_add_cpu_idle_states(void *dtb, const struct psci_cpu_idle_state *state)
  *
  * Return: 0 on success, negative error value otherwise.
  */
-int fdt_adjust_gic_redist(void *dtb, unsigned int nr_cores,
-			  uintptr_t gicr_base, unsigned int gicr_frame_size)
+int fdt_adjust_gic_redist(void *dtb, unsigned int nr_cores, uintptr_t gicr_base,
+			  unsigned int gicr_frame_size)
 {
 	int offset = fdt_node_offset_by_compatible(dtb, 0, "arm,gic-v3");
 	uint64_t reg_64;
@@ -557,10 +555,8 @@ int fdt_adjust_gic_redist(void *dtb, unsigned int nr_cores,
 		 * the "reg" entry, so we have to skip one address and one
 		 * size cell.
 		 */
-		ret = fdt_setprop_inplace_namelen_partial(dtb, offset,
-							  "reg", 3,
-							  (ac + sc) * 4,
-							  val, ac * 4);
+		ret = fdt_setprop_inplace_namelen_partial(
+			dtb, offset, "reg", 3, (ac + sc) * 4, val, ac * 4);
 		if (ret < 0) {
 			return ret;
 		}
@@ -579,9 +575,8 @@ int fdt_adjust_gic_redist(void *dtb, unsigned int nr_cores,
 	 * So we have to skip one address and one size cell, then another
 	 * address cell to get to the second size cell.
 	 */
-	return fdt_setprop_inplace_namelen_partial(dtb, offset, "reg", 3,
-						   (ac + sc + ac) * 4,
-						   val, sc * 4);
+	return fdt_setprop_inplace_namelen_partial(
+		dtb, offset, "reg", 3, (ac + sc + ac) * 4, val, sc * 4);
 }
 /**
  * fdt_set_mac_address () - store MAC address in device tree

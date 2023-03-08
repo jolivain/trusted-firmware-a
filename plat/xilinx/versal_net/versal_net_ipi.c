@@ -14,10 +14,9 @@
 
 #include <common/debug.h>
 #include <common/runtime_svc.h>
+#include <ipi.h>
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
-
-#include <ipi.h>
 #include <plat_ipi.h>
 #include <plat_private.h>
 
@@ -81,5 +80,6 @@ static const struct ipi_config versal_net_ipi_table[IPI_ID_MAX] = {
  */
 void versal_net_ipi_config_table_init(void)
 {
-	ipi_config_table_init(versal_net_ipi_table, ARRAY_SIZE(versal_net_ipi_table));
+	ipi_config_table_init(versal_net_ipi_table,
+			      ARRAY_SIZE(versal_net_ipi_table));
 }

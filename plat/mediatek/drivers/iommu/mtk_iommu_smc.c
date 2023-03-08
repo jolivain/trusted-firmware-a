@@ -5,23 +5,24 @@
  */
 
 #include <stddef.h>
+
 #include <mtk_iommu_plat.h>
 
 /* defination */
 /* smi larb */
-#define SMI_LARB_NON_SEC_CON(port)	(0x380 + ((port) << 2))
-#define PATH_SEL_MASK			(0xf0000) /* to sram (INT) */
-#define SMI_LARB_SEC_CON_INT(port)	(0xf00 + ((port) << 2))
-#define SMI_LARB_SEC_CON(port)		(0xf80 + ((port) << 2))
-#define MMU_MASK			BIT(0)
-#define MMU_EN(en)			((!!(en)) << 0)
-#define SEC_MASK			BIT(1)
-#define SEC_EN(en)			((!!(en)) << 1)
-#define DOMAIN_MASK			(0x1f << 4)
-#define SMI_MMU_EN(port)		(0x1 << (port))
+#define SMI_LARB_NON_SEC_CON(port) (0x380 + ((port) << 2))
+#define PATH_SEL_MASK (0xf0000) /* to sram (INT) */
+#define SMI_LARB_SEC_CON_INT(port) (0xf00 + ((port) << 2))
+#define SMI_LARB_SEC_CON(port) (0xf80 + ((port) << 2))
+#define MMU_MASK BIT(0)
+#define MMU_EN(en) ((!!(en)) << 0)
+#define SEC_MASK BIT(1)
+#define SEC_EN(en) ((!!(en)) << 1)
+#define DOMAIN_MASK (0x1f << 4)
+#define SMI_MMU_EN(port) (0x1 << (port))
 
 /* infra master */
-#define IFR_CFG_MMU_EN_MSK(r_bit)	(0x3 << (r_bit))
+#define IFR_CFG_MMU_EN_MSK(r_bit) (0x3 << (r_bit))
 
 /* smi larb configure */
 /*
@@ -29,9 +30,9 @@
  * configurated in security world.
  * And the SRAM path is also configurated here to enhance security.
  */
-static void mtk_smi_larb_port_config_to_sram(
-				const struct mtk_smi_larb_config *larb,
-				uint32_t port_id)
+static void
+mtk_smi_larb_port_config_to_sram(const struct mtk_smi_larb_config *larb,
+				 uint32_t port_id)
 {
 	mmio_clrbits_32(larb->base + SMI_LARB_SEC_CON_INT(port_id),
 			MMU_MASK | SEC_MASK | DOMAIN_MASK);
@@ -41,7 +42,8 @@ static void mtk_smi_larb_port_config_to_sram(
 }
 
 static void mtk_smi_port_config(const struct mtk_smi_larb_config *larb,
-				uint32_t port_id, uint8_t mmu_en, uint8_t sec_en)
+				uint32_t port_id, uint8_t mmu_en,
+				uint8_t sec_en)
 {
 	mmio_clrsetbits_32(larb->base + SMI_LARB_SEC_CON(port_id),
 			   MMU_MASK | SEC_MASK | DOMAIN_MASK,

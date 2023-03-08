@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: BSD-3-Clause
 /*
- * Copyright (c) 2015-2020, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  * Copyright (c) 2019-2020, Linaro Limited
  */
-#include <cdefs.h>
 #include <string.h>
 
+#include <cdefs.h>
 #include <drivers/scmi-msg.h>
 #include <drivers/scmi.h>
 #include <lib/utils_def.h>
@@ -149,7 +149,6 @@ static void scmi_clock_attributes(struct scmi_msg *msg)
 		return;
 	}
 
-
 	name = plat_scmi_clock_get_name(msg->agent_id, clock_id);
 	if (name == NULL) {
 		scmi_status_response(msg, SCMI_NOT_FOUND);
@@ -158,8 +157,8 @@ static void scmi_clock_attributes(struct scmi_msg *msg)
 
 	COPY_NAME_IDENTIFIER(return_values.clock_name, name);
 
-	return_values.attributes = plat_scmi_clock_get_state(msg->agent_id,
-							     clock_id);
+	return_values.attributes =
+		plat_scmi_clock_get_state(msg->agent_id, clock_id);
 
 	scmi_write_response(msg, &return_values, sizeof(return_values));
 }
@@ -246,19 +245,17 @@ static void scmi_clock_config_set(struct scmi_msg *msg)
 	scmi_status_response(msg, status);
 }
 
-#define RATES_ARRAY_SIZE_MAX	(SCMI_PLAYLOAD_MAX - \
-				 sizeof(struct scmi_clock_describe_rates_p2a))
+#define RATES_ARRAY_SIZE_MAX \
+	(SCMI_PLAYLOAD_MAX - sizeof(struct scmi_clock_describe_rates_p2a))
 
 #define SCMI_RATES_BY_ARRAY(_nb_rates, _rem_rates) \
-	SCMI_CLOCK_DESCRIBE_RATES_NUM_RATES_FLAGS((_nb_rates), \
-						SCMI_CLOCK_RATE_FORMAT_LIST, \
-						(_rem_rates))
-#define SCMI_RATES_BY_STEP \
-	SCMI_CLOCK_DESCRIBE_RATES_NUM_RATES_FLAGS(3U, \
-						SCMI_CLOCK_RATE_FORMAT_RANGE, \
-						0U)
+	SCMI_CLOCK_DESCRIBE_RATES_NUM_RATES_FLAGS( \
+		(_nb_rates), SCMI_CLOCK_RATE_FORMAT_LIST, (_rem_rates))
+#define SCMI_RATES_BY_STEP                         \
+	SCMI_CLOCK_DESCRIBE_RATES_NUM_RATES_FLAGS( \
+		3U, SCMI_CLOCK_RATE_FORMAT_RANGE, 0U)
 
-#define RATE_DESC_SIZE		sizeof(struct scmi_clock_rate)
+#define RATE_DESC_SIZE sizeof(struct scmi_clock_rate)
 
 static void write_rate_desc_array_in_buffer(char *dest, unsigned long *rates,
 					    size_t nb_elt)
@@ -306,26 +303,26 @@ static void scmi_clock_describe_rates(struct scmi_msg *msg)
 		size_t ret_nb = MIN(nb_rates - in_args->rate_index, max_nb);
 		size_t rem_nb = nb_rates - in_args->rate_index - ret_nb;
 
-		status =  plat_scmi_clock_rates_array(msg->agent_id, clock_id,
-						      plat_rates, &ret_nb);
+		status = plat_scmi_clock_rates_array(msg->agent_id, clock_id,
+						     plat_rates, &ret_nb);
 		if (status == SCMI_SUCCESS) {
 			write_rate_desc_array_in_buffer(msg->out + sizeof(p2a),
 							plat_rates, ret_nb);
 
-			p2a.num_rates_flags = SCMI_RATES_BY_ARRAY(ret_nb,
-								  rem_nb);
+			p2a.num_rates_flags =
+				SCMI_RATES_BY_ARRAY(ret_nb, rem_nb);
 			p2a.status = SCMI_SUCCESS;
 
 			memcpy(msg->out, &p2a, sizeof(p2a));
-			msg->out_size_out = sizeof(p2a) +
-					    ret_nb * RATE_DESC_SIZE;
+			msg->out_size_out =
+				sizeof(p2a) + ret_nb * RATE_DESC_SIZE;
 		}
 	} else if (status == SCMI_NOT_SUPPORTED) {
 		unsigned long triplet[3] = { 0U, 0U, 0U };
 
 		/* Platform may support min§max/step triplet description */
-		status =  plat_scmi_clock_rates_by_step(msg->agent_id, clock_id,
-							triplet);
+		status = plat_scmi_clock_rates_by_step(msg->agent_id, clock_id,
+						       triplet);
 		if (status == SCMI_SUCCESS) {
 			write_rate_desc_array_in_buffer(msg->out + sizeof(p2a),
 							triplet, 3U);

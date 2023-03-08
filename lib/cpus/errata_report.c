@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -16,19 +16,19 @@
 #include <lib/spinlock.h>
 
 #ifdef IMAGE_BL1
-# define BL_STRING	"BL1"
+#define BL_STRING "BL1"
 #elif defined(__aarch64__) && defined(IMAGE_BL31)
-# define BL_STRING	"BL31"
+#define BL_STRING "BL31"
 #elif !defined(__aarch64__) && defined(IMAGE_BL32)
-# define BL_STRING	"BL32"
+#define BL_STRING "BL32"
 #elif defined(IMAGE_BL2) && BL2_AT_EL3
-# define BL_STRING "BL2"
+#define BL_STRING "BL2"
 #else
-# error This image should not be printing errata status
+#error This image should not be printing errata status
 #endif
 
 /* Errata format: BL stage, CPU, errata ID, message */
-#define ERRATA_FORMAT	"%s: %s: CPU workaround for %s was %s\n"
+#define ERRATA_FORMAT "%s: %s: CPU workaround for %s was %s\n"
 
 /*
  * Returns whether errata needs to be reported. Passed arguments are private to
@@ -73,7 +73,6 @@ void errata_print_msg(unsigned int status, const char *cpu, const char *id)
 	};
 	static const char *const __unused bl_str = BL_STRING;
 	const char *msg __unused;
-
 
 	assert(status < ARRAY_SIZE(errata_status_str));
 	assert(cpu != NULL);

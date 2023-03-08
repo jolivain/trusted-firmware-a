@@ -15,11 +15,10 @@
 #include <drivers/marvell/cache_llc.h>
 #include <drivers/marvell/ccu.h>
 #include <lib/mmio.h>
-
 #include <mvebu_def.h>
 
-#define CCU_HTC_CR(ap_index)		(MVEBU_CCU_BASE(ap_index) + 0x200)
-#define CCU_SET_POC_OFFSET		5
+#define CCU_HTC_CR(ap_index) (MVEBU_CCU_BASE(ap_index) + 0x200)
+#define CCU_SET_POC_OFFSET 5
 
 extern void ca72_l2_enable_unique_clean(void);
 
@@ -77,7 +76,7 @@ int llc_is_exclusive(int ap_index)
 	reg = mmio_read_32(LLC_CTRL(ap_index));
 
 	if ((reg & (LLC_CTRL_EN | LLC_EXCLUSIVE_EN)) ==
-		   (LLC_CTRL_EN | LLC_EXCLUSIVE_EN))
+	    (LLC_CTRL_EN | LLC_EXCLUSIVE_EN))
 		return 1;
 
 	return 0;
@@ -136,8 +135,8 @@ int llc_sram_enable(int ap_index, int size)
 		/* Trigger allocation block command */
 		mmio_write_32(LLC_BLK_ALOC(ap_index),
 			      LLC_BLK_ALOC_BASE_ADDR(way_addr) |
-			      LLC_BLK_ALOC_WAY_DATA_SET |
-			      LLC_BLK_ALOC_WAY_ID(way));
+				      LLC_BLK_ALOC_WAY_DATA_SET |
+				      LLC_BLK_ALOC_WAY_ID(way));
 		way_addr += LLC_WAY_SIZE;
 	}
 	return 0;
@@ -165,14 +164,14 @@ int llc_sram_test(int ap_index, int size, char *msg)
 
 	INFO("=== LLC SRAM WRITE test %s\n", msg);
 	for (addr = PLAT_MARVELL_TRUSTED_RAM_BASE,
-	     end_addr = PLAT_MARVELL_TRUSTED_RAM_BASE + size;
+	    end_addr = PLAT_MARVELL_TRUSTED_RAM_BASE + size;
 	     addr < end_addr; addr += 4) {
 		mmio_write_32(addr, addr);
 	}
 	INFO("=== LLC SRAM WRITE test %s PASSED\n", msg);
 	INFO("=== LLC SRAM READ test %s\n", msg);
 	for (addr = PLAT_MARVELL_TRUSTED_RAM_BASE,
-	     end_addr = PLAT_MARVELL_TRUSTED_RAM_BASE + size;
+	    end_addr = PLAT_MARVELL_TRUSTED_RAM_BASE + size;
 	     addr < end_addr; addr += 4) {
 		data = mmio_read_32(addr);
 		if (data != addr) {
@@ -181,8 +180,8 @@ int llc_sram_test(int ap_index, int size, char *msg)
 			return -1;
 		}
 	}
-	INFO("=== LLC SRAM READ test %s PASSED (last read = 0x%08x)\n",
-	     msg, data);
+	INFO("=== LLC SRAM READ test %s PASSED (last read = 0x%08x)\n", msg,
+	     data);
 	return 0;
 }
 

@@ -11,9 +11,9 @@
 #include "jr_driver_config.h"
 
 /* The maximum size of a SEC descriptor, in WORDs (32 bits). */
-#define MAX_DESC_SIZE_WORDS		64
+#define MAX_DESC_SIZE_WORDS 64
 
-#define CAAM_TIMEOUT   200000	/* ms */
+#define CAAM_TIMEOUT 200000 /* ms */
 
 /* Return codes for JR user space driver APIs */
 typedef enum sec_return_code_e {
@@ -51,8 +51,8 @@ typedef enum sec_return_code_e {
  * @param [in] job_ring           The job ring handle on which the processed
  *                               descriptor word was enqueued
  */
-typedef void (*user_callback) (uint32_t *desc, uint32_t status,
-			       void *arg, void *job_ring);
+typedef void (*user_callback)(uint32_t *desc, uint32_t status, void *arg,
+			      void *job_ring);
 
 /*
  * Structure encompassing a job descriptor which is to be processed
@@ -102,10 +102,9 @@ int sec_jr_lib_init(void);
  * @retval  job_ring_handle for successful job ring configuration
  * @retval  NULL on error
  */
-void *init_job_ring(uint8_t jr_mode,
-		    uint16_t irq_coalescing_timer,
-		    uint8_t irq_coalescing_count,
-		    void *reg_base_addr, uint32_t irq_id);
+void *init_job_ring(uint8_t jr_mode, uint16_t irq_coalescing_timer,
+		    uint8_t irq_coalescing_count, void *reg_base_addr,
+		    uint32_t irq_id);
 
 /*
  * @brief Release the resources used by the JR User Space driver.

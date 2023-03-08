@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  *
@@ -19,17 +19,17 @@
 #include <lib/utils.h>
 
 #if !PLAT_PL061_MAX_GPIOS
-# define PLAT_PL061_MAX_GPIOS	32
-#endif	/* PLAT_PL061_MAX_GPIOS */
+#define PLAT_PL061_MAX_GPIOS 32
+#endif /* PLAT_PL061_MAX_GPIOS */
 
 CASSERT(PLAT_PL061_MAX_GPIOS > 0, assert_plat_pl061_max_gpios);
 
-#define MAX_GPIO_DEVICES	((PLAT_PL061_MAX_GPIOS +		\
-				 (GPIOS_PER_PL061 - 1)) / GPIOS_PER_PL061)
+#define MAX_GPIO_DEVICES \
+	((PLAT_PL061_MAX_GPIOS + (GPIOS_PER_PL061 - 1)) / GPIOS_PER_PL061)
 
-#define PL061_GPIO_DIR		0x400
+#define PL061_GPIO_DIR 0x400
 
-#define GPIOS_PER_PL061		8
+#define GPIOS_PER_PL061 8
 
 static int pl061_get_direction(int gpio);
 static void pl061_set_direction(int gpio, int direction);
@@ -39,10 +39,10 @@ static void pl061_set_value(int gpio, int value);
 static uintptr_t pl061_reg_base[MAX_GPIO_DEVICES];
 
 static const gpio_ops_t pl061_gpio_ops = {
-	.get_direction	= pl061_get_direction,
-	.set_direction	= pl061_set_direction,
-	.get_value	= pl061_get_value,
-	.set_value	= pl061_set_value,
+	.get_direction = pl061_get_direction,
+	.set_direction = pl061_set_direction,
+	.get_value = pl061_get_value,
+	.set_value = pl061_set_value,
 };
 
 static int pl061_get_direction(int gpio)
@@ -119,7 +119,6 @@ static void pl061_set_value(int gpio, int value)
 	else
 		mmio_write_8(base_addr + BIT(offset + 2), 0);
 }
-
 
 /*
  * Register the PL061 GPIO controller with a base address and the offset

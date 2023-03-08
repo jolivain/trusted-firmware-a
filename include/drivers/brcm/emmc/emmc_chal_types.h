@@ -4,7 +4,6 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-
 #ifndef CHAL_TYPES_H
 #define CHAL_TYPES_H
 
@@ -14,7 +13,7 @@
 // Generic cHAL handler
 //
 #ifndef CHAL_HANDLE
-	typedef void *CHAL_HANDLE;	///< void pointer (32 bits wide)
+typedef void *CHAL_HANDLE; ///< void pointer (32 bits wide)
 #endif
 
-#endif	/* _CHAL_TYPES_H_ */
+#endif /* _CHAL_TYPES_H_ */

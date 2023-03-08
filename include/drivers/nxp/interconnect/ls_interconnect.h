@@ -9,7 +9,7 @@
 #define LS_INTERCONNECT_H
 
 #if (INTERCONNECT == CCI400)
-#define CCI_TERMINATE_BARRIER_TX	0x8
+#define CCI_TERMINATE_BARRIER_TX 0x8
 #endif
 
 /* Interconnect CCI/CCN functions */

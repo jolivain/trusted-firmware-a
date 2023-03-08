@@ -1,19 +1,18 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <lib/mmio.h>
-
 #include <plat_private.h>
 #include <rk3288_def.h>
-#include <soc.h>
 #include <secure.h>
+#include <soc.h>
+
+#include <platform_def.h>
 
 /* sleep data for pll suspend */
 static struct deepsleep_data_s slp_data;
@@ -22,32 +21,20 @@ static struct deepsleep_data_s slp_data;
 const mmap_region_t plat_rk_mmap[] = {
 	MAP_REGION_FLAT(GIC400_BASE, GIC400_SIZE,
 			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(STIME_BASE, STIME_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(SGRF_BASE, SGRF_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(TZPC_BASE, TZPC_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(STIME_BASE, STIME_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(SGRF_BASE, SGRF_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(TZPC_BASE, TZPC_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(PMUSRAM_BASE, PMUSRAM_SIZE,
 			MT_MEMORY | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(SRAM_BASE, SRAM_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(PMU_BASE, PMU_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(UART0_BASE, UART0_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(UART1_BASE, UART1_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(UART2_BASE, UART2_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(UART3_BASE, UART3_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(UART4_BASE, UART4_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(CRU_BASE, CRU_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(GRF_BASE, GRF_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(SRAM_BASE, SRAM_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(PMU_BASE, PMU_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(UART0_BASE, UART0_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(UART1_BASE, UART1_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(UART2_BASE, UART2_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(UART3_BASE, UART3_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(UART4_BASE, UART4_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(CRU_BASE, CRU_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(GRF_BASE, GRF_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(DDR_PCTL0_BASE, DDR_PCTL0_SIZE,
 			MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(DDR_PHY0_BASE, DDR_PHY0_SIZE,
@@ -87,8 +74,8 @@ void plat_rockchip_soc_init(void)
 	 */
 }
 
-void regs_update_bits(uintptr_t addr, uint32_t val,
-		      uint32_t mask, uint32_t shift)
+void regs_update_bits(uintptr_t addr, uint32_t val, uint32_t mask,
+		      uint32_t shift)
 {
 	uint32_t tmp, orig;
 
@@ -181,9 +168,8 @@ void clk_sel_con_restore(void)
 
 	for (i = 0; i < CRU_CLKSELS_CON_CNT; i++) {
 		/* fractional dividers don't have write-masks */
-		if ((i >= 7 && i <= 9) ||
-		    (i >= 17 && i <= 20) ||
-		    (i == 23) || (i == 41))
+		if ((i >= 7 && i <= 9) || (i >= 17 && i <= 20) || (i == 23) ||
+		    (i == 41))
 			val = slp_data.cru_sel_con[i];
 		else
 			val = slp_data.cru_sel_con[i] | REG_SOC_WMSK;

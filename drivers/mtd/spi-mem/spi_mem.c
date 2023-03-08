@@ -38,10 +38,10 @@ static bool spi_mem_check_buswidth_req(uint8_t buswidth, bool tx)
 		return true;
 
 	case 2U:
-		if ((tx && (spi_slave.mode & (SPI_TX_DUAL | SPI_TX_QUAD)) !=
-		     0U) ||
-		    (!tx && (spi_slave.mode & (SPI_RX_DUAL | SPI_RX_QUAD)) !=
-		     0U)) {
+		if ((tx &&
+		     (spi_slave.mode & (SPI_TX_DUAL | SPI_TX_QUAD)) != 0U) ||
+		    (!tx &&
+		     (spi_slave.mode & (SPI_RX_DUAL | SPI_RX_QUAD)) != 0U)) {
 			return true;
 		}
 		break;
@@ -78,7 +78,7 @@ static bool spi_mem_supports_op(const struct spi_mem_op *op)
 
 	if ((op->data.nbytes != 0U) &&
 	    !spi_mem_check_buswidth_req(op->data.buswidth,
-				       op->data.dir == SPI_MEM_DATA_OUT)) {
+					op->data.dir == SPI_MEM_DATA_OUT)) {
 		return false;
 	}
 
@@ -153,8 +153,8 @@ int spi_mem_exec_op(const struct spi_mem_op *op)
 
 	VERBOSE("%s: cmd:%x mode:%d.%d.%d.%d addqr:%" PRIx64 " len:%x\n",
 		__func__, op->cmd.opcode, op->cmd.buswidth, op->addr.buswidth,
-		op->dummy.buswidth, op->data.buswidth,
-		op->addr.val, op->data.nbytes);
+		op->dummy.buswidth, op->data.buswidth, op->addr.val,
+		op->data.nbytes);
 
 	if (!spi_mem_supports_op(op)) {
 		WARN("Error in spi_mem_support\n");
@@ -218,8 +218,8 @@ int spi_mem_init_slave(void *fdt, int bus_node, const struct spi_bus_ops *ops)
 
 		/* Get max slave frequency */
 		spi_slave.max_hz = SPI_MEM_DEFAULT_SPEED_HZ;
-		cuint = fdt_getprop(fdt, bus_subnode,
-				    "spi-max-frequency", NULL);
+		cuint = fdt_getprop(fdt, bus_subnode, "spi-max-frequency",
+				    NULL);
 		if (cuint != NULL) {
 			spi_slave.max_hz = fdt32_to_cpu(*cuint);
 		}

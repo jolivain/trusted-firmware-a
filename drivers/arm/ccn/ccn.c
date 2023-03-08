@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -27,8 +27,8 @@ DEFINE_BAKERY_LOCK(ccn_lock);
  * to read the register at the offset.
  ******************************************************************************/
 static inline unsigned long long ccn_reg_read(uintptr_t periphbase,
-			     unsigned int region_id,
-			     unsigned int register_offset)
+					      unsigned int region_id,
+					      unsigned int register_offset)
 {
 	uintptr_t region_base;
 
@@ -45,10 +45,9 @@ static inline unsigned long long ccn_reg_read(uintptr_t periphbase,
  * region and a value. It converts the first two parameters into a base address
  * and uses it to write the value in the register at the offset.
  ******************************************************************************/
-static inline void ccn_reg_write(uintptr_t periphbase,
-			  unsigned int region_id,
-			  unsigned int register_offset,
-			  unsigned long long value)
+static inline void ccn_reg_write(uintptr_t periphbase, unsigned int region_id,
+				 unsigned int register_offset,
+				 unsigned long long value)
 {
 	uintptr_t region_base;
 
@@ -62,8 +61,8 @@ static inline void ccn_reg_write(uintptr_t periphbase,
 #if ENABLE_ASSERTIONS
 
 typedef struct rn_info {
-		unsigned char node_desc[MAX_RN_NODES];
-	} rn_info_t;
+	unsigned char node_desc[MAX_RN_NODES];
+} rn_info_t;
 
 /*******************************************************************************
  * This function takes the base address of the CCN's programmer's view (PV) and
@@ -71,15 +70,13 @@ typedef struct rn_info {
  * of master interfaces resident on that node. This number is equal to the least
  * significant two bits of the node type ID + 1.
  ******************************************************************************/
-static unsigned int ccn_get_rni_mcount(uintptr_t periphbase,
-				       unsigned int rn_id)
+static unsigned int ccn_get_rni_mcount(uintptr_t periphbase, unsigned int rn_id)
 {
 	unsigned int rn_type_id;
 
 	/* Use the node id to find the type of RN-I/D node */
-	rn_type_id = get_node_type(ccn_reg_read(periphbase,
-						rn_id + RNI_REGION_ID_START,
-						REGION_ID_OFFSET));
+	rn_type_id = get_node_type(ccn_reg_read(
+		periphbase, rn_id + RNI_REGION_ID_START, REGION_ID_OFFSET));
 
 	/* Return the number master interfaces based on node type */
 	return rn_type_id_to_master_cnt(rn_type_id);
@@ -114,7 +111,7 @@ static unsigned int ccn_get_rn_master_info(uintptr_t periphbase,
 	unsigned int num_masters = 0;
 	rn_types_t rn_type;
 
-	assert (info);
+	assert(info);
 
 	for (rn_type = RN_TYPE_RNF; rn_type < NUM_RN_TYPES; rn_type++) {
 		unsigned int mn_reg_off, node_id;
@@ -127,7 +124,8 @@ static unsigned int ccn_get_rn_master_info(uintptr_t periphbase,
 		mn_reg_off = MN_RNF_NODEID_OFFSET + (rn_type << 4);
 		rn_bitmap = ccn_reg_read(periphbase, MN_REGION_ID, mn_reg_off);
 
-		FOR_EACH_PRESENT_NODE_ID(node_id, rn_bitmap) {
+		FOR_EACH_PRESENT_NODE_ID(node_id, rn_bitmap)
+		{
 			unsigned int node_mcount;
 
 			/*
@@ -139,8 +137,10 @@ static unsigned int ccn_get_rn_master_info(uintptr_t periphbase,
 			 * maximum number of master interfaces that can possibly
 			 * reside on the node.
 			 */
-			node_mcount = (mn_reg_off == MN_RNF_NODEID_OFFSET ? 1 :
-				       ccn_get_rni_mcount(periphbase, node_id));
+			node_mcount = (mn_reg_off == MN_RNF_NODEID_OFFSET ?
+					       1 :
+					       ccn_get_rni_mcount(periphbase,
+								  node_id));
 
 			/*
 			 * Use this value to increment the maximum possible
@@ -172,7 +172,7 @@ static unsigned int ccn_get_rn_master_info(uintptr_t periphbase,
 static void __init ccn_validate_plat_params(const ccn_desc_t *plat_desc)
 {
 	unsigned int master_id, num_rn_masters;
-	rn_info_t info = { {0} };
+	rn_info_t info = { { 0 } };
 
 	assert(plat_desc);
 	assert(plat_desc->periphbase);
@@ -231,7 +231,8 @@ static unsigned long long ccn_master_to_rn_id_map(unsigned long long master_map)
 	assert(master_map);
 	assert(ccn_plat_desc);
 
-	FOR_EACH_PRESENT_MASTER_INTERFACE(iface_id, master_map) {
+	FOR_EACH_PRESENT_MASTER_INTERFACE(iface_id, master_map)
+	{
 		assert(iface_id < ccn_plat_desc->num_masters);
 
 		/* Convert the master ID into the node ID */
@@ -267,20 +268,19 @@ static void ccn_snoop_dvm_do_op(unsigned long long rn_id_map,
 	bakery_lock_get(&ccn_lock);
 #endif
 	start_region_id = region_id;
-	FOR_EACH_PRESENT_REGION_ID(start_region_id, hn_id_map) {
-		ccn_reg_write(ccn_plat_desc->periphbase,
-			      start_region_id,
-			      op_reg_offset,
-			      rn_id_map);
+	FOR_EACH_PRESENT_REGION_ID(start_region_id, hn_id_map)
+	{
+		ccn_reg_write(ccn_plat_desc->periphbase, start_region_id,
+			      op_reg_offset, rn_id_map);
 	}
 
 	start_region_id = region_id;
 
-	FOR_EACH_PRESENT_REGION_ID(start_region_id, hn_id_map) {
+	FOR_EACH_PRESENT_REGION_ID(start_region_id, hn_id_map)
+	{
 		WAIT_FOR_DOMAIN_CTRL_OP_COMPLETION(start_region_id,
 						   stat_reg_offset,
-						   op_reg_offset,
-						   rn_id_map);
+						   op_reg_offset, rn_id_map);
 	}
 
 #if defined(IMAGE_BL31) || (!defined(__aarch64__) && defined(IMAGE_BL32))
@@ -310,14 +310,12 @@ void ccn_enter_snoop_dvm_domain(unsigned long long master_iface_map)
 	ccn_snoop_dvm_do_op(rn_id_map,
 			    CCN_GET_HN_NODEID_MAP(ccn_plat_desc->periphbase,
 						  MN_HNF_NODEID_OFFSET),
-			    HNF_REGION_ID_START,
-			    HNF_SDC_SET_OFFSET,
+			    HNF_REGION_ID_START, HNF_SDC_SET_OFFSET,
 			    HNF_SDC_STAT_OFFSET);
 
 	ccn_snoop_dvm_do_op(rn_id_map,
 			    CCN_GET_MN_NODEID_MAP(ccn_plat_desc->periphbase),
-			    MN_REGION_ID,
-			    MN_DDC_SET_OFFSET,
+			    MN_REGION_ID, MN_DDC_SET_OFFSET,
 			    MN_DDC_STAT_OFFSET);
 }
 
@@ -329,14 +327,12 @@ void ccn_exit_snoop_dvm_domain(unsigned long long master_iface_map)
 	ccn_snoop_dvm_do_op(rn_id_map,
 			    CCN_GET_HN_NODEID_MAP(ccn_plat_desc->periphbase,
 						  MN_HNF_NODEID_OFFSET),
-			    HNF_REGION_ID_START,
-			    HNF_SDC_CLR_OFFSET,
+			    HNF_REGION_ID_START, HNF_SDC_CLR_OFFSET,
 			    HNF_SDC_STAT_OFFSET);
 
 	ccn_snoop_dvm_do_op(rn_id_map,
 			    CCN_GET_MN_NODEID_MAP(ccn_plat_desc->periphbase),
-			    MN_REGION_ID,
-			    MN_DDC_CLR_OFFSET,
+			    MN_REGION_ID, MN_DDC_CLR_OFFSET,
 			    MN_DDC_STAT_OFFSET);
 }
 
@@ -347,8 +343,7 @@ void ccn_enter_dvm_domain(unsigned long long master_iface_map)
 	rn_id_map = ccn_master_to_rn_id_map(master_iface_map);
 	ccn_snoop_dvm_do_op(rn_id_map,
 			    CCN_GET_MN_NODEID_MAP(ccn_plat_desc->periphbase),
-			    MN_REGION_ID,
-			    MN_DDC_SET_OFFSET,
+			    MN_REGION_ID, MN_DDC_SET_OFFSET,
 			    MN_DDC_STAT_OFFSET);
 }
 
@@ -359,8 +354,7 @@ void ccn_exit_dvm_domain(unsigned long long master_iface_map)
 	rn_id_map = ccn_master_to_rn_id_map(master_iface_map);
 	ccn_snoop_dvm_do_op(rn_id_map,
 			    CCN_GET_MN_NODEID_MAP(ccn_plat_desc->periphbase),
-			    MN_REGION_ID,
-			    MN_DDC_CLR_OFFSET,
+			    MN_REGION_ID, MN_DDC_CLR_OFFSET,
 			    MN_DDC_STAT_OFFSET);
 }
 
@@ -410,31 +404,30 @@ void ccn_set_l3_run_mode(unsigned int mode)
 	assert(ccn_plat_desc->periphbase);
 	assert(mode <= CCN_L3_RUN_MODE_FAM);
 
-	mn_hnf_id_map = ccn_reg_read(ccn_plat_desc->periphbase,
-				     MN_REGION_ID,
+	mn_hnf_id_map = ccn_reg_read(ccn_plat_desc->periphbase, MN_REGION_ID,
 				     MN_HNF_NODEID_OFFSET);
 	region_id = HNF_REGION_ID_START;
 
 	/* Program the desired run mode */
-	FOR_EACH_PRESENT_REGION_ID(region_id, mn_hnf_id_map) {
-		ccn_reg_write(ccn_plat_desc->periphbase,
-			      region_id,
-			      HNF_PSTATE_REQ_OFFSET,
-			      mode);
+	FOR_EACH_PRESENT_REGION_ID(region_id, mn_hnf_id_map)
+	{
+		ccn_reg_write(ccn_plat_desc->periphbase, region_id,
+			      HNF_PSTATE_REQ_OFFSET, mode);
 	}
 
 	/* Wait for the caches to transition to the run mode */
 	region_id = HNF_REGION_ID_START;
-	FOR_EACH_PRESENT_REGION_ID(region_id, mn_hnf_id_map) {
+	FOR_EACH_PRESENT_REGION_ID(region_id, mn_hnf_id_map)
+	{
 		/*
 		 * Wait for a L3 cache partition to enter a target run
 		 * mode. The pstate parameter is read from an HN-F P-state
 		 * status register.
 		 */
 		do {
-			hnf_pstate_stat = ccn_reg_read(ccn_plat_desc->periphbase,
-					       region_id,
-					       HNF_PSTATE_STAT_OFFSET);
+			hnf_pstate_stat =
+				ccn_reg_read(ccn_plat_desc->periphbase,
+					     region_id, HNF_PSTATE_STAT_OFFSET);
 		} while (((hnf_pstate_stat & HNF_PSTATE_MASK) >> 2) != mode);
 	}
 }
@@ -446,12 +439,10 @@ void ccn_set_l3_run_mode(unsigned int mode)
  * configuration is needed only if network contains a single SN-F or 3 SN-F and
  * must be completed before the first request by the system to normal memory.
  ******************************************************************************/
-void ccn_program_sys_addrmap(unsigned int sn0_id,
-		 unsigned int sn1_id,
-		 unsigned int sn2_id,
-		 unsigned int top_addr_bit0,
-		 unsigned int top_addr_bit1,
-		 unsigned char three_sn_en)
+void ccn_program_sys_addrmap(unsigned int sn0_id, unsigned int sn1_id,
+			     unsigned int sn2_id, unsigned int top_addr_bit0,
+			     unsigned int top_addr_bit1,
+			     unsigned char three_sn_en)
 {
 	unsigned long long mn_hnf_id_map, hnf_sam_ctrl_value;
 	unsigned int region_id;
@@ -459,26 +450,19 @@ void ccn_program_sys_addrmap(unsigned int sn0_id,
 	assert(ccn_plat_desc);
 	assert(ccn_plat_desc->periphbase);
 
-	mn_hnf_id_map = ccn_reg_read(ccn_plat_desc->periphbase,
-				     MN_REGION_ID,
+	mn_hnf_id_map = ccn_reg_read(ccn_plat_desc->periphbase, MN_REGION_ID,
 				     MN_HNF_NODEID_OFFSET);
 	region_id = HNF_REGION_ID_START;
-	hnf_sam_ctrl_value = MAKE_HNF_SAM_CTRL_VALUE(sn0_id,
-						     sn1_id,
-						     sn2_id,
-						     top_addr_bit0,
-						     top_addr_bit1,
-						     three_sn_en);
+	hnf_sam_ctrl_value =
+		MAKE_HNF_SAM_CTRL_VALUE(sn0_id, sn1_id, sn2_id, top_addr_bit0,
+					top_addr_bit1, three_sn_en);
 
-	FOR_EACH_PRESENT_REGION_ID(region_id, mn_hnf_id_map) {
-
+	FOR_EACH_PRESENT_REGION_ID(region_id, mn_hnf_id_map)
+	{
 		/* Program the SAM control register */
-		ccn_reg_write(ccn_plat_desc->periphbase,
-			      region_id,
-			      HNF_SAM_CTRL_OFFSET,
-			      hnf_sam_ctrl_value);
+		ccn_reg_write(ccn_plat_desc->periphbase, region_id,
+			      HNF_SAM_CTRL_OFFSET, hnf_sam_ctrl_value);
 	}
-
 }
 
 /*******************************************************************************
@@ -489,15 +473,14 @@ void ccn_program_sys_addrmap(unsigned int sn0_id,
 int ccn_get_part0_id(uintptr_t periphbase)
 {
 	assert(periphbase);
-	return (int)(mmio_read_64(periphbase
-			+ MN_PERIPH_ID_0_1_OFFSET) & 0xFF);
+	return (int)(mmio_read_64(periphbase + MN_PERIPH_ID_0_1_OFFSET) & 0xFF);
 }
 
 /*******************************************************************************
  * This function returns the region id corresponding to a node_id of node_type.
  ******************************************************************************/
 static unsigned int get_region_id_for_node(node_types_t node_type,
-						unsigned int node_id)
+					   unsigned int node_id)
 {
 	unsigned int mn_reg_off, region_id;
 	unsigned long long node_bitmap;
@@ -534,15 +517,15 @@ static unsigned int get_region_id_for_node(node_types_t node_type,
 	 */
 
 	mn_reg_off = MN_RNF_NODEID_OFFSET + (node_type << 4);
-	node_bitmap = ccn_reg_read(ccn_plat_desc->periphbase,
-					MN_REGION_ID, mn_reg_off);
+	node_bitmap = ccn_reg_read(ccn_plat_desc->periphbase, MN_REGION_ID,
+				   mn_reg_off);
 
 	assert((node_bitmap & (1ULL << (node_id))) != 0U);
 
-
-	FOR_EACH_PRESENT_NODE_ID(loc_node_id, node_bitmap) {
+	FOR_EACH_PRESENT_NODE_ID(loc_node_id, node_bitmap)
+	{
 		INFO("Index = %u with loc_nod=%u and input nod=%u\n",
-					node_pos_in_map, loc_node_id, node_id);
+		     node_pos_in_map, loc_node_id, node_id);
 		if (loc_node_id == node_id)
 			break;
 		node_pos_in_map++;
@@ -578,7 +561,7 @@ void ccn_write_node_reg(node_types_t node_type, unsigned int node_id,
 
 	if (reg_offset > REGION_ID_OFFSET) {
 		ERROR("Invalid Register offset 0x%x is provided.\n",
-								reg_offset);
+		      reg_offset);
 		assert(false);
 		return;
 	}
@@ -586,9 +569,8 @@ void ccn_write_node_reg(node_types_t node_type, unsigned int node_id,
 	/* Setting the value of Auxiliary Control Register of the Node */
 	ccn_reg_write(ccn_plat_desc->periphbase, region_id, reg_offset, val);
 	VERBOSE("Value is successfully written at address 0x%lx.\n",
-			(ccn_plat_desc->periphbase
-			+ region_id_to_base(region_id))
-			+ reg_offset);
+		(ccn_plat_desc->periphbase + region_id_to_base(region_id)) +
+			reg_offset);
 }
 
 /*******************************************************************************
@@ -597,15 +579,15 @@ void ccn_write_node_reg(node_types_t node_type, unsigned int node_id,
  * where, region id is mapped to a node_id of node_type.
  ******************************************************************************/
 unsigned long long ccn_read_node_reg(node_types_t node_type,
-					unsigned int node_id,
-					unsigned int reg_offset)
+				     unsigned int node_id,
+				     unsigned int reg_offset)
 {
 	unsigned long long val;
 	unsigned int region_id = get_region_id_for_node(node_type, node_id);
 
 	if (reg_offset > REGION_ID_OFFSET) {
 		ERROR("Invalid Register offset 0x%x is provided.\n",
-								reg_offset);
+		      reg_offset);
 		assert(false);
 		return ULL(0);
 	}
@@ -613,9 +595,8 @@ unsigned long long ccn_read_node_reg(node_types_t node_type,
 	/* Setting the value of Auxiliary Control Register of the Node */
 	val = ccn_reg_read(ccn_plat_desc->periphbase, region_id, reg_offset);
 	VERBOSE("Value is successfully read from address 0x%lx.\n",
-			(ccn_plat_desc->periphbase
-			+ region_id_to_base(region_id))
-			+ reg_offset);
+		(ccn_plat_desc->periphbase + region_id_to_base(region_id)) +
+			reg_offset);
 
 	return val;
 }

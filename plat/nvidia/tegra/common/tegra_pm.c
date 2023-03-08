@@ -1,13 +1,11 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-
-#include <platform_def.h>
 
 #include <arch_helpers.h>
 #include <common/bl_common.h>
@@ -17,13 +15,14 @@
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
-#include <plat/common/platform.h>
-
 #include <memctrl.h>
 #include <pmc.h>
 #include <tegra_def.h>
 #include <tegra_platform.h>
 #include <tegra_private.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 extern uint64_t tegra_bl31_phys_base;
 extern uint64_t tegra_sec_entry_point;
@@ -107,7 +106,8 @@ static void tegra_pwr_domain_off(const psci_power_state_t *target_state)
  * This handler is called with SMP and data cache enabled, when
  * HW_ASSISTED_COHERENCY = 0
  ******************************************************************************/
-void tegra_pwr_domain_suspend_pwrdown_early(const psci_power_state_t *target_state)
+void tegra_pwr_domain_suspend_pwrdown_early(
+	const psci_power_state_t *target_state)
 {
 	tegra_soc_pwr_domain_suspend_pwrdown_early(target_state);
 }
@@ -128,15 +128,15 @@ static void tegra_pwr_domain_suspend(const psci_power_state_t *target_state)
  * Handler called at the end of the power domain suspend sequence. The
  * target_state encodes the power state that each level should transition to.
  ******************************************************************************/
-static __dead2 void tegra_pwr_domain_power_down_wfi(const psci_power_state_t
-					     *target_state)
+static __dead2 void
+tegra_pwr_domain_power_down_wfi(const psci_power_state_t *target_state)
 {
 	/* call the chip's power down handler */
 	(void)tegra_soc_pwr_domain_power_down_wfi(target_state);
 
 	/* Disable console if we are entering deep sleep. */
 	if (target_state->pwr_domain_state[PLAT_MAX_PWR_LVL] ==
-			PSTATE_ID_SOC_POWERDN) {
+	    PSTATE_ID_SOC_POWERDN) {
 		INFO("%s: complete. Entering System Suspend...\n", __func__);
 		console_flush();
 		console_switch_state(0);
@@ -159,8 +159,7 @@ static void tegra_pwr_domain_on_finish(const psci_power_state_t *target_state)
 	 * Check if we are exiting from deep sleep.
 	 */
 	if (target_state->pwr_domain_state[PLAT_MAX_PWR_LVL] ==
-			PSTATE_ID_SOC_POWERDN) {
-
+	    PSTATE_ID_SOC_POWERDN) {
 		/*
 		 * On entering System Suspend state, the GIC loses power
 		 * completely. Initialize the GIC global distributor and
@@ -182,7 +181,7 @@ static void tegra_pwr_domain_on_finish(const psci_power_state_t *target_state)
 		 */
 		plat_params = bl31_get_plat_params();
 		tegra_memctrl_tzdram_setup(plat_params->tzdram_base,
-			(uint32_t)plat_params->tzdram_size);
+					   (uint32_t)plat_params->tzdram_size);
 
 	} else {
 		/*
@@ -202,7 +201,8 @@ static void tegra_pwr_domain_on_finish(const psci_power_state_t *target_state)
  * having been suspended earlier. The target_state encodes the low power state
  * that each level has woken up from.
  ******************************************************************************/
-static void tegra_pwr_domain_suspend_finish(const psci_power_state_t *target_state)
+static void
+tegra_pwr_domain_suspend_finish(const psci_power_state_t *target_state)
 {
 	tegra_pwr_domain_on_finish(target_state);
 }
@@ -237,7 +237,7 @@ static __dead2 void tegra_system_reset(void)
  * Handler called to check the validity of the power state parameter.
  ******************************************************************************/
 static int32_t tegra_validate_power_state(uint32_t power_state,
-				   psci_power_state_t *req_state)
+					  psci_power_state_t *req_state)
 {
 	assert(req_state != NULL);
 
@@ -266,19 +266,20 @@ static int32_t tegra_validate_ns_entrypoint(uintptr_t entrypoint)
  * Export the platform handlers to enable psci to invoke them
  ******************************************************************************/
 static plat_psci_ops_t tegra_plat_psci_ops = {
-	.cpu_standby			= tegra_cpu_standby,
-	.pwr_domain_on			= tegra_pwr_domain_on,
-	.pwr_domain_off			= tegra_pwr_domain_off,
-	.pwr_domain_suspend_pwrdown_early = tegra_pwr_domain_suspend_pwrdown_early,
-	.pwr_domain_suspend		= tegra_pwr_domain_suspend,
-	.pwr_domain_on_finish		= tegra_pwr_domain_on_finish,
-	.pwr_domain_suspend_finish	= tegra_pwr_domain_suspend_finish,
-	.pwr_domain_pwr_down_wfi	= tegra_pwr_domain_power_down_wfi,
-	.system_off			= tegra_system_off,
-	.system_reset			= tegra_system_reset,
-	.validate_power_state		= tegra_validate_power_state,
-	.validate_ns_entrypoint		= tegra_validate_ns_entrypoint,
-	.get_sys_suspend_power_state	= tegra_get_sys_suspend_power_state,
+	.cpu_standby = tegra_cpu_standby,
+	.pwr_domain_on = tegra_pwr_domain_on,
+	.pwr_domain_off = tegra_pwr_domain_off,
+	.pwr_domain_suspend_pwrdown_early =
+		tegra_pwr_domain_suspend_pwrdown_early,
+	.pwr_domain_suspend = tegra_pwr_domain_suspend,
+	.pwr_domain_on_finish = tegra_pwr_domain_on_finish,
+	.pwr_domain_suspend_finish = tegra_pwr_domain_suspend_finish,
+	.pwr_domain_pwr_down_wfi = tegra_pwr_domain_power_down_wfi,
+	.system_off = tegra_system_off,
+	.system_reset = tegra_system_reset,
+	.validate_power_state = tegra_validate_power_state,
+	.validate_ns_entrypoint = tegra_validate_ns_entrypoint,
+	.get_sys_suspend_power_state = tegra_get_sys_suspend_power_state,
 };
 
 /*******************************************************************************

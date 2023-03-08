@@ -1,14 +1,14 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <platform_def.h>
-
 #include <arch.h>
 #include <arch_helpers.h>
 #include <drivers/arm/ccn.h>
+
+#include <platform_def.h>
 
 static const unsigned char master_to_rn_id_map[] = {
 	PLAT_SQ_CLUSTER_TO_CCN_ID_MAP

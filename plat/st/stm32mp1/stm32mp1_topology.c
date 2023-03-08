@@ -1,13 +1,13 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <platform_def.h>
-
 #include <lib/psci/psci.h>
+
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 /* 1 cluster, all cores into */
 static const unsigned char stm32mp1_power_domain_tree_desc[] = {

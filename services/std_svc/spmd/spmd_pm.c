@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,6 +11,7 @@
 
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/spinlock.h>
+
 #include "spmd_private.h"
 
 static struct {
@@ -38,7 +39,7 @@ int spmd_pm_secondary_ep_register(uintptr_t entry_point)
 	 */
 	if (!spmd_check_address_in_binary_image(entry_point)) {
 		ERROR("%s entry point is not within image boundaries\n",
-			__func__);
+		      __func__);
 		goto out;
 	}
 
@@ -99,7 +100,7 @@ static void spmd_cpu_on_finish_handler(u_register_t unused)
 	rc = spmd_spm_core_sync_entry(ctx);
 	if (rc != 0ULL) {
 		ERROR("%s failed (%" PRIu64 ") on CPU%u\n", __func__, rc,
-			linear_id);
+		      linear_id);
 		ctx->state = SPMC_STATE_OFF;
 		return;
 	}
@@ -122,20 +123,21 @@ static int32_t spmd_cpu_off_handler(u_register_t unused)
 	assert(ctx->state != SPMC_STATE_OFF);
 
 	/* Build an SPMD to SPMC direct message request. */
-	spmd_build_spmc_message(get_gpregs_ctx(&ctx->cpu_ctx),
-				FFA_FWK_MSG_PSCI, PSCI_CPU_OFF);
+	spmd_build_spmc_message(get_gpregs_ctx(&ctx->cpu_ctx), FFA_FWK_MSG_PSCI,
+				PSCI_CPU_OFF);
 
 	rc = spmd_spm_core_sync_entry(ctx);
 	if (rc != 0ULL) {
-		ERROR("%s failed (%" PRIu64 ") on CPU%u\n", __func__, rc, linear_id);
+		ERROR("%s failed (%" PRIu64 ") on CPU%u\n", __func__, rc,
+		      linear_id);
 	}
 
 	/* Expect a direct message response from the SPMC. */
-	u_register_t ffa_resp_func = read_ctx_reg(get_gpregs_ctx(&ctx->cpu_ctx),
-						  CTX_GPREG_X0);
+	u_register_t ffa_resp_func =
+		read_ctx_reg(get_gpregs_ctx(&ctx->cpu_ctx), CTX_GPREG_X0);
 	if (ffa_resp_func != FFA_MSG_SEND_DIRECT_RESP_SMC32) {
-		ERROR("%s invalid SPMC response (%lx).\n",
-			__func__, ffa_resp_func);
+		ERROR("%s invalid SPMC response (%lx).\n", __func__,
+		      ffa_resp_func);
 		return -EINVAL;
 	}
 
@@ -150,7 +152,5 @@ static int32_t spmd_cpu_off_handler(u_register_t unused)
  * Structure populated by the SPM Dispatcher to perform any bookkeeping before
  * PSCI executes a power mgmt. operation.
  ******************************************************************************/
-const spd_pm_ops_t spmd_pm = {
-	.svc_on_finish = spmd_cpu_on_finish_handler,
-	.svc_off = spmd_cpu_off_handler
-};
+const spd_pm_ops_t spmd_pm = { .svc_on_finish = spmd_cpu_on_finish_handler,
+			       .svc_off = spmd_cpu_off_handler };

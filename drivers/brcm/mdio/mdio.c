@@ -5,12 +5,12 @@
  */
 #include <string.h>
 
-#include <platform_def.h>
-
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
 #include <mdio.h>
+
+#include <platform_def.h>
 
 static int mdio_op_status(uint32_t result)
 {
@@ -28,8 +28,8 @@ static int mdio_op_status(uint32_t result)
 	return -1;
 }
 
-static int mdio_op(uint16_t busid, uint16_t phyid, uint32_t reg,
-	       uint16_t val, uint8_t op)
+static int mdio_op(uint16_t busid, uint16_t phyid, uint32_t reg, uint16_t val,
+		   uint8_t op)
 {
 	uint32_t param;
 	int ret;

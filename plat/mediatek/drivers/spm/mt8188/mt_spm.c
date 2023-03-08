@@ -12,16 +12,19 @@
 #include <arch.h>
 #include <common/debug.h>
 #include <drivers/console.h>
-#include <lib/mmio.h>
-#include <lib/utils_def.h>
-
-#include "constraints/mt_spm_rc_internal.h"
 #include <drivers/spm/mt_spm_resource_req.h>
+#include <lib/mmio.h>
 #include <lib/mtk_init/mtk_init.h>
 #include <lib/pm/mtk_pm.h>
+#include <lib/utils_def.h>
 #include <lpm/mt_lp_rm.h>
 #include <lpm/mt_lp_rqm.h>
 #include <lpm/mt_lpm_smc.h>
+#include <mtk_mmap_pool.h>
+
+#include <platform_def.h>
+
+#include "constraints/mt_spm_rc_internal.h"
 #include "mt_spm.h"
 #include "mt_spm_cond.h"
 #include "mt_spm_conservation.h"
@@ -31,8 +34,6 @@
 #include "mt_spm_pmic_wrap.h"
 #include "mt_spm_reg.h"
 #include "mt_spm_suspend.h"
-#include <mtk_mmap_pool.h>
-#include <platform_def.h>
 #include "sleep_def.h"
 
 /*
@@ -43,8 +44,7 @@
 spinlock_t spm_lock;
 
 #ifdef MTK_PLAT_SPM_UNSUPPORT
-struct mt_resource_manager plat_mt8188_rm = {
-};
+struct mt_resource_manager plat_mt8188_rm = {};
 #else
 struct mt_lp_res_req rq_xo_fpm = {
 	.res_id = MT_LP_RQ_XO_FPM,
@@ -83,13 +83,8 @@ struct mt_lp_res_req rq_dram_s1 = {
 };
 
 struct mt_lp_res_req *spm_resources[] = {
-	&rq_xo_fpm,
-	&rq_26m,
-	&rq_infra,
-	&rq_syspll,
-	&rq_dram_s0,
-	&rq_dram_s1,
-	NULL,
+	&rq_xo_fpm,  &rq_26m,	  &rq_infra, &rq_syspll,
+	&rq_dram_s0, &rq_dram_s1, NULL,
 };
 
 struct mt_resource_req_manager plat_mt8188_rq = {

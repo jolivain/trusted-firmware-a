@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,16 +11,17 @@
 #include <drivers/io/io_semihosting.h>
 #include <drivers/io/io_storage.h>
 #include <lib/semihosting.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/common_def.h>
 
 /* Semihosting filenames */
-#define BL33_IMAGE_NAME			"bl33.bin"
+#define BL33_IMAGE_NAME "bl33.bin"
 
 #if TRUSTED_BOARD_BOOT
-#define TRUSTED_KEY_CERT_NAME		"trusted_key.crt"
-#define NT_FW_KEY_CERT_NAME		"nt_fw_key.crt"
-#define NT_FW_CONTENT_CERT_NAME		"nt_fw_content.crt"
+#define TRUSTED_KEY_CERT_NAME "trusted_key.crt"
+#define NT_FW_KEY_CERT_NAME "nt_fw_key.crt"
+#define NT_FW_CONTENT_CERT_NAME "nt_fw_content.crt"
 #endif /* TRUSTED_BOARD_BOOT */
 
 /* IO devices */
@@ -28,26 +29,16 @@ static const io_dev_connector_t *sh_dev_con;
 static uintptr_t sh_dev_handle;
 
 static const io_file_spec_t sh_file_spec[] = {
-	[BL33_IMAGE_ID] = {
-		.path = BL33_IMAGE_NAME,
-		.mode = FOPEN_MODE_RB
-	},
+	[BL33_IMAGE_ID] = { .path = BL33_IMAGE_NAME, .mode = FOPEN_MODE_RB },
 #if TRUSTED_BOARD_BOOT
-	[TRUSTED_KEY_CERT_ID] = {
-		.path = TRUSTED_KEY_CERT_NAME,
-		.mode = FOPEN_MODE_RB
-	},
-	[NON_TRUSTED_FW_KEY_CERT_ID] = {
-		.path = NT_FW_KEY_CERT_NAME,
-		.mode = FOPEN_MODE_RB
-	},
-	[NON_TRUSTED_FW_CONTENT_CERT_ID] = {
-		.path = NT_FW_CONTENT_CERT_NAME,
-		.mode = FOPEN_MODE_RB
-	},
+	[TRUSTED_KEY_CERT_ID] = { .path = TRUSTED_KEY_CERT_NAME,
+				  .mode = FOPEN_MODE_RB },
+	[NON_TRUSTED_FW_KEY_CERT_ID] = { .path = NT_FW_KEY_CERT_NAME,
+					 .mode = FOPEN_MODE_RB },
+	[NON_TRUSTED_FW_CONTENT_CERT_ID] = { .path = NT_FW_CONTENT_CERT_NAME,
+					     .mode = FOPEN_MODE_RB },
 #endif /* TRUSTED_BOARD_BOOT */
 };
-
 
 static int open_semihosting(const uintptr_t spec)
 {

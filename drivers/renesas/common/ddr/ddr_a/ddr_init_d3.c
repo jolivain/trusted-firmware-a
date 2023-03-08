@@ -6,16 +6,17 @@
  */
 
 #include <stdint.h>
-#include <lib/mmio.h>
-#include <common/debug.h>
-#include "rcar_def.h"
-#include "../ddr_regs.h"
 
-#define RCAR_DDR_VERSION	"rev.0.02"
+#include <common/debug.h>
+#include <lib/mmio.h>
+
+#include "../ddr_regs.h"
+#include "rcar_def.h"
+
+#define RCAR_DDR_VERSION "rev.0.02"
 
 /* Average periodic refresh interval[ns]. Support 3900,7800 */
-#define REFRESH_RATE  3900
-
+#define REFRESH_RATE 3900
 
 #if RCAR_LSI != RCAR_D3
 #error "Don't have DDR initialize routine."
@@ -106,8 +107,7 @@ static void init_ddr_d3_1866(void)
 
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000004);
 	mmio_write_32(DBSC_DBPDRGD_0,
-		(uint32_t) (REFRESH_RATE * 928 / 125) - 400
-			+ 0x0A300000);
+		      (uint32_t)(REFRESH_RATE * 928 / 125) - 400 + 0x0A300000);
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000022);
 	mmio_write_32(DBSC_DBPDRGD_0, 0x1000040B);
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000023);
@@ -208,8 +208,8 @@ static void init_ddr_d3_1866(void)
 			mmio_write_32(DBSC_DBPDRGA_0, 0xB0 + i * 0x20);
 			r2 = mmio_read_32(DBSC_DBPDRGD_0) & 0xFFFFFF00;
 			mmio_write_32(DBSC_DBPDRGA_0, 0xB0 + i * 0x20);
-			mmio_write_32(DBSC_DBPDRGD_0, r2 |
-						     ((r6 + (r5 << 1)) & 0xFF));
+			mmio_write_32(DBSC_DBPDRGD_0,
+				      r2 | ((r6 + (r5 << 1)) & 0xFF));
 		}
 	}
 
@@ -283,9 +283,9 @@ static void init_ddr_d3_1866(void)
 			mmio_write_32(DBSC_DBPDRGA_0, 0xB0 + i * 0x20);
 			r2 = mmio_read_32(DBSC_DBPDRGD_0) & 0xFFFFFF00;
 			mmio_write_32(DBSC_DBPDRGA_0, 0xB0 + i * 0x20);
-			mmio_write_32(DBSC_DBPDRGD_0, r2 |
-						     ((r6 + r5 +
-						      (r5 >> 1) + r12) & 0xFF));
+			mmio_write_32(DBSC_DBPDRGD_0,
+				      r2 | ((r6 + r5 + (r5 >> 1) + r12) &
+					    0xFF));
 		}
 	}
 
@@ -309,9 +309,9 @@ static void init_ddr_d3_1866(void)
 
 	mmio_write_32(DBSC_DBBUS0CNF1, 0x00000010);
 	mmio_write_32(DBSC_DBCALCNF,
-		(uint32_t) (64000000 / REFRESH_RATE) + 0x01000000);
+		      (uint32_t)(64000000 / REFRESH_RATE) + 0x01000000);
 	mmio_write_32(DBSC_DBRFCNF1,
-		(uint32_t) (REFRESH_RATE * 116 / 125) + 0x00080000);
+		      (uint32_t)(REFRESH_RATE * 116 / 125) + 0x00080000);
 	mmio_write_32(DBSC_DBRFCNF2, 0x00010000);
 	mmio_write_32(DBSC_DBDFICUPDCNF, 0x40100001);
 	mmio_write_32(DBSC_DBRFEN, 0x00000001);
@@ -454,7 +454,7 @@ static void init_ddr_d3_1600(void)
 
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000004);
 	mmio_write_32(DBSC_DBPDRGD_0,
-		(uint32_t) (REFRESH_RATE * 792 / 125) - 400 + 0x08B00000);
+		      (uint32_t)(REFRESH_RATE * 792 / 125) - 400 + 0x08B00000);
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000022);
 	mmio_write_32(DBSC_DBPDRGD_0, 0x1000040B);
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000023);
@@ -554,8 +554,8 @@ static void init_ddr_d3_1600(void)
 			mmio_write_32(DBSC_DBPDRGA_0, 0xB0 + i * 0x20);
 			r2 = mmio_read_32(DBSC_DBPDRGD_0) & 0xFFFFFF00;
 			mmio_write_32(DBSC_DBPDRGA_0, 0xB0 + i * 0x20);
-			mmio_write_32(DBSC_DBPDRGD_0, r2 |
-						     ((r6 + (r5 << 1)) & 0xFF));
+			mmio_write_32(DBSC_DBPDRGD_0,
+				      r2 | ((r6 + (r5 << 1)) & 0xFF));
 		}
 	}
 
@@ -629,9 +629,9 @@ static void init_ddr_d3_1600(void)
 			mmio_write_32(DBSC_DBPDRGA_0, 0xB0 + i * 0x20);
 			r2 = mmio_read_32(DBSC_DBPDRGD_0) & 0xFFFFFF00;
 			mmio_write_32(DBSC_DBPDRGA_0, 0xB0 + i * 0x20);
-			mmio_write_32(DBSC_DBPDRGD_0, r2 |
-						     ((r6 + r5 +
-						      (r5 >> 1) + r12) & 0xFF));
+			mmio_write_32(DBSC_DBPDRGD_0,
+				      r2 | ((r6 + r5 + (r5 >> 1) + r12) &
+					    0xFF));
 		}
 	}
 
@@ -655,9 +655,9 @@ static void init_ddr_d3_1600(void)
 
 	mmio_write_32(DBSC_DBBUS0CNF1, 0x00000010);
 	mmio_write_32(DBSC_DBCALCNF,
-		(uint32_t) (64000000 / REFRESH_RATE) + 0x01000000);
+		      (uint32_t)(64000000 / REFRESH_RATE) + 0x01000000);
 	mmio_write_32(DBSC_DBRFCNF1,
-		(uint32_t) (REFRESH_RATE * 99 / 125) + 0x00080000);
+		      (uint32_t)(REFRESH_RATE * 99 / 125) + 0x00080000);
 	mmio_write_32(DBSC_DBRFCNF2, 0x00010000);
 	mmio_write_32(DBSC_DBDFICUPDCNF, 0x40100001);
 	mmio_write_32(DBSC_DBRFEN, 0x00000001);
@@ -702,11 +702,11 @@ static void init_ddr_d3_1600(void)
 #endif
 }
 
-#define PRR			0xFFF00044U
-#define PRR_PRODUCT_MASK	0x00007F00U
-#define PRR_PRODUCT_D3		0x00005800U
+#define PRR 0xFFF00044U
+#define PRR_PRODUCT_MASK 0x00007F00U
+#define PRR_PRODUCT_D3 0x00005800U
 
-#define	MODEMR_MD19		BIT(19)
+#define MODEMR_MD19 BIT(19)
 
 int32_t rcar_dram_init(void)
 {

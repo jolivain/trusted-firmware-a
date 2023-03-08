@@ -9,8 +9,8 @@
 #include <common/debug.h>
 #include <lib/mmio.h>
 
-#include "qos_init.h"
 #include "qos_common.h"
+#include "qos_init.h"
 #include "qos_reg.h"
 #include "rcar_def.h"
 #if RCAR_LSI == RCAR_AUTO
@@ -24,52 +24,54 @@
 #include "M3N/qos_init_m3n_v10.h"
 #include "V3M/qos_init_v3m.h"
 #endif
-#if RCAR_LSI == RCAR_H3		/* H3 */
+#if RCAR_LSI == RCAR_H3 /* H3 */
 #include "H3/qos_init_h3_v10.h"
 #include "H3/qos_init_h3_v11.h"
 #include "H3/qos_init_h3_v20.h"
 #include "H3/qos_init_h3_v30.h"
 #endif
-#if RCAR_LSI == RCAR_H3N	/* H3 */
+#if RCAR_LSI == RCAR_H3N /* H3 */
 #include "H3/qos_init_h3n_v30.h"
 #endif
-#if RCAR_LSI == RCAR_M3		/* M3 */
+#if RCAR_LSI == RCAR_M3 /* M3 */
 #include "M3/qos_init_m3_v10.h"
 #include "M3/qos_init_m3_v11.h"
 #include "M3/qos_init_m3_v30.h"
 #endif
-#if RCAR_LSI == RCAR_M3N	/* M3N */
+#if RCAR_LSI == RCAR_M3N /* M3N */
 #include "M3N/qos_init_m3n_v10.h"
 #endif
-#if RCAR_LSI == RCAR_V3M	/* V3M */
+#if RCAR_LSI == RCAR_V3M /* V3M */
 #include "V3M/qos_init_v3m.h"
 #endif
-#if RCAR_LSI == RCAR_E3		/* E3 */
+#if RCAR_LSI == RCAR_E3 /* E3 */
 #include "E3/qos_init_e3_v10.h"
 #endif
-#if RCAR_LSI == RCAR_D3		/* D3 */
+#if RCAR_LSI == RCAR_D3 /* D3 */
 #include "D3/qos_init_d3.h"
 #endif
 
 #if (RCAR_LSI != RCAR_E3) && (RCAR_LSI != RCAR_D3) && (RCAR_LSI != RCAR_V3M)
 
-#define DRAM_CH_CNT			0x04
+#define DRAM_CH_CNT 0x04
 uint32_t qos_init_ddr_ch;
 uint8_t qos_init_ddr_phyvalid;
 #endif
 
-#define PRR_PRODUCT_ERR(reg)				\
-	do {						\
-		ERROR("LSI Product ID(PRR=0x%x) QoS "	\
-		"initialize not supported.\n", reg);	\
-		panic();				\
+#define PRR_PRODUCT_ERR(reg)                          \
+	do {                                          \
+		ERROR("LSI Product ID(PRR=0x%x) QoS " \
+		      "initialize not supported.\n",  \
+		      reg);                           \
+		panic();                              \
 	} while (0)
 
-#define PRR_CUT_ERR(reg)				\
-	do {						\
-		ERROR("LSI Cut ID(PRR=0x%x) QoS "	\
-		"initialize not supported.\n", reg);	\
-		panic();				\
+#define PRR_CUT_ERR(reg)                             \
+	do {                                         \
+		ERROR("LSI Cut ID(PRR=0x%x) QoS "    \
+		      "initialize not supported.\n", \
+		      reg);                          \
+		panic();                             \
 	} while (0)
 
 void rcar_qos_init(void)
@@ -190,98 +192,91 @@ void rcar_qos_init(void)
 		break;
 	}
 #else
-#if RCAR_LSI == RCAR_H3		/* H3 */
+#if RCAR_LSI == RCAR_H3 /* H3 */
 #if RCAR_LSI_CUT == RCAR_CUT_10
 	/* H3 Cut 10 */
-	if ((PRR_PRODUCT_H3 | PRR_PRODUCT_10)
-	    != (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
+	if ((PRR_PRODUCT_H3 | PRR_PRODUCT_10) !=
+	    (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	qos_init_h3_v10();
 #elif RCAR_LSI_CUT == RCAR_CUT_11
 	/* H3 Cut 11 */
-	if ((PRR_PRODUCT_H3 | PRR_PRODUCT_11)
-	    != (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
+	if ((PRR_PRODUCT_H3 | PRR_PRODUCT_11) !=
+	    (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	qos_init_h3_v11();
 #elif RCAR_LSI_CUT == RCAR_CUT_20
 	/* H3 Cut 20 */
-	if ((PRR_PRODUCT_H3 | PRR_PRODUCT_20)
-	    != (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
+	if ((PRR_PRODUCT_H3 | PRR_PRODUCT_20) !=
+	    (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	qos_init_h3_v20();
 #else
 	/* H3 Cut 30 or later */
-	if ((PRR_PRODUCT_H3)
-	    != (reg & (PRR_PRODUCT_MASK))) {
+	if ((PRR_PRODUCT_H3) != (reg & (PRR_PRODUCT_MASK))) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	qos_init_h3_v30();
 #endif
-#elif RCAR_LSI == RCAR_H3N	/* H3 */
+#elif RCAR_LSI == RCAR_H3N /* H3 */
 	/* H3N Cut 30 or later */
-	if ((PRR_PRODUCT_H3)
-	    != (reg & (PRR_PRODUCT_MASK))) {
+	if ((PRR_PRODUCT_H3) != (reg & (PRR_PRODUCT_MASK))) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	qos_init_h3n_v30();
-#elif RCAR_LSI == RCAR_M3	/* M3 */
+#elif RCAR_LSI == RCAR_M3 /* M3 */
 #if RCAR_LSI_CUT == RCAR_CUT_10
 	/* M3 Cut 10 */
-	if ((PRR_PRODUCT_M3 | PRR_PRODUCT_10)
-	    != (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
+	if ((PRR_PRODUCT_M3 | PRR_PRODUCT_10) !=
+	    (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	qos_init_m3_v10();
 #elif RCAR_LSI_CUT == RCAR_CUT_11
 	/* M3 Cut 11 */
-	if ((PRR_PRODUCT_M3 | PRR_PRODUCT_20)
-	    != (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
+	if ((PRR_PRODUCT_M3 | PRR_PRODUCT_20) !=
+	    (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	qos_init_m3_v11();
 #elif RCAR_LSI_CUT == RCAR_CUT_13
 	/* M3 Cut 13 */
-	if ((PRR_PRODUCT_M3 | PRR_PRODUCT_21)
-	    != (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
+	if ((PRR_PRODUCT_M3 | PRR_PRODUCT_21) !=
+	    (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	qos_init_m3_v11();
 #else
 	/* M3 Cut 30 or later */
-	if ((PRR_PRODUCT_M3)
-	    != (reg & (PRR_PRODUCT_MASK))) {
+	if ((PRR_PRODUCT_M3) != (reg & (PRR_PRODUCT_MASK))) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	qos_init_m3_v30();
 #endif
-#elif RCAR_LSI == RCAR_M3N	/* M3N */
+#elif RCAR_LSI == RCAR_M3N /* M3N */
 	/* M3N Cut 10 or later */
-	if ((PRR_PRODUCT_M3N)
-	    != (reg & (PRR_PRODUCT_MASK))) {
+	if ((PRR_PRODUCT_M3N) != (reg & (PRR_PRODUCT_MASK))) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	qos_init_m3n_v10();
-#elif RCAR_LSI == RCAR_V3M	/* V3M */
+#elif RCAR_LSI == RCAR_V3M /* V3M */
 	/* V3M Cut 10 or later */
-	if ((PRR_PRODUCT_V3M)
-			!= (reg & (PRR_PRODUCT_MASK))) {
+	if ((PRR_PRODUCT_V3M) != (reg & (PRR_PRODUCT_MASK))) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	qos_init_v3m();
-#elif RCAR_LSI == RCAR_D3	/* D3 */
+#elif RCAR_LSI == RCAR_D3 /* D3 */
 	/* D3 Cut 10 or later */
-	if ((PRR_PRODUCT_D3)
-	    != (reg & (PRR_PRODUCT_MASK))) {
+	if ((PRR_PRODUCT_D3) != (reg & (PRR_PRODUCT_MASK))) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	qos_init_d3();
-#elif RCAR_LSI == RCAR_E3	/* E3 */
+#elif RCAR_LSI == RCAR_E3 /* E3 */
 	/* E3 Cut 10 or later */
-	if ((PRR_PRODUCT_E3)
-	    != (reg & (PRR_PRODUCT_MASK))) {
+	if ((PRR_PRODUCT_E3) != (reg & (PRR_PRODUCT_MASK))) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	qos_init_e3_v10();
@@ -368,7 +363,7 @@ uint32_t get_refperiod(void)
 	/* M3 Cut 30 or later */
 	refperiod = REFPERIOD_CYCLE;
 #endif
-#elif RCAR_LSI == RCAR_M3N	/* for M3N */
+#elif RCAR_LSI == RCAR_M3N /* for M3N */
 	refperiod = REFPERIOD_CYCLE;
 #endif
 

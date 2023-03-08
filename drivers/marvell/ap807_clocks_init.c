@@ -5,42 +5,41 @@
  * https://spdx.org/licenses
  */
 
+#include <a8k_plat_def.h>
 #include <drivers/delay_timer.h>
 #include <drivers/marvell/aro.h>
 #include <lib/mmio.h>
 
-#include <a8k_plat_def.h>
-
 /* Notify bootloader on DRAM setup */
-#define AP807_CPU_ARO_CTRL(cluster)	\
-			(MVEBU_RFU_BASE + 0x82A8 + (0xA58 * (cluster)))
+#define AP807_CPU_ARO_CTRL(cluster) \
+	(MVEBU_RFU_BASE + 0x82A8 + (0xA58 * (cluster)))
 
 /* 0 - ARO clock is enabled, 1 - ARO clock is disabled */
-#define AP807_CPU_ARO_CLK_EN_OFFSET	0
-#define AP807_CPU_ARO_CLK_EN_MASK	(0x1 << AP807_CPU_ARO_CLK_EN_OFFSET)
+#define AP807_CPU_ARO_CLK_EN_OFFSET 0
+#define AP807_CPU_ARO_CLK_EN_MASK (0x1 << AP807_CPU_ARO_CLK_EN_OFFSET)
 
 /* 0 - ARO is the clock source, 1 - PLL is the clock source */
-#define AP807_CPU_ARO_SEL_PLL_OFFSET	5
-#define AP807_CPU_ARO_SEL_PLL_MASK	(0x1 << AP807_CPU_ARO_SEL_PLL_OFFSET)
+#define AP807_CPU_ARO_SEL_PLL_OFFSET 5
+#define AP807_CPU_ARO_SEL_PLL_MASK (0x1 << AP807_CPU_ARO_SEL_PLL_OFFSET)
 
 /* AP807 clusters count */
-#define AP807_CLUSTER_NUM		2
+#define AP807_CLUSTER_NUM 2
 
 /* PLL frequency values */
-#define PLL_FREQ_1200			0x2AE5F002 /* 1200 */
-#define PLL_FREQ_2000			0x2FC9F002 /* 2000 */
-#define PLL_FREQ_2200			0x2AC57001 /* 2200 */
-#define PLL_FREQ_2400			0x2AE5F001 /* 2400 */
+#define PLL_FREQ_1200 0x2AE5F002 /* 1200 */
+#define PLL_FREQ_2000 0x2FC9F002 /* 2000 */
+#define PLL_FREQ_2200 0x2AC57001 /* 2200 */
+#define PLL_FREQ_2400 0x2AE5F001 /* 2400 */
 
 /* CPU PLL control registers */
-#define AP807_CPU_PLL_CTRL(cluster)	\
-			(MVEBU_RFU_BASE + 0x82E0 + (0x8 * (cluster)))
+#define AP807_CPU_PLL_CTRL(cluster) \
+	(MVEBU_RFU_BASE + 0x82E0 + (0x8 * (cluster)))
 
-#define AP807_CPU_PLL_PARAM(cluster)	AP807_CPU_PLL_CTRL(cluster)
-#define AP807_CPU_PLL_CFG(cluster)	(AP807_CPU_PLL_CTRL(cluster) + 0x4)
-#define AP807_CPU_PLL_CFG_BYPASS_MODE	(0x1)
-#define AP807_CPU_PLL_FRC_DSCHG		(0x2)
-#define AP807_CPU_PLL_CFG_USE_REG_FILE	(0x1 << 9)
+#define AP807_CPU_PLL_PARAM(cluster) AP807_CPU_PLL_CTRL(cluster)
+#define AP807_CPU_PLL_CFG(cluster) (AP807_CPU_PLL_CTRL(cluster) + 0x4)
+#define AP807_CPU_PLL_CFG_BYPASS_MODE (0x1)
+#define AP807_CPU_PLL_FRC_DSCHG (0x2)
+#define AP807_CPU_PLL_CFG_USE_REG_FILE (0x1 << 9)
 
 static void pll_set_freq(unsigned int freq_val)
 {
@@ -49,18 +48,17 @@ static void pll_set_freq(unsigned int freq_val)
 	if (freq_val != PLL_FREQ_2200)
 		return;
 
-	for (i = 0 ; i < AP807_CLUSTER_NUM ; i++) {
+	for (i = 0; i < AP807_CLUSTER_NUM; i++) {
 		/* Set parameter of cluster i PLL to 2.2GHz */
 		mmio_write_32(AP807_CPU_PLL_PARAM(i), freq_val);
 		/* Set apll_lpf_frc_dschg - Control
 		 * voltage of internal VCO is discharged
 		 */
-		mmio_write_32(AP807_CPU_PLL_CFG(i),
-				AP807_CPU_PLL_FRC_DSCHG);
+		mmio_write_32(AP807_CPU_PLL_CFG(i), AP807_CPU_PLL_FRC_DSCHG);
 		/* Set use_rf_conf  load PLL parameter from register */
 		mmio_write_32(AP807_CPU_PLL_CFG(i),
-				AP807_CPU_PLL_FRC_DSCHG |
-				AP807_CPU_PLL_CFG_USE_REG_FILE);
+			      AP807_CPU_PLL_FRC_DSCHG |
+				      AP807_CPU_PLL_CFG_USE_REG_FILE);
 		/* Un-set apll_lpf_frc_dschg */
 		mmio_write_32(AP807_CPU_PLL_CFG(i),
 			      AP807_CPU_PLL_CFG_USE_REG_FILE);
@@ -73,7 +71,7 @@ static void aro_to_pll(void)
 	unsigned int reg;
 	int i;
 
-	for (i = 0 ; i < AP807_CLUSTER_NUM ; i++) {
+	for (i = 0; i < AP807_CLUSTER_NUM; i++) {
 		/* switch from ARO to PLL */
 		reg = mmio_read_32(AP807_CPU_ARO_CTRL(i));
 		reg |= AP807_CPU_ARO_SEL_PLL_MASK;
@@ -105,5 +103,4 @@ void ap807_clocks_init(unsigned int freq_option)
 
 	/* Switch from ARO to PLL */
 	aro_to_pll();
-
 }

@@ -8,15 +8,16 @@
 
 #include <common/debug.h>
 #include <drivers/io/io_driver.h>
-#include <drivers/io/io_storage.h>
 #include <drivers/io/io_semihosting.h>
+#include <drivers/io/io_storage.h>
+
+#include <platform_def.h>
 
 #include "io_common.h"
-#include "io_memdrv.h"
 #include "io_emmcdrv.h"
+#include "io_memdrv.h"
 #include "io_private.h"
 #include "io_rcar.h"
-#include <platform_def.h>
 
 static uintptr_t emmcdrv_dev_handle;
 static uintptr_t memdrv_dev_handle;
@@ -24,10 +25,8 @@ static uintptr_t rcar_dev_handle;
 
 static uintptr_t boot_io_drv_id;
 
-static const io_block_spec_t rcar_block_spec = {
-	.offset = FLASH0_BASE,
-	.length = FLASH0_SIZE
-};
+static const io_block_spec_t rcar_block_spec = { .offset = FLASH0_BASE,
+						 .length = FLASH0_SIZE };
 
 static const io_block_spec_t bl2_file_spec = {
 	.offset = BL2_IMAGE_ID,
@@ -170,143 +169,92 @@ struct plat_io_policy {
 };
 
 static const struct plat_io_policy policies[] = {
-	[FIP_IMAGE_ID] = {
-			  &memdrv_dev_handle,
-			  (uintptr_t) &rcar_block_spec,
-			  &open_memmap},
-	[BL2_IMAGE_ID] = {
-			  &rcar_dev_handle,
-			  (uintptr_t) &bl2_file_spec,
-			  &open_rcar},
-	[BL31_IMAGE_ID] = {
-			   &rcar_dev_handle,
-			   (uintptr_t) &bl31_file_spec,
-			   &open_rcar},
-	[BL32_IMAGE_ID] = {
-			   &rcar_dev_handle,
-			   (uintptr_t) &bl32_file_spec,
-			   &open_rcar},
-	[BL33_IMAGE_ID] = {
-			   &rcar_dev_handle,
-			   (uintptr_t) &bl33_file_spec,
-			   &open_rcar},
-	[BL332_IMAGE_ID] = {
-			    &rcar_dev_handle,
-			    (uintptr_t) &bl332_file_spec,
-			    &open_rcar},
-	[BL333_IMAGE_ID] = {
-			    &rcar_dev_handle,
-			    (uintptr_t) &bl333_file_spec,
-			    &open_rcar},
-	[BL334_IMAGE_ID] = {
-			    &rcar_dev_handle,
-			    (uintptr_t) &bl334_file_spec,
-			    &open_rcar},
-	[BL335_IMAGE_ID] = {
-			    &rcar_dev_handle,
-			    (uintptr_t) &bl335_file_spec,
-			    &open_rcar},
-	[BL336_IMAGE_ID] = {
-			    &rcar_dev_handle,
-			    (uintptr_t) &bl336_file_spec,
-			    &open_rcar},
-	[BL337_IMAGE_ID] = {
-			    &rcar_dev_handle,
-			    (uintptr_t) &bl337_file_spec,
-			    &open_rcar},
-	[BL338_IMAGE_ID] = {
-			    &rcar_dev_handle,
-			    (uintptr_t) &bl338_file_spec,
-			    &open_rcar},
+	[FIP_IMAGE_ID] = { &memdrv_dev_handle, (uintptr_t)&rcar_block_spec,
+			   &open_memmap },
+	[BL2_IMAGE_ID] = { &rcar_dev_handle, (uintptr_t)&bl2_file_spec,
+			   &open_rcar },
+	[BL31_IMAGE_ID] = { &rcar_dev_handle, (uintptr_t)&bl31_file_spec,
+			    &open_rcar },
+	[BL32_IMAGE_ID] = { &rcar_dev_handle, (uintptr_t)&bl32_file_spec,
+			    &open_rcar },
+	[BL33_IMAGE_ID] = { &rcar_dev_handle, (uintptr_t)&bl33_file_spec,
+			    &open_rcar },
+	[BL332_IMAGE_ID] = { &rcar_dev_handle, (uintptr_t)&bl332_file_spec,
+			     &open_rcar },
+	[BL333_IMAGE_ID] = { &rcar_dev_handle, (uintptr_t)&bl333_file_spec,
+			     &open_rcar },
+	[BL334_IMAGE_ID] = { &rcar_dev_handle, (uintptr_t)&bl334_file_spec,
+			     &open_rcar },
+	[BL335_IMAGE_ID] = { &rcar_dev_handle, (uintptr_t)&bl335_file_spec,
+			     &open_rcar },
+	[BL336_IMAGE_ID] = { &rcar_dev_handle, (uintptr_t)&bl336_file_spec,
+			     &open_rcar },
+	[BL337_IMAGE_ID] = { &rcar_dev_handle, (uintptr_t)&bl337_file_spec,
+			     &open_rcar },
+	[BL338_IMAGE_ID] = { &rcar_dev_handle, (uintptr_t)&bl338_file_spec,
+			     &open_rcar },
 #if TRUSTED_BOARD_BOOT
-	[TRUSTED_KEY_CERT_ID] = {
-				 &rcar_dev_handle,
-				 (uintptr_t) &trusted_key_cert_file_spec,
-				 &open_rcar},
-	[SOC_FW_KEY_CERT_ID] = {
-				&rcar_dev_handle,
-				(uintptr_t) &bl31_key_cert_file_spec,
-				&open_rcar},
-	[TRUSTED_OS_FW_KEY_CERT_ID] = {
-				       &rcar_dev_handle,
-				       (uintptr_t) &bl32_key_cert_file_spec,
-				       &open_rcar},
-	[NON_TRUSTED_FW_KEY_CERT_ID] = {
-					&rcar_dev_handle,
-					(uintptr_t) &bl33_key_cert_file_spec,
-					&open_rcar},
-	[BL332_KEY_CERT_ID] = {
-			       &rcar_dev_handle,
-			       (uintptr_t) &bl332_key_cert_file_spec,
-			       &open_rcar},
-	[BL333_KEY_CERT_ID] = {
-			       &rcar_dev_handle,
-			       (uintptr_t) &bl333_key_cert_file_spec,
-			       &open_rcar},
-	[BL334_KEY_CERT_ID] = {
-			       &rcar_dev_handle,
-			       (uintptr_t) &bl334_key_cert_file_spec,
-			       &open_rcar},
-	[BL335_KEY_CERT_ID] = {
-			       &rcar_dev_handle,
-			       (uintptr_t) &bl335_key_cert_file_spec,
-			       &open_rcar},
-	[BL336_KEY_CERT_ID] = {
-			       &rcar_dev_handle,
-			       (uintptr_t) &bl336_key_cert_file_spec,
-			       &open_rcar},
-	[BL337_KEY_CERT_ID] = {
-			       &rcar_dev_handle,
-			       (uintptr_t) &bl337_key_cert_file_spec,
-			       &open_rcar},
-	[BL338_KEY_CERT_ID] = {
-			       &rcar_dev_handle,
-			       (uintptr_t) &bl338_key_cert_file_spec,
-			       &open_rcar},
-	[SOC_FW_CONTENT_CERT_ID] = {
-				    &rcar_dev_handle,
-				    (uintptr_t) &bl31_cert_file_spec,
-				    &open_rcar},
-	[TRUSTED_OS_FW_CONTENT_CERT_ID] = {
-					   &rcar_dev_handle,
-					   (uintptr_t) &bl32_cert_file_spec,
-					   &open_rcar},
-	[NON_TRUSTED_FW_CONTENT_CERT_ID] = {
-					    &rcar_dev_handle,
-					    (uintptr_t) &bl33_cert_file_spec,
-					    &open_rcar},
-	[BL332_CERT_ID] = {
-			   &rcar_dev_handle,
-			   (uintptr_t) &bl332_cert_file_spec,
-			   &open_rcar},
-	[BL333_CERT_ID] = {
-			   &rcar_dev_handle,
-			   (uintptr_t) &bl333_cert_file_spec,
-			   &open_rcar},
-	[BL334_CERT_ID] = {
-			   &rcar_dev_handle,
-			   (uintptr_t) &bl334_cert_file_spec,
-			   &open_rcar},
-	[BL335_CERT_ID] = {
-			   &rcar_dev_handle,
-			   (uintptr_t) &bl335_cert_file_spec,
-			   &open_rcar},
-	[BL336_CERT_ID] = {
-			   &rcar_dev_handle,
-			   (uintptr_t) &bl336_cert_file_spec,
-			   &open_rcar},
-	[BL337_CERT_ID] = {
-			   &rcar_dev_handle,
-			   (uintptr_t) &bl337_cert_file_spec,
-			   &open_rcar},
-	[BL338_CERT_ID] = {
-			   &rcar_dev_handle,
-			   (uintptr_t) &bl338_cert_file_spec,
-			   &open_rcar}, {
+	[TRUSTED_KEY_CERT_ID] = { &rcar_dev_handle,
+				  (uintptr_t)&trusted_key_cert_file_spec,
+				  &open_rcar },
+	[SOC_FW_KEY_CERT_ID] = { &rcar_dev_handle,
+				 (uintptr_t)&bl31_key_cert_file_spec,
+				 &open_rcar },
+	[TRUSTED_OS_FW_KEY_CERT_ID] = { &rcar_dev_handle,
+					(uintptr_t)&bl32_key_cert_file_spec,
+					&open_rcar },
+	[NON_TRUSTED_FW_KEY_CERT_ID] = { &rcar_dev_handle,
+					 (uintptr_t)&bl33_key_cert_file_spec,
+					 &open_rcar },
+	[BL332_KEY_CERT_ID] = { &rcar_dev_handle,
+				(uintptr_t)&bl332_key_cert_file_spec,
+				&open_rcar },
+	[BL333_KEY_CERT_ID] = { &rcar_dev_handle,
+				(uintptr_t)&bl333_key_cert_file_spec,
+				&open_rcar },
+	[BL334_KEY_CERT_ID] = { &rcar_dev_handle,
+				(uintptr_t)&bl334_key_cert_file_spec,
+				&open_rcar },
+	[BL335_KEY_CERT_ID] = { &rcar_dev_handle,
+				(uintptr_t)&bl335_key_cert_file_spec,
+				&open_rcar },
+	[BL336_KEY_CERT_ID] = { &rcar_dev_handle,
+				(uintptr_t)&bl336_key_cert_file_spec,
+				&open_rcar },
+	[BL337_KEY_CERT_ID] = { &rcar_dev_handle,
+				(uintptr_t)&bl337_key_cert_file_spec,
+				&open_rcar },
+	[BL338_KEY_CERT_ID] = { &rcar_dev_handle,
+				(uintptr_t)&bl338_key_cert_file_spec,
+				&open_rcar },
+	[SOC_FW_CONTENT_CERT_ID] = { &rcar_dev_handle,
+				     (uintptr_t)&bl31_cert_file_spec,
+				     &open_rcar },
+	[TRUSTED_OS_FW_CONTENT_CERT_ID] = { &rcar_dev_handle,
+					    (uintptr_t)&bl32_cert_file_spec,
+					    &open_rcar },
+	[NON_TRUSTED_FW_CONTENT_CERT_ID] = { &rcar_dev_handle,
+					     (uintptr_t)&bl33_cert_file_spec,
+					     &open_rcar },
+	[BL332_CERT_ID] = { &rcar_dev_handle, (uintptr_t)&bl332_cert_file_spec,
+			    &open_rcar },
+	[BL333_CERT_ID] = { &rcar_dev_handle, (uintptr_t)&bl333_cert_file_spec,
+			    &open_rcar },
+	[BL334_CERT_ID] = { &rcar_dev_handle, (uintptr_t)&bl334_cert_file_spec,
+			    &open_rcar },
+	[BL335_CERT_ID] = { &rcar_dev_handle, (uintptr_t)&bl335_cert_file_spec,
+			    &open_rcar },
+	[BL336_CERT_ID] = { &rcar_dev_handle, (uintptr_t)&bl336_cert_file_spec,
+			    &open_rcar },
+	[BL337_CERT_ID] = { &rcar_dev_handle, (uintptr_t)&bl337_cert_file_spec,
+			    &open_rcar },
+	[BL338_CERT_ID] = { &rcar_dev_handle, (uintptr_t)&bl338_cert_file_spec,
+			    &open_rcar },
+	{
 #else
-					{
+	{
 #endif
-					 0, 0, 0}
+		0, 0, 0 }
 };
 
 static io_drv_spec_t io_drv_spec_memdrv = {
@@ -321,12 +269,21 @@ static io_drv_spec_t io_drv_spec_emmcdrv = {
 	0,
 };
 
-static struct plat_io_policy drv_policies[] __attribute__ ((section(".data"))) = {
-	/* FLASH_DEV_ID */
-	{ &memdrv_dev_handle, (uintptr_t) &io_drv_spec_memdrv, &open_memmap, },
-	/* EMMC_DEV_ID */
-	{ &emmcdrv_dev_handle, (uintptr_t) &io_drv_spec_emmcdrv, &open_emmcdrv, }
-};
+static struct plat_io_policy drv_policies[]
+	__attribute__((section(".data"))) = {
+		/* FLASH_DEV_ID */
+		{
+			&memdrv_dev_handle,
+			(uintptr_t)&io_drv_spec_memdrv,
+			&open_memmap,
+		},
+		/* EMMC_DEV_ID */
+		{
+			&emmcdrv_dev_handle,
+			(uintptr_t)&io_drv_spec_emmcdrv,
+			&open_emmcdrv,
+		}
+	};
 
 static int32_t open_rcar(const uintptr_t spec)
 {

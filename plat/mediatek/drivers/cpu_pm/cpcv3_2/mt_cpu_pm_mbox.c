@@ -8,20 +8,22 @@
 
 #include <lib/mmio.h>
 
-#include "mt_cpu_pm_mbox.h"
 #include <platform_def.h>
 
+#include "mt_cpu_pm_mbox.h"
+
 #ifdef __GNUC__
-#define MCDI_LIKELY(x)		__builtin_expect(!!(x), 1)
-#define MCDI_UNLIKELY(x)	__builtin_expect(!!(x), 0)
+#define MCDI_LIKELY(x) __builtin_expect(!!(x), 1)
+#define MCDI_UNLIKELY(x) __builtin_expect(!!(x), 0)
 #else
-#define MCDI_LIKELY(x)		(x)
-#define MCDI_UNLIKELY(x)	(x)
+#define MCDI_LIKELY(x) (x)
+#define MCDI_UNLIKELY(x) (x)
 #endif
 
-#define MCUPM_MBOX_3_BASE		(CPU_EB_TCM_BASE + CPU_EB_MBOX3_OFFSET)
-#define MCUPM_MBOX_WRITE(id, val)	mmio_write_32(MCUPM_MBOX_3_BASE + 4 * (id), val)
-#define MCUPM_MBOX_READ(id)		mmio_read_32(MCUPM_MBOX_3_BASE + 4 * (id))
+#define MCUPM_MBOX_3_BASE (CPU_EB_TCM_BASE + CPU_EB_MBOX3_OFFSET)
+#define MCUPM_MBOX_WRITE(id, val) \
+	mmio_write_32(MCUPM_MBOX_3_BASE + 4 * (id), val)
+#define MCUPM_MBOX_READ(id) mmio_read_32(MCUPM_MBOX_3_BASE + 4 * (id))
 
 void mtk_set_mcupm_pll_mode(unsigned int mode)
 {
@@ -68,8 +70,9 @@ static int mtk_wait_mbox_init_done(void)
 	mtk_set_mcupm_pll_mode(MCUPM_ARMPLL_OFF);
 	mtk_set_mcupm_buck_mode(MCUPM_BUCK_OFF_MODE);
 
-	MCUPM_MBOX_WRITE(MCUPM_MBOX_PWR_CTRL_EN, (MCUPM_MCUSYS_CTRL | MCUPM_CM_CTRL |
-						 MCUPM_BUCK_CTRL | MCUPM_ARMPLL_CTRL));
+	MCUPM_MBOX_WRITE(MCUPM_MBOX_PWR_CTRL_EN,
+			 (MCUPM_MCUSYS_CTRL | MCUPM_CM_CTRL | MCUPM_BUCK_CTRL |
+			  MCUPM_ARMPLL_CTRL));
 
 	return status;
 }

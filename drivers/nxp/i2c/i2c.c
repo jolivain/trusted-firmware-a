@@ -12,8 +12,9 @@
 
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
-#include "i2c.h"
 #include <nxp_timer.h>
+
+#include "i2c.h"
 
 static uintptr_t g_nxp_i2c_addr;
 
@@ -29,8 +30,8 @@ void i2c_init(uintptr_t nxp_i2c_addr)
 	i2c_out(&ccsr_i2c->cr, I2C_CR_EN);
 }
 
-static int wait_for_state(struct ls_i2c *ccsr_i2c,
-			  unsigned char state, unsigned char mask)
+static int wait_for_state(struct ls_i2c *ccsr_i2c, unsigned char state,
+			  unsigned char mask)
 {
 	unsigned char sr;
 	uint64_t start_time = get_timer_val(0);
@@ -91,8 +92,8 @@ static int gen_stop(struct ls_i2c *ccsr_i2c)
 	return ret;
 }
 
-static int i2c_write_addr(struct ls_i2c *ccsr_i2c, unsigned char chip,
-			  int addr, int alen)
+static int i2c_write_addr(struct ls_i2c *ccsr_i2c, unsigned char chip, int addr,
+			  int alen)
 {
 	int ret;
 	unsigned char cr;
@@ -155,7 +156,7 @@ static int read_data(struct ls_i2c *ccsr_i2c, unsigned char chip,
 	}
 	i2c_out(&ccsr_i2c->cr, cr);
 	i2c_out(&ccsr_i2c->sr, I2C_SR_IF);
-	i2c_in(&ccsr_i2c->dr);	/* dummy read */
+	i2c_in(&ccsr_i2c->dr); /* dummy read */
 	for (i = 0; i < len; i++) {
 		ret = wait_for_state(ccsr_i2c, I2C_SR_IF, I2C_SR_IF);
 		if (ret < 0) {
@@ -196,9 +197,8 @@ static int write_data(struct ls_i2c *ccsr_i2c, unsigned char chip,
 	return ret;
 }
 
-
-int i2c_read(unsigned char chip, int addr, int alen,
-	     unsigned char *buf, int len)
+int i2c_read(unsigned char chip, int addr, int alen, unsigned char *buf,
+	     int len)
 {
 	int ret;
 	unsigned char cr;
@@ -223,8 +223,8 @@ int i2c_read(unsigned char chip, int addr, int alen,
 	return read_data(ccsr_i2c, chip, buf, len);
 }
 
-int i2c_write(unsigned char chip, int addr, int alen,
-	      const unsigned char *buf, int len)
+int i2c_write(unsigned char chip, int addr, int alen, const unsigned char *buf,
+	      int len)
 {
 	int ret;
 	struct ls_i2c *ccsr_i2c = (void *)g_nxp_i2c_addr;

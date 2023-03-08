@@ -10,9 +10,9 @@
 
 #include <common/debug.h>
 #include <ddr.h>
+#include <errata.h>
 #include <lib/utils.h>
 
-#include <errata.h>
 #include <platform_def.h>
 
 #ifdef CONFIG_STATIC_DDR
@@ -161,9 +161,9 @@ struct static_table {
 };
 
 const struct static_table table[] = {
-	{1600, &static_1600},
-	{1800, &static_1800},
-	{2100, &static_2100},
+	{ 1600, &static_1600 },
+	{ 1800, &static_1800 },
+	{ 2100, &static_2100 },
 };
 
 long long board_static_ddr(struct ddr_info *priv)
@@ -189,16 +189,14 @@ long long board_static_ddr(struct ddr_info *priv)
 	return size;
 }
 #else /* ifndef CONFIG_STATIC_DDR */
-static const struct rc_timing rce[] = {
-	{U(1600), U(8), U(7)},
-	{U(1867), U(8), U(7)},
-	{U(2134), U(8), U(9)},
-	{}
-};
+static const struct rc_timing rce[] = { { U(1600), U(8), U(7) },
+					{ U(1867), U(8), U(7) },
+					{ U(2134), U(8), U(9) },
+					{} };
 
 static const struct board_timing udimm[] = {
-	{U(0x04), rce, U(0x01020304), U(0x06070805)},
-	{U(0x1f), rce, U(0x01020304), U(0x06070805)},
+	{ U(0x04), rce, U(0x01020304), U(0x06070805) },
+	{ U(0x1f), rce, U(0x01020304), U(0x06070805) },
 };
 
 int ddr_board_options(struct ddr_info *priv)
@@ -217,13 +215,11 @@ int ddr_board_options(struct ddr_info *priv)
 	}
 
 	popts->wrlvl_override = U(1);
-	popts->wrlvl_sample = U(0x0);	/* 32 clocks */
+	popts->wrlvl_sample = U(0x0); /* 32 clocks */
 	popts->cpo_sample = U(0x61);
-	popts->ddr_cdr1 = DDR_CDR1_DHC_EN	|
-			  DDR_CDR1_ODT(DDR_CDR_ODT_80ohm);
-	popts->ddr_cdr2 = DDR_CDR2_ODT(DDR_CDR_ODT_80ohm)	|
-			  DDR_CDR2_VREF_TRAIN_EN		|
-			  DDR_CDR2_VREF_RANGE_2;
+	popts->ddr_cdr1 = DDR_CDR1_DHC_EN | DDR_CDR1_ODT(DDR_CDR_ODT_80ohm);
+	popts->ddr_cdr2 = DDR_CDR2_ODT(DDR_CDR_ODT_80ohm) |
+			  DDR_CDR2_VREF_TRAIN_EN | DDR_CDR2_VREF_RANGE_2;
 	popts->bstopre = U(0);
 
 	return 0;
@@ -232,7 +228,7 @@ int ddr_board_options(struct ddr_info *priv)
 
 long long init_ddr(void)
 {
-	int spd_addr[] = {NXP_SPD_EEPROM0};
+	int spd_addr[] = { NXP_SPD_EEPROM0 };
 	struct ddr_info info;
 	struct sysinfo sys;
 	long long dram_size;

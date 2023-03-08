@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,9 +9,9 @@
 
 #include <stdint.h>
 
-#include <platform_def.h>
-
 #include <lib/cassert.h>
+
+#include <platform_def.h>
 
 /* Forward declarations */
 struct psci_power_state;

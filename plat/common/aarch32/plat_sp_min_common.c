@@ -1,12 +1,13 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <drivers/console.h>
-#include <plat/common/platform.h>
 #include <platform_sp_min.h>
+
+#include <plat/common/platform.h>
 
 /*
  * The following platform setup functions are weakly defined. They

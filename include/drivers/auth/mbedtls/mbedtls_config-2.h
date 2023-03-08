@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,21 +9,23 @@
 /*
  * Key algorithms currently supported on mbed TLS libraries
  */
-#define TF_MBEDTLS_RSA			1
-#define TF_MBEDTLS_ECDSA		2
-#define TF_MBEDTLS_RSA_AND_ECDSA	3
+#define TF_MBEDTLS_RSA 1
+#define TF_MBEDTLS_ECDSA 2
+#define TF_MBEDTLS_RSA_AND_ECDSA 3
 
-#define TF_MBEDTLS_USE_RSA (TF_MBEDTLS_KEY_ALG_ID == TF_MBEDTLS_RSA \
-		|| TF_MBEDTLS_KEY_ALG_ID == TF_MBEDTLS_RSA_AND_ECDSA)
-#define TF_MBEDTLS_USE_ECDSA (TF_MBEDTLS_KEY_ALG_ID == TF_MBEDTLS_ECDSA \
-		|| TF_MBEDTLS_KEY_ALG_ID == TF_MBEDTLS_RSA_AND_ECDSA)
+#define TF_MBEDTLS_USE_RSA                          \
+	(TF_MBEDTLS_KEY_ALG_ID == TF_MBEDTLS_RSA || \
+	 TF_MBEDTLS_KEY_ALG_ID == TF_MBEDTLS_RSA_AND_ECDSA)
+#define TF_MBEDTLS_USE_ECDSA                          \
+	(TF_MBEDTLS_KEY_ALG_ID == TF_MBEDTLS_ECDSA || \
+	 TF_MBEDTLS_KEY_ALG_ID == TF_MBEDTLS_RSA_AND_ECDSA)
 
 /*
  * Hash algorithms currently supported on mbed TLS libraries
  */
-#define TF_MBEDTLS_SHA256		1
-#define TF_MBEDTLS_SHA384		2
-#define TF_MBEDTLS_SHA512		3
+#define TF_MBEDTLS_SHA256 1
+#define TF_MBEDTLS_SHA384 2
+#define TF_MBEDTLS_SHA512 3
 
 /*
  * Configuration file to build mbed TLS with the required features for
@@ -77,9 +79,9 @@
  * SHA-256, pull in SHA-512 support.
  */
 #if (TF_MBEDTLS_HASH_ALG_ID != TF_MBEDTLS_SHA256) /* TBB hash algo */
-#define	MBEDTLS_SHA512_C
+#define MBEDTLS_SHA512_C
 #else
-   /* TBB uses SHA-256, what about measured boot? */
+/* TBB uses SHA-256, what about measured boot? */
 #if defined(TF_MBEDTLS_MBOOT_USE_SHA512)
 #define MBEDTLS_SHA512_C
 #endif
@@ -97,20 +99,20 @@
 #endif
 
 /* MPI / BIGNUM options */
-#define MBEDTLS_MPI_WINDOW_SIZE			2
+#define MBEDTLS_MPI_WINDOW_SIZE 2
 
 #if TF_MBEDTLS_USE_RSA
 #if TF_MBEDTLS_KEY_SIZE <= 2048
-#define MBEDTLS_MPI_MAX_SIZE			256
+#define MBEDTLS_MPI_MAX_SIZE 256
 #else
-#define MBEDTLS_MPI_MAX_SIZE			512
+#define MBEDTLS_MPI_MAX_SIZE 512
 #endif
 #else
-#define MBEDTLS_MPI_MAX_SIZE			256
+#define MBEDTLS_MPI_MAX_SIZE 256
 #endif
 
 /* Memory buffer allocator options */
-#define MBEDTLS_MEMORY_ALIGN_MULTIPLE		8
+#define MBEDTLS_MEMORY_ALIGN_MULTIPLE 8
 
 /*
  * Prevent the use of 128-bit division which
@@ -121,6 +123,7 @@
 #ifndef __ASSEMBLER__
 /* System headers required to build mbed TLS with the current configuration */
 #include <stdlib.h>
+
 #include <mbedtls/check_config.h>
 #endif
 
@@ -131,12 +134,12 @@
  * 7168  = 7*1024
  */
 #if TF_MBEDTLS_USE_ECDSA
-#define TF_MBEDTLS_HEAP_SIZE		U(13312)
+#define TF_MBEDTLS_HEAP_SIZE U(13312)
 #elif TF_MBEDTLS_USE_RSA
 #if TF_MBEDTLS_KEY_SIZE <= 2048
-#define TF_MBEDTLS_HEAP_SIZE		U(7168)
+#define TF_MBEDTLS_HEAP_SIZE U(7168)
 #else
-#define TF_MBEDTLS_HEAP_SIZE		U(11264)
+#define TF_MBEDTLS_HEAP_SIZE U(11264)
 #endif
 #endif
 

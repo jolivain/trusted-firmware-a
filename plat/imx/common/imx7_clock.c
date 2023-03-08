@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
-#include <imx_regs.h>
 #include <imx_clock.h>
+#include <imx_regs.h>
 
 static void imx7_clock_uart_init(void)
 {
@@ -51,5 +51,4 @@ void imx_clock_init(void)
 
 	/* USB clocks */
 	imx7_clock_usb_init();
-
 }

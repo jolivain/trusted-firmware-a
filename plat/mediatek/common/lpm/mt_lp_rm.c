@@ -5,6 +5,7 @@
  */
 
 #include <stddef.h>
+
 #include <lpm/mt_lp_rm.h>
 
 struct platform_mt_resource_manager {
@@ -76,7 +77,8 @@ int mt_lp_rm_get_status(unsigned int type, void *priv)
 	return res;
 }
 
-int mt_lp_rm_do_constraint(unsigned int constraint_id, unsigned int cpuid, int stateid)
+int mt_lp_rm_do_constraint(unsigned int constraint_id, unsigned int cpuid,
+			   int stateid)
 {
 	int res = MT_RM_STATUS_BAD;
 	struct mt_resource_constraint const *rc;
@@ -94,8 +96,8 @@ int mt_lp_rm_do_constraint(unsigned int constraint_id, unsigned int cpuid, int s
 	return res;
 }
 
-int mt_lp_rm_find_constraint(unsigned int idx, unsigned int cpuid,
-			     int stateid, void *priv)
+int mt_lp_rm_find_constraint(unsigned int idx, unsigned int cpuid, int stateid,
+			     void *priv)
 {
 	unsigned int i;
 	int res = MT_RM_STATUS_BAD;

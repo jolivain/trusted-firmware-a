@@ -10,7 +10,6 @@
 #include <arch_helpers.h>
 #include <lib/psci/psci.h>
 #include <lib/spinlock.h>
-
 #include <mt_cpu_pm_cpc.h>
 #include <mt_lp_irqremain.h>
 #include <mt_lp_rm.h>
@@ -73,7 +72,7 @@ static int pwr_mcusys_pwron(unsigned int cpu, const psci_power_state_t *state)
 }
 
 static int pwr_mcusys_pwron_finished(unsigned int cpu,
-					const psci_power_state_t *state)
+				     const psci_power_state_t *state)
 {
 	int state_id = state->pwr_domain_state[MTK_AFFLVL_MCUSYS];
 
@@ -123,17 +122,16 @@ mt_pwr_mcusysoff_break:
 	return -1;
 }
 
-static const struct mt_lpm_tz plat_pm = {
-	.pwr_prompt			= pwr_state_prompt,
-	.pwr_reflect			= pwr_state_reflect,
-	.pwr_cpu_on			= pwr_cpu_pwron,
-	.pwr_cpu_dwn			= pwr_cpu_pwrdwn,
-	.pwr_cluster_on			= pwr_cluster_pwron,
-	.pwr_cluster_dwn		= pwr_cluster_pwrdwn,
-	.pwr_mcusys_dwn			= pwr_mcusys_pwrdwn,
-	.pwr_mcusys_on			= pwr_mcusys_pwron,
-	.pwr_mcusys_on_finished		= pwr_mcusys_pwron_finished
-};
+static const struct mt_lpm_tz plat_pm = { .pwr_prompt = pwr_state_prompt,
+					  .pwr_reflect = pwr_state_reflect,
+					  .pwr_cpu_on = pwr_cpu_pwron,
+					  .pwr_cpu_dwn = pwr_cpu_pwrdwn,
+					  .pwr_cluster_on = pwr_cluster_pwron,
+					  .pwr_cluster_dwn = pwr_cluster_pwrdwn,
+					  .pwr_mcusys_dwn = pwr_mcusys_pwrdwn,
+					  .pwr_mcusys_on = pwr_mcusys_pwron,
+					  .pwr_mcusys_on_finished =
+						  pwr_mcusys_pwron_finished };
 
 const struct mt_lpm_tz *mt_plat_cpu_pm_init(void)
 {

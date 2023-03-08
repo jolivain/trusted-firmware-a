@@ -5,55 +5,57 @@
  */
 
 #include <stdbool.h>
+
 #include <lib/mmio.h>
 #include <lib/pm/mtk_pm.h>
 #include <mt_spm_cond.h>
 #include <mt_spm_conservation.h>
 #include <mt_spm_constraint.h>
+
 #include <platform_def.h>
 
-#define TOPCKGEB_BASE			(IO_PHYS)
+#define TOPCKGEB_BASE (IO_PHYS)
 
-#define MT_LP_TZ_INFRA_REG(ofs)		(INFRACFG_AO_BASE + ofs)
+#define MT_LP_TZ_INFRA_REG(ofs) (INFRACFG_AO_BASE + ofs)
 
-#define MT_LP_TZ_SPM_REG(ofs)		(SPM_BASE + ofs)
-#define MT_LP_TZ_TOPCK_REG(ofs)		(TOPCKGEB_BASE + ofs)
-#define MT_LP_TZ_APMIXEDSYS(ofs)	(APMIXEDSYS + ofs)
+#define MT_LP_TZ_SPM_REG(ofs) (SPM_BASE + ofs)
+#define MT_LP_TZ_TOPCK_REG(ofs) (TOPCKGEB_BASE + ofs)
+#define MT_LP_TZ_APMIXEDSYS(ofs) (APMIXEDSYS + ofs)
 
-#define MT_LP_TZ_VPPSYS0_REG(ofs)	(VPPSYS0_BASE + ofs)
-#define MT_LP_TZ_VPPSYS1_REG(ofs)	(VPPSYS1_BASE + ofs)
-#define MT_LP_TZ_VDOSYS0_REG(ofs)	(VDOSYS0_BASE + ofs)
-#define MT_LP_TZ_VDOSYS1_REG(ofs)	(VDOSYS1_BASE + ofs)
+#define MT_LP_TZ_VPPSYS0_REG(ofs) (VPPSYS0_BASE + ofs)
+#define MT_LP_TZ_VPPSYS1_REG(ofs) (VPPSYS1_BASE + ofs)
+#define MT_LP_TZ_VDOSYS0_REG(ofs) (VDOSYS0_BASE + ofs)
+#define MT_LP_TZ_VDOSYS1_REG(ofs) (VDOSYS1_BASE + ofs)
 
-#define MT_LP_TZ_PERI_AO_REG(ofs)	(PERICFG_AO_BASE + ofs)
+#define MT_LP_TZ_PERI_AO_REG(ofs) (PERICFG_AO_BASE + ofs)
 
 #undef SPM_PWR_STATUS
-#define SPM_PWR_STATUS			MT_LP_TZ_SPM_REG(0x016C)
-#define SPM_PWR_STATUS_2ND		MT_LP_TZ_SPM_REG(0x0170)
-#define SPM_CPU_PWR_STATUS		MT_LP_TZ_SPM_REG(0x0174)
-#define	INFRA_SW_CG0			MT_LP_TZ_INFRA_REG(0x0090)
-#define	INFRA_SW_CG1			MT_LP_TZ_INFRA_REG(0x0094)
-#define	INFRA_SW_CG2			MT_LP_TZ_INFRA_REG(0x00AC)
-#define	INFRA_SW_CG3			MT_LP_TZ_INFRA_REG(0x00C8)
-#define	INFRA_SW_CG4			MT_LP_TZ_INFRA_REG(0x00E8)
-#define	TOP_SW_I2C_CG			MT_LP_TZ_TOPCK_REG(0x00A4)
-#define	PERI_SW_CG0			MT_LP_TZ_PERI_AO_REG(0x0018)
-#define	VPPSYS0_SW_CG0			MT_LP_TZ_VPPSYS0_REG(0x0020)
-#define	VPPSYS0_SW_CG1			MT_LP_TZ_VPPSYS0_REG(0x002C)
-#define	VPPSYS0_SW_CG2			MT_LP_TZ_VPPSYS0_REG(0x0038)
-#define	VPPSYS1_SW_CG0			MT_LP_TZ_VPPSYS1_REG(0x0100)
-#define	VPPSYS1_SW_CG1			MT_LP_TZ_VPPSYS1_REG(0x0110)
-#define	VDOSYS0_SW_CG0			MT_LP_TZ_VDOSYS0_REG(0x0100)
-#define	VDOSYS0_SW_CG1			MT_LP_TZ_VDOSYS0_REG(0x0110)
-#define	VDOSYS1_SW_CG0			MT_LP_TZ_VDOSYS1_REG(0x0100)
-#define	VDOSYS1_SW_CG1			MT_LP_TZ_VDOSYS1_REG(0x0120)
-#define	VDOSYS1_SW_CG2			MT_LP_TZ_VDOSYS1_REG(0x0130)
+#define SPM_PWR_STATUS MT_LP_TZ_SPM_REG(0x016C)
+#define SPM_PWR_STATUS_2ND MT_LP_TZ_SPM_REG(0x0170)
+#define SPM_CPU_PWR_STATUS MT_LP_TZ_SPM_REG(0x0174)
+#define INFRA_SW_CG0 MT_LP_TZ_INFRA_REG(0x0090)
+#define INFRA_SW_CG1 MT_LP_TZ_INFRA_REG(0x0094)
+#define INFRA_SW_CG2 MT_LP_TZ_INFRA_REG(0x00AC)
+#define INFRA_SW_CG3 MT_LP_TZ_INFRA_REG(0x00C8)
+#define INFRA_SW_CG4 MT_LP_TZ_INFRA_REG(0x00E8)
+#define TOP_SW_I2C_CG MT_LP_TZ_TOPCK_REG(0x00A4)
+#define PERI_SW_CG0 MT_LP_TZ_PERI_AO_REG(0x0018)
+#define VPPSYS0_SW_CG0 MT_LP_TZ_VPPSYS0_REG(0x0020)
+#define VPPSYS0_SW_CG1 MT_LP_TZ_VPPSYS0_REG(0x002C)
+#define VPPSYS0_SW_CG2 MT_LP_TZ_VPPSYS0_REG(0x0038)
+#define VPPSYS1_SW_CG0 MT_LP_TZ_VPPSYS1_REG(0x0100)
+#define VPPSYS1_SW_CG1 MT_LP_TZ_VPPSYS1_REG(0x0110)
+#define VDOSYS0_SW_CG0 MT_LP_TZ_VDOSYS0_REG(0x0100)
+#define VDOSYS0_SW_CG1 MT_LP_TZ_VDOSYS0_REG(0x0110)
+#define VDOSYS1_SW_CG0 MT_LP_TZ_VDOSYS1_REG(0x0100)
+#define VDOSYS1_SW_CG1 MT_LP_TZ_VDOSYS1_REG(0x0120)
+#define VDOSYS1_SW_CG2 MT_LP_TZ_VDOSYS1_REG(0x0130)
 
-#define CLK_CFG(id)			MT_LP_TZ_TOPCK_REG(0x2c + id * 0xc)
+#define CLK_CFG(id) MT_LP_TZ_TOPCK_REG(0x2c + id * 0xc)
 
 enum {
 	/* CLK_CFG_0 1000_002c */
-	CLKMUX_VPP	= 0,
+	CLKMUX_VPP = 0,
 	NF_CLKMUX,
 };
 
@@ -89,7 +91,10 @@ struct idle_cond_info {
 	unsigned int clkmux_id;
 };
 
-#define IDLE_CG(mask, addr, bitflip, clkmux)	{mask, (uintptr_t)addr, bitflip, clkmux}
+#define IDLE_CG(mask, addr, bitflip, clkmux)           \
+	{                                              \
+		mask, (uintptr_t)addr, bitflip, clkmux \
+	}
 
 static struct idle_cond_info idle_cg_info[PLAT_SPM_COND_MAX] = {
 	IDLE_CG(0xffffffff, SPM_PWR_STATUS, false, 0),
@@ -112,19 +117,19 @@ static struct idle_cond_info idle_cg_info[PLAT_SPM_COND_MAX] = {
 };
 
 /* check pll idle condition */
-#define PLL_MFGPLL	MT_LP_TZ_APMIXEDSYS(0x340)
-#define PLL_MMPLL	MT_LP_TZ_APMIXEDSYS(0x544)
-#define PLL_UNIVPLL	MT_LP_TZ_APMIXEDSYS(0x504)
-#define PLL_MSDCPLL	MT_LP_TZ_APMIXEDSYS(0x514)
-#define PLL_TVDPLL1	MT_LP_TZ_APMIXEDSYS(0x524)
-#define PLL_TVDPLL2	MT_LP_TZ_APMIXEDSYS(0x534)
-#define PLL_ETHPLL	MT_LP_TZ_APMIXEDSYS(0x44c)
-#define PLL_IMGPLL	MT_LP_TZ_APMIXEDSYS(0x554)
-#define PLL_APLL1	MT_LP_TZ_APMIXEDSYS(0x304)
-#define PLL_APLL2	MT_LP_TZ_APMIXEDSYS(0x318)
-#define PLL_APLL3	MT_LP_TZ_APMIXEDSYS(0x32c)
-#define PLL_APLL4	MT_LP_TZ_APMIXEDSYS(0x404)
-#define PLL_APLL5	MT_LP_TZ_APMIXEDSYS(0x418)
+#define PLL_MFGPLL MT_LP_TZ_APMIXEDSYS(0x340)
+#define PLL_MMPLL MT_LP_TZ_APMIXEDSYS(0x544)
+#define PLL_UNIVPLL MT_LP_TZ_APMIXEDSYS(0x504)
+#define PLL_MSDCPLL MT_LP_TZ_APMIXEDSYS(0x514)
+#define PLL_TVDPLL1 MT_LP_TZ_APMIXEDSYS(0x524)
+#define PLL_TVDPLL2 MT_LP_TZ_APMIXEDSYS(0x534)
+#define PLL_ETHPLL MT_LP_TZ_APMIXEDSYS(0x44c)
+#define PLL_IMGPLL MT_LP_TZ_APMIXEDSYS(0x554)
+#define PLL_APLL1 MT_LP_TZ_APMIXEDSYS(0x304)
+#define PLL_APLL2 MT_LP_TZ_APMIXEDSYS(0x318)
+#define PLL_APLL3 MT_LP_TZ_APMIXEDSYS(0x32c)
+#define PLL_APLL4 MT_LP_TZ_APMIXEDSYS(0x404)
+#define PLL_APLL5 MT_LP_TZ_APMIXEDSYS(0x418)
 
 unsigned int mt_spm_cond_check(const struct mt_spm_cond_tables *src,
 			       const struct mt_spm_cond_tables *dest,
@@ -139,7 +144,8 @@ unsigned int mt_spm_cond_check(const struct mt_spm_cond_tables *src,
 
 	for (i = 0; i < PLAT_SPM_COND_MAX; i++) {
 		if (res != NULL) {
-			res->table_cg[i] = (src->table_cg[i] & dest->table_cg[i]);
+			res->table_cg[i] =
+				(src->table_cg[i] & dest->table_cg[i]);
 
 			if ((res->table_cg[i]) != 0U) {
 				b_res |= BIT(i);
@@ -173,7 +179,8 @@ unsigned int mt_spm_dump_all_pll(const struct mt_spm_cond_tables *src,
 	if (res != NULL) {
 		res->table_all_pll = src->table_all_pll;
 		if ((res->table_all_pll) != 0U) {
-			b_res |= (res->table_all_pll << SPM_COND_BLOCKED_PLL_IDX) |
+			b_res |= (res->table_all_pll
+				  << SPM_COND_BLOCKED_PLL_IDX) |
 				 SPM_COND_CHECK_BLOCKED_PLL;
 		}
 	} else if ((src->table_pll & dest->table_pll) != 0U) {
@@ -183,7 +190,7 @@ unsigned int mt_spm_dump_all_pll(const struct mt_spm_cond_tables *src,
 	return b_res;
 }
 
-#define IS_MT_SPM_PWR_OFF(mask) \
+#define IS_MT_SPM_PWR_OFF(mask)                    \
 	(!(mmio_read_32(SPM_PWR_STATUS) & mask) && \
 	 !(mmio_read_32(SPM_PWR_STATUS_2ND) & mask))
 
@@ -225,9 +232,10 @@ int mt_spm_cond_update(struct mt_resource_constraint **con, unsigned int num,
 		if (check_clkmux_pdn(idle_cg_info[i].clkmux_id)) {
 			continue;
 		}
-		spm_cond_t.table_cg[i] = idle_cg_info[i].bBitflip ?
-					 ~mmio_read_32(idle_cg_info[i].addr) :
-					 mmio_read_32(idle_cg_info[i].addr);
+		spm_cond_t.table_cg[i] =
+			idle_cg_info[i].bBitflip ?
+				~mmio_read_32(idle_cg_info[i].addr) :
+				mmio_read_32(idle_cg_info[i].addr);
 	}
 
 	spm_cond_t.table_pll = 0U;

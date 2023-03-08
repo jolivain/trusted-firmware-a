@@ -5,18 +5,18 @@
  */
 
 #include <arch.h>
-#include <lib/bakery_lock.h>
-#include <drivers/console.h>
 #include <common/debug.h>
+#include <drivers/console.h>
+#include <lib/bakery_lock.h>
 #include <lib/mmio.h>
+#include <mtk_plat_common.h>
 #include <plat_dcm.h>
 #include <plat_private.h>
-#include <plat_dcm.h>
+
 #include <plat/common/platform.h>
 #include <platform_def.h>
-#include <mtk_plat_common.h>
 
-#define PWR_STATUS                     (SPM_BASE + 0x180)
+#define PWR_STATUS (SPM_BASE + 0x180)
 
 uint64_t plat_dcm_mcsi_a_addr;
 uint32_t plat_dcm_mcsi_a_val;
@@ -24,7 +24,7 @@ static int plat_dcm_init_type;
 static unsigned int dcm_big_core_cnt;
 int plat_dcm_initiated;
 
-#define PWR_STA_BIG_MP_MASK	(0x1 << 15)
+#define PWR_STA_BIG_MP_MASK (0x1 << 15)
 
 DEFINE_BAKERY_LOCK(dcm_lock);
 
@@ -62,20 +62,20 @@ void plat_dcm_big_core_sync(short on)
 		return;
 
 	if (on) {
-		mmio_write_32(MP2_SYNC_DCM,
-			      (mmio_read_32(MP2_SYNC_DCM) & ~MP2_SYNC_DCM_MASK)
-			      | MP2_SYNC_DCM_ON);
+		mmio_write_32(MP2_SYNC_DCM, (mmio_read_32(MP2_SYNC_DCM) &
+					     ~MP2_SYNC_DCM_MASK) |
+						    MP2_SYNC_DCM_ON);
 		dcm_big_core_cnt++;
 	} else
-		mmio_write_32(MP2_SYNC_DCM,
-			      (mmio_read_32(MP2_SYNC_DCM) & ~MP2_SYNC_DCM_MASK)
-			      | MP2_SYNC_DCM_OFF);
+		mmio_write_32(MP2_SYNC_DCM, (mmio_read_32(MP2_SYNC_DCM) &
+					     ~MP2_SYNC_DCM_MASK) |
+						    MP2_SYNC_DCM_OFF);
 }
 
 void plat_dcm_restore_cluster_on(unsigned long mpidr)
 {
-	unsigned long cluster_id =
-		(mpidr & MPIDR_CLUSTER_MASK) >> MPIDR_AFFINITY_BITS;
+	unsigned long cluster_id = (mpidr & MPIDR_CLUSTER_MASK) >>
+				   MPIDR_AFFINITY_BITS;
 
 	switch (cluster_id) {
 	case 0x1:

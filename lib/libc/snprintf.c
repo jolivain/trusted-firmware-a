@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,23 +10,24 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#define get_num_va_args(_args, _lcount)				\
-	(((_lcount) > 1)  ? va_arg(_args, long long int) :	\
-	(((_lcount) == 1) ? va_arg(_args, long int) :		\
-			    va_arg(_args, int)))
+#define get_num_va_args(_args, _lcount)                                  \
+	(((_lcount) > 1) ? va_arg(_args, long long int) :                \
+			   (((_lcount) == 1) ? va_arg(_args, long int) : \
+					       va_arg(_args, int)))
 
-#define get_unum_va_args(_args, _lcount)				\
-	(((_lcount) > 1)  ? va_arg(_args, unsigned long long int) :	\
-	(((_lcount) == 1) ? va_arg(_args, unsigned long int) :		\
-			    va_arg(_args, unsigned int)))
+#define get_unum_va_args(_args, _lcount)                                \
+	(((_lcount) > 1) ?                                              \
+		 va_arg(_args, unsigned long long int) :                \
+		 (((_lcount) == 1) ? va_arg(_args, unsigned long int) : \
+				     va_arg(_args, unsigned int)))
 
-#define CHECK_AND_PUT_CHAR(buf, size, chars_printed, ch)	\
-	do {						\
-		if ((chars_printed) < (size)) {		\
-			*(buf) = (ch);			\
-			(buf)++;			\
-		}					\
-		(chars_printed)++;			\
+#define CHECK_AND_PUT_CHAR(buf, size, chars_printed, ch) \
+	do {                                             \
+		if ((chars_printed) < (size)) {          \
+			*(buf) = (ch);                   \
+			(buf)++;                         \
+		}                                        \
+		(chars_printed)++;                       \
 	} while (false)
 
 static void string_print(char **s, size_t n, size_t *chars_printed,
@@ -39,9 +40,8 @@ static void string_print(char **s, size_t n, size_t *chars_printed,
 }
 
 static void unsigned_num_print(char **s, size_t n, size_t *chars_printed,
-			      unsigned long long int unum,
-			      unsigned int radix, char padc, int padn,
-			      bool capitalise)
+			       unsigned long long int unum, unsigned int radix,
+			       char padc, int padn, bool capitalise)
 {
 	/* Just need enough space to store 64 bit decimal integer */
 	char num_buf[20];
@@ -110,8 +110,8 @@ int vsnprintf(char *s, size_t n, const char *fmt, va_list args)
 	int num;
 	unsigned long long int unum;
 	char *str;
-	char padc;		/* Padding character */
-	int padn;		/* Number of characters to pad */
+	char padc; /* Padding character */
+	int padn; /* Number of characters to pad */
 	bool left;
 	bool capitalise;
 	size_t chars_printed = 0U;
@@ -130,7 +130,7 @@ int vsnprintf(char *s, size_t n, const char *fmt, va_list args)
 
 	while (*fmt != '\0') {
 		left = false;
-		padc ='\0';
+		padc = '\0';
 		padn = 0;
 		capitalise = false;
 		l_count = 0;
@@ -154,7 +154,8 @@ loop:
 			case '8':
 			case '9':
 				padc = (*fmt == '0') ? '0' : ' ';
-				for (padn = 0; *fmt >= '0' && *fmt <= '9'; fmt++) {
+				for (padn = 0; *fmt >= '0' && *fmt <= '9';
+				     fmt++) {
 					padn = (padn * 10) + (*fmt - '0');
 				}
 				if (left) {
@@ -172,14 +173,14 @@ loop:
 
 				if (num < 0) {
 					CHECK_AND_PUT_CHAR(s, n, chars_printed,
-						'-');
+							   '-');
 					unum = (unsigned int)-num;
 				} else {
 					unum = (unsigned int)num;
 				}
 
-				unsigned_num_print(&s, n, &chars_printed,
-						   unum, 10, padc, padn, false);
+				unsigned_num_print(&s, n, &chars_printed, unum,
+						   10, padc, padn, false);
 				break;
 			case 's':
 				str = va_arg(args, char *);
@@ -187,8 +188,8 @@ loop:
 				break;
 			case 'u':
 				unum = get_unum_va_args(args, l_count);
-				unsigned_num_print(&s, n, &chars_printed,
-						   unum, 10, padc, padn, false);
+				unsigned_num_print(&s, n, &chars_printed, unum,
+						   10, padc, padn, false);
 				break;
 			case 'z':
 				l_count = 1;
@@ -201,20 +202,20 @@ loop:
 			case 'p':
 				unum = (uintptr_t)va_arg(args, void *);
 				if (unum > 0U) {
-					string_print(&s, n, &chars_printed, "0x");
+					string_print(&s, n, &chars_printed,
+						     "0x");
 					padn -= 2;
 				}
-				unsigned_num_print(&s, n, &chars_printed,
-						   unum, 16, padc, padn, false);
+				unsigned_num_print(&s, n, &chars_printed, unum,
+						   16, padc, padn, false);
 				break;
 			case 'X':
 				capitalise = true;
 				/* fallthrough */
 			case 'x':
 				unum = get_unum_va_args(args, l_count);
-				unsigned_num_print(&s, n, &chars_printed,
-						   unum, 16, padc, padn,
-						   capitalise);
+				unsigned_num_print(&s, n, &chars_printed, unum,
+						   16, padc, padn, capitalise);
 				break;
 
 			default:

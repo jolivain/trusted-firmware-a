@@ -10,4 +10,4 @@
 
 void pfc_init_v3m(void);
 
-#endif	/* PFC_INIT_V3M_H */
+#endif /* PFC_INIT_V3M_H */

@@ -1,18 +1,19 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-#include <platform_def.h>
 
 #include <common/debug.h>
 #include <common/interrupt_props.h>
 #include <drivers/arm/gicv3.h>
 #include <lib/utils.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 /******************************************************************************
  * The following functions are defined as weak to allow a platform to override
@@ -31,16 +32,15 @@ static uintptr_t rdistif_base_addrs[PLATFORM_CORE_COUNT];
 
 /* Default GICR base address to be used for GICR probe. */
 static const uintptr_t gicr_base_addrs[2] = {
-	PLAT_ARM_GICR_BASE,	/* GICR Base address of the primary CPU */
-	0U			/* Zero Termination */
+	PLAT_ARM_GICR_BASE, /* GICR Base address of the primary CPU */
+	0U /* Zero Termination */
 };
 
 /* List of zero terminated GICR frame addresses which CPUs will probe */
 static const uintptr_t *gicr_frames = gicr_base_addrs;
 
 static const interrupt_prop_t arm_interrupt_props[] = {
-	PLAT_ARM_G1S_IRQ_PROPS(INTR_GROUP1S),
-	PLAT_ARM_G0_IRQ_PROPS(INTR_GROUP0)
+	PLAT_ARM_G1S_IRQ_PROPS(INTR_GROUP1S), PLAT_ARM_G0_IRQ_PROPS(INTR_GROUP0)
 };
 
 /*
@@ -187,10 +187,10 @@ void plat_arm_gic_redistif_off(void)
  *****************************************************************************/
 void plat_arm_gic_save(void)
 {
-	gicv3_redist_ctx_t * const rdist_context =
-			(gicv3_redist_ctx_t *)LOAD_ADDR_OF(rdist_ctx);
-	gicv3_dist_ctx_t * const dist_context =
-			(gicv3_dist_ctx_t *)LOAD_ADDR_OF(dist_ctx);
+	gicv3_redist_ctx_t *const rdist_context =
+		(gicv3_redist_ctx_t *)LOAD_ADDR_OF(rdist_ctx);
+	gicv3_dist_ctx_t *const dist_context =
+		(gicv3_dist_ctx_t *)LOAD_ADDR_OF(dist_ctx);
 
 	/*
 	 * If an ITS is available, save its context before
@@ -221,9 +221,9 @@ void plat_arm_gic_save(void)
 void plat_arm_gic_resume(void)
 {
 	const gicv3_redist_ctx_t *rdist_context =
-			(gicv3_redist_ctx_t *)LOAD_ADDR_OF(rdist_ctx);
+		(gicv3_redist_ctx_t *)LOAD_ADDR_OF(rdist_ctx);
 	const gicv3_dist_ctx_t *dist_context =
-			(gicv3_dist_ctx_t *)LOAD_ADDR_OF(dist_ctx);
+		(gicv3_dist_ctx_t *)LOAD_ADDR_OF(dist_ctx);
 
 	/* Restore the GIC Distributor context */
 	gicv3_distif_init_restore(dist_context);

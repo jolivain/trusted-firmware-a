@@ -1,22 +1,21 @@
 /*
- * Copyright (c) 2015-2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <arch.h>
 #include <arch_helpers.h>
 #include <common/bl_common.h>
+
+#include <platform_def.h>
 
 #include "qemu_private.h"
 
 /* Data structure which holds the extents of the trusted SRAM for BL1*/
 static meminfo_t bl1_tzram_layout;
-
 
 meminfo_t *bl1_plat_sec_mem_layout(void)
 {
@@ -42,18 +41,17 @@ void bl1_early_platform_setup(void)
  * does not do anything platform specific.
  *****************************************************************************/
 #ifdef __aarch64__
-#define QEMU_CONFIGURE_BL1_MMU(...)	qemu_configure_mmu_el3(__VA_ARGS__)
+#define QEMU_CONFIGURE_BL1_MMU(...) qemu_configure_mmu_el3(__VA_ARGS__)
 #else
-#define QEMU_CONFIGURE_BL1_MMU(...)	qemu_configure_mmu_svc_mon(__VA_ARGS__)
+#define QEMU_CONFIGURE_BL1_MMU(...) qemu_configure_mmu_svc_mon(__VA_ARGS__)
 #endif
 
 void bl1_plat_arch_setup(void)
 {
 	QEMU_CONFIGURE_BL1_MMU(bl1_tzram_layout.total_base,
-				bl1_tzram_layout.total_size,
-				BL_CODE_BASE, BL1_CODE_END,
-				BL1_RO_DATA_BASE, BL1_RO_DATA_END,
-				BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END);
+			       bl1_tzram_layout.total_size, BL_CODE_BASE,
+			       BL1_CODE_END, BL1_RO_DATA_BASE, BL1_RO_DATA_END,
+			       BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END);
 }
 
 void bl1_platform_setup(void)

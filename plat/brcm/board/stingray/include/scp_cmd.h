@@ -15,7 +15,6 @@ typedef struct {
 	int ret;
 } crmu_response_t;
 
-
 #define SCP_CMD_MASK 0xffff
 #define SCP_CMD_DEFAULT_TIMEOUT_US 1000
 #define SCP_CMD_SCP_BOOT_TIMEOUT_US 5000

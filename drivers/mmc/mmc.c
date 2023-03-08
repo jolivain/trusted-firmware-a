@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -16,12 +16,13 @@
 #include <drivers/delay_timer.h>
 #include <drivers/mmc.h>
 #include <lib/utils.h>
+
 #include <plat/common/common_def.h>
 
-#define MMC_DEFAULT_MAX_RETRIES		5
-#define SEND_OP_COND_MAX_RETRIES	100
+#define MMC_DEFAULT_MAX_RETRIES 5
+#define SEND_OP_COND_MAX_RETRIES 100
 
-#define MULT_BY_512K_SHIFT		19
+#define MULT_BY_512K_SHIFT 19
 
 static const struct mmc_ops *ops;
 static unsigned int mmc_ocr_value;
@@ -31,15 +32,15 @@ static unsigned char mmc_ext_csd[512] __aligned(16);
 static unsigned int mmc_flags;
 static struct mmc_device_info *mmc_dev_info;
 static unsigned int rca;
-static unsigned int scr[2]__aligned(16) = { 0 };
+static unsigned int scr[2] __aligned(16) = { 0 };
 
-static const unsigned char tran_speed_base[16] = {
-	0, 10, 12, 13, 15, 20, 26, 30, 35, 40, 45, 52, 55, 60, 70, 80
-};
+static const unsigned char tran_speed_base[16] = { 0,  10, 12, 13, 15, 20,
+						   26, 30, 35, 40, 45, 52,
+						   55, 60, 70, 80 };
 
-static const unsigned char sd_tran_speed_base[16] = {
-	0, 10, 12, 13, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 70, 80
-};
+static const unsigned char sd_tran_speed_base[16] = { 0,  10, 12, 13, 15, 20,
+						      25, 30, 35, 40, 45, 50,
+						      55, 60, 70, 80 };
 
 static bool is_cmd23_enabled(void)
 {
@@ -51,8 +52,8 @@ static bool is_sd_cmd6_enabled(void)
 	return ((mmc_flags & MMC_FLAG_SD_CMD6) != 0U);
 }
 
-static int mmc_send_cmd(unsigned int idx, unsigned int arg,
-			unsigned int r_type, unsigned int *r_data)
+static int mmc_send_cmd(unsigned int idx, unsigned int arg, unsigned int r_type,
+			unsigned int *r_data)
 {
 	struct mmc_cmd cmd;
 	int ret;
@@ -116,12 +117,11 @@ static int mmc_send_part_switch_cmd(unsigned char part_config)
 	int ret;
 	unsigned int part_time = 0;
 
-	ret = mmc_send_cmd(MMC_CMD(6),
-			   EXTCSD_WRITE_BYTES |
-			   EXTCSD_CMD(CMD_EXTCSD_PARTITION_CONFIG) |
-			   EXTCSD_VALUE(part_config) |
-			   EXTCSD_CMD_SET_NORMAL,
-			   MMC_RESPONSE_R1B, NULL);
+	ret = mmc_send_cmd(
+		MMC_CMD(6),
+		EXTCSD_WRITE_BYTES | EXTCSD_CMD(CMD_EXTCSD_PARTITION_CONFIG) |
+			EXTCSD_VALUE(part_config) | EXTCSD_CMD_SET_NORMAL,
+		MMC_RESPONSE_R1B, NULL);
 	if (ret != 0) {
 		return ret;
 	}
@@ -147,7 +147,7 @@ static int mmc_set_ext_csd(unsigned int ext_cmd, unsigned int value)
 
 	ret = mmc_send_cmd(MMC_CMD(6),
 			   EXTCSD_WRITE_BYTES | EXTCSD_CMD(ext_cmd) |
-			   EXTCSD_VALUE(value) | EXTCSD_CMD_SET_NORMAL,
+				   EXTCSD_VALUE(value) | EXTCSD_CMD_SET_NORMAL,
 			   MMC_RESPONSE_R1B, NULL);
 	if (ret != 0) {
 		return ret;
@@ -297,7 +297,7 @@ static int mmc_fill_device_info(void)
 			    (mmc_ext_csd[CMD_EXTCSD_SEC_CNT + 3] << 24);
 
 		mmc_dev_info->device_size = (unsigned long long)nb_blocks *
-			mmc_dev_info->block_size;
+					    mmc_dev_info->block_size;
 
 		break;
 
@@ -342,7 +342,7 @@ static int mmc_fill_device_info(void)
 	}
 
 	speed_idx = (mmc_csd.tran_speed & CSD_TRAN_SPEED_MULT_MASK) >>
-			 CSD_TRAN_SPEED_MULT_SHIFT;
+		    CSD_TRAN_SPEED_MULT_SHIFT;
 
 	assert(speed_idx > 0U);
 
@@ -363,11 +363,10 @@ static int mmc_fill_device_info(void)
 	return 0;
 }
 
-static int sd_switch(unsigned int mode, unsigned char group,
-		     unsigned char func)
+static int sd_switch(unsigned int mode, unsigned char group, unsigned char func)
 {
 	unsigned int group_shift = (group - 1U) * 4U;
-	unsigned int group_mask = GENMASK(group_shift + 3U,  group_shift);
+	unsigned int group_mask = GENMASK(group_shift + 3U, group_shift);
 	unsigned int arg;
 	int ret;
 
@@ -405,9 +404,9 @@ static int sd_send_op_cond(void)
 		}
 
 		/* ACMD41: SD_SEND_OP_COND */
-		ret = mmc_send_cmd(MMC_ACMD(41), OCR_HCS |
-			mmc_dev_info->ocr_voltage, MMC_RESPONSE_R3,
-			&resp_data[0]);
+		ret = mmc_send_cmd(MMC_ACMD(41),
+				   OCR_HCS | mmc_dev_info->ocr_voltage,
+				   MMC_RESPONSE_R3, &resp_data[0]);
 		if (ret != 0) {
 			return ret;
 		}
@@ -458,8 +457,9 @@ static int mmc_send_op_cond(void)
 	}
 
 	for (n = 0; n < SEND_OP_COND_MAX_RETRIES; n++) {
-		ret = mmc_send_cmd(MMC_CMD(1), OCR_SECTOR_MODE |
-				   OCR_VDD_MIN_2V7 | OCR_VDD_MIN_1V7,
+		ret = mmc_send_cmd(MMC_CMD(1),
+				   OCR_SECTOR_MODE | OCR_VDD_MIN_2V7 |
+					   OCR_VDD_MIN_1V7,
 				   MMC_RESPONSE_R3, &resp_data[0]);
 		if (ret != 0) {
 			return ret;
@@ -494,10 +494,12 @@ static int mmc_enumerate(unsigned int clk, unsigned int bus_width)
 		ret = mmc_send_op_cond();
 	} else {
 		/* CMD8: Send Interface Condition Command */
-		ret = mmc_send_cmd(MMC_CMD(8), VHS_2_7_3_6_V | CMD8_CHECK_PATTERN,
+		ret = mmc_send_cmd(MMC_CMD(8),
+				   VHS_2_7_3_6_V | CMD8_CHECK_PATTERN,
 				   MMC_RESPONSE_R5, &resp_data[0]);
 
-		if ((ret == 0) && ((resp_data[0] & 0xffU) == CMD8_CHECK_PATTERN)) {
+		if ((ret == 0) &&
+		    ((resp_data[0] & 0xffU) == CMD8_CHECK_PATTERN)) {
 			ret = sd_send_op_cond();
 		}
 	}
@@ -520,8 +522,8 @@ static int mmc_enumerate(unsigned int clk, unsigned int bus_width)
 			return ret;
 		}
 	} else {
-		ret = mmc_send_cmd(MMC_CMD(3), 0,
-				   MMC_RESPONSE_R6, &resp_data[0]);
+		ret = mmc_send_cmd(MMC_CMD(3), 0, MMC_RESPONSE_R6,
+				   &resp_data[0]);
 		if (ret != 0) {
 			return ret;
 		}
@@ -530,8 +532,8 @@ static int mmc_enumerate(unsigned int clk, unsigned int bus_width)
 	}
 
 	/* CMD9: CSD Register */
-	ret = mmc_send_cmd(MMC_CMD(9), rca << RCA_SHIFT_OFFSET,
-			   MMC_RESPONSE_R2, &resp_data[0]);
+	ret = mmc_send_cmd(MMC_CMD(9), rca << RCA_SHIFT_OFFSET, MMC_RESPONSE_R2,
+			   &resp_data[0]);
 	if (ret != 0) {
 		return ret;
 	}
@@ -539,8 +541,8 @@ static int mmc_enumerate(unsigned int clk, unsigned int bus_width)
 	memcpy(&mmc_csd, &resp_data, sizeof(resp_data));
 
 	/* CMD7: Select Card */
-	ret = mmc_send_cmd(MMC_CMD(7), rca << RCA_SHIFT_OFFSET,
-			   MMC_RESPONSE_R1, NULL);
+	ret = mmc_send_cmd(MMC_CMD(7), rca << RCA_SHIFT_OFFSET, MMC_RESPONSE_R1,
+			   NULL);
 	if (ret != 0) {
 		return ret;
 	}
@@ -597,9 +599,7 @@ size_t mmc_read_blocks(int lba, uintptr_t buf, size_t size)
 	int ret;
 	unsigned int cmd_idx, cmd_arg;
 
-	assert((ops != NULL) &&
-	       (ops->read != NULL) &&
-	       (size != 0U) &&
+	assert((ops != NULL) && (ops->read != NULL) && (size != 0U) &&
 	       ((size & MMC_BLOCK_MASK) == 0U));
 
 	ret = ops->prepare(lba, buf, size);
@@ -664,9 +664,7 @@ size_t mmc_write_blocks(int lba, const uintptr_t buf, size_t size)
 	int ret;
 	unsigned int cmd_idx, cmd_arg;
 
-	assert((ops != NULL) &&
-	       (ops->write != NULL) &&
-	       (size != 0U) &&
+	assert((ops != NULL) && (ops->write != NULL) && (size != 0U) &&
 	       ((buf & MMC_BLOCK_MASK) == 0U) &&
 	       ((size & MMC_BLOCK_MASK) == 0U));
 
@@ -771,7 +769,8 @@ static int mmc_part_switch(unsigned char part_type)
 
 static unsigned char mmc_current_boot_part(void)
 {
-	return PART_CFG_CURRENT_BOOT_PARTITION(mmc_ext_csd[CMD_EXTCSD_PARTITION_CONFIG]);
+	return PART_CFG_CURRENT_BOOT_PARTITION(
+		mmc_ext_csd[CMD_EXTCSD_PARTITION_CONFIG]);
 }
 
 int mmc_part_switch_current_boot(void)
@@ -780,7 +779,8 @@ int mmc_part_switch_current_boot(void)
 	int ret;
 
 	if ((current_boot_part != 1U) && (current_boot_part != 2U)) {
-		ERROR("Got unexpected value for active boot partition, %u\n", current_boot_part);
+		ERROR("Got unexpected value for active boot partition, %u\n",
+		      current_boot_part);
 		return -EIO;
 	}
 
@@ -833,19 +833,13 @@ int mmc_init(const struct mmc_ops *ops_ptr, unsigned int clk,
 	     unsigned int width, unsigned int flags,
 	     struct mmc_device_info *device_info)
 {
-	assert((ops_ptr != NULL) &&
-	       (ops_ptr->init != NULL) &&
-	       (ops_ptr->send_cmd != NULL) &&
-	       (ops_ptr->set_ios != NULL) &&
-	       (ops_ptr->prepare != NULL) &&
-	       (ops_ptr->read != NULL) &&
-	       (ops_ptr->write != NULL) &&
-	       (device_info != NULL) &&
+	assert((ops_ptr != NULL) && (ops_ptr->init != NULL) &&
+	       (ops_ptr->send_cmd != NULL) && (ops_ptr->set_ios != NULL) &&
+	       (ops_ptr->prepare != NULL) && (ops_ptr->read != NULL) &&
+	       (ops_ptr->write != NULL) && (device_info != NULL) &&
 	       (clk != 0) &&
-	       ((width == MMC_BUS_WIDTH_1) ||
-		(width == MMC_BUS_WIDTH_4) ||
-		(width == MMC_BUS_WIDTH_8) ||
-		(width == MMC_BUS_WIDTH_DDR_4) ||
+	       ((width == MMC_BUS_WIDTH_1) || (width == MMC_BUS_WIDTH_4) ||
+		(width == MMC_BUS_WIDTH_8) || (width == MMC_BUS_WIDTH_DDR_4) ||
 		(width == MMC_BUS_WIDTH_DDR_8)));
 
 	ops = ops_ptr;

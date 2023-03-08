@@ -1,13 +1,12 @@
 /*
- * Copyright (c) 2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include "cca/cca_cot.h"
-
 #include <cca_oid.h>
 
+#include "cca/cca_cot.h"
 #include "cert.h"
 #include "ext.h"
 #include "key.h"
@@ -136,304 +135,251 @@ static cert_t cot_certs[] = {
 
 REGISTER_COT(cot_certs);
 
-
 /* Certificate extensions. */
 static ext_t cot_ext[] = {
-	[TRUSTED_FW_NVCOUNTER_EXT] = {
-		.oid = TRUSTED_FW_NVCOUNTER_OID,
-		.opt = "tfw-nvctr",
-		.help_msg = "Trusted Firmware Non-Volatile counter value",
-		.sn = "TrustedWorldNVCounter",
-		.ln = "Trusted World Non-Volatile counter",
-		.asn1_type = V_ASN1_INTEGER,
-		.type = EXT_TYPE_NVCOUNTER,
-		.attr.nvctr_type = NVCTR_TYPE_TFW
-	},
+	[TRUSTED_FW_NVCOUNTER_EXT] = { .oid = TRUSTED_FW_NVCOUNTER_OID,
+				       .opt = "tfw-nvctr",
+				       .help_msg =
+					       "Trusted Firmware Non-Volatile counter value",
+				       .sn = "TrustedWorldNVCounter",
+				       .ln = "Trusted World Non-Volatile counter",
+				       .asn1_type = V_ASN1_INTEGER,
+				       .type = EXT_TYPE_NVCOUNTER,
+				       .attr.nvctr_type = NVCTR_TYPE_TFW },
 
-	[TRUSTED_BOOT_FW_HASH_EXT] = {
-		.oid = TRUSTED_BOOT_FW_HASH_OID,
-		.opt = "tb-fw",
-		.help_msg = "Trusted Boot Firmware image file",
-		.sn = "TrustedBootFirmwareHash",
-		.ln = "Trusted Boot Firmware hash (SHA256)",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_HASH
-	},
+	[TRUSTED_BOOT_FW_HASH_EXT] = { .oid = TRUSTED_BOOT_FW_HASH_OID,
+				       .opt = "tb-fw",
+				       .help_msg =
+					       "Trusted Boot Firmware image file",
+				       .sn = "TrustedBootFirmwareHash",
+				       .ln = "Trusted Boot Firmware hash (SHA256)",
+				       .asn1_type = V_ASN1_OCTET_STRING,
+				       .type = EXT_TYPE_HASH },
 
-	[TRUSTED_BOOT_FW_CONFIG_HASH_EXT] = {
-		.oid = TRUSTED_BOOT_FW_CONFIG_HASH_OID,
-		.opt = "tb-fw-config",
-		.help_msg = "Trusted Boot Firmware Config file",
-		.sn = "TrustedBootFirmwareConfigHash",
-		.ln = "Trusted Boot Firmware Config hash",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_HASH,
-		.optional = 1
-	},
+	[TRUSTED_BOOT_FW_CONFIG_HASH_EXT] = { .oid = TRUSTED_BOOT_FW_CONFIG_HASH_OID,
+					      .opt = "tb-fw-config",
+					      .help_msg =
+						      "Trusted Boot Firmware Config file",
+					      .sn = "TrustedBootFirmwareConfigHash",
+					      .ln = "Trusted Boot Firmware Config hash",
+					      .asn1_type = V_ASN1_OCTET_STRING,
+					      .type = EXT_TYPE_HASH,
+					      .optional = 1 },
 
-	[HW_CONFIG_HASH_EXT] = {
-		.oid = HW_CONFIG_HASH_OID,
-		.opt = "hw-config",
-		.help_msg = "HW Config file",
-		.sn = "HWConfigHash",
-		.ln = "HW Config hash",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_HASH,
-		.optional = 1
-	},
+	[HW_CONFIG_HASH_EXT] = { .oid = HW_CONFIG_HASH_OID,
+				 .opt = "hw-config",
+				 .help_msg = "HW Config file",
+				 .sn = "HWConfigHash",
+				 .ln = "HW Config hash",
+				 .asn1_type = V_ASN1_OCTET_STRING,
+				 .type = EXT_TYPE_HASH,
+				 .optional = 1 },
 
-	[FW_CONFIG_HASH_EXT] = {
-		.oid = FW_CONFIG_HASH_OID,
-		.opt = "fw-config",
-		.help_msg = "Firmware Config file",
-		.sn = "FirmwareConfigHash",
-		.ln = "Firmware Config hash",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_HASH,
-		.optional = 1
-	},
+	[FW_CONFIG_HASH_EXT] = { .oid = FW_CONFIG_HASH_OID,
+				 .opt = "fw-config",
+				 .help_msg = "Firmware Config file",
+				 .sn = "FirmwareConfigHash",
+				 .ln = "Firmware Config hash",
+				 .asn1_type = V_ASN1_OCTET_STRING,
+				 .type = EXT_TYPE_HASH,
+				 .optional = 1 },
 
-	[SWD_ROT_PK_EXT] = {
-		.oid = SWD_ROT_PK_OID,
-		.sn = "SWDRoTKey",
-		.ln = "Secure World Root of Trust Public Key",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_PKEY,
-		.attr.key = SWD_ROT_KEY
-	},
+	[SWD_ROT_PK_EXT] = { .oid = SWD_ROT_PK_OID,
+			     .sn = "SWDRoTKey",
+			     .ln = "Secure World Root of Trust Public Key",
+			     .asn1_type = V_ASN1_OCTET_STRING,
+			     .type = EXT_TYPE_PKEY,
+			     .attr.key = SWD_ROT_KEY },
 
-	[CORE_SWD_PK_EXT] = {
-		.oid = CORE_SWD_PK_OID,
-		.sn = "CORESWDKey",
-		.ln = "Core Secure World Public Key",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_PKEY,
-		.attr.key = CORE_SWD_KEY
-	},
+	[CORE_SWD_PK_EXT] = { .oid = CORE_SWD_PK_OID,
+			      .sn = "CORESWDKey",
+			      .ln = "Core Secure World Public Key",
+			      .asn1_type = V_ASN1_OCTET_STRING,
+			      .type = EXT_TYPE_PKEY,
+			      .attr.key = CORE_SWD_KEY },
 
-	[SOC_AP_FW_HASH_EXT] = {
-		.oid = SOC_AP_FW_HASH_OID,
-		.opt = "soc-fw",
-		.help_msg = "SoC AP Firmware image file",
-		.sn = "SoCAPFirmwareHash",
-		.ln = "SoC AP Firmware hash (SHA256)",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_HASH
-	},
+	[SOC_AP_FW_HASH_EXT] = { .oid = SOC_AP_FW_HASH_OID,
+				 .opt = "soc-fw",
+				 .help_msg = "SoC AP Firmware image file",
+				 .sn = "SoCAPFirmwareHash",
+				 .ln = "SoC AP Firmware hash (SHA256)",
+				 .asn1_type = V_ASN1_OCTET_STRING,
+				 .type = EXT_TYPE_HASH },
 
-	[SOC_FW_CONFIG_HASH_EXT] = {
-		.oid = SOC_FW_CONFIG_HASH_OID,
-		.opt = "soc-fw-config",
-		.help_msg = "SoC Firmware Config file",
-		.sn = "SocFirmwareConfigHash",
-		.ln = "SoC Firmware Config hash",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_HASH,
-		.optional = 1
-	},
+	[SOC_FW_CONFIG_HASH_EXT] = { .oid = SOC_FW_CONFIG_HASH_OID,
+				     .opt = "soc-fw-config",
+				     .help_msg = "SoC Firmware Config file",
+				     .sn = "SocFirmwareConfigHash",
+				     .ln = "SoC Firmware Config hash",
+				     .asn1_type = V_ASN1_OCTET_STRING,
+				     .type = EXT_TYPE_HASH,
+				     .optional = 1 },
 
-	[RMM_HASH_EXT] = {
-		.oid = RMM_HASH_OID,
-		.opt = "rmm-fw",
-		.help_msg = "RMM Firmware image file",
-		.sn = "RMMFirmwareHash",
-		.ln = "RMM Firmware hash (SHA256)",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_HASH
-	},
+	[RMM_HASH_EXT] = { .oid = RMM_HASH_OID,
+			   .opt = "rmm-fw",
+			   .help_msg = "RMM Firmware image file",
+			   .sn = "RMMFirmwareHash",
+			   .ln = "RMM Firmware hash (SHA256)",
+			   .asn1_type = V_ASN1_OCTET_STRING,
+			   .type = EXT_TYPE_HASH },
 
-	[TRUSTED_OS_FW_HASH_EXT] = {
-		.oid = TRUSTED_OS_FW_HASH_OID,
-		.opt = "tos-fw",
-		.help_msg = "Trusted OS image file",
-		.sn = "TrustedOSHash",
-		.ln = "Trusted OS hash (SHA256)",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_HASH
-	},
+	[TRUSTED_OS_FW_HASH_EXT] = { .oid = TRUSTED_OS_FW_HASH_OID,
+				     .opt = "tos-fw",
+				     .help_msg = "Trusted OS image file",
+				     .sn = "TrustedOSHash",
+				     .ln = "Trusted OS hash (SHA256)",
+				     .asn1_type = V_ASN1_OCTET_STRING,
+				     .type = EXT_TYPE_HASH },
 
-	[TRUSTED_OS_FW_CONFIG_HASH_EXT] = {
-		.oid = TRUSTED_OS_FW_CONFIG_HASH_OID,
-		.opt = "tos-fw-config",
-		.help_msg = "Trusted OS Firmware Config file",
-		.sn = "TrustedOSFirmwareConfigHash",
-		.ln = "Trusted OS Firmware Config hash",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_HASH,
-		.optional = 1
-	},
+	[TRUSTED_OS_FW_CONFIG_HASH_EXT] = { .oid = TRUSTED_OS_FW_CONFIG_HASH_OID,
+					    .opt = "tos-fw-config",
+					    .help_msg =
+						    "Trusted OS Firmware Config file",
+					    .sn = "TrustedOSFirmwareConfigHash",
+					    .ln = "Trusted OS Firmware Config hash",
+					    .asn1_type = V_ASN1_OCTET_STRING,
+					    .type = EXT_TYPE_HASH,
+					    .optional = 1 },
 
-	[SP_PKG1_HASH_EXT] = {
-		.oid = SP_PKG1_HASH_OID,
-		.opt = "sp-pkg1",
-		.help_msg = "Secure Partition Package1 file",
-		.sn = "SPPkg1Hash",
-		.ln = "SP Pkg1 hash (SHA256)",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_HASH,
-		.optional = 1
-	},
-	[SP_PKG2_HASH_EXT] = {
-		.oid = SP_PKG2_HASH_OID,
-		.opt = "sp-pkg2",
-		.help_msg = "Secure Partition Package2 file",
-		.sn = "SPPkg2Hash",
-		.ln = "SP Pkg2 hash (SHA256)",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_HASH,
-		.optional = 1
-	},
-	[SP_PKG3_HASH_EXT] = {
-		.oid = SP_PKG3_HASH_OID,
-		.opt = "sp-pkg3",
-		.help_msg = "Secure Partition Package3 file",
-		.sn = "SPPkg3Hash",
-		.ln = "SP Pkg3 hash (SHA256)",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_HASH,
-		.optional = 1
-	},
-	[SP_PKG4_HASH_EXT] = {
-		.oid = SP_PKG4_HASH_OID,
-		.opt = "sp-pkg4",
-		.help_msg = "Secure Partition Package4 file",
-		.sn = "SPPkg4Hash",
-		.ln = "SP Pkg4 hash (SHA256)",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_HASH,
-		.optional = 1
-	},
+	[SP_PKG1_HASH_EXT] = { .oid = SP_PKG1_HASH_OID,
+			       .opt = "sp-pkg1",
+			       .help_msg = "Secure Partition Package1 file",
+			       .sn = "SPPkg1Hash",
+			       .ln = "SP Pkg1 hash (SHA256)",
+			       .asn1_type = V_ASN1_OCTET_STRING,
+			       .type = EXT_TYPE_HASH,
+			       .optional = 1 },
+	[SP_PKG2_HASH_EXT] = { .oid = SP_PKG2_HASH_OID,
+			       .opt = "sp-pkg2",
+			       .help_msg = "Secure Partition Package2 file",
+			       .sn = "SPPkg2Hash",
+			       .ln = "SP Pkg2 hash (SHA256)",
+			       .asn1_type = V_ASN1_OCTET_STRING,
+			       .type = EXT_TYPE_HASH,
+			       .optional = 1 },
+	[SP_PKG3_HASH_EXT] = { .oid = SP_PKG3_HASH_OID,
+			       .opt = "sp-pkg3",
+			       .help_msg = "Secure Partition Package3 file",
+			       .sn = "SPPkg3Hash",
+			       .ln = "SP Pkg3 hash (SHA256)",
+			       .asn1_type = V_ASN1_OCTET_STRING,
+			       .type = EXT_TYPE_HASH,
+			       .optional = 1 },
+	[SP_PKG4_HASH_EXT] = { .oid = SP_PKG4_HASH_OID,
+			       .opt = "sp-pkg4",
+			       .help_msg = "Secure Partition Package4 file",
+			       .sn = "SPPkg4Hash",
+			       .ln = "SP Pkg4 hash (SHA256)",
+			       .asn1_type = V_ASN1_OCTET_STRING,
+			       .type = EXT_TYPE_HASH,
+			       .optional = 1 },
 
-	[PROT_PK_EXT] = {
-		.oid = PROT_PK_OID,
-		.sn = "PlatformRoTKey",
-		.ln = "Platform Root of Trust Public Key",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_PKEY,
-		.attr.key = PROT_KEY
-	},
+	[PROT_PK_EXT] = { .oid = PROT_PK_OID,
+			  .sn = "PlatformRoTKey",
+			  .ln = "Platform Root of Trust Public Key",
+			  .asn1_type = V_ASN1_OCTET_STRING,
+			  .type = EXT_TYPE_PKEY,
+			  .attr.key = PROT_KEY },
 
-	[PLAT_PK_EXT] = {
-		.oid = PLAT_PK_OID,
-		.sn = "PLATKey",
-		.ln = "Platform Public Key",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_PKEY,
-		.attr.key = PLAT_KEY
-	},
+	[PLAT_PK_EXT] = { .oid = PLAT_PK_OID,
+			  .sn = "PLATKey",
+			  .ln = "Platform Public Key",
+			  .asn1_type = V_ASN1_OCTET_STRING,
+			  .type = EXT_TYPE_PKEY,
+			  .attr.key = PLAT_KEY },
 
-	[SP_PKG5_HASH_EXT] = {
-		.oid = SP_PKG5_HASH_OID,
-		.opt = "sp-pkg5",
-		.help_msg = "Secure Partition Package5 file",
-		.sn = "SPPkg5Hash",
-		.ln = "SP Pkg5 hash (SHA256)",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_HASH,
-		.optional = 1
-	},
-	[SP_PKG6_HASH_EXT] = {
-		.oid = SP_PKG6_HASH_OID,
-		.opt = "sp-pkg6",
-		.help_msg = "Secure Partition Package6 file",
-		.sn = "SPPkg6Hash",
-		.ln = "SP Pkg6 hash (SHA256)",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_HASH,
-		.optional = 1
-	},
-	[SP_PKG7_HASH_EXT] = {
-		.oid = SP_PKG7_HASH_OID,
-		.opt = "sp-pkg7",
-		.help_msg = "Secure Partition Package7 file",
-		.sn = "SPPkg7Hash",
-		.ln = "SP Pkg7 hash (SHA256)",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_HASH,
-		.optional = 1
-	},
-	[SP_PKG8_HASH_EXT] = {
-		.oid = SP_PKG8_HASH_OID,
-		.opt = "sp-pkg8",
-		.help_msg = "Secure Partition Package8 file",
-		.sn = "SPPkg8Hash",
-		.ln = "SP Pkg8 hash (SHA256)",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_HASH,
-		.optional = 1
-	},
+	[SP_PKG5_HASH_EXT] = { .oid = SP_PKG5_HASH_OID,
+			       .opt = "sp-pkg5",
+			       .help_msg = "Secure Partition Package5 file",
+			       .sn = "SPPkg5Hash",
+			       .ln = "SP Pkg5 hash (SHA256)",
+			       .asn1_type = V_ASN1_OCTET_STRING,
+			       .type = EXT_TYPE_HASH,
+			       .optional = 1 },
+	[SP_PKG6_HASH_EXT] = { .oid = SP_PKG6_HASH_OID,
+			       .opt = "sp-pkg6",
+			       .help_msg = "Secure Partition Package6 file",
+			       .sn = "SPPkg6Hash",
+			       .ln = "SP Pkg6 hash (SHA256)",
+			       .asn1_type = V_ASN1_OCTET_STRING,
+			       .type = EXT_TYPE_HASH,
+			       .optional = 1 },
+	[SP_PKG7_HASH_EXT] = { .oid = SP_PKG7_HASH_OID,
+			       .opt = "sp-pkg7",
+			       .help_msg = "Secure Partition Package7 file",
+			       .sn = "SPPkg7Hash",
+			       .ln = "SP Pkg7 hash (SHA256)",
+			       .asn1_type = V_ASN1_OCTET_STRING,
+			       .type = EXT_TYPE_HASH,
+			       .optional = 1 },
+	[SP_PKG8_HASH_EXT] = { .oid = SP_PKG8_HASH_OID,
+			       .opt = "sp-pkg8",
+			       .help_msg = "Secure Partition Package8 file",
+			       .sn = "SPPkg8Hash",
+			       .ln = "SP Pkg8 hash (SHA256)",
+			       .asn1_type = V_ASN1_OCTET_STRING,
+			       .type = EXT_TYPE_HASH,
+			       .optional = 1 },
 
-	[NON_TRUSTED_FW_NVCOUNTER_EXT] = {
-		.oid = NON_TRUSTED_FW_NVCOUNTER_OID,
-		.opt = "ntfw-nvctr",
-		.help_msg = "Non-Trusted Firmware Non-Volatile counter value",
-		.sn = "NormalWorldNVCounter",
-		.ln = "Non-Trusted Firmware Non-Volatile counter",
-		.asn1_type = V_ASN1_INTEGER,
-		.type = EXT_TYPE_NVCOUNTER,
-		.attr.nvctr_type = NVCTR_TYPE_NTFW
-	},
+	[NON_TRUSTED_FW_NVCOUNTER_EXT] = { .oid = NON_TRUSTED_FW_NVCOUNTER_OID,
+					   .opt = "ntfw-nvctr",
+					   .help_msg =
+						   "Non-Trusted Firmware Non-Volatile counter value",
+					   .sn = "NormalWorldNVCounter",
+					   .ln = "Non-Trusted Firmware Non-Volatile counter",
+					   .asn1_type = V_ASN1_INTEGER,
+					   .type = EXT_TYPE_NVCOUNTER,
+					   .attr.nvctr_type = NVCTR_TYPE_NTFW },
 
-	[NON_TRUSTED_WORLD_BOOTLOADER_HASH_EXT] = {
-		.oid = NON_TRUSTED_WORLD_BOOTLOADER_HASH_OID,
-		.opt = "nt-fw",
-		.help_msg = "Non-Trusted World Bootloader image file",
-		.sn = "NonTrustedWorldBootloaderHash",
-		.ln = "Non-Trusted World hash (SHA256)",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_HASH
-	},
+	[NON_TRUSTED_WORLD_BOOTLOADER_HASH_EXT] = { .oid = NON_TRUSTED_WORLD_BOOTLOADER_HASH_OID,
+						    .opt = "nt-fw",
+						    .help_msg =
+							    "Non-Trusted World Bootloader image file",
+						    .sn = "NonTrustedWorldBootloaderHash",
+						    .ln = "Non-Trusted World hash (SHA256)",
+						    .asn1_type =
+							    V_ASN1_OCTET_STRING,
+						    .type = EXT_TYPE_HASH },
 
-	[NON_TRUSTED_FW_CONFIG_HASH_EXT] = {
-		.oid = NON_TRUSTED_FW_CONFIG_HASH_OID,
-		.opt = "nt-fw-config",
-		.help_msg = "Non Trusted OS Firmware Config file",
-		.sn = "NonTrustedOSFirmwareConfigHash",
-		.ln = "Non-Trusted OS Firmware Config hash",
-		.asn1_type = V_ASN1_OCTET_STRING,
-		.type = EXT_TYPE_HASH,
-		.optional = 1
-	},
+	[NON_TRUSTED_FW_CONFIG_HASH_EXT] = { .oid = NON_TRUSTED_FW_CONFIG_HASH_OID,
+					     .opt = "nt-fw-config",
+					     .help_msg =
+						     "Non Trusted OS Firmware Config file",
+					     .sn = "NonTrustedOSFirmwareConfigHash",
+					     .ln = "Non-Trusted OS Firmware Config hash",
+					     .asn1_type = V_ASN1_OCTET_STRING,
+					     .type = EXT_TYPE_HASH,
+					     .optional = 1 },
 };
 
 REGISTER_EXTENSIONS(cot_ext);
 
 /* Keys used to establish the chain of trust. */
 static key_t cot_keys[] = {
-	[ROT_KEY] = {
-		.id = ROT_KEY,
-		.opt = "rot-key",
-		.help_msg = "Root Of Trust key (input/output file)",
-		.desc = "Root Of Trust key"
-	},
+	[ROT_KEY] = { .id = ROT_KEY,
+		      .opt = "rot-key",
+		      .help_msg = "Root Of Trust key (input/output file)",
+		      .desc = "Root Of Trust key" },
 
-	[SWD_ROT_KEY] = {
-		.id = SWD_ROT_KEY,
-		.opt = "swd-rot-key",
-		.help_msg = "Secure World Root of Trust key",
-		.desc = "Secure World Root of Trust key"
-	},
+	[SWD_ROT_KEY] = { .id = SWD_ROT_KEY,
+			  .opt = "swd-rot-key",
+			  .help_msg = "Secure World Root of Trust key",
+			  .desc = "Secure World Root of Trust key" },
 
-	[CORE_SWD_KEY] = {
-		.id = CORE_SWD_KEY,
-		.opt = "core-swd-key",
-		.help_msg = "Core Secure World key",
-		.desc = "Core Secure World key"
-	},
+	[CORE_SWD_KEY] = { .id = CORE_SWD_KEY,
+			   .opt = "core-swd-key",
+			   .help_msg = "Core Secure World key",
+			   .desc = "Core Secure World key" },
 
-	[PROT_KEY] = {
-		.id = PROT_KEY,
-		.opt = "prot-key",
-		.help_msg = "Platform Root of Trust key",
-		.desc = "Platform Root of Trust key"
-	},
+	[PROT_KEY] = { .id = PROT_KEY,
+		       .opt = "prot-key",
+		       .help_msg = "Platform Root of Trust key",
+		       .desc = "Platform Root of Trust key" },
 
-	[PLAT_KEY] = {
-		.id = PLAT_KEY,
-		.opt = "plat-key",
-		.help_msg = "Platform key",
-		.desc = "Platform key"
-	},
+	[PLAT_KEY] = { .id = PLAT_KEY,
+		       .opt = "plat-key",
+		       .help_msg = "Platform key",
+		       .desc = "Platform key" },
 };
 
 REGISTER_KEYS(cot_keys);

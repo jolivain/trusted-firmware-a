@@ -1,21 +1,20 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <string.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/console.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-
 #include <plat_private.h>
 #include <soc.h>
+
+#include <platform_def.h>
 
 #include "ddr_parameter.h"
 
@@ -59,8 +58,8 @@ struct param_ddr_usage ddr_region_usage_parse(uint64_t addr, uint64_t max_mb)
 	/* read how many blocks of ns-regions, read from offset: 0x0 */
 	p.ns_nr = mmio_read_32(addr + REGION_NR_OFFSET);
 	if ((p.ns_nr > DDR_REGION_NR_MAX) || (p.ns_nr == 0)) {
-		ERROR("over or zero region, nr=%d, max=%d\n",
-		      p.ns_nr, DDR_REGION_NR_MAX);
+		ERROR("over or zero region, nr=%d, max=%d\n", p.ns_nr,
+		      DDR_REGION_NR_MAX);
 		return p;
 	}
 

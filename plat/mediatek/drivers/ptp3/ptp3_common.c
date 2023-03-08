@@ -10,7 +10,7 @@
 #endif
 #include <ptp3_plat.h>
 
-#define PTP3_CORE_OFT(core)	(0x800 * (core))
+#define PTP3_CORE_OFT(core) (0x800 * (core))
 
 static void ptp3_init(unsigned int core)
 {
@@ -26,14 +26,16 @@ static void ptp3_init(unsigned int core)
 
 	if (core < PTP3_CFG_CPU_START_ID_B) {
 		for (i = 0; i < NR_PTP3_CFG2_DATA; i++) {
-			addr = ptp3_cfg2[i][PTP3_CFG_ADDR] + PTP3_CORE_OFT(core);
+			addr = ptp3_cfg2[i][PTP3_CFG_ADDR] +
+			       PTP3_CORE_OFT(core);
 			value = ptp3_cfg2[i][PTP3_CFG_VALUE];
 
 			mmio_write_32(addr, value);
 		}
 	} else {
 		for (i = 0; i < NR_PTP3_CFG2_DATA; i++) {
-			addr = ptp3_cfg2[i][PTP3_CFG_ADDR] + PTP3_CORE_OFT(core);
+			addr = ptp3_cfg2[i][PTP3_CFG_ADDR] +
+			       PTP3_CORE_OFT(core);
 
 			if (i == 2) {
 				value = ptp3_cfg2[i][PTP3_CFG_VALUE] + 0x5E0;
@@ -61,19 +63,20 @@ static void pdp_proc_arm_write(unsigned int pdp_n)
 	unsigned long v = 0;
 
 	dsb();
-	__asm__ volatile ("mrs %0, S3_6_C15_C2_0" : "=r" (v));
+	__asm__ volatile("mrs %0, S3_6_C15_C2_0" : "=r"(v));
 	v |= (UL(0x0) << 52);
 	v |= (UL(0x1) << 53);
 	v |= (UL(0x0) << 54);
 	v |= (UL(0x0) << 48);
 	v |= (UL(0x1) << 49);
-	__asm__ volatile ("msr S3_6_C15_C2_0, %0" : : "r" (v));
+	__asm__ volatile("msr S3_6_C15_C2_0, %0" : : "r"(v));
 	dsb();
 }
 
 static void pdp_init(unsigned int pdp_cpu)
 {
-	if ((pdp_cpu >= PTP3_CFG_CPU_START_ID_B) && (pdp_cpu < NR_PTP3_CFG_CPU)) {
+	if ((pdp_cpu >= PTP3_CFG_CPU_START_ID_B) &&
+	    (pdp_cpu < NR_PTP3_CFG_CPU)) {
 		pdp_proc_arm_write(pdp_cpu);
 	}
 }
@@ -94,7 +97,8 @@ void ptp3_core_deinit(unsigned int core)
 void *ptp3_handle_pwr_on_event(const void *arg)
 {
 	if (arg != NULL) {
-		struct mt_cpupm_event_data *data = (struct mt_cpupm_event_data *)arg;
+		struct mt_cpupm_event_data *data =
+			(struct mt_cpupm_event_data *)arg;
 
 		if ((data->pwr_domain & MT_CPUPM_PWR_DOMAIN_CORE) > 0) {
 			ptp3_core_init(data->cpuid);
@@ -108,7 +112,8 @@ MT_CPUPM_SUBCRIBE_EVENT_PWR_ON(ptp3_handle_pwr_on_event);
 void *ptp3_handle_pwr_off_event(const void *arg)
 {
 	if (arg != NULL) {
-		struct mt_cpupm_event_data *data = (struct mt_cpupm_event_data *)arg;
+		struct mt_cpupm_event_data *data =
+			(struct mt_cpupm_event_data *)arg;
 
 		if ((data->pwr_domain & MT_CPUPM_PWR_DOMAIN_CORE) > 0) {
 			ptp3_core_deinit(data->cpuid);

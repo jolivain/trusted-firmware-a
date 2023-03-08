@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -14,14 +14,13 @@
 
 #if HW_ASSISTED_COHERENCY
 #define scmi_lock_init(lock)
-#define scmi_lock_get(lock)		spin_lock(lock)
-#define scmi_lock_release(lock)		spin_unlock(lock)
+#define scmi_lock_get(lock) spin_lock(lock)
+#define scmi_lock_release(lock) spin_unlock(lock)
 #else
-#define scmi_lock_init(lock)		bakery_lock_init(lock)
-#define scmi_lock_get(lock)		bakery_lock_get(lock)
-#define scmi_lock_release(lock)		bakery_lock_release(lock)
+#define scmi_lock_init(lock) bakery_lock_init(lock)
+#define scmi_lock_get(lock) bakery_lock_get(lock)
+#define scmi_lock_release(lock) bakery_lock_release(lock)
 #endif
-
 
 /*
  * Private helper function to get exclusive access to SCMI channel.
@@ -33,7 +32,7 @@ void scmi_get_channel(scmi_channel_t *ch)
 
 	/* Make sure any previous command has finished */
 	assert(SCMI_IS_CHANNEL_FREE(
-			((mailbox_mem_t *)(ch->info->scmi_mbx_mem))->status));
+		((mailbox_mem_t *)(ch->info->scmi_mbx_mem))->status));
 }
 
 /*
@@ -78,7 +77,7 @@ void scmi_put_channel(scmi_channel_t *ch)
 {
 	/* Make sure any previous command has finished */
 	assert(SCMI_IS_CHANNEL_FREE(
-			((mailbox_mem_t *)(ch->info->scmi_mbx_mem))->status));
+		((mailbox_mem_t *)(ch->info->scmi_mbx_mem))->status));
 
 	assert(ch->lock);
 	scmi_lock_release(ch->lock);
@@ -99,8 +98,8 @@ int scmi_proto_version(void *p, uint32_t proto_id, uint32_t *version)
 	scmi_get_channel(ch);
 
 	mbx_mem = (mailbox_mem_t *)(ch->info->scmi_mbx_mem);
-	mbx_mem->msg_header = SCMI_MSG_CREATE(proto_id, SCMI_PROTO_VERSION_MSG,
-							token);
+	mbx_mem->msg_header =
+		SCMI_MSG_CREATE(proto_id, SCMI_PROTO_VERSION_MSG, token);
 	mbx_mem->len = SCMI_PROTO_VERSION_MSG_LEN;
 	mbx_mem->flags = SCMI_FLAG_RESP_POLL;
 
@@ -119,8 +118,8 @@ int scmi_proto_version(void *p, uint32_t proto_id, uint32_t *version)
 /*
  * API to query the protocol message attributes for a SCMI protocol.
  */
-int scmi_proto_msg_attr(void *p, uint32_t proto_id,
-		uint32_t command_id, uint32_t *attr)
+int scmi_proto_msg_attr(void *p, uint32_t proto_id, uint32_t command_id,
+			uint32_t *attr)
 {
 	mailbox_mem_t *mbx_mem;
 	unsigned int token = 0;
@@ -132,8 +131,8 @@ int scmi_proto_msg_attr(void *p, uint32_t proto_id,
 	scmi_get_channel(ch);
 
 	mbx_mem = (mailbox_mem_t *)(ch->info->scmi_mbx_mem);
-	mbx_mem->msg_header = SCMI_MSG_CREATE(proto_id,
-				SCMI_PROTO_MSG_ATTR_MSG, token);
+	mbx_mem->msg_header =
+		SCMI_MSG_CREATE(proto_id, SCMI_PROTO_MSG_ATTR_MSG, token);
 	mbx_mem->len = SCMI_PROTO_MSG_ATTR_MSG_LEN;
 	mbx_mem->flags = SCMI_FLAG_RESP_POLL;
 	SCMI_PAYLOAD_ARG1(mbx_mem->payload, command_id);
@@ -179,7 +178,7 @@ void *scmi_init(scmi_channel_t *ch)
 
 	if (!is_scmi_version_compatible(SCMI_PWR_DMN_PROTO_VER, version)) {
 		WARN("SCMI power domain protocol version 0x%x incompatible with driver version 0x%x\n",
-			version, SCMI_PWR_DMN_PROTO_VER);
+		     version, SCMI_PWR_DMN_PROTO_VER);
 		goto error;
 	}
 
@@ -193,12 +192,12 @@ void *scmi_init(scmi_channel_t *ch)
 
 	if (!is_scmi_version_compatible(SCMI_SYS_PWR_PROTO_VER, version)) {
 		WARN("SCMI system power management protocol version 0x%x incompatible with driver version 0x%x\n",
-			version, SCMI_SYS_PWR_PROTO_VER);
+		     version, SCMI_SYS_PWR_PROTO_VER);
 		goto error;
 	}
 
 	VERBOSE("SCMI system power management protocol version 0x%x detected\n",
-						version);
+		version);
 
 	INFO("SCMI driver initialized\n");
 

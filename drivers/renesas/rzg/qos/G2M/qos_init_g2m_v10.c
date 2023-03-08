@@ -14,7 +14,7 @@
 #include "qos_init_g2m_v10_mstat.h"
 #include "qos_reg.h"
 
-#define RCAR_QOS_VERSION	"rev.0.19"
+#define RCAR_QOS_VERSION "rev.0.19"
 
 static const struct rcar_gen3_dbsc_qos_settings g2m_v10_qos[] = {
 	/* BUFCAM settings */
@@ -73,9 +73,9 @@ void qos_init_g2m_v10(void)
 	(RCAR_DRAM_SPLIT == RCAR_DRAM_SPLIT_AUTO)
 	NOTICE("BL2: DRAM Split is 2ch\n");
 	mmio_write_32(AXI_ADSPLCR0, 0x00000000U);
-	mmio_write_32(AXI_ADSPLCR1, ADSPLCR0_ADRMODE_DEFAULT |
-		      ADSPLCR0_SPLITSEL(0xFFU) | ADSPLCR0_AREA(0x1CU) |
-		      ADSPLCR0_SWP);
+	mmio_write_32(AXI_ADSPLCR1,
+		      ADSPLCR0_ADRMODE_DEFAULT | ADSPLCR0_SPLITSEL(0xFFU) |
+			      ADSPLCR0_AREA(0x1CU) | ADSPLCR0_SWP);
 	mmio_write_32(AXI_ADSPLCR2, 0x089A0000U);
 	mmio_write_32(AXI_ADSPLCR3, 0x00000000U);
 #else /* RCAR_DRAM_SPLIT == RCAR_DRAM_SPLIT_4CH */
@@ -83,7 +83,7 @@ void qos_init_g2m_v10(void)
 #endif /* RCAR_DRAM_SPLIT == RCAR_DRAM_SPLIT_4CH */
 
 #if !(RCAR_QOS_TYPE == RCAR_QOS_NONE)
-#if RCAR_QOS_TYPE  == RCAR_QOS_TYPE_DEFAULT
+#if RCAR_QOS_TYPE == RCAR_QOS_TYPE_DEFAULT
 	NOTICE("BL2: QoS is default setting(%s)\n", RCAR_QOS_VERSION);
 #endif
 
@@ -101,8 +101,8 @@ void qos_init_g2m_v10(void)
 	mmio_write_32(QOSCTRL_RACNT0, 0x00000000U);
 
 	/* QOSBW setting */
-	mmio_write_32(QOSCTRL_SL_INIT, SL_INIT_REFFSSLOT | SL_INIT_SLOTSSLOT |
-		      SL_INIT_SSLOTCLK);
+	mmio_write_32(QOSCTRL_SL_INIT,
+		      SL_INIT_REFFSSLOT | SL_INIT_SLOTSSLOT | SL_INIT_SSLOTCLK);
 	mmio_write_32(QOSCTRL_REF_ARS, 0x00330000U);
 
 	/* QOSBW SRAM setting */

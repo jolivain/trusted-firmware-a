@@ -1,12 +1,12 @@
 /*
- * Copyright (c) 2019-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <common/bl_common.h>
-
 #include <corstone700_mhu.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>
@@ -16,13 +16,11 @@
  * Replace or extend the below regions as required
  */
 
-const mmap_region_t plat_arm_mmap[] = {
-	ARM_MAP_SHARED_RAM,
-	ARM_MAP_NS_SHARED_RAM,
-	ARM_MAP_NS_DRAM1,
-	CORSTONE700_MAP_DEVICE,
-	{0}
-};
+const mmap_region_t plat_arm_mmap[] = { ARM_MAP_SHARED_RAM,
+					ARM_MAP_NS_SHARED_RAM,
+					ARM_MAP_NS_DRAM1,
+					CORSTONE700_MAP_DEVICE,
+					{ 0 } };
 
 /* Corstone700 only has one always-on power domain and there
  * is no power control present

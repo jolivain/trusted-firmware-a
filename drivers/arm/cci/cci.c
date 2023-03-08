@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -14,18 +14,18 @@
 #include <drivers/arm/cci.h>
 #include <lib/mmio.h>
 
-#define MAKE_CCI_PART_NUMBER(hi, lo)	(((hi) << 8) | (lo))
-#define CCI_PART_LO_MASK		U(0xff)
-#define CCI_PART_HI_MASK		U(0xf)
+#define MAKE_CCI_PART_NUMBER(hi, lo) (((hi) << 8) | (lo))
+#define CCI_PART_LO_MASK U(0xff)
+#define CCI_PART_HI_MASK U(0xf)
 
 /* CCI part number codes read from Peripheral ID registers 0 and 1 */
-#define CCI400_PART_NUM		0x420
-#define CCI500_PART_NUM		0x422
-#define CCI550_PART_NUM		0x423
+#define CCI400_PART_NUM 0x420
+#define CCI500_PART_NUM 0x422
+#define CCI550_PART_NUM 0x423
 
-#define CCI400_SLAVE_PORTS	5
-#define CCI500_SLAVE_PORTS	7
-#define CCI550_SLAVE_PORTS	7
+#define CCI400_SLAVE_PORTS 5
+#define CCI500_SLAVE_PORTS 7
+#define CCI550_SLAVE_PORTS 7
 
 static uintptr_t cci_base;
 static const int *cci_slave_if_map;
@@ -89,7 +89,6 @@ static int get_slave_ports(unsigned int part_num)
 	int num_slave_ports = -1;
 
 	switch (part_num) {
-
 	case CCI400_PART_NUM:
 		num_slave_ports = CCI400_SLAVE_PORTS;
 		break;
@@ -109,7 +108,7 @@ static int get_slave_ports(unsigned int part_num)
 #endif /* ENABLE_ASSERTIONS */
 
 void __init cci_init(uintptr_t base, const int *map,
-				unsigned int num_cci_masters)
+		     unsigned int num_cci_masters)
 {
 	assert(map != NULL);
 	assert(base != 0U);
@@ -142,8 +141,8 @@ void cci_enable_snoop_dvm_reqs(unsigned int master_id)
 	 * Enable Snoops and DVM messages, no need for Read/Modify/Write as
 	 * rest of bits are write ignore
 	 */
-	mmio_write_32(cci_base +
-		      SLAVE_IFACE_OFFSET(slave_if_id) + SNOOP_CTRL_REG,
+	mmio_write_32(cci_base + SLAVE_IFACE_OFFSET(slave_if_id) +
+			      SNOOP_CTRL_REG,
 		      DVM_EN_BIT | SNOOP_EN_BIT);
 
 	/*
@@ -169,8 +168,8 @@ void cci_disable_snoop_dvm_reqs(unsigned int master_id)
 	 * Disable Snoops and DVM messages, no need for Read/Modify/Write as
 	 * rest of bits are write ignore.
 	 */
-	mmio_write_32(cci_base +
-		      SLAVE_IFACE_OFFSET(slave_if_id) + SNOOP_CTRL_REG,
+	mmio_write_32(cci_base + SLAVE_IFACE_OFFSET(slave_if_id) +
+			      SNOOP_CTRL_REG,
 		      ~(DVM_EN_BIT | SNOOP_EN_BIT));
 
 	/*
@@ -183,4 +182,3 @@ void cci_disable_snoop_dvm_reqs(unsigned int master_id)
 	while ((mmio_read_32(cci_base + STATUS_REG) & CHANGE_PENDING_BIT) != 0U)
 		;
 }
-

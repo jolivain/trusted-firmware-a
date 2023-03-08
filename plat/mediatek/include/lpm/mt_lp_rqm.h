@@ -20,25 +20,25 @@ enum plat_mt_lpm_rq_update_type {
 };
 
 /* Determine the request valid */
-#define MT_LP_RQ_VALID		(0x1)
-#define MT_LP_RQ_INVALID	(0x0)
+#define MT_LP_RQ_VALID (0x1)
+#define MT_LP_RQ_INVALID (0x0)
 
 /* Determine the request user opertions */
-#define MT_LP_RQ_USER_INVALID	(-1)
-#define MT_LP_RQ_USER_MAX	(32)
-#define MT_LP_RQ_USER_NAME_LEN	(4)
-#define MT_LP_RQ_USER_CHAR_U	(8)
+#define MT_LP_RQ_USER_INVALID (-1)
+#define MT_LP_RQ_USER_MAX (32)
+#define MT_LP_RQ_USER_NAME_LEN (4)
+#define MT_LP_RQ_USER_CHAR_U (8)
 
 /* Determine the request update flag */
-#define MT_LP_RQ_FLAG_DONE		(0)
-#define MT_LP_RQ_FLAG_NEED_UPDATE	BIT(6)
+#define MT_LP_RQ_FLAG_DONE (0)
+#define MT_LP_RQ_FLAG_NEED_UPDATE BIT(6)
 
 /* Determine the resource update id */
-#define MT_LP_RQ_ID_ALL_USAGE	(-1)
+#define MT_LP_RQ_ID_ALL_USAGE (-1)
 
 /* Determine the return status */
-#define MT_LP_RQ_STA_OK		(0)
-#define MT_LP_RQ_STA_BAD	(-1)
+#define MT_LP_RQ_STA_OK (0)
+#define MT_LP_RQ_STA_BAD (-1)
 
 struct mt_lp_res_req {
 	/* Determine the resource req public identify */

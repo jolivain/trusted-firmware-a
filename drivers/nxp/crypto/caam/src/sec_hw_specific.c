@@ -13,11 +13,11 @@
 #include <stdlib.h>
 
 #include <arch_helpers.h>
-#include "caam.h"
 #include <common/debug.h>
+
+#include "caam.h"
 #include "jobdesc.h"
 #include "sec_hw_specific.h"
-
 
 /* Job rings used for communication with SEC HW */
 extern struct sec_job_ring_t g_job_rings[MAX_SEC_JOB_RINGS];
@@ -58,7 +58,7 @@ static inline void hw_set_output_ring_start_addr(struct jobring_regs *regs,
 static inline void hw_remove_entries(sec_job_ring_t *jr, int num)
 {
 	struct jobring_regs *regs =
-	    (struct jobring_regs *)jr->register_base_addr;
+		(struct jobring_regs *)jr->register_base_addr;
 
 	sec_out32(&regs->orjr, num);
 }
@@ -70,7 +70,7 @@ static inline void hw_remove_entries(sec_job_ring_t *jr, int num)
 static inline int hw_get_available_slots(sec_job_ring_t *jr)
 {
 	struct jobring_regs *regs =
-	    (struct jobring_regs *)jr->register_base_addr;
+		(struct jobring_regs *)jr->register_base_addr;
 
 	return sec_in32(&regs->irsa);
 }
@@ -83,7 +83,7 @@ static inline int hw_get_available_slots(sec_job_ring_t *jr)
 static inline int hw_get_no_finished_jobs(sec_job_ring_t *jr)
 {
 	struct jobring_regs *regs =
-	    (struct jobring_regs *)jr->register_base_addr;
+		(struct jobring_regs *)jr->register_base_addr;
 
 	return sec_in32(&regs->orsf);
 }
@@ -149,7 +149,7 @@ int hw_reset_job_ring(sec_job_ring_t *job_ring)
 {
 	int ret = 0;
 	struct jobring_regs *regs =
-	    (struct jobring_regs *)job_ring->register_base_addr;
+		(struct jobring_regs *)job_ring->register_base_addr;
 
 	/* First reset the job ring in hw */
 	ret = hw_shutdown_job_ring(job_ring);
@@ -180,7 +180,7 @@ int hw_reset_job_ring(sec_job_ring_t *job_ring)
 int hw_shutdown_job_ring(sec_job_ring_t *job_ring)
 {
 	struct jobring_regs *regs =
-	    (struct jobring_regs *)job_ring->register_base_addr;
+		(struct jobring_regs *)job_ring->register_base_addr;
 	unsigned int timeout = SEC_TIMEOUT;
 	uint32_t tmp = 0U;
 
@@ -204,8 +204,8 @@ int hw_shutdown_job_ring(sec_job_ring_t *job_ring)
 
 	do {
 		tmp = sec_in32(&regs->jrint);
-	} while (((tmp & JRINT_ERR_HALT_MASK) ==
-		  JRINT_ERR_HALT_INPROGRESS) && ((--timeout) != 0U));
+	} while (((tmp & JRINT_ERR_HALT_MASK) == JRINT_ERR_HALT_INPROGRESS) &&
+		 ((--timeout) != 0U));
 
 	if ((tmp & JRINT_ERR_HALT_MASK) != JRINT_ERR_HALT_COMPLETE ||
 	    timeout == 0U) {
@@ -222,8 +222,7 @@ int hw_shutdown_job_ring(sec_job_ring_t *job_ring)
 
 	do {
 		tmp = sec_in32(&regs->jrcr);
-	} while (((tmp & JR_REG_JRCR_VAL_RESET) != 0U) &&
-		 ((--timeout) != 0U));
+	} while (((tmp & JR_REG_JRCR_VAL_RESET) != 0U) && ((--timeout) != 0U));
 
 	if (timeout == 0U) {
 		ERROR("Failed to reset hw job ring\n");
@@ -238,7 +237,6 @@ int hw_shutdown_job_ring(sec_job_ring_t *job_ring)
 		jr_enable_irqs(job_ring);
 	}
 	return 0;
-
 }
 
 void hw_handle_job_ring_error(sec_job_ring_t *job_ring, uint32_t error_code)
@@ -281,14 +279,14 @@ int hw_job_ring_error(sec_job_ring_t *job_ring)
 {
 	uint32_t jrint_error_code;
 	struct jobring_regs *regs =
-	    (struct jobring_regs *)job_ring->register_base_addr;
+		(struct jobring_regs *)job_ring->register_base_addr;
 
 	if (JR_REG_JRINT_JRE_EXTRACT(sec_in32(&regs->jrint)) == 0) {
 		return 0;
 	}
 
 	jrint_error_code =
-	    JR_REG_JRINT_ERR_TYPE_EXTRACT(sec_in32(&regs->jrint));
+		JR_REG_JRINT_ERR_TYPE_EXTRACT(sec_in32(&regs->jrint));
 	switch (jrint_error_code) {
 	case JRINT_ERR_WRITE_STATUS:
 		ERROR("Error writing status to Output Ring ");
@@ -327,7 +325,7 @@ int hw_job_ring_set_coalescing_param(sec_job_ring_t *job_ring,
 {
 	uint32_t reg_val = 0U;
 	struct jobring_regs *regs =
-	    (struct jobring_regs *)job_ring->register_base_addr;
+		(struct jobring_regs *)job_ring->register_base_addr;
 
 	/* Set descriptor count coalescing */
 	reg_val |= (irq_coalescing_count << JR_REG_JRCFG_LO_ICDCT_SHIFT);
@@ -347,7 +345,7 @@ int hw_job_ring_enable_coalescing(sec_job_ring_t *job_ring)
 {
 	uint32_t reg_val = 0U;
 	struct jobring_regs *regs =
-	    (struct jobring_regs *)job_ring->register_base_addr;
+		(struct jobring_regs *)job_ring->register_base_addr;
 
 	/* Get the current value of the register */
 	reg_val = sec_in32(&regs->jrcfg1);
@@ -367,7 +365,7 @@ int hw_job_ring_disable_coalescing(sec_job_ring_t *job_ring)
 {
 	uint32_t reg_val = 0U;
 	struct jobring_regs *regs =
-	    (struct jobring_regs *)job_ring->register_base_addr;
+		(struct jobring_regs *)job_ring->register_base_addr;
 
 	/* Get the current value of the register */
 	reg_val = sec_in32(&regs->jrcfg1);
@@ -381,11 +379,9 @@ int hw_job_ring_disable_coalescing(sec_job_ring_t *job_ring)
 	VERBOSE("Disabled coalescing on jr");
 
 	return 0;
-
 }
 
-void hw_flush_job_ring(struct sec_job_ring_t *job_ring,
-		       uint32_t do_notify,
+void hw_flush_job_ring(struct sec_job_ring_t *job_ring, uint32_t do_notify,
 		       uint32_t error_code, uint32_t *notified_descs)
 {
 	int32_t jobs_no_to_discard = 0;
@@ -411,8 +407,8 @@ void hw_flush_job_ring(struct sec_job_ring_t *job_ring,
 		 * Increment the consumer index for the current job ring
 		 */
 
-		job_ring->cidx = SEC_CIRCULAR_COUNTER(job_ring->cidx,
-						      SEC_JOB_RING_SIZE);
+		job_ring->cidx =
+			SEC_CIRCULAR_COUNTER(job_ring->cidx, SEC_JOB_RING_SIZE);
 
 		hw_remove_entries(job_ring, 1);
 	}
@@ -446,7 +442,8 @@ int hw_poll_job_ring(struct sec_job_ring_t *job_ring, int32_t limit)
 	phys_addr_t current_desc_loc;
 
 #if defined(SEC_MEM_NON_COHERENT) && defined(IMAGE_BL2)
-	inv_dcache_range((uintptr_t)job_ring->register_base_addr, sizeof(struct jobring_regs));
+	inv_dcache_range((uintptr_t)job_ring->register_base_addr,
+			 sizeof(struct jobring_regs));
 	dmbsy();
 #endif
 
@@ -472,13 +469,13 @@ int hw_poll_job_ring(struct sec_job_ring_t *job_ring, int32_t limit)
 
 	number_of_jobs_available = hw_get_no_finished_jobs(job_ring);
 	jobs_no_to_notify = (limit < 0 || limit > number_of_jobs_available) ?
-	    number_of_jobs_available : limit;
+				    number_of_jobs_available :
+				    limit;
 	VERBOSE("JR - pi %d, ci %d, ", job_ring->pidx, job_ring->cidx);
 	VERBOSE("Jobs submitted %d", number_of_jobs_available);
 	VERBOSE("Jobs to notify %d\n", jobs_no_to_notify);
 
 	while (jobs_no_to_notify > notified_descs_no) {
-
 #if defined(SEC_MEM_NON_COHERENT) && defined(IMAGE_BL2)
 		inv_dcache_range(
 			(uintptr_t)(&job_ring->output_ring[job_ring->cidx]),
@@ -487,16 +484,16 @@ int hw_poll_job_ring(struct sec_job_ring_t *job_ring, int32_t limit)
 #endif
 
 		/* Get job status here */
-		sec_error_code =
-		    sec_in32(&(job_ring->output_ring[job_ring->cidx].status));
+		sec_error_code = sec_in32(
+			&(job_ring->output_ring[job_ring->cidx].status));
 
 		/* Get completed descriptor
 		 */
-		current_desc_loc = (uintptr_t)
-		    &job_ring->output_ring[job_ring->cidx].desc;
+		current_desc_loc =
+			(uintptr_t)&job_ring->output_ring[job_ring->cidx].desc;
 		current_desc_addr = sec_read_addr(current_desc_loc);
 
-		current_desc = ptov((phys_addr_t *) current_desc_addr);
+		current_desc = ptov((phys_addr_t *)current_desc_addr);
 		if (current_desc == 0) {
 			ERROR("No descriptor returned from SEC");
 			assert(current_desc);
@@ -505,15 +502,14 @@ int hw_poll_job_ring(struct sec_job_ring_t *job_ring, int32_t limit)
 		/* now increment the consumer index for the current job ring,
 		 * AFTER saving job in temporary location!
 		 */
-		job_ring->cidx = SEC_CIRCULAR_COUNTER(job_ring->cidx,
-						      SEC_JOB_RING_SIZE);
+		job_ring->cidx =
+			SEC_CIRCULAR_COUNTER(job_ring->cidx, SEC_JOB_RING_SIZE);
 
 		if (sec_error_code != 0) {
 			ERROR("desc at cidx %d\n ", job_ring->cidx);
 			ERROR("generated error %x\n", sec_error_code);
 
-			sec_handle_desc_error(job_ring,
-					      sec_error_code,
+			sec_handle_desc_error(job_ring, sec_error_code,
 					      &error_descs_no,
 					      &do_driver_shutdown);
 			hw_remove_entries(job_ring, 1);
@@ -524,27 +520,27 @@ int hw_poll_job_ring(struct sec_job_ring_t *job_ring, int32_t limit)
 		hw_remove_entries(job_ring, 1);
 		notified_descs_no++;
 
-		arg_addr = (phys_addr_t *) (current_desc +
-				(MAX_DESC_SIZE_WORDS * sizeof(uint32_t)));
+		arg_addr = (phys_addr_t *)(current_desc + (MAX_DESC_SIZE_WORDS *
+							   sizeof(uint32_t)));
 
-		fnptr = (phys_addr_t *) (current_desc +
-					(MAX_DESC_SIZE_WORDS * sizeof(uint32_t)
-					+  sizeof(void *)));
+		fnptr = (phys_addr_t *)(current_desc +
+					(MAX_DESC_SIZE_WORDS *
+						 sizeof(uint32_t) +
+					 sizeof(void *)));
 
 		arg = (void *)*(arg_addr);
 		if (*fnptr != 0) {
 			VERBOSE("Callback Function called\n");
-			usercall = (user_callback) *(fnptr);
-			(*usercall) ((uint32_t *) current_desc,
-				     sec_error_code, arg, job_ring);
+			usercall = (user_callback) * (fnptr);
+			(*usercall)((uint32_t *)current_desc, sec_error_code,
+				    arg, job_ring);
 		}
 	}
 
 	return notified_descs_no;
 }
 
-void sec_handle_desc_error(sec_job_ring_t *job_ring,
-			   uint32_t sec_error_code,
+void sec_handle_desc_error(sec_job_ring_t *job_ring, uint32_t sec_error_code,
 			   uint32_t *notified_descs,
 			   uint32_t *do_driver_shutdown)
 {
@@ -563,7 +559,7 @@ void flush_job_rings(void)
 		 * with producer index, then we have descs to flush.
 		 */
 		while (job_ring->pidx != job_ring->cidx) {
-			hw_flush_job_ring(job_ring, false, 0,	/* no error */
+			hw_flush_job_ring(job_ring, false, 0, /* no error */
 					  NULL);
 		}
 	}
@@ -598,7 +594,7 @@ int jr_enable_irqs(struct sec_job_ring_t *job_ring)
 {
 	uint32_t reg_val = 0U;
 	struct jobring_regs *regs =
-	    (struct jobring_regs *)job_ring->register_base_addr;
+		(struct jobring_regs *)job_ring->register_base_addr;
 
 	/* Get the current value of the register */
 	reg_val = sec_in32(&regs->jrcfg1);
@@ -618,7 +614,7 @@ int jr_disable_irqs(struct sec_job_ring_t *job_ring)
 {
 	uint32_t reg_val = 0U;
 	struct jobring_regs *regs =
-	    (struct jobring_regs *)job_ring->register_base_addr;
+		(struct jobring_regs *)job_ring->register_base_addr;
 
 	/* Get the current value of the register */
 	reg_val = sec_in32(&regs->jrcfg1);

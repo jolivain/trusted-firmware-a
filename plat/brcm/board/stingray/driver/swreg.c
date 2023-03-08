@@ -11,38 +11,36 @@
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-
 #include <sr_utils.h>
 #include <swreg.h>
 
-#define MIN_VOLT                760000
-#define MAX_VOLT                1060000
+#define MIN_VOLT 760000
+#define MAX_VOLT 1060000
 
-#define BSTI_WRITE              0x1
-#define BSTI_READ               0x2
-#define BSTI_COMMAND_TA         0x2
-#define BSTI_COMMAND_DATA       0xFF
-#define BSTI_CONTROL_VAL        0x81
-#define BSTI_CONTROL_BUSY       0x100
-#define BSTI_TOGGLE_BIT         0x2
-#define BSTI_CONFI_DONE_MASK    0xFFFFFFFD
-#define BSTI_REG_DATA_MASK      0xFFFF
-#define BSTI_CMD(sb, op, pa, ra, ta, data) \
-	((((sb) & 0x3) << 30) | (((op) & 0x3) << 28) | \
-	(((pa) & 0x1F) << 23) | (((ra) & 0x1F) << 18) | \
-	(((ta) & 0x3) << 16) | (data))
+#define BSTI_WRITE 0x1
+#define BSTI_READ 0x2
+#define BSTI_COMMAND_TA 0x2
+#define BSTI_COMMAND_DATA 0xFF
+#define BSTI_CONTROL_VAL 0x81
+#define BSTI_CONTROL_BUSY 0x100
+#define BSTI_TOGGLE_BIT 0x2
+#define BSTI_CONFI_DONE_MASK 0xFFFFFFFD
+#define BSTI_REG_DATA_MASK 0xFFFF
+#define BSTI_CMD(sb, op, pa, ra, ta, data)                               \
+	((((sb)&0x3) << 30) | (((op)&0x3) << 28) | (((pa)&0x1F) << 23) | \
+	 (((ra)&0x1F) << 18) | (((ta)&0x3) << 16) | (data))
 
-#define PHY_REG0        0x0
-#define PHY_REG1        0x1
-#define PHY_REG4        0x4
-#define PHY_REG5        0x5
-#define PHY_REG6        0x6
-#define PHY_REG7        0x7
-#define PHY_REGC        0xc
+#define PHY_REG0 0x0
+#define PHY_REG1 0x1
+#define PHY_REG4 0x4
+#define PHY_REG5 0x5
+#define PHY_REG6 0x6
+#define PHY_REG7 0x7
+#define PHY_REGC 0xc
 
 #define IHOST_VDDC_DATA 0x560
-#define DDR_CORE_DATA   0x2560
-#define UPDATE_POS_EDGE(data, set)    ((data) | ((set) << 1))
+#define DDR_CORE_DATA 0x2560
+#define UPDATE_POS_EDGE(data, set) ((data) | ((set) << 1))
 
 /*
  * Formula for SR A2 reworked board:
@@ -52,14 +50,14 @@
  *      500000 - Reference voltage
  *      3125   - one step value
  */
-#define A2_VOL_REF         500000
-#define ONE_STEP_VALUE  3125
-#define VOL_DIV(vol)    (((vol*10000ull)/(14117*98ull)) * 100ull)
+#define A2_VOL_REF 500000
+#define ONE_STEP_VALUE 3125
+#define VOL_DIV(vol) (((vol * 10000ull) / (14117 * 98ull)) * 100ull)
 #define STEP_VALUE(vol) \
 	((((((VOL_DIV(vol)) - A2_VOL_REF) / ONE_STEP_VALUE) & 0xFF) << 8) | 4)
 
-#define B0_VOL_REF         ((500000/100)*98)
-#define B0_ONE_STEP_VALUE  3125
+#define B0_VOL_REF ((500000 / 100) * 98)
+#define B0_ONE_STEP_VALUE 3125
 /*
  * Formula for SR B0 chip for IHOST12/03 and VDDC_CORE
  * step = ((vol/1.56) - (500000 * 0.98))/3125
@@ -68,10 +66,11 @@
  *      500000 - Reference voltage
  *      3125   - one step value
  */
-#define B0_VOL_DIV(vol)    (((vol)*100ull)/156)
-#define B0_STEP_VALUE(vol) \
-	((((((B0_VOL_DIV(vol)) - B0_VOL_REF) / B0_ONE_STEP_VALUE) \
-		& 0xFF) << 8) | 4)
+#define B0_VOL_DIV(vol) (((vol)*100ull) / 156)
+#define B0_STEP_VALUE(vol)                                                \
+	((((((B0_VOL_DIV(vol)) - B0_VOL_REF) / B0_ONE_STEP_VALUE) & 0xFF) \
+	  << 8) |                                                         \
+	 4)
 
 /*
  * Formula for SR B0 chip for DDR-CORE
@@ -81,60 +80,56 @@
  *      500000 - Reference voltage
  *      3125   - one step value
  */
-#define B0_DDR_VDDC_VOL_DIV(vol)    ((vol)/1)
-#define B0_DDR_VDDC_STEP_VALUE(vol) \
-	((((((B0_DDR_VDDC_VOL_DIV(vol)) - B0_VOL_REF) / B0_ONE_STEP_VALUE) \
-		& 0xFF) << 8) | 4)
+#define B0_DDR_VDDC_VOL_DIV(vol) ((vol) / 1)
+#define B0_DDR_VDDC_STEP_VALUE(vol)                                          \
+	((((((B0_DDR_VDDC_VOL_DIV(vol)) - B0_VOL_REF) / B0_ONE_STEP_VALUE) & \
+	   0xFF)                                                             \
+	  << 8) |                                                            \
+	 4)
 
-#define MAX_SWREG_CNT       8
-#define MAX_ADDR_PER_SWREG  16
-#define MAX_REG_ADDR        0xF
-#define MIN_REG_ADDR        0x0
+#define MAX_SWREG_CNT 8
+#define MAX_ADDR_PER_SWREG 16
+#define MAX_REG_ADDR 0xF
+#define MIN_REG_ADDR 0x0
 
 static const char *sw_reg_name[MAX_SWREG_CNT] = {
-	"DDR_VDDC",
-	"IHOST03",
-	"IHOST12",
-	"IHOST_ARRAY",
-	"DDRIO_SLAVE",
-	"VDDC_CORE",
-	"VDDC1",
-	"DDRIO_MASTER"
+	"DDR_VDDC",    "IHOST03",   "IHOST12", "IHOST_ARRAY",
+	"DDRIO_SLAVE", "VDDC_CORE", "VDDC1",   "DDRIO_MASTER"
 };
 
 /* firmware values for all SWREG for 3.3V input operation */
 static const uint16_t swreg_fm_data_bx[MAX_SWREG_CNT][MAX_ADDR_PER_SWREG] = {
 	/* DDR logic: Power Domains independent of 12v or 3p3v */
-	{0x25E0, 0x2D54, 0x0EC6, 0x01EC, 0x28BB, 0x1144, 0x0200, 0x69C0,
-	 0x0010, 0x0EDF, 0x90D7, 0x8000, 0x820C, 0x0003, 0x0001, 0x0000},
+	{ 0x25E0, 0x2D54, 0x0EC6, 0x01EC, 0x28BB, 0x1144, 0x0200, 0x69C0,
+	  0x0010, 0x0EDF, 0x90D7, 0x8000, 0x820C, 0x0003, 0x0001, 0x0000 },
 
 	/* ihost03, 3p3V */
-	{0x05E0, 0x39E5, 0x03C1, 0x007C, 0x8BA9, 0x4444, 0x3300, 0x6B80,
-	 0x003F, 0x0FFF, 0x90D7, 0x8000, 0x240C, 0x0003, 0x0001, 0x0000},
+	{ 0x05E0, 0x39E5, 0x03C1, 0x007C, 0x8BA9, 0x4444, 0x3300, 0x6B80,
+	  0x003F, 0x0FFF, 0x90D7, 0x8000, 0x240C, 0x0003, 0x0001, 0x0000 },
 
 	/* ihost12 3p3v */
-	{0x05E0, 0x39E5, 0x03C1, 0x007C, 0x8BA9, 0x4444, 0x3300, 0x6B80,
-	 0x003F, 0x0FFF, 0x90D7, 0x8000, 0x240C, 0x0003, 0x0001, 0x0000},
+	{ 0x05E0, 0x39E5, 0x03C1, 0x007C, 0x8BA9, 0x4444, 0x3300, 0x6B80,
+	  0x003F, 0x0FFF, 0x90D7, 0x8000, 0x240C, 0x0003, 0x0001, 0x0000 },
 
 	/* ihost array */
-	{0x25E0, 0x2D94, 0x0EC6, 0x01EC, 0x2ABB, 0x1144, 0x0340, 0x69C0,
-	 0x0010, 0x0EDF, 0x90D7, 0x8000, 0x860C, 0x0003, 0x0001, 0x0000},
+	{ 0x25E0, 0x2D94, 0x0EC6, 0x01EC, 0x2ABB, 0x1144, 0x0340, 0x69C0,
+	  0x0010, 0x0EDF, 0x90D7, 0x8000, 0x860C, 0x0003, 0x0001, 0x0000 },
 
 	/* ddr io slave : 3p3v */
-	{0x0560, 0x4438, 0x0000, 0x001F, 0x8028, 0x4444, 0x0300, 0x4380,
-	 0x003F, 0x0FFF, 0x10D7, 0x8000, 0xA70C, 0x0003, 0x0001, 0x0000},
+	{ 0x0560, 0x4438, 0x0000, 0x001F, 0x8028, 0x4444, 0x0300, 0x4380,
+	  0x003F, 0x0FFF, 0x10D7, 0x8000, 0xA70C, 0x0003, 0x0001, 0x0000 },
 
 	/* core master 3p3v */
-	{0x05E0, 0x39E5, 0x03C1, 0x007C, 0x8BA9, 0x4444, 0x3300, 0x6B80,
-	 0x003F, 0x0FFF, 0x90D7, 0x8000, 0x240C, 0x0003, 0x0001, 0x0000},
+	{ 0x05E0, 0x39E5, 0x03C1, 0x007C, 0x8BA9, 0x4444, 0x3300, 0x6B80,
+	  0x003F, 0x0FFF, 0x90D7, 0x8000, 0x240C, 0x0003, 0x0001, 0x0000 },
 
 	/* core slave 3p3v */
-	{0x0560, 0x4438, 0x0000, 0x001F, 0x8028, 0x4444, 0x0300, 0x4380,
-	 0x003F, 0x0FFF, 0x10D7, 0x8000, 0x240C, 0x0003, 0x0001, 0x0000},
+	{ 0x0560, 0x4438, 0x0000, 0x001F, 0x8028, 0x4444, 0x0300, 0x4380,
+	  0x003F, 0x0FFF, 0x10D7, 0x8000, 0x240C, 0x0003, 0x0001, 0x0000 },
 
 	/* ddr io master : 3p3v */
-	{0x05E0, 0x39E5, 0x03C1, 0x007C, 0x8BA9, 0x4444, 0x3300, 0x6B80,
-	 0x003F, 0x0FFF, 0x90D7, 0x8000, 0xA70C, 0x0003, 0x0001, 0x0000},
+	{ 0x05E0, 0x39E5, 0x03C1, 0x007C, 0x8BA9, 0x4444, 0x3300, 0x6B80,
+	  0x003F, 0x0FFF, 0x90D7, 0x8000, 0xA70C, 0x0003, 0x0001, 0x0000 },
 };
 
 #define FM_DATA swreg_fm_data_bx
@@ -166,7 +161,7 @@ static int write_swreg_config(enum sw_reg reg_id, uint32_t addr, uint32_t data)
 	ret = swreg_poll();
 	if (ret) {
 		ERROR("Failed to write swreg %s addr 0x%x\n",
-			sw_reg_name[reg_id-1], addr);
+		      sw_reg_name[reg_id - 1], addr);
 		return ret;
 	}
 	return ret;
@@ -183,7 +178,7 @@ static int read_swreg_config(enum sw_reg reg_id, uint32_t addr, uint32_t *data)
 	ret = swreg_poll();
 	if (ret) {
 		ERROR("Failed to read swreg %s addr 0x%x\n",
-			sw_reg_name[reg_id-1], addr);
+		      sw_reg_name[reg_id - 1], addr);
 		return ret;
 	}
 
@@ -269,18 +264,18 @@ int set_swreg(enum sw_reg reg_id, uint32_t micro_volts)
 			data = DDR_CORE_DATA;
 
 		ret = write_swreg_config(reg_id, PHY_REG0,
-					UPDATE_POS_EDGE(data, 1));
+					 UPDATE_POS_EDGE(data, 1));
 		if (ret)
 			goto failed;
 
 		ret = write_swreg_config(reg_id, PHY_REG0,
-					UPDATE_POS_EDGE(data, 0));
+					 UPDATE_POS_EDGE(data, 0));
 		if (ret)
 			goto failed;
 	}
 
-	INFO("%s voltage updated to %duV\n", sw_reg_name[reg_id-1],
-		micro_volts);
+	INFO("%s voltage updated to %duV\n", sw_reg_name[reg_id - 1],
+	     micro_volts);
 	return ret;
 
 failed:
@@ -289,8 +284,8 @@ failed:
 	 * correctly. Booting will fail at random point
 	 * if we continue with wrong voltage settings.
 	 */
-	ERROR("Failed to set %s voltage to %duV\n", sw_reg_name[reg_id-1],
-		micro_volts);
+	ERROR("Failed to set %s voltage to %duV\n", sw_reg_name[reg_id - 1],
+	      micro_volts);
 	assert(0);
 
 	return ret;
@@ -326,8 +321,8 @@ int swreg_firmware_update(void)
 
 		ret = swreg_config_done(reg_id);
 		if (ret) {
-			ERROR("Failed to trigger SWREG firmware update for %s\n"
-				, sw_reg_name[reg_id-1]);
+			ERROR("Failed to trigger SWREG firmware update for %s\n",
+			      sw_reg_name[reg_id - 1]);
 			return ret;
 		}
 	}
@@ -343,12 +338,12 @@ int swreg_firmware_update(void)
 
 		for (addr = MIN_REG_ADDR; addr <= MAX_REG_ADDR; addr++) {
 			ret = read_swreg_config(reg_id, addr, &data);
-			if (ret || (!ret &&
-				(data != FM_DATA[reg_id - 1][addr]))) {
+			if (ret ||
+			    (!ret && (data != FM_DATA[reg_id - 1][addr]))) {
 				ERROR("swreg fm update failed: %s at off %d\n",
-					sw_reg_name[reg_id - 1], addr);
+				      sw_reg_name[reg_id - 1], addr);
 				ERROR("Read val: 0x%x, expected val: 0x%x\n",
-					data, FM_DATA[reg_id - 1][addr]);
+				      data, FM_DATA[reg_id - 1][addr]);
 				return -1;
 			}
 		}
@@ -368,7 +363,7 @@ exit:
 	 * continue with wrong voltage settings.
 	 */
 	ERROR("Failed to update firmware for %s SWREG\n",
-		sw_reg_name[reg_id-1]);
+	      sw_reg_name[reg_id - 1]);
 	assert(0);
 
 	return ret;

@@ -24,8 +24,7 @@ void spi_release_bus(void)
 	iproc_qspi_release_bus();
 }
 
-int spi_xfer(uint32_t bitlen, const void *dout,
-	     void *din, uint32_t flags)
+int spi_xfer(uint32_t bitlen, const void *dout, void *din, uint32_t flags)
 {
 	return iproc_qspi_xfer(bitlen, dout, din, flags);
 }

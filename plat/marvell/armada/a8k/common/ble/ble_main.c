@@ -7,18 +7,17 @@
 
 #include <string.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/console.h>
-
 #include <marvell_plat_priv.h>
 #include <marvell_pm.h>
 #include <plat_marvell.h>
 
-#define BR_FLAG_SILENT		0x1
-#define SKIP_IMAGE_CODE		0xDEADB002
+#include <platform_def.h>
+
+#define BR_FLAG_SILENT 0x1
+#define SKIP_IMAGE_CODE 0xDEADB002
 
 void mailbox_clean(void)
 {
@@ -90,7 +89,7 @@ int exec_ble_main(int bootrom_flags)
 /* NOTE: don't notify this function, all code must be added to exec_ble_main
  * in order to keep the end of ble_main as a fixed address.
  */
-int  __attribute__ ((section(".entry"))) ble_main(int bootrom_flags)
+int __attribute__((section(".entry"))) ble_main(int bootrom_flags)
 {
 	volatile int ret;
 

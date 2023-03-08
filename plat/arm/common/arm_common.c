@@ -1,12 +1,10 @@
 /*
- * Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-
-#include <platform_def.h>
 
 #include <arch.h>
 #include <arch_helpers.h>
@@ -16,8 +14,10 @@
 #include <lib/smccc.h>
 #include <lib/xlat_tables/xlat_tables_compat.h>
 #include <services/arm_arch_svc.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 /* Weak definitions may be overridden in specific ARM standard platform */
 #pragma weak plat_get_ns_image_entrypoint
@@ -118,7 +118,7 @@ uint32_t arm_get_spsr_for_bl33_entry(void)
 	 * well.
 	 */
 	spsr = SPSR_MODE32(mode, plat_get_ns_image_entrypoint() & 0x1,
-			SPSR_E_LITTLE, DISABLE_ALL_EXCEPTIONS);
+			   SPSR_E_LITTLE, DISABLE_ALL_EXCEPTIONS);
 	return spsr;
 }
 #endif /* __aarch64__ */
@@ -138,7 +138,9 @@ void arm_configure_sys_timer(void)
 	reg_val = (1U << CNTACR_RPCT_SHIFT) | (1U << CNTACR_RVCT_SHIFT);
 	reg_val |= (1U << CNTACR_RFRQ_SHIFT) | (1U << CNTACR_RVOFF_SHIFT);
 	reg_val |= (1U << CNTACR_RWVT_SHIFT) | (1U << CNTACR_RWPT_SHIFT);
-	mmio_write_32(ARM_SYS_TIMCTL_BASE + CNTACR_BASE(PLAT_ARM_NSTIMER_FRAME_ID), reg_val);
+	mmio_write_32(ARM_SYS_TIMCTL_BASE +
+			      CNTACR_BASE(PLAT_ARM_NSTIMER_FRAME_ID),
+		      reg_val);
 #endif /* ARM_CONFIG_CNTACR */
 
 	reg_val = (1U << CNTNSAR_NS_SHIFT(PLAT_ARM_NSTIMER_FRAME_ID));

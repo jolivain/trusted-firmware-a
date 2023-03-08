@@ -1,23 +1,22 @@
 /*
- * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
 #include <lib/utils_def.h>
-#include <plat/common/platform.h>
-
 #include <sunxi_cpucfg.h>
 #include <sunxi_mmap.h>
 #include <sunxi_private.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 static void sunxi_cpu_disable_power(unsigned int cluster, unsigned int core)
 {
@@ -49,7 +48,7 @@ static void sunxi_cpu_enable_power(unsigned int cluster, unsigned int core)
 static void sunxi_cpu_off(u_register_t mpidr)
 {
 	unsigned int cluster = MPIDR_AFFLVL1_VAL(mpidr);
-	unsigned int core    = MPIDR_AFFLVL0_VAL(mpidr);
+	unsigned int core = MPIDR_AFFLVL0_VAL(mpidr);
 
 	VERBOSE("PSCI: Powering off cluster %d core %d\n", cluster, core);
 
@@ -67,7 +66,7 @@ static void sunxi_cpu_off(u_register_t mpidr)
 void sunxi_cpu_on(u_register_t mpidr)
 {
 	unsigned int cluster = MPIDR_AFFLVL1_VAL(mpidr);
-	unsigned int core    = MPIDR_AFFLVL0_VAL(mpidr);
+	unsigned int core = MPIDR_AFFLVL0_VAL(mpidr);
 
 	VERBOSE("PSCI: Powering on cluster %d core %d\n", cluster, core);
 
@@ -99,7 +98,7 @@ void sunxi_cpu_power_off_others(void)
 	for (cluster = 0; cluster < PLATFORM_CLUSTER_COUNT; ++cluster) {
 		for (core = 0; core < PLATFORM_MAX_CPUS_PER_CLUSTER; ++core) {
 			u_register_t mpidr = (cluster << MPIDR_AFF1_SHIFT) |
-					     (core    << MPIDR_AFF0_SHIFT) |
+					     (core << MPIDR_AFF0_SHIFT) |
 					     BIT(31);
 			if (mpidr != self)
 				sunxi_cpu_off(mpidr);

@@ -13,6 +13,7 @@
 #include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
 #include <mmu_def.h>
+
 #include <plat/common/platform.h>
 
 #include "plat_common.h"
@@ -29,28 +30,21 @@ const mmap_region_t *plat_ls_get_mmap(void);
  * Contents in case of unrecoverable error (see plat_error_handler()).
  */
 #ifdef IMAGE_BL2
-const mmap_region_t plat_ls_mmap[] = {
-	LS_MAP_CCSR,
-	{0}
-};
+const mmap_region_t plat_ls_mmap[] = { LS_MAP_CCSR, { 0 } };
 #endif
 
 #ifdef IMAGE_BL31
-const mmap_region_t plat_ls_mmap[] = {
-	LS_MAP_CCSR,
+const mmap_region_t plat_ls_mmap[] = { LS_MAP_CCSR,
 #ifdef NXP_DCSR_ADDR
-	LS_MAP_DCSR,
+				       LS_MAP_DCSR,
 #endif
-	LS_MAP_OCRAM,
-	{0}
-};
+				       LS_MAP_OCRAM,
+				       { 0 } };
 #endif
 #ifdef IMAGE_BL32
-const mmap_region_t plat_ls_mmap[] = {
-	LS_MAP_CCSR,
-	LS_MAP_BL32_SEC_MEM,
-	{0}
-};
+const mmap_region_t plat_ls_mmap[] = { LS_MAP_CCSR,
+				       LS_MAP_BL32_SEC_MEM,
+				       { 0 } };
 #endif
 
 /* Weak definitions may be overridden in specific NXP SoC */
@@ -64,10 +58,9 @@ static void mmap_add_ddr_regions_statically(void)
 	dram_regions_info_t *info_dram_regions = get_dram_regions_info();
 	/* MMU map for Non-Secure DRAM Regions */
 	VERBOSE("DRAM Region %d: %p - %p\n", i,
-			(void *) info_dram_regions->region[i].addr,
-			(void *) (info_dram_regions->region[i].addr
-				+ info_dram_regions->region[i].size
-				- 1));
+		(void *)info_dram_regions->region[i].addr,
+		(void *)(info_dram_regions->region[i].addr +
+			 info_dram_regions->region[i].size - 1));
 	mmap_add_region(info_dram_regions->region[i].addr,
 			info_dram_regions->region[i].addr,
 			info_dram_regions->region[i].size,
@@ -75,19 +68,18 @@ static void mmap_add_ddr_regions_statically(void)
 
 	/* MMU map for Secure DDR Region on DRAM-0 */
 	if (info_dram_regions->region[i].size >
-		(NXP_SECURE_DRAM_SIZE + NXP_SP_SHRD_DRAM_SIZE)) {
+	    (NXP_SECURE_DRAM_SIZE + NXP_SP_SHRD_DRAM_SIZE)) {
 		VERBOSE("Secure DRAM Region %d: %p - %p\n", i,
-			(void *) (info_dram_regions->region[i].addr
-				+ info_dram_regions->region[i].size),
-			(void *) (info_dram_regions->region[i].addr
-				+ info_dram_regions->region[i].size
-				+ NXP_SECURE_DRAM_SIZE
-				+ NXP_SP_SHRD_DRAM_SIZE
-				- 1));
-		mmap_add_region((info_dram_regions->region[i].addr
-				+ info_dram_regions->region[i].size),
-				(info_dram_regions->region[i].addr
-				+ info_dram_regions->region[i].size),
+			(void *)(info_dram_regions->region[i].addr +
+				 info_dram_regions->region[i].size),
+			(void *)(info_dram_regions->region[i].addr +
+				 info_dram_regions->region[i].size +
+				 NXP_SECURE_DRAM_SIZE + NXP_SP_SHRD_DRAM_SIZE -
+				 1));
+		mmap_add_region((info_dram_regions->region[i].addr +
+				 info_dram_regions->region[i].size),
+				(info_dram_regions->region[i].addr +
+				 info_dram_regions->region[i].size),
 				(NXP_SECURE_DRAM_SIZE + NXP_SP_SHRD_DRAM_SIZE),
 				MT_MEMORY | MT_RW | MT_SECURE);
 	}
@@ -97,10 +89,9 @@ static void mmap_add_ddr_regions_statically(void)
 		if (info_dram_regions->region[i].size == 0)
 			break;
 		VERBOSE("DRAM Region %d: %p - %p\n", i,
-			(void *) info_dram_regions->region[i].addr,
-			(void *) (info_dram_regions->region[i].addr
-				+ info_dram_regions->region[i].size
-				- 1));
+			(void *)info_dram_regions->region[i].addr,
+			(void *)(info_dram_regions->region[i].addr +
+				 info_dram_regions->region[i].size - 1));
 		mmap_add_region(info_dram_regions->region[i].addr,
 				info_dram_regions->region[i].addr,
 				info_dram_regions->region[i].size,
@@ -118,14 +109,13 @@ void mmap_add_ddr_region_dynamically(void)
 	dram_regions_info_t *info_dram_regions = get_dram_regions_info();
 	/* MMU map for Non-Secure DRAM Regions */
 	VERBOSE("DRAM Region %d: %p - %p\n", i,
-			(void *) info_dram_regions->region[i].addr,
-			(void *) (info_dram_regions->region[i].addr
-				+ info_dram_regions->region[i].size
-				- 1));
+		(void *)info_dram_regions->region[i].addr,
+		(void *)(info_dram_regions->region[i].addr +
+			 info_dram_regions->region[i].size - 1));
 	ret = mmap_add_dynamic_region(info_dram_regions->region[i].addr,
-			info_dram_regions->region[i].addr,
-			info_dram_regions->region[i].size,
-			MT_MEMORY | MT_RW | MT_NS);
+				      info_dram_regions->region[i].addr,
+				      info_dram_regions->region[i].size,
+				      MT_MEMORY | MT_RW | MT_NS);
 	if (ret != 0) {
 		ERROR("Failed to add dynamic memory region\n");
 		panic();
@@ -133,21 +123,21 @@ void mmap_add_ddr_region_dynamically(void)
 
 	/* MMU map for Secure DDR Region on DRAM-0 */
 	if (info_dram_regions->region[i].size >
-		(NXP_SECURE_DRAM_SIZE + NXP_SP_SHRD_DRAM_SIZE)) {
+	    (NXP_SECURE_DRAM_SIZE + NXP_SP_SHRD_DRAM_SIZE)) {
 		VERBOSE("Secure DRAM Region %d: %p - %p\n", i,
-			(void *) (info_dram_regions->region[i].addr
-				+ info_dram_regions->region[i].size),
-			(void *) (info_dram_regions->region[i].addr
-				+ info_dram_regions->region[i].size
-				+ NXP_SECURE_DRAM_SIZE
-				+ NXP_SP_SHRD_DRAM_SIZE
-				- 1));
-		ret = mmap_add_dynamic_region((info_dram_regions->region[i].addr
-				+ info_dram_regions->region[i].size),
-				(info_dram_regions->region[i].addr
-				+ info_dram_regions->region[i].size),
-				(NXP_SECURE_DRAM_SIZE + NXP_SP_SHRD_DRAM_SIZE),
-				MT_MEMORY | MT_RW | MT_SECURE);
+			(void *)(info_dram_regions->region[i].addr +
+				 info_dram_regions->region[i].size),
+			(void *)(info_dram_regions->region[i].addr +
+				 info_dram_regions->region[i].size +
+				 NXP_SECURE_DRAM_SIZE + NXP_SP_SHRD_DRAM_SIZE -
+				 1));
+		ret = mmap_add_dynamic_region(
+			(info_dram_regions->region[i].addr +
+			 info_dram_regions->region[i].size),
+			(info_dram_regions->region[i].addr +
+			 info_dram_regions->region[i].size),
+			(NXP_SECURE_DRAM_SIZE + NXP_SP_SHRD_DRAM_SIZE),
+			MT_MEMORY | MT_RW | MT_SECURE);
 		if (ret != 0) {
 			ERROR("Failed to add dynamic memory region\n");
 			panic();
@@ -160,14 +150,13 @@ void mmap_add_ddr_region_dynamically(void)
 			break;
 		}
 		VERBOSE("DRAM Region %d: %p - %p\n", i,
-			(void *) info_dram_regions->region[i].addr,
-			(void *) (info_dram_regions->region[i].addr
-				+ info_dram_regions->region[i].size
-				- 1));
+			(void *)info_dram_regions->region[i].addr,
+			(void *)(info_dram_regions->region[i].addr +
+				 info_dram_regions->region[i].size - 1));
 		ret = mmap_add_dynamic_region(info_dram_regions->region[i].addr,
-				info_dram_regions->region[i].addr,
-				info_dram_regions->region[i].size,
-				MT_MEMORY | MT_RW | MT_NS);
+					      info_dram_regions->region[i].addr,
+					      info_dram_regions->region[i].size,
+					      MT_MEMORY | MT_RW | MT_NS);
 		if (ret != 0) {
 			ERROR("Failed to add dynamic memory region\n");
 			panic();
@@ -186,55 +175,46 @@ void mmap_add_ddr_region_dynamically(void)
  * - Read-only data section;
  * - Coherent memory region, if applicable.
  */
-void ls_setup_page_tables(uintptr_t total_base,
-			   size_t total_size,
-			   uintptr_t code_start,
-			   uintptr_t code_limit,
-			   uintptr_t rodata_start,
-			   uintptr_t rodata_limit
+void ls_setup_page_tables(uintptr_t total_base, size_t total_size,
+			  uintptr_t code_start, uintptr_t code_limit,
+			  uintptr_t rodata_start, uintptr_t rodata_limit
 #if USE_COHERENT_MEM
-			   ,
-			   uintptr_t coh_start,
-			   uintptr_t coh_limit
+			  ,
+			  uintptr_t coh_start, uintptr_t coh_limit
 #endif
-			   )
+)
 {
 	/*
 	 * Map the Trusted SRAM with appropriate memory attributes.
 	 * Subsequent mappings will adjust the attributes for specific regions.
 	 */
-	VERBOSE("Memory seen by this BL image: %p - %p\n",
-		(void *) total_base, (void *) (total_base + total_size));
-	mmap_add_region(total_base, total_base,
-			total_size,
+	VERBOSE("Memory seen by this BL image: %p - %p\n", (void *)total_base,
+		(void *)(total_base + total_size));
+	mmap_add_region(total_base, total_base, total_size,
 			MT_MEMORY | MT_RW | MT_SECURE);
 
 	/* Re-map the code section */
-	VERBOSE("Code region: %p - %p\n",
-		(void *) code_start, (void *) code_limit);
-	mmap_add_region(code_start, code_start,
-			code_limit - code_start,
+	VERBOSE("Code region: %p - %p\n", (void *)code_start,
+		(void *)code_limit);
+	mmap_add_region(code_start, code_start, code_limit - code_start,
 			MT_CODE | MT_SECURE);
 
 	/* Re-map the read-only data section */
-	VERBOSE("Read-only data region: %p - %p\n",
-		(void *) rodata_start, (void *) rodata_limit);
-	mmap_add_region(rodata_start, rodata_start,
-			rodata_limit - rodata_start,
+	VERBOSE("Read-only data region: %p - %p\n", (void *)rodata_start,
+		(void *)rodata_limit);
+	mmap_add_region(rodata_start, rodata_start, rodata_limit - rodata_start,
 			MT_RO_DATA | MT_SECURE);
 
 #if USE_COHERENT_MEM
 	/* Re-map the coherent memory region */
-	VERBOSE("Coherent region: %p - %p\n",
-		(void *) coh_start, (void *) coh_limit);
-	mmap_add_region(coh_start, coh_start,
-			coh_limit - coh_start,
+	VERBOSE("Coherent region: %p - %p\n", (void *)coh_start,
+		(void *)coh_limit);
+	mmap_add_region(coh_start, coh_start, coh_limit - coh_start,
 			MT_DEVICE | MT_RW | MT_SECURE);
 #endif
 
 	/* Now (re-)map the platform-specific memory regions */
 	mmap_add(plat_ls_get_mmap());
-
 
 #if defined(IMAGE_BL31) || !defined(CONFIG_DDR_FIP_IMAGE)
 	mmap_add_ddr_regions_statically();
@@ -257,7 +237,7 @@ const mmap_region_t *plat_ls_get_mmap(void)
  * in the SoC.
  */
 void get_cluster_info(const struct soc_type *soc_list, uint8_t ps_count,
-		uint8_t *num_clusters, uint8_t *cores_per_cluster)
+		      uint8_t *num_clusters, uint8_t *cores_per_cluster)
 {
 	const soc_info_t *soc_info = get_soc_info();
 	*num_clusters = NUMBER_OF_CLUSTERS;
@@ -273,5 +253,5 @@ void get_cluster_info(const struct soc_type *soc_list, uint8_t ps_count,
 	}
 
 	VERBOSE("NUM of cluster = 0x%x, Cores per cluster = 0x%x\n",
-			*num_clusters, *cores_per_cluster);
+		*num_clusters, *cores_per_cluster);
 }

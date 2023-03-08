@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,27 +12,25 @@
 #include <drivers/arm/css/css_mhu.h>
 #include <drivers/arm/css/css_scpi.h>
 #include <lib/utils.h>
+
 #include <plat/common/platform.h>
 #include <platform_def.h>
 
-#define SCPI_SHARED_MEM_SCP_TO_AP	PLAT_CSS_SCP_COM_SHARED_MEM_BASE
-#define SCPI_SHARED_MEM_AP_TO_SCP	(PLAT_CSS_SCP_COM_SHARED_MEM_BASE \
-								 + 0x100)
+#define SCPI_SHARED_MEM_SCP_TO_AP PLAT_CSS_SCP_COM_SHARED_MEM_BASE
+#define SCPI_SHARED_MEM_AP_TO_SCP (PLAT_CSS_SCP_COM_SHARED_MEM_BASE + 0x100)
 
 /* Header and payload addresses for commands from AP to SCP */
-#define SCPI_CMD_HEADER_AP_TO_SCP		\
-	((scpi_cmd_t *) SCPI_SHARED_MEM_AP_TO_SCP)
-#define SCPI_CMD_PAYLOAD_AP_TO_SCP		\
-	((void *) (SCPI_SHARED_MEM_AP_TO_SCP + sizeof(scpi_cmd_t)))
+#define SCPI_CMD_HEADER_AP_TO_SCP ((scpi_cmd_t *)SCPI_SHARED_MEM_AP_TO_SCP)
+#define SCPI_CMD_PAYLOAD_AP_TO_SCP \
+	((void *)(SCPI_SHARED_MEM_AP_TO_SCP + sizeof(scpi_cmd_t)))
 
 /* Header and payload addresses for responses from SCP to AP */
-#define SCPI_RES_HEADER_SCP_TO_AP \
-	((scpi_cmd_t *) SCPI_SHARED_MEM_SCP_TO_AP)
+#define SCPI_RES_HEADER_SCP_TO_AP ((scpi_cmd_t *)SCPI_SHARED_MEM_SCP_TO_AP)
 #define SCPI_RES_PAYLOAD_SCP_TO_AP \
-	((void *) (SCPI_SHARED_MEM_SCP_TO_AP + sizeof(scpi_cmd_t)))
+	((void *)(SCPI_SHARED_MEM_SCP_TO_AP + sizeof(scpi_cmd_t)))
 
 /* ID of the MHU slot used for the SCPI protocol */
-#define SCPI_MHU_SLOT_ID		0
+#define SCPI_MHU_SLOT_ID 0
 
 static void scpi_secure_message_start(void)
 {
@@ -62,7 +60,7 @@ static int scpi_secure_message_receive(scpi_cmd_t *cmd)
 	/* Expect an SCPI message, reject any other protocol */
 	if (mhu_status != (1 << SCPI_MHU_SLOT_ID)) {
 		ERROR("MHU: Unexpected protocol (MHU status: 0x%x)\n",
-			mhu_status);
+		      mhu_status);
 		return -1;
 	}
 
@@ -73,7 +71,7 @@ static int scpi_secure_message_receive(scpi_cmd_t *cmd)
 	 */
 	dmbld();
 
-	memcpy(cmd, (void *) SCPI_SHARED_MEM_SCP_TO_AP, sizeof(*cmd));
+	memcpy(cmd, (void *)SCPI_SHARED_MEM_SCP_TO_AP, sizeof(*cmd));
 
 	return 0;
 }
@@ -119,16 +117,16 @@ int scpi_wait_ready(void)
 	 */
 	scpi_cmd.status = status;
 	scpi_secure_message_start();
-	memcpy((void *) SCPI_SHARED_MEM_AP_TO_SCP, &scpi_cmd, sizeof(scpi_cmd));
+	memcpy((void *)SCPI_SHARED_MEM_AP_TO_SCP, &scpi_cmd, sizeof(scpi_cmd));
 	scpi_secure_message_send(0);
 	scpi_secure_message_end();
 
 	return status == SCP_OK ? 0 : -1;
 }
 
-void scpi_set_css_power_state(unsigned int mpidr,
-		scpi_power_state_t cpu_state, scpi_power_state_t cluster_state,
-		scpi_power_state_t css_state)
+void scpi_set_css_power_state(unsigned int mpidr, scpi_power_state_t cpu_state,
+			      scpi_power_state_t cluster_state,
+			      scpi_power_state_t css_state)
 {
 	scpi_cmd_t *cmd;
 	uint32_t state = 0;
@@ -139,11 +137,11 @@ void scpi_set_css_power_state(unsigned int mpidr,
 	 * The current SCPI driver only caters for single-threaded platforms.
 	 * Hence we ignore the thread ID (which is always 0) for such platforms.
 	 */
-	state |= (mpidr >> MPIDR_AFF1_SHIFT) & 0x0f;	/* CPU ID */
-	state |= ((mpidr >> MPIDR_AFF2_SHIFT) & 0x0f) << 4;	/* Cluster ID */
+	state |= (mpidr >> MPIDR_AFF1_SHIFT) & 0x0f; /* CPU ID */
+	state |= ((mpidr >> MPIDR_AFF2_SHIFT) & 0x0f) << 4; /* Cluster ID */
 #else
-	state |= mpidr & 0x0f;	/* CPU ID */
-	state |= (mpidr & 0xf00) >> 4;	/* Cluster ID */
+	state |= mpidr & 0x0f; /* CPU ID */
+	state |= (mpidr & 0xf00) >> 4; /* Cluster ID */
 #endif /* ARM_PLAT_MT */
 
 	state |= cpu_state << 8;
@@ -181,7 +179,7 @@ void scpi_set_css_power_state(unsigned int mpidr,
  * Returns 0 on success, or -1 on errors.
  */
 int scpi_get_css_power_state(unsigned int mpidr, unsigned int *cpu_state_p,
-		unsigned int *cluster_state_p)
+			     unsigned int *cluster_state_p)
 {
 	scpi_cmd_t *cmd;
 	scpi_cmd_t response;
@@ -201,7 +199,7 @@ int scpi_get_css_power_state(unsigned int mpidr, unsigned int *cpu_state_p,
 #else
 	cpu = mpidr & MPIDR_AFFLVL_MASK;
 	cluster = (mpidr >> MPIDR_AFF1_SHIFT) & MPIDR_AFFLVL_MASK;
-#endif  /* ARM_PLAT_MT */
+#endif /* ARM_PLAT_MT */
 	if (cpu >= 8 || cluster >= 0xf)
 		return -1;
 
@@ -227,7 +225,7 @@ int scpi_get_css_power_state(unsigned int mpidr, unsigned int *cpu_state_p,
 		goto exit;
 
 	/* Extract power states for required cluster */
-	power_state = *(((uint16_t *) SCPI_RES_PAYLOAD_SCP_TO_AP) + cluster);
+	power_state = *(((uint16_t *)SCPI_RES_PAYLOAD_SCP_TO_AP) + cluster);
 	if (CLUSTER_ID(power_state) != cluster)
 		goto exit;
 

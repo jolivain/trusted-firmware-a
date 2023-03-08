@@ -9,13 +9,13 @@
 #include <common/debug.h>
 #include <lib/mmio.h>
 
-#include "qos_init_g2e_v10.h"
 #include "../qos_common.h"
 #include "../qos_reg.h"
+#include "qos_init_g2e_v10.h"
 
-#define RCAR_QOS_VERSION	"rev.0.05"
+#define RCAR_QOS_VERSION "rev.0.05"
 
-#define REF_ARS_ARBSTOPCYCLE_G2E	(((SL_INIT_SSLOTCLK_G2E) - 5U) << 16U)
+#define REF_ARS_ARBSTOPCYCLE_G2E (((SL_INIT_SSLOTCLK_G2E)-5U) << 16U)
 
 #if RCAR_QOS_TYPE == RCAR_QOS_TYPE_DEFAULT
 #if RCAR_REF_INT == RCAR_REF_DEFAULT
@@ -87,7 +87,7 @@ void qos_init_g2e_v10(void)
 #endif
 
 #if !(RCAR_QOS_TYPE == RCAR_QOS_NONE)
-#if RCAR_QOS_TYPE  == RCAR_QOS_TYPE_DEFAULT
+#if RCAR_QOS_TYPE == RCAR_QOS_TYPE_DEFAULT
 	NOTICE("BL2: QoS is default setting(%s)\n", RCAR_QOS_VERSION);
 #endif
 
@@ -105,8 +105,8 @@ void qos_init_g2e_v10(void)
 	mmio_write_32(QOSCTRL_EARLYR, 0x00000000U);
 	mmio_write_32(QOSCTRL_RACNT0, 0x00010003U);
 
-	mmio_write_32(QOSCTRL_SL_INIT, SL_INIT_REFFSSLOT |
-		      SL_INIT_SLOTSSLOT | SL_INIT_SSLOTCLK_G2E);
+	mmio_write_32(QOSCTRL_SL_INIT, SL_INIT_REFFSSLOT | SL_INIT_SLOTSSLOT |
+					       SL_INIT_SSLOTCLK_G2E);
 	mmio_write_32(QOSCTRL_REF_ARS, REF_ARS_ARBSTOPCYCLE_G2E);
 
 	/* QOSBW SRAM setting */

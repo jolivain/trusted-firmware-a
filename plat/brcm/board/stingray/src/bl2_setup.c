@@ -5,26 +5,26 @@
  */
 
 #include <arch_helpers.h>
-#include <common/bl_common.h>
-#include <common/debug.h>
-#include <drivers/arm/sp805.h>
-#include <drivers/delay_timer.h>
-#include <lib/mmio.h>
-
 #include <chimp.h>
 #include <chip_id.h>
 #include <cmn_plat_util.h>
+#include <common/bl_common.h>
+#include <common/debug.h>
 #include <dmu.h>
+#include <drivers/arm/sp805.h>
+#include <drivers/delay_timer.h>
 #include <emmc_api.h>
 #include <fru.h>
+#include <lib/mmio.h>
 #ifdef USE_GPIO
 #include <drivers/gpio.h>
 #include <iproc_gpio.h>
 #endif
-#include <platform_def.h>
 #include <sotp.h>
-#include <swreg.h>
 #include <sr_utils.h>
+#include <swreg.h>
+
+#include <platform_def.h>
 #ifdef USE_DDR
 #include <ddr_init.h>
 #else
@@ -35,18 +35,17 @@
 #endif
 #include "board_info.h"
 
-#define WORD_SIZE              8
-#define SWREG_AVS_OTP_OFFSET   (13 * WORD_SIZE) /* 13th row byte offset */
-#define AON_GPIO_OTP_OFFSET    (28 * WORD_SIZE) /* 28th row byte offset */
-#define BYTES_TO_READ          8
+#define WORD_SIZE 8
+#define SWREG_AVS_OTP_OFFSET (13 * WORD_SIZE) /* 13th row byte offset */
+#define AON_GPIO_OTP_OFFSET (28 * WORD_SIZE) /* 28th row byte offset */
+#define BYTES_TO_READ 8
 
 /* OTP voltage step definitions */
-#define MVOLT_STEP_MAX         0x18  /* 1v */
-#define MVOLT_PER_STEP         10    /* 0.01mv per step */
-#define MVOLT_BASE             760   /* 0.76v */
+#define MVOLT_STEP_MAX 0x18 /* 1v */
+#define MVOLT_PER_STEP 10 /* 0.01mv per step */
+#define MVOLT_BASE 760 /* 0.76v */
 
-#define STEP_TO_UVOLTS(step) \
-	((MVOLT_BASE + (MVOLT_PER_STEP * (step))) * 1000)
+#define STEP_TO_UVOLTS(step) ((MVOLT_BASE + (MVOLT_PER_STEP * (step))) * 1000)
 
 #define GET_BITS(first, last, data) \
 	((data >> first) & ((1 << (last - first + 1)) - 1))
@@ -59,30 +58,30 @@
  * SWREG_bits[9:5]   - iHost03, iHost12
  * SWREG_bits[4:0]   - Core VDDC
  */
-#define SWREG_OTP_BITS_START        12    /* 44th bit in MSB 32-bits */
-#define SWREG_OTP_BITS_END          23    /* 55th bit in MSB 32-bits */
-#define SWREG_VDDC_FIELD_START      0
-#define SWREG_VDDC_FIELD_END        4
-#define SWREG_IHOST_FIELD_START     5
-#define SWREG_IHOST_FIELD_END       9
-#define SWREG_VALID_BIT_START       10
-#define SWREG_VALID_BIT_END         11
-#define SWREG_VALID_BITS            0x2
+#define SWREG_OTP_BITS_START 12 /* 44th bit in MSB 32-bits */
+#define SWREG_OTP_BITS_END 23 /* 55th bit in MSB 32-bits */
+#define SWREG_VDDC_FIELD_START 0
+#define SWREG_VDDC_FIELD_END 4
+#define SWREG_IHOST_FIELD_START 5
+#define SWREG_IHOST_FIELD_END 9
+#define SWREG_VALID_BIT_START 10
+#define SWREG_VALID_BIT_END 11
+#define SWREG_VALID_BITS 0x2
 
 /*
  * Row 13 bit 56 is programmed as '1' today. It is not being used, so plan
  * is to flip this bit to '0' for B1 rev. Hence SW can leverage this bit
  * to identify Bx chip to program different sw-regulators.
  */
-#define SPARE_BIT             24
+#define SPARE_BIT 24
 
-#define IS_SR_B0(data)        (((data) >> SPARE_BIT) & 0x1)
+#define IS_SR_B0(data) (((data) >> SPARE_BIT) & 0x1)
 
 #if DRIVER_OCOTP_ENABLE
 static struct otpc_map otp_stingray_map = {
 	.otpc_row_size = 2,
-	.data_r_offset = {0x10, 0x5c},
-	.data_w_offset = {0x2c, 0x64},
+	.data_r_offset = { 0x10, 0x5c },
+	.data_w_offset = { 0x2c, 0x64 },
 	.word_size = 8,
 	.stride = 8,
 };
@@ -162,9 +161,9 @@ static void brcm_stingray_pcie_reset(void)
 		ERROR("PCIE_RESCAL_STATUS_0: 0x%x\n", data);
 
 	VERBOSE("PCIE_SATA_RESCAL_STATUS_0 0x%x.\n",
-			mmio_read_32(PCIE_RESCAL_STATUS_0));
+		mmio_read_32(PCIE_RESCAL_STATUS_0));
 	VERBOSE("PCIE_SATA_RESCAL_OUTPUT_STATUS 0x%x.\n",
-			mmio_read_32(PCIE_RESCAL_OUTPUT_STATUS));
+		mmio_read_32(PCIE_RESCAL_OUTPUT_STATUS));
 	INFO("PCIE SATA Rescal Init done\n");
 }
 #endif /* EMULATION_SETUP */
@@ -195,7 +194,6 @@ void brcm_stingray_chimp_check_and_fastboot(void)
 	 * initiate fastboot (if enabled)
 	 */
 	if (FASTBOOT_TYPE == CHIMP_FASTBOOT_NITRO_RESET) {
-
 		VERBOSE("Bring up Nitro/ChiMP\n");
 
 		if (boot_source_get() == BOOT_SOURCE_QSPI)
@@ -207,12 +205,12 @@ void brcm_stingray_chimp_check_and_fastboot(void)
 	fastboot_init_result = bcm_chimp_initiate_fastboot(FASTBOOT_TYPE);
 	if (fastboot_init_result && boot_source_get() != BOOT_SOURCE_QSPI)
 		ERROR("Nitro init error %d. Status: 0x%x; bpe_mod reg: 0x%x\n"
-			"fastboot register: 0x%x; handshake register 0x%x\n",
-			fastboot_init_result,
-			bcm_chimp_read_ctrl(CHIMP_REG_CTRL_BPE_STAT_REG),
-			bcm_chimp_read_ctrl(CHIMP_REG_CTRL_BPE_MODE_REG),
-			bcm_chimp_read_ctrl(CHIMP_REG_CTRL_FSTBOOT_PTR_REG),
-			bcm_chimp_read(CHIMP_REG_ECO_RESERVED));
+		      "fastboot register: 0x%x; handshake register 0x%x\n",
+		      fastboot_init_result,
+		      bcm_chimp_read_ctrl(CHIMP_REG_CTRL_BPE_STAT_REG),
+		      bcm_chimp_read_ctrl(CHIMP_REG_CTRL_BPE_MODE_REG),
+		      bcm_chimp_read_ctrl(CHIMP_REG_CTRL_FSTBOOT_PTR_REG),
+		      bcm_chimp_read(CHIMP_REG_ECO_RESERVED));
 
 	/*
 	 * CRMU watchdog kicks is an example, which is L1 reset,
@@ -226,8 +224,8 @@ void brcm_stingray_chimp_check_and_fastboot(void)
 
 void set_ihost_vddc_swreg(uint32_t ihost_uvolts, uint32_t vddc_uvolts)
 {
-	NOTICE("ihost_uvolts: %duv, vddc_uvolts: %duv\n",
-	       ihost_uvolts, vddc_uvolts);
+	NOTICE("ihost_uvolts: %duv, vddc_uvolts: %duv\n", ihost_uvolts,
+	       vddc_uvolts);
 
 	set_swreg(VDDC_CORE, vddc_uvolts);
 	set_swreg(IHOST03, ihost_uvolts);
@@ -248,28 +246,24 @@ void read_avs_otp_bits(uint32_t *ihost_uvolts, uint32_t *vddc_uvolts)
 	if (bcm_otpc_read(offset, &buf[0], BYTES_TO_READ, 1) == -1)
 		return;
 
-	VERBOSE("AVS OTP %d ROW: 0x%x.0x%x\n",
-		offset/WORD_SIZE, buf[1], buf[0]);
+	VERBOSE("AVS OTP %d ROW: 0x%x.0x%x\n", offset / WORD_SIZE, buf[1],
+		buf[0]);
 
 	/* get voltage readings from AVS OTP bits */
-	avs_bits = GET_BITS(SWREG_OTP_BITS_START,
-			    SWREG_OTP_BITS_END,
-			    buf[1]);
+	avs_bits = GET_BITS(SWREG_OTP_BITS_START, SWREG_OTP_BITS_END, buf[1]);
 
 	/* check for valid otp bits */
 	if (GET_BITS(SWREG_VALID_BIT_START, SWREG_VALID_BIT_END, avs_bits) !=
 	    SWREG_VALID_BITS) {
-		WARN("Invalid AVS OTP bits at %d row\n", offset/WORD_SIZE);
+		WARN("Invalid AVS OTP bits at %d row\n", offset / WORD_SIZE);
 		return;
 	}
 
 	/* get ihost and vddc step value */
-	vddc_step = GET_BITS(SWREG_VDDC_FIELD_START,
-			     SWREG_VDDC_FIELD_END,
+	vddc_step = GET_BITS(SWREG_VDDC_FIELD_START, SWREG_VDDC_FIELD_END,
 			     avs_bits);
 
-	ihost_step = GET_BITS(SWREG_IHOST_FIELD_START,
-			      SWREG_IHOST_FIELD_END,
+	ihost_step = GET_BITS(SWREG_IHOST_FIELD_START, SWREG_IHOST_FIELD_END,
 			      avs_bits);
 
 	if ((ihost_step > MVOLT_STEP_MAX) || (vddc_step > MVOLT_STEP_MAX)) {
@@ -316,8 +310,7 @@ void set_swreg_based_on_otp(void)
 	if (bcm_otpc_read(offset, &buf[0], BYTES_TO_READ, 1) == -1)
 		return;
 
-	VERBOSE("OTP %d ROW: 0x%x.0x%x\n",
-		offset/WORD_SIZE, buf[1], buf[0]);
+	VERBOSE("OTP %d ROW: 0x%x.0x%x\n", offset / WORD_SIZE, buf[1], buf[0]);
 
 	if (IS_SR_B0(buf[1])) {
 		/* don't read AVS OTP for B0 */
@@ -331,15 +324,13 @@ void set_swreg_based_on_otp(void)
 #if (IHOST_REG_TYPE == IHOST_REG_INTEGRATED) && \
 	(VDDC_REG_TYPE == VDDC_REG_INTEGRATED)
 	/* enable IHOST12 cluster before changing voltage */
-	NOTICE("Switching on the Regulator idx: %u\n",
-	       SWREG_IHOST1_DIS);
-	mmio_clrsetbits_32(CRMU_SWREG_CTRL_ADDR,
-			   BIT(SWREG_IHOST1_DIS),
+	NOTICE("Switching on the Regulator idx: %u\n", SWREG_IHOST1_DIS);
+	mmio_clrsetbits_32(CRMU_SWREG_CTRL_ADDR, BIT(SWREG_IHOST1_DIS),
 			   BIT(SWREG_IHOST1_REG_RESETB));
 
 	/* wait for regulator supply gets stable */
 	while (!(mmio_read_32(CRMU_SWREG_STATUS_ADDR) &
-	       (1 << SWREG_IHOST1_PMU_STABLE)))
+		 (1 << SWREG_IHOST1_PMU_STABLE)))
 		;
 
 	INFO("Regulator supply got stable\n");
@@ -437,9 +428,8 @@ static void board_detect_fru(void)
 
 	INFO("**** FRU board information ****\n");
 	INFO("Language 0x%x\n", board_info.lang);
-	INFO("Manufacturing Date %u.%02u.%02u, %02u:%02u\n",
-	     fru_tm.year, fru_tm.month, fru_tm.day,
-	     fru_tm.hour, fru_tm.min);
+	INFO("Manufacturing Date %u.%02u.%02u, %02u:%02u\n", fru_tm.year,
+	     fru_tm.month, fru_tm.day, fru_tm.hour, fru_tm.min);
 	INFO("Manufacturing Date(Raw) 0x%x\n", board_info.mfg_date);
 	INFO("Manufacturer %s\n", board_info.manufacturer);
 	INFO("Product Name %s\n", board_info.product_name);
@@ -451,7 +441,7 @@ static void board_detect_fru(void)
 
 #ifdef USE_GPIO
 
-#define INVALID_GPIO    0xffff
+#define INVALID_GPIO 0xffff
 
 static const int gpio_cfg_bitmap[MAX_NR_GPIOS] = {
 #ifdef BRD_DETECT_GPIO_BIT0
@@ -482,7 +472,7 @@ static uint8_t gpio_bitmap;
  * Use an odd number to avoid potential conflict with public GPIO level
  * defines
  */
-#define GPIO_STATE_FLOAT         15
+#define GPIO_STATE_FLOAT 15
 
 /*
  * If GPIO_SUPPORT_FLOAT_DETECTION is disabled, simply return GPIO level
@@ -544,8 +534,8 @@ static void board_detect_gpio(void)
 	unsigned int i, val;
 	int gpio;
 
-	iproc_gpio_init(IPROC_GPIO_S_BASE, IPROC_GPIO_NR,
-			IPROC_IOPAD_MODE_BASE, HSLS_IOPAD_BASE);
+	iproc_gpio_init(IPROC_GPIO_S_BASE, IPROC_GPIO_NR, IPROC_IOPAD_MODE_BASE,
+			HSLS_IOPAD_BASE);
 
 	gpio_bitmap = 0;
 	for (i = 0; i < MAX_NR_GPIOS; i++) {
@@ -656,7 +646,8 @@ void plat_bcm_bl2_plat_arch_setup(void)
 	 * reset so clear the force on non-boot-source PADs using
 	 * CDRU register.
 	 */
-	mmio_clrbits_32((uintptr_t)CDRU_CHIP_IO_PAD_CONTROL,
+	mmio_clrbits_32(
+		(uintptr_t)CDRU_CHIP_IO_PAD_CONTROL,
 		(1 << CDRU_CHIP_IO_PAD_CONTROL__CDRU_IOMUX_FORCE_PAD_IN_R));
 
 #if DRIVER_OCOTP_ENABLE
@@ -727,8 +718,7 @@ void plat_bcm_bl2_plat_arch_setup(void)
 	 * next boot stage
 	 */
 	bcm_elog_copy_log((void *)BCM_ELOG_BL31_BASE,
-			   MIN(BCM_ELOG_BL2_SIZE, BCM_ELOG_BL31_SIZE)
-			 );
+			  MIN(BCM_ELOG_BL2_SIZE, BCM_ELOG_BL31_SIZE));
 
 	/*
 	 * We are not yet at the end of BL2, but we can stop log here so we do

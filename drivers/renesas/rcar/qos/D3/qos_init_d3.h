@@ -10,4 +10,4 @@
 
 void qos_init_d3(void);
 
-#endif	/* QOS_INIT_H_D3__ */
+#endif /* QOS_INIT_H_D3__ */

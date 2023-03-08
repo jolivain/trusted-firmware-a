@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,14 +13,14 @@
 #include <lib/xlat_tables/xlat_tables_v2.h>
 
 struct draminfo {
-	uint32_t	num_regions;
-	uint32_t	reserved;
-	uint64_t	base1;
-	uint64_t	size1;
-	uint64_t	base2;
-	uint64_t	size2;
-	uint64_t	base3;
-	uint64_t	size3;
+	uint32_t num_regions;
+	uint32_t reserved;
+	uint64_t base1;
+	uint64_t size1;
+	uint64_t base2;
+	uint64_t size2;
+	uint64_t base3;
+	uint64_t size3;
 };
 
 uint32_t sq_scp_get_draminfo(struct draminfo *info);

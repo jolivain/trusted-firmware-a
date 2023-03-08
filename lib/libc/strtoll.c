@@ -70,11 +70,9 @@ long long strtoll(const char *nptr, char **endptr, int base)
 		if (c == '+')
 			c = *s++;
 	}
-	if ((base == 0 || base == 16) &&
-	    c == '0' && (*s == 'x' || *s == 'X') &&
-	    ((s[1] >= '0' && s[1] <= '9') ||
-	    (s[1] >= 'A' && s[1] <= 'F') ||
-	    (s[1] >= 'a' && s[1] <= 'f'))) {
+	if ((base == 0 || base == 16) && c == '0' && (*s == 'x' || *s == 'X') &&
+	    ((s[1] >= '0' && s[1] <= '9') || (s[1] >= 'A' && s[1] <= 'F') ||
+	     (s[1] >= 'a' && s[1] <= 'f'))) {
 		c = s[1];
 		s += 2;
 		base = 16;
@@ -101,11 +99,12 @@ long long strtoll(const char *nptr, char **endptr, int base)
 	 * Set 'any' if any `digits' consumed; make it negative to indicate
 	 * overflow.
 	 */
-	cutoff = neg ? (unsigned long long)-(LLONG_MIN + LLONG_MAX) + LLONG_MAX
-	    : LLONG_MAX;
+	cutoff =
+		neg ? (unsigned long long)-(LLONG_MIN + LLONG_MAX) + LLONG_MAX :
+		      LLONG_MAX;
 	cutlim = cutoff % base;
 	cutoff /= base;
-	for ( ; ; c = *s++) {
+	for (;; c = *s++) {
 		if (c >= '0' && c <= '9')
 			c -= '0';
 		else if (c >= 'A' && c <= 'Z')

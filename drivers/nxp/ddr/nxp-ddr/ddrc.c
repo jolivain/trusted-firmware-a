@@ -16,10 +16,10 @@
 #include <drivers/delay_timer.h>
 #include <immap.h>
 
-#define BIST_CR		0x80060000
-#define BIST_CR_EN	0x80000000
-#define BIST_CR_STAT	0x00000001
-#define CTLR_INTLV_MASK	0x20000000
+#define BIST_CR 0x80060000
+#define BIST_CR_EN 0x80000000
+#define BIST_CR_STAT 0x00000001
+#define CTLR_INTLV_MASK 0x20000000
 
 #pragma weak run_bist
 
@@ -39,16 +39,8 @@ bool run_bist(void)
 int bist(const struct ccsr_ddr *ddr, int timeout)
 {
 	const unsigned int test_pattern[10] = {
-		0xffffffff,
-		0x00000000,
-		0xaaaaaaaa,
-		0x55555555,
-		0xcccccccc,
-		0x33333333,
-		0x12345678,
-		0xabcdef01,
-		0xaa55aa55,
-		0x55aa55aa
+		0xffffffff, 0x00000000, 0xaaaaaaaa, 0x55555555, 0xcccccccc,
+		0x33333333, 0x12345678, 0xabcdef01, 0xaa55aa55, 0x55aa55aa
 	};
 	unsigned int mtcr, err_detect, err_sbe;
 	unsigned int cs0_config;
@@ -76,7 +68,7 @@ int bist(const struct ccsr_ddr *ddr, int timeout)
 		if ((dec_9 & 0x1U) != 0U) {
 			highest = (dec_9 >> 26U) == U(0x3F) ? 0U : dec_9 >> 26U;
 			pos = 37U;
-			for (i = 0U; i < 36U; i++) {      /* Go through all 37 */
+			for (i = 0U; i < 36U; i++) { /* Go through all 37 */
 				if ((i % 4U) == 0U) {
 					temp32 = ddr_in32(&ddr->dec[i >> 2U]);
 				}
@@ -91,8 +83,8 @@ int bist(const struct ccsr_ddr *ddr, int timeout)
 			      pos, highest);
 			map_save = ddr_in32(&ddr->dec[pos >> 2]);
 			shift = (3U - pos % 4U) * 8U + 2U;
-			debug("in dec[%d], bit %d (0x%x)\n",
-			      pos >> 2U, shift, map_save);
+			debug("in dec[%d], bit %d (0x%x)\n", pos >> 2U, shift,
+			      map_save);
 			temp32 = map_save & ~(U(0x3F) << shift);
 			temp32 |= 8U << shift;
 			ddr_out32(&ddr->dec[pos >> 2U], temp32);
@@ -152,7 +144,7 @@ void dump_ddrc(unsigned int *ddr)
 
 	for (i = 0U; i < U(0x400); i++, ddr++) {
 		val = ddr_in32(ddr);
-		if (val != 0U) {	/* skip zeros */
+		if (val != 0U) { /* skip zeros */
 			debug("*0x%lx = 0x%lx\n", (unsigned long)ddr, val);
 		}
 	}
@@ -160,8 +152,7 @@ void dump_ddrc(unsigned int *ddr)
 }
 
 #ifdef ERRATA_DDR_A009803
-static void set_wait_for_bits_clear(const void *ptr,
-				    unsigned int value,
+static void set_wait_for_bits_clear(const void *ptr, unsigned int value,
 				    unsigned int bits)
 {
 	int timeout = 1000;
@@ -185,10 +176,8 @@ static void set_wait_for_bits_clear(const void *ptr,
  * If supported by the platform, writing to DDR controller takes two
  * passes to deassert DDR reset to comply with JEDEC specs for RDIMMs.
  */
-int ddrc_set_regs(const unsigned long clk,
-		  const struct ddr_cfg_regs *regs,
-		  const struct ccsr_ddr *ddr,
-		  int twopass)
+int ddrc_set_regs(const unsigned long clk, const struct ddr_cfg_regs *regs,
+		  const struct ccsr_ddr *ddr, int twopass)
 {
 	unsigned int i, bus_width;
 	unsigned int temp_sdram_cfg;
@@ -304,7 +293,7 @@ int ddrc_set_regs(const unsigned long clk,
 		}
 
 		ddr_out32(&ddr->err_disable,
-				regs->err_disable | DDR_ERR_DISABLE_APED);
+			  regs->err_disable | DDR_ERR_DISABLE_APED);
 	}
 #else
 	ddr_out32(&ddr->err_disable, regs->err_disable);
@@ -362,9 +351,12 @@ int ddrc_set_regs(const unsigned long clk,
 	ddr_freq = clk / 1000000U;
 	tmp = ddr_in32(&ddr->debug[28]);
 	tmp &= U(0xff0fff00);
-	tmp |= ddr_freq <= 1333U ? U(0x0080006a) :
-		(ddr_freq <= 1600U ? U(0x0070006f) :
-		 (ddr_freq <= 1867U ? U(0x00700076) : U(0x0060007b)));
+	tmp |= ddr_freq <= 1333U ?
+		       U(0x0080006a) :
+		       (ddr_freq <= 1600U ?
+				U(0x0070006f) :
+				(ddr_freq <= 1867U ? U(0x00700076) :
+						     U(0x0060007b)));
 	if (regs->debug[28] != 0) {
 		tmp &= ~0xff;
 		tmp |= regs->debug[28] & 0xff;
@@ -402,7 +394,7 @@ int ddrc_set_regs(const unsigned long clk,
 	for (i = 0U; i < DDRC_NUM_CS; i++) {
 		if (mod_bnds != 0U && i == 0U) {
 			ddr_out32(&ddr->csn_cfg[i],
-					(regs->cs[i].config & ~CTLR_INTLV_MASK));
+				  (regs->cs[i].config & ~CTLR_INTLV_MASK));
 		} else {
 			ddr_out32(&ddr->csn_cfg[i], regs->cs[i].config);
 		}
@@ -456,14 +448,14 @@ after_reset:
 		if ((regs->cs[i].config & 0x80000000) == 0) {
 			continue;
 		}
-		total_mem_per_ctrl += 1 << (
-			((regs->cs[i].config >> 14) & 0x3) + 2 +
-			((regs->cs[i].config >> 8) & 0x7) + 12 +
-			((regs->cs[i].config >> 4) & 0x3) + 0 +
-			((regs->cs[i].config >> 0) & 0x7) + 8 +
-			((regs->sdram_cfg[2] >> 4) & 0x3) +
-			3 - ((regs->sdram_cfg[0] >> 19) & 0x3) -
-			26);		/* minus 26 (count of 64M) */
+		total_mem_per_ctrl +=
+			1 << (((regs->cs[i].config >> 14) & 0x3) + 2 +
+			      ((regs->cs[i].config >> 8) & 0x7) + 12 +
+			      ((regs->cs[i].config >> 4) & 0x3) + 0 +
+			      ((regs->cs[i].config >> 0) & 0x7) + 8 +
+			      ((regs->sdram_cfg[2] >> 4) & 0x3) + 3 -
+			      ((regs->sdram_cfg[0] >> 19) & 0x3) -
+			      26); /* minus 26 (count of 64M) */
 	}
 	total_mem_per_ctrl_adj = total_mem_per_ctrl;
 	/*
@@ -473,19 +465,20 @@ after_reset:
 	 * For example, 2GB on 666MT/s 64-bit bus takes about 402ms
 	 * Let's wait for 800ms
 	 */
-	bus_width = 3 - ((ddr_in32(&ddr->sdram_cfg) & SDRAM_CFG_DBW_MASK)
-			>> SDRAM_CFG_DBW_SHIFT);
+	bus_width = 3 - ((ddr_in32(&ddr->sdram_cfg) & SDRAM_CFG_DBW_MASK) >>
+			 SDRAM_CFG_DBW_SHIFT);
 	timeout = ((total_mem_per_ctrl_adj << (6 - bus_width)) * 100 /
-		   (clk >> 20)) << 2;
-	total_mem_per_ctrl_adj >>= 4;	/* shift down to gb size */
+		   (clk >> 20))
+		  << 2;
+	total_mem_per_ctrl_adj >>= 4; /* shift down to gb size */
 	if ((ddr_in32(&ddr->sdram_cfg_2) & SDRAM_CFG2_D_INIT) != 0) {
 		debug("total size %d GB\n", total_mem_per_ctrl_adj);
 		debug("Need to wait up to %d ms\n", timeout * 10);
 
 		do {
 			mdelay(10);
-		} while (timeout-- > 0 &&
-			 ((ddr_in32(&ddr->sdram_cfg_2) & SDRAM_CFG2_D_INIT)) != 0);
+		} while (timeout-- > 0 && ((ddr_in32(&ddr->sdram_cfg_2) &
+					    SDRAM_CFG2_D_INIT)) != 0);
 
 		if (timeout <= 0) {
 			if (ddr_in32(&ddr->debug[1]) & 0x3d00) {
@@ -517,18 +510,20 @@ after_reset:
 		timeout = 400;
 		do {
 			mdelay(1);
-		} while (timeout-- > 0 && ((ddr_in32(&ddr->debug[1]) & 0x2) == 0));
+		} while (timeout-- > 0 &&
+			 ((ddr_in32(&ddr->debug[1]) & 0x2) == 0));
 
 		if ((regs->sdram_cfg[0] & SDRAM_CFG_RD_EN) != 0) {
 			for (i = 0U; i < DDRC_NUM_CS; i++) {
-				if ((regs->cs[i].config & SDRAM_CS_CONFIG_EN) == 0) {
+				if ((regs->cs[i].config & SDRAM_CS_CONFIG_EN) ==
+				    0) {
 					continue;
 				}
-				set_wait_for_bits_clear(&ddr->sdram_md_cntl,
-						MD_CNTL_MD_EN |
-						MD_CNTL_CS_SEL(i) |
+				set_wait_for_bits_clear(
+					&ddr->sdram_md_cntl,
+					MD_CNTL_MD_EN | MD_CNTL_CS_SEL(i) |
 						0x070000ed,
-						MD_CNTL_MD_EN);
+					MD_CNTL_MD_EN);
 				udelay(1);
 			}
 		}
@@ -571,20 +566,22 @@ after_reset:
 		     (cpo_min + cpo_max) / 2 + 0x27);
 	} else {
 		debug("Optimal cpo_sample 0x%x\n",
-			(cpo_min + cpo_max) / 2 + 0x27);
+		      (cpo_min + cpo_max) / 2 + 0x27);
 	}
 #endif
 	if (run_bist() != 0) {
 		if ((ddr_in32(&ddr->debug[1]) &
-		    ((get_ddrc_version(ddr) == 0x50500) ? 0x3c00 : 0x3d00)) != 0) {
+		     ((get_ddrc_version(ddr) == 0x50500) ? 0x3c00 : 0x3d00)) !=
+		    0) {
 			ERROR("Found training error(s): 0x%x\n",
-			     ddr_in32(&ddr->debug[1]));
+			      ddr_in32(&ddr->debug[1]));
 			return -EIO;
 		}
 		INFO("Running built-in self test ...\n");
 		/* give it 10x time to cover whole memory */
-		timeout = ((total_mem_per_ctrl << (6 - bus_width)) *
-			   100 / (clk >> 20)) * 10;
+		timeout = ((total_mem_per_ctrl << (6 - bus_width)) * 100 /
+			   (clk >> 20)) *
+			  10;
 		INFO("\tWait up to %d ms\n", timeout * 10);
 		ret = bist(ddr, timeout);
 	}

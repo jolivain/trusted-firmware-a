@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,15 +11,14 @@
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-
 #include <mt8173_def.h>
 #include <mtk_sip_svc.h>
 
-#define crypt_read32(offset)	\
-	mmio_read_32((uintptr_t)(CRYPT_BASE+((offset) * 4)))
+#define crypt_read32(offset) \
+	mmio_read_32((uintptr_t)(CRYPT_BASE + ((offset)*4)))
 
-#define crypt_write32(offset, value)    \
-	mmio_write_32((uintptr_t)(CRYPT_BASE + ((offset) * 4)), (uint32_t)value)
+#define crypt_write32(offset, value) \
+	mmio_write_32((uintptr_t)(CRYPT_BASE + ((offset)*4)), (uint32_t)value)
 
 #define GET_L32(x) ((uint32_t)(x & 0xffffffff))
 #define GET_H32(x) ((uint32_t)((x >> 32) & 0xffffffff))

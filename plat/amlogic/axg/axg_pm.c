@@ -1,28 +1,30 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <arch_helpers.h>
 #include <assert.h>
+#include <errno.h>
+
+#include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/arm/gicv2.h>
 #include <drivers/console.h>
-#include <errno.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
+
 #include <plat/common/platform.h>
 #include <platform_def.h>
 
 #include "aml_private.h"
 
-#define SCPI_POWER_ON		0
-#define SCPI_POWER_RETENTION	1
-#define SCPI_POWER_OFF		3
+#define SCPI_POWER_ON 0
+#define SCPI_POWER_RETENTION 1
+#define SCPI_POWER_OFF 3
 
-#define SCPI_SYSTEM_SHUTDOWN	0
-#define SCPI_SYSTEM_REBOOT	1
+#define SCPI_SYSTEM_SHUTDOWN 0
+#define SCPI_SYSTEM_REBOOT 1
 
 static uintptr_t axg_sec_entrypoint;
 
@@ -89,8 +91,8 @@ static void __dead2 axg_system_off(void)
 static int32_t axg_pwr_domain_on(u_register_t mpidr)
 {
 	axg_pm_set_reset_addr(mpidr, axg_sec_entrypoint);
-	aml_scpi_set_css_power_state(mpidr,
-				     SCPI_POWER_ON, SCPI_POWER_ON, SCPI_POWER_ON);
+	aml_scpi_set_css_power_state(mpidr, SCPI_POWER_ON, SCPI_POWER_ON,
+				     SCPI_POWER_ON);
 	dmbsy();
 	sev();
 
@@ -100,7 +102,7 @@ static int32_t axg_pwr_domain_on(u_register_t mpidr)
 static void axg_pwr_domain_on_finish(const psci_power_state_t *target_state)
 {
 	assert(target_state->pwr_domain_state[MPIDR_AFFLVL0] ==
-					PLAT_LOCAL_STATE_OFF);
+	       PLAT_LOCAL_STATE_OFF);
 
 	gicv2_pcpu_distif_init();
 	gicv2_cpuif_enable();
@@ -115,28 +117,26 @@ static void axg_pwr_domain_off(const psci_power_state_t *target_state)
 	uint32_t cluster_state = SCPI_POWER_ON;
 
 	assert(target_state->pwr_domain_state[MPIDR_AFFLVL0] ==
-					PLAT_LOCAL_STATE_OFF);
+	       PLAT_LOCAL_STATE_OFF);
 
 	axg_pm_reset(mpidr, -1);
 
 	gicv2_cpuif_disable();
 
 	if (target_state->pwr_domain_state[MPIDR_AFFLVL2] ==
-					PLAT_LOCAL_STATE_OFF)
+	    PLAT_LOCAL_STATE_OFF)
 		system_state = SCPI_POWER_OFF;
 
 	if (target_state->pwr_domain_state[MPIDR_AFFLVL1] ==
-					PLAT_LOCAL_STATE_OFF)
+	    PLAT_LOCAL_STATE_OFF)
 		cluster_state = SCPI_POWER_OFF;
 
-
-	aml_scpi_set_css_power_state(mpidr,
-				     SCPI_POWER_OFF, cluster_state,
+	aml_scpi_set_css_power_state(mpidr, SCPI_POWER_OFF, cluster_state,
 				     system_state);
 }
 
-static void __dead2 axg_pwr_domain_pwr_down_wfi(const psci_power_state_t
-						 *target_state)
+static void __dead2
+axg_pwr_domain_pwr_down_wfi(const psci_power_state_t *target_state)
 {
 	dsbsy();
 	axg_pm_reset(read_mpidr_el1(), 0);
@@ -149,12 +149,12 @@ static void __dead2 axg_pwr_domain_pwr_down_wfi(const psci_power_state_t
  * Platform handlers and setup function.
  ******************************************************************************/
 static const plat_psci_ops_t axg_ops = {
-	.pwr_domain_on			= axg_pwr_domain_on,
-	.pwr_domain_on_finish		= axg_pwr_domain_on_finish,
-	.pwr_domain_off			= axg_pwr_domain_off,
-	.pwr_domain_pwr_down_wfi	= axg_pwr_domain_pwr_down_wfi,
-	.system_off			= axg_system_off,
-	.system_reset			= axg_system_reset
+	.pwr_domain_on = axg_pwr_domain_on,
+	.pwr_domain_on_finish = axg_pwr_domain_on_finish,
+	.pwr_domain_off = axg_pwr_domain_off,
+	.pwr_domain_pwr_down_wfi = axg_pwr_domain_pwr_down_wfi,
+	.system_off = axg_system_off,
+	.system_reset = axg_system_reset
 };
 
 int plat_setup_psci_ops(uintptr_t sec_entrypoint,

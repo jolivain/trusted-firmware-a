@@ -1,21 +1,20 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/console.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
-#include <plat/common/platform.h>
-
 #include <rpi_hw.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 #ifdef RPI_HAVE_GIC
 #include <drivers/arm/gicv2.h>
@@ -25,21 +24,19 @@
 #if PSCI_EXTENDED_STATE_ID
 
 #define rpi3_make_pwrstate_lvl0(lvl0_state, pwr_lvl, type) \
-		(((lvl0_state) << PSTATE_ID_SHIFT) | \
-		 ((type) << PSTATE_TYPE_SHIFT))
+	(((lvl0_state) << PSTATE_ID_SHIFT) | ((type) << PSTATE_TYPE_SHIFT))
 
 #else
 
 #define rpi3_make_pwrstate_lvl0(lvl0_state, pwr_lvl, type) \
-		(((lvl0_state) << PSTATE_ID_SHIFT) | \
-		 ((pwr_lvl) << PSTATE_PWR_LVL_SHIFT) | \
-		 ((type) << PSTATE_TYPE_SHIFT))
+	(((lvl0_state) << PSTATE_ID_SHIFT) |               \
+	 ((pwr_lvl) << PSTATE_PWR_LVL_SHIFT) | ((type) << PSTATE_TYPE_SHIFT))
 
 #endif /* PSCI_EXTENDED_STATE_ID */
 
 #define rpi3_make_pwrstate_lvl1(lvl1_state, lvl0_state, pwr_lvl, type) \
-		(((lvl1_state) << PLAT_LOCAL_PSTATE_WIDTH) | \
-		 rpi3_make_pwrstate_lvl0(lvl0_state, pwr_lvl, type))
+	(((lvl1_state) << PLAT_LOCAL_PSTATE_WIDTH) |                   \
+	 rpi3_make_pwrstate_lvl0(lvl0_state, pwr_lvl, type))
 
 /*
  *  The table storing the valid idle power states. Ensure that the
@@ -94,7 +91,7 @@ static int rpi3_validate_power_state(unsigned int power_state,
 	/* Parse the State ID and populate the state info parameter */
 	while (state_id) {
 		req_state->pwr_domain_state[i++] = state_id &
-						PLAT_LOCAL_PSTATE_MASK;
+						   PLAT_LOCAL_PSTATE_MASK;
 		state_id >>= PLAT_LOCAL_PSTATE_WIDTH;
 	}
 
@@ -157,7 +154,7 @@ static int rpi3_pwr_domain_on(u_register_t mpidr)
 static void rpi3_pwr_domain_on_finish(const psci_power_state_t *target_state)
 {
 	assert(target_state->pwr_domain_state[MPIDR_AFFLVL0] ==
-					PLAT_LOCAL_STATE_OFF);
+	       PLAT_LOCAL_STATE_OFF);
 
 #ifdef RPI_HAVE_GIC
 	gicv2_pcpu_distif_init();
@@ -165,8 +162,7 @@ static void rpi3_pwr_domain_on_finish(const psci_power_state_t *target_state)
 #endif
 }
 
-static void __dead2 rpi3_pwr_down_wfi(
-		const psci_power_state_t *target_state)
+static void __dead2 rpi3_pwr_down_wfi(const psci_power_state_t *target_state)
 {
 	uintptr_t hold_base = PLAT_RPI3_TM_HOLD_BASE;
 	unsigned int pos = plat_my_core_pos();
@@ -197,7 +193,7 @@ static void __dead2 rpi3_pwr_down_wfi(
  ******************************************************************************/
 
 /* 10 ticks (Watchdog timer = Timer clock / 16) */
-#define RESET_TIMEOUT	U(10)
+#define RESET_TIMEOUT U(10)
 
 static void __dead2 rpi3_watchdog_reset(void)
 {
@@ -265,7 +261,7 @@ static const plat_psci_ops_t plat_rpi3_psci_pm_ops = {
 int plat_setup_psci_ops(uintptr_t sec_entrypoint,
 			const plat_psci_ops_t **psci_ops)
 {
-	uintptr_t *entrypoint = (void *) PLAT_RPI3_TM_ENTRYPOINT;
+	uintptr_t *entrypoint = (void *)PLAT_RPI3_TM_ENTRYPOINT;
 
 	*entrypoint = sec_entrypoint;
 	*psci_ops = &plat_rpi3_psci_pm_ops;

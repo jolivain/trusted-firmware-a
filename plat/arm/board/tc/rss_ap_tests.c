@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Ltd. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Ltd. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,15 +8,16 @@
 #include <stdio.h>
 
 #include <mbedtls_common.h>
-#include <plat/common/platform.h>
 #include <psa/crypto.h>
 #include <rss_comms.h>
+
+#include <plat/common/platform.h>
 
 #include "rss_ap_testsuites.h"
 
 static struct test_suite_t test_suites[] = {
-	{.freg = register_testsuite_delegated_attest},
-	{.freg = register_testsuite_measured_boot},
+	{ .freg = register_testsuite_delegated_attest },
+	{ .freg = register_testsuite_measured_boot },
 };
 
 static void run_tests(void)
@@ -40,7 +41,8 @@ static void run_tests(void)
 		suite->freg(suite);
 		ret = run_testsuite(suite);
 		if (ret != TEST_SUITE_ERR_NO_ERROR) {
-			printf("\n\nError during executing testsuite '%s'.\n", suite->name);
+			printf("\n\nError during executing testsuite '%s'.\n",
+			       suite->name);
 			assert(false);
 			plat_error_handler(-1);
 		}
@@ -59,7 +61,6 @@ void run_platform_tests(void)
 	/* Print a summary of all the tests that had been run. */
 	printf("SUMMARY:\n");
 	for (i = 0; i < ARRAY_SIZE(test_suites); ++i) {
-
 		struct test_suite_t *suite = &(test_suites[i]);
 
 		switch (suite->val) {

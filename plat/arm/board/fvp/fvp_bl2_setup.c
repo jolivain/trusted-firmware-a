@@ -18,7 +18,8 @@
 
 #include "fvp_private.h"
 
-void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1, u_register_t arg2, u_register_t arg3)
+void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1,
+			       u_register_t arg2, u_register_t arg3)
 {
 	arm_bl2_early_platform_setup((uintptr_t)arg0, (meminfo_t *)arg1);
 

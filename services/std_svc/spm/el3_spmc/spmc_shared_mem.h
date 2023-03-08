@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2022-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -51,65 +51,34 @@ extern struct spmc_shmem_obj_state spmc_shmem_obj_state;
 extern int plat_spmc_shmem_begin(struct ffa_mtd *desc);
 extern int plat_spmc_shmem_reclaim(struct ffa_mtd *desc);
 
-long spmc_ffa_mem_send(uint32_t smc_fid,
-		       bool secure_origin,
-		       uint64_t total_length,
-		       uint32_t fragment_length,
-		       uint64_t address,
-		       uint32_t page_count,
-		       void *cookie,
-		       void *handle,
-		       uint64_t flags);
+long spmc_ffa_mem_send(uint32_t smc_fid, bool secure_origin,
+		       uint64_t total_length, uint32_t fragment_length,
+		       uint64_t address, uint32_t page_count, void *cookie,
+		       void *handle, uint64_t flags);
 
-long spmc_ffa_mem_frag_tx(uint32_t smc_fid,
-			  bool secure_origin,
-			  uint64_t handle_low,
-			  uint64_t handle_high,
-			  uint32_t fragment_length,
-			  uint32_t sender_id,
-			  void *cookie,
-			  void *handle,
-			  uint64_t flags);
+long spmc_ffa_mem_frag_tx(uint32_t smc_fid, bool secure_origin,
+			  uint64_t handle_low, uint64_t handle_high,
+			  uint32_t fragment_length, uint32_t sender_id,
+			  void *cookie, void *handle, uint64_t flags);
 
-long spmc_ffa_mem_retrieve_req(uint32_t smc_fid,
-			       bool secure_origin,
-			       uint32_t total_length,
-			       uint32_t fragment_length,
-			       uint64_t address,
-			       uint32_t page_count,
-			       void *cookie,
-			       void *handle,
-			       uint64_t flags);
+long spmc_ffa_mem_retrieve_req(uint32_t smc_fid, bool secure_origin,
+			       uint32_t total_length, uint32_t fragment_length,
+			       uint64_t address, uint32_t page_count,
+			       void *cookie, void *handle, uint64_t flags);
 
-long spmc_ffa_mem_frag_rx(uint32_t smc_fid,
-			  bool secure_origin,
-			  uint32_t handle_low,
-			  uint32_t handle_high,
-			  uint32_t fragment_offset,
-			  uint32_t sender_id,
-			  void *cookie,
-			  void *handle,
-			  uint64_t flags);
+long spmc_ffa_mem_frag_rx(uint32_t smc_fid, bool secure_origin,
+			  uint32_t handle_low, uint32_t handle_high,
+			  uint32_t fragment_offset, uint32_t sender_id,
+			  void *cookie, void *handle, uint64_t flags);
 
+int spmc_ffa_mem_relinquish(uint32_t smc_fid, bool secure_origin,
+			    uint32_t handle_low, uint32_t handle_high,
+			    uint32_t fragment_offset, uint32_t sender_id,
+			    void *cookie, void *handle, uint64_t flags);
 
-int spmc_ffa_mem_relinquish(uint32_t smc_fid,
-			    bool secure_origin,
-			    uint32_t handle_low,
-			    uint32_t handle_high,
-			    uint32_t fragment_offset,
-			    uint32_t sender_id,
-			    void *cookie,
-			    void *handle,
-			    uint64_t flags);
-
-int spmc_ffa_mem_reclaim(uint32_t smc_fid,
-			 bool secure_origin,
-			 uint32_t handle_low,
-			 uint32_t handle_high,
-			 uint32_t mem_flags,
-			 uint64_t x4,
-			 void *cookie,
-			 void *handle,
-			 uint64_t flags);
+int spmc_ffa_mem_reclaim(uint32_t smc_fid, bool secure_origin,
+			 uint32_t handle_low, uint32_t handle_high,
+			 uint32_t mem_flags, uint64_t x4, void *cookie,
+			 void *handle, uint64_t flags);
 
 #endif /* SPMC_SHARED_MEM_H */

@@ -12,7 +12,7 @@
 #include "../qos_reg.h"
 #include "qos_init_d3.h"
 
-#define	RCAR_QOS_VERSION		"rev.0.05"
+#define RCAR_QOS_VERSION "rev.0.05"
 
 #include "qos_init_d3_mstat.h"
 
@@ -69,7 +69,7 @@ void qos_init_d3(void)
 	ERROR("DRAM Split Auto not supported.(D3)");
 	panic();
 #elif RCAR_DRAM_SPLIT == RCAR_DRAM_SPLIT_LINEAR
-/*	NOTICE("BL2: DRAM Split is OFF\n"); */
+	/*	NOTICE("BL2: DRAM Split is OFF\n"); */
 	/* Split setting(DDR 1ch) */
 	io_write_32(AXI_ADSPLCR0, 0x00000000U);
 	io_write_32(AXI_ADSPLCR3, 0x00000000U);
@@ -79,24 +79,24 @@ void qos_init_d3(void)
 #endif
 
 #if !(RCAR_QOS_TYPE == RCAR_QOS_NONE)
-#if RCAR_QOS_TYPE  == RCAR_QOS_TYPE_DEFAULT
+#if RCAR_QOS_TYPE == RCAR_QOS_TYPE_DEFAULT
 	NOTICE("BL2: QoS is default setting(%s)\n", RCAR_QOS_VERSION);
 #endif
 
 	/* Resource Alloc setting */
-	io_write_32(QOSCTRL_RAS,   0x00000020U);
+	io_write_32(QOSCTRL_RAS, 0x00000020U);
 	io_write_32(QOSCTRL_FIXTH, 0x000F0005U);
-	io_write_32(QOSCTRL_RAEN,  0x00000001U);
+	io_write_32(QOSCTRL_RAEN, 0x00000001U);
 	io_write_32(QOSCTRL_REGGD, 0x00000000U);
-	io_write_64(QOSCTRL_DANN,  0x0404020002020201U);
-	io_write_32(QOSCTRL_DANT,  0x00100804U);
-	io_write_32(QOSCTRL_EC,    0x00000000U);
-	io_write_64(QOSCTRL_EMS,   0x0000000000000000U);
-	io_write_32(QOSCTRL_FSS,   0x0000000AU);
+	io_write_64(QOSCTRL_DANN, 0x0404020002020201U);
+	io_write_32(QOSCTRL_DANT, 0x00100804U);
+	io_write_32(QOSCTRL_EC, 0x00000000U);
+	io_write_64(QOSCTRL_EMS, 0x0000000000000000U);
+	io_write_32(QOSCTRL_FSS, 0x0000000AU);
 	io_write_32(QOSCTRL_INSFC, 0xC7840001U);
-	io_write_32(QOSCTRL_BERR,  0x00000000U);
-	io_write_32(QOSCTRL_EARLYR,  0x00000000U);
-	io_write_32(QOSCTRL_RACNT0,  0x00010003U);
+	io_write_32(QOSCTRL_BERR, 0x00000000U);
+	io_write_32(QOSCTRL_EARLYR, 0x00000000U);
+	io_write_32(QOSCTRL_RACNT0, 0x00010003U);
 	io_write_32(QOSCTRL_STATGEN0, 0x00000000U);
 
 	/* GPU setting */
@@ -132,7 +132,7 @@ void qos_init_d3(void)
 	io_write_32(RT_ACT1, 0x00000000U);
 
 	/* Resource Alloc start */
-	io_write_32(QOSCTRL_RAEN,  0x00000001U);
+	io_write_32(QOSCTRL_RAEN, 0x00000001U);
 
 	/* QOSBW start */
 	io_write_32(QOSCTRL_STATQC, 0x00000001U);
@@ -140,8 +140,8 @@ void qos_init_d3(void)
 	NOTICE("BL2: QoS is None\n");
 
 	/* Resource Alloc setting */
-	io_write_32(QOSCTRL_EC,    0x00000000U);
+	io_write_32(QOSCTRL_EC, 0x00000000U);
 	/* Resource Alloc start */
-	io_write_32(QOSCTRL_RAEN,  0x00000001U);
+	io_write_32(QOSCTRL_RAEN, 0x00000001U);
 #endif /* !(RCAR_QOS_TYPE == RCAR_QOS_NONE) */
 }

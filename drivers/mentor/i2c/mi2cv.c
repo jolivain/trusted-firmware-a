@@ -17,42 +17,41 @@
 #include <drivers/delay_timer.h>
 #include <drivers/mentor/mi2cv.h>
 #include <lib/mmio.h>
-
 #include <mentor_i2c_plat.h>
 
 #if LOG_LEVEL >= LOG_LEVEL_VERBOSE
 #define DEBUG_I2C
 #endif
 
-#define I2C_TIMEOUT_VALUE		0x500
-#define I2C_MAX_RETRY_CNT		1000
-#define I2C_CMD_WRITE			0x0
-#define I2C_CMD_READ			0x1
+#define I2C_TIMEOUT_VALUE 0x500
+#define I2C_MAX_RETRY_CNT 1000
+#define I2C_CMD_WRITE 0x0
+#define I2C_CMD_READ 0x1
 
-#define I2C_DATA_ADDR_7BIT_OFFS		0x1
-#define I2C_DATA_ADDR_7BIT_MASK		(0xFF << I2C_DATA_ADDR_7BIT_OFFS)
+#define I2C_DATA_ADDR_7BIT_OFFS 0x1
+#define I2C_DATA_ADDR_7BIT_MASK (0xFF << I2C_DATA_ADDR_7BIT_OFFS)
 
-#define I2C_CONTROL_ACK			0x00000004
-#define I2C_CONTROL_IFLG		0x00000008
-#define I2C_CONTROL_STOP		0x00000010
-#define I2C_CONTROL_START		0x00000020
-#define I2C_CONTROL_TWSIEN		0x00000040
-#define I2C_CONTROL_INTEN		0x00000080
+#define I2C_CONTROL_ACK 0x00000004
+#define I2C_CONTROL_IFLG 0x00000008
+#define I2C_CONTROL_STOP 0x00000010
+#define I2C_CONTROL_START 0x00000020
+#define I2C_CONTROL_TWSIEN 0x00000040
+#define I2C_CONTROL_INTEN 0x00000080
 
-#define I2C_STATUS_START			0x08
-#define I2C_STATUS_REPEATED_START		0x10
-#define I2C_STATUS_ADDR_W_ACK			0x18
-#define I2C_STATUS_DATA_W_ACK			0x28
-#define I2C_STATUS_LOST_ARB_DATA_ADDR_TRANSFER	0x38
-#define I2C_STATUS_ADDR_R_ACK			0x40
-#define I2C_STATUS_DATA_R_ACK			0x50
-#define I2C_STATUS_DATA_R_NAK			0x58
-#define I2C_STATUS_LOST_ARB_GENERAL_CALL	0x78
-#define I2C_STATUS_IDLE				0xF8
+#define I2C_STATUS_START 0x08
+#define I2C_STATUS_REPEATED_START 0x10
+#define I2C_STATUS_ADDR_W_ACK 0x18
+#define I2C_STATUS_DATA_W_ACK 0x28
+#define I2C_STATUS_LOST_ARB_DATA_ADDR_TRANSFER 0x38
+#define I2C_STATUS_ADDR_R_ACK 0x40
+#define I2C_STATUS_DATA_R_ACK 0x50
+#define I2C_STATUS_DATA_R_NAK 0x58
+#define I2C_STATUS_LOST_ARB_GENERAL_CALL 0x78
+#define I2C_STATUS_IDLE 0xF8
 
-#define I2C_UNSTUCK_TRIGGER			0x1
-#define I2C_UNSTUCK_ONGOING			0x2
-#define I2C_UNSTUCK_ERROR			0x4
+#define I2C_UNSTUCK_TRIGGER 0x1
+#define I2C_UNSTUCK_ONGOING 0x2
+#define I2C_UNSTUCK_ERROR 0x4
 
 static struct mentor_i2c_regs *base;
 
@@ -114,7 +113,7 @@ static int mentor_i2c_start_bit_set(void)
 	/* set start bit */
 	mmio_write_32((uintptr_t)&base->control,
 		      mmio_read_32((uintptr_t)&base->control) |
-		      I2C_CONTROL_START);
+			      I2C_CONTROL_START);
 
 	/* in case that the int flag was set before i.e. repeated start bit */
 	if (is_int_flag) {
@@ -128,16 +127,16 @@ static int mentor_i2c_start_bit_set(void)
 	}
 
 	/* check that start bit went down */
-	if ((mmio_read_32((uintptr_t)&base->control) &
-	    I2C_CONTROL_START) != 0) {
+	if ((mmio_read_32((uintptr_t)&base->control) & I2C_CONTROL_START) !=
+	    0) {
 		ERROR("Start bit didn't went down\n");
 		return -EPERM;
 	}
 
 	/* check the status */
 	if (mentor_i2c_lost_arbitration(&status)) {
-		ERROR("%s - %d: Lost arbitration, got status %x\n",
-		      __func__, __LINE__, status);
+		ERROR("%s - %d: Lost arbitration, got status %x\n", __func__,
+		      __LINE__, status);
 		return -EAGAIN;
 	}
 	if ((status != I2C_STATUS_START) &&
@@ -157,7 +156,7 @@ static int mentor_i2c_stop_bit_set(void)
 	/* Generate stop bit */
 	mmio_write_32((uintptr_t)&base->control,
 		      mmio_read_32((uintptr_t)&base->control) |
-		      I2C_CONTROL_STOP);
+			      I2C_CONTROL_STOP);
 	mentor_i2c_interrupt_clear();
 
 	timeout = 0;
@@ -178,8 +177,8 @@ static int mentor_i2c_stop_bit_set(void)
 
 	/* check the status */
 	if (mentor_i2c_lost_arbitration(&status)) {
-		ERROR("%s - %d: Lost arbitration, got status %x\n",
-		      __func__, __LINE__, status);
+		ERROR("%s - %d: Lost arbitration, got status %x\n", __func__,
+		      __LINE__, status);
 		return -EAGAIN;
 	}
 	if (status != I2C_STATUS_IDLE) {
@@ -208,12 +207,12 @@ static int mentor_i2c_address_set(uint8_t chain, int command)
 
 	/* check the status */
 	if (mentor_i2c_lost_arbitration(&status)) {
-		ERROR("%s - %d: Lost arbitration, got status %x\n",
-		      __func__, __LINE__, status);
+		ERROR("%s - %d: Lost arbitration, got status %x\n", __func__,
+		      __LINE__, status);
 		return -EAGAIN;
 	}
 	if (((status != I2C_STATUS_ADDR_R_ACK) && (command == I2C_CMD_READ)) ||
-	   ((status != I2C_STATUS_ADDR_W_ACK) && (command == I2C_CMD_WRITE))) {
+	    ((status != I2C_STATUS_ADDR_W_ACK) && (command == I2C_CMD_WRITE))) {
 		/* only in debug, since in boot we try to read the SPD
 		 * of both DRAM, and we don't want error messages in cas
 		 * DIMM doesn't exist.
@@ -261,8 +260,8 @@ static unsigned int mentor_i2c_bus_speed_set(unsigned int requested_speed)
 			}
 		}
 	}
-	VERBOSE("%s: actual_n = %u, actual_m = %u\n",
-		__func__, actual_n, actual_m);
+	VERBOSE("%s: actual_n = %u, actual_m = %u\n", __func__, actual_n,
+		actual_m);
 	/* Set the baud rate */
 	mmio_write_32((uintptr_t)&base->baudrate, (actual_m << 3) | actual_n);
 
@@ -338,7 +337,7 @@ static int mentor_i2c_data_receive(uint8_t *p_block, uint32_t block_size)
 		}
 
 		/* read the data */
-		*p_block = (uint8_t) mmio_read_32((uintptr_t)&base->data);
+		*p_block = (uint8_t)mmio_read_32((uintptr_t)&base->data);
 		VERBOSE("%s: place %d read %x\n", __func__,
 			block_size - block_size_read, *p_block);
 		p_block++;
@@ -359,7 +358,7 @@ static int mentor_i2c_data_transmit(uint8_t *p_block, uint32_t block_size)
 
 	while (block_size_write) {
 		/* write the data */
-		mmio_write_32((uintptr_t)&base->data, (uint32_t) *p_block);
+		mmio_write_32((uintptr_t)&base->data, (uint32_t)*p_block);
 		VERBOSE("%s: index = %d, data = %x\n", __func__,
 			block_size - block_size_write, *p_block);
 		p_block++;
@@ -400,8 +399,8 @@ static int mentor_i2c_target_offset_set(uint8_t chip, uint32_t addr, int alen)
 		off_block[0] = addr & 0xff;
 		off_size = 1;
 	}
-	VERBOSE("%s: off_size = %x addr1 = %x addr2 = %x\n", __func__,
-		off_size, off_block[0], off_block[1]);
+	VERBOSE("%s: off_size = %x addr1 = %x addr2 = %x\n", __func__, off_size,
+		off_block[0], off_block[1]);
 	return mentor_i2c_data_transmit(off_block, off_size);
 }
 
@@ -466,7 +465,7 @@ void i2c_init(void *i2c_base)
 	/* unmask I2C interrupt */
 	mmio_write_32((uintptr_t)&base->control,
 		      mmio_read_32((uintptr_t)&base->control) |
-		      I2C_CONTROL_INTEN);
+			      I2C_CONTROL_INTEN);
 
 	udelay(10);
 }
@@ -526,7 +525,7 @@ int i2c_read(uint8_t chip, uint32_t addr, int alen, uint8_t *buffer, int len)
 				continue;
 		}
 
-		ret =  mentor_i2c_address_set(chip, I2C_CMD_READ);
+		ret = mentor_i2c_address_set(chip, I2C_CMD_READ);
 		if (ret)
 			continue;
 
@@ -534,7 +533,7 @@ int i2c_read(uint8_t chip, uint32_t addr, int alen, uint8_t *buffer, int len)
 		if (ret)
 			continue;
 
-		ret =  mentor_i2c_stop_bit_set();
+		ret = mentor_i2c_stop_bit_set();
 	} while ((ret == -EAGAIN) && (counter < I2C_MAX_RETRY_CNT));
 
 	if (counter == I2C_MAX_RETRY_CNT) {
@@ -544,7 +543,7 @@ int i2c_read(uint8_t chip, uint32_t addr, int alen, uint8_t *buffer, int len)
 	}
 	mmio_write_32((uintptr_t)&base->control,
 		      mmio_read_32((uintptr_t)&base->control) |
-		      I2C_CONTROL_ACK);
+			      I2C_CONTROL_ACK);
 
 	udelay(1);
 	return ret;

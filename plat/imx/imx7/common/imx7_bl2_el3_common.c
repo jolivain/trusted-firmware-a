@@ -1,33 +1,32 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <common/desc_image_load.h>
 #include <drivers/mmc.h>
-#include <lib/xlat_tables/xlat_mmu_helpers.h>
-#include <lib/xlat_tables/xlat_tables_defs.h>
-#include <lib/mmio.h>
-#include <lib/optee_utils.h>
-#include <lib/utils.h>
-
+#include <imx7_def.h>
 #include <imx_aips.h>
 #include <imx_caam.h>
 #include <imx_clock.h>
 #include <imx_csu.h>
 #include <imx_gpt.h>
-#include <imx_uart.h>
 #include <imx_snvs.h>
+#include <imx_uart.h>
 #include <imx_wdog.h>
-#include <imx7_def.h>
+#include <lib/mmio.h>
+#include <lib/optee_utils.h>
+#include <lib/utils.h>
+#include <lib/xlat_tables/xlat_mmu_helpers.h>
+#include <lib/xlat_tables/xlat_tables_defs.h>
+
+#include <platform_def.h>
 
 #ifndef AARCH32_SP_OPTEE
 #error "Must build with OPTEE support included"
@@ -46,8 +45,7 @@ static uint32_t imx7_get_spsr_for_bl32_entry(void)
 
 static uint32_t imx7_get_spsr_for_bl33_entry(void)
 {
-	return SPSR_MODE32(MODE32_svc,
-			   plat_get_ns_image_entrypoint() & 0x1,
+	return SPSR_MODE32(MODE32_svc, plat_get_ns_image_entrypoint() & 0x1,
 			   SPSR_E_LITTLE, DISABLE_ALL_EXCEPTIONS);
 }
 
@@ -84,11 +82,11 @@ int bl2_plat_handle_post_image_load(unsigned int image_id)
 		hw_cfg_mem_params = get_bl_mem_params_node(HW_CONFIG_ID);
 
 		bl_mem_params->ep_info.args.arg0 =
-					bl_mem_params->ep_info.args.arg1;
+			bl_mem_params->ep_info.args.arg1;
 		bl_mem_params->ep_info.args.arg1 = 0;
 		if (hw_cfg_mem_params)
 			bl_mem_params->ep_info.args.arg2 =
-					hw_cfg_mem_params->image_info.image_base;
+				hw_cfg_mem_params->image_info.image_base;
 		else
 			bl_mem_params->ep_info.args.arg2 = 0;
 		bl_mem_params->ep_info.args.arg3 = 0;
@@ -142,7 +140,6 @@ static void imx7_setup_wdog_clocks(void)
 	imx_clock_enable_wdog(3);
 }
 
-
 /*
  * bl2_el3_early_platform_setup()
  * MMU off
@@ -168,8 +165,7 @@ void bl2_el3_early_platform_setup(u_register_t arg1, u_register_t arg2,
 	/* Init UART, clock should be enabled in imx7_platform_setup() */
 	console_imx_uart_register(PLAT_IMX7_BOOT_UART_BASE,
 				  PLAT_IMX7_BOOT_UART_CLK_IN_HZ,
-				  PLAT_IMX7_CONSOLE_BAUDRATE,
-				  &console);
+				  PLAT_IMX7_CONSOLE_BAUDRATE, &console);
 	console_set_scope(&console, console_scope);
 
 	/* Open handles to persistent storage */
@@ -180,13 +176,17 @@ void bl2_el3_early_platform_setup(u_register_t arg1, u_register_t arg2,
 	imx_wdog_init();
 
 	/* Print out the expected memory map */
-	VERBOSE("\tOPTEE       0x%08x-0x%08x\n", IMX7_OPTEE_BASE, IMX7_OPTEE_LIMIT);
+	VERBOSE("\tOPTEE       0x%08x-0x%08x\n", IMX7_OPTEE_BASE,
+		IMX7_OPTEE_LIMIT);
 	VERBOSE("\tATF/BL2     0x%08x-0x%08x\n", BL2_RAM_BASE, BL2_RAM_LIMIT);
-	VERBOSE("\tSHRAM       0x%08x-0x%08x\n", SHARED_RAM_BASE, SHARED_RAM_LIMIT);
+	VERBOSE("\tSHRAM       0x%08x-0x%08x\n", SHARED_RAM_BASE,
+		SHARED_RAM_LIMIT);
 	VERBOSE("\tFIP         0x%08x-0x%08x\n", IMX_FIP_BASE, IMX_FIP_LIMIT);
-	VERBOSE("\tDTB-OVERLAY 0x%08x-0x%08x\n", IMX7_DTB_OVERLAY_BASE, IMX7_DTB_OVERLAY_LIMIT);
+	VERBOSE("\tDTB-OVERLAY 0x%08x-0x%08x\n", IMX7_DTB_OVERLAY_BASE,
+		IMX7_DTB_OVERLAY_LIMIT);
 	VERBOSE("\tDTB         0x%08x-0x%08x\n", IMX7_DTB_BASE, IMX7_DTB_LIMIT);
-	VERBOSE("\tUBOOT/BL33  0x%08x-0x%08x\n", IMX7_UBOOT_BASE, IMX7_UBOOT_LIMIT);
+	VERBOSE("\tUBOOT/BL33  0x%08x-0x%08x\n", IMX7_UBOOT_BASE,
+		IMX7_UBOOT_LIMIT);
 }
 
 /*

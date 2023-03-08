@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, Arm Limited. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,7 +9,7 @@
 
 #include <lib/mpmm/mpmm.h>
 
-#define mpmm__config_getter(id)	fconf_mpmm_config.id
+#define mpmm__config_getter(id) fconf_mpmm_config.id
 
 struct fconf_mpmm_config {
 	const struct mpmm_topology *topology;

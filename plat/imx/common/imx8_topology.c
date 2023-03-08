@@ -1,11 +1,12 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <arch.h>
 #include <arch_helpers.h>
+
 #include <plat/common/platform.h>
 
 const unsigned char imx_power_domain_tree_desc[] = {
@@ -33,7 +34,7 @@ int plat_core_pos_by_mpidr(u_register_t mpidr)
 	cpu_id = MPIDR_AFFLVL0_VAL(mpidr);
 
 	if (cluster_id > PLATFORM_CLUSTER_COUNT ||
-		cpu_id > PLATFORM_MAX_CPU_PER_CLUSTER)
+	    cpu_id > PLATFORM_MAX_CPU_PER_CLUSTER)
 		return -1;
 
 	return (cpu_id + (cluster_id * 4));

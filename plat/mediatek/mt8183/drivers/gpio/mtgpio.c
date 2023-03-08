@@ -5,31 +5,33 @@
  */
 
 #include <assert.h>
+#include <stdbool.h>
+
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
+#include <drivers/gpio.h>
 #include <gpio/mtgpio.h>
 #include <gpio/mtgpio_cfg.h>
-#include <drivers/gpio.h>
-#include <mcucfg.h>
 #include <lib/mmio.h>
-#include <platform_def.h>
+#include <mcucfg.h>
 #include <spm.h>
-#include <stdbool.h>
+
+#include <platform_def.h>
 
 /******************************************************************************
  *Macro Definition
  ******************************************************************************/
-#define GPIO_MODE_BITS		4
-#define MAX_GPIO_MODE_PER_REG	8
-#define MAX_GPIO_REG_BITS	32
-#define DIR_BASE		(GPIO_BASE + 0x000)
-#define DOUT_BASE		(GPIO_BASE + 0x100)
-#define DIN_BASE		(GPIO_BASE + 0x200)
-#define MODE_BASE		(GPIO_BASE + 0x300)
-#define SET			0x4
-#define CLR			0x8
-#define PULLEN_ADDR_OFFSET	0x060
-#define PULLSEL_ADDR_OFFSET	0x080
+#define GPIO_MODE_BITS 4
+#define MAX_GPIO_MODE_PER_REG 8
+#define MAX_GPIO_REG_BITS 32
+#define DIR_BASE (GPIO_BASE + 0x000)
+#define DOUT_BASE (GPIO_BASE + 0x100)
+#define DIN_BASE (GPIO_BASE + 0x200)
+#define MODE_BASE (GPIO_BASE + 0x300)
+#define SET 0x4
+#define CLR 0x8
+#define PULLEN_ADDR_OFFSET 0x060
+#define PULLSEL_ADDR_OFFSET 0x080
 
 void mt_set_gpio_dir_chip(uint32_t pin, int dir)
 {
@@ -222,7 +224,7 @@ void mt_set_gpio_pull_enable_chip(uint32_t pin, int en)
 	assert(pin < MAX_GPIO_PIN);
 
 	assert(!((PULL_offset[pin].offset == (int8_t)-1) &&
-		(pupd_offset == (int8_t)-1)));
+		 (pupd_offset == (int8_t)-1)));
 
 	if (en == GPIO_PULL_DISABLE) {
 		if (PULL_offset[pin].offset == (int8_t)-1)
@@ -271,7 +273,7 @@ int mt_get_gpio_pull_enable_chip(uint32_t pin)
 	assert(pin < MAX_GPIO_PIN);
 
 	assert(!((PULL_offset[pin].offset == (int8_t)-1) &&
-		(pupd_offset == (int8_t)-1)));
+		 (pupd_offset == (int8_t)-1)));
 
 	if (PULL_offset[pin].offset == (int8_t)-1) {
 		reg = mmio_read_32(pupd_addr);
@@ -292,8 +294,8 @@ void mt_set_gpio_pull_select_chip(uint32_t pin, int sel)
 
 	assert(pin < MAX_GPIO_PIN);
 
-	assert(!((PULL_offset[pin].offset == (int8_t) -1) &&
-		(pupd_offset == (int8_t)-1)));
+	assert(!((PULL_offset[pin].offset == (int8_t)-1) &&
+		 (pupd_offset == (int8_t)-1)));
 
 	if (sel == GPIO_PULL_NONE) {
 		/*  Regard No PULL as PULL disable + pull down */
@@ -333,7 +335,7 @@ int mt_get_gpio_pull_select_chip(uint32_t pin)
 	assert(pin < MAX_GPIO_PIN);
 
 	assert(!((PULL_offset[pin].offset == (int8_t)-1) &&
-		(pupd_offset == (int8_t)-1)));
+		 (pupd_offset == (int8_t)-1)));
 
 	if (PULL_offset[pin].offset == (int8_t)-1) {
 		reg = mmio_read_32(pupd_addr);
@@ -342,7 +344,8 @@ int mt_get_gpio_pull_select_chip(uint32_t pin)
 			/* Reg value: 0 for PU, 1 for PD -->
 			 * reverse return value */
 			return ((reg & (1U << (pupd_offset + 2))) ?
-					GPIO_PULL_DOWN : GPIO_PULL_UP);
+					GPIO_PULL_DOWN :
+					GPIO_PULL_UP);
 		} else {
 			return GPIO_PULL_NONE;
 		}
@@ -351,7 +354,8 @@ int mt_get_gpio_pull_select_chip(uint32_t pin)
 		if ((reg & (1U << PULL_offset[pin].offset))) {
 			reg = mmio_read_32(pullsel_addr);
 			return ((reg & (1U << PULL_offset[pin].offset)) ?
-					GPIO_PULL_UP : GPIO_PULL_DOWN);
+					GPIO_PULL_UP :
+					GPIO_PULL_DOWN);
 		} else {
 			return GPIO_PULL_NONE;
 		}
@@ -430,10 +434,10 @@ int mt_get_gpio_mode(int gpio)
 }
 
 const gpio_ops_t mtgpio_ops = {
-	 .get_direction = mt_get_gpio_dir,
-	 .set_direction = mt_set_gpio_dir,
-	 .get_value = mt_get_gpio_in,
-	 .set_value = mt_set_gpio_out,
-	 .set_pull = mt_set_gpio_pull,
-	 .get_pull = mt_get_gpio_pull,
+	.get_direction = mt_get_gpio_dir,
+	.set_direction = mt_set_gpio_dir,
+	.get_value = mt_get_gpio_in,
+	.set_value = mt_set_gpio_out,
+	.set_pull = mt_set_gpio_pull,
+	.get_pull = mt_get_gpio_pull,
 };

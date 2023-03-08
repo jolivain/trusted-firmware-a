@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2022-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -86,16 +86,16 @@ CASSERT(sizeof(struct ffa_comp_mrd) == 16, assert_ffa_comp_mrd_size_mismatch);
  */
 typedef uint8_t ffa_mem_attr8_t;
 typedef uint16_t ffa_mem_attr16_t;
-#define FFA_MEM_ATTR_NS_BIT			(0x1U << 6)
-#define FFA_MEM_ATTR_DEVICE_NGNRNE		((1U << 4) | (0x0U << 2))
-#define FFA_MEM_ATTR_DEVICE_NGNRE		((1U << 4) | (0x1U << 2))
-#define FFA_MEM_ATTR_DEVICE_NGRE		((1U << 4) | (0x2U << 2))
-#define FFA_MEM_ATTR_DEVICE_GRE			((1U << 4) | (0x3U << 2))
-#define FFA_MEM_ATTR_NORMAL_MEMORY_UNCACHED	((2U << 4) | (0x1U << 2))
-#define FFA_MEM_ATTR_NORMAL_MEMORY_CACHED_WB	((2U << 4) | (0x3U << 2))
-#define FFA_MEM_ATTR_NON_SHAREABLE		(0x0U << 0)
-#define FFA_MEM_ATTR_OUTER_SHAREABLE		(0x2U << 0)
-#define FFA_MEM_ATTR_INNER_SHAREABLE		(0x3U << 0)
+#define FFA_MEM_ATTR_NS_BIT (0x1U << 6)
+#define FFA_MEM_ATTR_DEVICE_NGNRNE ((1U << 4) | (0x0U << 2))
+#define FFA_MEM_ATTR_DEVICE_NGNRE ((1U << 4) | (0x1U << 2))
+#define FFA_MEM_ATTR_DEVICE_NGRE ((1U << 4) | (0x2U << 2))
+#define FFA_MEM_ATTR_DEVICE_GRE ((1U << 4) | (0x3U << 2))
+#define FFA_MEM_ATTR_NORMAL_MEMORY_UNCACHED ((2U << 4) | (0x1U << 2))
+#define FFA_MEM_ATTR_NORMAL_MEMORY_CACHED_WB ((2U << 4) | (0x3U << 2))
+#define FFA_MEM_ATTR_NON_SHAREABLE (0x0U << 0)
+#define FFA_MEM_ATTR_OUTER_SHAREABLE (0x2U << 0)
+#define FFA_MEM_ATTR_INNER_SHAREABLE (0x3U << 0)
 
 /**
  * typedef ffa_mem_perm8_t - Memory access permissions
@@ -110,10 +110,10 @@ typedef uint16_t ffa_mem_attr16_t;
  *     Request executable mapping.
  */
 typedef uint8_t ffa_mem_perm8_t;
-#define FFA_MEM_PERM_RO		(1U << 0)
-#define FFA_MEM_PERM_RW		(1U << 1)
-#define FFA_MEM_PERM_NX		(1U << 2)
-#define FFA_MEM_PERM_X		(1U << 3)
+#define FFA_MEM_PERM_RO (1U << 0)
+#define FFA_MEM_PERM_RW (1U << 1)
+#define FFA_MEM_PERM_NX (1U << 2)
+#define FFA_MEM_PERM_X (1U << 3)
 
 /**
  * typedef ffa_mem_flag8_t - Endpoint memory flags
@@ -123,7 +123,7 @@ typedef uint8_t ffa_mem_perm8_t;
  *     behalf of this endpoint.
  */
 typedef uint8_t ffa_mem_flag8_t;
-#define FFA_MEM_FLAG_NON_RETRIEVAL_BORROWER	(1U << 0)
+#define FFA_MEM_FLAG_NON_RETRIEVAL_BORROWER (1U << 0)
 
 /**
  * typedef ffa_mtd_flag32_t - Memory transaction descriptor flags
@@ -145,13 +145,13 @@ typedef uint8_t ffa_mem_flag8_t;
  *     Not supported by this implementation.
  */
 typedef uint32_t ffa_mtd_flag32_t;
-#define FFA_MTD_FLAG_ZERO_MEMORY			(1U << 0)
-#define FFA_MTD_FLAG_TIME_SLICING			(1U << 1)
-#define FFA_MTD_FLAG_ZERO_MEMORY_AFTER_RELINQUISH	(1U << 2)
-#define FFA_MTD_FLAG_TYPE_MASK				(3U << 3)
-#define FFA_MTD_FLAG_TYPE_SHARE_MEMORY			(1U << 3)
-#define FFA_MTD_FLAG_TYPE_LEND_MEMORY			(1U << 4)
-#define FFA_MTD_FLAG_ADDRESS_RANGE_ALIGNMENT_HINT_MASK	(0x1FU << 5)
+#define FFA_MTD_FLAG_ZERO_MEMORY (1U << 0)
+#define FFA_MTD_FLAG_TIME_SLICING (1U << 1)
+#define FFA_MTD_FLAG_ZERO_MEMORY_AFTER_RELINQUISH (1U << 2)
+#define FFA_MTD_FLAG_TYPE_MASK (3U << 3)
+#define FFA_MTD_FLAG_TYPE_SHARE_MEMORY (1U << 3)
+#define FFA_MTD_FLAG_TYPE_LEND_MEMORY (1U << 4)
+#define FFA_MTD_FLAG_ADDRESS_RANGE_ALIGNMENT_HINT_MASK (0x1FU << 5)
 
 /**
  * struct ffa_mapd - Memory access permissions descriptor

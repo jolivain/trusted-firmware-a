@@ -11,20 +11,26 @@
 #include <lib/mmio.h>
 #include <mtk_sip_svc.h>
 
-#define LARB_CFG_ENTRY(bs, p_nr, dom)			\
-	{ .base = (bs), .port_nr = (p_nr),		\
-	  .dom_id = (dom), .to_sram = 0, }
+#define LARB_CFG_ENTRY(bs, p_nr, dom)                             \
+	{                                                         \
+		.base = (bs), .port_nr = (p_nr), .dom_id = (dom), \
+		.to_sram = 0,                                     \
+	}
 
-#define LARB_CFG_ENTRY_WITH_PATH(bs, p_nr, dom, sram)	\
-	{ .base = (bs), .port_nr = (p_nr),		\
-	  .dom_id = (dom), .to_sram = (sram), }
+#define LARB_CFG_ENTRY_WITH_PATH(bs, p_nr, dom, sram)             \
+	{                                                         \
+		.base = (bs), .port_nr = (p_nr), .dom_id = (dom), \
+		.to_sram = (sram),                                \
+	}
 
-#define IFR_MST_CFG_ENTRY(idx, bit)	\
-	{ .cfg_addr_idx = (idx), .r_mmu_en_bit = (bit), }
+#define IFR_MST_CFG_ENTRY(idx, bit)                           \
+	{                                                     \
+		.cfg_addr_idx = (idx), .r_mmu_en_bit = (bit), \
+	}
 
 enum IOMMU_ATF_CMD {
-	IOMMU_ATF_CMD_CONFIG_SMI_LARB,		/* For mm master to enable iommu */
-	IOMMU_ATF_CMD_CONFIG_INFRA_IOMMU,	/* For infra master to enable iommu */
+	IOMMU_ATF_CMD_CONFIG_SMI_LARB, /* For mm master to enable iommu */
+	IOMMU_ATF_CMD_CONFIG_INFRA_IOMMU, /* For infra master to enable iommu */
 	IOMMU_ATF_CMD_COUNT,
 };
 
@@ -41,4 +47,4 @@ struct mtk_ifr_mst_config {
 	uint8_t r_mmu_en_bit;
 };
 
-#endif	/* IOMMU_PRIV_H */
+#endif /* IOMMU_PRIV_H */

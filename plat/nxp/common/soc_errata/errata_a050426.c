@@ -18,7 +18,8 @@ void erratum_a050426(void)
 	 * Validate whether RCW has already included required changes
 	 */
 	if (mmio_read_32(0x01e00210) != 0x00050426) {
-		ERROR("%s: Invalid RCW : ERR050426 not implemented\n", __func__);
+		ERROR("%s: Invalid RCW : ERR050426 not implemented\n",
+		      __func__);
 	}
 
 	/* Enable BIST to access Internal memory locations */

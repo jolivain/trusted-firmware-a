@@ -1,10 +1,8 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
-
-#include <platform_def.h>
 
 #include <arch.h>
 #include <arch_helpers.h>
@@ -13,8 +11,9 @@
 #include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_mmu_helpers.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
-
 #include <rpi_shared.h>
+
+#include <platform_def.h>
 
 /* Data structure which holds the extents of the trusted SRAM for BL1 */
 static meminfo_t bl1_tzram_layout;
@@ -50,13 +49,13 @@ void bl1_early_platform_setup(void)
 void bl1_plat_arch_setup(void)
 {
 	rpi3_setup_page_tables(bl1_tzram_layout.total_base,
-			       bl1_tzram_layout.total_size,
-			       BL_CODE_BASE, BL1_CODE_END,
-			       BL1_RO_DATA_BASE, BL1_RO_DATA_END
+			       bl1_tzram_layout.total_size, BL_CODE_BASE,
+			       BL1_CODE_END, BL1_RO_DATA_BASE, BL1_RO_DATA_END
 #if USE_COHERENT_MEM
-			       , BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END
+			       ,
+			       BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END
 #endif
-			      );
+	);
 
 	enable_mmu_el3(0);
 }

@@ -1,12 +1,10 @@
 /*
- * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-
-#include <platform_def.h>
 
 #include <arch.h>
 #include <arch_features.h>
@@ -19,9 +17,11 @@
 #include <drivers/console.h>
 #include <lib/cpus/errata_report.h>
 #include <lib/utils.h>
-#include <plat/common/platform.h>
 #include <smccc_helpers.h>
 #include <tools_share/uuid.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 #include "bl1_private.h"
 
@@ -36,7 +36,7 @@ uint64_t bl1_apiakey[2];
  * the BL1 RW data assuming that it is at the top of the memory layout.
  ******************************************************************************/
 void bl1_calc_bl2_mem_layout(const meminfo_t *bl1_mem_layout,
-			meminfo_t *bl2_mem_layout)
+			     meminfo_t *bl2_mem_layout)
 {
 	assert(bl1_mem_layout != NULL);
 	assert(bl2_mem_layout != NULL);
@@ -227,20 +227,13 @@ void print_debug_loop_message(void)
 /*******************************************************************************
  * Top level handler for servicing BL1 SMCs.
  ******************************************************************************/
-u_register_t bl1_smc_handler(unsigned int smc_fid,
-	u_register_t x1,
-	u_register_t x2,
-	u_register_t x3,
-	u_register_t x4,
-	void *cookie,
-	void *handle,
-	unsigned int flags)
+u_register_t bl1_smc_handler(unsigned int smc_fid, u_register_t x1,
+			     u_register_t x2, u_register_t x3, u_register_t x4,
+			     void *cookie, void *handle, unsigned int flags)
 {
 	/* BL1 Service UUID */
-	DEFINE_SVC_UUID2(bl1_svc_uid,
-		U(0xd46739fd), 0xcb72, 0x9a4d, 0xb5, 0x75,
-		0x67, 0x15, 0xd6, 0xf4, 0xbb, 0x4a);
-
+	DEFINE_SVC_UUID2(bl1_svc_uid, U(0xd46739fd), 0xcb72, 0x9a4d, 0xb5, 0x75,
+			 0x67, 0x15, 0xd6, 0xf4, 0xbb, 0x4a);
 
 #if TRUSTED_BOARD_BOOT
 	/*
@@ -249,7 +242,7 @@ u_register_t bl1_smc_handler(unsigned int smc_fid,
 	 */
 	if (is_fwu_fid(smc_fid)) {
 		return bl1_fwu_smc_handler(smc_fid, x1, x2, x3, x4, cookie,
-			handle, flags);
+					   handle, flags);
 	}
 #endif
 
@@ -273,10 +266,8 @@ u_register_t bl1_smc_handler(unsigned int smc_fid,
  * BL1 SMC wrapper.  This function is only used in AArch32 mode to ensure ABI
  * compliance when invoking bl1_smc_handler.
  ******************************************************************************/
-u_register_t bl1_smc_wrapper(uint32_t smc_fid,
-	void *cookie,
-	void *handle,
-	unsigned int flags)
+u_register_t bl1_smc_wrapper(uint32_t smc_fid, void *cookie, void *handle,
+			     unsigned int flags)
 {
 	u_register_t x1, x2, x3, x4;
 

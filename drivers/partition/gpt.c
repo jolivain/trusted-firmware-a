@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -55,11 +55,11 @@ int parse_gpt_entry(gpt_entry_t *gpt_entry, partition_entry_t *entry)
 	if (result != 0) {
 		return result;
 	}
-	entry->start = (uint64_t)gpt_entry->first_lba *
-		       PLAT_PARTITION_BLOCK_SIZE;
-	entry->length = (uint64_t)(gpt_entry->last_lba -
-				   gpt_entry->first_lba + 1) *
-			PLAT_PARTITION_BLOCK_SIZE;
+	entry->start =
+		(uint64_t)gpt_entry->first_lba * PLAT_PARTITION_BLOCK_SIZE;
+	entry->length =
+		(uint64_t)(gpt_entry->last_lba - gpt_entry->first_lba + 1) *
+		PLAT_PARTITION_BLOCK_SIZE;
 	guidcpy(&entry->part_guid, &gpt_entry->unique_uuid);
 	guidcpy(&entry->type_guid, &gpt_entry->type_uuid);
 

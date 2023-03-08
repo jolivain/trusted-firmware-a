@@ -10,8 +10,7 @@
 #include "mt_spm_internal.h"
 
 int spm_conservation(int state_id, unsigned int ext_opand,
-		     struct spm_lp_scen *spm_lp,
-		     unsigned int resource_req);
+		     struct spm_lp_scen *spm_lp, unsigned int resource_req);
 void spm_conservation_finish(int state_id, unsigned int ext_opand,
 			     struct spm_lp_scen *spm_lp,
 			     struct wake_status **status);

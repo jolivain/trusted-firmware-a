@@ -15,7 +15,7 @@
 #include <platform_def.h>
 
 /* We currently use FW, TB_FW, SOC_FW, TOS_FW, NT_FW and HW configs  */
-#define MAX_DTB_INFO	U(6)
+#define MAX_DTB_INFO U(6)
 /*
  * Compile time assert if FW_CONFIG_ID is 0 which is more
  * unlikely as 0 is a valid image ID for FIP as per the current
@@ -32,8 +32,7 @@ static OBJECT_POOL_ARRAY(dtb_info_pool, dtb_infos);
  * global pool and set the configuration information.
  */
 void set_config_info(uintptr_t config_addr, uintptr_t secondary_config_addr,
-		     uint32_t config_max_size,
-		     unsigned int config_id)
+		     uint32_t config_max_size, unsigned int config_id)
 {
 	struct dyn_cfg_dtb_info_t *dtb_info;
 
@@ -99,7 +98,8 @@ int fconf_populate_dtb_registry(uintptr_t config)
 	const char *compatible_str = "fconf,dyn_cfg-dtb_registry";
 	node = fdt_node_offset_by_compatible(dtb, -1, compatible_str);
 	if (node < 0) {
-		ERROR("FCONF: Can't find %s compatible in dtb\n", compatible_str);
+		ERROR("FCONF: Can't find %s compatible in dtb\n",
+		      compatible_str);
 		return node;
 	}
 

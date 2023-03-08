@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -33,6 +33,5 @@ void fpga_console_init(void)
 
 	(void)console_pl011_register(base_addr, 0, 0, &console);
 
-	console_set_scope(&console, CONSOLE_FLAG_BOOT |
-		CONSOLE_FLAG_RUNTIME);
+	console_set_scope(&console, CONSOLE_FLAG_BOOT | CONSOLE_FLAG_RUNTIME);
 }

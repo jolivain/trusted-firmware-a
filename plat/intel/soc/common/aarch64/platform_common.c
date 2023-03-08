@@ -1,16 +1,16 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <arch.h>
 #include <arch_helpers.h>
-#include <platform_def.h>
+
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 #include "socfpga_private.h"
-
 
 unsigned int plat_get_syscnt_freq2(void)
 {
@@ -57,4 +57,3 @@ uint32_t socfpga_get_spsr_for_bl33_entry(void)
 	spsr = SPSR_64(mode, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 	return spsr;
 }
-

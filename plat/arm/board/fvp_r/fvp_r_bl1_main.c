@@ -1,12 +1,11 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include "../../../../bl1/bl1_private.h"
 #include <arch.h>
 #include <arch_features.h>
 #include <arch_helpers.h>
@@ -19,11 +18,12 @@
 #include <lib/utils.h>
 #include <smccc_helpers.h>
 #include <tools_share/uuid.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
-
 #include <platform_def.h>
 
+#include "../../../../bl1/bl1_private.h"
 
 void cm_prepare_el2_exit(void);
 
@@ -84,7 +84,8 @@ void bl1_load_bl33(void)
 	/* Allow platform to handle image information. */
 	err = bl1_plat_handle_post_image_load(BL33_IMAGE_ID);
 	if (err != 0) {
-		ERROR("Failure in post image load handling of BL33 (%d)\n", err);
+		ERROR("Failure in post image load handling of BL33 (%d)\n",
+		      err);
 		plat_error_handler(err);
 	}
 
@@ -96,7 +97,7 @@ void bl1_load_bl33(void)
  * the BL1 RW data assuming that it is at the top of the memory layout.
  ******************************************************************************/
 void bl1_calc_bl2_mem_layout(const meminfo_t *bl1_mem_layout,
-			meminfo_t *bl2_mem_layout)
+			     meminfo_t *bl2_mem_layout)
 {
 	assert(bl1_mem_layout != NULL);
 	assert(bl2_mem_layout != NULL);
@@ -128,7 +129,7 @@ void bl1_prepare_next_image(unsigned int image_id)
 	 */
 	if (el_implemented(1) == EL_IMPL_A64ONLY) {
 		ERROR("EL1 supports AArch64-only. Please set build flag %s",
-				"CTX_INCLUDE_AARCH32_REGS = 0\n");
+		      "CTX_INCLUDE_AARCH32_REGS = 0\n");
 		panic();
 	}
 #endif
@@ -144,8 +145,8 @@ void bl1_prepare_next_image(unsigned int image_id)
 	assert(GET_SECURITY_STATE(next_bl_ep->h.attr) == SECURE);
 
 	/* Prepare the SPSR for the next BL image. */
-	next_bl_ep->spsr = (uint32_t)SPSR_64((uint64_t) mode,
-		(uint64_t)MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
+	next_bl_ep->spsr = (uint32_t)SPSR_64(
+		(uint64_t)mode, (uint64_t)MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 
 	/* Allow platform to make change */
 	bl1_plat_set_ep_info(image_id, next_bl_ep);
@@ -265,4 +266,3 @@ void print_debug_loop_message(void)
 	NOTICE("BL1: Please connect the debugger to continue\n");
 }
 #endif
-

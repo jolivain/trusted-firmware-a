@@ -11,20 +11,20 @@
 #include <common/desc_image_load.h>
 #endif
 #include <common/fdt_wrappers.h>
-#include <platform_def.h>
-
 #include <libfdt.h>
+
+#include <platform_def.h>
 
 #ifdef SPD_opteed
 /*
  * Currently OP-TEE does not support reading DTBs from Secure memory
  * and this property should be removed when this feature is supported.
  */
-#define DTB_PROP_HW_SM_LOG_ADDR	"tpm_event_log_sm_addr"
+#define DTB_PROP_HW_SM_LOG_ADDR "tpm_event_log_sm_addr"
 #endif
 
-#define DTB_PROP_HW_LOG_ADDR	"tpm_event_log_addr"
-#define DTB_PROP_HW_LOG_SIZE    "tpm_event_log_size"
+#define DTB_PROP_HW_LOG_ADDR "tpm_event_log_addr"
+#define DTB_PROP_HW_LOG_SIZE "tpm_event_log_size"
 
 #if MEASURED_BOOT
 
@@ -76,9 +76,9 @@ int qemu_set_tee_fw_info(uintptr_t config_base, uintptr_t log_addr,
  */
 static int qemu_set_event_log_info(uintptr_t config_base,
 #ifdef SPD_opteed
-				  uintptr_t sm_log_addr,
+				   uintptr_t sm_log_addr,
 #endif
-				  uintptr_t log_addr, size_t log_size)
+				   uintptr_t log_addr, size_t log_size)
 {
 	/* As libfdt uses void *, we can't avoid this cast */
 	void *dtb = (void *)config_base;
@@ -112,7 +112,7 @@ static int qemu_set_event_log_info(uintptr_t config_base,
 	node = fdt_node_offset_by_compatible(dtb, -1, compatible_tpm);
 	if (node < 0) {
 		ERROR("The compatible property '%s' not%s", compatible_tpm,
-			" found in the config\n");
+		      " found in the config\n");
 		return node;
 	}
 
@@ -162,7 +162,7 @@ static int qemu_set_event_log_info(uintptr_t config_base,
  *    < 0 = error
  */
 int qemu_set_tos_fw_info(uintptr_t config_base, uintptr_t log_addr,
-			size_t log_size)
+			 size_t log_size)
 {
 	int err = 0;
 
@@ -191,9 +191,9 @@ int qemu_set_tos_fw_info(uintptr_t config_base, uintptr_t log_addr,
  */
 int qemu_set_nt_fw_info(
 #ifdef SPD_opteed
-			uintptr_t log_addr,
+	uintptr_t log_addr,
 #endif
-			size_t log_size, uintptr_t *ns_log_addr)
+	size_t log_size, uintptr_t *ns_log_addr)
 {
 	uintptr_t ns_addr;
 	int err;
@@ -205,9 +205,9 @@ int qemu_set_nt_fw_info(
 	/* Write the Event Log address and its size in the DTB */
 	err = qemu_set_event_log_info(PLAT_QEMU_DT_BASE,
 #ifdef SPD_opteed
-					log_addr,
+				      log_addr,
 #endif
-					ns_addr, log_size);
+				      ns_addr, log_size);
 
 	/* Return Event Log address in Non-secure memory */
 	*ns_log_addr = (err < 0) ? 0UL : ns_addr;

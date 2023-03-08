@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (C) 2022-2023, Advanced Micro Devices, Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -16,8 +16,9 @@
 #include <plat_ipi.h>
 #include <plat_private.h>
 #include <plat_startup.h>
-#include <plat/common/platform.h>
 #include <services/arm_arch_svc.h>
+
+#include <plat/common/platform.h>
 
 #include "pm_api_sys.h"
 
@@ -27,10 +28,13 @@
  * configure_mmu_elx() will give the available subset of that,
  */
 const mmap_region_t plat_arm_mmap[] = {
-	{ DEVICE0_BASE, DEVICE0_BASE, DEVICE0_SIZE, MT_DEVICE | MT_RW | MT_SECURE },
-	{ DEVICE1_BASE, DEVICE1_BASE, DEVICE1_SIZE, MT_DEVICE | MT_RW | MT_SECURE },
-	{ CRF_APB_BASE, CRF_APB_BASE, CRF_APB_SIZE, MT_DEVICE | MT_RW | MT_SECURE },
-	{0}
+	{ DEVICE0_BASE, DEVICE0_BASE, DEVICE0_SIZE,
+	  MT_DEVICE | MT_RW | MT_SECURE },
+	{ DEVICE1_BASE, DEVICE1_BASE, DEVICE1_SIZE,
+	  MT_DEVICE | MT_RW | MT_SECURE },
+	{ CRF_APB_BASE, CRF_APB_BASE, CRF_APB_SIZE,
+	  MT_DEVICE | MT_RW | MT_SECURE },
+	{ 0 }
 };
 
 static uint32_t zynqmp_get_silicon_ver(void)
@@ -215,12 +219,12 @@ static const struct {
 	},
 };
 
-#define ZYNQMP_PL_STATUS_BIT	9
-#define ZYNQMP_PL_STATUS_MASK	BIT(ZYNQMP_PL_STATUS_BIT)
-#define ZYNQMP_CSU_VERSION_MASK	~(ZYNQMP_PL_STATUS_MASK)
+#define ZYNQMP_PL_STATUS_BIT 9
+#define ZYNQMP_PL_STATUS_MASK BIT(ZYNQMP_PL_STATUS_BIT)
+#define ZYNQMP_CSU_VERSION_MASK ~(ZYNQMP_PL_STATUS_MASK)
 
-#define SILICON_ID_XCK24	0x4712093U
-#define SILICON_ID_XCK26	0x4724093U
+#define SILICON_ID_XCK24 0x4712093U
+#define SILICON_ID_XCK26 0x4724093U
 
 static char *zynqmp_get_silicon_idcode_name(void)
 {
@@ -235,7 +239,8 @@ static char *zynqmp_get_silicon_idcode_name(void)
 	 * that these registers should be configured to have access
 	 * from APU which is default case.
 	 */
-	chipid[0] = mmio_read_32(ZYNQMP_CSU_BASEADDR + ZYNQMP_CSU_IDCODE_OFFSET);
+	chipid[0] =
+		mmio_read_32(ZYNQMP_CSU_BASEADDR + ZYNQMP_CSU_IDCODE_OFFSET);
 	chipid[1] = mmio_read_32(EFUSE_BASEADDR + EFUSE_IPDISABLE_OFFSET);
 #else
 	if (pm_get_chipid(chipid) != PM_RET_SUCCESS) {
@@ -243,8 +248,8 @@ static char *zynqmp_get_silicon_idcode_name(void)
 	}
 #endif
 
-	id = chipid[0] & (ZYNQMP_CSU_IDCODE_DEVICE_CODE_MASK |
-			  ZYNQMP_CSU_IDCODE_SVD_MASK);
+	id = chipid[0] &
+	     (ZYNQMP_CSU_IDCODE_DEVICE_CODE_MASK | ZYNQMP_CSU_IDCODE_SVD_MASK);
 	id >>= ZYNQMP_CSU_IDCODE_SVD_SHIFT;
 	ver = chipid[1] >> ZYNQMP_EFUSE_IPDISABLE_SHIFT;
 
@@ -302,9 +307,9 @@ static char *zynqmp_print_silicon_idcode(void)
 	id = mmio_read_32(ZYNQMP_CSU_BASEADDR + ZYNQMP_CSU_IDCODE_OFFSET);
 
 	tmp = id;
-	tmp &= ZYNQMP_CSU_IDCODE_XILINX_ID_MASK |
-	       ZYNQMP_CSU_IDCODE_FAMILY_MASK;
-	maskid = ZYNQMP_CSU_IDCODE_XILINX_ID << ZYNQMP_CSU_IDCODE_XILINX_ID_SHIFT |
+	tmp &= ZYNQMP_CSU_IDCODE_XILINX_ID_MASK | ZYNQMP_CSU_IDCODE_FAMILY_MASK;
+	maskid = ZYNQMP_CSU_IDCODE_XILINX_ID
+			 << ZYNQMP_CSU_IDCODE_XILINX_ID_SHIFT |
 		 ZYNQMP_CSU_IDCODE_FAMILY << ZYNQMP_CSU_IDCODE_FAMILY_SHIFT;
 	if (tmp != maskid) {
 		ERROR("Incorrect IDCODE 0x%x, maskid 0x%x\n", id, maskid);
@@ -329,7 +334,8 @@ int32_t plat_is_smccc_feature_available(u_register_t fid)
 int32_t plat_get_soc_version(void)
 {
 	uint32_t chip_id = zynqmp_get_silicon_ver();
-	uint32_t manfid = SOC_ID_SET_JEP_106(JEDEC_XILINX_BKID, JEDEC_XILINX_MFID);
+	uint32_t manfid =
+		SOC_ID_SET_JEP_106(JEDEC_XILINX_BKID, JEDEC_XILINX_MFID);
 
 	return (int32_t)(manfid | (chip_id & 0xFFFF));
 }
@@ -341,7 +347,8 @@ int32_t plat_get_soc_revision(void)
 
 static uint32_t zynqmp_get_ps_ver(void)
 {
-	uint32_t ver = mmio_read_32(ZYNQMP_CSU_BASEADDR + ZYNQMP_CSU_VERSION_OFFSET);
+	uint32_t ver =
+		mmio_read_32(ZYNQMP_CSU_BASEADDR + ZYNQMP_CSU_VERSION_OFFSET);
 
 	ver &= ZYNQMP_PS_VER_MASK;
 	ver >>= ZYNQMP_PS_VER_SHIFT;
@@ -369,11 +376,13 @@ static void zynqmp_print_platform_name(void)
 
 	VERBOSE("TF-A running on %s/%s at 0x%x\n",
 		zynqmp_print_silicon_idcode(), label, BL31_BASE);
-	VERBOSE("TF-A running on v%d/RTL%d.%d\n",
-	       zynqmp_get_ps_ver(), (rtl & 0xf0) >> 4, rtl & 0xf);
+	VERBOSE("TF-A running on v%d/RTL%d.%d\n", zynqmp_get_ps_ver(),
+		(rtl & 0xf0) >> 4, rtl & 0xf);
 }
 #else
-static inline void zynqmp_print_platform_name(void) { }
+static inline void zynqmp_print_platform_name(void)
+{
+}
 #endif
 
 uint32_t zynqmp_get_bootmode(void)

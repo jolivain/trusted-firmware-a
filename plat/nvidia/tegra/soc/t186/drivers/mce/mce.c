@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -19,7 +19,6 @@
 #include <denver.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/mmio.h>
-
 #include <mce.h>
 #include <mce_private.h>
 #include <t18x_ari.h>
@@ -135,8 +134,7 @@ static arch_mce_ops_t *mce_get_curr_cpu_ops(void)
 {
 	uint64_t mpidr = read_mpidr();
 	uint64_t cpuid = mpidr & MPIDR_CPU_MASK;
-	uint64_t impl = (read_midr() >> MIDR_IMPL_SHIFT) &
-			MIDR_IMPL_MASK;
+	uint64_t impl = (read_midr() >> MIDR_IMPL_SHIFT) & MIDR_IMPL_MASK;
 
 	/*
 	 * T186 has 2 CPU clusters, one with Denver CPUs and the other with
@@ -156,7 +154,7 @@ static arch_mce_ops_t *mce_get_curr_cpu_ops(void)
  * Common handler for all MCE commands
  ******************************************************************************/
 int32_t mce_command_handler(uint64_t cmd, uint64_t arg0, uint64_t arg1,
-			uint64_t arg2)
+			    uint64_t arg2)
 {
 	const arch_mce_ops_t *ops;
 	gp_regs_t *gp_regs = get_gpregs_ctx(cm_get_context(NON_SECURE));
@@ -188,8 +186,9 @@ int32_t mce_command_handler(uint64_t cmd, uint64_t arg0, uint64_t arg1,
 		arg5 = read_ctx_reg(gp_regs, CTX_GPREG_X6);
 
 		ret = ops->update_cstate_info(cpu_ari_base, (uint32_t)arg0,
-				(uint32_t)arg1, (uint32_t)arg2, (uint8_t)arg3,
-				(uint32_t)arg4, (uint8_t)arg5);
+					      (uint32_t)arg1, (uint32_t)arg2,
+					      (uint8_t)arg3, (uint32_t)arg4,
+					      (uint8_t)arg5);
 
 		write_ctx_reg(gp_regs, CTX_GPREG_X4, (0ULL));
 		write_ctx_reg(gp_regs, CTX_GPREG_X5, (0ULL));
@@ -245,19 +244,19 @@ int32_t mce_command_handler(uint64_t cmd, uint64_t arg0, uint64_t arg1,
 
 	case (uint64_t)MCE_CMD_ECHO_DATA:
 		ret64 = ops->call_enum_misc(cpu_ari_base, TEGRA_ARI_MISC_ECHO,
-				arg0);
+					    arg0);
 
 		/* update context to return if echo'd data matched source */
-		write_ctx_reg(gp_regs, CTX_GPREG_X1, ((ret64 == arg0) ?
-			      1ULL : 0ULL));
-		write_ctx_reg(gp_regs, CTX_GPREG_X2, ((ret64 == arg0) ?
-			      1ULL : 0ULL));
+		write_ctx_reg(gp_regs, CTX_GPREG_X1,
+			      ((ret64 == arg0) ? 1ULL : 0ULL));
+		write_ctx_reg(gp_regs, CTX_GPREG_X2,
+			      ((ret64 == arg0) ? 1ULL : 0ULL));
 
 		break;
 
 	case (uint64_t)MCE_CMD_READ_VERSIONS:
-		ret64 = ops->call_enum_misc(cpu_ari_base, TEGRA_ARI_MISC_VERSION,
-			arg0);
+		ret64 = ops->call_enum_misc(cpu_ari_base,
+					    TEGRA_ARI_MISC_VERSION, arg0);
 
 		/*
 		 * version = minor(63:32) | major(31:0). Update context
@@ -269,8 +268,8 @@ int32_t mce_command_handler(uint64_t cmd, uint64_t arg0, uint64_t arg1,
 		break;
 
 	case (uint64_t)MCE_CMD_ENUM_FEATURES:
-		ret64 = ops->call_enum_misc(cpu_ari_base,
-				TEGRA_ARI_MISC_FEATURE_LEAF_0, arg0);
+		ret64 = ops->call_enum_misc(
+			cpu_ari_base, TEGRA_ARI_MISC_FEATURE_LEAF_0, arg0);
 
 		/* update context to return features value */
 		write_ctx_reg(gp_regs, CTX_GPREG_X1, (ret64));
@@ -325,7 +324,7 @@ int32_t mce_command_handler(uint64_t cmd, uint64_t arg0, uint64_t arg1,
 		 * particular location in the Silicon is.
 		 */
 		ops->enter_ccplex_state(mce_get_curr_cpu_ari_base(),
-			0xFFFF0000);
+					0xFFFF0000);
 
 		break;
 #endif
@@ -407,7 +406,6 @@ __dead2 void mce_enter_ccplex_state(uint32_t state_idx)
 	for (;;) {
 		;
 	}
-
 }
 
 /*******************************************************************************
@@ -419,8 +417,9 @@ void mce_update_cstate_info(const mce_cstate_info_t *cstate)
 
 	/* issue the UPDATE_CSTATE_INFO request */
 	ops->update_cstate_info(mce_get_curr_cpu_ari_base(), cstate->cluster,
-		cstate->ccplex, cstate->system, cstate->system_state_force,
-		cstate->wake_mask, cstate->update_wake_mask);
+				cstate->ccplex, cstate->system,
+				cstate->system_state_force, cstate->wake_mask,
+				cstate->update_wake_mask);
 }
 
 /*******************************************************************************
@@ -438,7 +437,6 @@ void mce_verify_firmware_version(void)
 	 * MCE firmware is not supported on simulation platforms.
 	 */
 	if (tegra_platform_is_emulation()) {
-
 		INFO("MCE firmware is not supported\n");
 
 	} else {
@@ -452,12 +450,13 @@ void mce_verify_firmware_version(void)
 		 * Read the MCE firmware version and extract the major and minor
 		 * version fields
 		 */
-		version = ops->call_enum_misc(cpu_ari_base, TEGRA_ARI_MISC_VERSION, 0);
+		version = ops->call_enum_misc(cpu_ari_base,
+					      TEGRA_ARI_MISC_VERSION, 0);
 		major = (uint32_t)version;
 		minor = (uint32_t)(version >> 32);
 
 		INFO("MCE Version - HW=%d:%d, SW=%d:%d\n", major, minor,
-			TEGRA_ARI_VERSION_MAJOR, TEGRA_ARI_VERSION_MINOR);
+		     TEGRA_ARI_VERSION_MAJOR, TEGRA_ARI_VERSION_MINOR);
 
 		/*
 		 * Verify that the MCE firmware version and the interface header

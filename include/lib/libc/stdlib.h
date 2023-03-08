@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 /*
- * Portions copyright (c) 2018-2019, ARM Limited and Contributors.
+ * Portions copyright (c) 2018-2023, ARM Limited and Contributors.
  * All rights reserved.
  */
 
@@ -18,8 +18,9 @@
 
 #define _ATEXIT_MAX 1
 
-#define isspace(x)    (((x) == ' ') || ((x) == '\r') || ((x) == '\n') || \
-			((x) == '\t') || ((x) == '\b'))
+#define isspace(x)                                                          \
+	(((x) == ' ') || ((x) == '\r') || ((x) == '\n') || ((x) == '\t') || \
+	 ((x) == '\b'))
 
 extern void abort(void);
 extern int atexit(void (*func)(void));

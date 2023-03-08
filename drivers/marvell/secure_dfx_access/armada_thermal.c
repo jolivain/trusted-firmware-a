@@ -4,12 +4,14 @@
  * SPDX-License-Identifier:     BSD-3-Clause
  * https://spdx.org/licenses
  */
+#include <errno.h>
+#include <stdbool.h>
+
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
-#include <errno.h>
 #include <lib/mmio.h>
 #include <mvebu.h>
-#include <stdbool.h>
+
 #include "dfx.h"
 
 /* #define DEBUG_DFX */
@@ -19,42 +21,42 @@
 #define debug(format, arg...)
 #endif
 
-#define TSEN_CTRL0			0xf06f8084
- #define TSEN_CTRL0_START		BIT(0)
- #define TSEN_CTRL0_RESET		BIT(1)
- #define TSEN_CTRL0_ENABLE		BIT(2)
- #define TSEN_CTRL0_AVG_BYPASS		BIT(6)
- #define TSEN_CTRL0_CHAN_SHIFT		13
- #define TSEN_CTRL0_CHAN_MASK		0xF
- #define TSEN_CTRL0_OSR_SHIFT		24
- #define TSEN_CTRL0_OSR_MAX		0x3
- #define TSEN_CTRL0_MODE_SHIFT		30
- #define TSEN_CTRL0_MODE_EXTERNAL	0x2U
- #define TSEN_CTRL0_MODE_MASK		0x3U
+#define TSEN_CTRL0 0xf06f8084
+#define TSEN_CTRL0_START BIT(0)
+#define TSEN_CTRL0_RESET BIT(1)
+#define TSEN_CTRL0_ENABLE BIT(2)
+#define TSEN_CTRL0_AVG_BYPASS BIT(6)
+#define TSEN_CTRL0_CHAN_SHIFT 13
+#define TSEN_CTRL0_CHAN_MASK 0xF
+#define TSEN_CTRL0_OSR_SHIFT 24
+#define TSEN_CTRL0_OSR_MAX 0x3
+#define TSEN_CTRL0_MODE_SHIFT 30
+#define TSEN_CTRL0_MODE_EXTERNAL 0x2U
+#define TSEN_CTRL0_MODE_MASK 0x3U
 
-#define TSEN_CTRL1			0xf06f8088
- #define TSEN_CTRL1_INT_EN		BIT(25)
- #define TSEN_CTRL1_HYST_SHIFT		19
- #define TSEN_CTRL1_HYST_MASK		(0x3 << TSEN_CTRL1_HYST_SHIFT)
- #define TSEN_CTRL1_THRESH_SHIFT	3
- #define TSEN_CTRL1_THRESH_MASK		(0x3ff << TSEN_CTRL1_THRESH_SHIFT)
+#define TSEN_CTRL1 0xf06f8088
+#define TSEN_CTRL1_INT_EN BIT(25)
+#define TSEN_CTRL1_HYST_SHIFT 19
+#define TSEN_CTRL1_HYST_MASK (0x3 << TSEN_CTRL1_HYST_SHIFT)
+#define TSEN_CTRL1_THRESH_SHIFT 3
+#define TSEN_CTRL1_THRESH_MASK (0x3ff << TSEN_CTRL1_THRESH_SHIFT)
 
-#define TSEN_STATUS			0xf06f808c
- #define TSEN_STATUS_VALID_OFFSET	16
- #define TSEN_STATUS_VALID_MASK		(0x1 << TSEN_STATUS_VALID_OFFSET)
- #define TSEN_STATUS_TEMP_OUT_OFFSET	0
- #define TSEN_STATUS_TEMP_OUT_MASK	(0x3FF << TSEN_STATUS_TEMP_OUT_OFFSET)
+#define TSEN_STATUS 0xf06f808c
+#define TSEN_STATUS_VALID_OFFSET 16
+#define TSEN_STATUS_VALID_MASK (0x1 << TSEN_STATUS_VALID_OFFSET)
+#define TSEN_STATUS_TEMP_OUT_OFFSET 0
+#define TSEN_STATUS_TEMP_OUT_MASK (0x3FF << TSEN_STATUS_TEMP_OUT_OFFSET)
 
-#define DFX_SERVER_IRQ_SUM_MASK_REG	0xf06f8104
- #define DFX_SERVER_IRQ_EN		BIT(1)
+#define DFX_SERVER_IRQ_SUM_MASK_REG 0xf06f8104
+#define DFX_SERVER_IRQ_EN BIT(1)
 
-#define DFX_IRQ_CAUSE_REG		0xf06f8108
+#define DFX_IRQ_CAUSE_REG 0xf06f8108
 
-#define DFX_IRQ_MASK_REG		0xf06f810c
- #define DFX_IRQ_TSEN_OVERHEAT_OFFSET	BIT(22)
+#define DFX_IRQ_MASK_REG 0xf06f810c
+#define DFX_IRQ_TSEN_OVERHEAT_OFFSET BIT(22)
 
-#define THERMAL_SEN_OUTPUT_MSB		512
-#define THERMAL_SEN_OUTPUT_COMP		1024
+#define THERMAL_SEN_OUTPUT_MSB 512
+#define THERMAL_SEN_OUTPUT_COMP 1024
 
 #define COEF_M 423
 #define COEF_B -150000LL
@@ -66,7 +68,7 @@ static void armada_ap806_thermal_read(u_register_t *temp)
 	reg = mmio_read_32(TSEN_STATUS);
 
 	reg = ((reg & TSEN_STATUS_TEMP_OUT_MASK) >>
-	      TSEN_STATUS_TEMP_OUT_OFFSET);
+	       TSEN_STATUS_TEMP_OUT_OFFSET);
 
 	/*
 	 * TSEN output format is signed as a 2s complement number
@@ -123,7 +125,7 @@ static unsigned int armada_mc_to_reg_temp(unsigned int temp_mc)
  * which is the mathematical derivation for:
  * 0x0 <=> 1.9°C, 0x1 <=> 3.8°C, 0x2 <=> 7.6°C, 0x3 <=> 15.2°C
  */
-static unsigned int hyst_levels_mc[] = {1900, 3800, 7600, 15200};
+static unsigned int hyst_levels_mc[] = { 1900, 3800, 7600, 15200 };
 
 static unsigned int armada_mc_to_reg_hyst(int hyst_mc)
 {
@@ -178,8 +180,7 @@ static void armada_select_channel(int channel)
 	/* Other channels are external and should be selected accordingly */
 	if (channel) {
 		/* Change the mode to external */
-		ctrl0 |= TSEN_CTRL0_MODE_EXTERNAL <<
-			 TSEN_CTRL0_MODE_SHIFT;
+		ctrl0 |= TSEN_CTRL0_MODE_EXTERNAL << TSEN_CTRL0_MODE_SHIFT;
 		/* Select the sensor */
 		ctrl0 &= ~(TSEN_CTRL0_CHAN_MASK << TSEN_CTRL0_CHAN_SHIFT);
 		ctrl0 |= (channel - 1) << TSEN_CTRL0_CHAN_SHIFT;

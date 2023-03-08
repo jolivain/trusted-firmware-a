@@ -9,22 +9,22 @@
 #include <string.h>
 
 #include <arch_helpers.h>
+#include <bcm_elog.h>
 #include <common/debug.h>
+
 #include <plat/common/platform.h>
 
-#include <bcm_elog.h>
-
 /* error logging signature */
-#define BCM_ELOG_SIG_OFFSET      0x0000
-#define BCM_ELOG_SIG_VAL         0x75767971
+#define BCM_ELOG_SIG_OFFSET 0x0000
+#define BCM_ELOG_SIG_VAL 0x75767971
 
 /* current logging offset that points to where new logs should be added */
-#define BCM_ELOG_OFF_OFFSET      0x0004
+#define BCM_ELOG_OFF_OFFSET 0x0004
 
 /* current logging length (excluding header) */
-#define BCM_ELOG_LEN_OFFSET      0x0008
+#define BCM_ELOG_LEN_OFFSET 0x0008
 
-#define BCM_ELOG_HEADER_LEN      12
+#define BCM_ELOG_HEADER_LEN 12
 
 /*
  * @base: base address of memory where log is saved

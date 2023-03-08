@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2018-2020, The Linux Foundation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -15,7 +15,6 @@
 #include <lib/bl_aux_params/bl_aux_params.h>
 #include <lib/coreboot.h>
 #include <lib/spinlock.h>
-
 #include <platform.h>
 #include <qti_interrupt_svc.h>
 #include <qti_plat.h>
@@ -52,7 +51,6 @@ uint32_t g_qti_bl31_cold_booted;
 void bl31_early_platform_setup(u_register_t from_bl2,
 			       u_register_t plat_params_from_bl2)
 {
-
 	g_qti_cpu_cntfrq = read_cntfrq_el0();
 
 	bl_aux_params_parse(plat_params_from_bl2, NULL);
@@ -85,14 +83,8 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
  ******************************************************************************/
 void bl31_plat_arch_setup(void)
 {
-	qti_setup_page_tables(
-			      BL31_START,
-			      BL31_END-BL31_START,
-			      BL_CODE_BASE,
-			      BL_CODE_END,
-			      BL_RO_DATA_BASE,
-			      BL_RO_DATA_END
-			     );
+	qti_setup_page_tables(BL31_START, BL31_END - BL31_START, BL_CODE_BASE,
+			      BL_CODE_END, BL_RO_DATA_BASE, BL_RO_DATA_END);
 	enable_mmu_el3(0);
 }
 

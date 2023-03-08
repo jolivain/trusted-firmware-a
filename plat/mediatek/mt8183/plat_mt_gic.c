@@ -5,18 +5,21 @@
  */
 
 #include <assert.h>
+#include <stdint.h>
+#include <stdio.h>
+
+#include <bl31/interrupt_mgmt.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <drivers/arm/gicv3.h>
-#include <bl31/interrupt_mgmt.h>
 #include <mt_gic_v3.h>
 #include <mtk_plat_common.h>
-#include "../drivers/arm/gic/v3/gicv3_private.h"
-#include "plat_private.h"
+
 #include <plat/common/platform.h>
 #include <platform_def.h>
-#include <stdint.h>
-#include <stdio.h>
+
+#include "../drivers/arm/gic/v3/gicv3_private.h"
+#include "plat_private.h"
 
 uintptr_t rdistif_base_addrs[PLATFORM_CORE_COUNT];
 static uint32_t rdist_has_saved[PLATFORM_CORE_COUNT];
@@ -94,7 +97,7 @@ void mt_gic_rdistif_init(void)
 	/* setup the default PPI/SGI priorities */
 	for (index = 0; index < TOTAL_PCPU_INTR_NUM; index += 4U)
 		gicr_write_ipriorityr(gicr_base, index,
-				GICD_IPRIORITYR_DEF_VAL);
+				      GICD_IPRIORITYR_DEF_VAL);
 }
 
 void mt_gic_distif_save(void)
@@ -133,10 +136,12 @@ void mt_gic_rdistif_restore(void)
 	if (rdist_has_saved[proc_num] == 1) {
 		gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
 		mmio_write_32(gicr_base + GICR_IGROUPR0, gic_data.saved_group);
-		mmio_write_32(gicr_base + GICR_ISENABLER0, gic_data.saved_enable);
+		mmio_write_32(gicr_base + GICR_ISENABLER0,
+			      gic_data.saved_enable);
 		mmio_write_32(gicr_base + GICR_ICFGR0, gic_data.saved_conf0);
 		mmio_write_32(gicr_base + GICR_ICFGR1, gic_data.saved_conf1);
-		mmio_write_32(gicr_base + GICR_IGRPMODR0, gic_data.saved_grpmod);
+		mmio_write_32(gicr_base + GICR_IGRPMODR0,
+			      gic_data.saved_grpmod);
 	}
 }
 

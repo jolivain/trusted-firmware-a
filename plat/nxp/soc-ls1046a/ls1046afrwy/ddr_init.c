@@ -10,9 +10,9 @@
 
 #include <common/debug.h>
 #include <ddr.h>
+#include <errata.h>
 #include <lib/utils.h>
 
-#include <errata.h>
 #include <platform_def.h>
 
 #ifdef CONFIG_STATIC_DDR
@@ -58,14 +58,12 @@ long long board_static_ddr(struct ddr_info *priv)
 	return 0x80000000ULL;
 }
 #else /* ifndef CONFIG_STATIC_DDR */
-static const struct rc_timing rcz[] = {
-	{U(1600), U(8), U(7)},
-	{U(2100), U(8), U(7)},
-	{}
-};
+static const struct rc_timing rcz[] = { { U(1600), U(8), U(7) },
+					{ U(2100), U(8), U(7) },
+					{} };
 
 static const struct board_timing ram[] = {
-	{U(0x1f), rcz, U(0x01010101), U(0x01010101)},
+	{ U(0x1f), rcz, U(0x01010101), U(0x01010101) },
 };
 
 int ddr_board_options(struct ddr_info *priv)
@@ -83,7 +81,7 @@ int ddr_board_options(struct ddr_info *priv)
 	popts->cpo_sample = U(0x46);
 	popts->ddr_cdr1 = DDR_CDR1_DHC_EN | DDR_CDR1_ODT(DDR_CDR_ODT_50ohm);
 	popts->ddr_cdr2 = DDR_CDR2_ODT(DDR_CDR_ODT_50ohm) |
-				DDR_CDR2_VREF_TRAIN_EN;
+			  DDR_CDR2_VREF_TRAIN_EN;
 	popts->output_driver_impedance = 1;
 
 	return 0;
@@ -91,42 +89,42 @@ int ddr_board_options(struct ddr_info *priv)
 
 /* DDR model number:  MT40A512M16JY-083E:B */
 struct dimm_params ddr_raw_timing = {
-		.n_ranks = U(1),
-		.rank_density = ULL(4294967296),
-		.capacity = ULL(4294967296),
-		.primary_sdram_width = U(64),
-		.ec_sdram_width = U(8),
-		.rdimm = U(0),
-		.mirrored_dimm = U(0),
-		.n_row_addr = U(16),
-		.n_col_addr = U(10),
-		.bank_group_bits = U(1),
-		.edc_config = U(2),
-		.burst_lengths_bitmask = U(0x0c),
-		.tckmin_x_ps = 750,
-		.tckmax_ps = 1900,
-		.caslat_x = U(0x0001FFE00),
-		.taa_ps = 13500,
-		.trcd_ps = 13500,
-		.trp_ps = 13500,
-		.tras_ps = 33000,
-		.trc_ps = 46500,
-		.twr_ps = 15000,
-		.trfc1_ps = 350000,
-		.trfc2_ps = 260000,
-		.trfc4_ps = 160000,
-		.tfaw_ps = 30000,
-		.trrds_ps = 5300,
-		.trrdl_ps = 6400,
-		.tccdl_ps = 5355,
-		.refresh_rate_ps = U(7800000),
-		.dq_mapping[0] = U(0x0),
-		.dq_mapping[1] = U(0x0),
-		.dq_mapping[2] = U(0x0),
-		.dq_mapping[3] = U(0x0),
-		.dq_mapping[4] = U(0x0),
-		.dq_mapping_ors = U(0),
-		.rc = U(0x1f),
+	.n_ranks = U(1),
+	.rank_density = ULL(4294967296),
+	.capacity = ULL(4294967296),
+	.primary_sdram_width = U(64),
+	.ec_sdram_width = U(8),
+	.rdimm = U(0),
+	.mirrored_dimm = U(0),
+	.n_row_addr = U(16),
+	.n_col_addr = U(10),
+	.bank_group_bits = U(1),
+	.edc_config = U(2),
+	.burst_lengths_bitmask = U(0x0c),
+	.tckmin_x_ps = 750,
+	.tckmax_ps = 1900,
+	.caslat_x = U(0x0001FFE00),
+	.taa_ps = 13500,
+	.trcd_ps = 13500,
+	.trp_ps = 13500,
+	.tras_ps = 33000,
+	.trc_ps = 46500,
+	.twr_ps = 15000,
+	.trfc1_ps = 350000,
+	.trfc2_ps = 260000,
+	.trfc4_ps = 160000,
+	.tfaw_ps = 30000,
+	.trrds_ps = 5300,
+	.trrdl_ps = 6400,
+	.tccdl_ps = 5355,
+	.refresh_rate_ps = U(7800000),
+	.dq_mapping[0] = U(0x0),
+	.dq_mapping[1] = U(0x0),
+	.dq_mapping[2] = U(0x0),
+	.dq_mapping[3] = U(0x0),
+	.dq_mapping[4] = U(0x0),
+	.dq_mapping_ors = U(0),
+	.rc = U(0x1f),
 };
 
 int ddr_get_ddr_params(struct dimm_params *pdimm, struct ddr_conf *conf)
@@ -143,7 +141,7 @@ int ddr_get_ddr_params(struct dimm_params *pdimm, struct ddr_conf *conf)
 
 long long init_ddr(void)
 {
-	int spd_addr[] = {NXP_SPD_EEPROM0};
+	int spd_addr[] = { NXP_SPD_EEPROM0 };
 	struct ddr_info info;
 	struct sysinfo sys;
 	long long dram_size;

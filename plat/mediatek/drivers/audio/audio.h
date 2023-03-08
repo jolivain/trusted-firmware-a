@@ -8,6 +8,7 @@
 #define AUDIO_H
 
 #include <stdint.h>
+
 #include <lib/mmio.h>
 
 enum mtk_audio_smc_call_op {

@@ -5,7 +5,6 @@
  */
 
 #include <assert.h>
-#include <endian.h>
 #include <errno.h>
 
 #include <common/debug.h>
@@ -16,6 +15,7 @@
 #include <drivers/st/stm32_pka.h>
 #include <drivers/st/stm32_rng.h>
 #include <drivers/st/stm32_saes.h>
+#include <endian.h>
 #include <lib/utils.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
 #include <mbedtls/asn1.h>
@@ -23,18 +23,18 @@
 #include <mbedtls/oid.h>
 #include <mbedtls/platform.h>
 #include <mbedtls/x509.h>
-#include <plat/common/platform.h>
 #include <tools_share/firmware_encrypted.h>
 
+#include <plat/common/platform.h>
 #include <platform_def.h>
 
-#define CRYPTO_HASH_MAX_SIZE	32U
-#define CRYPTO_SIGN_MAX_SIZE	64U
-#define CRYPTO_PUBKEY_MAX_SIZE	64U
-#define CRYPTO_MAX_TAG_SIZE	16U
+#define CRYPTO_HASH_MAX_SIZE 32U
+#define CRYPTO_SIGN_MAX_SIZE 64U
+#define CRYPTO_PUBKEY_MAX_SIZE 64U
+#define CRYPTO_MAX_TAG_SIZE 16U
 
 /* brainpoolP256t1 OID is not defined in mbedTLS */
-#define OID_EC_GRP_BP256T1          MBEDTLS_OID_EC_BRAINPOOL_V1 "\x08"
+#define OID_EC_GRP_BP256T1 MBEDTLS_OID_EC_BRAINPOOL_V1 "\x08"
 
 #if STM32MP_CRYPTO_ROM_LIB
 struct stm32mp_auth_ops {
@@ -60,8 +60,10 @@ static void crypto_lib_init(void)
 
 	if (stm32mp_is_closed_device() || stm32mp_is_auth_supported()) {
 #if STM32MP_CRYPTO_ROM_LIB
-		boot_context = (boot_api_context_t *)stm32mp_get_boot_ctx_address();
-		auth_ops.verify_signature = boot_context->bootrom_ecdsa_verify_signature;
+		boot_context =
+			(boot_api_context_t *)stm32mp_get_boot_ctx_address();
+		auth_ops.verify_signature =
+			boot_context->bootrom_ecdsa_verify_signature;
 #else
 		/* Use hardware peripherals */
 		if (stm32_rng_init() != 0) {
@@ -79,14 +81,15 @@ static void crypto_lib_init(void)
 	}
 }
 
-static int get_plain_pk_from_asn1(void *pk_ptr, unsigned int pk_len, void **plain_pk,
-			   unsigned int *len, int *pk_alg)
+static int get_plain_pk_from_asn1(void *pk_ptr, unsigned int pk_len,
+				  void **plain_pk, unsigned int *len,
+				  int *pk_alg)
 {
 	int ret;
-	mbedtls_pk_context mbedtls_pk = {0};
+	mbedtls_pk_context mbedtls_pk = { 0 };
 	unsigned char *p, *end;
-	mbedtls_asn1_buf alg_params = {0};
-	mbedtls_asn1_buf alg_oid = {0};
+	mbedtls_asn1_buf alg_params = { 0 };
+	mbedtls_asn1_buf alg_oid = { 0 };
 
 	*plain_pk = NULL;
 	*len = 0U;
@@ -96,8 +99,8 @@ static int get_plain_pk_from_asn1(void *pk_ptr, unsigned int pk_len, void **plai
 	p = (unsigned char *)pk_ptr;
 	end = (unsigned char *)(p + pk_len);
 
-	ret =  mbedtls_asn1_get_tag(&p, end, len,
-				    MBEDTLS_ASN1_CONSTRUCTED | MBEDTLS_ASN1_SEQUENCE);
+	ret = mbedtls_asn1_get_tag(
+		&p, end, len, MBEDTLS_ASN1_CONSTRUCTED | MBEDTLS_ASN1_SEQUENCE);
 	if (ret != 0) {
 		return -EINVAL;
 	}
@@ -111,10 +114,12 @@ static int get_plain_pk_from_asn1(void *pk_ptr, unsigned int pk_len, void **plai
 
 	if (pk_alg != NULL) {
 		if ((strlen(MBEDTLS_OID_EC_GRP_SECP256R1) == alg_params.len) &&
-		    (memcmp(MBEDTLS_OID_EC_GRP_SECP256R1, alg_params.p, alg_params.len) == 0)) {
+		    (memcmp(MBEDTLS_OID_EC_GRP_SECP256R1, alg_params.p,
+			    alg_params.len) == 0)) {
 			*pk_alg = BOOT_API_ECDSA_ALGO_TYPE_P256NIST;
 		} else if ((strlen(OID_EC_GRP_BP256T1) == alg_params.len) &&
-		    (memcmp(OID_EC_GRP_BP256T1, alg_params.p, alg_params.len) == 0)) {
+			   (memcmp(OID_EC_GRP_BP256T1, alg_params.p,
+				   alg_params.len) == 0)) {
 			*pk_alg = BOOT_API_ECDSA_ALGO_TYPE_BRAINPOOL256;
 		} else {
 			ERROR("%s: Algorithm is not supported\n", __func__);
@@ -124,12 +129,13 @@ static int get_plain_pk_from_asn1(void *pk_ptr, unsigned int pk_len, void **plai
 
 	ret = mbedtls_asn1_get_bitstring_null(&p, end, len);
 	if (ret != 0) {
-		VERBOSE("%s: mbedtls_asn1_get_bitstring_null (%d)\n", __func__, ret);
+		VERBOSE("%s: mbedtls_asn1_get_bitstring_null (%d)\n", __func__,
+			ret);
 		return -EINVAL;
 	}
 
 	/* We remove the ident (0x04) first byte. */
-	if ((*len < 1U) || (p[0] !=  MBEDTLS_ASN1_OCTET_STRING)) {
+	if ((*len < 1U) || (p[0] != MBEDTLS_ASN1_OCTET_STRING)) {
 		VERBOSE("%s: not expected len or tag\n", __func__);
 		return -EINVAL;
 	}
@@ -147,13 +153,15 @@ uint32_t verify_signature(uint8_t *hash_in, uint8_t *pubkey_in,
 	int ret;
 
 	ret = mmap_add_dynamic_region(STM32MP_ROM_BASE, STM32MP_ROM_BASE,
-				      STM32MP_ROM_SIZE_2MB_ALIGNED, MT_CODE | MT_SECURE);
+				      STM32MP_ROM_SIZE_2MB_ALIGNED,
+				      MT_CODE | MT_SECURE);
 	if (ret != 0) {
 		VERBOSE("%s: mmap_add_dynamic_region (%d)\n", __func__, ret);
 		return CRYPTO_ERR_SIGNATURE;
 	}
 
-	ret = auth_ops.verify_signature(hash_in, pubkey_in, signature, ecc_algo);
+	ret = auth_ops.verify_signature(hash_in, pubkey_in, signature,
+					ecc_algo);
 
 	if (ret != BOOT_API_RETURN_OK) {
 		VERBOSE("%s: auth_ops.verify_sign (%d)\n", __func__, ret);
@@ -162,7 +170,8 @@ uint32_t verify_signature(uint8_t *hash_in, uint8_t *pubkey_in,
 		ret = 0;
 	}
 
-	mmap_remove_dynamic_region(STM32MP_ROM_BASE, STM32MP_ROM_SIZE_2MB_ALIGNED);
+	mmap_remove_dynamic_region(STM32MP_ROM_BASE,
+				   STM32MP_ROM_SIZE_2MB_ALIGNED);
 
 	return ret;
 }
@@ -170,7 +179,8 @@ uint32_t verify_signature(uint8_t *hash_in, uint8_t *pubkey_in,
 int plat_convert_pk(void *full_pk_ptr, unsigned int full_pk_len,
 		    void **hashed_pk_ptr, unsigned int *hashed_pk_len)
 {
-	return get_plain_pk_from_asn1(full_pk_ptr, full_pk_len, hashed_pk_ptr, hashed_pk_len, NULL);
+	return get_plain_pk_from_asn1(full_pk_ptr, full_pk_len, hashed_pk_ptr,
+				      hashed_pk_len, NULL);
 }
 #else /* STM32MP_CRYPTO_ROM_LIB*/
 static uint32_t verify_signature(uint8_t *hash_in, uint8_t *pubkey_in,
@@ -193,7 +203,8 @@ static uint32_t verify_signature(uint8_t *hash_in, uint8_t *pubkey_in,
 		cid = PKA_BRAINPOOL_P256T1;
 		ret = 0;
 #else
-		WARN("%s brainpool_p256t1 requested but not included\n", __func__);
+		WARN("%s brainpool_p256t1 requested but not included\n",
+		     __func__);
 #endif
 		break;
 	default:
@@ -205,14 +216,14 @@ static uint32_t verify_signature(uint8_t *hash_in, uint8_t *pubkey_in,
 		return CRYPTO_ERR_SIGNATURE;
 	}
 
-	ret = stm32_pka_ecdsa_verif(hash_in,
-				    BOOT_API_SHA256_DIGEST_SIZE_IN_BYTES,
-				    signature, BOOT_API_ECDSA_SIGNATURE_LEN_IN_BYTES / 2U,
-				    signature + BOOT_API_ECDSA_SIGNATURE_LEN_IN_BYTES / 2U,
-				    BOOT_API_ECDSA_SIGNATURE_LEN_IN_BYTES / 2U,
-				    pubkey_in, BOOT_API_ECDSA_PUB_KEY_LEN_IN_BYTES / 2U,
-				    pubkey_in + BOOT_API_ECDSA_PUB_KEY_LEN_IN_BYTES / 2U,
-				    BOOT_API_ECDSA_PUB_KEY_LEN_IN_BYTES / 2U, cid);
+	ret = stm32_pka_ecdsa_verif(
+		hash_in, BOOT_API_SHA256_DIGEST_SIZE_IN_BYTES, signature,
+		BOOT_API_ECDSA_SIGNATURE_LEN_IN_BYTES / 2U,
+		signature + BOOT_API_ECDSA_SIGNATURE_LEN_IN_BYTES / 2U,
+		BOOT_API_ECDSA_SIGNATURE_LEN_IN_BYTES / 2U, pubkey_in,
+		BOOT_API_ECDSA_PUB_KEY_LEN_IN_BYTES / 2U,
+		pubkey_in + BOOT_API_ECDSA_PUB_KEY_LEN_IN_BYTES / 2U,
+		BOOT_API_ECDSA_PUB_KEY_LEN_IN_BYTES / 2U, cid);
 	if (ret < 0) {
 		return CRYPTO_ERR_SIGNATURE;
 	}
@@ -230,8 +241,9 @@ int plat_convert_pk(void *full_pk_ptr, unsigned int full_pk_len,
 	int curve_id;
 	uint32_t cid;
 
-	ret = get_plain_pk_from_asn1(full_pk_ptr, full_pk_len, &plain_pk, &len, &curve_id);
-	if ((ret != 0) || (len > CRYPTO_PUBKEY_MAX_SIZE))  {
+	ret = get_plain_pk_from_asn1(full_pk_ptr, full_pk_len, &plain_pk, &len,
+				     &curve_id);
+	if ((ret != 0) || (len > CRYPTO_PUBKEY_MAX_SIZE)) {
 		return -EINVAL;
 	}
 
@@ -248,7 +260,8 @@ int plat_convert_pk(void *full_pk_ptr, unsigned int full_pk_len,
 #endif /* STM32MP_CRYPTO_ROM_LIB */
 
 static int get_plain_digest_from_asn1(void *digest_ptr, unsigned int digest_len,
-				      uint8_t **out, size_t *out_len, mbedtls_md_type_t *md_alg)
+				      uint8_t **out, size_t *out_len,
+				      mbedtls_md_type_t *md_alg)
 {
 	int ret;
 	mbedtls_asn1_buf hash_oid, params;
@@ -261,8 +274,9 @@ static int get_plain_digest_from_asn1(void *digest_ptr, unsigned int digest_len,
 	/* Digest info should be an MBEDTLS_ASN1_SEQUENCE */
 	p = (unsigned char *)digest_ptr;
 	end = p + digest_len;
-	ret = mbedtls_asn1_get_tag(&p, end, &len, MBEDTLS_ASN1_CONSTRUCTED |
-				   MBEDTLS_ASN1_SEQUENCE);
+	ret = mbedtls_asn1_get_tag(&p, end, &len,
+				   MBEDTLS_ASN1_CONSTRUCTED |
+					   MBEDTLS_ASN1_SEQUENCE);
 	if (ret != 0) {
 		return ret;
 	}
@@ -299,7 +313,7 @@ static int crypto_verify_signature(void *data_ptr, unsigned int data_len,
 				   void *sig_alg, unsigned int sig_alg_len,
 				   void *pk_ptr, unsigned int pk_len)
 {
-	uint8_t image_hash[CRYPTO_HASH_MAX_SIZE] = {0};
+	uint8_t image_hash[CRYPTO_HASH_MAX_SIZE] = { 0 };
 	uint8_t sig[CRYPTO_SIGN_MAX_SIZE];
 	uint8_t my_pk[CRYPTO_PUBKEY_MAX_SIZE];
 	int ret;
@@ -339,7 +353,8 @@ static int crypto_verify_signature(void *data_ptr, unsigned int data_len,
 		return CRYPTO_ERR_SIGNATURE;
 	}
 
-	ret = get_plain_pk_from_asn1(pk_ptr, pk_len, &pk_ptr, &pk_len, &curve_id);
+	ret = get_plain_pk_from_asn1(pk_ptr, pk_len, &pk_ptr, &pk_len,
+				     &curve_id);
 	if (ret != 0) {
 		VERBOSE("%s: get_plain_pk_from_asn1 (%d)\n", __func__, ret);
 		return CRYPTO_ERR_SIGNATURE;
@@ -347,7 +362,8 @@ static int crypto_verify_signature(void *data_ptr, unsigned int data_len,
 
 	/* We expect a known pk_len */
 	if (pk_len != sizeof(my_pk)) {
-		VERBOSE("%s: pk_len=%u sizeof(my_pk)=%zu)\n", __func__, pk_len, sizeof(my_pk));
+		VERBOSE("%s: pk_len=%u sizeof(my_pk)=%zu)\n", __func__, pk_len,
+			sizeof(my_pk));
 		return CRYPTO_ERR_SIGNATURE;
 	}
 
@@ -361,14 +377,16 @@ static int crypto_verify_signature(void *data_ptr, unsigned int data_len,
 	end = (unsigned char *)(p + sig_len);
 	ret = mbedtls_asn1_get_bitstring_null(&p, end, &len);
 	if (ret != 0) {
-		VERBOSE("%s: mbedtls_asn1_get_bitstring_null (%d)\n", __func__, ret);
+		VERBOSE("%s: mbedtls_asn1_get_bitstring_null (%d)\n", __func__,
+			ret);
 		return CRYPTO_ERR_SIGNATURE;
 	}
 
 	/* Get r and s from sequence */
 	ret = mbedtls_asn1_get_sequence_of(&p, end, &seq, MBEDTLS_ASN1_INTEGER);
 	if (ret != 0) {
-		VERBOSE("%s: mbedtls_asn1_get_sequence_of (%d)\n", __func__, ret);
+		VERBOSE("%s: mbedtls_asn1_get_sequence_of (%d)\n", __func__,
+			ret);
 		return CRYPTO_ERR_SIGNATURE;
 	}
 
@@ -425,7 +443,8 @@ static int crypto_verify_signature(void *data_ptr, unsigned int data_len,
 	/* Compute hash for the data covered by the signature */
 	stm32_hash_init(HASH_SHA256);
 
-	ret = stm32_hash_final_update((uint8_t *)data_ptr, data_len, image_hash);
+	ret = stm32_hash_final_update((uint8_t *)data_ptr, data_len,
+				      image_hash);
 	if (ret != 0) {
 		VERBOSE("%s: stm32_hash_final_update (%d)\n", __func__, ret);
 		return CRYPTO_ERR_SIGNATURE;
@@ -445,10 +464,10 @@ static int crypto_verify_hash(void *data_ptr, unsigned int data_len,
 	size_t len;
 
 	/* we receive an asn1 encapsulated digest, we flatten it */
-	ret = get_plain_digest_from_asn1(digest_info_ptr,
-					 digest_info_len, &p, &len,
-					 &md_alg);
-	if ((ret != 0) || (md_alg != MBEDTLS_MD_SHA256) || (len != sizeof(calc_hash))) {
+	ret = get_plain_digest_from_asn1(digest_info_ptr, digest_info_len, &p,
+					 &len, &md_alg);
+	if ((ret != 0) || (md_alg != MBEDTLS_MD_SHA256) ||
+	    (len != sizeof(calc_hash))) {
 		return CRYPTO_ERR_HASH;
 	}
 
@@ -474,7 +493,8 @@ static int crypto_verify_hash(void *data_ptr, unsigned int data_len,
 
 #if !defined(DECRYPTION_SUPPORT_none)
 static int derive_key(uint8_t *key, size_t *key_len, size_t len,
-		      unsigned int *flags, const uint8_t *img_id, size_t img_id_len)
+		      unsigned int *flags, const uint8_t *img_id,
+		      size_t img_id_len)
 {
 	size_t i, j;
 
@@ -541,8 +561,8 @@ int plat_get_enc_key_info(enum fw_enc_status_t fw_enc_status, uint8_t *key,
 
 	/* Now we have the OTP values in key till read_len */
 
-	if (derive_key(key, key_len, read_len, flags, img_id,
-		       img_id_len) != 0) {
+	if (derive_key(key, key_len, read_len, flags, img_id, img_id_len) !=
+	    0) {
 		zeromem(key, *key_len);
 		return -EINVAL;
 	}
@@ -560,9 +580,8 @@ static enum stm32_saes_key_selection select_key(unsigned int key_flags)
 	return STM32_SAES_KEY_SOFT;
 }
 
-static int stm32_decrypt_aes_gcm(void *data, size_t data_len,
-				 const void *key, unsigned int key_len,
-				 unsigned int key_flags,
+static int stm32_decrypt_aes_gcm(void *data, size_t data_len, const void *key,
+				 unsigned int key_len, unsigned int key_flags,
 				 const void *iv, unsigned int iv_len,
 				 const void *tag, unsigned int tag_len)
 {
@@ -612,10 +631,11 @@ static int stm32_decrypt_aes_gcm(void *data, size_t data_len,
  * Authenticated decryption of an image
  *
  */
-static int crypto_auth_decrypt(enum crypto_dec_algo dec_algo, void *data_ptr, size_t len,
-			       const void *key, unsigned int key_len, unsigned int key_flags,
-			       const void *iv, unsigned int iv_len, const void *tag,
-			       unsigned int tag_len)
+static int crypto_auth_decrypt(enum crypto_dec_algo dec_algo, void *data_ptr,
+			       size_t len, const void *key,
+			       unsigned int key_len, unsigned int key_flags,
+			       const void *iv, unsigned int iv_len,
+			       const void *tag, unsigned int tag_len)
 {
 	int rc = -1;
 	uint32_t real_iv[4];
@@ -631,8 +651,9 @@ static int crypto_auth_decrypt(enum crypto_dec_algo dec_algo, void *data_ptr, si
 		memcpy(real_iv, iv, iv_len);
 		real_iv[3] = htobe32(0x2U);
 
-		rc = stm32_decrypt_aes_gcm(data_ptr, len, key, key_len, key_flags,
-					   real_iv, sizeof(real_iv), tag, tag_len);
+		rc = stm32_decrypt_aes_gcm(data_ptr, len, key, key_len,
+					   key_flags, real_iv, sizeof(real_iv),
+					   tag, tag_len);
 		break;
 	default:
 		rc = CRYPTO_ERR_DECRYPTION;
@@ -646,17 +667,12 @@ static int crypto_auth_decrypt(enum crypto_dec_algo dec_algo, void *data_ptr, si
 	return CRYPTO_SUCCESS;
 }
 
-REGISTER_CRYPTO_LIB("stm32_crypto_lib",
-		    crypto_lib_init,
-		    crypto_verify_signature,
-		    crypto_verify_hash,
+REGISTER_CRYPTO_LIB("stm32_crypto_lib", crypto_lib_init,
+		    crypto_verify_signature, crypto_verify_hash,
 		    crypto_auth_decrypt);
 
 #else /* No decryption support */
-REGISTER_CRYPTO_LIB("stm32_crypto_lib",
-		    crypto_lib_init,
-		    crypto_verify_signature,
-		    crypto_verify_hash,
-		    NULL);
+REGISTER_CRYPTO_LIB("stm32_crypto_lib", crypto_lib_init,
+		    crypto_verify_signature, crypto_verify_hash, NULL);
 
 #endif

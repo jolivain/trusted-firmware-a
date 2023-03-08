@@ -1,15 +1,15 @@
 /*
- * Copyright (c) 2019, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <platform_def.h>
-
 #include <drivers/arm/fvp/fvp_pwrc.h>
+
 #include <plat/arm/common/arm_config.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 /* The FVP VE power domain tree descriptor */
 static const unsigned char fvp_ve_power_domain_tree_desc[] = {

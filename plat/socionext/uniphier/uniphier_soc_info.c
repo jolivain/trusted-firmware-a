@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,8 +9,8 @@
 
 #include "uniphier.h"
 
-#define UNIPHIER_REVISION		0x5f800000UL
-#define UNIPHIER_REVISION_NEW		0x1f800000UL
+#define UNIPHIER_REVISION 0x5f800000UL
+#define UNIPHIER_REVISION_NEW 0x1f800000UL
 
 static unsigned int uniphier_get_revision_field(unsigned int mask,
 						unsigned int shift)

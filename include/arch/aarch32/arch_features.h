@@ -12,8 +12,8 @@
 #include <arch_helpers.h>
 #include <common/feat_detect.h>
 
-#define ISOLATE_FIELD(reg, feat)					\
-	((unsigned int)(((reg) >> (feat ## _SHIFT)) & (feat ## _MASK)))
+#define ISOLATE_FIELD(reg, feat) \
+	((unsigned int)(((reg) >> (feat##_SHIFT)) & (feat##_MASK)))
 
 static inline bool is_armv7_gentimer_present(void)
 {

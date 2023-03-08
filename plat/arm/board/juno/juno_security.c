@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,10 +8,11 @@
 #include <common/debug.h>
 #include <drivers/arm/nic_400.h>
 #include <lib/mmio.h>
-#include <platform_def.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <plat/arm/soc/common/soc_css.h>
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 #include "juno_tzmp1_def.h"
 
@@ -38,19 +39,19 @@
  */
 
 static const arm_tzc_regions_info_t juno_tzmp1_tzc_regions[] = {
-	{ARM_AP_TZC_DRAM1_BASE, ARM_AP_TZC_DRAM1_END, TZC_REGION_S_RDWR, 0},
-	{JUNO_NS_DRAM1_PT1_BASE, JUNO_NS_DRAM1_PT1_END,
-			TZC_REGION_S_NONE, JUNO_MEDIA_TZC_NS_DEV_ACCESS},
-	{JUNO_MEDIA_TZC_PROT_DRAM1_BASE, JUNO_MEDIA_TZC_PROT_DRAM1_END,
-			TZC_REGION_S_NONE, JUNO_MEDIA_TZC_PROT_ACCESS},
-	{JUNO_VPU_TZC_PROT_DRAM1_BASE, JUNO_VPU_TZC_PROT_DRAM1_END,
-			TZC_REGION_S_RDWR, JUNO_VPU_TZC_PROT_ACCESS},
-	{JUNO_VPU_TZC_PRIV_DRAM1_BASE, JUNO_VPU_TZC_PRIV_DRAM1_END,
-			TZC_REGION_S_RDWR, JUNO_VPU_TZC_PRIV_ACCESS},
-	{JUNO_AP_TZC_SHARE_DRAM1_BASE, JUNO_AP_TZC_SHARE_DRAM1_END,
-			TZC_REGION_S_NONE, JUNO_MEDIA_TZC_NS_DEV_ACCESS},
-	{ARM_DRAM2_BASE, ARM_DRAM2_END,
-			TZC_REGION_S_NONE, JUNO_MEDIA_TZC_NS_DEV_ACCESS},
+	{ ARM_AP_TZC_DRAM1_BASE, ARM_AP_TZC_DRAM1_END, TZC_REGION_S_RDWR, 0 },
+	{ JUNO_NS_DRAM1_PT1_BASE, JUNO_NS_DRAM1_PT1_END, TZC_REGION_S_NONE,
+	  JUNO_MEDIA_TZC_NS_DEV_ACCESS },
+	{ JUNO_MEDIA_TZC_PROT_DRAM1_BASE, JUNO_MEDIA_TZC_PROT_DRAM1_END,
+	  TZC_REGION_S_NONE, JUNO_MEDIA_TZC_PROT_ACCESS },
+	{ JUNO_VPU_TZC_PROT_DRAM1_BASE, JUNO_VPU_TZC_PROT_DRAM1_END,
+	  TZC_REGION_S_RDWR, JUNO_VPU_TZC_PROT_ACCESS },
+	{ JUNO_VPU_TZC_PRIV_DRAM1_BASE, JUNO_VPU_TZC_PRIV_DRAM1_END,
+	  TZC_REGION_S_RDWR, JUNO_VPU_TZC_PRIV_ACCESS },
+	{ JUNO_AP_TZC_SHARE_DRAM1_BASE, JUNO_AP_TZC_SHARE_DRAM1_END,
+	  TZC_REGION_S_NONE, JUNO_MEDIA_TZC_NS_DEV_ACCESS },
+	{ ARM_DRAM2_BASE, ARM_DRAM2_END, TZC_REGION_S_NONE,
+	  JUNO_MEDIA_TZC_NS_DEV_ACCESS },
 	{},
 };
 
@@ -98,8 +99,9 @@ static void css_init_nic400(void)
 {
 	/* Note: This is the NIC-400 device on the CSS */
 	mmio_write_32(PLAT_SOC_CSS_NIC400_BASE +
-		NIC400_ADDR_CTRL_SECURITY_REG(CSS_NIC400_SLAVE_BOOTSECURE),
-		~0);
+			      NIC400_ADDR_CTRL_SECURITY_REG(
+				      CSS_NIC400_SLAVE_BOOTSECURE),
+		      ~0);
 }
 
 /*******************************************************************************
@@ -110,19 +112,19 @@ static void init_debug_cfg(void)
 #if !DEBUG
 	/* Set internal drive selection for SPIDEN. */
 	mmio_write_32(SSC_REG_BASE + SSC_DBGCFG_SET,
-		1U << SPIDEN_SEL_SET_SHIFT);
+		      1U << SPIDEN_SEL_SET_SHIFT);
 
 	/* Drive SPIDEN LOW to disable invasive debug of secure state. */
 	mmio_write_32(SSC_REG_BASE + SSC_DBGCFG_CLR,
-		1U << SPIDEN_INT_CLR_SHIFT);
+		      1U << SPIDEN_INT_CLR_SHIFT);
 
 	/* Set internal drive selection for SPNIDEN. */
 	mmio_write_32(SSC_REG_BASE + SSC_DBGCFG_SET,
-		1U << SPNIDEN_SEL_SET_SHIFT);
+		      1U << SPNIDEN_SEL_SET_SHIFT);
 
 	/* Drive SPNIDEN LOW to disable non-invasive debug of secure state. */
 	mmio_write_32(SSC_REG_BASE + SSC_DBGCFG_CLR,
-		1U << SPNIDEN_INT_CLR_SHIFT);
+		      1U << SPNIDEN_INT_CLR_SHIFT);
 #endif
 }
 

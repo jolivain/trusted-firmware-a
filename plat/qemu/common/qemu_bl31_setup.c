@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,6 +8,7 @@
 
 #include <common/bl_common.h>
 #include <drivers/arm/pl061_gpio.h>
+
 #include <plat/common/platform.h>
 
 #include "qemu_private.h"
@@ -64,10 +65,9 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 
 void bl31_plat_arch_setup(void)
 {
-	qemu_configure_mmu_el3(BL31_BASE, (BL31_END - BL31_BASE),
-			      BL_CODE_BASE, BL_CODE_END,
-			      BL_RO_DATA_BASE, BL_RO_DATA_END,
-			      BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END);
+	qemu_configure_mmu_el3(BL31_BASE, (BL31_END - BL31_BASE), BL_CODE_BASE,
+			       BL_CODE_END, BL_RO_DATA_BASE, BL_RO_DATA_END,
+			       BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END);
 }
 
 static void qemu_gpio_init(void)
@@ -100,8 +100,8 @@ entry_point_info_t *bl31_plat_get_next_image_ep_info(uint32_t type)
 	entry_point_info_t *next_image_info;
 
 	assert(sec_state_is_valid(type));
-	next_image_info = (type == NON_SECURE)
-			? &bl33_image_ep_info : &bl32_image_ep_info;
+	next_image_info = (type == NON_SECURE) ? &bl33_image_ep_info :
+						 &bl32_image_ep_info;
 	/*
 	 * None of the images on the ARM development platforms can have 0x0
 	 * as the entrypoint

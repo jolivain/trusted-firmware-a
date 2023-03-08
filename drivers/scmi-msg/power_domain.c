@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: BSD-3-Clause
 /*
- * Copyright (c) 2015-2020, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  * Copyright (c) 2019-2020, Linaro Limited
  */
-#include <cdefs.h>
 #include <string.h>
 
+#include <cdefs.h>
 #include <drivers/scmi-msg.h>
 #include <drivers/scmi.h>
 #include <lib/utils_def.h>
@@ -149,7 +149,8 @@ static void scmi_pd_attributes(struct scmi_msg *msg)
 
 	COPY_NAME_IDENTIFIER(return_values.pd_name, name);
 
-	return_values.attributes = plat_scmi_pd_get_attributes(msg->agent_id, pd_id);
+	return_values.attributes =
+		plat_scmi_pd_get_attributes(msg->agent_id, pd_id);
 
 	scmi_write_response(msg, &return_values, sizeof(return_values));
 }

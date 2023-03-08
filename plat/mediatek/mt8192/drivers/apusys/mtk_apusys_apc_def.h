@@ -68,43 +68,47 @@ struct APC_DOM_16 {
 	unsigned char d15_permission;
 };
 
-#define APUSYS_APC_AO_ATTR(DEV_NAME, PERM_ATTR0, PERM_ATTR1, \
-		PERM_ATTR2, PERM_ATTR3, PERM_ATTR4, PERM_ATTR5, \
-		PERM_ATTR6, PERM_ATTR7, PERM_ATTR8, PERM_ATTR9, \
-		PERM_ATTR10, PERM_ATTR11, PERM_ATTR12, PERM_ATTR13, \
-		PERM_ATTR14, PERM_ATTR15) \
-	{(unsigned char)PERM_ATTR0, (unsigned char)PERM_ATTR1, \
-	(unsigned char)PERM_ATTR2, (unsigned char)PERM_ATTR3, \
-	(unsigned char)PERM_ATTR4, (unsigned char)PERM_ATTR5, \
-	(unsigned char)PERM_ATTR6, (unsigned char)PERM_ATTR7, \
-	(unsigned char)PERM_ATTR8, (unsigned char)PERM_ATTR9, \
-	(unsigned char)PERM_ATTR10, (unsigned char)PERM_ATTR11, \
-	(unsigned char)PERM_ATTR12, (unsigned char)PERM_ATTR13, \
-	(unsigned char)PERM_ATTR14, (unsigned char)PERM_ATTR15}
+#define APUSYS_APC_AO_ATTR(DEV_NAME, PERM_ATTR0, PERM_ATTR1, PERM_ATTR2,       \
+			   PERM_ATTR3, PERM_ATTR4, PERM_ATTR5, PERM_ATTR6,     \
+			   PERM_ATTR7, PERM_ATTR8, PERM_ATTR9, PERM_ATTR10,    \
+			   PERM_ATTR11, PERM_ATTR12, PERM_ATTR13, PERM_ATTR14, \
+			   PERM_ATTR15)                                        \
+	{                                                                      \
+		(unsigned char)PERM_ATTR0, (unsigned char)PERM_ATTR1,          \
+			(unsigned char)PERM_ATTR2, (unsigned char)PERM_ATTR3,  \
+			(unsigned char)PERM_ATTR4, (unsigned char)PERM_ATTR5,  \
+			(unsigned char)PERM_ATTR6, (unsigned char)PERM_ATTR7,  \
+			(unsigned char)PERM_ATTR8, (unsigned char)PERM_ATTR9,  \
+			(unsigned char)PERM_ATTR10,                            \
+			(unsigned char)PERM_ATTR11,                            \
+			(unsigned char)PERM_ATTR12,                            \
+			(unsigned char)PERM_ATTR13,                            \
+			(unsigned char)PERM_ATTR14, (unsigned char)PERM_ATTR15 \
+	}
 
-#define apuapc_writel(VAL, REG)		mmio_write_32((uintptr_t)REG, VAL)
-#define apuapc_readl(REG)		mmio_read_32((uintptr_t)REG)
+#define apuapc_writel(VAL, REG) mmio_write_32((uintptr_t)REG, VAL)
+#define apuapc_readl(REG) mmio_read_32((uintptr_t)REG)
 
 /* APUSYS APC AO  Registers */
-#define APUSYS_APC_AO_BASE            APUSYS_APC_AO_WRAPPER_BASE
-#define APUSYS_APC_CON                (APUSYS_APC_AO_BASE + 0x00F00)
-#define APUSYS_SYS0_APC_LOCK_0        (APUSYS_APC_AO_BASE + 0x00700)
+#define APUSYS_APC_AO_BASE APUSYS_APC_AO_WRAPPER_BASE
+#define APUSYS_APC_CON (APUSYS_APC_AO_BASE + 0x00F00)
+#define APUSYS_SYS0_APC_LOCK_0 (APUSYS_APC_AO_BASE + 0x00700)
 
 /* APUSYS NOC_DPAC_AO Registers */
-#define APUSYS_NOC_DAPC_CON	      (APUSYS_NOC_DAPC_AO_BASE + 0x00F00)
+#define APUSYS_NOC_DAPC_CON (APUSYS_NOC_DAPC_AO_BASE + 0x00F00)
 
-#define APUSYS_NOC_DAPC_GAP_BOUNDARY    4U
-#define APUSYS_NOC_DAPC_JUMP_GAP        12U
+#define APUSYS_NOC_DAPC_GAP_BOUNDARY 4U
+#define APUSYS_NOC_DAPC_JUMP_GAP 12U
 
-#define APUSYS_APC_SYS0_AO_SLAVE_NUM_IN_1_DOM       16U
-#define APUSYS_APC_SYS0_AO_DOM_NUM                  16U
-#define APUSYS_APC_SYS0_AO_SLAVE_NUM                59U
+#define APUSYS_APC_SYS0_AO_SLAVE_NUM_IN_1_DOM 16U
+#define APUSYS_APC_SYS0_AO_DOM_NUM 16U
+#define APUSYS_APC_SYS0_AO_SLAVE_NUM 59U
 
-#define APUSYS_APC_SYS0_LOCK_BIT_APU_SCTRL_REVISER  11U
-#define APUSYS_APC_SYS0_LOCK_BIT_APUSYS_AO_5        5U
+#define APUSYS_APC_SYS0_LOCK_BIT_APU_SCTRL_REVISER 11U
+#define APUSYS_APC_SYS0_LOCK_BIT_APUSYS_AO_5 5U
 
-#define APUSYS_NOC_DAPC_AO_SLAVE_NUM_IN_1_DOM       16U
-#define APUSYS_NOC_DAPC_AO_DOM_NUM                  16U
-#define APUSYS_NOC_DAPC_AO_SLAVE_NUM                27U
+#define APUSYS_NOC_DAPC_AO_SLAVE_NUM_IN_1_DOM 16U
+#define APUSYS_NOC_DAPC_AO_DOM_NUM 16U
+#define APUSYS_NOC_DAPC_AO_SLAVE_NUM 27U
 
 #endif /* __MTK_APUSYS_APC_DEF_H__ */

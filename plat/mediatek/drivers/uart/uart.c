@@ -9,10 +9,8 @@
 
 static struct mt_uart uart_save_addr[DRV_SUPPORT_UART_PORTS];
 
-static const uint32_t uart_base_addr[DRV_SUPPORT_UART_PORTS] = {
-	UART0_BASE,
-	UART1_BASE
-};
+static const uint32_t uart_base_addr[DRV_SUPPORT_UART_PORTS] = { UART0_BASE,
+								 UART1_BASE };
 
 void mt_uart_restore(void)
 {
@@ -23,7 +21,6 @@ void mt_uart_restore(void)
 	/* Must NOT print any debug log before UART restore */
 	for (uart_idx = UART_PORT0; uart_idx < HW_SUPPORT_UART_PORTS;
 	     uart_idx++) {
-
 		uart = &uart_save_addr[uart_idx];
 		base = uart->base;
 
@@ -63,7 +60,6 @@ void mt_uart_save(void)
 
 	for (uart_idx = UART_PORT0; uart_idx < HW_SUPPORT_UART_PORTS;
 	     uart_idx++) {
-
 		uart_save_addr[uart_idx].base = uart_base_addr[uart_idx];
 		base = uart_base_addr[uart_idx];
 		uart = &uart_save_addr[uart_idx];
@@ -83,10 +79,10 @@ void mt_uart_save(void)
 		uart->registers.dll = mmio_read_32(UART_DLL(base));
 		uart->registers.dlh = mmio_read_32(UART_DLH(base));
 		mmio_write_32(UART_LCR(base), uart->registers.lcr);
-		uart->registers.sample_count = mmio_read_32(
-						UART_SAMPLE_COUNT(base));
-		uart->registers.sample_point = mmio_read_32(
-						UART_SAMPLE_POINT(base));
+		uart->registers.sample_count =
+			mmio_read_32(UART_SAMPLE_COUNT(base));
+		uart->registers.sample_point =
+			mmio_read_32(UART_SAMPLE_POINT(base));
 		uart->registers.guard = mmio_read_32(UART_GUARD(base));
 
 		/* flow control */

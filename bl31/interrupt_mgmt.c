@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,9 +7,10 @@
 #include <assert.h>
 #include <errno.h>
 
-#include <common/bl_common.h>
 #include <bl31/interrupt_mgmt.h>
+#include <common/bl_common.h>
 #include <lib/el3_runtime/context_mgmt.h>
+
 #include <plat/common/platform.h>
 
 /*******************************************************************************
@@ -95,15 +96,15 @@ u_register_t get_scr_el3_from_routing_model(uint32_t security_state)
  * interrupt type. It uses it to update the SCR_EL3 in the cpu context and the
  * 'intr_type_desc' for that security state.
  ******************************************************************************/
-static void set_scr_el3_from_rm(uint32_t type,
-				uint32_t interrupt_type_flags,
+static void set_scr_el3_from_rm(uint32_t type, uint32_t interrupt_type_flags,
 				uint32_t security_state)
 {
 	uint32_t flag, bit_pos;
 
 	flag = get_interrupt_rm_flag(interrupt_type_flags, security_state);
 	bit_pos = plat_interrupt_type_to_line(type, security_state);
-	intr_type_descs[type].scr_el3[security_state] = (u_register_t)flag << bit_pos;
+	intr_type_descs[type].scr_el3[security_state] = (u_register_t)flag
+							<< bit_pos;
 
 	/*
 	 * Update scr_el3 only if there is a context available. If not, it
@@ -171,7 +172,7 @@ int enable_intr_rm_local(uint32_t type, uint32_t security_state)
 	assert(intr_type_descs[type].handler != NULL);
 
 	flag = get_interrupt_rm_flag(intr_type_descs[type].flags,
-				security_state);
+				     security_state);
 
 	bit_pos = plat_interrupt_type_to_line(type, security_state);
 	cm_write_scr_el3_bit(security_state, bit_pos, flag);
@@ -224,4 +225,3 @@ interrupt_type_handler_t get_interrupt_type_handler(uint32_t type)
 
 	return intr_type_descs[type].handler;
 }
-

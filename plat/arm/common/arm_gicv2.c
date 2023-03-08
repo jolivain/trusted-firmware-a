@@ -1,14 +1,14 @@
 /*
- * Copyright (c) 2015-2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <platform_def.h>
-
 #include <drivers/arm/gicv2.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 /******************************************************************************
  * The following functions are defined as weak to allow a platform to override
@@ -94,7 +94,6 @@ void plat_arm_gic_redistif_off(void)
 {
 	return;
 }
-
 
 /******************************************************************************
  * ARM common helper to save & restore the GICv3 on resume from system suspend.

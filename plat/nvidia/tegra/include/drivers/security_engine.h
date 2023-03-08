@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2017-2020, NVIDIA CORPORATION.  All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -20,7 +20,7 @@ struct tegra_se_ll {
 	uint32_t data_len;
 };
 
-#define SE_LL_MAX_BUFFER_NUM			4
+#define SE_LL_MAX_BUFFER_NUM 4
 typedef struct tegra_se_io_lst {
 	volatile uint32_t last_buff_num;
 	volatile struct tegra_se_ll buffer[SE_LL_MAX_BUFFER_NUM];

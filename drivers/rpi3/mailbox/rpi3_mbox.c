@@ -1,20 +1,18 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
+#include <drivers/rpi3/mailbox/rpi3_mbox.h>
 #include <lib/mmio.h>
-
 #include <rpi_hw.h>
 
-#include <drivers/rpi3/mailbox/rpi3_mbox.h>
+#include <platform_def.h>
 
-#define RPI3_MAILBOX_MAX_RETRIES	U(1000000)
+#define RPI3_MAILBOX_MAX_RETRIES U(1000000)
 
 /*******************************************************************************
  * Routine to send requests to the VideoCore using the mailboxes.
@@ -47,7 +45,7 @@ void rpi3_vc_mailbox_request_send(rpi3_mbox_request_t *req, int req_size)
 
 	/* Send base address of this message to start request */
 	mmio_write_32(RPI3_MBOX_BASE + RPI3_MBOX1_WRITE_OFFSET,
-		      RPI3_CHANNEL_ARM_TO_VC | (uint32_t) addr);
+		      RPI3_CHANNEL_ARM_TO_VC | (uint32_t)addr);
 
 	/* Wait until the inbound mailbox isn't empty */
 	retries = 0U;

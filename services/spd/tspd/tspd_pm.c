@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,6 +11,7 @@
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <lib/el3_runtime/context_mgmt.h>
+
 #include <plat/common/platform.h>
 
 #include "tspd_private.h"
@@ -43,7 +44,7 @@ static int32_t tspd_cpu_off_handler(u_register_t unused)
 	tspd_abort_preempted_smc(tsp_ctx);
 
 	/* Program the entry point and enter the TSP */
-	cm_set_elr_el3(SECURE, (uint64_t) &tsp_vectors->cpu_off_entry);
+	cm_set_elr_el3(SECURE, (uint64_t)&tsp_vectors->cpu_off_entry);
 	rc = tspd_synchronous_sp_entry(tsp_ctx);
 
 	/*
@@ -82,7 +83,7 @@ static void tspd_cpu_suspend_handler(u_register_t max_off_pwrlvl)
 	tspd_abort_preempted_smc(tsp_ctx);
 
 	/* Program the entry point and enter the TSP */
-	cm_set_elr_el3(SECURE, (uint64_t) &tsp_vectors->cpu_suspend_entry);
+	cm_set_elr_el3(SECURE, (uint64_t)&tsp_vectors->cpu_suspend_entry);
 	rc = tspd_synchronous_sp_entry(tsp_ctx);
 
 	/*
@@ -112,10 +113,8 @@ static void tspd_cpu_on_finish_handler(u_register_t unused)
 	assert(tsp_vectors);
 	assert(get_tsp_pstate(tsp_ctx->state) == TSP_PSTATE_OFF);
 
-	tspd_init_tsp_ep_state(&tsp_on_entrypoint,
-				TSP_AARCH64,
-				(uint64_t) &tsp_vectors->cpu_on_entry,
-				tsp_ctx);
+	tspd_init_tsp_ep_state(&tsp_on_entrypoint, TSP_AARCH64,
+			       (uint64_t)&tsp_vectors->cpu_on_entry, tsp_ctx);
 
 	/* Initialise this cpu's secure context */
 	cm_init_my_context(&tsp_on_entrypoint);
@@ -157,10 +156,9 @@ static void tspd_cpu_suspend_finish_handler(u_register_t max_off_pwrlvl)
 	assert(get_tsp_pstate(tsp_ctx->state) == TSP_PSTATE_SUSPEND);
 
 	/* Program the entry point, max_off_pwrlvl and enter the SP */
-	write_ctx_reg(get_gpregs_ctx(&tsp_ctx->cpu_ctx),
-		      CTX_GPREG_X0,
+	write_ctx_reg(get_gpregs_ctx(&tsp_ctx->cpu_ctx), CTX_GPREG_X0,
 		      max_off_pwrlvl);
-	cm_set_elr_el3(SECURE, (uint64_t) &tsp_vectors->cpu_resume_entry);
+	cm_set_elr_el3(SECURE, (uint64_t)&tsp_vectors->cpu_resume_entry);
 	rc = tspd_synchronous_sp_entry(tsp_ctx);
 
 	/*
@@ -202,7 +200,7 @@ static void tspd_system_off(void)
 	tspd_abort_preempted_smc(tsp_ctx);
 
 	/* Program the entry point */
-	cm_set_elr_el3(SECURE, (uint64_t) &tsp_vectors->system_off_entry);
+	cm_set_elr_el3(SECURE, (uint64_t)&tsp_vectors->system_off_entry);
 
 	/* Enter the TSP. We do not care about the return value because we
 	 * must continue the shutdown anyway */
@@ -228,7 +226,7 @@ static void tspd_system_reset(void)
 	tspd_abort_preempted_smc(tsp_ctx);
 
 	/* Program the entry point */
-	cm_set_elr_el3(SECURE, (uint64_t) &tsp_vectors->system_reset_entry);
+	cm_set_elr_el3(SECURE, (uint64_t)&tsp_vectors->system_reset_entry);
 
 	/*
 	 * Enter the TSP. We do not care about the return value because we
@@ -241,14 +239,13 @@ static void tspd_system_reset(void)
  * Structure populated by the TSP Dispatcher to be given a chance to perform any
  * TSP bookkeeping before PSCI executes a power mgmt.  operation.
  ******************************************************************************/
-const spd_pm_ops_t tspd_pm = {
-	.svc_on = tspd_cpu_on_handler,
-	.svc_off = tspd_cpu_off_handler,
-	.svc_suspend = tspd_cpu_suspend_handler,
-	.svc_on_finish = tspd_cpu_on_finish_handler,
-	.svc_suspend_finish = tspd_cpu_suspend_finish_handler,
-	.svc_migrate = NULL,
-	.svc_migrate_info = tspd_cpu_migrate_info,
-	.svc_system_off = tspd_system_off,
-	.svc_system_reset = tspd_system_reset
-};
+const spd_pm_ops_t tspd_pm = { .svc_on = tspd_cpu_on_handler,
+			       .svc_off = tspd_cpu_off_handler,
+			       .svc_suspend = tspd_cpu_suspend_handler,
+			       .svc_on_finish = tspd_cpu_on_finish_handler,
+			       .svc_suspend_finish =
+				       tspd_cpu_suspend_finish_handler,
+			       .svc_migrate = NULL,
+			       .svc_migrate_info = tspd_cpu_migrate_info,
+			       .svc_system_off = tspd_system_off,
+			       .svc_system_reset = tspd_system_reset };

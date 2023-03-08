@@ -73,11 +73,9 @@
  *	list_idx	: last populated index + 1
  *
  ****************************************************************************/
-int populate_tzc380_reg_list(struct tzc380_reg *tzc380_reg_list,
-			     int dram_idx, int list_idx,
-			     uint64_t dram_start_addr,
-			     uint64_t dram_size,
-			     uint32_t secure_dram_sz,
+int populate_tzc380_reg_list(struct tzc380_reg *tzc380_reg_list, int dram_idx,
+			     int list_idx, uint64_t dram_start_addr,
+			     uint64_t dram_size, uint32_t secure_dram_sz,
 			     uint32_t shrd_dram_sz)
 {
 	/* Region 0: Default region marked as Non-Secure */
@@ -108,9 +106,11 @@ int populate_tzc380_reg_list(struct tzc380_reg *tzc380_reg_list,
 		 */
 		tzc380_reg_list[list_idx].secure = TZC_ATTR_SP_S_RW;
 		tzc380_reg_list[list_idx].enabled = TZC_ATTR_REGION_ENABLE;
-		tzc380_reg_list[list_idx].addr = dram_start_addr + dram_size + shrd_dram_sz;
+		tzc380_reg_list[list_idx].addr =
+			dram_start_addr + dram_size + shrd_dram_sz;
 		tzc380_reg_list[list_idx].size = TZC_REGION_SIZE_64M;
-		tzc380_reg_list[list_idx].sub_mask = 0x80; /* Disable sub-region 7 */
+		tzc380_reg_list[list_idx].sub_mask =
+			0x80; /* Disable sub-region 7 */
 		list_idx++;
 
 		/*
@@ -119,32 +119,30 @@ int populate_tzc380_reg_list(struct tzc380_reg *tzc380_reg_list,
 		 */
 		tzc380_reg_list[list_idx].secure = TZC_ATTR_SP_S_RW;
 		tzc380_reg_list[list_idx].enabled = TZC_ATTR_REGION_ENABLE;
-		tzc380_reg_list[list_idx].addr = dram_start_addr + dram_size + secure_dram_sz;
+		tzc380_reg_list[list_idx].addr =
+			dram_start_addr + dram_size + secure_dram_sz;
 		tzc380_reg_list[list_idx].size = TZC_REGION_SIZE_8M;
-		tzc380_reg_list[list_idx].sub_mask = 0xC0; /* Disable sub-region 6 & 7 */
+		tzc380_reg_list[list_idx].sub_mask =
+			0xC0; /* Disable sub-region 6 & 7 */
 		list_idx++;
-
 	}
 
 	return list_idx;
 }
 #else
-int populate_tzc380_reg_list(struct tzc380_reg *tzc380_reg_list,
-			     int dram_idx, int list_idx,
-			     uint64_t dram_start_addr,
-			     uint64_t dram_size,
-			     uint32_t secure_dram_sz,
+int populate_tzc380_reg_list(struct tzc380_reg *tzc380_reg_list, int dram_idx,
+			     int list_idx, uint64_t dram_start_addr,
+			     uint64_t dram_size, uint32_t secure_dram_sz,
 			     uint32_t shrd_dram_sz)
 {
 	ERROR("tzc380_reg_list used is not a default list\n");
 	ERROR("%s needs to be over-written.\n", __func__);
 	return 0;
 }
-#endif	/* DEFAULT_TZASC_CONFIG */
-
+#endif /* DEFAULT_TZASC_CONFIG */
 
 void mem_access_setup(uintptr_t base, uint32_t total_regions,
-			struct tzc380_reg *tzc380_reg_list)
+		      struct tzc380_reg *tzc380_reg_list)
 {
 	uint32_t indx = 0;
 	unsigned int attr_value;
@@ -156,13 +154,14 @@ void mem_access_setup(uintptr_t base, uint32_t total_regions,
 	tzc380_set_action(TZC_ACTION_NONE);
 
 	for (indx = 0; indx < total_regions; indx++) {
-		attr_value = tzc380_reg_list[indx].secure |
+		attr_value =
+			tzc380_reg_list[indx].secure |
 			TZC_ATTR_SUBREG_DIS(tzc380_reg_list[indx].sub_mask) |
 			TZC_ATTR_REGION_SIZE(tzc380_reg_list[indx].size) |
 			tzc380_reg_list[indx].enabled;
 
 		tzc380_configure_region(indx, tzc380_reg_list[indx].addr,
-				attr_value);
+					attr_value);
 	}
 
 	tzc380_set_action(TZC_ACTION_ERR);

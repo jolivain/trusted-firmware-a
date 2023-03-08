@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier:    BSD-3-Clause
  *
@@ -14,9 +14,10 @@
 #include <common/debug.h>
 #include <drivers/auth/crypto_mod.h>
 #include <drivers/measured_boot/event_log/event_log.h>
+#include <lib/xlat_tables/xlat_tables_v2.h>
+
 #include "drtm_main.h"
 #include "drtm_measurements.h"
-#include <lib/xlat_tables/xlat_tables_v2.h>
 
 /* Event Log buffer */
 static uint8_t drtm_event_log[PLAT_DRTM_EVENT_LOG_MAX_SIZE];
@@ -41,7 +42,7 @@ static int drtm_event_log_measure_and_record(uintptr_t data_base,
 {
 	int rc;
 	unsigned char hash_data[CRYPTO_MD_MAX_SIZE];
-	event_log_metadata_t metadata = {0};
+	event_log_metadata_t metadata = { 0 };
 
 	metadata.name = event_name;
 	metadata.pcr = pcr;
@@ -88,8 +89,8 @@ enum drtm_retc drtm_take_measurements(const struct_drtm_dl_args *a)
 	const char *drtm_event_arm_sep_data = "ARM_DRTM";
 
 	/* Initialise the EventLog driver */
-	drtm_event_log_init(drtm_event_log, drtm_event_log +
-			    sizeof(drtm_event_log));
+	drtm_event_log_init(drtm_event_log,
+			    drtm_event_log + sizeof(drtm_event_log));
 
 	/**
 	 * Measurements extended into PCR-17.
@@ -106,8 +107,8 @@ enum drtm_retc drtm_take_measurements(const struct_drtm_dl_args *a)
 	/* PCR-17: Measure the PCR schema DRTM launch argument. */
 	rc = drtm_event_log_measure_and_record((uintptr_t)&pcr_schema,
 					       sizeof(pcr_schema),
-					       DRTM_EVENT_ARM_PCR_SCHEMA,
-					       NULL, PCR_17);
+					       DRTM_EVENT_ARM_PCR_SCHEMA, NULL,
+					       PCR_17);
 	CHECK_RC(rc,
 		 drtm_event_log_measure_and_record(DRTM_EVENT_ARM_PCR_SCHEMA));
 
@@ -133,11 +134,12 @@ enum drtm_retc drtm_take_measurements(const struct_drtm_dl_args *a)
 	 */
 
 	/* PCR-17: End of DCE measurements. */
-	rc = drtm_event_log_measure_and_record((uintptr_t)drtm_event_arm_sep_data,
-					       strlen(drtm_event_arm_sep_data),
-					       DRTM_EVENT_ARM_SEPARATOR, NULL,
-					       PCR_17);
-	CHECK_RC(rc, drtm_event_log_measure_and_record(DRTM_EVENT_ARM_SEPARATOR));
+	rc = drtm_event_log_measure_and_record(
+		(uintptr_t)drtm_event_arm_sep_data,
+		strlen(drtm_event_arm_sep_data), DRTM_EVENT_ARM_SEPARATOR, NULL,
+		PCR_17);
+	CHECK_RC(rc,
+		 drtm_event_log_measure_and_record(DRTM_EVENT_ARM_SEPARATOR));
 
 	/**
 	 * Measurements extended into PCR-18.
@@ -146,8 +148,8 @@ enum drtm_retc drtm_take_measurements(const struct_drtm_dl_args *a)
 	 */
 	rc = drtm_event_log_measure_and_record((uintptr_t)&pcr_schema,
 					       sizeof(pcr_schema),
-					       DRTM_EVENT_ARM_PCR_SCHEMA,
-					       NULL, PCR_18);
+					       DRTM_EVENT_ARM_PCR_SCHEMA, NULL,
+					       PCR_18);
 	CHECK_RC(rc,
 		 drtm_event_log_measure_and_record(DRTM_EVENT_ARM_PCR_SCHEMA));
 
@@ -159,8 +161,8 @@ enum drtm_retc drtm_take_measurements(const struct_drtm_dl_args *a)
 	assert(a->dce_nwd_size == 0);
 	rc = drtm_event_log_measure_and_record((uintptr_t)&drtm_null_data,
 					       sizeof(drtm_null_data),
-					       DRTM_EVENT_ARM_DCE_PUBKEY,
-					       NULL, PCR_18);
+					       DRTM_EVENT_ARM_DCE_PUBKEY, NULL,
+					       PCR_18);
 	CHECK_RC(rc,
 		 drtm_event_log_measure_and_record(DRTM_EVENT_ARM_DCE_PUBKEY));
 
@@ -168,34 +170,36 @@ enum drtm_retc drtm_take_measurements(const struct_drtm_dl_args *a)
 	dlme_img_mapping_bytes = page_align(a->dlme_img_size, UP);
 	rc = mmap_add_dynamic_region_alloc_va(a->dlme_paddr + a->dlme_img_off,
 					      &dlme_img_mapping,
-					      dlme_img_mapping_bytes, MT_RO_DATA | MT_NS);
+					      dlme_img_mapping_bytes,
+					      MT_RO_DATA | MT_NS);
 	if (rc) {
 		WARN("DRTM: %s: mmap_add_dynamic_region() failed rc=%d\n",
 		     __func__, rc);
 		return INTERNAL_ERROR;
 	}
 
-	rc = drtm_event_log_measure_and_record(dlme_img_mapping, a->dlme_img_size,
+	rc = drtm_event_log_measure_and_record(dlme_img_mapping,
+					       a->dlme_img_size,
 					       DRTM_EVENT_ARM_DLME, NULL,
 					       PCR_18);
 	CHECK_RC(rc, drtm_event_log_measure_and_record(DRTM_EVENT_ARM_DLME));
 
-	rc = mmap_remove_dynamic_region(dlme_img_mapping, dlme_img_mapping_bytes);
+	rc = mmap_remove_dynamic_region(dlme_img_mapping,
+					dlme_img_mapping_bytes);
 	CHECK_RC(rc, mmap_remove_dynamic_region);
 
 	/* PCR-18: Measure the DLME image entry point. */
 	dlme_img_ep = DL_ARGS_GET_DLME_ENTRY_POINT(a);
 	drtm_event_log_measure_and_record((uintptr_t)&dlme_img_ep,
 					  sizeof(dlme_img_ep),
-					  DRTM_EVENT_ARM_DLME_EP, NULL,
-					  PCR_18);
+					  DRTM_EVENT_ARM_DLME_EP, NULL, PCR_18);
 	CHECK_RC(rc, drtm_event_log_measure_and_record(DRTM_EVENT_ARM_DLME_EP));
 
 	/* PCR-18: End of DCE measurements. */
-	rc = drtm_event_log_measure_and_record((uintptr_t)drtm_event_arm_sep_data,
-					       strlen(drtm_event_arm_sep_data),
-					       DRTM_EVENT_ARM_SEPARATOR, NULL,
-					       PCR_18);
+	rc = drtm_event_log_measure_and_record(
+		(uintptr_t)drtm_event_arm_sep_data,
+		strlen(drtm_event_arm_sep_data), DRTM_EVENT_ARM_SEPARATOR, NULL,
+		PCR_18);
 	CHECK_RC(rc,
 		 drtm_event_log_measure_and_record(DRTM_EVENT_ARM_SEPARATOR));
 	/*

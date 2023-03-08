@@ -1,15 +1,17 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
+
 #include <common/bl_common.h>
 #include <common/interrupt_props.h>
 #include <drivers/arm/gicv2.h>
 #include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_mmu_helpers.h>
+
 #include <plat/common/platform.h>
 #include <platform_def.h>
 
@@ -72,7 +74,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	aml_console_init();
 
 	/* Check that params passed from BL2 are not NULL. */
-	from_bl2 = (struct gxl_bl31_param *) arg0;
+	from_bl2 = (struct gxl_bl31_param *)arg0;
 
 	/* Check params passed from BL2 are not NULL. */
 	assert(from_bl2 != NULL);

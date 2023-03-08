@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,8 +7,8 @@
 #ifndef APUPWR_CLKCTL_H
 #define APUPWR_CLKCTL_H
 
-#include <arch_helpers.h>
 #include <apupwr_clkctl_def.h>
+#include <arch_helpers.h>
 
 int32_t apupwr_smc_acc_init_all(void);
 void apupwr_smc_acc_top(bool enable);

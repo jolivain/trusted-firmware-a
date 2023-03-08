@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,11 +7,11 @@
 #include <arch.h>
 #include <lib/mmio.h>
 #include <mt8173_def.h>
-#include <plat/common/platform.h>
-
 #include <spm.h>
 #include <spm_hotplug.h>
 #include <spm_mcdi.h>
+
+#include <plat/common/platform.h>
 
 /*
  * System Power Manager (SPM) is a hardware module, which controls cpu or
@@ -19,8 +19,8 @@
  * This driver controls the cpu power in cpu hotplug flow.
  */
 
-#define PCM_HOTPLUG_VALID_MASK	0x0000ff00
-#define PCM_HOTPLUG_VALID_SHIFT	0x8
+#define PCM_HOTPLUG_VALID_MASK 0x0000ff00
+#define PCM_HOTPLUG_VALID_SHIFT 0x8
 
 /**********************************************************
  * PCM sequence for CPU hotplug
@@ -176,11 +176,11 @@ static const unsigned int hotplug_binary[] = {
 	0x17c07c1f, 0x1980001f, 0xdeaddead, 0x19c0001f, 0x01411820, 0xf0000000
 };
 static const struct pcm_desc hotplug_pcm = {
-	.version	= "pcm_power_down_mt8173_V37",
-	.base		= hotplug_binary,
-	.size		= 888,
-	.sess		= 2,
-	.replace	= 0,
+	.version = "pcm_power_down_mt8173_V37",
+	.base = hotplug_binary,
+	.size = 888,
+	.sess = 2,
+	.replace = 0,
 };
 
 static struct pwr_ctrl hotplug_ctrl = {
@@ -225,8 +225,8 @@ void spm_clear_hotplug(void)
 	mmio_write_32(SPM_PCM_PWR_IO_EN, 0);
 
 	/* Wait SPM's response, can't use sleep api */
-	while ((mmio_read_32(SPM_PCM_FSM_STA) & PCM_END_FSM_STA_MASK)
-		!= PCM_END_FSM_STA_DEF)
+	while ((mmio_read_32(SPM_PCM_FSM_STA) & PCM_END_FSM_STA_MASK) !=
+	       PCM_END_FSM_STA_DEF)
 		;
 
 	/* no hotplug pcm running */
@@ -238,7 +238,7 @@ void spm_hotplug_on(unsigned long mpidr)
 	unsigned long linear_id;
 
 	linear_id = ((mpidr & MPIDR_CLUSTER_MASK) >> 6) |
-			(mpidr & MPIDR_CPU_MASK);
+		    (mpidr & MPIDR_CPU_MASK);
 
 	spm_lock_get();
 	if (is_hotplug_ready() == 0) {
@@ -249,8 +249,8 @@ void spm_hotplug_on(unsigned long mpidr)
 	}
 	/* turn on CPUx */
 	mmio_clrsetbits_32(SPM_PCM_RESERVE,
-		PCM_HOTPLUG_VALID_MASK | (1 << linear_id),
-		1 << (linear_id + PCM_HOTPLUG_VALID_SHIFT));
+			   PCM_HOTPLUG_VALID_MASK | (1 << linear_id),
+			   1 << (linear_id + PCM_HOTPLUG_VALID_SHIFT));
 	spm_lock_release();
 }
 
@@ -259,7 +259,7 @@ void spm_hotplug_off(unsigned long mpidr)
 	unsigned long linear_id;
 
 	linear_id = ((mpidr & MPIDR_CLUSTER_MASK) >> 6) |
-			(mpidr & MPIDR_CPU_MASK);
+		    (mpidr & MPIDR_CPU_MASK);
 
 	spm_lock_get();
 	if (is_hotplug_ready() == 0) {
@@ -269,7 +269,7 @@ void spm_hotplug_off(unsigned long mpidr)
 		set_hotplug_ready();
 	}
 	mmio_clrsetbits_32(SPM_PCM_RESERVE, PCM_HOTPLUG_VALID_MASK,
-		(1 << linear_id) |
-		(1 << (linear_id + PCM_HOTPLUG_VALID_SHIFT)));
+			   (1 << linear_id) | (1 << (linear_id +
+						     PCM_HOTPLUG_VALID_SHIFT)));
 	spm_lock_release();
 }

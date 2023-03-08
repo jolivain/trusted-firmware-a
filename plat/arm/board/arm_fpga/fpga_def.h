@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -19,11 +19,11 @@
  * entries in the array used to represent the topology.
  */
 
-#define FPGA_MAX_CLUSTER_COUNT			4
-#define FPGA_MAX_CPUS_PER_CLUSTER		8
-#define FPGA_MAX_PE_PER_CPU			4
+#define FPGA_MAX_CLUSTER_COUNT 4
+#define FPGA_MAX_CPUS_PER_CLUSTER 8
+#define FPGA_MAX_PE_PER_CPU 4
 
-#define FPGA_PRIMARY_CPU			0x0
+#define FPGA_PRIMARY_CPU 0x0
 /*******************************************************************************
  * FPGA image memory map related constants
  ******************************************************************************/
@@ -32,8 +32,8 @@
  * UART base address, just for the crash console, as a fallback.
  * The actual console UART address is taken from the DT.
  */
-#define PLAT_FPGA_CRASH_UART_BASE		0x7ff80000
+#define PLAT_FPGA_CRASH_UART_BASE 0x7ff80000
 
-#define FPGA_DEFAULT_TIMER_FREQUENCY		10000000
+#define FPGA_DEFAULT_TIMER_FREQUENCY 10000000
 
 #endif

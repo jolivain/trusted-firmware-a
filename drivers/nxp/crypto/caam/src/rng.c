@@ -11,15 +11,14 @@
 #include <stdlib.h>
 
 #include <arch_helpers.h>
-#include "caam.h"
 #include <common/debug.h>
+
+#include "caam.h"
 #include "jobdesc.h"
 #include "sec_hw_specific.h"
 
-
 /* Callback function after Instantiation decsriptor is submitted to SEC */
-static void rng_done(uint32_t *desc, uint32_t status, void *arg,
-		     void *job_ring)
+static void rng_done(uint32_t *desc, uint32_t status, void *arg, void *job_ring)
 {
 	INFO("RNG Desc SUCCESS with status %x\n", status);
 }
@@ -37,7 +36,7 @@ static int is_hw_rng_instantiated(uint32_t *state_handle)
 
 	rdsta = sec_in32(get_caam_addr() + RNG_REG_RDSTA_OFFSET);
 
-	 /*Check if either of the two state handles has been instantiated */
+	/*Check if either of the two state handles has been instantiated */
 	if (rdsta & RNG_STATE0_HANDLE_INSTANTIATED) {
 		*state_handle = 0;
 		ret_code = 1;
@@ -70,7 +69,7 @@ static void kick_trng(int ent_delay)
 	 */
 	val = sec_in32(get_caam_addr() + RNG_REG_RTSDCTL_OFFSET);
 	val = (val & ~RTSDCTL_ENT_DLY_MASK) |
-	    (ent_delay << RTSDCTL_ENT_DLY_SHIFT);
+	      (ent_delay << RTSDCTL_ENT_DLY_SHIFT);
 	sec_out32(get_caam_addr() + RNG_REG_RTSDCTL_OFFSET, val);
 	/* min. freq. count, equal to 1/4 of the entropy sample length */
 	sec_out32(get_caam_addr() + RNG_REG_RTFRQMIN_OFFSET, ent_delay >> 2);
@@ -125,9 +124,9 @@ static int instantiate_rng(void)
  * 0 - SUCCESS
  * -1 - ERROR
  */
-static int
-hw_rng_generate(uint32_t *add_input, uint32_t add_input_len,
-		uint8_t *out, uint32_t out_len, uint32_t state_handle)
+static int hw_rng_generate(uint32_t *add_input, uint32_t add_input_len,
+			   uint8_t *out, uint32_t out_len,
+			   uint32_t state_handle)
 {
 	int ret = 0;
 	struct job_descriptor desc __aligned(CACHE_WRITEBACK_GRANULE);
@@ -142,8 +141,8 @@ hw_rng_generate(uint32_t *add_input, uint32_t add_input_len,
 #endif
 
 	/* create the hw_rng descriptor */
-	ret = cnstr_rng_jobdesc(jobdesc->desc, state_handle,
-				add_input, add_input_len, out, out_len);
+	ret = cnstr_rng_jobdesc(jobdesc->desc, state_handle, add_input,
+				add_input_len, out, out_len);
 	if (ret != 0) {
 		ERROR("Descriptor construction failed\n");
 		ret = -1;

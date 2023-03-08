@@ -68,7 +68,8 @@ int k3_sec_proxy_clear_rx_thread(enum k3_sec_proxy_chan_id id);
  *
  * Return: 0 if all goes well, else appropriate error message
  */
-int k3_sec_proxy_send(enum k3_sec_proxy_chan_id id, const struct k3_sec_proxy_msg *msg);
+int k3_sec_proxy_send(enum k3_sec_proxy_chan_id id,
+		      const struct k3_sec_proxy_msg *msg);
 
 /**
  * k3_sec_proxy_recv() - Receive data from a Secure Proxy thread
@@ -77,6 +78,7 @@ int k3_sec_proxy_send(enum k3_sec_proxy_chan_id id, const struct k3_sec_proxy_ms
  *
  * Return: 0 if all goes well, else appropriate error message
  */
-int k3_sec_proxy_recv(enum k3_sec_proxy_chan_id id, struct k3_sec_proxy_msg *msg);
+int k3_sec_proxy_recv(enum k3_sec_proxy_chan_id id,
+		      struct k3_sec_proxy_msg *msg);
 
 #endif /* SEC_PROXY_H */

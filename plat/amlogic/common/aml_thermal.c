@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -22,6 +22,6 @@ void aml_thermal_unknown(void)
 		modules_initialized = ret;
 	}
 
-	aml_scpi_unknown_thermal(10, 2,  /* thermal */
+	aml_scpi_unknown_thermal(10, 2, /* thermal */
 				 13, 1); /* thermalver */
 }

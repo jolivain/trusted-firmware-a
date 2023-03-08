@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -15,19 +15,20 @@
  * responsible for initialising and maintaining communication with the SP.
  ******************************************************************************/
 #include <assert.h>
-#include <bl31/interrupt_mgmt.h>
 #include <errno.h>
 #include <stddef.h>
 
 #include <arch_helpers.h>
 #include <bl31/bl31.h>
+#include <bl31/interrupt_mgmt.h>
 #include <bl32/payloads/tlk.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <common/runtime_svc.h>
 #include <lib/el3_runtime/context_mgmt.h>
-#include <plat/common/platform.h>
 #include <tools_share/uuid.h>
+
+#include <plat/common/platform.h>
 
 #include "tlkd_private.h"
 
@@ -44,19 +45,16 @@ tlk_context_t tlk_ctx;
 static uint32_t boot_cpu;
 
 /* TLK UID: RFC-4122 compliant UUID (version-5, sha-1) */
-DEFINE_SVC_UUID2(tlk_uuid,
-	0xc9e911bd, 0xba2b, 0xee52, 0xb1, 0x72,
-	0x46, 0x1f, 0xba, 0x97, 0x7f, 0x63);
+DEFINE_SVC_UUID2(tlk_uuid, 0xc9e911bd, 0xba2b, 0xee52, 0xb1, 0x72, 0x46, 0x1f,
+		 0xba, 0x97, 0x7f, 0x63);
 
 static int32_t tlkd_init(void);
 
 /*******************************************************************************
  * Secure Payload Dispatcher's timer interrupt handler
  ******************************************************************************/
-static uint64_t tlkd_interrupt_handler(uint32_t id,
-					uint32_t flags,
-					void *handle,
-					void *cookie)
+static uint64_t tlkd_interrupt_handler(uint32_t id, uint32_t flags,
+				       void *handle, void *cookie)
 {
 	cpu_context_t *s_cpu_context;
 	int irq = plat_ic_get_pending_interrupt_id();
@@ -112,8 +110,8 @@ static int32_t tlkd_setup(void)
 	tlk_ep_info = bl31_plat_get_next_image_ep_info(SECURE);
 	if (!tlk_ep_info) {
 		WARN("No SP provided. Booting device without SP"
-			" initialization. SMC`s destined for SP"
-			" will return SMC_UNK\n");
+		     " initialization. SMC`s destined for SP"
+		     " will return SMC_UNK\n");
 		return 1;
 	}
 
@@ -130,9 +128,9 @@ static int32_t tlkd_setup(void)
 	 * i.e whether AArch32 or AArch64.
 	 */
 	tlkd_init_tlk_ep_state(tlk_ep_info,
-		(tlk_ep_info->spsr >> MODE_RW_SHIFT) & MODE_RW_MASK,
-		tlk_ep_info->pc,
-		&tlk_ctx);
+			       (tlk_ep_info->spsr >> MODE_RW_SHIFT) &
+				       MODE_RW_MASK,
+			       tlk_ep_info->pc, &tlk_ctx);
 
 	/* get a list of all S-EL1 IRQs from the platform */
 
@@ -140,8 +138,7 @@ static int32_t tlkd_setup(void)
 	flags = 0;
 	set_interrupt_rm_flag(flags, NON_SECURE);
 	ret = register_interrupt_type_handler(INTR_TYPE_S_EL1,
-					      tlkd_interrupt_handler,
-					      flags);
+					      tlkd_interrupt_handler, flags);
 	if (ret != 0) {
 		ERROR("failed to register tlkd interrupt handler (%d)\n", ret);
 	}
@@ -195,14 +192,10 @@ static int32_t tlkd_init(void)
  * will also return any information that the secure payload needs to do the
  * work assigned to it.
  ******************************************************************************/
-static uintptr_t tlkd_smc_handler(uint32_t smc_fid,
-			 u_register_t x1,
-			 u_register_t x2,
-			 u_register_t x3,
-			 u_register_t x4,
-			 void *cookie,
-			 void *handle,
-			 u_register_t flags)
+static uintptr_t tlkd_smc_handler(uint32_t smc_fid, u_register_t x1,
+				  u_register_t x2, u_register_t x3,
+				  u_register_t x4, void *cookie, void *handle,
+				  u_register_t flags)
 {
 	cpu_context_t *ns_cpu_context;
 	gp_regs_t *gp_regs;
@@ -220,7 +213,6 @@ static uintptr_t tlkd_smc_handler(uint32_t smc_fid,
 	ns = is_caller_non_secure(flags);
 
 	switch (smc_fid) {
-
 	/*
 	 * This function ID is used by SP to indicate that it was
 	 * preempted by a non-secure world IRQ.
@@ -333,7 +325,7 @@ static uintptr_t tlkd_smc_handler(uint32_t smc_fid,
 		write_ctx_reg(gp_regs, CTX_GPREG_X6, (uint32_t)x3);
 		write_ctx_reg(gp_regs, CTX_GPREG_X7, (uint32_t)(x3 >> 32));
 		SMC_RET4(&tlk_ctx.cpu_ctx, smc_fid, 0, (uint32_t)x1,
-			(uint32_t)(x1 >> 32));
+			 (uint32_t)(x1 >> 32));
 
 	/*
 	 * Translate NS/EL1-S virtual addresses.
@@ -502,45 +494,25 @@ static uintptr_t tlkd_smc_handler(uint32_t smc_fid,
 }
 
 /* Define a SPD runtime service descriptor for fast SMC calls */
-DECLARE_RT_SVC(
-	tlkd_tos_fast,
+DECLARE_RT_SVC(tlkd_tos_fast,
 
-	OEN_TOS_START,
-	OEN_TOS_END,
-	SMC_TYPE_FAST,
-	tlkd_setup,
-	tlkd_smc_handler
-);
+	       OEN_TOS_START, OEN_TOS_END, SMC_TYPE_FAST, tlkd_setup,
+	       tlkd_smc_handler);
 
 /* Define a SPD runtime service descriptor for yielding SMC calls */
-DECLARE_RT_SVC(
-	tlkd_tos_std,
+DECLARE_RT_SVC(tlkd_tos_std,
 
-	OEN_TOS_START,
-	OEN_TOS_END,
-	SMC_TYPE_YIELD,
-	NULL,
-	tlkd_smc_handler
-);
+	       OEN_TOS_START, OEN_TOS_END, SMC_TYPE_YIELD, NULL,
+	       tlkd_smc_handler);
 
 /* Define a SPD runtime service descriptor for fast SMC calls */
-DECLARE_RT_SVC(
-	tlkd_tap_fast,
+DECLARE_RT_SVC(tlkd_tap_fast,
 
-	OEN_TAP_START,
-	OEN_TAP_END,
-	SMC_TYPE_FAST,
-	NULL,
-	tlkd_smc_handler
-);
+	       OEN_TAP_START, OEN_TAP_END, SMC_TYPE_FAST, NULL,
+	       tlkd_smc_handler);
 
 /* Define a SPD runtime service descriptor for yielding SMC calls */
-DECLARE_RT_SVC(
-	tlkd_tap_std,
+DECLARE_RT_SVC(tlkd_tap_std,
 
-	OEN_TAP_START,
-	OEN_TAP_END,
-	SMC_TYPE_YIELD,
-	NULL,
-	tlkd_smc_handler
-);
+	       OEN_TAP_START, OEN_TAP_END, SMC_TYPE_YIELD, NULL,
+	       tlkd_smc_handler);

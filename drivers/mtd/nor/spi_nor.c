@@ -13,19 +13,19 @@
 #include <drivers/spi_nor.h>
 #include <lib/utils.h>
 
-#define SR_WIP			BIT(0)	/* Write in progress */
-#define CR_QUAD_EN_SPAN		BIT(1)	/* Spansion Quad I/O */
-#define SR_QUAD_EN_MX		BIT(6)	/* Macronix Quad I/O */
-#define FSR_READY		BIT(7)	/* Device status, 0 = Busy, 1 = Ready */
+#define SR_WIP BIT(0) /* Write in progress */
+#define CR_QUAD_EN_SPAN BIT(1) /* Spansion Quad I/O */
+#define SR_QUAD_EN_MX BIT(6) /* Macronix Quad I/O */
+#define FSR_READY BIT(7) /* Device status, 0 = Busy, 1 = Ready */
 
 /* Defined IDs for supported memories */
-#define SPANSION_ID		0x01U
-#define MACRONIX_ID		0xC2U
-#define MICRON_ID		0x2CU
+#define SPANSION_ID 0x01U
+#define MACRONIX_ID 0xC2U
+#define MICRON_ID 0x2CU
 
-#define BANK_SIZE		0x1000000U
+#define BANK_SIZE 0x1000000U
 
-#define SPI_READY_TIMEOUT_US	40000U
+#define SPI_READY_TIMEOUT_US 40000U
 
 static struct nor_device nor_dev;
 
@@ -100,7 +100,8 @@ static int spi_nor_ready(void)
 		}
 
 		return (((fsr & FSR_READY) != 0U) && ((sr & SR_WIP) == 0U)) ?
-			0 : 1;
+			       0 :
+			       1;
 	}
 
 	return (((sr & SR_WIP) == 0U) ? 0 : 1);
@@ -229,8 +230,8 @@ static int spi_nor_clean_bar(void)
 		return ret;
 	}
 
-	return spi_nor_reg(nor_dev.bank_write_cmd, &nor_dev.selected_bank,
-			   1U, SPI_MEM_DATA_OUT);
+	return spi_nor_reg(nor_dev.bank_write_cmd, &nor_dev.selected_bank, 1U,
+			   SPI_MEM_DATA_OUT);
 }
 
 static int spi_nor_write_bar(uint32_t offset)
@@ -247,8 +248,8 @@ static int spi_nor_write_bar(uint32_t offset)
 		return ret;
 	}
 
-	ret = spi_nor_reg(nor_dev.bank_write_cmd, &selected_bank,
-			  1U, SPI_MEM_DATA_OUT);
+	ret = spi_nor_reg(nor_dev.bank_write_cmd, &selected_bank, 1U,
+			  SPI_MEM_DATA_OUT);
 	if (ret != 0) {
 		return ret;
 	}
@@ -263,8 +264,8 @@ static int spi_nor_read_bar(void)
 	uint8_t selected_bank = 0U;
 	int ret;
 
-	ret = spi_nor_reg(nor_dev.bank_read_cmd, &selected_bank,
-			  1U, SPI_MEM_DATA_IN);
+	ret = spi_nor_reg(nor_dev.bank_read_cmd, &selected_bank, 1U,
+			  SPI_MEM_DATA_IN);
 	if (ret != 0) {
 		return ret;
 	}
@@ -294,7 +295,7 @@ int spi_nor_read(unsigned int offset, uintptr_t buffer, size_t length,
 			}
 
 			remain_len = (BANK_SIZE * (nor_dev.selected_bank + 1)) -
-				nor_dev.read_op.addr.val;
+				     nor_dev.read_op.addr.val;
 			nor_dev.read_op.data.nbytes = MIN(length, remain_len);
 		} else {
 			nor_dev.read_op.data.nbytes = length;

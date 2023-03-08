@@ -1,12 +1,13 @@
 /*
- * Copyright (c) 2016-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020-2021, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <arch_helpers.h>
 #include <assert.h>
+
+#include <arch_helpers.h>
 #include <lib/mmio.h>
 #include <lib/smccc.h>
 #include <services/arm_arch_svc.h>
@@ -31,24 +32,24 @@ typedef enum tegra_platform {
 /*******************************************************************************
  * Tegra macros defining all the SoC minor versions
  ******************************************************************************/
-#define TEGRA_MINOR_QT			U(0)
-#define TEGRA_MINOR_FPGA		U(1)
-#define TEGRA_MINOR_ASIM_QT		U(2)
-#define TEGRA_MINOR_ASIM_LINSIM		U(3)
-#define TEGRA_MINOR_DSIM_ASIM_LINSIM	U(4)
-#define TEGRA_MINOR_UNIT_FPGA		U(5)
-#define TEGRA_MINOR_VIRT_DEV_KIT	U(6)
+#define TEGRA_MINOR_QT U(0)
+#define TEGRA_MINOR_FPGA U(1)
+#define TEGRA_MINOR_ASIM_QT U(2)
+#define TEGRA_MINOR_ASIM_LINSIM U(3)
+#define TEGRA_MINOR_DSIM_ASIM_LINSIM U(4)
+#define TEGRA_MINOR_UNIT_FPGA U(5)
+#define TEGRA_MINOR_VIRT_DEV_KIT U(6)
 
 /*******************************************************************************
  * Tegra macros defining all the SoC pre_si_platform
  ******************************************************************************/
-#define TEGRA_PRE_SI_QT			U(1)
-#define TEGRA_PRE_SI_FPGA		U(2)
-#define TEGRA_PRE_SI_UNIT_FPGA		U(3)
-#define TEGRA_PRE_SI_ASIM_QT		U(4)
-#define TEGRA_PRE_SI_ASIM_LINSIM	U(5)
-#define TEGRA_PRE_SI_DSIM_ASIM_LINSIM	U(6)
-#define TEGRA_PRE_SI_VDK		U(8)
+#define TEGRA_PRE_SI_QT U(1)
+#define TEGRA_PRE_SI_FPGA U(2)
+#define TEGRA_PRE_SI_UNIT_FPGA U(3)
+#define TEGRA_PRE_SI_ASIM_QT U(4)
+#define TEGRA_PRE_SI_ASIM_LINSIM U(5)
+#define TEGRA_PRE_SI_DSIM_ASIM_LINSIM U(6)
+#define TEGRA_PRE_SI_VDK U(8)
 
 /*
  * Read the chip ID value
@@ -79,7 +80,8 @@ uint32_t tegra_get_chipid_minor(void)
  */
 static uint32_t tegra_get_chipid_pre_si_platform(void)
 {
-	return (tegra_get_chipid() >> PRE_SI_PLATFORM_SHIFT) & PRE_SI_PLATFORM_MASK;
+	return (tegra_get_chipid() >> PRE_SI_PLATFORM_SHIFT) &
+	       PRE_SI_PLATFORM_MASK;
 }
 
 bool tegra_chipid_is_t186(void)
@@ -171,7 +173,6 @@ static tegra_platform_t tegra_get_platform(void)
 		}
 
 	} else if (pre_si_platform > 0U) {
-
 		switch (pre_si_platform) {
 		/*
 		 * Cadence's QuickTurn emulation system is a Solaris-based
@@ -227,7 +228,8 @@ static tegra_platform_t tegra_get_platform(void)
 
 bool tegra_platform_is_silicon(void)
 {
-	return ((tegra_get_platform() == TEGRA_PLATFORM_SILICON) ? true : false);
+	return ((tegra_get_platform() == TEGRA_PLATFORM_SILICON) ? true :
+								   false);
 }
 
 bool tegra_platform_is_qt(void)
@@ -240,7 +242,9 @@ bool tegra_platform_is_linsim(void)
 	tegra_platform_t plat = tegra_get_platform();
 
 	return (((plat == TEGRA_PLATFORM_LINSIM) ||
-	       (plat == TEGRA_PLATFORM_UNIT_FPGA)) ? true : false);
+		 (plat == TEGRA_PLATFORM_UNIT_FPGA)) ?
+			true :
+			false);
 }
 
 bool tegra_platform_is_fpga(void)
@@ -255,12 +259,14 @@ bool tegra_platform_is_emulation(void)
 
 bool tegra_platform_is_unit_fpga(void)
 {
-	return ((tegra_get_platform() == TEGRA_PLATFORM_UNIT_FPGA) ? true : false);
+	return ((tegra_get_platform() == TEGRA_PLATFORM_UNIT_FPGA) ? true :
+								     false);
 }
 
 bool tegra_platform_is_virt_dev_kit(void)
 {
-	return ((tegra_get_platform() == TEGRA_PLATFORM_VIRT_DEV_KIT) ? true : false);
+	return ((tegra_get_platform() == TEGRA_PLATFORM_VIRT_DEV_KIT) ? true :
+									false);
 }
 
 /*
@@ -272,8 +278,10 @@ bool tegra_platform_is_virt_dev_kit(void)
  */
 int32_t plat_get_soc_version(void)
 {
-	uint32_t chip_id = ((tegra_get_chipid() >> CHIP_ID_SHIFT) & CHIP_ID_MASK);
-	uint32_t manfid = SOC_ID_SET_JEP_106(JEDEC_NVIDIA_BKID, JEDEC_NVIDIA_MFID);
+	uint32_t chip_id =
+		((tegra_get_chipid() >> CHIP_ID_SHIFT) & CHIP_ID_MASK);
+	uint32_t manfid =
+		SOC_ID_SET_JEP_106(JEDEC_NVIDIA_BKID, JEDEC_NVIDIA_MFID);
 
 	return (int32_t)(manfid | (chip_id & SOC_ID_IMPL_DEF_MASK));
 }
@@ -286,7 +294,8 @@ int32_t plat_get_soc_version(void)
  */
 int32_t plat_get_soc_revision(void)
 {
-	return (int32_t)(((tegra_get_chipid_major() << 8) | tegra_get_chipid_minor()) &
+	return (int32_t)(((tegra_get_chipid_major() << 8) |
+			  tegra_get_chipid_minor()) &
 			 SOC_ID_REV_MASK);
 }
 

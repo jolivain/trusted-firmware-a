@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020 ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023 ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,8 +8,7 @@
 #define _BSV_API_H
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
 /*!
@@ -21,16 +20,19 @@ extern "C"
 @ingroup cc_bsv
 */
 
+#include "cc_boot_defs.h"
 #include "cc_pal_types.h"
 #include "cc_sec_defs.h"
-#include "cc_boot_defs.h"
 
 /* Life cycle state definitions. */
-#define CC_BSV_CHIP_MANUFACTURE_LCS    0x0 /*!< The CM life-cycle state (LCS) value. */
-#define CC_BSV_DEVICE_MANUFACTURE_LCS  0x1 /*!< The DM life-cycle state (LCS) value. */
-#define CC_BSV_SECURE_LCS              0x5 /*!< The Secure life-cycle state (LCS) value. */
-#define CC_BSV_RMA_LCS                 0x7 /*!< The RMA life-cycle state (LCS) value. */
-#define CC_BSV_INVALID_LCS             0xff /*!< The invalid life-cycle state (LCS) value. */
+#define CC_BSV_CHIP_MANUFACTURE_LCS \
+	0x0 /*!< The CM life-cycle state (LCS) value. */
+#define CC_BSV_DEVICE_MANUFACTURE_LCS \
+	0x1 /*!< The DM life-cycle state (LCS) value. */
+#define CC_BSV_SECURE_LCS 0x5 /*!< The Secure life-cycle state (LCS) value. */
+#define CC_BSV_RMA_LCS 0x7 /*!< The RMA life-cycle state (LCS) value. */
+#define CC_BSV_INVALID_LCS \
+	0xff /*!< The invalid life-cycle state (LCS) value. */
 
 /*----------------------------
       TYPES
@@ -39,7 +41,6 @@ extern "C"
 /*----------------------------
       PUBLIC FUNCTIONS
 -----------------------------------*/
-
 
 /*!
 @brief This function verifies the product and version numbers of the HW, and initializes it.
@@ -50,8 +51,9 @@ extern "C"
 @return A non-zero value from bsv_error.h on failure.
 */
 CCError_t CC_BsvInit(
-    unsigned long hwBaseAddress     /*!< [in] The base address of the CryptoCell HW registers. */
-    );
+	unsigned long
+		hwBaseAddress /*!< [in] The base address of the CryptoCell HW registers. */
+);
 
 /*!
 @brief This function retrieves the HW LCS and performs validity checks.
@@ -65,9 +67,10 @@ completely disable the device.
 @return A non-zero value from bsv_error.h on failure.
 */
 CCError_t CC_BsvGetAndInitLcs(
-    unsigned long hwBaseAddress,    /*!< [in] The base address of the CryptoCell HW registers. */
-    uint32_t *pLcs                  /*!< [out] The value of the current LCS. */
-    );
+	unsigned long
+		hwBaseAddress, /*!< [in] The base address of the CryptoCell HW registers. */
+	uint32_t *pLcs /*!< [out] The value of the current LCS. */
+);
 
 /*!
 @brief This function retrieves the LCS from the NVM manager.
@@ -76,9 +79,10 @@ CCError_t CC_BsvGetAndInitLcs(
 @return A non-zero value from bsv_error.h on failure.
 */
 CCError_t CC_BsvLcsGet(
-    unsigned long hwBaseAddress,    /*!< [in] The base address of the CryptoCell HW registers. */
-    uint32_t *pLcs                  /*!< [out] The value of the current LCS. */
-    );
+	unsigned long
+		hwBaseAddress, /*!< [in] The base address of the CryptoCell HW registers. */
+	uint32_t *pLcs /*!< [out] The value of the current LCS. */
+);
 
 /*!
 @brief This function reads software revocation counter from OTP memory, according to the provided sw version index.
@@ -91,10 +95,11 @@ hence:
 @return A non-zero value from bsv_error.h on failure.
 */
 CCError_t CC_BsvSwVersionGet(
-    unsigned long hwBaseAddress,        /*!< [in] HW registers base address. */
-    CCSbSwVersionId_t id,               /*!< [in] Enumeration defining the trusted/non-trusted counter to read. */
-    uint32_t *swVersion                 /*!< [out] The value of the requested counter as read from OTP memory. */
-    );
+	unsigned long hwBaseAddress, /*!< [in] HW registers base address. */
+	CCSbSwVersionId_t
+		id, /*!< [in] Enumeration defining the trusted/non-trusted counter to read. */
+	uint32_t *swVersion /*!< [out] The value of the requested counter as read from OTP memory. */
+);
 
 /*!
 @brief This function sets the NVM counter according to swVersionID (trusted/non-trusted).
@@ -103,10 +108,11 @@ CCError_t CC_BsvSwVersionGet(
 @return A non-zero value from bsv_error.h on failure.
 */
 CCError_t CC_BsvSwVersionSet(
-    unsigned long hwBaseAddress,        /*!< [in] HW registers base address. */
-    CCSbSwVersionId_t id,               /*!< [in] Enumeration defining the trusted/non-trusted counter to read. */
-    uint32_t swVersion                  /*!< [in] New value of the counter to be programmed in OTP memory. */
-    );
+	unsigned long hwBaseAddress, /*!< [in] HW registers base address. */
+	CCSbSwVersionId_t
+		id, /*!< [in] Enumeration defining the trusted/non-trusted counter to read. */
+	uint32_t swVersion /*!< [in] New value of the counter to be programmed in OTP memory. */
+);
 
 /*!
 @brief This function sets the "fatal error" flag in the NVM manager, to disable the use of
@@ -116,8 +122,9 @@ any HW keys or security services.
 @return A non-zero value from bsv_error.h on failure.
 */
 CCError_t CC_BsvFatalErrorSet(
-    unsigned long hwBaseAddress         /*!< [in] The base address of the CryptoCell HW registers. */
-    );
+	unsigned long
+		hwBaseAddress /*!< [in] The base address of the CryptoCell HW registers. */
+);
 
 /*!
 @brief This function retrieves the public key hash from OTP memory, according to the provided index.
@@ -126,13 +133,14 @@ CCError_t CC_BsvFatalErrorSet(
 @return A non-zero value from bsv_error.h on failure.
 */
 CCError_t CC_BsvPubKeyHashGet(
-    unsigned long hwBaseAddress,        /*!< [in] HW registers base address. */
-    CCSbPubKeyIndexType_t keyIndex,     /*!< [in] Enumeration defining the key hash to retrieve: 128-bit HBK0, 128-bit HBK1, or 256-bit HBK. */
-    uint32_t *hashedPubKey,             /*!< [out] A buffer to contain the public key HASH. */
-    uint32_t hashResultSizeWords        /*!< [in] The size of the hash in 32-bit words:
+	unsigned long hwBaseAddress, /*!< [in] HW registers base address. */
+	CCSbPubKeyIndexType_t
+		keyIndex, /*!< [in] Enumeration defining the key hash to retrieve: 128-bit HBK0, 128-bit HBK1, or 256-bit HBK. */
+	uint32_t *hashedPubKey, /*!< [out] A buffer to contain the public key HASH. */
+	uint32_t hashResultSizeWords /*!< [in] The size of the hash in 32-bit words:
                             - Must be 4 for 128-bit hash.
                             - Must be 8 for 256bit hash. */
-    );
+);
 
 /*!
 @brief This function permanently sets the RMA LCS for the ICV and the OEM.
@@ -141,8 +149,9 @@ CCError_t CC_BsvPubKeyHashGet(
 @return A non-zero value from bsv_error.h on failure.
 */
 CCError_t CC_BsvRMAModeEnable(
-    unsigned long hwBaseAddress         /*!< [in] The base address of the CryptoCell HW registers. */
-    );
+	unsigned long
+		hwBaseAddress /*!< [in] The base address of the CryptoCell HW registers. */
+);
 
 /*!
 @brief This function is called by the ICV code, to disable the OEM code from changing the ICV RMA bit flag.
@@ -151,8 +160,9 @@ CCError_t CC_BsvRMAModeEnable(
 @return A non-zero value from bsv_error.h on failure.
 */
 CCError_t CC_BsvICVRMAFlagBitLock(
-    unsigned long hwBaseAddress         /*!< [in] The base address of the CryptoCell HW registers. */
-    );
+	unsigned long
+		hwBaseAddress /*!< [in] The base address of the CryptoCell HW registers. */
+);
 
 /*!
 @brief This function locks the defined ICV class keys from further usage.
@@ -161,11 +171,10 @@ CCError_t CC_BsvICVRMAFlagBitLock(
 @return A non-zero value from bsv_error.h on failure.
 */
 CCError_t CC_BsvICVKeyLock(
-    unsigned long hwBaseAddress,        /*!< [in] HW registers base address. */
-    CCBool_t isICVProvisioningKeyLock,  /*!< [in] Should the provisioning key be locked. */
-    CCBool_t isICVCodeEncKeyLock        /*!< [in] Should the encryption key be locked. */
-    );
-
+	unsigned long hwBaseAddress, /*!< [in] HW registers base address. */
+	CCBool_t isICVProvisioningKeyLock, /*!< [in] Should the provisioning key be locked. */
+	CCBool_t isICVCodeEncKeyLock /*!< [in] Should the encryption key be locked. */
+);
 
 /*!
 @brief This function retrieves the value of "secure disable" bit.
@@ -174,10 +183,9 @@ CCError_t CC_BsvICVKeyLock(
 @return A non-zero value from bsv_error.h on failure.
 */
 CCError_t CC_BsvSecureDisableGet(
-    unsigned long hwBaseAddress,        /*!< [in] HW registers base address. */
-    CCBool_t *isSDEnabled               /*!< [out] The value of the SD Enable bit. */
-    );
-
+	unsigned long hwBaseAddress, /*!< [in] HW registers base address. */
+	CCBool_t *isSDEnabled /*!< [out] The value of the SD Enable bit. */
+);
 
 /*!
 @brief This function derives the platform key (Kplt) from the Kpicv, and then decrypts the customer key (Kcst)
@@ -189,8 +197,9 @@ The resulting Kcst is saved in a HW register.
 @return A non-zero value from bsv_error.h on failure.
 */
 CCError_t CC_BsvCustomerKeyDecrypt(
-    unsigned long hwBaseAddress         /*!< [in] The base address of the CryptoCell HW registers. */
-    );
+	unsigned long
+		hwBaseAddress /*!< [in] The base address of the CryptoCell HW registers. */
+);
 #ifdef __cplusplus
 }
 #endif
@@ -209,13 +218,13 @@ it in a specific location in the flash memory, from where it can be accessed by 
 @return A non-zero value from bsv_error.h on failure.
 */
 CCError_t CC_BsvSocIDCompute(
-    unsigned long hwBaseAddress, /*!< [in] The base address of the CryptoCell HW registers. */
-    CCHashResult_t hashResult    /*!< [out] The derived SoC_ID. */
-    );
+	unsigned long
+		hwBaseAddress, /*!< [in] The base address of the CryptoCell HW registers. */
+	CCHashResult_t hashResult /*!< [out] The derived SoC_ID. */
+);
 
 #endif /* _BSV_API_H */
 
 /**
 @}
  */
-

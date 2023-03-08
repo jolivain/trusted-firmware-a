@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,11 +12,12 @@
 #include <drivers/io/io_storage.h>
 #include <lib/object_pool.h>
 #include <libfdt.h>
+#include <tools_share/firmware_image_package.h>
+
 #include <plat/arm/common/arm_fconf_getter.h>
 #include <plat/arm/common/arm_fconf_io_storage.h>
 #include <plat/arm/common/fconf_arm_sp_getter.h>
 #include <platform_def.h>
-#include <tools_share/firmware_image_package.h>
 
 #ifdef IMAGE_BL2
 
@@ -87,30 +88,35 @@ int fconf_populate_arm_sp(uintptr_t config)
 		VERBOSE("FCONF: %s UUID"
 			" %02x%02x%02x%02x-%02x%02x-%02x%02x-%02x%02x-%02x%02x%02x%02x%02x%02x"
 			" load_addr=%lx\n",
-			__func__,
-			uuid_helper.uuid_struct.time_low[0], uuid_helper.uuid_struct.time_low[1],
-			uuid_helper.uuid_struct.time_low[2], uuid_helper.uuid_struct.time_low[3],
-			uuid_helper.uuid_struct.time_mid[0], uuid_helper.uuid_struct.time_mid[1],
+			__func__, uuid_helper.uuid_struct.time_low[0],
+			uuid_helper.uuid_struct.time_low[1],
+			uuid_helper.uuid_struct.time_low[2],
+			uuid_helper.uuid_struct.time_low[3],
+			uuid_helper.uuid_struct.time_mid[0],
+			uuid_helper.uuid_struct.time_mid[1],
 			uuid_helper.uuid_struct.time_hi_and_version[0],
 			uuid_helper.uuid_struct.time_hi_and_version[1],
 			uuid_helper.uuid_struct.clock_seq_hi_and_reserved,
 			uuid_helper.uuid_struct.clock_seq_low,
-			uuid_helper.uuid_struct.node[0], uuid_helper.uuid_struct.node[1],
-			uuid_helper.uuid_struct.node[2], uuid_helper.uuid_struct.node[3],
-			uuid_helper.uuid_struct.node[4], uuid_helper.uuid_struct.node[5],
+			uuid_helper.uuid_struct.node[0],
+			uuid_helper.uuid_struct.node[1],
+			uuid_helper.uuid_struct.node[2],
+			uuid_helper.uuid_struct.node[3],
+			uuid_helper.uuid_struct.node[4],
+			uuid_helper.uuid_struct.node[5],
 			arm_sp.load_addr[index]);
 
 		/* Read owner field only for dualroot CoT */
 #if defined(ARM_COT_dualroot)
 		/* Owner is an optional field, no need to catch error */
-		fdtw_read_string(dtb, sp_node, "owner",
-				arm_sp.owner[index], ARM_SP_OWNER_NAME_LEN);
+		fdtw_read_string(dtb, sp_node, "owner", arm_sp.owner[index],
+				 ARM_SP_OWNER_NAME_LEN);
 
 		/* If owner is empty mark it as SiP owned */
 		if ((strncmp(arm_sp.owner[index], "SiP",
 			     ARM_SP_OWNER_NAME_LEN) == 0) ||
-		    (strncmp(arm_sp.owner[index], "",
-			     ARM_SP_OWNER_NAME_LEN) == 0)) {
+		    (strncmp(arm_sp.owner[index], "", ARM_SP_OWNER_NAME_LEN) ==
+		     0)) {
 			is_plat_owned = false;
 		} else if (strcmp(arm_sp.owner[index], "Plat") == 0) {
 			is_plat_owned = true;
@@ -126,7 +132,7 @@ int fconf_populate_arm_sp(uintptr_t config)
 		if (is_plat_owned) {
 			sp_mem_params_descs[index].image_id = plat_index;
 			policies[plat_index].image_spec =
-						(uintptr_t)&arm_sp.uuids[index];
+				(uintptr_t)&arm_sp.uuids[index];
 			policies[plat_index].dev_handle = &fip_dev_handle;
 			policies[plat_index].check = open_fip;
 			plat_index++;
@@ -135,19 +141,19 @@ int fconf_populate_arm_sp(uintptr_t config)
 		{
 			sp_mem_params_descs[index].image_id = sip_index;
 			policies[sip_index].image_spec =
-						(uintptr_t)&arm_sp.uuids[index];
+				(uintptr_t)&arm_sp.uuids[index];
 			policies[sip_index].dev_handle = &fip_dev_handle;
 			policies[sip_index].check = open_fip;
 			sip_index++;
 		}
 		SET_PARAM_HEAD(&sp_mem_params_descs[index].image_info,
-					PARAM_IMAGE_BINARY, VERSION_2, 0);
+			       PARAM_IMAGE_BINARY, VERSION_2, 0);
 		sp_mem_params_descs[index].image_info.image_max_size =
-							ARM_SP_MAX_SIZE;
+			ARM_SP_MAX_SIZE;
 		sp_mem_params_descs[index].next_handoff_image_id =
-							INVALID_IMAGE_ID;
+			INVALID_IMAGE_ID;
 		sp_mem_params_descs[index].image_info.image_base =
-							arm_sp.load_addr[index];
+			arm_sp.load_addr[index];
 		index++;
 	}
 

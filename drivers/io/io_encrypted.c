@@ -10,8 +10,6 @@
 #include <stdint.h>
 #include <string.h>
 
-#include <platform_def.h>
-
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <drivers/auth/crypto_mod.h>
@@ -19,9 +17,11 @@
 #include <drivers/io/io_encrypted.h>
 #include <drivers/io/io_storage.h>
 #include <lib/utils.h>
-#include <plat/common/platform.h>
 #include <tools_share/firmware_encrypted.h>
 #include <tools_share/uuid.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 static uintptr_t backend_dev_handle;
 static uintptr_t backend_dev_spec;
@@ -33,10 +33,10 @@ static io_dev_info_t enc_dev_info;
 /* Encrypted firmware driver functions */
 static int enc_dev_open(const uintptr_t dev_spec, io_dev_info_t **dev_info);
 static int enc_file_open(io_dev_info_t *dev_info, const uintptr_t spec,
-			  io_entity_t *entity);
+			 io_entity_t *entity);
 static int enc_file_len(io_entity_t *entity, size_t *length);
 static int enc_file_read(io_entity_t *entity, uintptr_t buffer, size_t length,
-			  size_t *length_read);
+			 size_t *length_read);
 static int enc_file_close(io_entity_t *entity);
 static int enc_dev_init(io_dev_info_t *dev_info, const uintptr_t init_params);
 static int enc_dev_close(io_dev_info_t *dev_info);
@@ -54,9 +54,8 @@ static io_type_t device_type_enc(void)
 	return IO_TYPE_ENCRYPTED;
 }
 
-static const io_dev_connector_t enc_dev_connector = {
-	.dev_open = enc_dev_open
-};
+static const io_dev_connector_t enc_dev_connector = { .dev_open =
+							      enc_dev_open };
 
 static const io_dev_funcs_t enc_dev_funcs = {
 	.type = device_type_enc,
@@ -90,7 +89,7 @@ static int enc_dev_init(io_dev_info_t *dev_info, const uintptr_t init_params)
 				       &backend_dev_spec);
 	if (result != 0) {
 		WARN("Failed to obtain reference to image id=%u (%i)\n",
-			image_id, result);
+		     image_id, result);
 		return -ENOENT;
 	}
 
@@ -202,10 +201,9 @@ static int enc_file_read(io_entity_t *entity, uintptr_t buffer, size_t length,
 		return -ENOENT;
 	}
 
-	result = crypto_mod_auth_decrypt(header.dec_algo,
-					 (void *)buffer, *length_read, key,
-					 key_len, key_flags, header.iv,
-					 header.iv_len, header.tag,
+	result = crypto_mod_auth_decrypt(header.dec_algo, (void *)buffer,
+					 *length_read, key, key_len, key_flags,
+					 header.iv, header.iv_len, header.tag,
 					 header.tag_len);
 	memset(key, 0, key_len);
 

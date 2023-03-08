@@ -8,12 +8,10 @@
 #include <gicv2.h>
 #include <plat_gic.h>
 
-
 /*
  * NXP common helper to initialize the GICv3 only driver.
  */
-void plat_ls_gic_driver_init(uintptr_t nxp_gicd_addr,
-			     uintptr_t nxp_gicc_addr,
+void plat_ls_gic_driver_init(uintptr_t nxp_gicd_addr, uintptr_t nxp_gicc_addr,
 			     uint8_t plat_core_count,
 			     interrupt_prop_t *ls_interrupt_props,
 			     uint8_t ls_interrupt_prop_count,

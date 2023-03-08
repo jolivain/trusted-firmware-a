@@ -33,7 +33,7 @@
  */
 
 /*
- * Portions copyright (c) 2018, ARM Limited and Contributors.
+ * Portions copyright (c) 2018-2023, ARM Limited and Contributors.
  * All rights reserved.
  */
 
@@ -42,8 +42,7 @@
 /*
  * Compare strings.
  */
-int
-strcmp(const char *s1, const char *s2)
+int strcmp(const char *s1, const char *s2)
 {
 	while (*s1 == *s2++)
 		if (*s1++ == '\0')

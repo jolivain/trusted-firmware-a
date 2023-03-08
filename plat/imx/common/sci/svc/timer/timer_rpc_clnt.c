@@ -15,11 +15,13 @@
 
 /* Includes */
 
+#include <stdlib.h>
+
+#include <sci/sci_rpc.h>
 #include <sci/sci_types.h>
 #include <sci/svc/rm/sci_rm_api.h>
 #include <sci/svc/timer/sci_timer_api.h>
-#include <sci/sci_rpc.h>
-#include <stdlib.h>
+
 #include "sci_timer_rpc.h"
 
 /* Local Defines */
@@ -112,8 +114,7 @@ sc_err_t sc_timer_ping_wdog(sc_ipc_t ipc)
 	return (sc_err_t)result;
 }
 
-sc_err_t sc_timer_get_wdog_status(sc_ipc_t ipc,
-				  sc_timer_wdog_time_t *timeout,
+sc_err_t sc_timer_get_wdog_status(sc_ipc_t ipc, sc_timer_wdog_time_t *timeout,
 				  sc_timer_wdog_time_t *max_timeout,
 				  sc_timer_wdog_time_t *remaining_time)
 {
@@ -169,8 +170,8 @@ sc_err_t sc_timer_pt_get_wdog_status(sc_ipc_t ipc, sc_rm_pt_t pt,
 	return (sc_err_t)result;
 }
 
-sc_err_t sc_timer_set_wdog_action(sc_ipc_t ipc,
-				  sc_rm_pt_t pt, sc_timer_wdog_action_t action)
+sc_err_t sc_timer_set_wdog_action(sc_ipc_t ipc, sc_rm_pt_t pt,
+				  sc_timer_wdog_action_t action)
 {
 	sc_rpc_msg_t msg;
 	uint8_t result;
@@ -332,7 +333,7 @@ sc_err_t sc_timer_set_rtc_calb(sc_ipc_t ipc, int8_t count)
 	RPC_VER(&msg) = SC_RPC_VERSION;
 	RPC_SVC(&msg) = (uint8_t)SC_RPC_SVC_TIMER;
 	RPC_FUNC(&msg) = (uint8_t)TIMER_FUNC_SET_RTC_CALB;
-	RPC_I8(&msg, 0U) = (int8_t) count;
+	RPC_I8(&msg, 0U) = (int8_t)count;
 	RPC_SIZE(&msg) = 2U;
 
 	sc_call_rpc(ipc, &msg, SC_FALSE);

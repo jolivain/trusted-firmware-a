@@ -1,10 +1,11 @@
 /*
- * Copyright (c) 2019-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
+
 #include <common/debug.h>
 #include <common/runtime_svc.h>
 #include <lib/mmio.h>
@@ -14,7 +15,6 @@
 #include "socfpga_mailbox.h"
 #include "socfpga_reset_manager.h"
 #include "socfpga_sip_svc.h"
-
 
 /* Total buffer the driver can hold */
 #define FPGA_CONFIG_BUFFER_SIZE 4
@@ -27,23 +27,17 @@ static uint32_t bytes_per_block, blocks_submitted;
 static bool bridge_disable;
 
 /* RSU static variables */
-static uint32_t rsu_dcmf_ver[4] = {0};
-static uint16_t rsu_dcmf_stat[4] = {0};
+static uint32_t rsu_dcmf_ver[4] = { 0 };
+static uint16_t rsu_dcmf_stat[4] = { 0 };
 static uint32_t rsu_max_retry;
 
 /*  SiP Service UUID */
-DEFINE_SVC_UUID2(intl_svc_uid,
-		0xa85273b0, 0xe85a, 0x4862, 0xa6, 0x2a,
-		0xfa, 0x88, 0x88, 0x17, 0x68, 0x81);
+DEFINE_SVC_UUID2(intl_svc_uid, 0xa85273b0, 0xe85a, 0x4862, 0xa6, 0x2a, 0xfa,
+		 0x88, 0x88, 0x17, 0x68, 0x81);
 
-static uint64_t socfpga_sip_handler(uint32_t smc_fid,
-				   uint64_t x1,
-				   uint64_t x2,
-				   uint64_t x3,
-				   uint64_t x4,
-				   void *cookie,
-				   void *handle,
-				   uint64_t flags)
+static uint64_t socfpga_sip_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
+				    uint64_t x3, uint64_t x4, void *cookie,
+				    void *handle, uint64_t flags)
 {
 	ERROR("%s: unhandled SMC (0x%x)\n", __func__, smc_fid);
 	SMC_RET1(handle, SMC_UNK);
@@ -56,7 +50,7 @@ static int intel_fpga_sdm_write_buffer(struct fpga_config_info *buffer)
 	uint32_t args[3];
 
 	while (max_blocks > 0 && buffer->size > buffer->size_written) {
-		args[0] = (1<<8);
+		args[0] = (1 << 8);
 		args[1] = buffer->addr + buffer->size_written;
 		if (buffer->size - buffer->size_written <= bytes_per_block) {
 			args[2] = buffer->size - buffer->size_written;
@@ -67,8 +61,8 @@ static int intel_fpga_sdm_write_buffer(struct fpga_config_info *buffer)
 		}
 
 		buffer->size_written += args[2];
-		mailbox_send_cmd_async(&send_id, MBOX_RECONFIG_DATA, args,
-					3U, CMD_INDIRECT);
+		mailbox_send_cmd_async(&send_id, MBOX_RECONFIG_DATA, args, 3U,
+				       CMD_INDIRECT);
 
 		buffer->subblocks_sent++;
 		max_blocks--;
@@ -81,7 +75,7 @@ static int intel_fpga_sdm_write_all(void)
 {
 	for (int i = 0; i < FPGA_CONFIG_BUFFER_SIZE; i++) {
 		if (intel_fpga_sdm_write_buffer(
-			&fpga_config_buffers[current_buffer])) {
+			    &fpga_config_buffers[current_buffer])) {
 			break;
 		}
 	}
@@ -95,15 +89,15 @@ static uint32_t intel_mailbox_fpga_config_isdone(void)
 	switch (request_type) {
 	case RECONFIGURATION:
 		ret = intel_mailbox_get_config_status(MBOX_RECONFIG_STATUS,
-							true);
+						      true);
 		break;
 	case BITSTREAM_AUTH:
 		ret = intel_mailbox_get_config_status(MBOX_RECONFIG_STATUS,
-							false);
+						      false);
 		break;
 	default:
 		ret = intel_mailbox_get_config_status(MBOX_CONFIG_STATUS,
-							false);
+						      false);
 		break;
 	}
 
@@ -117,7 +111,7 @@ static uint32_t intel_mailbox_fpga_config_isdone(void)
 	}
 
 	if (bridge_disable != 0U) {
-		socfpga_bridges_enable(~0);	/* Enable bridge */
+		socfpga_bridges_enable(~0); /* Enable bridge */
 		bridge_disable = false;
 	}
 	request_type = NO_REQUEST;
@@ -132,9 +126,9 @@ static int mark_last_buffer_xfer_completed(uint32_t *buffer_addr_completed)
 	for (i = 0; i < FPGA_CONFIG_BUFFER_SIZE; i++) {
 		if (fpga_config_buffers[i].block_number == current_block) {
 			fpga_config_buffers[i].subblocks_sent--;
-			if (fpga_config_buffers[i].subblocks_sent == 0
-			&& fpga_config_buffers[i].size <=
-			fpga_config_buffers[i].size_written) {
+			if (fpga_config_buffers[i].subblocks_sent == 0 &&
+			    fpga_config_buffers[i].size <=
+				    fpga_config_buffers[i].size_written) {
 				fpga_config_buffers[i].write_requested = 0;
 				current_block++;
 				*buffer_addr_completed =
@@ -148,7 +142,7 @@ static int mark_last_buffer_xfer_completed(uint32_t *buffer_addr_completed)
 }
 
 static int intel_fpga_config_completed_write(uint32_t *completed_addr,
-					uint32_t *count, uint32_t *job_id)
+					     uint32_t *count, uint32_t *job_id)
 {
 	uint32_t resp[5];
 	unsigned int resp_len = ARRAY_SIZE(resp);
@@ -157,9 +151,7 @@ static int intel_fpga_config_completed_write(uint32_t *completed_addr,
 	*count = 0;
 
 	while (*count < 3) {
-
-		status = mailbox_read_response(job_id,
-				resp, &resp_len);
+		status = mailbox_read_response(job_id, resp, &resp_len);
 
 		if (status < 0) {
 			break;
@@ -167,8 +159,8 @@ static int intel_fpga_config_completed_write(uint32_t *completed_addr,
 
 		max_blocks++;
 
-		if (mark_last_buffer_xfer_completed(
-			&completed_addr[*count]) == 0) {
+		if (mark_last_buffer_xfer_completed(&completed_addr[*count]) ==
+		    0) {
 			*count = *count + 1;
 		} else {
 			break;
@@ -176,8 +168,8 @@ static int intel_fpga_config_completed_write(uint32_t *completed_addr,
 	}
 
 	if (*count <= 0) {
-		if (status != MBOX_NO_RESPONSE &&
-			status != MBOX_TIMEOUT && resp_len != 0) {
+		if (status != MBOX_NO_RESPONSE && status != MBOX_TIMEOUT &&
+		    resp_len != 0) {
 			mailbox_clear_response();
 			request_type = NO_REQUEST;
 			return INTEL_SIP_SMC_STATUS_ERROR;
@@ -230,11 +222,11 @@ static int intel_fpga_config_start(uint32_t flag)
 
 	mailbox_clear_response();
 
-	mailbox_send_cmd(MBOX_JOB_ID, MBOX_CMD_CANCEL, NULL, 0U,
-			CMD_CASUAL, NULL, NULL);
+	mailbox_send_cmd(MBOX_JOB_ID, MBOX_CMD_CANCEL, NULL, 0U, CMD_CASUAL,
+			 NULL, NULL);
 
 	status = mailbox_send_cmd(MBOX_JOB_ID, MBOX_RECONFIG, &argument, size,
-			CMD_CASUAL, response, &resp_len);
+				  CMD_CASUAL, response, &resp_len);
 
 	if (status < 0) {
 		bridge_disable = false;
@@ -302,7 +294,7 @@ static uint32_t intel_fpga_config_write(uint64_t mem, uint64_t size)
 	intel_fpga_sdm_write_all();
 
 	if (!is_address_in_ddr_range(mem, size) ||
-		is_fpga_config_buffer_full()) {
+	    is_fpga_config_buffer_full()) {
 		return INTEL_SIP_SMC_STATUS_REJECTED;
 	}
 
@@ -335,55 +327,55 @@ static int is_out_of_sec_range(uint64_t reg_addr)
 #endif
 
 	switch (reg_addr) {
-	case(0xF8011100):	/* ECCCTRL1 */
-	case(0xF8011104):	/* ECCCTRL2 */
-	case(0xF8011110):	/* ERRINTEN */
-	case(0xF8011114):	/* ERRINTENS */
-	case(0xF8011118):	/* ERRINTENR */
-	case(0xF801111C):	/* INTMODE */
-	case(0xF8011120):	/* INTSTAT */
-	case(0xF8011124):	/* DIAGINTTEST */
-	case(0xF801112C):	/* DERRADDRA */
-	case(0xFA000000):	/* SMMU SCR0 */
-	case(0xFA000004):	/* SMMU SCR1 */
-	case(0xFA000400):	/* SMMU NSCR0 */
-	case(0xFA004000):	/* SMMU SSD0_REG */
-	case(0xFA000820):	/* SMMU SMR8 */
-	case(0xFA000c20):	/* SMMU SCR8 */
-	case(0xFA028000):	/* SMMU CB8_SCTRL */
-	case(0xFA001020):	/* SMMU CBAR8 */
-	case(0xFA028030):	/* SMMU TCR_LPAE */
-	case(0xFA028020):	/* SMMU CB8_TTBR0_LOW */
-	case(0xFA028024):	/* SMMU CB8_PRRR_HIGH */
-	case(0xFA028038):	/* SMMU CB8_PRRR_MIR0 */
-	case(0xFA02803C):	/* SMMU CB8_PRRR_MIR1 */
-	case(0xFA028010):	/* SMMU_CB8)TCR2 */
-	case(0xFFD080A4):	/* SDM SMMU STREAM ID REG */
-	case(0xFA001820):	/* SMMU_CBA2R8 */
-	case(0xFA000074):	/* SMMU_STLBGSTATUS */
-	case(0xFA0287F4):	/* SMMU_CB8_TLBSTATUS */
-	case(0xFA000060):	/* SMMU_STLBIALL */
-	case(0xFA000070):	/* SMMU_STLBGSYNC */
-	case(0xFA028618):	/* CB8_TLBALL */
-	case(0xFA0287F0):	/* CB8_TLBSYNC */
-	case(0xFFD12028):	/* SDMMCGRP_CTRL */
-	case(0xFFD12044):	/* EMAC0 */
-	case(0xFFD12048):	/* EMAC1 */
-	case(0xFFD1204C):	/* EMAC2 */
-	case(0xFFD12090):	/* ECC_INT_MASK_VALUE */
-	case(0xFFD12094):	/* ECC_INT_MASK_SET */
-	case(0xFFD12098):	/* ECC_INT_MASK_CLEAR */
-	case(0xFFD1209C):	/* ECC_INTSTATUS_SERR */
-	case(0xFFD120A0):	/* ECC_INTSTATUS_DERR */
-	case(0xFFD120C0):	/* NOC_TIMEOUT */
-	case(0xFFD120C4):	/* NOC_IDLEREQ_SET */
-	case(0xFFD120C8):	/* NOC_IDLEREQ_CLR */
-	case(0xFFD120D0):	/* NOC_IDLEACK */
-	case(0xFFD120D4):	/* NOC_IDLESTATUS */
-	case(0xFFD12200):	/* BOOT_SCRATCH_COLD0 */
-	case(0xFFD12204):	/* BOOT_SCRATCH_COLD1 */
-	case(0xFFD12220):	/* BOOT_SCRATCH_COLD8 */
-	case(0xFFD12224):	/* BOOT_SCRATCH_COLD9 */
+	case (0xF8011100): /* ECCCTRL1 */
+	case (0xF8011104): /* ECCCTRL2 */
+	case (0xF8011110): /* ERRINTEN */
+	case (0xF8011114): /* ERRINTENS */
+	case (0xF8011118): /* ERRINTENR */
+	case (0xF801111C): /* INTMODE */
+	case (0xF8011120): /* INTSTAT */
+	case (0xF8011124): /* DIAGINTTEST */
+	case (0xF801112C): /* DERRADDRA */
+	case (0xFA000000): /* SMMU SCR0 */
+	case (0xFA000004): /* SMMU SCR1 */
+	case (0xFA000400): /* SMMU NSCR0 */
+	case (0xFA004000): /* SMMU SSD0_REG */
+	case (0xFA000820): /* SMMU SMR8 */
+	case (0xFA000c20): /* SMMU SCR8 */
+	case (0xFA028000): /* SMMU CB8_SCTRL */
+	case (0xFA001020): /* SMMU CBAR8 */
+	case (0xFA028030): /* SMMU TCR_LPAE */
+	case (0xFA028020): /* SMMU CB8_TTBR0_LOW */
+	case (0xFA028024): /* SMMU CB8_PRRR_HIGH */
+	case (0xFA028038): /* SMMU CB8_PRRR_MIR0 */
+	case (0xFA02803C): /* SMMU CB8_PRRR_MIR1 */
+	case (0xFA028010): /* SMMU_CB8)TCR2 */
+	case (0xFFD080A4): /* SDM SMMU STREAM ID REG */
+	case (0xFA001820): /* SMMU_CBA2R8 */
+	case (0xFA000074): /* SMMU_STLBGSTATUS */
+	case (0xFA0287F4): /* SMMU_CB8_TLBSTATUS */
+	case (0xFA000060): /* SMMU_STLBIALL */
+	case (0xFA000070): /* SMMU_STLBGSYNC */
+	case (0xFA028618): /* CB8_TLBALL */
+	case (0xFA0287F0): /* CB8_TLBSYNC */
+	case (0xFFD12028): /* SDMMCGRP_CTRL */
+	case (0xFFD12044): /* EMAC0 */
+	case (0xFFD12048): /* EMAC1 */
+	case (0xFFD1204C): /* EMAC2 */
+	case (0xFFD12090): /* ECC_INT_MASK_VALUE */
+	case (0xFFD12094): /* ECC_INT_MASK_SET */
+	case (0xFFD12098): /* ECC_INT_MASK_CLEAR */
+	case (0xFFD1209C): /* ECC_INTSTATUS_SERR */
+	case (0xFFD120A0): /* ECC_INTSTATUS_DERR */
+	case (0xFFD120C0): /* NOC_TIMEOUT */
+	case (0xFFD120C4): /* NOC_IDLEREQ_SET */
+	case (0xFFD120C8): /* NOC_IDLEREQ_CLR */
+	case (0xFFD120D0): /* NOC_IDLEACK */
+	case (0xFFD120D4): /* NOC_IDLESTATUS */
+	case (0xFFD12200): /* BOOT_SCRATCH_COLD0 */
+	case (0xFFD12204): /* BOOT_SCRATCH_COLD1 */
+	case (0xFFD12220): /* BOOT_SCRATCH_COLD8 */
+	case (0xFFD12224): /* BOOT_SCRATCH_COLD9 */
 		return 0;
 
 	default:
@@ -417,8 +409,8 @@ uint32_t intel_secure_reg_write(uint64_t reg_addr, uint32_t val,
 	return intel_secure_reg_read(reg_addr, retval);
 }
 
-uint32_t intel_secure_reg_update(uint64_t reg_addr, uint32_t mask,
-				 uint32_t val, uint32_t *retval)
+uint32_t intel_secure_reg_update(uint64_t reg_addr, uint32_t mask, uint32_t val,
+				 uint32_t *retval)
 {
 	if (!intel_secure_reg_read(reg_addr, retval)) {
 		*retval &= ~mask;
@@ -512,10 +504,10 @@ static uint32_t intel_smc_fw_version(uint32_t *fw_version)
 {
 	int status;
 	unsigned int resp_len = CONFIG_STATUS_WORD_SIZE;
-	uint32_t resp_data[CONFIG_STATUS_WORD_SIZE] = {0U};
+	uint32_t resp_data[CONFIG_STATUS_WORD_SIZE] = { 0U };
 
 	status = mailbox_send_cmd(MBOX_JOB_ID, MBOX_CONFIG_STATUS, NULL, 0U,
-			CMD_CASUAL, resp_data, &resp_len);
+				  CMD_CASUAL, resp_data, &resp_len);
 
 	if (status < 0) {
 		return INTEL_SIP_SMC_STATUS_ERROR;
@@ -525,15 +517,16 @@ static uint32_t intel_smc_fw_version(uint32_t *fw_version)
 		return INTEL_SIP_SMC_STATUS_ERROR;
 	}
 
-	*fw_version = resp_data[CONFIG_STATUS_FW_VER_OFFSET] & CONFIG_STATUS_FW_VER_MASK;
+	*fw_version = resp_data[CONFIG_STATUS_FW_VER_OFFSET] &
+		      CONFIG_STATUS_FW_VER_MASK;
 
 	return INTEL_SIP_SMC_STATUS_OK;
 }
 
 static uint32_t intel_mbox_send_cmd(uint32_t cmd, uint32_t *args,
-				unsigned int len, uint32_t urgent, uint64_t response,
-				unsigned int resp_len, int *mbox_status,
-				unsigned int *len_in_resp)
+				    unsigned int len, uint32_t urgent,
+				    uint64_t response, unsigned int resp_len,
+				    int *mbox_status, unsigned int *len_in_resp)
 {
 	*len_in_resp = 0;
 	*mbox_status = GENERIC_RESPONSE_ERROR;
@@ -543,7 +536,7 @@ static uint32_t intel_mbox_send_cmd(uint32_t cmd, uint32_t *args,
 	}
 
 	int status = mailbox_send_cmd(MBOX_JOB_ID, cmd, args, len, urgent,
-					(uint32_t *) response, &resp_len);
+				      (uint32_t *)response, &resp_len);
 
 	if (status < 0) {
 		*mbox_status = -status;
@@ -563,8 +556,8 @@ static int intel_smc_get_usercode(uint32_t *user_code)
 	int status;
 	unsigned int resp_len = sizeof(user_code) / MBOX_WORD_BYTE;
 
-	status = mailbox_send_cmd(MBOX_JOB_ID, MBOX_CMD_GET_USERCODE, NULL,
-				0U, CMD_CASUAL, user_code, &resp_len);
+	status = mailbox_send_cmd(MBOX_JOB_ID, MBOX_CMD_GET_USERCODE, NULL, 0U,
+				  CMD_CASUAL, user_code, &resp_len);
 
 	if (status < 0) {
 		return INTEL_SIP_SMC_STATUS_ERROR;
@@ -574,8 +567,8 @@ static int intel_smc_get_usercode(uint32_t *user_code)
 }
 
 uint32_t intel_smc_service_completed(uint64_t addr, uint32_t size,
-				uint32_t mode, uint32_t *job_id,
-				uint32_t *ret_size, uint32_t *mbox_error)
+				     uint32_t mode, uint32_t *job_id,
+				     uint32_t *ret_size, uint32_t *mbox_error)
 {
 	int status = 0;
 	uint32_t resp_len = size / MBOX_WORD_BYTE;
@@ -589,11 +582,11 @@ uint32_t intel_smc_service_completed(uint64_t addr, uint32_t size,
 	}
 
 	if (mode == SERVICE_COMPLETED_MODE_ASYNC) {
-		status = mailbox_read_response_async(job_id,
-				NULL, (uint32_t *) addr, &resp_len, 0);
+		status = mailbox_read_response_async(
+			job_id, NULL, (uint32_t *)addr, &resp_len, 0);
 	} else {
-		status = mailbox_read_response(job_id,
-				(uint32_t *) addr, &resp_len);
+		status = mailbox_read_response(job_id, (uint32_t *)addr,
+					       &resp_len);
 
 		if (status == MBOX_NO_RESPONSE) {
 			status = MBOX_BUSY;
@@ -612,7 +605,7 @@ uint32_t intel_smc_service_completed(uint64_t addr, uint32_t size,
 	flush_dcache_range(addr, *ret_size);
 
 	if (status == MBOX_RET_SDOS_DECRYPTION_ERROR_102 ||
-		status == MBOX_RET_SDOS_DECRYPTION_ERROR_103) {
+	    status == MBOX_RET_SDOS_DECRYPTION_ERROR_103) {
 		*mbox_error = -status;
 	} else if (status != MBOX_RET_OK) {
 		*mbox_error = -status;
@@ -652,14 +645,9 @@ uint32_t intel_hps_set_bridges(uint64_t enable, uint64_t mask)
  * This function is responsible for handling all SiP calls from the NS world
  */
 
-uintptr_t sip_smc_handler_v1(uint32_t smc_fid,
-			 u_register_t x1,
-			 u_register_t x2,
-			 u_register_t x3,
-			 u_register_t x4,
-			 void *cookie,
-			 void *handle,
-			 u_register_t flags)
+uintptr_t sip_smc_handler_v1(uint32_t smc_fid, u_register_t x1, u_register_t x2,
+			     u_register_t x3, u_register_t x4, void *cookie,
+			     void *handle, u_register_t flags)
 {
 	uint32_t retval = 0, completed_addr[3];
 	uint32_t retval2 = 0;
@@ -681,9 +669,9 @@ uintptr_t sip_smc_handler_v1(uint32_t smc_fid,
 
 	case INTEL_SIP_SMC_FPGA_CONFIG_GET_MEM:
 		SMC_RET3(handle, INTEL_SIP_SMC_STATUS_OK,
-			INTEL_SIP_SMC_FPGA_CONFIG_ADDR,
-			INTEL_SIP_SMC_FPGA_CONFIG_SIZE -
-				INTEL_SIP_SMC_FPGA_CONFIG_ADDR);
+			 INTEL_SIP_SMC_FPGA_CONFIG_ADDR,
+			 INTEL_SIP_SMC_FPGA_CONFIG_SIZE -
+				 INTEL_SIP_SMC_FPGA_CONFIG_ADDR);
 
 	case INTEL_SIP_SMC_FPGA_CONFIG_START:
 		status = intel_fpga_config_start(x1);
@@ -695,22 +683,20 @@ uintptr_t sip_smc_handler_v1(uint32_t smc_fid,
 
 	case INTEL_SIP_SMC_FPGA_CONFIG_COMPLETED_WRITE:
 		status = intel_fpga_config_completed_write(completed_addr,
-							&retval, &rcv_id);
+							   &retval, &rcv_id);
 		switch (retval) {
 		case 1:
 			SMC_RET4(handle, INTEL_SIP_SMC_STATUS_OK,
-				completed_addr[0], 0, 0);
+				 completed_addr[0], 0, 0);
 
 		case 2:
 			SMC_RET4(handle, INTEL_SIP_SMC_STATUS_OK,
-				completed_addr[0],
-				completed_addr[1], 0);
+				 completed_addr[0], completed_addr[1], 0);
 
 		case 3:
 			SMC_RET4(handle, INTEL_SIP_SMC_STATUS_OK,
-				completed_addr[0],
-				completed_addr[1],
-				completed_addr[2]);
+				 completed_addr[0], completed_addr[1],
+				 completed_addr[2]);
 
 		case 0:
 			SMC_RET4(handle, status, 0, 0, 0);
@@ -729,18 +715,17 @@ uintptr_t sip_smc_handler_v1(uint32_t smc_fid,
 		SMC_RET3(handle, status, retval, x1);
 
 	case INTEL_SIP_SMC_REG_UPDATE:
-		status = intel_secure_reg_update(x1, (uint32_t)x2,
-						 (uint32_t)x3, &retval);
+		status = intel_secure_reg_update(x1, (uint32_t)x2, (uint32_t)x3,
+						 &retval);
 		SMC_RET3(handle, status, retval, x1);
 
 	case INTEL_SIP_SMC_RSU_STATUS:
-		status = intel_rsu_status(rsu_respbuf,
-					ARRAY_SIZE(rsu_respbuf));
+		status = intel_rsu_status(rsu_respbuf, ARRAY_SIZE(rsu_respbuf));
 		if (status) {
 			SMC_RET1(handle, status);
 		} else {
 			SMC_RET4(handle, rsu_respbuf[0], rsu_respbuf[1],
-					rsu_respbuf[2], rsu_respbuf[3]);
+				 rsu_respbuf[2], rsu_respbuf[3]);
 		}
 
 	case INTEL_SIP_SMC_RSU_UPDATE:
@@ -753,7 +738,8 @@ uintptr_t sip_smc_handler_v1(uint32_t smc_fid,
 
 	case INTEL_SIP_SMC_RSU_RETRY_COUNTER:
 		status = intel_rsu_retry_counter((uint32_t *)rsu_respbuf,
-						ARRAY_SIZE(rsu_respbuf), &retval);
+						 ARRAY_SIZE(rsu_respbuf),
+						 &retval);
 		if (status) {
 			SMC_RET1(handle, status);
 		} else {
@@ -772,9 +758,9 @@ uintptr_t sip_smc_handler_v1(uint32_t smc_fid,
 	case INTEL_SIP_SMC_RSU_DCMF_STATUS:
 		SMC_RET2(handle, INTEL_SIP_SMC_STATUS_OK,
 			 ((uint64_t)rsu_dcmf_stat[3] << 48) |
-			 ((uint64_t)rsu_dcmf_stat[2] << 32) |
-			 ((uint64_t)rsu_dcmf_stat[1] << 16) |
-			 rsu_dcmf_stat[0]);
+				 ((uint64_t)rsu_dcmf_stat[2] << 32) |
+				 ((uint64_t)rsu_dcmf_stat[1] << 16) |
+				 rsu_dcmf_stat[0]);
 
 	case INTEL_SIP_SMC_RSU_COPY_DCMF_STATUS:
 		status = intel_rsu_copy_dcmf_status(x1);
@@ -793,7 +779,7 @@ uintptr_t sip_smc_handler_v1(uint32_t smc_fid,
 
 	case INTEL_SIP_SMC_SERVICE_COMPLETED:
 		status = intel_smc_service_completed(x1, x2, x3, &rcv_id,
-						&len_in_resp, &mbox_error);
+						     &len_in_resp, &mbox_error);
 		SMC_RET4(handle, status, mbox_error, x1, len_in_resp);
 
 	case INTEL_SIP_SMC_FIRMWARE_VERSION:
@@ -804,7 +790,7 @@ uintptr_t sip_smc_handler_v1(uint32_t smc_fid,
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
 		status = intel_mbox_send_cmd(x1, (uint32_t *)x2, x3, x4, x5, x6,
-						&mbox_status, &len_in_resp);
+					     &mbox_status, &len_in_resp);
 		SMC_RET3(handle, status, mbox_status, len_in_resp);
 
 	case INTEL_SIP_SMC_GET_USERCODE:
@@ -831,10 +817,12 @@ uintptr_t sip_smc_handler_v1(uint32_t smc_fid,
 
 		if (x3 == FCS_MODE_DECRYPT) {
 			status = intel_fcs_decryption_ext(x1, x2, x4, x5, x6,
-					(uint32_t *) &x7, &mbox_error);
+							  (uint32_t *)&x7,
+							  &mbox_error);
 		} else if (x3 == FCS_MODE_ENCRYPT) {
 			status = intel_fcs_encryption_ext(x1, x2, x4, x5, x6,
-					(uint32_t *) &x7, &mbox_error);
+							  (uint32_t *)&x7,
+							  &mbox_error);
 		} else {
 			status = INTEL_SIP_SMC_STATUS_REJECTED;
 		}
@@ -842,13 +830,12 @@ uintptr_t sip_smc_handler_v1(uint32_t smc_fid,
 		SMC_RET4(handle, status, mbox_error, x6, x7);
 
 	case INTEL_SIP_SMC_FCS_RANDOM_NUMBER:
-		status = intel_fcs_random_number_gen(x1, &retval64,
-							&mbox_error);
+		status =
+			intel_fcs_random_number_gen(x1, &retval64, &mbox_error);
 		SMC_RET4(handle, status, mbox_error, x1, retval64);
 
 	case INTEL_SIP_SMC_FCS_RANDOM_NUMBER_EXT:
-		status = intel_fcs_random_number_gen_ext(x1, x2, x3,
-							&send_id);
+		status = intel_fcs_random_number_gen_ext(x1, x2, x3, &send_id);
 		SMC_RET1(handle, status);
 
 	case INTEL_SIP_SMC_FCS_SEND_CERTIFICATE:
@@ -860,8 +847,7 @@ uintptr_t sip_smc_handler_v1(uint32_t smc_fid,
 		SMC_RET1(handle, status);
 
 	case INTEL_SIP_SMC_FCS_CNTR_SET_PREAUTH:
-		status = intel_fcs_cntr_set_preauth(x1, x2, x3,
-							&mbox_error);
+		status = intel_fcs_cntr_set_preauth(x1, x2, x3, &mbox_error);
 		SMC_RET2(handle, status, mbox_error);
 
 	case INTEL_SIP_SMC_HPS_SET_BRIDGES:
@@ -885,18 +871,18 @@ uintptr_t sip_smc_handler_v1(uint32_t smc_fid,
 		SMC_RET4(handle, status, mbox_error, retval, retval2);
 
 	case INTEL_SIP_SMC_FCS_ATTESTATION_SUBKEY:
-		status = intel_fcs_attestation_subkey(x1, x2, x3,
-					(uint32_t *) &x4, &mbox_error);
+		status = intel_fcs_attestation_subkey(
+			x1, x2, x3, (uint32_t *)&x4, &mbox_error);
 		SMC_RET4(handle, status, mbox_error, x3, x4);
 
 	case INTEL_SIP_SMC_FCS_ATTESTATION_MEASUREMENTS:
-		status = intel_fcs_get_measurement(x1, x2, x3,
-					(uint32_t *) &x4, &mbox_error);
+		status = intel_fcs_get_measurement(x1, x2, x3, (uint32_t *)&x4,
+						   &mbox_error);
 		SMC_RET4(handle, status, mbox_error, x3, x4);
 
 	case INTEL_SIP_SMC_FCS_GET_ATTESTATION_CERT:
-		status = intel_fcs_get_attestation_cert(x1, x2,
-					(uint32_t *) &x3, &mbox_error);
+		status = intel_fcs_get_attestation_cert(x1, x2, (uint32_t *)&x3,
+							&mbox_error);
 		SMC_RET4(handle, status, mbox_error, x2, x3);
 
 	case INTEL_SIP_SMC_FCS_CREATE_CERT_ON_RELOAD:
@@ -904,11 +890,13 @@ uintptr_t sip_smc_handler_v1(uint32_t smc_fid,
 		SMC_RET2(handle, status, mbox_error);
 
 	case INTEL_SIP_SMC_FCS_OPEN_CS_SESSION:
-		status = intel_fcs_open_crypto_service_session(&retval, &mbox_error);
+		status = intel_fcs_open_crypto_service_session(&retval,
+							       &mbox_error);
 		SMC_RET3(handle, status, mbox_error, retval);
 
 	case INTEL_SIP_SMC_FCS_CLOSE_CS_SESSION:
-		status = intel_fcs_close_crypto_service_session(x1, &mbox_error);
+		status =
+			intel_fcs_close_crypto_service_session(x1, &mbox_error);
 		SMC_RET2(handle, status, mbox_error);
 
 	case INTEL_SIP_SMC_FCS_IMPORT_CS_KEY:
@@ -916,168 +904,166 @@ uintptr_t sip_smc_handler_v1(uint32_t smc_fid,
 		SMC_RET1(handle, status);
 
 	case INTEL_SIP_SMC_FCS_EXPORT_CS_KEY:
-		status = intel_fcs_export_crypto_service_key(x1, x2, x3,
-					(uint32_t *) &x4, &mbox_error);
+		status = intel_fcs_export_crypto_service_key(
+			x1, x2, x3, (uint32_t *)&x4, &mbox_error);
 		SMC_RET4(handle, status, mbox_error, x3, x4);
 
 	case INTEL_SIP_SMC_FCS_REMOVE_CS_KEY:
 		status = intel_fcs_remove_crypto_service_key(x1, x2,
-					&mbox_error);
+							     &mbox_error);
 		SMC_RET2(handle, status, mbox_error);
 
 	case INTEL_SIP_SMC_FCS_GET_CS_KEY_INFO:
-		status = intel_fcs_get_crypto_service_key_info(x1, x2, x3,
-					(uint32_t *) &x4, &mbox_error);
+		status = intel_fcs_get_crypto_service_key_info(
+			x1, x2, x3, (uint32_t *)&x4, &mbox_error);
 		SMC_RET4(handle, status, mbox_error, x3, x4);
 
 	case INTEL_SIP_SMC_FCS_GET_DIGEST_INIT:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
-		status = intel_fcs_get_digest_init(x1, x2, x3,
-					x4, x5, &mbox_error);
+		status = intel_fcs_get_digest_init(x1, x2, x3, x4, x5,
+						   &mbox_error);
 		SMC_RET2(handle, status, mbox_error);
 
 	case INTEL_SIP_SMC_FCS_GET_DIGEST_UPDATE:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
-		status = intel_fcs_get_digest_update_finalize(x1, x2, x3,
-					x4, x5, (uint32_t *) &x6, false,
-					&mbox_error);
+		status = intel_fcs_get_digest_update_finalize(
+			x1, x2, x3, x4, x5, (uint32_t *)&x6, false,
+			&mbox_error);
 		SMC_RET4(handle, status, mbox_error, x5, x6);
 
 	case INTEL_SIP_SMC_FCS_GET_DIGEST_FINALIZE:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
-		status = intel_fcs_get_digest_update_finalize(x1, x2, x3,
-					x4, x5, (uint32_t *) &x6, true,
-					&mbox_error);
+		status = intel_fcs_get_digest_update_finalize(
+			x1, x2, x3, x4, x5, (uint32_t *)&x6, true, &mbox_error);
 		SMC_RET4(handle, status, mbox_error, x5, x6);
 
 	case INTEL_SIP_SMC_FCS_GET_DIGEST_SMMU_UPDATE:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
-		status = intel_fcs_get_digest_smmu_update_finalize(x1, x2, x3,
-					x4, x5, (uint32_t *) &x6, false,
-					&mbox_error, &send_id);
+		status = intel_fcs_get_digest_smmu_update_finalize(
+			x1, x2, x3, x4, x5, (uint32_t *)&x6, false, &mbox_error,
+			&send_id);
 		SMC_RET4(handle, status, mbox_error, x5, x6);
 
 	case INTEL_SIP_SMC_FCS_GET_DIGEST_SMMU_FINALIZE:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
-		status = intel_fcs_get_digest_smmu_update_finalize(x1, x2, x3,
-					x4, x5, (uint32_t *) &x6, true,
-					&mbox_error, &send_id);
+		status = intel_fcs_get_digest_smmu_update_finalize(
+			x1, x2, x3, x4, x5, (uint32_t *)&x6, true, &mbox_error,
+			&send_id);
 		SMC_RET4(handle, status, mbox_error, x5, x6);
 
 	case INTEL_SIP_SMC_FCS_MAC_VERIFY_INIT:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
-		status = intel_fcs_mac_verify_init(x1, x2, x3,
-					x4, x5, &mbox_error);
+		status = intel_fcs_mac_verify_init(x1, x2, x3, x4, x5,
+						   &mbox_error);
 		SMC_RET2(handle, status, mbox_error);
 
 	case INTEL_SIP_SMC_FCS_MAC_VERIFY_UPDATE:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
 		x7 = SMC_GET_GP(handle, CTX_GPREG_X7);
-		status = intel_fcs_mac_verify_update_finalize(x1, x2, x3,
-					x4, x5, (uint32_t *) &x6, x7,
-					false, &mbox_error);
+		status = intel_fcs_mac_verify_update_finalize(
+			x1, x2, x3, x4, x5, (uint32_t *)&x6, x7, false,
+			&mbox_error);
 		SMC_RET4(handle, status, mbox_error, x5, x6);
 
 	case INTEL_SIP_SMC_FCS_MAC_VERIFY_FINALIZE:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
 		x7 = SMC_GET_GP(handle, CTX_GPREG_X7);
-		status = intel_fcs_mac_verify_update_finalize(x1, x2, x3,
-					x4, x5, (uint32_t *) &x6, x7,
-					true, &mbox_error);
+		status = intel_fcs_mac_verify_update_finalize(
+			x1, x2, x3, x4, x5, (uint32_t *)&x6, x7, true,
+			&mbox_error);
 		SMC_RET4(handle, status, mbox_error, x5, x6);
 
 	case INTEL_SIP_SMC_FCS_MAC_VERIFY_SMMU_UPDATE:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
 		x7 = SMC_GET_GP(handle, CTX_GPREG_X7);
-		status = intel_fcs_mac_verify_smmu_update_finalize(x1, x2, x3,
-					x4, x5, (uint32_t *) &x6, x7,
-					false, &mbox_error, &send_id);
+		status = intel_fcs_mac_verify_smmu_update_finalize(
+			x1, x2, x3, x4, x5, (uint32_t *)&x6, x7, false,
+			&mbox_error, &send_id);
 		SMC_RET4(handle, status, mbox_error, x5, x6);
 
 	case INTEL_SIP_SMC_FCS_MAC_VERIFY_SMMU_FINALIZE:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
 		x7 = SMC_GET_GP(handle, CTX_GPREG_X7);
-		status = intel_fcs_mac_verify_smmu_update_finalize(x1, x2, x3,
-					x4, x5, (uint32_t *) &x6, x7,
-					true, &mbox_error, &send_id);
+		status = intel_fcs_mac_verify_smmu_update_finalize(
+			x1, x2, x3, x4, x5, (uint32_t *)&x6, x7, true,
+			&mbox_error, &send_id);
 		SMC_RET4(handle, status, mbox_error, x5, x6);
 
 	case INTEL_SIP_SMC_FCS_ECDSA_SHA2_DATA_SIGN_INIT:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
-		status = intel_fcs_ecdsa_sha2_data_sign_init(x1, x2, x3,
-					x4, x5, &mbox_error);
+		status = intel_fcs_ecdsa_sha2_data_sign_init(x1, x2, x3, x4, x5,
+							     &mbox_error);
 		SMC_RET2(handle, status, mbox_error);
 
 	case INTEL_SIP_SMC_FCS_ECDSA_SHA2_DATA_SIGN_UPDATE:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
-		status = intel_fcs_ecdsa_sha2_data_sign_update_finalize(x1, x2,
-					x3, x4, x5, (uint32_t *) &x6, false,
-					&mbox_error);
+		status = intel_fcs_ecdsa_sha2_data_sign_update_finalize(
+			x1, x2, x3, x4, x5, (uint32_t *)&x6, false,
+			&mbox_error);
 		SMC_RET4(handle, status, mbox_error, x5, x6);
 
 	case INTEL_SIP_SMC_FCS_ECDSA_SHA2_DATA_SIGN_FINALIZE:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
-		status = intel_fcs_ecdsa_sha2_data_sign_update_finalize(x1, x2,
-					x3, x4, x5, (uint32_t *) &x6, true,
-					&mbox_error);
+		status = intel_fcs_ecdsa_sha2_data_sign_update_finalize(
+			x1, x2, x3, x4, x5, (uint32_t *)&x6, true, &mbox_error);
 		SMC_RET4(handle, status, mbox_error, x5, x6);
 
 	case INTEL_SIP_SMC_FCS_ECDSA_SHA2_DATA_SIGN_SMMU_UPDATE:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
-		status = intel_fcs_ecdsa_sha2_data_sign_smmu_update_finalize(x1,
-					x2, x3, x4, x5, (uint32_t *) &x6, false,
-					&mbox_error, &send_id);
+		status = intel_fcs_ecdsa_sha2_data_sign_smmu_update_finalize(
+			x1, x2, x3, x4, x5, (uint32_t *)&x6, false, &mbox_error,
+			&send_id);
 		SMC_RET4(handle, status, mbox_error, x5, x6);
 
 	case INTEL_SIP_SMC_FCS_ECDSA_SHA2_DATA_SIGN_SMMU_FINALIZE:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
-		status = intel_fcs_ecdsa_sha2_data_sign_smmu_update_finalize(x1,
-					x2, x3, x4, x5, (uint32_t *) &x6, true,
-					&mbox_error, &send_id);
+		status = intel_fcs_ecdsa_sha2_data_sign_smmu_update_finalize(
+			x1, x2, x3, x4, x5, (uint32_t *)&x6, true, &mbox_error,
+			&send_id);
 		SMC_RET4(handle, status, mbox_error, x5, x6);
 
 	case INTEL_SIP_SMC_FCS_ECDSA_HASH_SIGN_INIT:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
-		status = intel_fcs_ecdsa_hash_sign_init(x1, x2, x3,
-					x4, x5, &mbox_error);
+		status = intel_fcs_ecdsa_hash_sign_init(x1, x2, x3, x4, x5,
+							&mbox_error);
 		SMC_RET2(handle, status, mbox_error);
 
 	case INTEL_SIP_SMC_FCS_ECDSA_HASH_SIGN_FINALIZE:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
-		status = intel_fcs_ecdsa_hash_sign_finalize(x1, x2, x3,
-					 x4, x5, (uint32_t *) &x6, &mbox_error);
+		status = intel_fcs_ecdsa_hash_sign_finalize(
+			x1, x2, x3, x4, x5, (uint32_t *)&x6, &mbox_error);
 		SMC_RET4(handle, status, mbox_error, x5, x6);
 
 	case INTEL_SIP_SMC_FCS_ECDSA_HASH_SIG_VERIFY_INIT:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
-		status = intel_fcs_ecdsa_hash_sig_verify_init(x1, x2, x3,
-					x4, x5, &mbox_error);
+		status = intel_fcs_ecdsa_hash_sig_verify_init(x1, x2, x3, x4,
+							      x5, &mbox_error);
 		SMC_RET2(handle, status, mbox_error);
 
 	case INTEL_SIP_SMC_FCS_ECDSA_HASH_SIG_VERIFY_FINALIZE:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
-		status = intel_fcs_ecdsa_hash_sig_verify_finalize(x1, x2, x3,
-					 x4, x5, (uint32_t *) &x6, &mbox_error);
+		status = intel_fcs_ecdsa_hash_sig_verify_finalize(
+			x1, x2, x3, x4, x5, (uint32_t *)&x6, &mbox_error);
 		SMC_RET4(handle, status, mbox_error, x5, x6);
 
 	case INTEL_SIP_SMC_FCS_ECDSA_SHA2_DATA_SIG_VERIFY_INIT:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
-		status = intel_fcs_ecdsa_sha2_data_sig_verify_init(x1, x2, x3,
-					x4, x5, &mbox_error);
+		status = intel_fcs_ecdsa_sha2_data_sig_verify_init(
+			x1, x2, x3, x4, x5, &mbox_error);
 		SMC_RET2(handle, status, mbox_error);
 
 	case INTEL_SIP_SMC_FCS_ECDSA_SHA2_DATA_SIG_VERIFY_UPDATE:
@@ -1085,26 +1071,28 @@ uintptr_t sip_smc_handler_v1(uint32_t smc_fid,
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
 		x7 = SMC_GET_GP(handle, CTX_GPREG_X7);
 		status = intel_fcs_ecdsa_sha2_data_sig_verify_update_finalize(
-					x1, x2, x3, x4, x5, (uint32_t *) &x6,
-					x7, false, &mbox_error);
+			x1, x2, x3, x4, x5, (uint32_t *)&x6, x7, false,
+			&mbox_error);
 		SMC_RET4(handle, status, mbox_error, x5, x6);
 
 	case INTEL_SIP_SMC_FCS_ECDSA_SHA2_DATA_SIG_VERIFY_SMMU_UPDATE:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
 		x7 = SMC_GET_GP(handle, CTX_GPREG_X7);
-		status = intel_fcs_ecdsa_sha2_data_sig_verify_smmu_update_finalize(
-					x1, x2, x3, x4, x5, (uint32_t *) &x6,
-					x7, false, &mbox_error, &send_id);
+		status =
+			intel_fcs_ecdsa_sha2_data_sig_verify_smmu_update_finalize(
+				x1, x2, x3, x4, x5, (uint32_t *)&x6, x7, false,
+				&mbox_error, &send_id);
 		SMC_RET4(handle, status, mbox_error, x5, x6);
 
 	case INTEL_SIP_SMC_FCS_ECDSA_SHA2_DATA_SIG_VERIFY_SMMU_FINALIZE:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
 		x7 = SMC_GET_GP(handle, CTX_GPREG_X7);
-		status = intel_fcs_ecdsa_sha2_data_sig_verify_smmu_update_finalize(
-					x1, x2, x3, x4, x5, (uint32_t *) &x6,
-					x7, true, &mbox_error, &send_id);
+		status =
+			intel_fcs_ecdsa_sha2_data_sig_verify_smmu_update_finalize(
+				x1, x2, x3, x4, x5, (uint32_t *)&x6, x7, true,
+				&mbox_error, &send_id);
 		SMC_RET4(handle, status, mbox_error, x5, x6);
 
 	case INTEL_SIP_SMC_FCS_ECDSA_SHA2_DATA_SIG_VERIFY_FINALIZE:
@@ -1112,52 +1100,52 @@ uintptr_t sip_smc_handler_v1(uint32_t smc_fid,
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
 		x7 = SMC_GET_GP(handle, CTX_GPREG_X7);
 		status = intel_fcs_ecdsa_sha2_data_sig_verify_update_finalize(
-					x1, x2, x3, x4, x5, (uint32_t *) &x6,
-					x7, true, &mbox_error);
+			x1, x2, x3, x4, x5, (uint32_t *)&x6, x7, true,
+			&mbox_error);
 		SMC_RET4(handle, status, mbox_error, x5, x6);
 
 	case INTEL_SIP_SMC_FCS_ECDSA_GET_PUBKEY_INIT:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
-		status = intel_fcs_ecdsa_get_pubkey_init(x1, x2, x3,
-					x4, x5, &mbox_error);
+		status = intel_fcs_ecdsa_get_pubkey_init(x1, x2, x3, x4, x5,
+							 &mbox_error);
 		SMC_RET2(handle, status, mbox_error);
 
 	case INTEL_SIP_SMC_FCS_ECDSA_GET_PUBKEY_FINALIZE:
-		status = intel_fcs_ecdsa_get_pubkey_finalize(x1, x2, x3,
-					(uint32_t *) &x4, &mbox_error);
+		status = intel_fcs_ecdsa_get_pubkey_finalize(
+			x1, x2, x3, (uint32_t *)&x4, &mbox_error);
 		SMC_RET4(handle, status, mbox_error, x3, x4);
 
 	case INTEL_SIP_SMC_FCS_ECDH_REQUEST_INIT:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
-		status = intel_fcs_ecdh_request_init(x1, x2, x3,
-					x4, x5, &mbox_error);
+		status = intel_fcs_ecdh_request_init(x1, x2, x3, x4, x5,
+						     &mbox_error);
 		SMC_RET2(handle, status, mbox_error);
 
 	case INTEL_SIP_SMC_FCS_ECDH_REQUEST_FINALIZE:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
-		status = intel_fcs_ecdh_request_finalize(x1, x2, x3,
-					 x4, x5, (uint32_t *) &x6, &mbox_error);
+		status = intel_fcs_ecdh_request_finalize(
+			x1, x2, x3, x4, x5, (uint32_t *)&x6, &mbox_error);
 		SMC_RET4(handle, status, mbox_error, x5, x6);
 
 	case INTEL_SIP_SMC_FCS_AES_CRYPT_INIT:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		status = intel_fcs_aes_crypt_init(x1, x2, x3, x4, x5,
-					&mbox_error);
+						  &mbox_error);
 		SMC_RET2(handle, status, mbox_error);
 
 	case INTEL_SIP_SMC_FCS_AES_CRYPT_UPDATE:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
-		status = intel_fcs_aes_crypt_update_finalize(x1, x2, x3, x4,
-					x5, x6, false, &send_id);
+		status = intel_fcs_aes_crypt_update_finalize(
+			x1, x2, x3, x4, x5, x6, false, &send_id);
 		SMC_RET1(handle, status);
 
 	case INTEL_SIP_SMC_FCS_AES_CRYPT_FINALIZE:
 		x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 		x6 = SMC_GET_GP(handle, CTX_GPREG_X6);
-		status = intel_fcs_aes_crypt_update_finalize(x1, x2, x3, x4,
-					x5, x6, true, &send_id);
+		status = intel_fcs_aes_crypt_update_finalize(
+			x1, x2, x3, x4, x5, x6, true, &send_id);
 		SMC_RET1(handle, status);
 
 	case INTEL_SIP_SMC_GET_ROM_PATCH_SHA384:
@@ -1166,51 +1154,33 @@ uintptr_t sip_smc_handler_v1(uint32_t smc_fid,
 		SMC_RET4(handle, status, mbox_error, x1, retval64);
 
 	case INTEL_SIP_SMC_SVC_VERSION:
-		SMC_RET3(handle, INTEL_SIP_SMC_STATUS_OK,
-					SIP_SVC_VERSION_MAJOR,
-					SIP_SVC_VERSION_MINOR);
+		SMC_RET3(handle, INTEL_SIP_SMC_STATUS_OK, SIP_SVC_VERSION_MAJOR,
+			 SIP_SVC_VERSION_MINOR);
 
 	default:
-		return socfpga_sip_handler(smc_fid, x1, x2, x3, x4,
-			cookie, handle, flags);
+		return socfpga_sip_handler(smc_fid, x1, x2, x3, x4, cookie,
+					   handle, flags);
 	}
 }
 
-uintptr_t sip_smc_handler(uint32_t smc_fid,
-			 u_register_t x1,
-			 u_register_t x2,
-			 u_register_t x3,
-			 u_register_t x4,
-			 void *cookie,
-			 void *handle,
-			 u_register_t flags)
+uintptr_t sip_smc_handler(uint32_t smc_fid, u_register_t x1, u_register_t x2,
+			  u_register_t x3, u_register_t x4, void *cookie,
+			  void *handle, u_register_t flags)
 {
 	uint32_t cmd = smc_fid & INTEL_SIP_SMC_CMD_MASK;
 
 	if (cmd >= INTEL_SIP_SMC_CMD_V2_RANGE_BEGIN &&
 	    cmd <= INTEL_SIP_SMC_CMD_V2_RANGE_END) {
-		return sip_smc_handler_v2(smc_fid, x1, x2, x3, x4,
-			cookie, handle, flags);
+		return sip_smc_handler_v2(smc_fid, x1, x2, x3, x4, cookie,
+					  handle, flags);
 	} else {
-		return sip_smc_handler_v1(smc_fid, x1, x2, x3, x4,
-			cookie, handle, flags);
+		return sip_smc_handler_v1(smc_fid, x1, x2, x3, x4, cookie,
+					  handle, flags);
 	}
 }
 
-DECLARE_RT_SVC(
-	socfpga_sip_svc,
-	OEN_SIP_START,
-	OEN_SIP_END,
-	SMC_TYPE_FAST,
-	NULL,
-	sip_smc_handler
-);
+DECLARE_RT_SVC(socfpga_sip_svc, OEN_SIP_START, OEN_SIP_END, SMC_TYPE_FAST, NULL,
+	       sip_smc_handler);
 
-DECLARE_RT_SVC(
-	socfpga_sip_svc_std,
-	OEN_SIP_START,
-	OEN_SIP_END,
-	SMC_TYPE_YIELD,
-	NULL,
-	sip_smc_handler
-);
+DECLARE_RT_SVC(socfpga_sip_svc_std, OEN_SIP_START, OEN_SIP_END, SMC_TYPE_YIELD,
+	       NULL, sip_smc_handler);

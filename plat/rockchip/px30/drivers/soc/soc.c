@@ -1,27 +1,25 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
-
-#include <platform_def.h>
 
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/console.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-
-#include <platform_def.h>
 #include <pmu.h>
 #include <px30_def.h>
+#include <rockchip_sip_svc.h>
 #include <secure.h>
 #include <soc.h>
-#include <rockchip_sip_svc.h>
+
+#include <platform_def.h>
 
 /* Aggregate of all devices in the first GB */
-#define PX30_DEV_RNG0_BASE	0xff000000
-#define PX30_DEV_RNG0_SIZE	0x00ff0000
+#define PX30_DEV_RNG0_BASE 0xff000000
+#define PX30_DEV_RNG0_SIZE 0x00ff0000
 
 const mmap_region_t plat_rk_mmap[] = {
 	MAP_REGION_FLAT(PX30_DEV_RNG0_BASE, PX30_DEV_RNG0_SIZE,
@@ -48,8 +46,7 @@ void clk_gate_con_save(uint32_t *clkgt_save)
 	uint32_t i, j;
 
 	for (i = 0; i < CRU_CLKGATES_CON_CNT; i++)
-		clkgt_save[i] =
-			mmio_read_32(CRU_BASE + CRU_CLKGATES_CON(i));
+		clkgt_save[i] = mmio_read_32(CRU_BASE + CRU_CLKGATES_CON(i));
 	j = i;
 	for (i = 0; i < CRU_PMU_CLKGATE_CON_CNT; i++, j++)
 		clkgt_save[j] =
@@ -75,8 +72,7 @@ void clk_gate_con_disable(void)
 	uint32_t i;
 
 	for (i = 0; i < CRU_CLKGATES_CON_CNT; i++)
-		mmio_write_32(CRU_BASE + CRU_CLKGATES_CON(i),
-			      0xffff0000);
+		mmio_write_32(CRU_BASE + CRU_CLKGATES_CON(i), 0xffff0000);
 
 	for (i = 0; i < CRU_PMU_CLKGATE_CON_CNT; i++)
 		mmio_write_32(PMUCRU_BASE + CRU_PMU_CLKGATES_CON(i),
@@ -117,8 +113,8 @@ void px30_soc_reset_config(void)
 
 	mmio_write_32(PMUSGRF_BASE + PMUSGRF_SOC_CON(0),
 		      BIT_WITH_WMSK(PMUSGRF_RSTOUT_FST) |
-		      BIT_WITH_WMSK(PMUSGRF_RSTOUT_TSADC) |
-		      BIT_WITH_WMSK(PMUSGRF_RSTOUT_WDT));
+			      BIT_WITH_WMSK(PMUSGRF_RSTOUT_TSADC) |
+			      BIT_WITH_WMSK(PMUSGRF_RSTOUT_WDT));
 
 	/* rst_out pulse time */
 	mmio_write_32(PMUGRF_BASE + PMUGRF_SOC_CON(2),

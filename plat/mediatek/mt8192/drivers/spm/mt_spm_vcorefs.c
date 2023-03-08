@@ -12,18 +12,18 @@
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-#include <plat/common/platform.h>
 #include <lib/utils_def.h>
-
 #include <mtk_sip_svc.h>
 #include <plat_pm.h>
+
+#include <plat/common/platform.h>
 #include <platform_def.h>
 
 #include "mt_spm.h"
 #include "mt_spm_internal.h"
+#include "mt_spm_pmic_wrap.h"
 #include "mt_spm_reg.h"
 #include "mt_spm_vcorefs.h"
-#include "mt_spm_pmic_wrap.h"
 
 #define VCORE_CT_ENABLE (1U << 5)
 #define SW_REQ5_INIT_VAL (6U << 12)
@@ -97,8 +97,7 @@ static struct pwr_ctrl vcorefs_ctrl = {
 
 	/* default VCORE DVFS is disabled */
 	.pcm_flags = (SPM_FLAG_RUN_COMMON_SCENARIO |
-			SPM_FLAG_DISABLE_VCORE_DVS |
-			SPM_FLAG_DISABLE_VCORE_DFS),
+		      SPM_FLAG_DISABLE_VCORE_DVS | SPM_FLAG_DISABLE_VCORE_DFS),
 
 	/* Auto-gen Start */
 
@@ -129,7 +128,7 @@ static struct pwr_ctrl vcorefs_ctrl = {
 	.reg_dpmaif_infra_req_mask_b = 1,
 	.reg_dpmaif_apsrc_req_mask_b = 1,
 	.reg_dpmaif_vrf18_req_mask_b = 1,
-	.reg_dpmaif_ddr_en_mask_b    = 1,
+	.reg_dpmaif_ddr_en_mask_b = 1,
 
 	/* SPM_SRC_MASK */
 	.reg_md_srcclkena_0_mask_b = 1,
@@ -269,7 +268,7 @@ static struct pwr_ctrl vcorefs_ctrl = {
 };
 
 struct spm_lp_scen __spm_vcorefs = {
-	.pwrctrl	= &vcorefs_ctrl,
+	.pwrctrl = &vcorefs_ctrl,
 };
 
 static void spm_vcorefs_pwarp_cmd(uint64_t cmd, uint64_t val)
@@ -284,7 +283,7 @@ static void spm_vcorefs_pwarp_cmd(uint64_t cmd, uint64_t val)
 void spm_dvfsfw_init(uint64_t boot_up_opp, uint64_t dram_issue)
 {
 	mmio_clrsetbits_32(SPM_DVFS_MISC, SPM_DVFS_FORCE_ENABLE_LSB,
-		SPM_DVFSRC_ENABLE_LSB);
+			   SPM_DVFSRC_ENABLE_LSB);
 
 	mmio_write_32(SPM_DVFS_LEVEL, 0x00000001);
 	mmio_write_32(SPM_DVS_DFS_LEVEL, 0x00010001);
@@ -298,7 +297,7 @@ void __spm_sync_vcore_dvfs_power_control(struct pwr_ctrl *dest_pwr_ctrl,
 			     SPM_FLAG_ENABLE_VOLTAGE_BIN;
 
 	dest_pwr_ctrl->pcm_flags = (dest_pwr_ctrl->pcm_flags & (~dvfs_mask)) |
-					(src_pwr_ctrl->pcm_flags & dvfs_mask);
+				   (src_pwr_ctrl->pcm_flags & dvfs_mask);
 
 	if (dest_pwr_ctrl->pcm_flags_cust > 0U) {
 		dest_pwr_ctrl->pcm_flags_cust =
@@ -321,7 +320,7 @@ static void dvfsrc_init(void)
 
 	for (i = 0U; i < ARRAY_SIZE(dvfsrc_init_configs); i++) {
 		mmio_write_32(dvfsrc_init_configs[i].offset,
-			dvfsrc_init_configs[i].val);
+			      dvfsrc_init_configs[i].val);
 	}
 }
 
@@ -338,7 +337,7 @@ static uint32_t is_rising_need(void)
 static void spm_vcorefs_vcore_setting(uint64_t flag)
 {
 	uint32_t dvfs_v_mode, dvfsrc_rsrv, i;
-	uint32_t opp_uv[] = {725000U, 650000U, 600000U, 575000U};
+	uint32_t opp_uv[] = { 725000U, 650000U, 600000U, 575000U };
 
 	dvfsrc_rsrv = mmio_read_32(DVFSRC_RSRV_4);
 
@@ -353,11 +352,11 @@ static void spm_vcorefs_vcore_setting(uint64_t flag)
 		if (dvfs_v_mode == 3U) {
 			/* LV */
 			opp_uv[i] = round_down((opp_uv[i] * VCORE_LV) / 100U,
-					      PMIC_STEP_UV);
+					       PMIC_STEP_UV);
 		} else if (dvfs_v_mode == 1U) {
 			/* HV */
 			opp_uv[i] = round_up((opp_uv[i] * VCORE_HV) / 100U,
-					    PMIC_STEP_UV);
+					     PMIC_STEP_UV);
 		}
 		spm_vcorefs_pwarp_cmd(i, __vcore_uv_to_pmic(opp_uv[i]));
 	}

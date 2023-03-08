@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,29 +9,28 @@
 #include <stdint.h>
 #include <string.h>
 
-#include <platform_def.h>
-
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <drivers/io/io_driver.h>
 #include <drivers/io/io_fip.h>
 #include <drivers/io/io_storage.h>
 #include <lib/utils.h>
-#include <plat/common/platform.h>
 #include <tools_share/firmware_image_package.h>
 #include <tools_share/uuid.h>
 
+#include <plat/common/platform.h>
+#include <platform_def.h>
+
 #ifndef MAX_FIP_DEVICES
-#define MAX_FIP_DEVICES		1
+#define MAX_FIP_DEVICES 1
 #endif
 
 /* Useful for printing UUIDs when debugging.*/
-#define PRINT_UUID2(x)								\
-	"%08x-%04hx-%04hx-%02hhx%02hhx-%02hhx%02hhx%02hhx%02hhx%02hhx%02hhx",	\
-		x.time_low, x.time_mid, x.time_hi_and_version,			\
-		x.clock_seq_hi_and_reserved, x.clock_seq_low,			\
-		x.node[0], x.node[1], x.node[2], x.node[3],			\
-		x.node[4], x.node[5]
+#define PRINT_UUID2(x)                                                        \
+	"%08x-%04hx-%04hx-%02hhx%02hhx-%02hhx%02hhx%02hhx%02hhx%02hhx%02hhx", \
+		x.time_low, x.time_mid, x.time_hi_and_version,                \
+		x.clock_seq_hi_and_reserved, x.clock_seq_low, x.node[0],      \
+		x.node[1], x.node[2], x.node[3], x.node[4], x.node[5]
 
 typedef struct {
 	unsigned int file_pos;
@@ -56,7 +55,7 @@ typedef struct {
  * backend handle should be maintained per FIP device
  * if the same support is available in the backend
  */
-static fip_file_state_t current_fip_file = {0};
+static fip_file_state_t current_fip_file = { 0 };
 static uintptr_t backend_dev_handle;
 static uintptr_t backend_image_spec;
 
@@ -69,21 +68,19 @@ static unsigned int fip_dev_count;
 /* Firmware Image Package driver functions */
 static int fip_dev_open(const uintptr_t dev_spec, io_dev_info_t **dev_info);
 static int fip_file_open(io_dev_info_t *dev_info, const uintptr_t spec,
-			  io_entity_t *entity);
+			 io_entity_t *entity);
 static int fip_file_len(io_entity_t *entity, size_t *length);
 static int fip_file_read(io_entity_t *entity, uintptr_t buffer, size_t length,
-			  size_t *length_read);
+			 size_t *length_read);
 static int fip_file_close(io_entity_t *entity);
 static int fip_dev_init(io_dev_info_t *dev_info, const uintptr_t init_params);
 static int fip_dev_close(io_dev_info_t *dev_info);
-
 
 /* Return 0 for equal uuids. */
 static inline int compare_uuids(const uuid_t *uuid1, const uuid_t *uuid2)
 {
 	return memcmp(uuid1, uuid2, sizeof(uuid_t));
 }
-
 
 static inline int is_valid_header(fip_toc_header_t *header)
 {
@@ -94,18 +91,14 @@ static inline int is_valid_header(fip_toc_header_t *header)
 	}
 }
 
-
 /* Identify the device type as a virtual driver */
 static io_type_t device_type_fip(void)
 {
 	return IO_TYPE_FIRMWARE_IMAGE_PACKAGE;
 }
 
-
-static const io_dev_connector_t fip_dev_connector = {
-	.dev_open = fip_dev_open
-};
-
+static const io_dev_connector_t fip_dev_connector = { .dev_open =
+							      fip_dev_open };
 
 static const io_dev_funcs_t fip_dev_funcs = {
 	.type = device_type_fip,
@@ -121,7 +114,7 @@ static const io_dev_funcs_t fip_dev_funcs = {
 
 /* Locate a file state in the pool, specified by address */
 static int find_first_fip_state(const uintptr_t dev_spec,
-				  unsigned int *index_out)
+				unsigned int *index_out)
 {
 	int result = -ENOENT;
 	unsigned int index;
@@ -137,7 +130,6 @@ static int find_first_fip_state(const uintptr_t dev_spec,
 	return result;
 }
 
-
 /* Allocate a device info from the pool and return a pointer to it */
 static int allocate_dev_info(io_dev_info_t **dev_info)
 {
@@ -152,8 +144,7 @@ static int allocate_dev_info(io_dev_info_t **dev_info)
 		assert(result == 0);
 		/* initialize dev_info */
 		dev_info_pool[index].funcs = &fip_dev_funcs;
-		dev_info_pool[index].info =
-				(uintptr_t)&state_pool[index];
+		dev_info_pool[index].info = (uintptr_t)&state_pool[index];
 		*dev_info = &dev_info_pool[index];
 		++fip_dev_count;
 	}
@@ -172,7 +163,7 @@ static int free_dev_info(io_dev_info_t *dev_info)
 
 	state = (fip_dev_state_t *)dev_info->info;
 	result = find_first_fip_state(state->dev_spec, &index);
-	if (result ==  0) {
+	if (result == 0) {
 		/* free if device info is valid */
 		zeromem(state, sizeof(fip_dev_state_t));
 		--fip_dev_count;
@@ -186,8 +177,7 @@ static int free_dev_info(io_dev_info_t *dev_info)
  * MAX_FIP_DEVICES. Given that there is only one backend, only a
  * single file can be open at a time by any FIP device.
  */
-static int fip_dev_open(const uintptr_t dev_spec,
-			 io_dev_info_t **dev_info)
+static int fip_dev_open(const uintptr_t dev_spec, io_dev_info_t **dev_info)
 {
 	int result;
 	io_dev_info_t *info;
@@ -211,7 +201,6 @@ static int fip_dev_open(const uintptr_t dev_spec,
 	return 0;
 }
 
-
 /* Do some basic package checks. */
 static int fip_dev_init(io_dev_info_t *dev_info, const uintptr_t init_params)
 {
@@ -231,7 +220,7 @@ static int fip_dev_init(io_dev_info_t *dev_info, const uintptr_t init_params)
 				       &backend_image_spec);
 	if (result != 0) {
 		WARN("Failed to obtain reference to image id=%u (%i)\n",
-			image_id, result);
+		     image_id, result);
 		result = -ENOENT;
 		goto fip_dev_init_exit;
 	}
@@ -246,7 +235,7 @@ static int fip_dev_init(io_dev_info_t *dev_info, const uintptr_t init_params)
 	}
 
 	result = io_read(backend_handle, (uintptr_t)&header, sizeof(header),
-			&bytes_read);
+			 &bytes_read);
 	if (result == 0) {
 		if (!is_valid_header(&header)) {
 			WARN("Firmware Image Package header check failed.\n");
@@ -263,7 +252,7 @@ static int fip_dev_init(io_dev_info_t *dev_info, const uintptr_t init_params)
 
 	io_close(backend_handle);
 
- fip_dev_init_exit:
+fip_dev_init_exit:
 	return result;
 }
 
@@ -279,7 +268,6 @@ static int fip_dev_close(io_dev_info_t *dev_info)
 	return free_dev_info(dev_info);
 }
 
-
 /* Open a file for access from package. */
 static int fip_file_open(io_dev_info_t *dev_info, const uintptr_t spec,
 			 io_entity_t *entity)
@@ -287,7 +275,7 @@ static int fip_file_open(io_dev_info_t *dev_info, const uintptr_t spec,
 	int result;
 	uintptr_t backend_handle;
 	const io_uuid_spec_t *uuid_spec = (io_uuid_spec_t *)spec;
-	static const uuid_t uuid_null = { {0} }; /* Double braces for clang */
+	static const uuid_t uuid_null = { { 0 } }; /* Double braces for clang */
 	size_t bytes_read;
 	int found_file = 0;
 
@@ -327,8 +315,7 @@ static int fip_file_open(io_dev_info_t *dev_info, const uintptr_t spec,
 	do {
 		result = io_read(backend_handle,
 				 (uintptr_t)&current_fip_file.entry,
-				 sizeof(current_fip_file.entry),
-				 &bytes_read);
+				 sizeof(current_fip_file.entry), &bytes_read);
 		if (result == 0) {
 			if (compare_uuids(&current_fip_file.entry.uuid,
 					  &uuid_spec->uuid) == 0) {
@@ -338,9 +325,9 @@ static int fip_file_open(io_dev_info_t *dev_info, const uintptr_t spec,
 			WARN("Failed to read FIP (%i)\n", result);
 			goto fip_file_open_close;
 		}
-	} while ((found_file == 0) &&
-			(compare_uuids(&current_fip_file.entry.uuid,
-				&uuid_null) != 0));
+	} while (
+		(found_file == 0) &&
+		(compare_uuids(&current_fip_file.entry.uuid, &uuid_null) != 0));
 
 	if (found_file == 1) {
 		/* All fine. Update entity info with file state and return. Set
@@ -355,13 +342,12 @@ static int fip_file_open(io_dev_info_t *dev_info, const uintptr_t spec,
 		result = -ENOENT;
 	}
 
- fip_file_open_close:
+fip_file_open_close:
 	io_close(backend_handle);
 
- fip_file_open_exit:
+fip_file_open_exit:
 	return result;
 }
-
 
 /* Return the size of a file in package */
 static int fip_file_len(io_entity_t *entity, size_t *length)
@@ -369,15 +355,14 @@ static int fip_file_len(io_entity_t *entity, size_t *length)
 	assert(entity != NULL);
 	assert(length != NULL);
 
-	*length =  ((fip_file_state_t *)entity->info)->entry.size;
+	*length = ((fip_file_state_t *)entity->info)->entry.size;
 
 	return 0;
 }
 
-
 /* Read data from a file in package */
 static int fip_file_read(io_entity_t *entity, uintptr_t buffer, size_t length,
-			  size_t *length_read)
+			 size_t *length_read)
 {
 	int result;
 	fip_file_state_t *fp;
@@ -422,14 +407,13 @@ static int fip_file_read(io_entity_t *entity, uintptr_t buffer, size_t length,
 		fp->file_pos += bytes_read;
 	}
 
-/* Close the backend. */
- fip_file_read_close:
+	/* Close the backend. */
+fip_file_read_close:
 	io_close(backend_handle);
 
- fip_file_read_exit:
+fip_file_read_exit:
 	return result;
 }
-
 
 /* Close a file in package */
 static int fip_file_close(io_entity_t *entity)
@@ -475,7 +459,7 @@ int fip_dev_get_plat_toc_flag(io_dev_info_t *dev_info, uint16_t *plat_toc_flag)
 
 	state = (fip_dev_state_t *)dev_info->info;
 
-	*plat_toc_flag =  state->plat_toc_flag;
+	*plat_toc_flag = state->plat_toc_flag;
 
 	return 0;
 }

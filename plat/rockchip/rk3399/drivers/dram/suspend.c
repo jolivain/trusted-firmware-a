@@ -1,14 +1,11 @@
 /*
- * Copyright (c) 2016-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
-
 #include <dram.h>
 #include <plat_private.h>
 #include <pmu.h>
@@ -19,33 +16,35 @@
 #include <soc.h>
 #include <suspend.h>
 
-#define PMUGRF_OS_REG0			0x300
-#define PMUGRF_OS_REG1			0x304
-#define PMUGRF_OS_REG2			0x308
-#define PMUGRF_OS_REG3			0x30c
+#include <platform_def.h>
 
-#define CRU_SFTRST_DDR_CTRL(ch, n)	((0x1 << (8 + 16 + (ch) * 4)) | \
-					 ((n) << (8 + (ch) * 4)))
-#define CRU_SFTRST_DDR_PHY(ch, n)	((0x1 << (9 + 16 + (ch) * 4)) | \
-					 ((n) << (9 + (ch) * 4)))
+#define PMUGRF_OS_REG0 0x300
+#define PMUGRF_OS_REG1 0x304
+#define PMUGRF_OS_REG2 0x308
+#define PMUGRF_OS_REG3 0x30c
 
-#define FBDIV_ENC(n)			((n) << 16)
-#define FBDIV_DEC(n)			(((n) >> 16) & 0xfff)
-#define POSTDIV2_ENC(n)			((n) << 12)
-#define POSTDIV2_DEC(n)			(((n) >> 12) & 0x7)
-#define POSTDIV1_ENC(n)			((n) << 8)
-#define POSTDIV1_DEC(n)			(((n) >> 8) & 0x7)
-#define REFDIV_ENC(n)			(n)
-#define REFDIV_DEC(n)			((n) & 0x3f)
+#define CRU_SFTRST_DDR_CTRL(ch, n) \
+	((0x1 << (8 + 16 + (ch)*4)) | ((n) << (8 + (ch)*4)))
+#define CRU_SFTRST_DDR_PHY(ch, n) \
+	((0x1 << (9 + 16 + (ch)*4)) | ((n) << (9 + (ch)*4)))
+
+#define FBDIV_ENC(n) ((n) << 16)
+#define FBDIV_DEC(n) (((n) >> 16) & 0xfff)
+#define POSTDIV2_ENC(n) ((n) << 12)
+#define POSTDIV2_DEC(n) (((n) >> 12) & 0x7)
+#define POSTDIV1_ENC(n) ((n) << 8)
+#define POSTDIV1_DEC(n) (((n) >> 8) & 0x7)
+#define REFDIV_ENC(n) (n)
+#define REFDIV_DEC(n) ((n)&0x3f)
 
 /* PMU CRU */
-#define PMUCRU_RSTNHOLD_CON0		0x120
-#define PMUCRU_RSTNHOLD_CON1		0x124
+#define PMUCRU_RSTNHOLD_CON0 0x120
+#define PMUCRU_RSTNHOLD_CON1 0x124
 
-#define PRESET_GPIO0_HOLD(n)		(((n) << 7) | WMSK_BIT(7))
-#define PRESET_GPIO1_HOLD(n)		(((n) << 8) | WMSK_BIT(8))
+#define PRESET_GPIO0_HOLD(n) (((n) << 7) | WMSK_BIT(7))
+#define PRESET_GPIO1_HOLD(n) (((n) << 8) | WMSK_BIT(8))
 
-#define SYS_COUNTER_FREQ_IN_MHZ		(SYS_COUNTER_FREQ_IN_TICKS / 1000000)
+#define SYS_COUNTER_FREQ_IN_MHZ (SYS_COUNTER_FREQ_IN_TICKS / 1000000)
 
 __pmusramdata uint32_t dpll_data[PLL_CON_COUNT];
 __pmusramdata uint32_t cru_clksel_con6;
@@ -55,7 +54,7 @@ __pmusramdata uint8_t pmu_enable_watchdog0;
  * Copy @num registers from @src to @dst
  */
 static __pmusramfunc void sram_regcpy(uintptr_t dst, uintptr_t src,
-		uint32_t num)
+				      uint32_t num)
 {
 	while (num--) {
 		mmio_write_32(dst, mmio_read_32(src));
@@ -117,20 +116,19 @@ static __pmusramfunc void configure_sgrf(void)
 	 * need to re-initialize them.
 	 */
 	mmio_write_32(SGRF_BASE + SGRF_DDRRGN_CON0_16(16),
-		      SGRF_DDR_RGN_DPLL_CLK |
-		      SGRF_DDR_RGN_RTC_CLK |
-		      SGRF_DDR_RGN_BYPS);
+		      SGRF_DDR_RGN_DPLL_CLK | SGRF_DDR_RGN_RTC_CLK |
+			      SGRF_DDR_RGN_BYPS);
 }
 
 static __pmusramfunc void rkclk_ddr_reset(uint32_t channel, uint32_t ctl,
-		uint32_t phy)
+					  uint32_t phy)
 {
 	channel &= 0x1;
 	ctl &= 0x1;
 	phy &= 0x1;
 	mmio_write_32(CRU_BASE + CRU_SOFTRST_CON(4),
 		      CRU_SFTRST_DDR_CTRL(channel, ctl) |
-		      CRU_SFTRST_DDR_PHY(channel, phy));
+			      CRU_SFTRST_DDR_PHY(channel, phy));
 }
 
 static __pmusramfunc void phy_pctrl_reset(uint32_t ch)
@@ -154,7 +152,7 @@ static __pmusramfunc void set_cs_training_index(uint32_t ch, uint32_t rank)
 }
 
 static __pmusramfunc void select_per_cs_training_index(uint32_t ch,
-		uint32_t rank)
+						       uint32_t rank)
 {
 	/* PHY_84 PHY_PER_CS_TRAINING_EN_0 1bit offset_16 */
 	if ((mmio_read_32(PHY_REG(ch, 84)) >> 16) & 1)
@@ -173,8 +171,7 @@ static __pmusramfunc void override_write_leveling_value(uint32_t ch)
 		mmio_clrsetbits_32(PHY_REG(ch, 8 + (128 * byte)), 0x1 << 16,
 				   1 << 16);
 		mmio_clrsetbits_32(PHY_REG(ch, 63 + (128 * byte)),
-				   0xffffu << 16,
-				   0x200 << 16);
+				   0xffffu << 16, 0x200 << 16);
 	}
 
 	/* CTL_200 ctrlupd_req 1bit offset_8 */
@@ -182,8 +179,8 @@ static __pmusramfunc void override_write_leveling_value(uint32_t ch)
 }
 
 static __pmusramfunc int data_training(uint32_t ch,
-		struct rk3399_sdram_params *sdram_params,
-		uint32_t training_flag)
+				       struct rk3399_sdram_params *sdram_params,
+				       uint32_t training_flag)
 {
 	uint32_t obs_0, obs_1, obs_2, obs_3, obs_err = 0;
 	uint32_t rank = sdram_params->ch[ch].rank;
@@ -202,8 +199,7 @@ static __pmusramfunc int data_training(uint32_t ch,
 		if (sdram_params->dramtype == LPDDR4) {
 			training_flag = PI_WRITE_LEVELING |
 					PI_READ_GATE_TRAINING |
-					PI_READ_LEVELING |
-					PI_WDQ_LEVELING;
+					PI_READ_LEVELING | PI_WDQ_LEVELING;
 		} else if (sdram_params->dramtype == LPDDR3) {
 			training_flag = PI_CA_TRAINING | PI_WRITE_LEVELING |
 					PI_READ_GATE_TRAINING;
@@ -426,9 +422,9 @@ static __pmusramfunc int data_training(uint32_t ch,
 	return 0;
 }
 
-static __pmusramfunc void set_ddrconfig(
-		struct rk3399_sdram_params *sdram_params,
-		unsigned char channel, uint32_t ddrconfig)
+static __pmusramfunc void
+set_ddrconfig(struct rk3399_sdram_params *sdram_params, unsigned char channel,
+	      uint32_t ddrconfig)
 {
 	/* only need to set ddrconfig */
 	struct rk3399_sdram_channel *ch = &sdram_params->ch[channel];
@@ -449,8 +445,8 @@ static __pmusramfunc void set_ddrconfig(
 		      ((cs0_cap / 32) & 0xff) | (((cs1_cap / 32) & 0xff) << 8));
 }
 
-static __pmusramfunc void dram_all_config(
-		struct rk3399_sdram_params *sdram_params)
+static __pmusramfunc void
+dram_all_config(struct rk3399_sdram_params *sdram_params)
 {
 	unsigned int i;
 
@@ -480,14 +476,13 @@ static __pmusramfunc void dram_all_config(
 
 	/* reboot hold register set */
 	mmio_write_32(PMUCRU_BASE + CRU_PMU_RSTHOLD_CON(1),
-		      CRU_PMU_SGRF_RST_RLS |
-		      PRESET_GPIO0_HOLD(1) |
-		      PRESET_GPIO1_HOLD(1));
+		      CRU_PMU_SGRF_RST_RLS | PRESET_GPIO0_HOLD(1) |
+			      PRESET_GPIO1_HOLD(1));
 	mmio_clrsetbits_32(CRU_BASE + CRU_GLB_RST_CON, 0x3, 0x3);
 }
 
 static __pmusramfunc void pctl_cfg(uint32_t ch,
-		struct rk3399_sdram_params *sdram_params)
+				   struct rk3399_sdram_params *sdram_params)
 {
 	const uint32_t *params_ctl = sdram_params->pctl_regs.denali_ctl;
 	const uint32_t *params_pi = sdram_params->pi_regs.denali_pi;
@@ -498,17 +493,15 @@ static __pmusramfunc void pctl_cfg(uint32_t ch,
 	 * Workaround controller bug:
 	 * Do not program DRAM_CLASS until NO_PHY_IND_TRAIN_INT is programmed
 	 */
-	sram_regcpy(CTL_REG(ch, 1), (uintptr_t)&params_ctl[1],
-		    CTL_REG_NUM - 1);
+	sram_regcpy(CTL_REG(ch, 1), (uintptr_t)&params_ctl[1], CTL_REG_NUM - 1);
 	mmio_write_32(CTL_REG(ch, 0), params_ctl[0]);
-	sram_regcpy(PI_REG(ch, 0), (uintptr_t)&params_pi[0],
-		    PI_REG_NUM);
+	sram_regcpy(PI_REG(ch, 0), (uintptr_t)&params_pi[0], PI_REG_NUM);
 
 	sram_regcpy(PHY_REG(ch, 910), (uintptr_t)&phy_regs->phy896[910 - 896],
 		    3);
 
 	mmio_clrsetbits_32(CTL_REG(ch, 68), PWRUP_SREFRESH_EXIT,
-				PWRUP_SREFRESH_EXIT);
+			   PWRUP_SREFRESH_EXIT);
 
 	/* PHY_DLL_RST_EN */
 	mmio_clrsetbits_32(PHY_REG(ch, 957), 0x3 << 24, 1 << 24);
@@ -523,9 +516,9 @@ static __pmusramfunc void pctl_cfg(uint32_t ch,
 		tmp1 = mmio_read_32(PHY_REG(ch, 921));
 		tmp2 = mmio_read_32(PHY_REG(ch, 922));
 		if ((((tmp >> 16) & 0x1) == 0x1) &&
-		     (((tmp1 >> 16) & 0x1) == 0x1) &&
-		     (((tmp1 >> 0) & 0x1) == 0x1) &&
-		     (((tmp2 >> 0) & 0x1) == 0x1))
+		    (((tmp1 >> 16) & 0x1) == 0x1) &&
+		    (((tmp1 >> 0) & 0x1) == 0x1) &&
+		    (((tmp2 >> 0) & 0x1) == 0x1))
 			break;
 		/* if PLL bypass,don't need wait lock */
 		if (mmio_read_32(PHY_REG(ch, 911)) & 0x1)
@@ -535,23 +528,23 @@ static __pmusramfunc void pctl_cfg(uint32_t ch,
 	sram_regcpy(PHY_REG(ch, 896), (uintptr_t)&phy_regs->phy896[0], 63);
 
 	for (i = 0; i < 4; i++)
-		sram_regcpy(PHY_REG(ch, 128 * i),
-			    (uintptr_t)&phy_regs->phy0[0], 91);
+		sram_regcpy(PHY_REG(ch, 128 * i), (uintptr_t)&phy_regs->phy0[0],
+			    91);
 
 	for (i = 0; i < 3; i++)
 		sram_regcpy(PHY_REG(ch, 512 + 128 * i),
-				(uintptr_t)&phy_regs->phy512[i][0], 38);
+			    (uintptr_t)&phy_regs->phy512[i][0], 38);
 }
 
-static __pmusramfunc int dram_switch_to_next_index(
-		struct rk3399_sdram_params *sdram_params)
+static __pmusramfunc int
+dram_switch_to_next_index(struct rk3399_sdram_params *sdram_params)
 {
 	uint32_t ch, ch_count;
 	uint32_t fn = ((mmio_read_32(CTL_REG(0, 111)) >> 16) + 1) & 0x1;
 
 	mmio_write_32(CIC_BASE + CIC_CTRL0,
-		      (((0x3 << 4) | (1 << 2) | 1) << 16) |
-		      (fn << 4) | (1 << 2) | 1);
+		      (((0x3 << 4) | (1 << 2) | 1) << 16) | (fn << 4) |
+			      (1 << 2) | 1);
 	while (!(mmio_read_32(CIC_BASE + CIC_STATUS0) & (1 << 2)))
 		;
 
@@ -569,7 +562,7 @@ static __pmusramfunc int dram_switch_to_next_index(
 		 */
 		if (sdram_params->dramtype != LPDDR4) {
 			mmio_clrsetbits_32(PHY_REG(ch, 896), (0x3 << 8) | 1,
-					fn << 8);
+					   fn << 8);
 		}
 
 		/* data_training failed */
@@ -585,7 +578,7 @@ static __pmusramfunc int dram_switch_to_next_index(
  * between channels.
  */
 static __pmusramfunc int pctl_start(uint32_t channel_mask,
-		struct rk3399_sdram_params *sdram_params)
+				    struct rk3399_sdram_params *sdram_params)
 {
 	uint32_t count;
 	uint32_t byte;
@@ -601,11 +594,9 @@ static __pmusramfunc int pctl_start(uint32_t channel_mask,
 
 	/* PHY_DLL_RST_EN */
 	if (channel_mask & (1 << 0))
-		mmio_clrsetbits_32(PHY_REG(0, 957), 0x3 << 24,
-				   0x2 << 24);
+		mmio_clrsetbits_32(PHY_REG(0, 957), 0x3 << 24, 0x2 << 24);
 	if (channel_mask & (1 << 1))
-		mmio_clrsetbits_32(PHY_REG(1, 957), 0x3 << 24,
-				   0x2 << 24);
+		mmio_clrsetbits_32(PHY_REG(1, 957), 0x3 << 24, 0x2 << 24);
 
 	/* check ERROR bit */
 	if (channel_mask & (1 << 0)) {
@@ -662,8 +653,8 @@ __pmusramfunc static void pmusram_restore_pll(int pll_id, uint32_t *src)
 
 	mmio_write_32(CRU_BASE + CRU_PLL_CON(pll_id, 3), src[3] | REG_SOC_WMSK);
 
-	while ((mmio_read_32(CRU_BASE + CRU_PLL_CON(pll_id, 2)) &
-		(1U << 31)) == 0x0)
+	while ((mmio_read_32(CRU_BASE + CRU_PLL_CON(pll_id, 2)) & (1U << 31)) ==
+	       0x0)
 		;
 }
 
@@ -714,12 +705,12 @@ void dmc_suspend(void)
 	postdiv1 = POSTDIV1_DEC(dpll_data[1]);
 	refdiv = REFDIV_DEC(dpll_data[1]);
 
-	sdram_params->ddr_freq = ((fbdiv * 24) /
-				(refdiv * postdiv1 * postdiv2)) * MHz;
+	sdram_params->ddr_freq =
+		((fbdiv * 24) / (refdiv * postdiv1 * postdiv2)) * MHz;
 
 	INFO("sdram_params->ddr_freq = %d\n", sdram_params->ddr_freq);
-	sdram_params->odt = (((mmio_read_32(PHY_REG(0, 5)) >> 16) &
-			       0x7) != 0) ? 1 : 0;
+	sdram_params->odt =
+		(((mmio_read_32(PHY_REG(0, 5)) >> 16) & 0x7) != 0) ? 1 : 0;
 
 	/* copy the registers CTL PI and PHY */
 	dram_regcpy((uintptr_t)&params_ctl[0], CTL_REG(0, 0), CTL_REG_NUM);
@@ -727,14 +718,12 @@ void dmc_suspend(void)
 	/* mask DENALI_CTL_00_DATA.START, only copy here, will trigger later */
 	params_ctl[0] &= ~(0x1 << 0);
 
-	dram_regcpy((uintptr_t)&params_pi[0], PI_REG(0, 0),
-		    PI_REG_NUM);
+	dram_regcpy((uintptr_t)&params_pi[0], PI_REG(0, 0), PI_REG_NUM);
 
 	/* mask DENALI_PI_00_DATA.START, only copy here, will trigger later*/
 	params_pi[0] &= ~(0x1 << 0);
 
-	dram_regcpy((uintptr_t)&phy_regs->phy0[0],
-			    PHY_REG(0, 0), 91);
+	dram_regcpy((uintptr_t)&phy_regs->phy0[0], PHY_REG(0, 0), 91);
 
 	for (i = 0; i < 3; i++)
 		dram_regcpy((uintptr_t)&phy_regs->phy512[i][0],
@@ -744,7 +733,8 @@ void dmc_suspend(void)
 
 	for (ch = 0; ch < sdram_params->num_channels; ch++) {
 		for (byte = 0; byte < 4; byte++)
-			sdram_params->rx_cal_dqs[ch][byte] = (0xfff << 16) &
+			sdram_params->rx_cal_dqs[ch][byte] =
+				(0xfff << 16) &
 				mmio_read_32(PHY_REG(ch, 57 + byte * 128));
 	}
 
@@ -802,7 +792,7 @@ __pmusramfunc void dmc_resume(void)
 	 * we set back to dpll here
 	 */
 	mmio_write_32(CRU_BASE + CRU_CLKSEL_CON6,
-			cru_clksel_con6 | REG_SOC_WMSK);
+		      cru_clksel_con6 | REG_SOC_WMSK);
 	pmusram_restore_pll(DPLL_ID, dpll_data);
 
 	configure_sgrf();

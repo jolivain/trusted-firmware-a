@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -17,6 +17,6 @@
  *  051  - 'Q', in a 12-bit field.
  *  0    - Revision
  */
-#define QEMU_MAX_MIDR		U(0x000F0510)
+#define QEMU_MAX_MIDR U(0x000F0510)
 
 #endif /* QEMU_MAX_H */

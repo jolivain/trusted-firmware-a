@@ -10,8 +10,8 @@
 #include <stdint.h>
 #include <string.h>
 
-#include <arch_helpers.h>
 #include <arch/aarch64/arch_features.h>
+#include <arch_helpers.h>
 #include <bl31/bl31.h>
 #include <bl31/interrupt_mgmt.h>
 #include <common/debug.h>
@@ -24,13 +24,15 @@
 #include <lib/spinlock.h>
 #include <lib/utils.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include <plat/common/common_def.h>
-#include <plat/common/platform.h>
-#include <platform_def.h>
 #include <services/ffa_svc.h>
 #include <services/spmc_svc.h>
 #include <services/spmd_svc.h>
 #include <smccc_helpers.h>
+
+#include <plat/common/common_def.h>
+#include <plat/common/platform.h>
+#include <platform_def.h>
+
 #include "spmd_private.h"
 
 /*******************************************************************************
@@ -58,7 +60,8 @@ spmd_spm_core_context_t *spmd_get_context_by_mpidr(uint64_t mpidr)
 	int core_idx = plat_core_pos_by_mpidr(mpidr);
 
 	if (core_idx < 0) {
-		ERROR("Invalid mpidr: %" PRIx64 ", returned ID: %d\n", mpidr, core_idx);
+		ERROR("Invalid mpidr: %" PRIx64 ", returned ID: %d\n", mpidr,
+		      core_idx);
 		panic();
 	}
 
@@ -86,16 +89,10 @@ uint16_t spmd_spmc_id_get(void)
  ******************************************************************************/
 static int32_t spmd_init(void);
 static int spmd_spmc_init(void *pm_addr);
-static uint64_t spmd_ffa_error_return(void *handle,
-				       int error_code);
-static uint64_t spmd_smc_forward(uint32_t smc_fid,
-				 bool secure_origin,
-				 uint64_t x1,
-				 uint64_t x2,
-				 uint64_t x3,
-				 uint64_t x4,
-				 void *cookie,
-				 void *handle,
+static uint64_t spmd_ffa_error_return(void *handle, int error_code);
+static uint64_t spmd_smc_forward(uint32_t smc_fid, bool secure_origin,
+				 uint64_t x1, uint64_t x2, uint64_t x3,
+				 uint64_t x4, void *cookie, void *handle,
 				 uint64_t flags);
 
 /******************************************************************************
@@ -106,12 +103,12 @@ void spmd_build_spmc_message(gp_regs_t *gpregs, uint8_t target_func,
 {
 	write_ctx_reg(gpregs, CTX_GPREG_X0, FFA_MSG_SEND_DIRECT_REQ_SMC32);
 	write_ctx_reg(gpregs, CTX_GPREG_X1,
-		(SPMD_DIRECT_MSG_ENDPOINT_ID << FFA_DIRECT_MSG_SOURCE_SHIFT) |
-		 spmd_spmc_id_get());
+		      (SPMD_DIRECT_MSG_ENDPOINT_ID
+		       << FFA_DIRECT_MSG_SOURCE_SHIFT) |
+			      spmd_spmc_id_get());
 	write_ctx_reg(gpregs, CTX_GPREG_X2, BIT(31) | target_func);
 	write_ctx_reg(gpregs, CTX_GPREG_X3, message);
 }
-
 
 /*******************************************************************************
  * This function takes an SPMC context pointer and performs a synchronous
@@ -198,10 +195,8 @@ static int32_t spmd_init(void)
  * Enter the SPMC for further handling of the secure interrupt by the SPMC
  * itself or a Secure Partition.
  ******************************************************************************/
-static uint64_t spmd_secure_interrupt_handler(uint32_t id,
-					      uint32_t flags,
-					      void *handle,
-					      void *cookie)
+static uint64_t spmd_secure_interrupt_handler(uint32_t id, uint32_t flags,
+					      void *handle, void *cookie)
 {
 	spmd_spm_core_context_t *ctx = spmd_get_context();
 	gp_regs_t *gpregs = get_gpregs_ctx(&ctx->cpu_ctx);
@@ -235,7 +230,8 @@ static uint64_t spmd_secure_interrupt_handler(uint32_t id,
 
 	rc = spmd_spm_core_sync_entry(ctx);
 	if (rc != 0ULL) {
-		ERROR("%s failed (%" PRId64 ") on CPU%u\n", __func__, rc, linear_id);
+		ERROR("%s failed (%" PRId64 ") on CPU%u\n", __func__, rc,
+		      linear_id);
 	}
 
 	ctx->secure_interrupt_ongoing = false;
@@ -251,8 +247,8 @@ static uint64_t spmd_secure_interrupt_handler(uint32_t id,
 
 #if ENABLE_RME && SPMD_SPM_AT_SEL2 && !RESET_TO_BL31
 static int spmd_dynamic_map_mem(uintptr_t base_addr, size_t size,
-				 unsigned int attr, uintptr_t *align_addr,
-				 size_t *align_size)
+				unsigned int attr, uintptr_t *align_addr,
+				size_t *align_size)
 {
 	uintptr_t base_addr_align;
 	size_t mapped_size_align;
@@ -262,8 +258,7 @@ static int spmd_dynamic_map_mem(uintptr_t base_addr, size_t size,
 	base_addr_align = page_align(base_addr, DOWN);
 	mapped_size_align = page_align(size, UP);
 
-	if ((base_addr != base_addr_align) &&
-	    (size == mapped_size_align)) {
+	if ((base_addr != base_addr_align) && (size == mapped_size_align)) {
 		mapped_size_align += PAGE_SIZE;
 	}
 
@@ -272,9 +267,7 @@ static int spmd_dynamic_map_mem(uintptr_t base_addr, size_t size,
 	 * size
 	 */
 	rc = mmap_add_dynamic_region((unsigned long long)base_addr_align,
-				     base_addr_align,
-				     mapped_size_align,
-				     attr);
+				     base_addr_align, mapped_size_align, attr);
 	if (rc == 0) {
 		*align_addr = base_addr_align;
 		*align_size = mapped_size_align;
@@ -365,14 +358,14 @@ static int spmd_spmc_init(void *pm_addr)
 	}
 
 	VERBOSE("FFA version (%u.%u)\n", spmc_attrs.major_version,
-	     spmc_attrs.minor_version);
+		spmc_attrs.minor_version);
 
 	VERBOSE("SPM Core run time EL%x.\n",
-	     SPMD_SPM_AT_SEL2 ? MODE_EL2 : MODE_EL1);
+		SPMD_SPM_AT_SEL2 ? MODE_EL2 : MODE_EL1);
 
 	/* Validate the SPMC ID, Ensure high bit is set */
 	if (((spmc_attrs.spmc_id >> SPMC_SECURE_ID_SHIFT) &
-			SPMC_SECURE_ID_MASK) == 0U) {
+	     SPMC_SECURE_ID_MASK) == 0U) {
 		WARN("Invalid ID (0x%x) for SPMC.\n", spmc_attrs.spmc_id);
 		return -EINVAL;
 	}
@@ -418,20 +411,16 @@ static int spmd_spmc_init(void *pm_addr)
 	 * manifest.
 	 */
 	if (spmc_attrs.exec_state == MODE_RW_32) {
-		spmc_ep_info->spsr = SPSR_MODE32(MODE32_svc, SPSR_T_ARM,
-						 SPSR_E_LITTLE,
-						 DAIF_FIQ_BIT |
-						 DAIF_IRQ_BIT |
-						 DAIF_ABT_BIT);
+		spmc_ep_info->spsr =
+			SPSR_MODE32(MODE32_svc, SPSR_T_ARM, SPSR_E_LITTLE,
+				    DAIF_FIQ_BIT | DAIF_IRQ_BIT | DAIF_ABT_BIT);
 	} else {
-
 #if SPMD_SPM_AT_SEL2
 		static const uint32_t runtime_el = MODE_EL2;
 #else
 		static const uint32_t runtime_el = MODE_EL1;
 #endif
-		spmc_ep_info->spsr = SPSR_64(runtime_el,
-					     MODE_SP_ELX,
+		spmc_ep_info->spsr = SPSR_64(runtime_el, MODE_SP_ELX,
 					     DISABLE_ALL_EXCEPTIONS);
 	}
 
@@ -485,9 +474,8 @@ static int spmd_spmc_init(void *pm_addr)
 	 */
 	flags = 0;
 	set_interrupt_rm_flag(flags, NON_SECURE);
-	rc = register_interrupt_type_handler(INTR_TYPE_S_EL1,
-					     spmd_secure_interrupt_handler,
-					     flags);
+	rc = register_interrupt_type_handler(
+		INTR_TYPE_S_EL1, spmd_secure_interrupt_handler, flags);
 	if (rc != 0) {
 		panic();
 	}
@@ -549,13 +537,9 @@ int spmd_setup(void)
 /*******************************************************************************
  * Forward FF-A SMCs to the other security state.
  ******************************************************************************/
-uint64_t spmd_smc_switch_state(uint32_t smc_fid,
-			       bool secure_origin,
-			       uint64_t x1,
-			       uint64_t x2,
-			       uint64_t x3,
-			       uint64_t x4,
-			       void *handle)
+uint64_t spmd_smc_switch_state(uint32_t smc_fid, bool secure_origin,
+			       uint64_t x1, uint64_t x2, uint64_t x3,
+			       uint64_t x4, void *handle)
 {
 	unsigned int secure_state_in = (secure_origin) ? SECURE : NON_SECURE;
 	unsigned int secure_state_out = (!secure_origin) ? SECURE : NON_SECURE;
@@ -594,40 +578,34 @@ uint64_t spmd_smc_switch_state(uint32_t smc_fid,
 	 * SPMC to save and restore (potentially also modify) them.
 	 */
 	SMC_RET18(cm_get_context(secure_state_out), smc_fid, x1, x2, x3, x4,
-			SMC_GET_GP(handle, CTX_GPREG_X5),
-			SMC_GET_GP(handle, CTX_GPREG_X6),
-			SMC_GET_GP(handle, CTX_GPREG_X7),
-			SMC_GET_GP(handle, CTX_GPREG_X8),
-			SMC_GET_GP(handle, CTX_GPREG_X9),
-			SMC_GET_GP(handle, CTX_GPREG_X10),
-			SMC_GET_GP(handle, CTX_GPREG_X11),
-			SMC_GET_GP(handle, CTX_GPREG_X12),
-			SMC_GET_GP(handle, CTX_GPREG_X13),
-			SMC_GET_GP(handle, CTX_GPREG_X14),
-			SMC_GET_GP(handle, CTX_GPREG_X15),
-			SMC_GET_GP(handle, CTX_GPREG_X16),
-			SMC_GET_GP(handle, CTX_GPREG_X17)
-			);
+		  SMC_GET_GP(handle, CTX_GPREG_X5),
+		  SMC_GET_GP(handle, CTX_GPREG_X6),
+		  SMC_GET_GP(handle, CTX_GPREG_X7),
+		  SMC_GET_GP(handle, CTX_GPREG_X8),
+		  SMC_GET_GP(handle, CTX_GPREG_X9),
+		  SMC_GET_GP(handle, CTX_GPREG_X10),
+		  SMC_GET_GP(handle, CTX_GPREG_X11),
+		  SMC_GET_GP(handle, CTX_GPREG_X12),
+		  SMC_GET_GP(handle, CTX_GPREG_X13),
+		  SMC_GET_GP(handle, CTX_GPREG_X14),
+		  SMC_GET_GP(handle, CTX_GPREG_X15),
+		  SMC_GET_GP(handle, CTX_GPREG_X16),
+		  SMC_GET_GP(handle, CTX_GPREG_X17));
 
 #else
 	SMC_RET8(cm_get_context(secure_state_out), smc_fid, x1, x2, x3, x4,
-			SMC_GET_GP(handle, CTX_GPREG_X5),
-			SMC_GET_GP(handle, CTX_GPREG_X6),
-			SMC_GET_GP(handle, CTX_GPREG_X7));
+		 SMC_GET_GP(handle, CTX_GPREG_X5),
+		 SMC_GET_GP(handle, CTX_GPREG_X6),
+		 SMC_GET_GP(handle, CTX_GPREG_X7));
 #endif
 }
 
 /*******************************************************************************
  * Forward SMCs to the other security state.
  ******************************************************************************/
-static uint64_t spmd_smc_forward(uint32_t smc_fid,
-				 bool secure_origin,
-				 uint64_t x1,
-				 uint64_t x2,
-				 uint64_t x3,
-				 uint64_t x4,
-				 void *cookie,
-				 void *handle,
+static uint64_t spmd_smc_forward(uint32_t smc_fid, bool secure_origin,
+				 uint64_t x1, uint64_t x2, uint64_t x3,
+				 uint64_t x4, void *cookie, void *handle,
 				 uint64_t flags)
 {
 	if (is_spmc_at_el3() && !secure_origin) {
@@ -636,7 +614,6 @@ static uint64_t spmd_smc_forward(uint32_t smc_fid,
 	}
 	return spmd_smc_switch_state(smc_fid, secure_origin, x1, x2, x3, x4,
 				     handle);
-
 }
 
 /*******************************************************************************
@@ -644,10 +621,9 @@ static uint64_t spmd_smc_forward(uint32_t smc_fid,
  ******************************************************************************/
 static uint64_t spmd_ffa_error_return(void *handle, int error_code)
 {
-	SMC_RET8(handle, (uint32_t) FFA_ERROR,
-		 FFA_TARGET_INFO_MBZ, (uint32_t)error_code,
-		 FFA_PARAM_MBZ, FFA_PARAM_MBZ, FFA_PARAM_MBZ,
-		 FFA_PARAM_MBZ, FFA_PARAM_MBZ);
+	SMC_RET8(handle, (uint32_t)FFA_ERROR, FFA_TARGET_INFO_MBZ,
+		 (uint32_t)error_code, FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+		 FFA_PARAM_MBZ, FFA_PARAM_MBZ, FFA_PARAM_MBZ);
 }
 
 /*******************************************************************************
@@ -655,7 +631,8 @@ static uint64_t spmd_ffa_error_return(void *handle, int error_code)
  ******************************************************************************/
 bool spmd_check_address_in_binary_image(uint64_t address)
 {
-	assert(!check_uptr_overflow(spmc_attrs.load_address, spmc_attrs.binary_size));
+	assert(!check_uptr_overflow(spmc_attrs.load_address,
+				    spmc_attrs.binary_size));
 
 	return ((address >= spmc_attrs.load_address) &&
 		(address < (spmc_attrs.load_address + spmc_attrs.binary_size)));
@@ -670,19 +647,21 @@ static bool spmd_is_spmc_message(unsigned int ep)
 		return false;
 	}
 
-	return ((ffa_endpoint_destination(ep) == SPMD_DIRECT_MSG_ENDPOINT_ID)
-		&& (ffa_endpoint_source(ep) == spmc_attrs.spmc_id));
+	return ((ffa_endpoint_destination(ep) == SPMD_DIRECT_MSG_ENDPOINT_ID) &&
+		(ffa_endpoint_source(ep) == spmc_attrs.spmc_id));
 }
 
 /******************************************************************************
  * spmd_handle_spmc_message
  *****************************************************************************/
 static int spmd_handle_spmc_message(unsigned long long msg,
-		unsigned long long parm1, unsigned long long parm2,
-		unsigned long long parm3, unsigned long long parm4)
+				    unsigned long long parm1,
+				    unsigned long long parm2,
+				    unsigned long long parm3,
+				    unsigned long long parm4)
 {
-	VERBOSE("%s %llx %llx %llx %llx %llx\n", __func__,
-		msg, parm1, parm2, parm3, parm4);
+	VERBOSE("%s %llx %llx %llx %llx %llx\n", __func__, msg, parm1, parm2,
+		parm3, parm4);
 
 	return -EINVAL;
 }
@@ -691,14 +670,9 @@ static int spmd_handle_spmc_message(unsigned long long msg,
  * This function forwards FF-A SMCs to either the main SPMD handler or the
  * SPMC at EL3, depending on the origin security state, if enabled.
  ******************************************************************************/
-uint64_t spmd_ffa_smc_handler(uint32_t smc_fid,
-			      uint64_t x1,
-			      uint64_t x2,
-			      uint64_t x3,
-			      uint64_t x4,
-			      void *cookie,
-			      void *handle,
-			      uint64_t flags)
+uint64_t spmd_ffa_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
+			      uint64_t x3, uint64_t x4, void *cookie,
+			      void *handle, uint64_t flags)
 {
 	if (is_spmc_at_el3()) {
 		/*
@@ -707,26 +681,19 @@ uint64_t spmd_ffa_smc_handler(uint32_t smc_fid,
 		 */
 		if (is_caller_secure(flags)) {
 			return spmc_smc_handler(smc_fid,
-						is_caller_secure(flags),
-						x1, x2, x3, x4, cookie,
-						handle, flags);
+						is_caller_secure(flags), x1, x2,
+						x3, x4, cookie, handle, flags);
 		}
 	}
-	return spmd_smc_handler(smc_fid, x1, x2, x3, x4, cookie,
-				handle, flags);
+	return spmd_smc_handler(smc_fid, x1, x2, x3, x4, cookie, handle, flags);
 }
 
 /*******************************************************************************
  * This function handles all SMCs in the range reserved for FFA. Each call is
  * either forwarded to the other security state or handled by the SPM dispatcher
  ******************************************************************************/
-uint64_t spmd_smc_handler(uint32_t smc_fid,
-			  uint64_t x1,
-			  uint64_t x2,
-			  uint64_t x3,
-			  uint64_t x4,
-			  void *cookie,
-			  void *handle,
+uint64_t spmd_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
+			  uint64_t x3, uint64_t x4, void *cookie, void *handle,
 			  uint64_t flags)
 {
 	unsigned int linear_id = plat_my_core_pos();
@@ -738,12 +705,12 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 	/* Determine which security state this SMC originated from */
 	secure_origin = is_caller_secure(flags);
 
-	VERBOSE("SPM(%u): 0x%x 0x%" PRIx64 " 0x%" PRIx64 " 0x%" PRIx64 " 0x%" PRIx64
-		" 0x%" PRIx64 " 0x%" PRIx64 " 0x%" PRIx64 "\n",
-		    linear_id, smc_fid, x1, x2, x3, x4,
-		    SMC_GET_GP(handle, CTX_GPREG_X5),
-		    SMC_GET_GP(handle, CTX_GPREG_X6),
-		    SMC_GET_GP(handle, CTX_GPREG_X7));
+	VERBOSE("SPM(%u): 0x%x 0x%" PRIx64 " 0x%" PRIx64 " 0x%" PRIx64
+		" 0x%" PRIx64 " 0x%" PRIx64 " 0x%" PRIx64 " 0x%" PRIx64 "\n",
+		linear_id, smc_fid, x1, x2, x3, x4,
+		SMC_GET_GP(handle, CTX_GPREG_X5),
+		SMC_GET_GP(handle, CTX_GPREG_X6),
+		SMC_GET_GP(handle, CTX_GPREG_X7));
 
 	switch (smc_fid) {
 	case FFA_ERROR:
@@ -756,9 +723,8 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 			spmd_spm_core_sync_exit(x2);
 		}
 
-		return spmd_smc_forward(smc_fid, secure_origin,
-					x1, x2, x3, x4, cookie,
-					handle, flags);
+		return spmd_smc_forward(smc_fid, secure_origin, x1, x2, x3, x4,
+					cookie, handle, flags);
 		break; /* not reached */
 
 	case FFA_VERSION:
@@ -793,14 +759,14 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 
 			if (spmc_attrs.major_version == 1 &&
 			    spmc_attrs.minor_version == 0) {
-				ret = MAKE_FFA_VERSION(spmc_attrs.major_version,
-						       spmc_attrs.minor_version);
+				ret = MAKE_FFA_VERSION(
+					spmc_attrs.major_version,
+					spmc_attrs.minor_version);
 				SMC_RET8(handle, (uint32_t)ret,
 					 FFA_TARGET_INFO_MBZ,
-					 FFA_TARGET_INFO_MBZ,
+					 FFA_TARGET_INFO_MBZ, FFA_PARAM_MBZ,
 					 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
-					 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
-					 FFA_PARAM_MBZ);
+					 FFA_PARAM_MBZ, FFA_PARAM_MBZ);
 				break;
 			}
 			/* Save non-secure system registers context */
@@ -823,10 +789,10 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 
 			if ((rc != 0ULL) ||
 			    (SMC_GET_GP(gpregs, CTX_GPREG_X0) !=
-				FFA_MSG_SEND_DIRECT_RESP_SMC32) ||
+			     FFA_MSG_SEND_DIRECT_RESP_SMC32) ||
 			    (SMC_GET_GP(gpregs, CTX_GPREG_X2) !=
-				(FFA_FWK_MSG_BIT |
-				 SPMD_FWK_MSG_FFA_VERSION_RESP))) {
+			     (FFA_FWK_MSG_BIT |
+			      SPMD_FWK_MSG_FFA_VERSION_RESP))) {
 				ERROR("Failed to forward FFA_VERSION\n");
 				ret = FFA_ERROR_NOT_SUPPORTED;
 			} else {
@@ -860,9 +826,8 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 
 		/* Forward SMC from Normal world to the SPM Core */
 		if (!secure_origin) {
-			return spmd_smc_forward(smc_fid, secure_origin,
-						x1, x2, x3, x4, cookie,
-						handle, flags);
+			return spmd_smc_forward(smc_fid, secure_origin, x1, x2,
+						x3, x4, cookie, handle, flags);
 		}
 
 		/*
@@ -882,18 +847,15 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 		 * Returns the ID of the calling FFA component.
 		 */
 		if (!secure_origin) {
-			SMC_RET8(handle, FFA_SUCCESS_SMC32,
-				 FFA_TARGET_INFO_MBZ, FFA_NS_ENDPOINT_ID,
-				 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
-				 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+			SMC_RET8(handle, FFA_SUCCESS_SMC32, FFA_TARGET_INFO_MBZ,
+				 FFA_NS_ENDPOINT_ID, FFA_PARAM_MBZ,
+				 FFA_PARAM_MBZ, FFA_PARAM_MBZ, FFA_PARAM_MBZ,
 				 FFA_PARAM_MBZ);
 		}
 
-		SMC_RET8(handle, FFA_SUCCESS_SMC32,
-			 FFA_TARGET_INFO_MBZ, spmc_attrs.spmc_id,
-			 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
-			 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
-			 FFA_PARAM_MBZ);
+		SMC_RET8(handle, FFA_SUCCESS_SMC32, FFA_TARGET_INFO_MBZ,
+			 spmc_attrs.spmc_id, FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+			 FFA_PARAM_MBZ, FFA_PARAM_MBZ, FFA_PARAM_MBZ);
 
 		break; /* not reached */
 
@@ -903,16 +865,16 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 
 			if (ret < 0) {
 				SMC_RET8(handle, FFA_ERROR_SMC64,
-					FFA_TARGET_INFO_MBZ, ret,
-					FFA_PARAM_MBZ, FFA_PARAM_MBZ,
-					FFA_PARAM_MBZ, FFA_PARAM_MBZ,
-					FFA_PARAM_MBZ);
+					 FFA_TARGET_INFO_MBZ, ret,
+					 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+					 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+					 FFA_PARAM_MBZ);
 			} else {
 				SMC_RET8(handle, FFA_SUCCESS_SMC64,
-					FFA_TARGET_INFO_MBZ, FFA_PARAM_MBZ,
-					FFA_PARAM_MBZ, FFA_PARAM_MBZ,
-					FFA_PARAM_MBZ, FFA_PARAM_MBZ,
-					FFA_PARAM_MBZ);
+					 FFA_TARGET_INFO_MBZ, FFA_PARAM_MBZ,
+					 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+					 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+					 FFA_PARAM_MBZ);
 			}
 		}
 
@@ -929,16 +891,14 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 		 * instance where this function is invoked
 		 */
 		if (!secure_origin) {
-			SMC_RET8(handle, FFA_SUCCESS_SMC32,
-				 FFA_TARGET_INFO_MBZ, spmc_attrs.spmc_id,
-				 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
-				 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+			SMC_RET8(handle, FFA_SUCCESS_SMC32, FFA_TARGET_INFO_MBZ,
+				 spmc_attrs.spmc_id, FFA_PARAM_MBZ,
+				 FFA_PARAM_MBZ, FFA_PARAM_MBZ, FFA_PARAM_MBZ,
 				 FFA_PARAM_MBZ);
 		}
-		SMC_RET8(handle, FFA_SUCCESS_SMC32,
-			 FFA_TARGET_INFO_MBZ, SPMD_DIRECT_MSG_ENDPOINT_ID,
-			 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
-			 FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+		SMC_RET8(handle, FFA_SUCCESS_SMC32, FFA_TARGET_INFO_MBZ,
+			 SPMD_DIRECT_MSG_ENDPOINT_ID, FFA_PARAM_MBZ,
+			 FFA_PARAM_MBZ, FFA_PARAM_MBZ, FFA_PARAM_MBZ,
 			 FFA_PARAM_MBZ);
 
 		break; /* not reached */
@@ -948,26 +908,23 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 		if (!secure_origin) {
 			/* Validate source endpoint is non-secure for non-secure caller. */
 			if (ffa_is_secure_world_id(ffa_endpoint_source(x1))) {
-				return spmd_ffa_error_return(handle,
-						FFA_ERROR_INVALID_PARAMETER);
+				return spmd_ffa_error_return(
+					handle, FFA_ERROR_INVALID_PARAMETER);
 			}
 		}
 		if (secure_origin && spmd_is_spmc_message(x1)) {
-			ret = spmd_handle_spmc_message(x3, x4,
-				SMC_GET_GP(handle, CTX_GPREG_X5),
+			ret = spmd_handle_spmc_message(
+				x3, x4, SMC_GET_GP(handle, CTX_GPREG_X5),
 				SMC_GET_GP(handle, CTX_GPREG_X6),
 				SMC_GET_GP(handle, CTX_GPREG_X7));
 
-			SMC_RET8(handle, FFA_SUCCESS_SMC32,
-				FFA_TARGET_INFO_MBZ, ret,
-				FFA_PARAM_MBZ, FFA_PARAM_MBZ,
-				FFA_PARAM_MBZ, FFA_PARAM_MBZ,
-				FFA_PARAM_MBZ);
+			SMC_RET8(handle, FFA_SUCCESS_SMC32, FFA_TARGET_INFO_MBZ,
+				 ret, FFA_PARAM_MBZ, FFA_PARAM_MBZ,
+				 FFA_PARAM_MBZ, FFA_PARAM_MBZ, FFA_PARAM_MBZ);
 		} else {
 			/* Forward direct message to the other world */
-			return spmd_smc_forward(smc_fid, secure_origin,
-						x1, x2, x3, x4, cookie,
-						handle, flags);
+			return spmd_smc_forward(smc_fid, secure_origin, x1, x2,
+						x3, x4, cookie, handle, flags);
 		}
 		break; /* Not reached */
 
@@ -976,9 +933,8 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 			spmd_spm_core_sync_exit(0ULL);
 		} else {
 			/* Forward direct message to the other world */
-			return spmd_smc_forward(smc_fid, secure_origin,
-						x1, x2, x3, x4, cookie,
-						handle, flags);
+			return spmd_smc_forward(smc_fid, secure_origin, x1, x2,
+						x3, x4, cookie, handle, flags);
 		}
 		break; /* Not reached */
 
@@ -1035,9 +991,8 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 		 * simply forward the call to the Normal world.
 		 */
 
-		return spmd_smc_forward(smc_fid, secure_origin,
-					x1, x2, x3, x4, cookie,
-					handle, flags);
+		return spmd_smc_forward(smc_fid, secure_origin, x1, x2, x3, x4,
+					cookie, handle, flags);
 		break; /* not reached */
 
 	case FFA_MSG_WAIT:
@@ -1057,12 +1012,11 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 		/* This interface must be invoked only by the Secure world */
 		if (!secure_origin) {
 			return spmd_ffa_error_return(handle,
-						      FFA_ERROR_NOT_SUPPORTED);
+						     FFA_ERROR_NOT_SUPPORTED);
 		}
 
-		return spmd_smc_forward(smc_fid, secure_origin,
-					x1, x2, x3, x4, cookie,
-					handle, flags);
+		return spmd_smc_forward(smc_fid, secure_origin, x1, x2, x3, x4,
+					cookie, handle, flags);
 		break; /* not reached */
 
 	case FFA_NORMAL_WORLD_RESUME:
@@ -1076,17 +1030,19 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 	case FFA_PARTITION_INFO_GET_REGS_SMC64:
 		if (secure_origin) {
 			/* TODO: Future patches to enable support for this */
-			return spmd_ffa_error_return(handle, FFA_ERROR_NOT_SUPPORTED);
+			return spmd_ffa_error_return(handle,
+						     FFA_ERROR_NOT_SUPPORTED);
 		}
 
 		/* Call only supported with SMCCC 1.2+ */
-		if (MAKE_SMCCC_VERSION(SMCCC_MAJOR_VERSION, SMCCC_MINOR_VERSION) < 0x10002) {
-			return spmd_ffa_error_return(handle, FFA_ERROR_NOT_SUPPORTED);
+		if (MAKE_SMCCC_VERSION(SMCCC_MAJOR_VERSION,
+				       SMCCC_MINOR_VERSION) < 0x10002) {
+			return spmd_ffa_error_return(handle,
+						     FFA_ERROR_NOT_SUPPORTED);
 		}
 
-		return spmd_smc_forward(smc_fid, secure_origin,
-					x1, x2, x3, x4, cookie,
-					handle, flags);
+		return spmd_smc_forward(smc_fid, secure_origin, x1, x2, x3, x4,
+					cookie, handle, flags);
 		break; /* Not reached */
 #endif
 	default:

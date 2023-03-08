@@ -5,14 +5,13 @@
  */
 
 #include <assert.h>
+
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/gpio.h>
 #include <lib/psci/psci.h>
-
 #include <mt_gic_v3.h>
 #include <mtspmc.h>
-#include <plat/common/platform.h>
 #include <plat_dfd.h>
 #include <plat_mtk_lpm.h>
 #include <plat_params.h>
@@ -20,14 +19,16 @@
 #include <pmic.h>
 #include <rtc.h>
 
+#include <plat/common/platform.h>
+
 /*
  * Cluster state request:
  * [0] : The CPU requires cluster power down
  * [1] : The CPU requires cluster power on
  */
-#define coordinate_cluster(onoff)	write_clusterpwrdn_el1(onoff)
-#define coordinate_cluster_pwron()	coordinate_cluster(1)
-#define coordinate_cluster_pwroff()	coordinate_cluster(0)
+#define coordinate_cluster(onoff) write_clusterpwrdn_el1(onoff)
+#define coordinate_cluster_pwron() coordinate_cluster(1)
+#define coordinate_cluster_pwroff() coordinate_cluster(0)
 
 /* platform secure entry point */
 static uintptr_t secure_entrypoint;
@@ -37,9 +38,9 @@ static unsigned int plat_power_state[PLATFORM_CORE_COUNT];
 /* platform CPU power domain - ops */
 static const struct mt_lpm_tz *plat_mt_pm;
 
-static inline int plat_mt_pm_invoke(int (*func)(unsigned int cpu,
-						const psci_power_state_t *state),
-				    int cpu, const psci_power_state_t *state)
+static inline int plat_mt_pm_invoke(
+	int (*func)(unsigned int cpu, const psci_power_state_t *state), int cpu,
+	const psci_power_state_t *state)
 {
 	int ret = -1;
 
@@ -54,7 +55,8 @@ static inline int plat_mt_pm_invoke(int (*func)(unsigned int cpu,
  * CPU in response to a CPU_ON, CPU_OFF or CPU_SUSPEND request.
  */
 static void plat_cpu_pwrdwn_common(unsigned int cpu,
-		const psci_power_state_t *state, unsigned int req_pstate)
+				   const psci_power_state_t *state,
+				   unsigned int req_pstate)
 {
 	assert(cpu == plat_my_core_pos());
 	assert(plat_mt_pm != NULL);
@@ -62,7 +64,7 @@ static void plat_cpu_pwrdwn_common(unsigned int cpu,
 	(void)plat_mt_pm_invoke(plat_mt_pm->pwr_cpu_dwn, cpu, state);
 
 	if ((psci_get_pstate_pwrlvl(req_pstate) >= MTK_AFFLVL_CLUSTER) ||
-			(req_pstate == 0U)) { /* hotplug off */
+	    (req_pstate == 0U)) { /* hotplug off */
 		coordinate_cluster_pwroff();
 	}
 
@@ -73,7 +75,8 @@ static void plat_cpu_pwrdwn_common(unsigned int cpu,
 }
 
 static void plat_cpu_pwron_common(unsigned int cpu,
-		const psci_power_state_t *state, unsigned int req_pstate)
+				  const psci_power_state_t *state,
+				  unsigned int req_pstate)
 {
 	assert(cpu == plat_my_core_pos());
 	assert(plat_mt_pm != NULL);
@@ -101,7 +104,8 @@ static void plat_cpu_pwron_common(unsigned int cpu,
  * cluster in response to a CPU_ON, CPU_OFF or CPU_SUSPEND request.
  */
 static void plat_cluster_pwrdwn_common(unsigned int cpu,
-		const psci_power_state_t *state, unsigned int req_pstate)
+				       const psci_power_state_t *state,
+				       unsigned int req_pstate)
 {
 	assert(cpu == plat_my_core_pos());
 	assert(plat_mt_pm != NULL);
@@ -118,7 +122,8 @@ static void plat_cluster_pwrdwn_common(unsigned int cpu,
 }
 
 static void plat_cluster_pwron_common(unsigned int cpu,
-		const psci_power_state_t *state, unsigned int req_pstate)
+				      const psci_power_state_t *state,
+				      unsigned int req_pstate)
 {
 	assert(cpu == plat_my_core_pos());
 	assert(plat_mt_pm != NULL);
@@ -137,13 +142,14 @@ static void plat_cluster_pwron_common(unsigned int cpu,
  * mcusys in response to a CPU_ON, CPU_OFF or CPU_SUSPEND request.
  */
 static void plat_mcusys_pwrdwn_common(unsigned int cpu,
-		const psci_power_state_t *state, unsigned int req_pstate)
+				      const psci_power_state_t *state,
+				      unsigned int req_pstate)
 {
 	assert(cpu == plat_my_core_pos());
 	assert(plat_mt_pm != NULL);
 
 	if (plat_mt_pm_invoke(plat_mt_pm->pwr_mcusys_dwn, cpu, state) != 0) {
-		return;		/* return on fail */
+		return; /* return on fail */
 	}
 
 	mt_gic_distif_save();
@@ -151,7 +157,8 @@ static void plat_mcusys_pwrdwn_common(unsigned int cpu,
 }
 
 static void plat_mcusys_pwron_common(unsigned int cpu,
-		const psci_power_state_t *state, unsigned int req_pstate)
+				     const psci_power_state_t *state,
+				     unsigned int req_pstate)
 {
 	assert(cpu == plat_my_core_pos());
 	assert(plat_mt_pm != NULL);
@@ -288,7 +295,7 @@ static void plat_power_domain_suspend_finish(const psci_power_state_t *state)
 }
 
 static int plat_validate_power_state(unsigned int power_state,
-					psci_power_state_t *req_state)
+				     psci_power_state_t *req_state)
 {
 	unsigned int pstate = psci_get_pstate_type(power_state);
 	unsigned int aff_lvl = psci_get_pstate_pwrlvl(power_state);
@@ -329,13 +336,11 @@ static void plat_get_sys_suspend_power_state(psci_power_state_t *req_state)
 	}
 
 	plat_power_state[cpu] =
-			psci_make_powerstate(
-				MT_PLAT_PWR_STATE_SYSTEM_SUSPEND,
-				PSTATE_TYPE_POWERDOWN, PLAT_MAX_PWR_LVL);
+		psci_make_powerstate(MT_PLAT_PWR_STATE_SYSTEM_SUSPEND,
+				     PSTATE_TYPE_POWERDOWN, PLAT_MAX_PWR_LVL);
 
-	flush_dcache_range((uintptr_t)
-			&plat_power_state[cpu],
-			sizeof(plat_power_state[cpu]));
+	flush_dcache_range((uintptr_t)&plat_power_state[cpu],
+			   sizeof(plat_power_state[cpu]));
 }
 
 /*******************************************************************************
@@ -367,16 +372,16 @@ static void __dead2 plat_mtk_system_off(void)
 }
 
 static const plat_psci_ops_t plat_psci_ops = {
-	.cpu_standby			= plat_cpu_standby,
-	.pwr_domain_on			= plat_power_domain_on,
-	.pwr_domain_on_finish		= plat_power_domain_on_finish,
-	.pwr_domain_off			= plat_power_domain_off,
-	.pwr_domain_suspend		= plat_power_domain_suspend,
-	.pwr_domain_suspend_finish	= plat_power_domain_suspend_finish,
-	.validate_power_state		= plat_validate_power_state,
-	.get_sys_suspend_power_state	= plat_get_sys_suspend_power_state,
-	.system_off			= plat_mtk_system_off,
-	.system_reset			= plat_mtk_system_reset,
+	.cpu_standby = plat_cpu_standby,
+	.pwr_domain_on = plat_power_domain_on,
+	.pwr_domain_on_finish = plat_power_domain_on_finish,
+	.pwr_domain_off = plat_power_domain_off,
+	.pwr_domain_suspend = plat_power_domain_suspend,
+	.pwr_domain_suspend_finish = plat_power_domain_suspend_finish,
+	.validate_power_state = plat_validate_power_state,
+	.get_sys_suspend_power_state = plat_get_sys_suspend_power_state,
+	.system_off = plat_mtk_system_off,
+	.system_reset = plat_mtk_system_reset,
 };
 
 int plat_setup_psci_ops(uintptr_t sec_entrypoint,

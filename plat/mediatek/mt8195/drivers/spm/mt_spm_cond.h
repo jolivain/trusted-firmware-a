@@ -40,11 +40,11 @@ enum PLAT_SPM_COND_PLL {
 	PLAT_SPM_COND_PLL_MAX,
 };
 
-#define PLL_BIT_MFGPLL	BIT(PLAT_SPM_COND_PLL_MFGPLL)
-#define PLL_BIT_MMPLL	BIT(PLAT_SPM_COND_PLL_MMPLL)
-#define PLL_BIT_UNIVPLL	BIT(PLAT_SPM_COND_PLL_UNIVPLL)
-#define PLL_BIT_MSDCPLL	BIT(PLAT_SPM_COND_PLL_MSDCPLL)
-#define PLL_BIT_TVDPLL	BIT(PLAT_SPM_COND_PLL_TVDPLL)
+#define PLL_BIT_MFGPLL BIT(PLAT_SPM_COND_PLL_MFGPLL)
+#define PLL_BIT_MMPLL BIT(PLAT_SPM_COND_PLL_MMPLL)
+#define PLL_BIT_UNIVPLL BIT(PLAT_SPM_COND_PLL_UNIVPLL)
+#define PLL_BIT_MSDCPLL BIT(PLAT_SPM_COND_PLL_MSDCPLL)
+#define PLL_BIT_TVDPLL BIT(PLAT_SPM_COND_PLL_TVDPLL)
 
 /* Definition about SPM_COND_CHECK_BLOCKED
  * bit [00 ~ 17]: cg blocking index
@@ -52,10 +52,10 @@ enum PLAT_SPM_COND_PLL {
  * bit [30]     : pll blocking information
  * bit [31]	: idle condition check fail
  */
-#define SPM_COND_BLOCKED_CG_IDX		U(0)
-#define SPM_COND_BLOCKED_PLL_IDX	U(18)
-#define SPM_COND_CHECK_BLOCKED_PLL	BIT(30)
-#define SPM_COND_CHECK_FAIL		BIT(31)
+#define SPM_COND_BLOCKED_CG_IDX U(0)
+#define SPM_COND_BLOCKED_PLL_IDX U(18)
+#define SPM_COND_CHECK_BLOCKED_PLL BIT(30)
+#define SPM_COND_CHECK_FAIL BIT(31)
 
 struct mt_spm_cond_tables {
 	char *name;
@@ -68,6 +68,6 @@ extern unsigned int mt_spm_cond_check(int state_id,
 				      const struct mt_spm_cond_tables *src,
 				      const struct mt_spm_cond_tables *dest,
 				      struct mt_spm_cond_tables *res);
-extern int mt_spm_cond_update(struct mt_resource_constraint **con, unsigned int num,
-			      int stateid, void *priv);
+extern int mt_spm_cond_update(struct mt_resource_constraint **con,
+			      unsigned int num, int stateid, void *priv);
 #endif /* MT_SPM_CONDIT_H */

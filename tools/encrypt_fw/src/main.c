@@ -7,12 +7,12 @@
 
 #include <assert.h>
 #include <ctype.h>
-#include <getopt.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
 
+#include <getopt.h>
 #include <openssl/conf.h>
 
 #include "cmd_opt.h"
@@ -20,8 +20,8 @@
 #include "encrypt.h"
 #include "firmware_encrypted.h"
 
-#define NUM_ELEM(x)			((sizeof(x)) / (sizeof(x[0])))
-#define HELP_OPT_MAX_LEN		128
+#define NUM_ELEM(x) ((sizeof(x)) / (sizeof(x[0])))
+#define HELP_OPT_MAX_LEN 128
 
 /* Global options */
 
@@ -74,7 +74,7 @@ static int get_key_alg(const char *key_alg_str)
 {
 	int i;
 
-	for (i = 0 ; i < NUM_ELEM(key_algs_str) ; i++) {
+	for (i = 0; i < NUM_ELEM(key_algs_str); i++) {
 		if (strcmp(key_alg_str, key_algs_str[i]) == 0) {
 			return i;
 		}
@@ -100,34 +100,19 @@ static void parse_fw_enc_status_flag(const char *arg,
 
 /* Common command line options */
 static const cmd_opt_t common_cmd_opt[] = {
-	{
-		{ "help", no_argument, NULL, 'h' },
-		"Print this message and exit"
-	},
-	{
-		{ "fw-enc-status", required_argument, NULL, 'f' },
-		"Firmware encryption status flag (with SSK=0 or BSSK=1)."
-	},
-	{
-		{ "key-alg", required_argument, NULL, 'a' },
-		"Encryption key algorithm: 'gcm' (default)"
-	},
-	{
-		{ "key", required_argument, NULL, 'k' },
-		"Encryption key (for supported algorithm)."
-	},
-	{
-		{ "nonce", required_argument, NULL, 'n' },
-		"Nonce or Initialization Vector (for supported algorithm)."
-	},
-	{
-		{ "in", required_argument, NULL, 'i' },
-		"Input filename to be encrypted."
-	},
-	{
-		{ "out", required_argument, NULL, 'o' },
-		"Encrypted output filename."
-	},
+	{ { "help", no_argument, NULL, 'h' }, "Print this message and exit" },
+	{ { "fw-enc-status", required_argument, NULL, 'f' },
+	  "Firmware encryption status flag (with SSK=0 or BSSK=1)." },
+	{ { "key-alg", required_argument, NULL, 'a' },
+	  "Encryption key algorithm: 'gcm' (default)" },
+	{ { "key", required_argument, NULL, 'k' },
+	  "Encryption key (for supported algorithm)." },
+	{ { "nonce", required_argument, NULL, 'n' },
+	  "Nonce or Initialization Vector (for supported algorithm)." },
+	{ { "in", required_argument, NULL, 'i' },
+	  "Input filename to be encrypted." },
+	{ { "out", required_argument, NULL, 'o' },
+	  "Encrypted output filename." },
 };
 
 int main(int argc, char *argv[])

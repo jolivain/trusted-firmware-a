@@ -16,21 +16,21 @@
 #include <mt_spm_idle.h>
 #include <mt_spm_internal.h>
 #include <mt_spm_notifier.h>
-#include "mt_spm_rc_api.h"
-#include "mt_spm_rc_internal.h"
 #include <mt_spm_reg.h>
 #include <mt_spm_suspend.h>
 
-#define CONSTRAINT_DRAM_ALLOW (MT_RM_CONSTRAINT_ALLOW_DRAM_S0 | \
-			       MT_RM_CONSTRAINT_ALLOW_DRAM_S1 | \
-			       MT_RM_CONSTRAINT_ALLOW_CPU_BUCK_OFF)
+#include "mt_spm_rc_api.h"
+#include "mt_spm_rc_internal.h"
 
-#define CONSTRAINT_DRAM_PCM_FLAG (SPM_FLAG_DISABLE_INFRA_PDN | \
-				  SPM_FLAG_DISABLE_VCORE_DVS | \
-				  SPM_FLAG_DISABLE_VCORE_DFS | \
-				  SPM_FLAG_SRAM_SLEEP_CTRL | \
-				  SPM_FLAG_KEEP_CSYSPWRACK_HIGH | \
-				  SPM_FLAG_DISABLE_DRAMC_MCU_SRAM_SLEEP)
+#define CONSTRAINT_DRAM_ALLOW                                              \
+	(MT_RM_CONSTRAINT_ALLOW_DRAM_S0 | MT_RM_CONSTRAINT_ALLOW_DRAM_S1 | \
+	 MT_RM_CONSTRAINT_ALLOW_CPU_BUCK_OFF)
+
+#define CONSTRAINT_DRAM_PCM_FLAG                                   \
+	(SPM_FLAG_DISABLE_INFRA_PDN | SPM_FLAG_DISABLE_VCORE_DVS | \
+	 SPM_FLAG_DISABLE_VCORE_DFS | SPM_FLAG_SRAM_SLEEP_CTRL |   \
+	 SPM_FLAG_KEEP_CSYSPWRACK_HIGH |                           \
+	 SPM_FLAG_DISABLE_DRAMC_MCU_SRAM_SLEEP)
 
 #define CONSTRAINT_DRAM_PCM_FLAG1 (0)
 
@@ -66,10 +66,8 @@ static struct mt_spm_cond_tables cond_dram_res = {
 
 static struct constraint_status status = {
 	.id = MT_RM_CONSTRAINT_ID_DRAM,
-	.is_valid = (MT_SPM_RC_VALID_SW |
-		     MT_SPM_RC_VALID_COND_CHECK |
-		     MT_SPM_RC_VALID_COND_LATCH |
-		     MT_SPM_RC_VALID_XSOC_BBLPM |
+	.is_valid = (MT_SPM_RC_VALID_SW | MT_SPM_RC_VALID_COND_CHECK |
+		     MT_SPM_RC_VALID_COND_LATCH | MT_SPM_RC_VALID_XSOC_BBLPM |
 		     MT_SPM_RC_VALID_TRACE_TIME),
 	.is_cond_block = 0U,
 	.enter_cnt = 0U,
@@ -79,7 +77,8 @@ static struct constraint_status status = {
 
 static unsigned short ext_status_dram;
 
-int spm_dram_conduct(int state_id, struct spm_lp_scen *spm_lp, unsigned int *resource_req)
+int spm_dram_conduct(int state_id, struct spm_lp_scen *spm_lp,
+		     unsigned int *resource_req)
 {
 	unsigned int res_req = CONSTRAINT_DRAM_RESOURCE_REQ;
 
@@ -96,7 +95,8 @@ int spm_dram_conduct(int state_id, struct spm_lp_scen *spm_lp, unsigned int *res
 
 bool spm_is_valid_rc_dram(unsigned int cpu, int state_id)
 {
-	return (!(status.is_cond_block && (status.is_valid & MT_SPM_RC_VALID_COND_CHECK)) &&
+	return (!(status.is_cond_block &&
+		  (status.is_valid & MT_SPM_RC_VALID_COND_CHECK)) &&
 		IS_MT_RM_RC_READY(status.is_valid) &&
 		(IS_PLAT_SUSPEND_ID(state_id) ||
 		 (state_id == MT_PLAT_PWR_STATE_SYSTEM_MEM) ||
@@ -106,50 +106,56 @@ bool spm_is_valid_rc_dram(unsigned int cpu, int state_id)
 
 static int update_rc_condition(const void *val)
 {
-	const struct mt_spm_cond_tables *tlb = (const struct mt_spm_cond_tables *)val;
-	const struct mt_spm_cond_tables *tlb_check = (const struct mt_spm_cond_tables *)&cond_dram;
+	const struct mt_spm_cond_tables *tlb =
+		(const struct mt_spm_cond_tables *)val;
+	const struct mt_spm_cond_tables *tlb_check =
+		(const struct mt_spm_cond_tables *)&cond_dram;
 
 	if (tlb == NULL) {
 		return MT_RM_STATUS_BAD;
 	}
 
 	status.is_cond_block = mt_spm_cond_check(tlb, tlb_check,
-						 (status.is_valid & MT_SPM_RC_VALID_COND_LATCH) ?
-						  &cond_dram_res : NULL);
+						 (status.is_valid &
+						  MT_SPM_RC_VALID_COND_LATCH) ?
+							 &cond_dram_res :
+							 NULL);
 	return MT_RM_STATUS_OK;
 }
 
 static void update_rc_clkbuf_status(const void *val)
 {
-	unsigned int is_flight = (val) ? !!(*((unsigned int *)val) == FLIGHT_MODE_ON) : 0;
+	unsigned int is_flight =
+		(val) ? !!(*((unsigned int *)val) == FLIGHT_MODE_ON) : 0;
 
 	if (is_flight != 0U) {
-		spm_rc_constraint_valid_set(MT_RM_CONSTRAINT_ID_DRAM,
-					    MT_RM_CONSTRAINT_ID_DRAM,
-					    MT_SPM_RC_VALID_FLIGHTMODE,
-					    (struct constraint_status * const)&status);
+		spm_rc_constraint_valid_set(
+			MT_RM_CONSTRAINT_ID_DRAM, MT_RM_CONSTRAINT_ID_DRAM,
+			MT_SPM_RC_VALID_FLIGHTMODE,
+			(struct constraint_status *const)&status);
 	} else {
-		spm_rc_constraint_valid_clr(MT_RM_CONSTRAINT_ID_DRAM,
-					    MT_RM_CONSTRAINT_ID_DRAM,
-					    MT_SPM_RC_VALID_FLIGHTMODE,
-					    (struct constraint_status * const)&status);
+		spm_rc_constraint_valid_clr(
+			MT_RM_CONSTRAINT_ID_DRAM, MT_RM_CONSTRAINT_ID_DRAM,
+			MT_SPM_RC_VALID_FLIGHTMODE,
+			(struct constraint_status *const)&status);
 	}
 }
 
 static void update_rc_ufs_status(const void *val)
 {
-	unsigned int is_ufs_h8 = (val) ? !!(*((unsigned int *)val) == UFS_REF_CLK_OFF) : 0;
+	unsigned int is_ufs_h8 =
+		(val) ? !!(*((unsigned int *)val) == UFS_REF_CLK_OFF) : 0;
 
 	if (is_ufs_h8 != 0U) {
-		spm_rc_constraint_valid_set(MT_RM_CONSTRAINT_ID_DRAM,
-					    MT_RM_CONSTRAINT_ID_DRAM,
-					    MT_SPM_RC_VALID_UFS_H8,
-					    (struct constraint_status * const)&status);
+		spm_rc_constraint_valid_set(
+			MT_RM_CONSTRAINT_ID_DRAM, MT_RM_CONSTRAINT_ID_DRAM,
+			MT_SPM_RC_VALID_UFS_H8,
+			(struct constraint_status *const)&status);
 	} else {
-		spm_rc_constraint_valid_clr(MT_RM_CONSTRAINT_ID_DRAM,
-					    MT_RM_CONSTRAINT_ID_DRAM,
-					    MT_SPM_RC_VALID_UFS_H8,
-					    (struct constraint_status * const)&status);
+		spm_rc_constraint_valid_clr(
+			MT_RM_CONSTRAINT_ID_DRAM, MT_RM_CONSTRAINT_ID_DRAM,
+			MT_SPM_RC_VALID_UFS_H8,
+			(struct constraint_status *const)&status);
 	}
 }
 
@@ -164,18 +170,19 @@ static void update_rc_status(const void *val)
 	}
 
 	if (st->type == CONSTRAINT_UPDATE_COND_CHECK) {
-		struct mt_spm_cond_tables * const tlb = &cond_dram;
+		struct mt_spm_cond_tables *const tlb = &cond_dram;
 
 		spm_rc_condition_modifier(st->id, st->act, st->value,
 					  MT_RM_CONSTRAINT_ID_DRAM, tlb);
 	} else if ((st->type == CONSTRAINT_UPDATE_VALID) ||
 		   (st->type == CONSTRAINT_RESIDNECY)) {
-		spm_rc_constraint_status_set(st->id, st->type, st->act,
-					     MT_RM_CONSTRAINT_ID_DRAM,
-					     (struct constraint_status * const)st->value,
-					     (struct constraint_status * const)&status);
+		spm_rc_constraint_status_set(
+			st->id, st->type, st->act, MT_RM_CONSTRAINT_ID_DRAM,
+			(struct constraint_status *const)st->value,
+			(struct constraint_status *const)&status);
 	} else {
-		INFO("[%s:%d] - Unknown type: 0x%x\n", __func__, __LINE__, st->type);
+		INFO("[%s:%d] - Unknown type: 0x%x\n", __func__, __LINE__,
+		     st->type);
 	}
 }
 
@@ -197,7 +204,8 @@ int spm_update_rc_dram(int state_id, int type, const void *val)
 		update_rc_status(val);
 		break;
 	default:
-		INFO("[%s:%d] - Do nothing for type: %d\n", __func__, __LINE__, type);
+		INFO("[%s:%d] - Do nothing for type: %d\n", __func__, __LINE__,
+		     type);
 		break;
 	}
 
@@ -225,8 +233,11 @@ int spm_run_rc_dram(unsigned int cpu, int state_id)
 	}
 
 #ifndef MTK_PLAT_SPM_SSPM_NOTIFIER_UNSUPPORT
-	mt_spm_sspm_notify_u32(MT_SPM_NOTIFY_LP_ENTER, allows | (IS_PLAT_SUSPEND_ID(state_id) ?
-			       (MT_RM_CONSTRAINT_ALLOW_AP_SUSPEND) : (0U)));
+	mt_spm_sspm_notify_u32(
+		MT_SPM_NOTIFY_LP_ENTER,
+		allows | (IS_PLAT_SUSPEND_ID(state_id) ?
+				  (MT_RM_CONSTRAINT_ALLOW_AP_SUSPEND) :
+				  (0U)));
 #else
 	(void)allows;
 #endif
@@ -274,19 +285,22 @@ int spm_reset_rc_dram(unsigned int cpu, int state_id)
 
 	if (IS_PLAT_SUSPEND_ID(state_id)) {
 		mt_spm_suspend_resume(state_id,
-				      (MT_SPM_EX_OP_SET_WDT | MT_SPM_EX_OP_HW_S1_DETECT),
+				      (MT_SPM_EX_OP_SET_WDT |
+				       MT_SPM_EX_OP_HW_S1_DETECT),
 				      NULL);
 	} else {
 		struct wake_status *waken = NULL;
 
-		if (spm_unlikely(status.is_valid & MT_SPM_RC_VALID_TRACE_EVENT)) {
+		if (spm_unlikely(status.is_valid &
+				 MT_SPM_RC_VALID_TRACE_EVENT)) {
 			ext_op |= MT_SPM_EX_OP_TRACE_LP;
 		}
 		mt_spm_idle_generic_resume(state_id, ext_op, &waken, NULL);
 		status.enter_cnt++;
 
 		if (spm_unlikely(status.is_valid & MT_SPM_RC_VALID_RESIDNECY)) {
-			status.residency += (waken != NULL) ? waken->tr.comm.timer_out : 0;
+			status.residency +=
+				(waken != NULL) ? waken->tr.comm.timer_out : 0;
 		}
 	}
 
@@ -305,10 +319,10 @@ int spm_get_status_rc_dram(unsigned int type, void *priv)
 			return MT_RM_STATUS_BAD;
 		}
 
-		res = spm_rc_constraint_status_get(st->id, st->type,
-						   st->act, MT_RM_CONSTRAINT_ID_DRAM,
-						   (struct constraint_status * const)&status,
-						   (struct constraint_status * const)st->value);
+		res = spm_rc_constraint_status_get(
+			st->id, st->type, st->act, MT_RM_CONSTRAINT_ID_DRAM,
+			(struct constraint_status *const)&status,
+			(struct constraint_status *const)st->value);
 		if ((res == 0) && (st->id != MT_RM_CONSTRAINT_ID_ALL)) {
 			ret = MT_RM_STATUS_STOP;
 		}

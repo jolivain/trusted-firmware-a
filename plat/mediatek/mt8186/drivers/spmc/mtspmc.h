@@ -22,7 +22,8 @@ bool spm_get_cluster_powerstate(unsigned int cluster);
 bool spm_get_powerstate(uint32_t mask);
 
 void mcucfg_init_archstate(unsigned int cluster, unsigned int cpu, bool arm64);
-void mcucfg_set_bootaddr(unsigned int cluster, unsigned int cpu, uintptr_t bootaddr);
+void mcucfg_set_bootaddr(unsigned int cluster, unsigned int cpu,
+			 uintptr_t bootaddr);
 uintptr_t mcucfg_get_bootaddr(unsigned int cluster, unsigned int cpu);
 
 void mcucfg_disable_gic_wakeup(unsigned int cluster, unsigned int cpu);

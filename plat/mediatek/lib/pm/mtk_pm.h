@@ -12,27 +12,26 @@
 #include <vendor_pubsub_events.h>
 #endif
 
-#define MTK_CPUPM_E_OK			(0)
-#define MTK_CPUPM_E_UNKNOWN		(-1)
-#define MTK_CPUPM_E_ERR			(-2)
-#define MTK_CPUPM_E_FAIL		(-3)
-#define MTK_CPUPM_E_NOT_SUPPORT		(-4)
+#define MTK_CPUPM_E_OK (0)
+#define MTK_CPUPM_E_UNKNOWN (-1)
+#define MTK_CPUPM_E_ERR (-2)
+#define MTK_CPUPM_E_FAIL (-3)
+#define MTK_CPUPM_E_NOT_SUPPORT (-4)
 
-
-#define MTK_CPUPM_FN_PWR_LOCK_AQUIRE		BIT(0)
-#define MTK_CPUPM_FN_INIT			BIT(1)
-#define MTK_CPUPM_FN_PWR_STATE_VALID		BIT(2)
-#define MTK_CPUPM_FN_PWR_ON_CORE_PREPARE	BIT(3)
-#define MTK_CPUPM_FN_SUSPEND_CORE		BIT(4)
-#define MTK_CPUPM_FN_RESUME_CORE		BIT(5)
-#define MTK_CPUPM_FN_SUSPEND_CLUSTER		BIT(6)
-#define MTK_CPUPM_FN_RESUME_CLUSTER		BIT(7)
-#define MTK_CPUPM_FN_SUSPEND_MCUSYS		BIT(8)
-#define MTK_CPUPM_FN_RESUME_MCUSYS		BIT(9)
-#define MTK_CPUPM_FN_CPUPM_GET_PWR_STATE	BIT(10)
-#define MTK_CPUPM_FN_SMP_INIT			BIT(11)
-#define MTK_CPUPM_FN_SMP_CORE_ON		BIT(12)
-#define MTK_CPUPM_FN_SMP_CORE_OFF		BIT(13)
+#define MTK_CPUPM_FN_PWR_LOCK_AQUIRE BIT(0)
+#define MTK_CPUPM_FN_INIT BIT(1)
+#define MTK_CPUPM_FN_PWR_STATE_VALID BIT(2)
+#define MTK_CPUPM_FN_PWR_ON_CORE_PREPARE BIT(3)
+#define MTK_CPUPM_FN_SUSPEND_CORE BIT(4)
+#define MTK_CPUPM_FN_RESUME_CORE BIT(5)
+#define MTK_CPUPM_FN_SUSPEND_CLUSTER BIT(6)
+#define MTK_CPUPM_FN_RESUME_CLUSTER BIT(7)
+#define MTK_CPUPM_FN_SUSPEND_MCUSYS BIT(8)
+#define MTK_CPUPM_FN_RESUME_MCUSYS BIT(9)
+#define MTK_CPUPM_FN_CPUPM_GET_PWR_STATE BIT(10)
+#define MTK_CPUPM_FN_SMP_INIT BIT(11)
+#define MTK_CPUPM_FN_SMP_CORE_ON BIT(12)
+#define MTK_CPUPM_FN_SMP_CORE_OFF BIT(13)
 
 enum mtk_cpupm_pstate {
 	MTK_CPUPM_CORE_ON,
@@ -50,8 +49,8 @@ enum mtk_cpu_pm_mode {
 	MTK_CPU_PM_SMP,
 };
 
-#define MT_IRQ_REMAIN_MAX	(32)
-#define MT_IRQ_REMAIN_CAT_LOG	BIT(31)
+#define MT_IRQ_REMAIN_MAX (32)
+#define MT_IRQ_REMAIN_CAT_LOG BIT(31)
 
 struct mt_irqremain {
 	unsigned int count;
@@ -71,16 +70,20 @@ struct plat_pm_smp_ctrl {
 
 struct plat_pm_pwr_ctrl {
 	void (*pwr_domain_suspend)(const psci_power_state_t *target_state);
-	void (*pwr_domain_on_finish_late)(const psci_power_state_t *target_state);
-	void (*pwr_domain_suspend_finish)(const psci_power_state_t *target_state);
-	int (*validate_power_state)(unsigned int power_state, psci_power_state_t *req_state);
+	void (*pwr_domain_on_finish_late)(
+		const psci_power_state_t *target_state);
+	void (*pwr_domain_suspend_finish)(
+		const psci_power_state_t *target_state);
+	int (*validate_power_state)(unsigned int power_state,
+				    psci_power_state_t *req_state);
 	void (*get_sys_suspend_power_state)(psci_power_state_t *req_state);
 };
 
 struct plat_pm_reset_ctrl {
 	__dead2 void (*system_off)();
 	__dead2 void (*system_reset)();
-	int (*system_reset2)(int is_vendor, int reset_type, u_register_t cookie);
+	int (*system_reset2)(int is_vendor, int reset_type,
+			     u_register_t cookie);
 };
 
 struct mtk_cpu_pm_info {
@@ -107,19 +110,19 @@ struct mtk_cpu_smp_ops {
 	int (*invoke)(unsigned int funcID, void *priv);
 };
 
-#define MT_CPUPM_PWR_DOMAIN_CORE		BIT(0)
-#define MT_CPUPM_PWR_DOMAIN_PERCORE_DSU		BIT(1)
-#define MT_CPUPM_PWR_DOMAIN_PERCORE_DSU_MEM	BIT(2)
-#define MT_CPUPM_PWR_DOMAIN_CLUSTER		BIT(3)
-#define MT_CPUPM_PWR_DOMAIN_MCUSYS		BIT(4)
-#define MT_CPUPM_PWR_DOMAIN_SUSPEND		BIT(5)
+#define MT_CPUPM_PWR_DOMAIN_CORE BIT(0)
+#define MT_CPUPM_PWR_DOMAIN_PERCORE_DSU BIT(1)
+#define MT_CPUPM_PWR_DOMAIN_PERCORE_DSU_MEM BIT(2)
+#define MT_CPUPM_PWR_DOMAIN_CLUSTER BIT(3)
+#define MT_CPUPM_PWR_DOMAIN_MCUSYS BIT(4)
+#define MT_CPUPM_PWR_DOMAIN_SUSPEND BIT(5)
 
 enum mt_cpupm_pwr_domain {
 	CPUPM_PWR_ON,
 	CPUPM_PWR_OFF,
 };
 
-typedef	unsigned int mtk_pstate_type;
+typedef unsigned int mtk_pstate_type;
 
 struct mtk_cpu_pm_ops {
 	void (*init)(unsigned int cpu, uintptr_t sec_entrypoint);
@@ -193,27 +196,29 @@ struct mt_cpupm_event_data {
  * bit[3:0] (reserved for state_id extension):
  *  - 4: CPU buck.
  */
-#define MT_PLAT_PWR_STATE_CLUSTER	(0x0010)
-#define MT_PLAT_PWR_STATE_MCUSYS	(0x0020)
-#define MT_PLAT_PWR_STATE_MCUSYS_BUCK	(0x0024)
-#define MT_PLAT_PWR_STATE_SYSTEM_MEM	(0x0030)
-#define MT_PLAT_PWR_STATE_SYSTEM_PLL	(0x0040)
-#define MT_PLAT_PWR_STATE_SYSTEM_BUS	(0x0050)
-#define MT_PLAT_PWR_STATE_SUSPEND	(0x00f0)
+#define MT_PLAT_PWR_STATE_CLUSTER (0x0010)
+#define MT_PLAT_PWR_STATE_MCUSYS (0x0020)
+#define MT_PLAT_PWR_STATE_MCUSYS_BUCK (0x0024)
+#define MT_PLAT_PWR_STATE_SYSTEM_MEM (0x0030)
+#define MT_PLAT_PWR_STATE_SYSTEM_PLL (0x0040)
+#define MT_PLAT_PWR_STATE_SYSTEM_BUS (0x0050)
+#define MT_PLAT_PWR_STATE_SUSPEND (0x00f0)
 
-#define IS_MT_PLAT_PWR_STATE(state, target_state)	((state & target_state) == target_state)
-#define IS_MT_PLAT_PWR_STATE_MCUSYS(state)  IS_MT_PLAT_PWR_STATE(state, MT_PLAT_PWR_STATE_MCUSYS)
+#define IS_MT_PLAT_PWR_STATE(state, target_state) \
+	((state & target_state) == target_state)
+#define IS_MT_PLAT_PWR_STATE_MCUSYS(state) \
+	IS_MT_PLAT_PWR_STATE(state, MT_PLAT_PWR_STATE_MCUSYS)
 
-#define PLAT_MT_SYSTEM_SUSPEND		PLAT_MAX_OFF_STATE
-#define PLAT_MT_CPU_SUSPEND_CLUSTER	PLAT_MAX_RET_STATE
-#define PLAT_MT_CPU_SUSPEND_MCUSYS	PLAT_MAX_RET_STATE
+#define PLAT_MT_SYSTEM_SUSPEND PLAT_MAX_OFF_STATE
+#define PLAT_MT_CPU_SUSPEND_CLUSTER PLAT_MAX_RET_STATE
+#define PLAT_MT_CPU_SUSPEND_MCUSYS PLAT_MAX_RET_STATE
 
-#define IS_PLAT_SYSTEM_SUSPEND(aff)	(aff == PLAT_MT_SYSTEM_SUSPEND)
-#define IS_PLAT_SYSTEM_RETENTION(aff)	(aff >= PLAT_MAX_RET_STATE)
+#define IS_PLAT_SYSTEM_SUSPEND(aff) (aff == PLAT_MT_SYSTEM_SUSPEND)
+#define IS_PLAT_SYSTEM_RETENTION(aff) (aff >= PLAT_MAX_RET_STATE)
 
-#define IS_PLAT_SUSPEND_ID(stateid)	(stateid == MT_PLAT_PWR_STATE_SUSPEND)
+#define IS_PLAT_SUSPEND_ID(stateid) (stateid == MT_PLAT_PWR_STATE_SUSPEND)
 
-#define IS_PLAT_MCUSYSOFF_AFFLV(afflv)	(afflv >= PLAT_MT_CPU_SUSPEND_MCUSYS)
+#define IS_PLAT_MCUSYSOFF_AFFLV(afflv) (afflv >= PLAT_MT_CPU_SUSPEND_MCUSYS)
 
 int plat_pm_ops_setup_pwr(struct plat_pm_pwr_ctrl *ops);
 int plat_pm_ops_setup_reset(struct plat_pm_reset_ctrl *ops);

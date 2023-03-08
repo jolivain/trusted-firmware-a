@@ -13,12 +13,13 @@
 #include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_mmu_helpers.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
+#include <msm8916_mmap.h>
+#include <uartdm_console.h>
+
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 #include "msm8916_gicv2.h"
-#include <msm8916_mmap.h>
-#include <platform_def.h>
-#include <uartdm_console.h>
 
 static const mmap_region_t msm8916_mmap[] = {
 	MAP_REGION_FLAT(PCNOC_BASE, PCNOC_SIZE,
@@ -33,13 +34,13 @@ static struct {
 	entry_point_info_t bl33;
 } image_ep_info = {
 	/* BL32 entry point */
-	SET_STATIC_PARAM_HEAD(bl32, PARAM_EP, VERSION_1,
-			      entry_point_info_t, SECURE),
+	SET_STATIC_PARAM_HEAD(bl32, PARAM_EP, VERSION_1, entry_point_info_t,
+			      SECURE),
 	.bl32.pc = BL32_BASE,
 
 	/* BL33 entry point */
-	SET_STATIC_PARAM_HEAD(bl33, PARAM_EP, VERSION_1,
-			      entry_point_info_t, NON_SECURE),
+	SET_STATIC_PARAM_HEAD(bl33, PARAM_EP, VERSION_1, entry_point_info_t,
+			      NON_SECURE),
 	.bl33.pc = PRELOADED_BL33_BASE,
 	.bl33.spsr = SPSR_64(MODE_EL2, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS),
 };
@@ -51,18 +52,18 @@ unsigned int plat_get_syscnt_freq2(void)
 	return PLAT_SYSCNT_FREQ;
 }
 
-#define CLK_ENABLE			BIT_32(0)
-#define CLK_OFF				BIT_32(31)
+#define CLK_ENABLE BIT_32(0)
+#define CLK_OFF BIT_32(31)
 
-#define GPIO_BLSP_UART2_TX		4
-#define GPIO_BLSP_UART2_RX		5
-#define GPIO_CFG_FUNC_BLSP_UART2	(U(0x2) << 2)
-#define GPIO_CFG_DRV_STRENGTH_16MA	(U(0x7) << 6)
+#define GPIO_BLSP_UART2_TX 4
+#define GPIO_BLSP_UART2_RX 5
+#define GPIO_CFG_FUNC_BLSP_UART2 (U(0x2) << 2)
+#define GPIO_CFG_DRV_STRENGTH_16MA (U(0x7) << 6)
 
-#define GCC_BLSP1_AHB_CBCR		(GCC_BASE + 0x01008)
-#define GCC_BLSP1_UART2_APPS_CBCR	(GCC_BASE + 0x0302c)
-#define GCC_APCS_CLOCK_BRANCH_ENA_VOTE	(GCC_BASE + 0x45004)
-#define BLSP1_AHB_CLK_ENA		BIT_32(10)
+#define GCC_BLSP1_AHB_CBCR (GCC_BASE + 0x01008)
+#define GCC_BLSP1_UART2_APPS_CBCR (GCC_BASE + 0x0302c)
+#define GCC_APCS_CLOCK_BRANCH_ENA_VOTE (GCC_BASE + 0x45004)
+#define BLSP1_AHB_CLK_ENA BIT_32(10)
 
 /*
  * The previous boot stage seems to disable most of the UART setup before exit
@@ -99,8 +100,7 @@ void bl31_plat_arch_setup(void)
 {
 	mmap_add_region(BL31_BASE, BL31_BASE, BL31_END - BL31_BASE,
 			MT_RW_DATA | MT_SECURE);
-	mmap_add_region(BL_CODE_BASE, BL_CODE_BASE,
-			BL_CODE_END - BL_CODE_BASE,
+	mmap_add_region(BL_CODE_BASE, BL_CODE_BASE, BL_CODE_END - BL_CODE_BASE,
 			MT_CODE | MT_SECURE);
 	mmap_add_region(BL_RO_DATA_BASE, BL_RO_DATA_BASE,
 			BL_RO_DATA_END - BL_RO_DATA_BASE,
@@ -121,10 +121,11 @@ static void msm8916_configure_timer(void)
 
 	/* Make frame 0 available to non-secure world */
 	mmio_write_32(APCS_QTMR + CNTNSAR, BIT_32(CNTNSAR_NS_SHIFT(0)));
-	mmio_write_32(APCS_QTMR + CNTACR_BASE(0),
-		      BIT_32(CNTACR_RPCT_SHIFT) | BIT_32(CNTACR_RVCT_SHIFT) |
-		      BIT_32(CNTACR_RFRQ_SHIFT) | BIT_32(CNTACR_RVOFF_SHIFT) |
-		      BIT_32(CNTACR_RWVT_SHIFT) | BIT_32(CNTACR_RWPT_SHIFT));
+	mmio_write_32(
+		APCS_QTMR + CNTACR_BASE(0),
+		BIT_32(CNTACR_RPCT_SHIFT) | BIT_32(CNTACR_RVCT_SHIFT) |
+			BIT_32(CNTACR_RFRQ_SHIFT) | BIT_32(CNTACR_RVOFF_SHIFT) |
+			BIT_32(CNTACR_RWVT_SHIFT) | BIT_32(CNTACR_RWPT_SHIFT));
 }
 
 /*
@@ -132,11 +133,11 @@ static void msm8916_configure_timer(void)
  * be cleared to 0 to only allow secure access. Since BL31 handles most of
  * the CPU power management, most of them can be cleared to secure access only.
  */
-#define APCS_GLB_SECURE_STS_NS		BIT_32(0)
-#define APCS_GLB_SECURE_PWR_NS		BIT_32(1)
-#define APCS_BOOT_START_ADDR_SEC	(APCS_CFG + 0x04)
-#define REMAP_EN			BIT_32(0)
-#define APCS_AA64NAA32_REG		(APCS_CFG + 0x0c)
+#define APCS_GLB_SECURE_STS_NS BIT_32(0)
+#define APCS_GLB_SECURE_PWR_NS BIT_32(1)
+#define APCS_BOOT_START_ADDR_SEC (APCS_CFG + 0x04)
+#define REMAP_EN BIT_32(0)
+#define APCS_AA64NAA32_REG (APCS_CFG + 0x0c)
 
 static void msm8916_configure_cpu_pm(void)
 {
@@ -151,7 +152,8 @@ static void msm8916_configure_cpu_pm(void)
 	 * to CPU frequency related registers (e.g. APCS_CMD_RCGR). If these
 	 * bits are not set, CPU frequency control fails in the non-secure world.
 	 */
-	mmio_write_32(APCS_GLB, APCS_GLB_SECURE_STS_NS | APCS_GLB_SECURE_PWR_NS);
+	mmio_write_32(APCS_GLB,
+		      APCS_GLB_SECURE_STS_NS | APCS_GLB_SECURE_PWR_NS);
 
 	/* Disallow non-secure access to L2 SAW2 */
 	mmio_write_32(APCS_L2_SAW2, 0);
@@ -174,11 +176,11 @@ static void msm8916_configure_cpu_pm(void)
  * ("TZ/HYP/NS"). Route all interrupts to the non-secure interrupt number
  * by default to avoid special setup on the non-secure side.
  */
-#define GCC_SMMU_CFG_CBCR			(GCC_BASE + 0x12038)
-#define GCC_APCS_SMMU_CLOCK_BRANCH_ENA_VOTE	(GCC_BASE + 0x4500c)
-#define SMMU_CFG_CLK_ENA			BIT_32(12)
-#define APPS_SMMU_INTR_SEL_NS			(APPS_SMMU_QCOM + 0x2000)
-#define APPS_SMMU_INTR_SEL_NS_EN_ALL		U(0xffffffff)
+#define GCC_SMMU_CFG_CBCR (GCC_BASE + 0x12038)
+#define GCC_APCS_SMMU_CLOCK_BRANCH_ENA_VOTE (GCC_BASE + 0x4500c)
+#define SMMU_CFG_CLK_ENA BIT_32(12)
+#define APPS_SMMU_INTR_SEL_NS (APPS_SMMU_QCOM + 0x2000)
+#define APPS_SMMU_INTR_SEL_NS_EN_ALL U(0xffffffff)
 
 static void msm8916_configure_smmu(void)
 {

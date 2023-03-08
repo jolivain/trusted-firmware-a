@@ -17,40 +17,32 @@ struct mtk_mmap_descriptor {
 };
 
 #define MTK_MMAP_SECTION \
-	__used \
-	__aligned(sizeof(void *)) \
-	__section(".mtk_mmap_lists")
+	__used __aligned(sizeof(void *)) __section(".mtk_mmap_lists")
 
-#define DECLARE_MTK_MMAP_REGIONS(_mmap_array) \
-	static const struct mtk_mmap_descriptor _mtk_mmap_descriptor_##_mmap_array \
-	__used \
-	__aligned(sizeof(void *)) \
-	__section(".mtk_mmap_pool") \
-	= { \
-		.mmap_name = #_mmap_array, \
-		.mmap_ptr = _mmap_array, \
-		.mmap_size = ARRAY_SIZE(_mmap_array) \
-	}
+#define DECLARE_MTK_MMAP_REGIONS(_mmap_array)                           \
+	static const struct mtk_mmap_descriptor                         \
+		_mtk_mmap_descriptor_##_mmap_array __used __aligned(    \
+			sizeof(void *)) __section(".mtk_mmap_pool") = { \
+			.mmap_name = #_mmap_array,                      \
+			.mmap_ptr = _mmap_array,                        \
+			.mmap_size = ARRAY_SIZE(_mmap_array)            \
+		}
 
-#define MAP_BL_RW MAP_REGION_FLAT( \
-		DATA_START, \
-		BL_END - DATA_START, \
-		MT_MEMORY | MT_RW | MT_SECURE)
+#define MAP_BL_RW                                        \
+	MAP_REGION_FLAT(DATA_START, BL_END - DATA_START, \
+			MT_MEMORY | MT_RW | MT_SECURE)
 
 #if SEPARATE_CODE_AND_RODATA
-#define MAP_BL_RO \
-	MAP_REGION_FLAT( \
-		BL_CODE_BASE, \
-		BL_CODE_END - BL_CODE_BASE, \
-		MT_CODE | MT_SECURE), \
-	MAP_REGION_FLAT( \
-		BL_RO_DATA_BASE, \
-		BL_RO_DATA_END - BL_RO_DATA_BASE, \
-		MT_RO_DATA | MT_SECURE)
+#define MAP_BL_RO                                                 \
+	MAP_REGION_FLAT(BL_CODE_BASE, BL_CODE_END - BL_CODE_BASE, \
+			MT_CODE | MT_SECURE),                     \
+		MAP_REGION_FLAT(BL_RO_DATA_BASE,                  \
+				BL_RO_DATA_END - BL_RO_DATA_BASE, \
+				MT_RO_DATA | MT_SECURE)
 #else
-#define MAP_BL_RO MAP_REGION_FLAT(BL_CODE_BASE, \
-				  BL_CODE_END - BL_CODE_BASE,	\
-				  MT_CODE | MT_SECURE)
+#define MAP_BL_RO                                                 \
+	MAP_REGION_FLAT(BL_CODE_BASE, BL_CODE_END - BL_CODE_BASE, \
+			MT_CODE | MT_SECURE)
 #endif
 
 void mtk_xlat_init(const mmap_region_t *bl_regions);

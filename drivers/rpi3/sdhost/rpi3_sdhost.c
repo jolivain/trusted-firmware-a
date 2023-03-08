@@ -5,17 +5,18 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <arch.h>
-#include <arch_helpers.h>
 #include <assert.h>
-#include <common/debug.h>
-#include <lib/mmio.h>
-#include <drivers/delay_timer.h>
-#include <drivers/rpi3/sdhost/rpi3_sdhost.h>
-#include <drivers/mmc.h>
-#include <drivers/rpi3/gpio/rpi3_gpio.h>
 #include <errno.h>
 #include <string.h>
+
+#include <arch.h>
+#include <arch_helpers.h>
+#include <common/debug.h>
+#include <drivers/delay_timer.h>
+#include <drivers/mmc.h>
+#include <drivers/rpi3/gpio/rpi3_gpio.h>
+#include <drivers/rpi3/sdhost/rpi3_sdhost.h>
+#include <lib/mmio.h>
 
 static void rpi3_sdhost_initialize(void);
 static int rpi3_sdhost_send_cmd(struct mmc_cmd *cmd);
@@ -25,12 +26,12 @@ static int rpi3_sdhost_read(int lba, uintptr_t buf, size_t size);
 static int rpi3_sdhost_write(int lba, uintptr_t buf, size_t size);
 
 static const struct mmc_ops rpi3_sdhost_ops = {
-	.init		= rpi3_sdhost_initialize,
-	.send_cmd	= rpi3_sdhost_send_cmd,
-	.set_ios	= rpi3_sdhost_set_ios,
-	.prepare	= rpi3_sdhost_prepare,
-	.read		= rpi3_sdhost_read,
-	.write		= rpi3_sdhost_write,
+	.init = rpi3_sdhost_initialize,
+	.send_cmd = rpi3_sdhost_send_cmd,
+	.set_ios = rpi3_sdhost_set_ios,
+	.prepare = rpi3_sdhost_prepare,
+	.read = rpi3_sdhost_read,
+	.write = rpi3_sdhost_write,
 };
 
 static struct rpi3_sdhost_params rpi3_sdhost_params;
@@ -51,8 +52,8 @@ static int rpi3_sdhost_waitcommand(void)
 
 	volatile int timeout = 1000;
 
-	while ((mmio_read_32(reg_base + HC_COMMAND) & HC_CMD_ENABLE)
-	       && (--timeout > 0)) {
+	while ((mmio_read_32(reg_base + HC_COMMAND) & HC_CMD_ENABLE) &&
+	       (--timeout > 0)) {
 		udelay(100);
 	}
 
@@ -231,7 +232,7 @@ static void rpi3_sdhost_reset(void)
 	dbg &= ~((HC_DBG_FIFO_THRESH_MASK << HC_DBG_FIFO_THRESH_READ_SHIFT) |
 		 (HC_DBG_FIFO_THRESH_MASK << HC_DBG_FIFO_THRESH_WRITE_SHIFT));
 	dbg |= (HC_FIFO_THRESH_READ << HC_DBG_FIFO_THRESH_READ_SHIFT) |
-		(HC_FIFO_THRESH_WRITE << HC_DBG_FIFO_THRESH_WRITE_SHIFT);
+	       (HC_FIFO_THRESH_WRITE << HC_DBG_FIFO_THRESH_WRITE_SHIFT);
 	mmio_write_32(reg_base + HC_DEBUG, dbg);
 	mdelay(250);
 	mmio_write_32(reg_base + HC_POWER, 1);
@@ -280,10 +281,9 @@ static int rpi3_sdhost_send_cmd(struct mmc_cmd *cmd)
 		 * And we must also resend MMC_CMD(55) in this case
 		 */
 		if (rpi3_sdhost_params.current_cmd != MMC_CMD(55)) {
-			send_command_decorated(
-				MMC_CMD(55),
-				rpi3_sdhost_params.sdcard_rca <<
-				RCA_SHIFT_OFFSET);
+			send_command_decorated(MMC_CMD(55),
+					       rpi3_sdhost_params.sdcard_rca
+						       << RCA_SHIFT_OFFSET);
 			rpi3_sdhost_params.mmc_app_cmd = 1;
 			rpi3_sdhost_waitcommand();
 
@@ -298,8 +298,7 @@ static int rpi3_sdhost_send_cmd(struct mmc_cmd *cmd)
 	if (cmd_idx == MMC_CMD(12))
 		return 0;
 
-	if ((cmd->resp_type & MMC_RSP_136) &&
-	    (cmd->resp_type & MMC_RSP_BUSY)) {
+	if ((cmd->resp_type & MMC_RSP_136) && (cmd->resp_type & MMC_RSP_BUSY)) {
 		ERROR("rpi3_sdhost: unsupported response type!\n");
 		return -(EOPNOTSUPP);
 	}
@@ -366,8 +365,8 @@ static int rpi3_sdhost_send_cmd(struct mmc_cmd *cmd)
 		 * If the command SEND_OP_COND returns with CRC7 error,
 		 * it can be considered as having completed successfully.
 		 */
-		if (!(sdhsts & HC_HSTST_ERROR_CRC7)
-		    || (cmd_idx != MMC_CMD(1))) {
+		if (!(sdhsts & HC_HSTST_ERROR_CRC7) ||
+		    (cmd_idx != MMC_CMD(1))) {
 			if (sdhsts & HC_HSTST_TIMEOUT_CMD) {
 				ERROR("rpi3_sdhost: timeout status 0x%x\n",
 				      sdhsts);
@@ -383,8 +382,8 @@ static int rpi3_sdhost_send_cmd(struct mmc_cmd *cmd)
 
 	if ((!err) && (cmd_idx == MMC_CMD(3))) {
 		/* we keep the RCA in case to send MMC_CMD(55) ourselves */
-		rpi3_sdhost_params.sdcard_rca = (cmd->resp_data[0]
-						 & 0xFFFF0000U) >> 16;
+		rpi3_sdhost_params.sdcard_rca =
+			(cmd->resp_data[0] & 0xFFFF0000U) >> 16;
 	}
 
 	return err;
@@ -414,9 +413,8 @@ static int rpi3_sdhost_set_clock(unsigned int clk)
 		div = HC_CLOCKDIVISOR_MAXVAL;
 
 	rpi3_sdhost_params.clk_rate = max_clk / (div + 2);
-	rpi3_sdhost_params.ns_per_fifo_word = (1000000000 /
-					       rpi3_sdhost_params.clk_rate)
-		* 8;
+	rpi3_sdhost_params.ns_per_fifo_word =
+		(1000000000 / rpi3_sdhost_params.clk_rate) * 8;
 
 	mmio_write_32(reg_base + HC_CLOCKDIVISOR, div);
 	return 0;
@@ -443,8 +441,8 @@ static int rpi3_sdhost_set_ios(unsigned int clk, unsigned int width)
 
 	mmio_write_32(reg_base + HC_HOSTCONFIG, tmp1);
 	tmp1 = mmio_read_32(reg_base + HC_HOSTCONFIG);
-	mmio_write_32(reg_base + HC_HOSTCONFIG, tmp1 |
-		      HC_HSTCF_SLOW_CARD | HC_HSTCF_INTBUS_WIDE);
+	mmio_write_32(reg_base + HC_HOSTCONFIG,
+		      tmp1 | HC_HSTCF_SLOW_CARD | HC_HSTCF_INTBUS_WIDE);
 
 	return 0;
 }
@@ -476,7 +474,7 @@ static int rpi3_sdhost_prepare(int lba, uintptr_t buf, size_t size)
 static int rpi3_sdhost_read(int lba, uintptr_t buf, size_t size)
 {
 	int err = 0;
-	uint32_t *buf1 = ((uint32_t *) buf);
+	uint32_t *buf1 = ((uint32_t *)buf);
 	uintptr_t reg_base = rpi3_sdhost_params.reg_base;
 	int timeout = 100000;
 	int remaining_words = 0;
@@ -485,8 +483,8 @@ static int rpi3_sdhost_read(int lba, uintptr_t buf, size_t size)
 		volatile int t = timeout;
 		uint32_t hsts_err;
 
-		while ((mmio_read_32(reg_base + HC_HOSTSTATUS)
-			& HC_HSTST_HAVEDATA) == 0) {
+		while ((mmio_read_32(reg_base + HC_HOSTSTATUS) &
+			HC_HSTST_HAVEDATA) == 0) {
 			if (t == 0) {
 				ERROR("rpi3_sdhost: fifo timeout after %dus\n",
 				      timeout);
@@ -501,11 +499,10 @@ static int rpi3_sdhost_read(int lba, uintptr_t buf, size_t size)
 
 		uint32_t data = mmio_read_32(reg_base + HC_DATAPORT);
 
-		hsts_err = mmio_read_32(reg_base + HC_HOSTSTATUS)
-			& HC_HSTST_MASK_ERROR_ALL;
+		hsts_err = mmio_read_32(reg_base + HC_HOSTSTATUS) &
+			   HC_HSTST_MASK_ERROR_ALL;
 		if (hsts_err) {
-			ERROR("rpi3_sdhost: transfer FIFO word %d: 0x%x\n",
-			      i,
+			ERROR("rpi3_sdhost: transfer FIFO word %d: 0x%x\n", i,
 			      mmio_read_32(reg_base + HC_HOSTSTATUS));
 			rpi3_sdhost_print_regs();
 
@@ -519,8 +516,8 @@ static int rpi3_sdhost_read(int lba, uintptr_t buf, size_t size)
 			buf1[i] = data;
 
 		/* speeding up if the remaining words are still a lot */
-		remaining_words = (mmio_read_32(reg_base + HC_DEBUG) >> 4)
-			& HC_DBG_FIFO_THRESH_MASK;
+		remaining_words = (mmio_read_32(reg_base + HC_DEBUG) >> 4) &
+				  HC_DBG_FIFO_THRESH_MASK;
 		if (remaining_words >= 7)
 			continue;
 
@@ -540,7 +537,7 @@ static int rpi3_sdhost_read(int lba, uintptr_t buf, size_t size)
 
 static int rpi3_sdhost_write(int lba, uintptr_t buf, size_t size)
 {
-	uint32_t *buf1 = ((uint32_t *) buf);
+	uint32_t *buf1 = ((uint32_t *)buf);
 	uintptr_t reg_base = rpi3_sdhost_params.reg_base;
 	int err = 0;
 	int remaining_words = 0;
@@ -555,21 +552,21 @@ static int rpi3_sdhost_write(int lba, uintptr_t buf, size_t size)
 
 		dbg = mmio_read_32(reg_base + HC_DEBUG);
 		fsm_state = dbg & HC_DBG_FSM_MASK;
-		if (fsm_state != HC_DBG_FSM_WRITEDATA
-		    && fsm_state != HC_DBG_FSM_WRITESTART1
-		    && fsm_state != HC_DBG_FSM_WRITESTART2
-		    && fsm_state != HC_DBG_FSM_WRITECRC
-		    && fsm_state != HC_DBG_FSM_WRITEWAIT1
-		    && fsm_state != HC_DBG_FSM_WRITEWAIT2) {
-			hsts_err = mmio_read_32(reg_base + HC_HOSTSTATUS)
-				& HC_HSTST_MASK_ERROR_ALL;
+		if (fsm_state != HC_DBG_FSM_WRITEDATA &&
+		    fsm_state != HC_DBG_FSM_WRITESTART1 &&
+		    fsm_state != HC_DBG_FSM_WRITESTART2 &&
+		    fsm_state != HC_DBG_FSM_WRITECRC &&
+		    fsm_state != HC_DBG_FSM_WRITEWAIT1 &&
+		    fsm_state != HC_DBG_FSM_WRITEWAIT2) {
+			hsts_err = mmio_read_32(reg_base + HC_HOSTSTATUS) &
+				   HC_HSTST_MASK_ERROR_ALL;
 			if (hsts_err)
 				err = -(EILSEQ);
 		}
 
 		/* speeding up if the remaining words are not many */
-		remaining_words = (mmio_read_32(reg_base + HC_DEBUG) >> 4)
-			& HC_DBG_FIFO_THRESH_MASK;
+		remaining_words = (mmio_read_32(reg_base + HC_DEBUG) >> 4) &
+				  HC_DBG_FIFO_THRESH_MASK;
 		if (remaining_words <= 4)
 			continue;
 
@@ -587,19 +584,17 @@ static int rpi3_sdhost_write(int lba, uintptr_t buf, size_t size)
 }
 
 void rpi3_sdhost_init(struct rpi3_sdhost_params *params,
-		    struct mmc_device_info *mmc_dev_info)
+		      struct mmc_device_info *mmc_dev_info)
 {
-	assert((params != 0) &&
-	       ((params->reg_base & MMC_BLOCK_MASK) == 0));
+	assert((params != 0) && ((params->reg_base & MMC_BLOCK_MASK) == 0));
 
 	memcpy(&rpi3_sdhost_params, params, sizeof(struct rpi3_sdhost_params));
 
 	/* backup GPIO 48 to 53 configurations */
 	for (int i = 48; i <= 53; i++) {
-		rpi3_sdhost_params.gpio48_pinselect[i - 48]
-			= rpi3_gpio_get_select(i);
-		VERBOSE("rpi3_sdhost: Original GPIO state %d: %d\n",
-			i,
+		rpi3_sdhost_params.gpio48_pinselect[i - 48] =
+			rpi3_gpio_get_select(i);
+		VERBOSE("rpi3_sdhost: Original GPIO state %d: %d\n", i,
 			rpi3_sdhost_params.gpio48_pinselect[i - 48]);
 	}
 
@@ -635,7 +630,7 @@ void rpi3_sdhost_stop(void)
 	rpi3_drain_fifo();
 
 	VERBOSE("rpi3_sdhost: Shutting down: slowing down the clock\n");
-	mmio_write_32(reg_base+HC_CLOCKDIVISOR, HC_CLOCKDIVISOR_SLOWVAL);
+	mmio_write_32(reg_base + HC_CLOCKDIVISOR, HC_CLOCKDIVISOR_SLOWVAL);
 	udelay(500);
 
 	VERBOSE("rpi3_sdhost: Shutting down: put SDHost into idle state\n");
@@ -662,8 +657,8 @@ void rpi3_sdhost_stop(void)
 
 	/* Restore the pinmux to original state */
 	for (int i = 48; i <= 53; i++) {
-		rpi3_gpio_set_select(i,
-				     rpi3_sdhost_params.gpio48_pinselect[i-48]);
+		rpi3_gpio_set_select(
+			i, rpi3_sdhost_params.gpio48_pinselect[i - 48]);
 	}
 
 	/* Reset the pull resistors before entering BL33.

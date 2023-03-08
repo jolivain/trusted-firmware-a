@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -17,6 +17,7 @@
 #include <lib/el3_runtime/pubsub_events.h>
 #include <lib/pmf/pmf.h>
 #include <lib/runtime_instr.h>
+
 #include <plat/common/platform.h>
 
 #include "psci_private.h"
@@ -28,7 +29,7 @@
 static void psci_suspend_to_standby_finisher(unsigned int cpu_idx,
 					     unsigned int end_pwrlvl)
 {
-	unsigned int parent_nodes[PLAT_MAX_PWR_LVL] = {0};
+	unsigned int parent_nodes[PLAT_MAX_PWR_LVL] = { 0 };
 	psci_power_state_t state_info;
 
 	/* Get the parent nodes */
@@ -114,9 +115,8 @@ static void psci_suspend_to_pwrdown_start(unsigned int end_pwrlvl,
 	 * Flush cache line so that even if CPU power down happens
 	 * the timestamp update is reflected in memory.
 	 */
-	PMF_CAPTURE_TIMESTAMP(rt_instr_svc,
-		RT_INSTR_ENTER_CFLUSH,
-		PMF_CACHE_MAINT);
+	PMF_CAPTURE_TIMESTAMP(rt_instr_svc, RT_INSTR_ENTER_CFLUSH,
+			      PMF_CACHE_MAINT);
 #endif
 
 	/*
@@ -127,9 +127,8 @@ static void psci_suspend_to_pwrdown_start(unsigned int end_pwrlvl,
 	psci_pwrdown_cpu(max_off_lvl);
 
 #if ENABLE_RUNTIME_INSTRUMENTATION
-	PMF_CAPTURE_TIMESTAMP(rt_instr_svc,
-		RT_INSTR_EXIT_CFLUSH,
-		PMF_NO_CACHE_MAINT);
+	PMF_CAPTURE_TIMESTAMP(rt_instr_svc, RT_INSTR_EXIT_CFLUSH,
+			      PMF_NO_CACHE_MAINT);
 #endif
 }
 
@@ -158,7 +157,7 @@ void psci_cpu_suspend_start(const entry_point_info_t *ep,
 {
 	int skip_wfi = 0;
 	unsigned int idx = plat_my_core_pos();
-	unsigned int parent_nodes[PLAT_MAX_PWR_LVL] = {0};
+	unsigned int parent_nodes[PLAT_MAX_PWR_LVL] = { 0 };
 
 	/*
 	 * This function must only be called on platforms where the
@@ -233,9 +232,8 @@ exit:
 		 * timestamp cache line will be flushed before return to
 		 * normal world on wakeup.
 		 */
-		PMF_CAPTURE_TIMESTAMP(rt_instr_svc,
-		    RT_INSTR_ENTER_HW_LOW_PWR,
-		    PMF_NO_CACHE_MAINT);
+		PMF_CAPTURE_TIMESTAMP(rt_instr_svc, RT_INSTR_ENTER_HW_LOW_PWR,
+				      PMF_NO_CACHE_MAINT);
 #endif
 
 		/* The function calls below must not return */
@@ -246,9 +244,8 @@ exit:
 	}
 
 #if ENABLE_RUNTIME_INSTRUMENTATION
-	PMF_CAPTURE_TIMESTAMP(rt_instr_svc,
-	    RT_INSTR_ENTER_HW_LOW_PWR,
-	    PMF_NO_CACHE_MAINT);
+	PMF_CAPTURE_TIMESTAMP(rt_instr_svc, RT_INSTR_ENTER_HW_LOW_PWR,
+			      PMF_NO_CACHE_MAINT);
 #endif
 
 	/*
@@ -259,9 +256,8 @@ exit:
 	wfi();
 
 #if ENABLE_RUNTIME_INSTRUMENTATION
-	PMF_CAPTURE_TIMESTAMP(rt_instr_svc,
-	    RT_INSTR_EXIT_HW_LOW_PWR,
-	    PMF_NO_CACHE_MAINT);
+	PMF_CAPTURE_TIMESTAMP(rt_instr_svc, RT_INSTR_EXIT_HW_LOW_PWR,
+			      PMF_NO_CACHE_MAINT);
 #endif
 
 	/*
@@ -276,14 +272,15 @@ exit:
  * are called by the common finisher routine in psci_common.c. The `state_info`
  * is the psci_power_state from which this CPU has woken up from.
  ******************************************************************************/
-void psci_cpu_suspend_finish(unsigned int cpu_idx, const psci_power_state_t *state_info)
+void psci_cpu_suspend_finish(unsigned int cpu_idx,
+			     const psci_power_state_t *state_info)
 {
 	unsigned int counter_freq;
 	unsigned int max_off_lvl;
 
 	/* Ensure we have been woken up from a suspended state */
 	assert((psci_get_aff_info_state() == AFF_STATE_ON) &&
-		(is_local_state_off(
+	       (is_local_state_off(
 			state_info->pwr_domain_state[PSCI_CPU_PWR_LVL]) != 0));
 
 	/*
@@ -315,7 +312,8 @@ void psci_cpu_suspend_finish(unsigned int cpu_idx, const psci_power_state_t *sta
 	 * Dispatcher to let it do any bookeeping. If the handler encounters an
 	 * error, it's expected to assert within
 	 */
-	if ((psci_spd_pm != NULL) && (psci_spd_pm->svc_suspend_finish != NULL)) {
+	if ((psci_spd_pm != NULL) &&
+	    (psci_spd_pm->svc_suspend_finish != NULL)) {
 		max_off_lvl = psci_find_max_off_lvl(state_info);
 		assert(max_off_lvl != PSCI_INVALID_PWR_LVL);
 		psci_spd_pm->svc_suspend_finish(max_off_lvl);

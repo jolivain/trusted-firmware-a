@@ -12,16 +12,16 @@
 #include <mss_scp_bl2_format.h>
 
 /* CONFI REGISTERS */
-#define MG_CM3_CONFI_BASE(CP)		(MVEBU_CP_REGS_BASE(CP) + 0x100000)
-#define MG_CM3_SRAM_BASE(CP)		MG_CM3_CONFI_BASE(CP)
-#define MG_CM3_CONFI_GLOB_CFG_REG(CP)	(MG_CM3_CONFI_BASE(CP) + 0x2B500)
-#define CM3_CPU_EN_BIT			BIT(28)
-#define MG_CM3_MG_INT_MFX_REG(CP)	(MG_CM3_CONFI_BASE(CP) + 0x2B054)
-#define CM3_SYS_RESET_BIT		BIT(0)
+#define MG_CM3_CONFI_BASE(CP) (MVEBU_CP_REGS_BASE(CP) + 0x100000)
+#define MG_CM3_SRAM_BASE(CP) MG_CM3_CONFI_BASE(CP)
+#define MG_CM3_CONFI_GLOB_CFG_REG(CP) (MG_CM3_CONFI_BASE(CP) + 0x2B500)
+#define CM3_CPU_EN_BIT BIT(28)
+#define MG_CM3_MG_INT_MFX_REG(CP) (MG_CM3_CONFI_BASE(CP) + 0x2B054)
+#define CM3_SYS_RESET_BIT BIT(0)
 
-#define MG_CM3_SHARED_MEM_BASE(CP)	(MG_CM3_SRAM_BASE(CP) + 0x1FC00ULL)
+#define MG_CM3_SHARED_MEM_BASE(CP) (MG_CM3_SRAM_BASE(CP) + 0x1FC00ULL)
 
-#define MG_SRAM_SIZE	0x20000 /* 128KB */
+#define MG_SRAM_SIZE 0x20000 /* 128KB */
 
 #define MG_ACK_TIMEOUT 10
 
@@ -64,12 +64,12 @@ int mg_image_load(uintptr_t src_addr, uint32_t size, int cp_index)
 void mg_start_ap_fw(int cp_nr, uint8_t comphy_index)
 {
 	volatile struct ap_sharedmem_ctrl *ap_shared_ctrl =
-					(void *)MG_CM3_SHARED_MEM_BASE(cp_nr);
+		(void *)MG_CM3_SHARED_MEM_BASE(cp_nr);
 	int timeout = MG_ACK_TIMEOUT;
 
 	if (mmio_read_32(MG_CM3_CONFI_GLOB_CFG_REG(cp_nr)) & CM3_CPU_EN_BIT) {
 		VERBOSE("cm3 already running\n");
-		return;  /* cm3 already running */
+		return; /* cm3 already running */
 	}
 
 	/*

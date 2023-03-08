@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,21 +13,21 @@
  * Constants that allow assembler code to preserve callee-saved registers of the
  * C runtime context while performing a security state switch.
  ******************************************************************************/
-#define RMMD_C_RT_CTX_X19		0x0
-#define RMMD_C_RT_CTX_X20		0x8
-#define RMMD_C_RT_CTX_X21		0x10
-#define RMMD_C_RT_CTX_X22		0x18
-#define RMMD_C_RT_CTX_X23		0x20
-#define RMMD_C_RT_CTX_X24		0x28
-#define RMMD_C_RT_CTX_X25		0x30
-#define RMMD_C_RT_CTX_X26		0x38
-#define RMMD_C_RT_CTX_X27		0x40
-#define RMMD_C_RT_CTX_X28		0x48
-#define RMMD_C_RT_CTX_X29		0x50
-#define RMMD_C_RT_CTX_X30		0x58
+#define RMMD_C_RT_CTX_X19 0x0
+#define RMMD_C_RT_CTX_X20 0x8
+#define RMMD_C_RT_CTX_X21 0x10
+#define RMMD_C_RT_CTX_X22 0x18
+#define RMMD_C_RT_CTX_X23 0x20
+#define RMMD_C_RT_CTX_X24 0x28
+#define RMMD_C_RT_CTX_X25 0x30
+#define RMMD_C_RT_CTX_X26 0x38
+#define RMMD_C_RT_CTX_X27 0x40
+#define RMMD_C_RT_CTX_X28 0x48
+#define RMMD_C_RT_CTX_X29 0x50
+#define RMMD_C_RT_CTX_X30 0x58
 
-#define RMMD_C_RT_CTX_SIZE		0x60
-#define RMMD_C_RT_CTX_ENTRIES		(RMMD_C_RT_CTX_SIZE >> DWORD_SHIFT)
+#define RMMD_C_RT_CTX_SIZE 0x60
+#define RMMD_C_RT_CTX_ENTRIES (RMMD_C_RT_CTX_SIZE >> DWORD_SHIFT)
 
 #ifndef __ASSEMBLER__
 #include <stdint.h>

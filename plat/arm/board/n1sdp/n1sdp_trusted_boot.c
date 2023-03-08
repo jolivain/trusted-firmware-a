@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -47,8 +47,7 @@ int plat_set_nv_ctr(void *cookie, unsigned int nv_ctr)
  * }
  */
 int plat_get_rotpk_info(void *cookie, void **key_ptr, unsigned int *key_len,
-			 unsigned int *flags)
+			unsigned int *flags)
 {
 	return arm_get_rotpk_info(cookie, key_ptr, key_len, flags);
 }
-

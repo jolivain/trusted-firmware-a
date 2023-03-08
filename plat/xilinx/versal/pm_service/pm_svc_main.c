@@ -11,22 +11,25 @@
  */
 
 #include <errno.h>
-#include <plat_private.h>
 #include <stdbool.h>
+
 #include <common/runtime_svc.h>
+#include <drivers/arm/gicv3.h>
+#include <plat_private.h>
+
 #include <plat/common/platform.h>
+
+#include "../drivers/arm/gic/v3/gicv3_private.h"
 #include "pm_api_sys.h"
 #include "pm_client.h"
 #include "pm_ipi.h"
-#include <drivers/arm/gicv3.h>
-#include "../drivers/arm/gic/v3/gicv3_private.h"
 
-#define MODE				0x80000000U
+#define MODE 0x80000000U
 
-#define XSCUGIC_SGIR_EL1_INITID_SHIFT    24U
-#define INVALID_SGI    0xFFU
-#define PM_INIT_SUSPEND_CB	(30U)
-#define PM_NOTIFY_CB		(32U)
+#define XSCUGIC_SGIR_EL1_INITID_SHIFT 24U
+#define INVALID_SGI 0xFFU
+#define PM_INIT_SUSPEND_CB (30U)
+#define PM_NOTIFY_CB (32U)
 DEFINE_RENAME_SYSREG_RW_FUNCS(icc_asgi1r_el1, S3_0_C12_C11_6)
 
 /* pm_up = true - UP, pm_up = false - DOWN */
@@ -47,7 +50,7 @@ static void notify_os(void)
 static uint64_t ipi_fiq_handler(uint32_t id, uint32_t flags, void *handle,
 				void *cookie)
 {
-	uint32_t payload[4] = {0};
+	uint32_t payload[4] = { 0 };
 
 	VERBOSE("Received IPI FIQ from firmware\n");
 
@@ -137,7 +140,8 @@ int32_t pm_setup(void)
 		WARN("BL31: registering IPI interrupt failed\n");
 	}
 
-	gicd_write_irouter(gicv3_driver_data->gicd_base, PLAT_VERSAL_IPI_IRQ, MODE);
+	gicd_write_irouter(gicv3_driver_data->gicd_base, PLAT_VERSAL_IPI_IRQ,
+			   MODE);
 	return ret;
 }
 
@@ -157,42 +161,36 @@ static uintptr_t eemi_for_compatibility(uint32_t api_id, uint32_t *pm_arg,
 	enum pm_ret_status ret;
 
 	switch (api_id) {
-
-	case PM_IOCTL:
-	{
+	case PM_IOCTL: {
 		uint32_t value = 0U;
 
-		ret = pm_api_ioctl(pm_arg[0], pm_arg[1], pm_arg[2],
-				   pm_arg[3], pm_arg[4],
-				   &value, security_flag);
+		ret = pm_api_ioctl(pm_arg[0], pm_arg[1], pm_arg[2], pm_arg[3],
+				   pm_arg[4], &value, security_flag);
 		if (ret == PM_RET_ERROR_NOTSUPPORTED)
 			return (uintptr_t)0;
 
 		SMC_RET1(handle, (uint64_t)ret | ((uint64_t)value) << 32U);
 	}
 
-	case PM_QUERY_DATA:
-	{
+	case PM_QUERY_DATA: {
 		uint32_t data[PAYLOAD_ARG_CNT] = { 0 };
 
-		ret = pm_query_data(pm_arg[0], pm_arg[1], pm_arg[2],
-				    pm_arg[3], data, security_flag);
+		ret = pm_query_data(pm_arg[0], pm_arg[1], pm_arg[2], pm_arg[3],
+				    data, security_flag);
 
 		SMC_RET2(handle, (uint64_t)ret | ((uint64_t)data[0] << 32U),
 			 (uint64_t)data[1] | ((uint64_t)data[2] << 32U));
 	}
 
-	case PM_FEATURE_CHECK:
-	{
-		uint32_t result[PAYLOAD_ARG_CNT] = {0U};
+	case PM_FEATURE_CHECK: {
+		uint32_t result[PAYLOAD_ARG_CNT] = { 0U };
 
 		ret = pm_feature_check(pm_arg[0], result, security_flag);
 		SMC_RET2(handle, (uint64_t)ret | ((uint64_t)result[0] << 32U),
 			 (uint64_t)result[1] | ((uint64_t)result[2] << 32U));
 	}
 
-	case PM_LOAD_PDI:
-	{
+	case PM_LOAD_PDI: {
 		ret = pm_load_pdi(pm_arg[0], pm_arg[1], pm_arg[2],
 				  security_flag);
 		SMC_RET1(handle, (uint64_t)ret);
@@ -219,7 +217,6 @@ static uintptr_t eemi_psci_debugfs_handler(uint32_t api_id, uint32_t *pm_arg,
 	enum pm_ret_status ret;
 
 	switch (api_id) {
-
 	case PM_SELF_SUSPEND:
 		ret = pm_self_suspend(pm_arg[0], pm_arg[1], pm_arg[2],
 				      pm_arg[3], security_flag);
@@ -230,8 +227,8 @@ static uintptr_t eemi_psci_debugfs_handler(uint32_t api_id, uint32_t *pm_arg,
 		SMC_RET1(handle, (u_register_t)ret);
 
 	case PM_REQ_SUSPEND:
-		ret = pm_req_suspend(pm_arg[0], pm_arg[1], pm_arg[2],
-				     pm_arg[3], security_flag);
+		ret = pm_req_suspend(pm_arg[0], pm_arg[1], pm_arg[2], pm_arg[3],
+				     security_flag);
 		SMC_RET1(handle, (u_register_t)ret);
 
 	case PM_ABORT_SUSPEND:
@@ -258,9 +255,7 @@ static uintptr_t TF_A_specific_handler(uint32_t api_id, uint32_t *pm_arg,
 				       void *handle, uint32_t security_flag)
 {
 	switch (api_id) {
-
-	case TF_A_PM_REGISTER_SGI:
-	{
+	case TF_A_PM_REGISTER_SGI: {
 		int32_t ret;
 
 		ret = pm_register_sgi(pm_arg[0], pm_arg[1]);
@@ -271,19 +266,19 @@ static uintptr_t TF_A_specific_handler(uint32_t api_id, uint32_t *pm_arg,
 		SMC_RET1(handle, (uint32_t)PM_RET_SUCCESS);
 	}
 
-	case PM_GET_CALLBACK_DATA:
-	{
-		uint32_t result[4] = {0};
+	case PM_GET_CALLBACK_DATA: {
+		uint32_t result[4] = { 0 };
 
-		pm_get_callbackdata(result, ARRAY_SIZE(result), security_flag, 1U);
+		pm_get_callbackdata(result, ARRAY_SIZE(result), security_flag,
+				    1U);
 		SMC_RET2(handle,
-			(uint64_t)result[0] | ((uint64_t)result[1] << 32U),
-			(uint64_t)result[2] | ((uint64_t)result[3] << 32U));
+			 (uint64_t)result[0] | ((uint64_t)result[1] << 32U),
+			 (uint64_t)result[2] | ((uint64_t)result[3] << 32U));
 	}
 
 	case PM_GET_TRUSTZONE_VERSION:
 		SMC_RET1(handle, (uint64_t)PM_RET_SUCCESS |
-			 ((uint64_t)TZ_VERSION << 32U));
+					 ((uint64_t)TZ_VERSION << 32U));
 
 	default:
 		return (uintptr_t)0;
@@ -300,11 +295,11 @@ static uintptr_t TF_A_specific_handler(uint32_t api_id, uint32_t *pm_arg,
  * This handler prepares EEMI protocol payload received from kernel and performs
  * IPI transaction.
  */
-static uintptr_t eemi_handler(uint32_t api_id, uint32_t *pm_arg,
-			      void *handle, uint32_t security_flag)
+static uintptr_t eemi_handler(uint32_t api_id, uint32_t *pm_arg, void *handle,
+			      uint32_t security_flag)
 {
 	enum pm_ret_status ret;
-	uint32_t buf[PAYLOAD_ARG_CNT] = {0};
+	uint32_t buf[PAYLOAD_ARG_CNT] = { 0 };
 
 	ret = pm_handle_eemi_call(security_flag, api_id, pm_arg[0], pm_arg[1],
 				  pm_arg[2], pm_arg[3], pm_arg[4],
@@ -317,10 +312,11 @@ static uintptr_t eemi_handler(uint32_t api_id, uint32_t *pm_arg,
 	 */
 	if (api_id == PM_QUERY_DATA) {
 		if ((pm_arg[0] == XPM_QID_CLOCK_GET_NAME ||
-		    pm_arg[0] == XPM_QID_PINCTRL_GET_FUNCTION_NAME) &&
+		     pm_arg[0] == XPM_QID_PINCTRL_GET_FUNCTION_NAME) &&
 		    ret == PM_RET_SUCCESS) {
-			SMC_RET2(handle, (uint64_t)buf[0] | ((uint64_t)buf[1] << 32U),
-				(uint64_t)buf[2] | ((uint64_t)buf[3] << 32U));
+			SMC_RET2(handle,
+				 (uint64_t)buf[0] | ((uint64_t)buf[1] << 32U),
+				 (uint64_t)buf[2] | ((uint64_t)buf[3] << 32U));
 		}
 	}
 
@@ -346,10 +342,11 @@ static uintptr_t eemi_handler(uint32_t api_id, uint32_t *pm_arg,
  * function with rt_svc_handle signature
  */
 uint64_t pm_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2, uint64_t x3,
-			uint64_t x4, const void *cookie, void *handle, uint64_t flags)
+			uint64_t x4, const void *cookie, void *handle,
+			uint64_t flags)
 {
 	uintptr_t ret;
-	uint32_t pm_arg[PAYLOAD_ARG_CNT] = {0};
+	uint32_t pm_arg[PAYLOAD_ARG_CNT] = { 0 };
 	uint32_t security_flag = SECURE_FLAG;
 	uint32_t api_id;
 
@@ -380,12 +377,12 @@ uint64_t pm_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2, uint64_t x3,
 	}
 
 	ret = eemi_psci_debugfs_handler(api_id, pm_arg, handle, flags);
-	if (ret !=  (uintptr_t)0) {
+	if (ret != (uintptr_t)0) {
 		return ret;
 	}
 
 	ret = TF_A_specific_handler(api_id, pm_arg, handle, security_flag);
-	if (ret !=  (uintptr_t)0) {
+	if (ret != (uintptr_t)0) {
 		return ret;
 	}
 

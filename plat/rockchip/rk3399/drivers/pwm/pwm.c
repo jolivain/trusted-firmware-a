@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,10 +9,10 @@
 #include <pwm.h>
 #include <soc.h>
 
-#define PWM0_IOMUX_PWM_EN		(1 << 0)
-#define PWM1_IOMUX_PWM_EN		(1 << 1)
-#define PWM2_IOMUX_PWM_EN		(1 << 2)
-#define PWM3_IOMUX_PWM_EN		(1 << 3)
+#define PWM0_IOMUX_PWM_EN (1 << 0)
+#define PWM1_IOMUX_PWM_EN (1 << 1)
+#define PWM2_IOMUX_PWM_EN (1 << 2)
+#define PWM3_IOMUX_PWM_EN (1 << 3)
 
 struct pwm_data_s {
 	uint32_t iomux_bitmask;
@@ -32,38 +32,38 @@ void disable_pwms(void)
 
 	/* Save PWMs pinmux and change PWMs pinmux to GPIOs */
 	val = mmio_read_32(GRF_BASE + GRF_GPIO4C_IOMUX);
-	if (((val >> GRF_GPIO4C2_IOMUX_SHIFT) &
-		GRF_IOMUX_2BIT_MASK) == GRF_GPIO4C2_IOMUX_PWM) {
+	if (((val >> GRF_GPIO4C2_IOMUX_SHIFT) & GRF_IOMUX_2BIT_MASK) ==
+	    GRF_GPIO4C2_IOMUX_PWM) {
 		pwm_data.iomux_bitmask |= PWM0_IOMUX_PWM_EN;
 		val = BITS_WITH_WMASK(GRF_IOMUX_GPIO, GRF_IOMUX_2BIT_MASK,
-				    GRF_GPIO4C2_IOMUX_SHIFT);
+				      GRF_GPIO4C2_IOMUX_SHIFT);
 		mmio_write_32(GRF_BASE + GRF_GPIO4C_IOMUX, val);
 	}
 
 	val = mmio_read_32(GRF_BASE + GRF_GPIO4C_IOMUX);
-	if (((val >> GRF_GPIO4C6_IOMUX_SHIFT) &
-		GRF_IOMUX_2BIT_MASK) == GRF_GPIO4C6_IOMUX_PWM) {
+	if (((val >> GRF_GPIO4C6_IOMUX_SHIFT) & GRF_IOMUX_2BIT_MASK) ==
+	    GRF_GPIO4C6_IOMUX_PWM) {
 		pwm_data.iomux_bitmask |= PWM1_IOMUX_PWM_EN;
 		val = BITS_WITH_WMASK(GRF_IOMUX_GPIO, GRF_IOMUX_2BIT_MASK,
-				    GRF_GPIO4C6_IOMUX_SHIFT);
+				      GRF_GPIO4C6_IOMUX_SHIFT);
 		mmio_write_32(GRF_BASE + GRF_GPIO4C_IOMUX, val);
 	}
 
 	val = mmio_read_32(PMUGRF_BASE + PMUGRF_GPIO1C_IOMUX);
-	if (((val >> PMUGRF_GPIO1C3_IOMUX_SHIFT) &
-		GRF_IOMUX_2BIT_MASK) == PMUGRF_GPIO1C3_IOMUX_PWM) {
+	if (((val >> PMUGRF_GPIO1C3_IOMUX_SHIFT) & GRF_IOMUX_2BIT_MASK) ==
+	    PMUGRF_GPIO1C3_IOMUX_PWM) {
 		pwm_data.iomux_bitmask |= PWM2_IOMUX_PWM_EN;
 		val = BITS_WITH_WMASK(GRF_IOMUX_GPIO, GRF_IOMUX_2BIT_MASK,
-				    PMUGRF_GPIO1C3_IOMUX_SHIFT);
+				      PMUGRF_GPIO1C3_IOMUX_SHIFT);
 		mmio_write_32(PMUGRF_BASE + PMUGRF_GPIO1C_IOMUX, val);
 	}
 
 	val = mmio_read_32(PMUGRF_BASE + PMUGRF_GPIO0A_IOMUX);
-	if (((val >> PMUGRF_GPIO0A6_IOMUX_SHIFT) &
-		GRF_IOMUX_2BIT_MASK) == PMUGRF_GPIO0A6_IOMUX_PWM) {
+	if (((val >> PMUGRF_GPIO0A6_IOMUX_SHIFT) & GRF_IOMUX_2BIT_MASK) ==
+	    PMUGRF_GPIO0A6_IOMUX_PWM) {
 		pwm_data.iomux_bitmask |= PWM3_IOMUX_PWM_EN;
 		val = BITS_WITH_WMASK(GRF_IOMUX_GPIO, GRF_IOMUX_2BIT_MASK,
-				    PMUGRF_GPIO0A6_IOMUX_SHIFT);
+				      PMUGRF_GPIO0A6_IOMUX_SHIFT);
 		mmio_write_32(PMUGRF_BASE + PMUGRF_GPIO0A_IOMUX, val);
 	}
 
@@ -95,29 +95,29 @@ void enable_pwms(void)
 	/* Restore all IOMUXes */
 	if (pwm_data.iomux_bitmask & PWM3_IOMUX_PWM_EN) {
 		val = BITS_WITH_WMASK(PMUGRF_GPIO0A6_IOMUX_PWM,
-				    GRF_IOMUX_2BIT_MASK,
-				    PMUGRF_GPIO0A6_IOMUX_SHIFT);
+				      GRF_IOMUX_2BIT_MASK,
+				      PMUGRF_GPIO0A6_IOMUX_SHIFT);
 		mmio_write_32(PMUGRF_BASE + PMUGRF_GPIO0A_IOMUX, val);
 	}
 
 	if (pwm_data.iomux_bitmask & PWM2_IOMUX_PWM_EN) {
 		val = BITS_WITH_WMASK(PMUGRF_GPIO1C3_IOMUX_PWM,
-				    GRF_IOMUX_2BIT_MASK,
-				    PMUGRF_GPIO1C3_IOMUX_SHIFT);
+				      GRF_IOMUX_2BIT_MASK,
+				      PMUGRF_GPIO1C3_IOMUX_SHIFT);
 		mmio_write_32(PMUGRF_BASE + PMUGRF_GPIO1C_IOMUX, val);
 	}
 
 	if (pwm_data.iomux_bitmask & PWM1_IOMUX_PWM_EN) {
 		val = BITS_WITH_WMASK(GRF_GPIO4C6_IOMUX_PWM,
-				    GRF_IOMUX_2BIT_MASK,
-				    GRF_GPIO4C6_IOMUX_SHIFT);
+				      GRF_IOMUX_2BIT_MASK,
+				      GRF_GPIO4C6_IOMUX_SHIFT);
 		mmio_write_32(GRF_BASE + GRF_GPIO4C_IOMUX, val);
 	}
 
 	if (pwm_data.iomux_bitmask & PWM0_IOMUX_PWM_EN) {
 		val = BITS_WITH_WMASK(GRF_GPIO4C2_IOMUX_PWM,
-				    GRF_IOMUX_2BIT_MASK,
-				    GRF_GPIO4C2_IOMUX_SHIFT);
+				      GRF_IOMUX_2BIT_MASK,
+				      GRF_GPIO4C2_IOMUX_SHIFT);
 		mmio_write_32(GRF_BASE + GRF_GPIO4C_IOMUX, val);
 	}
 }

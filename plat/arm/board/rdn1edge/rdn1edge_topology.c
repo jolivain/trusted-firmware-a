@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,11 +12,9 @@
  ******************************************************************************/
 static const unsigned char rdn1edge_pd_tree_desc[] = {
 	(PLAT_ARM_CLUSTER_COUNT) * (CSS_SGI_CHIP_COUNT),
-	CSS_SGI_MAX_CPUS_PER_CLUSTER,
-	CSS_SGI_MAX_CPUS_PER_CLUSTER,
+	CSS_SGI_MAX_CPUS_PER_CLUSTER, CSS_SGI_MAX_CPUS_PER_CLUSTER,
 #if (CSS_SGI_CHIP_COUNT > 1)
-	CSS_SGI_MAX_CPUS_PER_CLUSTER,
-	CSS_SGI_MAX_CPUS_PER_CLUSTER
+	CSS_SGI_MAX_CPUS_PER_CLUSTER, CSS_SGI_MAX_CPUS_PER_CLUSTER
 #endif
 };
 

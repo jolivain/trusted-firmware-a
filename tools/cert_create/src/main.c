@@ -1,17 +1,17 @@
 /*
- * Copyright (c) 2015-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 #include <ctype.h>
-#include <getopt.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
 
+#include <getopt.h>
 #include <openssl/conf.h>
 #include <openssl/engine.h>
 #include <openssl/err.h>
@@ -30,33 +30,33 @@
  * Helper macros to simplify the code. This macro assigns the return value of
  * the 'fn' function to 'v' and exits if the value is NULL.
  */
-#define CHECK_NULL(v, fn) \
-	do { \
-		v = fn; \
-		if (v == NULL) { \
+#define CHECK_NULL(v, fn)                                                    \
+	do {                                                                 \
+		v = fn;                                                      \
+		if (v == NULL) {                                             \
 			ERROR("NULL object at %s:%d\n", __FILE__, __LINE__); \
-			exit(1); \
-		} \
+			exit(1);                                             \
+		}                                                            \
 	} while (0)
 
 /*
  * This macro assigns the NID corresponding to 'oid' to 'v' and exits if the
  * NID is undefined.
  */
-#define CHECK_OID(v, oid) \
-	do { \
-		v = OBJ_txt2nid(oid); \
-		if (v == NID_undef) { \
+#define CHECK_OID(v, oid)                                         \
+	do {                                                      \
+		v = OBJ_txt2nid(oid);                             \
+		if (v == NID_undef) {                             \
 			ERROR("Cannot find extension %s\n", oid); \
-			exit(1); \
-		} \
+			exit(1);                                  \
+		}                                                 \
 	} while (0)
 
-#define MAX_FILENAME_LEN		1024
-#define VAL_DAYS			7300
-#define ID_TO_BIT_MASK(id)		(1 << id)
-#define NUM_ELEM(x)			((sizeof(x)) / (sizeof(x[0])))
-#define HELP_OPT_MAX_LEN		128
+#define MAX_FILENAME_LEN 1024
+#define VAL_DAYS 7300
+#define ID_TO_BIT_MASK(id) (1 << id)
+#define NUM_ELEM(x) ((sizeof(x)) / (sizeof(x[0])))
+#define HELP_OPT_MAX_LEN 128
 
 /* Global options */
 static int key_alg;
@@ -69,7 +69,6 @@ static int print_cert;
 /* Info messages created in the Makefile */
 extern const char build_msg[];
 extern const char platform_msg[];
-
 
 static char *strdup(const char *str)
 {
@@ -140,7 +139,7 @@ static int get_key_alg(const char *key_alg_str)
 {
 	int i;
 
-	for (i = 0 ; i < NUM_ELEM(key_algs_str) ; i++) {
+	for (i = 0; i < NUM_ELEM(key_algs_str); i++) {
 		if (0 == strcmp(key_alg_str, key_algs_str[i])) {
 			return i;
 		}
@@ -165,7 +164,7 @@ static int get_hash_alg(const char *hash_alg_str)
 {
 	int i;
 
-	for (i = 0 ; i < NUM_ELEM(hash_algs_str) ; i++) {
+	for (i = 0; i < NUM_ELEM(hash_algs_str); i++) {
 		if (0 == strcmp(hash_alg_str, hash_algs_str[i])) {
 			return i;
 		}
@@ -197,11 +196,11 @@ static void check_cmd_params(void)
 		}
 	}
 	if (!valid_size) {
-		ERROR("'%d' is not a valid key size for '%s'\n",
-				key_size, key_algs_str[key_alg]);
+		ERROR("'%d' is not a valid key size for '%s'\n", key_size,
+		      key_algs_str[key_alg]);
 		NOTICE("Valid sizes are: ");
-		for (i = 0; i < KEY_SIZE_MAX_NUM &&
-				KEY_SIZES[key_alg][i] != 0; i++) {
+		for (i = 0; i < KEY_SIZE_MAX_NUM && KEY_SIZES[key_alg][i] != 0;
+		     i++) {
 			printf("%d ", KEY_SIZES[key_alg][i]);
 		}
 		printf("\n");
@@ -235,8 +234,8 @@ static void check_cmd_params(void)
 				key = &keys[ext->attr.key];
 				if (!new_keys && key->fn == NULL) {
 					ERROR("Key '%s' required by '%s' not "
-					      "specified\n", key->desc,
-					      cert->cn);
+					      "specified\n",
+					      key->desc, cert->cn);
 					exit(1);
 				}
 				break;
@@ -263,35 +262,20 @@ static void check_cmd_params(void)
 
 /* Common command line options */
 static const cmd_opt_t common_cmd_opt[] = {
-	{
-		{ "help", no_argument, NULL, 'h' },
-		"Print this message and exit"
-	},
-	{
-		{ "key-alg", required_argument, NULL, 'a' },
-		"Key algorithm: 'rsa' (default)- RSAPSS scheme as per PKCS#1 v2.1, " \
-		"'ecdsa', 'ecdsa-brainpool-regular', 'ecdsa-brainpool-twisted'"
-	},
-	{
-		{ "key-size", required_argument, NULL, 'b' },
-		"Key size (for supported algorithms)."
-	},
-	{
-		{ "hash-alg", required_argument, NULL, 's' },
-		"Hash algorithm : 'sha256' (default), 'sha384', 'sha512'"
-	},
-	{
-		{ "save-keys", no_argument, NULL, 'k' },
-		"Save key pairs into files. Filenames must be provided"
-	},
-	{
-		{ "new-keys", no_argument, NULL, 'n' },
-		"Generate new key pairs if no key files are provided"
-	},
-	{
-		{ "print-cert", no_argument, NULL, 'p' },
-		"Print the certificates in the standard output"
-	}
+	{ { "help", no_argument, NULL, 'h' }, "Print this message and exit" },
+	{ { "key-alg", required_argument, NULL, 'a' },
+	  "Key algorithm: 'rsa' (default)- RSAPSS scheme as per PKCS#1 v2.1, "
+	  "'ecdsa', 'ecdsa-brainpool-regular', 'ecdsa-brainpool-twisted'" },
+	{ { "key-size", required_argument, NULL, 'b' },
+	  "Key size (for supported algorithms)." },
+	{ { "hash-alg", required_argument, NULL, 's' },
+	  "Hash algorithm : 'sha256' (default), 'sha384', 'sha512'" },
+	{ { "save-keys", no_argument, NULL, 'k' },
+	  "Save key pairs into files. Filenames must be provided" },
+	{ { "new-keys", no_argument, NULL, 'n' },
+	  "Generate new key pairs if no key files are provided" },
+	{ { "print-cert", no_argument, NULL, 'p' },
+	  "Print the certificates in the standard output" }
 };
 
 int main(int argc, char *argv[])
@@ -308,7 +292,7 @@ int main(int argc, char *argv[])
 	const char *cur_opt;
 	unsigned int err_code;
 	unsigned char md[SHA512_DIGEST_LENGTH];
-	unsigned int  md_len;
+	unsigned int md_len;
 	const EVP_MD *md_info;
 
 	NOTICE("CoT Generation Tool: %s\n", build_msg);
@@ -422,17 +406,17 @@ int main(int argc, char *argv[])
 	 * extension */
 	if (hash_alg == HASH_ALG_SHA384) {
 		md_info = EVP_sha384();
-		md_len  = SHA384_DIGEST_LENGTH;
+		md_len = SHA384_DIGEST_LENGTH;
 	} else if (hash_alg == HASH_ALG_SHA512) {
 		md_info = EVP_sha512();
-		md_len  = SHA512_DIGEST_LENGTH;
+		md_len = SHA512_DIGEST_LENGTH;
 	} else {
 		md_info = EVP_sha256();
-		md_len  = SHA256_DIGEST_LENGTH;
+		md_len = SHA256_DIGEST_LENGTH;
 	}
 
 	/* Load private keys from files (or generate new ones) */
-	for (i = 0 ; i < num_keys ; i++) {
+	for (i = 0; i < num_keys; i++) {
 #if !USING_OPENSSL3
 		if (!key_new(&keys[i])) {
 			ERROR("Failed to allocate key container\n");
@@ -460,7 +444,8 @@ int main(int argc, char *argv[])
 			/* Try to create a new key */
 			NOTICE("Creating new key for '%s'\n", keys[i].desc);
 			if (!key_create(&keys[i], key_alg, key_size)) {
-				ERROR("Error creating key '%s'\n", keys[i].desc);
+				ERROR("Error creating key '%s'\n",
+				      keys[i].desc);
 				exit(1);
 			}
 		} else {
@@ -474,8 +459,7 @@ int main(int argc, char *argv[])
 	}
 
 	/* Create the certificates */
-	for (i = 0 ; i < num_certs ; i++) {
-
+	for (i = 0; i < num_certs; i++) {
 		cert = &certs[i];
 
 		if (cert->fn == NULL) {
@@ -487,8 +471,7 @@ int main(int argc, char *argv[])
 		 * to create the certificate */
 		CHECK_NULL(sk, sk_X509_EXTENSION_new_null());
 
-		for (j = 0 ; j < cert->num_ext ; j++) {
-
+		for (j = 0; j < cert->num_ext; j++) {
 			ext = &extensions[cert->ext[j]];
 
 			/* Get OpenSSL internal ID for this extension */
@@ -509,15 +492,18 @@ int main(int argc, char *argv[])
 					/* Checked by `check_cmd_params` */
 					assert(ext->arg != NULL);
 					nvctr = atoi(ext->arg);
-					CHECK_NULL(cert_ext, ext_new_nvcounter(ext_nid,
-						EXT_CRIT, nvctr));
+					CHECK_NULL(cert_ext,
+						   ext_new_nvcounter(ext_nid,
+								     EXT_CRIT,
+								     nvctr));
 				}
 				break;
 			case EXT_TYPE_HASH:
 				if (ext->arg == NULL) {
 					if (ext->optional) {
 						/* Include a hash filled with zeros */
-						memset(md, 0x0, SHA512_DIGEST_LENGTH);
+						memset(md, 0x0,
+						       SHA512_DIGEST_LENGTH);
 					} else {
 						/* Do not include this hash in the certificate */
 						continue;
@@ -526,21 +512,23 @@ int main(int argc, char *argv[])
 					/* Calculate the hash of the file */
 					if (!sha_file(hash_alg, ext->arg, md)) {
 						ERROR("Cannot calculate hash of %s\n",
-							ext->arg);
+						      ext->arg);
 						exit(1);
 					}
 				}
-				CHECK_NULL(cert_ext, ext_new_hash(ext_nid,
-						EXT_CRIT, md_info, md,
-						md_len));
+				CHECK_NULL(cert_ext,
+					   ext_new_hash(ext_nid, EXT_CRIT,
+							md_info, md, md_len));
 				break;
 			case EXT_TYPE_PKEY:
-				CHECK_NULL(cert_ext, ext_new_key(ext_nid,
-					EXT_CRIT, keys[ext->attr.key].key));
+				CHECK_NULL(
+					cert_ext,
+					ext_new_key(ext_nid, EXT_CRIT,
+						    keys[ext->attr.key].key));
 				break;
 			default:
 				ERROR("Unknown extension type '%d' in %s\n",
-						ext->type, cert->cn);
+				      ext->type, cert->cn);
 				exit(1);
 			}
 
@@ -555,17 +543,16 @@ int main(int argc, char *argv[])
 		}
 
 		for (cert_ext = sk_X509_EXTENSION_pop(sk); cert_ext != NULL;
-				cert_ext = sk_X509_EXTENSION_pop(sk)) {
+		     cert_ext = sk_X509_EXTENSION_pop(sk)) {
 			X509_EXTENSION_free(cert_ext);
 		}
 
 		sk_X509_EXTENSION_free(sk);
 	}
 
-
 	/* Print the certificates */
 	if (print_cert) {
-		for (i = 0 ; i < num_certs ; i++) {
+		for (i = 0; i < num_certs; i++) {
 			if (!certs[i].x) {
 				continue;
 			}
@@ -575,7 +562,7 @@ int main(int argc, char *argv[])
 	}
 
 	/* Save created certificates to files */
-	for (i = 0 ; i < num_certs ; i++) {
+	for (i = 0; i < num_certs; i++) {
 		if (certs[i].x && certs[i].fn) {
 			file = fopen(certs[i].fn, "w");
 			if (file != NULL) {
@@ -589,7 +576,7 @@ int main(int argc, char *argv[])
 
 	/* Save keys */
 	if (save_keys) {
-		for (i = 0 ; i < num_keys ; i++) {
+		for (i = 0; i < num_keys; i++) {
 			if (!key_store(&keys[i])) {
 				ERROR("Cannot save %s\n", keys[i].desc);
 			}
@@ -605,7 +592,6 @@ int main(int argc, char *argv[])
 	ENGINE_cleanup();
 #endif
 	CRYPTO_cleanup_all_ex_data();
-
 
 	/* We allocated strings through strdup, so now we have to free them */
 

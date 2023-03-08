@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,16 +8,17 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#include "../xlat_mpu_private.h"
 #include <arch.h>
 #include <arch_features.h>
+#include <fvp_r_arch_helpers.h>
 #include <lib/cassert.h>
 #include <lib/utils_def.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
 
-#include <fvp_r_arch_helpers.h>
+#include "../xlat_mpu_private.h"
 
-#warning "xlat_mpu library is currently experimental and its API may change in future."
+#warning \
+	"xlat_mpu library is currently experimental and its API may change in future."
 
 #if ENABLE_ASSERTIONS
 /*
@@ -53,7 +54,7 @@ bool is_dcache_enabled(void)
 
 	if (el == 1U) {
 		return (read_sctlr_el1() & SCTLR_C_BIT) != 0U;
-	} else {  /* must be EL2 */
+	} else { /* must be EL2 */
 		return (read_sctlr_el2() & SCTLR_C_BIT) != 0U;
 	}
 }
@@ -66,4 +67,3 @@ unsigned int xlat_arch_current_el(void)
 
 	return el;
 }
-

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,23 +7,22 @@
 #include <assert.h>
 
 #include <drivers/delay_timer.h>
+#include <imx_gpt.h>
 #include <lib/mmio.h>
 
-#include <imx_gpt.h>
-
-#define GPTCR_SWR		BIT(15)		/* Software reset */
-#define GPTCR_24MEN		BIT(10)		/* Enable 24MHz clock input */
-#define GPTCR_CLKSOURCE_OSC	(5 << 6)        /* Clock source OSC */
-#define GPTCR_CLKSOURCE_MASK	(0x7 << 6)
-#define GPTCR_TEN		1		/* Timer enable */
+#define GPTCR_SWR BIT(15) /* Software reset */
+#define GPTCR_24MEN BIT(10) /* Enable 24MHz clock input */
+#define GPTCR_CLKSOURCE_OSC (5 << 6) /* Clock source OSC */
+#define GPTCR_CLKSOURCE_MASK (0x7 << 6)
+#define GPTCR_TEN 1 /* Timer enable */
 
 #define GPTPR_PRESCL_24M_SHIFT 12
 
 #define SYS_COUNTER_FREQ_IN_MHZ 3
 
-#define GPTPR_TIMER_CTRL	(imx_base_addr + 0x000)
-#define GPTPR_TIMER_PRESCL	(imx_base_addr + 0x004)
-#define GPTPR_TIMER_CNTR	(imx_base_addr + 0x024)
+#define GPTPR_TIMER_CTRL (imx_base_addr + 0x000)
+#define GPTPR_TIMER_PRESCL (imx_base_addr + 0x004)
+#define GPTPR_TIMER_CNTR (imx_base_addr + 0x024)
 
 static uintptr_t imx_base_addr;
 
@@ -33,9 +32,9 @@ uint32_t imx_get_timer_value(void)
 }
 
 static const timer_ops_t imx_gpt_ops = {
-	.get_timer_value	= imx_get_timer_value,
-	.clk_mult		= 1,
-	.clk_div		= SYS_COUNTER_FREQ_IN_MHZ,
+	.get_timer_value = imx_get_timer_value,
+	.clk_mult = 1,
+	.clk_div = SYS_COUNTER_FREQ_IN_MHZ,
 };
 
 void imx_gpt_ops_init(uintptr_t base_addr)

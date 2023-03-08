@@ -1,14 +1,15 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <cpuamu.h>
 #include <lib/el3_runtime/pubsub_events.h>
+
 #include <plat/common/platform.h>
 
-#define CPUAMU_NR_COUNTERS	5U
+#define CPUAMU_NR_COUNTERS 5U
 
 struct cpuamu_ctx {
 	uint64_t cnts[CPUAMU_NR_COUNTERS];
@@ -23,7 +24,7 @@ int midr_match(unsigned int cpu_midr)
 
 	midr = (unsigned int)read_midr();
 	midr_mask = (MIDR_IMPL_MASK << MIDR_IMPL_SHIFT) |
-		(MIDR_PN_MASK << MIDR_PN_SHIFT);
+		    (MIDR_PN_MASK << MIDR_PN_SHIFT);
 	return ((midr & midr_mask) == (cpu_midr & midr_mask));
 }
 

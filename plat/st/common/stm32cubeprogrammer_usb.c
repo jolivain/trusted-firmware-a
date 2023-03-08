@@ -8,13 +8,12 @@
 #include <errno.h>
 #include <string.h>
 
-#include <tools_share/firmware_image_package.h>
-
 #include <stm32cubeprogrammer.h>
+#include <tools_share/firmware_image_package.h>
 #include <usb_dfu.h>
 
 /* Undefined download address */
-#define UNDEFINED_DOWN_ADDR	0xFFFFFFFF
+#define UNDEFINED_DOWN_ADDR 0xFFFFFFFF
 
 struct dfu_state {
 	uint8_t phase;
@@ -28,24 +27,25 @@ struct dfu_state {
 static struct dfu_state dfu_state;
 
 /* minimal size of Get Pḧase = offset for additionnl information */
-#define	GET_PHASE_LEN	9
+#define GET_PHASE_LEN 9
 
-#define DFU_ERROR(...) \
-	{ \
-		ERROR(__VA_ARGS__); \
-		if (dfu->phase != PHASE_RESET) { \
+#define DFU_ERROR(...)                                                \
+	{                                                             \
+		ERROR(__VA_ARGS__);                                   \
+		if (dfu->phase != PHASE_RESET) {                      \
 			snprintf((char *)&dfu->buffer[GET_PHASE_LEN], \
 				 sizeof(dfu->buffer) - GET_PHASE_LEN, \
-				 __VA_ARGS__); \
-			dfu->phase = PHASE_RESET; \
-			dfu->address = UNDEFINED_DOWN_ADDR; \
-			dfu->len = 0; \
-		} \
+				 __VA_ARGS__);                        \
+			dfu->phase = PHASE_RESET;                     \
+			dfu->address = UNDEFINED_DOWN_ADDR;           \
+			dfu->len = 0;                                 \
+		}                                                     \
 	}
 
 static bool is_valid_header(fip_toc_header_t *header)
 {
-	if ((header->name == TOC_HEADER_NAME) && (header->serial_number != 0U)) {
+	if ((header->name == TOC_HEADER_NAME) &&
+	    (header->serial_number != 0U)) {
 		return true;
 	}
 
@@ -80,8 +80,8 @@ static int dfu_callback_upload(uint8_t alt, uintptr_t *buffer, uint32_t *len,
 		if (dfu->phase == PHASE_RESET) {
 			/* error information is added by DFU_ERROR macro */
 			length += strnlen((char *)&dfu->buffer[GET_PHASE_LEN],
-					  sizeof(dfu->buffer) - GET_PHASE_LEN)
-				  - 1;
+					  sizeof(dfu->buffer) - GET_PHASE_LEN) -
+				  1;
 		}
 		break;
 
@@ -133,13 +133,14 @@ static int dfu_callback_manifestation(uint8_t alt, void *user_data)
 		return -EIO;
 	}
 
-	INFO("phase ID :%i, Manifestation %d at %lx\n",
-	     dfu->phase, alt, dfu->address);
+	INFO("phase ID :%i, Manifestation %d at %lx\n", dfu->phase, alt,
+	     dfu->address);
 
 	switch (dfu->phase) {
 	case PHASE_SSBL:
 		if (!is_valid_header((fip_toc_header_t *)dfu->base)) {
-			DFU_ERROR("FIP Header check failed for phase %d\n", alt);
+			DFU_ERROR("FIP Header check failed for phase %d\n",
+				  alt);
 			return -EIO;
 		}
 		VERBOSE("FIP header looks OK.\n");
@@ -163,8 +164,7 @@ static const struct usb_dfu_media usb_dfu_fops = {
 	.manifestation = dfu_callback_manifestation,
 };
 
-int stm32cubeprog_usb_load(struct usb_handle *usb_core_handle,
-			   uintptr_t base,
+int stm32cubeprog_usb_load(struct usb_handle *usb_core_handle, uintptr_t base,
 			   size_t len)
 {
 	int ret;

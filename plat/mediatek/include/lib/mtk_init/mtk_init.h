@@ -14,7 +14,7 @@
 	_section_enum = _level,
 
 #define EXPAND_AS_LINK_SECTION(_section_enum, _section_name, _level) \
-	__##_section_enum##_START__ = .; \
+	__##_section_enum##_START__ =.;                              \
 	KEEP(*(_section_name##_level));
 
 #define EXPAND_AS_EXTERN(_section_enum, _section_name, _level) \
@@ -23,15 +23,11 @@
 #define EXPAND_AS_SYMBOL_ARR(_section_enum, _section_name, _level) \
 	__##_section_enum##_START__,
 
-#define DECLARE_MTK_INITCALL(_fn, _level) \
-	const struct initcall _mtk_initcall_##_fn \
-	__used \
-	__aligned(sizeof(void *)) \
-	__section(".mtk_plat_initcall_"#_level) \
-	= { \
-		.name = #_fn, \
-		.fn = _fn \
-	}
+#define DECLARE_MTK_INITCALL(_fn, _level)                                  \
+	const struct initcall _mtk_initcall_##_fn __used __aligned(        \
+		sizeof(void *))                                            \
+		__section(".mtk_plat_initcall_" #_level) = { .name = #_fn, \
+							     .fn = _fn }
 
 /* initcall helpers  */
 #define MTK_EARLY_PLAT_INIT(_fn) DECLARE_MTK_INITCALL(_fn, 0)
@@ -47,10 +43,7 @@ struct initcall {
 	int (*fn)(void);
 };
 
-enum {
-	INIT_CALL_TABLE(INIT_CALL_EXPAND_AS_ENUMERATION)
-	MTK_INIT_LVL_MAX
-};
+enum { INIT_CALL_TABLE(INIT_CALL_EXPAND_AS_ENUMERATION) MTK_INIT_LVL_MAX };
 
 void mtk_init_one_level(unsigned int level);
 #endif

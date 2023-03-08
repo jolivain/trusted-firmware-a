@@ -1,18 +1,20 @@
 /*
- * Copyright (c) 2018-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-#include <plat_arm.h>
-#include <plat_private.h>
-#include <pm_common.h>
+
 #include <common/debug.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
-#include <plat/common/platform.h>
+#include <plat_arm.h>
+#include <plat_private.h>
+#include <pm_common.h>
+
 #include <plat/arm/common/plat_arm.h>
+#include <plat/common/platform.h>
 
 #include "pm_api_sys.h"
 #include "pm_client.h"
@@ -33,7 +35,8 @@ static int32_t versal_pwr_domain_on(u_register_t mpidr)
 	proc = pm_get_proc((uint32_t)cpu_id);
 
 	/* Send request to PMC to wake up selected ACPU core */
-	(void)pm_req_wakeup(proc->node_id, (versal_sec_entry & 0xFFFFFFFFU) | 0x1U,
+	(void)pm_req_wakeup(proc->node_id,
+			    (versal_sec_entry & 0xFFFFFFFFU) | 0x1U,
 			    versal_sec_entry >> 32, 0, SECURE_FLAG);
 
 	/* Clear power down request */
@@ -66,11 +69,12 @@ static void versal_pwr_domain_suspend(const psci_power_state_t *target_state)
 	}
 
 	state = target_state->pwr_domain_state[1] > PLAT_MAX_RET_STATE ?
-		PM_STATE_SUSPEND_TO_RAM : PM_STATE_CPU_IDLE;
+			PM_STATE_SUSPEND_TO_RAM :
+			PM_STATE_CPU_IDLE;
 
 	/* Send request to PMC to suspend this core */
-	(void)pm_self_suspend(proc->node_id, MAX_LATENCY, state, versal_sec_entry,
-			      SECURE_FLAG);
+	(void)pm_self_suspend(proc->node_id, MAX_LATENCY, state,
+			      versal_sec_entry, SECURE_FLAG);
 
 	/* APU is to be turned off */
 	if (target_state->pwr_domain_state[1] > PLAT_MAX_RET_STATE) {
@@ -85,8 +89,8 @@ static void versal_pwr_domain_suspend(const psci_power_state_t *target_state)
  *
  * @target_state	Targated state
  */
-static void versal_pwr_domain_suspend_finish(
-					const psci_power_state_t *target_state)
+static void
+versal_pwr_domain_suspend_finish(const psci_power_state_t *target_state)
 {
 	uint32_t cpu_id = plat_my_core_pos();
 	const struct pm_proc *proc = pm_get_proc(cpu_id);
@@ -189,7 +193,7 @@ static void versal_pwr_domain_off(const psci_power_state_t *target_state)
  * @return	Returns status, either success or reason
  */
 static int32_t versal_validate_power_state(uint32_t power_state,
-				       psci_power_state_t *req_state)
+					   psci_power_state_t *req_state)
 {
 	VERBOSE("%s: power_state: 0x%x\n", __func__, power_state);
 
@@ -224,22 +228,22 @@ static void versal_get_sys_suspend_power_state(psci_power_state_t *req_state)
 }
 
 static const struct plat_psci_ops versal_nopmc_psci_ops = {
-	.pwr_domain_on			= versal_pwr_domain_on,
-	.pwr_domain_off			= versal_pwr_domain_off,
-	.pwr_domain_on_finish		= versal_pwr_domain_on_finish,
-	.pwr_domain_suspend		= versal_pwr_domain_suspend,
-	.pwr_domain_suspend_finish	= versal_pwr_domain_suspend_finish,
-	.system_off			= versal_system_off,
-	.system_reset			= versal_system_reset,
-	.validate_power_state		= versal_validate_power_state,
-	.get_sys_suspend_power_state	= versal_get_sys_suspend_power_state,
+	.pwr_domain_on = versal_pwr_domain_on,
+	.pwr_domain_off = versal_pwr_domain_off,
+	.pwr_domain_on_finish = versal_pwr_domain_on_finish,
+	.pwr_domain_suspend = versal_pwr_domain_suspend,
+	.pwr_domain_suspend_finish = versal_pwr_domain_suspend_finish,
+	.system_off = versal_system_off,
+	.system_reset = versal_system_reset,
+	.validate_power_state = versal_validate_power_state,
+	.get_sys_suspend_power_state = versal_get_sys_suspend_power_state,
 };
 
 /*******************************************************************************
  * Export the platform specific power ops.
  ******************************************************************************/
 int32_t plat_setup_psci_ops(uintptr_t sec_entrypoint,
-			const struct plat_psci_ops **psci_ops)
+			    const struct plat_psci_ops **psci_ops)
 {
 	versal_sec_entry = sec_entrypoint;
 

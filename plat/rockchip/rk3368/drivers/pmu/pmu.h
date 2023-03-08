@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,31 +8,31 @@
 #define PMU_H
 
 /* Allocate sp reginon in pmusram */
-#define PSRAM_SP_SIZE		0x80
-#define PSRAM_SP_BOTTOM		(PSRAM_SP_TOP - PSRAM_SP_SIZE)
+#define PSRAM_SP_SIZE 0x80
+#define PSRAM_SP_BOTTOM (PSRAM_SP_TOP - PSRAM_SP_SIZE)
 
 /*****************************************************************************
  * pmu con,reg
  *****************************************************************************/
-#define PMU_WKUP_CFG0		0x0
-#define PMU_WKUP_CFG1		0x4
-#define PMU_WKUP_CFG2		0x8
-#define PMU_TIMEOUT_CNT		0x7c
-#define PMU_PWRDN_CON		0xc
-#define PMU_PWRDN_ST		0x10
-#define PMU_CORE_PWR_ST		0x38
+#define PMU_WKUP_CFG0 0x0
+#define PMU_WKUP_CFG1 0x4
+#define PMU_WKUP_CFG2 0x8
+#define PMU_TIMEOUT_CNT 0x7c
+#define PMU_PWRDN_CON 0xc
+#define PMU_PWRDN_ST 0x10
+#define PMU_CORE_PWR_ST 0x38
 
-#define PMU_PWRMD_CORE		0x14
-#define PMU_PWRMD_COM		0x18
-#define PMU_SFT_CON			0x1c
-#define PMU_BUS_IDE_REQ		0x3c
-#define PMU_BUS_IDE_ST		0x40
-#define PMU_OSC_CNT			0x48
-#define PMU_PLLLOCK_CNT		0x4c
-#define PMU_PLLRST_CNT		0x50
-#define PMU_STABLE_CNT		0x54
-#define PMU_DDRIO_PWR_CNT	0x58
-#define PMU_WKUPRST_CNT		0x5c
+#define PMU_PWRMD_CORE 0x14
+#define PMU_PWRMD_COM 0x18
+#define PMU_SFT_CON 0x1c
+#define PMU_BUS_IDE_REQ 0x3c
+#define PMU_BUS_IDE_ST 0x40
+#define PMU_OSC_CNT 0x48
+#define PMU_PLLLOCK_CNT 0x4c
+#define PMU_PLLRST_CNT 0x50
+#define PMU_STABLE_CNT 0x54
+#define PMU_DDRIO_PWR_CNT 0x58
+#define PMU_WKUPRST_CNT 0x5c
 
 enum pmu_powermode_core {
 	pmu_mdcr_global_int_dis = 0,
@@ -195,12 +195,12 @@ enum pmu_bus_idle_st {
 
 #define PM_PWRDM_CPUSB_MSK (0xf << 5)
 
-#define CKECK_WFE_MSK		0x1
-#define CKECK_WFI_MSK		0x10
-#define CKECK_WFEI_MSK		0x11
+#define CKECK_WFE_MSK 0x1
+#define CKECK_WFI_MSK 0x10
+#define CKECK_WFEI_MSK 0x11
 
-#define PD_CTR_LOOP		500
-#define CHK_CPU_LOOP		500
+#define PD_CTR_LOOP 500
+#define CHK_CPU_LOOP 500
 
 #define MAX_WAIT_CONUT 1000
 

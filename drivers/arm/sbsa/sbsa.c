@@ -1,21 +1,24 @@
 /*
- * Copyright (c) 2019, ARM Limited. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 #include <stdint.h>
+
 #include <drivers/arm/sbsa.h>
 #include <lib/mmio.h>
+
 #include <plat/common/platform.h>
 
 void sbsa_watchdog_offset_reg_write(uintptr_t base, uint64_t value)
 {
 	assert((value >> SBSA_WDOG_WOR_WIDTH) == 0);
 	mmio_write_32(base + SBSA_WDOG_WOR_LOW_OFFSET,
-		 ((uint32_t)value & UINT32_MAX));
-	mmio_write_32(base + SBSA_WDOG_WOR_HIGH_OFFSET, (uint32_t)(value >> 32));
+		      ((uint32_t)value & UINT32_MAX));
+	mmio_write_32(base + SBSA_WDOG_WOR_HIGH_OFFSET,
+		      (uint32_t)(value >> 32));
 }
 
 /*

@@ -14,56 +14,56 @@
 #include <lib/extensions/ras.h>
 #include <lib/utils_def.h>
 #include <services/sdei.h>
-
-#include <plat/common/platform.h>
-#include <platform_def.h>
 #include <tegra194_ras_private.h>
 #include <tegra_def.h>
 #include <tegra_platform.h>
 #include <tegra_private.h>
 
+#include <plat/common/platform.h>
+#include <platform_def.h>
+
 /*
  * ERR<n>FR bits[63:32], it indicates supported RAS errors which can be enabled
  * by setting corresponding bits in ERR<n>CTLR
  */
-#define ERR_FR_EN_BITS_MASK	0xFFFFFFFF00000000ULL
+#define ERR_FR_EN_BITS_MASK 0xFFFFFFFF00000000ULL
 
 /*
  * Number of RAS errors will be cleared per 'tegra194_ras_corrected_err_clear'
  * function call.
  */
-#define RAS_ERRORS_PER_CALL	8
+#define RAS_ERRORS_PER_CALL 8
 
 /*
  * the max possible RAS node index value.
  */
-#define RAS_NODE_INDEX_MAX	0x1FFFFFFFU
+#define RAS_NODE_INDEX_MAX 0x1FFFFFFFU
 
 /* bakery lock for platform RAS handler. */
 static DEFINE_BAKERY_LOCK(ras_handler_lock);
-#define ras_lock()		bakery_lock_get(&ras_handler_lock)
-#define ras_unlock()		bakery_lock_release(&ras_handler_lock)
+#define ras_lock() bakery_lock_get(&ras_handler_lock)
+#define ras_unlock() bakery_lock_release(&ras_handler_lock)
 
 /*
  * Function to handle an External Abort received at EL3.
  * This function is invoked by RAS framework.
  */
 static void tegra194_ea_handler(unsigned int ea_reason, uint64_t syndrome,
-		void *cookie, void *handle, uint64_t flags)
+				void *cookie, void *handle, uint64_t flags)
 {
 	int32_t ret;
 
 	ras_lock();
 
 	ERROR("MPIDR 0x%lx: exception reason=%u syndrome=0x%" PRIx64 "\n",
-		read_mpidr(), ea_reason, syndrome);
+	      read_mpidr(), ea_reason, syndrome);
 
 	/* Call RAS EA handler */
 	ret = ras_ea_handler(ea_reason, syndrome, cookie, handle, flags);
 	if (ret != 0) {
 		ERROR("RAS error handled!\n");
 		ret = sdei_dispatch_event(TEGRA_SDEI_EP_EVENT_0 +
-				plat_my_core_pos());
+					  plat_my_core_pos());
 		if (ret != 0)
 			ERROR("sdei_dispatch_event returned %d\n", ret);
 	} else {
@@ -94,17 +94,17 @@ void tegra194_ras_enable(void)
 	 * of MISRA noise..
 	 */
 	for (uint32_t i = 0U; i < err_record_mappings.num_err_records; i++) {
-
-		const struct err_record_info *info = &err_record_mappings.err_records[i];
+		const struct err_record_info *info =
+			&err_record_mappings.err_records[i];
 
 		uint32_t idx_start = info->sysreg.idx_start;
 		uint32_t num_idx = info->sysreg.num_idx;
-		const struct ras_aux_data *aux_data = (const struct ras_aux_data *)info->aux_data;
+		const struct ras_aux_data *aux_data =
+			(const struct ras_aux_data *)info->aux_data;
 
 		assert(aux_data != NULL);
 
 		for (uint32_t j = 0; j < num_idx; j++) {
-
 			/* ERR<n>CTLR register value. */
 			uint64_t err_ctrl = 0ULL;
 			/* all supported errors for this node. */
@@ -147,7 +147,8 @@ void tegra194_ras_enable(void)
 			/* enable the supported errors */
 			err_ctrl |= err_fr;
 
-			VERBOSE("errselr_el1:0x%x, erxfr:0x%" PRIx64 ", err_ctrl:0x%" PRIx64 "\n",
+			VERBOSE("errselr_el1:0x%x, erxfr:0x%" PRIx64
+				", err_ctrl:0x%" PRIx64 "\n",
 				idx_start + j, err_fr, err_ctrl);
 
 			/* enable specified errors, or set to 0 if no supported error */
@@ -190,7 +191,7 @@ void tegra194_ras_corrected_err_clear(uint64_t *cookie)
 	prev.value = *cookie;
 
 	if ((prev.rec.last_node >= RAS_NODE_INDEX_MAX) ||
-		(prev.rec.last_idx >= RAS_NODE_INDEX_MAX)) {
+	    (prev.rec.last_idx >= RAS_NODE_INDEX_MAX)) {
 		return;
 	}
 
@@ -200,20 +201,20 @@ void tegra194_ras_corrected_err_clear(uint64_t *cookie)
 	ERR_STATUS_SET_FIELD(clear_ce_status, MV, 0x1UL);
 	ERR_STATUS_SET_FIELD(clear_ce_status, CE, 0x3UL);
 
-
-	for (i = prev.rec.last_node; i < err_record_mappings.num_err_records; i++) {
-
-		const struct err_record_info *info = &err_record_mappings.err_records[i];
+	for (i = prev.rec.last_node; i < err_record_mappings.num_err_records;
+	     i++) {
+		const struct err_record_info *info =
+			&err_record_mappings.err_records[i];
 		uint32_t idx_start = info->sysreg.idx_start;
 		uint32_t num_idx = info->sysreg.num_idx;
 
 		uint32_t j;
 
 		j = (i == prev.rec.last_node && prev.value != 0UL) ?
-				(prev.rec.last_idx + 1U) : 0U;
+			    (prev.rec.last_idx + 1U) :
+			    0U;
 
 		for (; j < num_idx; j++) {
-
 			uint64_t status;
 			uint32_t err_idx = idx_start + j;
 
@@ -253,19 +254,21 @@ void tegra194_ras_corrected_err_clear(uint64_t *cookie)
 
 /* Function to probe an error from error record group. */
 static int32_t tegra194_ras_record_probe(const struct err_record_info *info,
-		int *probe_data)
+					 int *probe_data)
 {
 	/* Skip probing if not a silicon platform */
 	if (!tegra_platform_is_silicon()) {
 		return 0;
 	}
 
-	return ser_probe_sysreg(info->sysreg.idx_start, info->sysreg.num_idx, probe_data);
+	return ser_probe_sysreg(info->sysreg.idx_start, info->sysreg.num_idx,
+				probe_data);
 }
 
 /* Function to handle error from one given node */
 static int32_t tegra194_ras_node_handler(uint32_t errselr, const char *name,
-		const struct ras_error *errors, uint64_t status)
+					 const struct ras_error *errors,
+					 uint64_t status)
 {
 	bool found = false;
 	uint32_t ierr = (uint32_t)ERR_STATUS_GET_FIELD(status, IERR);
@@ -286,7 +289,6 @@ static int32_t tegra194_ras_node_handler(uint32_t errselr, const char *name,
 
 	/* Print uncorrectable errror information. */
 	if (ERR_STATUS_GET_FIELD(status, UE) != 0U) {
-
 		ERR_STATUS_SET_FIELD(val, UE, 1);
 		ERR_STATUS_SET_FIELD(val, UET, 1);
 
@@ -294,7 +296,7 @@ static int32_t tegra194_ras_node_handler(uint32_t errselr, const char *name,
 		for (uint32_t i = 0; errors[i].error_msg != NULL; i++) {
 			if (ierr == errors[i].error_code) {
 				ERROR("\tIERR = %s: 0x%x\n",
-					errors[i].error_msg, ierr);
+				      errors[i].error_msg, ierr);
 
 				found = true;
 				break;
@@ -310,7 +312,7 @@ static int32_t tegra194_ras_node_handler(uint32_t errselr, const char *name,
 		/* Overflow, multiple errors have been detected. */
 		if (ERR_STATUS_GET_FIELD(status, OF) != 0U) {
 			ERROR("\tOverflow (there may be more errors) - "
-				"Uncorrectable\n");
+			      "Uncorrectable\n");
 			ERR_STATUS_SET_FIELD(val, OF, 1);
 		}
 
@@ -338,7 +340,8 @@ static int32_t tegra194_ras_node_handler(uint32_t errselr, const char *name,
 	} else {
 		/* For corrected error, simply clear it. */
 		VERBOSE("corrected RAS error is cleared: ERRSELR_EL1:0x%x, "
-			"IERR:0x%x, SERR:0x%x\n", errselr, ierr, serr);
+			"IERR:0x%x, SERR:0x%x\n",
+			errselr, ierr, serr);
 		ERR_STATUS_SET_FIELD(val, CE, 1);
 	}
 
@@ -352,8 +355,9 @@ static int32_t tegra194_ras_node_handler(uint32_t errselr, const char *name,
 }
 
 /* Function to handle one error node from an error record group. */
-static int32_t tegra194_ras_record_handler(const struct err_record_info *info,
-		int probe_data, const struct err_handler_data *const data __unused)
+static int32_t
+tegra194_ras_record_handler(const struct err_record_info *info, int probe_data,
+			    const struct err_handler_data *const data __unused)
 {
 	uint32_t num_idx = info->sysreg.num_idx;
 	uint32_t idx_start = info->sysreg.idx_start;
@@ -381,10 +385,9 @@ static int32_t tegra194_ras_record_handler(const struct err_record_info *info,
 	/* Retrieve status register from the error record */
 	status = read_erxstatus_el1();
 
-	return tegra194_ras_node_handler(idx_start + offset, node_name,
-			errors, status);
+	return tegra194_ras_node_handler(idx_start + offset, node_name, errors,
+					 status);
 }
-
 
 /* Instantiate RAS nodes */
 PER_CORE_RAS_NODE_LIST(DEFINE_ONE_RAS_NODE)
@@ -393,9 +396,7 @@ SCF_L3_BANK_RAS_NODE_LIST(DEFINE_ONE_RAS_NODE)
 CCPLEX_RAS_NODE_LIST(DEFINE_ONE_RAS_NODE)
 
 /* Instantiate RAS node groups */
-static struct ras_aux_data per_core_ras_group[] = {
-	PER_CORE_RAS_GROUP_NODES
-};
+static struct ras_aux_data per_core_ras_group[] = { PER_CORE_RAS_GROUP_NODES };
 CASSERT(ARRAY_SIZE(per_core_ras_group) < RAS_NODE_INDEX_MAX,
 	assert_max_per_core_ras_group_size);
 
@@ -405,15 +406,11 @@ static struct ras_aux_data per_cluster_ras_group[] = {
 CASSERT(ARRAY_SIZE(per_cluster_ras_group) < RAS_NODE_INDEX_MAX,
 	assert_max_per_cluster_ras_group_size);
 
-static struct ras_aux_data scf_l3_ras_group[] = {
-	SCF_L3_BANK_RAS_GROUP_NODES
-};
+static struct ras_aux_data scf_l3_ras_group[] = { SCF_L3_BANK_RAS_GROUP_NODES };
 CASSERT(ARRAY_SIZE(scf_l3_ras_group) < RAS_NODE_INDEX_MAX,
 	assert_max_scf_l3_ras_group_size);
 
-static struct ras_aux_data ccplex_ras_group[] = {
-    CCPLEX_RAS_GROUP_NODES
-};
+static struct ras_aux_data ccplex_ras_group[] = { CCPLEX_RAS_GROUP_NODES };
 CASSERT(ARRAY_SIZE(ccplex_ras_group) < RAS_NODE_INDEX_MAX,
 	assert_max_ccplex_ras_group_size);
 
@@ -421,10 +418,10 @@ CASSERT(ARRAY_SIZE(ccplex_ras_group) < RAS_NODE_INDEX_MAX,
  * We have same probe and handler for each error record group, use a macro to
  * simply the record definition.
  */
-#define ADD_ONE_ERR_GROUP(errselr_start, group) \
+#define ADD_ONE_ERR_GROUP(errselr_start, group)                              \
 	ERR_RECORD_SYSREG_V1((errselr_start), (uint32_t)ARRAY_SIZE((group)), \
-			&tegra194_ras_record_probe, \
-			&tegra194_ras_record_handler, (group))
+			     &tegra194_ras_record_probe,                     \
+			     &tegra194_ras_record_handler, (group))
 
 /* RAS error record group information */
 static struct err_record_info carmel_ras_records[] = {
@@ -482,7 +479,7 @@ REGISTER_RAS_INTERRUPTS(carmel_ras_interrupts);
  * RAS handler for the platform
  ******************************************************************************/
 void plat_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *cookie,
-		void *handle, uint64_t flags)
+		     void *handle, uint64_t flags)
 {
 #if RAS_EXTENSION
 	tegra194_ea_handler(ea_reason, syndrome, cookie, handle, flags);

@@ -1,18 +1,19 @@
 /*
  * Copyright (c) 2020, Nuvia Inc
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <assert.h>
 
 #include <arch_helpers.h>
-#include <assert.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
-#include <plat/common/platform.h>
 
+#include <plat/common/platform.h>
 #include <platform_def.h>
+
 #include "sbsa_private.h"
 
 #define ADP_STOPPED_APPLICATION_EXIT 0x20026
@@ -23,7 +24,7 @@
 #define SBSA_SECURE_EC_OFFSET 0x50000000
 
 #define SBSA_SECURE_EC_CMD_SHUTDOWN 0x01
-#define SBSA_SECURE_EC_CMD_REBOOT   0x02
+#define SBSA_SECURE_EC_CMD_REBOOT 0x02
 
 /*
  * The secure entry point to be used on warm reset.
@@ -34,21 +35,16 @@ static unsigned long secure_entrypoint;
 #if PSCI_EXTENDED_STATE_ID
 
 #define qemu_make_pwrstate_lvl0(lvl0_state, pwr_lvl, type) \
-		(((lvl0_state) << PSTATE_ID_SHIFT) | \
-		 ((type) << PSTATE_TYPE_SHIFT))
+	(((lvl0_state) << PSTATE_ID_SHIFT) | ((type) << PSTATE_TYPE_SHIFT))
 #else
 #define qemu_make_pwrstate_lvl0(lvl0_state, pwr_lvl, type) \
-		(((lvl0_state) << PSTATE_ID_SHIFT) | \
-		 ((pwr_lvl) << PSTATE_PWR_LVL_SHIFT) | \
-		 ((type) << PSTATE_TYPE_SHIFT))
+	(((lvl0_state) << PSTATE_ID_SHIFT) |               \
+	 ((pwr_lvl) << PSTATE_PWR_LVL_SHIFT) | ((type) << PSTATE_TYPE_SHIFT))
 #endif /* PSCI_EXTENDED_STATE_ID */
 
-
 #define qemu_make_pwrstate_lvl1(lvl1_state, lvl0_state, pwr_lvl, type) \
-		(((lvl1_state) << PLAT_LOCAL_PSTATE_WIDTH) | \
-		 qemu_make_pwrstate_lvl0(lvl0_state, pwr_lvl, type))
-
-
+	(((lvl1_state) << PLAT_LOCAL_PSTATE_WIDTH) |                   \
+	 qemu_make_pwrstate_lvl0(lvl0_state, pwr_lvl, type))
 
 /*
  *  The table storing the valid idle power states. Ensure that the
@@ -74,7 +70,7 @@ static const unsigned int qemu_pm_idle_states[] = {
  * parameter. The power state parameter has to be a composite power state.
  ******************************************************************************/
 static int qemu_validate_power_state(unsigned int power_state,
-				psci_power_state_t *req_state)
+				     psci_power_state_t *req_state)
 {
 	unsigned int state_id;
 	unsigned int i;
@@ -103,7 +99,7 @@ static int qemu_validate_power_state(unsigned int power_state,
 	/* Parse the State ID and populate the state info parameter */
 	while (state_id != 0U) {
 		req_state->pwr_domain_state[i++] = state_id &
-						PLAT_LOCAL_PSTATE_MASK;
+						   PLAT_LOCAL_PSTATE_MASK;
 		state_id >>= PLAT_LOCAL_PSTATE_WIDTH;
 	}
 
@@ -115,7 +111,6 @@ static int qemu_validate_power_state(unsigned int power_state,
  ******************************************************************************/
 static void qemu_cpu_standby(plat_local_state_t cpu_state)
 {
-
 	assert(cpu_state == PLAT_LOCAL_STATE_RET);
 
 	/*
@@ -181,7 +176,7 @@ void qemu_pwr_domain_suspend(const psci_power_state_t *target_state)
 void qemu_pwr_domain_on_finish(const psci_power_state_t *target_state)
 {
 	assert(target_state->pwr_domain_state[MPIDR_AFFLVL0] ==
-					PLAT_LOCAL_STATE_OFF);
+	       PLAT_LOCAL_STATE_OFF);
 
 	qemu_pwr_gic_on_finish();
 }

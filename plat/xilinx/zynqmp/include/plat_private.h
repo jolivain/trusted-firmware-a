@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -20,7 +20,6 @@ uint32_t zynqmp_calc_core_pos(u_register_t mpidr);
 /* ZynqMP specific functions */
 uint32_t zynqmp_get_uart_clk(void);
 uint32_t zynqmp_get_bootmode(void);
-
 
 #if ZYNQMP_WDT_RESTART
 /*

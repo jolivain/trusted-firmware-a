@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,16 +9,18 @@
 #include <common/debug.h>
 #include <lib/spinlock.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include <plat/common/platform.h>
-#include "rmmd_private.h"
 #include <services/rmmd_svc.h>
+
+#include <plat/common/platform.h>
+
+#include "rmmd_private.h"
 
 static spinlock_t lock;
 
 /* For printing Realm attestation token hash */
-#define DIGITS_PER_BYTE				2UL
-#define LENGTH_OF_TERMINATING_ZERO_IN_BYTES	1UL
-#define BYTES_PER_LINE_BASE			4UL
+#define DIGITS_PER_BYTE 2UL
+#define LENGTH_OF_TERMINATING_ZERO_IN_BYTES 1UL
+#define BYTES_PER_LINE_BASE 4UL
 
 static void print_challenge(uint8_t *hash, size_t hash_size)
 {
@@ -30,9 +32,9 @@ static void print_challenge(uint8_t *hash, size_t hash_size)
 	 */
 	const size_t bytes_per_line = 1 << BYTES_PER_LINE_BASE;
 	char hash_text[(1 << BYTES_PER_LINE_BASE) * DIGITS_PER_BYTE +
-		LENGTH_OF_TERMINATING_ZERO_IN_BYTES];
-	const char hex_chars[] = {'0', '1', '2', '3', '4', '5', '6', '7',
-				  '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+		       LENGTH_OF_TERMINATING_ZERO_IN_BYTES];
+	const char hex_chars[] = { '0', '1', '2', '3', '4', '5', '6', '7',
+				   '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
 	unsigned int i;
 
 	for (i = 0U; i < hash_size; ++i) {
@@ -95,8 +97,7 @@ int rmmd_attest_get_platform_token(uint64_t buf_pa, uint64_t *buf_size,
 		return err;
 	}
 
-	if ((c_size != SHA256_DIGEST_SIZE) &&
-	    (c_size != SHA384_DIGEST_SIZE) &&
+	if ((c_size != SHA256_DIGEST_SIZE) && (c_size != SHA384_DIGEST_SIZE) &&
 	    (c_size != SHA512_DIGEST_SIZE)) {
 		ERROR("Invalid hash size: %lu\n", c_size);
 		return E_RMM_INVAL;
@@ -109,8 +110,8 @@ int rmmd_attest_get_platform_token(uint64_t buf_pa, uint64_t *buf_size,
 	print_challenge((uint8_t *)temp_buf, c_size);
 
 	/* Get the platform token. */
-	err = plat_rmmd_get_cca_attest_token((uintptr_t)buf_pa,
-		buf_size, (uintptr_t)temp_buf, c_size);
+	err = plat_rmmd_get_cca_attest_token((uintptr_t)buf_pa, buf_size,
+					     (uintptr_t)temp_buf, c_size);
 
 	if (err != 0) {
 		ERROR("Failed to get platform token: %d.\n", err);
@@ -144,7 +145,7 @@ int rmmd_attest_get_signing_key(uint64_t buf_pa, uint64_t *buf_size,
 						 (unsigned int)ecc_curve);
 	if (err != 0) {
 		ERROR("Failed to get attestation key: %d.\n", err);
-		err =  E_RMM_UNK;
+		err = E_RMM_UNK;
 	}
 
 	spin_unlock(&lock);

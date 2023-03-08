@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,6 +10,7 @@
 #include <arch_helpers.h>
 #include <lib/bakery_lock.h>
 #include <lib/el3_runtime/cpu_data.h>
+
 #include <plat/common/platform.h>
 
 /*
@@ -35,10 +36,11 @@
  * accesses regardless of status of address translation.
  */
 
-#define assert_bakery_entry_valid(_entry, _bakery) do {	\
-	assert((_bakery) != NULL);			\
-	assert((_entry) < BAKERY_LOCK_MAX_CPUS);	\
-} while (false)
+#define assert_bakery_entry_valid(_entry, _bakery)       \
+	do {                                             \
+		assert((_bakery) != NULL);               \
+		assert((_entry) < BAKERY_LOCK_MAX_CPUS); \
+	} while (false)
 
 /* Obtain a ticket for a given CPU */
 static unsigned int bakery_get_ticket(bakery_lock_t *bakery, unsigned int me)
@@ -76,7 +78,6 @@ static unsigned int bakery_get_ticket(bakery_lock_t *bakery, unsigned int me)
 
 	return my_ticket;
 }
-
 
 /*
  * Acquire bakery lock
@@ -132,7 +133,7 @@ void bakery_lock_get(bakery_lock_t *bakery)
 			do {
 				wfe();
 			} while (their_ticket ==
-				bakery_ticket_number(bakery->lock_data[they]));
+				 bakery_ticket_number(bakery->lock_data[they]));
 		}
 	}
 
@@ -143,7 +144,6 @@ void bakery_lock_get(bakery_lock_t *bakery)
 	 */
 	dmbish();
 }
-
 
 /* Release the lock and signal contenders */
 void bakery_lock_release(bakery_lock_t *bakery)

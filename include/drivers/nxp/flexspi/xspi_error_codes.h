@@ -12,8 +12,8 @@
 #include <errno.h>
 
 typedef enum {
-	XSPI_SUCCESS                     = 0,
-	XSPI_READ_FAIL			 = ELAST + 1,
+	XSPI_SUCCESS = 0,
+	XSPI_READ_FAIL = ELAST + 1,
 	XSPI_ERASE_FAIL,
 	XSPI_IP_READ_FAIL,
 	XSPI_AHB_READ_FAIL,

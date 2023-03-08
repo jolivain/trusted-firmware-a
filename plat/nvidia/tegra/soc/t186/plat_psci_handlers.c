@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -11,6 +11,7 @@
 
 #include <arch.h>
 #include <arch_helpers.h>
+#include <bpmp_ipc.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <context.h>
@@ -18,9 +19,6 @@
 #include <denver.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/psci/psci.h>
-#include <plat/common/platform.h>
-
-#include <bpmp_ipc.h>
 #include <mce.h>
 #include <memctrl_v2.h>
 #include <security_engine.h>
@@ -29,17 +27,19 @@
 #include <tegra186_private.h>
 #include <tegra_private.h>
 
+#include <plat/common/platform.h>
+
 extern void memcpy16(void *dest, const void *src, unsigned int length);
 
 /* state id mask */
-#define TEGRA186_STATE_ID_MASK		0xFU
+#define TEGRA186_STATE_ID_MASK 0xFU
 /* constants to get power state's wake time */
-#define TEGRA186_WAKE_TIME_MASK		0x0FFFFFF0U
-#define TEGRA186_WAKE_TIME_SHIFT	4U
+#define TEGRA186_WAKE_TIME_MASK 0x0FFFFFF0U
+#define TEGRA186_WAKE_TIME_SHIFT 4U
 /* default core wake mask for CPU_SUSPEND */
-#define TEGRA186_CORE_WAKE_MASK		0x180cU
+#define TEGRA186_CORE_WAKE_MASK 0x180cU
 /* context size to save during system suspend */
-#define TEGRA186_SE_CONTEXT_SIZE	3U
+#define TEGRA186_SE_CONTEXT_SIZE 3U
 
 static uint32_t se_regs[TEGRA186_SE_CONTEXT_SIZE];
 static struct tegra_psci_percpu_data {
@@ -47,15 +47,17 @@ static struct tegra_psci_percpu_data {
 } __aligned(CACHE_WRITEBACK_GRANULE) tegra_percpu_data[PLATFORM_CORE_COUNT];
 
 int32_t tegra_soc_validate_power_state(uint32_t power_state,
-					psci_power_state_t *req_state)
+				       psci_power_state_t *req_state)
 {
-	uint8_t state_id = (uint8_t)psci_get_pstate_id(power_state) & TEGRA186_STATE_ID_MASK;
+	uint8_t state_id = (uint8_t)psci_get_pstate_id(power_state) &
+			   TEGRA186_STATE_ID_MASK;
 	uint32_t cpu = plat_my_core_pos();
 	int32_t ret = PSCI_E_SUCCESS;
 
 	/* save the core wake time (in TSC ticks)*/
-	tegra_percpu_data[cpu].wake_time = (power_state & TEGRA186_WAKE_TIME_MASK)
-			<< TEGRA186_WAKE_TIME_SHIFT;
+	tegra_percpu_data[cpu].wake_time =
+		(power_state & TEGRA186_WAKE_TIME_MASK)
+		<< TEGRA186_WAKE_TIME_SHIFT;
 
 	/*
 	 * Clean percpu_data[cpu] to DRAM. This needs to be done to ensure that
@@ -65,14 +67,15 @@ int32_t tegra_soc_validate_power_state(uint32_t power_state,
 	 * unless the cluster is entering CC6/CC7.
 	 */
 	clean_dcache_range((uint64_t)&tegra_percpu_data[cpu],
-			sizeof(tegra_percpu_data[cpu]));
+			   sizeof(tegra_percpu_data[cpu]));
 
 	/* Sanity check the requested state id */
 	switch (state_id) {
 	case PSTATE_ID_CORE_IDLE:
 	case PSTATE_ID_CORE_POWERDN:
 
-		if (psci_get_pstate_type(power_state) != PSTATE_TYPE_POWERDOWN) {
+		if (psci_get_pstate_type(power_state) !=
+		    PSTATE_TYPE_POWERDOWN) {
 			ret = PSCI_E_INVALID_PARAMS;
 			break;
 		}
@@ -111,32 +114,33 @@ int32_t tegra_soc_pwr_domain_suspend(const psci_power_state_t *target_state)
 	/* get the state ID */
 	pwr_domain_state = target_state->pwr_domain_state;
 	stateid_afflvl0 = pwr_domain_state[MPIDR_AFFLVL0] &
-		TEGRA186_STATE_ID_MASK;
+			  TEGRA186_STATE_ID_MASK;
 	stateid_afflvl2 = pwr_domain_state[PLAT_MAX_PWR_LVL] &
-		TEGRA186_STATE_ID_MASK;
+			  TEGRA186_STATE_ID_MASK;
 
 	if ((stateid_afflvl0 == PSTATE_ID_CORE_IDLE) ||
 	    (stateid_afflvl0 == PSTATE_ID_CORE_POWERDN)) {
-
 		/* Enter CPU idle/powerdown */
 		val = (stateid_afflvl0 == PSTATE_ID_CORE_IDLE) ?
-			(uint32_t)TEGRA_ARI_CORE_C6 : (uint32_t)TEGRA_ARI_CORE_C7;
-		(void)mce_command_handler((uint64_t)MCE_CMD_ENTER_CSTATE, (uint64_t)val,
-				tegra_percpu_data[cpu].wake_time, 0U);
+			      (uint32_t)TEGRA_ARI_CORE_C6 :
+			      (uint32_t)TEGRA_ARI_CORE_C7;
+		(void)mce_command_handler((uint64_t)MCE_CMD_ENTER_CSTATE,
+					  (uint64_t)val,
+					  tegra_percpu_data[cpu].wake_time, 0U);
 
 	} else if (stateid_afflvl2 == PSTATE_ID_SOC_POWERDN) {
-
 		/* save SE registers */
 		se_regs[0] = mmio_read_32(TEGRA_SE0_BASE +
-				SE_MUTEX_WATCHDOG_NS_LIMIT);
+					  SE_MUTEX_WATCHDOG_NS_LIMIT);
 		se_regs[1] = mmio_read_32(TEGRA_RNG1_BASE +
-				RNG_MUTEX_WATCHDOG_NS_LIMIT);
+					  RNG_MUTEX_WATCHDOG_NS_LIMIT);
 		se_regs[2] = mmio_read_32(TEGRA_PKA1_BASE +
-				PKA_MUTEX_WATCHDOG_NS_LIMIT);
+					  PKA_MUTEX_WATCHDOG_NS_LIMIT);
 
 		/* save 'Secure Boot' Processor Feature Config Register */
 		val = mmio_read_32(TEGRA_MISC_BASE + MISCREG_PFCFG);
-		mmio_write_32(TEGRA_SCRATCH_BASE + SCRATCH_SECURE_BOOTP_FCFG, val);
+		mmio_write_32(TEGRA_SCRATCH_BASE + SCRATCH_SECURE_BOOTP_FCFG,
+			      val);
 
 		/* save MC context to TZDRAM */
 		mc_ctx_base = params_from_bl2->tzdram_base;
@@ -152,15 +156,15 @@ int32_t tegra_soc_pwr_domain_suspend(const psci_power_state_t *target_state)
 		/* Loop until system suspend is allowed */
 		do {
 			val = (uint32_t)mce_command_handler(
-					(uint64_t)MCE_CMD_IS_SC7_ALLOWED,
-					(uint64_t)TEGRA_ARI_CORE_C7,
-					MCE_CORE_SLEEP_TIME_INFINITE,
-					0U);
+				(uint64_t)MCE_CMD_IS_SC7_ALLOWED,
+				(uint64_t)TEGRA_ARI_CORE_C7,
+				MCE_CORE_SLEEP_TIME_INFINITE, 0U);
 		} while (val == 0U);
 
 		/* Instruct the MCE to enter system suspend state */
 		(void)mce_command_handler((uint64_t)MCE_CMD_ENTER_CSTATE,
-			(uint64_t)TEGRA_ARI_CORE_C7, MCE_CORE_SLEEP_TIME_INFINITE, 0U);
+					  (uint64_t)TEGRA_ARI_CORE_C7,
+					  MCE_CORE_SLEEP_TIME_INFINITE, 0U);
 
 	} else {
 		; /* do nothing */
@@ -173,7 +177,7 @@ int32_t tegra_soc_pwr_domain_suspend(const psci_power_state_t *target_state)
  * Helper function to check if this is the last ON CPU in the cluster
  ******************************************************************************/
 static bool tegra_last_cpu_in_cluster(const plat_local_state_t *states,
-			uint32_t ncpu)
+				      uint32_t ncpu)
 {
 	plat_local_state_t target;
 	bool last_on_cpu = true;
@@ -194,8 +198,8 @@ static bool tegra_last_cpu_in_cluster(const plat_local_state_t *states,
 /*******************************************************************************
  * Helper function to get target power state for the cluster
  ******************************************************************************/
-static plat_local_state_t tegra_get_afflvl1_pwr_state(const plat_local_state_t *states,
-			uint32_t ncpu)
+static plat_local_state_t
+tegra_get_afflvl1_pwr_state(const plat_local_state_t *states, uint32_t ncpu)
 {
 	uint32_t core_pos = (uint32_t)read_mpidr() & (uint32_t)MPIDR_CPU_MASK;
 	uint32_t cpu = plat_my_core_pos();
@@ -212,9 +216,8 @@ static plat_local_state_t tegra_get_afflvl1_pwr_state(const plat_local_state_t *
 
 		/* Check if CCx state is allowed. */
 		ret = mce_command_handler((uint64_t)MCE_CMD_IS_CCX_ALLOWED,
-				(uint64_t)TEGRA_ARI_CORE_C7,
-				tegra_percpu_data[cpu].wake_time,
-				0U);
+					  (uint64_t)TEGRA_ARI_CORE_C7,
+					  tegra_percpu_data[cpu].wake_time, 0U);
 		if (ret == 0) {
 			target = PSCI_LOCAL_STATE_RUN;
 		}
@@ -230,16 +233,15 @@ static plat_local_state_t tegra_get_afflvl1_pwr_state(const plat_local_state_t *
 			mce_update_cstate_info(&cstate_info);
 
 			/* Check if CCx state is allowed. */
-			ret = mce_command_handler((uint64_t)MCE_CMD_IS_CCX_ALLOWED,
-						  (uint64_t)TEGRA_ARI_CORE_C7,
-						  MCE_CORE_SLEEP_TIME_INFINITE,
-						  0U);
+			ret = mce_command_handler(
+				(uint64_t)MCE_CMD_IS_CCX_ALLOWED,
+				(uint64_t)TEGRA_ARI_CORE_C7,
+				MCE_CORE_SLEEP_TIME_INFINITE, 0U);
 			if (ret == 0) {
 				target = PSCI_LOCAL_STATE_RUN;
 			}
 
 		} else {
-
 			/* Turn off wake_mask */
 			cstate_info.update_wake_mask = 1;
 			mce_update_cstate_info(&cstate_info);
@@ -254,9 +256,9 @@ static plat_local_state_t tegra_get_afflvl1_pwr_state(const plat_local_state_t *
  * Platform handler to calculate the proper target power level at the
  * specified affinity level
  ******************************************************************************/
-plat_local_state_t tegra_soc_get_target_pwr_state(uint32_t lvl,
-					     const plat_local_state_t *states,
-					     uint32_t ncpu)
+plat_local_state_t
+tegra_soc_get_target_pwr_state(uint32_t lvl, const plat_local_state_t *states,
+			       uint32_t ncpu)
 {
 	plat_local_state_t target = PSCI_LOCAL_STATE_RUN;
 	uint32_t cpu = plat_my_core_pos();
@@ -276,21 +278,21 @@ plat_local_state_t tegra_soc_get_target_pwr_state(uint32_t lvl,
 	return target;
 }
 
-int32_t tegra_soc_pwr_domain_power_down_wfi(const psci_power_state_t *target_state)
+int32_t
+tegra_soc_pwr_domain_power_down_wfi(const psci_power_state_t *target_state)
 {
 	const plat_local_state_t *pwr_domain_state =
 		target_state->pwr_domain_state;
 	const plat_params_from_bl2_t *params_from_bl2 = bl31_get_plat_params();
 	uint8_t stateid_afflvl2 = pwr_domain_state[PLAT_MAX_PWR_LVL] &
-		TEGRA186_STATE_ID_MASK;
+				  TEGRA186_STATE_ID_MASK;
 	uint64_t val;
-	uint64_t src_len_in_bytes = (uint64_t)(((uintptr_t)(&__BL31_END__) -
-					(uintptr_t)BL31_BASE));
+	uint64_t src_len_in_bytes =
+		(uint64_t)(((uintptr_t)(&__BL31_END__) - (uintptr_t)BL31_BASE));
 	int32_t ret;
 
 	if (stateid_afflvl2 == PSTATE_ID_SOC_POWERDN) {
-		val = params_from_bl2->tzdram_base +
-			tegra186_get_mc_ctx_size();
+		val = params_from_bl2->tzdram_base + tegra186_get_mc_ctx_size();
 
 		/* Initialise communication channel with BPMP */
 		assert(tegra_bpmp_ipc_init() == 0);
@@ -305,8 +307,8 @@ int32_t tegra_soc_pwr_domain_power_down_wfi(const psci_power_state_t *target_sta
 		/*
 		 * Generate/save SHA256 of ATF during SC7 entry
 		 */
-		if (tegra_se_save_sha256_hash(BL31_BASE,
-					(uint32_t)src_len_in_bytes) != 0) {
+		if (tegra_se_save_sha256_hash(
+			    BL31_BASE, (uint32_t)src_len_in_bytes) != 0) {
 			ERROR("Hash calculation failed. Reboot\n");
 			(void)tegra_soc_prepare_system_reset();
 		}
@@ -316,8 +318,7 @@ int32_t tegra_soc_pwr_domain_power_down_wfi(const psci_power_state_t *target_sta
 		 * allow graceful exit from system suspend, we need to copy
 		 * BL3-1 over to TZDRAM.
 		 */
-		val = params_from_bl2->tzdram_base +
-			tegra186_get_mc_ctx_size();
+		val = params_from_bl2->tzdram_base + tegra186_get_mc_ctx_size();
 		memcpy16((void *)(uintptr_t)val, (void *)(uintptr_t)BL31_BASE,
 			 (uintptr_t)BL31_END - (uintptr_t)BL31_BASE);
 
@@ -326,9 +327,9 @@ int32_t tegra_soc_pwr_domain_power_down_wfi(const psci_power_state_t *target_sta
 		 * verify binary
 		 */
 		mmio_write_32(TEGRA_SCRATCH_BASE + SECURE_SCRATCH_RSV68_LO,
-				(uint32_t)val);
+			      (uint32_t)val);
 		mmio_write_32(TEGRA_SCRATCH_BASE + SECURE_SCRATCH_RSV0_HI,
-				(uint32_t)src_len_in_bytes);
+			      (uint32_t)src_len_in_bytes);
 
 		ret = tegra_bpmp_ipc_disable_clock(TEGRA186_CLK_SE);
 		if (ret != 0) {
@@ -340,7 +341,8 @@ int32_t tegra_soc_pwr_domain_power_down_wfi(const psci_power_state_t *target_sta
 	return PSCI_E_SUCCESS;
 }
 
-int32_t tegra_soc_pwr_domain_suspend_pwrdown_early(const psci_power_state_t *target_state)
+int32_t tegra_soc_pwr_domain_suspend_pwrdown_early(
+	const psci_power_state_t *target_state)
 {
 	return PSCI_E_NOT_SUPPORTED;
 }
@@ -350,10 +352,9 @@ int32_t tegra_soc_pwr_domain_on(u_register_t mpidr)
 	int32_t ret = PSCI_E_SUCCESS;
 	uint64_t target_cpu = mpidr & MPIDR_CPU_MASK;
 	uint64_t target_cluster = (mpidr & MPIDR_CLUSTER_MASK) >>
-			MPIDR_AFFINITY_BITS;
+				  MPIDR_AFFINITY_BITS;
 
 	if (target_cluster > ((uint32_t)PLATFORM_CLUSTER_COUNT - 1U)) {
-
 		ERROR("%s: unsupported CPU (0x%lx)\n", __func__, mpidr);
 		ret = PSCI_E_NOT_PRESENT;
 
@@ -361,7 +362,8 @@ int32_t tegra_soc_pwr_domain_on(u_register_t mpidr)
 		/* construct the target CPU # */
 		target_cpu |= (target_cluster << 2);
 
-		(void)mce_command_handler((uint64_t)MCE_CMD_ONLINE_CORE, target_cpu, 0U, 0U);
+		(void)mce_command_handler((uint64_t)MCE_CMD_ONLINE_CORE,
+					  target_cpu, 0U, 0U);
 	}
 
 	return ret;
@@ -369,7 +371,8 @@ int32_t tegra_soc_pwr_domain_on(u_register_t mpidr)
 
 int32_t tegra_soc_pwr_domain_on_finish(const psci_power_state_t *target_state)
 {
-	uint8_t stateid_afflvl2 = target_state->pwr_domain_state[PLAT_MAX_PWR_LVL];
+	uint8_t stateid_afflvl2 =
+		target_state->pwr_domain_state[PLAT_MAX_PWR_LVL];
 	uint8_t stateid_afflvl0 = target_state->pwr_domain_state[MPIDR_AFFLVL0];
 	mce_cstate_info_t cstate_info = { 0 };
 	uint64_t impl, val;
@@ -381,8 +384,8 @@ int32_t tegra_soc_pwr_domain_on_finish(const psci_power_state_t *target_state)
 	 * Enable ECC and Parity Protection for Cortex-A57 CPUs (Tegra186
 	 * A02p and beyond).
 	 */
-	if ((plat_params->l2_ecc_parity_prot_dis != 1) && (impl != DENVER_IMPL)) {
-
+	if ((plat_params->l2_ecc_parity_prot_dis != 1) &&
+	    (impl != DENVER_IMPL)) {
 		val = read_l2ctlr_el1();
 		val |= CORTEX_A57_L2_ECC_PARITY_PROTECTION_BIT;
 		write_l2ctlr_el1(val);
@@ -396,7 +399,6 @@ int32_t tegra_soc_pwr_domain_on_finish(const psci_power_state_t *target_state)
 	 * core come online.
 	 */
 	if (stateid_afflvl0 == PLAT_MAX_OFF_STATE) {
-
 		cstate_info.cluster = (uint32_t)TEGRA_ARI_CLUSTER_CC1;
 		cstate_info.update_wake_mask = 1;
 		mce_update_cstate_info(&cstate_info);
@@ -407,13 +409,12 @@ int32_t tegra_soc_pwr_domain_on_finish(const psci_power_state_t *target_state)
 	 * context if we are.
 	 */
 	if (stateid_afflvl2 == PSTATE_ID_SOC_POWERDN) {
-
 		mmio_write_32(TEGRA_SE0_BASE + SE_MUTEX_WATCHDOG_NS_LIMIT,
-			se_regs[0]);
+			      se_regs[0]);
 		mmio_write_32(TEGRA_RNG1_BASE + RNG_MUTEX_WATCHDOG_NS_LIMIT,
-			se_regs[1]);
+			      se_regs[1]);
 		mmio_write_32(TEGRA_PKA1_BASE + PKA_MUTEX_WATCHDOG_NS_LIMIT,
-			se_regs[2]);
+			      se_regs[2]);
 
 		/* Init SMMU */
 		tegra_smmu_init();
@@ -435,7 +436,8 @@ int32_t tegra_soc_pwr_domain_on_finish(const psci_power_state_t *target_state)
 
 int32_t tegra_soc_pwr_domain_off(const psci_power_state_t *target_state)
 {
-	uint64_t impl = (read_midr() >> MIDR_IMPL_SHIFT) & (uint64_t)MIDR_IMPL_MASK;
+	uint64_t impl = (read_midr() >> MIDR_IMPL_SHIFT) &
+			(uint64_t)MIDR_IMPL_MASK;
 
 	(void)target_state;
 
@@ -446,7 +448,8 @@ int32_t tegra_soc_pwr_domain_off(const psci_power_state_t *target_state)
 
 	/* Turn off CPU */
 	(void)mce_command_handler((uint64_t)MCE_CMD_ENTER_CSTATE,
-			(uint64_t)TEGRA_ARI_CORE_C7, MCE_CORE_SLEEP_TIME_INFINITE, 0U);
+				  (uint64_t)TEGRA_ARI_CORE_C7,
+				  MCE_CORE_SLEEP_TIME_INFINITE, 0U);
 
 	return PSCI_E_SUCCESS;
 }
@@ -454,7 +457,8 @@ int32_t tegra_soc_pwr_domain_off(const psci_power_state_t *target_state)
 __dead2 void tegra_soc_prepare_system_off(void)
 {
 	/* power off the entire system */
-	mce_enter_ccplex_state((uint32_t)TEGRA_ARI_MISC_CCPLEX_SHUTDOWN_POWER_OFF);
+	mce_enter_ccplex_state(
+		(uint32_t)TEGRA_ARI_MISC_CCPLEX_SHUTDOWN_POWER_OFF);
 
 	wfi();
 

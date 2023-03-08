@@ -16,7 +16,7 @@
  *   Control power flow from SPMC. Most control flow and timing are handled
  *   by SPMC.
  */
-#define SPMC_MODE   1
+#define SPMC_MODE 1
 
 int spmc_init(void);
 

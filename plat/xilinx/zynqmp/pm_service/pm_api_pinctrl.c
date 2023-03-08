@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,6 +11,7 @@
 #include <string.h>
 
 #include <arch_helpers.h>
+
 #include <plat/common/platform.h>
 
 #include "pm_api_pinctrl.h"
@@ -27,7 +28,7 @@ struct pinctrl_function {
 };
 
 /* Max groups for one pin */
-#define MAX_PIN_GROUPS	(13U)
+#define MAX_PIN_GROUPS (13U)
 
 struct zynqmp_pin_group {
 	uint16_t (*groups)[];
@@ -2076,8 +2077,7 @@ enum pm_ret_status pm_api_pinctrl_get_function_groups(uint32_t fid,
  *
  * Return: Returns status, either success or error+reason.
  */
-enum pm_ret_status pm_api_pinctrl_get_pin_groups(uint32_t pin,
-						 uint32_t index,
+enum pm_ret_status pm_api_pinctrl_get_pin_groups(uint32_t pin, uint32_t index,
 						 uint16_t *groups)
 {
 	uint32_t i;

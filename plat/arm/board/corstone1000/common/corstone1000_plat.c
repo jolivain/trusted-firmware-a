@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,13 +7,13 @@
 #include <assert.h>
 
 #include <common/bl_common.h>
-
 #include <drivers/generic_delay_timer.h>
 #include <drivers/io/io_storage.h>
-#include <plat/common/platform.h>
+
 #include <plat/arm/common/arm_fconf_getter.h>
 #include <plat/arm/common/arm_fconf_io_storage.h>
 #include <plat/arm/common/plat_arm.h>
+#include <plat/common/platform.h>
 #include <platform_def.h>
 
 /*
@@ -22,12 +22,8 @@
  */
 
 const mmap_region_t plat_arm_mmap[] = {
-	ARM_MAP_SHARED_RAM,
-	ARM_MAP_NS_SHARED_RAM,
-	ARM_MAP_NS_DRAM1,
-	CORSTONE1000_MAP_DEVICE,
-	CORSTONE1000_EXTERNAL_FLASH,
-	{0}
+	ARM_MAP_SHARED_RAM,	 ARM_MAP_NS_SHARED_RAM,	      ARM_MAP_NS_DRAM1,
+	CORSTONE1000_MAP_DEVICE, CORSTONE1000_EXTERNAL_FLASH, { 0 }
 };
 
 static void set_fip_image_source(void)
@@ -39,7 +35,8 @@ static void set_fip_image_source(void)
 	 * As per firmware update spec, at a given point of time, only one bank
 	 * is active. This means, TF-A should boot from the same bank as TF-M.
 	 */
-	volatile uint32_t *boot_bank_flag = (uint32_t *)(PLAT_ARM_BOOT_BANK_FLAG);
+	volatile uint32_t *boot_bank_flag =
+		(uint32_t *)(PLAT_ARM_BOOT_BANK_FLAG);
 
 	if (*boot_bank_flag > 1) {
 		VERBOSE("Boot_bank is set higher than possible values");
@@ -56,11 +53,11 @@ static void set_fip_image_source(void)
 
 	if ((*boot_bank_flag) == 0) {
 		VERBOSE("Booting from bank 0: fip offset = 0x%lx\n\r",
-						PLAT_ARM_FIP_BASE_BANK0);
+			PLAT_ARM_FIP_BASE_BANK0);
 		spec->offset = PLAT_ARM_FIP_BASE_BANK0;
 	} else {
 		VERBOSE("Booting from bank 1: fip offset = 0x%lx\n\r",
-						PLAT_ARM_FIP_BASE_BANK1);
+			PLAT_ARM_FIP_BASE_BANK1);
 		spec->offset = PLAT_ARM_FIP_BASE_BANK1;
 	}
 }
@@ -87,7 +84,6 @@ unsigned int plat_get_syscnt_freq2(void)
 	/* Returning the Generic Timer Frequency */
 	return SYS_COUNTER_FREQ_IN_TICKS;
 }
-
 
 /*
  * Helper function to initialize ARM interconnect driver.

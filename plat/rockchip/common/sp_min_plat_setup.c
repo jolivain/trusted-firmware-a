@@ -1,12 +1,10 @@
 /*
- * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-
-#include <platform_def.h>
 
 #include <arch_helpers.h>
 #include <common/bl_common.h>
@@ -17,7 +15,9 @@
 #include <drivers/ti/uart/uart_16550.h>
 #include <lib/mmio.h>
 #include <plat_private.h>
+
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 static entry_point_info_t bl33_ep_info;
 
@@ -91,10 +91,8 @@ void sp_min_plat_arch_setup(void)
 
 	plat_configure_mmu_svc_mon(BL_CODE_BASE,
 				   BL_COHERENT_RAM_END - BL_CODE_BASE,
-				   BL_CODE_BASE,
-				   BL_CODE_END,
-				   BL_COHERENT_RAM_BASE,
-				   BL_COHERENT_RAM_END);
+				   BL_CODE_BASE, BL_CODE_END,
+				   BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END);
 }
 
 void sp_min_plat_fiq_handler(uint32_t id)

@@ -7,82 +7,71 @@
 
 /* AP806 Marvell SoC driver */
 
+#include <a8k_plat_def.h>
 #include <common/debug.h>
-#include <drivers/marvell/ccu.h>
 #include <drivers/marvell/cache_llc.h>
+#include <drivers/marvell/ccu.h>
 #include <drivers/marvell/io_win.h>
 #include <drivers/marvell/mci.h>
 #include <drivers/marvell/mochi/ap_setup.h>
 #include <lib/mmio.h>
 
-#include <a8k_plat_def.h>
+#define SMMU_sACR (MVEBU_SMMU_BASE + 0x10)
+#define SMMU_sACR_PG_64K (1 << 16)
 
-#define SMMU_sACR				(MVEBU_SMMU_BASE + 0x10)
-#define SMMU_sACR_PG_64K			(1 << 16)
+#define CCU_GSPMU_CR (MVEBU_CCU_BASE(MVEBU_AP0) + 0x3F0)
+#define GSPMU_CPU_CONTROL (0x1 << 0)
 
-#define CCU_GSPMU_CR				(MVEBU_CCU_BASE(MVEBU_AP0) + \
-							0x3F0)
-#define GSPMU_CPU_CONTROL			(0x1 << 0)
+#define CCU_HTC_CR (MVEBU_CCU_BASE(MVEBU_AP0) + 0x200)
+#define CCU_SET_POC_OFFSET 5
 
-#define CCU_HTC_CR				(MVEBU_CCU_BASE(MVEBU_AP0) + \
-							0x200)
-#define CCU_SET_POC_OFFSET			5
-
-#define DSS_CR0					(MVEBU_RFU_BASE + 0x100)
-#define DVM_48BIT_VA_ENABLE			(1 << 21)
+#define DSS_CR0 (MVEBU_RFU_BASE + 0x100)
+#define DVM_48BIT_VA_ENABLE (1 << 21)
 
 /* Secure MoChi incoming access */
-#define SEC_MOCHI_IN_ACC_REG			(MVEBU_RFU_BASE + 0x4738)
-#define SEC_MOCHI_IN_ACC_IHB0_EN		(1)
-#define SEC_MOCHI_IN_ACC_IHB1_EN		(1 << 3)
-#define SEC_MOCHI_IN_ACC_IHB2_EN		(1 << 6)
-#define SEC_MOCHI_IN_ACC_PIDI_EN		(1 << 9)
-#define SEC_IN_ACCESS_ENA_ALL_MASTERS		(SEC_MOCHI_IN_ACC_IHB0_EN | \
-						 SEC_MOCHI_IN_ACC_IHB1_EN | \
-						 SEC_MOCHI_IN_ACC_IHB2_EN | \
-						 SEC_MOCHI_IN_ACC_PIDI_EN)
-#define MOCHI_IN_ACC_LEVEL_FORCE_NONSEC		(0)
-#define MOCHI_IN_ACC_LEVEL_FORCE_SEC		(1)
-#define MOCHI_IN_ACC_LEVEL_LEAVE_ORIG		(2)
-#define MOCHI_IN_ACC_LEVEL_MASK_ALL		(3)
-#define SEC_MOCHI_IN_ACC_IHB0_LEVEL(l)		((l) << 1)
-#define SEC_MOCHI_IN_ACC_IHB1_LEVEL(l)		((l) << 4)
-#define SEC_MOCHI_IN_ACC_PIDI_LEVEL(l)		((l) << 10)
-
+#define SEC_MOCHI_IN_ACC_REG (MVEBU_RFU_BASE + 0x4738)
+#define SEC_MOCHI_IN_ACC_IHB0_EN (1)
+#define SEC_MOCHI_IN_ACC_IHB1_EN (1 << 3)
+#define SEC_MOCHI_IN_ACC_IHB2_EN (1 << 6)
+#define SEC_MOCHI_IN_ACC_PIDI_EN (1 << 9)
+#define SEC_IN_ACCESS_ENA_ALL_MASTERS                          \
+	(SEC_MOCHI_IN_ACC_IHB0_EN | SEC_MOCHI_IN_ACC_IHB1_EN | \
+	 SEC_MOCHI_IN_ACC_IHB2_EN | SEC_MOCHI_IN_ACC_PIDI_EN)
+#define MOCHI_IN_ACC_LEVEL_FORCE_NONSEC (0)
+#define MOCHI_IN_ACC_LEVEL_FORCE_SEC (1)
+#define MOCHI_IN_ACC_LEVEL_LEAVE_ORIG (2)
+#define MOCHI_IN_ACC_LEVEL_MASK_ALL (3)
+#define SEC_MOCHI_IN_ACC_IHB0_LEVEL(l) ((l) << 1)
+#define SEC_MOCHI_IN_ACC_IHB1_LEVEL(l) ((l) << 4)
+#define SEC_MOCHI_IN_ACC_PIDI_LEVEL(l) ((l) << 10)
 
 /* SYSRST_OUTn Config definitions */
-#define MVEBU_SYSRST_OUT_CONFIG_REG		(MVEBU_MISC_SOC_BASE + 0x4)
-#define WD_MASK_SYS_RST_OUT			(1 << 2)
+#define MVEBU_SYSRST_OUT_CONFIG_REG (MVEBU_MISC_SOC_BASE + 0x4)
+#define WD_MASK_SYS_RST_OUT (1 << 2)
 
 /* Generic Timer System Controller */
-#define MVEBU_MSS_GTCR_REG			(MVEBU_REGS_BASE + 0x581000)
-#define MVEBU_MSS_GTCR_ENABLE_BIT		0x1
+#define MVEBU_MSS_GTCR_REG (MVEBU_REGS_BASE + 0x581000)
+#define MVEBU_MSS_GTCR_ENABLE_BIT 0x1
 
 /*
  * AXI Configuration.
  */
 
 /* Used for Units of AP-806 (e.g. SDIO and etc) */
-#define MVEBU_AXI_ATTR_BASE			(MVEBU_REGS_BASE + 0x6F4580)
-#define MVEBU_AXI_ATTR_REG(index)		(MVEBU_AXI_ATTR_BASE + \
-							0x4 * index)
+#define MVEBU_AXI_ATTR_BASE (MVEBU_REGS_BASE + 0x6F4580)
+#define MVEBU_AXI_ATTR_REG(index) (MVEBU_AXI_ATTR_BASE + 0x4 * index)
 
-#define XOR_STREAM_ID_REG(ch)	(MVEBU_REGS_BASE + 0x410010 + (ch) * 0x20000)
-#define XOR_STREAM_ID_MASK	0xFFFF
-#define SDIO_STREAM_ID_REG	(MVEBU_RFU_BASE + 0x4600)
-#define SDIO_STREAM_ID_MASK	0xFF
+#define XOR_STREAM_ID_REG(ch) (MVEBU_REGS_BASE + 0x410010 + (ch)*0x20000)
+#define XOR_STREAM_ID_MASK 0xFFFF
+#define SDIO_STREAM_ID_REG (MVEBU_RFU_BASE + 0x4600)
+#define SDIO_STREAM_ID_MASK 0xFF
 
 /* Do not use the default Stream ID 0 */
-#define A806_STREAM_ID_BASE	(0x1)
+#define A806_STREAM_ID_BASE (0x1)
 
-static uintptr_t stream_id_reg[] = {
-	XOR_STREAM_ID_REG(0),
-	XOR_STREAM_ID_REG(1),
-	XOR_STREAM_ID_REG(2),
-	XOR_STREAM_ID_REG(3),
-	SDIO_STREAM_ID_REG,
-	0
-};
+static uintptr_t stream_id_reg[] = { XOR_STREAM_ID_REG(0), XOR_STREAM_ID_REG(1),
+				     XOR_STREAM_ID_REG(2), XOR_STREAM_ID_REG(3),
+				     SDIO_STREAM_ID_REG,   0 };
 
 enum axi_attr {
 	AXI_SDIO_ATTR = 0,
@@ -98,16 +87,16 @@ static void apn_sec_masters_access_en(uint32_t enable)
 	 */
 	if (enable != 0) {
 		mmio_clrsetbits_32(SEC_MOCHI_IN_ACC_REG, 0x0U, /* no clear */
-			      SEC_IN_ACCESS_ENA_ALL_MASTERS);
+				   SEC_IN_ACCESS_ENA_ALL_MASTERS);
 #if LLC_SRAM
 		/* Do not change access security level
 		 * for PIDI masters
 		 */
 		mmio_clrsetbits_32(SEC_MOCHI_IN_ACC_REG,
 				   SEC_MOCHI_IN_ACC_PIDI_LEVEL(
-					  MOCHI_IN_ACC_LEVEL_MASK_ALL),
+					   MOCHI_IN_ACC_LEVEL_MASK_ALL),
 				   SEC_MOCHI_IN_ACC_PIDI_LEVEL(
-					  MOCHI_IN_ACC_LEVEL_LEAVE_ORIG));
+					   MOCHI_IN_ACC_LEVEL_LEAVE_ORIG));
 #endif
 	} else {
 		mmio_clrsetbits_32(SEC_MOCHI_IN_ACC_REG,
@@ -117,9 +106,9 @@ static void apn_sec_masters_access_en(uint32_t enable)
 		/* Return PIDI access level to the default */
 		mmio_clrsetbits_32(SEC_MOCHI_IN_ACC_REG,
 				   SEC_MOCHI_IN_ACC_PIDI_LEVEL(
-					  MOCHI_IN_ACC_LEVEL_MASK_ALL),
+					   MOCHI_IN_ACC_LEVEL_MASK_ALL),
 				   SEC_MOCHI_IN_ACC_PIDI_LEVEL(
-					  MOCHI_IN_ACC_LEVEL_FORCE_NONSEC));
+					   MOCHI_IN_ACC_LEVEL_FORCE_NONSEC));
 #endif
 	}
 }
@@ -159,7 +148,6 @@ static void init_aurora2(void)
 	errata_wa_init();
 }
 
-
 /* MCIx indirect access register are based by default at 0xf4000000/0xf6000000
  * to avoid conflict of internal registers of units connected via MCIx, which
  * can be based on the same address (i.e CP1 base is also 0xf4000000),
@@ -172,7 +160,7 @@ static void mci_remap_indirect_access_base(void)
 	for (mci = 0; mci < MCI_MAX_UNIT_ID; mci++)
 		mmio_write_32(MCIX4_REG_START_ADDRESS_REG(mci),
 			      MVEBU_MCI_REG_BASE_REMAP(mci) >>
-			      MCI_REMAP_OFF_SHIFT);
+				      MCI_REMAP_OFF_SHIFT);
 }
 
 /* Set a unique stream id for all DMA capable devices */
@@ -182,7 +170,8 @@ static void ap806_stream_id_init(void)
 
 	for (i = 0; stream_id_reg[i] != 0; i++) {
 		uint32_t mask = stream_id_reg[i] == SDIO_STREAM_ID_REG ?
-				SDIO_STREAM_ID_MASK : XOR_STREAM_ID_MASK;
+					SDIO_STREAM_ID_MASK :
+					XOR_STREAM_ID_MASK;
 
 		mmio_clrsetbits_32(stream_id_reg[i], mask,
 				   i + A806_STREAM_ID_BASE);
@@ -211,22 +200,20 @@ static void apn806_axi_attr_init(void)
 			 */
 			data = mmio_read_32(MVEBU_AXI_ATTR_REG(index));
 			data &= ~MVEBU_AXI_ATTR_ARCACHE_MASK;
-			data |= (CACHE_ATTR_WRITE_ALLOC |
-				 CACHE_ATTR_CACHEABLE   |
-				 CACHE_ATTR_BUFFERABLE) <<
-				 MVEBU_AXI_ATTR_ARCACHE_OFFSET;
+			data |= (CACHE_ATTR_WRITE_ALLOC | CACHE_ATTR_CACHEABLE |
+				 CACHE_ATTR_BUFFERABLE)
+				<< MVEBU_AXI_ATTR_ARCACHE_OFFSET;
 			data &= ~MVEBU_AXI_ATTR_AWCACHE_MASK;
-			data |= (CACHE_ATTR_READ_ALLOC |
-				 CACHE_ATTR_CACHEABLE  |
-				 CACHE_ATTR_BUFFERABLE) <<
-				 MVEBU_AXI_ATTR_AWCACHE_OFFSET;
+			data |= (CACHE_ATTR_READ_ALLOC | CACHE_ATTR_CACHEABLE |
+				 CACHE_ATTR_BUFFERABLE)
+				<< MVEBU_AXI_ATTR_AWCACHE_OFFSET;
 			/* Set Ax-Domain as Outer domain */
 			data &= ~MVEBU_AXI_ATTR_ARDOMAIN_MASK;
-			data |= DOMAIN_OUTER_SHAREABLE <<
-				MVEBU_AXI_ATTR_ARDOMAIN_OFFSET;
+			data |= DOMAIN_OUTER_SHAREABLE
+				<< MVEBU_AXI_ATTR_ARDOMAIN_OFFSET;
 			data &= ~MVEBU_AXI_ATTR_AWDOMAIN_MASK;
-			data |= DOMAIN_OUTER_SHAREABLE <<
-				MVEBU_AXI_ATTR_AWDOMAIN_OFFSET;
+			data |= DOMAIN_OUTER_SHAREABLE
+				<< MVEBU_AXI_ATTR_AWDOMAIN_OFFSET;
 			mmio_write_32(MVEBU_AXI_ATTR_REG(index), data);
 		}
 	}

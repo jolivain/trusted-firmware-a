@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,19 +9,19 @@
 
 #include "uniphier.h"
 
-#define UNIPHIER_ROM_RSV3		0x5980120c
+#define UNIPHIER_ROM_RSV3 0x5980120c
 
-#define UNIPHIER_STMBE2COM		0x5f800030
-#define UNIPHIER_STMTOBEIRQ		0x5f800060
-#define UNIPHIER_BETOSTMIRQ0PT		0x5f800070
-#define UNIPHIER_BEIRQCLRPT		0x5f800072
+#define UNIPHIER_STMBE2COM 0x5f800030
+#define UNIPHIER_STMTOBEIRQ 0x5f800060
+#define UNIPHIER_BETOSTMIRQ0PT 0x5f800070
+#define UNIPHIER_BEIRQCLRPT 0x5f800072
 
-#define UNIPHIER_SCP_READY_MAGIC	0x0000b6a5
+#define UNIPHIER_SCP_READY_MAGIC 0x0000b6a5
 
-#define UNIPHIER_SCP_PACKET_START	0xA0
-#define UNIPHIER_SCP_PACKET_END		0xA5
-#define UNIPHIER_SCP_PACKET_ESC		0xA6
-#define UNIPHIER_SCP_IS_CTRL_CODE(c)	(0xA0 <= (c) && (c) <= 0xA6)
+#define UNIPHIER_SCP_PACKET_START 0xA0
+#define UNIPHIER_SCP_PACKET_END 0xA5
+#define UNIPHIER_SCP_PACKET_ESC 0xA6
+#define UNIPHIER_SCP_IS_CTRL_CODE(c) (0xA0 <= (c) && (c) <= 0xA6)
 
 int uniphier_scp_is_running(void)
 {
@@ -69,7 +69,7 @@ static void uniphier_scp_send_packet(const uint8_t *packet, int packet_len)
 
 static void uniphier_scp_send_cmd(const uint8_t *cmd, int cmd_len)
 {
-	uint8_t packet[32];	/* long enough */
+	uint8_t packet[32]; /* long enough */
 	uint8_t *p = packet;
 	uint8_t c;
 	int i;
@@ -92,15 +92,14 @@ static void uniphier_scp_send_cmd(const uint8_t *cmd, int cmd_len)
 	uniphier_scp_send_packet(packet, p - packet);
 }
 
-#define UNIPHIER_SCP_CMD(name, ...)					\
-static const uint8_t __uniphier_scp_##name##_cmd[] = {			\
-	__VA_ARGS__							\
-};									\
-void uniphier_scp_##name(void)						\
-{									\
-	uniphier_scp_send_cmd(__uniphier_scp_##name##_cmd,		\
-			      ARRAY_SIZE(__uniphier_scp_##name##_cmd));	\
-}
+#define UNIPHIER_SCP_CMD(name, ...)                                           \
+	static const uint8_t __uniphier_scp_##name##_cmd[] = { __VA_ARGS__ }; \
+	void uniphier_scp_##name(void)                                        \
+	{                                                                     \
+		uniphier_scp_send_cmd(                                        \
+			__uniphier_scp_##name##_cmd,                          \
+			ARRAY_SIZE(__uniphier_scp_##name##_cmd));             \
+	}
 
 UNIPHIER_SCP_CMD(open_com, 0x00, 0x00, 0x05)
 UNIPHIER_SCP_CMD(system_off, 0x00, 0x01, 0xff, 0xff, 0xff, 0xff, 0x01)

@@ -1,13 +1,12 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <lib/mmio.h>
-
 #include <imx_csu.h>
 #include <imx_regs.h>
+#include <lib/mmio.h>
 
 void imx_csu_init(void)
 {

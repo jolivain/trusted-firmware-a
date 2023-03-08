@@ -4,7 +4,6 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-
 #ifndef __TRNG_IP_76_H__
 #define __TRNG_IP_76_H__
 

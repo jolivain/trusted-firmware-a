@@ -18,14 +18,15 @@
 #include <io_memmap.h>
 #include <io_storage.h>
 #include <lib/utils.h>
+#include <load_img.h>
 #include <nxp_gpio.h>
 #include <sfp.h>
 #include <sfp_error_codes.h>
 #include <tools_share/firmware_image_package.h>
 
-#include "fuse_io.h"
-#include <load_img.h>
 #include <plat/common/platform.h>
+
+#include "fuse_io.h"
 #include "plat_common.h"
 #include "platform_def.h"
 
@@ -35,10 +36,9 @@ static uint32_t fuse_fip;
 
 static uintptr_t fuse_fip_dev_handle;
 
-static io_block_spec_t fuse_fip_block_spec = {
-	.offset = PLAT_FUSE_FIP_OFFSET,
-	.length = PLAT_FUSE_FIP_MAX_SIZE
-};
+static io_block_spec_t fuse_fip_block_spec = { .offset = PLAT_FUSE_FIP_OFFSET,
+					       .length =
+						       PLAT_FUSE_FIP_MAX_SIZE };
 
 static const io_uuid_spec_t fuse_prov_uuid_spec = {
 	.uuid = UUID_FUSE_PROV,
@@ -58,21 +58,17 @@ struct plat_io_policy {
 
 /* By default, ARM platforms load images from the FIP */
 static const struct plat_io_policy fuse_policies[] = {
-	[FUSE_FIP_IMAGE_ID - FUSE_FIP_IMAGE_ID] = {
-		&backend_dev_handle,
-		(uintptr_t)&fuse_fip_block_spec,
-		NULL
-	},
-	[FUSE_PROV_IMAGE_ID - FUSE_FIP_IMAGE_ID] = {
-		&fuse_fip_dev_handle,
-		(uintptr_t)&fuse_prov_uuid_spec,
-		open_fuse_fip
-	},
-	[FUSE_UP_IMAGE_ID - FUSE_FIP_IMAGE_ID] = {
-		&fuse_fip_dev_handle,
-		(uintptr_t)&fuse_up_uuid_spec,
-		open_fuse_fip
-	}
+	[FUSE_FIP_IMAGE_ID -
+	 FUSE_FIP_IMAGE_ID] = { &backend_dev_handle,
+				(uintptr_t)&fuse_fip_block_spec, NULL },
+	[FUSE_PROV_IMAGE_ID -
+		FUSE_FIP_IMAGE_ID] = { &fuse_fip_dev_handle,
+				       (uintptr_t)&fuse_prov_uuid_spec,
+				       open_fuse_fip },
+	[FUSE_UP_IMAGE_ID -
+		FUSE_FIP_IMAGE_ID] = { &fuse_fip_dev_handle,
+				       (uintptr_t)&fuse_up_uuid_spec,
+				       open_fuse_fip }
 };
 
 static int open_fuse_fip(const uintptr_t spec)
@@ -83,9 +79,8 @@ static int open_fuse_fip(const uintptr_t spec)
 	/* See if a Firmware Image Package is available */
 	result = io_dev_init(fuse_fip_dev_handle, (uintptr_t)FUSE_FIP_IMAGE_ID);
 	if (result == 0) {
-		result = io_open(fuse_fip_dev_handle,
-				 spec,
-				 &local_image_handle);
+		result =
+			io_open(fuse_fip_dev_handle, spec, &local_image_handle);
 		if (result == 0) {
 			VERBOSE("Using FIP\n");
 			io_close(local_image_handle);
@@ -97,8 +92,7 @@ static int open_fuse_fip(const uintptr_t spec)
 /* The image can be one of the DDR PHY images, which can be sleected via DDR
  * policies
  */
-int plat_get_fuse_image_source(unsigned int image_id,
-			       uintptr_t *dev_handle,
+int plat_get_fuse_image_source(unsigned int image_id, uintptr_t *dev_handle,
 			       uintptr_t *image_spec,
 			       int (*check)(const uintptr_t spec))
 {
@@ -163,7 +157,7 @@ int fip_fuse_provisioning(uintptr_t image_buf, uint32_t size)
 	uint32_t bit_num;
 	uint32_t *gpio_base_addr = NULL;
 	struct fuse_hdr_t *fuse_hdr = NULL;
-	uint8_t barker[] = {0x68U, 0x39U, 0x27U, 0x81U};
+	uint8_t barker[] = { 0x68U, 0x39U, 0x27U, 0x81U };
 	int ret = -1;
 
 	if (sfp_check_oem_wp() == 0) {
@@ -183,9 +177,8 @@ int fip_fuse_provisioning(uintptr_t image_buf, uint32_t size)
 
 		/* Check if GPIO pin to be set for POVDD */
 		if (((fuse_hdr->flags >> FLAG_POVDD_SHIFT) & 0x1) != 0) {
-			gpio_base_addr =
-				select_gpio_n_bitnum(fuse_hdr->povdd_gpio,
-						     &bit_num);
+			gpio_base_addr = select_gpio_n_bitnum(
+				fuse_hdr->povdd_gpio, &bit_num);
 			/*
 			 * Add delay so that Efuse gets the power
 			 * when GPIO is enabled.
@@ -193,7 +186,9 @@ int fip_fuse_provisioning(uintptr_t image_buf, uint32_t size)
 			ret = set_gpio_bit(gpio_base_addr, bit_num);
 			mdelay(EFUSE_POWERUP_DELAY_mSec);
 		} else {
-			ret = (board_enable_povdd() == true) ? 0 : PLAT_ERROR_ENABLE_POVDD;
+			ret = (board_enable_povdd() == true) ?
+				      0 :
+				      PLAT_ERROR_ENABLE_POVDD;
 		}
 		if (ret != 0) {
 			ERROR("Error enabling board POVDD: %d\n", ret);
@@ -202,17 +197,16 @@ int fip_fuse_provisioning(uintptr_t image_buf, uint32_t size)
 
 		provision_fuses(image_buf, ret == 0);
 
-		 /* Check if GPIO pin to be reset for POVDD */
+		/* Check if GPIO pin to be reset for POVDD */
 		if (((fuse_hdr->flags >> FLAG_POVDD_SHIFT) & 0x1) != 0) {
 			if (gpio_base_addr == NULL) {
-				gpio_base_addr =
-					select_gpio_n_bitnum(
-							fuse_hdr->povdd_gpio,
-							&bit_num);
+				gpio_base_addr = select_gpio_n_bitnum(
+					fuse_hdr->povdd_gpio, &bit_num);
 			}
 			ret = clr_gpio_bit(gpio_base_addr, bit_num);
 		} else {
-			ret = board_disable_povdd() ? 0 : PLAT_ERROR_DISABLE_POVDD;
+			ret = board_disable_povdd() ? 0 :
+						      PLAT_ERROR_DISABLE_POVDD;
 		}
 
 		if (ret != 0) {

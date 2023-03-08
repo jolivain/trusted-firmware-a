@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2020-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,18 +10,18 @@
 
 #include "mhu_v2_x.h"
 
-#define MHU_V2_X_MAX_CHANNELS		124
-#define MHU_V2_1_MAX_CHCOMB_INT		4
-#define ENABLE				0x1
-#define DISABLE				0x0
-#define CLEAR_INTR			0x1
-#define CH_PER_CH_COMB			0x20
-#define SEND_FRAME(p_mhu)		((struct mhu_v2_x_send_frame_t *)p_mhu)
-#define RECV_FRAME(p_mhu)		((struct mhu_v2_x_recv_frame_t *)p_mhu)
+#define MHU_V2_X_MAX_CHANNELS 124
+#define MHU_V2_1_MAX_CHCOMB_INT 4
+#define ENABLE 0x1
+#define DISABLE 0x0
+#define CLEAR_INTR 0x1
+#define CH_PER_CH_COMB 0x20
+#define SEND_FRAME(p_mhu) ((struct mhu_v2_x_send_frame_t *)p_mhu)
+#define RECV_FRAME(p_mhu) ((struct mhu_v2_x_recv_frame_t *)p_mhu)
 
-#define MHU_MAJOR_REV_V2		0x1u
-#define MHU_MINOR_REV_2_0		0x0u
-#define MHU_MINOR_REV_2_1		0x1u
+#define MHU_MAJOR_REV_V2 0x1u
+#define MHU_MINOR_REV_2_0 0x0u
+#define MHU_MINOR_REV_2_1 0x1u
 
 struct mhu_v2_x_send_ch_window_t {
 	/* Offset: 0x00 (R/ ) Channel Status */
@@ -132,8 +132,9 @@ union mhu_v2_x_frame {
 	struct mhu_v2_x_recv_frame_t recv_frame;
 };
 
-enum mhu_v2_x_error_t mhu_v2_x_driver_init(struct mhu_v2_x_dev_t *dev,
-	 enum mhu_v2_x_supported_revisions rev)
+enum mhu_v2_x_error_t
+mhu_v2_x_driver_init(struct mhu_v2_x_dev_t *dev,
+		     enum mhu_v2_x_supported_revisions rev)
 {
 	uint32_t AIDR = 0;
 	union mhu_v2_x_frame *p_mhu;
@@ -164,7 +165,7 @@ enum mhu_v2_x_error_t mhu_v2_x_driver_init(struct mhu_v2_x_dev_t *dev,
 		dev->subversion = AIDR & 0b1111;
 
 		if (dev->subversion != MHU_MINOR_REV_2_0 &&
-			dev->subversion != MHU_MINOR_REV_2_1) {
+		    dev->subversion != MHU_MINOR_REV_2_1) {
 			/* Unsupported subversion */
 			return MHU_V_2_X_ERR_UNSUPPORTED_VERSION;
 		}
@@ -206,7 +207,7 @@ uint32_t mhu_v2_x_get_num_channel_implemented(const struct mhu_v2_x_dev_t *dev)
 }
 
 enum mhu_v2_x_error_t mhu_v2_x_channel_send(const struct mhu_v2_x_dev_t *dev,
-	 uint32_t channel, uint32_t val)
+					    uint32_t channel, uint32_t val)
 {
 	union mhu_v2_x_frame *p_mhu;
 
@@ -227,7 +228,7 @@ enum mhu_v2_x_error_t mhu_v2_x_channel_send(const struct mhu_v2_x_dev_t *dev,
 }
 
 enum mhu_v2_x_error_t mhu_v2_x_channel_poll(const struct mhu_v2_x_dev_t *dev,
-	 uint32_t channel, uint32_t *value)
+					    uint32_t channel, uint32_t *value)
 {
 	union mhu_v2_x_frame *p_mhu;
 
@@ -248,7 +249,7 @@ enum mhu_v2_x_error_t mhu_v2_x_channel_poll(const struct mhu_v2_x_dev_t *dev,
 }
 
 enum mhu_v2_x_error_t mhu_v2_x_channel_clear(const struct mhu_v2_x_dev_t *dev,
-	 uint32_t channel)
+					     uint32_t channel)
 {
 	union mhu_v2_x_frame *p_mhu;
 
@@ -268,8 +269,9 @@ enum mhu_v2_x_error_t mhu_v2_x_channel_clear(const struct mhu_v2_x_dev_t *dev,
 	}
 }
 
-enum mhu_v2_x_error_t mhu_v2_x_channel_receive(
-	 const struct mhu_v2_x_dev_t *dev, uint32_t channel, uint32_t *value)
+enum mhu_v2_x_error_t mhu_v2_x_channel_receive(const struct mhu_v2_x_dev_t *dev,
+					       uint32_t channel,
+					       uint32_t *value)
 {
 	union mhu_v2_x_frame *p_mhu;
 
@@ -289,8 +291,9 @@ enum mhu_v2_x_error_t mhu_v2_x_channel_receive(
 	}
 }
 
-enum mhu_v2_x_error_t mhu_v2_x_channel_mask_set(
-	 const struct mhu_v2_x_dev_t *dev, uint32_t channel, uint32_t mask)
+enum mhu_v2_x_error_t
+mhu_v2_x_channel_mask_set(const struct mhu_v2_x_dev_t *dev, uint32_t channel,
+			  uint32_t mask)
 {
 	union mhu_v2_x_frame *p_mhu;
 
@@ -310,8 +313,9 @@ enum mhu_v2_x_error_t mhu_v2_x_channel_mask_set(
 	}
 }
 
-enum mhu_v2_x_error_t mhu_v2_x_channel_mask_clear(
-	 const struct mhu_v2_x_dev_t *dev, uint32_t channel, uint32_t mask)
+enum mhu_v2_x_error_t
+mhu_v2_x_channel_mask_clear(const struct mhu_v2_x_dev_t *dev, uint32_t channel,
+			    uint32_t mask)
 {
 	union mhu_v2_x_frame *p_mhu;
 
@@ -330,8 +334,8 @@ enum mhu_v2_x_error_t mhu_v2_x_channel_mask_clear(
 		return MHU_V_2_X_ERR_INVALID_ARG;
 	}
 }
-enum mhu_v2_x_error_t mhu_v2_x_initiate_transfer(
-	 const struct mhu_v2_x_dev_t *dev)
+enum mhu_v2_x_error_t
+mhu_v2_x_initiate_transfer(const struct mhu_v2_x_dev_t *dev)
 {
 	union mhu_v2_x_frame *p_mhu;
 

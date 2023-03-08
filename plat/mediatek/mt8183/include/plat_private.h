@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,12 +10,9 @@
 /*******************************************************************************
  * Function and variable prototypes
  ******************************************************************************/
-void plat_configure_mmu_el3(uintptr_t total_base,
-			    uintptr_t total_size,
-			    uintptr_t ro_start,
-			    uintptr_t ro_limit,
-			    uintptr_t coh_start,
-			    uintptr_t coh_limit);
+void plat_configure_mmu_el3(uintptr_t total_base, uintptr_t total_size,
+			    uintptr_t ro_start, uintptr_t ro_limit,
+			    uintptr_t coh_start, uintptr_t coh_limit);
 
 void plat_mtk_cci_init(void);
 void plat_mtk_cci_enable(void);

@@ -10,11 +10,10 @@
 #include <inttypes.h>
 #include <stdint.h>
 
+#include <armada_common.h>
 #include <common/debug.h>
 #include <drivers/marvell/ccu.h>
 #include <lib/mmio.h>
-
-#include <armada_common.h>
 #include <mvebu.h>
 #include <mvebu_def.h>
 
@@ -23,11 +22,11 @@
 #endif
 
 /* common defines */
-#define WIN_ENABLE_BIT			(0x1)
+#define WIN_ENABLE_BIT (0x1)
 /* Physical address of the base of the window = {AddrLow[19:0],20'h0} */
-#define ADDRESS_SHIFT			(20 - 4)
-#define ADDRESS_MASK			(0xFFFFFFF0)
-#define CCU_WIN_ALIGNMENT		(0x100000)
+#define ADDRESS_SHIFT (20 - 4)
+#define ADDRESS_MASK (0xFFFFFFF0)
+#define CCU_WIN_ALIGNMENT (0x100000)
 
 /*
  * Physical address of the highest address of window bits[31:19] = 0x6FF
@@ -36,7 +35,7 @@
  * RGF Window Enable bit[0] = 1
  * 0x37f9b809 - 11011111111 0011011100000 0010 0 1
  */
-#define ERRATA_WA_CCU_WIN4	0x37f9b809U
+#define ERRATA_WA_CCU_WIN4 0x37f9b809U
 
 /*
  * Physical address of the highest address of window bits[31:19] = 0xFFF
@@ -45,7 +44,7 @@
  * RGF Window Enable bit[0] = 1
  * 0x7ffa0009 - 111111111111 0100000000000 0010 0 1
  */
-#define ERRATA_WA_CCU_WIN5	0x7ffa0009U
+#define ERRATA_WA_CCU_WIN5 0x7ffa0009U
 
 /*
  * Physical address of the highest address of window bits[31:19] = 0x1FFF
@@ -54,14 +53,15 @@
  * RGF Window Enable bit[0] = 1
  * 0xfffc000d - 1111111111111 1000000000000 0011 0 1
  */
-#define ERRATA_WA_CCU_WIN6	0xfffc000dU
+#define ERRATA_WA_CCU_WIN6 0xfffc000dU
 
-#define IS_DRAM_TARGET(tgt)		((((tgt) == DRAM_0_TID) || \
-					((tgt) == DRAM_1_TID) || \
-					((tgt) == RAR_TID)) ? 1 : 0)
+#define IS_DRAM_TARGET(tgt)                                 \
+	((((tgt) == DRAM_0_TID) || ((tgt) == DRAM_1_TID) || \
+	  ((tgt) == RAR_TID)) ?                             \
+		 1 :                                        \
+		 0)
 
-#define CCU_RGF(win)			(MVEBU_CCU_BASE(MVEBU_AP0) + \
-					 0x90 + 4 * (win))
+#define CCU_RGF(win) (MVEBU_CCU_BASE(MVEBU_AP0) + 0x90 + 4 * (win))
 
 /* For storage of CR, SCR, ALR, AHR abd GCR */
 static uint32_t ccu_regs_save[MVEBU_CCU_MAX_WINS * 4 + 1];
@@ -80,14 +80,15 @@ static void dump_ccu(int ap_index)
 		win_cr = mmio_read_32(CCU_WIN_CR_OFFSET(ap_index, win_id));
 		if (win_cr & WIN_ENABLE_BIT) {
 			target_id = (win_cr >> CCU_TARGET_ID_OFFSET) &
-				     CCU_TARGET_ID_MASK;
-			alr = mmio_read_32(CCU_WIN_ALR_OFFSET(ap_index,
-							      win_id));
-			ahr = mmio_read_32(CCU_WIN_AHR_OFFSET(ap_index,
-							      win_id));
+				    CCU_TARGET_ID_MASK;
+			alr = mmio_read_32(
+				CCU_WIN_ALR_OFFSET(ap_index, win_id));
+			ahr = mmio_read_32(
+				CCU_WIN_AHR_OFFSET(ap_index, win_id));
 			start = ((uint64_t)alr << ADDRESS_SHIFT);
 			end = (((uint64_t)ahr + 0x10) << ADDRESS_SHIFT);
-			printf("\tccu%d    %02x     0x%016" PRIx64 " 0x%016" PRIx64 "\n",
+			printf("\tccu%d    %02x     0x%016" PRIx64
+			       " 0x%016" PRIx64 "\n",
 			       win_id, target_id, start, end);
 		}
 	}
@@ -109,15 +110,15 @@ void ccu_win_check(struct addr_map_win *win)
 	/* size parameter validity check */
 	if (IS_NOT_ALIGN(win->win_size, CCU_WIN_ALIGNMENT)) {
 		win->win_size = ALIGN_UP(win->win_size, CCU_WIN_ALIGNMENT);
-		NOTICE("%s: Aligning size to 0x%" PRIx64 "\n",
-		       __func__, win->win_size);
+		NOTICE("%s: Aligning size to 0x%" PRIx64 "\n", __func__,
+		       win->win_size);
 	}
 }
 
 int ccu_is_win_enabled(int ap_index, uint32_t win_id)
 {
 	return mmio_read_32(CCU_WIN_CR_OFFSET(ap_index, win_id)) &
-			    WIN_ENABLE_BIT;
+	       WIN_ENABLE_BIT;
 }
 
 void ccu_enable_win(int ap_index, struct addr_map_win *win, uint32_t win_id)
@@ -140,7 +141,7 @@ void ccu_enable_win(int ap_index, struct addr_map_win *win, uint32_t win_id)
 
 	ccu_win_reg = WIN_ENABLE_BIT;
 	ccu_win_reg |= (win->target_id & CCU_TARGET_ID_MASK)
-			<< CCU_TARGET_ID_OFFSET;
+		       << CCU_TARGET_ID_OFFSET;
 	mmio_write_32(CCU_WIN_CR_OFFSET(ap_index, win_id), ccu_win_reg);
 }
 
@@ -200,8 +201,8 @@ void ccu_temp_win_remove(int ap_index, struct addr_map_win *win, int size)
 		base <<= ADDRESS_SHIFT;
 
 		if ((win->target_id != target) || (win->base_addr != base)) {
-			ERROR("%s: Trying to remove bad window-%d!\n",
-			      __func__, win_id);
+			ERROR("%s: Trying to remove bad window-%d!\n", __func__,
+			      win_id);
 			continue;
 		}
 		ccu_disable_win(ap_index, win_id);
@@ -275,8 +276,8 @@ void ccu_dram_win_config(int ap_index, struct addr_map_win *win)
 }
 
 /* Save content of CCU window + GCR */
-static void ccu_save_win_range(int ap_id, int win_first,
-			       int win_last, uint32_t *buffer)
+static void ccu_save_win_range(int ap_id, int win_first, int win_last,
+			       uint32_t *buffer)
 {
 	int win_id, idx;
 	/* Save CCU */
@@ -290,13 +291,13 @@ static void ccu_save_win_range(int ap_id, int win_first,
 }
 
 /* Restore content of CCU window + GCR */
-static void ccu_restore_win_range(int ap_id, int win_first,
-				  int win_last, uint32_t *buffer)
+static void ccu_restore_win_range(int ap_id, int win_first, int win_last,
+				  uint32_t *buffer)
 {
 	int win_id, idx;
 	/* Restore CCU */
 	for (idx = 0, win_id = win_first; win_id <= win_last; win_id++) {
-		mmio_write_32(CCU_WIN_CR_OFFSET(ap_id, win_id),  buffer[idx++]);
+		mmio_write_32(CCU_WIN_CR_OFFSET(ap_id, win_id), buffer[idx++]);
 		mmio_write_32(CCU_WIN_SCR_OFFSET(ap_id, win_id), buffer[idx++]);
 		mmio_write_32(CCU_WIN_ALR_OFFSET(ap_id, win_id), buffer[idx++]);
 		mmio_write_32(CCU_WIN_AHR_OFFSET(ap_id, win_id), buffer[idx++]);
@@ -378,8 +379,8 @@ int init_ccu(int ap_index)
 	 * array_id is the index of the current memory map window entry
 	 */
 	for (win_id = win_start, array_id = 0;
-	    ((win_id < MVEBU_CCU_MAX_WINS) && (array_id < win_count));
-	    win_id++) {
+	     ((win_id < MVEBU_CCU_MAX_WINS) && (array_id < win_count));
+	     win_id++) {
 		ccu_win_check(win);
 		ccu_enable_win(ap_index, win, win_id);
 		win++;
@@ -388,7 +389,7 @@ int init_ccu(int ap_index)
 
 	/* Get & set the default target according to board topology */
 	win_reg = (marvell_get_ccu_gcr_target(ap_index) & CCU_GCR_TARGET_MASK)
-		   << CCU_GCR_TARGET_OFFSET;
+		  << CCU_GCR_TARGET_OFFSET;
 	mmio_write_32(CCU_WIN_GCR_OFFSET(ap_index), win_reg);
 
 #ifdef DEBUG_ADDR_MAP

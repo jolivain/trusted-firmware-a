@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier:    BSD-3-Clause
  *
@@ -15,11 +15,13 @@
 
 #include <common/debug.h>
 #include <drivers/arm/smmu_v3.h>
+#include <smccc_helpers.h>
+
+#include <plat/common/platform.h>
+
 #include "drtm_dma_prot.h"
 #include "drtm_main.h"
 #include "drtm_remediation.h"
-#include <plat/common/platform.h>
-#include <smccc_helpers.h>
 
 /*
  *  ________________________  LAUNCH success        ________________________
@@ -54,7 +56,7 @@ bool drtm_dma_prot_init(void)
 	/* Warns presence of non-host platforms */
 	if (plat_has_non_host_platforms()) {
 		WARN("DRTM: the platform includes trusted DMA-capable devices"
-				" (non-host platforms)\n");
+		     " (non-host platforms)\n");
 	}
 
 	/*
@@ -133,7 +135,7 @@ enum drtm_retc drtm_dma_prot_engage(const struct_drtm_dl_dma_prot_args *a,
 	 * Only PROTECT_MEM_ALL is implemented currently.
 	 */
 	plat_enumerate_smmus(&smmus, &num_smmus);
-	for (const uintptr_t *smmu = smmus; smmu < smmus+num_smmus; smmu++) {
+	for (const uintptr_t *smmu = smmus; smmu < smmus + num_smmus; smmu++) {
 		/*
 		 * TODO: Invalidate SMMU's Stage-1 and Stage-2 TLB entries.  This ensures
 		 * that any outstanding device transactions are completed, see Section
@@ -142,7 +144,8 @@ enum drtm_retc drtm_dma_prot_engage(const struct_drtm_dl_dma_prot_args *a,
 		int rc = smmuv3_ns_set_abort_all(*smmu);
 		if (rc != 0) {
 			ERROR("DRTM: SMMU at PA 0x%lx failed to engage DMA protection"
-			      " rc=%d\n", *smmu, rc);
+			      " rc=%d\n",
+			      *smmu, rc);
 			return INTERNAL_ERROR;
 		}
 	}
@@ -247,16 +250,18 @@ void drtm_dma_prot_serialise_table(uint8_t *dst, size_t *size_out)
 	struct __packed descr_table_1 {
 		drtm_memory_region_descriptor_table_t header;
 		drtm_mem_region_t regions[1];
-	} prot_table = {
-		.header = {
-			.revision = 1,
-			.num_regions = sizeof(((struct descr_table_1 *)NULL)->regions) /
-				sizeof(((struct descr_table_1 *)NULL)->regions[0])
-		},
-		.regions = {
-			{.region_address = 0, PAGES_AND_TYPE(UINT64_MAX, 0x3)},
-		}
-	};
+	} prot_table = { .header = { .revision = 1,
+				     .num_regions =
+					     sizeof(((struct descr_table_1 *)
+							     NULL)
+							    ->regions) /
+					     sizeof(((struct descr_table_1 *)
+							     NULL)
+							    ->regions[0]) },
+			 .regions = {
+				 { .region_address = 0,
+				   PAGES_AND_TYPE(UINT64_MAX, 0x3) },
+			 } };
 
 	memcpy(dst, &prot_table, sizeof(prot_table));
 	*size_out = sizeof(prot_table);

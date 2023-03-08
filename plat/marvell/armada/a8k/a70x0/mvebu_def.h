@@ -10,6 +10,6 @@
 
 #include <a8k_plat_def.h>
 
-#define CP_COUNT		1	/* A70x0 has single CP0 */
+#define CP_COUNT 1 /* A70x0 has single CP0 */
 
 #endif /* MVEBU_DEF_H */

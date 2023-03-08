@@ -1,50 +1,44 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <assert.h>
+#include <errno.h>
 #include <inttypes.h>
 #include <stdint.h>
 
 #include <arch.h>
 #include <arch_helpers.h>
-#include <assert.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <common/runtime_svc.h>
-#include <errno.h>
 #include <lib/mmio.h>
 #include <lib/utils_def.h>
-
 #include <memctrl.h>
 #include <pmc.h>
-#include <tegra_private.h>
-#include <tegra_platform.h>
 #include <tegra_def.h>
+#include <tegra_platform.h>
+#include <tegra_private.h>
 
 /*******************************************************************************
  * PMC parameters
  ******************************************************************************/
-#define PMC_READ 			U(0xaa)
-#define PMC_WRITE 			U(0xbb)
+#define PMC_READ U(0xaa)
+#define PMC_WRITE U(0xbb)
 
 /*******************************************************************************
  * Tegra210 SiP SMCs
  ******************************************************************************/
-#define TEGRA_SIP_PMC_COMMANDS		U(0xC2FFFE00)
+#define TEGRA_SIP_PMC_COMMANDS U(0xC2FFFE00)
 
 /*******************************************************************************
  * This function is responsible for handling all T210 SiP calls
  ******************************************************************************/
-int plat_sip_handler(uint32_t smc_fid,
-		     uint64_t x1,
-		     uint64_t x2,
-		     uint64_t x3,
-		     uint64_t x4,
-		     const void *cookie,
-		     void *handle,
+int plat_sip_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2, uint64_t x3,
+		     uint64_t x4, const void *cookie, void *handle,
 		     uint64_t flags)
 {
 	uint32_t val, ns;
@@ -84,9 +78,11 @@ int plat_sip_handler(uint32_t smc_fid,
 		/* Perform PMC read/write */
 		if (x1 == PMC_READ) {
 			val = mmio_read_32((uint32_t)(TEGRA_PMC_BASE + x2));
-			write_ctx_reg(get_gpregs_ctx(handle), CTX_GPREG_X1, val);
+			write_ctx_reg(get_gpregs_ctx(handle), CTX_GPREG_X1,
+				      val);
 		} else if (x1 == PMC_WRITE) {
-			mmio_write_32((uint32_t)(TEGRA_PMC_BASE + x2), (uint32_t)x3);
+			mmio_write_32((uint32_t)(TEGRA_PMC_BASE + x2),
+				      (uint32_t)x3);
 		} else {
 			return -EINVAL;
 		}

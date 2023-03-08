@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,23 +7,22 @@
 #include <assert.h>
 #include <string.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/bl_common.h>
 #include <drivers/generic_delay_timer.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 /* Weak definitions may be overridden in specific ARM standard platform */
 #pragma weak bl2u_platform_setup
 #pragma weak bl2u_early_platform_setup
 #pragma weak bl2u_plat_arch_setup
 
-#define MAP_BL2U_TOTAL		MAP_REGION_FLAT(			\
-					BL2U_BASE,			\
-					BL2U_LIMIT - BL2U_BASE,		\
-					MT_MEMORY | MT_RW | MT_SECURE)
+#define MAP_BL2U_TOTAL                                     \
+	MAP_REGION_FLAT(BL2U_BASE, BL2U_LIMIT - BL2U_BASE, \
+			MT_MEMORY | MT_RW | MT_SECURE)
 
 /*
  * Perform ARM standard platform setup for BL2U
@@ -65,7 +64,6 @@ void bl2u_early_platform_setup(struct meminfo *mem_layout, void *plat_info)
  ******************************************************************************/
 void arm_bl2u_plat_arch_setup(void)
 {
-
 #if USE_COHERENT_MEM
 	/* Ensure ARM platforms dont use coherent memory in BL2U */
 	assert((BL_COHERENT_RAM_END - BL_COHERENT_RAM_BASE) == 0U);
@@ -78,7 +76,7 @@ void arm_bl2u_plat_arch_setup(void)
 		ARM_MAP_ROMLIB_CODE,
 		ARM_MAP_ROMLIB_DATA,
 #endif
-		{0}
+		{ 0 }
 	};
 
 	setup_page_tables(bl_regions, plat_arm_get_mmap());

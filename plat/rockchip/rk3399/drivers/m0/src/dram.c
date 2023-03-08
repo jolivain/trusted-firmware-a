@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,6 +8,7 @@
 #include <m0_param.h>
 #include <pmu_bits.h>
 #include <pmu_regs.h>
+
 #include "misc_regs.h"
 #include "rk3399_mcu.h"
 
@@ -22,7 +23,7 @@ static void idle_port(void)
 			(1 << PMU_IDLE_REQ_MSCH0) | (1 << PMU_IDLE_REQ_MSCH1));
 	while ((mmio_read_32(PMU_BASE + PMU_BUS_IDLE_ST) &
 		((1 << PMU_IDLE_ST_MSCH1) | (1 << PMU_IDLE_ST_MSCH0))) !=
-		((1 << PMU_IDLE_ST_MSCH1) | (1 << PMU_IDLE_ST_MSCH0)))
+	       ((1 << PMU_IDLE_ST_MSCH1) | (1 << PMU_IDLE_ST_MSCH0)))
 		continue;
 }
 
@@ -62,9 +63,8 @@ __attribute__((noreturn)) void m0_main(void)
 	idle_port();
 
 	mmio_write_32(CIC_BASE + CIC_CTRL0,
-		      (((0x3 << 4) | (1 << 2) | 1) << 16) |
-		      (1 << 2) | 1 |
-		      mmio_read_32(PARAM_ADDR + PARAM_FREQ_SELECT));
+		      (((0x3 << 4) | (1 << 2) | 1) << 16) | (1 << 2) | 1 |
+			      mmio_read_32(PARAM_ADDR + PARAM_FREQ_SELECT));
 	while ((mmio_read_32(CIC_BASE + CIC_STATUS0) & (1 << 2)) == 0)
 		continue;
 
@@ -80,5 +80,5 @@ __attribute__((noreturn)) void m0_main(void)
 	mmio_write_32(PARAM_ADDR + PARAM_M0_DONE, M0_DONE_FLAG);
 
 	for (;;)
-		__asm__ volatile ("wfi");
+		__asm__ volatile("wfi");
 }

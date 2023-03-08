@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2022-2023, Advanced Micro Devices Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -18,44 +18,44 @@
  * Version number is a 32bit value, like:
  * (PM_VERSION_MAJOR << 16) | PM_VERSION_MINOR
  */
-#define PM_VERSION_MAJOR	1U
-#define PM_VERSION_MINOR	1U
+#define PM_VERSION_MAJOR 1U
+#define PM_VERSION_MINOR 1U
 
-#define PM_VERSION	((PM_VERSION_MAJOR << 16U) | PM_VERSION_MINOR)
+#define PM_VERSION ((PM_VERSION_MAJOR << 16U) | PM_VERSION_MINOR)
 
 /**
  * PM API versions
  */
 /* Expected version of firmware APIs */
-#define FW_API_BASE_VERSION		(1U)
+#define FW_API_BASE_VERSION (1U)
 /* Expected version of firmware API for feature check */
-#define FW_API_VERSION_2		(2U)
+#define FW_API_VERSION_2 (2U)
 /* Version of APIs implemented in ATF */
-#define ATF_API_BASE_VERSION		(1U)
+#define ATF_API_BASE_VERSION (1U)
 /* Updating the QUERY_DATA API versioning as the bitmask functionality
  * support is added in the v2.*/
-#define TFA_API_QUERY_DATA_VERSION	(2U)
+#define TFA_API_QUERY_DATA_VERSION (2U)
 
 /* Capabilities for RAM */
-#define PM_CAP_ACCESS	0x1U
-#define PM_CAP_CONTEXT	0x2U
+#define PM_CAP_ACCESS 0x1U
+#define PM_CAP_CONTEXT 0x2U
 
-#define MAX_LATENCY	(~0U)
-#define MAX_QOS		100U
+#define MAX_LATENCY (~0U)
+#define MAX_QOS 100U
 
 /* State arguments of the self suspend */
-#define PM_STATE_CPU_IDLE		0x0U
-#define PM_STATE_SUSPEND_TO_RAM		0xFU
+#define PM_STATE_CPU_IDLE 0x0U
+#define PM_STATE_SUSPEND_TO_RAM 0xFU
 
 /* APU processor states */
-#define PM_PROC_STATE_FORCEDOFF		0U
-#define PM_PROC_STATE_ACTIVE		1U
-#define PM_PROC_STATE_SLEEP		2U
-#define PM_PROC_STATE_SUSPENDING	3U
+#define PM_PROC_STATE_FORCEDOFF 0U
+#define PM_PROC_STATE_ACTIVE 1U
+#define PM_PROC_STATE_SLEEP 2U
+#define PM_PROC_STATE_SUSPENDING 3U
 
-#define PM_GET_CALLBACK_DATA		0xa01
-#define PM_SET_SUSPEND_MODE		0xa02
-#define PM_GET_TRUSTZONE_VERSION	0xa03
+#define PM_GET_CALLBACK_DATA 0xa01
+#define PM_SET_SUSPEND_MODE 0xa02
+#define PM_GET_TRUSTZONE_VERSION 0xa03
 
 /*********************************************************************
  * Enum definitions

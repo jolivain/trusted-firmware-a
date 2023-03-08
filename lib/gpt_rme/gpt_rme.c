@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,11 +13,12 @@
 #include <arch.h>
 #include <arch_helpers.h>
 #include <common/debug.h>
-#include "gpt_rme_private.h"
 #include <lib/gpt_rme/gpt_rme.h>
 #include <lib/smccc.h>
 #include <lib/spinlock.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
+
+#include "gpt_rme_private.h"
 
 #if !ENABLE_RME
 #error "ENABLE_RME must be enabled to use the GPT library."
@@ -37,10 +38,9 @@
  *
  * See section 15.1.27 of the RME specification.
  */
-static const gpt_t_val_e gpt_t_lookup[] = {PPS_4GB_T, PPS_64GB_T,
-					   PPS_1TB_T, PPS_4TB_T,
-					   PPS_16TB_T, PPS_256TB_T,
-					   PPS_4PB_T};
+static const gpt_t_val_e gpt_t_lookup[] = { PPS_4GB_T, PPS_64GB_T, PPS_1TB_T,
+					    PPS_4TB_T, PPS_16TB_T, PPS_256TB_T,
+					    PPS_4PB_T };
 
 /*
  * Lookup P from PGS
@@ -54,7 +54,7 @@ static const gpt_t_val_e gpt_t_lookup[] = {PPS_4GB_T, PPS_64GB_T,
  *
  * See section 15.1.27 of the RME specification.
  */
-static const gpt_p_val_e gpt_p_lookup[] = {PGS_4KB_P, PGS_64KB_P, PGS_16KB_P};
+static const gpt_p_val_e gpt_p_lookup[] = { PGS_4KB_P, PGS_64KB_P, PGS_16KB_P };
 
 /*
  * This structure contains GPT configuration data.
@@ -139,8 +139,9 @@ static bool gpt_does_previous_pas_exist_here(unsigned int l0_idx,
 	/* Iterate over PAS regions up to pas_idx. */
 	for (unsigned int i = 0U; i < pas_idx; i++) {
 		if (gpt_check_pas_overlap((GPT_L0GPTSZ_ACTUAL_SIZE * l0_idx),
-		    GPT_L0GPTSZ_ACTUAL_SIZE,
-		    pas_regions[i].base_pa, pas_regions[i].size)) {
+					  GPT_L0GPTSZ_ACTUAL_SIZE,
+					  pas_regions[i].base_pa,
+					  pas_regions[i].size)) {
 			return true;
 		}
 	}
@@ -184,8 +185,9 @@ static int gpt_validate_pas_mappings(pas_region_t *pas_regions,
 
 		/* Initial checks for PAS validity. */
 		if (((pas_regions[idx].base_pa + pas_regions[idx].size) >
-		    GPT_PPS_ACTUAL_SIZE(gpt_config.t)) ||
-		    !gpt_is_gpi_valid(GPT_PAS_ATTR_GPI(pas_regions[idx].attrs))) {
+		     GPT_PPS_ACTUAL_SIZE(gpt_config.t)) ||
+		    !gpt_is_gpi_valid(
+			    GPT_PAS_ATTR_GPI(pas_regions[idx].attrs))) {
 			ERROR("[GPT] PAS[%u] is invalid!\n", idx);
 			return -EFAULT;
 		}
@@ -197,11 +199,11 @@ static int gpt_validate_pas_mappings(pas_region_t *pas_regions,
 		 */
 		for (unsigned int i = idx + 1; i < pas_region_cnt; i++) {
 			if (gpt_check_pas_overlap(pas_regions[idx].base_pa,
-			    pas_regions[idx].size,
-			    pas_regions[i].base_pa,
-			    pas_regions[i].size)) {
+						  pas_regions[idx].size,
+						  pas_regions[i].base_pa,
+						  pas_regions[i].size)) {
 				ERROR("[GPT] PAS[%u] overlaps with PAS[%u]\n",
-					i, idx);
+				      i, idx);
 				return -EFAULT;
 			}
 		}
@@ -213,7 +215,8 @@ static int gpt_validate_pas_mappings(pas_region_t *pas_regions,
 		 * initialized.
 		 */
 		for (unsigned int i = GPT_L0_IDX(pas_regions[idx].base_pa);
-		     i <= GPT_L0_IDX(pas_regions[idx].base_pa + pas_regions[idx].size - 1);
+		     i <= GPT_L0_IDX(pas_regions[idx].base_pa +
+				     pas_regions[idx].size - 1);
 		     i++) {
 			if ((GPT_L0_TYPE(l0_desc[i]) == GPT_L0_TYPE_BLK_DESC) &&
 			    (GPT_L0_BLKD_GPI(l0_desc[i]) == GPT_GPI_ANY)) {
@@ -248,8 +251,10 @@ static int gpt_validate_pas_mappings(pas_region_t *pas_regions,
 		if (GPT_PAS_ATTR_MAP_TYPE(pas_regions[idx].attrs) ==
 		    GPT_PAS_ATTR_MAP_TYPE_GRANULE) {
 			/* Make sure base and size are granule-aligned. */
-			if (!GPT_IS_L1_ALIGNED(gpt_config.p, pas_regions[idx].base_pa) ||
-			    !GPT_IS_L1_ALIGNED(gpt_config.p, pas_regions[idx].size)) {
+			if (!GPT_IS_L1_ALIGNED(gpt_config.p,
+					       pas_regions[idx].base_pa) ||
+			    !GPT_IS_L1_ALIGNED(gpt_config.p,
+					       pas_regions[idx].size)) {
 				ERROR("[GPT] PAS[%u] is not granule-aligned!\n",
 				      idx);
 				return -EFAULT;
@@ -257,8 +262,8 @@ static int gpt_validate_pas_mappings(pas_region_t *pas_regions,
 
 			/* Find how many L1 tables this PAS occupies. */
 			pas_l1_cnt = (GPT_L0_IDX(pas_regions[idx].base_pa +
-				     pas_regions[idx].size - 1) -
-				     GPT_L0_IDX(pas_regions[idx].base_pa) + 1);
+						 pas_regions[idx].size - 1) -
+				      GPT_L0_IDX(pas_regions[idx].base_pa) + 1);
 
 			/*
 			 * This creates a situation where, if multiple PAS
@@ -277,16 +282,17 @@ static int gpt_validate_pas_mappings(pas_region_t *pas_regions,
 			 */
 			if (pas_l1_cnt > 1) {
 				if (gpt_does_previous_pas_exist_here(
-				    GPT_L0_IDX(pas_regions[idx].base_pa +
-				    pas_regions[idx].size - 1),
-				    pas_regions, idx)) {
+					    GPT_L0_IDX(
+						    pas_regions[idx].base_pa +
+						    pas_regions[idx].size - 1),
+					    pas_regions, idx)) {
 					pas_l1_cnt = pas_l1_cnt - 1;
 				}
 			}
 
 			if (gpt_does_previous_pas_exist_here(
-			    GPT_L0_IDX(pas_regions[idx].base_pa),
-			    pas_regions, idx)) {
+				    GPT_L0_IDX(pas_regions[idx].base_pa),
+				    pas_regions, idx)) {
 				pas_l1_cnt = pas_l1_cnt - 1;
 			}
 
@@ -344,8 +350,7 @@ static int gpt_validate_l0_params(gpccr_pps_e pps, uintptr_t l0_mem_base,
 	/* Check size. */
 	if (l0_mem_size < GPT_L0_TABLE_SIZE(gpt_config.t)) {
 		ERROR("[GPT] Inadequate L0 memory: need 0x%lx, have 0x%lx)\n",
-		      GPT_L0_TABLE_SIZE(gpt_config.t),
-		      l0_mem_size);
+		      GPT_L0_TABLE_SIZE(gpt_config.t), l0_mem_size);
 		return -ENOMEM;
 	}
 
@@ -371,7 +376,7 @@ static int gpt_validate_l1_params(uintptr_t l1_mem_base, size_t l1_mem_size,
 
 	/* Check if the granularity is supported */
 	if (!xlat_arch_is_granule_size_supported(
-	    GPT_PGS_ACTUAL_SIZE(gpt_config.p))) {
+		    GPT_PGS_ACTUAL_SIZE(gpt_config.p))) {
 		return -EPERM;
 	}
 
@@ -444,10 +449,12 @@ static void gpt_generate_l0_blk_desc(pas_region_t *pas)
 	/* Generate the needed block descriptors. */
 	for (; idx < end_idx; idx++) {
 		l0_gpt_arr[idx] = gpt_desc;
-		VERBOSE("[GPT] L0 entry (BLOCK) index %u [%p]: GPI = 0x%" PRIx64 " (0x%" PRIx64 ")\n",
+		VERBOSE("[GPT] L0 entry (BLOCK) index %u [%p]: GPI = 0x%" PRIx64
+			" (0x%" PRIx64 ")\n",
 			idx, &l0_gpt_arr[idx],
 			(gpt_desc >> GPT_L0_BLK_DESC_GPI_SHIFT) &
-			GPT_L0_BLK_DESC_GPI_MASK, l0_gpt_arr[idx]);
+				GPT_L0_BLK_DESC_GPI_MASK,
+			l0_gpt_arr[idx]);
 	}
 }
 
@@ -511,8 +518,9 @@ static void gpt_fill_l1_tbl(uint64_t gpi, uint64_t *l1, uintptr_t first,
 	     i <= GPT_L1_IDX(gpt_config.p, last); i++) {
 		/* Account for stopping in the middle of an L1 entry. */
 		if (i == GPT_L1_IDX(gpt_config.p, last)) {
-			gpi_mask &= (gpi_mask >> ((15 -
-				    GPT_L1_GPI_IDX(gpt_config.p, last)) << 2));
+			gpi_mask &= (gpi_mask >>
+				     ((15 - GPT_L1_GPI_IDX(gpt_config.p, last))
+				      << 2));
 		}
 
 		/* Write GPI values. */
@@ -540,8 +548,8 @@ static uint64_t *gpt_get_new_l1_tbl(void)
 {
 	/* Retrieve the next L1 table. */
 	uint64_t *l1 = (uint64_t *)((uint64_t)(gpt_l1_tbl) +
-		       (GPT_L1_TABLE_SIZE(gpt_config.p) *
-		       gpt_next_l1_tbl_idx));
+				    (GPT_L1_TABLE_SIZE(gpt_config.p) *
+				     gpt_next_l1_tbl_idx));
 
 	/* Increment L1 counter. */
 	gpt_next_l1_tbl_idx++;
@@ -587,9 +595,7 @@ static void gpt_generate_l0_tbl_desc(pas_region_t *pas)
 
 	/* Iterate over each L0 region in this memory range. */
 	for (l0_idx = GPT_L0_IDX(pas->base_pa);
-	     l0_idx <= GPT_L0_IDX(end_pa - 1U);
-	     l0_idx++) {
-
+	     l0_idx <= GPT_L0_IDX(end_pa - 1U); l0_idx++) {
 		/*
 		 * See if the L0 entry is already a table descriptor or if we
 		 * need to create one.
@@ -605,10 +611,10 @@ static void gpt_generate_l0_tbl_desc(pas_region_t *pas)
 			l0_gpt_base[l0_idx] = GPT_L0_TBL_DESC(l1_gpt_arr);
 		}
 
-		VERBOSE("[GPT] L0 entry (TABLE) index %u [%p] ==> L1 Addr 0x%llx (0x%" PRIx64 ")\n",
+		VERBOSE("[GPT] L0 entry (TABLE) index %u [%p] ==> L1 Addr 0x%llx (0x%" PRIx64
+			")\n",
 			l0_idx, &l0_gpt_base[l0_idx],
-			(unsigned long long)(l1_gpt_arr),
-			l0_gpt_base[l0_idx]);
+			(unsigned long long)(l1_gpt_arr), l0_gpt_base[l0_idx]);
 
 		/*
 		 * Determine the PA of the last granule in this L0 descriptor.
@@ -659,8 +665,10 @@ static void flush_l0_for_pas_array(pas_region_t *pas, unsigned int pas_count)
 		if (GPT_L0_IDX(pas[idx].base_pa) < start_idx) {
 			start_idx = GPT_L0_IDX(pas[idx].base_pa);
 		}
-		if (GPT_L0_IDX(pas[idx].base_pa + pas[idx].size - 1) > end_idx) {
-			end_idx = GPT_L0_IDX(pas[idx].base_pa + pas[idx].size - 1);
+		if (GPT_L0_IDX(pas[idx].base_pa + pas[idx].size - 1) >
+		    end_idx) {
+			end_idx = GPT_L0_IDX(pas[idx].base_pa + pas[idx].size -
+					     1);
 		}
 	}
 
@@ -694,8 +702,10 @@ int gpt_enable(void)
 	}
 
 	/* Write the base address of the L0 tables into GPTBR */
-	write_gptbr_el3(((gpt_config.plat_gpt_l0_base >> GPTBR_BADDR_VAL_SHIFT)
-			>> GPTBR_BADDR_SHIFT) & GPTBR_BADDR_MASK);
+	write_gptbr_el3(
+		((gpt_config.plat_gpt_l0_base >> GPTBR_BADDR_VAL_SHIFT) >>
+		 GPTBR_BADDR_SHIFT) &
+		GPTBR_BADDR_MASK);
 
 	/* GPCCR_EL3.PPS */
 	gpccr_el3 = SET_GPCCR_PPS(gpt_config.pps);
@@ -851,7 +861,7 @@ int gpt_init_pas_l1_tables(gpccr_pgs_e pgs, uintptr_t l1_mem_base,
 	/* If L1 tables are needed then validate the L1 parameters. */
 	if (l1_gpt_cnt > 0) {
 		ret = gpt_validate_l1_params(l1_mem_base, l1_mem_size,
-		      l1_gpt_cnt);
+					     l1_gpt_cnt);
 		if (ret != 0) {
 			return ret;
 		}
@@ -892,7 +902,7 @@ int gpt_init_pas_l1_tables(gpccr_pgs_e pgs, uintptr_t l1_mem_base,
 	if (l1_gpt_cnt > 0) {
 		flush_dcache_range(l1_mem_base,
 				   GPT_L1_TABLE_SIZE(gpt_config.p) *
-				   l1_gpt_cnt);
+					   l1_gpt_cnt);
 	}
 
 	/* Make sure that all the entries are written to the memory. */
@@ -933,9 +943,9 @@ int gpt_runtime_init(void)
 	 * address since those are included in the L0 tables as needed.
 	 */
 	reg = read_gptbr_el3();
-	gpt_config.plat_gpt_l0_base = ((reg >> GPTBR_BADDR_SHIFT) &
-				      GPTBR_BADDR_MASK) <<
-				      GPTBR_BADDR_VAL_SHIFT;
+	gpt_config.plat_gpt_l0_base =
+		((reg >> GPTBR_BADDR_SHIFT) & GPTBR_BADDR_MASK)
+		<< GPTBR_BADDR_VAL_SHIFT;
 
 	/* Read GPCCR to get PGS and PPS values. */
 	reg = read_gpccr_el3();
@@ -996,7 +1006,7 @@ static int get_gpi_params(uint64_t base, gpi_info_t *gpi_info)
 
 	gpi_info->gpt_l1_desc = (gpi_info->gpt_l1_addr)[gpi_info->idx];
 	gpi_info->gpi = (gpi_info->gpt_l1_desc >> gpi_info->gpi_shift) &
-		GPT_L1_GRAN_DESC_GPI_MASK;
+			GPT_L1_GRAN_DESC_GPI_MASK;
 	return 0;
 }
 
@@ -1117,8 +1127,8 @@ int gpt_delegate_pas(uint64_t base, size_t size, unsigned int src_sec_state)
 	 * The isb() will be done as part of context
 	 * synchronization when returning to lower EL
 	 */
-	VERBOSE("[GPT] Granule 0x%" PRIx64 ", GPI 0x%x->0x%x\n",
-		base, gpi_info.gpi, target_pas);
+	VERBOSE("[GPT] Granule 0x%" PRIx64 ", GPI 0x%x->0x%x\n", base,
+		gpi_info.gpi, target_pas);
 
 	return 0;
 }
@@ -1194,7 +1204,7 @@ int gpt_undelegate_pas(uint64_t base, size_t size, unsigned int src_sec_state)
 	}
 
 	/* Check that the current address is in the delegated state */
-	if ((src_sec_state == SMC_FROM_REALM  &&
+	if ((src_sec_state == SMC_FROM_REALM &&
 	     gpi_info.gpi != GPT_GPI_REALM) ||
 	    (src_sec_state == SMC_FROM_SECURE &&
 	     gpi_info.gpi != GPT_GPI_SECURE)) {
@@ -1204,7 +1214,6 @@ int gpt_undelegate_pas(uint64_t base, size_t size, unsigned int src_sec_state)
 		spin_unlock(&gpt_lock);
 		return -EPERM;
 	}
-
 
 	/* In order to maintain mutual distrust between Realm and Secure
 	 * states, remove access now, in order to guarantee that writes
@@ -1253,8 +1262,8 @@ int gpt_undelegate_pas(uint64_t base, size_t size, unsigned int src_sec_state)
 	 * The isb() will be done as part of context
 	 * synchronization when returning to lower EL
 	 */
-	VERBOSE("[GPT] Granule 0x%" PRIx64 ", GPI 0x%x->0x%x\n",
-		base, gpi_info.gpi, GPT_GPI_NS);
+	VERBOSE("[GPT] Granule 0x%" PRIx64 ", GPI 0x%x->0x%x\n", base,
+		gpi_info.gpi, GPT_GPI_NS);
 
 	return 0;
 }

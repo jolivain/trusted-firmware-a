@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -14,11 +14,12 @@
 #include <common/desc_image_load.h>
 #include <drivers/arm/pl011.h>
 #include <drivers/generic_delay_timer.h>
+#include <drivers/mmc.h>
 #include <drivers/partition/partition.h>
 #include <drivers/synopsys/dw_mmc.h>
-#include <drivers/mmc.h>
 #include <lib/mmio.h>
 #include <lib/optee_utils.h>
+
 #include <plat/common/platform.h>
 
 #include "hi3798cv200.h"
@@ -93,7 +94,7 @@ uint32_t poplar_get_spsr_for_bl33_entry(void)
 	 * well.
 	 */
 	spsr = SPSR_MODE32(mode, plat_get_ns_image_entrypoint() & 0x1,
-			SPSR_E_LITTLE, DISABLE_ALL_EXCEPTIONS);
+			   SPSR_E_LITTLE, DISABLE_ALL_EXCEPTIONS);
 	return spsr;
 }
 #endif /* __aarch64__ */
@@ -120,8 +121,8 @@ int poplar_bl2_handle_post_image_load(unsigned int image_id)
 		assert(paged_mem_params);
 
 		err = parse_optee_header(&bl_mem_params->ep_info,
-				&pager_mem_params->image_info,
-				&paged_mem_params->image_info);
+					 &pager_mem_params->image_info,
+					 &paged_mem_params->image_info);
 		if (err != 0) {
 			WARN("OPTEE header parse error.\n");
 		}
@@ -146,7 +147,8 @@ int poplar_bl2_handle_post_image_load(unsigned int image_id)
 #ifdef SCP_BL2_BASE
 	case SCP_BL2_IMAGE_ID:
 		/* The subsequent handling of SCP_BL2 is platform specific */
-		err = plat_poplar_bl2_handle_scp_bl2(&bl_mem_params->image_info);
+		err = plat_poplar_bl2_handle_scp_bl2(
+			&bl_mem_params->image_info);
 		if (err) {
 			WARN("Failure in platform-specific handling of SCP_BL2 image.\n");
 		}
@@ -198,10 +200,8 @@ void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 void bl2_plat_arch_setup(void)
 {
 	plat_configure_mmu_el1(bl2_tzram_layout.total_base,
-			       bl2_tzram_layout.total_size,
-			       BL_CODE_BASE,
-			       BL_CODE_END,
-			       BL_COHERENT_RAM_BASE,
+			       bl2_tzram_layout.total_size, BL_CODE_BASE,
+			       BL_CODE_END, BL_COHERENT_RAM_BASE,
 			       BL_COHERENT_RAM_END);
 }
 

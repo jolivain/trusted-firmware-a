@@ -9,15 +9,13 @@
 
 #include "socfpga_plat_def.h"
 
-#define EMMC_DESC_SIZE		(1<<20)
+#define EMMC_DESC_SIZE (1 << 20)
 
-#define EMMC_INIT_PARAMS(base, clk)			\
-	{	.bus_width = MMC_BUS_WIDTH_4,		\
-		.clk_rate = (clk),			\
-		.desc_base = (base),			\
-		.desc_size = EMMC_DESC_SIZE,		\
-		.flags = 0,				\
-		.reg_base = SOCFPGA_MMC_REG_BASE	\
+#define EMMC_INIT_PARAMS(base, clk)                                           \
+	{                                                                     \
+		.bus_width = MMC_BUS_WIDTH_4, .clk_rate = (clk),              \
+		.desc_base = (base), .desc_size = EMMC_DESC_SIZE, .flags = 0, \
+		.reg_base = SOCFPGA_MMC_REG_BASE                              \
 	}
 
 typedef enum {
@@ -37,19 +35,14 @@ void enable_nonsecure_access(void);
 void socfpga_io_setup(int boot_source);
 
 void socfgpa_configure_mmu_el3(unsigned long total_base,
-			unsigned long total_size,
-			unsigned long ro_start,
-			unsigned long ro_limit,
-			unsigned long coh_start,
-			unsigned long coh_limit);
-
+			       unsigned long total_size, unsigned long ro_start,
+			       unsigned long ro_limit, unsigned long coh_start,
+			       unsigned long coh_limit);
 
 void socfpga_configure_mmu_el1(unsigned long total_base,
-			unsigned long total_size,
-			unsigned long ro_start,
-			unsigned long ro_limit,
-			unsigned long coh_start,
-			unsigned long coh_limit);
+			       unsigned long total_size, unsigned long ro_start,
+			       unsigned long ro_limit, unsigned long coh_start,
+			       unsigned long coh_limit);
 
 void socfpga_delay_timer_init(void);
 

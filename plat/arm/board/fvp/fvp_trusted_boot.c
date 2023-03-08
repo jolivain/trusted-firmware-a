@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,13 +8,14 @@
 #include <stdint.h>
 #include <string.h>
 
-#include <lib/mmio.h>
 #include <lib/fconf/fconf.h>
-#include <plat/arm/common/plat_arm.h>
+#include <lib/mmio.h>
+#include <tools_share/tbbr_oid.h>
+
 #include <plat/arm/common/fconf_nv_cntr_getter.h>
+#include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>
-#include <tools_share/tbbr_oid.h>
 
 /*
  * Return the ROTPK hash in the following ASN.1 structure in DER format:
@@ -53,10 +54,10 @@ int plat_set_nv_ctr(void *cookie, unsigned int nv_ctr)
 	oid = (const char *)cookie;
 	if (strcmp(oid, TRUSTED_FW_NVCOUNTER_OID) == 0) {
 		nv_ctr_addr = FCONF_GET_PROPERTY(cot, nv_cntr_addr,
-						TRUSTED_NV_CTR_ID);
+						 TRUSTED_NV_CTR_ID);
 	} else if (strcmp(oid, NON_TRUSTED_FW_NVCOUNTER_OID) == 0) {
 		nv_ctr_addr = FCONF_GET_PROPERTY(cot, nv_cntr_addr,
-						NON_TRUSTED_NV_CTR_ID);
+						 NON_TRUSTED_NV_CTR_ID);
 	} else {
 		return 1;
 	}

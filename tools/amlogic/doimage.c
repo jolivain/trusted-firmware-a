@@ -3,12 +3,13 @@
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
-#include <stdlib.h>
+#include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
+
+#include <endian.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <stdint.h>
-#include <endian.h>
 
 #define DEFAULT_PROGNAME "doimage"
 #define PROGNAME(argc, argv) (((argc) >= 1) ? ((argv)[0]) : DEFAULT_PROGNAME)

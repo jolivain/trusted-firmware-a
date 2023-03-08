@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -31,44 +31,44 @@
  * @name Defines for type widths
  */
 /*@{*/
-#define SC_RM_PARTITION_W   5	/* Width of sc_rm_pt_t */
-#define SC_RM_MEMREG_W      6	/* Width of sc_rm_mr_t */
-#define SC_RM_DID_W         4	/* Width of sc_rm_did_t */
-#define SC_RM_SID_W         6	/* Width of sc_rm_sid_t */
-#define SC_RM_SPA_W         2	/* Width of sc_rm_spa_t */
-#define SC_RM_PERM_W        3	/* Width of sc_rm_perm_t */
+#define SC_RM_PARTITION_W 5 /* Width of sc_rm_pt_t */
+#define SC_RM_MEMREG_W 6 /* Width of sc_rm_mr_t */
+#define SC_RM_DID_W 4 /* Width of sc_rm_did_t */
+#define SC_RM_SID_W 6 /* Width of sc_rm_sid_t */
+#define SC_RM_SPA_W 2 /* Width of sc_rm_spa_t */
+#define SC_RM_PERM_W 3 /* Width of sc_rm_perm_t */
 /*@}*/
 
 /*!
  * @name Defines for ALL parameters
  */
 /*@{*/
-#define SC_RM_PT_ALL        ((sc_rm_pt_t) UINT8_MAX)	/* All partitions */
-#define SC_RM_MR_ALL        ((sc_rm_mr_t) UINT8_MAX)	/* All memory regions */
+#define SC_RM_PT_ALL ((sc_rm_pt_t)UINT8_MAX) /* All partitions */
+#define SC_RM_MR_ALL ((sc_rm_mr_t)UINT8_MAX) /* All memory regions */
 /*@}*/
 
 /*!
  * @name Defines for sc_rm_spa_t
  */
 /*@{*/
-#define SC_RM_SPA_PASSTHRU  0U	/* Pass through (attribute driven by master) */
-#define SC_RM_SPA_PASSSID   1U	/* Pass through and output on SID */
-#define SC_RM_SPA_ASSERT    2U	/* Assert (force to be secure/privileged) */
-#define SC_RM_SPA_NEGATE    3U	/* Negate (force to be non-secure/user) */
+#define SC_RM_SPA_PASSTHRU 0U /* Pass through (attribute driven by master) */
+#define SC_RM_SPA_PASSSID 1U /* Pass through and output on SID */
+#define SC_RM_SPA_ASSERT 2U /* Assert (force to be secure/privileged) */
+#define SC_RM_SPA_NEGATE 3U /* Negate (force to be non-secure/user) */
 /*@}*/
 
 /*!
  * @name Defines for sc_rm_perm_t
  */
 /*@{*/
-#define SC_RM_PERM_NONE         0U	/* No access */
-#define SC_RM_PERM_SEC_R        1U	/* Secure RO */
-#define SC_RM_PERM_SECPRIV_RW   2U	/* Secure privilege R/W */
-#define SC_RM_PERM_SEC_RW       3U	/* Secure R/W */
-#define SC_RM_PERM_NSPRIV_R     4U	/* Secure R/W, non-secure privilege RO */
-#define SC_RM_PERM_NS_R         5U	/* Secure R/W, non-secure RO */
-#define SC_RM_PERM_NSPRIV_RW    6U	/* Secure R/W, non-secure privilege R/W */
-#define SC_RM_PERM_FULL         7U	/* Full access */
+#define SC_RM_PERM_NONE 0U /* No access */
+#define SC_RM_PERM_SEC_R 1U /* Secure RO */
+#define SC_RM_PERM_SECPRIV_RW 2U /* Secure privilege R/W */
+#define SC_RM_PERM_SEC_RW 3U /* Secure R/W */
+#define SC_RM_PERM_NSPRIV_R 4U /* Secure R/W, non-secure privilege RO */
+#define SC_RM_PERM_NS_R 5U /* Secure R/W, non-secure RO */
+#define SC_RM_PERM_NSPRIV_RW 6U /* Secure R/W, non-secure privilege R/W */
+#define SC_RM_PERM_FULL 7U /* Full access */
 /*@}*/
 
 /* Types */
@@ -531,8 +531,8 @@ sc_err_t sc_rm_get_resource_info(sc_ipc_t ipc, sc_rsrc_t resource,
  * By default, the new region will have access permission set to allow the
  * caller to access.
  */
-sc_err_t sc_rm_memreg_alloc(sc_ipc_t ipc, sc_rm_mr_t *mr,
-			    sc_faddr_t addr_start, sc_faddr_t addr_end);
+sc_err_t sc_rm_memreg_alloc(sc_ipc_t ipc, sc_rm_mr_t *mr, sc_faddr_t addr_start,
+			    sc_faddr_t addr_end);
 
 /*!
  * This function requests that the SC split a memory region.
@@ -558,9 +558,8 @@ sc_err_t sc_rm_memreg_alloc(sc_ipc_t ipc, sc_rm_mr_t *mr,
  *
  * Note the new region must start or end on the split region.
  */
-sc_err_t sc_rm_memreg_split(sc_ipc_t ipc, sc_rm_mr_t mr,
-			    sc_rm_mr_t *mr_ret, sc_faddr_t addr_start,
-			    sc_faddr_t addr_end);
+sc_err_t sc_rm_memreg_split(sc_ipc_t ipc, sc_rm_mr_t mr, sc_rm_mr_t *mr_ret,
+			    sc_faddr_t addr_start, sc_faddr_t addr_end);
 
 /*!
  * This function frees a memory region.
@@ -600,8 +599,8 @@ sc_err_t sc_rm_memreg_free(sc_ipc_t ipc, sc_rm_mr_t mr);
  * Searches only for regions owned by the caller. Finds first
  * region containing the range specified.
  */
-sc_err_t sc_rm_find_memreg(sc_ipc_t ipc, sc_rm_mr_t *mr,
-			   sc_faddr_t addr_start, sc_faddr_t addr_end);
+sc_err_t sc_rm_find_memreg(sc_ipc_t ipc, sc_rm_mr_t *mr, sc_faddr_t addr_start,
+			   sc_faddr_t addr_end);
 
 /*!
  * This function assigns ownership of a memory region.
@@ -721,8 +720,8 @@ sc_err_t sc_rm_assign_pad(sc_ipc_t ipc, sc_rm_pt_t pt, sc_pad_t pad);
  * by default so this function is normally used to prevent a set of
  * pads from moving.
  */
-sc_err_t sc_rm_set_pad_movable(sc_ipc_t ipc, sc_pad_t pad_fst,
-			       sc_pad_t pad_lst, sc_bool_t movable);
+sc_err_t sc_rm_set_pad_movable(sc_ipc_t ipc, sc_pad_t pad_fst, sc_pad_t pad_lst,
+			       sc_bool_t movable);
 
 /*!
  * This function gets ownership status of a pad.

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2021, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -10,14 +10,15 @@
 
 #include <arch.h>
 #include <arch_helpers.h>
-#include <context.h>
 #include <common/debug.h>
+#include <context.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include <platform_def.h>
+#include <services/spm_mm_partition.h>
+
 #include <plat/common/common_def.h>
 #include <plat/common/platform.h>
-#include <services/spm_mm_partition.h>
+#include <platform_def.h>
 
 #include "spm_common.h"
 #include "spm_mm_private.h"
@@ -30,14 +31,14 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 
 	/* Pointer to the MP information from the platform port. */
 	const spm_mm_boot_info_t *sp_boot_info =
-			plat_get_secure_partition_boot_info(NULL);
+		plat_get_secure_partition_boot_info(NULL);
 
 	/*
 	 * Initialize CPU context
 	 * ----------------------
 	 */
 
-	entry_point_info_t ep_info = {0};
+	entry_point_info_t ep_info = { 0 };
 
 	SET_PARAM_HEAD(&ep_info, PARAM_EP, VERSION_1, SECURE | EP_ST_ENABLE);
 
@@ -72,7 +73,8 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 	 * implementation defined means. The value will be 0 otherwise.
 	 */
 	write_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_SP_EL0,
-			sp_boot_info->sp_stack_base + sp_boot_info->sp_pcpu_stack_size);
+		      sp_boot_info->sp_stack_base +
+			      sp_boot_info->sp_pcpu_stack_size);
 
 	/*
 	 * Setup translation tables
@@ -98,12 +100,10 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 #endif /* ENABLE_ASSERTIONS */
 
 	/* This region contains the exception vectors used at S-EL1. */
-	const mmap_region_t sel1_exception_vectors =
-		MAP_REGION_FLAT(SPM_SHIM_EXCEPTIONS_START,
-				SPM_SHIM_EXCEPTIONS_SIZE,
-				MT_CODE | MT_SECURE | MT_PRIVILEGED);
-	mmap_add_region_ctx(sp_ctx->xlat_ctx_handle,
-			    &sel1_exception_vectors);
+	const mmap_region_t sel1_exception_vectors = MAP_REGION_FLAT(
+		SPM_SHIM_EXCEPTIONS_START, SPM_SHIM_EXCEPTIONS_SIZE,
+		MT_CODE | MT_SECURE | MT_PRIVILEGED);
+	mmap_add_region_ctx(sp_ctx->xlat_ctx_handle, &sel1_exception_vectors);
 
 	mmap_add_ctx(sp_ctx->xlat_ctx_handle,
 		     plat_get_secure_partition_mmap(NULL));
@@ -132,41 +132,40 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 		      mmu_cfg_params[MMU_CFG_TTBR0]);
 
 	/* Setup SCTLR_EL1 */
-	u_register_t sctlr_el1 = read_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_SCTLR_EL1);
+	u_register_t sctlr_el1 =
+		read_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_SCTLR_EL1);
 
 	sctlr_el1 |=
 		/*SCTLR_EL1_RES1 |*/
 		/* Don't trap DC CVAU, DC CIVAC, DC CVAC, DC CVAP, or IC IVAU */
-		SCTLR_UCI_BIT							|
+		SCTLR_UCI_BIT |
 		/* RW regions at xlat regime EL1&0 are forced to be XN. */
-		SCTLR_WXN_BIT							|
+		SCTLR_WXN_BIT |
 		/* Don't trap to EL1 execution of WFI or WFE at EL0. */
-		SCTLR_NTWI_BIT | SCTLR_NTWE_BIT					|
+		SCTLR_NTWI_BIT | SCTLR_NTWE_BIT |
 		/* Don't trap to EL1 accesses to CTR_EL0 from EL0. */
-		SCTLR_UCT_BIT							|
+		SCTLR_UCT_BIT |
 		/* Don't trap to EL1 execution of DZ ZVA at EL0. */
-		SCTLR_DZE_BIT							|
+		SCTLR_DZE_BIT |
 		/* Enable SP Alignment check for EL0 */
-		SCTLR_SA0_BIT							|
+		SCTLR_SA0_BIT |
 		/* Don't change PSTATE.PAN on taking an exception to EL1 */
-		SCTLR_SPAN_BIT							|
+		SCTLR_SPAN_BIT |
 		/* Allow cacheable data and instr. accesses to normal memory. */
-		SCTLR_C_BIT | SCTLR_I_BIT					|
+		SCTLR_C_BIT | SCTLR_I_BIT |
 		/* Enable MMU. */
-		SCTLR_M_BIT
-	;
+		SCTLR_M_BIT;
 
 	sctlr_el1 &= ~(
 		/* Explicit data accesses at EL0 are little-endian. */
-		SCTLR_E0E_BIT							|
+		SCTLR_E0E_BIT |
 		/*
 		 * Alignment fault checking disabled when at EL1 and EL0 as
 		 * the UEFI spec permits unaligned accesses.
 		 */
-		SCTLR_A_BIT							|
+		SCTLR_A_BIT |
 		/* Accesses to DAIF from EL0 are trapped to EL1. */
-		SCTLR_UMA_BIT
-	);
+		SCTLR_UMA_BIT);
 
 	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_SCTLR_EL1, sctlr_el1);
 
@@ -177,7 +176,7 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 
 	/* Shim Exception Vector Base Address */
 	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_VBAR_EL1,
-			SPM_SHIM_EXCEPTIONS_PTR);
+		      SPM_SHIM_EXCEPTIONS_PTR);
 
 	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_CNTKCTL_EL1,
 		      EL0PTEN_BIT | EL0VTEN_BIT | EL0PCTEN_BIT | EL0VCTEN_BIT);
@@ -190,30 +189,31 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 	 * ZEN (v8.2): Trap SVE instructions and access to SVE registers.
 	 */
 	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_CPACR_EL1,
-			CPACR_EL1_FPEN(CPACR_EL1_FP_TRAP_NONE));
+		      CPACR_EL1_FPEN(CPACR_EL1_FP_TRAP_NONE));
 
 	/*
 	 * Prepare information in buffer shared between EL3 and S-EL0
 	 * ----------------------------------------------------------
 	 */
 
-	void *shared_buf_ptr = (void *) sp_boot_info->sp_shared_buf_base;
+	void *shared_buf_ptr = (void *)sp_boot_info->sp_shared_buf_base;
 
 	/* Copy the boot information into the shared buffer with the SP. */
-	assert((uintptr_t)shared_buf_ptr + sizeof(spm_mm_boot_info_t)
-	       <= (sp_boot_info->sp_shared_buf_base + sp_boot_info->sp_shared_buf_size));
+	assert((uintptr_t)shared_buf_ptr + sizeof(spm_mm_boot_info_t) <=
+	       (sp_boot_info->sp_shared_buf_base +
+		sp_boot_info->sp_shared_buf_size));
 
 	assert(sp_boot_info->sp_shared_buf_base <=
-				(UINTPTR_MAX - sp_boot_info->sp_shared_buf_size + 1));
+	       (UINTPTR_MAX - sp_boot_info->sp_shared_buf_size + 1));
 
 	assert(sp_boot_info != NULL);
 
-	memcpy((void *) shared_buf_ptr, (const void *) sp_boot_info,
+	memcpy((void *)shared_buf_ptr, (const void *)sp_boot_info,
 	       sizeof(spm_mm_boot_info_t));
 
 	/* Pointer to the MP information from the platform port. */
 	spm_mm_mp_info_t *sp_mp_info =
-		((spm_mm_boot_info_t *) shared_buf_ptr)->mp_info;
+		((spm_mm_boot_info_t *)shared_buf_ptr)->mp_info;
 
 	assert(sp_mp_info != NULL);
 
@@ -221,15 +221,15 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 	 * Point the shared buffer MP information pointer to where the info will
 	 * be populated, just after the boot info.
 	 */
-	((spm_mm_boot_info_t *) shared_buf_ptr)->mp_info =
-		(spm_mm_mp_info_t *) ((uintptr_t)shared_buf_ptr
-				+ sizeof(spm_mm_boot_info_t));
+	((spm_mm_boot_info_t *)shared_buf_ptr)->mp_info =
+		(spm_mm_mp_info_t *)((uintptr_t)shared_buf_ptr +
+				     sizeof(spm_mm_boot_info_t));
 
 	/*
 	 * Update the shared buffer pointer to where the MP information for the
 	 * payload will be populated
 	 */
-	shared_buf_ptr = ((spm_mm_boot_info_t *) shared_buf_ptr)->mp_info;
+	shared_buf_ptr = ((spm_mm_boot_info_t *)shared_buf_ptr)->mp_info;
 
 	/*
 	 * Copy the cpu information into the shared buffer area after the boot
@@ -237,18 +237,19 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 	 */
 	assert(sp_boot_info->num_cpus <= PLATFORM_CORE_COUNT);
 
-	assert((uintptr_t)shared_buf_ptr
-	       <= (sp_boot_info->sp_shared_buf_base + sp_boot_info->sp_shared_buf_size -
-		       (sp_boot_info->num_cpus * sizeof(*sp_mp_info))));
+	assert((uintptr_t)shared_buf_ptr <=
+	       (sp_boot_info->sp_shared_buf_base +
+		sp_boot_info->sp_shared_buf_size -
+		(sp_boot_info->num_cpus * sizeof(*sp_mp_info))));
 
-	memcpy(shared_buf_ptr, (const void *) sp_mp_info,
-		sp_boot_info->num_cpus * sizeof(*sp_mp_info));
+	memcpy(shared_buf_ptr, (const void *)sp_mp_info,
+	       sp_boot_info->num_cpus * sizeof(*sp_mp_info));
 
 	/*
 	 * Calculate the linear indices of cores in boot information for the
 	 * secure partition and flag the primary CPU
 	 */
-	sp_mp_info = (spm_mm_mp_info_t *) shared_buf_ptr;
+	sp_mp_info = (spm_mm_mp_info_t *)shared_buf_ptr;
 
 	for (unsigned int index = 0; index < sp_boot_info->num_cpus; index++) {
 		u_register_t mpidr = sp_mp_info[index].mpidr;

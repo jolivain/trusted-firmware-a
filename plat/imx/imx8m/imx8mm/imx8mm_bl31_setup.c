@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2022 ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023 ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,30 +7,29 @@
 #include <assert.h>
 #include <stdbool.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <context.h>
+#include <dram.h>
 #include <drivers/arm/tzc380.h>
 #include <drivers/console.h>
 #include <drivers/generic_delay_timer.h>
+#include <gpc.h>
+#include <imx8m_caam.h>
+#include <imx8m_csu.h>
+#include <imx_aipstz.h>
+#include <imx_rdc.h>
+#include <imx_uart.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include <plat/common/platform.h>
-
-#include <dram.h>
-#include <gpc.h>
-#include <imx_aipstz.h>
-#include <imx_uart.h>
-#include <imx_rdc.h>
-#include <imx8m_caam.h>
-#include <imx8m_csu.h>
 #include <plat_imx8.h>
 
-#define TRUSTY_PARAMS_LEN_BYTES      (4096*2)
+#include <plat/common/platform.h>
+#include <platform_def.h>
+
+#define TRUSTY_PARAMS_LEN_BYTES (4096 * 2)
 
 /*
  * Note: DRAM region is mapped with entire size available and uses MT_RW
@@ -40,23 +39,51 @@
  */
 static const mmap_region_t imx_mmap[] = {
 	MAP_REGION_FLAT(IMX_GIC_BASE, IMX_GIC_SIZE, MT_DEVICE | MT_RW),
-	MAP_REGION_FLAT(IMX_AIPS_BASE, IMX_AIPS_SIZE, MT_DEVICE | MT_RW), /* AIPS map */
-	MAP_REGION_FLAT(OCRAM_S_BASE, OCRAM_S_SIZE, MT_DEVICE | MT_RW), /* OCRAM_S */
-	MAP_REGION_FLAT(IMX_DDRPHY_BASE, IMX_DDR_IPS_SIZE, MT_DEVICE | MT_RW), /* DDRMIX */
-	MAP_REGION_FLAT(IMX_VPUMIX_BASE, IMX_VPUMIX_SIZE, MT_DEVICE | MT_RW), /* VPUMIX */
-	MAP_REGION_FLAT(IMX_CAAM_RAM_BASE, IMX_CAAM_RAM_SIZE, MT_MEMORY | MT_RW), /* CAMM RAM */
-	MAP_REGION_FLAT(IMX_NS_OCRAM_BASE, IMX_NS_OCRAM_SIZE, MT_MEMORY | MT_RW), /* NS OCRAM */
-	MAP_REGION_FLAT(IMX_ROM_BASE, IMX_ROM_SIZE, MT_MEMORY | MT_RO), /* ROM code */
-	MAP_REGION_FLAT(IMX_DRAM_BASE, IMX_DRAM_SIZE, MT_MEMORY | MT_RW | MT_NS), /* DRAM */
-	{0},
+	MAP_REGION_FLAT(IMX_AIPS_BASE, IMX_AIPS_SIZE,
+			MT_DEVICE | MT_RW), /* AIPS map */
+	MAP_REGION_FLAT(OCRAM_S_BASE, OCRAM_S_SIZE,
+			MT_DEVICE | MT_RW), /* OCRAM_S */
+	MAP_REGION_FLAT(IMX_DDRPHY_BASE, IMX_DDR_IPS_SIZE,
+			MT_DEVICE | MT_RW), /* DDRMIX */
+	MAP_REGION_FLAT(IMX_VPUMIX_BASE, IMX_VPUMIX_SIZE,
+			MT_DEVICE | MT_RW), /* VPUMIX */
+	MAP_REGION_FLAT(IMX_CAAM_RAM_BASE, IMX_CAAM_RAM_SIZE,
+			MT_MEMORY | MT_RW), /* CAMM RAM */
+	MAP_REGION_FLAT(IMX_NS_OCRAM_BASE, IMX_NS_OCRAM_SIZE,
+			MT_MEMORY | MT_RW), /* NS OCRAM */
+	MAP_REGION_FLAT(IMX_ROM_BASE, IMX_ROM_SIZE,
+			MT_MEMORY | MT_RO), /* ROM code */
+	MAP_REGION_FLAT(IMX_DRAM_BASE, IMX_DRAM_SIZE,
+			MT_MEMORY | MT_RW | MT_NS), /* DRAM */
+	{ 0 },
 };
 
 static const struct aipstz_cfg aipstz[] = {
-	{IMX_AIPSTZ1, 0x77777777, 0x77777777, .opacr = {0x0, 0x0, 0x0, 0x0, 0x0}, },
-	{IMX_AIPSTZ2, 0x77777777, 0x77777777, .opacr = {0x0, 0x0, 0x0, 0x0, 0x0}, },
-	{IMX_AIPSTZ3, 0x77777777, 0x77777777, .opacr = {0x0, 0x0, 0x0, 0x0, 0x0}, },
-	{IMX_AIPSTZ4, 0x77777777, 0x77777777, .opacr = {0x0, 0x0, 0x0, 0x0, 0x0}, },
-	{0},
+	{
+		IMX_AIPSTZ1,
+		0x77777777,
+		0x77777777,
+		.opacr = { 0x0, 0x0, 0x0, 0x0, 0x0 },
+	},
+	{
+		IMX_AIPSTZ2,
+		0x77777777,
+		0x77777777,
+		.opacr = { 0x0, 0x0, 0x0, 0x0, 0x0 },
+	},
+	{
+		IMX_AIPSTZ3,
+		0x77777777,
+		0x77777777,
+		.opacr = { 0x0, 0x0, 0x0, 0x0, 0x0 },
+	},
+	{
+		IMX_AIPSTZ4,
+		0x77777777,
+		0x77777777,
+		.opacr = { 0x0, 0x0, 0x0, 0x0, 0x0 },
+	},
+	{ 0 },
 };
 
 static const struct imx_rdc_cfg rdc[] = {
@@ -70,7 +97,7 @@ static const struct imx_rdc_cfg rdc[] = {
 	/* memory region */
 
 	/* Sentinel */
-	{0},
+	{ 0 },
 };
 
 static const struct imx_csu_cfg csu_cfg[] = {
@@ -84,7 +111,7 @@ static const struct imx_csu_cfg csu_cfg[] = {
 	/* HP control setting */
 
 	/* Sentinel */
-	{0}
+	{ 0 }
 };
 
 static entry_point_info_t bl32_image_ep_info;
@@ -123,12 +150,14 @@ void bl31_tzc380_setup(void)
 	 */
 
 	/* Enable 1G-5G S/NS RW */
-	tzc380_configure_region(0, 0x00000000, TZC_ATTR_REGION_SIZE(TZC_REGION_SIZE_4G) |
-		TZC_ATTR_REGION_EN_MASK | TZC_ATTR_SP_ALL);
+	tzc380_configure_region(0, 0x00000000,
+				TZC_ATTR_REGION_SIZE(TZC_REGION_SIZE_4G) |
+					TZC_ATTR_REGION_EN_MASK |
+					TZC_ATTR_SP_ALL);
 }
 
 void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
-		u_register_t arg2, u_register_t arg3)
+				u_register_t arg2, u_register_t arg3)
 {
 	static console_t console;
 	int i;
@@ -145,7 +174,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	imx_csu_init(csu_cfg);
 
 	console_imx_uart_register(IMX_BOOT_UART_BASE, IMX_BOOT_UART_CLK_IN_HZ,
-		IMX_CONSOLE_BAUDRATE, &console);
+				  IMX_CONSOLE_BAUDRATE, &console);
 	/* This console is only used for boot stage */
 	console_set_scope(&console, CONSOLE_FLAG_BOOT);
 
@@ -184,15 +213,16 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	bl31_tzc380_setup();
 }
 
-#define MAP_BL31_TOTAL										   \
+#define MAP_BL31_TOTAL \
 	MAP_REGION_FLAT(BL31_START, BL31_SIZE, MT_MEMORY | MT_RW | MT_SECURE)
-#define MAP_BL31_RO										   \
-	MAP_REGION_FLAT(BL_CODE_BASE, BL_CODE_END - BL_CODE_BASE, MT_MEMORY | MT_RO | MT_SECURE)
-#define MAP_COHERENT_MEM									   \
-	MAP_REGION_FLAT(BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END - BL_COHERENT_RAM_BASE,	   \
+#define MAP_BL31_RO                                               \
+	MAP_REGION_FLAT(BL_CODE_BASE, BL_CODE_END - BL_CODE_BASE, \
+			MT_MEMORY | MT_RO | MT_SECURE)
+#define MAP_COHERENT_MEM                                            \
+	MAP_REGION_FLAT(BL_COHERENT_RAM_BASE,                       \
+			BL_COHERENT_RAM_END - BL_COHERENT_RAM_BASE, \
 			MT_DEVICE | MT_RW | MT_SECURE)
-#define MAP_BL32_TOTAL										   \
-	MAP_REGION_FLAT(BL32_BASE, BL32_SIZE, MT_MEMORY | MT_RW)
+#define MAP_BL32_TOTAL MAP_REGION_FLAT(BL32_BASE, BL32_SIZE, MT_MEMORY | MT_RW)
 
 void bl31_plat_arch_setup(void)
 {
@@ -204,7 +234,7 @@ void bl31_plat_arch_setup(void)
 #endif
 		/* Map TEE memory */
 		MAP_BL32_TOTAL,
-		{0}
+		{ 0 }
 	};
 
 	setup_page_tables(bl_regions, imx_mmap);

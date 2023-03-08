@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: BSD-3-Clause */
 /*
- * Copyright (c) 2015-2019, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  * Copyright (c) 2019, Linaro Limited
  */
 #ifndef SCMI_MSG_RESET_DOMAIN_H
@@ -11,10 +11,10 @@
 
 #include <lib/utils_def.h>
 
-#define SCMI_PROTOCOL_VERSION_RESET_DOMAIN	0x10000U
+#define SCMI_PROTOCOL_VERSION_RESET_DOMAIN 0x10000U
 
-#define SCMI_RESET_STATE_ARCH			BIT(31)
-#define SCMI_RESET_STATE_IMPL			0U
+#define SCMI_RESET_STATE_ARCH BIT(31)
+#define SCMI_RESET_STATE_IMPL 0U
 
 /*
  * Identifiers of the SCMI Reset Domain Management Protocol commands
@@ -37,7 +37,7 @@ enum scmi_reset_domain_response_id {
  * PROTOCOL_ATTRIBUTES
  */
 
-#define SCMI_RESET_DOMAIN_COUNT_MASK		GENMASK_32(15, 0)
+#define SCMI_RESET_DOMAIN_COUNT_MASK GENMASK_32(15, 0)
 
 struct scmi_reset_domain_protocol_attributes_p2a {
 	int32_t status;
@@ -45,15 +45,15 @@ struct scmi_reset_domain_protocol_attributes_p2a {
 };
 
 /* Value for scmi_reset_domain_attributes_p2a:flags */
-#define SCMI_RESET_DOMAIN_ATTR_ASYNC		BIT(31)
-#define SCMI_RESET_DOMAIN_ATTR_NOTIF		BIT(30)
+#define SCMI_RESET_DOMAIN_ATTR_ASYNC BIT(31)
+#define SCMI_RESET_DOMAIN_ATTR_NOTIF BIT(30)
 
 /* Value for scmi_reset_domain_attributes_p2a:latency */
-#define SCMI_RESET_DOMAIN_ATTR_UNK_LAT		0x7fffffffU
-#define SCMI_RESET_DOMAIN_ATTR_MAX_LAT		0x7ffffffeU
+#define SCMI_RESET_DOMAIN_ATTR_UNK_LAT 0x7fffffffU
+#define SCMI_RESET_DOMAIN_ATTR_MAX_LAT 0x7ffffffeU
 
 /* Macro for scmi_reset_domain_attributes_p2a:name */
-#define SCMI_RESET_DOMAIN_ATTR_NAME_SZ		16U
+#define SCMI_RESET_DOMAIN_ATTR_NAME_SZ 16U
 
 struct scmi_reset_domain_attributes_a2p {
 	uint32_t domain_id;
@@ -71,9 +71,9 @@ struct scmi_reset_domain_attributes_p2a {
  */
 
 /* Values for scmi_reset_domain_request_a2p:flags */
-#define SCMI_RESET_DOMAIN_ASYNC			BIT(2)
-#define SCMI_RESET_DOMAIN_EXPLICIT		BIT(1)
-#define SCMI_RESET_DOMAIN_AUTO			BIT(0)
+#define SCMI_RESET_DOMAIN_ASYNC BIT(2)
+#define SCMI_RESET_DOMAIN_EXPLICIT BIT(1)
+#define SCMI_RESET_DOMAIN_AUTO BIT(0)
 
 struct scmi_reset_domain_request_a2p {
 	uint32_t domain_id;
@@ -90,7 +90,7 @@ struct scmi_reset_domain_request_p2a {
  */
 
 /* Values for scmi_reset_notify_p2a:flags */
-#define SCMI_RESET_DOMAIN_DO_NOTIFY		BIT(0)
+#define SCMI_RESET_DOMAIN_DO_NOTIFY BIT(0)
 
 struct scmi_reset_domain_notify_a2p {
 	uint32_t domain_id;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,9 +12,9 @@
 
 struct image_info;
 
-typedef int (decompressor_t)(uintptr_t *in_buf, size_t in_len,
-			     uintptr_t *out_buf, size_t out_len,
-			     uintptr_t work_buf, size_t work_len);
+typedef int(decompressor_t)(uintptr_t *in_buf, size_t in_len,
+			    uintptr_t *out_buf, size_t out_len,
+			    uintptr_t work_buf, size_t work_len);
 
 void image_decompress_init(uintptr_t buf_base, uint32_t buf_size,
 			   decompressor_t *decompressor);

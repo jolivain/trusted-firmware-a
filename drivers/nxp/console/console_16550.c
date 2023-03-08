@@ -17,7 +17,7 @@
  * the console and the memory layout.
  */
 void plat_console_init(uintptr_t nxp_console_addr, uint32_t uart_clk_div,
-			uint32_t baud)
+		       uint32_t baud)
 {
 	struct sysinfo sys;
 	static console_t nxp_console;
@@ -28,6 +28,6 @@ void plat_console_init(uintptr_t nxp_console_addr, uint32_t uart_clk_div,
 		panic();
 	}
 	nxp_console_16550_register(nxp_console_addr,
-			      (sys.freq_platform/uart_clk_div),
-			       baud, &nxp_console);
+				   (sys.freq_platform / uart_clk_div), baud,
+				   &nxp_console);
 }

@@ -67,7 +67,7 @@ int download_scp_patch(void *image, unsigned int image_size)
 		return -1;
 	}
 
-	if (*(pheader + header_size/4 - 1) != SCP_BIN_HEADER_MAGIC_END) {
+	if (*(pheader + header_size / 4 - 1) != SCP_BIN_HEADER_MAGIC_END) {
 		ERROR("SCP: Could not find SCP footer.\n");
 		return -1;
 	}
@@ -76,13 +76,12 @@ int download_scp_patch(void *image, unsigned int image_size)
 	pdata = (unsigned char *)pheader + header_size;
 
 	for (pheader += 2; num_sections > 0; num_sections--) {
-
 		section_src_offset = pheader[0];
 		section_size = pheader[1];
 		dest = (void *)(unsigned long)pheader[2];
 
 		INFO("section: src:0x%x, size:%d, dst:0x%x\n",
-				section_src_offset, section_size, pheader[2]);
+		     section_src_offset, section_size, pheader[2]);
 
 		if ((section_src_offset + section_size) > image_size) {
 			ERROR("SCP: Section points to outside of patch.\n");

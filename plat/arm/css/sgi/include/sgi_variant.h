@@ -8,32 +8,32 @@
 #define SGI_VARIANT_H
 
 /* SSC_VERSION values for SGI575 */
-#define SGI575_SSC_VER_PART_NUM			0x0783
+#define SGI575_SSC_VER_PART_NUM 0x0783
 
 /* SID Version values for RD-N1E1-Edge */
-#define RD_N1E1_EDGE_SID_VER_PART_NUM		0x0786
-#define RD_E1_EDGE_CONFIG_ID			0x2
+#define RD_N1E1_EDGE_SID_VER_PART_NUM 0x0786
+#define RD_E1_EDGE_CONFIG_ID 0x2
 
 /* SID Version values for RD-V1 */
-#define RD_V1_SID_VER_PART_NUM			0x078a
+#define RD_V1_SID_VER_PART_NUM 0x078a
 
 /* SID Version values for RD-N2 */
-#define RD_N2_SID_VER_PART_NUM			0x07B7
+#define RD_N2_SID_VER_PART_NUM 0x07B7
 
 /* SID Version values for RD-N2 variants */
-#define RD_N2_CFG1_SID_VER_PART_NUM		0x07B6
-#define RD_N2_CFG3_SID_VER_PART_NUM		0x07F1
+#define RD_N2_CFG1_SID_VER_PART_NUM 0x07B6
+#define RD_N2_CFG3_SID_VER_PART_NUM 0x07F1
 
 /* SID Version values for RD-V2 */
-#define RD_V2_SID_VER_PART_NUM			0x07F2
-#define RD_V2_CONFIG_ID				0x1
+#define RD_V2_SID_VER_PART_NUM 0x07F2
+#define RD_V2_CONFIG_ID 0x1
 
 /* Structure containing SGI platform variant information */
 typedef struct sgi_platform_info {
-	unsigned int platform_id;	/* Part Number of the platform */
-	unsigned int config_id;		/* Config Id of the platform */
-	unsigned int chip_id;		/* Chip Id or Node number */
-	unsigned int multi_chip_mode;	/* Multi-chip mode availability */
+	unsigned int platform_id; /* Part Number of the platform */
+	unsigned int config_id; /* Config Id of the platform */
+	unsigned int chip_id; /* Chip Id or Node number */
+	unsigned int multi_chip_mode; /* Multi-chip mode availability */
 } sgi_platform_info_t;
 
 extern sgi_platform_info_t sgi_plat_info;

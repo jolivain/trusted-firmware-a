@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,16 +7,14 @@
 #include "rk3399_mcu.h"
 
 /* Stack configuration */
-#define STACK_SIZE	0x00000040
-__attribute__ ((section(".co_stack")))
-unsigned long pstack[STACK_SIZE];
+#define STACK_SIZE 0x00000040
+__attribute__((section(".co_stack"))) unsigned long pstack[STACK_SIZE];
 
 /* Macro definition */
-#define WEAK __attribute__ ((weak))
+#define WEAK __attribute__((weak))
 
 /* System exception vector handler */
-__attribute__ ((used))
-void WEAK reset_handler(void);
+__attribute__((used)) void WEAK reset_handler(void);
 void WEAK nmi_handler(void);
 void WEAK hardware_fault_handler(void);
 void WEAK svc_handler(void);
@@ -34,25 +32,16 @@ static void default_handler(void);
  * must be placed on this to ensure that it ends up at physical address
  * 0x00000000.
  */
-__attribute__ ((used, section(".isr_vector")))
-void (* const g_pfnVectors[])(void) = {
+__attribute__((used,
+	       section(".isr_vector"))) void (*const g_pfnVectors[])(void) = {
 	/* core Exceptions */
 	(void *)&pstack[STACK_SIZE], /* the initial stack pointer */
-	reset_handler,
-	nmi_handler,
-	hardware_fault_handler,
-	0, 0, 0, 0, 0, 0, 0,
-	svc_handler,
-	0, 0,
-	pend_sv_handler,
-	systick_handler,
+	reset_handler, nmi_handler, hardware_fault_handler, 0, 0, 0, 0, 0, 0, 0,
+	svc_handler, 0, 0, pend_sv_handler, systick_handler,
 
 	/* external exceptions */
-	0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0
 };
 
 /**
@@ -86,7 +75,7 @@ static void default_reset_handler(void)
  */
 static void default_handler(void)
 {
-    /* go into an infinite loop. */
+	/* go into an infinite loop. */
 	while (1)
 		;
 }

@@ -19,31 +19,31 @@
 #include <platform_def.h>
 
 /* Device Tree related definitions */
-#define ETZPC_COMPAT			"st,stm32-etzpc"
-#define ETZPC_LOCK_MASK			0x1U
-#define ETZPC_MODE_SHIFT		8
-#define ETZPC_MODE_MASK			GENMASK(1, 0)
-#define ETZPC_ID_SHIFT			16
-#define ETZPC_ID_MASK			GENMASK(7, 0)
+#define ETZPC_COMPAT "st,stm32-etzpc"
+#define ETZPC_LOCK_MASK 0x1U
+#define ETZPC_MODE_SHIFT 8
+#define ETZPC_MODE_MASK GENMASK(1, 0)
+#define ETZPC_ID_SHIFT 16
+#define ETZPC_ID_MASK GENMASK(7, 0)
 
 /* ID Registers */
-#define ETZPC_TZMA0_SIZE		0x000U
-#define ETZPC_DECPROT0			0x010U
-#define ETZPC_DECPROT_LOCK0		0x030U
-#define ETZPC_HWCFGR			0x3F0U
-#define ETZPC_VERR			0x3F4U
+#define ETZPC_TZMA0_SIZE 0x000U
+#define ETZPC_DECPROT0 0x010U
+#define ETZPC_DECPROT_LOCK0 0x030U
+#define ETZPC_HWCFGR 0x3F0U
+#define ETZPC_VERR 0x3F4U
 
 /* ID Registers fields */
-#define ETZPC_TZMA0_SIZE_LOCK		BIT(31)
-#define ETZPC_DECPROT0_MASK		GENMASK(1, 0)
-#define ETZPC_HWCFGR_NUM_TZMA_SHIFT	0
-#define ETZPC_HWCFGR_NUM_PER_SEC_SHIFT	8
-#define ETZPC_HWCFGR_NUM_AHB_SEC_SHIFT	16
-#define ETZPC_HWCFGR_CHUNCKS1N4_SHIFT	24
+#define ETZPC_TZMA0_SIZE_LOCK BIT(31)
+#define ETZPC_DECPROT0_MASK GENMASK(1, 0)
+#define ETZPC_HWCFGR_NUM_TZMA_SHIFT 0
+#define ETZPC_HWCFGR_NUM_PER_SEC_SHIFT 8
+#define ETZPC_HWCFGR_NUM_AHB_SEC_SHIFT 16
+#define ETZPC_HWCFGR_CHUNCKS1N4_SHIFT 24
 
-#define DECPROT_SHIFT			1
-#define IDS_PER_DECPROT_REGS		16U
-#define IDS_PER_DECPROT_LOCK_REGS	32U
+#define DECPROT_SHIFT 1
+#define IDS_PER_DECPROT_REGS 16U
+#define IDS_PER_DECPROT_LOCK_REGS 32U
 
 /*
  * etzpc_instance.
@@ -70,8 +70,8 @@ static struct etzpc_instance etzpc_dev;
  * Implementation uses uint8_t to store each securable DECPROT configuration.
  * When resuming from deep suspend, the DECPROT configurations are restored.
  */
-#define PERIPH_LOCK_BIT		BIT(7)
-#define PERIPH_ATTR_MASK	GENMASK(2, 0)
+#define PERIPH_LOCK_BIT BIT(7)
+#define PERIPH_ATTR_MASK GENMASK(2, 0)
 
 #if ENABLE_ASSERTIONS
 static bool valid_decprot_id(unsigned int id)
@@ -149,7 +149,8 @@ void etzpc_configure_tzma(uint32_t tzma_id, uint16_t tzma_value)
 	assert(valid_tzma_id(tzma_id));
 
 	mmio_write_32(etzpc_dev.base + ETZPC_TZMA0_SIZE +
-		      (sizeof(uint32_t) * tzma_id), tzma_value);
+			      (sizeof(uint32_t) * tzma_id),
+		      tzma_value);
 }
 
 /*
@@ -174,7 +175,8 @@ void etzpc_lock_tzma(uint32_t tzma_id)
 	assert(valid_tzma_id(tzma_id));
 
 	mmio_setbits_32(etzpc_dev.base + ETZPC_TZMA0_SIZE +
-			(sizeof(uint32_t) * tzma_id), ETZPC_TZMA0_SIZE_LOCK);
+				(sizeof(uint32_t) * tzma_id),
+			ETZPC_TZMA0_SIZE_LOCK);
 }
 
 /*
@@ -231,12 +233,12 @@ int etzpc_init(void)
 	hwcfg = mmio_read_32(etzpc_dev.base + ETZPC_HWCFGR);
 
 	etzpc_dev.num_tzma = (uint8_t)(hwcfg >> ETZPC_HWCFGR_NUM_TZMA_SHIFT);
-	etzpc_dev.num_per_sec = (uint8_t)(hwcfg >>
-					  ETZPC_HWCFGR_NUM_PER_SEC_SHIFT);
-	etzpc_dev.num_ahb_sec = (uint8_t)(hwcfg >>
-					  ETZPC_HWCFGR_NUM_AHB_SEC_SHIFT);
-	etzpc_dev.chunck_size = (uint8_t)(hwcfg >>
-					  ETZPC_HWCFGR_CHUNCKS1N4_SHIFT);
+	etzpc_dev.num_per_sec =
+		(uint8_t)(hwcfg >> ETZPC_HWCFGR_NUM_PER_SEC_SHIFT);
+	etzpc_dev.num_ahb_sec =
+		(uint8_t)(hwcfg >> ETZPC_HWCFGR_NUM_AHB_SEC_SHIFT);
+	etzpc_dev.chunck_size =
+		(uint8_t)(hwcfg >> ETZPC_HWCFGR_CHUNCKS1N4_SHIFT);
 
 	etzpc_dev.revision = mmio_read_8(etzpc_dev.base + ETZPC_VERR);
 

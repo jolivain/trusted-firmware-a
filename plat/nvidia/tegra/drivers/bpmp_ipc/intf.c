@@ -5,14 +5,15 @@
  */
 
 #include <assert.h>
+#include <errno.h>
+#include <stdbool.h>
+#include <string.h>
+
 #include <bpmp_ipc.h>
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
-#include <errno.h>
 #include <lib/mmio.h>
 #include <lib/utils_def.h>
-#include <stdbool.h>
-#include <string.h>
 #include <tegra_def.h>
 
 #include "intf.h"
@@ -85,7 +86,8 @@ static bool tegra_bpmp_slave_acked(void)
 	struct frame_data *frame;
 	bool ret = true;
 
-	frame = (struct frame_data *)tegra_ivc_read_get_next_frame(&ivc_ccplex_bpmp_channel);
+	frame = (struct frame_data *)tegra_ivc_read_get_next_frame(
+		&ivc_ccplex_bpmp_channel);
 	if (frame == NULL) {
 		ret = false;
 	} else {
@@ -165,7 +167,8 @@ static void tegra_bpmp_ivc_notify(const struct ivc *ivc)
  * Atomic send/receive API, which means it waits until slave acks
  */
 static int32_t tegra_bpmp_ipc_send_req_atomic(uint32_t mrq, void *p_out,
-			uint32_t size_out, void *p_in, uint32_t size_in)
+					      uint32_t size_out, void *p_in,
+					      uint32_t size_in)
 {
 	struct frame_data *frame = tegra_bpmp_get_next_out_frame();
 	const struct frame_data *f_in = NULL;
@@ -196,7 +199,6 @@ static int32_t tegra_bpmp_ipc_send_req_atomic(uint32_t mrq, void *p_out,
 
 	/* retrieve the response frame */
 	if ((size_in <= IVC_DATA_SZ_BYTES) && (p_in != NULL)) {
-
 		f_in = tegra_bpmp_get_cur_in_frame();
 		if (f_in != NULL) {
 			ERROR("Failed to get next input frame!\n");
@@ -247,20 +249,19 @@ int32_t tegra_bpmp_ipc_init(void)
 	}
 
 	error = tegra_ivc_init(&ivc_ccplex_bpmp_channel,
-				(uint32_t)TEGRA_BPMP_IPC_RX_PHYS_BASE,
-				(uint32_t)TEGRA_BPMP_IPC_TX_PHYS_BASE,
-				1U, frame_size, tegra_bpmp_ivc_notify);
+			       (uint32_t)TEGRA_BPMP_IPC_RX_PHYS_BASE,
+			       (uint32_t)TEGRA_BPMP_IPC_TX_PHYS_BASE, 1U,
+			       frame_size, tegra_bpmp_ivc_notify);
 	if (error != 0) {
-
 		ERROR("%s: IVC init failed (%d)\n", __func__, error);
 
 	} else {
-
 		/* reset channel */
 		tegra_ivc_channel_reset(&ivc_ccplex_bpmp_channel);
 
 		/* wait for notification from BPMP */
-		while (tegra_ivc_channel_notified(&ivc_ccplex_bpmp_channel) != 0) {
+		while (tegra_ivc_channel_notified(&ivc_ccplex_bpmp_channel) !=
+		       0) {
 			/*
 			 * Interrupt BPMP with doorbell each time after
 			 * tegra_ivc_channel_notified() returns non zero
@@ -279,17 +280,15 @@ int32_t tegra_bpmp_ipc_init(void)
 int32_t tegra_bpmp_ipc_reset_module(uint32_t rst_id)
 {
 	int32_t ret;
-	struct mrq_reset_request req = {
-		.cmd = (uint32_t)CMD_RESET_MODULE,
-		.reset_id = rst_id
-	};
+	struct mrq_reset_request req = { .cmd = (uint32_t)CMD_RESET_MODULE,
+					 .reset_id = rst_id };
 
 	/* only GPCDMA/XUSB_PADCTL resets are supported */
 	assert((rst_id == TEGRA_RESET_ID_XUSB_PADCTL) ||
 	       (rst_id == TEGRA_RESET_ID_GPCDMA));
 
 	ret = tegra_bpmp_ipc_send_req_atomic(MRQ_RESET, &req,
-			(uint32_t)sizeof(req), NULL, 0);
+					     (uint32_t)sizeof(req), NULL, 0);
 	if (ret != 0) {
 		ERROR("%s: failed for module %d with error %d\n", __func__,
 		      rst_id, ret);
@@ -311,8 +310,8 @@ int tegra_bpmp_ipc_enable_clock(uint32_t clk_id)
 	/* prepare the MRQ_CLK command */
 	req.cmd_and_id = make_mrq_clk_cmd(CMD_CLK_ENABLE, clk_id);
 
-	ret = tegra_bpmp_ipc_send_req_atomic(MRQ_CLK, &req, (uint32_t)sizeof(req),
-			NULL, 0);
+	ret = tegra_bpmp_ipc_send_req_atomic(MRQ_CLK, &req,
+					     (uint32_t)sizeof(req), NULL, 0);
 	if (ret != 0) {
 		ERROR("%s: failed for module %d with error %d\n", __func__,
 		      clk_id, ret);
@@ -334,8 +333,8 @@ int tegra_bpmp_ipc_disable_clock(uint32_t clk_id)
 	/* prepare the MRQ_CLK command */
 	req.cmd_and_id = make_mrq_clk_cmd(CMD_CLK_DISABLE, clk_id);
 
-	ret = tegra_bpmp_ipc_send_req_atomic(MRQ_CLK, &req, (uint32_t)sizeof(req),
-			NULL, 0);
+	ret = tegra_bpmp_ipc_send_req_atomic(MRQ_CLK, &req,
+					     (uint32_t)sizeof(req), NULL, 0);
 	if (ret != 0) {
 		ERROR("%s: failed for module %d with error %d\n", __func__,
 		      clk_id, ret);

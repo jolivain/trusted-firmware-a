@@ -1,36 +1,35 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
-#include <lib/mmio.h>
-#include <plat/common/platform.h>
-
 #include <hi3660.h>
 #include <hisi_ipc.h>
+#include <lib/mmio.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
+
 #include "../../hikey960_private.h"
 
-#define IPC_MBX_SOURCE_REG(m)		(IPC_BASE + ((m) << 6))
-#define IPC_MBX_DSET_REG(m)		(IPC_BASE + ((m) << 6) + 0x04)
-#define IPC_MBX_DCLEAR_REG(m)		(IPC_BASE + ((m) << 6) + 0x08)
-#define IPC_MBX_DSTATUS_REG(m)		(IPC_BASE + ((m) << 6) + 0x0C)
-#define IPC_MBX_MODE_REG(m)		(IPC_BASE + ((m) << 6) + 0x10)
-#define IPC_MBX_IMASK_REG(m)		(IPC_BASE + ((m) << 6) + 0x14)
-#define IPC_MBX_ICLR_REG(m)		(IPC_BASE + ((m) << 6) + 0x18)
-#define IPC_MBX_SEND_REG(m)		(IPC_BASE + ((m) << 6) + 0x1C)
-#define IPC_MBX_DATA_REG(m, d)		(IPC_BASE + ((m) << 6) + 0x20 + \
-					 ((d) * 4))
-#define IPC_CPU_IMST_REG(m)		(IPC_BASE + ((m) << 3))
-#define IPC_LOCK_REG			(IPC_BASE + 0xA00)
-#define IPC_ACK_BIT_SHIFT		(1 << 7)
-#define IPC_UNLOCK_VALUE		(0x1ACCE551)
+#define IPC_MBX_SOURCE_REG(m) (IPC_BASE + ((m) << 6))
+#define IPC_MBX_DSET_REG(m) (IPC_BASE + ((m) << 6) + 0x04)
+#define IPC_MBX_DCLEAR_REG(m) (IPC_BASE + ((m) << 6) + 0x08)
+#define IPC_MBX_DSTATUS_REG(m) (IPC_BASE + ((m) << 6) + 0x0C)
+#define IPC_MBX_MODE_REG(m) (IPC_BASE + ((m) << 6) + 0x10)
+#define IPC_MBX_IMASK_REG(m) (IPC_BASE + ((m) << 6) + 0x14)
+#define IPC_MBX_ICLR_REG(m) (IPC_BASE + ((m) << 6) + 0x18)
+#define IPC_MBX_SEND_REG(m) (IPC_BASE + ((m) << 6) + 0x1C)
+#define IPC_MBX_DATA_REG(m, d) (IPC_BASE + ((m) << 6) + 0x20 + ((d)*4))
+#define IPC_CPU_IMST_REG(m) (IPC_BASE + ((m) << 3))
+#define IPC_LOCK_REG (IPC_BASE + 0xA00)
+#define IPC_ACK_BIT_SHIFT (1 << 7)
+#define IPC_UNLOCK_VALUE (0x1ACCE551)
 
 /*********************************************************
  *bit[31:24]:0~AP
@@ -46,10 +45,9 @@
  *bit[7:0]:cpux
  *********************************************************/
 
-#define IPC_CMD_PARA(is_idle, cpu) \
-	((is_idle << 8) | (cpu))
+#define IPC_CMD_PARA(is_idle, cpu) ((is_idle << 8) | (cpu))
 
-#define IPC_STATE_IDLE			0x10
+#define IPC_STATE_IDLE 0x10
 
 enum src_id {
 	SRC_IDLE = 0,
@@ -76,8 +74,8 @@ static void cpu_relax(void)
 		nop();
 }
 
-static inline void
-hisi_ipc_clear_ack(enum src_id source, enum lpm3_mbox_id mbox)
+static inline void hisi_ipc_clear_ack(enum src_id source,
+				      enum lpm3_mbox_id mbox)
 {
 	unsigned int int_status = 0;
 
@@ -90,9 +88,10 @@ hisi_ipc_clear_ack(enum src_id source, enum lpm3_mbox_id mbox)
 	mmio_write_32(IPC_MBX_ICLR_REG(mbox), source);
 }
 
-static void
-hisi_ipc_send_cmd_with_ack(enum src_id source, enum lpm3_mbox_id mbox,
-			   unsigned int cmdtype, unsigned int cmdpara)
+static void hisi_ipc_send_cmd_with_ack(enum src_id source,
+				       enum lpm3_mbox_id mbox,
+				       unsigned int cmdtype,
+				       unsigned int cmdpara)
 {
 	unsigned int regval;
 	unsigned int mask;
@@ -192,7 +191,7 @@ void hisi_ipc_psci_system_reset(unsigned int core, unsigned int cluster,
 int hisi_ipc_init(void)
 {
 	int ret = 0;
-	enum lpm3_mbox_id  i = LPM3_MBX0;
+	enum lpm3_mbox_id i = LPM3_MBX0;
 
 	mmio_write_32(IPC_LOCK_REG, IPC_UNLOCK_VALUE);
 	for (i = LPM3_MBX0; i <= LPM3_MBX4; i++) {

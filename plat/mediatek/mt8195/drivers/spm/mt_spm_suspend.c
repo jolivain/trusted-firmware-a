@@ -16,53 +16,34 @@
 #include <plat_pm.h>
 #include <uart.h>
 
-#define SPM_SUSPEND_SLEEP_PCM_FLAG			\
-	(SPM_FLAG_DISABLE_INFRA_PDN |			\
-	 SPM_FLAG_DISABLE_VCORE_DVS |			\
-	 SPM_FLAG_DISABLE_VCORE_DFS |			\
-	 SPM_FLAG_KEEP_CSYSPWRACK_HIGH |		\
-	 SPM_FLAG_DISABLE_DRAMC_MCU_SRAM_SLEEP |	\
-	 SPM_FLAG_SRAM_SLEEP_CTRL)
+#define SPM_SUSPEND_SLEEP_PCM_FLAG                                    \
+	(SPM_FLAG_DISABLE_INFRA_PDN | SPM_FLAG_DISABLE_VCORE_DVS |    \
+	 SPM_FLAG_DISABLE_VCORE_DFS | SPM_FLAG_KEEP_CSYSPWRACK_HIGH | \
+	 SPM_FLAG_DISABLE_DRAMC_MCU_SRAM_SLEEP | SPM_FLAG_SRAM_SLEEP_CTRL)
 
-#define SPM_SUSPEND_SLEEP_PCM_FLAG1	0
+#define SPM_SUSPEND_SLEEP_PCM_FLAG1 0
 
-#define SPM_SUSPEND_PCM_FLAG				\
-	(SPM_FLAG_DISABLE_VCORE_DVS |			\
-	 SPM_FLAG_DISABLE_VCORE_DFS |			\
-	 SPM_FLAG_ENABLE_TIA_WORKAROUND |		\
-	 SPM_FLAG_DISABLE_DRAMC_MCU_SRAM_SLEEP |	\
-	 SPM_FLAG_SRAM_SLEEP_CTRL)
+#define SPM_SUSPEND_PCM_FLAG                                       \
+	(SPM_FLAG_DISABLE_VCORE_DVS | SPM_FLAG_DISABLE_VCORE_DFS | \
+	 SPM_FLAG_ENABLE_TIA_WORKAROUND |                          \
+	 SPM_FLAG_DISABLE_DRAMC_MCU_SRAM_SLEEP | SPM_FLAG_SRAM_SLEEP_CTRL)
 
-#define SPM_SUSPEND_PCM_FLAG1		0
+#define SPM_SUSPEND_PCM_FLAG1 0
 
 /* Suspend spm power control */
-#define __WAKE_SRC_FOR_SUSPEND_COMMON__			\
-	(R12_PCM_TIMER |				\
-	 R12_KP_IRQ_B |					\
-	 R12_APWDT_EVENT_B |				\
-	 R12_CONN2AP_SPM_WAKEUP_B |			\
-	 R12_EINT_EVENT_B |				\
-	 R12_CONN_WDT_IRQ_B |				\
-	 R12_CCIF0_EVENT_B |				\
-	 R12_SSPM2SPM_WAKEUP_B |			\
-	 R12_SCP2SPM_WAKEUP_B |				\
-	 R12_USBX_CDSC_B |				\
-	 R12_USBX_POWERDWN_B |				\
-	 R12_SYS_TIMER_EVENT_B |			\
-	 R12_EINT_EVENT_SECURE_B |			\
-	 R12_SYS_CIRQ_IRQ_B |				\
-	 R12_MD2AP_PEER_EVENT_B |			\
-	 R12_MD1_WDT_B |				\
-	 R12_CLDMA_EVENT_B |				\
-	 R12_REG_CPU_WAKEUP |				\
-	 R12_APUSYS_WAKE_HOST_B)
+#define __WAKE_SRC_FOR_SUSPEND_COMMON__                                     \
+	(R12_PCM_TIMER | R12_KP_IRQ_B | R12_APWDT_EVENT_B |                 \
+	 R12_CONN2AP_SPM_WAKEUP_B | R12_EINT_EVENT_B | R12_CONN_WDT_IRQ_B | \
+	 R12_CCIF0_EVENT_B | R12_SSPM2SPM_WAKEUP_B | R12_SCP2SPM_WAKEUP_B | \
+	 R12_USBX_CDSC_B | R12_USBX_POWERDWN_B | R12_SYS_TIMER_EVENT_B |    \
+	 R12_EINT_EVENT_SECURE_B | R12_SYS_CIRQ_IRQ_B |                     \
+	 R12_MD2AP_PEER_EVENT_B | R12_MD1_WDT_B | R12_CLDMA_EVENT_B |       \
+	 R12_REG_CPU_WAKEUP | R12_APUSYS_WAKE_HOST_B)
 
 #if defined(CFG_MICROTRUST_TEE_SUPPORT)
 #define WAKE_SRC_FOR_SUSPEND (__WAKE_SRC_FOR_SUSPEND_COMMON__)
 #else
-#define WAKE_SRC_FOR_SUSPEND			\
-	(__WAKE_SRC_FOR_SUSPEND_COMMON__ |	\
-	 R12_SEJ_EVENT_B)
+#define WAKE_SRC_FOR_SUSPEND (__WAKE_SRC_FOR_SUSPEND_COMMON__ | R12_SEJ_EVENT_B)
 #endif
 
 static struct pwr_ctrl suspend_ctrl = {
@@ -367,8 +348,8 @@ int mt_spm_suspend_enter(int state_id, unsigned int ext_opand,
 	/* Notify UART to sleep */
 	mt_uart_save();
 
-	return spm_conservation(state_id, ext_opand,
-				&__spm_suspend, resource_req);
+	return spm_conservation(state_id, ext_opand, &__spm_suspend,
+				resource_req);
 }
 
 void mt_spm_suspend_resume(int state_id, unsigned int ext_opand,

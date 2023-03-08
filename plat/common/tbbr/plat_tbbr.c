@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,6 +8,7 @@
 #include <string.h>
 
 #include <drivers/auth/auth_mod.h>
+
 #include <plat/common/platform.h>
 #if USE_TBBR_DEFS
 #include <tools_share/tbbr_oid.h>
@@ -27,7 +28,7 @@
  * Return: 0 = success, Otherwise = error
  */
 int plat_set_nv_ctr2(void *cookie, const auth_img_desc_t *img_desc,
-		unsigned int nv_ctr)
+		     unsigned int nv_ctr)
 {
 	int trusted_nv_ctr;
 

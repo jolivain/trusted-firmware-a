@@ -24,9 +24,9 @@
  * MAX NUM CS = 4
  * Not to be changed.
  */
-#define MAX_DDRC_NUM	2
-#define MAX_DIMM_NUM	2
-#define MAX_CS_NUM	4
+#define MAX_DDRC_NUM 2
+#define MAX_DIMM_NUM 2
+#define MAX_CS_NUM 4
 
 #include "opts.h"
 #include "regs.h"
@@ -42,8 +42,7 @@
 #define DDRC_NUM_DIMM 1
 #endif
 
-#define CONFIG_CS_PER_SLOT \
-	(DDRC_NUM_CS / DDRC_NUM_DIMM)
+#define CONFIG_CS_PER_SLOT (DDRC_NUM_CS / DDRC_NUM_DIMM)
 
 /* Record of register values computed */
 struct ddr_cfg_regs {
@@ -77,8 +76,8 @@ struct ddr_cfg_regs {
 
 struct ddr_conf {
 	int dimm_in_use[MAX_DIMM_NUM];
-	int cs_in_use;	/* bitmask, bit 0 for cs0, bit 1 for cs1, etc. */
-	int cs_on_dimm[MAX_DIMM_NUM];	/* bitmask */
+	int cs_in_use; /* bitmask, bit 0 for cs0, bit 1 for cs1, etc. */
+	int cs_on_dimm[MAX_DIMM_NUM]; /* bitmask */
 	unsigned long long cs_base_addr[MAX_CS_NUM];
 	unsigned long long cs_size[MAX_CS_NUM];
 	unsigned long long base_addr;
@@ -125,27 +124,23 @@ enum warm_boot {
 int disable_unused_ddrc(struct ddr_info *priv, int mask,
 			uintptr_t nxp_ccn_hn_f0_addr);
 int ddr_board_options(struct ddr_info *priv);
-int compute_ddrc(const unsigned long clk,
-		 const struct memctl_opt *popts,
-		 const struct ddr_conf *conf,
-		 struct ddr_cfg_regs *ddr,
+int compute_ddrc(const unsigned long clk, const struct memctl_opt *popts,
+		 const struct ddr_conf *conf, struct ddr_cfg_regs *ddr,
 		 const struct dimm_params *dimm_params,
 		 const unsigned int ip_rev);
 int compute_ddr_phy(struct ddr_info *priv);
-int ddrc_set_regs(const unsigned long clk,
-		  const struct ddr_cfg_regs *regs,
-		  const struct ccsr_ddr *ddr,
-		  int twopass);
-int cal_board_params(struct ddr_info *priv,
-		     const struct board_timing *dimm,
+int ddrc_set_regs(const unsigned long clk, const struct ddr_cfg_regs *regs,
+		  const struct ccsr_ddr *ddr, int twopass);
+int cal_board_params(struct ddr_info *priv, const struct board_timing *dimm,
 		     int len);
 /* return bit mask of used DIMM(s) */
 int ddr_get_ddr_params(struct dimm_params *pdimm, struct ddr_conf *conf);
 long long dram_init(struct ddr_info *priv
 #if defined(NXP_HAS_CCN504) || defined(NXP_HAS_CCN508)
-		    , uintptr_t nxp_ccn_hn_f0_addr
+		    ,
+		    uintptr_t nxp_ccn_hn_f0_addr
 #endif
-		);
+);
 long long board_static_ddr(struct ddr_info *info);
 
-#endif	/* DDR_H */
+#endif /* DDR_H */

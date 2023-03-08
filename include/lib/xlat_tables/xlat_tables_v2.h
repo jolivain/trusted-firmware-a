@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -24,21 +24,20 @@
  * architectural state and granule size in order to minimize the number of page
  * tables required for the mapping.
  */
-#define REGION_DEFAULT_GRANULARITY	XLAT_BLOCK_SIZE(MIN_LVL_BLOCK_DESC)
+#define REGION_DEFAULT_GRANULARITY XLAT_BLOCK_SIZE(MIN_LVL_BLOCK_DESC)
 
 /* Helper macro to define an mmap_region_t. */
-#define MAP_REGION(_pa, _va, _sz, _attr)	\
+#define MAP_REGION(_pa, _va, _sz, _attr) \
 	MAP_REGION_FULL_SPEC(_pa, _va, _sz, _attr, REGION_DEFAULT_GRANULARITY)
 
 /* Helper macro to define an mmap_region_t with an identity mapping. */
-#define MAP_REGION_FLAT(_adr, _sz, _attr)			\
-	MAP_REGION(_adr, _adr, _sz, _attr)
+#define MAP_REGION_FLAT(_adr, _sz, _attr) MAP_REGION(_adr, _adr, _sz, _attr)
 
 /*
  * Helper macro to define entries for mmap_region_t. It allows to define 'pa'
  * and sets 'va' to 0 for each region. To be used with mmap_add_alloc_va().
  */
-#define MAP_REGION_ALLOC_VA(pa, sz, attr)	MAP_REGION(pa, 0, sz, attr)
+#define MAP_REGION_ALLOC_VA(pa, sz, attr) MAP_REGION(pa, 0, sz, attr)
 
 /*
  * Helper macro to define an mmap_region_t to map with the desired granularity
@@ -50,31 +49,31 @@
  * is free to choose the granularity for this region. In this case, it is
  * equivalent to the MAP_REGION() macro.
  */
-#define MAP_REGION2(_pa, _va, _sz, _attr, _gr)			\
+#define MAP_REGION2(_pa, _va, _sz, _attr, _gr) \
 	MAP_REGION_FULL_SPEC(_pa, _va, _sz, _attr, _gr)
 
 /*
  * Shifts and masks to access fields of an mmap attribute
  */
-#define MT_TYPE_MASK		U(0x7)
-#define MT_TYPE(_attr)		((_attr) & MT_TYPE_MASK)
+#define MT_TYPE_MASK U(0x7)
+#define MT_TYPE(_attr) ((_attr)&MT_TYPE_MASK)
 /* Access permissions (RO/RW) */
-#define MT_PERM_SHIFT		U(3)
+#define MT_PERM_SHIFT U(3)
 
 /* Physical address space (SECURE/NS/Root/Realm) */
-#define	MT_PAS_SHIFT		U(4)
-#define MT_PAS_MASK		(U(3) << MT_PAS_SHIFT)
-#define MT_PAS(_attr)		((_attr) & MT_PAS_MASK)
+#define MT_PAS_SHIFT U(4)
+#define MT_PAS_MASK (U(3) << MT_PAS_SHIFT)
+#define MT_PAS(_attr) ((_attr)&MT_PAS_MASK)
 
 /* Access permissions for instruction execution (EXECUTE/EXECUTE_NEVER) */
-#define MT_EXECUTE_SHIFT	U(6)
+#define MT_EXECUTE_SHIFT U(6)
 /* In the EL1&0 translation regime, User (EL0) or Privileged (EL1). */
-#define MT_USER_SHIFT		U(7)
+#define MT_USER_SHIFT U(7)
 
 /* Shareability attribute for the memory region */
-#define MT_SHAREABILITY_SHIFT	U(8)
-#define MT_SHAREABILITY_MASK	(U(3) << MT_SHAREABILITY_SHIFT)
-#define MT_SHAREABILITY(_attr)	((_attr) & MT_SHAREABILITY_MASK)
+#define MT_SHAREABILITY_SHIFT U(8)
+#define MT_SHAREABILITY_MASK (U(3) << MT_SHAREABILITY_SHIFT)
+#define MT_SHAREABILITY(_attr) ((_attr)&MT_SHAREABILITY_MASK)
 
 /* All other bits are reserved */
 
@@ -88,18 +87,18 @@
  * getting weaker; conversely going up the list the memory types are getting
  * stronger.
  */
-#define MT_DEVICE		U(0)
-#define MT_NON_CACHEABLE	U(1)
-#define MT_MEMORY		U(2)
+#define MT_DEVICE U(0)
+#define MT_NON_CACHEABLE U(1)
+#define MT_MEMORY U(2)
 /* Values up to 7 are reserved to add new memory types in the future */
 
-#define MT_RO			(U(0) << MT_PERM_SHIFT)
-#define MT_RW			(U(1) << MT_PERM_SHIFT)
+#define MT_RO (U(0) << MT_PERM_SHIFT)
+#define MT_RW (U(1) << MT_PERM_SHIFT)
 
-#define MT_SECURE		(U(0) << MT_PAS_SHIFT)
-#define MT_NS			(U(1) << MT_PAS_SHIFT)
-#define MT_ROOT			(U(2) << MT_PAS_SHIFT)
-#define MT_REALM		(U(3) << MT_PAS_SHIFT)
+#define MT_SECURE (U(0) << MT_PAS_SHIFT)
+#define MT_NS (U(1) << MT_PAS_SHIFT)
+#define MT_ROOT (U(2) << MT_PAS_SHIFT)
+#define MT_REALM (U(3) << MT_PAS_SHIFT)
 
 /*
  * Access permissions for instruction execution are only relevant for normal
@@ -108,15 +107,15 @@
  *  - Device memory is always marked as execute-never.
  *  - Read-write normal memory is always marked as execute-never.
  */
-#define MT_EXECUTE		(U(0) << MT_EXECUTE_SHIFT)
-#define MT_EXECUTE_NEVER	(U(1) << MT_EXECUTE_SHIFT)
+#define MT_EXECUTE (U(0) << MT_EXECUTE_SHIFT)
+#define MT_EXECUTE_NEVER (U(1) << MT_EXECUTE_SHIFT)
 
 /*
  * When mapping a region at EL0 or EL1, this attribute will be used to determine
  * if a User mapping (EL0) will be created or a Privileged mapping (EL1).
  */
-#define MT_USER			(U(1) << MT_USER_SHIFT)
-#define MT_PRIVILEGED		(U(0) << MT_USER_SHIFT)
+#define MT_USER (U(1) << MT_USER_SHIFT)
+#define MT_PRIVILEGED (U(0) << MT_USER_SHIFT)
 
 /*
  * Shareability defines the visibility of any cache changes to
@@ -126,41 +125,41 @@
  * MT_SHAREABILITY_OSH: For outer shareable domain
  * MT_SHAREABILITY_NSH: For non shareable domain
  */
-#define MT_SHAREABILITY_ISH	(U(1) << MT_SHAREABILITY_SHIFT)
-#define MT_SHAREABILITY_OSH	(U(2) << MT_SHAREABILITY_SHIFT)
-#define MT_SHAREABILITY_NSH	(U(3) << MT_SHAREABILITY_SHIFT)
+#define MT_SHAREABILITY_ISH (U(1) << MT_SHAREABILITY_SHIFT)
+#define MT_SHAREABILITY_OSH (U(2) << MT_SHAREABILITY_SHIFT)
+#define MT_SHAREABILITY_NSH (U(3) << MT_SHAREABILITY_SHIFT)
 
 /* Compound attributes for most common usages */
-#define MT_CODE			(MT_MEMORY | MT_RO | MT_EXECUTE)
-#define MT_RO_DATA		(MT_MEMORY | MT_RO | MT_EXECUTE_NEVER)
-#define MT_RW_DATA		(MT_MEMORY | MT_RW | MT_EXECUTE_NEVER)
+#define MT_CODE (MT_MEMORY | MT_RO | MT_EXECUTE)
+#define MT_RO_DATA (MT_MEMORY | MT_RO | MT_EXECUTE_NEVER)
+#define MT_RW_DATA (MT_MEMORY | MT_RW | MT_EXECUTE_NEVER)
 
 /*
  * Structure for specifying a single region of memory.
  */
 typedef struct mmap_region {
-	unsigned long long	base_pa;
-	uintptr_t		base_va;
-	size_t			size;
-	unsigned int		attr;
+	unsigned long long base_pa;
+	uintptr_t base_va;
+	size_t size;
+	unsigned int attr;
 	/* Desired granularity. See the MAP_REGION2() macro for more details. */
-	size_t			granularity;
+	size_t granularity;
 } mmap_region_t;
 
 /*
  * Translation regimes supported by this library. EL_REGIME_INVALID tells the
  * library to detect it at runtime.
  */
-#define EL1_EL0_REGIME		1
-#define EL2_REGIME		2
-#define EL3_REGIME		3
-#define EL_REGIME_INVALID	-1
+#define EL1_EL0_REGIME 1
+#define EL2_REGIME 2
+#define EL3_REGIME 3
+#define EL_REGIME_INVALID -1
 
 /* Memory type for EL3 regions. With RME, EL3 is in ROOT PAS */
 #if ENABLE_RME
-#define EL3_PAS			MT_ROOT
+#define EL3_PAS MT_ROOT
 #else
-#define EL3_PAS			MT_SECURE
+#define EL3_PAS MT_SECURE
 #endif /* ENABLE_RME */
 
 /*
@@ -196,14 +195,12 @@ typedef struct xlat_ctx xlat_ctx_t;
  *   (resp. PLAT_PHY_ADDR_SPACE_SIZE) for the translation context describing the
  *   BL image currently executing.
  */
-#define REGISTER_XLAT_CONTEXT(_ctx_name, _mmap_count, _xlat_tables_count, \
+#define REGISTER_XLAT_CONTEXT(_ctx_name, _mmap_count, _xlat_tables_count,  \
 			      _virt_addr_space_size, _phy_addr_space_size) \
-	REGISTER_XLAT_CONTEXT_FULL_SPEC(_ctx_name, (_mmap_count),	\
-					 (_xlat_tables_count),		\
-					 (_virt_addr_space_size),	\
-					 (_phy_addr_space_size),	\
-					 EL_REGIME_INVALID,		\
-					 ".xlat_table", ".base_xlat_table")
+	REGISTER_XLAT_CONTEXT_FULL_SPEC(                                   \
+		_ctx_name, (_mmap_count), (_xlat_tables_count),            \
+		(_virt_addr_space_size), (_phy_addr_space_size),           \
+		EL_REGIME_INVALID, ".xlat_table", ".base_xlat_table")
 
 /*
  * Same as REGISTER_XLAT_CONTEXT plus the additional parameters:
@@ -220,16 +217,14 @@ typedef struct xlat_ctx xlat_ctx_t;
  *   Specify the name of the section where the base translation tables have to
  *   be placed by the linker.
  */
-#define REGISTER_XLAT_CONTEXT2(_ctx_name, _mmap_count, _xlat_tables_count, \
-			_virt_addr_space_size, _phy_addr_space_size,	\
-			_xlat_regime, _section_name, _base_table_section_name) \
-	REGISTER_XLAT_CONTEXT_FULL_SPEC(_ctx_name, (_mmap_count),	\
-					 (_xlat_tables_count),		\
-					 (_virt_addr_space_size),	\
-					 (_phy_addr_space_size),	\
-					 (_xlat_regime),		\
-					 (_section_name), (_base_table_section_name) \
-)
+#define REGISTER_XLAT_CONTEXT2(_ctx_name, _mmap_count, _xlat_tables_count,  \
+			       _virt_addr_space_size, _phy_addr_space_size, \
+			       _xlat_regime, _section_name,                 \
+			       _base_table_section_name)                    \
+	REGISTER_XLAT_CONTEXT_FULL_SPEC(                                    \
+		_ctx_name, (_mmap_count), (_xlat_tables_count),             \
+		(_virt_addr_space_size), (_phy_addr_space_size),            \
+		(_xlat_regime), (_section_name), (_base_table_section_name))
 
 /******************************************************************************
  * Generic translation table APIs.
@@ -263,8 +258,8 @@ void xlat_setup_dynamic_ctx(xlat_ctx_t *ctx, unsigned long long pa_max,
  * be used before initializing the translation tables. The region cannot be
  * removed afterwards.
  */
-void mmap_add_region(unsigned long long base_pa, uintptr_t base_va,
-		     size_t size, unsigned int attr);
+void mmap_add_region(unsigned long long base_pa, uintptr_t base_va, size_t size,
+		     unsigned int attr);
 void mmap_add_region_ctx(xlat_ctx_t *ctx, const mmap_region_t *mm);
 
 /*
@@ -318,8 +313,8 @@ int mmap_add_dynamic_region_ctx(xlat_ctx_t *ctx, mmap_region_t *mm);
  * It returns the same error values as mmap_add_dynamic_region().
  */
 int mmap_add_dynamic_region_alloc_va(unsigned long long base_pa,
-				     uintptr_t *base_va,
-				     size_t size, unsigned int attr);
+				     uintptr_t *base_va, size_t size,
+				     unsigned int attr);
 int mmap_add_dynamic_region_alloc_va_ctx(xlat_ctx_t *ctx, mmap_region_t *mm);
 
 /*
@@ -333,9 +328,8 @@ int mmap_add_dynamic_region_alloc_va_ctx(xlat_ctx_t *ctx, mmap_region_t *mm);
  *    EPERM: Trying to remove a static region.
  */
 int mmap_remove_dynamic_region(uintptr_t base_va, size_t size);
-int mmap_remove_dynamic_region_ctx(xlat_ctx_t *ctx,
-				uintptr_t base_va,
-				size_t size);
+int mmap_remove_dynamic_region_ctx(xlat_ctx_t *ctx, uintptr_t base_va,
+				   size_t size);
 
 #endif /* PLAT_XLAT_TABLES_DYNAMIC */
 

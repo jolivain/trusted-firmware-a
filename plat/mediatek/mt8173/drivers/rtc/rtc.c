@@ -1,12 +1,12 @@
 /*
- * Copyright (c) 2015, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-#include <common/debug.h>
 
+#include <common/debug.h>
 #include <mt8173_def.h>
 #include <rtc.h>
 

@@ -1,10 +1,11 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include "tbbr/tbb_cert.h"
+
 #include "tbbr/tbb_ext.h"
 #include "tbbr/tbb_key.h"
 

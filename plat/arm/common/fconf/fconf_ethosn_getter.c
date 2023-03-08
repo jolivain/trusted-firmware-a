@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,9 +10,10 @@
 #include <common/debug.h>
 #include <common/fdt_wrappers.h>
 #include <libfdt.h>
+
 #include <plat/arm/common/fconf_ethosn_getter.h>
 
-struct ethosn_config_t ethosn_config = {0};
+struct ethosn_config_t ethosn_config = { 0 };
 
 struct ethosn_sub_allocator_t {
 	const char *name;
@@ -25,10 +26,11 @@ static bool fdt_node_has_reserved_memory(const void *fdt, int dev_node)
 	return fdt_get_property(fdt, dev_node, "memory-region", NULL) != NULL;
 }
 
-static int fdt_node_get_iommus_stream_id(const void *fdt, int node, uint32_t *stream_id)
+static int fdt_node_get_iommus_stream_id(const void *fdt, int node,
+					 uint32_t *stream_id)
 {
 	int err;
-	uint32_t iommus_array[2] = {0U};
+	uint32_t iommus_array[2] = { 0U };
 
 	err = fdt_read_uint32_array(fdt, node, "iommus", 2U, iommus_array);
 	if (err) {
@@ -39,10 +41,10 @@ static int fdt_node_get_iommus_stream_id(const void *fdt, int node, uint32_t *st
 	return 0;
 }
 
-static int fdt_node_populate_sub_allocators(const void *fdt,
-					    int alloc_node,
-					    struct ethosn_sub_allocator_t *sub_allocators,
-					    size_t num_allocs)
+static int
+fdt_node_populate_sub_allocators(const void *fdt, int alloc_node,
+				 struct ethosn_sub_allocator_t *sub_allocators,
+				 size_t num_allocs)
 {
 	int sub_node;
 	size_t i;
@@ -57,7 +59,8 @@ static int fdt_node_populate_sub_allocators(const void *fdt,
 			continue;
 		}
 
-		if (fdt_node_check_compatible(fdt, sub_node, "ethosn-memory") != 0) {
+		if (fdt_node_check_compatible(fdt, sub_node, "ethosn-memory") !=
+		    0) {
 			continue;
 		}
 
@@ -68,8 +71,8 @@ static int fdt_node_populate_sub_allocators(const void *fdt,
 				continue;
 			}
 
-			err = fdt_node_get_iommus_stream_id(fdt, sub_node,
-							    &sub_allocators[i].stream_id);
+			err = fdt_node_get_iommus_stream_id(
+				fdt, sub_node, &sub_allocators[i].stream_id);
 			if (err) {
 				ERROR("FCONF: Failed to get stream ID from sub-allocator %s\n",
 				      node_name);
@@ -106,14 +109,14 @@ static int fdt_node_populate_sub_allocators(const void *fdt,
 	return 0;
 }
 
-static int fdt_node_populate_main_allocator(const void *fdt,
-					    int alloc_node,
-					    struct ethosn_main_allocator_t *allocator)
+static int
+fdt_node_populate_main_allocator(const void *fdt, int alloc_node,
+				 struct ethosn_main_allocator_t *allocator)
 {
 	int err;
 	struct ethosn_sub_allocator_t sub_allocators[] = {
-		{.name = "firmware", .name_len = 8U},
-		{.name = "working_data", .name_len = 12U}
+		{ .name = "firmware", .name_len = 8U },
+		{ .name = "working_data", .name_len = 12U }
 	};
 
 	err = fdt_node_populate_sub_allocators(fdt, alloc_node, sub_allocators,
@@ -128,16 +131,16 @@ static int fdt_node_populate_main_allocator(const void *fdt,
 	return 0;
 }
 
-static int fdt_node_populate_asset_allocator(const void *fdt,
-					    int alloc_node,
-					    struct ethosn_asset_allocator_t *allocator)
+static int
+fdt_node_populate_asset_allocator(const void *fdt, int alloc_node,
+				  struct ethosn_asset_allocator_t *allocator)
 {
 	int err;
 	struct ethosn_sub_allocator_t sub_allocators[] = {
-		{.name = "command_stream", .name_len = 14U},
-		{.name = "weight_data", .name_len = 11U},
-		{.name = "buffer_data", .name_len = 11U},
-		{.name = "intermediate_data", .name_len = 17U}
+		{ .name = "command_stream", .name_len = 14U },
+		{ .name = "weight_data", .name_len = 11U },
+		{ .name = "buffer_data", .name_len = 11U },
+		{ .name = "intermediate_data", .name_len = 17U }
 	};
 
 	err = fdt_node_populate_sub_allocators(fdt, alloc_node, sub_allocators,
@@ -146,7 +149,6 @@ static int fdt_node_populate_asset_allocator(const void *fdt,
 		return err;
 	}
 
-
 	allocator->command_stream.stream_id = sub_allocators[0].stream_id;
 	allocator->weight_data.stream_id = sub_allocators[1].stream_id;
 	allocator->buffer_data.stream_id = sub_allocators[2].stream_id;
@@ -154,10 +156,8 @@ static int fdt_node_populate_asset_allocator(const void *fdt,
 	return 0;
 }
 
-static int fdt_node_populate_core(const void *fdt,
-				  int device_node,
-				  int core_node,
-				  bool has_reserved_memory,
+static int fdt_node_populate_core(const void *fdt, int device_node,
+				  int core_node, bool has_reserved_memory,
 				  uint32_t core_index,
 				  struct ethosn_core_t *core)
 {
@@ -175,13 +175,11 @@ static int fdt_node_populate_core(const void *fdt,
 
 	err = -FDT_ERR_NOTFOUND;
 	fdt_for_each_subnode(sub_node, fdt, core_node) {
-
 		if (!fdt_node_is_enabled(fdt, sub_node)) {
 			continue;
 		}
 
-		if (fdt_node_check_compatible(fdt,
-					      sub_node,
+		if (fdt_node_check_compatible(fdt, sub_node,
 					      "ethosn-main_allocator") != 0) {
 			continue;
 		}
@@ -197,7 +195,8 @@ static int fdt_node_populate_core(const void *fdt,
 			return -FDT_ERR_BADSTRUCTURE;
 		}
 
-		err = fdt_node_populate_main_allocator(fdt, sub_node, &core->main_allocator);
+		err = fdt_node_populate_main_allocator(fdt, sub_node,
+						       &core->main_allocator);
 		if (err) {
 			ERROR("FCONF: Failed to parse main allocator for NPU core 0x%lx\n",
 			      core_addr);
@@ -245,7 +244,8 @@ int fconf_populate_ethosn_config(uintptr_t config)
 			return -FDT_ERR_BADSTRUCTURE;
 		}
 
-		has_reserved_memory = fdt_node_has_reserved_memory(hw_conf_dtb, ethosn_node);
+		has_reserved_memory =
+			fdt_node_has_reserved_memory(hw_conf_dtb, ethosn_node);
 		fdt_for_each_subnode(sub_node, hw_conf_dtb, ethosn_node) {
 			int err;
 
@@ -254,30 +254,25 @@ int fconf_populate_ethosn_config(uintptr_t config)
 				continue;
 			}
 
-			if (fdt_node_check_compatible(hw_conf_dtb,
-						      sub_node,
+			if (fdt_node_check_compatible(hw_conf_dtb, sub_node,
 						      "ethosn-core") == 0) {
-
 				if (dev_core_count >= ETHOSN_DEV_CORE_NUM_MAX) {
 					ERROR("FCONF: Reached max number of NPU cores for NPU %u\n",
 					      dev_count);
 					return -FDT_ERR_BADSTRUCTURE;
 				}
 
-				err = fdt_node_populate_core(hw_conf_dtb,
-							     ethosn_node,
-							     sub_node,
-							     has_reserved_memory,
-							     dev_core_count,
-							     &(dev->cores[dev_core_count]));
+				err = fdt_node_populate_core(
+					hw_conf_dtb, ethosn_node, sub_node,
+					has_reserved_memory, dev_core_count,
+					&(dev->cores[dev_core_count]));
 				if (err) {
 					return err;
 				}
 				++dev_core_count;
-			} else if (fdt_node_check_compatible(hw_conf_dtb,
-							     sub_node,
-							     "ethosn-asset_allocator") == 0) {
-
+			} else if (fdt_node_check_compatible(
+					   hw_conf_dtb, sub_node,
+					   "ethosn-asset_allocator") == 0) {
 				if (dev_asset_alloc_count >=
 				    ETHOSN_DEV_ASSET_ALLOCATOR_NUM_MAX) {
 					ERROR("FCONF: Reached max number of asset allocators for NPU %u\n",
@@ -290,9 +285,10 @@ int fconf_populate_ethosn_config(uintptr_t config)
 					return -FDT_ERR_BADSTRUCTURE;
 				}
 
-				err = fdt_node_populate_asset_allocator(hw_conf_dtb,
-									sub_node,
-									&(dev->asset_allocators[dev_asset_alloc_count]));
+				err = fdt_node_populate_asset_allocator(
+					hw_conf_dtb, sub_node,
+					&(dev->asset_allocators
+						  [dev_asset_alloc_count]));
 				if (err) {
 					ERROR("FCONF: Failed to parse asset allocator for NPU %u\n",
 					      dev_count);
@@ -336,4 +332,5 @@ int fconf_populate_ethosn_config(uintptr_t config)
 	return 0;
 }
 
-FCONF_REGISTER_POPULATOR(HW_CONFIG, ethosn_config, fconf_populate_ethosn_config);
+FCONF_REGISTER_POPULATOR(HW_CONFIG, ethosn_config,
+			 fconf_populate_ethosn_config);

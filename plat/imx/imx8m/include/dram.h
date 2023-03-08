@@ -10,16 +10,16 @@
 #include <assert.h>
 
 #include <arch_helpers.h>
+#include <ddrc.h>
 #include <lib/utils_def.h>
 
-#include <ddrc.h>
 #include <platform_def.h>
 
-#define DDRC_LPDDR4		BIT(5)
-#define DDRC_DDR4		BIT(4)
-#define DDRC_DDR3L		BIT(0)
-#define DDR_TYPE_MASK		U(0x3f)
-#define ACTIVE_RANK_MASK	U(0x3)
+#define DDRC_LPDDR4 BIT(5)
+#define DDRC_DDR4 BIT(4)
+#define DDRC_DDR3L BIT(0)
+#define DDR_TYPE_MASK U(0x3f)
+#define ACTIVE_RANK_MASK U(0x3)
 
 /* reg & config param */
 struct dram_cfg_param {
@@ -72,7 +72,8 @@ void dram_exit_retention(void);
 void dram_clock_switch(unsigned int target_drate, bool bypass_mode);
 
 /* dram frequency change */
-void lpddr4_swffc(struct dram_info *info, unsigned int init_fsp, unsigned int fsp_index);
+void lpddr4_swffc(struct dram_info *info, unsigned int init_fsp,
+		  unsigned int fsp_index);
 void ddr4_swffc(struct dram_info *dram_info, unsigned int pstate);
 
 #endif /* DRAM_H */

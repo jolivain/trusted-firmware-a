@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2022-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,29 +9,27 @@
 
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/spinlock.h>
+#include <services/ffa_svc.h>
+
 #include <plat/common/common_def.h>
 #include <plat/common/platform.h>
-#include <services/ffa_svc.h>
-#include "spmc.h"
-
 #include <platform_def.h>
+
+#include "spmc.h"
 
 /*******************************************************************************
  * spmc_build_pm_message
  *
  * Builds an SPMC to SP direct message request.
  ******************************************************************************/
-static void spmc_build_pm_message(gp_regs_t *gpregs,
-				  unsigned long long message,
-				  uint8_t pm_msg_type,
-				  uint16_t sp_id)
+static void spmc_build_pm_message(gp_regs_t *gpregs, unsigned long long message,
+				  uint8_t pm_msg_type, uint16_t sp_id)
 {
 	write_ctx_reg(gpregs, CTX_GPREG_X0, FFA_MSG_SEND_DIRECT_REQ_SMC32);
 	write_ctx_reg(gpregs, CTX_GPREG_X1,
-		      (FFA_SPMC_ID << FFA_DIRECT_MSG_SOURCE_SHIFT) |
-		      sp_id);
-	write_ctx_reg(gpregs, CTX_GPREG_X2, FFA_FWK_MSG_BIT |
-		      (pm_msg_type & FFA_FWK_MSG_MASK));
+		      (FFA_SPMC_ID << FFA_DIRECT_MSG_SOURCE_SHIFT) | sp_id);
+	write_ctx_reg(gpregs, CTX_GPREG_X2,
+		      FFA_FWK_MSG_BIT | (pm_msg_type & FFA_FWK_MSG_MASK));
 	write_ctx_reg(gpregs, CTX_GPREG_X3, message);
 }
 
@@ -43,7 +41,7 @@ static void spmc_cpu_on_finish_handler(u_register_t unused)
 	struct secure_partition_desc *sp = spmc_get_current_sp_ctx();
 	struct sp_exec_ctx *ec;
 	unsigned int linear_id = plat_my_core_pos();
-	entry_point_info_t sec_ec_ep_info = {0};
+	entry_point_info_t sec_ec_ep_info = { 0 };
 	uint64_t rc;
 
 	/* Sanity check for a NULL pointer dereference. */
@@ -121,10 +119,8 @@ static int32_t spmc_send_pm_msg(uint8_t pm_msg_type,
 	 * Build an SPMC to SP direct message request.
 	 * Note that x4-x6 should be populated with the original PSCI arguments.
 	 */
-	spmc_build_pm_message(get_gpregs_ctx(&ec->cpu_ctx),
-			      psci_event,
-			      pm_msg_type,
-			      sp->sp_id);
+	spmc_build_pm_message(get_gpregs_ctx(&ec->cpu_ctx), psci_event,
+			      pm_msg_type, sp->sp_id);
 
 	/* Sanity check partition state. */
 	assert(ec->rt_state == RT_STATE_WAITING);
@@ -275,9 +271,8 @@ exit:
  * Structure populated by the SPM Core to perform any bookkeeping before
  * PSCI executes a power mgmt. operation.
  ******************************************************************************/
-const spd_pm_ops_t spmc_pm = {
-	.svc_on_finish = spmc_cpu_on_finish_handler,
-	.svc_off = spmc_cpu_off_handler,
-	.svc_suspend = spmc_cpu_suspend_handler,
-	.svc_suspend_finish = spmc_cpu_suspend_finish_handler
-};
+const spd_pm_ops_t spmc_pm = { .svc_on_finish = spmc_cpu_on_finish_handler,
+			       .svc_off = spmc_cpu_off_handler,
+			       .svc_suspend = spmc_cpu_suspend_handler,
+			       .svc_suspend_finish =
+				       spmc_cpu_suspend_finish_handler };

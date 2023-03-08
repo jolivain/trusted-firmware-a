@@ -15,13 +15,13 @@
 #include <ddr.h>
 
 static void cal_ddr_sdram_clk_cntl(struct ddr_cfg_regs *regs,
-					 const struct memctl_opt *popts)
+				   const struct memctl_opt *popts)
 {
 	const unsigned int clk_adj = popts->clk_adj;
 	const unsigned int ss_en = 0U;
 
-	regs->clk_cntl = ((ss_en & U(0x1)) << 31U)		|
-				  ((clk_adj & U(0x1F)) << 22U);
+	regs->clk_cntl = ((ss_en & U(0x1)) << 31U) |
+			 ((clk_adj & U(0x1F)) << 22U);
 	debug("clk_cntl = 0x%x\n", regs->clk_cntl);
 }
 
@@ -35,30 +35,28 @@ static void cal_ddr_cdr(struct ddr_cfg_regs *regs,
 }
 
 static void cal_ddr_wrlvl_cntl(struct ddr_cfg_regs *regs,
-				const struct memctl_opt *popts)
+			       const struct memctl_opt *popts)
 {
-	const unsigned int wrlvl_en = 1U;	/* enabled */
-	const unsigned int wrlvl_mrd = U(0x6);	/* > 40nCK */
-	const unsigned int wrlvl_odten = U(0x7);	/* 128 */
-	const unsigned int wrlvl_dqsen = U(0x5);	/* > 25nCK */
-	const unsigned int wrlvl_wlr = U(0x6);	/* > tWLO + 6 */
-	const unsigned int wrlvl_smpl = popts->wrlvl_override ?
-					popts->wrlvl_sample : U(0xf);
+	const unsigned int wrlvl_en = 1U; /* enabled */
+	const unsigned int wrlvl_mrd = U(0x6); /* > 40nCK */
+	const unsigned int wrlvl_odten = U(0x7); /* 128 */
+	const unsigned int wrlvl_dqsen = U(0x5); /* > 25nCK */
+	const unsigned int wrlvl_wlr = U(0x6); /* > tWLO + 6 */
+	const unsigned int wrlvl_smpl =
+		popts->wrlvl_override ? popts->wrlvl_sample : U(0xf);
 	const unsigned int wrlvl_start = popts->wrlvl_start;
 
-	regs->wrlvl_cntl[0] = ((wrlvl_en & U(0x1)) << 31U)	|
-				  ((wrlvl_mrd & U(0x7)) << 24U)	|
-				  ((wrlvl_odten & U(0x7)) << 20U)	|
-				  ((wrlvl_dqsen & U(0x7)) << 16U)	|
-				  ((wrlvl_smpl & U(0xf)) << 12U)	|
-				  ((wrlvl_wlr & U(0x7)) << 8U)	|
-				  ((wrlvl_start & U(0x1F)) << 0U);
+	regs->wrlvl_cntl[0] =
+		((wrlvl_en & U(0x1)) << 31U) | ((wrlvl_mrd & U(0x7)) << 24U) |
+		((wrlvl_odten & U(0x7)) << 20U) |
+		((wrlvl_dqsen & U(0x7)) << 16U) |
+		((wrlvl_smpl & U(0xf)) << 12U) | ((wrlvl_wlr & U(0x7)) << 8U) |
+		((wrlvl_start & U(0x1F)) << 0U);
 	regs->wrlvl_cntl[1] = popts->wrlvl_ctl_2;
 	regs->wrlvl_cntl[2] = popts->wrlvl_ctl_3;
 	debug("wrlvl_cntl[0] = 0x%x\n", regs->wrlvl_cntl[0]);
 	debug("wrlvl_cntl[1] = 0x%x\n", regs->wrlvl_cntl[1]);
 	debug("wrlvl_cntl[2] = 0x%x\n", regs->wrlvl_cntl[2]);
-
 }
 
 static void cal_ddr_dbg(struct ddr_cfg_regs *regs,

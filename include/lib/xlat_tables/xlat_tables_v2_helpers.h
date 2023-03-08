@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -21,12 +21,12 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-#include <platform_def.h>
-
 #include <lib/cassert.h>
 #include <lib/utils_def.h>
 #include <lib/xlat_tables/xlat_tables_arch.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
+
+#include <platform_def.h>
 
 /* Forward declaration */
 struct mmap_region;
@@ -36,13 +36,10 @@ struct mmap_region;
  * the fields of the structure but its parameter list is not guaranteed to
  * remain stable as we add members to mmap_region_t.
  */
-#define MAP_REGION_FULL_SPEC(_pa, _va, _sz, _attr, _gr)		\
-	{							\
-		.base_pa = (_pa),				\
-		.base_va = (_va),				\
-		.size = (_sz),					\
-		.attr = (_attr),				\
-		.granularity = (_gr),				\
+#define MAP_REGION_FULL_SPEC(_pa, _va, _sz, _attr, _gr)            \
+	{                                                          \
+		.base_pa = (_pa), .base_va = (_va), .size = (_sz), \
+		.attr = (_attr), .granularity = (_gr),             \
 	}
 
 /* Struct that holds all information about the translation tables. */
@@ -113,66 +110,65 @@ struct xlat_ctx {
 };
 
 #if PLAT_XLAT_TABLES_DYNAMIC
-#define XLAT_ALLOC_DYNMAP_STRUCT(_ctx_name, _xlat_tables_count)		\
+#define XLAT_ALLOC_DYNMAP_STRUCT(_ctx_name, _xlat_tables_count) \
 	static int _ctx_name##_mapped_regions[_xlat_tables_count];
 
-#define XLAT_REGISTER_DYNMAP_STRUCT(_ctx_name)				\
+#define XLAT_REGISTER_DYNMAP_STRUCT(_ctx_name) \
 	.tables_mapped_regions = _ctx_name##_mapped_regions,
 #else
-#define XLAT_ALLOC_DYNMAP_STRUCT(_ctx_name, _xlat_tables_count)		\
-	/* do nothing */
+#define XLAT_ALLOC_DYNMAP_STRUCT(_ctx_name, _xlat_tables_count) /* do nothing */
 
-#define XLAT_REGISTER_DYNMAP_STRUCT(_ctx_name)				\
-	/* do nothing */
+#define XLAT_REGISTER_DYNMAP_STRUCT(_ctx_name) /* do nothing */
 #endif /* PLAT_XLAT_TABLES_DYNAMIC */
 
 #if PLAT_RO_XLAT_TABLES
-#define XLAT_CTX_INIT_TABLE_ATTR()					\
-	.readonly_tables = false,
+#define XLAT_CTX_INIT_TABLE_ATTR() .readonly_tables = false,
 #else
 #define XLAT_CTX_INIT_TABLE_ATTR()
-	/* do nothing */
+/* do nothing */
 #endif
 
-#define REGISTER_XLAT_CONTEXT_FULL_SPEC(_ctx_name, _mmap_count,		\
-			_xlat_tables_count, _virt_addr_space_size,	\
-			_phy_addr_space_size, _xlat_regime,		\
-			_table_section, _base_table_section)		\
-	CASSERT(CHECK_PHY_ADDR_SPACE_SIZE(_phy_addr_space_size),	\
-		assert_invalid_physical_addr_space_sizefor_##_ctx_name);\
-									\
-	static mmap_region_t _ctx_name##_mmap[_mmap_count + 1];		\
-									\
-	static uint64_t _ctx_name##_xlat_tables[_xlat_tables_count]	\
-		[XLAT_TABLE_ENTRIES]					\
-		__aligned(XLAT_TABLE_SIZE) __section(_table_section);	\
-									\
-	static uint64_t _ctx_name##_base_xlat_table			\
-		[GET_NUM_BASE_LEVEL_ENTRIES(_virt_addr_space_size)]	\
-		__aligned(GET_NUM_BASE_LEVEL_ENTRIES(_virt_addr_space_size)\
-			* sizeof(uint64_t))				\
-		__section(_base_table_section);				\
-									\
-	XLAT_ALLOC_DYNMAP_STRUCT(_ctx_name, _xlat_tables_count)		\
-									\
-	static xlat_ctx_t _ctx_name##_xlat_ctx = {			\
-		.pa_max_address = (_phy_addr_space_size) - 1ULL,	\
-		.va_max_address = (_virt_addr_space_size) - 1UL,	\
-		.mmap = _ctx_name##_mmap,				\
-		.mmap_num = (_mmap_count),				\
-		.tables = _ctx_name##_xlat_tables,			\
-		.tables_num = ARRAY_SIZE(_ctx_name##_xlat_tables),	\
-		 XLAT_CTX_INIT_TABLE_ATTR()				\
-		 XLAT_REGISTER_DYNMAP_STRUCT(_ctx_name)			\
-		.next_table = 0,					\
-		.base_table = _ctx_name##_base_xlat_table,		\
-		.base_table_entries =					\
-			ARRAY_SIZE(_ctx_name##_base_xlat_table),	\
-		.max_pa = 0U,						\
-		.max_va = 0U,						\
-		.base_level = GET_XLAT_TABLE_LEVEL_BASE(_virt_addr_space_size),\
-		.initialized = false,					\
-		.xlat_regime = (_xlat_regime)				\
+#define REGISTER_XLAT_CONTEXT_FULL_SPEC(_ctx_name, _mmap_count,                 \
+					_xlat_tables_count,                     \
+					_virt_addr_space_size,                  \
+					_phy_addr_space_size, _xlat_regime,     \
+					_table_section, _base_table_section)    \
+	CASSERT(CHECK_PHY_ADDR_SPACE_SIZE(_phy_addr_space_size),                \
+		assert_invalid_physical_addr_space_sizefor_##_ctx_name);        \
+                                                                                \
+	static mmap_region_t _ctx_name##_mmap[_mmap_count + 1];                 \
+                                                                                \
+	static uint64_t _ctx_name##_xlat_tables[_xlat_tables_count]             \
+					       [XLAT_TABLE_ENTRIES] __aligned(  \
+						       XLAT_TABLE_SIZE)         \
+						       __section(               \
+							       _table_section); \
+                                                                                \
+	static uint64_t _ctx_name##_base_xlat_table                             \
+		[GET_NUM_BASE_LEVEL_ENTRIES(_virt_addr_space_size)] __aligned(  \
+			GET_NUM_BASE_LEVEL_ENTRIES(_virt_addr_space_size) *     \
+			sizeof(uint64_t)) __section(_base_table_section);       \
+                                                                                \
+	XLAT_ALLOC_DYNMAP_STRUCT(_ctx_name, _xlat_tables_count)                 \
+                                                                                \
+	static xlat_ctx_t _ctx_name##_xlat_ctx = {                              \
+		.pa_max_address = (_phy_addr_space_size)-1ULL,                  \
+		.va_max_address = (_virt_addr_space_size)-1UL,                  \
+		.mmap = _ctx_name##_mmap,                                       \
+		.mmap_num = (_mmap_count),                                      \
+		.tables = _ctx_name##_xlat_tables,                              \
+		.tables_num = ARRAY_SIZE(_ctx_name##_xlat_tables),              \
+		XLAT_CTX_INIT_TABLE_ATTR()                                      \
+			XLAT_REGISTER_DYNMAP_STRUCT(_ctx_name)                  \
+				.next_table = 0,                                \
+		.base_table = _ctx_name##_base_xlat_table,                      \
+		.base_table_entries = ARRAY_SIZE(_ctx_name##_base_xlat_table),  \
+		.max_pa = 0U,                                                   \
+		.max_va = 0U,                                                   \
+		.base_level =                                                   \
+			GET_XLAT_TABLE_LEVEL_BASE(_virt_addr_space_size),       \
+		.initialized = false,                                           \
+		.xlat_regime = (_xlat_regime)                                   \
 	}
 
 #endif /*__ASSEMBLER__*/

@@ -13,12 +13,12 @@
 #include <lib/fconf/fconf.h>
 #include <lib/object_pool.h>
 #include <libfdt.h>
-#include <tools_share/firmware_image_package.h>
-
-#include <platform_def.h>
 #include <stm32mp_efi.h>
 #include <stm32mp_fconf_getter.h>
 #include <stm32mp_io_storage.h>
+#include <tools_share/firmware_image_package.h>
+
+#include <platform_def.h>
 
 #if STM32MP_SDMMC || STM32MP_EMMC
 static io_block_spec_t gpt_block_spec = {
@@ -29,61 +29,52 @@ static io_block_spec_t gpt_block_spec = {
 
 #if (STM32MP_SDMMC || STM32MP_EMMC) && PSA_FWU_SUPPORT
 static io_block_spec_t metadata_block_spec = {
-	.offset = 0,    /* To be filled at runtime */
-	.length = 0,    /* To be filled at runtime */
+	.offset = 0, /* To be filled at runtime */
+	.length = 0, /* To be filled at runtime */
 };
 #endif /* (STM32MP_SDMMC || STM32MP_EMMC) && PSA_FWU_SUPPORT */
 
 /* By default, STM32 platforms load images from the FIP */
 struct plat_io_policy policies[MAX_NUMBER_IDS] = {
-	[FIP_IMAGE_ID] = {
-		.dev_handle = &storage_dev_handle,
-		.image_spec = (uintptr_t)&image_block_spec,
-		.img_type_guid = STM32MP_FIP_GUID,
-		.check = open_storage
-	},
+	[FIP_IMAGE_ID] = { .dev_handle = &storage_dev_handle,
+			   .image_spec = (uintptr_t)&image_block_spec,
+			   .img_type_guid = STM32MP_FIP_GUID,
+			   .check = open_storage },
 #ifndef DECRYPTION_SUPPORT_none
-	[ENC_IMAGE_ID] = {
-		.dev_handle = &fip_dev_handle,
-		.image_spec = (uintptr_t)NULL,
-		.img_type_guid = NULL_GUID,
-		.check = open_fip
-	},
+	[ENC_IMAGE_ID] = { .dev_handle = &fip_dev_handle,
+			   .image_spec = (uintptr_t)NULL,
+			   .img_type_guid = NULL_GUID,
+			   .check = open_fip },
 #endif
 #if STM32MP_SDMMC || STM32MP_EMMC
-	[GPT_IMAGE_ID] = {
-		.dev_handle = &storage_dev_handle,
-		.image_spec = (uintptr_t)&gpt_block_spec,
-		.img_type_guid = NULL_GUID,
-		.check = open_storage
-	},
+	[GPT_IMAGE_ID] = { .dev_handle = &storage_dev_handle,
+			   .image_spec = (uintptr_t)&gpt_block_spec,
+			   .img_type_guid = NULL_GUID,
+			   .check = open_storage },
 #endif
 #if (STM32MP_SDMMC || STM32MP_EMMC) && PSA_FWU_SUPPORT
-	[FWU_METADATA_IMAGE_ID] = {
-		.dev_handle = &storage_dev_handle,
-		.image_spec = (uintptr_t)&metadata_block_spec,
-		.img_type_guid = NULL_GUID,
-		.check = open_storage
-	},
-	[BKUP_FWU_METADATA_IMAGE_ID] = {
-		.dev_handle = &storage_dev_handle,
-		.image_spec = (uintptr_t)&metadata_block_spec,
-		.img_type_guid = NULL_GUID,
-		.check = open_storage
-	},
+	[FWU_METADATA_IMAGE_ID] = { .dev_handle = &storage_dev_handle,
+				    .image_spec =
+					    (uintptr_t)&metadata_block_spec,
+				    .img_type_guid = NULL_GUID,
+				    .check = open_storage },
+	[BKUP_FWU_METADATA_IMAGE_ID] = { .dev_handle = &storage_dev_handle,
+					 .image_spec =
+						 (uintptr_t)&metadata_block_spec,
+					 .img_type_guid = NULL_GUID,
+					 .check = open_storage },
 #endif /* (STM32MP_SDMMC || STM32MP_EMMC) && PSA_FWU_SUPPORT */
 };
 
-#define DEFAULT_UUID_NUMBER	U(7)
+#define DEFAULT_UUID_NUMBER U(7)
 
 #if TRUSTED_BOARD_BOOT
-#define TBBR_UUID_NUMBER	U(6)
+#define TBBR_UUID_NUMBER U(6)
 #else
-#define TBBR_UUID_NUMBER	U(0)
+#define TBBR_UUID_NUMBER U(0)
 #endif
 
-#define FCONF_ST_IO_UUID_NUMBER	(DEFAULT_UUID_NUMBER + \
-				 TBBR_UUID_NUMBER)
+#define FCONF_ST_IO_UUID_NUMBER (DEFAULT_UUID_NUMBER + TBBR_UUID_NUMBER)
 
 static io_uuid_spec_t fconf_stm32mp_uuids[FCONF_ST_IO_UUID_NUMBER];
 static OBJECT_POOL_ARRAY(fconf_stm32mp_uuids_pool, fconf_stm32mp_uuids);
@@ -95,20 +86,20 @@ struct policies_load_info {
 
 /* image id to property name table */
 static const struct policies_load_info load_info[FCONF_ST_IO_UUID_NUMBER] = {
-	{FW_CONFIG_ID, "fw_cfg_uuid"},
-	{BL32_IMAGE_ID, "bl32_uuid"},
-	{BL32_EXTRA1_IMAGE_ID, "bl32_extra1_uuid"},
-	{BL32_EXTRA2_IMAGE_ID, "bl32_extra2_uuid"},
-	{BL33_IMAGE_ID, "bl33_uuid"},
-	{HW_CONFIG_ID, "hw_cfg_uuid"},
-	{TOS_FW_CONFIG_ID, "tos_fw_cfg_uuid"},
+	{ FW_CONFIG_ID, "fw_cfg_uuid" },
+	{ BL32_IMAGE_ID, "bl32_uuid" },
+	{ BL32_EXTRA1_IMAGE_ID, "bl32_extra1_uuid" },
+	{ BL32_EXTRA2_IMAGE_ID, "bl32_extra2_uuid" },
+	{ BL33_IMAGE_ID, "bl33_uuid" },
+	{ HW_CONFIG_ID, "hw_cfg_uuid" },
+	{ TOS_FW_CONFIG_ID, "tos_fw_cfg_uuid" },
 #if TRUSTED_BOARD_BOOT
-	{STM32MP_CONFIG_CERT_ID, "stm32mp_cfg_cert_uuid"},
-	{TRUSTED_KEY_CERT_ID, "t_key_cert_uuid"},
-	{TRUSTED_OS_FW_KEY_CERT_ID, "tos_fw_key_cert_uuid"},
-	{NON_TRUSTED_FW_KEY_CERT_ID, "nt_fw_key_cert_uuid"},
-	{TRUSTED_OS_FW_CONTENT_CERT_ID, "tos_fw_content_cert_uuid"},
-	{NON_TRUSTED_FW_CONTENT_CERT_ID, "nt_fw_content_cert_uuid"},
+	{ STM32MP_CONFIG_CERT_ID, "stm32mp_cfg_cert_uuid" },
+	{ TRUSTED_KEY_CERT_ID, "t_key_cert_uuid" },
+	{ TRUSTED_OS_FW_KEY_CERT_ID, "tos_fw_key_cert_uuid" },
+	{ NON_TRUSTED_FW_KEY_CERT_ID, "nt_fw_key_cert_uuid" },
+	{ TRUSTED_OS_FW_CONTENT_CERT_ID, "tos_fw_content_cert_uuid" },
+	{ NON_TRUSTED_FW_CONTENT_CERT_ID, "nt_fw_content_cert_uuid" },
 #endif /* TRUSTED_BOARD_BOOT */
 };
 
@@ -125,7 +116,8 @@ int fconf_populate_stm32mp_io_policies(uintptr_t config)
 
 	node = fdt_node_offset_by_compatible(dtb, -1, compatible_str);
 	if (node < 0) {
-		ERROR("FCONF: Can't find %s compatible in dtb\n", compatible_str);
+		ERROR("FCONF: Can't find %s compatible in dtb\n",
+		      compatible_str);
 		return node;
 	}
 
@@ -139,37 +131,46 @@ int fconf_populate_stm32mp_io_policies(uintptr_t config)
 		err = fdtw_read_uuid(dtb, node, load_info[i].name, 16,
 				     (uint8_t *)&uuid_helper);
 		if (err < 0) {
-			WARN("FCONF: Read cell failed for %s\n", load_info[i].name);
+			WARN("FCONF: Read cell failed for %s\n",
+			     load_info[i].name);
 			return err;
 		}
 
 		VERBOSE("FCONF: stm32mp-io_policies.%s cell found with value = "
 			"%02x%02x%02x%02x-%02x%02x-%02x%02x-%02x%02x-%02x%02x%02x%02x%02x%02x\n",
-			load_info[i].name,
-			uuid_helper.uuid_struct.time_low[0], uuid_helper.uuid_struct.time_low[1],
-			uuid_helper.uuid_struct.time_low[2], uuid_helper.uuid_struct.time_low[3],
-			uuid_helper.uuid_struct.time_mid[0], uuid_helper.uuid_struct.time_mid[1],
+			load_info[i].name, uuid_helper.uuid_struct.time_low[0],
+			uuid_helper.uuid_struct.time_low[1],
+			uuid_helper.uuid_struct.time_low[2],
+			uuid_helper.uuid_struct.time_low[3],
+			uuid_helper.uuid_struct.time_mid[0],
+			uuid_helper.uuid_struct.time_mid[1],
 			uuid_helper.uuid_struct.time_hi_and_version[0],
 			uuid_helper.uuid_struct.time_hi_and_version[1],
 			uuid_helper.uuid_struct.clock_seq_hi_and_reserved,
 			uuid_helper.uuid_struct.clock_seq_low,
-			uuid_helper.uuid_struct.node[0], uuid_helper.uuid_struct.node[1],
-			uuid_helper.uuid_struct.node[2], uuid_helper.uuid_struct.node[3],
-			uuid_helper.uuid_struct.node[4], uuid_helper.uuid_struct.node[5]);
+			uuid_helper.uuid_struct.node[0],
+			uuid_helper.uuid_struct.node[1],
+			uuid_helper.uuid_struct.node[2],
+			uuid_helper.uuid_struct.node[3],
+			uuid_helper.uuid_struct.node[4],
+			uuid_helper.uuid_struct.node[5]);
 
 		uuid_ptr->uuid = uuid_helper.uuid_struct;
-		policies[load_info[i].image_id].image_spec = (uintptr_t)uuid_ptr;
+		policies[load_info[i].image_id].image_spec =
+			(uintptr_t)uuid_ptr;
 		switch (load_info[i].image_id) {
 #if ENCRYPT_BL32 && !defined(DECRYPTION_SUPPORT_none)
 		case BL32_IMAGE_ID:
 		case BL32_EXTRA1_IMAGE_ID:
 		case BL32_EXTRA2_IMAGE_ID:
-			policies[load_info[i].image_id].dev_handle = &enc_dev_handle;
+			policies[load_info[i].image_id].dev_handle =
+				&enc_dev_handle;
 			policies[load_info[i].image_id].check = open_enc_fip;
 			break;
 #endif
 		default:
-			policies[load_info[i].image_id].dev_handle = &fip_dev_handle;
+			policies[load_info[i].image_id].dev_handle =
+				&fip_dev_handle;
 			policies[load_info[i].image_id].check = open_fip;
 			break;
 		}

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,7 +8,6 @@
 #define MCE_H
 
 #include <lib/mmio.h>
-
 #include <tegra_def.h>
 
 /*******************************************************************************
@@ -38,12 +37,12 @@ typedef enum mce_cmd {
 	MCE_CMD_MAX = 0xFFU,
 } mce_cmd_t;
 
-#define MCE_CMD_MASK				0xFFU
+#define MCE_CMD_MASK 0xFFU
 
 /*******************************************************************************
  * Timeout value used to powerdown a core
  ******************************************************************************/
-#define MCE_CORE_SLEEP_TIME_INFINITE		0xFFFFFFFFU
+#define MCE_CORE_SLEEP_TIME_INFINITE 0xFFFFFFFFU
 
 /*******************************************************************************
  * Struct to prepare UPDATE_CSTATE_INFO request
@@ -65,7 +64,7 @@ typedef struct mce_cstate_info {
 
 /* public interfaces */
 int mce_command_handler(uint64_t cmd, uint64_t arg0, uint64_t arg1,
-		uint64_t arg2);
+			uint64_t arg2);
 int mce_update_reset_vector(void);
 int mce_update_gsc_videomem(void);
 int mce_update_gsc_tzdram(void);

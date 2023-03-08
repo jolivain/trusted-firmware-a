@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2023, Advanced Micro Devices Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -11,20 +11,19 @@
 #include <bl31/bl31.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
-#include <drivers/arm/dcc.h>
-#include <drivers/console.h>
-#include <plat/arm/common/plat_arm.h>
-#include <plat/common/platform.h>
-#include <lib/mmio.h>
-
-#include <custom_svc.h>
-#include <plat_startup.h>
-#include <plat_private.h>
-#include <zynqmp_def.h>
-
 #include <common/fdt_fixup.h>
 #include <common/fdt_wrappers.h>
+#include <custom_svc.h>
+#include <drivers/arm/dcc.h>
+#include <drivers/console.h>
+#include <lib/mmio.h>
 #include <libfdt.h>
+#include <plat_private.h>
+#include <plat_startup.h>
+#include <zynqmp_def.h>
+
+#include <plat/arm/common/plat_arm.h>
+#include <plat/common/platform.h>
 
 static entry_point_info_t bl32_image_ep_info;
 static entry_point_info_t bl33_image_ep_info;
@@ -58,8 +57,8 @@ static inline void bl31_set_default_config(void)
 	bl32_image_ep_info.pc = BL32_BASE;
 	bl32_image_ep_info.spsr = arm_get_spsr_for_bl32_entry();
 	bl33_image_ep_info.pc = plat_get_ns_image_entrypoint();
-	bl33_image_ep_info.spsr = SPSR_64(MODE_EL2, MODE_SP_ELX,
-					  DISABLE_ALL_EXCEPTIONS);
+	bl33_image_ep_info.spsr =
+		SPSR_64(MODE_EL2, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 }
 
 /*
@@ -77,9 +76,9 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 		/* Register the console to provide early debug support */
 		static console_t bl31_boot_console;
 		(void)console_cdns_register(ZYNQMP_UART_BASE,
-					       zynqmp_get_uart_clk(),
-					       ZYNQMP_UART_BAUDRATE,
-					       &bl31_boot_console);
+					    zynqmp_get_uart_clk(),
+					    ZYNQMP_UART_BAUDRATE,
+					    &bl31_boot_console);
 		console_set_scope(&bl31_boot_console,
 				  CONSOLE_FLAG_RUNTIME | CONSOLE_FLAG_BOOT);
 	} else if (ZYNQMP_CONSOLE_IS(dcc)) {
@@ -128,11 +127,11 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 		VERBOSE("BL31: Secure code at 0x%lx\n", bl32_image_ep_info.pc);
 	}
 	if (bl33_image_ep_info.pc != 0) {
-		VERBOSE("BL31: Non secure code at 0x%lx\n", bl33_image_ep_info.pc);
+		VERBOSE("BL31: Non secure code at 0x%lx\n",
+			bl33_image_ep_info.pc);
 	}
 
 	custom_early_setup();
-
 }
 
 #if ZYNQMP_WDT_RESTART
@@ -251,19 +250,21 @@ void bl31_plat_arch_setup(void)
 
 	const mmap_region_t bl_regions[] = {
 #if (defined(XILINX_OF_BOARD_DTB_ADDR) && !IS_TFA_IN_OCM(BL31_BASE))
-		MAP_REGION_FLAT(XILINX_OF_BOARD_DTB_ADDR, XILINX_OF_BOARD_DTB_MAX_SIZE,
-			MT_MEMORY | MT_RW | MT_NS),
+		MAP_REGION_FLAT(XILINX_OF_BOARD_DTB_ADDR,
+				XILINX_OF_BOARD_DTB_MAX_SIZE,
+				MT_MEMORY | MT_RW | MT_NS),
 #endif
 		MAP_REGION_FLAT(BL31_BASE, BL31_END - BL31_BASE,
-			MT_MEMORY | MT_RW | MT_SECURE),
+				MT_MEMORY | MT_RW | MT_SECURE),
 		MAP_REGION_FLAT(BL_CODE_BASE, BL_CODE_END - BL_CODE_BASE,
 				MT_CODE | MT_SECURE),
-		MAP_REGION_FLAT(BL_RO_DATA_BASE, BL_RO_DATA_END - BL_RO_DATA_BASE,
+		MAP_REGION_FLAT(BL_RO_DATA_BASE,
+				BL_RO_DATA_END - BL_RO_DATA_BASE,
 				MT_RO_DATA | MT_SECURE),
 		MAP_REGION_FLAT(BL_COHERENT_RAM_BASE,
 				BL_COHERENT_RAM_END - BL_COHERENT_RAM_BASE,
 				MT_DEVICE | MT_RW | MT_SECURE),
-		{0}
+		{ 0 }
 	};
 
 	custom_mmap_add();

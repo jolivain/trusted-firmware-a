@@ -16,17 +16,17 @@
 #include <drivers/arm/gicv3.h>
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
-#include <lib/mmio.h>
 #include <lib/utils.h>
-#include <plat/common/platform.h>
-
 #include <plat_ipi.h>
-#include <platform_def.h>
-#include "pm_api_sys.h"
-#include "pm_client.h"
 #include <versal_net_def.h>
 
-#define UNDEFINED_CPUID		(~0)
+#include <plat/common/platform.h>
+#include <platform_def.h>
+
+#include "pm_api_sys.h"
+#include "pm_client.h"
+
+#define UNDEFINED_CPUID (~0)
 
 DEFINE_RENAME_SYSREG_RW_FUNCS(cpu_pwrctrl_val, S3_0_C15_C2_7)
 DEFINE_BAKERY_LOCK(pm_client_secure_lock);
@@ -224,7 +224,7 @@ void pm_client_wakeup(const struct pm_proc *proc)
 
 	/* Disabled power down interrupt */
 	mmio_write_32(APU_PCIL_CORE_X_IDS_POWER_REG(cpuid),
-			APU_PCIL_CORE_X_IDS_POWER_MASK);
+		      APU_PCIL_CORE_X_IDS_POWER_MASK);
 	/* Clear wakeup interrupt status before disabling */
 	mmio_write_32(APU_PCIL_CORE_X_ISR_WAKE_REG(cpuid),
 		      APU_PCIL_CORE_X_ISR_WAKE_MASK);
@@ -260,7 +260,7 @@ void pm_client_abort_suspend(void)
 
 	/* Disabled power down interrupt */
 	mmio_write_32(APU_PCIL_CORE_X_IDS_POWER_REG(cpu_id),
-			APU_PCIL_CORE_X_IDS_POWER_MASK);
+		      APU_PCIL_CORE_X_IDS_POWER_MASK);
 
 	bakery_lock_release(&pm_client_secure_lock);
 }

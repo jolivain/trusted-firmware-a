@@ -1,13 +1,11 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 #include <errno.h>
-
-#include <platform_def.h>
 
 #include <arch_helpers.h>
 #include <common/bl_common.h>
@@ -16,12 +14,13 @@
 #include <drivers/arm/cci.h>
 #include <drivers/arm/gicv2.h>
 #include <drivers/arm/pl011.h>
-#include <lib/mmio.h>
-
 #include <hi6220.h>
 #include <hikey_def.h>
 #include <hisi_ipc.h>
 #include <hisi_pwrc.h>
+#include <lib/mmio.h>
+
+#include <platform_def.h>
 
 #include "hikey_private.h"
 
@@ -52,10 +51,8 @@ gicv2_driver_data_t hikey_gic_data = {
 	.interrupt_props_num = ARRAY_SIZE(g0_interrupt_props),
 };
 
-static const int cci_map[] = {
-	CCI400_SL_IFACE3_CLUSTER_IX,
-	CCI400_SL_IFACE4_CLUSTER_IX
-};
+static const int cci_map[] = { CCI400_SL_IFACE3_CLUSTER_IX,
+			       CCI400_SL_IFACE4_CLUSTER_IX };
 
 entry_point_info_t *bl31_plat_get_next_image_ep_info(uint32_t type)
 {
@@ -74,7 +71,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 {
 	void *from_bl2;
 
-	from_bl2 = (void *) arg0;
+	from_bl2 = (void *)arg0;
 
 	/* Initialize the console to provide early debug support */
 	console_pl011_register(CONSOLE_BASE, PL011_UART_CLK_IN_HZ,
@@ -114,11 +111,8 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 
 void bl31_plat_arch_setup(void)
 {
-	hikey_init_mmu_el3(BL31_BASE,
-			   BL31_LIMIT - BL31_BASE,
-			   BL_CODE_BASE,
-			   BL_CODE_END,
-			   BL_COHERENT_RAM_BASE,
+	hikey_init_mmu_el3(BL31_BASE, BL31_LIMIT - BL31_BASE, BL_CODE_BASE,
+			   BL_CODE_END, BL_COHERENT_RAM_BASE,
 			   BL_COHERENT_RAM_END);
 }
 

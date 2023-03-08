@@ -9,13 +9,13 @@
 #ifndef MENTOR_I2C_PLAT_H
 #define MENTOR_I2C_PLAT_H
 
-#define CONFIG_SYS_TCLK			24000000
-#define CONFIG_SYS_I2C_SPEED		100000
-#define CONFIG_SYS_I2C_SLAVE		0
+#define CONFIG_SYS_TCLK 24000000
+#define CONFIG_SYS_I2C_SPEED 100000
+#define CONFIG_SYS_I2C_SLAVE 0
 
 #define I2C_INTERRUPT_CLEAR_INVERTED
 
-struct  mentor_i2c_regs {
+struct mentor_i2c_regs {
 	uint32_t slave_address;
 	uint32_t xtnd_slave_addr;
 	uint32_t data;

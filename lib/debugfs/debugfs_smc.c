@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <stdint.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include <string.h>
 
 #include <lib/debugfs.h>
@@ -14,22 +14,22 @@
 #include <lib/xlat_tables/xlat_tables_v2.h>
 #include <smccc_helpers.h>
 
-#define MAX_PATH_LEN	256
+#define MAX_PATH_LEN 256
 
-#define MOUNT		0
-#define CREATE		1
-#define OPEN		2
-#define CLOSE		3
-#define READ		4
-#define WRITE		5
-#define SEEK		6
-#define BIND		7
-#define STAT		8
-#define INIT		10
-#define VERSION		11
+#define MOUNT 0
+#define CREATE 1
+#define OPEN 2
+#define CLOSE 3
+#define READ 4
+#define WRITE 5
+#define SEEK 6
+#define BIND 7
+#define STAT 8
+#define INIT 10
+#define VERSION 11
 
 /* This is the virtual address to which we map the NS shared buffer */
-#define DEBUGFS_SHARED_BUF_VIRT		((void *)0x81000000U)
+#define DEBUGFS_SHARED_BUF_VIRT ((void *)0x81000000U)
 
 static union debugfs_parms {
 	struct {
@@ -59,13 +59,9 @@ static spinlock_t debugfs_access_lock;
 
 static bool debugfs_initialized;
 
-uintptr_t debugfs_smc_handler(unsigned int smc_fid,
-			      u_register_t cmd,
-			      u_register_t arg2,
-			      u_register_t arg3,
-			      u_register_t arg4,
-			      void *cookie,
-			      void *handle,
+uintptr_t debugfs_smc_handler(unsigned int smc_fid, u_register_t cmd,
+			      u_register_t arg2, u_register_t arg3,
+			      u_register_t arg4, void *cookie, void *handle,
 			      u_register_t flags)
 {
 	int64_t smc_ret = DEBUGFS_E_INVALID_PARAMS, smc_resp = 0;
@@ -78,7 +74,7 @@ uintptr_t debugfs_smc_handler(unsigned int smc_fid,
 
 	/* Expect a SiP service fast call */
 	if ((GET_SMC_TYPE(smc_fid) != SMC_TYPE_FAST) ||
-		(GET_SMC_OEN(smc_fid) != OEN_SIP_START)) {
+	    (GET_SMC_OEN(smc_fid) != OEN_SIP_START)) {
 		SMC_RET1(handle, SMC_UNK);
 	}
 
@@ -102,10 +98,9 @@ uintptr_t debugfs_smc_handler(unsigned int smc_fid,
 		if (debugfs_initialized == false) {
 			/* TODO: check PA validity e.g. whether */
 			/* it is an NS region.                  */
-			ret = mmap_add_dynamic_region(arg2,
-				(uintptr_t)DEBUGFS_SHARED_BUF_VIRT,
-				PAGE_SIZE_4KB,
-				MT_MEMORY | MT_RW | MT_NS);
+			ret = mmap_add_dynamic_region(
+				arg2, (uintptr_t)DEBUGFS_SHARED_BUF_VIRT,
+				PAGE_SIZE_4KB, MT_MEMORY | MT_RW | MT_NS);
 			if (ret == 0) {
 				debugfs_initialized = true;
 				smc_ret = SMC_OK;
@@ -120,8 +115,7 @@ uintptr_t debugfs_smc_handler(unsigned int smc_fid,
 		break;
 
 	case MOUNT:
-		ret = mount(parms.mount.srv,
-			    parms.mount.where,
+		ret = mount(parms.mount.srv, parms.mount.where,
 			    parms.mount.spec);
 		if (ret == 0) {
 			smc_ret = SMC_OK;

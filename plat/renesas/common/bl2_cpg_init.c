@@ -113,10 +113,10 @@ static void bl2_realtime_cpg_init_h3(void)
 	uint32_t cut = mmio_read_32(RCAR_PRR) & PRR_CUT_MASK;
 	uint32_t cr0, cr8;
 
-	cr0 = (cut == PRR_PRODUCT_10 || cut == PRR_PRODUCT_11) ?
-	    0x00200000U : 0x00210000U;
-	cr8 = (cut == PRR_PRODUCT_10 || cut == PRR_PRODUCT_11) ?
-	    0x01F1FFF4U : 0x01F1FFF7U;
+	cr0 = (cut == PRR_PRODUCT_10 || cut == PRR_PRODUCT_11) ? 0x00200000U :
+								 0x00210000U;
+	cr8 = (cut == PRR_PRODUCT_10 || cut == PRR_PRODUCT_11) ? 0x01F1FFF4U :
+								 0x01F1FFF7U;
 
 	cpg_write(RMSTPCR0, cr0);
 	cpg_write(RMSTPCR1, 0xFFFFFFFFU);
@@ -186,7 +186,7 @@ static void bl2_system_cpg_init_m3(void)
 }
 #endif
 
-#if (RCAR_LSI == RCAR_AUTO) || (RCAR_LSI == RCAR_M3N)  || (RCAR_LSI == RZ_G2N)
+#if (RCAR_LSI == RCAR_AUTO) || (RCAR_LSI == RCAR_M3N) || (RCAR_LSI == RZ_G2N)
 static void bl2_realtime_cpg_init_m3n(void)
 {
 	/* Realtime Module Stop Control Registers */
@@ -394,7 +394,7 @@ void bl2_system_cpg_init(void)
 	bl2_system_cpg_init_h3();
 #elif (RCAR_LSI == RCAR_M3) || (RCAR_LSI == RZ_G2M)
 	bl2_system_cpg_init_m3();
-#elif RCAR_LSI == RCAR_M3N  || (RCAR_LSI == RZ_G2N)
+#elif RCAR_LSI == RCAR_M3N || (RCAR_LSI == RZ_G2N)
 	bl2_system_cpg_init_m3n();
 #elif RCAR_LSI == RCAR_V3M
 	bl2_system_cpg_init_v3m();

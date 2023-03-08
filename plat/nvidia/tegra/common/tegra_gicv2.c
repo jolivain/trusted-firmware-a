@@ -1,20 +1,20 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-#include <platform_def.h>
 
 #include <common/bl_common.h>
 #include <drivers/arm/gicv2.h>
 #include <lib/utils.h>
-#include <plat/common/platform.h>
-
-#include <tegra_private.h>
 #include <tegra_def.h>
+#include <tegra_private.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 static unsigned int tegra_target_masks[PLATFORM_CORE_COUNT];
 

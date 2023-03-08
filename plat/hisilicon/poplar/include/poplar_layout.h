@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -74,22 +74,22 @@
  * "OFFSET" is an offset to the start of a region relative to the
  * base of the "l-loader" TEXT section (also a multiple of page size).
  */
-#define LLOADER_TEXT_BASE		0x02001000	/* page aligned */
-#define BL1_OFFSET			0x0000D000	/* page multiple */
-#define FIP_BASE			0x02040000
+#define LLOADER_TEXT_BASE 0x02001000 /* page aligned */
+#define BL1_OFFSET 0x0000D000 /* page multiple */
+#define FIP_BASE 0x02040000
 
 /*
  * FIP_BASE_EMMC = 0x40000 - 0x1000
  * = fip.bin offset - l-loader text offset
  * in l-loader.bin
  */
-#define FIP_BASE_EMMC			0x0003f000
+#define FIP_BASE_EMMC 0x0003f000
 
-#define BL1_RO_SIZE			0x00008000	/* page multiple */
-#define BL1_RW_SIZE			0x00008000	/* page multiple */
-#define BL1_SIZE			(BL1_RO_SIZE + BL1_RW_SIZE)
-#define BL2_SIZE			0x0000d000	/* page multiple */
-#define BL31_SIZE			0x00014000
+#define BL1_RO_SIZE 0x00008000 /* page multiple */
+#define BL1_RW_SIZE 0x00008000 /* page multiple */
+#define BL1_SIZE (BL1_RO_SIZE + BL1_RW_SIZE)
+#define BL2_SIZE 0x0000d000 /* page multiple */
+#define BL31_SIZE 0x00014000
 #if !POPLAR_RECOVERY
 /*
  * emmc partition1 4096KB
@@ -99,34 +99,34 @@
  * - u-boot persistent data 64KB
  * - uefi persistent data 2048KB
  */
-#define FIP_SIZE			0x001b0000  /* absolute max */
+#define FIP_SIZE 0x001b0000 /* absolute max */
 #else
 /*
  * same as above, but bootrom can only load an image (l-loader.bin) of
  * 1024KB max, so after deducting the size of l-loader + bl1.bin (256KB),
  * that leaves 768KB (0x000c0000) for fip.bin
  */
-#define FIP_SIZE			0x000c0000  /* absolute max */
+#define FIP_SIZE 0x000c0000 /* absolute max */
 #endif
 
-     /* BL1_OFFSET */			/* (Defined above) */
-#define BL1_BASE			(LLOADER_TEXT_BASE + BL1_OFFSET)
-#define BL1_LIMIT			(BL1_BASE + BL1_SIZE)
+/* BL1_OFFSET */ /* (Defined above) */
+#define BL1_BASE (LLOADER_TEXT_BASE + BL1_OFFSET)
+#define BL1_LIMIT (BL1_BASE + BL1_SIZE)
 
-#define BL1_RO_OFFSET			(BL1_OFFSET)
-#define BL1_RO_BASE			(LLOADER_TEXT_BASE + BL1_RO_OFFSET)
-#define BL1_RO_LIMIT			(BL1_RO_BASE + BL1_RO_SIZE)
+#define BL1_RO_OFFSET (BL1_OFFSET)
+#define BL1_RO_BASE (LLOADER_TEXT_BASE + BL1_RO_OFFSET)
+#define BL1_RO_LIMIT (BL1_RO_BASE + BL1_RO_SIZE)
 
-#define BL1_RW_OFFSET			(BL1_RO_OFFSET + BL1_RO_SIZE)
-#define BL1_RW_BASE			(LLOADER_TEXT_BASE + BL1_RW_OFFSET)
-#define BL1_RW_LIMIT			(BL1_RW_BASE + BL1_RW_SIZE)
+#define BL1_RW_OFFSET (BL1_RO_OFFSET + BL1_RO_SIZE)
+#define BL1_RW_BASE (LLOADER_TEXT_BASE + BL1_RW_OFFSET)
+#define BL1_RW_LIMIT (BL1_RW_BASE + BL1_RW_SIZE)
 
-#define BL2_OFFSET			(BL1_OFFSET + BL1_SIZE)
-#define BL2_BASE			(LLOADER_TEXT_BASE + BL2_OFFSET)
-#define BL2_LIMIT			(BL2_BASE + BL2_SIZE)
+#define BL2_OFFSET (BL1_OFFSET + BL1_SIZE)
+#define BL2_BASE (LLOADER_TEXT_BASE + BL2_OFFSET)
+#define BL2_LIMIT (BL2_BASE + BL2_SIZE)
 
-#define BL31_OFFSET			(BL2_OFFSET + BL2_SIZE)
-#define BL31_BASE			(LLOADER_TEXT_BASE + BL31_OFFSET)
-#define BL31_LIMIT			(BL31_BASE + BL31_SIZE)
+#define BL31_OFFSET (BL2_OFFSET + BL2_SIZE)
+#define BL31_BASE (LLOADER_TEXT_BASE + BL31_OFFSET)
+#define BL31_LIMIT (BL31_BASE + BL31_SIZE)
 
 #endif /* POPLAR_LAYOUT_H */

@@ -8,10 +8,6 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-#include <libfdt.h>
-
-#include <platform_def.h>
-
 #include <common/debug.h>
 #include <drivers/clk.h>
 #include <drivers/delay_timer.h>
@@ -19,28 +15,31 @@
 #include <drivers/st/stm32_i2c.h>
 #include <lib/mmio.h>
 #include <lib/utils.h>
+#include <libfdt.h>
+
+#include <platform_def.h>
 
 /* STM32 I2C registers offsets */
-#define I2C_CR1			0x00U
-#define I2C_CR2			0x04U
-#define I2C_OAR1		0x08U
-#define I2C_OAR2		0x0CU
-#define I2C_TIMINGR		0x10U
-#define I2C_TIMEOUTR		0x14U
-#define I2C_ISR			0x18U
-#define I2C_ICR			0x1CU
-#define I2C_PECR		0x20U
-#define I2C_RXDR		0x24U
-#define I2C_TXDR		0x28U
+#define I2C_CR1 0x00U
+#define I2C_CR2 0x04U
+#define I2C_OAR1 0x08U
+#define I2C_OAR2 0x0CU
+#define I2C_TIMINGR 0x10U
+#define I2C_TIMEOUTR 0x14U
+#define I2C_ISR 0x18U
+#define I2C_ICR 0x1CU
+#define I2C_PECR 0x20U
+#define I2C_RXDR 0x24U
+#define I2C_TXDR 0x28U
 
-#define TIMINGR_CLEAR_MASK	0xF0FFFFFFU
+#define TIMINGR_CLEAR_MASK 0xF0FFFFFFU
 
-#define MAX_NBYTE_SIZE		255U
+#define MAX_NBYTE_SIZE 255U
 
-#define I2C_NSEC_PER_SEC	1000000000L
+#define I2C_NSEC_PER_SEC 1000000000L
 
 /* I2C Timing hard-coded value, for I2C clock source is HSI at 64MHz */
-#define I2C_TIMING			0x10D07DB5
+#define I2C_TIMING 0x10D07DB5
 
 static void notif_i2c_timeout(struct i2c_handle_s *hi2c)
 {
@@ -178,7 +177,7 @@ int stm32_i2c_init(struct i2c_handle_s *hi2c,
 	} else { /* I2C_ADDRESSINGMODE_10BIT */
 		mmio_write_32(hi2c->i2c_base_addr + I2C_OAR1,
 			      I2C_OAR1_OA1EN | I2C_OAR1_OA1MODE |
-			      init_data->own_address1);
+				      init_data->own_address1);
 	}
 
 	mmio_write_32(hi2c->i2c_base_addr + I2C_CR2, 0);
@@ -200,14 +199,13 @@ int stm32_i2c_init(struct i2c_handle_s *hi2c,
 
 	/* Configure I2Cx: Dual mode and Own Address2 */
 	mmio_write_32(hi2c->i2c_base_addr + I2C_OAR2,
-		      init_data->dual_address_mode |
-		      init_data->own_address2 |
-		      (init_data->own_address2_masks << 8));
+		      init_data->dual_address_mode | init_data->own_address2 |
+			      (init_data->own_address2_masks << 8));
 
 	/* Configure I2Cx: Generalcall and NoStretch mode */
 	mmio_write_32(hi2c->i2c_base_addr + I2C_CR1,
 		      init_data->general_call_mode |
-		      init_data->no_stretch_mode);
+			      init_data->no_stretch_mode);
 
 	/* Enable the selected I2C peripheral */
 	mmio_setbits_32(hi2c->i2c_base_addr + I2C_CR1, I2C_CR1_PE);
@@ -217,8 +215,8 @@ int stm32_i2c_init(struct i2c_handle_s *hi2c,
 	hi2c->i2c_mode = I2C_MODE_NONE;
 
 	rc = i2c_config_analog_filter(hi2c, init_data->analog_filter ?
-						I2C_ANALOGFILTER_ENABLE :
-						I2C_ANALOGFILTER_DISABLE);
+						    I2C_ANALOGFILTER_ENABLE :
+						    I2C_ANALOGFILTER_DISABLE);
 	if (rc != 0) {
 		ERROR("Cannot initialize I2C analog filter (%d)\n", rc);
 		clk_disable(hi2c->clock);
@@ -249,8 +247,7 @@ static void i2c_flush_txdr(struct i2c_handle_s *hi2c)
 	/* Flush TX register if not empty */
 	if ((mmio_read_32(hi2c->i2c_base_addr + I2C_ISR) & I2C_FLAG_TXE) ==
 	    0U) {
-		mmio_setbits_32(hi2c->i2c_base_addr + I2C_ISR,
-				I2C_FLAG_TXE);
+		mmio_setbits_32(hi2c->i2c_base_addr + I2C_ISR, I2C_FLAG_TXE);
 	}
 }
 
@@ -266,7 +263,7 @@ static void i2c_flush_txdr(struct i2c_handle_s *hi2c)
 static int i2c_wait_flag(struct i2c_handle_s *hi2c, uint32_t flag,
 			 uint8_t awaited_value, uint64_t timeout_ref)
 {
-	for ( ; ; ) {
+	for (;;) {
 		uint32_t isr = mmio_read_32(hi2c->i2c_base_addr + I2C_ISR);
 
 		if (!!(isr & flag) != !!awaited_value) {
@@ -300,8 +297,8 @@ static int i2c_ack_failed(struct i2c_handle_s *hi2c, uint64_t timeout_ref)
 	 * Wait until STOP Flag is reset.
 	 * AutoEnd should be initiate after AF.
 	 */
-	while ((mmio_read_32(hi2c->i2c_base_addr + I2C_ISR) &
-		I2C_FLAG_STOPF) == 0U) {
+	while ((mmio_read_32(hi2c->i2c_base_addr + I2C_ISR) & I2C_FLAG_STOPF) ==
+	       0U) {
 		if (timeout_elapsed(timeout_ref)) {
 			notif_i2c_timeout(hi2c);
 			hi2c->lock = 0;
@@ -337,8 +334,8 @@ static int i2c_ack_failed(struct i2c_handle_s *hi2c, uint64_t timeout_ref)
  */
 static int i2c_wait_txis(struct i2c_handle_s *hi2c, uint64_t timeout_ref)
 {
-	while ((mmio_read_32(hi2c->i2c_base_addr + I2C_ISR) &
-		I2C_FLAG_TXIS) == 0U) {
+	while ((mmio_read_32(hi2c->i2c_base_addr + I2C_ISR) & I2C_FLAG_TXIS) ==
+	       0U) {
 		if (i2c_ack_failed(hi2c, timeout_ref) != 0) {
 			return -EIO;
 		}
@@ -364,8 +361,8 @@ static int i2c_wait_txis(struct i2c_handle_s *hi2c, uint64_t timeout_ref)
  */
 static int i2c_wait_stop(struct i2c_handle_s *hi2c, uint64_t timeout_ref)
 {
-	while ((mmio_read_32(hi2c->i2c_base_addr + I2C_ISR) &
-		 I2C_FLAG_STOPF) == 0U) {
+	while ((mmio_read_32(hi2c->i2c_base_addr + I2C_ISR) & I2C_FLAG_STOPF) ==
+	       0U) {
 		if (i2c_ack_failed(hi2c, timeout_ref) != 0) {
 			return -EIO;
 		}
@@ -408,11 +405,13 @@ static void i2c_transfer_config(struct i2c_handle_s *hi2c, uint16_t dev_addr,
 {
 	uint32_t clr_value, set_value;
 
-	clr_value = (I2C_CR2_SADD | I2C_CR2_NBYTES | I2C_CR2_RELOAD |
-		     I2C_CR2_AUTOEND | I2C_CR2_START | I2C_CR2_STOP) |
+	clr_value =
+		(I2C_CR2_SADD | I2C_CR2_NBYTES | I2C_CR2_RELOAD |
+		 I2C_CR2_AUTOEND | I2C_CR2_START | I2C_CR2_STOP) |
 		(I2C_CR2_RD_WRN & (request >> (31U - I2C_CR2_RD_WRN_OFFSET)));
 
-	set_value = ((uint32_t)dev_addr & I2C_CR2_SADD) |
+	set_value =
+		((uint32_t)dev_addr & I2C_CR2_SADD) |
 		(((uint32_t)size << I2C_CR2_NBYTES_OFFSET) & I2C_CR2_NBYTES) |
 		i2c_mode | request;
 
@@ -527,9 +526,8 @@ static int i2c_request_memory_read(struct i2c_handle_s *hi2c, uint16_t dev_addr,
  * @retval 0 if OK, negative value else
  */
 static int i2c_write(struct i2c_handle_s *hi2c, uint16_t dev_addr,
-		     uint16_t mem_addr, uint16_t mem_add_size,
-		     uint8_t *p_data, uint16_t size, uint32_t timeout_ms,
-		     enum i2c_mode_e mode)
+		     uint16_t mem_addr, uint16_t mem_add_size, uint8_t *p_data,
+		     uint16_t size, uint32_t timeout_ms, enum i2c_mode_e mode)
 {
 	uint64_t timeout_ref;
 	int rc = -EIO;
@@ -607,21 +605,19 @@ static int i2c_write(struct i2c_handle_s *hi2c, uint16_t dev_addr,
 
 		if ((xfer_count != 0U) && (xfer_size == 0U)) {
 			/* Wait until TCR flag is set */
-			if (i2c_wait_flag(hi2c, I2C_FLAG_TCR, 0,
-					  timeout_ref) != 0) {
+			if (i2c_wait_flag(hi2c, I2C_FLAG_TCR, 0, timeout_ref) !=
+			    0) {
 				goto bail;
 			}
 
 			if (xfer_count > MAX_NBYTE_SIZE) {
 				xfer_size = MAX_NBYTE_SIZE;
-				i2c_transfer_config(hi2c, dev_addr,
-						    xfer_size,
+				i2c_transfer_config(hi2c, dev_addr, xfer_size,
 						    I2C_RELOAD_MODE,
 						    I2C_NO_STARTSTOP);
 			} else {
 				xfer_size = xfer_count;
-				i2c_transfer_config(hi2c, dev_addr,
-						    xfer_size,
+				i2c_transfer_config(hi2c, dev_addr, xfer_size,
 						    I2C_AUTOEND_MODE,
 						    I2C_NO_STARTSTOP);
 			}
@@ -643,7 +639,7 @@ static int i2c_write(struct i2c_handle_s *hi2c, uint16_t dev_addr,
 	mmio_clrbits_32(hi2c->i2c_base_addr + I2C_CR2, I2C_RESET_CR2);
 
 	hi2c->i2c_state = I2C_STATE_READY;
-	hi2c->i2c_mode  = I2C_MODE_NONE;
+	hi2c->i2c_mode = I2C_MODE_NONE;
 
 	rc = 0;
 
@@ -671,8 +667,8 @@ int stm32_i2c_mem_write(struct i2c_handle_s *hi2c, uint16_t dev_addr,
 			uint16_t mem_addr, uint16_t mem_add_size,
 			uint8_t *p_data, uint16_t size, uint32_t timeout_ms)
 {
-	return i2c_write(hi2c, dev_addr, mem_addr, mem_add_size,
-			 p_data, size, timeout_ms, I2C_MODE_MEM);
+	return i2c_write(hi2c, dev_addr, mem_addr, mem_add_size, p_data, size,
+			 timeout_ms, I2C_MODE_MEM);
 }
 
 /*
@@ -689,8 +685,8 @@ int stm32_i2c_master_transmit(struct i2c_handle_s *hi2c, uint16_t dev_addr,
 			      uint8_t *p_data, uint16_t size,
 			      uint32_t timeout_ms)
 {
-	return i2c_write(hi2c, dev_addr, 0, 0,
-			 p_data, size, timeout_ms, I2C_MODE_MASTER);
+	return i2c_write(hi2c, dev_addr, 0, 0, p_data, size, timeout_ms,
+			 I2C_MODE_MASTER);
 }
 
 /*
@@ -708,9 +704,8 @@ int stm32_i2c_master_transmit(struct i2c_handle_s *hi2c, uint16_t dev_addr,
  * @retval 0 if OK, negative value else
  */
 static int i2c_read(struct i2c_handle_s *hi2c, uint16_t dev_addr,
-		    uint16_t mem_addr, uint16_t mem_add_size,
-		    uint8_t *p_data, uint16_t size, uint32_t timeout_ms,
-		    enum i2c_mode_e mode)
+		    uint16_t mem_addr, uint16_t mem_add_size, uint8_t *p_data,
+		    uint16_t size, uint32_t timeout_ms, enum i2c_mode_e mode)
 {
 	uint64_t timeout_ref;
 	int rc = -EIO;
@@ -727,7 +722,7 @@ static int i2c_read(struct i2c_handle_s *hi2c, uint16_t dev_addr,
 	}
 
 	if ((p_data == NULL) || (size == 0U)) {
-		return  -EINVAL;
+		return -EINVAL;
 	}
 
 	clk_enable(hi2c->clock);
@@ -758,12 +753,12 @@ static int i2c_read(struct i2c_handle_s *hi2c, uint16_t dev_addr,
 	 */
 	if (xfer_count > MAX_NBYTE_SIZE) {
 		xfer_size = MAX_NBYTE_SIZE;
-		i2c_transfer_config(hi2c, dev_addr, xfer_size,
-				    I2C_RELOAD_MODE, I2C_GENERATE_START_READ);
+		i2c_transfer_config(hi2c, dev_addr, xfer_size, I2C_RELOAD_MODE,
+				    I2C_GENERATE_START_READ);
 	} else {
 		xfer_size = xfer_count;
-		i2c_transfer_config(hi2c, dev_addr, xfer_size,
-				    I2C_AUTOEND_MODE, I2C_GENERATE_START_READ);
+		i2c_transfer_config(hi2c, dev_addr, xfer_size, I2C_AUTOEND_MODE,
+				    I2C_GENERATE_START_READ);
 	}
 
 	do {
@@ -777,21 +772,19 @@ static int i2c_read(struct i2c_handle_s *hi2c, uint16_t dev_addr,
 		xfer_count--;
 
 		if ((xfer_count != 0U) && (xfer_size == 0U)) {
-			if (i2c_wait_flag(hi2c, I2C_FLAG_TCR, 0,
-					  timeout_ref) != 0) {
+			if (i2c_wait_flag(hi2c, I2C_FLAG_TCR, 0, timeout_ref) !=
+			    0) {
 				goto bail;
 			}
 
 			if (xfer_count > MAX_NBYTE_SIZE) {
 				xfer_size = MAX_NBYTE_SIZE;
-				i2c_transfer_config(hi2c, dev_addr,
-						    xfer_size,
+				i2c_transfer_config(hi2c, dev_addr, xfer_size,
 						    I2C_RELOAD_MODE,
 						    I2C_NO_STARTSTOP);
 			} else {
 				xfer_size = xfer_count;
-				i2c_transfer_config(hi2c, dev_addr,
-						    xfer_size,
+				i2c_transfer_config(hi2c, dev_addr, xfer_size,
 						    I2C_AUTOEND_MODE,
 						    I2C_NO_STARTSTOP);
 			}
@@ -840,8 +833,8 @@ int stm32_i2c_mem_read(struct i2c_handle_s *hi2c, uint16_t dev_addr,
 		       uint16_t mem_addr, uint16_t mem_add_size,
 		       uint8_t *p_data, uint16_t size, uint32_t timeout_ms)
 {
-	return i2c_read(hi2c, dev_addr, mem_addr, mem_add_size,
-			p_data, size, timeout_ms, I2C_MODE_MEM);
+	return i2c_read(hi2c, dev_addr, mem_addr, mem_add_size, p_data, size,
+			timeout_ms, I2C_MODE_MEM);
 }
 
 /*
@@ -858,8 +851,8 @@ int stm32_i2c_master_receive(struct i2c_handle_s *hi2c, uint16_t dev_addr,
 			     uint8_t *p_data, uint16_t size,
 			     uint32_t timeout_ms)
 {
-	return i2c_read(hi2c, dev_addr, 0, 0,
-			p_data, size, timeout_ms, I2C_MODE_MASTER);
+	return i2c_read(hi2c, dev_addr, 0, 0, p_data, size, timeout_ms,
+			I2C_MODE_MASTER);
 }
 
 /*
@@ -872,9 +865,8 @@ int stm32_i2c_master_receive(struct i2c_handle_s *hi2c, uint16_t dev_addr,
  * @param  timeout_ms: Timeout duration in milliseconds
  * @retval True if device is ready, false else
  */
-bool stm32_i2c_is_device_ready(struct i2c_handle_s *hi2c,
-			       uint16_t dev_addr, uint32_t trials,
-			       uint32_t timeout_ms)
+bool stm32_i2c_is_device_ready(struct i2c_handle_s *hi2c, uint16_t dev_addr,
+			       uint32_t trials, uint32_t timeout_ms)
 {
 	uint32_t i2c_trials = 0U;
 	bool rc = false;
@@ -905,12 +897,12 @@ bool stm32_i2c_is_device_ready(struct i2c_handle_s *hi2c,
 			mmio_write_32(hi2c->i2c_base_addr + I2C_CR2,
 				      (((uint32_t)dev_addr & I2C_CR2_SADD) |
 				       I2C_CR2_START | I2C_CR2_AUTOEND) &
-				      ~I2C_CR2_RD_WRN);
+					      ~I2C_CR2_RD_WRN);
 		} else {
 			mmio_write_32(hi2c->i2c_base_addr + I2C_CR2,
 				      (((uint32_t)dev_addr & I2C_CR2_SADD) |
 				       I2C_CR2_START | I2C_CR2_ADD10) &
-				      ~I2C_CR2_RD_WRN);
+					      ~I2C_CR2_RD_WRN);
 		}
 
 		/*
@@ -979,4 +971,3 @@ bail:
 
 	return rc;
 }
-

@@ -5,26 +5,28 @@
  */
 
 #include <assert.h>
+
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <drivers/gpio.h>
 #include <lib/mmio.h>
 #include <lib/mtk_init/mtk_init.h>
 #include <mtgpio.h>
+
 #include <platform_def.h>
 
 /******************************************************************************
  *Macro Definition
  ******************************************************************************/
-#define GPIO_MODE_BITS		4
-#define MAX_GPIO_MODE_PER_REG	8
-#define MAX_GPIO_REG_BITS	32
-#define DIR_BASE		(GPIO_BASE + 0x000)
-#define DOUT_BASE		(GPIO_BASE + 0x100)
-#define DIN_BASE		(GPIO_BASE + 0x200)
-#define MODE_BASE		(GPIO_BASE + 0x300)
-#define SET			0x4
-#define CLR			0x8
+#define GPIO_MODE_BITS 4
+#define MAX_GPIO_MODE_PER_REG 8
+#define MAX_GPIO_REG_BITS 32
+#define DIR_BASE (GPIO_BASE + 0x000)
+#define DOUT_BASE (GPIO_BASE + 0x100)
+#define DIN_BASE (GPIO_BASE + 0x200)
+#define MODE_BASE (GPIO_BASE + 0x300)
+#define SET 0x4
+#define CLR 0x8
 
 static void mt_set_gpio_dir_chip(uint32_t pin, int dir)
 {
@@ -88,8 +90,7 @@ static int mt_get_gpio_in_chip(uint32_t pin)
 	return (((reg & (1U << bit)) != 0U) ? 1 : 0);
 }
 
-static void mt_gpio_set_spec_pull_pupd(uint32_t pin, int enable,
-			       int select)
+static void mt_gpio_set_spec_pull_pupd(uint32_t pin, int enable, int select)
 {
 	uintptr_t reg1;
 	uintptr_t reg2;
@@ -113,8 +114,7 @@ static void mt_gpio_set_spec_pull_pupd(uint32_t pin, int enable,
 	}
 }
 
-static void mt_gpio_set_pull_pu_pd(uint32_t pin, int enable,
-				 int select)
+static void mt_gpio_set_pull_pu_pd(uint32_t pin, int enable, int select)
 {
 	uintptr_t reg1;
 	uintptr_t reg2;
@@ -140,8 +140,7 @@ static void mt_gpio_set_pull_pu_pd(uint32_t pin, int enable,
 	}
 }
 
-static void mt_gpio_set_pull_chip(uint32_t pin, int enable,
-		   int select)
+static void mt_gpio_set_pull_chip(uint32_t pin, int enable, int select)
 {
 	struct mt_pin_info gpio_info;
 
@@ -223,11 +222,14 @@ static void mt_set_gpio_pull_select_chip(uint32_t pin, int sel)
 	assert(pin < MAX_GPIO_PIN);
 
 	if (sel == MT_GPIO_PULL_NONE) {
-		mt_gpio_set_pull_chip(pin, MT_GPIO_PULL_DISABLE, MT_GPIO_PULL_DOWN);
+		mt_gpio_set_pull_chip(pin, MT_GPIO_PULL_DISABLE,
+				      MT_GPIO_PULL_DOWN);
 	} else if (sel == MT_GPIO_PULL_UP) {
-		mt_gpio_set_pull_chip(pin, MT_GPIO_PULL_ENABLE, MT_GPIO_PULL_UP);
+		mt_gpio_set_pull_chip(pin, MT_GPIO_PULL_ENABLE,
+				      MT_GPIO_PULL_UP);
 	} else if (sel == MT_GPIO_PULL_DOWN) {
-		mt_gpio_set_pull_chip(pin, MT_GPIO_PULL_ENABLE, MT_GPIO_PULL_DOWN);
+		mt_gpio_set_pull_chip(pin, MT_GPIO_PULL_ENABLE,
+				      MT_GPIO_PULL_DOWN);
 	}
 }
 
@@ -285,12 +287,12 @@ static int mt_get_gpio_in(int gpio)
 }
 
 const gpio_ops_t mtgpio_ops = {
-	 .get_direction = mt_get_gpio_dir,
-	 .set_direction = mt_set_gpio_dir,
-	 .get_value = mt_get_gpio_in,
-	 .set_value = mt_set_gpio_out,
-	 .set_pull = mt_set_gpio_pull,
-	 .get_pull = mt_get_gpio_pull,
+	.get_direction = mt_get_gpio_dir,
+	.set_direction = mt_set_gpio_dir,
+	.get_value = mt_get_gpio_in,
+	.set_value = mt_set_gpio_out,
+	.set_pull = mt_set_gpio_pull,
+	.get_pull = mt_get_gpio_pull,
 };
 
 int mt_gpio_init(void)

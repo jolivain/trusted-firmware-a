@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,15 +13,15 @@
 
 #include "mhu_v2_x.h"
 
-#define MHU_NOTIFY_VALUE	(1234u)
+#define MHU_NOTIFY_VALUE (1234u)
 
 /*
  * MHU devices for host:
  * HSE: Host to Secure Enclave (sender device)
  * SEH: Secure Enclave to Host (receiver device)
  */
-struct mhu_v2_x_dev_t MHU1_HSE_DEV = {0, MHU_V2_X_SENDER_FRAME};
-struct mhu_v2_x_dev_t MHU1_SEH_DEV = {0, MHU_V2_X_RECEIVER_FRAME};
+struct mhu_v2_x_dev_t MHU1_HSE_DEV = { 0, MHU_V2_X_SENDER_FRAME };
+struct mhu_v2_x_dev_t MHU1_SEH_DEV = { 0, MHU_V2_X_RECEIVER_FRAME };
 
 static enum mhu_error_t error_mapping_to_mhu_error_t(enum mhu_v2_x_error_t err)
 {
@@ -139,8 +139,8 @@ enum mhu_error_t mhu_init_receiver(uintptr_t mhu_receiver_base)
 	}
 
 	/* The last channel is used for notifications */
-	err = mhu_v2_x_channel_mask_clear(
-		&MHU1_SEH_DEV, (num_channels - 1), UINT32_MAX);
+	err = mhu_v2_x_channel_mask_clear(&MHU1_SEH_DEV, (num_channels - 1),
+					  UINT32_MAX);
 	return error_mapping_to_mhu_error_t(err);
 }
 

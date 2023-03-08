@@ -1,16 +1,16 @@
 /*
- * Copyright (c) 2016-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <common/debug.h>
 #include <drivers/arm/tzc_dmc500.h>
+
 #include <plat/arm/common/plat_arm.h>
+#include <platform_def.h>
 
 /*******************************************************************************
  * Initialize the DMC500-TrustZone Controller for ARM standard platforms.
@@ -18,15 +18,13 @@
  * secure access only and do not enable any other region.
  ******************************************************************************/
 void arm_tzc_dmc500_setup(tzc_dmc500_driver_data_t *plat_driver_data,
-			const arm_tzc_regions_info_t *tzc_regions)
+			  const arm_tzc_regions_info_t *tzc_regions)
 {
 #ifndef EL3_PAYLOAD_BASE
 	unsigned int region_index = 1U;
 	const arm_tzc_regions_info_t *p;
-	const arm_tzc_regions_info_t init_tzc_regions[] = {
-		ARM_TZC_REGIONS_DEF,
-		{0}
-	};
+	const arm_tzc_regions_info_t init_tzc_regions[] = { ARM_TZC_REGIONS_DEF,
+							    { 0 } };
 #endif
 
 	assert(plat_driver_data);

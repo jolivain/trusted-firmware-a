@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -17,12 +17,12 @@
 #include <drivers/arm/pl011.h>
 #include <drivers/mmc.h>
 #include <drivers/synopsys/dw_mmc.h>
-#include <lib/mmio.h>
-#include <plat/common/platform.h>
-
 #include <hi6220.h>
 #include <hikey_def.h>
 #include <hikey_layout.h>
+#include <lib/mmio.h>
+
+#include <plat/common/platform.h>
 
 #include "hikey_private.h"
 
@@ -67,10 +67,8 @@ void bl1_early_platform_setup(void)
 void bl1_plat_arch_setup(void)
 {
 	hikey_init_mmu_el3(bl1_tzram_layout.total_base,
-			   bl1_tzram_layout.total_size,
-			   BL1_RO_BASE,
-			   BL1_RO_LIMIT,
-			   BL_COHERENT_RAM_BASE,
+			   bl1_tzram_layout.total_size, BL1_RO_BASE,
+			   BL1_RO_LIMIT, BL_COHERENT_RAM_BASE,
 			   BL_COHERENT_RAM_END);
 }
 
@@ -143,23 +141,21 @@ image_desc_t *bl1_plat_get_image_desc(unsigned int image_id)
 	return NULL;
 }
 
-void bl1_plat_set_ep_info(unsigned int image_id,
-		entry_point_info_t *ep_info)
+void bl1_plat_set_ep_info(unsigned int image_id, entry_point_info_t *ep_info)
 {
 	uint64_t data = 0;
 
 	if (image_id == BL2_IMAGE_ID)
 		panic();
 	inv_dcache_range(NS_BL1U_BASE, NS_BL1U_SIZE);
-	__asm__ volatile ("mrs	%0, cpacr_el1" : "=r"(data));
+	__asm__ volatile("mrs	%0, cpacr_el1" : "=r"(data));
 	do {
 		data |= 3 << 20;
-		__asm__ volatile ("msr	cpacr_el1, %0" : : "r"(data));
-		__asm__ volatile ("mrs	%0, cpacr_el1" : "=r"(data));
+		__asm__ volatile("msr	cpacr_el1, %0" : : "r"(data));
+		__asm__ volatile("mrs	%0, cpacr_el1" : "=r"(data));
 	} while ((data & (3 << 20)) != (3 << 20));
 	INFO("cpacr_el1:0x%" PRIx64 "\n", data);
 
 	ep_info->args.arg0 = 0xffff & read_mpidr();
-	ep_info->spsr = SPSR_64(MODE_EL1, MODE_SP_ELX,
-				DISABLE_ALL_EXCEPTIONS);
+	ep_info->spsr = SPSR_64(MODE_EL1, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 }

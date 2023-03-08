@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -16,10 +16,11 @@
 
 #include <stdlib.h>
 
-#include <sci/sci_types.h>
-#include <sci/svc/rm/sci_rm_api.h>
-#include <sci/svc/pad/sci_pad_api.h>
 #include <sci/sci_rpc.h>
+#include <sci/sci_types.h>
+#include <sci/svc/pad/sci_pad_api.h>
+#include <sci/svc/rm/sci_rm_api.h>
+
 #include "sci_pad_rpc.h"
 
 /* Local Defines */
@@ -28,8 +29,8 @@
 
 /* Local Functions */
 
-sc_err_t sc_pad_set_mux(sc_ipc_t ipc, sc_pad_t pad,
-			uint8_t mux, sc_pad_config_t config, sc_pad_iso_t iso)
+sc_err_t sc_pad_set_mux(sc_ipc_t ipc, sc_pad_t pad, uint8_t mux,
+			sc_pad_config_t config, sc_pad_iso_t iso)
 {
 	sc_rpc_msg_t msg;
 	uint8_t result;
@@ -49,9 +50,8 @@ sc_err_t sc_pad_set_mux(sc_ipc_t ipc, sc_pad_t pad,
 	return (sc_err_t)result;
 }
 
-sc_err_t sc_pad_get_mux(sc_ipc_t ipc, sc_pad_t pad,
-			uint8_t *mux, sc_pad_config_t *config,
-			sc_pad_iso_t *iso)
+sc_err_t sc_pad_get_mux(sc_ipc_t ipc, sc_pad_t pad, uint8_t *mux,
+			sc_pad_config_t *config, sc_pad_iso_t *iso)
 {
 	sc_rpc_msg_t msg;
 	uint8_t result;
@@ -372,10 +372,10 @@ sc_err_t sc_pad_get_gp_28fdsoi_hsic(sc_ipc_t ipc, sc_pad_t pad,
 	return (sc_err_t)result;
 }
 
-sc_err_t sc_pad_set_gp_28fdsoi_comp(sc_ipc_t ipc, sc_pad_t pad,
-				    uint8_t compen, sc_bool_t fastfrz,
-				    uint8_t rasrcp, uint8_t rasrcn,
-				    sc_bool_t nasrc_sel, sc_bool_t psw_ovr)
+sc_err_t sc_pad_set_gp_28fdsoi_comp(sc_ipc_t ipc, sc_pad_t pad, uint8_t compen,
+				    sc_bool_t fastfrz, uint8_t rasrcp,
+				    uint8_t rasrcn, sc_bool_t nasrc_sel,
+				    sc_bool_t psw_ovr)
 {
 	sc_rpc_msg_t msg;
 	uint8_t result;
@@ -398,11 +398,11 @@ sc_err_t sc_pad_set_gp_28fdsoi_comp(sc_ipc_t ipc, sc_pad_t pad,
 	return (sc_err_t)result;
 }
 
-sc_err_t sc_pad_get_gp_28fdsoi_comp(sc_ipc_t ipc, sc_pad_t pad,
-				    uint8_t *compen, sc_bool_t *fastfrz,
-				    uint8_t *rasrcp, uint8_t *rasrcn,
-				    sc_bool_t *nasrc_sel, sc_bool_t *compok,
-				    uint8_t *nasrc, sc_bool_t *psw_ovr)
+sc_err_t sc_pad_get_gp_28fdsoi_comp(sc_ipc_t ipc, sc_pad_t pad, uint8_t *compen,
+				    sc_bool_t *fastfrz, uint8_t *rasrcp,
+				    uint8_t *rasrcn, sc_bool_t *nasrc_sel,
+				    sc_bool_t *compok, uint8_t *nasrc,
+				    sc_bool_t *psw_ovr)
 {
 	sc_rpc_msg_t msg;
 	uint8_t result;

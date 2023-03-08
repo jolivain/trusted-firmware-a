@@ -4,32 +4,33 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <lib/mmio.h>
 #include "ulcb_cpld.h"
 
-#define SCLK			8	/* GP_6_8 */
-#define SSTBZ			3	/* GP_2_3 */
-#define MOSI			7	/* GP_6_7 */
+#include <lib/mmio.h>
 
-#define CPLD_ADDR_RESET		0x80	/* RW */
+#define SCLK 8 /* GP_6_8 */
+#define SSTBZ 3 /* GP_2_3 */
+#define MOSI 7 /* GP_6_7 */
+
+#define CPLD_ADDR_RESET 0x80 /* RW */
 
 /* LSI Multiplexed Pin Setting Mask Register */
-#define PFC_PMMR		0xE6060000
+#define PFC_PMMR 0xE6060000
 
 /* General output registers */
-#define GPIO_OUTDT2		0xE6052008
-#define GPIO_OUTDT6		0xE6055408
+#define GPIO_OUTDT2 0xE6052008
+#define GPIO_OUTDT6 0xE6055408
 
 /* General input/output switching registers */
-#define GPIO_INOUTSEL2		0xE6052004
-#define GPIO_INOUTSEL6		0xE6055404
+#define GPIO_INOUTSEL2 0xE6052004
+#define GPIO_INOUTSEL6 0xE6055404
 
 /* General IO/Interrupt Switching Register */
-#define GPIO_IOINTSEL6		0xE6055400
+#define GPIO_IOINTSEL6 0xE6055400
 
 /* GPIO/perihperal function select */
-#define PFC_GPSR2		0xE6060108
-#define PFC_GPSR6		0xE6060118
+#define PFC_GPSR2 0xE6060108
+#define PFC_GPSR6 0xE6060118
 
 static void gpio_set_value(uint32_t addr, uint8_t gpio, uint32_t val)
 {

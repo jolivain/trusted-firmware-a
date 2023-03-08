@@ -1,11 +1,12 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
+
 #include <platform_def.h>
 
 static DEFINE_BAKERY_LOCK(mhu_lock);

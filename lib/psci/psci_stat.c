@@ -1,20 +1,20 @@
 /*
- * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <common/debug.h>
+
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 #include "psci_private.h"
 
 #ifndef PLAT_MAX_PWR_LVL_STATES
-#define PLAT_MAX_PWR_LVL_STATES		2U
+#define PLAT_MAX_PWR_LVL_STATES 2U
 #endif
 
 /* Following structure is used for PSCI STAT */
@@ -28,16 +28,16 @@ typedef struct psci_stat {
  * that goes to power down in non cpu power domains.
  */
 static int last_cpu_in_non_cpu_pd[PSCI_NUM_NON_CPU_PWR_DOMAINS] = {
-		[0 ... PSCI_NUM_NON_CPU_PWR_DOMAINS - 1U] = -1};
+	[0 ... PSCI_NUM_NON_CPU_PWR_DOMAINS - 1U] = -1
+};
 
 /*
  * Following are used to store PSCI STAT values for
  * CPU and non CPU power domains.
  */
-static psci_stat_t psci_cpu_stat[PLATFORM_CORE_COUNT]
-				[PLAT_MAX_PWR_LVL_STATES];
+static psci_stat_t psci_cpu_stat[PLATFORM_CORE_COUNT][PLAT_MAX_PWR_LVL_STATES];
 static psci_stat_t psci_non_cpu_stat[PSCI_NUM_NON_CPU_PWR_DOMAINS]
-				[PLAT_MAX_PWR_LVL_STATES];
+				    [PLAT_MAX_PWR_LVL_STATES];
 
 /*
  * This functions returns the index into the `psci_stat_t` array given the
@@ -58,7 +58,7 @@ static int get_stat_idx(plat_local_state_t local_state, unsigned int pwr_lvl)
 	}
 
 	idx = psci_plat_pm_ops->get_pwr_lvl_state_idx(local_state, pwr_lvl);
-	assert((idx >= 0) && (idx < (int) PLAT_MAX_PWR_LVL_STATES));
+	assert((idx >= 0) && (idx < (int)PLAT_MAX_PWR_LVL_STATES));
 	return idx;
 }
 
@@ -74,7 +74,7 @@ static int get_stat_idx(plat_local_state_t local_state, unsigned int pwr_lvl)
  * powering down a core.
  ******************************************************************************/
 void psci_stats_update_pwr_down(unsigned int end_pwrlvl,
-			const psci_power_state_t *state_info)
+				const psci_power_state_t *state_info)
 {
 	unsigned int lvl, parent_idx;
 	unsigned int cpu_idx = plat_my_core_pos();
@@ -85,7 +85,6 @@ void psci_stats_update_pwr_down(unsigned int end_pwrlvl,
 	parent_idx = psci_cpu_pd_nodes[cpu_idx].parent_node;
 
 	for (lvl = PSCI_CPU_PWR_LVL + 1U; lvl <= end_pwrlvl; lvl++) {
-
 		/* Break early if the target power state is RUN */
 		if (is_local_state_run(state_info->pwr_domain_state[lvl]) != 0)
 			break;
@@ -98,7 +97,6 @@ void psci_stats_update_pwr_down(unsigned int end_pwrlvl,
 
 		parent_idx = psci_non_cpu_pd_nodes[parent_idx].parent_node;
 	}
-
 }
 
 /*******************************************************************************
@@ -107,7 +105,7 @@ void psci_stats_update_pwr_down(unsigned int end_pwrlvl,
  * It is called with caches enabled and locks acquired(for NON-CPU domain)
  ******************************************************************************/
 void psci_stats_update_pwr_up(unsigned int end_pwrlvl,
-			const psci_power_state_t *state_info)
+			      const psci_power_state_t *state_info)
 {
 	unsigned int lvl, parent_idx;
 	unsigned int cpu_idx = plat_my_core_pos();
@@ -123,8 +121,8 @@ void psci_stats_update_pwr_up(unsigned int end_pwrlvl,
 	stat_idx = get_stat_idx(local_state, PSCI_CPU_PWR_LVL);
 
 	/* Call into platform interface to calculate residency. */
-	residency = plat_psci_stat_get_residency(PSCI_CPU_PWR_LVL,
-	    state_info, cpu_idx);
+	residency = plat_psci_stat_get_residency(PSCI_CPU_PWR_LVL, state_info,
+						 cpu_idx);
 
 	/* Update CPU stats. */
 	psci_cpu_stat[cpu_idx][stat_idx].residency += residency;
@@ -149,7 +147,8 @@ void psci_stats_update_pwr_up(unsigned int end_pwrlvl,
 		assert(last_cpu_in_non_cpu_pd[parent_idx] != -1);
 
 		/* Call into platform interface to calculate residency. */
-		residency = plat_psci_stat_get_residency(lvl, state_info,
+		residency = plat_psci_stat_get_residency(
+			lvl, state_info,
 			(unsigned int)last_cpu_in_non_cpu_pd[parent_idx]);
 
 		/* Initialize back to reset value */
@@ -164,7 +163,6 @@ void psci_stats_update_pwr_up(unsigned int end_pwrlvl,
 
 		parent_idx = psci_non_cpu_pd_nodes[parent_idx].parent_node;
 	}
-
 }
 
 /*******************************************************************************
@@ -178,12 +176,12 @@ static int psci_get_stat(u_register_t target_cpu, unsigned int power_state,
 	int rc;
 	unsigned int pwrlvl, lvl, parent_idx, target_idx;
 	int stat_idx;
-	psci_power_state_t state_info = { {PSCI_LOCAL_STATE_RUN} };
+	psci_power_state_t state_info = { { PSCI_LOCAL_STATE_RUN } };
 	plat_local_state_t local_state;
 
 	/* Validate the target_cpu parameter and determine the cpu index */
-	target_idx = (unsigned int) plat_core_pos_by_mpidr(target_cpu);
-	if (target_idx == (unsigned int) -1)
+	target_idx = (unsigned int)plat_core_pos_by_mpidr(target_cpu);
+	if (target_idx == (unsigned int)-1)
 		return PSCI_E_INVALID_PARAMS;
 
 	/* Validate the power_state parameter */
@@ -191,7 +189,7 @@ static int psci_get_stat(u_register_t target_cpu, unsigned int power_state,
 		rc = psci_validate_power_state(power_state, &state_info);
 	else
 		rc = psci_plat_pm_ops->translate_power_state_by_mpidr(
-				target_cpu, power_state, &state_info);
+			target_cpu, power_state, &state_info);
 
 	if (rc != PSCI_E_SUCCESS)
 		return PSCI_E_INVALID_PARAMS;
@@ -209,9 +207,11 @@ static int psci_get_stat(u_register_t target_cpu, unsigned int power_state,
 
 	if (pwrlvl > PSCI_CPU_PWR_LVL) {
 		/* Get the power domain index */
-		parent_idx = SPECULATION_SAFE_VALUE(psci_cpu_pd_nodes[target_idx].parent_node);
+		parent_idx = SPECULATION_SAFE_VALUE(
+			psci_cpu_pd_nodes[target_idx].parent_node);
 		for (lvl = PSCI_CPU_PWR_LVL + 1U; lvl < pwrlvl; lvl++)
-			parent_idx = SPECULATION_SAFE_VALUE(psci_non_cpu_pd_nodes[parent_idx].parent_node);
+			parent_idx = SPECULATION_SAFE_VALUE(
+				psci_non_cpu_pd_nodes[parent_idx].parent_node);
 
 		/* Get the non cpu power domain stats */
 		*psci_stat = psci_non_cpu_stat[parent_idx][stat_idx];
@@ -225,7 +225,7 @@ static int psci_get_stat(u_register_t target_cpu, unsigned int power_state,
 
 /* This is the top level function for PSCI_STAT_RESIDENCY SMC. */
 u_register_t psci_stat_residency(u_register_t target_cpu,
-		unsigned int power_state)
+				 unsigned int power_state)
 {
 	psci_stat_t psci_stat;
 	int rc = psci_get_stat(target_cpu, power_state, &psci_stat);
@@ -237,8 +237,7 @@ u_register_t psci_stat_residency(u_register_t target_cpu,
 }
 
 /* This is the top level function for PSCI_STAT_COUNT SMC. */
-u_register_t psci_stat_count(u_register_t target_cpu,
-	unsigned int power_state)
+u_register_t psci_stat_count(u_register_t target_cpu, unsigned int power_state)
 {
 	psci_stat_t psci_stat;
 	int rc = psci_get_stat(target_cpu, power_state, &psci_stat);

@@ -86,9 +86,8 @@ int nand_read(unsigned int offset, uintptr_t buffer, size_t length,
 			if ((start_offset != 0U) ||
 			    (length < nand_dev.page_size)) {
 				ret = nand_dev.mtd_read_page(
-						&nand_dev,
-						(block * nb_pages) + page,
-						(uintptr_t)scratch_buff);
+					&nand_dev, (block * nb_pages) + page,
+					(uintptr_t)scratch_buff);
 				if (ret != 0) {
 					return ret;
 				}
@@ -98,14 +97,13 @@ int nand_read(unsigned int offset, uintptr_t buffer, size_t length,
 						 length);
 
 				memcpy((uint8_t *)buffer,
-				       scratch_buff + start_offset,
-				       bytes_read);
+				       scratch_buff + start_offset, bytes_read);
 
 				start_offset = 0U;
 			} else {
-				ret = nand_dev.mtd_read_page(&nand_dev,
-						(block * nb_pages) + page,
-						buffer);
+				ret = nand_dev.mtd_read_page(
+					&nand_dev, (block * nb_pages) + page,
+					buffer);
 				if (ret != 0) {
 					return ret;
 				}

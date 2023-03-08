@@ -6,48 +6,41 @@
 
 #include <arch_helpers.h>
 #include <common/debug.h>
-
 #include <mt_lp_rm.h>
 #include <mt_spm.h>
 #include <mt_spm_cond.h>
-#include <mt_spm_constraint.h>
 #include <mt_spm_conservation.h>
+#include <mt_spm_constraint.h>
 #include <mt_spm_idle.h>
 #include <mt_spm_internal.h>
 #include <mt_spm_notifier.h>
 #include <mt_spm_rc_internal.h>
-#include <mt_spm_resource_req.h>
 #include <mt_spm_reg.h>
+#include <mt_spm_resource_req.h>
 #include <mt_spm_suspend.h>
-#include <plat_pm.h>
 #include <plat_mtk_lpm.h>
+#include <plat_pm.h>
 
 #ifndef ATF_PLAT_CIRQ_UNSUPPORT
 #include <mt_cirq.h>
 #include <mt_gic_v3.h>
 #endif
 
-#define CONSTRAINT_BUS26M_ALLOW			\
-	(MT_RM_CONSTRAINT_ALLOW_CPU_BUCK_OFF |	\
-	 MT_RM_CONSTRAINT_ALLOW_DRAM_S0 |	\
-	 MT_RM_CONSTRAINT_ALLOW_DRAM_S1 |	\
-	 MT_RM_CONSTRAINT_ALLOW_VCORE_LP |	\
-	 MT_RM_CONSTRAINT_ALLOW_LVTS_STATE |	\
+#define CONSTRAINT_BUS26M_ALLOW                                                \
+	(MT_RM_CONSTRAINT_ALLOW_CPU_BUCK_OFF |                                 \
+	 MT_RM_CONSTRAINT_ALLOW_DRAM_S0 | MT_RM_CONSTRAINT_ALLOW_DRAM_S1 |     \
+	 MT_RM_CONSTRAINT_ALLOW_VCORE_LP | MT_RM_CONSTRAINT_ALLOW_LVTS_STATE | \
 	 MT_RM_CONSTRAINT_ALLOW_BUS26M_OFF)
 
-#define CONSTRAINT_BUS26M_PCM_FLAG		\
-	(SPM_FLAG_DISABLE_INFRA_PDN |		\
-	 SPM_FLAG_DISABLE_VCORE_DVS |		\
-	 SPM_FLAG_DISABLE_VCORE_DFS |		\
-	 SPM_FLAG_SRAM_SLEEP_CTRL |		\
-	 SPM_FLAG_ENABLE_TIA_WORKAROUND |	\
-	 SPM_FLAG_ENABLE_LVTS_WORKAROUND |	\
+#define CONSTRAINT_BUS26M_PCM_FLAG                                          \
+	(SPM_FLAG_DISABLE_INFRA_PDN | SPM_FLAG_DISABLE_VCORE_DVS |          \
+	 SPM_FLAG_DISABLE_VCORE_DFS | SPM_FLAG_SRAM_SLEEP_CTRL |            \
+	 SPM_FLAG_ENABLE_TIA_WORKAROUND | SPM_FLAG_ENABLE_LVTS_WORKAROUND | \
 	 SPM_FLAG_KEEP_CSYSPWRACK_HIGH)
 
-#define CONSTRAINT_BUS26M_PCM_FLAG1		\
-	(SPM_FLAG1_DISABLE_MD26M_CK_OFF)
+#define CONSTRAINT_BUS26M_PCM_FLAG1 (SPM_FLAG1_DISABLE_MD26M_CK_OFF)
 
-#define CONSTRAINT_BUS26M_RESOURCE_REQ		0U
+#define CONSTRAINT_BUS26M_RESOURCE_REQ 0U
 
 static unsigned int bus26m_ext_opand;
 static struct mt_irqremain *refer2remain_irq;
@@ -77,8 +70,7 @@ static struct mt_spm_cond_tables cond_bus26m_res = {
 
 static struct constraint_status status = {
 	.id = MT_RM_CONSTRAINT_ID_BUS26M,
-	.valid = (MT_SPM_RC_VALID_SW |
-		  MT_SPM_RC_VALID_COND_LATCH),
+	.valid = (MT_SPM_RC_VALID_SW | MT_SPM_RC_VALID_COND_LATCH),
 	.cond_block = 0U,
 	.enter_cnt = 0U,
 	.cond_res = &cond_bus26m_res,
@@ -101,8 +93,8 @@ static void mt_spm_irq_remain_dump(struct mt_irqremain *irqs,
 	     wakeup->tr.comm.debug_flag, wakeup->tr.comm.b_sw_flag0,
 	     wakeup->tr.comm.b_sw_flag1);
 
-	INFO("irq:%u(0x%08x) set pending\n",
-	     irqs->wakeupsrc[irq_index], irqs->irqs[irq_index]);
+	INFO("irq:%u(0x%08x) set pending\n", irqs->wakeupsrc[irq_index],
+	     irqs->irqs[irq_index]);
 }
 
 static void do_irqs_delivery(void)
@@ -162,11 +154,11 @@ int spm_update_rc_bus26m(int state_id, int type, const void *val)
 		tlb = (const struct mt_spm_cond_tables *)val;
 		tlb_check = (const struct mt_spm_cond_tables *)&cond_bus26m;
 
-		status.cond_block =
-			mt_spm_cond_check(state_id, tlb, tlb_check,
-					  ((status.valid &
-					    MT_SPM_RC_VALID_COND_LATCH) != 0U) ?
-					  &cond_bus26m_res : NULL);
+		status.cond_block = mt_spm_cond_check(
+			state_id, tlb, tlb_check,
+			((status.valid & MT_SPM_RC_VALID_COND_LATCH) != 0U) ?
+				&cond_bus26m_res :
+				NULL);
 	} else if (type == PLAT_RC_UPDATE_REMAIN_IRQS) {
 		refer2remain_irq = (struct mt_irqremain *)val;
 	} else {
@@ -188,9 +180,12 @@ int spm_run_rc_bus26m(unsigned int cpu, int state_id)
 	(void)cpu;
 
 #ifndef ATF_PLAT_SPM_SSPM_NOTIFIER_UNSUPPORT
-	mt_spm_sspm_notify_u32(MT_SPM_NOTIFY_LP_ENTER, CONSTRAINT_BUS26M_ALLOW |
-			       (IS_PLAT_SUSPEND_ID(state_id) ?
-				MT_RM_CONSTRAINT_ALLOW_AP_SUSPEND : 0U));
+	mt_spm_sspm_notify_u32(
+		MT_SPM_NOTIFY_LP_ENTER,
+		CONSTRAINT_BUS26M_ALLOW |
+			(IS_PLAT_SUSPEND_ID(state_id) ?
+				 MT_RM_CONSTRAINT_ALLOW_AP_SUSPEND :
+				 0U));
 #endif
 	if (IS_PLAT_SUSPEND_ID(state_id)) {
 		mt_spm_suspend_enter(state_id,

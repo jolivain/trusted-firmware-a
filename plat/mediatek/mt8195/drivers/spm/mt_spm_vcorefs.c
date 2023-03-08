@@ -5,6 +5,7 @@
  */
 #include <stddef.h>
 #include <string.h>
+
 #include <common/debug.h>
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
@@ -15,6 +16,7 @@
 #include <mt_spm_vcorefs.h>
 #include <mtk_plat_common.h>
 #include <mtk_sip_svc.h>
+
 #include <platform_def.h>
 
 #define VCORE_MAX_OPP 4
@@ -28,61 +30,61 @@ static int vcore_opp_2_uv = 600000;
 static int vcore_opp_3_uv = 550000;
 
 static struct reg_config dvfsrc_init_configs[] = {
-	{ DVFSRC_HRT_REQ_UNIT,       0x0000001E },
-	{ DVFSRC_DEBOUNCE_TIME,      0x19651965 },
-	{ DVFSRC_TIMEOUT_NEXTREQ,    0x00000015 },
-	{ DVFSRC_LEVEL_MASK,         0x000EE000 },
-	{ DVFSRC_DDR_QOS0,           0x00000019 },
-	{ DVFSRC_DDR_QOS1,           0x00000026 },
-	{ DVFSRC_DDR_QOS2,           0x00000033 },
-	{ DVFSRC_DDR_QOS3,           0x0000003B },
-	{ DVFSRC_DDR_QOS4,           0x0000004C },
-	{ DVFSRC_DDR_QOS5,           0x00000066 },
-	{ DVFSRC_DDR_QOS6,           0x00660066 },
-	{ DVFSRC_LEVEL_LABEL_0_1,    0x50436053 },
-	{ DVFSRC_LEVEL_LABEL_2_3,    0x40335042 },
-	{ DVFSRC_LEVEL_LABEL_4_5,    0x40314032 },
-	{ DVFSRC_LEVEL_LABEL_6_7,    0x30223023 },
-	{ DVFSRC_LEVEL_LABEL_8_9,    0x20133021 },
-	{ DVFSRC_LEVEL_LABEL_10_11,  0x20112012 },
-	{ DVFSRC_LEVEL_LABEL_12_13,  0x10032010 },
-	{ DVFSRC_LEVEL_LABEL_14_15,  0x10011002 },
-	{ DVFSRC_LEVEL_LABEL_16_17,  0x00131000 },
-	{ DVFSRC_LEVEL_LABEL_18_19,  0x00110012 },
-	{ DVFSRC_LEVEL_LABEL_20_21,  0x00000010 },
+	{ DVFSRC_HRT_REQ_UNIT, 0x0000001E },
+	{ DVFSRC_DEBOUNCE_TIME, 0x19651965 },
+	{ DVFSRC_TIMEOUT_NEXTREQ, 0x00000015 },
+	{ DVFSRC_LEVEL_MASK, 0x000EE000 },
+	{ DVFSRC_DDR_QOS0, 0x00000019 },
+	{ DVFSRC_DDR_QOS1, 0x00000026 },
+	{ DVFSRC_DDR_QOS2, 0x00000033 },
+	{ DVFSRC_DDR_QOS3, 0x0000003B },
+	{ DVFSRC_DDR_QOS4, 0x0000004C },
+	{ DVFSRC_DDR_QOS5, 0x00000066 },
+	{ DVFSRC_DDR_QOS6, 0x00660066 },
+	{ DVFSRC_LEVEL_LABEL_0_1, 0x50436053 },
+	{ DVFSRC_LEVEL_LABEL_2_3, 0x40335042 },
+	{ DVFSRC_LEVEL_LABEL_4_5, 0x40314032 },
+	{ DVFSRC_LEVEL_LABEL_6_7, 0x30223023 },
+	{ DVFSRC_LEVEL_LABEL_8_9, 0x20133021 },
+	{ DVFSRC_LEVEL_LABEL_10_11, 0x20112012 },
+	{ DVFSRC_LEVEL_LABEL_12_13, 0x10032010 },
+	{ DVFSRC_LEVEL_LABEL_14_15, 0x10011002 },
+	{ DVFSRC_LEVEL_LABEL_16_17, 0x00131000 },
+	{ DVFSRC_LEVEL_LABEL_18_19, 0x00110012 },
+	{ DVFSRC_LEVEL_LABEL_20_21, 0x00000010 },
 	{ DVFSRC_MD_LATENCY_IMPROVE, 0x00000040 },
-	{ DVFSRC_DDR_REQUEST,        0x00004321 },
-	{ DVFSRC_DDR_REQUEST3,       0x00000065 },
-	{ DVFSRC_DDR_ADD_REQUEST,    0x66543210 },
-	{ DVFSRC_HRT_REQUEST,        0x66654321 },
-	{ DVFSRC_DDR_REQUEST5,       0x54321000 },
-	{ DVFSRC_DDR_REQUEST7,       0x66000000 },
-	{ DVFSRC_VCORE_USER_REQ,     0x00010A29 },
-	{ DVFSRC_HRT_HIGH_3,         0x18A618A6 },
-	{ DVFSRC_HRT_HIGH_2,         0x18A61183 },
-	{ DVFSRC_HRT_HIGH_1,         0x0D690B80 },
-	{ DVFSRC_HRT_HIGH,           0x070804B0 },
-	{ DVFSRC_HRT_LOW_3,          0x18A518A5 },
-	{ DVFSRC_HRT_LOW_2,          0x18A51182 },
-	{ DVFSRC_HRT_LOW_1,          0x0D680B7F },
-	{ DVFSRC_HRT_LOW,            0x070704AF },
-	{ DVFSRC_BASIC_CONTROL_3,    0x00000006 },
-	{ DVFSRC_INT_EN,             0x00000002 },
-	{ DVFSRC_QOS_EN,             0x0000407C },
-	{ DVFSRC_HRT_BW_BASE,        0x00000004 },
-	{ DVFSRC_PCIE_VCORE_REQ,     0x65908101 },
-	{ DVFSRC_CURRENT_FORCE,      0x00000001 },
-	{ DVFSRC_BASIC_CONTROL,      0x6698444B },
-	{ DVFSRC_BASIC_CONTROL,      0x6698054B },
-	{ DVFSRC_CURRENT_FORCE,      0x00000000 },
+	{ DVFSRC_DDR_REQUEST, 0x00004321 },
+	{ DVFSRC_DDR_REQUEST3, 0x00000065 },
+	{ DVFSRC_DDR_ADD_REQUEST, 0x66543210 },
+	{ DVFSRC_HRT_REQUEST, 0x66654321 },
+	{ DVFSRC_DDR_REQUEST5, 0x54321000 },
+	{ DVFSRC_DDR_REQUEST7, 0x66000000 },
+	{ DVFSRC_VCORE_USER_REQ, 0x00010A29 },
+	{ DVFSRC_HRT_HIGH_3, 0x18A618A6 },
+	{ DVFSRC_HRT_HIGH_2, 0x18A61183 },
+	{ DVFSRC_HRT_HIGH_1, 0x0D690B80 },
+	{ DVFSRC_HRT_HIGH, 0x070804B0 },
+	{ DVFSRC_HRT_LOW_3, 0x18A518A5 },
+	{ DVFSRC_HRT_LOW_2, 0x18A51182 },
+	{ DVFSRC_HRT_LOW_1, 0x0D680B7F },
+	{ DVFSRC_HRT_LOW, 0x070704AF },
+	{ DVFSRC_BASIC_CONTROL_3, 0x00000006 },
+	{ DVFSRC_INT_EN, 0x00000002 },
+	{ DVFSRC_QOS_EN, 0x0000407C },
+	{ DVFSRC_HRT_BW_BASE, 0x00000004 },
+	{ DVFSRC_PCIE_VCORE_REQ, 0x65908101 },
+	{ DVFSRC_CURRENT_FORCE, 0x00000001 },
+	{ DVFSRC_BASIC_CONTROL, 0x6698444B },
+	{ DVFSRC_BASIC_CONTROL, 0x6698054B },
+	{ DVFSRC_CURRENT_FORCE, 0x00000000 },
 };
 
 static struct pwr_ctrl vcorefs_ctrl = {
-	.wake_src		= R12_REG_CPU_WAKEUP,
+	.wake_src = R12_REG_CPU_WAKEUP,
 
 	/* default VCORE DVFS is disabled */
 	.pcm_flags = (SPM_FLAG_RUN_COMMON_SCENARIO |
-			SPM_FLAG_DISABLE_VCORE_DVS | SPM_FLAG_DISABLE_VCORE_DFS),
+		      SPM_FLAG_DISABLE_VCORE_DVS | SPM_FLAG_DISABLE_VCORE_DFS),
 
 	/* SPM_AP_STANDBY_CON */
 	/* [0] */
@@ -353,7 +355,7 @@ static struct pwr_ctrl vcorefs_ctrl = {
 };
 
 struct spm_lp_scen __spm_vcorefs = {
-	.pwrctrl	= &vcorefs_ctrl,
+	.pwrctrl = &vcorefs_ctrl,
 };
 
 static void spm_vcorefs_pwarp_cmd(uint64_t cmd, uint64_t val)
@@ -369,7 +371,8 @@ void spm_dvfsfw_init(uint64_t boot_up_opp, uint64_t dram_issue)
 {
 	if (spm_dvfs_init_done == false) {
 		mmio_write_32(SPM_DVFS_MISC, (mmio_read_32(SPM_DVFS_MISC) &
-				~(SPM_DVFS_FORCE_ENABLE_LSB)) | (SPM_DVFSRC_ENABLE_LSB));
+					      ~(SPM_DVFS_FORCE_ENABLE_LSB)) |
+						     (SPM_DVFSRC_ENABLE_LSB));
 
 		mmio_write_32(SPM_DVFS_LEVEL, 0x00000001);
 		mmio_write_32(SPM_DVS_DFS_LEVEL, 0x00010001);
@@ -379,18 +382,19 @@ void spm_dvfsfw_init(uint64_t boot_up_opp, uint64_t dram_issue)
 }
 
 void __spm_sync_vcore_dvfs_power_control(struct pwr_ctrl *dest_pwr_ctrl,
-						const struct pwr_ctrl *src_pwr_ctrl)
+					 const struct pwr_ctrl *src_pwr_ctrl)
 {
 	uint32_t dvfs_mask = SPM_FLAG_DISABLE_VCORE_DVS |
 			     SPM_FLAG_DISABLE_VCORE_DFS |
 			     SPM_FLAG_ENABLE_VOLTAGE_BIN;
 
 	dest_pwr_ctrl->pcm_flags = (dest_pwr_ctrl->pcm_flags & (~dvfs_mask)) |
-					(src_pwr_ctrl->pcm_flags & dvfs_mask);
+				   (src_pwr_ctrl->pcm_flags & dvfs_mask);
 
 	if (dest_pwr_ctrl->pcm_flags_cust) {
-		dest_pwr_ctrl->pcm_flags_cust = (dest_pwr_ctrl->pcm_flags_cust & (~dvfs_mask)) |
-						(src_pwr_ctrl->pcm_flags & dvfs_mask);
+		dest_pwr_ctrl->pcm_flags_cust =
+			(dest_pwr_ctrl->pcm_flags_cust & (~dvfs_mask)) |
+			(src_pwr_ctrl->pcm_flags & dvfs_mask);
 	}
 }
 
@@ -441,7 +445,7 @@ static void dvfsrc_init(void)
 	if (dvfs_enable_done == false) {
 		for (i = 0; i < count; i++) {
 			mmio_write_32(dvfsrc_init_configs[i].offset,
-				dvfsrc_init_configs[i].val);
+				      dvfsrc_init_configs[i].val);
 		}
 
 		mmio_write_32(DVFSRC_QOS_EN, 0x0011007C);
@@ -480,7 +484,8 @@ int spm_vcorefs_get_vcore(unsigned int gear)
 	return ret_val;
 }
 
-uint64_t spm_vcorefs_v2_args(u_register_t x1, u_register_t x2, u_register_t x3, u_register_t *x4)
+uint64_t spm_vcorefs_v2_args(u_register_t x1, u_register_t x2, u_register_t x3,
+			     u_register_t *x4)
 {
 	uint64_t ret = 0U;
 	uint64_t cmd = x1;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,7 +9,7 @@
 
 #include <stdint.h>
 
-#define AIPSTZ_OAPCR_COUNT	0x05
+#define AIPSTZ_OAPCR_COUNT 0x05
 
 struct aipstz_regs {
 	uint32_t aipstz_mpr;

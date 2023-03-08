@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,8 +7,8 @@
 #include <assert.h>
 
 #include <common/debug.h>
-#include <common/tf_crc32.h>
 #include <common/tbbr/tbbr_img_def.h>
+#include <common/tf_crc32.h>
 #include <drivers/fwu/fwu.h>
 #include <drivers/fwu/fwu_metadata.h>
 #include <drivers/io/io_storage.h>
@@ -37,9 +37,9 @@ static int fwu_metadata_crc_check(void)
 {
 	unsigned char *data = (unsigned char *)&metadata;
 
-	uint32_t calc_crc = tf_crc32(0U, data + sizeof(metadata.crc_32),
-				     (sizeof(metadata) -
-				      sizeof(metadata.crc_32)));
+	uint32_t calc_crc =
+		tf_crc32(0U, data + sizeof(metadata.crc_32),
+			 (sizeof(metadata) - sizeof(metadata.crc_32)));
 
 	if (metadata.crc_32 != calc_crc) {
 		return -1;
@@ -81,19 +81,17 @@ static int fwu_metadata_load(unsigned int image_id)
 	assert((image_id == FWU_METADATA_IMAGE_ID) ||
 	       (image_id == BKUP_FWU_METADATA_IMAGE_ID));
 
-	result = plat_fwu_set_metadata_image_source(image_id,
-						    &dev_handle,
+	result = plat_fwu_set_metadata_image_source(image_id, &dev_handle,
 						    &image_spec);
 	if (result != 0) {
-		WARN("Failed to set reference to image id=%u (%i)\n",
-		     image_id, result);
+		WARN("Failed to set reference to image id=%u (%i)\n", image_id,
+		     result);
 		return result;
 	}
 
 	result = io_open(dev_handle, image_spec, &image_handle);
 	if (result != 0) {
-		WARN("Failed to load image id id=%u (%i)\n",
-		     image_id, result);
+		WARN("Failed to load image id id=%u (%i)\n", image_id, result);
 		return result;
 	}
 

@@ -8,9 +8,10 @@
 #include <stdint.h>
 
 #include <platform.h>
-#include <platform_def.h>
 #include <qti_rng.h>
 #include <qtiseclib_interface.h>
+
+#include <platform_def.h>
 
 u_register_t plat_get_stack_protector_canary(void)
 {
@@ -19,7 +20,7 @@ u_register_t plat_get_stack_protector_canary(void)
 	/*
 	 * get random data , the below API doesn't return random = 0 on success
 	 */
-	qti_rng_get_data((uint8_t *) &random, sizeof(random));
+	qti_rng_get_data((uint8_t *)&random, sizeof(random));
 	assert(random != 0x0);
 
 	return random;

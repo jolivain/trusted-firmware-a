@@ -5,26 +5,26 @@
  * https://spdx.org/licenses
  */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdint.h>
 #include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
+
 #include <sys/stat.h>
 #include <sys/time.h>
+#include <unistd.h>
 
 #ifdef CONFIG_MVEBU_SECURE_BOOT
-#include <libconfig.h>	/* for parsing config file */
+#include <libconfig.h> /* for parsing config file */
 
 /* mbedTLS stuff */
-#if defined(MBEDTLS_BIGNUM_C) && defined(MBEDTLS_ENTROPY_C) && \
-	defined(MBEDTLS_SHA256_C) && \
-	defined(MBEDTLS_PK_PARSE_C) && defined(MBEDTLS_FS_IO) && \
-	defined(MBEDTLS_CTR_DRBG_C)
-#include <mbedtls/error.h>
-#include <mbedtls/entropy.h>
+#if defined(MBEDTLS_BIGNUM_C) && defined(MBEDTLS_ENTROPY_C) &&      \
+	defined(MBEDTLS_SHA256_C) && defined(MBEDTLS_PK_PARSE_C) && \
+	defined(MBEDTLS_FS_IO) && defined(MBEDTLS_CTR_DRBG_C)
 #include <mbedtls/ctr_drbg.h>
+#include <mbedtls/entropy.h>
+#include <mbedtls/error.h>
 #include <mbedtls/md.h>
 #include <mbedtls/pk.h>
 #include <mbedtls/sha256.h>
@@ -35,26 +35,26 @@
 #endif
 #endif /* CONFIG_MVEBU_SECURE_BOOT */
 
-#define MAX_FILENAME		256
-#define CSK_ARR_SZ		16
-#define CSK_ARR_EMPTY_FILE	"*"
-#define AES_KEY_BIT_LEN		256
-#define AES_KEY_BYTE_LEN	(AES_KEY_BIT_LEN >> 3)
-#define AES_BLOCK_SZ		16
-#define RSA_SIGN_BYTE_LEN	256
-#define MAX_RSA_DER_BYTE_LEN	524
+#define MAX_FILENAME 256
+#define CSK_ARR_SZ 16
+#define CSK_ARR_EMPTY_FILE "*"
+#define AES_KEY_BIT_LEN 256
+#define AES_KEY_BYTE_LEN (AES_KEY_BIT_LEN >> 3)
+#define AES_BLOCK_SZ 16
+#define RSA_SIGN_BYTE_LEN 256
+#define MAX_RSA_DER_BYTE_LEN 524
 /* Number of address pairs in control array */
-#define CP_CTRL_EL_ARRAY_SZ	32
+#define CP_CTRL_EL_ARRAY_SZ 32
 
-#define VERSION_STRING		"Marvell(C) doimage utility version 3.3"
+#define VERSION_STRING "Marvell(C) doimage utility version 3.3"
 
 /* A8K definitions */
 
 /* Extension header types */
-#define EXT_TYPE_SECURITY	0x1
-#define EXT_TYPE_BINARY		0x2
+#define EXT_TYPE_SECURITY 0x1
+#define EXT_TYPE_BINARY 0x2
 
-#define MAIN_HDR_MAGIC		0xB105B002
+#define MAIN_HDR_MAGIC 0xB105B002
 
 /* PROLOG alignment considerations:
  *  128B: To allow supporting XMODEM protocol.
@@ -63,98 +63,98 @@
  *  We choose the largest page size, in order to use a single image for all
  *  NAND page sizes.
  */
-#define PROLOG_ALIGNMENT	(8 << 10)
+#define PROLOG_ALIGNMENT (8 << 10)
 
 /* UART argument bitfield */
-#define UART_MODE_UNMODIFIED	0x0
-#define UART_MODE_DISABLE	0x1
-#define UART_MODE_UPDATE	0x2
+#define UART_MODE_UNMODIFIED 0x0
+#define UART_MODE_DISABLE 0x1
+#define UART_MODE_UPDATE 0x2
 
 typedef struct _main_header {
-	uint32_t	magic;			/*  0-3  */
-	uint32_t	prolog_size;		/*  4-7  */
-	uint32_t	prolog_checksum;	/*  8-11 */
-	uint32_t	boot_image_size;	/* 12-15 */
-	uint32_t	boot_image_checksum;	/* 16-19 */
-	uint32_t	rsrvd0;			/* 20-23 */
-	uint32_t	load_addr;		/* 24-27 */
-	uint32_t	exec_addr;		/* 28-31 */
-	uint8_t		uart_cfg;		/*  32   */
-	uint8_t		baudrate;		/*  33   */
-	uint8_t		ext_count;		/*  34   */
-	uint8_t		aux_flags;		/*  35   */
-	uint32_t	io_arg_0;		/* 36-39 */
-	uint32_t	io_arg_1;		/* 40-43 */
-	uint32_t	io_arg_2;		/* 43-47 */
-	uint32_t	io_arg_3;		/* 48-51 */
-	uint32_t	rsrvd1;			/* 52-55 */
-	uint32_t	rsrvd2;			/* 56-59 */
-	uint32_t	rsrvd3;			/* 60-63 */
+	uint32_t magic; /*  0-3  */
+	uint32_t prolog_size; /*  4-7  */
+	uint32_t prolog_checksum; /*  8-11 */
+	uint32_t boot_image_size; /* 12-15 */
+	uint32_t boot_image_checksum; /* 16-19 */
+	uint32_t rsrvd0; /* 20-23 */
+	uint32_t load_addr; /* 24-27 */
+	uint32_t exec_addr; /* 28-31 */
+	uint8_t uart_cfg; /*  32   */
+	uint8_t baudrate; /*  33   */
+	uint8_t ext_count; /*  34   */
+	uint8_t aux_flags; /*  35   */
+	uint32_t io_arg_0; /* 36-39 */
+	uint32_t io_arg_1; /* 40-43 */
+	uint32_t io_arg_2; /* 43-47 */
+	uint32_t io_arg_3; /* 48-51 */
+	uint32_t rsrvd1; /* 52-55 */
+	uint32_t rsrvd2; /* 56-59 */
+	uint32_t rsrvd3; /* 60-63 */
 } header_t;
 
 typedef struct _ext_header {
-	uint8_t		type;
-	uint8_t		offset;
-	uint16_t	reserved;
-	uint32_t	size;
+	uint8_t type;
+	uint8_t offset;
+	uint16_t reserved;
+	uint32_t size;
 } ext_header_t;
 
 typedef struct _sec_entry {
-	uint8_t		kak_key[MAX_RSA_DER_BYTE_LEN];
-	uint32_t	jtag_delay;
-	uint32_t	box_id;
-	uint32_t	flash_id;
-	uint32_t	jtag_en;
-	uint32_t	encrypt_en;
-	uint32_t	efuse_dis;
-	uint8_t		header_sign[RSA_SIGN_BYTE_LEN];
-	uint8_t		image_sign[RSA_SIGN_BYTE_LEN];
-	uint8_t		csk_keys[CSK_ARR_SZ][MAX_RSA_DER_BYTE_LEN];
-	uint8_t		csk_sign[RSA_SIGN_BYTE_LEN];
-	uint32_t	cp_ctrl_arr[CP_CTRL_EL_ARRAY_SZ];
-	uint32_t	cp_efuse_arr[CP_CTRL_EL_ARRAY_SZ];
+	uint8_t kak_key[MAX_RSA_DER_BYTE_LEN];
+	uint32_t jtag_delay;
+	uint32_t box_id;
+	uint32_t flash_id;
+	uint32_t jtag_en;
+	uint32_t encrypt_en;
+	uint32_t efuse_dis;
+	uint8_t header_sign[RSA_SIGN_BYTE_LEN];
+	uint8_t image_sign[RSA_SIGN_BYTE_LEN];
+	uint8_t csk_keys[CSK_ARR_SZ][MAX_RSA_DER_BYTE_LEN];
+	uint8_t csk_sign[RSA_SIGN_BYTE_LEN];
+	uint32_t cp_ctrl_arr[CP_CTRL_EL_ARRAY_SZ];
+	uint32_t cp_efuse_arr[CP_CTRL_EL_ARRAY_SZ];
 } sec_entry_t;
 
 /* A8K definitions end */
 
 /* UART argument bitfield */
-#define UART_MODE_UNMODIFIED	0x0
-#define UART_MODE_DISABLE	0x1
-#define UART_MODE_UPDATE	0x2
+#define UART_MODE_UNMODIFIED 0x0
+#define UART_MODE_DISABLE 0x1
+#define UART_MODE_UPDATE 0x2
 
-#define uart_set_mode(arg, mode)	(arg |= (mode & 0x3))
+#define uart_set_mode(arg, mode) (arg |= (mode & 0x3))
 
 typedef struct _sec_options {
 #ifdef CONFIG_MVEBU_SECURE_BOOT
-	char aes_key_file[MAX_FILENAME+1];
-	char kak_key_file[MAX_FILENAME+1];
-	char csk_key_file[CSK_ARR_SZ][MAX_FILENAME+1];
-	uint32_t	box_id;
-	uint32_t	flash_id;
-	uint32_t	jtag_delay;
-	uint8_t		csk_index;
-	uint8_t		jtag_enable;
-	uint8_t		efuse_disable;
-	uint32_t	cp_ctrl_arr[CP_CTRL_EL_ARRAY_SZ];
-	uint32_t	cp_efuse_arr[CP_CTRL_EL_ARRAY_SZ];
-	mbedtls_pk_context	kak_pk;
-	mbedtls_pk_context	csk_pk[CSK_ARR_SZ];
-	uint8_t		aes_key[AES_KEY_BYTE_LEN];
-	uint8_t		*encrypted_image;
-	uint32_t	enc_image_sz;
+	char aes_key_file[MAX_FILENAME + 1];
+	char kak_key_file[MAX_FILENAME + 1];
+	char csk_key_file[CSK_ARR_SZ][MAX_FILENAME + 1];
+	uint32_t box_id;
+	uint32_t flash_id;
+	uint32_t jtag_delay;
+	uint8_t csk_index;
+	uint8_t jtag_enable;
+	uint8_t efuse_disable;
+	uint32_t cp_ctrl_arr[CP_CTRL_EL_ARRAY_SZ];
+	uint32_t cp_efuse_arr[CP_CTRL_EL_ARRAY_SZ];
+	mbedtls_pk_context kak_pk;
+	mbedtls_pk_context csk_pk[CSK_ARR_SZ];
+	uint8_t aes_key[AES_KEY_BYTE_LEN];
+	uint8_t *encrypted_image;
+	uint32_t enc_image_sz;
 #endif
 } sec_options;
 
 typedef struct _options {
-	char bin_ext_file[MAX_FILENAME+1];
-	char sec_cfg_file[MAX_FILENAME+1];
+	char bin_ext_file[MAX_FILENAME + 1];
+	char sec_cfg_file[MAX_FILENAME + 1];
 	sec_options *sec_opts;
-	uint32_t  load_addr;
-	uint32_t  exec_addr;
-	uint32_t  baudrate;
-	uint8_t	  disable_print;
-	int8_t    key_index; /* For header signatures verification only */
-	uint32_t  nfc_io_args;
+	uint32_t load_addr;
+	uint32_t exec_addr;
+	uint32_t baudrate;
+	uint8_t disable_print;
+	int8_t key_index; /* For header signatures verification only */
+	uint32_t nfc_io_args;
 } options_t;
 
 void usage_err(char *msg)
@@ -262,17 +262,14 @@ uint32_t checksum32(uint32_t *start, int len)
  *          0 on success
  */
 #ifdef CONFIG_MVEBU_SECURE_BOOT
-int create_rsa_signature(mbedtls_pk_context	*pk_ctx,
-			 const unsigned char	*input,
-			 size_t			ilen,
-			 const char		*pers,
-			 uint8_t		*signature)
+int create_rsa_signature(mbedtls_pk_context *pk_ctx, const unsigned char *input,
+			 size_t ilen, const char *pers, uint8_t *signature)
 {
-	mbedtls_entropy_context		entropy;
-	mbedtls_ctr_drbg_context	ctr_drbg;
-	unsigned char			hash[32];
-	unsigned char			buf[MBEDTLS_MPI_MAX_SIZE];
-	int				rval;
+	mbedtls_entropy_context entropy;
+	mbedtls_ctr_drbg_context ctr_drbg;
+	unsigned char hash[32];
+	unsigned char buf[MBEDTLS_MPI_MAX_SIZE];
+	int rval;
 
 	/* Not sure this is required,
 	 * but it's safer to start with empty buffers
@@ -285,7 +282,7 @@ int create_rsa_signature(mbedtls_pk_context	*pk_ctx,
 
 	/* Seed the random number generator */
 	rval = mbedtls_ctr_drbg_seed(&ctr_drbg, mbedtls_entropy_func, &entropy,
-				(const unsigned char *)pers, strlen(pers));
+				     (const unsigned char *)pers, strlen(pers));
 	if (rval != 0) {
 		fprintf(stderr, " Failed in ctr_drbg_init call (%d)!\n", rval);
 		goto sign_exit;
@@ -294,16 +291,15 @@ int create_rsa_signature(mbedtls_pk_context	*pk_ctx,
 	/* The PK context should be already initialized.
 	 * Set the padding type for this PK context
 	 */
-	mbedtls_rsa_set_padding(mbedtls_pk_rsa(*pk_ctx),
-				MBEDTLS_RSA_PKCS_V21, MBEDTLS_MD_SHA256);
+	mbedtls_rsa_set_padding(mbedtls_pk_rsa(*pk_ctx), MBEDTLS_RSA_PKCS_V21,
+				MBEDTLS_MD_SHA256);
 
 	/* First compute the SHA256 hash for the input blob */
 	mbedtls_sha256_ret(input, ilen, hash, 0);
 
 	/* Then calculate the hash signature */
 	rval = mbedtls_rsa_rsassa_pss_sign(mbedtls_pk_rsa(*pk_ctx),
-					   mbedtls_ctr_drbg_random,
-					   &ctr_drbg,
+					   mbedtls_ctr_drbg_random, &ctr_drbg,
 					   MBEDTLS_RSA_PRIVATE,
 					   MBEDTLS_MD_SHA256, 0, hash, buf);
 	if (rval != 0) {
@@ -337,19 +333,16 @@ sign_exit:
  *    RETURN:
  *          0 on success
  */
-int verify_rsa_signature(const unsigned char	*pub_key,
-			 size_t			klen,
-			 const unsigned char	*input,
-			 size_t			ilen,
-			 const char		*pers,
-			 uint8_t		*signature)
+int verify_rsa_signature(const unsigned char *pub_key, size_t klen,
+			 const unsigned char *input, size_t ilen,
+			 const char *pers, uint8_t *signature)
 {
-	mbedtls_entropy_context		entropy;
-	mbedtls_ctr_drbg_context	ctr_drbg;
-	mbedtls_pk_context		pk_ctx;
-	unsigned char			hash[32];
-	int				rval;
-	unsigned char			*pkey = (unsigned char *)pub_key;
+	mbedtls_entropy_context entropy;
+	mbedtls_ctr_drbg_context ctr_drbg;
+	mbedtls_pk_context pk_ctx;
+	unsigned char hash[32];
+	int rval;
+	unsigned char *pkey = (unsigned char *)pub_key;
 
 	/* Not sure this is required,
 	 * but it's safer to start with empty buffer
@@ -362,7 +355,7 @@ int verify_rsa_signature(const unsigned char	*pub_key,
 
 	/* Seed the random number generator */
 	rval = mbedtls_ctr_drbg_seed(&ctr_drbg, mbedtls_entropy_func, &entropy,
-				(const unsigned char *)pers, strlen(pers));
+				     (const unsigned char *)pers, strlen(pers));
 	if (rval != 0) {
 		fprintf(stderr, " Failed in ctr_drbg_init call (%d)!\n", rval);
 		goto verify_exit;
@@ -377,19 +370,15 @@ int verify_rsa_signature(const unsigned char	*pub_key,
 	}
 
 	/* Set the padding type for the new PK context */
-	mbedtls_rsa_set_padding(mbedtls_pk_rsa(pk_ctx),
-				MBEDTLS_RSA_PKCS_V21,
+	mbedtls_rsa_set_padding(mbedtls_pk_rsa(pk_ctx), MBEDTLS_RSA_PKCS_V21,
 				MBEDTLS_MD_SHA256);
 
 	/* Compute the SHA256 hash for the input buffer */
 	mbedtls_sha256_ret(input, ilen, hash, 0);
 
-	rval = mbedtls_rsa_rsassa_pss_verify(mbedtls_pk_rsa(pk_ctx),
-					     mbedtls_ctr_drbg_random,
-					     &ctr_drbg,
-					     MBEDTLS_RSA_PUBLIC,
-					     MBEDTLS_MD_SHA256, 0,
-					     hash, signature);
+	rval = mbedtls_rsa_rsassa_pss_verify(
+		mbedtls_pk_rsa(pk_ctx), mbedtls_ctr_drbg_random, &ctr_drbg,
+		MBEDTLS_RSA_PUBLIC, MBEDTLS_MD_SHA256, 0, hash, signature);
 	if (rval != 0)
 		fprintf(stderr, "Failed to verify signature (%d)!\n", rval);
 
@@ -417,14 +406,14 @@ verify_exit:
  */
 int image_encrypt(uint8_t *buf, uint32_t blen)
 {
-	struct timeval		tv;
-	char			*ptmp = (char *)&tv;
-	unsigned char		digest[32];
-	unsigned char		IV[AES_BLOCK_SZ];
-	int			i, k;
-	mbedtls_aes_context	aes_ctx;
-	int			rval = -1;
-	uint8_t			*test_img = 0;
+	struct timeval tv;
+	char *ptmp = (char *)&tv;
+	unsigned char digest[32];
+	unsigned char IV[AES_BLOCK_SZ];
+	int i, k;
+	mbedtls_aes_context aes_ctx;
+	int rval = -1;
+	uint8_t *test_img = 0;
 
 	if (AES_BLOCK_SZ > 32) {
 		fprintf(stderr, "Unsupported AES block size %d\n",
@@ -446,8 +435,8 @@ int image_encrypt(uint8_t *buf, uint32_t blen)
 	memcpy(IV, opts.sec_opts->aes_key_file, k);
 	gettimeofday(&tv, 0);
 
-	for (i = 0, k = 0; i < AES_BLOCK_SZ; i++,
-	     k = (k+1) % sizeof(struct timeval))
+	for (i = 0, k = 0; i < AES_BLOCK_SZ;
+	     i++, k = (k + 1) % sizeof(struct timeval))
 		IV[i] ^= ptmp[k];
 
 	/* compute SHA-256 digest of the results
@@ -475,12 +464,12 @@ int image_encrypt(uint8_t *buf, uint32_t blen)
 	 * Since the IV is modified by the encryption function,
 	 * this should be done now
 	 */
-	memcpy(opts.sec_opts->encrypted_image +
-		   opts.sec_opts->enc_image_sz - AES_BLOCK_SZ,
-		   IV, AES_BLOCK_SZ);
+	memcpy(opts.sec_opts->encrypted_image + opts.sec_opts->enc_image_sz -
+		       AES_BLOCK_SZ,
+	       IV, AES_BLOCK_SZ);
 	rval = mbedtls_aes_crypt_cbc(&aes_ctx, MBEDTLS_AES_ENCRYPT,
-			     opts.sec_opts->enc_image_sz - AES_BLOCK_SZ,
-			     IV, buf, opts.sec_opts->encrypted_image);
+				     opts.sec_opts->enc_image_sz - AES_BLOCK_SZ,
+				     IV, buf, opts.sec_opts->encrypted_image);
 	if (rval != 0) {
 		fprintf(stderr, "Failed to encrypt the image! Error %d\n",
 			rval);
@@ -501,12 +490,14 @@ int image_encrypt(uint8_t *buf, uint32_t blen)
 		goto encrypt_exit;
 	}
 
-	memcpy(IV, opts.sec_opts->encrypted_image +
-		   opts.sec_opts->enc_image_sz - AES_BLOCK_SZ,
-		   AES_BLOCK_SZ);
+	memcpy(IV,
+	       opts.sec_opts->encrypted_image + opts.sec_opts->enc_image_sz -
+		       AES_BLOCK_SZ,
+	       AES_BLOCK_SZ);
 	rval = mbedtls_aes_crypt_cbc(&aes_ctx, MBEDTLS_AES_DECRYPT,
-			     opts.sec_opts->enc_image_sz - AES_BLOCK_SZ,
-			     IV, opts.sec_opts->encrypted_image, test_img);
+				     opts.sec_opts->enc_image_sz - AES_BLOCK_SZ,
+				     IV, opts.sec_opts->encrypted_image,
+				     test_img);
 	if (rval != 0) {
 		fprintf(stderr, "Failed to decrypt the image! Error %d\n",
 			rval);
@@ -544,9 +535,9 @@ encrypt_exit:
  */
 int verify_secure_header_signatures(header_t *main_hdr, sec_entry_t *sec_ext)
 {
-	uint8_t	*image = (uint8_t *)main_hdr + main_hdr->prolog_size;
-	uint8_t	signature[RSA_SIGN_BYTE_LEN];
-	int		rval = -1;
+	uint8_t *image = (uint8_t *)main_hdr + main_hdr->prolog_size;
+	uint8_t signature[RSA_SIGN_BYTE_LEN];
+	int rval = -1;
 
 	/* Save headers signature and reset it in the secure header */
 	memcpy(signature, sec_ext->header_sign, RSA_SIGN_BYTE_LEN);
@@ -555,12 +546,10 @@ int verify_secure_header_signatures(header_t *main_hdr, sec_entry_t *sec_ext)
 	fprintf(stdout, "\nCheck RSA Signatures\n");
 	fprintf(stdout, "#########################\n");
 	fprintf(stdout, "CSK Block Signature: ");
-	if (verify_rsa_signature(sec_ext->kak_key,
-				 MAX_RSA_DER_BYTE_LEN,
-				 &sec_ext->csk_keys[0][0],
-				 sizeof(sec_ext->csk_keys),
-				 "CSK Block Signature: ",
-				 sec_ext->csk_sign) != 0) {
+	if (verify_rsa_signature(
+		    sec_ext->kak_key, MAX_RSA_DER_BYTE_LEN,
+		    &sec_ext->csk_keys[0][0], sizeof(sec_ext->csk_keys),
+		    "CSK Block Signature: ", sec_ext->csk_sign) != 0) {
 		fprintf(stdout, "ERROR\n");
 		goto ver_error;
 	}
@@ -568,23 +557,22 @@ int verify_secure_header_signatures(header_t *main_hdr, sec_entry_t *sec_ext)
 
 	if (opts.key_index != -1) {
 		fprintf(stdout, "Image Signature:     ");
-		if (verify_rsa_signature(sec_ext->csk_keys[opts.key_index],
-					 MAX_RSA_DER_BYTE_LEN,
-					 image, main_hdr->boot_image_size,
-					 "Image Signature: ",
-					 sec_ext->image_sign) != 0) {
+		if (verify_rsa_signature(
+			    sec_ext->csk_keys[opts.key_index],
+			    MAX_RSA_DER_BYTE_LEN, image,
+			    main_hdr->boot_image_size,
+			    "Image Signature: ", sec_ext->image_sign) != 0) {
 			fprintf(stdout, "ERROR\n");
 			goto ver_error;
 		}
 		fprintf(stdout, "OK\n");
 
 		fprintf(stdout, "Header Signature:    ");
-		if (verify_rsa_signature(sec_ext->csk_keys[opts.key_index],
-					 MAX_RSA_DER_BYTE_LEN,
-					 (uint8_t *)main_hdr,
-					 main_hdr->prolog_size,
-					 "Header Signature: ",
-					 signature) != 0) {
+		if (verify_rsa_signature(
+			    sec_ext->csk_keys[opts.key_index],
+			    MAX_RSA_DER_BYTE_LEN, (uint8_t *)main_hdr,
+			    main_hdr->prolog_size,
+			    "Header Signature: ", signature) != 0) {
 			fprintf(stdout, "ERROR\n");
 			goto ver_error;
 		}
@@ -645,19 +633,19 @@ int verify_and_copy_file_name_entry(const char *element_name,
  */
 int parse_sec_config_file(char *filename)
 {
-	config_t		sec_cfg;
-	int			array_sz, element, rval = -1;
-	const char		*cfg_string;
-	int32_t			cfg_int32;
-	const config_setting_t	*csk_array, *control_array;
-	sec_options		*sec_opt = 0;
+	config_t sec_cfg;
+	int array_sz, element, rval = -1;
+	const char *cfg_string;
+	int32_t cfg_int32;
+	const config_setting_t *csk_array, *control_array;
+	sec_options *sec_opt = 0;
 
 	config_init(&sec_cfg);
 
 	if (config_read_file(&sec_cfg, filename) != CONFIG_TRUE) {
 		fprintf(stderr, "Failed to read data from config file ");
-		fprintf(stderr, "%s\n\t%s at line %d\n",
-			filename, config_error_text(&sec_cfg),
+		fprintf(stderr, "%s\n\t%s at line %d\n", filename,
+			config_error_text(&sec_cfg),
 			config_error_line(&sec_cfg));
 		goto exit_parse;
 	}
@@ -670,21 +658,19 @@ int parse_sec_config_file(char *filename)
 	}
 
 	/* KAK file name */
-	if (config_lookup_string(&sec_cfg, "kak_key_file",
-				 &cfg_string) != CONFIG_TRUE) {
+	if (config_lookup_string(&sec_cfg, "kak_key_file", &cfg_string) !=
+	    CONFIG_TRUE) {
 		fprintf(stderr, "The \"kak_key_file\" undefined!\n");
 		goto exit_parse;
 	}
-	if (verify_and_copy_file_name_entry("kak_key_file",
-					    cfg_string, sec_opt->kak_key_file))
+	if (verify_and_copy_file_name_entry("kak_key_file", cfg_string,
+					    sec_opt->kak_key_file))
 		goto exit_parse;
 
-
 	/* AES file name - can be empty/undefined */
-	if (config_lookup_string(&sec_cfg, "aes_key_file",
-				 &cfg_string) == CONFIG_TRUE) {
-		if (verify_and_copy_file_name_entry("aes_key_file",
-						    cfg_string,
+	if (config_lookup_string(&sec_cfg, "aes_key_file", &cfg_string) ==
+	    CONFIG_TRUE) {
+		if (verify_and_copy_file_name_entry("aes_key_file", cfg_string,
 						    sec_opt->aes_key_file))
 			goto exit_parse;
 	}
@@ -709,8 +695,8 @@ int parse_sec_config_file(char *filename)
 	for (element = 0; element < array_sz; element++) {
 		cfg_string = config_setting_get_string_elem(csk_array, element);
 		if (verify_and_copy_file_name_entry(
-				"csk_key_file", cfg_string,
-				sec_opt->csk_key_file[element])) {
+			    "csk_key_file", cfg_string,
+			    sec_opt->csk_key_file[element])) {
 			fprintf(stderr, "Bad csk_key_file[%d] entry!\n",
 				element);
 			goto exit_parse;
@@ -718,16 +704,16 @@ int parse_sec_config_file(char *filename)
 	}
 
 	/* JTAG options */
-	if (config_lookup_bool(&sec_cfg, "jtag.enable",
-			       &cfg_int32) != CONFIG_TRUE) {
+	if (config_lookup_bool(&sec_cfg, "jtag.enable", &cfg_int32) !=
+	    CONFIG_TRUE) {
 		fprintf(stderr, "Error obtaining \"jtag.enable\" element. ");
 		fprintf(stderr, "Using default - FALSE\n");
 		cfg_int32 = 0;
 	}
 	sec_opt->jtag_enable = cfg_int32;
 
-	if (config_lookup_int(&sec_cfg, "jtag.delay",
-			      &cfg_int32) != CONFIG_TRUE) {
+	if (config_lookup_int(&sec_cfg, "jtag.delay", &cfg_int32) !=
+	    CONFIG_TRUE) {
 		fprintf(stderr, "Error obtaining \"jtag.delay\" element. ");
 		fprintf(stderr, "Using default - 0us\n");
 		cfg_int32 = 0;
@@ -735,8 +721,8 @@ int parse_sec_config_file(char *filename)
 	sec_opt->jtag_delay = cfg_int32;
 
 	/* eFUSE option */
-	if (config_lookup_bool(&sec_cfg, "efuse_disable",
-			       &cfg_int32) != CONFIG_TRUE) {
+	if (config_lookup_bool(&sec_cfg, "efuse_disable", &cfg_int32) !=
+	    CONFIG_TRUE) {
 		fprintf(stderr, "Error obtaining \"efuse_disable\" element. ");
 		fprintf(stderr, "Using default - TRUE\n");
 		cfg_int32 = 1;
@@ -752,8 +738,8 @@ int parse_sec_config_file(char *filename)
 	sec_opt->box_id = cfg_int32;
 
 	/* Flash ID option */
-	if (config_lookup_int(&sec_cfg, "flash_id",
-			      &cfg_int32) != CONFIG_TRUE) {
+	if (config_lookup_int(&sec_cfg, "flash_id", &cfg_int32) !=
+	    CONFIG_TRUE) {
 		fprintf(stderr, "Error obtaining \"flash_id\" element. ");
 		fprintf(stderr, "Using default - 0x0\n");
 		cfg_int32 = 0;
@@ -761,8 +747,8 @@ int parse_sec_config_file(char *filename)
 	sec_opt->flash_id = cfg_int32;
 
 	/* CSK index option */
-	if (config_lookup_int(&sec_cfg, "csk_key_index",
-			      &cfg_int32) != CONFIG_TRUE) {
+	if (config_lookup_int(&sec_cfg, "csk_key_index", &cfg_int32) !=
+	    CONFIG_TRUE) {
 		fprintf(stderr, "Error obtaining \"flash_id\" element. ");
 		fprintf(stderr, "Using default - 0x0\n");
 		cfg_int32 = 0;
@@ -783,9 +769,8 @@ int parse_sec_config_file(char *filename)
 	for (element = 0; element < CP_CTRL_EL_ARRAY_SZ; element++) {
 		sec_opt->cp_ctrl_arr[element] =
 			config_setting_get_int_elem(control_array, element * 2);
-		sec_opt->cp_efuse_arr[element] =
-			config_setting_get_int_elem(control_array,
-						    element * 2 + 1);
+		sec_opt->cp_efuse_arr[element] = config_setting_get_int_elem(
+			control_array, element * 2 + 1);
 	}
 
 	opts.sec_opts = sec_opt;
@@ -800,17 +785,17 @@ exit_parse:
 
 int format_sec_ext(char *filename, FILE *out_fd)
 {
-	ext_header_t	header;
-	sec_entry_t	sec_ext;
-	int		index;
-	int		written;
+	ext_header_t header;
+	sec_entry_t sec_ext;
+	int index;
+	int written;
 
-#define DER_BUF_SZ	1600
+#define DER_BUF_SZ 1600
 
 	/* First, parse the configuration file */
 	if (parse_sec_config_file(filename)) {
-		fprintf(stderr,
-			"failed parsing configuration file %s\n", filename);
+		fprintf(stderr, "failed parsing configuration file %s\n",
+			filename);
 		return 1;
 	}
 
@@ -823,18 +808,18 @@ int format_sec_ext(char *filename, FILE *out_fd)
 	/* Bring up RSA context and read private keys from their files */
 	for (index = 0; index < (CSK_ARR_SZ + 1); index++) {
 		/* for every private key file */
-		mbedtls_pk_context	*pk_ctx = (index == CSK_ARR_SZ) ?
-					&opts.sec_opts->kak_pk :
-					&opts.sec_opts->csk_pk[index];
-		char		*fname = (index == CSK_ARR_SZ) ?
-					opts.sec_opts->kak_key_file :
-					opts.sec_opts->csk_key_file[index];
-		uint8_t		*out_der_key = (index == CSK_ARR_SZ) ?
-					sec_ext.kak_key :
-					sec_ext.csk_keys[index];
-		size_t		output_len;
-		unsigned char	output_buf[DER_BUF_SZ];
-		unsigned char	*der_buf_start;
+		mbedtls_pk_context *pk_ctx =
+			(index == CSK_ARR_SZ) ? &opts.sec_opts->kak_pk :
+						&opts.sec_opts->csk_pk[index];
+		char *fname = (index == CSK_ARR_SZ) ?
+				      opts.sec_opts->kak_key_file :
+				      opts.sec_opts->csk_key_file[index];
+		uint8_t *out_der_key = (index == CSK_ARR_SZ) ?
+					       sec_ext.kak_key :
+					       sec_ext.csk_keys[index];
+		size_t output_len;
+		unsigned char output_buf[DER_BUF_SZ];
+		unsigned char *der_buf_start;
 
 		/* Handle invalid/reserved file names */
 		if (strncmp(CSK_ARR_EMPTY_FILE, fname,
@@ -858,16 +843,15 @@ int format_sec_ext(char *filename, FILE *out_fd)
 		 * and verify it (no password)
 		 */
 		if (mbedtls_pk_parse_keyfile(pk_ctx, fname, "") != 0) {
-			fprintf(stderr,
-				"Cannot read RSA private key file %s\n", fname);
+			fprintf(stderr, "Cannot read RSA private key file %s\n",
+				fname);
 			return 1;
 		}
 
 		/* Create a public key out of private one
 		 * and store it in DER format
 		 */
-		output_len = mbedtls_pk_write_pubkey_der(pk_ctx,
-							 output_buf,
+		output_len = mbedtls_pk_write_pubkey_der(pk_ctx, output_buf,
 							 DER_BUF_SZ);
 		if (output_len < 0) {
 			fprintf(stderr,
@@ -887,30 +871,27 @@ int format_sec_ext(char *filename, FILE *out_fd)
 	} /* for every private key file */
 
 	/* The CSK block signature can be created here */
-	if (create_rsa_signature(&opts.sec_opts->kak_pk,
-				 &sec_ext.csk_keys[0][0],
-				 sizeof(sec_ext.csk_keys),
-				 opts.sec_opts->csk_key_file[
-					 opts.sec_opts->csk_index],
-				 sec_ext.csk_sign) != 0) {
+	if (create_rsa_signature(
+		    &opts.sec_opts->kak_pk, &sec_ext.csk_keys[0][0],
+		    sizeof(sec_ext.csk_keys),
+		    opts.sec_opts->csk_key_file[opts.sec_opts->csk_index],
+		    sec_ext.csk_sign) != 0) {
 		fprintf(stderr, "Failed to sign CSK keys block!\n");
 		return 1;
 	}
 
 	/* Check that everything is correct */
-	if (verify_rsa_signature(sec_ext.kak_key,
-				 MAX_RSA_DER_BYTE_LEN,
-				 &sec_ext.csk_keys[0][0],
-				 sizeof(sec_ext.csk_keys),
-				 opts.sec_opts->kak_key_file,
-				 sec_ext.csk_sign) != 0) {
+	if (verify_rsa_signature(
+		    sec_ext.kak_key, MAX_RSA_DER_BYTE_LEN,
+		    &sec_ext.csk_keys[0][0], sizeof(sec_ext.csk_keys),
+		    opts.sec_opts->kak_key_file, sec_ext.csk_sign) != 0) {
 		fprintf(stderr, "Failed to verify CSK keys block signature!\n");
 		return 1;
 	}
 
 	/* AES encryption stuff */
 	if (strlen(opts.sec_opts->aes_key_file) != 0) {
-		FILE		*in_fd;
+		FILE *in_fd;
 
 		in_fd = fopen(opts.sec_opts->aes_key_file, "rb");
 		if (in_fd == NULL) {
@@ -922,12 +903,11 @@ int format_sec_ext(char *filename, FILE *out_fd)
 		/* Read the AES key in ASCII format byte by byte */
 		for (index = 0; index < AES_KEY_BYTE_LEN; index++) {
 			if (fscanf(in_fd, "%02hhx",
-			    opts.sec_opts->aes_key + index) != 1) {
+				   opts.sec_opts->aes_key + index) != 1) {
 				fprintf(stderr,
 					"Failed to read AES key byte %d ",
 					index);
-				fprintf(stderr,
-					"from file %s\n",
+				fprintf(stderr, "from file %s\n",
 					opts.sec_opts->aes_key_file);
 				fclose(in_fd);
 				return 1;
@@ -940,17 +920,15 @@ int format_sec_ext(char *filename, FILE *out_fd)
 	}
 
 	/* Fill the rest of the trusted boot extension fields */
-	sec_ext.box_id		= opts.sec_opts->box_id;
-	sec_ext.flash_id	= opts.sec_opts->flash_id;
-	sec_ext.efuse_dis	= opts.sec_opts->efuse_disable;
-	sec_ext.jtag_delay	= opts.sec_opts->jtag_delay;
-	sec_ext.jtag_en		= opts.sec_opts->jtag_enable;
+	sec_ext.box_id = opts.sec_opts->box_id;
+	sec_ext.flash_id = opts.sec_opts->flash_id;
+	sec_ext.efuse_dis = opts.sec_opts->efuse_disable;
+	sec_ext.jtag_delay = opts.sec_opts->jtag_delay;
+	sec_ext.jtag_en = opts.sec_opts->jtag_enable;
 
-	memcpy(sec_ext.cp_ctrl_arr,
-	       opts.sec_opts->cp_ctrl_arr,
+	memcpy(sec_ext.cp_ctrl_arr, opts.sec_opts->cp_ctrl_arr,
 	       sizeof(uint32_t) * CP_CTRL_EL_ARRAY_SZ);
-	memcpy(sec_ext.cp_efuse_arr,
-	       opts.sec_opts->cp_efuse_arr,
+	memcpy(sec_ext.cp_efuse_arr, opts.sec_opts->cp_efuse_arr,
 	       sizeof(uint32_t) * CP_CTRL_EL_ARRAY_SZ);
 
 	/* Write the resulting extension to file
@@ -991,15 +969,15 @@ int format_sec_ext(char *filename, FILE *out_fd)
  *    RETURN:
  *          0 on success
  */
-int finalize_secure_ext(header_t *header,
-			uint8_t *prolog_buf, uint32_t prolog_size,
-			uint8_t *image_buf, int image_size)
+int finalize_secure_ext(header_t *header, uint8_t *prolog_buf,
+			uint32_t prolog_size, uint8_t *image_buf,
+			int image_size)
 {
-	int		cur_ext, offset;
-	uint8_t		*final_image = image_buf;
-	uint32_t	final_image_sz = image_size;
-	uint8_t		hdr_sign[RSA_SIGN_BYTE_LEN];
-	sec_entry_t	*sec_ext = 0;
+	int cur_ext, offset;
+	uint8_t *final_image = image_buf;
+	uint32_t final_image_sz = image_size;
+	uint8_t hdr_sign[RSA_SIGN_BYTE_LEN];
+	sec_entry_t *sec_ext = 0;
 
 	/* Find the Trusted Boot Header between available extensions */
 	for (cur_ext = 0, offset = sizeof(header_t);
@@ -1008,7 +986,8 @@ int finalize_secure_ext(header_t *header,
 
 		if (ext_hdr->type == EXT_TYPE_SECURITY) {
 			sec_ext = (sec_entry_t *)(prolog_buf + offset +
-				   sizeof(ext_header_t) + ext_hdr->offset);
+						  sizeof(ext_header_t) +
+						  ext_hdr->offset);
 			break;
 		}
 
@@ -1047,22 +1026,20 @@ int finalize_secure_ext(header_t *header,
 	/* Create the image signature first, since it will be later
 	 * signed along with the header signature
 	 */
-	if (create_rsa_signature(&opts.sec_opts->csk_pk[
-					opts.sec_opts->csk_index],
-				 final_image, final_image_sz,
-				 opts.sec_opts->csk_key_file[
-					opts.sec_opts->csk_index],
-				 sec_ext->image_sign) != 0) {
+	if (create_rsa_signature(
+		    &opts.sec_opts->csk_pk[opts.sec_opts->csk_index],
+		    final_image, final_image_sz,
+		    opts.sec_opts->csk_key_file[opts.sec_opts->csk_index],
+		    sec_ext->image_sign) != 0) {
 		fprintf(stderr, "Failed to sign image!\n");
 		return -1;
 	}
 	/* Check that the image signature is correct */
-	if (verify_rsa_signature(sec_ext->csk_keys[opts.sec_opts->csk_index],
-				 MAX_RSA_DER_BYTE_LEN,
-				 final_image, final_image_sz,
-				 opts.sec_opts->csk_key_file[
-					 opts.sec_opts->csk_index],
-				 sec_ext->image_sign) != 0) {
+	if (verify_rsa_signature(
+		    sec_ext->csk_keys[opts.sec_opts->csk_index],
+		    MAX_RSA_DER_BYTE_LEN, final_image, final_image_sz,
+		    opts.sec_opts->csk_key_file[opts.sec_opts->csk_index],
+		    sec_ext->image_sign) != 0) {
 		fprintf(stderr, "Failed to verify image signature!\n");
 		return -1;
 	}
@@ -1070,22 +1047,20 @@ int finalize_secure_ext(header_t *header,
 	/* Sign the headers and all the extensions block
 	 * when the header signature field is empty
 	 */
-	if (create_rsa_signature(&opts.sec_opts->csk_pk[
-					 opts.sec_opts->csk_index],
-				 prolog_buf, prolog_size,
-				 opts.sec_opts->csk_key_file[
-					 opts.sec_opts->csk_index],
-				 hdr_sign) != 0) {
+	if (create_rsa_signature(
+		    &opts.sec_opts->csk_pk[opts.sec_opts->csk_index],
+		    prolog_buf, prolog_size,
+		    opts.sec_opts->csk_key_file[opts.sec_opts->csk_index],
+		    hdr_sign) != 0) {
 		fprintf(stderr, "Failed to sign header!\n");
 		return -1;
 	}
 	/* Check that the header signature is correct */
-	if (verify_rsa_signature(sec_ext->csk_keys[opts.sec_opts->csk_index],
-				 MAX_RSA_DER_BYTE_LEN,
-				 prolog_buf, prolog_size,
-				 opts.sec_opts->csk_key_file[
-					 opts.sec_opts->csk_index],
-				 hdr_sign) != 0) {
+	if (verify_rsa_signature(
+		    sec_ext->csk_keys[opts.sec_opts->csk_index],
+		    MAX_RSA_DER_BYTE_LEN, prolog_buf, prolog_size,
+		    opts.sec_opts->csk_key_file[opts.sec_opts->csk_index],
+		    hdr_sign) != 0) {
 		fprintf(stderr, "Failed to verify header signature!\n");
 		return -1;
 	}
@@ -1098,17 +1073,16 @@ int finalize_secure_ext(header_t *header,
 
 #endif /* CONFIG_MVEBU_SECURE_BOOT */
 
+#define FMT_HEX 0
+#define FMT_DEC 1
+#define FMT_BIN 2
+#define FMT_NONE 3
 
-#define FMT_HEX		0
-#define FMT_DEC		1
-#define FMT_BIN		2
-#define FMT_NONE	3
-
-void do_print_field(unsigned int value, char *name,
-		    int start, int size, int format)
+void do_print_field(unsigned int value, char *name, int start, int size,
+		    int format)
 {
-	fprintf(stdout, "[0x%05x : 0x%05x]  %-26s",
-		start, start + size - 1, name);
+	fprintf(stdout, "[0x%05x : 0x%05x]  %-26s", start, start + size - 1,
+		name);
 
 	switch (format) {
 	case FMT_HEX:
@@ -1123,9 +1097,9 @@ void do_print_field(unsigned int value, char *name,
 	}
 }
 
-#define print_field(st, type, field, hex, base) \
-			do_print_field((int)st->field, #field, \
-			base + offsetof(type, field), sizeof(st->field), hex)
+#define print_field(st, type, field, hex, base)                              \
+	do_print_field((int)st->field, #field, base + offsetof(type, field), \
+		       sizeof(st->field), hex)
 
 int print_header(uint8_t *buf, int base)
 {
@@ -1169,8 +1143,8 @@ int print_ext_hdr(ext_header_t *ext_hdr, int base)
 
 void print_sec_ext(ext_header_t *ext_hdr, int base)
 {
-	sec_entry_t	*sec_entry;
-	uint32_t	new_base;
+	sec_entry_t *sec_entry;
+	uint32_t new_base;
 
 	fprintf(stdout, "\n########### Secure extension ###########\n");
 
@@ -1186,21 +1160,20 @@ void print_sec_ext(ext_header_t *ext_hdr, int base)
 	print_field(sec_entry, sec_entry_t, encrypt_en, FMT_DEC, base);
 	print_field(sec_entry, sec_entry_t, efuse_dis, FMT_DEC, base);
 	new_base += 6 * sizeof(uint32_t);
-	do_print_field(0, "header signature",
-		       new_base, RSA_SIGN_BYTE_LEN, FMT_NONE);
+	do_print_field(0, "header signature", new_base, RSA_SIGN_BYTE_LEN,
+		       FMT_NONE);
 	new_base += RSA_SIGN_BYTE_LEN;
-	do_print_field(0, "image signature",
-		       new_base, RSA_SIGN_BYTE_LEN, FMT_NONE);
+	do_print_field(0, "image signature", new_base, RSA_SIGN_BYTE_LEN,
+		       FMT_NONE);
 	new_base += RSA_SIGN_BYTE_LEN;
 	do_print_field(0, "CSK keys", new_base,
 		       CSK_ARR_SZ * MAX_RSA_DER_BYTE_LEN, FMT_NONE);
 	new_base += CSK_ARR_SZ * MAX_RSA_DER_BYTE_LEN;
-	do_print_field(0, "CSK block signature",
-		       new_base, RSA_SIGN_BYTE_LEN, FMT_NONE);
+	do_print_field(0, "CSK block signature", new_base, RSA_SIGN_BYTE_LEN,
+		       FMT_NONE);
 	new_base += RSA_SIGN_BYTE_LEN;
-	do_print_field(0, "control", new_base,
-		       CP_CTRL_EL_ARRAY_SZ * 2, FMT_NONE);
-
+	do_print_field(0, "control", new_base, CP_CTRL_EL_ARRAY_SZ * 2,
+		       FMT_NONE);
 }
 
 void print_bin_ext(ext_header_t *ext_hdr, int base)
@@ -1224,7 +1197,7 @@ int print_extension(void *buf, int base, int count, int ext_size)
 
 		curr_size = sizeof(ext_header_t) + ext_hdr->size;
 		base += curr_size;
-		pad  -= curr_size;
+		pad -= curr_size;
 		ext_hdr = (ext_header_t *)((uintptr_t)ext_hdr + curr_size);
 	}
 
@@ -1241,22 +1214,20 @@ int parse_image(uint8_t *buf, int size)
 	header_t *main_hdr;
 	uint32_t checksum, prolog_checksum;
 
-
 	fprintf(stdout,
 		"################### Prolog Start ######################\n\n");
 	main_hdr = (header_t *)buf;
 	base += print_header(buf, base);
 
 	if (main_hdr->ext_count)
-		base += print_extension(buf + base, base,
-					main_hdr->ext_count,
+		base += print_extension(buf + base, base, main_hdr->ext_count,
 					main_hdr->prolog_size -
-					sizeof(header_t));
+						sizeof(header_t));
 
 	if (base < main_hdr->prolog_size) {
 		fprintf(stdout, "\n########### Padding ##############\n");
-		do_print_field(0, "prolog padding",
-			       base, main_hdr->prolog_size - base, FMT_HEX);
+		do_print_field(0, "prolog padding", base,
+			       main_hdr->prolog_size - base, FMT_HEX);
 		base = main_hdr->prolog_size;
 	}
 	fprintf(stdout,
@@ -1312,18 +1283,18 @@ int parse_image(uint8_t *buf, int size)
 #ifdef CONFIG_MVEBU_SECURE_BOOT
 	/* RSA signatures */
 	if (main_hdr->ext_count) {
-		uint8_t		ext_num = main_hdr->ext_count;
-		ext_header_t	*ext_hdr = (ext_header_t *)(main_hdr + 1);
-		unsigned char	hash[32];
-		int		i;
+		uint8_t ext_num = main_hdr->ext_count;
+		ext_header_t *ext_hdr = (ext_header_t *)(main_hdr + 1);
+		unsigned char hash[32];
+		int i;
 
 		while (ext_num--) {
 			if (ext_hdr->type == EXT_TYPE_SECURITY) {
-				sec_entry_t  *sec_entry =
-						(sec_entry_t *)(ext_hdr + 1);
+				sec_entry_t *sec_entry =
+					(sec_entry_t *)(ext_hdr + 1);
 
 				ret = verify_secure_header_signatures(
-							main_hdr, sec_entry);
+					main_hdr, sec_entry);
 				if (ret != 0) {
 					fprintf(stderr,
 						"\n****** FAILED TO VERIFY ");
@@ -1333,7 +1304,8 @@ int parse_image(uint8_t *buf, int size)
 				}
 
 				mbedtls_sha256_ret(sec_entry->kak_key,
-					       MAX_RSA_DER_BYTE_LEN, hash, 0);
+						   MAX_RSA_DER_BYTE_LEN, hash,
+						   0);
 				fprintf(stdout,
 					">>>>>>>>>> KAK KEY HASH >>>>>>>>>>\n");
 				fprintf(stdout, "SHA256: ");
@@ -1345,9 +1317,8 @@ int parse_image(uint8_t *buf, int size)
 
 				break;
 			}
-			ext_hdr =
-				(ext_header_t *)((uint8_t *)(ext_hdr + 1) +
-				 ext_hdr->size);
+			ext_hdr = (ext_header_t *)((uint8_t *)(ext_hdr + 1) +
+						   ext_hdr->size);
 		}
 	}
 #endif
@@ -1380,7 +1351,7 @@ int format_bin_ext(char *filename, FILE *out_fd)
 
 	/* Align extension size to 8 bytes */
 	aligned_size = (size + 7) & (~7);
-	pad_bytes    = aligned_size - size;
+	pad_bytes = aligned_size - size;
 
 	header.type = EXT_TYPE_BINARY;
 	header.offset = 0;
@@ -1467,10 +1438,10 @@ void update_uart(header_t *header)
  *
  * ****************************************/
 
-int write_prolog(int ext_cnt, char *ext_filename,
-		 uint8_t *image_buf, int image_size, FILE *out_fd)
+int write_prolog(int ext_cnt, char *ext_filename, uint8_t *image_buf,
+		 int image_size, FILE *out_fd)
 {
-	header_t		*header;
+	header_t *header;
 	int main_hdr_size = sizeof(header_t);
 	int prolog_size = main_hdr_size;
 	FILE *ext_fd;
@@ -1478,12 +1449,11 @@ int write_prolog(int ext_cnt, char *ext_filename,
 	int written, read;
 	int ret = 1;
 
-
 	if (ext_cnt)
-		prolog_size +=  get_file_size(ext_filename);
+		prolog_size += get_file_size(ext_filename);
 
-	prolog_size = ((prolog_size + PROLOG_ALIGNMENT) &
-		     (~(PROLOG_ALIGNMENT-1)));
+	prolog_size =
+		((prolog_size + PROLOG_ALIGNMENT) & (~(PROLOG_ALIGNMENT - 1)));
 
 	/* Allocate a zeroed buffer to zero the padding bytes */
 	buf = calloc(prolog_size, 1);
@@ -1493,16 +1463,16 @@ int write_prolog(int ext_cnt, char *ext_filename,
 	}
 
 	header = (header_t *)buf;
-	header->magic       = MAIN_HDR_MAGIC;
+	header->magic = MAIN_HDR_MAGIC;
 	header->prolog_size = prolog_size;
-	header->load_addr   = opts.load_addr;
-	header->exec_addr   = opts.exec_addr;
-	header->io_arg_0    = opts.nfc_io_args;
-	header->ext_count   = ext_cnt;
-	header->aux_flags   = 0;
+	header->load_addr = opts.load_addr;
+	header->exec_addr = opts.exec_addr;
+	header->io_arg_0 = opts.nfc_io_args;
+	header->ext_count = ext_cnt;
+	header->aux_flags = 0;
 	header->boot_image_size = (image_size + 3) & (~0x3);
-	header->boot_image_checksum = checksum32((uint32_t *)image_buf,
-						 image_size);
+	header->boot_image_checksum =
+		checksum32((uint32_t *)image_buf, image_size);
 
 	update_uart(header);
 
@@ -1515,8 +1485,8 @@ int write_prolog(int ext_cnt, char *ext_filename,
 			goto error;
 		}
 
-		read = fread(&buf[main_hdr_size],
-			     get_file_size(ext_filename), 1, ext_fd);
+		read = fread(&buf[main_hdr_size], get_file_size(ext_filename),
+			     1, ext_fd);
 		if (read != 1) {
 			fprintf(stderr,
 				"Error: failed to open extensions file\n");
@@ -1573,9 +1543,9 @@ error:
 
 int main(int argc, char *argv[])
 {
-	char in_file[MAX_FILENAME+1] = { 0 };
-	char out_file[MAX_FILENAME+1] = { 0 };
-	char ext_file[MAX_FILENAME+1] = { 0 };
+	char in_file[MAX_FILENAME + 1] = { 0 };
+	char out_file[MAX_FILENAME + 1] = { 0 };
+	char ext_file[MAX_FILENAME + 1] = { 0 };
 	FILE *in_fd = NULL;
 	FILE *out_fd = NULL;
 	int parse = 0;
@@ -1681,9 +1651,9 @@ int main(int argc, char *argv[])
 	/* Read the input file to buffer
 	 * Always align the image to 16 byte boundary
 	 */
-	file_size  = get_file_size(in_file);
+	file_size = get_file_size(in_file);
 	image_size = (file_size + AES_BLOCK_SZ - 1) & ~(AES_BLOCK_SZ - 1);
-	image_buf  = calloc(image_size, 1);
+	image_buf = calloc(image_size, 1);
 	if (image_buf == NULL) {
 		fprintf(stderr, "Error: failed allocating input buffer\n");
 		return 1;
@@ -1716,8 +1686,8 @@ int main(int argc, char *argv[])
 
 	out_fd = fopen(out_file, "wb");
 	if (out_fd == NULL) {
-		fprintf(stderr,
-			"Error: Failed to open output file %s\n", out_file);
+		fprintf(stderr, "Error: Failed to open output file %s\n",
+			out_file);
 		goto main_exit;
 	}
 

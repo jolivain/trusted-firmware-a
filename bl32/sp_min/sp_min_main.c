@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,8 +8,6 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <string.h>
-
-#include <platform_def.h>
 
 #include <arch.h>
 #include <arch_helpers.h>
@@ -23,16 +21,18 @@
 #include <lib/psci/psci.h>
 #include <lib/runtime_instr.h>
 #include <lib/utils.h>
-#include <plat/common/platform.h>
 #include <platform_sp_min.h>
 #include <services/std_svc.h>
 #include <smccc_helpers.h>
 
+#include <plat/common/platform.h>
+#include <platform_def.h>
+
 #include "sp_min_private.h"
 
 #if ENABLE_RUNTIME_INSTRUMENTATION
-PMF_REGISTER_SERVICE_SMC(rt_instr_svc, PMF_RT_INSTR_SVC_ID,
-	RT_INSTR_TOTAL_IDS, PMF_STORE_ENABLE)
+PMF_REGISTER_SERVICE_SMC(rt_instr_svc, PMF_RT_INSTR_SVC_ID, RT_INSTR_TOTAL_IDS,
+			 PMF_STORE_ENABLE)
 #endif
 
 /* Pointers to per-core cpu contexts */
@@ -88,8 +88,7 @@ void cm_set_context(void *context, uint32_t security_state)
  * specified security state. NULL is returned if no such structure has been
  * specified.
  ******************************************************************************/
-void *cm_get_context_by_index(unsigned int cpu_idx,
-				unsigned int security_state)
+void *cm_get_context_by_index(unsigned int cpu_idx, unsigned int security_state)
 {
 	assert(security_state == NON_SECURE);
 	return sp_min_cpu_ctx_ptr[cpu_idx];
@@ -100,14 +99,14 @@ void *cm_get_context_by_index(unsigned int cpu_idx,
  * specified security state for the CPU identified by CPU index.
  ******************************************************************************/
 void cm_set_context_by_index(unsigned int cpu_idx, void *context,
-				unsigned int security_state)
+			     unsigned int security_state)
 {
 	assert(security_state == NON_SECURE);
 	sp_min_cpu_ctx_ptr[cpu_idx] = context;
 }
 
 static void copy_cpu_ctx_to_smc_stx(const regs_t *cpu_reg_ctx,
-				smc_ctx_t *next_smc_ctx)
+				    smc_ctx_t *next_smc_ctx)
 {
 	next_smc_ctx->r0 = read_ctx_reg(cpu_reg_ctx, CTX_GPREG_R0);
 	next_smc_ctx->r1 = read_ctx_reg(cpu_reg_ctx, CTX_GPREG_R1);
@@ -140,7 +139,7 @@ static void sp_min_prepare_next_image_entry(void)
 
 	/* Copy r0, lr and spsr from cpu context to SMC context */
 	copy_cpu_ctx_to_smc_stx(get_regs_ctx(cm_get_context(NON_SECURE)),
-			smc_get_next_ctx());
+				smc_get_next_ctx());
 
 	/* Temporarily set the NS bit to access NS SCTLR */
 	write_scr(read_scr() | SCR_NS_BIT);
@@ -219,7 +218,7 @@ void sp_min_warm_boot(void)
 	zeromem(next_smc_ctx, sizeof(smc_ctx_t));
 
 	copy_cpu_ctx_to_smc_stx(get_regs_ctx(cm_get_context(NON_SECURE)),
-			next_smc_ctx);
+				next_smc_ctx);
 
 	/* Temporarily set the NS bit to access NS SCTLR */
 	write_scr(read_scr() | SCR_NS_BIT);

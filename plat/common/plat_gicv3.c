@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  * Portions copyright (c) 2021-2022, ProvenRun S.A.S. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -9,12 +9,13 @@
 #include <stdbool.h>
 
 #include <arch_helpers.h>
+#include <bl31/interrupt_mgmt.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
-#include <bl31/interrupt_mgmt.h>
 #include <drivers/arm/gic_common.h>
 #include <drivers/arm/gicv3.h>
 #include <lib/cassert.h>
+
 #include <plat/common/platform.h>
 
 #ifdef IMAGE_BL31
@@ -47,9 +48,9 @@
 #pragma weak plat_ic_set_interrupt_pending
 #pragma weak plat_ic_clear_interrupt_pending
 
-CASSERT((INTR_TYPE_S_EL1 == INTR_GROUP1S) &&
-	(INTR_TYPE_NS == INTR_GROUP1NS) &&
-	(INTR_TYPE_EL3 == INTR_GROUP0), assert_interrupt_type_mismatch);
+CASSERT((INTR_TYPE_S_EL1 == INTR_GROUP1S) && (INTR_TYPE_NS == INTR_GROUP1NS) &&
+		(INTR_TYPE_EL3 == INTR_GROUP0),
+	assert_interrupt_type_mismatch);
 
 /*
  * This function returns the highest priority pending interrupt at
@@ -62,7 +63,8 @@ uint32_t plat_ic_get_pending_interrupt_id(void)
 	assert(IS_IN_EL3());
 	irqnr = gicv3_get_pending_interrupt_id();
 	return gicv3_is_intr_id_special_identifier(irqnr) ?
-				INTR_ID_UNAVAILABLE : irqnr;
+		       INTR_ID_UNAVAILABLE :
+		       irqnr;
 }
 
 /*
@@ -143,11 +145,9 @@ void plat_ic_end_of_interrupt(uint32_t id)
  * control its routing to EL3. The interrupt line is represented as the bit
  * position of the IRQ or FIQ bit in the SCR_EL3.
  */
-uint32_t plat_interrupt_type_to_line(uint32_t type,
-				uint32_t security_state)
+uint32_t plat_interrupt_type_to_line(uint32_t type, uint32_t security_state)
 {
-	assert((type == INTR_TYPE_S_EL1) ||
-	       (type == INTR_TYPE_EL3) ||
+	assert((type == INTR_TYPE_S_EL1) || (type == INTR_TYPE_EL3) ||
 	       (type == INTR_TYPE_NS));
 
 	assert(sec_state_is_valid(security_state));
@@ -228,7 +228,7 @@ void plat_ic_set_interrupt_priority(unsigned int id, unsigned int priority)
 int plat_ic_has_interrupt_type(unsigned int type)
 {
 	assert((type == INTR_TYPE_EL3) || (type == INTR_TYPE_S_EL1) ||
-			(type == INTR_TYPE_NS));
+	       (type == INTR_TYPE_NS));
 	return 1;
 }
 
@@ -244,7 +244,7 @@ void plat_ic_raise_el3_sgi(int sgi_num, u_register_t target)
 
 	/* Verify that this is a secure EL3 SGI */
 	assert(plat_ic_get_interrupt_type((unsigned int)sgi_num) ==
-					  INTR_TYPE_EL3);
+	       INTR_TYPE_EL3);
 
 	gicv3_raise_sgi((unsigned int)sgi_num, GICV3_G0, target);
 }
@@ -256,7 +256,7 @@ void plat_ic_raise_ns_sgi(int sgi_num, u_register_t target)
 
 	/* Verify that this is a non-secure SGI */
 	assert(plat_ic_get_interrupt_type((unsigned int)sgi_num) ==
-					  INTR_TYPE_NS);
+	       INTR_TYPE_NS);
 
 	gicv3_raise_sgi((unsigned int)sgi_num, GICV3_G1NS, target);
 }
@@ -268,13 +268,13 @@ void plat_ic_raise_s_el1_sgi(int sgi_num, u_register_t target)
 
 	/* Verify that this is a secure EL1 SGI */
 	assert(plat_ic_get_interrupt_type((unsigned int)sgi_num) ==
-					  INTR_TYPE_S_EL1);
+	       INTR_TYPE_S_EL1);
 
 	gicv3_raise_sgi((unsigned int)sgi_num, GICV3_G1S, target);
 }
 
 void plat_ic_set_spi_routing(unsigned int id, unsigned int routing_mode,
-		u_register_t mpidr)
+			     u_register_t mpidr)
 {
 	unsigned int irm = 0;
 
@@ -317,8 +317,8 @@ unsigned int plat_ic_get_interrupt_id(unsigned int raw)
 {
 	unsigned int id = raw & INT_ID_MASK;
 
-	return gicv3_is_intr_id_special_identifier(id) ?
-			INTR_ID_UNAVAILABLE : id;
+	return gicv3_is_intr_id_special_identifier(id) ? INTR_ID_UNAVAILABLE :
+							 id;
 }
 #endif
 #ifdef IMAGE_BL32
@@ -329,7 +329,7 @@ unsigned int plat_ic_get_interrupt_id(unsigned int raw)
 
 /* In AArch32, the secure group1 interrupts are targeted to Secure PL1 */
 #ifndef __aarch64__
-#define IS_IN_EL1()	IS_IN_SECURE()
+#define IS_IN_EL1() IS_IN_SECURE()
 #endif
 
 /*
@@ -342,8 +342,7 @@ uint32_t plat_ic_get_pending_interrupt_id(void)
 
 	assert(IS_IN_EL1());
 	irqnr = gicv3_get_pending_interrupt_id_sel1();
-	return (irqnr == GIC_SPURIOUS_INTERRUPT) ?
-				INTR_ID_UNAVAILABLE : irqnr;
+	return (irqnr == GIC_SPURIOUS_INTERRUPT) ? INTR_ID_UNAVAILABLE : irqnr;
 }
 
 /*

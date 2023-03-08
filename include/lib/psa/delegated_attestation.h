@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  *
@@ -16,8 +16,8 @@
 #include "psa/error.h"
 
 /* RSS Delegated Attestation message types that distinguish its services. */
-#define RSS_DELEGATED_ATTEST_GET_DELEGATED_KEY      1001U
-#define RSS_DELEGATED_ATTEST_GET_PLATFORM_TOKEN     1002U
+#define RSS_DELEGATED_ATTEST_GET_DELEGATED_KEY 1001U
+#define RSS_DELEGATED_ATTEST_GET_PLATFORM_TOKEN 1002U
 
 /**
  * The aim of these APIs to get a derived signing key (private only) for the
@@ -74,12 +74,9 @@
  *     platform attestation token as they are cryptographically linked together.
  */
 psa_status_t
-rss_delegated_attest_get_delegated_key(uint8_t   ecc_curve,
-				       uint32_t  key_bits,
-				       uint8_t  *key_buf,
-				       size_t    key_buf_size,
-				       size_t   *key_size,
-				       uint32_t  hash_algo);
+rss_delegated_attest_get_delegated_key(uint8_t ecc_curve, uint32_t key_bits,
+				       uint8_t *key_buf, size_t key_buf_size,
+				       size_t *key_size, uint32_t hash_algo);
 
 /**
  * Get platform attestation token
@@ -99,11 +96,10 @@ rss_delegated_attest_get_delegated_key(uint8_t   ecc_curve,
  * Otherwise, the token request will fail and the PSA_ERROR_INVALID_ARGUMENT
  * code will be returned.
  */
-psa_status_t
-rss_delegated_attest_get_token(const uint8_t *dak_pub_hash,
-			       size_t         dak_pub_hash_size,
-			       uint8_t       *token_buf,
-			       size_t         token_buf_size,
-			       size_t        *token_size);
+psa_status_t rss_delegated_attest_get_token(const uint8_t *dak_pub_hash,
+					    size_t dak_pub_hash_size,
+					    uint8_t *token_buf,
+					    size_t token_buf_size,
+					    size_t *token_size);
 
 #endif /* DELEGATED_ATTESTATION_H */

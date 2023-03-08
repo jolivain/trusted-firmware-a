@@ -18,22 +18,20 @@
 #include <drivers/st/stm32mp1_ram.h>
 #include <drivers/st/stm32mp_ddr.h>
 #include <lib/mmio.h>
-#include <plat/common/platform.h>
 
+#include <plat/common/platform.h>
 #include <platform_def.h>
 
-#define DDRCTL_REG(x, y)					\
-	{							\
-		.name = #x,					\
-		.offset = offsetof(struct stm32mp_ddrctl, x),	\
-		.par_offset = offsetof(struct y, x)		\
+#define DDRCTL_REG(x, y)                                                  \
+	{                                                                 \
+		.name = #x, .offset = offsetof(struct stm32mp_ddrctl, x), \
+		.par_offset = offsetof(struct y, x)                       \
 	}
 
-#define DDRPHY_REG(x, y)					\
-	{							\
-		.name = #x,					\
-		.offset = offsetof(struct stm32mp_ddrphy, x),	\
-		.par_offset = offsetof(struct y, x)		\
+#define DDRPHY_REG(x, y)                                                  \
+	{                                                                 \
+		.name = #x, .offset = offsetof(struct stm32mp_ddrphy, x), \
+		.par_offset = offsetof(struct y, x)                       \
 	}
 
 /*
@@ -41,174 +39,120 @@
  *             size / order need to be aligned with binding
  *             modification NOT ALLOWED !!!
  */
-#define DDRCTL_REG_REG_SIZE	25	/* st,ctl-reg */
-#define DDRCTL_REG_TIMING_SIZE	12	/* st,ctl-timing */
-#define DDRCTL_REG_MAP_SIZE	9	/* st,ctl-map */
+#define DDRCTL_REG_REG_SIZE 25 /* st,ctl-reg */
+#define DDRCTL_REG_TIMING_SIZE 12 /* st,ctl-timing */
+#define DDRCTL_REG_MAP_SIZE 9 /* st,ctl-map */
 #if STM32MP_DDR_DUAL_AXI_PORT
-#define DDRCTL_REG_PERF_SIZE	17	/* st,ctl-perf */
+#define DDRCTL_REG_PERF_SIZE 17 /* st,ctl-perf */
 #else
-#define DDRCTL_REG_PERF_SIZE	11	/* st,ctl-perf */
+#define DDRCTL_REG_PERF_SIZE 11 /* st,ctl-perf */
 #endif
 
 #if STM32MP_DDR_32BIT_INTERFACE
-#define DDRPHY_REG_REG_SIZE	11	/* st,phy-reg */
+#define DDRPHY_REG_REG_SIZE 11 /* st,phy-reg */
 #else
-#define DDRPHY_REG_REG_SIZE	9	/* st,phy-reg */
+#define DDRPHY_REG_REG_SIZE 9 /* st,phy-reg */
 #endif
-#define	DDRPHY_REG_TIMING_SIZE	10	/* st,phy-timing */
+#define DDRPHY_REG_TIMING_SIZE 10 /* st,phy-timing */
 
-#define DDRCTL_REG_REG(x)	DDRCTL_REG(x, stm32mp1_ddrctrl_reg)
+#define DDRCTL_REG_REG(x) DDRCTL_REG(x, stm32mp1_ddrctrl_reg)
 static const struct stm32mp_ddr_reg_desc ddr_reg[DDRCTL_REG_REG_SIZE] = {
-	DDRCTL_REG_REG(mstr),
-	DDRCTL_REG_REG(mrctrl0),
-	DDRCTL_REG_REG(mrctrl1),
-	DDRCTL_REG_REG(derateen),
-	DDRCTL_REG_REG(derateint),
-	DDRCTL_REG_REG(pwrctl),
-	DDRCTL_REG_REG(pwrtmg),
-	DDRCTL_REG_REG(hwlpctl),
-	DDRCTL_REG_REG(rfshctl0),
-	DDRCTL_REG_REG(rfshctl3),
-	DDRCTL_REG_REG(crcparctl0),
-	DDRCTL_REG_REG(zqctl0),
-	DDRCTL_REG_REG(dfitmg0),
-	DDRCTL_REG_REG(dfitmg1),
-	DDRCTL_REG_REG(dfilpcfg0),
-	DDRCTL_REG_REG(dfiupd0),
-	DDRCTL_REG_REG(dfiupd1),
-	DDRCTL_REG_REG(dfiupd2),
-	DDRCTL_REG_REG(dfiphymstr),
-	DDRCTL_REG_REG(odtmap),
-	DDRCTL_REG_REG(dbg0),
-	DDRCTL_REG_REG(dbg1),
-	DDRCTL_REG_REG(dbgcmd),
-	DDRCTL_REG_REG(poisoncfg),
+	DDRCTL_REG_REG(mstr),	    DDRCTL_REG_REG(mrctrl0),
+	DDRCTL_REG_REG(mrctrl1),    DDRCTL_REG_REG(derateen),
+	DDRCTL_REG_REG(derateint),  DDRCTL_REG_REG(pwrctl),
+	DDRCTL_REG_REG(pwrtmg),	    DDRCTL_REG_REG(hwlpctl),
+	DDRCTL_REG_REG(rfshctl0),   DDRCTL_REG_REG(rfshctl3),
+	DDRCTL_REG_REG(crcparctl0), DDRCTL_REG_REG(zqctl0),
+	DDRCTL_REG_REG(dfitmg0),    DDRCTL_REG_REG(dfitmg1),
+	DDRCTL_REG_REG(dfilpcfg0),  DDRCTL_REG_REG(dfiupd0),
+	DDRCTL_REG_REG(dfiupd1),    DDRCTL_REG_REG(dfiupd2),
+	DDRCTL_REG_REG(dfiphymstr), DDRCTL_REG_REG(odtmap),
+	DDRCTL_REG_REG(dbg0),	    DDRCTL_REG_REG(dbg1),
+	DDRCTL_REG_REG(dbgcmd),	    DDRCTL_REG_REG(poisoncfg),
 	DDRCTL_REG_REG(pccfg),
 };
 
-#define DDRCTL_REG_TIMING(x)	DDRCTL_REG(x, stm32mp1_ddrctrl_timing)
+#define DDRCTL_REG_TIMING(x) DDRCTL_REG(x, stm32mp1_ddrctrl_timing)
 static const struct stm32mp_ddr_reg_desc ddr_timing[DDRCTL_REG_TIMING_SIZE] = {
-	DDRCTL_REG_TIMING(rfshtmg),
-	DDRCTL_REG_TIMING(dramtmg0),
-	DDRCTL_REG_TIMING(dramtmg1),
-	DDRCTL_REG_TIMING(dramtmg2),
-	DDRCTL_REG_TIMING(dramtmg3),
-	DDRCTL_REG_TIMING(dramtmg4),
-	DDRCTL_REG_TIMING(dramtmg5),
-	DDRCTL_REG_TIMING(dramtmg6),
-	DDRCTL_REG_TIMING(dramtmg7),
-	DDRCTL_REG_TIMING(dramtmg8),
-	DDRCTL_REG_TIMING(dramtmg14),
-	DDRCTL_REG_TIMING(odtcfg),
+	DDRCTL_REG_TIMING(rfshtmg),   DDRCTL_REG_TIMING(dramtmg0),
+	DDRCTL_REG_TIMING(dramtmg1),  DDRCTL_REG_TIMING(dramtmg2),
+	DDRCTL_REG_TIMING(dramtmg3),  DDRCTL_REG_TIMING(dramtmg4),
+	DDRCTL_REG_TIMING(dramtmg5),  DDRCTL_REG_TIMING(dramtmg6),
+	DDRCTL_REG_TIMING(dramtmg7),  DDRCTL_REG_TIMING(dramtmg8),
+	DDRCTL_REG_TIMING(dramtmg14), DDRCTL_REG_TIMING(odtcfg),
 };
 
-#define DDRCTL_REG_MAP(x)	DDRCTL_REG(x, stm32mp1_ddrctrl_map)
+#define DDRCTL_REG_MAP(x) DDRCTL_REG(x, stm32mp1_ddrctrl_map)
 static const struct stm32mp_ddr_reg_desc ddr_map[DDRCTL_REG_MAP_SIZE] = {
-	DDRCTL_REG_MAP(addrmap1),
-	DDRCTL_REG_MAP(addrmap2),
-	DDRCTL_REG_MAP(addrmap3),
-	DDRCTL_REG_MAP(addrmap4),
-	DDRCTL_REG_MAP(addrmap5),
-	DDRCTL_REG_MAP(addrmap6),
-	DDRCTL_REG_MAP(addrmap9),
-	DDRCTL_REG_MAP(addrmap10),
+	DDRCTL_REG_MAP(addrmap1),  DDRCTL_REG_MAP(addrmap2),
+	DDRCTL_REG_MAP(addrmap3),  DDRCTL_REG_MAP(addrmap4),
+	DDRCTL_REG_MAP(addrmap5),  DDRCTL_REG_MAP(addrmap6),
+	DDRCTL_REG_MAP(addrmap9),  DDRCTL_REG_MAP(addrmap10),
 	DDRCTL_REG_MAP(addrmap11),
 };
 
-#define DDRCTL_REG_PERF(x)	DDRCTL_REG(x, stm32mp1_ddrctrl_perf)
+#define DDRCTL_REG_PERF(x) DDRCTL_REG(x, stm32mp1_ddrctrl_perf)
 static const struct stm32mp_ddr_reg_desc ddr_perf[DDRCTL_REG_PERF_SIZE] = {
-	DDRCTL_REG_PERF(sched),
-	DDRCTL_REG_PERF(sched1),
-	DDRCTL_REG_PERF(perfhpr1),
-	DDRCTL_REG_PERF(perflpr1),
-	DDRCTL_REG_PERF(perfwr1),
-	DDRCTL_REG_PERF(pcfgr_0),
-	DDRCTL_REG_PERF(pcfgw_0),
-	DDRCTL_REG_PERF(pcfgqos0_0),
-	DDRCTL_REG_PERF(pcfgqos1_0),
-	DDRCTL_REG_PERF(pcfgwqos0_0),
+	DDRCTL_REG_PERF(sched),	      DDRCTL_REG_PERF(sched1),
+	DDRCTL_REG_PERF(perfhpr1),    DDRCTL_REG_PERF(perflpr1),
+	DDRCTL_REG_PERF(perfwr1),     DDRCTL_REG_PERF(pcfgr_0),
+	DDRCTL_REG_PERF(pcfgw_0),     DDRCTL_REG_PERF(pcfgqos0_0),
+	DDRCTL_REG_PERF(pcfgqos1_0),  DDRCTL_REG_PERF(pcfgwqos0_0),
 	DDRCTL_REG_PERF(pcfgwqos1_0),
 #if STM32MP_DDR_DUAL_AXI_PORT
-	DDRCTL_REG_PERF(pcfgr_1),
-	DDRCTL_REG_PERF(pcfgw_1),
-	DDRCTL_REG_PERF(pcfgqos0_1),
-	DDRCTL_REG_PERF(pcfgqos1_1),
-	DDRCTL_REG_PERF(pcfgwqos0_1),
-	DDRCTL_REG_PERF(pcfgwqos1_1),
+	DDRCTL_REG_PERF(pcfgr_1),     DDRCTL_REG_PERF(pcfgw_1),
+	DDRCTL_REG_PERF(pcfgqos0_1),  DDRCTL_REG_PERF(pcfgqos1_1),
+	DDRCTL_REG_PERF(pcfgwqos0_1), DDRCTL_REG_PERF(pcfgwqos1_1),
 #endif
 };
 
-#define DDRPHY_REG_REG(x)	DDRPHY_REG(x, stm32mp1_ddrphy_reg)
+#define DDRPHY_REG_REG(x) DDRPHY_REG(x, stm32mp1_ddrphy_reg)
 static const struct stm32mp_ddr_reg_desc ddrphy_reg[DDRPHY_REG_REG_SIZE] = {
-	DDRPHY_REG_REG(pgcr),
-	DDRPHY_REG_REG(aciocr),
-	DDRPHY_REG_REG(dxccr),
-	DDRPHY_REG_REG(dsgcr),
-	DDRPHY_REG_REG(dcr),
-	DDRPHY_REG_REG(odtcr),
-	DDRPHY_REG_REG(zq0cr1),
-	DDRPHY_REG_REG(dx0gcr),
-	DDRPHY_REG_REG(dx1gcr),
+	DDRPHY_REG_REG(pgcr),	DDRPHY_REG_REG(aciocr), DDRPHY_REG_REG(dxccr),
+	DDRPHY_REG_REG(dsgcr),	DDRPHY_REG_REG(dcr),	DDRPHY_REG_REG(odtcr),
+	DDRPHY_REG_REG(zq0cr1), DDRPHY_REG_REG(dx0gcr), DDRPHY_REG_REG(dx1gcr),
 #if STM32MP_DDR_32BIT_INTERFACE
-	DDRPHY_REG_REG(dx2gcr),
-	DDRPHY_REG_REG(dx3gcr),
+	DDRPHY_REG_REG(dx2gcr), DDRPHY_REG_REG(dx3gcr),
 #endif
 };
 
-#define DDRPHY_REG_TIMING(x)	DDRPHY_REG(x, stm32mp1_ddrphy_timing)
+#define DDRPHY_REG_TIMING(x) DDRPHY_REG(x, stm32mp1_ddrphy_timing)
 static const struct stm32mp_ddr_reg_desc ddrphy_timing[DDRPHY_REG_TIMING_SIZE] = {
-	DDRPHY_REG_TIMING(ptr0),
-	DDRPHY_REG_TIMING(ptr1),
-	DDRPHY_REG_TIMING(ptr2),
-	DDRPHY_REG_TIMING(dtpr0),
-	DDRPHY_REG_TIMING(dtpr1),
-	DDRPHY_REG_TIMING(dtpr2),
-	DDRPHY_REG_TIMING(mr0),
-	DDRPHY_REG_TIMING(mr1),
-	DDRPHY_REG_TIMING(mr2),
-	DDRPHY_REG_TIMING(mr3),
+	DDRPHY_REG_TIMING(ptr0),  DDRPHY_REG_TIMING(ptr1),
+	DDRPHY_REG_TIMING(ptr2),  DDRPHY_REG_TIMING(dtpr0),
+	DDRPHY_REG_TIMING(dtpr1), DDRPHY_REG_TIMING(dtpr2),
+	DDRPHY_REG_TIMING(mr0),	  DDRPHY_REG_TIMING(mr1),
+	DDRPHY_REG_TIMING(mr2),	  DDRPHY_REG_TIMING(mr3),
 };
 
 /*
  * REGISTERS ARRAY: used to parse device tree and interactive mode
  */
 static const struct stm32mp_ddr_reg_info ddr_registers[REG_TYPE_NB] = {
-	[REG_REG] = {
-		.name = "static",
-		.desc = ddr_reg,
-		.size = DDRCTL_REG_REG_SIZE,
-		.base = DDR_BASE
-	},
-	[REG_TIMING] = {
-		.name = "timing",
-		.desc = ddr_timing,
-		.size = DDRCTL_REG_TIMING_SIZE,
-		.base = DDR_BASE
-	},
-	[REG_PERF] = {
-		.name = "perf",
-		.desc = ddr_perf,
-		.size = DDRCTL_REG_PERF_SIZE,
-		.base = DDR_BASE
-	},
-	[REG_MAP] = {
-		.name = "map",
-		.desc = ddr_map,
-		.size = DDRCTL_REG_MAP_SIZE,
-		.base = DDR_BASE
-	},
-	[REGPHY_REG] = {
-		.name = "static",
-		.desc = ddrphy_reg,
-		.size = DDRPHY_REG_REG_SIZE,
-		.base = DDRPHY_BASE
-	},
-	[REGPHY_TIMING] = {
-		.name = "timing",
-		.desc = ddrphy_timing,
-		.size = DDRPHY_REG_TIMING_SIZE,
-		.base = DDRPHY_BASE
-	},
+	[REG_REG] = { .name = "static",
+		      .desc = ddr_reg,
+		      .size = DDRCTL_REG_REG_SIZE,
+		      .base = DDR_BASE },
+	[REG_TIMING] = { .name = "timing",
+			 .desc = ddr_timing,
+			 .size = DDRCTL_REG_TIMING_SIZE,
+			 .base = DDR_BASE },
+	[REG_PERF] = { .name = "perf",
+		       .desc = ddr_perf,
+		       .size = DDRCTL_REG_PERF_SIZE,
+		       .base = DDR_BASE },
+	[REG_MAP] = { .name = "map",
+		      .desc = ddr_map,
+		      .size = DDRCTL_REG_MAP_SIZE,
+		      .base = DDR_BASE },
+	[REGPHY_REG] = { .name = "static",
+			 .desc = ddrphy_reg,
+			 .size = DDRPHY_REG_REG_SIZE,
+			 .base = DDRPHY_BASE },
+	[REGPHY_TIMING] = { .name = "timing",
+			    .desc = ddrphy_timing,
+			    .size = DDRPHY_REG_TIMING_SIZE,
+			    .base = DDRPHY_BASE },
 };
 
 static void stm32mp1_ddrphy_idone_wait(struct stm32mp_ddrphy *phy)
@@ -220,8 +164,8 @@ static void stm32mp1_ddrphy_idone_wait(struct stm32mp_ddrphy *phy)
 	do {
 		pgsr = mmio_read_32((uintptr_t)&phy->pgsr);
 
-		VERBOSE("  > [0x%lx] pgsr = 0x%x &\n",
-			(uintptr_t)&phy->pgsr, pgsr);
+		VERBOSE("  > [0x%lx] pgsr = 0x%x &\n", (uintptr_t)&phy->pgsr,
+			pgsr);
 
 		if (timeout_elapsed(timeout)) {
 			panic();
@@ -252,8 +196,7 @@ static void stm32mp1_ddrphy_idone_wait(struct stm32mp_ddrphy *phy)
 			error++;
 		}
 	} while (((pgsr & DDRPHYC_PGSR_IDONE) == 0U) && (error == 0));
-	VERBOSE("\n[0x%lx] pgsr = 0x%x\n",
-		(uintptr_t)&phy->pgsr, pgsr);
+	VERBOSE("\n[0x%lx] pgsr = 0x%x\n", (uintptr_t)&phy->pgsr, pgsr);
 }
 
 static void stm32mp1_ddrphy_init(struct stm32mp_ddrphy *phy, uint32_t pir)
@@ -261,8 +204,7 @@ static void stm32mp1_ddrphy_init(struct stm32mp_ddrphy *phy, uint32_t pir)
 	uint32_t pir_init = pir | DDRPHYC_PIR_INIT;
 
 	mmio_write_32((uintptr_t)&phy->pir, pir_init);
-	VERBOSE("[0x%lx] pir = 0x%x -> 0x%x\n",
-		(uintptr_t)&phy->pir, pir_init,
+	VERBOSE("[0x%lx] pir = 0x%x -> 0x%x\n", (uintptr_t)&phy->pir, pir_init,
 		mmio_read_32((uintptr_t)&phy->pir));
 
 	/* Need to wait 10 configuration clock before start polling */
@@ -273,22 +215,23 @@ static void stm32mp1_ddrphy_init(struct stm32mp_ddrphy *phy, uint32_t pir)
 }
 
 /* Wait quasi dynamic register update */
-static void stm32mp1_wait_operating_mode(struct stm32mp_ddr_priv *priv, uint32_t mode)
+static void stm32mp1_wait_operating_mode(struct stm32mp_ddr_priv *priv,
+					 uint32_t mode)
 {
 	uint64_t timeout;
 	uint32_t stat;
 	int break_loop = 0;
 
 	timeout = timeout_init_us(TIMEOUT_US_1S);
-	for ( ; ; ) {
+	for (;;) {
 		uint32_t operating_mode;
 		uint32_t selref_type;
 
 		stat = mmio_read_32((uintptr_t)&priv->ctl->stat);
 		operating_mode = stat & DDRCTRL_STAT_OPERATING_MODE_MASK;
 		selref_type = stat & DDRCTRL_STAT_SELFREF_TYPE_MASK;
-		VERBOSE("[0x%lx] stat = 0x%x\n",
-			(uintptr_t)&priv->ctl->stat, stat);
+		VERBOSE("[0x%lx] stat = 0x%x\n", (uintptr_t)&priv->ctl->stat,
+			stat);
 		if (timeout_elapsed(timeout)) {
 			panic();
 		}
@@ -317,13 +260,12 @@ static void stm32mp1_wait_operating_mode(struct stm32mp_ddr_priv *priv, uint32_t
 		}
 	}
 
-	VERBOSE("[0x%lx] stat = 0x%x\n",
-		(uintptr_t)&priv->ctl->stat, stat);
+	VERBOSE("[0x%lx] stat = 0x%x\n", (uintptr_t)&priv->ctl->stat, stat);
 }
 
 /* Mode Register Writes (MRW or MRS) */
-static void stm32mp1_mode_register_write(struct stm32mp_ddr_priv *priv, uint8_t addr,
-					 uint32_t data)
+static void stm32mp1_mode_register_write(struct stm32mp_ddr_priv *priv,
+					 uint8_t addr, uint32_t data)
 {
 	uint32_t mrctrl0;
 
@@ -344,8 +286,7 @@ static void stm32mp1_mode_register_write(struct stm32mp_ddr_priv *priv, uint8_t 
 	 * 2. Write the MRCTRL0.mr_type, MRCTRL0.mr_addr, MRCTRL0.mr_rank
 	 *    and (for MRWs) MRCTRL1.mr_data to define the MR transaction.
 	 */
-	mrctrl0 = DDRCTRL_MRCTRL0_MR_TYPE_WRITE |
-		  DDRCTRL_MRCTRL0_MR_RANK_ALL |
+	mrctrl0 = DDRCTRL_MRCTRL0_MR_TYPE_WRITE | DDRCTRL_MRCTRL0_MR_RANK_ALL |
 		  (((uint32_t)addr << DDRCTRL_MRCTRL0_MR_ADDR_SHIFT) &
 		   DDRCTRL_MRCTRL0_MR_ADDR_MASK);
 	mmio_write_32((uintptr_t)&priv->ctl->mrctrl0, mrctrl0);
@@ -353,8 +294,7 @@ static void stm32mp1_mode_register_write(struct stm32mp_ddr_priv *priv, uint8_t 
 		(uintptr_t)&priv->ctl->mrctrl0,
 		mmio_read_32((uintptr_t)&priv->ctl->mrctrl0), mrctrl0);
 	mmio_write_32((uintptr_t)&priv->ctl->mrctrl1, data);
-	VERBOSE("[0x%lx] mrctrl1 = 0x%x\n",
-		(uintptr_t)&priv->ctl->mrctrl1,
+	VERBOSE("[0x%lx] mrctrl1 = 0x%x\n", (uintptr_t)&priv->ctl->mrctrl1,
 		mmio_read_32((uintptr_t)&priv->ctl->mrctrl1));
 
 	/*
@@ -368,12 +308,12 @@ static void stm32mp1_mode_register_write(struct stm32mp_ddr_priv *priv, uint8_t 
 	mmio_write_32((uintptr_t)&priv->ctl->mrctrl0, mrctrl0);
 
 	while ((mmio_read_32((uintptr_t)&priv->ctl->mrstat) &
-	       DDRCTRL_MRSTAT_MR_WR_BUSY) != 0U) {
+		DDRCTRL_MRSTAT_MR_WR_BUSY) != 0U) {
 		;
 	}
 
-	VERBOSE("[0x%lx] mrctrl0 = 0x%x\n",
-		(uintptr_t)&priv->ctl->mrctrl0, mrctrl0);
+	VERBOSE("[0x%lx] mrctrl0 = 0x%x\n", (uintptr_t)&priv->ctl->mrctrl0,
+		mrctrl0);
 }
 
 /* Switch DDR3 from DLL-on to DLL-off */
@@ -391,8 +331,7 @@ static void stm32mp1_ddr3_dll_off(struct stm32mp_ddr_priv *priv)
 	 *    This prevents further reads/writes being received on the HIF.
 	 */
 	mmio_setbits_32((uintptr_t)&priv->ctl->dbg1, DDRCTRL_DBG1_DIS_HIF);
-	VERBOSE("[0x%lx] dbg1 = 0x%x\n",
-		(uintptr_t)&priv->ctl->dbg1,
+	VERBOSE("[0x%lx] dbg1 = 0x%x\n", (uintptr_t)&priv->ctl->dbg1,
 		mmio_read_32((uintptr_t)&priv->ctl->dbg1));
 
 	/*
@@ -452,8 +391,7 @@ static void stm32mp1_ddr3_dll_off(struct stm32mp_ddr_priv *priv)
 	 */
 	mmio_setbits_32((uintptr_t)&priv->ctl->pwrctl,
 			DDRCTRL_PWRCTL_SELFREF_SW);
-	VERBOSE("[0x%lx] pwrctl = 0x%x\n",
-		(uintptr_t)&priv->ctl->pwrctl,
+	VERBOSE("[0x%lx] pwrctl = 0x%x\n", (uintptr_t)&priv->ctl->pwrctl,
 		mmio_read_32((uintptr_t)&priv->ctl->pwrctl));
 
 	/*
@@ -471,8 +409,7 @@ static void stm32mp1_ddr3_dll_off(struct stm32mp_ddr_priv *priv)
 	stm32mp_ddr_start_sw_done(priv->ctl);
 
 	mmio_setbits_32((uintptr_t)&priv->ctl->mstr, DDRCTRL_MSTR_DLL_OFF_MODE);
-	VERBOSE("[0x%lx] mstr = 0x%x\n",
-		(uintptr_t)&priv->ctl->mstr,
+	VERBOSE("[0x%lx] mstr = 0x%x\n", (uintptr_t)&priv->ctl->mstr,
 		mmio_read_32((uintptr_t)&priv->ctl->mstr));
 
 	stm32mp_ddr_wait_sw_done_ack(priv->ctl);
@@ -525,8 +462,7 @@ static void stm32mp1_ddr3_dll_off(struct stm32mp_ddr_priv *priv)
 
 	/* 15. Write DBG1.dis_hif = 0 to re-enable reads and writes. */
 	mmio_clrbits_32((uintptr_t)&priv->ctl->dbg1, DDRCTRL_DBG1_DIS_HIF);
-	VERBOSE("[0x%lx] dbg1 = 0x%x\n",
-		(uintptr_t)&priv->ctl->dbg1,
+	VERBOSE("[0x%lx] dbg1 = 0x%x\n", (uintptr_t)&priv->ctl->dbg1,
 		mmio_read_32((uintptr_t)&priv->ctl->dbg1));
 }
 
@@ -621,21 +557,19 @@ void stm32mp1_ddr_init(struct stm32mp_ddr_priv *priv,
 	/* Stop uMCTL2 before PHY is ready */
 	mmio_clrbits_32((uintptr_t)&priv->ctl->dfimisc,
 			DDRCTRL_DFIMISC_DFI_INIT_COMPLETE_EN);
-	VERBOSE("[0x%lx] dfimisc = 0x%x\n",
-		(uintptr_t)&priv->ctl->dfimisc,
+	VERBOSE("[0x%lx] dfimisc = 0x%x\n", (uintptr_t)&priv->ctl->dfimisc,
 		mmio_read_32((uintptr_t)&priv->ctl->dfimisc));
 
 	stm32mp_ddr_set_reg(priv, REG_REG, &config->c_reg, ddr_registers);
 
 	/* DDR3 = don't set DLLOFF for init mode */
 	if ((config->c_reg.mstr &
-	     (DDRCTRL_MSTR_DDR3 | DDRCTRL_MSTR_DLL_OFF_MODE))
-	    == (DDRCTRL_MSTR_DDR3 | DDRCTRL_MSTR_DLL_OFF_MODE)) {
+	     (DDRCTRL_MSTR_DDR3 | DDRCTRL_MSTR_DLL_OFF_MODE)) ==
+	    (DDRCTRL_MSTR_DDR3 | DDRCTRL_MSTR_DLL_OFF_MODE)) {
 		VERBOSE("deactivate DLL OFF in mstr\n");
 		mmio_clrbits_32((uintptr_t)&priv->ctl->mstr,
 				DDRCTRL_MSTR_DLL_OFF_MODE);
-		VERBOSE("[0x%lx] mstr = 0x%x\n",
-			(uintptr_t)&priv->ctl->mstr,
+		VERBOSE("[0x%lx] mstr = 0x%x\n", (uintptr_t)&priv->ctl->mstr,
 			mmio_read_32((uintptr_t)&priv->ctl->mstr));
 	}
 
@@ -646,8 +580,7 @@ void stm32mp1_ddr_init(struct stm32mp_ddr_priv *priv,
 	mmio_clrsetbits_32((uintptr_t)&priv->ctl->init0,
 			   DDRCTRL_INIT0_SKIP_DRAM_INIT_MASK,
 			   DDRCTRL_INIT0_SKIP_DRAM_INIT_NORMAL);
-	VERBOSE("[0x%lx] init0 = 0x%x\n",
-		(uintptr_t)&priv->ctl->init0,
+	VERBOSE("[0x%lx] init0 = 0x%x\n", (uintptr_t)&priv->ctl->init0,
 		mmio_read_32((uintptr_t)&priv->ctl->init0));
 
 	stm32mp_ddr_set_reg(priv, REG_PERF, &config->c_perf, ddr_registers);
@@ -662,16 +595,16 @@ void stm32mp1_ddr_init(struct stm32mp_ddr_priv *priv,
 	 *    (DXGCR, DCR, PTR*, MR*, DTPR*)
 	 */
 	stm32mp_ddr_set_reg(priv, REGPHY_REG, &config->p_reg, ddr_registers);
-	stm32mp_ddr_set_reg(priv, REGPHY_TIMING, &config->p_timing, ddr_registers);
+	stm32mp_ddr_set_reg(priv, REGPHY_TIMING, &config->p_timing,
+			    ddr_registers);
 
 	/* DDR3 = don't set DLLOFF for init mode */
 	if ((config->c_reg.mstr &
-	     (DDRCTRL_MSTR_DDR3 | DDRCTRL_MSTR_DLL_OFF_MODE))
-	    == (DDRCTRL_MSTR_DDR3 | DDRCTRL_MSTR_DLL_OFF_MODE)) {
+	     (DDRCTRL_MSTR_DDR3 | DDRCTRL_MSTR_DLL_OFF_MODE)) ==
+	    (DDRCTRL_MSTR_DDR3 | DDRCTRL_MSTR_DLL_OFF_MODE)) {
 		VERBOSE("deactivate DLL OFF in mr1\n");
 		mmio_clrbits_32((uintptr_t)&priv->phy->mr1, BIT(0));
-		VERBOSE("[0x%lx] mr1 = 0x%x\n",
-			(uintptr_t)&priv->phy->mr1,
+		VERBOSE("[0x%lx] mr1 = 0x%x\n", (uintptr_t)&priv->phy->mr1,
 			mmio_read_32((uintptr_t)&priv->phy->mr1));
 	}
 
@@ -704,8 +637,7 @@ void stm32mp1_ddr_init(struct stm32mp_ddr_priv *priv,
 
 	mmio_setbits_32((uintptr_t)&priv->ctl->dfimisc,
 			DDRCTRL_DFIMISC_DFI_INIT_COMPLETE_EN);
-	VERBOSE("[0x%lx] dfimisc = 0x%x\n",
-		(uintptr_t)&priv->ctl->dfimisc,
+	VERBOSE("[0x%lx] dfimisc = 0x%x\n", (uintptr_t)&priv->ctl->dfimisc,
 		mmio_read_32((uintptr_t)&priv->ctl->dfimisc));
 
 	stm32mp_ddr_wait_sw_done_ack(priv->ctl);

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,8 +11,9 @@
 #include <common/tbbr/tbbr_img_def.h>
 #include <drivers/arm/css/sds.h>
 #include <drivers/arm/sp805.h>
-#include <plat/arm/common/plat_arm.h>
+
 #include <plat/arm/common/arm_def.h>
+#include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>
 
@@ -21,7 +22,7 @@ void juno_reset_to_aarch32_state(void);
 static int is_watchdog_reset(void)
 {
 #if !CSS_USE_SCMI_SDS_DRIVER
-	#define RESET_REASON_WDOG_RESET		(0x2)
+#define RESET_REASON_WDOG_RESET (0x2)
 	const uint32_t *reset_flags_ptr = (const uint32_t *)SSC_GPRETN;
 
 	if ((*reset_flags_ptr & RESET_REASON_WDOG_RESET) != 0)
@@ -39,10 +40,9 @@ static int is_watchdog_reset(void)
 	}
 
 	ret = sds_struct_read(SDS_RESET_SYNDROME_STRUCT_ID,
-					SDS_RESET_SYNDROME_OFFSET,
-					&scp_reset_synd_flags,
-					SDS_RESET_SYNDROME_SIZE,
-					SDS_ACCESS_MODE_NON_CACHED);
+			      SDS_RESET_SYNDROME_OFFSET, &scp_reset_synd_flags,
+			      SDS_RESET_SYNDROME_SIZE,
+			      SDS_ACCESS_MODE_NON_CACHED);
 	if (ret != SDS_OK) {
 		ERROR("Getting reset reason from SDS failed\n");
 		panic();
@@ -65,18 +65,19 @@ bool plat_arm_bl1_fwu_needed(void)
 	int32_t nv_flags = (int32_t)mmio_read_32(V2M_SYS_NVFLAGS_ADDR);
 
 	/* Check if TOC is invalid or watchdog reset happened. */
-	return (!arm_io_is_toc_valid() || (((nv_flags == -EAUTH) ||
-		(nv_flags == -ENOENT)) && is_watchdog_reset()));
+	return (!arm_io_is_toc_valid() ||
+		(((nv_flags == -EAUTH) || (nv_flags == -ENOENT)) &&
+		 is_watchdog_reset()));
 }
 
 /*******************************************************************************
  * On JUNO update the arg2 with address of SCP_BL2U image info.
  ******************************************************************************/
-void bl1_plat_set_ep_info(unsigned int image_id,
-		entry_point_info_t *ep_info)
+void bl1_plat_set_ep_info(unsigned int image_id, entry_point_info_t *ep_info)
 {
 	if (image_id == BL2U_IMAGE_ID) {
-		image_desc_t *image_desc = bl1_plat_get_image_desc(SCP_BL2U_IMAGE_ID);
+		image_desc_t *image_desc =
+			bl1_plat_get_image_desc(SCP_BL2U_IMAGE_ID);
 		ep_info->args.arg2 = (unsigned long)&image_desc->image_info;
 	}
 }
@@ -89,8 +90,7 @@ __dead2 void bl1_plat_fwu_done(void *client_cookie, void *reserved)
 	uint32_t nv_flags = mmio_read_32(V2M_SYS_NVFLAGS_ADDR);
 
 	/* Clear the NV flags register. */
-	mmio_write_32((V2M_SYSREGS_BASE + V2M_SYS_NVFLAGSCLR),
-		      nv_flags);
+	mmio_write_32((V2M_SYSREGS_BASE + V2M_SYS_NVFLAGSCLR), nv_flags);
 
 	/* Setup the watchdog to reset the system as soon as possible */
 	sp805_refresh(ARM_SP805_TWDG_BASE, 1U);

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -30,10 +30,10 @@
  * @name Defines for type widths
  */
 /*@{*/
-#define SC_PM_POWER_MODE_W      2	/* Width of sc_pm_power_mode_t */
-#define SC_PM_CLOCK_MODE_W      3	/* Width of sc_pm_clock_mode_t */
-#define SC_PM_RESET_TYPE_W      2	/* Width of sc_pm_reset_type_t */
-#define SC_PM_RESET_REASON_W    3	/* Width of sc_pm_reset_reason_t */
+#define SC_PM_POWER_MODE_W 2 /* Width of sc_pm_power_mode_t */
+#define SC_PM_CLOCK_MODE_W 3 /* Width of sc_pm_clock_mode_t */
+#define SC_PM_RESET_TYPE_W 2 /* Width of sc_pm_reset_type_t */
+#define SC_PM_RESET_REASON_W 3 /* Width of sc_pm_reset_reason_t */
 /*@}*/
 
 /*!
@@ -46,114 +46,117 @@
  * @name Defines for ALL parameters
  */
 /*@{*/
-#define SC_PM_CLK_ALL   UINT8_MAX	/* All clocks */
+#define SC_PM_CLK_ALL UINT8_MAX /* All clocks */
 /*@}*/
 
 /*!
  * @name Defines for sc_pm_power_mode_t
  */
 /*@{*/
-#define SC_PM_PW_MODE_OFF       0U	/* Power off */
-#define SC_PM_PW_MODE_STBY      1U	/* Power in standby */
-#define SC_PM_PW_MODE_LP        2U	/* Power in low-power */
-#define SC_PM_PW_MODE_ON        3U	/* Power on */
+#define SC_PM_PW_MODE_OFF 0U /* Power off */
+#define SC_PM_PW_MODE_STBY 1U /* Power in standby */
+#define SC_PM_PW_MODE_LP 2U /* Power in low-power */
+#define SC_PM_PW_MODE_ON 3U /* Power on */
 /*@}*/
 
 /*!
  * @name Defines for sc_pm_clk_t
  */
 /*@{*/
-#define SC_PM_CLK_SLV_BUS       0U	/* Slave bus clock */
-#define SC_PM_CLK_MST_BUS       1U	/* Master bus clock */
-#define SC_PM_CLK_PER           2U	/* Peripheral clock */
-#define SC_PM_CLK_PHY           3U	/* Phy clock */
-#define SC_PM_CLK_MISC          4U	/* Misc clock */
-#define SC_PM_CLK_MISC0         0U	/* Misc 0 clock */
-#define SC_PM_CLK_MISC1         1U	/* Misc 1 clock */
-#define SC_PM_CLK_MISC2         2U	/* Misc 2 clock */
-#define SC_PM_CLK_MISC3         3U	/* Misc 3 clock */
-#define SC_PM_CLK_MISC4         4U	/* Misc 4 clock */
-#define SC_PM_CLK_CPU           2U	/* CPU clock */
-#define SC_PM_CLK_PLL           4U	/* PLL */
-#define SC_PM_CLK_BYPASS        4U	/* Bypass clock */
+#define SC_PM_CLK_SLV_BUS 0U /* Slave bus clock */
+#define SC_PM_CLK_MST_BUS 1U /* Master bus clock */
+#define SC_PM_CLK_PER 2U /* Peripheral clock */
+#define SC_PM_CLK_PHY 3U /* Phy clock */
+#define SC_PM_CLK_MISC 4U /* Misc clock */
+#define SC_PM_CLK_MISC0 0U /* Misc 0 clock */
+#define SC_PM_CLK_MISC1 1U /* Misc 1 clock */
+#define SC_PM_CLK_MISC2 2U /* Misc 2 clock */
+#define SC_PM_CLK_MISC3 3U /* Misc 3 clock */
+#define SC_PM_CLK_MISC4 4U /* Misc 4 clock */
+#define SC_PM_CLK_CPU 2U /* CPU clock */
+#define SC_PM_CLK_PLL 4U /* PLL */
+#define SC_PM_CLK_BYPASS 4U /* Bypass clock */
 /*@}*/
 
 /*!
  * @name Defines for sc_pm_clk_mode_t
  */
 /*@{*/
-#define SC_PM_CLK_MODE_ROM_INIT        0U	/* Clock is initialized by ROM. */
-#define SC_PM_CLK_MODE_OFF             1U	/* Clock is disabled */
-#define SC_PM_CLK_MODE_ON              2U	/* Clock is enabled. */
-#define SC_PM_CLK_MODE_AUTOGATE_SW     3U	/* Clock is in SW autogate mode */
-#define SC_PM_CLK_MODE_AUTOGATE_HW     4U	/* Clock is in HW autogate mode */
-#define SC_PM_CLK_MODE_AUTOGATE_SW_HW  5U	/* Clock is in SW-HW autogate mode */
+#define SC_PM_CLK_MODE_ROM_INIT 0U /* Clock is initialized by ROM. */
+#define SC_PM_CLK_MODE_OFF 1U /* Clock is disabled */
+#define SC_PM_CLK_MODE_ON 2U /* Clock is enabled. */
+#define SC_PM_CLK_MODE_AUTOGATE_SW 3U /* Clock is in SW autogate mode */
+#define SC_PM_CLK_MODE_AUTOGATE_HW 4U /* Clock is in HW autogate mode */
+#define SC_PM_CLK_MODE_AUTOGATE_SW_HW 5U /* Clock is in SW-HW autogate mode */
 /*@}*/
 
 /*!
  * @name Defines for sc_pm_clk_parent_t
  */
 /*@{*/
-#define SC_PM_PARENT_XTAL              0U	/* Parent is XTAL. */
-#define SC_PM_PARENT_PLL0              1U	/* Parent is PLL0 */
-#define SC_PM_PARENT_PLL1              2U	/* Parent is PLL1 or PLL0/2 */
-#define SC_PM_PARENT_PLL2              3U	/* Parent in PLL2 or PLL0/4 */
-#define SC_PM_PARENT_BYPS              4U	/* Parent is a bypass clock. */
+#define SC_PM_PARENT_XTAL 0U /* Parent is XTAL. */
+#define SC_PM_PARENT_PLL0 1U /* Parent is PLL0 */
+#define SC_PM_PARENT_PLL1 2U /* Parent is PLL1 or PLL0/2 */
+#define SC_PM_PARENT_PLL2 3U /* Parent in PLL2 or PLL0/4 */
+#define SC_PM_PARENT_BYPS 4U /* Parent is a bypass clock. */
 /*@}*/
 
 /*!
  * @name Defines for sc_pm_reset_type_t
  */
 /*@{*/
-#define SC_PM_RESET_TYPE_COLD          0U	/* Cold reset */
-#define SC_PM_RESET_TYPE_WARM          1U	/* Warm reset */
-#define SC_PM_RESET_TYPE_BOARD         2U	/* Board reset */
+#define SC_PM_RESET_TYPE_COLD 0U /* Cold reset */
+#define SC_PM_RESET_TYPE_WARM 1U /* Warm reset */
+#define SC_PM_RESET_TYPE_BOARD 2U /* Board reset */
 /*@}*/
 
 /*!
  * @name Defines for sc_pm_reset_cause_t
  */
 /*@{*/
-#define SC_PM_RESET_CAUSE_TEMP         0U	/* Reset due to temp panic alarm */
-#define SC_PM_RESET_CAUSE_FAULT        1U	/* Reset due to fault exception */
-#define SC_PM_RESET_CAUSE_IRQ          2U	/* Reset due to SCU reset IRQ */
-#define SC_PM_RESET_CAUSE_WDOG         3U	/* Reset due to SW WDOG */
-#define SC_PM_RESET_CAUSE_API          4U	/* Reset due to pm_reset() or monitor */
+#define SC_PM_RESET_CAUSE_TEMP 0U /* Reset due to temp panic alarm */
+#define SC_PM_RESET_CAUSE_FAULT 1U /* Reset due to fault exception */
+#define SC_PM_RESET_CAUSE_IRQ 2U /* Reset due to SCU reset IRQ */
+#define SC_PM_RESET_CAUSE_WDOG 3U /* Reset due to SW WDOG */
+#define SC_PM_RESET_CAUSE_API 4U /* Reset due to pm_reset() or monitor */
 /*@}*/
 
 /*!
  * @name Defines for sc_pm_reset_reason_t
  */
 /*@{*/
-#define SC_PM_RESET_REASON_POR         0U	/* Power on reset */
-#define SC_PM_RESET_REASON_WARM        1U	/* Warm reset */
-#define SC_PM_RESET_REASON_SW          2U	/* Software reset */
-#define SC_PM_RESET_REASON_WDOG        3U	/* Watchdog reset */
-#define SC_PM_RESET_REASON_LOCKUP      4U	/* Lockup reset */
-#define SC_PM_RESET_REASON_TAMPER      5U	/* Tamper reset */
-#define SC_PM_RESET_REASON_TEMP        6U	/* Temp reset */
-#define SC_PM_RESET_REASON_LOW_VOLT    7U	/* Low voltage reset */
+#define SC_PM_RESET_REASON_POR 0U /* Power on reset */
+#define SC_PM_RESET_REASON_WARM 1U /* Warm reset */
+#define SC_PM_RESET_REASON_SW 2U /* Software reset */
+#define SC_PM_RESET_REASON_WDOG 3U /* Watchdog reset */
+#define SC_PM_RESET_REASON_LOCKUP 4U /* Lockup reset */
+#define SC_PM_RESET_REASON_TAMPER 5U /* Tamper reset */
+#define SC_PM_RESET_REASON_TEMP 6U /* Temp reset */
+#define SC_PM_RESET_REASON_LOW_VOLT 7U /* Low voltage reset */
 /*@}*/
 
 /*!
  * @name Defines for sc_pm_sys_if_t
  */
 /*@{*/
-#define SC_PM_SYS_IF_INTERCONNECT       0U	/* System interconnect */
-#define SC_PM_SYS_IF_MU                 1U	/* AP -> SCU message units */
-#define SC_PM_SYS_IF_OCMEM              2U	/* On-chip memory (ROM/OCRAM) */
-#define SC_PM_SYS_IF_DDR                3U	/* DDR memory */
+#define SC_PM_SYS_IF_INTERCONNECT 0U /* System interconnect */
+#define SC_PM_SYS_IF_MU 1U /* AP -> SCU message units */
+#define SC_PM_SYS_IF_OCMEM 2U /* On-chip memory (ROM/OCRAM) */
+#define SC_PM_SYS_IF_DDR 3U /* DDR memory */
 /*@}*/
 
 /*!
  * @name Defines for sc_pm_wake_src_t
  */
 /*@{*/
-#define SC_PM_WAKE_SRC_NONE             0U	/* No wake source, used for self-kill */
-#define SC_PM_WAKE_SRC_SCU              1U	/* Wakeup from SCU to resume CPU (IRQSTEER & GIC powered down) */
-#define SC_PM_WAKE_SRC_IRQSTEER         2U	/* Wakeup from IRQSTEER to resume CPU (GIC powered down) */
-#define SC_PM_WAKE_SRC_IRQSTEER_GIC     3U	/* Wakeup from IRQSTEER+GIC to wake CPU  (GIC clock gated) */
-#define SC_PM_WAKE_SRC_GIC              4U	/* Wakeup from GIC to wake CPU */
+#define SC_PM_WAKE_SRC_NONE 0U /* No wake source, used for self-kill */
+#define SC_PM_WAKE_SRC_SCU \
+	1U /* Wakeup from SCU to resume CPU (IRQSTEER & GIC powered down) */
+#define SC_PM_WAKE_SRC_IRQSTEER \
+	2U /* Wakeup from IRQSTEER to resume CPU (GIC powered down) */
+#define SC_PM_WAKE_SRC_IRQSTEER_GIC \
+	3U /* Wakeup from IRQSTEER+GIC to wake CPU  (GIC clock gated) */
+#define SC_PM_WAKE_SRC_GIC 4U /* Wakeup from GIC to wake CPU */
 /*@}*/
 
 /* Types */
@@ -450,8 +453,8 @@ sc_err_t sc_pm_req_sys_if_power_mode(sc_ipc_t ipc, sc_rsrc_t resource,
  *
  * Refer to the [Clock List](@ref CLOCKS) for valid clock/PLL values.
  */
-sc_err_t sc_pm_set_clock_rate(sc_ipc_t ipc, sc_rsrc_t resource,
-			      sc_pm_clk_t clk, sc_pm_clock_rate_t *rate);
+sc_err_t sc_pm_set_clock_rate(sc_ipc_t ipc, sc_rsrc_t resource, sc_pm_clk_t clk,
+			      sc_pm_clock_rate_t *rate);
 
 /*!
  * This function gets the rate of a resource's clock/PLL.
@@ -471,8 +474,8 @@ sc_err_t sc_pm_set_clock_rate(sc_ipc_t ipc, sc_rsrc_t resource,
  *
  * Refer to the [Clock List](@ref CLOCKS) for valid clock/PLL values.
  */
-sc_err_t sc_pm_get_clock_rate(sc_ipc_t ipc, sc_rsrc_t resource,
-			      sc_pm_clk_t clk, sc_pm_clock_rate_t *rate);
+sc_err_t sc_pm_get_clock_rate(sc_ipc_t ipc, sc_rsrc_t resource, sc_pm_clk_t clk,
+			      sc_pm_clock_rate_t *rate);
 
 /*!
  * This function enables/disables a resource's clock.
@@ -499,8 +502,8 @@ sc_err_t sc_pm_get_clock_rate(sc_ipc_t ipc, sc_rsrc_t resource,
  *
  * Refer to the [Clock List](@ref CLOCKS) for valid clock values.
  */
-sc_err_t sc_pm_clock_enable(sc_ipc_t ipc, sc_rsrc_t resource,
-			    sc_pm_clk_t clk, sc_bool_t enable, sc_bool_t autog);
+sc_err_t sc_pm_clock_enable(sc_ipc_t ipc, sc_rsrc_t resource, sc_pm_clk_t clk,
+			    sc_bool_t enable, sc_bool_t autog);
 
 /*!
  * This function sets the parent of a resource's clock.
@@ -599,9 +602,9 @@ sc_err_t sc_pm_reset_reason(sc_ipc_t ipc, sc_pm_reset_reason_t *reason);
  * - SC_ERR_NOACCESS if caller's partition is not the parent of the
  *   partition to boot
  */
-sc_err_t sc_pm_boot(sc_ipc_t ipc, sc_rm_pt_t pt,
-		    sc_rsrc_t resource_cpu, sc_faddr_t boot_addr,
-		    sc_rsrc_t resource_mu, sc_rsrc_t resource_dev);
+sc_err_t sc_pm_boot(sc_ipc_t ipc, sc_rm_pt_t pt, sc_rsrc_t resource_cpu,
+		    sc_faddr_t boot_addr, sc_rsrc_t resource_mu,
+		    sc_rsrc_t resource_dev);
 
 /*!
  * This function is used to reboot the caller's partition.

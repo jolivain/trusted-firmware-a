@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,28 +7,27 @@
 #include <assert.h>
 #include <errno.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <bl31/bl31.h>
 #include <common/debug.h>
+#include <cpus_on_fixed_addr.h>
 #include <drivers/console.h>
 #include <drivers/delay_timer.h>
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
-#include <plat/common/platform.h>
-
-#include <cpus_on_fixed_addr.h>
 #include <plat_private.h>
 #include <pmu.h>
 #include <px30_def.h>
 #include <secure.h>
 #include <soc.h>
 
+#include <plat/common/platform.h>
+#include <platform_def.h>
+
 DEFINE_BAKERY_LOCK(rockchip_pd_lock);
-#define rockchip_pd_lock_init()	bakery_lock_init(&rockchip_pd_lock)
-#define rockchip_pd_lock_get()	bakery_lock_get(&rockchip_pd_lock)
-#define rockchip_pd_lock_rls()	bakery_lock_release(&rockchip_pd_lock)
+#define rockchip_pd_lock_init() bakery_lock_init(&rockchip_pd_lock)
+#define rockchip_pd_lock_get() bakery_lock_get(&rockchip_pd_lock)
+#define rockchip_pd_lock_rls() bakery_lock_release(&rockchip_pd_lock)
 
 static struct psram_data_t *psram_boot_cfg =
 	(struct psram_data_t *)&sys_sleep_flag_sram;
@@ -45,9 +44,9 @@ static struct psram_data_t *psram_boot_cfg =
 
 static uint32_t cores_pd_cfg_info[PLATFORM_CORE_COUNT]
 #if USE_COHERENT_MEM
-__attribute__ ((section(".tzfw_coherent_mem")))
+	__attribute__((section(".tzfw_coherent_mem")))
 #endif
-;
+	;
 
 struct px30_sleep_ddr_data {
 	uint32_t clk_sel0;
@@ -101,9 +100,9 @@ struct px30_sleep_ddr_data {
 
 static struct px30_sleep_ddr_data ddr_data
 #if USE_COHERENT_MEM
-__attribute__ ((section(".tzfw_coherent_mem")))
+	__attribute__((section(".tzfw_coherent_mem")))
 #endif
-;
+	;
 
 static inline uint32_t get_cpus_pwr_domain_cfg_info(uint32_t cpu_id)
 {
@@ -123,9 +122,8 @@ static inline void set_cpus_pwr_domain_cfg_info(uint32_t cpu_id, uint32_t value)
 
 static inline uint32_t pmu_power_domain_st(uint32_t pd)
 {
-	return mmio_read_32(PMU_BASE + PMU_PWRDN_ST) & BIT(pd) ?
-	       pmu_pd_off :
-	       pmu_pd_on;
+	return mmio_read_32(PMU_BASE + PMU_PWRDN_ST) & BIT(pd) ? pmu_pd_off :
+								 pmu_pd_on;
 }
 
 static int pmu_power_domain_ctr(uint32_t pd, uint32_t pd_state)
@@ -167,15 +165,14 @@ static void pmu_bus_idle_req(uint32_t bus, uint32_t state)
 	mmio_write_32(PMU_BASE + PMU_BUS_IDLE_REQ,
 		      BITS_WITH_WMASK(state, 0x1, bus));
 
-	while (pmu_bus_idle_st(bus) != state &&
-	       wait_cnt < BUS_IDLE_LOOP) {
+	while (pmu_bus_idle_st(bus) != state && wait_cnt < BUS_IDLE_LOOP) {
 		udelay(1);
 		wait_cnt++;
 	}
 
 	if (pmu_bus_idle_st(bus) != state)
-		WARN("%s:idle_st=0x%x, bus_id=%d\n",
-		     __func__, mmio_read_32(PMU_BASE + PMU_BUS_IDLE_ST), bus);
+		WARN("%s:idle_st=0x%x, bus_id=%d\n", __func__,
+		     mmio_read_32(PMU_BASE + PMU_BUS_IDLE_ST), bus);
 }
 
 static void qos_save(void)
@@ -464,8 +461,7 @@ static void nonboot_cpus_off(void)
 	}
 }
 
-int rockchip_soc_cores_pwr_dm_on(unsigned long mpidr,
-				 uint64_t entrypoint)
+int rockchip_soc_cores_pwr_dm_on(unsigned long mpidr, uint64_t entrypoint)
 {
 	uint32_t cpu_id = plat_core_pos_by_mpidr(mpidr);
 
@@ -530,16 +526,11 @@ int rockchip_soc_cores_pwr_dm_resume(void)
 	mmio_write_32(CRU_BASE + (con), ((~(msk)) << 16) | 0xffff)
 
 static uint32_t clk_ungt_msk[CRU_CLKGATES_CON_CNT] = {
-	0xe0ff, 0xffff, 0x0000, 0x0000,
-	0x0000, 0x0380, 0x0000, 0x0000,
-	0x07c0, 0x0000, 0x0000, 0x000f,
-	0x0061, 0x1f02, 0x0440, 0x1801,
-	0x004b, 0x0000
+	0xe0ff, 0xffff, 0x0000, 0x0000, 0x0000, 0x0380, 0x0000, 0x0000, 0x07c0,
+	0x0000, 0x0000, 0x000f, 0x0061, 0x1f02, 0x0440, 0x1801, 0x004b, 0x0000
 };
 
-static uint32_t clk_pmu_ungt_msk[CRU_PMU_CLKGATE_CON_CNT] = {
-	0xf1ff, 0x0310
-};
+static uint32_t clk_pmu_ungt_msk[CRU_PMU_CLKGATE_CON_CNT] = { 0xf1ff, 0x0310 };
 
 void clk_gate_suspend(void)
 {
@@ -548,15 +539,15 @@ void clk_gate_suspend(void)
 	for (i = 0; i < CRU_CLKGATES_CON_CNT; i++) {
 		ddr_data.cru_clk_gate[i] =
 			mmio_read_32(CRU_BASE + CRU_CLKGATES_CON(i));
-			mmio_write_32(CRU_BASE + CRU_CLKGATES_CON(i),
-				      WITH_16BITS_WMSK(~clk_ungt_msk[i]));
+		mmio_write_32(CRU_BASE + CRU_CLKGATES_CON(i),
+			      WITH_16BITS_WMSK(~clk_ungt_msk[i]));
 	}
 
 	for (i = 0; i < CRU_PMU_CLKGATE_CON_CNT; i++) {
 		ddr_data.cru_pmu_clk_gate[i] =
 			mmio_read_32(PMUCRU_BASE + CRU_PMU_CLKGATES_CON(i));
-			mmio_write_32(PMUCRU_BASE + CRU_PMU_CLKGATES_CON(i),
-				      WITH_16BITS_WMSK(~clk_pmu_ungt_msk[i]));
+		mmio_write_32(PMUCRU_BASE + CRU_PMU_CLKGATES_CON(i),
+			      WITH_16BITS_WMSK(~clk_pmu_ungt_msk[i]));
 	}
 }
 
@@ -575,7 +566,7 @@ void clk_gate_resume(void)
 
 static void pvtm_32k_config(void)
 {
-	uint32_t  pvtm_freq_khz, pvtm_div;
+	uint32_t pvtm_freq_khz, pvtm_div;
 
 	ddr_data.pmu_cru_clksel_con0 =
 		mmio_read_32(PMUCRU_BASE + CRU_PMU_CLKSELS_CON(0));
@@ -608,9 +599,9 @@ static void pvtm_32k_config(void)
 	while (!(mmio_read_32(PMUGRF_BASE + PMUGRF_PVTM_ST0) & 0x1))
 		;
 
-	pvtm_freq_khz =
-		(mmio_read_32(PMUGRF_BASE + PMUGRF_PVTM_ST1) * 24000 +
-		PVTM_CALC_CNT / 2) / PVTM_CALC_CNT;
+	pvtm_freq_khz = (mmio_read_32(PMUGRF_BASE + PMUGRF_PVTM_ST1) * 24000 +
+			 PVTM_CALC_CNT / 2) /
+			PVTM_CALC_CNT;
 	pvtm_div = (pvtm_freq_khz + 16) / 32;
 
 	/* pvtm_div = div_factor << 2 + 1,
@@ -706,52 +697,37 @@ static void pmu_sleep_config(void)
 	ddr_data.pmic_slp_iomux = mmio_read_32(PMUGRF_BASE + GPIO0A_IOMUX);
 
 	ddr_data.pmu_pwrmd_core_l =
-			mmio_read_32(PMU_BASE + PMU_PWRMODE_CORE_LO);
+		mmio_read_32(PMU_BASE + PMU_PWRMODE_CORE_LO);
 	ddr_data.pmu_pwrmd_core_h =
-			mmio_read_32(PMU_BASE + PMU_PWRMODE_CORE_HI);
+		mmio_read_32(PMU_BASE + PMU_PWRMODE_CORE_HI);
 	ddr_data.pmu_pwrmd_cmm_l =
-			mmio_read_32(PMU_BASE + PMU_PWRMODE_COMMON_CON_LO);
+		mmio_read_32(PMU_BASE + PMU_PWRMODE_COMMON_CON_LO);
 	ddr_data.pmu_pwrmd_cmm_h =
-			mmio_read_32(PMU_BASE + PMU_PWRMODE_COMMON_CON_HI);
+		mmio_read_32(PMU_BASE + PMU_PWRMODE_COMMON_CON_HI);
 	ddr_data.pmu_wkup_cfg2_l = mmio_read_32(PMU_BASE + PMU_WKUP_CFG2_LO);
 
-	pwrmd_core_lo = BIT(pmu_global_int_dis) |
-			BIT(pmu_core_src_gt) |
-			BIT(pmu_cpu0_pd) |
-			BIT(pmu_clr_core) |
-			BIT(pmu_scu_pd) |
-			BIT(pmu_l2_idle) |
-			BIT(pmu_l2_flush) |
-			BIT(pmu_clr_bus2main) |
-			BIT(pmu_clr_peri2msch);
+	pwrmd_core_lo = BIT(pmu_global_int_dis) | BIT(pmu_core_src_gt) |
+			BIT(pmu_cpu0_pd) | BIT(pmu_clr_core) | BIT(pmu_scu_pd) |
+			BIT(pmu_l2_idle) | BIT(pmu_l2_flush) |
+			BIT(pmu_clr_bus2main) | BIT(pmu_clr_peri2msch);
 
-	pwrmd_core_hi = BIT(pmu_dpll_pd_en) |
-			BIT(pmu_apll_pd_en) |
-			BIT(pmu_cpll_pd_en) |
-			BIT(pmu_gpll_pd_en) |
+	pwrmd_core_hi = BIT(pmu_dpll_pd_en) | BIT(pmu_apll_pd_en) |
+			BIT(pmu_cpll_pd_en) | BIT(pmu_gpll_pd_en) |
 			BIT(pmu_npll_pd_en);
 
-	pwrmd_com_lo = BIT(pmu_mode_en) |
-		       BIT(pmu_pll_pd) |
-		       BIT(pmu_pmu_use_if) |
-		       BIT(pmu_alive_use_if) |
-		       BIT(pmu_osc_dis) |
-		       BIT(pmu_sref_enter) |
-		       BIT(pmu_ddrc_gt) |
-		       BIT(pmu_clr_pmu) |
-		       BIT(pmu_clr_peri_pmu);
+	pwrmd_com_lo =
+		BIT(pmu_mode_en) | BIT(pmu_pll_pd) | BIT(pmu_pmu_use_if) |
+		BIT(pmu_alive_use_if) | BIT(pmu_osc_dis) | BIT(pmu_sref_enter) |
+		BIT(pmu_ddrc_gt) | BIT(pmu_clr_pmu) | BIT(pmu_clr_peri_pmu);
 
-	pwrmd_com_hi = BIT(pmu_clr_bus) |
-		       BIT(pmu_clr_msch) |
+	pwrmd_com_hi = BIT(pmu_clr_bus) | BIT(pmu_clr_msch) |
 		       BIT(pmu_wakeup_begin_cfg);
 
-	pmu_wkup_cfg2_lo = BIT(pmu_cluster_wkup_en) |
-			   BIT(pmu_gpio_wkup_en) |
+	pmu_wkup_cfg2_lo = BIT(pmu_cluster_wkup_en) | BIT(pmu_gpio_wkup_en) |
 			   BIT(pmu_timer_wkup_en);
 
 	/* set pmic_sleep iomux gpio0_a4 */
-	mmio_write_32(PMUGRF_BASE + GPIO0A_IOMUX,
-		      BITS_WITH_WMASK(1, 0x3, 8));
+	mmio_write_32(PMUGRF_BASE + GPIO0A_IOMUX, BITS_WITH_WMASK(1, 0x3, 8));
 
 	clk_freq_khz = 32;
 
@@ -857,8 +833,7 @@ static inline void pm_pll_wait_lock(uint32_t pll_base, uint32_t pll_id)
 	uint32_t delay = PLL_LOCKED_TIMEOUT;
 
 	while (delay > 0) {
-		if (mmio_read_32(pll_base + PLL_CON(1)) &
-		    PLL_LOCK_MSK)
+		if (mmio_read_32(pll_base + PLL_CON(1)) & PLL_LOCK_MSK)
 			break;
 		delay--;
 	}
@@ -869,14 +844,11 @@ static inline void pm_pll_wait_lock(uint32_t pll_base, uint32_t pll_id)
 
 static inline void pll_pwr_ctr(uint32_t pll_base, uint32_t pll_id, uint32_t pd)
 {
-	mmio_write_32(pll_base + PLL_CON(1),
-		      BITS_WITH_WMASK(1, 1U, 15));
+	mmio_write_32(pll_base + PLL_CON(1), BITS_WITH_WMASK(1, 1U, 15));
 	if (pd)
-		mmio_write_32(pll_base + PLL_CON(1),
-			      BITS_WITH_WMASK(1, 1, 14));
+		mmio_write_32(pll_base + PLL_CON(1), BITS_WITH_WMASK(1, 1, 14));
 	else
-		mmio_write_32(pll_base + PLL_CON(1),
-			      BITS_WITH_WMASK(0, 1, 14));
+		mmio_write_32(pll_base + PLL_CON(1), BITS_WITH_WMASK(0, 1, 14));
 }
 
 static inline void pll_set_mode(uint32_t pll_id, uint32_t mode)
@@ -903,7 +875,7 @@ static inline void pll_suspend(uint32_t pll_id)
 	/* save pll con */
 	for (i = 0; i < PLL_CON_CNT; i++)
 		ddr_data.cru_plls_con_save[pll_id][i] =
-				mmio_read_32(pll_base + PLL_CON(i));
+			mmio_read_32(pll_base + PLL_CON(i));
 
 	/* slow mode */
 	pll_set_mode(pll_id, SLOW_MODE);
@@ -1066,6 +1038,6 @@ void plat_rockchip_pmu_init(void)
 	mmio_write_32(PMUSGRF_BASE + PMUSGRF_SOC_CON(0),
 		      BITS_WITH_WMASK(1, 0x1, 13));
 
-	INFO("%s: pd status %x\n",
-	     __func__, mmio_read_32(PMU_BASE + PMU_PWRDN_ST));
+	INFO("%s: pd status %x\n", __func__,
+	     mmio_read_32(PMU_BASE + PMU_PWRDN_ST));
 }

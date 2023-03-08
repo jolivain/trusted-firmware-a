@@ -1,72 +1,69 @@
 /*
- * Copyright (c) 2018-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <common/debug.h>
 #include <drivers/console.h>
 #include <drivers/mmc.h>
-#include <lib/utils.h>
-
+#include <imx7_def.h>
 #include <imx_caam.h>
 #include <imx_clock.h>
 #include <imx_io_mux.h>
 #include <imx_uart.h>
 #include <imx_usdhc.h>
-#include <imx7_def.h>
+#include <lib/utils.h>
 
-#define UART1_CLK_SELECT (CCM_TARGET_ROOT_ENABLE |\
-			  CCM_TRGT_MUX_UART1_CLK_ROOT_OSC_24M)
+#include <platform_def.h>
 
-#define UART6_CLK_SELECT (CCM_TARGET_ROOT_ENABLE |\
-			  CCM_TRGT_MUX_UART6_CLK_ROOT_OSC_24M)
+#define UART1_CLK_SELECT \
+	(CCM_TARGET_ROOT_ENABLE | CCM_TRGT_MUX_UART1_CLK_ROOT_OSC_24M)
 
-#define USDHC_CLK_SELECT (CCM_TARGET_ROOT_ENABLE |\
-			  CCM_TRGT_MUX_NAND_USDHC_BUS_CLK_ROOT_AHB |\
-			  CCM_TARGET_POST_PODF(2))
+#define UART6_CLK_SELECT \
+	(CCM_TARGET_ROOT_ENABLE | CCM_TRGT_MUX_UART6_CLK_ROOT_OSC_24M)
 
-#define USB_CLK_SELECT (CCM_TARGET_ROOT_ENABLE |\
-			CCM_TRGT_MUX_USB_HSIC_CLK_ROOT_SYS_PLL)
+#define USDHC_CLK_SELECT                                                     \
+	(CCM_TARGET_ROOT_ENABLE | CCM_TRGT_MUX_NAND_USDHC_BUS_CLK_ROOT_AHB | \
+	 CCM_TARGET_POST_PODF(2))
+
+#define USB_CLK_SELECT \
+	(CCM_TARGET_ROOT_ENABLE | CCM_TRGT_MUX_USB_HSIC_CLK_ROOT_SYS_PLL)
 
 #define WARP7_UART1_TX_MUX \
 	IOMUXC_SW_MUX_CTL_PAD_UART1_TX_DATA_ALT0_UART1_TX_DATA
 
-#define WARP7_UART1_TX_FEATURES \
-	(IOMUXC_SW_PAD_CTL_PAD_UART1_TX_DATA_PS_3_100K_PU	| \
-	 IOMUXC_SW_PAD_CTL_PAD_UART1_TX_DATA_PE_EN		| \
-	 IOMUXC_SW_PAD_CTL_PAD_UART1_TX_DATA_HYS_EN		| \
+#define WARP7_UART1_TX_FEATURES                             \
+	(IOMUXC_SW_PAD_CTL_PAD_UART1_TX_DATA_PS_3_100K_PU | \
+	 IOMUXC_SW_PAD_CTL_PAD_UART1_TX_DATA_PE_EN |        \
+	 IOMUXC_SW_PAD_CTL_PAD_UART1_TX_DATA_HYS_EN |       \
 	 IOMUXC_SW_PAD_CTL_PAD_UART1_TX_DATA_DSE_1_X4)
 
 #define WARP7_UART1_RX_MUX \
 	IOMUXC_SW_MUX_CTL_PAD_UART1_RX_DATA_ALT0_UART1_RX_DATA
 
-#define WARP7_UART1_RX_FEATURES \
-	(IOMUXC_SW_PAD_CTL_PAD_UART1_RX_DATA_PS_3_100K_PU	| \
-	 IOMUXC_SW_PAD_CTL_PAD_UART1_RX_DATA_PE_EN		| \
-	 IOMUXC_SW_PAD_CTL_PAD_UART1_RX_DATA_HYS_EN		| \
+#define WARP7_UART1_RX_FEATURES                             \
+	(IOMUXC_SW_PAD_CTL_PAD_UART1_RX_DATA_PS_3_100K_PU | \
+	 IOMUXC_SW_PAD_CTL_PAD_UART1_RX_DATA_PE_EN |        \
+	 IOMUXC_SW_PAD_CTL_PAD_UART1_RX_DATA_HYS_EN |       \
 	 IOMUXC_SW_PAD_CTL_PAD_UART1_RX_DATA_DSE_1_X4)
 
-#define WARP7_UART6_TX_MUX \
-	IOMUXC_SW_MUX_CTL_PAD_ECSPI1_MOSI_ALT1_UART6_TX_DATA
+#define WARP7_UART6_TX_MUX IOMUXC_SW_MUX_CTL_PAD_ECSPI1_MOSI_ALT1_UART6_TX_DATA
 
-#define WARP7_UART6_TX_FEATURES \
-	(IOMUXC_SW_PAD_CTL_PAD_ECSPI1_MOSI_PS_3_100K_PU		| \
-	 IOMUXC_SW_PAD_CTL_PAD_ECSPI1_MOSI_PE_EN		| \
-	 IOMUXC_SW_PAD_CTL_PAD_ECSPI1_MOSI_HYS_EN		| \
+#define WARP7_UART6_TX_FEATURES                           \
+	(IOMUXC_SW_PAD_CTL_PAD_ECSPI1_MOSI_PS_3_100K_PU | \
+	 IOMUXC_SW_PAD_CTL_PAD_ECSPI1_MOSI_PE_EN |        \
+	 IOMUXC_SW_PAD_CTL_PAD_ECSPI1_MOSI_HYS_EN |       \
 	 IOMUXC_SW_PAD_CTL_PAD_ECSPI1_MOSI_DSE_1_X4)
 
-#define WARP7_UART6_RX_MUX \
-	IOMUXC_SW_MUX_CTL_PAD_ECSPI1_SCLK_ALT1_UART6_RX_DATA
+#define WARP7_UART6_RX_MUX IOMUXC_SW_MUX_CTL_PAD_ECSPI1_SCLK_ALT1_UART6_RX_DATA
 
-#define WARP7_UART6_RX_FEATURES \
-	(IOMUXC_SW_PAD_CTL_PAD_ECSPI1_SCLK_PS_3_100K_PU		| \
-	 IOMUXC_SW_PAD_CTL_PAD_ECSPI1_SCLK_PE_EN		| \
-	 IOMUXC_SW_PAD_CTL_PAD_ECSPI1_SCLK_HYS_EN		| \
+#define WARP7_UART6_RX_FEATURES                           \
+	(IOMUXC_SW_PAD_CTL_PAD_ECSPI1_SCLK_PS_3_100K_PU | \
+	 IOMUXC_SW_PAD_CTL_PAD_ECSPI1_SCLK_PE_EN |        \
+	 IOMUXC_SW_PAD_CTL_PAD_ECSPI1_SCLK_HYS_EN |       \
 	 IOMUXC_SW_PAD_CTL_PAD_ECSPI1_SCLK_DSE_1_X4)
 
 static struct mmc_device_info mmc_info;
@@ -74,26 +71,26 @@ static struct mmc_device_info mmc_info;
 static void warp7_setup_pinmux(void)
 {
 	/* Configure UART1 TX */
-	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_UART1_TX_DATA_OFFSET,
-					 WARP7_UART1_TX_MUX);
+	imx_io_muxc_set_pad_alt_function(
+		IOMUXC_SW_MUX_CTL_PAD_UART1_TX_DATA_OFFSET, WARP7_UART1_TX_MUX);
 	imx_io_muxc_set_pad_features(IOMUXC_SW_PAD_CTL_PAD_UART1_TX_DATA_OFFSET,
 				     WARP7_UART1_TX_FEATURES);
 
 	/* Configure UART1 RX */
-	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_UART1_RX_DATA_OFFSET,
-					 WARP7_UART1_RX_MUX);
+	imx_io_muxc_set_pad_alt_function(
+		IOMUXC_SW_MUX_CTL_PAD_UART1_RX_DATA_OFFSET, WARP7_UART1_RX_MUX);
 	imx_io_muxc_set_pad_features(IOMUXC_SW_PAD_CTL_PAD_UART1_RX_DATA_OFFSET,
 				     WARP7_UART1_RX_FEATURES);
 
 	/* Configure UART6 TX */
-	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_ECSPI1_MOSI_OFFSET,
-					 WARP7_UART6_TX_MUX);
+	imx_io_muxc_set_pad_alt_function(
+		IOMUXC_SW_MUX_CTL_PAD_ECSPI1_MOSI_OFFSET, WARP7_UART6_TX_MUX);
 	imx_io_muxc_set_pad_features(IOMUXC_SW_PAD_CTL_PAD_ECSPI1_MOSI_OFFSET,
 				     WARP7_UART6_TX_FEATURES);
 
 	/* Configure UART6 RX */
-	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_ECSPI1_SCLK_OFFSET,
-					 WARP7_UART6_RX_MUX);
+	imx_io_muxc_set_pad_alt_function(
+		IOMUXC_SW_MUX_CTL_PAD_ECSPI1_SCLK_OFFSET, WARP7_UART6_RX_MUX);
 	imx_io_muxc_set_pad_features(IOMUXC_SW_PAD_CTL_PAD_ECSPI1_SCLK_OFFSET,
 				     WARP7_UART6_RX_FEATURES);
 }

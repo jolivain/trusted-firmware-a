@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -106,8 +106,7 @@ void gicv2_spis_configure_defaults(uintptr_t gicd_base)
 
 	/* Setup the default SPI priorities doing four at a time */
 	for (index = MIN_SPI_ID; index < num_ints; index += 4U)
-		gicd_write_ipriorityr(gicd_base,
-				      index,
+		gicd_write_ipriorityr(gicd_base, index,
 				      GICD_IPRIORITYR_DEF_VAL);
 
 	/* Treat all SPIs as level triggered by default, 16 at a time */
@@ -119,8 +118,8 @@ void gicv2_spis_configure_defaults(uintptr_t gicd_base)
  * Helper function to configure properties of secure G0 SPIs.
  ******************************************************************************/
 void gicv2_secure_spis_configure_props(uintptr_t gicd_base,
-		const interrupt_prop_t *interrupt_props,
-		unsigned int interrupt_props_num)
+				       const interrupt_prop_t *interrupt_props,
+				       unsigned int interrupt_props_num)
 {
 	unsigned int i;
 	const interrupt_prop_t *prop_desc;
@@ -141,15 +140,15 @@ void gicv2_secure_spis_configure_props(uintptr_t gicd_base,
 
 		/* Set the priority of this interrupt */
 		gicd_set_ipriorityr(gicd_base, prop_desc->intr_num,
-				prop_desc->intr_pri);
+				    prop_desc->intr_pri);
 
 		/* Target the secure interrupts to primary CPU */
 		gicd_set_itargetsr(gicd_base, prop_desc->intr_num,
-				gicv2_get_cpuif_id(gicd_base));
+				   gicv2_get_cpuif_id(gicd_base));
 
 		/* Set interrupt configuration */
 		gicd_set_icfgr(gicd_base, prop_desc->intr_num,
-				prop_desc->intr_cfg);
+			       prop_desc->intr_cfg);
 
 		/* Enable this interrupt */
 		gicd_set_isenabler(gicd_base, prop_desc->intr_num);
@@ -160,8 +159,8 @@ void gicv2_secure_spis_configure_props(uintptr_t gicd_base,
  * Helper function to configure properties of secure G0 SGIs and PPIs.
  ******************************************************************************/
 void gicv2_secure_ppi_sgi_setup_props(uintptr_t gicd_base,
-		const interrupt_prop_t *interrupt_props,
-		unsigned int interrupt_props_num)
+				      const interrupt_prop_t *interrupt_props,
+				      unsigned int interrupt_props_num)
 {
 	unsigned int i;
 	uint32_t sec_ppi_sgi_mask = 0;
@@ -196,9 +195,9 @@ void gicv2_secure_ppi_sgi_setup_props(uintptr_t gicd_base,
 		 * are ignored.
 		 */
 		if ((prop_desc->intr_num >= MIN_PPI_ID) &&
-				(prop_desc->intr_num < MIN_SPI_ID)) {
+		    (prop_desc->intr_num < MIN_SPI_ID)) {
 			gicd_set_icfgr(gicd_base, prop_desc->intr_num,
-					prop_desc->intr_cfg);
+				       prop_desc->intr_cfg);
 		}
 
 		/* We have an SGI or a PPI. They are Group0 at reset */
@@ -206,7 +205,7 @@ void gicv2_secure_ppi_sgi_setup_props(uintptr_t gicd_base,
 
 		/* Set the priority of this interrupt */
 		gicd_set_ipriorityr(gicd_base, prop_desc->intr_num,
-				prop_desc->intr_pri);
+				    prop_desc->intr_pri);
 	}
 
 	/*

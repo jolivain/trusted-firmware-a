@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  *
@@ -20,6 +20,7 @@
 
 #include <common/debug.h>
 #include <common/runtime_svc.h>
+#include <lib/mmio.h>
 #include <lib/pmf/pmf.h>
 #include <lib/runtime_instr.h>
 #include <services/pci_svc.h>
@@ -27,31 +28,28 @@
 #include <services/std_svc.h>
 #include <smccc_helpers.h>
 
-#include <lib/mmio.h>
-
 static spinlock_t pci_lock;
 
-#define PCIE_REG_BASE		U(RPI_IO_BASE + 0x01500000)
-#define PCIE_MISC_PCIE_STATUS	0x4068
-#define PCIE_EXT_CFG_INDEX	0x9000
+#define PCIE_REG_BASE U(RPI_IO_BASE + 0x01500000)
+#define PCIE_MISC_PCIE_STATUS 0x4068
+#define PCIE_EXT_CFG_INDEX 0x9000
 /* A small window pointing at the ECAM of the device selected by CFG_INDEX */
-#define PCIE_EXT_CFG_DATA	0x8000
-#define INVALID_PCI_ADDR	0xFFFFFFFF
+#define PCIE_EXT_CFG_DATA 0x8000
+#define INVALID_PCI_ADDR 0xFFFFFFFF
 
-#define	PCIE_EXT_BUS_SHIFT	20
-#define	PCIE_EXT_DEV_SHIFT	15
-#define	PCIE_EXT_FUN_SHIFT	12
-
+#define PCIE_EXT_BUS_SHIFT 20
+#define PCIE_EXT_DEV_SHIFT 15
+#define PCIE_EXT_FUN_SHIFT 12
 
 static uint64_t pci_segment_lib_get_base(uint32_t address, uint32_t offset)
 {
-	uint64_t	base;
-	uint32_t	bus, dev, fun;
-	uint32_t	status;
+	uint64_t base;
+	uint32_t bus, dev, fun;
+	uint32_t status;
 
 	base = PCIE_REG_BASE;
 
-	offset &= PCI_OFFSET_MASK;  /* Pick off the 4k register offset */
+	offset &= PCI_OFFSET_MASK; /* Pick off the 4k register offset */
 
 	/* The root port is at the base of the PCIe register space */
 	if (address != 0U) {
@@ -108,7 +106,8 @@ static uint64_t pci_segment_lib_get_base(uint32_t address, uint32_t offset)
  * Return: SMC_PCI_CALL_SUCCESS with val set
  *	   SMC_PCI_CALL_INVAL_PARAM, on parameter error
  */
-uint32_t pci_read_config(uint32_t addr, uint32_t off, uint32_t sz, uint32_t *val)
+uint32_t pci_read_config(uint32_t addr, uint32_t off, uint32_t sz,
+			 uint32_t *val)
 {
 	uint32_t ret = SMC_PCI_CALL_SUCCESS;
 	uint64_t base;
@@ -157,7 +156,8 @@ uint32_t pci_read_config(uint32_t addr, uint32_t off, uint32_t sz, uint32_t *val
  * Return: SMC_PCI_CALL_SUCCESS
  *	   SMC_PCI_CALL_INVAL_PARAM, on parameter error
  */
-uint32_t pci_write_config(uint32_t addr, uint32_t off, uint32_t sz, uint32_t val)
+uint32_t pci_write_config(uint32_t addr, uint32_t off, uint32_t sz,
+			  uint32_t val)
 {
 	uint32_t ret = SMC_PCI_CALL_SUCCESS;
 	uint64_t base;

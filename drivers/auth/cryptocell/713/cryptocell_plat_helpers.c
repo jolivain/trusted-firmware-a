@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020 ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023 ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,12 +8,12 @@
 #include <stddef.h>
 #include <string.h>
 
-#include <plat/common/platform.h>
-#include <tools_share/tbbr_oid.h>
-
-#include <lib/libc/endian.h>
 #include <drivers/arm/cryptocell/713/bsv_api.h>
 #include <drivers/arm/cryptocell/713/bsv_error.h>
+#include <lib/libc/endian.h>
+#include <tools_share/tbbr_oid.h>
+
+#include <plat/common/platform.h>
 
 /*
  * Return the ROTPK hash
@@ -41,8 +41,8 @@ int cc_get_rotpk_hash(unsigned char *dst, unsigned int len, unsigned int *flags)
 	}
 
 	error = CC_BsvPubKeyHashGet(PLAT_CRYPTOCELL_BASE,
-				    CC_SB_HASH_BOOT_KEY_256B,
-				    key, HASH_RESULT_SIZE_IN_WORDS);
+				    CC_SB_HASH_BOOT_KEY_256B, key,
+				    HASH_RESULT_SIZE_IN_WORDS);
 
 	if (error == CC_BSV_HASH_NOT_PROGRAMMED_ERR) {
 		*flags = ROTPK_NOT_DEPLOYED;
@@ -50,7 +50,6 @@ int cc_get_rotpk_hash(unsigned char *dst, unsigned int len, unsigned int *flags)
 	}
 
 	if (error == CC_OK) {
-
 		/* Keys are stored in OTP in little-endian format */
 		for (i = 0; i < HASH_RESULT_SIZE_IN_WORDS; i++)
 			key[i] = le32toh(key[i]);
@@ -106,4 +105,3 @@ int plat_set_nv_ctr(void *cookie, unsigned int nv_ctr)
 
 	return (error != CC_OK);
 }
-

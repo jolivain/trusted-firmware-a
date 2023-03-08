@@ -5,34 +5,33 @@
  * https://spdx.org/licenses
  */
 
-#include <platform_def.h>
-
+#include <armada_common.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <drivers/marvell/ccu.h>
 #include <drivers/marvell/mochi/ap_setup.h>
 #include <drivers/marvell/mochi/cp110_setup.h>
 #include <lib/mmio.h>
-
-#include <armada_common.h>
 #include <marvell_plat_priv.h> /* timer functionality */
+
+#include <platform_def.h>
+
 #include "mss_defs.h"
 #include "mss_scp_bootloader.h"
 
 /* MSS windows configuration */
-#define MSS_AEBR(base)			(base + 0x160)
-#define MSS_AIBR(base)			(base + 0x164)
-#define MSS_AEBR_MASK			0xFFF
-#define MSS_AIBR_MASK			0xFFF
+#define MSS_AEBR(base) (base + 0x160)
+#define MSS_AIBR(base) (base + 0x164)
+#define MSS_AEBR_MASK 0xFFF
+#define MSS_AIBR_MASK 0xFFF
 
-#define MSS_EXTERNAL_SPACE		0x50000000
-#define MSS_EXTERNAL_ACCESS_BIT		28
-#define MSS_EXTERNAL_ADDR_MASK		0xfffffff
-#define MSS_INTERNAL_ACCESS_BIT		28
+#define MSS_EXTERNAL_SPACE 0x50000000
+#define MSS_EXTERNAL_ACCESS_BIT 28
+#define MSS_EXTERNAL_ADDR_MASK 0xfffffff
+#define MSS_INTERNAL_ACCESS_BIT 28
 
-struct addr_map_win ccu_mem_map[] = {
-	{MVEBU_CP_REGS_BASE(0), 0x4000000, IO_0_TID}
-};
+struct addr_map_win ccu_mem_map[] = { { MVEBU_CP_REGS_BASE(0), 0x4000000,
+					IO_0_TID } };
 
 /* Since the scp_bl2 image can contain firmware for cp1 and cp0 coprocessors,
  * the access to cp0 and cp1 need to be provided. More precisely it is
@@ -51,7 +50,7 @@ static int bl2_plat_mmap_init(void)
 {
 	int cfg_num, win_id, cfg_idx, cp;
 
-	cfg_num =  ARRAY_SIZE(ccu_mem_map);
+	cfg_num = ARRAY_SIZE(ccu_mem_map);
 
 	/* CCU window-0 should not be counted - it's already used */
 	if (cfg_num > (MVEBU_CCU_MAX_WINS - 1)) {
@@ -109,7 +108,7 @@ int bl2_plat_handle_scp_bl2(image_info_t *scp_bl2_image_info)
 		return ret;
 
 	ret = scp_bootloader_transfer((void *)scp_bl2_image_info->image_base,
-		scp_bl2_image_info->image_size);
+				      scp_bl2_image_info->image_size);
 
 	if (ret == 0)
 		INFO("BL2: SCP_BL2 transferred to SCP\n");

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -36,10 +36,8 @@ const mmap_region_t plat_mmap[] = {
  * Macro generating the code for the function setting up the pagetables as per
  * the platform memory map & initialize the mmu, for the given exception level
  ******************************************************************************/
-void plat_configure_mmu_el3(uintptr_t total_base,
-			    uintptr_t total_size,
-			    uintptr_t ro_start,
-			    uintptr_t ro_limit)
+void plat_configure_mmu_el3(uintptr_t total_base, uintptr_t total_size,
+			    uintptr_t ro_start, uintptr_t ro_limit)
 {
 	mmap_add_region(total_base, total_base, total_size,
 			MT_RW_DATA | MT_SECURE);

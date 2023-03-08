@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,38 +8,33 @@
 
 #include <common/debug.h>
 #include <lib/mmio.h>
-#include <platform_def.h>
+
 #include <plat/arm/common/arm_config.h>
 #include <plat/arm/common/plat_arm.h>
+#include <platform_def.h>
 
-#define MAP_DEVICE0	MAP_REGION_FLAT(DEVICE0_BASE,			\
-					DEVICE0_SIZE,			\
-					MT_DEVICE | MT_RW | MT_SECURE)
+#define MAP_DEVICE0                                 \
+	MAP_REGION_FLAT(DEVICE0_BASE, DEVICE0_SIZE, \
+			MT_DEVICE | MT_RW | MT_SECURE)
 
 #ifdef IMAGE_BL1
-const mmap_region_t plat_arm_mmap[] = {
-	ARM_MAP_SHARED_RAM,
-	V2M_MAP_FLASH1_RW,
-	V2M_MAP_IOFPGA,
-	{0}
-};
+const mmap_region_t plat_arm_mmap[] = { ARM_MAP_SHARED_RAM,
+					V2M_MAP_FLASH1_RW,
+					V2M_MAP_IOFPGA,
+					{ 0 } };
 #endif
 #ifdef IMAGE_BL2
-const mmap_region_t plat_arm_mmap[] = {
-	ARM_MAP_SHARED_RAM,
-	V2M_MAP_FLASH1_RW,
-	V2M_MAP_IOFPGA,
-	ARM_MAP_NS_DRAM1,
-	{0}
-};
+const mmap_region_t plat_arm_mmap[] = { ARM_MAP_SHARED_RAM,
+					V2M_MAP_FLASH1_RW,
+					V2M_MAP_IOFPGA,
+					ARM_MAP_NS_DRAM1,
+					{ 0 } };
 #endif
 #ifdef IMAGE_BL32
-const mmap_region_t plat_arm_mmap[] = {
-	ARM_MAP_SHARED_RAM,
-	V2M_MAP_IOFPGA,
-	MAP_DEVICE0,
-	{0}
-};
+const mmap_region_t plat_arm_mmap[] = { ARM_MAP_SHARED_RAM,
+					V2M_MAP_IOFPGA,
+					MAP_DEVICE0,
+					{ 0 } };
 #endif
 
 ARM_CASSERT_MMAP

@@ -13,8 +13,9 @@
 #include <string.h>
 
 #include <arch_helpers.h>
-#include "caam.h"
 #include <common/debug.h>
+
+#include "caam.h"
 #include "jobdesc.h"
 #include "sec_hw_specific.h"
 
@@ -331,7 +332,7 @@ unsigned long long get_random(int rngWidth)
 unsigned int _get_hw_unq_key(uint64_t hw_key_phy_addr, unsigned int size)
 {
 	int ret = 0;
-	uint8_t *hw_key = (uint8_t *) ptov((phys_addr_t *) hw_key_phy_addr);
+	uint8_t *hw_key = (uint8_t *)ptov((phys_addr_t *)hw_key_phy_addr);
 
 	ret = get_hw_unq_key_blob_hw(hw_key, size);
 

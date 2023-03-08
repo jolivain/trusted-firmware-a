@@ -10,18 +10,17 @@
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-
 #include <mvebu_def.h>
 
 /* Cortex-M3 Secure Processor Mailbox Registers */
-#define MVEBU_RWTM_PARAM0_REG			(MVEBU_RWTM_REG_BASE)
-#define MVEBU_RWTM_CMD_REG			(MVEBU_RWTM_REG_BASE + 0x40)
-#define MVEBU_RWTM_HOST_INT_RESET_REG		(MVEBU_RWTM_REG_BASE + 0xC8)
-#define MVEBU_RWTM_HOST_INT_MASK_REG		(MVEBU_RWTM_REG_BASE + 0xCC)
-#define MVEBU_RWTM_HOST_INT_SP_COMPLETE		BIT(0)
+#define MVEBU_RWTM_PARAM0_REG (MVEBU_RWTM_REG_BASE)
+#define MVEBU_RWTM_CMD_REG (MVEBU_RWTM_REG_BASE + 0x40)
+#define MVEBU_RWTM_HOST_INT_RESET_REG (MVEBU_RWTM_REG_BASE + 0xC8)
+#define MVEBU_RWTM_HOST_INT_MASK_REG (MVEBU_RWTM_REG_BASE + 0xCC)
+#define MVEBU_RWTM_HOST_INT_SP_COMPLETE BIT(0)
 
-#define MVEBU_RWTM_REBOOT_CMD		0x0009
-#define MVEBU_RWTM_REBOOT_MAGIC		0xDEADBEEF
+#define MVEBU_RWTM_REBOOT_CMD 0x0009
+#define MVEBU_RWTM_REBOOT_MAGIC 0xDEADBEEF
 
 static inline bool rwtm_completed(void)
 {

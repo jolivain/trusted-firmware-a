@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <common/debug.h>
-#include <lib/mmio.h>
-
 #include "watchdog.h"
 
+#include <common/debug.h>
+#include <lib/mmio.h>
 
 /* Reset watchdog timer */
 void watchdog_sw_rst(void)
@@ -48,5 +47,5 @@ void watchdog_init(int watchdog_clk)
 
 	mmio_write_32(WDT_TORR, (cycles_i << 4) | cycles_i);
 
-	mmio_write_32(WDT_CR, WDT_CR_RMOD|WDT_CR_EN);
+	mmio_write_32(WDT_CR, WDT_CR_RMOD | WDT_CR_EN);
 }

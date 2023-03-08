@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,6 +8,7 @@
 
 #include <common/debug.h>
 #include <common/runtime_svc.h>
+
 #include <platform_def.h>
 
 #include "generic-arm64-smcall.h"
@@ -79,14 +80,10 @@ static uint64_t trusty_get_reg_base(uint32_t reg)
 	}
 }
 
-static uintptr_t trusty_generic_platform_smc(uint32_t smc_fid,
-			 u_register_t x1,
-			 u_register_t x2,
-			 u_register_t x3,
-			 u_register_t x4,
-			 void *cookie,
-			 void *handle,
-			 u_register_t flags)
+static uintptr_t trusty_generic_platform_smc(uint32_t smc_fid, u_register_t x1,
+					     u_register_t x2, u_register_t x3,
+					     u_register_t x4, void *cookie,
+					     void *handle, u_register_t flags)
 {
 	switch (smc_fid) {
 	case SMC_FC_DEBUG_PUTC:
@@ -104,13 +101,7 @@ static uintptr_t trusty_generic_platform_smc(uint32_t smc_fid,
 }
 
 /* Define a SPD runtime service descriptor for fast SMC calls */
-DECLARE_RT_SVC(
-	trusty_fast,
+DECLARE_RT_SVC(trusty_fast,
 
-	SMC_ENTITY_PLATFORM_MONITOR,
-	SMC_ENTITY_PLATFORM_MONITOR,
-	SMC_TYPE_FAST,
-	NULL,
-	trusty_generic_platform_smc
-);
-
+	       SMC_ENTITY_PLATFORM_MONITOR, SMC_ENTITY_PLATFORM_MONITOR,
+	       SMC_TYPE_FAST, NULL, trusty_generic_platform_smc);

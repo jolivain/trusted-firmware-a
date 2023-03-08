@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, ARM Limited. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,10 +13,10 @@
  * GIC-600 microarchitecture supports coherent multichip environments containing
  * up to 16 chips.
  */
-#define GIC600_MAX_MULTICHIP	16
+#define GIC600_MAX_MULTICHIP 16
 
 /* SPI IDs array consist of min and max ids */
-#define GIC600_SPI_IDS_SIZE	2
+#define GIC600_SPI_IDS_SIZE 2
 
 /*******************************************************************************
  * GIC-600 multichip data structure describes platform specific attributes

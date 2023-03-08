@@ -16,6 +16,7 @@
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
 #include <lib/spinlock.h>
+
 #include <plat/common/platform.h>
 
 #ifdef USE_PAXC
@@ -24,6 +25,7 @@
 #include <cmn_plat_util.h>
 #include <ihost_pm.h>
 #include <plat_brcm.h>
+
 #include <platform_def.h>
 
 static uint64_t plat_sec_entrypoint;
@@ -61,10 +63,10 @@ static void brcm_pwr_domain_on_finish(const psci_power_state_t *target_state)
 	unsigned long cluster_id = MPIDR_AFFLVL1_VAL(read_mpidr());
 
 	assert(target_state->pwr_domain_state[MPIDR_AFFLVL0] ==
-					PLAT_LOCAL_STATE_OFF);
+	       PLAT_LOCAL_STATE_OFF);
 
 	if (target_state->pwr_domain_state[MPIDR_AFFLVL1] ==
-					PLAT_LOCAL_STATE_OFF) {
+	    PLAT_LOCAL_STATE_OFF) {
 		INFO("Cluster #%lu entering to snoop/dvm domain\n", cluster_id);
 		ccn_enter_snoop_dvm_domain(1 << cluster_id);
 	}
@@ -115,10 +117,10 @@ static int brcm_system_reset2(int is_vendor, int reset_type,
  * platform will take care of registering the handlers with PSCI.
  ******************************************************************************/
 const plat_psci_ops_t plat_brcm_psci_pm_ops = {
-	.pwr_domain_on		= brcm_pwr_domain_on,
-	.pwr_domain_on_finish	= brcm_pwr_domain_on_finish,
-	.system_reset		= brcm_system_reset,
-	.system_reset2		= brcm_system_reset2
+	.pwr_domain_on = brcm_pwr_domain_on,
+	.pwr_domain_on_finish = brcm_pwr_domain_on_finish,
+	.system_reset = brcm_system_reset,
+	.system_reset2 = brcm_system_reset2
 };
 
 int plat_setup_psci_ops(uintptr_t sec_entrypoint,

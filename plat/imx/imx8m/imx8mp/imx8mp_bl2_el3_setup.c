@@ -17,31 +17,51 @@
 #include <drivers/console.h>
 #include <drivers/generic_delay_timer.h>
 #include <drivers/mmc.h>
+#include <imx8m_caam.h>
+#include <imx_aipstz.h>
+#include <imx_rdc.h>
+#include <imx_uart.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/mmio.h>
 #include <lib/optee_utils.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-
-#include <imx8m_caam.h>
-#include "imx8mp_private.h"
-#include <imx_aipstz.h>
-#include <imx_rdc.h>
-#include <imx_uart.h>
-#include <plat/common/platform.h>
 #include <plat_imx8.h>
+
+#include <plat/common/platform.h>
 #include <platform_def.h>
 
+#include "imx8mp_private.h"
 
 static const struct aipstz_cfg aipstz[] = {
-	{IMX_AIPSTZ1, 0x77777777, 0x77777777, .opacr = {0x0, 0x0, 0x0, 0x0, 0x0}, },
-	{IMX_AIPSTZ2, 0x77777777, 0x77777777, .opacr = {0x0, 0x0, 0x0, 0x0, 0x0}, },
-	{IMX_AIPSTZ3, 0x77777777, 0x77777777, .opacr = {0x0, 0x0, 0x0, 0x0, 0x0}, },
-	{IMX_AIPSTZ4, 0x77777777, 0x77777777, .opacr = {0x0, 0x0, 0x0, 0x0, 0x0}, },
-	{0},
+	{
+		IMX_AIPSTZ1,
+		0x77777777,
+		0x77777777,
+		.opacr = { 0x0, 0x0, 0x0, 0x0, 0x0 },
+	},
+	{
+		IMX_AIPSTZ2,
+		0x77777777,
+		0x77777777,
+		.opacr = { 0x0, 0x0, 0x0, 0x0, 0x0 },
+	},
+	{
+		IMX_AIPSTZ3,
+		0x77777777,
+		0x77777777,
+		.opacr = { 0x0, 0x0, 0x0, 0x0, 0x0 },
+	},
+	{
+		IMX_AIPSTZ4,
+		0x77777777,
+		0x77777777,
+		.opacr = { 0x0, 0x0, 0x0, 0x0, 0x0 },
+	},
+	{ 0 },
 };
 
 void bl2_el3_early_platform_setup(u_register_t arg0, u_register_t arg1,
-		u_register_t arg2, u_register_t arg3)
+				  u_register_t arg2, u_register_t arg3)
 {
 	static console_t console;
 	unsigned int i;
@@ -54,7 +74,7 @@ void bl2_el3_early_platform_setup(u_register_t arg0, u_register_t arg1,
 	imx_aipstz_init(aipstz);
 
 	console_imx_uart_register(IMX_BOOT_UART_BASE, IMX_BOOT_UART_CLK_IN_HZ,
-		IMX_CONSOLE_BAUDRATE, &console);
+				  IMX_CONSOLE_BAUDRATE, &console);
 
 	generic_delay_timer_init();
 

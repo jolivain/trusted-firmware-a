@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 - 2020, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017 - 2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -32,13 +32,13 @@ const int opterr; /* = 0; */
  * missing required argument, it stores that option character in this
  * variable.
  */
-int optopt;	/* = 0; */
+int optopt; /* = 0; */
 
 /*
  * This variable is set by getopt to point at the value of the option
  * argument, for those options that accept arguments.
  */
-char *optarg;	/* = 0; */
+char *optarg; /* = 0; */
 
 enum return_flags {
 	RET_ERROR = -1,
@@ -51,8 +51,7 @@ enum return_flags {
 /*
  * Common initialisation on entry.
  */
-static
-void getopt_init(void)
+static void getopt_init(void)
 {
 	optarg = (char *)0;
 	optopt = 0;
@@ -66,11 +65,8 @@ void getopt_init(void)
 /*
  * Common handling for a single letter option.
  */
-static
-int getopt_1char(int argc,
-		 char *const argv[],
-		 const char *const opstring,
-		 const int optchar)
+static int getopt_1char(int argc, char *const argv[],
+			const char *const opstring, const int optchar)
 {
 	size_t nlen = (opstring == 0) ? 0 : strlen(opstring);
 	size_t loptn;
@@ -94,9 +90,8 @@ int getopt_1char(int argc,
 				}
 				/* Actual missing value. */
 				optopt = optchar;
-				return ((opstring[0] == ':')
-					? RET_NO_PARAM2
-					: RET_NO_PARAM);
+				return ((opstring[0] == ':') ? RET_NO_PARAM2 :
+							       RET_NO_PARAM);
 			}
 			/* No argument, just return option char */
 			optind++;
@@ -112,9 +107,7 @@ int getopt_1char(int argc,
 	return RET_UNKNOWN_OPT;
 }
 
-int getopt(int argc,
-	   char *argv[],
-	   char *opstring)
+int getopt(int argc, char *argv[], char *opstring)
 {
 	int result = RET_END_OPT_LIST;
 	size_t argn = 0;
@@ -141,8 +134,7 @@ int getopt(int argc,
  * abbreviations are unique and should be handled by the caller.
  * A long option may take a parameter, of the form --opt=param or --opt param.
 */
-static
-int optmatch(const char *argval, const char *optname)
+static int optmatch(const char *argval, const char *optname)
 {
 	int result = 0;
 
@@ -152,12 +144,9 @@ int optmatch(const char *argval, const char *optname)
 }
 
 /* Handling for a single long option. */
-static
-int getopt_1long(const int argc,
-		 char *const argv[],
-		 const struct option *const longopts,
-		 const char *const optname,
-		 int *const indexptr)
+static int getopt_1long(const int argc, char *const argv[],
+			const struct option *const longopts,
+			const char *const optname, int *const indexptr)
 {
 	int result = RET_UNKNOWN_OPT;
 	size_t loptn = 0;
@@ -222,7 +211,6 @@ int getopt_1long(const int argc,
 				result = 0;
 			}
 			break;
-
 		}
 		return result;
 	}
@@ -240,11 +228,8 @@ int getopt_1long(const int argc,
  * specified by the argv and argc arguments.  Options may be either short
  * (single letter) as for getopt, or longer names (preceded by --).
  */
-int getopt_long(int argc,
-		char *argv[],
-		const char *shortopts,
-		const struct option *longopts,
-		int *indexptr)
+int getopt_long(int argc, char *argv[], const char *shortopts,
+		const struct option *longopts, int *indexptr)
 {
 	int result = RET_END_OPT_LIST;
 
@@ -256,15 +241,10 @@ int getopt_long(int argc,
 		if ((arg != 0) && (arg[0] == '-')) {
 			if (arg[1] == '-') {
 				/* Looks like a long option. */
-				result = getopt_1long(argc,
-						      argv,
-						      longopts,
-						      &arg[2],
-						      indexptr);
+				result = getopt_1long(argc, argv, longopts,
+						      &arg[2], indexptr);
 			} else {
-				result = getopt_1char(argc,
-						      argv,
-						      shortopts,
+				result = getopt_1char(argc, argv, shortopts,
 						      arg[1]);
 			}
 		}
@@ -278,11 +258,8 @@ int getopt_long(int argc,
  * or long as for getopt_long, but the long names may have a single '-'
  * prefix too.
  */
-int getopt_long_only(int argc,
-		     char *argv[],
-		     const char *shortopts,
-		     const struct option *longopts,
-		     int *indexptr)
+int getopt_long_only(int argc, char *argv[], const char *shortopts,
+		     const struct option *longopts, int *indexptr)
 {
 	int result = RET_END_OPT_LIST;
 
@@ -294,22 +271,14 @@ int getopt_long_only(int argc,
 		if ((arg != 0) && (arg[0] == '-')) {
 			if (arg[1] == '-') {
 				/* Looks like a long option. */
-				result = getopt_1long(argc,
-						      argv,
-						      longopts,
-						      &arg[2],
-						      indexptr);
+				result = getopt_1long(argc, argv, longopts,
+						      &arg[2], indexptr);
 			} else {
-				result = getopt_1long(argc,
-						      argv,
-						      longopts,
-						      &arg[1],
-						      indexptr);
+				result = getopt_1long(argc, argv, longopts,
+						      &arg[1], indexptr);
 				if (result == RET_UNKNOWN_OPT) {
-					result = getopt_1char(argc,
-							      argv,
-							      shortopts,
-							      arg[1]);
+					result = getopt_1char(
+						argc, argv, shortopts, arg[1]);
 				}
 			}
 		}

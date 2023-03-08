@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020-2022, Xilinx, Inc. All rights reserved.
  * Copyright (c) 2022, Advanced Micro Devices, Inc. All rights reserved.
  *
@@ -9,12 +9,14 @@
 #ifndef PM_IPI_H
 #define PM_IPI_H
 
-#include <plat_ipi.h>
 #include <stddef.h>
+
+#include <plat_ipi.h>
+
 #include "pm_common.h"
 
-#define IPI_BLOCKING		1
-#define IPI_NON_BLOCKING	0
+#define IPI_BLOCKING 1
+#define IPI_NON_BLOCKING 0
 
 void pm_ipi_init(const struct pm_proc *proc);
 

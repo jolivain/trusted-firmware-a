@@ -7,31 +7,30 @@
 #include <platform_usb.h>
 #include <usb_phy.h>
 
-#define USB_PHY_ALREADY_STARTED	(-2)
-#define USB_MAX_DEVICES		 2
-#define USB3H_USB2DRD_PHY	 0
-#define USB3_DRD_PHY		 1
+#define USB_PHY_ALREADY_STARTED (-2)
+#define USB_MAX_DEVICES 2
+#define USB3H_USB2DRD_PHY 0
+#define USB3_DRD_PHY 1
 
 /* Common bit fields for all the USB2 phy */
-#define USB2_PHY_ISO		DRDU2_U2PHY_ISO
-#define USB2_AFE_PLL_PWRDWNB	DRDU2_U2AFE_PLL_PWRDWNB
-#define USB2_AFE_BG_PWRDWNB	DRDU2_U2AFE_BG_PWRDWNB
-#define USB2_AFE_LDO_PWRDWNB	DRDU2_U2AFE_LDO_PWRDWNB
-#define USB2_CTRL_CORERDY	DRDU2_U2CTRL_CORERDY
+#define USB2_PHY_ISO DRDU2_U2PHY_ISO
+#define USB2_AFE_PLL_PWRDWNB DRDU2_U2AFE_PLL_PWRDWNB
+#define USB2_AFE_BG_PWRDWNB DRDU2_U2AFE_BG_PWRDWNB
+#define USB2_AFE_LDO_PWRDWNB DRDU2_U2AFE_LDO_PWRDWNB
+#define USB2_CTRL_CORERDY DRDU2_U2CTRL_CORERDY
 
-#define USB2_PHY_PCTL_MASK	DRDU2_U2PHY_PCTL_MASK
-#define USB2_PHY_PCTL_OFFSET	DRDU2_U2PHY_PCTL_OFFSET
-#define USB2_PHY_PCTL_VAL	U2PHY_PCTL_VAL
+#define USB2_PHY_PCTL_MASK DRDU2_U2PHY_PCTL_MASK
+#define USB2_PHY_PCTL_OFFSET DRDU2_U2PHY_PCTL_OFFSET
+#define USB2_PHY_PCTL_VAL U2PHY_PCTL_VAL
 
-#define USB2_PLL_RESETB		DRDU2_U2PLL_RESETB
-#define USB2_PHY_RESETB		DRDU2_U2PHY_RESETB
+#define USB2_PLL_RESETB DRDU2_U2PLL_RESETB
+#define USB2_PHY_RESETB DRDU2_U2PHY_RESETB
 
 static usb_phy_port_t usb_phy_port[2U][MAX_NR_PORTS];
 
-static usb_phy_t usb_phy_info[2U] = {
-	{DRDU2_U2PLL_NDIV_FRAC, USB3H_PIPE_CTRL, 0U, USB3H_DRDU2_PHY},
-	{0U, 0U, DRDU3_PIPE_CTRL, DRDU3_PHY}
-};
+static usb_phy_t usb_phy_info[2U] = { { DRDU2_U2PLL_NDIV_FRAC, USB3H_PIPE_CTRL,
+					0U, USB3H_DRDU2_PHY },
+				      { 0U, 0U, DRDU3_PIPE_CTRL, DRDU3_PHY } };
 
 typedef struct {
 	void *pcd_id;
@@ -39,8 +38,8 @@ typedef struct {
 
 /* index 0: USB3H + USB2 DRD, 1: USB3 DRD */
 static usb_platform_dev xhci_devices_configs[USB_MAX_DEVICES] = {
-	{&usb_phy_info[0U]},
-	{&usb_phy_info[1U]}
+	{ &usb_phy_info[0U] },
+	{ &usb_phy_info[1U] }
 };
 
 static int32_t pll_lock_check(uint32_t address, uint32_t bit)
@@ -81,10 +80,8 @@ static void u2_phy_ext_fsm_power_on(struct u2_phy_ext_fsm *u2_phy)
 	udelay(10U);
 
 	mmio_clrbits_32(u2_phy->phy_ctrl_reg,
-			(USB2_AFE_BG_PWRDWNB |
-			 USB2_AFE_PLL_PWRDWNB |
-			 USB2_AFE_LDO_PWRDWNB |
-			 USB2_CTRL_CORERDY));
+			(USB2_AFE_BG_PWRDWNB | USB2_AFE_PLL_PWRDWNB |
+			 USB2_AFE_LDO_PWRDWNB | USB2_CTRL_CORERDY));
 
 	mmio_clrsetbits_32(u2_phy->phy_ctrl_reg,
 			   (USB2_PHY_PCTL_MASK << USB2_PHY_PCTL_OFFSET),
@@ -122,7 +119,6 @@ static void u2_phy_ext_fsm_power_on(struct u2_phy_ext_fsm *u2_phy)
 
 	mmio_setbits_32(u2_phy->pll_ctrl_reg, USB2_PLL_RESETB);
 	mmio_setbits_32(u2_phy->phy_ctrl_reg, USB2_PHY_RESETB);
-
 }
 
 static int32_t usb3h_u2_phy_power_on(uint32_t base)
@@ -168,7 +164,7 @@ static int32_t usb3h_u3_phy_power_on(uint32_t base)
 			   (U3PHY_PCTL_VAL << USB3H_U3PHY_PCTL_OFFSET));
 
 	mmio_clrbits_32(base + USB3H_U3PHY_PLL_CTRL,
-			(uint32_t) USB3H_U3SSPLL_SUSPEND_EN);
+			(uint32_t)USB3H_U3SSPLL_SUSPEND_EN);
 	mmio_setbits_32(base + USB3H_U3PHY_PLL_CTRL, USB3H_U3PLL_SEQ_START);
 	mmio_setbits_32(base + USB3H_U3PHY_PLL_CTRL, USB3H_U3PLL_RESETB);
 
@@ -226,7 +222,7 @@ static int32_t drdu3_u3_phy_power_on(uint32_t base)
 			   (U3PHY_PCTL_VAL << DRDU3_U3PHY_PCTL_OFFSET));
 
 	mmio_clrbits_32(base + DRDU3_U3PHY_PLL_CTRL,
-			(uint32_t) DRDU3_U3SSPLL_SUSPEND_EN);
+			(uint32_t)DRDU3_U3SSPLL_SUSPEND_EN);
 	mmio_setbits_32(base + DRDU3_U3PHY_PLL_CTRL, DRDU3_U3PLL_SEQ_START);
 	mmio_setbits_32(base + DRDU3_U3PHY_PLL_CTRL, DRDU3_U3PLL_RESETB);
 
@@ -280,13 +276,13 @@ void u3h_u2drd_phy_reset(usb_phy_port_t *phy_port)
 	switch (phy_port->port_id) {
 	case USB3HS_PORT:
 		mmio_clrbits_32(phy->usb3hreg + USB3H_U2PHY_CTRL,
-				(uint32_t) USB3H_U2CTRL_CORERDY);
+				(uint32_t)USB3H_U2CTRL_CORERDY);
 		mmio_setbits_32(phy->usb3hreg + USB3H_U2PHY_CTRL,
 				USB3H_U2CTRL_CORERDY);
 		break;
 	case DRDU2_PORT:
 		mmio_clrbits_32(phy->drdu2reg + DRDU2_PHY_CTRL,
-				(uint32_t) DRDU2_U2CTRL_CORERDY);
+				(uint32_t)DRDU2_U2CTRL_CORERDY);
 		mmio_setbits_32(phy->drdu2reg + DRDU2_PHY_CTRL,
 				DRDU2_U2CTRL_CORERDY);
 		break;
@@ -299,7 +295,7 @@ void u3drd_phy_reset(usb_phy_port_t *phy_port)
 
 	if (phy_port->port_id == DRD3HS_PORT) {
 		mmio_clrbits_32(phy->drdu3reg + DRDU3_U2PHY_CTRL,
-				(uint32_t) DRDU3_U2CTRL_CORERDY);
+				(uint32_t)DRDU3_U2CTRL_CORERDY);
 		mmio_setbits_32(phy->drdu3reg + DRDU3_U2PHY_CTRL,
 				DRDU3_U2CTRL_CORERDY);
 	}
@@ -313,7 +309,7 @@ static int32_t u3h_u2drd_phy_power_on(usb_phy_port_t *phy_port)
 	switch (phy_port->port_id) {
 	case USB3SS_PORT:
 		mmio_clrbits_32(phy->usb3hreg + USB3H_PHY_PWR_CTRL,
-				(uint32_t) USB3H_DISABLE_USB30_P0);
+				(uint32_t)USB3H_DISABLE_USB30_P0);
 		status = usb3h_u3_phy_power_on(phy->usb3hreg);
 		if (status != 0) {
 			goto err_usb3h_phy_on;
@@ -321,7 +317,7 @@ static int32_t u3h_u2drd_phy_power_on(usb_phy_port_t *phy_port)
 		break;
 	case USB3HS_PORT:
 		mmio_clrbits_32(phy->usb3hreg + USB3H_PHY_PWR_CTRL,
-				(uint32_t) USB3H_DISABLE_EUSB_P1);
+				(uint32_t)USB3H_DISABLE_EUSB_P1);
 		mmio_setbits_32(AXI_DEBUG_CTRL,
 				AXI_DBG_CTRL_SSPHY_DRD_MODE_DISABLE);
 		mmio_setbits_32(USB3H_DEBUG_CTRL,
@@ -340,7 +336,7 @@ static int32_t u3h_u2drd_phy_power_on(usb_phy_port_t *phy_port)
 		break;
 	case DRDU2_PORT:
 		mmio_clrbits_32(phy->usb3hreg + USB3H_PHY_PWR_CTRL,
-				(uint32_t) USB3H_DISABLE_EUSB_P0);
+				(uint32_t)USB3H_DISABLE_EUSB_P0);
 		mmio_setbits_32(AXI_DEBUG_CTRL,
 				AXI_DBG_CTRL_SSPHY_DRD_MODE_DISABLE);
 		mmio_setbits_32(USB3H_DEBUG_CTRL,
@@ -375,10 +371,10 @@ static int32_t u3h_u2drd_phy_power_on(usb_phy_port_t *phy_port)
 	mmio_setbits_32(phy->usb3hreg + USB3H_U3PHY_CTRL, USB3H_U3SOFT_RST_N);
 
 	return 0U;
- err_usb3h_phy_on:mmio_setbits_32(phy->usb3hreg + USB3H_PHY_PWR_CTRL,
-			(USB3H_DISABLE_EUSB_P1 |
-			 USB3H_DISABLE_USB30_P0));
- err_drdu2_phy_on:
+err_usb3h_phy_on:
+	mmio_setbits_32(phy->usb3hreg + USB3H_PHY_PWR_CTRL,
+			(USB3H_DISABLE_EUSB_P1 | USB3H_DISABLE_USB30_P0));
+err_drdu2_phy_on:
 
 	return status;
 }
@@ -391,7 +387,7 @@ static int32_t u3drd_phy_power_on(usb_phy_port_t *phy_port)
 	switch (phy_port->port_id) {
 	case DRD3SS_PORT:
 		mmio_clrbits_32(phy->drdu3reg + DRDU3_PHY_PWR_CTRL,
-				(uint32_t) DRDU3_DISABLE_USB30_P0);
+				(uint32_t)DRDU3_DISABLE_USB30_P0);
 
 		status = drdu3_u3_phy_power_on(phy->drdu3reg);
 		if (status != 0) {
@@ -400,7 +396,7 @@ static int32_t u3drd_phy_power_on(usb_phy_port_t *phy_port)
 		break;
 	case DRD3HS_PORT:
 		mmio_clrbits_32(phy->drdu3reg + DRDU3_PHY_PWR_CTRL,
-				(uint32_t) DRDU3_DISABLE_EUSB_P0);
+				(uint32_t)DRDU3_DISABLE_EUSB_P0);
 		mmio_setbits_32(AXI_DEBUG_CTRL,
 				AXI_DBG_CTRL_SSPHY_DRD_MODE_DISABLE);
 		mmio_setbits_32(USB3H_DEBUG_CTRL,
@@ -432,9 +428,9 @@ static int32_t u3drd_phy_power_on(usb_phy_port_t *phy_port)
 	}
 
 	return 0U;
- err_drdu3_phy_on:mmio_setbits_32(phy->drdu3reg + DRDU3_PHY_PWR_CTRL,
-			(DRDU3_DISABLE_EUSB_P0 |
-			 DRDU3_DISABLE_USB30_P0));
+err_drdu3_phy_on:
+	mmio_setbits_32(phy->drdu3reg + DRDU3_PHY_PWR_CTRL,
+			(DRDU3_DISABLE_EUSB_P0 | DRDU3_DISABLE_USB30_P0));
 
 	return status;
 }
@@ -492,8 +488,8 @@ int32_t usb_info_fill(usb_phy_t *phy_info)
 	}
 
 	for (index = MAX_NR_PORTS - 1U; index > -1; index--) {
-		phy_info->phy_port[index].enabled = (phy_info->ports_enabled
-						     >> index) & 0x1U;
+		phy_info->phy_port[index].enabled =
+			(phy_info->ports_enabled >> index) & 0x1U;
 		phy_info->phy_port[index].p = phy_info;
 		phy_info->phy_port[index].port_id = index;
 	}
@@ -518,14 +514,12 @@ int32_t usb_phy_init(usb_platform_dev *device)
 		if (phy_info->phy_port[index].enabled != 0U) {
 			switch (phy_info->phy_id) {
 			case USB3H_DRDU2_PHY:
-				status =
-				    u3h_u2drd_phy_power_on(&phy_info->
-							   phy_port[index]);
+				status = u3h_u2drd_phy_power_on(
+					&phy_info->phy_port[index]);
 				break;
 			default:
-				status =
-				    u3drd_phy_power_on(&phy_info->
-						       phy_port[index]);
+				status = u3drd_phy_power_on(
+					&phy_info->phy_port[index]);
 			}
 		}
 	}
@@ -547,8 +541,8 @@ void usb_phy_shutdown(usb_platform_dev *device)
 		if (phy_info->phy_port[index].enabled != 0U) {
 			switch (phy_info->phy_id) {
 			case USB3H_DRDU2_PHY:
-				u3h_u2drd_phy_power_off(&phy_info->
-							phy_port[index]);
+				u3h_u2drd_phy_power_off(
+					&phy_info->phy_port[index]);
 				break;
 			case DRDU3_PHY:
 				u3drd_phy_power_off(&phy_info->phy_port[index]);
@@ -579,8 +573,8 @@ int32_t usb_device_init(unsigned int usb_func)
 	int32_t devices_initialized = 0U;
 
 	if ((usb_func & USB3H_USB2DRD) != 0U) {
-		status = usb_xhci_init(
-				&xhci_devices_configs[USB3H_USB2DRD_PHY]);
+		status =
+			usb_xhci_init(&xhci_devices_configs[USB3H_USB2DRD_PHY]);
 		if (status == 0) {
 			devices_initialized++;
 		} else {

@@ -1,14 +1,15 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
+
 #include <ddr_parameter.h>
 #include <plat_private.h>
-#include <secure.h>
 #include <px30_def.h>
+#include <secure.h>
 
 /**
  * There are 8 regions for DDR security control
@@ -18,8 +19,7 @@
  * The internal unit is megabytes, so memory areas need to be aligned
  * to megabyte borders.
  */
-static void secure_ddr_region(uint32_t rgn,
-			      uintptr_t st, size_t sz)
+static void secure_ddr_region(uint32_t rgn, uintptr_t st, size_t sz)
 {
 	uintptr_t ed = st + sz;
 	uintptr_t st_mb, ed_mb;
@@ -36,21 +36,18 @@ static void secure_ddr_region(uint32_t rgn,
 	ed_mb = ed / SIZE_M(1);
 
 	/* map top and base */
-	mmio_write_32(FIREWALL_DDR_BASE +
-		      FIREWALL_DDR_FW_DDR_RGN(rgn),
+	mmio_write_32(FIREWALL_DDR_BASE + FIREWALL_DDR_FW_DDR_RGN(rgn),
 		      RG_MAP_SECURE(ed_mb, st_mb));
 
 	/* enable secure */
 	val = mmio_read_32(FIREWALL_DDR_BASE + FIREWALL_DDR_FW_DDR_CON_REG);
 	val |= BIT(rgn);
-	mmio_write_32(FIREWALL_DDR_BASE +
-		      FIREWALL_DDR_FW_DDR_CON_REG, val);
+	mmio_write_32(FIREWALL_DDR_BASE + FIREWALL_DDR_FW_DDR_CON_REG, val);
 }
 
 void secure_timer_init(void)
 {
-	mmio_write_32(STIMER_CHN_BASE(1) + TIMER_CONTROL_REG,
-		      TIMER_DIS);
+	mmio_write_32(STIMER_CHN_BASE(1) + TIMER_CONTROL_REG, TIMER_DIS);
 
 	mmio_write_32(STIMER_CHN_BASE(1) + TIMER_LOAD_COUNT0, 0xffffffff);
 	mmio_write_32(STIMER_CHN_BASE(1) + TIMER_LOAD_COUNT1, 0xffffffff);
@@ -67,8 +64,7 @@ void sgrf_init(void)
 	struct param_ddr_usage usg;
 
 	/* general secure regions */
-	usg = ddr_region_usage_parse(DDR_PARAM_BASE,
-				     PLAT_MAX_DDR_CAPACITY_MB);
+	usg = ddr_region_usage_parse(DDR_PARAM_BASE, PLAT_MAX_DDR_CAPACITY_MB);
 
 	/* region-0 for TF-A, region-1 for optional OP-TEE */
 	assert(usg.s_nr < 7);

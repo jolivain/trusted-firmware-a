@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,9 +9,9 @@
 
 #include <m0_param.h>
 
-#define M0_BINCODE_BASE 	((uintptr_t)rk3399m0_bin)
-#define M0_PARAM_ADDR		(M0_BINCODE_BASE + PARAM_ADDR)
-#define M0PMU_BINCODE_BASE	((uintptr_t)rk3399m0pmu_bin)
+#define M0_BINCODE_BASE ((uintptr_t)rk3399m0_bin)
+#define M0_PARAM_ADDR (M0_BINCODE_BASE + PARAM_ADDR)
+#define M0PMU_BINCODE_BASE ((uintptr_t)rk3399m0pmu_bin)
 
 /* pmu_fw.c */
 extern char rk3399m0_bin[];

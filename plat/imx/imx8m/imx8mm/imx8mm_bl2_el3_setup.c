@@ -1,11 +1,12 @@
 /*
  * Copyright 2017-2021 NXP
- * Copyright 2021 Arm
+ * Copyright 2021-2023 Arm
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
+#include <stdbool.h>
 
 #include <arch_helpers.h>
 #include <common/bl_common.h>
@@ -15,27 +16,46 @@
 #include <drivers/console.h>
 #include <drivers/generic_delay_timer.h>
 #include <drivers/mmc.h>
-#include <lib/mmio.h>
-#include <lib/optee_utils.h>
-#include <lib/utils.h>
-#include <stdbool.h>
-#include <tbbr_img_def.h>
-
 #include <imx_aipstz.h>
 #include <imx_csu.h>
 #include <imx_uart.h>
 #include <imx_usdhc.h>
+#include <lib/mmio.h>
+#include <lib/optee_utils.h>
+#include <lib/utils.h>
+#include <tbbr_img_def.h>
+
 #include <plat/common/platform.h>
 
 #include "imx8mm_private.h"
 #include "platform_def.h"
 
 static const struct aipstz_cfg aipstz[] = {
-	{IMX_AIPSTZ1, 0x77777777, 0x77777777, .opacr = {0x0, 0x0, 0x0, 0x0, 0x0}, },
-	{IMX_AIPSTZ2, 0x77777777, 0x77777777, .opacr = {0x0, 0x0, 0x0, 0x0, 0x0}, },
-	{IMX_AIPSTZ3, 0x77777777, 0x77777777, .opacr = {0x0, 0x0, 0x0, 0x0, 0x0}, },
-	{IMX_AIPSTZ4, 0x77777777, 0x77777777, .opacr = {0x0, 0x0, 0x0, 0x0, 0x0}, },
-	{0},
+	{
+		IMX_AIPSTZ1,
+		0x77777777,
+		0x77777777,
+		.opacr = { 0x0, 0x0, 0x0, 0x0, 0x0 },
+	},
+	{
+		IMX_AIPSTZ2,
+		0x77777777,
+		0x77777777,
+		.opacr = { 0x0, 0x0, 0x0, 0x0, 0x0 },
+	},
+	{
+		IMX_AIPSTZ3,
+		0x77777777,
+		0x77777777,
+		.opacr = { 0x0, 0x0, 0x0, 0x0, 0x0 },
+	},
+	{
+		IMX_AIPSTZ4,
+		0x77777777,
+		0x77777777,
+		.opacr = { 0x0, 0x0, 0x0, 0x0, 0x0 },
+	},
+	{ 0 },
 };
 
 static void imx8mm_usdhc_setup(void)
@@ -78,7 +98,7 @@ void bl2_el3_early_platform_setup(u_register_t arg1, u_register_t arg2,
 	imx_aipstz_init(aipstz);
 
 	console_imx_uart_register(IMX_BOOT_UART_BASE, IMX_BOOT_UART_CLK_IN_HZ,
-		IMX_CONSOLE_BAUDRATE, &console);
+				  IMX_CONSOLE_BAUDRATE, &console);
 
 	generic_delay_timer_init();
 

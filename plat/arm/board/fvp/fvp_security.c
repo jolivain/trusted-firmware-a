@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -25,16 +25,16 @@ void plat_arm_security_setup(void)
 	const arm_tzc_regions_info_t fvp_tzc_regions[] = {
 		ARM_TZC_REGIONS_DEF,
 #if !SPM_MM && !ENABLE_RME
-		{FVP_DRAM3_BASE, FVP_DRAM3_END,
-		 ARM_TZC_NS_DRAM_S_ACCESS, PLAT_ARM_TZC_NS_DEV_ACCESS},
-		{FVP_DRAM4_BASE, FVP_DRAM4_END,
-		 ARM_TZC_NS_DRAM_S_ACCESS, PLAT_ARM_TZC_NS_DEV_ACCESS},
-		{FVP_DRAM5_BASE, FVP_DRAM5_END,
-		 ARM_TZC_NS_DRAM_S_ACCESS, PLAT_ARM_TZC_NS_DEV_ACCESS},
-		{FVP_DRAM6_BASE, FVP_DRAM6_END,
-		 ARM_TZC_NS_DRAM_S_ACCESS, PLAT_ARM_TZC_NS_DEV_ACCESS},
+		{ FVP_DRAM3_BASE, FVP_DRAM3_END, ARM_TZC_NS_DRAM_S_ACCESS,
+		  PLAT_ARM_TZC_NS_DEV_ACCESS },
+		{ FVP_DRAM4_BASE, FVP_DRAM4_END, ARM_TZC_NS_DRAM_S_ACCESS,
+		  PLAT_ARM_TZC_NS_DEV_ACCESS },
+		{ FVP_DRAM5_BASE, FVP_DRAM5_END, ARM_TZC_NS_DRAM_S_ACCESS,
+		  PLAT_ARM_TZC_NS_DEV_ACCESS },
+		{ FVP_DRAM6_BASE, FVP_DRAM6_END, ARM_TZC_NS_DRAM_S_ACCESS,
+		  PLAT_ARM_TZC_NS_DEV_ACCESS },
 #endif
-		{0}
+		{ 0 }
 	};
 
 	if ((get_arm_config()->flags & ARM_CONFIG_HAS_TZC) != 0U)

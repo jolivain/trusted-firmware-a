@@ -5,27 +5,26 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <lib/mmio.h>
 #include <stdint.h>
 
 #include <common/debug.h>
+#include <lib/mmio.h>
 
+#include "../ddr_regs.h"
+#include "../dram_sub_func.h"
 #include "boot_init_dram.h"
 #include "rcar_def.h"
-#include "../ddr_regs.h"
 
-#include "../dram_sub_func.h"
-
-#define RCAR_E3_DDR_VERSION    "rev.0.12"
+#define RCAR_E3_DDR_VERSION "rev.0.12"
 
 /* Average periodic refresh interval[ns]. Support 3900,7800 */
 #ifdef ddr_qos_init_setting
-#define REFRESH_RATE	3900U
+#define REFRESH_RATE 3900U
 #else
 #if RCAR_REF_INT == 1
-#define REFRESH_RATE	7800U
+#define REFRESH_RATE 7800U
 #else
-#define REFRESH_RATE	3900U
+#define REFRESH_RATE 3900U
 #endif
 #endif
 
@@ -66,7 +65,7 @@ uint32_t init_ddr(void)
 
 		mmio_write_32(CPG_SRCR4, 0x20000000);
 
-		mmio_write_32(0xE61500DC, 0xe2200000);	/* Change to 1584Mbps */
+		mmio_write_32(0xE61500DC, 0xe2200000); /* Change to 1584Mbps */
 		while (!(mmio_read_32(CPG_PLLECR) & BIT(11)))
 			;
 
@@ -79,9 +78,9 @@ uint32_t init_ddr(void)
 	mmio_write_32(DBSC_DBKIND, 0x00000007);
 
 #if RCAR_DRAM_DDR3L_MEMCONF == 0
-	mmio_write_32(DBSC_DBMEMCONF_0_0, 0x0f030a02);	/* 1GB */
+	mmio_write_32(DBSC_DBMEMCONF_0_0, 0x0f030a02); /* 1GB */
 #else
-	mmio_write_32(DBSC_DBMEMCONF_0_0, 0x10030a02);	/* 2GB(default) */
+	mmio_write_32(DBSC_DBMEMCONF_0_0, 0x10030a02); /* 2GB(default) */
 #endif
 
 #if RCAR_DRAM_DDR3L_MEMDUAL == 1
@@ -92,10 +91,10 @@ uint32_t init_ddr(void)
 	mmio_write_32(DBSC_DBPHYCONF0, 0x1);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0) {	/* 1584Mbps */
+	if (ddr_md == 0) { /* 1584Mbps */
 		mmio_write_32(DBSC_DBTR0, 0xB);
 		mmio_write_32(DBSC_DBTR1, 0x8);
-	} else {		/* 1856Mbps */
+	} else { /* 1856Mbps */
 		mmio_write_32(DBSC_DBTR0, 0xD);
 		mmio_write_32(DBSC_DBTR1, 0x9);
 	}
@@ -103,12 +102,12 @@ uint32_t init_ddr(void)
 	mmio_write_32(DBSC_DBTR2, 0x00000000);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0) {	/* 1584Mbps */
+	if (ddr_md == 0) { /* 1584Mbps */
 		mmio_write_32(DBSC_DBTR3, 0x0000000B);
 		mmio_write_32(DBSC_DBTR4, 0x000B000B);
 		mmio_write_32(DBSC_DBTR5, 0x00000027);
 		mmio_write_32(DBSC_DBTR6, 0x0000001C);
-	} else {		/* 1856Mbps */
+	} else { /* 1856Mbps */
 		mmio_write_32(DBSC_DBTR3, 0x0000000D);
 		mmio_write_32(DBSC_DBTR4, 0x000D000D);
 		mmio_write_32(DBSC_DBTR5, 0x0000002D);
@@ -118,7 +117,7 @@ uint32_t init_ddr(void)
 	mmio_write_32(DBSC_DBTR7, 0x00060006);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0) {	/* 1584Mbps */
+	if (ddr_md == 0) { /* 1584Mbps */
 		mmio_write_32(DBSC_DBTR8, 0x00000020);
 		mmio_write_32(DBSC_DBTR9, 0x00000006);
 		mmio_write_32(DBSC_DBTR10, 0x0000000C);
@@ -129,7 +128,7 @@ uint32_t init_ddr(void)
 		mmio_write_32(DBSC_DBTR15, 0x00050004);
 		mmio_write_32(DBSC_DBTR16, 0x071F0305);
 		mmio_write_32(DBSC_DBTR17, 0x040C0000);
-	} else {		/* 1856Mbps */
+	} else { /* 1856Mbps */
 		mmio_write_32(DBSC_DBTR8, 0x00000021);
 		mmio_write_32(DBSC_DBTR9, 0x00000007);
 		mmio_write_32(DBSC_DBTR10, 0x0000000E);
@@ -145,10 +144,10 @@ uint32_t init_ddr(void)
 	mmio_write_32(DBSC_DBTR18, 0x00000200);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0) {	/* 1584Mbps */
+	if (ddr_md == 0) { /* 1584Mbps */
 		mmio_write_32(DBSC_DBTR19, 0x01000040);
 		mmio_write_32(DBSC_DBTR20, 0x020000D6);
-	} else {		/* 1856Mbps */
+	} else { /* 1856Mbps */
 		mmio_write_32(DBSC_DBTR19, 0x0129004B);
 		mmio_write_32(DBSC_DBTR20, 0x020000FB);
 	}
@@ -163,10 +162,10 @@ uint32_t init_ddr(void)
 	mmio_write_32(DBSC_DBSCHRW1, 0x00000046);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0) {	/* 1584Mbps */
+	if (ddr_md == 0) { /* 1584Mbps */
 		mmio_write_32(DBSC_SCFCTST0, 0x0D050B03);
 		mmio_write_32(DBSC_SCFCTST1, 0x0306030C);
-	} else {		/* 1856Mbps */
+	} else { /* 1856Mbps */
 		mmio_write_32(DBSC_SCFCTST0, 0x0C050B03);
 		mmio_write_32(DBSC_SCFCTST1, 0x0305030C);
 	}
@@ -192,9 +191,9 @@ uint32_t init_ddr(void)
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000090);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0)	/* 1584Mbps */
+	if (ddr_md == 0) /* 1584Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x04058904);
-	else			/* 1856Mbps */
+	else /* 1856Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x04058A04);
 
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000091);
@@ -206,9 +205,9 @@ uint32_t init_ddr(void)
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000090);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0)	/* 1584Mbps */
+	if (ddr_md == 0) /* 1584Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x04058900);
-	else			/* 1856Mbps */
+	else /* 1856Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x04058A00);
 
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000021);
@@ -225,17 +224,17 @@ uint32_t init_ddr(void)
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000090);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0)	/* 1584Mbps */
+	if (ddr_md == 0) /* 1584Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x0C058900);
-	else			/* 1856Mbps */
+	else /* 1856Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x0C058A00);
 
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000090);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0)	/* 1584Mbps */
+	if (ddr_md == 0) /* 1584Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x04058900);
-	else			/* 1856Mbps */
+	else /* 1856Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x04058A00);
 
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000006);
@@ -255,12 +254,12 @@ uint32_t init_ddr(void)
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000004);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0) {	/* 1584Mbps */
-		mmio_write_32(DBSC_DBPDRGD_0, (REFRESH_RATE * 792 / 125) -
-					     400 + 0x08B00000);
-	} else {		/* 1856Mbps */
-		mmio_write_32(DBSC_DBPDRGD_0, (REFRESH_RATE * 928 / 125) -
-					     400 + 0x0A300000);
+	if (ddr_md == 0) { /* 1584Mbps */
+		mmio_write_32(DBSC_DBPDRGD_0,
+			      (REFRESH_RATE * 792 / 125) - 400 + 0x08B00000);
+	} else { /* 1856Mbps */
+		mmio_write_32(DBSC_DBPDRGD_0,
+			      (REFRESH_RATE * 928 / 125) - 400 + 0x0A300000);
 	}
 
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000022);
@@ -268,41 +267,41 @@ uint32_t init_ddr(void)
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000023);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0)	/* 1584Mbps */
+	if (ddr_md == 0) /* 1584Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x2D9C0B66);
-	else			/* 1856Mbps */
+	else /* 1856Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x35A00D77);
 
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000024);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0)	/* 1584Mbps */
+	if (ddr_md == 0) /* 1584Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x2A88B400);
-	else			/* 1856Mbps */
+	else /* 1856Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x2A8A2C28);
 
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000025);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0)	/* 1584Mbps */
+	if (ddr_md == 0) /* 1584Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x30005200);
-	else			/* 1856Mbps */
+	else /* 1856Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x30005E00);
 
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000026);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0)	/* 1584Mbps */
+	if (ddr_md == 0) /* 1584Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x0014A9C9);
-	else			/* 1856Mbps */
+	else /* 1856Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x0014CB49);
 
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000027);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0)	/* 1584Mbps */
+	if (ddr_md == 0) /* 1584Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x00000D70);
-	else			/* 1856Mbps */
+	else /* 1856Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x00000F14);
 
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000028);
@@ -310,15 +309,15 @@ uint32_t init_ddr(void)
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000029);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0) {	/* 1584Mbps */
-		if (REFRESH_RATE > 3900)	/* [7]SRT=0 */
+	if (ddr_md == 0) { /* 1584Mbps */
+		if (REFRESH_RATE > 3900) /* [7]SRT=0 */
 			mmio_write_32(DBSC_DBPDRGD_0, 0x18);
-		else				/* [7]SRT=1 */
+		else /* [7]SRT=1 */
 			mmio_write_32(DBSC_DBPDRGD_0, 0x98);
-	} else {		/* 1856Mbps */
-		if (REFRESH_RATE > 3900)	/* [7]SRT=0 */
+	} else { /* 1856Mbps */
+		if (REFRESH_RATE > 3900) /* [7]SRT=0 */
 			mmio_write_32(DBSC_DBPDRGD_0, 0x20);
-		else				/* [7]SRT=1 */
+		else /* [7]SRT=1 */
 			mmio_write_32(DBSC_DBPDRGD_0, 0xA0);
 	}
 
@@ -398,9 +397,8 @@ uint32_t init_ddr(void)
 			mmio_write_32(DBSC_DBPDRGA_0, 0xB0 + i * 0x20);
 			r2 = mmio_read_32(DBSC_DBPDRGD_0) & 0xFFFFFF00;
 			mmio_write_32(DBSC_DBPDRGA_0, 0xB0 + i * 0x20);
-			mmio_write_32(DBSC_DBPDRGD_0, r2 |
-						     ((r6 + ((r5) << 1)) &
-						     0xFF));
+			mmio_write_32(DBSC_DBPDRGD_0,
+				      r2 | ((r6 + ((r5) << 1)) & 0xFF));
 		}
 	}
 
@@ -591,8 +589,9 @@ uint32_t init_ddr(void)
 			mmio_write_32(DBSC_DBPDRGA_0, 0xB0 + i * 0x20);
 			r2 = mmio_read_32(DBSC_DBPDRGD_0) & 0xFFFFFF00;
 			mmio_write_32(DBSC_DBPDRGA_0, 0xB0 + i * 0x20);
-			mmio_write_32(DBSC_DBPDRGD_0, r2 | ((r6 + r5 +
-						     (r5 >> 1) + r12) & 0xFF));
+			mmio_write_32(DBSC_DBPDRGD_0,
+				      r2 | ((r6 + r5 + (r5 >> 1) + r12) &
+					    0xFF));
 		}
 	}
 
@@ -634,24 +633,22 @@ uint32_t init_ddr(void)
 			dqsgd_0c = mmio_read_32(DBSC_DBPDRGD_0) & 0xFF;
 			mmio_write_32(DBSC_DBPDRGA_0, 0xB1 + i * 0x20);
 			bdlcount_0c = (mmio_read_32(DBSC_DBPDRGD_0) & 0xFF00) >>
-					8;
+				      8;
 			bdlcount_0c_div2 = bdlcount_0c >> 1;
 			bdlcount_0c_div4 = bdlcount_0c >> 2;
 			bdlcount_0c_div8 = bdlcount_0c >> 3;
 			bdlcount_0c_div16 = bdlcount_0c >> 4;
 
-			if (ddr_md == 0) {	/* 1584Mbps */
+			if (ddr_md == 0) { /* 1584Mbps */
 				lcdl_judge1 = bdlcount_0c_div2 +
 					      bdlcount_0c_div4 +
 					      bdlcount_0c_div8;
-				lcdl_judge2 = bdlcount_0c +
-					      bdlcount_0c_div4 +
+				lcdl_judge2 = bdlcount_0c + bdlcount_0c_div4 +
 					      bdlcount_0c_div16;
-			} else {		/* 1856Mbps */
-				lcdl_judge1 = bdlcount_0c_div2 +
-					      bdlcount_0c_div4;
-				lcdl_judge2 = bdlcount_0c +
-					      bdlcount_0c_div4;
+			} else { /* 1856Mbps */
+				lcdl_judge1 =
+					bdlcount_0c_div2 + bdlcount_0c_div4;
+				lcdl_judge2 = bdlcount_0c + bdlcount_0c_div4;
 			}
 
 			if (dqsgd_0c <= lcdl_judge1)
@@ -660,45 +657,46 @@ uint32_t init_ddr(void)
 			if (dqsgd_0c <= lcdl_judge2) {
 				mmio_write_32(DBSC_DBPDRGA_0, 0xB0 + i * 0x20);
 				regval = mmio_read_32(DBSC_DBPDRGD_0) &
-						0xFFFFFF00;
+					 0xFFFFFF00;
 				mmio_write_32(DBSC_DBPDRGD_0,
 					      (dqsgd_0c - bdlcount_0c_div8) |
-					      regval);
+						      regval);
 			} else {
 				mmio_write_32(DBSC_DBPDRGA_0, 0xB0 + i * 0x20);
 				regval = mmio_read_32(DBSC_DBPDRGD_0) &
-						0xFFFFFF00;
+					 0xFFFFFF00;
 				mmio_write_32(DBSC_DBPDRGD_0, regval);
 				mmio_write_32(DBSC_DBPDRGA_0, 0xB2 + i * 0x20);
 				gatesl_0c = mmio_read_32(DBSC_DBPDRGD_0) & 0x7;
 				mmio_write_32(DBSC_DBPDRGA_0, 0xB2 + i * 0x20);
 				regval = mmio_read_32(DBSC_DBPDRGD_0) &
-						0xFFFFFFF8;
-				mmio_write_32(DBSC_DBPDRGD_0, regval |
-							     (gatesl_0c + 1));
+					 0xFFFFFFF8;
+				mmio_write_32(DBSC_DBPDRGD_0,
+					      regval | (gatesl_0c + 1));
 				mmio_write_32(DBSC_DBPDRGA_0, 0xAF + i * 0x20);
 				regval = (mmio_read_32(DBSC_DBPDRGD_0));
 				rdqsd_0c = (regval & 0xFF00) >> 8;
 				rdqsnd_0c = (regval & 0xFF0000) >> 16;
 				mmio_write_32(DBSC_DBPDRGA_0, 0xAF + i * 0x20);
-				mmio_write_32(DBSC_DBPDRGD_0,
-					      (regval & 0xFF0000FF) |
-					      ((rdqsd_0c +
-						bdlcount_0c_div4) << 8) |
-					      ((rdqsnd_0c +
-						bdlcount_0c_div4) << 16));
+				mmio_write_32(
+					DBSC_DBPDRGD_0,
+					(regval & 0xFF0000FF) |
+						((rdqsd_0c + bdlcount_0c_div4)
+						 << 8) |
+						((rdqsnd_0c + bdlcount_0c_div4)
+						 << 16));
 				mmio_write_32(DBSC_DBPDRGA_0, 0xAA + i * 0x20);
 				regval = (mmio_read_32(DBSC_DBPDRGD_0));
-				rbd_0c[0] = (regval) & 0x1f;
+				rbd_0c[0] = (regval)&0x1f;
 				rbd_0c[1] = (regval >> 8) & 0x1f;
 				rbd_0c[2] = (regval >> 16) & 0x1f;
 				rbd_0c[3] = (regval >> 24) & 0x1f;
 				mmio_write_32(DBSC_DBPDRGA_0, 0xAA + i * 0x20);
 				regval = mmio_read_32(DBSC_DBPDRGD_0) &
-					0xE0E0E0E0;
+					 0xE0E0E0E0;
 				for (j = 0; j < 4; j++) {
-					rbd_0c[j] = rbd_0c[j] +
-						    bdlcount_0c_div4;
+					rbd_0c[j] =
+						rbd_0c[j] + bdlcount_0c_div4;
 					if (rbd_0c[j] > 0x1F)
 						rbd_0c[j] = 0x1F;
 					regval = regval | (rbd_0c[j] << 8 * j);
@@ -706,16 +704,16 @@ uint32_t init_ddr(void)
 				mmio_write_32(DBSC_DBPDRGD_0, regval);
 				mmio_write_32(DBSC_DBPDRGA_0, 0xAB + i * 0x20);
 				regval = (mmio_read_32(DBSC_DBPDRGD_0));
-				rbd_0c[0] = (regval) & 0x1f;
+				rbd_0c[0] = (regval)&0x1f;
 				rbd_0c[1] = (regval >> 8) & 0x1f;
 				rbd_0c[2] = (regval >> 16) & 0x1f;
 				rbd_0c[3] = (regval >> 24) & 0x1f;
 				mmio_write_32(DBSC_DBPDRGA_0, 0xAB + i * 0x20);
 				regval = mmio_read_32(DBSC_DBPDRGD_0) &
-					0xE0E0E0E0;
+					 0xE0E0E0E0;
 				for (j = 0; j < 4; j++) {
-					rbd_0c[j] = rbd_0c[j] +
-						    bdlcount_0c_div4;
+					rbd_0c[j] =
+						rbd_0c[j] + bdlcount_0c_div4;
 					if (rbd_0c[j] > 0x1F)
 						rbd_0c[j] = 0x1F;
 					regval = regval | (rbd_0c[j] << 8 * j);
@@ -743,10 +741,10 @@ uint32_t init_ddr(void)
 	mmio_write_32(DBSC_DBBUS0CNF1, 0x00000010);
 	mmio_write_32(DBSC_DBCALCNF, (64000000 / REFRESH_RATE) + 0x01000000);
 	/* Select setting value in bps */
-	if (ddr_md == 0) {	/* 1584Mbps */
+	if (ddr_md == 0) { /* 1584Mbps */
 		mmio_write_32(DBSC_DBRFCNF1,
 			      (REFRESH_RATE * 99 / 125) + 0x00080000);
-	} else {		/* 1856Mbps */
+	} else { /* 1856Mbps */
 		mmio_write_32(DBSC_DBRFCNF1,
 			      (REFRESH_RATE * 116 / 125) + 0x00080000);
 	}
@@ -869,7 +867,7 @@ static uint32_t recovery_from_backup_mode(uint32_t ddr_backup)
 
 		mmio_write_32(CPG_SRCR4, 0x20000000);
 
-		mmio_write_32(0xE61500DC, 0xe2200000);	/* Change to 1584Mbps */
+		mmio_write_32(0xE61500DC, 0xe2200000); /* Change to 1584Mbps */
 		while (!(mmio_read_32(CPG_PLLECR) & BIT(11)))
 			;
 
@@ -895,10 +893,10 @@ static uint32_t recovery_from_backup_mode(uint32_t ddr_backup)
 	mmio_write_32(DBSC_DBPHYCONF0, 0x00000001);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0) {	/* 1584Mbps */
+	if (ddr_md == 0) { /* 1584Mbps */
 		mmio_write_32(DBSC_DBTR0, 0x0000000B);
 		mmio_write_32(DBSC_DBTR1, 0x00000008);
-	} else {		/* 1856Mbps */
+	} else { /* 1856Mbps */
 		mmio_write_32(DBSC_DBTR0, 0x0000000D);
 		mmio_write_32(DBSC_DBTR1, 0x00000009);
 	}
@@ -906,12 +904,12 @@ static uint32_t recovery_from_backup_mode(uint32_t ddr_backup)
 	mmio_write_32(DBSC_DBTR2, 0x00000000);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0) {	/* 1584Mbps */
+	if (ddr_md == 0) { /* 1584Mbps */
 		mmio_write_32(DBSC_DBTR3, 0x0000000B);
 		mmio_write_32(DBSC_DBTR4, 0x000B000B);
 		mmio_write_32(DBSC_DBTR5, 0x00000027);
 		mmio_write_32(DBSC_DBTR6, 0x0000001C);
-	} else {		/* 1856Mbps */
+	} else { /* 1856Mbps */
 		mmio_write_32(DBSC_DBTR3, 0x0000000D);
 		mmio_write_32(DBSC_DBTR4, 0x000D000D);
 		mmio_write_32(DBSC_DBTR5, 0x0000002D);
@@ -921,7 +919,7 @@ static uint32_t recovery_from_backup_mode(uint32_t ddr_backup)
 	mmio_write_32(DBSC_DBTR7, 0x00060006);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0) {	/* 1584Mbps */
+	if (ddr_md == 0) { /* 1584Mbps */
 		mmio_write_32(DBSC_DBTR8, 0x00000020);
 		mmio_write_32(DBSC_DBTR9, 0x00000006);
 		mmio_write_32(DBSC_DBTR10, 0x0000000C);
@@ -932,7 +930,7 @@ static uint32_t recovery_from_backup_mode(uint32_t ddr_backup)
 		mmio_write_32(DBSC_DBTR15, 0x00050004);
 		mmio_write_32(DBSC_DBTR16, 0x071F0305);
 		mmio_write_32(DBSC_DBTR17, 0x040C0000);
-	} else {		/* 1856Mbps */
+	} else { /* 1856Mbps */
 		mmio_write_32(DBSC_DBTR8, 0x00000021);
 		mmio_write_32(DBSC_DBTR9, 0x00000007);
 		mmio_write_32(DBSC_DBTR10, 0x0000000E);
@@ -948,10 +946,10 @@ static uint32_t recovery_from_backup_mode(uint32_t ddr_backup)
 	mmio_write_32(DBSC_DBTR18, 0x00000200);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0) {	/* 1584Mbps */
+	if (ddr_md == 0) { /* 1584Mbps */
 		mmio_write_32(DBSC_DBTR19, 0x01000040);
 		mmio_write_32(DBSC_DBTR20, 0x020000D6);
-	} else {		/* 1856Mbps */
+	} else { /* 1856Mbps */
 		mmio_write_32(DBSC_DBTR19, 0x0129004B);
 		mmio_write_32(DBSC_DBTR20, 0x020000FB);
 	}
@@ -966,10 +964,10 @@ static uint32_t recovery_from_backup_mode(uint32_t ddr_backup)
 	mmio_write_32(DBSC_DBSCHRW1, 0x00000046);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0) {	/* 1584Mbps */
+	if (ddr_md == 0) { /* 1584Mbps */
 		mmio_write_32(DBSC_SCFCTST0, 0x0D050B03);
 		mmio_write_32(DBSC_SCFCTST1, 0x0306030C);
-	} else {		/* 1856Mbps */
+	} else { /* 1856Mbps */
 		mmio_write_32(DBSC_SCFCTST0, 0x0C050B03);
 		mmio_write_32(DBSC_SCFCTST1, 0x0305030C);
 	}
@@ -980,17 +978,17 @@ static uint32_t recovery_from_backup_mode(uint32_t ddr_backup)
 	mmio_write_32(DBSC_DBPDLK_0, 0x0000A55A);
 	mmio_write_32(DBSC_DBCMD, 0x01840001);
 	mmio_write_32(DBSC_DBCMD, 0x0A840000);
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000008);	/* DDR_PLLCR */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000008); /* DDR_PLLCR */
 	mmio_write_32(DBSC_DBPDRGD_0, 0x000B8000);
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000003);	/* DDR_PGCR1 */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000003); /* DDR_PGCR1 */
 	if (byp_ctl == 1)
 		mmio_write_32(DBSC_DBPDRGD_0, 0x0780C720);
 	else
 		mmio_write_32(DBSC_DBPDRGD_0, 0x0780C700);
 
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000020);	/* DDR_DXCCR */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000020); /* DDR_DXCCR */
 	mmio_write_32(DBSC_DBPDRGD_0, 0x00181884);
-	mmio_write_32(DBSC_DBPDRGA_0, 0x0000001A);	/* DDR_ACIOCR0 */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x0000001A); /* DDR_ACIOCR0 */
 	mmio_write_32(DBSC_DBPDRGD_0, 0x33C03C10);
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000007);
 	while (!(mmio_read_32(DBSC_DBPDRGD_0) & BIT(30)))
@@ -999,12 +997,12 @@ static uint32_t recovery_from_backup_mode(uint32_t ddr_backup)
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000004);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0) {	/* 1584Mbps */
-		mmio_write_32(DBSC_DBPDRGD_0, (REFRESH_RATE * 792 / 125) -
-					     400 + 0x08B00000);
-	} else {		/* 1856Mbps */
-		mmio_write_32(DBSC_DBPDRGD_0, (REFRESH_RATE * 928 / 125) -
-					     400 + 0x0A300000);
+	if (ddr_md == 0) { /* 1584Mbps */
+		mmio_write_32(DBSC_DBPDRGD_0,
+			      (REFRESH_RATE * 792 / 125) - 400 + 0x08B00000);
+	} else { /* 1856Mbps */
+		mmio_write_32(DBSC_DBPDRGD_0,
+			      (REFRESH_RATE * 928 / 125) - 400 + 0x0A300000);
 	}
 
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000022);
@@ -1012,41 +1010,41 @@ static uint32_t recovery_from_backup_mode(uint32_t ddr_backup)
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000023);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0)	/* 1584Mbps */
+	if (ddr_md == 0) /* 1584Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x2D9C0B66);
-	else			/* 1856Mbps */
+	else /* 1856Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x35A00D77);
 
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000024);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0)	/* 1584Mbps */
+	if (ddr_md == 0) /* 1584Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x2A88B400);
-	else			/* 1856Mbps */
+	else /* 1856Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x2A8A2C28);
 
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000025);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0)	/* 1584Mbps */
+	if (ddr_md == 0) /* 1584Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x30005200);
-	else			/* 1856Mbps */
+	else /* 1856Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x30005E00);
 
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000026);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0)	/* 1584Mbps */
+	if (ddr_md == 0) /* 1584Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x0014A9C9);
-	else			/* 1856Mbps */
+	else /* 1856Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x0014CB49);
 
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000027);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0)	/* 1584Mbps */
+	if (ddr_md == 0) /* 1584Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x00000D70);
-	else			/* 1856Mbps */
+	else /* 1856Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x00000F14);
 
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000028);
@@ -1054,16 +1052,16 @@ static uint32_t recovery_from_backup_mode(uint32_t ddr_backup)
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000029);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0) {	/* 1584Mbps */
+	if (ddr_md == 0) { /* 1584Mbps */
 		if (REFRESH_RATE > 3900)
-			mmio_write_32(DBSC_DBPDRGD_0, 0x18);	/* [7]SRT=0 */
+			mmio_write_32(DBSC_DBPDRGD_0, 0x18); /* [7]SRT=0 */
 		else
-			mmio_write_32(DBSC_DBPDRGD_0, 0x98);	/* [7]SRT=1 */
-	} else {	/* 1856Mbps */
+			mmio_write_32(DBSC_DBPDRGD_0, 0x98); /* [7]SRT=1 */
+	} else { /* 1856Mbps */
 		if (REFRESH_RATE > 3900)
-			mmio_write_32(DBSC_DBPDRGD_0, 0x20);	/* [7]SRT=0 */
+			mmio_write_32(DBSC_DBPDRGD_0, 0x20); /* [7]SRT=0 */
 		else
-			mmio_write_32(DBSC_DBPDRGD_0, 0xA0);	/* [7]SRT=1 */
+			mmio_write_32(DBSC_DBPDRGD_0, 0xA0); /* [7]SRT=1 */
 	}
 
 	mmio_write_32(DBSC_DBPDRGA_0, 0x0000002C);
@@ -1074,45 +1072,45 @@ static uint32_t recovery_from_backup_mode(uint32_t ddr_backup)
 	mmio_write_32(DBSC_DBPDRGD_0, 0x0007BBAD);
 	mmio_write_32(DBSC_DBPDRGA_0, 0x00000099);
 	mmio_write_32(DBSC_DBPDRGD_0, 0x0007BB6B);
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000021);	/* DDR_DSGCR */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000021); /* DDR_DSGCR */
 	mmio_write_32(DBSC_DBPDRGD_0, 0x0024641E);
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000006);	/* DDR_PGSR0 */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000006); /* DDR_PGSR0 */
 	while (!(mmio_read_32(DBSC_DBPDRGD_0) & BIT(0)))
 		;
 
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000001);	/* DDR_PIR */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000001); /* DDR_PIR */
 	mmio_write_32(DBSC_DBPDRGD_0, 0x40010000);
 
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000006);	/* DDR_PGSR0 */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000006); /* DDR_PGSR0 */
 	while (!(mmio_read_32(DBSC_DBPDRGD_0) & BIT(0)))
 		;
 
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000092);	/* DDR_ZQ0DR */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000092); /* DDR_ZQ0DR */
 	mmio_write_32(DBSC_DBPDRGD_0, 0xC2C59AB5);
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000096);	/* DDR_ZQ1DR */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000096); /* DDR_ZQ1DR */
 	mmio_write_32(DBSC_DBPDRGD_0, 0xC4285FBF);
-	mmio_write_32(DBSC_DBPDRGA_0, 0x0000009A);	/* DDR_ZQ2DR */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x0000009A); /* DDR_ZQ2DR */
 	mmio_write_32(DBSC_DBPDRGD_0, 0xC2C59AB5);
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000090);	/* DDR_ZQCR */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000090); /* DDR_ZQCR */
 
 	/* Select setting value in bps */
-	if (ddr_md == 0)	/* 1584Mbps */
+	if (ddr_md == 0) /* 1584Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x0C058900);
-	else			/* 1856Mbps */
+	else /* 1856Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x0C058A00);
 
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000090);	/* DDR_ZQCR */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000090); /* DDR_ZQCR */
 
 	/* Select setting value in bps */
-	if (ddr_md == 0)	/* 1584Mbps */
+	if (ddr_md == 0) /* 1584Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x04058900);
-	else			/* 1856Mbps */
+	else /* 1856Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x04058A00);
 
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000001);	/* DDR_PIR */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000001); /* DDR_PIR */
 	mmio_write_32(DBSC_DBPDRGD_0, 0x00050001);
 
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000006);	/* DDR_PGSR0 */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000006); /* DDR_PGSR0 */
 	while (!(mmio_read_32(DBSC_DBPDRGD_0) & BIT(0)))
 		;
 
@@ -1128,51 +1126,51 @@ static uint32_t recovery_from_backup_mode(uint32_t ddr_backup)
 		return INITDRAM_ERR_I;
 	}
 
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000092);	/* DDR_ZQ0DR */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000092); /* DDR_ZQ0DR */
 	mmio_write_32(DBSC_DBPDRGD_0, 0x02C59AB5);
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000096);	/* DDR_ZQ1DR */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000096); /* DDR_ZQ1DR */
 	mmio_write_32(DBSC_DBPDRGD_0, 0x04285FBF);
-	mmio_write_32(DBSC_DBPDRGA_0, 0x0000009A);	/* DDR_ZQ2DR */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x0000009A); /* DDR_ZQ2DR */
 	mmio_write_32(DBSC_DBPDRGD_0, 0x02C59AB5);
 
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000001);	/* DDR_PIR */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000001); /* DDR_PIR */
 	mmio_write_32(DBSC_DBPDRGD_0, 0x08000000);
 
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000001);	/* DDR_PIR */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000001); /* DDR_PIR */
 	mmio_write_32(DBSC_DBPDRGD_0, 0x00000003);
 
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000006);	/* DDR_PGSR0 */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000006); /* DDR_PGSR0 */
 	while (!(mmio_read_32(DBSC_DBPDRGD_0) & BIT(0)))
 		;
 
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000001);	/* DDR_PIR */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000001); /* DDR_PIR */
 	mmio_write_32(DBSC_DBPDRGD_0, 0x80010000);
 
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000006);	/* DDR_PGSR0 */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000006); /* DDR_PGSR0 */
 	while (!(mmio_read_32(DBSC_DBPDRGD_0) & BIT(0)))
 		;
 
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000001);	/* DDR_PIR */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000001); /* DDR_PIR */
 	mmio_write_32(DBSC_DBPDRGD_0, 0x00010073);
 
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000006);	/* DDR_PGSR0 */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000006); /* DDR_PGSR0 */
 	while (!(mmio_read_32(DBSC_DBPDRGD_0) & BIT(0)))
 		;
 
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000090);	/* DDR_ZQCR */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000090); /* DDR_ZQCR */
 
 	/* Select setting value in bps */
-	if (ddr_md == 0)	/* 1584Mbps */
+	if (ddr_md == 0) /* 1584Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x0C058900);
-	else			/* 1856Mbps */
+	else /* 1856Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x0C058A00);
 
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000090);	/* DDR_ZQCR */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000090); /* DDR_ZQCR */
 
 	/* Select setting value in bps */
-	if (ddr_md == 0)	/* 1584Mbps */
+	if (ddr_md == 0) /* 1584Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x04058900);
-	else			/* 1856Mbps */
+	else /* 1856Mbps */
 		mmio_write_32(DBSC_DBPDRGD_0, 0x04058A00);
 
 	mmio_write_32(DBSC_DBPDRGA_0, 0x0000000C);
@@ -1214,10 +1212,10 @@ static uint32_t recovery_from_backup_mode(uint32_t ddr_backup)
 	mmio_write_32(DBSC_DBBUS0CNF1, 0x00000010);
 
 	/* Select setting value in bps */
-	if (ddr_md == 0) {	/* 1584Mbps */
+	if (ddr_md == 0) { /* 1584Mbps */
 		mmio_write_32(DBSC_DBRFCNF1,
 			      (REFRESH_RATE * 99 / 125) + 0x00080000);
-	} else {			/* 1856Mbps */
+	} else { /* 1856Mbps */
 		mmio_write_32(DBSC_DBRFCNF1,
 			      (REFRESH_RATE * 116 / 125) + 0x00080000);
 	}
@@ -1234,14 +1232,14 @@ static uint32_t recovery_from_backup_mode(uint32_t ddr_backup)
 	while (mmio_read_32(DBSC_DBWAIT) & BIT(0))
 		;
 
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000006);	/* DDR_PGSR0 */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000006); /* DDR_PGSR0 */
 	while (!(mmio_read_32(DBSC_DBPDRGD_0) & BIT(0)))
 		;
 
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000001);	/* DDR_PIR */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000001); /* DDR_PIR */
 	mmio_write_32(DBSC_DBPDRGD_0, 0x00010701);
 
-	mmio_write_32(DBSC_DBPDRGA_0, 0x00000006);	/* DDR_PGSR0 */
+	mmio_write_32(DBSC_DBPDRGA_0, 0x00000006); /* DDR_PGSR0 */
 	while (!(mmio_read_32(DBSC_DBPDRGD_0) & BIT(0)))
 		;
 
@@ -1446,8 +1444,8 @@ static uint32_t recovery_from_backup_mode(uint32_t ddr_backup)
 			r2 = mmio_read_32(DBSC_DBPDRGD_0) & 0xFFFFFF00;
 			mmio_write_32(DBSC_DBPDRGA_0, 0xB0 + i * 0x20);
 			mmio_write_32(DBSC_DBPDRGD_0,
-				      r2 |
-				      ((r6 + r5 + (r5 >> 1) + r12) & 0xFF));
+				      r2 | ((r6 + r5 + (r5 >> 1) + r12) &
+					    0xFF));
 		}
 	}
 
@@ -1485,25 +1483,24 @@ static uint32_t recovery_from_backup_mode(uint32_t ddr_backup)
 			mmio_write_32(DBSC_DBPDRGA_0, 0x000000B0 + i * 0x20);
 			dqsgd_0c = mmio_read_32(DBSC_DBPDRGD_0) & 0x000000FF;
 			mmio_write_32(DBSC_DBPDRGA_0, 0x000000B1 + i * 0x20);
-			bdlcount_0c = (mmio_read_32(DBSC_DBPDRGD_0) &
-					0x0000FF00) >> 8;
+			bdlcount_0c =
+				(mmio_read_32(DBSC_DBPDRGD_0) & 0x0000FF00) >>
+				8;
 			bdlcount_0c_div2 = (bdlcount_0c >> 1);
 			bdlcount_0c_div4 = (bdlcount_0c >> 2);
 			bdlcount_0c_div8 = (bdlcount_0c >> 3);
 			bdlcount_0c_div16 = (bdlcount_0c >> 4);
 
-			if (ddr_md == 0) {	/* 1584Mbps */
+			if (ddr_md == 0) { /* 1584Mbps */
 				lcdl_judge1 = bdlcount_0c_div2 +
 					      bdlcount_0c_div4 +
 					      bdlcount_0c_div8;
-				lcdl_judge2 = bdlcount_0c +
-					      bdlcount_0c_div4 +
+				lcdl_judge2 = bdlcount_0c + bdlcount_0c_div4 +
 					      bdlcount_0c_div16;
-			} else {	/* 1856Mbps */
-				lcdl_judge1 = bdlcount_0c_div2 +
-					      bdlcount_0c_div4;
-				lcdl_judge2 = bdlcount_0c +
-					      bdlcount_0c_div4;
+			} else { /* 1856Mbps */
+				lcdl_judge1 =
+					bdlcount_0c_div2 + bdlcount_0c_div4;
+				lcdl_judge2 = bdlcount_0c + bdlcount_0c_div4;
 			}
 
 			if (dqsgd_0c <= lcdl_judge1)
@@ -1512,20 +1509,20 @@ static uint32_t recovery_from_backup_mode(uint32_t ddr_backup)
 			if (dqsgd_0c <= lcdl_judge2) {
 				mmio_write_32(DBSC_DBPDRGA_0, 0xB0 + i * 0x20);
 				regval = mmio_read_32(DBSC_DBPDRGD_0) &
-						0xFFFFFF00;
+					 0xFFFFFF00;
 				mmio_write_32(DBSC_DBPDRGD_0,
 					      (dqsgd_0c - bdlcount_0c_div8) |
-					      regval);
+						      regval);
 			} else {
 				mmio_write_32(DBSC_DBPDRGA_0, 0xB0 + i * 0x20);
 				regval = mmio_read_32(DBSC_DBPDRGD_0) &
-						0xFFFFFF00;
+					 0xFFFFFF00;
 				mmio_write_32(DBSC_DBPDRGD_0, regval);
 				mmio_write_32(DBSC_DBPDRGA_0, 0xB2 + i * 0x20);
 				gatesl_0c = mmio_read_32(DBSC_DBPDRGD_0) & 0x7;
 				mmio_write_32(DBSC_DBPDRGA_0, 0xB2 + i * 0x20);
 				regval = mmio_read_32(DBSC_DBPDRGD_0) &
-						0xFFFFFFF8;
+					 0xFFFFFFF8;
 				mmio_write_32(DBSC_DBPDRGD_0,
 					      regval | (gatesl_0c + 1));
 				mmio_write_32(DBSC_DBPDRGA_0, 0xAF + i * 0x20);
@@ -1533,24 +1530,25 @@ static uint32_t recovery_from_backup_mode(uint32_t ddr_backup)
 				rdqsd_0c = (regval & 0xFF00) >> 8;
 				rdqsnd_0c = (regval & 0xFF0000) >> 16;
 				mmio_write_32(DBSC_DBPDRGA_0, 0xAF + i * 0x20);
-				mmio_write_32(DBSC_DBPDRGD_0,
-					      (regval & 0xFF0000FF) |
-					      ((rdqsd_0c +
-						bdlcount_0c_div4) << 8) |
-					      ((rdqsnd_0c +
-						bdlcount_0c_div4) << 16));
+				mmio_write_32(
+					DBSC_DBPDRGD_0,
+					(regval & 0xFF0000FF) |
+						((rdqsd_0c + bdlcount_0c_div4)
+						 << 8) |
+						((rdqsnd_0c + bdlcount_0c_div4)
+						 << 16));
 				mmio_write_32(DBSC_DBPDRGA_0, 0xAA + i * 0x20);
 				regval = (mmio_read_32(DBSC_DBPDRGD_0));
-				rbd_0c[0] = (regval) & 0x1f;
-				rbd_0c[1] = (regval >>  8) & 0x1f;
+				rbd_0c[0] = (regval)&0x1f;
+				rbd_0c[1] = (regval >> 8) & 0x1f;
 				rbd_0c[2] = (regval >> 16) & 0x1f;
 				rbd_0c[3] = (regval >> 24) & 0x1f;
 				mmio_write_32(DBSC_DBPDRGA_0, 0xAA + i * 0x20);
 				regval = mmio_read_32(DBSC_DBPDRGD_0) &
-						0xE0E0E0E0;
+					 0xE0E0E0E0;
 				for (j = 0; j < 4; j++) {
-					rbd_0c[j] = rbd_0c[j] +
-						    bdlcount_0c_div4;
+					rbd_0c[j] =
+						rbd_0c[j] + bdlcount_0c_div4;
 					if (rbd_0c[j] > 0x1F)
 						rbd_0c[j] = 0x1F;
 					regval = regval | (rbd_0c[j] << 8 * j);
@@ -1564,10 +1562,10 @@ static uint32_t recovery_from_backup_mode(uint32_t ddr_backup)
 				rbd_0c[3] = (regval >> 24) & 0x1f;
 				mmio_write_32(DBSC_DBPDRGA_0, 0xAB + i * 0x20);
 				regval = mmio_read_32(DBSC_DBPDRGD_0) &
-						0xE0E0E0E0;
+					 0xE0E0E0E0;
 				for (j = 0; j < 4; j++) {
-					rbd_0c[j] = rbd_0c[j] +
-						    bdlcount_0c_div4;
+					rbd_0c[j] =
+						rbd_0c[j] + bdlcount_0c_div4;
 					if (rbd_0c[j] > 0x1F)
 						rbd_0c[j] = 0x1F;
 					regval = regval | (rbd_0c[j] << 8 * j);
@@ -1685,7 +1683,7 @@ int32_t rcar_dram_init(void)
 	uint32_t ddr = 0;
 	uint32_t ddr_backup;
 
-	md = *((volatile uint32_t*)RST_MODEMR);
+	md = *((volatile uint32_t *)RST_MODEMR);
 	ddr = (md & 0x00080000) >> 19;
 	if (ddr == 0x0)
 		NOTICE("BL2: DDR1584(%s)\n", RCAR_E3_DDR_VERSION);
@@ -1695,9 +1693,9 @@ int32_t rcar_dram_init(void)
 	rcar_dram_get_boot_status(&ddr_backup);
 
 	if (ddr_backup == DRAM_BOOT_STATUS_WARM)
-		dataL = recovery_from_backup_mode(ddr_backup);	/* WARM boot */
+		dataL = recovery_from_backup_mode(ddr_backup); /* WARM boot */
 	else
-		dataL = init_ddr();				/* COLD boot */
+		dataL = init_ddr(); /* COLD boot */
 
 	if (dataL == 1)
 		failcount = 0;
@@ -1708,5 +1706,4 @@ int32_t rcar_dram_init(void)
 		return INITDRAM_OK;
 	else
 		return INITDRAM_NG;
-
 }

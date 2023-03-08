@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,13 +12,7 @@
 #include <dram_regs.h>
 #include <plat_private.h>
 
-enum {
-	DDR3 = 3,
-	LPDDR2 = 5,
-	LPDDR3 = 6,
-	LPDDR4 = 7,
-	UNUSED = 0xff
-};
+enum { DDR3 = 3, LPDDR2 = 5, LPDDR3 = 6, LPDDR4 = 7, UNUSED = 0xff };
 
 struct rk3399_ddr_pctl_regs {
 	uint32_t denali_ctl[CTL_REG_NUM];

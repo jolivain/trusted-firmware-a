@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, Arm Limited. All rights reserved.
+ * Copyright (c) 2020-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -14,6 +14,6 @@
  * Platform root-of-trust public key.
  * Arbitrary value that does not conflict with any of the TBBR reserved OIDs.
  */
-#define PROT_PK_OID				"1.3.6.1.4.1.4128.2100.1102"
+#define PROT_PK_OID "1.3.6.1.4.1.4128.2100.1102"
 
 #endif /* DUALROOT_OID_H */

@@ -7,26 +7,30 @@
 #include <stdbool.h>
 
 #include <lib/mmio.h>
+
 #include <platform_def.h>
 
-#define IMX_CCM_IP_BASE				(IMX_CCM_BASE + 0xa000)
-#define DRAM_SEL_CFG				(IMX_CCM_BASE + 0x9800)
-#define CCM_IP_CLK_ROOT_GEN_TAGET(i)		(IMX_CCM_IP_BASE + 0x80 * (i) + 0x00)
-#define CCM_IP_CLK_ROOT_GEN_TAGET_SET(i)	(IMX_CCM_IP_BASE + 0x80 * (i) + 0x04)
-#define CCM_IP_CLK_ROOT_GEN_TAGET_CLR(i)	(IMX_CCM_IP_BASE + 0x80 * (i) + 0x08)
-#define PLL_FREQ_800M	U(0x00ece580)
-#define PLL_FREQ_400M	U(0x00ec6984)
-#define PLL_FREQ_167M	U(0x00f5a406)
+#define IMX_CCM_IP_BASE (IMX_CCM_BASE + 0xa000)
+#define DRAM_SEL_CFG (IMX_CCM_BASE + 0x9800)
+#define CCM_IP_CLK_ROOT_GEN_TAGET(i) (IMX_CCM_IP_BASE + 0x80 * (i) + 0x00)
+#define CCM_IP_CLK_ROOT_GEN_TAGET_SET(i) (IMX_CCM_IP_BASE + 0x80 * (i) + 0x04)
+#define CCM_IP_CLK_ROOT_GEN_TAGET_CLR(i) (IMX_CCM_IP_BASE + 0x80 * (i) + 0x08)
+#define PLL_FREQ_800M U(0x00ece580)
+#define PLL_FREQ_400M U(0x00ec6984)
+#define PLL_FREQ_167M U(0x00f5a406)
 
 void ddr_pll_bypass_100mts(void)
 {
 	/* change the clock source of dram_alt_clk_root to source 2 --100MHz */
-	mmio_write_32(CCM_IP_CLK_ROOT_GEN_TAGET_CLR(0), (0x7 << 24) | (0x7 << 16));
+	mmio_write_32(CCM_IP_CLK_ROOT_GEN_TAGET_CLR(0),
+		      (0x7 << 24) | (0x7 << 16));
 	mmio_write_32(CCM_IP_CLK_ROOT_GEN_TAGET_SET(0), (0x2 << 24));
 
 	/* change the clock source of dram_apb_clk_root to source 2 --40MHz/2 */
-	mmio_write_32(CCM_IP_CLK_ROOT_GEN_TAGET_CLR(1), (0x7 << 24) | (0x7 << 16));
-	mmio_write_32(CCM_IP_CLK_ROOT_GEN_TAGET_SET(1), (0x2 << 24) | (0x1 << 16));
+	mmio_write_32(CCM_IP_CLK_ROOT_GEN_TAGET_CLR(1),
+		      (0x7 << 24) | (0x7 << 16));
+	mmio_write_32(CCM_IP_CLK_ROOT_GEN_TAGET_SET(1),
+		      (0x2 << 24) | (0x1 << 16));
 
 	/* configure pll bypass mode */
 	mmio_write_32(DRAM_SEL_CFG + 0x4, BIT(24));
@@ -35,12 +39,16 @@ void ddr_pll_bypass_100mts(void)
 void ddr_pll_bypass_400mts(void)
 {
 	/* change the clock source of dram_alt_clk_root to source 1 --400MHz */
-	mmio_write_32(CCM_IP_CLK_ROOT_GEN_TAGET_CLR(0), (0x7 << 24) | (0x7 << 16));
-	mmio_write_32(CCM_IP_CLK_ROOT_GEN_TAGET_SET(0), (0x1 << 24) | (0x1 << 16));
+	mmio_write_32(CCM_IP_CLK_ROOT_GEN_TAGET_CLR(0),
+		      (0x7 << 24) | (0x7 << 16));
+	mmio_write_32(CCM_IP_CLK_ROOT_GEN_TAGET_SET(0),
+		      (0x1 << 24) | (0x1 << 16));
 
 	/* change the clock source of dram_apb_clk_root to source 3 --160MHz/2 */
-	mmio_write_32(CCM_IP_CLK_ROOT_GEN_TAGET_CLR(1), (0x7 << 24) | (0x7 << 16));
-	mmio_write_32(CCM_IP_CLK_ROOT_GEN_TAGET_SET(1), (0x3 << 24) | (0x1 << 16));
+	mmio_write_32(CCM_IP_CLK_ROOT_GEN_TAGET_CLR(1),
+		      (0x7 << 24) | (0x7 << 16));
+	mmio_write_32(CCM_IP_CLK_ROOT_GEN_TAGET_SET(1),
+		      (0x3 << 24) | (0x1 << 16));
 
 	/* configure pll bypass mode */
 	mmio_write_32(DRAM_SEL_CFG + 0x4, BIT(24));
@@ -49,9 +57,11 @@ void ddr_pll_bypass_400mts(void)
 void ddr_pll_unbypass(void)
 {
 	mmio_write_32(DRAM_SEL_CFG + 0x8, BIT(24));
-	mmio_write_32(CCM_IP_CLK_ROOT_GEN_TAGET_CLR(1), (0x7 << 24) | (0x7 << 16));
+	mmio_write_32(CCM_IP_CLK_ROOT_GEN_TAGET_CLR(1),
+		      (0x7 << 24) | (0x7 << 16));
 	/* to source 4 --800MHz/5 */
-	mmio_write_32(CCM_IP_CLK_ROOT_GEN_TAGET_SET(1), (0x4 << 24) | (0x4 << 16));
+	mmio_write_32(CCM_IP_CLK_ROOT_GEN_TAGET_SET(1),
+		      (0x4 << 24) | (0x4 << 16));
 }
 
 #if defined(PLAT_imx8mq)

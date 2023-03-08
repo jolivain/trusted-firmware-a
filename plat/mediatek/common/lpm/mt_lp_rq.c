@@ -6,6 +6,7 @@
 
 #include <stdint.h>
 #include <string.h>
+
 #include <common/debug.h>
 #include <drivers/console.h>
 #include <lib/spinlock.h>
@@ -24,7 +25,8 @@ struct mt_lp_res_req_m {
 static struct mt_lp_res_req_m plat_mt_rqm;
 static spinlock_t mt_lp_rq_lock;
 
-static int mt_lp_resource_request(struct mt_lp_resource_user *this, unsigned int resource)
+static int mt_lp_resource_request(struct mt_lp_resource_user *this,
+				  unsigned int resource)
 {
 	int i;
 	struct mt_lp_res_req *const *rs;
@@ -76,7 +78,8 @@ int mt_lp_resource_request_manager_register(struct mt_resource_req_manager *rqm)
 	unsigned int count;
 	struct mt_lp_res_req *const *rs;
 
-	if ((rqm == NULL) || (rqm->res == NULL) || (plat_mt_rqm.plat_rqm != NULL)) {
+	if ((rqm == NULL) || (rqm->res == NULL) ||
+	    (plat_mt_rqm.plat_rqm != NULL)) {
 		return MT_LP_RQ_STA_BAD;
 	}
 
@@ -98,8 +101,8 @@ int mt_lp_resource_user_register(char *user, struct mt_lp_resource_user *ru)
 	int i, len;
 	unsigned int uname;
 
-	if ((plat_mt_rqm.plat_rqm == NULL) || (plat_mt_rqm.user_num >= MT_LP_RQ_USER_MAX) ||
-	    (user == NULL)) {
+	if ((plat_mt_rqm.plat_rqm == NULL) ||
+	    (plat_mt_rqm.user_num >= MT_LP_RQ_USER_MAX) || (user == NULL)) {
 		ru->uid = MT_LP_RQ_USER_INVALID;
 		ru->umask = 0;
 		ru->request = NULL;
@@ -144,8 +147,10 @@ int mt_lp_rq_get_status(int type, void *p)
 		update_sta = 0;
 		rs = (plat_mt_rqm.plat_rqm)->res;
 		for (i = 0; i < plat_mt_rqm.resource_num; i++) {
-			update_sta |= ((rs[i]->res_usage & plat_mt_rqm.user_valid) != 0) ?
-				      rs[i]->res_rq : 0;
+			update_sta |= ((rs[i]->res_usage &
+					plat_mt_rqm.user_valid) != 0) ?
+					      rs[i]->res_rq :
+					      0;
 		}
 
 		plat_mt_rqm.generic_resource_req = update_sta;
@@ -157,7 +162,8 @@ int mt_lp_rq_get_status(int type, void *p)
 	case PLAT_RQ_REQ_USAGE:
 		rs = (plat_mt_rqm.plat_rqm)->res;
 		rq_sta->val = (rq_sta->id < plat_mt_rqm.resource_num) ?
-			      rs[rq_sta->id]->res_usage : plat_mt_rqm.generic_resource_req;
+				      rs[rq_sta->id]->res_usage :
+				      plat_mt_rqm.generic_resource_req;
 		break;
 	case PLAT_RQ_USER_NUM:
 		rq_sta->val = plat_mt_rqm.user_num;
@@ -167,7 +173,8 @@ int mt_lp_rq_get_status(int type, void *p)
 		break;
 	case PLAT_RQ_PER_USER_NAME:
 		rq_sta->val = (rq_sta->id < plat_mt_rqm.user_num) ?
-			      plat_mt_rqm.uname[rq_sta->id] : 0;
+				      plat_mt_rqm.uname[rq_sta->id] :
+				      0;
 		break;
 	case PLAT_RQ_REQ_NUM:
 		rq_sta->val = plat_mt_rqm.resource_num;
@@ -189,9 +196,11 @@ int mt_lp_rq_update_status(int type, void *p)
 		if (rq_sta->id < plat_mt_rqm.user_num) {
 			user_mask = BIT(rq_sta->id);
 			spin_lock(&mt_lp_rq_lock);
-			plat_mt_rqm.user_valid = (rq_sta->val == 0) ?
-						 (plat_mt_rqm.user_valid & ~(user_mask)) :
-						 (plat_mt_rqm.user_valid | user_mask);
+			plat_mt_rqm.user_valid =
+				(rq_sta->val == 0) ?
+					(plat_mt_rqm.user_valid &
+					 ~(user_mask)) :
+					(plat_mt_rqm.user_valid | user_mask);
 			plat_mt_rqm.flag = MT_LP_RQ_FLAG_NEED_UPDATE;
 			spin_unlock(&mt_lp_rq_lock);
 		}

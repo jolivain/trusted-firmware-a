@@ -21,12 +21,15 @@ CASSERT(PLAT_NB_RDEVS >= 1U, plat_nb_rdevs_must_be_higher);
 
 static struct rdev rdev_array[PLAT_NB_RDEVS];
 
-#define for_each_rdev(rdev) \
-	for ((rdev) = rdev_array; (rdev) <= &rdev_array[PLAT_NB_RDEVS - 1U]; (rdev)++)
+#define for_each_rdev(rdev)                                                  \
+	for ((rdev) = rdev_array; (rdev) <= &rdev_array[PLAT_NB_RDEVS - 1U]; \
+	     (rdev)++)
 
-#define for_each_registered_rdev(rdev) \
-	for ((rdev) = rdev_array; \
-	     ((rdev) <= &rdev_array[PLAT_NB_RDEVS - 1U]) && ((rdev)->desc != NULL); (rdev)++)
+#define for_each_registered_rdev(rdev)                      \
+	for ((rdev) = rdev_array;                           \
+	     ((rdev) <= &rdev_array[PLAT_NB_RDEVS - 1U]) && \
+	     ((rdev)->desc != NULL);                        \
+	     (rdev)++)
 
 static void lock_driver(const struct rdev *rdev)
 {
@@ -46,7 +49,8 @@ static struct rdev *regulator_get_by_phandle(int32_t phandle)
 {
 	struct rdev *rdev;
 
-	for_each_registered_rdev(rdev) {
+	for_each_registered_rdev(rdev)
+	{
 		if (rdev->phandle == phandle) {
 			return rdev;
 		}
@@ -70,7 +74,8 @@ struct rdev *regulator_get_by_name(const char *node_name)
 	assert(node_name != NULL);
 	VERBOSE("get %s\n", node_name);
 
-	for_each_registered_rdev(rdev) {
+	for_each_registered_rdev(rdev)
+	{
 		if (strcmp(rdev->desc->node_name, node_name) == 0) {
 			return rdev;
 		}
@@ -107,7 +112,8 @@ static int32_t get_supply_phandle(const void *fdt, int node, const char *name)
  * @name - name of the supply "vdd" for "vdd-supply'
  * Return pointer to rdev if succeed, NULL else.
  */
-struct rdev *regulator_get_by_supply_name(const void *fdt, int node, const char *name)
+struct rdev *regulator_get_by_supply_name(const void *fdt, int node,
+					  const char *name)
 {
 	const int p = get_supply_phandle(fdt, node, name);
 
@@ -286,7 +292,8 @@ int regulator_get_voltage(const struct rdev *rdev)
  * @count - out: number of possible millivolt values
  * Return 0 if succeed, non 0 else.
  */
-int regulator_list_voltages(const struct rdev *rdev, const uint16_t **levels, size_t *count)
+int regulator_list_voltages(const struct rdev *rdev, const uint16_t **levels,
+			    size_t *count)
 {
 	int ret;
 	size_t n;
@@ -349,7 +356,8 @@ int regulator_list_voltages(const struct rdev *rdev, const uint16_t **levels, si
 
 	*count = n;
 
-	VERBOSE("rdev->min_mv=%u rdev->max_mv=%u\n", rdev->min_mv, rdev->max_mv);
+	VERBOSE("rdev->min_mv=%u rdev->max_mv=%u\n", rdev->min_mv,
+		rdev->max_mv);
 
 	return 0;
 }
@@ -362,7 +370,8 @@ int regulator_list_voltages(const struct rdev *rdev, const uint16_t **levels, si
  * @max_mv - out: max possible millivolt value
  * Return 0 if succeed, non 0 else.
  */
-void regulator_get_range(const struct rdev *rdev, uint16_t *min_mv, uint16_t *max_mv)
+void regulator_get_range(const struct rdev *rdev, uint16_t *min_mv,
+			 uint16_t *max_mv)
 {
 	assert(rdev != NULL);
 
@@ -521,7 +530,8 @@ int regulator_register(const struct regul_description *desc, int node)
 
 	VERBOSE("register %s\n", desc->node_name);
 
-	for_each_rdev(rdev) {
+	for_each_rdev(rdev)
+	{
 		if (rdev->desc == NULL) {
 			break;
 		}
@@ -542,7 +552,8 @@ int regulator_register(const struct regul_description *desc, int node)
 
 		lock_driver(rdev);
 
-		ret = rdev->desc->ops->list_voltages(rdev->desc, &levels, &count);
+		ret = rdev->desc->ops->list_voltages(rdev->desc, &levels,
+						     &count);
 
 		unlock_driver(rdev);
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,17 +7,17 @@
 #include <assert.h>
 
 #include <common/debug.h>
-
-#include "lib/xlat_mpu/xlat_mpu.h"
+#include <fvp_r_arch_helpers.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include "xlat_mpu_private.h"
 
-#include <fvp_r_arch_helpers.h>
 #include <platform_def.h>
 
-#warning "xlat_mpu library is currently experimental and its API may change in future."
+#include "lib/xlat_mpu/xlat_mpu.h"
+#include "xlat_mpu_private.h"
 
+#warning \
+	"xlat_mpu library is currently experimental and its API may change in future."
 
 /*
  * MMU configuration register values for the active translation context. Used
@@ -30,7 +30,7 @@ uint64_t mmu_cfg_params[MMU_CFG_PARAM_MAX];
  * currently executing.
  */
 REGISTER_XLAT_CONTEXT(tf, MAX_MMAP_REGIONS, MAX_XLAT_TABLES,
-			PLAT_VIRT_ADDR_SPACE_SIZE, PLAT_PHY_ADDR_SPACE_SIZE);
+		      PLAT_VIRT_ADDR_SPACE_SIZE, PLAT_PHY_ADDR_SPACE_SIZE);
 
 void mmap_add(const mmap_region_t *mm)
 {

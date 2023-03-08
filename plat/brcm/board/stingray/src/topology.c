@@ -6,6 +6,7 @@
 #include <stdint.h>
 
 #include <plat_brcm.h>
+
 #include <platform_def.h>
 
 /*
@@ -13,7 +14,7 @@
  * The first entry in the power domain descriptor specifies the
  * number of system power domains i.e. 1.
  */
-#define SR_PWR_DOMAINS_AT_MAX_PWR_LVL	 1
+#define SR_PWR_DOMAINS_AT_MAX_PWR_LVL 1
 
 /*
  * The Stingray power domain tree descriptor. The cluster power domains

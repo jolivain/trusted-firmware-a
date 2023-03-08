@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2018-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,10 +11,11 @@
 #include <drivers/arm/gic600_multichip.h>
 #include <lib/mmio.h>
 #include <lib/utils.h>
+
 #include <plat/arm/common/plat_arm.h>
+#include <platform_def.h>
 
 #include "n1sdp_def.h"
-#include <platform_def.h>
 
 /*
  * Platform information structure stored in SDS.
@@ -46,20 +47,12 @@ static struct gic600_multichip_data n1sdp_multichip_data __init = {
 	.rt_owner_base = PLAT_ARM_GICD_BASE,
 	.rt_owner = 0,
 	.chip_count = 1,
-	.chip_addrs = {
-		PLAT_ARM_GICD_BASE >> 16,
-		PLAT_ARM_GICD_BASE >> 16
-	},
-	.spi_ids = {
-		{32, 479},
-		{512, 959}
-	}
+	.chip_addrs = { PLAT_ARM_GICD_BASE >> 16, PLAT_ARM_GICD_BASE >> 16 },
+	.spi_ids = { { 32, 479 }, { 512, 959 } }
 };
 
 static uintptr_t n1sdp_multichip_gicr_frames[3] = {
-	PLAT_ARM_GICR_BASE,
-	PLAT_ARM_GICR_BASE + PLAT_ARM_REMOTE_CHIP_OFFSET,
-	0
+	PLAT_ARM_GICR_BASE, PLAT_ARM_GICR_BASE + PLAT_ARM_REMOTE_CHIP_OFFSET, 0
 };
 
 scmi_channel_plat_info_t *plat_css_get_scmi_info(unsigned int channel_id)
@@ -87,11 +80,11 @@ void remote_dmc_ecc_setup(uint8_t remote_ddr_size)
 	uint64_t remote_dram2_size;
 
 	remote_dram2_size = (remote_ddr_size * 1024UL * 1024UL * 1024UL) -
-				N1SDP_REMOTE_DRAM1_SIZE;
+			    N1SDP_REMOTE_DRAM1_SIZE;
 	/* multichip setup */
 	INFO("Zeroing remote DDR memories\n");
 	zero_normalmem((void *)N1SDP_REMOTE_DRAM1_BASE,
-			N1SDP_REMOTE_DRAM1_SIZE);
+		       N1SDP_REMOTE_DRAM1_SIZE);
 	flush_dcache_range(N1SDP_REMOTE_DRAM1_BASE, N1SDP_REMOTE_DRAM1_SIZE);
 	zero_normalmem((void *)N1SDP_REMOTE_DRAM2_BASE, remote_dram2_size);
 	flush_dcache_range(N1SDP_REMOTE_DRAM2_BASE, remote_dram2_size);
@@ -99,9 +92,9 @@ void remote_dmc_ecc_setup(uint8_t remote_ddr_size)
 	INFO("Enabling ECC on remote DMCs\n");
 	/* Set DMCs to CONFIG state before writing ERR0CTLR0 register */
 	mmio_write_32(N1SDP_REMOTE_DMC0_MEMC_CMD_REG,
-			N1SDP_DMC_MEMC_CMD_CONFIG);
+		      N1SDP_DMC_MEMC_CMD_CONFIG);
 	mmio_write_32(N1SDP_REMOTE_DMC1_MEMC_CMD_REG,
-			N1SDP_DMC_MEMC_CMD_CONFIG);
+		      N1SDP_DMC_MEMC_CMD_CONFIG);
 
 	/* Enable ECC in DMCs */
 	mmio_setbits_32(N1SDP_REMOTE_DMC0_ERR0CTLR0_REG,
@@ -132,19 +125,18 @@ void bl31_platform_setup(void)
 	}
 
 	ret = sds_struct_read(N1SDP_SDS_PLATFORM_INFO_STRUCT_ID,
-				N1SDP_SDS_PLATFORM_INFO_OFFSET,
-				&plat_info,
-				N1SDP_SDS_PLATFORM_INFO_SIZE,
-				SDS_ACCESS_MODE_NON_CACHED);
+			      N1SDP_SDS_PLATFORM_INFO_OFFSET, &plat_info,
+			      N1SDP_SDS_PLATFORM_INFO_SIZE,
+			      SDS_ACCESS_MODE_NON_CACHED);
 	if (ret != SDS_OK) {
 		ERROR("Error getting platform info from SDS\n");
 		panic();
 	}
 	/* Validate plat_info SDS */
-	if ((plat_info.local_ddr_size == 0)
-		|| (plat_info.local_ddr_size > N1SDP_MAX_DDR_CAPACITY_GB)
-		|| (plat_info.remote_ddr_size > N1SDP_MAX_DDR_CAPACITY_GB)
-		|| (plat_info.secondary_count > N1SDP_MAX_SECONDARY_COUNT)) {
+	if ((plat_info.local_ddr_size == 0) ||
+	    (plat_info.local_ddr_size > N1SDP_MAX_DDR_CAPACITY_GB) ||
+	    (plat_info.remote_ddr_size > N1SDP_MAX_DDR_CAPACITY_GB) ||
+	    (plat_info.secondary_count > N1SDP_MAX_SECONDARY_COUNT)) {
 		ERROR("platform info SDS is corrupted\n");
 		panic();
 	}

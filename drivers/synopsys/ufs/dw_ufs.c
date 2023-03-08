@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -184,8 +184,8 @@ static int dwufs_phy_set_pwr_mode(ufs_params_t *params)
 }
 
 static const ufs_ops_t dw_ufs_ops = {
-	.phy_init		= dwufs_phy_init,
-	.phy_set_pwr_mode	= dwufs_phy_set_pwr_mode,
+	.phy_init = dwufs_phy_init,
+	.phy_set_pwr_mode = dwufs_phy_set_pwr_mode,
 };
 
 int dw_ufs_init(dw_ufs_params_t *params)

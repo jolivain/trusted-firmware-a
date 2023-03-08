@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2018,2020, The Linux Foundation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -11,12 +11,11 @@
 #include <bl31/interrupt_mgmt.h>
 #include <drivers/arm/gic_common.h>
 #include <lib/el3_runtime/context_mgmt.h>
-
 #include <platform.h>
 #include <qti_interrupt_svc.h>
 #include <qtiseclib_interface.h>
 
-#define QTI_INTR_INVALID_INT_NUM		0xFFFFFFFFU
+#define QTI_INTR_INVALID_INT_NUM 0xFFFFFFFFU
 
 /*
  * Top-level EL3 interrupt handler.
@@ -41,7 +40,7 @@ static uint64_t qti_el3_interrupt_handler(uint32_t id, uint32_t flags,
 		plat_ic_end_of_interrupt(irq);
 	}
 
-	return (uint64_t) handle;
+	return (uint64_t)handle;
 }
 
 int qti_interrupt_svc_init(void)

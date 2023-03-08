@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,12 +13,13 @@
 #define PLAT_PM_COMMON_H
 
 #include <stdint.h>
+
 #include <common/debug.h>
+
 #include "pm_defs.h"
 
-
-#define ZYNQMP_TZ_VERSION_MAJOR		1
-#define ZYNQMP_TZ_VERSION_MINOR		0
-#define ZYNQMP_TZ_VERSION		((ZYNQMP_TZ_VERSION_MAJOR << 16) | \
-					ZYNQMP_TZ_VERSION_MINOR)
+#define ZYNQMP_TZ_VERSION_MAJOR 1
+#define ZYNQMP_TZ_VERSION_MINOR 0
+#define ZYNQMP_TZ_VERSION \
+	((ZYNQMP_TZ_VERSION_MAJOR << 16) | ZYNQMP_TZ_VERSION_MINOR)
 #endif /* _PLAT_PM_COMMON_H_ */

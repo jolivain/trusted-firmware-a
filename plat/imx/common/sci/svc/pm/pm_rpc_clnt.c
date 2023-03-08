@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -16,10 +16,10 @@
 
 #include <stdlib.h>
 
-#include <sci/sci_types.h>
-#include <sci/svc/rm/sci_rm_api.h>
-#include <sci/svc/pm/sci_pm_api.h>
 #include <sci/sci_rpc.h>
+#include <sci/sci_types.h>
+#include <sci/svc/pm/sci_pm_api.h>
+#include <sci/svc/rm/sci_rm_api.h>
 
 #include "sci_pm_rpc.h"
 
@@ -232,8 +232,8 @@ sc_err_t sc_pm_req_sys_if_power_mode(sc_ipc_t ipc, sc_rsrc_t resource,
 	return (sc_err_t)result;
 }
 
-sc_err_t sc_pm_set_clock_rate(sc_ipc_t ipc, sc_rsrc_t resource,
-			      sc_pm_clk_t clk, sc_pm_clock_rate_t *rate)
+sc_err_t sc_pm_set_clock_rate(sc_ipc_t ipc, sc_rsrc_t resource, sc_pm_clk_t clk,
+			      sc_pm_clock_rate_t *rate)
 {
 	sc_rpc_msg_t msg;
 	uint8_t result;
@@ -253,8 +253,8 @@ sc_err_t sc_pm_set_clock_rate(sc_ipc_t ipc, sc_rsrc_t resource,
 	return (sc_err_t)result;
 }
 
-sc_err_t sc_pm_get_clock_rate(sc_ipc_t ipc, sc_rsrc_t resource,
-			      sc_pm_clk_t clk, sc_pm_clock_rate_t *rate)
+sc_err_t sc_pm_get_clock_rate(sc_ipc_t ipc, sc_rsrc_t resource, sc_pm_clk_t clk,
+			      sc_pm_clock_rate_t *rate)
 {
 	sc_rpc_msg_t msg;
 	uint8_t result;
@@ -276,8 +276,8 @@ sc_err_t sc_pm_get_clock_rate(sc_ipc_t ipc, sc_rsrc_t resource,
 	return (sc_err_t)result;
 }
 
-sc_err_t sc_pm_clock_enable(sc_ipc_t ipc, sc_rsrc_t resource,
-			    sc_pm_clk_t clk, sc_bool_t enable, sc_bool_t autog)
+sc_err_t sc_pm_clock_enable(sc_ipc_t ipc, sc_rsrc_t resource, sc_pm_clk_t clk,
+			    sc_bool_t enable, sc_bool_t autog)
 {
 	sc_rpc_msg_t msg;
 	uint8_t result;
@@ -377,9 +377,9 @@ sc_err_t sc_pm_reset_reason(sc_ipc_t ipc, sc_pm_reset_reason_t *reason)
 	return (sc_err_t)result;
 }
 
-sc_err_t sc_pm_boot(sc_ipc_t ipc, sc_rm_pt_t pt,
-		    sc_rsrc_t resource_cpu, sc_faddr_t boot_addr,
-		    sc_rsrc_t resource_mu, sc_rsrc_t resource_dev)
+sc_err_t sc_pm_boot(sc_ipc_t ipc, sc_rm_pt_t pt, sc_rsrc_t resource_cpu,
+		    sc_faddr_t boot_addr, sc_rsrc_t resource_mu,
+		    sc_rsrc_t resource_dev)
 {
 	sc_rpc_msg_t msg;
 	uint8_t result;

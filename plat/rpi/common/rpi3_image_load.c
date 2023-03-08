@@ -1,14 +1,14 @@
 /*
- * Copyright (c) 2016-2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <platform_def.h>
-
 #include <common/bl_common.h>
 #include <common/desc_image_load.h>
+
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 /*******************************************************************************
  * This function flushes the data structures so that they are visible

@@ -13,23 +13,21 @@
 #include <string.h>
 
 #include <arch_helpers.h>
-#include "caam.h"
 #include <common/debug.h>
 #include <drivers/auth/crypto_mod.h>
 
+#include "caam.h"
 #include "jobdesc.h"
 #include "rsa.h"
 #include "sec_hw_specific.h"
 
 /* This array contains DER value for SHA-256 */
-static const uint8_t hash_identifier[] = {
-	0x30, 0x31, 0x30, 0x0d, 0x06, 0x09, 0x60,
-	0x86, 0x48, 0x01, 0x65, 0x03, 0x04, 0x02, 0x01, 0x05, 0x00,
-	0x04, 0x20
-};
+static const uint8_t hash_identifier[] = { 0x30, 0x31, 0x30, 0x0d, 0x06,
+					   0x09, 0x60, 0x86, 0x48, 0x01,
+					   0x65, 0x03, 0x04, 0x02, 0x01,
+					   0x05, 0x00, 0x04, 0x20 };
 
-static void rsa_done(uint32_t *desc, uint32_t status, void *arg,
-		     void *job_ring)
+static void rsa_done(uint32_t *desc, uint32_t status, void *arg, void *job_ring)
 {
 	INFO("RSA Desc SUCCESS with status %x\n", status);
 }
@@ -123,7 +121,7 @@ static int construct_img_encoded_hash_second(uint8_t *hash, uint8_t hash_len,
 	len = (key_len / 2U) - 1U;
 	representative = encoded_hash_second;
 	representative[0] = 0U;
-	representative[1] = 1U;	/* block type 1 */
+	representative[1] = 1U; /* block type 1 */
 
 	padding = &representative[2];
 	digest = &representative[1] + len - 32;
@@ -147,17 +145,17 @@ static int construct_img_encoded_hash_second(uint8_t *hash, uint8_t hash_len,
 	return ret;
 }
 
-int rsa_verify_signature(void *hash_ptr, unsigned int hash_len,
-			 void *sig_ptr, unsigned int sig_len,
-			 void *pk_ptr, unsigned int pk_len)
+int rsa_verify_signature(void *hash_ptr, unsigned int hash_len, void *sig_ptr,
+			 unsigned int sig_len, void *pk_ptr,
+			 unsigned int pk_len)
 {
 	uint8_t img_encoded_hash_second[RSA_4K_KEY_SZ_BYTES];
-	uint8_t encoded_hash[RSA_4K_KEY_SZ_BYTES] __aligned(CACHE_WRITEBACK_GRANULE);
+	uint8_t encoded_hash[RSA_4K_KEY_SZ_BYTES] __aligned(
+		CACHE_WRITEBACK_GRANULE);
 	int ret = 0;
 
-	ret = construct_img_encoded_hash_second(hash_ptr, hash_len,
-						img_encoded_hash_second,
-						pk_len);
+	ret = construct_img_encoded_hash_second(
+		hash_ptr, hash_len, img_encoded_hash_second, pk_len);
 	if (ret != 0) {
 		ERROR("Encoded Hash Failure\n");
 		return CRYPTO_ERR_SIGNATURE;

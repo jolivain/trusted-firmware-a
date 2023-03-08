@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -29,7 +29,7 @@ static const tzc_dmc620_config_data_t *g_plat_config_data;
  * one dmc instance is present.
  */
 static void tzc_dmc620_validate_plat_driver_data(
-			const tzc_dmc620_driver_data_t *plat_driver_data)
+	const tzc_dmc620_driver_data_t *plat_driver_data)
 {
 	unsigned int dmc_inst, dmc_count, dmc_id;
 	uintptr_t base;
@@ -74,23 +74,23 @@ static void tzc_dmc620_configure_region(int region_no,
 	dmc_count = plat_driver_data->dmc_count;
 	for (dmc_inst = 0U; dmc_inst < dmc_count; dmc_inst++) {
 		min_31_00 = (uint32_t)((region_base & MASK_31_16) | sec_attr);
-		min_47_32 = (uint32_t)((region_base & MASK_47_32)
-				>> DMC620_ACC_ADDR_WIDTH);
-		max_31_00 = (uint32_t)(region_top  & MASK_31_16);
-		max_47_32 = (uint32_t)((region_top  & MASK_47_32)
-				>> DMC620_ACC_ADDR_WIDTH);
+		min_47_32 = (uint32_t)((region_base & MASK_47_32) >>
+				       DMC620_ACC_ADDR_WIDTH);
+		max_31_00 = (uint32_t)(region_top & MASK_31_16);
+		max_47_32 = (uint32_t)((region_top & MASK_47_32) >>
+				       DMC620_ACC_ADDR_WIDTH);
 
 		/* Extract the base address of the DMC-620 instance */
 		base = DMC_BASE(plat_driver_data, dmc_inst);
 		/* Configure access address region registers */
 		mmio_write_32(base + DMC620_ACC_ADDR_MIN_31_00_NEXT(region_no),
-				min_31_00);
+			      min_31_00);
 		mmio_write_32(base + DMC620_ACC_ADDR_MIN_47_32_NEXT(region_no),
-				min_47_32);
+			      min_47_32);
 		mmio_write_32(base + DMC620_ACC_ADDR_MAX_31_00_NEXT(region_no),
-				max_31_00);
+			      max_31_00);
 		mmio_write_32(base + DMC620_ACC_ADDR_MAX_47_32_NEXT(region_no),
-				max_47_32);
+			      max_47_32);
 	}
 }
 
@@ -132,7 +132,7 @@ static void tzc_dmc620_verify_complete(void)
 		/* Extract the base address of the DMC-620 instance */
 		base = DMC_BASE(plat_driver_data, dmc_inst);
 		while ((mmio_read_32(base + DMC620_MEMC_STATUS) &
-				DMC620_MEMC_CMD_MASK) != DMC620_MEMC_CMD_GO) {
+			DMC620_MEMC_CMD_MASK) != DMC620_MEMC_CMD_GO) {
 			continue;
 		}
 	}
@@ -165,7 +165,8 @@ void arm_tzc_dmc620_setup(const tzc_dmc620_config_data_t *plat_config_data)
 
 	INFO("Configuring DMC-620 TZC settings\n");
 	for (i = 0U; i < g_plat_config_data->acc_addr_count; i++) {
-		tzc_dmc620_configure_region(i,
+		tzc_dmc620_configure_region(
+			i,
 			g_plat_config_data->plat_acc_addr_data[i].region_base,
 			g_plat_config_data->plat_acc_addr_data[i].region_top,
 			g_plat_config_data->plat_acc_addr_data[i].sec_attr);

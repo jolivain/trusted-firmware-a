@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright 2020 NXP
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -9,8 +9,8 @@
 
 #include <bl31/ehf.h>
 #include <common/debug.h>
-#include <services/sdei.h>
 #include <lib/utils_def.h>
+#include <services/sdei.h>
 
 #include <platform_def.h>
 
@@ -20,8 +20,7 @@ static sdei_ev_map_t imx_sdei_private[] = {
 };
 
 /* Shared event mappings */
-static sdei_ev_map_t imx_sdei_shared[] = {
-};
+static sdei_ev_map_t imx_sdei_shared[] = {};
 
 void plat_sdei_setup(void)
 {

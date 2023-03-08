@@ -8,11 +8,12 @@
 #include <inttypes.h>
 #include <stdint.h>
 
+#include <arch_helpers.h>
+#include <bl31/ea_handle.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
-#include <arch_helpers.h>
+
 #include <plat/common/platform.h>
-#include <bl31/ea_handle.h>
 
 #define A53_SERR_INT_AXI_SLVERR_ON_EXTERNAL_ACCESS 0xbf000002
 
@@ -21,7 +22,7 @@
  * building TF-A with compile option HANDLE_EA_EL3_FIRST_NS=1
  */
 void plat_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *cookie,
-		void *handle, uint64_t flags)
+		     void *handle, uint64_t flags)
 {
 	unsigned int level = (unsigned int)GET_EL(read_spsr_el3());
 
@@ -64,8 +65,8 @@ void plat_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *cookie,
 	    syndrome == A53_SERR_INT_AXI_SLVERR_ON_EXTERNAL_ACCESS) {
 		ERROR_NL();
 		ERROR("Ignoring Asynchronous External Abort with"
-		     " syndrome 0x%" PRIx64 " received on 0x%lx from %s\n",
-		     syndrome, read_mpidr_el1(), get_el_str(level));
+		      " syndrome 0x%" PRIx64 " received on 0x%lx from %s\n",
+		      syndrome, read_mpidr_el1(), get_el_str(level));
 		ERROR("SError interrupt: AXI SLVERR on external access\n");
 		ERROR("This indicates a bug in pci-aardvark.c driver\n");
 		ERROR("Please update U-Boot/Linux to the latest version\n");

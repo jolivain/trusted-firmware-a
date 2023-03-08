@@ -20,8 +20,8 @@
  * BL31 from BL2.
  */
 #ifdef TEST_BL31
-#define  SPSR_FOR_EL2H   0x3C9
-#define  SPSR_FOR_EL1H   0x3C5
+#define SPSR_FOR_EL2H 0x3C9
+#define SPSR_FOR_EL1H 0x3C5
 #else
 static entry_point_info_t bl31_image_ep_info;
 #endif
@@ -29,7 +29,7 @@ static entry_point_info_t bl31_image_ep_info;
 static entry_point_info_t bl32_image_ep_info;
 static entry_point_info_t bl33_image_ep_info;
 
-static dram_regions_info_t dram_regions_info = {0};
+static dram_regions_info_t dram_regions_info = { 0 };
 static uint64_t rcw_porsr1;
 
 /* Return the pointer to the 'dram_regions_info structure of the DRAM.
@@ -59,12 +59,12 @@ entry_point_info_t *bl31_plat_get_next_image_ep_info(uint32_t type)
 	entry_point_info_t *next_image_info;
 
 	assert(sec_state_is_valid(type));
-	next_image_info = (type == NON_SECURE)
-			? &bl33_image_ep_info : &bl32_image_ep_info;
+	next_image_info = (type == NON_SECURE) ? &bl33_image_ep_info :
+						 &bl32_image_ep_info;
 
 #ifdef TEST_BL31
-	next_image_info->pc     = _get_test_entry();
-	next_image_info->spsr   = SPSR_FOR_EL2H;
+	next_image_info->pc = _get_test_entry();
+	next_image_info->spsr = SPSR_FOR_EL2H;
 	next_image_info->h.attr = NON_SECURE;
 #endif
 
@@ -94,12 +94,12 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	soc_early_platform_setup2();
 
 #ifdef TEST_BL31
-	dram_regions_info.num_dram_regions  = 2;
-	dram_regions_info.total_dram_size   = 0x100000000;
-	dram_regions_info.region[0].addr    = 0x80000000;
-	dram_regions_info.region[0].size    = 0x80000000;
-	dram_regions_info.region[1].addr    = 0x880000000;
-	dram_regions_info.region[1].size    = 0x80000000;
+	dram_regions_info.num_dram_regions = 2;
+	dram_regions_info.total_dram_size = 0x100000000;
+	dram_regions_info.region[0].addr = 0x80000000;
+	dram_regions_info.region[0].size = 0x80000000;
+	dram_regions_info.region[1].addr = 0x880000000;
+	dram_regions_info.region[1].size = 0x80000000;
 
 	bl33_image_ep_info.pc = _get_test_entry();
 #else
@@ -122,17 +122,18 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 		if (bl_params->image_id == BL31_IMAGE_ID) {
 			bl31_image_ep_info = *bl_params->ep_info;
 			dram_regions_info_t *loc_dram_regions_info =
-			(dram_regions_info_t *) bl31_image_ep_info.args.arg3;
+				(dram_regions_info_t *)
+					bl31_image_ep_info.args.arg3;
 
 			dram_regions_info.num_dram_regions =
-					loc_dram_regions_info->num_dram_regions;
+				loc_dram_regions_info->num_dram_regions;
 			dram_regions_info.total_dram_size =
-					loc_dram_regions_info->total_dram_size;
+				loc_dram_regions_info->total_dram_size;
 			VERBOSE("Number of DRAM Regions = %" PRIx64 "\n",
-					dram_regions_info.num_dram_regions);
+				dram_regions_info.num_dram_regions);
 
 			for (i = 0; i < dram_regions_info.num_dram_regions;
-									i++) {
+			     i++) {
 				dram_regions_info.region[i].addr =
 					loc_dram_regions_info->region[i].addr;
 				dram_regions_info.region[i].size =
@@ -196,17 +197,12 @@ void bl31_plat_runtime_setup(void)
  ******************************************************************************/
 void bl31_plat_arch_setup(void)
 {
-
-	ls_setup_page_tables(BL31_BASE,
-			      BL31_END - BL31_BASE,
-			      BL_CODE_BASE,
-			      BL_CODE_END,
-			      BL_RO_DATA_BASE,
-			      BL_RO_DATA_END
+	ls_setup_page_tables(BL31_BASE, BL31_END - BL31_BASE, BL_CODE_BASE,
+			     BL_CODE_END, BL_RO_DATA_BASE, BL_RO_DATA_END
 #if USE_COHERENT_MEM
-			      , BL_COHERENT_RAM_BASE,
-			      BL_COHERENT_RAM_END
+			     ,
+			     BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END
 #endif
-			      );
+	);
 	enable_mmu_el3(0);
 }

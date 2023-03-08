@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, Arm Limited. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,6 +9,7 @@
 #include <common/debug.h>
 #include <drivers/arm/sp805.h>
 #include <drivers/cfi/v2m_flash.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <platform_def.h>
 

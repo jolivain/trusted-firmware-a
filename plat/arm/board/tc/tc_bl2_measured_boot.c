@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -17,26 +17,22 @@
  * const struct, some members might set by bootloaders during trusted boot.
  */
 struct rss_mboot_metadata tc_rss_mboot_metadata[] = {
-	{
-		.id = BL31_IMAGE_ID,
-		.slot = U(9),
-		.signer_id_size = SIGNER_ID_MIN_SIZE,
-		.sw_type = RSS_MBOOT_BL31_STRING,
-		.lock_measurement = true },
-	{
-		.id = HW_CONFIG_ID,
-		.slot = U(10),
-		.signer_id_size = SIGNER_ID_MIN_SIZE,
-		.sw_type = RSS_MBOOT_HW_CONFIG_STRING,
-		.lock_measurement = true },
-	{
-		.id = SOC_FW_CONFIG_ID,
-		.slot = U(11),
-		.signer_id_size = SIGNER_ID_MIN_SIZE,
-		.sw_type = RSS_MBOOT_SOC_FW_CONFIG_STRING,
-		.lock_measurement = true },
-	{
-		.id = RSS_MBOOT_INVALID_ID }
+	{ .id = BL31_IMAGE_ID,
+	  .slot = U(9),
+	  .signer_id_size = SIGNER_ID_MIN_SIZE,
+	  .sw_type = RSS_MBOOT_BL31_STRING,
+	  .lock_measurement = true },
+	{ .id = HW_CONFIG_ID,
+	  .slot = U(10),
+	  .signer_id_size = SIGNER_ID_MIN_SIZE,
+	  .sw_type = RSS_MBOOT_HW_CONFIG_STRING,
+	  .lock_measurement = true },
+	{ .id = SOC_FW_CONFIG_ID,
+	  .slot = U(11),
+	  .signer_id_size = SIGNER_ID_MIN_SIZE,
+	  .sw_type = RSS_MBOOT_SOC_FW_CONFIG_STRING,
+	  .lock_measurement = true },
+	{ .id = RSS_MBOOT_INVALID_ID }
 };
 
 void bl2_plat_mboot_init(void)

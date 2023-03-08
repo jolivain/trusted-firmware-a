@@ -10,9 +10,9 @@
 #include <drivers/delay_timer.h>
 #include <endian.h>
 #include <lib/mmio.h>
+#include <spi.h>
 
 #include <platform_def.h>
-#include <spi.h>
 
 #include "iproc_qspi.h"
 
@@ -58,10 +58,12 @@ int iproc_qspi_setup(uint32_t bus, uint32_t cs, uint32_t max_hz, uint32_t mode)
 
 	/* MSPI: Mode configuration (8 bits by default) */
 	priv->mspi_16bit = 0;
-	mmio_write_32(priv->mspi_hw + MSPI_SPCR0_MSB_REG,
-		      BIT(MSPI_SPCR0_MSB_REG_MSTR_SHIFT) |		/* Master */
-		      MSPI_SPCR0_MSB_REG_16_BITS_PER_WD_SHIFT |		/* 16 bits per word */
-		      (priv->spi_mode & MSPI_SPCR0_MSB_REG_MODE_MASK));	/* mode: CPOL / CPHA */
+	mmio_write_32(
+		priv->mspi_hw + MSPI_SPCR0_MSB_REG,
+		BIT(MSPI_SPCR0_MSB_REG_MSTR_SHIFT) | /* Master */
+			MSPI_SPCR0_MSB_REG_16_BITS_PER_WD_SHIFT | /* 16 bits per word */
+			(priv->spi_mode &
+			 MSPI_SPCR0_MSB_REG_MODE_MASK)); /* mode: CPOL / CPHA */
 
 	/* Display bus info */
 	VERBOSE("SPI: SPCR0_LSB: 0x%x\n",
@@ -101,12 +103,11 @@ static int bcmspi_disable_bspi(struct bcmspi_priv *priv)
 	     MSPI_CTRL_MASK) == 0) {
 		retry = QSPI_RETRY_COUNT_US_MAX;
 		do {
-			if ((mmio_read_32(
-				priv->bspi_hw + BSPI_BUSY_STATUS_REG) &
-				BSPI_BUSY_MASK) == 0) {
+			if ((mmio_read_32(priv->bspi_hw + BSPI_BUSY_STATUS_REG) &
+			     BSPI_BUSY_MASK) == 0) {
 				mmio_write_32(priv->bspi_hw +
-				       BSPI_MAST_N_BOOT_CTRL_REG,
-				       MSPI_CTRL_MASK);
+						      BSPI_MAST_N_BOOT_CTRL_REG,
+					      MSPI_CTRL_MASK);
 				udelay(1);
 				break;
 			}
@@ -185,14 +186,16 @@ static int mspi_xfer(struct bcmspi_priv *priv, uint32_t bytes,
 			/* Fill CDRAMs */
 			for (i = 0; i < queues; i++)
 				mmio_write_32(priv->mspi_hw + MSPI_CDRAM_REG +
-					      (i << 2), mode | CDRAM_CONT);
+						      (i << 2),
+					      mode | CDRAM_CONT);
 
 			/* Fill TXRAMs */
 			for (i = 0; i < chunk; i++)
 				if (tx)
 					mmio_write_32(priv->mspi_hw +
-						MSPI_TXRAM_REG +
-						(i << 2), tx[i]);
+							      MSPI_TXRAM_REG +
+							      (i << 2),
+						      tx[i]);
 		} else {
 			VERBOSE("SPI: 8 bits xfer\n");
 			/* Determine how many bytes to process this time */
@@ -203,11 +206,13 @@ static int mspi_xfer(struct bcmspi_priv *priv, uint32_t bytes,
 			/* Fill CDRAMs and TXRAMS */
 			for (i = 0; i < chunk; i++) {
 				mmio_write_32(priv->mspi_hw + MSPI_CDRAM_REG +
-					      (i << 2), mode | CDRAM_CONT);
+						      (i << 2),
+					      mode | CDRAM_CONT);
 				if (tx)
 					mmio_write_32(priv->mspi_hw +
-						MSPI_TXRAM_REG +
-						(i << 3), tx[i]);
+							      MSPI_TXRAM_REG +
+							      (i << 3),
+						      tx[i]);
 			}
 		}
 
@@ -222,7 +227,8 @@ static int mspi_xfer(struct bcmspi_priv *priv, uint32_t bytes,
 		/* Remove CONT on the last byte command */
 		if (bytes == 0 && (flag & SPI_XFER_END))
 			mmio_write_32(priv->mspi_hw + MSPI_CDRAM_REG +
-				      ((queues - 1) << 2), mode);
+					      ((queues - 1) << 2),
+				      mode);
 
 		/* Kick off */
 		mmio_write_32(priv->mspi_hw + MSPI_STATUS_REG, 0);
@@ -252,16 +258,17 @@ static int mspi_xfer(struct bcmspi_priv *priv, uint32_t bytes,
 			if (priv->mspi_16bit) {
 				for (i = 0; i < chunk; i++) {
 					rx[i] = mmio_read_32(priv->mspi_hw +
-							MSPI_RXRAM_REG +
-						       (i << 2))
-						& 0xff;
+							     MSPI_RXRAM_REG +
+							     (i << 2)) &
+						0xff;
 				}
 			} else {
 				for (i = 0; i < chunk; i++) {
-					rx[i] = mmio_read_32(priv->mspi_hw +
-						       MSPI_RXRAM_REG +
-						       (((i << 1) + 1) << 2))
-						& 0xff;
+					rx[i] = mmio_read_32(
+							priv->mspi_hw +
+							MSPI_RXRAM_REG +
+							(((i << 1) + 1) << 2)) &
+						0xff;
 				}
 			}
 			rx += chunk;
@@ -271,8 +278,8 @@ static int mspi_xfer(struct bcmspi_priv *priv, uint32_t bytes,
 	return 0;
 }
 
-int iproc_qspi_xfer(uint32_t bitlen,
-		    const void *dout, void *din, unsigned long flags)
+int iproc_qspi_xfer(uint32_t bitlen, const void *dout, void *din,
+		    unsigned long flags)
 {
 	struct bcmspi_priv *priv;
 	const uint8_t *tx = dout;
@@ -290,7 +297,7 @@ int iproc_qspi_xfer(uint32_t bitlen,
 	/* we can only do 8 bit transfers */
 	if (bitlen % 8) {
 		ERROR("QSPI: Only support 8 bit transfers (requested %d)\n",
-			bitlen);
+		      bitlen);
 		return -1;
 	}
 

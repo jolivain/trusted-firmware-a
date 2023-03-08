@@ -1,29 +1,29 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
-
 #include <sq_common.h>
+
+#include <platform_def.h>
+
 #include "sq_mhu.h"
 
 /* SCP MHU secure channel registers */
-#define SCP_INTR_S_STAT		0x200
-#define SCP_INTR_S_SET		0x208
-#define SCP_INTR_S_CLEAR	0x210
+#define SCP_INTR_S_STAT 0x200
+#define SCP_INTR_S_SET 0x208
+#define SCP_INTR_S_CLEAR 0x210
 
 /* CPU MHU secure channel registers */
-#define CPU_INTR_S_STAT		0x300
-#define CPU_INTR_S_SET		0x308
-#define CPU_INTR_S_CLEAR	0x310
+#define CPU_INTR_S_STAT 0x300
+#define CPU_INTR_S_SET 0x308
+#define CPU_INTR_S_CLEAR 0x310
 
 DEFINE_BAKERY_LOCK(sq_lock);
 
@@ -32,7 +32,7 @@ DEFINE_BAKERY_LOCK(sq_lock);
  * indicate a non-secure access attempt. The total number of available slots is
  * therefore 31 [30:0].
  */
-#define MHU_MAX_SLOT_ID		30
+#define MHU_MAX_SLOT_ID 30
 
 void mhu_secure_message_start(unsigned int slot_id)
 {
@@ -42,7 +42,7 @@ void mhu_secure_message_start(unsigned int slot_id)
 
 	/* Make sure any previous command has finished */
 	while (mmio_read_32(PLAT_SQ_MHU_BASE + CPU_INTR_S_STAT) &
-							(1 << slot_id))
+	       (1 << slot_id))
 		;
 }
 
@@ -50,7 +50,7 @@ void mhu_secure_message_send(unsigned int slot_id)
 {
 	assert(slot_id <= MHU_MAX_SLOT_ID);
 	assert(!(mmio_read_32(PLAT_SQ_MHU_BASE + CPU_INTR_S_STAT) &
-							(1 << slot_id)));
+		 (1 << slot_id)));
 
 	/* Send command to SCP */
 	mmio_write_32(PLAT_SQ_MHU_BASE + CPU_INTR_S_SET, 1 << slot_id);

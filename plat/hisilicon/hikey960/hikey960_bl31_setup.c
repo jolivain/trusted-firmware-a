@@ -1,13 +1,11 @@
 /*
- * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 #include <errno.h>
-
-#include <platform_def.h>
 
 #include <arch_helpers.h>
 #include <bl31/interrupt_mgmt.h>
@@ -19,13 +17,15 @@
 #include <drivers/arm/pl011.h>
 #include <drivers/console.h>
 #include <drivers/generic_delay_timer.h>
-#include <lib/mmio.h>
-#include <lib/xlat_tables/xlat_tables_v2.h>
-#include <plat/common/platform.h>
-#include <services/el3_spmc_ffa_memory.h>
-
 #include <hi3660.h>
 #include <hisi_ipc.h>
+#include <lib/mmio.h>
+#include <lib/xlat_tables/xlat_tables_v2.h>
+#include <services/el3_spmc_ffa_memory.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
+
 #include "hikey960_def.h"
 #include "hikey960_private.h"
 
@@ -54,10 +54,8 @@ const gicv2_driver_data_t hikey960_gic_data = {
 	.interrupt_props_num = ARRAY_SIZE(g0_interrupt_props),
 };
 
-static const int cci_map[] = {
-	CCI400_SL_IFACE3_CLUSTER_IX,
-	CCI400_SL_IFACE4_CLUSTER_IX
-};
+static const int cci_map[] = { CCI400_SL_IFACE3_CLUSTER_IX,
+			       CCI400_SL_IFACE4_CLUSTER_IX };
 
 entry_point_info_t *bl31_plat_get_next_image_ep_info(uint32_t type)
 {
@@ -76,9 +74,10 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 {
 	unsigned int id, uart_base;
 	void *from_bl2;
-	plat_params_from_bl2_t *plat_params_from_bl2 = (plat_params_from_bl2_t *) arg1;
+	plat_params_from_bl2_t *plat_params_from_bl2 =
+		(plat_params_from_bl2_t *)arg1;
 
-	from_bl2 = (void *) arg0;
+	from_bl2 = (void *)arg0;
 
 	generic_delay_timer_init();
 	hikey960_read_boardid(&id);
@@ -88,8 +87,8 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 		uart_base = PL011_UART6_BASE;
 
 	/* Initialize the console to provide early debug support */
-	console_pl011_register(uart_base, PL011_UART_CLK_IN_HZ,
-			       PL011_BAUDRATE, &console);
+	console_pl011_register(uart_base, PL011_UART_CLK_IN_HZ, PL011_BAUDRATE,
+			       &console);
 
 	/* Initialize CCI driver */
 	cci_init(CCI400_REG_BASE, cci_map, ARRAY_SIZE(cci_map));
@@ -131,15 +130,12 @@ void bl31_plat_arch_setup(void)
 {
 #if SPMC_AT_EL3
 	mmap_add_region(DDR2_SEC_BASE, DDR2_SEC_BASE, DDR2_SEC_SIZE,
-	       MT_MEMORY | MT_RW | MT_SECURE);
+			MT_MEMORY | MT_RW | MT_SECURE);
 #endif
 
-	hikey960_init_mmu_el3(BL31_BASE,
-			BL31_LIMIT - BL31_BASE,
-			BL_CODE_BASE,
-			BL_CODE_END,
-			BL_COHERENT_RAM_BASE,
-			BL_COHERENT_RAM_END);
+	hikey960_init_mmu_el3(BL31_BASE, BL31_LIMIT - BL31_BASE, BL_CODE_BASE,
+			      BL_CODE_END, BL_COHERENT_RAM_BASE,
+			      BL_COHERENT_RAM_END);
 }
 
 static void hikey960_edma_init(void)
@@ -161,13 +157,15 @@ static void hikey960_iomcu_dma_init(void)
 	int i;
 	uint32_t non_secure;
 
-	non_secure = IOMCU_DMAC_SEC_CTRL_INTR_SEC | IOMCU_DMAC_SEC_CTRL_GLOBAL_SEC;
+	non_secure = IOMCU_DMAC_SEC_CTRL_INTR_SEC |
+		     IOMCU_DMAC_SEC_CTRL_GLOBAL_SEC;
 	mmio_write_32(IOMCU_DMAC_SEC_CTRL, non_secure);
 
 	/* channels 0-3 are reserved */
 	for (i = 4; i < IOMCU_DMAC_CHANNEL_NUMS; i++) {
-		mmio_write_32(IOMCU_DMAC_AXI_CONF(i), IOMCU_DMAC_AXI_CONF_ARPROT_NS |
-				 IOMCU_DMAC_AXI_CONF_AWPROT_NS);
+		mmio_write_32(IOMCU_DMAC_AXI_CONF(i),
+			      IOMCU_DMAC_AXI_CONF_ARPROT_NS |
+				      IOMCU_DMAC_AXI_CONF_AWPROT_NS);
 	}
 }
 
@@ -183,7 +181,8 @@ static void hikey960_iomcu_dma_init(void)
 
 #define SPMC_SHARED_MEMORY_OBJ_SIZE (512 * 1024)
 
-__section(".ram2_region") uint8_t plat_spmc_shmem_datastore[SPMC_SHARED_MEMORY_OBJ_SIZE];
+__section(".ram2_region") uint8_t
+	plat_spmc_shmem_datastore[SPMC_SHARED_MEMORY_OBJ_SIZE];
 
 int plat_spmc_shmem_datastore_get(uint8_t **datastore, size_t *size)
 {
@@ -229,10 +228,8 @@ void bl31_platform_setup(void)
 }
 
 #ifdef SPD_none
-static uint64_t hikey_debug_fiq_handler(uint32_t id,
-					uint32_t flags,
-					void *handle,
-					void *cookie)
+static uint64_t hikey_debug_fiq_handler(uint32_t id, uint32_t flags,
+					void *handle, void *cookie)
 {
 	int intr, intr_raw;
 
@@ -256,8 +253,7 @@ void bl31_plat_runtime_setup(void)
 	flags = 0;
 	set_interrupt_rm_flag(flags, NON_SECURE);
 	rc = register_interrupt_type_handler(INTR_TYPE_S_EL1,
-					     hikey_debug_fiq_handler,
-					     flags);
+					     hikey_debug_fiq_handler, flags);
 	if (rc != 0)
 		panic();
 #endif

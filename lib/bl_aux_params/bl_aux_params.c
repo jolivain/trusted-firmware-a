@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,11 +7,10 @@
 #include <stdint.h>
 
 #include <common/debug.h>
-#include <lib/coreboot.h>
 #include <lib/bl_aux_params/bl_aux_params.h>
+#include <lib/coreboot.h>
 
-void bl_aux_params_parse(u_register_t head,
-			 bl_aux_param_handler_t handler)
+void bl_aux_params_parse(u_register_t head, bl_aux_param_handler_t handler)
 {
 	struct bl_aux_param_header *p;
 
@@ -22,8 +21,10 @@ void bl_aux_params_parse(u_register_t head,
 		switch (p->type) {
 #if COREBOOT
 		case BL_AUX_PARAM_COREBOOT_TABLE:
-			coreboot_table_setup((void *)(uintptr_t)
-				((struct bl_aux_param_uint64 *)p)->value);
+			coreboot_table_setup(
+				(void *)(uintptr_t)((struct bl_aux_param_uint64
+							     *)p)
+					->value);
 			break;
 #endif
 		default:

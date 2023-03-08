@@ -9,4 +9,4 @@
 
 void qos_init_g2m_v30(void);
 
-#endif	/* QOS_INIT_G2M_V30_H */
+#endif /* QOS_INIT_G2M_V30_H */

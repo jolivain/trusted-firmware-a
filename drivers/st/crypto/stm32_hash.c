@@ -17,62 +17,62 @@
 #include <lib/mmio.h>
 #include <lib/utils.h>
 #include <libfdt.h>
-#include <plat/common/platform.h>
 
+#include <plat/common/platform.h>
 #include <platform_def.h>
 
 #if STM32_HASH_VER == 2
-#define DT_HASH_COMPAT			"st,stm32f756-hash"
+#define DT_HASH_COMPAT "st,stm32f756-hash"
 #endif
 #if STM32_HASH_VER == 4
-#define DT_HASH_COMPAT			"st,stm32mp13-hash"
+#define DT_HASH_COMPAT "st,stm32mp13-hash"
 #endif
 
-#define HASH_CR				0x00U
-#define HASH_DIN			0x04U
-#define HASH_STR			0x08U
-#define HASH_SR				0x24U
-#define HASH_HREG(x)			(0x310U + ((x) * 0x04U))
+#define HASH_CR 0x00U
+#define HASH_DIN 0x04U
+#define HASH_STR 0x08U
+#define HASH_SR 0x24U
+#define HASH_HREG(x) (0x310U + ((x)*0x04U))
 
 /* Control Register */
-#define HASH_CR_INIT			BIT(2)
-#define HASH_CR_DATATYPE_SHIFT		U(4)
+#define HASH_CR_INIT BIT(2)
+#define HASH_CR_DATATYPE_SHIFT U(4)
 #if STM32_HASH_VER == 2
-#define HASH_CR_ALGO_SHA1		0x0U
-#define HASH_CR_ALGO_MD5		BIT(7)
-#define HASH_CR_ALGO_SHA224		BIT(18)
-#define HASH_CR_ALGO_SHA256		(BIT(18) | BIT(7))
+#define HASH_CR_ALGO_SHA1 0x0U
+#define HASH_CR_ALGO_MD5 BIT(7)
+#define HASH_CR_ALGO_SHA224 BIT(18)
+#define HASH_CR_ALGO_SHA256 (BIT(18) | BIT(7))
 #endif
 #if STM32_HASH_VER == 4
-#define HASH_CR_ALGO_SHIFT		U(17)
-#define HASH_CR_ALGO_SHA1		(0x0U << HASH_CR_ALGO_SHIFT)
-#define HASH_CR_ALGO_SHA224		(0x2U << HASH_CR_ALGO_SHIFT)
-#define HASH_CR_ALGO_SHA256		(0x3U << HASH_CR_ALGO_SHIFT)
-#define HASH_CR_ALGO_SHA384		(0xCU << HASH_CR_ALGO_SHIFT)
-#define HASH_CR_ALGO_SHA512_224		(0xDU << HASH_CR_ALGO_SHIFT)
-#define HASH_CR_ALGO_SHA512_256		(0xEU << HASH_CR_ALGO_SHIFT)
-#define HASH_CR_ALGO_SHA512		(0xFU << HASH_CR_ALGO_SHIFT)
+#define HASH_CR_ALGO_SHIFT U(17)
+#define HASH_CR_ALGO_SHA1 (0x0U << HASH_CR_ALGO_SHIFT)
+#define HASH_CR_ALGO_SHA224 (0x2U << HASH_CR_ALGO_SHIFT)
+#define HASH_CR_ALGO_SHA256 (0x3U << HASH_CR_ALGO_SHIFT)
+#define HASH_CR_ALGO_SHA384 (0xCU << HASH_CR_ALGO_SHIFT)
+#define HASH_CR_ALGO_SHA512_224 (0xDU << HASH_CR_ALGO_SHIFT)
+#define HASH_CR_ALGO_SHA512_256 (0xEU << HASH_CR_ALGO_SHIFT)
+#define HASH_CR_ALGO_SHA512 (0xFU << HASH_CR_ALGO_SHIFT)
 #endif
 
 /* Status Flags */
-#define HASH_SR_DCIS			BIT(1)
-#define HASH_SR_BUSY			BIT(3)
+#define HASH_SR_DCIS BIT(1)
+#define HASH_SR_BUSY BIT(3)
 
 /* STR Register */
-#define HASH_STR_NBLW_MASK		GENMASK(4, 0)
-#define HASH_STR_DCAL			BIT(8)
+#define HASH_STR_NBLW_MASK GENMASK(4, 0)
+#define HASH_STR_DCAL BIT(8)
 
-#define MD5_DIGEST_SIZE			16U
-#define SHA1_DIGEST_SIZE		20U
-#define SHA224_DIGEST_SIZE		28U
-#define SHA256_DIGEST_SIZE		32U
-#define SHA384_DIGEST_SIZE		48U
-#define SHA512_224_DIGEST_SIZE		28U
-#define SHA512_256_DIGEST_SIZE		32U
-#define SHA512_DIGEST_SIZE		64U
+#define MD5_DIGEST_SIZE 16U
+#define SHA1_DIGEST_SIZE 20U
+#define SHA224_DIGEST_SIZE 28U
+#define SHA256_DIGEST_SIZE 32U
+#define SHA384_DIGEST_SIZE 48U
+#define SHA512_224_DIGEST_SIZE 28U
+#define SHA512_256_DIGEST_SIZE 32U
+#define SHA512_DIGEST_SIZE 64U
 
-#define RESET_TIMEOUT_US_1MS		1000U
-#define HASH_TIMEOUT_US			10000U
+#define RESET_TIMEOUT_US_1MS 1000U
+#define HASH_TIMEOUT_US 10000U
 
 enum stm32_hash_data_format {
 	HASH_DATA_32_BITS,
@@ -197,8 +197,8 @@ static int hash_get_digest(uint8_t *digest)
 	}
 
 	for (i = 0U; i < (stm32_hash.digest_size / sizeof(uint32_t)); i++) {
-		dsg = __builtin_bswap32(mmio_read_32(hash_base() +
-						     HASH_HREG(i)));
+		dsg = __builtin_bswap32(
+			mmio_read_32(hash_base() + HASH_HREG(i)));
 		memcpy(digest + (i * sizeof(uint32_t)), &dsg, sizeof(uint32_t));
 	}
 
@@ -225,8 +225,8 @@ int stm32_hash_update(const uint8_t *buffer, size_t length)
 	if (stm32_remain.length != 0U) {
 		uint32_t copysize;
 
-		copysize = MIN((sizeof(uint32_t) - stm32_remain.length),
-			       length);
+		copysize =
+			MIN((sizeof(uint32_t) - stm32_remain.length), length);
 		memcpy(((uint8_t *)&stm32_remain.buffer) + stm32_remain.length,
 		       buffer, copysize);
 		remain_length -= copysize;

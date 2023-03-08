@@ -5,6 +5,7 @@
  */
 
 #include <assert.h>
+
 #include <common/debug.h>
 #include <common/runtime_svc.h>
 #include <lib/mmio.h>
@@ -12,8 +13,8 @@
 #include "socfpga_mailbox.h"
 #include "socfpga_sip_svc.h"
 
-static uint32_t intel_v2_mbox_send_cmd(uint32_t req_header,
-				uint32_t *data, uint32_t data_size)
+static uint32_t intel_v2_mbox_send_cmd(uint32_t req_header, uint32_t *data,
+				       uint32_t data_size)
 {
 	uint32_t value;
 	uint32_t len;
@@ -32,7 +33,7 @@ static uint32_t intel_v2_mbox_send_cmd(uint32_t req_header,
 
 	/* Make sure client id align in SMC SiP V2 header and mailbox header */
 	value = (req_header >> INTEL_SIP_SMC_HEADER_CID_OFFSET) &
-				INTEL_SIP_SMC_HEADER_CID_MASK;
+		INTEL_SIP_SMC_HEADER_CID_MASK;
 
 	if (value != MBOX_RESP_CLIENT_ID(data[0])) {
 		return INTEL_SIP_SMC_STATUS_REJECTED;
@@ -40,7 +41,7 @@ static uint32_t intel_v2_mbox_send_cmd(uint32_t req_header,
 
 	/* Make sure job id align in SMC SiP V2 header and mailbox header */
 	value = (req_header >> INTEL_SIP_SMC_HEADER_JOB_ID_OFFSET) &
-				INTEL_SIP_SMC_HEADER_JOB_ID_MASK;
+		INTEL_SIP_SMC_HEADER_JOB_ID_MASK;
 
 	if (value != MBOX_RESP_JOB_ID(data[0])) {
 		return INTEL_SIP_SMC_STATUS_REJECTED;
@@ -59,9 +60,9 @@ static uint32_t intel_v2_mbox_send_cmd(uint32_t req_header,
 	return mailbox_send_cmd_async_ext(data[0], &data[1], len);
 }
 
-static uint32_t intel_v2_mbox_poll_resp(uint64_t req_header,
-				uint32_t *data, uint32_t *data_size,
-				uint64_t *resp_header)
+static uint32_t intel_v2_mbox_poll_resp(uint64_t req_header, uint32_t *data,
+					uint32_t *data_size,
+					uint64_t *resp_header)
 {
 	int status = 0;
 	uint32_t resp_len;
@@ -79,7 +80,7 @@ static uint32_t intel_v2_mbox_poll_resp(uint64_t req_header,
 
 	resp_len = (*data_size / MBOX_WORD_BYTE) - 1;
 	status = mailbox_read_response_async(&job_id, &data[0], &data[1],
-				&resp_len, 1);
+					     &resp_len, 1);
 
 	if (status == MBOX_BUSY) {
 		status = INTEL_SIP_SMC_STATUS_BUSY;
@@ -104,32 +105,27 @@ static uint32_t intel_v2_mbox_poll_resp(uint64_t req_header,
 		 * SMC request header
 		 */
 		version = (req_header >> INTEL_SIP_SMC_HEADER_VERSION_OFFSET) &
-				INTEL_SIP_SMC_HEADER_VERSION_MASK;
+			  INTEL_SIP_SMC_HEADER_VERSION_MASK;
 
 		/* Fill in SMC SiP V2 protocol response header */
 		*resp_header = 0;
-		*resp_header |= (((uint64_t)job_id) &
-				INTEL_SIP_SMC_HEADER_JOB_ID_MASK) <<
-				INTEL_SIP_SMC_HEADER_JOB_ID_OFFSET;
-		*resp_header |= (((uint64_t)client_id) &
-				INTEL_SIP_SMC_HEADER_CID_MASK) <<
-				INTEL_SIP_SMC_HEADER_CID_OFFSET;
+		*resp_header |=
+			(((uint64_t)job_id) & INTEL_SIP_SMC_HEADER_JOB_ID_MASK)
+			<< INTEL_SIP_SMC_HEADER_JOB_ID_OFFSET;
+		*resp_header |=
+			(((uint64_t)client_id) & INTEL_SIP_SMC_HEADER_CID_MASK)
+			<< INTEL_SIP_SMC_HEADER_CID_OFFSET;
 		*resp_header |= (((uint64_t)version) &
-				INTEL_SIP_SMC_HEADER_VERSION_MASK) <<
-				INTEL_SIP_SMC_HEADER_VERSION_OFFSET;
+				 INTEL_SIP_SMC_HEADER_VERSION_MASK)
+				<< INTEL_SIP_SMC_HEADER_VERSION_OFFSET;
 	}
 
 	return status;
 }
 
-uintptr_t sip_smc_handler_v2(uint32_t smc_fid,
-				u_register_t x1,
-				u_register_t x2,
-				u_register_t x3,
-				u_register_t x4,
-				void *cookie,
-				void *handle,
-				u_register_t flags)
+uintptr_t sip_smc_handler_v2(uint32_t smc_fid, u_register_t x1, u_register_t x2,
+			     u_register_t x3, u_register_t x4, void *cookie,
+			     void *handle, u_register_t flags)
 {
 	uint32_t retval = 0;
 	uint64_t retval64 = 0;
@@ -138,8 +134,7 @@ uintptr_t sip_smc_handler_v2(uint32_t smc_fid,
 	switch (smc_fid) {
 	case INTEL_SIP_SMC_V2_GET_SVC_VERSION:
 		SMC_RET4(handle, INTEL_SIP_SMC_STATUS_OK, x1,
-				SIP_SVC_VERSION_MAJOR,
-				SIP_SVC_VERSION_MINOR);
+			 SIP_SVC_VERSION_MAJOR, SIP_SVC_VERSION_MINOR);
 
 	case INTEL_SIP_SMC_V2_REG_READ:
 		status = intel_secure_reg_read(x2, &retval);
@@ -150,8 +145,8 @@ uintptr_t sip_smc_handler_v2(uint32_t smc_fid,
 		SMC_RET4(handle, status, x1, retval, x2);
 
 	case INTEL_SIP_SMC_V2_REG_UPDATE:
-		status = intel_secure_reg_update(x2, (uint32_t)x3,
-				(uint32_t)x4, &retval);
+		status = intel_secure_reg_update(x2, (uint32_t)x3, (uint32_t)x4,
+						 &retval);
 		SMC_RET4(handle, status, x1, retval, x2);
 
 	case INTEL_SIP_SMC_V2_HPS_SET_BRIDGES:
@@ -164,7 +159,7 @@ uintptr_t sip_smc_handler_v2(uint32_t smc_fid,
 
 	case INTEL_SIP_SMC_V2_MAILBOX_POLL_RESPONSE:
 		status = intel_v2_mbox_poll_resp(x1, (uint32_t *)x2,
-				(uint32_t *) &x3, &retval64);
+						 (uint32_t *)&x3, &retval64);
 		SMC_RET4(handle, status, retval64, x2, x3);
 
 	default:

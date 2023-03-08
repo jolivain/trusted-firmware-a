@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2020, ARM Limited. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,12 +12,13 @@
 #include <lib/fconf/fconf.h>
 
 /* TBBR related getter */
-#define tbbr__cot_getter(id) __extension__ ({	\
-	assert((id) < cot_desc_size);		\
-	cot_desc_ptr[id];			\
-})
+#define tbbr__cot_getter(id)                  \
+	__extension__({                       \
+		assert((id) < cot_desc_size); \
+		cot_desc_ptr[id];             \
+	})
 
-#define tbbr__dyn_config_getter(id)	tbbr_dyn_config.id
+#define tbbr__dyn_config_getter(id) tbbr_dyn_config.id
 
 struct tbbr_dyn_config_t {
 	uint32_t disable_auth;

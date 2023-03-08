@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,9 +8,10 @@
 #include <common/debug.h>
 #include <lib/spinlock.h>
 
-#include "fpga_private.h"
 #include <plat/common/platform.h>
 #include <platform_def.h>
+
+#include "fpga_private.h"
 
 unsigned char fpga_power_domain_tree_desc[FPGA_MAX_CLUSTER_COUNT + 2];
 unsigned char fpga_valid_mpids[PLATFORM_CORE_COUNT];
@@ -61,7 +62,7 @@ int plat_core_pos_by_mpidr(u_register_t mpidr)
 	if ((MPIDR_AFFLVL2_VAL(mpidr) >= FPGA_MAX_CLUSTER_COUNT) ||
 	    (MPIDR_AFFLVL1_VAL(mpidr) >= FPGA_MAX_CPUS_PER_CLUSTER) ||
 	    (MPIDR_AFFLVL0_VAL(mpidr) >= FPGA_MAX_PE_PER_CPU)) {
-		ERROR ("Invalid mpidr: 0x%08x\n", (uint32_t)mpidr);
+		ERROR("Invalid mpidr: 0x%08x\n", (uint32_t)mpidr);
 		panic();
 	}
 

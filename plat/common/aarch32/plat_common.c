@@ -1,10 +1,11 @@
 /*
- * Copyright (c) 2016-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <lib/xlat_tables/xlat_mmu_helpers.h>
+
 #include <plat/common/platform.h>
 
 /*
@@ -13,7 +14,6 @@
  * platforms but may also be overridden by a platform if required.
  */
 #pragma weak bl32_plat_enable_mmu
-
 
 void bl32_plat_enable_mmu(uint32_t flags)
 {

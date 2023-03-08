@@ -9,4 +9,4 @@
 
 void pfc_init_d3(void);
 
-#endif	/* PFC_INIT_D3_H */
+#endif /* PFC_INIT_D3_H */

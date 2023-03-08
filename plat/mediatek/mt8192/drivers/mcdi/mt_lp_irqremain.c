@@ -9,20 +9,20 @@
 #include <mt_lp_rm.h>
 #include <plat_mtk_lpm.h>
 
-#define EDMA0_IRQ_ID		U(448)
-#define MDLA_IRQ_ID		U(446)
-#define MALI4_IRQ_ID		U(399)
-#define MALI3_IRQ_ID		U(398)
-#define MALI2_IRQ_ID		U(397)
-#define MALI1_IRQ_ID		U(396)
-#define MALI0_IRQ_ID		U(395)
-#define VPU_CORE1_IRQ_ID	U(453)
-#define VPU_CORE0_IRQ_ID	U(452)
-#define MD_WDT_IRQ_ID		U(110)
-#define KEYPAD_IRQ_ID		U(106)
+#define EDMA0_IRQ_ID U(448)
+#define MDLA_IRQ_ID U(446)
+#define MALI4_IRQ_ID U(399)
+#define MALI3_IRQ_ID U(398)
+#define MALI2_IRQ_ID U(397)
+#define MALI1_IRQ_ID U(396)
+#define MALI0_IRQ_ID U(395)
+#define VPU_CORE1_IRQ_ID U(453)
+#define VPU_CORE0_IRQ_ID U(452)
+#define MD_WDT_IRQ_ID U(110)
+#define KEYPAD_IRQ_ID U(106)
 
-#define MD_WDT_WAKESRC		0x2000000
-#define KEYPAD_WAKESRC		0x4
+#define MD_WDT_WAKESRC 0x2000000
+#define KEYPAD_WAKESRC 0x4
 
 static struct mt_irqremain remain_irqs;
 

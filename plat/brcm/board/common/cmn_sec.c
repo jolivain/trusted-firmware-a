@@ -6,10 +6,9 @@
 
 #include <stdint.h>
 
+#include <cmn_sec.h>
 #include <common/debug.h>
 #include <lib/mmio.h>
-
-#include <cmn_sec.h>
 
 #pragma weak plat_tz_master_default_cfg
 #pragma weak plat_tz_sdio_ns_master_set

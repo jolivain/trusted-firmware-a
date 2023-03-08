@@ -1,12 +1,13 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2019, Intel Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <arch_helpers.h>
 #include <assert.h>
+
+#include <arch_helpers.h>
 #include <common/debug.h>
 #include <common/tbbr/tbbr_img_def.h>
 #include <drivers/io/io_block.h>
@@ -21,13 +22,12 @@
 
 #include "socfpga_private.h"
 
-#define PLAT_FIP_BASE		(0)
-#define PLAT_FIP_MAX_SIZE	(0x1000000)
-#define PLAT_MMC_DATA_BASE	(0xffe3c000)
-#define PLAT_MMC_DATA_SIZE	(0x2000)
-#define PLAT_QSPI_DATA_BASE	(0x3C00000)
-#define PLAT_QSPI_DATA_SIZE	(0x1000000)
-
+#define PLAT_FIP_BASE (0)
+#define PLAT_FIP_MAX_SIZE (0x1000000)
+#define PLAT_MMC_DATA_BASE (0xffe3c000)
+#define PLAT_MMC_DATA_SIZE (0x2000)
+#define PLAT_QSPI_DATA_BASE (0x3C00000)
+#define PLAT_QSPI_DATA_SIZE (0x1000000)
 
 static const io_dev_connector_t *fip_dev_con;
 static const io_dev_connector_t *boot_dev_con;
@@ -48,12 +48,10 @@ static const io_uuid_spec_t bl33_uuid_spec = {
 };
 
 uintptr_t a2_lba_offset;
-const char a2[] = {0xa2, 0x0};
+const char a2[] = { 0xa2, 0x0 };
 
-static const io_block_spec_t gpt_block_spec = {
-	.offset = 0,
-	.length = MMC_BLOCK_SIZE
-};
+static const io_block_spec_t gpt_block_spec = { .offset = 0,
+						.length = MMC_BLOCK_SIZE };
 
 static int check_fip(const uintptr_t spec);
 static int check_dev(const uintptr_t spec);
@@ -62,42 +60,26 @@ static io_block_dev_spec_t boot_dev_spec;
 static int (*register_io_dev)(const io_dev_connector_t **);
 
 static io_block_spec_t fip_spec = {
-	.offset		= PLAT_FIP_BASE,
-	.length		= PLAT_FIP_MAX_SIZE,
+	.offset = PLAT_FIP_BASE,
+	.length = PLAT_FIP_MAX_SIZE,
 };
 
 struct plat_io_policy {
-	uintptr_t       *dev_handle;
-	uintptr_t       image_spec;
-	int             (*check)(const uintptr_t spec);
+	uintptr_t *dev_handle;
+	uintptr_t image_spec;
+	int (*check)(const uintptr_t spec);
 };
 
 static const struct plat_io_policy policies[] = {
-	[FIP_IMAGE_ID] = {
-		&boot_dev_handle,
-		(uintptr_t)&fip_spec,
-		check_dev
-	},
-	[BL2_IMAGE_ID] = {
-	  &fip_dev_handle,
-	  (uintptr_t)&bl2_uuid_spec,
-	  check_fip
-	},
-	[BL31_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl31_uuid_spec,
-		check_fip
-	},
-	[BL33_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t) &bl33_uuid_spec,
-		check_fip
-	},
-	[GPT_IMAGE_ID] = {
-		&boot_dev_handle,
-		(uintptr_t) &gpt_block_spec,
-		check_dev
-	},
+	[FIP_IMAGE_ID] = { &boot_dev_handle, (uintptr_t)&fip_spec, check_dev },
+	[BL2_IMAGE_ID] = { &fip_dev_handle, (uintptr_t)&bl2_uuid_spec,
+			   check_fip },
+	[BL31_IMAGE_ID] = { &fip_dev_handle, (uintptr_t)&bl31_uuid_spec,
+			    check_fip },
+	[BL33_IMAGE_ID] = { &fip_dev_handle, (uintptr_t)&bl33_uuid_spec,
+			    check_fip },
+	[GPT_IMAGE_ID] = { &boot_dev_handle, (uintptr_t)&gpt_block_spec,
+			   check_dev },
 };
 
 static int check_dev(const uintptr_t spec)
@@ -135,11 +117,11 @@ void socfpga_io_setup(int boot_source)
 	switch (boot_source) {
 	case BOOT_SOURCE_SDMMC:
 		register_io_dev = &register_io_dev_block;
-		boot_dev_spec.buffer.offset	= PLAT_MMC_DATA_BASE;
-		boot_dev_spec.buffer.length	= MMC_BLOCK_SIZE;
-		boot_dev_spec.ops.read		= mmc_read_blocks;
-		boot_dev_spec.ops.write		= mmc_write_blocks;
-		boot_dev_spec.block_size	= MMC_BLOCK_SIZE;
+		boot_dev_spec.buffer.offset = PLAT_MMC_DATA_BASE;
+		boot_dev_spec.buffer.length = MMC_BLOCK_SIZE;
+		boot_dev_spec.ops.read = mmc_read_blocks;
+		boot_dev_spec.ops.write = mmc_write_blocks;
+		boot_dev_spec.block_size = MMC_BLOCK_SIZE;
 		break;
 
 	case BOOT_SOURCE_QSPI:
@@ -160,7 +142,7 @@ void socfpga_io_setup(int boot_source)
 	assert(result == 0);
 
 	result = io_dev_open(boot_dev_con, (uintptr_t)&boot_dev_spec,
-			&boot_dev_handle);
+			     &boot_dev_handle);
 	assert(result == 0);
 
 	result = io_dev_open(fip_dev_con, (uintptr_t)NULL, &fip_dev_handle);
@@ -175,7 +157,7 @@ void socfpga_io_setup(int boot_source)
 }
 
 int plat_get_image_source(unsigned int image_id, uintptr_t *dev_handle,
-			uintptr_t *image_spec)
+			  uintptr_t *image_spec)
 {
 	int result;
 	const struct plat_io_policy *policy;

@@ -5,14 +5,15 @@
  */
 #include <arch_helpers.h>
 #include <common/debug.h>
-#include <lib/mmio.h>
 #include <dfd.h>
+#include <lib/mmio.h>
 #include <mtk_sip_svc.h>
 #include <plat_dfd.h>
 
 static u_register_t dfd_smc_dispatcher(u_register_t arg0, u_register_t arg1,
 				       u_register_t arg2, u_register_t arg3,
-				       void *handle, struct smccc_res *smccc_ret)
+				       void *handle,
+				       struct smccc_res *smccc_ret)
 {
 	int ret = MTK_SIP_E_SUCCESS;
 

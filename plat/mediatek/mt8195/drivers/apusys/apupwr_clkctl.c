@@ -1,43 +1,36 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <errno.h>
 
+#include <apupwr_clkctl.h>
+#include <apupwr_clkctl_def.h>
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
-
-#include <apupwr_clkctl.h>
-#include <apupwr_clkctl_def.h>
 #include <mtk_plat_common.h>
+
 #include <platform_def.h>
 
 /* 8195 use PCW mode to change freq directly */
 enum pll_set_rate_mode PLL_MODE = CON0_PCW;
 
 char *buck_domain_str[APUSYS_BUCK_DOMAIN_NUM] = {
-	"V_VPU0",
-	"V_VPU1",
-	"V_MDLA0",
-	"V_MDLA1",
-	"V_APU_CONN",
-	"V_TOP_IOMMU",
-	"V_VCORE",
+	"V_VPU0",     "V_VPU1",	     "V_MDLA0", "V_MDLA1",
+	"V_APU_CONN", "V_TOP_IOMMU", "V_VCORE",
 };
 
 uint32_t aacc_set[APUSYS_BUCK_DOMAIN_NUM] = {
-	APU_ACC_CONFG_SET1, APU_ACC_CONFG_SET2,
-	APU_ACC_CONFG_SET4, APU_ACC_CONFG_SET5,
-	APU_ACC_CONFG_SET0, APU_ACC_CONFG_SET7
+	APU_ACC_CONFG_SET1, APU_ACC_CONFG_SET2, APU_ACC_CONFG_SET4,
+	APU_ACC_CONFG_SET5, APU_ACC_CONFG_SET0, APU_ACC_CONFG_SET7
 };
 
 uint32_t aacc_clr[APUSYS_BUCK_DOMAIN_NUM] = {
-	APU_ACC_CONFG_CLR1, APU_ACC_CONFG_CLR2,
-	APU_ACC_CONFG_CLR4, APU_ACC_CONFG_CLR5,
-	APU_ACC_CONFG_CLR0, APU_ACC_CONFG_CLR7
+	APU_ACC_CONFG_CLR1, APU_ACC_CONFG_CLR2, APU_ACC_CONFG_CLR4,
+	APU_ACC_CONFG_CLR5, APU_ACC_CONFG_CLR0, APU_ACC_CONFG_CLR7
 };
 
 struct reg_seq {
@@ -73,22 +66,19 @@ int32_t apupwr_smc_acc_init_all(void)
 	int32_t i;
 
 	for (i = 0; i < ARRAY_SIZE(init_acc_cfg); i++) {
-		apupwr_writel(init_acc_cfg[i].val,
-			      init_acc_cfg[i].address);
+		apupwr_writel(init_acc_cfg[i].val, init_acc_cfg[i].address);
 	}
 
 	/* Deault ACC will raise APU_DIV_2 */
-	apupwr_smc_pll_set_rate(BUCK_VCONN_DOMAIN_DEFAULT_FREQ,
-				true, V_APU_CONN);
+	apupwr_smc_pll_set_rate(BUCK_VCONN_DOMAIN_DEFAULT_FREQ, true,
+				V_APU_CONN);
 
-	apupwr_smc_pll_set_rate(BUCK_VCONN_DOMAIN_DEFAULT_FREQ,
-				true, V_TOP_IOMMU);
+	apupwr_smc_pll_set_rate(BUCK_VCONN_DOMAIN_DEFAULT_FREQ, true,
+				V_TOP_IOMMU);
 
-	apupwr_smc_pll_set_rate(BUCK_VVPU_DOMAIN_DEFAULT_FREQ,
-				true, V_VPU0);
+	apupwr_smc_pll_set_rate(BUCK_VVPU_DOMAIN_DEFAULT_FREQ, true, V_VPU0);
 
-	apupwr_smc_pll_set_rate(BUCK_VMDLA_DOMAIN_DEFAULT_FREQ,
-				true, V_MDLA0);
+	apupwr_smc_pll_set_rate(BUCK_VMDLA_DOMAIN_DEFAULT_FREQ, true, V_MDLA0);
 
 	return 0;
 }
@@ -159,7 +149,8 @@ int32_t apupwr_smc_acc_set_parent(uint32_t freq, uint32_t domain)
 		apupwr_writel(BIT(BIT_SEL_APU), acc_set);
 		/* Clear park cg */
 		apupwr_writel(BIT(BIT_CGEN_PARK) | BIT(BIT_CGEN_F26M) |
-			      BIT(BIT_CGEN_SOC), acc_clr);
+				      BIT(BIT_CGEN_SOC),
+			      acc_clr);
 		break;
 
 	case DVFS_FREQ_ACC_SOC:
@@ -217,19 +208,15 @@ int32_t apupwr_smc_pll_set_rate(uint32_t freq, bool div2, uint32_t domain)
 	case V_MDLA1:
 		acc_set0 = APU_ACC_CONFG_SET4;
 		acc_set1 = APU_ACC_CONFG_SET5;
-		ret = apupwr_smc_acc_set_parent(DVFS_FREQ_ACC_PARKING,
-						V_MDLA0);
-		ret = apupwr_smc_acc_set_parent(DVFS_FREQ_ACC_PARKING,
-						V_MDLA1);
+		ret = apupwr_smc_acc_set_parent(DVFS_FREQ_ACC_PARKING, V_MDLA0);
+		ret = apupwr_smc_acc_set_parent(DVFS_FREQ_ACC_PARKING, V_MDLA1);
 		break;
 	case V_VPU0:
 	case V_VPU1:
 		acc_set0 = APU_ACC_CONFG_SET1;
 		acc_set1 = APU_ACC_CONFG_SET2;
-		ret = apupwr_smc_acc_set_parent(DVFS_FREQ_ACC_PARKING,
-						V_VPU0);
-		ret = apupwr_smc_acc_set_parent(DVFS_FREQ_ACC_PARKING,
-						V_VPU1);
+		ret = apupwr_smc_acc_set_parent(DVFS_FREQ_ACC_PARKING, V_VPU0);
+		ret = apupwr_smc_acc_set_parent(DVFS_FREQ_ACC_PARKING, V_VPU1);
 		break;
 	case V_APU_CONN:
 		acc_set0 = APU_ACC_CONFG_SET0;
@@ -242,8 +229,8 @@ int32_t apupwr_smc_pll_set_rate(uint32_t freq, bool div2, uint32_t domain)
 						V_TOP_IOMMU);
 		break;
 	default:
-		ERROR("[APUPWR] %s %d invalid domain (%d)\n",
-		      __func__, __LINE__, domain);
+		ERROR("[APUPWR] %s %d invalid domain (%d)\n", __func__,
+		      __LINE__, domain);
 		ret = -EIO;
 		goto err;
 	}
@@ -266,12 +253,12 @@ int32_t apupwr_smc_pll_set_rate(uint32_t freq, bool div2, uint32_t domain)
 	case V_VPU0:
 	case V_VPU1:
 		if ((apupwr_readl(acc_set0) & BIT(BIT_CGEN_APU)) &&
-		     !(apupwr_readl(acc_set0) & BIT(BIT_SEL_APU))) {
+		    !(apupwr_readl(acc_set0) & BIT(BIT_SEL_APU))) {
 			ret = apupwr_smc_acc_set_parent(DVFS_FREQ_ACC_APUPLL,
 							V_VPU0);
 		}
 		if ((apupwr_readl(acc_set1) & BIT(BIT_CGEN_APU)) &&
-		     !(apupwr_readl(acc_set1) & BIT(BIT_SEL_APU))) {
+		    !(apupwr_readl(acc_set1) & BIT(BIT_SEL_APU))) {
 			ret = apupwr_smc_acc_set_parent(DVFS_FREQ_ACC_APUPLL,
 							V_VPU1);
 		}
@@ -279,12 +266,12 @@ int32_t apupwr_smc_pll_set_rate(uint32_t freq, bool div2, uint32_t domain)
 	case V_MDLA0:
 	case V_MDLA1:
 		if ((apupwr_readl(acc_set0) & BIT(BIT_CGEN_APU)) &&
-		     !(apupwr_readl(acc_set0) & BIT(BIT_SEL_APU))) {
+		    !(apupwr_readl(acc_set0) & BIT(BIT_SEL_APU))) {
 			ret = apupwr_smc_acc_set_parent(DVFS_FREQ_ACC_APUPLL,
 							V_MDLA0);
 		}
 		if ((apupwr_readl(acc_set1) & BIT(BIT_CGEN_APU)) &&
-		     !(apupwr_readl(acc_set1) & BIT(BIT_SEL_APU))) {
+		    !(apupwr_readl(acc_set1) & BIT(BIT_SEL_APU))) {
 			ret = apupwr_smc_acc_set_parent(DVFS_FREQ_ACC_APUPLL,
 							V_MDLA1);
 		}
@@ -298,13 +285,13 @@ int32_t apupwr_smc_pll_set_rate(uint32_t freq, bool div2, uint32_t domain)
 		}
 		break;
 	default:
-		ERROR("[APUPWR] %s %d invalid domain (%d)\n",
-		      __func__, __LINE__, domain);
+		ERROR("[APUPWR] %s %d invalid domain (%d)\n", __func__,
+		      __LINE__, domain);
 		ret = -EIO;
 		break;
 	}
-	INFO("[%s][%d] set domain %d to freq %d\n",
-	     __func__, __LINE__, domain, (div2) ? (freq * 2) : freq);
+	INFO("[%s][%d] set domain %d to freq %d\n", __func__, __LINE__, domain,
+	     (div2) ? (freq * 2) : freq);
 
 err:
 	return ret;

@@ -5,17 +5,18 @@
  */
 
 #include <assert.h>
+#include <errno.h>
 
 #include <drivers/console.h>
-#include <errno.h>
 #include <lib/mmio.h>
+
 #include <plat/common/platform.h>
 
 #include "uniphier.h"
 #include "uniphier_console.h"
 
-#define UNIPHIER_UART_OFFSET	0x100
-#define UNIPHIER_UART_NR_PORTS	4
+#define UNIPHIER_UART_OFFSET 0x100
+#define UNIPHIER_UART_NR_PORTS 4
 
 /* These callbacks are implemented in assembly to use crash_console_helpers.S */
 int uniphier_console_putc(int character, struct console *console);
@@ -27,8 +28,7 @@ static console_t uniphier_console = {
 #if DEBUG
 		 CONSOLE_FLAG_RUNTIME |
 #endif
-		 CONSOLE_FLAG_CRASH |
-		 CONSOLE_FLAG_TRANSLATE_CRLF,
+		 CONSOLE_FLAG_CRASH | CONSOLE_FLAG_TRANSLATE_CRLF,
 	.putc = uniphier_console_putc,
 	.getc = uniphier_console_getc,
 	.flush = uniphier_console_flush,

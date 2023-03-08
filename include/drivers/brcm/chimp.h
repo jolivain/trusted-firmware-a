@@ -30,16 +30,16 @@
 #define CHIMP_HANDSHAKE_TIMEOUT_MS 3600000
 #endif
 
-#define CHIMP_BPE_MODE_ID_PATTERN				(0x25000000)
-#define CHIMP_BPE_MODE_ID_MASK					(0x7f000000)
-#define NIC_RESET_RELEASE_TIMEOUT_US		(10)
+#define CHIMP_BPE_MODE_ID_PATTERN (0x25000000)
+#define CHIMP_BPE_MODE_ID_MASK (0x7f000000)
+#define NIC_RESET_RELEASE_TIMEOUT_US (10)
 
 /* written by M0, used by ChiMP ROM */
-#define SR_IN_SMARTNIC_MODE_BIT					0
+#define SR_IN_SMARTNIC_MODE_BIT 0
 /* written by M0, used by ChiMP ROM */
-#define SR_CHIMP_SECURE_BOOT_BIT				1
+#define SR_CHIMP_SECURE_BOOT_BIT 1
 /* cleared by AP, set by ChiMP BC2 code */
-#define SR_FLASH_ACCESS_DONE_BIT				2
+#define SR_FLASH_ACCESS_DONE_BIT 2
 
 #ifdef USE_CHIMP
 void bcm_chimp_write(uintptr_t addr, uint32_t value);

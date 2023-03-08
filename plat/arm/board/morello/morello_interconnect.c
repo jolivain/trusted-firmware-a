@@ -1,9 +1,8 @@
 /*
- * Copyright (c) 2020, Arm Limited. All rights reserved.
+ * Copyright (c) 2020-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
-
 
 /*
  * For MORELLO which supports FCM (with automatic interconnect enter/exit),

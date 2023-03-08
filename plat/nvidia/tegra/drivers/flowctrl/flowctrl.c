@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,21 +7,20 @@
 #include <assert.h>
 
 #include <arch_helpers.h>
-#include <cortex_a53.h>
 #include <common/debug.h>
+#include <cortex_a53.h>
 #include <drivers/delay_timer.h>
-#include <lib/mmio.h>
-
 #include <flowctrl.h>
+#include <lib/mmio.h>
 #include <lib/utils_def.h>
 #include <pmc.h>
 #include <tegra_def.h>
 
-#define CLK_RST_DEV_L_SET		0x300
-#define CLK_RST_DEV_L_CLR		0x304
-#define  CLK_BPMP_RST			(1 << 1)
+#define CLK_RST_DEV_L_SET 0x300
+#define CLK_RST_DEV_L_CLR 0x304
+#define CLK_BPMP_RST (1 << 1)
 
-#define EVP_BPMP_RESET_VECTOR		0x200
+#define EVP_BPMP_RESET_VECTOR 0x200
 
 static const uint64_t flowctrl_offset_cpu_csr[4] = {
 	(TEGRA_FLOWCTRL_BASE + FLOWCTRL_CPU0_CSR),
@@ -84,17 +83,16 @@ static void tegra_fc_prepare_suspend(int cpu_id, uint32_t csr)
 void tegra_fc_ccplex_pgexit_lock(void)
 {
 	unsigned int i, cpu = read_mpidr() & MPIDR_CPU_MASK;
-	uint32_t flags = tegra_fc_read_32(FLOWCTRL_FC_SEQ_INTERCEPT) & ~INTERCEPT_IRQ_PENDING;;
-	uint32_t icept_cpu_flags[] = {
-		INTERCEPT_EXIT_PG_CORE0,
-		INTERCEPT_EXIT_PG_CORE1,
-		INTERCEPT_EXIT_PG_CORE2,
-		INTERCEPT_EXIT_PG_CORE3
-	};
+	uint32_t flags = tegra_fc_read_32(FLOWCTRL_FC_SEQ_INTERCEPT) &
+			 ~INTERCEPT_IRQ_PENDING;
+	;
+	uint32_t icept_cpu_flags[] = { INTERCEPT_EXIT_PG_CORE0,
+				       INTERCEPT_EXIT_PG_CORE1,
+				       INTERCEPT_EXIT_PG_CORE2,
+				       INTERCEPT_EXIT_PG_CORE3 };
 
 	/* set the intercept flags */
 	for (i = 0; i < ARRAY_SIZE(icept_cpu_flags); i++) {
-
 		/* skip current CPU */
 		if (i == cpu)
 			continue;
@@ -142,7 +140,7 @@ void tegra_fc_cluster_idle(uint32_t mpidr)
 
 	/* hardware L2 flush is faster for A53 only */
 	tegra_fc_write_32(FLOWCTRL_L2_FLUSH_CONTROL,
-		!!MPIDR_AFFLVL1_VAL(mpidr));
+			  !!MPIDR_AFFLVL1_VAL(mpidr));
 
 	/* suspend the CPU cluster */
 	val = FLOWCTRL_PG_CPU_NONCPU << FLOWCTRL_ENABLE_EXT;
@@ -163,7 +161,7 @@ void tegra_fc_cluster_powerdn(uint32_t mpidr)
 
 	/* hardware L2 flush is faster for A53 only */
 	tegra_fc_write_32(FLOWCTRL_L2_FLUSH_CONTROL,
-		read_midr() == CORTEX_A53_MIDR);
+			  read_midr() == CORTEX_A53_MIDR);
 
 	/* power down the CPU cluster */
 	val = FLOWCTRL_TURNOFF_CPURAIL << FLOWCTRL_ENABLE_EXT;
@@ -180,7 +178,6 @@ bool tegra_fc_is_ccx_allowed(void)
 	bool ccx_allowed = true;
 
 	for (i = 0; i < ARRAY_SIZE(flowctrl_offset_cpu_csr); i++) {
-
 		/* skip current CPU */
 		if (i == cpu)
 			continue;
@@ -237,7 +234,7 @@ void tegra_fc_cpu_off(int cpu)
 	 * powered on when it receives any interrupt.
 	 */
 	val = FLOWCTRL_CSR_INTR_FLAG | FLOWCTRL_CSR_EVENT_FLAG |
-		FLOWCTRL_CSR_ENABLE | (FLOWCTRL_WAIT_WFI_BITMAP << cpu);
+	      FLOWCTRL_CSR_ENABLE | (FLOWCTRL_WAIT_WFI_BITMAP << cpu);
 	tegra_fc_cpu_csr(cpu, val);
 	tegra_fc_halt_cpu(cpu, FLOWCTRL_WAITEVENT);
 	tegra_fc_cc4_ctrl(cpu, 0);
@@ -269,7 +266,8 @@ void tegra_fc_bpmp_on(uint32_t entrypoint)
 
 	/* Set reset address (stored in PMC_SCRATCH39) */
 	mmio_write_32(TEGRA_EVP_BASE + EVP_BPMP_RESET_VECTOR, entrypoint);
-	while (entrypoint != mmio_read_32(TEGRA_EVP_BASE + EVP_BPMP_RESET_VECTOR))
+	while (entrypoint !=
+	       mmio_read_32(TEGRA_EVP_BASE + EVP_BPMP_RESET_VECTOR))
 		; /* wait till value reaches EVP_BPMP_RESET_VECTOR */
 
 	/* Wait for 2us before de-asserting the reset signal. */
@@ -307,7 +305,8 @@ void tegra_fc_enable_fiq_to_ccplex_routing(void)
 	uint32_t val = tegra_fc_read_32(FLOW_CTLR_FLOW_DBG_QUAL);
 
 	/* set the bit to pass FIQs to the GICD */
-	tegra_fc_write_32(FLOW_CTLR_FLOW_DBG_QUAL, val | FLOWCTRL_FIQ2CCPLEX_ENABLE);
+	tegra_fc_write_32(FLOW_CTLR_FLOW_DBG_QUAL,
+			  val | FLOWCTRL_FIQ2CCPLEX_ENABLE);
 }
 
 /*******************************************************************************
@@ -318,5 +317,6 @@ void tegra_fc_disable_fiq_to_ccplex_routing(void)
 	uint32_t val = tegra_fc_read_32(FLOW_CTLR_FLOW_DBG_QUAL);
 
 	/* clear the bit to pass FIQs to the GICD */
-	tegra_fc_write_32(FLOW_CTLR_FLOW_DBG_QUAL, val & ~FLOWCTRL_FIQ2CCPLEX_ENABLE);
+	tegra_fc_write_32(FLOW_CTLR_FLOW_DBG_QUAL,
+			  val & ~FLOWCTRL_FIQ2CCPLEX_ENABLE);
 }

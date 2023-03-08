@@ -15,6 +15,7 @@
 #include <tools_share/tbbr_oid.h>
 
 #include <plat/common/platform.h>
+
 #include "plat_common.h"
 
 extern char nxp_rotpk_hash[], nxp_rotpk_hash_end[];
@@ -58,7 +59,6 @@ int plat_get_nv_ctr(void *cookie, unsigned int *nv_ctr)
 
 	INFO("NV Counter value for UID %d is %d\n", uid_num, *nv_ctr);
 	return 0;
-
 }
 
 int plat_set_nv_ctr(void *cookie, unsigned int nv_ctr)

@@ -11,7 +11,7 @@
 
 /* version of this service */
 /* must be increase at each structure modification */
-#define BSEC_SERVICE_VERSION		0x01U
+#define BSEC_SERVICE_VERSION 0x01U
 
 uint32_t bsec_main(uint32_t x1, uint32_t x2, uint32_t x3,
 		   uint32_t *ret_otp_value);

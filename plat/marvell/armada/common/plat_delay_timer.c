@@ -7,10 +7,9 @@
 
 #include <arch_helpers.h>
 #include <drivers/delay_timer.h>
-
 #include <mvebu_def.h>
 
-#define SYS_COUNTER_FREQ_IN_MHZ	(COUNTER_FREQUENCY/1000000)
+#define SYS_COUNTER_FREQ_IN_MHZ (COUNTER_FREQUENCY / 1000000)
 
 static uint32_t plat_get_timer_value(void)
 {
@@ -23,9 +22,9 @@ static uint32_t plat_get_timer_value(void)
 }
 
 static const timer_ops_t plat_timer_ops = {
-	.get_timer_value	= plat_get_timer_value,
-	.clk_mult		= 1,
-	.clk_div		= SYS_COUNTER_FREQ_IN_MHZ
+	.get_timer_value = plat_get_timer_value,
+	.clk_mult = 1,
+	.clk_div = SYS_COUNTER_FREQ_IN_MHZ
 };
 
 void plat_delay_timer_init(void)

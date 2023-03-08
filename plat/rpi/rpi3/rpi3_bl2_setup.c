@@ -1,25 +1,24 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <common/desc_image_load.h>
-#include <lib/optee_utils.h>
-#include <lib/xlat_tables/xlat_mmu_helpers.h>
-#include <lib/xlat_tables/xlat_tables_defs.h>
 #include <drivers/generic_delay_timer.h>
 #include <drivers/rpi3/gpio/rpi3_gpio.h>
 #include <drivers/rpi3/sdhost/rpi3_sdhost.h>
-
+#include <lib/optee_utils.h>
+#include <lib/xlat_tables/xlat_mmu_helpers.h>
+#include <lib/xlat_tables/xlat_tables_defs.h>
 #include <rpi_shared.h>
+
+#include <platform_def.h>
 
 /* Data structure which holds the extents of the trusted SRAM for BL2 */
 static meminfo_t bl2_tzram_layout __aligned(CACHE_WRITEBACK_GRANULE);
@@ -48,7 +47,7 @@ static void rpi3_sdhost_setup(void)
 void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 			       u_register_t arg2, u_register_t arg3)
 {
-	meminfo_t *mem_layout = (meminfo_t *) arg1;
+	meminfo_t *mem_layout = (meminfo_t *)arg1;
 
 	/* Initialize the console to provide early debug support */
 	rpi3_console_init();
@@ -82,13 +81,13 @@ void bl2_platform_setup(void)
 void bl2_plat_arch_setup(void)
 {
 	rpi3_setup_page_tables(bl2_tzram_layout.total_base,
-			       bl2_tzram_layout.total_size,
-			       BL_CODE_BASE, BL_CODE_END,
-			       BL_RO_DATA_BASE, BL_RO_DATA_END
+			       bl2_tzram_layout.total_size, BL_CODE_BASE,
+			       BL_CODE_END, BL_RO_DATA_BASE, BL_RO_DATA_END
 #if USE_COHERENT_MEM
-			       , BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END
+			       ,
+			       BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END
 #endif
-			      );
+	);
 
 	enable_mmu_el1(0);
 }
@@ -118,8 +117,8 @@ int bl2_plat_handle_post_image_load(unsigned int image_id)
 		assert(paged_mem_params);
 
 		err = parse_optee_header(&bl_mem_params->ep_info,
-				&pager_mem_params->image_info,
-				&paged_mem_params->image_info);
+					 &pager_mem_params->image_info,
+					 &paged_mem_params->image_info);
 		if (err != 0)
 			WARN("OPTEE header parse error.\n");
 #endif

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -19,8 +19,8 @@ void dram_init(void)
 	os_reg2_val = mmio_read_32(PMUGRF_BASE + PMUGRF_OSREG(2));
 	sdram_config.dramtype = SYS_REG_DEC_DDRTYPE(os_reg2_val);
 	sdram_config.num_channels = SYS_REG_DEC_NUM_CH(os_reg2_val);
-	sdram_config.stride = (mmio_read_32(SGRF_BASE + SGRF_SOC_CON3_7(4)) >>
-				10) & 0x1f;
+	sdram_config.stride =
+		(mmio_read_32(SGRF_BASE + SGRF_SOC_CON3_7(4)) >> 10) & 0x1f;
 
 	for (i = 0; i < 2; i++) {
 		struct rk3399_sdram_channel *ch = &sdram_config.ch[i];
@@ -39,14 +39,14 @@ void dram_init(void)
 		ch->cs1_row = SYS_REG_DEC_CS1_ROW(os_reg2_val, i);
 		ch->ddrconfig = mmio_read_32(MSCH_BASE(i) + MSCH_DEVICECONF);
 
-		noc->ddrtiminga0.d32 = mmio_read_32(MSCH_BASE(i) +
-				MSCH_DDRTIMINGA0);
-		noc->ddrtimingb0.d32 = mmio_read_32(MSCH_BASE(i) +
-				MSCH_DDRTIMINGB0);
-		noc->ddrtimingc0.d32 = mmio_read_32(MSCH_BASE(i) +
-				MSCH_DDRTIMINGC0);
-		noc->devtodev0.d32 = mmio_read_32(MSCH_BASE(i) +
-				MSCH_DEVTODEV0);
+		noc->ddrtiminga0.d32 =
+			mmio_read_32(MSCH_BASE(i) + MSCH_DDRTIMINGA0);
+		noc->ddrtimingb0.d32 =
+			mmio_read_32(MSCH_BASE(i) + MSCH_DDRTIMINGB0);
+		noc->ddrtimingc0.d32 =
+			mmio_read_32(MSCH_BASE(i) + MSCH_DDRTIMINGC0);
+		noc->devtodev0.d32 =
+			mmio_read_32(MSCH_BASE(i) + MSCH_DEVTODEV0);
 		noc->ddrmode.d32 = mmio_read_32(MSCH_BASE(i) + MSCH_DDRMODE);
 		noc->agingx0 = mmio_read_32(MSCH_BASE(i) + MSCH_AGINGX0);
 	}

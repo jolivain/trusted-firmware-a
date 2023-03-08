@@ -16,11 +16,10 @@
 #endif
 
 typedef struct {
-uint8_t warm_rst_flag;
-uint8_t wdt_rst_flag;
-uint8_t dummy[2];
+	uint8_t warm_rst_flag;
+	uint8_t wdt_rst_flag;
+	uint8_t dummy[2];
 } nv_app_data_t;
-
 
 /*below enum and above structure should be in-sync. */
 enum app_data_offset {
@@ -31,9 +30,7 @@ enum app_data_offset {
 
 int read_nv_app_data(void);
 
-int wr_nv_app_data(int data_offset,
-			uint8_t *data,
-			int data_size);
+int wr_nv_app_data(int data_offset, uint8_t *data, int data_size);
 
 const nv_app_data_t *get_nv_data(void);
 

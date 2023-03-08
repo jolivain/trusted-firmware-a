@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -14,7 +14,6 @@
 #include <common/debug.h>
 #include <common/runtime_svc.h>
 #include <lib/mmio.h>
-
 #include <memctrl.h>
 #include <tegra_platform.h>
 #include <tegra_private.h>
@@ -22,21 +21,16 @@
 /*******************************************************************************
  * Common Tegra SiP SMCs
  ******************************************************************************/
-#define TEGRA_SIP_NEW_VIDEOMEM_REGION		0x82000003
-#define TEGRA_SIP_FIQ_NS_ENTRYPOINT		0x82000005
-#define TEGRA_SIP_FIQ_NS_GET_CONTEXT		0x82000006
+#define TEGRA_SIP_NEW_VIDEOMEM_REGION 0x82000003
+#define TEGRA_SIP_FIQ_NS_ENTRYPOINT 0x82000005
+#define TEGRA_SIP_FIQ_NS_GET_CONTEXT 0x82000006
 
 /*******************************************************************************
  * This function is responsible for handling all SiP calls
  ******************************************************************************/
-uintptr_t tegra_sip_handler(uint32_t smc_fid,
-			    u_register_t x1,
-			    u_register_t x2,
-			    u_register_t x3,
-			    u_register_t x4,
-			    void *cookie,
-			    void *handle,
-			    u_register_t flags)
+uintptr_t tegra_sip_handler(uint32_t smc_fid, u_register_t x1, u_register_t x2,
+			    u_register_t x3, u_register_t x4, void *cookie,
+			    void *handle, u_register_t flags)
 {
 	uint32_t regval, local_x2_32 = (uint32_t)x2;
 	int32_t err;
@@ -44,17 +38,15 @@ uintptr_t tegra_sip_handler(uint32_t smc_fid,
 	/* Check if this is a SoC specific SiP */
 	err = plat_sip_handler(smc_fid, x1, x2, x3, x4, cookie, handle, flags);
 	if (err == 0) {
-
 		SMC_RET1(handle, (uint64_t)err);
 
 	} else {
-
 		switch (smc_fid) {
-
 		case TEGRA_SIP_NEW_VIDEOMEM_REGION:
 			/* Check whether Video memory resize is enabled */
-			if (mmio_read_32(TEGRA_MC_BASE + MC_VIDEO_PROTECT_REG_CTRL)
-				!= MC_VIDEO_PROTECT_WRITE_ACCESS_ENABLED) {
+			if (mmio_read_32(TEGRA_MC_BASE +
+					 MC_VIDEO_PROTECT_REG_CTRL) !=
+			    MC_VIDEO_PROTECT_WRITE_ACCESS_ENABLED) {
 				ERROR("Video Memory Resize isn't enabled! \n");
 				SMC_RET1(handle, (uint64_t)-ENOTSUP);
 			}
@@ -71,7 +63,8 @@ uintptr_t tegra_sip_handler(uint32_t smc_fid,
 			/*
 			 * Check if Video Memory is aligned to 1MB.
 			 */
-			if (((x1 & 0xFFFFFU) != 0U) || ((local_x2_32 & 0xFFFFFU) != 0U)) {
+			if (((x1 & 0xFFFFFU) != 0U) ||
+			    ((local_x2_32 & 0xFFFFFU) != 0U)) {
 				ERROR("Unaligned Video Memory base address!\n");
 				SMC_RET1(handle, (uint64_t)-ENOTSUP);
 			}
@@ -97,8 +90,10 @@ uintptr_t tegra_sip_handler(uint32_t smc_fid,
 			regval = mmio_read_32(TEGRA_CAR_RESET_BASE +
 					      TEGRA_GPU_RESET_REG_OFFSET);
 			if ((regval & GPU_RESET_BIT) == 0U) {
-				mmio_write_32(TEGRA_CAR_RESET_BASE + TEGRA_GPU_RESET_GPU_SET_OFFSET,
-									GPU_SET_BIT);
+				mmio_write_32(
+					TEGRA_CAR_RESET_BASE +
+						TEGRA_GPU_RESET_GPU_SET_OFFSET,
+					GPU_SET_BIT);
 			}
 
 			SMC_RET1(handle, 0);
@@ -147,12 +142,7 @@ uintptr_t tegra_sip_handler(uint32_t smc_fid,
 }
 
 /* Define a runtime service descriptor for fast SMC calls */
-DECLARE_RT_SVC(
-	tegra_sip_fast,
+DECLARE_RT_SVC(tegra_sip_fast,
 
-	(OEN_SIP_START),
-	(OEN_SIP_END),
-	(SMC_TYPE_FAST),
-	(NULL),
-	(tegra_sip_handler)
-);
+	       (OEN_SIP_START), (OEN_SIP_END), (SMC_TYPE_FAST), (NULL),
+	       (tegra_sip_handler));

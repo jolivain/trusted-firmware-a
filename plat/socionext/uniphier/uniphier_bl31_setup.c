@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,14 +7,14 @@
 #include <assert.h>
 #include <errno.h>
 
-#include <platform_def.h>
-
 #include <arch.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <drivers/console.h>
 #include <lib/mmio.h>
+
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 #include "uniphier.h"
 

@@ -6,7 +6,6 @@
 
 #include <common/debug.h>
 #include <lib/mmio.h>
-
 #include <mt_spm.h>
 #include <mt_spm_conservation.h>
 #include <mt_spm_internal.h>
@@ -14,6 +13,7 @@
 #include <mt_spm_vcorefs.h>
 #include <plat_mtk_lpm.h>
 #include <plat_pm.h>
+
 #include <plat/common/platform.h>
 #include <platform_def.h>
 
@@ -56,13 +56,12 @@ static int go_to_spm_before_wfi(int state_id, unsigned int ext_opand,
 
 	__spm_send_cpu_wakeup_event();
 
-	INFO("cpu%d: wakesrc = 0x%x, settle = 0x%x, sec = %u\n",
-	     cpu, pwrctrl->wake_src, mmio_read_32(SPM_CLK_SETTLE),
+	INFO("cpu%d: wakesrc = 0x%x, settle = 0x%x, sec = %u\n", cpu,
+	     pwrctrl->wake_src, mmio_read_32(SPM_CLK_SETTLE),
 	     mmio_read_32(PCM_TIMER_VAL) / 32768);
 	INFO("sw_flag = 0x%x 0x%x, req = 0x%x, pwr = 0x%x 0x%x\n",
-	     pwrctrl->pcm_flags, pwrctrl->pcm_flags1,
-	     mmio_read_32(SPM_SRC_REQ), mmio_read_32(PWR_STATUS),
-	     mmio_read_32(PWR_STATUS_2ND));
+	     pwrctrl->pcm_flags, pwrctrl->pcm_flags1, mmio_read_32(SPM_SRC_REQ),
+	     mmio_read_32(PWR_STATUS), mmio_read_32(PWR_STATUS_2ND));
 
 	return ret;
 }
@@ -134,8 +133,8 @@ int spm_conservation_get_result(struct wake_status **res)
 	return 0;
 }
 
-#define GPIO_BANK	(GPIO_BASE + 0x6F0)
-#define TRAP_UFS_FIRST	BIT(11) /* bit 11, 0: UFS, 1: eMMC */
+#define GPIO_BANK (GPIO_BASE + 0x6F0)
+#define TRAP_UFS_FIRST BIT(11) /* bit 11, 0: UFS, 1: eMMC */
 
 void spm_conservation_pwrctrl_init(struct pwr_ctrl *pwrctrl)
 {

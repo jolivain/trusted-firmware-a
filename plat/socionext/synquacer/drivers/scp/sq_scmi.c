@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,34 +12,34 @@
 #include <drivers/arm/css/css_mhu_doorbell.h>
 #include <drivers/arm/css/css_scp.h>
 #include <drivers/arm/css/scmi.h>
+#include <scmi_sq.h>
+#include <sq_common.h>
+
 #include <plat/arm/css/common/css_pm.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>
-
-#include <scmi_sq.h>
-#include <sq_common.h>
 
 /*
  * This file implements the SCP helper functions using SCMI protocol.
  */
 
 DEFINE_BAKERY_LOCK(sq_scmi_lock);
-#define SQ_SCMI_LOCK_GET_INSTANCE	(&sq_scmi_lock)
+#define SQ_SCMI_LOCK_GET_INSTANCE (&sq_scmi_lock)
 
-#define SQ_SCMI_PAYLOAD_BASE		PLAT_SQ_SCP_COM_SHARED_MEM_BASE
-#define MHU_CPU_INTR_S_SET_OFFSET	0x308
+#define SQ_SCMI_PAYLOAD_BASE PLAT_SQ_SCP_COM_SHARED_MEM_BASE
+#define MHU_CPU_INTR_S_SET_OFFSET 0x308
 
 const uint32_t sq_core_pos_to_scmi_dmn_id_map[PLATFORM_CORE_COUNT] = {
-	0,   1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11,
+	0,  1,	2,  3,	4,  5,	6,  7,	8,  9,	10, 11,
 	12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23
 };
 
 static scmi_channel_plat_info_t sq_scmi_plat_info = {
-		.scmi_mbx_mem = SQ_SCMI_PAYLOAD_BASE,
-		.db_reg_addr = PLAT_SQ_MHU_BASE + MHU_CPU_INTR_S_SET_OFFSET,
-		.db_preserve_mask = 0xfffffffe,
-		.db_modify_mask = 0x1,
-		.ring_doorbell = &mhu_ring_doorbell,
+	.scmi_mbx_mem = SQ_SCMI_PAYLOAD_BASE,
+	.db_reg_addr = PLAT_SQ_MHU_BASE + MHU_CPU_INTR_S_SET_OFFSET,
+	.db_preserve_mask = 0xfffffffe,
+	.db_modify_mask = 0x1,
+	.ring_doorbell = &mhu_ring_doorbell,
 };
 
 /*
@@ -54,26 +54,25 @@ static scmi_channel_plat_info_t sq_scmi_plat_info = {
  * `Max level` encodes the highest level that has a valid power state
  * encoded in the power state.
  */
-#define SCMI_PWR_STATE_MAX_PWR_LVL_SHIFT	16
-#define SCMI_PWR_STATE_MAX_PWR_LVL_WIDTH	4
-#define SCMI_PWR_STATE_MAX_PWR_LVL_MASK		\
-				((1 << SCMI_PWR_STATE_MAX_PWR_LVL_WIDTH) - 1)
-#define SCMI_SET_PWR_STATE_MAX_PWR_LVL(_power_state, _max_level)		\
-		(_power_state) |= ((_max_level) & SCMI_PWR_STATE_MAX_PWR_LVL_MASK)\
-				<< SCMI_PWR_STATE_MAX_PWR_LVL_SHIFT
-#define SCMI_GET_PWR_STATE_MAX_PWR_LVL(_power_state)		\
-		(((_power_state) >> SCMI_PWR_STATE_MAX_PWR_LVL_SHIFT)	\
-				& SCMI_PWR_STATE_MAX_PWR_LVL_MASK)
+#define SCMI_PWR_STATE_MAX_PWR_LVL_SHIFT 16
+#define SCMI_PWR_STATE_MAX_PWR_LVL_WIDTH 4
+#define SCMI_PWR_STATE_MAX_PWR_LVL_MASK \
+	((1 << SCMI_PWR_STATE_MAX_PWR_LVL_WIDTH) - 1)
+#define SCMI_SET_PWR_STATE_MAX_PWR_LVL(_power_state, _max_level)         \
+	(_power_state) |= ((_max_level)&SCMI_PWR_STATE_MAX_PWR_LVL_MASK) \
+			  << SCMI_PWR_STATE_MAX_PWR_LVL_SHIFT
+#define SCMI_GET_PWR_STATE_MAX_PWR_LVL(_power_state)            \
+	(((_power_state) >> SCMI_PWR_STATE_MAX_PWR_LVL_SHIFT) & \
+	 SCMI_PWR_STATE_MAX_PWR_LVL_MASK)
 
-#define SCMI_PWR_STATE_LVL_WIDTH		4
-#define SCMI_PWR_STATE_LVL_MASK			\
-				((1 << SCMI_PWR_STATE_LVL_WIDTH) - 1)
-#define SCMI_SET_PWR_STATE_LVL(_power_state, _level, _level_state)		\
-		(_power_state) |= ((_level_state) & SCMI_PWR_STATE_LVL_MASK)	\
-				<< (SCMI_PWR_STATE_LVL_WIDTH * (_level))
-#define SCMI_GET_PWR_STATE_LVL(_power_state, _level)		\
-		(((_power_state) >> (SCMI_PWR_STATE_LVL_WIDTH * (_level))) &	\
-				SCMI_PWR_STATE_LVL_MASK)
+#define SCMI_PWR_STATE_LVL_WIDTH 4
+#define SCMI_PWR_STATE_LVL_MASK ((1 << SCMI_PWR_STATE_LVL_WIDTH) - 1)
+#define SCMI_SET_PWR_STATE_LVL(_power_state, _level, _level_state) \
+	(_power_state) |= ((_level_state)&SCMI_PWR_STATE_LVL_MASK) \
+			  << (SCMI_PWR_STATE_LVL_WIDTH * (_level))
+#define SCMI_GET_PWR_STATE_LVL(_power_state, _level)                 \
+	(((_power_state) >> (SCMI_PWR_STATE_LVL_WIDTH * (_level))) & \
+	 SCMI_PWR_STATE_LVL_MASK)
 
 /*
  * The SCMI power state enumeration for a power domain level
@@ -104,27 +103,28 @@ void sq_scmi_off(const struct psci_power_state *target_state)
 
 	/* At-least the CPU level should be specified to be OFF */
 	assert(target_state->pwr_domain_state[SQ_PWR_LVL0] ==
-							SQ_LOCAL_STATE_OFF);
+	       SQ_LOCAL_STATE_OFF);
 
 	for (; lvl <= PLAT_MAX_PWR_LVL; lvl++) {
 		if (target_state->pwr_domain_state[lvl] == SQ_LOCAL_STATE_RUN)
 			break;
 
 		assert(target_state->pwr_domain_state[lvl] ==
-							SQ_LOCAL_STATE_OFF);
+		       SQ_LOCAL_STATE_OFF);
 		SCMI_SET_PWR_STATE_LVL(scmi_pwr_state, lvl,
-				scmi_power_state_off);
+				       scmi_power_state_off);
 	}
 
 	SCMI_SET_PWR_STATE_MAX_PWR_LVL(scmi_pwr_state, lvl - 1);
 
-	ret = scmi_pwr_state_set(sq_scmi_handle,
+	ret = scmi_pwr_state_set(
+		sq_scmi_handle,
 		sq_core_pos_to_scmi_dmn_id_map[plat_my_core_pos()],
 		scmi_pwr_state);
 
 	if (ret != SCMI_E_QUEUED && ret != SCMI_E_SUCCESS) {
 		ERROR("SCMI set power state command return 0x%x unexpected\n",
-				ret);
+		      ret);
 		panic();
 	}
 }
@@ -140,7 +140,7 @@ void sq_scmi_on(u_register_t mpidr)
 
 	for (; lvl <= PLAT_MAX_PWR_LVL; lvl++)
 		SCMI_SET_PWR_STATE_LVL(scmi_pwr_state, lvl,
-				scmi_power_state_on);
+				       scmi_power_state_on);
 
 	SCMI_SET_PWR_STATE_MAX_PWR_LVL(scmi_pwr_state, lvl - 1);
 
@@ -148,12 +148,12 @@ void sq_scmi_on(u_register_t mpidr)
 	assert(core_pos >= 0 && core_pos < PLATFORM_CORE_COUNT);
 
 	ret = scmi_pwr_state_set(sq_scmi_handle,
-		sq_core_pos_to_scmi_dmn_id_map[core_pos],
-		scmi_pwr_state);
+				 sq_core_pos_to_scmi_dmn_id_map[core_pos],
+				 scmi_pwr_state);
 
 	if (ret != SCMI_E_QUEUED && ret != SCMI_E_SUCCESS) {
 		ERROR("SCMI set power state command return 0x%x unexpected\n",
-				ret);
+		      ret);
 		panic();
 	}
 }
@@ -172,13 +172,12 @@ void __dead2 sq_scmi_system_off(int state)
 	 * Issue SCMI command. First issue a graceful
 	 * request and if that fails force the request.
 	 */
-	ret = scmi_sys_pwr_state_set(sq_scmi_handle,
-			SCMI_SYS_PWR_FORCEFUL_REQ,
-			state);
+	ret = scmi_sys_pwr_state_set(sq_scmi_handle, SCMI_SYS_PWR_FORCEFUL_REQ,
+				     state);
 
 	if (ret != SCMI_E_SUCCESS) {
 		ERROR("SCMI system power state set 0x%x returns unexpected 0x%x\n",
-			state, ret);
+		      state, ret);
 		panic();
 	}
 	wfi();
@@ -213,7 +212,7 @@ static int scmi_ap_core_init(scmi_channel_t *ch)
 
 	if (!is_scmi_version_compatible(SCMI_AP_CORE_PROTO_VER, version)) {
 		WARN("SCMI AP core protocol version 0x%x incompatible with driver version 0x%x\n",
-						version, SCMI_AP_CORE_PROTO_VER);
+		     version, SCMI_AP_CORE_PROTO_VER);
 		return -1;
 	}
 	INFO("SCMI AP core protocol version 0x%x detected\n", version);

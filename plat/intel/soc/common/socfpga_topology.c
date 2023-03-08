@@ -1,14 +1,15 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <arch.h>
-#include <platform_def.h>
 #include <lib/psci/psci.h>
 
-static const unsigned char plat_power_domain_tree_desc[] = {1, 4};
+#include <platform_def.h>
+
+static const unsigned char plat_power_domain_tree_desc[] = { 1, 4 };
 
 /*******************************************************************************
  * This function returns the default topology tree information.
@@ -48,4 +49,3 @@ int plat_core_pos_by_mpidr(u_register_t mpidr)
 
 	return (cpu_id + (cluster_id * 4));
 }
-

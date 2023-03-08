@@ -6,13 +6,10 @@
  */
 
 #include <drivers/arm/cci.h>
-
 #include <plat_marvell.h>
 
-static const int cci_map[] = {
-	PLAT_MARVELL_CCI_CLUSTER0_SL_IFACE_IX,
-	PLAT_MARVELL_CCI_CLUSTER1_SL_IFACE_IX
-};
+static const int cci_map[] = { PLAT_MARVELL_CCI_CLUSTER0_SL_IFACE_IX,
+			       PLAT_MARVELL_CCI_CLUSTER1_SL_IFACE_IX };
 
 /****************************************************************************
  * The following functions are defined as weak to allow a platform to override
@@ -22,7 +19,6 @@ static const int cci_map[] = {
 #pragma weak plat_marvell_interconnect_init
 #pragma weak plat_marvell_interconnect_enter_coherency
 #pragma weak plat_marvell_interconnect_exit_coherency
-
 
 /****************************************************************************
  * Helper function to initialize ARM CCI driver.

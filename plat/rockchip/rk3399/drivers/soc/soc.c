@@ -1,26 +1,25 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
-#include <drivers/delay_timer.h>
-#include <lib/mmio.h>
-
 #include <dfs.h>
 #include <dram.h>
+#include <drivers/delay_timer.h>
+#include <lib/mmio.h>
 #include <m0_ctl.h>
 #include <plat_private.h>
 #include <pmu.h>
 #include <rk3399_def.h>
 #include <secure.h>
 #include <soc.h>
+
+#include <platform_def.h>
 
 /* Table of regions to map using the MMU.  */
 const mmap_region_t plat_rk_mmap[] = {
@@ -55,8 +54,8 @@ static void set_pll_slow_mode(uint32_t pll_id)
 	if (pll_id == PPLL_ID)
 		mmio_write_32(PMUCRU_BASE + PMUCRU_PPLL_CON(3), PLL_SLOW_MODE);
 	else
-		mmio_write_32((CRU_BASE +
-			      CRU_PLL_CON(pll_id, 3)), PLL_SLOW_MODE);
+		mmio_write_32((CRU_BASE + CRU_PLL_CON(pll_id, 3)),
+			      PLL_SLOW_MODE);
 }
 
 static void set_pll_normal_mode(uint32_t pll_id)
@@ -64,18 +63,18 @@ static void set_pll_normal_mode(uint32_t pll_id)
 	if (pll_id == PPLL_ID)
 		mmio_write_32(PMUCRU_BASE + PMUCRU_PPLL_CON(3), PLL_NOMAL_MODE);
 	else
-		mmio_write_32(CRU_BASE +
-			      CRU_PLL_CON(pll_id, 3), PLL_NOMAL_MODE);
+		mmio_write_32(CRU_BASE + CRU_PLL_CON(pll_id, 3),
+			      PLL_NOMAL_MODE);
 }
 
 static void set_pll_bypass(uint32_t pll_id)
 {
 	if (pll_id == PPLL_ID)
-		mmio_write_32(PMUCRU_BASE +
-			      PMUCRU_PPLL_CON(3), PLL_BYPASS_MODE);
+		mmio_write_32(PMUCRU_BASE + PMUCRU_PPLL_CON(3),
+			      PLL_BYPASS_MODE);
 	else
-		mmio_write_32(CRU_BASE +
-			      CRU_PLL_CON(pll_id, 3), PLL_BYPASS_MODE);
+		mmio_write_32(CRU_BASE + CRU_PLL_CON(pll_id, 3),
+			      PLL_BYPASS_MODE);
 }
 
 static void _pll_suspend(uint32_t pll_id)
@@ -135,8 +134,8 @@ static void restore_pll(int pll_id, uint32_t *src)
 	mmio_write_32(CRU_BASE + CRU_PLL_CON(pll_id, 3), src[3] | REG_SOC_WMSK);
 
 	/* Wait for PLL lock done */
-	while ((mmio_read_32(CRU_BASE + CRU_PLL_CON(pll_id, 2)) &
-		0x80000000) == 0x0)
+	while ((mmio_read_32(CRU_BASE + CRU_PLL_CON(pll_id, 2)) & 0x80000000) ==
+	       0x0)
 		;
 }
 
@@ -236,10 +235,10 @@ void set_pmu_rsthold(void)
 	uint32_t rstnhold_cofig0;
 	uint32_t rstnhold_cofig1;
 
-	pmu_slp_data.pmucru_rstnhold_con0 = mmio_read_32(PMUCRU_BASE +
-					    PMUCRU_RSTNHOLD_CON0);
-	pmu_slp_data.pmucru_rstnhold_con1 = mmio_read_32(PMUCRU_BASE +
-					    PMUCRU_RSTNHOLD_CON1);
+	pmu_slp_data.pmucru_rstnhold_con0 =
+		mmio_read_32(PMUCRU_BASE + PMUCRU_RSTNHOLD_CON0);
+	pmu_slp_data.pmucru_rstnhold_con1 =
+		mmio_read_32(PMUCRU_BASE + PMUCRU_RSTNHOLD_CON1);
 	rstnhold_cofig0 = BIT_WITH_WMSK(PRESETN_NOC_PMU_HOLD) |
 			  BIT_WITH_WMSK(PRESETN_INTMEM_PMU_HOLD) |
 			  BIT_WITH_WMSK(HRESETN_CM0S_PMU_HOLD) |

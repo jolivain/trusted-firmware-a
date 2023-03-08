@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,6 +7,7 @@
 #define ARM_PAS_DEF_H
 
 #include <lib/gpt_rme/gpt_rme.h>
+
 #include <plat/arm/common/arm_def.h>
 
 /*****************************************************************************
@@ -60,58 +61,54 @@
 /* TODO: This might not be the best way to map the PAS */
 
 /* Device memory 0 to 2GB */
-#define ARM_PAS_1_BASE			(U(0))
-#define ARM_PAS_1_SIZE			((ULL(1) << 31)) /* 2GB */
+#define ARM_PAS_1_BASE (U(0))
+#define ARM_PAS_1_SIZE ((ULL(1) << 31)) /* 2GB */
 
 /* NS memory 2GB to (end - 64MB) */
-#define ARM_PAS_2_BASE			(ARM_PAS_1_BASE + ARM_PAS_1_SIZE)
-#define ARM_PAS_2_SIZE			(ARM_NS_DRAM1_SIZE)
+#define ARM_PAS_2_BASE (ARM_PAS_1_BASE + ARM_PAS_1_SIZE)
+#define ARM_PAS_2_SIZE (ARM_NS_DRAM1_SIZE)
 
 /* Shared area between EL3 and RMM */
-#define ARM_PAS_SHARED_BASE		(ARM_EL3_RMM_SHARED_BASE)
-#define ARM_PAS_SHARED_SIZE		(ARM_EL3_RMM_SHARED_SIZE)
+#define ARM_PAS_SHARED_BASE (ARM_EL3_RMM_SHARED_BASE)
+#define ARM_PAS_SHARED_SIZE (ARM_EL3_RMM_SHARED_SIZE)
 
 /* Secure TZC region */
-#define ARM_PAS_3_BASE			(ARM_AP_TZC_DRAM1_BASE)
-#define ARM_PAS_3_SIZE			(ARM_AP_TZC_DRAM1_SIZE)
+#define ARM_PAS_3_BASE (ARM_AP_TZC_DRAM1_BASE)
+#define ARM_PAS_3_SIZE (ARM_AP_TZC_DRAM1_SIZE)
 
 /* NS memory 2GB */
-#define	ARM_PAS_4_BASE			ARM_DRAM2_BASE
-#define	ARM_PAS_4_SIZE			((ULL(1) << 31)) /* 2GB */
+#define ARM_PAS_4_BASE ARM_DRAM2_BASE
+#define ARM_PAS_4_SIZE ((ULL(1) << 31)) /* 2GB */
 
-#define ARM_PAS_GPI_ANY			MAP_GPT_REGION(ARM_PAS_1_BASE, \
-						       ARM_PAS_1_SIZE, \
-						       GPT_GPI_ANY)
+#define ARM_PAS_GPI_ANY \
+	MAP_GPT_REGION(ARM_PAS_1_BASE, ARM_PAS_1_SIZE, GPT_GPI_ANY)
 
-#define	ARM_PAS_KERNEL			GPT_MAP_REGION_GRANULE(ARM_PAS_2_BASE, \
-							       ARM_PAS_2_SIZE, \
-							       GPT_GPI_NS)
+#define ARM_PAS_KERNEL \
+	GPT_MAP_REGION_GRANULE(ARM_PAS_2_BASE, ARM_PAS_2_SIZE, GPT_GPI_NS)
 
-#define ARM_PAS_SECURE			GPT_MAP_REGION_GRANULE(ARM_PAS_3_BASE, \
-							       ARM_PAS_3_SIZE, \
-							       GPT_GPI_SECURE)
+#define ARM_PAS_SECURE \
+	GPT_MAP_REGION_GRANULE(ARM_PAS_3_BASE, ARM_PAS_3_SIZE, GPT_GPI_SECURE)
 
-#define	ARM_PAS_KERNEL_1		GPT_MAP_REGION_GRANULE(ARM_PAS_4_BASE, \
-							       ARM_PAS_4_SIZE, \
-							       GPT_GPI_NS)
+#define ARM_PAS_KERNEL_1 \
+	GPT_MAP_REGION_GRANULE(ARM_PAS_4_BASE, ARM_PAS_4_SIZE, GPT_GPI_NS)
 /*
  * REALM and Shared area share the same PAS, so consider them a single
  * PAS region to configure in GPT.
  */
-#define ARM_PAS_REALM			GPT_MAP_REGION_GRANULE(ARM_REALM_BASE, \
-							       (ARM_PAS_SHARED_SIZE + \
-								ARM_REALM_SIZE), \
-							       GPT_GPI_REALM)
+#define ARM_PAS_REALM                                                  \
+	GPT_MAP_REGION_GRANULE(ARM_REALM_BASE,                         \
+			       (ARM_PAS_SHARED_SIZE + ARM_REALM_SIZE), \
+			       GPT_GPI_REALM)
 
-#define ARM_PAS_EL3_DRAM		GPT_MAP_REGION_GRANULE(ARM_EL3_TZC_DRAM1_BASE, \
-							       ARM_EL3_TZC_DRAM1_SIZE, \
-							       GPT_GPI_ROOT)
+#define ARM_PAS_EL3_DRAM                                                       \
+	GPT_MAP_REGION_GRANULE(ARM_EL3_TZC_DRAM1_BASE, ARM_EL3_TZC_DRAM1_SIZE, \
+			       GPT_GPI_ROOT)
 
-#define	ARM_PAS_GPTS			GPT_MAP_REGION_GRANULE(ARM_L1_GPT_ADDR_BASE, \
-							       ARM_L1_GPT_SIZE, \
-							       GPT_GPI_ROOT)
+#define ARM_PAS_GPTS                                                  \
+	GPT_MAP_REGION_GRANULE(ARM_L1_GPT_ADDR_BASE, ARM_L1_GPT_SIZE, \
+			       GPT_GPI_ROOT)
 
 /* GPT Configuration options */
-#define PLATFORM_L0GPTSZ		GPCCR_L0GPTSZ_30BITS
+#define PLATFORM_L0GPTSZ GPCCR_L0GPTSZ_30BITS
 
 #endif /* ARM_PAS_DEF_H */

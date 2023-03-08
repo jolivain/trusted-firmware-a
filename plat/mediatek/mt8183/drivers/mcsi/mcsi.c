@@ -1,26 +1,26 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <assert.h>
+
 #include <arch.h>
 #include <arch_helpers.h>
-#include <assert.h>
 #include <common/debug.h>
-#include <lib/mmio.h>
-#include <scu.h>
-#include <mcucfg.h>
 #include <drivers/delay_timer.h>
+#include <lib/mmio.h>
 #include <mcsi/mcsi.h>
+#include <mcucfg.h>
+#include <scu.h>
 
-#define MAX_CLUSTERS		5
+#define MAX_CLUSTERS 5
 
 static unsigned long cci_base_addr;
 static unsigned int cci_cluster_ix_to_iface[MAX_CLUSTERS];
 
-void mcsi_init(unsigned long cci_base,
-		unsigned int num_cci_masters)
+void mcsi_init(unsigned long cci_base, unsigned int num_cci_masters)
 {
 	int i;
 
@@ -64,8 +64,8 @@ static inline unsigned long get_slave_iface_base(unsigned long mpidr)
 	 * It is a programming error if this is called without initializing
 	 * the slave interface to use for this cluster.
 	 */
-	unsigned int cluster_id =
-		(mpidr >> MPIDR_AFF1_SHIFT) & MPIDR_AFFLVL_MASK;
+	unsigned int cluster_id = (mpidr >> MPIDR_AFF1_SHIFT) &
+				  MPIDR_AFFLVL_MASK;
 
 	assert(cluster_id < MAX_CLUSTERS);
 	assert(cci_cluster_ix_to_iface[cluster_id] != 0);
@@ -81,14 +81,14 @@ void cci_enable_cluster_coherency(unsigned long mpidr)
 	unsigned int pending = 0;
 
 	assert(cci_base_addr);
-	slave_base  = get_slave_iface_base(mpidr);
+	slave_base = get_slave_iface_base(mpidr);
 	support_ability = mmio_read_32(slave_base);
 
-	pending = (mmio_read_32(
-		   cci_base_addr + SNP_PENDING_REG)) >> SNP_PENDING;
+	pending = (mmio_read_32(cci_base_addr + SNP_PENDING_REG)) >>
+		  SNP_PENDING;
 	while (pending) {
-		pending = (mmio_read_32(
-			   cci_base_addr + SNP_PENDING_REG)) >> SNP_PENDING;
+		pending = (mmio_read_32(cci_base_addr + SNP_PENDING_REG)) >>
+			  SNP_PENDING;
 	}
 
 	if (support_ability & SNP_SUPPORT)

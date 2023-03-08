@@ -22,7 +22,7 @@
 #pragma weak bl2_el3_plat_arch_setup
 #pragma weak bl2_el3_plat_prepare_exit
 
-static dram_regions_info_t dram_regions_info  = {0};
+static dram_regions_info_t dram_regions_info = { 0 };
 
 /*******************************************************************************
  * Return the pointer to the 'dram_regions_info structure of the DRAM.
@@ -41,30 +41,31 @@ static void populate_dram_regions_info(void)
 
 	dram_regions_info.region[reg_id].addr = NXP_DRAM0_ADDR;
 	dram_regions_info.region[reg_id].size =
-			dram_remain_size > NXP_DRAM0_MAX_SIZE ?
-				NXP_DRAM0_MAX_SIZE : dram_remain_size;
+		dram_remain_size > NXP_DRAM0_MAX_SIZE ? NXP_DRAM0_MAX_SIZE :
+							dram_remain_size;
 
 	if (dram_regions_info.region[reg_id].size != NXP_DRAM0_SIZE) {
 		ERROR("Incorrect DRAM0 size is defined in platform_def.h\n");
 	}
 
 	dram_remain_size -= dram_regions_info.region[reg_id].size;
-	dram_regions_info.region[reg_id].size -= (NXP_SECURE_DRAM_SIZE
-						+ NXP_SP_SHRD_DRAM_SIZE);
+	dram_regions_info.region[reg_id].size -=
+		(NXP_SECURE_DRAM_SIZE + NXP_SP_SHRD_DRAM_SIZE);
 
 	assert(dram_regions_info.region[reg_id].size > 0);
 
 	/* Reducing total dram size by 66MB */
-	dram_regions_info.total_dram_size -= (NXP_SECURE_DRAM_SIZE
-						+ NXP_SP_SHRD_DRAM_SIZE);
+	dram_regions_info.total_dram_size -=
+		(NXP_SECURE_DRAM_SIZE + NXP_SP_SHRD_DRAM_SIZE);
 
 #if defined(NXP_DRAM1_ADDR) && defined(NXP_DRAM1_MAX_SIZE)
 	if (dram_remain_size > 0) {
 		reg_id++;
 		dram_regions_info.region[reg_id].addr = NXP_DRAM1_ADDR;
 		dram_regions_info.region[reg_id].size =
-				dram_remain_size > NXP_DRAM1_MAX_SIZE ?
-					NXP_DRAM1_MAX_SIZE : dram_remain_size;
+			dram_remain_size > NXP_DRAM1_MAX_SIZE ?
+				NXP_DRAM1_MAX_SIZE :
+				dram_remain_size;
 		dram_remain_size -= dram_regions_info.region[reg_id].size;
 	}
 #endif
@@ -73,8 +74,9 @@ static void populate_dram_regions_info(void)
 		reg_id++;
 		dram_regions_info.region[reg_id].addr = NXP_DRAM1_ADDR;
 		dram_regions_info.region[reg_id].size =
-				dram_remain_size > NXP_DRAM1_MAX_SIZE ?
-					NXP_DRAM1_MAX_SIZE : dram_remain_size;
+			dram_remain_size > NXP_DRAM1_MAX_SIZE ?
+				NXP_DRAM1_MAX_SIZE :
+				dram_remain_size;
 		dram_remain_size -= dram_regions_info.region[reg_id].size;
 	}
 #endif
@@ -135,7 +137,7 @@ static uint32_t ls_get_spsr_for_bl33_entry(void)
 	 * well.
 	 */
 	spsr = SPSR_MODE32(mode, plat_get_ns_image_entrypoint() & 0x1,
-			SPSR_E_LITTLE, DISABLE_ALL_EXCEPTIONS);
+			   SPSR_E_LITTLE, DISABLE_ALL_EXCEPTIONS);
 	return spsr;
 }
 #endif /* AARCH32 */
@@ -183,24 +185,19 @@ void ls_bl2_el3_plat_arch_setup(void)
 	/* Initialise the IO layer and register platform IO devices */
 	ls_setup_page_tables(
 #if SEPARATE_BL2_NOLOAD_REGION
-			      BL2_START,
-			      BL2_LIMIT - BL2_START,
+		BL2_START, BL2_LIMIT - BL2_START,
 #else
-			      BL2_BASE,
-			      (unsigned long)(&__BL2_END__) - BL2_BASE,
+		BL2_BASE, (unsigned long)(&__BL2_END__) - BL2_BASE,
 #endif
-			      BL_CODE_BASE,
-			      BL_CODE_END,
-			      BL_RO_DATA_BASE,
-			      BL_RO_DATA_END
+		BL_CODE_BASE, BL_CODE_END, BL_RO_DATA_BASE, BL_RO_DATA_END
 #if USE_COHERENT_MEM
-			      , BL_COHERENT_RAM_BASE,
-			      BL_COHERENT_RAM_END
+		,
+		BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END
 #endif
-			      );
+	);
 
-	if ((dram_regions_info.region[0].addr == 0)
-		&& (dram_regions_info.total_dram_size == 0)) {
+	if ((dram_regions_info.region[0].addr == 0) &&
+	    (dram_regions_info.total_dram_size == 0)) {
 		flags = XLAT_TABLE_NC;
 	}
 
@@ -234,13 +231,13 @@ int ls_bl2_handle_post_image_load(unsigned int image_id)
 	switch (image_id) {
 	case BL31_IMAGE_ID:
 		bl_mem_params->ep_info.args.arg3 =
-					(u_register_t) &dram_regions_info;
+			(u_register_t)&dram_regions_info;
 
 		/* Pass the value of PORSR1 register in Argument 4 */
 		bl_mem_params->ep_info.args.arg4 =
-					(u_register_t)read_reg_porsr1();
+			(u_register_t)read_reg_porsr1();
 		flush_dcache_range((uintptr_t)&dram_regions_info,
-				sizeof(dram_regions_info));
+				   sizeof(dram_regions_info));
 		break;
 #if defined(AARCH64) && defined(IMAGE_BL32)
 	case BL32_IMAGE_ID:
@@ -276,7 +273,6 @@ void bl2_el3_plat_prepare_exit(void)
  */
 void bl2_plat_preload_setup(void)
 {
-
 	soc_preload_setup();
 
 #ifdef DDR_INIT
@@ -286,8 +282,8 @@ void bl2_plat_preload_setup(void)
 	}
 #endif
 
-	if ((dram_regions_info.region[0].addr == 0)
-		&& (dram_regions_info.total_dram_size > 0)) {
+	if ((dram_regions_info.region[0].addr == 0) &&
+	    (dram_regions_info.total_dram_size > 0)) {
 		populate_dram_regions_info();
 #ifdef PLAT_XLAT_TABLES_DYNAMIC
 		mmap_add_ddr_region_dynamically();

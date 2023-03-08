@@ -17,13 +17,11 @@ void enable_timer_base_to_cluster(uintptr_t nxp_pmu_addr)
 	uint32_t *cltbenr = NULL;
 	uint32_t cltbenr_val = 0U;
 
-	cltbenr = (uint32_t *)(nxp_pmu_addr
-				+ CLUST_TIMER_BASE_ENBL_OFFSET);
+	cltbenr = (uint32_t *)(nxp_pmu_addr + CLUST_TIMER_BASE_ENBL_OFFSET);
 
 	cltbenr_val = mmio_read_32((uintptr_t)cltbenr);
 
-	cltbenr_val = cltbenr_val
-			| (1 << MPIDR_AFFLVL1_VAL(read_mpidr_el1()));
+	cltbenr_val = cltbenr_val | (1 << MPIDR_AFFLVL1_VAL(read_mpidr_el1()));
 
 	mmio_write_32((uintptr_t)cltbenr, cltbenr_val);
 
@@ -38,8 +36,8 @@ void enable_timer_base_to_cluster(uintptr_t nxp_pmu_addr)
 
 void enable_core_tb(uintptr_t nxp_pmu_addr)
 {
-	uint32_t *pctbenr = (uint32_t *) (nxp_pmu_addr +
-					  CORE_TIMEBASE_ENBL_OFFSET);
+	uint32_t *pctbenr =
+		(uint32_t *)(nxp_pmu_addr + CORE_TIMEBASE_ENBL_OFFSET);
 
 	mmio_write_32((uintptr_t)pctbenr, 0xff);
 }

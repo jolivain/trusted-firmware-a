@@ -9,15 +9,15 @@
 /*
  * Key algorithms currently supported on mbed TLS libraries
  */
-#define TF_MBEDTLS_USE_RSA	0
-#define TF_MBEDTLS_USE_ECDSA	1
+#define TF_MBEDTLS_USE_RSA 0
+#define TF_MBEDTLS_USE_ECDSA 1
 
 /*
  * Hash algorithms currently supported on mbed TLS libraries
  */
-#define TF_MBEDTLS_SHA256		1
-#define TF_MBEDTLS_SHA384		2
-#define TF_MBEDTLS_SHA512		3
+#define TF_MBEDTLS_SHA256 1
+#define TF_MBEDTLS_SHA384 2
+#define TF_MBEDTLS_SHA512 3
 
 /*
  * Configuration file to build mbed TLS with the required features for
@@ -81,20 +81,20 @@
 #endif
 
 /* MPI / BIGNUM options */
-#define MBEDTLS_MPI_WINDOW_SIZE			2
+#define MBEDTLS_MPI_WINDOW_SIZE 2
 
 #if TF_MBEDTLS_USE_RSA
 #if TF_MBEDTLS_KEY_SIZE <= 2048
-#define MBEDTLS_MPI_MAX_SIZE			256
+#define MBEDTLS_MPI_MAX_SIZE 256
 #else
-#define MBEDTLS_MPI_MAX_SIZE			512
+#define MBEDTLS_MPI_MAX_SIZE 512
 #endif
 #else
-#define MBEDTLS_MPI_MAX_SIZE			256
+#define MBEDTLS_MPI_MAX_SIZE 256
 #endif
 
 /* Memory buffer allocator options */
-#define MBEDTLS_MEMORY_ALIGN_MULTIPLE		8
+#define MBEDTLS_MEMORY_ALIGN_MULTIPLE 8
 
 /*
  * Prevent the use of 128-bit division which
@@ -105,6 +105,7 @@
 #ifndef __ASSEMBLER__
 /* System headers required to build mbed TLS with the current configuration */
 #include <stdlib.h>
+
 #include <mbedtls/check_config.h>
 #endif
 
@@ -115,5 +116,5 @@
  * other library.
  */
 
-#define TF_MBEDTLS_HEAP_SIZE           U(5120)
+#define TF_MBEDTLS_HEAP_SIZE U(5120)
 #endif /* MBEDTLS_CONFIG_H */

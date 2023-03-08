@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,6 +12,7 @@
 #include <drivers/arm/css/css_scp.h>
 #include <drivers/arm/css/scmi.h>
 #include <lib/mmio.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <plat/arm/css/common/css_pm.h>
 #include <plat/common/platform.h>
@@ -33,26 +34,25 @@
  * `Max level` encodes the highest level that has a valid power state
  * encoded in the power state.
  */
-#define SCMI_PWR_STATE_MAX_PWR_LVL_SHIFT	16
-#define SCMI_PWR_STATE_MAX_PWR_LVL_WIDTH	4
-#define SCMI_PWR_STATE_MAX_PWR_LVL_MASK		\
-				((1 << SCMI_PWR_STATE_MAX_PWR_LVL_WIDTH) - 1)
-#define SCMI_SET_PWR_STATE_MAX_PWR_LVL(_power_state, _max_level)		\
-		(_power_state) |= ((_max_level) & SCMI_PWR_STATE_MAX_PWR_LVL_MASK)\
-				<< SCMI_PWR_STATE_MAX_PWR_LVL_SHIFT
-#define SCMI_GET_PWR_STATE_MAX_PWR_LVL(_power_state)		\
-		(((_power_state) >> SCMI_PWR_STATE_MAX_PWR_LVL_SHIFT)	\
-				& SCMI_PWR_STATE_MAX_PWR_LVL_MASK)
+#define SCMI_PWR_STATE_MAX_PWR_LVL_SHIFT 16
+#define SCMI_PWR_STATE_MAX_PWR_LVL_WIDTH 4
+#define SCMI_PWR_STATE_MAX_PWR_LVL_MASK \
+	((1 << SCMI_PWR_STATE_MAX_PWR_LVL_WIDTH) - 1)
+#define SCMI_SET_PWR_STATE_MAX_PWR_LVL(_power_state, _max_level)         \
+	(_power_state) |= ((_max_level)&SCMI_PWR_STATE_MAX_PWR_LVL_MASK) \
+			  << SCMI_PWR_STATE_MAX_PWR_LVL_SHIFT
+#define SCMI_GET_PWR_STATE_MAX_PWR_LVL(_power_state)            \
+	(((_power_state) >> SCMI_PWR_STATE_MAX_PWR_LVL_SHIFT) & \
+	 SCMI_PWR_STATE_MAX_PWR_LVL_MASK)
 
-#define SCMI_PWR_STATE_LVL_WIDTH		4
-#define SCMI_PWR_STATE_LVL_MASK			\
-				((1 << SCMI_PWR_STATE_LVL_WIDTH) - 1)
-#define SCMI_SET_PWR_STATE_LVL(_power_state, _level, _level_state)		\
-		(_power_state) |= ((_level_state) & SCMI_PWR_STATE_LVL_MASK)	\
-				<< (SCMI_PWR_STATE_LVL_WIDTH * (_level))
-#define SCMI_GET_PWR_STATE_LVL(_power_state, _level)		\
-		(((_power_state) >> (SCMI_PWR_STATE_LVL_WIDTH * (_level))) &	\
-				SCMI_PWR_STATE_LVL_MASK)
+#define SCMI_PWR_STATE_LVL_WIDTH 4
+#define SCMI_PWR_STATE_LVL_MASK ((1 << SCMI_PWR_STATE_LVL_WIDTH) - 1)
+#define SCMI_SET_PWR_STATE_LVL(_power_state, _level, _level_state) \
+	(_power_state) |= ((_level_state)&SCMI_PWR_STATE_LVL_MASK) \
+			  << (SCMI_PWR_STATE_LVL_WIDTH * (_level))
+#define SCMI_GET_PWR_STATE_LVL(_power_state, _level)                 \
+	(((_power_state) >> (SCMI_PWR_STATE_LVL_WIDTH * (_level))) & \
+	 SCMI_PWR_STATE_LVL_MASK)
 
 /*
  * The SCMI power state enumeration for a power domain level
@@ -92,7 +92,8 @@ ARM_SCMI_INSTANTIATE_LOCK;
  * array exported by the platform.
  */
 static void css_scp_core_pos_to_scmi_channel(unsigned int core_pos,
-		unsigned int *scmi_domain_id, unsigned int *scmi_channel_id)
+					     unsigned int *scmi_domain_id,
+					     unsigned int *scmi_channel_id)
 {
 	unsigned int composite_id;
 
@@ -112,17 +113,17 @@ void css_scp_suspend(const struct psci_power_state *target_state)
 
 	/* At least power domain level 0 should be specified to be suspended */
 	assert(target_state->pwr_domain_state[ARM_PWR_LVL0] ==
-						ARM_LOCAL_STATE_OFF);
+	       ARM_LOCAL_STATE_OFF);
 
 	/* Check if power down at system power domain level is requested */
 	if (css_system_pwr_state(target_state) == ARM_LOCAL_STATE_OFF) {
 		/* Issue SCMI command for SYSTEM_SUSPEND on all SCMI channels */
 		ret = scmi_sys_pwr_state_set(
-				scmi_handles[default_scmi_channel_id],
-				SCMI_SYS_PWR_FORCEFUL_REQ, SCMI_SYS_PWR_SUSPEND);
+			scmi_handles[default_scmi_channel_id],
+			SCMI_SYS_PWR_FORCEFUL_REQ, SCMI_SYS_PWR_SUSPEND);
 		if (ret != SCMI_E_SUCCESS) {
 			ERROR("SCMI system power domain suspend return 0x%x unexpected\n",
-					ret);
+			      ret);
 			panic();
 		}
 		return;
@@ -138,32 +139,32 @@ void css_scp_suspend(const struct psci_power_state *target_state)
 
 	/* For level 0, specify `scmi_power_state_sleep` as the power state */
 	SCMI_SET_PWR_STATE_LVL(scmi_pwr_state, ARM_PWR_LVL0,
-						scmi_power_state_sleep);
+			       scmi_power_state_sleep);
 
 	for (lvl = ARM_PWR_LVL1; lvl <= PLAT_MAX_PWR_LVL; lvl++) {
 		if (target_state->pwr_domain_state[lvl] == ARM_LOCAL_STATE_RUN)
 			break;
 
 		assert(target_state->pwr_domain_state[lvl] ==
-							ARM_LOCAL_STATE_OFF);
+		       ARM_LOCAL_STATE_OFF);
 		/*
 		 * Specify `scmi_power_state_off` as power state for higher
 		 * levels.
 		 */
 		SCMI_SET_PWR_STATE_LVL(scmi_pwr_state, lvl,
-						scmi_power_state_off);
+				       scmi_power_state_off);
 	}
 
 	SCMI_SET_PWR_STATE_MAX_PWR_LVL(scmi_pwr_state, lvl - 1);
 
-	css_scp_core_pos_to_scmi_channel(plat_my_core_pos(),
-			&domain_id, &channel_id);
-	ret = scmi_pwr_state_set(scmi_handles[channel_id],
-		domain_id, scmi_pwr_state);
+	css_scp_core_pos_to_scmi_channel(plat_my_core_pos(), &domain_id,
+					 &channel_id);
+	ret = scmi_pwr_state_set(scmi_handles[channel_id], domain_id,
+				 scmi_pwr_state);
 
 	if (ret != SCMI_E_SUCCESS) {
 		ERROR("SCMI set power state command return 0x%x unexpected\n",
-				ret);
+		      ret);
 		panic();
 	}
 #endif
@@ -181,7 +182,7 @@ void css_scp_off(const struct psci_power_state *target_state)
 
 	/* At-least the CPU level should be specified to be OFF */
 	assert(target_state->pwr_domain_state[ARM_PWR_LVL0] ==
-							ARM_LOCAL_STATE_OFF);
+	       ARM_LOCAL_STATE_OFF);
 
 	/* PSCI CPU OFF cannot be used to turn OFF system power domain */
 	assert(css_system_pwr_state(target_state) == ARM_LOCAL_STATE_RUN);
@@ -191,20 +192,20 @@ void css_scp_off(const struct psci_power_state *target_state)
 			break;
 
 		assert(target_state->pwr_domain_state[lvl] ==
-							ARM_LOCAL_STATE_OFF);
+		       ARM_LOCAL_STATE_OFF);
 		SCMI_SET_PWR_STATE_LVL(scmi_pwr_state, lvl,
-				scmi_power_state_off);
+				       scmi_power_state_off);
 	}
 
 	SCMI_SET_PWR_STATE_MAX_PWR_LVL(scmi_pwr_state, lvl - 1);
 
-	css_scp_core_pos_to_scmi_channel(plat_my_core_pos(),
-			&domain_id, &channel_id);
-	ret = scmi_pwr_state_set(scmi_handles[channel_id],
-		domain_id, scmi_pwr_state);
+	css_scp_core_pos_to_scmi_channel(plat_my_core_pos(), &domain_id,
+					 &channel_id);
+	ret = scmi_pwr_state_set(scmi_handles[channel_id], domain_id,
+				 scmi_pwr_state);
 	if (ret != SCMI_E_QUEUED && ret != SCMI_E_SUCCESS) {
 		ERROR("SCMI set power state command return 0x%x unexpected\n",
-				ret);
+		      ret);
 		panic();
 	}
 }
@@ -221,20 +222,19 @@ void css_scp_on(u_register_t mpidr)
 
 	for (; lvl <= PLAT_MAX_PWR_LVL; lvl++)
 		SCMI_SET_PWR_STATE_LVL(scmi_pwr_state, lvl,
-				scmi_power_state_on);
+				       scmi_power_state_on);
 
 	SCMI_SET_PWR_STATE_MAX_PWR_LVL(scmi_pwr_state, lvl - 1);
 
 	core_pos = (unsigned int)plat_core_pos_by_mpidr(mpidr);
 	assert(core_pos < PLATFORM_CORE_COUNT);
 
-	css_scp_core_pos_to_scmi_channel(core_pos, &domain_id,
-			&channel_id);
-	ret = scmi_pwr_state_set(scmi_handles[channel_id],
-		domain_id, scmi_pwr_state);
+	css_scp_core_pos_to_scmi_channel(core_pos, &domain_id, &channel_id);
+	ret = scmi_pwr_state_set(scmi_handles[channel_id], domain_id,
+				 scmi_pwr_state);
 	if (ret != SCMI_E_QUEUED && ret != SCMI_E_SUCCESS) {
 		ERROR("SCMI set power state command return 0x%x unexpected\n",
-				ret);
+		      ret);
 		panic();
 	}
 }
@@ -251,9 +251,9 @@ int css_scp_get_power_state(u_register_t mpidr, unsigned int power_level)
 
 	/* We don't support get power state at the system power domain level */
 	if ((power_level > PLAT_MAX_PWR_LVL) ||
-			(power_level == CSS_SYSTEM_PWR_DMN_LVL)) {
+	    (power_level == CSS_SYSTEM_PWR_DMN_LVL)) {
 		WARN("Invalid power level %u specified for SCMI get power state\n",
-				power_level);
+		     power_level);
 		return PSCI_E_INVALID_PARAMS;
 	}
 
@@ -261,12 +261,12 @@ int css_scp_get_power_state(u_register_t mpidr, unsigned int power_level)
 	assert(cpu_idx < PLATFORM_CORE_COUNT);
 
 	css_scp_core_pos_to_scmi_channel(cpu_idx, &domain_id, &channel_id);
-	ret = scmi_pwr_state_get(scmi_handles[channel_id],
-		domain_id, &scmi_pwr_state);
+	ret = scmi_pwr_state_get(scmi_handles[channel_id], domain_id,
+				 &scmi_pwr_state);
 
 	if (ret != SCMI_E_SUCCESS) {
 		WARN("SCMI get power state command return 0x%x unexpected\n",
-				ret);
+		     ret);
 		return PSCI_E_INVALID_PARAMS;
 	}
 
@@ -283,7 +283,7 @@ int css_scp_get_power_state(u_register_t mpidr, unsigned int power_level)
 		return HW_ON;
 
 	assert((lvl_state == scmi_power_state_off) ||
-				(lvl_state == scmi_power_state_sleep));
+	       (lvl_state == scmi_power_state_sleep));
 	return HW_OFF;
 }
 
@@ -329,12 +329,11 @@ void __dead2 css_scp_system_off(int state)
 	 * request and if that fails force the request.
 	 */
 	ret = scmi_sys_pwr_state_set(scmi_handles[default_scmi_channel_id],
-			SCMI_SYS_PWR_FORCEFUL_REQ,
-			state);
+				     SCMI_SYS_PWR_FORCEFUL_REQ, state);
 
 	if (ret != SCMI_E_SUCCESS) {
 		ERROR("SCMI system power state set 0x%x returns unexpected 0x%x\n",
-			state, ret);
+		      state, ret);
 		panic();
 	}
 
@@ -375,7 +374,7 @@ static int scmi_ap_core_init(scmi_channel_t *ch)
 
 	if (!is_scmi_version_compatible(SCMI_AP_CORE_PROTO_VER, version)) {
 		WARN("SCMI AP core protocol version 0x%x incompatible with driver version 0x%x\n",
-			version, SCMI_AP_CORE_PROTO_VER);
+		     version, SCMI_AP_CORE_PROTO_VER);
 		return -1;
 	}
 	INFO("SCMI AP core protocol version 0x%x detected\n", version);
@@ -395,7 +394,8 @@ void __init plat_arm_pwrc_setup(void)
 		scmi_handles[idx] = scmi_init(&scmi_channels[idx]);
 
 		if (scmi_handles[idx] == NULL) {
-			ERROR("SCMI Initialization failed on channel %d\n", idx);
+			ERROR("SCMI Initialization failed on channel %d\n",
+			      idx);
 			panic();
 		}
 
@@ -424,7 +424,7 @@ const plat_psci_ops_t *css_scmi_override_pm_ops(plat_psci_ops_t *ops)
 
 	/* Check that power domain POWER_STATE_SET message is supported */
 	ret = scmi_proto_msg_attr(scmi_handle, SCMI_PWR_DMN_PROTO_ID,
-				SCMI_PWR_STATE_SET_MSG, &msg_attr);
+				  SCMI_PWR_STATE_SET_MSG, &msg_attr);
 	if (ret != SCMI_E_SUCCESS) {
 		ERROR("Set power state command is not supported by SCMI\n");
 		panic();
@@ -435,13 +435,13 @@ const plat_psci_ops_t *css_scmi_override_pm_ops(plat_psci_ops_t *ops)
 	 * POWER_STATE_GET message.
 	 */
 	ret = scmi_proto_msg_attr(scmi_handle, SCMI_PWR_DMN_PROTO_ID,
-				SCMI_PWR_STATE_GET_MSG, &msg_attr);
+				  SCMI_PWR_STATE_GET_MSG, &msg_attr);
 	if (ret != SCMI_E_SUCCESS)
 		ops->get_node_hw_state = NULL;
 
 	/* Check if the SCMI SYSTEM_POWER_STATE_SET message is supported */
 	ret = scmi_proto_msg_attr(scmi_handle, SCMI_SYS_PWR_PROTO_ID,
-				SCMI_SYS_PWR_STATE_SET_MSG, &msg_attr);
+				  SCMI_SYS_PWR_STATE_SET_MSG, &msg_attr);
 	if (ret != SCMI_E_SUCCESS) {
 		/* System power management operations are not supported */
 		ops->system_off = NULL;
@@ -489,9 +489,10 @@ void plat_arm_program_trusted_mailbox(uintptr_t address)
 		assert(scmi_handles[i]);
 
 		ret = scmi_ap_core_set_reset_addr(scmi_handles[i], address,
-				SCMI_AP_CORE_LOCK_ATTR);
+						  SCMI_AP_CORE_LOCK_ATTR);
 		if (ret != SCMI_E_SUCCESS) {
-			ERROR("CSS: Failed to program reset address: %d\n", ret);
+			ERROR("CSS: Failed to program reset address: %d\n",
+			      ret);
 			panic();
 		}
 	}

@@ -4,9 +4,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <lib/mmio.h>
-
 #include <imx_rdc.h>
+#include <lib/mmio.h>
 
 void imx_rdc_init(const struct imx_rdc_cfg *rdc_cfg)
 {
@@ -24,9 +23,12 @@ void imx_rdc_init(const struct imx_rdc_cfg *rdc_cfg)
 			break;
 		case RDC_MEM_REGION:
 			/* memory region access permission config */
-			mmio_write_32(MRSAn(rdc->index), rdc->setting.rdc_mem_region[0]);
-			mmio_write_32(MREAn(rdc->index), rdc->setting.rdc_mem_region[1]);
-			mmio_write_32(MRCn(rdc->index), rdc->setting.rdc_mem_region[2]);
+			mmio_write_32(MRSAn(rdc->index),
+				      rdc->setting.rdc_mem_region[0]);
+			mmio_write_32(MREAn(rdc->index),
+				      rdc->setting.rdc_mem_region[1]);
+			mmio_write_32(MRCn(rdc->index),
+				      rdc->setting.rdc_mem_region[2]);
 			break;
 		default:
 			break;

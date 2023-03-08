@@ -18,7 +18,7 @@ enum pmic_wrap_phase_id {
 
 /* IDX mapping */
 enum {
-	CMD_0 = 0,	/* PMIC_WRAP_PHASE_ALLINONE */
+	CMD_0 = 0, /* PMIC_WRAP_PHASE_ALLINONE */
 	CMD_1,
 	CMD_2,
 	CMD_3,
@@ -41,7 +41,8 @@ enum {
 void mt_spm_pmic_wrap_set_phase(enum pmic_wrap_phase_id phase);
 void mt_spm_pmic_wrap_set_cmd(enum pmic_wrap_phase_id phase, unsigned int idx,
 			      unsigned int cmd_wdata);
-uint64_t mt_spm_pmic_wrap_get_cmd(enum pmic_wrap_phase_id phase, unsigned int idx);
+uint64_t mt_spm_pmic_wrap_get_cmd(enum pmic_wrap_phase_id phase,
+				  unsigned int idx);
 void mt_spm_dump_pmic_warp_reg(void);
 
 #endif /* MT_SPM_PMIC_WRAP_H */

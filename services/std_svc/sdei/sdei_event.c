@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -35,7 +35,8 @@ sdei_entry_t *get_event_entry(sdei_ev_map_t *map)
 		idx = MAP_OFF(map, mapping);
 
 		/* Base of private mappings for this CPU */
-		base_idx = plat_my_core_pos() * ((unsigned int) mapping->num_maps);
+		base_idx =
+			plat_my_core_pos() * ((unsigned int)mapping->num_maps);
 		cpu_priv_base = &sdei_private_event_table[base_idx];
 
 		/*
@@ -67,7 +68,8 @@ sdei_ev_map_t *find_event_map_by_intr(unsigned int intr_num, bool shared)
 	 * sorted, for large maps, we could consider binary search.
 	 */
 	mapping = shared ? SDEI_SHARED_MAPPING() : SDEI_PRIVATE_MAPPING();
-	iterate_mapping(mapping, i, map) {
+	iterate_mapping(mapping, i, map)
+	{
 		if (map->intr == intr_num)
 			return map;
 	}
@@ -90,8 +92,10 @@ sdei_ev_map_t *find_event_map(int ev_num)
 	 * However, if the mappings are required to be sorted, for large maps,
 	 * we could consider binary search.
 	 */
-	for_each_mapping_type(i, mapping) {
-		iterate_mapping(mapping, j, map) {
+	for_each_mapping_type(i, mapping)
+	{
+		iterate_mapping(mapping, j, map)
+		{
 			if (map->ev_num == ev_num)
 				return map;
 		}
@@ -112,8 +116,10 @@ int sdei_get_registered_event_count(void)
 	int count = 0;
 
 	/* Add up reg counts for each mapping. */
-	for_each_mapping_type(i, mapping) {
-		iterate_mapping(mapping, j, map) {
+	for_each_mapping_type(i, mapping)
+	{
+		iterate_mapping(mapping, j, map)
+		{
 			count += map->reg_count;
 		}
 	}

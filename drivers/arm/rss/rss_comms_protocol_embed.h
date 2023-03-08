@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  *
@@ -9,12 +9,9 @@
 #define __RSS_COMMS_PROTOCOL_EMBED_H__
 
 #include <cdefs.h>
-
 #include <psa/client.h>
 
 #include <platform_def.h>
-
-
 
 struct __packed rss_embed_msg_t {
 	psa_handle_t handle;
@@ -29,19 +26,14 @@ struct __packed rss_embed_reply_t {
 	uint8_t trailer[PLAT_RSS_COMMS_PAYLOAD_MAX_SIZE];
 };
 
-psa_status_t rss_protocol_embed_serialize_msg(psa_handle_t handle,
-					      int16_t type,
-					      const psa_invec *in_vec,
-					      uint8_t in_len,
-					      const psa_outvec *out_vec,
-					      uint8_t out_len,
-					      struct rss_embed_msg_t *msg,
-					      size_t *msg_len);
+psa_status_t
+rss_protocol_embed_serialize_msg(psa_handle_t handle, int16_t type,
+				 const psa_invec *in_vec, uint8_t in_len,
+				 const psa_outvec *out_vec, uint8_t out_len,
+				 struct rss_embed_msg_t *msg, size_t *msg_len);
 
-psa_status_t rss_protocol_embed_deserialize_reply(psa_outvec *out_vec,
-						  uint8_t out_len,
-						  psa_status_t *return_val,
-						  const struct rss_embed_reply_t *reply,
-						  size_t reply_size);
+psa_status_t rss_protocol_embed_deserialize_reply(
+	psa_outvec *out_vec, uint8_t out_len, psa_status_t *return_val,
+	const struct rss_embed_reply_t *reply, size_t reply_size);
 
 #endif /* __RSS_COMMS_PROTOCOL_EMBED_H__ */

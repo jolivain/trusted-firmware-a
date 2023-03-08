@@ -8,7 +8,6 @@
 #include <stdint.h>
 
 #include <common/debug.h>
-
 #include <qtiseclib_defs.h>
 #include <qtiseclib_interface.h>
 
@@ -59,7 +58,6 @@ void qtiseclib_kryo6_gold_reset_asm(void)
 {
 }
 
-
 void qtiseclib_kryo6_silver_reset_asm(void)
 {
 }
@@ -82,13 +80,12 @@ void qtiseclib_panic(void)
 {
 }
 
-int
-qtiseclib_mem_assign(const memprot_info_t *mem_info,
-		     uint32_t mem_info_list_cnt,
-		     const uint32_t *source_vm_list,
-		     uint32_t src_vm_list_cnt,
-		     const memprot_dst_vm_perm_info_t *dest_vm_list,
-		     uint32_t dst_vm_list_cnt)
+int qtiseclib_mem_assign(const memprot_info_t *mem_info,
+			 uint32_t mem_info_list_cnt,
+			 const uint32_t *source_vm_list,
+			 uint32_t src_vm_list_cnt,
+			 const memprot_dst_vm_perm_info_t *dest_vm_list,
+			 uint32_t dst_vm_list_cnt)
 {
 	return 0;
 }
@@ -126,4 +123,3 @@ void qtiseclib_psci_node_suspend_finish(const uint8_t *states)
 void qtiseclib_disable_cluster_coherency(uint8_t state)
 {
 }
-

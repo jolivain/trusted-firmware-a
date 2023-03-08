@@ -12,10 +12,9 @@
 #include <stdio.h>
 #endif /* __ASSEMBLER__ */
 
+#include <board_marvell_def.h>
 #include <common/interrupt_props.h>
 #include <drivers/arm/gic_common.h>
-
-#include <board_marvell_def.h>
 #include <mvebu_def.h>
 
 /*
@@ -73,123 +72,127 @@
  * PLAT_MARVELL_FIP_BASE	= 0x4120000
  */
 
-#define PLAT_MARVELL_SRAM_BASE			0xFFE1C048
-#define PLAT_MARVELL_SRAM_END			0xFFE78000
+#define PLAT_MARVELL_SRAM_BASE 0xFFE1C048
+#define PLAT_MARVELL_SRAM_END 0xFFE78000
 
-#define PLAT_MARVELL_ATF_BASE			0x4000000
-#define PLAT_MARVELL_ATF_LOAD_ADDR		(PLAT_MARVELL_ATF_BASE + \
-								0x100000)
+#define PLAT_MARVELL_ATF_BASE 0x4000000
+#define PLAT_MARVELL_ATF_LOAD_ADDR (PLAT_MARVELL_ATF_BASE + 0x100000)
 
-#define PLAT_MARVELL_FIP_BASE			(PLAT_MARVELL_ATF_LOAD_ADDR + \
-								0x20000)
-#define PLAT_MARVELL_FIP_MAX_SIZE		0x4000000
+#define PLAT_MARVELL_FIP_BASE (PLAT_MARVELL_ATF_LOAD_ADDR + 0x20000)
+#define PLAT_MARVELL_FIP_MAX_SIZE 0x4000000
 
-#define PLAT_MARVELL_NORTHB_COUNT		1
+#define PLAT_MARVELL_NORTHB_COUNT 1
 
-#define PLAT_MARVELL_CLUSTER_COUNT		U(2)
-#define PLAT_MARVELL_CLUSTER_CORE_COUNT		U(2)
+#define PLAT_MARVELL_CLUSTER_COUNT U(2)
+#define PLAT_MARVELL_CLUSTER_CORE_COUNT U(2)
 
-#define PLAT_MARVELL_CORE_COUNT			(PLAT_MARVELL_CLUSTER_COUNT * \
-						PLAT_MARVELL_CLUSTER_CORE_COUNT)
+#define PLAT_MARVELL_CORE_COUNT \
+	(PLAT_MARVELL_CLUSTER_COUNT * PLAT_MARVELL_CLUSTER_CORE_COUNT)
 
-#define PLAT_MAX_CPUS_PER_CLUSTER		PLAT_MARVELL_CLUSTER_CORE_COUNT
+#define PLAT_MAX_CPUS_PER_CLUSTER PLAT_MARVELL_CLUSTER_CORE_COUNT
 
 /* Part of DRAM that is used as Trusted ROM */
-#define PLAT_MARVELL_TRUSTED_ROM_BASE		PLAT_MARVELL_ATF_LOAD_ADDR
+#define PLAT_MARVELL_TRUSTED_ROM_BASE PLAT_MARVELL_ATF_LOAD_ADDR
 /* 4 MB for FIP image */
-#define PLAT_MARVELL_TRUSTED_ROM_SIZE		0x00400000
+#define PLAT_MARVELL_TRUSTED_ROM_SIZE 0x00400000
 /* Reserve 12MB for SCP (Secure PayLoad) Trusted RAM
  * OP-TEE 4MB SHMEM follows this region
  */
-#define PLAT_MARVELL_TRUSTED_RAM_BASE		0x04400000
-#define PLAT_MARVELL_TRUSTED_RAM_SIZE		0x00C00000	/* 12 MB DRAM */
+#define PLAT_MARVELL_TRUSTED_RAM_BASE 0x04400000
+#define PLAT_MARVELL_TRUSTED_RAM_SIZE 0x00C00000 /* 12 MB DRAM */
 
-#define PLAT_MARVELL_LLC_SRAM_BASE		0x05400000
-#define PLAT_MARVELL_LLC_SRAM_SIZE		0x00100000	/* 1 MB SRAM */
+#define PLAT_MARVELL_LLC_SRAM_BASE 0x05400000
+#define PLAT_MARVELL_LLC_SRAM_SIZE 0x00100000 /* 1 MB SRAM */
 
 /*
  * PLAT_ARM_MAX_BL1_RW_SIZE is calculated using the current BL1 RW debug size
  * plus a little space for growth.
  */
-#define PLAT_MARVELL_MAX_BL1_RW_SIZE		0xA000
+#define PLAT_MARVELL_MAX_BL1_RW_SIZE 0xA000
 
 /*
  * PLAT_ARM_MAX_BL2_SIZE is calculated using the current BL2 debug size plus a
  * little space for growth.
  */
-#define PLAT_MARVELL_MAX_BL2_SIZE		0xF000
+#define PLAT_MARVELL_MAX_BL2_SIZE 0xF000
 
 /*
  * PLAT_ARM_MAX_BL31_SIZE is calculated using the current BL31 debug size plus a
  * little space for growth.
  */
-#define PLAT_MARVEL_MAX_BL31_SIZE		0x5D000
+#define PLAT_MARVEL_MAX_BL31_SIZE 0x5D000
 
-#define PLAT_MARVELL_CPU_ENTRY_ADDR		BL1_RO_BASE
+#define PLAT_MARVELL_CPU_ENTRY_ADDR BL1_RO_BASE
 
 /* GIC related definitions */
-#define PLAT_MARVELL_GICD_BASE		(MVEBU_REGS_BASE + MVEBU_GICD_BASE)
-#define PLAT_MARVELL_GICC_BASE		(MVEBU_REGS_BASE + MVEBU_GICC_BASE)
+#define PLAT_MARVELL_GICD_BASE (MVEBU_REGS_BASE + MVEBU_GICD_BASE)
+#define PLAT_MARVELL_GICC_BASE (MVEBU_REGS_BASE + MVEBU_GICC_BASE)
 
-#define PLAT_MARVELL_G0_IRQ_PROPS(grp) \
+#define PLAT_MARVELL_G0_IRQ_PROPS(grp)                                       \
 	INTR_PROP_DESC(MARVELL_IRQ_SEC_SGI_0, GIC_HIGHEST_SEC_PRIORITY, grp, \
-			GIC_INTR_CFG_LEVEL), \
-	INTR_PROP_DESC(MARVELL_IRQ_SEC_SGI_6, GIC_HIGHEST_SEC_PRIORITY, grp, \
-			GIC_INTR_CFG_LEVEL), \
-	INTR_PROP_DESC(MARVELL_IRQ_PIC0, GIC_HIGHEST_SEC_PRIORITY, grp, \
-			GIC_INTR_CFG_LEVEL)
+		       GIC_INTR_CFG_LEVEL),                                  \
+		INTR_PROP_DESC(MARVELL_IRQ_SEC_SGI_6,                        \
+			       GIC_HIGHEST_SEC_PRIORITY, grp,                \
+			       GIC_INTR_CFG_LEVEL),                          \
+		INTR_PROP_DESC(MARVELL_IRQ_PIC0, GIC_HIGHEST_SEC_PRIORITY,   \
+			       grp, GIC_INTR_CFG_LEVEL)
 
-#define PLAT_MARVELL_G1S_IRQ_PROPS(grp) \
+#define PLAT_MARVELL_G1S_IRQ_PROPS(grp)                                     \
 	INTR_PROP_DESC(MARVELL_IRQ_SEC_PHY_TIMER, GIC_HIGHEST_SEC_PRIORITY, \
-			grp, GIC_INTR_CFG_LEVEL), \
-	INTR_PROP_DESC(MARVELL_IRQ_SEC_SGI_1, GIC_HIGHEST_SEC_PRIORITY, grp, \
-			GIC_INTR_CFG_LEVEL), \
-	INTR_PROP_DESC(MARVELL_IRQ_SEC_SGI_2, GIC_HIGHEST_SEC_PRIORITY, grp, \
-			GIC_INTR_CFG_LEVEL), \
-	INTR_PROP_DESC(MARVELL_IRQ_SEC_SGI_3, GIC_HIGHEST_SEC_PRIORITY, grp, \
-			GIC_INTR_CFG_LEVEL), \
-	INTR_PROP_DESC(MARVELL_IRQ_SEC_SGI_4, GIC_HIGHEST_SEC_PRIORITY, grp, \
-			GIC_INTR_CFG_LEVEL), \
-	INTR_PROP_DESC(MARVELL_IRQ_SEC_SGI_5, GIC_HIGHEST_SEC_PRIORITY, grp, \
-			GIC_INTR_CFG_LEVEL), \
-	INTR_PROP_DESC(MARVELL_IRQ_SEC_SGI_7, GIC_HIGHEST_SEC_PRIORITY, grp, \
-			GIC_INTR_CFG_LEVEL)
+		       grp, GIC_INTR_CFG_LEVEL),                            \
+		INTR_PROP_DESC(MARVELL_IRQ_SEC_SGI_1,                       \
+			       GIC_HIGHEST_SEC_PRIORITY, grp,               \
+			       GIC_INTR_CFG_LEVEL),                         \
+		INTR_PROP_DESC(MARVELL_IRQ_SEC_SGI_2,                       \
+			       GIC_HIGHEST_SEC_PRIORITY, grp,               \
+			       GIC_INTR_CFG_LEVEL),                         \
+		INTR_PROP_DESC(MARVELL_IRQ_SEC_SGI_3,                       \
+			       GIC_HIGHEST_SEC_PRIORITY, grp,               \
+			       GIC_INTR_CFG_LEVEL),                         \
+		INTR_PROP_DESC(MARVELL_IRQ_SEC_SGI_4,                       \
+			       GIC_HIGHEST_SEC_PRIORITY, grp,               \
+			       GIC_INTR_CFG_LEVEL),                         \
+		INTR_PROP_DESC(MARVELL_IRQ_SEC_SGI_5,                       \
+			       GIC_HIGHEST_SEC_PRIORITY, grp,               \
+			       GIC_INTR_CFG_LEVEL),                         \
+		INTR_PROP_DESC(MARVELL_IRQ_SEC_SGI_7,                       \
+			       GIC_HIGHEST_SEC_PRIORITY, grp,               \
+			       GIC_INTR_CFG_LEVEL)
 
-#define PLAT_MARVELL_SHARED_RAM_CACHED		1
+#define PLAT_MARVELL_SHARED_RAM_CACHED 1
 
 /*
  * Load address of BL3-3 for this platform port
  */
-#define PLAT_MARVELL_NS_IMAGE_OFFSET		0x0
+#define PLAT_MARVELL_NS_IMAGE_OFFSET 0x0
 
 /* System Reference Clock*/
-#define PLAT_REF_CLK_IN_HZ			COUNTER_FREQUENCY
+#define PLAT_REF_CLK_IN_HZ COUNTER_FREQUENCY
 
 /*
  * PL011 related constants
  */
-#define PLAT_MARVELL_UART_BASE			(MVEBU_REGS_BASE + 0x512000)
-#define PLAT_MARVELL_UART_CLK_IN_HZ		200000000
+#define PLAT_MARVELL_UART_BASE (MVEBU_REGS_BASE + 0x512000)
+#define PLAT_MARVELL_UART_CLK_IN_HZ 200000000
 
 /* Recovery image enable */
-#define PLAT_RECOVERY_IMAGE_ENABLE		0
+#define PLAT_RECOVERY_IMAGE_ENABLE 0
 
 /* Required platform porting definitions */
-#define PLAT_MAX_PWR_LVL			MPIDR_AFFLVL1
+#define PLAT_MAX_PWR_LVL MPIDR_AFFLVL1
 
 /* System timer related constants */
-#define PLAT_MARVELL_NSTIMER_FRAME_ID		1
+#define PLAT_MARVELL_NSTIMER_FRAME_ID 1
 
 /* Mailbox base address (note the lower memory space
  * is reserved for BLE data)
  */
-#define PLAT_MARVELL_MAILBOX_BASE		(MARVELL_SHARED_RAM_BASE  \
-						+ 0x400)
-#define PLAT_MARVELL_MAILBOX_SIZE		0x100
-#define PLAT_MARVELL_MAILBOX_MAGIC_NUM		0x6D72766C	/* mrvl */
+#define PLAT_MARVELL_MAILBOX_BASE (MARVELL_SHARED_RAM_BASE + 0x400)
+#define PLAT_MARVELL_MAILBOX_SIZE 0x100
+#define PLAT_MARVELL_MAILBOX_MAGIC_NUM 0x6D72766C /* mrvl */
 
 /* Securities */
-#define IRQ_SEC_OS_TICK_INT			MARVELL_IRQ_SEC_PHY_TIMER
+#define IRQ_SEC_OS_TICK_INT MARVELL_IRQ_SEC_PHY_TIMER
 
 #define MVEBU_PMU_IRQ_WA
 

@@ -15,10 +15,10 @@
 #include <io_storage.h>
 #include <lib/utils.h>
 #include <tools_share/firmware_image_package.h>
+
 #include "ddr_io_storage.h"
 #include "plat_common.h"
 #include "platform_def.h"
-
 
 /* TBD - Move these defined to the platform_def.h file.
  * Keeping them for reference here
@@ -29,10 +29,8 @@ static uint32_t ddr_fip;
 
 static uintptr_t ddr_fip_dev_handle;
 
-static io_block_spec_t ddr_fip_block_spec = {
-	.offset = PLAT_DDR_FIP_OFFSET,
-	.length = PLAT_DDR_FIP_MAX_SIZE
-};
+static io_block_spec_t ddr_fip_block_spec = { .offset = PLAT_DDR_FIP_OFFSET,
+					      .length = PLAT_DDR_FIP_MAX_SIZE };
 
 static const io_uuid_spec_t ddr_imem_udimm_1d_uuid_spec = {
 	.uuid = UUID_DDR_IMEM_UDIMM_1D,
@@ -88,67 +86,54 @@ struct plat_io_policy {
 
 /* By default, ARM platforms load images from the FIP */
 static const struct plat_io_policy ddr_policies[] = {
-	[DDR_FIP_IMAGE_ID - DDR_FIP_IMAGE_ID] = {
-		&backend_dev_handle,
-		(uintptr_t)&ddr_fip_block_spec,
-		NULL
-	},
-	[DDR_IMEM_UDIMM_1D_IMAGE_ID - DDR_FIP_IMAGE_ID] = {
-		&ddr_fip_dev_handle,
-		(uintptr_t)&ddr_imem_udimm_1d_uuid_spec,
-		open_ddr_fip
-	},
-	[DDR_IMEM_UDIMM_2D_IMAGE_ID - DDR_FIP_IMAGE_ID] = {
-		&ddr_fip_dev_handle,
-		(uintptr_t)&ddr_imem_udimm_2d_uuid_spec,
-		open_ddr_fip
-	},
-	[DDR_DMEM_UDIMM_1D_IMAGE_ID - DDR_FIP_IMAGE_ID] = {
-		&ddr_fip_dev_handle,
-		(uintptr_t)&ddr_dmem_udimm_1d_uuid_spec,
-		open_ddr_fip
-	},
-	[DDR_DMEM_UDIMM_2D_IMAGE_ID - DDR_FIP_IMAGE_ID] = {
-		&ddr_fip_dev_handle,
-		(uintptr_t)&ddr_dmem_udimm_2d_uuid_spec,
-		open_ddr_fip
-	},
-	[DDR_IMEM_RDIMM_1D_IMAGE_ID - DDR_FIP_IMAGE_ID] = {
-		&ddr_fip_dev_handle,
-		(uintptr_t)&ddr_imem_rdimm_1d_uuid_spec,
-		open_ddr_fip
-	},
-	[DDR_IMEM_RDIMM_2D_IMAGE_ID - DDR_FIP_IMAGE_ID] = {
-		&ddr_fip_dev_handle,
-		(uintptr_t)&ddr_imem_rdimm_2d_uuid_spec,
-		open_ddr_fip
-	},
-	[DDR_DMEM_RDIMM_1D_IMAGE_ID - DDR_FIP_IMAGE_ID] = {
-		&ddr_fip_dev_handle,
-		(uintptr_t)&ddr_dmem_rdimm_1d_uuid_spec,
-		open_ddr_fip
-	},
-	[DDR_DMEM_RDIMM_2D_IMAGE_ID - DDR_FIP_IMAGE_ID] = {
-		&ddr_fip_dev_handle,
-		(uintptr_t)&ddr_dmem_rdimm_2d_uuid_spec,
-		open_ddr_fip
-	},
+	[DDR_FIP_IMAGE_ID -
+	 DDR_FIP_IMAGE_ID] = { &backend_dev_handle,
+			       (uintptr_t)&ddr_fip_block_spec, NULL },
+	[DDR_IMEM_UDIMM_1D_IMAGE_ID -
+		DDR_FIP_IMAGE_ID] = { &ddr_fip_dev_handle,
+				      (uintptr_t)&ddr_imem_udimm_1d_uuid_spec,
+				      open_ddr_fip },
+	[DDR_IMEM_UDIMM_2D_IMAGE_ID -
+		DDR_FIP_IMAGE_ID] = { &ddr_fip_dev_handle,
+				      (uintptr_t)&ddr_imem_udimm_2d_uuid_spec,
+				      open_ddr_fip },
+	[DDR_DMEM_UDIMM_1D_IMAGE_ID -
+		DDR_FIP_IMAGE_ID] = { &ddr_fip_dev_handle,
+				      (uintptr_t)&ddr_dmem_udimm_1d_uuid_spec,
+				      open_ddr_fip },
+	[DDR_DMEM_UDIMM_2D_IMAGE_ID -
+		DDR_FIP_IMAGE_ID] = { &ddr_fip_dev_handle,
+				      (uintptr_t)&ddr_dmem_udimm_2d_uuid_spec,
+				      open_ddr_fip },
+	[DDR_IMEM_RDIMM_1D_IMAGE_ID -
+		DDR_FIP_IMAGE_ID] = { &ddr_fip_dev_handle,
+				      (uintptr_t)&ddr_imem_rdimm_1d_uuid_spec,
+				      open_ddr_fip },
+	[DDR_IMEM_RDIMM_2D_IMAGE_ID -
+		DDR_FIP_IMAGE_ID] = { &ddr_fip_dev_handle,
+				      (uintptr_t)&ddr_imem_rdimm_2d_uuid_spec,
+				      open_ddr_fip },
+	[DDR_DMEM_RDIMM_1D_IMAGE_ID -
+		DDR_FIP_IMAGE_ID] = { &ddr_fip_dev_handle,
+				      (uintptr_t)&ddr_dmem_rdimm_1d_uuid_spec,
+				      open_ddr_fip },
+	[DDR_DMEM_RDIMM_2D_IMAGE_ID -
+		DDR_FIP_IMAGE_ID] = { &ddr_fip_dev_handle,
+				      (uintptr_t)&ddr_dmem_rdimm_2d_uuid_spec,
+				      open_ddr_fip },
 #if TRUSTED_BOARD_BOOT
-	[DDR_FW_KEY_CERT_ID - DDR_FIP_IMAGE_ID] = {
-		&ddr_fip_dev_handle,
-		(uintptr_t)&ddr_fw_key_cert_uuid_spec,
-		open_ddr_fip
-	},
-	[DDR_UDIMM_FW_CONTENT_CERT_ID - DDR_FIP_IMAGE_ID] = {
-		&ddr_fip_dev_handle,
-		(uintptr_t)&ddr_udimm_fw_cert_uuid_spec,
-		open_ddr_fip
-	},
-	[DDR_RDIMM_FW_CONTENT_CERT_ID - DDR_FIP_IMAGE_ID] = {
-		&ddr_fip_dev_handle,
-		(uintptr_t)&ddr_rdimm_fw_cert_uuid_spec,
-		open_ddr_fip
-	},
+	[DDR_FW_KEY_CERT_ID -
+		DDR_FIP_IMAGE_ID] = { &ddr_fip_dev_handle,
+				      (uintptr_t)&ddr_fw_key_cert_uuid_spec,
+				      open_ddr_fip },
+	[DDR_UDIMM_FW_CONTENT_CERT_ID -
+		DDR_FIP_IMAGE_ID] = { &ddr_fip_dev_handle,
+				      (uintptr_t)&ddr_udimm_fw_cert_uuid_spec,
+				      open_ddr_fip },
+	[DDR_RDIMM_FW_CONTENT_CERT_ID -
+		DDR_FIP_IMAGE_ID] = { &ddr_fip_dev_handle,
+				      (uintptr_t)&ddr_rdimm_fw_cert_uuid_spec,
+				      open_ddr_fip },
 #endif
 };
 

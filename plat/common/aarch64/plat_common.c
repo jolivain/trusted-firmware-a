@@ -15,6 +15,7 @@
 #include <lib/extensions/ras.h>
 #endif
 #include <lib/xlat_tables/xlat_mmu_helpers.h>
+
 #include <plat/common/platform.h>
 
 /*
@@ -54,7 +55,8 @@ unsigned int platform_core_pos_helper(unsigned long mpidr)
  */
 void plat_sdei_handle_masked_trigger(uint64_t mpidr, unsigned int intr)
 {
-	WARN("Spurious SDEI interrupt %u on masked PE %" PRIx64 "\n", intr, mpidr);
+	WARN("Spurious SDEI interrupt %u on masked PE %" PRIx64 "\n", intr,
+	     mpidr);
 }
 
 /*
@@ -78,12 +80,13 @@ const char *get_el_str(unsigned int el)
 }
 
 /* Handler for External Aborts from lower EL including RAS errors */
-void plat_default_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *cookie,
-		void *handle, uint64_t flags)
+void plat_default_ea_handler(unsigned int ea_reason, uint64_t syndrome,
+			     void *cookie, void *handle, uint64_t flags)
 {
 #if RAS_EXTENSION
 	/* Call RAS EA handler */
-	int handled = ras_ea_handler(ea_reason, syndrome, cookie, handle, flags);
+	int handled =
+		ras_ea_handler(ea_reason, syndrome, cookie, handle, flags);
 	if (handled != 0)
 		return;
 #endif
@@ -91,8 +94,9 @@ void plat_default_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *co
 
 	ERROR_NL();
 	ERROR("Unhandled External Abort received on 0x%lx from %s\n",
-		read_mpidr_el1(), get_el_str(level));
-	ERROR("exception reason=%u syndrome=0x%" PRIx64 "\n", ea_reason, syndrome);
+	      read_mpidr_el1(), get_el_str(level));
+	ERROR("exception reason=%u syndrome=0x%" PRIx64 "\n", ea_reason,
+	      syndrome);
 
 	/* We reached here due to a panic from a lower EL and assuming this is the default
 	 * platform registered handler that we could call on a lower EL panic.

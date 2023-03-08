@@ -1,12 +1,11 @@
 /*
- * Copyright (c) 2019, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <lib/mmio.h>
-
 #include <imx_aipstz.h>
+#include <lib/mmio.h>
 
 void imx_aipstz_init(const struct aipstz_cfg *aipstz_cfg)
 {
@@ -17,7 +16,8 @@ void imx_aipstz_init(const struct aipstz_cfg *aipstz_cfg)
 		mmio_write_32(aipstz->base + AIPSTZ_MPR1, aipstz->mpr1);
 
 		for (int i = 0; i < AIPSTZ_OPACR_NUM; i++)
-			mmio_write_32(aipstz->base + OPACR_OFFSET(i), aipstz->opacr[i]);
+			mmio_write_32(aipstz->base + OPACR_OFFSET(i),
+				      aipstz->opacr[i]);
 
 		aipstz++;
 	}

@@ -7,17 +7,16 @@
 #include <stddef.h>
 
 #include <lib/mmio.h>
-
 #include <mt_spm_notifier.h>
 #include <mt_spm_sspm_intc.h>
 
-#define MT_SPM_SSPM_MBOX_OFF(x)		(SSPM_MBOX_BASE + x)
-#define MT_SPM_MBOX(slot)		MT_SPM_SSPM_MBOX_OFF((slot << 2UL))
+#define MT_SPM_SSPM_MBOX_OFF(x) (SSPM_MBOX_BASE + x)
+#define MT_SPM_MBOX(slot) MT_SPM_SSPM_MBOX_OFF((slot << 2UL))
 
-#define SSPM_MBOX_SPM_LP_LOOKUP1	MT_SPM_MBOX(0)
-#define SSPM_MBOX_SPM_LP_LOOKUP2	MT_SPM_MBOX(1)
-#define SSPM_MBOX_SPM_LP1		MT_SPM_MBOX(2)
-#define SSPM_MBOX_SPM_LP2		MT_SPM_MBOX(3)
+#define SSPM_MBOX_SPM_LP_LOOKUP1 MT_SPM_MBOX(0)
+#define SSPM_MBOX_SPM_LP_LOOKUP2 MT_SPM_MBOX(1)
+#define SSPM_MBOX_SPM_LP1 MT_SPM_MBOX(2)
+#define SSPM_MBOX_SPM_LP2 MT_SPM_MBOX(3)
 
 int mt_spm_sspm_notify(int type, unsigned int lp_mode)
 {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,11 +9,10 @@
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <lib/mmio.h>
-
 #include <pmc.h>
 #include <tegra_def.h>
 
-#define RESET_ENABLE	0x10U
+#define RESET_ENABLE 0x10U
 
 /* Module IDs used during power ungate procedure */
 static const uint32_t pmc_cpu_powergate_id[4] = {
@@ -103,12 +102,12 @@ void tegra_pmc_lock_cpu_vectors(void)
 bool tegra_pmc_is_last_on_cpu(void)
 {
 	int i, cpu = read_mpidr() & MPIDR_CPU_MASK;
-	uint32_t val = tegra_pmc_read_32(PMC_PWRGATE_STATUS);;
+	uint32_t val = tegra_pmc_read_32(PMC_PWRGATE_STATUS);
+	;
 	bool status = true;
 
 	/* check if this is the last standing CPU */
 	for (i = 0; i < PLATFORM_MAX_CPUS_PER_CLUSTER; i++) {
-
 		/* skip the current CPU */
 		if (i == cpu)
 			continue;
@@ -128,7 +127,6 @@ bool tegra_pmc_is_last_on_cpu(void)
  ******************************************************************************/
 void tegra_pmc_resume(void)
 {
-
 	/* Clear DPD sample */
 	mmio_write_32((TEGRA_PMC_BASE + PMC_IO_DPD_SAMPLE), 0x0);
 
@@ -144,7 +142,7 @@ __dead2 void tegra_pmc_system_reset(void)
 	uint32_t reg;
 
 	reg = tegra_pmc_read_32(PMC_CONFIG);
-	reg |= RESET_ENABLE;		/* restart */
+	reg |= RESET_ENABLE; /* restart */
 	tegra_pmc_write_32(PMC_CONFIG, reg);
 	wfi();
 

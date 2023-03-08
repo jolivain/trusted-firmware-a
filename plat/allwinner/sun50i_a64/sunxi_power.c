@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2018, Icenowy Zheng <icenowy@aosc.io>
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -7,28 +7,27 @@
 
 #include <errno.h>
 
-#include <platform_def.h>
-
 #include <common/debug.h>
+#include <core_off_arisc.h>
 #include <drivers/allwinner/axp.h>
 #include <drivers/allwinner/sunxi_rsb.h>
 #include <lib/mmio.h>
-
-#include <core_off_arisc.h>
 #include <sunxi_def.h>
 #include <sunxi_mmap.h>
 #include <sunxi_private.h>
+
+#include <platform_def.h>
 
 static enum pmic_type {
 	UNKNOWN,
 	GENERIC_H5,
 	GENERIC_A64,
-	REF_DESIGN_H5,	/* regulators controlled by GPIO pins on port L */
-	AXP803_RSB,	/* PMIC connected via RSB on most A64 boards */
+	REF_DESIGN_H5, /* regulators controlled by GPIO pins on port L */
+	AXP803_RSB, /* PMIC connected via RSB on most A64 boards */
 } pmic;
 
-#define AXP803_HW_ADDR	0x3a3
-#define AXP803_RT_ADDR	0x2d
+#define AXP803_HW_ADDR 0x3a3
+#define AXP803_RT_ADDR 0x2d
 
 /*
  * On boards without a proper PMIC we struggle to turn off the system properly.
@@ -104,8 +103,7 @@ static int rsb_init(void)
 		return ret;
 
 	/* Associate the 8-bit runtime address with the 12-bit bus address. */
-	ret = rsb_assign_runtime_address(AXP803_HW_ADDR,
-					 AXP803_RT_ADDR);
+	ret = rsb_assign_runtime_address(AXP803_HW_ADDR, AXP803_RT_ADDR);
 	if (ret)
 		return ret;
 
@@ -204,7 +202,6 @@ void sunxi_power_down(void)
 	default:
 		break;
 	}
-
 }
 
 /* This lock synchronises access to the arisc management processor. */
@@ -221,7 +218,7 @@ static DEFINE_BAKERY_LOCK(arisc_lock);
 void sunxi_cpu_power_off_self(void)
 {
 	u_register_t mpidr = read_mpidr();
-	unsigned int core  = MPIDR_AFFLVL0_VAL(mpidr);
+	unsigned int core = MPIDR_AFFLVL0_VAL(mpidr);
 	uintptr_t arisc_reset_vec = SUNXI_SRAM_A2_BASE + 0x100;
 	uint32_t *code = arisc_core_off;
 

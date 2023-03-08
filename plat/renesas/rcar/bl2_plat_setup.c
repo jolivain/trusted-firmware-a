@@ -8,10 +8,6 @@
 #include <stdint.h>
 #include <string.h>
 
-#include <libfdt.h>
-
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <bl1/bl1.h>
 #include <common/bl_common.h>
@@ -23,15 +19,18 @@
 #include <drivers/io/io_storage.h>
 #include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
+#include <libfdt.h>
+
 #include <plat/common/platform.h>
+#include <platform_def.h>
 #if RCAR_GEN3_BL33_GZIP == 1
 #include <tf_gunzip.h>
 #endif
 
 #include "avs_driver.h"
+#include "board.h"
 #include "boot_init_dram.h"
 #include "cpg_registers.h"
-#include "board.h"
 #include "emmc_def.h"
 #include "emmc_hal.h"
 #include "emmc_std.h"
@@ -53,12 +52,12 @@
  * Following symbols are only used during plat_arch_setup() only
  * when RCAR_BL2_DCACHE is enabled.
  */
-static const uint64_t BL2_RO_BASE		= BL_CODE_BASE;
-static const uint64_t BL2_RO_LIMIT		= BL_CODE_END;
+static const uint64_t BL2_RO_BASE = BL_CODE_BASE;
+static const uint64_t BL2_RO_LIMIT = BL_CODE_END;
 
 #if USE_COHERENT_MEM
-static const uint64_t BL2_COHERENT_RAM_BASE	= BL_COHERENT_RAM_BASE;
-static const uint64_t BL2_COHERENT_RAM_LIMIT	= BL_COHERENT_RAM_END;
+static const uint64_t BL2_COHERENT_RAM_BASE = BL_COHERENT_RAM_BASE;
+static const uint64_t BL2_COHERENT_RAM_LIMIT = BL_COHERENT_RAM_END;
 #endif
 
 #endif
@@ -81,37 +80,37 @@ static void bl2_init_generic_timer(void);
 
 /* R-Car Gen3 product check */
 #if (RCAR_LSI == RCAR_H3) || (RCAR_LSI == RCAR_H3N)
-#define TARGET_PRODUCT			PRR_PRODUCT_H3
-#define TARGET_NAME			"R-Car H3"
+#define TARGET_PRODUCT PRR_PRODUCT_H3
+#define TARGET_NAME "R-Car H3"
 #elif RCAR_LSI == RCAR_M3
-#define TARGET_PRODUCT			PRR_PRODUCT_M3
-#define TARGET_NAME			"R-Car M3"
+#define TARGET_PRODUCT PRR_PRODUCT_M3
+#define TARGET_NAME "R-Car M3"
 #elif RCAR_LSI == RCAR_M3N
-#define TARGET_PRODUCT			PRR_PRODUCT_M3N
-#define TARGET_NAME			"R-Car M3N"
+#define TARGET_PRODUCT PRR_PRODUCT_M3N
+#define TARGET_NAME "R-Car M3N"
 #elif RCAR_LSI == RCAR_V3M
-#define TARGET_PRODUCT			PRR_PRODUCT_V3M
-#define TARGET_NAME			"R-Car V3M"
+#define TARGET_PRODUCT PRR_PRODUCT_V3M
+#define TARGET_NAME "R-Car V3M"
 #elif RCAR_LSI == RCAR_E3
-#define TARGET_PRODUCT			PRR_PRODUCT_E3
-#define TARGET_NAME			"R-Car E3"
+#define TARGET_PRODUCT PRR_PRODUCT_E3
+#define TARGET_NAME "R-Car E3"
 #elif RCAR_LSI == RCAR_D3
-#define TARGET_PRODUCT			PRR_PRODUCT_D3
-#define TARGET_NAME			"R-Car D3"
+#define TARGET_PRODUCT PRR_PRODUCT_D3
+#define TARGET_NAME "R-Car D3"
 #elif RCAR_LSI == RCAR_AUTO
-#define TARGET_NAME			"R-Car H3/M3/M3N/V3M"
+#define TARGET_NAME "R-Car H3/M3/M3N/V3M"
 #endif
 
 #if (RCAR_LSI == RCAR_E3)
-#define GPIO_INDT			(GPIO_INDT6)
-#define GPIO_BKUP_TRG_SHIFT		((uint32_t)1U<<13U)
+#define GPIO_INDT (GPIO_INDT6)
+#define GPIO_BKUP_TRG_SHIFT ((uint32_t)1U << 13U)
 #else
-#define GPIO_INDT			(GPIO_INDT1)
-#define GPIO_BKUP_TRG_SHIFT		((uint32_t)1U<<8U)
+#define GPIO_INDT (GPIO_INDT1)
+#define GPIO_BKUP_TRG_SHIFT ((uint32_t)1U << 8U)
 #endif
 
-CASSERT((PARAMS_BASE + sizeof(bl2_to_bl31_params_mem_t) + 0x100)
-	 < (RCAR_SHARED_MEM_BASE + RCAR_SHARED_MEM_SIZE),
+CASSERT((PARAMS_BASE + sizeof(bl2_to_bl31_params_mem_t) + 0x100) <
+		(RCAR_SHARED_MEM_BASE + RCAR_SHARED_MEM_SIZE),
 	assert_bl31_params_do_not_fit_in_shared_memory);
 
 static meminfo_t bl2_tzram_layout __aligned(CACHE_WRITEBACK_GRANULE);
@@ -121,7 +120,7 @@ uint64_t fdt_blob[PAGE_SIZE_4KB / sizeof(uint64_t)];
 static void *fdt = (void *)fdt_blob;
 
 static void unsigned_num_print(unsigned long long int unum, unsigned int radix,
-				char *string)
+			       char *string)
 {
 	/* Just need enough space to store 64 bit decimal integer */
 	char num_buf[20];
@@ -178,8 +177,7 @@ static void bl2_lossy_gen_fdt(uint32_t no, uint64_t start_addr,
 		panic();
 	}
 
-	ret = fdt_appendprop_string(fdt, node, "compatible",
-				    "shared-dma-pool");
+	ret = fdt_appendprop_string(fdt, node, "compatible", "shared-dma-pool");
 	if (ret < 0) {
 		NOTICE("BL2: Cannot append FCNL compat string (ret=%i)\n", ret);
 		panic();
@@ -369,7 +367,7 @@ void bl2_plat_preload_setup(void)
 
 int bl2_plat_handle_pre_image_load(unsigned int image_id)
 {
-	u_register_t *boot_kind = (void *) BOOT_KIND_BASE;
+	u_register_t *boot_kind = (void *)BOOT_KIND_BASE;
 	bl_mem_params_node_t *bl_mem_params;
 
 	bl_mem_params = get_bl_mem_params_node(image_id);
@@ -386,7 +384,7 @@ int bl2_plat_handle_pre_image_load(unsigned int image_id)
 	if (is_ddr_backup_mode() == RCAR_COLD_BOOT)
 		goto cold_boot;
 
-	*boot_kind  = RCAR_WARM_BOOT;
+	*boot_kind = RCAR_WARM_BOOT;
 	flush_dcache_range(BOOT_KIND_BASE, sizeof(*boot_kind));
 
 	console_flush();
@@ -396,7 +394,7 @@ int bl2_plat_handle_pre_image_load(unsigned int image_id)
 	bl2_enter_bl31(&bl_mem_params->ep_info);
 
 cold_boot:
-	*boot_kind  = RCAR_COLD_BOOT;
+	*boot_kind = RCAR_COLD_BOOT;
 	flush_dcache_range(BOOT_KIND_BASE, sizeof(*boot_kind));
 
 	return 0;
@@ -413,7 +411,7 @@ static uint64_t rcar_get_dest_addr_from_cert(uint32_t certid, uintptr_t *dest)
 		return 1;
 	}
 
-	rcar_read_certificate((uint64_t) cert, &len, dest);
+	rcar_read_certificate((uint64_t)cert, &len, dest);
 
 	return 0;
 }
@@ -426,7 +424,7 @@ int bl2_plat_handle_post_image_load(unsigned int image_id)
 	int ret;
 
 	if (!params) {
-		params = (bl2_to_bl31_params_mem_t *) PARAMS_BASE;
+		params = (bl2_to_bl31_params_mem_t *)PARAMS_BASE;
 		memset((void *)PARAMS_BASE, 0, sizeof(*params));
 	}
 
@@ -440,13 +438,13 @@ int bl2_plat_handle_post_image_load(unsigned int image_id)
 			bl_mem_params->image_info.image_base = dest;
 		break;
 	case BL32_IMAGE_ID:
-		ret = rcar_get_dest_addr_from_cert(TRUSTED_OS_FW_CONTENT_CERT_ID,
-						   &dest);
+		ret = rcar_get_dest_addr_from_cert(
+			TRUSTED_OS_FW_CONTENT_CERT_ID, &dest);
 		if (!ret)
 			bl_mem_params->image_info.image_base = dest;
 
 		memcpy(&params->bl32_ep_info, &bl_mem_params->ep_info,
-			sizeof(entry_point_info_t));
+		       sizeof(entry_point_info_t));
 		break;
 	case BL33_IMAGE_ID:
 #if RCAR_GEN3_BL33_GZIP == 1
@@ -459,11 +457,11 @@ int bl2_plat_handle_post_image_load(unsigned int image_id)
 		} else {
 			/* plain image, copy it in place */
 			memcpy((void *)BL33_BASE, (void *)BL33_COMP_BASE,
-				bl_mem_params->image_info.image_size);
+			       bl_mem_params->image_info.image_size);
 		}
 #endif
 		memcpy(&params->bl33_ep_info, &bl_mem_params->ep_info,
-			sizeof(entry_point_info_t));
+		       sizeof(entry_point_info_t));
 		break;
 	}
 
@@ -497,25 +495,20 @@ static void bl2_populate_compatible_string(void *dt)
 					 "renesas,salvator-xs");
 		break;
 	case BOARD_STARTER_KIT:
-		ret = fdt_setprop_string(dt, 0, "compatible",
-					 "renesas,m3ulcb");
+		ret = fdt_setprop_string(dt, 0, "compatible", "renesas,m3ulcb");
 		break;
 	case BOARD_STARTER_KIT_PRE:
-		ret = fdt_setprop_string(dt, 0, "compatible",
-					 "renesas,h3ulcb");
+		ret = fdt_setprop_string(dt, 0, "compatible", "renesas,h3ulcb");
 		break;
 	case BOARD_EAGLE:
-		ret = fdt_setprop_string(dt, 0, "compatible",
-					 "renesas,eagle");
+		ret = fdt_setprop_string(dt, 0, "compatible", "renesas,eagle");
 		break;
 	case BOARD_EBISU:
 	case BOARD_EBISU_4D:
-		ret = fdt_setprop_string(dt, 0, "compatible",
-					 "renesas,ebisu");
+		ret = fdt_setprop_string(dt, 0, "compatible", "renesas,ebisu");
 		break;
 	case BOARD_DRAAK:
-		ret = fdt_setprop_string(dt, 0, "compatible",
-					 "renesas,draak");
+		ret = fdt_setprop_string(dt, 0, "compatible", "renesas,draak");
 		break;
 	default:
 		NOTICE("BL2: Cannot set compatible string, board unsupported\n");
@@ -616,16 +609,16 @@ static void bl2_add_dram_entry(uint64_t start, uint64_t size)
 		goto err;
 	}
 
-	ret = fdt_appendprop(fdt, node, "reg", &fdtsize,
-			     sizeof(fdtsize));
+	ret = fdt_appendprop(fdt, node, "reg", &fdtsize, sizeof(fdtsize));
 	if (ret < 0) {
 		goto err;
 	}
 
 	return;
 err:
-	NOTICE("BL2: Cannot add memory node [%" PRIx64 " - %" PRIx64 "] to FDT (ret=%i)\n",
-		start, start + size - 1, ret);
+	NOTICE("BL2: Cannot add memory node [%" PRIx64 " - %" PRIx64
+	       "] to FDT (ret=%i)\n",
+	       start, start + size - 1, ret);
 	panic();
 }
 
@@ -640,10 +633,10 @@ static void bl2_advertise_dram_entries(uint64_t dram_config[8])
 		if (!size)
 			continue;
 
-		NOTICE("BL2: CH%d: %" PRIx64 " - %" PRIx64 ", %" PRId64 " %siB\n",
-			chan, start, start + size - 1,
-			(size >> 30) ? : size >> 20,
-			(size >> 30) ? "G" : "M");
+		NOTICE("BL2: CH%d: %" PRIx64 " - %" PRIx64 ", %" PRId64
+		       " %siB\n",
+		       chan, start, start + size - 1,
+		       (size >> 30) ?: size >> 20, (size >> 30) ? "G" : "M");
 	}
 
 	/*
@@ -717,9 +710,8 @@ static void bl2_advertise_dram_size(uint32_t product)
 		dram_config[3] = 0x40000000ULL;
 		dram_config[5] = 0x40000000ULL;
 		dram_config[7] = 0x40000000ULL;
-#elif (RCAR_DRAM_LPDDR4_MEMCONF == 1) && \
-      (RCAR_DRAM_CHANNEL        == 5) && \
-      (RCAR_DRAM_SPLIT          == 2)
+#elif (RCAR_DRAM_LPDDR4_MEMCONF == 1) && (RCAR_DRAM_CHANNEL == 5) && \
+	(RCAR_DRAM_SPLIT == 2)
 		/* 4GB(2GBx2 2ch split) */
 		dram_config[1] = 0x80000000ULL;
 		dram_config[3] = 0x80000000ULL;
@@ -896,17 +888,15 @@ void bl2_el3_early_platform_setup(u_register_t arg1, u_register_t arg2,
 	    (PRR_PRODUCT_20 == (reg & RCAR_MAJOR_MASK))) {
 		if (RCAR_M3_CUT_VER11 == (reg & PRR_CUT_MASK)) {
 			/* M3 Ver.1.1 or Ver.1.2 */
-			NOTICE("BL2: PRR is R-Car %s Ver.1.1 / Ver.1.2\n",
-				str);
+			NOTICE("BL2: PRR is R-Car %s Ver.1.1 / Ver.1.2\n", str);
 		} else {
-			NOTICE("BL2: PRR is R-Car %s Ver.1.%d\n",
-				str,
-				(reg & RCAR_MINOR_MASK) + RCAR_M3_MINOR_OFFSET);
+			NOTICE("BL2: PRR is R-Car %s Ver.1.%d\n", str,
+			       (reg & RCAR_MINOR_MASK) + RCAR_M3_MINOR_OFFSET);
 		}
 	} else if (product == PRR_PRODUCT_D3) {
 		if (RCAR_D3_CUT_VER10 == (reg & PRR_CUT_MASK)) {
 			NOTICE("BL2: PRR is R-Car %s Ver.1.0\n", str);
-		} else  if (RCAR_D3_CUT_VER11 == (reg & PRR_CUT_MASK)) {
+		} else if (RCAR_D3_CUT_VER11 == (reg & PRR_CUT_MASK)) {
 			NOTICE("BL2: PRR is R-Car %s Ver.1.1\n", str);
 		} else {
 			NOTICE("BL2: PRR is R-Car %s Ver.X.X\n", str);
@@ -946,8 +936,7 @@ void bl2_el3_early_platform_setup(u_register_t arg1, u_register_t arg2,
 	if (type == BOARD_UNKNOWN || rev == BOARD_REV_UNKNOWN)
 		NOTICE("BL2: Board is %s Rev.---\n", GET_BOARD_NAME(type));
 	else {
-		NOTICE("BL2: Board is %s Rev.%d.%d\n",
-		       GET_BOARD_NAME(type),
+		NOTICE("BL2: Board is %s Rev.%d.%d\n", GET_BOARD_NAME(type),
 		       GET_BOARD_MAJOR(rev), GET_BOARD_MINOR(rev));
 	}
 
@@ -1088,15 +1077,15 @@ lcm_state:
 
 	if (product_cut == PRR_PRODUCT_H3_CUT10) {
 		reg = mmio_read_32(CPG_PLL2CR);
-		reg &= ~((uint32_t) 1 << 5);
+		reg &= ~((uint32_t)1 << 5);
 		mmio_write_32(CPG_PLL2CR, reg);
 
 		reg = mmio_read_32(CPG_PLL4CR);
-		reg &= ~((uint32_t) 1 << 5);
+		reg &= ~((uint32_t)1 << 5);
 		mmio_write_32(CPG_PLL4CR, reg);
 
 		reg = mmio_read_32(CPG_PLL0CR);
-		reg &= ~((uint32_t) 1 << 12);
+		reg &= ~((uint32_t)1 << 12);
 		mmio_write_32(CPG_PLL0CR, reg);
 	}
 #if (RCAR_LOSSY_ENABLE == 1)
@@ -1105,16 +1094,16 @@ lcm_state:
 	fcnlnode = fdt_add_subnode(fdt, 0, "reserved-memory");
 	if (fcnlnode < 0) {
 		NOTICE("BL2: Cannot create reserved mem node (ret=%i)\n",
-			fcnlnode);
+		       fcnlnode);
 		panic();
 	}
 
-	bl2_lossy_setting(0, LOSSY_ST_ADDR0, LOSSY_END_ADDR0,
-			  LOSSY_FMT0, LOSSY_ENA_DIS0, fcnlnode);
-	bl2_lossy_setting(1, LOSSY_ST_ADDR1, LOSSY_END_ADDR1,
-			  LOSSY_FMT1, LOSSY_ENA_DIS1, fcnlnode);
-	bl2_lossy_setting(2, LOSSY_ST_ADDR2, LOSSY_END_ADDR2,
-			  LOSSY_FMT2, LOSSY_ENA_DIS2, fcnlnode);
+	bl2_lossy_setting(0, LOSSY_ST_ADDR0, LOSSY_END_ADDR0, LOSSY_FMT0,
+			  LOSSY_ENA_DIS0, fcnlnode);
+	bl2_lossy_setting(1, LOSSY_ST_ADDR1, LOSSY_END_ADDR1, LOSSY_FMT1,
+			  LOSSY_ENA_DIS1, fcnlnode);
+	bl2_lossy_setting(2, LOSSY_ST_ADDR2, LOSSY_END_ADDR2, LOSSY_FMT2,
+			  LOSSY_ENA_DIS2, fcnlnode);
 #endif
 
 	fdt_pack(fdt);
@@ -1131,19 +1120,18 @@ void bl2_el3_plat_arch_setup(void)
 {
 #if RCAR_BL2_DCACHE == 1
 	NOTICE("BL2: D-Cache enable\n");
-	rcar_configure_mmu_el3(BL2_BASE,
-			       BL2_END - BL2_BASE,
-			       BL2_RO_BASE, BL2_RO_LIMIT
+	rcar_configure_mmu_el3(BL2_BASE, BL2_END - BL2_BASE, BL2_RO_BASE,
+			       BL2_RO_LIMIT
 #if USE_COHERENT_MEM
-			       , BL2_COHERENT_RAM_BASE, BL2_COHERENT_RAM_LIMIT
+			       ,
+			       BL2_COHERENT_RAM_BASE, BL2_COHERENT_RAM_LIMIT
 #endif
-	    );
+	);
 #endif
 }
 
 void bl2_platform_setup(void)
 {
-
 }
 
 static void bl2_init_generic_timer(void)
@@ -1161,10 +1149,10 @@ static void bl2_init_generic_timer(void)
 	uint32_t board_type;
 	uint32_t board_rev;
 	uint32_t pll_table[] = {
-		EXTAL_MD14_MD13_TYPE_0,	/* MD14/MD13 : 0b00 */
-		EXTAL_MD14_MD13_TYPE_1,	/* MD14/MD13 : 0b01 */
-		EXTAL_MD14_MD13_TYPE_2,	/* MD14/MD13 : 0b10 */
-		EXTAL_MD14_MD13_TYPE_3	/* MD14/MD13 : 0b11 */
+		EXTAL_MD14_MD13_TYPE_0, /* MD14/MD13 : 0b00 */
+		EXTAL_MD14_MD13_TYPE_1, /* MD14/MD13 : 0b01 */
+		EXTAL_MD14_MD13_TYPE_2, /* MD14/MD13 : 0b10 */
+		EXTAL_MD14_MD13_TYPE_3 /* MD14/MD13 : 0b11 */
 	};
 
 	modemr = mmio_read_32(RCAR_MODEMR);
@@ -1191,7 +1179,7 @@ static void bl2_init_generic_timer(void)
 	}
 #endif /* RCAR_LSI == RCAR_E3 */
 	/* Update memory mapped and register based freqency */
-	write_cntfrq_el0((u_register_t )reg_cntfid);
+	write_cntfrq_el0((u_register_t)reg_cntfid);
 	mmio_write_32(ARM_SYS_CNTCTL_BASE + (uintptr_t)CNTFID_OFF, reg_cntfid);
 	/* Enable counter */
 	mmio_setbits_32(RCAR_CNTC_BASE + (uintptr_t)CNTCR_OFF,

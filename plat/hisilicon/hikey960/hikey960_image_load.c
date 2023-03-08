@@ -1,12 +1,14 @@
 /*
- * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
+
 #include <common/bl_common.h>
 #include <common/desc_image_load.h>
+
 #include <plat/common/platform.h>
 
 /*******************************************************************************
@@ -26,7 +28,6 @@ bl_load_info_t *plat_get_bl_image_load_info(void)
 	return get_bl_load_info_from_mem_params_desc();
 }
 
-
 /*******************************************************************************
  * ARM helper function to return the list of executable images. Since the default
  * descriptors are allocated within BL2 RW memory, this prevents BL31/BL32
@@ -44,7 +45,6 @@ struct bl_params *hikey960_get_next_bl_params(void)
 
 	return next_bl_params;
 }
-
 
 /*******************************************************************************
  * This function returns the list of executable images.

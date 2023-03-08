@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,8 +7,8 @@
 #include <assert.h>
 #include <string.h>
 
-#include <drivers/coreboot/cbmem_console.h>
 #include <common/debug.h>
+#include <drivers/coreboot/cbmem_console.h>
 #include <lib/coreboot.h>
 #include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
@@ -57,10 +57,8 @@ coreboot_serial_t coreboot_serial;
 static uint32_t read_le32(uint32_t *p)
 {
 	uintptr_t addr = (uintptr_t)p;
-	return mmio_read_8(addr)		|
-	       mmio_read_8(addr + 1) << 8	|
-	       mmio_read_8(addr + 2) << 16	|
-	       mmio_read_8(addr + 3) << 24;
+	return mmio_read_8(addr) | mmio_read_8(addr + 1) << 8 |
+	       mmio_read_8(addr + 2) << 16 | mmio_read_8(addr + 3) << 24;
 }
 static uint64_t read_le64(uint64_t *p)
 {
@@ -78,15 +76,15 @@ static void expand_and_mmap(uintptr_t baseaddr, size_t size)
 static void setup_cbmem_console(uintptr_t baseaddr)
 {
 	static console_cbmc_t console;
-	assert(!console.console.base);	/* should only have one CBMEM console */
+	assert(!console.console.base); /* should only have one CBMEM console */
 
 	/* CBMEM console structure stores its size in first header field. */
 	uint32_t size = *(uint32_t *)baseaddr;
 	expand_and_mmap(baseaddr, size);
 	console_cbmc_register(baseaddr, &console);
 	console_set_scope(&console.console, CONSOLE_FLAG_BOOT |
-					    CONSOLE_FLAG_RUNTIME |
-					    CONSOLE_FLAG_CRASH);
+						    CONSOLE_FLAG_RUNTIME |
+						    CONSOLE_FLAG_CRASH);
 }
 
 coreboot_memory_t coreboot_get_memory_type(uintptr_t start, size_t size)
@@ -97,7 +95,7 @@ coreboot_memory_t coreboot_get_memory_type(uintptr_t start, size_t size)
 		coreboot_memrange_t *range = &coreboot_memranges[i];
 
 		if (range->type == CB_MEM_NONE)
-			break;	/* end of table reached */
+			break; /* end of table reached */
 		if ((start >= range->start) &&
 		    (start - range->start < range->size) &&
 		    (size <= range->size - (start - range->start))) {

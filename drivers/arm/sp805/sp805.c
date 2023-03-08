@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -25,7 +25,6 @@ static inline void sp805_write_wdog_lock(uintptr_t base, uint32_t value)
 {
 	mmio_write_32(base + SP805_WDOG_LOCK_OFF, value);
 }
-
 
 /* Public API implementation */
 

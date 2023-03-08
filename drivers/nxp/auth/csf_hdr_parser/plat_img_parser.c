@@ -42,19 +42,19 @@ uint32_t sign_len;
 enum sig_alg alg;
 
 /* Maximum OID string length ("a.b.c.d.e.f ...") */
-#define MAX_OID_STR_LEN			64
+#define MAX_OID_STR_LEN 64
 
-#define LIB_NAME	"NXP CSFv2"
+#define LIB_NAME "NXP CSFv2"
 
 /*
  * Clear all static temporary variables.
  */
 static void clear_temp_vars(void)
 {
-#define ZERO_AND_CLEAN(x)					\
-	do {							\
-		zeromem(&x, sizeof(x));				\
-		clean_dcache_range((uintptr_t)&x, sizeof(x));	\
+#define ZERO_AND_CLEAN(x)                                     \
+	do {                                                  \
+		zeromem(&x, sizeof(x));                       \
+		clean_dcache_range((uintptr_t)&x, sizeof(x)); \
 	} while (0)
 
 	ZERO_AND_CLEAN(img_key);
@@ -87,7 +87,7 @@ static int check_integrity(void *img, unsigned int img_len)
 	 * Flush the image to main memory so that it can be authenticated
 	 * by CAAM, a HW accelerator regardless of cache and MMU state.
 	 */
-	flush_dcache_range((uintptr_t) img, img_len);
+	flush_dcache_range((uintptr_t)img, img_len);
 
 	/*
 	 * Image is appended at an offset of 16K (IMG_OFFSET) to the header.
@@ -121,9 +121,9 @@ static int check_integrity(void *img, unsigned int img_len)
  * extracted in chek_integrity function.  This data
  * is returned back to the caller.
  */
-static int get_auth_param(const auth_param_type_desc_t *type_desc,
-		void *img, unsigned int img_len,
-		void **param, unsigned int *param_len)
+static int get_auth_param(const auth_param_type_desc_t *type_desc, void *img,
+			  unsigned int img_len, void **param,
+			  unsigned int *param_len)
 {
 	int rc = IMG_PARSER_OK;
 
@@ -132,7 +132,6 @@ static int get_auth_param(const auth_param_type_desc_t *type_desc,
 	 */
 
 	switch (type_desc->type) {
-
 	/* Hash will be returned for comparison with signature */
 	case AUTH_PARAM_HASH:
 		*param = (void *)img_hash;
@@ -176,5 +175,5 @@ static int get_auth_param(const auth_param_type_desc_t *type_desc,
 	return rc;
 }
 
-REGISTER_IMG_PARSER_LIB(IMG_PLAT, LIB_NAME, init,
-			check_integrity, get_auth_param);
+REGISTER_IMG_PARSER_LIB(IMG_PLAT, LIB_NAME, init, check_integrity,
+			get_auth_param);

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -125,7 +125,8 @@ int read_uuid(uint8_t *dest, char *uuid)
 	if (err < 0) {
 		WARN("Error parsing UUID\n");
 		/* Clear the buffer on error */
-		memset((void *)dest_start, '\0', UUID_BYTES_LENGTH * sizeof(uint8_t));
+		memset((void *)dest_start, '\0',
+		       UUID_BYTES_LENGTH * sizeof(uint8_t));
 		return -EINVAL;
 	}
 
@@ -153,6 +154,5 @@ void copy_uuid(uint32_t *to_uuid, uint32_t *from_uuid)
 
 bool is_null_uuid(uint32_t *uuid)
 {
-	return (uuid[0] == 0 && uuid[1] == 0 &&
-		uuid[2] == 0 && uuid[3] == 0);
+	return (uuid[0] == 0 && uuid[1] == 0 && uuid[2] == 0 && uuid[3] == 0);
 }

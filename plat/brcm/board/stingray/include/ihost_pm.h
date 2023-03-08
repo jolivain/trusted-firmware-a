@@ -9,8 +9,8 @@
 
 #include <stdint.h>
 
-#define CLUSTER_POWER_ON	0x1
-#define CLUSTER_POWER_OFF	0x0
+#define CLUSTER_POWER_ON 0x1
+#define CLUSTER_POWER_OFF 0x0
 
 void ihost_power_on_cluster(u_register_t mpidr);
 void ihost_power_on_secondary_core(u_register_t mpidr, uint64_t rvbar);

@@ -28,11 +28,11 @@
 #include <lib/mmio.h>
 #include <lib/optee_utils.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include <plat/common/platform.h>
-
-#include <platform_def.h>
-#include <stm32mp_common.h>
 #include <stm32mp1_dbgmcu.h>
+#include <stm32mp_common.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 #if DEBUG
 static const char debug_msg[] = {
@@ -137,8 +137,7 @@ static void print_reset_reason(void)
 	ERROR("  Unidentified reset reason\n");
 }
 
-void bl2_el3_early_platform_setup(u_register_t arg0,
-				  u_register_t arg1 __unused,
+void bl2_el3_early_platform_setup(u_register_t arg0, u_register_t arg1 __unused,
 				  u_register_t arg2 __unused,
 				  u_register_t arg3 __unused)
 {
@@ -159,7 +158,8 @@ void bl2_platform_setup(void)
 
 	/* Map DDR for binary load, now with cacheable attribute */
 	ret = mmap_add_dynamic_region(STM32MP_DDR_BASE, STM32MP_DDR_BASE,
-				      STM32MP_DDR_MAX_SIZE, MT_MEMORY | MT_RW | MT_SECURE);
+				      STM32MP_DDR_MAX_SIZE,
+				      MT_MEMORY | MT_RW | MT_SECURE);
 	if (ret < 0) {
 		ERROR("DDR mapping: error %d\n", ret);
 		panic();
@@ -192,8 +192,7 @@ static void update_monotonic_counter(void)
 
 		result = bsec_program_otp(version, otp);
 		if (result != BSEC_OK) {
-			ERROR("BSEC: MONOTONIC_OTP program Error %u\n",
-			      result);
+			ERROR("BSEC: MONOTONIC_OTP program Error %u\n", result);
 			panic();
 		}
 		INFO("Monotonic counter has been incremented (value 0x%x)\n",
@@ -214,13 +213,11 @@ void bl2_el3_plat_arch_setup(void)
 		panic();
 	}
 
-	mmap_add_region(BL_CODE_BASE, BL_CODE_BASE,
-			BL_CODE_END - BL_CODE_BASE,
+	mmap_add_region(BL_CODE_BASE, BL_CODE_BASE, BL_CODE_END - BL_CODE_BASE,
 			MT_CODE | MT_SECURE);
 
 	/* Prevent corruption of preloaded Device Tree */
-	mmap_add_region(DTB_BASE, DTB_BASE,
-			DTB_LIMIT - DTB_BASE,
+	mmap_add_region(DTB_BASE, DTB_BASE, DTB_LIMIT - DTB_BASE,
 			MT_RO_DATA | MT_SECURE);
 
 	configure_mmu();
@@ -265,8 +262,7 @@ void bl2_el3_plat_arch_setup(void)
 	 * supplied boards.
 	 */
 	if (dt_pmic_status() <= 0) {
-		mmio_clrsetbits_32(rcc_base + RCC_RDLSICR,
-				   RCC_RDLSICR_MRD_MASK,
+		mmio_clrsetbits_32(rcc_base + RCC_RDLSICR, RCC_RDLSICR_MRD_MASK,
 				   31U << RCC_RDLSICR_MRD_SHIFT);
 	}
 
@@ -313,7 +309,8 @@ void bl2_el3_plat_arch_setup(void)
 	if (boot_context->auth_status != BOOT_API_CTX_AUTH_NO) {
 		NOTICE("Bootrom authentication %s\n",
 		       (boot_context->auth_status == BOOT_API_CTX_AUTH_FAILED) ?
-		       "failed" : "succeeded");
+			       "failed" :
+			       "succeeded");
 	}
 
 skip_console_init:
@@ -405,55 +402,68 @@ int bl2_plat_handle_post_image_load(unsigned int image_id)
 	switch (image_id) {
 	case FW_CONFIG_ID:
 		/* Set global DTB info for fixed fw_config information */
-		set_config_info(STM32MP_FW_CONFIG_BASE, ~0UL, STM32MP_FW_CONFIG_MAX_SIZE,
-				FW_CONFIG_ID);
+		set_config_info(STM32MP_FW_CONFIG_BASE, ~0UL,
+				STM32MP_FW_CONFIG_MAX_SIZE, FW_CONFIG_ID);
 		fconf_populate("FW_CONFIG", STM32MP_FW_CONFIG_BASE);
 
 		idx = dyn_cfg_dtb_info_get_index(TOS_FW_CONFIG_ID);
 
 		/* Iterate through all the fw config IDs */
 		for (i = 0U; i < ARRAY_SIZE(image_ids); i++) {
-			if ((image_ids[i] == TOS_FW_CONFIG_ID) && (idx == FCONF_INVALID_IDX)) {
+			if ((image_ids[i] == TOS_FW_CONFIG_ID) &&
+			    (idx == FCONF_INVALID_IDX)) {
 				continue;
 			}
 
 			bl_mem_params = get_bl_mem_params_node(image_ids[i]);
 			assert(bl_mem_params != NULL);
 
-			config_info = FCONF_GET_PROPERTY(dyn_cfg, dtb, image_ids[i]);
+			config_info =
+				FCONF_GET_PROPERTY(dyn_cfg, dtb, image_ids[i]);
 			if (config_info == NULL) {
 				continue;
 			}
 
-			bl_mem_params->image_info.image_base = config_info->config_addr;
-			bl_mem_params->image_info.image_max_size = config_info->config_max_size;
+			bl_mem_params->image_info.image_base =
+				config_info->config_addr;
+			bl_mem_params->image_info.image_max_size =
+				config_info->config_max_size;
 
-			bl_mem_params->image_info.h.attr &= ~IMAGE_ATTRIB_SKIP_LOADING;
+			bl_mem_params->image_info.h.attr &=
+				~IMAGE_ATTRIB_SKIP_LOADING;
 
 			switch (image_ids[i]) {
 			case BL32_IMAGE_ID:
-				bl_mem_params->ep_info.pc = config_info->config_addr;
+				bl_mem_params->ep_info.pc =
+					config_info->config_addr;
 
 				/* In case of OPTEE, initialize address space with tos_fw addr */
-				pager_mem_params = get_bl_mem_params_node(BL32_EXTRA1_IMAGE_ID);
+				pager_mem_params = get_bl_mem_params_node(
+					BL32_EXTRA1_IMAGE_ID);
 				assert(pager_mem_params != NULL);
-				pager_mem_params->image_info.image_base = config_info->config_addr;
+				pager_mem_params->image_info.image_base =
+					config_info->config_addr;
 				pager_mem_params->image_info.image_max_size =
 					config_info->config_max_size;
 
 				/* Init base and size for pager if exist */
-				paged_mem_params = get_bl_mem_params_node(BL32_EXTRA2_IMAGE_ID);
+				paged_mem_params = get_bl_mem_params_node(
+					BL32_EXTRA2_IMAGE_ID);
 				if (paged_mem_params != NULL) {
-					paged_mem_params->image_info.image_base = STM32MP_DDR_BASE +
-						(dt_get_ddr_size() - STM32MP_DDR_S_SIZE -
+					paged_mem_params->image_info.image_base =
+						STM32MP_DDR_BASE +
+						(dt_get_ddr_size() -
+						 STM32MP_DDR_S_SIZE -
 						 STM32MP_DDR_SHMEM_SIZE);
-					paged_mem_params->image_info.image_max_size =
+					paged_mem_params->image_info
+						.image_max_size =
 						STM32MP_DDR_S_SIZE;
 				}
 				break;
 
 			case BL33_IMAGE_ID:
-				bl_mem_params->ep_info.pc = config_info->config_addr;
+				bl_mem_params->ep_info.pc =
+					config_info->config_addr;
 				break;
 
 			case HW_CONFIG_ID:
@@ -467,17 +477,22 @@ int bl2_plat_handle_post_image_load(unsigned int image_id)
 		break;
 
 	case BL32_IMAGE_ID:
-		if (optee_header_is_valid(bl_mem_params->image_info.image_base)) {
+		if (optee_header_is_valid(
+			    bl_mem_params->image_info.image_base)) {
 			image_info_t *paged_image_info = NULL;
 
 			/* BL32 is OP-TEE header */
-			bl_mem_params->ep_info.pc = bl_mem_params->image_info.image_base;
-			pager_mem_params = get_bl_mem_params_node(BL32_EXTRA1_IMAGE_ID);
+			bl_mem_params->ep_info.pc =
+				bl_mem_params->image_info.image_base;
+			pager_mem_params =
+				get_bl_mem_params_node(BL32_EXTRA1_IMAGE_ID);
 			assert(pager_mem_params != NULL);
 
-			paged_mem_params = get_bl_mem_params_node(BL32_EXTRA2_IMAGE_ID);
+			paged_mem_params =
+				get_bl_mem_params_node(BL32_EXTRA2_IMAGE_ID);
 			if (paged_mem_params != NULL) {
-				paged_image_info = &paged_mem_params->image_info;
+				paged_image_info =
+					&paged_mem_params->image_info;
 			}
 
 			err = parse_optee_header(&bl_mem_params->ep_info,
@@ -497,10 +512,13 @@ int bl2_plat_handle_post_image_load(unsigned int image_id)
 			}
 
 			bl_mem_params->ep_info.args.arg1 = 0U; /* Unused */
-			bl_mem_params->ep_info.args.arg2 = 0U; /* No DT supported */
+			bl_mem_params->ep_info.args.arg2 =
+				0U; /* No DT supported */
 		} else {
-			bl_mem_params->ep_info.pc = bl_mem_params->image_info.image_base;
-			tos_fw_mem_params = get_bl_mem_params_node(TOS_FW_CONFIG_ID);
+			bl_mem_params->ep_info.pc =
+				bl_mem_params->image_info.image_base;
+			tos_fw_mem_params =
+				get_bl_mem_params_node(TOS_FW_CONFIG_ID);
 			assert(tos_fw_mem_params != NULL);
 			bl_mem_params->image_info.image_max_size +=
 				tos_fw_mem_params->image_info.image_max_size;
@@ -527,10 +545,10 @@ int bl2_plat_handle_post_image_load(unsigned int image_id)
 	 * Invalidate remaining data read from MMC but not flushed by load_image_flush().
 	 * We take the worst case which is 2 MMC blocks.
 	 */
-	if ((image_id != FW_CONFIG_ID) &&
-	    ((bl_mem_params->image_info.h.attr & IMAGE_ATTRIB_SKIP_LOADING) == 0U)) {
+	if ((image_id != FW_CONFIG_ID) && ((bl_mem_params->image_info.h.attr &
+					    IMAGE_ATTRIB_SKIP_LOADING) == 0U)) {
 		inv_dcache_range(bl_mem_params->image_info.image_base +
-				 bl_mem_params->image_info.image_size,
+					 bl_mem_params->image_info.image_size,
 				 2U * MMC_BLOCK_SIZE);
 	}
 #endif /* STM32MP_SDMMC || STM32MP_EMMC */

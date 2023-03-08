@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,19 +8,18 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <platform_def.h>
-
 #include <common/debug.h>
-#include <lib/mmio.h>
-
 #include <hi6220_regs_acpu.h>
 #include <hi6220_regs_ao.h>
 #include <hisi_ipc.h>
 #include <hisi_pwrc.h>
 #include <hisi_sram_map.h>
+#include <lib/mmio.h>
 
-#define CLUSTER_CORE_COUNT		(4)
-#define CLUSTER_CORE_MASK		((1 << CLUSTER_CORE_COUNT) - 1)
+#include <platform_def.h>
+
+#define CLUSTER_CORE_COUNT (4)
+#define CLUSTER_CORE_MASK ((1 << CLUSTER_CORE_COUNT) - 1)
 
 void hisi_pwrc_set_core_bx_addr(unsigned int core, unsigned int cluster,
 				uintptr_t entry_point)

@@ -1,10 +1,11 @@
 /*
- * Copyright (c) 2020, Arm Limited. All rights reserved.
+ * Copyright (c) 2020-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <lib/cassert.h>
+
 #include <plat/arm/common/plat_arm.h>
 
 /* Compile time assertion to ensure the core count is 4 */
@@ -57,4 +58,5 @@ unsigned int plat_arm_get_cluster_core_count(u_register_t mpidr)
  * to the SCMI power domain ID implemented by SCP.
  ******************************************************************************/
 const uint32_t plat_css_core_pos_to_scmi_dmn_id_map[PLATFORM_CORE_COUNT] = {
-	0, 1, 2, 3};
+	0, 1, 2, 3
+};

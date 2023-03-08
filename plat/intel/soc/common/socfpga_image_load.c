@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -40,7 +40,6 @@ bl_params_t *plat_get_next_bl_params(void)
 
 	/* Clean next_params_info in BL image node */
 	for (count = 0U; count < bl_mem_params_desc_num; count++) {
-
 		desc_ptr = &bl_mem_params_desc_ptr[link_index];
 		bl_exec_node = &desc_ptr->params_node_mem;
 		bl_exec_node->next_params_info = NULL;

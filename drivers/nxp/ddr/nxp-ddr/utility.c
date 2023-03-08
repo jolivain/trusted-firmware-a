@@ -15,28 +15,29 @@
 #include <immap.h>
 #include <lib/mmio.h>
 
-#define UL_5POW12	244140625UL
-#define ULL_2E12	2000000000000ULL
-#define UL_2POW13	(1UL << 13)
-#define ULL_8FS		0xFFFFFFFFULL
+#define UL_5POW12 244140625UL
+#define ULL_2E12 2000000000000ULL
+#define UL_2POW13 (1UL << 13)
+#define ULL_8FS 0xFFFFFFFFULL
 
-#define do_div(n, base) ({				\
-	unsigned int __base = (base);			\
-	unsigned int __rem;				\
-	__rem = ((unsigned long long)(n)) % __base;	\
-	(n) = ((unsigned long long)(n)) / __base;	\
-	__rem;						\
-})
+#define do_div(n, base)                                     \
+	({                                                  \
+		unsigned int __base = (base);               \
+		unsigned int __rem;                         \
+		__rem = ((unsigned long long)(n)) % __base; \
+		(n) = ((unsigned long long)(n)) / __base;   \
+		__rem;                                      \
+	})
 
-#define CCN_HN_F_SAM_NODEID_MASK	0x7f
+#define CCN_HN_F_SAM_NODEID_MASK 0x7f
 #ifdef NXP_HAS_CCN504
-#define CCN_HN_F_SAM_NODEID_DDR0	0x4
-#define CCN_HN_F_SAM_NODEID_DDR1	0xe
+#define CCN_HN_F_SAM_NODEID_DDR0 0x4
+#define CCN_HN_F_SAM_NODEID_DDR1 0xe
 #elif defined(NXP_HAS_CCN508)
-#define CCN_HN_F_SAM_NODEID_DDR0_0	0x3
-#define CCN_HN_F_SAM_NODEID_DDR0_1	0x8
-#define CCN_HN_F_SAM_NODEID_DDR1_0	0x13
-#define CCN_HN_F_SAM_NODEID_DDR1_1	0x18
+#define CCN_HN_F_SAM_NODEID_DDR0_0 0x3
+#define CCN_HN_F_SAM_NODEID_DDR0_1 0x8
+#define CCN_HN_F_SAM_NODEID_DDR1_0 0x13
+#define CCN_HN_F_SAM_NODEID_DDR1_1 0x18
 #endif
 
 unsigned long get_ddr_freq(struct sysinfo *sys, int ctrl_num)
@@ -86,7 +87,7 @@ unsigned int picos_to_mclk(unsigned long data_rate, unsigned int picos)
 	 * by 2*(2^12) using shifts (and updating the remainder).
 	 */
 	clks_rem = do_div(clks, UL_5POW12);
-	clks_rem += (clks & (UL_2POW13-1)) * UL_5POW12;
+	clks_rem += (clks & (UL_2POW13 - 1)) * UL_5POW12;
 	clks >>= 13U;
 
 	/* If we had a remainder greater than the 1ps error, then round up */
@@ -98,12 +99,12 @@ unsigned int picos_to_mclk(unsigned long data_rate, unsigned int picos)
 	if (clks > ULL_8FS) {
 		clks = ULL_8FS;
 	}
-	return (unsigned int) clks;
+	return (unsigned int)clks;
 }
 
 /* valid_spd_mask has been checked by parse_spd */
-int disable_unused_ddrc(struct ddr_info *priv,
-			int valid_spd_mask, uintptr_t nxp_ccn_hn_f0_addr)
+int disable_unused_ddrc(struct ddr_info *priv, int valid_spd_mask,
+			uintptr_t nxp_ccn_hn_f0_addr)
 {
 #if defined(NXP_HAS_CCN504) || defined(NXP_HAS_CCN508)
 	void *hnf_sam_ctrl = (void *)(nxp_ccn_hn_f0_addr + CCN_HN_F_SAM_CTL);
@@ -122,12 +123,12 @@ int disable_unused_ddrc(struct ddr_info *priv,
 
 	switch (priv->dimm_on_ctlr) {
 	case 1:
-		disable_ddrc = ((valid_spd_mask &0x2) == 0) ? 2 : 0;
-		disable_ddrc = ((valid_spd_mask &0x1) == 0) ? 1 : disable_ddrc;
+		disable_ddrc = ((valid_spd_mask & 0x2) == 0) ? 2 : 0;
+		disable_ddrc = ((valid_spd_mask & 0x1) == 0) ? 1 : disable_ddrc;
 		break;
 	case 2:
-		disable_ddrc = ((valid_spd_mask &0x4) == 0) ? 2 : 0;
-		disable_ddrc = ((valid_spd_mask &0x1) == 0) ? 1 : disable_ddrc;
+		disable_ddrc = ((valid_spd_mask & 0x4) == 0) ? 2 : 0;
+		disable_ddrc = ((valid_spd_mask & 0x1) == 0) ? 1 : disable_ddrc;
 		break;
 	default:
 		ERROR("Invalid number of DIMMs %d\n", priv->dimm_on_ctlr);
@@ -169,16 +170,21 @@ int disable_unused_ddrc(struct ddr_info *priv,
 	for (i = 0; i < num_hnf_nodes; i++) {
 		val = mmio_read_64((uintptr_t)hnf_sam_ctrl);
 #ifdef NXP_HAS_CCN504
-		nodeid = disable_ddrc == 1 ? CCN_HN_F_SAM_NODEID_DDR1 :
-			(disable_ddrc == 2 ? CCN_HN_F_SAM_NODEID_DDR0 :
-			 0x0);   /*Failure condition. never hit */
+		nodeid =
+			disable_ddrc == 1 ?
+				CCN_HN_F_SAM_NODEID_DDR1 :
+				(disable_ddrc == 2 ?
+					 CCN_HN_F_SAM_NODEID_DDR0 :
+					 0x0); /*Failure condition. never hit */
 #elif defined(NXP_HAS_CCN508)
 		if (disable_ddrc == 1) {
-			nodeid = (i < 2 || i >= 6) ? CCN_HN_F_SAM_NODEID_DDR1_1 :
-				CCN_HN_F_SAM_NODEID_DDR1_0;
+			nodeid = (i < 2 || i >= 6) ?
+					 CCN_HN_F_SAM_NODEID_DDR1_1 :
+					 CCN_HN_F_SAM_NODEID_DDR1_0;
 		} else if (disable_ddrc == 2) {
-			nodeid = (i < 2 || i >= 6) ? CCN_HN_F_SAM_NODEID_DDR0_0 :
-				CCN_HN_F_SAM_NODEID_DDR0_1;
+			nodeid = (i < 2 || i >= 6) ?
+					 CCN_HN_F_SAM_NODEID_DDR0_0 :
+					 CCN_HN_F_SAM_NODEID_DDR0_1;
 		} else {
 			nodeid = 0; /* Failure condition. never hit */
 		}
@@ -245,7 +251,7 @@ void print_ddr_info(struct ccsr_ddr *ddr)
 
 	/* Calculate CAS latency based on timing cfg values */
 	cas_lat = ((ddr_in32(&ddr->timing_cfg_1) >> 16) & 0xf);
-	cas_lat += 2;	/* for DDRC newer than 4.4 */
+	cas_lat += 2; /* for DDRC newer than 4.4 */
 	cas_lat += ((ddr_in32(&ddr->timing_cfg_3) >> 12) & 3) << 4;
 	printf(", CL=%d", cas_lat >> 1);
 	if ((cas_lat & 0x1) != 0) {

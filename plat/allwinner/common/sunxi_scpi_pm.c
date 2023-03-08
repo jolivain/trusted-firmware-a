@@ -1,12 +1,10 @@
 /*
- * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-
-#include <platform_def.h>
 
 #include <arch_helpers.h>
 #include <common/debug.h>
@@ -14,38 +12,36 @@
 #include <drivers/arm/gicv2.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
-
 #include <sunxi_mmap.h>
 #include <sunxi_private.h>
+
+#include <platform_def.h>
 
 /*
  * The addresses for the SCP exception vectors are defined in the or1k
  * architecture specification.
  */
-#define OR1K_VEC_FIRST			0x01
-#define OR1K_VEC_LAST			0x0e
-#define OR1K_VEC_ADDR(n)		(0x100 * (n))
+#define OR1K_VEC_FIRST 0x01
+#define OR1K_VEC_LAST 0x0e
+#define OR1K_VEC_ADDR(n) (0x100 * (n))
 
 /*
  * This magic value is the little-endian representation of the or1k
  * instruction "l.mfspr r2, r0, 0x12", which is guaranteed to be the
  * first instruction in the SCP firmware.
  */
-#define SCP_FIRMWARE_MAGIC		0xb4400012
+#define SCP_FIRMWARE_MAGIC 0xb4400012
 
-#define PLAT_LOCAL_PSTATE_WIDTH		U(4)
-#define PLAT_LOCAL_PSTATE_MASK		((U(1) << PLAT_LOCAL_PSTATE_WIDTH) - 1)
+#define PLAT_LOCAL_PSTATE_WIDTH U(4)
+#define PLAT_LOCAL_PSTATE_MASK ((U(1) << PLAT_LOCAL_PSTATE_WIDTH) - 1)
 
-#define CPU_PWR_LVL			MPIDR_AFFLVL0
-#define CLUSTER_PWR_LVL			MPIDR_AFFLVL1
-#define SYSTEM_PWR_LVL			MPIDR_AFFLVL2
+#define CPU_PWR_LVL MPIDR_AFFLVL0
+#define CLUSTER_PWR_LVL MPIDR_AFFLVL1
+#define SYSTEM_PWR_LVL MPIDR_AFFLVL2
 
-#define CPU_PWR_STATE(state) \
-	((state)->pwr_domain_state[CPU_PWR_LVL])
-#define CLUSTER_PWR_STATE(state) \
-	((state)->pwr_domain_state[CLUSTER_PWR_LVL])
-#define SYSTEM_PWR_STATE(state) \
-	((state)->pwr_domain_state[SYSTEM_PWR_LVL])
+#define CPU_PWR_STATE(state) ((state)->pwr_domain_state[CPU_PWR_LVL])
+#define CLUSTER_PWR_STATE(state) ((state)->pwr_domain_state[CLUSTER_PWR_LVL])
+#define SYSTEM_PWR_STATE(state) ((state)->pwr_domain_state[SYSTEM_PWR_LVL])
 
 static void sunxi_cpu_standby(plat_local_state_t cpu_state)
 {
@@ -60,9 +56,7 @@ static void sunxi_cpu_standby(plat_local_state_t cpu_state)
 
 static int sunxi_pwr_domain_on(u_register_t mpidr)
 {
-	scpi_set_css_power_state(mpidr,
-				 scpi_power_on,
-				 scpi_power_on,
+	scpi_set_css_power_state(mpidr, scpi_power_on, scpi_power_on,
 				 scpi_power_on);
 
 	return PSCI_E_SUCCESS;
@@ -70,17 +64,15 @@ static int sunxi_pwr_domain_on(u_register_t mpidr)
 
 static void sunxi_pwr_domain_off(const psci_power_state_t *target_state)
 {
-	plat_local_state_t cpu_pwr_state     = CPU_PWR_STATE(target_state);
+	plat_local_state_t cpu_pwr_state = CPU_PWR_STATE(target_state);
 	plat_local_state_t cluster_pwr_state = CLUSTER_PWR_STATE(target_state);
-	plat_local_state_t system_pwr_state  = SYSTEM_PWR_STATE(target_state);
+	plat_local_state_t system_pwr_state = SYSTEM_PWR_STATE(target_state);
 
 	if (is_local_state_off(cpu_pwr_state)) {
 		gicv2_cpuif_disable();
 	}
 
-	scpi_set_css_power_state(read_mpidr(),
-				 cpu_pwr_state,
-				 cluster_pwr_state,
+	scpi_set_css_power_state(read_mpidr(), cpu_pwr_state, cluster_pwr_state,
 				 system_pwr_state);
 }
 
@@ -169,17 +161,17 @@ static void sunxi_get_sys_suspend_power_state(psci_power_state_t *req_state)
 }
 
 static const plat_psci_ops_t sunxi_scpi_psci_ops = {
-	.cpu_standby			= sunxi_cpu_standby,
-	.pwr_domain_on			= sunxi_pwr_domain_on,
-	.pwr_domain_off			= sunxi_pwr_domain_off,
-	.pwr_domain_suspend		= sunxi_pwr_domain_off,
-	.pwr_domain_on_finish		= sunxi_pwr_domain_on_finish,
-	.pwr_domain_suspend_finish	= sunxi_pwr_domain_on_finish,
-	.system_off			= sunxi_system_off,
-	.system_reset			= sunxi_system_reset,
-	.validate_power_state		= sunxi_validate_power_state,
-	.validate_ns_entrypoint		= sunxi_validate_ns_entrypoint,
-	.get_sys_suspend_power_state	= sunxi_get_sys_suspend_power_state,
+	.cpu_standby = sunxi_cpu_standby,
+	.pwr_domain_on = sunxi_pwr_domain_on,
+	.pwr_domain_off = sunxi_pwr_domain_off,
+	.pwr_domain_suspend = sunxi_pwr_domain_off,
+	.pwr_domain_on_finish = sunxi_pwr_domain_on_finish,
+	.pwr_domain_suspend_finish = sunxi_pwr_domain_on_finish,
+	.system_off = sunxi_system_off,
+	.system_reset = sunxi_system_reset,
+	.validate_power_state = sunxi_validate_power_state,
+	.validate_ns_entrypoint = sunxi_validate_ns_entrypoint,
+	.get_sys_suspend_power_state = sunxi_get_sys_suspend_power_state,
 };
 
 int sunxi_set_scpi_psci_ops(const plat_psci_ops_t **psci_ops)

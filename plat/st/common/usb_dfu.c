@@ -8,49 +8,49 @@
 #include <string.h>
 
 #include <common/debug.h>
-
-#include <platform_def.h>
 #include <usb_dfu.h>
 
+#include <platform_def.h>
+
 /* Device states as defined in DFU spec */
-#define STATE_APP_IDLE			0
-#define STATE_APP_DETACH		1
-#define STATE_DFU_IDLE			2
-#define STATE_DFU_DNLOAD_SYNC		3
-#define STATE_DFU_DNLOAD_BUSY		4
-#define STATE_DFU_DNLOAD_IDLE		5
-#define STATE_DFU_MANIFEST_SYNC		6
-#define STATE_DFU_MANIFEST		7
-#define STATE_DFU_MANIFEST_WAIT_RESET	8
-#define STATE_DFU_UPLOAD_IDLE		9
-#define STATE_DFU_ERROR			10
+#define STATE_APP_IDLE 0
+#define STATE_APP_DETACH 1
+#define STATE_DFU_IDLE 2
+#define STATE_DFU_DNLOAD_SYNC 3
+#define STATE_DFU_DNLOAD_BUSY 4
+#define STATE_DFU_DNLOAD_IDLE 5
+#define STATE_DFU_MANIFEST_SYNC 6
+#define STATE_DFU_MANIFEST 7
+#define STATE_DFU_MANIFEST_WAIT_RESET 8
+#define STATE_DFU_UPLOAD_IDLE 9
+#define STATE_DFU_ERROR 10
 
 /* DFU errors */
-#define DFU_ERROR_NONE			0x00
-#define DFU_ERROR_TARGET		0x01
-#define DFU_ERROR_FILE			0x02
-#define DFU_ERROR_WRITE			0x03
-#define DFU_ERROR_ERASE			0x04
-#define DFU_ERROR_CHECK_ERASED		0x05
-#define DFU_ERROR_PROG			0x06
-#define DFU_ERROR_VERIFY		0x07
-#define DFU_ERROR_ADDRESS		0x08
-#define DFU_ERROR_NOTDONE		0x09
-#define DFU_ERROR_FIRMWARE		0x0A
-#define DFU_ERROR_VENDOR		0x0B
-#define DFU_ERROR_USB			0x0C
-#define DFU_ERROR_POR			0x0D
-#define DFU_ERROR_UNKNOWN		0x0E
-#define DFU_ERROR_STALLEDPKT		0x0F
+#define DFU_ERROR_NONE 0x00
+#define DFU_ERROR_TARGET 0x01
+#define DFU_ERROR_FILE 0x02
+#define DFU_ERROR_WRITE 0x03
+#define DFU_ERROR_ERASE 0x04
+#define DFU_ERROR_CHECK_ERASED 0x05
+#define DFU_ERROR_PROG 0x06
+#define DFU_ERROR_VERIFY 0x07
+#define DFU_ERROR_ADDRESS 0x08
+#define DFU_ERROR_NOTDONE 0x09
+#define DFU_ERROR_FIRMWARE 0x0A
+#define DFU_ERROR_VENDOR 0x0B
+#define DFU_ERROR_USB 0x0C
+#define DFU_ERROR_POR 0x0D
+#define DFU_ERROR_UNKNOWN 0x0E
+#define DFU_ERROR_STALLEDPKT 0x0F
 
 /* DFU request */
-#define DFU_DETACH			0
-#define DFU_DNLOAD			1
-#define DFU_UPLOAD			2
-#define DFU_GETSTATUS			3
-#define DFU_CLRSTATUS			4
-#define DFU_GETSTATE			5
-#define DFU_ABORT			6
+#define DFU_DETACH 0
+#define DFU_DNLOAD 1
+#define DFU_UPLOAD 2
+#define DFU_GETSTATUS 3
+#define DFU_CLRSTATUS 4
+#define DFU_GETSTATE 5
+#define DFU_ABORT 6
 
 static bool usb_dfu_detach_req;
 
@@ -255,7 +255,8 @@ static void usb_dfu_download(struct usb_handle *pdev, struct usb_setup_req *req)
 		}
 		/* End of DNLOAD operation*/
 		hdfu->dev_state = STATE_DFU_MANIFEST_SYNC;
-		ret = hdfu->callback->manifestation(hdfu->alt_setting, pdev->user_data);
+		ret = hdfu->callback->manifestation(hdfu->alt_setting,
+						    pdev->user_data);
 		if (ret == 0U) {
 			hdfu->dev_state = STATE_DFU_MANIFEST_SYNC;
 		} else {
@@ -285,7 +286,8 @@ static void usb_dfu_upload(struct usb_handle *pdev, struct usb_setup_req *req)
 	}
 
 	/* Unsupported state */
-	if ((hdfu->dev_state != STATE_DFU_IDLE) && (hdfu->dev_state != STATE_DFU_UPLOAD_IDLE)) {
+	if ((hdfu->dev_state != STATE_DFU_IDLE) &&
+	    (hdfu->dev_state != STATE_DFU_UPLOAD_IDLE)) {
 		ERROR("UPLOAD : Unsupported State\n");
 		/* Call the error management function (command will be nacked) */
 		usb_core_ctl_error(pdev);
@@ -294,15 +296,19 @@ static void usb_dfu_upload(struct usb_handle *pdev, struct usb_setup_req *req)
 
 	/* Update the data address */
 	length = req->length;
-	ret = hdfu->callback->upload(hdfu->alt_setting, &data_ptr, &length, pdev->user_data);
+	ret = hdfu->callback->upload(hdfu->alt_setting, &data_ptr, &length,
+				     pdev->user_data);
 	if (ret == 0U) {
 		/* Short frame */
-		hdfu->dev_state = (req->length > length) ? STATE_DFU_IDLE : STATE_DFU_UPLOAD_IDLE;
+		hdfu->dev_state = (req->length > length) ?
+					  STATE_DFU_IDLE :
+					  STATE_DFU_UPLOAD_IDLE;
 
 		/* Start the transfer */
 		usb_core_transmit_ep0(pdev, (uint8_t *)data_ptr, length);
 	} else {
-		ERROR("UPLOAD : bad block %i on alt %i\n", req->value, req->index);
+		ERROR("UPLOAD : bad block %i on alt %i\n", req->value,
+		      req->index);
 		hdfu->dev_state = STATE_DFU_ERROR;
 		hdfu->dev_status = DFU_ERROR_STALLEDPKT;
 
@@ -320,12 +326,12 @@ static void usb_dfu_get_status(struct usb_handle *pdev)
 {
 	struct usb_dfu_handle *hdfu = (struct usb_dfu_handle *)pdev->class_data;
 
-	hdfu->status[0] = hdfu->dev_status;	/* bStatus */
-	hdfu->status[1] = 0;			/* bwPollTimeout[3] */
+	hdfu->status[0] = hdfu->dev_status; /* bStatus */
+	hdfu->status[1] = 0; /* bwPollTimeout[3] */
 	hdfu->status[2] = 0;
 	hdfu->status[3] = 0;
-	hdfu->status[4] = hdfu->dev_state;	/* bState */
-	hdfu->status[5] = 0;			/* iString */
+	hdfu->status[4] = hdfu->dev_state; /* bState */
+	hdfu->status[5] = 0; /* iString */
 
 	/* next step */
 	switch (hdfu->dev_state) {
@@ -344,7 +350,8 @@ static void usb_dfu_get_status(struct usb_handle *pdev)
 	}
 
 	/* Start the transfer */
-	usb_core_transmit_ep0(pdev, (uint8_t *)&hdfu->status[0], sizeof(hdfu->status));
+	usb_core_transmit_ep0(pdev, (uint8_t *)&hdfu->status[0],
+			      sizeof(hdfu->status));
 }
 
 /*
@@ -469,7 +476,8 @@ static uint8_t usb_dfu_setup(struct usb_handle *pdev, struct usb_setup_req *req)
 
 		case USB_REQ_GET_INTERFACE:
 			/* Start the transfer */
-			usb_core_transmit_ep0(pdev, (uint8_t *)&hdfu->alt_setting, 1U);
+			usb_core_transmit_ep0(
+				pdev, (uint8_t *)&hdfu->alt_setting, 1U);
 			break;
 
 		case USB_REQ_SET_INTERFACE:

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,8 +8,8 @@
 #include <plat/common/platform.h>
 
 /* The corstone1000 power domain tree descriptor */
-static unsigned char corstone1000_power_domain_tree_desc[PLAT_ARM_CLUSTER_COUNT
-							+ 2];
+static unsigned char
+	corstone1000_power_domain_tree_desc[PLAT_ARM_CLUSTER_COUNT + 2];
 /*******************************************************************************
  * This function dynamically constructs the topology according to
  * CLUSTER_COUNT and returns it.
@@ -26,7 +26,8 @@ const unsigned char *plat_get_power_domain_tree_desc(void)
 	corstone1000_power_domain_tree_desc[1] = PLAT_ARM_CLUSTER_COUNT;
 
 	for (i = 0; i < PLAT_ARM_CLUSTER_COUNT; i++)
-		corstone1000_power_domain_tree_desc[i + 2] = PLATFORM_CORE_COUNT;
+		corstone1000_power_domain_tree_desc[i + 2] =
+			PLATFORM_CORE_COUNT;
 
 	return corstone1000_power_domain_tree_desc;
 }

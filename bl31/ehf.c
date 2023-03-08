@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,39 +13,42 @@
 
 #include <bl31/ehf.h>
 #include <bl31/interrupt_mgmt.h>
-#include <context.h>
 #include <common/debug.h>
+#include <context.h>
 #include <drivers/arm/gic_common.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/el3_runtime/cpu_data.h>
 #include <lib/el3_runtime/pubsub_events.h>
+
 #include <plat/common/platform.h>
 
 /* Output EHF logs as verbose */
-#define EHF_LOG(...)	VERBOSE("EHF: " __VA_ARGS__)
+#define EHF_LOG(...) VERBOSE("EHF: " __VA_ARGS__)
 
-#define EHF_INVALID_IDX	(-1)
+#define EHF_INVALID_IDX (-1)
 
 /* For a valid handler, return the actual function pointer; otherwise, 0. */
-#define RAW_HANDLER(h) \
-	((ehf_handler_t) ((((h) & EHF_PRI_VALID_) != 0U) ? \
-		((h) & ~EHF_PRI_VALID_) : 0U))
+#define RAW_HANDLER(h)                                     \
+	((ehf_handler_t)((((h)&EHF_PRI_VALID_) != 0U) ?    \
+				 ((h) & ~EHF_PRI_VALID_) : \
+				 0U))
 
-#define PRI_BIT(idx)	(((ehf_pri_bits_t) 1u) << (idx))
+#define PRI_BIT(idx) (((ehf_pri_bits_t)1u) << (idx))
 
 /*
  * Convert index into secure priority using the platform-defined priority bits
  * field.
  */
 #define IDX_TO_PRI(idx) \
-	((((unsigned) idx) << (7u - exception_data.pri_bits)) & 0x7fU)
+	((((unsigned)idx) << (7u - exception_data.pri_bits)) & 0x7fU)
 
 /* Check whether a given index is valid */
-#define IS_IDX_VALID(idx) \
-	((exception_data.ehf_priorities[idx].ehf_handler & EHF_PRI_VALID_) != 0U)
+#define IS_IDX_VALID(idx)                                                     \
+	((exception_data.ehf_priorities[idx].ehf_handler & EHF_PRI_VALID_) != \
+	 0U)
 
 /* Returns whether given priority is in secure priority range */
-#define IS_PRI_SECURE(pri)	(((pri) & 0x80U) == 0U)
+#define IS_PRI_SECURE(pri) (((pri)&0x80U) == 0U)
 
 /* To be defined by the platform */
 extern const ehf_priorities_t exception_data;
@@ -83,7 +86,7 @@ static int get_pe_highest_active_idx(pe_exc_data_t *pe_data)
 		return EHF_INVALID_IDX;
 
 	/* Current priority is the right-most bit */
-	return (int) __builtin_ctz(pe_data->active_pri_bits);
+	return (int)__builtin_ctz(pe_data->active_pri_bits);
 }
 
 /*
@@ -110,7 +113,7 @@ void ehf_activate_priority(unsigned int priority)
 	run_pri = plat_ic_get_running_priority();
 	if (priority >= run_pri) {
 		ERROR("Running priority higher (0x%x) than requested (0x%x)\n",
-				run_pri, priority);
+		      run_pri, priority);
 		panic();
 	}
 
@@ -122,9 +125,9 @@ void ehf_activate_priority(unsigned int priority)
 	cur_pri_idx = get_pe_highest_active_idx(pe_data);
 	idx = pri_to_idx(priority);
 	if ((cur_pri_idx != EHF_INVALID_IDX) &&
-			(idx >= ((unsigned int) cur_pri_idx))) {
+	    (idx >= ((unsigned int)cur_pri_idx))) {
 		ERROR("Activation priority mismatch: req=0x%x current=0x%x\n",
-				priority, IDX_TO_PRI(cur_pri_idx));
+		      priority, IDX_TO_PRI(cur_pri_idx));
 		panic();
 	}
 
@@ -139,7 +142,7 @@ void ehf_activate_priority(unsigned int priority)
 	old_mask = plat_ic_set_priority_mask(priority);
 	if (priority >= old_mask) {
 		ERROR("Requested priority (0x%x) lower than Priority Mask (0x%x)\n",
-				priority, old_mask);
+		      priority, old_mask);
 		panic();
 	}
 
@@ -148,7 +151,7 @@ void ehf_activate_priority(unsigned int priority)
 	 * restored after the last deactivation.
 	 */
 	if (cur_pri_idx == EHF_INVALID_IDX)
-		pe_data->init_pri_mask = (uint8_t) old_mask;
+		pe_data->init_pri_mask = (uint8_t)old_mask;
 
 	EHF_LOG("activate prio=%d\n", get_pe_highest_active_idx(pe_data));
 }
@@ -177,7 +180,7 @@ void ehf_deactivate_priority(unsigned int priority)
 	run_pri = plat_ic_get_running_priority();
 	if (priority >= run_pri) {
 		ERROR("Running priority higher (0x%x) than requested (0x%x)\n",
-				run_pri, priority);
+		      run_pri, priority);
 		panic();
 	}
 
@@ -189,9 +192,9 @@ void ehf_deactivate_priority(unsigned int priority)
 	cur_pri_idx = get_pe_highest_active_idx(pe_data);
 	idx = pri_to_idx(priority);
 	if ((cur_pri_idx == EHF_INVALID_IDX) ||
-			(idx != ((unsigned int) cur_pri_idx))) {
+	    (idx != ((unsigned int)cur_pri_idx))) {
 		ERROR("Deactivation priority mismatch: req=0x%x current=0x%x\n",
-				priority, IDX_TO_PRI(cur_pri_idx));
+		      priority, IDX_TO_PRI(cur_pri_idx));
 		panic();
 	}
 
@@ -210,7 +213,7 @@ void ehf_deactivate_priority(unsigned int priority)
 
 	if (old_mask > priority) {
 		ERROR("Deactivation priority (0x%x) lower than Priority Mask (0x%x)\n",
-				priority, old_mask);
+		      priority, old_mask);
 		panic();
 	}
 
@@ -245,17 +248,17 @@ static void *ehf_exited_normal_world(const void *arg)
 	assert(pe_data->ns_pri_mask == 0u);
 
 	pe_data->ns_pri_mask =
-		(uint8_t) plat_ic_set_priority_mask(GIC_HIGHEST_NS_PRIORITY);
+		(uint8_t)plat_ic_set_priority_mask(GIC_HIGHEST_NS_PRIORITY);
 
 	/* The previous Priority Mask is not expected to be in secure range */
 	if (IS_PRI_SECURE(pe_data->ns_pri_mask)) {
 		ERROR("Priority Mask (0x%x) already in secure range\n",
-				pe_data->ns_pri_mask);
+		      pe_data->ns_pri_mask);
 		panic();
 	}
 
 	EHF_LOG("Priority Mask: 0x%x => 0x%x\n", pe_data->ns_pri_mask,
-			GIC_HIGHEST_NS_PRIORITY);
+		GIC_HIGHEST_NS_PRIORITY);
 
 	return NULL;
 }
@@ -300,7 +303,7 @@ static void *ehf_entering_normal_world(const void *arg)
 	 * priority mask set upon calling ehf_allow_ns_preemption()
 	 */
 	if ((old_pmr != GIC_HIGHEST_NS_PRIORITY) &&
-			(old_pmr != pe_data->ns_pri_mask)) {
+	    (old_pmr != pe_data->ns_pri_mask)) {
 		ERROR("Invalid Priority Mask (0x%x) restored\n", old_pmr);
 		panic();
 	}
@@ -338,7 +341,7 @@ void ehf_allow_ns_preemption(uint64_t preempt_ret_code)
 	/* Make sure no priority levels are active when requesting this */
 	if (has_valid_pri_activations(pe_data)) {
 		ERROR("PE %lx has priority activations: 0x%x\n",
-				read_mpidr_el1(), pe_data->active_pri_bits);
+		      read_mpidr_el1(), pe_data->active_pri_bits);
 		panic();
 	}
 
@@ -391,7 +394,7 @@ unsigned int ehf_is_ns_preemption_allowed(void)
  * Top-level EL3 interrupt handler.
  */
 static uint64_t ehf_el3_interrupt_handler(uint32_t id, uint32_t flags,
-		void *handle, void *cookie)
+					  void *handle, void *cookie)
 {
 	int ret = 0;
 	uint32_t intr_raw;
@@ -432,11 +435,11 @@ static uint64_t ehf_el3_interrupt_handler(uint32_t id, uint32_t flags,
 	/* Validate priority */
 	assert(pri == IDX_TO_PRI(idx));
 
-	handler = (ehf_handler_t) RAW_HANDLER(
-			exception_data.ehf_priorities[idx].ehf_handler);
+	handler = (ehf_handler_t)RAW_HANDLER(
+		exception_data.ehf_priorities[idx].ehf_handler);
 	if (handler == NULL) {
 		ERROR("No EL3 exception handler for priority 0x%x\n",
-				IDX_TO_PRI(idx));
+		      IDX_TO_PRI(idx));
 		panic();
 	}
 
@@ -446,7 +449,7 @@ static uint64_t ehf_el3_interrupt_handler(uint32_t id, uint32_t flags,
 	 */
 	ret = handler(intr_raw, flags, handle, cookie);
 
-	return (uint64_t) ret;
+	return (uint64_t)ret;
 }
 
 /*
@@ -473,7 +476,7 @@ void __init ehf_init(void)
 	 * platforms must use at least 1 of the remaining 7 bits.
 	 */
 	assert((exception_data.pri_bits >= 1U) ||
-			(exception_data.pri_bits < 8U));
+	       (exception_data.pri_bits < 8U));
 
 	/* Route EL3 interrupts when in Non-secure. */
 	set_interrupt_rm_flag(flags, NON_SECURE);
@@ -488,7 +491,7 @@ void __init ehf_init(void)
 
 	/* Register handler for EL3 interrupts */
 	ret = register_interrupt_type_handler(INTR_TYPE_EL3,
-			ehf_el3_interrupt_handler, flags);
+					      ehf_el3_interrupt_handler, flags);
 	assert(ret == 0);
 }
 
@@ -506,7 +509,7 @@ void ehf_register_priority_handler(unsigned int pri, ehf_handler_t handler)
 	assert(handler != NULL);
 
 	/* Handler ought to be 4-byte aligned */
-	assert((((uintptr_t) handler) & 3U) == 0U);
+	assert((((uintptr_t)handler) & 3U) == 0U);
 
 	/* Ensure we register for valid priority */
 	idx = pri_to_idx(pri);
@@ -524,7 +527,7 @@ void ehf_register_priority_handler(unsigned int pri, ehf_handler_t handler)
 	 * is 4-byte aligned, which is usually the case.
 	 */
 	exception_data.ehf_priorities[idx].ehf_handler =
-		(((uintptr_t) handler) | EHF_PRI_VALID_);
+		(((uintptr_t)handler) | EHF_PRI_VALID_);
 
 	EHF_LOG("register pri=0x%x handler=%p\n", pri, handler);
 }

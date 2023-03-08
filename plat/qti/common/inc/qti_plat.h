@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2018-2020, The Linux Foundation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -25,14 +25,9 @@ int qti_mmap_remove_dynamic_region(uintptr_t base_va, size_t size);
 /*
  * Utility functions common to ARM standard platforms
  */
-void qti_setup_page_tables(
-			   uintptr_t total_base,
-			   size_t total_size,
-			   uintptr_t code_start,
-			   uintptr_t code_limit,
-			   uintptr_t rodata_start,
-			   uintptr_t rodata_limit
-			  );
+void qti_setup_page_tables(uintptr_t total_base, size_t total_size,
+			   uintptr_t code_start, uintptr_t code_limit,
+			   uintptr_t rodata_start, uintptr_t rodata_limit);
 
 /*
  * Mandatory functions required in ARM standard platforms

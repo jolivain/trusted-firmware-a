@@ -5,6 +5,7 @@
  */
 
 #include <assert.h>
+
 #include <common/debug.h>
 #include <drivers/spm/mt_spm_resource_req.h>
 #include <lib/pm/mtk_pm.h>
@@ -17,32 +18,30 @@
 #include <mt_spm_idle.h>
 #include <mt_spm_internal.h>
 #include <mt_spm_notifier.h>
-#include "mt_spm_rc_api.h"
-#include "mt_spm_rc_internal.h"
 #include <mt_spm_reg.h>
 #include <mt_spm_suspend.h>
 
-#define CONSTRAINT_SYSPLL_ALLOW (MT_RM_CONSTRAINT_ALLOW_CPU_BUCK_OFF | \
-				 MT_RM_CONSTRAINT_ALLOW_DRAM_S0 | \
-				 MT_RM_CONSTRAINT_ALLOW_DRAM_S1 | \
-				 MT_RM_CONSTRAINT_ALLOW_VCORE_LP)
+#include "mt_spm_rc_api.h"
+#include "mt_spm_rc_internal.h"
 
-#define CONSTRAINT_SYSPLL_PCM_FLAG (SPM_FLAG_DISABLE_INFRA_PDN | \
-				    SPM_FLAG_DISABLE_VCORE_DVS | \
-				    SPM_FLAG_DISABLE_VCORE_DFS | \
-				    SPM_FLAG_SRAM_SLEEP_CTRL | \
-				    SPM_FLAG_KEEP_CSYSPWRACK_HIGH | \
-				    SPM_FLAG_ENABLE_6315_CTRL | \
-				    SPM_FLAG_DISABLE_DRAMC_MCU_SRAM_SLEEP | \
-				    SPM_FLAG_USE_SRCCLKENO2)
+#define CONSTRAINT_SYSPLL_ALLOW                                            \
+	(MT_RM_CONSTRAINT_ALLOW_CPU_BUCK_OFF |                             \
+	 MT_RM_CONSTRAINT_ALLOW_DRAM_S0 | MT_RM_CONSTRAINT_ALLOW_DRAM_S1 | \
+	 MT_RM_CONSTRAINT_ALLOW_VCORE_LP)
+
+#define CONSTRAINT_SYSPLL_PCM_FLAG                                   \
+	(SPM_FLAG_DISABLE_INFRA_PDN | SPM_FLAG_DISABLE_VCORE_DVS |   \
+	 SPM_FLAG_DISABLE_VCORE_DFS | SPM_FLAG_SRAM_SLEEP_CTRL |     \
+	 SPM_FLAG_KEEP_CSYSPWRACK_HIGH | SPM_FLAG_ENABLE_6315_CTRL | \
+	 SPM_FLAG_DISABLE_DRAMC_MCU_SRAM_SLEEP | SPM_FLAG_USE_SRCCLKENO2)
 
 #define CONSTRAINT_SYSPLL_PCM_FLAG1 (0)
 
 /* If sspm sram won't enter sleep voltage then vcore couldn't enter low power mode */
 #if defined(MTK_PLAT_SPM_SRAM_SLP_UNSUPPORT) && SPM_SRAM_SLEEP_RC_RES_RESTRICT
-#define CONSTRAINT_SYSPLL_RESOURCE_REQ	(MT_SPM_26M)
+#define CONSTRAINT_SYSPLL_RESOURCE_REQ (MT_SPM_26M)
 #else
-#define CONSTRAINT_SYSPLL_RESOURCE_REQ	(MT_SPM_26M)
+#define CONSTRAINT_SYSPLL_RESOURCE_REQ (MT_SPM_26M)
 #endif
 
 static unsigned int syspll_ext_opand2;
@@ -78,10 +77,8 @@ static struct mt_spm_cond_tables cond_syspll_res = {
 
 static struct constraint_status status = {
 	.id = MT_RM_CONSTRAINT_ID_SYSPLL,
-	.is_valid = (MT_SPM_RC_VALID_SW |
-		     MT_SPM_RC_VALID_COND_CHECK |
-		     MT_SPM_RC_VALID_COND_LATCH |
-		     MT_SPM_RC_VALID_XSOC_BBLPM |
+	.is_valid = (MT_SPM_RC_VALID_SW | MT_SPM_RC_VALID_COND_CHECK |
+		     MT_SPM_RC_VALID_COND_LATCH | MT_SPM_RC_VALID_XSOC_BBLPM |
 		     MT_SPM_RC_VALID_TRACE_TIME),
 	.is_cond_block = 0U,
 	.enter_cnt = 0U,
@@ -89,7 +86,8 @@ static struct constraint_status status = {
 	.residency = 0ULL,
 };
 
-int spm_syspll_conduct(int state_id, struct spm_lp_scen *spm_lp, unsigned int *resource_req)
+int spm_syspll_conduct(int state_id, struct spm_lp_scen *spm_lp,
+		       unsigned int *resource_req)
 {
 	unsigned int res_req = CONSTRAINT_SYSPLL_RESOURCE_REQ;
 
@@ -106,7 +104,8 @@ int spm_syspll_conduct(int state_id, struct spm_lp_scen *spm_lp, unsigned int *r
 
 bool spm_is_valid_rc_syspll(unsigned int cpu, int state_id)
 {
-	return (!(status.is_cond_block && (status.is_valid & MT_SPM_RC_VALID_COND_CHECK) > 0) &&
+	return (!(status.is_cond_block &&
+		  (status.is_valid & MT_SPM_RC_VALID_COND_CHECK) > 0) &&
 		IS_MT_RM_RC_READY(status.is_valid) &&
 		(IS_PLAT_SUSPEND_ID(state_id) ||
 		 (state_id == MT_PLAT_PWR_STATE_SYSTEM_PLL) ||
@@ -117,8 +116,8 @@ static int update_rc_condition(const void *val)
 {
 	int res = MT_RM_STATUS_OK;
 
-	const struct mt_spm_cond_tables * const tlb =
-		(const struct mt_spm_cond_tables * const)val;
+	const struct mt_spm_cond_tables *const tlb =
+		(const struct mt_spm_cond_tables *const)val;
 	const struct mt_spm_cond_tables *tlb_check =
 		(const struct mt_spm_cond_tables *)&cond_syspll;
 
@@ -127,42 +126,46 @@ static int update_rc_condition(const void *val)
 	}
 
 	status.is_cond_block = mt_spm_cond_check(tlb, tlb_check,
-						 (status.is_valid & MT_SPM_RC_VALID_COND_LATCH) ?
-						 &cond_syspll_res : NULL);
+						 (status.is_valid &
+						  MT_SPM_RC_VALID_COND_LATCH) ?
+							 &cond_syspll_res :
+							 NULL);
 	return res;
 }
 
 static void update_rc_clkbuf_status(const void *val)
 {
-	unsigned int is_flight = (val) ? !!(*((unsigned int *)val) == FLIGHT_MODE_ON) : 0;
+	unsigned int is_flight =
+		(val) ? !!(*((unsigned int *)val) == FLIGHT_MODE_ON) : 0;
 
 	if (is_flight != 0U) {
-		spm_rc_constraint_valid_set(MT_RM_CONSTRAINT_ID_SYSPLL,
-					    MT_RM_CONSTRAINT_ID_SYSPLL,
-					    MT_SPM_RC_VALID_FLIGHTMODE,
-					    (struct constraint_status * const)&status);
+		spm_rc_constraint_valid_set(
+			MT_RM_CONSTRAINT_ID_SYSPLL, MT_RM_CONSTRAINT_ID_SYSPLL,
+			MT_SPM_RC_VALID_FLIGHTMODE,
+			(struct constraint_status *const)&status);
 	} else {
-		spm_rc_constraint_valid_clr(MT_RM_CONSTRAINT_ID_SYSPLL,
-					    MT_RM_CONSTRAINT_ID_SYSPLL,
-					    MT_SPM_RC_VALID_FLIGHTMODE,
-					    (struct constraint_status * const)&status);
+		spm_rc_constraint_valid_clr(
+			MT_RM_CONSTRAINT_ID_SYSPLL, MT_RM_CONSTRAINT_ID_SYSPLL,
+			MT_SPM_RC_VALID_FLIGHTMODE,
+			(struct constraint_status *const)&status);
 	}
 }
 
 static void update_rc_ufs_status(const void *val)
 {
-	unsigned int is_ufs_h8 = (val) ? !!(*((unsigned int *)val) == UFS_REF_CLK_OFF) : 0;
+	unsigned int is_ufs_h8 =
+		(val) ? !!(*((unsigned int *)val) == UFS_REF_CLK_OFF) : 0;
 
 	if (is_ufs_h8 != 0U) {
-		spm_rc_constraint_valid_set(MT_RM_CONSTRAINT_ID_SYSPLL,
-					    MT_RM_CONSTRAINT_ID_SYSPLL,
-					    MT_SPM_RC_VALID_UFS_H8,
-					    (struct constraint_status * const)&status);
+		spm_rc_constraint_valid_set(
+			MT_RM_CONSTRAINT_ID_SYSPLL, MT_RM_CONSTRAINT_ID_SYSPLL,
+			MT_SPM_RC_VALID_UFS_H8,
+			(struct constraint_status *const)&status);
 	} else {
-		spm_rc_constraint_valid_clr(MT_RM_CONSTRAINT_ID_SYSPLL,
-					    MT_RM_CONSTRAINT_ID_SYSPLL,
-					    MT_SPM_RC_VALID_UFS_H8,
-					    (struct constraint_status * const)&status);
+		spm_rc_constraint_valid_clr(
+			MT_RM_CONSTRAINT_ID_SYSPLL, MT_RM_CONSTRAINT_ID_SYSPLL,
+			MT_SPM_RC_VALID_UFS_H8,
+			(struct constraint_status *const)&status);
 	}
 }
 
@@ -207,18 +210,19 @@ static void update_rc_status(const void *val)
 	}
 
 	if (st->type == CONSTRAINT_UPDATE_COND_CHECK) {
-		struct mt_spm_cond_tables * const tlb = &cond_syspll;
+		struct mt_spm_cond_tables *const tlb = &cond_syspll;
 
 		spm_rc_condition_modifier(st->id, st->act, st->value,
 					  MT_RM_CONSTRAINT_ID_SYSPLL, tlb);
 	} else if ((st->type == CONSTRAINT_UPDATE_VALID) ||
 		   (st->type == CONSTRAINT_RESIDNECY)) {
-		spm_rc_constraint_status_set(st->id, st->type, st->act,
-					     MT_RM_CONSTRAINT_ID_SYSPLL,
-					     (struct constraint_status * const)st->value,
-					     (struct constraint_status * const)&status);
+		spm_rc_constraint_status_set(
+			st->id, st->type, st->act, MT_RM_CONSTRAINT_ID_SYSPLL,
+			(struct constraint_status *const)st->value,
+			(struct constraint_status *const)&status);
 	} else {
-		INFO("[%s:%d] - Unknown type: 0x%x\n", __func__, __LINE__, st->type);
+		INFO("[%s:%d] - Unknown type: 0x%x\n", __func__, __LINE__,
+		     st->type);
 	}
 }
 
@@ -246,7 +250,8 @@ int spm_update_rc_syspll(int state_id, int type, const void *val)
 		update_rc_status(val);
 		break;
 	default:
-		INFO("[%s:%d] - Do nothing for type: %d\n", __func__, __LINE__, type);
+		INFO("[%s:%d] - Do nothing for type: %d\n", __func__, __LINE__,
+		     type);
 		break;
 	}
 	return res;
@@ -273,8 +278,11 @@ int spm_run_rc_syspll(unsigned int cpu, int state_id)
 	}
 
 #ifndef MTK_PLAT_SPM_SSPM_NOTIFIER_UNSUPPORT
-	mt_spm_sspm_notify_u32(MT_SPM_NOTIFY_LP_ENTER, allows | (IS_PLAT_SUSPEND_ID(state_id) ?
-			       MT_RM_CONSTRAINT_ALLOW_AP_SUSPEND : 0));
+	mt_spm_sspm_notify_u32(
+		MT_SPM_NOTIFY_LP_ENTER,
+		allows | (IS_PLAT_SUSPEND_ID(state_id) ?
+				  MT_RM_CONSTRAINT_ALLOW_AP_SUSPEND :
+				  0));
 #else
 	(void)allows;
 #endif
@@ -283,11 +291,12 @@ int spm_run_rc_syspll(unsigned int cpu, int state_id)
 	}
 
 	if (IS_PLAT_SUSPEND_ID(state_id)) {
-		mt_spm_suspend_enter(state_id,
-				     (syspll_ext_opand2 | MT_SPM_EX_OP_CLR_26M_RECORD |
-				      MT_SPM_EX_OP_SET_WDT | MT_SPM_EX_OP_HW_S1_DETECT |
-				      MT_SPM_EX_OP_SET_SUSPEND_MODE),
-				     CONSTRAINT_SYSPLL_RESOURCE_REQ);
+		mt_spm_suspend_enter(
+			state_id,
+			(syspll_ext_opand2 | MT_SPM_EX_OP_CLR_26M_RECORD |
+			 MT_SPM_EX_OP_SET_WDT | MT_SPM_EX_OP_HW_S1_DETECT |
+			 MT_SPM_EX_OP_SET_SUSPEND_MODE),
+			CONSTRAINT_SYSPLL_RESOURCE_REQ);
 	} else {
 		mt_spm_idle_generic_enter(state_id, ext_op, spm_syspll_conduct);
 	}
@@ -318,14 +327,16 @@ int spm_reset_rc_syspll(unsigned int cpu, int state_id)
 	}
 
 	if (IS_PLAT_SUSPEND_ID(state_id)) {
-		mt_spm_suspend_resume(state_id,
-				      (syspll_ext_opand2 | MT_SPM_EX_OP_SET_SUSPEND_MODE |
-				       MT_SPM_EX_OP_SET_WDT | MT_SPM_EX_OP_HW_S1_DETECT),
-				      NULL);
+		mt_spm_suspend_resume(
+			state_id,
+			(syspll_ext_opand2 | MT_SPM_EX_OP_SET_SUSPEND_MODE |
+			 MT_SPM_EX_OP_SET_WDT | MT_SPM_EX_OP_HW_S1_DETECT),
+			NULL);
 	} else {
 		struct wake_status *waken = NULL;
 
-		if (spm_unlikely(status.is_valid & MT_SPM_RC_VALID_TRACE_EVENT)) {
+		if (spm_unlikely(status.is_valid &
+				 MT_SPM_RC_VALID_TRACE_EVENT)) {
 			ext_op |= MT_SPM_EX_OP_TRACE_LP;
 		}
 
@@ -333,7 +344,8 @@ int spm_reset_rc_syspll(unsigned int cpu, int state_id)
 		status.enter_cnt++;
 
 		if (spm_unlikely(status.is_valid & MT_SPM_RC_VALID_RESIDNECY)) {
-			status.residency += (waken != NULL) ? waken->tr.comm.timer_out : 0;
+			status.residency +=
+				(waken != NULL) ? waken->tr.comm.timer_out : 0;
 		}
 	}
 
@@ -352,10 +364,10 @@ int spm_get_status_rc_syspll(unsigned int type, void *priv)
 			return MT_RM_STATUS_BAD;
 		}
 
-		res = spm_rc_constraint_status_get(st->id, st->type, st->act,
-						   MT_RM_CONSTRAINT_ID_SYSPLL,
-						   (struct constraint_status * const)&status,
-						   (struct constraint_status * const)st->value);
+		res = spm_rc_constraint_status_get(
+			st->id, st->type, st->act, MT_RM_CONSTRAINT_ID_SYSPLL,
+			(struct constraint_status *const)&status,
+			(struct constraint_status *const)st->value);
 		if ((res == 0) && (st->id != MT_RM_CONSTRAINT_ID_ALL)) {
 			ret = MT_RM_STATUS_STOP;
 		}

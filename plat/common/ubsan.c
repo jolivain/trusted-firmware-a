@@ -1,13 +1,14 @@
 /*
  * Copyright (c) 2016, Linaro Limited
- * Copyright (c) 2019, ARM Limited. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-2-Clause
  */
 
 #include <arch_helpers.h>
-#include <context.h>
 #include <common/debug.h>
+#include <context.h>
+
 #include <plat/common/platform.h>
 
 struct source_location {
@@ -74,7 +75,7 @@ void __ubsan_handle_type_mismatch_abort(struct type_mismatch_data *data,
 void __ubsan_handle_type_mismatch_v1_abort(struct type_mismatch_data *data,
 					   unsigned long ptr);
 void __ubsan_handle_add_overflow_abort(struct overflow_data *data,
-					unsigned long lhs, unsigned long rhs);
+				       unsigned long lhs, unsigned long rhs);
 void __ubsan_handle_sub_overflow_abort(struct overflow_data *data,
 				       unsigned long lhs, unsigned long rhs);
 void __ubsan_handle_mul_overflow_abort(struct overflow_data *data,
@@ -85,8 +86,9 @@ void __ubsan_handle_pointer_overflow_abort(struct overflow_data *data,
 					   unsigned long old_val);
 void __ubsan_handle_divrem_overflow_abort(struct overflow_data *data,
 					  unsigned long lhs, unsigned long rhs);
-void __ubsan_handle_shift_out_of_bounds_abort(struct shift_out_of_bounds_data *data,
-					      unsigned long lhs, unsigned long rhs);
+void __ubsan_handle_shift_out_of_bounds_abort(
+	struct shift_out_of_bounds_data *data, unsigned long lhs,
+	unsigned long rhs);
 void __ubsan_handle_out_of_bounds_abort(struct out_of_bounds_data *data,
 					unsigned long idx);
 void __ubsan_handle_unreachable_abort(struct unreachable_data *data);
@@ -97,16 +99,16 @@ void __ubsan_handle_load_invalid_value_abort(struct invalid_value_data *data,
 					     unsigned long val);
 void __ubsan_handle_nonnull_arg_abort(struct nonnull_arg_data *data
 #if __GCC_VERSION < 60000
-				    , size_t arg_no
+				      ,
+				      size_t arg_no
 #endif
-				      );
+);
 
 static void print_loc(const char *func, struct source_location *loc)
 {
-	ERROR("Undefined behavior at %s:%d col %d (%s)",
-		loc->file_name, loc->line, loc->column, func);
+	ERROR("Undefined behavior at %s:%d col %d (%s)", loc->file_name,
+	      loc->line, loc->column, func);
 }
-
 
 void __ubsan_handle_type_mismatch_abort(struct type_mismatch_data *data,
 					unsigned long ptr __unused)
@@ -116,7 +118,7 @@ void __ubsan_handle_type_mismatch_abort(struct type_mismatch_data *data,
 }
 
 void __ubsan_handle_type_mismatch_v1_abort(struct type_mismatch_data *data,
-					unsigned long ptr __unused)
+					   unsigned long ptr __unused)
 {
 	print_loc(__func__, &data->loc);
 	plat_panic_handler();
@@ -154,7 +156,7 @@ void __ubsan_handle_negate_overflow_abort(struct overflow_data *data,
 }
 
 void __ubsan_handle_pointer_overflow_abort(struct overflow_data *data,
-					  unsigned long old_val __unused)
+					   unsigned long old_val __unused)
 {
 	print_loc(__func__, &data->loc);
 	plat_panic_handler();
@@ -168,9 +170,9 @@ void __ubsan_handle_divrem_overflow_abort(struct overflow_data *data,
 	plat_panic_handler();
 }
 
-void __ubsan_handle_shift_out_of_bounds_abort(struct shift_out_of_bounds_data *data,
-					      unsigned long lhs __unused,
-					      unsigned long rhs __unused)
+void __ubsan_handle_shift_out_of_bounds_abort(
+	struct shift_out_of_bounds_data *data, unsigned long lhs __unused,
+	unsigned long rhs __unused)
 {
 	print_loc(__func__, &data->loc);
 	plat_panic_handler();
@@ -211,9 +213,10 @@ void __ubsan_handle_load_invalid_value_abort(struct invalid_value_data *data,
 
 void __ubsan_handle_nonnull_arg_abort(struct nonnull_arg_data *data
 #if __GCC_VERSION < 60000
-				   , size_t arg_no __unused
+				      ,
+				      size_t arg_no __unused
 #endif
-				     )
+)
 {
 	print_loc(__func__, &data->loc);
 	plat_panic_handler();

@@ -16,9 +16,10 @@
 #include <lib/mmio.h>
 #include <lib/smccc.h>
 #include <lib/xlat_tables/xlat_tables_compat.h>
-#include <platform_def.h>
 #include <services/arm_arch_svc.h>
 #include <services/rmm_core_manifest.h>
+
+#include <platform_def.h>
 #if SPM_MM
 #include <services/spm_mm_partition.h>
 #endif
@@ -31,8 +32,8 @@
 #include "fvp_private.h"
 
 /* Defines for GIC Driver build time selection */
-#define FVP_GICV2		1
-#define FVP_GICV3		2
+#define FVP_GICV2 1
+#define FVP_GICV3 2
 
 /*******************************************************************************
  * arm_config holds the characteristics of the differences between the three FVP
@@ -43,33 +44,34 @@
  ******************************************************************************/
 arm_config_t arm_config;
 
-#define MAP_DEVICE0	MAP_REGION_FLAT(DEVICE0_BASE,			\
-					DEVICE0_SIZE,			\
-					MT_DEVICE | MT_RW | MT_SECURE)
+#define MAP_DEVICE0                                 \
+	MAP_REGION_FLAT(DEVICE0_BASE, DEVICE0_SIZE, \
+			MT_DEVICE | MT_RW | MT_SECURE)
 
-#define MAP_DEVICE1	MAP_REGION_FLAT(DEVICE1_BASE,			\
-					DEVICE1_SIZE,			\
-					MT_DEVICE | MT_RW | MT_SECURE)
+#define MAP_DEVICE1                                 \
+	MAP_REGION_FLAT(DEVICE1_BASE, DEVICE1_SIZE, \
+			MT_DEVICE | MT_RW | MT_SECURE)
 
 #if FVP_GICR_REGION_PROTECTION
-#define MAP_GICD_MEM	MAP_REGION_FLAT(BASE_GICD_BASE,			\
-					BASE_GICD_SIZE,			\
-					MT_DEVICE | MT_RW | MT_SECURE)
+#define MAP_GICD_MEM                                    \
+	MAP_REGION_FLAT(BASE_GICD_BASE, BASE_GICD_SIZE, \
+			MT_DEVICE | MT_RW | MT_SECURE)
 
 /* Map all core's redistributor memory as read-only. After boots up,
  * per-core map its redistributor memory as read-write */
-#define MAP_GICR_MEM	MAP_REGION_FLAT(BASE_GICR_BASE,			\
-					(BASE_GICR_SIZE * PLATFORM_CORE_COUNT),\
-					MT_DEVICE | MT_RO | MT_SECURE)
+#define MAP_GICR_MEM                                            \
+	MAP_REGION_FLAT(BASE_GICR_BASE,                         \
+			(BASE_GICR_SIZE * PLATFORM_CORE_COUNT), \
+			MT_DEVICE | MT_RO | MT_SECURE)
 #endif /* FVP_GICR_REGION_PROTECTION */
 
 /*
  * Need to be mapped with write permissions in order to set a new non-volatile
  * counter value.
  */
-#define MAP_DEVICE2	MAP_REGION_FLAT(DEVICE2_BASE,			\
-					DEVICE2_SIZE,			\
-					MT_DEVICE | MT_RW | MT_SECURE)
+#define MAP_DEVICE2                                 \
+	MAP_REGION_FLAT(DEVICE2_BASE, DEVICE2_SIZE, \
+			MT_DEVICE | MT_RW | MT_SECURE)
 
 /*
  * Table of memory regions for various BL stages to map using the MMU.
@@ -91,7 +93,7 @@ const mmap_region_t plat_arm_mmap[] = {
 	/* Map DRAM to authenticate NS_BL2U image. */
 	ARM_MAP_NS_DRAM1,
 #endif
-	{0}
+	{ 0 }
 };
 #endif
 #ifdef IMAGE_BL2
@@ -140,15 +142,11 @@ const mmap_region_t plat_arm_mmap[] = {
 	ARM_MAP_OPTEE_CORE_MEM,
 	ARM_OPTEE_PAGEABLE_LOAD_MEM,
 #endif
-	{0}
+	{ 0 }
 };
 #endif
 #ifdef IMAGE_BL2U
-const mmap_region_t plat_arm_mmap[] = {
-	MAP_DEVICE0,
-	V2M_MAP_IOFPGA,
-	{0}
-};
+const mmap_region_t plat_arm_mmap[] = { MAP_DEVICE0, V2M_MAP_IOFPGA, { 0 } };
 #endif
 #ifdef IMAGE_BL31
 const mmap_region_t plat_arm_mmap[] = {
@@ -174,43 +172,37 @@ const mmap_region_t plat_arm_mmap[] = {
 	ARM_MAP_GPT_L1_DRAM,
 	ARM_MAP_EL3_RMM_SHARED_MEM,
 #endif
-	{0}
+	{ 0 }
 };
 
 #if defined(IMAGE_BL31) && SPM_MM
 const mmap_region_t plat_arm_secure_partition_mmap[] = {
 	V2M_MAP_IOFPGA_EL0, /* for the UART */
-	MAP_REGION_FLAT(DEVICE0_BASE,				\
-			DEVICE0_SIZE,				\
+	MAP_REGION_FLAT(DEVICE0_BASE, DEVICE0_SIZE,
 			MT_DEVICE | MT_RO | MT_SECURE | MT_USER),
 	ARM_SP_IMAGE_MMAP,
 	ARM_SP_IMAGE_NS_BUF_MMAP,
 	ARM_SP_IMAGE_RW_MMAP,
 	ARM_SPM_BUF_EL0_MMAP,
-	{0}
+	{ 0 }
 };
 #endif
 #endif
 #ifdef IMAGE_BL32
 const mmap_region_t plat_arm_mmap[] = {
 #ifndef __aarch64__
-	ARM_MAP_SHARED_RAM,
-	ARM_V2M_MAP_MEM_PROTECT,
+	ARM_MAP_SHARED_RAM, ARM_V2M_MAP_MEM_PROTECT,
 #endif
-	V2M_MAP_IOFPGA,
-	MAP_DEVICE0,
-	MAP_DEVICE1,
-	{0}
+	V2M_MAP_IOFPGA,	    MAP_DEVICE0,
+	MAP_DEVICE1,	    { 0 }
 };
 #endif
 
 #ifdef IMAGE_RMM
-const mmap_region_t plat_arm_mmap[] = {
-	V2M_MAP_IOFPGA,
-	MAP_DEVICE0,
-	MAP_DEVICE1,
-	{0}
-};
+const mmap_region_t plat_arm_mmap[] = { V2M_MAP_IOFPGA,
+					MAP_DEVICE0,
+					MAP_DEVICE1,
+					{ 0 } };
 #endif
 
 ARM_CASSERT_MMAP
@@ -233,7 +225,8 @@ static unsigned int get_interconnect_master(void)
 
 	mpidr = read_mpidr_el1();
 	master = ((arm_config.flags & ARM_CONFIG_FVP_SHIFTED_AFF) != 0U) ?
-		MPIDR_AFFLVL2_VAL(mpidr) : MPIDR_AFFLVL1_VAL(mpidr);
+			 MPIDR_AFFLVL2_VAL(mpidr) :
+			 MPIDR_AFFLVL1_VAL(mpidr);
 
 	assert(master < FVP_CLUSTER_COUNT);
 	return master;
@@ -246,36 +239,32 @@ static unsigned int get_interconnect_master(void)
  * indices in MP information will be filled at runtime.
  */
 static spm_mm_mp_info_t sp_mp_info[] = {
-	[0] = {0x80000000, 0},
-	[1] = {0x80000001, 0},
-	[2] = {0x80000002, 0},
-	[3] = {0x80000003, 0},
-	[4] = {0x80000100, 0},
-	[5] = {0x80000101, 0},
-	[6] = {0x80000102, 0},
-	[7] = {0x80000103, 0},
+	[0] = { 0x80000000, 0 }, [1] = { 0x80000001, 0 },
+	[2] = { 0x80000002, 0 }, [3] = { 0x80000003, 0 },
+	[4] = { 0x80000100, 0 }, [5] = { 0x80000101, 0 },
+	[6] = { 0x80000102, 0 }, [7] = { 0x80000103, 0 },
 };
 
 const spm_mm_boot_info_t plat_arm_secure_partition_boot_info = {
-	.h.type              = PARAM_SP_IMAGE_BOOT_INFO,
-	.h.version           = VERSION_1,
-	.h.size              = sizeof(spm_mm_boot_info_t),
-	.h.attr              = 0,
-	.sp_mem_base         = ARM_SP_IMAGE_BASE,
-	.sp_mem_limit        = ARM_SP_IMAGE_LIMIT,
-	.sp_image_base       = ARM_SP_IMAGE_BASE,
-	.sp_stack_base       = PLAT_SP_IMAGE_STACK_BASE,
-	.sp_heap_base        = ARM_SP_IMAGE_HEAP_BASE,
+	.h.type = PARAM_SP_IMAGE_BOOT_INFO,
+	.h.version = VERSION_1,
+	.h.size = sizeof(spm_mm_boot_info_t),
+	.h.attr = 0,
+	.sp_mem_base = ARM_SP_IMAGE_BASE,
+	.sp_mem_limit = ARM_SP_IMAGE_LIMIT,
+	.sp_image_base = ARM_SP_IMAGE_BASE,
+	.sp_stack_base = PLAT_SP_IMAGE_STACK_BASE,
+	.sp_heap_base = ARM_SP_IMAGE_HEAP_BASE,
 	.sp_ns_comm_buf_base = PLAT_SP_IMAGE_NS_BUF_BASE,
-	.sp_shared_buf_base  = PLAT_SPM_BUF_BASE,
-	.sp_image_size       = ARM_SP_IMAGE_SIZE,
-	.sp_pcpu_stack_size  = PLAT_SP_IMAGE_STACK_PCPU_SIZE,
-	.sp_heap_size        = ARM_SP_IMAGE_HEAP_SIZE,
+	.sp_shared_buf_base = PLAT_SPM_BUF_BASE,
+	.sp_image_size = ARM_SP_IMAGE_SIZE,
+	.sp_pcpu_stack_size = PLAT_SP_IMAGE_STACK_PCPU_SIZE,
+	.sp_heap_size = ARM_SP_IMAGE_HEAP_SIZE,
 	.sp_ns_comm_buf_size = PLAT_SP_IMAGE_NS_BUF_SIZE,
-	.sp_shared_buf_size  = PLAT_SPM_BUF_SIZE,
-	.num_sp_mem_regions  = ARM_SP_IMAGE_NUM_MEM_REGIONS,
-	.num_cpus            = PLATFORM_CORE_COUNT,
-	.mp_info             = &sp_mp_info[0],
+	.sp_shared_buf_size = PLAT_SPM_BUF_SIZE,
+	.num_sp_mem_regions = ARM_SP_IMAGE_NUM_MEM_REGIONS,
+	.num_cpus = PLATFORM_CORE_COUNT,
+	.mp_info = &sp_mp_info[0],
 };
 
 const struct mmap_region *plat_get_secure_partition_mmap(void *cookie)
@@ -283,8 +272,7 @@ const struct mmap_region *plat_get_secure_partition_mmap(void *cookie)
 	return plat_arm_secure_partition_mmap;
 }
 
-const struct spm_mm_boot_info *plat_get_secure_partition_boot_info(
-		void *cookie)
+const struct spm_mm_boot_info *plat_get_secure_partition_boot_info(void *cookie)
 {
 	return &plat_arm_secure_partition_boot_info;
 }
@@ -319,7 +307,7 @@ void __init fvp_config_setup(void)
 	switch (bld) {
 	case BLD_GIC_VE_MMAP:
 		ERROR("Legacy Versatile Express memory map for GIC peripheral"
-				" is not supported\n");
+		      " is not supported\n");
 		panic();
 		break;
 	case BLD_GIC_A53A57_MMAP:
@@ -365,7 +353,7 @@ void __init fvp_config_setup(void)
 			break;
 		case REV_BASE_FVP_REVC:
 			arm_config.flags |= (ARM_CONFIG_FVP_HAS_SMMUV3 |
-					ARM_CONFIG_FVP_HAS_CCI5XX);
+					     ARM_CONFIG_FVP_HAS_CCI5XX);
 			break;
 		default:
 			WARN("Unrecognized Base FVP revision %x\n", rev);
@@ -385,7 +373,6 @@ void __init fvp_config_setup(void)
 	if ((read_mpidr_el1() & MPIDR_MT_MASK) != 0U)
 		arm_config.flags |= ARM_CONFIG_FVP_SHIFTED_AFF;
 }
-
 
 void __init fvp_interconnect_init(void)
 {
@@ -427,8 +414,8 @@ void fvp_interconnect_enable(void)
 #else
 	unsigned int master;
 
-	if ((arm_config.flags & (ARM_CONFIG_FVP_HAS_CCI400 |
-				 ARM_CONFIG_FVP_HAS_CCI5XX)) != 0U) {
+	if ((arm_config.flags &
+	     (ARM_CONFIG_FVP_HAS_CCI400 | ARM_CONFIG_FVP_HAS_CCI5XX)) != 0U) {
 		master = get_interconnect_master();
 		cci_enable_snoop_dvm_reqs(master);
 	}
@@ -442,8 +429,8 @@ void fvp_interconnect_disable(void)
 #else
 	unsigned int master;
 
-	if ((arm_config.flags & (ARM_CONFIG_FVP_HAS_CCI400 |
-				 ARM_CONFIG_FVP_HAS_CCI5XX)) != 0U) {
+	if ((arm_config.flags &
+	     (ARM_CONFIG_FVP_HAS_CCI400 | ARM_CONFIG_FVP_HAS_CCI5XX)) != 0U) {
 		master = get_interconnect_master();
 		cci_disable_snoop_dvm_reqs(master);
 	}
@@ -469,14 +456,14 @@ void fvp_timer_init(void)
 	mmio_write_32(V2M_SP810_BASE, FVP_SP810_CTRL_TIM0_OV);
 
 	/* Initialize delay timer driver using SP804 dual timer 0 */
-	sp804_timer_init(V2M_SP804_TIMER0_BASE,
-			SP804_TIMER_CLKMULT, SP804_TIMER_CLKDIV);
+	sp804_timer_init(V2M_SP804_TIMER0_BASE, SP804_TIMER_CLKMULT,
+			 SP804_TIMER_CLKDIV);
 #else
 	generic_delay_timer_init();
 
 	/* Enable System level generic timer */
 	mmio_write_32(ARM_SYS_CNTCTL_BASE + CNTCR_OFF,
-			CNTCR_FCREQ(0U) | CNTCR_EN);
+		      CNTCR_FCREQ(0U) | CNTCR_EN);
 #endif /* USE_SP804_TIMER */
 }
 
@@ -501,10 +488,9 @@ int32_t plat_is_smccc_feature_available(u_register_t fid)
 /* Get SOC version */
 int32_t plat_get_soc_version(void)
 {
-	return (int32_t)
-		(SOC_ID_SET_JEP_106(ARM_SOC_CONTINUATION_CODE,
-				    ARM_SOC_IDENTIFICATION_CODE) |
-		 (FVP_SOC_ID & SOC_ID_IMPL_DEF_MASK));
+	return (int32_t)(SOC_ID_SET_JEP_106(ARM_SOC_CONTINUATION_CODE,
+					    ARM_SOC_IDENTIFICATION_CODE) |
+			 (FVP_SOC_ID & SOC_ID_IMPL_DEF_MASK));
 }
 
 /* Get SOC revision */
@@ -514,7 +500,8 @@ int32_t plat_get_soc_revision(void)
 
 	sys_id = mmio_read_32(V2M_SYSREGS_BASE + V2M_SYS_ID);
 	return (int32_t)(((sys_id >> V2M_SYS_ID_REV_SHIFT) &
-			  V2M_SYS_ID_REV_MASK) & SOC_ID_REV_MASK);
+			  V2M_SYS_ID_REV_MASK) &
+			 SOC_ID_REV_MASK);
 }
 
 #if ENABLE_RME
@@ -574,9 +561,9 @@ int plat_rmmd_load_manifest(struct rmm_manifest *manifest)
 	 * |    64    |  size 1   |            |
 	 * +----------+-----------+------------+
 	 */
-	bank_ptr = (struct ns_dram_bank *)
-			((uintptr_t)&manifest->plat_dram.checksum +
-			sizeof(manifest->plat_dram.checksum));
+	bank_ptr =
+		(struct ns_dram_bank *)((uintptr_t)&manifest->plat_dram.checksum +
+					sizeof(manifest->plat_dram.checksum));
 
 	manifest->plat_dram.banks = bank_ptr;
 
@@ -585,8 +572,10 @@ int plat_rmmd_load_manifest(struct rmm_manifest *manifest)
 
 	/* Store FVP DRAM banks data in Boot Manifest */
 	for (unsigned long i = 0UL; i < num_banks; i++) {
-		uintptr_t base = FCONF_GET_PROPERTY(hw_config, dram_layout, dram_bank[i].base);
-		uint64_t size = FCONF_GET_PROPERTY(hw_config, dram_layout, dram_bank[i].size);
+		uintptr_t base = FCONF_GET_PROPERTY(hw_config, dram_layout,
+						    dram_bank[i].base);
+		uint64_t size = FCONF_GET_PROPERTY(hw_config, dram_layout,
+						   dram_bank[i].size);
 
 		bank_ptr[i].base = base;
 		bank_ptr[i].size = size;
@@ -600,4 +589,4 @@ int plat_rmmd_load_manifest(struct rmm_manifest *manifest)
 
 	return 0;
 }
-#endif	/* ENABLE_RME */
+#endif /* ENABLE_RME */

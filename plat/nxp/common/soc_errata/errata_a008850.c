@@ -20,7 +20,6 @@ void erratum_a008850_early(void)
 	/* enabling forced barrier termination on CCI400 */
 	mmio_write_32(cci_base + CTRL_OVERRIDE_REG,
 		      (val | CCI_TERMINATE_BARRIER_TX));
-
 }
 
 void erratum_a008850_post(void)

@@ -1,52 +1,39 @@
 /*
- * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
+#include <ddr_parameter.h>
 #include <drivers/console.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-
-#include <ddr_parameter.h>
 #include <plat_private.h>
 #include <rk3328_def.h>
 #include <soc.h>
 
+#include <platform_def.h>
+
 /* Table of regions to map using the MMU. */
 const mmap_region_t plat_rk_mmap[] = {
-	MAP_REGION_FLAT(UART0_BASE, UART0_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(UART1_BASE, UART1_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(UART2_BASE, UART2_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(PMU_BASE, PMU_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(SGRF_BASE, SGRF_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(GPIO0_BASE, GPIO0_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(GPIO1_BASE, GPIO1_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(GPIO2_BASE, GPIO2_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(GPIO3_BASE, GPIO3_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(CRU_BASE, CRU_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(GRF_BASE, GRF_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(UART0_BASE, UART0_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(UART1_BASE, UART1_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(UART2_BASE, UART2_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(PMU_BASE, PMU_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(SGRF_BASE, SGRF_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(GPIO0_BASE, GPIO0_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(GPIO1_BASE, GPIO1_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(GPIO2_BASE, GPIO2_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(GPIO3_BASE, GPIO3_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(CRU_BASE, CRU_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(GRF_BASE, GRF_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(FIREWALL_DDR_BASE, FIREWALL_DDR_SIZE,
 			MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(FIREWALL_CFG_BASE, FIREWALL_CFG_SIZE,
 			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(STIME_BASE, STIME_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(STIME_BASE, STIME_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(GIC400_BASE, GIC400_SIZE,
 			MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(PMUSRAM_BASE, PMUSRAM_SIZE,
@@ -57,8 +44,7 @@ const mmap_region_t plat_rk_mmap[] = {
 			MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(DDR_UPCTL_BASE, DDR_UPCTL_SIZE,
 			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(PWM_BASE, PWM_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(PWM_BASE, PWM_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(DDR_PARAM_BASE, DDR_PARAM_SIZE,
 			MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(EFUSE8_BASE, EFUSE8_SIZE,
@@ -71,8 +57,7 @@ const mmap_region_t plat_rk_mmap[] = {
 			MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(DDR_MONITOR_BASE, DDR_MONITOR_SIZE,
 			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(VOP_BASE, VOP_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(VOP_BASE, VOP_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
 
 	{ 0 }
 };
@@ -102,18 +87,17 @@ void sgrf_init(void)
 	struct param_ddr_usage usg;
 
 	/* general secure regions */
-	usg = ddr_region_usage_parse(DDR_PARAM_BASE,
-				     PLAT_MAX_DDR_CAPACITY_MB);
+	usg = ddr_region_usage_parse(DDR_PARAM_BASE, PLAT_MAX_DDR_CAPACITY_MB);
 	for (i = 0; i < usg.s_nr; i++) {
 		/* enable secure */
 		val = mmio_read_32(FIREWALL_DDR_BASE +
-			      FIREWALL_DDR_FW_DDR_CON_REG);
+				   FIREWALL_DDR_FW_DDR_CON_REG);
 		val |= BIT(7 - i);
-		mmio_write_32(FIREWALL_DDR_BASE +
-			      FIREWALL_DDR_FW_DDR_CON_REG, val);
+		mmio_write_32(FIREWALL_DDR_BASE + FIREWALL_DDR_FW_DDR_CON_REG,
+			      val);
 		/* map top and base */
 		mmio_write_32(FIREWALL_DDR_BASE +
-			      FIREWALL_DDR_FW_DDR_RGN(7 - i),
+				      FIREWALL_DDR_FW_DDR_RGN(7 - i),
 			      RG_MAP_SECURE(usg.s_top[i], usg.s_base[i]));
 	}
 #endif
@@ -153,6 +137,6 @@ void plat_rockchip_soc_init(void)
 	secure_timer_init();
 	sgrf_init();
 
-	NOTICE("BL31:Rockchip release version: v%d.%d\n",
-	       MAJOR_VERSION, MINOR_VERSION);
+	NOTICE("BL31:Rockchip release version: v%d.%d\n", MAJOR_VERSION,
+	       MINOR_VERSION);
 }

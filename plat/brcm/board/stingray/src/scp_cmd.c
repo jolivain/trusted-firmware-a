@@ -7,10 +7,10 @@
 #include <arch_helpers.h>
 #include <common/bl_common.h>
 #include <drivers/delay_timer.h>
-
-#include <platform_def.h>
 #include <scp.h>
 #include <scp_cmd.h>
+
+#include <platform_def.h>
 
 #include "m0_ipc.h"
 
@@ -48,8 +48,7 @@ int scp_send_cmd(uint32_t cmd, uint32_t param, uint32_t timeout)
 
 		udelay(1);
 		scp_read_response(&scp_resp);
-		if (scp_resp.completed &&
-			(scp_resp.cmd == cmd)) {
+		if (scp_resp.completed && (scp_resp.cmd == cmd)) {
 			/* This command has completed */
 			ret = scp_resp.ret;
 			break;

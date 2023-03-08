@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: BSD-3-Clause */
 /*
- * Copyright (c) 2015-2019, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  * Copyright (c) 2019-2020, Linaro Limited
  */
 #ifndef SCMI_MSG_COMMON_H
@@ -16,19 +16,19 @@
 #include "power_domain.h"
 #include "reset_domain.h"
 
-#define SCMI_VERSION			0x20000U
-#define SCMI_IMPL_VERSION		0U
+#define SCMI_VERSION 0x20000U
+#define SCMI_IMPL_VERSION 0U
 
-#define SCMI_PLAYLOAD_MAX		92U
+#define SCMI_PLAYLOAD_MAX 92U
 
 /*
  * Copy name identifier in target buffer following the SCMI specification
  * that state name identifier shall be a null terminated string.
  */
-#define COPY_NAME_IDENTIFIER(_dst_array, _name)				\
-	do {								\
-		assert(strlen(_name) < sizeof(_dst_array));		\
-		strlcpy((_dst_array), (_name), sizeof(_dst_array));	\
+#define COPY_NAME_IDENTIFIER(_dst_array, _name)                     \
+	do {                                                        \
+		assert(strlen(_name) < sizeof(_dst_array));         \
+		strlcpy((_dst_array), (_name), sizeof(_dst_array)); \
 	} while (0)
 
 /* Common command identifiers shared by all procotols */

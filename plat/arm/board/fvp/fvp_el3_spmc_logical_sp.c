@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2022-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,7 +10,10 @@
 #include <smccc_helpers.h>
 
 #define LP_PARTITION_ID 0xC001
-#define LP_UUID {0x47a3bf57, 0xe98e43ad, 0xb7db524f, 0x1588f4e3}
+#define LP_UUID                                                \
+	{                                                      \
+		0x47a3bf57, 0xe98e43ad, 0xb7db524f, 0x1588f4e3 \
+	}
 
 /* Our Logical SP currently only supports receipt of direct messaging. */
 #define PARTITION_PROPERTIES FFA_PARTITION_DIRECT_REQ_RECV
@@ -21,7 +24,7 @@ static int32_t sp_init(void)
 	return 0;
 }
 
-static uint64_t handle_ffa_direct_request(uint32_t smc_fid,  bool secure_origin,
+static uint64_t handle_ffa_direct_request(uint32_t smc_fid, bool secure_origin,
 					  uint64_t x1, uint64_t x2, uint64_t x3,
 					  uint64_t x4, void *cookie,
 					  void *handle, uint64_t flags)
@@ -52,10 +55,9 @@ static uint64_t handle_ffa_direct_request(uint32_t smc_fid,  bool secure_origin,
 
 /* Register logical partition  */
 DECLARE_LOGICAL_PARTITION(
-	my_logical_partition,
-	sp_init,			/* Init Function */
-	LP_PARTITION_ID,		/* FF-A Partition ID */
-	LP_UUID,			/* UUID */
-	PARTITION_PROPERTIES,		/* Partition Properties. */
-	handle_ffa_direct_request	/* Callback for direct requests. */
+	my_logical_partition, sp_init, /* Init Function */
+	LP_PARTITION_ID, /* FF-A Partition ID */
+	LP_UUID, /* UUID */
+	PARTITION_PROPERTIES, /* Partition Properties. */
+	handle_ffa_direct_request /* Callback for direct requests. */
 );

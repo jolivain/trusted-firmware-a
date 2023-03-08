@@ -36,8 +36,7 @@
 
 #include <string.h>
 
-char *
-strtok_r(char *s, const char *delim, char **last)
+char *strtok_r(char *s, const char *delim, char **last)
 {
 	char *spanp, *tok;
 	int c, sc;
@@ -55,7 +54,7 @@ cont:
 			goto cont;
 	}
 
-	if (c == 0) {		/* no non-delimiter characters */
+	if (c == 0) { /* no non-delimiter characters */
 		*last = NULL;
 		return (NULL);
 	}

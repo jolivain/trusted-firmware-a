@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020, Nuvia Inc
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,6 +9,7 @@
 #include <common/debug.h>
 
 #include <platform_def.h>
+
 #include "sbsa_private.h"
 
 /* The power domain tree descriptor */

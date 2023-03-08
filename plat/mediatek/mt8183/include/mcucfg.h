@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,162 +7,163 @@
 #ifndef MT8183_MCUCFG_H
 #define MT8183_MCUCFG_H
 
-#include <platform_def.h>
 #include <stdint.h>
 
+#include <platform_def.h>
+
 struct mt8183_mcucfg_regs {
-	uint32_t mp0_ca7l_cache_config;		/* 0x0 */
+	uint32_t mp0_ca7l_cache_config; /* 0x0 */
 	struct {
 		uint32_t mem_delsel0;
 		uint32_t mem_delsel1;
-	} mp0_cpu[4];				/* 0x4 */
-	uint32_t mp0_cache_mem_delsel0;		/* 0x24 */
-	uint32_t mp0_cache_mem_delsel1;		/* 0x28 */
-	uint32_t mp0_axi_config;		/* 0x2C */
-	uint32_t mp0_misc_config[10];		/* 0x30 */
-	uint32_t mp0_ca7l_cfg_dis;		/* 0x58 */
-	uint32_t mp0_ca7l_clken_ctrl;		/* 0x5C */
-	uint32_t mp0_ca7l_rst_ctrl;		/* 0x60 */
-	uint32_t mp0_ca7l_misc_config;		/* 0x64 */
-	uint32_t mp0_ca7l_dbg_pwr_ctrl;		/* 0x68 */
-	uint32_t mp0_rw_rsvd0;			/* 0x6C */
-	uint32_t mp0_rw_rsvd1;			/* 0x70 */
-	uint32_t mp0_ro_rsvd;			/* 0x74 */
-	uint32_t reserved0_0;			/* 0x78 */
-	uint32_t mp0_l2_cache_parity1_rdata;	/* 0x7C */
-	uint32_t mp0_l2_cache_parity2_rdata;	/* 0x80 */
-	uint32_t reserved0_1;			/* 0x84 */
-	uint32_t mp0_rgu_dcm_config;		/* 0x88 */
-	uint32_t mp0_ca53_specific_ctrl;	/* 0x8C */
-	uint32_t mp0_esr_case;			/* 0x90 */
-	uint32_t mp0_esr_mask;			/* 0x94 */
-	uint32_t mp0_esr_trig_en;		/* 0x98 */
-	uint32_t reserved_0_2;			/* 0x9C */
-	uint32_t mp0_ses_cg_en;			/* 0xA0 */
-	uint32_t reserved0_3[216];		/* 0xA4 */
-	uint32_t mp_dbg_ctrl;			/* 0x404 */
-	uint32_t reserved0_4[34];		/* 0x408 */
-	uint32_t mp_dfd_ctrl;			/* 0x490 */
-	uint32_t dfd_cnt_l;			/* 0x494 */
-	uint32_t dfd_cnt_h;			/* 0x498 */
-	uint32_t misccfg_ro_rsvd;		/* 0x49C */
-	uint32_t reserved0_5[24];		/* 0x4A0 */
-	uint32_t mp1_rst_status;		/* 0x500 */
-	uint32_t mp1_dbg_ctrl;			/* 0x504 */
-	uint32_t mp1_dbg_flag;			/* 0x508 */
-	uint32_t mp1_ca7l_ir_mon;		/* 0x50C */
-	uint32_t reserved0_6[32];		/* 0x510 */
-	uint32_t mcusys_dbg_mon_sel_a;		/* 0x590 */
-	uint32_t mcucys_dbg_mon;		/* 0x594 */
-	uint32_t misccfg_sec_voi_status0;	/* 0x598 */
-	uint32_t misccfg_sec_vio_status1;	/* 0x59C */
-	uint32_t reserved0_7[18];		/* 0x5A0 */
-	uint32_t gic500_int_mask;		/* 0x5E8 */
-	uint32_t core_rst_en_latch;		/* 0x5EC */
-	uint32_t reserved0_8[3];		/* 0x5F0 */
-	uint32_t dbg_core_ret;			/* 0x5FC */
-	uint32_t mcusys_config_a;		/* 0x600 */
-	uint32_t mcusys_config1_a;		/* 0x604 */
-	uint32_t mcusys_gic_prebase_a;		/* 0x608 */
-	uint32_t mcusys_pinmux;			/* 0x60C */
-	uint32_t sec_range0_start;		/* 0x610 */
-	uint32_t sec_range0_end;		/* 0x614 */
-	uint32_t sec_range_enable;		/* 0x618 */
-	uint32_t l2c_mm_base;			/* 0x61C */
-	uint32_t reserved0_9[8];		/* 0x620 */
-	uint32_t aclken_div;			/* 0x640 */
-	uint32_t pclken_div;			/* 0x644 */
-	uint32_t l2c_sram_ctrl;			/* 0x648 */
-	uint32_t armpll_jit_ctrl;		/* 0x64C */
-	uint32_t cci_addrmap;			/* 0x650 */
-	uint32_t cci_config;			/* 0x654 */
-	uint32_t cci_periphbase;		/* 0x658 */
-	uint32_t cci_nevntcntovfl;		/* 0x65C */
-	uint32_t cci_clk_ctrl;			/* 0x660 */
-	uint32_t cci_acel_s1_ctrl;		/* 0x664 */
-	uint32_t mcusys_bus_fabric_dcm_ctrl;	/* 0x668 */
-	uint32_t mcu_misc_dcm_ctrl;		/* 0x66C */
-	uint32_t xgpt_ctl;			/* 0x670 */
-	uint32_t xgpt_idx;			/* 0x674 */
-	uint32_t reserved0_10[3];		/* 0x678 */
-	uint32_t mcusys_rw_rsvd0;		/* 0x684 */
-	uint32_t mcusys_rw_rsvd1;		/* 0x688 */
-	uint32_t reserved0_11[13];		/* 0x68C */
-	uint32_t gic_500_delsel_ctl;		/* 0x6C0 */
-	uint32_t etb_delsel_ctl;		/* 0x6C4 */
-	uint32_t etb_rst_ctl;			/* 0x6C8 */
-	uint32_t reserved0_12[29];		/* 0x6CC */
-	uint32_t cci_adb400_dcm_config;		/* 0x740 */
-	uint32_t sync_dcm_config;		/* 0x744 */
-	uint32_t reserved0_13;			/* 0x748 */
-	uint32_t sync_dcm_cluster_config;	/* 0x74C */
-	uint32_t sw_udi;			/* 0x750 */
-	uint32_t reserved0_14;			/* 0x754 */
-	uint32_t gic_sync_dcm;			/* 0x758 */
-	uint32_t big_dbg_pwr_ctrl;		/* 0x75C */
-	uint32_t gic_cpu_periphbase;		/* 0x760 */
-	uint32_t axi_cpu_config;		/* 0x764 */
-	uint32_t reserved0_15[2];		/* 0x768 */
-	uint32_t mcsib_sys_ctrl1;		/* 0x770 */
-	uint32_t mcsib_sys_ctrl2;		/* 0x774 */
-	uint32_t mcsib_sys_ctrl3;		/* 0x778 */
-	uint32_t mcsib_sys_ctrl4;		/* 0x77C */
-	uint32_t mcsib_dbg_ctrl1;		/* 0x780 */
-	uint32_t pwrmcu_apb2to1;		/* 0x784 */
-	uint32_t mp0_spmc;			/* 0x788 */
-	uint32_t reserved0_16;			/* 0x78C */
-	uint32_t mp0_spmc_sram_ctl;		/* 0x790 */
-	uint32_t reserved0_17;			/* 0x794 */
-	uint32_t mp0_sw_rst_wait_cycle;		/* 0x798 */
-	uint32_t reserved0_18;			/* 0x79C */
-	uint32_t mp0_pll_divider_cfg;		/* 0x7A0 */
-	uint32_t reserved0_19;			/* 0x7A4 */
-	uint32_t mp2_pll_divider_cfg;		/* 0x7A8 */
-	uint32_t reserved0_20[5];		/* 0x7AC */
-	uint32_t bus_pll_divider_cfg;		/* 0x7C0 */
-	uint32_t reserved0_21[7];		/* 0x7C4 */
-	uint32_t clusterid_aff1;		/* 0x7E0 */
-	uint32_t clusterid_aff2;		/* 0x7E4 */
-	uint32_t reserved0_22[2];		/* 0x7E8 */
-	uint32_t l2_cfg_mp0;			/* 0x7F0 */
-	uint32_t l2_cfg_mp1;			/* 0x7F4 */
-	uint32_t reserved0_23[218];		/* 0x7F8 */
-	uint32_t mscib_dcm_en;			/* 0xB60 */
-	uint32_t reserved0_24[1063];		/* 0xB64 */
-	uint32_t cpusys0_sparkvretcntrl;	/* 0x1C00 */
-	uint32_t cpusys0_sparken;		/* 0x1C04 */
-	uint32_t cpusys0_amuxsel;		/* 0x1C08 */
-	uint32_t reserved0_25[9];		/* 0x1C0C */
-	uint32_t cpusys0_cpu0_spmc_ctl;		/* 0x1C30 */
-	uint32_t cpusys0_cpu1_spmc_ctl;		/* 0x1C34 */
-	uint32_t cpusys0_cpu2_spmc_ctl;		/* 0x1C38 */
-	uint32_t cpusys0_cpu3_spmc_ctl;		/* 0x1C3C */
-	uint32_t reserved0_26[8];		/* 0x1C40 */
-	uint32_t mp0_sync_dcm_cgavg_ctrl;	/* 0x1C60 */
-	uint32_t mp0_sync_dcm_cgavg_fact;	/* 0x1C64 */
-	uint32_t mp0_sync_dcm_cgavg_rfact;	/* 0x1C68 */
-	uint32_t mp0_sync_dcm_cgavg;		/* 0x1C6C */
-	uint32_t mp0_l2_parity_clr;		/* 0x1C70 */
-	uint32_t reserved0_27[357];		/* 0x1C74 */
-	uint32_t mp2_cpucfg;			/* 0x2208 */
-	uint32_t mp2_axi_config;		/* 0x220C */
-	uint32_t reserved0_28[25];		/* 0x2210 */
-	uint32_t mp2_sync_dcm;			/* 0x2274 */
-	uint32_t reserved0_29[10];		/* 0x2278 */
-	uint32_t ptp3_cputop_spmc0;		/* 0x22A0 */
-	uint32_t ptp3_cputop_spmc1;		/* 0x22A4 */
-	uint32_t reserved0_30[98];		/* 0x22A8 */
-	uint32_t ptp3_cpu0_spmc0;		/* 0x2430 */
-	uint32_t ptp3_cpu0_spmc1;		/* 0x2434 */
-	uint32_t ptp3_cpu1_spmc0;		/* 0x2438 */
-	uint32_t ptp3_cpu1_spmc1;		/* 0x243C */
-	uint32_t ptp3_cpu2_spmc0;		/* 0x2440 */
-	uint32_t ptp3_cpu2_spmc1;		/* 0x2444 */
-	uint32_t ptp3_cpu3_spmc0;		/* 0x2448 */
-	uint32_t ptp3_cpu3_spmc1;		/* 0x244C */
-	uint32_t ptp3_cpux_spmc;		/* 0x2450 */
-	uint32_t reserved0_31[171];		/* 0x2454 */
-	uint32_t spark2ld0;			/* 0x2700 */
+	} mp0_cpu[4]; /* 0x4 */
+	uint32_t mp0_cache_mem_delsel0; /* 0x24 */
+	uint32_t mp0_cache_mem_delsel1; /* 0x28 */
+	uint32_t mp0_axi_config; /* 0x2C */
+	uint32_t mp0_misc_config[10]; /* 0x30 */
+	uint32_t mp0_ca7l_cfg_dis; /* 0x58 */
+	uint32_t mp0_ca7l_clken_ctrl; /* 0x5C */
+	uint32_t mp0_ca7l_rst_ctrl; /* 0x60 */
+	uint32_t mp0_ca7l_misc_config; /* 0x64 */
+	uint32_t mp0_ca7l_dbg_pwr_ctrl; /* 0x68 */
+	uint32_t mp0_rw_rsvd0; /* 0x6C */
+	uint32_t mp0_rw_rsvd1; /* 0x70 */
+	uint32_t mp0_ro_rsvd; /* 0x74 */
+	uint32_t reserved0_0; /* 0x78 */
+	uint32_t mp0_l2_cache_parity1_rdata; /* 0x7C */
+	uint32_t mp0_l2_cache_parity2_rdata; /* 0x80 */
+	uint32_t reserved0_1; /* 0x84 */
+	uint32_t mp0_rgu_dcm_config; /* 0x88 */
+	uint32_t mp0_ca53_specific_ctrl; /* 0x8C */
+	uint32_t mp0_esr_case; /* 0x90 */
+	uint32_t mp0_esr_mask; /* 0x94 */
+	uint32_t mp0_esr_trig_en; /* 0x98 */
+	uint32_t reserved_0_2; /* 0x9C */
+	uint32_t mp0_ses_cg_en; /* 0xA0 */
+	uint32_t reserved0_3[216]; /* 0xA4 */
+	uint32_t mp_dbg_ctrl; /* 0x404 */
+	uint32_t reserved0_4[34]; /* 0x408 */
+	uint32_t mp_dfd_ctrl; /* 0x490 */
+	uint32_t dfd_cnt_l; /* 0x494 */
+	uint32_t dfd_cnt_h; /* 0x498 */
+	uint32_t misccfg_ro_rsvd; /* 0x49C */
+	uint32_t reserved0_5[24]; /* 0x4A0 */
+	uint32_t mp1_rst_status; /* 0x500 */
+	uint32_t mp1_dbg_ctrl; /* 0x504 */
+	uint32_t mp1_dbg_flag; /* 0x508 */
+	uint32_t mp1_ca7l_ir_mon; /* 0x50C */
+	uint32_t reserved0_6[32]; /* 0x510 */
+	uint32_t mcusys_dbg_mon_sel_a; /* 0x590 */
+	uint32_t mcucys_dbg_mon; /* 0x594 */
+	uint32_t misccfg_sec_voi_status0; /* 0x598 */
+	uint32_t misccfg_sec_vio_status1; /* 0x59C */
+	uint32_t reserved0_7[18]; /* 0x5A0 */
+	uint32_t gic500_int_mask; /* 0x5E8 */
+	uint32_t core_rst_en_latch; /* 0x5EC */
+	uint32_t reserved0_8[3]; /* 0x5F0 */
+	uint32_t dbg_core_ret; /* 0x5FC */
+	uint32_t mcusys_config_a; /* 0x600 */
+	uint32_t mcusys_config1_a; /* 0x604 */
+	uint32_t mcusys_gic_prebase_a; /* 0x608 */
+	uint32_t mcusys_pinmux; /* 0x60C */
+	uint32_t sec_range0_start; /* 0x610 */
+	uint32_t sec_range0_end; /* 0x614 */
+	uint32_t sec_range_enable; /* 0x618 */
+	uint32_t l2c_mm_base; /* 0x61C */
+	uint32_t reserved0_9[8]; /* 0x620 */
+	uint32_t aclken_div; /* 0x640 */
+	uint32_t pclken_div; /* 0x644 */
+	uint32_t l2c_sram_ctrl; /* 0x648 */
+	uint32_t armpll_jit_ctrl; /* 0x64C */
+	uint32_t cci_addrmap; /* 0x650 */
+	uint32_t cci_config; /* 0x654 */
+	uint32_t cci_periphbase; /* 0x658 */
+	uint32_t cci_nevntcntovfl; /* 0x65C */
+	uint32_t cci_clk_ctrl; /* 0x660 */
+	uint32_t cci_acel_s1_ctrl; /* 0x664 */
+	uint32_t mcusys_bus_fabric_dcm_ctrl; /* 0x668 */
+	uint32_t mcu_misc_dcm_ctrl; /* 0x66C */
+	uint32_t xgpt_ctl; /* 0x670 */
+	uint32_t xgpt_idx; /* 0x674 */
+	uint32_t reserved0_10[3]; /* 0x678 */
+	uint32_t mcusys_rw_rsvd0; /* 0x684 */
+	uint32_t mcusys_rw_rsvd1; /* 0x688 */
+	uint32_t reserved0_11[13]; /* 0x68C */
+	uint32_t gic_500_delsel_ctl; /* 0x6C0 */
+	uint32_t etb_delsel_ctl; /* 0x6C4 */
+	uint32_t etb_rst_ctl; /* 0x6C8 */
+	uint32_t reserved0_12[29]; /* 0x6CC */
+	uint32_t cci_adb400_dcm_config; /* 0x740 */
+	uint32_t sync_dcm_config; /* 0x744 */
+	uint32_t reserved0_13; /* 0x748 */
+	uint32_t sync_dcm_cluster_config; /* 0x74C */
+	uint32_t sw_udi; /* 0x750 */
+	uint32_t reserved0_14; /* 0x754 */
+	uint32_t gic_sync_dcm; /* 0x758 */
+	uint32_t big_dbg_pwr_ctrl; /* 0x75C */
+	uint32_t gic_cpu_periphbase; /* 0x760 */
+	uint32_t axi_cpu_config; /* 0x764 */
+	uint32_t reserved0_15[2]; /* 0x768 */
+	uint32_t mcsib_sys_ctrl1; /* 0x770 */
+	uint32_t mcsib_sys_ctrl2; /* 0x774 */
+	uint32_t mcsib_sys_ctrl3; /* 0x778 */
+	uint32_t mcsib_sys_ctrl4; /* 0x77C */
+	uint32_t mcsib_dbg_ctrl1; /* 0x780 */
+	uint32_t pwrmcu_apb2to1; /* 0x784 */
+	uint32_t mp0_spmc; /* 0x788 */
+	uint32_t reserved0_16; /* 0x78C */
+	uint32_t mp0_spmc_sram_ctl; /* 0x790 */
+	uint32_t reserved0_17; /* 0x794 */
+	uint32_t mp0_sw_rst_wait_cycle; /* 0x798 */
+	uint32_t reserved0_18; /* 0x79C */
+	uint32_t mp0_pll_divider_cfg; /* 0x7A0 */
+	uint32_t reserved0_19; /* 0x7A4 */
+	uint32_t mp2_pll_divider_cfg; /* 0x7A8 */
+	uint32_t reserved0_20[5]; /* 0x7AC */
+	uint32_t bus_pll_divider_cfg; /* 0x7C0 */
+	uint32_t reserved0_21[7]; /* 0x7C4 */
+	uint32_t clusterid_aff1; /* 0x7E0 */
+	uint32_t clusterid_aff2; /* 0x7E4 */
+	uint32_t reserved0_22[2]; /* 0x7E8 */
+	uint32_t l2_cfg_mp0; /* 0x7F0 */
+	uint32_t l2_cfg_mp1; /* 0x7F4 */
+	uint32_t reserved0_23[218]; /* 0x7F8 */
+	uint32_t mscib_dcm_en; /* 0xB60 */
+	uint32_t reserved0_24[1063]; /* 0xB64 */
+	uint32_t cpusys0_sparkvretcntrl; /* 0x1C00 */
+	uint32_t cpusys0_sparken; /* 0x1C04 */
+	uint32_t cpusys0_amuxsel; /* 0x1C08 */
+	uint32_t reserved0_25[9]; /* 0x1C0C */
+	uint32_t cpusys0_cpu0_spmc_ctl; /* 0x1C30 */
+	uint32_t cpusys0_cpu1_spmc_ctl; /* 0x1C34 */
+	uint32_t cpusys0_cpu2_spmc_ctl; /* 0x1C38 */
+	uint32_t cpusys0_cpu3_spmc_ctl; /* 0x1C3C */
+	uint32_t reserved0_26[8]; /* 0x1C40 */
+	uint32_t mp0_sync_dcm_cgavg_ctrl; /* 0x1C60 */
+	uint32_t mp0_sync_dcm_cgavg_fact; /* 0x1C64 */
+	uint32_t mp0_sync_dcm_cgavg_rfact; /* 0x1C68 */
+	uint32_t mp0_sync_dcm_cgavg; /* 0x1C6C */
+	uint32_t mp0_l2_parity_clr; /* 0x1C70 */
+	uint32_t reserved0_27[357]; /* 0x1C74 */
+	uint32_t mp2_cpucfg; /* 0x2208 */
+	uint32_t mp2_axi_config; /* 0x220C */
+	uint32_t reserved0_28[25]; /* 0x2210 */
+	uint32_t mp2_sync_dcm; /* 0x2274 */
+	uint32_t reserved0_29[10]; /* 0x2278 */
+	uint32_t ptp3_cputop_spmc0; /* 0x22A0 */
+	uint32_t ptp3_cputop_spmc1; /* 0x22A4 */
+	uint32_t reserved0_30[98]; /* 0x22A8 */
+	uint32_t ptp3_cpu0_spmc0; /* 0x2430 */
+	uint32_t ptp3_cpu0_spmc1; /* 0x2434 */
+	uint32_t ptp3_cpu1_spmc0; /* 0x2438 */
+	uint32_t ptp3_cpu1_spmc1; /* 0x243C */
+	uint32_t ptp3_cpu2_spmc0; /* 0x2440 */
+	uint32_t ptp3_cpu2_spmc1; /* 0x2444 */
+	uint32_t ptp3_cpu3_spmc0; /* 0x2448 */
+	uint32_t ptp3_cpu3_spmc1; /* 0x244C */
+	uint32_t ptp3_cpux_spmc; /* 0x2450 */
+	uint32_t reserved0_31[171]; /* 0x2454 */
+	uint32_t spark2ld0; /* 0x2700 */
 };
 
 static struct mt8183_mcucfg_regs *const mt8183_mcucfg = (void *)MCUCFG_BASE;
@@ -319,15 +320,9 @@ enum {
 		0xf << MP1_DIS_RGU_NOCPU_WAIT_PD_CPUS_L1_ACK_SHIFT
 };
 
-enum {
-	MP1_AINACTS_SHIFT = 4,
-	MP1_AINACTS = 1 << MP1_AINACTS_SHIFT
-};
+enum { MP1_AINACTS_SHIFT = 4, MP1_AINACTS = 1 << MP1_AINACTS_SHIFT };
 
-enum {
-	MP1_SW_CG_GEN_SHIFT = 12,
-	MP1_SW_CG_GEN = 1 << MP1_SW_CG_GEN_SHIFT
-};
+enum { MP1_SW_CG_GEN_SHIFT = 12, MP1_SW_CG_GEN = 1 << MP1_SW_CG_GEN_SHIFT };
 
 enum {
 	MP1_L2RSTDISABLE_SHIFT = 14,
@@ -434,10 +429,7 @@ enum {
 };
 
 /* mcu bus dcm related */
-enum {
-	MCU_BUS_DCM_EN_SHIFT = 8,
-	MCU_BUS_DCM = 1 << MCU_BUS_DCM_EN_SHIFT
-};
+enum { MCU_BUS_DCM_EN_SHIFT = 8, MCU_BUS_DCM = 1 << MCU_BUS_DCM_EN_SHIFT };
 
 /* mcusys bus fabric dcm related */
 enum {
@@ -527,10 +519,7 @@ enum {
 };
 
 /* l2c_sram dcm related */
-enum {
-	L2C_SRAM_DCM_EN_SHIFT = 0,
-	L2C_SRAM_DCM = 1 << L2C_SRAM_DCM_EN_SHIFT
-};
+enum { L2C_SRAM_DCM_EN_SHIFT = 0, L2C_SRAM_DCM = 1 << L2C_SRAM_DCM_EN_SHIFT };
 
 /* mcu misc dcm related */
 enum {
@@ -565,4 +554,4 @@ enum {
 
 	MP2_DCM_EN = 1 << MP2_DCM_EN_SHIFT
 };
-#endif  /* MT8183_MCUCFG_H */
+#endif /* MT8183_MCUCFG_H */

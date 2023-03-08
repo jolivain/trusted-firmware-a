@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,8 +12,8 @@
 
 #include <plat/arm/common/plat_arm.h>
 
-void __init bl31_early_platform_setup2(u_register_t arg0,
-		u_register_t arg1, u_register_t arg2, u_register_t arg3)
+void __init bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
+				       u_register_t arg2, u_register_t arg3)
 {
 	const struct dyn_cfg_dtb_info_t *soc_fw_config_info;
 

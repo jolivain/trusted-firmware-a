@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,11 +7,12 @@
 #include <assert.h>
 
 #include <arch_helpers.h>
-#include <context.h>
 #include <common/debug.h>
+#include <context.h>
 #include <lib/el3_runtime/context_mgmt.h>
-#include <plat/common/platform.h>
 #include <smccc_helpers.h>
+
+#include <plat/common/platform.h>
 
 #include "../bl1_private.h"
 
@@ -69,7 +70,7 @@ void *cm_get_next_context(void)
  * from the CPU context to the SMC context structures.
  ******************************************************************************/
 static void copy_cpu_ctx_to_smc_ctx(const regs_t *cpu_reg_ctx,
-		smc_ctx_t *next_smc_ctx)
+				    smc_ctx_t *next_smc_ctx)
 {
 	next_smc_ctx->r0 = read_ctx_reg(cpu_reg_ctx, CTX_GPREG_R0);
 	next_smc_ctx->r1 = read_ctx_reg(cpu_reg_ctx, CTX_GPREG_R1);
@@ -86,14 +87,14 @@ static void copy_cpu_ctx_to_smc_ctx(const regs_t *cpu_reg_ctx,
 static void flush_smc_and_cpu_ctx(void)
 {
 	flush_dcache_range((uintptr_t)&bl1_next_smc_context_ptr,
-		sizeof(bl1_next_smc_context_ptr));
+			   sizeof(bl1_next_smc_context_ptr));
 	flush_dcache_range((uintptr_t)bl1_next_smc_context_ptr,
-		sizeof(smc_ctx_t));
+			   sizeof(smc_ctx_t));
 
 	flush_dcache_range((uintptr_t)&bl1_next_cpu_context_ptr,
-		sizeof(bl1_next_cpu_context_ptr));
+			   sizeof(bl1_next_cpu_context_ptr));
 	flush_dcache_range((uintptr_t)bl1_next_cpu_context_ptr,
-		sizeof(cpu_context_t));
+			   sizeof(cpu_context_t));
 }
 
 /*******************************************************************************
@@ -117,12 +118,13 @@ void bl1_prepare_next_image(unsigned int image_id)
 	security_state = GET_SECURITY_STATE(next_bl_ep->h.attr);
 
 	/* Prepare the SPSR for the next BL image. */
-	if ((security_state != SECURE) && (GET_VIRT_EXT(read_id_pfr1()) != 0U)) {
+	if ((security_state != SECURE) &&
+	    (GET_VIRT_EXT(read_id_pfr1()) != 0U)) {
 		mode = MODE32_hyp;
 	}
 
-	next_bl_ep->spsr = SPSR_MODE32(mode, SPSR_T_ARM,
-				SPSR_E_LITTLE, DISABLE_ALL_EXCEPTIONS);
+	next_bl_ep->spsr = SPSR_MODE32(mode, SPSR_T_ARM, SPSR_E_LITTLE,
+				       DISABLE_ALL_EXCEPTIONS);
 
 	/* Allow platform to make change */
 	bl1_plat_set_ep_info(image_id, next_bl_ep);
@@ -135,7 +137,7 @@ void bl1_prepare_next_image(unsigned int image_id)
 	/* Prepare the smc context for the next BL image. */
 	smc_set_next_ctx(security_state);
 	copy_cpu_ctx_to_smc_ctx(get_regs_ctx(cm_get_next_context()),
-		smc_get_next_ctx());
+				smc_get_next_ctx());
 
 	/*
 	 * If the next image is non-secure, then we need to program the banked

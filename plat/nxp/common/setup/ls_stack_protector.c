@@ -11,7 +11,7 @@
 
 #include <plat/common/platform.h>
 
-#define RANDOM_CANARY_VALUE ((u_register_t) 3288484550995823360ULL)
+#define RANDOM_CANARY_VALUE ((u_register_t)3288484550995823360ULL)
 
 u_register_t plat_get_stack_protector_canary(void)
 {

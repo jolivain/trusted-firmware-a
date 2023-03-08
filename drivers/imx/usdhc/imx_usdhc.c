@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,9 +13,8 @@
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <drivers/mmc.h>
-#include <lib/mmio.h>
-
 #include <imx_usdhc.h>
+#include <lib/mmio.h>
 
 static void imx_usdhc_initialize(void);
 static int imx_usdhc_send_cmd(struct mmc_cmd *cmd);
@@ -25,12 +24,12 @@ static int imx_usdhc_read(int lba, uintptr_t buf, size_t size);
 static int imx_usdhc_write(int lba, uintptr_t buf, size_t size);
 
 static const struct mmc_ops imx_usdhc_ops = {
-	.init		= imx_usdhc_initialize,
-	.send_cmd	= imx_usdhc_send_cmd,
-	.set_ios	= imx_usdhc_set_ios,
-	.prepare	= imx_usdhc_prepare,
-	.read		= imx_usdhc_read,
-	.write		= imx_usdhc_write,
+	.init = imx_usdhc_initialize,
+	.send_cmd = imx_usdhc_send_cmd,
+	.set_ios = imx_usdhc_set_ios,
+	.prepare = imx_usdhc_prepare,
+	.read = imx_usdhc_read,
+	.write = imx_usdhc_write,
 };
 
 static imx_usdhc_params_t imx_usdhc_params;
@@ -59,7 +58,8 @@ static void imx_usdhc_set_clk(int clk)
 	mmio_clrsetbits32(reg_base + SYSCTRL, SYSCTRL_CLOCK_MASK, clk);
 	udelay(10000);
 
-	mmio_setbits32(reg_base + VENDSPEC, VENDSPEC_PER_CLKEN | VENDSPEC_CARD_CLKEN);
+	mmio_setbits32(reg_base + VENDSPEC,
+		       VENDSPEC_PER_CLKEN | VENDSPEC_CARD_CLKEN);
 }
 
 static void imx_usdhc_initialize(void)
@@ -85,7 +85,8 @@ static void imx_usdhc_initialize(void)
 
 	mmio_write_32(reg_base + VENDSPEC, VENDSPEC_INIT);
 	mmio_write_32(reg_base + DLLCTRL, 0);
-	mmio_setbits32(reg_base + VENDSPEC, VENDSPEC_IPG_CLKEN | VENDSPEC_PER_CLKEN);
+	mmio_setbits32(reg_base + VENDSPEC,
+		       VENDSPEC_IPG_CLKEN | VENDSPEC_PER_CLKEN);
 
 	/* Set the initial boot clock rate */
 	imx_usdhc_set_clk(MMC_BOOT_CLK_RATE);
@@ -105,7 +106,7 @@ static void imx_usdhc_initialize(void)
 	mmio_clrsetbits32(reg_base + WATERMARKLEV, WMKLV_MASK, 16 | (16 << 16));
 }
 
-#define FSL_CMD_RETRIES	1000
+#define FSL_CMD_RETRIES 1000
 
 static int imx_usdhc_send_cmd(struct mmc_cmd *cmd)
 {
@@ -191,7 +192,8 @@ static int imx_usdhc_send_cmd(struct mmc_cmd *cmd)
 			udelay(1);
 	} while ((!(state & flags)) && ++cmd_retries < FSL_CMD_RETRIES);
 
-	if ((state & (INTSTATEN_CTOE | CMD_ERR)) || cmd_retries == FSL_CMD_RETRIES) {
+	if ((state & (INTSTATEN_CTOE | CMD_ERR)) ||
+	    cmd_retries == FSL_CMD_RETRIES) {
 		if (cmd_retries == FSL_CMD_RETRIES)
 			err = -ETIMEDOUT;
 		else
@@ -291,8 +293,7 @@ static int imx_usdhc_write(int lba, uintptr_t buf, size_t size)
 void imx_usdhc_init(imx_usdhc_params_t *params,
 		    struct mmc_device_info *mmc_dev_info)
 {
-	assert((params != 0) &&
-	       ((params->reg_base & MMC_BLOCK_MASK) == 0) &&
+	assert((params != 0) && ((params->reg_base & MMC_BLOCK_MASK) == 0) &&
 	       (params->clk_rate > 0) &&
 	       ((params->bus_width == MMC_BUS_WIDTH_1) ||
 		(params->bus_width == MMC_BUS_WIDTH_4) ||

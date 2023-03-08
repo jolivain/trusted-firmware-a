@@ -10,7 +10,7 @@
 
 /* Supported key algorithms */
 enum {
-	KEY_ALG_GCM		/* AES-GCM (default) */
+	KEY_ALG_GCM /* AES-GCM (default) */
 };
 
 int encrypt_file(unsigned short fw_enc_status, int enc_alg, char *key_string,

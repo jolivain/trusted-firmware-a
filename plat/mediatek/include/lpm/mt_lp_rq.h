@@ -8,12 +8,12 @@
 #define MT_LP_RQ_H
 
 /* Determine the generic resource request public type */
-#define MT_LP_RQ_XO_FPM		BIT(0)
-#define MT_LP_RQ_26M		BIT(1)
-#define MT_LP_RQ_INFRA		BIT(2)
-#define MT_LP_RQ_SYSPLL		BIT(3)
-#define MT_LP_RQ_DRAM		BIT(4)
-#define MT_LP_RQ_ALL		(0xFFFFFFFF)
+#define MT_LP_RQ_XO_FPM BIT(0)
+#define MT_LP_RQ_26M BIT(1)
+#define MT_LP_RQ_INFRA BIT(2)
+#define MT_LP_RQ_SYSPLL BIT(3)
+#define MT_LP_RQ_DRAM BIT(4)
+#define MT_LP_RQ_ALL (0xFFFFFFFF)
 
 struct mt_lp_resource_user {
 	/* Determine the resource user mask */

@@ -7,20 +7,20 @@
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <lib/mmio.h>
+#include <timer_sync.h>
 
 #include <platform_def.h>
-#include <timer_sync.h>
 
 /*******************************************************************************
  * Defines related to time sync and satelite timers
  ******************************************************************************/
-#define TIME_SYNC_WR_ENA	((uint32_t)0xACCE55 << 8)
-#define IHOST_STA_TMR_CTRL	0x1800
-#define IHOST_SAT_TMR_INC_L	0x1814
-#define IHOST_SAT_TMR_INC_H	0x1818
+#define TIME_SYNC_WR_ENA ((uint32_t)0xACCE55 << 8)
+#define IHOST_STA_TMR_CTRL 0x1800
+#define IHOST_SAT_TMR_INC_L 0x1814
+#define IHOST_SAT_TMR_INC_H 0x1818
 
-#define SAT_TMR_CYCLE_DELAY	2
-#define SAT_TMR_32BIT_WRAP_VAL	(BIT_64(32) - SAT_TMR_CYCLE_DELAY)
+#define SAT_TMR_CYCLE_DELAY 2
+#define SAT_TMR_32BIT_WRAP_VAL (BIT_64(32) - SAT_TMR_CYCLE_DELAY)
 
 void ihost_enable_satellite_timer(unsigned int cluster_id)
 {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,78 +7,78 @@
 #include <assert.h>
 #include <stdint.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <drivers/io/io_block.h>
 #include <lib/mmio.h>
 #include <lib/utils_def.h>
 
+#include <platform_def.h>
+
 #include "uniphier.h"
 
-#define MMC_CMD_SWITCH			6
-#define MMC_CMD_SELECT_CARD		7
-#define MMC_CMD_SEND_CSD		9
-#define MMC_CMD_READ_MULTIPLE_BLOCK	18
+#define MMC_CMD_SWITCH 6
+#define MMC_CMD_SELECT_CARD 7
+#define MMC_CMD_SEND_CSD 9
+#define MMC_CMD_READ_MULTIPLE_BLOCK 18
 
-#define EXT_CSD_PART_CONF		179	/* R/W */
+#define EXT_CSD_PART_CONF 179 /* R/W */
 
 #define MMC_RSP_PRESENT BIT(0)
-#define MMC_RSP_136	BIT(1)		/* 136 bit response */
-#define MMC_RSP_CRC	BIT(2)		/* expect valid crc */
-#define MMC_RSP_BUSY	BIT(3)		/* card may send busy */
-#define MMC_RSP_OPCODE	BIT(4)		/* response contains opcode */
+#define MMC_RSP_136 BIT(1) /* 136 bit response */
+#define MMC_RSP_CRC BIT(2) /* expect valid crc */
+#define MMC_RSP_BUSY BIT(3) /* card may send busy */
+#define MMC_RSP_OPCODE BIT(4) /* response contains opcode */
 
-#define MMC_RSP_NONE	(0)
-#define MMC_RSP_R1	(MMC_RSP_PRESENT | MMC_RSP_CRC | MMC_RSP_OPCODE)
-#define MMC_RSP_R1b	(MMC_RSP_PRESENT | MMC_RSP_CRC | MMC_RSP_OPCODE | \
-			MMC_RSP_BUSY)
-#define MMC_RSP_R2	(MMC_RSP_PRESENT | MMC_RSP_136 | MMC_RSP_CRC)
-#define MMC_RSP_R3	(MMC_RSP_PRESENT)
-#define MMC_RSP_R4	(MMC_RSP_PRESENT)
-#define MMC_RSP_R5	(MMC_RSP_PRESENT | MMC_RSP_CRC | MMC_RSP_OPCODE)
-#define MMC_RSP_R6	(MMC_RSP_PRESENT | MMC_RSP_CRC | MMC_RSP_OPCODE)
-#define MMC_RSP_R7	(MMC_RSP_PRESENT | MMC_RSP_CRC | MMC_RSP_OPCODE)
+#define MMC_RSP_NONE (0)
+#define MMC_RSP_R1 (MMC_RSP_PRESENT | MMC_RSP_CRC | MMC_RSP_OPCODE)
+#define MMC_RSP_R1b \
+	(MMC_RSP_PRESENT | MMC_RSP_CRC | MMC_RSP_OPCODE | MMC_RSP_BUSY)
+#define MMC_RSP_R2 (MMC_RSP_PRESENT | MMC_RSP_136 | MMC_RSP_CRC)
+#define MMC_RSP_R3 (MMC_RSP_PRESENT)
+#define MMC_RSP_R4 (MMC_RSP_PRESENT)
+#define MMC_RSP_R5 (MMC_RSP_PRESENT | MMC_RSP_CRC | MMC_RSP_OPCODE)
+#define MMC_RSP_R6 (MMC_RSP_PRESENT | MMC_RSP_CRC | MMC_RSP_OPCODE)
+#define MMC_RSP_R7 (MMC_RSP_PRESENT | MMC_RSP_CRC | MMC_RSP_OPCODE)
 
-#define SDHCI_DMA_ADDRESS	0x00
-#define SDHCI_BLOCK_SIZE	0x04
-#define  SDHCI_MAKE_BLKSZ(dma, blksz) ((((dma) & 0x7) << 12) | ((blksz) & 0xFFF))
-#define SDHCI_BLOCK_COUNT	0x06
-#define SDHCI_ARGUMENT		0x08
-#define SDHCI_TRANSFER_MODE	0x0C
-#define  SDHCI_TRNS_DMA		BIT(0)
-#define  SDHCI_TRNS_BLK_CNT_EN	BIT(1)
-#define  SDHCI_TRNS_ACMD12	BIT(2)
-#define  SDHCI_TRNS_READ	BIT(4)
-#define  SDHCI_TRNS_MULTI	BIT(5)
-#define SDHCI_COMMAND		0x0E
-#define  SDHCI_CMD_RESP_MASK	0x03
-#define  SDHCI_CMD_CRC		0x08
-#define  SDHCI_CMD_INDEX	0x10
-#define  SDHCI_CMD_DATA		0x20
-#define  SDHCI_CMD_ABORTCMD	0xC0
-#define  SDHCI_CMD_RESP_NONE	0x00
-#define  SDHCI_CMD_RESP_LONG	0x01
-#define  SDHCI_CMD_RESP_SHORT	0x02
-#define  SDHCI_CMD_RESP_SHORT_BUSY 0x03
-#define  SDHCI_MAKE_CMD(c, f) ((((c) & 0xff) << 8) | ((f) & 0xff))
-#define SDHCI_RESPONSE		0x10
-#define SDHCI_HOST_CONTROL	0x28
-#define  SDHCI_CTRL_DMA_MASK	0x18
-#define   SDHCI_CTRL_SDMA	0x00
-#define SDHCI_BLOCK_GAP_CONTROL	0x2A
-#define SDHCI_SOFTWARE_RESET	0x2F
-#define  SDHCI_RESET_CMD	0x02
-#define  SDHCI_RESET_DATA	0x04
-#define SDHCI_INT_STATUS	0x30
-#define  SDHCI_INT_RESPONSE	BIT(0)
-#define  SDHCI_INT_DATA_END	BIT(1)
-#define  SDHCI_INT_DMA_END	BIT(3)
-#define  SDHCI_INT_ERROR	BIT(15)
-#define SDHCI_SIGNAL_ENABLE	0x38
+#define SDHCI_DMA_ADDRESS 0x00
+#define SDHCI_BLOCK_SIZE 0x04
+#define SDHCI_MAKE_BLKSZ(dma, blksz) ((((dma)&0x7) << 12) | ((blksz)&0xFFF))
+#define SDHCI_BLOCK_COUNT 0x06
+#define SDHCI_ARGUMENT 0x08
+#define SDHCI_TRANSFER_MODE 0x0C
+#define SDHCI_TRNS_DMA BIT(0)
+#define SDHCI_TRNS_BLK_CNT_EN BIT(1)
+#define SDHCI_TRNS_ACMD12 BIT(2)
+#define SDHCI_TRNS_READ BIT(4)
+#define SDHCI_TRNS_MULTI BIT(5)
+#define SDHCI_COMMAND 0x0E
+#define SDHCI_CMD_RESP_MASK 0x03
+#define SDHCI_CMD_CRC 0x08
+#define SDHCI_CMD_INDEX 0x10
+#define SDHCI_CMD_DATA 0x20
+#define SDHCI_CMD_ABORTCMD 0xC0
+#define SDHCI_CMD_RESP_NONE 0x00
+#define SDHCI_CMD_RESP_LONG 0x01
+#define SDHCI_CMD_RESP_SHORT 0x02
+#define SDHCI_CMD_RESP_SHORT_BUSY 0x03
+#define SDHCI_MAKE_CMD(c, f) ((((c)&0xff) << 8) | ((f)&0xff))
+#define SDHCI_RESPONSE 0x10
+#define SDHCI_HOST_CONTROL 0x28
+#define SDHCI_CTRL_DMA_MASK 0x18
+#define SDHCI_CTRL_SDMA 0x00
+#define SDHCI_BLOCK_GAP_CONTROL 0x2A
+#define SDHCI_SOFTWARE_RESET 0x2F
+#define SDHCI_RESET_CMD 0x02
+#define SDHCI_RESET_DATA 0x04
+#define SDHCI_INT_STATUS 0x30
+#define SDHCI_INT_RESPONSE BIT(0)
+#define SDHCI_INT_DATA_END BIT(1)
+#define SDHCI_INT_DMA_END BIT(3)
+#define SDHCI_INT_ERROR BIT(15)
+#define SDHCI_SIGNAL_ENABLE 0x38
 
 /* RCA assigned by Boot ROM */
-#define UNIPHIER_EMMC_RCA	0x1000
+#define UNIPHIER_EMMC_RCA 0x1000
 
 struct uniphier_mmc_cmd {
 	unsigned int cmdidx;
@@ -107,8 +107,7 @@ static int uniphier_emmc_send_cmd(uintptr_t host_base,
 
 	if (cmd->is_data)
 		mode = SDHCI_TRNS_DMA | SDHCI_TRNS_BLK_CNT_EN |
-			SDHCI_TRNS_ACMD12 | SDHCI_TRNS_READ |
-			SDHCI_TRNS_MULTI;
+		       SDHCI_TRNS_ACMD12 | SDHCI_TRNS_READ | SDHCI_TRNS_MULTI;
 
 	mmio_write_16(host_base + SDHCI_TRANSFER_MODE, mode);
 
@@ -153,7 +152,7 @@ static int uniphier_emmc_send_cmd(uintptr_t host_base,
 
 static int uniphier_emmc_switch_part(uintptr_t host_base, int part_num)
 {
-	struct uniphier_mmc_cmd cmd = {0};
+	struct uniphier_mmc_cmd cmd = { 0 };
 
 	cmd.cmdidx = MMC_CMD_SWITCH;
 	cmd.resp_type = MMC_RSP_R1b;
@@ -165,8 +164,8 @@ static int uniphier_emmc_switch_part(uintptr_t host_base, int part_num)
 static int uniphier_emmc_check_device_size(uintptr_t host_base,
 					   bool *is_block_addressing)
 {
-	struct uniphier_mmc_cmd cmd = {0};
-	uint32_t csd40, csd72;	/* CSD[71:40], CSD[103:72] */
+	struct uniphier_mmc_cmd cmd = { 0 };
+	uint32_t csd40, csd72; /* CSD[71:40], CSD[103:72] */
 	int ret;
 
 	cmd.cmdidx = MMC_CMD_SEND_CSD;
@@ -186,12 +185,10 @@ static int uniphier_emmc_check_device_size(uintptr_t host_base,
 	return 0;
 }
 
-static int uniphier_emmc_load_image(uintptr_t host_base,
-				    uint32_t dev_addr,
-				    unsigned long load_addr,
-				    uint32_t block_cnt)
+static int uniphier_emmc_load_image(uintptr_t host_base, uint32_t dev_addr,
+				    unsigned long load_addr, uint32_t block_cnt)
 {
-	struct uniphier_mmc_cmd cmd = {0};
+	struct uniphier_mmc_cmd cmd = { 0 };
 	uint8_t tmp;
 
 	assert((load_addr >> 32) == 0);
@@ -206,7 +203,7 @@ static int uniphier_emmc_load_image(uintptr_t host_base,
 	mmio_write_8(host_base + SDHCI_HOST_CONTROL, tmp);
 
 	tmp = mmio_read_8(host_base + SDHCI_BLOCK_GAP_CONTROL);
-	tmp &= ~1;		/* clear Stop At Block Gap Request */
+	tmp &= ~1; /* clear Stop At Block Gap Request */
 	mmio_write_8(host_base + SDHCI_BLOCK_GAP_CONTROL, tmp);
 
 	cmd.cmdidx = MMC_CMD_READ_MULTIPLE_BLOCK;
@@ -226,8 +223,8 @@ static size_t uniphier_emmc_read(int lba, uintptr_t buf, size_t size)
 	if (!uniphier_emmc_host.is_block_addressing)
 		lba *= 512;
 
-	ret = uniphier_emmc_load_image(uniphier_emmc_host.base,
-				       lba, buf, size / 512);
+	ret = uniphier_emmc_load_image(uniphier_emmc_host.base, lba, buf,
+				       size / 512);
 
 	inv_dcache_range(buf, size);
 
@@ -243,7 +240,7 @@ static struct io_block_dev_spec uniphier_emmc_dev_spec = {
 
 static int uniphier_emmc_hw_init(struct uniphier_emmc_host *host)
 {
-	struct uniphier_mmc_cmd cmd = {0};
+	struct uniphier_mmc_cmd cmd = { 0 };
 	uintptr_t host_base = uniphier_emmc_host.base;
 	int ret;
 
@@ -262,8 +259,8 @@ static int uniphier_emmc_hw_init(struct uniphier_emmc_host *host)
 	while (mmio_read_8(host_base + SDHCI_SOFTWARE_RESET))
 		;
 
-	ret = uniphier_emmc_check_device_size(host_base,
-				&uniphier_emmc_host.is_block_addressing);
+	ret = uniphier_emmc_check_device_size(
+		host_base, &uniphier_emmc_host.is_block_addressing);
 	if (ret)
 		return ret;
 

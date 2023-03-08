@@ -7,30 +7,29 @@
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
-#include <mg_conf_cm3/mg_conf_cm3.h>
 #include <lib/mmio.h>
-
-#include <plat_pm_trace.h>
-#include <mss_scp_bootloader.h>
+#include <mg_conf_cm3/mg_conf_cm3.h>
+#include <mss_defs.h>
 #include <mss_ipc_drv.h>
 #include <mss_mem.h>
-#include <mss_defs.h>
 #include <mss_scp_bl2_format.h>
+#include <mss_scp_bootloader.h>
+#include <plat_pm_trace.h>
 
-#define MSS_DMA_TIMEOUT			1000
-#define MSS_EXTERNAL_SPACE		0x50000000
-#define MSS_EXTERNAL_ADDR_MASK		0xfffffff
-#define MSS_INTERNAL_SPACE		0x40000000
-#define MSS_INTERNAL_ADDR_MASK		0x00ffffff
+#include <platform_def.h>
 
-#define DMA_SIZE			128
+#define MSS_DMA_TIMEOUT 1000
+#define MSS_EXTERNAL_SPACE 0x50000000
+#define MSS_EXTERNAL_ADDR_MASK 0xfffffff
+#define MSS_INTERNAL_SPACE 0x40000000
+#define MSS_INTERNAL_ADDR_MASK 0x00ffffff
 
-#define MSS_HANDSHAKE_TIMEOUT		50
+#define DMA_SIZE 128
+
+#define MSS_HANDSHAKE_TIMEOUT 50
 
 static int mss_check_image_ready(volatile struct mss_pm_ctrl_block *mss_pm_crtl)
 {
@@ -38,7 +37,7 @@ static int mss_check_image_ready(volatile struct mss_pm_ctrl_block *mss_pm_crtl)
 
 	/* Wait for SCP to signal it's ready */
 	while ((mss_pm_crtl->handshake != MSS_ACKNOWLEDGMENT) &&
-						(timeout-- > 0))
+	       (timeout-- > 0))
 		mdelay(1);
 
 	if (mss_pm_crtl->handshake != MSS_ACKNOWLEDGMENT)
@@ -65,17 +64,17 @@ static int mss_iram_dma_load(uint32_t src_addr, uint32_t size,
 		/* make sure DMA data is ready before triggering it */
 		dsb();
 		/* set the DMA control register */
-		mmio_write_32(MSS_DMA_CTRLR(mss_regs),
-			      ((MSS_DMA_CTRLR_REQ_SET <<
-				MSS_DMA_CTRLR_REQ_OFFSET) |
-			      (DMA_SIZE << MSS_DMA_CTRLR_SIZE_OFFSET)));
+		mmio_write_32(
+			MSS_DMA_CTRLR(mss_regs),
+			((MSS_DMA_CTRLR_REQ_SET << MSS_DMA_CTRLR_REQ_OFFSET) |
+			 (DMA_SIZE << MSS_DMA_CTRLR_SIZE_OFFSET)));
 		/* Poll DMA_ACK at MSS_DMACTLR until it is ready */
 		timeout = MSS_DMA_TIMEOUT;
 		while (timeout > 0U) {
 			if (((mmio_read_32(MSS_DMA_CTRLR(mss_regs)) >>
-					  MSS_DMA_CTRLR_ACK_OFFSET) &
-					  MSS_DMA_CTRLR_ACK_MASK)
-					  == MSS_DMA_CTRLR_ACK_READY) {
+			      MSS_DMA_CTRLR_ACK_OFFSET) &
+			     MSS_DMA_CTRLR_ACK_MASK) ==
+			    MSS_DMA_CTRLR_ACK_READY) {
 				break;
 			}
 			udelay(50);
@@ -89,8 +88,8 @@ static int mss_iram_dma_load(uint32_t src_addr, uint32_t size,
 	return 0;
 }
 
-static int mss_image_load(uint32_t src_addr, uint32_t size,
-			  uintptr_t mss_regs, uintptr_t sram)
+static int mss_image_load(uint32_t src_addr, uint32_t size, uintptr_t mss_regs,
+			  uintptr_t sram)
 {
 	uint32_t chunks = 1; /* !sram case */
 	uint32_t chunk_num;
@@ -119,12 +118,12 @@ static int mss_image_load(uint32_t src_addr, uint32_t size,
 
 		if (sram != 0) {
 			uintptr_t chunk_source =
-				  src_addr + MSS_SRAM_SIZE * chunk_num;
+				src_addr + MSS_SRAM_SIZE * chunk_num;
 
 			if (chunk_num != (size / MSS_SRAM_SIZE)) {
 				chunk_size = MSS_SRAM_SIZE;
 			} else {
-				chunk_size =  size % MSS_SRAM_SIZE;
+				chunk_size = size % MSS_SRAM_SIZE;
 			}
 
 			if (chunk_size == 0) {
@@ -158,8 +157,8 @@ static int mss_image_load(uint32_t src_addr, uint32_t size,
 	} else {
 		/* Release M3 from reset */
 		mmio_write_32(MSS_M3_RSTCR(mss_regs),
-			      (MSS_M3_RSTCR_RST_OFF <<
-			       MSS_M3_RSTCR_RST_OFFSET));
+			      (MSS_M3_RSTCR_RST_OFF
+			       << MSS_M3_RSTCR_RST_OFFSET));
 	}
 
 	NOTICE("Done\n");
@@ -172,23 +171,22 @@ static int mss_image_load(uint32_t src_addr, uint32_t size,
  * firmware for AP is dedicated for PM and therefore some additional PM
  * initialization is required
  */
-static int mss_ap_load_image(uintptr_t single_img,
-			     uint32_t image_size, uint32_t ap_idx)
+static int mss_ap_load_image(uintptr_t single_img, uint32_t image_size,
+			     uint32_t ap_idx)
 {
 	volatile struct mss_pm_ctrl_block *mss_pm_crtl;
 	int ret;
 
 	/* TODO: add PM Control Info from platform */
 	mss_pm_crtl = (struct mss_pm_ctrl_block *)MSS_SRAM_PM_CONTROL_BASE;
-	mss_pm_crtl->ipc_version                = MV_PM_FW_IPC_VERSION;
-	mss_pm_crtl->num_of_clusters            = PLAT_MARVELL_CLUSTER_COUNT;
-	mss_pm_crtl->num_of_cores_per_cluster   =
-						PLAT_MARVELL_CLUSTER_CORE_COUNT;
-	mss_pm_crtl->num_of_cores               = PLAT_MARVELL_CLUSTER_COUNT *
-						PLAT_MARVELL_CLUSTER_CORE_COUNT;
+	mss_pm_crtl->ipc_version = MV_PM_FW_IPC_VERSION;
+	mss_pm_crtl->num_of_clusters = PLAT_MARVELL_CLUSTER_COUNT;
+	mss_pm_crtl->num_of_cores_per_cluster = PLAT_MARVELL_CLUSTER_CORE_COUNT;
+	mss_pm_crtl->num_of_cores =
+		PLAT_MARVELL_CLUSTER_COUNT * PLAT_MARVELL_CLUSTER_CORE_COUNT;
 	mss_pm_crtl->pm_trace_ctrl_base_address = AP_MSS_ATF_CORE_CTRL_BASE;
 	mss_pm_crtl->pm_trace_info_base_address = AP_MSS_ATF_CORE_INFO_BASE;
-	mss_pm_crtl->pm_trace_info_core_size    = AP_MSS_ATF_CORE_INFO_SIZE;
+	mss_pm_crtl->pm_trace_info_core_size = AP_MSS_ATF_CORE_INFO_SIZE;
 	VERBOSE("MSS Control Block = 0x%x\n", MSS_SRAM_PM_CONTROL_BASE);
 	VERBOSE("mss_pm_crtl->ipc_version                = 0x%x\n",
 		mss_pm_crtl->ipc_version);
@@ -224,8 +222,8 @@ static int mss_ap_load_image(uintptr_t single_img,
 }
 
 /* Load CM3 image (single_img) to CM3 pointed by cm3_type */
-static int load_img_to_cm3(enum cm3_t cm3_type,
-			   uintptr_t single_img, uint32_t image_size)
+static int load_img_to_cm3(enum cm3_t cm3_type, uintptr_t single_img,
+			   uint32_t image_size)
 {
 	int ret, ap_idx, cp_index;
 	uint32_t ap_count = bl2_plat_get_ap_count();
@@ -261,13 +259,12 @@ static int load_img_to_cm3(enum cm3_t cm3_type,
 				break;
 			}
 
-			NOTICE("Load image to CP%d MSS AP%d\n",
-			       cp_index, ap_idx);
-			ret = mss_image_load(single_img, image_size,
-					     bl2_plat_get_cp_mss_regs(
-						     ap_idx, cp_index),
-					     bl2_plat_get_cp_mss_sram(
-						     ap_idx, cp_index));
+			NOTICE("Load image to CP%d MSS AP%d\n", cp_index,
+			       ap_idx);
+			ret = mss_image_load(
+				single_img, image_size,
+				bl2_plat_get_cp_mss_regs(ap_idx, cp_index),
+				bl2_plat_get_cp_mss_sram(ap_idx, cp_index));
 			if (ret != 0) {
 				ERROR("SCP Image load failed\n");
 				return -1;
@@ -279,8 +276,7 @@ static int load_img_to_cm3(enum cm3_t cm3_type,
 	case MG_CP2:
 		cp_index = cm3_type - MG_CP0;
 		if (bl2_plat_get_cp_count(0) <= cp_index) {
-			NOTICE("Skipping MG CP%d related image\n",
-			       cp_index);
+			NOTICE("Skipping MG CP%d related image\n", cp_index);
 			break;
 		}
 		NOTICE("Load image to CP%d MG\n", cp_index);
@@ -325,12 +321,11 @@ static int split_and_load_bl2_image(void *image)
 
 	img_hdr = (img_header_t *)((uintptr_t)image + sizeof(file_header_t));
 	single_img = (uintptr_t)image + sizeof(file_header_t) +
-				    sizeof(img_header_t) * file_hdr->nr_of_imgs;
+		     sizeof(img_header_t) * file_hdr->nr_of_imgs;
 
 	NOTICE("SCP_BL2 contains %d concatenated images\n",
-							  file_hdr->nr_of_imgs);
+	       file_hdr->nr_of_imgs);
 	for (i = 0; i < file_hdr->nr_of_imgs; i++) {
-
 		/* Before loading make sanity check on header */
 		if (img_hdr->version != HEADER_VERSION) {
 			ERROR("Wrong header, img corrupted exiting\n");
@@ -350,14 +345,14 @@ static int split_and_load_bl2_image(void *image)
 int scp_bootloader_transfer(void *image, unsigned int image_size)
 {
 #ifdef SCP_BL2_BASE
-	assert((uintptr_t) image == SCP_BL2_BASE);
+	assert((uintptr_t)image == SCP_BL2_BASE);
 #endif
 
 	VERBOSE("Concatenated img size %d\n", image_size);
 
 	if (image_size == 0) {
 		ERROR("SCP_BL2 image size can't be 0 (current size = 0x%x)\n",
-								    image_size);
+		      image_size);
 		return -1;
 	}
 

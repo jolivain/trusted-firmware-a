@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020-2022, Xilinx, Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -14,10 +14,9 @@
 
 #include <common/debug.h>
 #include <common/runtime_svc.h>
+#include <ipi.h>
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
-
-#include <ipi.h>
 #include <plat_private.h>
 
 /*********************************************************************
@@ -26,11 +25,11 @@
 
 /* IPI registers offsets macros */
 #define IPI_TRIG_OFFSET 0x00U
-#define IPI_OBR_OFFSET  0x04U
-#define IPI_ISR_OFFSET  0x10U
-#define IPI_IMR_OFFSET  0x14U
-#define IPI_IER_OFFSET  0x18U
-#define IPI_IDR_OFFSET  0x1CU
+#define IPI_OBR_OFFSET 0x04U
+#define IPI_ISR_OFFSET 0x10U
+#define IPI_IMR_OFFSET 0x14U
+#define IPI_IER_OFFSET 0x18U
+#define IPI_IDR_OFFSET 0x1CU
 
 /* IPI register start offset */
 #define IPI_REG_BASE(I) (ipi_table[(I)].ipi_reg_base)

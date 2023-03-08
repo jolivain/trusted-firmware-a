@@ -9,6 +9,9 @@
 #include <string.h>
 
 /* mbed TLS headers */
+#include <common/debug.h>
+#include <drivers/auth/crypto_mod.h>
+#include <drivers/auth/mbedtls/mbedtls_common.h>
 #include <mbedtls/gcm.h>
 #include <mbedtls/md.h>
 #include <mbedtls/memory_buffer_alloc.h>
@@ -17,16 +20,12 @@
 #include <mbedtls/version.h>
 #include <mbedtls/x509.h>
 
-#include <common/debug.h>
-#include <drivers/auth/crypto_mod.h>
-#include <drivers/auth/mbedtls/mbedtls_common.h>
-
 #include <plat/common/platform.h>
 
-#define LIB_NAME		"mbed TLS"
+#define LIB_NAME "mbed TLS"
 
 #if CRYPTO_SUPPORT == CRYPTO_HASH_CALC_ONLY || \
-CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_AND_HASH_CALC
+	CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_AND_HASH_CALC
 /*
  * CRYPTO_MD_MAX_SIZE value is as per current stronger algorithm available
  * so make sure that mbed TLS MD maximum size must be lesser than this.
@@ -64,7 +63,7 @@ static void init(void)
 }
 
 #if CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_ONLY || \
-CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_AND_HASH_CALC
+	CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_AND_HASH_CALC
 /*
  * Verify a signature.
  *
@@ -72,15 +71,15 @@ CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_AND_HASH_CALC
  * structures detailed above.
  */
 static int verify_signature(void *data_ptr, unsigned int data_len,
-			    void *sig_ptr, unsigned int sig_len,
-			    void *sig_alg, unsigned int sig_alg_len,
-			    void *pk_ptr, unsigned int pk_len)
+			    void *sig_ptr, unsigned int sig_len, void *sig_alg,
+			    unsigned int sig_alg_len, void *pk_ptr,
+			    unsigned int pk_len)
 {
 	mbedtls_asn1_buf sig_oid, sig_params;
 	mbedtls_asn1_buf signature;
 	mbedtls_md_type_t md_alg;
 	mbedtls_pk_type_t pk_alg;
-	mbedtls_pk_context pk = {0};
+	mbedtls_pk_context pk = { 0 };
 	int rc;
 	void *sig_opts = NULL;
 	const mbedtls_md_info_t *md_info;
@@ -96,7 +95,8 @@ static int verify_signature(void *data_ptr, unsigned int data_len,
 	}
 
 	/* Get the actual signature algorithm (MD + PK) */
-	rc = mbedtls_x509_get_sig_alg(&sig_oid, &sig_params, &md_alg, &pk_alg, &sig_opts);
+	rc = mbedtls_x509_get_sig_alg(&sig_oid, &sig_params, &md_alg, &pk_alg,
+				      &sig_opts);
 	if (rc != 0) {
 		return CRYPTO_ERR_SIGNATURE;
 	}
@@ -137,8 +137,8 @@ static int verify_signature(void *data_ptr, unsigned int data_len,
 
 	/* Verify the signature */
 	rc = mbedtls_pk_verify_ext(pk_alg, sig_opts, &pk, md_alg, hash,
-			mbedtls_md_get_size(md_info),
-			signature.p, signature.len);
+				   mbedtls_md_get_size(md_info), signature.p,
+				   signature.len);
 	if (rc != 0) {
 		rc = CRYPTO_ERR_SIGNATURE;
 		goto end1;
@@ -177,8 +177,9 @@ static int verify_hash(void *data_ptr, unsigned int data_len,
 	 */
 	p = (unsigned char *)digest_info_ptr;
 	end = p + digest_info_len;
-	rc = mbedtls_asn1_get_tag(&p, end, &len, MBEDTLS_ASN1_CONSTRUCTED |
-				  MBEDTLS_ASN1_SEQUENCE);
+	rc = mbedtls_asn1_get_tag(&p, end, &len,
+				  MBEDTLS_ASN1_CONSTRUCTED |
+					  MBEDTLS_ASN1_SEQUENCE);
 	if (rc != 0 || ((size_t)(end - p) != len)) {
 		return CRYPTO_ERR_HASH;
 	}
@@ -230,7 +231,7 @@ static int verify_hash(void *data_ptr, unsigned int data_len,
 	  CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_AND_HASH_CALC */
 
 #if CRYPTO_SUPPORT == CRYPTO_HASH_CALC_ONLY || \
-CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_AND_HASH_CALC
+	CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_AND_HASH_CALC
 /*
  * Map a generic crypto message digest algorithm to the corresponding macro used
  * by Mbed TLS.
@@ -281,7 +282,7 @@ static int calc_hash(enum crypto_md_algo md_algo, void *data_ptr,
  * Stack based buffer allocation for decryption operation. It could
  * be configured to balance stack usage vs execution speed.
  */
-#define DEC_OP_BUF_SIZE		128
+#define DEC_OP_BUF_SIZE 128
 
 static int aes_gcm_decrypt(void *data_ptr, size_t len, const void *key,
 			   unsigned int key_len, const void *iv,
@@ -321,7 +322,8 @@ static int aes_gcm_decrypt(void *data_ptr, size_t len, const void *key,
 #if (MBEDTLS_VERSION_MAJOR < 3)
 		rc = mbedtls_gcm_update(&ctx, dec_len, pt, buf);
 #else
-		rc = mbedtls_gcm_update(&ctx, pt, dec_len, buf, sizeof(buf), &output_length);
+		rc = mbedtls_gcm_update(&ctx, pt, dec_len, buf, sizeof(buf),
+					&output_length);
 #endif
 
 		if (rc != 0) {
@@ -337,7 +339,8 @@ static int aes_gcm_decrypt(void *data_ptr, size_t len, const void *key,
 #if (MBEDTLS_VERSION_MAJOR < 3)
 	rc = mbedtls_gcm_finish(&ctx, tag_buf, sizeof(tag_buf));
 #else
-	rc = mbedtls_gcm_finish(&ctx, NULL, 0, &output_length, tag_buf, sizeof(tag_buf));
+	rc = mbedtls_gcm_finish(&ctx, NULL, 0, &output_length, tag_buf,
+				sizeof(tag_buf));
 #endif
 
 	if (rc != 0) {

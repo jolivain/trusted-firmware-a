@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,13 +12,11 @@
 #include <lib/mmio.h>
 #include <libfdt.h>
 
-#include <platform_def.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>
 
 static const interrupt_prop_t fpga_interrupt_props[] = {
-	PLATFORM_G1S_PROPS(INTR_GROUP1S),
-	PLATFORM_G0_PROPS(INTR_GROUP0)
+	PLATFORM_G1S_PROPS(INTR_GROUP1S), PLATFORM_G0_PROPS(INTR_GROUP0)
 };
 
 static uintptr_t fpga_rdistif_base_addrs[PLATFORM_CORE_COUNT];
@@ -51,8 +49,8 @@ void plat_fpga_gic_init(void)
 	}
 
 	/* TODO: Assuming only empty "ranges;" properties up the bus path. */
-	ret = fdt_get_reg_props_by_index(fdt, node, 0,
-				 &fpga_gicv3_driver_data.gicd_base, NULL);
+	ret = fdt_get_reg_props_by_index(
+		fdt, node, 0, &fpga_gicv3_driver_data.gicd_base, NULL);
 	if (ret < 0) {
 		WARN("Could not read GIC distributor address from DT.\n");
 		return;
@@ -84,7 +82,7 @@ void plat_fpga_gic_init(void)
 
 			if (frame_id != PIDR_COMPONENT_ARM_ITS) {
 				WARN("GICv3: found unexpected frame 0x%x\n",
-					frame_id);
+				     frame_id);
 				gicr_base = 0U;
 				break;
 			}
@@ -109,9 +107,8 @@ void plat_fpga_gic_init(void)
 	 * use the base address from the device tree.
 	 */
 	if (gicr_base == 0U) {
-		ret = fdt_get_reg_props_by_index(fdt, node, 1,
-					&fpga_gicv3_driver_data.gicr_base,
-					NULL);
+		ret = fdt_get_reg_props_by_index(
+			fdt, node, 1, &fpga_gicv3_driver_data.gicr_base, NULL);
 		if (ret < 0) {
 			WARN("Could not read GIC redistributor address from DT.\n");
 			return;
@@ -140,13 +137,14 @@ void fpga_pwr_gic_off(void)
 
 unsigned int fpga_get_nr_gic_cores(void)
 {
-	return gicv3_rdistif_get_number_frames(fpga_gicv3_driver_data.gicr_base);
+	return gicv3_rdistif_get_number_frames(
+		fpga_gicv3_driver_data.gicr_base);
 }
 
 uintptr_t fpga_get_redist_size(void)
 {
-	uint64_t typer_val = mmio_read_64(fpga_gicv3_driver_data.gicr_base +
-					  GICR_TYPER);
+	uint64_t typer_val =
+		mmio_read_64(fpga_gicv3_driver_data.gicr_base + GICR_TYPER);
 
 	return gicv3_redist_size(typer_val);
 }

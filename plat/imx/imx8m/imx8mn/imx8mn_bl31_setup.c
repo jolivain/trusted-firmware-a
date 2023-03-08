@@ -11,38 +11,57 @@
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <context.h>
+#include <dram.h>
 #include <drivers/arm/tzc380.h>
 #include <drivers/console.h>
 #include <drivers/generic_delay_timer.h>
+#include <gpc.h>
+#include <imx8m_caam.h>
+#include <imx8m_csu.h>
+#include <imx_aipstz.h>
+#include <imx_rdc.h>
+#include <imx_uart.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include <plat/common/platform.h>
-
-#include <dram.h>
-#include <gpc.h>
-#include <imx_aipstz.h>
-#include <imx_uart.h>
-#include <imx_rdc.h>
-#include <imx8m_caam.h>
-#include <imx8m_csu.h>
-#include <platform_def.h>
 #include <plat_imx8.h>
 
-#define TRUSTY_PARAMS_LEN_BYTES      (4096*2)
+#include <plat/common/platform.h>
+#include <platform_def.h>
+
+#define TRUSTY_PARAMS_LEN_BYTES (4096 * 2)
 
 static const mmap_region_t imx_mmap[] = {
-	GIC_MAP, AIPS_MAP, OCRAM_S_MAP, DDRC_MAP,
-	CAAM_RAM_MAP, NS_OCRAM_MAP, ROM_MAP, DRAM_MAP,
-	{0},
+	GIC_MAP,      AIPS_MAP, OCRAM_S_MAP, DDRC_MAP, CAAM_RAM_MAP,
+	NS_OCRAM_MAP, ROM_MAP,	DRAM_MAP,    { 0 },
 };
 
 static const struct aipstz_cfg aipstz[] = {
-	{IMX_AIPSTZ1, 0x77777777, 0x77777777, .opacr = {0x0, 0x0, 0x0, 0x0, 0x0}, },
-	{IMX_AIPSTZ2, 0x77777777, 0x77777777, .opacr = {0x0, 0x0, 0x0, 0x0, 0x0}, },
-	{IMX_AIPSTZ3, 0x77777777, 0x77777777, .opacr = {0x0, 0x0, 0x0, 0x0, 0x0}, },
-	{IMX_AIPSTZ4, 0x77777777, 0x77777777, .opacr = {0x0, 0x0, 0x0, 0x0, 0x0}, },
-	{0},
+	{
+		IMX_AIPSTZ1,
+		0x77777777,
+		0x77777777,
+		.opacr = { 0x0, 0x0, 0x0, 0x0, 0x0 },
+	},
+	{
+		IMX_AIPSTZ2,
+		0x77777777,
+		0x77777777,
+		.opacr = { 0x0, 0x0, 0x0, 0x0, 0x0 },
+	},
+	{
+		IMX_AIPSTZ3,
+		0x77777777,
+		0x77777777,
+		.opacr = { 0x0, 0x0, 0x0, 0x0, 0x0 },
+	},
+	{
+		IMX_AIPSTZ4,
+		0x77777777,
+		0x77777777,
+		.opacr = { 0x0, 0x0, 0x0, 0x0, 0x0 },
+	},
+	{ 0 },
 };
 
 static const struct imx_rdc_cfg rdc[] = {
@@ -59,7 +78,7 @@ static const struct imx_rdc_cfg rdc[] = {
 	RDC_MEM_REGIONn(18, 0x0, 0x0, 0xff),
 
 	/* Sentinel */
-	{0},
+	{ 0 },
 };
 
 static const struct imx_csu_cfg csu_cfg[] = {
@@ -74,9 +93,8 @@ static const struct imx_csu_cfg csu_cfg[] = {
 	/* HP control setting */
 
 	/* Sentinel */
-	{0}
+	{ 0 }
 };
-
 
 static entry_point_info_t bl32_image_ep_info;
 static entry_point_info_t bl33_image_ep_info;
@@ -114,12 +132,14 @@ static void bl31_tzc380_setup(void)
 	 */
 
 	/* Enable 1G-5G S/NS RW */
-	tzc380_configure_region(0, 0x00000000, TZC_ATTR_REGION_SIZE(TZC_REGION_SIZE_4G) |
-		TZC_ATTR_REGION_EN_MASK | TZC_ATTR_SP_ALL);
+	tzc380_configure_region(0, 0x00000000,
+				TZC_ATTR_REGION_SIZE(TZC_REGION_SIZE_4G) |
+					TZC_ATTR_REGION_EN_MASK |
+					TZC_ATTR_SP_ALL);
 }
 
 void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
-		u_register_t arg2, u_register_t arg3)
+				u_register_t arg2, u_register_t arg3)
 {
 	static console_t console;
 	unsigned int val;
@@ -142,7 +162,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	mmio_write_32(IMX_IOMUX_GPR_BASE + 0x2c, val | 0x3DFF0000);
 
 	console_imx_uart_register(IMX_BOOT_UART_BASE, IMX_BOOT_UART_CLK_IN_HZ,
-		IMX_CONSOLE_BAUDRATE, &console);
+				  IMX_CONSOLE_BAUDRATE, &console);
 	/* This console is only used for boot stage */
 	console_set_scope(&console, CONSOLE_FLAG_BOOT);
 
@@ -181,15 +201,16 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	bl31_tzc380_setup();
 }
 
-#define MAP_BL31_TOTAL										   \
+#define MAP_BL31_TOTAL \
 	MAP_REGION_FLAT(BL31_START, BL31_SIZE, MT_MEMORY | MT_RW | MT_SECURE)
-#define MAP_BL31_RO										   \
-	MAP_REGION_FLAT(BL_CODE_BASE, BL_CODE_END - BL_CODE_BASE, MT_MEMORY | MT_RO | MT_SECURE)
-#define MAP_COHERENT_MEM									   \
-	MAP_REGION_FLAT(BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END - BL_COHERENT_RAM_BASE,	   \
+#define MAP_BL31_RO                                               \
+	MAP_REGION_FLAT(BL_CODE_BASE, BL_CODE_END - BL_CODE_BASE, \
+			MT_MEMORY | MT_RO | MT_SECURE)
+#define MAP_COHERENT_MEM                                            \
+	MAP_REGION_FLAT(BL_COHERENT_RAM_BASE,                       \
+			BL_COHERENT_RAM_END - BL_COHERENT_RAM_BASE, \
 			MT_DEVICE | MT_RW | MT_SECURE)
-#define MAP_BL32_TOTAL										   \
-	MAP_REGION_FLAT(BL32_BASE, BL32_SIZE, MT_MEMORY | MT_RW)
+#define MAP_BL32_TOTAL MAP_REGION_FLAT(BL32_BASE, BL32_SIZE, MT_MEMORY | MT_RW)
 
 void bl31_plat_arch_setup(void)
 {
@@ -201,7 +222,7 @@ void bl31_plat_arch_setup(void)
 #endif
 		/* Map TEE memory */
 		MAP_BL32_TOTAL,
-		{0}
+		{ 0 }
 	};
 
 	setup_page_tables(bl_regions, imx_mmap);

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,10 +8,10 @@
 #include <drivers/arm/pl061_gpio.h>
 #include <drivers/arm/sp804_delay_timer.h>
 #include <drivers/gpio.h>
-#include <lib/mmio.h>
-
 #include <hi6220.h>
 #include <hi6553.h>
+#include <lib/mmio.h>
+
 #include "hikey_private.h"
 
 void hikey_sp804_init(void)
@@ -72,12 +72,12 @@ void hikey_gpio_init(void)
 	pl061_gpio_register(GPIO19_BASE, 19);
 
 	/* Power on indicator LED (USER_LED1). */
-	gpio_set_direction(32, GPIO_DIR_OUT);	/* LED1 */
+	gpio_set_direction(32, GPIO_DIR_OUT); /* LED1 */
 	gpio_set_value(32, GPIO_LEVEL_HIGH);
-	gpio_set_direction(33, GPIO_DIR_OUT);	/* LED2 */
+	gpio_set_direction(33, GPIO_DIR_OUT); /* LED2 */
 	gpio_set_value(33, GPIO_LEVEL_LOW);
-	gpio_set_direction(34, GPIO_DIR_OUT);	/* LED3 */
-	gpio_set_direction(35, GPIO_DIR_OUT);	/* LED4 */
+	gpio_set_direction(34, GPIO_DIR_OUT); /* LED3 */
+	gpio_set_direction(35, GPIO_DIR_OUT); /* LED4 */
 }
 
 void hikey_pmussi_init(void)
@@ -121,7 +121,7 @@ void hikey_hi6553_init(void)
 	mmio_write_8(HI6553_PERI_EN_MARK, 0x1e);
 	mmio_write_8(HI6553_NP_REG_ADJ1, 0);
 	data = DISABLE6_XO_CLK_CONN | DISABLE6_XO_CLK_NFC |
-		DISABLE6_XO_CLK_RF1 | DISABLE6_XO_CLK_RF2;
+	       DISABLE6_XO_CLK_RF1 | DISABLE6_XO_CLK_RF2;
 	mmio_write_8(HI6553_DISABLE6_XO_CLK, data);
 
 	/* configure BUCK0 & BUCK1 */

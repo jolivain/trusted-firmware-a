@@ -5,11 +5,10 @@
  */
 
 #include <common/debug.h>
+#include <imx8m_caam.h>
 #include <lib/mmio.h>
 
-#include <imx8m_caam.h>
-
-#define HAB_JR0_DID	U(0x8011)
+#define HAB_JR0_DID U(0x8011)
 
 void imx8m_caam_init(void)
 {
@@ -39,10 +38,10 @@ void imx8m_caam_init(void)
 
 	/* Allocate page 0 and 1 to partition 0 with DID set */
 	sm_cmd = (0 << SMC_PAGE_SHIFT | 0 << SMC_PART_SHIFT |
-			SMC_CMD_ALLOC_PAGE);
+		  SMC_CMD_ALLOC_PAGE);
 	mmio_write_32(SM_CMD, sm_cmd);
 
 	sm_cmd = (1 << SMC_PAGE_SHIFT | 0 << SMC_PART_SHIFT |
-			SMC_CMD_ALLOC_PAGE);
+		  SMC_CMD_ALLOC_PAGE);
 	mmio_write_32(SM_CMD, sm_cmd);
 }

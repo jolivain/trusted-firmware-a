@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,8 +7,8 @@
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-#include <sspm_reg.h>
 #include <mtk_mcdi.h>
+#include <sspm_reg.h>
 
 static inline uint32_t mcdi_mbox_read(uint32_t id)
 {
@@ -79,11 +79,11 @@ uint32_t mcdi_cpu_cluster_pwr_stat_read(void)
 	return mcdi_mbox_read(MCDI_MBOX_CPU_CLUSTER_PWR_STAT);
 }
 
-#define PAUSE_BIT		1
-#define CLUSTER_OFF_OFS		20
-#define CPU_OFF_OFS		24
-#define CLUSTER_ON_OFS		4
-#define CPU_ON_OFS		8
+#define PAUSE_BIT 1
+#define CLUSTER_OFF_OFS 20
+#define CPU_OFF_OFS 24
+#define CLUSTER_ON_OFS 4
+#define CPU_ON_OFS 8
 
 static uint32_t target_mask(int cluster, int cpu_idx, bool on)
 {
@@ -200,8 +200,8 @@ void mcdi_hotplug_set(int cluster, int cpu_idx, bool on)
 
 bool check_mcdi_ctl_stat(void)
 {
-	uint32_t clk_regs[] = {0x100010ac, 0x100010c8};
-	uint32_t clk_mask[] = {0x00028000, 0x00000018};
+	uint32_t clk_regs[] = { 0x100010ac, 0x100010c8 };
+	uint32_t clk_mask[] = { 0x00028000, 0x00000018 };
 	uint32_t tgt = target_mask(0, 0, true);
 	uint32_t m;
 	int i;
@@ -232,7 +232,7 @@ bool check_mcdi_ctl_stat(void)
 
 	/* check mcdi cmd handling */
 	if (mcdi_mbox_read(MCDI_MBOX_HP_CMD) ||
-			mcdi_mbox_read(MCDI_MBOX_HP_ACK)) {
+	    mcdi_mbox_read(MCDI_MBOX_HP_ACK)) {
 		WARN("mcdi: hp_cmd fail.\n");
 		return false;
 	}

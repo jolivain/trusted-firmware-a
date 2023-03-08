@@ -14,8 +14,8 @@
 bool optee_header_is_valid(uintptr_t header_base);
 
 int parse_optee_header(entry_point_info_t *header_ep,
-	image_info_t *pager_image_info,
-	image_info_t *paged_image_info);
+		       image_info_t *pager_image_info,
+		       image_info_t *paged_image_info);
 
 /*
  * load_addr_hi and load_addr_lo: image load address.
@@ -29,12 +29,12 @@ typedef struct optee_image {
 	uint32_t size;
 } optee_image_t;
 
-#define OPTEE_PAGER_IMAGE_ID		0
-#define OPTEE_PAGED_IMAGE_ID		1
+#define OPTEE_PAGER_IMAGE_ID 0
+#define OPTEE_PAGED_IMAGE_ID 1
 
-#define OPTEE_MAX_NUM_IMAGES		2u
+#define OPTEE_MAX_NUM_IMAGES 2u
 
-#define TEE_MAGIC_NUM_OPTEE		0x4554504f
+#define TEE_MAGIC_NUM_OPTEE 0x4554504f
 /*
  * magic: header magic number.
  * version: OPTEE header version:

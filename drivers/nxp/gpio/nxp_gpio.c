@@ -17,8 +17,7 @@ void gpio_init(gpio_init_info_t *gpio_init_data)
 }
 
 /* This function set GPIO pin for raising POVDD. */
-int set_gpio_bit(uint32_t *gpio_base_addr,
-		 uint32_t bit_num)
+int set_gpio_bit(uint32_t *gpio_base_addr, uint32_t bit_num)
 {
 	uint32_t val = 0U;
 	uint32_t *gpdir = NULL;
@@ -60,7 +59,6 @@ int clr_gpio_bit(uint32_t *gpio_base_addr, uint32_t bit_num)
 	uint32_t val = 0U;
 	uint32_t *gpdir = NULL;
 	uint32_t *gpdat = NULL;
-
 
 	if (gpio_init_info == NULL) {
 		ERROR("GPIO is not initialized.\n");
@@ -115,22 +113,21 @@ uint32_t *select_gpio_n_bitnum(uint32_t povdd_gpio, uint32_t *bit_num)
 
 	/* Right shift by 5 to divide by 32 */
 	gpio_num = povdd_gpio_val >> GPIO_ID_BASE_ADDR_SHIFT;
-	*bit_num = 1U << (GPIO_BITS_PER_BASE_REG
-			  - (povdd_gpio_val & GPIO_BIT_MASK)
-			  - 1U);
+	*bit_num = 1U << (GPIO_BITS_PER_BASE_REG -
+			  (povdd_gpio_val & GPIO_BIT_MASK) - 1U);
 
 	switch (gpio_num) {
 	case GPIO_0:
-		ret_gpio = (uint32_t *) gpio_init_info->gpio1_base_addr;
+		ret_gpio = (uint32_t *)gpio_init_info->gpio1_base_addr;
 		break;
 	case GPIO_1:
-		ret_gpio = (uint32_t *) gpio_init_info->gpio2_base_addr;
+		ret_gpio = (uint32_t *)gpio_init_info->gpio2_base_addr;
 		break;
 	case GPIO_2:
-		ret_gpio = (uint32_t *) gpio_init_info->gpio3_base_addr;
+		ret_gpio = (uint32_t *)gpio_init_info->gpio3_base_addr;
 		break;
 	case GPIO_3:
-		ret_gpio = (uint32_t *) gpio_init_info->gpio4_base_addr;
+		ret_gpio = (uint32_t *)gpio_init_info->gpio4_base_addr;
 		break;
 	default:
 		ret_gpio = NULL;

@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include "plat_sip_calls.h"
+
 #include <common/debug.h>
 #include <common/runtime_svc.h>
 #include <lib/mmio.h>
@@ -11,16 +13,11 @@
 #include <mt_spm_vcorefs.h>
 #include <mtk_sip_svc.h>
 #include <plat_dfd.h>
-#include "plat_sip_calls.h"
 
-uintptr_t mediatek_plat_sip_handler(uint32_t smc_fid,
-				u_register_t x1,
-				u_register_t x2,
-				u_register_t x3,
-				u_register_t x4,
-				void *cookie,
-				void *handle,
-				u_register_t flags)
+uintptr_t mediatek_plat_sip_handler(uint32_t smc_fid, u_register_t x1,
+				    u_register_t x2, u_register_t x3,
+				    u_register_t x4, void *cookie, void *handle,
+				    u_register_t flags)
 {
 	uint64_t ret;
 

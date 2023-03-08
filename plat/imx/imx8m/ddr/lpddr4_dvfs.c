@@ -4,11 +4,11 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <dram.h>
 #include <lib/mmio.h>
 
-#include <dram.h>
-
-static void lpddr4_mr_write(uint32_t mr_rank, uint32_t mr_addr, uint32_t mr_data)
+static void lpddr4_mr_write(uint32_t mr_rank, uint32_t mr_addr,
+			    uint32_t mr_data)
 {
 	/*
 	 * 1. Poll MRSTAT.mr_wr_busy until it is 0. This checks that there
@@ -29,21 +29,21 @@ static void lpddr4_mr_write(uint32_t mr_rank, uint32_t mr_addr, uint32_t mr_data
 }
 
 void lpddr4_swffc(struct dram_info *info, unsigned int init_fsp,
-	 unsigned int fsp_index)
+		  unsigned int fsp_index)
 
 {
 	uint32_t mr, emr, emr2, emr3;
 	uint32_t mr11, mr12, mr22, mr14;
 	uint32_t val;
 	uint32_t derate_backup[3];
-	uint32_t (*mr_data)[8];
+	uint32_t(*mr_data)[8];
 
 	/* 1. program targetd UMCTL2_REGS_FREQ1/2/3,already done, skip it. */
 
 	/* 2. MR13.FSP-WR=1, MRW to update MR registers */
 	mr_data = info->mr_table;
 	mr = mr_data[fsp_index][0];
-	emr  = mr_data[fsp_index][1];
+	emr = mr_data[fsp_index][1];
 	emr2 = mr_data[fsp_index][2];
 	emr3 = mr_data[fsp_index][3];
 	mr11 = mr_data[fsp_index][4];
@@ -147,7 +147,8 @@ void lpddr4_swffc(struct dram_info *info, unsigned int init_fsp,
 	} while (val != 0x30000000);
 
 	/* 19. change MR13.FSP-OP to new FSP and MR13.VRCG to high current */
-	emr3 = (((~init_fsp) & 0x1) << 7) | (0x1 << 3) | (emr3 & 0x0077) | 0x0d00;
+	emr3 = (((~init_fsp) & 0x1) << 7) | (0x1 << 3) | (emr3 & 0x0077) |
+	       0x0d00;
 	lpddr4_mr_write(3, 13, emr3);
 
 	/* 20. enter SR Power Down */
@@ -194,7 +195,8 @@ void lpddr4_swffc(struct dram_info *info, unsigned int init_fsp,
 	} while ((val & 0x1) == 0x1);
 
 	/* change the clock frequency */
-	dram_clock_switch(info->timing_info->fsp_table[fsp_index], info->bypass_mode);
+	dram_clock_switch(info->timing_info->fsp_table[fsp_index],
+			  info->bypass_mode);
 
 	/* dfi_init_start de-assert */
 	mmio_clrbits_32(DDRC_DFIMISC(0), 0x20);
@@ -207,7 +209,7 @@ void lpddr4_swffc(struct dram_info *info, unsigned int init_fsp,
 	/* 27. set ZQCTL0.dis_srx_zqcl = 1 */
 	if (fsp_index == 0) {
 		mmio_setbits_32(DDRC_ZQCTL0(0), BIT(30));
-	} else  if (fsp_index == 1) {
+	} else if (fsp_index == 1) {
 		mmio_setbits_32(DDRC_FREQ1_ZQCTL0(0), BIT(30));
 	} else {
 		mmio_setbits_32(DDRC_FREQ2_ZQCTL0(0), BIT(30));

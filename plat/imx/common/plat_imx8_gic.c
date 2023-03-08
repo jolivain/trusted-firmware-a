@@ -1,30 +1,29 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <platform_def.h>
-
 #include <common/bl_common.h>
 #include <common/interrupt_props.h>
-#include <drivers/arm/gicv3.h>
 #include <drivers/arm/arm_gicv3_common.h>
+#include <drivers/arm/gicv3.h>
 #include <lib/mmio.h>
 #include <lib/utils.h>
-#include <plat/common/platform.h>
-
 #include <plat_imx8.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 /* the GICv3 driver only needs to be initialized in EL3 */
 uintptr_t rdistif_base_addrs[PLATFORM_CORE_COUNT];
 
 static const interrupt_prop_t g01s_interrupt_props[] = {
-	INTR_PROP_DESC(8, GIC_HIGHEST_SEC_PRIORITY,
-		       INTR_GROUP0, GIC_INTR_CFG_LEVEL),
+	INTR_PROP_DESC(8, GIC_HIGHEST_SEC_PRIORITY, INTR_GROUP0,
+		       GIC_INTR_CFG_LEVEL),
 #if SDEI_SUPPORT
-	INTR_PROP_DESC(PLAT_SDEI_SGI_PRIVATE, PLAT_SDEI_NORMAL_PRI,
-		       INTR_GROUP0, GIC_INTR_CFG_LEVEL),
+	INTR_PROP_DESC(PLAT_SDEI_SGI_PRIVATE, PLAT_SDEI_NORMAL_PRI, INTR_GROUP0,
+		       GIC_INTR_CFG_LEVEL),
 #endif
 };
 
@@ -69,7 +68,8 @@ static __inline void plat_gicr_exit_sleep(void)
 	if (val & WAKER_QSC_BIT) {
 		mmio_write_32(PLAT_GICR_BASE + GICR_WAKER, val & ~WAKER_SL_BIT);
 		/* Wait till the WAKER_QSC_BIT changes to 0 */
-		while ((mmio_read_32(PLAT_GICR_BASE + GICR_WAKER) & WAKER_QSC_BIT) != 0U)
+		while ((mmio_read_32(PLAT_GICR_BASE + GICR_WAKER) &
+			WAKER_QSC_BIT) != 0U)
 			;
 	}
 }

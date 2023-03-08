@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 /* Use the xlat_tables_v2 data structures: */
-#define XLAT_TABLES_LIB_V2	1
+#define XLAT_TABLES_LIB_V2 1
 
 #include <assert.h>
 
@@ -16,36 +16,33 @@
 #include <lib/fconf/fconf_dyn_cfg_getter.h>
 #include <lib/xlat_mpu/xlat_mpu.h>
 
-#include "fvp_r_private.h"
 #include <plat/arm/common/arm_config.h>
 #include <plat/arm/common/arm_def.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>
 
-#define MAP_BL1_TOTAL		MAP_REGION_FLAT(			\
-					bl1_tzram_layout.total_base,	\
-					bl1_tzram_layout.total_size,	\
-					MT_MEMORY | MT_RW | MT_SECURE)
+#include "fvp_r_private.h"
+
+#define MAP_BL1_TOTAL                                \
+	MAP_REGION_FLAT(bl1_tzram_layout.total_base, \
+			bl1_tzram_layout.total_size, \
+			MT_MEMORY | MT_RW | MT_SECURE)
 /*
  * If SEPARATE_CODE_AND_RODATA=1 we define a region for each section
  * otherwise one region is defined containing both
  */
 #if SEPARATE_CODE_AND_RODATA
-#define MAP_BL1_RO		MAP_REGION_FLAT(			\
-					BL_CODE_BASE,			\
-					BL1_CODE_END - BL_CODE_BASE,	\
-					MT_CODE | MT_SECURE),		\
-				MAP_REGION_FLAT(			\
-					BL1_RO_DATA_BASE,		\
-					BL1_RO_DATA_END			\
-						- BL_RO_DATA_BASE,	\
-					MT_RO_DATA | MT_SECURE)
+#define MAP_BL1_RO                                                 \
+	MAP_REGION_FLAT(BL_CODE_BASE, BL1_CODE_END - BL_CODE_BASE, \
+			MT_CODE | MT_SECURE),                      \
+		MAP_REGION_FLAT(BL1_RO_DATA_BASE,                  \
+				BL1_RO_DATA_END - BL_RO_DATA_BASE, \
+				MT_RO_DATA | MT_SECURE)
 #else
-#define MAP_BL1_RO		MAP_REGION_FLAT(			\
-					BL_CODE_BASE,			\
-					BL1_CODE_END - BL_CODE_BASE,	\
-					MT_CODE | MT_SECURE)
+#define MAP_BL1_RO                                                 \
+	MAP_REGION_FLAT(BL_CODE_BASE, BL1_CODE_END - BL_CODE_BASE, \
+			MT_CODE | MT_SECURE)
 #endif
 
 /* Data structure which holds the extents of the trusted SRAM for BL1*/
@@ -58,7 +55,6 @@ struct meminfo *bl1_plat_sec_mem_layout(void)
 
 void arm_bl1_early_platform_setup(void)
 {
-
 #if !ARM_DISABLE_TRUSTED_WDOG
 	/* Enable watchdog */
 	plat_arm_secure_wdt_start();
@@ -109,13 +105,11 @@ void arm_bl1_plat_arch_setup(void)
 		ARM_MAP_BL_COHERENT_RAM,
 #endif
 		/* DRAM1_region: */
-		MAP_REGION_FLAT(					\
-			PLAT_ARM_DRAM1_BASE,				\
-			PLAT_ARM_DRAM1_SIZE,				\
-			MT_MEMORY | MT_SECURE | MT_EXECUTE		\
-			| MT_RW | MT_NON_CACHEABLE),
+		MAP_REGION_FLAT(PLAT_ARM_DRAM1_BASE, PLAT_ARM_DRAM1_SIZE,
+				MT_MEMORY | MT_SECURE | MT_EXECUTE | MT_RW |
+					MT_NON_CACHEABLE),
 		/* NULL terminator: */
-		{0}
+		{ 0 }
 	};
 
 	setup_page_tables(bl_regions, plat_arm_get_mmap());
@@ -191,7 +185,7 @@ __dead2 void bl1_plat_fwu_done(void *client_cookie, void *reserved)
 
 unsigned int bl1_plat_get_next_image_id(void)
 {
-	return  is_fwu_needed ? NS_BL1U_IMAGE_ID : BL33_IMAGE_ID;
+	return is_fwu_needed ? NS_BL1U_IMAGE_ID : BL33_IMAGE_ID;
 }
 
 /*
@@ -236,13 +230,13 @@ int bl1_plat_handle_post_image_load(unsigned int image_id)
 	 * to BL33. BL33 will read the memory layout before using its
 	 * memory for other purposes.
 	 */
-	bl33_secram_layout = (meminfo_t *) bl1_secram_layout->total_base;
+	bl33_secram_layout = (meminfo_t *)bl1_secram_layout->total_base;
 
 	bl1_calc_bl2_mem_layout(bl1_secram_layout, bl33_secram_layout);
 
 	ep_info->args.arg1 = (uintptr_t)bl33_secram_layout;
 
 	VERBOSE("BL1: BL3 memory layout address = %p\n",
-		(void *) bl33_secram_layout);
+		(void *)bl33_secram_layout);
 	return 0;
 }

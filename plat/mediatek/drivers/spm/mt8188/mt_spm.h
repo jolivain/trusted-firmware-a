@@ -9,8 +9,9 @@
 
 #include <stdint.h>
 #include <stdio.h>
-#include <lib/spinlock.h>
+
 #include <lib/pm/mtk_pm.h>
+#include <lib/spinlock.h>
 #include <lpm/mt_lp_rq.h>
 
 /*
@@ -20,29 +21,29 @@
 extern spinlock_t spm_lock;
 
 #ifdef __GNUC__
-#define spm_likely(x)	__builtin_expect(!!(x), 1)
-#define spm_unlikely(x)	__builtin_expect(!!(x), 0)
+#define spm_likely(x) __builtin_expect(!!(x), 1)
+#define spm_unlikely(x) __builtin_expect(!!(x), 0)
 #else
-#define spm_likely(x)	(x)
-#define spm_unlikely(x)	(x)
+#define spm_likely(x) (x)
+#define spm_unlikely(x) (x)
 #endif
 
 #define MT_SPM_USING_SRCLKEN_RC
 /* spm extern operand definition */
-#define MT_SPM_EX_OP_CLR_26M_RECORD		BIT(0)
-#define MT_SPM_EX_OP_SET_WDT			BIT(1)
-#define MT_SPM_EX_OP_NON_GENERIC_RESOURCE_REQ	BIT(2)
-#define MT_SPM_EX_OP_SET_SUSPEND_MODE		BIT(3)
-#define MT_SPM_EX_OP_SET_IS_ADSP		BIT(4)
-#define MT_SPM_EX_OP_SRCLKEN_RC_BBLPM		BIT(5)
-#define MT_SPM_EX_OP_HW_S1_DETECT		BIT(6)
-#define MT_SPM_EX_OP_TRACE_LP			BIT(7)
-#define MT_SPM_EX_OP_TRACE_SUSPEND		BIT(8)
-#define MT_SPM_EX_OP_TRACE_TIMESTAMP_EN		BIT(9)
-#define MT_SPM_EX_OP_TIME_CHECK			BIT(10)
-#define MT_SPM_EX_OP_TIME_OBS			BIT(11)
-#define MT_SPM_EX_OP_PERI_ON			BIT(12)
-#define MT_SPM_EX_OP_INFRA_ON			BIT(13)
+#define MT_SPM_EX_OP_CLR_26M_RECORD BIT(0)
+#define MT_SPM_EX_OP_SET_WDT BIT(1)
+#define MT_SPM_EX_OP_NON_GENERIC_RESOURCE_REQ BIT(2)
+#define MT_SPM_EX_OP_SET_SUSPEND_MODE BIT(3)
+#define MT_SPM_EX_OP_SET_IS_ADSP BIT(4)
+#define MT_SPM_EX_OP_SRCLKEN_RC_BBLPM BIT(5)
+#define MT_SPM_EX_OP_HW_S1_DETECT BIT(6)
+#define MT_SPM_EX_OP_TRACE_LP BIT(7)
+#define MT_SPM_EX_OP_TRACE_SUSPEND BIT(8)
+#define MT_SPM_EX_OP_TRACE_TIMESTAMP_EN BIT(9)
+#define MT_SPM_EX_OP_TIME_CHECK BIT(10)
+#define MT_SPM_EX_OP_TIME_OBS BIT(11)
+#define MT_SPM_EX_OP_PERI_ON BIT(12)
+#define MT_SPM_EX_OP_INFRA_ON BIT(13)
 
 typedef enum {
 	WR_NONE = 0,

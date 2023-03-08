@@ -9,11 +9,9 @@
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-
 #include <mcucfg.h>
 #include <mtspmc.h>
 #include <mtspmc_private.h>
-
 
 void mcucfg_disable_gic_wakeup(unsigned int cluster, unsigned int cpu)
 {
@@ -25,7 +23,8 @@ void mcucfg_enable_gic_wakeup(unsigned int cluster, unsigned int cpu)
 	mmio_clrbits_32(MCUCFG_CPC_FLOW_CTRL_CFG, GIC_WAKEUP_IGNORE(cpu));
 }
 
-void mcucfg_set_bootaddr(unsigned int cluster, unsigned int cpu, uintptr_t bootaddr)
+void mcucfg_set_bootaddr(unsigned int cluster, unsigned int cpu,
+			 uintptr_t bootaddr)
 {
 	assert(cluster == 0U);
 

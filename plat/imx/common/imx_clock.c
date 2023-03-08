@@ -1,17 +1,16 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <stdint.h>
 #include <stdbool.h>
+#include <stdint.h>
 
 #include <arch.h>
-#include <lib/mmio.h>
-
-#include <imx_regs.h>
 #include <imx_clock.h>
+#include <imx_regs.h>
+#include <lib/mmio.h>
 
 void imx_clock_target_set(unsigned int id, uint32_t val)
 {
@@ -151,5 +150,6 @@ void imx_clock_disable_usb(unsigned int ccm_ccgr_usb_id)
 void imx_clock_set_usb_clk_root_bits(uint32_t usb_clk_root_en_bits)
 {
 	/* Enable the common clock root just once */
-	imx_clock_target_set(CCM_TRT_ID_USB_HSIC_CLK_ROOT, usb_clk_root_en_bits);
+	imx_clock_target_set(CCM_TRT_ID_USB_HSIC_CLK_ROOT,
+			     usb_clk_root_en_bits);
 }

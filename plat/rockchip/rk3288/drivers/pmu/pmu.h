@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,29 +8,29 @@
 #define PMU_H
 
 /* Allocate sp reginon in pmusram */
-#define PSRAM_SP_SIZE		0x80
-#define PSRAM_SP_BOTTOM		(PSRAM_SP_TOP - PSRAM_SP_SIZE)
+#define PSRAM_SP_SIZE 0x80
+#define PSRAM_SP_BOTTOM (PSRAM_SP_TOP - PSRAM_SP_SIZE)
 
 /*****************************************************************************
  * pmu con,reg
  *****************************************************************************/
-#define PMU_WAKEUP_CFG0		0x0
-#define PMU_WAKEUP_CFG1		0x4
-#define PMU_PWRDN_CON		0x8
-#define PMU_PWRDN_ST		0xc
+#define PMU_WAKEUP_CFG0 0x0
+#define PMU_WAKEUP_CFG1 0x4
+#define PMU_PWRDN_CON 0x8
+#define PMU_PWRDN_ST 0xc
 
-#define PMU_PWRMODE_CON		0x18
-#define PMU_BUS_IDE_REQ		0x10
-#define PMU_BUS_IDE_ST		0x14
+#define PMU_PWRMODE_CON 0x18
+#define PMU_BUS_IDE_REQ 0x10
+#define PMU_BUS_IDE_ST 0x14
 
-#define PMU_OSC_CNT		0x20
-#define PMU_PLL_CNT		0x24
-#define PMU_STABL_CNT		0x28
-#define PMU_DDRIO0_PWR_CNT	0x2c
-#define PMU_DDRIO1_PWR_CNT	0x30
-#define PMU_WKUPRST_CNT		0x44
-#define PMU_SFT_CON		0x48
-#define PMU_PWRMODE_CON1	0x90
+#define PMU_OSC_CNT 0x20
+#define PMU_PLL_CNT 0x24
+#define PMU_STABL_CNT 0x28
+#define PMU_DDRIO0_PWR_CNT 0x2c
+#define PMU_DDRIO1_PWR_CNT 0x30
+#define PMU_WKUPRST_CNT 0x44
+#define PMU_SFT_CON 0x48
+#define PMU_PWRMODE_CON1 0x90
 
 enum pmu_pdid {
 	PD_CPU0 = 0,
@@ -136,15 +136,14 @@ enum pmu_bus_idle_st {
 	pmu_idle_ack_hevc,
 };
 
-#define CHECK_CPU_WFIE_BASE		(0)
+#define CHECK_CPU_WFIE_BASE (0)
 
-#define clstl_cpu_wfe		-1
-#define clstb_cpu_wfe		-1
-#define CKECK_WFEI_MSK		0
+#define clstl_cpu_wfe -1
+#define clstb_cpu_wfe -1
+#define CKECK_WFEI_MSK 0
 
-
-#define PD_CTR_LOOP		500
-#define CHK_CPU_LOOP		500
+#define PD_CTR_LOOP 500
+#define CHK_CPU_LOOP 500
 
 #define MAX_WAIT_CONUT 1000
 

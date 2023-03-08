@@ -17,38 +17,38 @@
 #include "M3N/pfc_init_m3n.h"
 #include "V3M/pfc_init_v3m.h"
 #endif
-#if (RCAR_LSI == RCAR_H3) || (RCAR_LSI == RCAR_H3N)	/* H3 */
+#if (RCAR_LSI == RCAR_H3) || (RCAR_LSI == RCAR_H3N) /* H3 */
 #include "H3/pfc_init_h3_v1.h"
 #include "H3/pfc_init_h3_v2.h"
 #endif
-#if RCAR_LSI == RCAR_M3		/* M3 */
+#if RCAR_LSI == RCAR_M3 /* M3 */
 #include "M3/pfc_init_m3.h"
 #endif
-#if RCAR_LSI == RCAR_M3N	/* M3N */
+#if RCAR_LSI == RCAR_M3N /* M3N */
 #include "M3N/pfc_init_m3n.h"
 #endif
-#if RCAR_LSI == RCAR_V3M	/* V3M */
+#if RCAR_LSI == RCAR_V3M /* V3M */
 #include "V3M/pfc_init_v3m.h"
 #endif
-#if RCAR_LSI == RCAR_E3		/* E3 */
+#if RCAR_LSI == RCAR_E3 /* E3 */
 #include "E3/pfc_init_e3.h"
 #endif
-#if RCAR_LSI == RCAR_D3		/* D3 */
+#if RCAR_LSI == RCAR_D3 /* D3 */
 #include "D3/pfc_init_d3.h"
 #endif
 
-#define PRR_PRODUCT_ERR(reg)				\
-	do {						\
+#define PRR_PRODUCT_ERR(reg)                                                      \
+	do {                                                                      \
 		ERROR("LSI Product ID(PRR=0x%x) PFC initialize not supported.\n", \
-			reg);				\
-		panic();				\
+		      reg);                                                       \
+		panic();                                                          \
 	} while (0)
 
-#define PRR_CUT_ERR(reg)				\
-	do {						\
+#define PRR_CUT_ERR(reg)                                                      \
+	do {                                                                  \
 		ERROR("LSI Cut ID(PRR=0x%x) PFC initialize not supported.\n", \
-			reg);				\
-		panic();\
+		      reg);                                                   \
+		panic();                                                      \
 	} while (0)
 
 void rcar_pfc_init(void)
@@ -60,13 +60,13 @@ void rcar_pfc_init(void)
 	switch (reg & PRR_PRODUCT_MASK) {
 	case PRR_PRODUCT_H3:
 		switch (reg & PRR_CUT_MASK) {
-		case PRR_PRODUCT_10:	/* H3 Ver.1.0 */
+		case PRR_PRODUCT_10: /* H3 Ver.1.0 */
 			pfc_init_h3_v1();
 			break;
-		case PRR_PRODUCT_11:	/* H3 Ver.1.1 */
+		case PRR_PRODUCT_11: /* H3 Ver.1.1 */
 			pfc_init_h3_v1();
 			break;
-		default:	/* H3 Ver.2.0 or later */
+		default: /* H3 Ver.2.0 or later */
 			pfc_init_h3_v2();
 			break;
 		}
@@ -92,13 +92,13 @@ void rcar_pfc_init(void)
 		PRR_PRODUCT_ERR(reg);
 #else
 		switch (reg & PRR_CUT_MASK) {
-		case PRR_PRODUCT_10:	/* H3 Ver.1.0 */
+		case PRR_PRODUCT_10: /* H3 Ver.1.0 */
 			pfc_init_h3_v1();
 			break;
-		case PRR_PRODUCT_11:	/* H3 Ver.1.1 */
+		case PRR_PRODUCT_11: /* H3 Ver.1.1 */
 			pfc_init_h3_v1();
 			break;
-		default:	/* H3 Ver.2.0 or later */
+		default: /* H3 Ver.2.0 or later */
 			pfc_init_h3_v2();
 			break;
 		}
@@ -145,18 +145,18 @@ void rcar_pfc_init(void)
 	}
 
 #else
-#if (RCAR_LSI == RCAR_H3) || (RCAR_LSI == RCAR_H3N)	/* H3 */
+#if (RCAR_LSI == RCAR_H3) || (RCAR_LSI == RCAR_H3N) /* H3 */
 #if RCAR_LSI_CUT == RCAR_CUT_10
 	/* H3 Ver.1.0 */
-	if ((PRR_PRODUCT_H3 | PRR_PRODUCT_10)
-	    != (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
+	if ((PRR_PRODUCT_H3 | PRR_PRODUCT_10) !=
+	    (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	pfc_init_h3_v1();
 #elif RCAR_LSI_CUT == RCAR_CUT_11
 	/* H3 Ver.1.1 */
-	if ((PRR_PRODUCT_H3 | PRR_PRODUCT_11)
-	    != (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
+	if ((PRR_PRODUCT_H3 | PRR_PRODUCT_11) !=
+	    (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	pfc_init_h3_v1();
@@ -167,27 +167,27 @@ void rcar_pfc_init(void)
 	}
 	pfc_init_h3_v2();
 #endif
-#elif RCAR_LSI == RCAR_M3	/* M3 */
+#elif RCAR_LSI == RCAR_M3 /* M3 */
 	if ((PRR_PRODUCT_M3) != (reg & PRR_PRODUCT_MASK)) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	pfc_init_m3();
-#elif RCAR_LSI == RCAR_M3N	/* M3N */
+#elif RCAR_LSI == RCAR_M3N /* M3N */
 	if ((PRR_PRODUCT_M3N) != (reg & PRR_PRODUCT_MASK)) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	pfc_init_m3n();
-#elif RCAR_LSI == RCAR_V3M	/* V3M */
+#elif RCAR_LSI == RCAR_V3M /* V3M */
 	if ((PRR_PRODUCT_V3M) != (reg & PRR_PRODUCT_MASK)) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	pfc_init_v3m();
-#elif RCAR_LSI == RCAR_E3	/* E3 */
+#elif RCAR_LSI == RCAR_E3 /* E3 */
 	if ((PRR_PRODUCT_E3) != (reg & PRR_PRODUCT_MASK)) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	pfc_init_e3();
-#elif RCAR_LSI == RCAR_D3	/* D3 */
+#elif RCAR_LSI == RCAR_D3 /* D3 */
 	if ((PRR_PRODUCT_D3) != (reg & PRR_PRODUCT_MASK)) {
 		PRR_PRODUCT_ERR(reg);
 	}

@@ -8,16 +8,18 @@
 #include <stdint.h>
 #include <stdio.h>
 
-#include "../drivers/arm/gic/v3/gicv3_private.h"
 #include <bl31/interrupt_mgmt.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <lib/mtk_init/mtk_init.h>
 #include <mt_gic_v3.h>
 #include <mtk_plat_common.h>
-#include <plat/common/platform.h>
 #include <plat_private.h>
+
+#include <plat/common/platform.h>
 #include <platform_def.h>
+
+#include "../drivers/arm/gic/v3/gicv3_private.h"
 
 #define SGI_MASK 0xffff
 
@@ -89,7 +91,7 @@ void mt_gic_rdistif_init(void)
 	/* setup the default PPI/SGI priorities */
 	for (index = 0; index < TOTAL_PCPU_INTR_NUM; index += 4U)
 		gicr_write_ipriorityr(gicr_base, index,
-				GICD_IPRIORITYR_DEF_VAL);
+				      GICD_IPRIORITYR_DEF_VAL);
 }
 
 void mt_gic_rdistif_save(void)
@@ -119,11 +121,11 @@ void mt_gic_rdistif_restore(void)
 		gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
 		mmio_write_32(gicr_base + GICR_IGROUPR0, gic_data.saved_group);
 		mmio_write_32(gicr_base + GICR_ISENABLER0,
-			gic_data.saved_enable);
+			      gic_data.saved_enable);
 		mmio_write_32(gicr_base + GICR_ICFGR0, gic_data.saved_conf0);
 		mmio_write_32(gicr_base + GICR_ICFGR1, gic_data.saved_conf1);
 		mmio_write_32(gicr_base + GICR_IGRPMODR0,
-			gic_data.saved_grpmod);
+			      gic_data.saved_grpmod);
 	}
 }
 
@@ -136,11 +138,11 @@ void mt_gic_rdistif_restore_all(void)
 		gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
 		mmio_write_32(gicr_base + GICR_IGROUPR0, gic_data.saved_group);
 		mmio_write_32(gicr_base + GICR_ISENABLER0,
-			gic_data.saved_enable);
+			      gic_data.saved_enable);
 		mmio_write_32(gicr_base + GICR_ICFGR0, gic_data.saved_conf0);
 		mmio_write_32(gicr_base + GICR_ICFGR1, gic_data.saved_conf1);
 		mmio_write_32(gicr_base + GICR_IGRPMODR0,
-			gic_data.saved_grpmod);
+			      gic_data.saved_grpmod);
 	}
 }
 
@@ -165,7 +167,7 @@ void gic_sgi_restore_all(void)
 		gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
 		mmio_write_32(gicr_base + GICR_ICPENDR0, SGI_MASK);
 		mmio_write_32(gicr_base + GICR_ISPENDR0,
-			gic_data.saved_sgi[proc_num] & SGI_MASK);
+			      gic_data.saved_sgi[proc_num] & SGI_MASK);
 	}
 }
 
@@ -180,19 +182,16 @@ uint32_t mt_irq_get_pending(uint32_t irq)
 {
 	uint32_t val;
 
-	val = mmio_read_32(BASE_GICD_BASE + GICD_ISPENDR +
-		irq / 32 * 4);
+	val = mmio_read_32(BASE_GICD_BASE + GICD_ISPENDR + irq / 32 * 4);
 	val = (val >> (irq % 32)) & 1U;
 	return val;
 }
-
 
 void mt_irq_set_pending(uint32_t irq)
 {
 	uint32_t bit = 1U << (irq % 32);
 
-	mmio_write_32(BASE_GICD_BASE + GICD_ISPENDR +
-		irq / 32 * 4, bit);
+	mmio_write_32(BASE_GICD_BASE + GICD_ISPENDR + irq / 32 * 4, bit);
 }
 
 int mt_gic_one_init(void)

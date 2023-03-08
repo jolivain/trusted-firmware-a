@@ -48,7 +48,7 @@
 #include "platform_def.h"
 #include "soc.h"
 
-static struct soc_type soc_list[] =  {
+static struct soc_type soc_list[] = {
 	/* SoC LX2160A */
 	SOC_ENTRY(LX2160A, LX2160A, 8, 2),
 	SOC_ENTRY(LX2160E, LX2160E, 8, 2),
@@ -78,11 +78,11 @@ static struct soc_type soc_list[] =  {
 };
 
 static dcfg_init_info_t dcfg_init_data = {
-			.g_nxp_dcfg_addr = NXP_DCFG_ADDR,
-			.nxp_sysclk_freq = NXP_SYSCLK_FREQ,
-			.nxp_ddrclk_freq = NXP_DDRCLK_FREQ,
-			.nxp_plat_clk_divider = NXP_PLATFORM_CLK_DIVIDER,
-		};
+	.g_nxp_dcfg_addr = NXP_DCFG_ADDR,
+	.nxp_sysclk_freq = NXP_SYSCLK_FREQ,
+	.nxp_ddrclk_freq = NXP_DDRCLK_FREQ,
+	.nxp_plat_clk_divider = NXP_PLATFORM_CLK_DIVIDER,
+};
 static const unsigned char master_to_6rn_id_map[] = {
 	PLAT_6CLUSTER_TO_CCN_ID_MAP
 };
@@ -92,7 +92,7 @@ static const unsigned char master_to_rn_id_map[] = {
 };
 
 CASSERT(ARRAY_SIZE(master_to_rn_id_map) == NUMBER_OF_CLUSTERS,
-		assert_invalid_cluster_count_for_ccn_variant);
+	assert_invalid_cluster_count_for_ccn_variant);
 
 static const ccn_desc_t plat_six_cluster_ccn_desc = {
 	.periphbase = NXP_CCN_ADDR,
@@ -146,8 +146,8 @@ static void soc_interconnect_config(void)
 	unsigned long long val = 0x0U;
 	uint8_t num_clusters, cores_per_cluster;
 
-	get_cluster_info(soc_list, ARRAY_SIZE(soc_list),
-			&num_clusters, &cores_per_cluster);
+	get_cluster_info(soc_list, ARRAY_SIZE(soc_list), &num_clusters,
+			 &cores_per_cluster);
 
 	if (num_clusters == 6U) {
 		ccn_init(&plat_six_cluster_ccn_desc);
@@ -218,7 +218,6 @@ static void soc_interconnect_config(void)
 #endif
 }
 
-
 void soc_preload_setup(void)
 {
 	dram_regions_info_t *info_dram_regions = get_dram_regions_info();
@@ -227,9 +226,9 @@ void soc_preload_setup(void)
 #endif
 	info_dram_regions->total_dram_size =
 #if defined(NXP_WARM_BOOT)
-						init_ddr(warm_reset);
+		init_ddr(warm_reset);
 #else
-						init_ddr();
+		init_ddr();
 #endif
 }
 
@@ -249,14 +248,14 @@ void soc_early_init(void)
 #endif
 #if LOG_LEVEL > 0
 	/* Initialize the console to provide early debug support */
-	plat_console_init(NXP_CONSOLE_ADDR,
-				NXP_UART_CLK_DIVIDER, NXP_CONSOLE_BAUDRATE);
+	plat_console_init(NXP_CONSOLE_ADDR, NXP_UART_CLK_DIVIDER,
+			  NXP_CONSOLE_BAUDRATE);
 #endif
 
 	enable_timer_base_to_cluster(NXP_PMU_ADDR);
 	soc_interconnect_config();
 
-	enum  boot_device dev = get_boot_dev();
+	enum boot_device dev = get_boot_dev();
 	/* Mark the buffer for SD in OCRAM as non secure.
 	 * The buffer is assumed to be at end of OCRAM for
 	 * the logic below to calculate TZPC programming
@@ -266,9 +265,9 @@ void soc_early_init(void)
 		 * The buffer for SD needs to be marked non-secure
 		 * to allow SD to do DMA operations on it
 		 */
-		uint32_t secure_region = (NXP_OCRAM_SIZE
-						- NXP_SD_BLOCK_BUF_SIZE);
-		uint32_t mask = secure_region/TZPC_BLOCK_SIZE;
+		uint32_t secure_region =
+			(NXP_OCRAM_SIZE - NXP_SD_BLOCK_BUF_SIZE);
+		uint32_t mask = secure_region / TZPC_BLOCK_SIZE;
 
 		mmio_write_32(NXP_OCRAM_TZPC_ADDR, mask);
 
@@ -367,7 +366,6 @@ enum boot_device get_boot_dev(void)
 	return src;
 }
 
-
 void soc_mem_access(void)
 {
 	const devdisr5_info_t *devdisr5_info = get_devdisr5_info();
@@ -383,34 +381,30 @@ void soc_mem_access(void)
 			break;
 		}
 
-		index = populate_tzc400_reg_list(tzc400_reg_list,
-				dram_idx, index,
-				info_dram_regions->region[dram_idx].addr,
-				info_dram_regions->region[dram_idx].size,
-				NXP_SECURE_DRAM_SIZE, NXP_SP_SHRD_DRAM_SIZE);
+		index = populate_tzc400_reg_list(
+			tzc400_reg_list, dram_idx, index,
+			info_dram_regions->region[dram_idx].addr,
+			info_dram_regions->region[dram_idx].size,
+			NXP_SECURE_DRAM_SIZE, NXP_SP_SHRD_DRAM_SIZE);
 	}
 
 	if (devdisr5_info->ddrc1_present != 0) {
 		INFO("DDR Controller 1.\n");
-		mem_access_setup(NXP_TZC_ADDR, index,
-				tzc400_reg_list);
-		mem_access_setup(NXP_TZC3_ADDR, index,
-				tzc400_reg_list);
+		mem_access_setup(NXP_TZC_ADDR, index, tzc400_reg_list);
+		mem_access_setup(NXP_TZC3_ADDR, index, tzc400_reg_list);
 	}
 	if (devdisr5_info->ddrc2_present != 0) {
 		INFO("DDR Controller 2.\n");
-		mem_access_setup(NXP_TZC2_ADDR, index,
-				tzc400_reg_list);
-		mem_access_setup(NXP_TZC4_ADDR, index,
-				tzc400_reg_list);
+		mem_access_setup(NXP_TZC2_ADDR, index, tzc400_reg_list);
+		mem_access_setup(NXP_TZC4_ADDR, index, tzc400_reg_list);
 	}
 }
 
 #else
-const unsigned char _power_domain_tree_desc[] = {1, 8, 2, 2, 2, 2, 2, 2, 2, 2};
+const unsigned char _power_domain_tree_desc[] = { 1, 8, 2, 2, 2, 2, 2, 2, 2, 2 };
 
-CASSERT(NUMBER_OF_CLUSTERS && NUMBER_OF_CLUSTERS <= 256,
-		assert_invalid_lx2160a_cluster_count);
+CASSERT(NUMBER_OF_CLUSTERS &&NUMBER_OF_CLUSTERS <= 256,
+	assert_invalid_lx2160a_cluster_count);
 
 /******************************************************************************
  * This function returns the SoC topology
@@ -418,7 +412,6 @@ CASSERT(NUMBER_OF_CLUSTERS && NUMBER_OF_CLUSTERS <= 256,
 
 const unsigned char *plat_get_power_domain_tree_desc(void)
 {
-
 	return _power_domain_tree_desc;
 }
 
@@ -431,7 +424,6 @@ unsigned int plat_ls_get_cluster_core_count(u_register_t mpidr)
 	return CORES_PER_CLUSTER;
 }
 
-
 void soc_early_platform_setup2(void)
 {
 	dcfg_init(&dcfg_init_data);
@@ -442,8 +434,8 @@ void soc_early_platform_setup2(void)
 
 #if LOG_LEVEL > 0
 	/* Initialize the console to provide early debug support */
-	plat_console_init(NXP_CONSOLE_ADDR,
-			  NXP_UART_CLK_DIVIDER, NXP_CONSOLE_BAUDRATE);
+	plat_console_init(NXP_CONSOLE_ADDR, NXP_UART_CLK_DIVIDER,
+			  NXP_CONSOLE_BAUDRATE);
 #endif
 }
 
@@ -457,17 +449,14 @@ void soc_platform_setup(void)
 	};
 
 	plat_ls_gic_driver_init(NXP_GICD_ADDR, NXP_GICR_ADDR,
-				PLATFORM_CORE_COUNT,
-				ls_interrupt_props,
+				PLATFORM_CORE_COUNT, ls_interrupt_props,
 				ARRAY_SIZE(ls_interrupt_props),
-				target_mask_array,
-				plat_core_pos);
+				target_mask_array, plat_core_pos);
 
 	plat_ls_gic_init();
 	enable_init_timer();
 #ifdef LS_SYS_TIMCTL_BASE
-	ls_configure_sys_timer(LS_SYS_TIMCTL_BASE,
-			       LS_CONFIG_CNTACR,
+	ls_configure_sys_timer(LS_SYS_TIMCTL_BASE, LS_CONFIG_CNTACR,
 			       PLAT_LS_NSTIMER_FRAME_ID);
 #endif
 }
@@ -479,8 +468,8 @@ void soc_init(void)
 {
 	uint8_t num_clusters, cores_per_cluster;
 
-	get_cluster_info(soc_list, ARRAY_SIZE(soc_list),
-			&num_clusters, &cores_per_cluster);
+	get_cluster_info(soc_list, ARRAY_SIZE(soc_list), &num_clusters,
+			 &cores_per_cluster);
 
 	/* low-level init of the soc */
 	soc_init_start();
@@ -505,7 +494,7 @@ void soc_init(void)
 	/* Set platform security policies */
 	_set_platform_security();
 
-	 /* make sure any parallel init tasks are finished */
+	/* make sure any parallel init tasks are finished */
 	soc_init_finish();
 
 	/* Initialize the crypto accelerator if enabled */
@@ -514,17 +503,15 @@ void soc_init(void)
 	} else {
 		sec_init(NXP_CAAM_ADDR);
 	}
-
 }
 
 #ifdef NXP_WDOG_RESTART
 static uint64_t wdog_interrupt_handler(uint32_t id, uint32_t flags,
-					  void *handle, void *cookie)
+				       void *handle, void *cookie)
 {
 	uint8_t data = WDOG_RESET_FLAG;
 
-	wr_nv_app_data(WDT_RESET_FLAG_OFFSET,
-		       (uint8_t *)&data, sizeof(data));
+	wr_nv_app_data(WDT_RESET_FLAG_OFFSET, (uint8_t *)&data, sizeof(data));
 
 	mmio_write_32(NXP_RST_ADDR + RSTCNTL_OFFSET, SW_RST_REQ_INIT);
 

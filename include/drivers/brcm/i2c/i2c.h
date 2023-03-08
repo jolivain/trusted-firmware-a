@@ -9,9 +9,9 @@
 
 #include <stdint.h>
 
-#define I2C_SPEED_100KHz	100000
-#define I2C_SPEED_400KHz	400000
-#define I2C_SPEED_DEFAULT	I2C_SPEED_100KHz
+#define I2C_SPEED_100KHz 100000
+#define I2C_SPEED_400KHz 400000
+#define I2C_SPEED_DEFAULT I2C_SPEED_100KHz
 
 /*
  * Function Name:    i2c_probe
@@ -125,12 +125,8 @@ int i2c_send_byte(uint32_t bus_id, uint8_t devaddr, uint8_t value);
  * Return:
  *	0 on success, or -1 on failure.
  */
-int i2c_read(uint32_t bus_id,
-	     uint8_t devaddr,
-	     uint32_t addr,
-	     int alen,
-	     uint8_t *buffer,
-	     int len);
+int i2c_read(uint32_t bus_id, uint8_t devaddr, uint32_t addr, int alen,
+	     uint8_t *buffer, int len);
 
 /*
  * Function Name:    i2c_write
@@ -150,12 +146,7 @@ int i2c_read(uint32_t bus_id,
  * Return:
  *	0 on success, or -1 on failure.
  */
-int i2c_write(uint32_t bus_id,
-	      uint8_t devaddr,
-	      uint32_t addr,
-	      int alen,
-	      uint8_t *buffer,
-	      int len);
-
+int i2c_write(uint32_t bus_id, uint8_t devaddr, uint32_t addr, int alen,
+	      uint8_t *buffer, int len);
 
 #endif /* I2C_H */

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,10 +11,11 @@
 #include <drivers/delay_timer.h>
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
+#include <plat_arm.h>
+
+#include <platform_def.h>
 
 #include "corstone700_mhu.h"
-#include <plat_arm.h>
-#include <platform_def.h>
 
 ARM_INSTANTIATE_LOCK;
 
@@ -25,7 +26,7 @@ ARM_INSTANTIATE_LOCK;
  * indicate a non-secure access attempt. The total number of available slots is
  * therefore 31 [30:0].
  */
-#define MHU_MAX_SLOT_ID		30
+#define MHU_MAX_SLOT_ID 30
 
 void mhu_secure_message_start(uintptr_t address, unsigned int slot_id)
 {
@@ -45,7 +46,7 @@ void mhu_secure_message_start(uintptr_t address, unsigned int slot_id)
 
 	do {
 		intr_stat_check = (mmio_read_32(address + CPU_INTR_S_STAT) &
-						(1 << slot_id));
+				   (1 << slot_id));
 
 		expiration = timeout_elapsed(timeout_cnt);
 
@@ -59,17 +60,16 @@ void mhu_secure_message_start(uintptr_t address, unsigned int slot_id)
 	 */
 }
 
-void mhu_secure_message_send(uintptr_t address,
-				unsigned int slot_id,
-				unsigned int message)
+void mhu_secure_message_send(uintptr_t address, unsigned int slot_id,
+			     unsigned int message)
 {
 	unsigned char access_ready;
 	uint64_t timeout_cnt;
 	volatile uint8_t expiration;
 
 	assert(slot_id <= MHU_MAX_SLOT_ID);
-	assert((mmio_read_32(address + CPU_INTR_S_STAT) &
-						(1 << slot_id)) == 0U);
+	assert((mmio_read_32(address + CPU_INTR_S_STAT) & (1 << slot_id)) ==
+	       0U);
 
 	MHU_V2_ACCESS_REQUEST(address);
 

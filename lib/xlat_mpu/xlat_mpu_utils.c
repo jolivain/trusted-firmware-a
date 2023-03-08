@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,16 +11,17 @@
 #include <stdio.h>
 
 #include <common/debug.h>
+#include <fvp_r_arch_helpers.h>
 #include <lib/utils_def.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include "xlat_mpu_private.h"
 
-#include <fvp_r_arch_helpers.h>
 #include <platform_def.h>
 
-#warning "xlat_mpu library is currently experimental and its API may change in future."
+#include "xlat_mpu_private.h"
 
+#warning \
+	"xlat_mpu library is currently experimental and its API may change in future."
 
 void xlat_mmap_print(__unused const mmap_region_t *mmap)
 {
@@ -62,7 +63,7 @@ static void xlat_tables_print_internal(__unused xlat_ctx_t *ctx)
 	 * enable bit for each MPU region, 1 for in-use or 0 for unused):
 	 */
 	prenr_el2_value = read_prenr_el2();
-	for (region_to_use = 0;  region_to_use < N_MPU_REGIONS;
+	for (region_to_use = 0; region_to_use < N_MPU_REGIONS;
 	     region_to_use++) {
 		if (((prenr_el2_value >> region_to_use) & 1U) == 0U) {
 			continue;
@@ -70,8 +71,7 @@ static void xlat_tables_print_internal(__unused xlat_ctx_t *ctx)
 		region_base = read_prbar_el2() & PRBAR_PRLAR_ADDR_MASK;
 		region_size = read_prlar_el2() & PRBAR_PRLAR_ADDR_MASK;
 		printf("Address:  0x%llx, size:  0x%llx ",
-			(long long) region_base,
-			(long long) region_size);
+		       (long long)region_base, (long long)region_size);
 	}
 }
 

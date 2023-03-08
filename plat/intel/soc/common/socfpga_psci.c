@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,13 +9,13 @@
 #include <drivers/arm/gicv2.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
+
 #include <plat/common/platform.h>
 
 #include "socfpga_mailbox.h"
 #include "socfpga_plat_def.h"
 #include "socfpga_reset_manager.h"
 #include "socfpga_sip_svc.h"
-
 
 /*******************************************************************************
  * plat handler called when a CPU is about to enter standby.
@@ -79,7 +79,6 @@ void socfpga_pwr_domain_suspend(const psci_power_state_t *target_state)
 
 	/* assert core reset */
 	mmio_setbits_32(SOCFPGA_RSTMGR(MPUMODRST), 1 << cpu_id);
-
 }
 
 /*******************************************************************************
@@ -137,7 +136,7 @@ static void __dead2 socfpga_system_reset(void)
 	uint32_t addr_buf[2];
 
 	memcpy(addr_buf, &intel_rsu_update_address,
-			sizeof(intel_rsu_update_address));
+	       sizeof(intel_rsu_update_address));
 
 	if (intel_rsu_update_address)
 		mailbox_rsu_update(addr_buf);
@@ -149,7 +148,7 @@ static void __dead2 socfpga_system_reset(void)
 }
 
 static int socfpga_system_reset2(int is_vendor, int reset_type,
-					u_register_t cookie)
+				 u_register_t cookie)
 {
 	if (cold_reset_for_ecc_dbe()) {
 		mailbox_reset_cold();
@@ -177,7 +176,7 @@ static int socfpga_system_reset2(int is_vendor, int reset_type,
 }
 
 int socfpga_validate_power_state(unsigned int power_state,
-				psci_power_state_t *req_state)
+				 psci_power_state_t *req_state)
 {
 	VERBOSE("%s: power_state: 0x%x\n", __func__, power_state);
 

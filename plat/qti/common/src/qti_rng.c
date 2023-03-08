@@ -6,7 +6,6 @@
 #include <stddef.h>
 
 #include <lib/mmio.h>
-
 #include <qti_rng.h>
 #include <qti_rng_io.h>
 
@@ -37,7 +36,7 @@ int qti_rng_get_data(uint8_t *out, uint32_t out_len)
 		}
 
 		for (i = 0; i < 4; i++) {
-			*out = (uint8_t) (tmp_rndm >> (8 * i));
+			*out = (uint8_t)(tmp_rndm >> (8 * i));
 
 			out++;
 			bytes_left--;

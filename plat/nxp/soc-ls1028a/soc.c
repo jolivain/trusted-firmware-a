@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <endian.h>
-
 #include <arch.h>
 #include <caam.h>
 #include <cassert.h>
 #include <cci.h>
 #include <common/debug.h>
 #include <dcfg.h>
+#include <endian.h>
 #include <i2c.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
 #include <ls_interconnect.h>
@@ -47,7 +46,7 @@ static dcfg_init_info_t dcfg_init_data = {
 	.nxp_plat_clk_divider = NXP_PLATFORM_CLK_DIVIDER,
 };
 
-static struct soc_type soc_list[] =  {
+static struct soc_type soc_list[] = {
 	SOC_ENTRY(LS1017AN, LS1017AN, 1, 1),
 	SOC_ENTRY(LS1017AE, LS1017AE, 1, 1),
 	SOC_ENTRY(LS1018AN, LS1018AN, 1, 1),
@@ -58,7 +57,7 @@ static struct soc_type soc_list[] =  {
 	SOC_ENTRY(LS1028AE, LS1028AE, 1, 2),
 };
 
-CASSERT(NUMBER_OF_CLUSTERS && NUMBER_OF_CLUSTERS <= 256,
+CASSERT(NUMBER_OF_CLUSTERS &&NUMBER_OF_CLUSTERS <= 256,
 	assert_invalid_ls1028a_cluster_count);
 
 /*
@@ -116,10 +115,10 @@ void soc_early_init(void)
 
 #if LOG_LEVEL > 0
 	/* Initialize the console to provide early debug support */
-	plat_console_init(NXP_CONSOLE_ADDR,
-				NXP_UART_CLK_DIVIDER, NXP_CONSOLE_BAUDRATE);
+	plat_console_init(NXP_CONSOLE_ADDR, NXP_UART_CLK_DIVIDER,
+			  NXP_CONSOLE_BAUDRATE);
 #endif
-	enum  boot_device dev = get_boot_dev();
+	enum boot_device dev = get_boot_dev();
 	/*
 	 * Mark the buffer for SD in OCRAM as non secure.
 	 * The buffer is assumed to be at end of OCRAM for
@@ -131,14 +130,16 @@ void soc_early_init(void)
 		 * The buffer for SD needs to be marked non-secure
 		 * to allow SD to do DMA operations on it
 		 */
-		uint32_t secure_region = (NXP_OCRAM_SIZE - NXP_SD_BLOCK_BUF_SIZE);
-		uint32_t mask = secure_region/TZPC_BLOCK_SIZE;
+		uint32_t secure_region =
+			(NXP_OCRAM_SIZE - NXP_SD_BLOCK_BUF_SIZE);
+		uint32_t mask = secure_region / TZPC_BLOCK_SIZE;
 
 		mmio_write_32(NXP_OCRAM_TZPC_ADDR, mask);
 
 		/* Add the entry for buffer in MMU Table */
 		mmap_add_region(NXP_SD_BLOCK_BUF_ADDR, NXP_SD_BLOCK_BUF_ADDR,
-				NXP_SD_BLOCK_BUF_SIZE, MT_DEVICE | MT_RW | MT_NS);
+				NXP_SD_BLOCK_BUF_SIZE,
+				MT_DEVICE | MT_RW | MT_NS);
 	}
 
 #if TRUSTED_BOARD_BOOT
@@ -184,7 +185,8 @@ void soc_early_init(void)
 	/*
 	 * Enable Interconnect coherency for the primary CPU's cluster.
 	 */
-	get_cluster_info(soc_list, ARRAY_SIZE(soc_list), &num_clusters, &cores_per_cluster);
+	get_cluster_info(soc_list, ARRAY_SIZE(soc_list), &num_clusters,
+			 &cores_per_cluster);
 	plat_ls_interconnect_enter_coherency(num_clusters);
 
 	delay_timer_init(NXP_TIMER_ADDR);
@@ -255,11 +257,11 @@ void soc_mem_access(void)
 			break;
 		}
 
-		index = populate_tzc400_reg_list(tzc400_reg_list,
-				dram_idx, index,
-				info_dram_regions->region[dram_idx].addr,
-				info_dram_regions->region[dram_idx].size,
-				NXP_SECURE_DRAM_SIZE, NXP_SP_SHRD_DRAM_SIZE);
+		index = populate_tzc400_reg_list(
+			tzc400_reg_list, dram_idx, index,
+			info_dram_regions->region[dram_idx].addr,
+			info_dram_regions->region[dram_idx].size,
+			NXP_SECURE_DRAM_SIZE, NXP_SP_SHRD_DRAM_SIZE);
 	}
 
 	mem_access_setup(NXP_TZC_ADDR, index, tzc400_reg_list);
@@ -277,7 +279,8 @@ const unsigned char *plat_get_power_domain_tree_desc(void)
 	uint8_t num_clusters, cores_per_cluster;
 	unsigned int i;
 
-	get_cluster_info(soc_list, ARRAY_SIZE(soc_list), &num_clusters, &cores_per_cluster);
+	get_cluster_info(soc_list, ARRAY_SIZE(soc_list), &num_clusters,
+			 &cores_per_cluster);
 	/*
 	 * The highest level is the system level. The next level is constituted
 	 * by clusters and then cores in clusters.
@@ -299,7 +302,8 @@ unsigned int plat_ls_get_cluster_core_count(u_register_t mpidr)
 {
 	uint8_t num_clusters, cores_per_cluster;
 
-	get_cluster_info(soc_list, ARRAY_SIZE(soc_list), &num_clusters, &cores_per_cluster);
+	get_cluster_info(soc_list, ARRAY_SIZE(soc_list), &num_clusters,
+			 &cores_per_cluster);
 	return num_clusters;
 }
 
@@ -311,8 +315,8 @@ void soc_early_platform_setup2(void)
 
 #if LOG_LEVEL > 0
 	/* Initialize the console to provide early debug support */
-	plat_console_init(NXP_CONSOLE_ADDR,
-				NXP_UART_CLK_DIVIDER, NXP_CONSOLE_BAUDRATE);
+	plat_console_init(NXP_CONSOLE_ADDR, NXP_UART_CLK_DIVIDER,
+			  NXP_CONSOLE_BAUDRATE);
 #endif
 }
 
@@ -326,11 +330,9 @@ void soc_platform_setup(void)
 	};
 
 	plat_ls_gic_driver_init(NXP_GICD_ADDR, NXP_GICR_ADDR,
-				PLATFORM_CORE_COUNT,
-				ls_interrupt_props,
+				PLATFORM_CORE_COUNT, ls_interrupt_props,
 				ARRAY_SIZE(ls_interrupt_props),
-				target_mask_array,
-				plat_core_pos);
+				target_mask_array, plat_core_pos);
 
 	plat_ls_gic_init();
 	enable_init_timer();
@@ -341,7 +343,8 @@ void soc_init(void)
 {
 	uint8_t num_clusters, cores_per_cluster;
 
-	get_cluster_info(soc_list, ARRAY_SIZE(soc_list), &num_clusters, &cores_per_cluster);
+	get_cluster_info(soc_list, ARRAY_SIZE(soc_list), &num_clusters,
+			 &cores_per_cluster);
 
 	/* Low-level init of the soc */
 	soc_init_lowlevel();
@@ -371,12 +374,11 @@ void soc_init(void)
 
 #ifdef NXP_WDOG_RESTART
 static uint64_t wdog_interrupt_handler(uint32_t id, uint32_t flags,
-					  void *handle, void *cookie)
+				       void *handle, void *cookie)
 {
 	uint8_t data = WDOG_RESET_FLAG;
 
-	wr_nv_app_data(WDT_RESET_FLAG_OFFSET,
-			(uint8_t *)&data, sizeof(data));
+	wr_nv_app_data(WDT_RESET_FLAG_OFFSET, (uint8_t *)&data, sizeof(data));
 
 	mmio_write_32(NXP_RST_ADDR + RSTCNTL_OFFSET, SW_RST_REQ_INIT);
 
@@ -396,7 +398,8 @@ unsigned int get_tot_num_cores(void)
 {
 	uint8_t num_clusters, cores_per_cluster;
 
-	get_cluster_info(soc_list, ARRAY_SIZE(soc_list), &num_clusters, &cores_per_cluster);
+	get_cluster_info(soc_list, ARRAY_SIZE(soc_list), &num_clusters,
+			 &cores_per_cluster);
 	return (num_clusters * cores_per_cluster);
 }
 
@@ -405,7 +408,8 @@ unsigned int get_pmu_idle_cluster_mask(void)
 {
 	uint8_t num_clusters, cores_per_cluster;
 
-	get_cluster_info(soc_list, ARRAY_SIZE(soc_list), &num_clusters, &cores_per_cluster);
+	get_cluster_info(soc_list, ARRAY_SIZE(soc_list), &num_clusters,
+			 &cores_per_cluster);
 	return ((1 << num_clusters) - 2);
 }
 
@@ -414,7 +418,8 @@ unsigned int get_pmu_flush_cluster_mask(void)
 {
 	uint8_t num_clusters, cores_per_cluster;
 
-	get_cluster_info(soc_list, ARRAY_SIZE(soc_list), &num_clusters, &cores_per_cluster);
+	get_cluster_info(soc_list, ARRAY_SIZE(soc_list), &num_clusters,
+			 &cores_per_cluster);
 	return ((1 << num_clusters) - 2);
 }
 

@@ -4,28 +4,29 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <asm/byteorder.h>
 #include <errno.h>
-#include <fcntl.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include <asm/byteorder.h>
+#include <fcntl.h>
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
 
 /* Magic = 'S' 'T' 'M' 0x32 */
-#define HEADER_MAGIC		__be32_to_cpu(0x53544D32)
-#define VER_MAJOR		2
-#define VER_MINOR		1
-#define VER_VARIANT		0
-#define HEADER_VERSION_V1	0x1
-#define HEADER_VERSION_V2	0x2
-#define PADDING_HEADER_MAGIC	__be32_to_cpu(0x5354FFFF)
-#define PADDING_HEADER_FLAG	(1 << 31)
-#define PADDING_HEADER_LENGTH	0x180
+#define HEADER_MAGIC __be32_to_cpu(0x53544D32)
+#define VER_MAJOR 2
+#define VER_MINOR 1
+#define VER_VARIANT 0
+#define HEADER_VERSION_V1 0x1
+#define HEADER_VERSION_V2 0x2
+#define PADDING_HEADER_MAGIC __be32_to_cpu(0x5354FFFF)
+#define PADDING_HEADER_FLAG (1 << 31)
+#define PADDING_HEADER_LENGTH 0x180
 
 struct stm32_header_v1 {
 	uint32_t magic_number;
@@ -151,11 +152,10 @@ static int stm32image_set_header(void *ptr, struct stat *sbuf, int ifd,
 	stm32hdr->header_version[VER_MINOR] = minor;
 	stm32hdr->load_address = __cpu_to_le32(loadaddr);
 	stm32hdr->image_entry_point = __cpu_to_le32(ep);
-	stm32hdr->image_length = __cpu_to_le32((uint32_t)sbuf->st_size -
-					       header_size);
-	stm32hdr->image_checksum =
-		__cpu_to_le32(stm32image_checksum(ptr, sbuf->st_size,
-						  header_size));
+	stm32hdr->image_length =
+		__cpu_to_le32((uint32_t)sbuf->st_size - header_size);
+	stm32hdr->image_checksum = __cpu_to_le32(
+		stm32image_checksum(ptr, sbuf->st_size, header_size));
 
 	switch (stm32hdr->header_version[VER_MAJOR]) {
 	case HEADER_VERSION_V1:
@@ -169,10 +169,8 @@ static int stm32image_set_header(void *ptr, struct stat *sbuf, int ifd,
 		stm32hdr_v2->binary_type = binary_type;
 		ext_size += PADDING_HEADER_LENGTH;
 		ext_flags |= PADDING_HEADER_FLAG;
-		stm32hdr_v2->extension_flags =
-			__cpu_to_le32(ext_flags);
-		stm32hdr_v2->extension_headers_length =
-			__cpu_to_le32(ext_size);
+		stm32hdr_v2->extension_flags = __cpu_to_le32(ext_flags);
+		stm32hdr_v2->extension_headers_length = __cpu_to_le32(ext_size);
 		stm32hdr_v2->extension_header_type = PADDING_HEADER_MAGIC;
 		stm32hdr_v2->extension_header_length =
 			__cpu_to_le32(PADDING_HEADER_LENGTH);
@@ -237,8 +235,7 @@ static int stm32image_create_header_file(char *srcname, char *destname,
 	}
 
 	memset(stm32image_header, 0, header_size);
-	if (write(dest_fd, stm32image_header, header_size) !=
-	    header_size) {
+	if (write(dest_fd, stm32image_header, header_size) != header_size) {
 		fprintf(stderr, "Write error %s: %s\n", destname,
 			strerror(errno));
 		free(stm32image_header);
@@ -260,17 +257,17 @@ static int stm32image_create_header_file(char *srcname, char *destname,
 		return -1;
 	}
 
-	ptr = mmap(0, sbuf.st_size, PROT_READ | PROT_WRITE, MAP_SHARED,
-		   dest_fd, 0);
+	ptr = mmap(0, sbuf.st_size, PROT_READ | PROT_WRITE, MAP_SHARED, dest_fd,
+		   0);
 
 	if (ptr == MAP_FAILED) {
 		fprintf(stderr, "Can't write %s\n", destname);
 		return -1;
 	}
 
-	if (stm32image_set_header(ptr, &sbuf, dest_fd, loadaddr,
-				  entry, version, major, minor,
-				  binary_type, header_size) != 0) {
+	if (stm32image_set_header(ptr, &sbuf, dest_fd, loadaddr, entry, version,
+				  major, minor, binary_type,
+				  header_size) != 0) {
 		return -1;
 	}
 
@@ -323,7 +320,7 @@ int main(int argc, char *argv[])
 		default:
 			fprintf(stderr,
 				"Usage : %s [-s srcfile] [-d destfile] [-l loadaddr] [-e entry_point] [-m major] [-n minor] [-b binary_type]\n",
-					argv[0]);
+				argv[0]);
 			return -1;
 		}
 	}
@@ -353,9 +350,8 @@ int main(int argc, char *argv[])
 		return -1;
 	}
 
-	err = stm32image_create_header_file(src, dest, loadaddr,
-					    entry, version, major, minor,
-					    binary_type);
+	err = stm32image_create_header_file(src, dest, loadaddr, entry, version,
+					    major, minor, binary_type);
 
 	return err;
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, Broadcom
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -27,11 +27,12 @@ ehf_pri_desc_t plat_exceptions[] = {
 #if SPM_MM
 	EHF_PRI_DESC(PLAT_PRI_BITS, PLAT_SP_PRI),
 #endif
-	/* Plaform specific exceptions description */
+/* Plaform specific exceptions description */
 #ifdef PLAT_EHF_DESC
 	PLAT_EHF_DESC,
 #endif
 };
 
 /* Plug in ARM exceptions to Exception Handling Framework. */
-EHF_REGISTER_PRIORITIES(plat_exceptions, ARRAY_SIZE(plat_exceptions), PLAT_PRI_BITS);
+EHF_REGISTER_PRIORITIES(plat_exceptions, ARRAY_SIZE(plat_exceptions),
+			PLAT_PRI_BITS);

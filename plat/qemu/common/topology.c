@@ -1,14 +1,14 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <stdint.h>
 
-#include <platform_def.h>
-
 #include <arch.h>
+
+#include <platform_def.h>
 
 #include "qemu_private.h"
 

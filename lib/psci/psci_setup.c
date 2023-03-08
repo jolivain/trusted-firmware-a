@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,8 +11,9 @@
 #include <arch_helpers.h>
 #include <common/bl_common.h>
 #include <context.h>
-#include <lib/el3_runtime/context_mgmt.h>
 #include <lib/cpus/errata_report.h>
+#include <lib/el3_runtime/context_mgmt.h>
+
 #include <plat/common/platform.h>
 
 #include "psci_private.h"
@@ -21,7 +22,8 @@
  * Check that PLATFORM_CORE_COUNT fits into the number of cores
  * that can be represented by PSCI_MAX_CPUS_INDEX.
  */
-CASSERT(PLATFORM_CORE_COUNT <= (PSCI_MAX_CPUS_INDEX + 1U), assert_psci_cores_overflow);
+CASSERT(PLATFORM_CORE_COUNT <= (PSCI_MAX_CPUS_INDEX + 1U),
+	assert_psci_cores_overflow);
 
 /*******************************************************************************
  * Per cpu non-secure contexts used to program the architectural state prior
@@ -41,8 +43,8 @@ unsigned int psci_caps;
  * 'psci_cpu_pd_nodes' corresponding to the power level.
  ******************************************************************************/
 static void __init psci_init_pwr_domain_node(uint16_t node_idx,
-					unsigned int parent_idx,
-					unsigned char level)
+					     unsigned int parent_idx,
+					     unsigned char level)
 {
 	if (level > PSCI_CPU_PWR_LVL) {
 		assert(node_idx < PSCI_NUM_NON_CPU_PWR_DOMAINS);
@@ -51,7 +53,7 @@ static void __init psci_init_pwr_domain_node(uint16_t node_idx,
 		psci_lock_init(psci_non_cpu_pd_nodes, node_idx);
 		psci_non_cpu_pd_nodes[node_idx].parent_node = parent_idx;
 		psci_non_cpu_pd_nodes[node_idx].local_state =
-							 PLAT_MAX_OFF_STATE;
+			PLAT_MAX_OFF_STATE;
 	} else {
 		psci_cpu_data_t *svc_cpu_data;
 
@@ -75,10 +77,10 @@ static void __init psci_init_pwr_domain_node(uint16_t node_idx,
 		svc_cpu_data->local_state = PLAT_MAX_OFF_STATE;
 
 		psci_flush_dcache_range((uintptr_t)svc_cpu_data,
-						 sizeof(*svc_cpu_data));
+					sizeof(*svc_cpu_data));
 
 		cm_set_context_by_index(node_idx,
-					(void *) &psci_ns_context[node_idx],
+					(void *)&psci_ns_context[node_idx],
 					NON_SECURE);
 	}
 }
@@ -96,18 +98,17 @@ static void __init psci_update_pwrlvl_limits(void)
 {
 	unsigned int cpu_idx;
 	int j;
-	unsigned int nodes_idx[PLAT_MAX_PWR_LVL] = {0};
+	unsigned int nodes_idx[PLAT_MAX_PWR_LVL] = { 0 };
 	unsigned int temp_index[PLAT_MAX_PWR_LVL];
 
 	for (cpu_idx = 0; cpu_idx < psci_plat_core_count; cpu_idx++) {
-		psci_get_parent_pwr_domain_nodes(cpu_idx,
-						 PLAT_MAX_PWR_LVL,
+		psci_get_parent_pwr_domain_nodes(cpu_idx, PLAT_MAX_PWR_LVL,
 						 temp_index);
 		for (j = (int)PLAT_MAX_PWR_LVL - 1; j >= 0; j--) {
 			if (temp_index[j] != nodes_idx[j]) {
 				nodes_idx[j] = temp_index[j];
-				psci_non_cpu_pd_nodes[nodes_idx[j]].cpu_start_idx
-					= cpu_idx;
+				psci_non_cpu_pd_nodes[nodes_idx[j]]
+					.cpu_start_idx = cpu_idx;
 			}
 			psci_non_cpu_pd_nodes[nodes_idx[j]].ncpus++;
 		}
@@ -120,8 +121,8 @@ static void __init psci_update_pwrlvl_limits(void)
  * informs the number of root power domains. The parent nodes of the root nodes
  * will point to an invalid entry(-1).
  ******************************************************************************/
-static unsigned int __init populate_power_domain_tree(const unsigned char
-							*topology)
+static unsigned int __init
+populate_power_domain_tree(const unsigned char *topology)
 {
 	unsigned int i, j = 0U, num_nodes_at_lvl = 1U, num_nodes_at_next_lvl;
 	unsigned int node_index = 0U, num_children;
@@ -137,7 +138,7 @@ static unsigned int __init populate_power_domain_tree(const unsigned char
 	 * - Index of first free entry in psci_non_cpu_pd_nodes[] or
 	 *   psci_cpu_pd_nodes[] i.e. node_index depending upon the level.
 	 */
-	while (level >= (int) PSCI_CPU_PWR_LVL) {
+	while (level >= (int)PSCI_CPU_PWR_LVL) {
 		num_nodes_at_next_lvl = 0U;
 		/*
 		 * For each entry (parent node) at this level in the plat_array:
@@ -149,14 +150,14 @@ static unsigned int __init populate_power_domain_tree(const unsigned char
 		 */
 		for (i = 0U; i < num_nodes_at_lvl; i++) {
 			assert(parent_node_index <=
-					PSCI_NUM_NON_CPU_PWR_DOMAINS);
+			       PSCI_NUM_NON_CPU_PWR_DOMAINS);
 			num_children = topology[parent_node_index];
 
-			for (j = node_index;
-				j < (node_index + num_children); j++)
-				psci_init_pwr_domain_node((uint16_t)j,
-						  parent_node_index - 1U,
-						  (unsigned char)level);
+			for (j = node_index; j < (node_index + num_children);
+			     j++)
+				psci_init_pwr_domain_node(
+					(uint16_t)j, parent_node_index - 1U,
+					(unsigned char)level);
 
 			node_index = j;
 			num_nodes_at_next_lvl += num_children;
@@ -167,7 +168,7 @@ static unsigned int __init populate_power_domain_tree(const unsigned char
 		level--;
 
 		/* Reset the index for the cpu power domain array */
-		if (level == (int) PSCI_CPU_PWR_LVL)
+		if (level == (int)PSCI_CPU_PWR_LVL)
 			node_index = 0;
 	}
 
@@ -218,8 +219,8 @@ int __init psci_setup(const psci_lib_args_t *lib_args)
 	psci_update_pwrlvl_limits();
 
 	/* Populate the mpidr field of cpu node for this CPU */
-	psci_cpu_pd_nodes[plat_my_core_pos()].mpidr =
-		read_mpidr() & MPIDR_AFFINITY_MASK;
+	psci_cpu_pd_nodes[plat_my_core_pos()].mpidr = read_mpidr() &
+						      MPIDR_AFFINITY_MASK;
 
 	psci_init_req_local_pwr_states();
 
@@ -229,8 +230,8 @@ int __init psci_setup(const psci_lib_args_t *lib_args)
 	 */
 	psci_set_pwr_domains_to_run(PLAT_MAX_PWR_LVL);
 
-	(void) plat_setup_psci_ops((uintptr_t)lib_args->mailbox_ep,
-				   &psci_plat_pm_ops);
+	(void)plat_setup_psci_ops((uintptr_t)lib_args->mailbox_ep,
+				  &psci_plat_pm_ops);
 	assert(psci_plat_pm_ops != NULL);
 
 	/*
@@ -238,31 +239,32 @@ int __init psci_setup(const psci_lib_args_t *lib_args)
 	 * during warm boot, possibly before data cache is enabled.
 	 */
 	psci_flush_dcache_range((uintptr_t)&psci_plat_pm_ops,
-					sizeof(psci_plat_pm_ops));
+				sizeof(psci_plat_pm_ops));
 
 	/* Initialize the psci capability */
 	psci_caps = PSCI_GENERIC_CAP;
 
 	if (psci_plat_pm_ops->pwr_domain_off != NULL)
-		psci_caps |=  define_psci_cap(PSCI_CPU_OFF);
+		psci_caps |= define_psci_cap(PSCI_CPU_OFF);
 	if ((psci_plat_pm_ops->pwr_domain_on != NULL) &&
 	    (psci_plat_pm_ops->pwr_domain_on_finish != NULL))
-		psci_caps |=  define_psci_cap(PSCI_CPU_ON_AARCH64);
+		psci_caps |= define_psci_cap(PSCI_CPU_ON_AARCH64);
 	if ((psci_plat_pm_ops->pwr_domain_suspend != NULL) &&
 	    (psci_plat_pm_ops->pwr_domain_suspend_finish != NULL)) {
 		if (psci_plat_pm_ops->validate_power_state != NULL)
-			psci_caps |=  define_psci_cap(PSCI_CPU_SUSPEND_AARCH64);
+			psci_caps |= define_psci_cap(PSCI_CPU_SUSPEND_AARCH64);
 		if (psci_plat_pm_ops->get_sys_suspend_power_state != NULL)
-			psci_caps |=  define_psci_cap(PSCI_SYSTEM_SUSPEND_AARCH64);
+			psci_caps |=
+				define_psci_cap(PSCI_SYSTEM_SUSPEND_AARCH64);
 	}
 	if (psci_plat_pm_ops->system_off != NULL)
-		psci_caps |=  define_psci_cap(PSCI_SYSTEM_OFF);
+		psci_caps |= define_psci_cap(PSCI_SYSTEM_OFF);
 	if (psci_plat_pm_ops->system_reset != NULL)
-		psci_caps |=  define_psci_cap(PSCI_SYSTEM_RESET);
+		psci_caps |= define_psci_cap(PSCI_SYSTEM_RESET);
 	if (psci_plat_pm_ops->get_node_hw_state != NULL)
 		psci_caps |= define_psci_cap(PSCI_NODE_HW_STATE_AARCH64);
 	if ((psci_plat_pm_ops->read_mem_protect != NULL) &&
-			(psci_plat_pm_ops->write_mem_protect != NULL))
+	    (psci_plat_pm_ops->write_mem_protect != NULL))
 		psci_caps |= define_psci_cap(PSCI_MEM_PROTECT);
 	if (psci_plat_pm_ops->mem_protect_chk != NULL)
 		psci_caps |= define_psci_cap(PSCI_MEM_CHK_RANGE_AARCH64);
@@ -270,8 +272,8 @@ int __init psci_setup(const psci_lib_args_t *lib_args)
 		psci_caps |= define_psci_cap(PSCI_SYSTEM_RESET2_AARCH64);
 
 #if ENABLE_PSCI_STAT
-	psci_caps |=  define_psci_cap(PSCI_STAT_RESIDENCY_AARCH64);
-	psci_caps |=  define_psci_cap(PSCI_STAT_COUNT_AARCH64);
+	psci_caps |= define_psci_cap(PSCI_STAT_RESIDENCY_AARCH64);
+	psci_caps |= define_psci_cap(PSCI_STAT_COUNT_AARCH64);
 #endif
 
 	return 0;

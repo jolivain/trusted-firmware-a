@@ -26,29 +26,28 @@
 #include <lib/spinlock.h>
 #include <lib/utils.h>
 
-#define RNG_REG_STATUS_RDY			(1 << 0)
+#define RNG_REG_STATUS_RDY (1 << 0)
 
-#define RNG_REG_INTACK_RDY_MASK			(1 << 0)
+#define RNG_REG_INTACK_RDY_MASK (1 << 0)
 
-#define RNG_CONTROL_ENABLE_TRNG_MASK		(1 << 10)
+#define RNG_CONTROL_ENABLE_TRNG_MASK (1 << 10)
 
-#define RNG_CONFIG_NOISE_BLOCKS(val)		((0xff & (val)) << 0)
-#define RNG_CONFIG_NOISE_BLK_VAL		0x5
+#define RNG_CONFIG_NOISE_BLOCKS(val) ((0xff & (val)) << 0)
+#define RNG_CONFIG_NOISE_BLK_VAL 0x5
 
-#define RNG_CONFIG_SAMPLE_CYCLES(val)		((0xff & (val)) << 16)
-#define RNG_CONFIG_SAMPLE_CYCLES_VAL		0x22
+#define RNG_CONFIG_SAMPLE_CYCLES(val) ((0xff & (val)) << 16)
+#define RNG_CONFIG_SAMPLE_CYCLES_VAL 0x22
 
-#define RNG_REG_FRO_ENABLE_MASK			0xffffff
-#define RNG_REG_FRO_DETUNE_MASK			0x0
+#define RNG_REG_FRO_ENABLE_MASK 0xffffff
+#define RNG_REG_FRO_DETUNE_MASK 0x0
 
-#define EIP76_RNG_OUTPUT_SIZE			0x10
-#define EIP76_RNG_WAIT_ROUNDS			10
+#define EIP76_RNG_OUTPUT_SIZE 0x10
+#define EIP76_RNG_WAIT_ROUNDS 10
 
-#define RNG_HW_IS_EIP76(ver)			((ver) & (0xff == 0x4C))
-#define RNG_HW_VER_MAJOR(ver)			(((ver) & (0xf << 24)) >> 24)
-#define RNG_HW_VER_MINOR(ver)			(((ver) & (0xf << 20)) >> 20)
-#define RNG_HW_VER_PATCH(ver)			(((ver) & (0xf << 16)) >> 16)
-
+#define RNG_HW_IS_EIP76(ver) ((ver) & (0xff == 0x4C))
+#define RNG_HW_VER_MAJOR(ver) (((ver) & (0xf << 24)) >> 24)
+#define RNG_HW_VER_MINOR(ver) (((ver) & (0xf << 20)) >> 20)
+#define RNG_HW_VER_PATCH(ver) (((ver) & (0xf << 16)) >> 16)
 
 enum {
 	RNG_OUTPUT_0_REG = 0,
@@ -69,25 +68,18 @@ enum {
 };
 
 static uint16_t reg_map_eip76[] = {
-	[RNG_OUTPUT_0_REG]	= 0x0,
-	[RNG_OUTPUT_1_REG]	= 0x4,
-	[RNG_OUTPUT_2_REG]	= 0x8,
-	[RNG_OUTPUT_3_REG]	= 0xc,
-	[RNG_STATUS_REG]	= 0x10,
-	[RNG_INTACK_REG]	= 0x10,
-	[RNG_CONTROL_REG]	= 0x14,
-	[RNG_CONFIG_REG]	= 0x18,
-	[RNG_ALARMCNT_REG]	= 0x1c,
-	[RNG_FROENABLE_REG]	= 0x20,
-	[RNG_FRODETUNE_REG]	= 0x24,
-	[RNG_ALARMMASK_REG]	= 0x28,
-	[RNG_ALARMSTOP_REG]	= 0x2c,
-	[RNG_REV_REG]		= 0x7c,
+	[RNG_OUTPUT_0_REG] = 0x0,   [RNG_OUTPUT_1_REG] = 0x4,
+	[RNG_OUTPUT_2_REG] = 0x8,   [RNG_OUTPUT_3_REG] = 0xc,
+	[RNG_STATUS_REG] = 0x10,    [RNG_INTACK_REG] = 0x10,
+	[RNG_CONTROL_REG] = 0x14,   [RNG_CONFIG_REG] = 0x18,
+	[RNG_ALARMCNT_REG] = 0x1c,  [RNG_FROENABLE_REG] = 0x20,
+	[RNG_FRODETUNE_REG] = 0x24, [RNG_ALARMMASK_REG] = 0x28,
+	[RNG_ALARMSTOP_REG] = 0x2c, [RNG_REV_REG] = 0x7c,
 };
 
 struct eip76_rng_dev {
-	uintptr_t	base;
-	uint16_t	*regs;
+	uintptr_t base;
+	uint16_t *regs;
 };
 
 /* Locals */
@@ -99,8 +91,8 @@ static inline uint32_t eip76_rng_read(struct eip76_rng_dev *dev, uint16_t reg)
 	return mmio_read_32(dev->base + dev->regs[reg]);
 }
 
-static inline void eip76_rng_write(struct eip76_rng_dev *dev,
-				   uint16_t reg, uint32_t val)
+static inline void eip76_rng_write(struct eip76_rng_dev *dev, uint16_t reg,
+				   uint32_t val)
 {
 	mmio_write_32(dev->base + dev->regs[reg], val);
 }
@@ -111,7 +103,7 @@ static void eip76_rng_init(struct eip76_rng_dev *dev)
 
 	/* Return if RNG is already running. */
 	if (eip76_rng_read(dev, RNG_CONTROL_REG) &
-			   RNG_CONTROL_ENABLE_TRNG_MASK) {
+	    RNG_CONTROL_ENABLE_TRNG_MASK) {
 		return;
 	}
 
@@ -170,7 +162,7 @@ int32_t eip76_rng_read_rand_buf(void *data, bool wait)
 
 	for (i = 0; i < EIP76_RNG_WAIT_ROUNDS; i++) {
 		present = eip76_rng_read(&eip76_dev, RNG_STATUS_REG) &
-					 RNG_REG_STATUS_RDY;
+			  RNG_REG_STATUS_RDY;
 		if (present || !wait) {
 			break;
 		}

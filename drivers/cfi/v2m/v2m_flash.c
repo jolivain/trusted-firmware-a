@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -22,15 +22,15 @@
  * obtained empirically from Juno. FVP implements a zero wait state NOR flash
  * model
  */
-#define DWS_WORD_PROGRAM_RETRIES	1000
-#define DWS_WORD_ERASE_RETRIES		3000000
-#define DWS_WORD_LOCK_RETRIES		1000
+#define DWS_WORD_PROGRAM_RETRIES 1000
+#define DWS_WORD_ERASE_RETRIES 3000000
+#define DWS_WORD_LOCK_RETRIES 1000
 
 /* Helper macro to detect end of command */
 #define NOR_CMD_END (NOR_DWS | (NOR_DWS << 16l))
 
 /* Helper macros to access two flash banks in parallel */
-#define NOR_2X16(d)			((d << 16) | (d & 0xffff))
+#define NOR_2X16(d) ((d << 16) | (d & 0xffff))
 
 static unsigned int nor_status(uintptr_t base_addr)
 {

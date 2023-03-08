@@ -1,16 +1,15 @@
 /*
- * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <errno.h>
 
-#include <libfdt.h>
-
 #include <common/debug.h>
 #include <common/fdt_wrappers.h>
 #include <drivers/allwinner/axp.h>
+#include <libfdt.h>
 
 int axp_check_id(void)
 {
@@ -92,8 +91,8 @@ static int setup_regulator(const void *fdt, int node,
 	axp_write(reg->volt_reg, val);
 	axp_setbits(reg->switch_reg, BIT(reg->switch_bit));
 
-	INFO("PMIC: %s voltage: %d.%03dV\n", reg->dt_name,
-	     mvolt / 1000, mvolt % 1000);
+	INFO("PMIC: %s voltage: %d.%03dV\n", reg->dt_name, mvolt / 1000,
+	     mvolt % 1000);
 
 	return 0;
 }
@@ -200,4 +199,4 @@ void axp_setup_regulators(const void *fdt)
 			axp_setbits(0x11, BIT(7));
 	}
 }
-#endif	/* SUNXI_SETUP_REGULATORS */
+#endif /* SUNXI_SETUP_REGULATORS */

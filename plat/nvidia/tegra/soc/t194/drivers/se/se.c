@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2019-2020, NVIDIA CORPORATION. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -23,17 +23,17 @@
 /*******************************************************************************
  * Constants and Macros
  ******************************************************************************/
-#define ERR_STATUS_SW_CLEAR		U(0xFFFFFFFF)
-#define INT_STATUS_SW_CLEAR		U(0xFFFFFFFF)
-#define MAX_TIMEOUT_MS			U(1000)	/* Max. timeout of 1s */
-#define NUM_SE_REGS_TO_SAVE		U(4)
+#define ERR_STATUS_SW_CLEAR U(0xFFFFFFFF)
+#define INT_STATUS_SW_CLEAR U(0xFFFFFFFF)
+#define MAX_TIMEOUT_MS U(1000) /* Max. timeout of 1s */
+#define NUM_SE_REGS_TO_SAVE U(4)
 
-#define BYTES_IN_WORD			U(4)
-#define SHA256_MAX_HASH_RESULT		U(7)
-#define SHA256_DST_SIZE			U(32)
-#define SHA_FIRST_OP			U(1)
-#define MAX_SHA_ENGINE_CHUNK_SIZE	U(0xFFFFFF)
-#define SHA256_MSG_LENGTH_ONETIME	U(0xFFFF)
+#define BYTES_IN_WORD U(4)
+#define SHA256_MAX_HASH_RESULT U(7)
+#define SHA256_DST_SIZE U(32)
+#define SHA_FIRST_OP U(1)
+#define MAX_SHA_ENGINE_CHUNK_SIZE U(0xFFFFFF)
+#define SHA256_MSG_LENGTH_ONETIME U(0xFFFF)
 
 /*******************************************************************************
  * Data structure and global variables
@@ -83,8 +83,7 @@ static bool tegra_se_is_operation_complete(void)
 			 (aes_status == AES0_SE_OP_DONE);
 
 	if ((timeout == MAX_TIMEOUT_MS) || txn_has_errors || !txn_successful) {
-		ERROR("%s: Atomic context save operation failed!\n",
-				__func__);
+		ERROR("%s: Atomic context save operation failed!\n", __func__);
 		ret = -ECANCELED;
 	}
 
@@ -169,7 +168,6 @@ static int32_t tegra_se_save_context(void)
 	 *    Steps 6-9 are executed by tegra_se_is_operation_complete().
 	 */
 	if (tegra_se_is_ready()) {
-
 		/* Issue context save command */
 		tegra_se_write_32(AES0_OPERATION, SE_OP_CTX_SAVE);
 
@@ -215,8 +213,7 @@ static int32_t tegra_se_sha256_hash_operation_complete(void)
 	/* Ensure that no errors are thrown during operation */
 	val = tegra_se_read_32(SE0_ERR_STATUS_REG_OFFSET);
 	if (val != 0U) {
-		ERROR("%s: error during SE operation! 0x%x", __func__,
-				val);
+		ERROR("%s: error during SE operation! 0x%x", __func__, val);
 		return -ENOTSUP;
 	}
 
@@ -227,7 +224,9 @@ static int32_t tegra_se_sha256_hash_operation_complete(void)
  * Security engine primitive normal operations
  */
 static int32_t tegra_se_start_normal_operation(uint64_t src_addr,
-		uint32_t nbytes, uint32_t last_buf, uint32_t src_len_inbytes)
+					       uint32_t nbytes,
+					       uint32_t last_buf,
+					       uint32_t src_len_inbytes)
 {
 	uint32_t val = 0U;
 	uint32_t src_in_lo;
@@ -241,7 +240,7 @@ static int32_t tegra_se_start_normal_operation(uint64_t src_addr,
 	src_in_lo = (uint32_t)src_addr;
 	src_in_msb = (uint32_t)((src_addr >> 32U) & 0xFFU);
 	src_in_hi = ((src_in_msb << SE0_IN_HI_ADDR_HI_0_MSB_SHIFT) |
-				(nbytes & MAX_SHA_ENGINE_CHUNK_SIZE));
+		     (nbytes & MAX_SHA_ENGINE_CHUNK_SIZE));
 
 	/* set SRC_IN_ADDR_LO and SRC_IN_ADDR_HI*/
 	tegra_se_write_32(SE0_IN_ADDR, src_in_lo);
@@ -260,8 +259,9 @@ static int32_t tegra_se_start_normal_operation(uint64_t src_addr,
 
 	/* Start SHA256 operation */
 	if (last_buf == 1U) {
-		tegra_se_write_32(SE0_OPERATION_REG_OFFSET, SE0_OP_START |
-				SE0_UNIT_OPERATION_PKT_LASTBUF_FIELD);
+		tegra_se_write_32(SE0_OPERATION_REG_OFFSET,
+				  SE0_OP_START |
+					  SE0_UNIT_OPERATION_PKT_LASTBUF_FIELD);
 	} else {
 		tegra_se_write_32(SE0_OPERATION_REG_OFFSET, SE0_OP_START);
 	}
@@ -270,7 +270,7 @@ static int32_t tegra_se_start_normal_operation(uint64_t src_addr,
 }
 
 static int32_t tegra_se_calculate_sha256_hash(uint64_t src_addr,
-						uint32_t src_len_inbyte)
+					      uint32_t src_len_inbyte)
 {
 	uint32_t val, last_buf, i;
 	int32_t ret = 0;
@@ -297,8 +297,8 @@ static int32_t tegra_se_calculate_sha256_hash(uint64_t src_addr,
 	len_bits_lsb = (uint32_t)src_len_inbits;
 
 	/* program SE0_CONFIG for SHA256 operation */
-	val =  (uint32_t)(SE0_CONFIG_ENC_ALG_SHA | SE0_CONFIG_ENC_MODE_SHA256 |
-		SE0_CONFIG_DEC_ALG_NOP | SE0_CONFIG_DST_HASHREG);
+	val = (uint32_t)(SE0_CONFIG_ENC_ALG_SHA | SE0_CONFIG_ENC_MODE_SHA256 |
+			 SE0_CONFIG_DEC_ALG_NOP | SE0_CONFIG_DST_HASHREG);
 	tegra_se_write_32(SE0_SHA_CONFIG, val);
 
 	/* set SE0_SHA_MSG_LENGTH registers */
@@ -336,7 +336,7 @@ static int32_t tegra_se_calculate_sha256_hash(uint64_t src_addr,
 	 */
 	bytes_left = src_len_inbyte;
 	for (operations = 1U; operations <= number_of_operations;
-								operations++) {
+	     operations++) {
 		if (operations == SHA_FIRST_OP) {
 			val = SE0_SHA_CONFIG_HW_INIT_HASH;
 		} else {
@@ -344,12 +344,13 @@ static int32_t tegra_se_calculate_sha256_hash(uint64_t src_addr,
 			 * SHA:HASH_RESULT(0..7) to continue the SHA
 			 * calculation and tell the SHA engine to use it.
 			 */
-			for (i = 0U; (i / BYTES_IN_WORD) <=
-				SHA256_MAX_HASH_RESULT; i += BYTES_IN_WORD) {
+			for (i = 0U;
+			     (i / BYTES_IN_WORD) <= SHA256_MAX_HASH_RESULT;
+			     i += BYTES_IN_WORD) {
 				val = tegra_se_read_32(SE0_SHA_HASH_RESULT_0 +
-									i);
+						       i);
 				tegra_se_write_32(SE0_SHA_HASH_RESULT_0 + i,
-									val);
+						  val);
 			}
 			val = SE0_SHA_CONFIG_HW_INIT_HASH_DISABLE;
 			if (len_bits_lsb <= (max_bytes * 8U)) {
@@ -361,8 +362,8 @@ static int32_t tegra_se_calculate_sha256_hash(uint64_t src_addr,
 		}
 		tegra_se_write_32(SE0_SHA_TASK_CONFIG, val);
 
-		max_bytes = (SHA256_HASH_SIZE_BYTES *
-						SHA256_MSG_LENGTH_ONETIME);
+		max_bytes =
+			(SHA256_HASH_SIZE_BYTES * SHA256_MSG_LENGTH_ONETIME);
 		if (bytes_left < max_bytes) {
 			max_bytes = bytes_left;
 			last_buf = 1U;
@@ -372,7 +373,7 @@ static int32_t tegra_se_calculate_sha256_hash(uint64_t src_addr,
 		}
 		/* start operation */
 		ret = tegra_se_start_normal_operation(src_addr, max_bytes,
-					last_buf, src_len_inbyte);
+						      last_buf, src_len_inbyte);
 		if (ret != 0) {
 			ERROR("Error during SE operation! 0x%x", ret);
 			return -EINVAL;
@@ -395,11 +396,11 @@ static int32_t tegra_se_save_sha256_pmc_scratch(void)
 	}
 
 	for (scratch_offset = SECURE_SCRATCH_TZDRAM_SHA256_HASH_START;
-			scratch_offset <= SECURE_SCRATCH_TZDRAM_SHA256_HASH_END;
-					scratch_offset += BYTES_IN_WORD) {
+	     scratch_offset <= SECURE_SCRATCH_TZDRAM_SHA256_HASH_END;
+	     scratch_offset += BYTES_IN_WORD) {
 		val = tegra_se_read_32(SE0_SHA_HASH_RESULT_0 + hash_offset);
 		mmio_write_32((uint32_t)(TEGRA_SCRATCH_BASE + scratch_offset),
-									val);
+			      val);
 		hash_offset += BYTES_IN_WORD;
 	}
 	return 0;
@@ -409,7 +410,7 @@ static int32_t tegra_se_save_sha256_pmc_scratch(void)
  * Handler to generate SHA256 and save HASH-result to pmc-scratch register
  */
 int32_t tegra_se_calculate_save_sha256(uint64_t src_addr,
-						uint32_t src_len_inbyte)
+				       uint32_t src_len_inbyte)
 {
 	uint32_t security;
 	int32_t val = 0;
@@ -418,7 +419,8 @@ int32_t tegra_se_calculate_save_sha256(uint64_t src_addr,
 	 * registers.
 	 */
 	security = tegra_se_read_32(SE0_SECURITY);
-	tegra_se_write_32(SE0_SECURITY, security | SE0_SECURITY_SE_SOFT_SETTING);
+	tegra_se_write_32(SE0_SECURITY,
+			  security | SE0_SECURITY_SE_SOFT_SETTING);
 
 	/* Bootrom enable IN_ID bit in SE0_SHA_GSCID_0 register during SC7-exit, causing
 	 * SE0 ignores SE0 operation, and therefore failure of 2nd iteration of SC7 cycle.
@@ -463,9 +465,12 @@ int32_t tegra_se_suspend(void)
 
 	/* save SE registers */
 	se_regs[0] = mmio_read_32(TEGRA_SE0_BASE + SE0_MUTEX_WATCHDOG_NS_LIMIT);
-	se_regs[1] = mmio_read_32(TEGRA_SE0_BASE + SE0_AES0_ENTROPY_SRC_AGE_CTRL);
-	se_regs[2] = mmio_read_32(TEGRA_RNG1_BASE + RNG1_MUTEX_WATCHDOG_NS_LIMIT);
-	se_regs[3] = mmio_read_32(TEGRA_PKA1_BASE + PKA1_MUTEX_WATCHDOG_NS_LIMIT);
+	se_regs[1] =
+		mmio_read_32(TEGRA_SE0_BASE + SE0_AES0_ENTROPY_SRC_AGE_CTRL);
+	se_regs[2] =
+		mmio_read_32(TEGRA_RNG1_BASE + RNG1_MUTEX_WATCHDOG_NS_LIMIT);
+	se_regs[3] =
+		mmio_read_32(TEGRA_PKA1_BASE + PKA1_MUTEX_WATCHDOG_NS_LIMIT);
 
 	/* Save SE context. The BootROM restores it during System Resume */
 	ret = tegra_se_save_context();
@@ -501,9 +506,12 @@ void tegra_se_resume(void)
 	 * other operations.
 	 */
 	mmio_write_32(TEGRA_SE0_BASE + SE0_MUTEX_WATCHDOG_NS_LIMIT, se_regs[0]);
-	mmio_write_32(TEGRA_SE0_BASE + SE0_AES0_ENTROPY_SRC_AGE_CTRL, se_regs[1]);
-	mmio_write_32(TEGRA_RNG1_BASE + RNG1_MUTEX_WATCHDOG_NS_LIMIT, se_regs[2]);
-	mmio_write_32(TEGRA_PKA1_BASE + PKA1_MUTEX_WATCHDOG_NS_LIMIT, se_regs[3]);
+	mmio_write_32(TEGRA_SE0_BASE + SE0_AES0_ENTROPY_SRC_AGE_CTRL,
+		      se_regs[1]);
+	mmio_write_32(TEGRA_RNG1_BASE + RNG1_MUTEX_WATCHDOG_NS_LIMIT,
+		      se_regs[2]);
+	mmio_write_32(TEGRA_PKA1_BASE + PKA1_MUTEX_WATCHDOG_NS_LIMIT,
+		      se_regs[3]);
 
 	/* Disable SE clock after SE context restore */
 	ret = tegra_bpmp_ipc_disable_clock(TEGRA194_CLK_SE);

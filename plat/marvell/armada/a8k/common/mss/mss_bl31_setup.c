@@ -5,13 +5,12 @@
  * https://spdx.org/licenses
  */
 
-#include <platform_def.h>
-
+#include <armada_common.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <lib/mmio.h>
 
-#include <armada_common.h>
+#include <platform_def.h>
 
 #include "mss_defs.h"
 

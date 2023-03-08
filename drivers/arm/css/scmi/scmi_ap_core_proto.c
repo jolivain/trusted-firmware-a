@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -27,12 +27,12 @@ int scmi_ap_core_set_reset_addr(void *p, uint64_t reset_addr, uint32_t attr)
 	scmi_get_channel(ch);
 
 	mbx_mem = (mailbox_mem_t *)(ch->info->scmi_mbx_mem);
-	mbx_mem->msg_header = SCMI_MSG_CREATE(SCMI_AP_CORE_PROTO_ID,
-			SCMI_AP_CORE_RESET_ADDR_SET_MSG, token);
+	mbx_mem->msg_header = SCMI_MSG_CREATE(
+		SCMI_AP_CORE_PROTO_ID, SCMI_AP_CORE_RESET_ADDR_SET_MSG, token);
 	mbx_mem->len = SCMI_AP_CORE_RESET_ADDR_SET_MSG_LEN;
 	mbx_mem->flags = SCMI_FLAG_RESP_POLL;
 	SCMI_PAYLOAD_ARG3(mbx_mem->payload, reset_addr & 0xffffffff,
-		reset_addr >> 32, attr);
+			  reset_addr >> 32, attr);
 
 	scmi_send_sync_command(ch);
 
@@ -62,8 +62,8 @@ int scmi_ap_core_get_reset_addr(void *p, uint64_t *reset_addr, uint32_t *attr)
 	scmi_get_channel(ch);
 
 	mbx_mem = (mailbox_mem_t *)(ch->info->scmi_mbx_mem);
-	mbx_mem->msg_header = SCMI_MSG_CREATE(SCMI_AP_CORE_PROTO_ID,
-			SCMI_AP_CORE_RESET_ADDR_GET_MSG, token);
+	mbx_mem->msg_header = SCMI_MSG_CREATE(
+		SCMI_AP_CORE_PROTO_ID, SCMI_AP_CORE_RESET_ADDR_GET_MSG, token);
 	mbx_mem->len = SCMI_AP_CORE_RESET_ADDR_GET_MSG_LEN;
 	mbx_mem->flags = SCMI_FLAG_RESP_POLL;
 

@@ -1,15 +1,16 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <pmu_regs.h>
+
 #include "rk3399_mcu.h"
 
-#define M0_SCR			0xe000ed10  /* System Control Register (SCR) */
+#define M0_SCR 0xe000ed10 /* System Control Register (SCR) */
 
-#define SCR_SLEEPDEEP_SHIFT	(1 << 2)
+#define SCR_SLEEPDEEP_SHIFT (1 << 2)
 
 __attribute__((noreturn)) void m0_main(void)
 {
@@ -42,21 +43,20 @@ __attribute__((noreturn)) void m0_main(void)
 	 */
 	while (1) {
 		status_value = mmio_read_32(PMU_BASE + PMU_POWER_ST);
-		if (status_value >= 17)  {
+		if (status_value >= 17) {
 			mmio_setbits_32(PMU_BASE + PMU_SFT_CON, 0x02);
 			break;
 		}
-
 	}
 
 	while (1) {
 		status_value = mmio_read_32(PMU_BASE + PMU_POWER_ST);
-		if (status_value >= 26)  {
+		if (status_value >= 26) {
 			mmio_clrbits_32(PMU_BASE + PMU_SFT_CON, 0x02);
 			break;
 		}
 	}
 
 	for (;;)
-		__asm__ volatile ("wfi");
+		__asm__ volatile("wfi");
 }

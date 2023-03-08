@@ -19,11 +19,11 @@
 
 #include <platform_def.h>
 
-#define DT_GPIO_BANK_SHIFT	12
-#define DT_GPIO_BANK_MASK	GENMASK(16, 12)
-#define DT_GPIO_PIN_SHIFT	8
-#define DT_GPIO_PIN_MASK	GENMASK(11, 8)
-#define DT_GPIO_MODE_MASK	GENMASK(7, 0)
+#define DT_GPIO_BANK_SHIFT 12
+#define DT_GPIO_BANK_MASK GENMASK(16, 12)
+#define DT_GPIO_PIN_SHIFT 8
+#define DT_GPIO_PIN_MASK GENMASK(11, 8)
+#define DT_GPIO_MODE_MASK GENMASK(7, 0)
 
 static void set_gpio(uint32_t bank, uint32_t pin, uint32_t mode, uint32_t type,
 		     uint32_t speed, uint32_t pull, uint32_t od,
@@ -41,8 +41,8 @@ static int ckeck_gpio_bank(void *fdt, uint32_t bank, int pinctrl_node)
 	fdt_for_each_subnode(pinctrl_subnode, fdt, pinctrl_node) {
 		const fdt32_t *cuint;
 
-		if (fdt_getprop(fdt, pinctrl_subnode,
-				"gpio-controller", NULL) == NULL) {
+		if (fdt_getprop(fdt, pinctrl_subnode, "gpio-controller",
+				NULL) == NULL) {
 			continue;
 		}
 
@@ -167,7 +167,8 @@ static int dt_set_gpio_config(void *fdt, int node, uint8_t status)
 		/* Platform knows the clock: assert it is okay */
 		assert((unsigned long)clk == stm32_get_gpio_bank_clock(bank));
 
-		set_gpio(bank, pin, mode, type, speed, pull, od, alternate, status);
+		set_gpio(bank, pin, mode, type, speed, pull, od, alternate,
+			 status);
 	}
 
 	return 0;
@@ -238,8 +239,7 @@ static void set_gpio(uint32_t bank, uint32_t pin, uint32_t mode, uint32_t type,
 			   mode << (pin << 1U));
 
 	mmio_clrsetbits_32(base + GPIO_TYPE_OFFSET,
-			   (uint32_t)GPIO_TYPE_MASK << pin,
-			   type << pin);
+			   (uint32_t)GPIO_TYPE_MASK << pin, type << pin);
 
 	mmio_clrsetbits_32(base + GPIO_SPEED_OFFSET,
 			   (uint32_t)GPIO_SPEED_MASK << (pin << 1U),
@@ -261,8 +261,7 @@ static void set_gpio(uint32_t bank, uint32_t pin, uint32_t mode, uint32_t type,
 				   alternate << shift);
 	}
 
-	mmio_clrsetbits_32(base + GPIO_OD_OFFSET,
-			   (uint32_t)GPIO_OD_MASK << pin,
+	mmio_clrsetbits_32(base + GPIO_OD_OFFSET, (uint32_t)GPIO_OD_MASK << pin,
 			   od << pin);
 
 	VERBOSE("GPIO %u mode set to 0x%x\n", bank,

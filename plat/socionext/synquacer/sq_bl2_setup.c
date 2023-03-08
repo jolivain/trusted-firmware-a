@@ -13,10 +13,10 @@
 #include <drivers/arm/pl011.h>
 #include <drivers/io/io_storage.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include <plat/common/platform.h>
-
-#include <platform_def.h>
 #include <sq_common.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 static console_t console;
 
@@ -25,8 +25,8 @@ void bl2_el3_early_platform_setup(u_register_t x0, u_register_t x1,
 {
 	/* Initialize the console to provide early debug support */
 	(void)console_pl011_register(PLAT_SQ_BOOT_UART_BASE,
-			       PLAT_SQ_BOOT_UART_CLK_IN_HZ,
-			       SQ_CONSOLE_BAUDRATE, &console);
+				     PLAT_SQ_BOOT_UART_CLK_IN_HZ,
+				     SQ_CONSOLE_BAUDRATE, &console);
 	console_set_scope(&console, CONSOLE_FLAG_BOOT);
 }
 
@@ -73,9 +73,9 @@ int bl2_plat_handle_pre_image_load(unsigned int image_id)
 	image_info = sq_get_image_info(image_id);
 
 	return mmap_add_dynamic_region(image_info->image_base,
-				      image_info->image_base,
-				      image_info->image_max_size,
-				      MT_MEMORY | MT_RW | MT_NS);
+				       image_info->image_base,
+				       image_info->image_max_size,
+				       MT_MEMORY | MT_RW | MT_NS);
 }
 
 int bl2_plat_handle_post_image_load(unsigned int image_id)

@@ -1,15 +1,15 @@
 /*
- * Copyright (C) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (C) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 #ifndef IMX_SNVS_H
 #define IMX_SNVS_H
 
-#include <cdefs.h>
 #include <stdint.h>
 
 #include <arch.h>
+#include <cdefs.h>
 
 struct snvs {
 	uint32_t hplr;
@@ -39,7 +39,7 @@ struct snvs {
 	uint32_t lpsmclr;
 	uint32_t lppgdr;
 	uint32_t lpgpr0_alias;
-	uint8_t  lpzmkr[32];
+	uint8_t lpzmkr[32];
 	uint16_t res0;
 	uint32_t lpgpr0[4];
 	uint32_t lptdc2r;
@@ -63,21 +63,21 @@ struct snvs {
 } __packed;
 
 /* Define the HPCOMR bits */
-#define HPCOMR_NPSWA_EN		BIT(31)
-#define HPCOMR_HAC_STOP		BIT(19)
-#define HPCOMR_HAC_CLEAR	BIT(18)
-#define HPCOMR_HAC_LOAD		BIT(17)
-#define HPCOMR_HAC_EN		BIT(16)
-#define HPCOMR_MKS_EN		BIT(13)
-#define HPCOMR_PROG_ZMK		BIT(12)
-#define HPCOMR_SW_LPSV		BIT(10)
-#define HPCOMR_SW_FSV		BIT(9)
-#define HPCOMR_SW_SV		BIT(8)
-#define HPCOMR_LP_SWR_DIS	BIT(5)
-#define HPCOMR_LP_SWR		BIT(4)
-#define HPCOMR_SSM_SFNS_DIS	BIT(2)
-#define HPCOMR_SSM_ST_DIS	BIT(1)
-#define HPCOMR_SSM_ST		BIT(0)
+#define HPCOMR_NPSWA_EN BIT(31)
+#define HPCOMR_HAC_STOP BIT(19)
+#define HPCOMR_HAC_CLEAR BIT(18)
+#define HPCOMR_HAC_LOAD BIT(17)
+#define HPCOMR_HAC_EN BIT(16)
+#define HPCOMR_MKS_EN BIT(13)
+#define HPCOMR_PROG_ZMK BIT(12)
+#define HPCOMR_SW_LPSV BIT(10)
+#define HPCOMR_SW_FSV BIT(9)
+#define HPCOMR_SW_SV BIT(8)
+#define HPCOMR_LP_SWR_DIS BIT(5)
+#define HPCOMR_LP_SWR BIT(4)
+#define HPCOMR_SSM_SFNS_DIS BIT(2)
+#define HPCOMR_SSM_ST_DIS BIT(1)
+#define HPCOMR_SSM_ST BIT(0)
 
 void imx_snvs_init(void);
 

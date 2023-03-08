@@ -8,22 +8,22 @@
 #include <errno.h>
 #include <string.h>
 
-#include <platform_def.h>
-
 #include <common/debug.h>
 #include <drivers/io/io_block.h>
 #include <drivers/io/io_driver.h>
 #include <drivers/io/io_storage.h>
 #include <lib/utils.h>
 
+#include <platform_def.h>
+
 typedef struct {
-	io_block_dev_spec_t	*dev_spec;
-	uintptr_t		base;
-	unsigned long long	file_pos;
-	unsigned long long	size;
+	io_block_dev_spec_t *dev_spec;
+	uintptr_t base;
+	unsigned long long file_pos;
+	unsigned long long size;
 } block_dev_state_t;
 
-#define is_power_of_2(x)	(((x) != 0U) && (((x) & ((x) - 1U)) == 0U))
+#define is_power_of_2(x) (((x) != 0U) && (((x) & ((x)-1U)) == 0U))
 
 io_type_t device_type_block(void);
 
@@ -39,19 +39,19 @@ static int block_dev_open(const uintptr_t dev_spec, io_dev_info_t **dev_info);
 static int block_dev_close(io_dev_info_t *dev_info);
 
 static const io_dev_connector_t block_dev_connector = {
-	.dev_open	= block_dev_open
+	.dev_open = block_dev_open
 };
 
 static const io_dev_funcs_t block_dev_funcs = {
-	.type		= device_type_block,
-	.open		= block_open,
-	.seek		= block_seek,
-	.size		= NULL,
-	.read		= block_read,
-	.write		= block_write,
-	.close		= block_close,
-	.dev_init	= NULL,
-	.dev_close	= block_dev_close,
+	.type = device_type_block,
+	.open = block_open,
+	.seek = block_seek,
+	.size = NULL,
+	.read = block_read,
+	.write = block_write,
+	.close = block_close,
+	.dev_init = NULL,
+	.dev_close = block_dev_close,
 };
 
 static block_dev_state_t state_pool[MAX_IO_BLOCK_DEVICES];
@@ -103,7 +103,6 @@ static int allocate_dev_info(io_dev_info_t **dev_info)
 	return result;
 }
 
-
 /* Release a device info to the pool */
 static int free_dev_info(io_dev_info_t *dev_info)
 {
@@ -114,7 +113,7 @@ static int free_dev_info(io_dev_info_t *dev_info)
 
 	state = (block_dev_state_t *)dev_info->info;
 	result = find_first_block_state(state->dev_spec, &index);
-	if (result ==  0) {
+	if (result == 0) {
 		/* free if device info is valid */
 		zeromem(state, sizeof(block_dev_state_t));
 		zeromem(dev_info, sizeof(io_dev_info_t));
@@ -131,8 +130,7 @@ static int block_open(io_dev_info_t *dev_info, const uintptr_t spec,
 	io_block_spec_t *region;
 
 	assert((dev_info->info != (uintptr_t)NULL) &&
-	       (spec != (uintptr_t)NULL) &&
-	       (entity->info == (uintptr_t)NULL));
+	       (spec != (uintptr_t)NULL) && (entity->info == (uintptr_t)NULL));
 
 	region = (io_block_spec_t *)spec;
 	cur = (block_dev_state_t *)dev_info->info;
@@ -249,9 +247,9 @@ static int block_read(io_entity_t *entity, uintptr_t buffer, size_t length,
 	io_block_ops_t *ops;
 	int lba;
 	size_t block_size, left;
-	size_t nbytes;  /* number of bytes read in one iteration */
+	size_t nbytes; /* number of bytes read in one iteration */
 	size_t request; /* number of requested bytes in one iteration */
-	size_t count;   /* number of bytes already read */
+	size_t count; /* number of bytes already read */
 	/*
 	 * number of leading bytes from start of the block
 	 * to the first byte to be read
@@ -269,9 +267,7 @@ static int block_read(io_entity_t *entity, uintptr_t buffer, size_t length,
 	ops = &(cur->dev_spec->ops);
 	buf = &(cur->dev_spec->buffer);
 	block_size = cur->dev_spec->block_size;
-	assert((length <= cur->size) &&
-	       (length > 0U) &&
-	       (ops->read != NULL));
+	assert((length <= cur->size) && (length > 0U) && (ops->read != NULL));
 
 	/*
 	 * We don't know the number of bytes that we are going
@@ -312,7 +308,7 @@ static int block_read(io_entity_t *entity, uintptr_t buffer, size_t length,
 			 */
 			request = skip + left;
 			request = (request + (block_size - 1U)) &
-				~(block_size - 1U);
+				  ~(block_size - 1U);
 		}
 		request = ops->read(lba, buf->offset, request);
 
@@ -334,8 +330,7 @@ static int block_read(io_entity_t *entity, uintptr_t buffer, size_t length,
 		padding = (nbytes > left) ? nbytes - left : 0U;
 		nbytes -= padding;
 
-		memcpy((void *)(buffer + count),
-		       (void *)(buf->offset + skip),
+		memcpy((void *)(buffer + count), (void *)(buf->offset + skip),
 		       nbytes);
 
 		cur->file_pos += nbytes;
@@ -361,9 +356,9 @@ static int block_write(io_entity_t *entity, const uintptr_t buffer,
 	io_block_ops_t *ops;
 	int lba;
 	size_t block_size, left;
-	size_t nbytes;  /* number of bytes read in one iteration */
+	size_t nbytes; /* number of bytes read in one iteration */
 	size_t request; /* number of requested bytes in one iteration */
-	size_t count;   /* number of bytes already read */
+	size_t count; /* number of bytes already read */
 	/*
 	 * number of leading bytes from start of the block
 	 * to the first byte to be read
@@ -381,9 +376,7 @@ static int block_write(io_entity_t *entity, const uintptr_t buffer,
 	ops = &(cur->dev_spec->ops);
 	buf = &(cur->dev_spec->buffer);
 	block_size = cur->dev_spec->block_size;
-	assert((length <= cur->size) &&
-	       (length > 0U) &&
-	       (ops->read != NULL) &&
+	assert((length <= cur->size) && (length > 0U) && (ops->read != NULL) &&
 	       (ops->write != NULL));
 
 	/*
@@ -425,7 +418,7 @@ static int block_write(io_entity_t *entity, const uintptr_t buffer,
 			 */
 			request = skip + left;
 			request = (request + (block_size - 1U)) &
-				~(block_size - 1U);
+				  ~(block_size - 1U);
 		}
 
 		/*
@@ -464,8 +457,7 @@ static int block_write(io_entity_t *entity, const uintptr_t buffer,
 			nbytes -= padding;
 		}
 
-		memcpy((void *)(buf->offset + skip),
-		       (void *)(buffer + count),
+		memcpy((void *)(buf->offset + skip), (void *)(buffer + count),
 		       nbytes);
 
 		request = ops->write(lba, buf->offset, request);
@@ -515,12 +507,11 @@ static int block_dev_open(const uintptr_t dev_spec, io_dev_info_t **dev_info)
 	cur->dev_spec = (io_block_dev_spec_t *)dev_spec;
 	buffer = &(cur->dev_spec->buffer);
 	block_size = cur->dev_spec->block_size;
-	assert((block_size > 0U) &&
-	       (is_power_of_2(block_size) != 0U) &&
+	assert((block_size > 0U) && (is_power_of_2(block_size) != 0U) &&
 	       ((buffer->offset % block_size) == 0U) &&
 	       ((buffer->length % block_size) == 0U));
 
-	*dev_info = info;	/* cast away const */
+	*dev_info = info; /* cast away const */
 	(void)block_size;
 	(void)buffer;
 	return 0;

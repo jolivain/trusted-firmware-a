@@ -12,71 +12,63 @@
 #include <platform_def.h>
 
 #include "bcm_emmc.h"
-#include "emmc_chal_types.h"
 #include "emmc_chal_sd.h"
+#include "emmc_chal_types.h"
 #include "emmc_pboot_hal_memory_drv.h"
 
 extern void emmc_soft_reset(void);
 
-#define SD_VDD_WINDOW_1_6_TO_1_7        0x00000010	// 1.6 V to 1.7 Volts
-#define SD_VDD_WINDOW_1_7_TO_1_8        0x00000020	// 1.7 V to 1.8 Volts
-#define SD_VDD_WINDOW_1_8_TO_1_9        0x00000040	// 1.8 V to 1.9 Volts
-#define SD_VDD_WINDOW_1_9_TO_2_0        0x00000080	// 1.9 V to 2.0 Volts
-#define SD_VDD_WINDOW_2_0_TO_2_1        0x00000100	// 2.0 V to 2.1 Volts
-#define SD_VDD_WINDOW_2_1_TO_2_2        0x00000200	// 2.1 V to 2.2 Volts
-#define SD_VDD_WINDOW_2_2_TO_2_3        0x00000400	// 2.2 V to 2.3 Volts
-#define SD_VDD_WINDOW_2_3_TO_2_4        0x00000800	// 2.3 V to 2.4 Volts
-#define SD_VDD_WINDOW_2_4_TO_2_5        0x00001000	// 2.4 V to 2.5 Volts
-#define SD_VDD_WINDOW_2_5_TO_2_6        0x00002000	// 2.5 V to 2.6 Volts
-#define SD_VDD_WINDOW_2_6_TO_2_7        0x00004000	// 2.6 V to 2.7 Volts
-#define SD_VDD_WINDOW_2_7_TO_2_8        0x00008000	// 2.7 V to 2.8 Volts
-#define SD_VDD_WINDOW_2_8_TO_2_9        0x00010000	// 2.8 V to 2.9 Volts
-#define SD_VDD_WINDOW_2_9_TO_3_0        0x00020000	// 2.9 V to 3.0 Volts
-#define SD_VDD_WINDOW_3_0_TO_3_1        0x00040000	// 3.0 V to 3.1 Volts
-#define SD_VDD_WINDOW_3_1_TO_3_2        0x00080000	// 3.1 V to 3.2 Volts
-#define SD_VDD_WINDOW_3_2_TO_3_3        0x00100000	// 3.2 V to 3.3 Volts
-#define SD_VDD_WINDOW_3_3_TO_3_4        0x00200000	// 3.3 V to 3.4 Volts
-#define SD_VDD_WINDOW_3_4_TO_3_5        0x00400000	// 3.4 V to 3.5 Volts
-#define SD_VDD_WINDOW_3_5_TO_3_6        0x00800000	// 3.5 V to 3.6 Volts
+#define SD_VDD_WINDOW_1_6_TO_1_7 0x00000010 // 1.6 V to 1.7 Volts
+#define SD_VDD_WINDOW_1_7_TO_1_8 0x00000020 // 1.7 V to 1.8 Volts
+#define SD_VDD_WINDOW_1_8_TO_1_9 0x00000040 // 1.8 V to 1.9 Volts
+#define SD_VDD_WINDOW_1_9_TO_2_0 0x00000080 // 1.9 V to 2.0 Volts
+#define SD_VDD_WINDOW_2_0_TO_2_1 0x00000100 // 2.0 V to 2.1 Volts
+#define SD_VDD_WINDOW_2_1_TO_2_2 0x00000200 // 2.1 V to 2.2 Volts
+#define SD_VDD_WINDOW_2_2_TO_2_3 0x00000400 // 2.2 V to 2.3 Volts
+#define SD_VDD_WINDOW_2_3_TO_2_4 0x00000800 // 2.3 V to 2.4 Volts
+#define SD_VDD_WINDOW_2_4_TO_2_5 0x00001000 // 2.4 V to 2.5 Volts
+#define SD_VDD_WINDOW_2_5_TO_2_6 0x00002000 // 2.5 V to 2.6 Volts
+#define SD_VDD_WINDOW_2_6_TO_2_7 0x00004000 // 2.6 V to 2.7 Volts
+#define SD_VDD_WINDOW_2_7_TO_2_8 0x00008000 // 2.7 V to 2.8 Volts
+#define SD_VDD_WINDOW_2_8_TO_2_9 0x00010000 // 2.8 V to 2.9 Volts
+#define SD_VDD_WINDOW_2_9_TO_3_0 0x00020000 // 2.9 V to 3.0 Volts
+#define SD_VDD_WINDOW_3_0_TO_3_1 0x00040000 // 3.0 V to 3.1 Volts
+#define SD_VDD_WINDOW_3_1_TO_3_2 0x00080000 // 3.1 V to 3.2 Volts
+#define SD_VDD_WINDOW_3_2_TO_3_3 0x00100000 // 3.2 V to 3.3 Volts
+#define SD_VDD_WINDOW_3_3_TO_3_4 0x00200000 // 3.3 V to 3.4 Volts
+#define SD_VDD_WINDOW_3_4_TO_3_5 0x00400000 // 3.4 V to 3.5 Volts
+#define SD_VDD_WINDOW_3_5_TO_3_6 0x00800000 // 3.5 V to 3.6 Volts
 
-#define SD_VDD_WINDOW_1_6_TO_2_6        (SD_VDD_WINDOW_1_6_TO_1_7 |	\
-					 SD_VDD_WINDOW_1_7_TO_1_8 |	\
-					 SD_VDD_WINDOW_1_8_TO_1_9 |	\
-					 SD_VDD_WINDOW_1_9_TO_2_0 |	\
-					 SD_VDD_WINDOW_2_0_TO_2_1 |	\
-					 SD_VDD_WINDOW_2_1_TO_2_2 |	\
-					 SD_VDD_WINDOW_2_2_TO_2_3 |	\
-					 SD_VDD_WINDOW_2_3_TO_2_4 |	\
-					 SD_VDD_WINDOW_2_4_TO_2_5 |	\
-					 SD_VDD_WINDOW_2_5_TO_2_6)
+#define SD_VDD_WINDOW_1_6_TO_2_6                               \
+	(SD_VDD_WINDOW_1_6_TO_1_7 | SD_VDD_WINDOW_1_7_TO_1_8 | \
+	 SD_VDD_WINDOW_1_8_TO_1_9 | SD_VDD_WINDOW_1_9_TO_2_0 | \
+	 SD_VDD_WINDOW_2_0_TO_2_1 | SD_VDD_WINDOW_2_1_TO_2_2 | \
+	 SD_VDD_WINDOW_2_2_TO_2_3 | SD_VDD_WINDOW_2_3_TO_2_4 | \
+	 SD_VDD_WINDOW_2_4_TO_2_5 | SD_VDD_WINDOW_2_5_TO_2_6)
 
-#define SD_VDD_WINDOW_2_6_TO_3_2        (SD_VDD_WINDOW_2_6_TO_2_7 |	\
-					 SD_VDD_WINDOW_2_7_TO_2_8 |	\
-					 SD_VDD_WINDOW_2_8_TO_2_9 |	\
-					 SD_VDD_WINDOW_2_9_TO_3_0 |	\
-					 SD_VDD_WINDOW_3_0_TO_3_1 |	\
-					 SD_VDD_WINDOW_3_1_TO_3_2)
+#define SD_VDD_WINDOW_2_6_TO_3_2                               \
+	(SD_VDD_WINDOW_2_6_TO_2_7 | SD_VDD_WINDOW_2_7_TO_2_8 | \
+	 SD_VDD_WINDOW_2_8_TO_2_9 | SD_VDD_WINDOW_2_9_TO_3_0 | \
+	 SD_VDD_WINDOW_3_0_TO_3_1 | SD_VDD_WINDOW_3_1_TO_3_2)
 
-#define SD_VDD_WINDOW_3_2_TO_3_6        (SD_VDD_WINDOW_3_2_TO_3_3 |	\
-					 SD_VDD_WINDOW_3_3_TO_3_4 |	\
-					 SD_VDD_WINDOW_3_4_TO_3_5 |	\
-					 SD_VDD_WINDOW_3_5_TO_3_6)
+#define SD_VDD_WINDOW_3_2_TO_3_6                               \
+	(SD_VDD_WINDOW_3_2_TO_3_3 | SD_VDD_WINDOW_3_3_TO_3_4 | \
+	 SD_VDD_WINDOW_3_4_TO_3_5 | SD_VDD_WINDOW_3_5_TO_3_6)
 
-
-static int32_t chal_sd_set_power(struct sd_dev *handle,
-				 uint32_t voltage, uint32_t state);
+static int32_t chal_sd_set_power(struct sd_dev *handle, uint32_t voltage,
+				 uint32_t state);
 
 static void chal_sd_set_dma_boundary(struct sd_dev *handle, uint32_t boundary);
 
-static int32_t chal_sd_setup_handler(struct sd_dev *handle,
-				     uint32_t sdBbase, uint32_t hostBase);
+static int32_t chal_sd_setup_handler(struct sd_dev *handle, uint32_t sdBbase,
+				     uint32_t hostBase);
 
 /*
  * Configure host controller pwr settings,
  * to match voltage requirements by SD Card
  */
-static int32_t chal_sd_set_power(struct sd_dev *handle,
-				 uint32_t voltage, uint32_t state)
+static int32_t chal_sd_set_power(struct sd_dev *handle, uint32_t voltage,
+				 uint32_t state)
 {
 	int32_t rc, rval = SD_FAIL;
 	uint32_t time = 0;
@@ -85,7 +77,7 @@ static int32_t chal_sd_set_power(struct sd_dev *handle,
 		return SD_INVALID_HANDLE;
 
 	mmio_clrsetbits_32(handle->ctrl.sdRegBaseAddr +
-			   SD4_EMMC_TOP_CTRL_OFFSET,
+				   SD4_EMMC_TOP_CTRL_OFFSET,
 			   (SD4_EMMC_TOP_CTRL_SDVSELVDD1_MASK |
 			    SD4_EMMC_TOP_CTRL_SDPWR_MASK),
 			   (voltage << 9));
@@ -98,11 +90,11 @@ static int32_t chal_sd_set_power(struct sd_dev *handle,
 	 * calculations it is expected to complete with in 1ms on chip
 	 */
 	do {
-		rc =  mmio_read_32(handle->ctrl.sdRegBaseAddr +
-				   SD4_EMMC_TOP_INTR_OFFSET);
+		rc = mmio_read_32(handle->ctrl.sdRegBaseAddr +
+				  SD4_EMMC_TOP_INTR_OFFSET);
 
 		if ((rc & SD4_EMMC_TOP_INTR_CRDINS_MASK) ==
-				SD4_EMMC_TOP_INTR_CRDINS_MASK)
+		    SD4_EMMC_TOP_INTR_CRDINS_MASK)
 			break;
 
 		mdelay(1);
@@ -116,7 +108,8 @@ static int32_t chal_sd_set_power(struct sd_dev *handle,
 	VERBOSE("EMMC: Card detection delay: %dms\n", time);
 
 	if (state)
-		mmio_setbits_32(handle->ctrl.sdRegBaseAddr + SD4_EMMC_TOP_CTRL_OFFSET,
+		mmio_setbits_32(handle->ctrl.sdRegBaseAddr +
+					SD4_EMMC_TOP_CTRL_OFFSET,
 				SD4_EMMC_TOP_CTRL_SDPWR_MASK);
 
 	/* dummy write & ack to verify if the sdio is ready to send commads */
@@ -136,7 +129,7 @@ static int32_t chal_sd_set_power(struct sd_dev *handle,
 			break;
 
 		if ((rc & SD4_EMMC_TOP_INTR_CMDDONE_MASK) ==
-				SD4_EMMC_TOP_INTR_CMDDONE_MASK)
+		    SD4_EMMC_TOP_INTR_CMDDONE_MASK)
 			break;
 
 		mdelay(1);
@@ -144,7 +137,7 @@ static int32_t chal_sd_set_power(struct sd_dev *handle,
 
 	if (time >= EMMC_CMD_TIMEOUT_MS) {
 		WARN("%s %d Initial dummy command timeout is happened\n",
-		      __func__, __LINE__);
+		     __func__, __LINE__);
 		return rval;
 	}
 
@@ -162,7 +155,7 @@ static void chal_sd_set_dma_boundary(struct sd_dev *handle, uint32_t boundary)
 		return;
 
 	mmio_clrsetbits_32(handle->ctrl.sdRegBaseAddr +
-			   SD4_EMMC_TOP_BLOCK_OFFSET,
+				   SD4_EMMC_TOP_BLOCK_OFFSET,
 			   SD4_EMMC_TOP_BLOCK_HSBS_MASK, boundary);
 }
 
@@ -302,17 +295,17 @@ void chal_sd_set_speed(CHAL_HANDLE *sd_handle, uint32_t speed)
 	if (sd_handle == NULL)
 		return;
 
-	handle = (struct sd_dev *) sd_handle;
+	handle = (struct sd_dev *)sd_handle;
 
 	if (speed) {
 		EMMC_TRACE("enable HighSpeed\n");
 		mmio_setbits_32(handle->ctrl.sdRegBaseAddr +
-				SD4_EMMC_TOP_CTRL_OFFSET,
+					SD4_EMMC_TOP_CTRL_OFFSET,
 				SD4_EMMC_TOP_CTRL_HSEN_MASK);
 	} else {
 		EMMC_TRACE("disable HighSpeed\n");
 		mmio_clrbits_32(handle->ctrl.sdRegBaseAddr +
-				SD4_EMMC_TOP_CTRL_OFFSET,
+					SD4_EMMC_TOP_CTRL_OFFSET,
 				SD4_EMMC_TOP_CTRL_HSEN_MASK);
 	}
 }
@@ -344,7 +337,7 @@ int32_t chal_sd_check_cap(CHAL_HANDLE *sd_handle, uint32_t caps)
 	if (sd_handle == NULL)
 		return SD_INVALID_HANDLE;
 
-	handle = (struct sd_dev *) sd_handle;
+	handle = (struct sd_dev *)sd_handle;
 
 	if (caps & mmio_read_32(handle->ctrl.sdRegBaseAddr +
 				SD4_EMMC_TOP_CAPABILITIES1_OFFSET))
@@ -353,19 +346,18 @@ int32_t chal_sd_check_cap(CHAL_HANDLE *sd_handle, uint32_t caps)
 		return 0;
 }
 
-int32_t chal_sd_start(CHAL_HANDLE *sd_handle,
-		      uint32_t mode, uint32_t sd_base, uint32_t host_base)
+int32_t chal_sd_start(CHAL_HANDLE *sd_handle, uint32_t mode, uint32_t sd_base,
+		      uint32_t host_base)
 {
-
 	struct sd_dev *handle;
 	int32_t rval = SD_FAIL;
 
 	if (sd_handle == NULL)
 		return SD_INVALID_HANDLE;
 
-	handle = (struct sd_dev *) sd_handle;
+	handle = (struct sd_dev *)sd_handle;
 
-	handle->cfg.mode = SD_PIO_MODE;	/* set to PIO mode first for init */
+	handle->cfg.mode = SD_PIO_MODE; /* set to PIO mode first for init */
 	handle->cfg.dma = SD_DMA_OFF;
 
 	chal_sd_setup_handler(handle, sd_base, host_base);
@@ -393,10 +385,11 @@ int32_t chal_sd_get_atuo12_error(CHAL_HANDLE *sd_handle)
 	if (sd_handle == NULL)
 		return SD_INVALID_HANDLE;
 
-	handle = (struct sd_dev *) sd_handle;
+	handle = (struct sd_dev *)sd_handle;
 
 	return (mmio_read_32(handle->ctrl.sdRegBaseAddr +
-			     SD4_EMMC_TOP_ERRSTAT_OFFSET) & 0xFF);
+			     SD4_EMMC_TOP_ERRSTAT_OFFSET) &
+		0xFF);
 }
 
 /*
@@ -409,7 +402,7 @@ uint32_t chal_sd_get_present_status(CHAL_HANDLE *sd_handle)
 	if (sd_handle == NULL)
 		return SD_INVALID_HANDLE;
 
-	handle = (struct sd_dev *) sd_handle;
+	handle = (struct sd_dev *)sd_handle;
 
 	return mmio_read_32(handle->ctrl.sdRegBaseAddr +
 			    SD4_EMMC_TOP_PSTATE_OFFSET);
@@ -470,21 +463,22 @@ int32_t chal_sd_set_dma(CHAL_HANDLE *sd_handle, uint32_t mode)
 	handle = (struct sd_dev *)sd_handle;
 
 	if (mode) {
-		rc = chal_sd_check_cap(sd_handle,
-				       SD4_EMMC_TOP_CAPABILITIES1_SDMA_MASK |
-				       SD4_EMMC_TOP_CAPABILITIES1_ADMA2_MASK);
+		rc = chal_sd_check_cap(
+			sd_handle,
+			SD4_EMMC_TOP_CAPABILITIES1_SDMA_MASK |
+				SD4_EMMC_TOP_CAPABILITIES1_ADMA2_MASK);
 		if (rc < 0)
 			return rc;
 
 		if (rc) {
-
 			handle->cfg.dma = mode;
 			val = mmio_read_32(handle->ctrl.sdRegBaseAddr +
 					   SD4_EMMC_TOP_CTRL_OFFSET);
 			val &= ~(SD4_EMMC_TOP_CTRL_DMASEL_MASK);
 			val |= handle->cfg.dma - 1;
 			mmio_write_32(handle->ctrl.sdRegBaseAddr +
-				      SD4_EMMC_TOP_CTRL_OFFSET, val);
+					      SD4_EMMC_TOP_CTRL_OFFSET,
+				      val);
 			return SD_OK;
 		}
 	}
@@ -504,7 +498,7 @@ uintptr_t chal_sd_get_dma_addr(CHAL_HANDLE *sd_handle)
 	if (sd_handle == NULL)
 		return SD_INVALID_HANDLE;
 
-	handle = (struct sd_dev *) sd_handle;
+	handle = (struct sd_dev *)sd_handle;
 
 	if (handle->cfg.dma == SD_DMA_OFF)
 		return 0;
@@ -522,10 +516,10 @@ int32_t chal_sd_send_cmd(CHAL_HANDLE *sd_handle, uint32_t cmd_idx,
 	if (sd_handle == NULL)
 		return SD_INVALID_HANDLE;
 
-	handle = (struct sd_dev *) sd_handle;
+	handle = (struct sd_dev *)sd_handle;
 
-	EMMC_TRACE("%s %d cmd:%d argReg:%x options:%x\n",
-		   __func__, __LINE__, cmd_idx, argument, options);
+	EMMC_TRACE("%s %d cmd:%d argReg:%x options:%x\n", __func__, __LINE__,
+		   cmd_idx, argument, options);
 
 	/* Configure the value for command and mode registers */
 	cmd_mode_reg = (cmd_idx << 24) | options;
@@ -565,7 +559,7 @@ int32_t chal_sd_set_dma_addr(CHAL_HANDLE *sd_handle, uintptr_t address)
 	if (sd_handle == NULL)
 		return SD_INVALID_HANDLE;
 
-	handle = (struct sd_dev *) sd_handle;
+	handle = (struct sd_dev *)sd_handle;
 
 	if (handle->cfg.dma == SD_DMA_OFF)
 		return SD_FAIL;
@@ -621,10 +615,10 @@ int32_t chal_sd_set_clock(CHAL_HANDLE *sd_handle, uint32_t div_ctrl_setting,
 	if (sd_handle == NULL)
 		return SD_INVALID_HANDLE;
 
-	EMMC_TRACE("set_clock(div_ctrl_setting=%d,on=%d)\n",
-		   div_ctrl_setting, on);
+	EMMC_TRACE("set_clock(div_ctrl_setting=%d,on=%d)\n", div_ctrl_setting,
+		   on);
 
-	handle = (struct sd_dev *) sd_handle;
+	handle = (struct sd_dev *)sd_handle;
 
 	/* Read control register content. */
 	value = mmio_read_32(handle->ctrl.sdRegBaseAddr +
@@ -657,7 +651,7 @@ int32_t chal_sd_set_clock(CHAL_HANDLE *sd_handle, uint32_t div_ctrl_setting,
 				     SD4_EMMC_TOP_CTRL1_OFFSET);
 
 		if ((value & SD4_EMMC_TOP_CTRL1_ICLKSTB_MASK) ==
-				SD4_EMMC_TOP_CTRL1_ICLKSTB_MASK)
+		    SD4_EMMC_TOP_CTRL1_ICLKSTB_MASK)
 			break;
 
 		mdelay(1);
@@ -665,7 +659,7 @@ int32_t chal_sd_set_clock(CHAL_HANDLE *sd_handle, uint32_t div_ctrl_setting,
 
 	if (time >= EMMC_CLOCK_SETTING_TIMEOUT_MS)
 		WARN("%s %d clock settings timeout happenedi (%dms)\n",
-			 __func__, __LINE__, time);
+		     __func__, __LINE__, time);
 
 	VERBOSE("EMMC: clock settings delay: %dms\n", time);
 
@@ -686,8 +680,8 @@ int32_t chal_sd_set_clock(CHAL_HANDLE *sd_handle, uint32_t div_ctrl_setting,
  * size and the number of blocks to be transferred and return
  * the DMA buffer address.
  */
-int32_t chal_sd_setup_xfer(CHAL_HANDLE *sd_handle,
-			   uint8_t *data, uint32_t length, int32_t dir)
+int32_t chal_sd_setup_xfer(CHAL_HANDLE *sd_handle, uint8_t *data,
+			   uint32_t length, int32_t dir)
 {
 	uint32_t blocks = 0;
 	struct sd_dev *handle;
@@ -695,20 +689,21 @@ int32_t chal_sd_setup_xfer(CHAL_HANDLE *sd_handle,
 	if (sd_handle == NULL)
 		return SD_INVALID_HANDLE;
 
-	handle = (struct sd_dev *) sd_handle;
+	handle = (struct sd_dev *)sd_handle;
 
 	if (length <= handle->cfg.blockSize) {
 		handle->ctrl.blkReg = length | handle->cfg.dmaBoundary;
 	} else {
 		blocks = length / handle->cfg.blockSize;
 		handle->ctrl.blkReg = (blocks << 16) | handle->cfg.blockSize |
-					handle->cfg.dmaBoundary;
+				      handle->cfg.dmaBoundary;
 	}
 
 	if (handle->cfg.dma != SD_DMA_OFF) {
 		/* For DMA target address setting, physical address should be used */
-		mmio_write_32(handle->ctrl.sdRegBaseAddr + SD4_EMMC_TOP_SYSADDR_OFFSET,
-				(uintptr_t)data);
+		mmio_write_32(handle->ctrl.sdRegBaseAddr +
+				      SD4_EMMC_TOP_SYSADDR_OFFSET,
+			      (uintptr_t)data);
 	}
 
 	return SD_OK;
@@ -730,7 +725,7 @@ int32_t chal_sd_write_buffer(CHAL_HANDLE *sd_handle, uint32_t length,
 	if (sd_handle == NULL)
 		return SD_INVALID_HANDLE;
 
-	handle = (struct sd_dev *) sd_handle;
+	handle = (struct sd_dev *)sd_handle;
 
 	blockSize = handle->cfg.blockSize;
 
@@ -748,9 +743,10 @@ int32_t chal_sd_write_buffer(CHAL_HANDLE *sd_handle, uint32_t length,
 	for (i = 0; i < size; i += 4) {
 		value = *(uint32_t *)(data + i);
 		mmio_write_32(handle->ctrl.sdRegBaseAddr +
-			      SD4_EMMC_TOP_BUFDAT_OFFSET, value);
+				      SD4_EMMC_TOP_BUFDAT_OFFSET,
+			      value);
 	}
-/*
+	/*
  * BUG ALERT:
  *    This implementation has TWO issues that must be addressed before you
  *    can safely INCLUDE_EMMC_DRIVER_WRITE_CODE.
@@ -764,7 +760,8 @@ int32_t chal_sd_write_buffer(CHAL_HANDLE *sd_handle, uint32_t length,
 	if (leftOver > 0) {
 		value = ((*(uint32_t *)(data + i)) << (4 - leftOver));
 		mmio_write_32(handle->ctrl.sdRegBaseAddr +
-			      SD4_EMMC_TOP_BUFDAT_OFFSET, value);
+				      SD4_EMMC_TOP_BUFDAT_OFFSET,
+			      value);
 	}
 
 	return SD_OK;
@@ -801,9 +798,8 @@ int32_t chal_sd_read_buffer(CHAL_HANDLE *sd_handle, uint32_t length,
 	}
 
 	for (i = 0; i < size; i += 4) {
-		value =
-		    mmio_read_32(handle->ctrl.sdRegBaseAddr +
-				    SD4_EMMC_TOP_BUFDAT_OFFSET);
+		value = mmio_read_32(handle->ctrl.sdRegBaseAddr +
+				     SD4_EMMC_TOP_BUFDAT_OFFSET);
 		memcpy((void *)(data + i), &value, sizeof(uint32_t));
 	}
 
@@ -836,7 +832,7 @@ int32_t chal_sd_reset_line(CHAL_HANDLE *sd_handle, uint32_t line)
 	if (sd_handle == NULL)
 		return SD_INVALID_HANDLE;
 
-	handle = (struct sd_dev *) sd_handle;
+	handle = (struct sd_dev *)sd_handle;
 
 	flag = SD4_EMMC_TOP_CTRL1_CMDRST_MASK | SD4_EMMC_TOP_CTRL1_DATRST_MASK;
 
@@ -869,7 +865,7 @@ int32_t chal_sd_get_response(CHAL_HANDLE *sd_handle, uint32_t *resp)
 	if (sd_handle == NULL)
 		return SD_INVALID_HANDLE;
 
-	handle = (struct sd_dev *) sd_handle;
+	handle = (struct sd_dev *)sd_handle;
 	resp[0] = mmio_read_32(handle->ctrl.sdRegBaseAddr +
 			       SD4_EMMC_TOP_RESP0_OFFSET);
 	resp[1] = mmio_read_32(handle->ctrl.sdRegBaseAddr +
@@ -898,7 +894,8 @@ int32_t chal_sd_clear_pending_irq(CHAL_HANDLE *sd_handle)
 	/* Make sure clean all interrupts */
 	do {
 		mmio_write_32(handle->ctrl.sdRegBaseAddr +
-			      SD4_EMMC_TOP_INTR_OFFSET, 0xFFFFFFFF);
+				      SD4_EMMC_TOP_INTR_OFFSET,
+			      0xFFFFFFFF);
 		SD_US_DELAY(10);
 	} while (mmio_read_32(handle->ctrl.sdRegBaseAddr +
 			      SD4_EMMC_TOP_INTR_OFFSET));
@@ -916,7 +913,7 @@ int32_t chal_sd_get_irq_status(CHAL_HANDLE *sd_handle)
 	if (sd_handle == NULL)
 		return SD_INVALID_HANDLE;
 
-	handle = (struct sd_dev *) sd_handle;
+	handle = (struct sd_dev *)sd_handle;
 
 	return (mmio_read_32(handle->ctrl.sdRegBaseAddr +
 			     SD4_EMMC_TOP_INTR_OFFSET));
@@ -932,16 +929,16 @@ int32_t chal_sd_clear_irq(CHAL_HANDLE *sd_handle, uint32_t mask)
 	if (sd_handle == NULL)
 		return SD_INVALID_HANDLE;
 
-	handle = (struct sd_dev *) sd_handle;
+	handle = (struct sd_dev *)sd_handle;
 
 	/* Make sure clean masked interrupts */
 	do {
 		mmio_write_32(handle->ctrl.sdRegBaseAddr +
-			      SD4_EMMC_TOP_INTR_OFFSET, mask);
+				      SD4_EMMC_TOP_INTR_OFFSET,
+			      mask);
 		SD_US_DELAY(10);
-	} while (mask &
-		 mmio_read_32(handle->ctrl.sdRegBaseAddr +
-			      SD4_EMMC_TOP_INTR_OFFSET));
+	} while (mask & mmio_read_32(handle->ctrl.sdRegBaseAddr +
+				     SD4_EMMC_TOP_INTR_OFFSET));
 
 	return SD_OK;
 }
@@ -957,7 +954,7 @@ int32_t chal_sd_config(CHAL_HANDLE *sd_handle, uint32_t speed, uint32_t retry,
 	if (sd_handle == NULL)
 		return SD_INVALID_HANDLE;
 
-	handle = (struct sd_dev *) sd_handle;
+	handle = (struct sd_dev *)sd_handle;
 
 	handle->cfg.speedMode = speed;
 	handle->cfg.retryLimit = retry;
@@ -989,7 +986,8 @@ void chal_sd_dump_fifo(CHAL_HANDLE *sd_handle)
 
 	/* in case there still data in the host buffer */
 	while (mmio_read_32(handle->ctrl.sdRegBaseAddr +
-			    SD4_EMMC_TOP_PSTATE_OFFSET) & 0x800) {
+			    SD4_EMMC_TOP_PSTATE_OFFSET) &
+	       0x800) {
 		mmio_read_32(handle->ctrl.sdRegBaseAddr +
 			     SD4_EMMC_TOP_BUFDAT_OFFSET);
 	};
@@ -1010,8 +1008,10 @@ void chal_sd_set_irq_signal(CHAL_HANDLE *sd_handle, uint32_t mask,
 
 	if (state)
 		mmio_setbits_32(handle->ctrl.sdRegBaseAddr +
-				SD4_EMMC_TOP_INTREN2_OFFSET, mask);
+					SD4_EMMC_TOP_INTREN2_OFFSET,
+				mask);
 	else
 		mmio_clrbits_32(handle->ctrl.sdRegBaseAddr +
-				SD4_EMMC_TOP_INTREN2_OFFSET, mask);
+					SD4_EMMC_TOP_INTREN2_OFFSET,
+				mask);
 }

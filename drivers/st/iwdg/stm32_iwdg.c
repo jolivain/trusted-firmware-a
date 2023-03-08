@@ -8,10 +8,6 @@
 #include <errno.h>
 #include <string.h>
 
-#include <libfdt.h>
-
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/arm/gicv2.h>
@@ -21,13 +17,16 @@
 #include <drivers/st/stm32mp_clkfunc.h>
 #include <lib/mmio.h>
 #include <lib/utils.h>
+#include <libfdt.h>
+
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 /* IWDG registers offsets */
-#define IWDG_KR_OFFSET		0x00U
+#define IWDG_KR_OFFSET 0x00U
 
 /* Registers values */
-#define IWDG_KR_RELOAD_KEY	0xAAAA
+#define IWDG_KR_RELOAD_KEY 0xAAAA
 
 struct stm32_iwdg_instance {
 	uintptr_t base;
@@ -135,8 +134,7 @@ int stm32_iwdg_init(void)
 		}
 
 		VERBOSE("IWDG%u found, %ssecure\n", idx + 1U,
-			((dt_info.status & DT_NON_SECURE) != 0) ?
-			"non-" : "");
+			((dt_info.status & DT_NON_SECURE) != 0) ? "non-" : "");
 
 		if ((dt_info.status & DT_NON_SECURE) != 0) {
 			stm32mp_register_non_secure_periph_iomem(iwdg->base);

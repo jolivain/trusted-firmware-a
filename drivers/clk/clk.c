@@ -54,12 +54,9 @@ bool clk_is_enabled(unsigned long id)
  */
 void clk_register(const struct clk_ops *ops_ptr)
 {
-	assert((ops_ptr != NULL) &&
-	       (ops_ptr->enable != NULL) &&
-	       (ops_ptr->disable != NULL) &&
-	       (ops_ptr->get_rate != NULL) &&
-	       (ops_ptr->get_parent != NULL) &&
-	       (ops_ptr->is_enabled != NULL));
+	assert((ops_ptr != NULL) && (ops_ptr->enable != NULL) &&
+	       (ops_ptr->disable != NULL) && (ops_ptr->get_rate != NULL) &&
+	       (ops_ptr->get_parent != NULL) && (ops_ptr->is_enabled != NULL));
 
 	ops = ops_ptr;
 }

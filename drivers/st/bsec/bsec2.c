@@ -17,9 +17,9 @@
 
 #include <platform_def.h>
 
-#define BSEC_IP_VERSION_1_1	U(0x11)
-#define BSEC_IP_VERSION_2_0	U(0x20)
-#define BSEC_IP_ID_2		U(0x100032)
+#define BSEC_IP_VERSION_1_1 U(0x11)
+#define BSEC_IP_VERSION_2_0 U(0x20)
+#define BSEC_IP_ID_2 U(0x100032)
 
 #define OTP_ACCESS_SIZE (round_up(OTP_MAX_SIZE, __WORD_BIT) / __WORD_BIT)
 
@@ -47,7 +47,8 @@ static void bsec_unlock(void)
 
 static bool is_otp_invalid_mode(void)
 {
-	bool ret = ((bsec_get_status() & BSEC_MODE_INVALID) == BSEC_MODE_INVALID);
+	bool ret =
+		((bsec_get_status() & BSEC_MODE_INVALID) == BSEC_MODE_INVALID);
 
 	if (ret) {
 		ERROR("OTP mode is OTP-INVALID\n");
@@ -80,8 +81,8 @@ static void enable_non_secure_access(uint32_t otp)
 
 static bool non_secure_can_access(uint32_t otp)
 {
-	return (otp_nsec_access[otp / __WORD_BIT] &
-		BIT(otp % __WORD_BIT)) != 0U;
+	return (otp_nsec_access[otp / __WORD_BIT] & BIT(otp % __WORD_BIT)) !=
+	       0U;
 }
 
 static void bsec_dt_otp_nsec_access(void *fdt, int bsec_node)
@@ -108,9 +109,9 @@ static void bsec_dt_otp_nsec_access(void *fdt, int bsec_node)
 		otp = offset / sizeof(uint32_t);
 
 		if (otp < STM32MP1_UPPER_OTP_START) {
-			unsigned int otp_end = round_up(offset + length,
-						       sizeof(uint32_t)) /
-					       sizeof(uint32_t);
+			unsigned int otp_end =
+				round_up(offset + length, sizeof(uint32_t)) /
+				sizeof(uint32_t);
 
 			if (otp_end > STM32MP1_UPPER_OTP_START) {
 				/*
@@ -119,7 +120,8 @@ static void bsec_dt_otp_nsec_access(void *fdt, int bsec_node)
 				 */
 				otp = STM32MP1_UPPER_OTP_START;
 				length -= (STM32MP1_UPPER_OTP_START *
-					   sizeof(uint32_t)) - offset;
+					   sizeof(uint32_t)) -
+					  offset;
 				offset = STM32MP1_UPPER_OTP_START *
 					 sizeof(uint32_t);
 
@@ -129,8 +131,8 @@ static void bsec_dt_otp_nsec_access(void *fdt, int bsec_node)
 			}
 		}
 
-		if ((fdt_getprop(fdt, bsec_subnode,
-				 "st,non-secure-otp", NULL)) == NULL) {
+		if ((fdt_getprop(fdt, bsec_subnode, "st,non-secure-otp",
+				 NULL)) == NULL) {
 			continue;
 		}
 
@@ -251,11 +253,11 @@ uint32_t bsec_set_config(struct bsec_config *cfg)
 	}
 
 	value = ((((uint32_t)cfg->freq << BSEC_CONF_FRQ_SHIFT) &
-						BSEC_CONF_FRQ_MASK) |
+		  BSEC_CONF_FRQ_MASK) |
 		 (((uint32_t)cfg->pulse_width << BSEC_CONF_PRG_WIDTH_SHIFT) &
-						BSEC_CONF_PRG_WIDTH_MASK) |
+		  BSEC_CONF_PRG_WIDTH_MASK) |
 		 (((uint32_t)cfg->tread << BSEC_CONF_TREAD_SHIFT) &
-						BSEC_CONF_TREAD_MASK));
+		  BSEC_CONF_TREAD_MASK));
 
 	bsec_lock();
 
@@ -263,18 +265,17 @@ uint32_t bsec_set_config(struct bsec_config *cfg)
 
 	bsec_unlock();
 
-	result = bsec_power_safmem((bool)cfg->power &
-				   BSEC_CONF_POWER_UP_MASK);
+	result = bsec_power_safmem((bool)cfg->power & BSEC_CONF_POWER_UP_MASK);
 	if (result != BSEC_OK) {
 		return result;
 	}
 
 	value = ((((uint32_t)cfg->upper_otp_lock << UPPER_OTP_LOCK_SHIFT) &
-						UPPER_OTP_LOCK_MASK) |
+		  UPPER_OTP_LOCK_MASK) |
 		 (((uint32_t)cfg->den_lock << DENREG_LOCK_SHIFT) &
-						DENREG_LOCK_MASK) |
+		  DENREG_LOCK_MASK) |
 		 (((uint32_t)cfg->prog_lock << GPLOCK_LOCK_SHIFT) &
-						GPLOCK_LOCK_MASK));
+		  GPLOCK_LOCK_MASK));
 
 	bsec_lock();
 
@@ -300,21 +301,21 @@ uint32_t bsec_get_config(struct bsec_config *cfg)
 
 	value = mmio_read_32(bsec_base + BSEC_OTP_CONF_OFF);
 	cfg->power = (uint8_t)((value & BSEC_CONF_POWER_UP_MASK) >>
-						BSEC_CONF_POWER_UP_SHIFT);
-	cfg->freq = (uint8_t)((value & BSEC_CONF_FRQ_MASK) >>
-						BSEC_CONF_FRQ_SHIFT);
+			       BSEC_CONF_POWER_UP_SHIFT);
+	cfg->freq =
+		(uint8_t)((value & BSEC_CONF_FRQ_MASK) >> BSEC_CONF_FRQ_SHIFT);
 	cfg->pulse_width = (uint8_t)((value & BSEC_CONF_PRG_WIDTH_MASK) >>
-						BSEC_CONF_PRG_WIDTH_SHIFT);
+				     BSEC_CONF_PRG_WIDTH_SHIFT);
 	cfg->tread = (uint8_t)((value & BSEC_CONF_TREAD_MASK) >>
-						BSEC_CONF_TREAD_SHIFT);
+			       BSEC_CONF_TREAD_SHIFT);
 
 	value = mmio_read_32(bsec_base + BSEC_OTP_LOCK_OFF);
 	cfg->upper_otp_lock = (uint8_t)((value & UPPER_OTP_LOCK_MASK) >>
-						UPPER_OTP_LOCK_SHIFT);
-	cfg->den_lock = (uint8_t)((value & DENREG_LOCK_MASK) >>
-						DENREG_LOCK_SHIFT);
-	cfg->prog_lock = (uint8_t)((value & GPLOCK_LOCK_MASK) >>
-						GPLOCK_LOCK_SHIFT);
+					UPPER_OTP_LOCK_SHIFT);
+	cfg->den_lock =
+		(uint8_t)((value & DENREG_LOCK_MASK) >> DENREG_LOCK_SHIFT);
+	cfg->prog_lock =
+		(uint8_t)((value & GPLOCK_LOCK_MASK) >> GPLOCK_LOCK_SHIFT);
 
 	return BSEC_OK;
 }
@@ -427,8 +428,8 @@ uint32_t bsec_write_otp(uint32_t val, uint32_t otp)
 	/* Ensure integrity of each register access sequence */
 	bsec_lock();
 
-	mmio_write_32(bsec_base + BSEC_OTP_DATA_OFF +
-		      (otp * sizeof(uint32_t)), val);
+	mmio_write_32(bsec_base + BSEC_OTP_DATA_OFF + (otp * sizeof(uint32_t)),
+		      val);
 
 	bsec_unlock();
 
@@ -544,12 +545,12 @@ uint32_t bsec_permanent_lock_otp(uint32_t otp)
 
 	if (otp < STM32MP1_UPPER_OTP_START) {
 		addr = otp >> ADDR_LOWER_OTP_PERLOCK_SHIFT;
-		data = DATA_LOWER_OTP_PERLOCK_BIT <<
-		       ((otp & DATA_LOWER_OTP_PERLOCK_MASK) << 1U);
+		data = DATA_LOWER_OTP_PERLOCK_BIT
+		       << ((otp & DATA_LOWER_OTP_PERLOCK_MASK) << 1U);
 	} else {
 		addr = (otp >> ADDR_UPPER_OTP_PERLOCK_SHIFT) + 2U;
-		data = DATA_UPPER_OTP_PERLOCK_BIT <<
-		       (otp & DATA_UPPER_OTP_PERLOCK_MASK);
+		data = DATA_UPPER_OTP_PERLOCK_BIT
+		       << (otp & DATA_UPPER_OTP_PERLOCK_MASK);
 	}
 
 	bsec_lock();
@@ -958,4 +959,3 @@ uint32_t bsec_check_nsec_access_rights(uint32_t otp)
 
 	return BSEC_OK;
 }
-

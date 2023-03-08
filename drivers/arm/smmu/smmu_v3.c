@@ -1,21 +1,20 @@
 /*
- * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <common/debug.h>
+#include <arch_features.h>
 #include <cdefs.h>
+#include <common/debug.h>
 #include <drivers/arm/smmu_v3.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-#include <arch_features.h>
 
 /* SMMU poll number of retries */
-#define SMMU_POLL_TIMEOUT_US	U(1000)
+#define SMMU_POLL_TIMEOUT_US U(1000)
 
-static int smmuv3_poll(uintptr_t smmu_reg, uint32_t mask,
-				uint32_t value)
+static int smmuv3_poll(uintptr_t smmu_reg, uint32_t mask, uint32_t value)
 {
 	uint32_t reg_val;
 	uint64_t timeout;
@@ -30,7 +29,7 @@ static int smmuv3_poll(uintptr_t smmu_reg, uint32_t mask,
 
 	ERROR("Timeout polling SMMUv3 register @%p\n", (void *)smmu_reg);
 	ERROR("Read value 0x%x, expected 0x%x\n", reg_val,
-		value == 0U ? reg_val & ~mask : reg_val | mask);
+	      value == 0U ? reg_val & ~mask : reg_val | mask);
 	return -1;
 }
 
@@ -55,8 +54,8 @@ int __init smmuv3_security_init(uintptr_t smmu_base)
 		return -1;
 
 	/* Check if the SMMU supports secure state */
-	if ((mmio_read_32(smmu_base + SMMU_S_IDR1) &
-				SMMU_S_IDR1_SECURE_IMPL) == 0U)
+	if ((mmio_read_32(smmu_base + SMMU_S_IDR1) & SMMU_S_IDR1_SECURE_IMPL) ==
+	    0U)
 		return 0;
 
 	/* Abort all incoming secure transactions */
@@ -84,7 +83,7 @@ int __init smmuv3_init(uintptr_t smmu_base)
 
 	if (get_armv9_2_feat_rme_support() != 0U) {
 		if ((mmio_read_32(smmu_base + SMMU_ROOT_IDR0) &
-				  SMMU_ROOT_IDR0_ROOT_IMPL) == 0U) {
+		     SMMU_ROOT_IDR0_ROOT_IMPL) == 0U) {
 			WARN("Skip SMMU GPC configuration.\n");
 		} else {
 			uint64_t gpccr_el3 = read_gpccr_el3();
@@ -116,14 +115,14 @@ int __init smmuv3_init(uintptr_t smmu_base)
 			 */
 			mmio_setbits_32(smmu_base + SMMU_ROOT_CR0,
 					SMMU_ROOT_CR0_GPCEN |
-					SMMU_ROOT_CR0_ACCESSEN);
+						SMMU_ROOT_CR0_ACCESSEN);
 
 			/* Poll for ACCESSEN and GPCEN ack bits. */
 			if (smmuv3_poll(smmu_base + SMMU_ROOT_CR0ACK,
 					SMMU_ROOT_CR0_GPCEN |
-					SMMU_ROOT_CR0_ACCESSEN,
+						SMMU_ROOT_CR0_ACCESSEN,
 					SMMU_ROOT_CR0_GPCEN |
-					SMMU_ROOT_CR0_ACCESSEN) != 0) {
+						SMMU_ROOT_CR0_ACCESSEN) != 0) {
 				WARN("Failed enabling SMMU GPC.\n");
 
 				/*
@@ -152,8 +151,7 @@ int __init smmuv3_init(uintptr_t smmu_base)
 	mmio_write_32(smmu_base + SMMU_S_INIT, SMMU_S_INIT_INV_ALL);
 
 	/* Wait for global invalidation operation to finish */
-	return smmuv3_poll(smmu_base + SMMU_S_INIT,
-				SMMU_S_INIT_INV_ALL, 0U);
+	return smmuv3_poll(smmu_base + SMMU_S_INIT, SMMU_S_INIT_INV_ALL, 0U);
 }
 
 int smmuv3_ns_set_abort_all(uintptr_t smmu_base)
@@ -167,7 +165,8 @@ int smmuv3_ns_set_abort_all(uintptr_t smmu_base)
 	 * Set GBPA's ABORT bit. Other GBPA fields are presumably ignored then,
 	 * so simply preserve their value.
 	 */
-	mmio_setbits_32(smmu_base + SMMU_GBPA, SMMU_GBPA_UPDATE | SMMU_GBPA_ABORT);
+	mmio_setbits_32(smmu_base + SMMU_GBPA,
+			SMMU_GBPA_UPDATE | SMMU_GBPA_ABORT);
 	if (smmuv3_poll(smmu_base + SMMU_GBPA, SMMU_GBPA_UPDATE, 0U) != 0U) {
 		return -1;
 	}

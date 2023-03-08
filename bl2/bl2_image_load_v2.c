@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,14 +9,15 @@
 
 #include <arch.h>
 #include <arch_helpers.h>
-#include "bl2_private.h"
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <common/desc_image_load.h>
 #include <drivers/auth/auth_mod.h>
-#include <plat/common/platform.h>
 
+#include <plat/common/platform.h>
 #include <platform_def.h>
+
+#include "bl2_private.h"
 
 /*******************************************************************************
  * This function loads SCP_BL2/BL3x images and returns the ep_info for
@@ -47,7 +48,7 @@ struct entry_point_info *bl2_load_images(void)
 		 * already done before.
 		 */
 		if ((bl2_node_info->image_info->h.attr &
-		    IMAGE_ATTRIB_PLAT_SETUP) != 0U) {
+		     IMAGE_ATTRIB_PLAT_SETUP) != 0U) {
 			if (plat_setup_done != 0) {
 				WARN("BL2: Platform setup already done!!\n");
 			} else {
@@ -59,28 +60,32 @@ struct entry_point_info *bl2_load_images(void)
 
 		err = bl2_plat_handle_pre_image_load(bl2_node_info->image_id);
 		if (err != 0) {
-			ERROR("BL2: Failure in pre image load handling (%i)\n", err);
+			ERROR("BL2: Failure in pre image load handling (%i)\n",
+			      err);
 			plat_error_handler(err);
 		}
 
 		if ((bl2_node_info->image_info->h.attr &
-		    IMAGE_ATTRIB_SKIP_LOADING) == 0U) {
-			INFO("BL2: Loading image id %u\n", bl2_node_info->image_id);
+		     IMAGE_ATTRIB_SKIP_LOADING) == 0U) {
+			INFO("BL2: Loading image id %u\n",
+			     bl2_node_info->image_id);
 			err = load_auth_image(bl2_node_info->image_id,
-				bl2_node_info->image_info);
+					      bl2_node_info->image_info);
 			if (err != 0) {
 				ERROR("BL2: Failed to load image id %u (%i)\n",
 				      bl2_node_info->image_id, err);
 				plat_error_handler(err);
 			}
 		} else {
-			INFO("BL2: Skip loading image id %u\n", bl2_node_info->image_id);
+			INFO("BL2: Skip loading image id %u\n",
+			     bl2_node_info->image_id);
 		}
 
 		/* Allow platform to handle image information. */
 		err = bl2_plat_handle_post_image_load(bl2_node_info->image_id);
 		if (err != 0) {
-			ERROR("BL2: Failure in post image load handling (%i)\n", err);
+			ERROR("BL2: Failure in post image load handling (%i)\n",
+			      err);
 			plat_error_handler(err);
 		}
 
@@ -101,7 +106,7 @@ struct entry_point_info *bl2_load_images(void)
 	/* Populate arg0 for the next BL image if not already provided */
 	if (bl2_to_next_bl_params->head->ep_info->args.arg0 == (u_register_t)0)
 		bl2_to_next_bl_params->head->ep_info->args.arg0 =
-					(u_register_t)bl2_to_next_bl_params;
+			(u_register_t)bl2_to_next_bl_params;
 
 	/* Flush the parameters to be passed to next image */
 	plat_flush_next_bl_params();

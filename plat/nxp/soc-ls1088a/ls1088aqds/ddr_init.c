@@ -8,24 +8,22 @@
 
 #include <common/debug.h>
 #include <ddr.h>
+#include <errata.h>
 #include <utils.h>
 
-#include <errata.h>
 #include <platform_def.h>
 
 #ifdef CONFIG_STATIC_DDR
 #error No static value defined
 #endif
 
-static const struct rc_timing rce[] = {
-	{U(1600), U(8), U(8)},
-	{U(1867), U(8), U(8)},
-	{U(2134), U(8), U(9)},
-	{}
-};
+static const struct rc_timing rce[] = { { U(1600), U(8), U(8) },
+					{ U(1867), U(8), U(8) },
+					{ U(2134), U(8), U(9) },
+					{} };
 
 static const struct board_timing udimm[] = {
-	{U(0x04), rce, U(0x01020307), U(0x08090b06)},
+	{ U(0x04), rce, U(0x01020307), U(0x08090b06) },
 };
 
 int ddr_board_options(struct ddr_info *priv)
@@ -45,11 +43,9 @@ int ddr_board_options(struct ddr_info *priv)
 
 	popts->addr_hash = 1;
 	popts->cpo_sample = U(0x7b);
-	popts->ddr_cdr1 = DDR_CDR1_DHC_EN	|
-			  DDR_CDR1_ODT(DDR_CDR_ODT_60ohm);
-	popts->ddr_cdr2 = DDR_CDR2_ODT(DDR_CDR_ODT_60ohm)	|
-			  DDR_CDR2_VREF_TRAIN_EN		|
-			  DDR_CDR2_VREF_RANGE_2;
+	popts->ddr_cdr1 = DDR_CDR1_DHC_EN | DDR_CDR1_ODT(DDR_CDR_ODT_60ohm);
+	popts->ddr_cdr2 = DDR_CDR2_ODT(DDR_CDR_ODT_60ohm) |
+			  DDR_CDR2_VREF_TRAIN_EN | DDR_CDR2_VREF_RANGE_2;
 
 	return 0;
 }

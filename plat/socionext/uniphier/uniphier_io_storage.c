@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,8 +7,6 @@
 #include <assert.h>
 #include <errno.h>
 #include <stdint.h>
-
-#include <platform_def.h>
 
 #include <drivers/io/io_block.h>
 #include <drivers/io/io_driver.h>
@@ -18,15 +16,17 @@
 #include <lib/xlat_tables/xlat_tables_v2.h>
 #include <tools_share/firmware_image_package.h>
 
+#include <platform_def.h>
+
 #include "uniphier.h"
 
-#define UNIPHIER_ROM_REGION_BASE	0x00000000ULL
-#define UNIPHIER_ROM_REGION_SIZE	0x04000000ULL
+#define UNIPHIER_ROM_REGION_BASE 0x00000000ULL
+#define UNIPHIER_ROM_REGION_SIZE 0x04000000ULL
 
-#define UNIPHIER_OCM_REGION_SIZE	0x00040000ULL
+#define UNIPHIER_OCM_REGION_SIZE 0x00040000ULL
 
-#define UNIPHIER_BLOCK_BUF_OFFSET	0x03000000UL
-#define UNIPHIER_BLOCK_BUF_SIZE		0x00800000UL
+#define UNIPHIER_BLOCK_BUF_OFFSET 0x03000000UL
+#define UNIPHIER_BLOCK_BUF_SIZE 0x00800000UL
 
 static const io_dev_connector_t *uniphier_fip_dev_con;
 static uintptr_t uniphier_fip_dev_handle;
@@ -329,7 +329,7 @@ static int uniphier_io_usb_setup(unsigned int soc, size_t buffer_offset)
 	return uniphier_io_block_setup(0x20000, block_dev_spec, buffer_offset);
 }
 
-static int (* const uniphier_io_setup_table[])(unsigned int, size_t) = {
+static int (*const uniphier_io_setup_table[])(unsigned int, size_t) = {
 	[UNIPHIER_BOOT_DEVICE_EMMC] = uniphier_io_emmc_setup,
 	[UNIPHIER_BOOT_DEVICE_NAND] = uniphier_io_nand_setup,
 	[UNIPHIER_BOOT_DEVICE_NOR] = uniphier_io_nor_setup,

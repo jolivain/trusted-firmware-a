@@ -5,27 +5,26 @@
  * https://spdx.org/licenses
  */
 
+#include <armada_common.h>
 #include <common/debug.h>
 #include <drivers/marvell/mci.h>
 #include <drivers/marvell/mochi/ap_setup.h>
 #include <drivers/marvell/mochi/cp110_setup.h>
 #include <lib/mmio.h>
-
-#include <armada_common.h>
 #include <marvell_plat_priv.h>
 #include <marvell_pm.h>
 #include <mc_trustzone/mc_trustzone.h>
 #include <plat_marvell.h>
 #if MSS_SUPPORT
+#include <mss_defs.h>
 #include <mss_ipc_drv.h>
 #include <mss_mem.h>
-#include <mss_defs.h>
 #endif
 
 /* In Armada-8k family AP806/AP807, CP0 connected to PIDI
  * and CP1 connected to IHB via MCI #0
  */
-#define MVEBU_MCI0		0
+#define MVEBU_MCI0 0
 
 static _Bool pm_fw_running;
 
@@ -44,7 +43,6 @@ static void marvell_bl31_mpp_init(int cp)
 	if (cp)
 		return;
 
-
 	/*
 	 * Enable CP0 I2C MPPs (MPP: 37-38)
 	 * U-Boot rely on proper MPP settings for I2C EEPROM usage
@@ -58,7 +56,7 @@ static void marvell_bl31_mpp_init(int cp)
 void marvell_bl31_mss_init(void)
 {
 	struct mss_pm_ctrl_block *mss_pm_crtl =
-			(struct mss_pm_ctrl_block *)MSS_SRAM_PM_CONTROL_BASE;
+		(struct mss_pm_ctrl_block *)MSS_SRAM_PM_CONTROL_BASE;
 
 	/* Check that the image was loaded successfully */
 	if (mss_pm_crtl->handshake != HOST_ACKNOWLEDGMENT) {
@@ -84,9 +82,8 @@ _Bool is_pm_fw_running(void)
 /* For TrusTzone we treat the "target" field of addr_map_win
  * struct as attribute
  */
-static const struct addr_map_win tz_map[] = {
-	{PLAT_MARVELL_ATF_BASE, 0x200000, TZ_PERM_ABORT}
-};
+static const struct addr_map_win tz_map[] = { { PLAT_MARVELL_ATF_BASE, 0x200000,
+						TZ_PERM_ABORT } };
 
 /* Configure MC TrustZone regions */
 static void marvell_bl31_security_setup(void)

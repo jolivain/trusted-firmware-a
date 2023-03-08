@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -10,8 +10,6 @@
 #include <inttypes.h>
 #include <stddef.h>
 #include <string.h>
-
-#include <platform_def.h>
 
 #include <arch.h>
 #include <arch_helpers.h>
@@ -24,8 +22,6 @@
 #include <lib/mmio.h>
 #include <lib/utils.h>
 #include <lib/utils_def.h>
-#include <plat/common/platform.h>
-
 #include <memctrl.h>
 #include <profiler.h>
 #include <smmu.h>
@@ -33,14 +29,17 @@
 #include <tegra_platform.h>
 #include <tegra_private.h>
 
+#include <plat/common/platform.h>
+#include <platform_def.h>
+
 /* length of Trusty's input parameters (in bytes) */
-#define TRUSTY_PARAMS_LEN_BYTES	(4096*2)
+#define TRUSTY_PARAMS_LEN_BYTES (4096 * 2)
 
 /*******************************************************************************
  * Declarations of linker defined symbols which will help us find the layout
  * of trusted SRAM
  ******************************************************************************/
-IMPORT_SYM(uint64_t, __RW_START__,	BL31_RW_START);
+IMPORT_SYM(uint64_t, __RW_START__, BL31_RW_START);
 
 extern uint64_t tegra_bl31_phys_base;
 
@@ -64,7 +63,7 @@ extern uint64_t ns_image_entrypoint;
  ******************************************************************************/
 entry_point_info_t *bl31_plat_get_next_image_ep_info(uint32_t type)
 {
-	entry_point_info_t *ep =  NULL;
+	entry_point_info_t *ep = NULL;
 
 	/* return BL32 entry point info if it is valid */
 	if (type == NON_SECURE) {
@@ -92,7 +91,8 @@ plat_params_from_bl2_t *bl31_get_plat_params(void)
 void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 				u_register_t arg2, u_register_t arg3)
 {
-	struct tegra_bl31_params *arg_from_bl2 = (struct tegra_bl31_params *) arg0;
+	struct tegra_bl31_params *arg_from_bl2 =
+		(struct tegra_bl31_params *)arg0;
 	plat_params_from_bl2_t *plat_params = (plat_params_from_bl2_t *)arg1;
 	int32_t ret;
 
@@ -120,7 +120,8 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 		bl32_image_ep_info = *arg_from_bl2->bl32_ep_info;
 #ifdef SPD_trusty
 		/* save BL32 boot parameters */
-		memcpy(&bl32_args, &arg_from_bl2->bl32_ep_info->args, sizeof(bl32_args));
+		memcpy(&bl32_args, &arg_from_bl2->bl32_ep_info->args,
+		       sizeof(bl32_args));
 #endif
 	}
 
@@ -131,9 +132,12 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	plat_bl31_params_from_bl2.tzdram_base = plat_params->tzdram_base;
 	plat_bl31_params_from_bl2.tzdram_size = plat_params->tzdram_size;
 	plat_bl31_params_from_bl2.uart_id = plat_params->uart_id;
-	plat_bl31_params_from_bl2.l2_ecc_parity_prot_dis = plat_params->l2_ecc_parity_prot_dis;
-	plat_bl31_params_from_bl2.sc7entry_fw_size = plat_params->sc7entry_fw_size;
-	plat_bl31_params_from_bl2.sc7entry_fw_base = plat_params->sc7entry_fw_base;
+	plat_bl31_params_from_bl2.l2_ecc_parity_prot_dis =
+		plat_params->l2_ecc_parity_prot_dis;
+	plat_bl31_params_from_bl2.sc7entry_fw_size =
+		plat_params->sc7entry_fw_size;
+	plat_bl31_params_from_bl2.sc7entry_fw_base =
+		plat_params->sc7entry_fw_base;
 
 	/*
 	 * It is very important that we run either from TZDRAM or TZSRAM base.
@@ -155,9 +159,8 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	 * address and initialise the profiler library, if it looks ok.
 	 */
 	ret = bl31_check_ns_address(plat_params->boot_profiler_shmem_base,
-			PROFILER_SIZE_BYTES);
+				    PROFILER_SIZE_BYTES);
 	if (ret == (int32_t)0) {
-
 		/* store the membase for the profiler lib */
 		plat_bl31_params_from_bl2.boot_profiler_shmem_base =
 			plat_params->boot_profiler_shmem_base;
@@ -186,8 +189,11 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	boot_profiler_add_record("[TF] early setup exit");
 
 	INFO("BL3-1: Boot CPU: %s Processor [%lx]\n",
-	     (((read_midr() >> MIDR_IMPL_SHIFT) & MIDR_IMPL_MASK)
-	      == DENVER_IMPL) ? "Denver" : "ARM", read_mpidr());
+	     (((read_midr() >> MIDR_IMPL_SHIFT) & MIDR_IMPL_MASK) ==
+	      DENVER_IMPL) ?
+		     "Denver" :
+		     "ARM",
+	     read_mpidr());
 }
 
 #ifdef SPD_trusty
@@ -294,21 +300,16 @@ void bl31_plat_arch_setup(void)
 	}
 
 	/* add memory regions */
-	mmap_add_region(rw_start, rw_start,
-			rw_size,
+	mmap_add_region(rw_start, rw_start, rw_size,
 			MT_MEMORY | MT_RW | MT_SECURE);
-	mmap_add_region(rodata_start, rodata_start,
-			rodata_size,
+	mmap_add_region(rodata_start, rodata_start, rodata_size,
 			MT_RO_DATA | MT_SECURE);
-	mmap_add_region(code_base, code_base,
-			code_size,
-			MT_CODE | MT_SECURE);
+	mmap_add_region(code_base, code_base, code_size, MT_CODE | MT_SECURE);
 
 	/* map TZDRAM used by BL31 as coherent memory */
 	if (TEGRA_TZRAM_BASE == tegra_bl31_phys_base) {
 		mmap_add_region(params_from_bl2->tzdram_base,
-				params_from_bl2->tzdram_base,
-				BL31_SIZE,
+				params_from_bl2->tzdram_base, BL31_SIZE,
 				MT_DEVICE | MT_RW | MT_SECURE);
 	}
 
@@ -337,8 +338,9 @@ int32_t bl31_check_ns_address(uint64_t base, uint64_t size_in_bytes)
 	 * Sanity check the input values
 	 */
 	if ((base == 0U) || (size_in_bytes == 0U)) {
-		ERROR("NS address 0x%" PRIx64 " (%" PRId64 " bytes) is invalid\n",
-			base, size_in_bytes);
+		ERROR("NS address 0x%" PRIx64 " (%" PRId64
+		      " bytes) is invalid\n",
+		      base, size_in_bytes);
 		return -EINVAL;
 	}
 
@@ -347,7 +349,6 @@ int32_t bl31_check_ns_address(uint64_t base, uint64_t size_in_bytes)
 	 */
 	if ((base < TEGRA_DRAM_BASE) || (base >= TEGRA_DRAM_END) ||
 	    (end > TEGRA_DRAM_END)) {
-
 		ERROR("NS address 0x%" PRIx64 " is out-of-bounds!\n", base);
 		return -EFAULT;
 	}

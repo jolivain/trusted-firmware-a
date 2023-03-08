@@ -1,17 +1,17 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <arch_helpers.h>
 #include <assert.h>
 
-#include <platform_def.h>
-
+#include <arch_helpers.h>
 #include <common/debug.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
+
+#include <platform_def.h>
 
 #include "xlat_tables_private.h"
 
@@ -83,11 +83,9 @@ int mmap_add_dynamic_region_alloc_va(unsigned long long base_pa,
 	return rc;
 }
 
-
 int mmap_remove_dynamic_region(uintptr_t base_va, size_t size)
 {
-	return mmap_remove_dynamic_region_ctx(&tf_xlat_ctx,
-					base_va, size);
+	return mmap_remove_dynamic_region_ctx(&tf_xlat_ctx, base_va, size);
 }
 
 #endif /* PLAT_XLAT_TABLES_DYNAMIC */
@@ -117,7 +115,8 @@ int xlat_get_mem_attributes(uintptr_t base_va, uint32_t *attr)
 
 int xlat_change_mem_attributes(uintptr_t base_va, size_t size, uint32_t attr)
 {
-	return xlat_change_mem_attributes_ctx(&tf_xlat_ctx, base_va, size, attr);
+	return xlat_change_mem_attributes_ctx(&tf_xlat_ctx, base_va, size,
+					      attr);
 }
 
 #if PLAT_RO_XLAT_TABLES
@@ -165,10 +164,10 @@ int xlat_make_tables_readonly(void)
 	disable_mmu_secure();
 #endif
 
-	int rc = xlat_change_mem_attributes_ctx(&tf_xlat_ctx,
-				(uintptr_t)tf_xlat_ctx.tables,
-				tf_xlat_ctx.tables_num * XLAT_TABLE_SIZE,
-				MT_RO_DATA | MT_SECURE);
+	int rc = xlat_change_mem_attributes_ctx(
+		&tf_xlat_ctx, (uintptr_t)tf_xlat_ctx.tables,
+		tf_xlat_ctx.tables_num * XLAT_TABLE_SIZE,
+		MT_RO_DATA | MT_SECURE);
 
 #ifdef __aarch64__
 	if (tf_xlat_ctx.xlat_regime == EL1_EL0_REGIME) {
@@ -201,9 +200,9 @@ int xlat_make_tables_readonly(void)
  * space size might be mapped.
  */
 #ifdef PLAT_XLAT_TABLES_DYNAMIC
-#define MAX_PHYS_ADDR	tf_xlat_ctx.pa_max_address
+#define MAX_PHYS_ADDR tf_xlat_ctx.pa_max_address
 #else
-#define MAX_PHYS_ADDR	tf_xlat_ctx.max_pa
+#define MAX_PHYS_ADDR tf_xlat_ctx.max_pa
 #endif
 
 #ifdef __aarch64__

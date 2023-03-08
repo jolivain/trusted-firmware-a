@@ -11,7 +11,6 @@
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
 #include <lib/spinlock.h>
-
 #include <mvebu.h>
 #include <mvebu_def.h>
 #include <plat_marvell.h>
@@ -24,11 +23,11 @@
  * Linux is up to 0x178 so none will access it from Linux in runtime
  * concurrently.
  */
-#define COMPHY_INDIRECT_REG	(MVEBU_REGS_BASE + 0xE0178)
+#define COMPHY_INDIRECT_REG (MVEBU_REGS_BASE + 0xE0178)
 
 /* The USB3_GBE1_PHY range is above USB3 registers used in dts */
-#define USB3_GBE1_PHY		(MVEBU_REGS_BASE + 0x5C000)
-#define COMPHY_SD_ADDR		(MVEBU_REGS_BASE + 0x1F000)
+#define USB3_GBE1_PHY (MVEBU_REGS_BASE + 0x5C000)
+#define COMPHY_SD_ADDR (MVEBU_REGS_BASE + 0x1F000)
 
 struct sgmii_phy_init_data_fix {
 	uint16_t addr;
@@ -37,13 +36,15 @@ struct sgmii_phy_init_data_fix {
 
 /* Changes to 40M1G25 mode data required for running 40M3G125 init mode */
 static struct sgmii_phy_init_data_fix sgmii_phy_init_fix[] = {
-	{0x005, 0x07CC}, {0x015, 0x0000}, {0x01B, 0x0000}, {0x01D, 0x0000},
-	{0x01E, 0x0000}, {0x01F, 0x0000}, {0x020, 0x0000}, {0x021, 0x0030},
-	{0x026, 0x0888}, {0x04D, 0x0152}, {0x04F, 0xA020}, {0x050, 0x07CC},
-	{0x053, 0xE9CA}, {0x055, 0xBD97}, {0x071, 0x3015}, {0x076, 0x03AA},
-	{0x07C, 0x0FDF}, {0x0C2, 0x3030}, {0x0C3, 0x8000}, {0x0E2, 0x5550},
-	{0x0E3, 0x12A4}, {0x0E4, 0x7D00}, {0x0E6, 0x0C83}, {0x101, 0xFCC0},
-	{0x104, 0x0C10}
+	{ 0x005, 0x07CC }, { 0x015, 0x0000 }, { 0x01B, 0x0000 },
+	{ 0x01D, 0x0000 }, { 0x01E, 0x0000 }, { 0x01F, 0x0000 },
+	{ 0x020, 0x0000 }, { 0x021, 0x0030 }, { 0x026, 0x0888 },
+	{ 0x04D, 0x0152 }, { 0x04F, 0xA020 }, { 0x050, 0x07CC },
+	{ 0x053, 0xE9CA }, { 0x055, 0xBD97 }, { 0x071, 0x3015 },
+	{ 0x076, 0x03AA }, { 0x07C, 0x0FDF }, { 0x0C2, 0x3030 },
+	{ 0x0C3, 0x8000 }, { 0x0E2, 0x5550 }, { 0x0E3, 0x12A4 },
+	{ 0x0E4, 0x7D00 }, { 0x0E6, 0x0C83 }, { 0x101, 0xFCC0 },
+	{ 0x104, 0x0C10 }
 };
 
 /* 40M1G25 mode init data */
@@ -51,75 +52,75 @@ static uint16_t sgmii_phy_init[512] = {
 	/* 0       1       2       3       4       5       6       7 */
 	/*-----------------------------------------------------------*/
 	/* 8       9       A       B       C       D       E       F */
-	0x3110, 0xFD83, 0x6430, 0x412F, 0x82C0, 0x06FA, 0x4500, 0x6D26,	/* 00 */
-	0xAFC0, 0x8000, 0xC000, 0x0000, 0x2000, 0x49CC, 0x0BC9, 0x2A52,	/* 08 */
-	0x0BD2, 0x0CDE, 0x13D2, 0x0CE8, 0x1149, 0x10E0, 0x0000, 0x0000,	/* 10 */
-	0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 0x4134, 0x0D2D, 0xFFFF,	/* 18 */
-	0xFFE0, 0x4030, 0x1016, 0x0030, 0x0000, 0x0800, 0x0866, 0x0000,	/* 20 */
-	0x0000, 0x0000, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF,	/* 28 */
-	0xFFFF, 0xFFFF, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/* 30 */
-	0x0000, 0x0000, 0x000F, 0x6A62, 0x1988, 0x3100, 0x3100, 0x3100,	/* 38 */
-	0x3100, 0xA708, 0x2430, 0x0830, 0x1030, 0x4610, 0xFF00, 0xFF00,	/* 40 */
-	0x0060, 0x1000, 0x0400, 0x0040, 0x00F0, 0x0155, 0x1100, 0xA02A,	/* 48 */
-	0x06FA, 0x0080, 0xB008, 0xE3ED, 0x5002, 0xB592, 0x7A80, 0x0001,	/* 50 */
-	0x020A, 0x8820, 0x6014, 0x8054, 0xACAA, 0xFC88, 0x2A02, 0x45CF,	/* 58 */
-	0x000F, 0x1817, 0x2860, 0x064F, 0x0000, 0x0204, 0x1800, 0x6000,	/* 60 */
-	0x810F, 0x4F23, 0x4000, 0x4498, 0x0850, 0x0000, 0x000E, 0x1002,	/* 68 */
-	0x9D3A, 0x3009, 0xD066, 0x0491, 0x0001, 0x6AB0, 0x0399, 0x3780,	/* 70 */
-	0x0040, 0x5AC0, 0x4A80, 0x0000, 0x01DF, 0x0000, 0x0007, 0x0000,	/* 78 */
-	0x2D54, 0x00A1, 0x4000, 0x0100, 0xA20A, 0x0000, 0x0000, 0x0000,	/* 80 */
-	0x0000, 0x0000, 0x0000, 0x7400, 0x0E81, 0x1000, 0x1242, 0x0210,	/* 88 */
-	0x80DF, 0x0F1F, 0x2F3F, 0x4F5F, 0x6F7F, 0x0F1F, 0x2F3F, 0x4F5F,	/* 90 */
-	0x6F7F, 0x4BAD, 0x0000, 0x0000, 0x0800, 0x0000, 0x2400, 0xB651,	/* 98 */
-	0xC9E0, 0x4247, 0x0A24, 0x0000, 0xAF19, 0x1004, 0x0000, 0x0000,	/* A0 */
-	0x0000, 0x0013, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/* A8 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/* B0 */
-	0x0000, 0x0000, 0x0000, 0x0060, 0x0000, 0x0000, 0x0000, 0x0000,	/* B8 */
-	0x0000, 0x0000, 0x3010, 0xFA00, 0x0000, 0x0000, 0x0000, 0x0003,	/* C0 */
-	0x1618, 0x8200, 0x8000, 0x0400, 0x050F, 0x0000, 0x0000, 0x0000,	/* C8 */
-	0x4C93, 0x0000, 0x1000, 0x1120, 0x0010, 0x1242, 0x1242, 0x1E00,	/* D0 */
-	0x0000, 0x0000, 0x0000, 0x00F8, 0x0000, 0x0041, 0x0800, 0x0000,	/* D8 */
-	0x82A0, 0x572E, 0x2490, 0x14A9, 0x4E00, 0x0000, 0x0803, 0x0541,	/* E0 */
-	0x0C15, 0x0000, 0x0000, 0x0400, 0x2626, 0x0000, 0x0000, 0x4200,	/* E8 */
-	0x0000, 0xAA55, 0x1020, 0x0000, 0x0000, 0x5010, 0x0000, 0x0000,	/* F0 */
-	0x0000, 0x0000, 0x5000, 0x0000, 0x0000, 0x0000, 0x02F2, 0x0000,	/* F8 */
-	0x101F, 0xFDC0, 0x4000, 0x8010, 0x0110, 0x0006, 0x0000, 0x0000,	/*100 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*108 */
-	0x04CF, 0x0000, 0x04CF, 0x0000, 0x04CF, 0x0000, 0x04C6, 0x0000,	/*110 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*118 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*120 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*128 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*130 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*138 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*140 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*148 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*150 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*158 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*160 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*168 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*170 */
-	0x0000, 0x0000, 0x0000, 0x00F0, 0x08A2, 0x3112, 0x0A14, 0x0000,	/*178 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*180 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*188 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*190 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*198 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*1A0 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*1A8 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*1B0 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*1B8 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*1C0 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*1C8 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*1D0 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*1D8 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*1E0 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*1E8 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,	/*1F0 */
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000	/*1F8 */
+	0x3110, 0xFD83, 0x6430, 0x412F, 0x82C0, 0x06FA, 0x4500, 0x6D26, /* 00 */
+	0xAFC0, 0x8000, 0xC000, 0x0000, 0x2000, 0x49CC, 0x0BC9, 0x2A52, /* 08 */
+	0x0BD2, 0x0CDE, 0x13D2, 0x0CE8, 0x1149, 0x10E0, 0x0000, 0x0000, /* 10 */
+	0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 0x4134, 0x0D2D, 0xFFFF, /* 18 */
+	0xFFE0, 0x4030, 0x1016, 0x0030, 0x0000, 0x0800, 0x0866, 0x0000, /* 20 */
+	0x0000, 0x0000, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, /* 28 */
+	0xFFFF, 0xFFFF, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /* 30 */
+	0x0000, 0x0000, 0x000F, 0x6A62, 0x1988, 0x3100, 0x3100, 0x3100, /* 38 */
+	0x3100, 0xA708, 0x2430, 0x0830, 0x1030, 0x4610, 0xFF00, 0xFF00, /* 40 */
+	0x0060, 0x1000, 0x0400, 0x0040, 0x00F0, 0x0155, 0x1100, 0xA02A, /* 48 */
+	0x06FA, 0x0080, 0xB008, 0xE3ED, 0x5002, 0xB592, 0x7A80, 0x0001, /* 50 */
+	0x020A, 0x8820, 0x6014, 0x8054, 0xACAA, 0xFC88, 0x2A02, 0x45CF, /* 58 */
+	0x000F, 0x1817, 0x2860, 0x064F, 0x0000, 0x0204, 0x1800, 0x6000, /* 60 */
+	0x810F, 0x4F23, 0x4000, 0x4498, 0x0850, 0x0000, 0x000E, 0x1002, /* 68 */
+	0x9D3A, 0x3009, 0xD066, 0x0491, 0x0001, 0x6AB0, 0x0399, 0x3780, /* 70 */
+	0x0040, 0x5AC0, 0x4A80, 0x0000, 0x01DF, 0x0000, 0x0007, 0x0000, /* 78 */
+	0x2D54, 0x00A1, 0x4000, 0x0100, 0xA20A, 0x0000, 0x0000, 0x0000, /* 80 */
+	0x0000, 0x0000, 0x0000, 0x7400, 0x0E81, 0x1000, 0x1242, 0x0210, /* 88 */
+	0x80DF, 0x0F1F, 0x2F3F, 0x4F5F, 0x6F7F, 0x0F1F, 0x2F3F, 0x4F5F, /* 90 */
+	0x6F7F, 0x4BAD, 0x0000, 0x0000, 0x0800, 0x0000, 0x2400, 0xB651, /* 98 */
+	0xC9E0, 0x4247, 0x0A24, 0x0000, 0xAF19, 0x1004, 0x0000, 0x0000, /* A0 */
+	0x0000, 0x0013, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /* A8 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /* B0 */
+	0x0000, 0x0000, 0x0000, 0x0060, 0x0000, 0x0000, 0x0000, 0x0000, /* B8 */
+	0x0000, 0x0000, 0x3010, 0xFA00, 0x0000, 0x0000, 0x0000, 0x0003, /* C0 */
+	0x1618, 0x8200, 0x8000, 0x0400, 0x050F, 0x0000, 0x0000, 0x0000, /* C8 */
+	0x4C93, 0x0000, 0x1000, 0x1120, 0x0010, 0x1242, 0x1242, 0x1E00, /* D0 */
+	0x0000, 0x0000, 0x0000, 0x00F8, 0x0000, 0x0041, 0x0800, 0x0000, /* D8 */
+	0x82A0, 0x572E, 0x2490, 0x14A9, 0x4E00, 0x0000, 0x0803, 0x0541, /* E0 */
+	0x0C15, 0x0000, 0x0000, 0x0400, 0x2626, 0x0000, 0x0000, 0x4200, /* E8 */
+	0x0000, 0xAA55, 0x1020, 0x0000, 0x0000, 0x5010, 0x0000, 0x0000, /* F0 */
+	0x0000, 0x0000, 0x5000, 0x0000, 0x0000, 0x0000, 0x02F2, 0x0000, /* F8 */
+	0x101F, 0xFDC0, 0x4000, 0x8010, 0x0110, 0x0006, 0x0000, 0x0000, /*100 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*108 */
+	0x04CF, 0x0000, 0x04CF, 0x0000, 0x04CF, 0x0000, 0x04C6, 0x0000, /*110 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*118 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*120 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*128 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*130 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*138 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*140 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*148 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*150 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*158 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*160 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*168 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*170 */
+	0x0000, 0x0000, 0x0000, 0x00F0, 0x08A2, 0x3112, 0x0A14, 0x0000, /*178 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*180 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*188 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*190 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*198 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*1A0 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*1A8 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*1B0 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*1B8 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*1C0 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*1C8 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*1D0 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*1D8 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*1E0 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*1E8 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /*1F0 */
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000 /*1F8 */
 };
 
 /* PHY selector configures with corresponding modes */
 static int mvebu_a3700_comphy_set_phy_selector(uint8_t comphy_index,
-						uint32_t comphy_mode)
+					       uint32_t comphy_mode)
 {
 	uint32_t reg;
 	int mode = COMPHY_GET_MODE(comphy_mode);
@@ -301,8 +302,9 @@ static int mvebu_a3700_comphy_sata_power_on(uint8_t comphy_index,
 	}
 
 	/* Clear phy isolation mode to make it work in normal mode */
-	offset =  COMPHY_ISOLATION_CTRL + SATAPHY_LANE2_REG_BASE_OFFSET;
-	comphy_sata_set_indirect(comphy_indir_regs, offset, 0, PHY_ISOLATE_MODE);
+	offset = COMPHY_ISOLATION_CTRL + SATAPHY_LANE2_REG_BASE_OFFSET;
+	comphy_sata_set_indirect(comphy_indir_regs, offset, 0,
+				 PHY_ISOLATE_MODE);
 
 	/* 0. Check the Polarity invert bits */
 	if (invert & COMPHY_POLARITY_TXD_INVERT)
@@ -311,8 +313,8 @@ static int mvebu_a3700_comphy_sata_power_on(uint8_t comphy_index,
 		data |= RXD_INVERT_BIT;
 
 	offset = COMPHY_SYNC_PATTERN + SATAPHY_LANE2_REG_BASE_OFFSET;
-	comphy_sata_set_indirect(comphy_indir_regs, offset, data, TXD_INVERT_BIT |
-				 RXD_INVERT_BIT);
+	comphy_sata_set_indirect(comphy_indir_regs, offset, data,
+				 TXD_INVERT_BIT | RXD_INVERT_BIT);
 
 	/* 1. Select 40-bit data width width */
 	offset = COMPHY_DIG_LOOPBACK_EN + SATAPHY_LANE2_REG_BASE_OFFSET;
@@ -326,13 +328,14 @@ static int mvebu_a3700_comphy_sata_power_on(uint8_t comphy_index,
 	else
 		ref_clk = REF_FREF_SEL_SERDES_25MHZ;
 
-	comphy_sata_set_indirect(comphy_indir_regs, offset, ref_clk | PHY_MODE_SATA,
+	comphy_sata_set_indirect(comphy_indir_regs, offset,
+				 ref_clk | PHY_MODE_SATA,
 				 REF_FREF_SEL_MASK | PHY_MODE_MASK);
 
 	/* 3. Use maximum PLL rate (no power save) */
 	offset = COMPHY_KVCO_CAL_CTRL + SATAPHY_LANE2_REG_BASE_OFFSET;
-	comphy_sata_set_indirect(comphy_indir_regs, offset, USE_MAX_PLL_RATE_BIT,
-				 USE_MAX_PLL_RATE_BIT);
+	comphy_sata_set_indirect(comphy_indir_regs, offset,
+				 USE_MAX_PLL_RATE_BIT, USE_MAX_PLL_RATE_BIT);
 
 	/* 4. Reset reserved bit */
 	comphy_sata_set_indirect(comphy_indir_regs, COMPHY_RESERVED_REG, 0,
@@ -355,7 +358,7 @@ static int mvebu_a3700_comphy_sata_power_on(uint8_t comphy_index,
 		      COMPHY_DIG_LOOPBACK_EN + SATAPHY_LANE2_REG_BASE_OFFSET);
 
 	ret = polling_with_timeout(comphy_indir_regs +
-				   COMPHY_LANE2_INDIR_DATA_OFFSET,
+					   COMPHY_LANE2_INDIR_DATA_OFFSET,
 				   PLL_READY_TX_BIT, PLL_READY_TX_BIT,
 				   COMPHY_PLL_TIMEOUT, REG_32BIT);
 	if (ret) {
@@ -403,7 +406,7 @@ static int mvebu_a3700_comphy_sgmii_power_on(uint8_t comphy_index,
 	 */
 	data = PIN_PU_IVREF_BIT | PIN_TX_IDLE_BIT | PIN_RESET_COMPHY_BIT;
 	mask = data | PIN_RESET_CORE_BIT | PIN_PU_PLL_BIT | PIN_PU_RX_BIT |
-		PIN_PU_TX_BIT;
+	       PIN_PU_TX_BIT;
 	offset = MVEBU_COMPHY_REG_BASE + COMPHY_PHY_CFG1_OFFSET(comphy_index);
 	reg_set(offset, data, mask);
 
@@ -427,7 +430,7 @@ static int mvebu_a3700_comphy_sgmii_power_on(uint8_t comphy_index,
 	} else {
 		/* Other rates are not supported */
 		ERROR("unsupported SGMII speed on comphy lane%d\n",
-			comphy_index);
+		      comphy_index);
 		return -EINVAL;
 	}
 	mask = GEN_RX_SEL_MASK | GEN_TX_SEL_MASK;
@@ -477,8 +480,8 @@ static int mvebu_a3700_comphy_sgmii_power_on(uint8_t comphy_index,
 	 */
 	data = DATA_WIDTH_10BIT;
 	mask = SEL_DATA_WIDTH_MASK;
-	reg_set16(SGMIIPHY_ADDR(COMPHY_DIG_LOOPBACK_EN, sd_ip_addr),
-		  data, mask);
+	reg_set16(SGMIIPHY_ADDR(COMPHY_DIG_LOOPBACK_EN, sd_ip_addr), data,
+		  mask);
 
 	/*
 	 * 12. As long as DFE function needs to be enabled in any mode,
@@ -501,7 +504,8 @@ static int mvebu_a3700_comphy_sgmii_power_on(uint8_t comphy_index,
 	debug("Running C-DPI phy init %s mode\n",
 	      mode == COMPHY_2500BASEX_MODE ? "2G5" : "1G");
 	if (get_ref_clk() == 40)
-		comphy_sgmii_phy_init(sd_ip_addr, mode != COMPHY_2500BASEX_MODE);
+		comphy_sgmii_phy_init(sd_ip_addr,
+				      mode != COMPHY_2500BASEX_MODE);
 
 	/*
 	 * 14. [Simulation Only] should not be used for real chip.
@@ -540,11 +544,11 @@ static int mvebu_a3700_comphy_sgmii_power_on(uint8_t comphy_index,
 	 * 18. Wait for PHY power up sequence to finish by checking output ports
 	 * PIN_PLL_READY_TX=1 and PIN_PLL_READY_RX=1.
 	 */
-	ret = polling_with_timeout(MVEBU_COMPHY_REG_BASE +
-				   COMPHY_PHY_STATUS_OFFSET(comphy_index),
-				   PHY_PLL_READY_TX_BIT | PHY_PLL_READY_RX_BIT,
-				   PHY_PLL_READY_TX_BIT | PHY_PLL_READY_RX_BIT,
-				   COMPHY_PLL_TIMEOUT, REG_32BIT);
+	ret = polling_with_timeout(
+		MVEBU_COMPHY_REG_BASE + COMPHY_PHY_STATUS_OFFSET(comphy_index),
+		PHY_PLL_READY_TX_BIT | PHY_PLL_READY_RX_BIT,
+		PHY_PLL_READY_TX_BIT | PHY_PLL_READY_RX_BIT, COMPHY_PLL_TIMEOUT,
+		REG_32BIT);
 	if (ret) {
 		ERROR("Failed to lock PLL for SGMII PHY %d\n", comphy_index);
 		return -ETIMEDOUT;
@@ -566,20 +570,20 @@ static int mvebu_a3700_comphy_sgmii_power_on(uint8_t comphy_index,
 	reg_set(MVEBU_COMPHY_REG_BASE + COMPHY_PHY_CFG1_OFFSET(comphy_index),
 		PHY_RX_INIT_BIT, PHY_RX_INIT_BIT);
 
-	ret = polling_with_timeout(MVEBU_COMPHY_REG_BASE +
-				   COMPHY_PHY_STATUS_OFFSET(comphy_index),
-				   PHY_PLL_READY_TX_BIT | PHY_PLL_READY_RX_BIT,
-				   PHY_PLL_READY_TX_BIT | PHY_PLL_READY_RX_BIT,
-				   COMPHY_PLL_TIMEOUT, REG_32BIT);
+	ret = polling_with_timeout(
+		MVEBU_COMPHY_REG_BASE + COMPHY_PHY_STATUS_OFFSET(comphy_index),
+		PHY_PLL_READY_TX_BIT | PHY_PLL_READY_RX_BIT,
+		PHY_PLL_READY_TX_BIT | PHY_PLL_READY_RX_BIT, COMPHY_PLL_TIMEOUT,
+		REG_32BIT);
 	if (ret) {
 		ERROR("Failed to lock PLL for SGMII PHY %d\n", comphy_index);
 		return -ETIMEDOUT;
 	}
 
-	ret = polling_with_timeout(MVEBU_COMPHY_REG_BASE +
-				   COMPHY_PHY_STATUS_OFFSET(comphy_index),
-				   PHY_RX_INIT_DONE_BIT, PHY_RX_INIT_DONE_BIT,
-				   COMPHY_PLL_TIMEOUT, REG_32BIT);
+	ret = polling_with_timeout(
+		MVEBU_COMPHY_REG_BASE + COMPHY_PHY_STATUS_OFFSET(comphy_index),
+		PHY_RX_INIT_DONE_BIT, PHY_RX_INIT_DONE_BIT, COMPHY_PLL_TIMEOUT,
+		REG_32BIT);
 	if (ret) {
 		ERROR("Failed to init RX of SGMII PHY %d\n", comphy_index);
 		return -ETIMEDOUT;
@@ -645,7 +649,7 @@ static int mvebu_a3700_comphy_usb3_power_on(uint8_t comphy_index,
 	 * 1. Set PRD_TXDEEMPH (3.5db de-emph)
 	 */
 	mask = PRD_TXDEEMPH0_MASK | PRD_TXMARGIN_MASK | PRD_TXSWING_MASK |
-		CFG_TX_ALIGN_POS_MASK;
+	       CFG_TX_ALIGN_POS_MASK;
 	usb3_reg_set(reg_base, COMPHY_LANE_CFG0, PRD_TXDEEMPH0_MASK, mask);
 
 	/*
@@ -656,22 +660,22 @@ static int mvebu_a3700_comphy_usb3_power_on(uint8_t comphy_index,
 	 *            together with bit 0 of COMPHY_LANE_CFG0 register
 	 */
 	mask = PRD_TXDEEMPH1_MASK | TX_DET_RX_MODE | GEN2_TX_DATA_DLY_MASK |
-		TX_ELEC_IDLE_MODE_EN;
+	       TX_ELEC_IDLE_MODE_EN;
 	data = TX_DET_RX_MODE | GEN2_TX_DATA_DLY_DEFT | TX_ELEC_IDLE_MODE_EN;
 	usb3_reg_set(reg_base, COMPHY_LANE_CFG1, data, mask);
 
 	/*
 	 * 3. Set Spread Spectrum Clock Enabled
 	 */
-	usb3_reg_set(reg_base, COMPHY_LANE_CFG4,
-		     SPREAD_SPECTRUM_CLK_EN, SPREAD_SPECTRUM_CLK_EN);
+	usb3_reg_set(reg_base, COMPHY_LANE_CFG4, SPREAD_SPECTRUM_CLK_EN,
+		     SPREAD_SPECTRUM_CLK_EN);
 
 	/*
 	 * 4. Set Override Margining Controls From the MAC:
 	 *    Use margining signals from lane configuration
 	 */
-	usb3_reg_set(reg_base, COMPHY_TEST_MODE_CTRL,
-		     MODE_MARGIN_OVERRIDE, REG_16_BIT_MASK);
+	usb3_reg_set(reg_base, COMPHY_TEST_MODE_CTRL, MODE_MARGIN_OVERRIDE,
+		     REG_16_BIT_MASK);
 
 	/*
 	 * 5. Set Lane-to-Lane Bundle Clock Sampling Period = per PCLK cycles
@@ -685,17 +689,17 @@ static int mvebu_a3700_comphy_usb3_power_on(uint8_t comphy_index,
 	/*
 	 * 6. Set G2 Spread Spectrum Clock Amplitude at 4K
 	 */
-	usb3_reg_set(reg_base, COMPHY_GEN2_SET2,
-		     GS2_TX_SSC_AMP_VALUE_20, GS2_TX_SSC_AMP_MASK);
+	usb3_reg_set(reg_base, COMPHY_GEN2_SET2, GS2_TX_SSC_AMP_VALUE_20,
+		     GS2_TX_SSC_AMP_MASK);
 
 	/*
 	 * 7. Unset G3 Spread Spectrum Clock Amplitude
 	 *    set G3 TX and RX Register Master Current Select
 	 */
 	mask = GS2_TX_SSC_AMP_MASK | GS2_VREG_RXTX_MAS_ISET_MASK |
-		GS2_RSVD_6_0_MASK;
-	usb3_reg_set(reg_base, COMPHY_GEN3_SET2,
-		     GS2_VREG_RXTX_MAS_ISET_60U, mask);
+	       GS2_RSVD_6_0_MASK;
+	usb3_reg_set(reg_base, COMPHY_GEN3_SET2, GS2_VREG_RXTX_MAS_ISET_60U,
+		     mask);
 
 	/*
 	 * 8. Check crystal jumper setting and program the Power and PLL Control
@@ -712,15 +716,15 @@ static int mvebu_a3700_comphy_usb3_power_on(uint8_t comphy_index,
 	}
 
 	mask = PU_IVREF_BIT | PU_PLL_BIT | PU_RX_BIT | PU_TX_BIT |
-		PU_TX_INTP_BIT | PU_DFE_BIT | PLL_LOCK_BIT | PHY_MODE_MASK |
-		REF_FREF_SEL_MASK;
+	       PU_TX_INTP_BIT | PU_DFE_BIT | PLL_LOCK_BIT | PHY_MODE_MASK |
+	       REF_FREF_SEL_MASK;
 	data = PU_IVREF_BIT | PU_PLL_BIT | PU_RX_BIT | PU_TX_BIT |
-		PU_TX_INTP_BIT | PU_DFE_BIT | PHY_MODE_USB3 | ref_clk;
-	usb3_reg_set(reg_base, COMPHY_POWER_PLL_CTRL, data,  mask);
+	       PU_TX_INTP_BIT | PU_DFE_BIT | PHY_MODE_USB3 | ref_clk;
+	usb3_reg_set(reg_base, COMPHY_POWER_PLL_CTRL, data, mask);
 
 	mask = CFG_PM_OSCCLK_WAIT_MASK | CFG_PM_RXDEN_WAIT_MASK |
-		CFG_PM_RXDLOZ_WAIT_MASK;
-	data = CFG_PM_RXDEN_WAIT_1_UNIT  | cfg;
+	       CFG_PM_RXDLOZ_WAIT_MASK;
+	data = CFG_PM_RXDEN_WAIT_1_UNIT | cfg;
 	usb3_reg_set(reg_base, COMPHY_PWR_MGM_TIM1, data, mask);
 
 	/*
@@ -770,8 +774,8 @@ static int mvebu_a3700_comphy_usb3_power_on(uint8_t comphy_index,
 	/*
 	 * 15. Set capacitor value for FFE gain peaking to 0xF
 	 */
-	usb3_reg_set(reg_base, COMPHY_GEN2_SET3,
-		     GS3_FFE_CAP_SEL_VALUE, GS3_FFE_CAP_SEL_MASK);
+	usb3_reg_set(reg_base, COMPHY_GEN2_SET3, GS3_FFE_CAP_SEL_VALUE,
+		     GS3_FFE_CAP_SEL_MASK);
 
 	/*
 	 * 16. Release SW reset
@@ -784,8 +788,7 @@ static int mvebu_a3700_comphy_usb3_power_on(uint8_t comphy_index,
 
 	if (comphy_index == COMPHY_LANE2) {
 		data = COMPHY_LANE_STAT1 + USB3PHY_LANE2_REG_BASE_OFFSET;
-		mmio_write_32(reg_base + COMPHY_LANE2_INDIR_ADDR_OFFSET,
-			      data);
+		mmio_write_32(reg_base + COMPHY_LANE2_INDIR_ADDR_OFFSET, data);
 
 		addr = reg_base + COMPHY_LANE2_INDIR_DATA_OFFSET;
 		ret = polling_with_timeout(addr, TXDCLK_PCLK_EN, TXDCLK_PCLK_EN,
@@ -822,16 +825,16 @@ static int mvebu_a3700_comphy_pcie_power_on(uint8_t comphy_index,
 	}
 
 	/* 1. Enable max PLL. */
-	reg_set16(LANE_CFG1_ADDR(PCIE) + COMPHY_SD_ADDR,
-		  USE_MAX_PLL_RATE_EN, USE_MAX_PLL_RATE_EN);
+	reg_set16(LANE_CFG1_ADDR(PCIE) + COMPHY_SD_ADDR, USE_MAX_PLL_RATE_EN,
+		  USE_MAX_PLL_RATE_EN);
 
 	/* 2. Select 20 bit SERDES interface. */
-	reg_set16(CLK_SRC_LO_ADDR(PCIE) + COMPHY_SD_ADDR,
-		  CFG_SEL_20B, CFG_SEL_20B);
+	reg_set16(CLK_SRC_LO_ADDR(PCIE) + COMPHY_SD_ADDR, CFG_SEL_20B,
+		  CFG_SEL_20B);
 
 	/* 3. Force to use reg setting for PCIe mode */
-	reg_set16(MISC_CTRL1_ADDR(PCIE) + COMPHY_SD_ADDR,
-		  SEL_BITS_PCIE_FORCE, SEL_BITS_PCIE_FORCE);
+	reg_set16(MISC_CTRL1_ADDR(PCIE) + COMPHY_SD_ADDR, SEL_BITS_PCIE_FORCE,
+		  SEL_BITS_PCIE_FORCE);
 
 	/* 4. Change RX wait */
 	reg_set16(PWR_MGM_TIM1_ADDR(PCIE) + COMPHY_SD_ADDR,
@@ -845,7 +848,8 @@ static int mvebu_a3700_comphy_pcie_power_on(uint8_t comphy_index,
 
 	/* 6. Enable the output of 100M/125M/500M clock */
 	reg_set16(MISC_CTRL0_ADDR(PCIE) + COMPHY_SD_ADDR,
-		  MISC_CTRL0_DEFAULT_VALUE | CLK500M_EN | TXDCLK_2X_SEL | CLK100M_125M_EN,
+		  MISC_CTRL0_DEFAULT_VALUE | CLK500M_EN | TXDCLK_2X_SEL |
+			  CLK100M_125M_EN,
 		  REG_16_BIT_MASK);
 
 	/*
@@ -912,12 +916,12 @@ int mvebu_3700_comphy_power_on(uint8_t comphy_index, uint32_t comphy_mode)
 	debug_enter();
 
 	switch (mode) {
-	case(COMPHY_SATA_MODE):
+	case (COMPHY_SATA_MODE):
 		ret = mvebu_a3700_comphy_sata_power_on(comphy_index,
 						       comphy_mode);
 		break;
-	case(COMPHY_SGMII_MODE):
-	case(COMPHY_2500BASEX_MODE):
+	case (COMPHY_SGMII_MODE):
+	case (COMPHY_2500BASEX_MODE):
 		ret = mvebu_a3700_comphy_sgmii_power_on(comphy_index,
 							comphy_mode);
 		break;
@@ -992,8 +996,8 @@ int mvebu_3700_comphy_power_off(uint8_t comphy_index, uint32_t comphy_mode)
 	}
 
 	switch (mode) {
-	case(COMPHY_SGMII_MODE):
-	case(COMPHY_2500BASEX_MODE):
+	case (COMPHY_SGMII_MODE):
+	case (COMPHY_2500BASEX_MODE):
 		err = mvebu_a3700_comphy_sgmii_power_off(comphy_index);
 		break;
 	case (COMPHY_USB3_MODE):
@@ -1025,7 +1029,7 @@ static int mvebu_a3700_comphy_sata_is_pll_locked(void)
 
 	/* Polling status */
 	mmio_write_32(comphy_indir_regs + COMPHY_LANE2_INDIR_ADDR_OFFSET,
-	       COMPHY_DIG_LOOPBACK_EN + SATAPHY_LANE2_REG_BASE_OFFSET);
+		      COMPHY_DIG_LOOPBACK_EN + SATAPHY_LANE2_REG_BASE_OFFSET);
 	addr = comphy_indir_regs + COMPHY_LANE2_INDIR_DATA_OFFSET;
 	data = polling_with_timeout(addr, PLL_READY_TX_BIT, PLL_READY_TX_BIT,
 				    COMPHY_PLL_TIMEOUT, REG_32BIT);
@@ -1048,13 +1052,13 @@ int mvebu_3700_comphy_is_pll_locked(uint8_t comphy_index, uint32_t comphy_mode)
 	debug_enter();
 
 	switch (mode) {
-	case(COMPHY_SATA_MODE):
+	case (COMPHY_SATA_MODE):
 		ret = mvebu_a3700_comphy_sata_is_pll_locked();
 		break;
 
 	default:
 		ERROR("comphy[%d] mode[%d] doesn't support PLL lock check\n",
-			comphy_index, mode);
+		      comphy_index, mode);
 		ret = -EINVAL;
 		break;
 	}

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -14,27 +14,29 @@
  * Constants that allow assembler code to preserve callee-saved registers of the
  * C runtime context while performing a security state switch.
  ******************************************************************************/
-#define SPMD_C_RT_CTX_X19		0x0
-#define SPMD_C_RT_CTX_X20		0x8
-#define SPMD_C_RT_CTX_X21		0x10
-#define SPMD_C_RT_CTX_X22		0x18
-#define SPMD_C_RT_CTX_X23		0x20
-#define SPMD_C_RT_CTX_X24		0x28
-#define SPMD_C_RT_CTX_X25		0x30
-#define SPMD_C_RT_CTX_X26		0x38
-#define SPMD_C_RT_CTX_X27		0x40
-#define SPMD_C_RT_CTX_X28		0x48
-#define SPMD_C_RT_CTX_X29		0x50
-#define SPMD_C_RT_CTX_X30		0x58
+#define SPMD_C_RT_CTX_X19 0x0
+#define SPMD_C_RT_CTX_X20 0x8
+#define SPMD_C_RT_CTX_X21 0x10
+#define SPMD_C_RT_CTX_X22 0x18
+#define SPMD_C_RT_CTX_X23 0x20
+#define SPMD_C_RT_CTX_X24 0x28
+#define SPMD_C_RT_CTX_X25 0x30
+#define SPMD_C_RT_CTX_X26 0x38
+#define SPMD_C_RT_CTX_X27 0x40
+#define SPMD_C_RT_CTX_X28 0x48
+#define SPMD_C_RT_CTX_X29 0x50
+#define SPMD_C_RT_CTX_X30 0x58
 
-#define SPMD_C_RT_CTX_SIZE		0x60
-#define SPMD_C_RT_CTX_ENTRIES		(SPMD_C_RT_CTX_SIZE >> DWORD_SHIFT)
+#define SPMD_C_RT_CTX_SIZE 0x60
+#define SPMD_C_RT_CTX_ENTRIES (SPMD_C_RT_CTX_SIZE >> DWORD_SHIFT)
 
 #ifndef __ASSEMBLER__
 #include <stdint.h>
+
 #include <lib/psci/psci_lib.h>
-#include <plat/common/platform.h>
 #include <services/ffa_svc.h>
+
+#include <plat/common/platform.h>
 
 typedef enum spmc_state {
 	SPMC_STATE_RESET = 0,
@@ -57,11 +59,11 @@ typedef struct spmd_spm_core_context {
 /*
  * Reserve ID for NS physical FFA Endpoint.
  */
-#define FFA_NS_ENDPOINT_ID			U(0)
+#define FFA_NS_ENDPOINT_ID U(0)
 
 /* Define SPMD target function IDs for framework messages to the SPMC */
-#define SPMD_FWK_MSG_FFA_VERSION_REQ		U(0x8)
-#define SPMD_FWK_MSG_FFA_VERSION_RESP		U(0x9)
+#define SPMD_FWK_MSG_FFA_VERSION_REQ U(0x8)
+#define SPMD_FWK_MSG_FFA_VERSION_RESP U(0x9)
 
 /* Function to build SPMD to SPMC message */
 void spmd_build_spmc_message(gp_regs_t *gpregs, uint8_t target,

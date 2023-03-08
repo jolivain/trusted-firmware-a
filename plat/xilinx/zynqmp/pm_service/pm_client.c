@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -18,19 +18,19 @@
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
 #include <lib/utils.h>
-
 #include <plat_ipi.h>
 #include <zynqmp_def.h>
+
 #include "pm_api_sys.h"
 #include "pm_client.h"
 #include "pm_ipi.h"
 
-#define IRQ_MAX		84U
-#define NUM_GICD_ISENABLER	((IRQ_MAX >> 5U) + 1U)
-#define UNDEFINED_CPUID		(~0U)
+#define IRQ_MAX 84U
+#define NUM_GICD_ISENABLER ((IRQ_MAX >> 5U) + 1U)
+#define UNDEFINED_CPUID (~0U)
 
-#define PM_SUSPEND_MODE_STD		0U
-#define PM_SUSPEND_MODE_POWER_OFF	1U
+#define PM_SUSPEND_MODE_STD 0U
+#define PM_SUSPEND_MODE_POWER_OFF 1U
 
 DEFINE_BAKERY_LOCK(pm_client_secure_lock);
 
@@ -70,90 +70,48 @@ static const struct pm_proc pm_procs_all[] = {
 
 /* Interrupt to PM node ID map */
 static enum pm_node_id irq_node_map[IRQ_MAX + 1U] = {
-	NODE_UNKNOWN,
-	NODE_UNKNOWN,
-	NODE_UNKNOWN,
-	NODE_UNKNOWN,	/* 3 */
-	NODE_UNKNOWN,
-	NODE_UNKNOWN,
-	NODE_UNKNOWN,
-	NODE_UNKNOWN,	/* 7 */
-	NODE_UNKNOWN,
-	NODE_UNKNOWN,
-	NODE_UNKNOWN,
-	NODE_UNKNOWN,	/* 11 */
-	NODE_UNKNOWN,
-	NODE_UNKNOWN,
-	NODE_NAND,
-	NODE_QSPI,	/* 15 */
-	NODE_GPIO,
-	NODE_I2C_0,
-	NODE_I2C_1,
-	NODE_SPI_0,	/* 19 */
-	NODE_SPI_1,
-	NODE_UART_0,
-	NODE_UART_1,
-	NODE_CAN_0,	/* 23 */
-	NODE_CAN_1,
-	NODE_UNKNOWN,
-	NODE_RTC,
-	NODE_RTC,	/* 27 */
-	NODE_UNKNOWN,
-	NODE_UNKNOWN,
-	NODE_UNKNOWN,
-	NODE_UNKNOWN,	/* 31 */
-	NODE_UNKNOWN,
-	NODE_UNKNOWN,
-	NODE_UNKNOWN,
-	NODE_UNKNOWN,	/* 35, NODE_IPI_APU */
-	NODE_TTC_0,
-	NODE_TTC_0,
-	NODE_TTC_0,
-	NODE_TTC_1,	/* 39 */
-	NODE_TTC_1,
-	NODE_TTC_1,
-	NODE_TTC_2,
-	NODE_TTC_2,	/* 43 */
-	NODE_TTC_2,
-	NODE_TTC_3,
-	NODE_TTC_3,
-	NODE_TTC_3,	/* 47 */
-	NODE_SD_0,
-	NODE_SD_1,
-	NODE_SD_0,
-	NODE_SD_1,	/* 51 */
-	NODE_UNKNOWN,
-	NODE_UNKNOWN,
-	NODE_UNKNOWN,
-	NODE_UNKNOWN,	/* 55 */
-	NODE_UNKNOWN,
-	NODE_ETH_0,
-	NODE_ETH_0,
-	NODE_ETH_1,	/* 59 */
-	NODE_ETH_1,
-	NODE_ETH_2,
-	NODE_ETH_2,
-	NODE_ETH_3,	/* 63 */
-	NODE_ETH_3,
-	NODE_USB_0,
-	NODE_USB_0,
-	NODE_USB_0,	/* 67 */
-	NODE_USB_0,
-	NODE_USB_0,
-	NODE_USB_1,
-	NODE_USB_1,	/* 71 */
-	NODE_USB_1,
-	NODE_USB_1,
-	NODE_USB_1,
-	NODE_USB_0,	/* 75 */
-	NODE_USB_0,
-	NODE_ADMA,
-	NODE_ADMA,
-	NODE_ADMA,	/* 79 */
-	NODE_ADMA,
-	NODE_ADMA,
-	NODE_ADMA,
-	NODE_ADMA,	/* 83 */
+	NODE_UNKNOWN, NODE_UNKNOWN,
+	NODE_UNKNOWN, NODE_UNKNOWN, /* 3 */
+	NODE_UNKNOWN, NODE_UNKNOWN,
+	NODE_UNKNOWN, NODE_UNKNOWN, /* 7 */
+	NODE_UNKNOWN, NODE_UNKNOWN,
+	NODE_UNKNOWN, NODE_UNKNOWN, /* 11 */
+	NODE_UNKNOWN, NODE_UNKNOWN,
+	NODE_NAND,    NODE_QSPI, /* 15 */
+	NODE_GPIO,    NODE_I2C_0,
+	NODE_I2C_1,   NODE_SPI_0, /* 19 */
+	NODE_SPI_1,   NODE_UART_0,
+	NODE_UART_1,  NODE_CAN_0, /* 23 */
+	NODE_CAN_1,   NODE_UNKNOWN,
+	NODE_RTC,     NODE_RTC, /* 27 */
+	NODE_UNKNOWN, NODE_UNKNOWN,
+	NODE_UNKNOWN, NODE_UNKNOWN, /* 31 */
+	NODE_UNKNOWN, NODE_UNKNOWN,
+	NODE_UNKNOWN, NODE_UNKNOWN, /* 35, NODE_IPI_APU */
+	NODE_TTC_0,   NODE_TTC_0,
+	NODE_TTC_0,   NODE_TTC_1, /* 39 */
+	NODE_TTC_1,   NODE_TTC_1,
+	NODE_TTC_2,   NODE_TTC_2, /* 43 */
+	NODE_TTC_2,   NODE_TTC_3,
+	NODE_TTC_3,   NODE_TTC_3, /* 47 */
+	NODE_SD_0,    NODE_SD_1,
+	NODE_SD_0,    NODE_SD_1, /* 51 */
+	NODE_UNKNOWN, NODE_UNKNOWN,
+	NODE_UNKNOWN, NODE_UNKNOWN, /* 55 */
+	NODE_UNKNOWN, NODE_ETH_0,
+	NODE_ETH_0,   NODE_ETH_1, /* 59 */
+	NODE_ETH_1,   NODE_ETH_2,
+	NODE_ETH_2,   NODE_ETH_3, /* 63 */
+	NODE_ETH_3,   NODE_USB_0,
+	NODE_USB_0,   NODE_USB_0, /* 67 */
+	NODE_USB_0,   NODE_USB_0,
+	NODE_USB_1,   NODE_USB_1, /* 71 */
+	NODE_USB_1,   NODE_USB_1,
+	NODE_USB_1,   NODE_USB_0, /* 75 */
+	NODE_USB_0,   NODE_ADMA,
+	NODE_ADMA,    NODE_ADMA, /* 79 */
+	NODE_ADMA,    NODE_ADMA,
+	NODE_ADMA,    NODE_ADMA, /* 83 */
 	NODE_ADMA,
 };
 
@@ -219,8 +177,11 @@ static void pm_client_set_wakeup_sources(void)
 
 			if (node > NODE_UNKNOWN && node < NODE_MAX) {
 				if (pm_wakeup_nodes_set[node] == 0U) {
-					ret = pm_set_wakeup_source(NODE_APU, node, 1U);
-					pm_wakeup_nodes_set[node] = (ret == PM_RET_SUCCESS) ? 1U : 0U;
+					ret = pm_set_wakeup_source(NODE_APU,
+								   node, 1U);
+					pm_wakeup_nodes_set[node] =
+						(ret == PM_RET_SUCCESS) ? 1U :
+									  0U;
 				}
 			}
 		}
@@ -297,7 +258,6 @@ void pm_client_suspend(const struct pm_proc *proc, uint32_t state)
 	bakery_lock_release(&pm_client_secure_lock);
 }
 
-
 /**
  * pm_client_abort_suspend() - Client-specific abort-suspend actions
  *
@@ -313,7 +273,7 @@ void pm_client_abort_suspend(void)
 
 	/* Clear powerdown request */
 	mmio_write_32(APU_PWRCTL,
-		 mmio_read_32(APU_PWRCTL) & ~primary_proc->pwrdn_mask);
+		      mmio_read_32(APU_PWRCTL) & ~primary_proc->pwrdn_mask);
 
 	bakery_lock_release(&pm_client_secure_lock);
 }

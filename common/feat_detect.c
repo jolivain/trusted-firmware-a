@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -20,7 +20,7 @@ static bool tainted;
  * routines, if the feature is enabled but not supported by PE.
  ******************************************************************************/
 
-#define feat_detect_panic(a, b)		((a) ? (void)0 : feature_panic(b))
+#define feat_detect_panic(a, b) ((a) ? (void)0 : feature_panic(b))
 
 /*******************************************************************************
  * Function : feature_panic
@@ -115,7 +115,8 @@ static void read_feat_ras(void)
  ***********************************************/
 static void read_feat_pauth(void)
 {
-#if (ENABLE_PAUTH == FEAT_STATE_ALWAYS) || (CTX_INCLUDE_PAUTH_REGS == FEAT_STATE_ALWAYS)
+#if (ENABLE_PAUTH == FEAT_STATE_ALWAYS) || \
+	(CTX_INCLUDE_PAUTH_REGS == FEAT_STATE_ALWAYS)
 	feat_detect_panic(is_armv8_3_pauth_present(), "PAUTH");
 #endif
 }
@@ -213,7 +214,8 @@ static void read_feat_ecv(void)
 	unsigned int ecv = get_armv8_6_ecv_support();
 
 	feat_detect_panic(((ecv == ID_AA64MMFR0_EL1_ECV_SUPPORTED) ||
-			(ecv == ID_AA64MMFR0_EL1_ECV_SELF_SYNCH)), "ECV");
+			   (ecv == ID_AA64MMFR0_EL1_ECV_SELF_SYNCH)),
+			  "ECV");
 #endif
 }
 
@@ -234,7 +236,8 @@ static void read_feat_rme(void)
 {
 #if (ENABLE_RME == FEAT_STATE_ALWAYS)
 	feat_detect_panic((get_armv9_2_feat_rme_support() !=
-			ID_AA64PFR0_FEAT_RME_NOT_SUPPORTED), "RME");
+			   ID_AA64PFR0_FEAT_RME_NOT_SUPPORTED),
+			  "RME");
 #endif
 }
 
@@ -291,13 +294,12 @@ void detect_arch_features(void)
 
 	/* v8.4 features */
 	read_feat_dit();
-	check_feature(ENABLE_FEAT_AMUv1, read_feat_amu_id_field(),
-		      "AMUv1", 1, 2);
+	check_feature(ENABLE_FEAT_AMUv1, read_feat_amu_id_field(), "AMUv1", 1,
+		      2);
 	read_feat_mpam();
 	read_feat_nv2();
 	read_feat_sel2();
-	check_feature(ENABLE_TRF_FOR_NS, read_feat_trf_id_field(),
-		      "TRF", 1, 1);
+	check_feature(ENABLE_TRF_FOR_NS, read_feat_trf_id_field(), "TRF", 1, 1);
 
 	/* v8.5 features */
 	read_feat_mte();
@@ -315,10 +317,10 @@ void detect_arch_features(void)
 	check_feature(ENABLE_FEAT_HCX, read_feat_hcx_id_field(), "HCX", 1, 1);
 
 	/* v9.0 features */
-	check_feature(ENABLE_BRBE_FOR_NS, read_feat_brbe_id_field(),
-		      "BRBE", 1, 2);
-	check_feature(ENABLE_TRBE_FOR_NS, read_feat_trbe_id_field(),
-		      "TRBE", 1, 1);
+	check_feature(ENABLE_BRBE_FOR_NS, read_feat_brbe_id_field(), "BRBE", 1,
+		      2);
+	check_feature(ENABLE_TRBE_FOR_NS, read_feat_trbe_id_field(), "TRBE", 1,
+		      1);
 
 	/* v9.2 features */
 	read_feat_rme();

@@ -9,19 +9,20 @@
 #include <common/debug.h>
 #include <drivers/marvell/cache_llc.h>
 #include <lib/mmio.h>
+
 #include <plat/common/platform.h>
 
-#define CCU_HTC_ASET			(MVEBU_CCU_BASE(MVEBU_AP0) + 0x264)
-#define MVEBU_IO_AFFINITY		(0xF00)
-#define MVEBU_SF_REG			(MVEBU_REGS_BASE + 0x40)
-#define MVEBU_SF_EN			BIT(8)
-#define MVEBU_DFX_REG(cluster_id)	(MVEBU_REGS_BASE + 0x6F82A0 + \
-					(cluster_id) * 0x4)
-#define MVEBU_DFX_CLK_EN_POS		0x3
-#define MVEBU_DFX_CL0_CLK_OFFS		16
-#define MVEBU_DFX_CL0_CLK_MASK		(0xF << MVEBU_DFX_CL0_CLK_OFFS)
-#define MVEBU_DFX_CL1_CLK_OFFS		8
-#define MVEBU_DFX_CL1_CLK_MASK		(0xF << MVEBU_DFX_CL1_CLK_OFFS)
+#define CCU_HTC_ASET (MVEBU_CCU_BASE(MVEBU_AP0) + 0x264)
+#define MVEBU_IO_AFFINITY (0xF00)
+#define MVEBU_SF_REG (MVEBU_REGS_BASE + 0x40)
+#define MVEBU_SF_EN BIT(8)
+#define MVEBU_DFX_REG(cluster_id) \
+	(MVEBU_REGS_BASE + 0x6F82A0 + (cluster_id)*0x4)
+#define MVEBU_DFX_CLK_EN_POS 0x3
+#define MVEBU_DFX_CL0_CLK_OFFS 16
+#define MVEBU_DFX_CL0_CLK_MASK (0xF << MVEBU_DFX_CL0_CLK_OFFS)
+#define MVEBU_DFX_CL1_CLK_OFFS 8
+#define MVEBU_DFX_CL1_CLK_MASK (0xF << MVEBU_DFX_CL1_CLK_OFFS)
 
 #ifdef MVEBU_SOC_AP807
 static void plat_enable_snoop_filter(void)
@@ -47,7 +48,8 @@ static void plat_config_dfx_clock(void)
 		return;
 	}
 
-	val = mmio_read_32(MVEBU_DFX_REG(cluster_id / PLAT_MAX_CPUS_PER_CLUSTER));
+	val = mmio_read_32(
+		MVEBU_DFX_REG(cluster_id / PLAT_MAX_CPUS_PER_CLUSTER));
 	if (cluster_id == 0) {
 		val &= ~MVEBU_DFX_CL0_CLK_MASK;
 		val |= (MVEBU_DFX_CLK_EN_POS << MVEBU_DFX_CL0_CLK_OFFS);
@@ -55,7 +57,8 @@ static void plat_config_dfx_clock(void)
 		val &= ~MVEBU_DFX_CL1_CLK_MASK;
 		val |= (MVEBU_DFX_CLK_EN_POS << MVEBU_DFX_CL1_CLK_OFFS);
 	}
-	mmio_write_32(MVEBU_DFX_REG(cluster_id / PLAT_MAX_CPUS_PER_CLUSTER), val);
+	mmio_write_32(MVEBU_DFX_REG(cluster_id / PLAT_MAX_CPUS_PER_CLUSTER),
+		      val);
 }
 #endif
 

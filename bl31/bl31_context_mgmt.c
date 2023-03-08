@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -33,7 +33,7 @@ void cm_set_context(void *context, uint32_t security_state)
 	assert(sec_state_is_valid(security_state));
 
 	set_cpu_data(cpu_context[get_cpu_context_index(security_state)],
-			context);
+		     context);
 }
 
 /*******************************************************************************
@@ -42,13 +42,12 @@ void cm_set_context(void *context, uint32_t security_state)
  * specified security state. NULL is returned if no such structure has been
  * specified.
  ******************************************************************************/
-void *cm_get_context_by_index(unsigned int cpu_idx,
-				unsigned int security_state)
+void *cm_get_context_by_index(unsigned int cpu_idx, unsigned int security_state)
 {
 	assert(sec_state_is_valid(security_state));
 
-	return get_cpu_data_by_index(cpu_idx,
-			cpu_context[get_cpu_context_index(security_state)]);
+	return get_cpu_data_by_index(
+		cpu_idx, cpu_context[get_cpu_context_index(security_state)]);
 }
 
 /*******************************************************************************
@@ -56,11 +55,11 @@ void *cm_get_context_by_index(unsigned int cpu_idx,
  * specified security state for the CPU identified by CPU index.
  ******************************************************************************/
 void cm_set_context_by_index(unsigned int cpu_idx, void *context,
-				unsigned int security_state)
+			     unsigned int security_state)
 {
 	assert(sec_state_is_valid(security_state));
 
-	set_cpu_data_by_index(cpu_idx,
-			cpu_context[get_cpu_context_index(security_state)],
-			context);
+	set_cpu_data_by_index(
+		cpu_idx, cpu_context[get_cpu_context_index(security_state)],
+		context);
 }

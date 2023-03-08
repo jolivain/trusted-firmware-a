@@ -10,113 +10,113 @@
 #include <mt_spm.h>
 
 /* PCM_WDT_VAL */
-#define PCM_WDT_TIMEOUT		(30 * 32768)	/* 30s */
+#define PCM_WDT_TIMEOUT (30 * 32768) /* 30s */
 /* PCM_TIMER_VAL */
-#define PCM_TIMER_MAX		(0xffffffff - PCM_WDT_TIMEOUT)
+#define PCM_TIMER_MAX (0xffffffff - PCM_WDT_TIMEOUT)
 
 /* PCM_PWR_IO_EN */
-#define PCM_PWRIO_EN_R0		BIT(0)
-#define PCM_PWRIO_EN_R7		BIT(7)
-#define PCM_RF_SYNC_R0		BIT(16)
-#define PCM_RF_SYNC_R6		BIT(22)
-#define PCM_RF_SYNC_R7		BIT(23)
+#define PCM_PWRIO_EN_R0 BIT(0)
+#define PCM_PWRIO_EN_R7 BIT(7)
+#define PCM_RF_SYNC_R0 BIT(16)
+#define PCM_RF_SYNC_R6 BIT(22)
+#define PCM_RF_SYNC_R7 BIT(23)
 
 /* SPM_SWINT */
-#define PCM_SW_INT0		BIT(0)
-#define PCM_SW_INT1		BIT(1)
-#define PCM_SW_INT2		BIT(2)
-#define PCM_SW_INT3		BIT(3)
-#define PCM_SW_INT4		BIT(4)
-#define PCM_SW_INT5		BIT(5)
-#define PCM_SW_INT6		BIT(6)
-#define PCM_SW_INT7		BIT(7)
-#define PCM_SW_INT8		BIT(8)
-#define PCM_SW_INT9		BIT(9)
-#define PCM_SW_INT_ALL		(PCM_SW_INT9 | PCM_SW_INT8 | PCM_SW_INT7 | \
-				 PCM_SW_INT6 | PCM_SW_INT5 | PCM_SW_INT4 | \
-				 PCM_SW_INT3 | PCM_SW_INT2 | PCM_SW_INT1 | \
-				 PCM_SW_INT0)
+#define PCM_SW_INT0 BIT(0)
+#define PCM_SW_INT1 BIT(1)
+#define PCM_SW_INT2 BIT(2)
+#define PCM_SW_INT3 BIT(3)
+#define PCM_SW_INT4 BIT(4)
+#define PCM_SW_INT5 BIT(5)
+#define PCM_SW_INT6 BIT(6)
+#define PCM_SW_INT7 BIT(7)
+#define PCM_SW_INT8 BIT(8)
+#define PCM_SW_INT9 BIT(9)
+#define PCM_SW_INT_ALL                                                         \
+	(PCM_SW_INT9 | PCM_SW_INT8 | PCM_SW_INT7 | PCM_SW_INT6 | PCM_SW_INT5 | \
+	 PCM_SW_INT4 | PCM_SW_INT3 | PCM_SW_INT2 | PCM_SW_INT1 | PCM_SW_INT0)
 
 /* SPM_AP_STANDBY_CON */
-#define WFI_OP_AND		(1U)
-#define WFI_OP_OR		(0U)
+#define WFI_OP_AND (1U)
+#define WFI_OP_OR (0U)
 
 /* SPM_IRQ_MASK */
-#define ISRM_TWAM		BIT(2)
-#define ISRM_PCM_RETURN		BIT(3)
-#define ISRM_RET_IRQ0		BIT(8)
-#define ISRM_RET_IRQ1		BIT(9)
-#define ISRM_RET_IRQ2		BIT(10)
-#define ISRM_RET_IRQ3		BIT(11)
-#define ISRM_RET_IRQ4		BIT(12)
-#define ISRM_RET_IRQ5		BIT(13)
-#define ISRM_RET_IRQ6		BIT(14)
-#define ISRM_RET_IRQ7		BIT(15)
-#define ISRM_RET_IRQ8		BIT(16)
-#define ISRM_RET_IRQ9		BIT(17)
-#define ISRM_RET_IRQ_AUX	((ISRM_RET_IRQ9) | (ISRM_RET_IRQ8) | \
-				 (ISRM_RET_IRQ7) | (ISRM_RET_IRQ6) | \
-				 (ISRM_RET_IRQ5) | (ISRM_RET_IRQ4) | \
-				 (ISRM_RET_IRQ3) | (ISRM_RET_IRQ2) | \
-				 (ISRM_RET_IRQ1))
-#define ISRM_ALL_EXC_TWAM	ISRM_RET_IRQ_AUX
-#define ISRM_ALL		(ISRM_ALL_EXC_TWAM | ISRM_TWAM)
+#define ISRM_TWAM BIT(2)
+#define ISRM_PCM_RETURN BIT(3)
+#define ISRM_RET_IRQ0 BIT(8)
+#define ISRM_RET_IRQ1 BIT(9)
+#define ISRM_RET_IRQ2 BIT(10)
+#define ISRM_RET_IRQ3 BIT(11)
+#define ISRM_RET_IRQ4 BIT(12)
+#define ISRM_RET_IRQ5 BIT(13)
+#define ISRM_RET_IRQ6 BIT(14)
+#define ISRM_RET_IRQ7 BIT(15)
+#define ISRM_RET_IRQ8 BIT(16)
+#define ISRM_RET_IRQ9 BIT(17)
+#define ISRM_RET_IRQ_AUX                                       \
+	((ISRM_RET_IRQ9) | (ISRM_RET_IRQ8) | (ISRM_RET_IRQ7) | \
+	 (ISRM_RET_IRQ6) | (ISRM_RET_IRQ5) | (ISRM_RET_IRQ4) | \
+	 (ISRM_RET_IRQ3) | (ISRM_RET_IRQ2) | (ISRM_RET_IRQ1))
+#define ISRM_ALL_EXC_TWAM ISRM_RET_IRQ_AUX
+#define ISRM_ALL (ISRM_ALL_EXC_TWAM | ISRM_TWAM)
 
 /* SPM_IRQ_STA */
-#define ISRS_TWAM		BIT(2)
-#define ISRS_PCM_RETURN		BIT(3)
-#define ISRC_TWAM		ISRS_TWAM
-#define ISRC_ALL_EXC_TWAM	ISRS_PCM_RETURN
-#define ISRC_ALL		(ISRC_ALL_EXC_TWAM | ISRC_TWAM)
+#define ISRS_TWAM BIT(2)
+#define ISRS_PCM_RETURN BIT(3)
+#define ISRC_TWAM ISRS_TWAM
+#define ISRC_ALL_EXC_TWAM ISRS_PCM_RETURN
+#define ISRC_ALL (ISRC_ALL_EXC_TWAM | ISRC_TWAM)
 
 /* SPM_WAKEUP_MISC */
-#define WAKE_MISC_GIC_WAKEUP			(0x3FF)
-#define WAKE_MISC_DVFSRC_IRQ			DVFSRC_IRQ_LSB
-#define WAKE_MISC_REG_CPU_WAKEUP		SPM_WAKEUP_MISC_REG_CPU_WAKEUP_LSB
-#define WAKE_MISC_PCM_TIMER_EVENT		PCM_TIMER_EVENT_LSB
-#define WAKE_MISC_TWAM_IRQ_B			TWAM_IRQ_B_LSB
-#define WAKE_MISC_PMSR_IRQ_B_SET0		PMSR_IRQ_B_SET0_LSB
-#define WAKE_MISC_PMSR_IRQ_B_SET1		PMSR_IRQ_B_SET1_LSB
-#define WAKE_MISC_PMSR_IRQ_B_SET2		PMSR_IRQ_B_SET2_LSB
-#define WAKE_MISC_SPM_ACK_CHK_WAKEUP_0		SPM_ACK_CHK_WAKEUP_0_LSB
-#define WAKE_MISC_SPM_ACK_CHK_WAKEUP_1		SPM_ACK_CHK_WAKEUP_1_LSB
-#define WAKE_MISC_SPM_ACK_CHK_WAKEUP_2		SPM_ACK_CHK_WAKEUP_2_LSB
-#define WAKE_MISC_SPM_ACK_CHK_WAKEUP_3		SPM_ACK_CHK_WAKEUP_3_LSB
-#define WAKE_MISC_SPM_ACK_CHK_WAKEUP_ALL	SPM_ACK_CHK_WAKEUP_ALL_LSB
-#define WAKE_MISC_PMIC_IRQ_ACK			PMIC_IRQ_ACK_LSB
-#define WAKE_MISC_PMIC_SCP_IRQ			PMIC_SCP_IRQ_LSB
+#define WAKE_MISC_GIC_WAKEUP (0x3FF)
+#define WAKE_MISC_DVFSRC_IRQ DVFSRC_IRQ_LSB
+#define WAKE_MISC_REG_CPU_WAKEUP SPM_WAKEUP_MISC_REG_CPU_WAKEUP_LSB
+#define WAKE_MISC_PCM_TIMER_EVENT PCM_TIMER_EVENT_LSB
+#define WAKE_MISC_TWAM_IRQ_B TWAM_IRQ_B_LSB
+#define WAKE_MISC_PMSR_IRQ_B_SET0 PMSR_IRQ_B_SET0_LSB
+#define WAKE_MISC_PMSR_IRQ_B_SET1 PMSR_IRQ_B_SET1_LSB
+#define WAKE_MISC_PMSR_IRQ_B_SET2 PMSR_IRQ_B_SET2_LSB
+#define WAKE_MISC_SPM_ACK_CHK_WAKEUP_0 SPM_ACK_CHK_WAKEUP_0_LSB
+#define WAKE_MISC_SPM_ACK_CHK_WAKEUP_1 SPM_ACK_CHK_WAKEUP_1_LSB
+#define WAKE_MISC_SPM_ACK_CHK_WAKEUP_2 SPM_ACK_CHK_WAKEUP_2_LSB
+#define WAKE_MISC_SPM_ACK_CHK_WAKEUP_3 SPM_ACK_CHK_WAKEUP_3_LSB
+#define WAKE_MISC_SPM_ACK_CHK_WAKEUP_ALL SPM_ACK_CHK_WAKEUP_ALL_LSB
+#define WAKE_MISC_PMIC_IRQ_ACK PMIC_IRQ_ACK_LSB
+#define WAKE_MISC_PMIC_SCP_IRQ PMIC_SCP_IRQ_LSB
 
 /* MD32PCM ADDR for SPM code fetch */
-#define MD32PCM_BASE			(SPM_BASE + 0x0A00)
-#define MD32PCM_CFGREG_SW_RSTN		(MD32PCM_BASE + 0x0000)
-#define MD32PCM_DMA0_SRC		(MD32PCM_BASE + 0x0200)
-#define MD32PCM_DMA0_DST		(MD32PCM_BASE + 0x0204)
-#define MD32PCM_DMA0_WPPT		(MD32PCM_BASE + 0x0208)
-#define MD32PCM_DMA0_WPTO		(MD32PCM_BASE + 0x020C)
-#define MD32PCM_DMA0_COUNT		(MD32PCM_BASE + 0x0210)
-#define MD32PCM_DMA0_CON		(MD32PCM_BASE + 0x0214)
-#define MD32PCM_DMA0_START		(MD32PCM_BASE + 0x0218)
-#define MD32PCM_DMA0_RLCT		(MD32PCM_BASE + 0x0224)
-#define MD32PCM_INTC_IRQ_RAW_STA	(MD32PCM_BASE + 0x033C)
+#define MD32PCM_BASE (SPM_BASE + 0x0A00)
+#define MD32PCM_CFGREG_SW_RSTN (MD32PCM_BASE + 0x0000)
+#define MD32PCM_DMA0_SRC (MD32PCM_BASE + 0x0200)
+#define MD32PCM_DMA0_DST (MD32PCM_BASE + 0x0204)
+#define MD32PCM_DMA0_WPPT (MD32PCM_BASE + 0x0208)
+#define MD32PCM_DMA0_WPTO (MD32PCM_BASE + 0x020C)
+#define MD32PCM_DMA0_COUNT (MD32PCM_BASE + 0x0210)
+#define MD32PCM_DMA0_CON (MD32PCM_BASE + 0x0214)
+#define MD32PCM_DMA0_START (MD32PCM_BASE + 0x0218)
+#define MD32PCM_DMA0_RLCT (MD32PCM_BASE + 0x0224)
+#define MD32PCM_INTC_IRQ_RAW_STA (MD32PCM_BASE + 0x033C)
 
 /* ABORT MASK for DEBUG FOORTPRINT */
-#define DEBUG_ABORT_MASK (SPM_DBG_DEBUG_IDX_DRAM_SREF_ABORT_IN_APSRC | \
-			  SPM_DBG_DEBUG_IDX_DRAM_SREF_ABORT_IN_DDREN)
+#define DEBUG_ABORT_MASK                              \
+	(SPM_DBG_DEBUG_IDX_DRAM_SREF_ABORT_IN_APSRC | \
+	 SPM_DBG_DEBUG_IDX_DRAM_SREF_ABORT_IN_DDREN)
 
-#define DEBUG_ABORT_MASK_1 (SPM_DBG1_DEBUG_IDX_VRCXO_SLEEP_ABORT | \
-			    SPM_DBG1_DEBUG_IDX_PWRAP_SLEEP_ACK_LOW_ABORT | \
-			    SPM_DBG1_DEBUG_IDX_PWRAP_SLEEP_ACK_HIGH_ABORT | \
-			    SPM_DBG1_DEBUG_IDX_EMI_SLP_IDLE_ABORT | \
-			    SPM_DBG1_DEBUG_IDX_SCP_SLP_ACK_LOW_ABORT | \
-			    SPM_DBG1_DEBUG_IDX_SCP_SLP_ACK_HIGH_ABORT | \
-			    SPM_DBG1_DEBUG_IDX_SPM_DVFS_CMD_RDY_ABORT)
+#define DEBUG_ABORT_MASK_1                               \
+	(SPM_DBG1_DEBUG_IDX_VRCXO_SLEEP_ABORT |          \
+	 SPM_DBG1_DEBUG_IDX_PWRAP_SLEEP_ACK_LOW_ABORT |  \
+	 SPM_DBG1_DEBUG_IDX_PWRAP_SLEEP_ACK_HIGH_ABORT | \
+	 SPM_DBG1_DEBUG_IDX_EMI_SLP_IDLE_ABORT |         \
+	 SPM_DBG1_DEBUG_IDX_SCP_SLP_ACK_LOW_ABORT |      \
+	 SPM_DBG1_DEBUG_IDX_SCP_SLP_ACK_HIGH_ABORT |     \
+	 SPM_DBG1_DEBUG_IDX_SPM_DVFS_CMD_RDY_ABORT)
 
 #define MCUPM_MBOX_WAKEUP_CPU (0x0C55FD10)
 
 struct pcm_desc {
-	const char *version;	/* PCM code version */
-	uint32_t *base;		/* binary array base */
-	uintptr_t base_dma;	/* dma addr of base */
+	const char *version; /* PCM code version */
+	uint32_t *base; /* binary array base */
+	uintptr_t base_dma; /* dma addr of base */
 	uint32_t pmem_words;
 	uint32_t total_words;
 	uint32_t pmem_start;
@@ -589,31 +589,31 @@ enum pwr_ctrl_enum {
 };
 
 /* spm_internal.c internal status */
-#define SPM_INTERNAL_STATUS_HW_S1	BIT(0)
-#define SPM_ACK_CHK_3_CON_HW_MODE_TRIG	(0x800)
+#define SPM_INTERNAL_STATUS_HW_S1 BIT(0)
+#define SPM_ACK_CHK_3_CON_HW_MODE_TRIG (0x800)
 /* BIT[0]: SW_EN, BIT[4]: STA_EN, BIT[8]: HW_EN */
-#define SPM_ACK_CHK_3_CON_EN		(0x110)
-#define SPM_ACK_CHK_3_CON_CLR_ALL	(0x2)
+#define SPM_ACK_CHK_3_CON_EN (0x110)
+#define SPM_ACK_CHK_3_CON_CLR_ALL (0x2)
 /* BIT[15]: RESULT */
-#define SPM_ACK_CHK_3_CON_RESULT	(0x8000)
+#define SPM_ACK_CHK_3_CON_RESULT (0x8000)
 
 struct wake_status_trace_comm {
-	uint32_t debug_flag;	/* PCM_WDT_LATCH_SPARE_0 */
-	uint32_t debug_flag1;	/* PCM_WDT_LATCH_SPARE_1 */
-	uint32_t timer_out;	/* SPM_SW_RSV_6*/
-	uint32_t b_sw_flag0;	/* SPM_SW_RSV_7 */
-	uint32_t b_sw_flag1;	/* SPM_SW_RSV_7 */
-	uint32_t r12;		/* SPM_SW_RSV_0 */
-	uint32_t r13;		/* PCM_REG13_DATA */
-	uint32_t req_sta0;	/* SRC_REQ_STA_0 */
-	uint32_t req_sta1;	/* SRC_REQ_STA_1 */
-	uint32_t req_sta2;	/* SRC_REQ_STA_2 */
-	uint32_t req_sta3;	/* SRC_REQ_STA_3 */
-	uint32_t req_sta4;	/* SRC_REQ_STA_4 */
-	uint32_t raw_sta;	/* SPM_WAKEUP_STA */
-	uint32_t times_h;	/* timestamp high bits */
-	uint32_t times_l;	/* timestamp low bits */
-	uint32_t resumetime;	/* timestamp low bits */
+	uint32_t debug_flag; /* PCM_WDT_LATCH_SPARE_0 */
+	uint32_t debug_flag1; /* PCM_WDT_LATCH_SPARE_1 */
+	uint32_t timer_out; /* SPM_SW_RSV_6*/
+	uint32_t b_sw_flag0; /* SPM_SW_RSV_7 */
+	uint32_t b_sw_flag1; /* SPM_SW_RSV_7 */
+	uint32_t r12; /* SPM_SW_RSV_0 */
+	uint32_t r13; /* PCM_REG13_DATA */
+	uint32_t req_sta0; /* SRC_REQ_STA_0 */
+	uint32_t req_sta1; /* SRC_REQ_STA_1 */
+	uint32_t req_sta2; /* SRC_REQ_STA_2 */
+	uint32_t req_sta3; /* SRC_REQ_STA_3 */
+	uint32_t req_sta4; /* SRC_REQ_STA_4 */
+	uint32_t raw_sta; /* SPM_WAKEUP_STA */
+	uint32_t times_h; /* timestamp high bits */
+	uint32_t times_l; /* timestamp low bits */
+	uint32_t resumetime; /* timestamp low bits */
 };
 
 struct wake_status_trace {
@@ -622,15 +622,15 @@ struct wake_status_trace {
 
 struct wake_status {
 	struct wake_status_trace tr;
-	uint32_t r12_ext;		/* SPM_WAKEUP_EXT_STA */
-	uint32_t raw_ext_sta;		/* SPM_WAKEUP_EXT_STA */
-	uint32_t md32pcm_wakeup_sta;	/* MD32PCM_WAKEUP_STA */
-	uint32_t md32pcm_event_sta;	/* MD32PCM_EVENT_STA */
-	uint32_t wake_misc;		/* SPM_SW_RSV_5 */
-	uint32_t idle_sta;		/* SUBSYS_IDLE_STA */
-	uint32_t sw_flag0;		/* SPM_SW_FLAG_0 */
-	uint32_t sw_flag1;		/* SPM_SW_FLAG_1 */
-	uint32_t isr;			/* SPM_IRQ_STA */
+	uint32_t r12_ext; /* SPM_WAKEUP_EXT_STA */
+	uint32_t raw_ext_sta; /* SPM_WAKEUP_EXT_STA */
+	uint32_t md32pcm_wakeup_sta; /* MD32PCM_WAKEUP_STA */
+	uint32_t md32pcm_event_sta; /* MD32PCM_EVENT_STA */
+	uint32_t wake_misc; /* SPM_SW_RSV_5 */
+	uint32_t idle_sta; /* SUBSYS_IDLE_STA */
+	uint32_t sw_flag0; /* SPM_SW_FLAG_0 */
+	uint32_t sw_flag1; /* SPM_SW_FLAG_1 */
+	uint32_t isr; /* SPM_IRQ_STA */
 	uint32_t log_index;
 	uint32_t is_abort;
 };
@@ -641,12 +641,14 @@ struct spm_lp_scen {
 };
 
 void __spm_set_cpu_status(unsigned int cpu);
-void __spm_src_req_update(const struct pwr_ctrl *pwrctrl, unsigned int resource_usage);
+void __spm_src_req_update(const struct pwr_ctrl *pwrctrl,
+			  unsigned int resource_usage);
 void __spm_set_power_control(const struct pwr_ctrl *pwrctrl);
 void __spm_set_wakeup_event(const struct pwr_ctrl *pwrctrl);
 void __spm_set_pcm_flags(struct pwr_ctrl *pwrctrl);
 void __spm_send_cpu_wakeup_event(void);
-void __spm_get_wakeup_status(struct wake_status *wakesta, unsigned int ext_status);
+void __spm_get_wakeup_status(struct wake_status *wakesta,
+			     unsigned int ext_status);
 void __spm_clean_after_wakeup(void);
 wake_reason_t __spm_output_wake_reason(const struct wake_status *wakesta);
 void __spm_set_pcm_wdt(int en);

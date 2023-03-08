@@ -4,10 +4,9 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <dram.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-
-#include <dram.h>
 
 void ddr4_mr_write(uint32_t mr, uint32_t data, uint32_t mr_type, uint32_t rank)
 {
@@ -27,16 +26,20 @@ void ddr4_mr_write(uint32_t mr, uint32_t data, uint32_t mr_type, uint32_t rank)
 	 */
 	val = mmio_read_32(DDRC_DIMMCTL(0));
 	if ((val & 0x2) && (rank == 0x2)) {
-		mr_mirror = (mr & 0x4) | ((mr & 0x1) << 1) | ((mr & 0x2) >> 1); /* BA0, BA1 swap */
-		data_mirror = (data & 0x1607) | ((data & 0x8) << 1) | ((data & 0x10) >> 1) |
-				((data & 0x20) << 1) | ((data & 0x40) >> 1) | ((data & 0x80) << 1) |
-				 ((data & 0x100) >> 1) | ((data & 0x800) << 2) | ((data & 0x2000) >> 2) ;
+		mr_mirror = (mr & 0x4) | ((mr & 0x1) << 1) |
+			    ((mr & 0x2) >> 1); /* BA0, BA1 swap */
+		data_mirror = (data & 0x1607) | ((data & 0x8) << 1) |
+			      ((data & 0x10) >> 1) | ((data & 0x20) << 1) |
+			      ((data & 0x40) >> 1) | ((data & 0x80) << 1) |
+			      ((data & 0x100) >> 1) | ((data & 0x800) << 2) |
+			      ((data & 0x2000) >> 2);
 	} else {
 		mr_mirror = mr;
 		data_mirror = data;
 	}
 
-	mmio_write_32(DDRC_MRCTRL0(0), mr_type | (mr_mirror << 12) | (rank << 4));
+	mmio_write_32(DDRC_MRCTRL0(0),
+		      mr_type | (mr_mirror << 12) | (rank << 4));
 	mmio_write_32(DDRC_MRCTRL1(0), data_mirror);
 
 	/*

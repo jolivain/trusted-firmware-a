@@ -19,4 +19,5 @@ ehf_pri_desc_t imx_exceptions[] = {
 };
 
 /* Plug in ARM exceptions to Exception Handling Framework. */
-EHF_REGISTER_PRIORITIES(imx_exceptions, ARRAY_SIZE(imx_exceptions), PLAT_PRI_BITS);
+EHF_REGISTER_PRIORITIES(imx_exceptions, ARRAY_SIZE(imx_exceptions),
+			PLAT_PRI_BITS);

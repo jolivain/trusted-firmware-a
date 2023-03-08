@@ -10,7 +10,7 @@
 
 #include <a8k_plat_def.h>
 
-#define CP_COUNT		1	/* A70x0 has single CP0 */
+#define CP_COUNT 1 /* A70x0 has single CP0 */
 
 /***********************************************************************
  * Required platform porting definitions common to all
@@ -24,8 +24,7 @@
  * it is discarded and BL31 is loaded over the top.
  */
 #ifdef SCP_IMAGE
-#define SCP_BL2_BASE		BL31_BASE
+#define SCP_BL2_BASE BL31_BASE
 #endif
-
 
 #endif /* MVEBU_DEF_H */

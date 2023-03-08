@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,8 +7,6 @@
 #include <assert.h>
 #include <errno.h>
 #include <string.h>
-
-#include <platform_def.h>
 
 #include <arch_helpers.h>
 #include <common/bl_common.h>
@@ -20,7 +18,9 @@
 #include <drivers/mmc.h>
 #include <drivers/synopsys/dw_mmc.h>
 #include <lib/mmio.h>
+
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 #include "hi3798cv200.h"
 #include "plat_private.h"
@@ -85,8 +85,7 @@ void bl1_plat_arch_setup(void)
 	plat_configure_mmu_el3(bl1_tzram_layout.total_base,
 			       bl1_tzram_layout.total_size,
 			       BL1_RO_BASE, /* l-loader and BL1 ROM */
-			       BL1_RO_LIMIT,
-			       BL_COHERENT_RAM_BASE,
+			       BL1_RO_LIMIT, BL_COHERENT_RAM_BASE,
 			       BL_COHERENT_RAM_END);
 }
 

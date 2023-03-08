@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,14 +8,14 @@
 
 #include <arch.h>
 #include <arch_helpers.h>
+#include <bcm_console.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <drivers/arm/sp804_delay_timer.h>
 #include <lib/utils.h>
-#include <plat/common/platform.h>
-
-#include <bcm_console.h>
 #include <plat_brcm.h>
+
+#include <plat/common/platform.h>
 #include <platform_def.h>
 
 #ifdef BL33_SHARED_DDR_BASE
@@ -36,18 +36,15 @@ static entry_point_info_t bl33_image_ep_info;
 
 void plat_brcm_security_setup(void)
 {
-
 }
 
 void plat_brcm_pwrc_setup(void)
 {
-
 }
 
 void plat_bcm_bl31_early_platform_setup(void *from_bl2,
-				   bl_params_t *plat_params_from_bl2)
+					bl_params_t *plat_params_from_bl2)
 {
-
 }
 
 /*******************************************************************************
@@ -61,8 +58,8 @@ struct entry_point_info *bl31_plat_get_next_image_ep_info(uint32_t type)
 	entry_point_info_t *next_image_info;
 
 	assert(sec_state_is_valid(type));
-	next_image_info = (type == NON_SECURE)
-			? &bl33_image_ep_info : &bl32_image_ep_info;
+	next_image_info = (type == NON_SECURE) ? &bl33_image_ep_info :
+						 &bl32_image_ep_info;
 	/*
 	 * None of the images on the ARM development platforms can have 0x0
 	 * as the entrypoint
@@ -82,38 +79,32 @@ struct entry_point_info *bl31_plat_get_next_image_ep_info(uint32_t type)
  * we are guaranteed to pick up good data.
  ******************************************************************************/
 void __init brcm_bl31_early_platform_setup(void *from_bl2,
-					  uintptr_t soc_fw_config,
-					  uintptr_t hw_config,
-					  void *plat_params_from_bl2)
+					   uintptr_t soc_fw_config,
+					   uintptr_t hw_config,
+					   void *plat_params_from_bl2)
 {
 	/* Initialize the console to provide early debug support */
 	bcm_console_boot_init();
 
 	/* Initialize delay timer driver using SP804 dual timer 0 */
-	sp804_timer_init(SP804_TIMER0_BASE,
-			 SP804_TIMER0_CLKMULT, SP804_TIMER0_CLKDIV);
+	sp804_timer_init(SP804_TIMER0_BASE, SP804_TIMER0_CLKMULT,
+			 SP804_TIMER0_CLKDIV);
 
 #if RESET_TO_BL31
 	/* There are no parameters from BL2 if BL31 is a reset vector */
 	assert(from_bl2 == NULL);
 	assert(plat_params_from_bl2 == NULL);
 
-# ifdef BL32_BASE
+#ifdef BL32_BASE
 	/* Populate entry point information for BL32 */
-	SET_PARAM_HEAD(&bl32_image_ep_info,
-		       PARAM_EP,
-		       VERSION_1,
-		       0);
+	SET_PARAM_HEAD(&bl32_image_ep_info, PARAM_EP, VERSION_1, 0);
 	SET_SECURITY_STATE(bl32_image_ep_info.h.attr, SECURE);
 	bl32_image_ep_info.pc = BL32_BASE;
 	bl32_image_ep_info.spsr = brcm_get_spsr_for_bl32_entry();
-# endif /* BL32_BASE */
+#endif /* BL32_BASE */
 
 	/* Populate entry point information for BL33 */
-	SET_PARAM_HEAD(&bl33_image_ep_info,
-		       PARAM_EP,
-		       VERSION_1,
-		       0);
+	SET_PARAM_HEAD(&bl33_image_ep_info, PARAM_EP, VERSION_1, 0);
 	/*
 	 * Tell BL31 where the non-trusted software image
 	 * is located and the entry state information
@@ -123,7 +114,7 @@ void __init brcm_bl31_early_platform_setup(void *from_bl2,
 	bl33_image_ep_info.spsr = brcm_get_spsr_for_bl33_entry();
 	SET_SECURITY_STATE(bl33_image_ep_info.h.attr, NON_SECURE);
 
-# if ARM_LINUX_KERNEL_AS_BL33
+#if ARM_LINUX_KERNEL_AS_BL33
 	/*
 	 * According to the file ``Documentation/arm64/booting.txt`` of the
 	 * Linux kernel tree, Linux expects the physical address of the device
@@ -134,7 +125,7 @@ void __init brcm_bl31_early_platform_setup(void *from_bl2,
 	bl33_image_ep_info.args.arg1 = 0U;
 	bl33_image_ep_info.args.arg2 = 0U;
 	bl33_image_ep_info.args.arg3 = 0U;
-# endif
+#endif
 
 #else /* RESET_TO_BL31 */
 
@@ -144,7 +135,7 @@ void __init brcm_bl31_early_platform_setup(void *from_bl2,
 	 * In release builds, it's not used.
 	 */
 	assert(((unsigned long long)plat_params_from_bl2) ==
-		BRCM_BL31_PLAT_PARAM_VAL);
+	       BRCM_BL31_PLAT_PARAM_VAL);
 
 	/*
 	 * Check params passed from BL2 should not be NULL
@@ -186,7 +177,7 @@ void __init brcm_bl31_early_platform_setup(void *from_bl2,
 }
 
 void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
-		u_register_t arg2, u_register_t arg3)
+				u_register_t arg2, u_register_t arg3)
 {
 #ifdef BL31_LOG_LEVEL
 	SET_LOG_LEVEL(BL31_LOG_LEVEL);
@@ -276,7 +267,7 @@ void __init brcm_bl31_plat_arch_setup(void)
 				BL_COHERENT_RAM_END - BL_COHERENT_RAM_BASE,
 				MT_DEVICE | MT_RW | MT_SECURE),
 #endif
-		{0}
+		{ 0 }
 	};
 
 	setup_page_tables(bl_regions, plat_brcm_get_mmap());

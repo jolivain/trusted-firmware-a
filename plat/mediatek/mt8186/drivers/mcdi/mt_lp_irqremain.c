@@ -9,8 +9,8 @@
 #include <mt_lp_rm.h>
 #include <plat_mtk_lpm.h>
 
-#define KEYPAD_IRQ_ID		U(138)
-#define KEYPAD_WAKESRC		(0x4U)
+#define KEYPAD_IRQ_ID U(138)
+#define KEYPAD_WAKESRC (0x4U)
 
 static struct mt_irqremain remain_irqs;
 
@@ -22,7 +22,8 @@ int mt_lp_irqremain_submit(void)
 		ret = -1;
 	} else {
 		set_wakeup_sources(remain_irqs.irqs, remain_irqs.count);
-		mt_lp_rm_do_update(-1, PLAT_RC_UPDATE_REMAIN_IRQS, &remain_irqs);
+		mt_lp_rm_do_update(-1, PLAT_RC_UPDATE_REMAIN_IRQS,
+				   &remain_irqs);
 	}
 
 	return ret;

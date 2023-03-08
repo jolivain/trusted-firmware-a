@@ -10,8 +10,8 @@
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 #include <lib/utils.h>
 #include <libfdt.h>
-#include <plat/common/platform.h>
 
+#include <plat/common/platform.h>
 #include <platform_def.h>
 
 struct stm32mp_gic_instance {
@@ -29,7 +29,7 @@ static const interrupt_prop_t stm32mp_interrupt_props[] = {
 };
 
 /* Fix target_mask_array as secondary core is not able to initialize it */
-static unsigned int target_mask_array[PLATFORM_CORE_COUNT] = {1, 2};
+static unsigned int target_mask_array[PLATFORM_CORE_COUNT] = { 1, 2 };
 
 static gicv2_driver_data_t platform_gic_data = {
 	.interrupt_props = stm32mp_interrupt_props,

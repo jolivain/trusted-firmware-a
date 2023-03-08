@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2014, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2015-2020, Renesas Electronics Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -15,6 +15,7 @@
 #include <drivers/arm/cci.h>
 #include <drivers/console.h>
 #include <lib/mmio.h>
+
 #include <plat/common/platform.h>
 
 #include "pwrc.h"
@@ -22,12 +23,12 @@
 #include "rcar_private.h"
 #include "rcar_version.h"
 
-static const uint64_t BL31_RO_BASE		= BL_CODE_BASE;
-static const uint64_t BL31_RO_LIMIT		= BL_CODE_END;
+static const uint64_t BL31_RO_BASE = BL_CODE_BASE;
+static const uint64_t BL31_RO_LIMIT = BL_CODE_END;
 
 #if USE_COHERENT_MEM
-static const uint64_t BL31_COHERENT_RAM_BASE	= BL_COHERENT_RAM_BASE;
-static const uint64_t BL31_COHERENT_RAM_LIMIT	= BL_COHERENT_RAM_END;
+static const uint64_t BL31_COHERENT_RAM_BASE = BL_COHERENT_RAM_BASE;
+static const uint64_t BL31_COHERENT_RAM_LIMIT = BL_COHERENT_RAM_END;
 #endif /* USE_COHERENT_MEM */
 
 extern void plat_rcar_gic_driver_init(void);
@@ -35,10 +36,8 @@ extern void plat_rcar_gic_init(void);
 
 u_register_t rcar_boot_mpidr;
 
-static int cci_map[] = {
-	CCI500_CLUSTER0_SL_IFACE_IX_FOR_M3,
-	CCI500_CLUSTER1_SL_IFACE_IX_FOR_M3
-};
+static int cci_map[] = { CCI500_CLUSTER0_SL_IFACE_IX_FOR_M3,
+			 CCI500_CLUSTER1_SL_IFACE_IX_FOR_M3 };
 
 void plat_cci_init(void)
 {
@@ -66,12 +65,12 @@ void plat_cci_disable(void)
 
 struct entry_point_info *bl31_plat_get_next_image_ep_info(uint32_t type)
 {
-	bl2_to_bl31_params_mem_t *from_bl2 = (bl2_to_bl31_params_mem_t *)
-					     PARAMS_BASE;
+	bl2_to_bl31_params_mem_t *from_bl2 =
+		(bl2_to_bl31_params_mem_t *)PARAMS_BASE;
 	entry_point_info_t *next_image_info;
 
-	next_image_info = (type == NON_SECURE) ?
-		&from_bl2->bl33_ep_info : &from_bl2->bl32_ep_info;
+	next_image_info = (type == NON_SECURE) ? &from_bl2->bl33_ep_info :
+						 &from_bl2->bl32_ep_info;
 
 	return next_image_info->pc ? next_image_info : NULL;
 }
@@ -93,13 +92,13 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 
 void bl31_plat_arch_setup(void)
 {
-	rcar_configure_mmu_el3(BL31_BASE,
-			       BL31_LIMIT - BL31_BASE,
-			       BL31_RO_BASE, BL31_RO_LIMIT
+	rcar_configure_mmu_el3(BL31_BASE, BL31_LIMIT - BL31_BASE, BL31_RO_BASE,
+			       BL31_RO_LIMIT
 #if USE_COHERENT_MEM
-			       , BL31_COHERENT_RAM_BASE, BL31_COHERENT_RAM_LIMIT
+			       ,
+			       BL31_COHERENT_RAM_BASE, BL31_COHERENT_RAM_LIMIT
 #endif /* USE_COHERENT_MEM */
-	    );
+	);
 	rcar_pwrc_code_copy_to_system_ram();
 }
 

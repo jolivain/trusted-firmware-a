@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,22 +9,21 @@
 
 #include <string.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/console.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-
 #include <plat_private.h>
 #include <soc.h>
 
-#define DDR_REGION_NR_MAX		10
-#define REGION_NR_OFFSET		0
-#define REGION_ADDR_OFFSET		8
-#define REGION_DATA_PER_BYTES		8
-#define RG_SIZE_MB(byte)		((byte) >> 20)
+#include <platform_def.h>
+
+#define DDR_REGION_NR_MAX 10
+#define REGION_NR_OFFSET 0
+#define REGION_ADDR_OFFSET 8
+#define REGION_DATA_PER_BYTES 8
+#define RG_SIZE_MB(byte) ((byte) >> 20)
 
 /* unit: MB */
 struct param_ddr_usage {

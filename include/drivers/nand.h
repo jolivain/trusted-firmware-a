@@ -12,7 +12,7 @@
 
 #include <lib/utils_def.h>
 
-#define PSEC_TO_MSEC(x)	div_round_up((x), 1000000000ULL)
+#define PSEC_TO_MSEC(x) div_round_up((x), 1000000000ULL)
 
 struct ecc {
 	unsigned int mode; /* ECC mode NAND_ECC_MODE_{NONE|HW|ONDIE} */
@@ -64,4 +64,4 @@ int nand_seek_bb(uintptr_t base, unsigned int offset, size_t *extra_offset);
  */
 struct nand_device *get_nand_device(void);
 
-#endif	/* DRIVERS_NAND_H */
+#endif /* DRIVERS_NAND_H */

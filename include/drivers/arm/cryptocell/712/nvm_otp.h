@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,8 +8,7 @@
 #define _NVM_OTP_H
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
 #include "cc_crypto_boot_defs.h"
@@ -18,8 +17,6 @@ extern "C"
 /*------------------------------------
     DEFINES
 -------------------------------------*/
-
-
 
 /**
  * @brief The NVM_GetSwVersion function is a NVM interface function -
@@ -34,8 +31,8 @@ extern "C"
  *
  * @return CCError_t - On success the value CC_OK is returned, and on failure   -a value from NVM_error.h
  */
-CCError_t NVM_GetSwVersion(unsigned long hwBaseAddress, CCSbSwVersionId_t counterId, uint32_t *swVersion);
-
+CCError_t NVM_GetSwVersion(unsigned long hwBaseAddress,
+			   CCSbSwVersionId_t counterId, uint32_t *swVersion);
 
 /**
  * @brief The NVM_SetSwVersion function is a NVM interface function -
@@ -50,7 +47,8 @@ CCError_t NVM_GetSwVersion(unsigned long hwBaseAddress, CCSbSwVersionId_t counte
  *
  * @return CCError_t - On success the value CC_OK is returned, and on failure   -a value from NVM_error.h
  */
-CCError_t NVM_SetSwVersion(unsigned long hwBaseAddress, CCSbSwVersionId_t counterId, uint32_t swVersion);
+CCError_t NVM_SetSwVersion(unsigned long hwBaseAddress,
+			   CCSbSwVersionId_t counterId, uint32_t swVersion);
 
 #ifdef __cplusplus
 }

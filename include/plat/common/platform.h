@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -43,10 +43,10 @@ enum fw_enc_status_t;
 /*******************************************************************************
  * plat_get_rotpk_info() flags
  ******************************************************************************/
-#define ROTPK_IS_HASH			(1 << 0)
+#define ROTPK_IS_HASH (1 << 0)
 /* Flag used to skip verification of the certificate ROTPK while the platform
    ROTPK is not deployed */
-#define ROTPK_NOT_DEPLOYED		(1 << 1)
+#define ROTPK_NOT_DEPLOYED (1 << 1)
 
 /*******************************************************************************
  * plat_get_enc_key_info() flags
@@ -55,7 +55,7 @@ enum fw_enc_status_t;
  * Flag used to notify caller that information provided in key buffer is an
  * identifier rather than an actual key.
  */
-#define ENC_KEY_IS_IDENTIFIER		(1 << 0)
+#define ENC_KEY_IS_IDENTIFIER (1 << 0)
 
 /*******************************************************************************
  * Function declarations
@@ -65,9 +65,8 @@ enum fw_enc_status_t;
  ******************************************************************************/
 unsigned int plat_get_syscnt_freq2(void);
 
-int plat_get_image_source(unsigned int image_id,
-			uintptr_t *dev_handle,
-			uintptr_t *image_spec);
+int plat_get_image_source(unsigned int image_id, uintptr_t *dev_handle,
+			  uintptr_t *image_spec);
 uintptr_t plat_get_ns_image_entrypoint(void);
 unsigned int plat_my_core_pos(void);
 int plat_core_pos_by_mpidr(u_register_t mpidr);
@@ -91,8 +90,7 @@ uint32_t plat_ic_get_pending_interrupt_type(void);
 uint32_t plat_ic_acknowledge_interrupt(void);
 uint32_t plat_ic_get_interrupt_type(uint32_t id);
 void plat_ic_end_of_interrupt(uint32_t id);
-uint32_t plat_interrupt_type_to_line(uint32_t type,
-				     uint32_t security_state);
+uint32_t plat_interrupt_type_to_line(uint32_t type, uint32_t security_state);
 
 /*******************************************************************************
  * Optional interrupt management functions, depending on chosen EL3 components.
@@ -111,7 +109,7 @@ void plat_ic_raise_el3_sgi(int sgi_num, u_register_t target);
 void plat_ic_raise_ns_sgi(int sgi_num, u_register_t target);
 void plat_ic_raise_s_el1_sgi(int sgi_num, u_register_t target);
 void plat_ic_set_spi_routing(unsigned int id, unsigned int routing_mode,
-		u_register_t mpidr);
+			     u_register_t mpidr);
 void plat_ic_set_interrupt_pending(unsigned int id);
 void plat_ic_clear_interrupt_pending(unsigned int id);
 unsigned int plat_ic_set_priority_mask(unsigned int mask);
@@ -137,18 +135,17 @@ int plat_try_next_boot_source(void);
 #if MEASURED_BOOT
 int plat_mboot_measure_image(unsigned int image_id, image_info_t *image_data);
 int plat_mboot_measure_critical_data(unsigned int critical_data_id,
-				     const void *base,
-				     size_t size);
+				     const void *base, size_t size);
 #else
 static inline int plat_mboot_measure_image(unsigned int image_id __unused,
 					   image_info_t *image_data __unused)
 {
 	return 0;
 }
-static inline int plat_mboot_measure_critical_data(
-					unsigned int critical_data_id __unused,
-					const void *base __unused,
-					size_t size __unused)
+static inline int
+plat_mboot_measure_critical_data(unsigned int critical_data_id __unused,
+				 const void *base __unused,
+				 size_t size __unused)
 {
 	return 0;
 }
@@ -173,17 +170,17 @@ int plat_sdei_validate_entry_point(uintptr_t ep, unsigned int client_mode);
 void plat_sdei_handle_masked_trigger(uint64_t mpidr, unsigned int intr);
 #endif
 
-void plat_default_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *cookie,
-		void *handle, uint64_t flags);
+void plat_default_ea_handler(unsigned int ea_reason, uint64_t syndrome,
+			     void *cookie, void *handle, uint64_t flags);
 void plat_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *cookie,
-		void *handle, uint64_t flags);
+		     void *handle, uint64_t flags);
 
 /*
  * The following function is mandatory when the
  * firmware update feature is used.
  */
 int bl1_plat_mem_check(uintptr_t mem_base, unsigned int mem_size,
-		unsigned int flags);
+		       unsigned int flags);
 
 /*******************************************************************************
  * Optional BL1 functions (may be overridden)
@@ -192,7 +189,7 @@ int bl1_plat_mem_check(uintptr_t mem_base, unsigned int mem_size,
  * The following functions are used for image loading process in BL1.
  */
 void bl1_plat_set_ep_info(unsigned int image_id,
-		struct entry_point_info *ep_info);
+			  struct entry_point_info *ep_info);
 /*
  * The following functions are mandatory when firmware update
  * feature is used and optional otherwise.
@@ -228,7 +225,8 @@ static inline void bl1_plat_mboot_finish(void)
 /*******************************************************************************
  * Mandatory BL2 functions
  ******************************************************************************/
-void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1, u_register_t arg2, u_register_t arg3);
+void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1,
+			       u_register_t arg2, u_register_t arg3);
 void bl2_plat_arch_setup(void);
 void bl2_platform_setup(void);
 struct meminfo *bl2_plat_sec_mem_layout(void);
@@ -271,8 +269,7 @@ void bl2_el3_plat_prepare_exit(void);
 /*******************************************************************************
  * Mandatory BL2U functions.
  ******************************************************************************/
-void bl2u_early_platform_setup(struct meminfo *mem_layout,
-		void *plat_info);
+void bl2u_early_platform_setup(struct meminfo *mem_layout, void *plat_info);
 void bl2u_plat_arch_setup(void);
 void bl2u_platform_setup(void);
 
@@ -289,7 +286,7 @@ int bl2u_plat_handle_scp_bl2u(void);
  * Mandatory BL31 functions
  ******************************************************************************/
 void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
-		u_register_t arg2, u_register_t arg3);
+				u_register_t arg2, u_register_t arg3);
 void bl31_plat_arch_setup(void);
 void bl31_platform_setup(void);
 void bl31_plat_runtime_setup(void);
@@ -308,18 +305,18 @@ const unsigned char *plat_get_power_domain_tree_desc(void);
 void plat_psci_stat_accounting_start(const psci_power_state_t *state_info);
 void plat_psci_stat_accounting_stop(const psci_power_state_t *state_info);
 u_register_t plat_psci_stat_get_residency(unsigned int lvl,
-			const psci_power_state_t *state_info,
-			unsigned int last_cpu_idx);
+					  const psci_power_state_t *state_info,
+					  unsigned int last_cpu_idx);
 plat_local_state_t plat_get_target_pwr_state(unsigned int lvl,
-			const plat_local_state_t *states,
-			unsigned int ncpu);
+					     const plat_local_state_t *states,
+					     unsigned int ncpu);
 
 /*******************************************************************************
  * Mandatory BL31 functions when ENABLE_RME=1
  ******************************************************************************/
 #if ENABLE_RME
-int plat_rmmd_get_cca_attest_token(uintptr_t buf, size_t *len,
-				   uintptr_t hash, size_t hash_size);
+int plat_rmmd_get_cca_attest_token(uintptr_t buf, size_t *len, uintptr_t hash,
+				   size_t hash_size);
 int plat_rmmd_get_cca_realm_attest_key(uintptr_t buf, size_t *len,
 				       unsigned int type);
 size_t plat_rmmd_get_el3_rmm_shared_mem(uintptr_t *shared);
@@ -344,7 +341,7 @@ int plat_get_rotpk_info(void *cookie, void **key_ptr, unsigned int *key_len,
 int plat_get_nv_ctr(void *cookie, unsigned int *nv_ctr);
 int plat_set_nv_ctr(void *cookie, unsigned int nv_ctr);
 int plat_set_nv_ctr2(void *cookie, const struct auth_img_desc_s *img_desc,
-		unsigned int nv_ctr);
+		     unsigned int nv_ctr);
 int plat_convert_pk(void *full_pk_ptr, unsigned int full_pk_len,
 		    void **hashed_pk_ptr, unsigned int *hash_pk_len);
 int get_mbedtls_heap_helper(void **heap_addr, size_t *heap_size);
@@ -356,8 +353,8 @@ int plat_get_enc_key_info(enum fw_enc_status_t fw_enc_status, uint8_t *key,
  * Secure Partitions functions
  ******************************************************************************/
 const struct mmap_region *plat_get_secure_partition_mmap(void *cookie);
-const struct spm_mm_boot_info *plat_get_secure_partition_boot_info(
-		void *cookie);
+const struct spm_mm_boot_info *
+plat_get_secure_partition_boot_info(void *cookie);
 int plat_spm_sp_rd_load(struct sp_res_desc *rd, const void *ptr, size_t size);
 int plat_spm_sp_get_next_address(void **sp_base, size_t *sp_size,
 				 void **rd_base, size_t *rd_size);

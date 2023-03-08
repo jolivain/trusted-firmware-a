@@ -1,17 +1,18 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <arch.h>
 #include <assert.h>
-#include <common/debug.h>
-#include <lib/mmio.h>
-#include <mcucfg.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include <arch.h>
+#include <common/debug.h>
+#include <lib/mmio.h>
+#include <mcucfg.h>
 
 void disable_scu(u_register_t mpidr)
 {

@@ -1,20 +1,19 @@
 /*
- * Copyright (c) 2015, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <platform_def.h>
-
 #include <arch.h>
 #include <common/debug.h>
 #include <lib/mmio.h>
-#include <plat/common/platform.h>
-
 #include <mt8173_def.h>
 #include <spm.h>
 #include <spm_hotplug.h>
 #include <spm_mcdi.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 /*
  * System Power Manager (SPM) is a hardware module, which controls cpu or
@@ -22,21 +21,20 @@
  * This driver controls the cpu power in cpu idle power saving state.
  */
 
-#define WAKE_SRC_FOR_MCDI \
-	(WAKE_SRC_KP | WAKE_SRC_GPT | WAKE_SRC_EINT |		\
-	 WAKE_SRC_MD32 | WAKE_SRC_USB_CD | WAKE_SRC_USB_PDN |	\
-	 WAKE_SRC_AFE | WAKE_SRC_THERM | WAKE_SRC_CIRQ |	\
-	 WAKE_SRC_SYSPWREQ | WAKE_SRC_CPU_IRQ)
-#define PCM_MCDI_HANDSHAKE_SYNC	0xbeefbeef
-#define PCM_MCDI_HANDSHAKE_ACK	0xdeaddead
-#define PCM_MCDI_UPDATE_INFORM	0xabcdabcd
-#define PCM_MCDI_CKECK_DONE	0x12345678
-#define PCM_MCDI_ALL_CORE_AWAKE	0x0
-#define PCM_MCDI_OFFLOADED	0xaa55aa55
-#define PCM_MCDI_CA72_CPUTOP_PWRCTL	(0x1 << 16)
-#define PCM_MCDI_CA53_CPUTOP_PWRCTL	(0x1 << 17)
-#define PCM_MCDI_CA72_PWRSTA_SHIFT	16
-#define PCM_MCDI_CA53_PWRSTA_SHIFT	9
+#define WAKE_SRC_FOR_MCDI                                                     \
+	(WAKE_SRC_KP | WAKE_SRC_GPT | WAKE_SRC_EINT | WAKE_SRC_MD32 |         \
+	 WAKE_SRC_USB_CD | WAKE_SRC_USB_PDN | WAKE_SRC_AFE | WAKE_SRC_THERM | \
+	 WAKE_SRC_CIRQ | WAKE_SRC_SYSPWREQ | WAKE_SRC_CPU_IRQ)
+#define PCM_MCDI_HANDSHAKE_SYNC 0xbeefbeef
+#define PCM_MCDI_HANDSHAKE_ACK 0xdeaddead
+#define PCM_MCDI_UPDATE_INFORM 0xabcdabcd
+#define PCM_MCDI_CKECK_DONE 0x12345678
+#define PCM_MCDI_ALL_CORE_AWAKE 0x0
+#define PCM_MCDI_OFFLOADED 0xaa55aa55
+#define PCM_MCDI_CA72_CPUTOP_PWRCTL (0x1 << 16)
+#define PCM_MCDI_CA53_CPUTOP_PWRCTL (0x1 << 17)
+#define PCM_MCDI_CA72_PWRSTA_SHIFT 16
+#define PCM_MCDI_CA53_PWRSTA_SHIFT 9
 
 static const unsigned int mcdi_binary[] = {
 	0x1a10001f, 0x10006b04, 0x1890001f, 0x10006b6c, 0x1a40001f, 0x10006210,
@@ -235,12 +233,12 @@ static const struct spm_lp_scen spm_mcdi = {
 
 void spm_mcdi_cpu_wake_up_event(int wake_up_event, int disable_dormant_power)
 {
-	if (((mmio_read_32(SPM_SLEEP_CPU_WAKEUP_EVENT) & 0x1) == 1)
-	    && ((mmio_read_32(SPM_CLK_CON) & CC_DISABLE_DORM_PWR) == 0)) {
+	if (((mmio_read_32(SPM_SLEEP_CPU_WAKEUP_EVENT) & 0x1) == 1) &&
+	    ((mmio_read_32(SPM_CLK_CON) & CC_DISABLE_DORM_PWR) == 0)) {
 		/* MCDI is offload? */
 		INFO("%s: SPM_SLEEP_CPU_WAKEUP_EVENT:%x, SPM_CLK_CON %x",
-			__func__, mmio_read_32(SPM_SLEEP_CPU_WAKEUP_EVENT),
-			mmio_read_32(SPM_CLK_CON));
+		     __func__, mmio_read_32(SPM_SLEEP_CPU_WAKEUP_EVENT),
+		     mmio_read_32(SPM_CLK_CON));
 		return;
 	}
 	/* Inform SPM that CPU wants to program CPU_WAKEUP_EVENT and
@@ -256,13 +254,13 @@ void spm_mcdi_cpu_wake_up_event(int wake_up_event, int disable_dormant_power)
 	if (disable_dormant_power) {
 		mmio_setbits_32(SPM_CLK_CON, CC_DISABLE_DORM_PWR);
 		while (mmio_read_32(SPM_CLK_CON) !=
-			(mmio_read_32(SPM_CLK_CON) | CC_DISABLE_DORM_PWR))
+		       (mmio_read_32(SPM_CLK_CON) | CC_DISABLE_DORM_PWR))
 			;
 
 	} else {
 		mmio_clrbits_32(SPM_CLK_CON, CC_DISABLE_DORM_PWR);
 		while (mmio_read_32(SPM_CLK_CON) !=
-			(mmio_read_32(SPM_CLK_CON) & ~CC_DISABLE_DORM_PWR))
+		       (mmio_read_32(SPM_CLK_CON) & ~CC_DISABLE_DORM_PWR))
 			;
 	}
 
@@ -410,7 +408,7 @@ static void spm_mcdi_set_cputop_pwrctrl_for_cluster_off(unsigned long mpidr)
 	unsigned int pwr_status, shift, i, flag = 0;
 
 	pwr_status = mmio_read_32(SPM_PWR_STATUS) |
-				 mmio_read_32(SPM_PWR_STATUS_2ND);
+		     mmio_read_32(SPM_PWR_STATUS_2ND);
 
 	if (cluster_id) {
 		for (i = 0; i < PLATFORM_CLUSTER1_CORE_COUNT; i++) {
@@ -440,11 +438,9 @@ static void spm_mcdi_clear_cputop_pwrctrl_for_cluster_on(unsigned long mpidr)
 	unsigned long cluster_id = mpidr & MPIDR_CLUSTER_MASK;
 
 	if (cluster_id)
-		mmio_clrbits_32(SPM_PCM_RESERVE,
-				PCM_MCDI_CA72_CPUTOP_PWRCTL);
+		mmio_clrbits_32(SPM_PCM_RESERVE, PCM_MCDI_CA72_CPUTOP_PWRCTL);
 	else
-		mmio_clrbits_32(SPM_PCM_RESERVE,
-				PCM_MCDI_CA53_CPUTOP_PWRCTL);
+		mmio_clrbits_32(SPM_PCM_RESERVE, PCM_MCDI_CA53_CPUTOP_PWRCTL);
 }
 
 void spm_mcdi_prepare_for_mtcmos(void)
@@ -493,7 +489,7 @@ void spm_mcdi_finish_for_on_state(unsigned long mpidr, unsigned int afflvl)
 	unsigned long linear_id;
 
 	linear_id = ((mpidr & MPIDR_CLUSTER_MASK) >> 6) |
-			(mpidr & MPIDR_CPU_MASK);
+		    (mpidr & MPIDR_CPU_MASK);
 
 	spm_lock_get();
 	spm_mcdi_clear_cputop_pwrctrl_for_cluster_on(mpidr);

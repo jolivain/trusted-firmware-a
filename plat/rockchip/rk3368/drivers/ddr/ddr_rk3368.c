@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,30 +7,29 @@
 #include <stdint.h>
 #include <string.h>
 
-#include <platform_def.h>
-
 #include <common/debug.h>
-#include <lib/mmio.h>
-
 #include <ddr_rk3368.h>
+#include <lib/mmio.h>
 #include <pmu.h>
 #include <rk3368_def.h>
 #include <soc.h>
 
+#include <platform_def.h>
+
 /* GRF_SOC_STATUS0 */
-#define DPLL_LOCK		(0x1 << 2)
+#define DPLL_LOCK (0x1 << 2)
 
 /* GRF_DDRC0_CON0 */
-#define GRF_DDR_16BIT_EN	(((0x1 << 3) << 16) | (0x1 << 3))
-#define GRF_DDR_32BIT_EN	(((0x1 << 3) << 16) | (0x0 << 3))
-#define GRF_MOBILE_DDR_EN	(((0x1 << 4) << 16) | (0x1 << 4))
-#define GRF_MOBILE_DDR_DISB	(((0x1 << 4) << 16) | (0x0 << 4))
-#define GRF_DDR3_EN		(((0x1 << 2) << 16) | (0x1 << 2))
-#define GRF_LPDDR2_3_EN		(((0x1 << 2) << 16) | (0x0 << 2))
+#define GRF_DDR_16BIT_EN (((0x1 << 3) << 16) | (0x1 << 3))
+#define GRF_DDR_32BIT_EN (((0x1 << 3) << 16) | (0x0 << 3))
+#define GRF_MOBILE_DDR_EN (((0x1 << 4) << 16) | (0x1 << 4))
+#define GRF_MOBILE_DDR_DISB (((0x1 << 4) << 16) | (0x0 << 4))
+#define GRF_DDR3_EN (((0x1 << 2) << 16) | (0x1 << 2))
+#define GRF_LPDDR2_3_EN (((0x1 << 2) << 16) | (0x0 << 2))
 
 /* PMUGRF_SOC_CON0 */
-#define ddrphy_bufferen_io_en(n)	((0x1 << (9 + 16)) | (n << 9))
-#define ddrphy_bufferen_core_en(n)	((0x1 << (8 + 16)) | (n << 8))
+#define ddrphy_bufferen_io_en(n) ((0x1 << (9 + 16)) | (n << 9))
+#define ddrphy_bufferen_core_en(n) ((0x1 << (8 + 16)) | (n << 8))
 
 struct PCTRL_TIMING_TAG {
 	uint32_t ddrfreq;
@@ -258,56 +257,56 @@ void ddr_reg_save(uint32_t pllpdstat, uint64_t base_addr)
 		 (uint32_t *)(DDR_PCTL_BASE + DDR_PCTL_TOGCNT1U), 35);
 	pctl_tim->pctl_timing.TREFI |= DDR_UPD_REF_ENABLE;
 	pctl_tim->SCFG = mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_SCFG);
-	pctl_tim->CMDTSTATEN = mmio_read_32(DDR_PCTL_BASE +
-					    DDR_PCTL_CMDTSTATEN);
+	pctl_tim->CMDTSTATEN =
+		mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_CMDTSTATEN);
 	pctl_tim->MCFG1 = mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_MCFG1);
 	pctl_tim->MCFG = mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_MCFG);
 	pctl_tim->PPCFG = mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_PPCFG);
-	pctl_tim->pctl_timing.ddrfreq = mmio_read_32(DDR_PCTL_BASE +
-						     DDR_PCTL_TOGCNT1U * 2);
-	pctl_tim->DFITCTRLDELAY = mmio_read_32(DDR_PCTL_BASE +
-					       DDR_PCTL_DFITCTRLDELAY);
+	pctl_tim->pctl_timing.ddrfreq =
+		mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_TOGCNT1U * 2);
+	pctl_tim->DFITCTRLDELAY =
+		mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFITCTRLDELAY);
 	pctl_tim->DFIODTCFG = mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFIODTCFG);
-	pctl_tim->DFIODTCFG1 = mmio_read_32(DDR_PCTL_BASE +
-					    DDR_PCTL_DFIODTCFG1);
-	pctl_tim->DFIODTRANKMAP = mmio_read_32(DDR_PCTL_BASE +
-					       DDR_PCTL_DFIODTRANKMAP);
-	pctl_tim->DFITPHYWRDATA = mmio_read_32(DDR_PCTL_BASE +
-					       DDR_PCTL_DFITPHYWRDATA);
-	pctl_tim->DFITPHYWRLAT = mmio_read_32(DDR_PCTL_BASE +
-					      DDR_PCTL_DFITPHYWRLAT);
-	pctl_tim->DFITPHYWRDATALAT = mmio_read_32(DDR_PCTL_BASE +
-						  DDR_PCTL_DFITPHYWRDATALAT);
-	pctl_tim->DFITRDDATAEN = mmio_read_32(DDR_PCTL_BASE +
-					      DDR_PCTL_DFITRDDATAEN);
-	pctl_tim->DFITPHYRDLAT = mmio_read_32(DDR_PCTL_BASE +
-					      DDR_PCTL_DFITPHYRDLAT);
-	pctl_tim->DFITPHYUPDTYPE0 = mmio_read_32(DDR_PCTL_BASE +
-						 DDR_PCTL_DFITPHYUPDTYPE0);
-	pctl_tim->DFITPHYUPDTYPE1 = mmio_read_32(DDR_PCTL_BASE +
-						 DDR_PCTL_DFITPHYUPDTYPE1);
-	pctl_tim->DFITPHYUPDTYPE2 = mmio_read_32(DDR_PCTL_BASE +
-						 DDR_PCTL_DFITPHYUPDTYPE2);
-	pctl_tim->DFITPHYUPDTYPE3 = mmio_read_32(DDR_PCTL_BASE +
-						 DDR_PCTL_DFITPHYUPDTYPE3);
-	pctl_tim->DFITCTRLUPDMIN = mmio_read_32(DDR_PCTL_BASE +
-						DDR_PCTL_DFITCTRLUPDMIN);
-	pctl_tim->DFITCTRLUPDMAX = mmio_read_32(DDR_PCTL_BASE +
-						DDR_PCTL_DFITCTRLUPDMAX);
-	pctl_tim->DFITCTRLUPDDLY = mmio_read_32(DDR_PCTL_BASE +
-						DDR_PCTL_DFITCTRLUPDDLY);
+	pctl_tim->DFIODTCFG1 =
+		mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFIODTCFG1);
+	pctl_tim->DFIODTRANKMAP =
+		mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFIODTRANKMAP);
+	pctl_tim->DFITPHYWRDATA =
+		mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFITPHYWRDATA);
+	pctl_tim->DFITPHYWRLAT =
+		mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFITPHYWRLAT);
+	pctl_tim->DFITPHYWRDATALAT =
+		mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFITPHYWRDATALAT);
+	pctl_tim->DFITRDDATAEN =
+		mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFITRDDATAEN);
+	pctl_tim->DFITPHYRDLAT =
+		mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFITPHYRDLAT);
+	pctl_tim->DFITPHYUPDTYPE0 =
+		mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFITPHYUPDTYPE0);
+	pctl_tim->DFITPHYUPDTYPE1 =
+		mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFITPHYUPDTYPE1);
+	pctl_tim->DFITPHYUPDTYPE2 =
+		mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFITPHYUPDTYPE2);
+	pctl_tim->DFITPHYUPDTYPE3 =
+		mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFITPHYUPDTYPE3);
+	pctl_tim->DFITCTRLUPDMIN =
+		mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFITCTRLUPDMIN);
+	pctl_tim->DFITCTRLUPDMAX =
+		mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFITCTRLUPDMAX);
+	pctl_tim->DFITCTRLUPDDLY =
+		mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFITCTRLUPDDLY);
 
 	pctl_tim->DFIUPDCFG = mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFIUPDCFG);
-	pctl_tim->DFITREFMSKI = mmio_read_32(DDR_PCTL_BASE +
-					     DDR_PCTL_DFITREFMSKI);
-	pctl_tim->DFITCTRLUPDI = mmio_read_32(DDR_PCTL_BASE +
-					      DDR_PCTL_DFITCTRLUPDI);
+	pctl_tim->DFITREFMSKI =
+		mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFITREFMSKI);
+	pctl_tim->DFITCTRLUPDI =
+		mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFITCTRLUPDI);
 	pctl_tim->DFISTCFG0 = mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFISTCFG0);
 	pctl_tim->DFISTCFG1 = mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFISTCFG1);
-	pctl_tim->DFITDRAMCLKEN = mmio_read_32(DDR_PCTL_BASE +
-					       DDR_PCTL_DFITDRAMCLKEN);
-	pctl_tim->DFITDRAMCLKDIS = mmio_read_32(DDR_PCTL_BASE +
-						DDR_PCTL_DFITDRAMCLKDIS);
+	pctl_tim->DFITDRAMCLKEN =
+		mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFITDRAMCLKEN);
+	pctl_tim->DFITDRAMCLKDIS =
+		mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFITDRAMCLKDIS);
 	pctl_tim->DFISTCFG2 = mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFISTCFG2);
 	pctl_tim->DFILPCFG0 = mmio_read_32(DDR_PCTL_BASE + DDR_PCTL_DFILPCFG0);
 
@@ -340,44 +339,43 @@ void ddr_reg_save(uint32_t pllpdstat, uint64_t base_addr)
 	p_ddr_reg->phy.PHY_REG56 = mmio_read_32(DDR_PHY_BASE + DDR_PHY_REG56);
 	p_ddr_reg->phy.PHY_REG57 = mmio_read_32(DDR_PHY_BASE + DDR_PHY_REG57);
 	p_ddr_reg->phy.PHY_REG58 = mmio_read_32(DDR_PHY_BASE + DDR_PHY_REG58);
-	p_ddr_reg->phy.PHY_REGDLL = mmio_read_32(DDR_PHY_BASE +
-						 DDR_PHY_REGDLL);
+	p_ddr_reg->phy.PHY_REGDLL = mmio_read_32(DDR_PHY_BASE + DDR_PHY_REGDLL);
 	p_ddr_reg->phy.PHY_REGEC = mmio_read_32(DDR_PHY_BASE + DDR_PHY_REGEC);
 	p_ddr_reg->phy.PHY_REGED = mmio_read_32(DDR_PHY_BASE + DDR_PHY_REGED);
 	p_ddr_reg->phy.PHY_REGEE = mmio_read_32(DDR_PHY_BASE + DDR_PHY_REGEE);
 	p_ddr_reg->phy.PHY_REGEF = 0;
 
 	if (mmio_read_32(DDR_PHY_BASE + DDR_PHY_REG2) & 0x2) {
-		p_ddr_reg->phy.PHY_REGFB = mmio_read_32(DDR_PHY_BASE +
-							DDR_PHY_REG2C);
-		p_ddr_reg->phy.PHY_REGFC = mmio_read_32(DDR_PHY_BASE +
-							DDR_PHY_REG3C);
-		p_ddr_reg->phy.PHY_REGFD = mmio_read_32(DDR_PHY_BASE +
-							DDR_PHY_REG4C);
-		p_ddr_reg->phy.PHY_REGFE = mmio_read_32(DDR_PHY_BASE +
-							DDR_PHY_REG5C);
+		p_ddr_reg->phy.PHY_REGFB =
+			mmio_read_32(DDR_PHY_BASE + DDR_PHY_REG2C);
+		p_ddr_reg->phy.PHY_REGFC =
+			mmio_read_32(DDR_PHY_BASE + DDR_PHY_REG3C);
+		p_ddr_reg->phy.PHY_REGFD =
+			mmio_read_32(DDR_PHY_BASE + DDR_PHY_REG4C);
+		p_ddr_reg->phy.PHY_REGFE =
+			mmio_read_32(DDR_PHY_BASE + DDR_PHY_REG5C);
 	} else {
-		p_ddr_reg->phy.PHY_REGFB = mmio_read_32(DDR_PHY_BASE +
-							DDR_PHY_REGFB);
-		p_ddr_reg->phy.PHY_REGFC = mmio_read_32(DDR_PHY_BASE +
-							DDR_PHY_REGFC);
-		p_ddr_reg->phy.PHY_REGFD = mmio_read_32(DDR_PHY_BASE +
-							DDR_PHY_REGFD);
-		p_ddr_reg->phy.PHY_REGFE = mmio_read_32(DDR_PHY_BASE +
-							DDR_PHY_REGFE);
+		p_ddr_reg->phy.PHY_REGFB =
+			mmio_read_32(DDR_PHY_BASE + DDR_PHY_REGFB);
+		p_ddr_reg->phy.PHY_REGFC =
+			mmio_read_32(DDR_PHY_BASE + DDR_PHY_REGFC);
+		p_ddr_reg->phy.PHY_REGFD =
+			mmio_read_32(DDR_PHY_BASE + DDR_PHY_REGFD);
+		p_ddr_reg->phy.PHY_REGFE =
+			mmio_read_32(DDR_PHY_BASE + DDR_PHY_REGFE);
 	}
 
 	/* NOC */
 	p_ddr_reg->noc.ddrconf = mmio_read_32(SERVICE_BUS_BASE + MSCH_DDRCONF);
-	p_ddr_reg->noc.ddrtiming = mmio_read_32(SERVICE_BUS_BASE +
-						MSCH_DDRTIMING);
+	p_ddr_reg->noc.ddrtiming =
+		mmio_read_32(SERVICE_BUS_BASE + MSCH_DDRTIMING);
 	p_ddr_reg->noc.ddrmode = mmio_read_32(SERVICE_BUS_BASE + MSCH_DDRMODE);
-	p_ddr_reg->noc.readlatency = mmio_read_32(SERVICE_BUS_BASE +
-						  MSCH_READLATENCY);
-	p_ddr_reg->noc.activate = mmio_read_32(SERVICE_BUS_BASE +
-					       MSCH_ACTIVATE);
-	p_ddr_reg->noc.devtodev = mmio_read_32(SERVICE_BUS_BASE +
-					       MSCH_DEVTODEV);
+	p_ddr_reg->noc.readlatency =
+		mmio_read_32(SERVICE_BUS_BASE + MSCH_READLATENCY);
+	p_ddr_reg->noc.activate =
+		mmio_read_32(SERVICE_BUS_BASE + MSCH_ACTIVATE);
+	p_ddr_reg->noc.devtodev =
+		mmio_read_32(SERVICE_BUS_BASE + MSCH_DEVTODEV);
 
 	p_ddr_reg->pllselect = mmio_read_32(DDR_PHY_BASE + DDR_PHY_REGEE) * 0x1;
 	p_ddr_reg->phypllockaddr = GRF_BASE + GRF_SOC_STATUS0;
@@ -397,20 +395,20 @@ void ddr_reg_save(uint32_t pllpdstat, uint64_t base_addr)
 	p_ddr_reg->dpllconaddr = CRU_BASE + PLL_CONS(DPLL_ID, 0);
 
 	if (p_ddr_reg->pllselect == 0) {
-		p_ddr_reg->dpllcon[0] = (mmio_read_32(CRU_BASE +
-						      PLL_CONS(DPLL_ID, 0))
-							& 0xffff) |
-					(0xFFFFu << 16);
-		p_ddr_reg->dpllcon[1] = (mmio_read_32(CRU_BASE +
-						      PLL_CONS(DPLL_ID, 1))
-							& 0xffff);
-		p_ddr_reg->dpllcon[2] = (mmio_read_32(CRU_BASE +
-						      PLL_CONS(DPLL_ID, 2))
-							& 0xffff);
-		p_ddr_reg->dpllcon[3] = (mmio_read_32(CRU_BASE +
-						      PLL_CONS(DPLL_ID, 3))
-							& 0xffff) |
-					(0xFFFFu << 16);
+		p_ddr_reg->dpllcon[0] =
+			(mmio_read_32(CRU_BASE + PLL_CONS(DPLL_ID, 0)) &
+			 0xffff) |
+			(0xFFFFu << 16);
+		p_ddr_reg->dpllcon[1] =
+			(mmio_read_32(CRU_BASE + PLL_CONS(DPLL_ID, 1)) &
+			 0xffff);
+		p_ddr_reg->dpllcon[2] =
+			(mmio_read_32(CRU_BASE + PLL_CONS(DPLL_ID, 2)) &
+			 0xffff);
+		p_ddr_reg->dpllcon[3] =
+			(mmio_read_32(CRU_BASE + PLL_CONS(DPLL_ID, 3)) &
+			 0xffff) |
+			(0xFFFFu << 16);
 	} else {
 		ddr_get_dpll_cfg(&p_ddr_reg->dpllcon[0]);
 	}
@@ -422,31 +420,29 @@ void ddr_reg_save(uint32_t pllpdstat, uint64_t base_addr)
 
 	/* SET_DDR_PLL_SRC */
 	p_ddr_reg->ddrpllsrcdivaddr = CRU_BASE + CRU_CLKSELS_CON(13);
-	p_ddr_reg->ddrpllsrcdiv = (mmio_read_32(CRU_BASE + CRU_CLKSELS_CON(13))
-					& DDR_PLL_SRC_MASK)
-					| (DDR_PLL_SRC_MASK << 16);
+	p_ddr_reg->ddrpllsrcdiv =
+		(mmio_read_32(CRU_BASE + CRU_CLKSELS_CON(13)) &
+		 DDR_PLL_SRC_MASK) |
+		(DDR_PLL_SRC_MASK << 16);
 	p_ddr_reg->retendisaddr = PMU_BASE + PMU_PWRMD_COM;
 	p_ddr_reg->retendisval = PD_PERI_PWRDN_ENABLE;
 	p_ddr_reg->grfregaddr = GRF_BASE + GRF_DDRC0_CON0;
-	p_ddr_reg->grfddrcreg = (mmio_read_32(GRF_BASE + GRF_DDRC0_CON0) &
-					      DDR_PLL_SRC_MASK) |
-				 (DDR_PLL_SRC_MASK << 16);
+	p_ddr_reg->grfddrcreg =
+		(mmio_read_32(GRF_BASE + GRF_DDRC0_CON0) & DDR_PLL_SRC_MASK) |
+		(DDR_PLL_SRC_MASK << 16);
 
 	/* pctl phy soft reset */
 	p_ddr_reg->crupctlphysoftrstaddr = CRU_BASE + CRU_SOFTRSTS_CON(10);
-	p_ddr_reg->cruresetpctlphy = DDRCTRL0_PSRSTN_REQ(1) |
-				     DDRCTRL0_SRSTN_REQ(1) |
-				     DDRPHY0_PSRSTN_REQ(1) |
-				     DDRPHY0_SRSTN_REQ(1);
+	p_ddr_reg->cruresetpctlphy =
+		DDRCTRL0_PSRSTN_REQ(1) | DDRCTRL0_SRSTN_REQ(1) |
+		DDRPHY0_PSRSTN_REQ(1) | DDRPHY0_SRSTN_REQ(1);
 	p_ddr_reg->cruderesetphy = DDRCTRL0_PSRSTN_REQ(1) |
 				   DDRCTRL0_SRSTN_REQ(1) |
-				   DDRPHY0_PSRSTN_REQ(0) |
-				   DDRPHY0_SRSTN_REQ(0);
+				   DDRPHY0_PSRSTN_REQ(0) | DDRPHY0_SRSTN_REQ(0);
 
-	p_ddr_reg->cruderesetpctlphy = DDRCTRL0_PSRSTN_REQ(0) |
-				       DDRCTRL0_SRSTN_REQ(0) |
-				       DDRPHY0_PSRSTN_REQ(0) |
-				       DDRPHY0_SRSTN_REQ(0);
+	p_ddr_reg->cruderesetpctlphy =
+		DDRCTRL0_PSRSTN_REQ(0) | DDRCTRL0_SRSTN_REQ(0) |
+		DDRPHY0_PSRSTN_REQ(0) | DDRPHY0_SRSTN_REQ(0);
 
 	p_ddr_reg->physoftrstaddr = DDR_PHY_BASE + DDR_PHY_REG0;
 
@@ -463,7 +459,7 @@ void ddr_reg_save(uint32_t pllpdstat, uint64_t base_addr)
  * it can be loaded anywhere and run.
  */
 static __aligned(4) unsigned int ddr_reg_resume[] = {
-	#include "rk3368_ddr_reg_resume_V1.05.bin"
+#include "rk3368_ddr_reg_resume_V1.05.bin"
 };
 
 uint32_t ddr_get_resume_code_size(void)

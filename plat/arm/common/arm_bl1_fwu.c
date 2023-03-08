@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,14 +7,14 @@
 #include <assert.h>
 #include <errno.h>
 
-#include <platform_def.h>
-
 #include <bl1/tbbr/tbbr_img_desc.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <lib/utils.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 #pragma weak bl1_plat_get_image_desc
 
@@ -25,32 +25,18 @@ typedef struct bl1_mem_info {
 } bl1_mem_info_t;
 
 static bl1_mem_info_t fwu_addr_map_secure[] = {
-	{
-		.mem_base = ARM_SHARED_RAM_BASE,
-		.mem_size = ARM_SHARED_RAM_SIZE
-	},
-	{
-		.mem_size = 0
-	}
+	{ .mem_base = ARM_SHARED_RAM_BASE, .mem_size = ARM_SHARED_RAM_SIZE },
+	{ .mem_size = 0 }
 };
 
 static bl1_mem_info_t fwu_addr_map_non_secure[] = {
-	{
-		.mem_base = ARM_NS_DRAM1_BASE,
-		.mem_size = ARM_NS_DRAM1_SIZE
-	},
-	{
-		.mem_base = PLAT_ARM_NVM_BASE,
-		.mem_size = PLAT_ARM_NVM_SIZE
-	},
-	{
-		.mem_size = 0
-	}
+	{ .mem_base = ARM_NS_DRAM1_BASE, .mem_size = ARM_NS_DRAM1_SIZE },
+	{ .mem_base = PLAT_ARM_NVM_BASE, .mem_size = PLAT_ARM_NVM_SIZE },
+	{ .mem_size = 0 }
 };
 
-int bl1_plat_mem_check(uintptr_t mem_base,
-		unsigned int mem_size,
-		unsigned int flags)
+int bl1_plat_mem_check(uintptr_t mem_base, unsigned int mem_size,
+		       unsigned int flags)
 {
 	unsigned int index = 0;
 	bl1_mem_info_t *mmap;
@@ -74,9 +60,8 @@ int bl1_plat_mem_check(uintptr_t mem_base,
 
 	while (mmap[index].mem_size) {
 		if ((mem_base >= mmap[index].mem_base) &&
-			((mem_base + mem_size)
-			<= (mmap[index].mem_base +
-			mmap[index].mem_size)))
+		    ((mem_base + mem_size) <=
+		     (mmap[index].mem_base + mmap[index].mem_size)))
 			return 0;
 
 		index++;

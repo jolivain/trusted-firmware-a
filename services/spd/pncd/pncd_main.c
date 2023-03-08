@@ -28,11 +28,13 @@
 #include <drivers/arm/gic_common.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/spinlock.h>
-#include <plat/common/platform.h>
 #include <pnc.h>
-#include "pncd_private.h"
 #include <runtime_svc.h>
 #include <tools_share/uuid.h>
+
+#include <plat/common/platform.h>
+
+#include "pncd_private.h"
 
 /*******************************************************************************
  * Structure to keep track of ProvenCore state
@@ -54,7 +56,7 @@ static void context_save(unsigned long security_state)
 {
 	assert(sec_state_is_valid(security_state));
 
-	cm_el1_sysregs_context_save((uint32_t) security_state);
+	cm_el1_sysregs_context_save((uint32_t)security_state);
 #if CTX_INCLUDE_FPREGS
 	fpregs_context_save(get_fpregs_ctx(cm_get_context(security_state)));
 #endif
@@ -67,22 +69,22 @@ static void *context_restore(unsigned long security_state)
 	assert(sec_state_is_valid(security_state));
 
 	/* Get a reference to the next context */
-	handle = cm_get_context((uint32_t) security_state);
+	handle = cm_get_context((uint32_t)security_state);
 	assert(handle);
 
 	/* Restore state */
-	cm_el1_sysregs_context_restore((uint32_t) security_state);
+	cm_el1_sysregs_context_restore((uint32_t)security_state);
 #if CTX_INCLUDE_FPREGS
 	fpregs_context_restore(get_fpregs_ctx(cm_get_context(security_state)));
 #endif
 
-	cm_set_next_eret_context((uint32_t) security_state);
+	cm_set_next_eret_context((uint32_t)security_state);
 
 	return handle;
 }
 
-static uint64_t pncd_sel1_interrupt_handler(uint32_t id,
-		uint32_t flags, void *handle, void *cookie);
+static uint64_t pncd_sel1_interrupt_handler(uint32_t id, uint32_t flags,
+					    void *handle, void *cookie);
 
 /*******************************************************************************
  * Switch context to the specified security state and return the targeted
@@ -91,8 +93,8 @@ static uint64_t pncd_sel1_interrupt_handler(uint32_t id,
  ******************************************************************************/
 void *pncd_context_switch_to(unsigned long security_state)
 {
-	unsigned long sec_state_from =
-	    security_state == SECURE ? NON_SECURE : SECURE;
+	unsigned long sec_state_from = security_state == SECURE ? NON_SECURE :
+								  SECURE;
 
 	assert(sec_state_is_valid(security_state));
 
@@ -112,9 +114,8 @@ void *pncd_context_switch_to(unsigned long security_state)
 		 */
 		flags = 0U;
 		set_interrupt_rm_flag(flags, NON_SECURE);
-		rc = register_interrupt_type_handler(INTR_TYPE_S_EL1,
-				pncd_sel1_interrupt_handler,
-				flags);
+		rc = register_interrupt_type_handler(
+			INTR_TYPE_S_EL1, pncd_sel1_interrupt_handler, flags);
 		if (rc != 0) {
 			ERROR("Failed to register S-EL1 interrupt handler (%d)\n",
 			      rc);
@@ -137,7 +138,7 @@ void *pncd_context_switch_to(unsigned long security_state)
 		 * into the SP. Jump back to the original C runtime
 		 * context.
 		 */
-		pncd_synchronous_sp_exit(&pncd_sp_context, (uint64_t) 0x0);
+		pncd_synchronous_sp_exit(&pncd_sp_context, (uint64_t)0x0);
 
 		/* Unreachable */
 		ERROR("Returned from pncd_synchronous_sp_exit... Should not happen\n");
@@ -158,7 +159,7 @@ void *pncd_context_switch_to(unsigned long security_state)
 		 * Secure or Non-Secure world wants to switch world but there is no Secure
 		 * software on this core
 		 */
-		return cm_get_context((uint32_t) sec_state_from);
+		return cm_get_context((uint32_t)sec_state_from);
 	}
 
 	context_save(sec_state_from);
@@ -171,10 +172,8 @@ void *pncd_context_switch_to(unsigned long security_state)
  * validates the interrupt and upon success arranges entry into the PNC at
  * 'pnc_sel1_intr_entry()' for handling the interrupt.
  ******************************************************************************/
-static uint64_t pncd_sel1_interrupt_handler(uint32_t id,
-		uint32_t flags,
-		void *handle,
-		void *cookie)
+static uint64_t pncd_sel1_interrupt_handler(uint32_t id, uint32_t flags,
+					    void *handle, void *cookie)
 {
 	/* Check the security state when the exception was generated */
 	assert(get_interrupt_src_ss(flags) == NON_SECURE);
@@ -226,9 +225,7 @@ static int pncd_setup(void)
 		return 1;
 	}
 
-	pncd_init_pnc_ep_state(pnc_ep_info,
-			pnc_ep_info->pc,
-			&pncd_sp_context);
+	pncd_init_pnc_ep_state(pnc_ep_info, pnc_ep_info->pc, &pncd_sp_context);
 
 	/*
 	 * All PNCD initialization done. Now register our init function with
@@ -280,22 +277,18 @@ static int32_t pncd_init(void)
  * This function is responsible for handling the platform-specific SMCs in the
  * Trusted OS/App range as defined in the SMC Calling Convention Document.
  ******************************************************************************/
-uintptr_t plat_pncd_smc_handler(uint32_t smc_fid,
-		u_register_t x1,
-		u_register_t x2,
-		u_register_t x3,
-		u_register_t x4,
-		void *cookie,
-		void *handle,
-		u_register_t flags)
+uintptr_t plat_pncd_smc_handler(uint32_t smc_fid, u_register_t x1,
+				u_register_t x2, u_register_t x3,
+				u_register_t x4, void *cookie, void *handle,
+				u_register_t flags)
 {
-	(void) smc_fid;
-	(void) x1;
-	(void) x2;
-	(void) x3;
-	(void) x4;
-	(void) cookie;
-	(void) flags;
+	(void)smc_fid;
+	(void)x1;
+	(void)x2;
+	(void)x3;
+	(void)x4;
+	(void)cookie;
+	(void)flags;
 
 	SMC_RET1(handle, SMC_UNK);
 }
@@ -309,14 +302,10 @@ uintptr_t plat_pncd_smc_handler(uint32_t smc_fid,
  *
  * It should only be called with the smc_handler_lock held.
  ******************************************************************************/
-static uintptr_t pncd_smc_handler_unsafe(uint32_t smc_fid,
-		u_register_t x1,
-		u_register_t x2,
-		u_register_t x3,
-		u_register_t x4,
-		void *cookie,
-		void *handle,
-		u_register_t flags)
+static uintptr_t pncd_smc_handler_unsafe(uint32_t smc_fid, u_register_t x1,
+					 u_register_t x2, u_register_t x3,
+					 u_register_t x4, void *cookie,
+					 void *handle, u_register_t flags)
 {
 	uint32_t ns;
 
@@ -344,9 +333,8 @@ static uintptr_t pncd_smc_handler_unsafe(uint32_t smc_fid,
 		ree_tag = x4;
 
 		INFO("IN SMC_CONFIG_SHAREDMEM: addr=%lx, length=%lx, tag=%lx\n",
-		     (unsigned long) ree_base_addr,
-		     (unsigned long) ree_length,
-		     (unsigned long) ree_tag);
+		     (unsigned long)ree_base_addr, (unsigned long)ree_length,
+		     (unsigned long)ree_tag);
 
 		if ((ree_base_addr % 0x200000) != 0) {
 			SMC_RET1(handle, SMC_UNK);
@@ -426,46 +414,30 @@ static uintptr_t pncd_smc_handler_unsafe(uint32_t smc_fid,
 		break;
 	}
 
-	return plat_pncd_smc_handler(smc_fid, x1, x2, x3, x4,
-				     cookie, handle, flags);
+	return plat_pncd_smc_handler(smc_fid, x1, x2, x3, x4, cookie, handle,
+				     flags);
 }
 
-static uintptr_t pncd_smc_handler(uint32_t smc_fid,
-		u_register_t x1,
-		u_register_t x2,
-		u_register_t x3,
-		u_register_t x4,
-		void *cookie,
-		void *handle,
-		u_register_t flags)
+static uintptr_t pncd_smc_handler(uint32_t smc_fid, u_register_t x1,
+				  u_register_t x2, u_register_t x3,
+				  u_register_t x4, void *cookie, void *handle,
+				  u_register_t flags)
 {
 	uintptr_t ret;
 
 	/* SMC handling is serialized */
 	spin_lock(&smc_handler_lock);
 	ret = pncd_smc_handler_unsafe(smc_fid, x1, x2, x3, x4, cookie, handle,
-								  flags);
+				      flags);
 	spin_unlock(&smc_handler_lock);
 
 	return ret;
 }
 
 /* Define a SPD runtime service descriptor for fast SMC calls */
-DECLARE_RT_SVC(
-	pncd_fast,
-	OEN_TOS_START,
-	OEN_TOS_END,
-	SMC_TYPE_FAST,
-	pncd_setup,
-	pncd_smc_handler
-);
+DECLARE_RT_SVC(pncd_fast, OEN_TOS_START, OEN_TOS_END, SMC_TYPE_FAST, pncd_setup,
+	       pncd_smc_handler);
 
 /* Define a SPD runtime service descriptor for standard SMC calls */
-DECLARE_RT_SVC(
-	pncd_std,
-	OEN_TOS_START,
-	OEN_TOS_END,
-	SMC_TYPE_YIELD,
-	NULL,
-	pncd_smc_handler
-);
+DECLARE_RT_SVC(pncd_std, OEN_TOS_START, OEN_TOS_END, SMC_TYPE_YIELD, NULL,
+	       pncd_smc_handler);

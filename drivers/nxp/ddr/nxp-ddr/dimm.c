@@ -12,7 +12,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 #include <common/debug.h>
 #include <ddr.h>
 #include <dimm.h>
@@ -65,18 +64,18 @@ static int ddr4_spd_check(const struct ddr4_spd *spd)
 	void *p = (void *)spd;
 	int csum16;
 	int len;
-	char crc_lsb;	/* byte 126 */
-	char crc_msb;	/* byte 127 */
+	char crc_lsb; /* byte 126 */
+	char crc_msb; /* byte 127 */
 
 	len = 126;
 	csum16 = crc16(p, len);
 
-	crc_lsb = (char) (csum16 & 0xff);
-	crc_msb = (char) (csum16 >> 8);
+	crc_lsb = (char)(csum16 & 0xff);
+	crc_msb = (char)(csum16 >> 8);
 
 	if (spd->crc[0] != crc_lsb || spd->crc[1] != crc_msb) {
-		ERROR("SPD CRC = 0x%x%x, computed CRC = 0x%x%x\n",
-		      spd->crc[1], spd->crc[0], crc_msb, crc_lsb);
+		ERROR("SPD CRC = 0x%x%x, computed CRC = 0x%x%x\n", spd->crc[1],
+		      spd->crc[0], crc_msb, crc_lsb);
 		return -EINVAL;
 	}
 
@@ -84,8 +83,8 @@ static int ddr4_spd_check(const struct ddr4_spd *spd)
 	len = 126;
 	csum16 = crc16(p, len);
 
-	crc_lsb = (char) (csum16 & 0xff);
-	crc_msb = (char) (csum16 >> 8);
+	crc_lsb = (char)(csum16 & 0xff);
+	crc_msb = (char)(csum16 >> 8);
 
 	if (spd->mod_section.uc[126] != crc_lsb ||
 	    spd->mod_section.uc[127] != crc_msb) {
@@ -98,8 +97,7 @@ static int ddr4_spd_check(const struct ddr4_spd *spd)
 	return 0;
 }
 
-static unsigned long long
-compute_ranksize(const struct ddr4_spd *spd)
+static unsigned long long compute_ranksize(const struct ddr4_spd *spd)
 {
 	unsigned long long bsize;
 
@@ -123,9 +121,8 @@ compute_ranksize(const struct ddr4_spd *spd)
 		die_count = (spd->package_type >> 4) & 0x7;
 	}
 
-	bsize = 1ULL << (nbit_sdram_cap_bsize - 3 +
-			 nbit_primary_bus_width - nbit_sdram_width +
-			 die_count);
+	bsize = 1ULL << (nbit_sdram_cap_bsize - 3 + nbit_primary_bus_width -
+			 nbit_sdram_width + die_count);
 
 	return bsize;
 }
@@ -186,7 +183,8 @@ int cal_dimm_params(const struct ddr4_spd *spd, struct dimm_params *pdimm)
 	pdimm->device_width = 1 << ((spd->organization & 0x7) + 2);
 	debug("device_width %d\n", pdimm->device_width);
 	pdimm->package_3ds = (spd->package_type & 0x3) == 0x2 ?
-			     (spd->package_type >> 4) & 0x7 : 0;
+				     (spd->package_type >> 4) & 0x7 :
+				     0;
 	debug("package_3ds %d\n", pdimm->package_3ds);
 
 	switch (spd->module_type & DDR4_SPD_MODULETYPE_MASK) {
@@ -205,10 +203,16 @@ int cal_dimm_params(const struct ddr4_spd *spd, struct dimm_params *pdimm)
 		pdimm->rcw[5] = ((val & 0x3) << 2) | ((val & 0xc) >> 2);
 		pdimm->rcw[6] = 0xf;
 		/* A17 used for 16Gb+, C[2:0] used for 3DS */
-		pdimm->rcw[8] = pdimm->die_density >= 0x6 ? 0x0 : 0x8 |
-				(pdimm->package_3ds > 0x3 ? 0x0 :
-				 (pdimm->package_3ds > 0x1 ? 0x1 :
-				  (pdimm->package_3ds > 0 ? 0x2 : 0x3)));
+		pdimm->rcw[8] =
+			pdimm->die_density >= 0x6 ?
+				0x0 :
+				0x8 | (pdimm->package_3ds > 0x3 ?
+					       0x0 :
+					       (pdimm->package_3ds > 0x1 ?
+							0x1 :
+							(pdimm->package_3ds > 0 ?
+								 0x2 :
+								 0x3)));
 		if (pdimm->package_3ds != 0 || pdimm->n_ranks != 4) {
 			pdimm->rcw[13] = 0x4;
 		} else {
@@ -305,9 +309,8 @@ int cal_dimm_params(const struct ddr4_spd *spd, struct dimm_params *pdimm)
 	 * bit12- CL19
 	 * bit16- CL23
 	 */
-	pdimm->caslat_x  = (spd->caslat_b1 << 7)	|
-			   (spd->caslat_b2 << 15)	|
-			   (spd->caslat_b3 << 23);
+	pdimm->caslat_x = (spd->caslat_b1 << 7) | (spd->caslat_b2 << 15) |
+			  (spd->caslat_b3 << 23);
 	debug("caslat_x 0x%x\n", pdimm->caslat_x);
 
 	if (spd->caslat_b4 != 0) {
@@ -333,27 +336,29 @@ int cal_dimm_params(const struct ddr4_spd *spd, struct dimm_params *pdimm)
 	debug("trp_ps %d\n", pdimm->trp_ps);
 
 	/* min active to precharge delay time */
-	pdimm->tras_ps = (((spd->tras_trc_ext & 0xf) << 8) +
-			  spd->tras_min_lsb) * pdimm->mtb_ps;
+	pdimm->tras_ps =
+		(((spd->tras_trc_ext & 0xf) << 8) + spd->tras_min_lsb) *
+		pdimm->mtb_ps;
 	debug("tras_ps %d\n", pdimm->tras_ps);
 
 	/* min active to actice/refresh delay time */
-	pdimm->trc_ps = spd_to_ps((((spd->tras_trc_ext & 0xf0) << 4) +
-				   spd->trc_min_lsb), spd->fine_trc_min);
+	pdimm->trc_ps = spd_to_ps(
+		(((spd->tras_trc_ext & 0xf0) << 4) + spd->trc_min_lsb),
+		spd->fine_trc_min);
 	debug("trc_ps %d\n", pdimm->trc_ps);
 	/* Min Refresh Recovery Delay Time */
 	pdimm->trfc1_ps = ((spd->trfc1_min_msb << 8) | (spd->trfc1_min_lsb)) *
-		       pdimm->mtb_ps;
+			  pdimm->mtb_ps;
 	debug("trfc1_ps %d\n", pdimm->trfc1_ps);
 	pdimm->trfc2_ps = ((spd->trfc2_min_msb << 8) | (spd->trfc2_min_lsb)) *
-		       pdimm->mtb_ps;
+			  pdimm->mtb_ps;
 	debug("trfc2_ps %d\n", pdimm->trfc2_ps);
 	pdimm->trfc4_ps = ((spd->trfc4_min_msb << 8) | (spd->trfc4_min_lsb)) *
-			pdimm->mtb_ps;
+			  pdimm->mtb_ps;
 	debug("trfc4_ps %d\n", pdimm->trfc4_ps);
 	/* min four active window delay time */
-	pdimm->tfaw_ps = (((spd->tfaw_msb & 0xf) << 8) | spd->tfaw_min) *
-			pdimm->mtb_ps;
+	pdimm->tfaw_ps =
+		(((spd->tfaw_msb & 0xf) << 8) | spd->tfaw_min) * pdimm->mtb_ps;
 	debug("tfaw_ps %d\n", pdimm->tfaw_ps);
 
 	/* min row active to row active delay time, different bank group */
@@ -368,11 +373,11 @@ int cal_dimm_params(const struct ddr4_spd *spd, struct dimm_params *pdimm)
 	if (pdimm->package_3ds != 0) {
 		if (pdimm->die_density > 5) {
 			debug("Unsupported logical rank density 0x%x\n",
-				  pdimm->die_density);
+			      pdimm->die_density);
 			return -EINVAL;
 		}
-		pdimm->trfc_slr_ps = (pdimm->die_density <= 4) ?
-				     260000 : 350000;
+		pdimm->trfc_slr_ps = (pdimm->die_density <= 4) ? 260000 :
+								 350000;
 	}
 	debug("trfc_slr_ps %d\n", pdimm->trfc_slr_ps);
 

@@ -4,17 +4,18 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <assert.h>
+
 #include <arch.h>
 #include <arch_helpers.h>
-#include <assert.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
+
 #include <platform_def.h>
 
 #include "s10_clock_manager.h"
 #include "socfpga_handoff.h"
 #include "socfpga_system_manager.h"
-
 
 void wait_pll_lock(void)
 {
@@ -23,7 +24,7 @@ void wait_pll_lock(void)
 	do {
 		data = mmio_read_32(ALT_CLKMGR + ALT_CLKMGR_STAT);
 	} while ((ALT_CLKMGR_STAT_MAINPLLLOCKED(data) == 0) ||
-			(ALT_CLKMGR_STAT_PERPLLLOCKED(data) == 0));
+		 (ALT_CLKMGR_STAT_PERPLLLOCKED(data) == 0));
 }
 
 void wait_fsm(void)
@@ -40,71 +41,66 @@ void config_clkmgr_handoff(handoff *hoff_ptr)
 	uint32_t m_div, refclk_div, mscnt, hscnt;
 
 	/* Bypass all mainpllgrp's clocks */
-	mmio_write_32(ALT_CLKMGR_MAINPLL +
-			ALT_CLKMGR_MAINPLL_BYPASS,
-			0x7);
+	mmio_write_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_BYPASS, 0x7);
 	wait_fsm();
 	/* Bypass all perpllgrp's clocks */
-	mmio_write_32(ALT_CLKMGR_PERPLL +
-			ALT_CLKMGR_PERPLL_BYPASS,
-			0x7f);
+	mmio_write_32(ALT_CLKMGR_PERPLL + ALT_CLKMGR_PERPLL_BYPASS, 0x7f);
 	wait_fsm();
 
 	/* Setup main PLL dividers */
 	m_div = ALT_CLKMGR_MAINPLL_FDBCK_MDIV(hoff_ptr->main_pll_fdbck);
 	refclk_div = ALT_CLKMGR_MAINPLL_PLLGLOB_REFCLKDIV(
-			hoff_ptr->main_pll_pllglob);
+		hoff_ptr->main_pll_pllglob);
 	mscnt = 200 / ((6 + m_div) / refclk_div);
 	hscnt = (m_div + 6) * mscnt / refclk_div - 9;
 
 	mmio_write_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_PLLGLOB,
-			hoff_ptr->main_pll_pllglob);
+		      hoff_ptr->main_pll_pllglob);
 	mmio_write_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_FDBCK,
-			hoff_ptr->main_pll_fdbck);
+		      hoff_ptr->main_pll_fdbck);
 	mmio_write_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_VCOCALIB,
-			ALT_CLKMGR_MAINPLL_VCOCALIB_HSCNT_SET(hscnt) |
-			ALT_CLKMGR_MAINPLL_VCOCALIB_MSCNT_SET(mscnt));
+		      ALT_CLKMGR_MAINPLL_VCOCALIB_HSCNT_SET(hscnt) |
+			      ALT_CLKMGR_MAINPLL_VCOCALIB_MSCNT_SET(mscnt));
 	mmio_write_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_PLLC0,
-			hoff_ptr->main_pll_pllc0);
+		      hoff_ptr->main_pll_pllc0);
 	mmio_write_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_PLLC1,
-			hoff_ptr->main_pll_pllc1);
+		      hoff_ptr->main_pll_pllc1);
 
 	mmio_write_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_NOCDIV,
-			hoff_ptr->main_pll_nocdiv);
+		      hoff_ptr->main_pll_nocdiv);
 
 	/* Setup peripheral PLL dividers */
 	m_div = ALT_CLKMGR_PERPLL_FDBCK_MDIV(hoff_ptr->per_pll_fdbck);
-	refclk_div = ALT_CLKMGR_PERPLL_PLLGLOB_REFCLKDIV(
-			hoff_ptr->per_pll_pllglob);
+	refclk_div =
+		ALT_CLKMGR_PERPLL_PLLGLOB_REFCLKDIV(hoff_ptr->per_pll_pllglob);
 	mscnt = 200 / ((6 + m_div) / refclk_div);
 	hscnt = (m_div + 6) * mscnt / refclk_div - 9;
 
 	mmio_write_32(ALT_CLKMGR_PERPLL + ALT_CLKMGR_PERPLL_PLLGLOB,
-			hoff_ptr->per_pll_pllglob);
+		      hoff_ptr->per_pll_pllglob);
 	mmio_write_32(ALT_CLKMGR_PERPLL + ALT_CLKMGR_PERPLL_FDBCK,
-			hoff_ptr->per_pll_fdbck);
+		      hoff_ptr->per_pll_fdbck);
 	mmio_write_32(ALT_CLKMGR_PERPLL + ALT_CLKMGR_PERPLL_VCOCALIB,
-			ALT_CLKMGR_PERPLL_VCOCALIB_HSCNT_SET(hscnt) |
-			ALT_CLKMGR_PERPLL_VCOCALIB_MSCNT_SET(mscnt));
+		      ALT_CLKMGR_PERPLL_VCOCALIB_HSCNT_SET(hscnt) |
+			      ALT_CLKMGR_PERPLL_VCOCALIB_MSCNT_SET(mscnt));
 	mmio_write_32(ALT_CLKMGR_PERPLL + ALT_CLKMGR_PERPLL_PLLC0,
-			hoff_ptr->per_pll_pllc0);
+		      hoff_ptr->per_pll_pllc0);
 	mmio_write_32(ALT_CLKMGR_PERPLL + ALT_CLKMGR_PERPLL_PLLC1,
-			hoff_ptr->per_pll_pllc1);
+		      hoff_ptr->per_pll_pllc1);
 
 	mmio_write_32(ALT_CLKMGR_PERPLL + ALT_CLKMGR_PERPLL_GPIODIV,
-			ALT_CLKMGR_PERPLL_GPIODIV_GPIODBCLK_SET(
-			hoff_ptr->per_pll_gpiodiv));
+		      ALT_CLKMGR_PERPLL_GPIODIV_GPIODBCLK_SET(
+			      hoff_ptr->per_pll_gpiodiv));
 	mmio_write_32(ALT_CLKMGR_PERPLL + ALT_CLKMGR_PERPLL_EMACCTL,
-			hoff_ptr->per_pll_emacctl);
-
+		      hoff_ptr->per_pll_emacctl);
 
 	/* Take both PLL out of reset and power up */
 	mmio_setbits_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_PLLGLOB,
 			ALT_CLKMGR_MAINPLL_PLLGLOB_PD_SET_MSK |
-			ALT_CLKMGR_MAINPLL_PLLGLOB_RST_SET_MSK);
+				ALT_CLKMGR_MAINPLL_PLLGLOB_RST_SET_MSK);
 	mmio_setbits_32(ALT_CLKMGR_PERPLL + ALT_CLKMGR_PERPLL_PLLGLOB,
 			ALT_CLKMGR_PERPLL_PLLGLOB_PD_SET_MSK |
-			ALT_CLKMGR_PERPLL_PLLGLOB_RST_SET_MSK);
+				ALT_CLKMGR_PERPLL_PLLGLOB_RST_SET_MSK);
 
 	wait_pll_lock();
 
@@ -128,43 +124,43 @@ void config_clkmgr_handoff(handoff *hoff_ptr)
 	mmio_write_32(ALT_CLKMGR_PERPLL + ALT_CLKMGR_PERPLL_CNTR8CLK, 0xff);
 
 	mmio_write_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_MPUCLK,
-			hoff_ptr->main_pll_mpuclk);
+		      hoff_ptr->main_pll_mpuclk);
 	mmio_write_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_NOCCLK,
-			hoff_ptr->main_pll_nocclk);
+		      hoff_ptr->main_pll_nocclk);
 	mmio_write_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_CNTR2CLK,
-			hoff_ptr->main_pll_cntr2clk);
+		      hoff_ptr->main_pll_cntr2clk);
 	mmio_write_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_CNTR3CLK,
-			hoff_ptr->main_pll_cntr3clk);
+		      hoff_ptr->main_pll_cntr3clk);
 	mmio_write_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_CNTR4CLK,
-			hoff_ptr->main_pll_cntr4clk);
+		      hoff_ptr->main_pll_cntr4clk);
 	mmio_write_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_CNTR5CLK,
-			hoff_ptr->main_pll_cntr5clk);
+		      hoff_ptr->main_pll_cntr5clk);
 	mmio_write_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_CNTR6CLK,
-			hoff_ptr->main_pll_cntr6clk);
+		      hoff_ptr->main_pll_cntr6clk);
 	mmio_write_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_CNTR7CLK,
-			hoff_ptr->main_pll_cntr7clk);
+		      hoff_ptr->main_pll_cntr7clk);
 	mmio_write_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_CNTR8CLK,
-			hoff_ptr->main_pll_cntr8clk);
+		      hoff_ptr->main_pll_cntr8clk);
 	mmio_write_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_CNTR9CLK,
-			hoff_ptr->main_pll_cntr9clk);
+		      hoff_ptr->main_pll_cntr9clk);
 
 	/* Peripheral PLL Clock Source and Counters/Divider */
 	mmio_write_32(ALT_CLKMGR_PERPLL + ALT_CLKMGR_PERPLL_CNTR2CLK,
-			hoff_ptr->per_pll_cntr2clk);
+		      hoff_ptr->per_pll_cntr2clk);
 	mmio_write_32(ALT_CLKMGR_PERPLL + ALT_CLKMGR_PERPLL_CNTR3CLK,
-			hoff_ptr->per_pll_cntr3clk);
+		      hoff_ptr->per_pll_cntr3clk);
 	mmio_write_32(ALT_CLKMGR_PERPLL + ALT_CLKMGR_PERPLL_CNTR4CLK,
-			hoff_ptr->per_pll_cntr4clk);
+		      hoff_ptr->per_pll_cntr4clk);
 	mmio_write_32(ALT_CLKMGR_PERPLL + ALT_CLKMGR_PERPLL_CNTR5CLK,
-			hoff_ptr->per_pll_cntr5clk);
+		      hoff_ptr->per_pll_cntr5clk);
 	mmio_write_32(ALT_CLKMGR_PERPLL + ALT_CLKMGR_PERPLL_CNTR6CLK,
-			hoff_ptr->per_pll_cntr6clk);
+		      hoff_ptr->per_pll_cntr6clk);
 	mmio_write_32(ALT_CLKMGR_PERPLL + ALT_CLKMGR_PERPLL_CNTR7CLK,
-			hoff_ptr->per_pll_cntr7clk);
+		      hoff_ptr->per_pll_cntr7clk);
 	mmio_write_32(ALT_CLKMGR_PERPLL + ALT_CLKMGR_PERPLL_CNTR8CLK,
-			hoff_ptr->per_pll_cntr8clk);
+		      hoff_ptr->per_pll_cntr8clk);
 	mmio_write_32(ALT_CLKMGR_PERPLL + ALT_CLKMGR_PERPLL_CNTR9CLK,
-			hoff_ptr->per_pll_cntr9clk);
+		      hoff_ptr->per_pll_cntr9clk);
 
 	/* Take all PLLs out of bypass */
 	mmio_write_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_BYPASS, 0);
@@ -174,27 +170,26 @@ void config_clkmgr_handoff(handoff *hoff_ptr)
 
 	/* Set safe mode/ out of boot mode */
 	mmio_clrbits_32(ALT_CLKMGR + ALT_CLKMGR_CTRL,
-		ALT_CLKMGR_CTRL_BOOTMODE_SET_MSK);
+			ALT_CLKMGR_CTRL_BOOTMODE_SET_MSK);
 	wait_fsm();
 
 	/* 10 Enable mainpllgrp's software-managed clock */
 	mmio_write_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_EN,
-			ALT_CLKMGR_MAINPLL_EN_RESET);
+		      ALT_CLKMGR_MAINPLL_EN_RESET);
 	mmio_write_32(ALT_CLKMGR_PERPLL + ALT_CLKMGR_PERPLL_EN,
-			ALT_CLKMGR_PERPLL_EN_RESET);
+		      ALT_CLKMGR_PERPLL_EN_RESET);
 
 	/* Clear loss lock  interrupt status register that */
 	/* might be set during configuration */
 	mmio_write_32(ALT_CLKMGR + ALT_CLKMGR_INTRCLR,
-			ALT_CLKMGR_INTRCLR_MAINLOCKLOST_SET_MSK |
-			ALT_CLKMGR_INTRCLR_PERLOCKLOST_SET_MSK);
+		      ALT_CLKMGR_INTRCLR_MAINLOCKLOST_SET_MSK |
+			      ALT_CLKMGR_INTRCLR_PERLOCKLOST_SET_MSK);
 
 	/* Pass clock source frequency into scratch register */
 	mmio_write_32(SOCFPGA_SYSMGR(BOOT_SCRATCH_COLD_1),
-			hoff_ptr->hps_osc_clk_h);
+		      hoff_ptr->hps_osc_clk_h);
 	mmio_write_32(SOCFPGA_SYSMGR(BOOT_SCRATCH_COLD_2),
-			hoff_ptr->fpga_clk_hz);
-
+		      hoff_ptr->fpga_clk_hz);
 }
 
 /* Extract reference clock from platform clock source */
@@ -316,7 +311,7 @@ uint32_t get_cpu_clk(void)
 	data32 = mmio_read_32(ALT_CLKMGR_MAINPLL + ALT_CLKMGR_MAINPLL_PLLGLOB);
 	ref_clk = get_ref_clk(data32);
 
-	cpu_clk = get_l3_clk(ref_clk)/PLAT_SYS_COUNTER_CONVERT_TO_MHZ;
+	cpu_clk = get_l3_clk(ref_clk) / PLAT_SYS_COUNTER_CONVERT_TO_MHZ;
 
 	return cpu_clk;
 }

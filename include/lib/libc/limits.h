@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 /*
- * Portions copyright (c) 2018, ARM Limited and Contributors.
+ * Portions copyright (c) 2018-2023, ARM Limited and Contributors.
  * All rights reserved.
  */
 
@@ -13,7 +13,7 @@
 
 #include <limits_.h>
 
-#define CHAR_BIT   8
+#define CHAR_BIT 8
 #define MB_LEN_MAX 1
 
 #endif /* LIMITS_H */

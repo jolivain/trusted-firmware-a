@@ -42,7 +42,7 @@ struct pm_wake_up_src {
 };
 
 struct pm_wake_up_src_config {
-	uint32_t	wake_up_src_num;
+	uint32_t wake_up_src_num;
 	struct pm_wake_up_src wake_up_src[WAKE_UP_SRC_MAX];
 };
 

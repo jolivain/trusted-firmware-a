@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: BSD-3-Clause
 /*
- * Copyright (c) 2015-2019, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  * Copyright (c) 2019-2022, Linaro Limited
  */
 #include <assert.h>
@@ -170,7 +170,7 @@ static const scmi_msg_handler_t scmi_base_handler_table[] = {
 	[SCMI_BASE_DISCOVER_VENDOR] = discover_vendor,
 	[SCMI_BASE_DISCOVER_SUB_VENDOR] = discover_sub_vendor,
 	[SCMI_BASE_DISCOVER_IMPLEMENTATION_VERSION] =
-					discover_implementation_version,
+		discover_implementation_version,
 	[SCMI_BASE_DISCOVER_LIST_PROTOCOLS] = discover_list_protocols,
 };
 

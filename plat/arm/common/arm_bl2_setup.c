@@ -7,8 +7,6 @@
 #include <assert.h>
 #include <string.h>
 
-#include <platform_def.h>
-
 #include <arch_features.h>
 #include <arch_helpers.h>
 #include <common/bl_common.h>
@@ -19,6 +17,8 @@
 #include <lib/fconf/fconf.h>
 #include <lib/fconf/fconf_dyn_cfg_getter.h>
 #include <lib/gpt_rme/gpt_rme.h>
+
+#include <platform_def.h>
 #ifdef SPD_opteed
 #include <lib/optee_utils.h>
 #endif
@@ -48,15 +48,15 @@ CASSERT(BL2_BASE >= ARM_FW_CONFIG_LIMIT, assert_bl2_base_overflows);
 #pragma weak bl2_plat_sec_mem_layout
 
 #if ENABLE_RME
-#define MAP_BL2_TOTAL		MAP_REGION_FLAT(			\
-					bl2_tzram_layout.total_base,	\
-					bl2_tzram_layout.total_size,	\
-					MT_MEMORY | MT_RW | MT_ROOT)
+#define MAP_BL2_TOTAL                                \
+	MAP_REGION_FLAT(bl2_tzram_layout.total_base, \
+			bl2_tzram_layout.total_size, \
+			MT_MEMORY | MT_RW | MT_ROOT)
 #else
-#define MAP_BL2_TOTAL		MAP_REGION_FLAT(			\
-					bl2_tzram_layout.total_base,	\
-					bl2_tzram_layout.total_size,	\
-					MT_MEMORY | MT_RW | MT_SECURE)
+#define MAP_BL2_TOTAL                                \
+	MAP_REGION_FLAT(bl2_tzram_layout.total_base, \
+			bl2_tzram_layout.total_size, \
+			MT_MEMORY | MT_RW | MT_SECURE)
 #endif /* ENABLE_RME */
 
 #pragma weak arm_bl2_plat_handle_post_image_load
@@ -84,10 +84,10 @@ void arm_bl2_early_platform_setup(uintptr_t fw_config,
 #if ARM_GPT_SUPPORT
 	partition_init(GPT_IMAGE_ID);
 #endif /* ARM_GPT_SUPPORT */
-
 }
 
-void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1, u_register_t arg2, u_register_t arg3)
+void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1,
+			       u_register_t arg2, u_register_t arg3)
 {
 	arm_bl2_early_platform_setup((uintptr_t)arg0, (meminfo_t *)arg1);
 
@@ -135,29 +135,22 @@ static void arm_bl2_plat_gpt_setup(void)
 	 * The GPT library might modify the gpt regions structure to optimize
 	 * the layout, so the array cannot be constant.
 	 */
-	pas_region_t pas_regions[] = {
-		ARM_PAS_KERNEL,
-		ARM_PAS_SECURE,
-		ARM_PAS_REALM,
-		ARM_PAS_EL3_DRAM,
-		ARM_PAS_GPTS,
-		ARM_PAS_KERNEL_1
-	};
+	pas_region_t pas_regions[] = { ARM_PAS_KERNEL, ARM_PAS_SECURE,
+				       ARM_PAS_REALM,  ARM_PAS_EL3_DRAM,
+				       ARM_PAS_GPTS,   ARM_PAS_KERNEL_1 };
 
 	/* Initialize entire protected space to GPT_GPI_ANY. */
 	if (gpt_init_l0_tables(GPCCR_PPS_64GB, ARM_L0_GPT_ADDR_BASE,
-		ARM_L0_GPT_SIZE) < 0) {
+			       ARM_L0_GPT_SIZE) < 0) {
 		ERROR("gpt_init_l0_tables() failed!\n");
 		panic();
 	}
 
 	/* Carve out defined PAS ranges. */
-	if (gpt_init_pas_l1_tables(GPCCR_PGS_4K,
-				   ARM_L1_GPT_ADDR_BASE,
-				   ARM_L1_GPT_SIZE,
-				   pas_regions,
+	if (gpt_init_pas_l1_tables(GPCCR_PGS_4K, ARM_L1_GPT_ADDR_BASE,
+				   ARM_L1_GPT_SIZE, pas_regions,
 				   (unsigned int)(sizeof(pas_regions) /
-				   sizeof(pas_region_t))) < 0) {
+						  sizeof(pas_region_t))) < 0) {
 		ERROR("gpt_init_pas_l1_tables() failed!\n");
 		panic();
 	}
@@ -200,7 +193,7 @@ void arm_bl2_plat_arch_setup(void)
 #if ENABLE_RME
 		ARM_MAP_L0_GPT_REGION,
 #endif
-		{0}
+		{ 0 }
 	};
 
 #if ENABLE_RME
@@ -264,8 +257,8 @@ int arm_bl2_handle_post_image_load(unsigned int image_id)
 		assert(paged_mem_params);
 
 		err = parse_optee_header(&bl_mem_params->ep_info,
-				&pager_mem_params->image_info,
-				&paged_mem_params->image_info);
+					 &pager_mem_params->image_info,
+					 &paged_mem_params->image_info);
 		if (err != 0) {
 			WARN("OPTEE header parse error.\n");
 		}
@@ -306,7 +299,7 @@ int arm_bl2_plat_handle_post_image_load(unsigned int image_id)
 #if defined(SPD_spmd) && BL2_ENABLE_SP_LOAD
 	/* For Secure Partitions we don't need post processing */
 	if ((image_id >= (MAX_NUMBER_IDS - MAX_SP_IDS)) &&
-		(image_id < MAX_NUMBER_IDS)) {
+	    (image_id < MAX_NUMBER_IDS)) {
 		return 0;
 	}
 #endif

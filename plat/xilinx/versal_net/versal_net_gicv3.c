@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2018-2022, Xilinx, Inc. All rights reserved.
  * Copyright (C) 2022-2023, Advanced Micro Devices, Inc. All rights reserved.
  *
@@ -10,9 +10,9 @@
 #include <common/interrupt_props.h>
 #include <drivers/arm/gicv3.h>
 #include <lib/utils.h>
-#include <plat/common/platform.h>
-
 #include <plat_private.h>
+
+#include <plat/common/platform.h>
 #include <platform_def.h>
 
 /******************************************************************************

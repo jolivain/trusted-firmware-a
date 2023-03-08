@@ -37,8 +37,9 @@
 #include <ocram.h>
 #endif
 #include <plat_common.h>
-#include <platform_def.h>
 #include <soc.h>
+
+#include <platform_def.h>
 
 static dcfg_init_info_t dcfg_init_data = {
 	.g_nxp_dcfg_addr = NXP_DCFG_ADDR,
@@ -74,7 +75,7 @@ unsigned int plat_get_syscnt_freq2(void)
 #ifdef IMAGE_BL2
 /* Functions for BL2 */
 
-static struct soc_type soc_list[] =  {
+static struct soc_type soc_list[] = {
 	SOC_ENTRY(LS1046A, LS1046A, 1, 4),
 	SOC_ENTRY(LS1046AE, LS1046AE, 1, 4),
 	SOC_ENTRY(LS1026A, LS1026A, 1, 2),
@@ -122,7 +123,6 @@ static void set_base_freq_CNTFID0(void)
 
 void soc_preload_setup(void)
 {
-
 }
 
 /*
@@ -145,14 +145,14 @@ void soc_early_init(void)
 #if LOG_LEVEL > 0
 	/* Initialize the console to provide early debug support */
 
-	plat_console_init(NXP_CONSOLE_ADDR,
-				NXP_UART_CLK_DIVIDER, NXP_CONSOLE_BAUDRATE);
+	plat_console_init(NXP_CONSOLE_ADDR, NXP_UART_CLK_DIVIDER,
+			  NXP_CONSOLE_BAUDRATE);
 #endif
 	set_base_freq_CNTFID0();
 
 	/* Enable snooping on SEC read and write transactions */
 	scfg_setbits32((void *)(NXP_SCFG_ADDR + SCFG_SNPCNFGCR_OFFSET),
-			SCFG_SNPCNFGCR_SECRDSNP | SCFG_SNPCNFGCR_SECWRSNP);
+		       SCFG_SNPCNFGCR_SECRDSNP | SCFG_SNPCNFGCR_SECWRSNP);
 
 	/*
 	 * Initialize Interconnect for this cluster during cold boot.
@@ -163,7 +163,8 @@ void soc_early_init(void)
 	/*
 	 * Enable Interconnect coherency for the primary CPU's cluster.
 	 */
-	get_cluster_info(soc_list, ARRAY_SIZE(soc_list), &num_clusters, &cores_per_cluster);
+	get_cluster_info(soc_list, ARRAY_SIZE(soc_list), &num_clusters,
+			 &cores_per_cluster);
 	plat_ls_interconnect_enter_coherency(num_clusters);
 
 	/*
@@ -275,18 +276,18 @@ void soc_mem_access(void)
 	unsigned int dram_idx, index = 0U;
 
 	for (dram_idx = 0U; dram_idx < info_dram_regions->num_dram_regions;
-			dram_idx++) {
+	     dram_idx++) {
 		if (info_dram_regions->region[dram_idx].size == 0) {
 			ERROR("DDR init failure, or");
 			ERROR("DRAM regions not populated correctly.\n");
 			break;
 		}
 
-		index = populate_tzc400_reg_list(tzc400_reg_list,
-				dram_idx, index,
-				info_dram_regions->region[dram_idx].addr,
-				info_dram_regions->region[dram_idx].size,
-				NXP_SECURE_DRAM_SIZE, NXP_SP_SHRD_DRAM_SIZE);
+		index = populate_tzc400_reg_list(
+			tzc400_reg_list, dram_idx, index,
+			info_dram_regions->region[dram_idx].addr,
+			info_dram_regions->region[dram_idx].size,
+			NXP_SECURE_DRAM_SIZE, NXP_SP_SHRD_DRAM_SIZE);
 	}
 
 	mem_access_setup(NXP_TZC_ADDR, index, tzc400_reg_list);
@@ -295,10 +296,10 @@ void soc_mem_access(void)
 #else /* IMAGE_BL2 */
 /* Functions for BL31 */
 
-const unsigned char _power_domain_tree_desc[] = {1, 1, 4};
+const unsigned char _power_domain_tree_desc[] = { 1, 1, 4 };
 
-CASSERT(NUMBER_OF_CLUSTERS && NUMBER_OF_CLUSTERS <= 256,
-		assert_invalid_ls1046_cluster_count);
+CASSERT(NUMBER_OF_CLUSTERS &&NUMBER_OF_CLUSTERS <= 256,
+	assert_invalid_ls1046_cluster_count);
 
 /* This function returns the SoC topology */
 const unsigned char *plat_get_power_domain_tree_desc(void)
@@ -323,8 +324,8 @@ void soc_early_platform_setup2(void)
 
 #if LOG_LEVEL > 0
 	/* Initialize the console to provide early debug support */
-	plat_console_init(NXP_CONSOLE_ADDR,
-				NXP_UART_CLK_DIVIDER, NXP_CONSOLE_BAUDRATE);
+	plat_console_init(NXP_CONSOLE_ADDR, NXP_UART_CLK_DIVIDER,
+			  NXP_CONSOLE_BAUDRATE);
 #endif
 }
 
@@ -342,17 +343,13 @@ void soc_platform_setup(void)
 
 	plat_ls_gic_driver_init(
 #if (TEST_BL31)
-	/* Defect in simulator - GIC base addresses (4Kb aligned) */
-			NXP_GICD_4K_ADDR,
-			NXP_GICC_4K_ADDR,
+		/* Defect in simulator - GIC base addresses (4Kb aligned) */
+		NXP_GICD_4K_ADDR, NXP_GICC_4K_ADDR,
 #else
-			NXP_GICD_64K_ADDR,
-			NXP_GICC_64K_ADDR,
+		NXP_GICD_64K_ADDR, NXP_GICC_64K_ADDR,
 #endif
-			PLATFORM_CORE_COUNT,
-			ls_interrupt_props,
-			ARRAY_SIZE(ls_interrupt_props),
-			target_mask_array);
+		PLATFORM_CORE_COUNT, ls_interrupt_props,
+		ARRAY_SIZE(ls_interrupt_props), target_mask_array);
 
 	plat_ls_gic_init();
 	enable_init_timer();
@@ -361,7 +358,7 @@ void soc_platform_setup(void)
 /* This function initializes the soc from the BL31 module */
 void soc_init(void)
 {
-	 /* low-level init of the soc */
+	/* low-level init of the soc */
 	soc_init_lowlevel();
 	_init_global_data();
 	soc_init_percpu();
@@ -393,7 +390,6 @@ void soc_init(void)
 
 void soc_runtime_setup(void)
 {
-
 }
 
 #endif /* IMAGE_BL2 */

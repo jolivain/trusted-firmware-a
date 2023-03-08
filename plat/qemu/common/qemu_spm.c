@@ -3,61 +3,58 @@
  * Copyright (c) 2020, Linaro Limited and Contributors. All rights reserved.
  */
 
-#include <libfdt.h>
-
 #include <bl31/ehf.h>
 #include <common/debug.h>
 #include <common/fdt_fixup.h>
 #include <common/fdt_wrappers.h>
 #include <lib/xlat_tables/xlat_tables_compat.h>
+#include <libfdt.h>
 #include <services/spm_mm_partition.h>
 
 #include <platform_def.h>
 
 /* Region equivalent to MAP_DEVICE1 suitable for mapping at EL0 */
-#define MAP_DEVICE1_EL0	MAP_REGION_FLAT(DEVICE1_BASE,			\
-					DEVICE1_SIZE,			\
-					MT_DEVICE | MT_RW | MT_SECURE | MT_USER)
+#define MAP_DEVICE1_EL0                             \
+	MAP_REGION_FLAT(DEVICE1_BASE, DEVICE1_SIZE, \
+			MT_DEVICE | MT_RW | MT_SECURE | MT_USER)
 
 mmap_region_t plat_qemu_secure_partition_mmap[] = {
-	QEMU_SP_IMAGE_NS_BUF_MMAP,	/* must be placed at first entry */
-	MAP_DEVICE1_EL0,		/* for the UART */
+	QEMU_SP_IMAGE_NS_BUF_MMAP, /* must be placed at first entry */
+	MAP_DEVICE1_EL0, /* for the UART */
 	QEMU_SP_IMAGE_MMAP,
 	QEMU_SPM_BUF_EL0_MMAP,
 	QEMU_SP_IMAGE_RW_MMAP,
 	MAP_SECURE_VARSTORE,
-	{0}
+	{ 0 }
 };
 
 /* Boot information passed to a secure partition during initialisation. */
 static spm_mm_mp_info_t sp_mp_info[PLATFORM_CORE_COUNT];
 
 spm_mm_boot_info_t plat_qemu_secure_partition_boot_info = {
-	.h.type              = PARAM_SP_IMAGE_BOOT_INFO,
-	.h.version           = VERSION_1,
-	.h.size              = sizeof(spm_mm_boot_info_t),
-	.h.attr              = 0,
-	.sp_mem_base         = PLAT_QEMU_SP_IMAGE_BASE,
-	.sp_mem_limit        = BL32_LIMIT,
-	.sp_image_base       = PLAT_QEMU_SP_IMAGE_BASE,
-	.sp_stack_base       = PLAT_SP_IMAGE_STACK_BASE,
-	.sp_heap_base        = PLAT_QEMU_SP_IMAGE_HEAP_BASE,
+	.h.type = PARAM_SP_IMAGE_BOOT_INFO,
+	.h.version = VERSION_1,
+	.h.size = sizeof(spm_mm_boot_info_t),
+	.h.attr = 0,
+	.sp_mem_base = PLAT_QEMU_SP_IMAGE_BASE,
+	.sp_mem_limit = BL32_LIMIT,
+	.sp_image_base = PLAT_QEMU_SP_IMAGE_BASE,
+	.sp_stack_base = PLAT_SP_IMAGE_STACK_BASE,
+	.sp_heap_base = PLAT_QEMU_SP_IMAGE_HEAP_BASE,
 	.sp_ns_comm_buf_base = PLAT_QEMU_SP_IMAGE_NS_BUF_BASE,
-	.sp_shared_buf_base  = PLAT_SPM_BUF_BASE,
-	.sp_image_size       = PLAT_QEMU_SP_IMAGE_SIZE,
-	.sp_pcpu_stack_size  = PLAT_SP_IMAGE_STACK_PCPU_SIZE,
-	.sp_heap_size        = PLAT_QEMU_SP_IMAGE_HEAP_SIZE,
+	.sp_shared_buf_base = PLAT_SPM_BUF_BASE,
+	.sp_image_size = PLAT_QEMU_SP_IMAGE_SIZE,
+	.sp_pcpu_stack_size = PLAT_SP_IMAGE_STACK_PCPU_SIZE,
+	.sp_heap_size = PLAT_QEMU_SP_IMAGE_HEAP_SIZE,
 	.sp_ns_comm_buf_size = PLAT_QEMU_SP_IMAGE_NS_BUF_SIZE,
-	.sp_shared_buf_size  = PLAT_SPM_BUF_SIZE,
-	.num_sp_mem_regions  = PLAT_QEMU_SP_IMAGE_NUM_MEM_REGIONS,
-	.num_cpus            = PLATFORM_CORE_COUNT,
-	.mp_info             = sp_mp_info
+	.sp_shared_buf_size = PLAT_SPM_BUF_SIZE,
+	.num_sp_mem_regions = PLAT_QEMU_SP_IMAGE_NUM_MEM_REGIONS,
+	.num_cpus = PLATFORM_CORE_COUNT,
+	.mp_info = sp_mp_info
 };
 
 /* Enumeration of priority levels on QEMU platforms. */
-ehf_pri_desc_t qemu_exceptions[] = {
-	EHF_PRI_DESC(QEMU_PRI_BITS, PLAT_SP_PRI)
-};
+ehf_pri_desc_t qemu_exceptions[] = { EHF_PRI_DESC(QEMU_PRI_BITS, PLAT_SP_PRI) };
 
 static void qemu_initialize_mp_info(spm_mm_mp_info_t *mp_info)
 {
@@ -138,8 +135,7 @@ const mmap_region_t *plat_get_secure_partition_mmap(void *cookie)
 	return plat_qemu_secure_partition_mmap;
 }
 
-const spm_mm_boot_info_t *
-plat_get_secure_partition_boot_info(void *cookie)
+const spm_mm_boot_info_t *plat_get_secure_partition_boot_info(void *cookie)
 {
 	qemu_initialize_mp_info(sp_mp_info);
 

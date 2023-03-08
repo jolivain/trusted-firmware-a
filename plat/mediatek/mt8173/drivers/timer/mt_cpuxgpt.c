@@ -1,12 +1,11 @@
 /*
- * Copyright (c) 2015, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <arch_helpers.h>
 #include <lib/mmio.h>
-
 #include <mcucfg.h>
 #include <mt8173_def.h>
 #include <mt_cpuxgpt.h>
@@ -30,5 +29,5 @@ void generic_timer_backup(void)
 
 	cval = read_cntpct_el0();
 	cpuxgpt_set_init_cnt((uint32_t)(cval >> 32),
-			       (uint32_t)(cval & 0xffffffff));
+			     (uint32_t)(cval & 0xffffffff));
 }

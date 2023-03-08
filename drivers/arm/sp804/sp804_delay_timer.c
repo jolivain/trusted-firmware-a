@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,19 +12,19 @@
 
 uintptr_t sp804_base_addr;
 
-#define SP804_TIMER1_LOAD	(sp804_base_addr + 0x000)
-#define SP804_TIMER1_VALUE	(sp804_base_addr + 0x004)
-#define SP804_TIMER1_CONTROL	(sp804_base_addr + 0x008)
-#define SP804_TIMER1_BGLOAD	(sp804_base_addr + 0x018)
+#define SP804_TIMER1_LOAD (sp804_base_addr + 0x000)
+#define SP804_TIMER1_VALUE (sp804_base_addr + 0x004)
+#define SP804_TIMER1_CONTROL (sp804_base_addr + 0x008)
+#define SP804_TIMER1_BGLOAD (sp804_base_addr + 0x018)
 
-#define TIMER_CTRL_ONESHOT	(1 << 0)
-#define TIMER_CTRL_32BIT	(1 << 1)
-#define TIMER_CTRL_DIV1		(0 << 2)
-#define TIMER_CTRL_DIV16	(1 << 2)
-#define TIMER_CTRL_DIV256	(2 << 2)
-#define TIMER_CTRL_IE		(1 << 5)
-#define TIMER_CTRL_PERIODIC	(1 << 6)
-#define TIMER_CTRL_ENABLE	(1 << 7)
+#define TIMER_CTRL_ONESHOT (1 << 0)
+#define TIMER_CTRL_32BIT (1 << 1)
+#define TIMER_CTRL_DIV1 (0 << 2)
+#define TIMER_CTRL_DIV16 (1 << 2)
+#define TIMER_CTRL_DIV256 (2 << 2)
+#define TIMER_CTRL_IE (1 << 5)
+#define TIMER_CTRL_PERIODIC (1 << 6)
+#define TIMER_CTRL_ENABLE (1 << 7)
 
 /********************************************************************
  * The SP804 timer delay function
@@ -53,5 +53,5 @@ void sp804_timer_ops_init(uintptr_t base_addr, const timer_ops_t *ops)
 
 	/* enable as a free running 32-bit counter */
 	mmio_write_32(SP804_TIMER1_CONTROL,
-			TIMER_CTRL_32BIT | TIMER_CTRL_ENABLE);
+		      TIMER_CTRL_32BIT | TIMER_CTRL_ENABLE);
 }

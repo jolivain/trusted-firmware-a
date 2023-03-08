@@ -10,24 +10,24 @@
 #include <drivers/nand.h>
 #include <drivers/spi_mem.h>
 
-#define SPI_NAND_OP_GET_FEATURE		0x0FU
-#define SPI_NAND_OP_SET_FEATURE		0x1FU
-#define SPI_NAND_OP_READ_ID		0x9FU
-#define SPI_NAND_OP_LOAD_PAGE		0x13U
-#define SPI_NAND_OP_RESET		0xFFU
-#define SPI_NAND_OP_READ_FROM_CACHE	0x03U
-#define SPI_NAND_OP_READ_FROM_CACHE_2X	0x3BU
-#define SPI_NAND_OP_READ_FROM_CACHE_4X	0x6BU
+#define SPI_NAND_OP_GET_FEATURE 0x0FU
+#define SPI_NAND_OP_SET_FEATURE 0x1FU
+#define SPI_NAND_OP_READ_ID 0x9FU
+#define SPI_NAND_OP_LOAD_PAGE 0x13U
+#define SPI_NAND_OP_RESET 0xFFU
+#define SPI_NAND_OP_READ_FROM_CACHE 0x03U
+#define SPI_NAND_OP_READ_FROM_CACHE_2X 0x3BU
+#define SPI_NAND_OP_READ_FROM_CACHE_4X 0x6BU
 
 /* Configuration register */
-#define SPI_NAND_REG_CFG		0xB0U
-#define SPI_NAND_CFG_ECC_EN		BIT(4)
-#define SPI_NAND_CFG_QE			BIT(0)
+#define SPI_NAND_REG_CFG 0xB0U
+#define SPI_NAND_CFG_ECC_EN BIT(4)
+#define SPI_NAND_CFG_QE BIT(0)
 
 /* Status register */
-#define SPI_NAND_REG_STATUS		0xC0U
-#define SPI_NAND_STATUS_BUSY		BIT(0)
-#define SPI_NAND_STATUS_ECC_UNCOR	BIT(5)
+#define SPI_NAND_REG_STATUS 0xC0U
+#define SPI_NAND_STATUS_BUSY BIT(0)
+#define SPI_NAND_STATUS_ECC_UNCOR BIT(5)
 
 struct spinand_device {
 	struct nand_device *nand_dev;

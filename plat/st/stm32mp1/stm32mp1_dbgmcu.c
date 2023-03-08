@@ -13,15 +13,15 @@
 #include <drivers/st/stm32mp1_rcc.h>
 #include <lib/mmio.h>
 #include <lib/utils_def.h>
-
-#include <platform_def.h>
 #include <stm32mp1_dbgmcu.h>
 
-#define DBGMCU_IDC		U(0x00)
+#include <platform_def.h>
 
-#define DBGMCU_IDC_DEV_ID_MASK	GENMASK(11, 0)
-#define DBGMCU_IDC_REV_ID_MASK	GENMASK(31, 16)
-#define DBGMCU_IDC_REV_ID_SHIFT	16
+#define DBGMCU_IDC U(0x00)
+
+#define DBGMCU_IDC_DEV_ID_MASK GENMASK(11, 0)
+#define DBGMCU_IDC_REV_ID_MASK GENMASK(31, 16)
+#define DBGMCU_IDC_REV_ID_SHIFT 16
 
 static int stm32mp1_dbgmcu_init(void)
 {
@@ -49,7 +49,8 @@ int stm32mp1_dbgmcu_get_chip_version(uint32_t *chip_version)
 	}
 
 	*chip_version = (mmio_read_32(DBGMCU_BASE + DBGMCU_IDC) &
-			 DBGMCU_IDC_REV_ID_MASK) >> DBGMCU_IDC_REV_ID_SHIFT;
+			 DBGMCU_IDC_REV_ID_MASK) >>
+			DBGMCU_IDC_REV_ID_SHIFT;
 
 	return 0;
 }

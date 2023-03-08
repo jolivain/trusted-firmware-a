@@ -4,15 +4,17 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include "mt_spm_rc_api.h"
+
 #include <lpm/mt_lpm_smc.h>
 #include <mt_spm.h>
-#include "mt_spm_rc_api.h"
+
 #include "mt_spm_rc_internal.h"
 
 int spm_rc_condition_modifier(unsigned int id, unsigned int act,
 			      const void *val,
 			      enum mt_spm_rm_rc_type dest_rc_id,
-			      struct mt_spm_cond_tables * const tlb)
+			      struct mt_spm_cond_tables *const tlb)
 {
 	unsigned int rc_id, cond_id, cond;
 	int res = 0;
@@ -37,14 +39,17 @@ int spm_rc_condition_modifier(unsigned int id, unsigned int act,
 			} else {
 				res = -1;
 			}
-		} else if ((cond_id - PLAT_SPM_COND_MAX) < PLAT_SPM_COND_PLL_MAX) {
+		} else if ((cond_id - PLAT_SPM_COND_MAX) <
+			   PLAT_SPM_COND_PLL_MAX) {
 			unsigned int pll_idx = cond_id - PLAT_SPM_COND_MAX;
 
 			cond = !!cond;
 			if ((act & MT_LPM_SMC_ACT_SET) > 0U) {
-				SPM_RC_BITS_SET(tlb->table_pll, (cond << pll_idx));
+				SPM_RC_BITS_SET(tlb->table_pll,
+						(cond << pll_idx));
 			} else if ((act & MT_LPM_SMC_ACT_CLR) > 0U) {
-				SPM_RC_BITS_CLR(tlb->table_pll, (cond << pll_idx));
+				SPM_RC_BITS_CLR(tlb->table_pll,
+						(cond << pll_idx));
 			} else {
 				res = -1;
 			}
@@ -61,11 +66,11 @@ int spm_rc_condition_modifier(unsigned int id, unsigned int act,
 int spm_rc_constraint_status_get(unsigned int id, unsigned int type,
 				 unsigned int act,
 				 enum mt_spm_rm_rc_type dest_rc_id,
-				 struct constraint_status * const src,
-				 struct constraint_status * const dest)
+				 struct constraint_status *const src,
+				 struct constraint_status *const dest)
 {
-	if (((id != MT_RM_CONSTRAINT_ID_ALL) && (id != dest_rc_id)) || (dest == NULL) ||
-	    (src == NULL)) {
+	if (((id != MT_RM_CONSTRAINT_ID_ALL) && (id != dest_rc_id)) ||
+	    (dest == NULL) || (src == NULL)) {
 		return -1;
 	}
 	spin_lock(&spm_lock);
@@ -105,10 +110,11 @@ int spm_rc_constraint_status_get(unsigned int id, unsigned int type,
 int spm_rc_constraint_status_set(unsigned int id, unsigned int type,
 				 unsigned int act,
 				 enum mt_spm_rm_rc_type dest_rc_id,
-				 struct constraint_status * const src,
-				 struct constraint_status * const dest)
+				 struct constraint_status *const src,
+				 struct constraint_status *const dest)
 {
-	if (((id != MT_RM_CONSTRAINT_ID_ALL) && (id != dest_rc_id)) || (dest == NULL)) {
+	if (((id != MT_RM_CONSTRAINT_ID_ALL) && (id != dest_rc_id)) ||
+	    (dest == NULL)) {
 		return -1;
 	}
 
@@ -141,9 +147,10 @@ int spm_rc_constraint_status_set(unsigned int id, unsigned int type,
 int spm_rc_constraint_valid_set(enum mt_spm_rm_rc_type id,
 				enum mt_spm_rm_rc_type dest_rc_id,
 				unsigned int valid,
-				struct constraint_status * const dest)
+				struct constraint_status *const dest)
 {
-	if (((id != MT_RM_CONSTRAINT_ID_ALL) && (id != dest_rc_id)) || (dest == NULL)) {
+	if (((id != MT_RM_CONSTRAINT_ID_ALL) && (id != dest_rc_id)) ||
+	    (dest == NULL)) {
 		return -1;
 	}
 
@@ -157,9 +164,10 @@ int spm_rc_constraint_valid_set(enum mt_spm_rm_rc_type id,
 int spm_rc_constraint_valid_clr(enum mt_spm_rm_rc_type id,
 				enum mt_spm_rm_rc_type dest_rc_id,
 				unsigned int valid,
-				struct constraint_status * const dest)
+				struct constraint_status *const dest)
 {
-	if (((id != MT_RM_CONSTRAINT_ID_ALL) && (id != dest_rc_id)) || (dest == NULL)) {
+	if (((id != MT_RM_CONSTRAINT_ID_ALL) && (id != dest_rc_id)) ||
+	    (dest == NULL)) {
 		return -1;
 	}
 

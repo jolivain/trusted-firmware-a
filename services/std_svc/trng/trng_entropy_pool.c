@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, ARM Limited. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,7 +7,9 @@
 #include <assert.h>
 #include <stdbool.h>
 #include <stdint.h>
+
 #include <lib/spinlock.h>
+
 #include <plat/common/plat_trng.h>
 
 /*
@@ -18,7 +20,7 @@
  * 192 bits of entropy, we don't have to throw out the leftover 1-63 bits of
  * entropy.
  */
-#define WORDS_IN_POOL	(4)
+#define WORDS_IN_POOL (4)
 static uint64_t entropy[WORDS_IN_POOL];
 /* index in bits of the first bit of usable entropy */
 static uint32_t entropy_bit_index;
@@ -27,14 +29,14 @@ static uint32_t entropy_bit_size;
 
 static spinlock_t trng_pool_lock;
 
-#define BITS_PER_WORD		(sizeof(entropy[0]) * 8)
-#define BITS_IN_POOL		(WORDS_IN_POOL * BITS_PER_WORD)
-#define ENTROPY_MIN_WORD	(entropy_bit_index / BITS_PER_WORD)
-#define ENTROPY_FREE_BIT	(entropy_bit_size + entropy_bit_index)
-#define _ENTROPY_FREE_WORD	(ENTROPY_FREE_BIT / BITS_PER_WORD)
-#define ENTROPY_FREE_INDEX	(_ENTROPY_FREE_WORD % WORDS_IN_POOL)
+#define BITS_PER_WORD (sizeof(entropy[0]) * 8)
+#define BITS_IN_POOL (WORDS_IN_POOL * BITS_PER_WORD)
+#define ENTROPY_MIN_WORD (entropy_bit_index / BITS_PER_WORD)
+#define ENTROPY_FREE_BIT (entropy_bit_size + entropy_bit_index)
+#define _ENTROPY_FREE_WORD (ENTROPY_FREE_BIT / BITS_PER_WORD)
+#define ENTROPY_FREE_INDEX (_ENTROPY_FREE_WORD % WORDS_IN_POOL)
 /* ENTROPY_WORD_INDEX(0) includes leftover bits in the lower bits */
-#define ENTROPY_WORD_INDEX(i)	((ENTROPY_MIN_WORD + i) % WORDS_IN_POOL)
+#define ENTROPY_WORD_INDEX(i) ((ENTROPY_MIN_WORD + i) % WORDS_IN_POOL)
 
 /*
  * Fill the entropy pool until we have at least as many bits as requested.
@@ -157,10 +159,11 @@ bool trng_pack_entropy(uint32_t nbits, uint64_t *out)
 		 */
 		if (bits_to_discard < (BITS_PER_WORD - rshift)) {
 			entropy[ENTROPY_WORD_INDEX(word_i)] &=
-			(~0ULL << ((bits_to_discard+rshift) % BITS_PER_WORD));
+				(~0ULL << ((bits_to_discard + rshift) %
+					   BITS_PER_WORD));
 			bits_to_discard = 0;
 		} else {
-		/*
+			/*
 		 * If the bits to be discarded is more than the amount of valid
 		 * upper bits from word_i, which has been copied to the output
 		 * buffer, we just set the entire word_i to 0, as the lower bits
@@ -179,7 +182,7 @@ bool trng_pack_entropy(uint32_t nbits, uint64_t *out)
 		 */
 		if (lshift != BITS_PER_WORD) {
 			out[word_i] |= entropy[ENTROPY_WORD_INDEX(word_i + 1)]
-				<< lshift;
+				       << lshift;
 			/**
 			 * Discarding the remaining packed bits from upperword
 			 * (word[i+1]) which was copied to output buffer by
@@ -191,11 +194,12 @@ bool trng_pack_entropy(uint32_t nbits, uint64_t *out)
 			 * amount of bits only.
 			 */
 			if (bits_to_discard < (BITS_PER_WORD - lshift)) {
-				entropy[ENTROPY_WORD_INDEX(word_i+1)]  &=
-				(~0ULL << ((bits_to_discard) % BITS_PER_WORD));
+				entropy[ENTROPY_WORD_INDEX(word_i + 1)] &=
+					(~0ULL << ((bits_to_discard) %
+						   BITS_PER_WORD));
 				bits_to_discard = 0;
 			} else {
-			/*
+				/*
 			 * If bits to discard is more than the bits from word_i+1
 			 * which got packed into the output, then we discard all
 			 * those copied bits.
@@ -204,14 +208,15 @@ bool trng_pack_entropy(uint32_t nbits, uint64_t *out)
 			 * there are still some unused valid entropy bits at the
 			 * upper end for future use.
 			 */
-				entropy[ENTROPY_WORD_INDEX(word_i+1)]  &=
-				(~0ULL << ((BITS_PER_WORD - lshift) % BITS_PER_WORD));
+				entropy[ENTROPY_WORD_INDEX(word_i + 1)] &=
+					(~0ULL << ((BITS_PER_WORD - lshift) %
+						   BITS_PER_WORD));
 				bits_to_discard -= (BITS_PER_WORD - lshift);
-		}
-
+			}
 		}
 	}
-	const uint64_t mask = ~0ULL >> (BITS_PER_WORD - (nbits % BITS_PER_WORD));
+	const uint64_t mask = ~0ULL >>
+			      (BITS_PER_WORD - (nbits % BITS_PER_WORD));
 
 	out[to_fill - 1] &= mask;
 

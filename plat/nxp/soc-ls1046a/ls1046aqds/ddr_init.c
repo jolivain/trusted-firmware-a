@@ -9,20 +9,18 @@
 
 #include <common/debug.h>
 #include <ddr.h>
+#include <errata.h>
 #include <lib/utils.h>
 
-#include <errata.h>
 #include "platform_def.h"
 
-static const struct rc_timing rce[] = {
-	{U(1600), U(8), U(7)},
-	{U(1867), U(8), U(7)},
-	{U(2134), U(8), U(9)},
-	{}
-};
+static const struct rc_timing rce[] = { { U(1600), U(8), U(7) },
+					{ U(1867), U(8), U(7) },
+					{ U(2134), U(8), U(9) },
+					{} };
 
 static const struct board_timing udimm[] = {
-	{U(0x04), rce, U(0x01020304), U(0x06070805)},
+	{ U(0x04), rce, U(0x01020304), U(0x06070805) },
 };
 
 int ddr_board_options(struct ddr_info *priv)
@@ -41,12 +39,10 @@ int ddr_board_options(struct ddr_info *priv)
 	}
 
 	popts->wrlvl_override = U(1);
-	popts->wrlvl_sample = U(0x0);	/* 32 clocks */
-	popts->ddr_cdr1 = DDR_CDR1_DHC_EN	|
-			  DDR_CDR1_ODT(DDR_CDR_ODT_80ohm);
-	popts->ddr_cdr2 = DDR_CDR2_ODT(DDR_CDR_ODT_80ohm)	|
-			  DDR_CDR2_VREF_TRAIN_EN		|
-			  DDR_CDR2_VREF_RANGE_2;
+	popts->wrlvl_sample = U(0x0); /* 32 clocks */
+	popts->ddr_cdr1 = DDR_CDR1_DHC_EN | DDR_CDR1_ODT(DDR_CDR_ODT_80ohm);
+	popts->ddr_cdr2 = DDR_CDR2_ODT(DDR_CDR_ODT_80ohm) |
+			  DDR_CDR2_VREF_TRAIN_EN | DDR_CDR2_VREF_RANGE_2;
 
 	/* optimize cpo for erratum A-009942 */
 	popts->cpo_sample = U(0x70);

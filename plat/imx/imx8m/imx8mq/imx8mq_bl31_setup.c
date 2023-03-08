@@ -1,13 +1,11 @@
 /*
- * Copyright (c) 2018-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 #include <stdbool.h>
-
-#include <platform_def.h>
 
 #include <arch_helpers.h>
 #include <common/bl_common.h>
@@ -16,33 +14,57 @@
 #include <drivers/arm/tzc380.h>
 #include <drivers/console.h>
 #include <drivers/generic_delay_timer.h>
+#include <gpc.h>
+#include <imx8m_caam.h>
+#include <imx_aipstz.h>
+#include <imx_uart.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include <plat/common/platform.h>
-
-#include <gpc.h>
-#include <imx_aipstz.h>
-#include <imx_uart.h>
-#include <imx8m_caam.h>
 #include <plat_imx8.h>
 
-#define TRUSTY_PARAMS_LEN_BYTES      (4096*2)
+#include <plat/common/platform.h>
+#include <platform_def.h>
+
+#define TRUSTY_PARAMS_LEN_BYTES (4096 * 2)
 
 static const mmap_region_t imx_mmap[] = {
 	MAP_REGION_FLAT(GPV_BASE, GPV_SIZE, MT_DEVICE | MT_RW), /* GPV map */
-	MAP_REGION_FLAT(IMX_ROM_BASE, IMX_ROM_SIZE, MT_MEMORY | MT_RO), /* ROM map */
-	MAP_REGION_FLAT(IMX_AIPS_BASE, IMX_AIPS_SIZE, MT_DEVICE | MT_RW), /* AIPS map */
-	MAP_REGION_FLAT(IMX_GIC_BASE, IMX_GIC_SIZE, MT_DEVICE | MT_RW), /* GIC map */
-	{0},
+	MAP_REGION_FLAT(IMX_ROM_BASE, IMX_ROM_SIZE,
+			MT_MEMORY | MT_RO), /* ROM map */
+	MAP_REGION_FLAT(IMX_AIPS_BASE, IMX_AIPS_SIZE,
+			MT_DEVICE | MT_RW), /* AIPS map */
+	MAP_REGION_FLAT(IMX_GIC_BASE, IMX_GIC_SIZE,
+			MT_DEVICE | MT_RW), /* GIC map */
+	{ 0 },
 };
 
 static const struct aipstz_cfg aipstz[] = {
-	{AIPSTZ1_BASE, 0x77777777, 0x77777777, .opacr = {0x0, 0x0, 0x0, 0x0, 0x0}, },
-	{AIPSTZ2_BASE, 0x77777777, 0x77777777, .opacr = {0x0, 0x0, 0x0, 0x0, 0x0}, },
-	{AIPSTZ3_BASE, 0x77777777, 0x77777777, .opacr = {0x0, 0x0, 0x0, 0x0, 0x0}, },
-	{AIPSTZ4_BASE, 0x77777777, 0x77777777, .opacr = {0x0, 0x0, 0x0, 0x0, 0x0}, },
-	{0},
+	{
+		AIPSTZ1_BASE,
+		0x77777777,
+		0x77777777,
+		.opacr = { 0x0, 0x0, 0x0, 0x0, 0x0 },
+	},
+	{
+		AIPSTZ2_BASE,
+		0x77777777,
+		0x77777777,
+		.opacr = { 0x0, 0x0, 0x0, 0x0, 0x0 },
+	},
+	{
+		AIPSTZ3_BASE,
+		0x77777777,
+		0x77777777,
+		.opacr = { 0x0, 0x0, 0x0, 0x0, 0x0 },
+	},
+	{
+		AIPSTZ4_BASE,
+		0x77777777,
+		0x77777777,
+		.opacr = { 0x0, 0x0, 0x0, 0x0, 0x0 },
+	},
+	{ 0 },
 };
 
 static entry_point_info_t bl32_image_ep_info;
@@ -51,15 +73,15 @@ static entry_point_info_t bl33_image_ep_info;
 static uint32_t imx_soc_revision;
 
 int imx_soc_info_handler(uint32_t smc_fid, u_register_t x1, u_register_t x2,
-				u_register_t x3)
+			 u_register_t x3)
 {
 	return imx_soc_revision;
 }
 
-#define ANAMIX_DIGPROG		0x6c
-#define ROM_SOC_INFO_A0		0x800
-#define ROM_SOC_INFO_B0		0x83C
-#define OCOTP_SOC_INFO_B1	0x40
+#define ANAMIX_DIGPROG 0x6c
+#define ROM_SOC_INFO_A0 0x800
+#define ROM_SOC_INFO_B0 0x83C
+#define OCOTP_SOC_INFO_B1 0x40
 
 static void imx8mq_soc_info_init(void)
 {
@@ -117,12 +139,14 @@ static void bl31_tz380_setup(void)
 	 * Need to substact offset 0x40000000 from CPU address when
 	 * programming tzasc region for i.mx8mq. Enable 1G-5G S/NS RW
 	 */
-	tzc380_configure_region(0, 0x00000000, TZC_ATTR_REGION_SIZE(TZC_REGION_SIZE_4G) |
-				TZC_ATTR_REGION_EN_MASK | TZC_ATTR_SP_ALL);
+	tzc380_configure_region(0, 0x00000000,
+				TZC_ATTR_REGION_SIZE(TZC_REGION_SIZE_4G) |
+					TZC_ATTR_REGION_EN_MASK |
+					TZC_ATTR_SP_ALL);
 }
 
 void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
-			u_register_t arg2, u_register_t arg3)
+				u_register_t arg2, u_register_t arg3)
 {
 	static console_t console;
 	int i;
@@ -134,7 +158,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	imx_aipstz_init(aipstz);
 
 	console_imx_uart_register(IMX_BOOT_UART_BASE, IMX_BOOT_UART_CLK_IN_HZ,
-		IMX_CONSOLE_BAUDRATE, &console);
+				  IMX_CONSOLE_BAUDRATE, &console);
 	/* This console is only used for boot stage */
 	console_set_scope(&console, CONSOLE_FLAG_BOOT);
 
@@ -187,7 +211,7 @@ void bl31_plat_arch_setup(void)
 #endif
 		/* Map TEE memory */
 		MAP_REGION_FLAT(BL32_BASE, BL32_SIZE, MT_MEMORY | MT_RW),
-		{0},
+		{ 0 },
 	};
 
 	setup_page_tables(bl_regions, imx_mmap);

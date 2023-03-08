@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, Arm Limited. All rights reserved.
+ * Copyright (c) 2020-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -71,15 +71,15 @@ static void id_event_print(uint8_t **log_addr, size_t *log_size)
 	LOG_EVENT("  EventSize          : %u\n", event_size);
 
 	LOG_EVENT("  Signature          : %s\n",
-			event->struct_header.signature);
+		  event->struct_header.signature);
 	LOG_EVENT("  PlatformClass      : %u\n",
-			event->struct_header.platform_class);
+		  event->struct_header.platform_class);
 	LOG_EVENT("  SpecVersion        : %u.%u.%u\n",
-			event->struct_header.spec_version_major,
-			event->struct_header.spec_version_minor,
-			event->struct_header.spec_errata);
+		  event->struct_header.spec_version_major,
+		  event->struct_header.spec_version_minor,
+		  event->struct_header.spec_errata);
 	LOG_EVENT("  UintnSize          : %u\n",
-			event->struct_header.uintn_size);
+		  event->struct_header.uintn_size);
 
 	/* NumberOfAlgorithms */
 	number_of_algorithms = event->struct_header.number_of_algorithms;
@@ -114,7 +114,7 @@ static void id_event_print(uint8_t **log_addr, size_t *log_size)
 		}
 
 		LOG_EVENT("       DigestSize    : %u\n",
-					alg_ptr[i].digest_size);
+			  alg_ptr[i].digest_size);
 	}
 
 	/* Address of VendorInfoSize */
@@ -128,8 +128,8 @@ static void id_event_print(uint8_t **log_addr, size_t *log_size)
 	assert(((uintptr_t)info_size_ptr + info_size) <= (uintptr_t)end_ptr);
 
 	/* Check EventSize */
-	assert(event_size == (sizeof(id_event_struct_t) +
-				digest_len + info_size));
+	assert(event_size ==
+	       (sizeof(id_event_struct_t) + digest_len + info_size));
 	if (info_size != 0U) {
 		LOG_EVENT("  VendorInfo         :");
 		for (i = 0U; i < info_size; ++i) {
@@ -161,9 +161,9 @@ static void event2_print(uint8_t **log_addr, size_t *log_size)
 
 	LOG_EVENT("PCR_Event2:\n");
 	LOG_EVENT("  PCRIndex           : %u\n",
-			((event2_header_t *)ptr)->pcr_index);
+		  ((event2_header_t *)ptr)->pcr_index);
 	LOG_EVENT("  EventType          : %u\n",
-			((event2_header_t *)ptr)->event_type);
+		  ((event2_header_t *)ptr)->event_type);
 
 	count = ((event2_header_t *)ptr)->digests.count;
 	LOG_EVENT("  Digests Count      : %u\n", count);
@@ -174,8 +174,8 @@ static void event2_print(uint8_t **log_addr, size_t *log_size)
 
 	for (unsigned int i = 0U; i < count; ++i) {
 		/* Check AlgorithmId address */
-		assert(((uintptr_t)ptr +
-			offsetof(tpmt_ha, digest)) <= (uintptr_t)end_ptr);
+		assert(((uintptr_t)ptr + offsetof(tpmt_ha, digest)) <=
+		       (uintptr_t)end_ptr);
 
 		LOG_EVENT("    #%u AlgorithmId   : SHA", i);
 		switch (((tpmt_ha *)ptr)->algorithm_id) {
@@ -194,7 +194,7 @@ static void event2_print(uint8_t **log_addr, size_t *log_size)
 		default:
 			(void)printf("?\n");
 			ERROR("Algorithm 0x%x not found\n",
-				((tpmt_ha *)ptr)->algorithm_id);
+			      ((tpmt_ha *)ptr)->algorithm_id);
 			panic();
 		}
 
@@ -218,7 +218,8 @@ static void event2_print(uint8_t **log_addr, size_t *log_size)
 	}
 
 	/* TCG_PCR_EVENT2.EventSize */
-	assert(((uintptr_t)ptr + offsetof(event2_data_t, event)) <= (uintptr_t)end_ptr);
+	assert(((uintptr_t)ptr + offsetof(event2_data_t, event)) <=
+	       (uintptr_t)end_ptr);
 
 	event_size = ((event2_data_t *)ptr)->event_size;
 	LOG_EVENT("  EventSize          : %u\n", event_size);
@@ -230,11 +231,11 @@ static void event2_print(uint8_t **log_addr, size_t *log_size)
 	assert(((uintptr_t)ptr + event_size) <= (uintptr_t)end_ptr);
 
 	if ((event_size == sizeof(startup_locality_event_t)) &&
-	     (strcmp((const char *)ptr, TCG_STARTUP_LOCALITY_SIGNATURE) == 0)) {
+	    (strcmp((const char *)ptr, TCG_STARTUP_LOCALITY_SIGNATURE) == 0)) {
 		LOG_EVENT("  Signature          : %s\n",
-			((startup_locality_event_t *)ptr)->signature);
+			  ((startup_locality_event_t *)ptr)->signature);
 		LOG_EVENT("  StartupLocality    : %u\n",
-			((startup_locality_event_t *)ptr)->startup_locality);
+			  ((startup_locality_event_t *)ptr)->startup_locality);
 	} else {
 		LOG_EVENT("  Event              : %s\n", (uint8_t *)ptr);
 	}
@@ -242,7 +243,7 @@ static void event2_print(uint8_t **log_addr, size_t *log_size)
 	*log_size -= (uintptr_t)ptr + event_size - (uintptr_t)*log_addr;
 	*log_addr = (uint8_t *)ptr + event_size;
 }
-#endif	/* LOG_LEVEL >= EVENT_LOG_LEVEL */
+#endif /* LOG_LEVEL >= EVENT_LOG_LEVEL */
 
 /*
  * Print Event Log

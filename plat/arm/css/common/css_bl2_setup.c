@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,6 +11,7 @@
 #include <drivers/arm/css/css_scp.h>
 #include <lib/mmio.h>
 #include <lib/utils.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <platform_def.h>
 
@@ -28,7 +29,7 @@ int plat_arm_bl2_handle_scp_bl2(image_info_t *scp_bl2_image_info)
 	INFO("BL2: Initiating SCP_BL2 transfer to SCP\n");
 
 	ret = css_scp_boot_image_xfer((void *)scp_bl2_image_info->image_base,
-		scp_bl2_image_info->image_size);
+				      scp_bl2_image_info->image_size);
 
 	if (ret == 0)
 		ret = css_scp_boot_ready();
@@ -42,7 +43,7 @@ int plat_arm_bl2_handle_scp_bl2(image_info_t *scp_bl2_image_info)
 }
 
 #if !CSS_USE_SCMI_SDS_DRIVER
-# if defined(EL3_PAYLOAD_BASE) || JUNO_AARCH32_EL3_RUNTIME
+#if defined(EL3_PAYLOAD_BASE) || JUNO_AARCH32_EL3_RUNTIME
 
 /*
  * We need to override some of the platform functions when booting an EL3
@@ -54,7 +55,7 @@ int plat_arm_bl2_handle_scp_bl2(image_info_t *scp_bl2_image_info)
 static unsigned int scp_boot_config;
 
 void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1,
-			u_register_t arg2, u_register_t arg3)
+			       u_register_t arg2, u_register_t arg3)
 {
 	arm_bl2_early_platform_setup((uintptr_t)arg0, (meminfo_t *)arg1);
 
@@ -77,10 +78,10 @@ void bl2_platform_setup(void)
 	 *  - restoring the SCP boot configuration.
 	 */
 	VERBOSE("BL2: Restoring SCP reset data in Trusted SRAM\n");
-	zeromem((void *) ARM_SHARED_RAM_BASE, 128);
+	zeromem((void *)ARM_SHARED_RAM_BASE, 128);
 	mmio_write_32(SCP_BOOT_CFG_ADDR, scp_boot_config);
 }
 
-# endif /* EL3_PAYLOAD_BASE */
+#endif /* EL3_PAYLOAD_BASE */
 
 #endif /* CSS_USE_SCMI_SDS_DRIVER */

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,41 +12,40 @@
 
 #include <arch_features.h>
 #include <common/debug.h>
+#include <fvp_r_arch_helpers.h>
 #include <lib/utils_def.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include "xlat_mpu_private.h"
 
-#include <fvp_r_arch_helpers.h>
 #include <platform_def.h>
 
-#warning "xlat_mpu library is currently experimental and its API may change in future."
+#include "xlat_mpu_private.h"
 
+#warning \
+	"xlat_mpu library is currently experimental and its API may change in future."
 
 /* Helper function that cleans the data cache only if it is enabled. */
-static inline __attribute__((unused))
-	void xlat_clean_dcache_range(uintptr_t addr, size_t size)
+static inline __attribute__((unused)) void
+xlat_clean_dcache_range(uintptr_t addr, size_t size)
 {
 	if (is_dcache_enabled()) {
 		clean_dcache_range(addr, size);
 	}
 }
 
-
-
 /* Calculate region-attributes byte for PRBAR part of MPU-region descriptor: */
 uint64_t prbar_attr_value(uint32_t attr)
 {
 	uint64_t retValue = UL(0);
-	uint64_t extract;  /* temp var holding bit extracted from attr */
+	uint64_t extract; /* temp var holding bit extracted from attr */
 
 	/* Extract and stuff SH: */
-	extract = (uint64_t) ((attr >> MT_SHAREABILITY_SHIFT)
-				& MT_SHAREABILITY_MASK);
+	extract = (uint64_t)((attr >> MT_SHAREABILITY_SHIFT) &
+			     MT_SHAREABILITY_MASK);
 	retValue |= (extract << PRBAR_SH_SHIFT);
 
 	/* Extract and stuff AP: */
-	extract = (uint64_t) ((attr >> MT_PERM_SHIFT) & MT_PERM_MASK);
+	extract = (uint64_t)((attr >> MT_PERM_SHIFT) & MT_PERM_MASK);
 	if (extract == 0U) {
 		retValue |= (UL(2) << PRBAR_AP_SHIFT);
 	} else /* extract == 1 */ {
@@ -54,10 +53,10 @@ uint64_t prbar_attr_value(uint32_t attr)
 	}
 
 	/* Extract and stuff XN: */
-	extract = (uint64_t) ((attr >> MT_EXECUTE_SHIFT) & MT_EXECUTE_MASK);
+	extract = (uint64_t)((attr >> MT_EXECUTE_SHIFT) & MT_EXECUTE_MASK);
 	retValue |= (extract << PRBAR_XN_SHIFT);
 	/* However, also don't execute in peripheral space: */
-	extract = (uint64_t) ((attr >> MT_TYPE_SHIFT) & MT_TYPE_MASK);
+	extract = (uint64_t)((attr >> MT_TYPE_SHIFT) & MT_TYPE_MASK);
 	if (extract == 0U) {
 		retValue |= (UL(1) << PRBAR_XN_SHIFT);
 	}
@@ -68,11 +67,10 @@ uint64_t prbar_attr_value(uint32_t attr)
 uint64_t prlar_attr_value(uint32_t attr)
 {
 	uint64_t retValue = UL(0);
-	uint64_t extract;  /* temp var holding bit extracted from attr */
+	uint64_t extract; /* temp var holding bit extracted from attr */
 
 	/* Extract and stuff AttrIndx: */
-	extract = (uint64_t) ((attr >> MT_TYPE_SHIFT)
-				& MT_TYPE_MASK);
+	extract = (uint64_t)((attr >> MT_TYPE_SHIFT) & MT_TYPE_MASK);
 	switch (extract) {
 	case UL(0):
 		retValue |= (UL(1) << PRLAR_ATTR_SHIFT);
@@ -116,19 +114,18 @@ static void mpu_map_region(mmap_region_t *mm)
 	/* Find and select first-available MPU region (PRENR has an enable bit
 	 * for each MPU region, 1 for in-use or 0 for unused):
 	 */
-	for (region_to_use = 0;  region_to_use < N_MPU_REGIONS;
+	for (region_to_use = 0; region_to_use < N_MPU_REGIONS;
 	     region_to_use++) {
 		if (((prenr_el2_value >> region_to_use) & 1) == 0) {
 			break;
 		}
 	}
-	write_prselr_el2((uint64_t) (region_to_use));
+	write_prselr_el2((uint64_t)(region_to_use));
 	isb();
 
 	/* Set base and limit addresses: */
 	write_prbar_el2(mm->base_pa & PRBAR_PRLAR_ADDR_MASK);
-	write_prlar_el2((mm->base_pa + mm->size - 1UL)
-			& PRBAR_PRLAR_ADDR_MASK);
+	write_prlar_el2((mm->base_pa + mm->size - 1UL) & PRBAR_PRLAR_ADDR_MASK);
 	dsbsy();
 	isb();
 
@@ -165,10 +162,10 @@ static int mmap_add_region_check(const xlat_ctx_t *ctx, const mmap_region_t *mm)
 	uintptr_t end_va = base_va + size - 1U;
 
 	if (base_pa != base_va) {
-		return -EINVAL;  /* MPU does not perform address translation */
+		return -EINVAL; /* MPU does not perform address translation */
 	}
 	if ((base_pa % 64ULL) != 0ULL) {
-		return -EINVAL;  /* MPU requires 64-byte alignment */
+		return -EINVAL; /* MPU requires 64-byte alignment */
 	}
 	/* Check for overflows */
 	if ((base_pa > end_pa) || (base_va > end_va)) {
@@ -182,9 +179,8 @@ static int mmap_add_region_check(const xlat_ctx_t *ctx, const mmap_region_t *mm)
 		return -ENOMEM;
 	}
 	/* Check for PAs and VAs overlaps with all other regions */
-	for (const mmap_region_t *mm_cursor = ctx->mmap;
-	     mm_cursor->size != 0U; ++mm_cursor) {
-
+	for (const mmap_region_t *mm_cursor = ctx->mmap; mm_cursor->size != 0U;
+	     ++mm_cursor) {
 		uintptr_t mm_cursor_end_va =
 			mm_cursor->base_va + mm_cursor->size - 1U;
 
@@ -192,11 +188,10 @@ static int mmap_add_region_check(const xlat_ctx_t *ctx, const mmap_region_t *mm)
 		 * Check if one of the regions is completely inside the other
 		 * one.
 		 */
-		bool fully_overlapped_va =
-			((base_va >= mm_cursor->base_va) &&
-					(end_va <= mm_cursor_end_va)) ||
-			((mm_cursor->base_va >= base_va) &&
-						(mm_cursor_end_va <= end_va));
+		bool fully_overlapped_va = ((base_va >= mm_cursor->base_va) &&
+					    (end_va <= mm_cursor_end_va)) ||
+					   ((mm_cursor->base_va >= base_va) &&
+					    (mm_cursor_end_va <= end_va));
 
 		/*
 		 * Full VA overlaps are only allowed if both regions are
@@ -205,19 +200,18 @@ static int mmap_add_region_check(const xlat_ctx_t *ctx, const mmap_region_t *mm)
 		 * This can only be done with static regions.
 		 */
 		if (fully_overlapped_va) {
-
 #if PLAT_XLAT_TABLES_DYNAMIC
 			if (((mm->attr & MT_DYNAMIC) != 0U) ||
 			    ((mm_cursor->attr & MT_DYNAMIC) != 0U)) {
 				return -EPERM;
 			}
 #endif /* PLAT_XLAT_TABLES_DYNAMIC */
-			if ((mm_cursor->base_va - mm_cursor->base_pa)
-					!= (base_va - base_pa)) {
+			if ((mm_cursor->base_va - mm_cursor->base_pa) !=
+			    (base_va - base_pa)) {
 				return -EPERM;
 			}
 			if ((base_va == mm_cursor->base_va) &&
-					(size == mm_cursor->size)) {
+			    (size == mm_cursor->size)) {
 				return -EPERM;
 			}
 		} else {
@@ -228,12 +222,12 @@ static int mmap_add_region_check(const xlat_ctx_t *ctx, const mmap_region_t *mm)
 			 */
 
 			unsigned long long mm_cursor_end_pa =
-				     mm_cursor->base_pa + mm_cursor->size - 1U;
+				mm_cursor->base_pa + mm_cursor->size - 1U;
 
 			bool separated_pa = (end_pa < mm_cursor->base_pa) ||
-				(base_pa > mm_cursor_end_pa);
+					    (base_pa > mm_cursor_end_pa);
 			bool separated_va = (end_va < mm_cursor->base_va) ||
-				(base_va > mm_cursor_end_va);
+					    (base_va > mm_cursor_end_va);
 
 			if (!separated_va || !separated_pa) {
 				return -EPERM;
@@ -286,7 +280,7 @@ void mmap_add_region_ctx(xlat_ctx_t *ctx, const mmap_region_t *mm)
 	/* Make room for new region by moving other regions up by one place */
 	mm_destination = mm_cursor + 1;
 	(void)memmove(mm_destination, mm_cursor,
-		(uintptr_t)mm_last - (uintptr_t)mm_cursor);
+		      (uintptr_t)mm_last - (uintptr_t)mm_cursor);
 
 	/*
 	 * Check we haven't lost the empty sentinel from the end of the array.
@@ -322,14 +316,14 @@ void __init init_xlat_tables_ctx(xlat_ctx_t *ctx)
 	assert(ctx != NULL);
 	assert(!ctx->initialized);
 	assert((ctx->xlat_regime == EL2_REGIME) ||
-		(ctx->xlat_regime == EL1_EL0_REGIME));
+	       (ctx->xlat_regime == EL1_EL0_REGIME));
 	/* Note:  Add EL3_REGIME if EL3 is supported in future v8-R64 cores. */
 	assert(!is_mpu_enabled_ctx(ctx));
 
 	mmap_region_t *mm = ctx->mmap;
 
 	assert(ctx->va_max_address >=
-		(xlat_get_min_virt_addr_space_size() - 1U));
+	       (xlat_get_min_virt_addr_space_size() - 1U));
 	assert(ctx->va_max_address <= (MAX_VIRT_ADDR_SPACE_SIZE - 1U));
 	assert(IS_POWER_OF_TWO(ctx->va_max_address + 1U));
 
@@ -342,19 +336,19 @@ void __init init_xlat_tables_ctx(xlat_ctx_t *ctx)
 
 	/* Also mark all MPU regions as invalid in the MPU hardware itself: */
 	write_prenr_el2(0);
-		/* Sufficient for current, max-32-region implementations. */
+	/* Sufficient for current, max-32-region implementations. */
 	dsbsy();
 	isb();
 	while (mm->size != 0U) {
 		if (read_prenr_el2() == ALL_MPU_EL2_REGIONS_USED) {
 			ERROR("Not enough MPU regions to map region:\n"
-				" VA:0x%lx  PA:0x%llx  size:0x%zx  attr:0x%x\n",
-				mm->base_va, mm->base_pa, mm->size, mm->attr);
+			      " VA:0x%lx  PA:0x%llx  size:0x%zx  attr:0x%x\n",
+			      mm->base_va, mm->base_pa, mm->size, mm->attr);
 			panic();
 		} else {
 #if !(HW_ASSISTED_COHERENCY || WARMBOOT_ENABLE_DCACHE_EARLY)
 			xlat_clean_dcache_range((uintptr_t)mm->base_va,
-				mm->size);
+						mm->size);
 #endif
 			mpu_map_region(mm);
 		}
@@ -367,10 +361,8 @@ void __init init_xlat_tables_ctx(xlat_ctx_t *ctx)
 
 	/* Set attributes in the right indices of the MAIR */
 	mair = MAIR_ATTR_SET(ATTR_DEVICE, ATTR_DEVICE_INDEX);
-	mair |= MAIR_ATTR_SET(ATTR_IWBWA_OWBWA_NTR,
-			ATTR_IWBWA_OWBWA_NTR_INDEX);
-	mair |= MAIR_ATTR_SET(ATTR_NON_CACHEABLE,
-			ATTR_NON_CACHEABLE_INDEX);
+	mair |= MAIR_ATTR_SET(ATTR_IWBWA_OWBWA_NTR, ATTR_IWBWA_OWBWA_NTR_INDEX);
+	mair |= MAIR_ATTR_SET(ATTR_NON_CACHEABLE, ATTR_NON_CACHEABLE_INDEX);
 	write_mair_el2(mair);
 	dsbsy();
 	isb();
@@ -397,11 +389,11 @@ void clear_all_mpu_regions(void)
 	write_prenr_el2(0UL);
 
 	/* Sequence through all regions, zeroing them out and turning off: */
-	for (region_n = 0UL;  region_n < N_MPU_REGIONS;  region_n++) {
+	for (region_n = 0UL; region_n < N_MPU_REGIONS; region_n++) {
 		write_prselr_el2(region_n);
 		isb();
-		write_prbar_el2((uint64_t) 0);
-		write_prlar_el2((uint64_t) 0);
+		write_prbar_el2((uint64_t)0);
+		write_prlar_el2((uint64_t)0);
 		dsbsy();
 		isb();
 	}

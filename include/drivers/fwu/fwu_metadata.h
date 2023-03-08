@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, Arm Limited. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  *
@@ -12,11 +12,11 @@
 #define FWU_METADATA_H
 
 #include <stdint.h>
+
 #include <tools_share/uuid.h>
 
 /* Properties of image in a bank */
 struct fwu_image_properties {
-
 	/* UUID of the image in this bank */
 	uuid_t img_uuid;
 
@@ -33,7 +33,6 @@ struct fwu_image_properties {
 
 /* Image entry information */
 struct fwu_image_entry {
-
 	/* UUID identifying the image type */
 	uuid_t img_type_uuid;
 
@@ -53,7 +52,6 @@ struct fwu_image_entry {
  * 3. Get properties of all images present in all banks.
  */
 struct fwu_metadata {
-
 	/* Metadata CRC value */
 	uint32_t crc_32;
 

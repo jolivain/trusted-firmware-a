@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -15,25 +15,25 @@ unsigned int uniphier_get_soc_model(void);
 unsigned int uniphier_get_soc_revision(void);
 unsigned int uniphier_get_soc_id(void);
 
-#define UNIPHIER_SOC_LD11		0
-#define UNIPHIER_SOC_LD20		1
-#define UNIPHIER_SOC_PXS3		2
-#define UNIPHIER_SOC_UNKNOWN		0xffffffff
+#define UNIPHIER_SOC_LD11 0
+#define UNIPHIER_SOC_LD20 1
+#define UNIPHIER_SOC_PXS3 2
+#define UNIPHIER_SOC_UNKNOWN 0xffffffff
 
 unsigned int uniphier_get_boot_device(unsigned int soc);
 
-#define UNIPHIER_BOOT_DEVICE_EMMC	0
-#define UNIPHIER_BOOT_DEVICE_NAND	1
-#define UNIPHIER_BOOT_DEVICE_NOR	2
-#define UNIPHIER_BOOT_DEVICE_SD		3
-#define UNIPHIER_BOOT_DEVICE_USB	4
-#define UNIPHIER_BOOT_DEVICE_RSV	0xffffffff
+#define UNIPHIER_BOOT_DEVICE_EMMC 0
+#define UNIPHIER_BOOT_DEVICE_NAND 1
+#define UNIPHIER_BOOT_DEVICE_NOR 2
+#define UNIPHIER_BOOT_DEVICE_SD 3
+#define UNIPHIER_BOOT_DEVICE_USB 4
+#define UNIPHIER_BOOT_DEVICE_RSV 0xffffffff
 
 unsigned int uniphier_get_boot_master(unsigned int soc);
 
-#define UNIPHIER_BOOT_MASTER_THIS	0
-#define UNIPHIER_BOOT_MASTER_SCP	1
-#define UNIPHIER_BOOT_MASTER_EXT	2
+#define UNIPHIER_BOOT_MASTER_THIS 0
+#define UNIPHIER_BOOT_MASTER_SCP 1
+#define UNIPHIER_BOOT_MASTER_EXT 2
 
 void uniphier_console_setup(unsigned int soc);
 

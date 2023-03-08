@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,43 +7,34 @@
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
-#include <mt_gic_v3.h>
 #include <lib/mmio.h>
-#include <platform_def.h>
+#include <mt_gic_v3.h>
 #include <pmic.h>
 #include <spm.h>
 #include <uart.h>
 
-#define SPM_SYSCLK_SETTLE       99
+#include <platform_def.h>
 
-#define WAKE_SRC_FOR_SUSPEND \
-	(WAKE_SRC_R12_PCM_TIMER | \
-	 WAKE_SRC_R12_SSPM_WDT_EVENT_B | \
-	 WAKE_SRC_R12_KP_IRQ_B | \
-	 WAKE_SRC_R12_CONN2AP_SPM_WAKEUP_B | \
-	 WAKE_SRC_R12_EINT_EVENT_B | \
-	 WAKE_SRC_R12_CONN_WDT_IRQ_B | \
-	 WAKE_SRC_R12_CCIF0_EVENT_B | \
-	 WAKE_SRC_R12_SSPM_SPM_IRQ_B | \
-	 WAKE_SRC_R12_SCP_SPM_IRQ_B | \
-	 WAKE_SRC_R12_SCP_WDT_EVENT_B | \
-	 WAKE_SRC_R12_USB_CDSC_B | \
-	 WAKE_SRC_R12_USB_POWERDWN_B | \
-	 WAKE_SRC_R12_SYS_TIMER_EVENT_B | \
-	 WAKE_SRC_R12_EINT_EVENT_SECURE_B | \
-	 WAKE_SRC_R12_CCIF1_EVENT_B | \
-	 WAKE_SRC_R12_MD2AP_PEER_EVENT_B | \
-	 WAKE_SRC_R12_MD1_WDT_B | \
-	 WAKE_SRC_R12_CLDMA_EVENT_B | \
+#define SPM_SYSCLK_SETTLE 99
+
+#define WAKE_SRC_FOR_SUSPEND                                                 \
+	(WAKE_SRC_R12_PCM_TIMER | WAKE_SRC_R12_SSPM_WDT_EVENT_B |            \
+	 WAKE_SRC_R12_KP_IRQ_B | WAKE_SRC_R12_CONN2AP_SPM_WAKEUP_B |         \
+	 WAKE_SRC_R12_EINT_EVENT_B | WAKE_SRC_R12_CONN_WDT_IRQ_B |           \
+	 WAKE_SRC_R12_CCIF0_EVENT_B | WAKE_SRC_R12_SSPM_SPM_IRQ_B |          \
+	 WAKE_SRC_R12_SCP_SPM_IRQ_B | WAKE_SRC_R12_SCP_WDT_EVENT_B |         \
+	 WAKE_SRC_R12_USB_CDSC_B | WAKE_SRC_R12_USB_POWERDWN_B |             \
+	 WAKE_SRC_R12_SYS_TIMER_EVENT_B | WAKE_SRC_R12_EINT_EVENT_SECURE_B | \
+	 WAKE_SRC_R12_CCIF1_EVENT_B | WAKE_SRC_R12_MD2AP_PEER_EVENT_B |      \
+	 WAKE_SRC_R12_MD1_WDT_B | WAKE_SRC_R12_CLDMA_EVENT_B |               \
 	 WAKE_SRC_R12_SEJ_WDT_GPT_B)
 
-#define SLP_PCM_FLAGS \
-	(SPM_FLAG_DIS_VCORE_DVS	| SPM_FLAG_DIS_VCORE_DFS | \
+#define SLP_PCM_FLAGS                                           \
+	(SPM_FLAG_DIS_VCORE_DVS | SPM_FLAG_DIS_VCORE_DFS |      \
 	 SPM_FLAG_DIS_ATF_ABORT | SPM_FLAG_DISABLE_MMSYS_DVFS | \
 	 SPM_FLAG_DIS_INFRA_PDN | SPM_FLAG_SUSPEND_OPTION)
 
-#define SLP_PCM_FLAGS1 \
-	(SPM_FLAG1_DISABLE_MCDSR)
+#define SLP_PCM_FLAGS1 (SPM_FLAG1_DISABLE_MCDSR)
 
 static const struct pwr_ctrl suspend_ctrl = {
 	.wake_src = WAKE_SRC_FOR_SUSPEND,
@@ -175,8 +166,8 @@ void go_to_sleep_before_wfi(void)
 	if (!mt_console_uart_cg_status())
 		console_switch_state(CONSOLE_FLAG_BOOT);
 
-	INFO("cpu%d: \"%s\", wakesrc = 0x%x, pcm_con1 = 0x%x\n",
-	     cpu, spm_get_firmware_version(), suspend_ctrl.wake_src,
+	INFO("cpu%d: \"%s\", wakesrc = 0x%x, pcm_con1 = 0x%x\n", cpu,
+	     spm_get_firmware_version(), suspend_ctrl.wake_src,
 	     mmio_read_32(PCM_CON1));
 	INFO("settle = %u, sec = %u, sw_flag = 0x%x 0x%x, src_req = 0x%x\n",
 	     settle, mmio_read_32(PCM_TIMER_VAL) / 32768,

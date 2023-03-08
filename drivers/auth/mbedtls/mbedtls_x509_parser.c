@@ -18,19 +18,18 @@
 #include <string.h>
 
 /* mbed TLS headers */
-#include <mbedtls/asn1.h>
-#include <mbedtls/oid.h>
-#include <mbedtls/platform.h>
-
 #include <arch_helpers.h>
 #include <drivers/auth/img_parser_mod.h>
 #include <drivers/auth/mbedtls/mbedtls_common.h>
 #include <lib/utils.h>
+#include <mbedtls/asn1.h>
+#include <mbedtls/oid.h>
+#include <mbedtls/platform.h>
 
 /* Maximum OID string length ("a.b.c.d.e.f ...") */
-#define MAX_OID_STR_LEN			64
+#define MAX_OID_STR_LEN 64
 
-#define LIB_NAME	"mbed TLS X509v3"
+#define LIB_NAME "mbed TLS X509v3"
 
 /* Temporary variables to speed up the authentication parameters search. These
  * variables are assigned once during the integrity check and used any time an
@@ -47,10 +46,10 @@ static mbedtls_asn1_buf signature;
  */
 static void clear_temp_vars(void)
 {
-#define ZERO_AND_CLEAN(x)					\
-	do {							\
-		zeromem(&x, sizeof(x));				\
-		clean_dcache_range((uintptr_t)&x, sizeof(x));	\
+#define ZERO_AND_CLEAN(x)                                     \
+	do {                                                  \
+		zeromem(&x, sizeof(x));                       \
+		clean_dcache_range((uintptr_t)&x, sizeof(x)); \
 	} while (0);
 
 	ZERO_AND_CLEAN(tbs)
@@ -92,7 +91,7 @@ static int get_ext(const char *oid, void **ext, unsigned int *ext_len)
 
 		ret = mbedtls_asn1_get_tag(&p, end, &len,
 					   MBEDTLS_ASN1_CONSTRUCTED |
-					   MBEDTLS_ASN1_SEQUENCE);
+						   MBEDTLS_ASN1_SEQUENCE);
 		if (ret != 0) {
 			return IMG_PARSER_ERR_FORMAT;
 		}
@@ -125,15 +124,14 @@ static int get_ext(const char *oid, void **ext, unsigned int *ext_len)
 		}
 
 		/* Detect requested extension */
-		oid_len = mbedtls_oid_get_numeric_string(oid_str,
-							 MAX_OID_STR_LEN,
-							 &extn_oid);
-		if ((oid_len == MBEDTLS_ERR_OID_BUF_TOO_SMALL) || (oid_len < 0)) {
+		oid_len = mbedtls_oid_get_numeric_string(
+			oid_str, MAX_OID_STR_LEN, &extn_oid);
+		if ((oid_len == MBEDTLS_ERR_OID_BUF_TOO_SMALL) ||
+		    (oid_len < 0)) {
 			return IMG_PARSER_ERR;
 		}
 
-		if ((oid != NULL) &&
-		    ((size_t)oid_len == strlen(oid_str)) &&
+		if ((oid != NULL) && ((size_t)oid_len == strlen(oid_str)) &&
 		    (strcmp(oid, oid_str) == 0)) {
 			*ext = (void *)p;
 			*ext_len = (unsigned int)len;
@@ -146,7 +144,6 @@ static int get_ext(const char *oid, void **ext, unsigned int *ext_len)
 
 	return (oid == NULL) ? IMG_PARSER_OK : IMG_PARSER_ERR_NOT_FOUND;
 }
-
 
 /*
  * Check the integrity of the certificate ASN.1 structure.
@@ -190,8 +187,9 @@ static int cert_parse(void *img, unsigned int img_len)
 	 *      signatureAlgorithm   AlgorithmIdentifier,
 	 *      signatureValue       BIT STRING  }
 	 */
-	ret = mbedtls_asn1_get_tag(&p, end, &len, MBEDTLS_ASN1_CONSTRUCTED |
-				   MBEDTLS_ASN1_SEQUENCE);
+	ret = mbedtls_asn1_get_tag(&p, end, &len,
+				   MBEDTLS_ASN1_CONSTRUCTED |
+					   MBEDTLS_ASN1_SEQUENCE);
 	if ((ret != 0) || ((p + len) != end)) {
 		return IMG_PARSER_ERR_FORMAT;
 	}
@@ -200,8 +198,9 @@ static int cert_parse(void *img, unsigned int img_len)
 	 * TBSCertificate  ::=  SEQUENCE  {
 	 */
 	tbs.p = p;
-	ret = mbedtls_asn1_get_tag(&p, end, &len, MBEDTLS_ASN1_CONSTRUCTED |
-				   MBEDTLS_ASN1_SEQUENCE);
+	ret = mbedtls_asn1_get_tag(&p, end, &len,
+				   MBEDTLS_ASN1_CONSTRUCTED |
+					   MBEDTLS_ASN1_SEQUENCE);
 	if (ret != 0) {
 		return IMG_PARSER_ERR_FORMAT;
 	}
@@ -231,8 +230,9 @@ static int cert_parse(void *img, unsigned int img_len)
 	 * signature            AlgorithmIdentifier
 	 */
 	sig_alg1.p = p;
-	ret = mbedtls_asn1_get_tag(&p, end, &len, MBEDTLS_ASN1_CONSTRUCTED |
-				   MBEDTLS_ASN1_SEQUENCE);
+	ret = mbedtls_asn1_get_tag(&p, end, &len,
+				   MBEDTLS_ASN1_CONSTRUCTED |
+					   MBEDTLS_ASN1_SEQUENCE);
 	if (ret != 0) {
 		return IMG_PARSER_ERR_FORMAT;
 	}
@@ -242,8 +242,9 @@ static int cert_parse(void *img, unsigned int img_len)
 	/*
 	 * issuer               Name
 	 */
-	ret = mbedtls_asn1_get_tag(&p, end, &len, MBEDTLS_ASN1_CONSTRUCTED |
-				   MBEDTLS_ASN1_SEQUENCE);
+	ret = mbedtls_asn1_get_tag(&p, end, &len,
+				   MBEDTLS_ASN1_CONSTRUCTED |
+					   MBEDTLS_ASN1_SEQUENCE);
 	if (ret != 0) {
 		return IMG_PARSER_ERR_FORMAT;
 	}
@@ -255,8 +256,9 @@ static int cert_parse(void *img, unsigned int img_len)
 	 *      notAfter       Time }
 	 *
 	 */
-	ret = mbedtls_asn1_get_tag(&p, end, &len, MBEDTLS_ASN1_CONSTRUCTED |
-				   MBEDTLS_ASN1_SEQUENCE);
+	ret = mbedtls_asn1_get_tag(&p, end, &len,
+				   MBEDTLS_ASN1_CONSTRUCTED |
+					   MBEDTLS_ASN1_SEQUENCE);
 	if (ret != 0) {
 		return IMG_PARSER_ERR_FORMAT;
 	}
@@ -265,8 +267,9 @@ static int cert_parse(void *img, unsigned int img_len)
 	/*
 	 * subject              Name
 	 */
-	ret = mbedtls_asn1_get_tag(&p, end, &len, MBEDTLS_ASN1_CONSTRUCTED |
-				   MBEDTLS_ASN1_SEQUENCE);
+	ret = mbedtls_asn1_get_tag(&p, end, &len,
+				   MBEDTLS_ASN1_CONSTRUCTED |
+					   MBEDTLS_ASN1_SEQUENCE);
 	if (ret != 0) {
 		return IMG_PARSER_ERR_FORMAT;
 	}
@@ -276,8 +279,9 @@ static int cert_parse(void *img, unsigned int img_len)
 	 * SubjectPublicKeyInfo
 	 */
 	pk.p = p;
-	ret = mbedtls_asn1_get_tag(&p, end, &len, MBEDTLS_ASN1_CONSTRUCTED |
-				   MBEDTLS_ASN1_SEQUENCE);
+	ret = mbedtls_asn1_get_tag(&p, end, &len,
+				   MBEDTLS_ASN1_CONSTRUCTED |
+					   MBEDTLS_ASN1_SEQUENCE);
 	if (ret != 0) {
 		return IMG_PARSER_ERR_FORMAT;
 	}
@@ -285,8 +289,9 @@ static int cert_parse(void *img, unsigned int img_len)
 	pk.len = pk_end - pk.p;
 
 	/* algorithm */
-	ret = mbedtls_asn1_get_tag(&p, pk_end, &len, MBEDTLS_ASN1_CONSTRUCTED |
-				   MBEDTLS_ASN1_SEQUENCE);
+	ret = mbedtls_asn1_get_tag(&p, pk_end, &len,
+				   MBEDTLS_ASN1_CONSTRUCTED |
+					   MBEDTLS_ASN1_SEQUENCE);
 	if (ret != 0) {
 		return IMG_PARSER_ERR_FORMAT;
 	}
@@ -308,7 +313,8 @@ static int cert_parse(void *img, unsigned int img_len)
 	for (int i = 1; i < 3; i++) {
 		ret = mbedtls_asn1_get_tag(&p, end, &len,
 					   MBEDTLS_ASN1_CONTEXT_SPECIFIC |
-					   MBEDTLS_ASN1_CONSTRUCTED | i);
+						   MBEDTLS_ASN1_CONSTRUCTED |
+						   i);
 		/*
 		 * Unique IDs are obsolete, so MBEDTLS_ERR_ASN1_UNEXPECTED_TAG
 		 * is the common case.
@@ -338,7 +344,7 @@ static int cert_parse(void *img, unsigned int img_len)
 	 */
 	ret = mbedtls_asn1_get_tag(&p, end, &len,
 				   MBEDTLS_ASN1_CONTEXT_SPECIFIC |
-				   MBEDTLS_ASN1_CONSTRUCTED | 3);
+					   MBEDTLS_ASN1_CONSTRUCTED | 3);
 	if ((ret != 0) || (len != (size_t)(end - p))) {
 		return IMG_PARSER_ERR_FORMAT;
 	}
@@ -347,8 +353,9 @@ static int cert_parse(void *img, unsigned int img_len)
 	 * Extensions  ::=  SEQUENCE SIZE (1..MAX) OF Extension
 	 * -- must use all remaining bytes in TBSCertificate
 	 */
-	ret = mbedtls_asn1_get_tag(&p, end, &len, MBEDTLS_ASN1_CONSTRUCTED |
-				   MBEDTLS_ASN1_SEQUENCE);
+	ret = mbedtls_asn1_get_tag(&p, end, &len,
+				   MBEDTLS_ASN1_CONSTRUCTED |
+					   MBEDTLS_ASN1_SEQUENCE);
 	if ((ret != 0) || (len != (size_t)(end - p))) {
 		return IMG_PARSER_ERR_FORMAT;
 	}
@@ -394,7 +401,6 @@ static int cert_parse(void *img, unsigned int img_len)
 	return IMG_PARSER_OK;
 }
 
-
 /* Exported functions */
 
 static void init(void)
@@ -426,9 +432,9 @@ static int check_integrity(void *img, unsigned int img_len)
  * a buffer of the correct type needs to be statically allocated, filled and
  * returned.
  */
-static int get_auth_param(const auth_param_type_desc_t *type_desc,
-		void *img, unsigned int img_len,
-		void **param, unsigned int *param_len)
+static int get_auth_param(const auth_param_type_desc_t *type_desc, void *img,
+			  unsigned int img_len, void **param,
+			  unsigned int *param_len)
 {
 	int rc = IMG_PARSER_OK;
 
@@ -474,5 +480,5 @@ static int get_auth_param(const auth_param_type_desc_t *type_desc,
 	return rc;
 }
 
-REGISTER_IMG_PARSER_LIB(IMG_CERT, LIB_NAME, init, \
-		       check_integrity, get_auth_param);
+REGISTER_IMG_PARSER_LIB(IMG_CERT, LIB_NAME, init, check_integrity,
+			get_auth_param);

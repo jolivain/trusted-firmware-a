@@ -12,11 +12,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "caam.h"
 #include <common/debug.h>
+
+#include "caam.h"
 #include "jobdesc.h"
 #include "sec_hw_specific.h"
-
 
 /* Callback function after Instantiation decsriptor is submitted to SEC
  */
@@ -49,7 +49,7 @@ int get_hw_unq_key_blob_hw(uint8_t *hw_key, int size)
 	uint32_t out_sz = in_sz + KEY_BLOB_SIZE + MAC_SIZE;
 
 	uint32_t operation = CMD_OPERATION | OP_TYPE_ENCAP_PROTOCOL |
-	    OP_PCLID_BLOB | BLOB_PROTO_INFO;
+			     OP_PCLID_BLOB | BLOB_PROTO_INFO;
 
 	memset(key_data, 0xff, KEY_IDNFR_SZ_BYTES);
 	memset(in_data, 0x00, in_sz);

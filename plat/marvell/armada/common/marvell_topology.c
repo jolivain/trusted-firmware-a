@@ -30,7 +30,7 @@ const unsigned char *plat_get_power_domain_tree_desc(void)
 
 	for (i = 0; i < PLAT_MARVELL_CLUSTER_COUNT; i++)
 		marvell_power_domain_tree_desc[i + 1] =
-					PLAT_MARVELL_CLUSTER_CORE_COUNT;
+			PLAT_MARVELL_CLUSTER_CORE_COUNT;
 
 	return marvell_power_domain_tree_desc;
 }
@@ -48,7 +48,7 @@ int marvell_check_mpidr(u_register_t mpidr)
 	mpidr &= MPIDR_AFFINITY_MASK;
 
 	if (mpidr & ~(MPIDR_CLUSTER_MASK | MPIDR_CPU_MASK |
-	    MPIDR_AFFLVL_MASK << MPIDR_AFF2_SHIFT))
+		      MPIDR_AFFLVL_MASK << MPIDR_AFF2_SHIFT))
 		return -1;
 
 	/* Get north bridge ID */

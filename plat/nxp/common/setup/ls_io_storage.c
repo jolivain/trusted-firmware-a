@@ -6,7 +6,6 @@
  */
 
 #include <assert.h>
-#include <endian.h>
 #include <string.h>
 
 #include <common/debug.h>
@@ -16,6 +15,7 @@
 #include <drivers/io/io_fip.h>
 #include <drivers/io/io_memmap.h>
 #include <drivers/io/io_storage.h>
+#include <endian.h>
 #ifdef FLEXSPI_NOR_BOOT
 #include <flexspi_nor.h>
 #endif
@@ -50,10 +50,8 @@ static const io_dev_connector_t *fip_dev_con;
 static uintptr_t fip_dev_handle;
 static const io_dev_connector_t *backend_dev_con;
 
-static io_block_spec_t fip_block_spec = {
-	.offset = PLAT_FIP_OFFSET,
-	.length = PLAT_FIP_MAX_SIZE
-};
+static io_block_spec_t fip_block_spec = { .offset = PLAT_FIP_OFFSET,
+					  .length = PLAT_FIP_MAX_SIZE };
 
 static const io_uuid_spec_t bl2_uuid_spec = {
 	.uuid = UUID_TRUSTED_BOOT_FIRMWARE_BL2,
@@ -135,100 +133,55 @@ struct plat_io_policy {
 
 /* By default, ARM platforms load images from the FIP */
 static const struct plat_io_policy policies[] = {
-	[FIP_IMAGE_ID] = {
-		&backend_dev_handle,
-		(uintptr_t)&fip_block_spec,
-		open_backend
-	},
-	[BL2_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl2_uuid_spec,
-		open_fip
-	},
-	[SCP_BL2_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&fuse_bl2_uuid_spec,
-		open_fip
-	},
-	[BL31_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl31_uuid_spec,
-		open_fip
-	},
-	[BL32_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl32_uuid_spec,
-		open_fip
-	},
-	[BL33_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl33_uuid_spec,
-		open_fip
-	},
-	[TB_FW_CONFIG_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&tb_fw_config_uuid_spec,
-		open_fip
-	},
-	[HW_CONFIG_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&hw_config_uuid_spec,
-		open_fip
-	},
+	[FIP_IMAGE_ID] = { &backend_dev_handle, (uintptr_t)&fip_block_spec,
+			   open_backend },
+	[BL2_IMAGE_ID] = { &fip_dev_handle, (uintptr_t)&bl2_uuid_spec,
+			   open_fip },
+	[SCP_BL2_IMAGE_ID] = { &fip_dev_handle, (uintptr_t)&fuse_bl2_uuid_spec,
+			       open_fip },
+	[BL31_IMAGE_ID] = { &fip_dev_handle, (uintptr_t)&bl31_uuid_spec,
+			    open_fip },
+	[BL32_IMAGE_ID] = { &fip_dev_handle, (uintptr_t)&bl32_uuid_spec,
+			    open_fip },
+	[BL33_IMAGE_ID] = { &fip_dev_handle, (uintptr_t)&bl33_uuid_spec,
+			    open_fip },
+	[TB_FW_CONFIG_ID] = { &fip_dev_handle,
+			      (uintptr_t)&tb_fw_config_uuid_spec, open_fip },
+	[HW_CONFIG_ID] = { &fip_dev_handle, (uintptr_t)&hw_config_uuid_spec,
+			   open_fip },
 #if TRUSTED_BOARD_BOOT
-	[TRUSTED_BOOT_FW_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&tb_fw_cert_uuid_spec,
-		open_fip
-	},
-	[TRUSTED_KEY_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&trusted_key_cert_uuid_spec,
-		open_fip
-	},
-	[SCP_FW_KEY_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&fuse_key_cert_uuid_spec,
-		open_fip
-	},
-	[SOC_FW_KEY_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&soc_fw_key_cert_uuid_spec,
-		open_fip
-	},
-	[TRUSTED_OS_FW_KEY_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&tos_fw_key_cert_uuid_spec,
-		open_fip
-	},
-	[NON_TRUSTED_FW_KEY_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&nt_fw_key_cert_uuid_spec,
-		open_fip
-	},
-	[SCP_FW_CONTENT_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&fuse_cert_uuid_spec,
-		open_fip
-	},
-	[SOC_FW_CONTENT_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&soc_fw_cert_uuid_spec,
-		open_fip
-	},
-	[TRUSTED_OS_FW_CONTENT_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&tos_fw_cert_uuid_spec,
-		open_fip
-	},
-	[NON_TRUSTED_FW_CONTENT_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&nt_fw_cert_uuid_spec,
-		open_fip
-	},
+	[TRUSTED_BOOT_FW_CERT_ID] = { &fip_dev_handle,
+				      (uintptr_t)&tb_fw_cert_uuid_spec,
+				      open_fip },
+	[TRUSTED_KEY_CERT_ID] = { &fip_dev_handle,
+				  (uintptr_t)&trusted_key_cert_uuid_spec,
+				  open_fip },
+	[SCP_FW_KEY_CERT_ID] = { &fip_dev_handle,
+				 (uintptr_t)&fuse_key_cert_uuid_spec,
+				 open_fip },
+	[SOC_FW_KEY_CERT_ID] = { &fip_dev_handle,
+				 (uintptr_t)&soc_fw_key_cert_uuid_spec,
+				 open_fip },
+	[TRUSTED_OS_FW_KEY_CERT_ID] = { &fip_dev_handle,
+					(uintptr_t)&tos_fw_key_cert_uuid_spec,
+					open_fip },
+	[NON_TRUSTED_FW_KEY_CERT_ID] = { &fip_dev_handle,
+					 (uintptr_t)&nt_fw_key_cert_uuid_spec,
+					 open_fip },
+	[SCP_FW_CONTENT_CERT_ID] = { &fip_dev_handle,
+				     (uintptr_t)&fuse_cert_uuid_spec,
+				     open_fip },
+	[SOC_FW_CONTENT_CERT_ID] = { &fip_dev_handle,
+				     (uintptr_t)&soc_fw_cert_uuid_spec,
+				     open_fip },
+	[TRUSTED_OS_FW_CONTENT_CERT_ID] = { &fip_dev_handle,
+					    (uintptr_t)&tos_fw_cert_uuid_spec,
+					    open_fip },
+	[NON_TRUSTED_FW_CONTENT_CERT_ID] = { &fip_dev_handle,
+					     (uintptr_t)&nt_fw_cert_uuid_spec,
+					     open_fip },
 #endif /* TRUSTED_BOARD_BOOT */
 };
-
 
 /* Weak definitions may be overridden in specific ARM standard platform */
 #pragma weak plat_io_setup
@@ -252,7 +205,6 @@ static int open_fip(const uintptr_t spec)
 	}
 	return result;
 }
-
 
 int open_backend(const uintptr_t spec)
 {
@@ -339,9 +291,8 @@ static int ls_io_fip_setup(unsigned int boot_dev)
 int ls_qspi_io_setup(void)
 {
 #ifdef QSPI_BOOT
-	qspi_io_setup(NXP_QSPI_FLASH_ADDR,
-			NXP_QSPI_FLASH_SIZE,
-			PLAT_FIP_OFFSET);
+	qspi_io_setup(NXP_QSPI_FLASH_ADDR, NXP_QSPI_FLASH_SIZE,
+		      PLAT_FIP_OFFSET);
 	return plat_io_memmap_setup(NXP_QSPI_FLASH_ADDR + PLAT_FIP_OFFSET);
 #else
 	ERROR("QSPI driver not present. Check your BUILD\n");
@@ -358,11 +309,8 @@ int emmc_sdhc2_io_setup(void)
 	uintptr_t block_dev_spec;
 	int ret;
 
-	ret = sd_emmc_init(&block_dev_spec,
-			NXP_ESDHC2_ADDR,
-			NXP_SD_BLOCK_BUF_ADDR,
-			NXP_SD_BLOCK_BUF_SIZE,
-			false);
+	ret = sd_emmc_init(&block_dev_spec, NXP_ESDHC2_ADDR,
+			   NXP_SD_BLOCK_BUF_ADDR, NXP_SD_BLOCK_BUF_SIZE, false);
 	if (ret != 0) {
 		return ret;
 	}
@@ -386,11 +334,8 @@ int emmc_io_setup(void)
 	uintptr_t block_dev_spec;
 	int ret;
 
-	ret = sd_emmc_init(&block_dev_spec,
-			NXP_ESDHC_ADDR,
-			NXP_SD_BLOCK_BUF_ADDR,
-			NXP_SD_BLOCK_BUF_SIZE,
-			true);
+	ret = sd_emmc_init(&block_dev_spec, NXP_ESDHC_ADDR,
+			   NXP_SD_BLOCK_BUF_ADDR, NXP_SD_BLOCK_BUF_SIZE, true);
 	if (ret != 0) {
 		return ret;
 	}
@@ -410,8 +355,7 @@ int ifc_nor_io_setup(void)
 #if defined(NOR_BOOT)
 	int ret;
 
-	ret = ifc_nor_init(NXP_NOR_FLASH_ADDR,
-			NXP_NOR_FLASH_SIZE);
+	ret = ifc_nor_init(NXP_NOR_FLASH_ADDR, NXP_NOR_FLASH_SIZE);
 
 	if (ret != 0) {
 		return ret;
@@ -433,12 +377,9 @@ int ifc_nand_io_setup(void)
 	uintptr_t block_dev_spec;
 	int ret;
 
-	ret = ifc_nand_init(&block_dev_spec,
-			NXP_IFC_REGION_ADDR,
-			NXP_IFC_ADDR,
-			NXP_IFC_SRAM_BUFFER_SIZE,
-			NXP_SD_BLOCK_BUF_ADDR,
-			NXP_SD_BLOCK_BUF_SIZE);
+	ret = ifc_nand_init(&block_dev_spec, NXP_IFC_REGION_ADDR, NXP_IFC_ADDR,
+			    NXP_IFC_SRAM_BUFFER_SIZE, NXP_SD_BLOCK_BUF_ADDR,
+			    NXP_SD_BLOCK_BUF_SIZE);
 	if (ret != 0) {
 		return ret;
 	}
@@ -460,8 +401,7 @@ int ls_flexspi_nor_io_setup(void)
 	int ret = 0;
 
 	ret = flexspi_nor_io_setup(NXP_FLEXSPI_FLASH_ADDR,
-				   NXP_FLEXSPI_FLASH_SIZE,
-				   NXP_FLEXSPI_ADDR);
+				   NXP_FLEXSPI_FLASH_SIZE, NXP_FLEXSPI_ADDR);
 
 	if (ret != 0) {
 		ERROR("FlexSPI NOR driver initialization error.\n");
@@ -481,7 +421,7 @@ int ls_flexspi_nor_io_setup(void)
 #endif
 }
 
-static int (* const ls_io_setup_table[])(void) = {
+static int (*const ls_io_setup_table[])(void) = {
 	[BOOT_DEVICE_IFC_NOR] = ifc_nor_io_setup,
 	[BOOT_DEVICE_IFC_NAND] = ifc_nand_io_setup,
 	[BOOT_DEVICE_QSPI] = ls_qspi_io_setup,
@@ -490,7 +430,6 @@ static int (* const ls_io_setup_table[])(void) = {
 	[BOOT_DEVICE_FLEXSPI_NOR] = ls_flexspi_nor_io_setup,
 	[BOOT_DEVICE_FLEXSPI_NAND] = ls_flexspi_nor_io_setup,
 };
-
 
 int plat_io_setup(void)
 {
@@ -518,7 +457,6 @@ int plat_io_setup(void)
 	return 0;
 }
 
-
 /* Return an IO device handle and specification which can be used to access
  * an image. Use this to enforce platform load policy
  */
@@ -529,7 +467,6 @@ int plat_get_image_source(unsigned int image_id, uintptr_t *dev_handle,
 	const struct plat_io_policy *policy;
 
 	if (image_id < ARRAY_SIZE(policies)) {
-
 		policy = &policies[image_id];
 		result = policy->check(policy->image_spec);
 		if (result == 0) {
@@ -540,15 +477,15 @@ int plat_get_image_source(unsigned int image_id, uintptr_t *dev_handle,
 #ifdef CONFIG_DDR_FIP_IMAGE
 	else {
 		VERBOSE("Trying alternative IO\n");
-		result = plat_get_ddr_fip_image_source(image_id, dev_handle,
-						image_spec, open_backend);
+		result = plat_get_ddr_fip_image_source(
+			image_id, dev_handle, image_spec, open_backend);
 	}
 #endif
 #ifdef POLICY_FUSE_PROVISION
 	if (result != 0) {
 		VERBOSE("Trying FUSE IO\n");
 		result = plat_get_fuse_image_source(image_id, dev_handle,
-						image_spec, open_backend);
+						    image_spec, open_backend);
 	}
 #endif
 

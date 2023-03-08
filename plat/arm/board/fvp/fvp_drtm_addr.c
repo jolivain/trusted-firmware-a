@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier:    BSD-3-Clause
  *
@@ -13,8 +13,7 @@
 /*******************************************************************************
  * Check passed region is within Non-Secure region of DRAM
  ******************************************************************************/
-int plat_drtm_validate_ns_region(uintptr_t region_start,
-				 size_t region_size)
+int plat_drtm_validate_ns_region(uintptr_t region_start, size_t region_size)
 {
 	uintptr_t region_end = region_start + region_size - 1;
 

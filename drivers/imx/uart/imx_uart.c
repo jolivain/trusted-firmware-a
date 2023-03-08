@@ -6,12 +6,11 @@
 
 #include <stdint.h>
 
-#include <platform_def.h>
-
 #include <arch.h>
+#include <imx_uart.h>
 #include <lib/mmio.h>
 
-#include <imx_uart.h>
+#include <platform_def.h>
 
 /* TX/RX FIFO threshold */
 #define TX_RX_THRESH 2
@@ -90,12 +89,12 @@ int console_imx_uart_core_init(uintptr_t base_addr, unsigned int uart_clk,
 	write_reg(base_addr, IMX_UART_CR4_OFFSET, 0x8000);
 
 	/* TX/RX-thresh = 2 bytes, DTE (bit6 = 0), refclk @24MHz / 4 */
-	val = IMX_UART_FCR_TXTL(TX_RX_THRESH) | IMX_UART_FCR_RXTL(TX_RX_THRESH) |
-	      clk_div[clk_idx].fcr_div;
-	#ifdef IMX_UART_DTE
-		/* Set DTE (bit6 = 1) */
-		val |= IMX_UART_FCR_DCEDTE;
-	#endif
+	val = IMX_UART_FCR_TXTL(TX_RX_THRESH) |
+	      IMX_UART_FCR_RXTL(TX_RX_THRESH) | clk_div[clk_idx].fcr_div;
+#ifdef IMX_UART_DTE
+	/* Set DTE (bit6 = 1) */
+	val |= IMX_UART_FCR_DCEDTE;
+#endif
 	write_reg(base_addr, IMX_UART_FCR_OFFSET, val);
 
 	/*
@@ -178,4 +177,3 @@ int console_imx_uart_core_getc(uintptr_t base_addr)
 void console_imx_uart_core_flush(uintptr_t base_addr)
 {
 }
-

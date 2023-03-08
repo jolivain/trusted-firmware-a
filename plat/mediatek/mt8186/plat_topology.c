@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,8 +7,8 @@
 #include <arch.h>
 #include <arch_helpers.h>
 #include <lib/psci/psci.h>
-
 #include <plat_helpers.h>
+
 #include <platform_def.h>
 
 const unsigned char mtk_power_domain_tree_desc[] = {

@@ -5,12 +5,14 @@
  */
 
 #include <assert.h>
+
 #include <common/debug.h>
 #include <drivers/arm/smmu_v3.h>
 #include <fconf_hw_config_getter.h>
 #include <lib/fconf/fconf.h>
 #include <lib/fconf/fconf_dyn_cfg_getter.h>
 #include <lib/mmio.h>
+
 #include <plat/arm/common/arm_config.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
@@ -19,8 +21,8 @@
 
 static const struct dyn_cfg_dtb_info_t *hw_config_info __unused;
 
-void __init bl31_early_platform_setup2(u_register_t arg0,
-		u_register_t arg1, u_register_t arg2, u_register_t arg3)
+void __init bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
+				       u_register_t arg2, u_register_t arg3)
 {
 	/* Initialize the console to provide early debug support */
 	arm_console_boot_init();
@@ -111,8 +113,7 @@ void __init bl31_plat_arch_setup(void)
 	 * size
 	 */
 	rc = mmap_add_dynamic_region((unsigned long long)hw_config_base_align,
-				     hw_config_base_align,
-				     mapped_size_align,
+				     hw_config_base_align, mapped_size_align,
 				     MT_RO_DATA);
 	if (rc != 0) {
 		ERROR("Error while mapping HW_CONFIG device tree (%d).\n", rc);
@@ -123,7 +124,8 @@ void __init bl31_plat_arch_setup(void)
 	fconf_populate("HW_CONFIG", hw_config_info->config_addr);
 
 	/* unmap the HW_CONFIG memory region */
-	rc = mmap_remove_dynamic_region(hw_config_base_align, mapped_size_align);
+	rc = mmap_remove_dynamic_region(hw_config_base_align,
+					mapped_size_align);
 	if (rc != 0) {
 		ERROR("Error while unmapping HW_CONFIG device tree (%d).\n",
 		      rc);
@@ -138,7 +140,8 @@ unsigned int plat_get_syscnt_freq2(void)
 
 #if !RESET_TO_BL31 && !BL2_AT_EL3
 	/* Get the frequency through FCONF API for HW_CONFIG */
-	counter_base_frequency = FCONF_GET_PROPERTY(hw_config, cpu_timer, clock_freq);
+	counter_base_frequency =
+		FCONF_GET_PROPERTY(hw_config, cpu_timer, clock_freq);
 	if (counter_base_frequency > 0U) {
 		return counter_base_frequency;
 	}

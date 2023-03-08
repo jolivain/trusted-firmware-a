@@ -1,17 +1,17 @@
 /*
- * Copyright (c) 2018-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <common/debug.h>
 #include <drivers/arm/pl011.h>
 #include <drivers/console.h>
+
 #include <plat/arm/common/plat_arm.h>
+#include <platform_def.h>
 
 #pragma weak arm_console_runtime_init
 #pragma weak arm_console_runtime_end

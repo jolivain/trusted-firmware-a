@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2015, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,11 +10,8 @@
 /*******************************************************************************
  * Function and variable prototypes
  ******************************************************************************/
-void plat_configure_mmu_el3(unsigned long total_base,
-			    unsigned long total_size,
-			    unsigned long,
-			    unsigned long,
-			    unsigned long,
+void plat_configure_mmu_el3(unsigned long total_base, unsigned long total_size,
+			    unsigned long, unsigned long, unsigned long,
 			    unsigned long);
 
 void plat_cci_init(void);

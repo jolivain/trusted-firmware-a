@@ -28,18 +28,17 @@
 #endif /* RCAR_LSI == RZ_G2N */
 #include "rcar_def.h"
 
-#define PRR_PRODUCT_ERR(reg)				\
-	do {						\
+#define PRR_PRODUCT_ERR(reg)                                                \
+	do {                                                                \
 		ERROR("LSI Product ID(PRR=0x%x) PFC init not supported.\n", \
-			reg);				\
-		panic();				\
+		      reg);                                                 \
+		panic();                                                    \
 	} while (0)
 
-#define PRR_CUT_ERR(reg)				\
-	do {						\
-		ERROR("LSI Cut ID(PRR=0x%x) PFC init not supported.\n", \
-			reg);				\
-		panic();\
+#define PRR_CUT_ERR(reg)                                                      \
+	do {                                                                  \
+		ERROR("LSI Cut ID(PRR=0x%x) PFC init not supported.\n", reg); \
+		panic();                                                      \
 	} while (0)
 
 void rzg_pfc_init(void)
@@ -112,7 +111,7 @@ void rzg_pfc_init(void)
 		PRR_PRODUCT_ERR(reg);
 	}
 	pfc_init_g2h();
-#elif (RCAR_LSI == RZ_G2N)	/* G2N */
+#elif (RCAR_LSI == RZ_G2N) /* G2N */
 	if ((reg & PRR_PRODUCT_MASK) != PRR_PRODUCT_M3N) {
 		PRR_PRODUCT_ERR(reg);
 	}

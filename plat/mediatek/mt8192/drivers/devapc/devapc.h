@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,6 +8,7 @@
 #define DEVAPC_H
 
 #include <stdint.h>
+
 #include <platform_def.h>
 
 /******************************************************************************
@@ -134,78 +135,85 @@ struct APC_INFRA_PERI_DOM_4 {
 	unsigned char d3_permission;
 };
 
-#define DAPC_INFRA_AO_SYS0_ATTR(DEV_NAME, PERM_ATTR0, PERM_ATTR1, \
-		PERM_ATTR2, PERM_ATTR3, PERM_ATTR4, PERM_ATTR5, \
-		PERM_ATTR6, PERM_ATTR7, PERM_ATTR8, PERM_ATTR9, \
-		PERM_ATTR10, PERM_ATTR11, PERM_ATTR12, PERM_ATTR13, \
-		PERM_ATTR14, PERM_ATTR15) \
-	{(unsigned char)PERM_ATTR0, (unsigned char)PERM_ATTR1, \
-	(unsigned char)PERM_ATTR2, (unsigned char)PERM_ATTR3, \
-	(unsigned char)PERM_ATTR4, (unsigned char)PERM_ATTR5, \
-	(unsigned char)PERM_ATTR6, (unsigned char)PERM_ATTR7, \
-	(unsigned char)PERM_ATTR8, (unsigned char)PERM_ATTR9, \
-	(unsigned char)PERM_ATTR10, (unsigned char)PERM_ATTR11, \
-	(unsigned char)PERM_ATTR12, (unsigned char)PERM_ATTR13, \
-	(unsigned char)PERM_ATTR14, (unsigned char)PERM_ATTR15}
+#define DAPC_INFRA_AO_SYS0_ATTR(DEV_NAME, PERM_ATTR0, PERM_ATTR1, PERM_ATTR2,  \
+				PERM_ATTR3, PERM_ATTR4, PERM_ATTR5,            \
+				PERM_ATTR6, PERM_ATTR7, PERM_ATTR8,            \
+				PERM_ATTR9, PERM_ATTR10, PERM_ATTR11,          \
+				PERM_ATTR12, PERM_ATTR13, PERM_ATTR14,         \
+				PERM_ATTR15)                                   \
+	{                                                                      \
+		(unsigned char)PERM_ATTR0, (unsigned char)PERM_ATTR1,          \
+			(unsigned char)PERM_ATTR2, (unsigned char)PERM_ATTR3,  \
+			(unsigned char)PERM_ATTR4, (unsigned char)PERM_ATTR5,  \
+			(unsigned char)PERM_ATTR6, (unsigned char)PERM_ATTR7,  \
+			(unsigned char)PERM_ATTR8, (unsigned char)PERM_ATTR9,  \
+			(unsigned char)PERM_ATTR10,                            \
+			(unsigned char)PERM_ATTR11,                            \
+			(unsigned char)PERM_ATTR12,                            \
+			(unsigned char)PERM_ATTR13,                            \
+			(unsigned char)PERM_ATTR14, (unsigned char)PERM_ATTR15 \
+	}
 
-#define DAPC_INFRA_AO_SYS1_ATTR(DEV_NAME, PERM_ATTR0, PERM_ATTR1, \
-		PERM_ATTR2, PERM_ATTR3) \
-	{(unsigned char)PERM_ATTR0, (unsigned char)PERM_ATTR1, \
-	(unsigned char)PERM_ATTR2, (unsigned char)PERM_ATTR3}
+#define DAPC_INFRA_AO_SYS1_ATTR(DEV_NAME, PERM_ATTR0, PERM_ATTR1, PERM_ATTR2, \
+				PERM_ATTR3)                                   \
+	{                                                                     \
+		(unsigned char)PERM_ATTR0, (unsigned char)PERM_ATTR1,         \
+			(unsigned char)PERM_ATTR2, (unsigned char)PERM_ATTR3  \
+	}
 
-#define DAPC_PERI_AO_SYS1_ATTR(DEV_NAME, PERM_ATTR0, PERM_ATTR1, \
-		PERM_ATTR2, PERM_ATTR3, PERM_ATTR4, PERM_ATTR5, \
-		PERM_ATTR6, PERM_ATTR7) \
-	{(unsigned char)PERM_ATTR0, (unsigned char)PERM_ATTR1, \
-	(unsigned char)PERM_ATTR2, (unsigned char)PERM_ATTR3, \
-	(unsigned char)PERM_ATTR4, (unsigned char)PERM_ATTR5, \
-	(unsigned char)PERM_ATTR6, (unsigned char)PERM_ATTR7}
+#define DAPC_PERI_AO_SYS1_ATTR(DEV_NAME, PERM_ATTR0, PERM_ATTR1, PERM_ATTR2,   \
+			       PERM_ATTR3, PERM_ATTR4, PERM_ATTR5, PERM_ATTR6, \
+			       PERM_ATTR7)                                     \
+	{                                                                      \
+		(unsigned char)PERM_ATTR0, (unsigned char)PERM_ATTR1,          \
+			(unsigned char)PERM_ATTR2, (unsigned char)PERM_ATTR3,  \
+			(unsigned char)PERM_ATTR4, (unsigned char)PERM_ATTR5,  \
+			(unsigned char)PERM_ATTR6, (unsigned char)PERM_ATTR7   \
+	}
 
-#define DAPC_INFRA_AO_SYS2_ATTR(...)	DAPC_INFRA_AO_SYS1_ATTR(__VA_ARGS__)
-#define DAPC_PERI_AO_SYS0_ATTR(...)	DAPC_INFRA_AO_SYS0_ATTR(__VA_ARGS__)
-#define DAPC_PERI_AO_SYS2_ATTR(...)	DAPC_INFRA_AO_SYS1_ATTR(__VA_ARGS__)
-#define DAPC_PERI_AO2_SYS0_ATTR(...)	DAPC_INFRA_AO_SYS0_ATTR(__VA_ARGS__)
-#define DAPC_PERI_PAR_AO_SYS0_ATTR(...)	DAPC_INFRA_AO_SYS0_ATTR(__VA_ARGS__)
+#define DAPC_INFRA_AO_SYS2_ATTR(...) DAPC_INFRA_AO_SYS1_ATTR(__VA_ARGS__)
+#define DAPC_PERI_AO_SYS0_ATTR(...) DAPC_INFRA_AO_SYS0_ATTR(__VA_ARGS__)
+#define DAPC_PERI_AO_SYS2_ATTR(...) DAPC_INFRA_AO_SYS1_ATTR(__VA_ARGS__)
+#define DAPC_PERI_AO2_SYS0_ATTR(...) DAPC_INFRA_AO_SYS0_ATTR(__VA_ARGS__)
+#define DAPC_PERI_PAR_AO_SYS0_ATTR(...) DAPC_INFRA_AO_SYS0_ATTR(__VA_ARGS__)
 
 /******************************************************************************
  * UTILITY DEFINITION
  ******************************************************************************/
-#define devapc_writel(VAL, REG)		mmio_write_32((uintptr_t)REG, VAL)
-#define devapc_readl(REG)		mmio_read_32((uintptr_t)REG)
+#define devapc_writel(VAL, REG) mmio_write_32((uintptr_t)REG, VAL)
+#define devapc_readl(REG) mmio_read_32((uintptr_t)REG)
 
 /******************************************************************************/
 /* Device APC AO for INFRA AO */
-#define DEVAPC_INFRA_AO_SYS0_D0_APC_0		(DEVAPC_INFRA_AO_BASE + 0x0000)
-#define DEVAPC_INFRA_AO_SYS1_D0_APC_0		(DEVAPC_INFRA_AO_BASE + 0x1000)
-#define DEVAPC_INFRA_AO_SYS2_D0_APC_0		(DEVAPC_INFRA_AO_BASE + 0x2000)
+#define DEVAPC_INFRA_AO_SYS0_D0_APC_0 (DEVAPC_INFRA_AO_BASE + 0x0000)
+#define DEVAPC_INFRA_AO_SYS1_D0_APC_0 (DEVAPC_INFRA_AO_BASE + 0x1000)
+#define DEVAPC_INFRA_AO_SYS2_D0_APC_0 (DEVAPC_INFRA_AO_BASE + 0x2000)
 
-#define DEVAPC_INFRA_AO_MAS_SEC_0		(DEVAPC_INFRA_AO_BASE + 0x0A00)
+#define DEVAPC_INFRA_AO_MAS_SEC_0 (DEVAPC_INFRA_AO_BASE + 0x0A00)
 
 /******************************************************************************/
 /* Device APC AO for PERI AO */
-#define DEVAPC_PERI_AO_SYS0_D0_APC_0		(DEVAPC_PERI_AO_BASE + 0x0000)
-#define DEVAPC_PERI_AO_SYS1_D0_APC_0		(DEVAPC_PERI_AO_BASE + 0x1000)
-#define DEVAPC_PERI_AO_SYS2_D0_APC_0		(DEVAPC_PERI_AO_BASE + 0x2000)
+#define DEVAPC_PERI_AO_SYS0_D0_APC_0 (DEVAPC_PERI_AO_BASE + 0x0000)
+#define DEVAPC_PERI_AO_SYS1_D0_APC_0 (DEVAPC_PERI_AO_BASE + 0x1000)
+#define DEVAPC_PERI_AO_SYS2_D0_APC_0 (DEVAPC_PERI_AO_BASE + 0x2000)
 
-#define DEVAPC_PERI_AO_MAS_SEC_0		(DEVAPC_PERI_AO_BASE + 0x0A00)
+#define DEVAPC_PERI_AO_MAS_SEC_0 (DEVAPC_PERI_AO_BASE + 0x0A00)
 
 /******************************************************************************/
 /* Device APC AO for PERI AO2 */
-#define DEVAPC_PERI_AO2_SYS0_D0_APC_0		(DEVAPC_PERI_AO2_BASE + 0x0000)
+#define DEVAPC_PERI_AO2_SYS0_D0_APC_0 (DEVAPC_PERI_AO2_BASE + 0x0000)
 
 /******************************************************************************/
 /* Device APC AO for PERI PAR AO */
-#define DEVAPC_PERI_PAR_AO_SYS0_D0_APC_0	(DEVAPC_PERI_PAR_AO_BASE + 0x0000)
+#define DEVAPC_PERI_PAR_AO_SYS0_D0_APC_0 (DEVAPC_PERI_PAR_AO_BASE + 0x0000)
 
-#define DEVAPC_PERI_PAR_AO_MAS_SEC_0		(DEVAPC_PERI_PAR_AO_BASE + 0x0A00)
+#define DEVAPC_PERI_PAR_AO_MAS_SEC_0 (DEVAPC_PERI_PAR_AO_BASE + 0x0A00)
 
 /******************************************************************************/
-
 
 /******************************************************************************
  * Variable DEFINITION
  ******************************************************************************/
-#define MOD_NO_IN_1_DEVAPC              16
+#define MOD_NO_IN_1_DEVAPC 16
 
 #endif /* DEVAPC_H */
-

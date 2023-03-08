@@ -4,43 +4,41 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <arch.h>
-#include <stdlib.h>
 #include <stdint.h>
-#include <services/std_svc.h>
+#include <stdlib.h>
 #include <string.h>
-#include <platform_def.h>
+
+#include <arch.h>
 #include <common/debug.h>
 #include <common/runtime_svc.h>
 #include <imx_sip_svc.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/mmio.h>
 #include <sci/sci.h>
+#include <services/std_svc.h>
+
+#include <platform_def.h>
 
 #if defined(PLAT_imx8qm) || defined(PLAT_imx8qx)
 
 #ifdef PLAT_imx8qm
 static const int ap_cluster_index[PLATFORM_CLUSTER_COUNT] = {
-	SC_R_A53, SC_R_A72,
+	SC_R_A53,
+	SC_R_A72,
 };
 #endif
 
-static int imx_srtc_set_time(uint32_t year_mon,
-			unsigned long day_hour,
-			unsigned long min_sec)
+static int imx_srtc_set_time(uint32_t year_mon, unsigned long day_hour,
+			     unsigned long min_sec)
 {
-	return sc_timer_set_rtc_time(ipc_handle,
-		year_mon >> 16, year_mon & 0xffff,
-		day_hour >> 16, day_hour & 0xffff,
-		min_sec >> 16, min_sec & 0xffff);
+	return sc_timer_set_rtc_time(ipc_handle, year_mon >> 16,
+				     year_mon & 0xffff, day_hour >> 16,
+				     day_hour & 0xffff, min_sec >> 16,
+				     min_sec & 0xffff);
 }
 
-int imx_srtc_handler(uint32_t smc_fid,
-		    void *handle,
-		    u_register_t x1,
-		    u_register_t x2,
-		    u_register_t x3,
-		    u_register_t x4)
+int imx_srtc_handler(uint32_t smc_fid, void *handle, u_register_t x1,
+		     u_register_t x2, u_register_t x3, u_register_t x4)
 {
 	int ret;
 
@@ -60,17 +58,16 @@ static void imx_cpufreq_set_target(uint32_t cluster_id, unsigned long freq)
 	sc_pm_clock_rate_t rate = (sc_pm_clock_rate_t)freq;
 
 #ifdef PLAT_imx8qm
-	sc_pm_set_clock_rate(ipc_handle, ap_cluster_index[cluster_id], SC_PM_CLK_CPU, &rate);
+	sc_pm_set_clock_rate(ipc_handle, ap_cluster_index[cluster_id],
+			     SC_PM_CLK_CPU, &rate);
 #endif
 #ifdef PLAT_imx8qx
 	sc_pm_set_clock_rate(ipc_handle, SC_R_A35, SC_PM_CLK_CPU, &rate);
 #endif
 }
 
-int imx_cpufreq_handler(uint32_t smc_fid,
-		    u_register_t x1,
-		    u_register_t x2,
-		    u_register_t x3)
+int imx_cpufreq_handler(uint32_t smc_fid, u_register_t x1, u_register_t x2,
+			u_register_t x3)
 {
 	switch (x1) {
 	case IMX_SIP_SET_CPUFREQ:
@@ -90,10 +87,8 @@ bool imx_is_wakeup_src_irqsteer(void)
 	return wakeup_src_irqsteer;
 }
 
-int imx_wakeup_src_handler(uint32_t smc_fid,
-		    u_register_t x1,
-		    u_register_t x2,
-		    u_register_t x3)
+int imx_wakeup_src_handler(uint32_t smc_fid, u_register_t x1, u_register_t x2,
+			   u_register_t x3)
 {
 	switch (x1) {
 	case IMX_SIP_WAKEUP_SRC_IRQSTEER:
@@ -109,10 +104,8 @@ int imx_wakeup_src_handler(uint32_t smc_fid,
 	return SMC_OK;
 }
 
-int imx_otp_handler(uint32_t smc_fid,
-		void *handle,
-		u_register_t x1,
-		u_register_t x2)
+int imx_otp_handler(uint32_t smc_fid, void *handle, u_register_t x1,
+		    u_register_t x2)
 {
 	int ret;
 	uint32_t fuse;
@@ -135,11 +128,8 @@ int imx_otp_handler(uint32_t smc_fid,
 	return ret;
 }
 
-int imx_misc_set_temp_handler(uint32_t smc_fid,
-		    u_register_t x1,
-		    u_register_t x2,
-		    u_register_t x3,
-		    u_register_t x4)
+int imx_misc_set_temp_handler(uint32_t smc_fid, u_register_t x1,
+			      u_register_t x2, u_register_t x3, u_register_t x4)
 {
 	return sc_misc_set_temp(ipc_handle, x1, x2, x3, x4);
 }
@@ -147,11 +137,8 @@ int imx_misc_set_temp_handler(uint32_t smc_fid,
 #endif /* defined(PLAT_imx8qm) || defined(PLAT_imx8qx) */
 
 #if defined(PLAT_imx8mm) || defined(PLAT_imx8mq)
-int imx_src_handler(uint32_t smc_fid,
-		    u_register_t x1,
-		    u_register_t x2,
-		    u_register_t x3,
-		    void *handle)
+int imx_src_handler(uint32_t smc_fid, u_register_t x1, u_register_t x2,
+		    u_register_t x3, void *handle)
 {
 	uint32_t val;
 
@@ -170,16 +157,14 @@ int imx_src_handler(uint32_t smc_fid,
 		return !!(val & SRC_GPR10_PERSIST_SECONDARY_BOOT);
 	default:
 		return SMC_UNK;
-
 	};
 
 	return 0;
 }
 #endif /* defined(PLAT_imx8mm) || defined(PLAT_imx8mq) */
 
-static uint64_t imx_get_commit_hash(u_register_t x2,
-		    u_register_t x3,
-		    u_register_t x4)
+static uint64_t imx_get_commit_hash(u_register_t x2, u_register_t x3,
+				    u_register_t x4)
 {
 	/* Parse the version_string */
 	char *parse = (char *)version_string;
@@ -201,11 +186,9 @@ static uint64_t imx_get_commit_hash(u_register_t x2,
 	return hash;
 }
 
-uint64_t imx_buildinfo_handler(uint32_t smc_fid,
-		    u_register_t x1,
-		    u_register_t x2,
-		    u_register_t x3,
-		    u_register_t x4)
+uint64_t imx_buildinfo_handler(uint32_t smc_fid, u_register_t x1,
+			       u_register_t x2, u_register_t x3,
+			       u_register_t x4)
 {
 	uint64_t ret;
 
@@ -220,11 +203,8 @@ uint64_t imx_buildinfo_handler(uint32_t smc_fid,
 	return ret;
 }
 
-int imx_kernel_entry_handler(uint32_t smc_fid,
-		u_register_t x1,
-		u_register_t x2,
-		u_register_t x3,
-		u_register_t x4)
+int imx_kernel_entry_handler(uint32_t smc_fid, u_register_t x1, u_register_t x2,
+			     u_register_t x3, u_register_t x4)
 {
 	static entry_point_info_t bl33_image_ep_info;
 	entry_point_info_t *next_image_info;
@@ -239,8 +219,9 @@ int imx_kernel_entry_handler(uint32_t smc_fid,
 
 	next_image_info->pc = x1;
 
-	next_image_info->spsr = SPSR_MODE32(mode, SPSR_T_ARM, SPSR_E_LITTLE,
-			(DAIF_FIQ_BIT | DAIF_IRQ_BIT | DAIF_ABT_BIT));
+	next_image_info->spsr =
+		SPSR_MODE32(mode, SPSR_T_ARM, SPSR_E_LITTLE,
+			    (DAIF_FIQ_BIT | DAIF_IRQ_BIT | DAIF_ABT_BIT));
 
 	next_image_info->args.arg0 = 0;
 	next_image_info->args.arg1 = 0;

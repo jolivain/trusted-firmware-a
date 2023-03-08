@@ -9,17 +9,16 @@
 
 #include <common/debug.h>
 #include <lib/mmio.h>
-
-#include <plat_marvell.h>
 #include <mss_ipc_drv.h>
+#include <plat_marvell.h>
 
-#define IPC_MSG_BASE_MASK		MVEBU_REGS_BASE_MASK
+#define IPC_MSG_BASE_MASK MVEBU_REGS_BASE_MASK
 
-#define IPC_CH_NUM_OF_MSG		(16)
-#define IPC_CH_MSG_IDX			(-1)
+#define IPC_CH_NUM_OF_MSG (16)
+#define IPC_CH_MSG_IDX (-1)
 
 unsigned long mv_pm_ipc_msg_base;
-unsigned int  mv_pm_ipc_queue_size;
+unsigned int mv_pm_ipc_queue_size;
 
 unsigned int msg_sync;
 int msg_index = IPC_CH_MSG_IDX;
@@ -33,12 +32,11 @@ int msg_index = IPC_CH_MSG_IDX;
 int mv_pm_ipc_init(unsigned long ipc_control_addr)
 {
 	struct mss_pm_ipc_ctrl *ipc_control =
-			(struct mss_pm_ipc_ctrl *)ipc_control_addr;
+		(struct mss_pm_ipc_ctrl *)ipc_control_addr;
 
 	/* Initialize PM IPC control block */
-	mv_pm_ipc_msg_base     = ipc_control->msg_base_address |
-				 IPC_MSG_BASE_MASK;
-	mv_pm_ipc_queue_size   = ipc_control->queue_size;
+	mv_pm_ipc_msg_base = ipc_control->msg_base_address | IPC_MSG_BASE_MASK;
+	mv_pm_ipc_queue_size = ipc_control->queue_size;
 
 	return 0;
 }
@@ -59,7 +57,7 @@ unsigned int mv_pm_ipc_queue_addr_get(void)
 		msg_index = 0;
 
 	addr = (unsigned int)(mv_pm_ipc_msg_base +
-	       (msg_index * mv_pm_ipc_queue_size));
+			      (msg_index * mv_pm_ipc_queue_size));
 
 	flush_dcache_range((uint64_t)&msg_index, sizeof(msg_index));
 
@@ -88,7 +86,7 @@ int mv_pm_ipc_msg_rx(unsigned int channel_id, struct mss_pm_ipc_msg *msg)
  ******************************************************************************
  */
 int mv_pm_ipc_msg_tx(unsigned int channel_id, unsigned int msg_id,
-					unsigned int cluster_power_state)
+		     unsigned int cluster_power_state)
 {
 	unsigned int addr = mv_pm_ipc_queue_addr_get();
 

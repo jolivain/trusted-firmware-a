@@ -1,12 +1,12 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <neoverse_n1.h>
 #include <cpuamu.h>
 #include <lib/el3_runtime/pubsub_events.h>
+#include <neoverse_n1.h>
 
 static void *neoverse_n1_context_save(const void *arg)
 {

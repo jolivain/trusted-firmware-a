@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, Arm Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -23,25 +23,25 @@
 #include "gicv3_private.h"
 
 /* GIC-600 specific register offsets */
-#define GICR_PWRR			0x24U
+#define GICR_PWRR 0x24U
 
 /* GICR_PWRR fields */
-#define PWRR_RDPD_SHIFT			0
-#define PWRR_RDAG_SHIFT			1
-#define PWRR_RDGPD_SHIFT		2
-#define PWRR_RDGPO_SHIFT		3
+#define PWRR_RDPD_SHIFT 0
+#define PWRR_RDAG_SHIFT 1
+#define PWRR_RDGPD_SHIFT 2
+#define PWRR_RDGPO_SHIFT 3
 
-#define PWRR_RDPD			(1U << PWRR_RDPD_SHIFT)
-#define PWRR_RDAG			(1U << PWRR_RDAG_SHIFT)
-#define PWRR_RDGPD			(1U << PWRR_RDGPD_SHIFT)
-#define PWRR_RDGPO			(1U << PWRR_RDGPO_SHIFT)
+#define PWRR_RDPD (1U << PWRR_RDPD_SHIFT)
+#define PWRR_RDAG (1U << PWRR_RDAG_SHIFT)
+#define PWRR_RDGPD (1U << PWRR_RDGPD_SHIFT)
+#define PWRR_RDGPO (1U << PWRR_RDGPO_SHIFT)
 
 /*
  * Values to write to GICR_PWRR register to power redistributor
  * for operating through the core (GICR_PWRR.RDAG = 0)
  */
-#define PWRR_ON				(0U << PWRR_RDPD_SHIFT)
-#define PWRR_OFF			(1U << PWRR_RDPD_SHIFT)
+#define PWRR_ON (0U << PWRR_RDPD_SHIFT)
+#define PWRR_OFF (1U << PWRR_RDPD_SHIFT)
 
 static bool gic600_errata_wa_2384374 __unused;
 
@@ -65,14 +65,14 @@ static void gicr_wait_group_not_in_transit(uintptr_t base)
 	do {
 		pwrr = gicr_read_pwrr(base);
 
-	/* Check group not transitioning: RDGPD == RDGPO */
+		/* Check group not transitioning: RDGPD == RDGPO */
 	} while (((pwrr & PWRR_RDGPD) >> PWRR_RDGPD_SHIFT) !=
 		 ((pwrr & PWRR_RDGPO) >> PWRR_RDGPO_SHIFT));
 }
 
 static void gic600_pwr_on(uintptr_t base)
 {
-	do {	/* Wait until group not transitioning */
+	do { /* Wait until group not transitioning */
 		gicr_wait_group_not_in_transit(base);
 
 		/* Power on redistributor */
@@ -132,7 +132,7 @@ static bool gicv3_redists_need_power_mgmt(uintptr_t gicr_base)
 		((reg & IIDR_MODEL_MASK) == IIDR_MODEL_ARM_GIC_700));
 }
 
-#endif	/* GICV3_SUPPORT_GIC600 */
+#endif /* GICV3_SUPPORT_GIC600 */
 
 void gicv3_distif_pre_save(unsigned int proc_num)
 {
@@ -184,12 +184,14 @@ void gicv3_apply_errata_wa_2384374(uintptr_t gicr_base)
 	if (gic600_errata_wa_2384374) {
 		uint32_t gicr_ctlr_val = gicr_read_ctlr(gicr_base);
 
-		gicr_write_ctlr(gicr_base, gicr_ctlr_val |
-				(GICR_CTLR_DPG0_BIT | GICR_CTLR_DPG1NS_BIT |
-				GICR_CTLR_DPG1S_BIT));
-		gicr_write_ctlr(gicr_base, gicr_ctlr_val &
-				~(GICR_CTLR_DPG0_BIT | GICR_CTLR_DPG1NS_BIT |
-				  GICR_CTLR_DPG1S_BIT));
+		gicr_write_ctlr(gicr_base,
+				gicr_ctlr_val | (GICR_CTLR_DPG0_BIT |
+						 GICR_CTLR_DPG1NS_BIT |
+						 GICR_CTLR_DPG1S_BIT));
+		gicr_write_ctlr(gicr_base,
+				gicr_ctlr_val & ~(GICR_CTLR_DPG0_BIT |
+						  GICR_CTLR_DPG1NS_BIT |
+						  GICR_CTLR_DPG1S_BIT));
 	}
 }
 #endif /* GIC600_ERRATA_WA_2384374 */
@@ -211,10 +213,10 @@ void gicv3_check_erratas_applies(uintptr_t gicd_base)
 	 * r0p2 = 0x04 => GICD_IIDR[19:12]
 	 */
 	if ((gic_prod_id == GIC_PRODUCT_ID_GIC600) ||
-		    (gic_prod_id == GIC_PRODUCT_ID_GIC600AE)) {
+	    (gic_prod_id == GIC_PRODUCT_ID_GIC600AE)) {
 		if (((gic_prod_id == GIC_PRODUCT_ID_GIC600) &&
 		     (gic_rev <= GIC_REV(GIC_VARIANT_R1, GIC_REV_P6))) ||
-		     ((gic_prod_id == GIC_PRODUCT_ID_GIC600AE) &&
+		    ((gic_prod_id == GIC_PRODUCT_ID_GIC600AE) &&
 		     (gic_rev <= GIC_REV(GIC_VARIANT_R0, GIC_REV_P2)))) {
 #if GIC600_ERRATA_WA_2384374
 			gic600_errata_wa_2384374 = true;

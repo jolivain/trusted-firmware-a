@@ -21,8 +21,8 @@
 
 /* Includes */
 
-#include <sci/svc/rm/sci_rm_api.h>
 #include <sci/sci_types.h>
+#include <sci/svc/rm/sci_rm_api.h>
 
 /* Defines */
 
@@ -30,45 +30,45 @@
  * @name Defines for type widths
  */
 /*@{*/
-#define SC_MISC_DMA_GRP_W       5U	/* Width of sc_misc_dma_group_t */
+#define SC_MISC_DMA_GRP_W 5U /* Width of sc_misc_dma_group_t */
 /*@}*/
 
 /*! Max DMA channel priority group */
-#define SC_MISC_DMA_GRP_MAX     31U
+#define SC_MISC_DMA_GRP_MAX 31U
 
 /*!
  * @name Defines for sc_misc_boot_status_t
  */
 /*@{*/
-#define SC_MISC_BOOT_STATUS_SUCCESS     0U	/* Success */
-#define SC_MISC_BOOT_STATUS_SECURITY    1U	/* Security violation */
+#define SC_MISC_BOOT_STATUS_SUCCESS 0U /* Success */
+#define SC_MISC_BOOT_STATUS_SECURITY 1U /* Security violation */
 /*@}*/
 
 /*!
  * @name Defines for sc_misc_seco_auth_cmd_t
  */
 /*@{*/
-#define SC_MISC_SECO_AUTH_SECO_FW       0U	/* SECO Firmware */
-#define SC_MISC_SECO_AUTH_HDMI_TX_FW    1U	/* HDMI TX Firmware */
-#define SC_MISC_SECO_AUTH_HDMI_RX_FW    2U	/* HDMI RX Firmware */
+#define SC_MISC_SECO_AUTH_SECO_FW 0U /* SECO Firmware */
+#define SC_MISC_SECO_AUTH_HDMI_TX_FW 1U /* HDMI TX Firmware */
+#define SC_MISC_SECO_AUTH_HDMI_RX_FW 2U /* HDMI RX Firmware */
 /*@}*/
 
 /*!
  * @name Defines for sc_misc_temp_t
  */
 /*@{*/
-#define SC_MISC_TEMP                    0U	/* Temp sensor */
-#define SC_MISC_TEMP_HIGH               1U	/* Temp high alarm */
-#define SC_MISC_TEMP_LOW                2U	/* Temp low alarm */
+#define SC_MISC_TEMP 0U /* Temp sensor */
+#define SC_MISC_TEMP_HIGH 1U /* Temp high alarm */
+#define SC_MISC_TEMP_LOW 2U /* Temp low alarm */
 /*@}*/
 
 /*!
  * @name Defines for sc_misc_seco_auth_cmd_t
  */
 /*@{*/
-#define SC_MISC_AUTH_CONTAINER          0U	/* Authenticate container */
-#define SC_MISC_VERIFY_IMAGE            1U	/* Verify image */
-#define SC_MISC_REL_CONTAINER           2U	/* Release container */
+#define SC_MISC_AUTH_CONTAINER 0U /* Authenticate container */
+#define SC_MISC_VERIFY_IMAGE 1U /* Verify image */
+#define SC_MISC_REL_CONTAINER 2U /* Release container */
 /*@}*/
 
 /* Types */
@@ -117,8 +117,8 @@ typedef uint8_t sc_misc_temp_t;
  *
  * Refer to the [Control List](@ref CONTROLS) for valid control values.
  */
-sc_err_t sc_misc_set_control(sc_ipc_t ipc, sc_rsrc_t resource,
-			     sc_ctrl_t ctrl, uint32_t val);
+sc_err_t sc_misc_set_control(sc_ipc_t ipc, sc_rsrc_t resource, sc_ctrl_t ctrl,
+			     uint32_t val);
 
 /*!
  * This function gets a miscellaneous control value.
@@ -137,8 +137,8 @@ sc_err_t sc_misc_set_control(sc_ipc_t ipc, sc_rsrc_t resource,
  *
  * Refer to the [Control List](@ref CONTROLS) for valid control values.
  */
-sc_err_t sc_misc_get_control(sc_ipc_t ipc, sc_rsrc_t resource,
-			     sc_ctrl_t ctrl, uint32_t *val);
+sc_err_t sc_misc_get_control(sc_ipc_t ipc, sc_rsrc_t resource, sc_ctrl_t ctrl,
+			     uint32_t *val);
 
 /* @} */
 
@@ -240,8 +240,7 @@ sc_err_t sc_misc_seco_image_load(sc_ipc_t ipc, sc_faddr_t addr_src,
  *
  * See the Security Reference Manual (SRM) for more info.
  */
-sc_err_t sc_misc_seco_authenticate(sc_ipc_t ipc,
-				   sc_misc_seco_auth_cmd_t cmd,
+sc_err_t sc_misc_seco_authenticate(sc_ipc_t ipc, sc_misc_seco_auth_cmd_t cmd,
 				   sc_faddr_t addr);
 
 /*!
@@ -334,9 +333,8 @@ void sc_misc_seco_build_info(sc_ipc_t ipc, uint32_t *version, uint32_t *commit);
  * @param[out]    uid_l       pointer to return UID (lower 32 bits)
  * @param[out]    uid_h       pointer to return UID (upper 32 bits)
  */
-sc_err_t sc_misc_seco_chip_info(sc_ipc_t ipc, uint16_t *lc,
-				uint16_t *monotonic, uint32_t *uid_l,
-				uint32_t *uid_h);
+sc_err_t sc_misc_seco_chip_info(sc_ipc_t ipc, uint16_t *lc, uint16_t *monotonic,
+				uint32_t *uid_l, uint32_t *uid_h);
 
 /* @} */
 
@@ -495,8 +493,8 @@ sc_err_t sc_misc_otp_fuse_write(sc_ipc_t ipc, uint32_t word, uint32_t val);
  * Return errors codes:
  * - SC_ERR_PARM if parameters invalid
  */
-sc_err_t sc_misc_set_temp(sc_ipc_t ipc, sc_rsrc_t resource,
-			  sc_misc_temp_t temp, int16_t celsius, int8_t tenths);
+sc_err_t sc_misc_set_temp(sc_ipc_t ipc, sc_rsrc_t resource, sc_misc_temp_t temp,
+			  int16_t celsius, int8_t tenths);
 
 /*!
  * This function gets a temp sensor value.
@@ -512,9 +510,8 @@ sc_err_t sc_misc_set_temp(sc_ipc_t ipc, sc_rsrc_t resource,
  * Return errors codes:
  * - SC_ERR_PARM if parameters invalid
  */
-sc_err_t sc_misc_get_temp(sc_ipc_t ipc, sc_rsrc_t resource,
-			  sc_misc_temp_t temp, int16_t *celsius,
-			  int8_t *tenths);
+sc_err_t sc_misc_get_temp(sc_ipc_t ipc, sc_rsrc_t resource, sc_misc_temp_t temp,
+			  int16_t *celsius, int8_t *tenths);
 
 /*!
  * This function returns the boot device.
@@ -534,6 +531,6 @@ void sc_misc_get_button_status(sc_ipc_t ipc, sc_bool_t *status);
 
 /* @} */
 
-#endif				/* SC_MISC_API_H */
+#endif /* SC_MISC_API_H */
 
 /**@}*/

@@ -160,7 +160,8 @@ static int fdt_get_rcc_node(void *fdt)
 	static int node;
 
 	if (node <= 0) {
-		node = fdt_node_offset_by_compatible(fdt, -1, DT_RCC_CLK_COMPAT);
+		node = fdt_node_offset_by_compatible(fdt, -1,
+						     DT_RCC_CLK_COMPAT);
 	}
 
 	return node;
@@ -353,7 +354,8 @@ void stm32mp_stgen_config(unsigned long rate)
  ******************************************************************************/
 unsigned long long stm32mp_stgen_get_counter(void)
 {
-	return (((unsigned long long)mmio_read_32(STGEN_BASE + CNTCVU_OFF) << 32) |
+	return (((unsigned long long)mmio_read_32(STGEN_BASE + CNTCVU_OFF)
+		 << 32) |
 		mmio_read_32(STGEN_BASE + CNTCVL_OFF));
 }
 
@@ -367,8 +369,8 @@ void stm32mp_stgen_restore_counter(unsigned long long value,
 {
 	unsigned long long cnt;
 
-	cnt = value + ((offset_in_ms *
-			mmio_read_32(STGEN_BASE + CNTFID_OFF)) / 1000U);
+	cnt = value +
+	      ((offset_in_ms * mmio_read_32(STGEN_BASE + CNTFID_OFF)) / 1000U);
 
 	mmio_clrbits_32(STGEN_BASE + CNTCR_OFF, CNTCR_EN);
 	mmio_write_32(STGEN_BASE + CNTCVL_OFF, (uint32_t)cnt);

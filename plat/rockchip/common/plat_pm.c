@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,23 +7,19 @@
 #include <assert.h>
 #include <errno.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/console.h>
 #include <drivers/delay_timer.h>
 #include <lib/psci/psci.h>
-
 #include <plat_private.h>
 
+#include <platform_def.h>
+
 /* Macros to read the rk power domain state */
-#define RK_CORE_PWR_STATE(state) \
-	((state)->pwr_domain_state[MPIDR_AFFLVL0])
-#define RK_CLUSTER_PWR_STATE(state) \
-	((state)->pwr_domain_state[MPIDR_AFFLVL1])
-#define RK_SYSTEM_PWR_STATE(state) \
-	((state)->pwr_domain_state[PLAT_MAX_PWR_LVL])
+#define RK_CORE_PWR_STATE(state) ((state)->pwr_domain_state[MPIDR_AFFLVL0])
+#define RK_CLUSTER_PWR_STATE(state) ((state)->pwr_domain_state[MPIDR_AFFLVL1])
+#define RK_SYSTEM_PWR_STATE(state) ((state)->pwr_domain_state[PLAT_MAX_PWR_LVL])
 
 static uintptr_t rockchip_sec_entrypoint;
 
@@ -48,8 +44,7 @@ int rockchip_soc_cores_pwr_dm_on(unsigned long mpidr, uint64_t entrypoint)
 	return PSCI_E_NOT_SUPPORTED;
 }
 
-int rockchip_soc_hlvl_pwr_dm_off(uint32_t lvl,
-				 plat_local_state_t lvl_state)
+int rockchip_soc_hlvl_pwr_dm_off(uint32_t lvl, plat_local_state_t lvl_state)
 {
 	return PSCI_E_NOT_SUPPORTED;
 }
@@ -69,8 +64,7 @@ int rockchip_soc_cores_pwr_dm_suspend(void)
 	return PSCI_E_NOT_SUPPORTED;
 }
 
-int rockchip_soc_hlvl_pwr_dm_suspend(uint32_t lvl,
-				     plat_local_state_t lvl_state)
+int rockchip_soc_hlvl_pwr_dm_suspend(uint32_t lvl, plat_local_state_t lvl_state)
 {
 	return PSCI_E_NOT_SUPPORTED;
 }
@@ -91,8 +85,7 @@ int rockchip_soc_sys_pwr_dm_resume(void)
 	return PSCI_E_NOT_SUPPORTED;
 }
 
-int rockchip_soc_hlvl_pwr_dm_resume(uint32_t lvl,
-				    plat_local_state_t lvl_state)
+int rockchip_soc_hlvl_pwr_dm_resume(uint32_t lvl, plat_local_state_t lvl_state)
 {
 	return PSCI_E_NOT_SUPPORTED;
 }
@@ -114,8 +107,8 @@ void __dead2 rockchip_soc_system_off(void)
 		;
 }
 
-void __dead2 rockchip_soc_cores_pd_pwr_dn_wfi(
-				const psci_power_state_t *target_state)
+void __dead2
+rockchip_soc_cores_pd_pwr_dn_wfi(const psci_power_state_t *target_state)
 {
 	psci_power_down_wfi();
 }
@@ -150,16 +143,13 @@ int rockchip_validate_power_state(unsigned int power_state,
 		if (pwr_lvl != MPIDR_AFFLVL0)
 			return PSCI_E_INVALID_PARAMS;
 
-		req_state->pwr_domain_state[MPIDR_AFFLVL0] =
-					PLAT_MAX_RET_STATE;
+		req_state->pwr_domain_state[MPIDR_AFFLVL0] = PLAT_MAX_RET_STATE;
 	} else {
 		for (i = MPIDR_AFFLVL0; i <= pwr_lvl; i++)
-			req_state->pwr_domain_state[i] =
-					PLAT_MAX_OFF_STATE;
+			req_state->pwr_domain_state[i] = PLAT_MAX_OFF_STATE;
 
 		for (i = (pwr_lvl + 1); i <= PLAT_MAX_PWR_LVL; i++)
-			req_state->pwr_domain_state[i] =
-					PLAT_MAX_RET_STATE;
+			req_state->pwr_domain_state[i] = PLAT_MAX_RET_STATE;
 	}
 
 	/* We expect the 'state id' to be zero */
@@ -370,8 +360,8 @@ static void __dead2 rockchip_system_poweroff(void)
 	rockchip_soc_system_off();
 }
 
-static void __dead2 rockchip_pd_pwr_down_wfi(
-		const psci_power_state_t *target_state)
+static void __dead2
+rockchip_pd_pwr_down_wfi(const psci_power_state_t *target_state)
 {
 	if (RK_SYSTEM_PWR_STATE(target_state) == PLAT_MAX_OFF_STATE)
 		rockchip_soc_sys_pd_pwr_dn_wfi();

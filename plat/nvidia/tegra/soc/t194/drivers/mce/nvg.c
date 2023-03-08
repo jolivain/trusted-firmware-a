@@ -12,14 +12,14 @@
 #include <common/debug.h>
 #include <denver.h>
 #include <lib/mmio.h>
-
 #include <mce_private.h>
-#include <platform_def.h>
 #include <t194_nvg.h>
 #include <tegra_private.h>
 
-#define	ID_AFR0_EL1_CACHE_OPS_SHIFT	U(12)
-#define	ID_AFR0_EL1_CACHE_OPS_MASK	U(0xF)
+#include <platform_def.h>
+
+#define ID_AFR0_EL1_CACHE_OPS_SHIFT U(12)
+#define ID_AFR0_EL1_CACHE_OPS_MASK U(0xF)
 /*
  * Reports the major and minor version of this interface.
  *
@@ -42,7 +42,8 @@ uint64_t nvg_get_version(void)
 void nvg_set_wake_time(uint32_t wake_time)
 {
 	/* time (TSC ticks) until the core is expected to get a wake event */
-	nvg_set_request_data((uint64_t)TEGRA_NVG_CHANNEL_WAKE_TIME, (uint64_t)wake_time);
+	nvg_set_request_data((uint64_t)TEGRA_NVG_CHANNEL_WAKE_TIME,
+			     (uint64_t)wake_time);
 }
 
 /*
@@ -58,27 +59,29 @@ void nvg_set_wake_time(uint32_t wake_time)
  * NVGDATA[31]: SW(W), update wake mask flag
  * NVGDATA[32:63]: SW(RW), WAKE_MASK
  */
-void nvg_update_cstate_info(uint32_t cluster, uint32_t ccplex,
-		uint32_t system, uint32_t wake_mask, uint8_t update_wake_mask)
+void nvg_update_cstate_info(uint32_t cluster, uint32_t ccplex, uint32_t system,
+			    uint32_t wake_mask, uint8_t update_wake_mask)
 {
 	uint64_t val = 0;
 
 	/* update CLUSTER_CSTATE? */
 	if (cluster != 0U) {
 		val |= ((uint64_t)cluster & CLUSTER_CSTATE_MASK) |
-				CLUSTER_CSTATE_UPDATE_BIT;
+		       CLUSTER_CSTATE_UPDATE_BIT;
 	}
 
 	/* update CCPLEX_CSTATE? */
 	if (ccplex != 0U) {
-		val |= (((uint64_t)ccplex & CCPLEX_CSTATE_MASK) << CCPLEX_CSTATE_SHIFT) |
-				CCPLEX_CSTATE_UPDATE_BIT;
+		val |= (((uint64_t)ccplex & CCPLEX_CSTATE_MASK)
+			<< CCPLEX_CSTATE_SHIFT) |
+		       CCPLEX_CSTATE_UPDATE_BIT;
 	}
 
 	/* update SYSTEM_CSTATE? */
 	if (system != 0U) {
-		val |= (((uint64_t)system & SYSTEM_CSTATE_MASK) << SYSTEM_CSTATE_SHIFT) |
-				SYSTEM_CSTATE_UPDATE_BIT;
+		val |= (((uint64_t)system & SYSTEM_CSTATE_MASK)
+			<< SYSTEM_CSTATE_SHIFT) |
+		       SYSTEM_CSTATE_UPDATE_BIT;
 	}
 
 	/* update wake mask value? */
@@ -87,7 +90,8 @@ void nvg_update_cstate_info(uint32_t cluster, uint32_t ccplex,
 	}
 
 	/* set the wake mask */
-	val |= ((uint64_t)wake_mask & CSTATE_WAKE_MASK_CLEAR) << CSTATE_WAKE_MASK_SHIFT;
+	val |= ((uint64_t)wake_mask & CSTATE_WAKE_MASK_CLEAR)
+	       << CSTATE_WAKE_MASK_SHIFT;
 
 	/* set the updated cstate info */
 	nvg_set_request_data((uint64_t)TEGRA_NVG_CHANNEL_CSTATE_INFO, val);
@@ -124,7 +128,7 @@ int32_t nvg_online_core(uint32_t core)
 	} else {
 		/* get a core online */
 		nvg_set_request_data((uint64_t)TEGRA_NVG_CHANNEL_ONLINE_CORE,
-					(uint64_t)core & MCE_CORE_ID_MASK);
+				     (uint64_t)core & MCE_CORE_ID_MASK);
 	}
 
 	return ret;
@@ -145,8 +149,9 @@ int32_t nvg_update_ccplex_gsc(uint32_t gsc_idx)
 		ERROR("%s: unknown gsc_idx (%u)\n", __func__, gsc_idx);
 		ret = -EINVAL;
 	} else {
-		nvg_set_request_data((uint64_t)TEGRA_NVG_CHANNEL_UPDATE_CCPLEX_GSC,
-				     (uint64_t)gsc_idx);
+		nvg_set_request_data(
+			(uint64_t)TEGRA_NVG_CHANNEL_UPDATE_CCPLEX_GSC,
+			(uint64_t)gsc_idx);
 	}
 
 	return ret;
@@ -161,7 +166,7 @@ int32_t nvg_roc_clean_cache_trbits(void)
 
 	/* check if cache flush through mts is supported */
 	if (((read_id_afr0_el1() >> ID_AFR0_EL1_CACHE_OPS_SHIFT) &
-			ID_AFR0_EL1_CACHE_OPS_MASK) == 1U) {
+	     ID_AFR0_EL1_CACHE_OPS_MASK) == 1U) {
 		if (nvg_cache_inval_all() == 0U) {
 			ERROR("%s: failed\n", __func__);
 			ret = -ENODEV;
@@ -183,10 +188,9 @@ int32_t nvg_enter_cstate(uint32_t state, uint32_t wake_time)
 
 	/* check for allowed power state */
 	if ((state != (uint32_t)TEGRA_NVG_CORE_C0) &&
-		(state != (uint32_t)TEGRA_NVG_CORE_C1) &&
+	    (state != (uint32_t)TEGRA_NVG_CORE_C1) &&
 	    (state != (uint32_t)TEGRA_NVG_CORE_C6) &&
-		(state != (uint32_t)TEGRA_NVG_CORE_C7))
-	{
+	    (state != (uint32_t)TEGRA_NVG_CORE_C7)) {
 		ERROR("%s: unknown cstate (%u)\n", __func__, state);
 		ret = -EINVAL;
 	} else {
@@ -212,7 +216,8 @@ void nvg_enable_strict_checking_mode(void)
 	uint64_t params = (uint64_t)(STRICT_CHECKING_ENABLED_SET |
 				     STRICT_CHECKING_LOCKED_SET);
 
-	nvg_set_request_data((uint64_t)TEGRA_NVG_CHANNEL_SECURITY_CONFIG, params);
+	nvg_set_request_data((uint64_t)TEGRA_NVG_CHANNEL_SECURITY_CONFIG,
+			     params);
 }
 
 void nvg_verify_strict_checking_mode(void)
@@ -258,5 +263,6 @@ void nvg_clear_hsm_corr_status(void)
 {
 	nvg_hsm_error_ctrl_channel_t status = { .bits = { .corr = 1U, }, };
 
-	nvg_set_request_data((uint64_t)TEGRA_NVG_CHANNEL_HSM_ERROR_CTRL, status.flat);
+	nvg_set_request_data((uint64_t)TEGRA_NVG_CHANNEL_HSM_ERROR_CTRL,
+			     status.flat);
 }

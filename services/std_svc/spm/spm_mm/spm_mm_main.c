@@ -1,13 +1,13 @@
 /*
- * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <arch_helpers.h>
 #include <assert.h>
 #include <errno.h>
 
+#include <arch_helpers.h>
 #include <bl31/bl31.h>
 #include <bl31/ehf.h>
 #include <common/debug.h>
@@ -17,10 +17,11 @@
 #include <lib/spinlock.h>
 #include <lib/utils.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include <plat/common/platform.h>
 #include <services/spm_mm_partition.h>
 #include <services/spm_mm_svc.h>
 #include <smccc_helpers.h>
+
+#include <plat/common/platform.h>
 
 #include "spm_common.h"
 #include "spm_mm_private.h"
@@ -286,14 +287,9 @@ static uint64_t mm_communicate(uint32_t smc_fid, uint64_t mm_cookie,
 /*******************************************************************************
  * Secure Partition Manager SMC handler.
  ******************************************************************************/
-uint64_t spm_mm_smc_handler(uint32_t smc_fid,
-			 uint64_t x1,
-			 uint64_t x2,
-			 uint64_t x3,
-			 uint64_t x4,
-			 void *cookie,
-			 void *handle,
-			 uint64_t flags)
+uint64_t spm_mm_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
+			    uint64_t x3, uint64_t x4, void *cookie,
+			    void *handle, uint64_t flags)
 {
 	unsigned int ns;
 
@@ -301,7 +297,6 @@ uint64_t spm_mm_smc_handler(uint32_t smc_fid,
 	ns = is_caller_non_secure(flags);
 
 	if (ns == SMC_FROM_SECURE) {
-
 		/* Handle SMCs from Secure world. */
 
 		assert(handle == cm_get_context(SECURE));
@@ -310,7 +305,6 @@ uint64_t spm_mm_smc_handler(uint32_t smc_fid,
 		cm_set_elr_spsr_el3(SECURE, read_elr_el1(), read_spsr_el1());
 
 		switch (smc_fid) {
-
 		case SPM_MM_VERSION_AARCH32:
 			SMC_RET1(handle, SPM_MM_VERSION_COMPILED);
 
@@ -324,9 +318,8 @@ uint64_t spm_mm_smc_handler(uint32_t smc_fid,
 				WARN("MM_SP_MEMORY_ATTRIBUTES_GET_AARCH64 is available at boot time only\n");
 				SMC_RET1(handle, SPM_MM_NOT_SUPPORTED);
 			}
-			SMC_RET1(handle,
-				 spm_memory_attributes_get_smc_handler(
-					 &sp_ctx, x1));
+			SMC_RET1(handle, spm_memory_attributes_get_smc_handler(
+						 &sp_ctx, x1));
 
 		case MM_SP_MEMORY_ATTRIBUTES_SET_AARCH64:
 			INFO("Received MM_SP_MEMORY_ATTRIBUTES_SET_AARCH64 SMC\n");
@@ -335,20 +328,17 @@ uint64_t spm_mm_smc_handler(uint32_t smc_fid,
 				WARN("MM_SP_MEMORY_ATTRIBUTES_SET_AARCH64 is available at boot time only\n");
 				SMC_RET1(handle, SPM_MM_NOT_SUPPORTED);
 			}
-			SMC_RET1(handle,
-				 spm_memory_attributes_set_smc_handler(
-					&sp_ctx, x1, x2, x3));
+			SMC_RET1(handle, spm_memory_attributes_set_smc_handler(
+						 &sp_ctx, x1, x2, x3));
 		default:
 			break;
 		}
 	} else {
-
 		/* Handle SMCs from Non-secure world. */
 
 		assert(handle == cm_get_context(NON_SECURE));
 
 		switch (smc_fid) {
-
 		case MM_VERSION_AARCH32:
 			SMC_RET1(handle, MM_VERSION_COMPILED);
 

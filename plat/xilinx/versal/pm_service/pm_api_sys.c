@@ -10,10 +10,13 @@
  * IPI interrupts
  */
 
+#include "pm_api_sys.h"
+
 #include <pm_common.h>
 #include <pm_ipi.h>
+
 #include <plat/common/platform.h>
-#include "pm_api_sys.h"
+
 #include "pm_client.h"
 #include "pm_defs.h"
 #include "pm_svc_main.h"
@@ -46,7 +49,7 @@ enum pm_ret_status pm_handle_eemi_call(uint32_t flag, uint32_t x0, uint32_t x1,
 				       uint32_t x2, uint32_t x3, uint32_t x4,
 				       uint32_t x5, uint64_t *result)
 {
-	uint32_t payload[PAYLOAD_ARG_CNT] = {0};
+	uint32_t payload[PAYLOAD_ARG_CNT] = { 0 };
 	uint32_t module_id;
 
 	module_id = (x0 & MODULE_ID_MASK) >> 8U;
@@ -57,7 +60,8 @@ enum pm_ret_status pm_handle_eemi_call(uint32_t flag, uint32_t x0, uint32_t x1,
 	}
 
 	PM_PACK_PAYLOAD6(payload, module_id, flag, x0, x1, x2, x3, x4, x5);
-	return pm_ipi_send_sync(primary_proc, payload, (uint32_t *)result, PAYLOAD_ARG_CNT);
+	return pm_ipi_send_sync(primary_proc, payload, (uint32_t *)result,
+				PAYLOAD_ARG_CNT);
 }
 
 /**
@@ -74,10 +78,9 @@ enum pm_ret_status pm_handle_eemi_call(uint32_t flag, uint32_t x0, uint32_t x1,
  *
  * @return	Returns status, either success or error+reason
  */
-enum pm_ret_status pm_self_suspend(uint32_t nid,
-				   uint32_t latency,
-				   uint32_t state,
-				   uintptr_t address, uint32_t flag)
+enum pm_ret_status pm_self_suspend(uint32_t nid, uint32_t latency,
+				   uint32_t state, uintptr_t address,
+				   uint32_t flag)
 {
 	uint32_t payload[PAYLOAD_ARG_CNT];
 	uint32_t cpuid = plat_my_core_pos();
@@ -197,7 +200,8 @@ enum pm_ret_status pm_req_wakeup(uint32_t target, uint32_t set_address,
  *
  * Read value from ipi buffer response buffer.
  */
-void pm_get_callbackdata(uint32_t *data, size_t count, uint32_t flag, uint32_t ack)
+void pm_get_callbackdata(uint32_t *data, size_t count, uint32_t flag,
+			 uint32_t ack)
 {
 	/* Return if interrupt is not from PMU */
 	if (pm_ipi_irq_status(primary_proc) == 0) {
@@ -392,7 +396,7 @@ enum pm_ret_status pm_query_data(uint32_t qid, uint32_t arg1, uint32_t arg2,
 				 uint32_t arg3, uint32_t *data, uint32_t flag)
 {
 	uint32_t ret;
-	uint32_t version[PAYLOAD_ARG_CNT] = {0};
+	uint32_t version[PAYLOAD_ARG_CNT] = { 0 };
 	uint32_t payload[PAYLOAD_ARG_CNT];
 	uint32_t fw_api_version;
 
@@ -406,7 +410,8 @@ enum pm_ret_status pm_query_data(uint32_t qid, uint32_t arg1, uint32_t arg2,
 		if ((fw_api_version == 2U) &&
 		    ((qid == XPM_QID_CLOCK_GET_NAME) ||
 		     (qid == XPM_QID_PINCTRL_GET_FUNCTION_NAME))) {
-			ret = pm_ipi_send_sync(primary_proc, payload, data, PAYLOAD_ARG_CNT);
+			ret = pm_ipi_send_sync(primary_proc, payload, data,
+					       PAYLOAD_ARG_CNT);
 			if (ret == PM_RET_SUCCESS) {
 				ret = data[0];
 				data[0] = data[1];
@@ -414,7 +419,8 @@ enum pm_ret_status pm_query_data(uint32_t qid, uint32_t arg1, uint32_t arg2,
 				data[2] = data[3];
 			}
 		} else {
-			ret = pm_ipi_send_sync(primary_proc, payload, data, PAYLOAD_ARG_CNT);
+			ret = pm_ipi_send_sync(primary_proc, payload, data,
+					       PAYLOAD_ARG_CNT);
 		}
 	}
 	return ret;
@@ -448,16 +454,16 @@ enum pm_ret_status pm_api_ioctl(uint32_t device_id, uint32_t ioctl_id,
 
 	switch (ioctl_id) {
 	case IOCTL_SET_PLL_FRAC_MODE:
-		ret =  pm_pll_set_mode(arg1, arg2, flag);
+		ret = pm_pll_set_mode(arg1, arg2, flag);
 		break;
 	case IOCTL_GET_PLL_FRAC_MODE:
-		ret =  pm_pll_get_mode(arg1, value, flag);
+		ret = pm_pll_get_mode(arg1, value, flag);
 		break;
 	case IOCTL_SET_PLL_FRAC_DATA:
-		ret =  pm_pll_set_param(arg1, PM_PLL_PARAM_DATA, arg2, flag);
+		ret = pm_pll_set_param(arg1, PM_PLL_PARAM_DATA, arg2, flag);
 		break;
 	case IOCTL_GET_PLL_FRAC_DATA:
-		ret =  pm_pll_get_param(arg1, PM_PLL_PARAM_DATA, value, flag);
+		ret = pm_pll_get_param(arg1, PM_PLL_PARAM_DATA, value, flag);
 		break;
 	case IOCTL_SET_SGI:
 		/* Get the sgi number */
@@ -534,9 +540,10 @@ enum pm_ret_status pm_feature_check(uint32_t api_id, uint32_t *ret_payload,
 		return PM_RET_SUCCESS;
 	}
 
-	PM_PACK_PAYLOAD2(payload, LIBPM_MODULE_ID, flag,
-			 PM_FEATURE_CHECK, api_id);
-	return pm_ipi_send_sync(primary_proc, payload, ret_payload, PAYLOAD_ARG_CNT);
+	PM_PACK_PAYLOAD2(payload, LIBPM_MODULE_ID, flag, PM_FEATURE_CHECK,
+			 api_id);
+	return pm_ipi_send_sync(primary_proc, payload, ret_payload,
+				PAYLOAD_ARG_CNT);
 }
 
 /**

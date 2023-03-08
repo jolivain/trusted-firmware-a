@@ -5,46 +5,48 @@
  */
 
 /* common headers */
-#include <arch_helpers.h>
 #include <assert.h>
+#include <errno.h>
+
+#include <arch_helpers.h>
 #include <common/debug.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
-#include <errno.h>
 
 /* mediatek platform specific headers */
-#include <platform_def.h>
-#include <scu.h>
 #include <mt_gic_v3.h>
+#include <mtgpio.h>
 #include <mtk_mcdi.h>
 #include <mtk_plat_common.h>
-#include <mtgpio.h>
 #include <mtspmc.h>
 #include <plat_dcm.h>
 #include <plat_debug.h>
 #include <plat_params.h>
 #include <plat_private.h>
-#include <power_tracer.h>
 #include <pmic.h>
+#include <power_tracer.h>
+#include <rtc.h>
+#include <scu.h>
 #include <spm.h>
 #include <spm_suspend.h>
 #include <sspm.h>
-#include <rtc.h>
+
+#include <platform_def.h>
 
 /* Local power state for power domains in Run state. */
-#define MTK_LOCAL_STATE_RUN	0
+#define MTK_LOCAL_STATE_RUN 0
 /* Local power state for retention. */
-#define MTK_LOCAL_STATE_RET	1
+#define MTK_LOCAL_STATE_RET 1
 /* Local power state for OFF/power-down. */
-#define MTK_LOCAL_STATE_OFF	2
+#define MTK_LOCAL_STATE_OFF 2
 
 #if PSCI_EXTENDED_STATE_ID
 /*
  * Macros used to parse state information from State-ID if it is using the
  * recommended encoding for State-ID.
  */
-#define MTK_LOCAL_PSTATE_WIDTH		4
-#define MTK_LOCAL_PSTATE_MASK		((1 << MTK_LOCAL_PSTATE_WIDTH) - 1)
+#define MTK_LOCAL_PSTATE_WIDTH 4
+#define MTK_LOCAL_PSTATE_MASK ((1 << MTK_LOCAL_PSTATE_WIDTH) - 1)
 
 /* Macros to construct the composite power state */
 
@@ -56,32 +58,33 @@
 #else /* !PSCI_EXTENDED_STATE_ID */
 
 #define mtk_make_pwrstate_lvl0(lvl0_state, pwr_lvl, type) \
-		(((lvl0_state) << PSTATE_ID_SHIFT) | \
-		((pwr_lvl) << PSTATE_PWR_LVL_SHIFT) | \
-		((type) << PSTATE_TYPE_SHIFT))
+	(((lvl0_state) << PSTATE_ID_SHIFT) |              \
+	 ((pwr_lvl) << PSTATE_PWR_LVL_SHIFT) | ((type) << PSTATE_TYPE_SHIFT))
 
 #endif /* PSCI_EXTENDED_STATE_ID */
 
 /* Make composite power state parameter till power level 1 */
 #define mtk_make_pwrstate_lvl1(lvl1_state, lvl0_state, pwr_lvl, type) \
-		(((lvl1_state) << MTK_LOCAL_PSTATE_WIDTH) | \
-		mtk_make_pwrstate_lvl0(lvl0_state, pwr_lvl, type))
+	(((lvl1_state) << MTK_LOCAL_PSTATE_WIDTH) |                   \
+	 mtk_make_pwrstate_lvl0(lvl0_state, pwr_lvl, type))
 
 /* Make composite power state parameter till power level 2 */
-#define mtk_make_pwrstate_lvl2( \
-		lvl2_state, lvl1_state, lvl0_state, pwr_lvl, type) \
-		(((lvl2_state) << (MTK_LOCAL_PSTATE_WIDTH * 2)) | \
-		mtk_make_pwrstate_lvl1(lvl1_state, lvl0_state, pwr_lvl, type))
+#define mtk_make_pwrstate_lvl2(lvl2_state, lvl1_state, lvl0_state, pwr_lvl, \
+			       type)                                        \
+	(((lvl2_state) << (MTK_LOCAL_PSTATE_WIDTH * 2)) |                   \
+	 mtk_make_pwrstate_lvl1(lvl1_state, lvl0_state, pwr_lvl, type))
 
-#define MTK_PWR_LVL0	0
-#define MTK_PWR_LVL1	1
-#define MTK_PWR_LVL2	2
+#define MTK_PWR_LVL0 0
+#define MTK_PWR_LVL1 1
+#define MTK_PWR_LVL2 2
 
 /* Macros to read the MTK power domain state */
-#define MTK_CORE_PWR_STATE(state)	(state)->pwr_domain_state[MTK_PWR_LVL0]
-#define MTK_CLUSTER_PWR_STATE(state)	(state)->pwr_domain_state[MTK_PWR_LVL1]
-#define MTK_SYSTEM_PWR_STATE(state)	((PLAT_MAX_PWR_LVL > MTK_PWR_LVL1) ? \
-			(state)->pwr_domain_state[MTK_PWR_LVL2] : 0)
+#define MTK_CORE_PWR_STATE(state) (state)->pwr_domain_state[MTK_PWR_LVL0]
+#define MTK_CLUSTER_PWR_STATE(state) (state)->pwr_domain_state[MTK_PWR_LVL1]
+#define MTK_SYSTEM_PWR_STATE(state)                        \
+	((PLAT_MAX_PWR_LVL > MTK_PWR_LVL1) ?               \
+		 (state)->pwr_domain_state[MTK_PWR_LVL2] : \
+		 0)
 
 #if PSCI_EXTENDED_STATE_ID
 /*
@@ -93,25 +96,29 @@
 const unsigned int mtk_pm_idle_states[] = {
 	/* State-id - 0x001 */
 	mtk_make_pwrstate_lvl2(MTK_LOCAL_STATE_RUN, MTK_LOCAL_STATE_RUN,
-		MTK_LOCAL_STATE_RET, MTK_PWR_LVL0, PSTATE_TYPE_STANDBY),
+			       MTK_LOCAL_STATE_RET, MTK_PWR_LVL0,
+			       PSTATE_TYPE_STANDBY),
 	/* State-id - 0x002 */
 	mtk_make_pwrstate_lvl2(MTK_LOCAL_STATE_RUN, MTK_LOCAL_STATE_RUN,
-		MTK_LOCAL_STATE_OFF, MTK_PWR_LVL0, PSTATE_TYPE_POWERDOWN),
+			       MTK_LOCAL_STATE_OFF, MTK_PWR_LVL0,
+			       PSTATE_TYPE_POWERDOWN),
 	/* State-id - 0x022 */
 	mtk_make_pwrstate_lvl2(MTK_LOCAL_STATE_RUN, MTK_LOCAL_STATE_OFF,
-		MTK_LOCAL_STATE_OFF, MTK_PWR_LVL1, PSTATE_TYPE_POWERDOWN),
+			       MTK_LOCAL_STATE_OFF, MTK_PWR_LVL1,
+			       PSTATE_TYPE_POWERDOWN),
 #if PLAT_MAX_PWR_LVL > MTK_PWR_LVL1
 	/* State-id - 0x222 */
 	mtk_make_pwrstate_lvl2(MTK_LOCAL_STATE_OFF, MTK_LOCAL_STATE_OFF,
-		MTK_LOCAL_STATE_OFF, MTK_PWR_LVL2, PSTATE_TYPE_POWERDOWN),
+			       MTK_LOCAL_STATE_OFF, MTK_PWR_LVL2,
+			       PSTATE_TYPE_POWERDOWN),
 #endif
 	0,
 };
 #endif
 
-#define CPU_IDX(cluster, cpu)		((cluster << 2) + cpu)
-#define ON	true
-#define OFF	false
+#define CPU_IDX(cluster, cpu) ((cluster << 2) + cpu)
+#define ON true
+#define OFF false
 
 /* Pause MCDI when CPU hotplug */
 static bool HP_SSPM_PAUSE;
@@ -135,8 +142,8 @@ static void mp1_L2_desel_config(void)
 
 static bool clst_single_pwr(int cluster, int cpu)
 {
-	uint32_t cpu_mask[2] = {0x00001e00, 0x000f0000};
-	uint32_t cpu_pwr_bit[] = {9, 10, 11, 12, 16, 17, 18, 19};
+	uint32_t cpu_mask[2] = { 0x00001e00, 0x000f0000 };
+	uint32_t cpu_pwr_bit[] = { 9, 10, 11, 12, 16, 17, 18, 19 };
 	int my_idx = (cluster << 2) + cpu;
 	uint32_t pwr_stat = mmio_read_32(0x10006180);
 
@@ -145,7 +152,7 @@ static bool clst_single_pwr(int cluster, int cpu)
 
 static bool clst_single_on(int cluster, int cpu)
 {
-	uint32_t cpu_mask[2] = {0x0f, 0xf0};
+	uint32_t cpu_mask[2] = { 0x0f, 0xf0 };
 	int my_idx = (cluster << 2) + cpu;
 	uint32_t on_stat = mcdi_avail_cpu_mask_read();
 
@@ -221,7 +228,7 @@ static void mcdi_ctrl_before_hotplug_off(int cluster, int cpu, bool cluster_off)
 {
 	if (!HP_SSPM_CTRL && HP_SSPM_PAUSE && MCDI_SSPM)
 		mcdi_pause_set(cluster_off ? cluster : -1,
-				CPU_IDX(cluster, cpu), OFF);
+			       CPU_IDX(cluster, cpu), OFF);
 }
 
 static void mcdi_ctrl_cluster_cpu_off(int cluster, int cpu, bool cluster_off)
@@ -289,7 +296,7 @@ static void hotplug_ctrl_cluster_cpu_off(int cluster, int cpu, bool cluster_off)
 
 	if (HP_SSPM_CTRL && MCDI_SSPM) {
 		mcdi_hotplug_set(cluster_off ? cluster : -1,
-				CPU_IDX(cluster, cpu), OFF);
+				 CPU_IDX(cluster, cpu), OFF);
 	} else {
 		spm_enable_cpu_auto_off(cluster, cpu);
 
@@ -330,8 +337,8 @@ static void plat_mtk_power_domain_off(const psci_power_state_t *state)
 	int cluster = MPIDR_AFFLVL1_VAL(mpidr);
 	const plat_local_state_t *pds = state->pwr_domain_state;
 	bool afflvl1 = (pds[MPIDR_AFFLVL1] == MTK_LOCAL_STATE_OFF);
-	bool cluster_off = (HP_CLUSTER_OFF && afflvl1 &&
-					clst_single_on(cluster, cpu));
+	bool cluster_off =
+		(HP_CLUSTER_OFF && afflvl1 && clst_single_on(cluster, cpu));
 
 	plat_cpu_pwrdwn_common();
 
@@ -399,7 +406,8 @@ static void plat_mtk_power_domain_suspend(const psci_power_state_t *state)
 	}
 }
 
-static void plat_mtk_power_domain_suspend_finish(const psci_power_state_t *state)
+static void
+plat_mtk_power_domain_suspend_finish(const psci_power_state_t *state)
 {
 	uint64_t mpidr = read_mpidr();
 	int cluster = MPIDR_AFFLVL1_VAL(mpidr);
@@ -439,7 +447,7 @@ static void plat_mtk_power_domain_suspend_finish(const psci_power_state_t *state
 #if PSCI_EXTENDED_STATE_ID
 
 static int plat_mtk_validate_power_state(unsigned int power_state,
-				psci_power_state_t *req_state)
+					 psci_power_state_t *req_state)
 {
 	unsigned int state_id;
 	int i;
@@ -469,7 +477,7 @@ static int plat_mtk_validate_power_state(unsigned int power_state,
 	/* Parse the State ID and populate the state info parameter */
 	while (state_id) {
 		req_state->pwr_domain_state[i++] = state_id &
-						MTK_LOCAL_PSTATE_MASK;
+						   MTK_LOCAL_PSTATE_MASK;
 		state_id >>= MTK_LOCAL_PSTATE_WIDTH;
 	}
 
@@ -479,7 +487,7 @@ static int plat_mtk_validate_power_state(unsigned int power_state,
 #else /* if !PSCI_EXTENDED_STATE_ID */
 
 static int plat_mtk_validate_power_state(unsigned int power_state,
-					psci_power_state_t *req_state)
+					 psci_power_state_t *req_state)
 {
 	int pstate = psci_get_pstate_type(power_state);
 	int pwr_lvl = psci_get_pstate_pwrlvl(power_state);
@@ -554,16 +562,16 @@ static void plat_mtk_get_sys_suspend_power_state(psci_power_state_t *req_state)
  * on. The level and mpidr determine the affinity instance.
  ******************************************************************************/
 static const plat_psci_ops_t plat_plat_pm_ops = {
-	.cpu_standby			= plat_cpu_standby,
-	.pwr_domain_on			= plat_mtk_power_domain_on,
-	.pwr_domain_on_finish		= plat_mtk_power_domain_on_finish,
-	.pwr_domain_off			= plat_mtk_power_domain_off,
-	.pwr_domain_suspend		= plat_mtk_power_domain_suspend,
-	.pwr_domain_suspend_finish	= plat_mtk_power_domain_suspend_finish,
-	.system_off			= plat_mtk_system_off,
-	.system_reset			= plat_mtk_system_reset,
-	.validate_power_state		= plat_mtk_validate_power_state,
-	.get_sys_suspend_power_state	= plat_mtk_get_sys_suspend_power_state
+	.cpu_standby = plat_cpu_standby,
+	.pwr_domain_on = plat_mtk_power_domain_on,
+	.pwr_domain_on_finish = plat_mtk_power_domain_on_finish,
+	.pwr_domain_off = plat_mtk_power_domain_off,
+	.pwr_domain_suspend = plat_mtk_power_domain_suspend,
+	.pwr_domain_suspend_finish = plat_mtk_power_domain_suspend_finish,
+	.system_off = plat_mtk_system_off,
+	.system_reset = plat_mtk_system_reset,
+	.validate_power_state = plat_mtk_validate_power_state,
+	.get_sys_suspend_power_state = plat_mtk_get_sys_suspend_power_state
 };
 
 int plat_setup_psci_ops(uintptr_t sec_entrypoint,

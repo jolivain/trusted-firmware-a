@@ -1,20 +1,19 @@
 /*
- * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <common/debug.h>
 #include <common/fdt_fixup.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
-
 #include <sunxi_cpucfg.h>
 #include <sunxi_private.h>
+
+#include <platform_def.h>
 
 static bool psci_is_scpi;
 

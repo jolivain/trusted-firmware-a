@@ -1,13 +1,11 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 #include <errno.h>
-
-#include <platform_def.h>
 
 #include <arch_helpers.h>
 #include <bl31/bl31.h>
@@ -16,12 +14,13 @@
 #include <drivers/delay_timer.h>
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
-#include <plat/common/platform.h>
-
 #include <plat_private.h>
 #include <pmu.h>
 #include <pmu_com.h>
 #include <rk3328_def.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 DEFINE_BAKERY_LOCK(rockchip_pd_lock);
 
@@ -39,7 +38,7 @@ static inline uint32_t get_cpus_pwr_domain_cfg_info(uint32_t cpu_id)
 
 	pd_reg = mmio_read_32(PMU_BASE + PMU_PWRDN_CON) & BIT(cpu_id);
 	apm_reg = mmio_read_32(PMU_BASE + PMU_CPUAPM_CON(cpu_id)) &
-			       BIT(core_pm_en);
+		  BIT(core_pm_en);
 
 	if (pd_reg && !apm_reg)
 		return core_pwr_pd;
@@ -48,7 +47,7 @@ static inline uint32_t get_cpus_pwr_domain_cfg_info(uint32_t cpu_id)
 
 	ERROR("%s: 0x%x, 0x%x\n", __func__, pd_reg, apm_reg);
 	while (1)
-	;
+		;
 }
 
 static int cpus_power_domain_on(uint32_t cpu_id)
@@ -103,8 +102,7 @@ static int cpus_power_domain_off(uint32_t cpu_id, uint32_t pd_cfg)
 		if (pd_cfg == core_pwr_wfi_int)
 			core_pm_value |= BIT(core_pm_int_wakeup_en);
 
-		mmio_write_32(PMU_BASE + PMU_CPUAPM_CON(cpu_id),
-			      core_pm_value);
+		mmio_write_32(PMU_BASE + PMU_CPUAPM_CON(cpu_id), core_pm_value);
 	}
 
 	return 0;
@@ -238,12 +236,10 @@ void __dead2 rockchip_soc_system_off(void)
 }
 
 static uint32_t clk_ungt_msk[CRU_CLKGATE_NUMS] = {
-	0x187f, 0x0000, 0x010c, 0x0000, 0x0200,
-	0x0010, 0x0000, 0x0017, 0x001f, 0x0000,
-	0x0000, 0x0000, 0x0000, 0x0003, 0x0000,
-	0xf001, 0x27c0, 0x04D9, 0x03ff, 0x0000,
-	0x0000, 0x0000, 0x0010, 0x0000, 0x0000,
-	0x0000, 0x0000, 0x0003, 0x0008
+	0x187f, 0x0000, 0x010c, 0x0000, 0x0200, 0x0010, 0x0000, 0x0017,
+	0x001f, 0x0000, 0x0000, 0x0000, 0x0000, 0x0003, 0x0000, 0xf001,
+	0x27c0, 0x04D9, 0x03ff, 0x0000, 0x0000, 0x0000, 0x0010, 0x0000,
+	0x0000, 0x0000, 0x0000, 0x0003, 0x0008
 };
 
 static void clks_gating_suspend(uint32_t *ungt_msk)
@@ -303,7 +299,7 @@ static __sramfunc void dpll_suspend(void)
 	/* save pll con */
 	for (i = 0; i < CRU_PLL_CON_NUMS; i++)
 		sram_data.dpll_con_save[i] =
-				mmio_read_32(CRU_BASE + PLL_CONS(DPLL_ID, i));
+			mmio_read_32(CRU_BASE + PLL_CONS(DPLL_ID, i));
 	mmio_write_32(CRU_BASE + PLL_CONS(DPLL_ID, 1),
 		      BITS_WITH_WMASK(1U, 1U, 15));
 	mmio_write_32(CRU_BASE + PLL_CONS(DPLL_ID, 1),
@@ -325,7 +321,7 @@ static __sramfunc void dpll_resume(void)
 
 	while (delay > 0) {
 		if (mmio_read_32(CRU_BASE + PLL_CONS(DPLL_ID, 1)) &
-				 PLL_IS_LOCKED)
+		    PLL_IS_LOCKED)
 			break;
 		delay--;
 	}
@@ -333,8 +329,7 @@ static __sramfunc void dpll_resume(void)
 		while (1)
 			;
 
-	mmio_write_32(CRU_BASE + CRU_CRU_MODE,
-		      PLL_NORM_MODE(DPLL_ID));
+	mmio_write_32(CRU_BASE + CRU_CRU_MODE, PLL_NORM_MODE(DPLL_ID));
 }
 
 static inline void pll_suspend(uint32_t pll_id)
@@ -347,7 +342,7 @@ static inline void pll_suspend(uint32_t pll_id)
 	/* save pll con */
 	for (i = 0; i < CRU_PLL_CON_NUMS; i++)
 		ddr_data.cru_plls_con_save[pll_id][i] =
-				mmio_read_32(CRU_BASE + PLL_CONS(pll_id, i));
+			mmio_read_32(CRU_BASE + PLL_CONS(pll_id, i));
 
 	/* powerdown pll */
 	pll_pwr_dwn(pll_id, pmu_pd_off);
@@ -361,8 +356,7 @@ static inline void pll_resume(uint32_t pll_id)
 	pm_pll_wait_lock(pll_id);
 
 	if (PLL_IS_NORM_MODE(ddr_data.cru_mode_save, pll_id))
-		mmio_write_32(CRU_BASE + CRU_CRU_MODE,
-			      PLL_NORM_MODE(pll_id));
+		mmio_write_32(CRU_BASE + CRU_CRU_MODE, PLL_NORM_MODE(pll_id));
 }
 
 static void pm_plls_suspend(void)
@@ -384,8 +378,7 @@ static void pm_plls_suspend(void)
 		      BITS_WITH_WMASK(0, 0x1f, 0));
 
 	/* pclk_dbg */
-	mmio_write_32(CRU_BASE + CRU_CLKSEL_CON(1),
-		      BITS_WITH_WMASK(0, 0xf, 0));
+	mmio_write_32(CRU_BASE + CRU_CLKSEL_CON(1), BITS_WITH_WMASK(0, 0xf, 0));
 
 	/* crypto */
 	mmio_write_32(CRU_BASE + CRU_CLKSEL_CON(20),
@@ -402,16 +395,15 @@ static void pm_plls_suspend(void)
 	/* clk_rtc32k */
 	mmio_write_32(CRU_BASE + CRU_CLKSEL_CON(38),
 		      BITS_WITH_WMASK(767, 0x3fff, 0) |
-		      BITS_WITH_WMASK(2U, 0x3u, 14));
+			      BITS_WITH_WMASK(2U, 0x3u, 14));
 }
 
 static void pm_plls_resume(void)
 {
 	/* clk_rtc32k */
 	mmio_write_32(CRU_BASE + CRU_CLKSEL_CON(38),
-		      ddr_data.clk_sel38 |
-		      BITS_WMSK(0x3fff, 0) |
-		      BITS_WMSK(0x3u, 14));
+		      ddr_data.clk_sel38 | BITS_WMSK(0x3fff, 0) |
+			      BITS_WMSK(0x3u, 14));
 
 	/* uart2 */
 	mmio_write_32(CRU_BASE + CRU_CLKSEL_CON(18),
@@ -474,11 +466,10 @@ __sramfunc void rk3328_pmic_suspend(void)
 	mmio_write_32(GRF_BASE + PMIC_SLEEP_REG, BITS_WITH_WMASK(0, 0x3, 4));
 	mmio_write_32(GPIO2_BASE + 4,
 		      sram_data.pmic_sleep_gpio_save[1] | BIT(26));
-	mmio_write_32(GPIO2_BASE,
-		      sram_data.pmic_sleep_gpio_save[0] | BIT(26));
+	mmio_write_32(GPIO2_BASE, sram_data.pmic_sleep_gpio_save[0] | BIT(26));
 }
 
-__sramfunc void  rk3328_pmic_resume(void)
+__sramfunc void rk3328_pmic_resume(void)
 {
 	mmio_write_32(GPIO2_BASE, sram_data.pmic_sleep_gpio_save[0]);
 	mmio_write_32(GPIO2_BASE + 4, sram_data.pmic_sleep_gpio_save[1]);
@@ -490,13 +481,12 @@ __sramfunc void  rk3328_pmic_resume(void)
 
 static __sramfunc void ddr_suspend(void)
 {
-	sram_data.pd_sr_idle_save = mmio_read_32(DDR_UPCTL_BASE +
-						 DDR_PCTL2_PWRCTL);
+	sram_data.pd_sr_idle_save =
+		mmio_read_32(DDR_UPCTL_BASE + DDR_PCTL2_PWRCTL);
 	sram_data.pd_sr_idle_save &= SELFREF_EN;
 
 	mmio_clrbits_32(DDR_UPCTL_BASE + DDR_PCTL2_PWRCTL, SELFREF_EN);
-	sram_data.ddr_grf_con0 = mmio_read_32(DDR_GRF_BASE +
-					      DDRGRF_SOC_CON(0));
+	sram_data.ddr_grf_con0 = mmio_read_32(DDR_GRF_BASE + DDRGRF_SOC_CON(0));
 	mmio_write_32(DDR_GRF_BASE, BIT_WITH_WMSK(14) | WMSK_BIT(15));
 
 	/*
@@ -508,7 +498,7 @@ static __sramfunc void ddr_suspend(void)
 	/* in self-refresh */
 	mmio_setbits_32(PMU_BASE + PMU_SFT_CON, BIT(0));
 	while ((mmio_read_32(DDR_GRF_BASE + DDRGRF_SOC_STATUS(1)) &
-	       (0x03 << 12)) !=  (0x02 << 12))
+		(0x03 << 12)) != (0x02 << 12))
 		;
 	/* ddr retention */
 	mmio_setbits_32(PMU_BASE + PMU_SFT_CON, BIT(2));
@@ -516,8 +506,7 @@ static __sramfunc void ddr_suspend(void)
 	/* ddr gating */
 	mmio_write_32(CRU_BASE + CRU_CLKGATE_CON(0),
 		      BITS_WITH_WMASK(0x7, 0x7, 4));
-	mmio_write_32(CRU_BASE + CRU_CLKGATE_CON(7),
-		      BITS_WITH_WMASK(1, 1, 4));
+	mmio_write_32(CRU_BASE + CRU_CLKGATE_CON(7), BITS_WITH_WMASK(1, 1, 4));
 	mmio_write_32(CRU_BASE + CRU_CLKGATE_CON(18),
 		      BITS_WITH_WMASK(0x1ff, 0x1ff, 1));
 	mmio_write_32(CRU_BASE + CRU_CLKGATE_CON(27),
@@ -526,15 +515,14 @@ static __sramfunc void ddr_suspend(void)
 	dpll_suspend();
 }
 
-__sramfunc  void dmc_restore(void)
+__sramfunc void dmc_restore(void)
 {
 	dpll_resume();
 
 	/* ddr gating */
 	mmio_write_32(CRU_BASE + CRU_CLKGATE_CON(0),
 		      BITS_WITH_WMASK(0, 0x7, 4));
-	mmio_write_32(CRU_BASE + CRU_CLKGATE_CON(7),
-		      BITS_WITH_WMASK(0, 1, 4));
+	mmio_write_32(CRU_BASE + CRU_CLKGATE_CON(7), BITS_WITH_WMASK(0, 1, 4));
 	mmio_write_32(CRU_BASE + CRU_CLKGATE_CON(18),
 		      BITS_WITH_WMASK(0, 0x1ff, 1));
 	mmio_write_32(CRU_BASE + CRU_CLKGATE_CON(27),
@@ -545,13 +533,12 @@ __sramfunc  void dmc_restore(void)
 	/* exit self-refresh */
 	mmio_clrbits_32(PMU_BASE + PMU_SFT_CON, BIT(0));
 	while ((mmio_read_32(DDR_GRF_BASE + DDRGRF_SOC_STATUS(1)) &
-		(0x03 << 12)) !=  (0x00 << 12))
+		(0x03 << 12)) != (0x00 << 12))
 		;
 
 	mmio_write_32(DDR_GRF_BASE, sram_data.ddr_grf_con0 | 0xc0000000);
 	if (sram_data.pd_sr_idle_save)
-		mmio_setbits_32(DDR_UPCTL_BASE + DDR_PCTL2_PWRCTL,
-				SELFREF_EN);
+		mmio_setbits_32(DDR_UPCTL_BASE + DDR_PCTL2_PWRCTL, SELFREF_EN);
 }
 
 static __sramfunc void sram_dbg_uart_suspend(void)
@@ -575,8 +562,7 @@ static __sramfunc void sram_soc_enter_lp(void)
 {
 	uint32_t apm_value;
 
-	apm_value = BIT(core_pm_en) |
-		    BIT(core_pm_dis_int) |
+	apm_value = BIT(core_pm_en) | BIT(core_pm_dis_int) |
 		    BIT(core_pm_int_wakeup_en);
 	mmio_write_32(PMU_BASE + PMU_CPUAPM_CON(PD_CPU0), apm_value);
 
@@ -600,8 +586,9 @@ __sramfunc void sram_suspend(void)
 	isb();
 
 	mmio_write_32(SGRF_BASE + SGRF_SOC_CON(1),
-		      ((uintptr_t)&pmu_cpuson_entrypoint >> CPU_BOOT_ADDR_ALIGN) |
-		      CPU_BOOT_ADDR_WMASK);
+		      ((uintptr_t)&pmu_cpuson_entrypoint >>
+		       CPU_BOOT_ADDR_ALIGN) |
+			      CPU_BOOT_ADDR_WMASK);
 
 	/* ddr self-refresh and gating phy */
 	ddr_suspend();
@@ -658,10 +645,10 @@ void plat_rockchip_pmu_init(void)
 	/* the warm booting address of cpus */
 	mmio_write_32(SGRF_BASE + SGRF_SOC_CON(1),
 		      (cpu_warm_boot_addr >> CPU_BOOT_ADDR_ALIGN) |
-		      CPU_BOOT_ADDR_WMASK);
+			      CPU_BOOT_ADDR_WMASK);
 
 	nonboot_cpus_off();
 
-	INFO("%s: pd status 0x%x\n",
-	     __func__, mmio_read_32(PMU_BASE + PMU_PWRDN_ST));
+	INFO("%s: pd status 0x%x\n", __func__,
+	     mmio_read_32(PMU_BASE + PMU_PWRDN_ST));
 }

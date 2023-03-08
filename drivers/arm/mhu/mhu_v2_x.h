@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2020-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,16 +10,16 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#define MHU_2_X_INTR_NR2R_OFF		(0x0u)
-#define MHU_2_X_INTR_R2NR_OFF		(0x1u)
-#define MHU_2_1_INTR_CHCOMB_OFF		(0x2u)
+#define MHU_2_X_INTR_NR2R_OFF (0x0u)
+#define MHU_2_X_INTR_R2NR_OFF (0x1u)
+#define MHU_2_1_INTR_CHCOMB_OFF (0x2u)
 
-#define MHU_2_X_INTR_NR2R_MASK		(0x1u << MHU_2_X_INTR_NR2R_OFF)
-#define MHU_2_X_INTR_R2NR_MASK		(0x1u << MHU_2_X_INTR_R2NR_OFF)
-#define MHU_2_1_INTR_CHCOMB_MASK	(0x1u << MHU_2_1_INTR_CHCOMB_OFF)
+#define MHU_2_X_INTR_NR2R_MASK (0x1u << MHU_2_X_INTR_NR2R_OFF)
+#define MHU_2_X_INTR_R2NR_MASK (0x1u << MHU_2_X_INTR_R2NR_OFF)
+#define MHU_2_1_INTR_CHCOMB_MASK (0x1u << MHU_2_1_INTR_CHCOMB_OFF)
 
 enum mhu_v2_x_frame_t {
-	MHU_V2_X_SENDER_FRAME   = 0x0u,
+	MHU_V2_X_SENDER_FRAME = 0x0u,
 	MHU_V2_X_RECEIVER_FRAME = 0x1u,
 };
 
@@ -32,8 +32,8 @@ enum mhu_v2_x_supported_revisions {
 struct mhu_v2_x_dev_t {
 	uintptr_t base;
 	enum mhu_v2_x_frame_t frame;
-	uint32_t subversion;	/*!< Hardware subversion: v2.X */
-	bool is_initialized;	/*!< Indicates if the MHU driver
+	uint32_t subversion; /*!< Hardware subversion: v2.X */
+	bool is_initialized; /*!< Indicates if the MHU driver
 				 *   is initialized and enabled
 				 */
 };
@@ -42,12 +42,12 @@ struct mhu_v2_x_dev_t {
  * MHU v2 error enumeration types.
  */
 enum mhu_v2_x_error_t {
-	MHU_V_2_X_ERR_NONE			=  0,
-	MHU_V_2_X_ERR_NOT_INIT			= -1,
-	MHU_V_2_X_ERR_ALREADY_INIT		= -2,
-	MHU_V_2_X_ERR_UNSUPPORTED_VERSION	= -3,
-	MHU_V_2_X_ERR_INVALID_ARG		= -4,
-	MHU_V_2_X_ERR_GENERAL			= -5
+	MHU_V_2_X_ERR_NONE = 0,
+	MHU_V_2_X_ERR_NOT_INIT = -1,
+	MHU_V_2_X_ERR_ALREADY_INIT = -2,
+	MHU_V_2_X_ERR_UNSUPPORTED_VERSION = -3,
+	MHU_V_2_X_ERR_INVALID_ARG = -4,
+	MHU_V_2_X_ERR_GENERAL = -5
 };
 
 /**
@@ -65,8 +65,9 @@ enum mhu_v2_x_error_t {
  *
  * This function doesn't check if dev is NULL.
  */
-enum mhu_v2_x_error_t mhu_v2_x_driver_init(struct mhu_v2_x_dev_t *dev,
-	enum mhu_v2_x_supported_revisions rev);
+enum mhu_v2_x_error_t
+mhu_v2_x_driver_init(struct mhu_v2_x_dev_t *dev,
+		     enum mhu_v2_x_supported_revisions rev);
 
 /**
  * Returns the number of channels implemented.
@@ -75,8 +76,7 @@ enum mhu_v2_x_error_t mhu_v2_x_driver_init(struct mhu_v2_x_dev_t *dev,
  *
  * This function doesn't check if dev is NULL.
  */
-uint32_t mhu_v2_x_get_num_channel_implemented(
-		const struct mhu_v2_x_dev_t *dev);
+uint32_t mhu_v2_x_get_num_channel_implemented(const struct mhu_v2_x_dev_t *dev);
 
 /**
  * Sends the value over a channel.
@@ -93,7 +93,7 @@ uint32_t mhu_v2_x_get_num_channel_implemented(
  * This function doesn't check if channel is implemented.
  */
 enum mhu_v2_x_error_t mhu_v2_x_channel_send(const struct mhu_v2_x_dev_t *dev,
-	uint32_t channel, uint32_t val);
+					    uint32_t channel, uint32_t val);
 
 /**
  * Polls sender channel status.
@@ -110,7 +110,7 @@ enum mhu_v2_x_error_t mhu_v2_x_channel_send(const struct mhu_v2_x_dev_t *dev,
  * This function doesn't check if channel is implemented.
  */
 enum mhu_v2_x_error_t mhu_v2_x_channel_poll(const struct mhu_v2_x_dev_t *dev,
-	uint32_t channel, uint32_t *value);
+					    uint32_t channel, uint32_t *value);
 
 /**
  * Clears the channel after the value is send over it.
@@ -126,7 +126,7 @@ enum mhu_v2_x_error_t mhu_v2_x_channel_poll(const struct mhu_v2_x_dev_t *dev,
  * This function doesn't check if channel is implemented.
  */
 enum mhu_v2_x_error_t mhu_v2_x_channel_clear(const struct mhu_v2_x_dev_t *dev,
-	uint32_t channel);
+					     uint32_t channel);
 
 /**
  * Receives the value over a channel.
@@ -142,8 +142,9 @@ enum mhu_v2_x_error_t mhu_v2_x_channel_clear(const struct mhu_v2_x_dev_t *dev,
  * This function doesn't check if dev is NULL.
  * This function doesn't check if channel is implemented.
  */
-enum mhu_v2_x_error_t mhu_v2_x_channel_receive(
-	const struct mhu_v2_x_dev_t *dev, uint32_t channel, uint32_t *value);
+enum mhu_v2_x_error_t mhu_v2_x_channel_receive(const struct mhu_v2_x_dev_t *dev,
+					       uint32_t channel,
+					       uint32_t *value);
 
 /**
  * Sets bits in the Channel Mask.
@@ -159,8 +160,9 @@ enum mhu_v2_x_error_t mhu_v2_x_channel_receive(
  * This function doesn't check if dev is NULL.
  *  This function doesn't check if channel is implemented.
  */
-enum mhu_v2_x_error_t mhu_v2_x_channel_mask_set(
-	const struct mhu_v2_x_dev_t *dev, uint32_t channel, uint32_t mask);
+enum mhu_v2_x_error_t
+mhu_v2_x_channel_mask_set(const struct mhu_v2_x_dev_t *dev, uint32_t channel,
+			  uint32_t mask);
 
 /**
  * Clears bits in the Channel Mask.
@@ -176,8 +178,9 @@ enum mhu_v2_x_error_t mhu_v2_x_channel_mask_set(
  * This function doesn't check if dev is NULL.
  *  This function doesn't check if channel is implemented.
  */
-enum mhu_v2_x_error_t mhu_v2_x_channel_mask_clear(
-	const struct mhu_v2_x_dev_t *dev, uint32_t channel, uint32_t mask);
+enum mhu_v2_x_error_t
+mhu_v2_x_channel_mask_clear(const struct mhu_v2_x_dev_t *dev, uint32_t channel,
+			    uint32_t mask);
 
 /**
  * Initiates a MHU transfer with the handshake signals.
@@ -190,8 +193,8 @@ enum mhu_v2_x_error_t mhu_v2_x_channel_mask_clear(
  *
  * This function doesn't check if dev is NULL.
  */
-enum mhu_v2_x_error_t mhu_v2_x_initiate_transfer(
-	const struct mhu_v2_x_dev_t *dev);
+enum mhu_v2_x_error_t
+mhu_v2_x_initiate_transfer(const struct mhu_v2_x_dev_t *dev);
 
 /**
  * Closes a MHU transfer with the handshake signals.
@@ -204,7 +207,6 @@ enum mhu_v2_x_error_t mhu_v2_x_initiate_transfer(
  *
  * This function doesn't check if dev is NULL.
  */
-enum mhu_v2_x_error_t mhu_v2_x_close_transfer(
-	const struct mhu_v2_x_dev_t *dev);
+enum mhu_v2_x_error_t mhu_v2_x_close_transfer(const struct mhu_v2_x_dev_t *dev);
 
 #endif /* MHU_V2_X_H */

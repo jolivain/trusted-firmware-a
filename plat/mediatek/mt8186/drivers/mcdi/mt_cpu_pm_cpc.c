@@ -7,7 +7,6 @@
 #include <string.h>
 
 #include <drivers/delay_timer.h>
-
 #include <mt_cpu_pm_cpc.h>
 #include <mt_timer.h>
 
@@ -18,15 +17,14 @@ struct mtk_cpc_dev {
 
 static struct mtk_cpc_dev cpc;
 
-static int mtk_cpc_last_core_prot(uint32_t prot_req,
-				uint32_t resp_reg, uint32_t resp_ofs)
+static int mtk_cpc_last_core_prot(uint32_t prot_req, uint32_t resp_reg,
+				  uint32_t resp_ofs)
 {
 	uint32_t sta, retry;
 
 	retry = 0U;
 
 	while (retry++ < RETRY_CNT_MAX) {
-
 		mmio_write_32(CPC_MCUSYS_LAST_CORE_REQ, prot_req);
 
 		udelay(1U);
@@ -46,9 +44,7 @@ static int mtk_cpc_last_core_prot(uint32_t prot_req,
 int mtk_cpu_pm_mcusys_prot_aquire(void)
 {
 	return mtk_cpc_last_core_prot(
-			MCUSYS_PROT_SET,
-			CPC_MCUSYS_LAST_CORE_RESP,
-			MCUSYS_RESP_OFS);
+		MCUSYS_PROT_SET, CPC_MCUSYS_LAST_CORE_RESP, MCUSYS_RESP_OFS);
 }
 
 void mtk_cpu_pm_mcusys_prot_release(void)
@@ -59,9 +55,7 @@ void mtk_cpu_pm_mcusys_prot_release(void)
 int mtk_cpu_pm_cluster_prot_aquire(unsigned int cluster)
 {
 	return mtk_cpc_last_core_prot(
-			CPUSYS_PROT_SET,
-			CPC_MCUSYS_MP_LAST_CORE_RESP,
-			CPUSYS_RESP_OFS);
+		CPUSYS_PROT_SET, CPC_MCUSYS_MP_LAST_CORE_RESP, CPUSYS_RESP_OFS);
 }
 
 void mtk_cpu_pm_cluster_prot_release(unsigned int cluster)
@@ -137,8 +131,8 @@ static void mtk_cpc_dump_timestamp(void)
 		mmio_write_32(CPC_MCUSYS_TRACE_SEL, id);
 
 		memcpy((void *)(uintptr_t)CPC_TRACE_SRAM(id),
-				(const void *)(uintptr_t)CPC_MCUSYS_TRACE_DATA,
-				CPC_TRACE_SIZE);
+		       (const void *)(uintptr_t)CPC_MCUSYS_TRACE_DATA,
+		       CPC_TRACE_SIZE);
 	}
 }
 
@@ -188,7 +182,7 @@ static void mtk_cpc_config(uint32_t cfg, uint32_t data)
 		break;
 	case CPC_SMC_CONFIG_CNT_CLR:
 		reg = CPC_MCUSYS_CLUSTER_COUNTER_CLR;
-		val = GENMASK(1, 0);	/* clr_mask */
+		val = GENMASK(1, 0); /* clr_mask */
 		break;
 	case CPC_SMC_CONFIG_TIME_SYNC:
 		mtk_cpc_time_sync();
@@ -209,7 +203,8 @@ static uint32_t mtk_cpc_read_config(uint32_t cfg)
 	switch (cfg) {
 	case CPC_SMC_CONFIG_PROF:
 		res = (mmio_read_32(CPC_MCUSYS_CPC_DBG_SETTING) & CPC_PROF_EN) ?
-			1U : 0U;
+			      1U :
+			      0U;
 		break;
 	case CPC_SMC_CONFIG_AUTO_OFF:
 		res = cpc.auto_off;
@@ -253,17 +248,16 @@ uint64_t mtk_cpc_handler(uint64_t act, uint64_t arg1, uint64_t arg2)
 void mtk_cpc_init(void)
 {
 	mmio_write_32(CPC_MCUSYS_CPC_DBG_SETTING,
-			mmio_read_32(CPC_MCUSYS_CPC_DBG_SETTING)
-			| CPC_DBG_EN
-			| CPC_CALC_EN);
+		      mmio_read_32(CPC_MCUSYS_CPC_DBG_SETTING) | CPC_DBG_EN |
+			      CPC_CALC_EN);
 
 	cpc.auto_off = 1;
 	cpc.auto_thres_tick = us_to_ticks(8000);
 
 	mmio_write_32(CPC_MCUSYS_CPC_FLOW_CTRL_CFG,
-			mmio_read_32(CPC_MCUSYS_CPC_FLOW_CTRL_CFG)
-			| CPC_OFF_PRE_EN
-			| (cpc.auto_off ? CPC_AUTO_OFF_EN : 0U));
+		      mmio_read_32(CPC_MCUSYS_CPC_FLOW_CTRL_CFG) |
+			      CPC_OFF_PRE_EN |
+			      (cpc.auto_off ? CPC_AUTO_OFF_EN : 0U));
 
 	mmio_write_32(CPC_MCUSYS_CPC_OFF_THRES, cpc.auto_thres_tick);
 }

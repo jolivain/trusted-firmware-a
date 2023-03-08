@@ -1,12 +1,13 @@
 /*
- * Copyright (c) 2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <services/rmmd_svc.h>
 
 #include <plat/common/platform.h>
-#include <services/rmmd_svc.h>
+
 #include "trp_private.h"
 
 /*
@@ -18,14 +19,9 @@ static trp_args_t trp_smc_args[PLATFORM_CORE_COUNT];
 /*
  * Set the arguments for SMC call
  */
-trp_args_t *set_smc_args(uint64_t arg0,
-			uint64_t arg1,
-			uint64_t arg2,
-			uint64_t arg3,
-			uint64_t arg4,
-			uint64_t arg5,
-			uint64_t arg6,
-			uint64_t arg7)
+trp_args_t *set_smc_args(uint64_t arg0, uint64_t arg1, uint64_t arg2,
+			 uint64_t arg3, uint64_t arg4, uint64_t arg5,
+			 uint64_t arg6, uint64_t arg7)
 {
 	uint32_t linear_id;
 	trp_args_t *pcpu_smc_args;

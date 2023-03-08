@@ -8,15 +8,12 @@
 
 #include <common/debug.h>
 #include <lib/mmio.h>
-
 #include <ncsi.h>
 #include <sr_def.h>
 #include <sr_utils.h>
 
-static const char *const io_drives[] = {
-	"2mA", "4mA", "6mA", "8mA",
-	"10mA", "12mA", "14mA", "16mA"
-};
+static const char *const io_drives[] = { "2mA",	 "4mA",	 "6mA",	 "8mA",
+					 "10mA", "12mA", "14mA", "16mA" };
 
 void brcm_stingray_ncsi_init(void)
 {

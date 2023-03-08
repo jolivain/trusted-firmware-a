@@ -17,8 +17,8 @@
 #include <sfp_error_codes.h>
 
 static uintptr_t g_nxp_sfp_addr;
-static uint32_t srk_hash[SRK_HASH_SIZE/sizeof(uint32_t)]
-					__aligned(CACHE_WRITEBACK_GRANULE);
+static uint32_t srk_hash[SRK_HASH_SIZE / sizeof(uint32_t)] __aligned(
+	CACHE_WRITEBACK_GRANULE);
 
 void sfp_init(uintptr_t nxp_sfp_addr)
 {
@@ -33,11 +33,11 @@ uintptr_t get_sfp_addr(void)
 uint32_t *get_sfp_srk_hash(void)
 {
 	struct sfp_ccsr_regs_t *sfp_ccsr_regs =
-			(void *) (g_nxp_sfp_addr + SFP_FUSE_REGS_OFFSET);
+		(void *)(g_nxp_sfp_addr + SFP_FUSE_REGS_OFFSET);
 	int i = 0;
 
 	/* Add comparison of hash with SFP hash here */
-	for (i = 0; i < SRK_HASH_SIZE/sizeof(uint32_t); i++)
+	for (i = 0; i < SRK_HASH_SIZE / sizeof(uint32_t); i++)
 		srk_hash[i] =
 			mmio_read_32((uintptr_t)&sfp_ccsr_regs->srk_hash[i]);
 
@@ -75,8 +75,8 @@ int sfp_program_fuses(void)
 	} while (ingr & SFP_INGR_PROGFB_CMD);
 
 	/* Check for SFP fuse programming error */
-	sfp_cmd_status = sfp_read32(g_nxp_sfp_addr + SFP_INGR_OFFSET)
-			 & SFP_INGR_ERROR_MASK;
+	sfp_cmd_status = sfp_read32(g_nxp_sfp_addr + SFP_INGR_OFFSET) &
+			 SFP_INGR_ERROR_MASK;
 
 	if (sfp_cmd_status != 0U) {
 		return ERROR_PROGFB_CMD;
@@ -88,8 +88,8 @@ int sfp_program_fuses(void)
 uint32_t sfp_read_oem_uid(uint8_t oem_uid)
 {
 	uint32_t val = 0U;
-	struct sfp_ccsr_regs_t *sfp_ccsr_regs = (void *)(g_nxp_sfp_addr
-							+ SFP_FUSE_REGS_OFFSET);
+	struct sfp_ccsr_regs_t *sfp_ccsr_regs =
+		(void *)(g_nxp_sfp_addr + SFP_FUSE_REGS_OFFSET);
 
 	if (oem_uid > MAX_OEM_UID) {
 		ERROR("Invalid OEM UID received.\n");
@@ -109,8 +109,8 @@ uint32_t sfp_read_oem_uid(uint8_t oem_uid)
 uint32_t sfp_write_oem_uid(uint8_t oem_uid, uint32_t sfp_val)
 {
 	uint32_t val = 0U;
-	struct sfp_ccsr_regs_t *sfp_ccsr_regs = (void *)(g_nxp_sfp_addr
-							+ SFP_FUSE_REGS_OFFSET);
+	struct sfp_ccsr_regs_t *sfp_ccsr_regs =
+		(void *)(g_nxp_sfp_addr + SFP_FUSE_REGS_OFFSET);
 
 	val = sfp_read_oem_uid(oem_uid);
 
@@ -134,8 +134,8 @@ uint32_t sfp_write_oem_uid(uint8_t oem_uid, uint32_t sfp_val)
 
 int sfp_check_its(void)
 {
-	struct sfp_ccsr_regs_t *sfp_ccsr_regs = (void *)(g_nxp_sfp_addr
-							+ SFP_FUSE_REGS_OFFSET);
+	struct sfp_ccsr_regs_t *sfp_ccsr_regs =
+		(void *)(g_nxp_sfp_addr + SFP_FUSE_REGS_OFFSET);
 
 	if ((sfp_read32(&sfp_ccsr_regs->ospr) & OSPR_ITS_MASK) != 0) {
 		return 1;
@@ -146,8 +146,8 @@ int sfp_check_its(void)
 
 int sfp_check_oem_wp(void)
 {
-	struct sfp_ccsr_regs_t *sfp_ccsr_regs = (void *)(g_nxp_sfp_addr
-							+ SFP_FUSE_REGS_OFFSET);
+	struct sfp_ccsr_regs_t *sfp_ccsr_regs =
+		(void *)(g_nxp_sfp_addr + SFP_FUSE_REGS_OFFSET);
 
 	if ((sfp_read32(&sfp_ccsr_regs->ospr) & OSPR_WP_MASK) != 0) {
 		return 1;
@@ -159,9 +159,9 @@ int sfp_check_oem_wp(void)
 /* This function returns ospr's key_revoc values.*/
 uint32_t get_key_revoc(void)
 {
-	struct sfp_ccsr_regs_t *sfp_ccsr_regs = (void *)(g_nxp_sfp_addr
-							+ SFP_FUSE_REGS_OFFSET);
+	struct sfp_ccsr_regs_t *sfp_ccsr_regs =
+		(void *)(g_nxp_sfp_addr + SFP_FUSE_REGS_OFFSET);
 
 	return (sfp_read32(&sfp_ccsr_regs->ospr) & OSPR_KEY_REVOC_MASK) >>
-						OSPR_KEY_REVOC_SHIFT;
+	       OSPR_KEY_REVOC_SHIFT;
 }
