@@ -399,12 +399,6 @@ SVE_VECTOR_LEN			:= 2048
 ENABLE_SME_FOR_NS		:= 0
 ENABLE_SME_FOR_SWD		:= 0
 
-# If SME is enabled then force SVE off
-ifneq (${ENABLE_SME_FOR_NS},0)
-	override ENABLE_SVE_FOR_NS	:= 0
-	override ENABLE_SVE_FOR_SWD	:= 0
-endif
-
 SANITIZE_UB := off
 
 # For ARMv8.1 (AArch64) platforms, enabling this option selects the spinlock
