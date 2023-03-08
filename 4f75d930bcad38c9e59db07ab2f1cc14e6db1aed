@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6b2a3cdf_626f47a5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-03-08T01:55:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cccae251_8a65cc5b",
+      "range": {
+        "startLine": 9,
+        "startChar": 34,
+        "endLine": 9,
+        "endChar": 40
+      },
+      "revId": "4f75d930bcad38c9e59db07ab2f1cc14e6db1aed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "115cdfda_88376a74",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -54,6 +78,24 @@
       "writtenOn": "2023-03-06T16:44:16Z",
       "side": 1,
       "message": "This should not be written directly. Please use write_ctx_reg(). If it does need to be written to directly, this is not the place to do it (maybe cm_prepare_el3_exit).",
+      "revId": "4f75d930bcad38c9e59db07ab2f1cc14e6db1aed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a915c82_51e5f1f1",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-03-08T01:55:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfe49b45_e18c089f",
       "revId": "4f75d930bcad38c9e59db07ab2f1cc14e6db1aed",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
