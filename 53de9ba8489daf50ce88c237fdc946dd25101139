@@ -188,6 +188,30 @@
       },
       "revId": "53de9ba8489daf50ce88c237fdc946dd25101139",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b87ae00_40205c4d",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-08T21:06:14Z",
+      "side": 1,
+      "message": "In this case, every increment of XLAT would need a comment, which may not look right. It may be useful to add a comment, but it has already been justified in the commit message and guarded defines correct? \n\nHaving said that, I don\u0027t mind adding the comment here, but I thought this might set expectations that every XLAT increment will have a comment. Please let me know your opinion.",
+      "parentUuid": "bdb3b7bf_e8b49101",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 28
+      },
+      "revId": "53de9ba8489daf50ce88c237fdc946dd25101139",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
