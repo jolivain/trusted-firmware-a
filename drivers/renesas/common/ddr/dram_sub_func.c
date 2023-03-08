@@ -4,33 +4,34 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include "dram_sub_func.h"
+
 #include <common/debug.h>
 #include <lib/mmio.h>
 
-#include "dram_sub_func.h"
 #include "rcar_def.h"
 
 #if RCAR_SYSTEM_SUSPEND
 /* Local defines */
-#define DRAM_BACKUP_GPIO_USE		0
+#define DRAM_BACKUP_GPIO_USE 0
 #include "iic_dvfs.h"
 #if PMIC_ROHM_BD9571
-#define	PMIC_SLAVE_ADDR			0x30U
-#define	PMIC_BKUP_MODE_CNT		0x20U
-#define	PMIC_QLLM_CNT			0x27U
-#define	BIT_BKUP_CTRL_OUT		BIT(4)
-#define	BIT_QLLM_DDR0_EN		BIT(0)
-#define	BIT_QLLM_DDR1_EN		BIT(1)
+#define PMIC_SLAVE_ADDR 0x30U
+#define PMIC_BKUP_MODE_CNT 0x20U
+#define PMIC_QLLM_CNT 0x27U
+#define BIT_BKUP_CTRL_OUT BIT(4)
+#define BIT_QLLM_DDR0_EN BIT(0)
+#define BIT_QLLM_DDR1_EN BIT(1)
 #endif
 
-#define GPIO_BKUP_REQB_SHIFT_SALVATOR	9U	/* GP1_9 (BKUP_REQB) */
-#define GPIO_BKUP_TRG_SHIFT_SALVATOR	8U	/* GP1_8 (BKUP_TRG) */
-#define GPIO_BKUP_REQB_SHIFT_EBISU	14U	/* GP6_14(BKUP_REQB) */
-#define GPIO_BKUP_TRG_SHIFT_EBISU	13U	/* GP6_13(BKUP_TRG) */
-#define GPIO_BKUP_REQB_SHIFT_CONDOR	1U	/* GP3_1 (BKUP_REQB) */
-#define GPIO_BKUP_TRG_SHIFT_CONDOR	0U	/* GP3_0 (BKUP_TRG) */
+#define GPIO_BKUP_REQB_SHIFT_SALVATOR 9U /* GP1_9 (BKUP_REQB) */
+#define GPIO_BKUP_TRG_SHIFT_SALVATOR 8U /* GP1_8 (BKUP_TRG) */
+#define GPIO_BKUP_REQB_SHIFT_EBISU 14U /* GP6_14(BKUP_REQB) */
+#define GPIO_BKUP_TRG_SHIFT_EBISU 13U /* GP6_13(BKUP_TRG) */
+#define GPIO_BKUP_REQB_SHIFT_CONDOR 1U /* GP3_1 (BKUP_REQB) */
+#define GPIO_BKUP_TRG_SHIFT_CONDOR 0U /* GP3_0 (BKUP_TRG) */
 
-#define DRAM_BKUP_TRG_LOOP_CNT		1000U
+#define DRAM_BKUP_TRG_LOOP_CNT 1000U
 #endif
 
 void rcar_dram_get_boot_status(uint32_t *status)
@@ -58,9 +59,9 @@ void rcar_dram_get_boot_status(uint32_t *status)
 		*status = DRAM_BOOT_STATUS_WARM;
 	else
 		*status = DRAM_BOOT_STATUS_COLD;
-#else	/* RCAR_SYSTEM_SUSPEND */
+#else /* RCAR_SYSTEM_SUSPEND */
 	*status = DRAM_BOOT_STATUS_COLD;
-#endif	/* RCAR_SYSTEM_SUSPEND */
+#endif /* RCAR_SYSTEM_SUSPEND */
 }
 
 int32_t rcar_dram_update_boot_status(uint32_t status)
@@ -112,9 +113,8 @@ int32_t rcar_dram_update_boot_status(uint32_t status)
 #else
 #if PMIC_ROHM_BD9571
 		/* Set BKUP_CRTL_OUT=High (BKUP mode cnt register) */
-		i2c_dvfs_ret = rcar_iic_dvfs_receive(PMIC_SLAVE_ADDR,
-						     PMIC_BKUP_MODE_CNT,
-						     &bkup_mode_cnt);
+		i2c_dvfs_ret = rcar_iic_dvfs_receive(
+			PMIC_SLAVE_ADDR, PMIC_BKUP_MODE_CNT, &bkup_mode_cnt);
 		if (i2c_dvfs_ret) {
 			ERROR("BKUP mode cnt READ ERROR.\n");
 			ret = DRAM_UPDATE_STATUS_ERR;
@@ -152,8 +152,7 @@ int32_t rcar_dram_update_boot_status(uint32_t status)
 	if (!ret) {
 		qllm_cnt = BIT_QLLM_DDR0_EN | BIT_QLLM_DDR1_EN;
 		i2c_dvfs_ret = rcar_iic_dvfs_send(PMIC_SLAVE_ADDR,
-						  PMIC_QLLM_CNT,
-						  qllm_cnt);
+						  PMIC_QLLM_CNT, qllm_cnt);
 		if (i2c_dvfs_ret) {
 			ERROR("QLLM cnt WRITE ERROR. value = %d\n", qllm_cnt);
 			ret = DRAM_UPDATE_STATUS_ERR;

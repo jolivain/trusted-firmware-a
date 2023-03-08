@@ -8,37 +8,37 @@
 #ifndef DDR_OPTS_H
 #define DDR_OPTS_H
 
-#define SDRAM_TYPE_DDR4		5	/* sdram_cfg register */
+#define SDRAM_TYPE_DDR4 5 /* sdram_cfg register */
 
-#define DDR_BC4			4	/* burst chop */
-#define DDR_OTF			6	/* on-the-fly BC4 and BL8 */
-#define DDR_BL8			8	/* burst length 8 */
+#define DDR_BC4 4 /* burst chop */
+#define DDR_OTF 6 /* on-the-fly BC4 and BL8 */
+#define DDR_BL8 8 /* burst length 8 */
 
-#define DDR4_RTT_OFF		0
-#define DDR4_RTT_60_OHM		1	/* RZQ/4 */
-#define DDR4_RTT_120_OHM	2	/* RZQ/2 */
-#define DDR4_RTT_40_OHM		3	/* RZQ/6 */
-#define DDR4_RTT_240_OHM	4	/* RZQ/1 */
-#define DDR4_RTT_48_OHM		5	/* RZQ/5 */
-#define DDR4_RTT_80_OHM		6	/* RZQ/3 */
-#define DDR4_RTT_34_OHM		7	/* RZQ/7 */
-#define DDR4_RTT_WR_OFF		0
-#define DDR4_RTT_WR_120_OHM	1
-#define DDR4_RTT_WR_240_OHM	2
-#define DDR4_RTT_WR_HZ		3
-#define DDR4_RTT_WR_80_OHM	4
-#define DDR_ODT_NEVER		0x0
-#define DDR_ODT_CS		0x1
-#define DDR_ODT_ALL_OTHER_CS	0x2
-#define DDR_ODT_OTHER_DIMM	0x3
-#define DDR_ODT_ALL		0x4
-#define DDR_ODT_SAME_DIMM	0x5
+#define DDR4_RTT_OFF 0
+#define DDR4_RTT_60_OHM 1 /* RZQ/4 */
+#define DDR4_RTT_120_OHM 2 /* RZQ/2 */
+#define DDR4_RTT_40_OHM 3 /* RZQ/6 */
+#define DDR4_RTT_240_OHM 4 /* RZQ/1 */
+#define DDR4_RTT_48_OHM 5 /* RZQ/5 */
+#define DDR4_RTT_80_OHM 6 /* RZQ/3 */
+#define DDR4_RTT_34_OHM 7 /* RZQ/7 */
+#define DDR4_RTT_WR_OFF 0
+#define DDR4_RTT_WR_120_OHM 1
+#define DDR4_RTT_WR_240_OHM 2
+#define DDR4_RTT_WR_HZ 3
+#define DDR4_RTT_WR_80_OHM 4
+#define DDR_ODT_NEVER 0x0
+#define DDR_ODT_CS 0x1
+#define DDR_ODT_ALL_OTHER_CS 0x2
+#define DDR_ODT_OTHER_DIMM 0x3
+#define DDR_ODT_ALL 0x4
+#define DDR_ODT_SAME_DIMM 0x5
 #define DDR_ODT_CS_AND_OTHER_DIMM 0x6
 #define DDR_ODT_OTHER_CS_ONSAMEDIMM 0x7
-#define DDR_BA_INTLV_CS01	0x40
-#define DDR_BA_INTLV_CS0123	0x64
-#define DDR_BA_NONE		0
-#define DDR_256B_INTLV		0x8
+#define DDR_BA_INTLV_CS01 0x40
+#define DDR_BA_INTLV_CS0123 0x64
+#define DDR_BA_NONE 0
+#define DDR_256B_INTLV 0x8
 
 struct memctl_opt {
 	int rdimm;
@@ -61,8 +61,8 @@ struct memctl_opt {
 	int dynamic_power;
 	/* memory data width 0 = 64-bit, 1 = 32-bit, 2 = 16-bit */
 	unsigned int data_bus_dimm;
-	unsigned int data_bus_used;	/* on individual board */
-	unsigned int burst_length;	/* BC4, OTF and BL8 */
+	unsigned int data_bus_used; /* on individual board */
+	unsigned int burst_length; /* BC4, OTF and BL8 */
 	int otf_burst_chop_en;
 	int mirrored_dimm;
 	int quad_rank_present;

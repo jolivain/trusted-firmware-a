@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -16,11 +16,11 @@
 #include <platform_def.h>
 
 typedef struct {
-	io_mtd_dev_spec_t	*dev_spec;
-	uintptr_t		base;
-	unsigned long long	pos;		/* Offset in bytes */
-	unsigned long long	size;		/* Size of device in bytes */
-	unsigned long long	extra_offset;	/* Extra offset in bytes */
+	io_mtd_dev_spec_t *dev_spec;
+	uintptr_t base;
+	unsigned long long pos; /* Offset in bytes */
+	unsigned long long size; /* Size of device in bytes */
+	unsigned long long extra_offset; /* Extra offset in bytes */
 } mtd_dev_state_t;
 
 io_type_t device_type_mtd(void);
@@ -34,17 +34,16 @@ static int mtd_close(io_entity_t *entity);
 static int mtd_dev_open(const uintptr_t dev_spec, io_dev_info_t **dev_info);
 static int mtd_dev_close(io_dev_info_t *dev_info);
 
-static const io_dev_connector_t mtd_dev_connector = {
-	.dev_open	= mtd_dev_open
-};
+static const io_dev_connector_t mtd_dev_connector = { .dev_open =
+							      mtd_dev_open };
 
 static const io_dev_funcs_t mtd_dev_funcs = {
-	.type		= device_type_mtd,
-	.open		= mtd_open,
-	.seek		= mtd_seek,
-	.read		= mtd_read,
-	.close		= mtd_close,
-	.dev_close	= mtd_dev_close,
+	.type = device_type_mtd,
+	.open = mtd_open,
+	.seek = mtd_seek,
+	.read = mtd_read,
+	.close = mtd_close,
+	.dev_close = mtd_dev_close,
 };
 
 static mtd_dev_state_t state_pool[MAX_IO_MTD_DEVICES];
@@ -214,8 +213,8 @@ static int mtd_read(io_entity_t *entity, uintptr_t buffer, size_t length,
 	ops = &cur->dev_spec->ops;
 	assert(ops->read != NULL);
 
-	VERBOSE("Read at %llx into %lx, length %zu\n",
-		cur->base + cur->pos, buffer, length);
+	VERBOSE("Read at %llx into %lx, length %zu\n", cur->base + cur->pos,
+		buffer, length);
 	if ((cur->base + cur->pos + length) > cur->dev_spec->device_size) {
 		return -EINVAL;
 	}

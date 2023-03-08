@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2022-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2022, Linaro.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -13,10 +13,11 @@
 #endif
 #include <common/fdt_wrappers.h>
 #include <libfdt.h>
+
 #include <platform_def.h>
 
-#define DTB_PROP_HW_LOG_ADDR	"tpm_event_log_addr"
-#define DTB_PROP_HW_LOG_SIZE	"tpm_event_log_size"
+#define DTB_PROP_HW_LOG_ADDR "tpm_event_log_addr"
+#define DTB_PROP_HW_LOG_SIZE "tpm_event_log_size"
 
 #if MEASURED_BOOT
 
@@ -28,43 +29,41 @@ static int imx8m_event_log_fdt_init_overlay(uintptr_t dt_base, int dt_size)
 
 	ret = fdt_create_empty_tree(dtb, dt_size);
 	if (ret < 0) {
-		ERROR("cannot create empty dtb tree: %s\n",
-		       fdt_strerror(ret));
+		ERROR("cannot create empty dtb tree: %s\n", fdt_strerror(ret));
 		return ret;
 	}
 
 	offset = fdt_path_offset(dtb, "/");
 	if (offset < 0) {
 		ERROR("cannot find root of the tree: %s\n",
-		       fdt_strerror(offset));
+		      fdt_strerror(offset));
 		return offset;
 	}
 
 	offset = fdt_add_subnode(dtb, offset, "fragment@0");
 	if (offset < 0) {
-		ERROR("cannot add fragment node: %s\n",
-		       fdt_strerror(offset));
+		ERROR("cannot add fragment node: %s\n", fdt_strerror(offset));
 		return offset;
 	}
 
 	ret = fdt_setprop_string(dtb, offset, "target-path", "/");
 	if (ret < 0) {
 		ERROR("cannot set target-path property: %s\n",
-		       fdt_strerror(ret));
+		      fdt_strerror(ret));
 		return ret;
 	}
 
 	offset = fdt_add_subnode(dtb, offset, "__overlay__");
 	if (offset < 0) {
 		ERROR("cannot add __overlay__ node: %s\n",
-		       fdt_strerror(offset));
+		      fdt_strerror(offset));
 		return ret;
 	}
 
 	offset = fdt_add_subnode(dtb, offset, "tpm_event_log");
 	if (offset < 0) {
 		ERROR("cannot add tpm_event_log node: %s\n",
-		       fdt_strerror(offset));
+		      fdt_strerror(offset));
 		return offset;
 	}
 
@@ -72,21 +71,21 @@ static int imx8m_event_log_fdt_init_overlay(uintptr_t dt_base, int dt_size)
 				 "arm,tpm_event_log");
 	if (ret < 0) {
 		ERROR("cannot set compatible property: %s\n",
-		       fdt_strerror(ret));
+		      fdt_strerror(ret));
 		return ret;
 	}
 
 	ret = fdt_setprop_u64(dtb, offset, "tpm_event_log_addr", 0);
 	if (ret < 0) {
 		ERROR("cannot set tpm_event_log_addr property: %s\n",
-		       fdt_strerror(ret));
+		      fdt_strerror(ret));
 		return ret;
 	}
 
 	ret = fdt_setprop_u32(dtb, offset, "tpm_event_log_size", 0);
 	if (ret < 0) {
 		ERROR("cannot set tpm_event_log_size property: %s\n",
-		       fdt_strerror(ret));
+		      fdt_strerror(ret));
 		return ret;
 	}
 
@@ -102,8 +101,8 @@ static int imx8m_event_log_fdt_init_overlay(uintptr_t dt_base, int dt_size)
  *	0 = success
  *    < 0 = error
  */
-static int imx8m_set_event_log_info(uintptr_t config_base,
-				  uintptr_t log_addr, size_t log_size)
+static int imx8m_set_event_log_info(uintptr_t config_base, uintptr_t log_addr,
+				    size_t log_size)
 {
 	/* As libfdt uses void *, we can't avoid this cast */
 	void *dtb = (void *)config_base;
@@ -136,7 +135,7 @@ static int imx8m_set_event_log_info(uintptr_t config_base,
 	node = fdt_node_offset_by_compatible(dtb, -1, compatible_tpm);
 	if (node < 0) {
 		ERROR("The compatible property '%s' not%s", compatible_tpm,
-			" found in the config\n");
+		      " found in the config\n");
 		return node;
 	}
 
@@ -187,11 +186,10 @@ int imx8m_set_nt_fw_info(size_t log_size, uintptr_t *ns_log_addr)
 	ns_addr = PLAT_IMX8M_DTO_BASE + PLAT_IMX8M_DTO_MAX_SIZE;
 
 	imx8m_event_log_fdt_init_overlay(PLAT_IMX8M_DTO_BASE,
-					  PLAT_IMX8M_DTO_MAX_SIZE);
+					 PLAT_IMX8M_DTO_MAX_SIZE);
 
 	/* Write the Event Log address and its size in the DTB */
-	err = imx8m_set_event_log_info(PLAT_IMX8M_DTO_BASE,
-					ns_addr, log_size);
+	err = imx8m_set_event_log_info(PLAT_IMX8M_DTO_BASE, ns_addr, log_size);
 
 	/* Return Event Log address in Non-secure memory */
 	*ns_log_addr = (err < 0) ? 0UL : ns_addr;

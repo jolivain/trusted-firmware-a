@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -22,7 +22,8 @@ union __packed __attribute__((aligned(4))) rss_comms_io_buffer_t {
 };
 
 static uint8_t select_protocol_version(const psa_invec *in_vec, size_t in_len,
-				       const psa_outvec *out_vec, size_t out_len)
+				       const psa_outvec *out_vec,
+				       size_t out_len)
 {
 	size_t comms_mhu_msg_size;
 	size_t comms_embed_msg_min_size;
@@ -40,13 +41,15 @@ static uint8_t select_protocol_version(const psa_invec *in_vec, size_t in_len,
 
 	comms_mhu_msg_size = mhu_get_max_message_size();
 
-	comms_embed_msg_min_size = sizeof(struct serialized_rss_comms_header_t) +
-				   sizeof(struct rss_embed_msg_t) -
-				   PLAT_RSS_COMMS_PAYLOAD_MAX_SIZE;
+	comms_embed_msg_min_size =
+		sizeof(struct serialized_rss_comms_header_t) +
+		sizeof(struct rss_embed_msg_t) -
+		PLAT_RSS_COMMS_PAYLOAD_MAX_SIZE;
 
-	comms_embed_reply_min_size = sizeof(struct serialized_rss_comms_header_t) +
-				     sizeof(struct rss_embed_reply_t) -
-				     PLAT_RSS_COMMS_PAYLOAD_MAX_SIZE;
+	comms_embed_reply_min_size =
+		sizeof(struct serialized_rss_comms_header_t) +
+		sizeof(struct rss_embed_reply_t) -
+		PLAT_RSS_COMMS_PAYLOAD_MAX_SIZE;
 
 	/* Use embed if we can pack into one message and reply, else use
 	 * pointer_access. The underlying MHU transport protocol uses a
@@ -59,15 +62,18 @@ static uint8_t select_protocol_version(const psa_invec *in_vec, size_t in_len,
 	 * messages due to ATU configuration costs to allow access to the
 	 * pointers.
 	 */
-	if ((comms_embed_msg_min_size + in_size_total > comms_mhu_msg_size - sizeof(uint32_t))
-	 || (comms_embed_reply_min_size + out_size_total > comms_mhu_msg_size) - sizeof(uint32_t)) {
+	if ((comms_embed_msg_min_size + in_size_total >
+	     comms_mhu_msg_size - sizeof(uint32_t)) ||
+	    (comms_embed_reply_min_size + out_size_total > comms_mhu_msg_size) -
+		    sizeof(uint32_t)) {
 		return RSS_COMMS_PROTOCOL_POINTER_ACCESS;
 	} else {
 		return RSS_COMMS_PROTOCOL_EMBED;
 	}
 }
 
-psa_status_t psa_call(psa_handle_t handle, int32_t type, const psa_invec *in_vec, size_t in_len,
+psa_status_t psa_call(psa_handle_t handle, int32_t type,
+		      const psa_invec *in_vec, size_t in_len,
 		      psa_outvec *out_vec, size_t out_len)
 {
 	/* Declared statically to avoid using huge amounts of stack space. Maybe revisit if
@@ -82,18 +88,21 @@ psa_status_t psa_call(psa_handle_t handle, int32_t type, const psa_invec *in_vec
 	psa_status_t return_val;
 	size_t idx;
 
-	if (type > INT16_MAX || type < INT16_MIN || in_len > PSA_MAX_IOVEC
-	    || out_len > PSA_MAX_IOVEC) {
+	if (type > INT16_MAX || type < INT16_MIN || in_len > PSA_MAX_IOVEC ||
+	    out_len > PSA_MAX_IOVEC) {
 		return PSA_ERROR_INVALID_ARGUMENT;
 	}
 
-	io_buf.msg.header.seq_num = seq_num,
-	/* No need to distinguish callers (currently concurrent calls are not supported). */
-	io_buf.msg.header.client_id = 1U,
-	io_buf.msg.header.protocol_ver = select_protocol_version(in_vec, in_len, out_vec, out_len);
+	io_buf.msg.header
+		.seq_num = seq_num,
+     /* No need to distinguish callers (currently concurrent calls are not supported). */
+		io_buf.msg.header.client_id = 1U,
+     io_buf.msg.header.protocol_ver =
+		select_protocol_version(in_vec, in_len, out_vec, out_len);
 
-	status = rss_protocol_serialize_msg(handle, type, in_vec, in_len, out_vec,
-					    out_len, &io_buf.msg, &msg_size);
+	status = rss_protocol_serialize_msg(handle, type, in_vec, in_len,
+					    out_vec, out_len, &io_buf.msg,
+					    &msg_size);
 	if (status != PSA_SUCCESS) {
 		return status;
 	}
@@ -139,7 +148,8 @@ psa_status_t psa_call(psa_handle_t handle, int32_t type, const psa_invec *in_vec
 	VERBOSE("return_val=%d\n", return_val);
 	for (idx = 0U; idx < out_len; idx++) {
 		VERBOSE("out_vec[%lu].len=%lu\n", idx, out_vec[idx].len);
-		VERBOSE("out_vec[%lu].buf=%p\n", idx, (void *)out_vec[idx].base);
+		VERBOSE("out_vec[%lu].buf=%p\n", idx,
+			(void *)out_vec[idx].base);
 	}
 
 	/* Clear the MHU message buffer to remove assets from memory */
@@ -159,7 +169,8 @@ int rss_comms_init(uintptr_t mhu_sender_base, uintptr_t mhu_receiver_base)
 		if (err == MHU_ERR_ALREADY_INIT) {
 			INFO("[RSS-COMMS] Host to RSS MHU driver already initialized\n");
 		} else {
-			ERROR("[RSS-COMMS] Host to RSS MHU driver initialization failed: %d\n", err);
+			ERROR("[RSS-COMMS] Host to RSS MHU driver initialization failed: %d\n",
+			      err);
 			return -1;
 		}
 	}
@@ -169,7 +180,8 @@ int rss_comms_init(uintptr_t mhu_sender_base, uintptr_t mhu_receiver_base)
 		if (err == MHU_ERR_ALREADY_INIT) {
 			INFO("[RSS-COMMS] RSS to Host MHU driver already initialized\n");
 		} else {
-			ERROR("[RSS-COMMS] RSS to Host MHU driver initialization failed: %d\n", err);
+			ERROR("[RSS-COMMS] RSS to Host MHU driver initialization failed: %d\n",
+			      err);
 			return -1;
 		}
 	}

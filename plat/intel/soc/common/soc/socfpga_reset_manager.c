@@ -5,6 +5,7 @@
  */
 
 #include <errno.h>
+
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
@@ -14,51 +15,41 @@
 #include "socfpga_reset_manager.h"
 #include "socfpga_system_manager.h"
 
-
 void deassert_peripheral_reset(void)
 {
-	mmio_clrbits_32(SOCFPGA_RSTMGR(PER1MODRST),
-			RSTMGR_FIELD(PER1, WATCHDOG0) |
-			RSTMGR_FIELD(PER1, WATCHDOG1) |
+	mmio_clrbits_32(
+		SOCFPGA_RSTMGR(PER1MODRST),
+		RSTMGR_FIELD(PER1, WATCHDOG0) | RSTMGR_FIELD(PER1, WATCHDOG1) |
 			RSTMGR_FIELD(PER1, WATCHDOG2) |
 			RSTMGR_FIELD(PER1, WATCHDOG3) |
 			RSTMGR_FIELD(PER1, L4SYSTIMER0) |
 			RSTMGR_FIELD(PER1, L4SYSTIMER1) |
 			RSTMGR_FIELD(PER1, SPTIMER0) |
 			RSTMGR_FIELD(PER1, SPTIMER1) |
-			RSTMGR_FIELD(PER1, I2C0) |
-			RSTMGR_FIELD(PER1, I2C1) |
-			RSTMGR_FIELD(PER1, I2C2) |
-			RSTMGR_FIELD(PER1, I2C3) |
-			RSTMGR_FIELD(PER1, I2C4) |
-			RSTMGR_FIELD(PER1, UART0) |
-			RSTMGR_FIELD(PER1, UART1) |
-			RSTMGR_FIELD(PER1, GPIO0) |
+			RSTMGR_FIELD(PER1, I2C0) | RSTMGR_FIELD(PER1, I2C1) |
+			RSTMGR_FIELD(PER1, I2C2) | RSTMGR_FIELD(PER1, I2C3) |
+			RSTMGR_FIELD(PER1, I2C4) | RSTMGR_FIELD(PER1, UART0) |
+			RSTMGR_FIELD(PER1, UART1) | RSTMGR_FIELD(PER1, GPIO0) |
 			RSTMGR_FIELD(PER1, GPIO1));
 
 	mmio_clrbits_32(SOCFPGA_RSTMGR(PER0MODRST),
 			RSTMGR_FIELD(PER0, EMAC0OCP) |
-			RSTMGR_FIELD(PER0, EMAC1OCP) |
-			RSTMGR_FIELD(PER0, EMAC2OCP) |
-			RSTMGR_FIELD(PER0, USB0OCP) |
-			RSTMGR_FIELD(PER0, USB1OCP) |
-			RSTMGR_FIELD(PER0, NANDOCP) |
-			RSTMGR_FIELD(PER0, SDMMCOCP) |
-			RSTMGR_FIELD(PER0, DMAOCP));
+				RSTMGR_FIELD(PER0, EMAC1OCP) |
+				RSTMGR_FIELD(PER0, EMAC2OCP) |
+				RSTMGR_FIELD(PER0, USB0OCP) |
+				RSTMGR_FIELD(PER0, USB1OCP) |
+				RSTMGR_FIELD(PER0, NANDOCP) |
+				RSTMGR_FIELD(PER0, SDMMCOCP) |
+				RSTMGR_FIELD(PER0, DMAOCP));
 
-	mmio_clrbits_32(SOCFPGA_RSTMGR(PER0MODRST),
-			RSTMGR_FIELD(PER0, EMAC0) |
-			RSTMGR_FIELD(PER0, EMAC1) |
-			RSTMGR_FIELD(PER0, EMAC2) |
-			RSTMGR_FIELD(PER0, USB0) |
-			RSTMGR_FIELD(PER0, USB1) |
-			RSTMGR_FIELD(PER0, NAND) |
-			RSTMGR_FIELD(PER0, SDMMC) |
-			RSTMGR_FIELD(PER0, DMA) |
-			RSTMGR_FIELD(PER0, SPIM0) |
-			RSTMGR_FIELD(PER0, SPIM1) |
-			RSTMGR_FIELD(PER0, SPIS0) |
-			RSTMGR_FIELD(PER0, SPIS1) |
+	mmio_clrbits_32(
+		SOCFPGA_RSTMGR(PER0MODRST),
+		RSTMGR_FIELD(PER0, EMAC0) | RSTMGR_FIELD(PER0, EMAC1) |
+			RSTMGR_FIELD(PER0, EMAC2) | RSTMGR_FIELD(PER0, USB0) |
+			RSTMGR_FIELD(PER0, USB1) | RSTMGR_FIELD(PER0, NAND) |
+			RSTMGR_FIELD(PER0, SDMMC) | RSTMGR_FIELD(PER0, DMA) |
+			RSTMGR_FIELD(PER0, SPIM0) | RSTMGR_FIELD(PER0, SPIM1) |
+			RSTMGR_FIELD(PER0, SPIS0) | RSTMGR_FIELD(PER0, SPIS1) |
 			RSTMGR_FIELD(PER0, EMACPTP) |
 			RSTMGR_FIELD(PER0, DMAIF0) |
 			RSTMGR_FIELD(PER0, DMAIF1) |
@@ -70,8 +61,7 @@ void deassert_peripheral_reset(void)
 			RSTMGR_FIELD(PER0, DMAIF7));
 
 #if PLATFORM_MODEL == PLAT_SOCFPGA_AGILEX
-	mmio_clrbits_32(SOCFPGA_RSTMGR(BRGMODRST),
-			RSTMGR_FIELD(BRG, MPFE));
+	mmio_clrbits_32(SOCFPGA_RSTMGR(BRGMODRST), RSTMGR_FIELD(BRG, MPFE));
 #endif
 }
 
@@ -102,9 +92,8 @@ static int poll_idle_status(uint32_t addr, uint32_t mask, uint32_t match)
 	return -ETIMEDOUT;
 }
 
-static void socfpga_s2f_bridge_mask(uint32_t mask,
-				uint32_t *brg_mask,
-				uint32_t *noc_mask)
+static void socfpga_s2f_bridge_mask(uint32_t mask, uint32_t *brg_mask,
+				    uint32_t *noc_mask)
 {
 	*brg_mask = 0;
 	*noc_mask = 0;
@@ -120,13 +109,11 @@ static void socfpga_s2f_bridge_mask(uint32_t mask,
 	}
 }
 
-static void socfpga_f2s_bridge_mask(uint32_t mask,
-				uint32_t *brg_mask,
-				uint32_t *f2s_idlereq,
-				uint32_t *f2s_force_drain,
-				uint32_t *f2s_en,
-				uint32_t *f2s_idleack,
-				uint32_t *f2s_respempty)
+static void socfpga_f2s_bridge_mask(uint32_t mask, uint32_t *brg_mask,
+				    uint32_t *f2s_idlereq,
+				    uint32_t *f2s_force_drain, uint32_t *f2s_en,
+				    uint32_t *f2s_idleack,
+				    uint32_t *f2s_respempty)
 {
 	*brg_mask = 0;
 	*f2s_idlereq = 0;
@@ -190,44 +177,43 @@ int socfpga_bridges_enable(uint32_t mask)
 	socfpga_s2f_bridge_mask(mask, &brg_mask, &noc_mask);
 	if (brg_mask != 0U) {
 		/* Clear idle request */
-		mmio_setbits_32(SOCFPGA_SYSMGR(NOC_IDLEREQ_CLR),
-				noc_mask);
+		mmio_setbits_32(SOCFPGA_SYSMGR(NOC_IDLEREQ_CLR), noc_mask);
 
 		/* De-assert all bridges */
 		mmio_clrbits_32(SOCFPGA_RSTMGR(BRGMODRST), brg_mask);
 
 		/* Wait until idle ack becomes 0 */
-		ret = poll_idle_status(SOCFPGA_SYSMGR(NOC_IDLEACK),
-						noc_mask, 0);
+		ret = poll_idle_status(SOCFPGA_SYSMGR(NOC_IDLEACK), noc_mask,
+				       0);
 		if (ret < 0) {
 			ERROR("S2F bridge enable: "
-					"Timeout waiting for idle ack\n");
+			      "Timeout waiting for idle ack\n");
 		}
 	}
 
 	/* Enable f2s bridge */
-	socfpga_f2s_bridge_mask(mask, &brg_mask, &f2s_idlereq,
-						&f2s_force_drain, &f2s_en,
-						&f2s_idleack, &f2s_respempty);
+	socfpga_f2s_bridge_mask(mask, &brg_mask, &f2s_idlereq, &f2s_force_drain,
+				&f2s_en, &f2s_idleack, &f2s_respempty);
 	if (brg_mask != 0U) {
 		mmio_clrbits_32(SOCFPGA_RSTMGR(BRGMODRST), brg_mask);
 
 		mmio_clrbits_32(SOCFPGA_F2SDRAMMGR(SIDEBANDMGR_FLAGOUTSET0),
-			f2s_idlereq);
+				f2s_idlereq);
 
-		ret = poll_idle_status(SOCFPGA_F2SDRAMMGR(
-			SIDEBANDMGR_FLAGINSTATUS0), f2s_idleack, 0);
+		ret = poll_idle_status(
+			SOCFPGA_F2SDRAMMGR(SIDEBANDMGR_FLAGINSTATUS0),
+			f2s_idleack, 0);
 		if (ret < 0) {
 			ERROR("F2S bridge enable: "
-					"Timeout waiting for idle ack");
+			      "Timeout waiting for idle ack");
 		}
 
 		mmio_clrbits_32(SOCFPGA_F2SDRAMMGR(SIDEBANDMGR_FLAGOUTSET0),
-			f2s_force_drain);
+				f2s_force_drain);
 		udelay(5);
 
 		mmio_setbits_32(SOCFPGA_F2SDRAMMGR(SIDEBANDMGR_FLAGOUTSET0),
-			f2s_en);
+				f2s_en);
 		udelay(5);
 	}
 
@@ -249,23 +235,22 @@ int socfpga_bridges_disable(uint32_t mask)
 	/* Disable s2f bridge */
 	socfpga_s2f_bridge_mask(mask, &brg_mask, &noc_mask);
 	if (brg_mask != 0U) {
-		mmio_setbits_32(SOCFPGA_SYSMGR(NOC_IDLEREQ_SET),
-				noc_mask);
+		mmio_setbits_32(SOCFPGA_SYSMGR(NOC_IDLEREQ_SET), noc_mask);
 
 		mmio_write_32(SOCFPGA_SYSMGR(NOC_TIMEOUT), 1);
 
-		ret = poll_idle_status(SOCFPGA_SYSMGR(NOC_IDLEACK),
-						noc_mask, noc_mask);
+		ret = poll_idle_status(SOCFPGA_SYSMGR(NOC_IDLEACK), noc_mask,
+				       noc_mask);
 		if (ret < 0) {
 			ERROR("S2F Bridge disable: "
-					"Timeout waiting for idle ack\n");
+			      "Timeout waiting for idle ack\n");
 		}
 
-		ret = poll_idle_status(SOCFPGA_SYSMGR(NOC_IDLESTATUS),
-						noc_mask, noc_mask);
+		ret = poll_idle_status(SOCFPGA_SYSMGR(NOC_IDLESTATUS), noc_mask,
+				       noc_mask);
 		if (ret < 0) {
 			ERROR("S2F Bridge disable: "
-					"Timeout waiting for idle status\n");
+			      "Timeout waiting for idle status\n");
 		}
 
 		mmio_setbits_32(SOCFPGA_RSTMGR(BRGMODRST), brg_mask);
@@ -274,19 +259,17 @@ int socfpga_bridges_disable(uint32_t mask)
 	}
 
 	/* Disable f2s bridge */
-	socfpga_f2s_bridge_mask(mask, &brg_mask, &f2s_idlereq,
-						&f2s_force_drain, &f2s_en,
-						&f2s_idleack, &f2s_respempty);
+	socfpga_f2s_bridge_mask(mask, &brg_mask, &f2s_idlereq, &f2s_force_drain,
+				&f2s_en, &f2s_idleack, &f2s_respempty);
 	if (brg_mask != 0U) {
-		mmio_setbits_32(SOCFPGA_RSTMGR(HDSKEN),
-				RSTMGR_HDSKEN_FPGAHSEN);
+		mmio_setbits_32(SOCFPGA_RSTMGR(HDSKEN), RSTMGR_HDSKEN_FPGAHSEN);
 
 		mmio_setbits_32(SOCFPGA_RSTMGR(HDSKREQ),
 				RSTMGR_HDSKREQ_FPGAHSREQ);
 
 		poll_idle_status(SOCFPGA_RSTMGR(HDSKACK),
-				RSTMGR_HDSKACK_FPGAHSACK_MASK,
-				RSTMGR_HDSKACK_FPGAHSACK_MASK);
+				 RSTMGR_HDSKACK_FPGAHSACK_MASK,
+				 RSTMGR_HDSKACK_FPGAHSACK_MASK);
 
 		mmio_clrbits_32(SOCFPGA_F2SDRAMMGR(SIDEBANDMGR_FLAGOUTSET0),
 				f2s_en);
@@ -300,8 +283,8 @@ int socfpga_bridges_disable(uint32_t mask)
 			/* Read response queue status to ensure it is empty */
 			uint32_t idle_status;
 
-			idle_status = mmio_read_32(SOCFPGA_F2SDRAMMGR(
-				SIDEBANDMGR_FLAGINSTATUS0));
+			idle_status = mmio_read_32(
+				SOCFPGA_F2SDRAMMGR(SIDEBANDMGR_FLAGINSTATUS0));
 			if ((idle_status & f2s_respempty) != 0U) {
 				idle_status = mmio_read_32(SOCFPGA_F2SDRAMMGR(
 					SIDEBANDMGR_FLAGINSTATUS0));
@@ -317,8 +300,7 @@ int socfpga_bridges_disable(uint32_t mask)
 		mmio_setbits_32(SOCFPGA_RSTMGR(BRGMODRST),
 				brg_mask & ~RSTMGR_FIELD(BRG, FPGA2SOC));
 #else
-		mmio_setbits_32(SOCFPGA_RSTMGR(BRGMODRST),
-				brg_mask);
+		mmio_setbits_32(SOCFPGA_RSTMGR(BRGMODRST), brg_mask);
 #endif
 		mmio_clrbits_32(SOCFPGA_RSTMGR(HDSKREQ),
 				RSTMGR_HDSKEQ_FPGAHSREQ);

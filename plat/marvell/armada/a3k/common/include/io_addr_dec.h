@@ -11,9 +11,9 @@
 #include <stdint.h>
 
 /* There are 5 configurable cpu decoder windows. */
-#define DRAM_WIN_MAP_NUM_MAX	5
+#define DRAM_WIN_MAP_NUM_MAX 5
 /* Target number for dram in cpu decoder windows. */
-#define DRAM_CPU_DEC_TARGET_NUM	0
+#define DRAM_CPU_DEC_TARGET_NUM 0
 
 /*
  * Not all configurable decode windows could be used for dram, some units have
@@ -24,7 +24,7 @@
  */
 struct dec_win_config {
 	uint32_t dec_reg_base; /* IO address decoder register base address */
-	uint32_t win_attr;	/* IO address decoder windows attributes */
+	uint32_t win_attr; /* IO address decoder windows attributes */
 	/* How many configurable dram decoder windows that this unit has; */
 	uint32_t max_dram_win;
 	/* The decoder windows number including remapping that this unit has */
@@ -40,7 +40,7 @@ struct dram_win {
 	uintptr_t win_size;
 };
 
-struct  dram_win_map {
+struct dram_win_map {
 	int dram_win_num;
 	struct dram_win dram_windows[DRAM_WIN_MAP_NUM_MAX];
 };

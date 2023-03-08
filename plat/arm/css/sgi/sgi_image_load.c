@@ -1,21 +1,20 @@
 /*
- * Copyright (c) 2018-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
-
-#include <libfdt.h>
 
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <common/desc_image_load.h>
 #include <drivers/arm/css/sds.h>
-#include <plat/arm/common/plat_arm.h>
-#include <plat/common/platform.h>
-
-#include <platform_def.h>
+#include <libfdt.h>
 #include <sgi_base_platform_def.h>
 #include <sgi_variant.h>
+
+#include <plat/arm/common/plat_arm.h>
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 /*
  * Information about the isolated CPUs obtained from SDS.
@@ -37,7 +36,8 @@ void plat_arm_sgi_get_isolated_cpu_list(struct isolated_cpu_mpid_list *list)
 	}
 
 	ret = sds_struct_read(SDS_ISOLATED_CPU_LIST_ID, 0, &list->num_entries,
-			sizeof(list->num_entries), SDS_ACCESS_MODE_CACHED);
+			      sizeof(list->num_entries),
+			      SDS_ACCESS_MODE_CACHED);
 	if (ret != SDS_OK) {
 		INFO("SDS CPU num elements read failed, error: %d\n", ret);
 		list->num_entries = 0;
@@ -55,10 +55,9 @@ void plat_arm_sgi_get_isolated_cpu_list(struct isolated_cpu_mpid_list *list)
 	}
 
 	ret = sds_struct_read(SDS_ISOLATED_CPU_LIST_ID,
-			sizeof(list->num_entries),
-			&list->mpid_list,
-			sizeof(list->mpid_list[0]) * list->num_entries,
-			SDS_ACCESS_MODE_CACHED);
+			      sizeof(list->num_entries), &list->mpid_list,
+			      sizeof(list->mpid_list[0]) * list->num_entries,
+			      SDS_ACCESS_MODE_CACHED);
 	if (ret != SDS_OK) {
 		ERROR("SDS CPU list read failed. error: %d\n", ret);
 		panic();
@@ -79,7 +78,7 @@ static int plat_sgi_append_config_node(void)
 	void *fdt;
 	int nodeoffset, err;
 	unsigned int platid = 0, platcfg = 0;
-	struct isolated_cpu_mpid_list cpu_mpid_list = {0};
+	struct isolated_cpu_mpid_list cpu_mpid_list = { 0 };
 
 	mem_params = get_bl_mem_params_node(NT_FW_CONFIG_ID);
 	if (mem_params == NULL) {
@@ -125,9 +124,9 @@ static int plat_sgi_append_config_node(void)
 	plat_arm_sgi_get_isolated_cpu_list(&cpu_mpid_list);
 	if (cpu_mpid_list.num_entries > 0) {
 		err = fdt_setprop(fdt, nodeoffset, "isolated-cpu-list",
-				&cpu_mpid_list,
-				(sizeof(cpu_mpid_list.num_entries) *
-				(cpu_mpid_list.num_entries + 1)));
+				  &cpu_mpid_list,
+				  (sizeof(cpu_mpid_list.num_entries) *
+				   (cpu_mpid_list.num_entries + 1)));
 		if (err < 0) {
 			ERROR("Failed to set isolated-cpu-list, error: %d\n",
 			      err);
@@ -152,4 +151,3 @@ bl_params_t *plat_get_next_bl_params(void)
 
 	return arm_get_next_bl_params();
 }
-

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,7 +11,6 @@
 #include <common/desc_image_load.h>
 #endif
 #include <common/fdt_wrappers.h>
-
 #include <lib/fconf/fconf.h>
 #include <lib/fconf/fconf_dyn_cfg_getter.h>
 #include <libfdt.h>
@@ -28,10 +27,10 @@
  * Currently OP-TEE does not support reading DTBs from Secure memory
  * and this property should be removed when this feature is supported.
  */
-#define DTB_PROP_HW_SM_LOG_ADDR	"tpm_event_log_sm_addr"
+#define DTB_PROP_HW_SM_LOG_ADDR "tpm_event_log_sm_addr"
 #endif /* SPD_opteed */
-#define DTB_PROP_HW_LOG_ADDR	"tpm_event_log_addr"
-#define DTB_PROP_HW_LOG_SIZE    "tpm_event_log_size"
+#define DTB_PROP_HW_LOG_ADDR "tpm_event_log_addr"
+#define DTB_PROP_HW_LOG_SIZE "tpm_event_log_size"
 #endif /* MEASURED_BOOT */
 
 /*******************************************************************************
@@ -58,7 +57,7 @@ int arm_dyn_tb_fw_cfg_init(void *dtb, int *node)
 	*node = fdt_node_offset_by_compatible(dtb, -1, "arm,tb_fw");
 	if (*node < 0) {
 		WARN("The compatible property '%s' not%s", "arm,tb_fw",
-			" found in the config\n");
+		     " found in the config\n");
 		return -1;
 	}
 
@@ -90,7 +89,7 @@ int arm_set_dtb_mbedtls_heap_info(void *dtb, void *heap_addr, size_t heap_size)
 	int err = arm_dyn_tb_fw_cfg_init(dtb, &dtb_root);
 	if (err < 0) {
 		ERROR("Invalid%s loaded. Unable to get root node\n",
-			" TB_FW_CONFIG");
+		      " TB_FW_CONFIG");
 		return -1;
 	}
 
@@ -101,19 +100,19 @@ int arm_set_dtb_mbedtls_heap_info(void *dtb, void *heap_addr, size_t heap_size)
 	 * by the "fdtw_write_inplace_cells" function. After the
 	 * function calls they must NOT be reused.
 	 */
-	err = fdtw_write_inplace_cells(dtb, dtb_root,
-		DTB_PROP_MBEDTLS_HEAP_ADDR, 2, &heap_addr);
+	err = fdtw_write_inplace_cells(
+		dtb, dtb_root, DTB_PROP_MBEDTLS_HEAP_ADDR, 2, &heap_addr);
 	if (err < 0) {
-		ERROR("%sDTB property '%s'\n",
-			"Unable to write ", DTB_PROP_MBEDTLS_HEAP_ADDR);
+		ERROR("%sDTB property '%s'\n", "Unable to write ",
+		      DTB_PROP_MBEDTLS_HEAP_ADDR);
 		return -1;
 	}
 
-	err = fdtw_write_inplace_cells(dtb, dtb_root,
-		DTB_PROP_MBEDTLS_HEAP_SIZE, 1, &heap_size);
+	err = fdtw_write_inplace_cells(
+		dtb, dtb_root, DTB_PROP_MBEDTLS_HEAP_SIZE, 1, &heap_size);
 	if (err < 0) {
-		ERROR("%sDTB property '%s'\n",
-			"Unable to write ", DTB_PROP_MBEDTLS_HEAP_SIZE);
+		ERROR("%sDTB property '%s'\n", "Unable to write ",
+		      DTB_PROP_MBEDTLS_HEAP_SIZE);
 		return -1;
 	}
 
@@ -155,7 +154,7 @@ static int arm_set_event_log_info(uintptr_t config_base,
 	node = fdt_node_offset_by_compatible(dtb, -1, compatible);
 	if (node < 0) {
 		WARN("The compatible property '%s' not%s", compatible,
-			" found in the config\n");
+		     " found in the config\n");
 		return node;
 	}
 
@@ -163,28 +162,28 @@ static int arm_set_event_log_info(uintptr_t config_base,
 
 #ifdef SPD_opteed
 	if (sm_log_addr != 0UL) {
-		err = fdtw_write_inplace_cells(dtb, node,
-			DTB_PROP_HW_SM_LOG_ADDR, 2, &sm_log_addr);
+		err = fdtw_write_inplace_cells(
+			dtb, node, DTB_PROP_HW_SM_LOG_ADDR, 2, &sm_log_addr);
 		if (err < 0) {
-			ERROR("%sDTB property '%s'\n",
-				"Unable to write ", DTB_PROP_HW_SM_LOG_ADDR);
+			ERROR("%sDTB property '%s'\n", "Unable to write ",
+			      DTB_PROP_HW_SM_LOG_ADDR);
 			return err;
 		}
 	}
 #endif
-	err = fdtw_write_inplace_cells(dtb, node,
-		DTB_PROP_HW_LOG_ADDR, 2, &log_addr);
+	err = fdtw_write_inplace_cells(dtb, node, DTB_PROP_HW_LOG_ADDR, 2,
+				       &log_addr);
 	if (err < 0) {
-		ERROR("%sDTB property '%s'\n",
-			"Unable to write ", DTB_PROP_HW_LOG_ADDR);
+		ERROR("%sDTB property '%s'\n", "Unable to write ",
+		      DTB_PROP_HW_LOG_ADDR);
 		return err;
 	}
 
-	err = fdtw_write_inplace_cells(dtb, node,
-		DTB_PROP_HW_LOG_SIZE, 1, &log_size);
+	err = fdtw_write_inplace_cells(dtb, node, DTB_PROP_HW_LOG_SIZE, 1,
+				       &log_size);
 	if (err < 0) {
-		ERROR("%sDTB property '%s'\n",
-			"Unable to write ", DTB_PROP_HW_LOG_SIZE);
+		ERROR("%sDTB property '%s'\n", "Unable to write ",
+		      DTB_PROP_HW_LOG_SIZE);
 	} else {
 		/*
 		 * Ensure that the info written to the DTB is visible
@@ -223,12 +222,12 @@ int arm_set_tos_fw_info(uintptr_t log_addr, size_t log_size)
 	/* Write the Event Log address and its size in the DTB */
 	err = arm_set_event_log_info(config_base,
 #ifdef SPD_opteed
-					0UL,
+				     0UL,
 #endif
-					log_addr, log_size);
+				     log_addr, log_size);
 	if (err < 0) {
 		ERROR("%sEvent Log data to TOS_FW_CONFIG\n",
-					"Unable to write ");
+		      "Unable to write ");
 	}
 
 	return err;
@@ -246,9 +245,9 @@ int arm_set_tos_fw_info(uintptr_t log_addr, size_t log_size)
  */
 int arm_set_nt_fw_info(
 #ifdef SPD_opteed
-			uintptr_t log_addr,
+	uintptr_t log_addr,
 #endif
-			size_t log_size, uintptr_t *ns_log_addr)
+	size_t log_size, uintptr_t *ns_log_addr)
 {
 	uintptr_t config_base;
 	uintptr_t ns_addr;
@@ -265,7 +264,7 @@ int arm_set_nt_fw_info(
 
 	/* Calculate Event Log address in Non-secure memory */
 	ns_addr = cfg_mem_params->image_info.image_base +
-			cfg_mem_params->image_info.image_max_size;
+		  cfg_mem_params->image_info.image_max_size;
 
 	/* Check for memory space */
 	if ((uint64_t)(ns_addr + log_size) > ARM_NS_DRAM1_END) {
@@ -275,9 +274,9 @@ int arm_set_nt_fw_info(
 	/* Write the Event Log address and its size in the DTB */
 	err = arm_set_event_log_info(config_base,
 #ifdef SPD_opteed
-					log_addr,
+				     log_addr,
 #endif
-					ns_addr, log_size);
+				     ns_addr, log_size);
 
 	/* Return Event Log address in Non-secure memory */
 	*ns_log_addr = (err < 0) ? 0UL : ns_addr;
@@ -358,7 +357,8 @@ int arm_get_tb_fw_info(uint64_t *log_addr, size_t *log_size)
 		return rc;
 	}
 
-	rc = fdt_read_uint32(dtb, node, DTB_PROP_HW_LOG_SIZE, (uint32_t *)log_size);
+	rc = fdt_read_uint32(dtb, node, DTB_PROP_HW_LOG_SIZE,
+			     (uint32_t *)log_size);
 	if (rc != 0) {
 		ERROR("%s%s", DTB_PROP_HW_LOG_SIZE,
 		      " not specified in TB_FW config.\n");

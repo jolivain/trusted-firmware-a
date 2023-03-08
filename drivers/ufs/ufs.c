@@ -1,34 +1,34 @@
 /*
- * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-#include <endian.h>
 #include <errno.h>
 #include <stdint.h>
 #include <string.h>
-
-#include <platform_def.h>
 
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <drivers/ufs.h>
+#include <endian.h>
 #include <lib/mmio.h>
 
-#define CDB_ADDR_MASK			127
-#define ALIGN_CDB(x)			(((x) + CDB_ADDR_MASK) & ~CDB_ADDR_MASK)
-#define ALIGN_8(x)			(((x) + 7) & ~7)
+#include <platform_def.h>
 
-#define UFS_DESC_SIZE			0x400
-#define MAX_UFS_DESC_SIZE		0x8000		/* 32 descriptors */
+#define CDB_ADDR_MASK 127
+#define ALIGN_CDB(x) (((x) + CDB_ADDR_MASK) & ~CDB_ADDR_MASK)
+#define ALIGN_8(x) (((x) + 7) & ~7)
 
-#define MAX_PRDT_SIZE			0x40000		/* 256KB */
+#define UFS_DESC_SIZE 0x400
+#define MAX_UFS_DESC_SIZE 0x8000 /* 32 descriptors */
+
+#define MAX_PRDT_SIZE 0x40000 /* 256KB */
 
 static ufs_params_t ufs_params;
-static int nutrs;	/* Number of UTP Transfer Request Slots */
+static int nutrs; /* Number of UTP Transfer Request Slots */
 
 int ufshc_send_uic_cmd(uintptr_t base, uic_cmd_t *cmd)
 {
@@ -169,7 +169,6 @@ static int ufshc_hce_disable(uintptr_t base)
 	return 0;
 }
 
-
 static int ufshc_reset(uintptr_t base)
 {
 	unsigned int data;
@@ -280,8 +279,8 @@ static void get_utrd(utp_utrd_t *utrd)
 /*
  * Prepare UTRD, Command UPIU, Response UPIU.
  */
-static int ufs_prepare_cmd(utp_utrd_t *utrd, uint8_t op, uint8_t lun,
-			   int lba, uintptr_t buf, size_t length)
+static int ufs_prepare_cmd(utp_utrd_t *utrd, uint8_t op, uint8_t lun, int lba,
+			   uintptr_t buf, size_t length)
 {
 	utrd_header_t *hd;
 	cmd_upiu_t *upiu;
@@ -385,12 +384,11 @@ static int ufs_prepare_cmd(utp_utrd_t *utrd, uint8_t op, uint8_t lun,
 }
 
 static int ufs_prepare_query(utp_utrd_t *utrd, uint8_t op, uint8_t idn,
-			     uint8_t index, uint8_t sel,
-			     uintptr_t buf, size_t length)
+			     uint8_t index, uint8_t sel, uintptr_t buf,
+			     size_t length)
 {
 	utrd_header_t *hd;
 	query_upiu_t *query_upiu;
-
 
 	hd = (utrd_header_t *)utrd->header;
 	query_upiu = (query_upiu_t *)utrd->upiu;
@@ -413,8 +411,8 @@ static int ufs_prepare_query(utp_utrd_t *utrd, uint8_t op, uint8_t idn,
 	case QUERY_WRITE_DESC:
 		query_upiu->query_func = QUERY_FUNC_STD_WRITE;
 		query_upiu->ts.desc.length = htobe16(length);
-		memcpy((void *)(utrd->upiu + sizeof(query_upiu_t)),
-		       (void *)buf, length);
+		memcpy((void *)(utrd->upiu + sizeof(query_upiu_t)), (void *)buf,
+		       length);
 		break;
 	case QUERY_READ_ATTR:
 	case QUERY_READ_FLAG:
@@ -502,8 +500,8 @@ static int ufs_check_resp(utp_utrd_t *utrd, int trans_type)
 
 	sense = &resp->sd.sense;
 	if (sense->resp_code == SENSE_DATA_VALID &&
-	    sense->sense_key == SENSE_KEY_UNIT_ATTENTION && sense->asc == 0x29 &&
-	    sense->ascq == 0) {
+	    sense->sense_key == SENSE_KEY_UNIT_ATTENTION &&
+	    sense->asc == 0x29 && sense->ascq == 0) {
 		WARN("Unit Attention Condition\n");
 		return -EAGAIN;
 	}
@@ -513,8 +511,8 @@ static int ufs_check_resp(utp_utrd_t *utrd, int trans_type)
 	return 0;
 }
 
-static void ufs_send_cmd(utp_utrd_t *utrd, uint8_t cmd_op, uint8_t lun, int lba, uintptr_t buf,
-			 size_t length)
+static void ufs_send_cmd(utp_utrd_t *utrd, uint8_t cmd_op, uint8_t lun, int lba,
+			 uintptr_t buf, size_t length)
 {
 	int result, i;
 
@@ -540,28 +538,24 @@ static void dump_upiu(utp_utrd_t *utrd)
 
 	hd = (utrd_header_t *)utrd->header;
 	INFO("utrd:0x%x, ruo:0x%x, rul:0x%x, ocs:0x%x, UTRLDBR:0x%x\n",
-		(unsigned int)(uintptr_t)utrd, hd->ruo, hd->rul, hd->ocs,
-		mmio_read_32(ufs_params.reg_base + UTRLDBR));
+	     (unsigned int)(uintptr_t)utrd, hd->ruo, hd->rul, hd->ocs,
+	     mmio_read_32(ufs_params.reg_base + UTRLDBR));
 	for (i = 0; i < sizeof(utrd_header_t); i += 4) {
-		INFO("[%lx]:0x%x\n",
-			(uintptr_t)utrd->header + i,
-			*(unsigned int *)((uintptr_t)utrd->header + i));
+		INFO("[%lx]:0x%x\n", (uintptr_t)utrd->header + i,
+		     *(unsigned int *)((uintptr_t)utrd->header + i));
 	}
 
 	for (i = 0; i < sizeof(cmd_upiu_t); i += 4) {
-		INFO("cmd[%lx]:0x%x\n",
-			utrd->upiu + i,
-			*(unsigned int *)(utrd->upiu + i));
+		INFO("cmd[%lx]:0x%x\n", utrd->upiu + i,
+		     *(unsigned int *)(utrd->upiu + i));
 	}
 	for (i = 0; i < sizeof(resp_upiu_t); i += 4) {
-		INFO("resp[%lx]:0x%x\n",
-			utrd->resp_upiu + i,
-			*(unsigned int *)(utrd->resp_upiu + i));
+		INFO("resp[%lx]:0x%x\n", utrd->resp_upiu + i,
+		     *(unsigned int *)(utrd->resp_upiu + i));
 	}
 	for (i = 0; i < sizeof(prdt_t); i += 4) {
-		INFO("prdt[%lx]:0x%x\n",
-			utrd->prdt + i,
-			*(unsigned int *)(utrd->prdt + i));
+		INFO("prdt[%lx]:0x%x\n", utrd->prdt + i,
+		     *(unsigned int *)(utrd->prdt + i));
 	}
 }
 #endif
@@ -638,23 +632,21 @@ unsigned int ufs_read_attr(int idn)
 {
 	unsigned int value;
 
-	ufs_query(QUERY_READ_ATTR, idn, 0, 0,
-		  (uintptr_t)&value, sizeof(value));
+	ufs_query(QUERY_READ_ATTR, idn, 0, 0, (uintptr_t)&value, sizeof(value));
 	return value;
 }
 
 void ufs_write_attr(int idn, unsigned int value)
 {
-	ufs_query(QUERY_WRITE_ATTR, idn, 0, 0,
-		  (uintptr_t)&value, sizeof(value));
+	ufs_query(QUERY_WRITE_ATTR, idn, 0, 0, (uintptr_t)&value,
+		  sizeof(value));
 }
 
 unsigned int ufs_read_flag(int idn)
 {
 	unsigned int value;
 
-	ufs_query(QUERY_READ_FLAG, idn, 0, 0,
-		  (uintptr_t)&value, sizeof(value));
+	ufs_query(QUERY_READ_FLAG, idn, 0, 0, (uintptr_t)&value, sizeof(value));
 	return value;
 }
 
@@ -687,26 +679,25 @@ static int ufs_read_capacity(int lun, unsigned int *num, unsigned int *size)
 	uintptr_t buf;
 	int retries = UFS_READ_CAPACITY_RETRIES;
 
-	assert((ufs_params.reg_base != 0) &&
-	       (ufs_params.desc_base != 0) &&
-	       (ufs_params.desc_size >= UFS_DESC_SIZE) &&
-	       (num != NULL) && (size != NULL));
+	assert((ufs_params.reg_base != 0) && (ufs_params.desc_base != 0) &&
+	       (ufs_params.desc_size >= UFS_DESC_SIZE) && (num != NULL) &&
+	       (size != NULL));
 
 	/* align buf address */
 	buf = (uintptr_t)data;
 	buf = (buf + CACHE_WRITEBACK_GRANULE - 1) &
 	      ~(CACHE_WRITEBACK_GRANULE - 1);
 	do {
-		ufs_send_cmd(&utrd, CDBCMD_READ_CAPACITY_10, lun, 0,
-			    buf, READ_CAPACITY_LENGTH);
+		ufs_send_cmd(&utrd, CDBCMD_READ_CAPACITY_10, lun, 0, buf,
+			     READ_CAPACITY_LENGTH);
 #ifdef UFS_RESP_DEBUG
 		dump_upiu(&utrd);
 #endif
 		resp = (resp_upiu_t *)utrd.resp_upiu;
 		sense = &resp->sd.sense;
 		if (!((sense->resp_code == SENSE_DATA_VALID) &&
-		    (sense->sense_key == SENSE_KEY_UNIT_ATTENTION) &&
-		    (sense->asc == 0x29) && (sense->ascq == 0))) {
+		      (sense->sense_key == SENSE_KEY_UNIT_ATTENTION) &&
+		      (sense->asc == 0x29) && (sense->ascq == 0))) {
 			inv_dcache_range(buf, CACHE_WRITEBACK_GRANULE);
 			/* last logical block address */
 			*num = be32toh(*(unsigned int *)buf);
@@ -728,8 +719,7 @@ size_t ufs_read_blocks(int lun, int lba, uintptr_t buf, size_t size)
 	utp_utrd_t utrd;
 	resp_upiu_t *resp;
 
-	assert((ufs_params.reg_base != 0) &&
-	       (ufs_params.desc_base != 0) &&
+	assert((ufs_params.reg_base != 0) && (ufs_params.desc_base != 0) &&
 	       (ufs_params.desc_size >= UFS_DESC_SIZE));
 
 	ufs_send_cmd(&utrd, CDBCMD_READ_10, lun, lba, buf, size);
@@ -750,8 +740,7 @@ size_t ufs_write_blocks(int lun, int lba, const uintptr_t buf, size_t size)
 	utp_utrd_t utrd;
 	resp_upiu_t *resp;
 
-	assert((ufs_params.reg_base != 0) &&
-	       (ufs_params.desc_base != 0) &&
+	assert((ufs_params.reg_base != 0) && (ufs_params.desc_base != 0) &&
 	       (ufs_params.desc_size >= UFS_DESC_SIZE));
 
 	ufs_send_cmd(&utrd, CDBCMD_WRITE_10, lun, lba, buf, size);
@@ -824,15 +813,16 @@ static void ufs_get_device_info(struct ufs_dev_desc *card_data)
 {
 	uint8_t desc_buf[DESC_DEVICE_MAX_SIZE];
 
-	ufs_query(QUERY_READ_DESC, DESC_TYPE_DEVICE, 0, 0,
-				(uintptr_t)desc_buf, DESC_DEVICE_MAX_SIZE);
+	ufs_query(QUERY_READ_DESC, DESC_TYPE_DEVICE, 0, 0, (uintptr_t)desc_buf,
+		  DESC_DEVICE_MAX_SIZE);
 
 	/*
 	 * getting vendor (manufacturerID) and Bank Index in big endian
 	 * format
 	 */
-	card_data->wmanufacturerid = (uint16_t)((desc_buf[DEVICE_DESC_PARAM_MANF_ID] << 8) |
-				     (desc_buf[DEVICE_DESC_PARAM_MANF_ID + 1]));
+	card_data->wmanufacturerid =
+		(uint16_t)((desc_buf[DEVICE_DESC_PARAM_MANF_ID] << 8) |
+			   (desc_buf[DEVICE_DESC_PARAM_MANF_ID + 1]));
 }
 
 int ufs_init(const ufs_ops_t *ops, ufs_params_t *params)
@@ -840,10 +830,9 @@ int ufs_init(const ufs_ops_t *ops, ufs_params_t *params)
 	int result;
 	unsigned int data;
 	uic_cmd_t cmd;
-	struct ufs_dev_desc card = {0};
+	struct ufs_dev_desc card = { 0 };
 
-	assert((params != NULL) &&
-	       (params->reg_base != 0) &&
+	assert((params != NULL) && (params->reg_base != 0) &&
 	       (params->desc_base != 0) &&
 	       (params->desc_size >= UFS_DESC_SIZE));
 
@@ -854,7 +843,6 @@ int ufs_init(const ufs_ops_t *ops, ufs_params_t *params)
 	if (nutrs > (ufs_params.desc_size / UFS_DESC_SIZE)) {
 		nutrs = ufs_params.desc_size / UFS_DESC_SIZE;
 	}
-
 
 	if (ufs_params.flags & UFS_FLAGS_SKIPINIT) {
 		mmio_write_32(ufs_params.reg_base + UTRLBA,
@@ -870,8 +858,7 @@ int ufs_init(const ufs_ops_t *ops, ufs_params_t *params)
 			/* prepare to exit hibernate mode */
 			memset(&cmd, 0, sizeof(uic_cmd_t));
 			cmd.op = DME_HIBERNATE_EXIT;
-			result = ufshc_send_uic_cmd(ufs_params.reg_base,
-						    &cmd);
+			result = ufshc_send_uic_cmd(ufs_params.reg_base, &cmd);
 			assert(result == 0);
 			data = mmio_read_32(ufs_params.reg_base + UCMDARG2);
 			assert(data == 0);

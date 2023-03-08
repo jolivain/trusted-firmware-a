@@ -20,20 +20,20 @@
  * WARN("Warning %s.\n", "message") -> WARNING: Warning message.
  */
 
-#define LOG_LEVEL_NONE			U(0)
-#define LOG_LEVEL_ERROR			U(10)
-#define LOG_LEVEL_NOTICE		U(20)
-#define LOG_LEVEL_WARNING		U(30)
-#define LOG_LEVEL_INFO			U(40)
-#define LOG_LEVEL_VERBOSE		U(50)
+#define LOG_LEVEL_NONE U(0)
+#define LOG_LEVEL_ERROR U(10)
+#define LOG_LEVEL_NOTICE U(20)
+#define LOG_LEVEL_WARNING U(30)
+#define LOG_LEVEL_INFO U(40)
+#define LOG_LEVEL_VERBOSE U(50)
 
 #ifndef __ASSEMBLER__
 
-#include <cdefs.h>
 #include <stdarg.h>
 #include <stdbool.h>
 #include <stdio.h>
 
+#include <cdefs.h>
 #include <drivers/console.h>
 
 /*
@@ -41,54 +41,54 @@
  * be embedded in the format string and is expected by tf_log() to determine
  * the log level.
  */
-#define LOG_MARKER_ERROR		"\xa"	/* 10 */
-#define LOG_MARKER_NOTICE		"\x14"	/* 20 */
-#define LOG_MARKER_WARNING		"\x1e"	/* 30 */
-#define LOG_MARKER_INFO			"\x28"	/* 40 */
-#define LOG_MARKER_VERBOSE		"\x32"	/* 50 */
+#define LOG_MARKER_ERROR "\xa" /* 10 */
+#define LOG_MARKER_NOTICE "\x14" /* 20 */
+#define LOG_MARKER_WARNING "\x1e" /* 30 */
+#define LOG_MARKER_INFO "\x28" /* 40 */
+#define LOG_MARKER_VERBOSE "\x32" /* 50 */
 
 /*
  * If the log output is too low then this macro is used in place of tf_log()
  * below. The intent is to get the compiler to evaluate the function call for
  * type checking and format specifier correctness but let it optimize it out.
  */
-#define no_tf_log(fmt, ...)				\
-	do {						\
-		if (false) {				\
-			tf_log(fmt, ##__VA_ARGS__);	\
-		}					\
+#define no_tf_log(fmt, ...)                         \
+	do {                                        \
+		if (false) {                        \
+			tf_log(fmt, ##__VA_ARGS__); \
+		}                                   \
 	} while (false)
 
 #if LOG_LEVEL >= LOG_LEVEL_ERROR
-# define ERROR(...)	tf_log(LOG_MARKER_ERROR __VA_ARGS__)
-# define ERROR_NL()	tf_log_newline(LOG_MARKER_ERROR)
+#define ERROR(...) tf_log(LOG_MARKER_ERROR __VA_ARGS__)
+#define ERROR_NL() tf_log_newline(LOG_MARKER_ERROR)
 #else
-# define ERROR(...)	no_tf_log(LOG_MARKER_ERROR __VA_ARGS__)
-# define ERROR_NL()
+#define ERROR(...) no_tf_log(LOG_MARKER_ERROR __VA_ARGS__)
+#define ERROR_NL()
 #endif
 
 #if LOG_LEVEL >= LOG_LEVEL_NOTICE
-# define NOTICE(...)	tf_log(LOG_MARKER_NOTICE __VA_ARGS__)
+#define NOTICE(...) tf_log(LOG_MARKER_NOTICE __VA_ARGS__)
 #else
-# define NOTICE(...)	no_tf_log(LOG_MARKER_NOTICE __VA_ARGS__)
+#define NOTICE(...) no_tf_log(LOG_MARKER_NOTICE __VA_ARGS__)
 #endif
 
 #if LOG_LEVEL >= LOG_LEVEL_WARNING
-# define WARN(...)	tf_log(LOG_MARKER_WARNING __VA_ARGS__)
+#define WARN(...) tf_log(LOG_MARKER_WARNING __VA_ARGS__)
 #else
-# define WARN(...)	no_tf_log(LOG_MARKER_WARNING __VA_ARGS__)
+#define WARN(...) no_tf_log(LOG_MARKER_WARNING __VA_ARGS__)
 #endif
 
 #if LOG_LEVEL >= LOG_LEVEL_INFO
-# define INFO(...)	tf_log(LOG_MARKER_INFO __VA_ARGS__)
+#define INFO(...) tf_log(LOG_MARKER_INFO __VA_ARGS__)
 #else
-# define INFO(...)	no_tf_log(LOG_MARKER_INFO __VA_ARGS__)
+#define INFO(...) no_tf_log(LOG_MARKER_INFO __VA_ARGS__)
 #endif
 
 #if LOG_LEVEL >= LOG_LEVEL_VERBOSE
-# define VERBOSE(...)	tf_log(LOG_MARKER_VERBOSE __VA_ARGS__)
+#define VERBOSE(...) tf_log(LOG_MARKER_VERBOSE __VA_ARGS__)
 #else
-# define VERBOSE(...)	no_tf_log(LOG_MARKER_VERBOSE __VA_ARGS__)
+#define VERBOSE(...) no_tf_log(LOG_MARKER_VERBOSE __VA_ARGS__)
 #endif
 
 const char *get_el_str(unsigned int el);
@@ -102,11 +102,11 @@ void backtrace(const char *cookie);
 void __dead2 el3_panic(void);
 void __dead2 elx_panic(void);
 
-#define panic()				\
-	do {				\
-		backtrace(__func__);	\
-		console_flush();	\
-		el3_panic();		\
+#define panic()                      \
+	do {                         \
+		backtrace(__func__); \
+		console_flush();     \
+		el3_panic();         \
 	} while (false)
 
 #if CRASH_REPORTING
@@ -115,13 +115,13 @@ void __dead2 elx_panic(void);
  * This call will not return.
  * --------------------------------------------------------------------
  */
-#define	lower_el_panic()		\
-	do {				\
-		console_flush();	\
-		elx_panic();		\
+#define lower_el_panic()         \
+	do {                     \
+		console_flush(); \
+		elx_panic();     \
 	} while (false)
 #else
-#define	lower_el_panic()
+#define lower_el_panic()
 #endif
 
 /* Function called when stack protection check code detects a corrupted stack */

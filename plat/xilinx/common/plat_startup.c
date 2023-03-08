@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,7 +12,6 @@
 #include <common/debug.h>
 #include <plat_startup.h>
 
-
 /*
  * ATFHandoffParams
  * Parameter		bitfield	encoding
@@ -24,34 +23,34 @@
  * CPU#			5:6		00 -> A53_0, 01 -> A53_1, 10 -> A53_2, 11 -> A53_3
  */
 
-#define FSBL_FLAGS_ESTATE_SHIFT		0U
-#define FSBL_FLAGS_ESTATE_MASK		(1U << FSBL_FLAGS_ESTATE_SHIFT)
-#define FSBL_FLAGS_ESTATE_A64		0U
-#define FSBL_FLAGS_ESTATE_A32		1U
+#define FSBL_FLAGS_ESTATE_SHIFT 0U
+#define FSBL_FLAGS_ESTATE_MASK (1U << FSBL_FLAGS_ESTATE_SHIFT)
+#define FSBL_FLAGS_ESTATE_A64 0U
+#define FSBL_FLAGS_ESTATE_A32 1U
 
-#define FSBL_FLAGS_ENDIAN_SHIFT		1U
-#define FSBL_FLAGS_ENDIAN_MASK		(1U << FSBL_FLAGS_ENDIAN_SHIFT)
-#define FSBL_FLAGS_ENDIAN_LE		0U
-#define FSBL_FLAGS_ENDIAN_BE		1U
+#define FSBL_FLAGS_ENDIAN_SHIFT 1U
+#define FSBL_FLAGS_ENDIAN_MASK (1U << FSBL_FLAGS_ENDIAN_SHIFT)
+#define FSBL_FLAGS_ENDIAN_LE 0U
+#define FSBL_FLAGS_ENDIAN_BE 1U
 
-#define FSBL_FLAGS_TZ_SHIFT		2U
-#define FSBL_FLAGS_TZ_MASK		(1U << FSBL_FLAGS_TZ_SHIFT)
-#define FSBL_FLAGS_NON_SECURE		0U
-#define FSBL_FLAGS_SECURE		1U
+#define FSBL_FLAGS_TZ_SHIFT 2U
+#define FSBL_FLAGS_TZ_MASK (1U << FSBL_FLAGS_TZ_SHIFT)
+#define FSBL_FLAGS_NON_SECURE 0U
+#define FSBL_FLAGS_SECURE 1U
 
-#define FSBL_FLAGS_EL_SHIFT		3U
-#define FSBL_FLAGS_EL_MASK		(3U << FSBL_FLAGS_EL_SHIFT)
-#define FSBL_FLAGS_EL0			0U
-#define FSBL_FLAGS_EL1			1U
-#define FSBL_FLAGS_EL2			2U
-#define FSBL_FLAGS_EL3			3U
+#define FSBL_FLAGS_EL_SHIFT 3U
+#define FSBL_FLAGS_EL_MASK (3U << FSBL_FLAGS_EL_SHIFT)
+#define FSBL_FLAGS_EL0 0U
+#define FSBL_FLAGS_EL1 1U
+#define FSBL_FLAGS_EL2 2U
+#define FSBL_FLAGS_EL3 3U
 
-#define FSBL_FLAGS_CPU_SHIFT		5U
-#define FSBL_FLAGS_CPU_MASK		(3U << FSBL_FLAGS_CPU_SHIFT)
-#define FSBL_FLAGS_A53_0		0U
-#define FSBL_FLAGS_A53_1		1U
-#define FSBL_FLAGS_A53_2		2U
-#define FSBL_FLAGS_A53_3		3U
+#define FSBL_FLAGS_CPU_SHIFT 5U
+#define FSBL_FLAGS_CPU_MASK (3U << FSBL_FLAGS_CPU_SHIFT)
+#define FSBL_FLAGS_A53_0 0U
+#define FSBL_FLAGS_A53_1 1U
+#define FSBL_FLAGS_A53_2 2U
+#define FSBL_FLAGS_A53_3 3U
 
 /**
  * @partition: Pointer to partition struct
@@ -142,8 +141,8 @@ static int32_t get_fsbl_estate(const struct xfsbl_partition *partition)
  *         fsbl_handoff enum.
  */
 enum fsbl_handoff fsbl_atf_handover(entry_point_info_t *bl32,
-					entry_point_info_t *bl33,
-					uint64_t atf_handoff_addr)
+				    entry_point_info_t *bl33,
+				    uint64_t atf_handoff_addr)
 {
 	const struct xfsbl_atf_handoff_params *ATFHandoffParams;
 	if (!atf_handoff_addr) {
@@ -179,8 +178,8 @@ enum fsbl_handoff fsbl_atf_handover(entry_point_info_t *bl32,
 		int32_t target_estate, target_secure, target_cpu;
 		uint32_t target_endianness, target_el;
 
-		VERBOSE("BL31: %zd: entry:0x%" PRIx64 ", flags:0x%" PRIx64 "\n", i,
-			ATFHandoffParams->partition[i].entry_point,
+		VERBOSE("BL31: %zd: entry:0x%" PRIx64 ", flags:0x%" PRIx64 "\n",
+			i, ATFHandoffParams->partition[i].entry_point,
 			ATFHandoffParams->partition[i].flags);
 
 		target_cpu = get_fsbl_cpu(&ATFHandoffParams->partition[i]);
@@ -204,16 +203,19 @@ enum fsbl_handoff fsbl_atf_handover(entry_point_info_t *bl32,
 			continue;
 		}
 
-		target_estate = get_fsbl_estate(&ATFHandoffParams->partition[i]);
-		target_endianness = get_fsbl_endian(&ATFHandoffParams->partition[i]);
+		target_estate =
+			get_fsbl_estate(&ATFHandoffParams->partition[i]);
+		target_endianness =
+			get_fsbl_endian(&ATFHandoffParams->partition[i]);
 
 		if (target_secure == FSBL_FLAGS_SECURE) {
 			image = bl32;
 
 			if (target_estate == FSBL_FLAGS_ESTATE_A32) {
-				bl32->spsr = SPSR_MODE32(MODE32_svc, SPSR_T_ARM,
-							 target_endianness,
-							 DISABLE_ALL_EXCEPTIONS);
+				bl32->spsr =
+					SPSR_MODE32(MODE32_svc, SPSR_T_ARM,
+						    target_endianness,
+						    DISABLE_ALL_EXCEPTIONS);
 			} else {
 				bl32->spsr = SPSR_64(MODE_EL1, MODE_SP_ELX,
 						     DISABLE_ALL_EXCEPTIONS);
@@ -228,9 +230,10 @@ enum fsbl_handoff fsbl_atf_handover(entry_point_info_t *bl32,
 					target_el = MODE32_sys;
 				}
 
-				bl33->spsr = SPSR_MODE32(target_el, SPSR_T_ARM,
-							 target_endianness,
-							 DISABLE_ALL_EXCEPTIONS);
+				bl33->spsr =
+					SPSR_MODE32(target_el, SPSR_T_ARM,
+						    target_endianness,
+						    DISABLE_ALL_EXCEPTIONS);
 			} else {
 				if (target_el == FSBL_FLAGS_EL2) {
 					target_el = MODE_EL2;
@@ -245,8 +248,7 @@ enum fsbl_handoff fsbl_atf_handover(entry_point_info_t *bl32,
 
 		VERBOSE("Setting up %s entry point to:%" PRIx64 ", el:%x\n",
 			target_secure == FSBL_FLAGS_SECURE ? "BL32" : "BL33",
-			ATFHandoffParams->partition[i].entry_point,
-			target_el);
+			ATFHandoffParams->partition[i].entry_point, target_el);
 		image->pc = ATFHandoffParams->partition[i].entry_point;
 
 		if (target_endianness == SPSR_E_BIG) {

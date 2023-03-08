@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -22,16 +22,14 @@
  ******************************************************************************/
 uint8_t rt_svc_descs_indices[MAX_RT_SVCS];
 
-#define RT_SVC_DECS_NUM		((RT_SVC_DESCS_END - RT_SVC_DESCS_START)\
-					/ sizeof(rt_svc_desc_t))
+#define RT_SVC_DECS_NUM \
+	((RT_SVC_DESCS_END - RT_SVC_DESCS_START) / sizeof(rt_svc_desc_t))
 
 /*******************************************************************************
  * Function to invoke the registered `handle` corresponding to the smc_fid in
  * AArch32 mode.
  ******************************************************************************/
-uintptr_t handle_runtime_svc(uint32_t smc_fid,
-			     void *cookie,
-			     void *handle,
+uintptr_t handle_runtime_svc(uint32_t smc_fid, void *cookie, void *handle,
 			     unsigned int flags)
 {
 	u_register_t x1, x2, x3, x4;
@@ -47,12 +45,12 @@ uintptr_t handle_runtime_svc(uint32_t smc_fid,
 	if (index >= RT_SVC_DECS_NUM)
 		SMC_RET1(handle, SMC_UNK);
 
-	rt_svc_descs = (rt_svc_desc_t *) RT_SVC_DESCS_START;
+	rt_svc_descs = (rt_svc_desc_t *)RT_SVC_DESCS_START;
 
 	get_smc_params_from_ctx(handle, x1, x2, x3, x4);
 
 	return rt_svc_descs[index].handle(smc_fid, x1, x2, x3, x4, cookie,
-						handle, flags);
+					  handle, flags);
 }
 
 /*******************************************************************************
@@ -95,7 +93,7 @@ void __init runtime_svc_init(void)
 
 	/* Assert the number of descriptors detected are less than maximum indices */
 	assert((RT_SVC_DESCS_END >= RT_SVC_DESCS_START) &&
-			(RT_SVC_DECS_NUM < MAX_RT_SVCS));
+	       (RT_SVC_DECS_NUM < MAX_RT_SVCS));
 
 	/* If no runtime services are implemented then simply bail out */
 	if (RT_SVC_DECS_NUM == 0U)
@@ -104,7 +102,7 @@ void __init runtime_svc_init(void)
 	/* Initialise internal variables to invalid state */
 	(void)memset(rt_svc_descs_indices, -1, sizeof(rt_svc_descs_indices));
 
-	rt_svc_descs = (rt_svc_desc_t *) RT_SVC_DESCS_START;
+	rt_svc_descs = (rt_svc_desc_t *)RT_SVC_DESCS_START;
 	for (index = 0U; index < RT_SVC_DECS_NUM; index++) {
 		rt_svc_desc_t *service = &rt_svc_descs[index];
 
@@ -116,7 +114,7 @@ void __init runtime_svc_init(void)
 		rc = validate_rt_svc_desc(service);
 		if (rc != 0) {
 			ERROR("Invalid runtime service descriptor %p\n",
-				(void *) service);
+			      (void *)service);
 			panic();
 		}
 
@@ -131,7 +129,7 @@ void __init runtime_svc_init(void)
 			rc = service->init();
 			if (rc != 0) {
 				ERROR("Error initializing runtime service %s\n",
-						service->name);
+				      service->name);
 				continue;
 			}
 		}

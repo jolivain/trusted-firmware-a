@@ -15,14 +15,14 @@
 
 #include <platform_def.h>
 
-#define ONFI_SIGNATURE_ADDR	0x20U
+#define ONFI_SIGNATURE_ADDR 0x20U
 
 /* CRC calculation */
-#define CRC_POLYNOM		0x8005U
-#define CRC_INIT_VALUE		0x4F4EU
+#define CRC_POLYNOM 0x8005U
+#define CRC_INIT_VALUE 0x4F4EU
 
 /* Status register */
-#define NAND_STATUS_READY	BIT(6)
+#define NAND_STATUS_READY BIT(6)
 
 static struct rawnand_device rawnand_dev;
 
@@ -70,7 +70,6 @@ static int nand_send_wait(unsigned int delay, unsigned int tim)
 	return rawnand_dev.ops->exec(&req);
 }
 
-
 static int nand_read_data(uint8_t *data, unsigned int length, bool use_8bit)
 {
 	struct nand_req req;
@@ -92,7 +91,7 @@ int nand_change_read_column_cmd(unsigned int offset, uintptr_t buffer,
 	unsigned int i;
 
 	ret = nand_send_cmd(NAND_CMD_CHANGE_1ST, 0U);
-	if (ret !=  0) {
+	if (ret != 0) {
 		return ret;
 	}
 
@@ -105,21 +104,21 @@ int nand_change_read_column_cmd(unsigned int offset, uintptr_t buffer,
 
 	for (i = 0; i < 2U; i++) {
 		ret = nand_send_addr(addr[i], 0U);
-		if (ret !=  0) {
+		if (ret != 0) {
 			return ret;
 		}
 	}
 
 	ret = nand_send_cmd(NAND_CMD_CHANGE_2ND, NAND_TCCS_MIN);
-	if (ret !=  0) {
+	if (ret != 0) {
 		return ret;
 	}
 
 	return nand_read_data((uint8_t *)buffer, len, false);
 }
 
-int nand_read_page_cmd(unsigned int page, unsigned int offset,
-		       uintptr_t buffer, unsigned int len)
+int nand_read_page_cmd(unsigned int page, unsigned int offset, uintptr_t buffer,
+		       unsigned int len)
 {
 	uint8_t addr[5];
 	uint8_t i = 0U;
@@ -253,12 +252,12 @@ static int nand_read_id(uint8_t addr, uint8_t *id, unsigned int size)
 	int ret;
 
 	ret = nand_send_cmd(NAND_CMD_READID, 0U);
-	if (ret !=  0) {
+	if (ret != 0) {
 		return ret;
 	}
 
 	ret = nand_send_addr(addr, NAND_TWHR_MIN);
-	if (ret !=  0) {
+	if (ret != 0) {
 		return ret;
 	}
 
@@ -320,12 +319,12 @@ static int nand_read_param_page(void)
 		rawnand_dev.nand_dev->buswidth = NAND_BUS_WIDTH_8;
 	}
 
-	rawnand_dev.nand_dev->block_size = page.num_pages_per_blk *
-					   page.bytes_per_page;
+	rawnand_dev.nand_dev->block_size =
+		page.num_pages_per_blk * page.bytes_per_page;
 	rawnand_dev.nand_dev->page_size = page.bytes_per_page;
 	rawnand_dev.nand_dev->size = page.num_pages_per_blk *
-				     page.bytes_per_page *
-				     page.num_blk_in_lun * page.num_lun;
+				     page.bytes_per_page * page.num_blk_in_lun *
+				     page.num_lun;
 
 	if (page.nb_ecc_bits != GENMASK_32(7, 0)) {
 		rawnand_dev.nand_dev->ecc.max_bit_corr = page.nb_ecc_bits;

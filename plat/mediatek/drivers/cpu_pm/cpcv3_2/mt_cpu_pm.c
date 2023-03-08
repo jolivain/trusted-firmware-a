@@ -7,17 +7,18 @@
 #include <assert.h>
 #include <stdint.h>
 
-#include <lib/spinlock.h>
-
 #include <lib/mtk_init/mtk_init.h>
 #include <lib/pm/mtk_pm.h>
+#include <lib/spinlock.h>
 #include <lpm/mt_lp_rm.h>
+#include <mtk_mmap_pool.h>
+
+#include <platform_def.h>
+
 #include "mt_cpu_pm.h"
 #include "mt_cpu_pm_cpc.h"
 #include "mt_cpu_pm_mbox.h"
 #include "mt_smp.h"
-#include <mtk_mmap_pool.h>
-#include <platform_def.h>
 
 /*
  * The locker must use the bakery locker when cache turns off.
@@ -25,14 +26,14 @@
  */
 #ifdef MT_CPU_PM_USING_BAKERY_LOCK
 DEFINE_BAKERY_LOCK(mt_cpu_pm_lock);
-#define plat_cpu_pm_lock_init()	bakery_lock_init(&mt_cpu_pm_lock)
-#define plat_cpu_pm_lock()	bakery_lock_get(&mt_cpu_pm_lock)
-#define plat_cpu_pm_unlock()	bakery_lock_release(&mt_cpu_pm_lock)
+#define plat_cpu_pm_lock_init() bakery_lock_init(&mt_cpu_pm_lock)
+#define plat_cpu_pm_lock() bakery_lock_get(&mt_cpu_pm_lock)
+#define plat_cpu_pm_unlock() bakery_lock_release(&mt_cpu_pm_lock)
 #else
 spinlock_t mt_cpu_pm_lock;
 #define plat_cpu_pm_lock_init()
-#define plat_cpu_pm_lock()	spin_lock(&mt_cpu_pm_lock)
-#define plat_cpu_pm_unlock()	spin_unlock(&mt_cpu_pm_lock)
+#define plat_cpu_pm_lock() spin_lock(&mt_cpu_pm_lock)
+#define plat_cpu_pm_unlock() spin_unlock(&mt_cpu_pm_lock)
 #endif
 
 enum mt_pwr_node {
@@ -45,15 +46,15 @@ enum mt_pwr_node {
 	MT_PWR_MAX,
 };
 
-#define CPU_PM_DEPD_INIT	BIT(0)
-#define CPU_PM_DEPD_READY	BIT(1)
-#define CPU_PM_PLAT_READY	BIT(2)
+#define CPU_PM_DEPD_INIT BIT(0)
+#define CPU_PM_DEPD_READY BIT(1)
+#define CPU_PM_PLAT_READY BIT(2)
 
 #ifdef CPU_PM_TINYSYS_SUPPORT
-#define CPU_PM_INIT_READY	(CPU_PM_DEPD_INIT | CPU_PM_DEPD_READY)
-#define CPU_PM_LP_READY		(CPU_PM_INIT_READY | CPU_PM_PLAT_READY)
+#define CPU_PM_INIT_READY (CPU_PM_DEPD_INIT | CPU_PM_DEPD_READY)
+#define CPU_PM_LP_READY (CPU_PM_INIT_READY | CPU_PM_PLAT_READY)
 #else
-#define CPU_PM_LP_READY		(CPU_PM_PLAT_READY)
+#define CPU_PM_LP_READY (CPU_PM_PLAT_READY)
 #endif
 
 #if CONFIG_MTK_PM_SUPPORT
@@ -119,7 +120,8 @@ static void cpupm_smp_init(unsigned int cpu, uintptr_t sec_entrypoint)
 	if ((reg & CPC_MCUSYS_CPC_RESET_PWR_ON_EN) != 0) {
 		INFO("[%s:%d][CPU_PM] reset pwr on is enabled then clear it!\n",
 		     __func__, __LINE__);
-		mmio_clrbits_32(CPC_MCUSYS_CPC_FLOW_CTRL_CFG, CPC_MCUSYS_CPC_RESET_PWR_ON_EN);
+		mmio_clrbits_32(CPC_MCUSYS_CPC_FLOW_CTRL_CFG,
+				CPC_MCUSYS_CPC_RESET_PWR_ON_EN);
 	}
 
 	cpupm_cpu_pwr_on_prepare(cpu, sec_entrypoint);
@@ -136,9 +138,9 @@ static struct mtk_cpu_smp_ops cpcv3_2_cpu_smp = {
 #endif /* CONFIG_MTK_SMP_EN */
 
 #if CONFIG_MTK_CPU_SUSPEND_EN
-#define CPUPM_READY_MS		(40000)
-#define CPUPM_ARCH_TIME_MS(ms)	(ms * 1000 * SYS_COUNTER_FREQ_IN_MHZ)
-#define CPUPM_BOOTUP_TIME_THR	CPUPM_ARCH_TIME_MS(CPUPM_READY_MS)
+#define CPUPM_READY_MS (40000)
+#define CPUPM_ARCH_TIME_MS(ms) (ms * 1000 * SYS_COUNTER_FREQ_IN_MHZ)
+#define CPUPM_BOOTUP_TIME_THR CPUPM_ARCH_TIME_MS(CPUPM_READY_MS)
 
 static int mt_pwr_nodes[MT_PWR_MAX];
 static int plat_mt_lp_cpu_rc;
@@ -168,7 +170,8 @@ static int mcusys_prepare_suspend(const struct mtk_cpupm_pwrstate *state)
 	}
 
 	plat_prev_stateid = stateid;
-	plat_mt_lp_cpu_rc = mt_lp_rm_find_and_run_constraint(0, state->info.cpuid, stateid, NULL);
+	plat_mt_lp_cpu_rc = mt_lp_rm_find_and_run_constraint(
+		0, state->info.cpuid, stateid, NULL);
 
 	if (plat_mt_lp_cpu_rc < 0) {
 		goto mt_pwr_mcusysoff_reflect;
@@ -193,7 +196,8 @@ static int mcusys_prepare_resume(const struct mtk_cpupm_pwrstate *state)
 		return MTK_CPUPM_E_FAIL;
 	}
 
-	mt_lp_rm_reset_constraint(plat_mt_lp_cpu_rc, state->info.cpuid, plat_prev_stateid);
+	mt_lp_rm_reset_constraint(plat_mt_lp_cpu_rc, state->info.cpuid,
+				  plat_prev_stateid);
 	mtk_cpc_mcusys_off_reflect();
 	return MTK_CPUPM_E_OK;
 }
@@ -225,20 +229,24 @@ static unsigned int cpupm_do_pstate_off(const mtk_pstate_type psci_state,
 		    !IS_PLAT_SYSTEM_SUSPEND(state->pwr.afflv)) {
 			plat_cpu_pm_lock();
 			mt_pwr_nodes[MT_PWR_NONMCUSYS] += 1;
-			flush_dcache_range((uintptr_t)&mt_pwr_nodes[MT_PWR_NONMCUSYS],
-					   sizeof(mt_pwr_nodes[MT_PWR_NONMCUSYS]));
+			flush_dcache_range(
+				(uintptr_t)&mt_pwr_nodes[MT_PWR_NONMCUSYS],
+				sizeof(mt_pwr_nodes[MT_PWR_NONMCUSYS]));
 			plat_cpu_pm_unlock();
 		}
 		break;
 	}
 
-	if ((mt_pwr_nodes[MT_PWR_NONMCUSYS] == 0) && IS_PLAT_MCUSYSOFF_AFFLV(state->pwr.afflv)) {
+	if ((mt_pwr_nodes[MT_PWR_NONMCUSYS] == 0) &&
+	    IS_PLAT_MCUSYSOFF_AFFLV(state->pwr.afflv)) {
 		/* Prepare to power down mcusys */
 		if (mcusys_prepare_suspend(state) == MTK_CPUPM_E_OK) {
 			mt_pwr_nodes[MT_PWR_MCUSYS_PDN] += 1;
-			flush_dcache_range((uintptr_t)&mt_pwr_nodes[MT_PWR_MCUSYS_PDN],
-					   sizeof(mt_pwr_nodes[MT_PWR_MCUSYS_PDN]));
-			pstate |= (MT_CPUPM_PWR_DOMAIN_MCUSYS | MT_CPUPM_PWR_DOMAIN_CLUSTER);
+			flush_dcache_range(
+				(uintptr_t)&mt_pwr_nodes[MT_PWR_MCUSYS_PDN],
+				sizeof(mt_pwr_nodes[MT_PWR_MCUSYS_PDN]));
+			pstate |= (MT_CPUPM_PWR_DOMAIN_MCUSYS |
+				   MT_CPUPM_PWR_DOMAIN_CLUSTER);
 		}
 	}
 
@@ -268,7 +276,8 @@ static unsigned int cpupm_do_pstate_on(const mtk_pstate_type psci_state,
 		mt_pwr_nodes[MT_PWR_MCUSYS_PDN] = 0;
 		flush_dcache_range((uintptr_t)&mt_pwr_nodes[MT_PWR_MCUSYS_PDN],
 				   sizeof(mt_pwr_nodes[MT_PWR_MCUSYS_PDN]));
-		pstate |= (MT_CPUPM_PWR_DOMAIN_MCUSYS | MT_CPUPM_PWR_DOMAIN_CLUSTER);
+		pstate |= (MT_CPUPM_PWR_DOMAIN_MCUSYS |
+			   MT_CPUPM_PWR_DOMAIN_CLUSTER);
 		mcusys_prepare_resume(state);
 	}
 
@@ -298,15 +307,17 @@ static unsigned int cpupm_do_pstate_on(const mtk_pstate_type psci_state,
 		    !IS_PLAT_SYSTEM_SUSPEND(state->pwr.afflv)) {
 			plat_cpu_pm_lock();
 			mt_pwr_nodes[MT_PWR_NONMCUSYS] -= 1;
-			flush_dcache_range((uintptr_t)&mt_pwr_nodes[MT_PWR_NONMCUSYS],
-					   sizeof(mt_pwr_nodes[MT_PWR_NONMCUSYS]));
+			flush_dcache_range(
+				(uintptr_t)&mt_pwr_nodes[MT_PWR_NONMCUSYS],
+				sizeof(mt_pwr_nodes[MT_PWR_NONMCUSYS]));
 			plat_cpu_pm_unlock();
 		}
 		break;
 	}
 
 	if (IS_PLAT_SYSTEM_SUSPEND(state->pwr.afflv) ||
-	    (IS_PLAT_SYSTEM_RETENTION(state->pwr.afflv) && (mt_pwr_nodes[MT_PWR_SUSPEND] > 0))) {
+	    (IS_PLAT_SYSTEM_RETENTION(state->pwr.afflv) &&
+	     (mt_pwr_nodes[MT_PWR_SUSPEND] > 0))) {
 		mtk_cpc_time_sync();
 	}
 
@@ -380,7 +391,8 @@ static int cpupm_init(void)
 		}
 	}
 
-	if ((cpu_pm_status & CPU_PM_DEPD_INIT) && !(cpu_pm_status & CPU_PM_DEPD_READY)) {
+	if ((cpu_pm_status & CPU_PM_DEPD_INIT) &&
+	    !(cpu_pm_status & CPU_PM_DEPD_READY)) {
 		status = mtk_lp_depd_condition(CPUPM_MBOX_WAIT_TASK_READY);
 		if (status == 0) {
 			plat_cpu_pm_lock();
@@ -390,7 +402,8 @@ static int cpupm_init(void)
 	}
 
 	ret = ((cpu_pm_status & CPU_PM_INIT_READY) == CPU_PM_INIT_READY) ?
-	      MTK_CPUPM_E_OK : MTK_CPUPM_E_FAIL;
+		      MTK_CPUPM_E_OK :
+		      MTK_CPUPM_E_FAIL;
 #endif
 	return ret;
 }
@@ -411,7 +424,8 @@ static int cpupm_pwr_state_valid(unsigned int afflv, unsigned int state)
 		plat_cpu_pm_unlock();
 	}
 
-	if (!IS_PLAT_SYSTEM_SUSPEND(afflv) && (cpu_pm_status & CPU_PM_PLAT_READY) == 0) {
+	if (!IS_PLAT_SYSTEM_SUSPEND(afflv) &&
+	    (cpu_pm_status & CPU_PM_PLAT_READY) == 0) {
 		return MTK_CPUPM_E_FAIL;
 	}
 
@@ -458,9 +472,10 @@ MTK_ARCH_INIT(mt_plat_cpu_pm_init);
 static const mmap_region_t cpu_pm_mmap[] MTK_MMAP_SECTION = {
 #ifdef CPU_PM_TINYSYS_SUPPORT
 #if CONFIG_MTK_PM_SUPPORT && CONFIG_MTK_CPU_SUSPEND_EN
-	MAP_REGION_FLAT(CPU_EB_TCM_BASE, CPU_EB_TCM_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(CPU_EB_TCM_BASE, CPU_EB_TCM_SIZE,
+			MT_DEVICE | MT_RW | MT_SECURE),
 #endif
 #endif
-	{0}
+	{ 0 }
 };
 DECLARE_MTK_MMAP_REGIONS(cpu_pm_mmap);

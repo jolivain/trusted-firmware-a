@@ -17,11 +17,11 @@
 #endif
 
 #ifdef NXP_GUR_BE
-#define gur_in32(a)		bswap32(mmio_read_32((uintptr_t)(a)))
-#define gur_out32(a, v)		mmio_write_32((uintptr_t)(a), bswap32(v))
+#define gur_in32(a) bswap32(mmio_read_32((uintptr_t)(a)))
+#define gur_out32(a, v) mmio_write_32((uintptr_t)(a), bswap32(v))
 #elif defined(NXP_GUR_LE)
-#define gur_in32(a)		mmio_read_32((uintptr_t)(a))
-#define gur_out32(a, v)		mmio_write_32((uintptr_t)(a), v)
+#define gur_in32(a) mmio_read_32((uintptr_t)(a))
+#define gur_out32(a, v) mmio_write_32((uintptr_t)(a), v)
 #else
 #error Please define CCSR GUR register endianness
 #endif
@@ -30,26 +30,26 @@ typedef struct {
 	union {
 		uint32_t val;
 		struct {
-			uint32_t min_ver:4;
-			uint32_t maj_ver:4;
+			uint32_t min_ver : 4;
+			uint32_t maj_ver : 4;
 #if defined(CONFIG_CHASSIS_3) || defined(CONFIG_CHASSIS_3_2)
-			uint32_t personality:6;
-			uint32_t rsv1:2;
+			uint32_t personality : 6;
+			uint32_t rsv1 : 2;
 #elif defined(CONFIG_CHASSIS_2)
-			uint32_t personality:8;
+			uint32_t personality : 8;
 
 #endif
 #if defined(CONFIG_CHASSIS_3) || defined(CONFIG_CHASSIS_3_2)
-			uint32_t dev_id:6;
-			uint32_t rsv2:2;
-			uint32_t family:4;
+			uint32_t dev_id : 6;
+			uint32_t rsv2 : 2;
+			uint32_t family : 4;
 #elif defined(CONFIG_CHASSIS_2)
-			uint32_t dev_id:12;
+			uint32_t dev_id : 12;
 #endif
 			uint32_t mfr_id;
 		} __packed bf;
 		struct {
-			uint32_t maj_min:8;
+			uint32_t maj_min : 8;
 			uint32_t version; /* SoC version without major and minor info */
 		} __packed bf_ver;
 	} __packed svr_reg;
@@ -73,7 +73,6 @@ typedef struct {
 	unsigned long nxp_ddrclk_freq;
 	unsigned int nxp_plat_clk_divider;
 } dcfg_init_info_t;
-
 
 struct sysinfo {
 	unsigned long freq_platform;

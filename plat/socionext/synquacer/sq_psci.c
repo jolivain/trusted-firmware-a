@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,16 +7,16 @@
 #include <assert.h>
 #include <errno.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <drivers/generic_delay_timer.h>
 #include <lib/cassert.h>
 #include <lib/psci/psci.h>
-
 #include <sq_common.h>
+
+#include <platform_def.h>
+
 #include "sq_scpi.h"
 
 uintptr_t sq_sec_entrypoint;
@@ -31,14 +31,14 @@ int sq_pwr_domain_on(u_register_t mpidr)
 	 * only need to care about level 0
 	 */
 	scpi_set_sq_power_state(mpidr, scpi_power_on, scpi_power_on,
-				 scpi_power_on);
+				scpi_power_on);
 #endif
 
 	return PSCI_E_SUCCESS;
 }
 
-static void sq_pwr_domain_on_finisher_common(
-		const psci_power_state_t *target_state)
+static void
+sq_pwr_domain_on_finisher_common(const psci_power_state_t *target_state)
 {
 	assert(SQ_CORE_PWR_STATE(target_state) == SQ_LOCAL_STATE_OFF);
 
@@ -87,10 +87,8 @@ static void sq_power_down_common(const psci_power_state_t *target_state)
 	 * Ask the SCP to power down the appropriate components depending upon
 	 * their state.
 	 */
-	scpi_set_sq_power_state(read_mpidr_el1(),
-				 scpi_power_off,
-				 cluster_state,
-				 system_state);
+	scpi_set_sq_power_state(read_mpidr_el1(), scpi_power_off, cluster_state,
+				system_state);
 }
 #endif
 
@@ -119,8 +117,8 @@ void __dead2 sq_system_off(void)
 	volatile uint32_t *gpio = (uint32_t *)PLAT_SQ_GPIO_BASE;
 
 	/* set PD[9] high to power off the system */
-	gpio[5] |= 0x2;		/* set output */
-	gpio[1] |= 0x2;		/* set high */
+	gpio[5] |= 0x2; /* set output */
+	gpio[1] |= 0x2; /* set high */
 	dmbst();
 
 	generic_delay_timer_init();
@@ -128,12 +126,12 @@ void __dead2 sq_system_off(void)
 	mdelay(1);
 
 	while (1) {
-		gpio[1] &= ~0x2;	/* set low */
+		gpio[1] &= ~0x2; /* set low */
 		dmbst();
 
 		mdelay(1);
 
-		gpio[1] |= 0x2;		/* set high */
+		gpio[1] |= 0x2; /* set high */
 		dmbst();
 
 		mdelay(100);
@@ -186,12 +184,12 @@ void sq_cpu_standby(plat_local_state_t cpu_state)
 }
 
 const plat_psci_ops_t sq_psci_ops = {
-	.pwr_domain_on		= sq_pwr_domain_on,
-	.pwr_domain_off		= sq_pwr_domain_off,
-	.pwr_domain_on_finish	= sq_pwr_domain_on_finish,
-	.cpu_standby		= sq_cpu_standby,
-	.system_off		= sq_system_off,
-	.system_reset		= sq_system_reset,
+	.pwr_domain_on = sq_pwr_domain_on,
+	.pwr_domain_off = sq_pwr_domain_off,
+	.pwr_domain_on_finish = sq_pwr_domain_on_finish,
+	.cpu_standby = sq_cpu_standby,
+	.system_off = sq_system_off,
+	.system_reset = sq_system_reset,
 };
 
 int plat_setup_psci_ops(uintptr_t sec_entrypoint,
@@ -201,8 +199,7 @@ int plat_setup_psci_ops(uintptr_t sec_entrypoint,
 	uintptr_t *sq_sec_ep = (uintptr_t *)BL2_MAILBOX_BASE;
 
 	*sq_sec_ep = sec_entrypoint;
-	flush_dcache_range((uint64_t)sq_sec_ep,
-			   sizeof(*sq_sec_ep));
+	flush_dcache_range((uint64_t)sq_sec_ep, sizeof(*sq_sec_ep));
 #else
 	sq_sec_entrypoint = sec_entrypoint;
 	flush_dcache_range((uint64_t)&sq_sec_entrypoint,

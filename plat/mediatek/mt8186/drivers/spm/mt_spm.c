@@ -6,6 +6,7 @@
 
 #include <stddef.h>
 #include <string.h>
+
 #include <common/debug.h>
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
@@ -14,7 +15,6 @@
 #include <mt_spm_cond.h>
 #include <mt_spm_conservation.h>
 #include <mt_spm_constraint.h>
-#include "mt_spm_extern.h"
 #include <mt_spm_idle.h>
 #include <mt_spm_internal.h>
 #include <mt_spm_pmic_wrap.h>
@@ -25,8 +25,11 @@
 #include <mtk_plat_common.h>
 #include <plat_mtk_lpm.h>
 #include <plat_pm.h>
-#include <platform_def.h>
 #include <sleep_def.h>
+
+#include <platform_def.h>
+
+#include "mt_spm_extern.h"
 
 #ifdef MT_SPM_USING_BAKERY_LOCK
 DEFINE_BAKERY_LOCK(spm_lock);
@@ -37,15 +40,15 @@ spinlock_t spm_lock;
 #endif
 
 /* CLK_SCP_CFG_0 */
-#define CLK_SCP_CFG_0		(TOPCKGEN_BASE + 0x200)
-#define SPM_CK_CONTROL_EN	(0x3FF)
+#define CLK_SCP_CFG_0 (TOPCKGEN_BASE + 0x200)
+#define SPM_CK_CONTROL_EN (0x3FF)
 
 /* CLK_SCP_CFG_1 */
-#define CLK_SCP_CFG_1		(TOPCKGEN_BASE + 0x210)
-#define CLK_SCP_CFG_1_MASK	(0x100C)
-#define CLK_SCP_CFG_1_SPM	(0x3)
+#define CLK_SCP_CFG_1 (TOPCKGEN_BASE + 0x210)
+#define CLK_SCP_CFG_1_MASK (0x100C)
+#define CLK_SCP_CFG_1_SPM (0x3)
 
-#define MT_SPM_EX_OP_TIME_CHECK	BIT(10)
+#define MT_SPM_EX_OP_TIME_CHECK BIT(10)
 
 struct mt_resource_constraint plat_constraint_bus26m = {
 	.is_valid = spm_is_valid_rc_bus26m,
@@ -99,7 +102,8 @@ void spm_boot_init(void)
 
 	/* switch ck_off/axi_26m control to SPM */
 	mmio_setbits_32(CLK_SCP_CFG_0, SPM_CK_CONTROL_EN);
-	mmio_clrsetbits_32(CLK_SCP_CFG_1, CLK_SCP_CFG_1_MASK, CLK_SCP_CFG_1_SPM);
+	mmio_clrsetbits_32(CLK_SCP_CFG_1, CLK_SCP_CFG_1_MASK,
+			   CLK_SCP_CFG_1_SPM);
 
 	plat_spm_lock_init();
 	mt_spm_pmic_wrap_set_phase(PMIC_WRAP_PHASE_ALLINONE);

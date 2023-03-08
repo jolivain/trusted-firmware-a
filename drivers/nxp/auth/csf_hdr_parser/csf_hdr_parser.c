@@ -21,9 +21,9 @@
 #include <sfp.h>
 
 /* Maximum OID string length ("a.b.c.d.e.f ...") */
-#define MAX_OID_STR_LEN			64
+#define MAX_OID_STR_LEN 64
 
-#define LIB_NAME	"NXP CSFv2"
+#define LIB_NAME "NXP CSFv2"
 
 #ifdef CSF_HDR_CH3
 /* Barker Code for LS Ch3 ESBC Header */
@@ -32,13 +32,15 @@ static const uint8_t barker_code[CSF_BARKER_LEN] = { 0x12, 0x19, 0x20, 0x01 };
 static const uint8_t barker_code[CSF_BARKER_LEN] = { 0x68, 0x39, 0x27, 0x81 };
 #endif
 
-#define CHECK_KEY_LEN(key_len)	(((key_len) == 2 * RSA_1K_KEY_SZ_BYTES) || \
-				 ((key_len) == 2 * RSA_2K_KEY_SZ_BYTES) || \
-				 ((key_len) == 2 * RSA_4K_KEY_SZ_BYTES))
+#define CHECK_KEY_LEN(key_len)                     \
+	(((key_len) == 2 * RSA_1K_KEY_SZ_BYTES) || \
+	 ((key_len) == 2 * RSA_2K_KEY_SZ_BYTES) || \
+	 ((key_len) == 2 * RSA_4K_KEY_SZ_BYTES))
 
 /* Flag to indicate if values are there in rotpk_hash_table */
-bool rotpk_not_dpld =  true;
-uint8_t rotpk_hash_table[MAX_KEY_ENTRIES][SHA256_BYTES] __aligned(CACHE_WRITEBACK_GRANULE);
+bool rotpk_not_dpld = true;
+uint8_t rotpk_hash_table[MAX_KEY_ENTRIES][SHA256_BYTES] __aligned(
+	CACHE_WRITEBACK_GRANULE);
 uint32_t num_rotpk_hash_entries;
 
 /*
@@ -55,11 +57,10 @@ static int deploy_rotpk_hash_table(void *srk_buffer, uint16_t num_srk)
 	unsigned int digest_size = SHA256_BYTES;
 	enum hash_algo algo = SHA256;
 	uint8_t hash[SHA256_BYTES];
-	uint32_t srk_hash[SHA256_BYTES/4] __aligned(CACHE_WRITEBACK_GRANULE);
+	uint32_t srk_hash[SHA256_BYTES / 4] __aligned(CACHE_WRITEBACK_GRANULE);
 	struct srk_table *srktbl = (void *)srk_buffer;
-	struct sfp_ccsr_regs_t *sfp_ccsr_regs = (void *)(get_sfp_addr()
-							+ SFP_FUSE_REGS_OFFSET);
-
+	struct sfp_ccsr_regs_t *sfp_ccsr_regs =
+		(void *)(get_sfp_addr() + SFP_FUSE_REGS_OFFSET);
 
 	if (num_srk > MAX_KEY_ENTRIES) {
 		return -1;
@@ -84,7 +85,7 @@ static int deploy_rotpk_hash_table(void *srk_buffer, uint16_t num_srk)
 	}
 
 	/* Add comparison of hash with SFP hash here */
-	for (i = 0; i < SHA256_BYTES/4; i++) {
+	for (i = 0; i < SHA256_BYTES / 4; i++) {
 		srk_hash[i] =
 			mmio_read_32((uintptr_t)&sfp_ccsr_regs->srk_hash[i]);
 	}
@@ -137,8 +138,7 @@ static int deploy_rotpk_hash_table(void *srk_buffer, uint16_t num_srk)
  * Calculate hash of ESBC hdr and ESBC. This function calculates the
  * single hash of ESBC header and ESBC image
  */
-int calc_img_hash(struct csf_hdr *hdr,
-		  void *img_addr, uint32_t img_size,
+int calc_img_hash(struct csf_hdr *hdr, void *img_addr, uint32_t img_size,
 		  uint8_t *img_hash, uint32_t *hash_len)
 {
 	void *ctx;
@@ -207,7 +207,7 @@ static uint32_t is_key_revoked(uint32_t keynum, uint32_t rev_flag)
  * and return the key , key length and key_type
  */
 static int32_t get_key(struct csf_hdr *hdr, uint8_t **key, uint32_t *len,
-			enum sig_alg *key_type)
+		       enum sig_alg *key_type)
 {
 	int i = 0;
 	uint32_t ret = 0U;
@@ -279,7 +279,7 @@ static int32_t get_key(struct csf_hdr *hdr, uint8_t **key, uint32_t *len,
 	*len = srktbl[key_num - 1].key_len;
 
 	/* Point key to the selected key */
-	*key =  (uint8_t *)&(srktbl[key_num - 1].pkey);
+	*key = (uint8_t *)&(srktbl[key_num - 1].pkey);
 
 	return 0;
 }
@@ -320,8 +320,8 @@ int validate_esbc_header(void *img_hdr, void **img_key, uint32_t *key_len,
 	if (klen == (2 * hdr->sign_len)) {
 		/* check signature length */
 		if (((hdr->sign_len == RSA_1K_KEY_SZ_BYTES) ||
-		    (hdr->sign_len == RSA_2K_KEY_SZ_BYTES) ||
-		    (hdr->sign_len == RSA_4K_KEY_SZ_BYTES)) == 0) {
+		     (hdr->sign_len == RSA_2K_KEY_SZ_BYTES) ||
+		     (hdr->sign_len == RSA_4K_KEY_SZ_BYTES)) == 0) {
 			ERROR("Wrong Signature length in header\n");
 			return -1;
 		}
@@ -344,7 +344,7 @@ int validate_esbc_header(void *img_hdr, void **img_key, uint32_t *key_len,
 	}
 
 	/* Check signature value < modulus value */
-	s =  (uint8_t *)(esbc + hdr->psign);
+	s = (uint8_t *)(esbc + hdr->psign);
 
 	if (!(memcmp(s, key, hdr->sign_len) < 0)) {
 		ERROR("Signature not less than modulus");

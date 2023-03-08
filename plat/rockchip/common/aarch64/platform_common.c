@@ -1,12 +1,10 @@
 /*
- * Copyright (c) 2013-2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <string.h>
-
-#include <platform_def.h>
 
 #include <arch_helpers.h>
 #include <common/bl_common.h>
@@ -14,42 +12,36 @@
 #include <drivers/arm/cci.h>
 #include <lib/utils.h>
 #include <lib/xlat_tables/xlat_tables.h>
-
 #include <plat_private.h>
 
+#include <platform_def.h>
+
 #ifdef PLAT_RK_CCI_BASE
-static const int cci_map[] = {
-	PLAT_RK_CCI_CLUSTER0_SL_IFACE_IX,
-	PLAT_RK_CCI_CLUSTER1_SL_IFACE_IX
-};
+static const int cci_map[] = { PLAT_RK_CCI_CLUSTER0_SL_IFACE_IX,
+			       PLAT_RK_CCI_CLUSTER1_SL_IFACE_IX };
 #endif
 
 /******************************************************************************
  * Macro generating the code for the function setting up the pagetables as per
  * the platform memory map & initialize the mmu, for the given exception level
  ******************************************************************************/
-#define DEFINE_CONFIGURE_MMU_EL(_el)					\
-	void plat_configure_mmu_el ## _el(unsigned long total_base,	\
-					  unsigned long total_size,	\
-					  unsigned long ro_start,	\
-					  unsigned long ro_limit,	\
-					  unsigned long coh_start,	\
-					  unsigned long coh_limit)	\
-	{								\
-		mmap_add_region(total_base, total_base,			\
-				total_size,				\
-				MT_MEMORY | MT_RW | MT_SECURE);		\
-		mmap_add_region(ro_start, ro_start,			\
-				ro_limit - ro_start,			\
-				MT_MEMORY | MT_RO | MT_SECURE);		\
-		mmap_add_region(coh_start, coh_start,			\
-				coh_limit - coh_start,			\
-				MT_DEVICE | MT_RW | MT_SECURE);		\
-		mmap_add(plat_rk_mmap);					\
-		rockchip_plat_mmu_el##_el();				\
-		init_xlat_tables();					\
-									\
-		enable_mmu_el ## _el(0);				\
+#define DEFINE_CONFIGURE_MMU_EL(_el)                                         \
+	void plat_configure_mmu_el##_el(                                     \
+		unsigned long total_base, unsigned long total_size,          \
+		unsigned long ro_start, unsigned long ro_limit,              \
+		unsigned long coh_start, unsigned long coh_limit)            \
+	{                                                                    \
+		mmap_add_region(total_base, total_base, total_size,          \
+				MT_MEMORY | MT_RW | MT_SECURE);              \
+		mmap_add_region(ro_start, ro_start, ro_limit - ro_start,     \
+				MT_MEMORY | MT_RO | MT_SECURE);              \
+		mmap_add_region(coh_start, coh_start, coh_limit - coh_start, \
+				MT_DEVICE | MT_RW | MT_SECURE);              \
+		mmap_add(plat_rk_mmap);                                      \
+		rockchip_plat_mmu_el##_el();                                 \
+		init_xlat_tables();                                          \
+                                                                             \
+		enable_mmu_el##_el(0);                                       \
 	}
 
 /* Define EL3 variants of the function initialising the MMU */

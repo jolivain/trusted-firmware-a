@@ -4,7 +4,6 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-
 /*******************************************************************************
  * This is the Secure Payload Dispatcher (SPD). The dispatcher is meant to be a
  * plug-in component to the Secure Monitor, registered as a runtime service. The
@@ -27,8 +26,9 @@
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/optee_utils.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include <plat/common/platform.h>
 #include <tools_share/uuid.h>
+
+#include <plat/common/platform.h>
 
 #include "opteed_private.h"
 #include "teesmc_opteed.h"
@@ -61,10 +61,8 @@ uint64_t dual32to64(uint32_t high, uint32_t low)
  * OPTEED. It validates the interrupt and upon success arranges entry into
  * the OPTEE at 'optee_fiq_entry()' for handling the interrupt.
  ******************************************************************************/
-static uint64_t opteed_sel1_interrupt_handler(uint32_t id,
-					    uint32_t flags,
-					    void *handle,
-					    void *cookie)
+static uint64_t opteed_sel1_interrupt_handler(uint32_t id, uint32_t flags,
+					      void *handle, void *cookie)
 {
 	uint32_t linear_id;
 	optee_context_t *optee_ctx;
@@ -125,8 +123,8 @@ static int32_t opteed_setup(void)
 	optee_ep_info = bl31_plat_get_next_image_ep_info(SECURE);
 	if (!optee_ep_info) {
 		WARN("No OPTEE provided by BL2 boot loader, Booting device"
-			" without OPTEE initialization. SMC`s destined for OPTEE"
-			" will return SMC_UNK\n");
+		     " without OPTEE initialization. SMC`s destined for OPTEE"
+		     " will return SMC_UNK\n");
 		return 1;
 	}
 
@@ -143,13 +141,9 @@ static int32_t opteed_setup(void)
 	opteed_mem_limit = optee_ep_info->args.arg2;
 	dt_addr = optee_ep_info->args.arg3;
 
-	opteed_init_optee_ep_state(optee_ep_info,
-				opteed_rw,
-				optee_ep_info->pc,
-				opteed_pageable_part,
-				opteed_mem_limit,
-				dt_addr,
-				&opteed_sp_context[linear_id]);
+	opteed_init_optee_ep_state(optee_ep_info, opteed_rw, optee_ep_info->pc,
+				   opteed_pageable_part, opteed_mem_limit,
+				   dt_addr, &opteed_sp_context[linear_id]);
 
 	/*
 	 * All OPTEED initialization done. Now register our init function with
@@ -158,7 +152,7 @@ static int32_t opteed_setup(void)
 	bl31_register_bl32_init(&opteed_init);
 
 	return 0;
-#endif  /* OPTEE_ALLOW_SMC_LOAD */
+#endif /* OPTEE_ALLOW_SMC_LOAD */
 }
 
 /*******************************************************************************
@@ -202,7 +196,7 @@ static int32_t opteed_init(void)
 	optee_entry_point = bl31_plat_get_next_image_ep_info(SECURE);
 	return opteed_init_with_entry_point(optee_entry_point);
 }
-#endif  /* !OPTEE_ALLOW_SMC_LOAD */
+#endif /* !OPTEE_ALLOW_SMC_LOAD */
 
 #if OPTEE_ALLOW_SMC_LOAD
 /*******************************************************************************
@@ -251,7 +245,7 @@ static int32_t opteed_handle_smc_load(uint64_t data_size, uint32_t data_pa)
 	}
 
 	image_ptr = (uint8_t *)data_va + sizeof(optee_header_t) +
-			sizeof(optee_image_t);
+		    sizeof(optee_image_t);
 	if (image_header->arch == 1) {
 		opteed_rw = OPTEE_AARCH64;
 	} else {
@@ -259,8 +253,8 @@ static int32_t opteed_handle_smc_load(uint64_t data_size, uint32_t data_pa)
 	}
 
 	curr_image = &image_header->optee_image_list[0];
-	image_pa = dual32to64(curr_image->load_addr_hi,
-			      curr_image->load_addr_lo);
+	image_pa =
+		dual32to64(curr_image->load_addr_hi, curr_image->load_addr_lo);
 	image_va = image_pa;
 	target_end_pa = image_pa + curr_image->size;
 
@@ -288,12 +282,7 @@ static int32_t opteed_handle_smc_load(uint64_t data_size, uint32_t data_pa)
 	/* Save the non-secure state */
 	cm_el1_sysregs_context_save(NON_SECURE);
 
-	opteed_init_optee_ep_state(&optee_ep_info,
-				   opteed_rw,
-				   image_pa,
-				   0,
-				   0,
-				   0,
+	opteed_init_optee_ep_state(&optee_ep_info, opteed_rw, image_pa, 0, 0, 0,
 				   &opteed_sp_context[linear_id]);
 	if (opteed_init_with_entry_point(&optee_ep_info) == 0) {
 		rc = -EFAULT;
@@ -305,7 +294,7 @@ static int32_t opteed_handle_smc_load(uint64_t data_size, uint32_t data_pa)
 
 	return rc;
 }
-#endif  /* OPTEE_ALLOW_SMC_LOAD */
+#endif /* OPTEE_ALLOW_SMC_LOAD */
 
 /*******************************************************************************
  * This function is responsible for handling all SMCs in the Trusted OS/App
@@ -315,14 +304,10 @@ static int32_t opteed_handle_smc_load(uint64_t data_size, uint32_t data_pa)
  * state. Lastly it will also return any information that OPTEE needs to do
  * the work assigned to it.
  ******************************************************************************/
-static uintptr_t opteed_smc_handler(uint32_t smc_fid,
-			 u_register_t x1,
-			 u_register_t x2,
-			 u_register_t x3,
-			 u_register_t x4,
-			 void *cookie,
-			 void *handle,
-			 u_register_t flags)
+static uintptr_t opteed_smc_handler(uint32_t smc_fid, u_register_t x1,
+				    u_register_t x2, u_register_t x3,
+				    u_register_t x4, void *cookie, void *handle,
+				    u_register_t flags)
 {
 	cpu_context_t *ns_cpu_context;
 	uint32_t linear_id = plat_my_core_pos();
@@ -358,10 +343,10 @@ static uintptr_t opteed_smc_handler(uint32_t smc_fid,
 				 */
 				SMC_RET1(handle, -EINVAL);
 			}
-			SMC_RET1(handle, opteed_handle_smc_load(
-					data_size, data_pa));
+			SMC_RET1(handle,
+				 opteed_handle_smc_load(data_size, data_pa));
 		}
-#endif  /* OPTEE_ALLOW_SMC_LOAD */
+#endif /* OPTEE_ALLOW_SMC_LOAD */
 		/*
 		 * This is a fresh request from the non-secure client.
 		 * The parameters are in x1 and x2. Figure out which
@@ -401,31 +386,29 @@ static uintptr_t opteed_smc_handler(uint32_t smc_fid,
 		 * flags as appropriate.
 		 */
 		if (GET_SMC_TYPE(smc_fid) == SMC_TYPE_FAST) {
-			cm_set_elr_el3(SECURE, (uint64_t)
-					&optee_vector_table->fast_smc_entry);
+			cm_set_elr_el3(
+				SECURE,
+				(uint64_t)&optee_vector_table->fast_smc_entry);
 		} else {
-			cm_set_elr_el3(SECURE, (uint64_t)
-					&optee_vector_table->yield_smc_entry);
+			cm_set_elr_el3(
+				SECURE,
+				(uint64_t)&optee_vector_table->yield_smc_entry);
 		}
 
 		cm_el1_sysregs_context_restore(SECURE);
 		cm_set_next_eret_context(SECURE);
 
-		write_ctx_reg(get_gpregs_ctx(&optee_ctx->cpu_ctx),
-			      CTX_GPREG_X4,
+		write_ctx_reg(get_gpregs_ctx(&optee_ctx->cpu_ctx), CTX_GPREG_X4,
 			      read_ctx_reg(get_gpregs_ctx(handle),
 					   CTX_GPREG_X4));
-		write_ctx_reg(get_gpregs_ctx(&optee_ctx->cpu_ctx),
-			      CTX_GPREG_X5,
+		write_ctx_reg(get_gpregs_ctx(&optee_ctx->cpu_ctx), CTX_GPREG_X5,
 			      read_ctx_reg(get_gpregs_ctx(handle),
 					   CTX_GPREG_X5));
-		write_ctx_reg(get_gpregs_ctx(&optee_ctx->cpu_ctx),
-			      CTX_GPREG_X6,
+		write_ctx_reg(get_gpregs_ctx(&optee_ctx->cpu_ctx), CTX_GPREG_X6,
 			      read_ctx_reg(get_gpregs_ctx(handle),
 					   CTX_GPREG_X6));
 		/* Propagate hypervisor client ID */
-		write_ctx_reg(get_gpregs_ctx(&optee_ctx->cpu_ctx),
-			      CTX_GPREG_X7,
+		write_ctx_reg(get_gpregs_ctx(&optee_ctx->cpu_ctx), CTX_GPREG_X7,
 			      read_ctx_reg(get_gpregs_ctx(handle),
 					   CTX_GPREG_X7));
 
@@ -446,7 +429,7 @@ static uintptr_t opteed_smc_handler(uint32_t smc_fid,
 		 * only once on the primary cpu
 		 */
 		assert(optee_vector_table == NULL);
-		optee_vector_table = (optee_vectors_t *) x1;
+		optee_vector_table = (optee_vectors_t *)x1;
 
 		if (optee_vector_table) {
 			set_optee_pstate(optee_ctx->state, OPTEE_PSTATE_ON);
@@ -464,9 +447,9 @@ static uintptr_t opteed_smc_handler(uint32_t smc_fid,
 			 */
 			flags = 0;
 			set_interrupt_rm_flag(flags, NON_SECURE);
-			rc = register_interrupt_type_handler(INTR_TYPE_S_EL1,
-						opteed_sel1_interrupt_handler,
-						flags);
+			rc = register_interrupt_type_handler(
+				INTR_TYPE_S_EL1, opteed_sel1_interrupt_handler,
+				flags);
 			if (rc)
 				panic();
 		}
@@ -479,7 +462,6 @@ static uintptr_t opteed_smc_handler(uint32_t smc_fid,
 		opteed_synchronous_sp_exit(optee_ctx, x1);
 		break;
 
-
 	/*
 	 * These function IDs is used only by OP-TEE to indicate it has
 	 * finished:
@@ -490,7 +472,6 @@ static uintptr_t opteed_smc_handler(uint32_t smc_fid,
 	 */
 	case TEESMC_OPTEED_RETURN_ON_DONE:
 	case TEESMC_OPTEED_RETURN_RESUME_DONE:
-
 
 	/*
 	 * These function IDs is used only by the SP to indicate it has
@@ -555,7 +536,7 @@ static uintptr_t opteed_smc_handler(uint32_t smc_fid,
 		cm_el1_sysregs_context_restore(NON_SECURE);
 		cm_set_next_eret_context(NON_SECURE);
 
-		SMC_RET0((uint64_t) ns_cpu_context);
+		SMC_RET0((uint64_t)ns_cpu_context);
 
 	default:
 		panic();
@@ -563,23 +544,13 @@ static uintptr_t opteed_smc_handler(uint32_t smc_fid,
 }
 
 /* Define an OPTEED runtime service descriptor for fast SMC calls */
-DECLARE_RT_SVC(
-	opteed_fast,
+DECLARE_RT_SVC(opteed_fast,
 
-	OEN_TOS_START,
-	OEN_TOS_END,
-	SMC_TYPE_FAST,
-	opteed_setup,
-	opteed_smc_handler
-);
+	       OEN_TOS_START, OEN_TOS_END, SMC_TYPE_FAST, opteed_setup,
+	       opteed_smc_handler);
 
 /* Define an OPTEED runtime service descriptor for yielding SMC calls */
-DECLARE_RT_SVC(
-	opteed_std,
+DECLARE_RT_SVC(opteed_std,
 
-	OEN_TOS_START,
-	OEN_TOS_END,
-	SMC_TYPE_YIELD,
-	NULL,
-	opteed_smc_handler
-);
+	       OEN_TOS_START, OEN_TOS_END, SMC_TYPE_YIELD, NULL,
+	       opteed_smc_handler);

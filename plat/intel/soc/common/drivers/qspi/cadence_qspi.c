@@ -1,30 +1,31 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2019, Intel Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-#include <common/debug.h>
-#include <lib/mmio.h>
 #include <string.h>
-#include <drivers/delay_timer.h>
+
+#include <common/debug.h>
 #include <drivers/console.h>
+#include <drivers/delay_timer.h>
+#include <lib/mmio.h>
 
 #include "cadence_qspi.h"
 
-#define LESS(a, b)   (((a) < (b)) ? (a) : (b))
-#define MORE(a, b)   (((a) > (b)) ? (a) : (b))
-
+#define LESS(a, b) (((a) < (b)) ? (a) : (b))
+#define MORE(a, b) (((a) > (b)) ? (a) : (b))
 
 uint32_t qspi_device_size;
 int cad_qspi_cs;
 
 int cad_qspi_idle(void)
 {
-	return (mmio_read_32(CAD_QSPI_OFFSET + CAD_QSPI_CFG)
-			& CAD_QSPI_CFG_IDLE) >> 31;
+	return (mmio_read_32(CAD_QSPI_OFFSET + CAD_QSPI_CFG) &
+		CAD_QSPI_CFG_IDLE) >>
+	       31;
 }
 
 int cad_qspi_set_baudrate_div(uint32_t div)
@@ -33,65 +34,66 @@ int cad_qspi_set_baudrate_div(uint32_t div)
 		return CAD_INVALID;
 
 	mmio_clrsetbits_32(CAD_QSPI_OFFSET + CAD_QSPI_CFG,
-			~CAD_QSPI_CFG_BAUDDIV_MSK,
-			CAD_QSPI_CFG_BAUDDIV(div));
+			   ~CAD_QSPI_CFG_BAUDDIV_MSK,
+			   CAD_QSPI_CFG_BAUDDIV(div));
 
 	return 0;
 }
 
-int cad_qspi_configure_dev_size(uint32_t addr_bytes,
-		uint32_t bytes_per_dev, uint32_t bytes_per_block)
+int cad_qspi_configure_dev_size(uint32_t addr_bytes, uint32_t bytes_per_dev,
+				uint32_t bytes_per_block)
 {
-
 	mmio_write_32(CAD_QSPI_OFFSET + CAD_QSPI_DEVSZ,
-			CAD_QSPI_DEVSZ_ADDR_BYTES(addr_bytes) |
-			CAD_QSPI_DEVSZ_BYTES_PER_PAGE(bytes_per_dev) |
-			CAD_QSPI_DEVSZ_BYTES_PER_BLOCK(bytes_per_block));
+		      CAD_QSPI_DEVSZ_ADDR_BYTES(addr_bytes) |
+			      CAD_QSPI_DEVSZ_BYTES_PER_PAGE(bytes_per_dev) |
+			      CAD_QSPI_DEVSZ_BYTES_PER_BLOCK(bytes_per_block));
 	return 0;
 }
 
 int cad_qspi_set_read_config(uint32_t opcode, uint32_t instr_type,
-		uint32_t addr_type, uint32_t data_type,
-		uint32_t mode_bit, uint32_t dummy_clk_cycle)
+			     uint32_t addr_type, uint32_t data_type,
+			     uint32_t mode_bit, uint32_t dummy_clk_cycle)
 {
 	mmio_write_32(CAD_QSPI_OFFSET + CAD_QSPI_DEVRD,
-			CAD_QSPI_DEV_OPCODE(opcode) |
-			CAD_QSPI_DEV_INST_TYPE(instr_type) |
-			CAD_QSPI_DEV_ADDR_TYPE(addr_type) |
-			CAD_QSPI_DEV_DATA_TYPE(data_type) |
-			CAD_QSPI_DEV_MODE_BIT(mode_bit) |
-			CAD_QSPI_DEV_DUMMY_CLK_CYCLE(dummy_clk_cycle));
+		      CAD_QSPI_DEV_OPCODE(opcode) |
+			      CAD_QSPI_DEV_INST_TYPE(instr_type) |
+			      CAD_QSPI_DEV_ADDR_TYPE(addr_type) |
+			      CAD_QSPI_DEV_DATA_TYPE(data_type) |
+			      CAD_QSPI_DEV_MODE_BIT(mode_bit) |
+			      CAD_QSPI_DEV_DUMMY_CLK_CYCLE(dummy_clk_cycle));
 
 	return 0;
 }
 
 int cad_qspi_set_write_config(uint32_t opcode, uint32_t addr_type,
-		uint32_t data_type, uint32_t dummy_clk_cycle)
+			      uint32_t data_type, uint32_t dummy_clk_cycle)
 {
 	mmio_write_32(CAD_QSPI_OFFSET + CAD_QSPI_DEVWR,
-			CAD_QSPI_DEV_OPCODE(opcode) |
-			CAD_QSPI_DEV_ADDR_TYPE(addr_type) |
-			CAD_QSPI_DEV_DATA_TYPE(data_type) |
-			CAD_QSPI_DEV_DUMMY_CLK_CYCLE(dummy_clk_cycle));
+		      CAD_QSPI_DEV_OPCODE(opcode) |
+			      CAD_QSPI_DEV_ADDR_TYPE(addr_type) |
+			      CAD_QSPI_DEV_DATA_TYPE(data_type) |
+			      CAD_QSPI_DEV_DUMMY_CLK_CYCLE(dummy_clk_cycle));
 
 	return 0;
 }
 
 int cad_qspi_timing_config(uint32_t clkphase, uint32_t clkpol, uint32_t csda,
-		uint32_t csdads, uint32_t cseot, uint32_t cssot,
-		uint32_t rddatacap)
+			   uint32_t csdads, uint32_t cseot, uint32_t cssot,
+			   uint32_t rddatacap)
 {
 	uint32_t cfg = mmio_read_32(CAD_QSPI_OFFSET + CAD_QSPI_CFG);
 
 	cfg &= CAD_QSPI_CFG_SELCLKPHASE_CLR_MSK &
-		CAD_QSPI_CFG_SELCLKPOL_CLR_MSK;
+	       CAD_QSPI_CFG_SELCLKPOL_CLR_MSK;
 	cfg |= CAD_QSPI_SELCLKPHASE(clkphase) | CAD_QSPI_SELCLKPOL(clkpol);
 
 	mmio_write_32(CAD_QSPI_OFFSET + CAD_QSPI_CFG, cfg);
 
 	mmio_write_32(CAD_QSPI_OFFSET + CAD_QSPI_DELAY,
-		CAD_QSPI_DELAY_CSSOT(cssot) | CAD_QSPI_DELAY_CSEOT(cseot) |
-		CAD_QSPI_DELAY_CSDADS(csdads) | CAD_QSPI_DELAY_CSDA(csda));
+		      CAD_QSPI_DELAY_CSSOT(cssot) |
+			      CAD_QSPI_DELAY_CSEOT(cseot) |
+			      CAD_QSPI_DELAY_CSDADS(csdads) |
+			      CAD_QSPI_DELAY_CSDA(csda));
 
 	return 0;
 }
@@ -102,24 +104,24 @@ int cad_qspi_stig_cmd_helper(int cs, uint32_t cmd)
 
 	/* chip select */
 	mmio_write_32(CAD_QSPI_OFFSET + CAD_QSPI_CFG,
-			(mmio_read_32(CAD_QSPI_OFFSET + CAD_QSPI_CFG)
-			 & CAD_QSPI_CFG_CS_MSK) | CAD_QSPI_CFG_CS(cs));
+		      (mmio_read_32(CAD_QSPI_OFFSET + CAD_QSPI_CFG) &
+		       CAD_QSPI_CFG_CS_MSK) |
+			      CAD_QSPI_CFG_CS(cs));
 
 	mmio_write_32(CAD_QSPI_OFFSET + CAD_QSPI_FLASHCMD, cmd);
 	mmio_write_32(CAD_QSPI_OFFSET + CAD_QSPI_FLASHCMD,
-			cmd | CAD_QSPI_FLASHCMD_EXECUTE);
+		      cmd | CAD_QSPI_FLASHCMD_EXECUTE);
 
 	do {
-		uint32_t reg = mmio_read_32(CAD_QSPI_OFFSET +
-					CAD_QSPI_FLASHCMD);
+		uint32_t reg =
+			mmio_read_32(CAD_QSPI_OFFSET + CAD_QSPI_FLASHCMD);
 		if (!(reg & CAD_QSPI_FLASHCMD_EXECUTE_STAT))
 			break;
 		count++;
 	} while (count < CAD_QSPI_COMMAND_TIMEOUT);
 
 	if (count >= CAD_QSPI_COMMAND_TIMEOUT) {
-		ERROR("Error sending QSPI command %x, timed out\n",
-				cmd);
+		ERROR("Error sending QSPI command %x, timed out\n", cmd);
 		return CAD_QSPI_ERROR;
 	}
 
@@ -133,50 +135,13 @@ int cad_qspi_stig_cmd(uint32_t opcode, uint32_t dummy)
 		return -1;
 	}
 
-	return cad_qspi_stig_cmd_helper(cad_qspi_cs,
-			CAD_QSPI_FLASHCMD_OPCODE(opcode) |
-			CAD_QSPI_FLASHCMD_NUM_DUMMYBYTES(dummy));
+	return cad_qspi_stig_cmd_helper(
+		cad_qspi_cs, CAD_QSPI_FLASHCMD_OPCODE(opcode) |
+				     CAD_QSPI_FLASHCMD_NUM_DUMMYBYTES(dummy));
 }
 
 int cad_qspi_stig_read_cmd(uint32_t opcode, uint32_t dummy, uint32_t num_bytes,
-		uint32_t *output)
-{
-	if (dummy > ((1 << CAD_QSPI_FLASHCMD_NUM_DUMMYBYTES_MAX) - 1)) {
-		ERROR("Faulty dummy byes\n");
-		return -1;
-	}
-
-	if ((num_bytes > 8) || (num_bytes == 0))
-		return -1;
-
-	uint32_t cmd =
-		CAD_QSPI_FLASHCMD_OPCODE(opcode) |
-		CAD_QSPI_FLASHCMD_ENRDDATA(1) |
-		CAD_QSPI_FLASHCMD_NUMRDDATABYTES(num_bytes - 1) |
-		CAD_QSPI_FLASHCMD_ENCMDADDR(0) |
-		CAD_QSPI_FLASHCMD_ENMODEBIT(0) |
-		CAD_QSPI_FLASHCMD_NUMADDRBYTES(0) |
-		CAD_QSPI_FLASHCMD_ENWRDATA(0) |
-		CAD_QSPI_FLASHCMD_NUMWRDATABYTES(0) |
-		CAD_QSPI_FLASHCMD_NUMDUMMYBYTES(dummy);
-
-	if (cad_qspi_stig_cmd_helper(cad_qspi_cs, cmd)) {
-		ERROR("failed to send stig cmd\n");
-		return -1;
-	}
-
-	output[0] = mmio_read_32(CAD_QSPI_OFFSET + CAD_QSPI_FLASHCMD_RDDATA0);
-
-	if (num_bytes > 4) {
-		output[1] = mmio_read_32(CAD_QSPI_OFFSET +
-				CAD_QSPI_FLASHCMD_RDDATA1);
-	}
-
-	return 0;
-}
-
-int cad_qspi_stig_wr_cmd(uint32_t opcode, uint32_t dummy, uint32_t num_bytes,
-		uint32_t *input)
+			   uint32_t *output)
 {
 	if (dummy > ((1 << CAD_QSPI_FLASHCMD_NUM_DUMMYBYTES_MAX) - 1)) {
 		ERROR("Faulty dummy byes\n");
@@ -187,20 +152,56 @@ int cad_qspi_stig_wr_cmd(uint32_t opcode, uint32_t dummy, uint32_t num_bytes,
 		return -1;
 
 	uint32_t cmd = CAD_QSPI_FLASHCMD_OPCODE(opcode) |
-		CAD_QSPI_FLASHCMD_ENRDDATA(0) |
-		CAD_QSPI_FLASHCMD_NUMRDDATABYTES(0) |
-		CAD_QSPI_FLASHCMD_ENCMDADDR(0) |
-		CAD_QSPI_FLASHCMD_ENMODEBIT(0) |
-		CAD_QSPI_FLASHCMD_NUMADDRBYTES(0) |
-		CAD_QSPI_FLASHCMD_ENWRDATA(1) |
-		CAD_QSPI_FLASHCMD_NUMWRDATABYTES(num_bytes - 1) |
-		CAD_QSPI_FLASHCMD_NUMDUMMYBYTES(dummy);
+		       CAD_QSPI_FLASHCMD_ENRDDATA(1) |
+		       CAD_QSPI_FLASHCMD_NUMRDDATABYTES(num_bytes - 1) |
+		       CAD_QSPI_FLASHCMD_ENCMDADDR(0) |
+		       CAD_QSPI_FLASHCMD_ENMODEBIT(0) |
+		       CAD_QSPI_FLASHCMD_NUMADDRBYTES(0) |
+		       CAD_QSPI_FLASHCMD_ENWRDATA(0) |
+		       CAD_QSPI_FLASHCMD_NUMWRDATABYTES(0) |
+		       CAD_QSPI_FLASHCMD_NUMDUMMYBYTES(dummy);
+
+	if (cad_qspi_stig_cmd_helper(cad_qspi_cs, cmd)) {
+		ERROR("failed to send stig cmd\n");
+		return -1;
+	}
+
+	output[0] = mmio_read_32(CAD_QSPI_OFFSET + CAD_QSPI_FLASHCMD_RDDATA0);
+
+	if (num_bytes > 4) {
+		output[1] = mmio_read_32(CAD_QSPI_OFFSET +
+					 CAD_QSPI_FLASHCMD_RDDATA1);
+	}
+
+	return 0;
+}
+
+int cad_qspi_stig_wr_cmd(uint32_t opcode, uint32_t dummy, uint32_t num_bytes,
+			 uint32_t *input)
+{
+	if (dummy > ((1 << CAD_QSPI_FLASHCMD_NUM_DUMMYBYTES_MAX) - 1)) {
+		ERROR("Faulty dummy byes\n");
+		return -1;
+	}
+
+	if ((num_bytes > 8) || (num_bytes == 0))
+		return -1;
+
+	uint32_t cmd = CAD_QSPI_FLASHCMD_OPCODE(opcode) |
+		       CAD_QSPI_FLASHCMD_ENRDDATA(0) |
+		       CAD_QSPI_FLASHCMD_NUMRDDATABYTES(0) |
+		       CAD_QSPI_FLASHCMD_ENCMDADDR(0) |
+		       CAD_QSPI_FLASHCMD_ENMODEBIT(0) |
+		       CAD_QSPI_FLASHCMD_NUMADDRBYTES(0) |
+		       CAD_QSPI_FLASHCMD_ENWRDATA(1) |
+		       CAD_QSPI_FLASHCMD_NUMWRDATABYTES(num_bytes - 1) |
+		       CAD_QSPI_FLASHCMD_NUMDUMMYBYTES(dummy);
 
 	mmio_write_32(CAD_QSPI_OFFSET + CAD_QSPI_FLASHCMD_WRDATA0, input[0]);
 
 	if (num_bytes > 4)
 		mmio_write_32(CAD_QSPI_OFFSET + CAD_QSPI_FLASHCMD_WRDATA1,
-				input[1]);
+			      input[1]);
 
 	return cad_qspi_stig_cmd_helper(cad_qspi_cs, cmd);
 }
@@ -213,9 +214,9 @@ int cad_qspi_stig_addr_cmd(uint32_t opcode, uint32_t dummy, uint32_t addr)
 		return -1;
 
 	cmd = CAD_QSPI_FLASHCMD_OPCODE(opcode) |
-		CAD_QSPI_FLASHCMD_NUMDUMMYBYTES(dummy) |
-		CAD_QSPI_FLASHCMD_ENCMDADDR(1) |
-		CAD_QSPI_FLASHCMD_NUMADDRBYTES(2);
+	      CAD_QSPI_FLASHCMD_NUMDUMMYBYTES(dummy) |
+	      CAD_QSPI_FLASHCMD_ENCMDADDR(1) |
+	      CAD_QSPI_FLASHCMD_NUMADDRBYTES(2);
 
 	mmio_write_32(CAD_QSPI_OFFSET + CAD_QSPI_FLASHCMD_ADDR, addr);
 
@@ -230,8 +231,8 @@ int cad_qspi_device_bank_select(uint32_t bank)
 	if (status != 0)
 		return status;
 
-	status = cad_qspi_stig_wr_cmd(CAD_QSPI_STIG_OPCODE_WREN_EXT_REG,
-			0, 1, &bank);
+	status = cad_qspi_stig_wr_cmd(CAD_QSPI_STIG_OPCODE_WREN_EXT_REG, 0, 1,
+				      &bank);
 	if (status != 0)
 		return status;
 
@@ -247,8 +248,8 @@ int cad_qspi_device_status(uint32_t *status)
 int cad_qspi_n25q_enable(void)
 {
 	cad_qspi_set_read_config(QSPI_FAST_READ, CAD_QSPI_INST_SINGLE,
-			CAD_QSPI_ADDR_FASTREAD, CAT_QSPI_ADDR_SINGLE_IO, 1,
-			0);
+				 CAD_QSPI_ADDR_FASTREAD,
+				 CAT_QSPI_ADDR_SINGLE_IO, 1, 0);
 	cad_qspi_set_write_config(QSPI_WRITE, 0, 0, 0);
 
 	return 0;
@@ -278,17 +279,16 @@ int cad_qspi_n25q_wait_for_program_and_erase(int program_only)
 	count = 0;
 
 	while (count < CAD_QSPI_COMMAND_TIMEOUT) {
-		status = cad_qspi_stig_read_cmd(CAD_QSPI_STIG_OPCODE_RDFLGSR,
-				0, 1, &flag_sr);
+		status = cad_qspi_stig_read_cmd(CAD_QSPI_STIG_OPCODE_RDFLGSR, 0,
+						1, &flag_sr);
 		if (status != 0) {
 			ERROR("Error waiting program and erase.\n");
 			return status;
 		}
 
 		if ((program_only &&
-			CAD_QSPI_STIG_FLAGSR_PROGRAMREADY(flag_sr)) ||
-			(!program_only &&
-			CAD_QSPI_STIG_FLAGSR_ERASEREADY(flag_sr)))
+		     CAD_QSPI_STIG_FLAGSR_PROGRAMREADY(flag_sr)) ||
+		    (!program_only && CAD_QSPI_STIG_FLAGSR_ERASEREADY(flag_sr)))
 			break;
 	}
 
@@ -296,8 +296,7 @@ int cad_qspi_n25q_wait_for_program_and_erase(int program_only)
 		ERROR("Timed out waiting for program and erase\n");
 
 	if ((program_only && CAD_QSPI_STIG_FLAGSR_PROGRAMERROR(flag_sr)) ||
-			(!program_only &&
-			CAD_QSPI_STIG_FLAGSR_ERASEERROR(flag_sr))) {
+	    (!program_only && CAD_QSPI_STIG_FLAGSR_ERASEERROR(flag_sr))) {
 		ERROR("Error programming/erasing flash\n");
 		cad_qspi_stig_cmd(CAD_QSPI_STIG_OPCODE_CLFSR, 0);
 		return -1;
@@ -312,21 +311,17 @@ int cad_qspi_indirect_read_start_bank(uint32_t flash_addr, uint32_t num_bytes)
 	mmio_write_32(CAD_QSPI_OFFSET + CAD_QSPI_INDRDSTADDR, flash_addr);
 	mmio_write_32(CAD_QSPI_OFFSET + CAD_QSPI_INDRDCNT, num_bytes);
 	mmio_write_32(CAD_QSPI_OFFSET + CAD_QSPI_INDRD,
-			CAD_QSPI_INDRD_START |
-			CAD_QSPI_INDRD_IND_OPS_DONE);
+		      CAD_QSPI_INDRD_START | CAD_QSPI_INDRD_IND_OPS_DONE);
 
 	return 0;
 }
 
-
-int cad_qspi_indirect_write_start_bank(uint32_t flash_addr,
-					uint32_t num_bytes)
+int cad_qspi_indirect_write_start_bank(uint32_t flash_addr, uint32_t num_bytes)
 {
 	mmio_write_32(CAD_QSPI_OFFSET + CAD_QSPI_INDWRSTADDR, flash_addr);
 	mmio_write_32(CAD_QSPI_OFFSET + CAD_QSPI_INDWRCNT, num_bytes);
 	mmio_write_32(CAD_QSPI_OFFSET + CAD_QSPI_INDWR,
-			CAD_QSPI_INDWR_START |
-			CAD_QSPI_INDWR_INDDONE);
+		      CAD_QSPI_INDWR_START | CAD_QSPI_INDWR_INDDONE);
 
 	return 0;
 }
@@ -338,7 +333,6 @@ int cad_qspi_indirect_write_finish(void)
 #else
 	return 0;
 #endif
-
 }
 
 int cad_qspi_enable(void)
@@ -397,8 +391,8 @@ int cad_qspi_erase_sector(uint32_t addr)
 	if (status != 0)
 		return status;
 
-	status = cad_qspi_stig_addr_cmd(CAD_QSPI_STIG_OPCODE_SEC_ERASE, 0,
-					addr);
+	status =
+		cad_qspi_stig_addr_cmd(CAD_QSPI_STIG_OPCODE_SEC_ERASE, 0, addr);
 	if (status != 0)
 		return status;
 
@@ -426,8 +420,8 @@ void cad_qspi_calibration(uint32_t dev_clk, uint32_t qspi_clk_mhz)
 	div_bits = (((div_actual + 1) / 2) - 1);
 	status = cad_qspi_set_baudrate_div(0xf);
 
-	status = cad_qspi_stig_read_cmd(CAD_QSPI_STIG_OPCODE_RDID,
-					0, 3, &sample_rdid);
+	status = cad_qspi_stig_read_cmd(CAD_QSPI_STIG_OPCODE_RDID, 0, 3,
+					&sample_rdid);
 	if (status != 0)
 		return;
 
@@ -451,8 +445,8 @@ void cad_qspi_calibration(uint32_t dev_clk, uint32_t qspi_clk_mhz)
 	do {
 		if (status != 0)
 			break;
-		status = cad_qspi_stig_read_cmd(CAD_QSPI_STIG_OPCODE_RDID, 0,
-						3, &rdid);
+		status = cad_qspi_stig_read_cmd(CAD_QSPI_STIG_OPCODE_RDID, 0, 3,
+						&rdid);
 		if (status != 0)
 			break;
 		if (rdid == sample_rdid) {
@@ -465,8 +459,8 @@ void cad_qspi_calibration(uint32_t dev_clk, uint32_t qspi_clk_mhz)
 		data_cap_delay++;
 
 		mmio_write_32(CAD_QSPI_OFFSET + CAD_QSPI_RDDATACAP,
-				CAD_QSPI_RDDATACAP_BYP(1) |
-				CAD_QSPI_RDDATACAP_DELAY(data_cap_delay));
+			      CAD_QSPI_RDDATACAP_BYP(1) |
+				      CAD_QSPI_RDDATACAP_DELAY(data_cap_delay));
 
 	} while (data_cap_delay < 0x10);
 
@@ -477,8 +471,8 @@ void cad_qspi_calibration(uint32_t dev_clk, uint32_t qspi_clk_mhz)
 	}
 
 	mmio_write_32(CAD_QSPI_OFFSET + CAD_QSPI_RDDATACAP,
-			CAD_QSPI_RDDATACAP_BYP(1) |
-			CAD_QSPI_RDDATACAP_DELAY(data_cap_delay));
+		      CAD_QSPI_RDDATACAP_BYP(1) |
+			      CAD_QSPI_RDDATACAP_DELAY(data_cap_delay));
 	status = cad_qspi_stig_read_cmd(CAD_QSPI_STIG_OPCODE_RDID, 0, 3, &rdid);
 
 	if (status != 0)
@@ -503,8 +497,8 @@ void cad_qspi_set_chip_select(int cs)
 }
 
 int cad_qspi_init(uint32_t desired_clk_freq, uint32_t clk_phase,
-			uint32_t clk_pol, uint32_t csda, uint32_t csdads,
-			uint32_t cseot, uint32_t cssot, uint32_t rddatacap)
+		  uint32_t clk_pol, uint32_t csda, uint32_t csdads,
+		  uint32_t cseot, uint32_t cssot, uint32_t rddatacap)
 {
 	int status = 0;
 	uint32_t qspi_desired_clk_freq;
@@ -518,9 +512,8 @@ int cad_qspi_init(uint32_t desired_clk_freq, uint32_t clk_phase,
 		return -1;
 	}
 
-
-	status = cad_qspi_timing_config(clk_phase, clk_pol, csda, csdads,
-					cseot, cssot, rddatacap);
+	status = cad_qspi_timing_config(clk_phase, clk_pol, csda, csdads, cseot,
+					cssot, rddatacap);
 
 	if (status != 0) {
 		ERROR("config set timing failure\n");
@@ -528,7 +521,7 @@ int cad_qspi_init(uint32_t desired_clk_freq, uint32_t clk_phase,
 	}
 
 	mmio_write_32(CAD_QSPI_OFFSET + CAD_QSPI_REMAPADDR,
-			CAD_QSPI_REMAPADDR_VALUE_SET(0));
+		      CAD_QSPI_REMAPADDR_VALUE_SET(0));
 
 	status = cad_qspi_int_disable(CAD_QSPI_INT_STATUS_ALL);
 	if (status != 0) {
@@ -546,8 +539,7 @@ int cad_qspi_init(uint32_t desired_clk_freq, uint32_t clk_phase,
 	qspi_desired_clk_freq = 100;
 	cad_qspi_calibration(qspi_desired_clk_freq, 50000000);
 
-	status = cad_qspi_stig_read_cmd(CAD_QSPI_STIG_OPCODE_RDID, 0, 3,
-					&rdid);
+	status = cad_qspi_stig_read_cmd(CAD_QSPI_STIG_OPCODE_RDID, 0, 3, &rdid);
 
 	if (status != 0) {
 		ERROR("Error reading RDID\n");
@@ -578,28 +570,27 @@ int cad_qspi_init(uint32_t desired_clk_freq, uint32_t clk_phase,
 	cap_code = CAD_QSPI_STIG_RDID_CAPACITYID(rdid);
 
 	if (!(((cap_code >> 4) > 0x9) || ((cap_code & 0xf) > 0x9))) {
-		uint32_t decoded_cap = ((cap_code >> 4) * 10) +
-					(cap_code & 0xf);
+		uint32_t decoded_cap =
+			((cap_code >> 4) * 10) + (cap_code & 0xf);
 		qspi_device_size = 1 << (decoded_cap + 6);
 		INFO("QSPI Capacity: %x\n\n", qspi_device_size);
 
 	} else {
-		ERROR("Invalid CapacityID encountered: 0x%02x\n",
-				cap_code);
+		ERROR("Invalid CapacityID encountered: 0x%02x\n", cap_code);
 		return -1;
 	}
 
 	cad_qspi_configure_dev_size(INTEL_QSPI_ADDR_BYTES,
-				INTEL_QSPI_BYTES_PER_DEV,
-				INTEL_BYTES_PER_BLOCK);
+				    INTEL_QSPI_BYTES_PER_DEV,
+				    INTEL_BYTES_PER_BLOCK);
 
 	INFO("Flash size: %d Bytes\n", qspi_device_size);
 
 	return status;
 }
 
-int cad_qspi_indirect_page_bound_write(uint32_t offset,
-		uint8_t *buffer, uint32_t len)
+int cad_qspi_indirect_page_bound_write(uint32_t offset, uint8_t *buffer,
+				       uint32_t len)
 {
 	int status = 0, i;
 	uint32_t write_count, write_capacity, *write_data, space,
@@ -610,17 +601,16 @@ int cad_qspi_indirect_page_bound_write(uint32_t offset,
 		return status;
 
 	write_count = 0;
-	sram_partition = CAD_QSPI_SRAMPART_ADDR(mmio_read_32(CAD_QSPI_OFFSET +
-			 CAD_QSPI_SRAMPART));
-	write_capacity = (uint32_t) CAD_QSPI_SRAM_FIFO_ENTRY_COUNT -
-			sram_partition;
+	sram_partition = CAD_QSPI_SRAMPART_ADDR(
+		mmio_read_32(CAD_QSPI_OFFSET + CAD_QSPI_SRAMPART));
+	write_capacity =
+		(uint32_t)CAD_QSPI_SRAM_FIFO_ENTRY_COUNT - sram_partition;
 
 	while (write_count < len) {
 		write_fill_level = CAD_QSPI_SRAMFILL_INDWRPART(
-					mmio_read_32(CAD_QSPI_OFFSET +
-							CAD_QSPI_SRAMFILL));
+			mmio_read_32(CAD_QSPI_OFFSET + CAD_QSPI_SRAMFILL));
 		space = LESS(write_capacity - write_fill_level,
-				(len - write_count) / sizeof(uint32_t));
+			     (len - write_count) / sizeof(uint32_t));
 		write_data = (uint32_t *)(buffer + write_count);
 		for (i = 0; i < space; ++i)
 			mmio_write_32(CAD_QSPIDATA_OFST, *write_data++);
@@ -643,9 +633,8 @@ int cad_qspi_read_bank(uint8_t *buffer, uint32_t offset, uint32_t size)
 
 	while (read_count < size) {
 		do {
-			level = CAD_QSPI_SRAMFILL_INDRDPART(
-				mmio_read_32(CAD_QSPI_OFFSET +
-					CAD_QSPI_SRAMFILL));
+			level = CAD_QSPI_SRAMFILL_INDRDPART(mmio_read_32(
+				CAD_QSPI_OFFSET + CAD_QSPI_SRAMFILL));
 			read_data = (uint32_t *)(buffer + read_count);
 			for (i = 0; i < level; ++i)
 				*read_data++ = mmio_read_32(CAD_QSPIDATA_OFST);
@@ -661,24 +650,24 @@ int cad_qspi_read_bank(uint8_t *buffer, uint32_t offset, uint32_t size)
 int cad_qspi_write_bank(uint32_t offset, uint8_t *buffer, uint32_t size)
 {
 	int status = 0;
-	uint32_t page_offset  = offset & (CAD_QSPI_PAGE_SIZE - 1);
+	uint32_t page_offset = offset & (CAD_QSPI_PAGE_SIZE - 1);
 	uint32_t write_size = LESS(size, CAD_QSPI_PAGE_SIZE - page_offset);
 
 	while (size) {
 		status = cad_qspi_indirect_page_bound_write(offset, buffer,
-							write_size);
+							    write_size);
 		if (status != 0)
 			break;
 
-		offset  += write_size;
-		buffer  += write_size;
+		offset += write_size;
+		buffer += write_size;
 		size -= write_size;
 		write_size = LESS(size, CAD_QSPI_PAGE_SIZE);
 	}
 	return status;
 }
 
-int cad_qspi_read(void *buffer, uint32_t  offset, uint32_t  size)
+int cad_qspi_read(void *buffer, uint32_t offset, uint32_t size)
 {
 	uint32_t bank_count, bank_addr, bank_offset, copy_len;
 	uint8_t *read_data;
@@ -687,14 +676,13 @@ int cad_qspi_read(void *buffer, uint32_t  offset, uint32_t  size)
 	status = 0;
 
 	if ((offset >= qspi_device_size) ||
-			(offset + size - 1 >= qspi_device_size) ||
-			(size == 0)) {
+	    (offset + size - 1 >= qspi_device_size) || (size == 0)) {
 		ERROR("Invalid read parameter\n");
 		return -1;
 	}
 
-	if (CAD_QSPI_INDRD_RD_STAT(mmio_read_32(CAD_QSPI_OFFSET +
-						CAD_QSPI_INDRD))) {
+	if (CAD_QSPI_INDRD_RD_STAT(
+		    mmio_read_32(CAD_QSPI_OFFSET + CAD_QSPI_INDRD))) {
 		ERROR("Read in progress\n");
 		return -1;
 	}
@@ -707,17 +695,17 @@ int cad_qspi_read(void *buffer, uint32_t  offset, uint32_t  size)
 	 *		Only used when reading the first bank.
 	 */
 	bank_count = CAD_QSPI_BANK_ADDR(offset + size - 1) -
-			CAD_QSPI_BANK_ADDR(offset) + 1;
-	bank_addr  = offset & CAD_QSPI_BANK_ADDR_MSK;
-	bank_offset  = offset & (CAD_QSPI_BANK_SIZE - 1);
+		     CAD_QSPI_BANK_ADDR(offset) + 1;
+	bank_addr = offset & CAD_QSPI_BANK_ADDR_MSK;
+	bank_offset = offset & (CAD_QSPI_BANK_SIZE - 1);
 
 	read_data = (uint8_t *)buffer;
 
 	copy_len = LESS(size, CAD_QSPI_BANK_SIZE - bank_offset);
 
 	for (i = 0; i < bank_count; ++i) {
-		status = cad_qspi_device_bank_select(CAD_QSPI_BANK_ADDR(
-								bank_addr));
+		status = cad_qspi_device_bank_select(
+			CAD_QSPI_BANK_ADDR(bank_addr));
 		if (status != 0)
 			break;
 		status = cad_qspi_read_bank(read_data, bank_offset, copy_len);
@@ -737,16 +725,16 @@ int cad_qspi_read(void *buffer, uint32_t  offset, uint32_t  size)
 int cad_qspi_erase(uint32_t offset, uint32_t size)
 {
 	int status = 0;
-	uint32_t subsector_offset  = offset & (CAD_QSPI_SUBSECTOR_SIZE - 1);
-	uint32_t erase_size = LESS(size,
-				CAD_QSPI_SUBSECTOR_SIZE - subsector_offset);
+	uint32_t subsector_offset = offset & (CAD_QSPI_SUBSECTOR_SIZE - 1);
+	uint32_t erase_size =
+		LESS(size, CAD_QSPI_SUBSECTOR_SIZE - subsector_offset);
 
 	while (size) {
 		status = cad_qspi_erase_subsector(offset);
 		if (status != 0)
 			break;
 
-		offset  += erase_size;
+		offset += erase_size;
 		size -= erase_size;
 		erase_size = LESS(size, CAD_QSPI_SUBSECTOR_SIZE);
 	}
@@ -762,19 +750,18 @@ int cad_qspi_write(void *buffer, uint32_t offset, uint32_t size)
 	status = 0;
 
 	if ((offset >= qspi_device_size) ||
-			(offset + size - 1 >= qspi_device_size) ||
-			(size == 0)) {
+	    (offset + size - 1 >= qspi_device_size) || (size == 0)) {
 		return -2;
 	}
 
-	if (CAD_QSPI_INDWR_RDSTAT(mmio_read_32(CAD_QSPI_OFFSET +
-						CAD_QSPI_INDWR))) {
+	if (CAD_QSPI_INDWR_RDSTAT(
+		    mmio_read_32(CAD_QSPI_OFFSET + CAD_QSPI_INDWR))) {
 		ERROR("QSPI Error: Write in progress\n");
 		return -1;
 	}
 
 	bank_count = CAD_QSPI_BANK_ADDR(offset + size - 1) -
-			CAD_QSPI_BANK_ADDR(offset) + 1;
+		     CAD_QSPI_BANK_ADDR(offset) + 1;
 	bank_addr = offset & CAD_QSPI_BANK_ADDR_MSK;
 	bank_offset = offset & (CAD_QSPI_BANK_SIZE - 1);
 
@@ -784,12 +771,11 @@ int cad_qspi_write(void *buffer, uint32_t offset, uint32_t size)
 
 	for (i = 0; i < bank_count; ++i) {
 		status = cad_qspi_device_bank_select(
-				CAD_QSPI_BANK_ADDR(bank_addr));
+			CAD_QSPI_BANK_ADDR(bank_addr));
 		if (status != 0)
 			break;
 
-		status = cad_qspi_write_bank(bank_offset, write_data,
-						copy_len);
+		status = cad_qspi_write_bank(bank_offset, write_data, copy_len);
 		if (status != 0)
 			break;
 
@@ -819,4 +805,3 @@ void cad_qspi_reset(void)
 	cad_qspi_stig_cmd(CAD_QSPI_STIG_OPCODE_RESET_EN, 0);
 	cad_qspi_stig_cmd(CAD_QSPI_STIG_OPCODE_RESET_MEM, 0);
 }
-

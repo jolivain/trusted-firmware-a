@@ -1,36 +1,37 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <arch_helpers.h>
 #include <assert.h>
-#include <cortex_a57.h>
+
+#include <arch_helpers.h>
+#include <bl31/interrupt_mgmt.h>
+#include <bpmp.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <common/interrupt_props.h>
-#include <drivers/console.h>
-#include <lib/xlat_tables/xlat_tables_v2.h>
+#include <cortex_a57.h>
 #include <drivers/arm/gic_common.h>
 #include <drivers/arm/gicv2.h>
-#include <bl31/interrupt_mgmt.h>
-
-#include <bpmp.h>
+#include <drivers/console.h>
 #include <flowctrl.h>
+#include <lib/xlat_tables/xlat_tables_v2.h>
 #include <memctrl.h>
-#include <plat/common/platform.h>
 #include <security_engine.h>
 #include <tegra_def.h>
 #include <tegra_platform.h>
 #include <tegra_private.h>
 
+#include <plat/common/platform.h>
+
 /* sets of MMIO ranges setup */
-#define MMIO_RANGE_0_ADDR	0x50000000
-#define MMIO_RANGE_1_ADDR	0x60000000
-#define MMIO_RANGE_2_ADDR	0x70000000
-#define MMIO_RANGE_SIZE		0x200000
+#define MMIO_RANGE_0_ADDR 0x50000000
+#define MMIO_RANGE_1_ADDR 0x60000000
+#define MMIO_RANGE_2_ADDR 0x70000000
+#define MMIO_RANGE_SIZE 0x200000
 
 /*
  * Table of regions to map using the MMU.
@@ -44,7 +45,7 @@ static const mmap_region_t tegra_mmap[] = {
 			MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(MMIO_RANGE_2_ADDR, MMIO_RANGE_SIZE,
 			MT_DEVICE | MT_RW | MT_SECURE),
-	{0}
+	{ 0 }
 };
 
 /*******************************************************************************
@@ -100,13 +101,13 @@ unsigned int plat_get_syscnt_freq2(void)
 /*******************************************************************************
  * Maximum supported UART controllers
  ******************************************************************************/
-#define TEGRA210_MAX_UART_PORTS		5
+#define TEGRA210_MAX_UART_PORTS 5
 
 /*******************************************************************************
  * This variable holds the UART port base addresses
  ******************************************************************************/
 static uint32_t tegra210_uart_addresses[TEGRA210_MAX_UART_PORTS + 1] = {
-	0,	/* undefined - treated as an error case */
+	0, /* undefined - treated as an error case */
 	TEGRA_UARTA_BASE,
 	TEGRA_UARTB_BASE,
 	TEGRA_UARTC_BASE,
@@ -137,7 +138,8 @@ void plat_enable_console(int32_t id)
 					     TEGRA_CONSOLE_BAUDRATE,
 					     &uart_console);
 		console_set_scope(&uart_console, CONSOLE_FLAG_BOOT |
-			CONSOLE_FLAG_RUNTIME | CONSOLE_FLAG_CRASH);
+							 CONSOLE_FLAG_RUNTIME |
+							 CONSOLE_FLAG_CRASH);
 	}
 }
 
@@ -172,7 +174,7 @@ void plat_early_platform_setup(void)
 	 * Do initial security configuration to allow DRAM/device access.
 	 */
 	tegra_memctrl_tzdram_setup(plat_params->tzdram_base,
-			(uint32_t)plat_params->tzdram_size);
+				   (uint32_t)plat_params->tzdram_size);
 
 	/* platform parameter passed by the previous bootloader */
 	if (plat_params->l2_ecc_parity_prot_dis != 1) {
@@ -189,11 +191,11 @@ void plat_early_platform_setup(void)
 /* Secure IRQs for Tegra186 */
 static const interrupt_prop_t tegra210_interrupt_props[] = {
 	INTR_PROP_DESC(TEGRA_SDEI_SGI_PRIVATE, PLAT_SDEI_CRITICAL_PRI,
-			GICV2_INTR_GROUP0, GIC_INTR_CFG_EDGE),
+		       GICV2_INTR_GROUP0, GIC_INTR_CFG_EDGE),
 	INTR_PROP_DESC(TEGRA210_TIMER1_IRQ, PLAT_TEGRA_WDT_PRIO,
-			GICV2_INTR_GROUP0, GIC_INTR_CFG_EDGE),
+		       GICV2_INTR_GROUP0, GIC_INTR_CFG_EDGE),
 	INTR_PROP_DESC(TEGRA210_WDT_CPU_LEGACY_FIQ, PLAT_TEGRA_WDT_PRIO,
-			GICV2_INTR_GROUP0, GIC_INTR_CFG_EDGE),
+		       GICV2_INTR_GROUP0, GIC_INTR_CFG_EDGE),
 };
 
 /*******************************************************************************
@@ -208,7 +210,6 @@ void plat_late_platform_setup(void)
 
 	/* memmap TZDRAM area containing the SC7 Entry Firmware */
 	if (plat_params->sc7entry_fw_base && plat_params->sc7entry_fw_size) {
-
 		assert(plat_params->sc7entry_fw_size <= TEGRA_IRAM_A_SIZE);
 
 		/*
@@ -218,28 +219,30 @@ void plat_late_platform_setup(void)
 		 */
 
 		/* sc7entry-fw must be _before_ BL31 base */
-		assert(plat_params->tzdram_base > plat_params->sc7entry_fw_base);
+		assert(plat_params->tzdram_base >
+		       plat_params->sc7entry_fw_base);
 
 		sc7entry_end = plat_params->sc7entry_fw_base +
 			       plat_params->sc7entry_fw_size;
 		assert(sc7entry_end < plat_params->tzdram_base);
 
 		/* sc7entry-fw start must be exactly 1MB behind BL31 base */
-		offset = plat_params->tzdram_base - plat_params->sc7entry_fw_base;
+		offset = plat_params->tzdram_base -
+			 plat_params->sc7entry_fw_base;
 		assert(offset == 0x100000);
 
 		/* secure TZDRAM area */
 		tegra_memctrl_tzdram_setup(plat_params->sc7entry_fw_base,
-			plat_params->tzdram_size + offset);
+					   plat_params->tzdram_size + offset);
 
 		/* power off BPMP processor until SC7 entry */
 		tegra_fc_bpmp_off();
 
 		/* memmap SC7 entry firmware code */
 		ret = mmap_add_dynamic_region(plat_params->sc7entry_fw_base,
-				plat_params->sc7entry_fw_base,
-				plat_params->sc7entry_fw_size,
-				MT_SECURE | MT_RO_DATA);
+					      plat_params->sc7entry_fw_base,
+					      plat_params->sc7entry_fw_size,
+					      MT_SECURE | MT_RO_DATA);
 		assert(ret == 0);
 
 		/* restrict PMC access to secure world */
@@ -261,7 +264,8 @@ void plat_late_platform_setup(void)
  ******************************************************************************/
 void plat_gic_setup(void)
 {
-	tegra_gic_setup(tegra210_interrupt_props, ARRAY_SIZE(tegra210_interrupt_props));
+	tegra_gic_setup(tegra210_interrupt_props,
+			ARRAY_SIZE(tegra210_interrupt_props));
 	tegra_gic_init();
 
 	/* Enable handling for FIQs */
@@ -283,7 +287,8 @@ bool plat_supports_system_suspend(void)
 	/*
 	 * sc7entry-fw is only supported by Tegra210 SoCs.
 	 */
-	if (!tegra_chipid_is_t210_b01() && (plat_params->sc7entry_fw_base != 0U)) {
+	if (!tegra_chipid_is_t210_b01() &&
+	    (plat_params->sc7entry_fw_base != 0U)) {
 		return true;
 	} else if (tegra_chipid_is_t210_b01()) {
 		return true;

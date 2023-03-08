@@ -1,19 +1,21 @@
 /*
- * Copyright (c) 2015, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-#include <cmd_opt.h>
-#include <getopt.h>
 #include <stddef.h>
 #include <stdlib.h>
+
+#include <cmd_opt.h>
+#include <getopt.h>
+
 #include "debug.h"
 
 /* Command line options */
-static struct option long_opt[CMD_OPT_MAX_NUM+1];
-static const char *help_msg[CMD_OPT_MAX_NUM+1];
+static struct option long_opt[CMD_OPT_MAX_NUM + 1];
+static const char *help_msg[CMD_OPT_MAX_NUM + 1];
 static int num_reg_opt;
 
 void cmd_opt_add(const cmd_opt_t *cmd_opt)

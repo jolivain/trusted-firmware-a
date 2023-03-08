@@ -8,9 +8,8 @@
 #include <string.h>
 
 #include <common/debug.h>
-#include <lib/psci/psci.h>
 #include <lib/mmio.h>
-
+#include <lib/psci/psci.h>
 #include <mss_pm_ipc.h>
 
 /*
@@ -22,12 +21,12 @@
  * + Desc + MSS Msg Int + Reserved    +
  * +======+=============+=============+
  */
-#define MSS_SISR		(MVEBU_REGS_BASE + 0x5800D0)
-#define MSS_SISTR		(MVEBU_REGS_BASE + 0x5800D8)
+#define MSS_SISR (MVEBU_REGS_BASE + 0x5800D0)
+#define MSS_SISTR (MVEBU_REGS_BASE + 0x5800D8)
 
-#define MSS_MSG_INT_MASK	(0x80000000)
-#define MSS_TIMER_BASE		(MVEBU_REGS_BASE_MASK + 0x580110)
-#define MSS_TRIGGER_TIMEOUT	(2000)
+#define MSS_MSG_INT_MASK (0x80000000)
+#define MSS_TIMER_BASE (MVEBU_REGS_BASE_MASK + 0x580110)
+#define MSS_TRIGGER_TIMEOUT (2000)
 
 /*****************************************************************************
  * mss_pm_ipc_msg_send
@@ -40,9 +39,9 @@ int mss_pm_ipc_msg_send(unsigned int channel_id, unsigned int msg_id,
 {
 	/* Transmit IPC message */
 #ifndef DISABLE_CLUSTER_LEVEL
-	mv_pm_ipc_msg_tx(channel_id, msg_id,
-			 (unsigned int)target_state->pwr_domain_state[
-					MPIDR_AFFLVL1]);
+	mv_pm_ipc_msg_tx(
+		channel_id, msg_id,
+		(unsigned int)target_state->pwr_domain_state[MPIDR_AFFLVL1]);
 #else
 	mv_pm_ipc_msg_tx(channel_id, msg_id, 0);
 #endif
@@ -72,8 +71,8 @@ int mss_pm_ipc_msg_trigger(void)
 		/* check timeout */
 		t_end = mmio_read_32(MSS_TIMER_BASE);
 
-		timeout = ((t_start > t_end) ?
-			   (t_start - t_end) : (t_end - t_start));
+		timeout = ((t_start > t_end) ? (t_start - t_end) :
+					       (t_end - t_start));
 		if (timeout > MSS_TRIGGER_TIMEOUT) {
 			ERROR("PM MSG Trigger Timeout\n");
 			break;

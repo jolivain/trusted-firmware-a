@@ -1,21 +1,22 @@
 /*
- * Copyright (c) 2019-2021, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <string.h>
+
 #include <cdefs.h>
 #include <common/debug.h>
 #include <lib/debugfs.h>
-#include <string.h>
 
 #include "dev.h"
 
-#define NR_MOUNT_POINTS		4
+#define NR_MOUNT_POINTS 4
 
 struct mount_point {
-	chan_t	*new;
-	chan_t	*old;
+	chan_t *new;
+	chan_t *old;
 };
 
 /* This array contains all the available channels of the filesystem.
@@ -123,7 +124,7 @@ static const char *next(const char *path, char *token)
 static int get_device_index(int id)
 {
 	int index;
-	dev_t * const *dp;
+	dev_t *const *dp;
 
 	for (index = 0, dp = devtab; *dp && (*dp)->id != id; ++dp) {
 		index++;
@@ -142,10 +143,10 @@ static int get_device_index(int id)
 static void channel_clear(chan_t *channel)
 {
 	channel->offset = 0;
-	channel->qid    = 0;
-	channel->index  = NODEV;
-	channel->dev    = 0;
-	channel->mode   = 0;
+	channel->qid = 0;
+	channel->index = NODEV;
+	channel->dev = 0;
+	channel->mode = 0;
 }
 
 /*******************************************************************************
@@ -298,7 +299,7 @@ chan_t *path_to_channel(const char *path, int mode)
 	}
 
 	for (path_next = next(path_next, elem); *elem;
-			path_next = next(path_next, elem)) {
+	     path_next = next(path_next, elem)) {
 		if ((channel->qid & CHDIR) == 0) {
 			goto notfound;
 		}
@@ -358,11 +359,11 @@ chan_t *devclone(chan_t *channel, chan_t *new_channel)
 		}
 	}
 
-	new_channel->qid    = channel->qid;
-	new_channel->dev    = channel->dev;
-	new_channel->mode   = channel->mode;
+	new_channel->qid = channel->qid;
+	new_channel->dev = channel->dev;
+	new_channel->mode = channel->mode;
 	new_channel->offset = channel->offset;
-	new_channel->index  = channel->index;
+	new_channel->index = channel->index;
 
 	return new_channel;
 }
@@ -373,8 +374,8 @@ chan_t *devclone(chan_t *channel, chan_t *new_channel)
  * is found with name.
  * If a match is found, it copies the qid of the new directory.
  ******************************************************************************/
-int devwalk(chan_t *channel, const char *name, const dirtab_t *tab,
-	    int ntab, devgen_t *gen)
+int devwalk(chan_t *channel, const char *name, const dirtab_t *tab, int ntab,
+	    devgen_t *gen)
 {
 	int i;
 	dir_t dir;
@@ -387,7 +388,7 @@ int devwalk(chan_t *channel, const char *name, const dirtab_t *tab,
 		return 1;
 	}
 
-	for (i = 0; ; i++) {
+	for (i = 0;; i++) {
 		switch ((*gen)(channel, tab, ntab, i, &dir)) {
 		case 0:
 			/* Intentional fall-through */
@@ -409,8 +410,8 @@ int devwalk(chan_t *channel, const char *name, const dirtab_t *tab,
  * reached or an error occurs.
  * It returns -1 on error, 0 on end of directory and 1 when a new file is found.
  ******************************************************************************/
-int dirread(chan_t *channel, dir_t *dir, const dirtab_t *tab,
-	int ntab, devgen_t *gen)
+int dirread(chan_t *channel, dir_t *dir, const dirtab_t *tab, int ntab,
+	    devgen_t *gen)
 {
 	int i, ret;
 
@@ -418,7 +419,7 @@ int dirread(chan_t *channel, dir_t *dir, const dirtab_t *tab,
 		return -1;
 	}
 
-	i = channel->offset/sizeof(dir_t);
+	i = channel->offset / sizeof(dir_t);
 	ret = (*gen)(channel, tab, ntab, i, dir);
 	if (ret == 1) {
 		channel->offset += sizeof(dir_t);
@@ -430,8 +431,8 @@ int dirread(chan_t *channel, dir_t *dir, const dirtab_t *tab,
 /*******************************************************************************
  * This function sets the elements of dir.
  ******************************************************************************/
-void make_dir_entry(chan_t *channel, dir_t *dir,
-	     const char *name, long length, qid_t qid, unsigned int mode)
+void make_dir_entry(chan_t *channel, dir_t *dir, const char *name, long length,
+		    qid_t qid, unsigned int mode)
 {
 	if ((channel == NULL) || (dir == NULL) || (name == NULL)) {
 		return;
@@ -447,7 +448,7 @@ void make_dir_entry(chan_t *channel, dir_t *dir,
 	}
 
 	dir->index = channel->index;
-	dir->dev   = channel->dev;
+	dir->dev = channel->dev;
 }
 
 /*******************************************************************************
@@ -460,7 +461,7 @@ int devgen(chan_t *channel, const dirtab_t *tab, int ntab, int n, dir_t *dir)
 	const dirtab_t *dp;
 
 	if ((channel == NULL) || (dir == NULL) || (tab == NULL) ||
-			(n >= ntab)) {
+	    (n >= ntab)) {
 		return 0;
 	}
 
@@ -512,8 +513,8 @@ int close(int fd)
  * is found with file.
  * If a match is found, dir contains the information file.
  ******************************************************************************/
-int devstat(chan_t *dirc, const char *file, dir_t *dir,
-	    const dirtab_t *tab, int ntab, devgen_t *gen)
+int devstat(chan_t *dirc, const char *file, dir_t *dir, const dirtab_t *tab,
+	    int ntab, devgen_t *gen)
 {
 	int i, r = 0;
 	chan_t *c, *mnt;
@@ -527,7 +528,7 @@ int devstat(chan_t *dirc, const char *file, dir_t *dir,
 		return -1;
 	}
 
-	for (i = 0; ; i++) {
+	for (i = 0;; i++) {
 		switch ((*gen)(dirc, tab, ntab, i, dir)) {
 		case 0:
 			/* Intentional fall-through */

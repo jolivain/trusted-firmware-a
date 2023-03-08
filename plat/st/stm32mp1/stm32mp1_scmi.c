@@ -6,8 +6,6 @@
 #include <assert.h>
 #include <stdint.h>
 
-#include <platform_def.h>
-
 #include <drivers/clk.h>
 #include <drivers/scmi-msg.h>
 #include <drivers/scmi.h>
@@ -16,10 +14,12 @@
 #include <dt-bindings/clock/stm32mp1-clks.h>
 #include <dt-bindings/reset/stm32mp1-resets.h>
 
-#define TIMEOUT_US_1MS		1000U
+#include <platform_def.h>
 
-#define SCMI_CLOCK_NAME_SIZE	16U
-#define SCMI_RSTD_NAME_SIZE	16U
+#define TIMEOUT_US_1MS 1000U
+
+#define SCMI_CLOCK_NAME_SIZE 16U
+#define SCMI_RSTD_NAME_SIZE 16U
 
 /*
  * struct stm32_scmi_clk - Data for the exposed clock
@@ -44,12 +44,12 @@ struct stm32_scmi_rstd {
 };
 
 /* Locate all non-secure SMT message buffers in last page of SYSRAM */
-#define SMT_BUFFER_BASE		STM32MP_SCMI_NS_SHM_BASE
-#define SMT_BUFFER0_BASE	SMT_BUFFER_BASE
-#define SMT_BUFFER1_BASE	(SMT_BUFFER_BASE + 0x200)
+#define SMT_BUFFER_BASE STM32MP_SCMI_NS_SHM_BASE
+#define SMT_BUFFER0_BASE SMT_BUFFER_BASE
+#define SMT_BUFFER1_BASE (SMT_BUFFER_BASE + 0x200)
 
 CASSERT((STM32MP_SCMI_NS_SHM_BASE + STM32MP_SCMI_NS_SHM_SIZE) >=
-	(SMT_BUFFER1_BASE + SMT_BUF_SLOT_SIZE),
+		(SMT_BUFFER1_BASE + SMT_BUF_SLOT_SIZE),
 	assert_scmi_non_secure_shm_fits_scmi_overall_buffer_size);
 
 static struct scmi_msg_channel scmi_channel[] = {
@@ -71,10 +71,10 @@ struct scmi_msg_channel *plat_scmi_get_channel(unsigned int agent_id)
 }
 
 #define CLOCK_CELL(_scmi_id, _id, _name, _init_enabled) \
-	[_scmi_id] = { \
-		.clock_id = _id, \
-		.name = _name, \
-		.enabled = _init_enabled, \
+	[_scmi_id] = {                                  \
+		.clock_id = _id,                        \
+		.name = _name,                          \
+		.enabled = _init_enabled,               \
 	}
 
 static struct stm32_scmi_clk stm32_scmi0_clock[] = {
@@ -108,9 +108,9 @@ static struct stm32_scmi_clk stm32_scmi1_clock[] = {
 };
 
 #define RESET_CELL(_scmi_id, _id, _name) \
-	[_scmi_id] = { \
-		.reset_id = _id, \
-		.name = _name, \
+	[_scmi_id] = {                   \
+		.reset_id = _id,         \
+		.name = _name,           \
 	}
 
 static struct stm32_scmi_rstd stm32_scmi0_reset_domain[] = {
@@ -193,8 +193,7 @@ const char *plat_scmi_sub_vendor_name(void)
 
 /* Currently supporting Clocks and Reset Domains */
 static const uint8_t plat_protocol_list[] = {
-	SCMI_PROTOCOL_ID_CLOCK,
-	SCMI_PROTOCOL_ID_RESET_DOMAIN,
+	SCMI_PROTOCOL_ID_CLOCK, SCMI_PROTOCOL_ID_RESET_DOMAIN,
 	0U /* Null termination */
 };
 
@@ -381,7 +380,7 @@ size_t plat_scmi_rstd_count(unsigned int agent_id)
 }
 
 int32_t plat_scmi_rstd_autonomous(unsigned int agent_id, unsigned int scmi_id,
-				uint32_t state)
+				  uint32_t state)
 {
 	const struct stm32_scmi_rstd *rstd = find_rstd(agent_id, scmi_id);
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -97,9 +97,9 @@ void sme_disable(cpu_context_t *context)
 
 	/* Disable SME, SVE, and FPU since they all share registers. */
 	reg = read_ctx_reg(state, CTX_CPTR_EL3);
-	reg &= ~ESM_BIT;	/* Trap SME */
-	reg &= ~CPTR_EZ_BIT;	/* Trap SVE */
-	reg |= TFP_BIT;		/* Trap FPU/SIMD */
+	reg &= ~ESM_BIT; /* Trap SME */
+	reg &= ~CPTR_EZ_BIT; /* Trap SVE */
+	reg |= TFP_BIT; /* Trap FPU/SIMD */
 	write_ctx_reg(state, CTX_CPTR_EL3, reg);
 
 	/* Disable access to TPIDR2_EL0. */

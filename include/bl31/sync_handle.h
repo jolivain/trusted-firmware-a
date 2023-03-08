@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, ARM Limited. All rights reserved.
+ * Copyright (c) 2022-2023, ARM Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,19 +8,20 @@
 #define TRAP_HANDLE_H
 
 #include <stdbool.h>
+
 #include <context.h>
 
-#define ISS_SYSREG_OPCODE_MASK		0x3ffc1eUL
-#define ISS_SYSREG_REG_MASK		0x0003e0UL
-#define ISS_SYSREG_REG_SHIFT		5U
-#define ISS_SYSREG_DIRECTION_MASK	0x000001UL
+#define ISS_SYSREG_OPCODE_MASK 0x3ffc1eUL
+#define ISS_SYSREG_REG_MASK 0x0003e0UL
+#define ISS_SYSREG_REG_SHIFT 5U
+#define ISS_SYSREG_DIRECTION_MASK 0x000001UL
 
-#define ISS_SYSREG_OPCODE_RNDR		0x30c808U
-#define ISS_SYSREG_OPCODE_RNDRRS	0x32c808U
+#define ISS_SYSREG_OPCODE_RNDR 0x30c808U
+#define ISS_SYSREG_OPCODE_RNDRRS 0x32c808U
 
-#define TRAP_RET_UNHANDLED		-1
-#define TRAP_RET_REPEAT			0
-#define TRAP_RET_CONTINUE		1
+#define TRAP_RET_UNHANDLED -1
+#define TRAP_RET_REPEAT 0
+#define TRAP_RET_CONTINUE 1
 
 #ifndef __ASSEMBLER__
 static inline unsigned int get_sysreg_iss_rt(uint64_t esr)

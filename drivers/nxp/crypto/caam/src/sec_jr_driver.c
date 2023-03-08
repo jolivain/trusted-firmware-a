@@ -13,13 +13,13 @@
 #include <string.h>
 
 #include <arch_helpers.h>
-#include "caam.h"
 #include <common/debug.h>
+
+#include "caam.h"
 #include "jobdesc.h"
 #include "nxp_timer.h"
 #include "sec_hw_specific.h"
 #include "sec_jr_driver.h"
-
 
 /* Job rings used for communication with SEC HW  */
 struct sec_job_ring_t g_job_rings[MAX_SEC_JOB_RINGS];
@@ -32,10 +32,9 @@ int g_job_rings_no;
 uint8_t ip_ring[SEC_DMA_MEM_INPUT_RING_SIZE] __aligned(CACHE_WRITEBACK_GRANULE);
 uint8_t op_ring[SEC_DMA_MEM_OUTPUT_RING_SIZE] __aligned(CACHE_WRITEBACK_GRANULE);
 
-void *init_job_ring(uint8_t jr_mode,
-		    uint16_t irq_coalescing_timer,
-		    uint8_t irq_coalescing_count,
-		    void *reg_base_addr, uint32_t irq_id)
+void *init_job_ring(uint8_t jr_mode, uint16_t irq_coalescing_timer,
+		    uint8_t irq_coalescing_count, void *reg_base_addr,
+		    uint32_t irq_id)
 {
 	struct sec_job_ring_t *job_ring = &g_job_rings[g_job_rings_no++];
 	int ret = 0;
@@ -54,11 +53,11 @@ void *init_job_ring(uint8_t jr_mode,
 
 #if defined(SEC_MEM_NON_COHERENT) && defined(IMAGE_BL2)
 	flush_dcache_range((uintptr_t)(job_ring->input_ring),
-				       SEC_DMA_MEM_INPUT_RING_SIZE),
-	flush_dcache_range((uintptr_t)(job_ring->output_ring),
-				       SEC_DMA_MEM_OUTPUT_RING_SIZE),
+			   SEC_DMA_MEM_INPUT_RING_SIZE),
+		flush_dcache_range((uintptr_t)(job_ring->output_ring),
+				   SEC_DMA_MEM_OUTPUT_RING_SIZE),
 
-	dmbsy();
+		dmbsy();
 #endif
 	/* Reset job ring in SEC hw and configure job ring registers */
 	ret = hw_reset_job_ring(job_ring);
@@ -77,8 +76,7 @@ void *init_job_ring(uint8_t jr_mode,
 		}
 	}
 	if ((irq_coalescing_timer != 0) || (irq_coalescing_count != 0)) {
-		hw_job_ring_set_coalescing_param(job_ring,
-						 irq_coalescing_timer,
+		hw_job_ring_set_coalescing_param(job_ring, irq_coalescing_timer,
 						 irq_coalescing_count);
 
 		hw_job_ring_enable_coalescing(job_ring);
@@ -137,7 +135,7 @@ int dequeue_jr(void *job_ring_handle, int32_t limit)
 {
 	int ret = 0;
 	int notified_descs_no = 0;
-	struct sec_job_ring_t *job_ring = (sec_job_ring_t *) job_ring_handle;
+	struct sec_job_ring_t *job_ring = (sec_job_ring_t *)job_ring_handle;
 	uint64_t start_time;
 
 	/* Validate driver state */
@@ -180,7 +178,6 @@ int dequeue_jr(void *job_ring_handle, int32_t limit)
 	}
 
 	if (job_ring->jr_mode == SEC_NOTIFICATION_TYPE_IRQ) {
-
 		/* Always enable IRQ generation when in pure IRQ mode */
 		ret = jr_enable_irqs(job_ring);
 		if (ret != 0) {
@@ -217,7 +214,7 @@ int enq_jr_desc(void *job_ring_handle, struct job_descriptor *jobdescr)
 
 	/* Set ptr in input ring to current descriptor  */
 	sec_write_addr(&job_ring->input_ring[job_ring->pidx],
-		       (phys_addr_t) vtop(jobdescr->desc));
+		       (phys_addr_t)vtop(jobdescr->desc));
 
 	dsb();
 
@@ -226,16 +223,16 @@ int enq_jr_desc(void *job_ring_handle, struct job_descriptor *jobdescr)
 			   sizeof(phys_addr_t));
 
 	inv_dcache_range((uintptr_t)(&job_ring->output_ring[job_ring->cidx]),
-			   sizeof(struct sec_outring_entry));
+			 sizeof(struct sec_outring_entry));
 	dmbsy();
 #endif
 	/* Notify HW that a new job is enqueued  */
 	hw_enqueue_desc_on_job_ring(
-			(struct jobring_regs *)job_ring->register_base_addr, 1);
+		(struct jobring_regs *)job_ring->register_base_addr, 1);
 
 	/* increment the producer index for the current job ring */
-	job_ring->pidx = SEC_CIRCULAR_COUNTER(job_ring->pidx,
-					      SEC_JOB_RING_SIZE);
+	job_ring->pidx =
+		SEC_CIRCULAR_COUNTER(job_ring->pidx, SEC_JOB_RING_SIZE);
 
 	return 0;
 }

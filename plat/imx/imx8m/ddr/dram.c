@@ -6,14 +6,14 @@
 
 #include <bl31/interrupt_mgmt.h>
 #include <common/runtime_svc.h>
+#include <dram.h>
 #include <lib/mmio.h>
 #include <lib/spinlock.h>
+
 #include <plat/common/platform.h>
 
-#include <dram.h>
-
-#define IMX_SIP_DDR_DVFS_GET_FREQ_COUNT		0x10
-#define IMX_SIP_DDR_DVFS_GET_FREQ_INFO		0x11
+#define IMX_SIP_DDR_DVFS_GET_FREQ_COUNT 0x10
+#define IMX_SIP_DDR_DVFS_GET_FREQ_INFO 0x11
 
 struct dram_info dram_info;
 
@@ -26,8 +26,10 @@ static unsigned int dev_fsp = 0x1;
 
 static uint32_t fsp_init_reg[3][4] = {
 	{ DDRC_INIT3(0), DDRC_INIT4(0), DDRC_INIT6(0), DDRC_INIT7(0) },
-	{ DDRC_FREQ1_INIT3(0), DDRC_FREQ1_INIT4(0), DDRC_FREQ1_INIT6(0), DDRC_FREQ1_INIT7(0) },
-	{ DDRC_FREQ2_INIT3(0), DDRC_FREQ2_INIT4(0), DDRC_FREQ2_INIT6(0), DDRC_FREQ2_INIT7(0) },
+	{ DDRC_FREQ1_INIT3(0), DDRC_FREQ1_INIT4(0), DDRC_FREQ1_INIT6(0),
+	  DDRC_FREQ1_INIT7(0) },
+	{ DDRC_FREQ2_INIT3(0), DDRC_FREQ2_INIT4(0), DDRC_FREQ2_INIT6(0),
+	  DDRC_FREQ2_INIT7(0) },
 };
 
 static void get_mr_values(uint32_t (*mr_value)[8])
@@ -38,8 +40,8 @@ static void get_mr_values(uint32_t (*mr_value)[8])
 	for (fsp_index = 0U; fsp_index < 3U; fsp_index++) {
 		for (i = 0U; i < 4U; i++) {
 			init_val = mmio_read_32(fsp_init_reg[fsp_index][i]);
-			mr_value[fsp_index][2*i] = init_val >> 16;
-			mr_value[fsp_index][2*i + 1] = init_val & 0xFFFF;
+			mr_value[fsp_index][2 * i] = init_val >> 16;
+			mr_value[fsp_index][2 * i + 1] = init_val & 0xFFFF;
 		}
 	}
 }
@@ -88,8 +90,8 @@ void dram_phy_init(struct dram_timing_info *timing)
 }
 
 /* EL3 SGI-8 IPI handler for DDR Dynamic frequency scaling */
-static uint64_t waiting_dvfs(uint32_t id, uint32_t flags,
-				void *handle, void *cookie)
+static uint64_t waiting_dvfs(uint32_t id, uint32_t flags, void *handle,
+			     void *cookie)
 {
 	uint64_t mpidr = read_mpidr_el1();
 	unsigned int cpu_id = MPIDR_AFFLVL0_VAL(mpidr);
@@ -158,12 +160,12 @@ void dram_info_init(unsigned long dram_timing_base)
 
 	/* Register the EL3 handler for DDR DVFS */
 	set_interrupt_rm_flag(flags, NON_SECURE);
-	rc = register_interrupt_type_handler(INTR_TYPE_EL3, waiting_dvfs, flags);
+	rc = register_interrupt_type_handler(INTR_TYPE_EL3, waiting_dvfs,
+					     flags);
 	if (rc != 0) {
 		panic();
 	}
 }
-
 
 /*
  * For each freq return the following info:
@@ -186,32 +188,28 @@ int dram_dvfs_get_freq_info(void *handle, u_register_t index)
 {
 	switch (index) {
 	case 0:
-		 SMC_RET4(handle, dram_info.timing_info->fsp_table[0],
-			1, 0, 5);
+		SMC_RET4(handle, dram_info.timing_info->fsp_table[0], 1, 0, 5);
 	case 1:
 		if (!dram_info.bypass_mode) {
-			SMC_RET4(handle, dram_info.timing_info->fsp_table[1],
-				1, 0, 0);
+			SMC_RET4(handle, dram_info.timing_info->fsp_table[1], 1,
+				 0, 0);
 		}
-		SMC_RET4(handle, dram_info.timing_info->fsp_table[1],
-			2, 2, 4);
+		SMC_RET4(handle, dram_info.timing_info->fsp_table[1], 2, 2, 4);
 	case 2:
 		if (!dram_info.bypass_mode) {
-			SMC_RET4(handle, dram_info.timing_info->fsp_table[2],
-				1, 0, 0);
+			SMC_RET4(handle, dram_info.timing_info->fsp_table[2], 1,
+				 0, 0);
 		}
-		SMC_RET4(handle, dram_info.timing_info->fsp_table[2],
-			2, 3, 3);
+		SMC_RET4(handle, dram_info.timing_info->fsp_table[2], 2, 3, 3);
 	case 3:
-		 SMC_RET4(handle, dram_info.timing_info->fsp_table[3],
-			1, 0, 0);
+		SMC_RET4(handle, dram_info.timing_info->fsp_table[3], 1, 0, 0);
 	default:
 		SMC_RET1(handle, -3);
 	}
 }
 
-int dram_dvfs_handler(uint32_t smc_fid, void *handle,
-	u_register_t x1, u_register_t x2, u_register_t x3)
+int dram_dvfs_handler(uint32_t smc_fid, void *handle, u_register_t x1,
+		      u_register_t x2, u_register_t x3)
 {
 	uint64_t mpidr = read_mpidr_el1();
 	unsigned int cpu_id = MPIDR_AFFLVL0_VAL(mpidr);

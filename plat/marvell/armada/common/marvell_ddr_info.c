@@ -5,33 +5,32 @@
  * https://spdx.org/licenses
  */
 
-#include <platform_def.h>
-
 #include <common/debug.h>
+#include <ddr_info.h>
 #include <lib/mmio.h>
 
-#include <ddr_info.h>
+#include <platform_def.h>
 
-#define DRAM_CH0_MMAP_LOW_REG(iface, cs, base)	\
-	(base + DRAM_CH0_MMAP_LOW_OFFSET + (iface) * 0x10000 + (cs) * 0x8)
-#define DRAM_CH0_MMAP_HIGH_REG(iface, cs, base)	\
+#define DRAM_CH0_MMAP_LOW_REG(iface, cs, base) \
+	(base + DRAM_CH0_MMAP_LOW_OFFSET + (iface)*0x10000 + (cs)*0x8)
+#define DRAM_CH0_MMAP_HIGH_REG(iface, cs, base) \
 	(DRAM_CH0_MMAP_LOW_REG(iface, cs, base) + 4)
-#define DRAM_CS_VALID_ENABLED_MASK		0x1
-#define DRAM_AREA_LENGTH_OFFS			16
-#define DRAM_AREA_LENGTH_MASK			(0x1f << DRAM_AREA_LENGTH_OFFS)
-#define DRAM_START_ADDRESS_L_OFFS		23
-#define DRAM_START_ADDRESS_L_MASK		\
-					(0x1ff << DRAM_START_ADDRESS_L_OFFS)
-#define DRAM_START_ADDR_HTOL_OFFS		32
+#define DRAM_CS_VALID_ENABLED_MASK 0x1
+#define DRAM_AREA_LENGTH_OFFS 16
+#define DRAM_AREA_LENGTH_MASK (0x1f << DRAM_AREA_LENGTH_OFFS)
+#define DRAM_START_ADDRESS_L_OFFS 23
+#define DRAM_START_ADDRESS_L_MASK (0x1ff << DRAM_START_ADDRESS_L_OFFS)
+#define DRAM_START_ADDR_HTOL_OFFS 32
 
-#define DRAM_MAX_CS_NUM				2
+#define DRAM_MAX_CS_NUM 2
 
-#define DRAM_CS_ENABLED(iface, cs, base) \
+#define DRAM_CS_ENABLED(iface, cs, base)                        \
 	(mmio_read_32(DRAM_CH0_MMAP_LOW_REG(iface, cs, base)) & \
 	 DRAM_CS_VALID_ENABLED_MASK)
-#define GET_DRAM_REGION_SIZE_CODE(iface, cs, base) \
+#define GET_DRAM_REGION_SIZE_CODE(iface, cs, base)              \
 	(mmio_read_32(DRAM_CH0_MMAP_LOW_REG(iface, cs, base)) & \
-	DRAM_AREA_LENGTH_MASK) >> DRAM_AREA_LENGTH_OFFS
+	 DRAM_AREA_LENGTH_MASK) >>                              \
+		DRAM_AREA_LENGTH_OFFS
 
 /* Mapping between DDR area length and real DDR size is specific and looks like
  * bellow:
@@ -68,11 +67,10 @@
  * using mentioned formulas we cover whole mapping between "Area length" value
  * and real size (see above mapping).
  */
-#define DRAM_REGION_SIZE_EVEN(C)	(((C) >= 7) && ((C) <= 26))
-#define GET_DRAM_REGION_SIZE_EVEN(C)	((uint64_t)1 << ((C) + 16))
-#define DRAM_REGION_SIZE_ODD(C)		((C) <= 4)
-#define GET_DRAM_REGION_SIZE_ODD(C)	((uint64_t)0x18000000 << (C))
-
+#define DRAM_REGION_SIZE_EVEN(C) (((C) >= 7) && ((C) <= 26))
+#define GET_DRAM_REGION_SIZE_EVEN(C) ((uint64_t)1 << ((C) + 16))
+#define DRAM_REGION_SIZE_ODD(C) ((C) <= 4)
+#define GET_DRAM_REGION_SIZE_ODD(C) ((uint64_t)0x18000000 << (C))
 
 uint64_t mvebu_get_dram_size(uint64_t ap_base_addr)
 {
@@ -82,7 +80,6 @@ uint64_t mvebu_get_dram_size(uint64_t ap_base_addr)
 
 	for (iface = 0; iface < DRAM_MAX_IFACE; iface++) {
 		for (cs = 0; cs < DRAM_MAX_CS_NUM; cs++) {
-
 			/* Exit loop on first disabled DRAM CS */
 			if (!DRAM_CS_ENABLED(iface, cs, ap_base_addr))
 				break;
@@ -90,9 +87,8 @@ uint64_t mvebu_get_dram_size(uint64_t ap_base_addr)
 			/* Decode area length for current CS
 			 * from register value
 			 */
-			region_code =
-				GET_DRAM_REGION_SIZE_CODE(iface, cs,
-							  ap_base_addr);
+			region_code = GET_DRAM_REGION_SIZE_CODE(iface, cs,
+								ap_base_addr);
 
 			if (DRAM_REGION_SIZE_EVEN(region_code)) {
 				mem_size +=
@@ -102,7 +98,7 @@ uint64_t mvebu_get_dram_size(uint64_t ap_base_addr)
 					GET_DRAM_REGION_SIZE_ODD(region_code);
 			} else {
 				WARN("%s: Invalid mem region (0x%x) CS#%d\n",
-				      __func__, region_code, cs);
+				     __func__, region_code, cs);
 				return 0;
 			}
 		}

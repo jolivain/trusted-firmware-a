@@ -5,6 +5,7 @@
  */
 
 #include <assert.h>
+
 #include <arch.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
@@ -17,7 +18,6 @@
 
 #if COREBOOT
 #include <common/desc_image_load.h>
-
 #include <drivers/ti/uart/uart_16550.h>
 #include <lib/coreboot.h>
 #include <plat_params.h>
@@ -98,7 +98,8 @@ void *get_mtk_bl31_fw_config(int index)
  ******************************************************************************/
 void bl31_early_platform_setup2(u_register_t from_bl2,
 				u_register_t soc_fw_config,
-				u_register_t hw_config, u_register_t plat_params_from_bl2)
+				u_register_t hw_config,
+				u_register_t plat_params_from_bl2)
 
 {
 #if COREBOOT
@@ -108,12 +109,12 @@ void bl31_early_platform_setup2(u_register_t from_bl2,
 	if (coreboot_serial.type) {
 		console_16550_register(coreboot_serial.baseaddr,
 				       coreboot_serial.input_hertz,
-				       coreboot_serial.baud,
-				       &console);
+				       coreboot_serial.baud, &console);
 	}
 	bl31_params_parse_helper(from_bl2, &bl32_ep_info, &bl33_ep_info);
 #else
-	struct mtk_bl_param_t *p_mtk_bl_param = (struct mtk_bl_param_t *)from_bl2;
+	struct mtk_bl_param_t *p_mtk_bl_param =
+		(struct mtk_bl_param_t *)from_bl2;
 
 	if (p_mtk_bl_param == NULL) {
 		ERROR("from_bl2 should not be NULL\n");
@@ -141,7 +142,7 @@ void bl31_plat_arch_setup(void)
 #if USE_COHERENT_MEM
 		MAP_BL_COHERENT_RAM,
 #endif
-		{0},
+		{ 0 },
 	};
 
 	mtk_xlat_init(bl_regions);

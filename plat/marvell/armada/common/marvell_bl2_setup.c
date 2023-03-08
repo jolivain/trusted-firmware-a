@@ -8,14 +8,14 @@
 #include <assert.h>
 #include <string.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <common/desc_image_load.h>
 #include <drivers/console.h>
 #include <lib/utils.h>
+
+#include <platform_def.h>
 
 #ifdef SPD_opteed
 #include <optee_utils.h>
@@ -55,7 +55,6 @@ void marvell_bl2_early_platform_setup(meminfo_t *mem_layout)
 	plat_marvell_io_setup();
 }
 
-
 void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 			       u_register_t arg2, u_register_t arg3)
 {
@@ -77,16 +76,13 @@ void bl2_platform_setup(void)
 void marvell_bl2_plat_arch_setup(void)
 {
 	marvell_setup_page_tables(bl2_tzram_layout.total_base,
-				  bl2_tzram_layout.total_size,
-				  BL_CODE_BASE,
-				  BL_CODE_END,
-				  BL_RO_DATA_BASE,
-				  BL_RO_DATA_END
+				  bl2_tzram_layout.total_size, BL_CODE_BASE,
+				  BL_CODE_END, BL_RO_DATA_BASE, BL_RO_DATA_END
 #if USE_COHERENT_MEM
-				, BL_COHERENT_RAM_BASE,
-				  BL_COHERENT_RAM_END
+				  ,
+				  BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END
 #endif
-			      );
+	);
 	enable_mmu_el1(0);
 }
 
@@ -144,7 +140,6 @@ int marvell_bl2_handle_post_image_load(unsigned int image_id)
 	}
 
 	return err;
-
 }
 
 /*******************************************************************************
@@ -155,4 +150,3 @@ int bl2_plat_handle_post_image_load(unsigned int image_id)
 {
 	return marvell_bl2_handle_post_image_load(image_id);
 }
-

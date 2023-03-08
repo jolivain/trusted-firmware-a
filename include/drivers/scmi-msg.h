@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: BSD-3-Clause */
 /*
- * Copyright (c) 2015-2019, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  * Copyright (c) 2019, Linaro Limited
  */
 
@@ -12,7 +12,7 @@
 #include <stdint.h>
 
 /* Minimum size expected for SMT based shared memory message buffers */
-#define SMT_BUF_SLOT_SIZE	128U
+#define SMT_BUF_SLOT_SIZE 128U
 
 /* A channel abstract a communication path between agent and server */
 struct scmi_msg_channel;
@@ -182,7 +182,8 @@ size_t plat_scmi_rstd_count(unsigned int agent_id);
  * @scmi_id: SCMI reset domain ID
  * Return pointer to name or NULL
  */
-const char *plat_scmi_rstd_get_name(unsigned int agent_id, unsigned int scmi_id);
+const char *plat_scmi_rstd_get_name(unsigned int agent_id,
+				    unsigned int scmi_id);
 
 /*
  * Perform a reset cycle on a target reset domain

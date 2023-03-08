@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,8 +8,8 @@
 
 #include "aml_private.h"
 
-#define EFUSE_BASE	0x140
-#define EFUSE_SIZE	0xC0
+#define EFUSE_BASE 0x140
+#define EFUSE_SIZE 0xC0
 
 uint64_t aml_efuse_read(void *dst, uint32_t offset, uint32_t size)
 {

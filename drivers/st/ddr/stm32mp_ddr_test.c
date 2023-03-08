@@ -10,8 +10,8 @@
 
 #include <platform_def.h>
 
-#define DDR_PATTERN	0xAAAAAAAAU
-#define DDR_ANTIPATTERN	0x55555555U
+#define DDR_PATTERN 0xAAAAAAAAU
+#define DDR_ANTIPATTERN 0x55555555U
 
 /*******************************************************************************
  * This function tests a simple read/write access to the DDR.
@@ -74,13 +74,11 @@ uint32_t stm32mp_ddr_test_addr_bus(uint64_t size)
 	/* Write the default pattern at each of the power-of-two offsets. */
 	for (offset = sizeof(uint32_t); (offset & addressmask) != 0U;
 	     offset <<= 1U) {
-		mmio_write_32(STM32MP_DDR_BASE + (uint32_t)offset,
-			      DDR_PATTERN);
+		mmio_write_32(STM32MP_DDR_BASE + (uint32_t)offset, DDR_PATTERN);
 	}
 
 	/* Check for address bits stuck high. */
-	mmio_write_32(STM32MP_DDR_BASE + (uint32_t)testoffset,
-		      DDR_ANTIPATTERN);
+	mmio_write_32(STM32MP_DDR_BASE + (uint32_t)testoffset, DDR_ANTIPATTERN);
 
 	for (offset = sizeof(uint32_t); (offset & addressmask) != 0U;
 	     offset <<= 1U) {

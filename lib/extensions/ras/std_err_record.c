@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -22,8 +22,8 @@ int ser_probe_memmap(uintptr_t base, unsigned int size_num_k, int *probe_data)
 	/* Only 4K supported for now */
 	assert(size_num_k == STD_ERR_NODE_SIZE_NUM_K);
 
-	num_records = (unsigned int)
-		(mmio_read_32(ERR_DEVID(base, size_num_k)) & ERR_DEVID_MASK);
+	num_records = (unsigned int)(mmio_read_32(ERR_DEVID(base, size_num_k)) &
+				     ERR_DEVID_MASK);
 
 	/* A group register shows error status for 2^6 error records */
 	num_group_regs = (num_records >> 6U) + 1U;
@@ -36,7 +36,7 @@ int ser_probe_memmap(uintptr_t base, unsigned int size_num_k, int *probe_data)
 
 		/* Return the index of the record in error */
 		if (probe_data != NULL)
-			*probe_data = (((int) (i << 6U)) + __builtin_ctzll(gsr));
+			*probe_data = (((int)(i << 6U)) + __builtin_ctzll(gsr));
 
 		return 1;
 	}
@@ -49,12 +49,13 @@ int ser_probe_memmap(uintptr_t base, unsigned int size_num_k, int *probe_data)
  * Standard Error Record format. Upon detecting an error, set probe data to the
  * index of the record in error, and return 1; otherwise, return 0.
  */
-int ser_probe_sysreg(unsigned int idx_start, unsigned int num_idx, int *probe_data)
+int ser_probe_sysreg(unsigned int idx_start, unsigned int num_idx,
+		     int *probe_data)
 {
 	unsigned int i;
 	uint64_t status;
-	unsigned int max_idx __unused =
-		((unsigned int) read_erridr_el1()) & ERRIDR_MASK;
+	unsigned int max_idx __unused = ((unsigned int)read_erridr_el1()) &
+					ERRIDR_MASK;
 
 	assert(idx_start < max_idx);
 	assert(check_u32_overflow(idx_start, num_idx) == 0);
@@ -70,7 +71,7 @@ int ser_probe_sysreg(unsigned int idx_start, unsigned int num_idx, int *probe_da
 		/* Check for valid field in status */
 		if (ERR_STATUS_GET_FIELD(status, V) != 0U) {
 			if (probe_data != NULL)
-				*probe_data = (int) i;
+				*probe_data = (int)i;
 			return 1;
 		}
 	}

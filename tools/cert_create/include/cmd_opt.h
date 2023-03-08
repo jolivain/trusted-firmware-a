@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,14 +9,10 @@
 
 #include <getopt.h>
 
-#define CMD_OPT_MAX_NUM			64
+#define CMD_OPT_MAX_NUM 64
 
 /* Supported long command line option types */
-enum {
-	CMD_OPT_CERT,
-	CMD_OPT_KEY,
-	CMD_OPT_EXT
-};
+enum { CMD_OPT_CERT, CMD_OPT_KEY, CMD_OPT_EXT };
 
 /* Structure to define a command line option */
 typedef struct cmd_opt_s {

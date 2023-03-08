@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,6 +13,7 @@
 #include <lib/smccc.h>
 #include <services/arm_arch_svc.h>
 #include <smccc_helpers.h>
+
 #include <plat/common/platform.h>
 
 static int32_t smccc_version(void)
@@ -46,7 +47,7 @@ static int32_t smccc_arch_features(u_register_t arg1)
 		 * (SSBS) feature.
 		 */
 		ssbs = (read_id_aa64pfr1_el1() >> ID_AA64PFR1_EL1_SSBS_SHIFT) &
-			ID_AA64PFR1_EL1_SSBS_MASK;
+		       ID_AA64PFR1_EL1_SSBS_MASK;
 
 		/*
 		 * If architectural SSBS is available on this PE, no firmware
@@ -89,7 +90,7 @@ static int32_t smccc_arch_features(u_register_t arg1)
 		return 0; /* ERRATA_APPLIES || ERRATA_MISSING */
 #endif
 
-	/* Fallthrough */
+		/* Fallthrough */
 
 	default:
 		return SMC_UNK;
@@ -112,14 +113,10 @@ static int32_t smccc_arch_id(u_register_t arg1)
 /*
  * Top-level Arm Architectural Service SMC handler.
  */
-static uintptr_t arm_arch_svc_smc_handler(uint32_t smc_fid,
-	u_register_t x1,
-	u_register_t x2,
-	u_register_t x3,
-	u_register_t x4,
-	void *cookie,
-	void *handle,
-	u_register_t flags)
+static uintptr_t arm_arch_svc_smc_handler(uint32_t smc_fid, u_register_t x1,
+					  u_register_t x2, u_register_t x3,
+					  u_register_t x4, void *cookie,
+					  void *handle, u_register_t flags)
 {
 	switch (smc_fid) {
 	case SMCCC_VERSION:
@@ -158,17 +155,11 @@ static uintptr_t arm_arch_svc_smc_handler(uint32_t smc_fid,
 #endif
 	default:
 		WARN("Unimplemented Arm Architecture Service Call: 0x%x \n",
-			smc_fid);
+		     smc_fid);
 		SMC_RET1(handle, SMC_UNK);
 	}
 }
 
 /* Register Standard Service Calls as runtime service */
-DECLARE_RT_SVC(
-		arm_arch_svc,
-		OEN_ARM_START,
-		OEN_ARM_END,
-		SMC_TYPE_FAST,
-		NULL,
-		arm_arch_svc_smc_handler
-);
+DECLARE_RT_SVC(arm_arch_svc, OEN_ARM_START, OEN_ARM_END, SMC_TYPE_FAST, NULL,
+	       arm_arch_svc_smc_handler);

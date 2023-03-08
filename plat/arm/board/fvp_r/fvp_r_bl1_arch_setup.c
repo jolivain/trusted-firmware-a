@@ -1,13 +1,13 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include "../../../../bl1/bl1_private.h"
 #include <arch.h>
-
 #include <fvp_r_arch_helpers.h>
+
+#include "../../../../bl1/bl1_private.h"
 
 /*******************************************************************************
  * Function that does the first bit of architectural setup that affects

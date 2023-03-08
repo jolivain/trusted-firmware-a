@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2020, ARM Limited. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,6 +9,7 @@
 #include <string.h>
 
 #include <drivers/arm/cryptocell/cc_rotpk.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/common_def.h>
 #include <plat/common/platform.h>
@@ -23,7 +24,7 @@ extern unsigned char arm_rotpk_header[];
  * Return the ROTPK hash stored in the registers of Juno board.
  */
 static int juno_get_rotpk_info_regs(void **key_ptr, unsigned int *key_len,
-			unsigned int *flags)
+				    unsigned int *flags)
 {
 	uint8_t *dst;
 	uint32_t *src, tmp;
@@ -36,7 +37,6 @@ static int juno_get_rotpk_info_regs(void **key_ptr, unsigned int *key_len,
 	/* Copy the DER header */
 	memcpy(rotpk_hash_der, arm_rotpk_header, ARM_ROTPK_HEADER_LEN);
 	dst = (uint8_t *)&rotpk_hash_der[ARM_ROTPK_HEADER_LEN];
-
 
 	/*
 	 * Append the hash from Trusted Root-Key Storage registers. The hash has
@@ -66,7 +66,7 @@ static int juno_get_rotpk_info_regs(void **key_ptr, unsigned int *key_len,
 
 	/* Swap bytes 0-15 (first four registers) */
 	src = (uint32_t *)TZ_PUB_KEY_HASH_BASE;
-	for (i = 0 ; i < words ; i++) {
+	for (i = 0; i < words; i++) {
 		tmp = src[words - 1 - i];
 		/* Words are read in little endian */
 		*dst++ = (uint8_t)((tmp >> 24) & 0xFF);
@@ -77,7 +77,7 @@ static int juno_get_rotpk_info_regs(void **key_ptr, unsigned int *key_len,
 
 	/* Swap bytes 16-31 (last four registers) */
 	src = (uint32_t *)(TZ_PUB_KEY_HASH_BASE + ARM_ROTPK_HASH_LEN / 2);
-	for (i = 0 ; i < words ; i++) {
+	for (i = 0; i < words; i++) {
 		tmp = src[words - 1 - i];
 		*dst++ = (uint8_t)((tmp >> 24) & 0xFF);
 		*dst++ = (uint8_t)((tmp >> 16) & 0xFF);
@@ -114,7 +114,7 @@ int plat_get_rotpk_info(void *cookie, void **key_ptr, unsigned int *key_len,
 #else
 
 #if (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_RSA_ID) || \
-    (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_ECDSA_ID)
+	(ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_ECDSA_ID)
 	return arm_get_rotpk_info_dev(key_ptr, key_len, flags);
 #elif (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_REGS_ID)
 	return juno_get_rotpk_info_regs(key_ptr, key_len, flags);

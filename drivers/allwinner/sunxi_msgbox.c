@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,32 +11,31 @@
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
 #include <lib/utils_def.h>
-
 #include <sunxi_mmap.h>
 
-#define REMOTE_IRQ_EN_REG	0x0040
-#define REMOTE_IRQ_STAT_REG	0x0050
-#define LOCAL_IRQ_EN_REG	0x0060
-#define LOCAL_IRQ_STAT_REG	0x0070
+#define REMOTE_IRQ_EN_REG 0x0040
+#define REMOTE_IRQ_STAT_REG 0x0050
+#define LOCAL_IRQ_EN_REG 0x0060
+#define LOCAL_IRQ_STAT_REG 0x0070
 
-#define RX_IRQ(n)		BIT(0 + 2 * (n))
-#define TX_IRQ(n)		BIT(1 + 2 * (n))
+#define RX_IRQ(n) BIT(0 + 2 * (n))
+#define TX_IRQ(n) BIT(1 + 2 * (n))
 
-#define FIFO_STAT_REG(n)	(0x0100 + 0x4 * (n))
-#define FIFO_STAT_MASK		GENMASK(0, 0)
+#define FIFO_STAT_REG(n) (0x0100 + 0x4 * (n))
+#define FIFO_STAT_MASK GENMASK(0, 0)
 
-#define MSG_STAT_REG(n)		(0x0140 + 0x4 * (n))
-#define MSG_STAT_MASK		GENMASK(2, 0)
+#define MSG_STAT_REG(n) (0x0140 + 0x4 * (n))
+#define MSG_STAT_MASK GENMASK(2, 0)
 
-#define MSG_DATA_REG(n)		(0x0180 + 0x4 * (n))
+#define MSG_DATA_REG(n) (0x0180 + 0x4 * (n))
 
-#define RX_CHAN			1
-#define TX_CHAN			0
+#define RX_CHAN 1
+#define TX_CHAN 0
 
-#define MHU_MAX_SLOT_ID		31
+#define MHU_MAX_SLOT_ID 31
 
-#define MHU_TIMEOUT_DELAY	10
-#define MHU_TIMEOUT_ITERS	10000
+#define MHU_TIMEOUT_DELAY 10
+#define MHU_TIMEOUT_ITERS 10000
 
 static DEFINE_BAKERY_LOCK(mhu_secure_message_lock);
 

@@ -17,21 +17,21 @@ typedef uintptr_t u_register_t;
  * Different Log Level supported in qtiseclib.
  * TODO: Currently no filtering done on QTISECLIB logs.
  */
-#define QTISECLIB_LOG_LEVEL_NONE	0
-#define QTISECLIB_LOG_LEVEL_ERROR	10
-#define QTISECLIB_LOG_LEVEL_NOTICE	20
-#define QTISECLIB_LOG_LEVEL_WARNING	30
-#define QTISECLIB_LOG_LEVEL_INFO	40
-#define QTISECLIB_LOG_LEVEL_VERBOSE	50
+#define QTISECLIB_LOG_LEVEL_NONE 0
+#define QTISECLIB_LOG_LEVEL_ERROR 10
+#define QTISECLIB_LOG_LEVEL_NOTICE 20
+#define QTISECLIB_LOG_LEVEL_WARNING 30
+#define QTISECLIB_LOG_LEVEL_INFO 40
+#define QTISECLIB_LOG_LEVEL_VERBOSE 50
 
-#define QTI_GICV3_IRM_PE		0
-#define QTI_GICV3_IRM_ANY		1
+#define QTI_GICV3_IRM_PE 0
+#define QTI_GICV3_IRM_ANY 1
 
 /* Common interrupt number/ID defs. */
-#define QTISECLIB_INT_ID_RESET_SGI			(0xf)
-#define QTISECLIB_INT_ID_CPU_WAKEUP_SGI			(0x8)
+#define QTISECLIB_INT_ID_RESET_SGI (0xf)
+#define QTISECLIB_INT_ID_CPU_WAKEUP_SGI (0x8)
 
-#define	QTISECLIB_INT_INVALID_INT_NUM			(0xFFFFFFFFU)
+#define QTISECLIB_INT_INVALID_INT_NUM (0xFFFFFFFFU)
 
 typedef struct qtiseclib_cb_spinlock {
 	volatile uint32_t lock;

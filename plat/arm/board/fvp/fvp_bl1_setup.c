@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,10 +12,12 @@
 #include <drivers/arm/smmu_v3.h>
 #include <drivers/arm/sp805.h>
 #include <lib/mmio.h>
+
 #include <plat/arm/common/arm_config.h>
-#include <plat/arm/common/plat_arm.h>
 #include <plat/arm/common/arm_def.h>
+#include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
+
 #include "fvp_private.h"
 
 /*******************************************************************************
@@ -66,8 +68,7 @@ __dead2 void bl1_plat_fwu_done(void *client_cookie, void *reserved)
 	uint32_t nv_flags = mmio_read_32(V2M_SYS_NVFLAGS_ADDR);
 
 	/* Clear the NV flags register. */
-	mmio_write_32((V2M_SYSREGS_BASE + V2M_SYS_NVFLAGSCLR),
-		      nv_flags);
+	mmio_write_32((V2M_SYSREGS_BASE + V2M_SYS_NVFLAGSCLR), nv_flags);
 
 	/* Setup the watchdog to reset the system as soon as possible */
 	sp805_refresh(ARM_SP805_TWDG_BASE, 1U);

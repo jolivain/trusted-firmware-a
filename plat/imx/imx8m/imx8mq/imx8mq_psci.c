@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,15 +9,14 @@
 #include <arch.h>
 #include <arch_helpers.h>
 #include <common/debug.h>
-#include <lib/mmio.h>
-#include <lib/psci/psci.h>
-
 #include <gpc.h>
 #include <imx8m_psci.h>
+#include <lib/mmio.h>
+#include <lib/psci/psci.h>
 #include <plat_imx8.h>
 
 int imx_validate_power_state(unsigned int power_state,
-			 psci_power_state_t *req_state)
+			     psci_power_state_t *req_state)
 {
 	int pwr_lvl = psci_get_pstate_pwrlvl(power_state);
 	int pwr_type = psci_get_pstate_type(power_state);

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2021, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,13 +7,13 @@
 #include <assert.h>
 #include <errno.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <bl1/bl1.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
+
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 /*
  * The following platform functions are weakly defined. They
@@ -35,9 +35,8 @@ unsigned int bl1_plat_get_next_image_id(void)
 }
 
 void bl1_plat_set_ep_info(unsigned int image_id,
-		struct entry_point_info *ep_info)
+			  struct entry_point_info *ep_info)
 {
-
 }
 
 int bl1_plat_handle_pre_image_load(unsigned int image_id)
@@ -67,7 +66,7 @@ __dead2 void bl1_plat_fwu_done(void *client_cookie, void *reserved)
 #pragma weak bl1_plat_mem_check
 
 int bl1_plat_mem_check(uintptr_t mem_base, unsigned int mem_size,
-		unsigned int flags)
+		       unsigned int flags)
 {
 	assert(0);
 	return -ENOMEM;
@@ -105,13 +104,13 @@ int bl1_plat_handle_post_image_load(unsigned int image_id)
 	 * to BL2. BL2 will read the memory layout before using its
 	 * memory for other purposes.
 	 */
-	bl2_secram_layout = (meminfo_t *) bl1_secram_layout->total_base;
+	bl2_secram_layout = (meminfo_t *)bl1_secram_layout->total_base;
 
 	bl1_calc_bl2_mem_layout(bl1_secram_layout, bl2_secram_layout);
 
 	ep_info->args.arg1 = (uintptr_t)bl2_secram_layout;
 
 	VERBOSE("BL1: BL2 memory layout address = %p\n",
-		(void *) bl2_secram_layout);
+		(void *)bl2_secram_layout);
 	return 0;
 }

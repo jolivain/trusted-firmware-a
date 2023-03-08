@@ -19,7 +19,9 @@ enum mt_spm_suspend_mode {
 };
 
 int mt_spm_suspend_mode_set(int mode, void *prv);
-int mt_spm_suspend_enter(int state_id, unsigned int ext_opand, unsigned int reosuce_req);
-void mt_spm_suspend_resume(int state_id, unsigned int ext_opand, struct wake_status **status);
+int mt_spm_suspend_enter(int state_id, unsigned int ext_opand,
+			 unsigned int reosuce_req);
+void mt_spm_suspend_resume(int state_id, unsigned int ext_opand,
+			   struct wake_status **status);
 
 #endif

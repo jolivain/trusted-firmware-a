@@ -1,18 +1,19 @@
 /*
- * Copyright (c) 2021-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <common/debug.h>
-#include <plat/common/platform.h>
 #include <services/rmm_core_manifest.h>
 #include <services/rmmd_svc.h>
 #include <services/trp/platform_trp.h>
 #include <trp_helpers.h>
-#include "trp_private.h"
 
+#include <plat/common/platform.h>
 #include <platform_def.h>
+
+#include "trp_private.h"
 
 /* Parameters received from the previous image */
 static unsigned int trp_boot_abi_version;
@@ -24,10 +25,7 @@ uint32_t trp_boot_manifest_version;
 /*******************************************************************************
  * Setup function for TRP.
  ******************************************************************************/
-void trp_setup(uint64_t x0,
-	       uint64_t x1,
-	       uint64_t x2,
-	       uint64_t x3)
+void trp_setup(uint64_t x0, uint64_t x1, uint64_t x2, uint64_t x3)
 {
 	/*
 	 * Validate boot parameters
@@ -62,11 +60,12 @@ void trp_setup(uint64_t x0,
 			   sizeof(trp_shared_region_start));
 
 	/* Perform early platform-specific setup */
-	trp_early_platform_setup((struct rmm_manifest *)trp_shared_region_start);
+	trp_early_platform_setup(
+		(struct rmm_manifest *)trp_shared_region_start);
 }
 
-int trp_validate_warmboot_args(uint64_t x0, uint64_t x1,
-			       uint64_t x2, uint64_t x3)
+int trp_validate_warmboot_args(uint64_t x0, uint64_t x1, uint64_t x2,
+			       uint64_t x3)
 {
 	/*
 	 * Validate boot parameters for warm boot
@@ -89,18 +88,18 @@ void trp_main(void)
 	NOTICE("TRP: %s\n", version_string);
 	NOTICE("TRP: %s\n", build_message);
 	NOTICE("TRP: Supported RMM-EL3 Interface ABI: v.%u.%u\n",
-		TRP_RMM_EL3_ABI_VERS_MAJOR, TRP_RMM_EL3_ABI_VERS_MINOR);
+	       TRP_RMM_EL3_ABI_VERS_MAJOR, TRP_RMM_EL3_ABI_VERS_MINOR);
 	NOTICE("TRP: Boot Manifest Version: v.%u.%u\n",
-		RMMD_GET_MANIFEST_VERSION_MAJOR(trp_boot_manifest_version),
-		RMMD_GET_MANIFEST_VERSION_MINOR(trp_boot_manifest_version));
+	       RMMD_GET_MANIFEST_VERSION_MAJOR(trp_boot_manifest_version),
+	       RMMD_GET_MANIFEST_VERSION_MINOR(trp_boot_manifest_version));
 	INFO("TRP: Memory base: 0x%lx\n", (unsigned long)RMM_BASE);
 	INFO("TRP: Shared region base address: 0x%lx\n",
-			(unsigned long)trp_shared_region_start);
+	     (unsigned long)trp_shared_region_start);
 	INFO("TRP: Total size: 0x%lx bytes\n",
-			(unsigned long)(RMM_END - RMM_BASE));
+	     (unsigned long)(RMM_END - RMM_BASE));
 	INFO("TRP: RMM-EL3 Interface ABI reported by EL3: v.%u.%u\n",
-		TRP_RMM_EL3_VERSION_GET_MAJOR(trp_boot_abi_version),
-		TRP_RMM_EL3_VERSION_GET_MINOR(trp_boot_abi_version));
+	     TRP_RMM_EL3_VERSION_GET_MAJOR(trp_boot_abi_version),
+	     TRP_RMM_EL3_VERSION_GET_MINOR(trp_boot_abi_version));
 }
 
 /*******************************************************************************
@@ -109,7 +108,7 @@ void trp_main(void)
 static void trp_ret_rmi_version(struct trp_smc_result *smc_ret)
 {
 	VERBOSE("RMM version is %u.%u\n", RMI_ABI_VERSION_MAJOR,
-					  RMI_ABI_VERSION_MINOR);
+		RMI_ABI_VERSION_MINOR);
 	smc_ret->x[0] = RMI_ABI_VERSION;
 }
 
@@ -117,15 +116,16 @@ static void trp_ret_rmi_version(struct trp_smc_result *smc_ret)
  * Transitioning granule of NON-SECURE type to REALM type
  ******************************************************************************/
 static void trp_asc_mark_realm(unsigned long long x1,
-				struct trp_smc_result *smc_ret)
+			       struct trp_smc_result *smc_ret)
 {
 	VERBOSE("Delegating granule 0x%llx\n", x1);
-	smc_ret->x[0] = trp_smc(set_smc_args(RMM_GTSI_DELEGATE, x1,
-						0UL, 0UL, 0UL, 0UL, 0UL, 0UL));
+	smc_ret->x[0] = trp_smc(set_smc_args(RMM_GTSI_DELEGATE, x1, 0UL, 0UL,
+					     0UL, 0UL, 0UL, 0UL));
 
 	if (smc_ret->x[0] != 0ULL) {
 		ERROR("Granule transition from NON-SECURE type to REALM type "
-			"failed 0x%llx\n", smc_ret->x[0]);
+		      "failed 0x%llx\n",
+		      smc_ret->x[0]);
 	}
 }
 
@@ -136,23 +136,23 @@ static void trp_asc_mark_nonsecure(unsigned long long x1,
 				   struct trp_smc_result *smc_ret)
 {
 	VERBOSE("Undelegating granule 0x%llx\n", x1);
-	smc_ret->x[0] = trp_smc(set_smc_args(RMM_GTSI_UNDELEGATE, x1,
-						0UL, 0UL, 0UL, 0UL, 0UL, 0UL));
+	smc_ret->x[0] = trp_smc(set_smc_args(RMM_GTSI_UNDELEGATE, x1, 0UL, 0UL,
+					     0UL, 0UL, 0UL, 0UL));
 
 	if (smc_ret->x[0] != 0ULL) {
 		ERROR("Granule transition from REALM type to NON-SECURE type "
-			"failed 0x%llx\n", smc_ret->x[0]);
+		      "failed 0x%llx\n",
+		      smc_ret->x[0]);
 	}
 }
 
 /*******************************************************************************
  * Main RMI SMC handler function
  ******************************************************************************/
-void trp_rmi_handler(unsigned long fid,
-		     unsigned long long x1, unsigned long long x2,
-		     unsigned long long x3, unsigned long long x4,
-		     unsigned long long x5, unsigned long long x6,
-		     struct trp_smc_result *smc_ret)
+void trp_rmi_handler(unsigned long fid, unsigned long long x1,
+		     unsigned long long x2, unsigned long long x3,
+		     unsigned long long x4, unsigned long long x5,
+		     unsigned long long x6, struct trp_smc_result *smc_ret)
 {
 	/* Not used in the current implementation */
 	(void)x2;

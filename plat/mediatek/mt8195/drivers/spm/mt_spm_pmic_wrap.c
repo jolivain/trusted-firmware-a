@@ -8,29 +8,29 @@
 
 #include <common/debug.h>
 #include <lib/mmio.h>
-
 #include <mt_spm.h>
 #include <mt_spm_internal.h>
 #include <mt_spm_pmic_wrap.h>
 #include <mt_spm_reg.h>
 #include <plat_pm.h>
+
 #include <platform_def.h>
 
 /* PMIC_WRAP MT6359 */
-#define VCORE_BASE_UV		40000
-#define VOLT_TO_PMIC_VAL(volt)	(((volt) - VCORE_BASE_UV + 625 - 1) / 625)
-#define PMIC_VAL_TO_VOLT(pmic)	(((pmic) * 625) + VCORE_BASE_UV)
+#define VCORE_BASE_UV 40000
+#define VOLT_TO_PMIC_VAL(volt) (((volt)-VCORE_BASE_UV + 625 - 1) / 625)
+#define PMIC_VAL_TO_VOLT(pmic) (((pmic)*625) + VCORE_BASE_UV)
 
-#define NR_PMIC_WRAP_CMD	(NR_IDX_ALL)
-#define SPM_DATA_SHIFT		16
+#define NR_PMIC_WRAP_CMD (NR_IDX_ALL)
+#define SPM_DATA_SHIFT 16
 
-#define BUCK_VGPU11_ELR0	0x15B4
-#define TOP_SPI_CON0		0x0456
-#define BUCK_TOP_CON1		0x1443
-#define TOP_CON			0x0013
-#define TOP_DIG_WPK		0x03a9
-#define TOP_CON_LOCK		0x03a8
-#define TOP_CLK_CON0		0x0134
+#define BUCK_VGPU11_ELR0 0x15B4
+#define TOP_SPI_CON0 0x0456
+#define BUCK_TOP_CON1 0x1443
+#define TOP_CON 0x0013
+#define TOP_DIG_WPK 0x03a9
+#define TOP_CON_LOCK 0x03a8
+#define TOP_CLK_CON0 0x0134
 
 struct pmic_wrap_cmd {
 	unsigned long cmd_addr;
@@ -76,22 +76,70 @@ static struct pmic_wrap_setting pw = {
 void _mt_spm_pmic_table_init(void)
 {
 	struct pmic_wrap_cmd pwrap_cmd_default[NR_PMIC_WRAP_CMD] = {
-		{(uint32_t)SPM_DVFS_CMD0, (uint32_t)SPM_DVFS_CMD0,},
-		{(uint32_t)SPM_DVFS_CMD1, (uint32_t)SPM_DVFS_CMD1,},
-		{(uint32_t)SPM_DVFS_CMD2, (uint32_t)SPM_DVFS_CMD2,},
-		{(uint32_t)SPM_DVFS_CMD3, (uint32_t)SPM_DVFS_CMD3,},
-		{(uint32_t)SPM_DVFS_CMD4, (uint32_t)SPM_DVFS_CMD4,},
-		{(uint32_t)SPM_DVFS_CMD5, (uint32_t)SPM_DVFS_CMD5,},
-		{(uint32_t)SPM_DVFS_CMD6, (uint32_t)SPM_DVFS_CMD6,},
-		{(uint32_t)SPM_DVFS_CMD7, (uint32_t)SPM_DVFS_CMD7,},
-		{(uint32_t)SPM_DVFS_CMD8, (uint32_t)SPM_DVFS_CMD8,},
-		{(uint32_t)SPM_DVFS_CMD9, (uint32_t)SPM_DVFS_CMD9,},
-		{(uint32_t)SPM_DVFS_CMD10, (uint32_t)SPM_DVFS_CMD10,},
-		{(uint32_t)SPM_DVFS_CMD11, (uint32_t)SPM_DVFS_CMD11,},
-		{(uint32_t)SPM_DVFS_CMD12, (uint32_t)SPM_DVFS_CMD12,},
-		{(uint32_t)SPM_DVFS_CMD13, (uint32_t)SPM_DVFS_CMD13,},
-		{(uint32_t)SPM_DVFS_CMD14, (uint32_t)SPM_DVFS_CMD14,},
-		{(uint32_t)SPM_DVFS_CMD15, (uint32_t)SPM_DVFS_CMD15,},
+		{
+			(uint32_t)SPM_DVFS_CMD0,
+			(uint32_t)SPM_DVFS_CMD0,
+		},
+		{
+			(uint32_t)SPM_DVFS_CMD1,
+			(uint32_t)SPM_DVFS_CMD1,
+		},
+		{
+			(uint32_t)SPM_DVFS_CMD2,
+			(uint32_t)SPM_DVFS_CMD2,
+		},
+		{
+			(uint32_t)SPM_DVFS_CMD3,
+			(uint32_t)SPM_DVFS_CMD3,
+		},
+		{
+			(uint32_t)SPM_DVFS_CMD4,
+			(uint32_t)SPM_DVFS_CMD4,
+		},
+		{
+			(uint32_t)SPM_DVFS_CMD5,
+			(uint32_t)SPM_DVFS_CMD5,
+		},
+		{
+			(uint32_t)SPM_DVFS_CMD6,
+			(uint32_t)SPM_DVFS_CMD6,
+		},
+		{
+			(uint32_t)SPM_DVFS_CMD7,
+			(uint32_t)SPM_DVFS_CMD7,
+		},
+		{
+			(uint32_t)SPM_DVFS_CMD8,
+			(uint32_t)SPM_DVFS_CMD8,
+		},
+		{
+			(uint32_t)SPM_DVFS_CMD9,
+			(uint32_t)SPM_DVFS_CMD9,
+		},
+		{
+			(uint32_t)SPM_DVFS_CMD10,
+			(uint32_t)SPM_DVFS_CMD10,
+		},
+		{
+			(uint32_t)SPM_DVFS_CMD11,
+			(uint32_t)SPM_DVFS_CMD11,
+		},
+		{
+			(uint32_t)SPM_DVFS_CMD12,
+			(uint32_t)SPM_DVFS_CMD12,
+		},
+		{
+			(uint32_t)SPM_DVFS_CMD13,
+			(uint32_t)SPM_DVFS_CMD13,
+		},
+		{
+			(uint32_t)SPM_DVFS_CMD14,
+			(uint32_t)SPM_DVFS_CMD14,
+		},
+		{
+			(uint32_t)SPM_DVFS_CMD15,
+			(uint32_t)SPM_DVFS_CMD15,
+		},
 	};
 
 	memcpy(pw.addr, pwrap_cmd_default, sizeof(pwrap_cmd_default));

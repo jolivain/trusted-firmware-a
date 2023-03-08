@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2021, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,9 +7,10 @@
 #include <assert.h>
 
 #include <arch_helpers.h>
-#include <context.h>
 #include <common/debug.h>
+#include <context.h>
 #include <lib/el3_runtime/context_mgmt.h>
+
 #include <plat/common/platform.h>
 
 #include "../bl1_private.h"
@@ -17,7 +18,6 @@
 /* Following contains the cpu context pointers. */
 static void *bl1_cpu_context_ptr[2];
 entry_point_info_t *bl2_ep_info;
-
 
 void *cm_get_context(uint32_t security_state)
 {
@@ -50,7 +50,7 @@ void bl1_prepare_next_image(unsigned int image_id)
 	bl2_ep_info = &bl2_desc->ep_info;
 
 	bl2_ep_info->spsr = (uint32_t)SPSR_64(MODE_EL3, MODE_SP_ELX,
-						DISABLE_ALL_EXCEPTIONS);
+					      DISABLE_ALL_EXCEPTIONS);
 
 	/*
 	 * Flush cache since bl2_ep_info is accessed after MMU is disabled
@@ -71,7 +71,6 @@ void bl1_prepare_next_image(unsigned int image_id)
  ******************************************************************************/
 void bl1_prepare_next_image(unsigned int image_id)
 {
-
 	/*
 	 * Following array will be used for context management.
 	 * There are 2 instances, for the Secure and Non-Secure contexts.
@@ -89,7 +88,7 @@ void bl1_prepare_next_image(unsigned int image_id)
 	 */
 	if (el_implemented(1) == EL_IMPL_A64ONLY) {
 		ERROR("EL1 supports AArch64-only. Please set build flag "
-				"CTX_INCLUDE_AARCH32_REGS = 0\n");
+		      "CTX_INCLUDE_AARCH32_REGS = 0\n");
 		panic();
 	}
 #endif
@@ -106,15 +105,16 @@ void bl1_prepare_next_image(unsigned int image_id)
 
 	/* Setup the Secure/Non-Secure context if not done already. */
 	if (cm_get_context(security_state) == NULL)
-		cm_set_context(&bl1_cpu_context[security_state], security_state);
+		cm_set_context(&bl1_cpu_context[security_state],
+			       security_state);
 
 	/* Prepare the SPSR for the next BL image. */
 	if ((security_state != SECURE) && (el_implemented(2) != EL_IMPL_NONE)) {
 		mode = MODE_EL2;
 	}
 
-	next_bl_ep->spsr = (uint32_t)SPSR_64((uint64_t) mode,
-		(uint64_t)MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
+	next_bl_ep->spsr = (uint32_t)SPSR_64(
+		(uint64_t)mode, (uint64_t)MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 
 	/* Allow platform to make change */
 	bl1_plat_set_ep_info(image_id, next_bl_ep);

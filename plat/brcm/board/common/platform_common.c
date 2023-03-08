@@ -5,10 +5,10 @@
  */
 
 #include <arch_helpers.h>
+#include <cmn_plat_util.h>
 #include <common/debug.h>
 #include <drivers/brcm/sotp.h>
 
-#include <cmn_plat_util.h>
 #include <platform_def.h>
 
 uint32_t boot_source_get(void)
@@ -38,7 +38,6 @@ uint32_t boot_source_get(void)
 			if (sotp_atf_row & SOTP_BOOT_SOURCE_BITS2)
 				data |= 0x4;
 		} else {
-
 			/*
 			 * This path is for L0 reset with
 			 * Primary Boot source disabled in SOTP.
@@ -53,13 +52,15 @@ uint32_t boot_source_get(void)
 #ifdef BOOT_SOURCE_FROM_PR_ON_L1
 			/* Enable boot source read from PR#1 */
 			mmio_setbits_32(CRMU_IHOST_SW_PERSISTENT_REG1,
-				BOOT_SOURCE_SOFT_ENABLE_MASK);
+					BOOT_SOURCE_SOFT_ENABLE_MASK);
 
 			/* set boot source */
 			data &= BOOT_SOURCE_MASK;
-			mmio_clrsetbits_32(CRMU_IHOST_SW_PERSISTENT_REG1,
-			BOOT_SOURCE_MASK << BOOT_SOURCE_SOFT_DATA_OFFSET,
-			data << BOOT_SOURCE_SOFT_DATA_OFFSET);
+			mmio_clrsetbits_32(
+				CRMU_IHOST_SW_PERSISTENT_REG1,
+				BOOT_SOURCE_MASK
+					<< BOOT_SOURCE_SOFT_DATA_OFFSET,
+				data << BOOT_SOURCE_SOFT_DATA_OFFSET);
 #endif
 		}
 	}

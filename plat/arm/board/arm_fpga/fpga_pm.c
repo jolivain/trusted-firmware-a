@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,11 +7,12 @@
 #include <assert.h>
 
 #include <lib/psci/psci.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 #include "fpga_private.h"
-#include <platform_def.h>
 
 /*
  * This is a basic PSCI implementation that allows secondary CPUs to be
@@ -79,18 +80,17 @@ static void fpga_cpu_standby(plat_local_state_t cpu_state)
 	 * dsb is good practice before using wfi to enter low power states
 	 */
 	u_register_t scr = read_scr_el3();
-	write_scr_el3(scr|SCR_IRQ_BIT);
+	write_scr_el3(scr | SCR_IRQ_BIT);
 	dsb();
 	wfi();
 	write_scr_el3(scr);
 }
 
-plat_psci_ops_t plat_fpga_psci_pm_ops = {
-	.pwr_domain_on = fpga_pwr_domain_on,
-	.pwr_domain_on_finish = fpga_pwr_domain_on_finish,
-	.pwr_domain_off = fpga_pwr_domain_off,
-	.cpu_standby = fpga_cpu_standby
-};
+plat_psci_ops_t plat_fpga_psci_pm_ops = { .pwr_domain_on = fpga_pwr_domain_on,
+					  .pwr_domain_on_finish =
+						  fpga_pwr_domain_on_finish,
+					  .pwr_domain_off = fpga_pwr_domain_off,
+					  .cpu_standby = fpga_cpu_standby };
 
 int plat_setup_psci_ops(uintptr_t sec_entrypoint,
 			const plat_psci_ops_t **psci_ops)

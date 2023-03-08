@@ -9,7 +9,6 @@
 
 #include <lib/bakery_lock.h>
 #include <lib/spinlock.h>
-
 #include <plat_mtk_lpm.h>
 
 /*
@@ -33,13 +32,13 @@ extern spinlock_t spm_lock;
 #define MT_SPM_USING_SRCLKEN_RC
 
 /* spm extern operand definition */
-#define MT_SPM_EX_OP_CLR_26M_RECORD			(1U << 0)
-#define MT_SPM_EX_OP_SET_WDT				(1U << 1)
-#define MT_SPM_EX_OP_NON_GENERIC_RESOURCE_REQ		(1U << 2)
-#define MT_SPM_EX_OP_SET_SUSPEND_MODE			(1U << 3)
-#define MT_SPM_EX_OP_SET_IS_ADSP			(1U << 4)
-#define MT_SPM_EX_OP_SRCLKEN_RC_BBLPM			(1U << 5)
-#define MT_SPM_EX_OP_HW_S1_DETECT			(1U << 6)
+#define MT_SPM_EX_OP_CLR_26M_RECORD (1U << 0)
+#define MT_SPM_EX_OP_SET_WDT (1U << 1)
+#define MT_SPM_EX_OP_NON_GENERIC_RESOURCE_REQ (1U << 2)
+#define MT_SPM_EX_OP_SET_SUSPEND_MODE (1U << 3)
+#define MT_SPM_EX_OP_SET_IS_ADSP (1U << 4)
+#define MT_SPM_EX_OP_SRCLKEN_RC_BBLPM (1U << 5)
+#define MT_SPM_EX_OP_HW_S1_DETECT (1U << 6)
 
 typedef enum {
 	WR_NONE = 0,

@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: BSD-3-Clause
 /*
- * Copyright (c) 2015-2020, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  * Copyright (c) 2019-2020, Linaro Limited
  */
-#include <cdefs.h>
 #include <string.h>
 
+#include <cdefs.h>
 #include <drivers/scmi-msg.h>
 #include <drivers/scmi.h>
 #include <lib/utils.h>
@@ -26,21 +26,21 @@ size_t plat_scmi_rstd_count(unsigned int agent_id __unused)
 }
 
 const char *plat_scmi_rstd_get_name(unsigned int agent_id __unused,
-				  unsigned int scmi_id __unused)
+				    unsigned int scmi_id __unused)
 {
 	return NULL;
 }
 
 int32_t plat_scmi_rstd_autonomous(unsigned int agent_id __unused,
-				unsigned int scmi_id __unused,
-				unsigned int state __unused)
+				  unsigned int scmi_id __unused,
+				  unsigned int state __unused)
 {
 	return SCMI_NOT_SUPPORTED;
 }
 
 int32_t plat_scmi_rstd_set_state(unsigned int agent_id __unused,
-			       unsigned int scmi_id __unused,
-			       bool assert_not_deassert __unused)
+				 unsigned int scmi_id __unused,
+				 bool assert_not_deassert __unused)
 {
 	return SCMI_NOT_SUPPORTED;
 }
@@ -152,15 +152,14 @@ static void reset_request(struct scmi_msg *msg)
 	}
 
 	if ((in_args->flags & SCMI_RESET_DOMAIN_AUTO) != 0U) {
-		out_args.status = plat_scmi_rstd_autonomous(msg->agent_id,
-							  domain_id,
-							  in_args->reset_state);
+		out_args.status = plat_scmi_rstd_autonomous(
+			msg->agent_id, domain_id, in_args->reset_state);
 	} else if ((in_args->flags & SCMI_RESET_DOMAIN_EXPLICIT) != 0U) {
 		out_args.status = plat_scmi_rstd_set_state(msg->agent_id,
-							 domain_id, true);
+							   domain_id, true);
 	} else {
 		out_args.status = plat_scmi_rstd_set_state(msg->agent_id,
-							 domain_id, false);
+							   domain_id, false);
 	}
 
 	if (out_args.status != SCMI_SUCCESS) {

@@ -37,23 +37,25 @@
 #include "rcar_def.h"
 
 #if (RCAR_LSI != RZ_G2E)
-#define DRAM_CH_CNT	0x04U
+#define DRAM_CH_CNT 0x04U
 uint32_t qos_init_ddr_ch;
 uint8_t qos_init_ddr_phyvalid;
 #endif /* RCAR_LSI != RZ_G2E */
 
-#define PRR_PRODUCT_ERR(reg)				\
-	{						\
-		ERROR("LSI Product ID(PRR=0x%x) QoS "	\
-		"initialize not supported.\n", reg);	\
-		panic();				\
+#define PRR_PRODUCT_ERR(reg)                          \
+	{                                             \
+		ERROR("LSI Product ID(PRR=0x%x) QoS " \
+		      "initialize not supported.\n",  \
+		      reg);                           \
+		panic();                              \
 	}
 
-#define PRR_CUT_ERR(reg)				\
-	{						\
-		ERROR("LSI Cut ID(PRR=0x%x) QoS "	\
-		"initialize not supported.\n", reg);	\
-		panic();				\
+#define PRR_CUT_ERR(reg)                             \
+	{                                            \
+		ERROR("LSI Cut ID(PRR=0x%x) QoS "    \
+		      "initialize not supported.\n", \
+		      reg);                          \
+		panic();                             \
 	}
 
 void rzg_qos_init(void)
@@ -136,29 +138,28 @@ void rzg_qos_init(void)
 #if (RCAR_LSI == RZ_G2M)
 #if RCAR_LSI_CUT == RCAR_CUT_10
 	/* G2M Cut 10 */
-	if ((PRR_PRODUCT_M3 | PRR_PRODUCT_10)
-	    != (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
+	if ((PRR_PRODUCT_M3 | PRR_PRODUCT_10) !=
+	    (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	qos_init_g2m_v10();
 #elif RCAR_LSI_CUT == RCAR_CUT_11
 	/* G2M Cut 11 */
-	if ((PRR_PRODUCT_M3 | PRR_PRODUCT_20)
-	    != (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
+	if ((PRR_PRODUCT_M3 | PRR_PRODUCT_20) !=
+	    (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	qos_init_g2m_v11();
 #elif RCAR_LSI_CUT == RCAR_CUT_13
 	/* G2M Cut 13 */
-	if ((PRR_PRODUCT_M3 | PRR_PRODUCT_21)
-	    != (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
+	if ((PRR_PRODUCT_M3 | PRR_PRODUCT_21) !=
+	    (reg & (PRR_PRODUCT_MASK | PRR_CUT_MASK))) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	qos_init_g2m_v11();
 #else
 	/* G2M Cut 30 or later */
-	if ((PRR_PRODUCT_M3)
-	    != (reg & (PRR_PRODUCT_MASK))) {
+	if ((PRR_PRODUCT_M3) != (reg & (PRR_PRODUCT_MASK))) {
 		PRR_PRODUCT_ERR(reg);
 	}
 	qos_init_g2m_v30();

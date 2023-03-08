@@ -1,13 +1,13 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <platform_def.h>
-
 #include <arch.h>
+
 #include <plat/arm/common/plat_arm.h>
+#include <platform_def.h>
 
 /*******************************************************************************
  * This function validates an MPIDR by checking whether it falls within the
@@ -22,19 +22,19 @@ int arm_check_mpidr(u_register_t mpidr)
 #if ARM_PLAT_MT
 	unsigned int pe_id;
 
-	valid_mask = ~(MPIDR_AFFLVL_MASK |
-			(MPIDR_AFFLVL_MASK << MPIDR_AFF1_SHIFT) |
-			(MPIDR_AFFLVL_MASK << MPIDR_AFF2_SHIFT) |
-			(MPIDR_AFFLVL_MASK << MPIDR_AFF3_SHIFT));
+	valid_mask =
+		~(MPIDR_AFFLVL_MASK | (MPIDR_AFFLVL_MASK << MPIDR_AFF1_SHIFT) |
+		  (MPIDR_AFFLVL_MASK << MPIDR_AFF2_SHIFT) |
+		  (MPIDR_AFFLVL_MASK << MPIDR_AFF3_SHIFT));
 	cluster_id = (mpidr >> MPIDR_AFF2_SHIFT) & MPIDR_AFFLVL_MASK;
 	cpu_id = (mpidr >> MPIDR_AFF1_SHIFT) & MPIDR_AFFLVL_MASK;
 	pe_id = (mpidr >> MPIDR_AFF0_SHIFT) & MPIDR_AFFLVL_MASK;
 #else
 	valid_mask = ~(MPIDR_CLUSTER_MASK | MPIDR_CPU_MASK);
-	cluster_id = (unsigned int) ((mpidr >> MPIDR_AFF1_SHIFT) &
-						MPIDR_AFFLVL_MASK);
-	cpu_id = (unsigned int) ((mpidr >> MPIDR_AFF0_SHIFT) &
-						MPIDR_AFFLVL_MASK);
+	cluster_id =
+		(unsigned int)((mpidr >> MPIDR_AFF1_SHIFT) & MPIDR_AFFLVL_MASK);
+	cpu_id =
+		(unsigned int)((mpidr >> MPIDR_AFF0_SHIFT) & MPIDR_AFFLVL_MASK);
 #endif /* ARM_PLAT_MT */
 
 	mpidr &= MPIDR_AFFINITY_MASK;

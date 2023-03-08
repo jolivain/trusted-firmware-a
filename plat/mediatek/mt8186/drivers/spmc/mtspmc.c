@@ -9,10 +9,10 @@
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-
 #include <mcucfg.h>
 #include <mtspmc.h>
 #include <mtspmc_private.h>
+
 #include <plat/common/platform.h>
 
 void mcucfg_disable_gic_wakeup(unsigned int cluster, unsigned int cpu)
@@ -27,7 +27,8 @@ void mcucfg_enable_gic_wakeup(unsigned int cluster, unsigned int cpu)
 	mmio_write_32(CPC_MCUSYS_CPU_ON_SW_HINT_CLR, BIT(cpu));
 }
 
-void mcucfg_set_bootaddr(unsigned int cluster, unsigned int cpu, uintptr_t bootaddr)
+void mcucfg_set_bootaddr(unsigned int cluster, unsigned int cpu,
+			 uintptr_t bootaddr)
 {
 	assert(cluster == 0U);
 
@@ -89,7 +90,6 @@ bool spm_get_cpu_powerstate(unsigned int cluster, unsigned int cpu)
 int spmc_init(void)
 {
 	unsigned int cpu = plat_my_core_pos();
-
 
 	INFO("SPM: enable CPC mode\n");
 

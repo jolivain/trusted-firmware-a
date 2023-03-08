@@ -4,11 +4,11 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <platform_def.h>
-
-#include <sunxi_mmap.h>
 #include <sunxi_cpucfg.h>
+#include <sunxi_mmap.h>
 #include <sunxi_private.h>
+
+#include <platform_def.h>
 
 int sunxi_pmic_setup(uint16_t socid, const void *fdt)
 {

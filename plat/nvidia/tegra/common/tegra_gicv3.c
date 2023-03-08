@@ -9,11 +9,11 @@
 #include <common/bl_common.h>
 #include <drivers/arm/gicv3.h>
 #include <lib/utils.h>
+#include <tegra_def.h>
+#include <tegra_private.h>
 
 #include <plat/common/platform.h>
 #include <platform_def.h>
-#include <tegra_private.h>
-#include <tegra_def.h>
 
 /* The GICv3 driver only needs to be initialized in EL3 */
 static uintptr_t rdistif_base_addrs[PLATFORM_CORE_COUNT];

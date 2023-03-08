@@ -6,7 +6,6 @@
 
 #include <common/debug.h>
 #include <lib/mmio.h>
-
 #include <mt_spm.h>
 #include <mt_spm_conservation.h>
 #include <mt_spm_idle.h>
@@ -15,36 +14,20 @@
 #include <mt_spm_resource_req.h>
 #include <plat_pm.h>
 
-#define __WAKE_SRC_FOR_IDLE_COMMON__	\
-	(R12_PCM_TIMER |		\
-	 R12_KP_IRQ_B |			\
-	 R12_APWDT_EVENT_B |		\
-	 R12_APXGPT1_EVENT_B |		\
-	 R12_CONN2AP_SPM_WAKEUP_B |	\
-	 R12_EINT_EVENT_B |		\
-	 R12_CONN_WDT_IRQ_B |		\
-	 R12_CCIF0_EVENT_B |		\
-	 R12_SSPM2SPM_WAKEUP_B |	\
-	 R12_SCP2SPM_WAKEUP_B |		\
-	 R12_ADSP2SPM_WAKEUP_B |	\
-	 R12_USBX_CDSC_B |		\
-	 R12_USBX_POWERDWN_B |		\
-	 R12_SYS_TIMER_EVENT_B |	\
-	 R12_EINT_EVENT_SECURE_B |	\
-	 R12_AFE_IRQ_MCU_B |		\
-	 R12_SYS_CIRQ_IRQ_B |		\
-	 R12_MD2AP_PEER_EVENT_B |	\
-	 R12_MD1_WDT_B |		\
-	 R12_CLDMA_EVENT_B |		\
-	 R12_REG_CPU_WAKEUP |		\
-	 R12_APUSYS_WAKE_HOST_B)
+#define __WAKE_SRC_FOR_IDLE_COMMON__                                         \
+	(R12_PCM_TIMER | R12_KP_IRQ_B | R12_APWDT_EVENT_B |                  \
+	 R12_APXGPT1_EVENT_B | R12_CONN2AP_SPM_WAKEUP_B | R12_EINT_EVENT_B | \
+	 R12_CONN_WDT_IRQ_B | R12_CCIF0_EVENT_B | R12_SSPM2SPM_WAKEUP_B |    \
+	 R12_SCP2SPM_WAKEUP_B | R12_ADSP2SPM_WAKEUP_B | R12_USBX_CDSC_B |    \
+	 R12_USBX_POWERDWN_B | R12_SYS_TIMER_EVENT_B |                       \
+	 R12_EINT_EVENT_SECURE_B | R12_AFE_IRQ_MCU_B | R12_SYS_CIRQ_IRQ_B |  \
+	 R12_MD2AP_PEER_EVENT_B | R12_MD1_WDT_B | R12_CLDMA_EVENT_B |        \
+	 R12_REG_CPU_WAKEUP | R12_APUSYS_WAKE_HOST_B)
 
 #if defined(CFG_MICROTRUST_TEE_SUPPORT)
 #define WAKE_SRC_FOR_IDLE (__WAKE_SRC_FOR_IDLE_COMMON__)
 #else
-#define WAKE_SRC_FOR_IDLE		\
-	(__WAKE_SRC_FOR_IDLE_COMMON__ |	\
-	  R12_SEJ_EVENT_B)
+#define WAKE_SRC_FOR_IDLE (__WAKE_SRC_FOR_IDLE_COMMON__ | R12_SEJ_EVENT_B)
 #endif
 
 static struct pwr_ctrl idle_spm_pwr = {
@@ -89,7 +72,6 @@ static struct pwr_ctrl idle_spm_pwr = {
 	.reg_spm_adsp_mailbox_req = 0,
 	/* [12] */
 	.reg_spm_scp_mailbox_req = 0,
-
 
 	/* SPM_SRC_MASK */
 	/* [0] */

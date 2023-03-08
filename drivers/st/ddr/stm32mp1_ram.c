@@ -31,8 +31,8 @@ int stm32mp1_ddr_clk_enable(struct stm32mp_ddr_priv *priv, uint32_t mem_speed)
 
 	ddrphy_clk = clk_get_rate(DDRPHYC);
 
-	VERBOSE("DDR: mem_speed (%u kHz), RCC %lu kHz\n",
-		mem_speed, ddrphy_clk / 1000U);
+	VERBOSE("DDR: mem_speed (%u kHz), RCC %lu kHz\n", mem_speed,
+		ddrphy_clk / 1000U);
 
 	mem_speed_hz = mem_speed * 1000U;
 
@@ -60,12 +60,8 @@ static int stm32mp1_ddr_setup(void)
 	void *fdt;
 
 	const struct stm32mp_ddr_param param[] = {
-		CTL_PARAM(reg),
-		CTL_PARAM(timing),
-		CTL_PARAM(map),
-		CTL_PARAM(perf),
-		PHY_PARAM(reg),
-		PHY_PARAM(timing),
+		CTL_PARAM(reg),	 CTL_PARAM(timing), CTL_PARAM(map),
+		CTL_PARAM(perf), PHY_PARAM(reg),    PHY_PARAM(timing),
 	};
 
 	if (fdt_get_address(&fdt) == 0) {
@@ -83,7 +79,8 @@ static int stm32mp1_ddr_setup(void)
 		return ret;
 	}
 
-	ret = stm32mp_ddr_dt_get_param(fdt, node, param, ARRAY_SIZE(param), (uintptr_t)&config);
+	ret = stm32mp_ddr_dt_get_param(fdt, node, param, ARRAY_SIZE(param),
+				       (uintptr_t)&config);
 	if (ret < 0) {
 		return ret;
 	}
@@ -98,8 +95,8 @@ static int stm32mp1_ddr_setup(void)
 
 	priv->info.size = config.info.size;
 
-	VERBOSE("%s : ram size(%x, %x)\n", __func__,
-		(uint32_t)priv->info.base, (uint32_t)priv->info.size);
+	VERBOSE("%s : ram size(%x, %x)\n", __func__, (uint32_t)priv->info.base,
+		(uint32_t)priv->info.size);
 
 	if (stm32mp_map_ddr_non_cacheable() != 0) {
 		panic();
@@ -107,22 +104,20 @@ static int stm32mp1_ddr_setup(void)
 
 	uret = stm32mp_ddr_test_data_bus();
 	if (uret != 0U) {
-		ERROR("DDR data bus test: can't access memory @ 0x%x\n",
-		      uret);
+		ERROR("DDR data bus test: can't access memory @ 0x%x\n", uret);
 		panic();
 	}
 
 	uret = stm32mp_ddr_test_addr_bus(config.info.size);
 	if (uret != 0U) {
-		ERROR("DDR addr bus test: can't access memory @ 0x%x\n",
-		      uret);
+		ERROR("DDR addr bus test: can't access memory @ 0x%x\n", uret);
 		panic();
 	}
 
 	uret = stm32mp_ddr_check_size();
 	if (uret < config.info.size) {
-		ERROR("DDR size: 0x%x does not match DT config: 0x%x\n",
-		      uret, config.info.size);
+		ERROR("DDR size: 0x%x does not match DT config: 0x%x\n", uret,
+		      config.info.size);
 		panic();
 	}
 

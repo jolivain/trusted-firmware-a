@@ -1,19 +1,18 @@
 /*
- * Copyright (c) 2015-2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <arch.h>
-
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
 #include <lib/utils_def.h>
-#include <plat/common/platform.h>
-
 #include <tegra_def.h>
 #include <tegra_private.h>
+
+#include <plat/common/platform.h>
 
 static uint32_t tegra_timer_get_value(void)
 {
@@ -38,7 +37,7 @@ void tegra_delay_timer_init(void)
 	uint32_t multiplier = MHZ_TICKS_PER_SEC;
 
 	/* Value in ticks per second (Hz) */
-	uint32_t divider  = plat_get_syscnt_freq2();
+	uint32_t divider = plat_get_syscnt_freq2();
 
 	/* Reduce multiplier and divider by dividing them repeatedly by 10 */
 	while (((multiplier % 10U) == 0U) && ((divider % 10U) == 0U)) {

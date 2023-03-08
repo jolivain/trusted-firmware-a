@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,10 +13,9 @@
 
 #include <common/debug.h>
 #include <common/runtime_svc.h>
+#include <ipi.h>
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
-
-#include <ipi.h>
 #include <plat_ipi.h>
 #include <plat_private.h>
 

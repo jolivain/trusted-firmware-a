@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -17,10 +17,11 @@
 #include <drivers/io/io_storage.h>
 #include <lib/utils.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
+
 #include <plat/common/platform.h>
 
 #if TRUSTED_BOARD_BOOT
-# ifdef DYN_DISABLE_AUTH
+#ifdef DYN_DISABLE_AUTH
 static int disable_auth;
 
 /******************************************************************************
@@ -32,18 +33,18 @@ void dyn_disable_auth(void)
 	INFO("Disabling authentication of images dynamically\n");
 	disable_auth = 1;
 }
-# endif /* DYN_DISABLE_AUTH */
+#endif /* DYN_DISABLE_AUTH */
 
 /******************************************************************************
  * Function to determine whether the authentication is disabled dynamically.
  *****************************************************************************/
 static int dyn_is_auth_disabled(void)
 {
-# ifdef DYN_DISABLE_AUTH
+#ifdef DYN_DISABLE_AUTH
 	return disable_auth;
-# else
+#else
 	return 0;
-# endif
+#endif
 }
 #endif /* TRUSTED_BOARD_BOOT */
 
@@ -86,15 +87,15 @@ static int load_image(unsigned int image_id, image_info_t *image_data)
 	io_result = plat_get_image_source(image_id, &dev_handle, &image_spec);
 	if (io_result != 0) {
 		WARN("Failed to obtain reference to image id=%u (%i)\n",
-			image_id, io_result);
+		     image_id, io_result);
 		return io_result;
 	}
 
 	/* Attempt to access the image */
 	io_result = io_open(dev_handle, image_spec, &image_handle);
 	if (io_result != 0) {
-		WARN("Failed to access image id=%u (%i)\n",
-			image_id, io_result);
+		WARN("Failed to access image id=%u (%i)\n", image_id,
+		     io_result);
 		return io_result;
 	}
 
@@ -104,7 +105,7 @@ static int load_image(unsigned int image_id, image_info_t *image_data)
 	io_result = io_size(image_handle, &image_size);
 	if ((io_result != 0) || (image_size == 0U)) {
 		WARN("Failed to determine the size of the image id=%u (%i)\n",
-			image_id, io_result);
+		     image_id, io_result);
 		goto exit;
 	}
 
@@ -149,8 +150,8 @@ exit:
  * of trust.
  */
 static int load_auth_image_recursive(unsigned int image_id,
-				    image_info_t *image_data,
-				    int is_parent_image)
+				     image_info_t *image_data,
+				     int is_parent_image)
 {
 	int rc;
 	unsigned int parent_id;
@@ -171,8 +172,7 @@ static int load_auth_image_recursive(unsigned int image_id,
 	}
 
 	/* Authenticate it */
-	rc = auth_mod_verify_img(image_id,
-				 (void *)image_data->image_base,
+	rc = auth_mod_verify_img(image_id, (void *)image_data->image_base,
 				 image_data->image_size);
 	if (rc != 0) {
 		/* Authentication error, zero memory and flush it right away. */
@@ -253,9 +253,9 @@ void print_entry_point_info(const entry_point_info_t *ep_info)
 	INFO("Entry point address = 0x%lx\n", ep_info->pc);
 	INFO("SPSR = 0x%x\n", ep_info->spsr);
 
-#define PRINT_IMAGE_ARG(n)					\
-	VERBOSE("Argument #" #n " = 0x%llx\n",			\
-		(unsigned long long) ep_info->args.arg##n)
+#define PRINT_IMAGE_ARG(n)                     \
+	VERBOSE("Argument #" #n " = 0x%llx\n", \
+		(unsigned long long)ep_info->args.arg##n)
 
 	PRINT_IMAGE_ARG(0);
 	PRINT_IMAGE_ARG(1);

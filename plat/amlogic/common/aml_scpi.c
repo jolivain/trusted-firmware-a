@@ -1,31 +1,33 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
+#include <string.h>
+
 #include <crypto/sha_dma.h>
 #include <lib/mmio.h>
+
 #include <plat/common/platform.h>
 #include <platform_def.h>
-#include <string.h>
 
 #include "aml_private.h"
 
-#define SIZE_SHIFT	20
-#define SIZE_MASK	0x1FF
-#define SIZE_FWBLK	0x200UL
+#define SIZE_SHIFT 20
+#define SIZE_MASK 0x1FF
+#define SIZE_FWBLK 0x200UL
 
 /*
  * Note: The Amlogic SCP firmware uses the legacy SCPI protocol.
  */
-#define SCPI_CMD_SET_CSS_POWER_STATE	0x04
-#define SCPI_CMD_SET_SYS_POWER_STATE	0x08
+#define SCPI_CMD_SET_CSS_POWER_STATE 0x04
+#define SCPI_CMD_SET_SYS_POWER_STATE 0x08
 
-#define SCPI_CMD_JTAG_SET_STATE		0xC0
-#define SCPI_CMD_EFUSE_READ		0xC2
-#define SCPI_CMD_CHIP_ID		0xC6
+#define SCPI_CMD_JTAG_SET_STATE 0xC0
+#define SCPI_CMD_EFUSE_READ 0xC2
+#define SCPI_CMD_CHIP_ID 0xC6
 
 #define SCPI_CMD_COPY_FW 0xd4
 #define SCPI_CMD_SET_FW_ADDR 0xd3
@@ -41,7 +43,8 @@ static void aml_scpi_secure_message_send(uint32_t command, uint32_t size)
 	aml_mhu_secure_message_send(aml_scpi_cmd(command, size));
 }
 
-static uint32_t aml_scpi_secure_message_receive(void **message_out, size_t *size_out)
+static uint32_t aml_scpi_secure_message_receive(void **message_out,
+						size_t *size_out)
 {
 	uint32_t response = aml_mhu_secure_message_wait();
 
@@ -59,17 +62,17 @@ static uint32_t aml_scpi_secure_message_receive(void **message_out, size_t *size
 }
 
 void aml_scpi_set_css_power_state(u_register_t mpidr, uint32_t cpu_state,
-			      uint32_t cluster_state, uint32_t css_state)
+				  uint32_t cluster_state, uint32_t css_state)
 {
 	uint32_t state = (mpidr & 0x0F) | /* CPU ID */
 			 ((mpidr & 0xF00) >> 4) | /* Cluster ID */
-			 (cpu_state << 8) |
-			 (cluster_state << 12) |
+			 (cpu_state << 8) | (cluster_state << 12) |
 			 (css_state << 16);
 
 	aml_mhu_secure_message_start();
 	mmio_write_32(AML_MHU_SECURE_AP_TO_SCP_PAYLOAD, state);
-	aml_mhu_secure_message_send(aml_scpi_cmd(SCPI_CMD_SET_CSS_POWER_STATE, 4));
+	aml_mhu_secure_message_send(
+		aml_scpi_cmd(SCPI_CMD_SET_CSS_POWER_STATE, 4));
 	aml_mhu_secure_message_wait();
 	aml_mhu_secure_message_end();
 }
@@ -81,7 +84,8 @@ uint32_t aml_scpi_sys_power_state(uint64_t system_state)
 
 	aml_mhu_secure_message_start();
 	mmio_write_8(AML_MHU_SECURE_AP_TO_SCP_PAYLOAD, system_state);
-	aml_mhu_secure_message_send(aml_scpi_cmd(SCPI_CMD_SET_SYS_POWER_STATE, 1));
+	aml_mhu_secure_message_send(
+		aml_scpi_cmd(SCPI_CMD_SET_SYS_POWER_STATE, 1));
 	aml_scpi_secure_message_receive((void *)&response, &size);
 	aml_mhu_secure_message_end();
 
@@ -130,8 +134,8 @@ uint32_t aml_scpi_efuse_read(void *dst, uint32_t base, uint32_t size)
 	return *response;
 }
 
-void aml_scpi_unknown_thermal(uint32_t arg0, uint32_t arg1,
-			      uint32_t arg2, uint32_t arg3)
+void aml_scpi_unknown_thermal(uint32_t arg0, uint32_t arg1, uint32_t arg2,
+			      uint32_t arg3)
 {
 	aml_mhu_secure_message_start();
 	mmio_write_32(AML_MHU_SECURE_AP_TO_SCP_PAYLOAD + 0x0, arg0);

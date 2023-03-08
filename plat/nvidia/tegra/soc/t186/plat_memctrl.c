@@ -1,13 +1,13 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-#include <common/bl_common.h>
 
+#include <common/bl_common.h>
 #include <mce.h>
 #include <memctrl_v2.h>
 #include <tegra186_private.h>
@@ -21,14 +21,10 @@ extern uint64_t tegra_bl31_phys_base;
  * Array to hold stream_id override config register offsets
  ******************************************************************************/
 static const uint32_t tegra186_streamid_override_regs[] = {
-	MC_STREAMID_OVERRIDE_CFG_SDMMCRA,
-	MC_STREAMID_OVERRIDE_CFG_SDMMCRAA,
-	MC_STREAMID_OVERRIDE_CFG_SDMMCR,
-	MC_STREAMID_OVERRIDE_CFG_SDMMCRAB,
-	MC_STREAMID_OVERRIDE_CFG_SDMMCWA,
-	MC_STREAMID_OVERRIDE_CFG_SDMMCWAA,
-	MC_STREAMID_OVERRIDE_CFG_SDMMCW,
-	MC_STREAMID_OVERRIDE_CFG_SDMMCWAB,
+	MC_STREAMID_OVERRIDE_CFG_SDMMCRA, MC_STREAMID_OVERRIDE_CFG_SDMMCRAA,
+	MC_STREAMID_OVERRIDE_CFG_SDMMCR,  MC_STREAMID_OVERRIDE_CFG_SDMMCRAB,
+	MC_STREAMID_OVERRIDE_CFG_SDMMCWA, MC_STREAMID_OVERRIDE_CFG_SDMMCWAA,
+	MC_STREAMID_OVERRIDE_CFG_SDMMCW,  MC_STREAMID_OVERRIDE_CFG_SDMMCWAB,
 };
 
 /*******************************************************************************
@@ -261,86 +257,160 @@ static void tegra186_memctrl_reconfig_mss_clients(void)
 	 *    between A01 and A02, tegra_memctrl_set_overrides() programs
 	 *    CGID_TAG_ADR for the necessary clients on A02.
 	 */
-	mc_set_txn_override(HDAR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(BPMPW, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(PTCR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(NVDISPLAYR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(EQOSW, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(NVJPGSWR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(ISPRA, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(SDMMCWAA, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(VICSRD, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(MPCOREW, CGID_TAG_DEFAULT, SO_DEV_ZERO, NO_OVERRIDE, NO_OVERRIDE);
-	mc_set_txn_override(GPUSRD, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(AXISR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(SCEDMAW, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(SDMMCW, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(EQOSR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(HDAR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(BPMPW, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(PTCR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(NVDISPLAYR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(EQOSW, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(NVJPGSWR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(ISPRA, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(SDMMCWAA, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(VICSRD, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(MPCOREW, CGID_TAG_DEFAULT, SO_DEV_ZERO, NO_OVERRIDE,
+			    NO_OVERRIDE);
+	mc_set_txn_override(GPUSRD, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(AXISR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(SCEDMAW, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(SDMMCW, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(EQOSR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
 	/* See bug 200131110 comment #35*/
-	mc_set_txn_override(APEDMAR, CGID_TAG_CLIENT_AXI_ID, SO_DEV_CLIENT_AXI_ID, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(NVENCSRD, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(SDMMCRAB, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(VICSRD1, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(BPMPDMAR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(VIW, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(SDMMCRAA, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(AXISW, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(XUSB_DEVR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(UFSHCR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(TSECSWR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(GPUSWR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(SATAR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(XUSB_HOSTW, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_COHERENT);
-	mc_set_txn_override(TSECSWRB, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(GPUSRD2, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(SCEDMAR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(GPUSWR2, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(AONDMAW, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(APEDMAR, CGID_TAG_CLIENT_AXI_ID,
+			    SO_DEV_CLIENT_AXI_ID, FORCE_NON_COHERENT,
+			    FORCE_NON_COHERENT);
+	mc_set_txn_override(NVENCSRD, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(SDMMCRAB, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(VICSRD1, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(BPMPDMAR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(VIW, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(SDMMCRAA, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(AXISW, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(XUSB_DEVR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(UFSHCR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(TSECSWR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(GPUSWR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(SATAR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(XUSB_HOSTW, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_COHERENT);
+	mc_set_txn_override(TSECSWRB, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(GPUSRD2, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(SCEDMAR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(GPUSWR2, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(AONDMAW, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
 	/* See bug 200131110 comment #35*/
-	mc_set_txn_override(APEDMAW, CGID_TAG_CLIENT_AXI_ID, SO_DEV_CLIENT_AXI_ID, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(AONW, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(HOST1XDMAR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(ETRR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(SESWR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(NVJPGSRD, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(NVDECSRD, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(TSECSRDB, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(BPMPDMAW, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(APER, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(NVDECSRD1, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(XUSB_HOSTR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(ISPWA, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(SESRD, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(SCER, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(AONR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(MPCORER, CGID_TAG_DEFAULT, SO_DEV_ZERO, NO_OVERRIDE, NO_OVERRIDE);
-	mc_set_txn_override(SDMMCWA, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(HDAW, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(NVDECSWR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(UFSHCW, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(AONDMAR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(SATAW, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_COHERENT);
-	mc_set_txn_override(ETRW, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(VICSWR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(NVENCSWR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(APEDMAW, CGID_TAG_CLIENT_AXI_ID,
+			    SO_DEV_CLIENT_AXI_ID, FORCE_NON_COHERENT,
+			    FORCE_NON_COHERENT);
+	mc_set_txn_override(AONW, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(HOST1XDMAR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(ETRR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(SESWR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(NVJPGSRD, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(NVDECSRD, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(TSECSRDB, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(BPMPDMAW, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(APER, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(NVDECSRD1, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(XUSB_HOSTR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(ISPWA, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(SESRD, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(SCER, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(AONR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(MPCORER, CGID_TAG_DEFAULT, SO_DEV_ZERO, NO_OVERRIDE,
+			    NO_OVERRIDE);
+	mc_set_txn_override(SDMMCWA, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(HDAW, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(NVDECSWR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(UFSHCW, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(AONDMAR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(SATAW, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_COHERENT);
+	mc_set_txn_override(ETRW, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(VICSWR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(NVENCSWR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
 	/* See bug 200131110 comment #35 */
-	mc_set_txn_override(AFIR, CGID_TAG_DEFAULT, SO_DEV_CLIENT_AXI_ID, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(SDMMCWAB, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(SDMMCRA, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(NVDISPLAYR1, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(ISPWB, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(BPMPR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(APEW, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(SDMMCR, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
-	mc_set_txn_override(XUSB_DEVW, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_COHERENT);
-	mc_set_txn_override(TSECSRD, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(AFIR, CGID_TAG_DEFAULT, SO_DEV_CLIENT_AXI_ID,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(SDMMCWAB, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(SDMMCRA, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(NVDISPLAYR1, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(ISPWB, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(BPMPR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(APEW, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(SDMMCR, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(XUSB_DEVW, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_COHERENT);
+	mc_set_txn_override(TSECSRD, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
 	/*
 	 * See bug 200131110 comment #35 - there are no normal requests
 	 * and AWID for SO/DEV requests is hardcoded in RTL for a
 	 * particular PCIE controller
 	 */
-	mc_set_txn_override(AFIW, CGID_TAG_DEFAULT, SO_DEV_CLIENT_AXI_ID, FORCE_NON_COHERENT, FORCE_COHERENT);
-	mc_set_txn_override(SCEW, CGID_TAG_DEFAULT, SO_DEV_ZERO, FORCE_NON_COHERENT, FORCE_NON_COHERENT);
+	mc_set_txn_override(AFIW, CGID_TAG_DEFAULT, SO_DEV_CLIENT_AXI_ID,
+			    FORCE_NON_COHERENT, FORCE_COHERENT);
+	mc_set_txn_override(SCEW, CGID_TAG_DEFAULT, SO_DEV_ZERO,
+			    FORCE_NON_COHERENT, FORCE_NON_COHERENT);
 
 	/*
 	 * At this point, ordering can occur at ROC. So, remove PCFIFO's
@@ -350,34 +420,34 @@ static void tegra186_memctrl_reconfig_mss_clients(void)
 	 * boot and strongly ordered MSS clients
 	 */
 	val = MC_PCFIFO_CLIENT_CONFIG1_RESET_VAL &
-		mc_set_pcfifo_unordered_boot_so_mss(1, AFIW) &
-		mc_set_pcfifo_unordered_boot_so_mss(1, HDAW) &
-		mc_set_pcfifo_unordered_boot_so_mss(1, SATAW);
+	      mc_set_pcfifo_unordered_boot_so_mss(1, AFIW) &
+	      mc_set_pcfifo_unordered_boot_so_mss(1, HDAW) &
+	      mc_set_pcfifo_unordered_boot_so_mss(1, SATAW);
 	tegra_mc_write_32(MC_PCFIFO_CLIENT_CONFIG1, val);
 
 	val = MC_PCFIFO_CLIENT_CONFIG2_RESET_VAL &
-		mc_set_pcfifo_unordered_boot_so_mss(2, XUSB_HOSTW) &
-		mc_set_pcfifo_unordered_boot_so_mss(2, XUSB_DEVW);
+	      mc_set_pcfifo_unordered_boot_so_mss(2, XUSB_HOSTW) &
+	      mc_set_pcfifo_unordered_boot_so_mss(2, XUSB_DEVW);
 	tegra_mc_write_32(MC_PCFIFO_CLIENT_CONFIG2, val);
 
 	val = MC_PCFIFO_CLIENT_CONFIG3_RESET_VAL &
-		mc_set_pcfifo_unordered_boot_so_mss(3, SDMMCWAB);
+	      mc_set_pcfifo_unordered_boot_so_mss(3, SDMMCWAB);
 	tegra_mc_write_32(MC_PCFIFO_CLIENT_CONFIG3, val);
 
 	val = MC_PCFIFO_CLIENT_CONFIG4_RESET_VAL &
-		mc_set_pcfifo_unordered_boot_so_mss(4, SESWR) &
-		mc_set_pcfifo_unordered_boot_so_mss(4, ETRW) &
-		mc_set_pcfifo_unordered_boot_so_mss(4, AXISW) &
-		mc_set_pcfifo_unordered_boot_so_mss(4, UFSHCW) &
-		mc_set_pcfifo_unordered_boot_so_mss(4, BPMPDMAW) &
-		mc_set_pcfifo_unordered_boot_so_mss(4, AONDMAW) &
-		mc_set_pcfifo_unordered_boot_so_mss(4, SCEDMAW);
+	      mc_set_pcfifo_unordered_boot_so_mss(4, SESWR) &
+	      mc_set_pcfifo_unordered_boot_so_mss(4, ETRW) &
+	      mc_set_pcfifo_unordered_boot_so_mss(4, AXISW) &
+	      mc_set_pcfifo_unordered_boot_so_mss(4, UFSHCW) &
+	      mc_set_pcfifo_unordered_boot_so_mss(4, BPMPDMAW) &
+	      mc_set_pcfifo_unordered_boot_so_mss(4, AONDMAW) &
+	      mc_set_pcfifo_unordered_boot_so_mss(4, SCEDMAW);
 	/* EQOSW is the only client that has PCFIFO order enabled. */
 	val |= mc_set_pcfifo_ordered_boot_so_mss(4, EQOSW);
 	tegra_mc_write_32(MC_PCFIFO_CLIENT_CONFIG4, val);
 
 	val = MC_PCFIFO_CLIENT_CONFIG5_RESET_VAL &
-		mc_set_pcfifo_unordered_boot_so_mss(5, APEDMAW);
+	      mc_set_pcfifo_unordered_boot_so_mss(5, APEDMAW);
 	tegra_mc_write_32(MC_PCFIFO_CLIENT_CONFIG5, val);
 
 	/*
@@ -407,10 +477,9 @@ static void tegra186_memctrl_set_overrides(void)
 	/*
 	 * Set the MC_TXN_OVERRIDE registers for write clients.
 	 */
-	if ((tegra_chipid_is_t186()) &&
-	    (!tegra_platform_is_silicon() ||
-	    (tegra_platform_is_silicon() && (tegra_get_chipid_minor() == 1U)))) {
-
+	if ((tegra_chipid_is_t186()) && (!tegra_platform_is_silicon() ||
+					 (tegra_platform_is_silicon() &&
+					  (tegra_get_chipid_minor() == 1U)))) {
 		/*
 		 * GPU and NVENC settings for Tegra186 simulation and
 		 * Silicon rev. A01
@@ -418,32 +487,32 @@ static void tegra186_memctrl_set_overrides(void)
 		val = tegra_mc_read_32(MC_TXN_OVERRIDE_CONFIG_GPUSWR);
 		val &= (uint32_t)~MC_TXN_OVERRIDE_CGID_TAG_MASK;
 		tegra_mc_write_32(MC_TXN_OVERRIDE_CONFIG_GPUSWR,
-			val | MC_TXN_OVERRIDE_CGID_TAG_ZERO);
+				  val | MC_TXN_OVERRIDE_CGID_TAG_ZERO);
 
 		val = tegra_mc_read_32(MC_TXN_OVERRIDE_CONFIG_GPUSWR2);
 		val &= (uint32_t)~MC_TXN_OVERRIDE_CGID_TAG_MASK;
 		tegra_mc_write_32(MC_TXN_OVERRIDE_CONFIG_GPUSWR2,
-			val | MC_TXN_OVERRIDE_CGID_TAG_ZERO);
+				  val | MC_TXN_OVERRIDE_CGID_TAG_ZERO);
 
 		val = tegra_mc_read_32(MC_TXN_OVERRIDE_CONFIG_NVENCSWR);
 		val &= (uint32_t)~MC_TXN_OVERRIDE_CGID_TAG_MASK;
 		tegra_mc_write_32(MC_TXN_OVERRIDE_CONFIG_NVENCSWR,
-			val | MC_TXN_OVERRIDE_CGID_TAG_CLIENT_AXI_ID);
+				  val | MC_TXN_OVERRIDE_CGID_TAG_CLIENT_AXI_ID);
 
 	} else {
-
 		/*
 		 * Settings for Tegra186 silicon rev. A02 and onwards.
 		 */
 		for (i = 0; i < ARRAY_SIZE(tegra186_txn_override_cfgs); i++) {
-			val = tegra_mc_read_32(tegra186_txn_override_cfgs[i].offset);
+			val = tegra_mc_read_32(
+				tegra186_txn_override_cfgs[i].offset);
 			val &= (uint32_t)~MC_TXN_OVERRIDE_CGID_TAG_MASK;
-			tegra_mc_write_32(tegra186_txn_override_cfgs[i].offset,
+			tegra_mc_write_32(
+				tegra186_txn_override_cfgs[i].offset,
 				val | tegra186_txn_override_cfgs[i].cgid_tag);
 		}
 	}
 }
-
 
 /*******************************************************************************
  * Array to hold MC context for Tegra186
@@ -594,7 +663,7 @@ static __attribute__((aligned(16))) mc_regs_t tegra186_mc_context[] = {
 	mc_make_sid_override_cfg(UFSHCR),
 	mc_make_sid_override_cfg(NVENCSWR),
 	mc_make_sid_override_cfg(AFIW),
-	mc_smmu_bypass_cfg,	/* TBU settings */
+	mc_smmu_bypass_cfg, /* TBU settings */
 	_END_OF_TABLE_,
 };
 
@@ -604,7 +673,8 @@ static __attribute__((aligned(16))) mc_regs_t tegra186_mc_context[] = {
 mc_regs_t *plat_memctrl_get_sys_suspend_ctx(void)
 {
 	/* index of _END_OF_TABLE_ */
-	tegra186_mc_context[0].val = (uint32_t)(ARRAY_SIZE(tegra186_mc_context)) - 1U;
+	tegra186_mc_context[0].val =
+		(uint32_t)(ARRAY_SIZE(tegra186_mc_context)) - 1U;
 
 	return tegra186_mc_context;
 }
@@ -617,15 +687,18 @@ void plat_memctrl_setup(void)
 	/* Program all the Stream ID overrides */
 	for (i = 0U; i < ARRAY_SIZE(tegra186_streamid_override_regs); i++) {
 		tegra_mc_streamid_write_32(tegra186_streamid_override_regs[i],
-			MC_STREAM_ID_MAX);
+					   MC_STREAM_ID_MAX);
 	}
 
 	/* Program the security config settings for all Stream IDs */
 	for (i = 0U; i < ARRAY_SIZE(tegra186_streamid_sec_cfgs); i++) {
 		val = (tegra186_streamid_sec_cfgs[i].override_enable << 16) |
-		      (tegra186_streamid_sec_cfgs[i].override_client_inputs << 8) |
-		      (tegra186_streamid_sec_cfgs[i].override_client_ns_flag << 0);
-		tegra_mc_streamid_write_32(tegra186_streamid_sec_cfgs[i].offset, val);
+		      (tegra186_streamid_sec_cfgs[i].override_client_inputs
+		       << 8) |
+		      (tegra186_streamid_sec_cfgs[i].override_client_ns_flag
+		       << 0);
+		tegra_mc_streamid_write_32(tegra186_streamid_sec_cfgs[i].offset,
+					   val);
 	}
 
 	/*

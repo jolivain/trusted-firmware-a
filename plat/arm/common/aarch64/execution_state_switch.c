@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,8 +12,9 @@
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/psci/psci.h>
 #include <lib/utils.h>
-#include <plat/arm/common/plat_arm.h>
 #include <smccc_helpers.h>
+
+#include <plat/arm/common/plat_arm.h>
 
 /*
  * Handle SMC from a lower exception level to switch its execution state
@@ -31,22 +32,19 @@
  * handle:
  *	Handle to saved context.
  */
-int arm_execution_state_switch(unsigned int smc_fid,
-		uint32_t pc_hi,
-		uint32_t pc_lo,
-		uint32_t cookie_hi,
-		uint32_t cookie_lo,
-		void *handle)
+int arm_execution_state_switch(unsigned int smc_fid, uint32_t pc_hi,
+			       uint32_t pc_lo, uint32_t cookie_hi,
+			       uint32_t cookie_lo, void *handle)
 {
 	bool caller_64, thumb = false, from_el2;
 	unsigned int el, endianness;
 	u_register_t spsr, pc, scr, sctlr;
 	entry_point_info_t ep;
-	cpu_context_t *ctx = (cpu_context_t *) handle;
+	cpu_context_t *ctx = (cpu_context_t *)handle;
 	el3_state_t *el3_ctx = get_el3state_ctx(ctx);
 
 	/* Validate supplied entry point */
-	pc = (u_register_t) (((uint64_t) pc_hi << 32) | pc_lo);
+	pc = (u_register_t)(((uint64_t)pc_hi << 32) | pc_lo);
 	if (arm_validate_ns_entrypoint(pc) != 0)
 		goto invalid_param;
 
@@ -75,7 +73,7 @@ int arm_execution_state_switch(unsigned int smc_fid,
 		thumb = (pc & 1U) != 0U;
 	} else {
 		/* Construct AArch64 PC */
-		pc = (((u_register_t) pc_hi) << 32) | pc_lo;
+		pc = (((u_register_t)pc_hi) << 32) | pc_lo;
 	}
 
 	/* Make sure PC is 4-byte aligned, except for Thumb */
@@ -91,7 +89,7 @@ int arm_execution_state_switch(unsigned int smc_fid,
 	 *   SCR_EL3.HCE.
 	 */
 	from_el2 = caller_64 ? (GET_EL(spsr) == MODE_EL2) :
-		(GET_M32(spsr) == MODE32_hyp);
+			       (GET_M32(spsr) == MODE32_hyp);
 	scr = read_ctx_reg(el3_ctx, CTX_SCR_EL3);
 	if (!from_el2) {
 		/* The call is from NS privilege level other than HYP */
@@ -126,9 +124,9 @@ int arm_execution_state_switch(unsigned int smc_fid,
 
 		/* Return to the equivalent AArch32 privilege level */
 		el = from_el2 ? MODE32_hyp : MODE32_svc;
-		spsr = SPSR_MODE32((u_register_t) el,
-				thumb ? SPSR_T_THUMB : SPSR_T_ARM,
-				endianness, DISABLE_ALL_EXCEPTIONS);
+		spsr = SPSR_MODE32((u_register_t)el,
+				   thumb ? SPSR_T_THUMB : SPSR_T_ARM,
+				   endianness, DISABLE_ALL_EXCEPTIONS);
 	} else {
 		/*
 		 * Switching from AArch32 to AArch64. Since it's not possible to
@@ -136,8 +134,8 @@ int arm_execution_state_switch(unsigned int smc_fid,
 		 * raised), it's safe to assume AArch64 is also implemented.
 		 */
 		el = from_el2 ? MODE_EL2 : MODE_EL1;
-		spsr = SPSR_64((u_register_t) el, MODE_SP_ELX,
-				DISABLE_ALL_EXCEPTIONS);
+		spsr = SPSR_64((u_register_t)el, MODE_SP_ELX,
+			       DISABLE_ALL_EXCEPTIONS);
 	}
 
 	/*
@@ -150,11 +148,11 @@ int arm_execution_state_switch(unsigned int smc_fid,
 	 */
 	zeromem(&ep, sizeof(ep));
 	ep.pc = pc;
-	ep.spsr = (uint32_t) spsr;
-	SET_PARAM_HEAD(&ep, PARAM_EP, VERSION_1,
-			((unsigned int) ((endianness != 0U) ? EP_EE_BIG :
-				EP_EE_LITTLE)
-			 | NON_SECURE | EP_ST_DISABLE));
+	ep.spsr = (uint32_t)spsr;
+	SET_PARAM_HEAD(
+		&ep, PARAM_EP, VERSION_1,
+		((unsigned int)((endianness != 0U) ? EP_EE_BIG : EP_EE_LITTLE) |
+		 NON_SECURE | EP_ST_DISABLE));
 
 	/*
 	 * Re-initialize the system register context, and exit EL3 as if for the

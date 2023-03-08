@@ -1,10 +1,11 @@
 /*
- * Copyright (c) 2019, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <lib/psci/psci.h>
+
 #include <plat/arm/common/plat_arm.h>
 
 /*******************************************************************************

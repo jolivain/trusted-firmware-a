@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,8 +7,6 @@
 #include <assert.h>
 #include <stdbool.h>
 #include <string.h>
-
-#include <platform_def.h>
 
 #include <arch.h>
 #include <arch_features.h>
@@ -20,6 +18,8 @@
 #include <lib/extensions/sys_reg_trace.h>
 #include <lib/extensions/trf.h>
 #include <lib/utils.h>
+
+#include <platform_def.h>
 
 /*******************************************************************************
  * Context management library initialisation routine. This library is used by
@@ -98,7 +98,7 @@ void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 		 *  with base address held in VBAR.
 		 */
 		assert(((ep->spsr >> SPSR_E_SHIFT) & SPSR_E_MASK) ==
-			(EP_GET_EE(ep->h.attr) >> EP_EE_SHIFT));
+		       (EP_GET_EE(ep->h.attr) >> EP_EE_SHIFT));
 
 		sctlr = (EP_GET_EE(ep->h.attr) != 0U) ? SCTLR_EE_BIT : 0U;
 		sctlr |= (SCTLR_RESET_VAL & ~(SCTLR_TE_BIT | SCTLR_V_BIT));
@@ -195,8 +195,7 @@ void cm_prepare_el3_exit(uint32_t security_state)
 		scr = read_ctx_reg(get_regs_ctx(ctx), CTX_SCR);
 		if ((scr & SCR_HCE_BIT) != 0U) {
 			/* Use SCTLR value to initialize HSCTLR */
-			hsctlr = read_ctx_reg(get_regs_ctx(ctx),
-						 CTX_NS_SCTLR);
+			hsctlr = read_ctx_reg(get_regs_ctx(ctx), CTX_NS_SCTLR);
 			hsctlr |= HSCTLR_RES1;
 			/* Temporarily set the NS bit to access HSCTLR */
 			write_scr(read_scr() | SCR_NS_BIT);
@@ -211,7 +210,8 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			write_scr(read_scr() & ~SCR_NS_BIT);
 			isb();
 		} else if ((read_id_pfr1() &
-			(ID_PFR1_VIRTEXT_MASK << ID_PFR1_VIRTEXT_SHIFT)) != 0U) {
+			    (ID_PFR1_VIRTEXT_MASK << ID_PFR1_VIRTEXT_SHIFT)) !=
+			   0U) {
 			el2_unused = true;
 
 			/*
@@ -251,8 +251,8 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			 *  Non-secure EL0 and EL1 accessed to the physical
 			 *  counter registers.
 			 */
-			write_cnthctl(CNTHCTL_RESET_VAL |
-					PL1PCEN_BIT | PL1PCTEN_BIT);
+			write_cnthctl(CNTHCTL_RESET_VAL | PL1PCEN_BIT |
+				      PL1PCTEN_BIT);
 
 			/*
 			 * Initialise CNTVOFF to zero as it resets to an
@@ -280,9 +280,10 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			 * VTTBR.BADDR: Set to zero as EL1&0 stage 2 address
 			 *  translation is disabled.
 			 */
-			write64_vttbr(VTTBR_RESET_VAL &
-				~((VTTBR_VMID_MASK << VTTBR_VMID_SHIFT)
-				| (VTTBR_BADDR_MASK << VTTBR_BADDR_SHIFT)));
+			write64_vttbr(
+				VTTBR_RESET_VAL &
+				~((VTTBR_VMID_MASK << VTTBR_VMID_SHIFT) |
+				  (VTTBR_BADDR_MASK << VTTBR_BADDR_SHIFT)));
 
 			/*
 			 * Initialise HDCR, setting all the fields rather than
@@ -305,12 +306,14 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			 */
 #if (ARM_ARCH_MAJOR > 7)
 			write_hdcr((HDCR_RESET_VAL | HDCR_HLP_BIT |
-				   ((read_pmcr() & PMCR_N_BITS) >>
-				    PMCR_N_SHIFT)) & ~HDCR_HPME_BIT);
+				    ((read_pmcr() & PMCR_N_BITS) >>
+				     PMCR_N_SHIFT)) &
+				   ~HDCR_HPME_BIT);
 #else
 			write_hdcr((HDCR_RESET_VAL |
-				   ((read_pmcr() & PMCR_N_BITS) >>
-				    PMCR_N_SHIFT)) & ~HDCR_HPME_BIT);
+				    ((read_pmcr() & PMCR_N_BITS) >>
+				     PMCR_N_SHIFT)) &
+				   ~HDCR_HPME_BIT);
 #endif
 			/*
 			 * Set HSTR to its architectural reset value so that

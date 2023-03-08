@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, Arm Limited. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,9 +10,10 @@
 #include <drivers/arm/css/sds.h>
 #include <libfdt.h>
 
-#include "morello_def.h"
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
+
+#include "morello_def.h"
 
 #ifdef TARGET_PLATFORM_FVP
 /*
@@ -95,39 +96,40 @@ static int plat_morello_append_config_node(struct morello_plat_info *plat_info)
 
 #ifdef TARGET_PLATFORM_SOC
 	err = fdt_setprop_u64(fdt, nodeoffset, "remote-ddr-size",
-			plat_info->remote_ddr_size);
+			      plat_info->remote_ddr_size);
 	if (err < 0) {
 		ERROR("NT_FW_CONFIG: Failed to set remote-ddr-size\n");
 		return -1;
 	}
 
 	err = fdt_setprop_u32(fdt, nodeoffset, "remote-chip-count",
-			plat_info->remote_chip_count);
+			      plat_info->remote_chip_count);
 	if (err < 0) {
 		ERROR("NT_FW_CONFIG: Failed to set remote-chip-count\n");
 		return -1;
 	}
 
 	err = fdt_setprop_u32(fdt, nodeoffset, "multichip-mode",
-			plat_info->multichip_mode);
+			      plat_info->multichip_mode);
 	if (err < 0) {
 		ERROR("NT_FW_CONFIG: Failed to set multichip-mode\n");
 		return -1;
 	}
 
 	err = fdt_setprop_u32(fdt, nodeoffset, "scc-config",
-			plat_info->scc_config);
+			      plat_info->scc_config);
 	if (err < 0) {
 		ERROR("NT_FW_CONFIG: Failed to set scc-config\n");
 		return -1;
 	}
 
 	if (plat_info->scc_config & MORELLO_SCC_CLIENT_MODE_MASK) {
-		usable_mem_size = get_mem_client_mode(plat_info->local_ddr_size);
+		usable_mem_size =
+			get_mem_client_mode(plat_info->local_ddr_size);
 	}
 #endif
 	err = fdt_setprop_u64(fdt, nodeoffset, "local-ddr-size",
-			usable_mem_size);
+			      usable_mem_size);
 	if (err < 0) {
 		ERROR("NT_FW_CONFIG: Failed to set local-ddr-size\n");
 		return -1;
@@ -153,10 +155,9 @@ bl_params_t *plat_get_next_bl_params(void)
 	}
 
 	ret = sds_struct_read(MORELLO_SDS_PLATFORM_INFO_STRUCT_ID,
-				MORELLO_SDS_PLATFORM_INFO_OFFSET,
-				&plat_info,
-				MORELLO_SDS_PLATFORM_INFO_SIZE,
-				SDS_ACCESS_MODE_NON_CACHED);
+			      MORELLO_SDS_PLATFORM_INFO_OFFSET, &plat_info,
+			      MORELLO_SDS_PLATFORM_INFO_SIZE,
+			      SDS_ACCESS_MODE_NON_CACHED);
 	if (ret != SDS_OK) {
 		ERROR("Error getting platform info from SDS. ret:%d\n", ret);
 		panic();
@@ -166,11 +167,10 @@ bl_params_t *plat_get_next_bl_params(void)
 #ifdef TARGET_PLATFORM_FVP
 	if (plat_info.local_ddr_size == 0U) {
 #else
-	if ((plat_info.local_ddr_size == 0U)
-		|| (plat_info.local_ddr_size > MORELLO_MAX_DDR_CAPACITY)
-		|| (plat_info.remote_ddr_size > MORELLO_MAX_DDR_CAPACITY)
-		|| (plat_info.remote_chip_count > MORELLO_MAX_REMOTE_CHIP_COUNT)
-		){
+	if ((plat_info.local_ddr_size == 0U) ||
+	    (plat_info.local_ddr_size > MORELLO_MAX_DDR_CAPACITY) ||
+	    (plat_info.remote_ddr_size > MORELLO_MAX_DDR_CAPACITY) ||
+	    (plat_info.remote_chip_count > MORELLO_MAX_REMOTE_CHIP_COUNT)) {
 #endif
 		ERROR("platform info SDS is corrupted\n");
 		panic();

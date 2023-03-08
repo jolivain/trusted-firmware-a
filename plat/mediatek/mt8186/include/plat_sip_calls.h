@@ -10,6 +10,6 @@
 /*******************************************************************************
  * Plat SiP function constants
  ******************************************************************************/
-#define MTK_PLAT_SIP_NUM_CALLS		(6)
+#define MTK_PLAT_SIP_NUM_CALLS (6)
 
 #endif /* PLAT_SIP_CALLS_H */

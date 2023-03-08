@@ -10,10 +10,11 @@
 #include <lib/mmio.h>
 #include <mt_dp.h>
 #include <mtk_sip_svc.h>
+
 #include <platform_def.h>
 
 static uint32_t dp_write_sec_reg(uint32_t is_edp, uint32_t offset,
-				uint32_t value, uint32_t mask)
+				 uint32_t value, uint32_t mask)
 {
 	uint32_t reg = (is_edp != 0U) ? EDP_SEC_BASE : DP_SEC_BASE;
 
@@ -61,16 +62,16 @@ int32_t dp_secure_handler(uint64_t cmd, uint64_t para, uint32_t *val)
 		}
 
 		regval = (VIDEO_MUTE_SEL_SECURE_FLDMASK | fldmask);
-		*val = dp_write_sec_reg(is_edp, DP_TX_SECURE_REG11,
-					regval, regmsk);
+		*val = dp_write_sec_reg(is_edp, DP_TX_SECURE_REG11, regval,
+					regmsk);
 	}
 
 	return ret;
 }
 
 u_register_t mtk_dp_sip_handler(u_register_t x1, u_register_t x2,
-				u_register_t x3, u_register_t x4,
-				void *handle, struct smccc_res *smccc_ret)
+				u_register_t x3, u_register_t x4, void *handle,
+				struct smccc_res *smccc_ret)
 {
 	uint32_t ret_val;
 

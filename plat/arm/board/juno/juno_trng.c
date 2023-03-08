@@ -1,27 +1,26 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <arm_acle.h>
 #include <assert.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <string.h>
 
+#include <arm_acle.h>
 #include <lib/mmio.h>
-#include <lib/utils_def.h>
-#include <platform_def.h>
-
 #include <lib/smccc.h>
+#include <lib/utils_def.h>
 #include <services/trng_svc.h>
 #include <smccc_helpers.h>
 
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
-#define NSAMPLE_CLOCKS	1 /* min 1 cycle, max 231 cycles */
-#define NRETRIES	5
+#define NSAMPLE_CLOCKS 1 /* min 1 cycle, max 231 cycles */
+#define NRETRIES 5
 
 /* initialised to false */
 static bool juno_trng_initialized;
@@ -40,10 +39,8 @@ static bool output_valid(void)
 	return false; /* No output data available. */
 }
 
-DEFINE_SVC_UUID2(_plat_trng_uuid,
-	0x23523c58, 0x7448, 0x4083, 0x9d, 0x16,
-	0xe3, 0xfa, 0xb9, 0xf1, 0x73, 0xbc
-);
+DEFINE_SVC_UUID2(_plat_trng_uuid, 0x23523c58, 0x7448, 0x4083, 0x9d, 0x16, 0xe3,
+		 0xfa, 0xb9, 0xf1, 0x73, 0xbc);
 uuid_t plat_trng_uuid;
 
 static uint32_t crc_value = ~0U;

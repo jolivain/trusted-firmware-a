@@ -1,19 +1,19 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <errno.h>
 
+#include <apupwr_clkctl.h>
+#include <apupwr_clkctl_def.h>
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <lib/spinlock.h>
-
-#include <apupwr_clkctl.h>
-#include <apupwr_clkctl_def.h>
 #include <mtk_plat_common.h>
+
 #include <platform_def.h>
 
 uint32_t mixed_con0_addr[APUPLL_MAX] = {
@@ -127,10 +127,8 @@ static int32_t vd2pllidx(enum dvfs_voltage_domain domain)
 static const char *pllidx2name(int32_t pll_idx)
 {
 	static const char *const names[] = {
-		[APUPLL] = "PLL4H_PLL1",
-		[NPUPLL] = "PLL4H_PLL2",
-		[APUPLL1] = "PLL4H_PLL3",
-		[APUPLL2] = "PLL4H_PLL4",
+		[APUPLL] = "PLL4H_PLL1",  [NPUPLL] = "PLL4H_PLL2",
+		[APUPLL1] = "PLL4H_PLL3", [APUPLL2] = "PLL4H_PLL4",
 		[APUPLL_MAX] = "NULL",
 	};
 
@@ -169,7 +167,7 @@ static int32_t _fhctl_mon_done(uint32_t pll_idx, unsigned long tar_dds)
 
 		if (timeout_elapsed(timeout)) {
 			ERROR("%s monitor DDS 0x%08lx != expect 0x%08lx\n",
-				  pllidx2name(pll_idx), mon_dds, tar_dds);
+			      pllidx2name(pll_idx), mon_dds, tar_dds);
 			ret = -ETIMEDOUT;
 			break;
 		}
@@ -220,7 +218,7 @@ static void _set_postdiv_reg(uint32_t pll_idx, uint32_t post_div)
 {
 	apupwr_clrbits(POSDIV_MASK << POSDIV_SHIFT, mixed_con1_addr[pll_idx]);
 	apupwr_setbits((post_div & POSDIV_MASK) << POSDIV_SHIFT,
-			mixed_con1_addr[pll_idx]);
+		       mixed_con1_addr[pll_idx]);
 }
 
 /**
@@ -505,7 +503,7 @@ err:
  * * 0 - done for set rate of voltage domain.
  */
 int32_t anpu_pll_set_rate(enum dvfs_voltage_domain domain,
-		      enum pll_set_rate_mode mode, int32_t freq)
+			  enum pll_set_rate_mode mode, int32_t freq)
 {
 	uint32_t pd, old_pd, dds;
 	int32_t pll_idx, ret = 0;
@@ -533,8 +531,8 @@ int32_t anpu_pll_set_rate(enum dvfs_voltage_domain domain,
 
 	switch (mode) {
 	case CON0_PCW:
-		pd = RG_PLL_SDM_PCW_CHG |
-		     (pd & POSDIV_MASK) << POSDIV_SHIFT | dds;
+		pd = RG_PLL_SDM_PCW_CHG | (pd & POSDIV_MASK) << POSDIV_SHIFT |
+		     dds;
 		apupwr_writel(pd, mixed_con1_addr[pll_idx]);
 		udelay(PLL_READY_TIME_20US);
 		break;

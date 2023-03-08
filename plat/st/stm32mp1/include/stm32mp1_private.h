@@ -25,8 +25,12 @@ void stm32mp1_syscfg_boot_mode_enable(void);
 void stm32mp1_syscfg_boot_mode_disable(void);
 #endif
 #if STM32MP15
-static inline void stm32mp1_syscfg_boot_mode_enable(void){}
-static inline void stm32mp1_syscfg_boot_mode_disable(void){}
+static inline void stm32mp1_syscfg_boot_mode_enable(void)
+{
+}
+static inline void stm32mp1_syscfg_boot_mode_disable(void)
+{
+}
 #endif
 
 void stm32mp1_deconfigure_uart_pins(void);

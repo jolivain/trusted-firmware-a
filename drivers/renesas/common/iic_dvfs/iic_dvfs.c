@@ -4,60 +4,61 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include "iic_dvfs.h"
+
 #include <common/debug.h>
 #include <lib/mmio.h>
 
 #include "cpg_registers.h"
-#include "iic_dvfs.h"
 #include "rcar_def.h"
 #include "rcar_private.h"
 
-#define DVFS_RETRY_MAX				(2U)
+#define DVFS_RETRY_MAX (2U)
 
-#define IIC_DVFS_SET_ICCL_EXTAL_TYPE_0		(0x07U)
-#define IIC_DVFS_SET_ICCL_EXTAL_TYPE_1		(0x09U)
-#define IIC_DVFS_SET_ICCL_EXTAL_TYPE_2		(0x0BU)
-#define IIC_DVFS_SET_ICCL_EXTAL_TYPE_3		(0x0EU)
-#define IIC_DVFS_SET_ICCL_EXTAL_TYPE_E		(0x15U)
+#define IIC_DVFS_SET_ICCL_EXTAL_TYPE_0 (0x07U)
+#define IIC_DVFS_SET_ICCL_EXTAL_TYPE_1 (0x09U)
+#define IIC_DVFS_SET_ICCL_EXTAL_TYPE_2 (0x0BU)
+#define IIC_DVFS_SET_ICCL_EXTAL_TYPE_3 (0x0EU)
+#define IIC_DVFS_SET_ICCL_EXTAL_TYPE_E (0x15U)
 
-#define IIC_DVFS_SET_ICCH_EXTAL_TYPE_0		(0x01U)
-#define IIC_DVFS_SET_ICCH_EXTAL_TYPE_1		(0x02U)
-#define IIC_DVFS_SET_ICCH_EXTAL_TYPE_2		(0x03U)
-#define IIC_DVFS_SET_ICCH_EXTAL_TYPE_3		(0x05U)
-#define IIC_DVFS_SET_ICCH_EXTAL_TYPE_E		(0x07U)
+#define IIC_DVFS_SET_ICCH_EXTAL_TYPE_0 (0x01U)
+#define IIC_DVFS_SET_ICCH_EXTAL_TYPE_1 (0x02U)
+#define IIC_DVFS_SET_ICCH_EXTAL_TYPE_2 (0x03U)
+#define IIC_DVFS_SET_ICCH_EXTAL_TYPE_3 (0x05U)
+#define IIC_DVFS_SET_ICCH_EXTAL_TYPE_E (0x07U)
 
-#define CPG_BIT_SMSTPCR9_DVFS			(0x04000000U)
+#define CPG_BIT_SMSTPCR9_DVFS (0x04000000U)
 
-#define IIC_DVFS_REG_BASE			(0xE60B0000U)
-#define IIC_DVFS_REG_ICDR			(IIC_DVFS_REG_BASE + 0x0000U)
-#define IIC_DVFS_REG_ICCR			(IIC_DVFS_REG_BASE + 0x0004U)
-#define IIC_DVFS_REG_ICSR			(IIC_DVFS_REG_BASE + 0x0008U)
-#define IIC_DVFS_REG_ICIC			(IIC_DVFS_REG_BASE + 0x000CU)
-#define IIC_DVFS_REG_ICCL			(IIC_DVFS_REG_BASE + 0x0010U)
-#define IIC_DVFS_REG_ICCH			(IIC_DVFS_REG_BASE + 0x0014U)
+#define IIC_DVFS_REG_BASE (0xE60B0000U)
+#define IIC_DVFS_REG_ICDR (IIC_DVFS_REG_BASE + 0x0000U)
+#define IIC_DVFS_REG_ICCR (IIC_DVFS_REG_BASE + 0x0004U)
+#define IIC_DVFS_REG_ICSR (IIC_DVFS_REG_BASE + 0x0008U)
+#define IIC_DVFS_REG_ICIC (IIC_DVFS_REG_BASE + 0x000CU)
+#define IIC_DVFS_REG_ICCL (IIC_DVFS_REG_BASE + 0x0010U)
+#define IIC_DVFS_REG_ICCH (IIC_DVFS_REG_BASE + 0x0014U)
 
-#define IIC_DVFS_BIT_ICSR_BUSY			(0x10U)
-#define IIC_DVFS_BIT_ICSR_AL			(0x08U)
-#define IIC_DVFS_BIT_ICSR_TACK			(0x04U)
-#define IIC_DVFS_BIT_ICSR_WAIT			(0x02U)
-#define IIC_DVFS_BIT_ICSR_DTE			(0x01U)
+#define IIC_DVFS_BIT_ICSR_BUSY (0x10U)
+#define IIC_DVFS_BIT_ICSR_AL (0x08U)
+#define IIC_DVFS_BIT_ICSR_TACK (0x04U)
+#define IIC_DVFS_BIT_ICSR_WAIT (0x02U)
+#define IIC_DVFS_BIT_ICSR_DTE (0x01U)
 
-#define IIC_DVFS_BIT_ICCR_ENABLE		(0x80U)
-#define IIC_DVFS_SET_ICCR_START			(0x94U)
-#define IIC_DVFS_SET_ICCR_STOP			(0x90U)
-#define IIC_DVFS_SET_ICCR_RETRANSMISSION	(0x94U)
-#define IIC_DVFS_SET_ICCR_CHANGE		(0x81U)
-#define IIC_DVFS_SET_ICCR_STOP_READ		(0xC0U)
+#define IIC_DVFS_BIT_ICCR_ENABLE (0x80U)
+#define IIC_DVFS_SET_ICCR_START (0x94U)
+#define IIC_DVFS_SET_ICCR_STOP (0x90U)
+#define IIC_DVFS_SET_ICCR_RETRANSMISSION (0x94U)
+#define IIC_DVFS_SET_ICCR_CHANGE (0x81U)
+#define IIC_DVFS_SET_ICCR_STOP_READ (0xC0U)
 
-#define IIC_DVFS_BIT_ICIC_TACKE			(0x04U)
-#define IIC_DVFS_BIT_ICIC_WAITE			(0x02U)
-#define IIC_DVFS_BIT_ICIC_DTEE			(0x01U)
+#define IIC_DVFS_BIT_ICIC_TACKE (0x04U)
+#define IIC_DVFS_BIT_ICIC_WAITE (0x02U)
+#define IIC_DVFS_BIT_ICIC_DTEE (0x01U)
 
-#define DVFS_READ_MODE				(0x01U)
-#define DVFS_WRITE_MODE				(0x00U)
+#define DVFS_READ_MODE (0x01U)
+#define DVFS_WRITE_MODE (0x00U)
 
-#define IIC_DVFS_SET_DUMMY			(0x52U)
-#define IIC_DVFS_SET_BUSY_LOOP			(500000000U)
+#define IIC_DVFS_SET_DUMMY (0x52U)
+#define IIC_DVFS_SET_BUSY_LOOP (500000000U)
 
 enum dvfs_state_t {
 	DVFS_START = 0,
@@ -73,35 +74,34 @@ enum dvfs_state_t {
 	DVFS_DONE,
 };
 
-#define DVFS_PROCESS			(1)
-#define DVFS_COMPLETE			(0)
-#define DVFS_ERROR			(-1)
+#define DVFS_PROCESS (1)
+#define DVFS_COMPLETE (0)
+#define DVFS_ERROR (-1)
 
 #if IMAGE_BL31
-#define IIC_DVFS_FUNC(__name, ...)					\
-static int32_t	__attribute__ ((section(".system_ram")))		\
-dvfs_ ##__name(__VA_ARGS__)
+#define IIC_DVFS_FUNC(__name, ...)                             \
+	static int32_t __attribute__((section(".system_ram"))) \
+	dvfs_##__name(__VA_ARGS__)
 
-#define RCAR_DVFS_API(__name, ...)					\
-int32_t __attribute__ ((section(".system_ram")))			\
-rcar_iic_dvfs_ ##__name(__VA_ARGS__)
+#define RCAR_DVFS_API(__name, ...)                      \
+	int32_t __attribute__((section(".system_ram"))) \
+	rcar_iic_dvfs_##__name(__VA_ARGS__)
 
 #else
-#define IIC_DVFS_FUNC(__name, ...)					\
-static int32_t dvfs_ ##__name(__VA_ARGS__)
+#define IIC_DVFS_FUNC(__name, ...) static int32_t dvfs_##__name(__VA_ARGS__)
 
-#define RCAR_DVFS_API(__name, ...)					\
-int32_t rcar_iic_dvfs_ ##__name(__VA_ARGS__)
+#define RCAR_DVFS_API(__name, ...) int32_t rcar_iic_dvfs_##__name(__VA_ARGS__)
 #endif
 
-IIC_DVFS_FUNC(check_error, enum dvfs_state_t *state, uint32_t *err, uint8_t mode)
+IIC_DVFS_FUNC(check_error, enum dvfs_state_t *state, uint32_t *err,
+	      uint8_t mode)
 {
 	uint8_t icsr_al = 0U, icsr_tack = 0U;
 	uint8_t reg, stop;
 	uint32_t i = 0U;
 
 	stop = mode == DVFS_READ_MODE ? IIC_DVFS_SET_ICCR_STOP_READ :
-	    IIC_DVFS_SET_ICCR_STOP;
+					IIC_DVFS_SET_ICCR_STOP;
 
 	reg = mmio_read_8(IIC_DVFS_REG_ICSR);
 	icsr_al = (reg & IIC_DVFS_BIT_ICSR_AL) == IIC_DVFS_BIT_ICSR_AL;
@@ -121,7 +121,7 @@ IIC_DVFS_FUNC(check_error, enum dvfs_state_t *state, uint32_t *err, uint8_t mode
 
 		do {
 			reg = mmio_read_8(IIC_DVFS_REG_ICSR) &
-			    IIC_DVFS_BIT_ICSR_WAIT;
+			      IIC_DVFS_BIT_ICSR_WAIT;
 		} while (reg == 0U);
 
 		mmio_write_8(IIC_DVFS_REG_ICCR, stop);
@@ -132,7 +132,7 @@ IIC_DVFS_FUNC(check_error, enum dvfs_state_t *state, uint32_t *err, uint8_t mode
 		i = 0U;
 		do {
 			reg = mmio_read_8(IIC_DVFS_REG_ICSR) &
-			    IIC_DVFS_BIT_ICSR_BUSY;
+			      IIC_DVFS_BIT_ICSR_BUSY;
 			if (reg == 0U) {
 				break;
 			}
@@ -153,7 +153,6 @@ IIC_DVFS_FUNC(check_error, enum dvfs_state_t *state, uint32_t *err, uint8_t mode
 		*state = DVFS_START;
 
 		return DVFS_PROCESS;
-
 	}
 
 	/* icsr_tack */
@@ -167,7 +166,8 @@ IIC_DVFS_FUNC(check_error, enum dvfs_state_t *state, uint32_t *err, uint8_t mode
 	mmio_write_8(IIC_DVFS_REG_ICSR, reg);
 
 	i = 0U;
-	while ((mmio_read_8(IIC_DVFS_REG_ICSR) & IIC_DVFS_BIT_ICSR_BUSY) != 0U) {
+	while ((mmio_read_8(IIC_DVFS_REG_ICSR) & IIC_DVFS_BIT_ICSR_BUSY) !=
+	       0U) {
 		if (i++ > IIC_DVFS_SET_BUSY_LOOP) {
 			panic();
 		}
@@ -224,9 +224,8 @@ start:
 	mmio_write_8(IIC_DVFS_REG_ICCL, iccl);
 	mmio_write_8(IIC_DVFS_REG_ICCH, icch);
 
-	mode = mmio_read_8(IIC_DVFS_REG_ICIC)
-	    | IIC_DVFS_BIT_ICIC_TACKE
-	    | IIC_DVFS_BIT_ICIC_WAITE | IIC_DVFS_BIT_ICIC_DTEE;
+	mode = mmio_read_8(IIC_DVFS_REG_ICIC) | IIC_DVFS_BIT_ICIC_TACKE |
+	       IIC_DVFS_BIT_ICIC_WAITE | IIC_DVFS_BIT_ICIC_DTEE;
 
 	mmio_write_8(IIC_DVFS_REG_ICIC, mode);
 	mmio_write_8(IIC_DVFS_REG_ICCR, IIC_DVFS_SET_ICCR_START);
@@ -263,7 +262,8 @@ IIC_DVFS_FUNC(set_slave, enum dvfs_state_t *state, uint32_t *err, uint8_t slave)
 	return result;
 }
 
-IIC_DVFS_FUNC(write_addr, enum dvfs_state_t *state, uint32_t *err, uint8_t reg_addr)
+IIC_DVFS_FUNC(write_addr, enum dvfs_state_t *state, uint32_t *err,
+	      uint8_t reg_addr)
 {
 	uint8_t mode;
 	int32_t result;
@@ -344,7 +344,8 @@ IIC_DVFS_FUNC(done, void)
 	uint32_t i;
 
 	for (i = 0U; i < IIC_DVFS_SET_BUSY_LOOP; i++) {
-		if ((mmio_read_8(IIC_DVFS_REG_ICSR) & IIC_DVFS_BIT_ICSR_BUSY) != 0U) {
+		if ((mmio_read_8(IIC_DVFS_REG_ICSR) & IIC_DVFS_BIT_ICSR_BUSY) !=
+		    0U) {
 			continue;
 		}
 		goto done;
@@ -431,7 +432,7 @@ IIC_DVFS_FUNC(set_slave_read, enum dvfs_state_t *state, uint32_t *err,
 	mode = mmio_read_8(IIC_DVFS_REG_ICIC) & ~IIC_DVFS_BIT_ICIC_DTEE;
 	mmio_write_8(IIC_DVFS_REG_ICIC, mode);
 
-	address = ((uint8_t) (slave << 1) + DVFS_READ_MODE);
+	address = ((uint8_t)(slave << 1) + DVFS_READ_MODE);
 	mmio_write_8(IIC_DVFS_REG_ICDR, address);
 
 	*state = DVFS_CHANGE_SEND_TO_RECEIVE;

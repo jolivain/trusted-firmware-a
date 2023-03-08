@@ -10,7 +10,6 @@
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-
 #include <sdio.h>
 #include <sr_def.h>
 #include <sr_utils.h>
@@ -67,26 +66,26 @@ void brcm_stingray_sdio_init(void)
 	val |= (0xb7 << 23); /* Set ARCACHE and AWCACHE */
 	mmio_write_32(sdio0_cfg->io_ctrl_base, val);
 
-	mmio_clrsetbits_32(sdio0_cfg->pad_base + PAD_SDIO_CLK,
-			   PAD_SDIO_MASK, PAD_SDIO_VALUE);
-	mmio_clrsetbits_32(sdio0_cfg->pad_base + PAD_SDIO_DATA0,
-			   PAD_SDIO_MASK, PAD_SDIO_VALUE);
-	mmio_clrsetbits_32(sdio0_cfg->pad_base + PAD_SDIO_DATA1,
-			   PAD_SDIO_MASK, PAD_SDIO_VALUE);
-	mmio_clrsetbits_32(sdio0_cfg->pad_base + PAD_SDIO_DATA2,
-			   PAD_SDIO_MASK, PAD_SDIO_VALUE);
-	mmio_clrsetbits_32(sdio0_cfg->pad_base + PAD_SDIO_DATA3,
-			   PAD_SDIO_MASK, PAD_SDIO_VALUE);
-	mmio_clrsetbits_32(sdio0_cfg->pad_base + PAD_SDIO_DATA4,
-			   PAD_SDIO_MASK, PAD_SDIO_VALUE);
-	mmio_clrsetbits_32(sdio0_cfg->pad_base + PAD_SDIO_DATA5,
-			   PAD_SDIO_MASK, PAD_SDIO_VALUE);
-	mmio_clrsetbits_32(sdio0_cfg->pad_base + PAD_SDIO_DATA6,
-			   PAD_SDIO_MASK, PAD_SDIO_VALUE);
-	mmio_clrsetbits_32(sdio0_cfg->pad_base + PAD_SDIO_DATA7,
-			   PAD_SDIO_MASK, PAD_SDIO_VALUE);
-	mmio_clrsetbits_32(sdio0_cfg->pad_base + PAD_SDIO_CMD,
-			   PAD_SDIO_MASK, PAD_SDIO_VALUE);
+	mmio_clrsetbits_32(sdio0_cfg->pad_base + PAD_SDIO_CLK, PAD_SDIO_MASK,
+			   PAD_SDIO_VALUE);
+	mmio_clrsetbits_32(sdio0_cfg->pad_base + PAD_SDIO_DATA0, PAD_SDIO_MASK,
+			   PAD_SDIO_VALUE);
+	mmio_clrsetbits_32(sdio0_cfg->pad_base + PAD_SDIO_DATA1, PAD_SDIO_MASK,
+			   PAD_SDIO_VALUE);
+	mmio_clrsetbits_32(sdio0_cfg->pad_base + PAD_SDIO_DATA2, PAD_SDIO_MASK,
+			   PAD_SDIO_VALUE);
+	mmio_clrsetbits_32(sdio0_cfg->pad_base + PAD_SDIO_DATA3, PAD_SDIO_MASK,
+			   PAD_SDIO_VALUE);
+	mmio_clrsetbits_32(sdio0_cfg->pad_base + PAD_SDIO_DATA4, PAD_SDIO_MASK,
+			   PAD_SDIO_VALUE);
+	mmio_clrsetbits_32(sdio0_cfg->pad_base + PAD_SDIO_DATA5, PAD_SDIO_MASK,
+			   PAD_SDIO_VALUE);
+	mmio_clrsetbits_32(sdio0_cfg->pad_base + PAD_SDIO_DATA6, PAD_SDIO_MASK,
+			   PAD_SDIO_VALUE);
+	mmio_clrsetbits_32(sdio0_cfg->pad_base + PAD_SDIO_DATA7, PAD_SDIO_MASK,
+			   PAD_SDIO_VALUE);
+	mmio_clrsetbits_32(sdio0_cfg->pad_base + PAD_SDIO_CMD, PAD_SDIO_MASK,
+			   PAD_SDIO_VALUE);
 
 	INFO("set sdio1 caps\n");
 
@@ -119,26 +118,26 @@ void brcm_stingray_sdio_init(void)
 	val |= (0xb7 << 23); /* Set ARCACHE and AWCACHE */
 	mmio_write_32(sdio1_cfg->io_ctrl_base, val);
 
-	mmio_clrsetbits_32(sdio1_cfg->pad_base + PAD_SDIO_CLK,
-			   PAD_SDIO_MASK, PAD_SDIO_VALUE);
-	mmio_clrsetbits_32(sdio1_cfg->pad_base + PAD_SDIO_DATA0,
-			   PAD_SDIO_MASK, PAD_SDIO_VALUE);
-	mmio_clrsetbits_32(sdio1_cfg->pad_base + PAD_SDIO_DATA1,
-			   PAD_SDIO_MASK, PAD_SDIO_VALUE);
-	mmio_clrsetbits_32(sdio1_cfg->pad_base + PAD_SDIO_DATA2,
-			   PAD_SDIO_MASK, PAD_SDIO_VALUE);
-	mmio_clrsetbits_32(sdio1_cfg->pad_base + PAD_SDIO_DATA3,
-			   PAD_SDIO_MASK, PAD_SDIO_VALUE);
-	mmio_clrsetbits_32(sdio1_cfg->pad_base + PAD_SDIO_DATA4,
-			   PAD_SDIO_MASK, PAD_SDIO_VALUE);
-	mmio_clrsetbits_32(sdio1_cfg->pad_base + PAD_SDIO_DATA5,
-			   PAD_SDIO_MASK, PAD_SDIO_VALUE);
-	mmio_clrsetbits_32(sdio1_cfg->pad_base + PAD_SDIO_DATA6,
-			   PAD_SDIO_MASK, PAD_SDIO_VALUE);
-	mmio_clrsetbits_32(sdio1_cfg->pad_base + PAD_SDIO_DATA7,
-			   PAD_SDIO_MASK, PAD_SDIO_VALUE);
-	mmio_clrsetbits_32(sdio1_cfg->pad_base + PAD_SDIO_CMD,
-			   PAD_SDIO_MASK, PAD_SDIO_VALUE);
+	mmio_clrsetbits_32(sdio1_cfg->pad_base + PAD_SDIO_CLK, PAD_SDIO_MASK,
+			   PAD_SDIO_VALUE);
+	mmio_clrsetbits_32(sdio1_cfg->pad_base + PAD_SDIO_DATA0, PAD_SDIO_MASK,
+			   PAD_SDIO_VALUE);
+	mmio_clrsetbits_32(sdio1_cfg->pad_base + PAD_SDIO_DATA1, PAD_SDIO_MASK,
+			   PAD_SDIO_VALUE);
+	mmio_clrsetbits_32(sdio1_cfg->pad_base + PAD_SDIO_DATA2, PAD_SDIO_MASK,
+			   PAD_SDIO_VALUE);
+	mmio_clrsetbits_32(sdio1_cfg->pad_base + PAD_SDIO_DATA3, PAD_SDIO_MASK,
+			   PAD_SDIO_VALUE);
+	mmio_clrsetbits_32(sdio1_cfg->pad_base + PAD_SDIO_DATA4, PAD_SDIO_MASK,
+			   PAD_SDIO_VALUE);
+	mmio_clrsetbits_32(sdio1_cfg->pad_base + PAD_SDIO_DATA5, PAD_SDIO_MASK,
+			   PAD_SDIO_VALUE);
+	mmio_clrsetbits_32(sdio1_cfg->pad_base + PAD_SDIO_DATA6, PAD_SDIO_MASK,
+			   PAD_SDIO_VALUE);
+	mmio_clrsetbits_32(sdio1_cfg->pad_base + PAD_SDIO_DATA7, PAD_SDIO_MASK,
+			   PAD_SDIO_VALUE);
+	mmio_clrsetbits_32(sdio1_cfg->pad_base + PAD_SDIO_CMD, PAD_SDIO_MASK,
+			   PAD_SDIO_VALUE);
 
 	INFO("sdio init done\n");
 }

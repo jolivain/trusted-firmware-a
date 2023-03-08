@@ -37,16 +37,16 @@
 #include <ocram.h>
 #endif
 #include <plat_common.h>
-#include <platform_def.h>
 #include <soc.h>
 
-static dcfg_init_info_t dcfg_init_data = {
-			.g_nxp_dcfg_addr = NXP_DCFG_ADDR,
-			.nxp_sysclk_freq = NXP_SYSCLK_FREQ,
-			.nxp_ddrclk_freq = NXP_DDRCLK_FREQ,
-			.nxp_plat_clk_divider = NXP_PLATFORM_CLK_DIVIDER,
-		};
+#include <platform_def.h>
 
+static dcfg_init_info_t dcfg_init_data = {
+	.g_nxp_dcfg_addr = NXP_DCFG_ADDR,
+	.nxp_sysclk_freq = NXP_SYSCLK_FREQ,
+	.nxp_ddrclk_freq = NXP_DDRCLK_FREQ,
+	.nxp_plat_clk_divider = NXP_PLATFORM_CLK_DIVIDER,
+};
 
 /* Function to return the SoC SYS CLK */
 unsigned int get_sys_clk(void)
@@ -67,14 +67,14 @@ unsigned int plat_get_syscnt_freq2(void)
 {
 	unsigned int counter_base_frequency;
 
-	counter_base_frequency = get_sys_clk()/4;
+	counter_base_frequency = get_sys_clk() / 4;
 
 	return counter_base_frequency;
 }
 
 #ifdef IMAGE_BL2
 
-static struct soc_type soc_list[] =  {
+static struct soc_type soc_list[] = {
 	SOC_ENTRY(LS1023A, LS1023A, 1, 2),
 	SOC_ENTRY(LS1023AE, LS1023AE, 1, 2),
 	SOC_ENTRY(LS1023A_P23, LS1023A_P23, 1, 2),
@@ -109,7 +109,7 @@ static void set_base_freq_CNTFID0(void)
 	 * The system counter always works with SYS_REF_CLK/4 frequency clock.
 	 *
 	 */
-	unsigned int counter_base_frequency = get_sys_clk()/4;
+	unsigned int counter_base_frequency = get_sys_clk() / 4;
 
 	/*
 	 * Setting the frequency in the Frequency modes table.
@@ -128,7 +128,6 @@ static void set_base_freq_CNTFID0(void)
 
 void soc_preload_setup(void)
 {
-
 }
 
 /*******************************************************************************
@@ -151,14 +150,14 @@ void soc_early_init(void)
 #if LOG_LEVEL > 0
 	/* Initialize the console to provide early debug support */
 
-	plat_console_init(NXP_CONSOLE_ADDR,
-				NXP_UART_CLK_DIVIDER, NXP_CONSOLE_BAUDRATE);
+	plat_console_init(NXP_CONSOLE_ADDR, NXP_UART_CLK_DIVIDER,
+			  NXP_CONSOLE_BAUDRATE);
 #endif
 	set_base_freq_CNTFID0();
 
 	/* Enable snooping on SEC read and write transactions */
 	scfg_setbits32((void *)(NXP_SCFG_ADDR + SCFG_SNPCNFGCR_OFFSET),
-			SCFG_SNPCNFGCR_SECRDSNP | SCFG_SNPCNFGCR_SECWRSNP);
+		       SCFG_SNPCNFGCR_SECRDSNP | SCFG_SNPCNFGCR_SECWRSNP);
 
 	/*
 	 * Initialize Interconnect for this cluster during cold boot.
@@ -169,7 +168,8 @@ void soc_early_init(void)
 	/*
 	 * Enable Interconnect coherency for the primary CPU's cluster.
 	 */
-	get_cluster_info(soc_list, ARRAY_SIZE(soc_list), &num_clusters, &cores_per_cluster);
+	get_cluster_info(soc_list, ARRAY_SIZE(soc_list), &num_clusters,
+			 &cores_per_cluster);
 	plat_ls_interconnect_enter_coherency(num_clusters);
 
 	/*
@@ -293,32 +293,29 @@ void soc_mem_access(void)
 			break;
 		}
 
-		index = populate_tzc380_reg_list(tzc380_reg_list,
-				dram_idx, index,
-				info_dram_regions->region[dram_idx].addr,
-				info_dram_regions->region[dram_idx].size,
-				NXP_SECURE_DRAM_SIZE, NXP_SP_SHRD_DRAM_SIZE);
+		index = populate_tzc380_reg_list(
+			tzc380_reg_list, dram_idx, index,
+			info_dram_regions->region[dram_idx].addr,
+			info_dram_regions->region[dram_idx].size,
+			NXP_SECURE_DRAM_SIZE, NXP_SP_SHRD_DRAM_SIZE);
 	}
 
 	mem_access_setup(NXP_TZC_ADDR, index, tzc380_reg_list);
 
 	/* Configure CSU secure access register to disable TZASC bypass mux */
-	mmio_write_32((uintptr_t)(NXP_CSU_ADDR +
-				CSU_SEC_ACCESS_REG_OFFSET),
-			bswap32(TZASC_BYPASS_MUX_DISABLE));
+	mmio_write_32((uintptr_t)(NXP_CSU_ADDR + CSU_SEC_ACCESS_REG_OFFSET),
+		      bswap32(TZASC_BYPASS_MUX_DISABLE));
 }
 
-
 #else
-const unsigned char _power_domain_tree_desc[] = {1, 1, 4};
+const unsigned char _power_domain_tree_desc[] = { 1, 1, 4 };
 
-CASSERT(NUMBER_OF_CLUSTERS && NUMBER_OF_CLUSTERS <= 256,
-		assert_invalid_ls1043_cluster_count);
+CASSERT(NUMBER_OF_CLUSTERS &&NUMBER_OF_CLUSTERS <= 256,
+	assert_invalid_ls1043_cluster_count);
 
 /* This function returns the SoC topology */
 const unsigned char *plat_get_power_domain_tree_desc(void)
 {
-
 	return _power_domain_tree_desc;
 }
 
@@ -339,8 +336,8 @@ void soc_early_platform_setup2(void)
 
 #if LOG_LEVEL > 0
 	/* Initialize the console to provide early debug support */
-	plat_console_init(NXP_CONSOLE_ADDR,
-				NXP_UART_CLK_DIVIDER, NXP_CONSOLE_BAUDRATE);
+	plat_console_init(NXP_CONSOLE_ADDR, NXP_UART_CLK_DIVIDER,
+			  NXP_CONSOLE_BAUDRATE);
 #endif
 }
 
@@ -353,8 +350,8 @@ void soc_early_platform_setup2(void)
 void get_gic_offset(uint32_t *gicc_base, uint32_t *gicd_base)
 {
 	uint32_t *ccsr_svr = (uint32_t *)(NXP_DCFG_ADDR + DCFG_SVR_OFFSET);
-	uint32_t *gic_align = (uint32_t *)(NXP_SCFG_ADDR +
-					   SCFG_GIC400_ADDR_ALIGN_OFFSET);
+	uint32_t *gic_align =
+		(uint32_t *)(NXP_SCFG_ADDR + SCFG_GIC400_ADDR_ALIGN_OFFSET);
 	uint32_t val;
 
 	val = be32toh(mmio_read_32((uintptr_t)ccsr_svr));
@@ -389,8 +386,7 @@ void soc_platform_setup(void)
 	static uint32_t gicc_base, gicd_base;
 
 	get_gic_offset(&gicc_base, &gicd_base);
-	plat_ls_gic_driver_init(gicd_base, gicc_base,
-				PLATFORM_CORE_COUNT,
+	plat_ls_gic_driver_init(gicd_base, gicc_base, PLATFORM_CORE_COUNT,
 				ls_interrupt_props,
 				ARRAY_SIZE(ls_interrupt_props),
 				target_mask_array);
@@ -402,7 +398,7 @@ void soc_platform_setup(void)
 /* This function initializes the soc from the BL31 module */
 void soc_init(void)
 {
-	 /* low-level init of the soc */
+	/* low-level init of the soc */
 	soc_init_lowlevel();
 	_init_global_data();
 	soc_init_percpu();
@@ -434,6 +430,5 @@ void soc_init(void)
 
 void soc_runtime_setup(void)
 {
-
 }
 #endif

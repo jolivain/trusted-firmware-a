@@ -1,16 +1,15 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <stdint.h>
 
-#include <platform_def.h>
-
 #include <arch.h>
-
 #include <rpi_shared.h>
+
+#include <platform_def.h>
 
 /* The power domain tree descriptor */
 static unsigned char power_domain_tree_desc[] = {

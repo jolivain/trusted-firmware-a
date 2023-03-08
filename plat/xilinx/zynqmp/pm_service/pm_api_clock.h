@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -15,53 +15,53 @@
 
 #include "pm_common.h"
 
-#define CLK_NAME_LEN		(15U)
-#define MAX_PARENTS		(100U)
-#define CLK_NA_PARENT		-1
-#define CLK_DUMMY_PARENT	-2
+#define CLK_NAME_LEN (15U)
+#define MAX_PARENTS (100U)
+#define CLK_NA_PARENT -1
+#define CLK_DUMMY_PARENT -2
 
 /* Flags for parent id */
-#define PARENT_CLK_SELF		(0U)
-#define PARENT_CLK_NODE1	(1U)
-#define PARENT_CLK_NODE2	(2U)
-#define PARENT_CLK_NODE3	(3U)
-#define PARENT_CLK_NODE4	(4U)
-#define PARENT_CLK_EXTERNAL	(5U)
-#define PARENT_CLK_MIO0_MIO77	(6U)
+#define PARENT_CLK_SELF (0U)
+#define PARENT_CLK_NODE1 (1U)
+#define PARENT_CLK_NODE2 (2U)
+#define PARENT_CLK_NODE3 (3U)
+#define PARENT_CLK_NODE4 (4U)
+#define PARENT_CLK_EXTERNAL (5U)
+#define PARENT_CLK_MIO0_MIO77 (6U)
 
-#define CLK_SET_RATE_GATE	BIT(0) /* must be gated across rate change */
-#define CLK_SET_PARENT_GATE	BIT(1) /* must be gated across re-parent */
-#define CLK_SET_RATE_PARENT	BIT(2) /* propagate rate change up one level */
-#define CLK_IGNORE_UNUSED	BIT(3) /* do not gate even if unused */
+#define CLK_SET_RATE_GATE BIT(0) /* must be gated across rate change */
+#define CLK_SET_PARENT_GATE BIT(1) /* must be gated across re-parent */
+#define CLK_SET_RATE_PARENT BIT(2) /* propagate rate change up one level */
+#define CLK_IGNORE_UNUSED BIT(3) /* do not gate even if unused */
 /* unused */
-#define CLK_IS_BASIC		BIT(5) /* Basic clk, can't do a to_clk_foo() */
-#define CLK_GET_RATE_NOCACHE	BIT(6) /* do not use the cached clk rate */
+#define CLK_IS_BASIC BIT(5) /* Basic clk, can't do a to_clk_foo() */
+#define CLK_GET_RATE_NOCACHE BIT(6) /* do not use the cached clk rate */
 #define CLK_SET_RATE_NO_REPARENT BIT(7) /* don't re-parent on rate change */
 #define CLK_GET_ACCURACY_NOCACHE BIT(8) /* do not use the cached clk accuracy */
-#define CLK_RECALC_NEW_RATES	BIT(9) /* recalc rates after notifications */
-#define CLK_SET_RATE_UNGATE	BIT(10) /* clock needs to run to set rate */
-#define CLK_IS_CRITICAL		BIT(11) /* do not gate, ever */
+#define CLK_RECALC_NEW_RATES BIT(9) /* recalc rates after notifications */
+#define CLK_SET_RATE_UNGATE BIT(10) /* clock needs to run to set rate */
+#define CLK_IS_CRITICAL BIT(11) /* do not gate, ever */
 /* parents need enable during gate/ungate, set rate and re-parent */
-#define CLK_OPS_PARENT_ENABLE	BIT(12)
+#define CLK_OPS_PARENT_ENABLE BIT(12)
 
-#define CLK_DIVIDER_ONE_BASED		BIT(0)
-#define CLK_DIVIDER_POWER_OF_TWO	BIT(1)
-#define CLK_DIVIDER_ALLOW_ZERO		BIT(2)
-#define CLK_DIVIDER_HIWORD_MASK		BIT(3)
-#define CLK_DIVIDER_ROUND_CLOSEST	BIT(4)
-#define CLK_DIVIDER_READ_ONLY		BIT(5)
-#define CLK_DIVIDER_MAX_AT_ZERO		BIT(6)
-#define CLK_FRAC		BIT(8)
+#define CLK_DIVIDER_ONE_BASED BIT(0)
+#define CLK_DIVIDER_POWER_OF_TWO BIT(1)
+#define CLK_DIVIDER_ALLOW_ZERO BIT(2)
+#define CLK_DIVIDER_HIWORD_MASK BIT(3)
+#define CLK_DIVIDER_ROUND_CLOSEST BIT(4)
+#define CLK_DIVIDER_READ_ONLY BIT(5)
+#define CLK_DIVIDER_MAX_AT_ZERO BIT(6)
+#define CLK_FRAC BIT(8)
 
-#define END_OF_CLK     "END_OF_CLK"
+#define END_OF_CLK "END_OF_CLK"
 
 //CLock Ids
 enum clock_id {
 	CLK_IOPLL = (0U),
-	CLK_RPLL  = (1U),
-	CLK_APLL  = (2U),
-	CLK_DPLL  = (3U),
-	CLK_VPLL  = (4U),
+	CLK_RPLL = (1U),
+	CLK_APLL = (2U),
+	CLK_DPLL = (3U),
+	CLK_VPLL = (4U),
 	CLK_IOPLL_TO_FPD = (5U),
 	CLK_RPLL_TO_FPD = (6U),
 	CLK_APLL_TO_LPD = (7U),
@@ -278,16 +278,16 @@ enum {
 
 //CLock types
 #define CLK_TYPE_OUTPUT 0U
-#define	CLK_TYPE_EXTERNAL  1U
+#define CLK_TYPE_EXTERNAL 1U
 
 //Topology types
 #define TYPE_INVALID 0U
-#define	TYPE_MUX 1U
-#define	TYPE_PLL 2U
-#define	TYPE_FIXEDFACTOR 3U
-#define	TYPE_DIV1 4U
-#define	TYPE_DIV2 5U
-#define	TYPE_GATE 6U
+#define TYPE_MUX 1U
+#define TYPE_PLL 2U
+#define TYPE_FIXEDFACTOR 3U
+#define TYPE_DIV1 4U
+#define TYPE_DIV2 5U
+#define TYPE_GATE 6U
 
 struct pm_pll;
 struct pm_pll *pm_clock_get_pll(enum clock_id clock_id);
@@ -296,14 +296,12 @@ uint8_t pm_clock_has_div(uint32_t clock_id, enum pm_clock_div_id div_id);
 
 void pm_api_clock_get_name(uint32_t clock_id, char *name);
 enum pm_ret_status pm_api_clock_get_num_clocks(uint32_t *nclocks);
-enum pm_ret_status pm_api_clock_get_topology(uint32_t clock_id,
-					     uint32_t index,
+enum pm_ret_status pm_api_clock_get_topology(uint32_t clock_id, uint32_t index,
 					     uint32_t *topology);
 enum pm_ret_status pm_api_clock_get_fixedfactor_params(uint32_t clock_id,
 						       uint32_t *mul,
 						       uint32_t *div);
-enum pm_ret_status pm_api_clock_get_parents(uint32_t clock_id,
-					    uint32_t index,
+enum pm_ret_status pm_api_clock_get_parents(uint32_t clock_id, uint32_t index,
 					    uint32_t *parents);
 enum pm_ret_status pm_api_clock_get_attributes(uint32_t clock_id,
 					       uint32_t *attr);
@@ -317,16 +315,14 @@ enum pm_ret_status pm_clock_id_is_valid(uint32_t clock_id);
 
 enum pm_ret_status pm_clock_pll_enable(struct pm_pll *pll);
 enum pm_ret_status pm_clock_pll_disable(struct pm_pll *pll);
-enum pm_ret_status pm_clock_pll_get_state(struct pm_pll *pll,
-					  uint32_t *state);
+enum pm_ret_status pm_clock_pll_get_state(struct pm_pll *pll, uint32_t *state);
 enum pm_ret_status pm_clock_pll_set_parent(struct pm_pll *pll,
 					   enum clock_id clock_id,
 					   uint32_t parent_index);
 enum pm_ret_status pm_clock_pll_get_parent(struct pm_pll *pll,
 					   enum clock_id clock_id,
 					   uint32_t *parent_index);
-enum pm_ret_status pm_clock_set_pll_mode(enum clock_id clock_id,
-					 uint32_t mode);
+enum pm_ret_status pm_clock_set_pll_mode(enum clock_id clock_id, uint32_t mode);
 enum pm_ret_status pm_clock_get_pll_mode(enum clock_id clock_id,
 					 uint32_t *mode);
 

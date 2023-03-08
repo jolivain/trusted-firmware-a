@@ -6,6 +6,7 @@
 
 #include <arch.h>
 #include <lib/psci/psci.h>
+
 #include <platform_def.h>
 
 #pragma weak plat_get_power_domain_tree_desc

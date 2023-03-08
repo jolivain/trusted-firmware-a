@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, Arm Limited. All rights reserved.
+ * Copyright (c) 2020-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,7 +8,6 @@
 
 #include <common/debug.h>
 #include <common/fdt_wrappers.h>
-
 #include <libfdt.h>
 
 #include <plat/arm/common/fconf_nv_cntr_getter.h>
@@ -33,12 +32,11 @@ static int fconf_populate_nv_cntrs(uintptr_t config)
 	node = fdt_node_offset_by_compatible(dtb, -1, compatible_str);
 	if (node < 0) {
 		ERROR("FCONF: Can't find %s compatible in node\n",
-			compatible_str);
+		      compatible_str);
 		return node;
 	}
 
 	fdt_for_each_subnode(child, dtb, node) {
-
 		rc = fdt_read_uint32(dtb, child, "id", &id);
 		if (rc < 0) {
 			ERROR("FCONF: Can't find %s property in node\n", "id");

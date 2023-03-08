@@ -6,29 +6,26 @@
 
 #include <assert.h>
 
-#include <libfdt.h>
-
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <drivers/arm/css/css_mhu_doorbell.h>
 #include <drivers/arm/css/scmi.h>
-#include <plat/arm/common/plat_arm.h>
-
-#include <plat/common/platform.h>
-
-#include <plat/arm/css/common/css_pm.h>
-
+#include <libfdt.h>
 #include <sgi_ras.h>
 #include <sgi_variant.h>
+
+#include <plat/arm/common/plat_arm.h>
+#include <plat/arm/css/common/css_pm.h>
+#include <plat/common/platform.h>
 
 sgi_platform_info_t sgi_plat_info;
 
 static scmi_channel_plat_info_t sgi575_scmi_plat_info = {
-		.scmi_mbx_mem = CSS_SCMI_PAYLOAD_BASE,
-		.db_reg_addr = PLAT_CSS_MHU_BASE + CSS_SCMI_MHU_DB_REG_OFF,
-		.db_preserve_mask = 0xfffffffe,
-		.db_modify_mask = 0x1,
-		.ring_doorbell = &mhu_ring_doorbell,
+	.scmi_mbx_mem = CSS_SCMI_PAYLOAD_BASE,
+	.db_reg_addr = PLAT_CSS_MHU_BASE + CSS_SCMI_MHU_DB_REG_OFF,
+	.db_preserve_mask = 0xfffffffe,
+	.db_modify_mask = 0x1,
+	.ring_doorbell = &mhu_ring_doorbell,
 };
 
 static scmi_channel_plat_info_t plat_rd_scmi_info[] = {
@@ -39,54 +36,56 @@ static scmi_channel_plat_info_t plat_rd_scmi_info[] = {
 		.db_modify_mask = 0x1,
 		.ring_doorbell = &mhuv2_ring_doorbell,
 	},
-	#if (CSS_SGI_CHIP_COUNT > 1)
+#if (CSS_SGI_CHIP_COUNT > 1)
 	{
 		.scmi_mbx_mem = CSS_SCMI_PAYLOAD_BASE +
-			CSS_SGI_REMOTE_CHIP_MEM_OFFSET(1),
-		.db_reg_addr = PLAT_CSS_MHU_BASE
-			+ CSS_SGI_REMOTE_CHIP_MEM_OFFSET(1) + SENDER_REG_SET(0),
-		.db_preserve_mask = 0xfffffffe,
-		.db_modify_mask = 0x1,
-		.ring_doorbell = &mhuv2_ring_doorbell,
-	},
-	#endif
-	#if (CSS_SGI_CHIP_COUNT > 2)
-	{
-		.scmi_mbx_mem = CSS_SCMI_PAYLOAD_BASE +
-			CSS_SGI_REMOTE_CHIP_MEM_OFFSET(2),
+				CSS_SGI_REMOTE_CHIP_MEM_OFFSET(1),
 		.db_reg_addr = PLAT_CSS_MHU_BASE +
-			CSS_SGI_REMOTE_CHIP_MEM_OFFSET(2) + SENDER_REG_SET(0),
+			       CSS_SGI_REMOTE_CHIP_MEM_OFFSET(1) +
+			       SENDER_REG_SET(0),
 		.db_preserve_mask = 0xfffffffe,
 		.db_modify_mask = 0x1,
 		.ring_doorbell = &mhuv2_ring_doorbell,
 	},
-	#endif
-	#if (CSS_SGI_CHIP_COUNT > 3)
+#endif
+#if (CSS_SGI_CHIP_COUNT > 2)
 	{
 		.scmi_mbx_mem = CSS_SCMI_PAYLOAD_BASE +
-			CSS_SGI_REMOTE_CHIP_MEM_OFFSET(3),
+				CSS_SGI_REMOTE_CHIP_MEM_OFFSET(2),
 		.db_reg_addr = PLAT_CSS_MHU_BASE +
-			CSS_SGI_REMOTE_CHIP_MEM_OFFSET(3) + SENDER_REG_SET(0),
+			       CSS_SGI_REMOTE_CHIP_MEM_OFFSET(2) +
+			       SENDER_REG_SET(0),
 		.db_preserve_mask = 0xfffffffe,
 		.db_modify_mask = 0x1,
 		.ring_doorbell = &mhuv2_ring_doorbell,
 	},
-	#endif
+#endif
+#if (CSS_SGI_CHIP_COUNT > 3)
+	{
+		.scmi_mbx_mem = CSS_SCMI_PAYLOAD_BASE +
+				CSS_SGI_REMOTE_CHIP_MEM_OFFSET(3),
+		.db_reg_addr = PLAT_CSS_MHU_BASE +
+			       CSS_SGI_REMOTE_CHIP_MEM_OFFSET(3) +
+			       SENDER_REG_SET(0),
+		.db_preserve_mask = 0xfffffffe,
+		.db_modify_mask = 0x1,
+		.ring_doorbell = &mhuv2_ring_doorbell,
+	},
+#endif
 };
 
 scmi_channel_plat_info_t *plat_css_get_scmi_info(unsigned int channel_id)
 {
 	if (sgi_plat_info.platform_id == RD_N1E1_EDGE_SID_VER_PART_NUM ||
-		sgi_plat_info.platform_id == RD_V1_SID_VER_PART_NUM ||
-		sgi_plat_info.platform_id == RD_N2_SID_VER_PART_NUM ||
-		sgi_plat_info.platform_id == RD_V2_SID_VER_PART_NUM ||
-		sgi_plat_info.platform_id == RD_N2_CFG1_SID_VER_PART_NUM ||
-		sgi_plat_info.platform_id == RD_N2_CFG3_SID_VER_PART_NUM) {
+	    sgi_plat_info.platform_id == RD_V1_SID_VER_PART_NUM ||
+	    sgi_plat_info.platform_id == RD_N2_SID_VER_PART_NUM ||
+	    sgi_plat_info.platform_id == RD_V2_SID_VER_PART_NUM ||
+	    sgi_plat_info.platform_id == RD_N2_CFG1_SID_VER_PART_NUM ||
+	    sgi_plat_info.platform_id == RD_N2_CFG3_SID_VER_PART_NUM) {
 		if (channel_id >= ARRAY_SIZE(plat_rd_scmi_info))
 			panic();
 		return &plat_rd_scmi_info[channel_id];
-	}
-	else if (sgi_plat_info.platform_id == SGI575_SSC_VER_PART_NUM)
+	} else if (sgi_plat_info.platform_id == SGI575_SSC_VER_PART_NUM)
 		return &sgi575_scmi_plat_info;
 	else
 		panic();
@@ -116,7 +115,7 @@ void sgi_bl31_common_platform_setup(void)
 #if CSS_SYSTEM_GRACEFUL_RESET
 	/* Register priority level handlers for reboot */
 	ehf_register_priority_handler(PLAT_REBOOT_PRI,
-			css_reboot_interrupt_handler);
+				      css_reboot_interrupt_handler);
 #endif
 }
 
@@ -127,7 +126,7 @@ const plat_psci_ops_t *plat_arm_psci_override_pm_ops(plat_psci_ops_t *ops)
 	 * supported.
 	 */
 	if (((sgi_plat_info.platform_id == RD_N1E1_EDGE_SID_VER_PART_NUM) &&
-	    (sgi_plat_info.config_id == RD_E1_EDGE_CONFIG_ID))) {
+	     (sgi_plat_info.config_id == RD_E1_EDGE_CONFIG_ID))) {
 		ops->cpu_standby = NULL;
 		ops->system_off = NULL;
 		ops->system_reset = NULL;

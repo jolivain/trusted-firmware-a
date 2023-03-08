@@ -5,7 +5,6 @@
  *
  */
 
-
 /*!
  * @file	fspi_api.h
  * @brief	This file contains the FlexSPI/FSPI API to communicate
@@ -18,7 +17,7 @@
 #define FSPI_API_H
 
 #if DEBUG_FLEXSPI
-#define SZ_57M			0x3900000u
+#define SZ_57M 0x3900000u
 #endif
 
 /*!

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,16 +9,16 @@
 
 #include <export/drivers/gpio_exp.h>
 
-#define GPIO_DIR_OUT		ARM_TF_GPIO_DIR_OUT
-#define GPIO_DIR_IN		ARM_TF_GPIO_DIR_IN
+#define GPIO_DIR_OUT ARM_TF_GPIO_DIR_OUT
+#define GPIO_DIR_IN ARM_TF_GPIO_DIR_IN
 
-#define GPIO_LEVEL_LOW		ARM_TF_GPIO_LEVEL_LOW
-#define GPIO_LEVEL_HIGH		ARM_TF_GPIO_LEVEL_HIGH
+#define GPIO_LEVEL_LOW ARM_TF_GPIO_LEVEL_LOW
+#define GPIO_LEVEL_HIGH ARM_TF_GPIO_LEVEL_HIGH
 
-#define GPIO_PULL_NONE		ARM_TF_GPIO_PULL_NONE
-#define GPIO_PULL_UP		ARM_TF_GPIO_PULL_UP
-#define GPIO_PULL_DOWN		ARM_TF_GPIO_PULL_DOWN
-#define GPIO_PULL_REPEATER	ARM_TF_GPIO_PULL_REPEATER
+#define GPIO_PULL_NONE ARM_TF_GPIO_PULL_NONE
+#define GPIO_PULL_UP ARM_TF_GPIO_PULL_UP
+#define GPIO_PULL_DOWN ARM_TF_GPIO_PULL_DOWN
+#define GPIO_PULL_REPEATER ARM_TF_GPIO_PULL_REPEATER
 
 typedef struct gpio_ops {
 	int (*get_direction)(int gpio);

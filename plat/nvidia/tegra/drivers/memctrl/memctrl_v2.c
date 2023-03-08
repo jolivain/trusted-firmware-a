@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2019-2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -14,7 +14,6 @@
 #include <lib/mmio.h>
 #include <lib/utils.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-
 #include <mce.h>
 #include <memctrl.h>
 #include <memctrl_v2.h>
@@ -69,16 +68,16 @@ void tegra_memctrl_restore_settings(void)
 	if (video_mem_base != 0ULL) {
 		tegra_mc_write_32(MC_VIDEO_PROTECT_BASE_LO,
 				  (uint32_t)video_mem_base);
-		assert(tegra_mc_read_32(MC_VIDEO_PROTECT_BASE_LO)
-			 == (uint32_t)video_mem_base);
+		assert(tegra_mc_read_32(MC_VIDEO_PROTECT_BASE_LO) ==
+		       (uint32_t)video_mem_base);
 		tegra_mc_write_32(MC_VIDEO_PROTECT_BASE_HI,
 				  (uint32_t)(video_mem_base >> 32));
-		assert(tegra_mc_read_32(MC_VIDEO_PROTECT_BASE_HI)
-			 == (uint32_t)(video_mem_base >> 32));
+		assert(tegra_mc_read_32(MC_VIDEO_PROTECT_BASE_HI) ==
+		       (uint32_t)(video_mem_base >> 32));
 		tegra_mc_write_32(MC_VIDEO_PROTECT_SIZE_MB,
 				  (uint32_t)video_mem_size_mb);
-		assert(tegra_mc_read_32(MC_VIDEO_PROTECT_SIZE_MB)
-			 == (uint32_t)video_mem_size_mb);
+		assert(tegra_mc_read_32(MC_VIDEO_PROTECT_SIZE_MB) ==
+		       (uint32_t)video_mem_size_mb);
 
 		/*
 		 * MCE propagates the VideoMem configuration values across the
@@ -155,17 +154,17 @@ void tegra_mc_save_context(uint64_t mc_ctx_addr)
 
 	/* Save MC config settings */
 	(void)memcpy((void *)mc_ctx_addr, mc_ctx_regs,
-			sizeof(mc_regs_t) * num_entries);
+		     sizeof(mc_regs_t) * num_entries);
 
 	/* save the MC table address */
 	mmio_write_32(TEGRA_SCRATCH_BASE + SCRATCH_MC_TABLE_ADDR_LO,
-		(uint32_t)mc_ctx_addr);
-	assert(mmio_read_32(TEGRA_SCRATCH_BASE + SCRATCH_MC_TABLE_ADDR_LO)
-		== (uint32_t)mc_ctx_addr);
+		      (uint32_t)mc_ctx_addr);
+	assert(mmio_read_32(TEGRA_SCRATCH_BASE + SCRATCH_MC_TABLE_ADDR_LO) ==
+	       (uint32_t)mc_ctx_addr);
 	mmio_write_32(TEGRA_SCRATCH_BASE + SCRATCH_MC_TABLE_ADDR_HI,
-		(uint32_t)(mc_ctx_addr >> 32));
-	assert(mmio_read_32(TEGRA_SCRATCH_BASE + SCRATCH_MC_TABLE_ADDR_HI)
-		== (uint32_t)(mc_ctx_addr >> 32));
+		      (uint32_t)(mc_ctx_addr >> 32));
+	assert(mmio_read_32(TEGRA_SCRATCH_BASE + SCRATCH_MC_TABLE_ADDR_HI) ==
+	       (uint32_t)(mc_ctx_addr >> 32));
 }
 
 static void tegra_lock_videomem_nonoverlap(uint64_t phys_base,
@@ -173,7 +172,8 @@ static void tegra_lock_videomem_nonoverlap(uint64_t phys_base,
 {
 	uint32_t index;
 	uint64_t total_128kb_blocks = size_in_bytes >> 17;
-	uint64_t residual_4kb_blocks = (size_in_bytes & (uint32_t)0x1FFFF) >> 12;
+	uint64_t residual_4kb_blocks = (size_in_bytes & (uint32_t)0x1FFFF) >>
+				       12;
 	uint64_t val;
 
 	/*
@@ -181,7 +181,8 @@ static void tegra_lock_videomem_nonoverlap(uint64_t phys_base,
 	 * old Videomem aperture
 	 */
 	for (index = MC_VIDEO_PROTECT_CLEAR_ACCESS_CFG0;
-	     index < ((uint32_t)MC_VIDEO_PROTECT_CLEAR_ACCESS_CFG0 + (uint32_t)MC_GSC_CONFIG_REGS_SIZE);
+	     index < ((uint32_t)MC_VIDEO_PROTECT_CLEAR_ACCESS_CFG0 +
+		      (uint32_t)MC_GSC_CONFIG_REGS_SIZE);
 	     index += 4U) {
 		tegra_mc_write_32(index, 0);
 	}
@@ -192,7 +193,8 @@ static void tegra_lock_videomem_nonoverlap(uint64_t phys_base,
 	assert((phys_base & (uint64_t)0xFFF) == 0U);
 	tegra_mc_write_32(MC_VIDEO_PROTECT_CLEAR_BASE_LO, (uint32_t)phys_base);
 	tegra_mc_write_32(MC_VIDEO_PROTECT_CLEAR_BASE_HI,
-		(uint32_t)(phys_base >> 32) & (uint32_t)MC_GSC_BASE_HI_MASK);
+			  (uint32_t)(phys_base >> 32) &
+				  (uint32_t)MC_GSC_BASE_HI_MASK);
 
 	/*
 	 * Set the aperture size
@@ -240,21 +242,21 @@ static void tegra_clear_videomem(uintptr_t non_overlap_area_start,
 	 * Map the NS memory first, clean it and then unmap it.
 	 */
 	ret = mmap_add_dynamic_region(non_overlap_area_start, /* PA */
-				non_overlap_area_start, /* VA */
-				non_overlap_area_size, /* size */
-				MT_DEVICE | MT_RW | MT_NS); /* attrs */
+				      non_overlap_area_start, /* VA */
+				      non_overlap_area_size, /* size */
+				      MT_DEVICE | MT_RW | MT_NS); /* attrs */
 	assert(ret == 0);
 
 	zeromem((void *)non_overlap_area_start, non_overlap_area_size);
 	flush_dcache_range(non_overlap_area_start, non_overlap_area_size);
 
 	ret = mmap_remove_dynamic_region(non_overlap_area_start,
-		non_overlap_area_size);
+					 non_overlap_area_size);
 	assert(ret == 0);
 }
 
 static void tegra_clear_videomem_nonoverlap(uintptr_t phys_base,
-		unsigned long size_in_bytes)
+					    unsigned long size_in_bytes)
 {
 	uintptr_t vmem_end_old = video_mem_base + (video_mem_size_mb << 20);
 	uintptr_t vmem_end_new = phys_base + size_in_bytes;
@@ -269,16 +271,17 @@ static void tegra_clear_videomem_nonoverlap(uintptr_t phys_base,
 	 * 3. clear old sub-region above new end
 	 */
 	if ((phys_base > vmem_end_old) || (video_mem_base > vmem_end_new)) {
-		tegra_clear_videomem(video_mem_base,
-				     video_mem_size_mb << 20U);
+		tegra_clear_videomem(video_mem_base, video_mem_size_mb << 20U);
 	} else {
 		if (video_mem_base < phys_base) {
 			non_overlap_area_size = phys_base - video_mem_base;
-			tegra_clear_videomem(video_mem_base, non_overlap_area_size);
+			tegra_clear_videomem(video_mem_base,
+					     non_overlap_area_size);
 		}
 		if (vmem_end_old > vmem_end_new) {
 			non_overlap_area_size = vmem_end_old - vmem_end_new;
-			tegra_clear_videomem(vmem_end_new, non_overlap_area_size);
+			tegra_clear_videomem(vmem_end_new,
+					     non_overlap_area_size);
 		}
 	}
 }
@@ -306,7 +309,7 @@ void tegra_memctrl_videomem_setup(uint64_t phys_base, uint32_t size_in_bytes)
 		 * cleared and the new memory settings take effect.
 		 */
 		tegra_lock_videomem_nonoverlap(video_mem_base,
-			video_mem_size_mb << 20);
+					       video_mem_size_mb << 20);
 	}
 
 	/* program the Videomem aperture */
@@ -316,12 +319,12 @@ void tegra_memctrl_videomem_setup(uint64_t phys_base, uint32_t size_in_bytes)
 	tegra_mc_write_32(MC_VIDEO_PROTECT_SIZE_MB, size_in_bytes >> 20);
 
 	/* Redundancy check for Video Protect setting */
-	assert(tegra_mc_read_32(MC_VIDEO_PROTECT_BASE_LO)
-		 == (uint32_t)phys_base);
-	assert(tegra_mc_read_32(MC_VIDEO_PROTECT_BASE_HI)
-		 == (uint32_t)(phys_base >> 32));
-	assert(tegra_mc_read_32(MC_VIDEO_PROTECT_SIZE_MB)
-		 == (size_in_bytes >> 20));
+	assert(tegra_mc_read_32(MC_VIDEO_PROTECT_BASE_LO) ==
+	       (uint32_t)phys_base);
+	assert(tegra_mc_read_32(MC_VIDEO_PROTECT_BASE_HI) ==
+	       (uint32_t)(phys_base >> 32));
+	assert(tegra_mc_read_32(MC_VIDEO_PROTECT_SIZE_MB) ==
+	       (size_in_bytes >> 20));
 
 	/*
 	 * MCE propagates the VideoMem configuration values across the

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -28,8 +28,8 @@ void aml_scpi_set_css_power_state(u_register_t mpidr, uint32_t cpu_state,
 uint32_t aml_scpi_sys_power_state(uint64_t system_state);
 void aml_scpi_jtag_set_state(uint32_t state, uint8_t select);
 uint32_t aml_scpi_efuse_read(void *dst, uint32_t base, uint32_t size);
-void aml_scpi_unknown_thermal(uint32_t arg0, uint32_t arg1,
-			      uint32_t arg2, uint32_t arg3);
+void aml_scpi_unknown_thermal(uint32_t arg0, uint32_t arg1, uint32_t arg2,
+			      uint32_t arg3);
 void aml_scpi_upload_scp_fw(uintptr_t addr, size_t size, int send);
 uint32_t aml_scpi_get_chip_id(uint8_t *obuff, uint32_t osize);
 

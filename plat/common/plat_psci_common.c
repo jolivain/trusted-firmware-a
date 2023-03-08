@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -11,6 +11,7 @@
 #include <lib/pmf/pmf.h>
 #include <lib/psci/psci.h>
 #include <lib/utils_def.h>
+
 #include <plat/common/platform.h>
 
 #if ENABLE_PSCI_STAT && ENABLE_PMF
@@ -20,27 +21,27 @@
 
 /* Maximum time-stamp value read from architectural counters */
 #ifdef __aarch64__
-#define MAX_TS	UINT64_MAX
+#define MAX_TS UINT64_MAX
 #else
-#define MAX_TS	UINT32_MAX
+#define MAX_TS UINT32_MAX
 #endif
 
 /* Following are used as ID's to capture time-stamp */
-#define PSCI_STAT_ID_ENTER_LOW_PWR		0
-#define PSCI_STAT_ID_EXIT_LOW_PWR		1
-#define PSCI_STAT_TOTAL_IDS			2
+#define PSCI_STAT_ID_ENTER_LOW_PWR 0
+#define PSCI_STAT_ID_EXIT_LOW_PWR 1
+#define PSCI_STAT_TOTAL_IDS 2
 
 PMF_DECLARE_CAPTURE_TIMESTAMP(psci_svc)
 PMF_DECLARE_GET_TIMESTAMP(psci_svc)
 PMF_REGISTER_SERVICE(psci_svc, PMF_PSCI_STAT_SVC_ID, PSCI_STAT_TOTAL_IDS,
-	PMF_STORE_ENABLE)
+		     PMF_STORE_ENABLE)
 
 /*
  * This function calculates the stats residency in microseconds,
  * taking in account the wrap around condition.
  */
 static u_register_t calc_stat_residency(unsigned long long pwrupts,
-	unsigned long long pwrdnts)
+					unsigned long long pwrdnts)
 {
 	/* The divisor to use to convert raw timestamp into microseconds. */
 	u_register_t residency_div;
@@ -70,7 +71,7 @@ void plat_psci_stat_accounting_start(
 {
 	assert(state_info != NULL);
 	PMF_CAPTURE_TIMESTAMP(psci_svc, PSCI_STAT_ID_ENTER_LOW_PWR,
-		PMF_CACHE_MAINT);
+			      PMF_CACHE_MAINT);
 }
 
 /*
@@ -82,7 +83,7 @@ void plat_psci_stat_accounting_stop(
 {
 	assert(state_info != NULL);
 	PMF_CAPTURE_TIMESTAMP(psci_svc, PSCI_STAT_ID_EXIT_LOW_PWR,
-		PMF_CACHE_MAINT);
+			      PMF_CACHE_MAINT);
 }
 
 /*
@@ -90,8 +91,8 @@ void plat_psci_stat_accounting_stop(
  * information.
  */
 u_register_t plat_psci_stat_get_residency(unsigned int lvl,
-	const psci_power_state_t *state_info,
-	unsigned int last_cpu_idx)
+					  const psci_power_state_t *state_info,
+					  unsigned int last_cpu_idx)
 {
 	plat_local_state_t state;
 	unsigned long long pwrup_ts = 0, pwrdn_ts = 0;
@@ -117,17 +118,11 @@ u_register_t plat_psci_stat_get_residency(unsigned int lvl,
 		pmf_flags = PMF_NO_CACHE_MAINT;
 	}
 
-	PMF_GET_TIMESTAMP_BY_INDEX(psci_svc,
-		PSCI_STAT_ID_ENTER_LOW_PWR,
-		last_cpu_idx,
-		pmf_flags,
-		pwrdn_ts);
+	PMF_GET_TIMESTAMP_BY_INDEX(psci_svc, PSCI_STAT_ID_ENTER_LOW_PWR,
+				   last_cpu_idx, pmf_flags, pwrdn_ts);
 
-	PMF_GET_TIMESTAMP_BY_INDEX(psci_svc,
-		PSCI_STAT_ID_EXIT_LOW_PWR,
-		plat_my_core_pos(),
-		pmf_flags,
-		pwrup_ts);
+	PMF_GET_TIMESTAMP_BY_INDEX(psci_svc, PSCI_STAT_ID_EXIT_LOW_PWR,
+				   plat_my_core_pos(), pmf_flags, pwrup_ts);
 
 	return calc_stat_residency(pwrup_ts, pwrdn_ts);
 }

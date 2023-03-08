@@ -6,40 +6,33 @@
 
 #include <arch_helpers.h>
 #include <common/debug.h>
-
 #include <mt_lp_rm.h>
 #include <mt_spm.h>
 #include <mt_spm_cond.h>
-#include <mt_spm_constraint.h>
 #include <mt_spm_conservation.h>
+#include <mt_spm_constraint.h>
 #include <mt_spm_idle.h>
 #include <mt_spm_internal.h>
 #include <mt_spm_notifier.h>
-#include <mt_spm_resource_req.h>
-#include <mt_spm_reg.h>
 #include <mt_spm_rc_internal.h>
+#include <mt_spm_reg.h>
+#include <mt_spm_resource_req.h>
 #include <mt_spm_suspend.h>
-#include <plat_pm.h>
 #include <plat_mtk_lpm.h>
+#include <plat_pm.h>
 
-#define CONSTRAINT_DRAM_ALLOW			\
-	(MT_RM_CONSTRAINT_ALLOW_DRAM_S0	|	\
-	 MT_RM_CONSTRAINT_ALLOW_DRAM_S1 |	\
+#define CONSTRAINT_DRAM_ALLOW                                              \
+	(MT_RM_CONSTRAINT_ALLOW_DRAM_S0 | MT_RM_CONSTRAINT_ALLOW_DRAM_S1 | \
 	 MT_RM_CONSTRAINT_ALLOW_CPU_BUCK_OFF)
 
-#define CONSTRAINT_DRAM_PCM_FLAG		\
-	(SPM_FLAG_DISABLE_INFRA_PDN |		\
-	 SPM_FLAG_DISABLE_VCORE_DVS |		\
-	 SPM_FLAG_DISABLE_VCORE_DFS |		\
-	 SPM_FLAG_SRAM_SLEEP_CTRL |		\
+#define CONSTRAINT_DRAM_PCM_FLAG                                   \
+	(SPM_FLAG_DISABLE_INFRA_PDN | SPM_FLAG_DISABLE_VCORE_DVS | \
+	 SPM_FLAG_DISABLE_VCORE_DFS | SPM_FLAG_SRAM_SLEEP_CTRL |   \
 	 SPM_FLAG_KEEP_CSYSPWRACK_HIGH)
 
-#define CONSTRAINT_DRAM_PCM_FLAG1		0U
+#define CONSTRAINT_DRAM_PCM_FLAG1 0U
 
-#define CONSTRAINT_DRAM_RESOURCE_REQ		\
-	(MT_SPM_SYSPLL |			\
-	 MT_SPM_INFRA |				\
-	 MT_SPM_26M)
+#define CONSTRAINT_DRAM_RESOURCE_REQ (MT_SPM_SYSPLL | MT_SPM_INFRA | MT_SPM_26M)
 
 static struct mt_spm_cond_tables cond_dram = {
 	.name = "dram",
@@ -65,8 +58,7 @@ static struct mt_spm_cond_tables cond_dram_res = {
 
 static struct constraint_status status = {
 	.id = MT_RM_CONSTRAINT_ID_DRAM,
-	.valid = (MT_SPM_RC_VALID_SW |
-		  MT_SPM_RC_VALID_COND_LATCH |
+	.valid = (MT_SPM_RC_VALID_SW | MT_SPM_RC_VALID_COND_LATCH |
 		  MT_SPM_RC_VALID_XSOC_BBLPM),
 	.cond_block = 0U,
 	.enter_cnt = 0U,
@@ -102,11 +94,11 @@ int spm_update_rc_dram(int state_id, int type, const void *val)
 	if (type == PLAT_RC_UPDATE_CONDITION) {
 		tlb = (const struct mt_spm_cond_tables *)val;
 		tlb_check = (const struct mt_spm_cond_tables *)&cond_dram;
-		status.cond_block =
-			mt_spm_cond_check(state_id, tlb, tlb_check,
-					  ((status.valid &
-					    MT_SPM_RC_VALID_COND_LATCH) != 0U) ?
-					  &cond_dram_res : NULL);
+		status.cond_block = mt_spm_cond_check(
+			state_id, tlb, tlb_check,
+			((status.valid & MT_SPM_RC_VALID_COND_LATCH) != 0U) ?
+				&cond_dram_res :
+				NULL);
 	} else {
 		res = MT_RM_STATUS_BAD;
 	}
@@ -137,9 +129,11 @@ int spm_run_rc_dram(unsigned int cpu, int state_id)
 	}
 
 #ifndef ATF_PLAT_SPM_SSPM_NOTIFIER_UNSUPPORT
-	mt_spm_sspm_notify_u32(MT_SPM_NOTIFY_LP_ENTER, allows |
-			       (IS_PLAT_SUSPEND_ID(state_id) ?
-				MT_RM_CONSTRAINT_ALLOW_AP_SUSPEND : 0U));
+	mt_spm_sspm_notify_u32(
+		MT_SPM_NOTIFY_LP_ENTER,
+		allows | (IS_PLAT_SUSPEND_ID(state_id) ?
+				  MT_RM_CONSTRAINT_ALLOW_AP_SUSPEND :
+				  0U));
 #else
 	(void)allows;
 #endif

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -33,7 +33,7 @@ static int arm_trp_process_manifest(struct rmm_manifest *manifest)
 
 	/* Verify the Boot Manifest Version. Only the Major is considered */
 	if (RMMD_MANIFEST_VERSION_MAJOR !=
-		RMMD_GET_MANIFEST_VERSION_MAJOR(manifest->version)) {
+	    RMMD_GET_MANIFEST_VERSION_MAJOR(manifest->version)) {
 		return E_RMM_BOOT_MANIFEST_VERSION_NOT_SUPPORTED;
 	}
 

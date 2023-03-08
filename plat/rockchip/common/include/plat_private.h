@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,9 +11,9 @@
 
 #include <stdint.h>
 
+#include <lib/mmio.h>
 #include <lib/psci/psci.h>
 #include <lib/xlat_tables/xlat_tables.h>
-#include <lib/mmio.h>
 #include <plat_params.h>
 
 #define __sramdata __attribute__((section(".sram.data")))
@@ -37,23 +37,23 @@ extern uint32_t __sram_incbin_real_end;
  * The write-mask bits is in high 16-bits.
  * The fllowing macro definition helps access write-mask bits reg efficient!
  ******************************************************************************/
-#define REG_MSK_SHIFT	16
+#define REG_MSK_SHIFT 16
 
 #ifndef WMSK_BIT
-#define WMSK_BIT(nr)		BIT((nr) + REG_MSK_SHIFT)
+#define WMSK_BIT(nr) BIT((nr) + REG_MSK_SHIFT)
 #endif
 
 /* set one bit with write mask */
 #ifndef BIT_WITH_WMSK
-#define BIT_WITH_WMSK(nr)	(BIT(nr) | WMSK_BIT(nr))
+#define BIT_WITH_WMSK(nr) (BIT(nr) | WMSK_BIT(nr))
 #endif
 
 #ifndef BITS_SHIFT
-#define BITS_SHIFT(bits, shift)	(bits << (shift))
+#define BITS_SHIFT(bits, shift) (bits << (shift))
 #endif
 
 #ifndef BITS_WITH_WMASK
-#define BITS_WITH_WMASK(bits, msk, shift)\
+#define BITS_WITH_WMASK(bits, msk, shift) \
 	(BITS_SHIFT(bits, shift) | BITS_SHIFT(msk, (shift + REG_MSK_SHIFT)))
 #endif
 
@@ -61,21 +61,15 @@ extern uint32_t __sram_incbin_real_end;
  * Function and variable prototypes
  *****************************************************************************/
 #ifdef __aarch64__
-void plat_configure_mmu_el3(unsigned long total_base,
-			    unsigned long total_size,
-			    unsigned long,
-			    unsigned long,
-			    unsigned long,
+void plat_configure_mmu_el3(unsigned long total_base, unsigned long total_size,
+			    unsigned long, unsigned long, unsigned long,
 			    unsigned long);
 
 void rockchip_plat_mmu_el3(void);
 #else
 void plat_configure_mmu_svc_mon(unsigned long total_base,
-				unsigned long total_size,
-				unsigned long,
-				unsigned long,
-				unsigned long,
-				unsigned long);
+				unsigned long total_size, unsigned long,
+				unsigned long, unsigned long, unsigned long);
 
 void rockchip_plat_mmu_svc_mon(void);
 #endif
@@ -109,8 +103,7 @@ void plat_rockchip_save_gpio(void);
 void plat_rockchip_restore_gpio(void);
 
 int rockchip_soc_cores_pwr_dm_on(unsigned long mpidr, uint64_t entrypoint);
-int rockchip_soc_hlvl_pwr_dm_off(uint32_t lvl,
-				 plat_local_state_t lvl_state);
+int rockchip_soc_hlvl_pwr_dm_off(uint32_t lvl, plat_local_state_t lvl_state);
 int rockchip_soc_cores_pwr_dm_off(void);
 int rockchip_soc_sys_pwr_dm_suspend(void);
 int rockchip_soc_cores_pwr_dm_suspend(void);
@@ -121,13 +114,12 @@ int rockchip_soc_hlvl_pwr_dm_on_finish(uint32_t lvl,
 int rockchip_soc_cores_pwr_dm_on_finish(void);
 int rockchip_soc_sys_pwr_dm_resume(void);
 
-int rockchip_soc_hlvl_pwr_dm_resume(uint32_t lvl,
-				    plat_local_state_t lvl_state);
+int rockchip_soc_hlvl_pwr_dm_resume(uint32_t lvl, plat_local_state_t lvl_state);
 int rockchip_soc_cores_pwr_dm_resume(void);
 void __dead2 rockchip_soc_soft_reset(void);
 void __dead2 rockchip_soc_system_off(void);
-void __dead2 rockchip_soc_cores_pd_pwr_dn_wfi(
-				const psci_power_state_t *target_state);
+void __dead2
+rockchip_soc_cores_pd_pwr_dn_wfi(const psci_power_state_t *target_state);
 void __dead2 rockchip_soc_sys_pd_pwr_dn_wfi(void);
 
 extern const unsigned char rockchip_power_domain_tree_desc[];
@@ -148,8 +140,8 @@ uint32_t rockchip_get_uart_clock(void);
  * cpu up status
  * The bits of macro value is not more than 12 bits for cmp instruction!
  ******************************************************************************/
-#define PMU_CPU_HOTPLUG		0xf00
-#define PMU_CPU_AUTO_PWRDN	0xf0
-#define PMU_CLST_RET	0xa5
+#define PMU_CPU_HOTPLUG 0xf00
+#define PMU_CPU_AUTO_PWRDN 0xf0
+#define PMU_CLST_RET 0xa5
 
 #endif /* PLAT_PRIVATE_H */

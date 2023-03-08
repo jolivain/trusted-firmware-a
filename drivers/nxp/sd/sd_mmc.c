@@ -6,7 +6,6 @@
  *
  */
 
-#include <endian.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -14,11 +13,12 @@
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/io/io_block.h>
-#include "nxp_timer.h"
-#include "sd_mmc.h"
+#include <endian.h>
 #include <utils.h>
 #include <utils_def.h>
 
+#include "nxp_timer.h"
+#include "sd_mmc.h"
 
 /* Private structure for MMC driver data */
 static struct mmc mmc_drv_data;
@@ -32,16 +32,16 @@ static struct mmc mmc_drv_data;
 /* To debug without dma comment this MACRO */
 #define NXP_SD_DMA_CAPABILITY
 #endif
-#define SD_TIMEOUT        1000 /* ms */
-#define SD_TIMEOUT_HIGH   20000 /* ms */
-#define SD_BLOCK_TIMEOUT  8 /* ms */
+#define SD_TIMEOUT 1000 /* ms */
+#define SD_TIMEOUT_HIGH 20000 /* ms */
+#define SD_BLOCK_TIMEOUT 8 /* ms */
 
-#define ERROR_ESDHC_CARD_DETECT_FAIL	-1
-#define ERROR_ESDHC_UNUSABLE_CARD	-2
-#define ERROR_ESDHC_COMMUNICATION_ERROR	-3
-#define ERROR_ESDHC_BLOCK_LENGTH	-4
-#define ERROR_ESDHC_DMA_ERROR		-5
-#define ERROR_ESDHC_BUSY		-6
+#define ERROR_ESDHC_CARD_DETECT_FAIL -1
+#define ERROR_ESDHC_UNUSABLE_CARD -2
+#define ERROR_ESDHC_COMMUNICATION_ERROR -3
+#define ERROR_ESDHC_BLOCK_LENGTH -4
+#define ERROR_ESDHC_DMA_ERROR -5
+#define ERROR_ESDHC_BUSY -6
 
 /***************************************************************
  * Function    :    set_speed
@@ -79,9 +79,9 @@ static void set_speed(struct mmc *mmc, uint32_t clock)
 	dvs -= 1U;
 
 	esdhc_out32(&mmc->esdhc_regs->sysctl,
-			(ESDHC_SYSCTL_DTOCV(TIMEOUT_COUNTER_SDCLK_2_27) |
-			 ESDHC_SYSCTL_SDCLKFS(sdclkfs) | ESDHC_SYSCTL_DVS(dvs) |
-			 ESDHC_SYSCTL_SDCLKEN));
+		    (ESDHC_SYSCTL_DTOCV(TIMEOUT_COUNTER_SDCLK_2_27) |
+		     ESDHC_SYSCTL_SDCLKFS(sdclkfs) | ESDHC_SYSCTL_DVS(dvs) |
+		     ESDHC_SYSCTL_SDCLKEN));
 }
 
 /***************************************************************************
@@ -115,8 +115,7 @@ static int esdhc_init(struct mmc *mmc, bool card_detect)
 		}
 	}
 
-	val = esdhc_in32(&mmc->esdhc_regs->sysctl) &
-		(ESDHC_SYSCTL_RSTA);
+	val = esdhc_in32(&mmc->esdhc_regs->sysctl) & (ESDHC_SYSCTL_RSTA);
 	if (val != 0U) {
 		ERROR("SD Reset failed\n");
 		return ERROR_ESDHC_BUSY;
@@ -128,7 +127,7 @@ static int esdhc_init(struct mmc *mmc, bool card_detect)
 	if (card_detect) {
 		/* Check CINS in prsstat register */
 		val = esdhc_in32(&mmc->esdhc_regs->prsstat) &
-			ESDHC_PRSSTAT_CINS;
+		      ESDHC_PRSSTAT_CINS;
 		if (val == 0) {
 			ERROR("CINS not set in prsstat\n");
 			return ERROR_ESDHC_CARD_DETECT_FAIL;
@@ -193,23 +192,23 @@ static int esdhc_send_cmd(struct mmc *mmc, uint32_t cmd, uint32_t args)
 	start_time = get_timer_val(0);
 	while (get_timer_val(start_time) < SD_TIMEOUT_HIGH) {
 		val = esdhc_in32(&mmc->esdhc_regs->prsstat) &
-			(ESDHC_PRSSTAT_CIHB | ESDHC_PRSSTAT_CDIHB);
+		      (ESDHC_PRSSTAT_CIHB | ESDHC_PRSSTAT_CDIHB);
 		if (val == 0U) {
 			break;
 		}
 	}
 
 	val = esdhc_in32(&mmc->esdhc_regs->prsstat) &
-		(ESDHC_PRSSTAT_CIHB | ESDHC_PRSSTAT_CDIHB);
+	      (ESDHC_PRSSTAT_CIHB | ESDHC_PRSSTAT_CDIHB);
 	if (val != 0U) {
 		ERROR("SD send cmd: Command Line or Data Line Busy cmd = %x\n",
-				cmd);
+		      cmd);
 		return ERROR_ESDHC_BUSY;
 	}
 
 	if (cmd == CMD2 || cmd == CMD9) {
 		xfertyp |= ESDHC_XFERTYP_RSPTYP_136;
-	} else  if (cmd == CMD7 || (cmd == CMD6 && mmc->card.type == MMC_CARD)) {
+	} else if (cmd == CMD7 || (cmd == CMD6 && mmc->card.type == MMC_CARD)) {
 		xfertyp |= ESDHC_XFERTYP_RSPTYP_48_BUSY;
 	} else if (cmd != CMD0) {
 		xfertyp |= ESDHC_XFERTYP_RSPTYP_48;
@@ -222,8 +221,8 @@ static int esdhc_send_cmd(struct mmc *mmc, uint32_t cmd, uint32_t args)
 	}
 
 	if ((cmd == CMD8 || cmd == CMD14 || cmd == CMD19) &&
-			mmc->card.type == MMC_CARD) {
-		xfertyp |=  ESDHC_XFERTYP_DPSEL;
+	    mmc->card.type == MMC_CARD) {
+		xfertyp |= ESDHC_XFERTYP_DPSEL;
 		if (cmd != CMD19) {
 			xfertyp |= ESDHC_XFERTYP_DTDSEL;
 		}
@@ -301,9 +300,9 @@ static int esdhc_wait_response(struct mmc *mmc, uint32_t *response)
 
 	/* Check whether the interrupt is a CRC, CTOE or CIE error */
 	if ((status & (ESDHC_IRQSTAT_CIE | ESDHC_IRQSTAT_CEBE |
-				ESDHC_IRQSTAT_CCE)) != 0) {
-		ERROR("%s: IRQSTAT CRC, CEBE or CIE error = %x\n",
-							__func__, status);
+		       ESDHC_IRQSTAT_CCE)) != 0) {
+		ERROR("%s: IRQSTAT CRC, CEBE or CIE error = %x\n", __func__,
+		      status);
 		return COMMAND_ERROR;
 	}
 
@@ -376,8 +375,8 @@ static int mmc_switch_to_high_frquency(struct mmc *mmc)
 	start_time = get_timer_val(0);
 	do {
 		/* check the status for which error */
-		error = esdhc_send_cmd(mmc,
-				CMD_SEND_STATUS, mmc->card.rca << 16);
+		error = esdhc_send_cmd(mmc, CMD_SEND_STATUS,
+				       mmc->card.rca << 16);
 		if (error != 0) {
 			return error;
 		}
@@ -387,7 +386,7 @@ static int mmc_switch_to_high_frquency(struct mmc *mmc)
 			return error;
 		}
 	} while (((response[0] & SWITCH_ERROR) != 0) &&
-			(get_timer_val(start_time) < SD_TIMEOUT));
+		 (get_timer_val(start_time) < SD_TIMEOUT));
 
 	/* Check for the present state of card */
 	if ((response[0] & SWITCH_ERROR) != 0) {
@@ -408,7 +407,7 @@ static int mmc_switch_to_high_frquency(struct mmc *mmc)
  * Description :    Set block attributes and watermark level register
  ***************************************************************************/
 static int esdhc_set_data_attributes(struct mmc *mmc, uint32_t *dest_ptr,
-		uint32_t blkcnt, uint32_t blklen)
+				     uint32_t blkcnt, uint32_t blklen)
 {
 	uint32_t val;
 	uint64_t start_time;
@@ -433,27 +432,28 @@ static int esdhc_set_data_attributes(struct mmc *mmc, uint32_t *dest_ptr,
 
 	wml = esdhc_in32(&mmc->esdhc_regs->wml);
 	wml &= ~(ESDHC_WML_WR_BRST_MASK | ESDHC_WML_RD_BRST_MASK |
-			ESDHC_WML_RD_WML_MASK | ESDHC_WML_WR_WML_MASK);
+		 ESDHC_WML_RD_WML_MASK | ESDHC_WML_WR_WML_MASK);
 
 	if ((mmc->dma_support != 0) && (dest_ptr != NULL)) {
 		/* Set burst length to 128 bytes */
 		esdhc_out32(&mmc->esdhc_regs->wml,
-				wml | ESDHC_WML_WR_BRST(BURST_128_BYTES));
+			    wml | ESDHC_WML_WR_BRST(BURST_128_BYTES));
 		esdhc_out32(&mmc->esdhc_regs->wml,
-				wml | ESDHC_WML_RD_BRST(BURST_128_BYTES));
+			    wml | ESDHC_WML_RD_BRST(BURST_128_BYTES));
 
 		/* Set DMA System Destination Address */
 		esdhc_out32(&mmc->esdhc_regs->dsaddr, dst);
 	} else {
-		wl = (blklen >= BLOCK_LEN_512) ?
-			WML_512_BYTES : ((blklen + 3) / 4);
+		wl = (blklen >= BLOCK_LEN_512) ? WML_512_BYTES :
+						 ((blklen + 3) / 4);
 		/* Set 'Read Water Mark Level' register */
 		esdhc_out32(&mmc->esdhc_regs->wml, wml | ESDHC_WML_RD_WML(wl));
 	}
 
 	/* Configure block Attributes register */
 	esdhc_out32(&mmc->esdhc_regs->blkattr,
-		ESDHC_BLKATTR_BLKCNT(blkcnt) | ESDHC_BLKATTR_BLKSZE(blklen));
+		    ESDHC_BLKATTR_BLKCNT(blkcnt) |
+			    ESDHC_BLKATTR_BLKSZE(blklen));
 
 	mmc->block_len = blklen;
 
@@ -481,36 +481,35 @@ static int esdhc_read_data_nodma(struct mmc *mmc, void *dest_ptr, uint32_t len)
 	num_blocks = len / mmc->block_len;
 
 	while ((num_blocks--) != 0U) {
-
 		start_time = get_timer_val(0);
 		while (get_timer_val(start_time) < SD_TIMEOUT_HIGH) {
 			val = esdhc_in32(&mmc->esdhc_regs->prsstat) &
-				ESDHC_PRSSTAT_BREN;
+			      ESDHC_PRSSTAT_BREN;
 			if (val != 0U) {
 				break;
 			}
 		}
 
-		val = esdhc_in32(&mmc->esdhc_regs->prsstat)
-			& ESDHC_PRSSTAT_BREN;
+		val = esdhc_in32(&mmc->esdhc_regs->prsstat) &
+		      ESDHC_PRSSTAT_BREN;
 		if (val == 0U) {
 			return ERROR_ESDHC_COMMUNICATION_ERROR;
 		}
 
 		for (i = 0U, status = esdhc_in32(&mmc->esdhc_regs->irqstat);
-				i < mmc->block_len / 4;    i++, dst++) {
+		     i < mmc->block_len / 4; i++, dst++) {
 			/* get data from data port */
 			val = mmio_read_32(
-					(uintptr_t)&mmc->esdhc_regs->datport);
+				(uintptr_t)&mmc->esdhc_regs->datport);
 			esdhc_out32(dst, val);
 			/* Increment destination pointer */
 			status = esdhc_in32(&mmc->esdhc_regs->irqstat);
 		}
 		/* Check whether the interrupt is an DTOE/DCE/DEBE */
 		if ((status & (ESDHC_IRQSTAT_DTOE | ESDHC_IRQSTAT_DCE |
-					ESDHC_IRQSTAT_DEBE)) != 0) {
+			       ESDHC_IRQSTAT_DEBE)) != 0) {
 			ERROR("SD read error - DTOE, DCE, DEBE bit set = %x\n",
-									status);
+			      status);
 			return ERROR_ESDHC_COMMUNICATION_ERROR;
 		}
 	}
@@ -558,14 +557,14 @@ static int esdhc_write_data_nodma(struct mmc *mmc, void *src_ptr, uint32_t len)
 		start_time = get_timer_val(0);
 		while (get_timer_val(start_time) < SD_TIMEOUT_HIGH) {
 			val = esdhc_in32(&mmc->esdhc_regs->prsstat) &
-					 ESDHC_PRSSTAT_BWEN;
+			      ESDHC_PRSSTAT_BWEN;
 			if (val != 0U) {
 				break;
 			}
 		}
 
 		val = esdhc_in32(&mmc->esdhc_regs->prsstat) &
-				 ESDHC_PRSSTAT_BWEN;
+		      ESDHC_PRSSTAT_BWEN;
 		if (val == 0U) {
 			return ERROR_ESDHC_COMMUNICATION_ERROR;
 		}
@@ -581,7 +580,7 @@ static int esdhc_write_data_nodma(struct mmc *mmc, void *src_ptr, uint32_t len)
 		}
 		/* Check whether the interrupt is an DTOE/DCE/DEBE */
 		if ((status & (ESDHC_IRQSTAT_DTOE | ESDHC_IRQSTAT_DCE |
-					ESDHC_IRQSTAT_DEBE)) != 0) {
+			       ESDHC_IRQSTAT_DEBE)) != 0) {
 			ERROR("SD write error - DTOE, DCE, DEBE bit set = %x\n",
 			      status);
 			return ERROR_ESDHC_COMMUNICATION_ERROR;
@@ -627,10 +626,10 @@ static int esdhc_read_data_dma(struct mmc *mmc, uint32_t len)
 	do {
 		status = esdhc_in32(&mmc->esdhc_regs->irqstat);
 
-		if ((status & (ESDHC_IRQSTAT_DEBE | ESDHC_IRQSTAT_DCE
-					| ESDHC_IRQSTAT_DTOE)) != 0) {
+		if ((status & (ESDHC_IRQSTAT_DEBE | ESDHC_IRQSTAT_DCE |
+			       ESDHC_IRQSTAT_DTOE)) != 0) {
 			ERROR("SD read error - DTOE, DCE, DEBE bit set = %x\n",
-								 status);
+			      status);
 			return ERROR_ESDHC_COMMUNICATION_ERROR;
 		}
 
@@ -640,8 +639,9 @@ static int esdhc_read_data_dma(struct mmc *mmc, uint32_t len)
 		}
 
 	} while (((status & ESDHC_IRQSTAT_TC) == 0) &&
-		((esdhc_in32(&mmc->esdhc_regs->prsstat) & ESDHC_PRSSTAT_DLA) != 0) &&
-		(get_timer_val(start_time) < SD_TIMEOUT_HIGH + tblk));
+		 ((esdhc_in32(&mmc->esdhc_regs->prsstat) & ESDHC_PRSSTAT_DLA) !=
+		  0) &&
+		 (get_timer_val(start_time) < SD_TIMEOUT_HIGH + tblk));
 
 	if (get_timer_val(start_time) > SD_TIMEOUT_HIGH + tblk) {
 		ERROR("SD read DMA timeout\n");
@@ -672,8 +672,8 @@ static int esdhc_write_data_dma(struct mmc *mmc, uint32_t len)
 	do {
 		status = esdhc_in32(&mmc->esdhc_regs->irqstat);
 
-		if ((status & (ESDHC_IRQSTAT_DEBE | ESDHC_IRQSTAT_DCE
-					| ESDHC_IRQSTAT_DTOE)) != 0) {
+		if ((status & (ESDHC_IRQSTAT_DEBE | ESDHC_IRQSTAT_DCE |
+			       ESDHC_IRQSTAT_DTOE)) != 0) {
 			ERROR("SD write error - DTOE, DCE, DEBE bit set = %x\n",
 			      status);
 			return ERROR_ESDHC_COMMUNICATION_ERROR;
@@ -684,8 +684,9 @@ static int esdhc_write_data_dma(struct mmc *mmc, uint32_t len)
 			return ERROR_ESDHC_DMA_ERROR;
 		}
 	} while (((status & ESDHC_IRQSTAT_TC) == 0) &&
-		((esdhc_in32(&mmc->esdhc_regs->prsstat) & ESDHC_PRSSTAT_DLA) != 0) &&
-		(get_timer_val(start_time) < SD_TIMEOUT_HIGH + tblk));
+		 ((esdhc_in32(&mmc->esdhc_regs->prsstat) & ESDHC_PRSSTAT_DLA) !=
+		  0) &&
+		 (get_timer_val(start_time) < SD_TIMEOUT_HIGH + tblk));
 
 	if (get_timer_val(start_time) > SD_TIMEOUT_HIGH + tblk) {
 		ERROR("SD write DMA timeout\n");
@@ -764,8 +765,8 @@ static int sd_switch_to_high_freq(struct mmc *mmc)
 	uint32_t response[4];
 	uint32_t version;
 	uint32_t count;
-	uint32_t sd_versions[] = {SD_CARD_VERSION_1_0, SD_CARD_VERSION_1_10,
-		SD_CARD_VERSION_2_0};
+	uint32_t sd_versions[] = { SD_CARD_VERSION_1_0, SD_CARD_VERSION_1_10,
+				   SD_CARD_VERSION_2_0 };
 
 	mmc->card.bus_freq = SD_SS_25MHZ;
 	/* Send Application command */
@@ -781,7 +782,7 @@ static int sd_switch_to_high_freq(struct mmc *mmc)
 
 	esdhc_set_data_attributes(mmc, NULL, 1, 8);
 	/* Read the SCR to find out if this card supports higher speeds */
-	err = esdhc_send_cmd(mmc, CMD_SEND_SCR,  mmc->card.rca << 16);
+	err = esdhc_send_cmd(mmc, CMD_SEND_SCR, mmc->card.rca << 16);
 	if (err != 0) {
 		return err;
 	}
@@ -815,7 +816,7 @@ static int sd_switch_to_high_freq(struct mmc *mmc)
 	/* check the status of switch func */
 	for (count = 0U; count < 4U; count++) {
 		err = esdhc_send_cmd(mmc, CMD_SWITCH_FUNC,
-				SD_SWITCH_FUNC_CHECK_MODE);
+				     SD_SWITCH_FUNC_CHECK_MODE);
 		if (err != 0) {
 			return err;
 		}
@@ -891,8 +892,8 @@ static int change_state_to_transfer_state(struct mmc *mmc)
 	start_time = get_timer_val(0);
 	while (get_timer_val(start_time) < SD_TIMEOUT_HIGH) {
 		/* send CMD13 to check card status */
-		error = esdhc_send_cmd(mmc,
-					CMD_SEND_STATUS, mmc->card.rca << 16);
+		error = esdhc_send_cmd(mmc, CMD_SEND_STATUS,
+				       mmc->card.rca << 16);
 		if (error != 0) {
 			return error;
 		}
@@ -928,9 +929,9 @@ static int get_cid_rca_csd(struct mmc *mmc)
 	int err;
 	uint32_t version;
 	uint32_t response[4];
-	uint32_t mmc_version[] = {MMC_CARD_VERSION_1_2, MMC_CARD_VERSION_1_4,
-		MMC_CARD_VERSION_2_X, MMC_CARD_VERSION_3_X,
-		MMC_CARD_VERSION_4_X};
+	uint32_t mmc_version[] = { MMC_CARD_VERSION_1_2, MMC_CARD_VERSION_1_4,
+				   MMC_CARD_VERSION_2_X, MMC_CARD_VERSION_3_X,
+				   MMC_CARD_VERSION_4_X };
 
 	err = esdhc_send_cmd(mmc, CMD_ALL_SEND_CID, 0);
 	if (err != 0) {
@@ -1029,7 +1030,7 @@ static int identify_mmc_card(struct mmc *mmc)
 			return ERROR_ESDHC_UNUSABLE_CARD;
 		}
 	} while (((resp[0] & MMC_OCR_BUSY) == 0U) &&
-			(get_timer_val(start_time) < SD_TIMEOUT_HIGH));
+		 (get_timer_val(start_time) < SD_TIMEOUT_HIGH));
 
 	if (get_timer_val(start_time) > SD_TIMEOUT_HIGH) {
 		return ERROR_ESDHC_UNUSABLE_CARD;
@@ -1057,7 +1058,7 @@ static int check_for_sd_card(struct mmc *mmc)
 {
 	uint64_t start_time;
 	uint32_t args;
-	int  ret;
+	int ret;
 	uint32_t resp[4];
 
 	/* Send reset command */
@@ -1082,7 +1083,7 @@ static int check_for_sd_card(struct mmc *mmc)
 	} else if ((resp[0] & U(0xFF)) == U(0xAA)) { /* ver 2.0 or later */
 		mmc->card.version = SD_CARD_VERSION_2_0;
 	} else {
-		return  NOT_SD_CARD;
+		return NOT_SD_CARD;
 	}
 	/* Send Application command-55 to get the ocr value repeatedly till
 	 * the card busy is clear. timeout = 20sec
@@ -1117,7 +1118,7 @@ static int check_for_sd_card(struct mmc *mmc)
 			return NOT_SD_CARD;
 		}
 	} while (((resp[0] & MMC_OCR_BUSY) == 0U) &&
-			(get_timer_val(start_time) < SD_TIMEOUT_HIGH));
+		 (get_timer_val(start_time) < SD_TIMEOUT_HIGH));
 
 	if (get_timer_val(start_time) > SD_TIMEOUT_HIGH) {
 		INFO("SD_TIMEOUT_HIGH\n");
@@ -1161,7 +1162,7 @@ int esdhc_emmc_init(struct mmc *mmc, bool card_detect)
 #ifdef NXP_SD_DMA_CAPABILITY
 	/* Getting host DMA capabilities. */
 	mmc->dma_support = esdhc_in32(&mmc->esdhc_regs->hostcapblt) &
-					ESDHC_HOSTCAPBLT_DMAS;
+			   ESDHC_HOSTCAPBLT_DMAS;
 #else
 	mmc->dma_support = 0;
 #endif
@@ -1475,11 +1476,9 @@ static struct io_block_dev_spec ls_emmc_dev_spec = {
 	.block_size = BLOCK_LEN_512,
 };
 
-int sd_emmc_init(uintptr_t *block_dev_spec,
-			uintptr_t nxp_esdhc_addr,
-			size_t nxp_sd_block_offset,
-			size_t nxp_sd_block_size,
-			bool card_detect)
+int sd_emmc_init(uintptr_t *block_dev_spec, uintptr_t nxp_esdhc_addr,
+		 size_t nxp_sd_block_offset, size_t nxp_sd_block_size,
+		 bool card_detect)
 {
 	int ret;
 

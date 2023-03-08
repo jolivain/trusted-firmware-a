@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,7 +10,6 @@
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-
 #include <m0_ctl.h>
 #include <plat_private.h>
 #include <rk3399_def.h>
@@ -44,11 +43,9 @@ void m0_configure_execute_addr(uintptr_t addr)
 {
 	/* set the execute address for M0 */
 	mmio_write_32(SGRF_BASE + SGRF_PMU_CON(3),
-		      BITS_WITH_WMASK((addr >> 12) & 0xffff,
-				      0xffffu, 0));
+		      BITS_WITH_WMASK((addr >> 12) & 0xffff, 0xffffu, 0));
 	mmio_write_32(SGRF_BASE + SGRF_PMU_CON(7),
-		      BITS_WITH_WMASK((addr >> 28) & 0xf,
-				      0xfu, 0));
+		      BITS_WITH_WMASK((addr >> 28) & 0xf, 0xfu, 0));
 }
 
 void m0_start(void)

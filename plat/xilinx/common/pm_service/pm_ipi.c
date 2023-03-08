@@ -1,25 +1,26 @@
 /*
- * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2019-2022, Xilinx, Inc. All rights reserved.
  * Copyright (c) 2022, Advanced Micro Devices, Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include "pm_ipi.h"
 
 #include <arch_helpers.h>
+#include <ipi.h>
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
-#include <ipi.h>
 #include <plat_ipi.h>
 #include <plat_private.h>
+
 #include <plat/common/platform.h>
 
 #include "pm_defs.h"
-#include "pm_ipi.h"
 
-#define ERROR_CODE_MASK		(0xFFFFU)
-#define PM_OFFSET		(0U)
+#define ERROR_CODE_MASK (0xFFFFU)
+#define PM_OFFSET (0U)
 
 DEFINE_BAKERY_LOCK(pm_secure_lock);
 
@@ -56,8 +57,8 @@ static enum pm_ret_status pm_ipi_send_common(const struct pm_proc *proc,
 {
 	uint32_t offset = PM_OFFSET;
 	uintptr_t buffer_base = proc->ipi->buffer_base +
-					IPI_BUFFER_TARGET_REMOTE_OFFSET +
-					IPI_BUFFER_REQ_OFFSET;
+				IPI_BUFFER_TARGET_REMOTE_OFFSET +
+				IPI_BUFFER_REQ_OFFSET;
 #if IPI_CRC_CHECK
 	payload[PAYLOAD_CRC_POS] = calculate_crc(payload, IPI_W0_TO_W6_SIZE);
 #endif
@@ -122,7 +123,6 @@ enum pm_ret_status pm_ipi_send(const struct pm_proc *proc,
 	return ret;
 }
 
-
 /**
  * pm_ipi_buff_read() - Reads IPI response after remote processor has handled
  *			interrupt
@@ -157,14 +157,14 @@ static enum pm_ret_status pm_ipi_buff_read(const struct pm_proc *proc,
 	}
 #if IPI_CRC_CHECK
 	for (j = 0; j < PAYLOAD_ARG_CNT; j++) {
-		response_payload[j] = mmio_read_32(buffer_base +
-						(j * PAYLOAD_ARG_SIZE));
+		response_payload[j] =
+			mmio_read_32(buffer_base + (j * PAYLOAD_ARG_SIZE));
 	}
 
 	if (response_payload[PAYLOAD_CRC_POS] !=
-			calculate_crc(response_payload, IPI_W0_TO_W6_SIZE)) {
+	    calculate_crc(response_payload, IPI_W0_TO_W6_SIZE)) {
 		NOTICE("ERROR in CRC response payload value:0x%x\n",
-					response_payload[PAYLOAD_CRC_POS]);
+		       response_payload[PAYLOAD_CRC_POS]);
 	}
 #endif
 
@@ -185,7 +185,7 @@ void pm_ipi_buff_read_callb(uint32_t *value, size_t count)
 	size_t i;
 #if IPI_CRC_CHECK
 	size_t j;
-	unsigned int response_payload[PAYLOAD_ARG_CNT] = {0};
+	unsigned int response_payload[PAYLOAD_ARG_CNT] = { 0 };
 #endif
 	uintptr_t buffer_base = IPI_BUFFER_REMOTE_BASE +
 				IPI_BUFFER_TARGET_LOCAL_OFFSET +
@@ -201,14 +201,14 @@ void pm_ipi_buff_read_callb(uint32_t *value, size_t count)
 	}
 #if IPI_CRC_CHECK
 	for (j = 0; j < PAYLOAD_ARG_CNT; j++) {
-		response_payload[j] = mmio_read_32(buffer_base +
-						(j * PAYLOAD_ARG_SIZE));
+		response_payload[j] =
+			mmio_read_32(buffer_base + (j * PAYLOAD_ARG_SIZE));
 	}
 
 	if (response_payload[PAYLOAD_CRC_POS] !=
-			calculate_crc(response_payload, IPI_W0_TO_W6_SIZE)) {
+	    calculate_crc(response_payload, IPI_W0_TO_W6_SIZE)) {
 		NOTICE("ERROR in CRC response payload value:0x%x\n",
-					response_payload[PAYLOAD_CRC_POS]);
+		       response_payload[PAYLOAD_CRC_POS]);
 	}
 #endif
 }
@@ -273,7 +273,7 @@ uint32_t pm_ipi_irq_status(const struct pm_proc *proc)
 uint32_t calculate_crc(uint32_t payload[PAYLOAD_ARG_CNT], uint32_t bufsize)
 {
 	uint32_t crcinit = CRC_INIT_VALUE;
-	uint32_t order   = CRC_ORDER;
+	uint32_t order = CRC_ORDER;
 	uint32_t polynom = CRC_POLYNOM;
 	uint32_t i, j, c, bit, datain, crcmask, crchighbit;
 	uint32_t crc = crcinit;

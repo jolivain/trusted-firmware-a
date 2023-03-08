@@ -9,10 +9,11 @@
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
-#include <plat/common/platform.h>
-
 #include <lib/pm/mtk_pm.h>
 #include <mcucfg.h>
+
+#include <plat/common/platform.h>
+
 #include "mt_cpu_pm.h"
 #include "mt_smp.h"
 
@@ -35,7 +36,8 @@ void mt_smp_core_init_arch(unsigned int cluster, unsigned int cpu, int arm64,
 	}
 }
 
-void mt_smp_core_bootup_address_set(struct cpu_pwr_ctrl *pwr_ctrl, uintptr_t entry)
+void mt_smp_core_bootup_address_set(struct cpu_pwr_ctrl *pwr_ctrl,
+				    uintptr_t entry)
 {
 	CPU_PM_ASSERT(pwr_ctrl != NULL);
 
@@ -72,7 +74,8 @@ int mt_smp_power_core_on(unsigned int cpu_id, struct cpu_pwr_ctrl *pwr_ctrl)
 			mmio_setbits_32(pwr_ctrl->pwpr, PWR_ON);
 		}
 	} else {
-		INFO("[%s:%d] - core_%u haven been power on\n", __func__, __LINE__, cpu_id);
+		INFO("[%s:%d] - core_%u haven been power on\n", __func__,
+		     __LINE__, cpu_id);
 	}
 
 	return MTK_CPUPM_E_OK;

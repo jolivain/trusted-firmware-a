@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  * Portions copyright (c) 2021-2022, ProvenRun S.A.S. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -82,8 +82,8 @@ void gicv2_pcpu_distif_init(void)
 	assert(driver_data->gicd_base != 0U);
 
 	gicv2_secure_ppi_sgi_setup_props(driver_data->gicd_base,
-			driver_data->interrupt_props,
-			driver_data->interrupt_props_num);
+					 driver_data->interrupt_props,
+					 driver_data->interrupt_props_num);
 
 	/* Enable G0 interrupts if not already */
 	ctlr = gicd_read_ctlr(driver_data->gicd_base);
@@ -114,9 +114,8 @@ void gicv2_distif_init(void)
 	gicv2_spis_configure_defaults(driver_data->gicd_base);
 
 	gicv2_secure_spis_configure_props(driver_data->gicd_base,
-			driver_data->interrupt_props,
-			driver_data->interrupt_props_num);
-
+					  driver_data->interrupt_props,
+					  driver_data->interrupt_props_num);
 
 	/* Re-enable the secure SPIs now that they have been configured */
 	gicd_write_ctlr(driver_data->gicd_base, ctlr | CTLR_ENABLE_G0_BIT);
@@ -134,12 +133,13 @@ void gicv2_driver_init(const gicv2_driver_data_t *plat_driver_data)
 	assert(plat_driver_data->gicc_base != 0U);
 
 	assert(plat_driver_data->interrupt_props_num > 0 ?
-			plat_driver_data->interrupt_props != NULL : 1);
+		       plat_driver_data->interrupt_props != NULL :
+		       1);
 
 	/* Ensure that this is a GICv2 system */
 	gic_version = gicd_read_pidr2(plat_driver_data->gicd_base);
-	gic_version = (gic_version >> PIDR2_ARCH_REV_SHIFT)
-					& PIDR2_ARCH_REV_MASK;
+	gic_version = (gic_version >> PIDR2_ARCH_REV_SHIFT) &
+		      PIDR2_ARCH_REV_MASK;
 
 	/*
 	 * GICv1 with security extension complies with trusted firmware
@@ -166,8 +166,8 @@ void gicv2_driver_init(const gicv2_driver_data_t *plat_driver_data)
 	 * enabled.
 	 */
 #if !(HW_ASSISTED_COHERENCY || WARMBOOT_ENABLE_DCACHE_EARLY)
-	flush_dcache_range((uintptr_t) &driver_data, sizeof(driver_data));
-	flush_dcache_range((uintptr_t) driver_data, sizeof(*driver_data));
+	flush_dcache_range((uintptr_t)&driver_data, sizeof(driver_data));
+	flush_dcache_range((uintptr_t)driver_data, sizeof(*driver_data));
 #endif
 	INFO("ARM GICv2 driver initialized\n");
 }
@@ -319,9 +319,9 @@ void gicv2_set_pe_target_mask(unsigned int proc_num)
 		 * secondaries overwriting each others' mask, despite
 		 * target_masks[] not being cache line aligned.
 		 */
-		flush_dcache_range((uintptr_t)
-				&driver_data->target_masks[proc_num],
-				sizeof(driver_data->target_masks[proc_num]));
+		flush_dcache_range(
+			(uintptr_t)&driver_data->target_masks[proc_num],
+			sizeof(driver_data->target_masks[proc_num]));
 #endif
 	}
 }

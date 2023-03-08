@@ -10,25 +10,26 @@
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <lib/mmio.h>
-#include <plat/common/platform.h>
 
+#include <plat/common/platform.h>
 #include <platform_def.h>
+
 #include "rom_api.h"
 
-typedef int32_t(*secure_boot_api_f) (uint32_t a, uint32_t b, void *c);
+typedef int32_t (*secure_boot_api_f)(uint32_t a, uint32_t b, void *c);
 extern int32_t rcar_get_certificate(const int32_t name, uint32_t *cert_addr);
 
-#define RCAR_IMAGE_ID_MAX	(10)
-#define RCAR_CERT_MAGIC_NUM	(0xE291F358U)
-#define RCAR_BOOT_KEY_CERT	(0xE6300C00U)
-#define RCAR_BOOT_KEY_CERT_NEW	(0xE6300F00U)
-#define RST_BASE		(0xE6160000U)
-#define RST_MODEMR		(RST_BASE + 0x0060U)
-#define MFISOFTMDR		(0xE6260600U)
-#define MODEMR_MD5_MASK		(0x00000020U)
-#define MODEMR_MD5_SHIFT	(5U)
-#define SOFTMD_BOOTMODE_MASK	(0x00000001U)
-#define SOFTMD_NORMALBOOT	(0x1U)
+#define RCAR_IMAGE_ID_MAX (10)
+#define RCAR_CERT_MAGIC_NUM (0xE291F358U)
+#define RCAR_BOOT_KEY_CERT (0xE6300C00U)
+#define RCAR_BOOT_KEY_CERT_NEW (0xE6300F00U)
+#define RST_BASE (0xE6160000U)
+#define RST_MODEMR (RST_BASE + 0x0060U)
+#define MFISOFTMDR (0xE6260600U)
+#define MODEMR_MD5_MASK (0x00000020U)
+#define MODEMR_MD5_SHIFT (5U)
+#define SOFTMD_BOOTMODE_MASK (0x00000001U)
+#define SOFTMD_NORMALBOOT (0x1U)
 
 static secure_boot_api_f secure_boot_api;
 
@@ -116,8 +117,8 @@ verify_image:
 	dcsw_op_all(DCCISW);
 #endif
 	ret = (mmio_read_32(RCAR_BOOT_KEY_CERT_NEW) == RCAR_CERT_MAGIC_NUM) ?
-	    secure_boot_api(RCAR_BOOT_KEY_CERT_NEW, cert_addr, NULL) :
-	    secure_boot_api(RCAR_BOOT_KEY_CERT, cert_addr, NULL);
+		      secure_boot_api(RCAR_BOOT_KEY_CERT_NEW, cert_addr, NULL) :
+		      secure_boot_api(RCAR_BOOT_KEY_CERT, cert_addr, NULL);
 	if (ret)
 		ERROR("Verification Failed 0x%x, %s\n", ret, image[index].name);
 
@@ -142,7 +143,7 @@ void auth_mod_init(void)
 	uint32_t md = mmio_read_32(RST_MODEMR) & MODEMR_MD5_MASK;
 	uint32_t lcs, ret;
 
-	secure_boot_api = (secure_boot_api_f) &rcar_rom_secure_boot_api;
+	secure_boot_api = (secure_boot_api_f)&rcar_rom_secure_boot_api;
 
 	ret = rcar_rom_get_lcs(&lcs);
 	if (ret) {

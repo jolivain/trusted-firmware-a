@@ -1,18 +1,17 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <lib/mmio.h>
-
 #include <plat_private.h>
 #include <rk3368_def.h>
 #include <soc.h>
+
+#include <platform_def.h>
 
 static uint32_t plls_con[END_PLL_ID][4];
 
@@ -22,32 +21,22 @@ const mmap_region_t plat_rk_mmap[] = {
 			MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(GIC400_BASE, GIC400_SIZE,
 			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(STIME_BASE, STIME_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(SGRF_BASE, SGRF_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(STIME_BASE, STIME_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(SGRF_BASE, SGRF_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(PMUSRAM_BASE, PMUSRAM_SIZE,
 			MT_MEMORY | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(PMU_BASE, PMU_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(UART0_BASE, UART0_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(UART1_BASE, UART1_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(UART2_BASE, UART2_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(UART3_BASE, UART3_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(UART4_BASE, UART4_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(CRU_BASE, CRU_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(PMU_BASE, PMU_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(UART0_BASE, UART0_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(UART1_BASE, UART1_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(UART2_BASE, UART2_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(UART3_BASE, UART3_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(UART4_BASE, UART4_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(CRU_BASE, CRU_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(DDR_PCTL_BASE, DDR_PCTL_SIZE,
 			MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(DDR_PHY_BASE, DDR_PHY_SIZE,
 			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(GRF_BASE, GRF_SIZE,
-			MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(GRF_BASE, GRF_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(SERVICE_BUS_BASE, SERVICE_BUS_SISE,
 			MT_DEVICE | MT_RW | MT_SECURE),
 	{ 0 }
@@ -107,8 +96,8 @@ void plat_rockchip_soc_init(void)
 	sgrf_init();
 }
 
-void regs_updata_bits(uintptr_t addr, uint32_t val,
-		      uint32_t mask, uint32_t shift)
+void regs_updata_bits(uintptr_t addr, uint32_t val, uint32_t mask,
+		      uint32_t shift)
 {
 	uint32_t tmp, orig;
 
@@ -205,5 +194,5 @@ void __dead2 rockchip_soc_soft_reset(void)
 	 * so we do not hope the core to excute valid codes.
 	 */
 	while (1)
-	;
+		;
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -20,16 +20,16 @@
 #define MBOOT_ALG_SHA256 2
 
 #if MBOOT_ALG_ID == MBOOT_ALG_SHA512
-#define	CRYPTO_MD_ID		CRYPTO_MD_SHA512
-#define PSA_CRYPTO_MD_ID	PSA_ALG_SHA_512
+#define CRYPTO_MD_ID CRYPTO_MD_SHA512
+#define PSA_CRYPTO_MD_ID PSA_ALG_SHA_512
 #elif MBOOT_ALG_ID == MBOOT_ALG_SHA384
-#define	CRYPTO_MD_ID		CRYPTO_MD_SHA384
-#define PSA_CRYPTO_MD_ID	PSA_ALG_SHA_384
+#define CRYPTO_MD_ID CRYPTO_MD_SHA384
+#define PSA_CRYPTO_MD_ID PSA_ALG_SHA_384
 #elif MBOOT_ALG_ID == MBOOT_ALG_SHA256
-#define	CRYPTO_MD_ID		CRYPTO_MD_SHA256
-#define PSA_CRYPTO_MD_ID	PSA_ALG_SHA_256
+#define CRYPTO_MD_ID CRYPTO_MD_SHA256
+#define PSA_CRYPTO_MD_ID PSA_ALG_SHA_256
 #else
-#  error Invalid Measured Boot algorithm.
+#error Invalid Measured Boot algorithm.
 #endif /* MBOOT_ALG_ID */
 
 /* Pointer to struct rss_mboot_metadata */
@@ -68,7 +68,7 @@ int rss_mboot_measure_and_record(uintptr_t data_base, uint32_t data_size,
 
 	/* Get the metadata associated with this image. */
 	while ((metadata_ptr->id != RSS_MBOOT_INVALID_ID) &&
-		(metadata_ptr->id != data_id)) {
+	       (metadata_ptr->id != data_id)) {
 		metadata_ptr++;
 	}
 
@@ -78,24 +78,18 @@ int rss_mboot_measure_and_record(uintptr_t data_base, uint32_t data_size,
 	}
 
 	/* Calculate hash */
-	rc = crypto_mod_calc_hash(CRYPTO_MD_ID,
-				  (void *)data_base, data_size, hash_data);
+	rc = crypto_mod_calc_hash(CRYPTO_MD_ID, (void *)data_base, data_size,
+				  hash_data);
 	if (rc != 0) {
 		return rc;
 	}
 
 	ret = rss_measured_boot_extend_measurement(
-						metadata_ptr->slot,
-						metadata_ptr->signer_id,
-						metadata_ptr->signer_id_size,
-						metadata_ptr->version,
-						metadata_ptr->version_size,
-						PSA_CRYPTO_MD_ID,
-						metadata_ptr->sw_type,
-						metadata_ptr->sw_type_size,
-						hash_data,
-						MBOOT_DIGEST_SIZE,
-						metadata_ptr->lock_measurement);
+		metadata_ptr->slot, metadata_ptr->signer_id,
+		metadata_ptr->signer_id_size, metadata_ptr->version,
+		metadata_ptr->version_size, PSA_CRYPTO_MD_ID,
+		metadata_ptr->sw_type, metadata_ptr->sw_type_size, hash_data,
+		MBOOT_DIGEST_SIZE, metadata_ptr->lock_measurement);
 	if (ret != PSA_SUCCESS) {
 		return ret;
 	}
@@ -103,8 +97,7 @@ int rss_mboot_measure_and_record(uintptr_t data_base, uint32_t data_size,
 	return 0;
 }
 
-int rss_mboot_set_signer_id(unsigned int img_id,
-			    const void *pk_ptr,
+int rss_mboot_set_signer_id(unsigned int img_id, const void *pk_ptr,
 			    size_t pk_len)
 {
 	unsigned char hash_data[CRYPTO_MD_MAX_SIZE];
@@ -113,7 +106,7 @@ int rss_mboot_set_signer_id(unsigned int img_id,
 
 	/* Get the metadata associated with this image. */
 	while ((metadata_ptr->id != RSS_MBOOT_INVALID_ID) &&
-		(metadata_ptr->id != img_id)) {
+	       (metadata_ptr->id != img_id)) {
 		metadata_ptr++;
 	}
 
@@ -123,8 +116,8 @@ int rss_mboot_set_signer_id(unsigned int img_id,
 	}
 
 	/* Calculate public key hash */
-	rc = crypto_mod_calc_hash(CRYPTO_MD_ID, (void *)pk_ptr,
-				  pk_len, hash_data);
+	rc = crypto_mod_calc_hash(CRYPTO_MD_ID, (void *)pk_ptr, pk_len,
+				  hash_data);
 	if (rc != 0) {
 		return rc;
 	}

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,6 +7,7 @@
 #include <assert.h>
 
 #include <arch_helpers.h>
+
 #include <plat/common/platform.h>
 
 #include "tsp_private.h"
@@ -75,7 +76,7 @@ void tsp_generic_timer_save(void)
 
 	pcpu_timer_context[linear_id].cval = read_cntps_cval_el1();
 	pcpu_timer_context[linear_id].ctl = read_cntps_ctl_el1();
-	flush_dcache_range((uint64_t) &pcpu_timer_context[linear_id],
+	flush_dcache_range((uint64_t)&pcpu_timer_context[linear_id],
 			   sizeof(pcpu_timer_context[linear_id]));
 }
 

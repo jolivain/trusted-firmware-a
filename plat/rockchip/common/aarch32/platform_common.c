@@ -1,25 +1,23 @@
 /*
- * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <string.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <lib/utils.h>
 #include <lib/xlat_tables/xlat_tables.h>
-
 #include <plat_private.h>
+
+#include <platform_def.h>
 
 void plat_configure_mmu_svc_mon(unsigned long total_base,
 				unsigned long total_size,
-				unsigned long ro_start,
-				unsigned long ro_limit,
+				unsigned long ro_start, unsigned long ro_limit,
 				unsigned long coh_start,
 				unsigned long coh_limit)
 {

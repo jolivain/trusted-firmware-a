@@ -9,14 +9,15 @@
  */
 
 #include <errno.h>
-#include <ipi.h>
-#include <plat_ipi.h>
-#include <plat_private.h>
 #include <string.h>
+
 #include <common/debug.h>
 #include <common/runtime_svc.h>
+#include <ipi.h>
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
+#include <plat_ipi.h>
+#include <plat_private.h>
 
 /* versal ipi configuration table */
 static const struct ipi_config versal_ipi_table[] = {

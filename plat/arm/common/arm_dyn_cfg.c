@@ -6,6 +6,7 @@
 
 #include <assert.h>
 #include <string.h>
+
 #include <libfdt.h>
 
 #if CRYPTO_SUPPORT
@@ -98,11 +99,11 @@ void arm_bl1_set_mbedtls_heap(void)
 		/* As libfdt uses void *, we can't avoid this cast */
 		void *dtb = (void *)tb_fw_cfg_dtb;
 
-		err = arm_set_dtb_mbedtls_heap_info(dtb,
-			mbedtls_heap_addr, mbedtls_heap_size);
+		err = arm_set_dtb_mbedtls_heap_info(dtb, mbedtls_heap_addr,
+						    mbedtls_heap_size);
 		if (err < 0) {
 			ERROR("%swrite shared Mbed TLS heap information%s",
-				"BL1: unable to ", " to DTB\n");
+			      "BL1: unable to ", " to DTB\n");
 			panic();
 		}
 #if !MEASURED_BOOT
@@ -132,12 +133,8 @@ void arm_bl2_dyn_cfg_init(void)
 	uintptr_t image_base;
 	uint32_t image_size;
 	unsigned int error_config_id = MAX_IMAGE_IDS;
-	const unsigned int config_ids[] = {
-			HW_CONFIG_ID,
-			SOC_FW_CONFIG_ID,
-			NT_FW_CONFIG_ID,
-			TOS_FW_CONFIG_ID
-	};
+	const unsigned int config_ids[] = { HW_CONFIG_ID, SOC_FW_CONFIG_ID,
+					    NT_FW_CONFIG_ID, TOS_FW_CONFIG_ID };
 
 	const struct dyn_cfg_dtb_info_t *dtb_info;
 
@@ -167,23 +164,20 @@ void arm_bl2_dyn_cfg_init(void)
 		 * of all invalid addresses but to prevent trivial porting errors.
 		 */
 		if (config_ids[i] != HW_CONFIG_ID) {
-
 			if (check_uptr_overflow(image_base, image_size)) {
 				VERBOSE("%s=%d as its %s is overflowing uptr\n",
 					"skip loading of firmware config",
-					config_ids[i],
-					"load-address");
+					config_ids[i], "load-address");
 				error_config_id = config_ids[i];
 				continue;
 			}
-#ifdef	BL31_BASE
+#ifdef BL31_BASE
 			/* Ensure the configs don't overlap with BL31 */
 			if ((image_base >= BL31_BASE) &&
 			    (image_base <= BL31_LIMIT)) {
 				VERBOSE("%s=%d as its %s is overlapping BL31\n",
 					"skip loading of firmware config",
-					config_ids[i],
-					"load-address");
+					config_ids[i], "load-address");
 				error_config_id = config_ids[i];
 				continue;
 			}
@@ -192,8 +186,7 @@ void arm_bl2_dyn_cfg_init(void)
 			if (image_base < ARM_BL_RAM_BASE) {
 				VERBOSE("%s=%d as its %s is invalid\n",
 					"skip loading of firmware config",
-					config_ids[i],
-					"load-address");
+					config_ids[i], "load-address");
 				error_config_id = config_ids[i];
 				continue;
 			}
@@ -206,8 +199,7 @@ void arm_bl2_dyn_cfg_init(void)
 			    (image_base <= BL32_LIMIT)) {
 				VERBOSE("%s=%d as its %s is overlapping BL32\n",
 					"skip loading of firmware config",
-					config_ids[i],
-					"load-address");
+					config_ids[i], "load-address");
 				error_config_id = config_ids[i];
 				continue;
 			}
@@ -215,7 +207,8 @@ void arm_bl2_dyn_cfg_init(void)
 		}
 
 		cfg_mem_params->image_info.image_base = image_base;
-		cfg_mem_params->image_info.image_max_size = (uint32_t)image_size;
+		cfg_mem_params->image_info.image_max_size =
+			(uint32_t)image_size;
 
 		/*
 		 * Remove the IMAGE_ATTRIB_SKIP_LOADING attribute from

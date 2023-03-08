@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,10 +7,7 @@
 #include <plat/arm/common/plat_arm.h>
 #include <platform_def.h>
 
-static const arm_tzc_regions_info_t tzc_regions[] = {
-	ARM_TZC_REGIONS_DEF,
-	{}
-};
+static const arm_tzc_regions_info_t tzc_regions[] = { ARM_TZC_REGIONS_DEF, {} };
 
 /* Initialize the secure environment */
 void plat_arm_security_setup(void)

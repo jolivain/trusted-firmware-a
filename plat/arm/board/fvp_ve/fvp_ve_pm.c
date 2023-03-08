@@ -1,10 +1,11 @@
 /*
-* Copyright (c) 2019, Arm Limited. All rights reserved.
+* Copyright (c) 2019-2023, Arm Limited. All rights reserved.
 *
 * SPDX-License-Identifier: BSD-3-Clause
 */
 
 #include <lib/psci/psci.h>
+
 #include <plat/arm/common/plat_arm.h>
 
 /*******************************************************************************
@@ -17,7 +18,7 @@ plat_psci_ops_t fvp_ve_psci_pm_ops = {
 };
 
 int __init plat_setup_psci_ops(uintptr_t sec_entrypoint,
-				const plat_psci_ops_t **psci_ops)
+			       const plat_psci_ops_t **psci_ops)
 {
 	*psci_ops = &fvp_ve_psci_pm_ops;
 

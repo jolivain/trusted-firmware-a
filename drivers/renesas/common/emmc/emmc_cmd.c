@@ -18,11 +18,10 @@ static void emmc_little_to_big(uint8_t *p, uint32_t value)
 	if (p == NULL)
 		return;
 
-	p[0] = (uint8_t) (value >> 24);
-	p[1] = (uint8_t) (value >> 16);
-	p[2] = (uint8_t) (value >> 8);
-	p[3] = (uint8_t) value;
-
+	p[0] = (uint8_t)(value >> 24);
+	p[1] = (uint8_t)(value >> 16);
+	p[2] = (uint8_t)(value >> 8);
+	p[3] = (uint8_t)value;
 }
 
 static void emmc_softreset(void)
@@ -45,11 +44,11 @@ static void emmc_softreset(void)
 	/* wait CMDSEQ = 0 */
 	while (loop > 0) {
 		if ((GETR_32(SD_INFO2) & SD_INFO2_CBSY) == 0)
-			break;	/* ready */
+			break; /* ready */
 
 		loop--;
 		if ((loop == 0) && (retry > 0)) {
-			rcar_micro_delay(1000U);	/* wait 1ms */
+			rcar_micro_delay(1000U); /* wait 1ms */
 			loop = 10000;
 			retry--;
 		}
@@ -63,8 +62,8 @@ reset:
 	/* initialize */
 	SETR_32(SD_INFO1, 0x00000000U);
 	SETR_32(SD_INFO2, SD_INFO2_CLEAR);
-	SETR_32(SD_INFO1_MASK, 0x00000000U);	/* all interrupt disable */
-	SETR_32(SD_INFO2_MASK, SD_INFO2_CLEAR);	/* all interrupt disable */
+	SETR_32(SD_INFO1_MASK, 0x00000000U); /* all interrupt disable */
+	SETR_32(SD_INFO2_MASK, SD_INFO2_CLEAR); /* all interrupt disable */
 }
 
 static void emmc_read_response(uint32_t *response)
@@ -76,27 +75,29 @@ static void emmc_read_response(uint32_t *response)
 
 	/* read response */
 	if (mmc_drv_obj.response_length != EMMC_MAX_RESPONSE_LENGTH) {
-		*response = GETR_32(SD_RSP10);	/* [39:8] */
+		*response = GETR_32(SD_RSP10); /* [39:8] */
 		return;
 	}
 
 	/* CSD or CID */
-	p = (uint8_t *) (response);
-	emmc_little_to_big(p, ((GETR_32(SD_RSP76) << 8)
-			| (GETR_32(SD_RSP54) >> 24)));	/* [127:96]     */
-	emmc_little_to_big(p + 4, ((GETR_32(SD_RSP54) << 8)
-			| (GETR_32(SD_RSP32) >> 24)));	/* [95:64]      */
-	emmc_little_to_big(p + 8, ((GETR_32(SD_RSP32) << 8)
-			| (GETR_32(SD_RSP10) >> 24)));	/* [63:32]      */
+	p = (uint8_t *)(response);
+	emmc_little_to_big(p, ((GETR_32(SD_RSP76) << 8) |
+			       (GETR_32(SD_RSP54) >> 24))); /* [127:96]     */
+	emmc_little_to_big(p + 4,
+			   ((GETR_32(SD_RSP54) << 8) |
+			    (GETR_32(SD_RSP32) >> 24))); /* [95:64]      */
+	emmc_little_to_big(p + 8,
+			   ((GETR_32(SD_RSP32) << 8) |
+			    (GETR_32(SD_RSP10) >> 24))); /* [63:32]      */
 	emmc_little_to_big(p + 12, (GETR_32(SD_RSP10) << 8));
 }
 
 static EMMC_ERROR_CODE emmc_response_check(uint32_t *response,
 					   uint32_t error_mask)
 {
-
 	HAL_MEMCARD_RESPONSE_TYPE response_type =
-	    ((HAL_MEMCARD_RESPONSE_TYPE)mmc_drv_obj.cmd_info.cmd & HAL_MEMCARD_RESPONSE_TYPE_MASK);
+		((HAL_MEMCARD_RESPONSE_TYPE)mmc_drv_obj.cmd_info.cmd &
+		 HAL_MEMCARD_RESPONSE_TYPE_MASK);
 
 	if (response == NULL)
 		return EMMC_ERR_PARAM;
@@ -104,12 +105,11 @@ static EMMC_ERROR_CODE emmc_response_check(uint32_t *response,
 	if (response_type == HAL_MEMCARD_RESPONSE_NONE)
 		return EMMC_SUCCESS;
 
-
 	if (response_type <= HAL_MEMCARD_RESPONSE_R1b) {
 		/* R1 or R1b */
 		mmc_drv_obj.current_state =
-		    (EMMC_R1_STATE) ((*response & EMMC_R1_STATE_MASK) >>
-				     EMMC_R1_STATE_SHIFT);
+			(EMMC_R1_STATE)((*response & EMMC_R1_STATE_MASK) >>
+					EMMC_R1_STATE_SHIFT);
 		if ((*response & error_mask) != 0) {
 			if ((0x80 & *response) != 0) {
 				ERROR("BL2: emmc SWITCH_ERROR\n");
@@ -177,8 +177,8 @@ static void emmc_data_transfer_dma(void)
 		SETR_32(DM_CM_INFO2_MASK,
 			(DM_CM_INFO_MASK_CLEAR | DM_CM_INFO_CH0_ENABLE));
 		/* BUFF --> FIFO */
-		SETR_32(DM_CM_DTRAN_MODE, (DM_CM_DTRAN_MODE_CH0 |
-					   DM_CM_DTRAN_MODE_BIT_WIDTH));
+		SETR_32(DM_CM_DTRAN_MODE,
+			(DM_CM_DTRAN_MODE_CH0 | DM_CM_DTRAN_MODE_BIT_WIDTH));
 	} else {
 		/* transfer complete interrupt enable */
 		SETR_32(DM_CM_INFO1_MASK,
@@ -186,10 +186,10 @@ static void emmc_data_transfer_dma(void)
 		SETR_32(DM_CM_INFO2_MASK,
 			(DM_CM_INFO_MASK_CLEAR | DM_CM_INFO_CH1_ENABLE));
 		/* FIFO --> BUFF */
-		SETR_32(DM_CM_DTRAN_MODE, (DM_CM_DTRAN_MODE_CH1
-					   | DM_CM_DTRAN_MODE_BIT_WIDTH));
+		SETR_32(DM_CM_DTRAN_MODE,
+			(DM_CM_DTRAN_MODE_CH1 | DM_CM_DTRAN_MODE_BIT_WIDTH));
 	}
-	SETR_32(DM_DTRAN_ADDR, (((uintptr_t) mmc_drv_obj.buff_address_virtual &
+	SETR_32(DM_DTRAN_ADDR, (((uintptr_t)mmc_drv_obj.buff_address_virtual &
 				 DM_DTRAN_ADDR_WRITE_MASK)));
 
 	SETR_32(DM_CM_DTRAN_CTRL, DM_CM_DTRAN_CTRL_START);
@@ -221,12 +221,10 @@ EMMC_ERROR_CODE emmc_exec_cmd(uint32_t error_mask, uint32_t *response)
 	}
 
 	state = ESTATE_BEGIN;
-	response_type =
-	    ((HAL_MEMCARD_RESPONSE_TYPE)mmc_drv_obj.cmd_info.cmd &
-					HAL_MEMCARD_RESPONSE_TYPE_MASK);
-	cmd_type =
-	    ((HAL_MEMCARD_COMMAND_TYPE) mmc_drv_obj.cmd_info.cmd &
-					HAL_MEMCARD_COMMAND_TYPE_MASK);
+	response_type = ((HAL_MEMCARD_RESPONSE_TYPE)mmc_drv_obj.cmd_info.cmd &
+			 HAL_MEMCARD_RESPONSE_TYPE_MASK);
+	cmd_type = ((HAL_MEMCARD_COMMAND_TYPE)mmc_drv_obj.cmd_info.cmd &
+		    HAL_MEMCARD_COMMAND_TYPE_MASK);
 
 	/* state machine */
 	while ((mmc_drv_obj.force_terminate != TRUE) && (state != ESTATE_END)) {
@@ -240,7 +238,8 @@ EMMC_ERROR_CODE emmc_exec_cmd(uint32_t error_mask, uint32_t *response)
 		switch (state) {
 		case ESTATE_BEGIN:
 			/* Busy check */
-			if ((mmc_drv_obj.error_info.info2 & SD_INFO2_CBSY) != 0) {
+			if ((mmc_drv_obj.error_info.info2 & SD_INFO2_CBSY) !=
+			    0) {
 				emmc_write_error_info(EMMC_FUNCNO_EXEC_CMD,
 						      EMMC_ERR_CARD_BUSY);
 				return EMMC_ERR_CARD_BUSY;
@@ -302,9 +301,9 @@ EMMC_ERROR_CODE emmc_exec_cmd(uint32_t error_mask, uint32_t *response)
 			/* check interrupt */
 			if ((mmc_drv_obj.int_event2 & SD_INFO2_ALL_ERR) != 0) {
 				if ((mmc_drv_obj.get_partition_access_flag ==
-				     TRUE)
-				    && ((mmc_drv_obj.int_event2 & SD_INFO2_ERR6)
-					!= 0U)) {
+				     TRUE) &&
+				    ((mmc_drv_obj.int_event2 & SD_INFO2_ERR6) !=
+				     0U)) {
 					err_not_care_flag = TRUE;
 					rtn_code = EMMC_ERR_CMD_TIMEOUT;
 				} else {
@@ -352,7 +351,8 @@ EMMC_ERROR_CODE emmc_exec_cmd(uint32_t error_mask, uint32_t *response)
 				break;
 			}
 			/* DAT0 not Busy */
-			if ((SD_INFO2_DAT0 & mmc_drv_obj.error_info.info2) != 0) {
+			if ((SD_INFO2_DAT0 & mmc_drv_obj.error_info.info2) !=
+			    0) {
 				state = ESTATE_CHECK_RESPONSE_COMPLETE;
 				break;
 			}
@@ -381,12 +381,14 @@ EMMC_ERROR_CODE emmc_exec_cmd(uint32_t error_mask, uint32_t *response)
 				if (mmc_drv_obj.cmd_info.dir ==
 				    HAL_MEMCARD_WRITE) {
 					SETR_32(SD_INFO2_MASK,
-						(SD_INFO2_BWE | SD_INFO2_ALL_ERR
-						 | SD_INFO2_CLEAR));
+						(SD_INFO2_BWE |
+						 SD_INFO2_ALL_ERR |
+						 SD_INFO2_CLEAR));
 				} else {
 					SETR_32(SD_INFO2_MASK,
-						(SD_INFO2_BRE | SD_INFO2_ALL_ERR
-						 | SD_INFO2_CLEAR));
+						(SD_INFO2_BRE |
+						 SD_INFO2_ALL_ERR |
+						 SD_INFO2_CLEAR));
 				}
 			}
 			state = ESTATE_DATA_TRANSFER_COMPLETE;

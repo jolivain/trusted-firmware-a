@@ -1,13 +1,11 @@
 /*
- * Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 #include <string.h>
-
-#include <platform_def.h>
 
 #include <common/bl_common.h>
 #include <common/debug.h>
@@ -22,30 +20,30 @@
 #include <lib/semihosting.h>
 #include <tools_share/firmware_image_package.h>
 
+#include <platform_def.h>
+
 #include "qemu_private.h"
 
 /* Semihosting filenames */
-#define BL2_IMAGE_NAME			"bl2.bin"
-#define BL31_IMAGE_NAME			"bl31.bin"
-#define BL32_IMAGE_NAME			"bl32.bin"
-#define TB_FW_CONFIG_NAME		"tb_fw_config.dtb"
-#define TOS_FW_CONFIG_NAME		"tos_fw_config.dtb"
-#define BL32_EXTRA1_IMAGE_NAME		"bl32_extra1.bin"
-#define BL32_EXTRA2_IMAGE_NAME		"bl32_extra2.bin"
-#define BL33_IMAGE_NAME			"bl33.bin"
+#define BL2_IMAGE_NAME "bl2.bin"
+#define BL31_IMAGE_NAME "bl31.bin"
+#define BL32_IMAGE_NAME "bl32.bin"
+#define TB_FW_CONFIG_NAME "tb_fw_config.dtb"
+#define TOS_FW_CONFIG_NAME "tos_fw_config.dtb"
+#define BL32_EXTRA1_IMAGE_NAME "bl32_extra1.bin"
+#define BL32_EXTRA2_IMAGE_NAME "bl32_extra2.bin"
+#define BL33_IMAGE_NAME "bl33.bin"
 
 #if TRUSTED_BOARD_BOOT
-#define TRUSTED_BOOT_FW_CERT_NAME	"tb_fw.crt"
-#define TRUSTED_KEY_CERT_NAME		"trusted_key.crt"
-#define SOC_FW_KEY_CERT_NAME		"soc_fw_key.crt"
-#define TOS_FW_KEY_CERT_NAME		"tos_fw_key.crt"
-#define NT_FW_KEY_CERT_NAME		"nt_fw_key.crt"
-#define SOC_FW_CONTENT_CERT_NAME	"soc_fw_content.crt"
-#define TOS_FW_CONTENT_CERT_NAME	"tos_fw_content.crt"
-#define NT_FW_CONTENT_CERT_NAME		"nt_fw_content.crt"
+#define TRUSTED_BOOT_FW_CERT_NAME "tb_fw.crt"
+#define TRUSTED_KEY_CERT_NAME "trusted_key.crt"
+#define SOC_FW_KEY_CERT_NAME "soc_fw_key.crt"
+#define TOS_FW_KEY_CERT_NAME "tos_fw_key.crt"
+#define NT_FW_KEY_CERT_NAME "nt_fw_key.crt"
+#define SOC_FW_CONTENT_CERT_NAME "soc_fw_content.crt"
+#define TOS_FW_CONTENT_CERT_NAME "tos_fw_content.crt"
+#define NT_FW_CONTENT_CERT_NAME "nt_fw_content.crt"
 #endif /* TRUSTED_BOARD_BOOT */
-
-
 
 /* IO devices */
 static const io_dev_connector_t *fip_dev_con;
@@ -131,71 +129,35 @@ static const io_uuid_spec_t nt_fw_cert_uuid_spec = {
 #endif /* TRUSTED_BOARD_BOOT */
 
 static const io_file_spec_t sh_file_spec[] = {
-	[BL2_IMAGE_ID] = {
-		.path = BL2_IMAGE_NAME,
-		.mode = FOPEN_MODE_RB
-	},
-	[BL31_IMAGE_ID] = {
-		.path = BL31_IMAGE_NAME,
-		.mode = FOPEN_MODE_RB
-	},
-	[BL32_IMAGE_ID] = {
-		.path = BL32_IMAGE_NAME,
-		.mode = FOPEN_MODE_RB
-	},
-	[BL32_EXTRA1_IMAGE_ID] = {
-		.path = BL32_EXTRA1_IMAGE_NAME,
-		.mode = FOPEN_MODE_RB
-	},
-	[BL32_EXTRA2_IMAGE_ID] = {
-		.path = BL32_EXTRA2_IMAGE_NAME,
-		.mode = FOPEN_MODE_RB
-	},
-	[TB_FW_CONFIG_ID] = {
-		.path = TB_FW_CONFIG_NAME,
-		.mode = FOPEN_MODE_RB
-	},
-	[TOS_FW_CONFIG_ID] = {
-		.path = TOS_FW_CONFIG_NAME,
-		.mode = FOPEN_MODE_RB
-	},
-	[BL33_IMAGE_ID] = {
-		.path = BL33_IMAGE_NAME,
-		.mode = FOPEN_MODE_RB
-	},
+	[BL2_IMAGE_ID] = { .path = BL2_IMAGE_NAME, .mode = FOPEN_MODE_RB },
+	[BL31_IMAGE_ID] = { .path = BL31_IMAGE_NAME, .mode = FOPEN_MODE_RB },
+	[BL32_IMAGE_ID] = { .path = BL32_IMAGE_NAME, .mode = FOPEN_MODE_RB },
+	[BL32_EXTRA1_IMAGE_ID] = { .path = BL32_EXTRA1_IMAGE_NAME,
+				   .mode = FOPEN_MODE_RB },
+	[BL32_EXTRA2_IMAGE_ID] = { .path = BL32_EXTRA2_IMAGE_NAME,
+				   .mode = FOPEN_MODE_RB },
+	[TB_FW_CONFIG_ID] = { .path = TB_FW_CONFIG_NAME,
+			      .mode = FOPEN_MODE_RB },
+	[TOS_FW_CONFIG_ID] = { .path = TOS_FW_CONFIG_NAME,
+			       .mode = FOPEN_MODE_RB },
+	[BL33_IMAGE_ID] = { .path = BL33_IMAGE_NAME, .mode = FOPEN_MODE_RB },
 #if TRUSTED_BOARD_BOOT
-	[TRUSTED_BOOT_FW_CERT_ID] = {
-		.path = TRUSTED_BOOT_FW_CERT_NAME,
-		.mode = FOPEN_MODE_RB
-	},
-	[TRUSTED_KEY_CERT_ID] = {
-		.path = TRUSTED_KEY_CERT_NAME,
-		.mode = FOPEN_MODE_RB
-	},
-	[SOC_FW_KEY_CERT_ID] = {
-		.path = SOC_FW_KEY_CERT_NAME,
-		.mode = FOPEN_MODE_RB
-	},
-	[TRUSTED_OS_FW_KEY_CERT_ID] = {
-		.path = TOS_FW_KEY_CERT_NAME,
-		.mode = FOPEN_MODE_RB
-	},
-	[NON_TRUSTED_FW_KEY_CERT_ID] = {
-		.path = NT_FW_KEY_CERT_NAME,
-		.mode = FOPEN_MODE_RB
-	},
-	[SOC_FW_CONTENT_CERT_ID] = {
-		.path = SOC_FW_CONTENT_CERT_NAME,
-		.mode = FOPEN_MODE_RB
-	},
-	[TRUSTED_OS_FW_CONTENT_CERT_ID] = {
-		.path = TOS_FW_CONTENT_CERT_NAME,
-		.mode = FOPEN_MODE_RB
-	},
-	[NON_TRUSTED_FW_CONTENT_CERT_ID] = {
-		.path = NT_FW_CONTENT_CERT_NAME,
-		.mode = FOPEN_MODE_RB
-	},
+	[TRUSTED_BOOT_FW_CERT_ID] = { .path = TRUSTED_BOOT_FW_CERT_NAME,
+				      .mode = FOPEN_MODE_RB },
+	[TRUSTED_KEY_CERT_ID] = { .path = TRUSTED_KEY_CERT_NAME,
+				  .mode = FOPEN_MODE_RB },
+	[SOC_FW_KEY_CERT_ID] = { .path = SOC_FW_KEY_CERT_NAME,
+				 .mode = FOPEN_MODE_RB },
+	[TRUSTED_OS_FW_KEY_CERT_ID] = { .path = TOS_FW_KEY_CERT_NAME,
+					.mode = FOPEN_MODE_RB },
+	[NON_TRUSTED_FW_KEY_CERT_ID] = { .path = NT_FW_KEY_CERT_NAME,
+					 .mode = FOPEN_MODE_RB },
+	[SOC_FW_CONTENT_CERT_ID] = { .path = SOC_FW_CONTENT_CERT_NAME,
+				     .mode = FOPEN_MODE_RB },
+	[TRUSTED_OS_FW_CONTENT_CERT_ID] = { .path = TOS_FW_CONTENT_CERT_NAME,
+					    .mode = FOPEN_MODE_RB },
+	[NON_TRUSTED_FW_CONTENT_CERT_ID] = { .path = NT_FW_CONTENT_CERT_NAME,
+					     .mode = FOPEN_MODE_RB },
 #endif /* TRUSTED_BOARD_BOOT */
 };
 
@@ -213,123 +175,68 @@ struct plat_io_policy {
 
 /* By default, ARM platforms load images from the FIP */
 static const struct plat_io_policy policies[] = {
-	[FIP_IMAGE_ID] = {
-		&memmap_dev_handle,
-		(uintptr_t)&fip_block_spec,
-		open_memmap
-	},
-	[ENC_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)NULL,
-		open_fip
-	},
-	[BL2_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl2_uuid_spec,
-		open_fip
-	},
+	[FIP_IMAGE_ID] = { &memmap_dev_handle, (uintptr_t)&fip_block_spec,
+			   open_memmap },
+	[ENC_IMAGE_ID] = { &fip_dev_handle, (uintptr_t)NULL, open_fip },
+	[BL2_IMAGE_ID] = { &fip_dev_handle, (uintptr_t)&bl2_uuid_spec,
+			   open_fip },
 #if ENCRYPT_BL31 && !defined(DECRYPTION_SUPPORT_none)
-	[BL31_IMAGE_ID] = {
-		&enc_dev_handle,
-		(uintptr_t)&bl31_uuid_spec,
-		open_enc_fip
-	},
+	[BL31_IMAGE_ID] = { &enc_dev_handle, (uintptr_t)&bl31_uuid_spec,
+			    open_enc_fip },
 #else
-	[BL31_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl31_uuid_spec,
-		open_fip
-	},
+	[BL31_IMAGE_ID] = { &fip_dev_handle, (uintptr_t)&bl31_uuid_spec,
+			    open_fip },
 #endif
 #if ENCRYPT_BL32 && !defined(DECRYPTION_SUPPORT_none)
-	[BL32_IMAGE_ID] = {
-		&enc_dev_handle,
-		(uintptr_t)&bl32_uuid_spec,
-		open_enc_fip
-	},
-	[BL32_EXTRA1_IMAGE_ID] = {
-		&enc_dev_handle,
-		(uintptr_t)&bl32_extra1_uuid_spec,
-		open_enc_fip
-	},
-	[BL32_EXTRA2_IMAGE_ID] = {
-		&enc_dev_handle,
-		(uintptr_t)&bl32_extra2_uuid_spec,
-		open_enc_fip
-	},
+	[BL32_IMAGE_ID] = { &enc_dev_handle, (uintptr_t)&bl32_uuid_spec,
+			    open_enc_fip },
+	[BL32_EXTRA1_IMAGE_ID] = { &enc_dev_handle,
+				   (uintptr_t)&bl32_extra1_uuid_spec,
+				   open_enc_fip },
+	[BL32_EXTRA2_IMAGE_ID] = { &enc_dev_handle,
+				   (uintptr_t)&bl32_extra2_uuid_spec,
+				   open_enc_fip },
 #else
-	[BL32_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl32_uuid_spec,
-		open_fip
-	},
-	[BL32_EXTRA1_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl32_extra1_uuid_spec,
-		open_fip
-	},
-	[BL32_EXTRA2_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl32_extra2_uuid_spec,
-		open_fip
-	},
+	[BL32_IMAGE_ID] = { &fip_dev_handle, (uintptr_t)&bl32_uuid_spec,
+			    open_fip },
+	[BL32_EXTRA1_IMAGE_ID] = { &fip_dev_handle,
+				   (uintptr_t)&bl32_extra1_uuid_spec,
+				   open_fip },
+	[BL32_EXTRA2_IMAGE_ID] = { &fip_dev_handle,
+				   (uintptr_t)&bl32_extra2_uuid_spec,
+				   open_fip },
 #endif
-	[TB_FW_CONFIG_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&tb_fw_config_uuid_spec,
-		open_fip
-	},
-	[TOS_FW_CONFIG_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&tos_fw_config_uuid_spec,
-		open_fip
-	},
-	[BL33_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl33_uuid_spec,
-		open_fip
-	},
+	[TB_FW_CONFIG_ID] = { &fip_dev_handle,
+			      (uintptr_t)&tb_fw_config_uuid_spec, open_fip },
+	[TOS_FW_CONFIG_ID] = { &fip_dev_handle,
+			       (uintptr_t)&tos_fw_config_uuid_spec, open_fip },
+	[BL33_IMAGE_ID] = { &fip_dev_handle, (uintptr_t)&bl33_uuid_spec,
+			    open_fip },
 #if TRUSTED_BOARD_BOOT
-	[TRUSTED_BOOT_FW_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&tb_fw_cert_uuid_spec,
-		open_fip
-	},
-	[TRUSTED_KEY_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&trusted_key_cert_uuid_spec,
-		open_fip
-	},
-	[SOC_FW_KEY_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&soc_fw_key_cert_uuid_spec,
-		open_fip
-	},
-	[TRUSTED_OS_FW_KEY_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&tos_fw_key_cert_uuid_spec,
-		open_fip
-	},
-	[NON_TRUSTED_FW_KEY_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&nt_fw_key_cert_uuid_spec,
-		open_fip
-	},
-	[SOC_FW_CONTENT_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&soc_fw_cert_uuid_spec,
-		open_fip
-	},
-	[TRUSTED_OS_FW_CONTENT_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&tos_fw_cert_uuid_spec,
-		open_fip
-	},
-	[NON_TRUSTED_FW_CONTENT_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&nt_fw_cert_uuid_spec,
-		open_fip
-	},
+	[TRUSTED_BOOT_FW_CERT_ID] = { &fip_dev_handle,
+				      (uintptr_t)&tb_fw_cert_uuid_spec,
+				      open_fip },
+	[TRUSTED_KEY_CERT_ID] = { &fip_dev_handle,
+				  (uintptr_t)&trusted_key_cert_uuid_spec,
+				  open_fip },
+	[SOC_FW_KEY_CERT_ID] = { &fip_dev_handle,
+				 (uintptr_t)&soc_fw_key_cert_uuid_spec,
+				 open_fip },
+	[TRUSTED_OS_FW_KEY_CERT_ID] = { &fip_dev_handle,
+					(uintptr_t)&tos_fw_key_cert_uuid_spec,
+					open_fip },
+	[NON_TRUSTED_FW_KEY_CERT_ID] = { &fip_dev_handle,
+					 (uintptr_t)&nt_fw_key_cert_uuid_spec,
+					 open_fip },
+	[SOC_FW_CONTENT_CERT_ID] = { &fip_dev_handle,
+				     (uintptr_t)&soc_fw_cert_uuid_spec,
+				     open_fip },
+	[TRUSTED_OS_FW_CONTENT_CERT_ID] = { &fip_dev_handle,
+					    (uintptr_t)&tos_fw_cert_uuid_spec,
+					    open_fip },
+	[NON_TRUSTED_FW_CONTENT_CERT_ID] = { &fip_dev_handle,
+					     (uintptr_t)&nt_fw_cert_uuid_spec,
+					     open_fip },
 #endif /* TRUSTED_BOARD_BOOT */
 };
 
@@ -487,8 +394,7 @@ void plat_qemu_io_setup(void)
 	assert(io_result == 0);
 
 	/* Open connections to devices and cache the handles */
-	io_result = io_dev_open(fip_dev_con, (uintptr_t)NULL,
-				&fip_dev_handle);
+	io_result = io_dev_open(fip_dev_con, (uintptr_t)NULL, &fip_dev_handle);
 	assert(io_result == 0);
 
 	io_result = io_dev_open(memmap_dev_con, (uintptr_t)NULL,
@@ -499,8 +405,7 @@ void plat_qemu_io_setup(void)
 	io_result = register_io_dev_enc(&enc_dev_con);
 	assert(io_result == 0);
 
-	io_result = io_dev_open(enc_dev_con, (uintptr_t)NULL,
-				&enc_dev_handle);
+	io_result = io_dev_open(enc_dev_con, (uintptr_t)NULL, &enc_dev_handle);
 	assert(io_result == 0);
 #endif
 
@@ -517,7 +422,7 @@ void plat_qemu_io_setup(void)
 }
 
 static int get_alt_image_source(unsigned int image_id, uintptr_t *dev_handle,
-				  uintptr_t *image_spec)
+				uintptr_t *image_spec)
 {
 	const io_file_spec_t *spec = get_io_file_spec(image_id);
 	int result;

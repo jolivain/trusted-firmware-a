@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2022, ARM Limited. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,7 +11,7 @@
 #include <stdint.h>
 
 /* Public API */
-#define FCONF_GET_PROPERTY(a, b, c)	a##__##b##_getter(c)
+#define FCONF_GET_PROPERTY(a, b, c) a##__##b##_getter(c)
 
 /*
  * This macro takes three arguments:
@@ -19,13 +19,11 @@
  *   name:	property namespace
  *   callback:	populate() function
  */
-#define FCONF_REGISTER_POPULATOR(config, name, callback)			\
-	__attribute__((used, section(".fconf_populator")))			\
-	static const struct fconf_populator (name##__populator) = {		\
-		.config_type = (#config),					\
-		.info = (#name),						\
-		.populate = (callback)						\
-	};
+#define FCONF_REGISTER_POPULATOR(config, name, callback)                                        \
+	__attribute__((used, section(".fconf_populator"))) static const struct fconf_populator( \
+		name##__populator) = { .config_type = (#config),                                \
+				       .info = (#name),                                         \
+				       .populate = (callback) };
 
 /*
  * Populator callback
@@ -57,7 +55,7 @@ int fconf_load_config(unsigned int image_id);
 void fconf_populate(const char *config_type, uintptr_t config);
 
 /* FCONF specific getter */
-#define fconf__dtb_getter(prop)	fconf_dtb_info.prop
+#define fconf__dtb_getter(prop) fconf_dtb_info.prop
 
 /* Structure used to locally keep a reference to the config dtb. */
 struct fconf_dtb_info_t {

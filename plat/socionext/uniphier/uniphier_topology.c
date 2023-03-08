@@ -1,10 +1,11 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <arch.h>
+
 #include <plat/common/platform.h>
 
 #include "uniphier.h"
@@ -19,7 +20,7 @@ const unsigned char *plat_get_power_domain_tree_desc(void)
 
 	for (i = 0; i < UNIPHIER_CLUSTER_COUNT; i++)
 		uniphier_power_domain_tree_desc[i + 1] =
-						UNIPHIER_MAX_CPUS_PER_CLUSTER;
+			UNIPHIER_MAX_CPUS_PER_CLUSTER;
 
 	return uniphier_power_domain_tree_desc;
 }

@@ -7,9 +7,6 @@
 #include <stddef.h>
 #include <string.h>
 
-#include <mbedtls/oid.h>
-#include <mbedtls/x509.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/arm/cryptocell/712/crypto_driver.h>
@@ -21,12 +18,14 @@
 #include <drivers/auth/crypto_mod.h>
 #include <drivers/auth/mbedtls/mbedtls_common.h>
 #include <lib/utils.h>
+#include <mbedtls/oid.h>
+#include <mbedtls/x509.h>
 
 #include <platform_def.h>
 
-#define LIB_NAME		"CryptoCell 712 SBROM"
-#define RSA_SALT_LEN		32
-#define RSA_EXPONENT		65537
+#define LIB_NAME "CryptoCell 712 SBROM"
+#define RSA_SALT_LEN 32
+#define RSA_EXPONENT 65537
 
 /*
  * AlgorithmIdentifier  ::=  SEQUENCE  {
@@ -88,9 +87,9 @@ static void init(void)
  * structures detailed above.
  */
 static int verify_signature(void *data_ptr, unsigned int data_len,
-			    void *sig_ptr, unsigned int sig_len,
-			    void *sig_alg, unsigned int sig_alg_len,
-			    void *pk_ptr, unsigned int pk_len)
+			    void *sig_ptr, unsigned int sig_len, void *sig_alg,
+			    unsigned int sig_alg_len, void *pk_ptr,
+			    unsigned int pk_len)
 {
 	CCError_t error;
 	CCSbNParams_t pk;
@@ -126,15 +125,15 @@ static int verify_signature(void *data_ptr, unsigned int data_len,
 
 	/* Verify the RSASSA-PSS params */
 	/* The trailer field is verified to be 0xBC internally by this API */
-	rc = mbedtls_x509_get_rsassa_pss_params(&params, &md_alg,
-			&mgf1_hash_id,
-			&expected_salt_len);
+	rc = mbedtls_x509_get_rsassa_pss_params(&params, &md_alg, &mgf1_hash_id,
+						&expected_salt_len);
 	if (rc != 0) {
 		return CRYPTO_ERR_SIGNATURE;
 	}
 
 	/* The CryptoCell only supports SHA256 as hash algorithm */
-	if ((md_alg != MBEDTLS_MD_SHA256) || (mgf1_hash_id != MBEDTLS_MD_SHA256)) {
+	if ((md_alg != MBEDTLS_MD_SHA256) ||
+	    (mgf1_hash_id != MBEDTLS_MD_SHA256)) {
 		return CRYPTO_ERR_SIGNATURE;
 	}
 
@@ -146,7 +145,8 @@ static int verify_signature(void *data_ptr, unsigned int data_len,
 	p = pk_ptr;
 	end = p + pk_len;
 	rc = mbedtls_asn1_get_tag(&p, end, &len,
-			MBEDTLS_ASN1_CONSTRUCTED | MBEDTLS_ASN1_SEQUENCE);
+				  MBEDTLS_ASN1_CONSTRUCTED |
+					  MBEDTLS_ASN1_SEQUENCE);
 	if (rc != 0) {
 		return CRYPTO_ERR_SIGNATURE;
 	}
@@ -171,7 +171,8 @@ static int verify_signature(void *data_ptr, unsigned int data_len,
 	}
 
 	rc = mbedtls_asn1_get_tag(&p, end, &len,
-				MBEDTLS_ASN1_CONSTRUCTED | MBEDTLS_ASN1_SEQUENCE);
+				  MBEDTLS_ASN1_CONSTRUCTED |
+					  MBEDTLS_ASN1_SEQUENCE);
 	if (rc != 0) {
 		return CRYPTO_ERR_SIGNATURE;
 	}
@@ -182,7 +183,8 @@ static int verify_signature(void *data_ptr, unsigned int data_len,
 	}
 
 	if (*p == 0) {
-		p++; len--;
+		p++;
+		len--;
 	}
 
 	if (len != RSA_MOD_SIZE_IN_BYTES || ((p + len) > end)) {
@@ -243,8 +245,8 @@ static int verify_signature(void *data_ptr, unsigned int data_len,
 
 	/* Verify the signature */
 	error = CCSbVerifySignature((uintptr_t)PLAT_CRYPTOCELL_BASE,
-			(uint32_t *)data_ptr, &pk, &signature,
-			data_len, RSA_PSS);
+				    (uint32_t *)data_ptr, &pk, &signature,
+				    data_len, RSA_PSS);
 	if (error != CC_OK) {
 		return CRYPTO_ERR_SIGNATURE;
 	}
@@ -273,8 +275,9 @@ static int verify_hash(void *data_ptr, unsigned int data_len,
 	/* Digest info should be an MBEDTLS_ASN1_SEQUENCE */
 	p = digest_info_ptr;
 	end = p + digest_info_len;
-	rc = mbedtls_asn1_get_tag(&p, end, &len, MBEDTLS_ASN1_CONSTRUCTED |
-				  MBEDTLS_ASN1_SEQUENCE);
+	rc = mbedtls_asn1_get_tag(&p, end, &len,
+				  MBEDTLS_ASN1_CONSTRUCTED |
+					  MBEDTLS_ASN1_SEQUENCE);
 	if (rc != 0) {
 		return CRYPTO_ERR_HASH;
 	}
@@ -314,7 +317,7 @@ static int verify_hash(void *data_ptr, unsigned int data_len,
 
 	hash = p;
 	error = SBROM_CryptoHash((uintptr_t)PLAT_CRYPTOCELL_BASE,
-			(uintptr_t)data_ptr, data_len, pubKeyHash);
+				 (uintptr_t)data_ptr, data_len, pubKeyHash);
 	if (error != CC_OK) {
 		return CRYPTO_ERR_HASH;
 	}
@@ -331,4 +334,3 @@ static int verify_hash(void *data_ptr, unsigned int data_len,
  * Register crypto library descriptor
  */
 REGISTER_CRYPTO_LIB(LIB_NAME, init, verify_signature, verify_hash, NULL);
-

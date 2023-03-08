@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 /*
- * Portions copyright (c) 2018-2019, ARM Limited and Contributors.
+ * Portions copyright (c) 2018-2023, ARM Limited and Contributors.
  * All rights reserved.
  */
 
@@ -19,7 +19,7 @@ typedef long ptrdiff_t;
 #endif
 
 #ifndef NULL
-#define NULL ((void *) 0)
+#define NULL ((void *)0)
 #endif
 
 #define offsetof(st, m) __builtin_offsetof(st, m)

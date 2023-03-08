@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,6 +11,7 @@
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/arm/css/sds.h>
+
 #include <platform_def.h>
 
 #include "sds_private.h"
@@ -104,7 +105,7 @@ static int get_struct_header(uint32_t structure_id, struct_header_t **header)
 			return SDS_OK;
 		}
 		current_header += GET_SDS_HEADER_STRUCT_SIZE(current_header) +
-						SDS_HEADER_SIZE;
+				  SDS_HEADER_SIZE;
 	}
 
 	*header = NULL;
@@ -136,8 +137,8 @@ int sds_struct_exists(unsigned int structure_id)
  * The `data` is the pointer to store the read data of size specified by `size`.
  * Returns SDS_OK on success or corresponding error codes on failure.
  */
-int sds_struct_read(uint32_t structure_id, unsigned int fld_off,
-		void *data, size_t size, sds_access_mode_t mode)
+int sds_struct_read(uint32_t structure_id, unsigned int fld_off, void *data,
+		    size_t size, sds_access_mode_t mode)
 {
 	int status;
 	uintptr_t field_base;
@@ -158,7 +159,7 @@ int sds_struct_read(uint32_t structure_id, unsigned int fld_off,
 
 	if (!IS_SDS_HEADER_VALID(header)) {
 		WARN("SDS: Reading from un-finalized structure 0x%x\n",
-				structure_id);
+		     structure_id);
 		return SDS_ERR_STRUCT_NOT_FINALIZED;
 	}
 
@@ -182,8 +183,8 @@ int sds_struct_read(uint32_t structure_id, unsigned int fld_off,
  * The `data` is the pointer to data of size specified by `size`.
  * Returns SDS_OK on success or corresponding error codes on failure.
  */
-int sds_struct_write(uint32_t structure_id, unsigned int fld_off,
-		void *data, size_t size, sds_access_mode_t mode)
+int sds_struct_write(uint32_t structure_id, unsigned int fld_off, void *data,
+		     size_t size, sds_access_mode_t mode)
 {
 	int status;
 	uintptr_t field_base;
@@ -204,7 +205,7 @@ int sds_struct_write(uint32_t structure_id, unsigned int fld_off,
 
 	if (!IS_SDS_HEADER_VALID(header)) {
 		WARN("SDS: Writing to un-finalized structure 0x%x\n",
-				structure_id);
+		     structure_id);
 		return SDS_ERR_STRUCT_NOT_FINALIZED;
 	}
 
@@ -238,8 +239,8 @@ int sds_init(void)
 		return SDS_ERR_FAIL;
 	}
 
-	if (GET_SDS_REGION_SCHEMA_VERSION(sds_mem_base)
-				!= SDS_REGION_SCH_VERSION) {
+	if (GET_SDS_REGION_SCHEMA_VERSION(sds_mem_base) !=
+	    SDS_REGION_SCH_VERSION) {
 		WARN("SDS: Unsupported SDS schema version\n");
 		return SDS_ERR_FAIL;
 	}

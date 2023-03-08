@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,21 +10,21 @@
 /*****************************************************************************
  * define data offset in struct psram_data
  *****************************************************************************/
-#define PSRAM_DT_SP		0x0
-#define PSRAM_DT_DDR_FUNC	0x8
-#define PSRAM_DT_DDR_DATA	0x10
-#define PSRAM_DT_DDRFLAG	0x18
-#define PSRAM_DT_MPIDR		0x1c
-#define PSRAM_DT_PM_FLAG	0x20
-#define PSRAM_DT_END		0x24
+#define PSRAM_DT_SP 0x0
+#define PSRAM_DT_DDR_FUNC 0x8
+#define PSRAM_DT_DDR_DATA 0x10
+#define PSRAM_DT_DDRFLAG 0x18
+#define PSRAM_DT_MPIDR 0x1c
+#define PSRAM_DT_PM_FLAG 0x20
+#define PSRAM_DT_END 0x24
 
 /* reserve 4 byte */
-#define PSRAM_DT_END_RES4	(PSRAM_DT_END + 4)
+#define PSRAM_DT_END_RES4 (PSRAM_DT_END + 4)
 
-#define PSRAM_DT_SIZE_WORDS	(PSRAM_DT_END_RES4 / 4)
+#define PSRAM_DT_SIZE_WORDS (PSRAM_DT_END_RES4 / 4)
 
-#define PM_WARM_BOOT_SHT	0
-#define PM_WARM_BOOT_BIT	(1 << PM_WARM_BOOT_SHT)
+#define PM_WARM_BOOT_SHT 0
+#define PM_WARM_BOOT_BIT (1 << PM_WARM_BOOT_SHT)
 
 #ifndef __ASSEMBLER__
 
@@ -50,6 +50,6 @@ CASSERT(__builtin_offsetof(struct psram_data_t, boot_mpidr) == PSRAM_DT_MPIDR,
 
 extern struct psram_data_t sys_sleep_flag_sram;
 
-#endif  /* __ASSEMBLER__ */
+#endif /* __ASSEMBLER__ */
 
 #endif

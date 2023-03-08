@@ -18,7 +18,7 @@
 /* ************************ HEADER (INCLUDE) SECTION *********************** */
 
 /* ***************** MACROS, CONSTANTS, COMPILATION FLAGS ****************** */
-#define EMMC_POWER_ON		(1U)
+#define EMMC_POWER_ON (1U)
 
 /* ********************** STRUCTURES, TYPE DEFINITIONS ********************* */
 

@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <pmic_wrap_init.h>
 #include <pmic.h>
+#include <pmic_wrap_init.h>
 
 void bcpu_enable(uint32_t en)
 {

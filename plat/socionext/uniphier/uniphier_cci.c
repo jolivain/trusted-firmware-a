@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,9 +12,9 @@
 
 #include "uniphier.h"
 
-#define UNIPHIER_CCI500_BASE	0x5FD00000
+#define UNIPHIER_CCI500_BASE 0x5FD00000
 
-static const int uniphier_cci_map[] = {1, 0};
+static const int uniphier_cci_map[] = { 1, 0 };
 
 static void __uniphier_cci_init(void)
 {

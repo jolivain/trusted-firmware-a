@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: MIT
  *
@@ -13,11 +13,11 @@
 #ifndef _DT_BINDINGS_INTERRUPT_CONTROLLER_IRQ_H
 #define _DT_BINDINGS_INTERRUPT_CONTROLLER_IRQ_H
 
-#define IRQ_TYPE_NONE		0
-#define IRQ_TYPE_EDGE_RISING	1
-#define IRQ_TYPE_EDGE_FALLING	2
-#define IRQ_TYPE_EDGE_BOTH	(IRQ_TYPE_EDGE_FALLING | IRQ_TYPE_EDGE_RISING)
-#define IRQ_TYPE_LEVEL_HIGH	4
-#define IRQ_TYPE_LEVEL_LOW	8
+#define IRQ_TYPE_NONE 0
+#define IRQ_TYPE_EDGE_RISING 1
+#define IRQ_TYPE_EDGE_FALLING 2
+#define IRQ_TYPE_EDGE_BOTH (IRQ_TYPE_EDGE_FALLING | IRQ_TYPE_EDGE_RISING)
+#define IRQ_TYPE_LEVEL_HIGH 4
+#define IRQ_TYPE_LEVEL_LOW 8
 
 #endif

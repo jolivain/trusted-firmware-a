@@ -10,35 +10,35 @@
 
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
+#include <gpc.h>
+#include <imx_sip_svc.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
 #include <lib/smccc.h>
 #include <services/std_svc.h>
 
-#include <gpc.h>
-#include <imx_sip_svc.h>
 #include <platform_def.h>
 
-#define CCGR(x)		(0x4000 + (x) * 0x10)
+#define CCGR(x) (0x4000 + (x)*0x10)
 
-#define MIPI_PWR_REQ		BIT(0)
-#define OTG1_PWR_REQ		BIT(2)
-#define HSIOMIX_PWR_REQ		BIT(4)
-#define GPUMIX_PWR_REQ		BIT(7)
-#define DISPMIX_PWR_REQ		BIT(10)
+#define MIPI_PWR_REQ BIT(0)
+#define OTG1_PWR_REQ BIT(2)
+#define HSIOMIX_PWR_REQ BIT(4)
+#define GPUMIX_PWR_REQ BIT(7)
+#define DISPMIX_PWR_REQ BIT(10)
 
-#define HSIOMIX_ADB400_SYNC	BIT(5)
-#define DISPMIX_ADB400_SYNC	BIT(7)
-#define GPUMIX_ADB400_SYNC	(0x5 << 9)
-#define HSIOMIX_ADB400_ACK	BIT(23)
-#define DISPMIX_ADB400_ACK	BIT(25)
-#define GPUMIX_ADB400_ACK	(0x5 << 27)
+#define HSIOMIX_ADB400_SYNC BIT(5)
+#define DISPMIX_ADB400_SYNC BIT(7)
+#define GPUMIX_ADB400_SYNC (0x5 << 9)
+#define HSIOMIX_ADB400_ACK BIT(23)
+#define DISPMIX_ADB400_ACK BIT(25)
+#define GPUMIX_ADB400_ACK (0x5 << 27)
 
-#define MIPI_PGC		0xc00
-#define OTG1_PGC		0xc80
-#define HSIOMIX_PGC	        0xd00
-#define GPUMIX_PGC		0xdc0
-#define DISPMIX_PGC		0xe80
+#define MIPI_PGC 0xc00
+#define OTG1_PGC 0xc80
+#define HSIOMIX_PGC 0xd00
+#define GPUMIX_PGC 0xdc0
+#define DISPMIX_PGC 0xe80
 
 enum pu_domain_id {
 	HSIOMIX,
@@ -75,13 +75,16 @@ void imx_gpc_pm_domain_enable(uint32_t domain_id, bool on)
 		/* HSIOMIX has no PU bit, so skip for it */
 		if (domain_id != HSIOMIX) {
 			/* clear the PGC bit */
-			mmio_clrbits_32(IMX_GPC_BASE + pwr_domain->pgc_offset, 0x1);
+			mmio_clrbits_32(IMX_GPC_BASE + pwr_domain->pgc_offset,
+					0x1);
 
 			/* power up the domain */
-			mmio_setbits_32(IMX_GPC_BASE + PU_PGC_UP_TRG, pwr_domain->pwr_req);
+			mmio_setbits_32(IMX_GPC_BASE + PU_PGC_UP_TRG,
+					pwr_domain->pwr_req);
 
 			/* wait for power request done */
-			while (mmio_read_32(IMX_GPC_BASE + PU_PGC_UP_TRG) & pwr_domain->pwr_req) {
+			while (mmio_read_32(IMX_GPC_BASE + PU_PGC_UP_TRG) &
+			       pwr_domain->pwr_req) {
 				;
 			}
 		}
@@ -97,10 +100,12 @@ void imx_gpc_pm_domain_enable(uint32_t domain_id, bool on)
 		/* handle the ADB400 sync */
 		if (pwr_domain->need_sync) {
 			/* clear adb power down request */
-			mmio_setbits_32(IMX_GPC_BASE + GPC_PU_PWRHSK, pwr_domain->adb400_sync);
+			mmio_setbits_32(IMX_GPC_BASE + GPC_PU_PWRHSK,
+					pwr_domain->adb400_sync);
 
 			/* wait for adb power request ack */
-			while (!(mmio_read_32(IMX_GPC_BASE + GPC_PU_PWRHSK) & pwr_domain->adb400_ack)) {
+			while (!(mmio_read_32(IMX_GPC_BASE + GPC_PU_PWRHSK) &
+				 pwr_domain->adb400_ack)) {
 				;
 			}
 		}
@@ -113,12 +118,13 @@ void imx_gpc_pm_domain_enable(uint32_t domain_id, bool on)
 
 		/* handle the ADB400 sync */
 		if (pwr_domain->need_sync) {
-
 			/* set adb power down request */
-			mmio_clrbits_32(IMX_GPC_BASE + GPC_PU_PWRHSK, pwr_domain->adb400_sync);
+			mmio_clrbits_32(IMX_GPC_BASE + GPC_PU_PWRHSK,
+					pwr_domain->adb400_sync);
 
 			/* wait for adb power request ack */
-			while ((mmio_read_32(IMX_GPC_BASE + GPC_PU_PWRHSK) & pwr_domain->adb400_ack)) {
+			while ((mmio_read_32(IMX_GPC_BASE + GPC_PU_PWRHSK) &
+				pwr_domain->adb400_ack)) {
 				;
 			}
 		}
@@ -126,13 +132,16 @@ void imx_gpc_pm_domain_enable(uint32_t domain_id, bool on)
 		/* HSIOMIX has no PU bit, so skip for it */
 		if (domain_id != HSIOMIX) {
 			/* set the PGC bit */
-			mmio_setbits_32(IMX_GPC_BASE + pwr_domain->pgc_offset, 0x1);
+			mmio_setbits_32(IMX_GPC_BASE + pwr_domain->pgc_offset,
+					0x1);
 
 			/* power down the domain */
-			mmio_setbits_32(IMX_GPC_BASE + PU_PGC_DN_TRG, pwr_domain->pwr_req);
+			mmio_setbits_32(IMX_GPC_BASE + PU_PGC_DN_TRG,
+					pwr_domain->pwr_req);
 
 			/* wait for power request done */
-			while (mmio_read_32(IMX_GPC_BASE + PU_PGC_DN_TRG) & pwr_domain->pwr_req) {
+			while (mmio_read_32(IMX_GPC_BASE + PU_PGC_DN_TRG) &
+			       pwr_domain->pwr_req) {
 				;
 			}
 		}
@@ -161,8 +170,8 @@ void imx_gpc_init(void)
 	mmio_write_32(IMX_GPC_BASE + LPCR_A53_BSC, val);
 
 	/* clear MASTER1 & MASTER2 mapping in CPU0(A53) */
-	mmio_clrbits_32(IMX_GPC_BASE + MST_CPU_MAPPING, (MASTER1_MAPPING |
-		MASTER2_MAPPING));
+	mmio_clrbits_32(IMX_GPC_BASE + MST_CPU_MAPPING,
+			(MASTER1_MAPPING | MASTER2_MAPPING));
 
 	/* set all mix/PU in A53 domain */
 	mmio_write_32(IMX_GPC_BASE + PGC_CPU_0_1_MAPPING, 0xffff);

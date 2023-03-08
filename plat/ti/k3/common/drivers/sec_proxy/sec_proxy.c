@@ -10,31 +10,31 @@
 #include <errno.h>
 #include <stdlib.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <lib/mmio.h>
 #include <lib/utils.h>
 #include <lib/utils_def.h>
 
+#include <platform_def.h>
+
 #include "sec_proxy.h"
 
 /* SEC PROXY RT THREAD STATUS */
-#define RT_THREAD_STATUS			(0x0)
-#define RT_THREAD_STATUS_ERROR_SHIFT		(31)
-#define RT_THREAD_STATUS_ERROR_MASK		BIT(31)
-#define RT_THREAD_STATUS_CUR_CNT_SHIFT		(0)
-#define RT_THREAD_STATUS_CUR_CNT_MASK		GENMASK(7, 0)
+#define RT_THREAD_STATUS (0x0)
+#define RT_THREAD_STATUS_ERROR_SHIFT (31)
+#define RT_THREAD_STATUS_ERROR_MASK BIT(31)
+#define RT_THREAD_STATUS_CUR_CNT_SHIFT (0)
+#define RT_THREAD_STATUS_CUR_CNT_MASK GENMASK(7, 0)
 
 /* SEC PROXY SCFG THREAD CTRL */
-#define SCFG_THREAD_CTRL			(0x1000)
-#define SCFG_THREAD_CTRL_DIR_SHIFT		(31)
-#define SCFG_THREAD_CTRL_DIR_MASK		BIT(31)
+#define SCFG_THREAD_CTRL (0x1000)
+#define SCFG_THREAD_CTRL_DIR_SHIFT (31)
+#define SCFG_THREAD_CTRL_DIR_MASK BIT(31)
 
-#define SEC_PROXY_THREAD(base, x)		((base) + (0x1000 * (x)))
-#define THREAD_IS_RX				(1)
-#define THREAD_IS_TX				(0)
+#define SEC_PROXY_THREAD(base, x) ((base) + (0x1000 * (x)))
+#define THREAD_IS_RX (1)
+#define THREAD_IS_TX (0)
 
 /**
  * struct k3_sec_proxy_desc - Description of secure proxy integration
@@ -81,12 +81,12 @@ struct k3_sec_proxy_mbox {
  * Thread ID #3: DMSC request low priority
  * Thread ID #4: DMSC notify response
  */
-#define SP_THREAD(_x) \
-	[_x] = { \
-		.name = #_x, \
+#define SP_THREAD(_x)                                              \
+	[_x] = {                                                   \
+		.name = #_x,                                       \
 		.data = SEC_PROXY_THREAD(SEC_PROXY_DATA_BASE, _x), \
 		.scfg = SEC_PROXY_THREAD(SEC_PROXY_SCFG_BASE, _x), \
-		.rt = SEC_PROXY_THREAD(SEC_PROXY_RT_BASE, _x), \
+		.rt = SEC_PROXY_THREAD(SEC_PROXY_RT_BASE, _x),     \
 	}
 
 static struct k3_sec_proxy_mbox spm = {
@@ -141,8 +141,9 @@ static inline int k3_sec_proxy_verify_thread(struct k3_sec_proxy_thread *spt,
 	}
 
 	/* Make sure thread is configured for right direction */
-	if ((mmio_read_32(spt->scfg + SCFG_THREAD_CTRL) & SCFG_THREAD_CTRL_DIR_MASK)
-	    != (dir << SCFG_THREAD_CTRL_DIR_SHIFT)) {
+	if ((mmio_read_32(spt->scfg + SCFG_THREAD_CTRL) &
+	     SCFG_THREAD_CTRL_DIR_MASK) !=
+	    (dir << SCFG_THREAD_CTRL_DIR_SHIFT)) {
 		if (dir == THREAD_IS_TX)
 			ERROR("Trying to send data on RX Thread %s\n",
 			      spt->name);
@@ -155,13 +156,15 @@ static inline int k3_sec_proxy_verify_thread(struct k3_sec_proxy_thread *spt,
 	/* Check the message queue before sending/receiving data */
 	uint32_t tick_start = (uint32_t)read_cntpct_el0();
 	uint32_t ticks_per_us = SYS_COUNTER_FREQ_IN_TICKS / 1000000;
-	while (!(mmio_read_32(spt->rt + RT_THREAD_STATUS) & RT_THREAD_STATUS_CUR_CNT_MASK)) {
-		VERBOSE("Waiting for thread %s to %s\n",
-			spt->name, (dir == THREAD_IS_TX) ? "empty" : "fill");
+	while (!(mmio_read_32(spt->rt + RT_THREAD_STATUS) &
+		 RT_THREAD_STATUS_CUR_CNT_MASK)) {
+		VERBOSE("Waiting for thread %s to %s\n", spt->name,
+			(dir == THREAD_IS_TX) ? "empty" : "fill");
 		if (((uint32_t)read_cntpct_el0() - tick_start) >
 		    (spm.desc.timeout_us * ticks_per_us)) {
 			ERROR("Timeout waiting for thread %s to %s\n",
-				spt->name, (dir == THREAD_IS_TX) ? "empty" : "fill");
+			      spt->name,
+			      (dir == THREAD_IS_TX) ? "empty" : "fill");
 			return -ETIMEDOUT;
 		}
 	}
@@ -188,16 +191,19 @@ int k3_sec_proxy_clear_rx_thread(enum k3_sec_proxy_chan_id id)
 	}
 
 	/* Make sure thread is configured for right direction */
-	if (!(mmio_read_32(spt->scfg + SCFG_THREAD_CTRL) & SCFG_THREAD_CTRL_DIR_MASK)) {
+	if (!(mmio_read_32(spt->scfg + SCFG_THREAD_CTRL) &
+	      SCFG_THREAD_CTRL_DIR_MASK)) {
 		ERROR("Cannot clear a transmit thread %s\n", spt->name);
 		return -EINVAL;
 	}
 
 	/* Read off messages from thread until empty */
 	uint32_t try_count = 10;
-	while (mmio_read_32(spt->rt + RT_THREAD_STATUS) & RT_THREAD_STATUS_CUR_CNT_MASK) {
+	while (mmio_read_32(spt->rt + RT_THREAD_STATUS) &
+	       RT_THREAD_STATUS_CUR_CNT_MASK) {
 		if (!(try_count--)) {
-			ERROR("Could not clear all messages from thread %s\n", spt->name);
+			ERROR("Could not clear all messages from thread %s\n",
+			      spt->name);
 			return -ETIMEDOUT;
 		}
 		WARN("Clearing message from thread %s\n", spt->name);
@@ -214,7 +220,8 @@ int k3_sec_proxy_clear_rx_thread(enum k3_sec_proxy_chan_id id)
  *
  * Return: 0 if all goes well, else appropriate error message
  */
-int k3_sec_proxy_send(enum k3_sec_proxy_chan_id id, const struct k3_sec_proxy_msg *msg)
+int k3_sec_proxy_send(enum k3_sec_proxy_chan_id id,
+		      const struct k3_sec_proxy_msg *msg)
 {
 	struct k3_sec_proxy_thread *spt = &spm.threads[id];
 	union sec_msg_hdr secure_header;
@@ -287,7 +294,8 @@ int k3_sec_proxy_send(enum k3_sec_proxy_chan_id id, const struct k3_sec_proxy_ms
  *
  * Return: 0 if all goes well, else appropriate error message
  */
-int k3_sec_proxy_recv(enum k3_sec_proxy_chan_id id, struct k3_sec_proxy_msg *msg)
+int k3_sec_proxy_recv(enum k3_sec_proxy_chan_id id,
+		      struct k3_sec_proxy_msg *msg)
 {
 	struct k3_sec_proxy_thread *spt = &spm.threads[id];
 	union sec_msg_hdr secure_header;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,10 +9,11 @@
 #include <common/desc_image_load.h>
 #include <drivers/arm/css/sds.h>
 #include <libfdt.h>
+
+#include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 
 #include "n1sdp_def.h"
-#include <plat/arm/common/plat_arm.h>
 
 /*
  * Platform information structure stored in SDS.
@@ -68,28 +69,28 @@ static int plat_n1sdp_append_config_node(struct n1sdp_plat_info *plat_info)
 	}
 
 	err = fdt_setprop_u32(fdt, nodeoffset, "multichip-mode",
-			plat_info->multichip_mode);
+			      plat_info->multichip_mode);
 	if (err < 0) {
 		ERROR("NT_FW_CONFIG: Failed to set multichip-mode\n");
 		return -1;
 	}
 
 	err = fdt_setprop_u32(fdt, nodeoffset, "secondary-chip-count",
-			plat_info->secondary_count);
+			      plat_info->secondary_count);
 	if (err < 0) {
 		ERROR("NT_FW_CONFIG: Failed to set secondary-chip-count\n");
 		return -1;
 	}
 
 	err = fdt_setprop_u32(fdt, nodeoffset, "local-ddr-size",
-			plat_info->local_ddr_size);
+			      plat_info->local_ddr_size);
 	if (err < 0) {
 		ERROR("NT_FW_CONFIG: Failed to set local-ddr-size\n");
 		return -1;
 	}
 
 	err = fdt_setprop_u32(fdt, nodeoffset, "remote-ddr-size",
-			plat_info->remote_ddr_size);
+			      plat_info->remote_ddr_size);
 	if (err < 0) {
 		ERROR("NT_FW_CONFIG: Failed to set remote-ddr-size\n");
 		return -1;
@@ -115,21 +116,19 @@ bl_params_t *plat_get_next_bl_params(void)
 	}
 
 	ret = sds_struct_read(N1SDP_SDS_PLATFORM_INFO_STRUCT_ID,
-				N1SDP_SDS_PLATFORM_INFO_OFFSET,
-				&plat_info,
-				N1SDP_SDS_PLATFORM_INFO_SIZE,
-				SDS_ACCESS_MODE_NON_CACHED);
+			      N1SDP_SDS_PLATFORM_INFO_OFFSET, &plat_info,
+			      N1SDP_SDS_PLATFORM_INFO_SIZE,
+			      SDS_ACCESS_MODE_NON_CACHED);
 	if (ret != SDS_OK) {
 		ERROR("Error getting platform info from SDS. ret:%d\n", ret);
 		panic();
 	}
 
 	/* Validate plat_info SDS */
-	if ((plat_info.local_ddr_size == 0U)
-		|| (plat_info.local_ddr_size > N1SDP_MAX_DDR_CAPACITY_GB)
-		|| (plat_info.remote_ddr_size > N1SDP_MAX_DDR_CAPACITY_GB)
-		|| (plat_info.secondary_count > N1SDP_MAX_SECONDARY_COUNT)
-		){
+	if ((plat_info.local_ddr_size == 0U) ||
+	    (plat_info.local_ddr_size > N1SDP_MAX_DDR_CAPACITY_GB) ||
+	    (plat_info.remote_ddr_size > N1SDP_MAX_DDR_CAPACITY_GB) ||
+	    (plat_info.secondary_count > N1SDP_MAX_SECONDARY_COUNT)) {
 		ERROR("platform info SDS is corrupted\n");
 		panic();
 	}

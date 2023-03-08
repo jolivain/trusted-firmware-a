@@ -1,15 +1,16 @@
 /*
- * Copyright (c) 2020-2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2020-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <drivers/arm/css/css_mhu_doorbell.h>
 #include <drivers/arm/css/scmi.h>
+
 #include <plat/arm/common/plat_arm.h>
+#include <platform_def.h>
 
 #include "morello_def.h"
-#include <platform_def.h>
 
 static scmi_channel_plat_info_t morello_scmi_plat_info = {
 	.scmi_mbx_mem = MORELLO_SCMI_PAYLOAD_BASE,

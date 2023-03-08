@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -112,4 +112,3 @@ void arm_gicv3_distif_post_restore(unsigned int rdist_proc_num)
 	while (gicr_read_waker(gicr_base) & WAKER_QSC_BIT)
 		;
 }
-

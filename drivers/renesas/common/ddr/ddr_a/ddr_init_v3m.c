@@ -5,12 +5,14 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <stdint.h>
+
 #include <lib/mmio.h>
 #include <lib/utils_def.h>
-#include <stdint.h>
+
+#include "../ddr_regs.h"
 #include "boot_init_dram.h"
 #include "rcar_def.h"
-#include "../ddr_regs.h"
 
 static uint32_t init_ddr_v3m_1600(void)
 {
@@ -217,8 +219,8 @@ static uint32_t init_ddr_v3m_1600(void)
 			mmio_write_32(DBSC_DBPDRGA_0, 0xB0 + i * 0x20);
 			r2 = (mmio_read_32(DBSC_DBPDRGD_0) & 0xFFFFFF00);
 			mmio_write_32(DBSC_DBPDRGA_0, 0xB0 + i * 0x20);
-			mmio_write_32(DBSC_DBPDRGD_0, r2 |
-						     (((r5 << 1) + r6) & 0xFF));
+			mmio_write_32(DBSC_DBPDRGD_0,
+				      r2 | (((r5 << 1) + r6) & 0xFF));
 		}
 	}
 
@@ -290,9 +292,9 @@ static uint32_t init_ddr_v3m_1600(void)
 			mmio_write_32(DBSC_DBPDRGA_0, 0xB0 + i * 0x20);
 			r2 = (mmio_read_32(DBSC_DBPDRGD_0) & 0xFFFFFF00);
 			mmio_write_32(DBSC_DBPDRGA_0, 0xB0 + i * 0x20);
-			mmio_write_32(DBSC_DBPDRGD_0, r2 |
-						     ((r6 + r5 +
-						      (r5 >> 1) + r12) & 0xFF));
+			mmio_write_32(DBSC_DBPDRGD_0,
+				      r2 | ((r6 + r5 + (r5 >> 1) + r12) &
+					    0xFF));
 		}
 	}
 

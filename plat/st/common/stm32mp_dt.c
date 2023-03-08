@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,9 +12,9 @@
 #include <drivers/st/regulator.h>
 #include <drivers/st/stm32_gpio.h>
 #include <libfdt.h>
+#include <stm32mp_dt.h>
 
 #include <platform_def.h>
-#include <stm32mp_dt.h>
 
 static void *fdt;
 
@@ -73,14 +73,14 @@ uint8_t fdt_get_status(int node)
 	const char *cchar;
 
 	cchar = fdt_getprop(fdt, node, "status", NULL);
-	if ((cchar == NULL) ||
-	    (strncmp(cchar, "okay", strlen("okay")) == 0)) {
+	if ((cchar == NULL) || (strncmp(cchar, "okay", strlen("okay")) == 0)) {
 		status |= DT_NON_SECURE;
 	}
 
 	cchar = fdt_getprop(fdt, node, "secure-status", NULL);
 	if (((cchar == NULL) && (status == DT_NON_SECURE)) ||
-	    ((cchar != NULL) && (strncmp(cchar, "okay", strlen("okay")) == 0))) {
+	    ((cchar != NULL) &&
+	     (strncmp(cchar, "okay", strlen("okay")) == 0))) {
 		status |= DT_SECURE;
 	}
 
@@ -413,8 +413,9 @@ int fdt_get_gpio_bank_pin_count(unsigned int bank)
 
 		/* Get the last defined gpio line (offset + nb of pins) */
 		for (i = 0; i < len; i += 4) {
-			pin_count = MAX(pin_count, (int)(fdt32_to_cpu(cuint[i + 1]) +
-							 fdt32_to_cpu(cuint[i + 3])));
+			pin_count = MAX(pin_count,
+					(int)(fdt32_to_cpu(cuint[i + 1]) +
+					      fdt32_to_cpu(cuint[i + 3])));
 		}
 
 		return pin_count;

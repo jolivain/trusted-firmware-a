@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,6 +7,7 @@
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <lib/utils.h>
+
 #include <plat/common/plat_trng.h>
 #include <platform_def.h>
 

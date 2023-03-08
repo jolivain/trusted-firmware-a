@@ -4,18 +4,19 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 /*
- * Portions copyright (c) 2018-2019, ARM Limited and Contributors.
+ * Portions copyright (c) 2018-2023, ARM Limited and Contributors.
  * All rights reserved.
  */
 
 #ifndef STDIO_H
 #define STDIO_H
 
-#include <cdefs.h>
 #include <stddef.h>
+
+#include <cdefs.h>
 #include <stdio_.h>
 
-#define EOF            -1
+#define EOF -1
 
 int printf(const char *fmt, ...) __printflike(1, 2);
 int snprintf(char *s, size_t n, const char *fmt, ...) __printflike(3, 4);

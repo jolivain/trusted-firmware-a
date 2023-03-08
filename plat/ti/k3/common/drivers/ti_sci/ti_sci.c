@@ -12,18 +12,18 @@
 #include <stddef.h>
 #include <string.h>
 
-#include <platform_def.h>
-
 #include <common/debug.h>
 #include <sec_proxy.h>
 
-#include "ti_sci_protocol.h"
+#include <platform_def.h>
+
 #include "ti_sci.h"
+#include "ti_sci_protocol.h"
 
 #if USE_COHERENT_MEM
 __section(".tzfw_coherent_mem")
 #endif
-static uint8_t message_sequence;
+	static uint8_t message_sequence;
 
 /**
  * struct ti_sci_xfer - Structure representing a message flow
@@ -51,10 +51,8 @@ struct ti_sci_xfer {
  * Return: 0 if all goes well, else appropriate error message
  */
 static int ti_sci_setup_one_xfer(uint16_t msg_type, uint32_t msg_flags,
-				 void *tx_buf,
-				 size_t tx_message_size,
-				 void *rx_buf,
-				 size_t rx_message_size,
+				 void *tx_buf, size_t tx_message_size,
+				 void *rx_buf, size_t rx_message_size,
 				 struct ti_sci_xfer *xfer)
 {
 	struct ti_sci_msg_hdr *hdr;
@@ -62,8 +60,7 @@ static int ti_sci_setup_one_xfer(uint16_t msg_type, uint32_t msg_flags,
 	/* Ensure we have sane transfer sizes */
 	if (rx_message_size > TI_SCI_MAX_MESSAGE_SIZE ||
 	    tx_message_size > TI_SCI_MAX_MESSAGE_SIZE ||
-	    rx_message_size < sizeof(*hdr) ||
-	    tx_message_size < sizeof(*hdr))
+	    rx_message_size < sizeof(*hdr) || tx_message_size < sizeof(*hdr))
 		return -ERANGE;
 
 	hdr = (struct ti_sci_msg_hdr *)tx_buf;
@@ -112,7 +109,8 @@ static inline int ti_sci_get_response(struct ti_sci_xfer *xfer,
 		if (hdr->seq == message_sequence)
 			break;
 		else
-			WARN("Message with sequence ID %u is not expected\n", hdr->seq);
+			WARN("Message with sequence ID %u is not expected\n",
+			     hdr->seq);
 	}
 	if (!retry) {
 		ERROR("Timed out waiting for message\n");
@@ -120,8 +118,8 @@ static inline int ti_sci_get_response(struct ti_sci_xfer *xfer,
 	}
 
 	if (msg->len > TI_SCI_MAX_MESSAGE_SIZE) {
-		ERROR("Unable to handle %lu xfer (max %d)\n",
-		      msg->len, TI_SCI_MAX_MESSAGE_SIZE);
+		ERROR("Unable to handle %lu xfer (max %d)\n", msg->len,
+		      TI_SCI_MAX_MESSAGE_SIZE);
 		return -EINVAL;
 	}
 
@@ -180,10 +178,8 @@ int ti_sci_get_revision(struct ti_sci_msg_resp_version *rev_info)
 	struct ti_sci_xfer xfer;
 	int ret;
 
-	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_VERSION, 0x0,
-				    &hdr, sizeof(hdr),
-				    rev_info, sizeof(*rev_info),
-				    &xfer);
+	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_VERSION, 0x0, &hdr, sizeof(hdr),
+				    rev_info, sizeof(*rev_info), &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
@@ -215,10 +211,8 @@ static int ti_sci_device_set_state(uint32_t id, uint32_t flags, uint8_t state)
 	struct ti_sci_xfer xfer;
 	int ret;
 
-	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_SET_DEVICE_STATE, flags,
-				    &req, sizeof(req),
-				    &resp, sizeof(resp),
-				    &xfer);
+	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_SET_DEVICE_STATE, flags, &req,
+				    sizeof(req), &resp, sizeof(resp), &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
@@ -247,7 +241,7 @@ static int ti_sci_device_set_state(uint32_t id, uint32_t flags, uint8_t state)
  *
  * Return: 0 if all goes well, else appropriate error message
  */
-static int ti_sci_device_get_state(uint32_t id,  uint32_t *clcnt,
+static int ti_sci_device_get_state(uint32_t id, uint32_t *clcnt,
 				   uint32_t *resets, uint8_t *p_state,
 				   uint8_t *c_state)
 {
@@ -260,10 +254,8 @@ static int ti_sci_device_get_state(uint32_t id,  uint32_t *clcnt,
 	if (!clcnt && !resets && !p_state && !c_state)
 		return -EINVAL;
 
-	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_GET_DEVICE_STATE, 0,
-				    &req, sizeof(req),
-				    &resp, sizeof(resp),
-				    &xfer);
+	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_GET_DEVICE_STATE, 0, &req,
+				    sizeof(req), &resp, sizeof(resp), &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
@@ -323,8 +315,7 @@ int ti_sci_device_get(uint32_t id)
  */
 int ti_sci_device_get_exclusive(uint32_t id)
 {
-	return ti_sci_device_set_state(id,
-				       MSG_FLAG_DEVICE_EXCLUSIVE,
+	return ti_sci_device_set_state(id, MSG_FLAG_DEVICE_EXCLUSIVE,
 				       MSG_DEVICE_SW_STATE_ON);
 }
 
@@ -362,8 +353,7 @@ int ti_sci_device_idle(uint32_t id)
  */
 int ti_sci_device_idle_exclusive(uint32_t id)
 {
-	return ti_sci_device_set_state(id,
-				       MSG_FLAG_DEVICE_EXCLUSIVE,
+	return ti_sci_device_set_state(id, MSG_FLAG_DEVICE_EXCLUSIVE,
 				       MSG_DEVICE_SW_STATE_RETENTION);
 }
 
@@ -419,7 +409,7 @@ int ti_sci_device_put_no_wait(uint32_t id)
 	tx_message.buf = (uint8_t *)&req;
 	tx_message.len = sizeof(req);
 
-	 /* Send message */
+	/* Send message */
 	ret = k3_sec_proxy_send(SP_HIGH_PRIORITY, &tx_message);
 	if (ret) {
 		ERROR("Message sending failed (%d)\n", ret);
@@ -493,7 +483,7 @@ int ti_sci_device_is_idle(uint32_t id, bool *r_state)
  *
  * Return: 0 if all goes well, else appropriate error message
  */
-int ti_sci_device_is_stop(uint32_t id, bool *r_state,  bool *curr_state)
+int ti_sci_device_is_stop(uint32_t id, bool *r_state, bool *curr_state)
 {
 	int ret;
 	uint8_t p_state, c_state;
@@ -522,7 +512,7 @@ int ti_sci_device_is_stop(uint32_t id, bool *r_state,  bool *curr_state)
  *
  * Return: 0 if all goes well, else appropriate error message
  */
-int ti_sci_device_is_on(uint32_t id, bool *r_state,  bool *curr_state)
+int ti_sci_device_is_on(uint32_t id, bool *r_state, bool *curr_state)
 {
 	int ret;
 	uint8_t p_state, c_state;
@@ -530,8 +520,7 @@ int ti_sci_device_is_on(uint32_t id, bool *r_state,  bool *curr_state)
 	if (!r_state && !curr_state)
 		return -EINVAL;
 
-	ret =
-	    ti_sci_device_get_state(id, NULL, NULL, &p_state, &c_state);
+	ret = ti_sci_device_get_state(id, NULL, NULL, &p_state, &c_state);
 	if (ret)
 		return ret;
 
@@ -584,10 +573,8 @@ int ti_sci_device_set_resets(uint32_t id, uint32_t reset_state)
 	struct ti_sci_xfer xfer;
 	int ret;
 
-	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_SET_DEVICE_RESETS, 0,
-				    &req, sizeof(req),
-				    &resp, sizeof(resp),
-				    &xfer);
+	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_SET_DEVICE_RESETS, 0, &req,
+				    sizeof(req), &resp, sizeof(resp), &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
@@ -630,8 +617,8 @@ int ti_sci_device_get_resets(uint32_t id, uint32_t *reset_state)
  *
  * Return: 0 if all goes well, else appropriate error message
  */
-int ti_sci_clock_set_state(uint32_t dev_id, uint8_t clk_id,
-			   uint32_t flags, uint8_t state)
+int ti_sci_clock_set_state(uint32_t dev_id, uint8_t clk_id, uint32_t flags,
+			   uint8_t state)
 {
 	struct ti_sci_msg_req_set_clock_state req;
 	struct ti_sci_msg_hdr resp;
@@ -639,10 +626,8 @@ int ti_sci_clock_set_state(uint32_t dev_id, uint8_t clk_id,
 	struct ti_sci_xfer xfer;
 	int ret;
 
-	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_SET_CLOCK_STATE, flags,
-				    &req, sizeof(req),
-				    &resp, sizeof(resp),
-				    &xfer);
+	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_SET_CLOCK_STATE, flags, &req,
+				    sizeof(req), &resp, sizeof(resp), &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
@@ -674,8 +659,7 @@ int ti_sci_clock_set_state(uint32_t dev_id, uint8_t clk_id,
  * Return: 0 if all goes well, else appropriate error message
  */
 int ti_sci_clock_get_state(uint32_t dev_id, uint8_t clk_id,
-			   uint8_t *programmed_state,
-			   uint8_t *current_state)
+			   uint8_t *programmed_state, uint8_t *current_state)
 {
 	struct ti_sci_msg_req_get_clock_state req;
 	struct ti_sci_msg_resp_get_clock_state resp;
@@ -686,10 +670,8 @@ int ti_sci_clock_get_state(uint32_t dev_id, uint8_t clk_id,
 	if (!programmed_state && !current_state)
 		return -EINVAL;
 
-	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_GET_CLOCK_STATE, 0,
-				    &req, sizeof(req),
-				    &resp, sizeof(resp),
-				    &xfer);
+	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_GET_CLOCK_STATE, 0, &req,
+				    sizeof(req), &resp, sizeof(resp), &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
@@ -725,9 +707,8 @@ int ti_sci_clock_get_state(uint32_t dev_id, uint8_t clk_id,
  *
  * Return: 0 if all goes well, else appropriate error message
  */
-int ti_sci_clock_get(uint32_t dev_id, uint8_t clk_id,
-		     bool needs_ssc, bool can_change_freq,
-		     bool enable_input_term)
+int ti_sci_clock_get(uint32_t dev_id, uint8_t clk_id, bool needs_ssc,
+		     bool can_change_freq, bool enable_input_term)
 {
 	uint32_t flags = 0;
 
@@ -815,8 +796,8 @@ int ti_sci_clock_is_auto(uint32_t dev_id, uint8_t clk_id, bool *req_state)
  *
  * Return: 0 if all goes well, else appropriate error message
  */
-int ti_sci_clock_is_on(uint32_t dev_id, uint8_t clk_id,
-		       bool *req_state, bool *curr_state)
+int ti_sci_clock_is_on(uint32_t dev_id, uint8_t clk_id, bool *req_state,
+		       bool *curr_state)
 {
 	uint8_t c_state = 0, r_state = 0;
 	int ret;
@@ -848,8 +829,8 @@ int ti_sci_clock_is_on(uint32_t dev_id, uint8_t clk_id,
  *
  * Return: 0 if all goes well, else appropriate error message
  */
-int ti_sci_clock_is_off(uint32_t dev_id, uint8_t clk_id,
-			bool *req_state, bool *curr_state)
+int ti_sci_clock_is_off(uint32_t dev_id, uint8_t clk_id, bool *req_state,
+			bool *curr_state)
 {
 	uint8_t c_state = 0, r_state = 0;
 	int ret;
@@ -888,10 +869,8 @@ int ti_sci_clock_set_parent(uint32_t dev_id, uint8_t clk_id, uint8_t parent_id)
 	struct ti_sci_xfer xfer;
 	int ret;
 
-	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_SET_CLOCK_PARENT, 0,
-				    &req, sizeof(req),
-				    &resp, sizeof(resp),
-				    &xfer);
+	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_SET_CLOCK_PARENT, 0, &req,
+				    sizeof(req), &resp, sizeof(resp), &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
@@ -929,10 +908,8 @@ int ti_sci_clock_get_parent(uint32_t dev_id, uint8_t clk_id, uint8_t *parent_id)
 	struct ti_sci_xfer xfer;
 	int ret;
 
-	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_GET_CLOCK_PARENT, 0,
-				    &req, sizeof(req),
-				    &resp, sizeof(resp),
-				    &xfer);
+	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_GET_CLOCK_PARENT, 0, &req,
+				    sizeof(req), &resp, sizeof(resp), &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
@@ -972,10 +949,8 @@ int ti_sci_clock_get_num_parents(uint32_t dev_id, uint8_t clk_id,
 	struct ti_sci_xfer xfer;
 	int ret;
 
-	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_GET_NUM_CLOCK_PARENTS, 0,
-				    &req, sizeof(req),
-				    &resp, sizeof(resp),
-				    &xfer);
+	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_GET_NUM_CLOCK_PARENTS, 0, &req,
+				    sizeof(req), &resp, sizeof(resp), &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
@@ -1024,10 +999,8 @@ int ti_sci_clock_get_match_freq(uint32_t dev_id, uint8_t clk_id,
 	struct ti_sci_xfer xfer;
 	int ret;
 
-	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_QUERY_CLOCK_FREQ, 0,
-				    &req, sizeof(req),
-				    &resp, sizeof(resp),
-				    &xfer);
+	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_QUERY_CLOCK_FREQ, 0, &req,
+				    sizeof(req), &resp, sizeof(resp), &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
@@ -1077,10 +1050,8 @@ int ti_sci_clock_set_freq(uint32_t dev_id, uint8_t clk_id, uint64_t min_freq,
 	struct ti_sci_xfer xfer;
 	int ret;
 
-	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_SET_CLOCK_FREQ, 0,
-				    &req, sizeof(req),
-				    &resp, sizeof(resp),
-				    &xfer);
+	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_SET_CLOCK_FREQ, 0, &req,
+				    sizeof(req), &resp, sizeof(resp), &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
@@ -1119,10 +1090,8 @@ int ti_sci_clock_get_freq(uint32_t dev_id, uint8_t clk_id, uint64_t *freq)
 	struct ti_sci_xfer xfer;
 	int ret;
 
-	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_GET_CLOCK_FREQ, 0,
-				    &req, sizeof(req),
-				    &resp, sizeof(resp),
-				    &xfer);
+	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_GET_CLOCK_FREQ, 0, &req,
+				    sizeof(req), &resp, sizeof(resp), &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
@@ -1155,10 +1124,8 @@ int ti_sci_core_reboot(void)
 	struct ti_sci_xfer xfer;
 	int ret;
 
-	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_SYS_RESET, 0,
-				    &req, sizeof(req),
-				    &resp, sizeof(resp),
-				    &xfer);
+	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_SYS_RESET, 0, &req, sizeof(req),
+				    &resp, sizeof(resp), &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
@@ -1189,10 +1156,8 @@ int ti_sci_proc_request(uint8_t proc_id)
 	struct ti_sci_xfer xfer;
 	int ret;
 
-	ret = ti_sci_setup_one_xfer(TISCI_MSG_PROC_REQUEST, 0,
-				    &req, sizeof(req),
-				    &resp, sizeof(resp),
-				    &xfer);
+	ret = ti_sci_setup_one_xfer(TISCI_MSG_PROC_REQUEST, 0, &req,
+				    sizeof(req), &resp, sizeof(resp), &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
@@ -1224,10 +1189,8 @@ int ti_sci_proc_release(uint8_t proc_id)
 	struct ti_sci_xfer xfer;
 	int ret;
 
-	ret = ti_sci_setup_one_xfer(TISCI_MSG_PROC_RELEASE, 0,
-				    &req, sizeof(req),
-				    &resp, sizeof(resp),
-				    &xfer);
+	ret = ti_sci_setup_one_xfer(TISCI_MSG_PROC_RELEASE, 0, &req,
+				    sizeof(req), &resp, sizeof(resp), &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
@@ -1261,10 +1224,8 @@ int ti_sci_proc_handover(uint8_t proc_id, uint8_t host_id)
 	struct ti_sci_xfer xfer;
 	int ret;
 
-	ret = ti_sci_setup_one_xfer(TISCI_MSG_PROC_HANDOVER, 0,
-				    &req, sizeof(req),
-				    &resp, sizeof(resp),
-				    &xfer);
+	ret = ti_sci_setup_one_xfer(TISCI_MSG_PROC_HANDOVER, 0, &req,
+				    sizeof(req), &resp, sizeof(resp), &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
@@ -1301,10 +1262,8 @@ int ti_sci_proc_set_boot_cfg(uint8_t proc_id, uint64_t bootvector,
 	struct ti_sci_xfer xfer;
 	int ret;
 
-	ret = ti_sci_setup_one_xfer(TISCI_MSG_SET_PROC_BOOT_CONFIG, 0,
-				    &req, sizeof(req),
-				    &resp, sizeof(resp),
-				    &xfer);
+	ret = ti_sci_setup_one_xfer(TISCI_MSG_SET_PROC_BOOT_CONFIG, 0, &req,
+				    sizeof(req), &resp, sizeof(resp), &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
@@ -1313,7 +1272,7 @@ int ti_sci_proc_set_boot_cfg(uint8_t proc_id, uint64_t bootvector,
 	req.processor_id = proc_id;
 	req.bootvector_low = bootvector & TISCI_ADDR_LOW_MASK;
 	req.bootvector_high = (bootvector & TISCI_ADDR_HIGH_MASK) >>
-				TISCI_ADDR_HIGH_SHIFT;
+			      TISCI_ADDR_HIGH_SHIFT;
 	req.config_flags_set = config_flags_set;
 	req.config_flags_clear = config_flags_clear;
 
@@ -1344,10 +1303,8 @@ int ti_sci_proc_set_boot_ctrl(uint8_t proc_id, uint32_t control_flags_set,
 	struct ti_sci_xfer xfer;
 	int ret;
 
-	ret = ti_sci_setup_one_xfer(TISCI_MSG_SET_PROC_BOOT_CTRL, 0,
-				    &req, sizeof(req),
-				    &resp, sizeof(resp),
-				    &xfer);
+	ret = ti_sci_setup_one_xfer(TISCI_MSG_SET_PROC_BOOT_CTRL, 0, &req,
+				    sizeof(req), &resp, sizeof(resp), &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
@@ -1404,7 +1361,7 @@ int ti_sci_proc_set_boot_ctrl_no_wait(uint8_t proc_id,
 	tx_message.buf = (uint8_t *)&req;
 	tx_message.len = sizeof(req);
 
-	 /* Send message */
+	/* Send message */
 	ret = k3_sec_proxy_send(SP_HIGH_PRIORITY, &tx_message);
 	if (ret) {
 		ERROR("Message sending failed (%d)\n", ret);
@@ -1432,10 +1389,8 @@ int ti_sci_proc_auth_boot_image(uint8_t proc_id, uint64_t cert_addr)
 	struct ti_sci_xfer xfer;
 	int ret;
 
-	ret = ti_sci_setup_one_xfer(TISCI_MSG_PROC_AUTH_BOOT_IMAGE, 0,
-				    &req, sizeof(req),
-				    &resp, sizeof(resp),
-				    &xfer);
+	ret = ti_sci_setup_one_xfer(TISCI_MSG_PROC_AUTH_BOOT_IMAGE, 0, &req,
+				    sizeof(req), &resp, sizeof(resp), &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
@@ -1444,7 +1399,7 @@ int ti_sci_proc_auth_boot_image(uint8_t proc_id, uint64_t cert_addr)
 	req.processor_id = proc_id;
 	req.cert_addr_low = cert_addr & TISCI_ADDR_LOW_MASK;
 	req.cert_addr_high = (cert_addr & TISCI_ADDR_HIGH_MASK) >>
-				TISCI_ADDR_HIGH_SHIFT;
+			     TISCI_ADDR_HIGH_SHIFT;
 
 	ret = ti_sci_do_xfer(&xfer);
 	if (ret) {
@@ -1463,8 +1418,7 @@ int ti_sci_proc_auth_boot_image(uint8_t proc_id, uint64_t cert_addr)
  * Return: 0 if all goes well, else appropriate error message
  */
 int ti_sci_proc_get_boot_status(uint8_t proc_id, uint64_t *bv,
-				uint32_t *cfg_flags,
-				uint32_t *ctrl_flags,
+				uint32_t *cfg_flags, uint32_t *ctrl_flags,
 				uint32_t *sts_flags)
 {
 	struct ti_sci_msg_req_get_proc_boot_status req;
@@ -1473,10 +1427,8 @@ int ti_sci_proc_get_boot_status(uint8_t proc_id, uint64_t *bv,
 	struct ti_sci_xfer xfer;
 	int ret;
 
-	ret = ti_sci_setup_one_xfer(TISCI_MSG_GET_PROC_BOOT_STATUS, 0,
-				    &req, sizeof(req),
-				    &resp, sizeof(resp),
-				    &xfer);
+	ret = ti_sci_setup_one_xfer(TISCI_MSG_GET_PROC_BOOT_STATUS, 0, &req,
+				    sizeof(req), &resp, sizeof(resp), &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
@@ -1549,10 +1501,8 @@ int ti_sci_proc_wait_boot_status(uint8_t proc_id, uint8_t num_wait_iterations,
 	struct ti_sci_xfer xfer;
 	int ret;
 
-	ret = ti_sci_setup_one_xfer(TISCI_MSG_WAIT_PROC_BOOT_STATUS, 0,
-				    &req, sizeof(req),
-				    &resp, sizeof(resp),
-				    &xfer);
+	ret = ti_sci_setup_one_xfer(TISCI_MSG_WAIT_PROC_BOOT_STATUS, 0, &req,
+				    sizeof(req), &resp, sizeof(resp), &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
 		return ret;
@@ -1652,7 +1602,7 @@ int ti_sci_proc_wait_boot_status_no_wait(uint8_t proc_id,
 	tx_message.buf = (uint8_t *)&req;
 	tx_message.len = sizeof(req);
 
-	 /* Send message */
+	/* Send message */
 	ret = k3_sec_proxy_send(SP_HIGH_PRIORITY, &tx_message);
 	if (ret) {
 		ERROR("Message sending failed (%d)\n", ret);
@@ -1673,9 +1623,7 @@ int ti_sci_proc_wait_boot_status_no_wait(uint8_t proc_id,
  *
  * Return: 0 if all goes well, else appropriate error message
  */
-int ti_sci_enter_sleep(uint8_t proc_id,
-		       uint8_t mode,
-		       uint64_t core_resume_addr)
+int ti_sci_enter_sleep(uint8_t proc_id, uint8_t mode, uint64_t core_resume_addr)
 {
 	struct ti_sci_msg_req_enter_sleep req;
 	struct ti_sci_msg_hdr *hdr;
@@ -1726,13 +1674,13 @@ int ti_sci_init(void)
 
 	ret = ti_sci_get_revision(&rev_info);
 	if (ret) {
-		ERROR("Unable to communicate with control firmware (%d)\n", ret);
+		ERROR("Unable to communicate with control firmware (%d)\n",
+		      ret);
 		return ret;
 	}
 
 	INFO("SYSFW ABI: %d.%d (firmware rev 0x%04x '%s')\n",
-	     rev_info.abi_major, rev_info.abi_minor,
-	     rev_info.firmware_revision,
+	     rev_info.abi_major, rev_info.abi_minor, rev_info.firmware_revision,
 	     rev_info.firmware_description);
 
 	return 0;

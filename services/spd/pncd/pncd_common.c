@@ -12,6 +12,7 @@
 #include <common/debug.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/utils.h>
+
 #include <plat/common/platform.h>
 
 #include "pncd_private.h"
@@ -22,8 +23,7 @@
  * point info for the secure payload
  ******************************************************************************/
 void pncd_init_pnc_ep_state(struct entry_point_info *pnc_entry_point,
-				uint64_t pc,
-				pnc_context_t *pnc_ctx)
+			    uint64_t pc, pnc_context_t *pnc_ctx)
 {
 	uint32_t ep_attr;
 
@@ -45,9 +45,8 @@ void pncd_init_pnc_ep_state(struct entry_point_info *pnc_entry_point,
 	SET_PARAM_HEAD(pnc_entry_point, PARAM_EP, VERSION_1, ep_attr);
 
 	pnc_entry_point->pc = pc;
-	pnc_entry_point->spsr = SPSR_64(MODE_EL1,
-					MODE_SP_ELX,
-					DISABLE_ALL_EXCEPTIONS);
+	pnc_entry_point->spsr =
+		SPSR_64(MODE_EL1, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 	memset(&pnc_entry_point->args, 0, sizeof(pnc_entry_point->args));
 }
 
@@ -74,7 +73,6 @@ uint64_t pncd_synchronous_sp_entry(pnc_context_t *pnc_ctx)
 
 	return pncd_enter_sp(&pnc_ctx->c_rt_ctx);
 }
-
 
 /*******************************************************************************
  * This function takes an SP context pointer and:

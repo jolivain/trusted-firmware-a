@@ -7,18 +7,17 @@
 
 #include <string.h>
 
-#include <lib/mmio.h>
-
 #include <dram_win.h>
+#include <lib/mmio.h>
 #include <marvell_plat_priv.h>
 #include <mvebu.h>
 #include <plat_marvell.h>
 
 /* Armada 3700 has 5 configurable windows */
-#define MV_CPU_WIN_NUM		5
+#define MV_CPU_WIN_NUM 5
 
-#define CPU_WIN_DISABLED	0
-#define CPU_WIN_ENABLED		1
+#define CPU_WIN_DISABLED 0
+#define CPU_WIN_ENABLED 1
 
 /*
  * There are 2 different cpu decode window configuration cases:
@@ -43,11 +42,11 @@ enum cpu_win_target {
 };
 
 struct cpu_win_configuration {
-	uint32_t		enabled;
-	enum cpu_win_target	target;
-	uint64_t		base_addr;
-	uint64_t		size;
-	uint64_t		remap_addr;
+	uint32_t enabled;
+	enum cpu_win_target target;
+	uint64_t base_addr;
+	uint64_t size;
+	uint64_t remap_addr;
 };
 
 struct cpu_win_configuration mv_cpu_wins[CPU_WIN_CONFIG_MAX][MV_CPU_WIN_NUM] = {
@@ -64,31 +63,15 @@ struct cpu_win_configuration mv_cpu_wins[CPU_WIN_CONFIG_MAX][MV_CPU_WIN_NUM] = {
 		 *			size
 		 *				remap
 		 */
-		{CPU_WIN_ENABLED,
-			CPU_WIN_TARGET_DRAM,
-				0x0,
-					0x08000000,
-						0x0},
-		{CPU_WIN_ENABLED,
-			CPU_WIN_TARGET_MCI_EXTERNAL,
-				0xe0000000,
-					0x08000000,
-						0xe0000000},
-		{CPU_WIN_ENABLED,
-			CPU_WIN_TARGET_PCIE,
-				0xe8000000,
-					0x08000000,
-						0xe8000000},
-		{CPU_WIN_ENABLED,
-			CPU_WIN_TARGET_RWTM_RAM,
-				0xf0000000,
-					0x00020000,
-						0x1fff0000},
-		{CPU_WIN_ENABLED,
-			CPU_WIN_TARGET_PCIE_OVER_MCI,
-				0x80000000,
-					0x10000000,
-						0x80000000},
+		{ CPU_WIN_ENABLED, CPU_WIN_TARGET_DRAM, 0x0, 0x08000000, 0x0 },
+		{ CPU_WIN_ENABLED, CPU_WIN_TARGET_MCI_EXTERNAL, 0xe0000000,
+		  0x08000000, 0xe0000000 },
+		{ CPU_WIN_ENABLED, CPU_WIN_TARGET_PCIE, 0xe8000000, 0x08000000,
+		  0xe8000000 },
+		{ CPU_WIN_ENABLED, CPU_WIN_TARGET_RWTM_RAM, 0xf0000000,
+		  0x00020000, 0x1fff0000 },
+		{ CPU_WIN_ENABLED, CPU_WIN_TARGET_PCIE_OVER_MCI, 0x80000000,
+		  0x10000000, 0x80000000 },
 	},
 
 	/*
@@ -142,31 +125,15 @@ struct cpu_win_configuration mv_cpu_wins[CPU_WIN_CONFIG_MAX][MV_CPU_WIN_NUM] = {
 		 *			size
 		 *				remap
 		 */
-		{CPU_WIN_ENABLED,
-			CPU_WIN_TARGET_DRAM,
-				0x0,
-					0x80000000,
-						0x0},
-		{CPU_WIN_ENABLED,
-			CPU_WIN_TARGET_DRAM,
-				0x80000000,
-					0x40000000,
-						0x80000000},
-		{CPU_WIN_ENABLED,
-			CPU_WIN_TARGET_DRAM,
-				0xc0000000,
-					0x10000000,
-						0xc0000000},
-		{CPU_WIN_ENABLED,
-			CPU_WIN_TARGET_DRAM,
-				0xd2000000,
-					0x20000000,
-						0xd2000000},
-		{CPU_WIN_ENABLED,
-			CPU_WIN_TARGET_PCIE,
-				0xf2000000,
-					0x08000000,
-						0xf2000000},
+		{ CPU_WIN_ENABLED, CPU_WIN_TARGET_DRAM, 0x0, 0x80000000, 0x0 },
+		{ CPU_WIN_ENABLED, CPU_WIN_TARGET_DRAM, 0x80000000, 0x40000000,
+		  0x80000000 },
+		{ CPU_WIN_ENABLED, CPU_WIN_TARGET_DRAM, 0xc0000000, 0x10000000,
+		  0xc0000000 },
+		{ CPU_WIN_ENABLED, CPU_WIN_TARGET_DRAM, 0xd2000000, 0x20000000,
+		  0xd2000000 },
+		{ CPU_WIN_ENABLED, CPU_WIN_TARGET_PCIE, 0xf2000000, 0x08000000,
+		  0xf2000000 },
 	},
 };
 
@@ -194,7 +161,7 @@ void dram_win_map_build(struct dram_win_map *win_map)
 	for (win_id = 0; win_id < DRAM_WIN_MAP_NUM_MAX; win_id++) {
 		ctrl_reg = mmio_read_32(CPU_DEC_WIN_CTRL_REG(win_id));
 		target = (ctrl_reg & CPU_DEC_CR_WIN_TARGET_MASK) >>
-			  CPU_DEC_CR_WIN_TARGET_OFFS;
+			 CPU_DEC_CR_WIN_TARGET_OFFS;
 		enabled = ctrl_reg & CPU_DEC_CR_WIN_ENABLE;
 		/* Ignore invalid and non-dram windows*/
 		if ((enabled == 0) || (target != DRAM_CPU_DEC_TARGET_NUM))
@@ -205,7 +172,7 @@ void dram_win_map_build(struct dram_win_map *win_map)
 		size_reg = mmio_read_32(CPU_DEC_WIN_SIZE_REG(win_id));
 		/* Base reg [15:0] corresponds to transaction address [39:16] */
 		win->base_addr = (base_reg & CPU_DEC_BR_BASE_MASK) >>
-				  CPU_DEC_BR_BASE_OFFS;
+				 CPU_DEC_BR_BASE_OFFS;
 		win->base_addr *= CPU_DEC_CR_WIN_SIZE_ALIGNMENT;
 		/*
 		 * Size reg [15:0] is programmed from LSB to MSB as a sequence
@@ -214,9 +181,9 @@ void dram_win_map_build(struct dram_win_map *win_map)
 		 * for example, a value of 00FFh specifies 256 x 64 KB = 16 MB
 		 */
 		win->win_size = (size_reg & CPU_DEC_CR_WIN_SIZE_MASK) >>
-				 CPU_DEC_CR_WIN_SIZE_OFFS;
-		win->win_size = (win->win_size + 1) *
-				 CPU_DEC_CR_WIN_SIZE_ALIGNMENT;
+				CPU_DEC_CR_WIN_SIZE_OFFS;
+		win->win_size =
+			(win->win_size + 1) * CPU_DEC_CR_WIN_SIZE_ALIGNMENT;
 
 		win_map->dram_win_num++;
 	}
@@ -236,8 +203,8 @@ static void cpu_win_set(uint32_t win_id, struct cpu_win_configuration *win_cfg)
 		return;
 
 	/* Set Base Register */
-	base_reg = (uint32_t)(win_cfg->base_addr /
-		   CPU_DEC_CR_WIN_SIZE_ALIGNMENT);
+	base_reg =
+		(uint32_t)(win_cfg->base_addr / CPU_DEC_CR_WIN_SIZE_ALIGNMENT);
 	base_reg <<= CPU_DEC_BR_BASE_OFFS;
 	base_reg &= CPU_DEC_BR_BASE_MASK;
 	mmio_write_32(CPU_DEC_WIN_BASE_REG(win_id), base_reg);
@@ -245,8 +212,8 @@ static void cpu_win_set(uint32_t win_id, struct cpu_win_configuration *win_cfg)
 	/* Set Remap Register with the same value
 	 * as the <Base> field in Base Register
 	 */
-	remap_reg = (uint32_t)(win_cfg->remap_addr /
-		    CPU_DEC_CR_WIN_SIZE_ALIGNMENT);
+	remap_reg =
+		(uint32_t)(win_cfg->remap_addr / CPU_DEC_CR_WIN_SIZE_ALIGNMENT);
 	remap_reg <<= CPU_DEC_RLR_REMAP_LOW_OFFS;
 	remap_reg &= CPU_DEC_RLR_REMAP_LOW_MASK;
 	mmio_write_32(CPU_DEC_REMAP_LOW_REG(win_id), remap_reg);
@@ -279,4 +246,3 @@ void cpu_wins_init(void)
 	for (win_id = 1; win_id < MV_CPU_WIN_NUM; win_id++)
 		cpu_win_set(win_id, &mv_cpu_wins[cfg_idx][win_id]);
 }
-

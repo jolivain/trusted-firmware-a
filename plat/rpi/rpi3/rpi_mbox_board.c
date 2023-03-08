@@ -1,18 +1,17 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
-
 #include <drivers/rpi3/mailbox/rpi3_mbox.h>
 
-#define RPI3_MBOX_BUFFER_SIZE		U(256)
+#include <platform_def.h>
+
+#define RPI3_MBOX_BUFFER_SIZE U(256)
 static uint8_t __aligned(16) rpi3_mbox_buffer[RPI3_MBOX_BUFFER_SIZE];
 
 /*******************************************************************************
@@ -21,7 +20,7 @@ static uint8_t __aligned(16) rpi3_mbox_buffer[RPI3_MBOX_BUFFER_SIZE];
 int rpi3_vc_hardware_get_board_revision(uint32_t *revision)
 {
 	uint32_t tag_request_size = sizeof(uint32_t);
-	rpi3_mbox_request_t *req = (rpi3_mbox_request_t *) rpi3_mbox_buffer;
+	rpi3_mbox_request_t *req = (rpi3_mbox_request_t *)rpi3_mbox_buffer;
 
 	assert(revision != NULL);
 

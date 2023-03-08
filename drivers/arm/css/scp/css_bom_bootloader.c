@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,15 +12,16 @@
 #include <drivers/arm/css/css_mhu.h>
 #include <drivers/arm/css/css_scp.h>
 #include <drivers/arm/css/css_scpi.h>
+
 #include <plat/common/platform.h>
 #include <platform_def.h>
 
 /* ID of the MHU slot used for the BOM protocol */
-#define BOM_MHU_SLOT_ID		0
+#define BOM_MHU_SLOT_ID 0
 
 /* Boot commands sent from AP -> SCP */
-#define BOOT_CMD_INFO	0x00
-#define BOOT_CMD_DATA	0x01
+#define BOOT_CMD_INFO 0x00
+#define BOOT_CMD_DATA 0x01
 
 /* BOM command header */
 typedef struct {
@@ -37,9 +38,9 @@ typedef struct {
  * Unlike the SCPI protocol, the boot protocol uses the same memory region
  * for both AP -> SCP and SCP -> AP transfers; define the address of this...
  */
-#define BOM_SHARED_MEM		PLAT_CSS_SCP_COM_SHARED_MEM_BASE
-#define BOM_CMD_HEADER		((bom_cmd_t *) BOM_SHARED_MEM)
-#define BOM_CMD_PAYLOAD		((void *) (BOM_SHARED_MEM + sizeof(bom_cmd_t)))
+#define BOM_SHARED_MEM PLAT_CSS_SCP_COM_SHARED_MEM_BASE
+#define BOM_CMD_HEADER ((bom_cmd_t *)BOM_SHARED_MEM)
+#define BOM_CMD_PAYLOAD ((void *)(BOM_SHARED_MEM + sizeof(bom_cmd_t)))
 
 typedef struct {
 	/* Offset from the base address of the Trusted RAM */
@@ -84,7 +85,7 @@ static uint32_t scp_boot_message_wait(size_t size)
 	/* Expect an SCP Boot Protocol message, reject any other protocol */
 	if (mhu_status != (1 << BOM_MHU_SLOT_ID)) {
 		ERROR("MHU: Unexpected protocol (MHU status: 0x%x)\n",
-			mhu_status);
+		      mhu_status);
 		panic();
 	}
 
@@ -93,7 +94,7 @@ static uint32_t scp_boot_message_wait(size_t size)
 	 * read invalid payload data */
 	dmbld();
 
-	return *(uint32_t *) BOM_SHARED_MEM;
+	return *(uint32_t *)BOM_SHARED_MEM;
 }
 
 static void scp_boot_message_end(void)
@@ -108,18 +109,18 @@ int css_scp_boot_image_xfer(void *image, unsigned int image_size)
 	cmd_info_payload_t *cmd_info_payload;
 	cmd_data_payload_t *cmd_data_payload;
 
-	assert((uintptr_t) image == SCP_BL2_BASE);
+	assert((uintptr_t)image == SCP_BL2_BASE);
 
 	if ((image_size == 0) || (image_size % 4 != 0)) {
 		ERROR("Invalid size for the SCP_BL2 image. Must be a multiple of "
-			"4 bytes and not zero (current size = 0x%x)\n",
-			image_size);
+		      "4 bytes and not zero (current size = 0x%x)\n",
+		      image_size);
 		return -1;
 	}
 
 	/* Extract the checksum from the image */
-	checksum = *(uint32_t *) image;
-	image = (char *) image + sizeof(checksum);
+	checksum = *(uint32_t *)image;
+	image = (char *)image + sizeof(checksum);
 	image_size -= sizeof(checksum);
 
 	mhu_secure_init();
@@ -171,7 +172,7 @@ int css_scp_boot_image_xfer(void *image, unsigned int image_size)
 
 	BOM_CMD_HEADER->id = BOOT_CMD_DATA;
 	cmd_data_payload = BOM_CMD_PAYLOAD;
-	cmd_data_payload->offset = (uintptr_t) image - ARM_TRUSTED_SRAM_BASE;
+	cmd_data_payload->offset = (uintptr_t)image - ARM_TRUSTED_SRAM_BASE;
 	cmd_data_payload->block_size = image_size;
 
 	scp_boot_message_send(sizeof(*cmd_data_payload));

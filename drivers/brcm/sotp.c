@@ -8,10 +8,10 @@
 
 #include <common/debug.h>
 #include <lib/mmio.h>
+#include <platform_sotp.h>
 #include <sotp.h>
 
 #include <platform_def.h>
-#include <platform_sotp.h>
 
 #ifdef USE_SOFT_SOTP
 extern uint64_t soft_sotp[];
@@ -99,7 +99,7 @@ uint64_t sotp_mem_read(uint32_t offset, uint32_t sotp_add_ecc)
 
 	/* Wait for SOTP command done to be set */
 	while ((mmio_read_32(SOTP_STATUS_1) & BIT(SOTP_STATUS_1__CMD_DONE)) !=
-	      BIT(SOTP_STATUS_1__CMD_DONE))
+	       BIT(SOTP_STATUS_1__CMD_DONE))
 		;
 
 	/* Clr Start bit after command done */
@@ -139,7 +139,7 @@ void sotp_mem_write(uint32_t addr, uint32_t sotp_add_ecc, uint64_t wdata)
 	uint8_t prog_array[4] = { 0x0F, 0x04, 0x08, 0x0D };
 
 	uint32_t chip_state_default =
-		(CHIP_STATE_UNASSIGNED|CHIP_STATE_UNPROGRAMMED);
+		(CHIP_STATE_UNASSIGNED | CHIP_STATE_UNPROGRAMMED);
 	uint32_t chip_state = mmio_read_32(SOTP_REGS_SOTP_CHIP_STATES);
 	uint32_t chip_ctrl_default = 0;
 
@@ -295,7 +295,7 @@ int sotp_key_erased(void)
 		status = 1;
 
 	else if (mmio_read_32(SOTP_REGS_SOTP_CHIP_STATES) &
-			SOTP_REGS_SOTP_CHIP_STATES_OTP_ERASED_MASK)
+		 SOTP_REGS_SOTP_CHIP_STATES_OTP_ERASED_MASK)
 		status = 1;
 
 	return status;

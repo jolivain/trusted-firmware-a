@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2021, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,31 +11,31 @@
 
 #ifndef __ASSEMBLER__
 #include <stdint.h>
+
 #include <lib/cassert.h>
 #endif /* __ASSEMBLER__ */
 
 #include <export/common/ep_info_exp.h>
 
-#define SECURE		EP_SECURE
-#define NON_SECURE	EP_NON_SECURE
-#define REALM		EP_REALM
+#define SECURE EP_SECURE
+#define NON_SECURE EP_NON_SECURE
+#define REALM EP_REALM
 #if ENABLE_RME
-#define sec_state_is_valid(s)	(((s) == SECURE) ||	\
-				((s) == NON_SECURE) ||	\
-				((s) == REALM))
+#define sec_state_is_valid(s) \
+	(((s) == SECURE) || ((s) == NON_SECURE) || ((s) == REALM))
 #else
 #define sec_state_is_valid(s) (((s) == SECURE) || ((s) == NON_SECURE))
 #endif
 
-#define PARAM_EP_SECURITY_MASK	EP_SECURITY_MASK
+#define PARAM_EP_SECURITY_MASK EP_SECURITY_MASK
 
-#define NON_EXECUTABLE	EP_NON_EXECUTABLE
-#define EXECUTABLE	EP_EXECUTABLE
+#define NON_EXECUTABLE EP_NON_EXECUTABLE
+#define EXECUTABLE EP_EXECUTABLE
 
 /* Get/set security state of an image */
-#define GET_SECURITY_STATE(x) ((x) & EP_SECURITY_MASK)
+#define GET_SECURITY_STATE(x) ((x)&EP_SECURITY_MASK)
 #define SET_SECURITY_STATE(x, security) \
-			((x) = ((x) & ~EP_SECURITY_MASK) | (security))
+	((x) = ((x) & ~EP_SECURITY_MASK) | (security))
 
 #ifndef __ASSEMBLER__
 
@@ -45,23 +45,22 @@
  * the structure members is the same.
  */
 CASSERT(ENTRY_POINT_INFO_PC_OFFSET ==
-		__builtin_offsetof(entry_point_info_t, pc), \
-		assert_BL31_pc_offset_mismatch);
+		__builtin_offsetof(entry_point_info_t, pc),
+	assert_BL31_pc_offset_mismatch);
 
 #ifndef __aarch64__
 CASSERT(ENTRY_POINT_INFO_LR_SVC_OFFSET ==
 		__builtin_offsetof(entry_point_info_t, lr_svc),
-		assert_entrypoint_lr_offset_error);
+	assert_entrypoint_lr_offset_error);
 #endif
 
-CASSERT(ENTRY_POINT_INFO_ARGS_OFFSET == \
-		__builtin_offsetof(entry_point_info_t, args), \
-		assert_BL31_args_offset_mismatch);
+CASSERT(ENTRY_POINT_INFO_ARGS_OFFSET ==
+		__builtin_offsetof(entry_point_info_t, args),
+	assert_BL31_args_offset_mismatch);
 
-CASSERT(sizeof(uintptr_t) ==
-		__builtin_offsetof(entry_point_info_t, spsr) - \
-		__builtin_offsetof(entry_point_info_t, pc), \
-		assert_entrypoint_and_spsr_should_be_adjacent);
+CASSERT(sizeof(uintptr_t) == __builtin_offsetof(entry_point_info_t, spsr) -
+				     __builtin_offsetof(entry_point_info_t, pc),
+	assert_entrypoint_and_spsr_should_be_adjacent);
 
 #endif /*__ASSEMBLER__*/
 

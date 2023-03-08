@@ -1,18 +1,18 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <common/debug.h>
 #include <drivers/arm/pl011.h>
 #include <drivers/console.h>
 #include <fconf_hw_config_getter.h>
+
 #include <plat/arm/common/plat_arm.h>
+#include <platform_def.h>
 
 static console_t fvp_runtime_console;
 
@@ -30,10 +30,9 @@ void arm_console_runtime_init(void)
 	uart_base = PLAT_ARM_RUN_UART_BASE;
 	uart_clk = PLAT_ARM_RUN_UART_CLK_IN_HZ;
 #else
-	uart_base = FCONF_GET_PROPERTY(hw_config, uart_serial_config,
-					uart_base);
-	uart_clk = FCONF_GET_PROPERTY(hw_config, uart_serial_config,
-					uart_clk);
+	uart_base =
+		FCONF_GET_PROPERTY(hw_config, uart_serial_config, uart_base);
+	uart_clk = FCONF_GET_PROPERTY(hw_config, uart_serial_config, uart_clk);
 #endif
 
 	int rc = console_pl011_register(uart_base, uart_clk,

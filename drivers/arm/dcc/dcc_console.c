@@ -33,6 +33,7 @@
 
 #include <errno.h>
 #include <stddef.h>
+
 #include <arch_helpers.h>
 #include <drivers/arm/dcc.h>
 #include <drivers/console.h>
@@ -40,9 +41,9 @@
 #include <lib/mmio.h>
 
 /* DCC Status Bits */
-#define DCC_STATUS_RX		BIT(30)
-#define DCC_STATUS_TX		BIT(29)
-#define TIMEOUT_COUNT_US	U(0x10624)
+#define DCC_STATUS_RX BIT(30)
+#define DCC_STATUS_TX BIT(29)
+#define TIMEOUT_COUNT_US U(0x10624)
 
 struct dcc_console {
 	struct console console;
@@ -115,7 +116,7 @@ static int32_t dcc_console_getc(struct console *console)
 }
 
 int32_t dcc_console_init(unsigned long base_addr, uint32_t uart_clk,
-		      uint32_t baud_rate)
+			 uint32_t baud_rate)
 {
 	return 0; /* No init needed */
 }

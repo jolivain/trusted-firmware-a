@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,8 +7,6 @@
 #include <assert.h>
 #include <stdint.h>
 #include <string.h>
-
-#include <platform_def.h>
 
 #include <common/debug.h>
 #include <common/tbbr/cot_def.h>
@@ -18,24 +16,25 @@
 #include <drivers/auth/img_parser_mod.h>
 #include <drivers/fwu/fwu.h>
 #include <lib/fconf/fconf_tbbr_getter.h>
+
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 /* ASN.1 tags */
-#define ASN1_INTEGER                 0x02
+#define ASN1_INTEGER 0x02
 
-#define return_if_error(rc) \
-	do { \
-		if (rc != 0) { \
+#define return_if_error(rc)        \
+	do {                       \
+		if (rc != 0) {     \
 			return rc; \
-		} \
+		}                  \
 	} while (0)
 
 #pragma weak plat_set_nv_ctr2
 #pragma weak plat_convert_pk
 
-
 static int cmp_auth_param_type_desc(const auth_param_type_desc_t *a,
-		const auth_param_type_desc_t *b)
+				    const auth_param_type_desc_t *b)
 {
 	if ((a->type == b->type) && (a->cookie == b->cookie)) {
 		return 0;
@@ -48,17 +47,18 @@ static int cmp_auth_param_type_desc(const auth_param_type_desc_t *a,
  * information extracted from the parent image after its authentication.
  */
 static int auth_get_param(const auth_param_type_desc_t *param_type_desc,
-			  const auth_img_desc_t *img_desc,
-			  void **param, unsigned int *len)
+			  const auth_img_desc_t *img_desc, void **param,
+			  unsigned int *len)
 {
 	int i;
 
 	if (img_desc->authenticated_data == NULL)
 		return 1;
 
-	for (i = 0 ; i < COT_MAX_VERIFIED_PARAMS ; i++) {
-		if (0 == cmp_auth_param_type_desc(param_type_desc,
-				img_desc->authenticated_data[i].type_desc)) {
+	for (i = 0; i < COT_MAX_VERIFIED_PARAMS; i++) {
+		if (0 == cmp_auth_param_type_desc(
+				 param_type_desc,
+				 img_desc->authenticated_data[i].type_desc)) {
 			*param = img_desc->authenticated_data[i].data.ptr;
 			*len = img_desc->authenticated_data[i].data.len;
 			return 0;
@@ -94,8 +94,8 @@ static int auth_get_param(const auth_param_type_desc_t *param_type_desc,
  *   0 = success, Otherwise = error
  */
 static int auth_hash(const auth_method_param_hash_t *param,
-		     const auth_img_desc_t *img_desc,
-		     void *img, unsigned int img_len)
+		     const auth_img_desc_t *img_desc, void *img,
+		     unsigned int img_len)
 {
 	void *data_ptr, *hash_der_ptr;
 	unsigned int data_len, hash_der_len;
@@ -103,18 +103,18 @@ static int auth_hash(const auth_method_param_hash_t *param,
 
 	/* Get the hash from the parent image. This hash will be DER encoded
 	 * and contain the hash algorithm */
-	rc = auth_get_param(param->hash, img_desc->parent,
-			&hash_der_ptr, &hash_der_len);
+	rc = auth_get_param(param->hash, img_desc->parent, &hash_der_ptr,
+			    &hash_der_len);
 	return_if_error(rc);
 
 	/* Get the data to be hashed from the current image */
-	rc = img_parser_get_auth_param(img_desc->img_type, param->data,
-			img, img_len, &data_ptr, &data_len);
+	rc = img_parser_get_auth_param(img_desc->img_type, param->data, img,
+				       img_len, &data_ptr, &data_len);
 	return_if_error(rc);
 
 	/* Ask the crypto module to verify this hash */
-	rc = crypto_mod_verify_hash(data_ptr, data_len,
-				    hash_der_ptr, hash_der_len);
+	rc = crypto_mod_verify_hash(data_ptr, data_len, hash_der_ptr,
+				    hash_der_len);
 
 	return rc;
 }
@@ -147,8 +147,8 @@ static int auth_hash(const auth_method_param_hash_t *param,
  * Return: 0 = success, Otherwise = error
  */
 static int auth_signature(const auth_method_param_sig_t *param,
-			  const auth_img_desc_t *img_desc,
-			  void *img, unsigned int img_len)
+			  const auth_img_desc_t *img_desc, void *img,
+			  unsigned int img_len)
 {
 	void *data_ptr, *pk_ptr, *pk_hash_ptr, *sig_ptr, *sig_alg_ptr;
 	unsigned int data_len, pk_len, pk_hash_len, sig_len, sig_alg_len;
@@ -156,29 +156,29 @@ static int auth_signature(const auth_method_param_sig_t *param,
 	int rc = 0;
 
 	/* Get the data to be signed from current image */
-	rc = img_parser_get_auth_param(img_desc->img_type, param->data,
-			img, img_len, &data_ptr, &data_len);
+	rc = img_parser_get_auth_param(img_desc->img_type, param->data, img,
+				       img_len, &data_ptr, &data_len);
 	return_if_error(rc);
 
 	/* Get the signature from current image */
-	rc = img_parser_get_auth_param(img_desc->img_type, param->sig,
-			img, img_len, &sig_ptr, &sig_len);
+	rc = img_parser_get_auth_param(img_desc->img_type, param->sig, img,
+				       img_len, &sig_ptr, &sig_len);
 	return_if_error(rc);
 
 	/* Get the signature algorithm from current image */
-	rc = img_parser_get_auth_param(img_desc->img_type, param->alg,
-			img, img_len, &sig_alg_ptr, &sig_alg_len);
+	rc = img_parser_get_auth_param(img_desc->img_type, param->alg, img,
+				       img_len, &sig_alg_ptr, &sig_alg_len);
 	return_if_error(rc);
 
 	/* Get the public key from the parent. If there is no parent (NULL),
 	 * the certificate has been signed with the ROTPK, so we have to get
 	 * the PK from the platform */
 	if (img_desc->parent) {
-		rc = auth_get_param(param->pk, img_desc->parent,
-				&pk_ptr, &pk_len);
+		rc = auth_get_param(param->pk, img_desc->parent, &pk_ptr,
+				    &pk_len);
 	} else {
 		rc = plat_get_rotpk_info(param->pk->cookie, &pk_ptr, &pk_len,
-				&flags);
+					 &flags);
 	}
 	return_if_error(rc);
 
@@ -187,36 +187,33 @@ static int auth_signature(const auth_method_param_sig_t *param,
 		   deployed on the platform, retrieve the key from the image */
 		pk_hash_ptr = pk_ptr;
 		pk_hash_len = pk_len;
-		rc = img_parser_get_auth_param(img_desc->img_type,
-					param->pk, img, img_len,
-					&pk_ptr, &pk_len);
+		rc = img_parser_get_auth_param(img_desc->img_type, param->pk,
+					       img, img_len, &pk_ptr, &pk_len);
 		return_if_error(rc);
 
 		/* Ask the crypto module to verify the signature */
-		rc = crypto_mod_verify_signature(data_ptr, data_len,
-						 sig_ptr, sig_len,
-						 sig_alg_ptr, sig_alg_len,
-						 pk_ptr, pk_len);
+		rc = crypto_mod_verify_signature(data_ptr, data_len, sig_ptr,
+						 sig_len, sig_alg_ptr,
+						 sig_alg_len, pk_ptr, pk_len);
 		return_if_error(rc);
 
 		if (flags & ROTPK_NOT_DEPLOYED) {
 			NOTICE("ROTPK is not deployed on platform. "
-				"Skipping ROTPK verification.\n");
+			       "Skipping ROTPK verification.\n");
 		} else {
 			/* platform may store the hash of a prefixed, suffixed or modified pk */
 			rc = plat_convert_pk(pk_ptr, pk_len, &pk_ptr, &pk_len);
 			return_if_error(rc);
 
 			/* Ask the crypto-module to verify the key hash */
-			rc = crypto_mod_verify_hash(pk_ptr, pk_len,
-				    pk_hash_ptr, pk_hash_len);
+			rc = crypto_mod_verify_hash(pk_ptr, pk_len, pk_hash_ptr,
+						    pk_hash_len);
 		}
 	} else {
 		/* Ask the crypto module to verify the signature */
-		rc = crypto_mod_verify_signature(data_ptr, data_len,
-						 sig_ptr, sig_len,
-						 sig_alg_ptr, sig_alg_len,
-						 pk_ptr, pk_len);
+		rc = crypto_mod_verify_signature(data_ptr, data_len, sig_ptr,
+						 sig_len, sig_alg_ptr,
+						 sig_alg_len, pk_ptr, pk_len);
 	}
 
 	return rc;
@@ -238,9 +235,8 @@ static int auth_signature(const auth_method_param_sig_t *param,
  * need_nv_ctr_upgrade = 1 -> platform NV counter upgrade is needed
  */
 static int auth_nvctr(const auth_method_param_nv_ctr_t *param,
-		      const auth_img_desc_t *img_desc,
-		      void *img, unsigned int img_len,
-		      unsigned int *cert_nv_ctr,
+		      const auth_img_desc_t *img_desc, void *img,
+		      unsigned int img_len, unsigned int *cert_nv_ctr,
 		      bool *need_nv_ctr_upgrade)
 {
 	unsigned char *p;
@@ -309,7 +305,7 @@ static int auth_nvctr(const auth_method_param_nv_ctr_t *param,
 }
 
 int plat_set_nv_ctr2(void *cookie, const auth_img_desc_t *img_desc __unused,
-		unsigned int nv_ctr)
+		     unsigned int nv_ctr)
 {
 	return plat_set_nv_ctr(cookie, nv_ctr);
 }
@@ -370,8 +366,7 @@ void auth_mod_init(void)
  *
  * Return: 0 = success, Otherwise = error
  */
-int auth_mod_verify_img(unsigned int img_id,
-			void *img_ptr,
+int auth_mod_verify_img(unsigned int img_id, void *img_ptr,
 			unsigned int img_len)
 {
 	const auth_img_desc_t *img_desc = NULL;
@@ -395,26 +390,26 @@ int auth_mod_verify_img(unsigned int img_id,
 	 * descriptor. */
 	if (img_desc->img_auth_methods == NULL)
 		return 1;
-	for (i = 0 ; i < AUTH_METHOD_NUM ; i++) {
+	for (i = 0; i < AUTH_METHOD_NUM; i++) {
 		auth_method = &img_desc->img_auth_methods[i];
 		switch (auth_method->type) {
 		case AUTH_METHOD_NONE:
 			rc = 0;
 			break;
 		case AUTH_METHOD_HASH:
-			rc = auth_hash(&auth_method->param.hash,
-					img_desc, img_ptr, img_len);
+			rc = auth_hash(&auth_method->param.hash, img_desc,
+				       img_ptr, img_len);
 			break;
 		case AUTH_METHOD_SIG:
-			rc = auth_signature(&auth_method->param.sig,
-					img_desc, img_ptr, img_len);
+			rc = auth_signature(&auth_method->param.sig, img_desc,
+					    img_ptr, img_len);
 			sig_auth_done = true;
 			break;
 		case AUTH_METHOD_NV_CTR:
 			nv_ctr_param = &auth_method->param.nv_ctr;
-			rc = auth_nvctr(nv_ctr_param,
-					img_desc, img_ptr, img_len,
-					&cert_nv_ctr, &need_nv_ctr_upgrade);
+			rc = auth_nvctr(nv_ctr_param, img_desc, img_ptr,
+					img_len, &cert_nv_ctr,
+					&need_nv_ctr_upgrade);
 			break;
 		default:
 			/* Unknown authentication method */
@@ -437,25 +432,27 @@ int auth_mod_verify_img(unsigned int img_id,
 	/* Extract the parameters indicated in the image descriptor to
 	 * authenticate the children images. */
 	if (img_desc->authenticated_data != NULL) {
-		for (i = 0 ; i < COT_MAX_VERIFIED_PARAMS ; i++) {
+		for (i = 0; i < COT_MAX_VERIFIED_PARAMS; i++) {
 			if (img_desc->authenticated_data[i].type_desc == NULL) {
 				continue;
 			}
 
 			/* Get the parameter from the image parser module */
-			rc = img_parser_get_auth_param(img_desc->img_type,
-					img_desc->authenticated_data[i].type_desc,
-					img_ptr, img_len, &param_ptr, &param_len);
+			rc = img_parser_get_auth_param(
+				img_desc->img_type,
+				img_desc->authenticated_data[i].type_desc,
+				img_ptr, img_len, &param_ptr, &param_len);
 			return_if_error(rc);
 
 			/* Check parameter size */
-			if (param_len > img_desc->authenticated_data[i].data.len) {
+			if (param_len >
+			    img_desc->authenticated_data[i].data.len) {
 				return 1;
 			}
 
 			/* Copy the parameter for later use */
 			memcpy((void *)img_desc->authenticated_data[i].data.ptr,
-					(void *)param_ptr, param_len);
+			       (void *)param_ptr, param_len);
 		}
 	}
 

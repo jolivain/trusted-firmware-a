@@ -1,15 +1,13 @@
 /*
- * Copyright (c) 2021, ARM Limited. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <libfdt.h>
-
 #include <common/debug.h>
 #include <common/fdt_fixup.h>
 #include <common/fdt_wrappers.h>
-
+#include <libfdt.h>
 #include <sunxi_private.h>
 
 void sunxi_prepare_dtb(void *fdt)
@@ -43,8 +41,7 @@ void sunxi_prepare_dtb(void *fdt)
 
 	ret = fdt_pack(fdt);
 	if (ret < 0) {
-		ERROR("Failed to pack devicetree at %p: error %d\n",
-		      fdt, ret);
+		ERROR("Failed to pack devicetree at %p: error %d\n", fdt, ret);
 	}
 
 	clean_dcache_range((uintptr_t)fdt, fdt_blob_size(fdt));

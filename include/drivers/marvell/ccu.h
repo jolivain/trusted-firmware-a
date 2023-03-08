@@ -15,26 +15,22 @@
 #endif
 
 /* CCU registers definitions */
-#define CCU_WIN_CR_OFFSET(ap, win)		(MVEBU_CCU_BASE(ap) + 0x0 + \
-						(0x10 * win))
-#define CCU_TARGET_ID_OFFSET			(8)
-#define CCU_TARGET_ID_MASK			(0x7F)
+#define CCU_WIN_CR_OFFSET(ap, win) (MVEBU_CCU_BASE(ap) + 0x0 + (0x10 * win))
+#define CCU_TARGET_ID_OFFSET (8)
+#define CCU_TARGET_ID_MASK (0x7F)
 
-#define CCU_WIN_SCR_OFFSET(ap, win)		(MVEBU_CCU_BASE(ap) + 0x4 + \
-						(0x10 * win))
-#define CCU_WIN_ENA_WRITE_SECURE		(0x1)
-#define CCU_WIN_ENA_READ_SECURE			(0x2)
+#define CCU_WIN_SCR_OFFSET(ap, win) (MVEBU_CCU_BASE(ap) + 0x4 + (0x10 * win))
+#define CCU_WIN_ENA_WRITE_SECURE (0x1)
+#define CCU_WIN_ENA_READ_SECURE (0x2)
 
-#define CCU_WIN_ALR_OFFSET(ap, win)		(MVEBU_CCU_BASE(ap) + 0x8 + \
-						(0x10 * win))
-#define CCU_WIN_AHR_OFFSET(ap, win)		(MVEBU_CCU_BASE(ap) + 0xC + \
-						(0x10 * win))
+#define CCU_WIN_ALR_OFFSET(ap, win) (MVEBU_CCU_BASE(ap) + 0x8 + (0x10 * win))
+#define CCU_WIN_AHR_OFFSET(ap, win) (MVEBU_CCU_BASE(ap) + 0xC + (0x10 * win))
 
-#define CCU_WIN_GCR_OFFSET(ap)			(MVEBU_CCU_BASE(ap) + 0xD0)
-#define CCU_GCR_TARGET_OFFSET			(8)
-#define CCU_GCR_TARGET_MASK			(0xFF)
+#define CCU_WIN_GCR_OFFSET(ap) (MVEBU_CCU_BASE(ap) + 0xD0)
+#define CCU_GCR_TARGET_OFFSET (8)
+#define CCU_GCR_TARGET_MASK (0xFF)
 
-#define CCU_SRAM_WIN_CR				CCU_WIN_CR_OFFSET(MVEBU_AP0, 1)
+#define CCU_SRAM_WIN_CR CCU_WIN_CR_OFFSET(MVEBU_AP0, 1)
 
 #ifndef __ASSEMBLER__
 int init_ccu(int);

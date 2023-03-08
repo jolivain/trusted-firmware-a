@@ -17,62 +17,62 @@
 
 /* DMA CHANNEL setting (0/16/32) */
 #if RCAR_LSI == RCAR_V3M
-#define DMA_CH		16
+#define DMA_CH 16
 #else
-#define DMA_CH		0
+#define DMA_CH 0
 #endif
 
 #if (DMA_CH == 0)
-#define SYS_DMAC_BIT	((uint32_t)1U << 19U)
-#define DMA_BASE	(0xE6700000U)
+#define SYS_DMAC_BIT ((uint32_t)1U << 19U)
+#define DMA_BASE (0xE6700000U)
 #elif (DMA_CH == 16)
-#define SYS_DMAC_BIT	((uint32_t)1U << 18U)
-#define DMA_BASE	(0xE7300000U)
+#define SYS_DMAC_BIT ((uint32_t)1U << 18U)
+#define DMA_BASE (0xE7300000U)
 #elif (DMA_CH == 32)
-#define SYS_DMAC_BIT	((uint32_t)1U << 17U)
-#define DMA_BASE	(0xE7320000U)
+#define SYS_DMAC_BIT ((uint32_t)1U << 17U)
+#define DMA_BASE (0xE7320000U)
 #else
-#define SYS_DMAC_BIT	((uint32_t)1U << 19U)
-#define DMA_BASE	(0xE6700000U)
+#define SYS_DMAC_BIT ((uint32_t)1U << 19U)
+#define DMA_BASE (0xE6700000U)
 #endif
 
 /* DMA operation */
-#define DMA_DMAOR	(DMA_BASE + 0x0060U)
+#define DMA_DMAOR (DMA_BASE + 0x0060U)
 /* DMA secure control */
-#define DMA_DMASEC	(DMA_BASE + 0x0030U)
+#define DMA_DMASEC (DMA_BASE + 0x0030U)
 /* DMA channel clear */
-#define DMA_DMACHCLR	(DMA_BASE + 0x0080U)
+#define DMA_DMACHCLR (DMA_BASE + 0x0080U)
 /* DMA source address */
-#define DMA_DMASAR	(DMA_BASE + 0x8000U)
+#define DMA_DMASAR (DMA_BASE + 0x8000U)
 /* DMA destination address */
-#define DMA_DMADAR	(DMA_BASE + 0x8004U)
+#define DMA_DMADAR (DMA_BASE + 0x8004U)
 /* DMA transfer count */
-#define DMA_DMATCR	(DMA_BASE + 0x8008U)
+#define DMA_DMATCR (DMA_BASE + 0x8008U)
 /* DMA channel control */
-#define DMA_DMACHCR	(DMA_BASE + 0x800CU)
+#define DMA_DMACHCR (DMA_BASE + 0x800CU)
 /* DMA fixed destination address */
-#define DMA_DMAFIXDAR	(DMA_BASE + 0x8014U)
+#define DMA_DMAFIXDAR (DMA_BASE + 0x8014U)
 
-#define DMA_USE_CHANNEL		(0x00000001U)
-#define DMAOR_INITIAL		(0x0301U)
-#define DMACHCLR_CH_ALL		(0x0000FFFFU)
-#define DMAFIXDAR_32BIT_SHIFT	(32U)
-#define DMAFIXDAR_DAR_MASK	(0x000000FFU)
-#define DMADAR_BOUNDARY_ADDR	(0x100000000ULL)
-#define DMATCR_CNT_SHIFT	(6U)
-#define DMATCR_MAX		(0x00FFFFFFU)
-#define DMACHCR_TRN_MODE	(0x00105409U)
-#define DMACHCR_DE_BIT		(0x00000001U)
-#define DMACHCR_TE_BIT		(0x00000002U)
-#define DMACHCR_CHE_BIT		(0x80000000U)
+#define DMA_USE_CHANNEL (0x00000001U)
+#define DMAOR_INITIAL (0x0301U)
+#define DMACHCLR_CH_ALL (0x0000FFFFU)
+#define DMAFIXDAR_32BIT_SHIFT (32U)
+#define DMAFIXDAR_DAR_MASK (0x000000FFU)
+#define DMADAR_BOUNDARY_ADDR (0x100000000ULL)
+#define DMATCR_CNT_SHIFT (6U)
+#define DMATCR_MAX (0x00FFFFFFU)
+#define DMACHCR_TRN_MODE (0x00105409U)
+#define DMACHCR_DE_BIT (0x00000001U)
+#define DMACHCR_TE_BIT (0x00000002U)
+#define DMACHCR_CHE_BIT (0x80000000U)
 
-#define DMA_SIZE_UNIT		FLASH_TRANS_SIZE_UNIT
-#define DMA_FRACTION_MASK	(0xFFU)
-#define DMA_DST_LIMIT		(0x10000000000ULL)
+#define DMA_SIZE_UNIT FLASH_TRANS_SIZE_UNIT
+#define DMA_FRACTION_MASK (0xFFU)
+#define DMA_DST_LIMIT (0x10000000000ULL)
 
 /* transfer length limit */
-#define DMA_LENGTH_LIMIT	((DMATCR_MAX * (1U << DMATCR_CNT_SHIFT)) \
-				& ~DMA_FRACTION_MASK)
+#define DMA_LENGTH_LIMIT \
+	((DMATCR_MAX * (1U << DMATCR_CNT_SHIFT)) & ~DMA_FRACTION_MASK)
 
 static void dma_enable(void)
 {
@@ -88,8 +88,8 @@ static void dma_setup(void)
 static void dma_start(uintptr_t dst, uint32_t src, uint32_t len)
 {
 	mmio_write_16(DMA_DMAOR, DMAOR_INITIAL);
-	mmio_write_32(DMA_DMAFIXDAR, (dst >> DMAFIXDAR_32BIT_SHIFT) &
-		      DMAFIXDAR_DAR_MASK);
+	mmio_write_32(DMA_DMAFIXDAR,
+		      (dst >> DMAFIXDAR_32BIT_SHIFT) & DMAFIXDAR_DAR_MASK);
 	mmio_write_32(DMA_DMADAR, dst & UINT32_MAX);
 	mmio_write_32(DMA_DMASAR, src);
 	mmio_write_32(DMA_DMATCR, len >> DMATCR_CNT_SHIFT);
@@ -134,9 +134,8 @@ void rcar_dma_exec(uintptr_t dst, uint32_t src, uint32_t len)
 		panic();
 	}
 
-	if ((dst & UINT32_MAX) + dma_len > DMADAR_BOUNDARY_ADDR	||
-	    (dst + dma_len > DMA_DST_LIMIT) ||
-	    (dst & DMA_FRACTION_MASK)) {
+	if ((dst & UINT32_MAX) + dma_len > DMADAR_BOUNDARY_ADDR ||
+	    (dst + dma_len > DMA_DST_LIMIT) || (dst & DMA_FRACTION_MASK)) {
 		ERROR("BL2: DMA - dest address invalid (0x%lx), len=(0x%x)\n",
 		      dst, dma_len);
 		panic();

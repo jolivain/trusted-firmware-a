@@ -14,108 +14,108 @@
 #include <lib/mmio.h>
 #include <lib/utils_def.h>
 #include <libfdt.h>
-
-#include <platform_def.h>
+#include <stm32mp1_private.h>
 #include <stm32mp_common.h>
 #include <stm32mp_dt.h>
-#include <stm32mp1_private.h>
+
+#include <platform_def.h>
 
 /*
  * SYSCFG REGISTER OFFSET (base relative)
  */
-#define SYSCFG_BOOTR				0x00U
-#define SYSCFG_BOOTCR				0x0CU
+#define SYSCFG_BOOTR 0x00U
+#define SYSCFG_BOOTCR 0x0CU
 #if STM32MP15
-#define SYSCFG_IOCTRLSETR			0x18U
-#define SYSCFG_ICNR				0x1CU
+#define SYSCFG_IOCTRLSETR 0x18U
+#define SYSCFG_ICNR 0x1CU
 #endif
-#define SYSCFG_CMPCR				0x20U
-#define SYSCFG_CMPENSETR			0x24U
-#define SYSCFG_CMPENCLRR			0x28U
+#define SYSCFG_CMPCR 0x20U
+#define SYSCFG_CMPENSETR 0x24U
+#define SYSCFG_CMPENCLRR 0x28U
 #if STM32MP13
-#define SYSCFG_CMPSD1CR				0x30U
-#define SYSCFG_CMPSD1ENSETR			0x34U
-#define SYSCFG_CMPSD1ENCLRR			0x38U
-#define SYSCFG_CMPSD2CR				0x40U
-#define SYSCFG_CMPSD2ENSETR			0x44U
-#define SYSCFG_CMPSD2ENCLRR			0x48U
-#define SYSCFG_HSLVEN0R				0x50U
+#define SYSCFG_CMPSD1CR 0x30U
+#define SYSCFG_CMPSD1ENSETR 0x34U
+#define SYSCFG_CMPSD1ENCLRR 0x38U
+#define SYSCFG_CMPSD2CR 0x40U
+#define SYSCFG_CMPSD2ENSETR 0x44U
+#define SYSCFG_CMPSD2ENCLRR 0x48U
+#define SYSCFG_HSLVEN0R 0x50U
 #endif
-#define SYSCFG_IDC				0x380U
+#define SYSCFG_IDC 0x380U
 
-#define CMPCR_CMPENSETR_OFFSET			0x4U
-#define CMPCR_CMPENCLRR_OFFSET			0x8U
+#define CMPCR_CMPENSETR_OFFSET 0x4U
+#define CMPCR_CMPENCLRR_OFFSET 0x8U
 
 /*
  * SYSCFG_BOOTR Register
  */
-#define SYSCFG_BOOTR_BOOT_MASK			GENMASK(2, 0)
+#define SYSCFG_BOOTR_BOOT_MASK GENMASK(2, 0)
 #if STM32MP15
-#define SYSCFG_BOOTR_BOOTPD_MASK		GENMASK(6, 4)
-#define SYSCFG_BOOTR_BOOTPD_SHIFT		4
+#define SYSCFG_BOOTR_BOOTPD_MASK GENMASK(6, 4)
+#define SYSCFG_BOOTR_BOOTPD_SHIFT 4
 #endif
 
 /*
  * SYSCFG_BOOTCR Register
  */
-#define SYSCFG_BOOTCR_BMEN			BIT(0)
+#define SYSCFG_BOOTCR_BMEN BIT(0)
 
 /*
  * SYSCFG_IOCTRLSETR Register
  */
-#define SYSCFG_IOCTRLSETR_HSLVEN_TRACE		BIT(0)
-#define SYSCFG_IOCTRLSETR_HSLVEN_QUADSPI	BIT(1)
-#define SYSCFG_IOCTRLSETR_HSLVEN_ETH		BIT(2)
-#define SYSCFG_IOCTRLSETR_HSLVEN_SDMMC		BIT(3)
-#define SYSCFG_IOCTRLSETR_HSLVEN_SPI		BIT(4)
+#define SYSCFG_IOCTRLSETR_HSLVEN_TRACE BIT(0)
+#define SYSCFG_IOCTRLSETR_HSLVEN_QUADSPI BIT(1)
+#define SYSCFG_IOCTRLSETR_HSLVEN_ETH BIT(2)
+#define SYSCFG_IOCTRLSETR_HSLVEN_SDMMC BIT(3)
+#define SYSCFG_IOCTRLSETR_HSLVEN_SPI BIT(4)
 
 /*
  * SYSCFG_ICNR Register
  */
-#define SYSCFG_ICNR_AXI_M9			BIT(9)
+#define SYSCFG_ICNR_AXI_M9 BIT(9)
 
 /*
  * SYSCFG_CMPCR Register
  */
-#define SYSCFG_CMPCR_SW_CTRL			BIT(1)
-#define SYSCFG_CMPCR_READY			BIT(8)
-#define SYSCFG_CMPCR_RANSRC			GENMASK(19, 16)
-#define SYSCFG_CMPCR_RANSRC_SHIFT		16
-#define SYSCFG_CMPCR_RAPSRC			GENMASK(23, 20)
-#define SYSCFG_CMPCR_ANSRC_SHIFT		24
+#define SYSCFG_CMPCR_SW_CTRL BIT(1)
+#define SYSCFG_CMPCR_READY BIT(8)
+#define SYSCFG_CMPCR_RANSRC GENMASK(19, 16)
+#define SYSCFG_CMPCR_RANSRC_SHIFT 16
+#define SYSCFG_CMPCR_RAPSRC GENMASK(23, 20)
+#define SYSCFG_CMPCR_ANSRC_SHIFT 24
 
-#define SYSCFG_CMPCR_READY_TIMEOUT_US		10000U
+#define SYSCFG_CMPCR_READY_TIMEOUT_US 10000U
 
 /*
  * SYSCFG_CMPENSETR Register
  */
-#define SYSCFG_CMPENSETR_MPU_EN			BIT(0)
+#define SYSCFG_CMPENSETR_MPU_EN BIT(0)
 
 /*
  * HSLV definitions
  */
-#define HSLV_IDX_TPIU				0U
-#define HSLV_IDX_QSPI				1U
-#define HSLV_IDX_ETH1				2U
-#define HSLV_IDX_ETH2				3U
-#define HSLV_IDX_SDMMC1				4U
-#define HSLV_IDX_SDMMC2				5U
-#define HSLV_IDX_SPI1				6U
-#define HSLV_IDX_SPI2				7U
-#define HSLV_IDX_SPI3				8U
-#define HSLV_IDX_SPI4				9U
-#define HSLV_IDX_SPI5				10U
-#define HSLV_IDX_LTDC				11U
-#define HSLV_NB_IDX				12U
+#define HSLV_IDX_TPIU 0U
+#define HSLV_IDX_QSPI 1U
+#define HSLV_IDX_ETH1 2U
+#define HSLV_IDX_ETH2 3U
+#define HSLV_IDX_SDMMC1 4U
+#define HSLV_IDX_SDMMC2 5U
+#define HSLV_IDX_SPI1 6U
+#define HSLV_IDX_SPI2 7U
+#define HSLV_IDX_SPI3 8U
+#define HSLV_IDX_SPI4 9U
+#define HSLV_IDX_SPI5 10U
+#define HSLV_IDX_LTDC 11U
+#define HSLV_NB_IDX 12U
 
-#define HSLV_KEY				0x1018U
+#define HSLV_KEY 0x1018U
 
 /*
  * SYSCFG_IDC Register
  */
-#define SYSCFG_IDC_DEV_ID_MASK			GENMASK(11, 0)
-#define SYSCFG_IDC_REV_ID_MASK			GENMASK(31, 16)
-#define SYSCFG_IDC_REV_ID_SHIFT			16
+#define SYSCFG_IDC_DEV_ID_MASK GENMASK(11, 0)
+#define SYSCFG_IDC_REV_ID_MASK GENMASK(31, 16)
+#define SYSCFG_IDC_REV_ID_SHIFT 16
 
 static void enable_io_comp_cell_finish(uintptr_t cmpcr_off)
 {
@@ -123,7 +123,8 @@ static void enable_io_comp_cell_finish(uintptr_t cmpcr_off)
 
 	start = timeout_init_us(SYSCFG_CMPCR_READY_TIMEOUT_US);
 
-	while ((mmio_read_32(SYSCFG_BASE + cmpcr_off) & SYSCFG_CMPCR_READY) == 0U) {
+	while ((mmio_read_32(SYSCFG_BASE + cmpcr_off) & SYSCFG_CMPCR_READY) ==
+	       0U) {
 		if (timeout_elapsed(start)) {
 			/* Failure on IO compensation enable is not a issue: warn only. */
 			WARN("IO compensation cell not ready\n");
@@ -138,22 +139,26 @@ static void disable_io_comp_cell(uintptr_t cmpcr_off)
 {
 	uint32_t value;
 
-	if (((mmio_read_32(SYSCFG_BASE + cmpcr_off) & SYSCFG_CMPCR_READY) == 0U) ||
+	if (((mmio_read_32(SYSCFG_BASE + cmpcr_off) & SYSCFG_CMPCR_READY) ==
+	     0U) ||
 	    ((mmio_read_32(SYSCFG_BASE + cmpcr_off + CMPCR_CMPENSETR_OFFSET) &
-	     SYSCFG_CMPENSETR_MPU_EN) == 0U)) {
+	      SYSCFG_CMPENSETR_MPU_EN) == 0U)) {
 		return;
 	}
 
-	value = mmio_read_32(SYSCFG_BASE + cmpcr_off) >> SYSCFG_CMPCR_ANSRC_SHIFT;
+	value = mmio_read_32(SYSCFG_BASE + cmpcr_off) >>
+		SYSCFG_CMPCR_ANSRC_SHIFT;
 
-	mmio_clrbits_32(SYSCFG_BASE + cmpcr_off, SYSCFG_CMPCR_RANSRC | SYSCFG_CMPCR_RAPSRC);
+	mmio_clrbits_32(SYSCFG_BASE + cmpcr_off,
+			SYSCFG_CMPCR_RANSRC | SYSCFG_CMPCR_RAPSRC);
 
 	value <<= SYSCFG_CMPCR_RANSRC_SHIFT;
 	value |= mmio_read_32(SYSCFG_BASE + cmpcr_off);
 
 	mmio_write_32(SYSCFG_BASE + cmpcr_off, value | SYSCFG_CMPCR_SW_CTRL);
 
-	mmio_setbits_32(SYSCFG_BASE + cmpcr_off + CMPCR_CMPENCLRR_OFFSET, SYSCFG_CMPENSETR_MPU_EN);
+	mmio_setbits_32(SYSCFG_BASE + cmpcr_off + CMPCR_CMPENCLRR_OFFSET,
+			SYSCFG_CMPENSETR_MPU_EN);
 }
 
 #if STM32MP13
@@ -237,7 +242,8 @@ static void enable_hslv_by_index(uint32_t index)
 	if (apply_hslv) {
 		uint32_t reg_offset = index * sizeof(uint32_t);
 
-		mmio_write_32(SYSCFG_BASE + SYSCFG_HSLVEN0R + reg_offset, HSLV_KEY);
+		mmio_write_32(SYSCFG_BASE + SYSCFG_HSLVEN0R + reg_offset,
+			      HSLV_KEY);
 	}
 }
 #endif
@@ -254,10 +260,10 @@ static void enable_high_speed_mode_low_voltage(void)
 #if STM32MP15
 	mmio_write_32(SYSCFG_BASE + SYSCFG_IOCTRLSETR,
 		      SYSCFG_IOCTRLSETR_HSLVEN_TRACE |
-		      SYSCFG_IOCTRLSETR_HSLVEN_QUADSPI |
-		      SYSCFG_IOCTRLSETR_HSLVEN_ETH |
-		      SYSCFG_IOCTRLSETR_HSLVEN_SDMMC |
-		      SYSCFG_IOCTRLSETR_HSLVEN_SPI);
+			      SYSCFG_IOCTRLSETR_HSLVEN_QUADSPI |
+			      SYSCFG_IOCTRLSETR_HSLVEN_ETH |
+			      SYSCFG_IOCTRLSETR_HSLVEN_SDMMC |
+			      SYSCFG_IOCTRLSETR_HSLVEN_SPI);
 #endif
 }
 
@@ -388,7 +394,8 @@ void stm32mp1_syscfg_disable_io_compensation(void)
 uint32_t stm32mp1_syscfg_get_chip_version(void)
 {
 	return (mmio_read_32(SYSCFG_BASE + SYSCFG_IDC) &
-		SYSCFG_IDC_REV_ID_MASK) >> SYSCFG_IDC_REV_ID_SHIFT;
+		SYSCFG_IDC_REV_ID_MASK) >>
+	       SYSCFG_IDC_REV_ID_SHIFT;
 }
 
 /*

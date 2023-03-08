@@ -5,19 +5,21 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <firmware_encrypted.h>
-#include <openssl/evp.h>
 #include <stdio.h>
 #include <string.h>
+
+#include <firmware_encrypted.h>
+#include <openssl/evp.h>
+
 #include "debug.h"
 #include "encrypt.h"
 
-#define BUFFER_SIZE		256
-#define IV_SIZE			12
-#define IV_STRING_SIZE		24
-#define TAG_SIZE		16
-#define KEY_SIZE		32
-#define KEY_STRING_SIZE		64
+#define BUFFER_SIZE 256
+#define IV_SIZE 12
+#define IV_STRING_SIZE 24
+#define TAG_SIZE 16
+#define KEY_SIZE 32
+#define KEY_STRING_SIZE 64
 
 static int gcm_encrypt(unsigned short fw_enc_status, char *key_string,
 		       char *nonce_string, const char *ip_name,

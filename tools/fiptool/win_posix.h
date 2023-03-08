@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,29 +13,29 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/stat.h>
 
 #include <direct.h>
 #include <io.h>
+#include <sys/stat.h>
 
 #include "uuid.h"
 
 /* Derive or provide Windows equivalents of Posix/GCC/Unix stuff. */
 #ifndef PATH_MAX
-# ifdef MAX_PATH
-#  define PATH_MAX MAX_PATH
-# else
-#  ifdef _MAX_PATH
-#   define MAX_PATH _MAX_PATH
-#   define PATH_MAX _MAX_PATH
-#  else
-#   define PATH_MAX 260
-#  endif
-# endif
+#ifdef MAX_PATH
+#define PATH_MAX MAX_PATH
+#else
+#ifdef _MAX_PATH
+#define MAX_PATH _MAX_PATH
+#define PATH_MAX _MAX_PATH
+#else
+#define PATH_MAX 260
+#endif
+#endif
 #endif
 
 #ifndef _CRT_SECURE_NO_WARNINGS
-# define _CRT_SECURE_NO_WARNINGS 1
+#define _CRT_SECURE_NO_WARNINGS 1
 #endif
 
 /*
@@ -50,19 +50,18 @@
 #define fileno(fileptr) _fileno(fileptr)
 
 /* _fstat uses the _stat structure, not stat. */
-#define BLD_PLAT_STAT	_stat
+#define BLD_PLAT_STAT _stat
 
 /* Define flag values for _access. */
-#define F_OK	0
-
+#define F_OK 0
 
 /* getopt implementation for Windows: Data. */
 
 /* Legitimate values for option.has_arg. */
 enum has_arg_values {
-	no_argument,		/* No argument value required */
-	required_argument,	/* value must be specified. */
-	optional_argument	/* value may be specified. */
+	no_argument, /* No argument value required */
+	required_argument, /* value must be specified. */
+	optional_argument /* value may be specified. */
 };
 
 /* Long option table entry for get_opt_long. */
@@ -97,7 +96,7 @@ extern char *optarg;
  * if it encounters an unspecified option, or a missing argument.
  * Otherwise no message is reported.
  */
-extern const int opterr;	/* const as NOT used in this implementation. */
+extern const int opterr; /* const as NOT used in this implementation. */
 
 /*
  * This variable is set by getopt to the index of the next element of the
@@ -113,7 +112,6 @@ extern int optind;
  * variable.
  */
 extern int optopt;
-
 
 /*
  * Platform specific names.
@@ -158,20 +156,15 @@ inline char *strdup(const char *s)
  * The getopt function gets the next option argument from the argument list
  * specified by the argv and argc arguments.
  */
-int getopt(int argc,
-	   char *argv[],
-	   char *options);
+int getopt(int argc, char *argv[], char *options);
 
 /*
  * getopt_long gets the next option argument from the argument list
  * specified by the argv and argc arguments.  Options may be either short
  * (single letter) as for getopt, or longer names (preceded by --).
  */
-int getopt_long(int argc,
-		char *argv[],
-		const char *shortopts,
-		const struct option *longopts,
-		int *indexptr);
+int getopt_long(int argc, char *argv[], const char *shortopts,
+		const struct option *longopts, int *indexptr);
 
 /*
  * getopt_long_only gets the next option argument from the argument list
@@ -179,10 +172,7 @@ int getopt_long(int argc,
  * or long as for getopt_long, but the long names may have a single '-'
  * prefix, too.
  */
-int getopt_long_only(int argc,
-			   char *argv[],
-			   const char *shortopts,
-			   const struct option *longopts,
-			   int *indexptr);
+int getopt_long_only(int argc, char *argv[], const char *shortopts,
+		     const struct option *longopts, int *indexptr);
 
 #endif /* WIN_POSIX_H */

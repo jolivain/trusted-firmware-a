@@ -5,7 +5,6 @@
  */
 
 #include <plat/common/platform.h>
-
 #include <platform_def.h>
 
 /*
@@ -17,9 +16,8 @@ unsigned int plat_get_syscnt_freq2(void)
 	return SYSCNT_FREQ;
 }
 
-static const char * const plat_prefix_str[] = {
-	"E: ", "N: ", "W: ", "I: ", "V: "
-};
+static const char *const plat_prefix_str[] = { "E: ", "N: ", "W: ", "I: ",
+					       "V: " };
 
 const char *plat_log_get_prefix(unsigned int log_level)
 {

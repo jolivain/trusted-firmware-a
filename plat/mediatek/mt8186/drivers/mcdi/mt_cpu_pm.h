@@ -7,9 +7,9 @@
 #ifndef __MT_CPU_PM_H__
 #define __MT_CPU_PM_H__
 
-#define MCUSYS_STATUS_PDN		(1 << 0UL)
-#define MCUSYS_STATUS_CPUSYS_PROTECT	(1 << 8UL)
-#define MCUSYS_STATUS_MCUSYS_PROTECT	(1 << 9UL)
+#define MCUSYS_STATUS_PDN (1 << 0UL)
+#define MCUSYS_STATUS_CPUSYS_PROTECT (1 << 8UL)
+#define MCUSYS_STATUS_MCUSYS_PROTECT (1 << 9UL)
 
 /* cpu_pm function ID*/
 enum mt_cpu_pm_user_id {

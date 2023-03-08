@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,21 +7,22 @@
 #ifndef DEV_H
 #define DEV_H
 
-#include <cdefs.h>
-#include <lib/debugfs.h>
 #include <stddef.h>
 
+#include <cdefs.h>
+#include <lib/debugfs.h>
+
 /* FIXME: need configurability */
-#define NR_CHANS  10
-#define NR_CONSS  1
-#define NR_BINDS  4
-#define NR_FILES  18
+#define NR_CHANS 10
+#define NR_CONSS 1
+#define NR_BINDS 4
+#define NR_FILES 18
 
-#define NODEV     255
-#define CHDIR     (1 << 15)
+#define NODEV 255
+#define CHDIR (1 << 15)
 
-#define SYNCDEV   0
-#define SYNCALL   1
+#define SYNCDEV 0
+#define SYNCALL 1
 
 typedef struct dev dev_t;
 typedef struct chan chan_t;
@@ -43,11 +44,11 @@ enum {
  * of the filesystem.
  ******************************************************************************/
 struct dirtab {
-	char		name[NAMELEN];
-	qid_t		qid;
-	long		length;
-	unsigned char	perm;
-	void		*data;
+	char name[NAMELEN];
+	qid_t qid;
+	long length;
+	unsigned char perm;
+	void *data;
 };
 
 /*******************************************************************************
@@ -73,11 +74,11 @@ struct dev {
  * A channel is a handle on an element of the filesystem.
  ******************************************************************************/
 struct chan {
-	long		offset;
-	qid_t		qid;
-	unsigned char	index;	/* device index in devtab */
-	unsigned char	dev;
-	unsigned char	mode;
+	long offset;
+	qid_t qid;
+	unsigned char index; /* device index in devtab */
+	unsigned char dev;
+	unsigned char mode;
 };
 
 /*******************************************************************************
@@ -85,8 +86,8 @@ struct chan {
  * the configuration file.
  ******************************************************************************/
 struct attr {
-	char	*key;
-	char	*value;
+	char *key;
+	char *value;
 };
 
 chan_t *path_to_channel(const char *path, int mode);
@@ -94,8 +95,8 @@ chan_t *clone(chan_t *c, chan_t *nc);
 chan_t *attach(int id, int dev);
 void channel_close(chan_t *c);
 int buf_to_channel(chan_t *c, void *dst, void *src, int nbytes, long len);
-int dirread(chan_t *c, dir_t *dir, const dirtab_t *tab,
-	    int ntab, devgen_t *gen);
+int dirread(chan_t *c, dir_t *dir, const dirtab_t *tab, int ntab,
+	    devgen_t *gen);
 void make_dir_entry(chan_t *c, dir_t *dir, const char *name, long length,
 		    qid_t qid, unsigned int mode);
 void devlink(void);
@@ -105,9 +106,9 @@ int devseek(chan_t *c, long off, int whence);
 chan_t *devclone(chan_t *c, chan_t *nc);
 int devgen(chan_t *c, const dirtab_t *tab, int ntab, int n, dir_t *dir);
 int devwalk(chan_t *c, const char *name, const dirtab_t *tab, int ntab,
-		   devgen_t *gen);
-int devstat(chan_t *dirc, const char *file, dir_t *dir,
-		   const dirtab_t *tab, int ntab, devgen_t *gen);
+	    devgen_t *gen);
+int devstat(chan_t *dirc, const char *file, dir_t *dir, const dirtab_t *tab,
+	    int ntab, devgen_t *gen);
 
 chan_t *deverrmount(chan_t *c, const char *spec);
 int deverrwrite(chan_t *c, void *buf, int n);

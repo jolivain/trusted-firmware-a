@@ -13,8 +13,8 @@
 
 /* pmic wrap module wait_idle and read polling interval (in microseconds) */
 enum pwrap_polling_interval {
-	WAIT_IDLE_POLLING_DELAY_US	= 1,
-	READ_POLLING_DELAY_US		= 2
+	WAIT_IDLE_POLLING_DELAY_US = 1,
+	READ_POLLING_DELAY_US = 2
 };
 
 static uint32_t pwrap_check_idle(void *wacs_register, uint32_t timeout_us)
@@ -86,15 +86,16 @@ static int32_t pwrap_wacs2(uint32_t write, uint32_t adr, uint32_t wdata,
 	uint32_t reg_rdata, return_value;
 
 	if (init_check != 0) {
-		if ((mmio_read_32((uintptr_t)&mtk_pwrap->init_done) & 0x1) == 0) {
+		if ((mmio_read_32((uintptr_t)&mtk_pwrap->init_done) & 0x1) ==
+		    0) {
 			ERROR("initialization isn't finished\n");
 			return E_PWR_NOT_INIT_DONE;
 		}
 	}
 
 	/* Wait for Software Interface FSM state to be IDLE. */
-	return_value = pwrap_check_idle(&mtk_pwrap->wacs2_sta,
-					PWRAP_WAIT_IDLE_US);
+	return_value =
+		pwrap_check_idle(&mtk_pwrap->wacs2_sta, PWRAP_WAIT_IDLE_US);
 	if (return_value != 0) {
 		return return_value;
 	}

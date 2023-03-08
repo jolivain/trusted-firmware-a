@@ -4,16 +4,17 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include "msm8916_pm.h"
+
 #include <arch.h>
 #include <common/debug.h>
 #include <drivers/arm/gicv2.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
-#include <plat/common/platform.h>
-
 #include <msm8916_mmap.h>
-#include "msm8916_pm.h"
+
+#include <plat/common/platform.h>
 
 static int msm8916_pwr_domain_on(u_register_t mpidr)
 {
@@ -41,10 +42,10 @@ static void __dead2 msm8916_system_reset(void)
 }
 
 static const plat_psci_ops_t msm8916_psci_ops = {
-	.pwr_domain_on			= msm8916_pwr_domain_on,
-	.pwr_domain_on_finish		= msm8916_pwr_domain_on_finish,
-	.system_off			= msm8916_system_reset,
-	.system_reset			= msm8916_system_reset,
+	.pwr_domain_on = msm8916_pwr_domain_on,
+	.pwr_domain_on_finish = msm8916_pwr_domain_on_finish,
+	.system_off = msm8916_system_reset,
+	.system_reset = msm8916_system_reset,
 };
 
 /* Defined and used in msm8916_helpers.S */

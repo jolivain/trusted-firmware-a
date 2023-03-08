@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,7 +11,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#define INVALID_BASE_ADDR	((uintptr_t)~0UL)
+#define INVALID_BASE_ADDR ((uintptr_t)~0UL)
 
 struct psci_cpu_idle_state {
 	const char *name;
@@ -25,10 +25,10 @@ struct psci_cpu_idle_state {
 
 int dt_add_psci_node(void *fdt);
 int dt_add_psci_cpu_enable_methods(void *fdt);
-int fdt_add_reserved_memory(void *dtb, const char *node_name,
-			    uintptr_t base, size_t size);
-int fdt_add_cpus_node(void *dtb, unsigned int afflv0,
-		      unsigned int afflv1, unsigned int afflv2);
+int fdt_add_reserved_memory(void *dtb, const char *node_name, uintptr_t base,
+			    size_t size);
+int fdt_add_cpus_node(void *dtb, unsigned int afflv0, unsigned int afflv1,
+		      unsigned int afflv2);
 int fdt_add_cpu_idle_states(void *dtb, const struct psci_cpu_idle_state *state);
 int fdt_adjust_gic_redist(void *dtb, unsigned int nr_cores, uintptr_t gicr_base,
 			  unsigned int gicr_frame_size);

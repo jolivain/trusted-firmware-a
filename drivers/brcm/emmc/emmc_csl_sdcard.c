@@ -14,35 +14,35 @@
 #include <lib/mmio.h>
 
 #include "bcm_emmc.h"
-#include "emmc_chal_types.h"
-#include "emmc_csl_sdprot.h"
 #include "emmc_chal_sd.h"
-#include "emmc_csl_sdcmd.h"
+#include "emmc_chal_types.h"
 #include "emmc_csl_sd.h"
+#include "emmc_csl_sdcmd.h"
+#include "emmc_csl_sdprot.h"
 #include "emmc_pboot_hal_memory_drv.h"
 
-#define SD_CARD_BUSY                    0x80000000
-#define SD_CARD_RETRY_LIMIT             1000
-#define SD_CARD_HIGH_SPEED_PS           13
-#define SD_CHK_HIGH_SPEED_MODE          0x00FFFFF1
-#define SD_SET_HIGH_SPEED_MODE          0x80FFFFF1
-#define SD_MMC_ENABLE_HIGH_SPEED        0x03b90100	//0x03b90103
-#define SD_MMC_8BIT_MODE                0x03b70200
-#define SD_MMC_4BIT_MODE                0x03b70100
-#define SD_MMC_1BIT_MODE                0x03b70000
+#define SD_CARD_BUSY 0x80000000
+#define SD_CARD_RETRY_LIMIT 1000
+#define SD_CARD_HIGH_SPEED_PS 13
+#define SD_CHK_HIGH_SPEED_MODE 0x00FFFFF1
+#define SD_SET_HIGH_SPEED_MODE 0x80FFFFF1
+#define SD_MMC_ENABLE_HIGH_SPEED 0x03b90100 //0x03b90103
+#define SD_MMC_8BIT_MODE 0x03b70200
+#define SD_MMC_4BIT_MODE 0x03b70100
+#define SD_MMC_1BIT_MODE 0x03b70000
 
-#define SD_MMC_BOOT_8BIT_MODE           0x03b10200
-#define SD_MMC_BOOT_4BIT_MODE           0x03b10100
-#define SD_MMC_BOOT_1BIT_MODE           0x03b10000
-#define SDIO_HW_EMMC_EXT_CSD_BOOT_CNF   0X03B30000
+#define SD_MMC_BOOT_8BIT_MODE 0x03b10200
+#define SD_MMC_BOOT_4BIT_MODE 0x03b10100
+#define SD_MMC_BOOT_1BIT_MODE 0x03b10000
+#define SDIO_HW_EMMC_EXT_CSD_BOOT_CNF 0X03B30000
 
 #ifdef USE_EMMC_FIP_TOC_CACHE
 /*
  * Cache size mirrors the size of the global eMMC temp buffer
  * which is used for non-image body reads such as headers, ToC etc.
  */
-#define CACHE_SIZE           ((EMMC_BLOCK_SIZE) * 2)
-#define PARTITION_BLOCK_ADDR ((PLAT_FIP_ATTEMPT_OFFSET)/(EMMC_BLOCK_SIZE))
+#define CACHE_SIZE ((EMMC_BLOCK_SIZE)*2)
+#define PARTITION_BLOCK_ADDR ((PLAT_FIP_ATTEMPT_OFFSET) / (EMMC_BLOCK_SIZE))
 
 static uint32_t cached_partition_block;
 static uint8_t cached_block[CACHE_SIZE];
@@ -94,25 +94,24 @@ void process_csd_mmc_speed(struct sd_handle *handle, uint32_t csd_mmc_speed)
 	case 0x2A:
 		EMMC_TRACE("Speeding up eMMC clock to 20MHz\n");
 		div_ctrl_setting =
-		    chal_sd_freq_2_div_ctrl_setting(20 * 1000 * 1000);
+			chal_sd_freq_2_div_ctrl_setting(20 * 1000 * 1000);
 		break;
 	case 0x32:
 		EMMC_TRACE("Speeding up eMMC clock to 26MHz\n");
 		div_ctrl_setting =
-		    chal_sd_freq_2_div_ctrl_setting(26 * 1000 * 1000);
+			chal_sd_freq_2_div_ctrl_setting(26 * 1000 * 1000);
 		break;
 	default:
 		/* Unknown */
 		return;
 	}
 
-	chal_sd_set_clock((CHAL_HANDLE *) handle->device, div_ctrl_setting, 0);
+	chal_sd_set_clock((CHAL_HANDLE *)handle->device, div_ctrl_setting, 0);
 
-	chal_sd_set_clock((CHAL_HANDLE *) handle->device, div_ctrl_setting, 1);
+	chal_sd_set_clock((CHAL_HANDLE *)handle->device, div_ctrl_setting, 1);
 
 	SD_US_DELAY(1000);
 }
-
 
 /*
  * The function changes SD/SDIO/MMC card data width if
@@ -164,7 +163,7 @@ int set_card_data_width(struct sd_handle *handle, int width)
 #if LOG_LEVEL >= LOG_LEVEL_VERBOSE
 			result_str = "succeeded";
 #endif
-			chal_sd_config_bus_width((CHAL_HANDLE *) handle->device,
+			chal_sd_config_bus_width((CHAL_HANDLE *)handle->device,
 						 width);
 		} else {
 #if LOG_LEVEL >= LOG_LEVEL_VERBOSE
@@ -183,7 +182,6 @@ int set_card_data_width(struct sd_handle *handle, int width)
 	return rc;
 }
 
-
 /*
  * Error handling routine. Does abort data
  * transmission if error is found.
@@ -198,17 +196,15 @@ static int abort_err(struct sd_handle *handle)
 
 	options = (SD_CMD_STOP_TRANSMISSION << 24) |
 		  (SD_CMDR_RSP_TYPE_R1b_5b << SD_CMDR_RSP_TYPE_S) |
-		  SD4_EMMC_TOP_CMD_CRC_EN_MASK |
-		  SD4_EMMC_TOP_CMD_CCHK_EN_MASK;
+		  SD4_EMMC_TOP_CMD_CRC_EN_MASK | SD4_EMMC_TOP_CMD_CCHK_EN_MASK;
 
-	chal_sd_send_cmd((CHAL_HANDLE *) handle->device,
+	chal_sd_send_cmd((CHAL_HANDLE *)handle->device,
 			 handle->device->ctrl.cmdIndex,
 			 handle->device->ctrl.argReg, options);
 
-	event = wait_for_event(handle,
-			       SD4_EMMC_TOP_INTR_CMDDONE_MASK |
-			       SD_ERR_INTERRUPTS,
-			       handle->device->cfg.wfe_retry);
+	event = wait_for_event(
+		handle, SD4_EMMC_TOP_INTR_CMDDONE_MASK | SD_ERR_INTERRUPTS,
+		handle->device->cfg.wfe_retry);
 
 	if (event & SD_CMD_ERROR_INT) {
 		rel = SD_ERROR_NON_RECOVERABLE;
@@ -217,7 +213,7 @@ static int abort_err(struct sd_handle *handle)
 			return SD_ERROR_NON_RECOVERABLE;
 		}
 
-		chal_sd_get_response((CHAL_HANDLE *) handle->device,
+		chal_sd_get_response((CHAL_HANDLE *)handle->device,
 				     (uint32_t *)&cmdRsp);
 
 		process_cmd_response(handle, handle->device->ctrl.cmdIndex,
@@ -227,8 +223,8 @@ static int abort_err(struct sd_handle *handle)
 
 		SD_US_DELAY(2000);
 
-		present =
-		    chal_sd_get_present_status((CHAL_HANDLE *) handle->device);
+		present = chal_sd_get_present_status(
+			(CHAL_HANDLE *)handle->device);
 
 		if ((present & 0x00F00000) == 0x00F00000)
 			rel = SD_ERROR_RECOVERABLE;
@@ -238,7 +234,6 @@ static int abort_err(struct sd_handle *handle)
 
 	return rel;
 }
-
 
 /*
  * The function handles real data transmission on both DMA and
@@ -264,7 +259,7 @@ int process_data_xfer(struct sd_handle *handle, uint8_t *buffer, uint32_t addr,
 		} else {
 			wait_for_event(handle,
 				       SD4_EMMC_TOP_INTR_TXDONE_MASK |
-				       SD_ERR_INTERRUPTS,
+					       SD_ERR_INTERRUPTS,
 				       handle->device->cfg.wfe_retry);
 
 			if (handle->device->ctrl.cmdStatus == SD_OK)
@@ -276,7 +271,7 @@ int process_data_xfer(struct sd_handle *handle, uint8_t *buffer, uint32_t addr,
 #else
 		return SD_WRITE_ERROR;
 #endif
-	} else {		/* SD_XFER_CARD_TO_HOST */
+	} else { /* SD_XFER_CARD_TO_HOST */
 
 		if (handle->device->cfg.dma == SD_DMA_OFF) {
 			/* In NON DMA mode, the real data
@@ -285,7 +280,7 @@ int process_data_xfer(struct sd_handle *handle, uint8_t *buffer, uint32_t addr,
 			if (read_buffer(handle, length, buffer))
 				return SD_READ_ERROR;
 
-		} else {	/* for DMA mode */
+		} else { /* for DMA mode */
 
 			/*
 			 * once the data transmission is done
@@ -293,7 +288,7 @@ int process_data_xfer(struct sd_handle *handle, uint8_t *buffer, uint32_t addr,
 			 */
 			wait_for_event(handle,
 				       SD4_EMMC_TOP_INTR_TXDONE_MASK |
-				       SD_ERR_INTERRUPTS,
+					       SD_ERR_INTERRUPTS,
 				       handle->device->cfg.wfe_retry);
 
 			if (handle->device->ctrl.cmdStatus == SD_OK)
@@ -306,7 +301,6 @@ int process_data_xfer(struct sd_handle *handle, uint8_t *buffer, uint32_t addr,
 	return SD_OK;
 }
 
-
 /*
  * The function sets block size for the next SD/SDIO/MMC
  * card read/write command.
@@ -315,7 +309,6 @@ int select_blk_sz(struct sd_handle *handle, uint16_t size)
 {
 	return sd_cmd16(handle, size);
 }
-
 
 /*
  * The function initalizes the SD/SDIO/MMC/CEATA and detects
@@ -329,7 +322,7 @@ int init_card(struct sd_handle *handle, int detection)
 	 * After Reset, eMMC comes up in 1 Bit Data Width by default.
 	 * Set host side to match.
 	 */
-	chal_sd_config_bus_width((CHAL_HANDLE *) handle->device,
+	chal_sd_config_bus_width((CHAL_HANDLE *)handle->device,
 				 SD_BUS_DATA_WIDTH_1BIT);
 
 #ifdef USE_EMMC_FIP_TOC_CACHE
@@ -354,43 +347,47 @@ int init_card(struct sd_handle *handle, int detection)
 	 * setting.
 	 */
 	{
-#define EXT_CSD_PROPERTIES_SECTION_START_INDEX	192
-#define EXT_CSD_PROPERTIES_SECTION_END_INDEX	511
+#define EXT_CSD_PROPERTIES_SECTION_START_INDEX 192
+#define EXT_CSD_PROPERTIES_SECTION_END_INDEX 511
 		uint8_t buffer[EXT_CSD_SIZE];
 #ifdef DRIVER_EMMC_ENABLE_DATA_WIDTH_8BIT
 		/* Try 8 Bit Data Width */
-		chal_sd_config_bus_width((CHAL_HANDLE *) handle->device,
+		chal_sd_config_bus_width((CHAL_HANDLE *)handle->device,
 					 SD_BUS_DATA_WIDTH_8BIT);
 		if ((!set_card_data_width(handle, SD_BUS_DATA_WIDTH_8BIT)) &&
 		    (!mmc_cmd8(handle, buffer)) &&
 		    (!memcmp(&buffer[EXT_CSD_PROPERTIES_SECTION_START_INDEX],
-			     &(emmc_global_buf_ptr->u.Ext_CSD_storage[EXT_CSD_PROPERTIES_SECTION_START_INDEX]),
-			     EXT_CSD_PROPERTIES_SECTION_END_INDEX - EXT_CSD_PROPERTIES_SECTION_START_INDEX + 1)))
+			     &(emmc_global_buf_ptr->u.Ext_CSD_storage
+				       [EXT_CSD_PROPERTIES_SECTION_START_INDEX]),
+			     EXT_CSD_PROPERTIES_SECTION_END_INDEX -
+				     EXT_CSD_PROPERTIES_SECTION_START_INDEX +
+				     1)))
 
 			return SD_OK;
 #endif
 		/* Fall back to 4 Bit Data Width */
-		chal_sd_config_bus_width((CHAL_HANDLE *) handle->device,
+		chal_sd_config_bus_width((CHAL_HANDLE *)handle->device,
 					 SD_BUS_DATA_WIDTH_4BIT);
 		if ((!set_card_data_width(handle, SD_BUS_DATA_WIDTH_4BIT)) &&
 		    (!mmc_cmd8(handle, buffer)) &&
 		    (!memcmp(&buffer[EXT_CSD_PROPERTIES_SECTION_START_INDEX],
-			     &(emmc_global_buf_ptr->u.Ext_CSD_storage[EXT_CSD_PROPERTIES_SECTION_START_INDEX]),
-			     EXT_CSD_PROPERTIES_SECTION_END_INDEX - EXT_CSD_PROPERTIES_SECTION_START_INDEX + 1)))
+			     &(emmc_global_buf_ptr->u.Ext_CSD_storage
+				       [EXT_CSD_PROPERTIES_SECTION_START_INDEX]),
+			     EXT_CSD_PROPERTIES_SECTION_END_INDEX -
+				     EXT_CSD_PROPERTIES_SECTION_START_INDEX +
+				     1)))
 
 			return SD_OK;
 
 		/* Fall back to 1 Bit Data Width */
-		chal_sd_config_bus_width((CHAL_HANDLE *) handle->device,
+		chal_sd_config_bus_width((CHAL_HANDLE *)handle->device,
 					 SD_BUS_DATA_WIDTH_1BIT);
 		/* Just use 1 Bit Data Width then. */
 		if (!set_card_data_width(handle, SD_BUS_DATA_WIDTH_1BIT))
 			return SD_OK;
-
 	}
 	return SD_CARD_INIT_ERROR;
 }
-
 
 /*
  * The function handles MMC/CEATA card initalization.
@@ -485,14 +482,14 @@ int init_mmc_card(struct sd_handle *handle)
 			EMMC_TRACE("Byte addressing\n");
 		}
 
-		EMMC_TRACE("Ext_CSD_storage[162]: 0x%02X  Ext_CSD_storage[179]: 0x%02X\n",
-			   emmc_global_buf_ptr->u.Ext_CSD_storage[162],
-			   emmc_global_buf_ptr->u.Ext_CSD_storage[179]);
+		EMMC_TRACE(
+			"Ext_CSD_storage[162]: 0x%02X  Ext_CSD_storage[179]: 0x%02X\n",
+			emmc_global_buf_ptr->u.Ext_CSD_storage[162],
+			emmc_global_buf_ptr->u.Ext_CSD_storage[179]);
 	}
 
 	return handle->card->type;
 }
-
 
 /*
  * The function send reset command to the card.
@@ -513,14 +510,12 @@ int reset_card(struct sd_handle *handle)
 	return res;
 }
 
-
 /*
  * The function sends command to the card and starts
  * data transmission.
  */
-static int xfer_data(struct sd_handle *handle,
-		     uint32_t mode,
-		     uint32_t addr, uint32_t length, uint8_t *base)
+static int xfer_data(struct sd_handle *handle, uint32_t mode, uint32_t addr,
+		     uint32_t length, uint8_t *base)
 {
 	int rc = SD_OK;
 
@@ -586,8 +581,8 @@ int erase_card(struct sd_handle *handle, uint32_t addr, uint32_t blocks)
  * The function reads block data from a card.
  */
 #ifdef USE_EMMC_FIP_TOC_CACHE
-int read_block(struct sd_handle *handle,
-	       uint8_t *dst, uint32_t addr, uint32_t len)
+int read_block(struct sd_handle *handle, uint8_t *dst, uint32_t addr,
+	       uint32_t len)
 {
 	int rel = SD_OK;
 
@@ -595,8 +590,7 @@ int read_block(struct sd_handle *handle,
 	 * Avoid doing repeated reads of the partition block
 	 * by caching.
 	 */
-	if (cached_partition_block &&
-	    addr == PARTITION_BLOCK_ADDR &&
+	if (cached_partition_block && addr == PARTITION_BLOCK_ADDR &&
 	    len == CACHE_SIZE) {
 		memcpy(dst, cached_block, len);
 	} else {
@@ -611,8 +605,8 @@ int read_block(struct sd_handle *handle,
 	return rel;
 }
 #else
-int read_block(struct sd_handle *handle,
-	       uint8_t *dst, uint32_t addr, uint32_t len)
+int read_block(struct sd_handle *handle, uint8_t *dst, uint32_t addr,
+	       uint32_t len)
 {
 	return xfer_data(handle, SD_OP_READ, addr, len, dst);
 }
@@ -623,8 +617,8 @@ int read_block(struct sd_handle *handle,
 /*
  * The function writes block data to a card.
  */
-int write_block(struct sd_handle *handle,
-		uint8_t *src, uint32_t addr, uint32_t len)
+int write_block(struct sd_handle *handle, uint8_t *src, uint32_t addr,
+		uint32_t len)
 {
 	int rel = SD_OK;
 
@@ -639,12 +633,11 @@ int write_block(struct sd_handle *handle,
 
 	rel = xfer_data(handle, SD_OP_WRITE, addr, len, src);
 
-	EMMC_TRACE("wr_blk addr:0x%08X src:0x%08X len:0x%08X result:%d\n",
-		   addr, src, len, rel);
+	EMMC_TRACE("wr_blk addr:0x%08X src:0x%08X len:0x%08X result:%d\n", addr,
+		   src, len, rel);
 
 	return rel;
 }
-
 
 /*
  * The function is called to write one block data directly to
@@ -663,10 +656,9 @@ int write_buffer(struct sd_handle *handle, uint32_t length, uint8_t *data)
 		return SD_OK;
 
 	while (rem > 0) {
-
 		event = wait_for_event(handle,
 				       SD4_EMMC_TOP_INTR_BWRDY_MASK |
-				       SD_ERR_INTERRUPTS,
+					       SD_ERR_INTERRUPTS,
 				       handle->device->cfg.wfe_retry);
 
 		if (handle->device->ctrl.cmdStatus) {
@@ -675,11 +667,11 @@ int write_buffer(struct sd_handle *handle, uint32_t length, uint8_t *data)
 		}
 
 		if (rem >= blockSize)
-			chal_sd_write_buffer((CHAL_HANDLE *) handle->device,
+			chal_sd_write_buffer((CHAL_HANDLE *)handle->device,
 					     blockSize, pData);
 		else
-			chal_sd_write_buffer((CHAL_HANDLE *) handle->device,
-					     rem, pData);
+			chal_sd_write_buffer((CHAL_HANDLE *)handle->device, rem,
+					     pData);
 
 		if (rem > blockSize) {
 			rem -= blockSize;
@@ -694,7 +686,7 @@ int write_buffer(struct sd_handle *handle, uint32_t length, uint8_t *data)
 	    SD4_EMMC_TOP_INTR_TXDONE_MASK) {
 		event = wait_for_event(handle,
 				       SD4_EMMC_TOP_INTR_TXDONE_MASK |
-				       SD_ERR_INTERRUPTS,
+					       SD_ERR_INTERRUPTS,
 				       handle->device->cfg.wfe_retry);
 
 		if (handle->device->ctrl.cmdStatus != SD_OK) {
@@ -702,13 +694,13 @@ int write_buffer(struct sd_handle *handle, uint32_t length, uint8_t *data)
 			return SD_WRITE_ERROR;
 		}
 	} else {
-		handle->device->ctrl.eventList &= ~SD4_EMMC_TOP_INTR_TXDONE_MASK;
+		handle->device->ctrl.eventList &=
+			~SD4_EMMC_TOP_INTR_TXDONE_MASK;
 	}
 
 	return SD_OK;
 }
 #endif /* INCLUDE_EMMC_DRIVER_WRITE_CODE */
-
 
 /*
  * The function is called to read maximal one block data
@@ -729,7 +721,7 @@ int read_buffer(struct sd_handle *handle, uint32_t length, uint8_t *data)
 	while (rem > 0) {
 		event = wait_for_event(handle,
 				       SD4_EMMC_TOP_INTR_BRRDY_MASK |
-				       SD_ERR_INTERRUPTS,
+					       SD_ERR_INTERRUPTS,
 				       handle->device->cfg.wfe_retry);
 
 		if (handle->device->ctrl.cmdStatus) {
@@ -738,10 +730,10 @@ int read_buffer(struct sd_handle *handle, uint32_t length, uint8_t *data)
 		}
 
 		if (rem >= blockSize)
-			chal_sd_read_buffer((CHAL_HANDLE *) handle->device,
+			chal_sd_read_buffer((CHAL_HANDLE *)handle->device,
 					    blockSize, pData);
 		else
-			chal_sd_read_buffer((CHAL_HANDLE *) handle->device, rem,
+			chal_sd_read_buffer((CHAL_HANDLE *)handle->device, rem,
 					    pData);
 
 		if (rem > blockSize) {
@@ -754,7 +746,7 @@ int read_buffer(struct sd_handle *handle, uint32_t length, uint8_t *data)
 	}
 
 	/* In case, there are extra data in the SD FIFO, just dump them. */
-	chal_sd_dump_fifo((CHAL_HANDLE *) handle->device);
+	chal_sd_dump_fifo((CHAL_HANDLE *)handle->device);
 
 	if ((event & SD4_EMMC_TOP_INTR_TXDONE_MASK) !=
 	    SD4_EMMC_TOP_INTR_TXDONE_MASK) {
@@ -766,12 +758,12 @@ int read_buffer(struct sd_handle *handle, uint32_t length, uint8_t *data)
 			return SD_READ_ERROR;
 		}
 	} else {
-		handle->device->ctrl.eventList &= ~SD4_EMMC_TOP_INTR_TXDONE_MASK;
+		handle->device->ctrl.eventList &=
+			~SD4_EMMC_TOP_INTR_TXDONE_MASK;
 	}
 
 	return SD_OK;
 }
-
 
 /*
  * Error handling routine.
@@ -782,32 +774,31 @@ int check_error(struct sd_handle *handle, uint32_t ints)
 {
 	uint32_t rel;
 
-	chal_sd_set_irq_signal((CHAL_HANDLE *) handle->device,
-			       SD_ERR_INTERRUPTS, 0);
+	chal_sd_set_irq_signal((CHAL_HANDLE *)handle->device, SD_ERR_INTERRUPTS,
+			       0);
 
 	if (ints & SD4_EMMC_TOP_INTR_CMDERROR_MASK) {
-
-		chal_sd_reset_line((CHAL_HANDLE *) handle->device,
+		chal_sd_reset_line((CHAL_HANDLE *)handle->device,
 				   SD4_EMMC_TOP_CTRL1_CMDRST_MASK);
 		rel = abort_err(handle);
 
-		chal_sd_reset_line((CHAL_HANDLE *) handle->device,
+		chal_sd_reset_line((CHAL_HANDLE *)handle->device,
 				   SD4_EMMC_TOP_CTRL1_DATRST_MASK);
-		chal_sd_set_irq_signal((CHAL_HANDLE *) handle->device,
+		chal_sd_set_irq_signal((CHAL_HANDLE *)handle->device,
 				       SD_ERR_INTERRUPTS, 1);
 
 		return (rel == SD_ERROR_NON_RECOVERABLE) ?
-				SD_ERROR_NON_RECOVERABLE : SD_ERROR_RECOVERABLE;
+			       SD_ERROR_NON_RECOVERABLE :
+			       SD_ERROR_RECOVERABLE;
 	} else {
 		rel = err_recovery(handle, ints);
 	}
 
-	chal_sd_set_irq_signal((CHAL_HANDLE *) handle->device,
-			       SD_ERR_INTERRUPTS, 1);
+	chal_sd_set_irq_signal((CHAL_HANDLE *)handle->device, SD_ERR_INTERRUPTS,
+			       1);
 
 	return rel;
 }
-
 
 /*
  * Error recovery routine.
@@ -824,11 +815,11 @@ static int err_recovery(struct sd_handle *handle, uint32_t errors)
 	 */
 
 	if (errors & SD_CMD_ERROR_INT)
-		chal_sd_reset_line((CHAL_HANDLE *) handle->device,
+		chal_sd_reset_line((CHAL_HANDLE *)handle->device,
 				   SD4_EMMC_TOP_CTRL1_CMDRST_MASK);
 
 	if (errors & SD_DAT_ERROR_INT)
-		chal_sd_reset_line((CHAL_HANDLE *) handle->device,
+		chal_sd_reset_line((CHAL_HANDLE *)handle->device,
 				   SD4_EMMC_TOP_CTRL1_DATRST_MASK);
 
 	/* Abort transaction by sending out stop command */
@@ -839,16 +830,13 @@ static int err_recovery(struct sd_handle *handle, uint32_t errors)
 	return rel;
 }
 
-
 /*
  * The function is called to read one block data directly from a card.
  * It is used in Non-DMA mode for card data transmission.
  */
-int process_cmd_response(struct sd_handle *handle,
-			 uint32_t cmdIndex,
-			 uint32_t rsp0,
-			 uint32_t rsp1,
-			 uint32_t rsp2, uint32_t rsp3, struct sd_resp *resp)
+int process_cmd_response(struct sd_handle *handle, uint32_t cmdIndex,
+			 uint32_t rsp0, uint32_t rsp1, uint32_t rsp2,
+			 uint32_t rsp3, struct sd_resp *resp)
 {
 	int result = SD_OK;
 
@@ -898,8 +886,7 @@ int process_cmd_response(struct sd_handle *handle,
 	    cmdIndex == SD_CMD_SEND_OPCOND)
 		resp->data.r3.ocr = cardStatus;
 
-	if (cmdIndex == SD_CMD_SEND_CSD ||
-	    cmdIndex == SD_CMD_SEND_CID ||
+	if (cmdIndex == SD_CMD_SEND_CSD || cmdIndex == SD_CMD_SEND_CID ||
 	    cmdIndex == SD_CMD_ALL_SEND_CID) {
 		resp->data.r2.rsp4 = rsp3;
 		resp->data.r2.rsp3 = rsp2;
@@ -917,7 +904,6 @@ int process_cmd_response(struct sd_handle *handle,
 	return result;
 }
 
-
 /*
  * The function sets DMA buffer and data length, process
  * block size and the number of blocks to be transferred.
@@ -930,7 +916,6 @@ void data_xfer_setup(struct sd_handle *handle, uint8_t *data, uint32_t length,
 {
 	chal_sd_setup_xfer((CHAL_HANDLE *)handle->device, data, length, dir);
 }
-
 
 /*
  * The function does soft reset the host SD controller. After
@@ -949,12 +934,12 @@ int reset_host_ctrl(struct sd_handle *handle)
 
 static void pstate_log(struct sd_handle *handle)
 {
-	ERROR("PSTATE: 0x%x\n", mmio_read_32
-		(handle->device->ctrl.sdRegBaseAddr +
-			SD4_EMMC_TOP_PSTATE_SD4_OFFSET));
-	ERROR("ERRSTAT: 0x%x\n", mmio_read_32
-		(handle->device->ctrl.sdRegBaseAddr +
-			SD4_EMMC_TOP_ERRSTAT_OFFSET));
+	ERROR("PSTATE: 0x%x\n",
+	      mmio_read_32(handle->device->ctrl.sdRegBaseAddr +
+			   SD4_EMMC_TOP_PSTATE_SD4_OFFSET));
+	ERROR("ERRSTAT: 0x%x\n",
+	      mmio_read_32(handle->device->ctrl.sdRegBaseAddr +
+			   SD4_EMMC_TOP_ERRSTAT_OFFSET));
 }
 
 /*
@@ -966,14 +951,13 @@ static void pstate_log(struct sd_handle *handle)
  * this function should be called after the interrupt
  * is received by ISR routine.
  */
-uint32_t wait_for_event(struct sd_handle *handle,
-			uint32_t mask, uint32_t retry)
+uint32_t wait_for_event(struct sd_handle *handle, uint32_t mask, uint32_t retry)
 {
 	uint32_t regval, cmd12, time = 0;
 
-	handle->device->ctrl.cmdStatus = 0;	/* no error */
-	EMMC_TRACE("%s %d mask:0x%x timeout:%d irq_status:0x%x\n",
-		   __func__, __LINE__, mask, retry,
+	handle->device->ctrl.cmdStatus = 0; /* no error */
+	EMMC_TRACE("%s %d mask:0x%x timeout:%d irq_status:0x%x\n", __func__,
+		   __LINE__, mask, retry,
 		   chal_sd_get_irq_status((CHAL_HANDLE *)handle->device));
 
 	/* Polling mode */
@@ -981,10 +965,10 @@ uint32_t wait_for_event(struct sd_handle *handle,
 		regval = chal_sd_get_irq_status((CHAL_HANDLE *)handle->device);
 
 		if (regval & SD4_EMMC_TOP_INTR_DMAIRQ_MASK) {
-			chal_sd_set_dma_addr((CHAL_HANDLE *)handle->device,
-					(uintptr_t)
-				chal_sd_get_dma_addr((CHAL_HANDLE *)
-						handle->device));
+			chal_sd_set_dma_addr(
+				(CHAL_HANDLE *)handle->device,
+				(uintptr_t)chal_sd_get_dma_addr(
+					(CHAL_HANDLE *)handle->device));
 			chal_sd_clear_irq((CHAL_HANDLE *)handle->device,
 					  SD4_EMMC_TOP_INTR_DMAIRQ_MASK);
 		}
@@ -1003,7 +987,7 @@ uint32_t wait_for_event(struct sd_handle *handle,
 			ERROR("EMMC: Cmd%d timeout INT[0x%x]\n",
 			      handle->device->ctrl.cmdIndex, regval);
 			handle->device->ctrl.cmdStatus =
-			    SD4_EMMC_TOP_INTR_CTOERR_MASK;
+				SD4_EMMC_TOP_INTR_CTOERR_MASK;
 			pstate_log(handle);
 			break;
 		}
@@ -1028,7 +1012,7 @@ uint32_t wait_for_event(struct sd_handle *handle,
 			ERROR("EMMC: Data for cmd%d error, INT[0x%x]\n",
 			      handle->device->ctrl.cmdIndex, regval);
 			handle->device->ctrl.cmdStatus =
-			    (SD_DATA_ERROR_FLAGS & regval);
+				(SD_DATA_ERROR_FLAGS & regval);
 			pstate_log(handle);
 			break;
 		}
@@ -1045,8 +1029,8 @@ uint32_t wait_for_event(struct sd_handle *handle,
 }
 
 int32_t set_config(struct sd_handle *handle, uint32_t speed, uint32_t retry,
-		    uint32_t dma, uint32_t dmaBound, uint32_t blkSize,
-		    uint32_t wfe_retry)
+		   uint32_t dma, uint32_t dmaBound, uint32_t blkSize,
+		   uint32_t wfe_retry)
 {
 	int32_t rel = 0;
 
@@ -1058,7 +1042,6 @@ int32_t set_config(struct sd_handle *handle, uint32_t speed, uint32_t retry,
 	rel = chal_sd_config((CHAL_HANDLE *)handle->device, speed, retry,
 			     dmaBound, blkSize, dma);
 	return rel;
-
 }
 
 int mmc_cmd1(struct sd_handle *handle)
@@ -1070,7 +1053,7 @@ int mmc_cmd1(struct sd_handle *handle)
 	 * After Reset, eMMC comes up in 1 Bit Data Width by default.
 	 * Set host side to match.
 	 */
-	chal_sd_config_bus_width((CHAL_HANDLE *) handle->device,
+	chal_sd_config_bus_width((CHAL_HANDLE *)handle->device,
 				 SD_BUS_DATA_WIDTH_1BIT);
 
 #ifdef USE_EMMC_FIP_TOC_CACHE

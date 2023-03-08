@@ -1,18 +1,17 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <common/debug.h>
 #include <lib/mmio.h>
-
 #include <sunxi_ccu.h>
 #include <sunxi_mmap.h>
 #include <sunxi_private.h>
 #include <sunxi_spc.h>
 
-#define DMA_SEC_REG		0x20
+#define DMA_SEC_REG 0x20
 
 /*
  * Setup the peripherals to be accessible by non-secure world.

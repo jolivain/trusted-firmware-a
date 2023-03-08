@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -13,10 +13,11 @@
 #include <common/debug.h>
 #include <lib/extensions/ras.h>
 #include <lib/extensions/ras_arch.h>
+
 #include <plat/common/platform.h>
 
 #ifndef PLAT_RAS_PRI
-# error Platform must define RAS priority value
+#error Platform must define RAS priority value
 #endif
 
 /*
@@ -62,7 +63,7 @@ const char *ras_serr_to_str(unsigned int serr)
 
 /* Handler that receives External Aborts on RAS-capable systems */
 int ras_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *cookie,
-		void *handle, uint64_t flags)
+		   void *handle, uint64_t flags)
 {
 	unsigned int i, n_handled = 0;
 	int probe_data, ret;
@@ -72,7 +73,7 @@ int ras_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *cookie,
 		.version = ERR_HANDLER_VERSION,
 		.ea_reason = ea_reason,
 		.interrupt = 0,
-		.syndrome = (uint32_t) syndrome,
+		.syndrome = (uint32_t)syndrome,
 		.flags = flags,
 		.cookie = cookie,
 		.handle = handle
@@ -121,20 +122,19 @@ static void assert_interrupts_sorted(void)
  * no handler was found for the interrupt number, this function panics.
  */
 static int ras_interrupt_handler(uint32_t intr_raw, uint32_t flags,
-		void *handle, void *cookie)
+				 void *handle, void *cookie)
 {
 	struct ras_interrupt *ras_inrs = ras_interrupt_mappings.intrs;
 	struct ras_interrupt *selected = NULL;
 	int probe_data = 0;
 	int start, end, mid, ret __unused;
 
-	const struct err_handler_data err_data = {
-		.version = ERR_HANDLER_VERSION,
-		.interrupt = intr_raw,
-		.flags = flags,
-		.cookie = cookie,
-		.handle = handle
-	};
+	const struct err_handler_data err_data = { .version =
+							   ERR_HANDLER_VERSION,
+						   .interrupt = intr_raw,
+						   .flags = flags,
+						   .cookie = cookie,
+						   .handle = handle };
 
 	assert(ras_interrupt_mappings.num_intrs > 0UL);
 
@@ -160,14 +160,15 @@ static int ras_interrupt_handler(uint32_t intr_raw, uint32_t flags,
 	}
 
 	if (selected->err_record->probe != NULL) {
-		ret = selected->err_record->probe(selected->err_record, &probe_data);
+		ret = selected->err_record->probe(selected->err_record,
+						  &probe_data);
 		assert(ret != 0);
 	}
 
 	/* Call error handler for the record group */
 	assert(selected->err_record->handler != NULL);
-	(void) selected->err_record->handler(selected->err_record, probe_data,
-			&err_data);
+	(void)selected->err_record->handler(selected->err_record, probe_data,
+					    &err_data);
 
 	return 0;
 }

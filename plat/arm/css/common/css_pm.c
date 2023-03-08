@@ -1,23 +1,21 @@
 /*
- * Copyright (c) 2015-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <bl31/interrupt_mgmt.h>
 #include <common/debug.h>
 #include <drivers/arm/css/css_scp.h>
 #include <lib/cassert.h>
+
 #include <plat/arm/common/plat_arm.h>
-
-#include <plat/common/platform.h>
-
 #include <plat/arm/css/common/css_pm.h>
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 /* Allow CSS platforms to override `plat_arm_psci_pm_ops` */
 #pragma weak plat_arm_psci_pm_ops
@@ -32,17 +30,21 @@
 const unsigned int arm_pm_idle_states[] = {
 	/* State-id - 0x001 */
 	arm_make_pwrstate_lvl2(ARM_LOCAL_STATE_RUN, ARM_LOCAL_STATE_RUN,
-		ARM_LOCAL_STATE_RET, ARM_PWR_LVL0, PSTATE_TYPE_STANDBY),
+			       ARM_LOCAL_STATE_RET, ARM_PWR_LVL0,
+			       PSTATE_TYPE_STANDBY),
 	/* State-id - 0x002 */
 	arm_make_pwrstate_lvl2(ARM_LOCAL_STATE_RUN, ARM_LOCAL_STATE_RUN,
-		ARM_LOCAL_STATE_OFF, ARM_PWR_LVL0, PSTATE_TYPE_POWERDOWN),
+			       ARM_LOCAL_STATE_OFF, ARM_PWR_LVL0,
+			       PSTATE_TYPE_POWERDOWN),
 	/* State-id - 0x022 */
 	arm_make_pwrstate_lvl2(ARM_LOCAL_STATE_RUN, ARM_LOCAL_STATE_OFF,
-		ARM_LOCAL_STATE_OFF, ARM_PWR_LVL1, PSTATE_TYPE_POWERDOWN),
+			       ARM_LOCAL_STATE_OFF, ARM_PWR_LVL1,
+			       PSTATE_TYPE_POWERDOWN),
 #if PLAT_MAX_PWR_LVL > ARM_PWR_LVL1
 	/* State-id - 0x222 */
 	arm_make_pwrstate_lvl2(ARM_LOCAL_STATE_OFF, ARM_LOCAL_STATE_OFF,
-		ARM_LOCAL_STATE_OFF, ARM_PWR_LVL2, PSTATE_TYPE_POWERDOWN),
+			       ARM_LOCAL_STATE_OFF, ARM_PWR_LVL2,
+			       PSTATE_TYPE_POWERDOWN),
 #endif
 	0,
 };
@@ -53,14 +55,14 @@ const unsigned int arm_pm_idle_states[] = {
  * level is supported.
  */
 CASSERT(PLAT_MAX_PWR_LVL >= ARM_PWR_LVL1,
-		assert_max_pwr_lvl_supported_mismatch);
+	assert_max_pwr_lvl_supported_mismatch);
 
 /*
  * Ensure that the PLAT_MAX_PWR_LVL is not greater than CSS_SYSTEM_PWR_DMN_LVL
  * assumed by the CSS layer.
  */
 CASSERT(PLAT_MAX_PWR_LVL <= CSS_SYSTEM_PWR_DMN_LVL,
-		assert_max_pwr_lvl_higher_than_css_sys_lvl);
+	assert_max_pwr_lvl_higher_than_css_sys_lvl);
 
 /*******************************************************************************
  * Handler called when a power domain is about to be turned on. The
@@ -73,8 +75,8 @@ int css_pwr_domain_on(u_register_t mpidr)
 	return PSCI_E_SUCCESS;
 }
 
-static void css_pwr_domain_on_finisher_common(
-		const psci_power_state_t *target_state)
+static void
+css_pwr_domain_on_finisher_common(const psci_power_state_t *target_state)
 {
 	assert(CSS_CORE_PWR_STATE(target_state) == ARM_LOCAL_STATE_OFF);
 
@@ -179,7 +181,6 @@ void css_pwr_domain_suspend(const psci_power_state_t *target_state)
 	if (CSS_CORE_PWR_STATE(target_state) == ARM_LOCAL_STATE_RET)
 		return;
 
-
 	assert(CSS_CORE_PWR_STATE(target_state) == ARM_LOCAL_STATE_OFF);
 	css_power_down_common(target_state);
 
@@ -201,8 +202,7 @@ void css_pwr_domain_suspend(const psci_power_state_t *target_state)
  * TODO: At the moment we reuse the on finisher and reinitialize the secure
  * context. Need to implement a separate suspend finisher.
  ******************************************************************************/
-void css_pwr_domain_suspend_finish(
-				const psci_power_state_t *target_state)
+void css_pwr_domain_suspend_finish(const psci_power_state_t *target_state)
 {
 	/* Return as nothing is to be done on waking up from retention. */
 	if (CSS_CORE_PWR_STATE(target_state) == ARM_LOCAL_STATE_RET)
@@ -296,7 +296,7 @@ int css_node_hw_state(u_register_t mpidr, unsigned int power_level)
  * will be downgraded to the lower level.
  */
 static int css_validate_power_state(unsigned int power_state,
-			    psci_power_state_t *req_state)
+				    psci_power_state_t *req_state)
 {
 	int rc;
 	rc = arm_validate_power_state(power_state, req_state);
@@ -316,7 +316,7 @@ static int css_validate_power_state(unsigned int power_state,
 	 */
 
 	req_state->pwr_domain_state[CSS_SYSTEM_PWR_DMN_LVL] =
-							ARM_LOCAL_STATE_RUN;
+		ARM_LOCAL_STATE_RUN;
 #endif
 
 	return rc;
@@ -329,8 +329,8 @@ static int css_validate_power_state(unsigned int power_state,
  * PSCI_STAT_COUNT/RESIDENCY at the system power domain level.
  */
 static int css_translate_power_state_by_mpidr(u_register_t mpidr,
-		unsigned int power_state,
-		psci_power_state_t *output_state)
+					      unsigned int power_state,
+					      psci_power_state_t *output_state)
 {
 	return arm_validate_power_state(power_state, output_state);
 }
@@ -345,7 +345,7 @@ void css_setup_cpu_pwr_down_intr(void)
 #if CSS_SYSTEM_GRACEFUL_RESET
 	plat_ic_set_interrupt_type(CSS_CPU_PWR_DOWN_REQ_INTR, INTR_TYPE_EL3);
 	plat_ic_set_interrupt_priority(CSS_CPU_PWR_DOWN_REQ_INTR,
-			PLAT_REBOOT_PRI);
+				       PLAT_REBOOT_PRI);
 	plat_ic_enable_interrupt(CSS_CPU_PWR_DOWN_REQ_INTR);
 #endif
 }
@@ -359,7 +359,7 @@ void css_setup_cpu_pwr_down_intr(void)
  * rest of the CPU execute the powerdown sequence.
  */
 int css_reboot_interrupt_handler(uint32_t intr_raw, uint32_t flags,
-		void *handle, void *cookie)
+				 void *handle, void *cookie)
 {
 	assert(intr_raw == CSS_CPU_PWR_DOWN_REQ_INTR);
 
@@ -386,27 +386,27 @@ int css_reboot_interrupt_handler(uint32_t intr_raw, uint32_t flags,
  * platform will take care of registering the handlers with PSCI.
  ******************************************************************************/
 plat_psci_ops_t plat_arm_psci_pm_ops = {
-	.pwr_domain_on		= css_pwr_domain_on,
-	.pwr_domain_on_finish	= css_pwr_domain_on_finish,
+	.pwr_domain_on = css_pwr_domain_on,
+	.pwr_domain_on_finish = css_pwr_domain_on_finish,
 	.pwr_domain_on_finish_late = css_pwr_domain_on_finish_late,
-	.pwr_domain_off		= css_pwr_domain_off,
-	.cpu_standby		= css_cpu_standby,
-	.pwr_domain_suspend	= css_pwr_domain_suspend,
-	.pwr_domain_suspend_finish	= css_pwr_domain_suspend_finish,
-	.system_off		= css_system_off,
-	.system_reset		= css_system_reset,
-	.validate_power_state	= css_validate_power_state,
+	.pwr_domain_off = css_pwr_domain_off,
+	.cpu_standby = css_cpu_standby,
+	.pwr_domain_suspend = css_pwr_domain_suspend,
+	.pwr_domain_suspend_finish = css_pwr_domain_suspend_finish,
+	.system_off = css_system_off,
+	.system_reset = css_system_reset,
+	.validate_power_state = css_validate_power_state,
 	.validate_ns_entrypoint = arm_validate_psci_entrypoint,
 	.translate_power_state_by_mpidr = css_translate_power_state_by_mpidr,
-	.get_node_hw_state	= css_node_hw_state,
+	.get_node_hw_state = css_node_hw_state,
 	.get_sys_suspend_power_state = css_get_sys_suspend_power_state,
 
 #if defined(PLAT_ARM_MEM_PROT_ADDR)
-	.mem_protect_chk	= arm_psci_mem_protect_chk,
-	.read_mem_protect	= arm_psci_read_mem_protect,
-	.write_mem_protect	= arm_nor_psci_write_mem_protect,
+	.mem_protect_chk = arm_psci_mem_protect_chk,
+	.read_mem_protect = arm_psci_read_mem_protect,
+	.write_mem_protect = arm_nor_psci_write_mem_protect,
 #endif
 #if CSS_USE_SCMI_SDS_DRIVER
-	.system_reset2		= css_system_reset2,
+	.system_reset2 = css_system_reset2,
 #endif
 };

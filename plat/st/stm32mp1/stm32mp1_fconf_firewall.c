@@ -14,14 +14,14 @@
 #include <lib/fconf/fconf.h>
 #include <lib/object_pool.h>
 #include <libfdt.h>
+#include <stm32mp_fconf_getter.h>
 #include <tools_share/firmware_image_package.h>
 
 #include <platform_def.h>
-#include <stm32mp_fconf_getter.h>
 
-#define STM32MP_REGION_PARAMS	4
-#define STM32MP_MAX_REGIONS	8
-#define FORCE_SEC_REGION	BIT(31)
+#define STM32MP_REGION_PARAMS 4
+#define STM32MP_MAX_REGIONS 8
+#define FORCE_SEC_REGION BIT(31)
 
 static uint32_t nb_regions;
 
@@ -87,18 +87,23 @@ static int fconf_populate_stm32mp1_firewall(uintptr_t config)
 
 	node = fdt_node_offset_by_compatible(dtb, -1, compatible_str);
 	if (node < 0) {
-		ERROR("FCONF: Can't find %s compatible in dtb\n", compatible_str);
+		ERROR("FCONF: Can't find %s compatible in dtb\n",
+		      compatible_str);
 		return node;
 	}
 
-	conf_list = (const struct dt_id_attr *)fdt_getprop(dtb, node, "memory-ranges", &len);
+	conf_list = (const struct dt_id_attr *)fdt_getprop(
+		dtb, node, "memory-ranges", &len);
 	if (conf_list == NULL) {
 		WARN("FCONF: Read cell failed for %s\n", "memory-ranges");
 		return -1;
 	}
 
 	/* Locate the memory cells and read all values */
-	for (i = 0U; i < (unsigned int)(len / (sizeof(uint32_t) * STM32MP_REGION_PARAMS)); i++) {
+	for (i = 0U;
+	     i <
+	     (unsigned int)(len / (sizeof(uint32_t) * STM32MP_REGION_PARAMS));
+	     i++) {
 		uint32_t idx = i * STM32MP_REGION_PARAMS;
 		uint32_t base;
 		uint32_t size;
@@ -116,8 +121,10 @@ static int fconf_populate_stm32mp1_firewall(uintptr_t config)
 		nb_regions++;
 
 		/* Configure region but keep disabled for secure access for BL2 load */
-		tzc400_configure_region(0U, nb_regions, (unsigned long long)base,
-					(unsigned long long)base + size - 1ULL, sec_attr, nsaid);
+		tzc400_configure_region(0U, nb_regions,
+					(unsigned long long)base,
+					(unsigned long long)base + size - 1ULL,
+					sec_attr, nsaid);
 	}
 
 	/* Force flush as the value will be used cache off */
@@ -126,4 +133,5 @@ static int fconf_populate_stm32mp1_firewall(uintptr_t config)
 	return 0;
 }
 
-FCONF_REGISTER_POPULATOR(FW_CONFIG, stm32mp1_firewall, fconf_populate_stm32mp1_firewall);
+FCONF_REGISTER_POPULATOR(FW_CONFIG, stm32mp1_firewall,
+			 fconf_populate_stm32mp1_firewall);

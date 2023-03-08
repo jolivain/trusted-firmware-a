@@ -15,8 +15,8 @@
 #include <lib/mmio.h>
 #include <lib/utils.h>
 #include <libfdt.h>
-#include <plat/common/platform.h>
 
+#include <plat/common/platform.h>
 #include <platform_def.h>
 
 /*
@@ -26,94 +26,94 @@
  *  _nbw are in number of PKA_word (PKA_word = u64)
  */
 
-#define UINT8_LEN			8U
-#define UINT64_LEN			(UINT8_LEN * sizeof(uint64_t))
-#define WORD_SIZE			(sizeof(uint64_t))
-#define OP_NBW_FROM_LEN(len)		(DIV_ROUND_UP_2EVAL((len), UINT64_LEN) + 1)
-#define OP_NBW_FROM_SIZE(s)		OP_NBW_FROM_LEN((s) * UINT8_LEN)
-#define OP_SIZE_FROM_SIZE(s)		(OP_NBW_FROM_SIZE(s) * WORD_SIZE)
+#define UINT8_LEN 8U
+#define UINT64_LEN (UINT8_LEN * sizeof(uint64_t))
+#define WORD_SIZE (sizeof(uint64_t))
+#define OP_NBW_FROM_LEN(len) (DIV_ROUND_UP_2EVAL((len), UINT64_LEN) + 1)
+#define OP_NBW_FROM_SIZE(s) OP_NBW_FROM_LEN((s)*UINT8_LEN)
+#define OP_SIZE_FROM_SIZE(s) (OP_NBW_FROM_SIZE(s) * WORD_SIZE)
 
-#define DT_PKA_COMPAT			"st,stm32-pka64"
+#define DT_PKA_COMPAT "st,stm32-pka64"
 
-#define MAX_ECC_SIZE_LEN		640U
-#define MAX_EO_NBW			OP_NBW_FROM_LEN(MAX_ECC_SIZE_LEN)
+#define MAX_ECC_SIZE_LEN 640U
+#define MAX_EO_NBW OP_NBW_FROM_LEN(MAX_ECC_SIZE_LEN)
 
 /* PKA registers */
 /* PKA control register */
-#define _PKA_CR				0x0U
+#define _PKA_CR 0x0U
 /* PKA status register */
-#define _PKA_SR				0x4U
+#define _PKA_SR 0x4U
 /* PKA clear flag register */
-#define _PKA_CLRFR			0x8U
+#define _PKA_CLRFR 0x8U
 /* PKA version register */
-#define _PKA_VERR			0x1FF4U
+#define _PKA_VERR 0x1FF4U
 /* PKA identification register */
-#define _PKA_IPIDR			0x1FF8U
+#define _PKA_IPIDR 0x1FF8U
 
 /* PKA control register fields */
-#define _PKA_CR_MODE_MASK		GENMASK(13, 8)
-#define _PKA_CR_MODE_SHIFT		8U
-#define _PKA_CR_MODE_ADD		0x9U
-#define _PKA_CR_MODE_ECDSA_VERIF	0x26U
-#define _PKA_CR_START			BIT(1)
-#define _PKA_CR_EN			BIT(0)
+#define _PKA_CR_MODE_MASK GENMASK(13, 8)
+#define _PKA_CR_MODE_SHIFT 8U
+#define _PKA_CR_MODE_ADD 0x9U
+#define _PKA_CR_MODE_ECDSA_VERIF 0x26U
+#define _PKA_CR_START BIT(1)
+#define _PKA_CR_EN BIT(0)
 
 /* PKA status register fields */
-#define _PKA_SR_BUSY			BIT(16)
-#define _PKA_SR_LMF			BIT(1)
-#define _PKA_SR_INITOK			BIT(0)
+#define _PKA_SR_BUSY BIT(16)
+#define _PKA_SR_LMF BIT(1)
+#define _PKA_SR_INITOK BIT(0)
 
 /* PKA it flag fields (used in CR, SR and CLRFR) */
-#define _PKA_IT_MASK			(GENMASK(21, 19) | BIT(17))
-#define _PKA_IT_SHIFT			17U
-#define _PKA_IT_OPERR			BIT(21)
-#define _PKA_IT_ADDRERR			BIT(20)
-#define _PKA_IT_RAMERR			BIT(19)
-#define _PKA_IT_PROCEND			BIT(17)
+#define _PKA_IT_MASK (GENMASK(21, 19) | BIT(17))
+#define _PKA_IT_SHIFT 17U
+#define _PKA_IT_OPERR BIT(21)
+#define _PKA_IT_ADDRERR BIT(20)
+#define _PKA_IT_RAMERR BIT(19)
+#define _PKA_IT_PROCEND BIT(17)
 
 /* PKA version register fields */
-#define _PKA_VERR_MAJREV_MASK		GENMASK(7, 4)
-#define _PKA_VERR_MAJREV_SHIFT		4U
-#define _PKA_VERR_MINREV_MASK		GENMASK(3, 0)
-#define _PKA_VERR_MINREV_SHIFT		0U
+#define _PKA_VERR_MAJREV_MASK GENMASK(7, 4)
+#define _PKA_VERR_MAJREV_SHIFT 4U
+#define _PKA_VERR_MINREV_MASK GENMASK(3, 0)
+#define _PKA_VERR_MINREV_SHIFT 0U
 
 /* RAM magic offset */
-#define _PKA_RAM_START			0x400U
-#define _PKA_RAM_SIZE			5336U
+#define _PKA_RAM_START 0x400U
+#define _PKA_RAM_SIZE 5336U
 
 /* ECDSA verification */
-#define _PKA_RAM_N_LEN			0x408U /* 64 */
-#define _PKA_RAM_P_LEN			0x4C8U /* 64 */
-#define _PKA_RAM_A_SIGN			0x468U /* 64 */
-#define _PKA_RAM_A			0x470U /* EOS */
-#define _PKA_RAM_P			0x4D0U /* EOS */
-#define _PKA_RAM_XG			0x678U /* EOS */
-#define _PKA_RAM_YG			0x6D0U /* EOS */
-#define _PKA_RAM_XQ			0x12F8U /* EOS */
-#define _PKA_RAM_YQ			0x1350U /* EOS */
-#define _PKA_RAM_SIGN_R			0x10E0U /* EOS */
-#define _PKA_RAM_SIGN_S			0xC68U /* EOS */
-#define _PKA_RAM_HASH_Z			0x13A8U /* EOS */
-#define _PKA_RAM_PRIME_N		0x1088U /* EOS */
-#define _PKA_RAM_ECDSA_VERIFY		0x5D0U /* 64 */
-#define _PKA_RAM_ECDSA_VERIFY_VALID	0xD60DULL
-#define _PKA_RAM_ECDSA_VERIFY_INVALID	0xA3B7ULL
+#define _PKA_RAM_N_LEN 0x408U /* 64 */
+#define _PKA_RAM_P_LEN 0x4C8U /* 64 */
+#define _PKA_RAM_A_SIGN 0x468U /* 64 */
+#define _PKA_RAM_A 0x470U /* EOS */
+#define _PKA_RAM_P 0x4D0U /* EOS */
+#define _PKA_RAM_XG 0x678U /* EOS */
+#define _PKA_RAM_YG 0x6D0U /* EOS */
+#define _PKA_RAM_XQ 0x12F8U /* EOS */
+#define _PKA_RAM_YQ 0x1350U /* EOS */
+#define _PKA_RAM_SIGN_R 0x10E0U /* EOS */
+#define _PKA_RAM_SIGN_S 0xC68U /* EOS */
+#define _PKA_RAM_HASH_Z 0x13A8U /* EOS */
+#define _PKA_RAM_PRIME_N 0x1088U /* EOS */
+#define _PKA_RAM_ECDSA_VERIFY 0x5D0U /* 64 */
+#define _PKA_RAM_ECDSA_VERIFY_VALID 0xD60DULL
+#define _PKA_RAM_ECDSA_VERIFY_INVALID 0xA3B7ULL
 
-#define PKA_TIMEOUT_US			1000000U
-#define TIMEOUT_US_1MS			1000U
-#define PKA_RESET_DELAY			20U
+#define PKA_TIMEOUT_US 1000000U
+#define TIMEOUT_US_1MS 1000U
+#define PKA_RESET_DELAY 20U
 
 struct curve_parameters {
-	uint32_t a_sign;  /* 0 positive, 1 negative */
-	uint8_t *a;    /* Curve coefficient |a| */
+	uint32_t a_sign; /* 0 positive, 1 negative */
+	uint8_t *a; /* Curve coefficient |a| */
 	size_t a_size;
-	uint8_t *p;    /* Curve modulus value */
+	uint8_t *p; /* Curve modulus value */
 	uint32_t p_len;
-	uint8_t *xg;   /* Curve base point G coordinate x */
+	uint8_t *xg; /* Curve base point G coordinate x */
 	size_t xg_size;
-	uint8_t *yg;   /* Curve base point G coordinate y */
+	uint8_t *yg; /* Curve base point G coordinate y */
 	size_t yg_size;
-	uint8_t *n;    /* Curve prime order n */
+	uint8_t *n; /* Curve prime order n */
 	uint32_t n_len;
 };
 
@@ -297,7 +297,6 @@ static int pka_wait_bit(uintptr_t base, uint32_t bit)
 	}
 
 	return 0;
-
 }
 
 static void pka_disable(uintptr_t base)
@@ -363,7 +362,7 @@ static int write_eo_data(uintptr_t addr, uint8_t *data, unsigned int data_size,
 	data_index = (int)data_size - 1;
 	for (word_index = 0U; word_index < eo_nbw; word_index++) {
 		uint64_t tmp = 0ULL;
-		unsigned int i = 0U;  /* index in the tmp U64 word */
+		unsigned int i = 0U; /* index in the tmp U64 word */
 
 		/* Stop if end of tmp or end of data */
 		while ((i < sizeof(tmp)) && (data_index >= 0)) {
@@ -388,7 +387,9 @@ static unsigned int get_ecc_op_nbword(enum stm32_pka_ecdsa_curve_id cid)
 	return OP_NBW_FROM_LEN(curve_def[cid].n_len);
 }
 
-static int stm32_pka_ecdsa_verif_configure_curve(uintptr_t base, enum stm32_pka_ecdsa_curve_id cid)
+static int
+stm32_pka_ecdsa_verif_configure_curve(uintptr_t base,
+				      enum stm32_pka_ecdsa_curve_id cid)
 {
 	int ret;
 	unsigned int eo_nbw = get_ecc_op_nbword(cid);
@@ -397,30 +398,34 @@ static int stm32_pka_ecdsa_verif_configure_curve(uintptr_t base, enum stm32_pka_
 	mmio_write_64(base + _PKA_RAM_P_LEN, curve_def[cid].p_len);
 	mmio_write_64(base + _PKA_RAM_A_SIGN, curve_def[cid].a_sign);
 
-	ret = write_eo_data(base + _PKA_RAM_A, curve_def[cid].a, curve_def[cid].a_size, eo_nbw);
+	ret = write_eo_data(base + _PKA_RAM_A, curve_def[cid].a,
+			    curve_def[cid].a_size, eo_nbw);
 	if (ret < 0) {
 		return ret;
 	}
 
-	ret = write_eo_data(base + _PKA_RAM_PRIME_N,
-			    curve_def[cid].n, div_round_up(curve_def[cid].n_len, UINT8_LEN),
+	ret = write_eo_data(base + _PKA_RAM_PRIME_N, curve_def[cid].n,
+			    div_round_up(curve_def[cid].n_len, UINT8_LEN),
 			    eo_nbw);
 	if (ret < 0) {
 		return ret;
 	}
 
 	ret = write_eo_data(base + _PKA_RAM_P, curve_def[cid].p,
-			    div_round_up(curve_def[cid].p_len, UINT8_LEN), eo_nbw);
+			    div_round_up(curve_def[cid].p_len, UINT8_LEN),
+			    eo_nbw);
 	if (ret < 0) {
 		return ret;
 	}
 
-	ret = write_eo_data(base + _PKA_RAM_XG, curve_def[cid].xg, curve_def[cid].xg_size, eo_nbw);
+	ret = write_eo_data(base + _PKA_RAM_XG, curve_def[cid].xg,
+			    curve_def[cid].xg_size, eo_nbw);
 	if (ret < 0) {
 		return ret;
 	}
 
-	ret = write_eo_data(base + _PKA_RAM_YG, curve_def[cid].yg, curve_def[cid].yg_size, eo_nbw);
+	ret = write_eo_data(base + _PKA_RAM_YG, curve_def[cid].yg,
+			    curve_def[cid].yg_size, eo_nbw);
 	if (ret < 0) {
 		return ret;
 	}
@@ -486,8 +491,8 @@ static bool is_zero(uint8_t *data, unsigned int size)
  * @retval: true if data_a < data_b
  *          false if data_a >= data_b
  */
-static bool is_smaller(uint8_t *data_a, unsigned int size_a,
-		       uint8_t *data_b, unsigned int size_b)
+static bool is_smaller(uint8_t *data_a, unsigned int size_a, uint8_t *data_b,
+		       unsigned int size_b)
 {
 	unsigned int i;
 
@@ -528,31 +533,31 @@ static int stm32_pka_ecdsa_check_param(void *sig_r_ptr, unsigned int sig_r_size,
 {
 	/* Public Key check */
 	/* Check Xq < p */
-	if (!is_smaller(pk_x_ptr, pk_x_size,
-			curve_def[cid].p, div_round_up(curve_def[cid].p_len, UINT8_LEN))) {
+	if (!is_smaller(pk_x_ptr, pk_x_size, curve_def[cid].p,
+			div_round_up(curve_def[cid].p_len, UINT8_LEN))) {
 		WARN("%s Xq < p inval\n", __func__);
 		return -EINVAL;
 	}
 
 	/* Check Yq < p */
-	if (!is_smaller(pk_y_ptr, pk_y_size,
-			curve_def[cid].p, div_round_up(curve_def[cid].p_len, UINT8_LEN))) {
+	if (!is_smaller(pk_y_ptr, pk_y_size, curve_def[cid].p,
+			div_round_up(curve_def[cid].p_len, UINT8_LEN))) {
 		WARN("%s Yq < p inval\n", __func__);
 		return -EINVAL;
 	}
 
 	/* Signature check */
 	/* Check 0 < r < n */
-	if (!is_smaller(sig_r_ptr, sig_r_size,
-			curve_def[cid].n, div_round_up(curve_def[cid].n_len, UINT8_LEN)) &&
+	if (!is_smaller(sig_r_ptr, sig_r_size, curve_def[cid].n,
+			div_round_up(curve_def[cid].n_len, UINT8_LEN)) &&
 	    !is_zero(sig_r_ptr, sig_r_size)) {
 		WARN("%s 0< r < n inval\n", __func__);
 		return -EINVAL;
 	}
 
 	/* Check 0 < s < n */
-	if (!is_smaller(sig_s_ptr, sig_s_size,
-			curve_def[cid].n, div_round_up(curve_def[cid].n_len, UINT8_LEN)) &&
+	if (!is_smaller(sig_s_ptr, sig_s_size, curve_def[cid].n,
+			div_round_up(curve_def[cid].n_len, UINT8_LEN)) &&
 	    !is_zero(sig_s_ptr, sig_s_size)) {
 		WARN("%s 0< s < n inval\n", __func__);
 		return -EINVAL;
@@ -581,12 +586,14 @@ int stm32_pka_init(void)
 
 	clk_enable(pka_pdata.clock_id);
 
-	if (stm32mp_reset_assert((unsigned long)pka_pdata.reset_id, TIMEOUT_US_1MS) != 0) {
+	if (stm32mp_reset_assert((unsigned long)pka_pdata.reset_id,
+				 TIMEOUT_US_1MS) != 0) {
 		panic();
 	}
 
 	udelay(PKA_RESET_DELAY);
-	if (stm32mp_reset_deassert((unsigned long)pka_pdata.reset_id, TIMEOUT_US_1MS) != 0) {
+	if (stm32mp_reset_deassert((unsigned long)pka_pdata.reset_id,
+				   TIMEOUT_US_1MS) != 0) {
 		panic();
 	}
 
@@ -601,11 +608,11 @@ int stm32_pka_init(void)
 	return 0;
 }
 
-int stm32_pka_ecdsa_verif(void *hash, unsigned int hash_size,
-			  void *sig_r_ptr, unsigned int sig_r_size,
-			  void *sig_s_ptr, unsigned int sig_s_size,
-			  void *pk_x_ptr, unsigned int pk_x_size,
-			  void *pk_y_ptr, unsigned int pk_y_size,
+int stm32_pka_ecdsa_verif(void *hash, unsigned int hash_size, void *sig_r_ptr,
+			  unsigned int sig_r_size, void *sig_s_ptr,
+			  unsigned int sig_s_size, void *pk_x_ptr,
+			  unsigned int pk_x_size, void *pk_y_ptr,
+			  unsigned int pk_y_size,
 			  enum stm32_pka_ecdsa_curve_id cid)
 {
 	int ret;
@@ -618,11 +625,9 @@ int stm32_pka_ecdsa_verif(void *hash, unsigned int hash_size,
 		return -EINVAL;
 	}
 
-	ret = stm32_pka_ecdsa_check_param(sig_r_ptr, sig_r_size,
-					  sig_s_ptr, sig_s_size,
-					  pk_x_ptr, pk_x_size,
-					  pk_y_ptr, pk_y_size,
-					  cid);
+	ret = stm32_pka_ecdsa_check_param(sig_r_ptr, sig_r_size, sig_s_ptr,
+					  sig_s_size, pk_x_ptr, pk_x_size,
+					  pk_y_ptr, pk_y_size, cid);
 	if (ret < 0) {
 		INFO("%s check param error %d\n", __func__, ret);
 		goto out;
@@ -659,12 +664,14 @@ int stm32_pka_ecdsa_verif(void *hash, unsigned int hash_size,
 	}
 
 	/* With signature */
-	ret = write_eo_data(base + _PKA_RAM_SIGN_R, sig_r_ptr, sig_r_size, eo_nbw);
+	ret = write_eo_data(base + _PKA_RAM_SIGN_R, sig_r_ptr, sig_r_size,
+			    eo_nbw);
 	if (ret < 0) {
 		goto out;
 	}
 
-	ret = write_eo_data(base + _PKA_RAM_SIGN_S, sig_s_ptr, sig_s_size, eo_nbw);
+	ret = write_eo_data(base + _PKA_RAM_SIGN_S, sig_s_ptr, sig_s_size,
+			    eo_nbw);
 	if (ret < 0) {
 		goto out;
 	}

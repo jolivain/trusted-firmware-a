@@ -5,6 +5,7 @@
  */
 
 #include <assert.h>
+
 #include <arch.h>
 #include <arch_helpers.h>
 #include <common/bl_common.h>
@@ -24,8 +25,8 @@ entry_point_info_t *bl31_plat_get_next_image_ep_info(uint32_t type)
 {
 	entry_point_info_t *next_image_info;
 
-	next_image_info = (type == NON_SECURE) ?
-			  &bl33_image_ep_info : &bl32_image_ep_info;
+	next_image_info = (type == NON_SECURE) ? &bl33_image_ep_info :
+						 &bl32_image_ep_info;
 
 	/* None of the images on this platform can have 0x0 as the entrypoint */
 	if (next_image_info->pc) {
@@ -43,11 +44,11 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	mmio_write_64(PLAT_SEC_ENTRY, 0);
 
 	console_16550_register(PLAT_INTEL_UART_BASE, PLAT_UART_CLOCK,
-		PLAT_BAUDRATE, &console);
+			       PLAT_BAUDRATE, &console);
 	/*
 	 * Check params passed from BL31 should not be NULL,
 	 */
-	void *from_bl2 = (void *) arg0;
+	void *from_bl2 = (void *)arg0;
 
 	bl_params_t *params_from_bl2 = (bl_params_t *)from_bl2;
 
@@ -59,8 +60,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	 */
 
 	if (params_from_bl2->h.type == PARAM_BL_PARAMS &&
-		params_from_bl2->h.version >= VERSION_2) {
-
+	    params_from_bl2->h.version >= VERSION_2) {
 		bl_params_node_t *bl_params = params_from_bl2->head;
 
 		while (bl_params != NULL) {
@@ -71,7 +71,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 		}
 	} else {
 		struct socfpga_bl31_params *arg_from_bl2 =
-			(struct socfpga_bl31_params *) from_bl2;
+			(struct socfpga_bl31_params *)from_bl2;
 
 		assert(arg_from_bl2->h.type == PARAM_BL31);
 		assert(arg_from_bl2->h.version >= VERSION_1);
@@ -113,7 +113,7 @@ void bl31_platform_setup(void)
 
 	/* Signal secondary CPUs to jump to BL31 (BL2 = U-boot SPL) */
 	mmio_write_64(PLAT_CPU_RELEASE_ADDR,
-		(uint64_t)plat_secondary_cpus_bl31_entry);
+		      (uint64_t)plat_secondary_cpus_bl31_entry);
 
 	mailbox_hps_stage_notify(HPS_EXECUTION_STATE_SSBL);
 
@@ -121,21 +121,17 @@ void bl31_platform_setup(void)
 }
 
 const mmap_region_t plat_dm_mmap[] = {
-	MAP_REGION_FLAT(DRAM_BASE, DRAM_SIZE,
-		MT_MEMORY | MT_RW | MT_NS),
-	MAP_REGION_FLAT(DEVICE1_BASE, DEVICE1_SIZE,
-		MT_DEVICE | MT_RW | MT_NS),
+	MAP_REGION_FLAT(DRAM_BASE, DRAM_SIZE, MT_MEMORY | MT_RW | MT_NS),
+	MAP_REGION_FLAT(DEVICE1_BASE, DEVICE1_SIZE, MT_DEVICE | MT_RW | MT_NS),
 	MAP_REGION_FLAT(DEVICE2_BASE, DEVICE2_SIZE,
-		MT_DEVICE | MT_RW | MT_SECURE),
+			MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(OCRAM_BASE, OCRAM_SIZE,
-		MT_NON_CACHEABLE | MT_RW | MT_SECURE),
+			MT_NON_CACHEABLE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(DEVICE3_BASE, DEVICE3_SIZE,
-		MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(MEM64_BASE, MEM64_SIZE,
-		MT_DEVICE | MT_RW | MT_NS),
-	MAP_REGION_FLAT(DEVICE4_BASE, DEVICE4_SIZE,
-		MT_DEVICE | MT_RW | MT_NS),
-	{0}
+			MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(MEM64_BASE, MEM64_SIZE, MT_DEVICE | MT_RW | MT_NS),
+	MAP_REGION_FLAT(DEVICE4_BASE, DEVICE4_SIZE, MT_DEVICE | MT_RW | MT_NS),
+	{ 0 }
 };
 
 /*******************************************************************************
@@ -146,18 +142,18 @@ void bl31_plat_arch_setup(void)
 {
 	const mmap_region_t bl_regions[] = {
 		MAP_REGION_FLAT(BL31_BASE, BL31_END - BL31_BASE,
-			MT_MEMORY | MT_RW | MT_SECURE),
+				MT_MEMORY | MT_RW | MT_SECURE),
 		MAP_REGION_FLAT(BL_CODE_BASE, BL_CODE_END - BL_CODE_BASE,
-			MT_CODE | MT_SECURE),
+				MT_CODE | MT_SECURE),
 		MAP_REGION_FLAT(BL_RO_DATA_BASE,
-			BL_RO_DATA_END - BL_RO_DATA_BASE,
-			MT_RO_DATA | MT_SECURE),
+				BL_RO_DATA_END - BL_RO_DATA_BASE,
+				MT_RO_DATA | MT_SECURE),
 #if USE_COHERENT_MEM
 		MAP_REGION_FLAT(BL_COHERENT_RAM_BASE,
-			BL_COHERENT_RAM_END - BL_COHERENT_RAM_BASE,
-			MT_DEVICE | MT_RW | MT_SECURE),
+				BL_COHERENT_RAM_END - BL_COHERENT_RAM_BASE,
+				MT_DEVICE | MT_RW | MT_SECURE),
 #endif
-		{0}
+		{ 0 }
 	};
 
 	setup_page_tables(bl_regions, plat_dm_mmap);

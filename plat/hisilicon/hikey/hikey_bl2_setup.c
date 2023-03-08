@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,8 +7,6 @@
 #include <assert.h>
 #include <errno.h>
 #include <string.h>
-
-#include <platform_def.h>	/* also includes hikey_def.h and hikey_layout.h*/
 
 #include <arch_helpers.h>
 #include <common/bl_common.h>
@@ -19,17 +17,20 @@
 #include <drivers/mmc.h>
 #include <drivers/synopsys/dw_mmc.h>
 #include <lib/mmio.h>
+
+#include <platform_def.h> /* also includes hikey_def.h and hikey_layout.h*/
 #ifdef SPD_opteed
 #include <lib/optee_utils.h>
 #endif
-#include <plat/common/platform.h>
-
 #include <hi6220.h>
 #include <hisi_mcu.h>
 #include <hisi_sram_map.h>
+
+#include <plat/common/platform.h>
+
 #include "hikey_private.h"
 
-#define BL2_RW_BASE		(BL_CODE_END)
+#define BL2_RW_BASE (BL_CODE_END)
 
 static meminfo_t bl2_el3_tzram_layout;
 static console_t console;
@@ -56,10 +57,10 @@ int plat_hikey_bl2_handle_scp_bl2(image_info_t *scp_bl2_image_info)
 	/* Let MCU running */
 	hisi_mcu_start_run();
 
-	INFO("%s: MCU PC is at 0x%x\n",
-	     __func__, mmio_read_32(AO_SC_MCU_SUBSYS_STAT2));
-	INFO("%s: AO_SC_PERIPH_CLKSTAT4 is 0x%x\n",
-	     __func__, mmio_read_32(AO_SC_PERIPH_CLKSTAT4));
+	INFO("%s: MCU PC is at 0x%x\n", __func__,
+	     mmio_read_32(AO_SC_MCU_SUBSYS_STAT2));
+	INFO("%s: AO_SC_PERIPH_CLKSTAT4 is 0x%x\n", __func__,
+	     mmio_read_32(AO_SC_PERIPH_CLKSTAT4));
 	return 0;
 }
 
@@ -110,7 +111,7 @@ uint32_t hikey_get_spsr_for_bl33_entry(void)
 	 * well.
 	 */
 	spsr = SPSR_MODE32(mode, plat_get_ns_image_entrypoint() & 0x1,
-			SPSR_E_LITTLE, DISABLE_ALL_EXCEPTIONS);
+			   SPSR_E_LITTLE, DISABLE_ALL_EXCEPTIONS);
 	return spsr;
 }
 #endif /* __aarch64__ */
@@ -141,8 +142,8 @@ int hikey_bl2_handle_post_image_load(unsigned int image_id)
 		assert(paged_mem_params);
 
 		err = parse_optee_header(&bl_mem_params->ep_info,
-				&pager_mem_params->image_info,
-				&paged_mem_params->image_info);
+					 &pager_mem_params->image_info,
+					 &paged_mem_params->image_info);
 		if (err != 0) {
 			WARN("OPTEE header parse error.\n");
 		}
@@ -281,10 +282,8 @@ void bl2_el3_early_platform_setup(u_register_t arg1, u_register_t arg2,
 void bl2_el3_plat_arch_setup(void)
 {
 	hikey_init_mmu_el3(bl2_el3_tzram_layout.total_base,
-			   bl2_el3_tzram_layout.total_size,
-			   BL_CODE_BASE,
-			   BL_CODE_END,
-			   BL_COHERENT_RAM_BASE,
+			   bl2_el3_tzram_layout.total_size, BL_CODE_BASE,
+			   BL_CODE_END, BL_COHERENT_RAM_BASE,
 			   BL_COHERENT_RAM_END);
 }
 

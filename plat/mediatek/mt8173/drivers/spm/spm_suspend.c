@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,7 +8,6 @@
 #include <drivers/delay_timer.h>
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
-
 #include <mt8173_def.h>
 #include <spm.h>
 #include <spm_suspend.h>
@@ -19,26 +18,25 @@
  * This driver controls the system power in system suspend flow.
  */
 
-#define WAKE_SRC_FOR_SUSPEND					\
-	(WAKE_SRC_KP | WAKE_SRC_EINT | WAKE_SRC_MD32 |		\
-	WAKE_SRC_USB_CD | WAKE_SRC_USB_PDN | WAKE_SRC_THERM |	\
-	WAKE_SRC_SYSPWREQ | WAKE_SRC_ALL_MD32)
+#define WAKE_SRC_FOR_SUSPEND                                             \
+	(WAKE_SRC_KP | WAKE_SRC_EINT | WAKE_SRC_MD32 | WAKE_SRC_USB_CD | \
+	 WAKE_SRC_USB_PDN | WAKE_SRC_THERM | WAKE_SRC_SYSPWREQ |         \
+	 WAKE_SRC_ALL_MD32)
 
-#define WAKE_SRC_FOR_MD32  0
+#define WAKE_SRC_FOR_MD32 0
 
-#define spm_is_wakesrc_invalid(wakesrc)	\
-	(!!((unsigned int)(wakesrc) & 0xc0003803))
+#define spm_is_wakesrc_invalid(wakesrc) (!!((unsigned int)(wakesrc)&0xc0003803))
 
-#define ARMCA15PLL_CON0		(APMIXED_BASE + 0x200)
-#define ARMCA15PLL_CON1		(APMIXED_BASE + 0x204)
-#define ARMCA15PLL_PWR_CON0	(APMIXED_BASE + 0x20c)
-#define ARMCA15PLL_PWR_ON	(1U << 0)
-#define ARMCA15PLL_ISO_EN	(1U << 1)
-#define ARMCA15PLL_EN		(1U << 0)
+#define ARMCA15PLL_CON0 (APMIXED_BASE + 0x200)
+#define ARMCA15PLL_CON1 (APMIXED_BASE + 0x204)
+#define ARMCA15PLL_PWR_CON0 (APMIXED_BASE + 0x20c)
+#define ARMCA15PLL_PWR_ON (1U << 0)
+#define ARMCA15PLL_ISO_EN (1U << 1)
+#define ARMCA15PLL_EN (1U << 0)
 
-const unsigned int spm_flags =
-	SPM_DUALVCORE_PDN_DIS | SPM_PASR_DIS | SPM_DPD_DIS |
-	SPM_CPU_DVS_DIS | SPM_OPT | SPM_INFRA_PDN_DIS;
+const unsigned int spm_flags = SPM_DUALVCORE_PDN_DIS | SPM_PASR_DIS |
+			       SPM_DPD_DIS | SPM_CPU_DVS_DIS | SPM_OPT |
+			       SPM_INFRA_PDN_DIS;
 
 enum wake_reason_t spm_wake_reason = WR_NONE;
 
@@ -249,9 +247,8 @@ static void go_to_sleep_before_wfi(const unsigned int flags_spm)
 
 	spm_set_sysclk_settle();
 
-	INFO("sec = %u, wakesrc = 0x%x (%u)(%u)\n",
-	     pwrctrl->timer_val, pwrctrl->wake_src,
-	     is_cpu_pdn(pwrctrl->pcm_flags),
+	INFO("sec = %u, wakesrc = 0x%x (%u)(%u)\n", pwrctrl->timer_val,
+	     pwrctrl->wake_src, is_cpu_pdn(pwrctrl->pcm_flags),
 	     is_infra_pdn(pwrctrl->pcm_flags));
 
 	spm_reset_and_init_pcm();

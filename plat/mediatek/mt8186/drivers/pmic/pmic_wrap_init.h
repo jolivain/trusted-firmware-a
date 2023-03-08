@@ -9,16 +9,17 @@
 
 #include <stdint.h>
 
-#include "platform_def.h"
 #include <pmic_wrap_init_common.h>
+
+#include "platform_def.h"
 
 static struct mt8186_pmic_wrap_regs *const mtk_pwrap = (void *)PMIC_WRAP_BASE;
 
 /* timeout setting */
 enum {
-	TIMEOUT_RESET       = 50,	/* us */
-	TIMEOUT_READ        = 50,	/* us */
-	TIMEOUT_WAIT_IDLE   = 50	/* us */
+	TIMEOUT_RESET = 50, /* us */
+	TIMEOUT_READ = 50, /* us */
+	TIMEOUT_WAIT_IDLE = 50 /* us */
 };
 
 /* PMIC_WRAP registers */
@@ -49,13 +50,13 @@ enum {
 
 /* WACS_FSM */
 enum {
-	WACS_FSM_IDLE            = 0x00,
-	WACS_FSM_REQ             = 0x02,
-	WACS_FSM_WFDLE           = 0x04,
-	WACS_FSM_WFVLDCLR        = 0x06,
-	WACS_INIT_DONE           = 0x01,
-	WACS_SYNC_IDLE           = 0x01,
-	WACS_SYNC_BUSY           = 0x00
+	WACS_FSM_IDLE = 0x00,
+	WACS_FSM_REQ = 0x02,
+	WACS_FSM_WFDLE = 0x04,
+	WACS_FSM_WFVLDCLR = 0x06,
+	WACS_INIT_DONE = 0x01,
+	WACS_SYNC_IDLE = 0x01,
+	WACS_SYNC_BUSY = 0x00
 };
 
 #endif /* PMIC_WRAP_INIT_H */

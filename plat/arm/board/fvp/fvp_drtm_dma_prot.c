@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,9 +9,9 @@
 
 #include <drivers/arm/smmu_v3.h>
 #include <lib/utils_def.h>
+
 #include <plat/arm/common/arm_config.h>
 #include <plat/common/platform.h>
-
 #include <platform_def.h>
 
 /**
@@ -47,8 +47,7 @@ unsigned int plat_get_total_smmus(void)
 	}
 }
 
-void plat_enumerate_smmus(const uintptr_t **smmus_out,
-			  size_t *smmu_count_out)
+void plat_enumerate_smmus(const uintptr_t **smmus_out, size_t *smmu_count_out)
 {
 	if ((arm_config.flags & ARM_CONFIG_FVP_HAS_SMMUV3) != 0U) {
 		*smmus_out = fvp_smmus;

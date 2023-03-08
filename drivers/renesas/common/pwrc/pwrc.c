@@ -13,14 +13,15 @@
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
+
 #include <plat/common/platform.h>
 
+#include "cpg_registers.h"
 #include "iic_dvfs.h"
 #include "micro_delay.h"
 #include "pwrc.h"
 #include "rcar_def.h"
 #include "rcar_private.h"
-#include "cpg_registers.h"
 
 /*
  * Someday there will be a generic power controller api. At the moment each
@@ -28,127 +29,127 @@
  */
 RCAR_INSTANTIATE_LOCK
 
-#define WUP_IRQ_SHIFT				(0U)
-#define WUP_FIQ_SHIFT				(8U)
-#define WUP_CSD_SHIFT				(16U)
-#define BIT_SOFTRESET				(1U << 15)
-#define BIT_CA53_SCU				(1U << 21)
-#define BIT_CA57_SCU				(1U << 12)
-#define REQ_RESUME				(1U << 1)
-#define REQ_OFF					(1U << 0)
-#define STATUS_PWRUP				(1U << 4)
-#define STATUS_PWRDOWN				(1U << 0)
-#define STATE_CA57_CPU				(27U)
-#define STATE_CA53_CPU				(22U)
-#define MODE_L2_DOWN				(0x00000002U)
-#define CPU_PWR_OFF				(0x00000003U)
-#define RCAR_PSTR_MASK				(0x00000003U)
-#define ST_ALL_STANDBY				(0x00003333U)
-#define SYSCEXTMASK_EXTMSK0			(0x00000001U)
+#define WUP_IRQ_SHIFT (0U)
+#define WUP_FIQ_SHIFT (8U)
+#define WUP_CSD_SHIFT (16U)
+#define BIT_SOFTRESET (1U << 15)
+#define BIT_CA53_SCU (1U << 21)
+#define BIT_CA57_SCU (1U << 12)
+#define REQ_RESUME (1U << 1)
+#define REQ_OFF (1U << 0)
+#define STATUS_PWRUP (1U << 4)
+#define STATUS_PWRDOWN (1U << 0)
+#define STATE_CA57_CPU (27U)
+#define STATE_CA53_CPU (22U)
+#define MODE_L2_DOWN (0x00000002U)
+#define CPU_PWR_OFF (0x00000003U)
+#define RCAR_PSTR_MASK (0x00000003U)
+#define ST_ALL_STANDBY (0x00003333U)
+#define SYSCEXTMASK_EXTMSK0 (0x00000001U)
 /* Suspend to ram	*/
-#define DBSC4_REG_BASE				(0xE6790000U)
-#define DBSC4_REG_DBSYSCNT0			(DBSC4_REG_BASE + 0x0100U)
-#define DBSC4_REG_DBACEN			(DBSC4_REG_BASE + 0x0200U)
-#define DBSC4_REG_DBCMD				(DBSC4_REG_BASE + 0x0208U)
-#define DBSC4_REG_DBRFEN			(DBSC4_REG_BASE + 0x0204U)
-#define DBSC4_REG_DBWAIT			(DBSC4_REG_BASE + 0x0210U)
-#define DBSC4_REG_DBCALCNF			(DBSC4_REG_BASE + 0x0424U)
-#define DBSC4_REG_DBDFIPMSTRCNF			(DBSC4_REG_BASE + 0x0520U)
-#define DBSC4_REG_DBPDLK0			(DBSC4_REG_BASE + 0x0620U)
-#define DBSC4_REG_DBPDRGA0			(DBSC4_REG_BASE + 0x0624U)
-#define DBSC4_REG_DBPDRGD0			(DBSC4_REG_BASE + 0x0628U)
-#define DBSC4_REG_DBCAM0CTRL0			(DBSC4_REG_BASE + 0x0940U)
-#define DBSC4_REG_DBCAM0STAT0			(DBSC4_REG_BASE + 0x0980U)
-#define DBSC4_REG_DBCAM1STAT0			(DBSC4_REG_BASE + 0x0990U)
-#define DBSC4_REG_DBCAM2STAT0			(DBSC4_REG_BASE + 0x09A0U)
-#define DBSC4_REG_DBCAM3STAT0			(DBSC4_REG_BASE + 0x09B0U)
-#define DBSC4_BIT_DBACEN_ACCEN			((uint32_t)(1U << 0))
-#define DBSC4_BIT_DBRFEN_ARFEN			((uint32_t)(1U << 0))
-#define DBSC4_BIT_DBCAMxSTAT0			(0x00000001U)
-#define DBSC4_BIT_DBDFIPMSTRCNF_PMSTREN		(0x00000001U)
-#define DBSC4_SET_DBCMD_OPC_PRE			(0x04000000U)
-#define DBSC4_SET_DBCMD_OPC_SR			(0x0A000000U)
-#define DBSC4_SET_DBCMD_OPC_PD			(0x08000000U)
-#define DBSC4_SET_DBCMD_OPC_MRW			(0x0E000000U)
-#define DBSC4_SET_DBCMD_CH_ALL			(0x00800000U)
-#define DBSC4_SET_DBCMD_RANK_ALL		(0x00040000U)
-#define DBSC4_SET_DBCMD_ARG_ALL			(0x00000010U)
-#define DBSC4_SET_DBCMD_ARG_ENTER		(0x00000000U)
-#define DBSC4_SET_DBCMD_ARG_MRW_ODTC		(0x00000B00U)
-#define DBSC4_SET_DBSYSCNT0_WRITE_ENABLE	(0x00001234U)
-#define DBSC4_SET_DBSYSCNT0_WRITE_DISABLE	(0x00000000U)
-#define DBSC4_SET_DBPDLK0_PHY_ACCESS		(0x0000A55AU)
-#define DBSC4_SET_DBPDRGA0_ACIOCR0		(0x0000001AU)
-#define DBSC4_SET_DBPDRGD0_ACIOCR0		(0x33C03C11U)
-#define DBSC4_SET_DBPDRGA0_DXCCR		(0x00000020U)
-#define DBSC4_SET_DBPDRGD0_DXCCR		(0x00181006U)
-#define DBSC4_SET_DBPDRGA0_PGCR1		(0x00000003U)
-#define DBSC4_SET_DBPDRGD0_PGCR1		(0x0380C600U)
-#define DBSC4_SET_DBPDRGA0_ACIOCR1		(0x0000001BU)
-#define DBSC4_SET_DBPDRGD0_ACIOCR1		(0xAAAAAAAAU)
-#define DBSC4_SET_DBPDRGA0_ACIOCR3		(0x0000001DU)
-#define DBSC4_SET_DBPDRGD0_ACIOCR3		(0xAAAAAAAAU)
-#define DBSC4_SET_DBPDRGA0_ACIOCR5		(0x0000001FU)
-#define DBSC4_SET_DBPDRGD0_ACIOCR5		(0x000000AAU)
-#define DBSC4_SET_DBPDRGA0_DX0GCR2		(0x000000A2U)
-#define DBSC4_SET_DBPDRGD0_DX0GCR2		(0xAAAA0000U)
-#define DBSC4_SET_DBPDRGA0_DX1GCR2		(0x000000C2U)
-#define DBSC4_SET_DBPDRGD0_DX1GCR2		(0xAAAA0000U)
-#define DBSC4_SET_DBPDRGA0_DX2GCR2		(0x000000E2U)
-#define DBSC4_SET_DBPDRGD0_DX2GCR2		(0xAAAA0000U)
-#define DBSC4_SET_DBPDRGA0_DX3GCR2		(0x00000102U)
-#define DBSC4_SET_DBPDRGD0_DX3GCR2		(0xAAAA0000U)
-#define DBSC4_SET_DBPDRGA0_ZQCR			(0x00000090U)
-#define DBSC4_SET_DBPDRGD0_ZQCR_MD19_0		(0x04058904U)
-#define DBSC4_SET_DBPDRGD0_ZQCR_MD19_1		(0x04058A04U)
-#define DBSC4_SET_DBPDRGA0_DX0GCR0		(0x000000A0U)
-#define DBSC4_SET_DBPDRGD0_DX0GCR0		(0x7C0002E5U)
-#define DBSC4_SET_DBPDRGA0_DX1GCR0		(0x000000C0U)
-#define DBSC4_SET_DBPDRGD0_DX1GCR0		(0x7C0002E5U)
-#define DBSC4_SET_DBPDRGA0_DX2GCR0		(0x000000E0U)
-#define DBSC4_SET_DBPDRGD0_DX2GCR0		(0x7C0002E5U)
-#define DBSC4_SET_DBPDRGA0_DX3GCR0		(0x00000100U)
-#define DBSC4_SET_DBPDRGD0_DX3GCR0		(0x7C0002E5U)
-#define DBSC4_SET_DBPDRGA0_DX0GCR1		(0x000000A1U)
-#define DBSC4_SET_DBPDRGD0_DX0GCR1		(0x55550000U)
-#define DBSC4_SET_DBPDRGA0_DX1GCR1		(0x000000C1U)
-#define DBSC4_SET_DBPDRGD0_DX1GCR1		(0x55550000U)
-#define DBSC4_SET_DBPDRGA0_DX2GCR1		(0x000000E1U)
-#define DBSC4_SET_DBPDRGD0_DX2GCR1		(0x55550000U)
-#define DBSC4_SET_DBPDRGA0_DX3GCR1		(0x00000101U)
-#define DBSC4_SET_DBPDRGD0_DX3GCR1		(0x55550000U)
-#define DBSC4_SET_DBPDRGA0_DX0GCR3		(0x000000A3U)
-#define DBSC4_SET_DBPDRGD0_DX0GCR3		(0x00008484U)
-#define DBSC4_SET_DBPDRGA0_DX1GCR3		(0x000000C3U)
-#define DBSC4_SET_DBPDRGD0_DX1GCR3		(0x00008484U)
-#define DBSC4_SET_DBPDRGA0_DX2GCR3		(0x000000E3U)
-#define DBSC4_SET_DBPDRGD0_DX2GCR3		(0x00008484U)
-#define DBSC4_SET_DBPDRGA0_DX3GCR3		(0x00000103U)
-#define DBSC4_SET_DBPDRGD0_DX3GCR3		(0x00008484U)
-#define RST_BASE				(0xE6160000U)
-#define RST_MODEMR				(RST_BASE + 0x0060U)
-#define RST_MODEMR_BIT0				(0x00000001U)
+#define DBSC4_REG_BASE (0xE6790000U)
+#define DBSC4_REG_DBSYSCNT0 (DBSC4_REG_BASE + 0x0100U)
+#define DBSC4_REG_DBACEN (DBSC4_REG_BASE + 0x0200U)
+#define DBSC4_REG_DBCMD (DBSC4_REG_BASE + 0x0208U)
+#define DBSC4_REG_DBRFEN (DBSC4_REG_BASE + 0x0204U)
+#define DBSC4_REG_DBWAIT (DBSC4_REG_BASE + 0x0210U)
+#define DBSC4_REG_DBCALCNF (DBSC4_REG_BASE + 0x0424U)
+#define DBSC4_REG_DBDFIPMSTRCNF (DBSC4_REG_BASE + 0x0520U)
+#define DBSC4_REG_DBPDLK0 (DBSC4_REG_BASE + 0x0620U)
+#define DBSC4_REG_DBPDRGA0 (DBSC4_REG_BASE + 0x0624U)
+#define DBSC4_REG_DBPDRGD0 (DBSC4_REG_BASE + 0x0628U)
+#define DBSC4_REG_DBCAM0CTRL0 (DBSC4_REG_BASE + 0x0940U)
+#define DBSC4_REG_DBCAM0STAT0 (DBSC4_REG_BASE + 0x0980U)
+#define DBSC4_REG_DBCAM1STAT0 (DBSC4_REG_BASE + 0x0990U)
+#define DBSC4_REG_DBCAM2STAT0 (DBSC4_REG_BASE + 0x09A0U)
+#define DBSC4_REG_DBCAM3STAT0 (DBSC4_REG_BASE + 0x09B0U)
+#define DBSC4_BIT_DBACEN_ACCEN ((uint32_t)(1U << 0))
+#define DBSC4_BIT_DBRFEN_ARFEN ((uint32_t)(1U << 0))
+#define DBSC4_BIT_DBCAMxSTAT0 (0x00000001U)
+#define DBSC4_BIT_DBDFIPMSTRCNF_PMSTREN (0x00000001U)
+#define DBSC4_SET_DBCMD_OPC_PRE (0x04000000U)
+#define DBSC4_SET_DBCMD_OPC_SR (0x0A000000U)
+#define DBSC4_SET_DBCMD_OPC_PD (0x08000000U)
+#define DBSC4_SET_DBCMD_OPC_MRW (0x0E000000U)
+#define DBSC4_SET_DBCMD_CH_ALL (0x00800000U)
+#define DBSC4_SET_DBCMD_RANK_ALL (0x00040000U)
+#define DBSC4_SET_DBCMD_ARG_ALL (0x00000010U)
+#define DBSC4_SET_DBCMD_ARG_ENTER (0x00000000U)
+#define DBSC4_SET_DBCMD_ARG_MRW_ODTC (0x00000B00U)
+#define DBSC4_SET_DBSYSCNT0_WRITE_ENABLE (0x00001234U)
+#define DBSC4_SET_DBSYSCNT0_WRITE_DISABLE (0x00000000U)
+#define DBSC4_SET_DBPDLK0_PHY_ACCESS (0x0000A55AU)
+#define DBSC4_SET_DBPDRGA0_ACIOCR0 (0x0000001AU)
+#define DBSC4_SET_DBPDRGD0_ACIOCR0 (0x33C03C11U)
+#define DBSC4_SET_DBPDRGA0_DXCCR (0x00000020U)
+#define DBSC4_SET_DBPDRGD0_DXCCR (0x00181006U)
+#define DBSC4_SET_DBPDRGA0_PGCR1 (0x00000003U)
+#define DBSC4_SET_DBPDRGD0_PGCR1 (0x0380C600U)
+#define DBSC4_SET_DBPDRGA0_ACIOCR1 (0x0000001BU)
+#define DBSC4_SET_DBPDRGD0_ACIOCR1 (0xAAAAAAAAU)
+#define DBSC4_SET_DBPDRGA0_ACIOCR3 (0x0000001DU)
+#define DBSC4_SET_DBPDRGD0_ACIOCR3 (0xAAAAAAAAU)
+#define DBSC4_SET_DBPDRGA0_ACIOCR5 (0x0000001FU)
+#define DBSC4_SET_DBPDRGD0_ACIOCR5 (0x000000AAU)
+#define DBSC4_SET_DBPDRGA0_DX0GCR2 (0x000000A2U)
+#define DBSC4_SET_DBPDRGD0_DX0GCR2 (0xAAAA0000U)
+#define DBSC4_SET_DBPDRGA0_DX1GCR2 (0x000000C2U)
+#define DBSC4_SET_DBPDRGD0_DX1GCR2 (0xAAAA0000U)
+#define DBSC4_SET_DBPDRGA0_DX2GCR2 (0x000000E2U)
+#define DBSC4_SET_DBPDRGD0_DX2GCR2 (0xAAAA0000U)
+#define DBSC4_SET_DBPDRGA0_DX3GCR2 (0x00000102U)
+#define DBSC4_SET_DBPDRGD0_DX3GCR2 (0xAAAA0000U)
+#define DBSC4_SET_DBPDRGA0_ZQCR (0x00000090U)
+#define DBSC4_SET_DBPDRGD0_ZQCR_MD19_0 (0x04058904U)
+#define DBSC4_SET_DBPDRGD0_ZQCR_MD19_1 (0x04058A04U)
+#define DBSC4_SET_DBPDRGA0_DX0GCR0 (0x000000A0U)
+#define DBSC4_SET_DBPDRGD0_DX0GCR0 (0x7C0002E5U)
+#define DBSC4_SET_DBPDRGA0_DX1GCR0 (0x000000C0U)
+#define DBSC4_SET_DBPDRGD0_DX1GCR0 (0x7C0002E5U)
+#define DBSC4_SET_DBPDRGA0_DX2GCR0 (0x000000E0U)
+#define DBSC4_SET_DBPDRGD0_DX2GCR0 (0x7C0002E5U)
+#define DBSC4_SET_DBPDRGA0_DX3GCR0 (0x00000100U)
+#define DBSC4_SET_DBPDRGD0_DX3GCR0 (0x7C0002E5U)
+#define DBSC4_SET_DBPDRGA0_DX0GCR1 (0x000000A1U)
+#define DBSC4_SET_DBPDRGD0_DX0GCR1 (0x55550000U)
+#define DBSC4_SET_DBPDRGA0_DX1GCR1 (0x000000C1U)
+#define DBSC4_SET_DBPDRGD0_DX1GCR1 (0x55550000U)
+#define DBSC4_SET_DBPDRGA0_DX2GCR1 (0x000000E1U)
+#define DBSC4_SET_DBPDRGD0_DX2GCR1 (0x55550000U)
+#define DBSC4_SET_DBPDRGA0_DX3GCR1 (0x00000101U)
+#define DBSC4_SET_DBPDRGD0_DX3GCR1 (0x55550000U)
+#define DBSC4_SET_DBPDRGA0_DX0GCR3 (0x000000A3U)
+#define DBSC4_SET_DBPDRGD0_DX0GCR3 (0x00008484U)
+#define DBSC4_SET_DBPDRGA0_DX1GCR3 (0x000000C3U)
+#define DBSC4_SET_DBPDRGD0_DX1GCR3 (0x00008484U)
+#define DBSC4_SET_DBPDRGA0_DX2GCR3 (0x000000E3U)
+#define DBSC4_SET_DBPDRGD0_DX2GCR3 (0x00008484U)
+#define DBSC4_SET_DBPDRGA0_DX3GCR3 (0x00000103U)
+#define DBSC4_SET_DBPDRGD0_DX3GCR3 (0x00008484U)
+#define RST_BASE (0xE6160000U)
+#define RST_MODEMR (RST_BASE + 0x0060U)
+#define RST_MODEMR_BIT0 (0x00000001U)
 
-#define RCAR_CNTCR_OFF				(0x00U)
-#define RCAR_CNTCVL_OFF				(0x08U)
-#define RCAR_CNTCVU_OFF				(0x0CU)
-#define RCAR_CNTFID_OFF				(0x20U)
+#define RCAR_CNTCR_OFF (0x00U)
+#define RCAR_CNTCVL_OFF (0x08U)
+#define RCAR_CNTCVU_OFF (0x0CU)
+#define RCAR_CNTFID_OFF (0x20U)
 
-#define RCAR_CNTCR_EN				((uint32_t)1U << 0U)
-#define RCAR_CNTCR_FCREQ(x)			((uint32_t)(x) << 8U)
+#define RCAR_CNTCR_EN ((uint32_t)1U << 0U)
+#define RCAR_CNTCR_FCREQ(x) ((uint32_t)(x) << 8U)
 
 #if PMIC_ROHM_BD9571
-#define BIT_BKUP_CTRL_OUT			((uint8_t)(1U << 4))
-#define PMIC_BKUP_MODE_CNT			(0x20U)
-#define PMIC_QLLM_CNT				(0x27U)
-#define PMIC_RETRY_MAX				(100U)
+#define BIT_BKUP_CTRL_OUT ((uint8_t)(1U << 4))
+#define PMIC_BKUP_MODE_CNT (0x20U)
+#define PMIC_QLLM_CNT (0x27U)
+#define PMIC_RETRY_MAX (100U)
 #endif /* PMIC_ROHM_BD9571 */
-#define SCTLR_EL3_M_BIT				((uint32_t)1U << 0)
-#define RCAR_CA53CPU_NUM_MAX			(4U)
-#define RCAR_CA57CPU_NUM_MAX			(4U)
-#define IS_A53A57(c)	((c) == RCAR_CLUSTER_A53A57)
-#define IS_CA57(c)	((c) == RCAR_CLUSTER_CA57)
-#define IS_CA53(c)	((c) == RCAR_CLUSTER_CA53)
+#define SCTLR_EL3_M_BIT ((uint32_t)1U << 0)
+#define RCAR_CA53CPU_NUM_MAX (4U)
+#define RCAR_CA57CPU_NUM_MAX (4U)
+#define IS_A53A57(c) ((c) == RCAR_CLUSTER_A53A57)
+#define IS_CA57(c) ((c) == RCAR_CLUSTER_CA57)
+#define IS_CA53(c) ((c) == RCAR_CLUSTER_CA53)
 
 #ifndef __ASSEMBLER__
 IMPORT_SYM(unsigned long, __system_ram_start__, SYSTEM_RAM_START);
@@ -213,8 +214,7 @@ static void scu_power_up(u_register_t mpidr)
 	lsi_product &= PRR_PRODUCT_MASK;
 
 	if ((lsi_product == PRR_PRODUCT_M3 && lsi_cut >= PRR_PRODUCT_30) ||
-	    lsi_product == PRR_PRODUCT_H3 ||
-	    lsi_product == PRR_PRODUCT_M3N ||
+	    lsi_product == PRR_PRODUCT_H3 || lsi_product == PRR_PRODUCT_M3N ||
 	    lsi_product == PRR_PRODUCT_E3) {
 		mmio_setbits_32(RCAR_SYSCEXTMASK, SYSCEXTMASK_EXTMSK0);
 	}
@@ -233,8 +233,7 @@ static void scu_power_up(u_register_t mpidr)
 	mmio_write_32(RCAR_SYSCISCR, sysc_reg_bit);
 
 	if ((lsi_product == PRR_PRODUCT_M3 && lsi_cut >= PRR_PRODUCT_30) ||
-	    lsi_product == PRR_PRODUCT_H3 ||
-	    lsi_product == PRR_PRODUCT_M3N ||
+	    lsi_product == PRR_PRODUCT_H3 || lsi_product == PRR_PRODUCT_M3N ||
 	    lsi_product == PRR_PRODUCT_E3) {
 		mmio_clrbits_32(RCAR_SYSCEXTMASK, SYSCEXTMASK_EXTMSK0);
 	}
@@ -304,8 +303,8 @@ void rcar_pwrc_enable_interrupt_wakeup(u_register_t mpidr)
 	shift_irq = WUP_IRQ_SHIFT + cpu;
 	shift_fiq = WUP_FIQ_SHIFT + cpu;
 
-	mmio_clrbits_32(reg, ((uint32_t) 1 << shift_irq) |
-		      ((uint32_t) 1 << shift_fiq));
+	mmio_clrbits_32(reg, ((uint32_t)1 << shift_irq) |
+				     ((uint32_t)1 << shift_fiq));
 	rcar_lock_release();
 }
 
@@ -324,8 +323,8 @@ void rcar_pwrc_disable_interrupt_wakeup(u_register_t mpidr)
 	shift_irq = WUP_IRQ_SHIFT + cpu;
 	shift_fiq = WUP_FIQ_SHIFT + cpu;
 
-	mmio_setbits_32(reg, ((uint32_t) 1 << shift_irq) |
-		      ((uint32_t) 1 << shift_fiq));
+	mmio_setbits_32(reg, ((uint32_t)1 << shift_irq) |
+				     ((uint32_t)1 << shift_fiq));
 	rcar_lock_release();
 }
 
@@ -334,10 +333,8 @@ void rcar_pwrc_all_disable_interrupt_wakeup(void)
 	uint32_t cpu_num;
 	u_register_t cl, cpu, mpidr;
 
-	const uint32_t cluster[PLATFORM_CLUSTER_COUNT] = {
-		RCAR_CLUSTER_CA57,
-		RCAR_CLUSTER_CA53
-	};
+	const uint32_t cluster[PLATFORM_CLUSTER_COUNT] = { RCAR_CLUSTER_CA57,
+							   RCAR_CLUSTER_CA53 };
 
 	for (cl = 0; cl < PLATFORM_CLUSTER_COUNT; cl++) {
 		cpu_num = rcar_pwrc_get_cpu_num(cluster[cl]);
@@ -399,18 +396,18 @@ void rcar_pwrc_restore_timer_state(void)
 	mmio_write_32((uintptr_t)(RCAR_CNTC_BASE + RCAR_CNTCR_OFF), 0U);
 
 	mmio_write_32((uintptr_t)(RCAR_CNTC_BASE + RCAR_CNTCVL_OFF),
-		(uint32_t)(rcar_pwrc_saved_cntpct_el0 & 0xFFFFFFFFU));
+		      (uint32_t)(rcar_pwrc_saved_cntpct_el0 & 0xFFFFFFFFU));
 	mmio_write_32((uintptr_t)(RCAR_CNTC_BASE + RCAR_CNTCVU_OFF),
-		(uint32_t)(rcar_pwrc_saved_cntpct_el0 >> 32U));
+		      (uint32_t)(rcar_pwrc_saved_cntpct_el0 >> 32U));
 
 	mmio_write_32((uintptr_t)(RCAR_CNTC_BASE + RCAR_CNTFID_OFF),
-		rcar_pwrc_saved_cntfid);
+		      rcar_pwrc_saved_cntfid);
 
 	/* Start generic timer back */
 	write_cntfrq_el0((u_register_t)plat_get_syscnt_freq2());
 
 	mmio_write_32((uintptr_t)(RCAR_CNTC_BASE + RCAR_CNTCR_OFF),
-		(RCAR_CNTCR_FCREQ(0U) | RCAR_CNTCR_EN));
+		      (RCAR_CNTCR_FCREQ(0U) | RCAR_CNTCR_EN));
 }
 
 #if !PMIC_ROHM_BD9571
@@ -420,29 +417,25 @@ void rcar_pwrc_system_reset(void)
 }
 #endif /* PMIC_ROHM_BD9571 */
 
-#define RST_CA53_CPU0_BARH		(0xE6160080U)
-#define RST_CA53_CPU0_BARL		(0xE6160084U)
-#define RST_CA57_CPU0_BARH		(0xE61600C0U)
-#define RST_CA57_CPU0_BARL		(0xE61600C4U)
+#define RST_CA53_CPU0_BARH (0xE6160080U)
+#define RST_CA53_CPU0_BARL (0xE6160084U)
+#define RST_CA57_CPU0_BARH (0xE61600C0U)
+#define RST_CA57_CPU0_BARL (0xE61600C4U)
 
 void rcar_pwrc_setup(void)
 {
 	uintptr_t rst_barh;
 	uintptr_t rst_barl;
 	uint32_t i, j;
-	uint64_t reset = (uint64_t) (&plat_secondary_reset) & 0xFFFFFFFF;
+	uint64_t reset = (uint64_t)(&plat_secondary_reset) & 0xFFFFFFFF;
 
-	const uint32_t cluster[PLATFORM_CLUSTER_COUNT] = {
-		RCAR_CLUSTER_CA53,
-		RCAR_CLUSTER_CA57
-	};
+	const uint32_t cluster[PLATFORM_CLUSTER_COUNT] = { RCAR_CLUSTER_CA53,
+							   RCAR_CLUSTER_CA57 };
 	const uintptr_t reg_barh[PLATFORM_CLUSTER_COUNT] = {
-		RST_CA53_CPU0_BARH,
-		RST_CA57_CPU0_BARH
+		RST_CA53_CPU0_BARH, RST_CA57_CPU0_BARH
 	};
 	const uintptr_t reg_barl[PLATFORM_CLUSTER_COUNT] = {
-		RST_CA53_CPU0_BARL,
-		RST_CA57_CPU0_BARL
+		RST_CA53_CPU0_BARL, RST_CA57_CPU0_BARL
 	};
 
 	for (i = 0; i < PLATFORM_CLUSTER_COUNT; i++) {
@@ -450,7 +443,7 @@ void rcar_pwrc_setup(void)
 		rst_barl = reg_barl[i];
 		for (j = 0; j < rcar_pwrc_get_cpu_num(cluster[i]); j++) {
 			mmio_write_32(rst_barh, 0);
-			mmio_write_32(rst_barl, (uint32_t) reset);
+			mmio_write_32(rst_barl, (uint32_t)reset);
 			rst_barh += 0x10;
 			rst_barl += 0x10;
 		}
@@ -460,14 +453,14 @@ void rcar_pwrc_setup(void)
 }
 
 #if RCAR_SYSTEM_SUSPEND
-#define DBCAM_FLUSH(__bit)		\
-do {					\
-	;				\
-} while (!(mmio_read_32(DBSC4_REG_DBCAM##__bit##STAT0) & DBSC4_BIT_DBCAMxSTAT0))
+#define DBCAM_FLUSH(__bit)                                       \
+	do {                                                     \
+		;                                                \
+	} while (!(mmio_read_32(DBSC4_REG_DBCAM##__bit##STAT0) & \
+		   DBSC4_BIT_DBCAMxSTAT0))
 
-
-static void __attribute__ ((section(".system_ram")))
-	rcar_pwrc_set_self_refresh(void)
+static void __attribute__((section(".system_ram")))
+rcar_pwrc_set_self_refresh(void)
 {
 	uint32_t reg = mmio_read_32(RCAR_PRR);
 	uint32_t cut, product;
@@ -489,8 +482,8 @@ self_refresh:
 
 	/* DFI_PHYMSTR_ACK setting */
 	mmio_write_32(DBSC4_REG_DBDFIPMSTRCNF,
-			mmio_read_32(DBSC4_REG_DBDFIPMSTRCNF) &
-			(~DBSC4_BIT_DBDFIPMSTRCNF_PMSTREN));
+		      mmio_read_32(DBSC4_REG_DBDFIPMSTRCNF) &
+			      (~DBSC4_BIT_DBDFIPMSTRCNF_PMSTREN));
 
 	/* Set the Self-Refresh mode */
 	mmio_write_32(DBSC4_REG_DBACEN, 0);
@@ -519,28 +512,28 @@ self_refresh:
 	mmio_write_32(DBSC4_REG_DBCALCNF, 0);
 
 	reg = DBSC4_SET_DBCMD_OPC_PRE | DBSC4_SET_DBCMD_CH_ALL |
-	    DBSC4_SET_DBCMD_RANK_ALL | DBSC4_SET_DBCMD_ARG_ALL;
+	      DBSC4_SET_DBCMD_RANK_ALL | DBSC4_SET_DBCMD_ARG_ALL;
 	mmio_write_32(DBSC4_REG_DBCMD, reg);
 	while (mmio_read_32(DBSC4_REG_DBWAIT))
 		;
 
 	/* Self-Refresh entry command   */
 	reg = DBSC4_SET_DBCMD_OPC_SR | DBSC4_SET_DBCMD_CH_ALL |
-	    DBSC4_SET_DBCMD_RANK_ALL | DBSC4_SET_DBCMD_ARG_ENTER;
+	      DBSC4_SET_DBCMD_RANK_ALL | DBSC4_SET_DBCMD_ARG_ENTER;
 	mmio_write_32(DBSC4_REG_DBCMD, reg);
 	while (mmio_read_32(DBSC4_REG_DBWAIT))
 		;
 
 	/* Mode Register Write command. (ODT disabled)  */
 	reg = DBSC4_SET_DBCMD_OPC_MRW | DBSC4_SET_DBCMD_CH_ALL |
-	    DBSC4_SET_DBCMD_RANK_ALL | DBSC4_SET_DBCMD_ARG_MRW_ODTC;
+	      DBSC4_SET_DBCMD_RANK_ALL | DBSC4_SET_DBCMD_ARG_MRW_ODTC;
 	mmio_write_32(DBSC4_REG_DBCMD, reg);
 	while (mmio_read_32(DBSC4_REG_DBWAIT))
 		;
 
 	/* Power Down entry command     */
 	reg = DBSC4_SET_DBCMD_OPC_PD | DBSC4_SET_DBCMD_CH_ALL |
-	    DBSC4_SET_DBCMD_RANK_ALL | DBSC4_SET_DBCMD_ARG_ENTER;
+	      DBSC4_SET_DBCMD_RANK_ALL | DBSC4_SET_DBCMD_ARG_ENTER;
 	mmio_write_32(DBSC4_REG_DBCMD, reg);
 	while (mmio_read_32(DBSC4_REG_DBWAIT))
 		;
@@ -558,7 +551,7 @@ self_refresh:
 	mmio_write_32(DBSC4_REG_DBSYSCNT0, DBSC4_SET_DBSYSCNT0_WRITE_DISABLE);
 }
 
-static void __attribute__ ((section(".system_ram")))
+static void __attribute__((section(".system_ram")))
 rcar_pwrc_set_self_refresh_e3(void)
 {
 	uint32_t ddr_md;
@@ -572,13 +565,13 @@ rcar_pwrc_set_self_refresh_e3(void)
 	DBCAM_FLUSH(0);
 
 	reg = DBSC4_SET_DBCMD_OPC_PRE | DBSC4_SET_DBCMD_CH_ALL |
-	    DBSC4_SET_DBCMD_RANK_ALL | DBSC4_SET_DBCMD_ARG_ALL;
+	      DBSC4_SET_DBCMD_RANK_ALL | DBSC4_SET_DBCMD_ARG_ALL;
 	mmio_write_32(DBSC4_REG_DBCMD, reg);
 	while (mmio_read_32(DBSC4_REG_DBWAIT))
 		;
 
 	reg = DBSC4_SET_DBCMD_OPC_SR | DBSC4_SET_DBCMD_CH_ALL |
-	    DBSC4_SET_DBCMD_RANK_ALL | DBSC4_SET_DBCMD_ARG_ENTER;
+	      DBSC4_SET_DBCMD_RANK_ALL | DBSC4_SET_DBCMD_ARG_ENTER;
 	mmio_write_32(DBSC4_REG_DBCMD, reg);
 	while (mmio_read_32(DBSC4_REG_DBWAIT))
 		;
@@ -633,9 +626,9 @@ rcar_pwrc_set_self_refresh_e3(void)
 	/* DDR_ZQCR */
 	mmio_write_32(DBSC4_REG_DBPDRGA0, DBSC4_SET_DBPDRGA0_ZQCR);
 
-	mmio_write_32(DBSC4_REG_DBPDRGD0, ddr_md == 0 ?
-		      DBSC4_SET_DBPDRGD0_ZQCR_MD19_0 :
-		      DBSC4_SET_DBPDRGD0_ZQCR_MD19_1);
+	mmio_write_32(DBSC4_REG_DBPDRGD0,
+		      ddr_md == 0 ? DBSC4_SET_DBPDRGD0_ZQCR_MD19_0 :
+				    DBSC4_SET_DBPDRGD0_ZQCR_MD19_1);
 
 	/* DDR_DX0GCR0 */
 	mmio_write_32(DBSC4_REG_DBPDRGA0, DBSC4_SET_DBPDRGA0_DX0GCR0);
@@ -689,7 +682,7 @@ rcar_pwrc_set_self_refresh_e3(void)
 	mmio_write_32(DBSC4_REG_DBSYSCNT0, DBSC4_SET_DBSYSCNT0_WRITE_DISABLE);
 }
 
-void __attribute__ ((section(".system_ram"))) __attribute__ ((noinline))
+void __attribute__((section(".system_ram"))) __attribute__((noinline))
 rcar_pwrc_go_suspend_to_ram(void)
 {
 #if PMIC_ROHM_BD9571
@@ -729,17 +722,17 @@ rcar_pwrc_go_suspend_to_ram(void)
 
 void rcar_pwrc_set_suspend_to_ram(void)
 {
-	uintptr_t jump = (uintptr_t) &rcar_pwrc_go_suspend_to_ram;
-	uintptr_t stack = (uintptr_t) (DEVICE_SRAM_STACK_BASE +
-				       DEVICE_SRAM_STACK_SIZE);
+	uintptr_t jump = (uintptr_t)&rcar_pwrc_go_suspend_to_ram;
+	uintptr_t stack =
+		(uintptr_t)(DEVICE_SRAM_STACK_BASE + DEVICE_SRAM_STACK_SIZE);
 	uint32_t sctlr;
 
 	rcar_pwrc_save_timer_state();
 
 	/* disable MMU */
-	sctlr = (uint32_t) read_sctlr_el3();
-	sctlr &= (uint32_t) ~SCTLR_EL3_M_BIT;
-	write_sctlr_el3((uint64_t) sctlr);
+	sctlr = (uint32_t)read_sctlr_el3();
+	sctlr &= (uint32_t)~SCTLR_EL3_M_BIT;
+	write_sctlr_el3((uint64_t)sctlr);
 
 	rcar_pwrc_switch_stack(jump, stack, NULL);
 }
@@ -752,7 +745,7 @@ void rcar_pwrc_init_suspend_to_ram(void)
 	if (rcar_iic_dvfs_receive(PMIC, PMIC_BKUP_MODE_CNT, &mode))
 		panic();
 
-	mode &= (uint8_t) (~BIT_BKUP_CTRL_OUT);
+	mode &= (uint8_t)(~BIT_BKUP_CTRL_OUT);
 	if (rcar_iic_dvfs_send(PMIC, PMIC_BKUP_MODE_CNT, mode))
 		panic();
 #endif
@@ -775,20 +768,20 @@ void rcar_pwrc_suspend_to_ram(void)
 
 void rcar_pwrc_code_copy_to_system_ram(void)
 {
-	int ret __attribute__ ((unused));	/* in assert */
+	int ret __attribute__((unused)); /* in assert */
 	uint32_t attr;
 	struct device_sram_t {
 		uintptr_t base;
 		size_t len;
 	} sram = {
-		.base = (uintptr_t) DEVICE_SRAM_BASE,
+		.base = (uintptr_t)DEVICE_SRAM_BASE,
 		.len = DEVICE_SRAM_SIZE,
 	};
 	struct ddr_code_t {
 		void *base;
 		size_t len;
 	} code = {
-		.base = (void *) SRAM_COPY_START,
+		.base = (void *)SRAM_COPY_START,
 		.len = SYSTEM_RAM_END - SYSTEM_RAM_START,
 	};
 
@@ -797,7 +790,7 @@ void rcar_pwrc_code_copy_to_system_ram(void)
 	assert(ret == 0);
 
 	memcpy((void *)sram.base, code.base, code.len);
-	flush_dcache_range((uint64_t) sram.base, code.len);
+	flush_dcache_range((uint64_t)sram.base, code.len);
 
 	attr = MT_MEMORY | MT_RO | MT_SECURE | MT_EXECUTE;
 	ret = xlat_change_mem_attributes(sram.base, sram.len, attr);
@@ -888,12 +881,10 @@ int32_t rcar_pwrc_cpu_on_check(u_register_t mpidr)
 	int32_t rtn;
 	uint32_t my_cluster_type;
 	const uint32_t cluster_type[PLATFORM_CLUSTER_COUNT] = {
-			RCAR_CLUSTER_CA53,
-			RCAR_CLUSTER_CA57
+		RCAR_CLUSTER_CA53, RCAR_CLUSTER_CA57
 	};
 	const uintptr_t registerPSTR[PLATFORM_CLUSTER_COUNT] = {
-			RCAR_CA53PSTR,
-			RCAR_CA57PSTR
+		RCAR_CA53PSTR, RCAR_CA57PSTR
 	};
 
 	my_cluster_type = rcar_pwrc_get_cluster();
@@ -904,7 +895,8 @@ int32_t rcar_pwrc_cpu_on_check(u_register_t mpidr)
 		cpu_count = rcar_pwrc_get_cpu_num(cluster_type[i]);
 		reg_PSTR = registerPSTR[i];
 		for (j = 0U; j < cpu_count; j++) {
-			if ((my_cluster_type != cluster_type[i]) || (my_cpu != j)) {
+			if ((my_cluster_type != cluster_type[i]) ||
+			    (my_cpu != j)) {
 				status = mmio_read_32(reg_PSTR) >> (j * 4U);
 				if ((status & 0x00000003U) == 0U) {
 					rtn--;

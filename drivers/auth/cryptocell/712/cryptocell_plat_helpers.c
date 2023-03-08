@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,15 +8,14 @@
 #include <stddef.h>
 #include <string.h>
 
-#include <platform_def.h>
-
-#include <plat/common/platform.h>
-#include <tools_share/tbbr_oid.h>
-
 #include <common/debug.h>
-#include <drivers/arm/cryptocell/712/sbrom_bsv_api.h>
 #include <drivers/arm/cryptocell/712/nvm.h>
 #include <drivers/arm/cryptocell/712/nvm_otp.h>
+#include <drivers/arm/cryptocell/712/sbrom_bsv_api.h>
+#include <tools_share/tbbr_oid.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 /*
  * Return the ROTPK hash
@@ -50,15 +49,15 @@ int cc_get_rotpk_hash(unsigned char *dst, unsigned int len, unsigned int *flags)
 	 * Return success after setting ROTPK_NOT_DEPLOYED flag
 	 */
 	if ((lcs == CC_BSV_CHIP_MANUFACTURE_LCS) ||
-			(lcs == CC_BSV_DEVICE_MANUFACTURE_LCS)) {
+	    (lcs == CC_BSV_DEVICE_MANUFACTURE_LCS)) {
 		*flags = ROTPK_NOT_DEPLOYED;
 		return 0;
 	}
 
 	/* Copy the DER header */
 	error = NVM_ReadHASHPubKey(PLAT_CRYPTOCELL_BASE,
-			CC_SB_HASH_BOOT_KEY_256B,
-			(uint32_t *)dst, HASH_RESULT_SIZE_IN_WORDS);
+				   CC_SB_HASH_BOOT_KEY_256B, (uint32_t *)dst,
+				   HASH_RESULT_SIZE_IN_WORDS);
 	if (error != CC_OK)
 		return 1;
 
@@ -78,10 +77,10 @@ int plat_get_nv_ctr(void *cookie, unsigned int *nv_ctr)
 
 	if (strcmp(cookie, TRUSTED_FW_NVCOUNTER_OID) == 0) {
 		error = NVM_GetSwVersion(PLAT_CRYPTOCELL_BASE,
-				CC_SW_VERSION_COUNTER1, nv_ctr);
+					 CC_SW_VERSION_COUNTER1, nv_ctr);
 	} else if (strcmp(cookie, NON_TRUSTED_FW_NVCOUNTER_OID) == 0) {
 		error = NVM_GetSwVersion(PLAT_CRYPTOCELL_BASE,
-				CC_SW_VERSION_COUNTER2, nv_ctr);
+					 CC_SW_VERSION_COUNTER2, nv_ctr);
 	}
 
 	return (error != CC_OK);
@@ -102,12 +101,11 @@ int plat_set_nv_ctr(void *cookie, unsigned int nv_ctr)
 
 	if (strcmp(cookie, TRUSTED_FW_NVCOUNTER_OID) == 0) {
 		error = NVM_SetSwVersion(PLAT_CRYPTOCELL_BASE,
-				CC_SW_VERSION_COUNTER1, nv_ctr);
+					 CC_SW_VERSION_COUNTER1, nv_ctr);
 	} else if (strcmp(cookie, NON_TRUSTED_FW_NVCOUNTER_OID) == 0) {
 		error = NVM_SetSwVersion(PLAT_CRYPTOCELL_BASE,
-				CC_SW_VERSION_COUNTER2, nv_ctr);
+					 CC_SW_VERSION_COUNTER2, nv_ctr);
 	}
 
 	return (error != CC_OK);
 }
-

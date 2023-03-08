@@ -1,12 +1,13 @@
 /*
- * Copyright (c) 2019, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <stdint.h>
+
 #include <arch_helpers.h>
 #include <cdefs.h>
-#include <stdint.h>
 
 /*
  * This is only a toy implementation to generate a seemingly random

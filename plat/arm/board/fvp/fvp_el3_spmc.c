@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -19,7 +19,7 @@
 #define PLAT_SPMC_SHMEM_DATASTORE_SIZE 512 * 1024
 
 __section(".arm_el3_tzc_dram") static uint8_t
-plat_spmc_shmem_datastore[PLAT_SPMC_SHMEM_DATASTORE_SIZE];
+	plat_spmc_shmem_datastore[PLAT_SPMC_SHMEM_DATASTORE_SIZE];
 
 int plat_spmc_shmem_datastore_get(uint8_t **datastore, size_t *size)
 {

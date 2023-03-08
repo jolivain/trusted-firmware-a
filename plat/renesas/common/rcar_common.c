@@ -7,20 +7,20 @@
 #include <assert.h>
 
 #include <arch_helpers.h>
+#include <cpg_registers.h>
 #include <drivers/console.h>
+#include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_mmu_helpers.h>
+
 #include <plat/common/platform.h>
 
-#include <lib/mmio.h>
-#include <cpg_registers.h>
-
-#define MSTP318			(1 << 18)
-#define MSTP319			(1 << 19)
-#define PMSR			0x5c
-#define PMSR_L1FAEG		(1U << 31)
-#define PMSR_PMEL1RX		(1 << 23)
-#define PMCTLR			0x60
-#define PMSR_L1IATN		(1U << 31)
+#define MSTP318 (1 << 18)
+#define MSTP319 (1 << 19)
+#define PMSR 0x5c
+#define PMSR_L1FAEG (1U << 31)
+#define PMSR_PMEL1RX (1 << 23)
+#define PMCTLR 0x60
+#define PMSR_L1IATN (1U << 31)
 
 static int rcar_pcie_fixup(unsigned int controller)
 {
@@ -50,7 +50,7 @@ static int rcar_pcie_fixup(unsigned int controller)
 
 /* RAS functions common to AArch64 ARM platforms */
 void plat_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *cookie,
-		void *handle, uint64_t flags)
+		     void *handle, uint64_t flags)
 {
 	unsigned int fixed = 0;
 

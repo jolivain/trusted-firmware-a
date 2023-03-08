@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,6 +13,7 @@
 
 #include <arch_helpers.h>
 #include <lib/mmio.h>
+
 #include <plat/common/platform.h>
 
 #include "pm_api_clock.h"
@@ -21,179 +22,148 @@
 #include "pm_common.h"
 #include "pm_ipi.h"
 
-#define CLK_NODE_MAX			(6U)
+#define CLK_NODE_MAX (6U)
 
-#define CLK_PARENTS_ID_LEN		(16U)
-#define CLK_TOPOLOGY_NODE_OFFSET	(16U)
-#define CLK_TOPOLOGY_PAYLOAD_LEN	(12U)
-#define CLK_PARENTS_PAYLOAD_LEN		(12U)
-#define CLK_TYPE_SHIFT			(2U)
-#define CLK_CLKFLAGS_SHIFT		(8U)
-#define CLK_TYPEFLAGS_SHIFT		(24U)
-#define CLK_TYPEFLAGS2_SHIFT		(4U)
-#define CLK_TYPEFLAGS_BITS_MASK		(0xFFU)
-#define CLK_TYPEFLAGS2_BITS_MASK	(0x0F00U)
-#define CLK_TYPEFLAGS_BITS		(8U)
+#define CLK_PARENTS_ID_LEN (16U)
+#define CLK_TOPOLOGY_NODE_OFFSET (16U)
+#define CLK_TOPOLOGY_PAYLOAD_LEN (12U)
+#define CLK_PARENTS_PAYLOAD_LEN (12U)
+#define CLK_TYPE_SHIFT (2U)
+#define CLK_CLKFLAGS_SHIFT (8U)
+#define CLK_TYPEFLAGS_SHIFT (24U)
+#define CLK_TYPEFLAGS2_SHIFT (4U)
+#define CLK_TYPEFLAGS_BITS_MASK (0xFFU)
+#define CLK_TYPEFLAGS2_BITS_MASK (0x0F00U)
+#define CLK_TYPEFLAGS_BITS (8U)
 
-#define CLK_EXTERNAL_PARENT	(PARENT_CLK_EXTERNAL << CLK_PARENTS_ID_LEN)
+#define CLK_EXTERNAL_PARENT (PARENT_CLK_EXTERNAL << CLK_PARENTS_ID_LEN)
 
-#define NA_MULT					(0U)
-#define NA_DIV					(0U)
-#define NA_SHIFT				(0U)
-#define NA_WIDTH				(0U)
-#define NA_CLK_FLAGS				(0U)
-#define NA_TYPE_FLAGS				(0U)
+#define NA_MULT (0U)
+#define NA_DIV (0U)
+#define NA_SHIFT (0U)
+#define NA_WIDTH (0U)
+#define NA_CLK_FLAGS (0U)
+#define NA_TYPE_FLAGS (0U)
 
 /* PLL nodes related definitions */
-#define PLL_PRESRC_MUX_SHIFT			(20U)
-#define PLL_PRESRC_MUX_WIDTH			(3U)
-#define PLL_POSTSRC_MUX_SHIFT			(24U)
-#define PLL_POSTSRC_MUX_WIDTH			(3U)
-#define PLL_DIV2_MUX_SHIFT			(16U)
-#define PLL_DIV2_MUX_WIDTH			(1U)
-#define PLL_BYPASS_MUX_SHIFT			(3U)
-#define PLL_BYPASS_MUX_WIDTH			(1U)
+#define PLL_PRESRC_MUX_SHIFT (20U)
+#define PLL_PRESRC_MUX_WIDTH (3U)
+#define PLL_POSTSRC_MUX_SHIFT (24U)
+#define PLL_POSTSRC_MUX_WIDTH (3U)
+#define PLL_DIV2_MUX_SHIFT (16U)
+#define PLL_DIV2_MUX_WIDTH (1U)
+#define PLL_BYPASS_MUX_SHIFT (3U)
+#define PLL_BYPASS_MUX_WIDTH (1U)
 
 /* Peripheral nodes related definitions */
 /* Peripheral Clocks */
-#define PERIPH_MUX_SHIFT			(0U)
-#define PERIPH_MUX_WIDTH			(3U)
-#define PERIPH_DIV1_SHIFT			(8U)
-#define PERIPH_DIV1_WIDTH			(6U)
-#define PERIPH_DIV2_SHIFT			(16U)
-#define PERIPH_DIV2_WIDTH			(6U)
-#define PERIPH_GATE_SHIFT			(24U)
-#define PERIPH_GATE_WIDTH			(1U)
+#define PERIPH_MUX_SHIFT (0U)
+#define PERIPH_MUX_WIDTH (3U)
+#define PERIPH_DIV1_SHIFT (8U)
+#define PERIPH_DIV1_WIDTH (6U)
+#define PERIPH_DIV2_SHIFT (16U)
+#define PERIPH_DIV2_WIDTH (6U)
+#define PERIPH_GATE_SHIFT (24U)
+#define PERIPH_GATE_WIDTH (1U)
 
-#define USB_GATE_SHIFT				(25U)
+#define USB_GATE_SHIFT (25U)
 
 /* External clock related definitions */
 
-#define EXT_CLK_MIO_DATA(mio)				\
-	[EXT_CLK_INDEX(EXT_CLK_MIO##mio)] = {		\
-		.name = "mio_clk_"#mio,			\
+#define EXT_CLK_MIO_DATA(mio)                 \
+	[EXT_CLK_INDEX(EXT_CLK_MIO##mio)] = { \
+		.name = "mio_clk_" #mio,      \
 	}
 
-#define EXT_CLK_INDEX(n)	(n - CLK_MAX_OUTPUT_CLK)
+#define EXT_CLK_INDEX(n) (n - CLK_MAX_OUTPUT_CLK)
 
 /* Clock control related definitions */
 #define BIT_MASK(x, y) (((1U << (y)) - 1) << (x))
 
-#define ISPLL(id)	(id == CLK_APLL_INT ||	\
-			 id == CLK_DPLL_INT ||  \
-			 id == CLK_VPLL_INT ||  \
-			 id == CLK_IOPLL_INT || \
-			 id == CLK_RPLL_INT)
+#define ISPLL(id)                                                          \
+	(id == CLK_APLL_INT || id == CLK_DPLL_INT || id == CLK_VPLL_INT || \
+	 id == CLK_IOPLL_INT || id == CLK_RPLL_INT)
 
+#define PLLCTRL_BP_MASK BIT(3)
+#define PLLCTRL_RESET_MASK (1U)
+#define PLL_FRAC_OFFSET (8U)
+#define PLL_FRAC_MODE (1U)
+#define PLL_INT_MODE (0U)
+#define PLL_FRAC_MODE_MASK (0x80000000U)
+#define PLL_FRAC_MODE_SHIFT (31U)
+#define PLL_FRAC_DATA_MASK (0xFFFFU)
+#define PLL_FRAC_DATA_SHIFT (0U)
+#define PLL_FBDIV_MASK (0x7F00U)
+#define PLL_FBDIV_WIDTH (7U)
+#define PLL_FBDIV_SHIFT (8U)
 
-#define PLLCTRL_BP_MASK				BIT(3)
-#define PLLCTRL_RESET_MASK			(1U)
-#define PLL_FRAC_OFFSET				(8U)
-#define PLL_FRAC_MODE				(1U)
-#define PLL_INT_MODE				(0U)
-#define PLL_FRAC_MODE_MASK			(0x80000000U)
-#define PLL_FRAC_MODE_SHIFT			(31U)
-#define PLL_FRAC_DATA_MASK			(0xFFFFU)
-#define PLL_FRAC_DATA_SHIFT			(0U)
-#define PLL_FBDIV_MASK				(0x7F00U)
-#define PLL_FBDIV_WIDTH				(7U)
-#define PLL_FBDIV_SHIFT				(8U)
-
-#define CLK_PLL_RESET_ASSERT			(1U)
-#define CLK_PLL_RESET_RELEASE			(2U)
-#define CLK_PLL_RESET_PULSE	(CLK_PLL_RESET_ASSERT | CLK_PLL_RESET_RELEASE)
+#define CLK_PLL_RESET_ASSERT (1U)
+#define CLK_PLL_RESET_RELEASE (2U)
+#define CLK_PLL_RESET_PULSE (CLK_PLL_RESET_ASSERT | CLK_PLL_RESET_RELEASE)
 
 /* Common topology definitions */
-#define GENERIC_MUX					\
-	{						\
-		.type = TYPE_MUX,			\
-		.offset = PERIPH_MUX_SHIFT,		\
-		.width = PERIPH_MUX_WIDTH,		\
-		.clkflags = CLK_SET_RATE_NO_REPARENT |	\
-			    CLK_IS_BASIC,		\
-		.typeflags = NA_TYPE_FLAGS,		\
-		.mult = NA_MULT,			\
-		.div = NA_DIV,				\
+#define GENERIC_MUX                                                         \
+	{                                                                   \
+		.type = TYPE_MUX, .offset = PERIPH_MUX_SHIFT,               \
+		.width = PERIPH_MUX_WIDTH,                                  \
+		.clkflags = CLK_SET_RATE_NO_REPARENT | CLK_IS_BASIC,        \
+		.typeflags = NA_TYPE_FLAGS, .mult = NA_MULT, .div = NA_DIV, \
 	}
 
-#define IGNORE_UNUSED_MUX				\
-	{						\
-		.type = TYPE_MUX,			\
-		.offset = PERIPH_MUX_SHIFT,		\
-		.width = PERIPH_MUX_WIDTH,		\
-		.clkflags = CLK_IGNORE_UNUSED |		\
-			    CLK_SET_RATE_NO_REPARENT |	\
-			    CLK_IS_BASIC,		\
-		.typeflags = NA_TYPE_FLAGS,		\
-		.mult = NA_MULT,			\
-		.div = NA_DIV,				\
+#define IGNORE_UNUSED_MUX                                                   \
+	{                                                                   \
+		.type = TYPE_MUX, .offset = PERIPH_MUX_SHIFT,               \
+		.width = PERIPH_MUX_WIDTH,                                  \
+		.clkflags = CLK_IGNORE_UNUSED | CLK_SET_RATE_NO_REPARENT |  \
+			    CLK_IS_BASIC,                                   \
+		.typeflags = NA_TYPE_FLAGS, .mult = NA_MULT, .div = NA_DIV, \
 	}
 
-#define GENERIC_DIV1						\
-	{							\
-		.type = TYPE_DIV1,				\
-		.offset = PERIPH_DIV1_SHIFT,			\
-		.width = PERIPH_DIV1_WIDTH,			\
-		.clkflags = CLK_SET_RATE_NO_REPARENT |		\
-			    CLK_IS_BASIC,			\
-		.typeflags = CLK_DIVIDER_ONE_BASED |		\
-			     CLK_DIVIDER_ALLOW_ZERO,		\
-		.mult = NA_MULT,				\
-		.div = NA_DIV,					\
+#define GENERIC_DIV1                                                         \
+	{                                                                    \
+		.type = TYPE_DIV1, .offset = PERIPH_DIV1_SHIFT,              \
+		.width = PERIPH_DIV1_WIDTH,                                  \
+		.clkflags = CLK_SET_RATE_NO_REPARENT | CLK_IS_BASIC,         \
+		.typeflags = CLK_DIVIDER_ONE_BASED | CLK_DIVIDER_ALLOW_ZERO, \
+		.mult = NA_MULT, .div = NA_DIV,                              \
 	}
 
-#define GENERIC_DIV2						\
-	{							\
-		.type = TYPE_DIV2,				\
-		.offset = PERIPH_DIV2_SHIFT,			\
-		.width = PERIPH_DIV2_WIDTH,			\
-		.clkflags = CLK_SET_RATE_NO_REPARENT |		\
-			    CLK_SET_RATE_PARENT |		\
-			    CLK_IS_BASIC,			\
-		.typeflags = CLK_DIVIDER_ONE_BASED |		\
-			     CLK_DIVIDER_ALLOW_ZERO,		\
-		.mult = NA_MULT,				\
-		.div = NA_DIV,					\
+#define GENERIC_DIV2                                                         \
+	{                                                                    \
+		.type = TYPE_DIV2, .offset = PERIPH_DIV2_SHIFT,              \
+		.width = PERIPH_DIV2_WIDTH,                                  \
+		.clkflags = CLK_SET_RATE_NO_REPARENT | CLK_SET_RATE_PARENT | \
+			    CLK_IS_BASIC,                                    \
+		.typeflags = CLK_DIVIDER_ONE_BASED | CLK_DIVIDER_ALLOW_ZERO, \
+		.mult = NA_MULT, .div = NA_DIV,                              \
 	}
 
-#define IGNORE_UNUSED_DIV(id)					\
-	{							\
-		.type = TYPE_DIV##id,				\
-		.offset = PERIPH_DIV##id##_SHIFT,		\
-		.width = PERIPH_DIV##id##_WIDTH,		\
-		.clkflags = CLK_IGNORE_UNUSED |			\
-			    CLK_SET_RATE_NO_REPARENT |		\
-			    CLK_IS_BASIC,			\
-		.typeflags = CLK_DIVIDER_ONE_BASED |		\
-			     CLK_DIVIDER_ALLOW_ZERO,		\
-		.mult = NA_MULT,				\
-		.div = NA_DIV,					\
+#define IGNORE_UNUSED_DIV(id)                                                \
+	{                                                                    \
+		.type = TYPE_DIV##id, .offset = PERIPH_DIV##id##_SHIFT,      \
+		.width = PERIPH_DIV##id##_WIDTH,                             \
+		.clkflags = CLK_IGNORE_UNUSED | CLK_SET_RATE_NO_REPARENT |   \
+			    CLK_IS_BASIC,                                    \
+		.typeflags = CLK_DIVIDER_ONE_BASED | CLK_DIVIDER_ALLOW_ZERO, \
+		.mult = NA_MULT, .div = NA_DIV,                              \
 	}
 
-#define GENERIC_GATE						\
-	{							\
-		.type = TYPE_GATE,				\
-		.offset = PERIPH_GATE_SHIFT,			\
-		.width = PERIPH_GATE_WIDTH,			\
-		.clkflags = CLK_SET_RATE_PARENT |		\
-			    CLK_SET_RATE_GATE |			\
-			    CLK_IS_BASIC,			\
-		.typeflags = NA_TYPE_FLAGS,			\
-		.mult = NA_MULT,				\
-		.div = NA_DIV,					\
+#define GENERIC_GATE                                                        \
+	{                                                                   \
+		.type = TYPE_GATE, .offset = PERIPH_GATE_SHIFT,             \
+		.width = PERIPH_GATE_WIDTH,                                 \
+		.clkflags = CLK_SET_RATE_PARENT | CLK_SET_RATE_GATE |       \
+			    CLK_IS_BASIC,                                   \
+		.typeflags = NA_TYPE_FLAGS, .mult = NA_MULT, .div = NA_DIV, \
 	}
 
-#define IGNORE_UNUSED_GATE					\
-	{							\
-		.type = TYPE_GATE,				\
-		.offset = PERIPH_GATE_SHIFT,			\
-		.width = PERIPH_GATE_WIDTH,			\
-		.clkflags = CLK_SET_RATE_PARENT |		\
-			    CLK_IGNORE_UNUSED |			\
-			    CLK_IS_BASIC,			\
-		.typeflags = NA_TYPE_FLAGS,			\
-		.mult = NA_MULT,				\
-		.div = NA_DIV,					\
+#define IGNORE_UNUSED_GATE                                                  \
+	{                                                                   \
+		.type = TYPE_GATE, .offset = PERIPH_GATE_SHIFT,             \
+		.width = PERIPH_GATE_WIDTH,                                 \
+		.clkflags = CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED |       \
+			    CLK_IS_BASIC,                                   \
+		.typeflags = NA_TYPE_FLAGS, .mult = NA_MULT, .div = NA_DIV, \
 	}
 
 /**
@@ -212,8 +182,8 @@ struct pm_clock_node {
 	uint8_t type;
 	uint8_t offset;
 	uint8_t width;
-	uint8_t mult:4;
-	uint8_t div:4;
+	uint8_t mult : 4;
+	uint8_t div : 4;
 };
 
 /**
@@ -231,7 +201,7 @@ struct pm_clock {
 	uint32_t control_reg;
 	uint32_t status_reg;
 	int32_t (*parents)[];
-	struct pm_clock_node(*nodes)[];
+	struct pm_clock_node (*nodes)[];
 };
 
 /**
@@ -295,9 +265,8 @@ static struct pm_clock_node generic_pll_int_nodes[] = {
 	{
 		.type = TYPE_MUX,
 		.offset = PLL_DIV2_MUX_SHIFT,
-		.width =  PLL_DIV2_MUX_WIDTH,
-		.clkflags = CLK_SET_RATE_NO_REPARENT |
-			    CLK_SET_RATE_PARENT |
+		.width = PLL_DIV2_MUX_WIDTH,
+		.clkflags = CLK_SET_RATE_NO_REPARENT | CLK_SET_RATE_PARENT |
 			    CLK_IS_BASIC,
 		.typeflags = NA_TYPE_FLAGS,
 		.mult = NA_MULT,
@@ -322,8 +291,7 @@ static struct pm_clock_node generic_pll_system_nodes[] = {
 		.type = TYPE_MUX,
 		.offset = PLL_BYPASS_MUX_SHIFT,
 		.width = PLL_BYPASS_MUX_WIDTH,
-		.clkflags = CLK_SET_RATE_NO_REPARENT |
-			    CLK_SET_RATE_PARENT |
+		.clkflags = CLK_SET_RATE_NO_REPARENT | CLK_SET_RATE_PARENT |
 			    CLK_IS_BASIC,
 		.typeflags = NA_TYPE_FLAGS,
 		.mult = NA_MULT,
@@ -381,8 +349,8 @@ static struct pm_clock_node dp_audio_video_ref_nodes[] = {
 		.type = TYPE_MUX,
 		.offset = PERIPH_MUX_SHIFT,
 		.width = PERIPH_MUX_WIDTH,
-		.clkflags = CLK_SET_RATE_NO_REPARENT |
-			    CLK_SET_RATE_PARENT | CLK_IS_BASIC,
+		.clkflags = CLK_SET_RATE_NO_REPARENT | CLK_SET_RATE_PARENT |
+			    CLK_IS_BASIC,
 		.typeflags = CLK_FRAC,
 		.mult = NA_MULT,
 		.div = NA_DIV,
@@ -413,8 +381,7 @@ static struct pm_clock_node dp_audio_video_ref_nodes[] = {
 		.type = TYPE_GATE,
 		.offset = PERIPH_GATE_SHIFT,
 		.width = PERIPH_GATE_WIDTH,
-		.clkflags = CLK_SET_RATE_PARENT |
-			    CLK_SET_RATE_GATE |
+		.clkflags = CLK_SET_RATE_PARENT | CLK_SET_RATE_GATE |
 			    CLK_IS_BASIC,
 		.typeflags = NA_TYPE_FLAGS,
 		.mult = NA_MULT,
@@ -476,8 +443,7 @@ static struct pm_clock_node acpu_half_nodes[] = {
 		.type = TYPE_GATE,
 		.offset = 25,
 		.width = PERIPH_GATE_WIDTH,
-		.clkflags = CLK_IGNORE_UNUSED |
-			    CLK_SET_RATE_PARENT |
+		.clkflags = CLK_IGNORE_UNUSED | CLK_SET_RATE_PARENT |
 			    CLK_IS_BASIC,
 		.typeflags = NA_TYPE_FLAGS,
 		.mult = NA_MULT,
@@ -490,8 +456,7 @@ static struct pm_clock_node acpu_full_nodes[] = {
 		.type = TYPE_GATE,
 		.offset = 24,
 		.width = PERIPH_GATE_WIDTH,
-		.clkflags = CLK_IGNORE_UNUSED |
-			    CLK_SET_RATE_PARENT |
+		.clkflags = CLK_IGNORE_UNUSED | CLK_SET_RATE_PARENT |
 			    CLK_IS_BASIC,
 		.typeflags = NA_TYPE_FLAGS,
 		.mult = NA_MULT,
@@ -504,8 +469,7 @@ static struct pm_clock_node wdt_nodes[] = {
 		.type = TYPE_MUX,
 		.offset = 0,
 		.width = 1,
-		.clkflags = CLK_SET_RATE_PARENT |
-			    CLK_SET_RATE_NO_REPARENT |
+		.clkflags = CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT |
 			    CLK_IS_BASIC,
 		.typeflags = NA_TYPE_FLAGS,
 		.mult = NA_MULT,
@@ -609,8 +573,7 @@ static struct pm_clock_node gem0_ref_nodes[] = {
 		.type = TYPE_MUX,
 		.offset = 1,
 		.width = 1,
-		.clkflags = CLK_SET_RATE_PARENT |
-			    CLK_SET_RATE_NO_REPARENT |
+		.clkflags = CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT |
 			    CLK_IS_BASIC,
 		.typeflags = NA_TYPE_FLAGS,
 		.mult = NA_MULT,
@@ -623,8 +586,7 @@ static struct pm_clock_node gem1_ref_nodes[] = {
 		.type = TYPE_MUX,
 		.offset = 6,
 		.width = 1,
-		.clkflags = CLK_SET_RATE_PARENT |
-			    CLK_SET_RATE_NO_REPARENT |
+		.clkflags = CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT |
 			    CLK_IS_BASIC,
 		.typeflags = NA_TYPE_FLAGS,
 		.mult = NA_MULT,
@@ -637,8 +599,7 @@ static struct pm_clock_node gem2_ref_nodes[] = {
 		.type = TYPE_MUX,
 		.offset = 11,
 		.width = 1,
-		.clkflags = CLK_SET_RATE_PARENT |
-			    CLK_SET_RATE_NO_REPARENT |
+		.clkflags = CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT |
 			    CLK_IS_BASIC,
 		.typeflags = NA_TYPE_FLAGS,
 		.mult = NA_MULT,
@@ -651,8 +612,7 @@ static struct pm_clock_node gem3_ref_nodes[] = {
 		.type = TYPE_MUX,
 		.offset = 16,
 		.width = 1,
-		.clkflags = CLK_SET_RATE_PARENT |
-			    CLK_SET_RATE_NO_REPARENT |
+		.clkflags = CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT |
 			    CLK_IS_BASIC,
 		.typeflags = NA_TYPE_FLAGS,
 		.mult = NA_MULT,
@@ -689,8 +649,7 @@ static struct pm_clock_node gem_tsu_nodes[] = {
 		.type = TYPE_MUX,
 		.offset = 20,
 		.width = 2,
-		.clkflags = CLK_SET_RATE_PARENT |
-			    CLK_SET_RATE_NO_REPARENT |
+		.clkflags = CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT |
 			    CLK_IS_BASIC,
 		.typeflags = NA_TYPE_FLAGS,
 		.mult = NA_MULT,
@@ -703,8 +662,7 @@ static struct pm_clock_node can0_mio_nodes[] = {
 		.type = TYPE_MUX,
 		.offset = 0,
 		.width = 7,
-		.clkflags = CLK_SET_RATE_PARENT |
-			    CLK_SET_RATE_NO_REPARENT |
+		.clkflags = CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT |
 			    CLK_IS_BASIC,
 		.typeflags = NA_TYPE_FLAGS,
 		.mult = NA_MULT,
@@ -717,8 +675,7 @@ static struct pm_clock_node can1_mio_nodes[] = {
 		.type = TYPE_MUX,
 		.offset = 15,
 		.width = 1,
-		.clkflags = CLK_SET_RATE_PARENT |
-			    CLK_SET_RATE_NO_REPARENT |
+		.clkflags = CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT |
 			    CLK_IS_BASIC,
 		.typeflags = NA_TYPE_FLAGS,
 		.mult = NA_MULT,
@@ -731,8 +688,7 @@ static struct pm_clock_node can0_nodes[] = {
 		.type = TYPE_MUX,
 		.offset = 7,
 		.width = 1,
-		.clkflags = CLK_SET_RATE_PARENT |
-			    CLK_SET_RATE_NO_REPARENT |
+		.clkflags = CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT |
 			    CLK_IS_BASIC,
 		.typeflags = NA_TYPE_FLAGS,
 		.mult = NA_MULT,
@@ -745,8 +701,7 @@ static struct pm_clock_node can1_nodes[] = {
 		.type = TYPE_MUX,
 		.offset = 22,
 		.width = 1,
-		.clkflags = CLK_SET_RATE_PARENT |
-			    CLK_SET_RATE_NO_REPARENT |
+		.clkflags = CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT |
 			    CLK_IS_BASIC,
 		.typeflags = NA_TYPE_FLAGS,
 		.mult = NA_MULT,
@@ -759,8 +714,7 @@ static struct pm_clock_node cpu_r5_core_nodes[] = {
 		.type = TYPE_GATE,
 		.offset = 25,
 		.width = PERIPH_GATE_WIDTH,
-		.clkflags = CLK_IGNORE_UNUSED |
-			    CLK_IS_BASIC,
+		.clkflags = CLK_IGNORE_UNUSED | CLK_IS_BASIC,
 		.typeflags = NA_TYPE_FLAGS,
 		.mult = NA_MULT,
 		.div = NA_DIV,
@@ -772,8 +726,7 @@ static struct pm_clock_node dll_ref_nodes[] = {
 		.type = TYPE_MUX,
 		.offset = 0,
 		.width = 3,
-		.clkflags = CLK_SET_RATE_PARENT |
-			    CLK_SET_RATE_NO_REPARENT |
+		.clkflags = CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT |
 			    CLK_IS_BASIC,
 		.typeflags = NA_TYPE_FLAGS,
 		.mult = NA_MULT,
@@ -796,9 +749,9 @@ static struct pm_clock_node timestamp_ref_nodes[] = {
 };
 
 static int32_t can_mio_parents[] = {
-	EXT_CLK_MIO0, EXT_CLK_MIO1, EXT_CLK_MIO2, EXT_CLK_MIO3,
-	EXT_CLK_MIO4, EXT_CLK_MIO5, EXT_CLK_MIO6, EXT_CLK_MIO7,
-	EXT_CLK_MIO8, EXT_CLK_MIO9, EXT_CLK_MIO10, EXT_CLK_MIO11,
+	EXT_CLK_MIO0,  EXT_CLK_MIO1,  EXT_CLK_MIO2,  EXT_CLK_MIO3,
+	EXT_CLK_MIO4,  EXT_CLK_MIO5,  EXT_CLK_MIO6,  EXT_CLK_MIO7,
+	EXT_CLK_MIO8,  EXT_CLK_MIO9,  EXT_CLK_MIO10, EXT_CLK_MIO11,
 	EXT_CLK_MIO12, EXT_CLK_MIO13, EXT_CLK_MIO14, EXT_CLK_MIO15,
 	EXT_CLK_MIO16, EXT_CLK_MIO17, EXT_CLK_MIO18, EXT_CLK_MIO19,
 	EXT_CLK_MIO20, EXT_CLK_MIO21, EXT_CLK_MIO22, EXT_CLK_MIO23,
@@ -2362,26 +2315,13 @@ static struct pm_ext_clock ext_clocks[] = {
 };
 
 /* Array of clock which are invalid for this variant */
-static uint32_t pm_clk_invalid_list[] = {CLK_USB0, CLK_USB1, CLK_CSU_SPB,
-	CLK_ACPU_FULL,
-	CLK_ACPU_HALF,
-	CLK_APLL_TO_LPD,
-	CLK_DBG_FPD,
-	CLK_DBG_LPD,
-	CLK_DBG_TRACE,
-	CLK_DBG_TSTMP,
-	CLK_DDR_REF,
-	CLK_TOPSW_MAIN,
-	CLK_GTGREF0_REF,
-	CLK_LPD_SWITCH,
-	CLK_CPU_R5,
-	CLK_CPU_R5_CORE,
-	CLK_CSU_SPB,
-	CLK_CSU_PLL,
-	CLK_PCAP,
-	CLK_IOU_SWITCH,
-	CLK_DLL_REF,
-	CLK_TIMESTAMP_REF,
+static uint32_t pm_clk_invalid_list[] = {
+	CLK_USB0,	 CLK_USB1,	    CLK_CSU_SPB, CLK_ACPU_FULL,
+	CLK_ACPU_HALF,	 CLK_APLL_TO_LPD,   CLK_DBG_FPD, CLK_DBG_LPD,
+	CLK_DBG_TRACE,	 CLK_DBG_TSTMP,	    CLK_DDR_REF, CLK_TOPSW_MAIN,
+	CLK_GTGREF0_REF, CLK_LPD_SWITCH,    CLK_CPU_R5,	 CLK_CPU_R5_CORE,
+	CLK_CSU_SPB,	 CLK_CSU_PLL,	    CLK_PCAP,	 CLK_IOU_SWITCH,
+	CLK_DLL_REF,	 CLK_TIMESTAMP_REF,
 };
 
 /**
@@ -2417,8 +2357,8 @@ static bool pm_clock_valid(uint32_t clock_id)
  */
 static uint32_t pm_clock_type(uint32_t clock_id)
 {
-	return (clock_id < CLK_MAX_OUTPUT_CLK) ?
-		CLK_TYPE_OUTPUT : CLK_TYPE_EXTERNAL;
+	return (clock_id < CLK_MAX_OUTPUT_CLK) ? CLK_TYPE_OUTPUT :
+						 CLK_TYPE_EXTERNAL;
 }
 
 /**
@@ -2447,8 +2387,9 @@ enum pm_ret_status pm_api_clock_get_num_clocks(uint32_t *nclocks)
 void pm_api_clock_get_name(uint32_t clock_id, char *name)
 {
 	if (clock_id == CLK_MAX) {
-		memcpy(name, END_OF_CLK, sizeof(END_OF_CLK) > CLK_NAME_LEN ?
-					 CLK_NAME_LEN : sizeof(END_OF_CLK));
+		memcpy(name, END_OF_CLK,
+		       sizeof(END_OF_CLK) > CLK_NAME_LEN ? CLK_NAME_LEN :
+							   sizeof(END_OF_CLK));
 	} else if (!pm_clock_valid(clock_id)) {
 		memset(name, 0, CLK_NAME_LEN);
 	} else if (clock_id < CLK_MAX_OUTPUT_CLK) {
@@ -2472,8 +2413,7 @@ void pm_api_clock_get_name(uint32_t clock_id, char *name)
  *
  * @return	Returns status, either success or error+reason
  */
-enum pm_ret_status pm_api_clock_get_topology(uint32_t clock_id,
-					     uint32_t index,
+enum pm_ret_status pm_api_clock_get_topology(uint32_t clock_id, uint32_t index,
 					     uint32_t *topology)
 {
 	struct pm_clock_node *clock_nodes;
@@ -2504,13 +2444,13 @@ enum pm_ret_status pm_api_clock_get_topology(uint32_t clock_id,
 		}
 
 		topology[i] = clock_nodes[index + i].type;
-		topology[i] |= clock_nodes[index + i].clkflags <<
-					CLK_CLKFLAGS_SHIFT;
+		topology[i] |= clock_nodes[index + i].clkflags
+			       << CLK_CLKFLAGS_SHIFT;
 		typeflags = clock_nodes[index + i].typeflags;
-		topology[i] |= (typeflags & CLK_TYPEFLAGS_BITS_MASK) <<
-					CLK_TYPEFLAGS_SHIFT;
+		topology[i] |= (typeflags & CLK_TYPEFLAGS_BITS_MASK)
+			       << CLK_TYPEFLAGS_SHIFT;
 		topology[i] |= (typeflags & CLK_TYPEFLAGS2_BITS_MASK) >>
-				(CLK_TYPEFLAGS_BITS - CLK_TYPEFLAGS2_SHIFT);
+			       (CLK_TYPEFLAGS_BITS - CLK_TYPEFLAGS2_SHIFT);
 	}
 
 	return PM_RET_SUCCESS;
@@ -2548,7 +2488,7 @@ enum pm_ret_status pm_api_clock_get_fixedfactor_params(uint32_t clock_id,
 	num_nodes = clocks[clock_id].num_nodes;
 
 	for (i = 0; i < num_nodes; i++) {
-		type =  clock_nodes[i].type;
+		type = clock_nodes[i].type;
 		if (type == TYPE_FIXEDFACTOR) {
 			*mul = clock_nodes[i].mult;
 			*div = clock_nodes[i].div;
@@ -2581,8 +2521,7 @@ enum pm_ret_status pm_api_clock_get_fixedfactor_params(uint32_t clock_id,
  *
  * @return	Returns status, either success or error+reason
  */
-enum pm_ret_status pm_api_clock_get_parents(uint32_t clock_id,
-					    uint32_t index,
+enum pm_ret_status pm_api_clock_get_parents(uint32_t clock_id, uint32_t index,
 					    uint32_t *parents)
 {
 	uint32_t i;
@@ -2670,8 +2609,7 @@ enum pm_ret_status pm_api_clock_get_max_divisor(enum clock_id clock_id,
 	nodes = *clocks[clock_id].nodes;
 	for (i = 0; i < clocks[clock_id].num_nodes; i++) {
 		if (nodes[i].type == div_type) {
-			if (CLK_DIVIDER_POWER_OF_TWO &
-					nodes[i].typeflags) {
+			if (CLK_DIVIDER_POWER_OF_TWO & nodes[i].typeflags) {
 				*max_div = (1U << (BIT(nodes[i].width) - 1U));
 			} else {
 				*max_div = BIT(nodes[i].width) - 1U;
@@ -2712,28 +2650,32 @@ static struct pm_pll pm_plls[] = {
 		.post_src = CLK_IOPLL_POST_SRC,
 		.div2 = CLK_IOPLL_INT_MUX,
 		.bypass = CLK_IOPLL,
-	}, {
+	},
+	{
 		.nid = NODE_RPLL,
 		.cid = CLK_RPLL_INT,
 		.pre_src = CLK_RPLL_PRE_SRC,
 		.post_src = CLK_RPLL_POST_SRC,
 		.div2 = CLK_RPLL_INT_MUX,
 		.bypass = CLK_RPLL,
-	}, {
+	},
+	{
 		.nid = NODE_APLL,
 		.cid = CLK_APLL_INT,
 		.pre_src = CLK_APLL_PRE_SRC,
 		.post_src = CLK_APLL_POST_SRC,
 		.div2 = CLK_APLL_INT_MUX,
 		.bypass = CLK_APLL,
-	}, {
+	},
+	{
 		.nid = NODE_VPLL,
 		.cid = CLK_VPLL_INT,
 		.pre_src = CLK_VPLL_PRE_SRC,
 		.post_src = CLK_VPLL_POST_SRC,
 		.div2 = CLK_VPLL_INT_MUX,
 		.bypass = CLK_VPLL,
-	}, {
+	},
+	{
 		.nid = NODE_DPLL,
 		.cid = CLK_DPLL_INT,
 		.pre_src = CLK_DPLL_PRE_SRC,
@@ -2856,8 +2798,7 @@ enum pm_ret_status pm_clock_pll_disable(struct pm_pll *pll)
  * Return: PM_RET_ERROR_ARGS error if the argument is not valid, success if
  * returned state value is valid or an error if returned by PMU
  */
-enum pm_ret_status pm_clock_pll_get_state(struct pm_pll *pll,
-					  uint32_t *state)
+enum pm_ret_status pm_clock_pll_get_state(struct pm_pll *pll, uint32_t *state)
 {
 	enum pm_ret_status status;
 	enum pm_pll_mode mode;
@@ -2961,8 +2902,7 @@ enum pm_ret_status pm_clock_pll_get_parent(struct pm_pll *pll,
  *
  * @return      Success if mode is buffered or error if an argument is invalid
  */
-enum pm_ret_status pm_clock_set_pll_mode(enum clock_id clock_id,
-					 uint32_t mode)
+enum pm_ret_status pm_clock_set_pll_mode(enum clock_id clock_id, uint32_t mode)
 {
 	struct pm_pll *pll = pm_clock_get_pll(clock_id);
 
@@ -2983,8 +2923,7 @@ enum pm_ret_status pm_clock_set_pll_mode(enum clock_id clock_id,
  *
  * @return      Success if mode is stored or error if an argument is invalid
  */
-enum pm_ret_status pm_clock_get_pll_mode(enum clock_id clock_id,
-					 uint32_t *mode)
+enum pm_ret_status pm_clock_get_pll_mode(enum clock_id clock_id, uint32_t *mode)
 {
 	struct pm_pll *pll = pm_clock_get_pll(clock_id);
 

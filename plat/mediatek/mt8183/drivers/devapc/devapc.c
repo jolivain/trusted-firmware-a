@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -47,7 +47,7 @@ static void set_master_domain(uint32_t master_index, enum MASK_DOM domain)
 }
 
 static void set_master_domain_remap_infra(enum MASK_DOM domain_emi_view,
-					enum MASK_DOM domain_infra_view)
+					  enum MASK_DOM domain_infra_view)
 {
 	uintptr_t base;
 	uint32_t clr_bit;
@@ -77,7 +77,7 @@ static void set_master_domain_remap_infra(enum MASK_DOM domain_emi_view,
 }
 
 static void set_master_domain_remap_mm(enum MASK_DOM domain_emi_view,
-					enum MASK_DOM domain_mm_view)
+				       enum MASK_DOM domain_mm_view)
 {
 	uintptr_t base;
 	uint32_t clr_bit;
@@ -107,7 +107,7 @@ static void set_module_apc(enum DAPC_SLAVE_TYPE slave_type, uint32_t module,
 
 	if (slave_type == DAPC_INFRA_SLAVE && module <= SLAVE_INFRA_MAX_INDEX)
 		base = DEVAPC_INFRA_D0_APC_0 + domain_num * 0x100 +
-					       apc_index * 4;
+		       apc_index * 4;
 	else if (slave_type == DAPC_MM_SLAVE && module <= SLAVE_MM_MAX_INDEX)
 		base = DEVAPC_MM_D0_APC_0 + domain_num * 0x100 + apc_index * 4;
 	else
@@ -147,30 +147,36 @@ static void set_default_slave_permission(void)
 
 	for (module_index = 0; module_index < infra_size; module_index++) {
 		if (D_APC_INFRA_Devices[module_index].d0_permission > 0) {
-			set_module_apc(DAPC_INFRA_SLAVE, module_index, DOMAIN_0,
-			       D_APC_INFRA_Devices[module_index].d0_permission);
+			set_module_apc(
+				DAPC_INFRA_SLAVE, module_index, DOMAIN_0,
+				D_APC_INFRA_Devices[module_index].d0_permission);
 		}
 		if (D_APC_INFRA_Devices[module_index].d1_permission > 0) {
-			set_module_apc(DAPC_INFRA_SLAVE, module_index, DOMAIN_1,
-			       D_APC_INFRA_Devices[module_index].d1_permission);
+			set_module_apc(
+				DAPC_INFRA_SLAVE, module_index, DOMAIN_1,
+				D_APC_INFRA_Devices[module_index].d1_permission);
 		}
 		if (D_APC_INFRA_Devices[module_index].d2_permission > 0) {
-			set_module_apc(DAPC_INFRA_SLAVE, module_index, DOMAIN_2,
-			       D_APC_INFRA_Devices[module_index].d2_permission);
+			set_module_apc(
+				DAPC_INFRA_SLAVE, module_index, DOMAIN_2,
+				D_APC_INFRA_Devices[module_index].d2_permission);
 		}
 	}
 
 	for (module_index = 0; module_index < mm_size; module_index++) {
 		if (D_APC_MM_Devices[module_index].d0_permission > 0) {
-			set_module_apc(DAPC_MM_SLAVE, module_index, DOMAIN_0,
+			set_module_apc(
+				DAPC_MM_SLAVE, module_index, DOMAIN_0,
 				D_APC_MM_Devices[module_index].d0_permission);
 		}
 		if (D_APC_MM_Devices[module_index].d1_permission > 0) {
-			set_module_apc(DAPC_MM_SLAVE, module_index, DOMAIN_1,
+			set_module_apc(
+				DAPC_MM_SLAVE, module_index, DOMAIN_1,
 				D_APC_MM_Devices[module_index].d1_permission);
 		}
 		if (D_APC_MM_Devices[module_index].d2_permission > 0) {
-			set_module_apc(DAPC_MM_SLAVE, module_index, DOMAIN_2,
+			set_module_apc(
+				DAPC_MM_SLAVE, module_index, DOMAIN_2,
 				D_APC_MM_Devices[module_index].d2_permission);
 		}
 	}
@@ -184,37 +190,37 @@ static void dump_devapc(void)
 
 	for (i = 0; i < 13; i++) {
 		INFO("[DEVAPC] (INFRA)D0_APC_%d = 0x%x, "
-			       "(INFRA)D1_APC_%d = 0x%x, "
-			       "(INFRA)D2_APC_%d = 0x%x\n",
-		i, mmio_read_32(DEVAPC_INFRA_D0_APC_0 + i * 4),
-		i, mmio_read_32(DEVAPC_INFRA_D0_APC_0 + 0x100 + i * 4),
-		i, mmio_read_32(DEVAPC_INFRA_D0_APC_0 + 0x200 + i * 4));
+		     "(INFRA)D1_APC_%d = 0x%x, "
+		     "(INFRA)D2_APC_%d = 0x%x\n",
+		     i, mmio_read_32(DEVAPC_INFRA_D0_APC_0 + i * 4), i,
+		     mmio_read_32(DEVAPC_INFRA_D0_APC_0 + 0x100 + i * 4), i,
+		     mmio_read_32(DEVAPC_INFRA_D0_APC_0 + 0x200 + i * 4));
 	}
 
 	for (i = 0; i < 9; i++) {
 		INFO("[DEVAPC] (MM)D0_APC_%d = 0x%x, "
-			       "(MM)D1_APC_%d = 0x%x, "
-			       "(MM)D2_APC_%d = 0x%x\n",
-		i, mmio_read_32(DEVAPC_MM_D0_APC_0 + i * 4),
-		i, mmio_read_32(DEVAPC_MM_D0_APC_0 + 0x100 + i * 4),
-		i, mmio_read_32(DEVAPC_MM_D0_APC_0 + 0x200 + i * 4));
+		     "(MM)D1_APC_%d = 0x%x, "
+		     "(MM)D2_APC_%d = 0x%x\n",
+		     i, mmio_read_32(DEVAPC_MM_D0_APC_0 + i * 4), i,
+		     mmio_read_32(DEVAPC_MM_D0_APC_0 + 0x100 + i * 4), i,
+		     mmio_read_32(DEVAPC_MM_D0_APC_0 + 0x200 + i * 4));
 	}
 
 	for (i = 0; i < 4; i++) {
 		INFO("[DEVAPC] MAS_DOM_%d = 0x%x\n", i,
-			mmio_read_32(DEVAPC_INFRA_MAS_DOM_0 + i * 4));
+		     mmio_read_32(DEVAPC_INFRA_MAS_DOM_0 + i * 4));
 	}
 
 	INFO("[DEVAPC] MAS_SEC_0 = 0x%x\n",
-			mmio_read_32(DEVAPC_INFRA_MAS_SEC_0));
+	     mmio_read_32(DEVAPC_INFRA_MAS_SEC_0));
 
 	INFO("[DEVAPC]  (INFRA)MAS_DOMAIN_REMAP_0 = 0x%x, "
-			"(INFRA)MAS_DOMAIN_REMAP_1 = 0x%x\n",
-			mmio_read_32(DEVAPC_INFRA_DOM_RMP_0),
-			mmio_read_32(DEVAPC_INFRA_DOM_RMP_1));
+	     "(INFRA)MAS_DOMAIN_REMAP_1 = 0x%x\n",
+	     mmio_read_32(DEVAPC_INFRA_DOM_RMP_0),
+	     mmio_read_32(DEVAPC_INFRA_DOM_RMP_1));
 
 	INFO("[DEVAPC]  (MM)MAS_DOMAIN_REMAP_0 = 0x%x\n",
-			mmio_read_32(DEVAPC_MM_DOM_RMP_0));
+	     mmio_read_32(DEVAPC_MM_DOM_RMP_0));
 }
 
 void devapc_init(void)
@@ -228,4 +234,3 @@ void devapc_init(void)
 	set_default_slave_permission();
 	dump_devapc();
 }
-

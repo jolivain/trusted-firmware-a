@@ -15,6 +15,7 @@
 #include <snvs.h>
 
 #include <plat/common/platform.h>
+
 #include "plat_common.h"
 
 extern bool rotpk_not_dpld;

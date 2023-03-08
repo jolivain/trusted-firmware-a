@@ -5,6 +5,7 @@
  */
 
 #include <errno.h>
+
 #include <plat/common/platform.h>
 
 /*

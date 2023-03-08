@@ -6,13 +6,13 @@
 
 /* SDEI configuration for Tegra platforms */
 
-#include <platform_def.h>
-
 #include <bl31/ehf.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <lib/utils_def.h>
 #include <services/sdei.h>
+
+#include <platform_def.h>
 
 /* Private event mappings */
 static sdei_ev_map_t tegra_sdei_private[] = {
@@ -20,9 +20,12 @@ static sdei_ev_map_t tegra_sdei_private[] = {
 	SDEI_DEFINE_EVENT_0(TEGRA_SDEI_SGI_PRIVATE),
 
 	/* Dynamic private events */
-	SDEI_PRIVATE_EVENT(TEGRA_SDEI_DP_EVENT_0, SDEI_DYN_IRQ, SDEI_MAPF_DYNAMIC),
-	SDEI_PRIVATE_EVENT(TEGRA_SDEI_DP_EVENT_1, SDEI_DYN_IRQ, SDEI_MAPF_DYNAMIC),
-	SDEI_PRIVATE_EVENT(TEGRA_SDEI_DP_EVENT_2, SDEI_DYN_IRQ, SDEI_MAPF_DYNAMIC),
+	SDEI_PRIVATE_EVENT(TEGRA_SDEI_DP_EVENT_0, SDEI_DYN_IRQ,
+			   SDEI_MAPF_DYNAMIC),
+	SDEI_PRIVATE_EVENT(TEGRA_SDEI_DP_EVENT_1, SDEI_DYN_IRQ,
+			   SDEI_MAPF_DYNAMIC),
+	SDEI_PRIVATE_EVENT(TEGRA_SDEI_DP_EVENT_2, SDEI_DYN_IRQ,
+			   SDEI_MAPF_DYNAMIC),
 
 	/* General purpose explicit events */
 	SDEI_EXPLICIT_EVENT(TEGRA_SDEI_EP_EVENT_0, SDEI_MAPF_CRITICAL),
@@ -42,9 +45,12 @@ static sdei_ev_map_t tegra_sdei_private[] = {
 /* Shared event mappings */
 static sdei_ev_map_t tegra_sdei_shared[] = {
 	/* Dynamic shared events */
-	SDEI_SHARED_EVENT(TEGRA_SDEI_DS_EVENT_0, SDEI_DYN_IRQ, SDEI_MAPF_DYNAMIC),
-	SDEI_SHARED_EVENT(TEGRA_SDEI_DS_EVENT_1, SDEI_DYN_IRQ, SDEI_MAPF_DYNAMIC),
-	SDEI_SHARED_EVENT(TEGRA_SDEI_DS_EVENT_2, SDEI_DYN_IRQ, SDEI_MAPF_DYNAMIC)
+	SDEI_SHARED_EVENT(TEGRA_SDEI_DS_EVENT_0, SDEI_DYN_IRQ,
+			  SDEI_MAPF_DYNAMIC),
+	SDEI_SHARED_EVENT(TEGRA_SDEI_DS_EVENT_1, SDEI_DYN_IRQ,
+			  SDEI_MAPF_DYNAMIC),
+	SDEI_SHARED_EVENT(TEGRA_SDEI_DS_EVENT_2, SDEI_DYN_IRQ,
+			  SDEI_MAPF_DYNAMIC)
 };
 
 void plat_sdei_setup(void)

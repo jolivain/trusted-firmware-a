@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -21,8 +21,8 @@
 #include "key.h"
 #include "sha.h"
 
-#define SERIAL_RAND_BITS	64
-#define RSA_SALT_LEN		32
+#define SERIAL_RAND_BITS 64
+#define RSA_SALT_LEN 32
 
 cert_t *certs;
 unsigned int num_certs;
@@ -93,12 +93,8 @@ int cert_add_ext(X509 *issuer, X509 *subject, int nid, char *value)
 	return 1;
 }
 
-int cert_new(
-	int md_alg,
-	cert_t *cert,
-	int days,
-	int ca,
-	STACK_OF(X509_EXTENSION) * sk)
+int cert_new(int md_alg, cert_t *cert, int days, int ca,
+	     STACK_OF(X509_EXTENSION) * sk)
 {
 	EVP_PKEY *pkey = keys[cert->key].key;
 	cert_t *issuer_cert = &certs[cert->issuer];
@@ -137,7 +133,8 @@ int cert_new(
 	}
 
 	/* Sign the certificate with the issuer key */
-	if (!EVP_DigestSignInit(mdCtx, &pKeyCtx, get_digest(md_alg), NULL, ikey)) {
+	if (!EVP_DigestSignInit(mdCtx, &pKeyCtx, get_digest(md_alg), NULL,
+				ikey)) {
 		ERR_print_errors_fp(stdout);
 		goto END;
 	}
@@ -147,7 +144,8 @@ int cert_new(
 	 * This is not required for ECDSA.
 	 */
 	if (EVP_PKEY_base_id(ikey) == EVP_PKEY_RSA) {
-		if (!EVP_PKEY_CTX_set_rsa_padding(pKeyCtx, RSA_PKCS1_PSS_PADDING)) {
+		if (!EVP_PKEY_CTX_set_rsa_padding(pKeyCtx,
+						  RSA_PKCS1_PSS_PADDING)) {
 			ERR_print_errors_fp(stdout);
 			goto END;
 		}
@@ -157,7 +155,8 @@ int cert_new(
 			goto END;
 		}
 
-		if (!EVP_PKEY_CTX_set_rsa_mgf1_md(pKeyCtx, get_digest(md_alg))) {
+		if (!EVP_PKEY_CTX_set_rsa_mgf1_md(pKeyCtx,
+						  get_digest(md_alg))) {
 			ERR_print_errors_fp(stdout);
 			goto END;
 		}
@@ -173,19 +172,20 @@ int cert_new(
 	ASN1_INTEGER_free(sno);
 
 	X509_gmtime_adj(X509_get_notBefore(x), 0);
-	X509_gmtime_adj(X509_get_notAfter(x), (long)60*60*24*days);
+	X509_gmtime_adj(X509_get_notAfter(x), (long)60 * 60 * 24 * days);
 	X509_set_pubkey(x, pkey);
 
 	/* Subject name */
 	name = X509_get_subject_name(x);
 	X509_NAME_add_entry_by_txt(name, "CN", MBSTRING_ASC,
-			(const unsigned char *)cert->cn, -1, -1, 0);
+				   (const unsigned char *)cert->cn, -1, -1, 0);
 	X509_set_subject_name(x, name);
 
 	/* Issuer name */
 	name = X509_get_issuer_name(x);
 	X509_NAME_add_entry_by_txt(name, "CN", MBSTRING_ASC,
-			(const unsigned char *)issuer_cert->cn, -1, -1, 0);
+				   (const unsigned char *)issuer_cert->cn, -1,
+				   -1, 0);
 	X509_set_issuer_name(x, name);
 
 	/* Add various extensions: standard extensions */
@@ -231,7 +231,7 @@ int cert_init(void)
 #ifdef PDEF_CERTS
 		       + (num_pdef_certs * sizeof(pdef_certs[0]))
 #endif
-		       );
+	);
 	if (certs == NULL) {
 		ERROR("%s:%d Failed to allocate memory.\n", __func__, __LINE__);
 		return 1;
@@ -291,4 +291,3 @@ void cert_cleanup(void)
 	}
 	free(certs);
 }
-

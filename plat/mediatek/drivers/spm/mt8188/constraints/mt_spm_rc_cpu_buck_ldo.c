@@ -15,32 +15,29 @@
 #include <mt_spm_idle.h>
 #include <mt_spm_internal.h>
 #include <mt_spm_notifier.h>
-#include "mt_spm_rc_api.h"
-#include "mt_spm_rc_internal.h"
 #include <mt_spm_reg.h>
 #include <mt_spm_suspend.h>
 
-#define CONSTRAINT_CPU_BUCK_PCM_FLAG (SPM_FLAG_DISABLE_INFRA_PDN | \
-				      SPM_FLAG_DISABLE_VCORE_DVS | \
-				      SPM_FLAG_DISABLE_VCORE_DFS | \
-				      SPM_FLAG_SRAM_SLEEP_CTRL | \
-				      SPM_FLAG_DISABLE_DRAMC_MCU_SRAM_SLEEP | \
-				      SPM_FLAG_KEEP_CSYSPWRACK_HIGH)
+#include "mt_spm_rc_api.h"
+#include "mt_spm_rc_internal.h"
+
+#define CONSTRAINT_CPU_BUCK_PCM_FLAG                               \
+	(SPM_FLAG_DISABLE_INFRA_PDN | SPM_FLAG_DISABLE_VCORE_DVS | \
+	 SPM_FLAG_DISABLE_VCORE_DFS | SPM_FLAG_SRAM_SLEEP_CTRL |   \
+	 SPM_FLAG_DISABLE_DRAMC_MCU_SRAM_SLEEP |                   \
+	 SPM_FLAG_KEEP_CSYSPWRACK_HIGH)
 
 #define CONSTRAINT_CPU_BUCK_PCM_FLAG1 (0)
 
-#define CONSTRAINT_CPU_BUCK_RESOURCE_REQ (MT_SPM_DRAM_S1 | \
-					  MT_SPM_DRAM_S0 | \
-					  MT_SPM_SYSPLL | \
-					  MT_SPM_INFRA | \
-					  MT_SPM_26M | \
-					  MT_SPM_XO_FPM)
+#define CONSTRAINT_CPU_BUCK_RESOURCE_REQ                                  \
+	(MT_SPM_DRAM_S1 | MT_SPM_DRAM_S0 | MT_SPM_SYSPLL | MT_SPM_INFRA | \
+	 MT_SPM_26M | MT_SPM_XO_FPM)
 
-static unsigned int cpubuckldo_status = (MT_SPM_RC_VALID_SW | MT_SPM_RC_VALID_TRACE_TIME);
+static unsigned int cpubuckldo_status =
+	(MT_SPM_RC_VALID_SW | MT_SPM_RC_VALID_TRACE_TIME);
 static unsigned int cpubuckldo_enter_cnt;
 
-int spm_cpu_bcuk_ldo_conduct(int state_id,
-			     struct spm_lp_scen *spm_lp,
+int spm_cpu_bcuk_ldo_conduct(int state_id, struct spm_lp_scen *spm_lp,
 			     unsigned int *resource_req)
 {
 	unsigned int res_req = CONSTRAINT_CPU_BUCK_RESOURCE_REQ;
@@ -72,12 +69,15 @@ static void update_rc_status(const void *val)
 	if ((st->type == CONSTRAINT_UPDATE_VALID) && st->value) {
 		if ((st->id == MT_RM_CONSTRAINT_ID_ALL) ||
 		    (st->id == MT_RM_CONSTRAINT_ID_CPU_BUCK_LDO)) {
-			struct constraint_status *con = (struct constraint_status *)st->value;
+			struct constraint_status *con =
+				(struct constraint_status *)st->value;
 
 			if ((st->act & MT_LPM_SMC_ACT_CLR) > 0U) {
-				SPM_RC_BITS_CLR(cpubuckldo_status, con->is_valid);
+				SPM_RC_BITS_CLR(cpubuckldo_status,
+						con->is_valid);
 			} else {
-				SPM_RC_BITS_SET(cpubuckldo_status, con->is_valid);
+				SPM_RC_BITS_SET(cpubuckldo_status,
+						con->is_valid);
 			}
 		}
 	}
@@ -104,7 +104,8 @@ int spm_run_rc_cpu_buck_ldo(unsigned int cpu, int state_id)
 #ifndef MTK_PLAT_SPM_SSPM_NOTIFIER_UNSUPPORT
 	mt_spm_sspm_notify_u32(MT_SPM_NOTIFY_LP_ENTER,
 			       (IS_PLAT_SUSPEND_ID(state_id) ?
-				MT_RM_CONSTRAINT_ALLOW_AP_SUSPEND : (0U)));
+					MT_RM_CONSTRAINT_ALLOW_AP_SUSPEND :
+					(0U)));
 #endif
 	if (cpubuckldo_status & MT_SPM_RC_VALID_TRACE_TIME) {
 		ext_op |= MT_SPM_EX_OP_TRACE_TIMESTAMP_EN;
@@ -117,7 +118,8 @@ int spm_run_rc_cpu_buck_ldo(unsigned int cpu, int state_id)
 				      MT_SPM_EX_OP_SET_WDT),
 				     CONSTRAINT_CPU_BUCK_RESOURCE_REQ);
 	} else {
-		mt_spm_idle_generic_enter(state_id, ext_op, spm_cpu_bcuk_ldo_conduct);
+		mt_spm_idle_generic_enter(state_id, ext_op,
+					  spm_cpu_bcuk_ldo_conduct);
 	}
 
 	cpubuckldo_enter_cnt++;

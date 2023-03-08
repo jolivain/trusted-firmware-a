@@ -5,16 +5,15 @@
  * https://spdx.org/licenses
  */
 
-#include <platform_def.h>
-
 #include <bl31/interrupt_mgmt.h>
 #include <common/debug.h>
 #include <drivers/arm/gicv2.h>
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
-#include <plat/common/platform.h>
-
 #include <plat_marvell.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 /*
  * The following functions are defined as weak to allow a platform to override
@@ -23,18 +22,18 @@
 #pragma weak plat_marvell_gic_driver_init
 #pragma weak plat_marvell_gic_init
 
-#define A7K8K_PIC_CAUSE_REG		0xf03f0100
-#define A7K8K_PIC0_MASK_REG		0xf03f0108
+#define A7K8K_PIC_CAUSE_REG 0xf03f0100
+#define A7K8K_PIC0_MASK_REG 0xf03f0108
 
-#define A7K8K_PIC_PMUOF_IRQ_MASK	(1 << 17)
+#define A7K8K_PIC_PMUOF_IRQ_MASK (1 << 17)
 
-#define A7K8K_PIC_MAX_IRQS		32
-#define A7K8K_PIC_MAX_IRQ_MASK		((1UL << A7K8K_PIC_MAX_IRQS) - 1)
+#define A7K8K_PIC_MAX_IRQS 32
+#define A7K8K_PIC_MAX_IRQ_MASK ((1UL << A7K8K_PIC_MAX_IRQS) - 1)
 
-#define A7K8K_ODMIN_SET_REG		0xf0300040
-#define A7K8K_ODMI_PMU_IRQ(idx)		((2 + idx) << 12)
+#define A7K8K_ODMIN_SET_REG 0xf0300040
+#define A7K8K_ODMI_PMU_IRQ(idx) ((2 + idx) << 12)
 
-#define A7K8K_ODMI_PMU_GIC_IRQ(idx)	(130 + idx)
+#define A7K8K_ODMI_PMU_GIC_IRQ(idx) (130 + idx)
 
 static DEFINE_BAKERY_LOCK(a7k8k_irq_lock);
 
@@ -71,10 +70,8 @@ void plat_marvell_gic_driver_init(void)
 	gicv2_driver_init(&marvell_gic_data);
 }
 
-static uint64_t a7k8k_pmu_interrupt_handler(uint32_t id,
-					  uint32_t flags,
-					  void *handle,
-					  void *cookie)
+static uint64_t a7k8k_pmu_interrupt_handler(uint32_t id, uint32_t flags,
+					    void *handle, void *cookie)
 {
 	unsigned int idx = plat_my_core_pos();
 	uint32_t irq;
@@ -124,9 +121,8 @@ void mvebu_pmu_interrupt_enable(void)
 	 */
 	flags = 0U;
 	set_interrupt_rm_flag((flags), (NON_SECURE));
-	rc = register_interrupt_type_handler(INTR_TYPE_S_EL1,
-					     a7k8k_pmu_interrupt_handler,
-					     flags);
+	rc = register_interrupt_type_handler(
+		INTR_TYPE_S_EL1, a7k8k_pmu_interrupt_handler, flags);
 	if (rc != 0)
 		panic();
 }

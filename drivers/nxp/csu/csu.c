@@ -5,14 +5,13 @@
  *
  */
 
-#include <endian.h>
-
 #include <common/debug.h>
 #include <csu.h>
+#include <endian.h>
 #include <lib/mmio.h>
 
-void enable_layerscape_ns_access(struct csu_ns_dev_st *csu_ns_dev,
-				 uint32_t num, uintptr_t nxp_csu_addr)
+void enable_layerscape_ns_access(struct csu_ns_dev_st *csu_ns_dev, uint32_t num,
+				 uintptr_t nxp_csu_addr)
 {
 	uint32_t *base = (uint32_t *)nxp_csu_addr;
 	uint32_t *reg;

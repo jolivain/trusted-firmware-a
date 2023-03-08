@@ -11,4 +11,3 @@
 void ap807_clocks_init(unsigned int freq_option);
 
 #endif /* AP807_INIT_CLOCKS_H */
-

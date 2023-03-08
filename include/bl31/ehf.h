@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,33 +9,33 @@
 
 #ifndef __ASSEMBLER__
 
-#include <cdefs.h>
 #include <stdint.h>
 
+#include <cdefs.h>
 #include <lib/utils_def.h>
 
 /* Valid priorities set bit 0 of the priority handler. */
-#define EHF_PRI_VALID_	BIT(0)
+#define EHF_PRI_VALID_ BIT(0)
 
 /* Marker for no handler registered for a valid priority */
-#define EHF_NO_HANDLER_	(0U | EHF_PRI_VALID_)
+#define EHF_NO_HANDLER_ (0U | EHF_PRI_VALID_)
 
 /* Extract the specified number of top bits from 7 lower bits of priority */
 #define EHF_PRI_TO_IDX(pri, plat_bits) \
-	((((unsigned) (pri)) & 0x7fu) >> (7u - (plat_bits)))
+	((((unsigned)(pri)) & 0x7fu) >> (7u - (plat_bits)))
 
 /* Install exception priority descriptor at a suitable index */
-#define EHF_PRI_DESC(plat_bits, priority) \
+#define EHF_PRI_DESC(plat_bits, priority)         \
 	[EHF_PRI_TO_IDX(priority, plat_bits)] = { \
-		.ehf_handler = EHF_NO_HANDLER_, \
+		.ehf_handler = EHF_NO_HANDLER_,   \
 	}
 
 /* Macro for platforms to regiter its exception priorities */
 #define EHF_REGISTER_PRIORITIES(priorities, num, bits) \
-	const ehf_priorities_t exception_data = { \
-		.num_priorities = (num), \
-		.ehf_priorities = (priorities), \
-		.pri_bits = (bits), \
+	const ehf_priorities_t exception_data = {      \
+		.num_priorities = (num),               \
+		.ehf_priorities = (priorities),        \
+		.pri_bits = (bits),                    \
 	}
 
 /*
@@ -63,7 +63,7 @@ typedef struct {
 } __aligned(sizeof(uint64_t)) pe_exc_data_t;
 
 typedef int (*ehf_handler_t)(uint32_t intr_raw, uint32_t flags, void *handle,
-		void *cookie);
+			     void *cookie);
 
 typedef struct ehf_pri_desc {
 	/*

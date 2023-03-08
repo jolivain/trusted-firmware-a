@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,15 +7,12 @@
 #ifndef _SECURE_BOOT_BASE_FUNC_H
 #define _SECURE_BOOT_BASE_FUNC_H
 
-
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
 #include "cc_pal_types.h"
 #include "secureboot_gen_defs.h"
-
 
 /*----------------------------
       PUBLIC FUNCTIONS
@@ -35,12 +32,10 @@ extern "C"
  * @return CCError_t - On success the value CC_OK is returned,
  *         on failure - a value from BootImagesVerifier_error.h
  */
-CCError_t CCSbVerifySignature(unsigned long hwBaseAddress,
-				uint32_t *pData,
-				CCSbNParams_t *pNParams,
-				CCSbSignature_t *pSignature,
-				uint32_t sizeOfData,
-				CCSbRsaAlg_t RSAAlg);
+CCError_t CCSbVerifySignature(unsigned long hwBaseAddress, uint32_t *pData,
+			      CCSbNParams_t *pNParams,
+			      CCSbSignature_t *pSignature, uint32_t sizeOfData,
+			      CCSbRsaAlg_t RSAAlg);
 
 #ifdef __cplusplus
 }

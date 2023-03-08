@@ -1,28 +1,30 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <arch_helpers.h>
 #include <assert.h>
+#include <errno.h>
+
+#include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/arm/gicv2.h>
 #include <drivers/console.h>
-#include <errno.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
+
 #include <plat/common/platform.h>
 #include <platform_def.h>
 
 #include "aml_private.h"
 
-#define SCPI_POWER_ON		0
-#define SCPI_POWER_RETENTION	1
-#define SCPI_POWER_OFF		3
+#define SCPI_POWER_ON 0
+#define SCPI_POWER_RETENTION 1
+#define SCPI_POWER_OFF 3
 
-#define SCPI_SYSTEM_SHUTDOWN	0
-#define SCPI_SYSTEM_REBOOT	1
+#define SCPI_SYSTEM_SHUTDOWN 0
+#define SCPI_SYSTEM_REBOOT 1
 
 static uintptr_t gxl_sec_entrypoint;
 static volatile uint32_t gxl_cpu0_go;
@@ -107,7 +109,7 @@ static int32_t gxl_pwr_domain_on(u_register_t mpidr)
 
 		gxl_cpu0_go = 1;
 		flush_dcache_range((uintptr_t)&gxl_cpu0_go,
-				sizeof(gxl_cpu0_go));
+				   sizeof(gxl_cpu0_go));
 		dsb();
 		isb();
 
@@ -117,8 +119,8 @@ static int32_t gxl_pwr_domain_on(u_register_t mpidr)
 	}
 
 	gxl_pm_set_reset_addr(mpidr, gxl_sec_entrypoint);
-	aml_scpi_set_css_power_state(mpidr,
-				     SCPI_POWER_ON, SCPI_POWER_ON, SCPI_POWER_ON);
+	aml_scpi_set_css_power_state(mpidr, SCPI_POWER_ON, SCPI_POWER_ON,
+				     SCPI_POWER_ON);
 	dmbsy();
 	sev();
 
@@ -130,12 +132,12 @@ static void gxl_pwr_domain_on_finish(const psci_power_state_t *target_state)
 	unsigned int core = plat_calc_core_pos(read_mpidr_el1());
 
 	assert(target_state->pwr_domain_state[MPIDR_AFFLVL0] ==
-					PLAT_LOCAL_STATE_OFF);
+	       PLAT_LOCAL_STATE_OFF);
 
 	if (core == AML_PRIMARY_CPU) {
 		gxl_cpu0_go = 0;
 		flush_dcache_range((uintptr_t)&gxl_cpu0_go,
-				sizeof(gxl_cpu0_go));
+				   sizeof(gxl_cpu0_go));
 		dsb();
 		isb();
 	}
@@ -155,12 +157,12 @@ static void gxl_pwr_domain_off(const psci_power_state_t *target_state)
 	if (core == AML_PRIMARY_CPU)
 		return;
 
-	aml_scpi_set_css_power_state(mpidr,
-				     SCPI_POWER_OFF, SCPI_POWER_ON, SCPI_POWER_ON);
+	aml_scpi_set_css_power_state(mpidr, SCPI_POWER_OFF, SCPI_POWER_ON,
+				     SCPI_POWER_ON);
 }
 
-static void __dead2 gxl_pwr_domain_pwr_down_wfi(const psci_power_state_t
-						 *target_state)
+static void __dead2
+gxl_pwr_domain_pwr_down_wfi(const psci_power_state_t *target_state)
 {
 	u_register_t mpidr = read_mpidr_el1();
 	unsigned int core = plat_calc_core_pos(mpidr);
@@ -181,7 +183,7 @@ static void __dead2 gxl_pwr_domain_pwr_down_wfi(const psci_power_state_t
 		 * In order to avoid an assert, mmu has to be disabled.
 		 */
 		disable_mmu_el3();
-		((void(*)(void))gxl_sec_entrypoint)();
+		((void (*)(void))gxl_sec_entrypoint)();
 	}
 
 	dsbsy();
@@ -196,12 +198,12 @@ static void __dead2 gxl_pwr_domain_pwr_down_wfi(const psci_power_state_t
  * Platform handlers and setup function.
  ******************************************************************************/
 static const plat_psci_ops_t gxl_ops = {
-	.pwr_domain_on			= gxl_pwr_domain_on,
-	.pwr_domain_on_finish		= gxl_pwr_domain_on_finish,
-	.pwr_domain_off			= gxl_pwr_domain_off,
-	.pwr_domain_pwr_down_wfi	= gxl_pwr_domain_pwr_down_wfi,
-	.system_off			= gxl_system_off,
-	.system_reset			= gxl_system_reset,
+	.pwr_domain_on = gxl_pwr_domain_on,
+	.pwr_domain_on_finish = gxl_pwr_domain_on_finish,
+	.pwr_domain_off = gxl_pwr_domain_off,
+	.pwr_domain_pwr_down_wfi = gxl_pwr_domain_pwr_down_wfi,
+	.system_off = gxl_system_off,
+	.system_reset = gxl_system_reset,
 };
 
 int plat_setup_psci_ops(uintptr_t sec_entrypoint,

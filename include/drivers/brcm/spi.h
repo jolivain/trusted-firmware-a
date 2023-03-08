@@ -9,9 +9,9 @@
 
 #include <stdint.h>
 
-#define SPI_XFER_BEGIN (1 << 0)	/* Assert CS before transfer */
-#define SPI_XFER_END   (1 << 1)	/* De-assert CS after transfer */
-#define SPI_XFER_QUAD  (1 << 2)
+#define SPI_XFER_BEGIN (1 << 0) /* Assert CS before transfer */
+#define SPI_XFER_END (1 << 1) /* De-assert CS after transfer */
+#define SPI_XFER_QUAD (1 << 2)
 
 int spi_init(void);
 int spi_claim_bus(void);

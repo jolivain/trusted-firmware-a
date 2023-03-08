@@ -14,30 +14,37 @@
 #ifdef MTK_PUBEVENT_ENABLE
 #include <vendor_pubsub_events.h>
 #endif
-#include <plat/arm/common/plat_arm.h>
-#include <plat/common/platform.h>
-
 #include <dfd.h>
 #include <lib/mtk_init/mtk_init.h>
 #include <lib/pm/mtk_pm.h>
 #include <mt_gic_v3.h>
+
+#include <plat/arm/common/plat_arm.h>
+#include <plat/common/platform.h>
 #include <platform_def.h>
 
 #define IS_AFFLV_PUBEVENT(_pstate) \
-	((_pstate & (MT_CPUPM_PWR_DOMAIN_MCUSYS | MT_CPUPM_PWR_DOMAIN_CLUSTER)) != 0)
+	((_pstate &                \
+	  (MT_CPUPM_PWR_DOMAIN_MCUSYS | MT_CPUPM_PWR_DOMAIN_CLUSTER)) != 0)
 
 #ifdef MTK_PUBEVENT_ENABLE
-#define MT_CPUPM_EVENT_PWR_ON(x) ({ \
-	PUBLISH_EVENT_ARG(mt_cpupm_publish_pwr_on, (const void *)(x)); })
+#define MT_CPUPM_EVENT_PWR_ON(x) \
+	({ PUBLISH_EVENT_ARG(mt_cpupm_publish_pwr_on, (const void *)(x)); })
 
-#define MT_CPUPM_EVENT_PWR_OFF(x) ({ \
-	PUBLISH_EVENT_ARG(mt_cpupm_publish_pwr_off, (const void *)(x)); })
+#define MT_CPUPM_EVENT_PWR_OFF(x) \
+	({ PUBLISH_EVENT_ARG(mt_cpupm_publish_pwr_off, (const void *)(x)); })
 
-#define MT_CPUPM_EVENT_AFFLV_PWR_ON(x) ({ \
-	PUBLISH_EVENT_ARG(mt_cpupm_publish_afflv_pwr_on, (const void *)(x)); })
+#define MT_CPUPM_EVENT_AFFLV_PWR_ON(x)                           \
+	({                                                       \
+		PUBLISH_EVENT_ARG(mt_cpupm_publish_afflv_pwr_on, \
+				  (const void *)(x));            \
+	})
 
-#define MT_CPUPM_EVENT_AFFLV_PWR_OFF(x) ({ \
-	PUBLISH_EVENT_ARG(mt_cpupm_publish_afflv_pwr_off, (const void *)(x)); })
+#define MT_CPUPM_EVENT_AFFLV_PWR_OFF(x)                           \
+	({                                                        \
+		PUBLISH_EVENT_ARG(mt_cpupm_publish_afflv_pwr_off, \
+				  (const void *)(x));             \
+	})
 
 #else
 #define MT_CPUPM_EVENT_PWR_ON(x) ({ (void)x; })
@@ -56,7 +63,7 @@
 #define coordinate_cluster_pwroff() coordinate_cluster(0)
 
 /* defaultly disable all functions */
-#define MTK_CPUPM_FN_MASK_DEFAULT	(0)
+#define MTK_CPUPM_FN_MASK_DEFAULT (0)
 
 struct mtk_cpu_pwr_ctrl {
 	unsigned int fn_mask;
@@ -69,15 +76,19 @@ static struct mtk_cpu_pwr_ctrl mtk_cpu_pwr = {
 	.ops = NULL,
 };
 
-#define IS_CPUIDLE_FN_ENABLE(x)	((mtk_cpu_pwr.ops != NULL) && ((mtk_cpu_pwr.fn_mask & x) != 0))
-#define IS_CPUSMP_FN_ENABLE(x)	((mtk_cpu_pwr.smp != NULL) && ((mtk_cpu_pwr.fn_mask & x) != 0))
+#define IS_CPUIDLE_FN_ENABLE(x) \
+	((mtk_cpu_pwr.ops != NULL) && ((mtk_cpu_pwr.fn_mask & x) != 0))
+#define IS_CPUSMP_FN_ENABLE(x) \
+	((mtk_cpu_pwr.smp != NULL) && ((mtk_cpu_pwr.fn_mask & x) != 0))
 
 /* per-cpu power state */
 static unsigned int armv8_2_power_state[PLATFORM_CORE_COUNT];
 
-#define armv8_2_get_pwr_stateid(cpu) psci_get_pstate_id(armv8_2_power_state[cpu])
+#define armv8_2_get_pwr_stateid(cpu) \
+	psci_get_pstate_id(armv8_2_power_state[cpu])
 
-static unsigned int get_mediatek_pstate(unsigned int domain, unsigned int psci_state,
+static unsigned int get_mediatek_pstate(unsigned int domain,
+					unsigned int psci_state,
 					struct mtk_cpupm_pwrstate *state)
 {
 	if (IS_CPUIDLE_FN_ENABLE(MTK_CPUPM_FN_CPUPM_GET_PWR_STATE)) {
@@ -93,7 +104,7 @@ unsigned int armv8_2_get_pwr_afflv(const psci_power_state_t *state_info)
 
 	for (i = (int)PLAT_MAX_PWR_LVL; i >= (int)PSCI_CPU_PWR_LVL; i--) {
 		if (is_local_state_run(state_info->pwr_domain_state[i]) == 0) {
-			return (unsigned int) i;
+			return (unsigned int)i;
 		}
 	}
 
@@ -116,7 +127,8 @@ static void armv8_2_mcusys_pwr_on_common(const struct mtk_cpupm_pwrstate *state)
 }
 
 /* MediaTek mcusys power down control interface */
-static void armv8_2_mcusys_pwr_dwn_common(const struct mtk_cpupm_pwrstate *state)
+static void
+armv8_2_mcusys_pwr_dwn_common(const struct mtk_cpupm_pwrstate *state)
 {
 	mt_gic_distif_save();
 	gic_sgi_save_all();
@@ -128,7 +140,8 @@ static void armv8_2_mcusys_pwr_dwn_common(const struct mtk_cpupm_pwrstate *state
 }
 
 /* MediaTek Cluster power on control interface */
-static void armv8_2_cluster_pwr_on_common(const struct mtk_cpupm_pwrstate *state)
+static void
+armv8_2_cluster_pwr_on_common(const struct mtk_cpupm_pwrstate *state)
 {
 	/* Add code here that behavior before system enter cluster'on */
 #if defined(MTK_CM_MGR) && !defined(MTK_FPGA_EARLY_PORTING)
@@ -142,7 +155,8 @@ static void armv8_2_cluster_pwr_on_common(const struct mtk_cpupm_pwrstate *state
 }
 
 /* MediaTek Cluster power down control interface */
-static void armv8_2_cluster_pwr_dwn_common(const struct mtk_cpupm_pwrstate *state)
+static void
+armv8_2_cluster_pwr_dwn_common(const struct mtk_cpupm_pwrstate *state)
 {
 	if (IS_CPUIDLE_FN_ENABLE(MTK_CPUPM_FN_SUSPEND_CLUSTER)) {
 		mtk_cpu_pwr.ops->cluster_suspend(state);
@@ -150,7 +164,8 @@ static void armv8_2_cluster_pwr_dwn_common(const struct mtk_cpupm_pwrstate *stat
 }
 
 /* MediaTek CPU power on control interface */
-static void armv8_2_cpu_pwr_on_common(const struct mtk_cpupm_pwrstate *state, unsigned int pstate)
+static void armv8_2_cpu_pwr_on_common(const struct mtk_cpupm_pwrstate *state,
+				      unsigned int pstate)
 {
 	coordinate_cluster_pwron();
 
@@ -166,7 +181,8 @@ static void armv8_2_cpu_pwr_on_common(const struct mtk_cpupm_pwrstate *state, un
 }
 
 /* MediaTek CPU power down control interface */
-static void armv8_2_cpu_pwr_dwn_common(const struct mtk_cpupm_pwrstate *state, unsigned int pstate)
+static void armv8_2_cpu_pwr_dwn_common(const struct mtk_cpupm_pwrstate *state,
+				       unsigned int pstate)
 {
 	if ((pstate & MT_CPUPM_PWR_DOMAIN_PERCORE_DSU) != 0) {
 		coordinate_cluster_pwroff();
@@ -177,7 +193,8 @@ static void armv8_2_cpu_pwr_dwn_common(const struct mtk_cpupm_pwrstate *state, u
 	gicv3_rdistif_off(plat_my_core_pos());
 }
 
-static void armv8_2_cpu_pwr_resume(const struct mtk_cpupm_pwrstate *state, unsigned int pstate)
+static void armv8_2_cpu_pwr_resume(const struct mtk_cpupm_pwrstate *state,
+				   unsigned int pstate)
 {
 	armv8_2_cpu_pwr_on_common(state, pstate);
 	if (IS_CPUIDLE_FN_ENABLE(MTK_CPUPM_FN_RESUME_CORE)) {
@@ -185,7 +202,8 @@ static void armv8_2_cpu_pwr_resume(const struct mtk_cpupm_pwrstate *state, unsig
 	}
 }
 
-static void armv8_2_cpu_pwr_suspend(const struct mtk_cpupm_pwrstate *state, unsigned int pstate)
+static void armv8_2_cpu_pwr_suspend(const struct mtk_cpupm_pwrstate *state,
+				    unsigned int pstate)
 {
 	if (IS_CPUIDLE_FN_ENABLE(MTK_CPUPM_FN_SUSPEND_CORE)) {
 		mtk_cpu_pwr.ops->cpu_suspend(state);
@@ -193,7 +211,8 @@ static void armv8_2_cpu_pwr_suspend(const struct mtk_cpupm_pwrstate *state, unsi
 	armv8_2_cpu_pwr_dwn_common(state, pstate);
 }
 
-static void armv8_2_cpu_pwr_on(const struct mtk_cpupm_pwrstate *state, unsigned int pstate)
+static void armv8_2_cpu_pwr_on(const struct mtk_cpupm_pwrstate *state,
+			       unsigned int pstate)
 {
 	armv8_2_cpu_pwr_on_common(state, pstate);
 
@@ -202,7 +221,8 @@ static void armv8_2_cpu_pwr_on(const struct mtk_cpupm_pwrstate *state, unsigned 
 	}
 }
 
-static void armv8_2_cpu_pwr_off(const struct mtk_cpupm_pwrstate *state, unsigned int pstate)
+static void armv8_2_cpu_pwr_off(const struct mtk_cpupm_pwrstate *state,
+				unsigned int pstate)
 {
 	if (IS_CPUSMP_FN_ENABLE(MTK_CPUPM_FN_SMP_CORE_OFF)) {
 		mtk_cpu_pwr.smp->cpu_off(state);
@@ -230,7 +250,8 @@ static int armv8_2_power_domain_on(u_register_t mpidr)
 static void armv8_2_power_domain_on_finish(const psci_power_state_t *state)
 {
 	struct mt_cpupm_event_data nb;
-	unsigned int pstate = (MT_CPUPM_PWR_DOMAIN_CORE | MT_CPUPM_PWR_DOMAIN_PERCORE_DSU);
+	unsigned int pstate =
+		(MT_CPUPM_PWR_DOMAIN_CORE | MT_CPUPM_PWR_DOMAIN_PERCORE_DSU);
 	struct mtk_cpupm_pwrstate pm_state = {
 		.info = {
 			.cpuid = plat_my_core_pos(),
@@ -255,7 +276,8 @@ static void armv8_2_power_domain_on_finish(const psci_power_state_t *state)
 static void armv8_2_power_domain_off(const psci_power_state_t *state)
 {
 	struct mt_cpupm_event_data nb;
-	unsigned int pstate = (MT_CPUPM_PWR_DOMAIN_CORE | MT_CPUPM_PWR_DOMAIN_PERCORE_DSU);
+	unsigned int pstate =
+		(MT_CPUPM_PWR_DOMAIN_CORE | MT_CPUPM_PWR_DOMAIN_PERCORE_DSU);
 	struct mtk_cpupm_pwrstate pm_state = {
 		.info = {
 			.cpuid = plat_my_core_pos(),
@@ -292,7 +314,8 @@ static void armv8_2_power_domain_suspend(const psci_power_state_t *state)
 	pm_state.pwr.raw = state;
 
 	pstate = get_mediatek_pstate(CPUPM_PWR_OFF,
-				     armv8_2_power_state[pm_state.info.cpuid], &pm_state);
+				     armv8_2_power_state[pm_state.info.cpuid],
+				     &pm_state);
 
 	armv8_2_cpu_pwr_suspend(&pm_state, pstate);
 
@@ -330,7 +353,8 @@ static void armv8_2_power_domain_suspend_finish(const psci_power_state_t *state)
 	pm_state.pwr.raw = state;
 
 	pstate = get_mediatek_pstate(CPUPM_PWR_ON,
-				     armv8_2_power_state[pm_state.info.cpuid], &pm_state);
+				     armv8_2_power_state[pm_state.info.cpuid],
+				     &pm_state);
 
 	if ((pstate & MT_CPUPM_PWR_DOMAIN_MCUSYS) != 0) {
 		armv8_2_mcusys_pwr_on_common(&pm_state);
@@ -352,7 +376,8 @@ static void armv8_2_power_domain_suspend_finish(const psci_power_state_t *state)
 }
 
 /* MediaTek PSCI power domain */
-static int armv8_2_validate_power_state(unsigned int power_state, psci_power_state_t *req_state)
+static int armv8_2_validate_power_state(unsigned int power_state,
+					psci_power_state_t *req_state)
 {
 	unsigned int i;
 	unsigned int pstate = psci_get_pstate_type(power_state);
@@ -391,24 +416,26 @@ static void armv8_2_get_sys_suspend_power_state(psci_power_state_t *req_state)
 	unsigned int my_core_pos = plat_my_core_pos();
 
 	ret = mtk_cpu_pwr.ops->pwr_state_valid(PLAT_MAX_PWR_LVL,
-						PSTATE_TYPE_POWERDOWN);
+					       PSTATE_TYPE_POWERDOWN);
 
 	if (ret != MTK_CPUPM_E_OK) {
 		/* Avoid suspend due to platform is not ready. */
 		req_state->pwr_domain_state[PSCI_CPU_PWR_LVL] =
-						PLAT_MAX_RET_STATE;
+			PLAT_MAX_RET_STATE;
 		for (i = PSCI_CPU_PWR_LVL + 1; i <= PLAT_MAX_PWR_LVL; i++) {
 			req_state->pwr_domain_state[i] = PSCI_LOCAL_STATE_RUN;
 		}
 
-		power_state = psci_make_powerstate(0, PSTATE_TYPE_STANDBY, PSCI_CPU_PWR_LVL);
+		power_state = psci_make_powerstate(0, PSTATE_TYPE_STANDBY,
+						   PSCI_CPU_PWR_LVL);
 	} else {
 		for (i = PSCI_CPU_PWR_LVL; i <= PLAT_MAX_PWR_LVL; i++) {
 			req_state->pwr_domain_state[i] = PLAT_MAX_OFF_STATE;
 		}
 
 		power_state = psci_make_powerstate(MT_PLAT_PWR_STATE_SUSPEND,
-						   PSTATE_TYPE_POWERDOWN, PLAT_MAX_PWR_LVL);
+						   PSTATE_TYPE_POWERDOWN,
+						   PLAT_MAX_PWR_LVL);
 	}
 
 	armv8_2_power_state[my_core_pos] = power_state;
@@ -444,16 +471,22 @@ struct plat_pm_smp_ctrl armv8_2_smp_ops = {
 	.pwr_domain_on_finish = armv8_2_power_domain_on_finish,
 };
 
-#define ISSUE_CPU_PM_REG_FAIL(_success) ({ _success = false; assert(0); })
+#define ISSUE_CPU_PM_REG_FAIL(_success) \
+	({                              \
+		_success = false;       \
+		assert(0);              \
+	})
 
-#define CPM_PM_FN_CHECK(_fns, _ops, _id, _func, _result, _flag) ({ \
-	if ((_fns & _id)) { \
-		if (_ops->_func) \
-			_flag |= _id; \
-		else { \
-			ISSUE_CPU_PM_REG_FAIL(_result); \
-		} \
-	} })
+#define CPM_PM_FN_CHECK(_fns, _ops, _id, _func, _result, _flag) \
+	({                                                      \
+		if ((_fns & _id)) {                             \
+			if (_ops->_func)                        \
+				_flag |= _id;                   \
+			else {                                  \
+				ISSUE_CPU_PM_REG_FAIL(_result); \
+			}                                       \
+		}                                               \
+	})
 
 int register_cpu_pm_ops(unsigned int fn_flags, struct mtk_cpu_pm_ops *ops)
 {
@@ -465,11 +498,11 @@ int register_cpu_pm_ops(unsigned int fn_flags, struct mtk_cpu_pm_ops *ops)
 		return MTK_CPUPM_E_ERR;
 	}
 
-	CPM_PM_FN_CHECK(fn_flags, ops, MTK_CPUPM_FN_RESUME_CORE,
-			cpu_resume, success, fns);
+	CPM_PM_FN_CHECK(fn_flags, ops, MTK_CPUPM_FN_RESUME_CORE, cpu_resume,
+			success, fns);
 
-	CPM_PM_FN_CHECK(fn_flags, ops, MTK_CPUPM_FN_SUSPEND_CORE,
-			cpu_suspend, success, fns);
+	CPM_PM_FN_CHECK(fn_flags, ops, MTK_CPUPM_FN_SUSPEND_CORE, cpu_suspend,
+			success, fns);
 
 	CPM_PM_FN_CHECK(fn_flags, ops, MTK_CPUPM_FN_RESUME_CLUSTER,
 			cluster_resume, success, fns);
@@ -489,8 +522,7 @@ int register_cpu_pm_ops(unsigned int fn_flags, struct mtk_cpu_pm_ops *ops)
 	CPM_PM_FN_CHECK(fn_flags, ops, MTK_CPUPM_FN_PWR_STATE_VALID,
 			pwr_state_valid, success, fns);
 
-	CPM_PM_FN_CHECK(fn_flags, ops, MTK_CPUPM_FN_INIT,
-			init, success, fns);
+	CPM_PM_FN_CHECK(fn_flags, ops, MTK_CPUPM_FN_INIT, init, success, fns);
 
 	if (success) {
 		mtk_cpu_pwr.ops = ops;
@@ -499,8 +531,8 @@ int register_cpu_pm_ops(unsigned int fn_flags, struct mtk_cpu_pm_ops *ops)
 		INFO("[%s:%d] CPU pwr ops register success, support:0x%x\n",
 		     __func__, __LINE__, fns);
 	} else {
-		ERROR("[%s:%d] register cpu_pm ops fail !, fn:0x%x\n",
-		      __func__, __LINE__, fn_flags);
+		ERROR("[%s:%d] register cpu_pm ops fail !, fn:0x%x\n", __func__,
+		      __LINE__, fn_flags);
 		assert(0);
 	}
 	return MTK_CPUPM_E_OK;
@@ -516,17 +548,17 @@ int register_cpu_smp_ops(unsigned int fn_flags, struct mtk_cpu_smp_ops *ops)
 		return MTK_CPUPM_E_ERR;
 	}
 
-	CPM_PM_FN_CHECK(fn_flags, ops, MTK_CPUPM_FN_SMP_INIT,
-			init, success, fns);
+	CPM_PM_FN_CHECK(fn_flags, ops, MTK_CPUPM_FN_SMP_INIT, init, success,
+			fns);
 
 	CPM_PM_FN_CHECK(fn_flags, ops, MTK_CPUPM_FN_PWR_ON_CORE_PREPARE,
 			cpu_pwr_on_prepare, success, fns);
 
-	CPM_PM_FN_CHECK(fn_flags, ops, MTK_CPUPM_FN_SMP_CORE_ON,
-			cpu_on, success, fns);
+	CPM_PM_FN_CHECK(fn_flags, ops, MTK_CPUPM_FN_SMP_CORE_ON, cpu_on,
+			success, fns);
 
-	CPM_PM_FN_CHECK(fn_flags, ops, MTK_CPUPM_FN_SMP_CORE_OFF,
-			cpu_off, success, fns);
+	CPM_PM_FN_CHECK(fn_flags, ops, MTK_CPUPM_FN_SMP_CORE_OFF, cpu_off,
+			success, fns);
 
 	if (success == true) {
 		mtk_cpu_pwr.smp = ops;

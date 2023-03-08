@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,10 +13,11 @@
 #include <lib/fconf/fconf.h>
 
 #define hw_config__ethosn_config_getter(prop) ethosn_config.prop
-#define hw_config__ethosn_device_getter(dev_idx) __extension__ ({	\
-	assert(dev_idx < ethosn_config.num_devices);			\
-	&ethosn_config.devices[dev_idx];				\
-})
+#define hw_config__ethosn_device_getter(dev_idx)             \
+	__extension__({                                      \
+		assert(dev_idx < ethosn_config.num_devices); \
+		&ethosn_config.devices[dev_idx];             \
+	})
 
 #define ETHOSN_DEV_NUM_MAX U(2)
 #define ETHOSN_DEV_CORE_NUM_MAX U(8)
@@ -48,7 +49,8 @@ struct ethosn_device_t {
 	uint32_t num_cores;
 	struct ethosn_core_t cores[ETHOSN_DEV_CORE_NUM_MAX];
 	uint32_t num_allocators;
-	struct ethosn_asset_allocator_t asset_allocators[ETHOSN_DEV_ASSET_ALLOCATOR_NUM_MAX];
+	struct ethosn_asset_allocator_t
+		asset_allocators[ETHOSN_DEV_ASSET_ALLOCATOR_NUM_MAX];
 };
 
 struct ethosn_config_t {

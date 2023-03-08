@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,12 +13,12 @@
 
 #include "pm_common.h"
 
-#define FUNCTION_NAME_LEN		(16U)
-#define GROUPS_PAYLOAD_LEN		(12U)
-#define NUM_GROUPS_PER_RESP		(6U)
-#define END_OF_FUNCTION			"END_OF_FUNCTION"
-#define END_OF_GROUPS			-1
-#define PINCTRL_GRP_RESERVED		-2
+#define FUNCTION_NAME_LEN (16U)
+#define GROUPS_PAYLOAD_LEN (12U)
+#define NUM_GROUPS_PER_RESP (6U)
+#define END_OF_FUNCTION "END_OF_FUNCTION"
+#define END_OF_GROUPS -1
+#define PINCTRL_GRP_RESERVED -2
 
 //pinctrl function ids
 enum {
@@ -170,7 +170,7 @@ enum {
 #define MAX_PIN END_PINS
 
 // pinctrl group ids
-enum  {
+enum {
 	PINCTRL_GRP_ETHERNET0_0,
 	PINCTRL_GRP_ETHERNET1_0,
 	PINCTRL_GRP_ETHERNET2_0,
@@ -688,33 +688,32 @@ enum {
 };
 
 // pinctrl slew rate
-#define	PINCTRL_SLEW_RATE_FAST 0U
-#define	PINCTRL_SLEW_RATE_SLOW 1U
+#define PINCTRL_SLEW_RATE_FAST 0U
+#define PINCTRL_SLEW_RATE_SLOW 1U
 
 // pinctrl bias status
-#define	PINCTRL_BIAS_DISABLE 0U
-#define	PINCTRL_BIAS_ENABLE 1U
+#define PINCTRL_BIAS_DISABLE 0U
+#define PINCTRL_BIAS_ENABLE 1U
 
 // pinctrl pull control
-#define	PINCTRL_BIAS_PULL_DOWN 0U
-#define	PINCTRL_BIAS_PULL_UP 1U
+#define PINCTRL_BIAS_PULL_DOWN 0U
+#define PINCTRL_BIAS_PULL_UP 1U
 
 // pinctrl schmitt cmos type
 #define PINCTRL_INPUT_TYPE_CMOS 0U
-#define	PINCTRL_INPUT_TYPE_SCHMITT 1U
+#define PINCTRL_INPUT_TYPE_SCHMITT 1U
 
 //pinctrl drive strength values
-#define	PINCTRL_DRIVE_STRENGTH_2MA 0U
-#define	PINCTRL_DRIVE_STRENGTH_4MA 1U
-#define	PINCTRL_DRIVE_STRENGTH_8MA 2U
-#define	PINCTRL_DRIVE_STRENGTH_12MA 3U
+#define PINCTRL_DRIVE_STRENGTH_2MA 0U
+#define PINCTRL_DRIVE_STRENGTH_4MA 1U
+#define PINCTRL_DRIVE_STRENGTH_8MA 2U
+#define PINCTRL_DRIVE_STRENGTH_12MA 3U
 
 void pm_api_pinctrl_get_function_name(uint32_t fid, char *name);
 enum pm_ret_status pm_api_pinctrl_get_function_groups(uint32_t fid,
 						      uint32_t index,
 						      uint16_t *groups);
-enum pm_ret_status pm_api_pinctrl_get_pin_groups(uint32_t pin,
-						 uint32_t index,
+enum pm_ret_status pm_api_pinctrl_get_pin_groups(uint32_t pin, uint32_t index,
 						 uint16_t *groups);
 enum pm_ret_status pm_api_pinctrl_get_num_pins(uint32_t *npins);
 enum pm_ret_status pm_api_pinctrl_get_num_functions(uint32_t *nfuncs);

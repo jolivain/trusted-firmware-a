@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,13 +9,13 @@
 
 #include <platform_def.h>
 
-#define BAKERY_LOCK_MAX_CPUS		PLATFORM_CORE_COUNT
+#define BAKERY_LOCK_MAX_CPUS PLATFORM_CORE_COUNT
 
 #ifndef __ASSEMBLER__
-#include <cdefs.h>
 #include <stdbool.h>
 #include <stdint.h>
 
+#include <cdefs.h>
 #include <lib/utils_def.h>
 
 /*****************************************************************************
@@ -28,8 +28,8 @@ static inline unsigned int bakery_get_priority(unsigned int t, unsigned int pos)
 	return (t << 8) | pos;
 }
 
-#define CHOOSING_TICKET		U(0x1)
-#define CHOSEN_TICKET		U(0x0)
+#define CHOOSING_TICKET U(0x1)
+#define CHOSEN_TICKET U(0x0)
 
 static inline bool bakery_is_choosing(unsigned int info)
 {
@@ -45,7 +45,7 @@ static inline uint16_t make_bakery_data(unsigned int choosing, unsigned int num)
 {
 	unsigned int val = (choosing & 0x1U) | (num << 1);
 
-	return (uint16_t) val;
+	return (uint16_t)val;
 }
 
 /*****************************************************************************
@@ -92,14 +92,15 @@ typedef bakery_info_t bakery_lock_t;
 
 #endif /* __USE_COHERENT_MEM__ */
 
-static inline void bakery_lock_init(bakery_lock_t *bakery) {}
+static inline void bakery_lock_init(bakery_lock_t *bakery)
+{
+}
 void bakery_lock_get(bakery_lock_t *bakery);
 void bakery_lock_release(bakery_lock_t *bakery);
 
 #define DEFINE_BAKERY_LOCK(_name) bakery_lock_t _name __section(".bakery_lock")
 
 #define DECLARE_BAKERY_LOCK(_name) extern bakery_lock_t _name
-
 
 #endif /* __ASSEMBLER__ */
 #endif /* BAKERY_LOCK_H */

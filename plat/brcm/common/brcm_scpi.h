@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -16,14 +16,14 @@
  */
 typedef struct {
 	/* Command ID */
-	uint32_t id		: 7;
+	uint32_t id : 7;
 	/* Set ID. Identifies whether this is a standard or extended command. */
-	uint32_t set		: 1;
+	uint32_t set : 1;
 	/* Sender ID to match a reply. The value is sender specific. */
-	uint32_t sender		: 8;
+	uint32_t sender : 8;
 	/* Size of the payload in bytes (0 - 511) */
-	uint32_t size		: 9;
-	uint32_t reserved	: 7;
+	uint32_t size : 9;
+	uint32_t reserved : 7;
 	/*
 	 * Status indicating the success of a command.
 	 * See the enum below.
@@ -32,24 +32,24 @@ typedef struct {
 } scpi_cmd_t;
 
 typedef enum {
-	SCPI_SET_NORMAL = 0,	/* Normal SCPI commands */
-	SCPI_SET_EXTENDED	/* Extended SCPI commands */
+	SCPI_SET_NORMAL = 0, /* Normal SCPI commands */
+	SCPI_SET_EXTENDED /* Extended SCPI commands */
 } scpi_set_t;
 
 enum {
-	SCP_OK = 0,	/* Success */
-	SCP_E_PARAM,	/* Invalid parameter(s) */
-	SCP_E_ALIGN,	/* Invalid alignment */
-	SCP_E_SIZE,	/* Invalid size */
-	SCP_E_HANDLER,	/* Invalid handler or callback */
-	SCP_E_ACCESS,	/* Invalid access or permission denied */
-	SCP_E_RANGE,	/* Value out of range */
-	SCP_E_TIMEOUT,	/* Time out has ocurred */
-	SCP_E_NOMEM,	/* Invalid memory area or pointer */
-	SCP_E_PWRSTATE,	/* Invalid power state */
-	SCP_E_SUPPORT,	/* Feature not supported or disabled */
-	SCPI_E_DEVICE,	/* Device error */
-	SCPI_E_BUSY,	/* Device is busy */
+	SCP_OK = 0, /* Success */
+	SCP_E_PARAM, /* Invalid parameter(s) */
+	SCP_E_ALIGN, /* Invalid alignment */
+	SCP_E_SIZE, /* Invalid size */
+	SCP_E_HANDLER, /* Invalid handler or callback */
+	SCP_E_ACCESS, /* Invalid access or permission denied */
+	SCP_E_RANGE, /* Value out of range */
+	SCP_E_TIMEOUT, /* Time out has ocurred */
+	SCP_E_NOMEM, /* Invalid memory area or pointer */
+	SCP_E_PWRSTATE, /* Invalid power state */
+	SCP_E_SUPPORT, /* Feature not supported or disabled */
+	SCPI_E_DEVICE, /* Device error */
+	SCPI_E_BUSY, /* Device is busy */
 };
 
 typedef uint32_t scpi_status_t;
@@ -69,11 +69,11 @@ typedef enum {
  *
  * Payload is in little-endian
  */
-#define CLUSTER_ID(_resp)		((_resp) & 0xf)
-#define CLUSTER_POWER_STATE(_resp)	(((_resp) >> 4) & 0xf)
+#define CLUSTER_ID(_resp) ((_resp)&0xf)
+#define CLUSTER_POWER_STATE(_resp) (((_resp) >> 4) & 0xf)
 
 /* Result is a bit mask of CPU on/off states in the cluster */
-#define CPU_POWER_STATE(_resp)		(((_resp) >> 8) & 0xff)
+#define CPU_POWER_STATE(_resp) (((_resp) >> 8) & 0xff)
 
 /*
  * For GET_POWER_STATE, SCP returns the power states of every cluster. The
@@ -81,7 +81,7 @@ typedef enum {
  * SCP-to-AP payload contains 2 bytes per cluster. Make sure the response is
  * large enough to contain power states of a given cluster
  */
-#define CHECK_RESPONSE(_resp, _clus)  (_resp.size >= (((_clus) + 1) * 2))
+#define CHECK_RESPONSE(_resp, _clus) (_resp.size >= (((_clus) + 1) * 2))
 
 typedef enum {
 	scpi_power_on = 0,
@@ -104,4 +104,4 @@ int scpi_get_brcm_power_state(unsigned int mpidr, unsigned int *cpu_state_p,
 			      unsigned int *cluster_state_p);
 uint32_t scpi_sys_power_state(scpi_system_state_t system_state);
 
-#endif	/* BRCM_SCPI_H */
+#endif /* BRCM_SCPI_H */

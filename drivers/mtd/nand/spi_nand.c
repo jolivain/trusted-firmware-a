@@ -15,9 +15,9 @@
 
 #include <platform_def.h>
 
-#define SPI_NAND_MAX_ID_LEN		4U
-#define DELAY_US_400MS			400000U
-#define MACRONIX_ID			0xC2U
+#define SPI_NAND_MAX_ID_LEN 4U
+#define DELAY_US_400MS 400000U
+#define MACRONIX_ID 0xC2U
 
 static struct spinand_device spinand_dev;
 
@@ -238,8 +238,8 @@ static int spi_nand_mtd_block_is_bad(unsigned int block)
 	int ret;
 
 	ret = spi_nand_read_page(block * nbpages_per_block,
-				 spinand_dev.nand_dev->page_size,
-				 bbm_marker, sizeof(bbm_marker), false);
+				 spinand_dev.nand_dev->page_size, bbm_marker,
+				 sizeof(bbm_marker), false);
 	if (ret != 0) {
 		return ret;
 	}
@@ -314,8 +314,7 @@ int spi_nand_init(unsigned long long *size, unsigned int *erase_size)
 
 	VERBOSE("Page size %u, Block size %u, size %llu\n",
 		spinand_dev.nand_dev->page_size,
-		spinand_dev.nand_dev->block_size,
-		spinand_dev.nand_dev->size);
+		spinand_dev.nand_dev->block_size, spinand_dev.nand_dev->size);
 
 	*size = spinand_dev.nand_dev->size;
 	*erase_size = spinand_dev.nand_dev->block_size;

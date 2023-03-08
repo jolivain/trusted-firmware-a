@@ -13,8 +13,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <platform_def.h>
 #include <common/debug.h>
+
+#include <platform_def.h>
 #ifndef NXP_COINED_BB
 #include <flash_info.h>
 #include <fspi.h>
@@ -41,7 +42,7 @@ int read_nv_app_data(void)
 	int ret = 0;
 
 #ifdef NXP_COINED_BB
-	uint8_t *nv_app_data_array = (uint8_t *) &nv_app_data;
+	uint8_t *nv_app_data_array = (uint8_t *)&nv_app_data;
 	uint8_t offset = 0U;
 
 	ret = snvs_read_app_data();
@@ -62,17 +63,14 @@ int read_nv_app_data(void)
 		return -ENODEV;
 	}
 
-	xspi_read(nv_base_addr,
-		  (uint32_t *)&nv_app_data, sizeof(nv_app_data_t));
-	xspi_sector_erase((uint32_t) nv_base_addr,
-				F_SECTOR_ERASE_SZ);
+	xspi_read(nv_base_addr, (uint32_t *)&nv_app_data,
+		  sizeof(nv_app_data_t));
+	xspi_sector_erase((uint32_t)nv_base_addr, F_SECTOR_ERASE_SZ);
 #endif
 	return ret;
 }
 
-int wr_nv_app_data(int data_offset,
-			uint8_t *data,
-			int data_size)
+int wr_nv_app_data(int data_offset, uint8_t *data, int data_size)
 {
 	int ret = 0;
 #ifdef NXP_COINED_BB
@@ -93,7 +91,8 @@ int wr_nv_app_data(int data_offset,
 	uint8_t ready_to_write_val[sizeof(nv_app_data_t)];
 	uintptr_t nv_base_addr = NV_STORAGE_BASE_ADDR;
 
-	assert((nv_base_addr + data_offset + data_size) <= (nv_base_addr + F_SECTOR_ERASE_SZ));
+	assert((nv_base_addr + data_offset + data_size) <=
+	       (nv_base_addr + F_SECTOR_ERASE_SZ));
 
 	ret = fspi_init(NXP_FLEXSPI_ADDR, NXP_FLEXSPI_FLASH_ADDR);
 
@@ -103,9 +102,11 @@ int wr_nv_app_data(int data_offset,
 		return -ENODEV;
 	}
 
-	ret = xspi_read(nv_base_addr + data_offset, (uint32_t *)read_val, data_size);
+	ret = xspi_read(nv_base_addr + data_offset, (uint32_t *)read_val,
+			data_size);
 
-	memset(ready_to_write_val, READY_TO_WRITE_VALUE, ARRAY_SIZE(ready_to_write_val));
+	memset(ready_to_write_val, READY_TO_WRITE_VALUE,
+	       ARRAY_SIZE(ready_to_write_val));
 
 	if (memcmp(read_val, ready_to_write_val, data_size) == 0) {
 		xspi_write(nv_base_addr + data_offset, data, data_size);
@@ -117,5 +118,5 @@ int wr_nv_app_data(int data_offset,
 
 const nv_app_data_t *get_nv_data(void)
 {
-	return (const nv_app_data_t *) &nv_app_data;
+	return (const nv_app_data_t *)&nv_app_data;
 }

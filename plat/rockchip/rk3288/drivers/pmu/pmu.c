@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,20 +7,19 @@
 #include <assert.h>
 #include <errno.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-#include <plat/common/platform.h>
-
 #include <plat_private.h>
 #include <pmu.h>
 #include <pmu_com.h>
 #include <rk3288_def.h>
 #include <secure.h>
 #include <soc.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 DEFINE_BAKERY_LOCK(rockchip_pd_lock);
 
@@ -87,8 +86,7 @@ static inline int rk3288_pmu_bus_idle(uint32_t req, uint32_t idle)
 		break;
 	case bus_ide_req_vio:
 		idle_mask = BIT(pmu_idle_ack_vio) | BIT(pmu_idle_vio);
-		idle_target = (pmu_idle_ack_vio) |
-			      (idle << pmu_idle_vio);
+		idle_target = (pmu_idle_ack_vio) | (idle << pmu_idle_vio);
 		break;
 	case bus_ide_req_alive:
 		idle_mask = BIT(pmu_idle_ack_alive) | BIT(pmu_idle_alive);
@@ -108,8 +106,8 @@ static inline int rk3288_pmu_bus_idle(uint32_t req, uint32_t idle)
 
 	mmio_write_32(PMU_BASE + PMU_BUS_IDE_REQ, val);
 
-	while ((mmio_read_32(PMU_BASE +
-	       PMU_BUS_IDE_ST) & idle_mask) != idle_target) {
+	while ((mmio_read_32(PMU_BASE + PMU_BUS_IDE_ST) & idle_mask) !=
+	       idle_target) {
 		wait_cnt++;
 		if (!(wait_cnt % MAX_WAIT_CONUT))
 			WARN("%s:st=%x(%x)\n", __func__,
@@ -155,11 +153,10 @@ static void pmu_set_sleep_mode(int level)
 
 	if (level == ROCKCHIP_ARM_OFF_LOGIC_DEEP) {
 		/* arm off, logic deep sleep */
-		mode_set |= BIT(pmu_mode_bus_pd) | BIT(pmu_mode_pmu_use_lf) |
-			    BIT(pmu_mode_ddrio1_ret) |
-			    BIT(pmu_mode_ddrio0_ret) |
-			    BIT(pmu_mode_pmu_alive_use_lf) |
-			    BIT(pmu_mode_pll_pd);
+		mode_set |=
+			BIT(pmu_mode_bus_pd) | BIT(pmu_mode_pmu_use_lf) |
+			BIT(pmu_mode_ddrio1_ret) | BIT(pmu_mode_ddrio0_ret) |
+			BIT(pmu_mode_pmu_alive_use_lf) | BIT(pmu_mode_pll_pd);
 
 		if (osc_disable)
 			mode_set |= BIT(pmu_mode_osc_dis);
@@ -167,8 +164,7 @@ static void pmu_set_sleep_mode(int level)
 		mode_set1 |= BIT(pmu_mode_clr_alive) | BIT(pmu_mode_clr_bus) |
 			     BIT(pmu_mode_clr_peri) | BIT(pmu_mode_clr_dma);
 
-		mmio_write_32(PMU_BASE + PMU_WAKEUP_CFG1,
-			      pmu_armint_wakeup_en);
+		mmio_write_32(PMU_BASE + PMU_WAKEUP_CFG1, pmu_armint_wakeup_en);
 
 		/*
 		 * In deep suspend we use PMU_PMU_USE_LF to let the rk3288
@@ -181,7 +177,7 @@ static void pmu_set_sleep_mode(int level)
 
 		/* only wait for stabilization, if we turned the osc off */
 		mmio_write_32(PMU_BASE + PMU_OSC_CNT,
-					 osc_disable ? 32 * 30 : 0);
+			      osc_disable ? 32 * 30 : 0);
 	} else {
 		/*
 		 * arm off, logic normal
@@ -192,7 +188,7 @@ static void pmu_set_sleep_mode(int level)
 
 		mmio_write_32(PMU_BASE + PMU_WAKEUP_CFG1,
 			      BIT(pmu_armint_wakeup_en) |
-			      BIT(pmu_gpioint_wakeup_en));
+				      BIT(pmu_gpioint_wakeup_en));
 
 		/* 30ms on a 24MHz clock for pmic stabilization */
 		mmio_write_32(PMU_BASE + PMU_STABL_CNT, 24000 * 30);

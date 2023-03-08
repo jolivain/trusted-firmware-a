@@ -1,21 +1,21 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <stdlib.h>
-#include <stdint.h>
 #include <stdbool.h>
+#include <stdint.h>
+#include <stdlib.h>
 
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
+#include <gpc.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
-#include <platform_def.h>
 #include <services/std_svc.h>
 
-#include <gpc.h>
+#include <platform_def.h>
 
 /* use wfi power down the core */
 void imx_set_cpu_pwr_off(unsigned int core_id)
@@ -23,8 +23,8 @@ void imx_set_cpu_pwr_off(unsigned int core_id)
 	bakery_lock_get(&gpc_lock);
 
 	/* enable the wfi power down of the core */
-	mmio_setbits_32(IMX_GPC_BASE + LPCR_A53_AD, COREx_WFI_PDN(core_id) |
-			(1 << (core_id + 20)));
+	mmio_setbits_32(IMX_GPC_BASE + LPCR_A53_AD,
+			COREx_WFI_PDN(core_id) | (1 << (core_id + 20)));
 
 	bakery_lock_release(&gpc_lock);
 
@@ -39,14 +39,16 @@ void imx_set_cpu_lpm(unsigned int core_id, bool pdn)
 
 	if (pdn) {
 		/* enable the core WFI PDN & IRQ PUP */
-		mmio_setbits_32(IMX_GPC_BASE + LPCR_A53_AD, COREx_WFI_PDN(core_id) |
-				(1 << (core_id + 20)) | COREx_IRQ_WUP(core_id));
+		mmio_setbits_32(IMX_GPC_BASE + LPCR_A53_AD,
+				COREx_WFI_PDN(core_id) | (1 << (core_id + 20)) |
+					COREx_IRQ_WUP(core_id));
 		/* assert the pcg pcr bit of the core */
 		mmio_setbits_32(IMX_GPC_BASE + COREx_PGC_PCR(core_id), 0x1);
 	} else {
 		/* disable CORE WFI PDN & IRQ PUP */
-		mmio_clrbits_32(IMX_GPC_BASE + LPCR_A53_AD, COREx_WFI_PDN(core_id) |
-				COREx_IRQ_WUP(core_id));
+		mmio_clrbits_32(IMX_GPC_BASE + LPCR_A53_AD,
+				COREx_WFI_PDN(core_id) |
+					COREx_IRQ_WUP(core_id));
 		/* deassert the pcg pcr bit of the core */
 		mmio_setbits_32(IMX_GPC_BASE + COREx_PGC_PCR(core_id), 0x1);
 	}
@@ -62,16 +64,17 @@ void imx_pup_pdn_slot_config(int last_core, bool pdn)
 		/* SLOT1 for A53 PLAT power up */
 		mmio_setbits_32(IMX_GPC_BASE + SLTx_CFG(1), SLT_PLAT_PUP);
 		/* SLOT2 for A53 primary core power up */
-		mmio_setbits_32(IMX_GPC_BASE + SLTx_CFG(2), SLT_COREx_PUP(last_core));
+		mmio_setbits_32(IMX_GPC_BASE + SLTx_CFG(2),
+				SLT_COREx_PUP(last_core));
 		/* ACK setting: PLAT ACK for PDN, CORE ACK for PUP */
 		mmio_clrsetbits_32(IMX_GPC_BASE + PGC_ACK_SEL_A53, 0xFFFFFFFF,
-			A53_PLAT_PDN_ACK | A53_PLAT_PUP_ACK);
+				   A53_PLAT_PDN_ACK | A53_PLAT_PUP_ACK);
 	} else {
 		mmio_clrbits_32(IMX_GPC_BASE + SLTx_CFG(0), 0xFFFFFFFF);
 		mmio_clrbits_32(IMX_GPC_BASE + SLTx_CFG(1), 0xFFFFFFFF);
 		mmio_clrbits_32(IMX_GPC_BASE + SLTx_CFG(2), 0xFFFFFFFF);
 		mmio_clrsetbits_32(IMX_GPC_BASE + PGC_ACK_SEL_A53, 0xFFFFFFFF,
-			A53_DUMMY_PDN_ACK | A53_DUMMY_PUP_ACK);
+				   A53_DUMMY_PDN_ACK | A53_DUMMY_PUP_ACK);
 	}
 }
 
@@ -92,8 +95,10 @@ void imx_set_cluster_powerdown(unsigned int last_core, uint8_t power_state)
 		val = mmio_read_32(IMX_GPC_BASE + LPCR_A53_AD);
 		val &= ~EN_L2_WFI_PDN;
 		val |= L2PGE | EN_PLAT_PDN;
-		val &= ~COREx_IRQ_WUP(last_core); /* disable IRQ PUP for last core */
-		val |= COREx_LPM_PUP(last_core); /* enable LPM PUP for last core */
+		val &= ~COREx_IRQ_WUP(
+			last_core); /* disable IRQ PUP for last core */
+		val |= COREx_LPM_PUP(
+			last_core); /* enable LPM PUP for last core */
 		mmio_write_32(IMX_GPC_BASE + LPCR_A53_AD, val);
 
 		imx_pup_pdn_slot_config(last_core, true);
@@ -119,7 +124,7 @@ void imx_set_cluster_powerdown(unsigned int last_core, uint8_t power_state)
 		val = mmio_read_32(IMX_GPC_BASE + LPCR_A53_AD);
 		val |= EN_L2_WFI_PDN;
 		val &= ~(L2PGE | EN_PLAT_PDN);
-		val &= ~COREx_LPM_PUP(last_core);  /* disable C0's LPM PUP */
+		val &= ~COREx_LPM_PUP(last_core); /* disable C0's LPM PUP */
 		mmio_write_32(IMX_GPC_BASE + LPCR_A53_AD, val);
 	}
 }
@@ -163,8 +168,8 @@ void imx_gpc_init(void)
 		      (0x59 << 10) | 0x5B | (0x2 << 20));
 
 	/* set DUMMY PDN/PUP ACK by default for A53 domain */
-	mmio_write_32(IMX_GPC_BASE + PGC_ACK_SEL_A53, A53_DUMMY_PUP_ACK |
-		A53_DUMMY_PDN_ACK);
+	mmio_write_32(IMX_GPC_BASE + PGC_ACK_SEL_A53,
+		      A53_DUMMY_PUP_ACK | A53_DUMMY_PDN_ACK);
 
 	/* disable DSM mode by default */
 	mmio_clrbits_32(IMX_GPC_BASE + SLPCR, DSM_MODE_MASK);

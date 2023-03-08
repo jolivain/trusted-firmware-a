@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  *
@@ -83,10 +83,8 @@ int gpio_get_pull(int gpio)
  */
 void gpio_init(const gpio_ops_t *ops_ptr)
 {
-	assert(ops_ptr != 0  &&
-	       (ops_ptr->get_direction != 0) &&
-	       (ops_ptr->set_direction != 0) &&
-	       (ops_ptr->get_value != 0) &&
+	assert(ops_ptr != 0 && (ops_ptr->get_direction != 0) &&
+	       (ops_ptr->set_direction != 0) && (ops_ptr->get_value != 0) &&
 	       (ops_ptr->set_value != 0));
 
 	ops = ops_ptr;

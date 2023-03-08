@@ -10,7 +10,7 @@
 
 /* AVS Setting. 1:enable / 0:disable */
 #ifndef AVS_SETTING_ENABLE
-#define AVS_SETTING_ENABLE	1
+#define AVS_SETTING_ENABLE 1
 #endif /* AVS_SETTING_ENABLE */
 
 void rcar_avs_init(void);

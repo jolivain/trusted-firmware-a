@@ -13,10 +13,10 @@
 #include <string.h>
 
 #include <arch_helpers.h>
-#include "caam.h"
 #include <common/debug.h>
 #include <drivers/auth/crypto_mod.h>
 
+#include "caam.h"
 #include "hash.h"
 #include "jobdesc.h"
 #include "sec_hw_specific.h"
@@ -70,7 +70,6 @@ int hash_update(enum hash_algo algo, void *context, void *data_ptr,
 		ERROR("Reached limit for calling %s\n", __func__);
 		ctx->active = false;
 		return -EINVAL;
-
 	}
 
 	if (ctx->algo != algo) {
@@ -86,11 +85,11 @@ int hash_update(enum hash_algo algo, void *context, void *data_ptr,
 
 #ifdef CONFIG_PHYS_64BIT
 	sec_out32(&ctx->sg_tbl[ctx->sg_num].addr_hi,
-		  (uint32_t) ((uintptr_t) data_ptr >> 32));
+		  (uint32_t)((uintptr_t)data_ptr >> 32));
 #else
 	sec_out32(&ctx->sg_tbl[ctx->sg_num].addr_hi, 0x0);
 #endif
-	sec_out32(&ctx->sg_tbl[ctx->sg_num].addr_lo, (uintptr_t) data_ptr);
+	sec_out32(&ctx->sg_tbl[ctx->sg_num].addr_lo, (uintptr_t)data_ptr);
 
 	sec_out32(&ctx->sg_tbl[ctx->sg_num].len_flag,
 		  (data_len & SG_ENTRY_LENGTH_MASK));
@@ -127,14 +126,14 @@ int hash_final(enum hash_algo algo, void *context, void *hash_ptr,
 	}
 
 	final = sec_in32(&ctx->sg_tbl[ctx->sg_num - 1].len_flag) |
-	    SG_ENTRY_FINAL_BIT;
+		SG_ENTRY_FINAL_BIT;
 	sec_out32(&ctx->sg_tbl[ctx->sg_num - 1].len_flag, final);
 
 	dsb();
 
 	/* create the hw_rng descriptor */
-	cnstr_hash_jobdesc(jobdesc.desc, (uint8_t *) ctx->sg_tbl,
-			   ctx->len, hash_ptr);
+	cnstr_hash_jobdesc(jobdesc.desc, (uint8_t *)ctx->sg_tbl, ctx->len,
+			   hash_ptr);
 
 #if defined(SEC_MEM_NON_COHERENT) && defined(IMAGE_BL2)
 	flush_dcache_range((uintptr_t)ctx->sg_tbl,

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2022-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,37 +13,37 @@
 #include <lib/psci/psci.h>
 #include <lib/spinlock.h>
 #include <services/el3_spmc_logical_sp.h>
+
 #include "spm_common.h"
 
 /*
  * Ranges of FF-A IDs for Normal world and Secure world components. The
  * convention matches that used by other SPMCs i.e. Hafnium and OP-TEE.
  */
-#define FFA_NWD_ID_BASE		0x0
-#define FFA_NWD_ID_LIMIT	0x7FFF
-#define FFA_SWD_ID_BASE		0x8000
-#define FFA_SWD_ID_LIMIT	SPMD_DIRECT_MSG_ENDPOINT_ID - 1
-#define FFA_SWD_ID_MASK		0x8000
+#define FFA_NWD_ID_BASE 0x0
+#define FFA_NWD_ID_LIMIT 0x7FFF
+#define FFA_SWD_ID_BASE 0x8000
+#define FFA_SWD_ID_LIMIT SPMD_DIRECT_MSG_ENDPOINT_ID - 1
+#define FFA_SWD_ID_MASK 0x8000
 
 /* ID 0 is reserved for the normal world entity, (Hypervisor or OS Kernel). */
-#define FFA_NWD_ID		U(0)
+#define FFA_NWD_ID U(0)
 /* First ID is reserved for the SPMC */
-#define FFA_SPMC_ID		U(FFA_SWD_ID_BASE)
+#define FFA_SPMC_ID U(FFA_SWD_ID_BASE)
 /* SP IDs are allocated after the SPMC ID */
-#define FFA_SP_ID_BASE		(FFA_SPMC_ID + 1)
+#define FFA_SP_ID_BASE (FFA_SPMC_ID + 1)
 /* Align with Hafnium implementation */
-#define INV_SP_ID		0x7FFF
+#define INV_SP_ID 0x7FFF
 
 /* FF-A Related helper macros. */
-#define FFA_ID_MASK			U(0xFFFF)
-#define FFA_PARTITION_ID_SHIFT		U(16)
-#define FFA_FEATURES_BIT31_MASK		U(0x1u << 31)
-#define FFA_FEATURES_RET_REQ_NS_BIT	U(0x1 << 1)
+#define FFA_ID_MASK U(0xFFFF)
+#define FFA_PARTITION_ID_SHIFT U(16)
+#define FFA_FEATURES_BIT31_MASK U(0x1u << 31)
+#define FFA_FEATURES_RET_REQ_NS_BIT U(0x1 << 1)
 
 #define FFA_RUN_EP_ID(ep_vcpu_ids) \
-		((ep_vcpu_ids >> FFA_PARTITION_ID_SHIFT) & FFA_ID_MASK)
-#define FFA_RUN_VCPU_ID(ep_vcpu_ids) \
-		(ep_vcpu_ids & FFA_ID_MASK)
+	((ep_vcpu_ids >> FFA_PARTITION_ID_SHIFT) & FFA_ID_MASK)
+#define FFA_RUN_VCPU_ID(ep_vcpu_ids) (ep_vcpu_ids & FFA_ID_MASK)
 
 #define FFA_PAGE_SIZE (4096)
 #define FFA_RXTX_PAGE_COUNT_MASK 0x1F
@@ -54,9 +54,9 @@ CASSERT((PAGE_SIZE % FFA_PAGE_SIZE) == 0, assert_aligned_page_size);
 /*
  * Defines to allow an SP to subscribe for power management messages
  */
-#define FFA_PM_MSG_SUB_CPU_OFF			U(1 << 0)
-#define FFA_PM_MSG_SUB_CPU_SUSPEND		U(1 << 1)
-#define FFA_PM_MSG_SUB_CPU_SUSPEND_RESUME	U(1 << 2)
+#define FFA_PM_MSG_SUB_CPU_OFF U(1 << 0)
+#define FFA_PM_MSG_SUB_CPU_SUSPEND U(1 << 1)
+#define FFA_PM_MSG_SUB_CPU_SUSPEND_RESUME U(1 << 2)
 
 /*
  * Runtime states of an execution context as per the FF-A v1.1 specification.
@@ -79,16 +79,9 @@ enum sp_runtime_model {
 	RT_MODEL_INTR
 };
 
-enum sp_runtime_el {
-	EL1 = 0,
-	S_EL0,
-	S_EL1
-};
+enum sp_runtime_el { EL1 = 0, S_EL0, S_EL1 };
 
-enum sp_execution_state {
-	SP_STATE_AARCH64 = 0,
-	SP_STATE_AARCH32
-};
+enum sp_execution_state { SP_STATE_AARCH64 = 0, SP_STATE_AARCH32 };
 
 enum mailbox_state {
 	/* There is no message in the mailbox. */
@@ -187,7 +180,7 @@ struct secure_partition_desc {
  * single S-EL0 or a single S-EL1 SP will be supported. This define will be used
  * to identify which SP descriptor to initialise and manage during SP runtime.
  */
-#define ACTIVE_SP_DESC_INDEX	0
+#define ACTIVE_SP_DESC_INDEX 0
 
 /*
  * Structure to describe the cumulative properties of the Hypervisor and
@@ -229,18 +222,17 @@ struct ffa_partition_info_v1_1 {
 };
 
 /* FF-A Partition Info Get related macros. */
-#define FFA_PARTITION_INFO_GET_PROPERTIES_V1_0_MASK	U(0x7)
-#define FFA_PARTITION_INFO_GET_EXEC_STATE_SHIFT 	U(8)
-#define FFA_PARTITION_INFO_GET_AARCH32_STATE 		U(0)
-#define FFA_PARTITION_INFO_GET_AARCH64_STATE 		U(1)
+#define FFA_PARTITION_INFO_GET_PROPERTIES_V1_0_MASK U(0x7)
+#define FFA_PARTITION_INFO_GET_EXEC_STATE_SHIFT U(8)
+#define FFA_PARTITION_INFO_GET_AARCH32_STATE U(0)
+#define FFA_PARTITION_INFO_GET_AARCH64_STATE U(1)
 
 /* Reference to power management hooks */
 extern const spd_pm_ops_t spmc_pm;
 
 /* Setup Function for different SP types. */
 void spmc_sp_common_setup(struct secure_partition_desc *sp,
-			  entry_point_info_t *ep_info,
-			  int32_t boot_info_reg);
+			  entry_point_info_t *ep_info, int32_t boot_info_reg);
 void spmc_el1_sp_setup(struct secure_partition_desc *sp,
 		       entry_point_info_t *ep_info);
 void spmc_sp_common_ep_commit(struct secure_partition_desc *sp,
@@ -297,6 +289,5 @@ struct secure_partition_desc *spmc_get_sp_ctx(uint16_t id);
  * partition.
  */
 uint32_t get_partition_ffa_version(bool secure_origin);
-
 
 #endif /* SPMC_H */

@@ -7,6 +7,7 @@
 
 #include <assert.h>
 
+#include <armada_common.h>
 #include <common/debug.h>
 #include <drivers/arm/gicv2.h>
 #include <drivers/console.h>
@@ -14,48 +15,47 @@
 #include <drivers/marvell/cache_llc.h>
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
-#include <plat/common/platform.h>
-
-#include <armada_common.h>
 #include <marvell_pm.h>
+
+#include <plat/common/platform.h>
 #if MSS_SUPPORT
 #include <mss_pm_ipc.h>
 #endif
 #include <plat_marvell.h>
 #include <plat_pm_trace.h>
 
-#define MVEBU_PRIVATE_UID_REG		0x30
-#define MVEBU_RFU_GLOBL_SW_RST		0x84
-#define MVEBU_CCU_RVBAR(cpu)		(MVEBU_REGS_BASE + 0x640 + (cpu * 4))
-#define MVEBU_CCU_CPU_UN_RESET(cpu)	(MVEBU_REGS_BASE + 0x650 + (cpu * 4))
+#define MVEBU_PRIVATE_UID_REG 0x30
+#define MVEBU_RFU_GLOBL_SW_RST 0x84
+#define MVEBU_CCU_RVBAR(cpu) (MVEBU_REGS_BASE + 0x640 + (cpu * 4))
+#define MVEBU_CCU_CPU_UN_RESET(cpu) (MVEBU_REGS_BASE + 0x650 + (cpu * 4))
 
-#define MPIDR_CPU_GET(mpidr)		((mpidr) & MPIDR_CPU_MASK)
-#define MPIDR_CLUSTER_GET(mpidr)	MPIDR_AFFLVL1_VAL((mpidr))
+#define MPIDR_CPU_GET(mpidr) ((mpidr)&MPIDR_CPU_MASK)
+#define MPIDR_CLUSTER_GET(mpidr) MPIDR_AFFLVL1_VAL((mpidr))
 
-#define MVEBU_GPIO_MASK(index)		(1 << (index % 32))
-#define MVEBU_MPP_MASK(index)		(0xF << (4 * (index % 8)))
-#define MVEBU_GPIO_VALUE(index, value)	(value << (index % 32))
+#define MVEBU_GPIO_MASK(index) (1 << (index % 32))
+#define MVEBU_MPP_MASK(index) (0xF << (4 * (index % 8)))
+#define MVEBU_GPIO_VALUE(index, value) (value << (index % 32))
 
-#define MVEBU_USER_CMD_0_REG		(MVEBU_DRAM_MAC_BASE + 0x20)
-#define MVEBU_USER_CMD_CH0_OFFSET	28
-#define MVEBU_USER_CMD_CH0_MASK		(1 << MVEBU_USER_CMD_CH0_OFFSET)
-#define MVEBU_USER_CMD_CH0_EN		(1 << MVEBU_USER_CMD_CH0_OFFSET)
-#define MVEBU_USER_CMD_CS_OFFSET	24
-#define MVEBU_USER_CMD_CS_MASK		(0xF << MVEBU_USER_CMD_CS_OFFSET)
-#define MVEBU_USER_CMD_CS_ALL		(0xF << MVEBU_USER_CMD_CS_OFFSET)
-#define MVEBU_USER_CMD_SR_OFFSET	6
-#define MVEBU_USER_CMD_SR_MASK		(0x3 << MVEBU_USER_CMD_SR_OFFSET)
-#define MVEBU_USER_CMD_SR_ENTER		(0x1 << MVEBU_USER_CMD_SR_OFFSET)
-#define MVEBU_MC_PWR_CTRL_REG		(MVEBU_DRAM_MAC_BASE + 0x54)
-#define MVEBU_MC_AC_ON_DLY_OFFSET	8
-#define MVEBU_MC_AC_ON_DLY_MASK		(0xF << MVEBU_MC_AC_ON_DLY_OFFSET)
-#define MVEBU_MC_AC_ON_DLY_DEF_VAR	(8 << MVEBU_MC_AC_ON_DLY_OFFSET)
-#define MVEBU_MC_AC_OFF_DLY_OFFSET	4
-#define MVEBU_MC_AC_OFF_DLY_MASK	(0xF << MVEBU_MC_AC_OFF_DLY_OFFSET)
-#define MVEBU_MC_AC_OFF_DLY_DEF_VAR	(0xC << MVEBU_MC_AC_OFF_DLY_OFFSET)
-#define MVEBU_MC_PHY_AUTO_OFF_OFFSET	0
-#define MVEBU_MC_PHY_AUTO_OFF_MASK	(1 << MVEBU_MC_PHY_AUTO_OFF_OFFSET)
-#define MVEBU_MC_PHY_AUTO_OFF_EN	(1 << MVEBU_MC_PHY_AUTO_OFF_OFFSET)
+#define MVEBU_USER_CMD_0_REG (MVEBU_DRAM_MAC_BASE + 0x20)
+#define MVEBU_USER_CMD_CH0_OFFSET 28
+#define MVEBU_USER_CMD_CH0_MASK (1 << MVEBU_USER_CMD_CH0_OFFSET)
+#define MVEBU_USER_CMD_CH0_EN (1 << MVEBU_USER_CMD_CH0_OFFSET)
+#define MVEBU_USER_CMD_CS_OFFSET 24
+#define MVEBU_USER_CMD_CS_MASK (0xF << MVEBU_USER_CMD_CS_OFFSET)
+#define MVEBU_USER_CMD_CS_ALL (0xF << MVEBU_USER_CMD_CS_OFFSET)
+#define MVEBU_USER_CMD_SR_OFFSET 6
+#define MVEBU_USER_CMD_SR_MASK (0x3 << MVEBU_USER_CMD_SR_OFFSET)
+#define MVEBU_USER_CMD_SR_ENTER (0x1 << MVEBU_USER_CMD_SR_OFFSET)
+#define MVEBU_MC_PWR_CTRL_REG (MVEBU_DRAM_MAC_BASE + 0x54)
+#define MVEBU_MC_AC_ON_DLY_OFFSET 8
+#define MVEBU_MC_AC_ON_DLY_MASK (0xF << MVEBU_MC_AC_ON_DLY_OFFSET)
+#define MVEBU_MC_AC_ON_DLY_DEF_VAR (8 << MVEBU_MC_AC_ON_DLY_OFFSET)
+#define MVEBU_MC_AC_OFF_DLY_OFFSET 4
+#define MVEBU_MC_AC_OFF_DLY_MASK (0xF << MVEBU_MC_AC_OFF_DLY_OFFSET)
+#define MVEBU_MC_AC_OFF_DLY_DEF_VAR (0xC << MVEBU_MC_AC_OFF_DLY_OFFSET)
+#define MVEBU_MC_PHY_AUTO_OFF_OFFSET 0
+#define MVEBU_MC_PHY_AUTO_OFF_MASK (1 << MVEBU_MC_PHY_AUTO_OFF_OFFSET)
+#define MVEBU_MC_PHY_AUTO_OFF_EN (1 << MVEBU_MC_PHY_AUTO_OFF_OFFSET)
 
 /* this lock synchronize AP multiple cores execution with MSS */
 DEFINE_BAKERY_LOCK(pm_sys_lock);
@@ -64,53 +64,42 @@ DEFINE_BAKERY_LOCK(pm_sys_lock);
 #pragma weak plat_marvell_get_pm_cfg
 
 /* AP806 CPU power down /power up definitions */
-enum CPU_ID {
-	CPU0,
-	CPU1,
-	CPU2,
-	CPU3
-};
+enum CPU_ID { CPU0, CPU1, CPU2, CPU3 };
 
-#define REG_WR_VALIDATE_TIMEOUT		(2000)
+#define REG_WR_VALIDATE_TIMEOUT (2000)
 
-#define FEATURE_DISABLE_STATUS_REG			\
-			(MVEBU_REGS_BASE + 0x6F8230)
-#define FEATURE_DISABLE_STATUS_CPU_CLUSTER_OFFSET	4
-#define FEATURE_DISABLE_STATUS_CPU_CLUSTER_MASK		\
-			(0x1 << FEATURE_DISABLE_STATUS_CPU_CLUSTER_OFFSET)
+#define FEATURE_DISABLE_STATUS_REG (MVEBU_REGS_BASE + 0x6F8230)
+#define FEATURE_DISABLE_STATUS_CPU_CLUSTER_OFFSET 4
+#define FEATURE_DISABLE_STATUS_CPU_CLUSTER_MASK \
+	(0x1 << FEATURE_DISABLE_STATUS_CPU_CLUSTER_OFFSET)
 
 #ifdef MVEBU_SOC_AP807
-	#define PWRC_CPUN_CR_PWR_DN_RQ_OFFSET		1
-	#define PWRC_CPUN_CR_LDO_BYPASS_RDY_OFFSET	0
+#define PWRC_CPUN_CR_PWR_DN_RQ_OFFSET 1
+#define PWRC_CPUN_CR_LDO_BYPASS_RDY_OFFSET 0
 #else
-	#define PWRC_CPUN_CR_PWR_DN_RQ_OFFSET		0
-	#define PWRC_CPUN_CR_LDO_BYPASS_RDY_OFFSET	31
+#define PWRC_CPUN_CR_PWR_DN_RQ_OFFSET 0
+#define PWRC_CPUN_CR_LDO_BYPASS_RDY_OFFSET 31
 #endif
 
-#define PWRC_CPUN_CR_REG(cpu_id)		\
-			(MVEBU_REGS_BASE + 0x680000 + (cpu_id * 0x10))
-#define PWRC_CPUN_CR_PWR_DN_RQ_MASK		\
-			(0x1 << PWRC_CPUN_CR_PWR_DN_RQ_OFFSET)
-#define PWRC_CPUN_CR_ISO_ENABLE_OFFSET		16
-#define PWRC_CPUN_CR_ISO_ENABLE_MASK		\
-			(0x1 << PWRC_CPUN_CR_ISO_ENABLE_OFFSET)
-#define PWRC_CPUN_CR_LDO_BYPASS_RDY_MASK	\
-			(0x1U << PWRC_CPUN_CR_LDO_BYPASS_RDY_OFFSET)
+#define PWRC_CPUN_CR_REG(cpu_id) (MVEBU_REGS_BASE + 0x680000 + (cpu_id * 0x10))
+#define PWRC_CPUN_CR_PWR_DN_RQ_MASK (0x1 << PWRC_CPUN_CR_PWR_DN_RQ_OFFSET)
+#define PWRC_CPUN_CR_ISO_ENABLE_OFFSET 16
+#define PWRC_CPUN_CR_ISO_ENABLE_MASK (0x1 << PWRC_CPUN_CR_ISO_ENABLE_OFFSET)
+#define PWRC_CPUN_CR_LDO_BYPASS_RDY_MASK \
+	(0x1U << PWRC_CPUN_CR_LDO_BYPASS_RDY_OFFSET)
 
-#define CCU_B_PRCRN_REG(cpu_id)			\
-			(MVEBU_REGS_BASE + 0x1A50 + \
-			((cpu_id / 2) * (0x400)) + ((cpu_id % 2) * 4))
-#define CCU_B_PRCRN_CPUPORESET_STATIC_OFFSET	0
-#define CCU_B_PRCRN_CPUPORESET_STATIC_MASK	\
-			(0x1 << CCU_B_PRCRN_CPUPORESET_STATIC_OFFSET)
+#define CCU_B_PRCRN_REG(cpu_id)                                \
+	(MVEBU_REGS_BASE + 0x1A50 + ((cpu_id / 2) * (0x400)) + \
+	 ((cpu_id % 2) * 4))
+#define CCU_B_PRCRN_CPUPORESET_STATIC_OFFSET 0
+#define CCU_B_PRCRN_CPUPORESET_STATIC_MASK \
+	(0x1 << CCU_B_PRCRN_CPUPORESET_STATIC_OFFSET)
 
 /* power switch fingers */
-#define AP807_PWRC_LDO_CR0_REG			\
-			(MVEBU_REGS_BASE + 0x680000 + 0x100)
-#define AP807_PWRC_LDO_CR0_OFFSET		16
-#define AP807_PWRC_LDO_CR0_MASK			\
-			(0xff << AP807_PWRC_LDO_CR0_OFFSET)
-#define AP807_PWRC_LDO_CR0_VAL			0xfc
+#define AP807_PWRC_LDO_CR0_REG (MVEBU_REGS_BASE + 0x680000 + 0x100)
+#define AP807_PWRC_LDO_CR0_OFFSET 16
+#define AP807_PWRC_LDO_CR0_MASK (0xff << AP807_PWRC_LDO_CR0_OFFSET)
+#define AP807_PWRC_LDO_CR0_VAL 0xfc
 
 /*
  * Power down CPU:
@@ -118,8 +107,8 @@ enum CPU_ID {
  */
 static int plat_marvell_cpu_powerdown(int cpu_id)
 {
-	uint32_t	reg_val;
-	int		exit_loop = REG_WR_VALIDATE_TIMEOUT;
+	uint32_t reg_val;
+	int exit_loop = REG_WR_VALIDATE_TIMEOUT;
 
 	INFO("Powering down CPU%d\n", cpu_id);
 
@@ -190,9 +179,8 @@ cpu_poweroff_error:
  */
 int plat_marvell_early_cpu_powerdown(void)
 {
-	uint32_t cpu_cluster_status =
-		mmio_read_32(FEATURE_DISABLE_STATUS_REG) &
-			     FEATURE_DISABLE_STATUS_CPU_CLUSTER_MASK;
+	uint32_t cpu_cluster_status = mmio_read_32(FEATURE_DISABLE_STATUS_REG) &
+				      FEATURE_DISABLE_STATUS_CPU_CLUSTER_MASK;
 	/* if cpu_cluster_status bit is set,
 	 * that means we have only single cluster
 	 */
@@ -226,10 +214,9 @@ int plat_marvell_early_cpu_powerdown(void)
  */
 static int plat_marvell_cpu_powerup(u_register_t mpidr)
 {
-	uint32_t	reg_val;
-	int	cpu_id = MPIDR_CPU_GET(mpidr),
-		cluster = MPIDR_CLUSTER_GET(mpidr);
-	int	exit_loop = REG_WR_VALIDATE_TIMEOUT;
+	uint32_t reg_val;
+	int cpu_id = MPIDR_CPU_GET(mpidr), cluster = MPIDR_CLUSTER_GET(mpidr);
+	int exit_loop = REG_WR_VALIDATE_TIMEOUT;
 
 	/* calculate absolute CPU ID */
 	cpu_id = cluster * PLAT_MARVELL_CLUSTER_CORE_COUNT + cpu_id;
@@ -317,7 +304,7 @@ static int plat_marvell_cpu_on(u_register_t mpidr)
 	dsbsy();
 
 	/* Get cpu number - use CPU ID */
-	cpu_id =  MPIDR_CPU_GET(mpidr);
+	cpu_id = MPIDR_CPU_GET(mpidr);
 
 	/* Get cluster number - use affinity level 1 */
 	cluster = MPIDR_CLUSTER_GET(mpidr);
@@ -341,7 +328,7 @@ static int plat_marvell_cpu_on(u_register_t mpidr)
  *****************************************************************************
  */
 static int a8k_validate_power_state(unsigned int power_state,
-			    psci_power_state_t *req_state)
+				    psci_power_state_t *req_state)
 {
 	int pstate = psci_get_pstate_type(power_state);
 	int pwr_lvl = psci_get_pstate_pwrlvl(power_state);
@@ -360,11 +347,11 @@ static int a8k_validate_power_state(unsigned int power_state,
 			return PSCI_E_INVALID_PARAMS;
 
 		req_state->pwr_domain_state[MARVELL_PWR_LVL0] =
-					MARVELL_LOCAL_STATE_RET;
+			MARVELL_LOCAL_STATE_RET;
 	} else {
 		for (i = MARVELL_PWR_LVL0; i <= pwr_lvl; i++)
 			req_state->pwr_domain_state[i] =
-					MARVELL_LOCAL_STATE_OFF;
+				MARVELL_LOCAL_STATE_OFF;
 	}
 
 	/*
@@ -401,7 +388,7 @@ static int a8k_pwr_domain_on(u_register_t mpidr)
 #if MSS_SUPPORT
 	if (is_pm_fw_running()) {
 		unsigned int target =
-				((mpidr & 0xFF) + (((mpidr >> 8) & 0xFF) * 2));
+			((mpidr & 0xFF) + (((mpidr >> 8) & 0xFF) * 2));
 
 		/*
 		 * pm system synchronization - used to synchronize
@@ -514,18 +501,18 @@ static void plat_marvell_power_off_gpio(struct power_off_method *pm_cfg,
 	for (gpio = 0; gpio < pm_cfg->cfg.gpio.pin_count; gpio++) {
 		info = &pm_cfg->cfg.gpio.info[gpio];
 		/* Set PMIC GPIO to output mode */
-		reg = mmio_read_32(MVEBU_CP_GPIO_DATA_OUT_EN(
-				   info->cp_index, info->gpio_index));
-		mmio_write_32(MVEBU_CP_GPIO_DATA_OUT_EN(
-			      info->cp_index, info->gpio_index),
+		reg = mmio_read_32(MVEBU_CP_GPIO_DATA_OUT_EN(info->cp_index,
+							     info->gpio_index));
+		mmio_write_32(MVEBU_CP_GPIO_DATA_OUT_EN(info->cp_index,
+							info->gpio_index),
 			      reg & ~MVEBU_GPIO_MASK(info->gpio_index));
 
 		/* Set the appropriate MPP to GPIO mode */
-		reg = mmio_read_32(MVEBU_PM_MPP_REGS(info->cp_index,
-						     info->gpio_index));
+		reg = mmio_read_32(
+			MVEBU_PM_MPP_REGS(info->cp_index, info->gpio_index));
 		mmio_write_32(MVEBU_PM_MPP_REGS(info->cp_index,
 						info->gpio_index),
-			reg & ~MVEBU_MPP_MASK(info->gpio_index));
+			      reg & ~MVEBU_MPP_MASK(info->gpio_index));
 	}
 
 	/* Wait for MPP & GPIO pre-configurations done */
@@ -541,8 +528,8 @@ static void plat_marvell_power_off_gpio(struct power_off_method *pm_cfg,
 		 * thus could get the original value by first GPIO
 		 */
 		info = &pm_cfg->cfg.gpio.info[0];
-		reg = mmio_read_32(MVEBU_CP_GPIO_DATA_OUT(
-				   info->cp_index, info->gpio_index));
+		reg = mmio_read_32(MVEBU_CP_GPIO_DATA_OUT(info->cp_index,
+							  info->gpio_index));
 		addr = MVEBU_CP_GPIO_DATA_OUT(info->cp_index, info->gpio_index);
 
 		for (gpio = 0; gpio < pm_cfg->cfg.gpio.pin_count; gpio++) {
@@ -557,8 +544,9 @@ static void plat_marvell_power_off_gpio(struct power_off_method *pm_cfg,
 		 * register address and values to system registers
 		 */
 		if (idx < pm_cfg->cfg.gpio.step_count - 1) {
-			mmio_write_32(MVEBU_CP_GPIO_DATA_OUT(
-				      info->cp_index, info->gpio_index), reg);
+			mmio_write_32(MVEBU_CP_GPIO_DATA_OUT(info->cp_index,
+							     info->gpio_index),
+				      reg);
 			mdelay(pm_cfg->cfg.gpio.delay_ms);
 		} else {
 			/* Save GPIO register and address values for
@@ -630,12 +618,14 @@ static void a8k_pwr_domain_suspend(const psci_power_state_t *target_state)
 		gicv2_cpuif_disable();
 
 		mailbox[MBOX_IDX_SUSPEND_MAGIC] = MVEBU_MAILBOX_SUSPEND_STATE;
-		mailbox[MBOX_IDX_ROM_EXIT_ADDR] = (uintptr_t)&plat_marvell_exit_bootrom;
+		mailbox[MBOX_IDX_ROM_EXIT_ADDR] =
+			(uintptr_t)&plat_marvell_exit_bootrom;
 
 #if PLAT_MARVELL_SHARED_RAM_CACHED
 		flush_dcache_range(PLAT_MARVELL_MAILBOX_BASE +
-		MBOX_IDX_SUSPEND_MAGIC * sizeof(uintptr_t),
-		2 * sizeof(uintptr_t));
+					   MBOX_IDX_SUSPEND_MAGIC *
+						   sizeof(uintptr_t),
+				   2 * sizeof(uintptr_t));
 #endif
 		/* Flush and disable LLC before going off-power */
 		llc_disable(0);
@@ -679,8 +669,8 @@ static void a8k_pwr_domain_on_finish(const psci_power_state_t *target_state)
  * context. Need to implement a separate suspend finisher.
  *****************************************************************************
  */
-static void a8k_pwr_domain_suspend_finish(
-					const psci_power_state_t *target_state)
+static void
+a8k_pwr_domain_suspend_finish(const psci_power_state_t *target_state)
 {
 	if (is_pm_fw_running()) {
 		/* arch specific configuration */
@@ -711,8 +701,9 @@ static void a8k_pwr_domain_suspend_finish(
 			mailbox[MBOX_IDX_ROM_EXIT_ADDR] = 0;
 #if PLAT_MARVELL_SHARED_RAM_CACHED
 			flush_dcache_range(PLAT_MARVELL_MAILBOX_BASE +
-			MBOX_IDX_SUSPEND_MAGIC * sizeof(uintptr_t),
-			2 * sizeof(uintptr_t));
+						   MBOX_IDX_SUSPEND_MAGIC *
+							   sizeof(uintptr_t),
+					   2 * sizeof(uintptr_t));
 #endif
 		}
 	}
@@ -732,8 +723,8 @@ static void a8k_get_sys_suspend_power_state(psci_power_state_t *req_state)
 		req_state->pwr_domain_state[i] = PLAT_MAX_OFF_STATE;
 }
 
-static void
-__dead2 a8k_pwr_domain_pwr_down_wfi(const psci_power_state_t *target_state)
+static void __dead2
+a8k_pwr_domain_pwr_down_wfi(const psci_power_state_t *target_state)
 {
 	struct power_off_method *pm_cfg;
 	unsigned int srcmd;
@@ -761,16 +752,16 @@ __dead2 a8k_pwr_domain_pwr_down_wfi(const psci_power_state_t *target_state)
 	sdram_reg = MVEBU_USER_CMD_0_REG;
 	srcmd = mmio_read_32(sdram_reg);
 	srcmd &= ~(MVEBU_USER_CMD_CH0_MASK | MVEBU_USER_CMD_CS_MASK |
-		 MVEBU_USER_CMD_SR_MASK);
+		   MVEBU_USER_CMD_SR_MASK);
 	srcmd |= (MVEBU_USER_CMD_CH0_EN | MVEBU_USER_CMD_CS_ALL |
-		 MVEBU_USER_CMD_SR_ENTER);
+		  MVEBU_USER_CMD_SR_ENTER);
 
 	/*
 	 * Wait for DRAM is done using registers access only.
 	 * At this stage any access to DRAM (procedure call) will
 	 * release it from the self-refresh mode
 	 */
-	__asm__ volatile (
+	__asm__ volatile(
 		/* Align to a cache line */
 		"	.balign 64\n\t"
 
@@ -790,8 +781,9 @@ __dead2 a8k_pwr_domain_pwr_down_wfi(const psci_power_state_t *target_state)
 
 		/* Trap the processor */
 		"	b .\n\t"
-		: : [srcmd] "r" (srcmd), [sdram_reg] "r" (sdram_reg),
-		    [gpio_addr] "r" (gpio_addr),  [gpio_data] "r" (gpio_data)
+		:
+		: [srcmd] "r"(srcmd), [sdram_reg] "r"(sdram_reg),
+		  [gpio_addr] "r"(gpio_addr), [gpio_data] "r"(gpio_data)
 		: "x1");
 
 	panic();

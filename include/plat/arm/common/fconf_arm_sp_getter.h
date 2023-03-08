@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,16 +12,16 @@
 #include <tools_share/uuid.h>
 
 /* arm_sp getter */
-#define arm__sp_getter(prop)	arm_sp.prop
+#define arm__sp_getter(prop) arm_sp.prop
 
-#define ARM_SP_MAX_SIZE		U(0xb0000)
-#define ARM_SP_OWNER_NAME_LEN	U(8)
+#define ARM_SP_MAX_SIZE U(0xb0000)
+#define ARM_SP_OWNER_NAME_LEN U(8)
 
 struct arm_sp_t {
-	unsigned int		number_of_sp;
-	union uuid_helper_t	uuids[MAX_SP_IDS];
-	uintptr_t		load_addr[MAX_SP_IDS];
-	char			owner[MAX_SP_IDS][ARM_SP_OWNER_NAME_LEN];
+	unsigned int number_of_sp;
+	union uuid_helper_t uuids[MAX_SP_IDS];
+	uintptr_t load_addr[MAX_SP_IDS];
+	char owner[MAX_SP_IDS][ARM_SP_OWNER_NAME_LEN];
 };
 
 int fconf_populate_arm_sp(uintptr_t config);

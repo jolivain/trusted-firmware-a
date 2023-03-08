@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -13,7 +13,6 @@
 #include <lib/mmio.h>
 #include <lib/utils.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-
 #include <memctrl.h>
 #include <memctrl_v1.h>
 #include <tegra_def.h>
@@ -35,15 +34,15 @@ void tegra_memctrl_setup(void)
 
 	/* allow translations for all MC engines */
 	tegra_mc_write_32(MC_SMMU_TRANSLATION_ENABLE_0_0,
-			(unsigned int)MC_SMMU_TRANSLATION_ENABLE);
+			  (unsigned int)MC_SMMU_TRANSLATION_ENABLE);
 	tegra_mc_write_32(MC_SMMU_TRANSLATION_ENABLE_1_0,
-			(unsigned int)MC_SMMU_TRANSLATION_ENABLE);
+			  (unsigned int)MC_SMMU_TRANSLATION_ENABLE);
 	tegra_mc_write_32(MC_SMMU_TRANSLATION_ENABLE_2_0,
-			(unsigned int)MC_SMMU_TRANSLATION_ENABLE);
+			  (unsigned int)MC_SMMU_TRANSLATION_ENABLE);
 	tegra_mc_write_32(MC_SMMU_TRANSLATION_ENABLE_3_0,
-			(unsigned int)MC_SMMU_TRANSLATION_ENABLE);
+			  (unsigned int)MC_SMMU_TRANSLATION_ENABLE);
 	tegra_mc_write_32(MC_SMMU_TRANSLATION_ENABLE_4_0,
-			(unsigned int)MC_SMMU_TRANSLATION_ENABLE);
+			  (unsigned int)MC_SMMU_TRANSLATION_ENABLE);
 
 	tegra_mc_write_32(MC_SMMU_ASID_SECURITY_0, MC_SMMU_ASID_SECURITY);
 
@@ -102,17 +101,17 @@ static void tegra_clear_videomem(uintptr_t non_overlap_area_start,
 	 * Map the NS memory first, clean it and then unmap it.
 	 */
 	ret = mmap_add_dynamic_region(non_overlap_area_start, /* PA */
-				non_overlap_area_start, /* VA */
-				non_overlap_area_size, /* size */
-				MT_NS | MT_RW | MT_EXECUTE_NEVER |
-				MT_NON_CACHEABLE); /* attrs */
+				      non_overlap_area_start, /* VA */
+				      non_overlap_area_size, /* size */
+				      MT_NS | MT_RW | MT_EXECUTE_NEVER |
+					      MT_NON_CACHEABLE); /* attrs */
 	assert(ret == 0);
 
 	zeromem((void *)non_overlap_area_start, non_overlap_area_size);
 	flush_dcache_range(non_overlap_area_start, non_overlap_area_size);
 
 	mmap_remove_dynamic_region(non_overlap_area_start,
-		non_overlap_area_size);
+				   non_overlap_area_size);
 }
 
 /*
@@ -154,16 +153,19 @@ void tegra_memctrl_videomem_setup(uint64_t phys_base, uint32_t size_in_bytes)
 	} else {
 		if (video_mem_base < phys_base) {
 			non_overlap_area_size = phys_base - video_mem_base;
-			tegra_clear_videomem(video_mem_base, non_overlap_area_size);
+			tegra_clear_videomem(video_mem_base,
+					     non_overlap_area_size);
 		}
 		if (vmem_end_old > vmem_end_new) {
 			non_overlap_area_size = vmem_end_old - vmem_end_new;
-			tegra_clear_videomem(vmem_end_new, non_overlap_area_size);
+			tegra_clear_videomem(vmem_end_new,
+					     non_overlap_area_size);
 		}
 	}
 
 done:
-	tegra_mc_write_32(MC_VIDEO_PROTECT_BASE_HI, (uint32_t)(phys_base >> 32));
+	tegra_mc_write_32(MC_VIDEO_PROTECT_BASE_HI,
+			  (uint32_t)(phys_base >> 32));
 	tegra_mc_write_32(MC_VIDEO_PROTECT_BASE_LO, (uint32_t)phys_base);
 	tegra_mc_write_32(MC_VIDEO_PROTECT_SIZE_MB, size_in_bytes >> 20);
 
@@ -207,6 +209,6 @@ void tegra_memctrl_clear_pending_interrupts(void)
 
 	if (mcerr != (uint32_t)0U) { /* should not see error here */
 		WARN("MC_INTSTATUS = 0x%x (should be zero)\n", mcerr);
-		mmio_write_32((TEGRA_MC_BASE + MC_INTSTATUS),  mcerr);
+		mmio_write_32((TEGRA_MC_BASE + MC_INTSTATUS), mcerr);
 	}
 }

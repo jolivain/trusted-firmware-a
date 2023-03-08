@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,7 +13,7 @@
 
 #include "tlkd_private.h"
 
-#define AT_MASK		3
+#define AT_MASK 3
 
 /*******************************************************************************
  * This function helps the SP to translate NS/S virtual addresses.
@@ -23,7 +23,6 @@ uint64_t tlkd_va_translate(uintptr_t va, int type)
 	uint64_t pa;
 
 	if (type & TLK_TRANSLATE_NS_VADDR) {
-
 		/* save secure context */
 		cm_el1_sysregs_context_save(SECURE);
 
@@ -60,7 +59,6 @@ uint64_t tlkd_va_translate(uintptr_t va, int type)
 
 	/* Restore secure state */
 	if (type & TLK_TRANSLATE_NS_VADDR) {
-
 		/* restore secure context */
 		cm_el1_sysregs_context_restore(SECURE);
 
@@ -78,9 +76,7 @@ uint64_t tlkd_va_translate(uintptr_t va, int type)
  * programming an entry into the secure payload.
  ******************************************************************************/
 void tlkd_init_tlk_ep_state(struct entry_point_info *tlk_entry_point,
-			    uint32_t rw,
-			    uint64_t pc,
-			    tlk_context_t *tlk_ctx)
+			    uint32_t rw, uint64_t pc, tlk_context_t *tlk_ctx)
 {
 	uint32_t ep_attr, spsr;
 
@@ -97,8 +93,7 @@ void tlkd_init_tlk_ep_state(struct entry_point_info *tlk_entry_point,
 	if (rw == SP_AARCH64)
 		spsr = SPSR_64(MODE_EL1, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 	else
-		spsr = SPSR_MODE32(MODE32_svc,
-				   SPSR_T_ARM,
+		spsr = SPSR_MODE32(MODE32_svc, SPSR_T_ARM,
 				   read_sctlr_el3() & SCTLR_EE_BIT,
 				   DISABLE_ALL_EXCEPTIONS);
 

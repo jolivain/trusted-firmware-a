@@ -1,17 +1,18 @@
 /*
- * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (C) 2022-2023, Advanced Micro Devices, Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <plat_ipi.h>
-#include <versal_def.h>
-#include <plat_private.h>
 #include <common/debug.h>
 #include <drivers/generic_delay_timer.h>
 #include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_tables.h>
+#include <plat_ipi.h>
+#include <plat_private.h>
+#include <versal_def.h>
+
 #include <plat/common/platform.h>
 
 /*
@@ -20,11 +21,13 @@
  * configure_mmu_elx() will give the available subset of that,
  */
 const mmap_region_t plat_versal_mmap[] = {
-	MAP_REGION_FLAT(DEVICE0_BASE, DEVICE0_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(DEVICE1_BASE, DEVICE1_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(DEVICE0_BASE, DEVICE0_SIZE,
+			MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(DEVICE1_BASE, DEVICE1_SIZE,
+			MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(CRF_BASE, CRF_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(FPD_MAINCCI_BASE, FPD_MAINCCI_SIZE, MT_DEVICE | MT_RW |
-			MT_SECURE),
+	MAP_REGION_FLAT(FPD_MAINCCI_BASE, FPD_MAINCCI_SIZE,
+			MT_DEVICE | MT_RW | MT_SECURE),
 	{ 0 }
 };
 
@@ -52,4 +55,3 @@ uint32_t plat_get_syscnt_freq2(void)
 {
 	return VERSAL_CPU_CLOCK;
 }
-

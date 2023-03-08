@@ -5,8 +5,9 @@
  */
 
 #include <assert.h>
-#include <common/debug.h>
 #include <errno.h>
+
+#include <common/debug.h>
 #include <lib/mmio.h>
 
 #include "ncore_ccu.h"
@@ -14,7 +15,6 @@
 uint32_t poll_active_bit(uint32_t dir);
 
 static coh_ss_id_t subsystem_id;
-
 
 void get_subsystem_id(void)
 {
@@ -51,7 +51,6 @@ uint32_t directory_init(void)
 
 			/* Disable snoop filter, a bit per snoop filter */
 			mmio_clrbits_32(dir_sf_en, BIT(sf));
-
 		}
 	}
 
@@ -75,7 +74,7 @@ uint32_t coherent_agent_intfc_init(void)
 			ca_type = CACHING_AGENT_TYPE(ca_id);
 			if (ca_type == ACE_W_DVM || ca_type == ACE_L_W_DVM)
 				mmio_write_32(NCORE_CCU_CSR(NCORE_CSADSER0),
-				BIT(ca));
+					      BIT(ca));
 		}
 	}
 
@@ -85,7 +84,7 @@ uint32_t coherent_agent_intfc_init(void)
 uint32_t poll_active_bit(uint32_t dir)
 {
 	uint32_t timeout = 80000;
-	uint32_t poll_dir =  DIRECTORY_UNIT(dir, NCORE_DIRUSFMAR);
+	uint32_t poll_dir = DIRECTORY_UNIT(dir, NCORE_DIRUSFMAR);
 
 	while (timeout > 0) {
 		if (mmio_read_32(poll_dir) == 0)

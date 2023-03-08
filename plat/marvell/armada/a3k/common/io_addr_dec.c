@@ -6,32 +6,30 @@
  */
 
 #include <common/debug.h>
-#include <lib/mmio.h>
-
 #include <io_addr_dec.h>
+#include <lib/mmio.h>
 #include <plat_marvell.h>
 
-#define MVEBU_DEC_WIN_CTRL_REG(base, win, off)	(MVEBU_REGS_BASE + (base) + \
-						(win) * (off))
-#define MVEBU_DEC_WIN_BASE_REG(base, win, off)	(MVEBU_REGS_BASE + (base) + \
-						(win) * (off) + 0x4)
-#define MVEBU_DEC_WIN_REMAP_REG(base, win, off)	(MVEBU_REGS_BASE + (base) + \
-						(win) * (off) + 0x8)
+#define MVEBU_DEC_WIN_CTRL_REG(base, win, off) \
+	(MVEBU_REGS_BASE + (base) + (win) * (off))
+#define MVEBU_DEC_WIN_BASE_REG(base, win, off) \
+	(MVEBU_REGS_BASE + (base) + (win) * (off) + 0x4)
+#define MVEBU_DEC_WIN_REMAP_REG(base, win, off) \
+	(MVEBU_REGS_BASE + (base) + (win) * (off) + 0x8)
 
-#define MVEBU_DEC_WIN_CTRL_SIZE_OFF		(16)
-#define MVEBU_DEC_WIN_ENABLE			(0x1)
-#define MVEBU_DEC_WIN_CTRL_ATTR_OFF		(8)
-#define MVEBU_DEC_WIN_CTRL_TARGET_OFF		(4)
-#define MVEBU_DEC_WIN_CTRL_EN_OFF		(0)
-#define MVEBU_DEC_WIN_BASE_OFF			(16)
+#define MVEBU_DEC_WIN_CTRL_SIZE_OFF (16)
+#define MVEBU_DEC_WIN_ENABLE (0x1)
+#define MVEBU_DEC_WIN_CTRL_ATTR_OFF (8)
+#define MVEBU_DEC_WIN_CTRL_TARGET_OFF (4)
+#define MVEBU_DEC_WIN_CTRL_EN_OFF (0)
+#define MVEBU_DEC_WIN_BASE_OFF (16)
 
-#define MVEBU_WIN_BASE_SIZE_ALIGNMENT		(0x10000)
+#define MVEBU_WIN_BASE_SIZE_ALIGNMENT (0x10000)
 
 /* There are up to 14 IO unit which need address decode in Armada-3700 */
-#define IO_UNIT_NUM_MAX				(14)
+#define IO_UNIT_NUM_MAX (14)
 
-#define MVEBU_MAX_ADDRSS_4GB			(0x100000000ULL)
-
+#define MVEBU_MAX_ADDRSS_4GB (0x100000000ULL)
 
 static void set_io_addr_dec_win(int win_id, uintptr_t base_addr,
 				uintptr_t win_size,
@@ -41,40 +39,47 @@ static void set_io_addr_dec_win(int win_id, uintptr_t base_addr,
 	uint32_t base = 0;
 
 	/* set size */
-	ctrl = ((win_size / MVEBU_WIN_BASE_SIZE_ALIGNMENT) - 1) <<
-	       MVEBU_DEC_WIN_CTRL_SIZE_OFF;
+	ctrl = ((win_size / MVEBU_WIN_BASE_SIZE_ALIGNMENT) - 1)
+	       << MVEBU_DEC_WIN_CTRL_SIZE_OFF;
 	/* set attr according to IO decode window */
 	ctrl |= dec_win->win_attr << MVEBU_DEC_WIN_CTRL_ATTR_OFF;
 	/* set target */
 	ctrl |= DRAM_CPU_DEC_TARGET_NUM << MVEBU_DEC_WIN_CTRL_TARGET_OFF;
 	/* set base */
-	base = (base_addr / MVEBU_WIN_BASE_SIZE_ALIGNMENT) <<
-	       MVEBU_DEC_WIN_BASE_OFF;
+	base = (base_addr / MVEBU_WIN_BASE_SIZE_ALIGNMENT)
+	       << MVEBU_DEC_WIN_BASE_OFF;
 
 	/* set base address*/
-	mmio_write_32(MVEBU_DEC_WIN_BASE_REG(dec_win->dec_reg_base,
-		      win_id, dec_win->win_offset),
+	mmio_write_32(MVEBU_DEC_WIN_BASE_REG(dec_win->dec_reg_base, win_id,
+					     dec_win->win_offset),
 		      base);
 	/* set remap window, some unit does not have remap window */
 	if (win_id < dec_win->max_remap)
 		mmio_write_32(MVEBU_DEC_WIN_REMAP_REG(dec_win->dec_reg_base,
-			      win_id, dec_win->win_offset), base);
+						      win_id,
+						      dec_win->win_offset),
+			      base);
 	/* set control register */
-	mmio_write_32(MVEBU_DEC_WIN_CTRL_REG(dec_win->dec_reg_base,
-		      win_id, dec_win->win_offset), ctrl);
+	mmio_write_32(MVEBU_DEC_WIN_CTRL_REG(dec_win->dec_reg_base, win_id,
+					     dec_win->win_offset),
+		      ctrl);
 	/* enable the address decode window at last to make it effective */
 	ctrl |= MVEBU_DEC_WIN_ENABLE << MVEBU_DEC_WIN_CTRL_EN_OFF;
-	mmio_write_32(MVEBU_DEC_WIN_CTRL_REG(dec_win->dec_reg_base,
-		      win_id, dec_win->win_offset), ctrl);
+	mmio_write_32(MVEBU_DEC_WIN_CTRL_REG(dec_win->dec_reg_base, win_id,
+					     dec_win->win_offset),
+		      ctrl);
 
 	INFO("set_io_addr_dec %d result: ctrl(0x%x) base(0x%x) remap(0x%x)\n",
-	     win_id, mmio_read_32(MVEBU_DEC_WIN_CTRL_REG(dec_win->dec_reg_base,
-	     win_id, dec_win->win_offset)),
-	     mmio_read_32(MVEBU_DEC_WIN_BASE_REG(dec_win->dec_reg_base,
-			  win_id, dec_win->win_offset)),
+	     win_id,
+	     mmio_read_32(MVEBU_DEC_WIN_CTRL_REG(dec_win->dec_reg_base, win_id,
+						 dec_win->win_offset)),
+	     mmio_read_32(MVEBU_DEC_WIN_BASE_REG(dec_win->dec_reg_base, win_id,
+						 dec_win->win_offset)),
 	     (win_id < dec_win->max_remap) ?
-		mmio_read_32(MVEBU_DEC_WIN_REMAP_REG(dec_win->dec_reg_base,
-			     win_id, dec_win->win_offset)) : 0);
+		     mmio_read_32(MVEBU_DEC_WIN_REMAP_REG(
+			     dec_win->dec_reg_base, win_id,
+			     dec_win->win_offset)) :
+		     0);
 }
 
 /* Set io decode window */
@@ -87,7 +92,8 @@ static int set_io_addr_dec(struct dram_win_map *win_map,
 	/* disable all windows first */
 	for (id = 0; id < dec_win->max_dram_win; id++)
 		mmio_write_32(MVEBU_DEC_WIN_CTRL_REG(dec_win->dec_reg_base, id,
-			      dec_win->win_offset), 0);
+						     dec_win->win_offset),
+			      0);
 
 	/* configure IO decode windows for DRAM, inheritate DRAM size,
 	 * base and target from CPU-DRAM decode window and others
@@ -152,8 +158,8 @@ int init_io_addr_dec(struct dram_win_map *dram_wins_map,
 	}
 
 	for (index = 0; index < dram_wins_map->dram_win_num; index++)
-		INFO("DRAM mapping %d base(0x%lx) size(0x%lx)\n",
-		     index, dram_wins_map->dram_windows[index].base_addr,
+		INFO("DRAM mapping %d base(0x%lx) size(0x%lx)\n", index,
+		     dram_wins_map->dram_windows[index].base_addr,
 		     dram_wins_map->dram_windows[index].win_size);
 
 	/* Set address decode window for each IO */
@@ -166,9 +172,10 @@ int init_io_addr_dec(struct dram_win_map *dram_wins_map,
 		}
 		INFO("Set IO decode window successfully, base(0x%x)"
 		     " win_attr(%x) max_dram_win(%d) max_remap(%d)"
-		     " win_offset(%d)\n", io_dec_win->dec_reg_base,
-		     io_dec_win->win_attr, io_dec_win->max_dram_win,
-		     io_dec_win->max_remap, io_dec_win->win_offset);
+		     " win_offset(%d)\n",
+		     io_dec_win->dec_reg_base, io_dec_win->win_attr,
+		     io_dec_win->max_dram_win, io_dec_win->max_remap,
+		     io_dec_win->win_offset);
 	}
 
 	return 0;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,29 +13,30 @@
  */
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
 /************************ Defines ******************************/
 
 /* invers the bytes on a word- used for output from HASH */
 #ifdef BIG__ENDIAN
-#define UTIL_INVERSE_UINT32_BYTES(val)	(val)
+#define UTIL_INVERSE_UINT32_BYTES(val) (val)
 #else
-#define UTIL_INVERSE_UINT32_BYTES(val) \
-	(((val) >> 24) | (((val) & 0x00FF0000) >> 8) | (((val) & 0x0000FF00) << 8) | (((val) & 0x000000FF) << 24))
+#define UTIL_INVERSE_UINT32_BYTES(val)               \
+	(((val) >> 24) | (((val)&0x00FF0000) >> 8) | \
+	 (((val)&0x0000FF00) << 8) | (((val)&0x000000FF) << 24))
 #endif
 
 /* invers the bytes on a word - used for input data for HASH */
 #ifdef BIG__ENDIAN
-#define UTIL_REVERT_UINT32_BYTES(val) \
-	(((val) >> 24) | (((val) & 0x00FF0000) >> 8) | (((val) & 0x0000FF00) << 8) | (((val) & 0x000000FF) << 24))
+#define UTIL_REVERT_UINT32_BYTES(val)                \
+	(((val) >> 24) | (((val)&0x00FF0000) >> 8) | \
+	 (((val)&0x0000FF00) << 8) | (((val)&0x000000FF) << 24))
 #else
-#define UTIL_REVERT_UINT32_BYTES(val)	(val)
+#define UTIL_REVERT_UINT32_BYTES(val) (val)
 #endif
 
- /* ------------------------------------------------------------
+/* ------------------------------------------------------------
  **
  * @brief This function executes a reverse bytes copying from one buffer to another buffer.
  *
@@ -47,8 +48,7 @@ extern "C"
 
 void UTIL_ReverseMemCopy(uint8_t *dst_ptr, uint8_t *src_ptr, uint32_t size);
 
-
- /* ------------------------------------------------------------
+/* ------------------------------------------------------------
   **
   * @brief This function executes a reversed byte copy on a specified buffer.
   *
@@ -63,7 +63,6 @@ void UTIL_ReverseMemCopy(uint8_t *dst_ptr, uint8_t *src_ptr, uint32_t size);
   *
   */
 void UTIL_ReverseBuff(uint8_t *buff_ptr, uint32_t size);
-
 
 #ifdef __cplusplus
 }

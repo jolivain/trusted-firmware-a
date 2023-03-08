@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -15,9 +15,8 @@
  * @access_permission: EMI MPU access permission
  * Return 0 for success, otherwise negative status code.
  */
-static int _emi_mpu_set_protection(
-	unsigned long start, unsigned long end,
-	unsigned int apc)
+static int _emi_mpu_set_protection(unsigned long start, unsigned long end,
+				   unsigned int apc)
 {
 	unsigned int dgroup;
 	unsigned int region;
@@ -27,7 +26,7 @@ static int _emi_mpu_set_protection(
 	dgroup = (end >> 24) & 0xFF;
 	end &= 0x00FFFFFF;
 
-	if  ((region >= EMI_MPU_REGION_NUM) || (dgroup > EMI_MPU_DGROUP_NUM)) {
+	if ((region >= EMI_MPU_REGION_NUM) || (dgroup > EMI_MPU_DGROUP_NUM)) {
 		WARN("Region:%u or dgroup:%u is wrong!\n", region, dgroup);
 		return -1;
 	}
@@ -38,8 +37,8 @@ static int _emi_mpu_set_protection(
 		start -= DRAM_OFFSET;
 		end -= DRAM_OFFSET;
 	} else {
-		WARN("start:0x%lx or end:0x%lx address is wrong!\n",
-		     start, end);
+		WARN("start:0x%lx or end:0x%lx address is wrong!\n", start,
+		     end);
 		return -2;
 	}
 
@@ -64,8 +63,8 @@ void dump_emi_mpu_regions(void)
 		ea = mmio_read_32(EMI_MPU_EA(region));
 
 		WARN("region %d:\n", region);
-		WARN("\tsa:0x%lx, ea:0x%lx, apc0: 0x%lx apc1: 0x%lx\n",
-		     sa, ea, apc[0], apc[1]);
+		WARN("\tsa:0x%lx, ea:0x%lx, apc0: 0x%lx apc1: 0x%lx\n", sa, ea,
+		     apc[0], apc[1]);
 	}
 }
 
@@ -82,7 +81,7 @@ int emi_mpu_set_protection(struct emi_region_info_t *region_info)
 
 	for (i = EMI_MPU_DGROUP_NUM - 1; i >= 0; i--) {
 		end = (unsigned long)(region_info->end >> EMI_MPU_ALIGN_BITS) |
-			(i << 24);
+		      (i << 24);
 		_emi_mpu_set_protection(start, end, region_info->apc[i]);
 	}
 
@@ -99,46 +98,45 @@ void emi_mpu_init(void)
 	region_info.start = 0xC0000000ULL;
 	region_info.end = 0xC3FF0000ULL;
 	region_info.region = 1;
-	SET_ACCESS_PERMISSION(region_info.apc, 1,
+	SET_ACCESS_PERMISSION(region_info.apc, 1, FORBIDDEN, FORBIDDEN,
 			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
 			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
 			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
-			      FORBIDDEN, FORBIDDEN, NO_PROT, NO_PROT);
+			      NO_PROT, NO_PROT);
 	emi_mpu_set_protection(&region_info);
 
 	/* SCP protect address */
 	region_info.start = 0x50000000ULL;
 	region_info.end = 0x513F0000ULL;
 	region_info.region = 2;
-	SET_ACCESS_PERMISSION(region_info.apc, 1,
+	SET_ACCESS_PERMISSION(region_info.apc, 1, FORBIDDEN, FORBIDDEN,
 			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
 			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
-			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
-			      NO_PROT, FORBIDDEN, FORBIDDEN, NO_PROT);
+			      FORBIDDEN, FORBIDDEN, NO_PROT, FORBIDDEN,
+			      FORBIDDEN, NO_PROT);
 	emi_mpu_set_protection(&region_info);
 
 	/* DSP protect address */
-	region_info.start = 0x40000000ULL;	/* dram base addr */
+	region_info.start = 0x40000000ULL; /* dram base addr */
 	region_info.end = 0x1FFFF0000ULL;
 	region_info.region = 3;
-	SET_ACCESS_PERMISSION(region_info.apc, 1,
+	SET_ACCESS_PERMISSION(region_info.apc, 1, FORBIDDEN, FORBIDDEN,
 			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
 			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
 			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
-			      FORBIDDEN, FORBIDDEN, FORBIDDEN, NO_PROT);
+			      FORBIDDEN, NO_PROT);
 	emi_mpu_set_protection(&region_info);
 
 	/* Forbidden All */
-	region_info.start = 0x40000000ULL;	/* dram base addr */
+	region_info.start = 0x40000000ULL; /* dram base addr */
 	region_info.end = 0x1FFFF0000ULL;
 	region_info.region = 4;
-	SET_ACCESS_PERMISSION(region_info.apc, 1,
+	SET_ACCESS_PERMISSION(region_info.apc, 1, FORBIDDEN, FORBIDDEN,
 			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
 			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
 			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
-			      FORBIDDEN, FORBIDDEN, FORBIDDEN, NO_PROT);
+			      FORBIDDEN, NO_PROT);
 	emi_mpu_set_protection(&region_info);
 
 	dump_emi_mpu_regions();
 }
-

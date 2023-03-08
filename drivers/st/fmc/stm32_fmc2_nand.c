@@ -23,103 +23,103 @@
 #include <platform_def.h>
 
 /* Timeout for device interface reset */
-#define TIMEOUT_US_1_MS			1000U
+#define TIMEOUT_US_1_MS 1000U
 
 /* FMC2 Compatibility */
-#define DT_FMC2_EBI_COMPAT		"st,stm32mp1-fmc2-ebi"
-#define DT_FMC2_NFC_COMPAT		"st,stm32mp1-fmc2-nfc"
-#define MAX_CS				2U
-#define MAX_BANK			5U
+#define DT_FMC2_EBI_COMPAT "st,stm32mp1-fmc2-ebi"
+#define DT_FMC2_NFC_COMPAT "st,stm32mp1-fmc2-nfc"
+#define MAX_CS 2U
+#define MAX_BANK 5U
 
 /* FMC2 Controller Registers */
-#define FMC2_BCR1			0x00U
-#define FMC2_PCR			0x80U
-#define FMC2_SR				0x84U
-#define FMC2_PMEM			0x88U
-#define FMC2_PATT			0x8CU
-#define FMC2_HECCR			0x94U
-#define FMC2_BCHISR			0x254U
-#define FMC2_BCHICR			0x258U
-#define FMC2_BCHDSR0			0x27CU
-#define FMC2_BCHDSR1			0x280U
-#define FMC2_BCHDSR2			0x284U
-#define FMC2_BCHDSR3			0x288U
-#define FMC2_BCHDSR4			0x28CU
+#define FMC2_BCR1 0x00U
+#define FMC2_PCR 0x80U
+#define FMC2_SR 0x84U
+#define FMC2_PMEM 0x88U
+#define FMC2_PATT 0x8CU
+#define FMC2_HECCR 0x94U
+#define FMC2_BCHISR 0x254U
+#define FMC2_BCHICR 0x258U
+#define FMC2_BCHDSR0 0x27CU
+#define FMC2_BCHDSR1 0x280U
+#define FMC2_BCHDSR2 0x284U
+#define FMC2_BCHDSR3 0x288U
+#define FMC2_BCHDSR4 0x28CU
 
 /* FMC2_BCR1 register */
-#define FMC2_BCR1_FMC2EN		BIT(31)
+#define FMC2_BCR1_FMC2EN BIT(31)
 /* FMC2_PCR register */
-#define FMC2_PCR_PWAITEN		BIT(1)
-#define FMC2_PCR_PBKEN			BIT(2)
-#define FMC2_PCR_PWID_MASK		GENMASK_32(5, 4)
-#define FMC2_PCR_PWID(x)		(((x) << 4) & FMC2_PCR_PWID_MASK)
-#define FMC2_PCR_PWID_8			0x0U
-#define FMC2_PCR_PWID_16		0x1U
-#define FMC2_PCR_ECCEN			BIT(6)
-#define FMC2_PCR_ECCALG			BIT(8)
-#define FMC2_PCR_TCLR_MASK		GENMASK_32(12, 9)
-#define FMC2_PCR_TCLR(x)		(((x) << 9) & FMC2_PCR_TCLR_MASK)
-#define FMC2_PCR_TCLR_DEFAULT		0xFU
-#define FMC2_PCR_TAR_MASK		GENMASK_32(16, 13)
-#define FMC2_PCR_TAR(x)			(((x) << 13) & FMC2_PCR_TAR_MASK)
-#define FMC2_PCR_TAR_DEFAULT		0xFU
-#define FMC2_PCR_ECCSS_MASK		GENMASK_32(19, 17)
-#define FMC2_PCR_ECCSS(x)		(((x) << 17) & FMC2_PCR_ECCSS_MASK)
-#define FMC2_PCR_ECCSS_512		0x1U
-#define FMC2_PCR_ECCSS_2048		0x3U
-#define FMC2_PCR_BCHECC			BIT(24)
-#define FMC2_PCR_WEN			BIT(25)
+#define FMC2_PCR_PWAITEN BIT(1)
+#define FMC2_PCR_PBKEN BIT(2)
+#define FMC2_PCR_PWID_MASK GENMASK_32(5, 4)
+#define FMC2_PCR_PWID(x) (((x) << 4) & FMC2_PCR_PWID_MASK)
+#define FMC2_PCR_PWID_8 0x0U
+#define FMC2_PCR_PWID_16 0x1U
+#define FMC2_PCR_ECCEN BIT(6)
+#define FMC2_PCR_ECCALG BIT(8)
+#define FMC2_PCR_TCLR_MASK GENMASK_32(12, 9)
+#define FMC2_PCR_TCLR(x) (((x) << 9) & FMC2_PCR_TCLR_MASK)
+#define FMC2_PCR_TCLR_DEFAULT 0xFU
+#define FMC2_PCR_TAR_MASK GENMASK_32(16, 13)
+#define FMC2_PCR_TAR(x) (((x) << 13) & FMC2_PCR_TAR_MASK)
+#define FMC2_PCR_TAR_DEFAULT 0xFU
+#define FMC2_PCR_ECCSS_MASK GENMASK_32(19, 17)
+#define FMC2_PCR_ECCSS(x) (((x) << 17) & FMC2_PCR_ECCSS_MASK)
+#define FMC2_PCR_ECCSS_512 0x1U
+#define FMC2_PCR_ECCSS_2048 0x3U
+#define FMC2_PCR_BCHECC BIT(24)
+#define FMC2_PCR_WEN BIT(25)
 /* FMC2_SR register */
-#define FMC2_SR_NWRF			BIT(6)
+#define FMC2_SR_NWRF BIT(6)
 /* FMC2_PMEM register*/
-#define FMC2_PMEM_MEMSET(x)		(((x) & GENMASK_32(7, 0)) << 0)
-#define FMC2_PMEM_MEMWAIT(x)		(((x) & GENMASK_32(7, 0)) << 8)
-#define FMC2_PMEM_MEMHOLD(x)		(((x) & GENMASK_32(7, 0)) << 16)
-#define FMC2_PMEM_MEMHIZ(x)		(((x) & GENMASK_32(7, 0)) << 24)
-#define FMC2_PMEM_DEFAULT		0x0A0A0A0AU
+#define FMC2_PMEM_MEMSET(x) (((x)&GENMASK_32(7, 0)) << 0)
+#define FMC2_PMEM_MEMWAIT(x) (((x)&GENMASK_32(7, 0)) << 8)
+#define FMC2_PMEM_MEMHOLD(x) (((x)&GENMASK_32(7, 0)) << 16)
+#define FMC2_PMEM_MEMHIZ(x) (((x)&GENMASK_32(7, 0)) << 24)
+#define FMC2_PMEM_DEFAULT 0x0A0A0A0AU
 /* FMC2_PATT register */
-#define FMC2_PATT_ATTSET(x)		(((x) & GENMASK_32(7, 0)) << 0)
-#define FMC2_PATT_ATTWAIT(x)		(((x) & GENMASK_32(7, 0)) << 8)
-#define FMC2_PATT_ATTHOLD(x)		(((x) & GENMASK_32(7, 0)) << 16)
-#define FMC2_PATT_ATTHIZ(x)		(((x) & GENMASK_32(7, 0)) << 24)
-#define FMC2_PATT_DEFAULT		0x0A0A0A0AU
+#define FMC2_PATT_ATTSET(x) (((x)&GENMASK_32(7, 0)) << 0)
+#define FMC2_PATT_ATTWAIT(x) (((x)&GENMASK_32(7, 0)) << 8)
+#define FMC2_PATT_ATTHOLD(x) (((x)&GENMASK_32(7, 0)) << 16)
+#define FMC2_PATT_ATTHIZ(x) (((x)&GENMASK_32(7, 0)) << 24)
+#define FMC2_PATT_DEFAULT 0x0A0A0A0AU
 /* FMC2_BCHISR register */
-#define FMC2_BCHISR_DERF		BIT(1)
+#define FMC2_BCHISR_DERF BIT(1)
 /* FMC2_BCHICR register */
-#define FMC2_BCHICR_CLEAR_IRQ		GENMASK_32(4, 0)
+#define FMC2_BCHICR_CLEAR_IRQ GENMASK_32(4, 0)
 /* FMC2_BCHDSR0 register */
-#define FMC2_BCHDSR0_DUE		BIT(0)
-#define FMC2_BCHDSR0_DEF		BIT(1)
-#define FMC2_BCHDSR0_DEN_MASK		GENMASK_32(7, 4)
-#define FMC2_BCHDSR0_DEN_SHIFT		4U
+#define FMC2_BCHDSR0_DUE BIT(0)
+#define FMC2_BCHDSR0_DEF BIT(1)
+#define FMC2_BCHDSR0_DEN_MASK GENMASK_32(7, 4)
+#define FMC2_BCHDSR0_DEN_SHIFT 4U
 /* FMC2_BCHDSR1 register */
-#define FMC2_BCHDSR1_EBP1_MASK		GENMASK_32(12, 0)
-#define FMC2_BCHDSR1_EBP2_MASK		GENMASK_32(28, 16)
-#define FMC2_BCHDSR1_EBP2_SHIFT		16U
+#define FMC2_BCHDSR1_EBP1_MASK GENMASK_32(12, 0)
+#define FMC2_BCHDSR1_EBP2_MASK GENMASK_32(28, 16)
+#define FMC2_BCHDSR1_EBP2_SHIFT 16U
 /* FMC2_BCHDSR2 register */
-#define FMC2_BCHDSR2_EBP3_MASK		GENMASK_32(12, 0)
-#define FMC2_BCHDSR2_EBP4_MASK		GENMASK_32(28, 16)
-#define FMC2_BCHDSR2_EBP4_SHIFT		16U
+#define FMC2_BCHDSR2_EBP3_MASK GENMASK_32(12, 0)
+#define FMC2_BCHDSR2_EBP4_MASK GENMASK_32(28, 16)
+#define FMC2_BCHDSR2_EBP4_SHIFT 16U
 /* FMC2_BCHDSR3 register */
-#define FMC2_BCHDSR3_EBP5_MASK		GENMASK_32(12, 0)
-#define FMC2_BCHDSR3_EBP6_MASK		GENMASK_32(28, 16)
-#define FMC2_BCHDSR3_EBP6_SHIFT		16U
+#define FMC2_BCHDSR3_EBP5_MASK GENMASK_32(12, 0)
+#define FMC2_BCHDSR3_EBP6_MASK GENMASK_32(28, 16)
+#define FMC2_BCHDSR3_EBP6_SHIFT 16U
 /* FMC2_BCHDSR4 register */
-#define FMC2_BCHDSR4_EBP7_MASK		GENMASK_32(12, 0)
-#define FMC2_BCHDSR4_EBP8_MASK		GENMASK_32(28, 16)
-#define FMC2_BCHDSR4_EBP8_SHIFT		16U
+#define FMC2_BCHDSR4_EBP7_MASK GENMASK_32(12, 0)
+#define FMC2_BCHDSR4_EBP8_MASK GENMASK_32(28, 16)
+#define FMC2_BCHDSR4_EBP8_SHIFT 16U
 
 /* Timings */
-#define FMC2_THIZ			0x01U
-#define FMC2_TIO			8000U
-#define FMC2_TSYNC			3000U
-#define FMC2_PCR_TIMING_MASK		GENMASK_32(3, 0)
-#define FMC2_PMEM_PATT_TIMING_MASK	GENMASK_32(7, 0)
+#define FMC2_THIZ 0x01U
+#define FMC2_TIO 8000U
+#define FMC2_TSYNC 3000U
+#define FMC2_PCR_TIMING_MASK GENMASK_32(3, 0)
+#define FMC2_PMEM_PATT_TIMING_MASK GENMASK_32(7, 0)
 
-#define FMC2_BBM_LEN			2U
-#define FMC2_MAX_ECC_BYTES		14U
-#define TIMEOUT_US_10_MS		10000U
-#define FMC2_PSEC_PER_MSEC		(1000UL * 1000UL * 1000UL)
+#define FMC2_BBM_LEN 2U
+#define FMC2_MAX_ECC_BYTES 14U
+#define TIMEOUT_US_10_MS 10000U
+#define FMC2_PSEC_PER_MSEC (1000UL * 1000UL * 1000UL)
 
 enum stm32_fmc2_ecc {
 	FMC2_ECC_HAM = 1U,
@@ -188,8 +188,8 @@ static void stm32_fmc2_nand_setup_timing(void)
 	twait = MAX(twait, NAND_TWP_MIN);
 	twait = MAX(twait, NAND_TREA_MAX + FMC2_TIO);
 	timing = div_round_up(twait, hclkp);
-	tims.twait = CLAMP(timing, 1UL,
-			   (unsigned long)FMC2_PMEM_PATT_TIMING_MASK);
+	tims.twait =
+		CLAMP(timing, 1UL, (unsigned long)FMC2_PMEM_PATT_TIMING_MASK);
 
 	/*
 	 * tSETUP_MEM > tCS - tWAIT
@@ -205,8 +205,8 @@ static void stm32_fmc2_nand_setup_timing(void)
 		tset_mem = NAND_TDS_MIN - (twait - thiz);
 	}
 	timing = div_round_up(tset_mem, hclkp);
-	tims.tset_mem = CLAMP(timing, 1UL,
-			      (unsigned long)FMC2_PMEM_PATT_TIMING_MASK);
+	tims.tset_mem =
+		CLAMP(timing, 1UL, (unsigned long)FMC2_PMEM_PATT_TIMING_MASK);
 
 	/*
 	 * tHOLD_MEM > tCH
@@ -220,15 +220,15 @@ static void stm32_fmc2_nand_setup_timing(void)
 	}
 	if (((tset_mem + twait) < NAND_TRC_MIN) &&
 	    (thold_mem < (NAND_TRC_MIN - (tset_mem + twait)))) {
-		thold_mem = NAND_TRC_MIN  - (tset_mem + twait);
+		thold_mem = NAND_TRC_MIN - (tset_mem + twait);
 	}
 	if (((tset_mem + twait) < NAND_TWC_MIN) &&
 	    (thold_mem < (NAND_TWC_MIN - (tset_mem + twait)))) {
 		thold_mem = NAND_TWC_MIN - (tset_mem + twait);
 	}
 	timing = div_round_up(thold_mem, hclkp);
-	tims.thold_mem = CLAMP(timing, 1UL,
-			       (unsigned long)FMC2_PMEM_PATT_TIMING_MASK);
+	tims.thold_mem =
+		CLAMP(timing, 1UL, (unsigned long)FMC2_PMEM_PATT_TIMING_MASK);
 
 	/*
 	 * tSETUP_ATT > tCS - tWAIT
@@ -250,8 +250,8 @@ static void stm32_fmc2_nand_setup_timing(void)
 		tset_att = NAND_TDS_MIN - (twait - thiz);
 	}
 	timing = div_round_up(tset_att, hclkp);
-	tims.tset_att = CLAMP(timing, 1UL,
-			      (unsigned long)FMC2_PMEM_PATT_TIMING_MASK);
+	tims.tset_att =
+		CLAMP(timing, 1UL, (unsigned long)FMC2_PMEM_PATT_TIMING_MASK);
 
 	/*
 	 * tHOLD_ATT > tALH
@@ -296,13 +296,12 @@ static void stm32_fmc2_nand_setup_timing(void)
 		thold_att = NAND_TWC_MIN - (tset_att + twait);
 	}
 	timing = div_round_up(thold_att, hclkp);
-	tims.thold_att = CLAMP(timing, 1UL,
-			       (unsigned long)FMC2_PMEM_PATT_TIMING_MASK);
+	tims.thold_att =
+		CLAMP(timing, 1UL, (unsigned long)FMC2_PMEM_PATT_TIMING_MASK);
 
 	VERBOSE("NAND timings: %u - %u - %u - %u - %u - %u - %u - %u\n",
-		tims.tclr, tims.tar, tims.thiz, tims.twait,
-		tims.thold_mem, tims.tset_mem,
-		tims.thold_att, tims.tset_att);
+		tims.tclr, tims.tar, tims.thiz, tims.twait, tims.thold_mem,
+		tims.tset_mem, tims.thold_att, tims.tset_att);
 
 	/* Set tclr/tar timings */
 	pcr = mmio_read_32(fmc2_base() + FMC2_PCR);
@@ -314,7 +313,7 @@ static void stm32_fmc2_nand_setup_timing(void)
 	/* Set tset/twait/thold/thiz timings in common bank */
 	pmem = FMC2_PMEM_MEMSET(tims.tset_mem);
 	pmem |= FMC2_PMEM_MEMWAIT(tims.twait);
-	pmem |=	FMC2_PMEM_MEMHOLD(tims.thold_mem);
+	pmem |= FMC2_PMEM_MEMHOLD(tims.thold_mem);
 	pmem |= FMC2_PMEM_MEMHIZ(tims.thiz);
 
 	/* Set tset/twait/thold/thiz timings in attribute bank */
@@ -347,7 +346,7 @@ static int stm32_fmc2_ham_correct(uint8_t *buffer, uint8_t *eccbuffer,
 	uint16_t xor_ecc_1b, xor_ecc_2b, xor_ecc_3b;
 	union {
 		uint32_t val;
-		uint8_t  bytes[4];
+		uint8_t bytes[4];
 	} xor_ecc;
 
 	/* Page size--------ECC_Code Size
@@ -384,7 +383,7 @@ static int stm32_fmc2_ham_correct(uint8_t *buffer, uint8_t *eccbuffer,
 				      ((xor_ecc_1b >> 3) & BIT(2));
 
 			byte_address = ((xor_ecc_1b >> 7) & BIT(0)) |
-				       ((xor_ecc_2b) & BIT(1)) |
+				       ((xor_ecc_2b)&BIT(1)) |
 				       ((xor_ecc_2b >> 1) & BIT(2)) |
 				       ((xor_ecc_2b >> 2) & BIT(3)) |
 				       ((xor_ecc_2b >> 3) & BIT(4)) |
@@ -394,8 +393,8 @@ static int stm32_fmc2_ham_correct(uint8_t *buffer, uint8_t *eccbuffer,
 				       ((xor_ecc_3b << 1) & BIT(8));
 
 			/* Correct bit error in the data */
-			buffer[byte_address] =
-				buffer[byte_address] ^ BIT(bit_address);
+			buffer[byte_address] = buffer[byte_address] ^
+					       BIT(bit_address);
 			VERBOSE("Hamming: 1 ECC error corrected\n");
 
 			return 0;
@@ -410,7 +409,6 @@ static int stm32_fmc2_ham_correct(uint8_t *buffer, uint8_t *eccbuffer,
 	ERROR("%s: Hamming correction error\n", __func__);
 	return -1;
 }
-
 
 static int stm32_fmc2_ham_calculate(uint8_t *buffer, uint8_t *ecc)
 {
@@ -442,8 +440,8 @@ static int stm32_fmc2_bch_correct(uint8_t *buffer, unsigned int eccsize)
 	int i, den;
 	uint64_t timeout = timeout_init_us(TIMEOUT_US_10_MS);
 
-	while ((mmio_read_32(fmc2_base() + FMC2_BCHISR) &
-		FMC2_BCHISR_DERF) == 0U) {
+	while ((mmio_read_32(fmc2_base() + FMC2_BCHISR) & FMC2_BCHISR_DERF) ==
+	       0U) {
 		if (timeout_elapsed(timeout)) {
 			return -ETIMEDOUT;
 		}
@@ -502,14 +500,14 @@ static void stm32_fmc2_hwctl(struct nand_device *nand)
 	stm32_fmc2_set_ecc(true);
 }
 
-static int stm32_fmc2_read_page(struct nand_device *nand,
-				unsigned int page, uintptr_t buffer)
+static int stm32_fmc2_read_page(struct nand_device *nand, unsigned int page,
+				uintptr_t buffer)
 {
 	unsigned int eccsize = nand->ecc.size;
 	unsigned int eccbytes = nand->ecc.bytes;
 	unsigned int eccsteps = nand->page_size / eccsize;
 	uint8_t ecc_corr[FMC2_MAX_ECC_BYTES];
-	uint8_t ecc_cal[FMC2_MAX_ECC_BYTES] = {0U};
+	uint8_t ecc_cal[FMC2_MAX_ECC_BYTES] = { 0U };
 	uint8_t *p;
 	unsigned int i;
 	unsigned int s;
@@ -523,8 +521,7 @@ static int stm32_fmc2_read_page(struct nand_device *nand,
 	}
 
 	for (s = 0U, i = nand->page_size + FMC2_BBM_LEN, p = (uint8_t *)buffer;
-	     s < eccsteps;
-	     s++, i += eccbytes, p += eccsize) {
+	     s < eccsteps; s++, i += eccbytes, p += eccsize) {
 		stm32_fmc2_hwctl(nand);
 
 		/* Read the NAND page sector (512 bytes) */
@@ -563,9 +560,8 @@ static int stm32_fmc2_read_page(struct nand_device *nand,
 	return 0;
 }
 
-static void stm32_fmc2_read_data(struct nand_device *nand,
-				 uint8_t *buff, unsigned int length,
-				 bool use_bus8)
+static void stm32_fmc2_read_data(struct nand_device *nand, uint8_t *buff,
+				 unsigned int length, bool use_bus8)
 {
 	uintptr_t data_base = stm32_fmc2.cs[stm32_fmc2.cs_sel].data_base;
 
@@ -610,9 +606,8 @@ static void stm32_fmc2_read_data(struct nand_device *nand,
 	}
 }
 
-static void stm32_fmc2_write_data(struct nand_device *nand,
-				  uint8_t *buff, unsigned int length,
-				  bool use_bus8)
+static void stm32_fmc2_write_data(struct nand_device *nand, uint8_t *buff,
+				  unsigned int length, bool use_bus8)
 {
 	uintptr_t data_base = stm32_fmc2.cs[stm32_fmc2.cs_sel].data_base;
 
@@ -722,7 +717,7 @@ static int stm32_fmc2_exec(struct nand_req *req)
 		VERBOSE("Write data\n");
 		stm32_fmc2_write_data(req->nand, req->addr, req->length,
 				      ((req->type & NAND_REQ_BUS_WIDTH_8) !=
-				      0U));
+				       0U));
 		break;
 	case NAND_REQ_WAIT:
 		VERBOSE("WAIT Ready\n");
@@ -779,10 +774,8 @@ static void stm32_fmc2_setup(struct nand_device *nand)
 	mmio_write_32(stm32_fmc2.reg_base + FMC2_PCR, pcr);
 }
 
-static const struct nand_ctrl_ops ctrl_ops = {
-	.setup = stm32_fmc2_setup,
-	.exec = stm32_fmc2_exec
-};
+static const struct nand_ctrl_ops ctrl_ops = { .setup = stm32_fmc2_setup,
+					       .exec = stm32_fmc2_exec };
 
 int stm32_fmc2_init(void)
 {
@@ -862,22 +855,22 @@ int stm32_fmc2_init(void)
 		if (bank >= MAX_BANK) {
 			return -FDT_ERR_BADVALUE;
 		}
-		stm32_fmc2.cs[i].data_base = fdt32_to_cpu(*(cuint + 1)) +
-					     bank_address[bank];
+		stm32_fmc2.cs[i].data_base =
+			fdt32_to_cpu(*(cuint + 1)) + bank_address[bank];
 
 		bank = fdt32_to_cpu(*(cuint + 3));
 		if (bank >= MAX_BANK) {
 			return -FDT_ERR_BADVALUE;
 		}
-		stm32_fmc2.cs[i].cmd_base = fdt32_to_cpu(*(cuint + 4)) +
-					    bank_address[bank];
+		stm32_fmc2.cs[i].cmd_base =
+			fdt32_to_cpu(*(cuint + 4)) + bank_address[bank];
 
 		bank = fdt32_to_cpu(*(cuint + 6));
 		if (bank >= MAX_BANK) {
 			return -FDT_ERR_BADVALUE;
 		}
-		stm32_fmc2.cs[i].addr_base = fdt32_to_cpu(*(cuint + 7)) +
-					     bank_address[bank];
+		stm32_fmc2.cs[i].addr_base =
+			fdt32_to_cpu(*(cuint + 7)) + bank_address[bank];
 
 		cuint += 9;
 	}

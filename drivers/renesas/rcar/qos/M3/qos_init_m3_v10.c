@@ -12,7 +12,7 @@
 #include "../qos_reg.h"
 #include "qos_init_m3_v10.h"
 
-#define	RCAR_QOS_VERSION		"rev.0.19"
+#define RCAR_QOS_VERSION "rev.0.19"
 
 #include "qos_init_m3_v10_mstat.h"
 
@@ -70,13 +70,12 @@ void qos_init_m3_v10(void)
 	panic();
 #endif
 #elif (RCAR_DRAM_SPLIT == RCAR_DRAM_SPLIT_2CH) || \
-      (RCAR_DRAM_SPLIT == RCAR_DRAM_SPLIT_AUTO)
+	(RCAR_DRAM_SPLIT == RCAR_DRAM_SPLIT_AUTO)
 	NOTICE("BL2: DRAM Split is 2ch\n");
 	io_write_32(AXI_ADSPLCR0, 0x00000000U);
-	io_write_32(AXI_ADSPLCR1, ADSPLCR0_ADRMODE_DEFAULT
-		    | ADSPLCR0_SPLITSEL(0xFFU)
-		    | ADSPLCR0_AREA(0x1CU)
-		    | ADSPLCR0_SWP);
+	io_write_32(AXI_ADSPLCR1, ADSPLCR0_ADRMODE_DEFAULT |
+					  ADSPLCR0_SPLITSEL(0xFFU) |
+					  ADSPLCR0_AREA(0x1CU) | ADSPLCR0_SWP);
 	io_write_32(AXI_ADSPLCR2, 0x089A0000U);
 	io_write_32(AXI_ADSPLCR3, 0x00000000U);
 #else
@@ -84,7 +83,7 @@ void qos_init_m3_v10(void)
 #endif
 
 #if !(RCAR_QOS_TYPE == RCAR_QOS_NONE)
-#if RCAR_QOS_TYPE  == RCAR_QOS_TYPE_DEFAULT
+#if RCAR_QOS_TYPE == RCAR_QOS_TYPE_DEFAULT
 	NOTICE("BL2: QoS is default setting(%s)\n", RCAR_QOS_VERSION);
 #endif
 

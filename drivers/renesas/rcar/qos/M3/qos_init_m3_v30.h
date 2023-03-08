@@ -9,4 +9,4 @@
 
 void qos_init_m3_v30(void);
 
-#endif	/* QOS_INIT_H_M3_V30__ */
+#endif /* QOS_INIT_H_M3_V30__ */

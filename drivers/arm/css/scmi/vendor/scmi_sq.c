@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,16 +9,15 @@
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/arm/css/scmi.h>
+#include <sq_common.h>
 
 #include "scmi_private.h"
 #include "scmi_sq.h"
 
-#include <sq_common.h>
-
 /* SCMI messge ID to get the available DRAM region */
-#define SCMI_VENDOR_EXT_MEMINFO_GET_MSG		0x3
+#define SCMI_VENDOR_EXT_MEMINFO_GET_MSG 0x3
 
-#define SCMI_VENDOR_EXT_MEMINFO_GET_MSG_LEN	4
+#define SCMI_VENDOR_EXT_MEMINFO_GET_MSG_LEN 4
 
 /*
  * API to get the available DRAM region
@@ -36,7 +35,8 @@ int scmi_get_draminfo(void *p, struct draminfo *info)
 
 	mbx_mem = (mailbox_mem_t *)(ch->info->scmi_mbx_mem);
 	mbx_mem->msg_header = SCMI_MSG_CREATE(SCMI_SYS_VENDOR_EXT_PROTO_ID,
-			SCMI_VENDOR_EXT_MEMINFO_GET_MSG, token);
+					      SCMI_VENDOR_EXT_MEMINFO_GET_MSG,
+					      token);
 	mbx_mem->len = SCMI_VENDOR_EXT_MEMINFO_GET_MSG_LEN;
 	mbx_mem->flags = SCMI_FLAG_RESP_POLL;
 

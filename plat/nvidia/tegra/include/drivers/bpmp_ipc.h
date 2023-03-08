@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -8,15 +8,16 @@
 #ifndef BPMP_IPC_H
 #define BPMP_IPC_H
 
-#include <lib/utils_def.h>
 #include <stdbool.h>
 #include <stdint.h>
+
+#include <lib/utils_def.h>
 
 /**
  * Currently supported reset identifiers
  */
-#define TEGRA_RESET_ID_XUSB_PADCTL	U(114)
-#define TEGRA_RESET_ID_GPCDMA		U(70)
+#define TEGRA_RESET_ID_XUSB_PADCTL U(114)
+#define TEGRA_RESET_ID_GPCDMA U(70)
 
 /**
  * Function to initialise the IPC with the bpmp

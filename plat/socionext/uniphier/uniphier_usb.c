@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,20 +7,20 @@
 #include <assert.h>
 #include <stdint.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <drivers/io/io_block.h>
 #include <lib/mmio.h>
 #include <lib/utils_def.h>
 
+#include <platform_def.h>
+
 #include "uniphier.h"
 
-#define UNIPHIER_LD11_USB_DESC_BASE	0x30010000
-#define UNIPHIER_LD20_USB_DESC_BASE	0x30014000
-#define UNIPHIER_PXS3_USB_DESC_BASE	0x30014000
+#define UNIPHIER_LD11_USB_DESC_BASE 0x30010000
+#define UNIPHIER_LD20_USB_DESC_BASE 0x30014000
+#define UNIPHIER_PXS3_USB_DESC_BASE 0x30014000
 
-#define UNIPHIER_SRB_OCM_CONT		0x61200000
+#define UNIPHIER_SRB_OCM_CONT 0x61200000
 
 struct uniphier_ld11_trans_op {
 	uint8_t __pad[48];

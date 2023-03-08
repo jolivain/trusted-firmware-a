@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -64,8 +64,8 @@ int image_decompress(struct image_info *info)
 	work_size = decompressor_buf_size - compressed_image_size;
 
 	ret = decompressor(&compressed_image_base, compressed_image_size,
-			   &image_base, info->image_max_size,
-			   work_base, work_size);
+			   &image_base, info->image_max_size, work_base,
+			   work_size);
 	if (ret) {
 		ERROR("Failed to decompress image (err=%d)\n", ret);
 		return ret;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -8,11 +8,11 @@
 #ifndef RAS_H
 #define RAS_H
 
-#define ERR_HANDLER_VERSION	1U
+#define ERR_HANDLER_VERSION 1U
 
 /* Error record access mechanism */
-#define ERR_ACCESS_SYSREG	0
-#define ERR_ACCESS_MEMMAP	1
+#define ERR_ACCESS_SYSREG 0
+#define ERR_ACCESS_MEMMAP 1
 
 /*
  * Register all error records on the platform.
@@ -20,39 +20,32 @@
  * This macro must be used in the same file as the array of error record info
  * are declared. Only then would ARRAY_SIZE() yield a meaningful value.
  */
-#define REGISTER_ERR_RECORD_INFO(_records) \
+#define REGISTER_ERR_RECORD_INFO(_records)                      \
 	const struct err_record_mapping err_record_mappings = { \
-		.err_records = (_records), \
-		.num_err_records = ARRAY_SIZE(_records), \
+		.err_records = (_records),                      \
+		.num_err_records = ARRAY_SIZE(_records),        \
 	}
 
 /* Error record info iterator */
-#define for_each_err_record_info(_i, _info) \
+#define for_each_err_record_info(_i, _info)                       \
 	for ((_i) = 0, (_info) = err_record_mappings.err_records; \
-		(_i) < err_record_mappings.num_err_records; \
-		(_i)++, (_info)++)
+	     (_i) < err_record_mappings.num_err_records; (_i)++, (_info)++)
 
 #define ERR_RECORD_COMMON_(_probe, _handler, _aux) \
-	.probe = _probe, \
-	.handler = _handler, \
-	.aux_data = _aux,
+	.probe = _probe, .handler = _handler, .aux_data = _aux,
 
 #define ERR_RECORD_SYSREG_V1(_idx_start, _num_idx, _probe, _handler, _aux) \
-	{ \
-		.version = 1, \
-		.sysreg.idx_start = _idx_start, \
-		.sysreg.num_idx = _num_idx, \
-		.access = ERR_ACCESS_SYSREG, \
-		ERR_RECORD_COMMON_(_probe, _handler, _aux) \
+	{                                                                  \
+		.version = 1, .sysreg.idx_start = _idx_start,              \
+		.sysreg.num_idx = _num_idx, .access = ERR_ACCESS_SYSREG,   \
+		ERR_RECORD_COMMON_(_probe, _handler, _aux)                 \
 	}
 
-#define ERR_RECORD_MEMMAP_V1(_base_addr, _size_num_k, _probe, _handler, _aux) \
-	{ \
-		.version = 1, \
-		.memmap.base_addr = _base_addr, \
-		.memmap.size_num_k = _size_num_k, \
-		.access = ERR_ACCESS_MEMMAP, \
-		ERR_RECORD_COMMON_(_probe, _handler, _aux) \
+#define ERR_RECORD_MEMMAP_V1(_base_addr, _size_num_k, _probe, _handler, _aux)  \
+	{                                                                      \
+		.version = 1, .memmap.base_addr = _base_addr,                  \
+		.memmap.size_num_k = _size_num_k, .access = ERR_ACCESS_MEMMAP, \
+		ERR_RECORD_COMMON_(_probe, _handler, _aux)                     \
 	}
 
 /*
@@ -63,10 +56,10 @@
  * declared. Only then would ARRAY_SIZE() yield a meaningful value. Also, the
  * array is expected to be sorted in the increasing order of interrupt number.
  */
-#define REGISTER_RAS_INTERRUPTS(_array) \
+#define REGISTER_RAS_INTERRUPTS(_array)                               \
 	const struct ras_interrupt_mapping ras_interrupt_mappings = { \
-		.intrs = (_array), \
-		.num_intrs = ARRAY_SIZE(_array), \
+		.intrs = (_array),                                    \
+		.num_intrs = ARRAY_SIZE(_array),                      \
 	}
 
 #ifndef __ASSEMBLER__
@@ -86,7 +79,7 @@ struct ras_interrupt {
 
 /* Function to probe a error record group for error */
 typedef int (*err_record_probe_t)(const struct err_record_info *info,
-		int *probe_data);
+				  int *probe_data);
 
 /* Data passed to error record group handler */
 struct err_handler_data {
@@ -113,7 +106,8 @@ struct err_handler_data {
 
 /* Function to handle error from an error record group */
 typedef int (*err_record_handler_t)(const struct err_record_info *info,
-		int probe_data, const struct err_handler_data *const data);
+				    int probe_data,
+				    const struct err_handler_data *const data);
 
 /* Error record information */
 struct err_record_info {
@@ -154,7 +148,7 @@ struct err_record_info {
 	unsigned int version;
 
 	/* Error record access mechanism */
-	unsigned int access:1;
+	unsigned int access : 1;
 };
 
 struct err_record_mapping {
@@ -170,32 +164,31 @@ struct ras_interrupt_mapping {
 extern const struct err_record_mapping err_record_mappings;
 extern const struct ras_interrupt_mapping ras_interrupt_mappings;
 
-
 /*
  * Helper functions to probe memory-mapped and system registers implemented in
  * Standard Error Record format
  */
 static inline int ras_err_ser_probe_memmap(const struct err_record_info *info,
-		int *probe_data)
+					   int *probe_data)
 {
 	assert(info->version == ERR_HANDLER_VERSION);
 
 	return ser_probe_memmap(info->memmap.base_addr, info->memmap.size_num_k,
-		probe_data);
+				probe_data);
 }
 
 static inline int ras_err_ser_probe_sysreg(const struct err_record_info *info,
-		int *probe_data)
+					   int *probe_data)
 {
 	assert(info->version == ERR_HANDLER_VERSION);
 
 	return ser_probe_sysreg(info->sysreg.idx_start, info->sysreg.num_idx,
-			probe_data);
+				probe_data);
 }
 
 const char *ras_serr_to_str(unsigned int serr);
 int ras_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *cookie,
-		void *handle, uint64_t flags);
+		   void *handle, uint64_t flags);
 void ras_init(void);
 
 #endif /* __ASSEMBLER__ */

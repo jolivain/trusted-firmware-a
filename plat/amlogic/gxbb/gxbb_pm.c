@@ -1,28 +1,30 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <arch_helpers.h>
 #include <assert.h>
+#include <errno.h>
+
+#include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/arm/gicv2.h>
 #include <drivers/console.h>
-#include <errno.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
+
 #include <plat/common/platform.h>
 #include <platform_def.h>
 
 #include "aml_private.h"
 
-#define SCPI_POWER_ON		0
-#define SCPI_POWER_RETENTION	1
-#define SCPI_POWER_OFF		3
+#define SCPI_POWER_ON 0
+#define SCPI_POWER_RETENTION 1
+#define SCPI_POWER_OFF 3
 
-#define SCPI_SYSTEM_SHUTDOWN	0
-#define SCPI_SYSTEM_REBOOT	1
+#define SCPI_SYSTEM_SHUTDOWN 0
+#define SCPI_SYSTEM_REBOOT 1
 
 static uintptr_t gxbb_sec_entrypoint;
 static volatile uint32_t gxbb_cpu0_go;
@@ -91,7 +93,8 @@ static int32_t gxbb_pwr_domain_on(u_register_t mpidr)
 		VERBOSE("BL31: Releasing CPU0 from wait loop...\n");
 
 		gxbb_cpu0_go = 1;
-		flush_dcache_range((uintptr_t)&gxbb_cpu0_go, sizeof(gxbb_cpu0_go));
+		flush_dcache_range((uintptr_t)&gxbb_cpu0_go,
+				   sizeof(gxbb_cpu0_go));
 		dsb();
 		isb();
 
@@ -101,8 +104,8 @@ static int32_t gxbb_pwr_domain_on(u_register_t mpidr)
 	}
 
 	gxbb_program_mailbox(mpidr, gxbb_sec_entrypoint);
-	aml_scpi_set_css_power_state(mpidr,
-				     SCPI_POWER_ON, SCPI_POWER_ON, SCPI_POWER_ON);
+	aml_scpi_set_css_power_state(mpidr, SCPI_POWER_ON, SCPI_POWER_ON,
+				     SCPI_POWER_ON);
 	dmbsy();
 	sev();
 
@@ -114,11 +117,12 @@ static void gxbb_pwr_domain_on_finish(const psci_power_state_t *target_state)
 	unsigned int core = plat_calc_core_pos(read_mpidr_el1());
 
 	assert(target_state->pwr_domain_state[MPIDR_AFFLVL0] ==
-					PLAT_LOCAL_STATE_OFF);
+	       PLAT_LOCAL_STATE_OFF);
 
 	if (core == AML_PRIMARY_CPU) {
 		gxbb_cpu0_go = 0;
-		flush_dcache_range((uintptr_t)&gxbb_cpu0_go, sizeof(gxbb_cpu0_go));
+		flush_dcache_range((uintptr_t)&gxbb_cpu0_go,
+				   sizeof(gxbb_cpu0_go));
 		dsb();
 		isb();
 	}
@@ -142,12 +146,12 @@ static void gxbb_pwr_domain_off(const psci_power_state_t *target_state)
 	if (core == AML_PRIMARY_CPU)
 		return;
 
-	aml_scpi_set_css_power_state(mpidr,
-				     SCPI_POWER_OFF, SCPI_POWER_ON, SCPI_POWER_ON);
+	aml_scpi_set_css_power_state(mpidr, SCPI_POWER_OFF, SCPI_POWER_ON,
+				     SCPI_POWER_ON);
 }
 
-static void __dead2 gxbb_pwr_domain_pwr_down_wfi(const psci_power_state_t
-						 *target_state)
+static void __dead2
+gxbb_pwr_domain_pwr_down_wfi(const psci_power_state_t *target_state)
 {
 	unsigned int core = plat_calc_core_pos(read_mpidr_el1());
 
@@ -173,12 +177,12 @@ static void __dead2 gxbb_pwr_domain_pwr_down_wfi(const psci_power_state_t
  * Platform handlers and setup function.
  ******************************************************************************/
 static const plat_psci_ops_t gxbb_ops = {
-	.pwr_domain_on			= gxbb_pwr_domain_on,
-	.pwr_domain_on_finish		= gxbb_pwr_domain_on_finish,
-	.pwr_domain_off			= gxbb_pwr_domain_off,
-	.pwr_domain_pwr_down_wfi	= gxbb_pwr_domain_pwr_down_wfi,
-	.system_off			= gxbb_system_off,
-	.system_reset			= gxbb_system_reset,
+	.pwr_domain_on = gxbb_pwr_domain_on,
+	.pwr_domain_on_finish = gxbb_pwr_domain_on_finish,
+	.pwr_domain_off = gxbb_pwr_domain_off,
+	.pwr_domain_pwr_down_wfi = gxbb_pwr_domain_pwr_down_wfi,
+	.system_off = gxbb_system_off,
+	.system_reset = gxbb_system_reset,
 };
 
 int plat_setup_psci_ops(uintptr_t sec_entrypoint,

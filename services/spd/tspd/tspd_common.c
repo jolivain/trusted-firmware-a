@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -22,9 +22,7 @@
  * initialize tsp context and entry point info for the secure payload
  ******************************************************************************/
 void tspd_init_tsp_ep_state(struct entry_point_info *tsp_entry_point,
-				uint32_t rw,
-				uint64_t pc,
-				tsp_context_t *tsp_ctx)
+			    uint32_t rw, uint64_t pc, tsp_context_t *tsp_ctx)
 {
 	uint32_t ep_attr;
 
@@ -54,9 +52,8 @@ void tspd_init_tsp_ep_state(struct entry_point_info *tsp_entry_point,
 	SET_PARAM_HEAD(tsp_entry_point, PARAM_EP, VERSION_1, ep_attr);
 
 	tsp_entry_point->pc = pc;
-	tsp_entry_point->spsr = SPSR_64(MODE_EL1,
-					MODE_SP_ELX,
-					DISABLE_ALL_EXCEPTIONS);
+	tsp_entry_point->spsr =
+		SPSR_64(MODE_EL1, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 	zeromem(&tsp_entry_point->args, sizeof(tsp_entry_point->args));
 }
 
@@ -87,7 +84,6 @@ uint64_t tspd_synchronous_sp_entry(tsp_context_t *tsp_ctx)
 
 	return rc;
 }
-
 
 /*******************************************************************************
  * This function takes an SP context pointer and:
@@ -128,8 +124,7 @@ int tspd_abort_preempted_smc(tsp_context_t *tsp_ctx)
 	 * Arrange for an entry into the test secure payload. It will
 	 * be returned via TSP_ABORT_DONE case in tspd_smc_handler.
 	 */
-	cm_set_elr_el3(SECURE,
-		       (uint64_t) &tsp_vectors->abort_yield_smc_entry);
+	cm_set_elr_el3(SECURE, (uint64_t)&tsp_vectors->abort_yield_smc_entry);
 	uint64_t rc = tspd_synchronous_sp_entry(tsp_ctx);
 
 	if (rc != 0)
@@ -137,4 +132,3 @@ int tspd_abort_preempted_smc(tsp_context_t *tsp_ctx)
 
 	return 1;
 }
-

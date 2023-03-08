@@ -7,19 +7,19 @@
 #include <stdarg.h>
 #include <stdint.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <lib/bakery_lock.h>
 
+#include <platform_def.h>
+
 #include "rcar_def.h"
-#include "rcar_private.h"
 #include "rcar_printf.h"
+#include "rcar_private.h"
 
-#define INDEX_TIMER_COUNT	(4U)
+#define INDEX_TIMER_COUNT (4U)
 
-#define RCAR_LOG_HEAD	(('T' << 0) | ('L' << 8) | ('O' << 16) | ('G' << 24))
+#define RCAR_LOG_HEAD (('T' << 0) | ('L' << 8) | ('O' << 16) | ('G' << 24))
 
 /*
  * The log is initialized and used before BL31 xlat tables are initialized,
@@ -47,26 +47,26 @@ int32_t rcar_set_log_data(int32_t c)
 {
 	logmap_t *t_log;
 
-	t_log = (logmap_t *) RCAR_BL31_LOG_BASE;
+	t_log = (logmap_t *)RCAR_BL31_LOG_BASE;
 
 	rcar_lock_get();
 
 	/*
 	 * If index is broken, then index and size initialize
 	 */
-	if (t_log->header.index >= (uint32_t) RCAR_BL31_LOG_MAX) {
+	if (t_log->header.index >= (uint32_t)RCAR_BL31_LOG_MAX) {
 		t_log->header.index = 0U;
 		t_log->header.size = 0U;
 	}
 	/*
 	 * data store to log area then index and size renewal
 	 */
-	t_log->log_data[t_log->header.index] = (uint8_t) c;
+	t_log->log_data[t_log->header.index] = (uint8_t)c;
 	t_log->header.index++;
 	if (t_log->header.size < t_log->header.index) {
 		t_log->header.size = t_log->header.index;
 	}
-	if (t_log->header.index >= (uint32_t) RCAR_BL31_LOG_MAX) {
+	if (t_log->header.index >= (uint32_t)RCAR_BL31_LOG_MAX) {
 		t_log->header.index = 0U;
 	}
 
@@ -88,7 +88,7 @@ int32_t rcar_log_init(void)
 		 */
 		init_flag = 1;
 	}
-	if (t_log->header.index >= (uint32_t) RCAR_BL31_LOG_MAX) {
+	if (t_log->header.index >= (uint32_t)RCAR_BL31_LOG_MAX) {
 		/*
 		 * index is broken, then log area initialize
 		 */

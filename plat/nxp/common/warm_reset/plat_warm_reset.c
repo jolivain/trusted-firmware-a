@@ -21,6 +21,7 @@
 #endif
 
 #include <plat_nv_storage.h>
+
 #include "plat_warm_rst.h"
 #include "platform_def.h"
 
@@ -28,8 +29,8 @@
 
 uint32_t is_warm_boot(void)
 {
-	uint32_t ret = mmio_read_32(NXP_RESET_ADDR + RST_RSTRQSR1_OFFSET)
-				& ~(RSTRQSR1_SWRR);
+	uint32_t ret = mmio_read_32(NXP_RESET_ADDR + RST_RSTRQSR1_OFFSET) &
+		       ~(RSTRQSR1_SWRR);
 
 	const nv_app_data_t *nv_app_data = get_nv_data();
 
@@ -75,8 +76,7 @@ int prep_n_execute_warm_reset(void)
 	 */
 
 #if (ERLY_WRM_RST_FLG_FLSH_UPDT)
-	ret = xspi_write((uint32_t)NV_STORAGE_BASE_ADDR,
-			 &warm_reset,
+	ret = xspi_write((uint32_t)NV_STORAGE_BASE_ADDR, &warm_reset,
 			 sizeof(warm_reset));
 #else
 	/* Preparation for writing the Warm reset flag. */
@@ -84,21 +84,21 @@ int prep_n_execute_warm_reset(void)
 
 	/* IP Control Register0 - SF Address to be read */
 	fspi_out32((NXP_FLEXSPI_ADDR + FSPI_IPCR0),
-		   (uint32_t) NV_STORAGE_BASE_ADDR);
+		   (uint32_t)NV_STORAGE_BASE_ADDR);
 
 	while ((fspi_in32(NXP_FLEXSPI_ADDR + FSPI_INTR) &
 		FSPI_INTR_IPTXWE_MASK) == 0) {
 		;
 	}
 	/* Write TX FIFO Data Register */
-	fspi_out32(NXP_FLEXSPI_ADDR + FSPI_TFDR, (uint32_t) warm_reset);
+	fspi_out32(NXP_FLEXSPI_ADDR + FSPI_TFDR, (uint32_t)warm_reset);
 
 	fspi_out32(NXP_FLEXSPI_ADDR + FSPI_INTR, FSPI_INTR_IPTXWE);
 
 	/* IP Control Register1 - SEQID_WRITE operation, Size = 1 Byte */
 	fspi_out32(NXP_FLEXSPI_ADDR + FSPI_IPCR1,
 		   (uint32_t)(FSPI_WRITE_SEQ_ID << FSPI_IPCR1_ISEQID_SHIFT) |
-		   (uint16_t) sizeof(warm_reset));
+			   (uint16_t)sizeof(warm_reset));
 
 	/* Trigger XSPI-IP-Write cmd only if:
 	 *  - Putting DDR in-self refresh mode is successfully.

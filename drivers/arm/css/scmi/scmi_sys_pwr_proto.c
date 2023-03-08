@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -27,8 +27,8 @@ int scmi_sys_pwr_state_set(void *p, uint32_t flags, uint32_t system_state)
 	scmi_get_channel(ch);
 
 	mbx_mem = (mailbox_mem_t *)(ch->info->scmi_mbx_mem);
-	mbx_mem->msg_header = SCMI_MSG_CREATE(SCMI_SYS_PWR_PROTO_ID,
-			SCMI_SYS_PWR_STATE_SET_MSG, token);
+	mbx_mem->msg_header = SCMI_MSG_CREATE(
+		SCMI_SYS_PWR_PROTO_ID, SCMI_SYS_PWR_STATE_SET_MSG, token);
 	mbx_mem->len = SCMI_SYS_PWR_STATE_SET_MSG_LEN;
 	mbx_mem->flags = SCMI_FLAG_RESP_POLL;
 	SCMI_PAYLOAD_ARG2(mbx_mem->payload, flags, system_state);
@@ -60,8 +60,8 @@ int scmi_sys_pwr_state_get(void *p, uint32_t *system_state)
 	scmi_get_channel(ch);
 
 	mbx_mem = (mailbox_mem_t *)(ch->info->scmi_mbx_mem);
-	mbx_mem->msg_header = SCMI_MSG_CREATE(SCMI_SYS_PWR_PROTO_ID,
-			SCMI_SYS_PWR_STATE_GET_MSG, token);
+	mbx_mem->msg_header = SCMI_MSG_CREATE(
+		SCMI_SYS_PWR_PROTO_ID, SCMI_SYS_PWR_STATE_GET_MSG, token);
 	mbx_mem->len = SCMI_SYS_PWR_STATE_GET_MSG_LEN;
 	mbx_mem->flags = SCMI_FLAG_RESP_POLL;
 

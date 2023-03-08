@@ -32,11 +32,11 @@ static void emmc_set_bootpartition(void)
 	reg = mmio_read_32(RCAR_PRR) & (PRR_PRODUCT_MASK | PRR_CUT_MASK);
 	if (reg == PRR_PRODUCT_M3_CUT10) {
 		mmc_drv_obj.boot_partition_en =
-		    (EMMC_PARTITION_ID) ((mmc_drv_obj.ext_csd_data[179] &
-					  EMMC_BOOT_PARTITION_EN_MASK) >>
-					 EMMC_BOOT_PARTITION_EN_SHIFT);
-	} else if ((reg == PRR_PRODUCT_H3_CUT20)
-		   || (reg == PRR_PRODUCT_M3_CUT11)) {
+			(EMMC_PARTITION_ID)((mmc_drv_obj.ext_csd_data[179] &
+					     EMMC_BOOT_PARTITION_EN_MASK) >>
+					    EMMC_BOOT_PARTITION_EN_SHIFT);
+	} else if ((reg == PRR_PRODUCT_H3_CUT20) ||
+		   (reg == PRR_PRODUCT_M3_CUT11)) {
 		mmc_drv_obj.boot_partition_en = mmc_drv_obj.partition_access;
 	} else {
 		if ((mmio_read_32(MFISBTSTSR) & MFISBTSTSR_BOOT_PARTITION) !=
@@ -51,15 +51,14 @@ static void emmc_set_bootpartition(void)
 static EMMC_ERROR_CODE emmc_card_init(void)
 {
 	int32_t retry;
-	uint32_t freq = MMC_400KHZ;	/* 390KHz */
+	uint32_t freq = MMC_400KHZ; /* 390KHz */
 	EMMC_ERROR_CODE result;
 	uint32_t result_calc;
 
 	/* state check */
-	if ((mmc_drv_obj.initialize != TRUE)
-	    || (mmc_drv_obj.card_power_enable != TRUE)
-	    || ((GETR_32(SD_INFO2) & SD_INFO2_CBSY) != 0)
-	    ) {
+	if ((mmc_drv_obj.initialize != TRUE) ||
+	    (mmc_drv_obj.card_power_enable != TRUE) ||
+	    ((GETR_32(SD_INFO2) & SD_INFO2_CBSY) != 0)) {
 		emmc_write_error_info(EMMC_FUNCNO_CARD_INIT, EMMC_ERR_STATE);
 		return EMMC_ERR_STATE;
 	}
@@ -73,7 +72,7 @@ static EMMC_ERROR_CODE emmc_card_init(void)
 		return EMMC_ERR;
 	}
 
-	rcar_micro_delay(1000U);	/* wait 1ms */
+	rcar_micro_delay(1000U); /* wait 1ms */
 
 	/* Get current access partition */
 	emmc_get_partition_access();
@@ -85,22 +84,22 @@ static EMMC_ERROR_CODE emmc_card_init(void)
 		return result;
 	}
 
-	rcar_micro_delay(200U);	/* wait 74clock 390kHz(189.74us) */
+	rcar_micro_delay(200U); /* wait 74clock 390kHz(189.74us) */
 
 	/* CMD1 */
 	emmc_make_nontrans_cmd(CMD1_SEND_OP_COND, EMMC_HOST_OCR_VALUE);
 	for (retry = 300; retry > 0; retry--) {
 		result =
-		    emmc_exec_cmd(EMMC_R1_ERROR_MASK, mmc_drv_obj.response);
+			emmc_exec_cmd(EMMC_R1_ERROR_MASK, mmc_drv_obj.response);
 		if (result != EMMC_SUCCESS) {
 			emmc_write_error_info_func_no(EMMC_FUNCNO_CARD_INIT);
 			return result;
 		}
 
 		if ((mmc_drv_obj.r3_ocr & EMMC_OCR_STATUS_BIT) != 0) {
-			break;	/* card is ready. exit loop */
+			break; /* card is ready. exit loop */
 		}
-		rcar_micro_delay(1000U);	/* wait 1ms */
+		rcar_micro_delay(1000U); /* wait 1ms */
 	}
 
 	if (retry == 0) {
@@ -110,7 +109,7 @@ static EMMC_ERROR_CODE emmc_card_init(void)
 
 	switch (mmc_drv_obj.r3_ocr & EMMC_OCR_ACCESS_MODE_MASK) {
 	case EMMC_OCR_ACCESS_MODE_SECT:
-		mmc_drv_obj.access_mode = TRUE;	/* sector mode */
+		mmc_drv_obj.access_mode = TRUE; /* sector mode */
 		break;
 	default:
 		/* unknown value */
@@ -120,7 +119,9 @@ static EMMC_ERROR_CODE emmc_card_init(void)
 
 	/* CMD2 */
 	emmc_make_nontrans_cmd(CMD2_ALL_SEND_CID_MMC, 0x00000000);
-	mmc_drv_obj.response = (uint32_t *) (&mmc_drv_obj.cid_data[0]);	/* use CID special buffer */
+	mmc_drv_obj.response =
+		(uint32_t *)(&mmc_drv_obj
+				      .cid_data[0]); /* use CID special buffer */
 	result = emmc_exec_cmd(EMMC_R1_ERROR_MASK, mmc_drv_obj.response);
 	if (result != EMMC_SUCCESS) {
 		emmc_write_error_info_func_no(EMMC_FUNCNO_CARD_INIT);
@@ -137,7 +138,9 @@ static EMMC_ERROR_CODE emmc_card_init(void)
 
 	/* CMD9 (CSD) */
 	emmc_make_nontrans_cmd(CMD9_SEND_CSD, EMMC_RCA << 16);
-	mmc_drv_obj.response = (uint32_t *) (&mmc_drv_obj.csd_data[0]);	/* use CSD special buffer */
+	mmc_drv_obj.response =
+		(uint32_t *)(&mmc_drv_obj
+				      .csd_data[0]); /* use CSD special buffer */
 	result = emmc_exec_cmd(EMMC_R1_ERROR_MASK, mmc_drv_obj.response);
 	if (result != EMMC_SUCCESS) {
 		emmc_write_error_info_func_no(EMMC_FUNCNO_CARD_INIT);
@@ -171,7 +174,7 @@ static EMMC_ERROR_CODE emmc_card_init(void)
 				      EMMC_ERR_ILLEGAL_CARD);
 		return EMMC_ERR_ILLEGAL_CARD;
 	}
-	mmc_drv_obj.max_freq = freq;	/* max frequency (card spec) */
+	mmc_drv_obj.max_freq = freq; /* max frequency (card spec) */
 
 	result = emmc_set_request_mmc_clock(&freq);
 	if (result != EMMC_SUCCESS) {
@@ -199,7 +202,7 @@ static EMMC_ERROR_CODE emmc_card_init(void)
 
 	/* CMD8 (EXT_CSD) */
 	emmc_make_trans_cmd(CMD8_SEND_EXT_CSD, 0x00000000,
-			    (uint32_t *) (&mmc_drv_obj.ext_csd_data[0]),
+			    (uint32_t *)(&mmc_drv_obj.ext_csd_data[0]),
 			    EMMC_MAX_EXT_CSD_LENGTH, HAL_MEMCARD_READ,
 			    HAL_MEMCARD_NOT_DMA);
 	result = emmc_exec_cmd(EMMC_R1_ERROR_MASK, mmc_drv_obj.response);
@@ -221,7 +224,7 @@ static EMMC_ERROR_CODE emmc_card_init(void)
 
 static EMMC_ERROR_CODE emmc_high_speed(void)
 {
-	uint32_t freq;	      /* High speed mode clock frequency */
+	uint32_t freq; /* High speed mode clock frequency */
 	EMMC_ERROR_CODE result;
 	uint8_t cardType;
 
@@ -232,7 +235,7 @@ static EMMC_ERROR_CODE emmc_high_speed(void)
 	}
 
 	/* max frequency */
-	cardType = (uint8_t) mmc_drv_obj.ext_csd_data[EMMC_EXT_CSD_CARD_TYPE];
+	cardType = (uint8_t)mmc_drv_obj.ext_csd_data[EMMC_EXT_CSD_CARD_TYPE];
 	if ((cardType & EMMC_EXT_CSD_CARD_TYPE_52MHZ) != 0)
 		freq = MMC_52MHZ;
 	else if ((cardType & EMMC_EXT_CSD_CARD_TYPE_26MHZ) != 0)
@@ -245,13 +248,13 @@ static EMMC_ERROR_CODE emmc_high_speed(void)
 		/* CMD6 */
 		emmc_make_nontrans_cmd(CMD6_SWITCH, EMMC_SWITCH_HS_TIMING);
 		result =
-		    emmc_exec_cmd(EMMC_R1_ERROR_MASK, mmc_drv_obj.response);
+			emmc_exec_cmd(EMMC_R1_ERROR_MASK, mmc_drv_obj.response);
 		if (result != EMMC_SUCCESS) {
 			emmc_write_error_info_func_no(EMMC_FUNCNO_HIGH_SPEED);
 			return result;
 		}
 
-		mmc_drv_obj.hs_timing = TIMING_HIGH_SPEED;	/* High-Speed */
+		mmc_drv_obj.hs_timing = TIMING_HIGH_SPEED; /* High-Speed */
 	}
 
 	/* set mmc clock */
@@ -270,8 +273,8 @@ static EMMC_ERROR_CODE emmc_high_speed(void)
 
 	/* CMD13 */
 	emmc_make_nontrans_cmd(CMD13_SEND_STATUS, EMMC_RCA << 16);
-	result =
-	    emmc_exec_cmd(EMMC_R1_ERROR_MASK_WITHOUT_CRC, mmc_drv_obj.response);
+	result = emmc_exec_cmd(EMMC_R1_ERROR_MASK_WITHOUT_CRC,
+			       mmc_drv_obj.response);
 	if (result != EMMC_SUCCESS) {
 		emmc_write_error_info_func_no(EMMC_FUNCNO_HIGH_SPEED);
 		return result;
@@ -293,17 +296,15 @@ static EMMC_ERROR_CODE emmc_clock_ctrl(uint8_t mode)
 
 	if (mode == TRUE) {
 		/* clock ON */
-		value =
-		    ((GETR_32(SD_CLK_CTRL) | MMC_SD_CLK_START) &
-		     SD_CLK_WRITE_MASK);
-		SETR_32(SD_CLK_CTRL, value);	/* on  */
+		value = ((GETR_32(SD_CLK_CTRL) | MMC_SD_CLK_START) &
+			 SD_CLK_WRITE_MASK);
+		SETR_32(SD_CLK_CTRL, value); /* on  */
 		mmc_drv_obj.clock_enable = TRUE;
 	} else {
 		/* clock OFF */
-		value =
-		    ((GETR_32(SD_CLK_CTRL) & MMC_SD_CLK_STOP) &
-		     SD_CLK_WRITE_MASK);
-		SETR_32(SD_CLK_CTRL, value);	/* off */
+		value = ((GETR_32(SD_CLK_CTRL) & MMC_SD_CLK_STOP) &
+			 SD_CLK_WRITE_MASK);
+		SETR_32(SD_CLK_CTRL, value); /* off */
 		mmc_drv_obj.clock_enable = FALSE;
 	}
 
@@ -327,12 +328,11 @@ static EMMC_ERROR_CODE emmc_bus_width(uint32_t width)
 	}
 
 	/* 2 = 8bit, 1 = 4bit, 0 =1bit */
-	mmc_drv_obj.bus_width = (HAL_MEMCARD_DATA_WIDTH) (width >> 2);
+	mmc_drv_obj.bus_width = (HAL_MEMCARD_DATA_WIDTH)(width >> 2);
 
 	/* CMD6 */
-	emmc_make_nontrans_cmd(CMD6_SWITCH,
-			       (EMMC_SWITCH_BUS_WIDTH_1 |
-				(mmc_drv_obj.bus_width << 8)));
+	emmc_make_nontrans_cmd(CMD6_SWITCH, (EMMC_SWITCH_BUS_WIDTH_1 |
+					     (mmc_drv_obj.bus_width << 8)));
 	result = emmc_exec_cmd(EMMC_R1_ERROR_MASK, mmc_drv_obj.response);
 	if (result != EMMC_SUCCESS) {
 		/* occurred error */
@@ -365,7 +365,7 @@ static EMMC_ERROR_CODE emmc_bus_width(uint32_t width)
 
 	/* CMD8 (EXT_CSD) */
 	emmc_make_trans_cmd(CMD8_SEND_EXT_CSD, 0x00000000,
-			    (uint32_t *) (&mmc_drv_obj.ext_csd_data[0]),
+			    (uint32_t *)(&mmc_drv_obj.ext_csd_data[0]),
 			    EMMC_MAX_EXT_CSD_LENGTH, HAL_MEMCARD_READ,
 			    HAL_MEMCARD_NOT_DMA);
 	result = emmc_exec_cmd(EMMC_R1_ERROR_MASK, mmc_drv_obj.response);
@@ -401,13 +401,14 @@ EMMC_ERROR_CODE emmc_select_partition(EMMC_PARTITION_ID id)
 
 	/* EXT_CSD[179] value */
 	partition_config =
-	    (uint32_t) mmc_drv_obj.ext_csd_data[EMMC_EXT_CSD_PARTITION_CONFIG];
+		(uint32_t)
+			mmc_drv_obj.ext_csd_data[EMMC_EXT_CSD_PARTITION_CONFIG];
 	if ((partition_config & PARTITION_ID_MASK) == id) {
 		result = EMMC_SUCCESS;
 	} else {
-
 		partition_config =
-		    (uint32_t) ((partition_config & ~PARTITION_ID_MASK) | id);
+			(uint32_t)((partition_config & ~PARTITION_ID_MASK) |
+				   id);
 		arg = EMMC_SWITCH_PARTITION_CONFIG | (partition_config << 8);
 
 		result = emmc_set_ext_csd(arg);
@@ -425,38 +426,38 @@ static void set_sd_clk(uint32_t clkDiv)
 	switch (clkDiv) {
 	case 1:
 		dataL |= 0x000000FFU;
-		break;		/* 1/1   */
+		break; /* 1/1   */
 	case 2:
 		dataL |= 0x00000000U;
-		break;		/* 1/2   */
+		break; /* 1/2   */
 	case 4:
 		dataL |= 0x00000001U;
-		break;		/* 1/4   */
+		break; /* 1/4   */
 	case 8:
 		dataL |= 0x00000002U;
-		break;		/* 1/8   */
+		break; /* 1/8   */
 	case 16:
 		dataL |= 0x00000004U;
-		break;		/* 1/16  */
+		break; /* 1/16  */
 	case 32:
 		dataL |= 0x00000008U;
-		break;		/* 1/32  */
+		break; /* 1/32  */
 	case 64:
 		dataL |= 0x00000010U;
-		break;		/* 1/64  */
+		break; /* 1/64  */
 	case 128:
 		dataL |= 0x00000020U;
-		break;		/* 1/128 */
+		break; /* 1/128 */
 	case 256:
 		dataL |= 0x00000040U;
-		break;		/* 1/256 */
+		break; /* 1/256 */
 	case 512:
 		dataL |= 0x00000080U;
-		break;		/* 1/512 */
+		break; /* 1/512 */
 	}
 
 	SETR_32(SD_CLK_CTRL, dataL);
-	mmc_drv_obj.current_freq = (uint32_t) clkDiv;
+	mmc_drv_obj.current_freq = (uint32_t)clkDiv;
 }
 
 static void emmc_get_partition_access(void)
@@ -466,20 +467,21 @@ static void emmc_get_partition_access(void)
 
 	reg = mmio_read_32(RCAR_PRR) & (PRR_PRODUCT_MASK | PRR_CUT_MASK);
 	if ((reg == PRR_PRODUCT_H3_CUT20) || (reg == PRR_PRODUCT_M3_CUT11)) {
-		SETR_32(SD_OPTION, 0x000060EEU);	/* 8 bits width */
+		SETR_32(SD_OPTION, 0x000060EEU); /* 8 bits width */
 		/* CMD8 (EXT_CSD) */
 		emmc_make_trans_cmd(CMD8_SEND_EXT_CSD, 0x00000000U,
-				    (uint32_t *) (&mmc_drv_obj.ext_csd_data[0]),
-				    EMMC_MAX_EXT_CSD_LENGTH,
-				    HAL_MEMCARD_READ, HAL_MEMCARD_NOT_DMA);
+				    (uint32_t *)(&mmc_drv_obj.ext_csd_data[0]),
+				    EMMC_MAX_EXT_CSD_LENGTH, HAL_MEMCARD_READ,
+				    HAL_MEMCARD_NOT_DMA);
 		mmc_drv_obj.get_partition_access_flag = TRUE;
 		result =
-		    emmc_exec_cmd(EMMC_R1_ERROR_MASK, mmc_drv_obj.response);
+			emmc_exec_cmd(EMMC_R1_ERROR_MASK, mmc_drv_obj.response);
 		mmc_drv_obj.get_partition_access_flag = FALSE;
 		if (result == EMMC_SUCCESS) {
 			mmc_drv_obj.partition_access =
-			    (EMMC_PARTITION_ID) (mmc_drv_obj.ext_csd_data[179]
-						 & PARTITION_ID_MASK);
+				(EMMC_PARTITION_ID)(mmc_drv_obj
+							    .ext_csd_data[179] &
+						    PARTITION_ID_MASK);
 		} else if (result == EMMC_ERR_CMD_TIMEOUT) {
 			mmc_drv_obj.partition_access = PARTITION_ID_BOOT_1;
 		} else {
@@ -487,16 +489,17 @@ static void emmc_get_partition_access(void)
 					      result);
 			panic();
 		}
-		SETR_32(SD_OPTION, 0x0000C0EEU);	/* Initialize */
+		SETR_32(SD_OPTION, 0x0000C0EEU); /* Initialize */
 	}
 }
 
 static uint32_t emmc_calc_tran_speed(uint32_t *freq)
 {
-	const uint32_t unit[8] = { 10000U, 100000U, 1000000U, 10000000U,
-				   0U, 0U, 0U, 0U }; /* frequency unit (1/10) */
-	const uint32_t mult[16] = { 0U, 10U, 12U, 13U, 15U, 20U, 26U, 30U, 35U,
-				    40U, 45U, 52U, 55U, 60U, 70U, 80U };
+	const uint32_t unit[8] = {
+		10000U, 100000U, 1000000U, 10000000U, 0U, 0U, 0U, 0U
+	}; /* frequency unit (1/10) */
+	const uint32_t mult[16] = { 0U,	 10U, 12U, 13U, 15U, 20U, 26U, 30U,
+				    35U, 40U, 45U, 52U, 55U, 60U, 70U, 80U };
 	uint32_t tran_speed = EMMC_CSD_TRAN_SPEED();
 	uint32_t max_freq;
 	uint32_t result;
@@ -509,10 +512,9 @@ static uint32_t emmc_calc_tran_speed(uint32_t *freq)
 	 */
 
 	result = 1;
-	max_freq =
-	    unit[tran_speed & EMMC_TRANSPEED_FREQ_UNIT_MASK] *
-	    mult[(tran_speed & EMMC_TRANSPEED_MULT_MASK) >>
-		 EMMC_TRANSPEED_MULT_SHIFT];
+	max_freq = unit[tran_speed & EMMC_TRANSPEED_FREQ_UNIT_MASK] *
+		   mult[(tran_speed & EMMC_TRANSPEED_MULT_MASK) >>
+			EMMC_TRANSPEED_MULT_SHIFT];
 
 	if (max_freq == 0) {
 		result = 0;
@@ -531,42 +533,42 @@ static uint32_t emmc_calc_tran_speed(uint32_t *freq)
 
 static uint32_t emmc_set_timeout_register_value(uint32_t freq)
 {
-	uint32_t timeout_cnt;	/* SD_OPTION   - Timeout Counter  */
+	uint32_t timeout_cnt; /* SD_OPTION   - Timeout Counter  */
 
 	switch (freq) {
 	case 1U:
 		timeout_cnt = 0xE0U;
-		break;		/* SDCLK * 2^27 */
+		break; /* SDCLK * 2^27 */
 	case 2U:
 		timeout_cnt = 0xE0U;
-		break;		/* SDCLK * 2^27 */
+		break; /* SDCLK * 2^27 */
 	case 4U:
 		timeout_cnt = 0xD0U;
-		break;		/* SDCLK * 2^26 */
+		break; /* SDCLK * 2^26 */
 	case 8U:
 		timeout_cnt = 0xC0U;
-		break;		/* SDCLK * 2^25 */
+		break; /* SDCLK * 2^25 */
 	case 16U:
 		timeout_cnt = 0xB0U;
-		break;		/* SDCLK * 2^24 */
+		break; /* SDCLK * 2^24 */
 	case 32U:
 		timeout_cnt = 0xA0U;
-		break;		/* SDCLK * 2^23 */
+		break; /* SDCLK * 2^23 */
 	case 64U:
 		timeout_cnt = 0x90U;
-		break;		/* SDCLK * 2^22 */
+		break; /* SDCLK * 2^22 */
 	case 128U:
 		timeout_cnt = 0x80U;
-		break;		/* SDCLK * 2^21 */
+		break; /* SDCLK * 2^21 */
 	case 256U:
 		timeout_cnt = 0x70U;
-		break;		/* SDCLK * 2^20 */
+		break; /* SDCLK * 2^20 */
 	case 512U:
 		timeout_cnt = 0x70U;
-		break;		/* SDCLK * 2^20 */
+		break; /* SDCLK * 2^20 */
 	default:
 		timeout_cnt = 0xE0U;
-		break;		/* SDCLK * 2^27 */
+		break; /* SDCLK * 2^27 */
 	}
 
 	return timeout_cnt;
@@ -592,7 +594,7 @@ EMMC_ERROR_CODE emmc_set_ext_csd(uint32_t arg)
 
 	/* CMD8 (EXT_CSD) */
 	emmc_make_trans_cmd(CMD8_SEND_EXT_CSD, 0x00000000,
-			    (uint32_t *) (&mmc_drv_obj.ext_csd_data[0]),
+			    (uint32_t *)(&mmc_drv_obj.ext_csd_data[0]),
 			    EMMC_MAX_EXT_CSD_LENGTH, HAL_MEMCARD_READ,
 			    HAL_MEMCARD_NOT_DMA);
 	result = emmc_exec_cmd(EMMC_R1_ERROR_MASK, mmc_drv_obj.response);
@@ -611,15 +613,15 @@ EMMC_ERROR_CODE emmc_set_request_mmc_clock(uint32_t *freq)
 	}
 
 	/* state check */
-	if ((mmc_drv_obj.initialize != TRUE)
-	    || (mmc_drv_obj.card_power_enable != TRUE)) {
+	if ((mmc_drv_obj.initialize != TRUE) ||
+	    (mmc_drv_obj.card_power_enable != TRUE)) {
 		emmc_write_error_info(EMMC_FUNCNO_SET_CLOCK, EMMC_ERR_STATE);
 		return EMMC_ERR_STATE;
 	}
 
 	/* clock is already running in the desired frequency. */
-	if ((mmc_drv_obj.clock_enable == TRUE)
-	    && (mmc_drv_obj.current_freq == *freq)) {
+	if ((mmc_drv_obj.clock_enable == TRUE) &&
+	    (mmc_drv_obj.current_freq == *freq)) {
 		return EMMC_SUCCESS;
 	}
 
@@ -633,7 +635,7 @@ EMMC_ERROR_CODE emmc_set_request_mmc_clock(uint32_t *freq)
 	set_sd_clk(*freq);
 	mmc_drv_obj.clock_enable = FALSE;
 
-	return emmc_clock_ctrl(TRUE);	/* clock on */
+	return emmc_clock_ctrl(TRUE); /* clock on */
 }
 
 EMMC_ERROR_CODE rcar_emmc_mount(void)
@@ -641,10 +643,9 @@ EMMC_ERROR_CODE rcar_emmc_mount(void)
 	EMMC_ERROR_CODE result;
 
 	/* state check */
-	if ((mmc_drv_obj.initialize != TRUE)
-	    || (mmc_drv_obj.card_power_enable != TRUE)
-	    || ((GETR_32(SD_INFO2) & SD_INFO2_CBSY) != 0)
-	    ) {
+	if ((mmc_drv_obj.initialize != TRUE) ||
+	    (mmc_drv_obj.card_power_enable != TRUE) ||
+	    ((GETR_32(SD_INFO2) & SD_INFO2_CBSY) != 0)) {
 		emmc_write_error_info(EMMC_FUNCNO_MOUNT, EMMC_ERR_STATE);
 		return EMMC_ERR_STATE;
 	}

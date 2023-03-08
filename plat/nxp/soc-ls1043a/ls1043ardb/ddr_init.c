@@ -8,9 +8,9 @@
 
 #include <common/debug.h>
 #include <ddr.h>
+#include <errata.h>
 #include <lib/utils.h>
 
-#include <errata.h>
 #include <platform_def.h>
 
 #ifdef CONFIG_STATIC_DDR
@@ -58,13 +58,10 @@ uint64_t board_static_ddr(struct ddr_info *priv)
 }
 
 #else
-static const struct rc_timing rcz[] = {
-	{1600, 12, 7},
-	{}
-};
+static const struct rc_timing rcz[] = { { 1600, 12, 7 }, {} };
 
 static const struct board_timing ram[] = {
-	{0x1f, rcz, 0x00020100, 0},
+	{ 0x1f, rcz, 0x00020100, 0 },
 };
 
 int ddr_board_options(struct ddr_info *priv)
@@ -77,10 +74,9 @@ int ddr_board_options(struct ddr_info *priv)
 		return ret;
 
 	popts->cpo_sample = U(0x46);
-	popts->ddr_cdr1 = DDR_CDR1_DHC_EN |
-			  DDR_CDR1_ODT(DDR_CDR_ODT_80ohm);
+	popts->ddr_cdr1 = DDR_CDR1_DHC_EN | DDR_CDR1_ODT(DDR_CDR_ODT_80ohm);
 	popts->ddr_cdr2 = DDR_CDR2_ODT(DDR_CDR_ODT_80ohm) |
-			  DDR_CDR2_VREF_OVRD(70);	/* Vref = 70% */
+			  DDR_CDR2_VREF_OVRD(70); /* Vref = 70% */
 
 	return 0;
 }
@@ -119,8 +115,7 @@ struct dimm_params ddr_raw_timing = {
 	.rc = U(0x1f),
 };
 
-int ddr_get_ddr_params(struct dimm_params *pdimm,
-			    struct ddr_conf *conf)
+int ddr_get_ddr_params(struct dimm_params *pdimm, struct ddr_conf *conf)
 {
 	static const char dimm_model[] = "Fixed DDR on board";
 

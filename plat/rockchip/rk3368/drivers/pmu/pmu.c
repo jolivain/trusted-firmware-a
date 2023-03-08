@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,20 +7,19 @@
 #include <assert.h>
 #include <errno.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
+#include <ddr_rk3368.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-#include <plat/common/platform.h>
-
-#include <ddr_rk3368.h>
 #include <plat_private.h>
 #include <pmu.h>
 #include <pmu_com.h>
 #include <rk3368_def.h>
 #include <soc.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 DEFINE_BAKERY_LOCK(rockchip_pd_lock);
 
@@ -33,8 +32,8 @@ void rk3368_flash_l2_b(void)
 	regs_updata_bit_set(PMU_BASE + PMU_SFT_CON, pmu_sft_l2flsh_clst_b);
 	dsb();
 
-	while (!(mmio_read_32(PMU_BASE + PMU_CORE_PWR_ST)
-		& BIT(clst_b_l2_flsh_done))) {
+	while (!(mmio_read_32(PMU_BASE + PMU_CORE_PWR_ST) &
+		 BIT(clst_b_l2_flsh_done))) {
 		wait_cnt++;
 		if (!(wait_cnt % MAX_WAIT_CONUT))
 			WARN("%s:reg %x,wait\n", __func__,
@@ -110,8 +109,7 @@ static inline int rk3368_pmu_bus_idle(uint32_t req, uint32_t idle)
 
 	case bus_ide_req_vio:
 		idle_mask = BIT(pmu_idle_ack_vio) | BIT(pmu_idle_vio);
-		idle_target = (pmu_idle_ack_vio) |
-			      (idle << pmu_idle_vio);
+		idle_target = (pmu_idle_ack_vio) | (idle << pmu_idle_vio);
 		break;
 
 	case bus_ide_req_alive:
@@ -145,14 +143,14 @@ static inline int rk3368_pmu_bus_idle(uint32_t req, uint32_t idle)
 
 	val = mmio_read_32(PMU_BASE + PMU_BUS_IDE_REQ);
 	if (idle)
-		val |=	mask;
+		val |= mask;
 	else
 		val &= ~mask;
 
 	mmio_write_32(PMU_BASE + PMU_BUS_IDE_REQ, val);
 
-	while ((mmio_read_32(PMU_BASE +
-	       PMU_BUS_IDE_ST) & idle_mask) != idle_target) {
+	while ((mmio_read_32(PMU_BASE + PMU_BUS_IDE_ST) & idle_mask) !=
+	       idle_target) {
 		wait_cnt++;
 		if (!(wait_cnt % MAX_WAIT_CONUT))
 			WARN("%s:st=%x(%x)\n", __func__,
@@ -173,8 +171,8 @@ static void pmu_scu_b_pwrdn(void)
 {
 	uint32_t wait_cnt = 0;
 
-	if ((mmio_read_32(PMU_BASE + PMU_PWRDN_ST) &
-	     PM_PWRDM_CPUSB_MSK) != PM_PWRDM_CPUSB_MSK) {
+	if ((mmio_read_32(PMU_BASE + PMU_PWRDN_ST) & PM_PWRDM_CPUSB_MSK) !=
+	    PM_PWRDM_CPUSB_MSK) {
 		ERROR("%s: not all cpus is off\n", __func__);
 		return;
 	}
@@ -183,8 +181,8 @@ static void pmu_scu_b_pwrdn(void)
 
 	regs_updata_bit_set(PMU_BASE + PMU_SFT_CON, pmu_sft_acinactm_clst_b);
 
-	while (!(mmio_read_32(PMU_BASE +
-	       PMU_CORE_PWR_ST) & BIT(clst_b_l2_wfi))) {
+	while (!(mmio_read_32(PMU_BASE + PMU_CORE_PWR_ST) &
+		 BIT(clst_b_l2_wfi))) {
 		wait_cnt++;
 		if (!(wait_cnt % MAX_WAIT_CONUT))
 			ERROR("%s:wait cluster-b l2(%x)\n", __func__,
@@ -197,17 +195,12 @@ static void pmu_sleep_mode_config(void)
 {
 	uint32_t pwrmd_core, pwrmd_com;
 
-	pwrmd_core = BIT(pmu_mdcr_cpu0_pd) |
-		     BIT(pmu_mdcr_scu_l_pd) |
-		     BIT(pmu_mdcr_l2_flush) |
-		     BIT(pmu_mdcr_l2_idle) |
-		     BIT(pmu_mdcr_clr_clst_l) |
-		     BIT(pmu_mdcr_clr_core) |
-		     BIT(pmu_mdcr_clr_cci) |
-		     BIT(pmu_mdcr_core_pd);
+	pwrmd_core = BIT(pmu_mdcr_cpu0_pd) | BIT(pmu_mdcr_scu_l_pd) |
+		     BIT(pmu_mdcr_l2_flush) | BIT(pmu_mdcr_l2_idle) |
+		     BIT(pmu_mdcr_clr_clst_l) | BIT(pmu_mdcr_clr_core) |
+		     BIT(pmu_mdcr_clr_cci) | BIT(pmu_mdcr_core_pd);
 
-	pwrmd_com = BIT(pmu_mode_en) |
-		    BIT(pmu_mode_sref_enter) |
+	pwrmd_com = BIT(pmu_mode_en) | BIT(pmu_mode_sref_enter) |
 		    BIT(pmu_mode_pwr_off);
 
 	regs_updata_bit_set(PMU_BASE + PMU_WKUP_CFG2, pmu_cluster_l_wkup_en);
@@ -231,16 +224,16 @@ static void pmu_set_sleep_mode(void)
 	pmu_scu_b_pwrdn();
 	mmio_write_32(SGRF_BASE + SGRF_SOC_CON(1),
 		      ((uintptr_t)&pmu_cpuson_entrypoint >>
-			CPU_BOOT_ADDR_ALIGN) | CPU_BOOT_ADDR_WMASK);
+		       CPU_BOOT_ADDR_ALIGN) |
+			      CPU_BOOT_ADDR_WMASK);
 	mmio_write_32(SGRF_BASE + SGRF_SOC_CON(2),
 		      ((uintptr_t)&pmu_cpuson_entrypoint >>
-			CPU_BOOT_ADDR_ALIGN) | CPU_BOOT_ADDR_WMASK);
+		       CPU_BOOT_ADDR_ALIGN) |
+			      CPU_BOOT_ADDR_WMASK);
 }
 
-static int cpus_id_power_domain(uint32_t cluster,
-				uint32_t cpu,
-				uint32_t pd_state,
-				uint32_t wfie_msk)
+static int cpus_id_power_domain(uint32_t cluster, uint32_t cpu,
+				uint32_t pd_state, uint32_t wfie_msk)
 {
 	uint32_t pd;
 	uint64_t mpidr;
@@ -313,14 +306,14 @@ int rockchip_soc_cores_pwr_dm_on(unsigned long mpidr, uint64_t entrypoint)
 	/* Switch boot addr to pmusram */
 	mmio_write_32(SGRF_BASE + SGRF_SOC_CON(1 + cluster),
 		      (cpu_warm_boot_addr >> CPU_BOOT_ADDR_ALIGN) |
-		      CPU_BOOT_ADDR_WMASK);
+			      CPU_BOOT_ADDR_WMASK);
 	dsb();
 
 	cpus_id_power_domain(cluster, cpu, pmu_pd_on, CKECK_WFEI_MSK);
 
 	mmio_write_32(SGRF_BASE + SGRF_SOC_CON(1 + cluster),
 		      (COLD_BOOT_BASE >> CPU_BOOT_ADDR_ALIGN) |
-		      CPU_BOOT_ADDR_WMASK);
+			      CPU_BOOT_ADDR_WMASK);
 
 	return 0;
 }
@@ -334,10 +327,10 @@ int rockchip_soc_sys_pwr_dm_resume(void)
 {
 	mmio_write_32(SGRF_BASE + SGRF_SOC_CON(1),
 		      (COLD_BOOT_BASE >> CPU_BOOT_ADDR_ALIGN) |
-		      CPU_BOOT_ADDR_WMASK);
+			      CPU_BOOT_ADDR_WMASK);
 	mmio_write_32(SGRF_BASE + SGRF_SOC_CON(2),
 		      (COLD_BOOT_BASE >> CPU_BOOT_ADDR_ALIGN) |
-		      CPU_BOOT_ADDR_WMASK);
+			      CPU_BOOT_ADDR_WMASK);
 	pm_plls_resume();
 	pmu_scu_b_pwrup();
 

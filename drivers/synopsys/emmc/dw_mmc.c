@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -14,110 +14,109 @@
 #include <drivers/delay_timer.h>
 #include <drivers/mmc.h>
 #include <drivers/synopsys/dw_mmc.h>
-#include <lib/utils_def.h>
 #include <lib/mmio.h>
+#include <lib/utils_def.h>
 
-#define DWMMC_CTRL			(0x00)
-#define CTRL_IDMAC_EN			(1 << 25)
-#define CTRL_DMA_EN			(1 << 5)
-#define CTRL_INT_EN			(1 << 4)
-#define CTRL_DMA_RESET			(1 << 2)
-#define CTRL_FIFO_RESET			(1 << 1)
-#define CTRL_RESET			(1 << 0)
-#define CTRL_RESET_ALL			(CTRL_DMA_RESET | CTRL_FIFO_RESET | \
-					 CTRL_RESET)
+#define DWMMC_CTRL (0x00)
+#define CTRL_IDMAC_EN (1 << 25)
+#define CTRL_DMA_EN (1 << 5)
+#define CTRL_INT_EN (1 << 4)
+#define CTRL_DMA_RESET (1 << 2)
+#define CTRL_FIFO_RESET (1 << 1)
+#define CTRL_RESET (1 << 0)
+#define CTRL_RESET_ALL (CTRL_DMA_RESET | CTRL_FIFO_RESET | CTRL_RESET)
 
-#define DWMMC_PWREN			(0x04)
-#define DWMMC_CLKDIV			(0x08)
-#define DWMMC_CLKSRC			(0x0c)
-#define DWMMC_CLKENA			(0x10)
-#define DWMMC_TMOUT			(0x14)
-#define DWMMC_CTYPE			(0x18)
-#define CTYPE_8BIT			(1 << 16)
-#define CTYPE_4BIT			(1)
-#define CTYPE_1BIT			(0)
+#define DWMMC_PWREN (0x04)
+#define DWMMC_CLKDIV (0x08)
+#define DWMMC_CLKSRC (0x0c)
+#define DWMMC_CLKENA (0x10)
+#define DWMMC_TMOUT (0x14)
+#define DWMMC_CTYPE (0x18)
+#define CTYPE_8BIT (1 << 16)
+#define CTYPE_4BIT (1)
+#define CTYPE_1BIT (0)
 
-#define DWMMC_BLKSIZ			(0x1c)
-#define DWMMC_BYTCNT			(0x20)
-#define DWMMC_INTMASK			(0x24)
-#define INT_EBE				(1 << 15)
-#define INT_SBE				(1 << 13)
-#define INT_HLE				(1 << 12)
-#define INT_FRUN			(1 << 11)
-#define INT_DRT				(1 << 9)
-#define INT_RTO				(1 << 8)
-#define INT_DCRC			(1 << 7)
-#define INT_RCRC			(1 << 6)
-#define INT_RXDR			(1 << 5)
-#define INT_TXDR			(1 << 4)
-#define INT_DTO				(1 << 3)
-#define INT_CMD_DONE			(1 << 2)
-#define INT_RE				(1 << 1)
+#define DWMMC_BLKSIZ (0x1c)
+#define DWMMC_BYTCNT (0x20)
+#define DWMMC_INTMASK (0x24)
+#define INT_EBE (1 << 15)
+#define INT_SBE (1 << 13)
+#define INT_HLE (1 << 12)
+#define INT_FRUN (1 << 11)
+#define INT_DRT (1 << 9)
+#define INT_RTO (1 << 8)
+#define INT_DCRC (1 << 7)
+#define INT_RCRC (1 << 6)
+#define INT_RXDR (1 << 5)
+#define INT_TXDR (1 << 4)
+#define INT_DTO (1 << 3)
+#define INT_CMD_DONE (1 << 2)
+#define INT_RE (1 << 1)
 
-#define DWMMC_CMDARG			(0x28)
-#define DWMMC_CMD			(0x2c)
-#define CMD_START			(U(1) << 31)
-#define CMD_USE_HOLD_REG		(1 << 29)	/* 0 if SDR50/100 */
-#define CMD_UPDATE_CLK_ONLY		(1 << 21)
-#define CMD_SEND_INIT			(1 << 15)
-#define CMD_STOP_ABORT_CMD		(1 << 14)
-#define CMD_WAIT_PRVDATA_COMPLETE	(1 << 13)
-#define CMD_WRITE			(1 << 10)
-#define CMD_DATA_TRANS_EXPECT		(1 << 9)
-#define CMD_CHECK_RESP_CRC		(1 << 8)
-#define CMD_RESP_LEN			(1 << 7)
-#define CMD_RESP_EXPECT			(1 << 6)
-#define CMD(x)				(x & 0x3f)
+#define DWMMC_CMDARG (0x28)
+#define DWMMC_CMD (0x2c)
+#define CMD_START (U(1) << 31)
+#define CMD_USE_HOLD_REG (1 << 29) /* 0 if SDR50/100 */
+#define CMD_UPDATE_CLK_ONLY (1 << 21)
+#define CMD_SEND_INIT (1 << 15)
+#define CMD_STOP_ABORT_CMD (1 << 14)
+#define CMD_WAIT_PRVDATA_COMPLETE (1 << 13)
+#define CMD_WRITE (1 << 10)
+#define CMD_DATA_TRANS_EXPECT (1 << 9)
+#define CMD_CHECK_RESP_CRC (1 << 8)
+#define CMD_RESP_LEN (1 << 7)
+#define CMD_RESP_EXPECT (1 << 6)
+#define CMD(x) (x & 0x3f)
 
-#define DWMMC_RESP0			(0x30)
-#define DWMMC_RESP1			(0x34)
-#define DWMMC_RESP2			(0x38)
-#define DWMMC_RESP3			(0x3c)
-#define DWMMC_RINTSTS			(0x44)
-#define DWMMC_STATUS			(0x48)
-#define STATUS_DATA_BUSY		(1 << 9)
+#define DWMMC_RESP0 (0x30)
+#define DWMMC_RESP1 (0x34)
+#define DWMMC_RESP2 (0x38)
+#define DWMMC_RESP3 (0x3c)
+#define DWMMC_RINTSTS (0x44)
+#define DWMMC_STATUS (0x48)
+#define STATUS_DATA_BUSY (1 << 9)
 
-#define DWMMC_FIFOTH			(0x4c)
-#define FIFOTH_TWMARK(x)		(x & 0xfff)
-#define FIFOTH_RWMARK(x)		((x & 0x1ff) << 16)
-#define FIFOTH_DMA_BURST_SIZE(x)	((x & 0x7) << 28)
+#define DWMMC_FIFOTH (0x4c)
+#define FIFOTH_TWMARK(x) (x & 0xfff)
+#define FIFOTH_RWMARK(x) ((x & 0x1ff) << 16)
+#define FIFOTH_DMA_BURST_SIZE(x) ((x & 0x7) << 28)
 
-#define DWMMC_DEBNCE			(0x64)
-#define DWMMC_BMOD			(0x80)
-#define BMOD_ENABLE			(1 << 7)
-#define BMOD_FB				(1 << 1)
-#define BMOD_SWRESET			(1 << 0)
+#define DWMMC_DEBNCE (0x64)
+#define DWMMC_BMOD (0x80)
+#define BMOD_ENABLE (1 << 7)
+#define BMOD_FB (1 << 1)
+#define BMOD_SWRESET (1 << 0)
 
-#define DWMMC_DBADDR			(0x88)
-#define DWMMC_IDSTS			(0x8c)
-#define DWMMC_IDINTEN			(0x90)
-#define DWMMC_CARDTHRCTL		(0x100)
-#define CARDTHRCTL_RD_THR(x)		((x & 0xfff) << 16)
-#define CARDTHRCTL_RD_THR_EN		(1 << 0)
+#define DWMMC_DBADDR (0x88)
+#define DWMMC_IDSTS (0x8c)
+#define DWMMC_IDINTEN (0x90)
+#define DWMMC_CARDTHRCTL (0x100)
+#define CARDTHRCTL_RD_THR(x) ((x & 0xfff) << 16)
+#define CARDTHRCTL_RD_THR_EN (1 << 0)
 
-#define IDMAC_DES0_DIC			(1 << 1)
-#define IDMAC_DES0_LD			(1 << 2)
-#define IDMAC_DES0_FS			(1 << 3)
-#define IDMAC_DES0_CH			(1 << 4)
-#define IDMAC_DES0_ER			(1 << 5)
-#define IDMAC_DES0_CES			(1 << 30)
-#define IDMAC_DES0_OWN			(U(1) << 31)
-#define IDMAC_DES1_BS1(x)		((x) & 0x1fff)
-#define IDMAC_DES2_BS2(x)		(((x) & 0x1fff) << 13)
+#define IDMAC_DES0_DIC (1 << 1)
+#define IDMAC_DES0_LD (1 << 2)
+#define IDMAC_DES0_FS (1 << 3)
+#define IDMAC_DES0_CH (1 << 4)
+#define IDMAC_DES0_ER (1 << 5)
+#define IDMAC_DES0_CES (1 << 30)
+#define IDMAC_DES0_OWN (U(1) << 31)
+#define IDMAC_DES1_BS1(x) ((x)&0x1fff)
+#define IDMAC_DES2_BS2(x) (((x)&0x1fff) << 13)
 
-#define DWMMC_DMA_MAX_BUFFER_SIZE	(512 * 8)
+#define DWMMC_DMA_MAX_BUFFER_SIZE (512 * 8)
 
-#define DWMMC_8BIT_MODE			(1 << 6)
+#define DWMMC_8BIT_MODE (1 << 6)
 
-#define DWMMC_ADDRESS_MASK		U(0x0f)
+#define DWMMC_ADDRESS_MASK U(0x0f)
 
-#define TIMEOUT				100000
+#define TIMEOUT 100000
 
 struct dw_idmac_desc {
-	unsigned int	des0;
-	unsigned int	des1;
-	unsigned int	des2;
-	unsigned int	des3;
+	unsigned int des0;
+	unsigned int des1;
+	unsigned int des2;
+	unsigned int des3;
 };
 
 static void dw_init(void);
@@ -128,12 +127,12 @@ static int dw_read(int lba, uintptr_t buf, size_t size);
 static int dw_write(int lba, uintptr_t buf, size_t size);
 
 static const struct mmc_ops dw_mmc_ops = {
-	.init		= dw_init,
-	.send_cmd	= dw_send_cmd,
-	.set_ios	= dw_set_ios,
-	.prepare	= dw_prepare,
-	.read		= dw_read,
-	.write		= dw_write,
+	.init = dw_init,
+	.send_cmd = dw_send_cmd,
+	.set_ios = dw_set_ios,
+	.prepare = dw_prepare,
+	.read = dw_read,
+	.write = dw_write,
 };
 
 static dw_mmc_params_t dw_params;
@@ -144,7 +143,7 @@ static void dw_update_clk(void)
 
 	mmio_write_32(dw_params.reg_base + DWMMC_CMD,
 		      CMD_WAIT_PRVDATA_COMPLETE | CMD_UPDATE_CLK_ONLY |
-		      CMD_START);
+			      CMD_START);
 	while (1) {
 		data = mmio_read_32(dw_params.reg_base + DWMMC_CMD);
 		if ((data & CMD_START) == 0)
@@ -270,8 +269,7 @@ static int dw_send_cmd(struct mmc_cmd *cmd)
 	case 0:
 		break;
 	case MMC_RESPONSE_R2:
-		op |= CMD_RESP_EXPECT | CMD_CHECK_RESP_CRC |
-		      CMD_RESP_LEN;
+		op |= CMD_RESP_EXPECT | CMD_CHECK_RESP_CRC | CMD_RESP_LEN;
 		break;
 	case MMC_RESPONSE_R3:
 		op |= CMD_RESP_EXPECT;
@@ -291,8 +289,8 @@ static int dw_send_cmd(struct mmc_cmd *cmd)
 	mmio_write_32(base + DWMMC_CMDARG, cmd->cmd_arg);
 	mmio_write_32(base + DWMMC_CMD, op | cmd->cmd_idx);
 
-	err_mask = INT_EBE | INT_HLE | INT_RTO | INT_RCRC | INT_RE |
-		   INT_DCRC | INT_DRT | INT_SBE;
+	err_mask = INT_EBE | INT_HLE | INT_RTO | INT_RCRC | INT_RE | INT_DCRC |
+		   INT_DRT | INT_SBE;
 	timeout = TIMEOUT;
 	do {
 		udelay(500);
@@ -345,8 +343,7 @@ static int dw_prepare(int lba, uintptr_t buf, size_t size)
 	int desc_cnt, i, last;
 	uintptr_t base;
 
-	assert(((buf & DWMMC_ADDRESS_MASK) == 0) &&
-	       (dw_params.desc_size > 0) &&
+	assert(((buf & DWMMC_ADDRESS_MASK) == 0) && (dw_params.desc_size > 0) &&
 	       ((dw_params.reg_base & MMC_BLOCK_MASK) == 0) &&
 	       ((dw_params.desc_base & MMC_BLOCK_MASK) == 0) &&
 	       ((dw_params.desc_size & MMC_BLOCK_MASK) == 0));
@@ -380,15 +377,14 @@ static int dw_prepare(int lba, uintptr_t buf, size_t size)
 	last = desc_cnt - 1;
 	(desc + last)->des0 |= IDMAC_DES0_LD;
 	(desc + last)->des0 &= ~(IDMAC_DES0_DIC | IDMAC_DES0_CH);
-	(desc + last)->des1 = IDMAC_DES1_BS1(size - (last *
-				  DWMMC_DMA_MAX_BUFFER_SIZE));
+	(desc + last)->des1 =
+		IDMAC_DES1_BS1(size - (last * DWMMC_DMA_MAX_BUFFER_SIZE));
 	/* set next descriptor address as 0 */
 	(desc + last)->des3 = 0;
 
 	mmio_write_32(base + DWMMC_DBADDR, dw_params.desc_base);
 	flush_dcache_range(dw_params.desc_base,
 			   desc_cnt * DWMMC_DMA_MAX_BUFFER_SIZE);
-
 
 	return 0;
 }
@@ -415,12 +411,10 @@ static int dw_write(int lba, uintptr_t buf, size_t size)
 
 void dw_mmc_init(dw_mmc_params_t *params, struct mmc_device_info *info)
 {
-	assert((params != 0) &&
-	       ((params->reg_base & MMC_BLOCK_MASK) == 0) &&
+	assert((params != 0) && ((params->reg_base & MMC_BLOCK_MASK) == 0) &&
 	       ((params->desc_base & MMC_BLOCK_MASK) == 0) &&
 	       ((params->desc_size & MMC_BLOCK_MASK) == 0) &&
-	       (params->desc_size > 0) &&
-	       (params->clk_rate > 0) &&
+	       (params->desc_size > 0) && (params->clk_rate > 0) &&
 	       ((params->bus_width == MMC_BUS_WIDTH_1) ||
 		(params->bus_width == MMC_BUS_WIDTH_4) ||
 		(params->bus_width == MMC_BUS_WIDTH_8)));

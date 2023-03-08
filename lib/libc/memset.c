@@ -1,12 +1,12 @@
 /*
- * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <stddef.h>
-#include <string.h>
 #include <stdint.h>
+#include <string.h>
 
 void *memset(void *dst, int val, size_t count)
 {
@@ -42,7 +42,7 @@ void *memset(void *dst, int val, size_t count)
 
 	/* Handle the remaining part byte-per-byte. */
 	ptr = (uint8_t *)ptr64;
-	while (count-- > 0U)  {
+	while (count-- > 0U) {
 		*ptr = (uint8_t)val;
 		ptr++;
 	}

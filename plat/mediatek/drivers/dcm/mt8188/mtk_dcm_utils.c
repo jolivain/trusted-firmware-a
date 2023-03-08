@@ -8,20 +8,19 @@
 #include <lib/utils_def.h>
 #include <mtk_dcm_utils.h>
 
-#define MP_CPUSYS_TOP_ADB_DCM_REG0_MASK		BIT(17)
-#define MP_CPUSYS_TOP_ADB_DCM_REG1_MASK		(BIT(15) | BIT(16) | BIT(17) | \
-						 BIT(18) | BIT(21))
-#define MP_CPUSYS_TOP_ADB_DCM_REG2_MASK		(BIT(15) | BIT(16) | BIT(17) | BIT(18))
-#define MP_CPUSYS_TOP_ADB_DCM_REG0_ON		BIT(17)
-#define MP_CPUSYS_TOP_ADB_DCM_REG1_ON		(BIT(15) | BIT(16) | BIT(17) | \
-						 BIT(18) | BIT(21))
-#define MP_CPUSYS_TOP_ADB_DCM_REG2_ON		(BIT(15) | BIT(16) | BIT(17) | BIT(18))
-#define MP_CPUSYS_TOP_ADB_DCM_REG0_OFF		(0x0 << 17)
-#define MP_CPUSYS_TOP_ADB_DCM_REG1_OFF		((0x0 << 15) | (0x0 << 16) | \
-						 (0x0 << 17) | (0x0 << 18) | \
-						 (0x0 << 21))
-#define MP_CPUSYS_TOP_ADB_DCM_REG2_OFF		((0x0 << 15) | (0x0 << 16) | \
-						 (0x0 << 17) | (0x0 << 18))
+#define MP_CPUSYS_TOP_ADB_DCM_REG0_MASK BIT(17)
+#define MP_CPUSYS_TOP_ADB_DCM_REG1_MASK \
+	(BIT(15) | BIT(16) | BIT(17) | BIT(18) | BIT(21))
+#define MP_CPUSYS_TOP_ADB_DCM_REG2_MASK (BIT(15) | BIT(16) | BIT(17) | BIT(18))
+#define MP_CPUSYS_TOP_ADB_DCM_REG0_ON BIT(17)
+#define MP_CPUSYS_TOP_ADB_DCM_REG1_ON \
+	(BIT(15) | BIT(16) | BIT(17) | BIT(18) | BIT(21))
+#define MP_CPUSYS_TOP_ADB_DCM_REG2_ON (BIT(15) | BIT(16) | BIT(17) | BIT(18))
+#define MP_CPUSYS_TOP_ADB_DCM_REG0_OFF (0x0 << 17)
+#define MP_CPUSYS_TOP_ADB_DCM_REG1_OFF \
+	((0x0 << 15) | (0x0 << 16) | (0x0 << 17) | (0x0 << 18) | (0x0 << 21))
+#define MP_CPUSYS_TOP_ADB_DCM_REG2_OFF \
+	((0x0 << 15) | (0x0 << 16) | (0x0 << 17) | (0x0 << 18))
 
 bool dcm_mp_cpusys_top_adb_dcm_is_on(void)
 {
@@ -67,15 +66,15 @@ void dcm_mp_cpusys_top_adb_dcm(bool on)
 	}
 }
 
-#define MP_CPUSYS_TOP_APB_DCM_REG0_MASK	BIT(5)
-#define MP_CPUSYS_TOP_APB_DCM_REG1_MASK	BIT(8)
-#define MP_CPUSYS_TOP_APB_DCM_REG2_MASK	BIT(16)
-#define MP_CPUSYS_TOP_APB_DCM_REG0_ON	BIT(5)
-#define MP_CPUSYS_TOP_APB_DCM_REG1_ON	BIT(8)
-#define MP_CPUSYS_TOP_APB_DCM_REG2_ON	BIT(16)
-#define MP_CPUSYS_TOP_APB_DCM_REG0_OFF	(0x0 << 5)
-#define MP_CPUSYS_TOP_APB_DCM_REG1_OFF	(0x0 << 8)
-#define MP_CPUSYS_TOP_APB_DCM_REG2_OFF	(0x0 << 16)
+#define MP_CPUSYS_TOP_APB_DCM_REG0_MASK BIT(5)
+#define MP_CPUSYS_TOP_APB_DCM_REG1_MASK BIT(8)
+#define MP_CPUSYS_TOP_APB_DCM_REG2_MASK BIT(16)
+#define MP_CPUSYS_TOP_APB_DCM_REG0_ON BIT(5)
+#define MP_CPUSYS_TOP_APB_DCM_REG1_ON BIT(8)
+#define MP_CPUSYS_TOP_APB_DCM_REG2_ON BIT(16)
+#define MP_CPUSYS_TOP_APB_DCM_REG0_OFF (0x0 << 5)
+#define MP_CPUSYS_TOP_APB_DCM_REG1_OFF (0x0 << 8)
+#define MP_CPUSYS_TOP_APB_DCM_REG2_OFF (0x0 << 16)
 
 bool dcm_mp_cpusys_top_apb_dcm_is_on(void)
 {
@@ -123,9 +122,8 @@ void dcm_mp_cpusys_top_apb_dcm(bool on)
 
 #define MP_CPUSYS_TOP_BUS_PLL_DIV_DCM_REG0_MASK (BIT(11) | BIT(24) | BIT(25))
 #define MP_CPUSYS_TOP_BUS_PLL_DIV_DCM_REG0_ON (BIT(11) | BIT(24) | BIT(25))
-#define MP_CPUSYS_TOP_BUS_PLL_DIV_DCM_REG0_OFF ((0x0 << 11) | \
-						(0x0 << 24) | \
-						(0x0 << 25))
+#define MP_CPUSYS_TOP_BUS_PLL_DIV_DCM_REG0_OFF \
+	((0x0 << 11) | (0x0 << 24) | (0x0 << 25))
 
 bool dcm_mp_cpusys_top_bus_pll_div_dcm_is_on(void)
 {
@@ -149,9 +147,9 @@ void dcm_mp_cpusys_top_bus_pll_div_dcm(bool on)
 	}
 }
 
-#define MP_CPUSYS_TOP_CORE_STALL_DCM_REG0_MASK	BIT(0)
-#define MP_CPUSYS_TOP_CORE_STALL_DCM_REG0_ON	BIT(0)
-#define MP_CPUSYS_TOP_CORE_STALL_DCM_REG0_OFF	(0x0 << 0)
+#define MP_CPUSYS_TOP_CORE_STALL_DCM_REG0_MASK BIT(0)
+#define MP_CPUSYS_TOP_CORE_STALL_DCM_REG0_ON BIT(0)
+#define MP_CPUSYS_TOP_CORE_STALL_DCM_REG0_OFF (0x0 << 0)
 
 bool dcm_mp_cpusys_top_core_stall_dcm_is_on(void)
 {
@@ -175,9 +173,9 @@ void dcm_mp_cpusys_top_core_stall_dcm(bool on)
 	}
 }
 
-#define MP_CPUSYS_TOP_CPUBIU_DCM_REG0_MASK	(0xffff << 0)
-#define MP_CPUSYS_TOP_CPUBIU_DCM_REG0_ON	(0xffff << 0)
-#define MP_CPUSYS_TOP_CPUBIU_DCM_REG0_OFF	(0x0 << 0)
+#define MP_CPUSYS_TOP_CPUBIU_DCM_REG0_MASK (0xffff << 0)
+#define MP_CPUSYS_TOP_CPUBIU_DCM_REG0_ON (0xffff << 0)
+#define MP_CPUSYS_TOP_CPUBIU_DCM_REG0_OFF (0x0 << 0)
 
 bool dcm_mp_cpusys_top_cpubiu_dcm_is_on(void)
 {
@@ -253,9 +251,9 @@ void dcm_mp_cpusys_top_cpu_pll_div_1_dcm(bool on)
 	}
 }
 
-#define MP_CPUSYS_TOP_FCM_STALL_DCM_REG0_MASK	BIT(4)
-#define MP_CPUSYS_TOP_FCM_STALL_DCM_REG0_ON	BIT(4)
-#define MP_CPUSYS_TOP_FCM_STALL_DCM_REG0_OFF	(0x0 << 4)
+#define MP_CPUSYS_TOP_FCM_STALL_DCM_REG0_MASK BIT(4)
+#define MP_CPUSYS_TOP_FCM_STALL_DCM_REG0_ON BIT(4)
+#define MP_CPUSYS_TOP_FCM_STALL_DCM_REG0_OFF (0x0 << 4)
 
 bool dcm_mp_cpusys_top_fcm_stall_dcm_is_on(void)
 {
@@ -279,9 +277,9 @@ void dcm_mp_cpusys_top_fcm_stall_dcm(bool on)
 	}
 }
 
-#define MP_CPUSYS_TOP_LAST_COR_IDLE_DCM_REG0_MASK	BIT(31)
-#define MP_CPUSYS_TOP_LAST_COR_IDLE_DCM_REG0_ON		BIT(31)
-#define MP_CPUSYS_TOP_LAST_COR_IDLE_DCM_REG0_OFF	(0x0U << 31)
+#define MP_CPUSYS_TOP_LAST_COR_IDLE_DCM_REG0_MASK BIT(31)
+#define MP_CPUSYS_TOP_LAST_COR_IDLE_DCM_REG0_ON BIT(31)
+#define MP_CPUSYS_TOP_LAST_COR_IDLE_DCM_REG0_OFF (0x0U << 31)
 
 bool dcm_mp_cpusys_top_last_cor_idle_dcm_is_on(void)
 {
@@ -336,8 +334,8 @@ void dcm_mp_cpusys_top_misc_dcm(bool on)
 #define MP_CPUSYS_TOP_MP0_QDCM_REG0_ON BIT(3)
 #define MP_CPUSYS_TOP_MP0_QDCM_REG1_ON (BIT(0) | BIT(1) | BIT(2) | BIT(3))
 #define MP_CPUSYS_TOP_MP0_QDCM_REG0_OFF ((0x0 << 3))
-#define MP_CPUSYS_TOP_MP0_QDCM_REG1_OFF ((0x0 << 0) | (0x0 << 1) | \
-					 (0x0 << 2) | (0x0 << 3))
+#define MP_CPUSYS_TOP_MP0_QDCM_REG1_OFF \
+	((0x0 << 0) | (0x0 << 1) | (0x0 << 2) | (0x0 << 3))
 
 bool dcm_mp_cpusys_top_mp0_qdcm_is_on(void)
 {
@@ -376,8 +374,8 @@ void dcm_mp_cpusys_top_mp0_qdcm(bool on)
 
 #define CPCCFG_REG_EMI_WFIFO_REG0_MASK (BIT(0) | BIT(1) | BIT(2) | BIT(3))
 #define CPCCFG_REG_EMI_WFIFO_REG0_ON (BIT(0) | BIT(1) | BIT(2) | BIT(3))
-#define CPCCFG_REG_EMI_WFIFO_REG0_OFF ((0x0 << 0) | (0x0 << 1) | \
-				       (0x0 << 2) | (0x0 << 3))
+#define CPCCFG_REG_EMI_WFIFO_REG0_OFF \
+	((0x0 << 0) | (0x0 << 1) | (0x0 << 2) | (0x0 << 3))
 
 bool dcm_cpccfg_reg_emi_wfifo_is_on(void)
 {

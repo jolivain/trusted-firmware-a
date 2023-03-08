@@ -17,22 +17,22 @@ enum pmic_wrap_phase_id {
 
 /* IDX mapping, PMIC_WRAP_PHASE_ALLINONE */
 enum {
-	CMD_0,        /* 0x0 */
-	CMD_1,        /* 0x1 */
-	CMD_2,        /* 0x2 */
-	CMD_3,        /* 0x3 */
-	CMD_4,        /* 0x4 */
-	CMD_5,        /* 0x5 */
-	CMD_6,        /* 0x6 */
-	CMD_7,        /* 0x7 */
-	CMD_8,        /* 0x8 */
-	CMD_9,        /* 0x9 */
-	CMD_10,        /* 0xA */
-	CMD_11,        /* 0xB */
-	CMD_12,        /* 0xC */
-	CMD_13,        /* 0xD */
-	CMD_14,        /* 0xE */
-	CMD_15,        /* 0xF */
+	CMD_0, /* 0x0 */
+	CMD_1, /* 0x1 */
+	CMD_2, /* 0x2 */
+	CMD_3, /* 0x3 */
+	CMD_4, /* 0x4 */
+	CMD_5, /* 0x5 */
+	CMD_6, /* 0x6 */
+	CMD_7, /* 0x7 */
+	CMD_8, /* 0x8 */
+	CMD_9, /* 0x9 */
+	CMD_10, /* 0xA */
+	CMD_11, /* 0xB */
+	CMD_12, /* 0xC */
+	CMD_13, /* 0xD */
+	CMD_14, /* 0xE */
+	CMD_15, /* 0xF */
 	NR_IDX_ALL,
 };
 

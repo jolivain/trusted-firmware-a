@@ -1,11 +1,12 @@
 /*
- * Copyright (c) 2019-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <common/bl_common.h>
 #include <common/desc_image_load.h>
+
 #include <plat/common/platform.h>
 
 #pragma weak plat_flush_next_bl_params

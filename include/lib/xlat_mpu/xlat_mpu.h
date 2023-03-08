@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,7 +11,7 @@
 
 #include <lib/cassert.h>
 
-#define XLAT_TABLES_LIB_V2	1
+#define XLAT_TABLES_LIB_V2 1
 
 void enable_mpu_el2(unsigned int flags);
 void enable_mpu_direct_el2(unsigned int flags);

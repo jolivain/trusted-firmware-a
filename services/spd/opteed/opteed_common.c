@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -45,14 +45,12 @@ void opteed_init_optee_ep_state(struct entry_point_info *optee_entry_point,
 	SET_PARAM_HEAD(optee_entry_point, PARAM_EP, VERSION_1, ep_attr);
 	optee_entry_point->pc = pc;
 	if (rw == OPTEE_AARCH64)
-		optee_entry_point->spsr = SPSR_64(MODE_EL1, MODE_SP_ELX,
-						  DISABLE_ALL_EXCEPTIONS);
+		optee_entry_point->spsr =
+			SPSR_64(MODE_EL1, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 	else
-		optee_entry_point->spsr = SPSR_MODE32(MODE32_svc, SPSR_T_ARM,
-						      SPSR_E_LITTLE,
-						      DAIF_FIQ_BIT |
-							DAIF_IRQ_BIT |
-							DAIF_ABT_BIT);
+		optee_entry_point->spsr =
+			SPSR_MODE32(MODE32_svc, SPSR_T_ARM, SPSR_E_LITTLE,
+				    DAIF_FIQ_BIT | DAIF_IRQ_BIT | DAIF_ABT_BIT);
 	zeromem(&optee_entry_point->args, sizeof(optee_entry_point->args));
 	optee_entry_point->args.arg0 = pageable_part;
 	optee_entry_point->args.arg1 = mem_limit;
@@ -86,7 +84,6 @@ uint64_t opteed_synchronous_sp_entry(optee_context_t *optee_ctx)
 
 	return rc;
 }
-
 
 /*******************************************************************************
  * This function takes an OPTEE context pointer and:

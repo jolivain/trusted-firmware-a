@@ -11,17 +11,19 @@
 #include <string.h>
 
 #include <common/debug.h>
-#include "csr.h"
 #include <ddr.h>
-#include "ddr4fw.h"
 #include <drivers/delay_timer.h>
+
+#include "csr.h"
+#include "ddr4fw.h"
 #ifdef NXP_WARM_BOOT
 #include <fspi_api.h>
 #endif
-#include "input.h"
 #include <lib/mmio.h>
 #include <lib/utils.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
+
+#include "input.h"
 #ifdef DDR_PHY_DEBUG
 #include "messages.h"
 #endif
@@ -32,15 +34,15 @@
 
 #define TIMEOUTDEFAULT 500
 #define MAP_PHY_ADDR(pstate, n, instance, offset, c) \
-		((((pstate * n) + instance + c) << 12) + offset)
+	((((pstate * n) + instance + c) << 12) + offset)
 
 static uint32_t map_phy_addr_space(uint32_t addr)
 {
 	/* 23 bit addressing */
-	uint32_t pstate =     (addr & U(0x700000)) >> 20U; /* bit 22:20 */
+	uint32_t pstate = (addr & U(0x700000)) >> 20U; /* bit 22:20 */
 	uint32_t block_type = (addr & U(0x0f0000)) >> 16U; /* bit 19:16 */
-	uint32_t instance =   (addr & U(0x00f000)) >> 12U; /* bit 15:12 */
-	uint32_t offset =     (addr & U(0x000fff));        /* bit 11:0 */
+	uint32_t instance = (addr & U(0x00f000)) >> 12U; /* bit 15:12 */
+	uint32_t offset = (addr & U(0x000fff)); /* bit 11:0 */
 
 	switch (block_type) {
 	case 0x0: /* 0x0 : ANIB */
@@ -82,7 +84,7 @@ static inline void phy_io_write16(uint16_t *phy, uint32_t addr, uint16_t data)
 
 static inline uint16_t phy_io_read16(uint16_t *phy, uint32_t addr)
 {
-	uint16_t reg = mmio_read_16((uintptr_t) phy_io_addr(phy, addr));
+	uint16_t reg = mmio_read_16((uintptr_t)phy_io_addr(phy, addr));
 
 #ifdef DEBUG_PHY_IO
 	printf("R: 0x%06x,0x%x\n", addr, reg);
@@ -94,14 +96,14 @@ static inline uint16_t phy_io_read16(uint16_t *phy, uint32_t addr)
 #ifdef NXP_APPLY_MAX_CDD
 
 #define CDD_VAL_READ_ADDR (0x054012)
-#define CDD_DATA_LEN    (60)
+#define CDD_DATA_LEN (60)
 
-static void read_phy_reg(uint16_t *phy, uint32_t addr,
-		uint16_t *buf, uint32_t len)
+static void read_phy_reg(uint16_t *phy, uint32_t addr, uint16_t *buf,
+			 uint32_t len)
 {
 	uint32_t i = 0U;
 
-	for (i = 0U; i < len/2; i++) {
+	for (i = 0U; i < len / 2; i++) {
 		buf[i] = phy_io_read16(phy, (addr + i));
 	}
 }
@@ -141,34 +143,33 @@ static uint8_t findmax(uint8_t *buf, uint32_t len)
 }
 
 static void get_cdd_val(uint16_t **phy_ptr, uint32_t rank, uint32_t freq,
-		uint32_t *tcfg0, uint32_t *tcfg4)
+			uint32_t *tcfg0, uint32_t *tcfg4)
 {
-	uint8_t cdd[CDD_DATA_LEN+4] = {0U};
+	uint8_t cdd[CDD_DATA_LEN + 4] = { 0U };
 	uint32_t i, val = 0U;
 	uint16_t *phy;
-	uint8_t buf[16] = {U(0x0)};
+	uint8_t buf[16] = { U(0x0) };
 	uint8_t trr = 0U, tww = 0U, trw = 0U, twr = 0U;
 	uint8_t rrmax = 0U, wwmax = 0U, rwmax = 0U, wrmax = 0U;
 	uint8_t tmp = U(0x0);
-	uint8_t *c =  NULL;
+	uint8_t *c = NULL;
 
 	for (i = 0U; i < NUM_OF_DDRC; i++) {
-
 		phy = phy_ptr[i];
 		if (phy == NULL) {
 			continue;
 		}
 
-		phy_io_write16(phy, t_apbonly |
-				csr_micro_cont_mux_sel_addr, U(0x0));
+		phy_io_write16(phy, t_apbonly | csr_micro_cont_mux_sel_addr,
+			       U(0x0));
 
-		read_phy_reg(phy, CDD_VAL_READ_ADDR,
-				(uint16_t *)&cdd, CDD_DATA_LEN);
+		read_phy_reg(phy, CDD_VAL_READ_ADDR, (uint16_t *)&cdd,
+			     CDD_DATA_LEN);
 
-		phy_io_write16(phy, t_apbonly |
-				csr_micro_cont_mux_sel_addr, U(0x1));
+		phy_io_write16(phy, t_apbonly | csr_micro_cont_mux_sel_addr,
+			       U(0x1));
 
-	/* CDD values and address
+		/* CDD values and address
 	 *
 	 *   0x054012    0x24    cdd[0]  CDD[X][X]
 	 *   0x054012    0x25    cdd[1]  RR[3][2]
@@ -299,7 +300,6 @@ static void get_cdd_val(uint16_t **phy_ptr, uint32_t rank, uint32_t freq,
 			wrmax = wwmax;
 
 			break;
-
 		}
 	}
 
@@ -350,20 +350,18 @@ static void get_cdd_val(uint16_t **phy_ptr, uint32_t rank, uint32_t freq,
 		wrmax = twr;
 	}
 
-	debug("CDD rrmax %x wwmax %x rwmax %x wrmax %x\n",
-			rrmax, wwmax, rwmax, wrmax);
+	debug("CDD rrmax %x wwmax %x rwmax %x wrmax %x\n", rrmax, wwmax, rwmax,
+	      wrmax);
 
-	val = ((wwmax & U(0x3)) << 24U)
-		| ((rrmax & U(0x3)) << 26U)
-		| ((wrmax & U(0x3)) << 28U)
-		| ((rwmax & U(0x3)) << 30U);
+	val = ((wwmax & U(0x3)) << 24U) | ((rrmax & U(0x3)) << 26U) |
+	      ((wrmax & U(0x3)) << 28U) | ((rwmax & U(0x3)) << 30U);
 
 	*tcfg0 = (*tcfg0 & U(0x00FFFFFF)) | (val);
 
-	val = (((wwmax >> 2U) & U(0x1)) << 8U)
-		| (((rrmax >> 2U) & U(0x1)) << 10U)
-		| (((wrmax >> 2U) & U(0x1)) << 12U)
-		| (((rwmax >> 2U) & U(0x3)) << 14U);
+	val = (((wwmax >> 2U) & U(0x1)) << 8U) |
+	      (((rrmax >> 2U) & U(0x1)) << 10U) |
+	      (((wrmax >> 2U) & U(0x1)) << 12U) |
+	      (((rwmax >> 2U) & U(0x3)) << 14U);
 
 	*tcfg4 = (*tcfg4 & U(0xffff00ff)) | val;
 }
@@ -371,11 +369,12 @@ static void get_cdd_val(uint16_t **phy_ptr, uint32_t rank, uint32_t freq,
 
 #ifdef NXP_WARM_BOOT
 int save_phy_training_values(uint16_t **phy_ptr, uint32_t address_to_store,
-		uint32_t num_of_phy, int train2d
+			     uint32_t num_of_phy, int train2d
 #ifdef NXP_APPLY_MAX_CDD
-			, struct ddr_ctrl_reg_values *ddrctrl_regs
+			     ,
+			     struct ddr_ctrl_reg_values *ddrctrl_regs
 #endif
-		)
+)
 
 {
 	uint16_t *phy = NULL, value = 0x0;
@@ -394,70 +393,66 @@ int save_phy_training_values(uint16_t **phy_ptr, uint32_t address_to_store,
 		num_of_regs = ARRAY_SIZE(training_1D_values);
 
 		/* Enable access to the internal CSRs */
-		phy_io_write16(phy, t_apbonly |
-				csr_micro_cont_mux_sel_addr, 0x0);
+		phy_io_write16(phy, t_apbonly | csr_micro_cont_mux_sel_addr,
+			       0x0);
 		/* Enable clocks in case they were disabled. */
-		phy_io_write16(phy, t_drtub |
-				csr_ucclk_hclk_enables_addr, 0x3);
+		phy_io_write16(phy, t_drtub | csr_ucclk_hclk_enables_addr, 0x3);
 		if (train2d != 0) {
-		/* Address to store training values is
+			/* Address to store training values is
 		 * to be appended for next PHY
 		 */
-			phy_store = address_to_store + (j *
-					(sizeof(training_1D_values) +
-					 sizeof(training_2D_values)));
+			phy_store = address_to_store +
+				    (j * (sizeof(training_1D_values) +
+					  sizeof(training_2D_values)));
 		} else {
-			phy_store = address_to_store + (j *
-					(sizeof(training_1D_values)));
+			phy_store = address_to_store +
+				    (j * (sizeof(training_1D_values)));
 		}
 		debug("Saving 1D Training reg val at: %d\n", phy_store);
 		for (i = 0; i < num_of_regs; i++) {
 			value = phy_io_read16(phy, training_1D_values[i].addr);
 #ifdef DEBUG_WARM_RESET
 			debug("%d. Reg: %x, value: %x PHY: %p\n", i,
-					training_1D_values[i].addr, value,
-					phy_io_addr(phy,
-						training_1D_values[i].addr));
+			      training_1D_values[i].addr, value,
+			      phy_io_addr(phy, training_1D_values[i].addr));
 #endif
 			training_1D_values[i].data = value;
 		}
 		/* Storing 1D training values on flash */
 		ret = xspi_write(phy_store, (void *)training_1D_values, size);
 		if (train2d != 0) {
-			phy_store = phy_store+size;
+			phy_store = phy_store + size;
 			size = sizeof(training_2D_values);
 			num_of_regs = ARRAY_SIZE(training_2D_values);
 			debug("Saving 2D Training reg val at:%d\n", phy_store);
 			for (i = 0; i < num_of_regs; i++) {
-				value = phy_io_read16(phy,
-						training_2D_values[i].addr);
+				value = phy_io_read16(
+					phy, training_2D_values[i].addr);
 				training_2D_values[i].data = value;
 #ifdef DEBUG_WARM_RESET
-				debug("%d.2D addr:0x%x,val:0x%x,PHY:0x%p\n",
-						i, training_2D_values[i].addr,
-						value, phy_io_addr(phy,
-						training_2D_values[i].addr));
+				debug("%d.2D addr:0x%x,val:0x%x,PHY:0x%p\n", i,
+				      training_2D_values[i].addr, value,
+				      phy_io_addr(phy,
+						  training_2D_values[i].addr));
 #endif
 			}
 			/* Storing 2D training values on flash */
-			ret = xspi_write(phy_store, training_2D_values,
-					size);
+			ret = xspi_write(phy_store, training_2D_values, size);
 		}
 
 #ifdef NXP_APPLY_MAX_CDD
 		/* Save DDR control register Timing CFG 0 and 4 */
-		phy_store  += size;
+		phy_store += size;
 		size = sizeof(ddrctrl_regs);
 		if (ret != 0) {
 			ret = xspi_write(phy_store, ddrctrl_regs, size);
 		}
 #endif
 		/* Disable clocks in case they were disabled. */
-		phy_io_write16(phy, t_drtub |
-				csr_ucclk_hclk_enables_addr, 0x0);
+		phy_io_write16(phy, t_drtub | csr_ucclk_hclk_enables_addr, 0x0);
 		/* Disable access to the internal CSRs */
-		phy_io_write16(phy, t_apbonly |
-				csr_micro_cont_mux_sel_addr, 0x1);
+		phy_io_write16(phy, t_apbonly | csr_micro_cont_mux_sel_addr,
+			       0x1);
 	}
 	if (ret != 0) {
 		return -EINVAL;
@@ -467,11 +462,12 @@ int save_phy_training_values(uint16_t **phy_ptr, uint32_t address_to_store,
 }
 
 int restore_phy_training_values(uint16_t **phy_ptr, uint32_t address_to_restore,
-		uint32_t num_of_phy, int train2d
+				uint32_t num_of_phy, int train2d
 #ifdef NXP_APPLY_MAX_CDD
-		, struct ddr_ctrl_reg_values *ddrctrl_regs
+				,
+				struct ddr_ctrl_reg_values *ddrctrl_regs
 #endif
-		)
+)
 {
 	uint16_t *phy = NULL;
 	uint32_t size = 1U, num_of_regs = 1U, phy_store = 0U;
@@ -483,30 +479,28 @@ int restore_phy_training_values(uint16_t **phy_ptr, uint32_t address_to_restore,
 		size = sizeof(training_1D_values);
 		num_of_regs = ARRAY_SIZE(training_1D_values);
 		if (train2d != 0) {
-		/* The address to restore training values is
+			/* The address to restore training values is
 		 * to be appended for next PHY
 		 */
-			phy_store = address_to_restore + (j *
-					(sizeof(training_1D_values) +
-					 sizeof(training_2D_values)));
+			phy_store = address_to_restore +
+				    (j * (sizeof(training_1D_values) +
+					  sizeof(training_2D_values)));
 		} else {
-			phy_store = address_to_restore + (j *
-					(sizeof(training_1D_values)));
+			phy_store = address_to_restore +
+				    (j * (sizeof(training_1D_values)));
 		}
 		/* Enable access to the internal CSRs */
-		phy_io_write16(phy, t_apbonly |
-				csr_micro_cont_mux_sel_addr, 0x0);
+		phy_io_write16(phy, t_apbonly | csr_micro_cont_mux_sel_addr,
+			       0x0);
 		/* Enable clocks in case they were disabled. */
-		phy_io_write16(phy, t_drtub |
-				csr_ucclk_hclk_enables_addr, 0x3);
+		phy_io_write16(phy, t_drtub | csr_ucclk_hclk_enables_addr, 0x3);
 
 		/* Reading 1D training values from flash*/
 		ret = xspi_read(phy_store, (uint32_t *)training_1D_values,
 				size);
 		if (ret != 0) {
 #ifdef DEBUG_WARM_RESET
-			debug("Unable to Read 1D training values %d\n",
-					ret);
+			debug("Unable to Read 1D training values %d\n", ret);
 #endif
 			return -EINVAL;
 		}
@@ -514,13 +508,12 @@ int restore_phy_training_values(uint16_t **phy_ptr, uint32_t address_to_restore,
 		debug("Restoring 1D Training reg val at:%08x\n", phy_store);
 		for (i = 0; i < num_of_regs; i++) {
 			phy_io_write16(phy, training_1D_values[i].addr,
-					training_1D_values[i].data);
+				       training_1D_values[i].data);
 #ifdef DEBUG_WARM_RESET
 			debug("%d. Reg: %x, value: %x PHY: %p\n", i,
-					training_1D_values[i].addr,
-					training_1D_values[i].data,
-					phy_io_addr(phy,
-						training_1D_values[i].addr));
+			      training_1D_values[i].addr,
+			      training_1D_values[i].data,
+			      phy_io_addr(phy, training_1D_values[i].addr));
 #endif
 		}
 		if (train2d != 0) {
@@ -529,27 +522,27 @@ int restore_phy_training_values(uint16_t **phy_ptr, uint32_t address_to_restore,
 			num_of_regs = ARRAY_SIZE(training_2D_values);
 			/* Reading 2D training values from flash */
 			ret = xspi_read(phy_store,
-					(uint32_t *)training_2D_values,	size);
+					(uint32_t *)training_2D_values, size);
 
 			if (ret != 0) {
 #ifdef DEBUG_WARM_RESET
 				debug("Unable to Read 2D training values %d\n",
-						ret);
+				      ret);
 #endif
 				return -EINVAL;
 			}
 
 			debug("Restoring 2D Training reg val at:%08x\n",
-					phy_store);
+			      phy_store);
 			for (i = 0; i < num_of_regs; i++) {
 				phy_io_write16(phy, training_2D_values[i].addr,
-						training_2D_values[i].data);
+					       training_2D_values[i].data);
 #ifdef DEBUG_WARM_RESET
 				debug("%d. Reg: %x, value: %x PHY: %p\n", i,
-						training_2D_values[i].addr,
-						training_2D_values[i].data,
-						phy_io_addr(phy,
-						training_1D_values[i].addr));
+				      training_2D_values[i].addr,
+				      training_2D_values[i].data,
+				      phy_io_addr(phy,
+						  training_1D_values[i].addr));
 #endif
 			}
 		}
@@ -559,11 +552,10 @@ int restore_phy_training_values(uint16_t **phy_ptr, uint32_t address_to_restore,
 		ret = xspi_read(phy_store, (uint32_t *)ddrctrl_regs, size);
 #endif
 		/* Disable clocks in case they were disabled. */
-		phy_io_write16(phy, t_drtub |
-				csr_ucclk_hclk_enables_addr, 0x0);
+		phy_io_write16(phy, t_drtub | csr_ucclk_hclk_enables_addr, 0x0);
 		/* Disable access to the internal CSRs */
-		phy_io_write16(phy, t_apbonly |
-				csr_micro_cont_mux_sel_addr, 0x1);
+		phy_io_write16(phy, t_apbonly | csr_micro_cont_mux_sel_addr,
+			       0x1);
 	}
 	if (ret != 0) {
 		return -EINVAL;
@@ -572,8 +564,7 @@ int restore_phy_training_values(uint16_t **phy_ptr, uint32_t address_to_restore,
 }
 #endif
 
-static void load_pieimage(uint16_t *phy,
-			  enum dimm_types dimm_type)
+static void load_pieimage(uint16_t *phy, enum dimm_types dimm_type)
 {
 	int i;
 	int size;
@@ -605,8 +596,8 @@ static void load_pieimage(uint16_t *phy,
 	}
 }
 
-static void prog_acsm_playback(uint16_t *phy,
-			       const struct input *input, const void *msg)
+static void prog_acsm_playback(uint16_t *phy, const struct input *input,
+			       const void *msg)
 {
 	int vec;
 	const struct ddr4r1d *msg_blk;
@@ -631,15 +622,16 @@ static void prog_acsm_playback(uint16_t *phy,
 	acsmplayback[0][2] = U(0x3ff) & f0rc5x;
 	acsmplayback[1][2] = (U(0x1c00) & f0rc5x) >> 10U;
 	for (vec = 0; vec < 3; vec++) {
-		phy_io_write16(phy, t_acsm | (csr_acsm_playback0x0_addr +
-			       (vec << 1)), acsmplayback[0][vec]);
-		phy_io_write16(phy, t_acsm | (csr_acsm_playback1x0_addr +
-			       (vec << 1)), acsmplayback[1][vec]);
+		phy_io_write16(
+			phy, t_acsm | (csr_acsm_playback0x0_addr + (vec << 1)),
+			acsmplayback[0][vec]);
+		phy_io_write16(
+			phy, t_acsm | (csr_acsm_playback1x0_addr + (vec << 1)),
+			acsmplayback[1][vec]);
 	}
 }
 
-static void prog_acsm_ctr(uint16_t *phy,
-			  const struct input *input)
+static void prog_acsm_ctr(uint16_t *phy, const struct input *input)
 {
 	if (input->basic.dimm_type != RDIMM) {
 		return;
@@ -652,8 +644,7 @@ static void prog_acsm_ctr(uint16_t *phy,
 		       csr_acsm_par_mode_mask | csr_acsm_2t_mode_mask);
 }
 
-static void prog_cal_rate_run(uint16_t *phy,
-			  const struct input *input)
+static void prog_cal_rate_run(uint16_t *phy, const struct input *input)
 {
 	int cal_rate;
 	int cal_interval;
@@ -662,15 +653,13 @@ static void prog_cal_rate_run(uint16_t *phy,
 
 	cal_interval = input->adv.cal_interval;
 	cal_once = input->adv.cal_once;
-	cal_rate = 0x1 << csr_cal_run_lsb		|
-			cal_once << csr_cal_once_lsb	|
-			cal_interval << csr_cal_interval_lsb;
+	cal_rate = 0x1 << csr_cal_run_lsb | cal_once << csr_cal_once_lsb |
+		   cal_interval << csr_cal_interval_lsb;
 	addr = t_master | csr_cal_rate_addr;
 	phy_io_write16(phy, addr, cal_rate);
 }
 
-static void prog_seq0bdly0(uint16_t *phy,
-		    const struct input *input)
+static void prog_seq0bdly0(uint16_t *phy, const struct input *input)
 {
 	int ps_count[4];
 	int frq;
@@ -689,7 +678,7 @@ static void prog_seq0bdly0(uint16_t *phy,
 
 	/* 1.0 * frq / 4 - lower_freq */
 	ps_count[1] = (frq >> 2) - lower_freq_opt;
-	ps_count[2] = (frq << 1) +  (frq >> 1); /* 10.0 * frq / 4 */
+	ps_count[2] = (frq << 1) + (frq >> 1); /* 10.0 * frq / 4 */
 
 #ifdef DDR_PLL_FIX
 	soc_info = get_soc_info();
@@ -729,8 +718,7 @@ static void prog_seq0bdly0(uint16_t *phy,
 }
 
 /* Only RDIMM requires msg_blk */
-static void i_load_pie(uint16_t **phy_ptr,
-		       const struct input *input,
+static void i_load_pie(uint16_t **phy_ptr, const struct input *input,
 		       const void *msg)
 {
 	int i;
@@ -742,8 +730,7 @@ static void i_load_pie(uint16_t **phy_ptr,
 			continue;
 		}
 
-		phy_io_write16(phy,
-			       t_apbonly | csr_micro_cont_mux_sel_addr,
+		phy_io_write16(phy, t_apbonly | csr_micro_cont_mux_sel_addr,
 			       0U);
 
 		load_pieimage(phy, input->basic.dimm_type);
@@ -763,12 +750,14 @@ static void i_load_pie(uint16_t **phy_ptr,
 			       U(0xdfbd));
 		phy_io_write16(phy, t_initeng | csr_seq0bdisable_flag6_addr,
 			       input->basic.dimm_type == RDIMM &&
-			       input->adv.phy_gen2_umctl_opt == 1U ?
-			       U(0x6000) : U(0xffff));
+					       input->adv.phy_gen2_umctl_opt ==
+						       1U ?
+				       U(0x6000) :
+				       U(0xffff));
 		phy_io_write16(phy, t_initeng | csr_seq0bdisable_flag7_addr,
 			       U(0x6152));
-		prog_acsm_playback(phy, input, msg);		/* rdimm */
-		prog_acsm_ctr(phy, input);			/* rdimm */
+		prog_acsm_playback(phy, input, msg); /* rdimm */
+		prog_acsm_ctr(phy, input); /* rdimm */
 
 		phy_io_write16(phy, t_master | csr_cal_zap_addr, U(0x1));
 		prog_cal_rate_run(phy, input);
@@ -776,7 +765,8 @@ static void i_load_pie(uint16_t **phy_ptr,
 		phy_io_write16(phy, t_drtub | csr_ucclk_hclk_enables_addr,
 			       input->basic.dimm_type == RDIMM ? U(0x2) : 0U);
 
-		phy_io_write16(phy, t_apbonly | csr_micro_cont_mux_sel_addr, 1U);
+		phy_io_write16(phy, t_apbonly | csr_micro_cont_mux_sel_addr,
+			       1U);
 	}
 }
 
@@ -784,22 +774,22 @@ static void phy_gen2_init_input(struct input *input)
 {
 	int i;
 
-	input->adv.dram_byte_swap		= 0;
-	input->adv.ext_cal_res_val		= 0;
-	input->adv.tx_slew_rise_dq		= 0xf;
-	input->adv.tx_slew_fall_dq		= 0xf;
-	input->adv.tx_slew_rise_ac		= 0xf;
-	input->adv.tx_slew_fall_ac		= 0xf;
-	input->adv.mem_alert_en			= 0;
-	input->adv.mem_alert_puimp		= 5;
-	input->adv.mem_alert_vref_level		= 0x29;
-	input->adv.mem_alert_sync_bypass	= 0;
-	input->adv.cal_interval			= 0x9;
-	input->adv.cal_once			= 0;
-	input->adv.dis_dyn_adr_tri		= 0;
-	input->adv.is2ttiming			= 0;
-	input->adv.d4rx_preamble_length		= 0;
-	input->adv.d4tx_preamble_length		= 0;
+	input->adv.dram_byte_swap = 0;
+	input->adv.ext_cal_res_val = 0;
+	input->adv.tx_slew_rise_dq = 0xf;
+	input->adv.tx_slew_fall_dq = 0xf;
+	input->adv.tx_slew_rise_ac = 0xf;
+	input->adv.tx_slew_fall_ac = 0xf;
+	input->adv.mem_alert_en = 0;
+	input->adv.mem_alert_puimp = 5;
+	input->adv.mem_alert_vref_level = 0x29;
+	input->adv.mem_alert_sync_bypass = 0;
+	input->adv.cal_interval = 0x9;
+	input->adv.cal_once = 0;
+	input->adv.dis_dyn_adr_tri = 0;
+	input->adv.is2ttiming = 0;
+	input->adv.d4rx_preamble_length = 0;
+	input->adv.d4tx_preamble_length = 0;
 
 	for (i = 0; i < 7; i++) {
 		debug("mr[%d] = 0x%x\n", i, input->mr[i]);
@@ -830,8 +820,7 @@ static void phy_gen2_init_input(struct input *input)
  * Create message blocks for 1D and 2D training.
  * Update len with message block size.
  */
-static int phy_gen2_msg_init(void *msg_1d,
-			     void *msg_2d,
+static int phy_gen2_msg_init(void *msg_1d, void *msg_2d,
 			     const struct input *input)
 {
 	struct ddr4u1d *msg_blk = msg_1d;
@@ -843,90 +832,91 @@ static int phy_gen2_msg_init(void *msg_1d,
 	case UDIMM:
 	case SODIMM:
 	case NODIMM:
-		msg_blk->dram_type	= U(0x2);
+		msg_blk->dram_type = U(0x2);
 		break;
 	case RDIMM:
-		msg_blk->dram_type	= U(0x4);
+		msg_blk->dram_type = U(0x4);
 		break;
 	case LRDIMM:
-		msg_blk->dram_type	= U(0x5);
+		msg_blk->dram_type = U(0x5);
 		break;
 	default:
 		ERROR("Unsupported DIMM type\n");
 		return -EINVAL;
 	}
-	msg_blk->pstate			= 0U;
+	msg_blk->pstate = 0U;
 
 	/*Enable quickRd2D, a substage of read deskew, to 1D training.*/
-	msg_blk->reserved00             = U(0x20);
+	msg_blk->reserved00 = U(0x20);
 
 	/*Enable High-Effort WrDQ1D.*/
-	msg_blk->reserved00             |= U(0x40);
+	msg_blk->reserved00 |= U(0x40);
 
 	/* Enable 1D extra effort training.*/
-	msg_blk->reserved1c[3]		= U(0x3);
+	msg_blk->reserved1c[3] = U(0x3);
 
 	if (input->basic.dimm_type == LRDIMM) {
-		msg_blk->sequence_ctrl	= U(0x3f1f);
+		msg_blk->sequence_ctrl = U(0x3f1f);
 	} else {
-		msg_blk->sequence_ctrl	= U(0x031f);
+		msg_blk->sequence_ctrl = U(0x031f);
 	}
-	msg_blk->phy_config_override	= 0U;
+	msg_blk->phy_config_override = 0U;
 #ifdef DDR_PHY_DEBUG
-	msg_blk->hdt_ctrl		= U(0x5);
+	msg_blk->hdt_ctrl = U(0x5);
 #else
-	msg_blk->hdt_ctrl		= U(0xc9);
+	msg_blk->hdt_ctrl = U(0xc9);
 #endif
-	msg_blk->msg_misc		= U(0x0);
-	msg_blk->dfimrlmargin		= U(0x1);
-	msg_blk->phy_vref		= input->vref ? input->vref : U(0x61);
-	msg_blk->cs_present		= input->cs_d0 | input->cs_d1;
-	msg_blk->cs_present_d0		= input->cs_d0;
-	msg_blk->cs_present_d1		= input->cs_d1;
+	msg_blk->msg_misc = U(0x0);
+	msg_blk->dfimrlmargin = U(0x1);
+	msg_blk->phy_vref = input->vref ? input->vref : U(0x61);
+	msg_blk->cs_present = input->cs_d0 | input->cs_d1;
+	msg_blk->cs_present_d0 = input->cs_d0;
+	msg_blk->cs_present_d1 = input->cs_d1;
 	if (input->mirror != 0) {
-		msg_blk->addr_mirror	= U(0x0a);	/* odd CS are mirrored */
+		msg_blk->addr_mirror = U(0x0a); /* odd CS are mirrored */
 	}
-	msg_blk->share2dvref_result	= 1U;
+	msg_blk->share2dvref_result = 1U;
 
-	msg_blk->acsm_odt_ctrl0		= input->odt[0];
-	msg_blk->acsm_odt_ctrl1		= input->odt[1];
-	msg_blk->acsm_odt_ctrl2		= input->odt[2];
-	msg_blk->acsm_odt_ctrl3		= input->odt[3];
+	msg_blk->acsm_odt_ctrl0 = input->odt[0];
+	msg_blk->acsm_odt_ctrl1 = input->odt[1];
+	msg_blk->acsm_odt_ctrl2 = input->odt[2];
+	msg_blk->acsm_odt_ctrl3 = input->odt[3];
 	msg_blk->enabled_dqs = (input->basic.num_active_dbyte_dfi0 +
-				input->basic.num_active_dbyte_dfi1) * 8;
-	msg_blk->x16present		= input->basic.dram_data_width == 0x10 ?
-					  msg_blk->cs_present : 0;
-	msg_blk->d4misc			= U(0x1);
-	msg_blk->cs_setup_gddec		= U(0x1);
-	msg_blk->rtt_nom_wr_park0	= 0U;
-	msg_blk->rtt_nom_wr_park1	= 0U;
-	msg_blk->rtt_nom_wr_park2	= 0U;
-	msg_blk->rtt_nom_wr_park3	= 0U;
-	msg_blk->rtt_nom_wr_park4	= 0U;
-	msg_blk->rtt_nom_wr_park5	= 0U;
-	msg_blk->rtt_nom_wr_park6	= 0U;
-	msg_blk->rtt_nom_wr_park7	= 0U;
-	msg_blk->mr0			= input->mr[0];
-	msg_blk->mr1			= input->mr[1];
-	msg_blk->mr2			= input->mr[2];
-	msg_blk->mr3			= input->mr[3];
-	msg_blk->mr4			= input->mr[4];
-	msg_blk->mr5			= input->mr[5];
-	msg_blk->mr6			= input->mr[6];
+				input->basic.num_active_dbyte_dfi1) *
+			       8;
+	msg_blk->x16present =
+		input->basic.dram_data_width == 0x10 ? msg_blk->cs_present : 0;
+	msg_blk->d4misc = U(0x1);
+	msg_blk->cs_setup_gddec = U(0x1);
+	msg_blk->rtt_nom_wr_park0 = 0U;
+	msg_blk->rtt_nom_wr_park1 = 0U;
+	msg_blk->rtt_nom_wr_park2 = 0U;
+	msg_blk->rtt_nom_wr_park3 = 0U;
+	msg_blk->rtt_nom_wr_park4 = 0U;
+	msg_blk->rtt_nom_wr_park5 = 0U;
+	msg_blk->rtt_nom_wr_park6 = 0U;
+	msg_blk->rtt_nom_wr_park7 = 0U;
+	msg_blk->mr0 = input->mr[0];
+	msg_blk->mr1 = input->mr[1];
+	msg_blk->mr2 = input->mr[2];
+	msg_blk->mr3 = input->mr[3];
+	msg_blk->mr4 = input->mr[4];
+	msg_blk->mr5 = input->mr[5];
+	msg_blk->mr6 = input->mr[6];
 	if ((msg_blk->mr4 & U(0x1c0)) != 0U) {
 		ERROR("Setting DRAM CAL mode is not supported\n");
 	}
 
-	msg_blk->alt_cas_l		= 0U;
-	msg_blk->alt_wcas_l		= 0U;
+	msg_blk->alt_cas_l = 0U;
+	msg_blk->alt_wcas_l = 0U;
 
-	msg_blk->dramfreq		= input->basic.frequency * 2U;
-	msg_blk->pll_bypass_en		= input->basic.pll_bypass;
-	msg_blk->dfi_freq_ratio		= input->basic.dfi_freq_ratio == 0U ? 1U :
-					  input->basic.dfi_freq_ratio == 1U ? 2U :
-					  4U;
-	msg_blk->bpznres_val		= input->adv.ext_cal_res_val;
-	msg_blk->disabled_dbyte		= 0U;
+	msg_blk->dramfreq = input->basic.frequency * 2U;
+	msg_blk->pll_bypass_en = input->basic.pll_bypass;
+	msg_blk->dfi_freq_ratio = input->basic.dfi_freq_ratio == 0U ? 1U :
+				  input->basic.dfi_freq_ratio == 1U ? 2U :
+								      4U;
+	msg_blk->bpznres_val = input->adv.ext_cal_res_val;
+	msg_blk->disabled_dbyte = 0U;
 
 	debug("msg_blk->dram_type = 0x%x\n", msg_blk->dram_type);
 	debug("msg_blk->sequence_ctrl = 0x%x\n", msg_blk->sequence_ctrl);
@@ -936,9 +926,9 @@ static int phy_gen2_msg_init(void *msg_1d,
 	debug("msg_blk->pll_bypass_en = 0x%x\n", msg_blk->pll_bypass_en);
 	debug("msg_blk->dfi_freq_ratio = 0x%x\n", msg_blk->dfi_freq_ratio);
 	debug("msg_blk->phy_odt_impedance = 0x%x\n",
-						msg_blk->phy_odt_impedance);
+	      msg_blk->phy_odt_impedance);
 	debug("msg_blk->phy_drv_impedance = 0x%x\n",
-						msg_blk->phy_drv_impedance);
+	      msg_blk->phy_drv_impedance);
 	debug("msg_blk->bpznres_val = 0x%x\n", msg_blk->bpznres_val);
 	debug("msg_blk->enabled_dqs = 0x%x\n", msg_blk->enabled_dqs);
 	debug("msg_blk->acsm_odt_ctrl0 = 0x%x\n", msg_blk->acsm_odt_ctrl0);
@@ -1001,27 +991,26 @@ static int phy_gen2_msg_init(void *msg_1d,
 	if (input->basic.train2d != 0) {
 		memcpy(msg_blk_2d, msg_blk, sizeof(struct ddr4u1d));
 		/*High-Effort WrDQ1D is applicable to 2D traning also*/
-		msg_blk_2d->reserved00          |= U(0x40);
-		msg_blk_2d->sequence_ctrl	= U(0x0061);
-		msg_blk_2d->rx2d_train_opt	= 0U;
-		msg_blk_2d->tx2d_train_opt	= 0U;
-		msg_blk_2d->share2dvref_result	= 1U;
-		msg_blk_2d->delay_weight2d	= U(0x20);
-		msg_blk_2d->voltage_weight2d	= U(0x80);
+		msg_blk_2d->reserved00 |= U(0x40);
+		msg_blk_2d->sequence_ctrl = U(0x0061);
+		msg_blk_2d->rx2d_train_opt = 0U;
+		msg_blk_2d->tx2d_train_opt = 0U;
+		msg_blk_2d->share2dvref_result = 1U;
+		msg_blk_2d->delay_weight2d = U(0x20);
+		msg_blk_2d->voltage_weight2d = U(0x80);
 		debug("rx2d_train_opt %d, tx2d_train_opt %d\n",
-				msg_blk_2d->rx2d_train_opt,
-				msg_blk_2d->tx2d_train_opt);
+		      msg_blk_2d->rx2d_train_opt, msg_blk_2d->tx2d_train_opt);
 	}
 
 	msg_blk->phy_cfg = (((msg_blk->mr3 & U(0x8)) != 0U) ||
-				((msg_blk_2d->mr3 & 0x8) != 0U)) ? 0U
-				: input->adv.is2ttiming;
+			    ((msg_blk_2d->mr3 & 0x8) != 0U)) ?
+				   0U :
+				   input->adv.is2ttiming;
 
 	return 0;
 }
 
-static void prog_tx_pre_drv_mode(uint16_t *phy,
-				 const struct input *input)
+static void prog_tx_pre_drv_mode(uint16_t *phy, const struct input *input)
 {
 	int lane, byte, b_addr, c_addr, p_addr;
 	int tx_slew_rate, tx_pre_p, tx_pre_n;
@@ -1032,23 +1021,22 @@ static void prog_tx_pre_drv_mode(uint16_t *phy,
 	/* FIXME: TxPreDrvMode depends on DramType? */
 	tx_pre_p = input->adv.tx_slew_rise_dq;
 	tx_pre_n = input->adv.tx_slew_fall_dq;
-	tx_slew_rate = tx_pre_drv_mode << csr_tx_pre_drv_mode_lsb	|
-		     tx_pre_p << csr_tx_pre_p_lsb			|
-		     tx_pre_n << csr_tx_pre_n_lsb;
+	tx_slew_rate = tx_pre_drv_mode << csr_tx_pre_drv_mode_lsb |
+		       tx_pre_p << csr_tx_pre_p_lsb |
+		       tx_pre_n << csr_tx_pre_n_lsb;
 	p_addr = 0;
 	for (byte = 0; byte < input->basic.num_dbyte; byte++) {
 		c_addr = byte << 12;
 		for (lane = 0; lane <= 1; lane++) {
 			b_addr = lane << 8;
 			addr = p_addr | t_dbyte | c_addr | b_addr |
-					csr_tx_slew_rate_addr;
+			       csr_tx_slew_rate_addr;
 			phy_io_write16(phy, addr, tx_slew_rate);
 		}
 	}
 }
 
-static void prog_atx_pre_drv_mode(uint16_t *phy,
-				  const struct input *input)
+static void prog_atx_pre_drv_mode(uint16_t *phy, const struct input *input)
 {
 	int anib, c_addr;
 	int atx_slew_rate, atx_pre_p, atx_pre_n, atx_pre_drv_mode,
@@ -1062,7 +1050,7 @@ static void prog_atx_pre_drv_mode(uint16_t *phy,
 		ck_anib_inst[0] = 1;
 		ck_anib_inst[1] = 1;
 	} else if (input->basic.num_anib == 10 || input->basic.num_anib == 12 ||
-	    input->basic.num_anib == 13) {
+		   input->basic.num_anib == 13) {
 		ck_anib_inst[0] = 4;
 		ck_anib_inst[1] = 5;
 	} else {
@@ -1078,15 +1066,14 @@ static void prog_atx_pre_drv_mode(uint16_t *phy,
 			atx_pre_drv_mode = 3;
 		}
 		atx_slew_rate = atx_pre_drv_mode << csr_atx_pre_drv_mode_lsb |
-				atx_pre_n << csr_atx_pre_n_lsb		     |
+				atx_pre_n << csr_atx_pre_n_lsb |
 				atx_pre_p << csr_atx_pre_p_lsb;
 		addr = t_anib | c_addr | csr_atx_slew_rate_addr;
 		phy_io_write16(phy, addr, atx_slew_rate);
 	}
 }
 
-static void prog_enable_cs_multicast(uint16_t *phy,
-				     const struct input *input)
+static void prog_enable_cs_multicast(uint16_t *phy, const struct input *input)
 {
 	uint32_t addr = t_master | csr_enable_cs_multicast_addr;
 
@@ -1098,8 +1085,7 @@ static void prog_enable_cs_multicast(uint16_t *phy,
 	phy_io_write16(phy, addr, input->adv.cast_cs_to_cid);
 }
 
-static void prog_dfi_rd_data_cs_dest_map(uint16_t *phy,
-					 unsigned int ip_rev,
+static void prog_dfi_rd_data_cs_dest_map(uint16_t *phy, unsigned int ip_rev,
 					 const struct input *input,
 					 const struct ddr4lr1d *msg)
 {
@@ -1116,9 +1102,8 @@ static void prog_dfi_rd_data_cs_dest_map(uint16_t *phy,
 	/* Only apply to DDRC 5.05.00 */
 	soc_info = get_soc_info();
 	if ((soc_info->svr_reg.bf.maj_ver == 1U) && (ip_rev == U(0x50500))) {
-		phy_io_write16(phy,
-				t_master | csr_dfi_rd_data_cs_dest_map_addr,
-				0U);
+		phy_io_write16(phy, t_master | csr_dfi_rd_data_cs_dest_map_addr,
+			       0U);
 		return;
 	}
 #endif
@@ -1134,11 +1119,13 @@ static void prog_dfi_rd_data_cs_dest_map(uint16_t *phy,
 			dfi_wr_data_cs_dest_map = U(0xa0);
 
 			phy_io_write16(phy,
-				t_master | csr_dfi_rd_data_cs_dest_map_addr,
-				dfi_rd_data_cs_dest_map);
+				       t_master |
+					       csr_dfi_rd_data_cs_dest_map_addr,
+				       dfi_rd_data_cs_dest_map);
 			phy_io_write16(phy,
-				t_master | csr_dfi_wr_data_cs_dest_map_addr,
-				dfi_wr_data_cs_dest_map);
+				       t_master |
+					       csr_dfi_wr_data_cs_dest_map_addr,
+				       dfi_wr_data_cs_dest_map);
 		}
 		break;
 	case LRDIMM:
@@ -1148,19 +1135,19 @@ static void prog_dfi_rd_data_cs_dest_map(uint16_t *phy,
 		}
 
 		dfi_rd_data_cs_dest_map =
-			dfi_xxdestm0 << csr_dfi_rd_destm0_lsb	|
-			dfi_xxdestm1 << csr_dfi_rd_destm1_lsb	|
-			dfi_xxdestm2 << csr_dfi_rd_destm2_lsb	|
+			dfi_xxdestm0 << csr_dfi_rd_destm0_lsb |
+			dfi_xxdestm1 << csr_dfi_rd_destm1_lsb |
+			dfi_xxdestm2 << csr_dfi_rd_destm2_lsb |
 			dfi_xxdestm3 << csr_dfi_rd_destm3_lsb;
 		dfi_wr_data_cs_dest_map =
-			dfi_xxdestm0 << csr_dfi_wr_destm0_lsb	|
-			dfi_xxdestm1 << csr_dfi_wr_destm1_lsb	|
-			dfi_xxdestm2 << csr_dfi_wr_destm2_lsb	|
+			dfi_xxdestm0 << csr_dfi_wr_destm0_lsb |
+			dfi_xxdestm1 << csr_dfi_wr_destm1_lsb |
+			dfi_xxdestm2 << csr_dfi_wr_destm2_lsb |
 			dfi_xxdestm3 << csr_dfi_wr_destm3_lsb;
 		phy_io_write16(phy, t_master | csr_dfi_rd_data_cs_dest_map_addr,
-				dfi_rd_data_cs_dest_map);
+			       dfi_rd_data_cs_dest_map);
 		phy_io_write16(phy, t_master | csr_dfi_wr_data_cs_dest_map_addr,
-				dfi_wr_data_cs_dest_map);
+			       dfi_wr_data_cs_dest_map);
 
 		break;
 	default:
@@ -1168,8 +1155,7 @@ static void prog_dfi_rd_data_cs_dest_map(uint16_t *phy,
 	}
 }
 
-static void prog_pll_ctrl(uint16_t *phy,
-			   const struct input *input)
+static void prog_pll_ctrl(uint16_t *phy, const struct input *input)
 {
 	uint32_t addr;
 	int pll_ctrl1 = 0x21; /* 000100001b */
@@ -1192,8 +1178,7 @@ static void prog_pll_ctrl(uint16_t *phy,
 	debug("pll_ctrl4 = 0x%x\n", phy_io_read16(phy, addr));
 }
 
-static void prog_pll_ctrl2(uint16_t *phy,
-			   const struct input *input)
+static void prog_pll_ctrl2(uint16_t *phy, const struct input *input)
 {
 	int pll_ctrl2;
 	uint32_t addr = t_master | csr_pll_ctrl2_addr;
@@ -1235,8 +1220,7 @@ static void prog_dll_gain_ctl(uint16_t *phy, const struct input *input)
 	debug("dll_gain_ctl = 0x%x\n", phy_io_read16(phy, addr));
 }
 
-static void prog_pll_pwr_dn(uint16_t *phy,
-			   const struct input *input)
+static void prog_pll_pwr_dn(uint16_t *phy, const struct input *input)
 {
 	uint32_t addr;
 
@@ -1246,8 +1230,7 @@ static void prog_pll_pwr_dn(uint16_t *phy,
 	debug("pll_pwrdn = 0x%x\n", phy_io_read16(phy, addr));
 }
 
-static void prog_ard_ptr_init_val(uint16_t *phy,
-				  const struct input *input)
+static void prog_ard_ptr_init_val(uint16_t *phy, const struct input *input)
 {
 	int ard_ptr_init_val;
 	uint32_t addr = t_master | csr_ard_ptr_init_val_addr;
@@ -1261,8 +1244,7 @@ static void prog_ard_ptr_init_val(uint16_t *phy,
 	phy_io_write16(phy, addr, ard_ptr_init_val);
 }
 
-static void prog_dqs_preamble_control(uint16_t *phy,
-				      const struct input *input)
+static void prog_dqs_preamble_control(uint16_t *phy, const struct input *input)
 {
 	int data;
 	uint32_t addr = t_master | csr_dqs_preamble_control_addr;
@@ -1275,12 +1257,12 @@ static void prog_dqs_preamble_control(uint16_t *phy,
 	int two_tck_tx_dqs_pre = input->adv.d4tx_preamble_length;
 	int two_tck_rx_dqs_pre = input->adv.d4rx_preamble_length;
 
-	data = wdqsextension << csr_wdqsextension_lsb			|
+	data = wdqsextension << csr_wdqsextension_lsb |
 	       lp4sttc_pre_bridge_rx_en << csr_lp4sttc_pre_bridge_rx_en_lsb |
-	       lp4postamble_ext << csr_lp4postamble_ext_lsb		|
+	       lp4postamble_ext << csr_lp4postamble_ext_lsb |
 	       lp4tgl_two_tck_tx_dqs_pre << csr_lp4tgl_two_tck_tx_dqs_pre_lsb |
-	       position_dfe_init << csr_position_dfe_init_lsb		|
-	       two_tck_tx_dqs_pre << csr_two_tck_tx_dqs_pre_lsb		|
+	       position_dfe_init << csr_position_dfe_init_lsb |
+	       two_tck_tx_dqs_pre << csr_two_tck_tx_dqs_pre_lsb |
 	       two_tck_rx_dqs_pre << csr_two_tck_rx_dqs_pre_lsb;
 	phy_io_write16(phy, addr, data);
 
@@ -1289,8 +1271,7 @@ static void prog_dqs_preamble_control(uint16_t *phy,
 	phy_io_write16(phy, addr, data);
 }
 
-static void prog_proc_odt_time_ctl(uint16_t *phy,
-				   const struct input *input)
+static void prog_proc_odt_time_ctl(uint16_t *phy, const struct input *input)
 {
 	int proc_odt_time_ctl;
 	uint32_t addr = t_master | csr_proc_odt_time_ctl_addr;
@@ -1316,24 +1297,12 @@ static void prog_proc_odt_time_ctl(uint16_t *phy,
 }
 
 static const struct impedance_mapping map[] = {
-	{	29,	0x3f	},
-	{	31,	0x3e	},
-	{	33,	0x3b	},
-	{	36,	0x3a	},
-	{	39,	0x39	},
-	{	42,	0x38	},
-	{	46,	0x1b	},
-	{	51,	0x1a	},
-	{	57,	0x19	},
-	{	64,	0x18	},
-	{	74,	0x0b	},
-	{	88,	0x0a	},
-	{	108,	0x09	},
-	{	140,	0x08	},
-	{	200,	0x03	},
-	{	360,	0x02	},
-	{	481,	0x01	},
-	{}
+	{ 29, 0x3f },  { 31, 0x3e },  { 33, 0x3b },
+	{ 36, 0x3a },  { 39, 0x39 },  { 42, 0x38 },
+	{ 46, 0x1b },  { 51, 0x1a },  { 57, 0x19 },
+	{ 64, 0x18 },  { 74, 0x0b },  { 88, 0x0a },
+	{ 108, 0x09 }, { 140, 0x08 }, { 200, 0x03 },
+	{ 360, 0x02 }, { 481, 0x01 }, {}
 };
 
 static int map_impedance(int strength)
@@ -1379,8 +1348,7 @@ static int map_odtstren_p(int strength, int hard_macro_ver)
 	return val;
 }
 
-static void prog_tx_odt_drv_stren(uint16_t *phy,
-				  const struct input *input)
+static void prog_tx_odt_drv_stren(uint16_t *phy, const struct input *input)
 {
 	int lane, byte, b_addr, c_addr;
 	int tx_odt_drv_stren;
@@ -1388,19 +1356,19 @@ static void prog_tx_odt_drv_stren(uint16_t *phy,
 	uint32_t addr;
 
 	odtstren_p = map_odtstren_p(input->adv.odtimpedance,
-				input->basic.hard_macro_ver);
+				    input->basic.hard_macro_ver);
 	if (odtstren_p < 0) {
 		return;
 	}
 
-	odtstren_n = 0;	/* always high-z */
+	odtstren_n = 0; /* always high-z */
 	tx_odt_drv_stren = odtstren_n << csr_odtstren_n_lsb | odtstren_p;
 	for (byte = 0; byte < input->basic.num_dbyte; byte++) {
 		c_addr = byte << 12;
 		for (lane = 0; lane <= 1; lane++) {
 			b_addr = lane << 8;
 			addr = t_dbyte | c_addr | b_addr |
-				csr_tx_odt_drv_stren_addr;
+			       csr_tx_odt_drv_stren_addr;
 			phy_io_write16(phy, addr, tx_odt_drv_stren);
 		}
 	}
@@ -1454,8 +1422,7 @@ static int map_drvstren_fsdq_n(int strength, int hard_macro_ver)
 	return val;
 }
 
-static void prog_tx_impedance_ctrl1(uint16_t *phy,
-				    const struct input *input)
+static void prog_tx_impedance_ctrl1(uint16_t *phy, const struct input *input)
 {
 	int lane, byte, b_addr, c_addr;
 	int tx_impedance_ctrl1;
@@ -1463,18 +1430,18 @@ static void prog_tx_impedance_ctrl1(uint16_t *phy,
 	uint32_t addr;
 
 	drv_stren_fsdq_p = map_drvstren_fsdq_p(input->adv.tx_impedance,
-					input->basic.hard_macro_ver);
+					       input->basic.hard_macro_ver);
 	drv_stren_fsdq_n = map_drvstren_fsdq_n(input->adv.tx_impedance,
-					input->basic.hard_macro_ver);
+					       input->basic.hard_macro_ver);
 	tx_impedance_ctrl1 = drv_stren_fsdq_n << csr_drv_stren_fsdq_n_lsb |
-			   drv_stren_fsdq_p << csr_drv_stren_fsdq_p_lsb;
+			     drv_stren_fsdq_p << csr_drv_stren_fsdq_p_lsb;
 
 	for (byte = 0; byte < input->basic.num_dbyte; byte++) {
 		c_addr = byte << 12;
 		for (lane = 0; lane <= 1; lane++) {
 			b_addr = lane << 8;
 			addr = t_dbyte | c_addr | b_addr |
-				csr_tx_impedance_ctrl1_addr;
+			       csr_tx_impedance_ctrl1_addr;
 			phy_io_write16(phy, addr, tx_impedance_ctrl1);
 		}
 	}
@@ -1552,8 +1519,7 @@ static int map_adrv_stren_n(int strength, int hard_macro_ver)
 	return val;
 }
 
-static void prog_atx_impedance(uint16_t *phy,
-			       const struct input *input)
+static void prog_atx_impedance(uint16_t *phy, const struct input *input)
 {
 	int anib, c_addr;
 	int atx_impedance;
@@ -1571,8 +1537,8 @@ static void prog_atx_impedance(uint16_t *phy,
 					input->basic.hard_macro_ver);
 	adrv_stren_n = map_adrv_stren_n(input->adv.atx_impedance,
 					input->basic.hard_macro_ver);
-	atx_impedance = adrv_stren_n << csr_adrv_stren_n_lsb		|
-		       adrv_stren_p << csr_adrv_stren_p_lsb;
+	atx_impedance = adrv_stren_n << csr_adrv_stren_n_lsb |
+			adrv_stren_p << csr_adrv_stren_p_lsb;
 	for (anib = 0; anib < input->basic.num_anib; anib++) {
 		c_addr = anib << 12;
 		addr = t_anib | c_addr | csr_atx_impedance_addr;
@@ -1580,16 +1546,15 @@ static void prog_atx_impedance(uint16_t *phy,
 	}
 }
 
-static void prog_dfi_mode(uint16_t *phy,
-			  const struct input *input)
+static void prog_dfi_mode(uint16_t *phy, const struct input *input)
 {
 	int dfi_mode;
 	uint32_t addr;
 
 	if (input->basic.dfi1exists == 1) {
-		dfi_mode = 0x5;	/* DFI1 exists but disabled */
+		dfi_mode = 0x5; /* DFI1 exists but disabled */
 	} else {
-		dfi_mode = 0x1;	/* DFI1 does not physically exists */
+		dfi_mode = 0x1; /* DFI1 does not physically exists */
 	}
 	addr = t_master | csr_dfi_mode_addr;
 	phy_io_write16(phy, addr, dfi_mode);
@@ -1604,8 +1569,7 @@ static void prog_acx4_anib_dis(uint16_t *phy, const struct input *input)
 	debug("%s 0x%x\n", __func__, phy_io_read16(phy, addr));
 }
 
-static void prog_dfi_camode(uint16_t *phy,
-			    const struct input *input)
+static void prog_dfi_camode(uint16_t *phy, const struct input *input)
 {
 	int dfi_camode = 2;
 	uint32_t addr = t_master | csr_dfi_camode_addr;
@@ -1613,8 +1577,7 @@ static void prog_dfi_camode(uint16_t *phy,
 	phy_io_write16(phy, addr, dfi_camode);
 }
 
-static void prog_cal_drv_str0(uint16_t *phy,
-			      const struct input *input)
+static void prog_cal_drv_str0(uint16_t *phy, const struct input *input)
 {
 	int cal_drv_str0;
 	int cal_drv_str_pd50;
@@ -1624,13 +1587,12 @@ static void prog_cal_drv_str0(uint16_t *phy,
 	cal_drv_str_pu50 = input->adv.ext_cal_res_val;
 	cal_drv_str_pd50 = cal_drv_str_pu50;
 	cal_drv_str0 = cal_drv_str_pu50 << csr_cal_drv_str_pu50_lsb |
-			cal_drv_str_pd50;
+		       cal_drv_str_pd50;
 	addr = t_master | csr_cal_drv_str0_addr;
 	phy_io_write16(phy, addr, cal_drv_str0);
 }
 
-static void prog_cal_uclk_info(uint16_t *phy,
-			       const struct input *input)
+static void prog_cal_uclk_info(uint16_t *phy, const struct input *input)
 {
 	int cal_uclk_ticks_per1u_s;
 	uint32_t addr;
@@ -1644,8 +1606,7 @@ static void prog_cal_uclk_info(uint16_t *phy,
 	phy_io_write16(phy, addr, cal_uclk_ticks_per1u_s);
 }
 
-static void prog_cal_rate(uint16_t *phy,
-			  const struct input *input)
+static void prog_cal_rate(uint16_t *phy, const struct input *input)
 {
 	int cal_rate;
 	int cal_interval;
@@ -1654,14 +1615,13 @@ static void prog_cal_rate(uint16_t *phy,
 
 	cal_interval = input->adv.cal_interval;
 	cal_once = input->adv.cal_once;
-	cal_rate = cal_once << csr_cal_once_lsb		|
-		  cal_interval << csr_cal_interval_lsb;
+	cal_rate = cal_once << csr_cal_once_lsb |
+		   cal_interval << csr_cal_interval_lsb;
 	addr = t_master | csr_cal_rate_addr;
 	phy_io_write16(phy, addr, cal_rate);
 }
 
-static void prog_vref_in_global(uint16_t *phy,
-				const struct input *input,
+static void prog_vref_in_global(uint16_t *phy, const struct input *input,
 				const struct ddr4u1d *msg)
 {
 	int vref_in_global;
@@ -1673,17 +1633,16 @@ static void prog_vref_in_global(uint16_t *phy,
 	 * phy_vref_prcnt = msg->phy_vref / 128.0
 	 *  global_vref_in_dac = (phy_vref_prcnt - 0.345) / 0.005;
 	 */
-	global_vref_in_dac = (msg->phy_vref * 1000 - 345 * 128 + 320) /
-			     (5 * 128);
+	global_vref_in_dac =
+		(msg->phy_vref * 1000 - 345 * 128 + 320) / (5 * 128);
 
 	vref_in_global = global_vref_in_dac << csr_global_vref_in_dac_lsb |
-		       global_vref_in_sel;
+			 global_vref_in_sel;
 	addr = t_master | csr_vref_in_global_addr;
 	phy_io_write16(phy, addr, vref_in_global);
 }
 
-static void prog_dq_dqs_rcv_cntrl(uint16_t *phy,
-				  const struct input *input)
+static void prog_dq_dqs_rcv_cntrl(uint16_t *phy, const struct input *input)
 {
 	int lane, byte, b_addr, c_addr;
 	int dq_dqs_rcv_cntrl;
@@ -1699,23 +1658,22 @@ static void prog_dq_dqs_rcv_cntrl(uint16_t *phy,
 #endif
 
 	dq_dqs_rcv_cntrl = gain_curr_adj_defval << csr_gain_curr_adj_lsb |
-			major_mode_dbyte << csr_major_mode_dbyte_lsb	|
-			dfe_ctrl_defval << csr_dfe_ctrl_lsb		|
-			ext_vref_range_defval << csr_ext_vref_range_lsb	|
-			sel_analog_vref << csr_sel_analog_vref_lsb;
+			   major_mode_dbyte << csr_major_mode_dbyte_lsb |
+			   dfe_ctrl_defval << csr_dfe_ctrl_lsb |
+			   ext_vref_range_defval << csr_ext_vref_range_lsb |
+			   sel_analog_vref << csr_sel_analog_vref_lsb;
 	for (byte = 0; byte < input->basic.num_dbyte; byte++) {
 		c_addr = byte << 12;
 		for (lane = 0; lane <= 1; lane++) {
 			b_addr = lane << 8;
 			addr = t_dbyte | c_addr | b_addr |
-					csr_dq_dqs_rcv_cntrl_addr;
+			       csr_dq_dqs_rcv_cntrl_addr;
 			phy_io_write16(phy, addr, dq_dqs_rcv_cntrl);
 		}
 	}
 }
 
-static void prog_mem_alert_control(uint16_t *phy,
-				   const struct input *input)
+static void prog_mem_alert_control(uint16_t *phy, const struct input *input)
 {
 	int mem_alert_control;
 	int mem_alert_control2;
@@ -1733,13 +1691,11 @@ static void prog_mem_alert_control(uint16_t *phy,
 		malertpu_stren = input->adv.mem_alert_puimp;
 		malertvref_level = input->adv.mem_alert_vref_level;
 		malertsync_bypass = input->adv.mem_alert_sync_bypass;
-		mem_alert_control = malertdisable_val_defval << 14	|
-				  malertrx_en << 13		|
-				  malertpu_en << 12		|
-				  malertpu_stren << 8		|
-				  malertvref_level;
-		mem_alert_control2 = malertsync_bypass <<
-					csr_malertsync_bypass_lsb;
+		mem_alert_control = malertdisable_val_defval << 14 |
+				    malertrx_en << 13 | malertpu_en << 12 |
+				    malertpu_stren << 8 | malertvref_level;
+		mem_alert_control2 = malertsync_bypass
+				     << csr_malertsync_bypass_lsb;
 		addr = t_master | csr_mem_alert_control_addr;
 		phy_io_write16(phy, addr, mem_alert_control);
 		addr = t_master | csr_mem_alert_control2_addr;
@@ -1747,8 +1703,7 @@ static void prog_mem_alert_control(uint16_t *phy,
 	}
 }
 
-static void prog_dfi_freq_ratio(uint16_t *phy,
-				const struct input *input)
+static void prog_dfi_freq_ratio(uint16_t *phy, const struct input *input)
 {
 	int dfi_freq_ratio;
 	uint32_t addr = t_master | csr_dfi_freq_ratio_addr;
@@ -1757,8 +1712,7 @@ static void prog_dfi_freq_ratio(uint16_t *phy,
 	phy_io_write16(phy, addr, dfi_freq_ratio);
 }
 
-static void prog_tristate_mode_ca(uint16_t *phy,
-				  const struct input *input)
+static void prog_tristate_mode_ca(uint16_t *phy, const struct input *input)
 {
 	int tristate_mode_ca;
 	int dis_dyn_adr_tri;
@@ -1768,14 +1722,13 @@ static void prog_tristate_mode_ca(uint16_t *phy,
 
 	dis_dyn_adr_tri = input->adv.dis_dyn_adr_tri;
 	ddr2tmode = input->adv.is2ttiming;
-	tristate_mode_ca = ck_dis_val_def << csr_ck_dis_val_lsb	|
-			 ddr2tmode << csr_ddr2tmode_lsb		|
-			 dis_dyn_adr_tri << csr_dis_dyn_adr_tri_lsb;
+	tristate_mode_ca = ck_dis_val_def << csr_ck_dis_val_lsb |
+			   ddr2tmode << csr_ddr2tmode_lsb |
+			   dis_dyn_adr_tri << csr_dis_dyn_adr_tri_lsb;
 	phy_io_write16(phy, addr, tristate_mode_ca);
 }
 
-static void prog_dfi_xlat(uint16_t *phy,
-			  const struct input *input)
+static void prog_dfi_xlat(uint16_t *phy, const struct input *input)
 {
 	uint16_t loop_vector;
 	int dfifreqxlat_dat;
@@ -1797,8 +1750,7 @@ static void prog_dfi_xlat(uint16_t *phy,
 	}
 }
 
-static void prog_dbyte_misc_mode(uint16_t *phy,
-				 const struct input *input,
+static void prog_dbyte_misc_mode(uint16_t *phy, const struct input *input,
 				 const struct ddr4u1d *msg)
 {
 	int dbyte_misc_mode;
@@ -1808,20 +1760,19 @@ static void prog_dbyte_misc_mode(uint16_t *phy,
 	uint32_t addr;
 
 	dbyte_misc_mode = 0x1 << csr_dbyte_disable_lsb;
-	dq_dqs_rcv_cntrl1 = 0x1ff << csr_power_down_rcvr_lsb		|
-			 0x1 << csr_power_down_rcvr_dqs_lsb	|
-			 0x1 << csr_rx_pad_standby_en_lsb;
-	dq_dqs_rcv_cntrl1_1 = (0x100 << csr_power_down_rcvr_lsb |
-			csr_rx_pad_standby_en_mask);
+	dq_dqs_rcv_cntrl1 = 0x1ff << csr_power_down_rcvr_lsb |
+			    0x1 << csr_power_down_rcvr_dqs_lsb |
+			    0x1 << csr_rx_pad_standby_en_lsb;
+	dq_dqs_rcv_cntrl1_1 =
+		(0x100 << csr_power_down_rcvr_lsb | csr_rx_pad_standby_en_mask);
 	for (byte = 0; byte < input->basic.num_dbyte; byte++) {
 		c_addr = byte << 12;
 		if (byte <= input->basic.num_active_dbyte_dfi0 - 1) {
 			/* disable RDBI lane if not used. */
 			if ((input->basic.dram_data_width != 4) &&
-				(((msg->mr5 >> 12) & 0x1) == 0)) {
-				addr = t_dbyte
-					| c_addr
-					| csr_dq_dqs_rcv_cntrl1_addr;
+			    (((msg->mr5 >> 12) & 0x1) == 0)) {
+				addr = t_dbyte | c_addr |
+				       csr_dq_dqs_rcv_cntrl1_addr;
 				phy_io_write16(phy, addr, dq_dqs_rcv_cntrl1_1);
 			}
 		} else {
@@ -1833,8 +1784,7 @@ static void prog_dbyte_misc_mode(uint16_t *phy,
 	}
 }
 
-static void prog_master_x4config(uint16_t *phy,
-				 const struct input *input)
+static void prog_master_x4config(uint16_t *phy, const struct input *input)
 {
 	int master_x4config;
 	int x4tg;
@@ -1845,8 +1795,7 @@ static void prog_master_x4config(uint16_t *phy,
 	phy_io_write16(phy, addr, master_x4config);
 }
 
-static void prog_dmipin_present(uint16_t *phy,
-				const struct input *input,
+static void prog_dmipin_present(uint16_t *phy, const struct input *input,
 				const struct ddr4u1d *msg)
 {
 	int dmipin_present;
@@ -1856,44 +1805,39 @@ static void prog_dmipin_present(uint16_t *phy,
 	phy_io_write16(phy, addr, dmipin_present);
 }
 
-static void prog_dfi_phyupd(uint16_t *phy,
-			  const struct input *input)
+static void prog_dfi_phyupd(uint16_t *phy, const struct input *input)
 {
 	int dfiphyupd_dat;
 	uint32_t addr;
 
 	addr = t_master | (csr_dfiphyupd_addr);
 	dfiphyupd_dat = phy_io_read16(phy, addr) &
-				~csr_dfiphyupd_threshold_mask;
+			~csr_dfiphyupd_threshold_mask;
 
 	phy_io_write16(phy, addr, dfiphyupd_dat);
 }
 
-static void prog_cal_misc2(uint16_t *phy,
-			  const struct input *input)
+static void prog_cal_misc2(uint16_t *phy, const struct input *input)
 {
 	int cal_misc2_dat, cal_drv_pdth_data, cal_offsets_dat;
 	uint32_t addr;
 
 	addr = t_master | (csr_cal_misc2_addr);
-	cal_misc2_dat = phy_io_read16(phy, addr) |
-			(1 << csr_cal_misc2_err_dis);
+	cal_misc2_dat = phy_io_read16(phy, addr) | (1 << csr_cal_misc2_err_dis);
 
 	phy_io_write16(phy, addr, cal_misc2_dat);
 
 	addr = t_master | (csr_cal_offsets_addr);
 
 	cal_drv_pdth_data = 0x9 << 6;
-	cal_offsets_dat = (phy_io_read16(phy, addr) & ~csr_cal_drv_pdth_mask)
-			| cal_drv_pdth_data;
+	cal_offsets_dat = (phy_io_read16(phy, addr) & ~csr_cal_drv_pdth_mask) |
+			  cal_drv_pdth_data;
 
 	phy_io_write16(phy, addr, cal_offsets_dat);
 }
 
-static int c_init_phy_config(uint16_t **phy_ptr,
-			     unsigned int ip_rev,
-			     const struct input *input,
-			     const void *msg)
+static int c_init_phy_config(uint16_t **phy_ptr, unsigned int ip_rev,
+			     const struct input *input, const void *msg)
 {
 	int i;
 	uint16_t *phy;
@@ -1910,7 +1854,7 @@ static int c_init_phy_config(uint16_t **phy_ptr,
 		prog_cal_misc2(phy, input);
 		prog_tx_pre_drv_mode(phy, input);
 		prog_atx_pre_drv_mode(phy, input);
-		prog_enable_cs_multicast(phy, input);	/* rdimm and lrdimm */
+		prog_enable_cs_multicast(phy, input); /* rdimm and lrdimm */
 		prog_dfi_rd_data_cs_dest_map(phy, ip_rev, input, msg);
 		prog_pll_ctrl2(phy, input);
 #ifdef DDR_PLL_FIX
@@ -1958,8 +1902,8 @@ static uint32_t get_mail(uint16_t *phy, int stream)
 
 	timeout = TIMEOUTDEFAULT;
 	while (((--timeout) != 0) &&
-	       ((phy_io_read16(phy, t_apbonly | csr_uct_shadow_regs)
-		& uct_write_prot_shadow_mask) != 0)) {
+	       ((phy_io_read16(phy, t_apbonly | csr_uct_shadow_regs) &
+		 uct_write_prot_shadow_mask) != 0)) {
 		mdelay(10);
 	}
 	if (timeout == 0) {
@@ -1967,11 +1911,11 @@ static uint32_t get_mail(uint16_t *phy, int stream)
 		return 0xFFFF;
 	}
 
-	mail = phy_io_read16(phy, t_apbonly |
-			     csr_uct_write_only_shadow);
+	mail = phy_io_read16(phy, t_apbonly | csr_uct_write_only_shadow);
 	if (stream != 0) {
-		mail |= phy_io_read16(phy, t_apbonly |
-				      csr_uct_dat_write_only_shadow) << 16;
+		mail |= phy_io_read16(phy,
+				      t_apbonly | csr_uct_dat_write_only_shadow)
+			<< 16;
 	}
 
 	/* Ack */
@@ -1979,8 +1923,8 @@ static uint32_t get_mail(uint16_t *phy, int stream)
 
 	timeout = TIMEOUTDEFAULT;
 	while (((--timeout) != 0) &&
-	       ((phy_io_read16(phy, t_apbonly | csr_uct_shadow_regs)
-		 & uct_write_prot_shadow_mask) == 0)) {
+	       ((phy_io_read16(phy, t_apbonly | csr_uct_shadow_regs) &
+		 uct_write_prot_shadow_mask) == 0)) {
 		mdelay(1);
 	}
 	if (timeout == 0) {
@@ -2030,7 +1974,7 @@ static void decode_stream_message(uint16_t *phy, int train2d)
 
 #ifdef DDR_PHY_DEBUG
 	index = get_mail(phy, 1);
-	if ((index & 0xffff) > MAX_ARGS) {	/* up to MAX_ARGS args so far */
+	if ((index & 0xffff) > MAX_ARGS) { /* up to MAX_ARGS args so far */
 		printf("Program error in %s\n", __func__);
 	}
 	for (i = 0; i < (index & 0xffff) && i < MAX_ARGS; i++) {
@@ -2157,19 +2101,14 @@ static int g_exec_fw(uint16_t **phy_ptr, int train2d, struct input *input)
 		debug("Applying PLL optimal settings\n");
 		prog_pll_ctrl2(phy, input);
 		prog_pll_ctrl(phy, input);
-		phy_io_write16(phy,
-			       t_apbonly | csr_micro_cont_mux_sel_addr,
+		phy_io_write16(phy, t_apbonly | csr_micro_cont_mux_sel_addr,
 			       0x1);
-		phy_io_write16(phy,
-			       t_apbonly | csr_micro_reset_addr,
+		phy_io_write16(phy, t_apbonly | csr_micro_reset_addr,
 			       csr_reset_to_micro_mask |
+				       csr_stall_to_micro_mask);
+		phy_io_write16(phy, t_apbonly | csr_micro_reset_addr,
 			       csr_stall_to_micro_mask);
-		phy_io_write16(phy,
-			       t_apbonly | csr_micro_reset_addr,
-			       csr_stall_to_micro_mask);
-		phy_io_write16(phy,
-			       t_apbonly | csr_micro_reset_addr,
-			       0);
+		phy_io_write16(phy, t_apbonly | csr_micro_reset_addr, 0);
 
 		ret = wait_fw_done(phy, train2d);
 		if (ret == -ETIMEDOUT) {
@@ -2180,10 +2119,8 @@ static int g_exec_fw(uint16_t **phy_ptr, int train2d, struct input *input)
 	return ret;
 }
 
-static inline int send_fw(uint16_t *phy,
-			   uint32_t dst,
-			   uint16_t *img,
-			   uint32_t size)
+static inline int send_fw(uint16_t *phy, uint32_t dst, uint16_t *img,
+			  uint32_t size)
 {
 	uint32_t i;
 
@@ -2199,12 +2136,8 @@ static inline int send_fw(uint16_t *phy,
 	return 0;
 }
 
-static int load_fw(uint16_t **phy_ptr,
-		   struct input *input,
-		   int train2d,
-		   void *msg,
-		   size_t len,
-		   uintptr_t phy_gen2_fw_img_buf,
+static int load_fw(uint16_t **phy_ptr, struct input *input, int train2d,
+		   void *msg, size_t len, uintptr_t phy_gen2_fw_img_buf,
 		   int (*img_loadr)(unsigned int, uintptr_t *, uint32_t *),
 		   uint32_t warm_boot_flag)
 {
@@ -2220,15 +2153,15 @@ static int load_fw(uint16_t **phy_ptr,
 	case SODIMM:
 	case NODIMM:
 		imem_id = train2d ? DDR_IMEM_UDIMM_2D_IMAGE_ID :
-			  DDR_IMEM_UDIMM_1D_IMAGE_ID;
+				    DDR_IMEM_UDIMM_1D_IMAGE_ID;
 		dmem_id = train2d ? DDR_DMEM_UDIMM_2D_IMAGE_ID :
-			  DDR_DMEM_UDIMM_1D_IMAGE_ID;
+				    DDR_DMEM_UDIMM_1D_IMAGE_ID;
 		break;
 	case RDIMM:
 		imem_id = train2d ? DDR_IMEM_RDIMM_2D_IMAGE_ID :
-			  DDR_IMEM_RDIMM_1D_IMAGE_ID;
+				    DDR_IMEM_RDIMM_1D_IMAGE_ID;
 		dmem_id = train2d ? DDR_DMEM_RDIMM_2D_IMAGE_ID :
-			  DDR_DMEM_RDIMM_1D_IMAGE_ID;
+				    DDR_DMEM_RDIMM_1D_IMAGE_ID;
 		break;
 	default:
 		ERROR("Unsupported DIMM type\n");
@@ -2242,8 +2175,8 @@ static int load_fw(uint16_t **phy_ptr,
 		ERROR("Failed to load %d firmware.\n", imem_id);
 		return ret;
 	}
-	debug("Loaded Imaged id %d of size %x at address %lx\n",
-						imem_id, size, image_buf);
+	debug("Loaded Imaged id %d of size %x at address %lx\n", imem_id, size,
+	      image_buf);
 
 	for (i = 0; i < NUM_OF_DDRC; i++) {
 		phy = phy_ptr[i];
@@ -2253,16 +2186,16 @@ static int load_fw(uint16_t **phy_ptr,
 
 		if (warm_boot_flag != DDR_WARM_BOOT) {
 			if (train2d == 0) {
-				phy_io_write16(phy, t_master |
-						csr_mem_reset_l_addr,
-						csr_protect_mem_reset_mask);
+				phy_io_write16(phy,
+					       t_master | csr_mem_reset_l_addr,
+					       csr_protect_mem_reset_mask);
 			}
 		}
 		/* Enable access to the internal CSRs */
 		phy_io_write16(phy, t_apbonly | csr_micro_cont_mux_sel_addr, 0);
 
-		ret = send_fw(phy, PHY_GEN2_IMEM_ADDR,
-			      (uint16_t *)image_buf, size);
+		ret = send_fw(phy, PHY_GEN2_IMEM_ADDR, (uint16_t *)image_buf,
+			      size);
 		if (ret != 0) {
 			return ret;
 		}
@@ -2275,8 +2208,8 @@ static int load_fw(uint16_t **phy_ptr,
 		ERROR("Failed to load %d firmware.\n", dmem_id);
 		return ret;
 	}
-	debug("Loaded Imaged id %d of size %x at address %lx\n",
-						dmem_id, size, image_buf);
+	debug("Loaded Imaged id %d of size %x at address %lx\n", dmem_id, size,
+	      image_buf);
 	image_buf += len;
 	size -= len;
 
@@ -2301,12 +2234,9 @@ static int load_fw(uint16_t **phy_ptr,
 	return ret;
 }
 
-static void parse_odt(const unsigned int val,
-		       const int read,
-		       const int i,
-		       const unsigned int cs_d0,
-		       const unsigned int cs_d1,
-		       unsigned int *odt)
+static void parse_odt(const unsigned int val, const int read, const int i,
+		      const unsigned int cs_d0, const unsigned int cs_d1,
+		      unsigned int *odt)
 {
 	int shift = read ? 4 : 0;
 	int j;
@@ -2336,9 +2266,9 @@ static void parse_odt(const unsigned int val,
 	case DDR_ODT_OTHER_DIMM:
 		for (j = 0; j < DDRC_NUM_CS; j++) {
 			if ((((cs_d0 & (1 << i)) != 0) &&
-						((cs_d1 & (1 << j)) != 0)) ||
+			     ((cs_d1 & (1 << j)) != 0)) ||
 			    (((cs_d1 & (1 << i)) != 0) &&
-						((cs_d0 & (1 << j)) != 0))) {
+			     ((cs_d0 & (1 << j)) != 0))) {
 				odt[j] |= (1 << i) << shift;
 			}
 		}
@@ -2354,9 +2284,9 @@ static void parse_odt(const unsigned int val,
 	case DDR_ODT_SAME_DIMM:
 		for (j = 0; j < DDRC_NUM_CS; j++) {
 			if ((((cs_d0 & (1 << i)) != 0) &&
-						((cs_d0 & (1 << j)) != 0)) ||
+			     ((cs_d0 & (1 << j)) != 0)) ||
 			    (((cs_d1 & (1 << i)) != 0) &&
-						((cs_d1 & (1 << j)) != 0))) {
+			     ((cs_d1 & (1 << j)) != 0))) {
 				odt[j] |= (1 << i) << shift;
 			}
 		}
@@ -2367,9 +2297,9 @@ static void parse_odt(const unsigned int val,
 				continue;
 			}
 			if ((((cs_d0 & (1 << i)) != 0) &&
-						((cs_d0 & (1 << j)) != 0)) ||
+			     ((cs_d0 & (1 << j)) != 0)) ||
 			    (((cs_d1 & (1 << i)) != 0) &&
-						((cs_d1 & (1 << j)) != 0))) {
+			     ((cs_d1 & (1 << j)) != 0))) {
 				odt[j] |= (1 << i) << shift;
 			}
 		}
@@ -2383,79 +2313,112 @@ static void parse_odt(const unsigned int val,
 
 #ifdef DEBUG_DDR_INPUT_CONFIG
 char *dram_types_str[] = {
-		"DDR4",
-		"DDR3",
-		"LDDDR4",
-		"LPDDR3",
-		"LPDDR2",
-		"DDR5"
+	"DDR4", "DDR3", "LDDDR4", "LPDDR3", "LPDDR2", "DDR5"
 };
 
 char *dimm_types_str[] = {
-		"UDIMM",
-		"SODIMM",
-		"RDIMM",
-		"LRDIMM",
-		"NODIMM",
+	"UDIMM", "SODIMM", "RDIMM", "LRDIMM", "NODIMM",
 };
 
-
-static void print_jason_format(struct input *input,
-			       struct ddr4u1d *msg_1d,
+static void print_jason_format(struct input *input, struct ddr4u1d *msg_1d,
 			       struct ddr4u2d *msg_2d)
 {
-
 	printf("\n{");
-	printf("\n    \"dram_type\": \"%s\",", dram_types_str[input->basic.dram_type]);
-	printf("\n    \"dimm_type\": \"%s\",", dimm_types_str[input->basic.dimm_type]);
-	printf("\n    \"hard_macro_ver\": \"%d\",", input->basic.hard_macro_ver);
-	printf("\n    \"num_dbyte\": \"0x%04x\",", (unsigned int)input->basic.num_dbyte);
-	printf("\n    \"num_active_dbyte_dfi0\": \"0x%04x\",", (unsigned int)input->basic.num_active_dbyte_dfi0);
-	printf("\n    \"num_anib\": \"0x%04x\",", (unsigned int)input->basic.num_anib);
-	printf("\n    \"num_rank_dfi0\": \"0x%04x\",", (unsigned int)input->basic.num_rank_dfi0);
-	printf("\n    \"num_pstates\": \"0x%04x\",", (unsigned int)input->basic.num_pstates);
+	printf("\n    \"dram_type\": \"%s\",",
+	       dram_types_str[input->basic.dram_type]);
+	printf("\n    \"dimm_type\": \"%s\",",
+	       dimm_types_str[input->basic.dimm_type]);
+	printf("\n    \"hard_macro_ver\": \"%d\",",
+	       input->basic.hard_macro_ver);
+	printf("\n    \"num_dbyte\": \"0x%04x\",",
+	       (unsigned int)input->basic.num_dbyte);
+	printf("\n    \"num_active_dbyte_dfi0\": \"0x%04x\",",
+	       (unsigned int)input->basic.num_active_dbyte_dfi0);
+	printf("\n    \"num_anib\": \"0x%04x\",",
+	       (unsigned int)input->basic.num_anib);
+	printf("\n    \"num_rank_dfi0\": \"0x%04x\",",
+	       (unsigned int)input->basic.num_rank_dfi0);
+	printf("\n    \"num_pstates\": \"0x%04x\",",
+	       (unsigned int)input->basic.num_pstates);
 	printf("\n    \"frequency\": \"%d\",", input->basic.frequency);
-	printf("\n    \"pll_bypass\": \"0x%04x\",", (unsigned int)input->basic.dfi_freq_ratio);
-	printf("\n    \"dfi_freq_ratio\": \"0x%04x\",", (unsigned int)input->basic.dfi_freq_ratio);
-	printf("\n    \"dfi1_exists\":  \"0x%04x\",", (unsigned int)input->basic.dfi1exists);
-	printf("\n    \"dram_data_width\": \"0x%04x\",", (unsigned int)input->basic.dram_data_width);
-	printf("\n    \"dram_byte_swap\": \"0x%04x\",", (unsigned int)input->adv.dram_byte_swap);
-	printf("\n    \"ext_cal_res_val\": \"0x%04x\",", (unsigned int)input->adv.ext_cal_res_val);
-	printf("\n    \"tx_slew_rise_dq\": \"0x%04x\",", (unsigned int)input->adv.tx_slew_rise_dq);
-	printf("\n    \"tx_slew_fall_dq\": \"0x%04x\",", (unsigned int)input->adv.tx_slew_fall_dq);
-	printf("\n    \"tx_slew_rise_ac\": \"0x%04x\",", (unsigned int)input->adv.tx_slew_rise_ac);
-	printf("\n    \"tx_slew_fall_ac\": \"0x%04x\",", (unsigned int)input->adv.tx_slew_fall_ac);
+	printf("\n    \"pll_bypass\": \"0x%04x\",",
+	       (unsigned int)input->basic.dfi_freq_ratio);
+	printf("\n    \"dfi_freq_ratio\": \"0x%04x\",",
+	       (unsigned int)input->basic.dfi_freq_ratio);
+	printf("\n    \"dfi1_exists\":  \"0x%04x\",",
+	       (unsigned int)input->basic.dfi1exists);
+	printf("\n    \"dram_data_width\": \"0x%04x\",",
+	       (unsigned int)input->basic.dram_data_width);
+	printf("\n    \"dram_byte_swap\": \"0x%04x\",",
+	       (unsigned int)input->adv.dram_byte_swap);
+	printf("\n    \"ext_cal_res_val\": \"0x%04x\",",
+	       (unsigned int)input->adv.ext_cal_res_val);
+	printf("\n    \"tx_slew_rise_dq\": \"0x%04x\",",
+	       (unsigned int)input->adv.tx_slew_rise_dq);
+	printf("\n    \"tx_slew_fall_dq\": \"0x%04x\",",
+	       (unsigned int)input->adv.tx_slew_fall_dq);
+	printf("\n    \"tx_slew_rise_ac\": \"0x%04x\",",
+	       (unsigned int)input->adv.tx_slew_rise_ac);
+	printf("\n    \"tx_slew_fall_ac\": \"0x%04x\",",
+	       (unsigned int)input->adv.tx_slew_fall_ac);
 	printf("\n    \"odt_impedance\": \"%d\",", input->adv.odtimpedance);
 	printf("\n    \"tx_impedance\": \"%d\",", input->adv.tx_impedance);
 	printf("\n    \"atx_impedance\": \"%d\",", input->adv.atx_impedance);
-	printf("\n    \"mem_alert_en\": \"0x%04x\",", (unsigned int)input->adv.mem_alert_en);
-	printf("\n    \"mem_alert_pu_imp\": \"0x%04x\",", (unsigned int)input->adv.mem_alert_puimp);
-	printf("\n    \"mem_alert_vref_level\": \"0x%04x\",", (unsigned int)input->adv.mem_alert_vref_level);
-	printf("\n    \"mem_alert_sync_bypass\": \"0x%04x\",", (unsigned int)input->adv.mem_alert_sync_bypass);
-	printf("\n    \"cal_interval\": \"0x%04x\",", (unsigned int)input->adv.cal_interval);
-	printf("\n    \"cal_once\": \"0x%04x\",", (unsigned int)input->adv.cal_once);
-	printf("\n    \"dis_dyn_adr_tri\": \"0x%04x\",", (unsigned int)input->adv.dis_dyn_adr_tri);
-	printf("\n    \"is2t_timing\": \"0x%04x\",", (unsigned int)input->adv.is2ttiming);
-	printf("\n    \"d4rx_preabmle_length\": \"0x%04x\",", (unsigned int)input->adv.d4rx_preamble_length);
-	printf("\n    \"d4tx_preamble_length\": \"0x%04x\",", (unsigned int)input->adv.d4tx_preamble_length);
-	printf("\n    \"msg_misc\": \"0x%02x\",", (unsigned int)msg_1d->msg_misc);
-	printf("\n    \"reserved00\": \"0x%01x\",", (unsigned int)msg_1d->reserved00);
-	printf("\n    \"hdt_ctrl\": \"0x%02x\",", (unsigned int)msg_1d->hdt_ctrl);
-	printf("\n    \"cs_present\": \"0x%02x\",", (unsigned int)msg_1d->cs_present);
-	printf("\n    \"phy_vref\": \"0x%02x\",", (unsigned int)msg_1d->phy_vref);
-	printf("\n    \"dfi_mrl_margin\": \"0x%02x\",", (unsigned int)msg_1d->dfimrlmargin);
-	printf("\n    \"addr_mirror\": \"0x%02x\",", (unsigned int)msg_1d->addr_mirror);
-	printf("\n    \"wr_odt_pat_rank0\": \"0x%02x\",", (unsigned int)(msg_1d->acsm_odt_ctrl0 & 0x0f));
-	printf("\n    \"wr_odt_pat_rank1\": \"0x%02x\",", (unsigned int)(msg_1d->acsm_odt_ctrl1 & 0x0f));
-	printf("\n    \"wr_odt_pat_rank2\": \"0x%02x\",", (unsigned int)(msg_1d->acsm_odt_ctrl2 & 0x0f));
-	printf("\n    \"wr_odt_pat_rank3\": \"0x%02x\",", (unsigned int)(msg_1d->acsm_odt_ctrl3 & 0x0f));
-	printf("\n    \"rd_odt_pat_rank0\": \"0x%02x\",", (unsigned int)(msg_1d->acsm_odt_ctrl0 & 0xf0));
-	printf("\n    \"rd_odt_pat_rank1\": \"0x%02x\",", (unsigned int)(msg_1d->acsm_odt_ctrl1 & 0xf0));
-	printf("\n    \"rd_odt_pat_rank2\": \"0x%02x\",", (unsigned int)(msg_1d->acsm_odt_ctrl2 & 0xf0));
-	printf("\n    \"rd_odt_pat_rank3\": \"0x%02x\",", (unsigned int)(msg_1d->acsm_odt_ctrl3 & 0xf0));
+	printf("\n    \"mem_alert_en\": \"0x%04x\",",
+	       (unsigned int)input->adv.mem_alert_en);
+	printf("\n    \"mem_alert_pu_imp\": \"0x%04x\",",
+	       (unsigned int)input->adv.mem_alert_puimp);
+	printf("\n    \"mem_alert_vref_level\": \"0x%04x\",",
+	       (unsigned int)input->adv.mem_alert_vref_level);
+	printf("\n    \"mem_alert_sync_bypass\": \"0x%04x\",",
+	       (unsigned int)input->adv.mem_alert_sync_bypass);
+	printf("\n    \"cal_interval\": \"0x%04x\",",
+	       (unsigned int)input->adv.cal_interval);
+	printf("\n    \"cal_once\": \"0x%04x\",",
+	       (unsigned int)input->adv.cal_once);
+	printf("\n    \"dis_dyn_adr_tri\": \"0x%04x\",",
+	       (unsigned int)input->adv.dis_dyn_adr_tri);
+	printf("\n    \"is2t_timing\": \"0x%04x\",",
+	       (unsigned int)input->adv.is2ttiming);
+	printf("\n    \"d4rx_preabmle_length\": \"0x%04x\",",
+	       (unsigned int)input->adv.d4rx_preamble_length);
+	printf("\n    \"d4tx_preamble_length\": \"0x%04x\",",
+	       (unsigned int)input->adv.d4tx_preamble_length);
+	printf("\n    \"msg_misc\": \"0x%02x\",",
+	       (unsigned int)msg_1d->msg_misc);
+	printf("\n    \"reserved00\": \"0x%01x\",",
+	       (unsigned int)msg_1d->reserved00);
+	printf("\n    \"hdt_ctrl\": \"0x%02x\",",
+	       (unsigned int)msg_1d->hdt_ctrl);
+	printf("\n    \"cs_present\": \"0x%02x\",",
+	       (unsigned int)msg_1d->cs_present);
+	printf("\n    \"phy_vref\": \"0x%02x\",",
+	       (unsigned int)msg_1d->phy_vref);
+	printf("\n    \"dfi_mrl_margin\": \"0x%02x\",",
+	       (unsigned int)msg_1d->dfimrlmargin);
+	printf("\n    \"addr_mirror\": \"0x%02x\",",
+	       (unsigned int)msg_1d->addr_mirror);
+	printf("\n    \"wr_odt_pat_rank0\": \"0x%02x\",",
+	       (unsigned int)(msg_1d->acsm_odt_ctrl0 & 0x0f));
+	printf("\n    \"wr_odt_pat_rank1\": \"0x%02x\",",
+	       (unsigned int)(msg_1d->acsm_odt_ctrl1 & 0x0f));
+	printf("\n    \"wr_odt_pat_rank2\": \"0x%02x\",",
+	       (unsigned int)(msg_1d->acsm_odt_ctrl2 & 0x0f));
+	printf("\n    \"wr_odt_pat_rank3\": \"0x%02x\",",
+	       (unsigned int)(msg_1d->acsm_odt_ctrl3 & 0x0f));
+	printf("\n    \"rd_odt_pat_rank0\": \"0x%02x\",",
+	       (unsigned int)(msg_1d->acsm_odt_ctrl0 & 0xf0));
+	printf("\n    \"rd_odt_pat_rank1\": \"0x%02x\",",
+	       (unsigned int)(msg_1d->acsm_odt_ctrl1 & 0xf0));
+	printf("\n    \"rd_odt_pat_rank2\": \"0x%02x\",",
+	       (unsigned int)(msg_1d->acsm_odt_ctrl2 & 0xf0));
+	printf("\n    \"rd_odt_pat_rank3\": \"0x%02x\",",
+	       (unsigned int)(msg_1d->acsm_odt_ctrl3 & 0xf0));
 	printf("\n    \"d4_misc\": \"0x%01x\",", (unsigned int)msg_1d->d4misc);
-	printf("\n    \"share_2d_vref_results\": \"0x%01x\",", (unsigned int)msg_1d->share2dvref_result);
-	printf("\n    \"sequence_ctrl\": \"0x%04x\",", (unsigned int)msg_1d->sequence_ctrl);
+	printf("\n    \"share_2d_vref_results\": \"0x%01x\",",
+	       (unsigned int)msg_1d->share2dvref_result);
+	printf("\n    \"sequence_ctrl\": \"0x%04x\",",
+	       (unsigned int)msg_1d->sequence_ctrl);
 	printf("\n    \"mr0\": \"0x%04x\",", (unsigned int)msg_1d->mr0);
 	printf("\n    \"mr1\": \"0x%04x\",", (unsigned int)msg_1d->mr1);
 	printf("\n    \"mr2\": \"0x%04x\",", (unsigned int)msg_1d->mr2);
@@ -2463,17 +2426,28 @@ static void print_jason_format(struct input *input,
 	printf("\n    \"mr4\": \"0x%04x\",", (unsigned int)msg_1d->mr4);
 	printf("\n    \"mr5\": \"0x%04x\",", (unsigned int)msg_1d->mr5);
 	printf("\n    \"mr6\": \"0x%04x\",", (unsigned int)msg_1d->mr6);
-	printf("\n    \"alt_cal_l\": \"0x%04x\",", (unsigned int)msg_1d->alt_cas_l);
-	printf("\n    \"alt_wcal_l\": \"0x%04x\",", (unsigned int)msg_1d->alt_wcas_l);
-	printf("\n    \"sequence_ctrl_2d\": \"0x%04x\",", (unsigned int)msg_2d->sequence_ctrl);
-	printf("\n    \"rtt_nom_wr_park0\": \"0x%01x\",", (unsigned int)msg_1d->rtt_nom_wr_park0);
-	printf("\n    \"rtt_nom_wr_park1\": \"0x%01x\",", (unsigned int)msg_1d->rtt_nom_wr_park1);
-	printf("\n    \"rtt_nom_wr_park2\": \"0x%01x\",", (unsigned int)msg_1d->rtt_nom_wr_park2);
-	printf("\n    \"rtt_nom_wr_park3\": \"0x%01x\",", (unsigned int)msg_1d->rtt_nom_wr_park3);
-	printf("\n    \"rtt_nom_wr_park4\": \"0x%01x\",", (unsigned int)msg_1d->rtt_nom_wr_park4);
-	printf("\n    \"rtt_nom_wr_park5\": \"0x%01x\",", (unsigned int)msg_1d->rtt_nom_wr_park5);
-	printf("\n    \"rtt_nom_wr_park6\": \"0x%01x\",", (unsigned int)msg_1d->rtt_nom_wr_park6);
-	printf("\n    \"rtt_nom_wr_park7\": \"0x%01x\"", (unsigned int)msg_1d->rtt_nom_wr_park7);
+	printf("\n    \"alt_cal_l\": \"0x%04x\",",
+	       (unsigned int)msg_1d->alt_cas_l);
+	printf("\n    \"alt_wcal_l\": \"0x%04x\",",
+	       (unsigned int)msg_1d->alt_wcas_l);
+	printf("\n    \"sequence_ctrl_2d\": \"0x%04x\",",
+	       (unsigned int)msg_2d->sequence_ctrl);
+	printf("\n    \"rtt_nom_wr_park0\": \"0x%01x\",",
+	       (unsigned int)msg_1d->rtt_nom_wr_park0);
+	printf("\n    \"rtt_nom_wr_park1\": \"0x%01x\",",
+	       (unsigned int)msg_1d->rtt_nom_wr_park1);
+	printf("\n    \"rtt_nom_wr_park2\": \"0x%01x\",",
+	       (unsigned int)msg_1d->rtt_nom_wr_park2);
+	printf("\n    \"rtt_nom_wr_park3\": \"0x%01x\",",
+	       (unsigned int)msg_1d->rtt_nom_wr_park3);
+	printf("\n    \"rtt_nom_wr_park4\": \"0x%01x\",",
+	       (unsigned int)msg_1d->rtt_nom_wr_park4);
+	printf("\n    \"rtt_nom_wr_park5\": \"0x%01x\",",
+	       (unsigned int)msg_1d->rtt_nom_wr_park5);
+	printf("\n    \"rtt_nom_wr_park6\": \"0x%01x\",",
+	       (unsigned int)msg_1d->rtt_nom_wr_park6);
+	printf("\n    \"rtt_nom_wr_park7\": \"0x%01x\"",
+	       (unsigned int)msg_1d->rtt_nom_wr_park7);
 	printf("\n}");
 	printf("\n");
 }
@@ -2513,16 +2487,16 @@ int compute_ddr_phy(struct ddr_info *priv)
 	/* FIXME: Add condition for LRDIMM */
 	input.basic.dimm_type = (dimm_param->rdimm != 0) ? RDIMM : UDIMM;
 	input.basic.num_dbyte = dimm_param->primary_sdram_width / 8 +
-				 dimm_param->ec_sdram_width / 8;
+				dimm_param->ec_sdram_width / 8;
 	input.basic.num_active_dbyte_dfi0 = input.basic.num_dbyte;
 	input.basic.num_rank_dfi0 = dimm_param->n_ranks;
 	input.basic.dram_data_width = dimm_param->device_width;
-	input.basic.hard_macro_ver	= 0xa;
-	input.basic.num_pstates	= 1;
-	input.basic.dfi_freq_ratio	= 1;
-	input.basic.num_anib		= 0xc;
-	input.basic.train2d		= popts->skip2d ? 0 : 1;
-	input.basic.frequency = (int) (clk / 2000000ul);
+	input.basic.hard_macro_ver = 0xa;
+	input.basic.num_pstates = 1;
+	input.basic.dfi_freq_ratio = 1;
+	input.basic.num_anib = 0xc;
+	input.basic.train2d = popts->skip2d ? 0 : 1;
+	input.basic.frequency = (int)(clk / 2000000ul);
 	debug("frequency = %dMHz\n", input.basic.frequency);
 	input.cs_d0 = conf->cs_on_dimm[0];
 #if DDRC_NUM_DIMM > 1
@@ -2544,10 +2518,9 @@ int compute_ddr_phy(struct ddr_info *priv)
 		}
 		odt_rd = (regs->cs[i].config >> 20U) & U(0x7);
 		odt_wr = (regs->cs[i].config >> 16U) & U(0x7);
-		parse_odt(odt_rd, true, i, input.cs_d0, input.cs_d1,
-			   input.odt);
+		parse_odt(odt_rd, true, i, input.cs_d0, input.cs_d1, input.odt);
 		parse_odt(odt_wr, false, i, input.cs_d0, input.cs_d1,
-			   input.odt);
+			  input.odt);
 	}
 
 	/* Do not set sdram_cfg[RD_EN] or sdram_cfg2[RCW_EN] for RDIMM */
@@ -2574,10 +2547,10 @@ int compute_ddr_phy(struct ddr_info *priv)
 	}
 
 	input.adv.odtimpedance = popts->odt ? popts->odt : 60;
-	input.adv.tx_impedance = popts->phy_tx_impedance ?
-					popts->phy_tx_impedance : 28;
-	input.adv.atx_impedance = popts->phy_atx_impedance ?
-					popts->phy_atx_impedance : 30;
+	input.adv.tx_impedance =
+		popts->phy_tx_impedance ? popts->phy_tx_impedance : 28;
+	input.adv.atx_impedance =
+		popts->phy_atx_impedance ? popts->phy_atx_impedance : 30;
 
 	debug("Initializing input adv data structure\n");
 	phy_gen2_init_input(&input);
@@ -2599,14 +2572,14 @@ int compute_ddr_phy(struct ddr_info *priv)
 	if (priv->warm_boot_flag == DDR_WARM_BOOT) {
 		debug("Restoring the Phy training data\n");
 		// Restore the training data
-		ret = restore_phy_training_values(priv->phy,
-						  PHY_TRAINING_REGS_ON_FLASH,
-						  priv->num_ctlrs,
-						  input.basic.train2d
+		ret = restore_phy_training_values(
+			priv->phy, PHY_TRAINING_REGS_ON_FLASH, priv->num_ctlrs,
+			input.basic.train2d
 #ifdef NXP_APPLY_MAX_CDD
-						, &ddrctrl_regs
+			,
+			&ddrctrl_regs
 #endif
-						);
+		);
 		if (ret != 0) {
 			ERROR("Restoring of training data failed %d\n", ret);
 			return ret;
@@ -2619,9 +2592,9 @@ int compute_ddr_phy(struct ddr_info *priv)
 #endif
 		/* Mapping IMG buffer firstly */
 		ret = mmap_add_dynamic_region(priv->phy_gen2_fw_img_buf,
-			priv->phy_gen2_fw_img_buf,
-			PHY_GEN2_MAX_IMAGE_SIZE,
-			MT_MEMORY | MT_RW | MT_SECURE);
+					      priv->phy_gen2_fw_img_buf,
+					      PHY_GEN2_MAX_IMAGE_SIZE,
+					      MT_MEMORY | MT_RW | MT_SECURE);
 		if (ret != 0) {
 			ERROR("Failed to add dynamic memory region.\n");
 			return ret;
@@ -2630,7 +2603,7 @@ int compute_ddr_phy(struct ddr_info *priv)
 		debug("Load 1D firmware\n");
 		ret = load_fw(priv->phy, &input, 0, &msg_1d,
 			      sizeof(struct ddr4u1d), priv->phy_gen2_fw_img_buf,
-					priv->img_loadr, priv->warm_boot_flag);
+			      priv->img_loadr, priv->warm_boot_flag);
 		if (ret != 0) {
 			ERROR("Loading firmware failed (error code %d)\n", ret);
 			return ret;
@@ -2649,7 +2622,7 @@ int compute_ddr_phy(struct ddr_info *priv)
 			tcfg4 = regs->timing_cfg[4];
 			rank = findrank(conf->cs_in_use);
 			get_cdd_val(priv->phy, rank, input.basic.frequency,
-					&tcfg0, &tcfg4);
+				    &tcfg0, &tcfg4);
 			regs->timing_cfg[0] = tcfg0;
 			regs->timing_cfg[4] = tcfg4;
 		}
@@ -2661,8 +2634,7 @@ int compute_ddr_phy(struct ddr_info *priv)
 			ret = load_fw(priv->phy, &input, 1, &msg_2d,
 				      sizeof(struct ddr4u2d),
 				      priv->phy_gen2_fw_img_buf,
-				      priv->img_loadr,
-				      priv->warm_boot_flag);
+				      priv->img_loadr, priv->warm_boot_flag);
 			if (ret != 0) {
 				ERROR("Loading fw failed (err code %d)\n", ret);
 			} else {
@@ -2670,7 +2642,7 @@ int compute_ddr_phy(struct ddr_info *priv)
 				ret = g_exec_fw(priv->phy, 1, &input);
 				if (ret != 0) {
 					ERROR("Execution FW failed (err %d)\n",
-					       ret);
+					      ret);
 				}
 			}
 		}
@@ -2683,14 +2655,14 @@ int compute_ddr_phy(struct ddr_info *priv)
 #endif
 			debug("save the phy training data\n");
 			//Save training data TBD
-			ret = save_phy_training_values(priv->phy,
-						PHY_TRAINING_REGS_ON_FLASH,
-						priv->num_ctlrs,
-						input.basic.train2d
+			ret = save_phy_training_values(
+				priv->phy, PHY_TRAINING_REGS_ON_FLASH,
+				priv->num_ctlrs, input.basic.train2d
 #ifdef NXP_APPLY_MAX_CDD
-						, &ddrctrl_regs
+				,
+				&ddrctrl_regs
 #endif
-						);
+			);
 			if (ret != 0) {
 				ERROR("Saving training data failed.");
 				ERROR("Warm boot will fail. Error=%d.\n", ret);
@@ -2704,11 +2676,10 @@ int compute_ddr_phy(struct ddr_info *priv)
 		i_load_pie(priv->phy, &input, &msg_1d);
 
 		NOTICE("DDR4 %s with %d-rank %d-bit bus (x%d)\n",
-		       input.basic.dimm_type == RDIMM ? "RDIMM" :
+		       input.basic.dimm_type == RDIMM  ? "RDIMM" :
 		       input.basic.dimm_type == LRDIMM ? "LRDIMM" :
-		       "UDIMM",
-		       dimm_param->n_ranks,
-		       dimm_param->primary_sdram_width,
+							 "UDIMM",
+		       dimm_param->n_ranks, dimm_param->primary_sdram_width,
 		       dimm_param->device_width);
 	}
 #ifdef DEBUG_DDR_INPUT_CONFIG

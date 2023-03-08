@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -37,8 +37,8 @@ void clear_mem_regions(mem_region_t *tbl, size_t nregions)
 
 	for (i = 0; i < nregions; i++) {
 		assert(tbl->nbytes > 0);
-		assert(!check_uptr_overflow(tbl->base, tbl->nbytes-1));
-		zero_normalmem((void *) (tbl->base), tbl->nbytes);
+		assert(!check_uptr_overflow(tbl->base, tbl->nbytes - 1));
+		zero_normalmem((void *)(tbl->base), tbl->nbytes);
 		tbl++;
 	}
 }
@@ -53,10 +53,8 @@ void clear_mem_regions(mem_region_t *tbl, size_t nregions)
  * be cleared, and chunk is the amount of memory mapped and
  * cleared in every iteration.
  */
-void clear_map_dyn_mem_regions(struct mem_region *regions,
-			       size_t nregions,
-			       uintptr_t va,
-			       size_t chunk)
+void clear_map_dyn_mem_regions(struct mem_region *regions, size_t nregions,
+			       uintptr_t va, size_t chunk)
 {
 	uintptr_t begin;
 	int r;
@@ -70,8 +68,8 @@ void clear_map_dyn_mem_regions(struct mem_region *regions,
 	for (unsigned int i = 0U; i < nregions; i++) {
 		begin = regions[i].base;
 		size = regions[i].nbytes;
-		if (((begin & (chunk-1U)) != 0U) ||
-				((size & (chunk-1U)) != 0U)) {
+		if (((begin & (chunk - 1U)) != 0U) ||
+		    ((size & (chunk - 1U)) != 0U)) {
 			INFO("PSCI: Not correctly aligned region\n");
 			panic();
 		}
@@ -80,7 +78,7 @@ void clear_map_dyn_mem_regions(struct mem_region *regions,
 			r = mmap_add_dynamic_region(begin, va, chunk, attr);
 			if (r != 0) {
 				INFO("PSCI: %s failed with %d\n",
-					"mmap_add_dynamic_region", r);
+				     "mmap_add_dynamic_region", r);
 				panic();
 			}
 
@@ -89,7 +87,7 @@ void clear_map_dyn_mem_regions(struct mem_region *regions,
 			r = mmap_remove_dynamic_region(va, chunk);
 			if (r != 0) {
 				INFO("PSCI: %s failed with %d\n",
-					"mmap_remove_dynamic_region", r);
+				     "mmap_remove_dynamic_region", r);
 				panic();
 			}
 
@@ -112,21 +110,21 @@ void clear_map_dyn_mem_regions(struct mem_region *regions,
  *   0 the region (addr + nbytes-1) is covered by one of the regions described
  *     in tbl
  */
-int mem_region_in_array_chk(mem_region_t *tbl, size_t nregions,
-			    uintptr_t addr, size_t nbytes)
+int mem_region_in_array_chk(mem_region_t *tbl, size_t nregions, uintptr_t addr,
+			    size_t nbytes)
 {
 	uintptr_t region_start, region_end, start, end;
 	size_t i;
 
 	assert(tbl != NULL);
 	assert(nbytes != 0U);
-	assert(!check_uptr_overflow(addr, nbytes-1));
+	assert(!check_uptr_overflow(addr, nbytes - 1));
 
 	region_start = addr;
 	region_end = addr + (nbytes - 1U);
 	for (i = 0U; i < nregions; i++) {
 		assert(tbl->nbytes > 0);
-		assert(!check_uptr_overflow(tbl->base, tbl->nbytes-1));
+		assert(!check_uptr_overflow(tbl->base, tbl->nbytes - 1));
 		start = tbl->base;
 		end = start + (tbl->nbytes - 1);
 		if ((region_start >= start) && (region_end <= end)) {

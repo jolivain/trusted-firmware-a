@@ -13,10 +13,10 @@
 
 #ifdef USE_GPIO
 /* max number of supported GPIOs to construct the bitmap for board detection */
-#define MAX_NR_GPIOS           4
+#define MAX_NR_GPIOS 4
 
 /* max GPIO bitmap value */
-#define MAX_GPIO_BITMAP_VAL    (BIT(MAX_NR_GPIOS) - 1)
+#define MAX_GPIO_BITMAP_VAL (BIT(MAX_NR_GPIOS) - 1)
 #endif
 
 struct mcb_ref_group {
@@ -24,10 +24,9 @@ struct mcb_ref_group {
 	unsigned int *mcb_cfg;
 };
 
-#define MCB_REF_GROUP(ref)		\
-{					\
-	.mcb_ref =  0x ## ref,		\
-	.mcb_cfg = mcb_ ## ref,		\
-}
+#define MCB_REF_GROUP(ref)                                \
+	{                                                 \
+		.mcb_ref = 0x##ref, .mcb_cfg = mcb_##ref, \
+	}
 
 #endif

@@ -43,8 +43,7 @@ typedef struct bl31_params {
 } bl31_params_t;
 
 /* BL3 utility functions */
-void ls_bl31_early_platform_setup(void *from_bl2,
-				void *plat_params_from_bl2);
+void ls_bl31_early_platform_setup(void *from_bl2, void *plat_params_from_bl2);
 /* LS Helper functions	*/
 unsigned int plat_my_core_mask(void);
 unsigned int plat_core_mask(u_register_t mpidr);
@@ -119,19 +118,16 @@ typedef struct {
 
 dram_regions_info_t *get_dram_regions_info(void);
 
-void ls_setup_page_tables(uintptr_t total_base,
-			size_t total_size,
-			uintptr_t code_start,
-			uintptr_t code_limit,
-			uintptr_t rodata_start,
-			uintptr_t rodata_limit
+void ls_setup_page_tables(uintptr_t total_base, size_t total_size,
+			  uintptr_t code_start, uintptr_t code_limit,
+			  uintptr_t rodata_start, uintptr_t rodata_limit
 #if USE_COHERENT_MEM
-			, uintptr_t coh_start,
-			uintptr_t coh_limit
+			  ,
+			  uintptr_t coh_start, uintptr_t coh_limit
 #endif
 );
 
-#define SOC_NAME_MAX_LEN	(20)
+#define SOC_NAME_MAX_LEN (20)
 
 /* Structure to define SoC personality */
 struct soc_type {
@@ -141,12 +137,12 @@ struct soc_type {
 	uint8_t cores_per_cluster;
 };
 void get_cluster_info(const struct soc_type *soc_list, uint8_t ps_count,
-		uint8_t *num_clusters, uint8_t *cores_per_cluster);
+		      uint8_t *num_clusters, uint8_t *cores_per_cluster);
 
-#define SOC_ENTRY(n, v, ncl, nc) {	\
-		.name = #n,		\
-		.version = SVR_##v,	\
-		.num_clusters = (ncl),	\
-		.cores_per_cluster = (nc)}
+#define SOC_ENTRY(n, v, ncl, nc)                                       \
+	{                                                              \
+		.name = #n, .version = SVR_##v, .num_clusters = (ncl), \
+		.cores_per_cluster = (nc)                              \
+	}
 
 #endif /* PLAT_COMMON_H */

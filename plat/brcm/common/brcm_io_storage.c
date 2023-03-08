@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,16 +7,16 @@
 #include <assert.h>
 #include <string.h>
 
+#include <cmn_plat_def.h>
+#include <cmn_plat_util.h>
 #include <common/debug.h>
 #include <drivers/io/io_driver.h>
 #include <drivers/io/io_fip.h>
 #include <drivers/io/io_memmap.h>
 #include <drivers/io/io_storage.h>
+#include <plat_brcm.h>
 #include <tools_share/firmware_image_package.h>
 
-#include <cmn_plat_def.h>
-#include <cmn_plat_util.h>
-#include <plat_brcm.h>
 #include <platform_def.h>
 
 /* IO devices */
@@ -143,137 +143,74 @@ struct plat_io_policy {
 
 /* By default, BRCM platforms load images from the FIP */
 static const struct plat_io_policy policies[] = {
-	[FIP_IMAGE_ID] = {
-		&memmap_dev_handle,
-		(uintptr_t)&fip_block_spec,
-		open_memmap
-	},
-	[BL2_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl2_uuid_spec,
-		open_fip
-	},
-	[SCP_BL2_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&scp_bl2_uuid_spec,
-		open_fip
-	},
-	[BL31_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl31_uuid_spec,
-		open_fip
-	},
-	[BL32_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl32_uuid_spec,
-		open_fip
-	},
-	[BL32_EXTRA1_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl32_extra1_uuid_spec,
-		open_fip
-	},
-	[BL32_EXTRA2_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl32_extra2_uuid_spec,
-		open_fip
-	},
-	[BL33_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl33_uuid_spec,
-		open_fip
-	},
-	[TB_FW_CONFIG_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&tb_fw_config_uuid_spec,
-		open_fip
-	},
-	[HW_CONFIG_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&hw_config_uuid_spec,
-		open_fip
-	},
-	[SOC_FW_CONFIG_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&soc_fw_config_uuid_spec,
-		open_fip
-	},
-	[TOS_FW_CONFIG_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&tos_fw_config_uuid_spec,
-		open_fip
-	},
-	[NT_FW_CONFIG_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&nt_fw_config_uuid_spec,
-		open_fip
-	},
+	[FIP_IMAGE_ID] = { &memmap_dev_handle, (uintptr_t)&fip_block_spec,
+			   open_memmap },
+	[BL2_IMAGE_ID] = { &fip_dev_handle, (uintptr_t)&bl2_uuid_spec,
+			   open_fip },
+	[SCP_BL2_IMAGE_ID] = { &fip_dev_handle, (uintptr_t)&scp_bl2_uuid_spec,
+			       open_fip },
+	[BL31_IMAGE_ID] = { &fip_dev_handle, (uintptr_t)&bl31_uuid_spec,
+			    open_fip },
+	[BL32_IMAGE_ID] = { &fip_dev_handle, (uintptr_t)&bl32_uuid_spec,
+			    open_fip },
+	[BL32_EXTRA1_IMAGE_ID] = { &fip_dev_handle,
+				   (uintptr_t)&bl32_extra1_uuid_spec,
+				   open_fip },
+	[BL32_EXTRA2_IMAGE_ID] = { &fip_dev_handle,
+				   (uintptr_t)&bl32_extra2_uuid_spec,
+				   open_fip },
+	[BL33_IMAGE_ID] = { &fip_dev_handle, (uintptr_t)&bl33_uuid_spec,
+			    open_fip },
+	[TB_FW_CONFIG_ID] = { &fip_dev_handle,
+			      (uintptr_t)&tb_fw_config_uuid_spec, open_fip },
+	[HW_CONFIG_ID] = { &fip_dev_handle, (uintptr_t)&hw_config_uuid_spec,
+			   open_fip },
+	[SOC_FW_CONFIG_ID] = { &fip_dev_handle,
+			       (uintptr_t)&soc_fw_config_uuid_spec, open_fip },
+	[TOS_FW_CONFIG_ID] = { &fip_dev_handle,
+			       (uintptr_t)&tos_fw_config_uuid_spec, open_fip },
+	[NT_FW_CONFIG_ID] = { &fip_dev_handle,
+			      (uintptr_t)&nt_fw_config_uuid_spec, open_fip },
 #if TRUSTED_BOARD_BOOT
-	[TRUSTED_BOOT_FW_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&tb_fw_cert_uuid_spec,
-		open_fip
-	},
-	[TRUSTED_KEY_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&trusted_key_cert_uuid_spec,
-		open_fip
-	},
-	[SCP_FW_KEY_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&scp_fw_key_cert_uuid_spec,
-		open_fip
-	},
-	[SOC_FW_KEY_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&soc_fw_key_cert_uuid_spec,
-		open_fip
-	},
-	[TRUSTED_OS_FW_KEY_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&tos_fw_key_cert_uuid_spec,
-		open_fip
-	},
-	[NON_TRUSTED_FW_KEY_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&nt_fw_key_cert_uuid_spec,
-		open_fip
-	},
-	[SCP_FW_CONTENT_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&scp_fw_cert_uuid_spec,
-		open_fip
-	},
-	[SOC_FW_CONTENT_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&soc_fw_cert_uuid_spec,
-		open_fip
-	},
-	[TRUSTED_OS_FW_CONTENT_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&tos_fw_cert_uuid_spec,
-		open_fip
-	},
-	[NON_TRUSTED_FW_CONTENT_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&nt_fw_cert_uuid_spec,
-		open_fip
-	},
+	[TRUSTED_BOOT_FW_CERT_ID] = { &fip_dev_handle,
+				      (uintptr_t)&tb_fw_cert_uuid_spec,
+				      open_fip },
+	[TRUSTED_KEY_CERT_ID] = { &fip_dev_handle,
+				  (uintptr_t)&trusted_key_cert_uuid_spec,
+				  open_fip },
+	[SCP_FW_KEY_CERT_ID] = { &fip_dev_handle,
+				 (uintptr_t)&scp_fw_key_cert_uuid_spec,
+				 open_fip },
+	[SOC_FW_KEY_CERT_ID] = { &fip_dev_handle,
+				 (uintptr_t)&soc_fw_key_cert_uuid_spec,
+				 open_fip },
+	[TRUSTED_OS_FW_KEY_CERT_ID] = { &fip_dev_handle,
+					(uintptr_t)&tos_fw_key_cert_uuid_spec,
+					open_fip },
+	[NON_TRUSTED_FW_KEY_CERT_ID] = { &fip_dev_handle,
+					 (uintptr_t)&nt_fw_key_cert_uuid_spec,
+					 open_fip },
+	[SCP_FW_CONTENT_CERT_ID] = { &fip_dev_handle,
+				     (uintptr_t)&scp_fw_cert_uuid_spec,
+				     open_fip },
+	[SOC_FW_CONTENT_CERT_ID] = { &fip_dev_handle,
+				     (uintptr_t)&soc_fw_cert_uuid_spec,
+				     open_fip },
+	[TRUSTED_OS_FW_CONTENT_CERT_ID] = { &fip_dev_handle,
+					    (uintptr_t)&tos_fw_cert_uuid_spec,
+					    open_fip },
+	[NON_TRUSTED_FW_CONTENT_CERT_ID] = { &fip_dev_handle,
+					     (uintptr_t)&nt_fw_cert_uuid_spec,
+					     open_fip },
 #endif /* TRUSTED_BOARD_BOOT */
 };
 
 /* By default, BRCM platforms load images from the FIP */
 static const struct plat_io_policy boot_source_policies[] = {
-	[BOOT_SOURCE_QSPI] = {
-		&memmap_dev_handle,
-		(uintptr_t)&qspi_fip_block_spec,
-		open_qspi
-	},
-	[BOOT_SOURCE_NAND] = {
-		&memmap_dev_handle,
-		(uintptr_t)&nand_fip_block_spec,
-		open_nand
-	},
+	[BOOT_SOURCE_QSPI] = { &memmap_dev_handle,
+			       (uintptr_t)&qspi_fip_block_spec, open_qspi },
+	[BOOT_SOURCE_NAND] = { &memmap_dev_handle,
+			       (uintptr_t)&nand_fip_block_spec, open_nand },
 };
 
 /* Weak definitions may be overridden in specific brcm platform */
@@ -296,7 +233,6 @@ static int open_fip(const uintptr_t spec)
 	}
 	return result;
 }
-
 
 static int open_memmap(const uintptr_t spec)
 {
@@ -324,7 +260,6 @@ static int open_nand(const uintptr_t spec)
 	return open_memmap(spec);
 }
 
-
 void brcm_io_setup(void)
 {
 	int io_result;
@@ -337,8 +272,7 @@ void brcm_io_setup(void)
 	assert(io_result == 0);
 
 	/* Open connections to devices and cache the handles */
-	io_result = io_dev_open(fip_dev_con, (uintptr_t)NULL,
-				&fip_dev_handle);
+	io_result = io_dev_open(fip_dev_con, (uintptr_t)NULL, &fip_dev_handle);
 	assert(io_result == 0);
 
 	boot_source = boot_source_get();
@@ -398,8 +332,9 @@ int plat_get_image_source(unsigned int image_id, uintptr_t *dev_handle,
 			 * CERT seems to be the first image accessed
 			 * by BL1 so this is where we process the flags.
 			 */
-			fip_dev_get_plat_toc_flag((io_dev_info_t *)fip_dev_handle,
-						  &lcl_plat_toc_flg);
+			fip_dev_get_plat_toc_flag(
+				(io_dev_info_t *)fip_dev_handle,
+				&lcl_plat_toc_flg);
 			plat_brcm_process_flags(lcl_plat_toc_flg);
 		}
 	}

@@ -1,26 +1,27 @@
 /*
- * Copyright (c) 2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2022-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <string.h>
+
 #include <common/debug.h>
-#include <lib/mmio.h>
 #include <emi_mpu.h>
+#include <lib/mmio.h>
 #include <lib/mtk_init/mtk_init.h>
 
 #if ENABLE_EMI_MPU_SW_LOCK
 static unsigned char region_lock_state[EMI_MPU_REGION_NUM];
 #endif
 
-#define EMI_MPU_START_MASK		(0x00FFFFFF)
-#define EMI_MPU_END_MASK		(0x00FFFFFF)
-#define EMI_MPU_APC_SW_LOCK_MASK	(0x00FFFFFF)
-#define EMI_MPU_APC_HW_LOCK_MASK	(0x80FFFFFF)
+#define EMI_MPU_START_MASK (0x00FFFFFF)
+#define EMI_MPU_END_MASK (0x00FFFFFF)
+#define EMI_MPU_APC_SW_LOCK_MASK (0x00FFFFFF)
+#define EMI_MPU_APC_HW_LOCK_MASK (0x80FFFFFF)
 
 static int _emi_mpu_set_protection(unsigned int start, unsigned int end,
-					unsigned int apc)
+				   unsigned int apc)
 {
 	unsigned int dgroup;
 	unsigned int region;
@@ -30,7 +31,7 @@ static int _emi_mpu_set_protection(unsigned int start, unsigned int end,
 	dgroup = (end >> 24) & 0xFF;
 	end &= EMI_MPU_END_MASK;
 
-	if  ((region >= EMI_MPU_REGION_NUM) || (dgroup > EMI_MPU_DGROUP_NUM)) {
+	if ((region >= EMI_MPU_REGION_NUM) || (dgroup > EMI_MPU_DGROUP_NUM)) {
 		WARN("invalid region, domain\n");
 		return -1;
 	}
@@ -77,11 +78,12 @@ static void dump_emi_mpu_regions(void)
 	/* Only dump 8 regions(max: EMI_MPU_REGION_NUM --> 32) */
 	for (region = 0; region < 8; ++region) {
 		INFO("region %d:\n", region);
-		INFO("\tsa: 0x%x, ea: 0x%x\n",
-		     mmio_read_32(EMI_MPU_SA(region)), mmio_read_32(EMI_MPU_EA(region)));
+		INFO("\tsa: 0x%x, ea: 0x%x\n", mmio_read_32(EMI_MPU_SA(region)),
+		     mmio_read_32(EMI_MPU_EA(region)));
 
 		for (i = 0; i < EMI_MPU_DGROUP_NUM; ++i) {
-			INFO("\tapc%d: 0x%x\n", i, mmio_read_32(EMI_MPU_APC(region, i)));
+			INFO("\tapc%d: 0x%x\n", i,
+			     mmio_read_32(EMI_MPU_APC(region, i)));
 		}
 	}
 }
@@ -100,9 +102,11 @@ int emi_mpu_set_protection(struct emi_region_info_t *region_info)
 		(region_info->region << 24);
 
 	for (i = EMI_MPU_DGROUP_NUM - 1; i >= 0; i--) {
-		end = (unsigned int)(region_info->end >> EMI_MPU_ALIGN_BITS) | (i << 24);
+		end = (unsigned int)(region_info->end >> EMI_MPU_ALIGN_BITS) |
+		      (i << 24);
 
-		if (_emi_mpu_set_protection(start, end, region_info->apc[i]) < 0) {
+		if (_emi_mpu_set_protection(start, end, region_info->apc[i]) <
+		    0) {
 			WARN("Failed to set emi mpu protection(%d, %d, %d)\n",
 			     start, end, region_info->apc[i]);
 		}

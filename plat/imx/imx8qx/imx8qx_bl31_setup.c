@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,31 +9,30 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <context.h>
 #include <drivers/arm/cci.h>
 #include <drivers/console.h>
+#include <imx8_iomux.h>
+#include <imx8_lpuart.h>
+#include <imx8qx_pads.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include <plat/common/platform.h>
-
-#include <imx8qx_pads.h>
-#include <imx8_iomux.h>
-#include <imx8_lpuart.h>
 #include <plat_imx8.h>
 #include <sci/sci.h>
 #include <sec_rsrc.h>
 
-static const unsigned long BL31_COHERENT_RAM_START	= BL_COHERENT_RAM_BASE;
-static const unsigned long BL31_COHERENT_RAM_END	= BL_COHERENT_RAM_END;
-static const unsigned long BL31_RO_START		= BL_CODE_BASE;
-static const unsigned long BL31_RO_END			= BL_CODE_END;
-static const unsigned long BL31_RW_END			= BL_END;
+#include <plat/common/platform.h>
+#include <platform_def.h>
+
+static const unsigned long BL31_COHERENT_RAM_START = BL_COHERENT_RAM_BASE;
+static const unsigned long BL31_COHERENT_RAM_END = BL_COHERENT_RAM_END;
+static const unsigned long BL31_RO_START = BL_CODE_BASE;
+static const unsigned long BL31_RO_END = BL_CODE_END;
+static const unsigned long BL31_RW_END = BL_END;
 
 IMPORT_SYM(unsigned long, __RW_START__, BL31_RW_START);
 
@@ -42,14 +41,15 @@ static entry_point_info_t bl33_image_ep_info;
 
 /* Default configuration for i.MX8QM/QXP MEK */
 #if defined(IMX_USE_UART0)
-#define UART_PAD_CTRL	(PADRING_IFMUX_EN_MASK | PADRING_GP_EN_MASK | \
-			(SC_PAD_CONFIG_OUT_IN << PADRING_CONFIG_SHIFT) | \
-			(SC_PAD_ISO_OFF << PADRING_LPCONFIG_SHIFT) | \
-			(SC_PAD_28FDSOI_DSE_DV_LOW << PADRING_DSE_SHIFT) | \
-			(SC_PAD_28FDSOI_PS_PD << PADRING_PULL_SHIFT))
-#define IMX_RES_UART			SC_R_UART_0
-#define IMX_PAD_UART_RX			SC_P_UART0_RX
-#define IMX_PAD_UART_TX			SC_P_UART0_TX
+#define UART_PAD_CTRL                                       \
+	(PADRING_IFMUX_EN_MASK | PADRING_GP_EN_MASK |       \
+	 (SC_PAD_CONFIG_OUT_IN << PADRING_CONFIG_SHIFT) |   \
+	 (SC_PAD_ISO_OFF << PADRING_LPCONFIG_SHIFT) |       \
+	 (SC_PAD_28FDSOI_DSE_DV_LOW << PADRING_DSE_SHIFT) | \
+	 (SC_PAD_28FDSOI_PS_PD << PADRING_PULL_SHIFT))
+#define IMX_RES_UART SC_R_UART_0
+#define IMX_PAD_UART_RX SC_P_UART0_RX
+#define IMX_PAD_UART_TX SC_P_UART0_TX
 
 /*
  * On Toradex Colibri i.MX8QXP UART3 on the FLEXCAN2.
@@ -65,22 +65,23 @@ static entry_point_info_t bl33_image_ep_info;
  * 011b - ADMA_SAI1_RXFS
  * 100b - LSIO_GPIO1_IO19
  */
-#define UART_PAD_CTRL	(PADRING_IFMUX_EN_MASK | PADRING_GP_EN_MASK | \
-			(SC_PAD_CONFIG_OUT_IN << PADRING_CONFIG_SHIFT) | \
-			(2U << PADRING_IFMUX_SHIFT) | \
-			(SC_PAD_ISO_OFF << PADRING_LPCONFIG_SHIFT) | \
-			(SC_PAD_28FDSOI_DSE_DV_LOW << PADRING_DSE_SHIFT) | \
-			(SC_PAD_28FDSOI_PS_PD << PADRING_PULL_SHIFT))
-#define IMX_RES_UART			SC_R_UART_3
-#define IMX_PAD_UART_RX			SC_P_FLEXCAN2_RX
-#define IMX_PAD_UART_TX			SC_P_FLEXCAN2_TX
+#define UART_PAD_CTRL                                       \
+	(PADRING_IFMUX_EN_MASK | PADRING_GP_EN_MASK |       \
+	 (SC_PAD_CONFIG_OUT_IN << PADRING_CONFIG_SHIFT) |   \
+	 (2U << PADRING_IFMUX_SHIFT) |                      \
+	 (SC_PAD_ISO_OFF << PADRING_LPCONFIG_SHIFT) |       \
+	 (SC_PAD_28FDSOI_DSE_DV_LOW << PADRING_DSE_SHIFT) | \
+	 (SC_PAD_28FDSOI_PS_PD << PADRING_PULL_SHIFT))
+#define IMX_RES_UART SC_R_UART_3
+#define IMX_PAD_UART_RX SC_P_FLEXCAN2_RX
+#define IMX_PAD_UART_TX SC_P_FLEXCAN2_TX
 #else
 #error "Provide proper UART configuration in IMX_DEBUG_UART"
 #endif
 
 static const mmap_region_t imx_mmap[] = {
 	MAP_REGION_FLAT(IMX_REG_BASE, IMX_REG_SIZE, MT_DEVICE | MT_RW),
-	{0}
+	{ 0 }
 };
 
 static uint32_t get_spsr_for_bl33_entry(void)
@@ -170,7 +171,8 @@ static int lpuart32_serial_init(unsigned int base)
 
 	/* eight data bits no parity bit */
 	tmp = mmio_read_32(IMX_BOOT_UART_BASE + CTRL);
-	tmp &= ~(LPUART_CTRL_PE_MASK | LPUART_CTRL_PT_MASK | LPUART_CTRL_M_MASK);
+	tmp &= ~(LPUART_CTRL_PE_MASK | LPUART_CTRL_PT_MASK |
+		 LPUART_CTRL_M_MASK);
 	mmio_write_32(IMX_BOOT_UART_BASE + CTRL, tmp);
 
 	mmio_write_32(IMX_BOOT_UART_BASE + CTRL, CTRL_RE | CTRL_TE);
@@ -196,8 +198,8 @@ void imx8_partition_resources(void)
 	if (err)
 		ERROR("sc_rm_get_partition failed: %u\n", err);
 
-	err = sc_rm_partition_alloc(ipc_handle, &os_part, false, false,
-		false, false, false);
+	err = sc_rm_partition_alloc(ipc_handle, &os_part, false, false, false,
+				    false, false);
 	if (err)
 		ERROR("sc_rm_partition_alloc failed: %u\n", err);
 
@@ -207,11 +209,11 @@ void imx8_partition_resources(void)
 
 	/* set secure resources to NOT-movable */
 	for (i = 0; i < (ARRAY_SIZE(secure_rsrcs)); i++) {
-		err = sc_rm_set_resource_movable(ipc_handle,
-			 secure_rsrcs[i], secure_rsrcs[i], false);
+		err = sc_rm_set_resource_movable(ipc_handle, secure_rsrcs[i],
+						 secure_rsrcs[i], false);
 		if (err)
 			ERROR("sc_rm_set_resource_movable: rsrc %u, ret %u\n",
-				secure_rsrcs[i], err);
+			      secure_rsrcs[i], err);
 	}
 
 	/* move all movable resources and pins to non-secure partition */
@@ -222,10 +224,13 @@ void imx8_partition_resources(void)
 	/* iterate through peripherals to give NS OS part access */
 	for (i = 0; i < ARRAY_SIZE(ns_access_allowed); i++) {
 		err = sc_rm_set_peripheral_permissions(ipc_handle,
-			ns_access_allowed[i], os_part, SC_RM_PERM_FULL);
+						       ns_access_allowed[i],
+						       os_part,
+						       SC_RM_PERM_FULL);
 		if (err)
 			ERROR("sc_rm_set_peripheral_permissions: rsrc %u, \
-				ret %u\n", ns_access_allowed[i], err);
+				ret %u\n",
+			      ns_access_allowed[i], err);
 	}
 
 	/*
@@ -236,45 +241,58 @@ void imx8_partition_resources(void)
 	for (mr = 0; mr < 64; mr++) {
 		owned = sc_rm_is_memreg_owned(ipc_handle, mr);
 		if (owned) {
-			err = sc_rm_get_memreg_info(ipc_handle, mr, &start, &end);
+			err = sc_rm_get_memreg_info(ipc_handle, mr, &start,
+						    &end);
 			if (err)
 				ERROR("Memreg get info failed, %u\n", mr);
 
-			NOTICE("Memreg %u 0x%" PRIx64 " -- 0x%" PRIx64 "\n", mr, start, end);
+			NOTICE("Memreg %u 0x%" PRIx64 " -- 0x%" PRIx64 "\n", mr,
+			       start, end);
 			if (BL31_BASE >= start && (BL31_LIMIT - 1) <= end) {
-				mr_record = mr; /* Record the mr for ATF running */
+				mr_record =
+					mr; /* Record the mr for ATF running */
 			} else {
-				err = sc_rm_assign_memreg(ipc_handle, os_part, mr);
+				err = sc_rm_assign_memreg(ipc_handle, os_part,
+							  mr);
 				if (err)
-					ERROR("Memreg assign failed, 0x%" PRIx64 " -- 0x%" PRIx64 ", \
-					      err %d\n", start, end, err);
+					ERROR("Memreg assign failed, 0x%" PRIx64
+					      " -- 0x%" PRIx64 ", \
+					      err %d\n",
+					      start, end, err);
 			}
 		}
 	}
 
 	if (mr_record != 64) {
-		err = sc_rm_get_memreg_info(ipc_handle, mr_record, &start, &end);
+		err = sc_rm_get_memreg_info(ipc_handle, mr_record, &start,
+					    &end);
 		if (err)
 			ERROR("Memreg get info failed, %u\n", mr_record);
 		if ((BL31_LIMIT - 1) < end) {
-			err = sc_rm_memreg_alloc(ipc_handle, &mr, BL31_LIMIT, end);
+			err = sc_rm_memreg_alloc(ipc_handle, &mr, BL31_LIMIT,
+						 end);
 			if (err)
-				ERROR("sc_rm_memreg_alloc failed, 0x%" PRIx64 " -- 0x%" PRIx64 "\n",
+				ERROR("sc_rm_memreg_alloc failed, 0x%" PRIx64
+				      " -- 0x%" PRIx64 "\n",
 				      (sc_faddr_t)BL31_LIMIT, end);
 			err = sc_rm_assign_memreg(ipc_handle, os_part, mr);
 			if (err)
-				ERROR("Memreg assign failed, 0x%" PRIx64 " -- 0x%" PRIx64 "\n",
+				ERROR("Memreg assign failed, 0x%" PRIx64
+				      " -- 0x%" PRIx64 "\n",
 				      (sc_faddr_t)BL31_LIMIT, end);
 		}
 
 		if (start < (BL31_BASE - 1)) {
-			err = sc_rm_memreg_alloc(ipc_handle, &mr, start, BL31_BASE - 1);
+			err = sc_rm_memreg_alloc(ipc_handle, &mr, start,
+						 BL31_BASE - 1);
 			if (err)
-				ERROR("sc_rm_memreg_alloc failed, 0x%" PRIx64 " -- 0x%" PRIx64 "\n",
+				ERROR("sc_rm_memreg_alloc failed, 0x%" PRIx64
+				      " -- 0x%" PRIx64 "\n",
 				      start, (sc_faddr_t)BL31_BASE - 1);
 			err = sc_rm_assign_memreg(ipc_handle, os_part, mr);
 			if (err)
-				ERROR("Memreg assign failed, 0x%" PRIx64 " -- 0x%" PRIx64 "\n",
+				ERROR("Memreg assign failed, 0x%" PRIx64
+				      " -- 0x%" PRIx64 "\n",
 				      start, (sc_faddr_t)BL31_BASE - 1);
 		}
 	}
@@ -309,7 +327,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 
 #if DEBUG_CONSOLE
 	console_lpuart_register(IMX_BOOT_UART_BASE, IMX_BOOT_UART_CLK_IN_HZ,
-		     IMX_CONSOLE_BAUDRATE, &console);
+				IMX_CONSOLE_BAUDRATE, &console);
 #endif
 	/* Turn on MU1 for non-secure OS/Hypervisor */
 	sc_pm_set_resource_power_mode(ipc_handle, SC_R_MU_1A, SC_PM_PW_MODE_ON);
@@ -317,7 +335,8 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	/* Turn on GPT_0's power & clock for non-secure OS/Hypervisor */
 	sc_pm_set_resource_power_mode(ipc_handle, SC_R_GPT_0, SC_PM_PW_MODE_ON);
 	sc_pm_clock_enable(ipc_handle, SC_R_GPT_0, SC_PM_CLK_PER, true, 0);
-	mmio_write_32(IMX_GPT0_LPCG_BASE, mmio_read_32(IMX_GPT0_LPCG_BASE) | (1 << 25));
+	mmio_write_32(IMX_GPT0_LPCG_BASE,
+		      mmio_read_32(IMX_GPT0_LPCG_BASE) | (1 << 25));
 
 	/*
 	 * create new partition for non-secure OS/Hypervisor
@@ -338,13 +357,14 @@ void bl31_plat_arch_setup(void)
 	unsigned long rw_size = BL31_RW_END - BL31_RW_START;
 #if USE_COHERENT_MEM
 	unsigned long coh_start = BL31_COHERENT_RAM_START;
-	unsigned long coh_size = BL31_COHERENT_RAM_END - BL31_COHERENT_RAM_START;
+	unsigned long coh_size =
+		BL31_COHERENT_RAM_END - BL31_COHERENT_RAM_START;
 #endif
 
 	mmap_add_region(ro_start, ro_start, ro_size,
-		MT_RO | MT_MEMORY | MT_SECURE);
+			MT_RO | MT_MEMORY | MT_SECURE);
 	mmap_add_region(rw_start, rw_start, rw_size,
-		MT_RW | MT_MEMORY | MT_SECURE);
+			MT_RW | MT_MEMORY | MT_SECURE);
 	mmap_add(imx_mmap);
 
 #if USE_COHERENT_MEM

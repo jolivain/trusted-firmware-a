@@ -6,22 +6,18 @@
 
 #include <string.h>
 
-#include <drivers/delay_timer.h>
-
 #include <chimp.h>
 #include <chimp_nv_defs.h>
+#include <drivers/delay_timer.h>
 
 #define CHIMP_DEFAULT_STARTUP_ADDR 0xb4300000
 
 /* ChiMP's view of APE scratchpad memory for fastboot */
 #define CHIMP_FASTBOOT_ADDR 0x61000000
 
-#define CHIMP_PREPARE_ACCESS_WINDOW(addr) \
-	(\
-		mmio_write_32(\
-			NIC400_NITRO_CHIMP_S_IDM_IO_CONTROL_DIRECT, \
-			addr & 0xffc00000)\
-	)
+#define CHIMP_PREPARE_ACCESS_WINDOW(addr)                          \
+	(mmio_write_32(NIC400_NITRO_CHIMP_S_IDM_IO_CONTROL_DIRECT, \
+		       addr & 0xffc00000))
 #define CHIMP_INDIRECT_TGT_ADDR(addr) \
 	(CHIMP_INDIRECT_BASE + (addr & CHIMP_INDIRECT_ADDR_MASK))
 
@@ -32,7 +28,7 @@
 #define CHIMP_FB1_ENTRY 0
 #endif
 
-#define CHIMP_DBG	VERBOSE
+#define CHIMP_DBG VERBOSE
 
 void bcm_chimp_write(uintptr_t addr, uint32_t value)
 {
@@ -127,16 +123,16 @@ static int bcm_chimp_nitro_reset(void)
 
 	/* Perform tasks done by M0 in NIC mode */
 	CHIMP_DBG("Taking Nitro out of reset\n");
-	mmio_setbits_32(CDRU_MISC_RESET_CONTROL,
+	mmio_setbits_32(
+		CDRU_MISC_RESET_CONTROL,
 		/* MHB_RESET_N */
-		(1 << CDRU_MISC_RESET_CONTROL__CDRU_MHB_RESET_N_R)  |
-		/* PCI_RESET_N */
-		(1 << CDRU_MISC_RESET_CONTROL__CDRU_PCIE_RESET_N_R) |
-		/* PM_RESET_N */
-		(1 << CDRU_MISC_RESET_CONTROL__CDRU_PM_RESET_N_R)   |
-		/* NIC_RESET_N */
-		(1 << CDRU_MISC_RESET_CONTROL__CDRU_NITRO_RESET_N_R)
-	);
+		(1 << CDRU_MISC_RESET_CONTROL__CDRU_MHB_RESET_N_R) |
+			/* PCI_RESET_N */
+			(1 << CDRU_MISC_RESET_CONTROL__CDRU_PCIE_RESET_N_R) |
+			/* PM_RESET_N */
+			(1 << CDRU_MISC_RESET_CONTROL__CDRU_PM_RESET_N_R) |
+			/* NIC_RESET_N */
+			(1 << CDRU_MISC_RESET_CONTROL__CDRU_NITRO_RESET_N_R));
 
 	/* Wait until Nitro is out of reset */
 	timeout = NIC_RESET_RELEASE_TIMEOUT_US;
@@ -145,7 +141,7 @@ static int bcm_chimp_nitro_reset(void)
 
 		value = bcm_chimp_read_ctrl(CHIMP_REG_CTRL_BPE_MODE_REG);
 		if ((value & CHIMP_BPE_MODE_ID_MASK) ==
-				CHIMP_BPE_MODE_ID_PATTERN)
+		    CHIMP_BPE_MODE_ID_PATTERN)
 			break;
 		udelay(1);
 	} while (--timeout);
@@ -160,17 +156,17 @@ static int bcm_chimp_nitro_reset(void)
 
 static void bcm_nitro_secure_mode_enable(void)
 {
-	mmio_setbits_32(CDRU_NITRO_CONTROL,
+	mmio_setbits_32(
+		CDRU_NITRO_CONTROL,
 		(1 << CDRU_NITRO_CONTROL__CDRU_NITRO_SEC_MODE_R) |
-		(1 << CDRU_NITRO_CONTROL__CDRU_NITRO_SEC_OVERRIDE_R));
+			(1 << CDRU_NITRO_CONTROL__CDRU_NITRO_SEC_OVERRIDE_R));
 	mmio_write_32(NITRO_TZPC_TZPCDECPROT0clr,
-		/* NITRO_TZPC */
-		1 << NITRO_TZPC_TZPCDECPROT0clr__DECPROT0_chimp_m_clr_R);
+		      /* NITRO_TZPC */
+		      1 << NITRO_TZPC_TZPCDECPROT0clr__DECPROT0_chimp_m_clr_R);
 }
 
 static int bcm_chimp_reset_and_initial_setup(void)
 {
-
 	int err;
 	uint32_t handshake_reg;
 
@@ -182,7 +178,8 @@ static int bcm_chimp_reset_and_initial_setup(void)
 	bcm_nitro_secure_mode_enable();
 
 	/* Force ChiMP back into reset */
-	bcm_chimp_setbits(CHIMP_CTRL_ADDR(CHIMP_REG_CTRL_BPE_MODE_REG),
+	bcm_chimp_setbits(
+		CHIMP_CTRL_ADDR(CHIMP_REG_CTRL_BPE_MODE_REG),
 		1 << CHIMP_REG_CHIMP_REG_CTRL_BPE_MODE_REG__cm3_rst_R);
 
 	handshake_reg = (1 << SR_IN_SMARTNIC_MODE_BIT);
@@ -200,7 +197,8 @@ static int bcm_chimp_reset_and_initial_setup(void)
 
 static void bcm_nitro_chimp_release_reset(void)
 {
-	bcm_chimp_clrbits(CHIMP_CTRL_ADDR(CHIMP_REG_CTRL_BPE_MODE_REG),
+	bcm_chimp_clrbits(
+		CHIMP_CTRL_ADDR(CHIMP_REG_CTRL_BPE_MODE_REG),
 		1 << CHIMP_REG_CHIMP_REG_CTRL_BPE_MODE_REG__cm3_rst_R);
 
 	CHIMP_DBG("Nitro Reset Released\n");
@@ -212,14 +210,13 @@ static void bcm_chimp_set_fastboot(int mode)
 
 	/* 1. Enable fastboot */
 	bcm_chimp_setbits(CHIMP_CTRL_ADDR(CHIMP_REG_CTRL_BPE_MODE_REG),
-			(1 << CHIMP_FAST_BOOT_MODE_BIT));
+			  (1 << CHIMP_FAST_BOOT_MODE_BIT));
 	fb_entry = CHIMP_FASTBOOT_ADDR | mode;
 	if (mode == CHIMP_FASTBOOT_JUMP_IN_PLACE)
 		fb_entry = CHIMP_FB1_ENTRY;
 	/* 2. Write startup address and mode */
 	INFO("Setting fastboot type %d entry to 0x%x\n", mode, fb_entry);
-	bcm_chimp_write(
-			CHIMP_CTRL_ADDR(CHIMP_REG_CTRL_FSTBOOT_PTR_REG),
+	bcm_chimp_write(CHIMP_CTRL_ADDR(CHIMP_REG_CTRL_FSTBOOT_PTR_REG),
 			fb_entry);
 }
 
@@ -238,19 +235,19 @@ static void bcm_chimp_load_fw_from_spi(uintptr_t spi_addr, size_t size)
 		uint32_t delta;
 
 		delta = bytes_left > CHIMP_WINDOW_SIZE ?
-			bytes_left - CHIMP_WINDOW_SIZE : bytes_left;
+				bytes_left - CHIMP_WINDOW_SIZE :
+				bytes_left;
 		CHIMP_PREPARE_ACCESS_WINDOW(ape_scpad);
-		INFO("Transferring %d byte(s) from 0x%lx to 0x%lx\n",
-			delta, spi_addr, dest);
-	/*
+		INFO("Transferring %d byte(s) from 0x%lx to 0x%lx\n", delta,
+		     spi_addr, dest);
+		/*
 	 * This single memcpy call takes significant amount of time
 	 * on Palladium. Be patient
 	 */
 		memcpy((void *)dest, (void *)spi_addr, delta);
 		bytes_left -= delta;
 		INFO("Transferred %d byte(s) from 0x%lx to 0x%lx (%lu%%)\n",
-			delta, spi_addr, dest,
-			((size - bytes_left) * 100)/size);
+		     delta, spi_addr, dest, ((size - bytes_left) * 100) / size);
 		spi_addr += delta;
 		dest += delta;
 		ape_scpad += delta;
@@ -272,38 +269,35 @@ static int bcm_chimp_find_fw_in_spi(uintptr_t *addr, size_t *size)
 		(bnxnvm_master_block_header_t *)(uintptr_t)QSPI_BASE_ADDR;
 	if (master_block_hdr->sig != BNXNVM_MASTER_BLOCK_SIG) {
 		WARN("Invalid masterblock 0x%x (expected 0x%x)\n",
-			master_block_hdr->sig,
-			BNXNVM_MASTER_BLOCK_SIG);
+		     master_block_hdr->sig, BNXNVM_MASTER_BLOCK_SIG);
 		return -NV_NOT_NVRAM;
 	}
 	if ((master_block_hdr->block_size > NV_MAX_BLOCK_SIZE) ||
-		(master_block_hdr->directory_offset >=
-			master_block_hdr->nvram_size)) {
+	    (master_block_hdr->directory_offset >=
+	     master_block_hdr->nvram_size)) {
 		WARN("Invalid masterblock block size 0x%x or directory offset 0x%x\n",
-			master_block_hdr->block_size,
-			master_block_hdr->directory_offset);
+		     master_block_hdr->block_size,
+		     master_block_hdr->directory_offset);
 		return -NV_BAD_MB;
 	}
 
 	/* Skip to the Directory block start */
-	dir_block_hdr =
-		(bnxnvm_directory_block_header_t *)
-			((uintptr_t)QSPI_BASE_ADDR +
-				master_block_hdr->directory_offset);
+	dir_block_hdr = (bnxnvm_directory_block_header_t
+				 *)((uintptr_t)QSPI_BASE_ADDR +
+				    master_block_hdr->directory_offset);
 	if (dir_block_hdr->sig != BNXNVM_DIRECTORY_BLOCK_SIG) {
 		WARN("Invalid directory header 0x%x (expected 0x%x)\n",
-			dir_block_hdr->sig,
-			BNXNVM_DIRECTORY_BLOCK_SIG);
+		     dir_block_hdr->sig, BNXNVM_DIRECTORY_BLOCK_SIG);
 		return -NV_BAD_DIR_HEADER;
 	}
 
 	/* Locate the firmware */
 	for (i = 0; i < dir_block_hdr->entries; i++) {
 		*addr = ((uintptr_t)dir_block_hdr + dir_block_hdr->length +
-			i * dir_block_hdr->entry_length);
+			 i * dir_block_hdr->entry_length);
 		dir_entry = (bnxnvm_directory_entry_t *)(*addr);
 		if ((dir_entry->type == BNX_DIR_TYPE_BOOTCODE) ||
-				(dir_entry->type == BNX_DIR_TYPE_BOOTCODE_2)) {
+		    (dir_entry->type == BNX_DIR_TYPE_BOOTCODE_2)) {
 			found = 1;
 			break;
 		}
@@ -315,8 +309,7 @@ static int bcm_chimp_find_fw_in_spi(uintptr_t *addr, size_t *size)
 	*addr = QSPI_BASE_ADDR + dir_entry->item_location;
 	*size = dir_entry->data_length;
 
-	INFO("Found chimp firmware at 0x%lx, size %lu byte(s)\n",
-			*addr, *size);
+	INFO("Found chimp firmware at 0x%lx, size %lu byte(s)\n", *addr, *size);
 
 	return NV_OK;
 }
@@ -327,7 +320,7 @@ int bcm_chimp_initiate_fastboot(int fastboot_type)
 	int err;
 
 	if ((fastboot_type != CHIMP_FASTBOOT_NITRO_RESET) &&
-			(fastboot_type <= CHIMP_FASTBOOT_JUMP_DECOMPRESS)) {
+	    (fastboot_type <= CHIMP_FASTBOOT_JUMP_DECOMPRESS)) {
 		CHIMP_DBG("Initiating ChiMP fastboot type %d\n", fastboot_type);
 	}
 
@@ -345,11 +338,10 @@ int bcm_chimp_initiate_fastboot(int fastboot_type)
 	}
 
 	if (fastboot_type != CHIMP_FASTBOOT_NITRO_RESET) {
-
 		if ((fastboot_type == CHIMP_FASTBOOT_JUMP_IN_PLACE) &&
-			(CHIMP_FB1_ENTRY == 0)) {
+		    (CHIMP_FB1_ENTRY == 0)) {
 			ERROR("Missing ESAL entry point for fastboot type 1.\n"
-			"Fastboot failed\n");
+			      "Fastboot failed\n");
 			return -1;
 		}
 
@@ -374,11 +366,11 @@ int bcm_chimp_initiate_fastboot(int fastboot_type)
 			err = bcm_chimp_find_fw_in_spi(&spi_addr, &size);
 			if (!err) {
 				INFO("Loading ChiMP firmware, addr 0x%lx, size %lu byte(s)\n",
-					spi_addr, size);
+				     spi_addr, size);
 				bcm_chimp_load_fw_from_spi(spi_addr, size);
 			} else {
 				ERROR("Error %d ChiMP firmware not in NVRAM directory!\n",
-					err);
+				      err);
 			}
 		}
 #else

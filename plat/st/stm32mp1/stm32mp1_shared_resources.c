@@ -10,9 +10,9 @@
 #include <common/debug.h>
 #include <drivers/st/etzpc.h>
 #include <drivers/st/stm32_gpio.h>
+#include <stm32mp_shared_resources.h>
 
 #include <platform_def.h>
-#include <stm32mp_shared_resources.h>
 
 /*
  * Once one starts to get the resource registering state, one cannot register
@@ -113,7 +113,8 @@ static unsigned int get_gpio_nbpin(unsigned int bank)
 	if (bank != GPIO_BANK_Z) {
 		int count = fdt_get_gpio_bank_pin_count(bank);
 
-		assert((count >= 0) && ((unsigned int)count <= (GPIO_PIN_MAX + 1)));
+		assert((count >= 0) &&
+		       ((unsigned int)count <= (GPIO_PIN_MAX + 1)));
 
 		return (unsigned int)count;
 	}
@@ -148,21 +149,21 @@ static void register_periph(enum stm32mp_shres id, unsigned int state)
 
 	if ((shres_state[id] != SHRES_UNREGISTERED) &&
 	    (shres_state[id] != state)) {
-		VERBOSE("Cannot change %s from %s to %s\n",
-			shres2str_id(id),
+		VERBOSE("Cannot change %s from %s to %s\n", shres2str_id(id),
 			shres2str_state(shres_state[id]),
 			shres2str_state(state));
 		panic();
 	}
 
 	if (shres_state[id] == SHRES_UNREGISTERED) {
-		VERBOSE("Register %s as %s\n",
-			shres2str_id(id), shres2str_state(state));
+		VERBOSE("Register %s as %s\n", shres2str_id(id),
+			shres2str_state(state));
 	}
 
 	if ((id >= STM32MP1_SHRES_GPIOZ(0)) &&
 	    (id <= STM32MP1_SHRES_GPIOZ(7)) &&
-	    ((unsigned int)(id - STM32MP1_SHRES_GPIOZ(0)) >= get_gpioz_nbpin())) {
+	    ((unsigned int)(id - STM32MP1_SHRES_GPIOZ(0)) >=
+	     get_gpioz_nbpin())) {
 		ERROR("Invalid GPIO pin %d, %u pin(s) available\n",
 		      (int)(id - STM32MP1_SHRES_GPIOZ(0)), get_gpioz_nbpin());
 		panic();
@@ -542,8 +543,7 @@ static void check_rcc_secure_configuration(void)
 		if (!secure || (mckprot_protects_periph(n) && (!mckprot))) {
 			ERROR("RCC %s MCKPROT %s and %s secure\n",
 			      secure ? "secure" : "non-secure",
-			      mckprot ? "set" : "not set",
-			      shres2str_id(n));
+			      mckprot ? "set" : "not set", shres2str_id(n));
 			error++;
 		}
 	}

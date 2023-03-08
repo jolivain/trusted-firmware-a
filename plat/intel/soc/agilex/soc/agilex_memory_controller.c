@@ -5,26 +5,28 @@
  */
 
 #include <errno.h>
-#include <lib/mmio.h>
-#include <lib/utils.h>
+
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
+#include <lib/mmio.h>
+#include <lib/utils.h>
+
 #include <platform_def.h>
 
 #include "agilex_memory_controller.h"
 
-#define ALT_CCU_NOC_DI_SET_MSK		0x10
+#define ALT_CCU_NOC_DI_SET_MSK 0x10
 
-#define DDR_READ_LATENCY_DELAY		40
-#define MAX_MEM_CAL_RETRY		3
-#define PRE_CALIBRATION_DELAY		1
-#define POST_CALIBRATION_DELAY		1
-#define TIMEOUT_EMIF_CALIBRATION	1000
-#define CLEAR_EMIF_DELAY		1000
-#define CLEAR_EMIF_TIMEOUT		1000
+#define DDR_READ_LATENCY_DELAY 40
+#define MAX_MEM_CAL_RETRY 3
+#define PRE_CALIBRATION_DELAY 1
+#define POST_CALIBRATION_DELAY 1
+#define TIMEOUT_EMIF_CALIBRATION 1000
+#define CLEAR_EMIF_DELAY 1000
+#define CLEAR_EMIF_TIMEOUT 1000
 
-#define DDR_CONFIG(A, B, C, R)	(((A) << 24) | ((B) << 16) | ((C) << 8) | (R))
-#define DDR_CONFIG_ELEMENTS	(sizeof(ddr_config)/sizeof(uint32_t))
+#define DDR_CONFIG(A, B, C, R) (((A) << 24) | ((B) << 16) | ((C) << 8) | (R))
+#define DDR_CONFIG_ELEMENTS (sizeof(ddr_config) / sizeof(uint32_t))
 
 /* tWR = Min. 15ns constant, see JEDEC standard eg. DDR4 is JESD79-4.pdf */
 #define tWR_IN_NS 15
@@ -37,16 +39,16 @@ uint32_t ddr_config[] = {
 	/* DDR_CONFIG(Address order,Bank,Column,Row) */
 	/* List for DDR3 or LPDDR3 (pinout order > chip, row, bank, column) */
 	DDR_CONFIG(0, 3, 10, 12),
-	DDR_CONFIG(0, 3,  9, 13),
+	DDR_CONFIG(0, 3, 9, 13),
 	DDR_CONFIG(0, 3, 10, 13),
-	DDR_CONFIG(0, 3,  9, 14),
+	DDR_CONFIG(0, 3, 9, 14),
 	DDR_CONFIG(0, 3, 10, 14),
 	DDR_CONFIG(0, 3, 10, 15),
 	DDR_CONFIG(0, 3, 11, 14),
 	DDR_CONFIG(0, 3, 11, 15),
 	DDR_CONFIG(0, 3, 10, 16),
 	DDR_CONFIG(0, 3, 11, 16),
-	DDR_CONFIG(0, 3, 12, 15),	/* 0xa */
+	DDR_CONFIG(0, 3, 12, 15), /* 0xa */
 	/* List for DDR4 only (pinout order > chip, bank, row, column) */
 	DDR_CONFIG(1, 3, 10, 14),
 	DDR_CONFIG(1, 4, 10, 14),
@@ -172,12 +174,12 @@ int init_hard_memory_controller(void)
 
 void configure_ddr_sched_ctrl_regs(void)
 {
-	uint32_t data, dram_addr_order, ddr_conf, bank, row, col,
-		rd_to_miss, wr_to_miss, burst_len, burst_len_ddr_clk,
-		burst_len_sched_clk, act_to_act, rd_to_wr, wr_to_rd, bw_ratio,
-		t_rtp, t_rp, t_rcd, rd_latency, tw_rin_clk_cycles,
-		bw_ratio_extended, auto_precharge = 0, act_to_act_bank, faw,
-		faw_bank, bus_rd_to_rd, bus_rd_to_wr, bus_wr_to_rd;
+	uint32_t data, dram_addr_order, ddr_conf, bank, row, col, rd_to_miss,
+		wr_to_miss, burst_len, burst_len_ddr_clk, burst_len_sched_clk,
+		act_to_act, rd_to_wr, wr_to_rd, bw_ratio, t_rtp, t_rp, t_rcd,
+		rd_latency, tw_rin_clk_cycles, bw_ratio_extended,
+		auto_precharge = 0, act_to_act_bank, faw, faw_bank,
+		bus_rd_to_rd, bus_rd_to_wr, bus_wr_to_rd;
 
 	INFO("Init HPS NOC's DDR Scheduler.\n");
 
@@ -186,10 +188,10 @@ void configure_ddr_sched_ctrl_regs(void)
 
 	data = mmio_read_32(AGX_MPFE_IOHMC_DRAMADDRW);
 
-	col  = IOHMC_DRAMADDRW_COL_ADDR_WIDTH(data);
-	row  = IOHMC_DRAMADDRW_ROW_ADDR_WIDTH(data);
+	col = IOHMC_DRAMADDRW_COL_ADDR_WIDTH(data);
+	row = IOHMC_DRAMADDRW_ROW_ADDR_WIDTH(data);
 	bank = IOHMC_DRAMADDRW_BANK_ADDR_WIDTH(data) +
-		IOHMC_DRAMADDRW_BANK_GRP_ADDR_WIDTH(data);
+	       IOHMC_DRAMADDRW_BANK_GRP_ADDR_WIDTH(data);
 
 	ddr_conf = match_ddr_conf(DDR_CONFIG(dram_addr_order, bank, col, row));
 
@@ -233,7 +235,7 @@ void configure_ddr_sched_ctrl_regs(void)
 	data = mmio_read_32(AGX_MPFE_IOHMC_CTRLCFG0);
 	burst_len = HMC_ADP_DDRIOCTRL_CTRL_BURST_LENGTH(data);
 	burst_len_ddr_clk = burst_len / 2;
-	burst_len_sched_clk = ((burst_len/2) / 2);
+	burst_len_sched_clk = ((burst_len / 2) / 2);
 
 	data = mmio_read_32(AGX_MPFE_IOHMC_CTRLCFG0);
 	switch (AGX_MPFE_IOHMC_REG_CTRLCFG0_CFG_MEM_TYPE(data)) {
@@ -242,63 +244,66 @@ void configure_ddr_sched_ctrl_regs(void)
 		/* 20 (19.995) clock cycles = 15ns */
 		/* Calculate with rounding */
 		tw_rin_clk_cycles = (((tWR_IN_NS * 1333) % 1000) >= 500) ?
-			((tWR_IN_NS * 1333) / 1000) + 1 :
-			((tWR_IN_NS * 1333) / 1000);
+					    ((tWR_IN_NS * 1333) / 1000) + 1 :
+					    ((tWR_IN_NS * 1333) / 1000);
 		break;
 	default:
 		/* Others - 1066MHz or slower */
 		/* 16 (15.990) clock cycles = 15ns */
 		/* Calculate with rounding */
 		tw_rin_clk_cycles = (((tWR_IN_NS * 1066) % 1000) >= 500) ?
-			((tWR_IN_NS * 1066) / 1000) + 1 :
-			((tWR_IN_NS * 1066) / 1000);
+					    ((tWR_IN_NS * 1066) / 1000) + 1 :
+					    ((tWR_IN_NS * 1066) / 1000);
 		break;
 	}
 
 	rd_to_miss = t_rtp + t_rp + t_rcd - burst_len_sched_clk;
-	wr_to_miss = ((rd_latency + burst_len_ddr_clk + 2 + tw_rin_clk_cycles)
-			/ 2) - rd_to_wr + t_rp + t_rcd;
+	wr_to_miss =
+		((rd_latency + burst_len_ddr_clk + 2 + tw_rin_clk_cycles) / 2) -
+		rd_to_wr + t_rp + t_rcd;
 
 	mmio_write_32(AGX_MPFE_DDR_MAIN_SCHED_DDRTIMING,
-		bw_ratio << DDRTIMING_BWRATIO_OFST |
-		wr_to_rd << DDRTIMING_WRTORD_OFST|
-		rd_to_wr << DDRTIMING_RDTOWR_OFST |
-		burst_len_sched_clk << DDRTIMING_BURSTLEN_OFST |
-		wr_to_miss << DDRTIMING_WRTOMISS_OFST |
-		rd_to_miss << DDRTIMING_RDTOMISS_OFST |
-		act_to_act << DDRTIMING_ACTTOACT_OFST);
+		      bw_ratio << DDRTIMING_BWRATIO_OFST |
+			      wr_to_rd << DDRTIMING_WRTORD_OFST |
+			      rd_to_wr << DDRTIMING_RDTOWR_OFST |
+			      burst_len_sched_clk << DDRTIMING_BURSTLEN_OFST |
+			      wr_to_miss << DDRTIMING_WRTOMISS_OFST |
+			      rd_to_miss << DDRTIMING_RDTOMISS_OFST |
+			      act_to_act << DDRTIMING_ACTTOACT_OFST);
 
 	data = mmio_read_32(AGX_MPFE_HMC_ADP(HMC_ADP_DDRIOCTRL));
 	bw_ratio_extended = ((ADP_DDRIOCTRL_IO_SIZE(data) == 0) ? 1 : 0);
 
 	mmio_write_32(AGX_MPFE_DDR_MAIN_SCHED_DDRMODE,
-		bw_ratio_extended << DDRMODE_BWRATIOEXTENDED_OFST |
-		auto_precharge << DDRMODE_AUTOPRECHARGE_OFST);
+		      bw_ratio_extended << DDRMODE_BWRATIOEXTENDED_OFST |
+			      auto_precharge << DDRMODE_AUTOPRECHARGE_OFST);
 
 	mmio_write_32(AGX_MPFE_DDR_MAIN_SCHED_READLATENCY,
-		(rd_latency / 2) + DDR_READ_LATENCY_DELAY);
+		      (rd_latency / 2) + DDR_READ_LATENCY_DELAY);
 
 	data = mmio_read_32(AGX_MPFE_IOHMC_CALTIMING9);
 	faw = AGX_MPFE_IOHMC_CALTIMING9_ACT_TO_ACT(data);
 
 	faw_bank = 1; // always 1 because we always have 4 bank DDR.
 
-	mmio_write_32(AGX_MPFE_DDR_MAIN_SCHED_ACTIVATE,
+	mmio_write_32(
+		AGX_MPFE_DDR_MAIN_SCHED_ACTIVATE,
 		faw_bank << AGX_MPFE_DDR_MAIN_SCHED_ACTIVATE_FAWBANK_OFST |
-		faw << AGX_MPFE_DDR_MAIN_SCHED_ACTIVATE_FAW_OFST |
-		act_to_act_bank << AGX_MPFE_DDR_MAIN_SCHED_ACTIVATE_RRD_OFST);
+			faw << AGX_MPFE_DDR_MAIN_SCHED_ACTIVATE_FAW_OFST |
+			act_to_act_bank
+				<< AGX_MPFE_DDR_MAIN_SCHED_ACTIVATE_RRD_OFST);
 
-	mmio_write_32(AGX_MPFE_DDR_MAIN_SCHED_DEVTODEV,
+	mmio_write_32(
+		AGX_MPFE_DDR_MAIN_SCHED_DEVTODEV,
 		((bus_rd_to_rd
-			<< AGX_MPFE_DDR_MAIN_SCHED_DEVTODEV_BUSRDTORD_OFST)
-			& AGX_MPFE_DDR_MAIN_SCHED_DEVTODEV_BUSRDTORD_MSK) |
-		((bus_rd_to_wr
-			<< AGX_MPFE_DDR_MAIN_SCHED_DEVTODEV_BUSRDTOWR_OFST)
-			& AGX_MPFE_DDR_MAIN_SCHED_DEVTODEV_BUSRDTOWR_MSK) |
-		((bus_wr_to_rd
-			<< AGX_MPFE_DDR_MAIN_SCHED_DEVTODEV_BUSWRTORD_OFST)
-			& AGX_MPFE_DDR_MAIN_SCHED_DEVTODEV_BUSWRTORD_MSK));
-
+		  << AGX_MPFE_DDR_MAIN_SCHED_DEVTODEV_BUSRDTORD_OFST) &
+		 AGX_MPFE_DDR_MAIN_SCHED_DEVTODEV_BUSRDTORD_MSK) |
+			((bus_rd_to_wr
+			  << AGX_MPFE_DDR_MAIN_SCHED_DEVTODEV_BUSRDTOWR_OFST) &
+			 AGX_MPFE_DDR_MAIN_SCHED_DEVTODEV_BUSRDTOWR_MSK) |
+			((bus_wr_to_rd
+			  << AGX_MPFE_DDR_MAIN_SCHED_DEVTODEV_BUSWRTORD_OFST) &
+			 AGX_MPFE_DDR_MAIN_SCHED_DEVTODEV_BUSWRTORD_MSK));
 }
 
 unsigned long get_physical_dram_size(void)
@@ -324,15 +329,13 @@ unsigned long get_physical_dram_size(void)
 
 	data = mmio_read_32(AGX_MPFE_IOHMC_REG_DRAMADDRW);
 	ram_addr_width = IOHMC_DRAMADDRW_CFG_COL_ADDR_WIDTH(data) +
-		IOHMC_DRAMADDRW_CFG_ROW_ADDR_WIDTH(data) +
-		IOHMC_DRAMADDRW_CFG_BANK_ADDR_WIDTH(data) +
-		IOHMC_DRAMADDRW_CFG_BANK_GROUP_ADDR_WIDTH(data) +
-		IOHMC_DRAMADDRW_CFG_CS_ADDR_WIDTH(data);
+			 IOHMC_DRAMADDRW_CFG_ROW_ADDR_WIDTH(data) +
+			 IOHMC_DRAMADDRW_CFG_BANK_ADDR_WIDTH(data) +
+			 IOHMC_DRAMADDRW_CFG_BANK_GROUP_ADDR_WIDTH(data) +
+			 IOHMC_DRAMADDRW_CFG_CS_ADDR_WIDTH(data);
 
 	return (1 << ram_addr_width) * (ram_ext_if_io_width / 8);
 }
-
-
 
 void configure_hmc_adaptor_regs(void)
 {
@@ -370,24 +373,27 @@ void configure_hmc_adaptor_regs(void)
 	/* ECC enablement */
 	data = mmio_read_32(AGX_MPFE_IOHMC_REG_CTRLCFG1);
 	if (data & (1 << AGX_IOHMC_CTRLCFG1_ENABLE_ECC_OFST)) {
-		mmio_clrsetbits_32(AGX_MPFE_HMC_ADP_ECCCTRL1,
+		mmio_clrsetbits_32(
+			AGX_MPFE_HMC_ADP_ECCCTRL1,
 			AGX_MPFE_HMC_ADP_ECCCTRL1_AUTOWB_CNT_RST_SET_MSK |
-			AGX_MPFE_HMC_ADP_ECCCTRL1_CNT_RST_SET_MSK |
-			AGX_MPFE_HMC_ADP_ECCCTRL1_ECC_EN_SET_MSK,
+				AGX_MPFE_HMC_ADP_ECCCTRL1_CNT_RST_SET_MSK |
+				AGX_MPFE_HMC_ADP_ECCCTRL1_ECC_EN_SET_MSK,
 			AGX_MPFE_HMC_ADP_ECCCTRL1_AUTOWB_CNT_RST_SET_MSK |
-			AGX_MPFE_HMC_ADP_ECCCTRL1_CNT_RST_SET_MSK);
+				AGX_MPFE_HMC_ADP_ECCCTRL1_CNT_RST_SET_MSK);
 
-		mmio_clrsetbits_32(AGX_MPFE_HMC_ADP_ECCCTRL2,
+		mmio_clrsetbits_32(
+			AGX_MPFE_HMC_ADP_ECCCTRL2,
 			AGX_MPFE_HMC_ADP_ECCCTRL2_OVRW_RB_ECC_EN_SET_MSK |
+				AGX_MPFE_HMC_ADP_ECCCTRL2_RMW_EN_SET_MSK |
+				AGX_MPFE_HMC_ADP_ECCCTRL2_AUTOWB_EN_SET_MSK,
 			AGX_MPFE_HMC_ADP_ECCCTRL2_RMW_EN_SET_MSK |
-			AGX_MPFE_HMC_ADP_ECCCTRL2_AUTOWB_EN_SET_MSK,
-			AGX_MPFE_HMC_ADP_ECCCTRL2_RMW_EN_SET_MSK |
-			AGX_MPFE_HMC_ADP_ECCCTRL2_AUTOWB_EN_SET_MSK);
+				AGX_MPFE_HMC_ADP_ECCCTRL2_AUTOWB_EN_SET_MSK);
 
-		mmio_clrsetbits_32(AGX_MPFE_HMC_ADP_ECCCTRL1,
+		mmio_clrsetbits_32(
+			AGX_MPFE_HMC_ADP_ECCCTRL1,
 			AGX_MPFE_HMC_ADP_ECCCTRL1_AUTOWB_CNT_RST_SET_MSK |
-			AGX_MPFE_HMC_ADP_ECCCTRL1_CNT_RST_SET_MSK |
-			AGX_MPFE_HMC_ADP_ECCCTRL1_ECC_EN_SET_MSK,
+				AGX_MPFE_HMC_ADP_ECCCTRL1_CNT_RST_SET_MSK |
+				AGX_MPFE_HMC_ADP_ECCCTRL1_ECC_EN_SET_MSK,
 			AGX_MPFE_HMC_ADP_ECCCTRL1_ECC_EN_SET_MSK);
 		INFO("Scrubbing ECC\n");
 

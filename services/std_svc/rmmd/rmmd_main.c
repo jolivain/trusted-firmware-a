@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,25 +10,26 @@
 #include <stdint.h>
 #include <string.h>
 
-#include <arch_helpers.h>
 #include <arch_features.h>
+#include <arch_helpers.h>
 #include <bl31/bl31.h>
 #include <common/debug.h>
 #include <common/runtime_svc.h>
 #include <context.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/el3_runtime/pubsub.h>
+#include <lib/extensions/sve.h>
 #include <lib/gpt_rme/gpt_rme.h>
-
 #include <lib/spinlock.h>
 #include <lib/utils.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
+#include <services/rmmd_svc.h>
+#include <smccc_helpers.h>
+
 #include <plat/common/common_def.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>
-#include <services/rmmd_svc.h>
-#include <smccc_helpers.h>
-#include <lib/extensions/sve.h>
+
 #include "rmmd_initial_context.h"
 #include "rmmd_private.h"
 
@@ -195,15 +196,12 @@ int rmmd_setup(void)
 	}
 
 	SET_PARAM_HEAD(rmm_ep_info, PARAM_EP, VERSION_1, ep_attr);
-	rmm_ep_info->spsr = SPSR_64(MODE_EL2,
-					MODE_SP_ELX,
-					DISABLE_ALL_EXCEPTIONS);
+	rmm_ep_info->spsr =
+		SPSR_64(MODE_EL2, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 
-	shared_buf_size =
-			plat_rmmd_get_el3_rmm_shared_mem(&shared_buf_base);
+	shared_buf_size = plat_rmmd_get_el3_rmm_shared_mem(&shared_buf_base);
 
-	assert((shared_buf_size == SZ_4K) &&
-					((void *)shared_buf_base != NULL));
+	assert((shared_buf_size == SZ_4K) && ((void *)shared_buf_base != NULL));
 
 	/* Load the boot manifest at the beginning of the shared area */
 	manifest = (struct rmm_manifest *)shared_buf_base;
@@ -241,10 +239,9 @@ int rmmd_setup(void)
 /*******************************************************************************
  * Forward SMC to the other security state
  ******************************************************************************/
-static uint64_t	rmmd_smc_forward(uint32_t src_sec_state,
-				 uint32_t dst_sec_state, uint64_t x0,
-				 uint64_t x1, uint64_t x2, uint64_t x3,
-				 uint64_t x4, void *handle)
+static uint64_t rmmd_smc_forward(uint32_t src_sec_state, uint32_t dst_sec_state,
+				 uint64_t x0, uint64_t x1, uint64_t x2,
+				 uint64_t x3, uint64_t x4, void *handle)
 {
 	cpu_context_t *ctx = cm_get_context(dst_sec_state);
 
@@ -280,8 +277,8 @@ static uint64_t	rmmd_smc_forward(uint32_t src_sec_state,
  * either forwarded to the other security state or handled by the RMM dispatcher
  ******************************************************************************/
 uint64_t rmmd_rmi_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
-			  uint64_t x3, uint64_t x4, void *cookie,
-			  void *handle, uint64_t flags)
+			  uint64_t x3, uint64_t x4, void *cookie, void *handle,
+			  uint64_t flags)
 {
 	uint32_t src_sec_state;
 
@@ -306,8 +303,8 @@ uint64_t rmmd_rmi_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 	 */
 	if (src_sec_state == SMC_FROM_NON_SECURE) {
 		VERBOSE("RMMD: RMI call from non-secure world.\n");
-		return rmmd_smc_forward(NON_SECURE, REALM, smc_fid,
-					x1, x2, x3, x4, handle);
+		return rmmd_smc_forward(NON_SECURE, REALM, smc_fid, x1, x2, x3,
+					x4, handle);
 	}
 
 	if (src_sec_state != SMC_FROM_REALM) {
@@ -318,8 +315,8 @@ uint64_t rmmd_rmi_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 	case RMM_RMI_REQ_COMPLETE: {
 		uint64_t x5 = SMC_GET_GP(handle, CTX_GPREG_X5);
 
-		return rmmd_smc_forward(REALM, NON_SECURE, x1,
-					x2, x3, x4, x5, handle);
+		return rmmd_smc_forward(REALM, NON_SECURE, x1, x2, x3, x4, x5,
+					handle);
 	}
 	default:
 		WARN("RMMD: Unsupported RMM call 0x%08x\n", smc_fid);
@@ -341,7 +338,7 @@ static void *rmmd_cpu_on_finish_handler(const void *arg)
 	if (rmm_boot_failed) {
 		/* RMM Boot failed on a previous CPU. Abort. */
 		ERROR("RMM Failed to initialize. Ignoring for CPU%d\n",
-								linear_id);
+		      linear_id);
 		return NULL;
 	}
 
@@ -395,8 +392,9 @@ static int gpt_to_gts_error(int error, uint32_t smc_fid, uint64_t address)
 		ret = E_RMM_BAD_PAS;
 	}
 
-	ERROR("RMMD: PAS Transition failed. GPT ret = %d, PA: 0x%"PRIx64 ", FID = 0x%x\n",
-				error, address, smc_fid);
+	ERROR("RMMD: PAS Transition failed. GPT ret = %d, PA: 0x%" PRIx64
+	      ", FID = 0x%x\n",
+	      error, address, smc_fid);
 	return ret;
 }
 
@@ -404,8 +402,8 @@ static int gpt_to_gts_error(int error, uint32_t smc_fid, uint64_t address)
  * This function handles RMM-EL3 interface SMCs
  ******************************************************************************/
 uint64_t rmmd_rmm_el3_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
-				uint64_t x3, uint64_t x4, void *cookie,
-				void *handle, uint64_t flags)
+			      uint64_t x3, uint64_t x4, void *cookie,
+			      void *handle, uint64_t flags)
 {
 	uint32_t src_sec_state;
 	int ret;

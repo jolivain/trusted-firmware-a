@@ -1,15 +1,11 @@
 /*
- * Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 #include <string.h>
-
-#include <libfdt.h>
-
-#include <platform_def.h>
 
 #include <arch_helpers.h>
 #include <common/bl_common.h>
@@ -19,10 +15,12 @@
 #include <common/fdt_wrappers.h>
 #include <lib/optee_utils.h>
 #include <lib/utils.h>
+#include <libfdt.h>
+
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 #include "qemu_private.h"
-
 
 /* Data structure which holds the extents of the trusted SRAM for BL2 */
 static meminfo_t bl2_tzram_layout __aligned(CACHE_WRITEBACK_GRANULE);
@@ -84,18 +82,17 @@ void bl2_platform_setup(void)
 }
 
 #ifdef __aarch64__
-#define QEMU_CONFIGURE_BL2_MMU(...)	qemu_configure_mmu_el1(__VA_ARGS__)
+#define QEMU_CONFIGURE_BL2_MMU(...) qemu_configure_mmu_el1(__VA_ARGS__)
 #else
-#define QEMU_CONFIGURE_BL2_MMU(...)	qemu_configure_mmu_svc_mon(__VA_ARGS__)
+#define QEMU_CONFIGURE_BL2_MMU(...) qemu_configure_mmu_svc_mon(__VA_ARGS__)
 #endif
 
 void bl2_plat_arch_setup(void)
 {
 	QEMU_CONFIGURE_BL2_MMU(bl2_tzram_layout.total_base,
-			      bl2_tzram_layout.total_size,
-			      BL_CODE_BASE, BL_CODE_END,
-			      BL_RO_DATA_BASE, BL_RO_DATA_END,
-			      BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END);
+			       bl2_tzram_layout.total_size, BL_CODE_BASE,
+			       BL_CODE_END, BL_RO_DATA_BASE, BL_RO_DATA_END,
+			       BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END);
 }
 
 /*******************************************************************************
@@ -134,9 +131,8 @@ static uint32_t qemu_get_spsr_for_bl33_entry(void)
 	 */
 	spsr = SPSR_64(mode, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 #else
-	spsr = SPSR_MODE32(MODE32_svc,
-		    plat_get_ns_image_entrypoint() & 0x1,
-		    SPSR_E_LITTLE, DISABLE_ALL_EXCEPTIONS);
+	spsr = SPSR_MODE32(MODE32_svc, plat_get_ns_image_entrypoint() & 0x1,
+			   SPSR_E_LITTLE, DISABLE_ALL_EXCEPTIONS);
 #endif
 	return spsr;
 }
@@ -169,8 +165,8 @@ static int load_sps_from_tb_fw_config(struct image_info *image_info)
 			ERROR("Can't find property uuid in node %s", name);
 			return -1;
 		}
-		if (fdt_read_uint32(dtb, sp_node, "load-address",
-				    &load_addr) < 0) {
+		if (fdt_read_uint32(dtb, sp_node, "load-address", &load_addr) <
+		    0) {
 			ERROR("Can't read load-address in node %s", name);
 			return -1;
 		}
@@ -232,7 +228,7 @@ static int qemu_bl2_handle_post_image_load(unsigned int image_id)
 		bl_mem_params->ep_info.args.arg3 = ARM_PRELOADED_DTB_BASE;
 #elif defined(AARCH32_SP_OPTEE)
 		bl_mem_params->ep_info.args.arg0 =
-					bl_mem_params->ep_info.args.arg1;
+			bl_mem_params->ep_info.args.arg1;
 		bl_mem_params->ep_info.args.arg1 = 0;
 		bl_mem_params->ep_info.args.arg2 = ARM_PRELOADED_DTB_BASE;
 		bl_mem_params->ep_info.args.arg3 = 0;
@@ -277,7 +273,7 @@ static int qemu_bl2_handle_post_image_load(unsigned int image_id)
 		/* An SPMC expects TOS_FW_CONFIG in x0/r0 */
 		bl32_mem_params = get_bl_mem_params_node(BL32_IMAGE_ID);
 		bl32_mem_params->ep_info.args.arg0 =
-					bl_mem_params->image_info.image_base;
+			bl_mem_params->image_info.image_base;
 		break;
 #endif
 	default:

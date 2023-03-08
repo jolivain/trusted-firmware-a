@@ -9,8 +9,8 @@
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-
 #include <ocotp.h>
+
 #include <platform_def.h>
 
 #define OTP_MAP 2
@@ -20,40 +20,43 @@
  * commands are writes which also vary based on the # of bits turned on. Writing
  * 0xffffffff takes ~3800 us.
  */
-#define OTPC_RETRIES_US                 5000
+#define OTPC_RETRIES_US 5000
 
 /* Sequence to enable OTP program */
-#define OTPC_PROG_EN_SEQ             { 0xf, 0x4, 0x8, 0xd }
+#define OTPC_PROG_EN_SEQ           \
+	{                          \
+		0xf, 0x4, 0x8, 0xd \
+	}
 
 /* OTPC Commands */
-#define OTPC_CMD_READ                0x0
-#define OTPC_CMD_OTP_PROG_ENABLE     0x2
-#define OTPC_CMD_OTP_PROG_DISABLE    0x3
-#define OTPC_CMD_PROGRAM             0x8
-#define OTPC_CMD_ECC                 0x10
-#define OTPC_ECC_ADDR                0x1A
-#define OTPC_ECC_VAL                 0x00EC0000
+#define OTPC_CMD_READ 0x0
+#define OTPC_CMD_OTP_PROG_ENABLE 0x2
+#define OTPC_CMD_OTP_PROG_DISABLE 0x3
+#define OTPC_CMD_PROGRAM 0x8
+#define OTPC_CMD_ECC 0x10
+#define OTPC_ECC_ADDR 0x1A
+#define OTPC_ECC_VAL 0x00EC0000
 
 /* OTPC Status Bits */
-#define OTPC_STAT_CMD_DONE           BIT(1)
-#define OTPC_STAT_PROG_OK            BIT(2)
+#define OTPC_STAT_CMD_DONE BIT(1)
+#define OTPC_STAT_PROG_OK BIT(2)
 
 /* OTPC register definition */
-#define OTPC_MODE_REG_OFFSET         0x0
-#define OTPC_MODE_REG_OTPC_MODE      0
-#define OTPC_COMMAND_OFFSET          0x4
-#define OTPC_COMMAND_COMMAND_WIDTH   6
-#define OTPC_CMD_START_OFFSET        0x8
-#define OTPC_CMD_START_START         0
-#define OTPC_CPU_STATUS_OFFSET       0xc
-#define OTPC_CPUADDR_REG_OFFSET      0x28
+#define OTPC_MODE_REG_OFFSET 0x0
+#define OTPC_MODE_REG_OTPC_MODE 0
+#define OTPC_COMMAND_OFFSET 0x4
+#define OTPC_COMMAND_COMMAND_WIDTH 6
+#define OTPC_CMD_START_OFFSET 0x8
+#define OTPC_CMD_START_START 0
+#define OTPC_CPU_STATUS_OFFSET 0xc
+#define OTPC_CPUADDR_REG_OFFSET 0x28
 #define OTPC_CPUADDR_REG_OTPC_CPU_ADDRESS_WIDTH 16
-#define OTPC_CPU_WRITE_REG_OFFSET    0x2c
+#define OTPC_CPU_WRITE_REG_OFFSET 0x2c
 
-#define OTPC_CMD_MASK  (BIT(OTPC_COMMAND_COMMAND_WIDTH) - 1)
+#define OTPC_CMD_MASK (BIT(OTPC_COMMAND_COMMAND_WIDTH) - 1)
 #define OTPC_ADDR_MASK (BIT(OTPC_CPUADDR_REG_OTPC_CPU_ADDRESS_WIDTH) - 1)
 
-#define OTPC_MODE_REG			OCOTP_REGS_BASE
+#define OTPC_MODE_REG OCOTP_REGS_BASE
 
 struct chip_otp_cfg {
 	uint32_t base;
@@ -173,7 +176,7 @@ int bcm_otpc_read(unsigned int offset, void *val, uint32_t bytes,
 
 		for (i = 0; i < priv->map->otpc_row_size; i++) {
 			*buf++ = mmio_read_32(priv->base +
-					priv->map->data_r_offset[i]);
+					      priv->map->data_r_offset[i]);
 			bytes_read += sizeof(*buf);
 		}
 

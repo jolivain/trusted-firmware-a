@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,25 +7,25 @@
 #include <assert.h>
 
 #include <arch_helpers.h>
+#include <brcm_mhu.h>
 #include <drivers/delay_timer.h>
 #include <lib/bakery_lock.h>
 
-#include <brcm_mhu.h>
 #include <platform_def.h>
 
 #include "m0_ipc.h"
 
-#define PLAT_MHU_INTR_REG	AP_TO_SCP_MAILBOX1
+#define PLAT_MHU_INTR_REG AP_TO_SCP_MAILBOX1
 
 /* SCP MHU secure channel registers */
-#define SCP_INTR_S_STAT		CRMU_IHOST_SW_PERSISTENT_REG11
-#define SCP_INTR_S_SET		CRMU_IHOST_SW_PERSISTENT_REG11
-#define SCP_INTR_S_CLEAR	CRMU_IHOST_SW_PERSISTENT_REG11
+#define SCP_INTR_S_STAT CRMU_IHOST_SW_PERSISTENT_REG11
+#define SCP_INTR_S_SET CRMU_IHOST_SW_PERSISTENT_REG11
+#define SCP_INTR_S_CLEAR CRMU_IHOST_SW_PERSISTENT_REG11
 
 /* CPU MHU secure channel registers */
-#define CPU_INTR_S_STAT		CRMU_IHOST_SW_PERSISTENT_REG10
-#define CPU_INTR_S_SET		CRMU_IHOST_SW_PERSISTENT_REG10
-#define CPU_INTR_S_CLEAR	CRMU_IHOST_SW_PERSISTENT_REG10
+#define CPU_INTR_S_STAT CRMU_IHOST_SW_PERSISTENT_REG10
+#define CPU_INTR_S_SET CRMU_IHOST_SW_PERSISTENT_REG10
+#define CPU_INTR_S_CLEAR CRMU_IHOST_SW_PERSISTENT_REG10
 
 static DEFINE_BAKERY_LOCK(bcm_lock);
 
@@ -34,7 +34,7 @@ static DEFINE_BAKERY_LOCK(bcm_lock);
  * indicate a non-secure access attempt. The total number of available slots is
  * therefore 31 [30:0].
  */
-#define MHU_MAX_SLOT_ID		30
+#define MHU_MAX_SLOT_ID 30
 
 void mhu_secure_message_start(unsigned int slot_id)
 {
@@ -46,10 +46,10 @@ void mhu_secure_message_start(unsigned int slot_id)
 	/* Make sure any previous command has finished */
 	do {
 		if (!(mmio_read_32(PLAT_BRCM_MHU_BASE + CPU_INTR_S_STAT) &
-		   (1 << slot_id)))
+		      (1 << slot_id)))
 			break;
 
-		 udelay(1);
+		udelay(1);
 
 	} while (--iter);
 
@@ -62,7 +62,7 @@ void mhu_secure_message_send(unsigned int slot_id)
 
 	assert(slot_id <= MHU_MAX_SLOT_ID);
 	assert(!(mmio_read_32(PLAT_BRCM_MHU_BASE + CPU_INTR_S_STAT) &
-							(1 << slot_id)));
+		 (1 << slot_id)));
 
 	/* Send command to SCP */
 	mmio_setbits_32(PLAT_BRCM_MHU_BASE + CPU_INTR_S_SET, 1 << slot_id);
@@ -73,7 +73,7 @@ void mhu_secure_message_send(unsigned int slot_id)
 	do {
 		response = mmio_read_32(CRMU_MAIL_BOX0);
 		if ((response & ~MCU_IPC_CMD_REPLY_MASK) ==
-		   (MCU_IPC_CMD_DONE_MASK | MCU_IPC_MCU_CMD_SCPI))
+		    (MCU_IPC_CMD_DONE_MASK | MCU_IPC_MCU_CMD_SCPI))
 			break;
 
 		udelay(1);

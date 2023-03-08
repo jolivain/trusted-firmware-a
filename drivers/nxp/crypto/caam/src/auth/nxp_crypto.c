@@ -8,14 +8,14 @@
 #include <stddef.h>
 #include <string.h>
 
-#include "caam.h"
 #include <common/debug.h>
 #include <drivers/auth/crypto_mod.h>
 
+#include "caam.h"
 #include "hash.h"
 #include "rsa.h"
 
-#define LIB_NAME		"NXP crypto"
+#define LIB_NAME "NXP crypto"
 
 /*
  * Initialize the library and export the descriptor
@@ -39,9 +39,9 @@ static void init(void)
  * structures detailed above.
  */
 static int verify_signature(void *data_ptr, unsigned int data_len,
-			    void *sig_ptr, unsigned int sig_len,
-			    void *sign_alg, unsigned int sig_alg_len,
-			    void *pk_ptr, unsigned int pk_len)
+			    void *sig_ptr, unsigned int sig_len, void *sign_alg,
+			    unsigned int sig_alg_len, void *pk_ptr,
+			    unsigned int pk_len)
 {
 	int ret = CRYPTO_SUCCESS;
 
@@ -63,7 +63,6 @@ static int verify_signature(void *data_ptr, unsigned int data_len,
 		ERROR("RSA verification Failed\n");
 	}
 	return ret;
-
 }
 
 /*
@@ -80,7 +79,7 @@ static int verify_hash(void *data_ptr, unsigned int data_len,
 	void *ctx = NULL;
 	int i = 0, ret = 0;
 	enum hash_algo algo = SHA256;
-	uint8_t hash[SHA256_BYTES] __aligned(CACHE_WRITEBACK_GRANULE) = {0};
+	uint8_t hash[SHA256_BYTES] __aligned(CACHE_WRITEBACK_GRANULE) = { 0 };
 	uint32_t digest_size = SHA256_BYTES;
 	uint8_t *hash_tbl = digest_info_ptr;
 
@@ -103,13 +102,13 @@ static int verify_hash(void *data_ptr, unsigned int data_len,
 	}
 
 	VERBOSE("%s Calculated hash\n", __func__);
-	for (i = 0; i < SHA256_BYTES/4; i++) {
+	for (i = 0; i < SHA256_BYTES / 4; i++) {
 		VERBOSE("%x\n", *((uint32_t *)hash + i));
 	}
 
 	for (i = 0; i < digest_info_len; i++) {
-		if (memcmp(hash, (hash_tbl + (i * digest_size)),
-			   digest_size) == 0) {
+		if (memcmp(hash, (hash_tbl + (i * digest_size)), digest_size) ==
+		    0) {
 			return CRYPTO_SUCCESS;
 		}
 	}

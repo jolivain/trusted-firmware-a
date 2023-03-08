@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,7 +9,7 @@
 
 #include <drivers/console.h>
 
-#define CONSOLE_T_CBMC_SIZE	CONSOLE_T_DRVDATA
+#define CONSOLE_T_CBMC_SIZE CONSOLE_T_DRVDATA
 
 #ifndef __ASSEMBLER__
 

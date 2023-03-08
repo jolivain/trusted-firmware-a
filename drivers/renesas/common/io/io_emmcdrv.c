@@ -18,7 +18,7 @@
 #include "io_emmcdrv.h"
 #include "io_private.h"
 
-static int32_t emmcdrv_dev_open(const uintptr_t spec __attribute__ ((unused)),
+static int32_t emmcdrv_dev_open(const uintptr_t spec __attribute__((unused)),
 				io_dev_info_t **dev_info);
 static int32_t emmcdrv_dev_close(io_dev_info_t *dev_info);
 
@@ -45,7 +45,7 @@ static int32_t emmcdrv_block_seek(io_entity_t *entity, int32_t mode,
 		return IO_FAIL;
 	}
 
-	((file_state_t *) entity->info)->file_pos = offset;
+	((file_state_t *)entity->info)->file_pos = offset;
 
 	return IO_SUCCESS;
 }
@@ -53,7 +53,7 @@ static int32_t emmcdrv_block_seek(io_entity_t *entity, int32_t mode,
 static int32_t emmcdrv_block_read(io_entity_t *entity, uintptr_t buffer,
 				  size_t length, size_t *length_read)
 {
-	file_state_t *fp = (file_state_t *) entity->info;
+	file_state_t *fp = (file_state_t *)entity->info;
 	uint32_t sector_add, sector_num, emmc_dma = 0;
 	int32_t result = IO_SUCCESS;
 
@@ -61,15 +61,14 @@ static int32_t emmcdrv_block_read(io_entity_t *entity, uintptr_t buffer,
 	sector_num = (length + EMMC_SECTOR_SIZE - 1U) >> EMMC_SECTOR_SIZE_SHIFT;
 
 	NOTICE("BL2: Load dst=0x%lx src=(p:%d)0x%llx(%d) len=0x%lx(%d)\n",
-	       buffer,
-	       current_file.partition, current_file.file_pos,
+	       buffer, current_file.partition, current_file.file_pos,
 	       sector_add, length, sector_num);
 
 	if ((buffer + length - 1U) <= (uintptr_t)UINT32_MAX) {
 		emmc_dma = LOADIMAGE_FLAGS_DMA_ENABLE;
 	}
 
-	if (emmc_read_sector((uint32_t *) buffer, sector_add, sector_num,
+	if (emmc_read_sector((uint32_t *)buffer, sector_add, sector_num,
 			     emmc_dma) != EMMC_SUCCESS) {
 		result = IO_FAIL;
 	}
@@ -80,10 +79,10 @@ static int32_t emmcdrv_block_read(io_entity_t *entity, uintptr_t buffer,
 	return result;
 }
 
-static int32_t emmcdrv_block_open(io_dev_info_t *dev_info,
-				  const uintptr_t spec, io_entity_t *entity)
+static int32_t emmcdrv_block_open(io_dev_info_t *dev_info, const uintptr_t spec,
+				  io_entity_t *entity)
 {
-	const io_drv_spec_t *block_spec = (io_drv_spec_t *) spec;
+	const io_drv_spec_t *block_spec = (io_drv_spec_t *)spec;
 
 	if (current_file.in_use != 0U) {
 		WARN("mmc_block: Only one open spec at a time\n");
@@ -119,7 +118,7 @@ done:
 		return IO_FAIL;
 	}
 
-	entity->info = (uintptr_t) &current_file;
+	entity->info = (uintptr_t)&current_file;
 
 	return IO_SUCCESS;
 }
@@ -132,31 +131,28 @@ static int32_t emmcdrv_block_close(io_entity_t *entity)
 	return IO_SUCCESS;
 }
 
-static const io_dev_funcs_t emmcdrv_dev_funcs = {
-	.type = &device_type_emmcdrv,
-	.open = &emmcdrv_block_open,
-	.seek = &emmcdrv_block_seek,
-	.size = NULL,
-	.read = &emmcdrv_block_read,
-	.write = NULL,
-	.close = &emmcdrv_block_close,
-	.dev_init = NULL,
-	.dev_close = &emmcdrv_dev_close
-};
+static const io_dev_funcs_t emmcdrv_dev_funcs = { .type = &device_type_emmcdrv,
+						  .open = &emmcdrv_block_open,
+						  .seek = &emmcdrv_block_seek,
+						  .size = NULL,
+						  .read = &emmcdrv_block_read,
+						  .write = NULL,
+						  .close = &emmcdrv_block_close,
+						  .dev_init = NULL,
+						  .dev_close =
+							  &emmcdrv_dev_close };
 
-static const io_dev_info_t emmcdrv_dev_info = {
-	.funcs = &emmcdrv_dev_funcs,
-	.info = (uintptr_t) 0
-};
+static const io_dev_info_t emmcdrv_dev_info = { .funcs = &emmcdrv_dev_funcs,
+						.info = (uintptr_t)0 };
 
 static const io_dev_connector_t emmcdrv_dev_connector = {
 	&emmcdrv_dev_open,
 };
 
-static int32_t emmcdrv_dev_open(const uintptr_t spec __attribute__ ((unused)),
+static int32_t emmcdrv_dev_open(const uintptr_t spec __attribute__((unused)),
 				io_dev_info_t **dev_info)
 {
-	*dev_info = (io_dev_info_t *) &emmcdrv_dev_info;
+	*dev_info = (io_dev_info_t *)&emmcdrv_dev_info;
 
 	return IO_SUCCESS;
 }

@@ -11,24 +11,24 @@
 #include <stdint.h>
 
 /* max string length */
-#define FRU_MAX_STR_LEN      32
+#define FRU_MAX_STR_LEN 32
 
 /* max number of DDR channels */
-#define BCM_MAX_NR_DDR       3
+#define BCM_MAX_NR_DDR 3
 
 /* max supported FRU table size */
-#define BCM_MAX_FRU_LEN      512
+#define BCM_MAX_FRU_LEN 512
 
 /* FRU table starting offset */
-#define BCM_FRU_TBL_OFFSET   0x300000
+#define BCM_FRU_TBL_OFFSET 0x300000
 
 /* FRU time constants */
-#define MINS_PER_DAY        1440
-#define MINS_PER_HOUR       60
-#define FRU_YEAR_START      1996
-#define FRU_MONTH_START     1
-#define FRU_DAY_START       1
-#define MONTHS_PER_YEAR     12
+#define MINS_PER_DAY 1440
+#define MINS_PER_HOUR 60
+#define FRU_YEAR_START 1996
+#define FRU_MONTH_START 1
+#define FRU_DAY_START 1
+#define MONTHS_PER_YEAR 12
 
 /*
  * FRU areas based on the spec

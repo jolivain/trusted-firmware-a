@@ -4,16 +4,16 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include "micro_delay.h"
+
 #include <arch.h>
 #include <arch_helpers.h>
 
-#include "micro_delay.h"
-
-#define RCAR_CONV_MICROSEC		1000000U
+#define RCAR_CONV_MICROSEC 1000000U
 
 void
 #if IMAGE_BL31
-	__attribute__ ((section(".system_ram")))
+	__attribute__((section(".system_ram")))
 #endif
 	rcar_micro_delay(uint64_t micro_sec)
 {
@@ -26,6 +26,7 @@ void
 	base_count = read_cntpct_el0();
 	while (micro_sec > wait_time) {
 		get_count = read_cntpct_el0();
-		wait_time = ((get_count - base_count) * RCAR_CONV_MICROSEC) / freq;
+		wait_time =
+			((get_count - base_count) * RCAR_CONV_MICROSEC) / freq;
 	}
 }

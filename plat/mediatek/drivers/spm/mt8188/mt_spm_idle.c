@@ -7,12 +7,12 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <string.h>
+
 #include <common/debug.h>
-#include <lib/mmio.h>
 #include <drivers/spm/mt_spm_resource_req.h>
+#include <lib/mmio.h>
 #include <lib/pm/mtk_pm.h>
 #include <lpm/mt_lp_api.h>
-
 #include <mt_spm.h>
 #include <mt_spm_conservation.h>
 #include <mt_spm_idle.h>
@@ -21,32 +21,21 @@
 
 #define SPM_BYPASS_SYSPWREQ_GENERIC (1)
 
-#define __WAKE_SRC_FOR_IDLE_COMMON__ ( \
-		(R12_PCM_TIMER) | \
-		(R12_KP_IRQ_B) | \
-		(R12_APWDT_EVENT_B) | \
-		(R12_APXGPT1_EVENT_B) | \
-		(R12_MSDC_WAKEUP_B) | \
-		(R12_EINT_EVENT_B) | \
-		(R12_SBD_INTR_WAKEUP_B) | \
-		(R12_SSPM2SPM_WAKEUP_B) | \
-		(R12_SCP2SPM_WAKEUP_B) | \
-		(R12_ADSP2SPM_WAKEUP_B) | \
-		(R12_USBX_CDSC_B) | \
-		(R12_USBX_POWERDWN_B) | \
-		(R12_SYS_TIMER_EVENT_B) | \
-		(R12_EINT_EVENT_SECURE_B) | \
-		(R12_ECE_INT_HDMI_B) | \
-		(R12_AFE_IRQ_MCU_B) | \
-		(R12_SYS_CIRQ_IRQ_B) | \
-		(R12_PCIE_WAKEUPEVENT_B) | \
-		(R12_SPM_CPU_WAKEUPEVENT_B) | \
-		(R12_APUSYS_WAKE_HOST_B))
+#define __WAKE_SRC_FOR_IDLE_COMMON__                                           \
+	((R12_PCM_TIMER) | (R12_KP_IRQ_B) | (R12_APWDT_EVENT_B) |              \
+	 (R12_APXGPT1_EVENT_B) | (R12_MSDC_WAKEUP_B) | (R12_EINT_EVENT_B) |    \
+	 (R12_SBD_INTR_WAKEUP_B) | (R12_SSPM2SPM_WAKEUP_B) |                   \
+	 (R12_SCP2SPM_WAKEUP_B) | (R12_ADSP2SPM_WAKEUP_B) |                    \
+	 (R12_USBX_CDSC_B) | (R12_USBX_POWERDWN_B) | (R12_SYS_TIMER_EVENT_B) | \
+	 (R12_EINT_EVENT_SECURE_B) | (R12_ECE_INT_HDMI_B) |                    \
+	 (R12_AFE_IRQ_MCU_B) | (R12_SYS_CIRQ_IRQ_B) |                          \
+	 (R12_PCIE_WAKEUPEVENT_B) | (R12_SPM_CPU_WAKEUPEVENT_B) |              \
+	 (R12_APUSYS_WAKE_HOST_B))
 
 #if defined(CFG_MICROTRUST_TEE_SUPPORT)
-#define WAKE_SRC_FOR_IDLE	(__WAKE_SRC_FOR_IDLE_COMMON__)
+#define WAKE_SRC_FOR_IDLE (__WAKE_SRC_FOR_IDLE_COMMON__)
 #else
-#define WAKE_SRC_FOR_IDLE	(__WAKE_SRC_FOR_IDLE_COMMON__ | R12_SEJ_EVENT_B)
+#define WAKE_SRC_FOR_IDLE (__WAKE_SRC_FOR_IDLE_COMMON__ | R12_SEJ_EVENT_B)
 #endif
 
 static struct pwr_ctrl idle_spm_pwr = {
@@ -328,7 +317,8 @@ struct spm_lp_scen idle_spm_lp = {
 	.pwrctrl = &idle_spm_pwr,
 };
 
-int mt_spm_idle_generic_enter(int state_id, unsigned int ext_opand, spm_idle_conduct fn)
+int mt_spm_idle_generic_enter(int state_id, unsigned int ext_opand,
+			      spm_idle_conduct fn)
 {
 	int ret = 0;
 	unsigned int src_req = 0U;

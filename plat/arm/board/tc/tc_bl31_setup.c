@@ -1,13 +1,10 @@
 /*
- * Copyright (c) 2020-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-
-#include <libfdt.h>
-#include <tc_plat.h>
 
 #include <common/bl_common.h>
 #include <common/debug.h>
@@ -15,18 +12,19 @@
 #include <drivers/arm/css/scmi.h>
 #include <lib/fconf/fconf.h>
 #include <lib/fconf/fconf_dyn_cfg_getter.h>
+#include <libfdt.h>
+#include <tc_plat.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 
-static scmi_channel_plat_info_t tc_scmi_plat_info[] = {
-	{
-		.scmi_mbx_mem = CSS_SCMI_PAYLOAD_BASE,
-		.db_reg_addr = PLAT_CSS_MHU_BASE + SENDER_REG_SET(0),
-		.db_preserve_mask = 0xfffffffe,
-		.db_modify_mask = 0x1,
-		.ring_doorbell = &mhuv2_ring_doorbell,
-	}
-};
+static scmi_channel_plat_info_t tc_scmi_plat_info[] = { {
+	.scmi_mbx_mem = CSS_SCMI_PAYLOAD_BASE,
+	.db_reg_addr = PLAT_CSS_MHU_BASE + SENDER_REG_SET(0),
+	.db_preserve_mask = 0xfffffffe,
+	.db_modify_mask = 0x1,
+	.ring_doorbell = &mhuv2_ring_doorbell,
+} };
 
 void bl31_platform_setup(void)
 {
@@ -35,9 +33,7 @@ void bl31_platform_setup(void)
 
 scmi_channel_plat_info_t *plat_css_get_scmi_info(unsigned int channel_id)
 {
-
 	return &tc_scmi_plat_info[channel_id];
-
 }
 
 void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,

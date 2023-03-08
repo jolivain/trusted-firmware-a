@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -7,7 +7,6 @@
 
 #include <assert.h>
 #include <inttypes.h>
-#include <lib/xlat_tables/xlat_tables_v2.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <string.h>
@@ -20,22 +19,23 @@
 #include <common/runtime_svc.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/smccc.h>
-#include <plat/common/platform.h>
+#include <lib/xlat_tables/xlat_tables_v2.h>
 #include <tools_share/uuid.h>
+
+#include <plat/common/platform.h>
 
 #include "sm_err.h"
 #include "smcall.h"
 
 /* Trusty UID: RFC-4122 compliant UUID version 4 */
-DEFINE_SVC_UUID2(trusty_uuid,
-		 0x40ee25f0, 0xa2bc, 0x304c, 0x8c, 0x4c,
-		 0xa1, 0x73, 0xc5, 0x7d, 0x8a, 0xf1);
+DEFINE_SVC_UUID2(trusty_uuid, 0x40ee25f0, 0xa2bc, 0x304c, 0x8c, 0x4c, 0xa1,
+		 0x73, 0xc5, 0x7d, 0x8a, 0xf1);
 
 /* macro to check if Hypervisor is enabled in the HCR_EL2 register */
-#define HYP_ENABLE_FLAG		0x286001U
+#define HYP_ENABLE_FLAG 0x286001U
 
 /* length of Trusty's input parameters (in bytes) */
-#define TRUSTY_PARAMS_LEN_BYTES	(4096U * 2)
+#define TRUSTY_PARAMS_LEN_BYTES (4096U * 2)
 
 struct trusty_stack {
 	uint8_t space[PLATFORM_STACK_SIZE] __aligned(16);
@@ -43,29 +43,29 @@ struct trusty_stack {
 };
 
 struct trusty_cpu_ctx {
-	cpu_context_t	cpu_ctx;
-	void		*saved_sp;
-	uint32_t	saved_security_state;
-	int32_t		fiq_handler_active;
-	uint64_t	fiq_handler_pc;
-	uint64_t	fiq_handler_cpsr;
-	uint64_t	fiq_handler_sp;
-	uint64_t	fiq_pc;
-	uint64_t	fiq_cpsr;
-	uint64_t	fiq_sp_el1;
-	gp_regs_t	fiq_gpregs;
-	struct trusty_stack	secure_stack;
+	cpu_context_t cpu_ctx;
+	void *saved_sp;
+	uint32_t saved_security_state;
+	int32_t fiq_handler_active;
+	uint64_t fiq_handler_pc;
+	uint64_t fiq_handler_cpsr;
+	uint64_t fiq_handler_sp;
+	uint64_t fiq_pc;
+	uint64_t fiq_cpsr;
+	uint64_t fiq_sp_el1;
+	gp_regs_t fiq_gpregs;
+	struct trusty_stack secure_stack;
 };
 
 struct smc_args {
-	uint64_t	r0;
-	uint64_t	r1;
-	uint64_t	r2;
-	uint64_t	r3;
-	uint64_t	r4;
-	uint64_t	r5;
-	uint64_t	r6;
-	uint64_t	r7;
+	uint64_t r0;
+	uint64_t r1;
+	uint64_t r2;
+	uint64_t r3;
+	uint64_t r4;
+	uint64_t r5;
+	uint64_t r6;
+	uint64_t r7;
 };
 
 static struct trusty_cpu_ctx trusty_cpu_ctx[PLATFORM_CORE_COUNT];
@@ -87,8 +87,9 @@ static bool is_hypervisor_mode(void)
 	return ((hcr & HYP_ENABLE_FLAG) != 0U) ? true : false;
 }
 
-static struct smc_args trusty_context_switch(uint32_t security_state, uint64_t r0,
-					 uint64_t r1, uint64_t r2, uint64_t r3)
+static struct smc_args trusty_context_switch(uint32_t security_state,
+					     uint64_t r0, uint64_t r1,
+					     uint64_t r2, uint64_t r3)
 {
 	struct smc_args args, ret_args;
 	struct trusty_cpu_ctx *ctx = get_trusty_ctx();
@@ -119,7 +120,8 @@ static struct smc_args trusty_context_switch(uint32_t security_state, uint64_t r
 	 * going here.
 	 */
 	if (r0 != SMC_FC_CPU_SUSPEND && r0 != SMC_FC_CPU_RESUME)
-		fpregs_context_save(get_fpregs_ctx(cm_get_context(security_state)));
+		fpregs_context_save(
+			get_fpregs_ctx(cm_get_context(security_state)));
 	cm_el1_sysregs_context_save(security_state);
 
 	ctx->saved_security_state = security_state;
@@ -129,16 +131,15 @@ static struct smc_args trusty_context_switch(uint32_t security_state, uint64_t r
 
 	cm_el1_sysregs_context_restore(security_state);
 	if (r0 != SMC_FC_CPU_SUSPEND && r0 != SMC_FC_CPU_RESUME)
-		fpregs_context_restore(get_fpregs_ctx(cm_get_context(security_state)));
+		fpregs_context_restore(
+			get_fpregs_ctx(cm_get_context(security_state)));
 
 	cm_set_next_eret_context(security_state);
 
 	return ret_args;
 }
 
-static uint64_t trusty_fiq_handler(uint32_t id,
-				   uint32_t flags,
-				   void *handle,
+static uint64_t trusty_fiq_handler(uint32_t id, uint32_t flags, void *handle,
 				   void *cookie)
 {
 	struct smc_args ret;
@@ -157,24 +158,28 @@ static uint64_t trusty_fiq_handler(uint32_t id,
 	}
 
 	ctx->fiq_handler_active = 1;
-	(void)memcpy(&ctx->fiq_gpregs, get_gpregs_ctx(handle), sizeof(ctx->fiq_gpregs));
+	(void)memcpy(&ctx->fiq_gpregs, get_gpregs_ctx(handle),
+		     sizeof(ctx->fiq_gpregs));
 	ctx->fiq_pc = SMC_GET_EL3(handle, CTX_ELR_EL3);
 	ctx->fiq_cpsr = SMC_GET_EL3(handle, CTX_SPSR_EL3);
 	ctx->fiq_sp_el1 = read_ctx_reg(get_el1_sysregs_ctx(handle), CTX_SP_EL1);
 
-	write_ctx_reg(get_el1_sysregs_ctx(handle), CTX_SP_EL1, ctx->fiq_handler_sp);
-	cm_set_elr_spsr_el3(NON_SECURE, ctx->fiq_handler_pc, (uint32_t)ctx->fiq_handler_cpsr);
+	write_ctx_reg(get_el1_sysregs_ctx(handle), CTX_SP_EL1,
+		      ctx->fiq_handler_sp);
+	cm_set_elr_spsr_el3(NON_SECURE, ctx->fiq_handler_pc,
+			    (uint32_t)ctx->fiq_handler_cpsr);
 
 	SMC_RET0(handle);
 }
 
 static uint64_t trusty_set_fiq_handler(void *handle, uint64_t cpu,
-			uint64_t handler, uint64_t stack)
+				       uint64_t handler, uint64_t stack)
 {
 	struct trusty_cpu_ctx *ctx;
 
 	if (cpu >= (uint64_t)PLATFORM_CORE_COUNT) {
-		ERROR("%s: cpu %" PRId64 " >= %d\n", __func__, cpu, PLATFORM_CORE_COUNT);
+		ERROR("%s: cpu %" PRId64 " >= %d\n", __func__, cpu,
+		      PLATFORM_CORE_COUNT);
 		return (uint64_t)SM_ERR_INVALID_PARAMETERS;
 	}
 
@@ -194,7 +199,8 @@ static uint64_t trusty_get_fiq_regs(void *handle)
 	SMC_RET4(handle, ctx->fiq_pc, ctx->fiq_cpsr, sp_el0, ctx->fiq_sp_el1);
 }
 
-static uint64_t trusty_fiq_exit(void *handle, uint64_t x1, uint64_t x2, uint64_t x3)
+static uint64_t trusty_fiq_exit(void *handle, uint64_t x1, uint64_t x2,
+				uint64_t x3)
 {
 	struct smc_args ret;
 	struct trusty_cpu_ctx *ctx = get_trusty_ctx();
@@ -206,8 +212,9 @@ static uint64_t trusty_fiq_exit(void *handle, uint64_t x1, uint64_t x2, uint64_t
 
 	ret = trusty_context_switch(NON_SECURE, SMC_FC_FIQ_EXIT, 0, 0, 0);
 	if (ret.r0 != 1U) {
-		INFO("%s(%p) SMC_FC_FIQ_EXIT returned unexpected value, %" PRId64 "\n",
-		       __func__, handle, ret.r0);
+		INFO("%s(%p) SMC_FC_FIQ_EXIT returned unexpected value, %" PRId64
+		     "\n",
+		     __func__, handle, ret.r0);
 	}
 
 	/*
@@ -219,7 +226,8 @@ static uint64_t trusty_fiq_exit(void *handle, uint64_t x1, uint64_t x2, uint64_t
 	 * x1-x4 and x8-x17 need to be restored here because smc_handler64
 	 * corrupts them (el1 code also restored them).
 	 */
-	(void)memcpy(get_gpregs_ctx(handle), &ctx->fiq_gpregs, sizeof(ctx->fiq_gpregs));
+	(void)memcpy(get_gpregs_ctx(handle), &ctx->fiq_gpregs,
+		     sizeof(ctx->fiq_gpregs));
 	ctx->fiq_handler_active = 0;
 	write_ctx_reg(get_el1_sysregs_ctx(handle), CTX_SP_EL1, ctx->fiq_sp_el1);
 	cm_set_elr_spsr_el3(NON_SECURE, ctx->fiq_pc, (uint32_t)ctx->fiq_cpsr);
@@ -227,14 +235,10 @@ static uint64_t trusty_fiq_exit(void *handle, uint64_t x1, uint64_t x2, uint64_t
 	SMC_RET0(handle);
 }
 
-static uintptr_t trusty_smc_handler(uint32_t smc_fid,
-			 u_register_t x1,
-			 u_register_t x2,
-			 u_register_t x3,
-			 u_register_t x4,
-			 void *cookie,
-			 void *handle,
-			 u_register_t flags)
+static uintptr_t trusty_smc_handler(uint32_t smc_fid, u_register_t x1,
+				    u_register_t x2, u_register_t x3,
+				    u_register_t x4, void *cookie, void *handle,
+				    u_register_t flags)
 {
 	struct smc_args ret;
 	uint32_t vmid = 0U;
@@ -256,8 +260,8 @@ static uintptr_t trusty_smc_handler(uint32_t smc_fid,
 	if (is_caller_secure(flags)) {
 		if (smc_fid == SMC_YC_NS_RETURN) {
 			ret = trusty_context_switch(SECURE, x1, 0, 0, 0);
-			SMC_RET8(handle, ret.r0, ret.r1, ret.r2, ret.r3,
-				 ret.r4, ret.r5, ret.r6, ret.r7);
+			SMC_RET8(handle, ret.r0, ret.r1, ret.r2, ret.r3, ret.r4,
+				 ret.r5, ret.r6, ret.r7);
 		}
 		INFO("%s (0x%x, 0x%lx, 0x%lx, 0x%lx, 0x%lx, %p, %p, 0x%lx) \
 		     cpu %d, unknown smc\n",
@@ -280,7 +284,8 @@ static uintptr_t trusty_smc_handler(uint32_t smc_fid,
 		default:
 			/* Not all OENs greater than SMC_ENTITY_SECURE_MONITOR are supported */
 			if (SMC_ENTITY(smc_fid) > SMC_ENTITY_SECURE_MONITOR) {
-				VERBOSE("%s: unsupported SMC FID (0x%x)\n", __func__, smc_fid);
+				VERBOSE("%s: unsupported SMC FID (0x%x)\n",
+					__func__, smc_fid);
 				SMC_RET1(handle, SMC_UNK);
 			}
 
@@ -296,8 +301,8 @@ static uintptr_t trusty_smc_handler(uint32_t smc_fid,
 				SMC_RET1(handle, SM_ERR_BUSY);
 			}
 			current_vmid = vmid;
-			ret = trusty_context_switch(NON_SECURE, smc_fid, x1,
-				x2, x3);
+			ret = trusty_context_switch(NON_SECURE, smc_fid, x1, x2,
+						    x3);
 			current_vmid = 0;
 			SMC_RET1(handle, ret.r0);
 		}
@@ -307,11 +312,11 @@ static uintptr_t trusty_smc_handler(uint32_t smc_fid,
 static int32_t trusty_init(void)
 {
 	entry_point_info_t *ep_info;
-	struct smc_args zero_args = {0};
+	struct smc_args zero_args = { 0 };
 	struct trusty_cpu_ctx *ctx = get_trusty_ctx();
 	uint32_t cpu = plat_my_core_pos();
-	uint64_t reg_width = GET_RW(read_ctx_reg(get_el3state_ctx(&ctx->cpu_ctx),
-			       CTX_SPSR_EL3));
+	uint64_t reg_width = GET_RW(
+		read_ctx_reg(get_el3state_ctx(&ctx->cpu_ctx), CTX_SPSR_EL3));
 
 	/*
 	 * Get information about the Trusty image. Its absence is a critical
@@ -331,8 +336,8 @@ static int32_t trusty_init(void)
 	 * end of exception vectors
 	 */
 	if ((cpu != 0U) && (reg_width == MODE_RW_32)) {
-		INFO("trusty: cpu %d, adjust entry point to 0x%lx\n",
-		     cpu, ep_info->pc + (1U << 5));
+		INFO("trusty: cpu %d, adjust entry point to 0x%lx\n", cpu,
+		     ep_info->pc + (1U << 5));
 		cm_set_elr_el3(SECURE, ep_info->pc + (1U << 5));
 	}
 
@@ -358,7 +363,8 @@ static void trusty_cpu_suspend(uint32_t off)
 
 	ret = trusty_context_switch(NON_SECURE, SMC_FC_CPU_SUSPEND, off, 0, 0);
 	if (ret.r0 != 0U) {
-		INFO("%s: cpu %d, SMC_FC_CPU_SUSPEND returned unexpected value, %" PRId64 "\n",
+		INFO("%s: cpu %d, SMC_FC_CPU_SUSPEND returned unexpected value, %" PRId64
+		     "\n",
 		     __func__, plat_my_core_pos(), ret.r0);
 	}
 }
@@ -369,7 +375,8 @@ static void trusty_cpu_resume(uint32_t on)
 
 	ret = trusty_context_switch(NON_SECURE, SMC_FC_CPU_RESUME, on, 0, 0);
 	if (ret.r0 != 0U) {
-		INFO("%s: cpu %d, SMC_FC_CPU_RESUME returned unexpected value, %" PRId64 "\n",
+		INFO("%s: cpu %d, SMC_FC_CPU_RESUME returned unexpected value, %" PRId64
+		     "\n",
 		     __func__, plat_my_core_pos(), ret.r0);
 	}
 }
@@ -440,9 +447,9 @@ static int32_t trusty_setup(void)
 
 	/* memmap first page of trusty's code memory before peeking */
 	ret = mmap_add_dynamic_region(ep_info->pc, /* PA */
-			ep_info->pc, /* VA */
-			PAGE_SIZE, /* size */
-			MT_SECURE | MT_RW_DATA); /* attrs */
+				      ep_info->pc, /* VA */
+				      PAGE_SIZE, /* size */
+				      MT_SECURE | MT_RW_DATA); /* attrs */
 	assert(ret == 0);
 
 	/* peek into trusty's code to see if we have a 32-bit or 64-bit image */
@@ -463,14 +470,12 @@ static int32_t trusty_setup(void)
 
 	SET_PARAM_HEAD(ep_info, PARAM_EP, VERSION_1, SECURE | EP_ST_ENABLE);
 	if (!aarch32)
-		ep_info->spsr = SPSR_64(MODE_EL1, MODE_SP_ELX,
-					DISABLE_ALL_EXCEPTIONS);
+		ep_info->spsr =
+			SPSR_64(MODE_EL1, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 	else
-		ep_info->spsr = SPSR_MODE32(MODE32_svc, SPSR_T_ARM,
-					    SPSR_E_LITTLE,
-					    DAIF_FIQ_BIT |
-					    DAIF_IRQ_BIT |
-					    DAIF_ABT_BIT);
+		ep_info->spsr =
+			SPSR_MODE32(MODE32_svc, SPSR_T_ARM, SPSR_E_LITTLE,
+				    DAIF_FIQ_BIT | DAIF_IRQ_BIT | DAIF_ABT_BIT);
 	(void)memset(&ep_info->args, 0, sizeof(ep_info->args));
 	plat_trusty_set_boot_args(&ep_info->args);
 
@@ -484,10 +489,10 @@ static int32_t trusty_setup(void)
 	flags = 0;
 	set_interrupt_rm_flag(flags, NON_SECURE);
 	ret = register_interrupt_type_handler(INTR_TYPE_S_EL1,
-					      trusty_fiq_handler,
-					      flags);
+					      trusty_fiq_handler, flags);
 	if (ret != 0) {
-		VERBOSE("trusty: failed to register fiq handler, ret = %d\n", ret);
+		VERBOSE("trusty: failed to register fiq handler, ret = %d\n",
+			ret);
 	}
 
 	if (aarch32) {
@@ -519,23 +524,13 @@ static int32_t trusty_setup(void)
 }
 
 /* Define a SPD runtime service descriptor for fast SMC calls */
-DECLARE_RT_SVC(
-	trusty_fast,
+DECLARE_RT_SVC(trusty_fast,
 
-	OEN_TOS_START,
-	OEN_TOS_END,
-	SMC_TYPE_FAST,
-	trusty_setup,
-	trusty_smc_handler
-);
+	       OEN_TOS_START, OEN_TOS_END, SMC_TYPE_FAST, trusty_setup,
+	       trusty_smc_handler);
 
 /* Define a SPD runtime service descriptor for yielding SMC calls */
-DECLARE_RT_SVC(
-	trusty_std,
+DECLARE_RT_SVC(trusty_std,
 
-	OEN_TAP_START,
-	SMC_ENTITY_SECURE_MONITOR,
-	SMC_TYPE_YIELD,
-	NULL,
-	trusty_smc_handler
-);
+	       OEN_TAP_START, SMC_ENTITY_SECURE_MONITOR, SMC_TYPE_YIELD, NULL,
+	       trusty_smc_handler);

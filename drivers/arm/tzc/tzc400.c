@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -17,12 +17,12 @@
 /*
  * Macros which will be used by common core functions.
  */
-#define TZC_400_REGION_BASE_LOW_0_OFFSET	U(0x100)
-#define TZC_400_REGION_BASE_HIGH_0_OFFSET	U(0x104)
-#define TZC_400_REGION_TOP_LOW_0_OFFSET		U(0x108)
-#define TZC_400_REGION_TOP_HIGH_0_OFFSET	U(0x10c)
-#define TZC_400_REGION_ATTR_0_OFFSET		U(0x110)
-#define TZC_400_REGION_ID_ACCESS_0_OFFSET	U(0x114)
+#define TZC_400_REGION_BASE_LOW_0_OFFSET U(0x100)
+#define TZC_400_REGION_BASE_HIGH_0_OFFSET U(0x104)
+#define TZC_400_REGION_TOP_LOW_0_OFFSET U(0x108)
+#define TZC_400_REGION_TOP_HIGH_0_OFFSET U(0x10c)
+#define TZC_400_REGION_ATTR_0_OFFSET U(0x110)
+#define TZC_400_REGION_ID_ACCESS_0_OFFSET U(0x114)
 
 /*
  * Implementation defined values used to validate inputs later.
@@ -57,10 +57,9 @@ static inline void _tzc400_write_gate_keeper(uintptr_t base, unsigned int val)
 /*
  * Get the open status information for all filter units.
  */
-#define get_gate_keeper_os(_base)	((_tzc400_read_gate_keeper(_base) >>  \
-					GATE_KEEPER_OS_SHIFT) &		\
-					GATE_KEEPER_OS_MASK)
-
+#define get_gate_keeper_os(_base)                                    \
+	((_tzc400_read_gate_keeper(_base) >> GATE_KEEPER_OS_SHIFT) & \
+	 GATE_KEEPER_OS_MASK)
 
 /* Define common core functions used across different TZC peripherals. */
 DEFINE_TZC_COMMON_WRITE_ACTION(400, 400)
@@ -90,8 +89,10 @@ static unsigned long _tzc400_get_fail_address(uintptr_t base, uint32_t filter)
 	fail_address = mmio_read_32(base + FAIL_ADDRESS_LOW_OFF +
 				    (filter * FILTER_OFFSET));
 #ifdef __aarch64__
-	fail_address += (unsigned long)mmio_read_32(base + FAIL_ADDRESS_HIGH_OFF +
-						    (filter * FILTER_OFFSET)) << 32;
+	fail_address +=
+		(unsigned long)mmio_read_32(base + FAIL_ADDRESS_HIGH_OFF +
+					    (filter * FILTER_OFFSET))
+		<< 32;
 #endif
 
 	return fail_address;
@@ -120,22 +121,22 @@ static void _tzc400_dump_fail_filter(uintptr_t base, uint32_t filter)
 	ERROR("\tFAIL_ID = 0x%x\n", fail_id);
 
 	control_fail = _tzc400_get_fail_control(base, filter);
-	if (((control_fail & BIT_32(FAIL_CONTROL_NS_SHIFT)) >> FAIL_CONTROL_NS_SHIFT) ==
-	    FAIL_CONTROL_NS_NONSECURE) {
+	if (((control_fail & BIT_32(FAIL_CONTROL_NS_SHIFT)) >>
+	     FAIL_CONTROL_NS_SHIFT) == FAIL_CONTROL_NS_NONSECURE) {
 		ERROR("\tNon-Secure\n");
 	} else {
 		ERROR("\tSecure\n");
 	}
 
-	if (((control_fail & BIT_32(FAIL_CONTROL_PRIV_SHIFT)) >> FAIL_CONTROL_PRIV_SHIFT) ==
-	    FAIL_CONTROL_PRIV_PRIV) {
+	if (((control_fail & BIT_32(FAIL_CONTROL_PRIV_SHIFT)) >>
+	     FAIL_CONTROL_PRIV_SHIFT) == FAIL_CONTROL_PRIV_PRIV) {
 		ERROR("\tPrivilege\n");
 	} else {
 		ERROR("\tUnprivilege\n");
 	}
 
-	if (((control_fail & BIT_32(FAIL_CONTROL_DIR_SHIFT)) >> FAIL_CONTROL_DIR_SHIFT) ==
-	    FAIL_CONTROL_DIR_WRITE) {
+	if (((control_fail & BIT_32(FAIL_CONTROL_DIR_SHIFT)) >>
+	     FAIL_CONTROL_DIR_SHIFT) == FAIL_CONTROL_DIR_WRITE) {
 		ERROR("\tWrite\n");
 	} else {
 		ERROR("\tRead\n");
@@ -143,8 +144,7 @@ static void _tzc400_dump_fail_filter(uintptr_t base, uint32_t filter)
 }
 #endif /* DEBUG */
 
-static unsigned int _tzc400_get_gate_keeper(uintptr_t base,
-				unsigned int filter)
+static unsigned int _tzc400_get_gate_keeper(uintptr_t base, unsigned int filter)
 {
 	unsigned int open_status;
 
@@ -154,9 +154,8 @@ static unsigned int _tzc400_get_gate_keeper(uintptr_t base,
 }
 
 /* This function is not MP safe. */
-static void _tzc400_set_gate_keeper(uintptr_t base,
-				unsigned int filter,
-				int val)
+static void _tzc400_set_gate_keeper(uintptr_t base, unsigned int filter,
+				    int val)
 {
 	unsigned int open_status;
 
@@ -164,12 +163,12 @@ static void _tzc400_set_gate_keeper(uintptr_t base,
 	open_status = get_gate_keeper_os(base);
 
 	if (val != 0)
-		open_status |=  (1UL << filter);
+		open_status |= (1UL << filter);
 	else
 		open_status &= ~(1UL << filter);
 
-	_tzc400_write_gate_keeper(base, (open_status & GATE_KEEPER_OR_MASK) <<
-			      GATE_KEEPER_OR_SHIFT);
+	_tzc400_write_gate_keeper(base, (open_status & GATE_KEEPER_OR_MASK)
+						<< GATE_KEEPER_OR_SHIFT);
 
 	/* Wait here until we see the change reflected in the TZC status. */
 	while ((get_gate_keeper_os(base)) != open_status)
@@ -205,11 +204,14 @@ void tzc400_init(uintptr_t base)
 	/* Save values we will use later. */
 	tzc400_build = _tzc400_read_build_config(tzc400.base);
 	tzc400.num_filters = (uint8_t)((tzc400_build >> BUILD_CONFIG_NF_SHIFT) &
-					BUILD_CONFIG_NF_MASK) + 1U;
-	tzc400.addr_width  = (uint8_t)((tzc400_build >> BUILD_CONFIG_AW_SHIFT) &
-					BUILD_CONFIG_AW_MASK) + 1U;
+				       BUILD_CONFIG_NF_MASK) +
+			     1U;
+	tzc400.addr_width = (uint8_t)((tzc400_build >> BUILD_CONFIG_AW_SHIFT) &
+				      BUILD_CONFIG_AW_MASK) +
+			    1U;
 	tzc400.num_regions = (uint8_t)((tzc400_build >> BUILD_CONFIG_NR_SHIFT) &
-					BUILD_CONFIG_NR_MASK) + 1U;
+				       BUILD_CONFIG_NR_MASK) +
+			     1U;
 }
 
 /*
@@ -219,7 +221,7 @@ void tzc400_init(uintptr_t base)
  * changed. This function only changes the access permissions.
  */
 void tzc400_configure_region0(unsigned int sec_attr,
-			   unsigned int ns_device_access)
+			      unsigned int ns_device_access)
 {
 	assert(tzc400.base != 0U);
 	assert(sec_attr <= TZC_REGION_S_RDWR);
@@ -237,12 +239,11 @@ void tzc400_configure_region0(unsigned int sec_attr,
  * Region 0 is special; it is preferable to use tzc400_configure_region0
  * for this region (see comment for that function).
  */
-void tzc400_configure_region(unsigned int filters,
-			  unsigned int region,
-			  unsigned long long region_base,
-			  unsigned long long region_top,
-			  unsigned int sec_attr,
-			  unsigned int nsaid_permissions)
+void tzc400_configure_region(unsigned int filters, unsigned int region,
+			     unsigned long long region_base,
+			     unsigned long long region_top,
+			     unsigned int sec_attr,
+			     unsigned int nsaid_permissions)
 {
 	assert(tzc400.base != 0U);
 
@@ -260,7 +261,7 @@ void tzc400_configure_region(unsigned int filters,
 	 * the max and expected case.
 	 */
 	assert((region_top <= (UINT64_MAX >> (64U - tzc400.addr_width))) &&
-		(region_base < region_top));
+	       (region_base < region_top));
 
 	/* region_base and (region_top + 1) must be 4KB aligned */
 	assert(((region_base | (region_top + 1U)) & (4096U - 1U)) == 0U);
@@ -268,8 +269,7 @@ void tzc400_configure_region(unsigned int filters,
 	assert(sec_attr <= TZC_REGION_S_RDWR);
 
 	_tzc400_configure_region(tzc400.base, filters, region, region_base,
-						region_top,
-						sec_attr, nsaid_permissions);
+				 region_top, sec_attr, nsaid_permissions);
 }
 
 void tzc400_update_filters(unsigned int region, unsigned int filters)
@@ -278,7 +278,8 @@ void tzc400_update_filters(unsigned int region, unsigned int filters)
 	assert(((filters >> tzc400.num_filters) == 0U) &&
 	       (region < tzc400.num_regions));
 
-	_tzc400_update_filters(tzc400.base, region, tzc400.num_filters, filters);
+	_tzc400_update_filters(tzc400.base, region, tzc400.num_filters,
+			       filters);
 }
 
 void tzc400_enable_filters(void)

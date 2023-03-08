@@ -5,15 +5,14 @@
  * https://spdx.org/licenses
  */
 
-#include <platform_def.h>
-
 #include <common/debug.h>
 #include <common/interrupt_props.h>
 #include <drivers/arm/gicv3.h>
-#include <plat/common/platform.h>
-
 #include <marvell_def.h>
 #include <plat_marvell.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 /******************************************************************************
  * The following functions are defined as weak to allow a platform to override
@@ -137,7 +136,6 @@ void plat_marvell_gic_pcpu_init(void)
  */
 void plat_marvell_gic_irq_save(void)
 {
-
 	/*
 	 * If an ITS is available, save its context before
 	 * the Redistributor using:

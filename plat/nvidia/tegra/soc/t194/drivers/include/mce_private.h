@@ -8,46 +8,47 @@
 #define MCE_PRIVATE_H
 
 #include <stdbool.h>
+
 #include <tegra_def.h>
 
 /*******************************************************************************
  * Macros to prepare CSTATE info request
  ******************************************************************************/
 /* Description of the parameters for UPDATE_CSTATE_INFO request */
-#define CLUSTER_CSTATE_MASK			0x7U
-#define CLUSTER_CSTATE_SHIFT			0X0U
-#define CLUSTER_CSTATE_UPDATE_BIT		(1U << 7)
-#define CCPLEX_CSTATE_MASK			0x7U
-#define CCPLEX_CSTATE_SHIFT			8U
-#define CCPLEX_CSTATE_UPDATE_BIT		(1U << 15)
-#define SYSTEM_CSTATE_MASK			0xFU
-#define SYSTEM_CSTATE_SHIFT			16U
-#define SYSTEM_CSTATE_UPDATE_BIT		(1U << 23)
-#define CSTATE_WAKE_MASK_UPDATE_BIT		(1U << 31)
-#define CSTATE_WAKE_MASK_SHIFT			32U
-#define CSTATE_WAKE_MASK_CLEAR			0xFFFFFFFFU
+#define CLUSTER_CSTATE_MASK 0x7U
+#define CLUSTER_CSTATE_SHIFT 0X0U
+#define CLUSTER_CSTATE_UPDATE_BIT (1U << 7)
+#define CCPLEX_CSTATE_MASK 0x7U
+#define CCPLEX_CSTATE_SHIFT 8U
+#define CCPLEX_CSTATE_UPDATE_BIT (1U << 15)
+#define SYSTEM_CSTATE_MASK 0xFU
+#define SYSTEM_CSTATE_SHIFT 16U
+#define SYSTEM_CSTATE_UPDATE_BIT (1U << 23)
+#define CSTATE_WAKE_MASK_UPDATE_BIT (1U << 31)
+#define CSTATE_WAKE_MASK_SHIFT 32U
+#define CSTATE_WAKE_MASK_CLEAR 0xFFFFFFFFU
 
 /*******************************************************************************
  * Core ID mask (bits 3:0 in the online request)
  ******************************************************************************/
-#define MCE_CORE_ID_MASK			0xFU
+#define MCE_CORE_ID_MASK 0xFU
 
 /*******************************************************************************
  * C-state statistics macros
  ******************************************************************************/
-#define MCE_STAT_ID_SHIFT			16U
+#define MCE_STAT_ID_SHIFT 16U
 
 /*******************************************************************************
  * Security config macros
  ******************************************************************************/
-#define STRICT_CHECKING_ENABLED_SET		(1UL << 0)
-#define STRICT_CHECKING_LOCKED_SET		(1UL << 1)
+#define STRICT_CHECKING_ENABLED_SET (1UL << 0)
+#define STRICT_CHECKING_LOCKED_SET (1UL << 1)
 
 /* declarations for NVG handler functions */
 uint64_t nvg_get_version(void);
 void nvg_set_wake_time(uint32_t wake_time);
-void nvg_update_cstate_info(uint32_t cluster, uint32_t ccplex,
-		uint32_t system, uint32_t wake_mask, uint8_t update_wake_mask);
+void nvg_update_cstate_info(uint32_t cluster, uint32_t ccplex, uint32_t system,
+			    uint32_t wake_mask, uint8_t update_wake_mask);
 int32_t nvg_set_cstate_stat_query_value(uint64_t data);
 uint64_t nvg_get_cstate_stat_query_value(void);
 int32_t nvg_is_sc7_allowed(void);

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2019,2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2019,2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,14 +11,14 @@
 #include <drivers/arm/ethosn.h>
 #include <lib/debugfs.h>
 #include <lib/pmf/pmf.h>
-#include <plat/arm/common/arm_sip_svc.h>
-#include <plat/arm/common/plat_arm.h>
 #include <tools_share/uuid.h>
 
+#include <plat/arm/common/arm_sip_svc.h>
+#include <plat/arm/common/plat_arm.h>
+
 /* ARM SiP Service UUID */
-DEFINE_SVC_UUID2(arm_sip_svc_uid,
-	0x556d75e2, 0x6033, 0xb54b, 0xb5, 0x75,
-	0x62, 0x79, 0xfd, 0x11, 0x37, 0xff);
+DEFINE_SVC_UUID2(arm_sip_svc_uid, 0x556d75e2, 0x6033, 0xb54b, 0xb5, 0x75, 0x62,
+		 0x79, 0xfd, 0x11, 0x37, 0xff);
 
 static int arm_sip_setup(void)
 {
@@ -40,14 +40,10 @@ static int arm_sip_setup(void)
 /*
  * This function handles ARM defined SiP Calls
  */
-static uintptr_t arm_sip_handler(unsigned int smc_fid,
-			u_register_t x1,
-			u_register_t x2,
-			u_register_t x3,
-			u_register_t x4,
-			void *cookie,
-			void *handle,
-			u_register_t flags)
+static uintptr_t arm_sip_handler(unsigned int smc_fid, u_register_t x1,
+				 u_register_t x2, u_register_t x3,
+				 u_register_t x4, void *cookie, void *handle,
+				 u_register_t flags)
 {
 	int call_count = 0;
 
@@ -58,8 +54,8 @@ static uintptr_t arm_sip_handler(unsigned int smc_fid,
 	 * value
 	 */
 	if (is_pmf_fid(smc_fid)) {
-		return pmf_smc_handler(smc_fid, x1, x2, x3, x4, cookie,
-				handle, flags);
+		return pmf_smc_handler(smc_fid, x1, x2, x3, x4, cookie, handle,
+				       flags);
 	}
 
 #endif /* ENABLE_PMF */
@@ -93,14 +89,14 @@ static uintptr_t arm_sip_handler(unsigned int smc_fid,
 		/*
 		 * Pointers used in execution state switch are all 32 bits wide
 		 */
-		return (uintptr_t) arm_execution_state_switch(smc_fid,
-				(uint32_t) x1, (uint32_t) x2, (uint32_t) x3,
-				(uint32_t) x4, handle);
+		return (uintptr_t)arm_execution_state_switch(
+			smc_fid, (uint32_t)x1, (uint32_t)x2, (uint32_t)x3,
+			(uint32_t)x4, handle);
 #else
 		/* State switch denied */
 		SMC_RET1(handle, STATE_SW_E_DENIED);
 #endif /* __aarch64__ */
-		}
+	}
 
 	case ARM_SIP_SVC_CALL_COUNT:
 		/* PMF calls */
@@ -122,22 +118,15 @@ static uintptr_t arm_sip_handler(unsigned int smc_fid,
 
 	case ARM_SIP_SVC_VERSION:
 		/* Return the version of current implementation */
-		SMC_RET2(handle, ARM_SIP_SVC_VERSION_MAJOR, ARM_SIP_SVC_VERSION_MINOR);
+		SMC_RET2(handle, ARM_SIP_SVC_VERSION_MAJOR,
+			 ARM_SIP_SVC_VERSION_MINOR);
 
 	default:
 		WARN("Unimplemented ARM SiP Service Call: 0x%x \n", smc_fid);
 		SMC_RET1(handle, SMC_UNK);
 	}
-
 }
 
-
 /* Define a runtime service descriptor for fast SMC calls */
-DECLARE_RT_SVC(
-	arm_sip_svc,
-	OEN_SIP_START,
-	OEN_SIP_END,
-	SMC_TYPE_FAST,
-	arm_sip_setup,
-	arm_sip_handler
-);
+DECLARE_RT_SVC(arm_sip_svc, OEN_SIP_START, OEN_SIP_END, SMC_TYPE_FAST,
+	       arm_sip_setup, arm_sip_handler);

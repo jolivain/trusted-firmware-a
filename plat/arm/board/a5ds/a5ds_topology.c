@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -49,5 +49,4 @@ int plat_core_pos_by_mpidr(u_register_t mpidr)
 		return -1;
 
 	return (cpu_id + (cluster_id * 4));
-
 }

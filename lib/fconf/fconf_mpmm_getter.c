@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, Arm Limited. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -66,8 +66,8 @@ static int fconf_populate_mpmm_cpu(const void *fdt, int off, uintptr_t mpidr)
  */
 static int fconf_populate_mpmm(uintptr_t config)
 {
-	int ret = fdtw_for_each_cpu(
-		(const void *)config, fconf_populate_mpmm_cpu);
+	int ret = fdtw_for_each_cpu((const void *)config,
+				    fconf_populate_mpmm_cpu);
 	if (ret == 0) {
 		fconf_mpmm_config.topology = &fconf_mpmm_topology;
 	} else {

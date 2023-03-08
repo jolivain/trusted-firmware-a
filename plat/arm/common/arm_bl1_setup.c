@@ -1,12 +1,10 @@
 /*
- * Copyright (c) 2015-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-
-#include <platform_def.h>
 
 #include <arch.h>
 #include <bl1/bl1.h>
@@ -16,8 +14,10 @@
 #include <lib/fconf/fconf_dyn_cfg_getter.h>
 #include <lib/utils.h>
 #include <lib/xlat_tables/xlat_tables_compat.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 /* Weak definitions may be overridden in specific ARM standard platform */
 #pragma weak bl1_early_platform_setup
@@ -30,29 +30,25 @@
 #pragma weak arm_bl1_plat_arch_setup
 #pragma weak arm_bl1_platform_setup
 
-#define MAP_BL1_TOTAL		MAP_REGION_FLAT(			\
-					bl1_tzram_layout.total_base,	\
-					bl1_tzram_layout.total_size,	\
-					MT_MEMORY | MT_RW | EL3_PAS)
+#define MAP_BL1_TOTAL                                \
+	MAP_REGION_FLAT(bl1_tzram_layout.total_base, \
+			bl1_tzram_layout.total_size, \
+			MT_MEMORY | MT_RW | EL3_PAS)
 /*
  * If SEPARATE_CODE_AND_RODATA=1 we define a region for each section
  * otherwise one region is defined containing both
  */
 #if SEPARATE_CODE_AND_RODATA
-#define MAP_BL1_RO		MAP_REGION_FLAT(			\
-					BL_CODE_BASE,			\
-					BL1_CODE_END - BL_CODE_BASE,	\
-					MT_CODE | EL3_PAS),		\
-				MAP_REGION_FLAT(			\
-					BL1_RO_DATA_BASE,		\
-					BL1_RO_DATA_END			\
-						- BL_RO_DATA_BASE,	\
-					MT_RO_DATA | EL3_PAS)
+#define MAP_BL1_RO                                                 \
+	MAP_REGION_FLAT(BL_CODE_BASE, BL1_CODE_END - BL_CODE_BASE, \
+			MT_CODE | EL3_PAS),                        \
+		MAP_REGION_FLAT(BL1_RO_DATA_BASE,                  \
+				BL1_RO_DATA_END - BL_RO_DATA_BASE, \
+				MT_RO_DATA | EL3_PAS)
 #else
-#define MAP_BL1_RO		MAP_REGION_FLAT(			\
-					BL_CODE_BASE,			\
-					BL1_CODE_END - BL_CODE_BASE,	\
-					MT_CODE | EL3_PAS)
+#define MAP_BL1_RO                                                 \
+	MAP_REGION_FLAT(BL_CODE_BASE, BL1_CODE_END - BL_CODE_BASE, \
+			MT_CODE | EL3_PAS)
 #endif
 
 /* Data structure which holds the extents of the trusted SRAM for BL1*/
@@ -71,7 +67,6 @@ struct meminfo *bl1_plat_sec_mem_layout(void)
  ******************************************************************************/
 void arm_bl1_early_platform_setup(void)
 {
-
 #if !ARM_DISABLE_TRUSTED_WDOG
 	/* Enable watchdog */
 	plat_arm_secure_wdt_start();
@@ -126,7 +121,7 @@ void arm_bl1_plat_arch_setup(void)
 #if ARM_CRYPTOCELL_INTEG
 		ARM_MAP_BL_COHERENT_RAM,
 #endif
-		{0}
+		{ 0 }
 	};
 
 	setup_page_tables(bl_regions, plat_arm_get_mmap());
@@ -167,7 +162,8 @@ void arm_bl1_platform_setup(void)
 
 	/* Set global DTB info for fixed fw_config information */
 	fw_config_max_size = ARM_FW_CONFIG_LIMIT - ARM_FW_CONFIG_BASE;
-	set_config_info(ARM_FW_CONFIG_BASE, ~0UL, fw_config_max_size, FW_CONFIG_ID);
+	set_config_info(ARM_FW_CONFIG_BASE, ~0UL, fw_config_max_size,
+			FW_CONFIG_ID);
 
 	/* Fill the device tree information struct with the info from the config dtb */
 	err = fconf_load_config(FW_CONFIG_ID);
@@ -254,5 +250,5 @@ bool plat_arm_bl1_fwu_needed(void)
  ******************************************************************************/
 unsigned int bl1_plat_get_next_image_id(void)
 {
-	return  is_fwu_needed ? NS_BL1U_IMAGE_ID : BL2_IMAGE_ID;
+	return is_fwu_needed ? NS_BL1U_IMAGE_ID : BL2_IMAGE_ID;
 }

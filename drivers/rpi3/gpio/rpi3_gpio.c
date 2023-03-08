@@ -5,11 +5,13 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <string.h>
 #include <assert.h>
-#include <lib/mmio.h>
+#include <string.h>
+
 #include <drivers/delay_timer.h>
 #include <drivers/rpi3/gpio/rpi3_gpio.h>
+#include <lib/mmio.h>
+
 #include <platform_def.h>
 
 static uintptr_t reg_base;
@@ -21,11 +23,11 @@ static void rpi3_gpio_set_value(int gpio, int value);
 static void rpi3_gpio_set_pull(int gpio, int pull);
 
 static const gpio_ops_t rpi3_gpio_ops = {
-	.get_direction  = rpi3_gpio_get_direction,
-	.set_direction  = rpi3_gpio_set_direction,
-	.get_value      = rpi3_gpio_get_value,
-	.set_value      = rpi3_gpio_set_value,
-	.set_pull       = rpi3_gpio_set_pull,
+	.get_direction = rpi3_gpio_get_direction,
+	.set_direction = rpi3_gpio_set_direction,
+	.get_value = rpi3_gpio_get_value,
+	.set_value = rpi3_gpio_set_value,
+	.set_pull = rpi3_gpio_set_pull,
 };
 
 /**

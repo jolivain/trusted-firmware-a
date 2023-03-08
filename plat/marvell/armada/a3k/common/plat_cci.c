@@ -9,13 +9,10 @@
 
 #include <drivers/arm/cci.h>
 #include <lib/mmio.h>
-
 #include <plat_marvell.h>
 
-static const int cci_map[] = {
-	PLAT_MARVELL_CCI_CLUSTER0_SL_IFACE_IX,
-	PLAT_MARVELL_CCI_CLUSTER1_SL_IFACE_IX
-};
+static const int cci_map[] = { PLAT_MARVELL_CCI_CLUSTER0_SL_IFACE_IX,
+			       PLAT_MARVELL_CCI_CLUSTER1_SL_IFACE_IX };
 
 /*
  * This redefines the weak definition in

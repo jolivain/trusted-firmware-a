@@ -10,19 +10,20 @@
 
 #include <common/debug.h>
 #include <flash_info.h>
-#include "fspi.h"
 #include <fspi_api.h>
+
+#include "fspi.h"
 
 /*
  * The macros are defined to be used as test vector for testing fspi.
  */
-#define	SIZE_BUFFER			0x250
+#define SIZE_BUFFER 0x250
 
 /*
  * You may choose fspi_swap based on core endianness and flexspi IP/AHB
  * buffer endianness set in MCR.
  */
-#define fspi_swap32(A)			(A)
+#define fspi_swap32(A) (A)
 
 void fspi_test(uint32_t fspi_test_addr, uint32_t size, int extra)
 {
@@ -30,7 +31,8 @@ void fspi_test(uint32_t fspi_test_addr, uint32_t size, int extra)
 	uint32_t count = 1;
 	uint32_t failed, i;
 
-	NOTICE("-------------------------- %d----------------------------------\n", count++);
+	NOTICE("-------------------------- %d----------------------------------\n",
+	       count++);
 	INFO("Sector Erase size: 0x%08x, size: %d\n", F_SECTOR_ERASE_SZ, size);
 	/* Test Sector Erase */
 	xspi_sector_erase(fspi_test_addr - fspi_test_addr % F_SECTOR_ERASE_SZ,
@@ -47,9 +49,11 @@ void fspi_test(uint32_t fspi_test_addr, uint32_t size, int extra)
 		}
 
 	if (failed == 0) {
-		NOTICE("[%d]: Success Erase: data in buffer[%d] 0x%08x\n", __LINE__, i-3, buffer[i-3]);
+		NOTICE("[%d]: Success Erase: data in buffer[%d] 0x%08x\n",
+		       __LINE__, i - 3, buffer[i - 3]);
 	} else {
-		ERROR("Erase: Failed  -->xxx with buffer[%d]=0x%08x\n", i, buffer[i]);
+		ERROR("Erase: Failed  -->xxx with buffer[%d]=0x%08x\n", i,
+		      buffer[i]);
 	}
 
 	for (i = 0; i < SIZE_BUFFER; i++)
@@ -67,9 +71,11 @@ void fspi_test(uint32_t fspi_test_addr, uint32_t size, int extra)
 		}
 
 	if (failed == 0) {
-		NOTICE("[%d]: Success IpWrite with IP READ in buffer[%d] 0x%08x\n", __LINE__, i-3, buffer[i-3]);
+		NOTICE("[%d]: Success IpWrite with IP READ in buffer[%d] 0x%08x\n",
+		       __LINE__, i - 3, buffer[i - 3]);
 	} else {
-		ERROR("Write: Failed  -->xxxx with IP READ in buffer[%d]=0x%08x\n", i, buffer[i]);
+		ERROR("Write: Failed  -->xxxx with IP READ in buffer[%d]=0x%08x\n",
+		      i, buffer[i]);
 		return;
 	}
 
@@ -83,9 +89,11 @@ void fspi_test(uint32_t fspi_test_addr, uint32_t size, int extra)
 		}
 
 	if (failed == 0) {
-		NOTICE("[%d]: Success IpWrite with AHB OR IP READ on buffer[%d] 0x%08x\n", __LINE__, i-3, buffer[i-3]);
+		NOTICE("[%d]: Success IpWrite with AHB OR IP READ on buffer[%d] 0x%08x\n",
+		       __LINE__, i - 3, buffer[i - 3]);
 	} else {
-		ERROR("Write: Failed  -->xxxx with AHB READ on buffer[%d]=0x%08x\n", i, buffer[i]);
+		ERROR("Write: Failed  -->xxxx with AHB READ on buffer[%d]=0x%08x\n",
+		      i, buffer[i]);
 		return;
 	}
 }

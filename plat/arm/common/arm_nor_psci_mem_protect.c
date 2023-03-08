@@ -1,16 +1,16 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
-
-#include <platform_def.h>
 
 #include <common/debug.h>
 #include <drivers/cfi/v2m_flash.h>
 #include <lib/psci/psci.h>
 #include <lib/utils.h>
+
 #include <plat/arm/common/plat_arm.h>
+#include <platform_def.h>
 
 /*
  * DRAM1 is used also to load the NS boot loader. For this reason we
@@ -20,13 +20,13 @@
  * until the end of DRAM1.
  * We limit the size of DRAM2 to 1 GB to avoid big delays while booting
  */
-#define DRAM1_NS_IMAGE_LIMIT  (PLAT_ARM_NS_IMAGE_BASE + (32 << TWO_MB_SHIFT))
-#define DRAM1_PROTECTED_SIZE  (ARM_NS_DRAM1_END+1u - DRAM1_NS_IMAGE_LIMIT)
+#define DRAM1_NS_IMAGE_LIMIT (PLAT_ARM_NS_IMAGE_BASE + (32 << TWO_MB_SHIFT))
+#define DRAM1_PROTECTED_SIZE (ARM_NS_DRAM1_END + 1u - DRAM1_NS_IMAGE_LIMIT)
 
 static mem_region_t arm_ram_ranges[] = {
-	{DRAM1_NS_IMAGE_LIMIT, DRAM1_PROTECTED_SIZE},
+	{ DRAM1_NS_IMAGE_LIMIT, DRAM1_PROTECTED_SIZE },
 #ifdef __aarch64__
-	{ARM_DRAM2_BASE, 1u << ONE_GB_SHIFT},
+	{ ARM_DRAM2_BASE, 1u << ONE_GB_SHIFT },
 #endif
 };
 
@@ -39,7 +39,7 @@ int arm_psci_read_mem_protect(int *enabled)
 {
 	int tmp;
 
-	tmp = *(int *) PLAT_ARM_MEM_PROT_ADDR;
+	tmp = *(int *)PLAT_ARM_MEM_PROT_ADDR;
 	*enabled = (tmp == 1) ? 1 : 0;
 	return 0;
 }
@@ -101,8 +101,7 @@ void arm_nor_psci_do_dyn_mem_protect(void)
 		return;
 
 	INFO("PSCI: Overwriting non secure memory\n");
-	clear_map_dyn_mem_regions(arm_ram_ranges,
-				  ARRAY_SIZE(arm_ram_ranges),
+	clear_map_dyn_mem_regions(arm_ram_ranges, ARRAY_SIZE(arm_ram_ranges),
 				  PLAT_ARM_MEM_PROTEC_VA_FRAME,
 				  1 << TWO_MB_SHIFT);
 }
@@ -116,14 +115,13 @@ void arm_nor_psci_do_static_mem_protect(void)
 {
 	int enable;
 
-	(void) arm_psci_read_mem_protect(&enable);
+	(void)arm_psci_read_mem_protect(&enable);
 	if (enable == 0)
 		return;
 
 	INFO("PSCI: Overwriting non secure memory\n");
-	clear_mem_regions(arm_ram_ranges,
-			  ARRAY_SIZE(arm_ram_ranges));
-	(void) arm_nor_psci_write_mem_protect(0);
+	clear_mem_regions(arm_ram_ranges, ARRAY_SIZE(arm_ram_ranges));
+	(void)arm_nor_psci_write_mem_protect(0);
 }
 
 /*******************************************************************************
@@ -132,7 +130,6 @@ void arm_nor_psci_do_static_mem_protect(void)
  ******************************************************************************/
 int arm_psci_mem_protect_chk(uintptr_t base, u_register_t length)
 {
-	return mem_region_in_array_chk(arm_ram_ranges,
-				       ARRAY_SIZE(arm_ram_ranges),
-				       base, length);
+	return mem_region_in_array_chk(
+		arm_ram_ranges, ARRAY_SIZE(arm_ram_ranges), base, length);
 }

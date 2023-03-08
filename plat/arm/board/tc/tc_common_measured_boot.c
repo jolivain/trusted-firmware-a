@@ -1,6 +1,6 @@
 
 /*
- * Copyright (c) 2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -24,11 +24,10 @@ int plat_mboot_measure_image(unsigned int image_id, image_info_t *image_data)
 
 	/* Calculate image hash and record data in RSS */
 	err = rss_mboot_measure_and_record(image_data->image_base,
-					   image_data->image_size,
-					   image_id);
+					   image_data->image_size, image_id);
 	if (err != 0) {
-		ERROR("%s%s image id %u (%i)\n",
-		      "Failed to ", "record in RSS", image_id, err);
+		ERROR("%s%s image id %u (%i)\n", "Failed to ", "record in RSS",
+		      image_id, err);
 	}
 
 	return err;

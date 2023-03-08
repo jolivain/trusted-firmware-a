@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier:    BSD-3-Clause
  *
@@ -18,16 +18,18 @@
 #include <common/debug.h>
 #include <common/runtime_svc.h>
 #include <drivers/auth/crypto_mod.h>
-#include "drtm_main.h"
-#include "drtm_measurements.h"
-#include "drtm_remediation.h"
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/psci/psci_lib.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include <plat/common/platform.h>
 #include <services/drtm_svc.h>
 #include <services/sdei.h>
+
+#include <plat/common/platform.h>
 #include <platform_def.h>
+
+#include "drtm_main.h"
+#include "drtm_measurements.h"
+#include "drtm_remediation.h"
 
 /* Structure to store DRTM features specific to the platform. */
 static drtm_features_t plat_drtm_features;
@@ -88,7 +90,7 @@ int drtm_setup(void)
 	 * the protected regions table.
 	 */
 	if (plat_dma_prot_feat->dma_protection_support ==
-			ARM_DRTM_DMA_PROT_FEATURES_DMA_SUPPORT_COMPLETE) {
+	    ARM_DRTM_DMA_PROT_FEATURES_DMA_SUPPORT_COMPLETE) {
 		dlme_data_min_size =
 			sizeof(drtm_memory_region_descriptor_table_t) +
 			sizeof(drtm_mem_region_t);
@@ -103,34 +105,42 @@ int drtm_setup(void)
 
 	dlme_data_hdr_init.dlme_addr_map_size = drtm_get_address_map_size();
 	dlme_data_hdr_init.dlme_tcb_hashes_table_size =
-				plat_drtm_get_tcb_hash_table_size();
+		plat_drtm_get_tcb_hash_table_size();
 	dlme_data_hdr_init.dlme_impdef_region_size =
-				plat_drtm_get_imp_def_dlme_region_size();
+		plat_drtm_get_imp_def_dlme_region_size();
 
 	dlme_data_min_size += dlme_data_hdr_init.dlme_addr_map_size +
 			      PLAT_DRTM_EVENT_LOG_MAX_SIZE +
 			      dlme_data_hdr_init.dlme_tcb_hashes_table_size +
 			      dlme_data_hdr_init.dlme_impdef_region_size;
 
-	dlme_data_min_size = page_align(dlme_data_min_size, UP)/PAGE_SIZE;
+	dlme_data_min_size = page_align(dlme_data_min_size, UP) / PAGE_SIZE;
 
 	/* Fill out platform DRTM features structure */
 	/* Only support default PCR schema (0x1) in this implementation. */
-	ARM_DRTM_TPM_FEATURES_SET_PCR_SCHEMA(plat_drtm_features.tpm_features,
+	ARM_DRTM_TPM_FEATURES_SET_PCR_SCHEMA(
+		plat_drtm_features.tpm_features,
 		ARM_DRTM_TPM_FEATURES_PCR_SCHEMA_DEFAULT);
-	ARM_DRTM_TPM_FEATURES_SET_TPM_HASH(plat_drtm_features.tpm_features,
+	ARM_DRTM_TPM_FEATURES_SET_TPM_HASH(
+		plat_drtm_features.tpm_features,
 		plat_tpm_feat->tpm_based_hash_support);
-	ARM_DRTM_TPM_FEATURES_SET_FW_HASH(plat_drtm_features.tpm_features,
+	ARM_DRTM_TPM_FEATURES_SET_FW_HASH(
+		plat_drtm_features.tpm_features,
 		plat_tpm_feat->firmware_hash_algorithm);
-	ARM_DRTM_MIN_MEM_REQ_SET_MIN_DLME_DATA_SIZE(plat_drtm_features.minimum_memory_requirement,
+	ARM_DRTM_MIN_MEM_REQ_SET_MIN_DLME_DATA_SIZE(
+		plat_drtm_features.minimum_memory_requirement,
 		dlme_data_min_size);
-	ARM_DRTM_MIN_MEM_REQ_SET_DCE_SIZE(plat_drtm_features.minimum_memory_requirement,
+	ARM_DRTM_MIN_MEM_REQ_SET_DCE_SIZE(
+		plat_drtm_features.minimum_memory_requirement,
 		plat_drtm_get_min_size_normal_world_dce());
-	ARM_DRTM_DMA_PROT_FEATURES_SET_MAX_REGIONS(plat_drtm_features.dma_prot_features,
+	ARM_DRTM_DMA_PROT_FEATURES_SET_MAX_REGIONS(
+		plat_drtm_features.dma_prot_features,
 		plat_dma_prot_feat->max_num_mem_prot_regions);
-	ARM_DRTM_DMA_PROT_FEATURES_SET_DMA_SUPPORT(plat_drtm_features.dma_prot_features,
+	ARM_DRTM_DMA_PROT_FEATURES_SET_DMA_SUPPORT(
+		plat_drtm_features.dma_prot_features,
 		plat_dma_prot_feat->dma_protection_support);
-	ARM_DRTM_TCB_HASH_FEATURES_SET_MAX_NUM_HASHES(plat_drtm_features.tcb_hash_features,
+	ARM_DRTM_TCB_HASH_FEATURES_SET_MAX_NUM_HASHES(
+		plat_drtm_features.tcb_hash_features,
 		plat_drtm_get_tcb_hash_features());
 
 	return 0;
@@ -243,12 +253,11 @@ static enum drtm_retc drtm_dl_prepare_dlme_data(const struct_drtm_dl_args *args)
 	}
 
 	/* Map the DLME data region as NS memory. */
-	dlme_data_mapping_bytes = ALIGNED_UP(dlme_data_max_size, DRTM_PAGE_SIZE);
-	rc = mmap_add_dynamic_region_alloc_va(dlme_data_paddr,
-					      &dlme_data_mapping,
-					      dlme_data_mapping_bytes,
-					      MT_RW_DATA | MT_NS |
-					      MT_SHAREABILITY_ISH);
+	dlme_data_mapping_bytes =
+		ALIGNED_UP(dlme_data_max_size, DRTM_PAGE_SIZE);
+	rc = mmap_add_dynamic_region_alloc_va(
+		dlme_data_paddr, &dlme_data_mapping, dlme_data_mapping_bytes,
+		MT_RW_DATA | MT_NS | MT_SHAREABILITY_ISH);
 	if (rc != 0) {
 		WARN("DRTM: %s: mmap_add_dynamic_region() failed rc=%d\n",
 		     __func__, rc);
@@ -299,13 +308,16 @@ static enum drtm_retc drtm_dl_prepare_dlme_data(const struct_drtm_dl_args *args)
 	 * Prepare DLME data size, includes all data region referenced above
 	 * alongwith the DLME data header
 	 */
-	dlme_data_hdr->dlme_data_size = dlme_data_cursor - (uint8_t *)dlme_data_hdr;
+	dlme_data_hdr->dlme_data_size =
+		dlme_data_cursor - (uint8_t *)dlme_data_hdr;
 
 	/* Unmap the DLME data region. */
-	rc = mmap_remove_dynamic_region(dlme_data_mapping, dlme_data_mapping_bytes);
+	rc = mmap_remove_dynamic_region(dlme_data_mapping,
+					dlme_data_mapping_bytes);
 	if (rc != 0) {
 		ERROR("%s(): mmap_remove_dynamic_region() failed"
-		      " unexpectedly rc=%d\n", __func__, rc);
+		      " unexpectedly rc=%d\n",
+		      __func__, rc);
 		panic();
 	}
 
@@ -329,12 +341,13 @@ static enum drtm_retc drtm_dl_check_args(uint64_t x1,
 	int rc;
 
 	if (x1 % DRTM_PAGE_SIZE != 0) {
-		ERROR("DRTM: parameters structure is not "
-		      DRTM_PAGE_SIZE_STR "-aligned\n");
+		ERROR("DRTM: parameters structure is not " DRTM_PAGE_SIZE_STR
+		      "-aligned\n");
 		return INVALID_PARAMETERS;
 	}
 
-	va_mapping_size = ALIGNED_UP(sizeof(struct_drtm_dl_args), DRTM_PAGE_SIZE);
+	va_mapping_size =
+		ALIGNED_UP(sizeof(struct_drtm_dl_args), DRTM_PAGE_SIZE);
 
 	/* check DRTM parameters are within NS address region */
 	rc = plat_drtm_validate_ns_region(x1, va_mapping_size);
@@ -345,10 +358,10 @@ static enum drtm_retc drtm_dl_check_args(uint64_t x1,
 
 	rc = mmap_add_dynamic_region_alloc_va(x1, &va_mapping, va_mapping_size,
 					      MT_MEMORY | MT_NS | MT_RO |
-					      MT_SHAREABILITY_ISH);
+						      MT_SHAREABILITY_ISH);
 	if (rc != 0) {
 		WARN("DRTM: %s: mmap_add_dynamic_region() failed rc=%d\n",
-		      __func__, rc);
+		     __func__, rc);
 		return INTERNAL_ERROR;
 	}
 	a = (struct_drtm_dl_args *)va_mapping;
@@ -361,13 +374,14 @@ static enum drtm_retc drtm_dl_check_args(uint64_t x1,
 	rc = mmap_remove_dynamic_region(va_mapping, va_mapping_size);
 	if (rc) {
 		ERROR("%s(): mmap_remove_dynamic_region() failed unexpectedly"
-		      " rc=%d\n", __func__, rc);
+		      " rc=%d\n",
+		      __func__, rc);
 		panic();
 	}
 	a = &args_buf;
 
 	if (!((a->version >= ARM_DRTM_PARAMS_MIN_VERSION) &&
-	    (a->version <= ARM_DRTM_PARAMS_MAX_VERSION))) {
+	      (a->version <= ARM_DRTM_PARAMS_MAX_VERSION))) {
 		ERROR("DRTM: parameters structure version %u is unsupported\n",
 		      a->version);
 		return NOT_SUPPORTED;
@@ -388,14 +402,14 @@ static enum drtm_retc drtm_dl_check_args(uint64_t x1,
 
 	/* Check the DLME regions arguments. */
 	if ((dlme_start % DRTM_PAGE_SIZE) != 0) {
-		ERROR("DRTM: argument DLME region is not "
-		      DRTM_PAGE_SIZE_STR "-aligned\n");
+		ERROR("DRTM: argument DLME region is not " DRTM_PAGE_SIZE_STR
+		      "-aligned\n");
 		return INVALID_PARAMETERS;
 	}
 
-	if (!(dlme_start < dlme_end &&
-	      dlme_start <= dlme_img_start && dlme_img_start < dlme_img_end &&
-	      dlme_start <= dlme_data_start && dlme_data_start < dlme_data_end)) {
+	if (!(dlme_start < dlme_end && dlme_start <= dlme_img_start &&
+	      dlme_img_start < dlme_img_end && dlme_start <= dlme_data_start &&
+	      dlme_data_start < dlme_data_end)) {
 		ERROR("DRTM: argument DLME region is discontiguous\n");
 		return INVALID_PARAMETERS;
 	}
@@ -407,8 +421,8 @@ static enum drtm_retc drtm_dl_check_args(uint64_t x1,
 
 	/* Check the DLME image region arguments. */
 	if ((dlme_img_start % DRTM_PAGE_SIZE) != 0) {
-		ERROR("DRTM: argument DLME image region is not "
-		      DRTM_PAGE_SIZE_STR "-aligned\n");
+		ERROR("DRTM: argument DLME image region is not " DRTM_PAGE_SIZE_STR
+		      "-aligned\n");
 		return INVALID_PARAMETERS;
 	}
 
@@ -424,14 +438,15 @@ static enum drtm_retc drtm_dl_check_args(uint64_t x1,
 
 	/* Check the DLME data region arguments. */
 	if ((dlme_data_start % DRTM_PAGE_SIZE) != 0) {
-		ERROR("DRTM: argument DLME data region is not "
-		      DRTM_PAGE_SIZE_STR "-aligned\n");
+		ERROR("DRTM: argument DLME data region is not " DRTM_PAGE_SIZE_STR
+		      "-aligned\n");
 		return INVALID_PARAMETERS;
 	}
 
 	if (dlme_data_end - dlme_data_start < dlme_data_min_size) {
 		ERROR("DRTM: argument DLME data region is short of %lu bytes\n",
-		      dlme_data_min_size - (size_t)(dlme_data_end - dlme_data_start));
+		      dlme_data_min_size -
+			      (size_t)(dlme_data_end - dlme_data_start));
 		return INVALID_PARAMETERS;
 	}
 
@@ -463,9 +478,9 @@ static enum drtm_retc drtm_dl_check_args(uint64_t x1,
 	 * is required to avoid / defend against racing with cache evictions
 	 */
 	va_mapping_size = ALIGNED_UP((dlme_end - dlme_start), DRTM_PAGE_SIZE);
-	rc = mmap_add_dynamic_region_alloc_va(dlme_img_start, &va_mapping, va_mapping_size,
-					      MT_MEMORY | MT_NS | MT_RO |
-					      MT_SHAREABILITY_ISH);
+	rc = mmap_add_dynamic_region_alloc_va(
+		dlme_img_start, &va_mapping, va_mapping_size,
+		MT_MEMORY | MT_NS | MT_RO | MT_SHAREABILITY_ISH);
 	if (rc != 0) {
 		ERROR("DRTM: %s: mmap_add_dynamic_region_alloc_va() failed rc=%d\n",
 		      __func__, rc);
@@ -476,7 +491,8 @@ static enum drtm_retc drtm_dl_check_args(uint64_t x1,
 	rc = mmap_remove_dynamic_region(va_mapping, va_mapping_size);
 	if (rc) {
 		ERROR("%s(): mmap_remove_dynamic_region() failed unexpectedly"
-		      " rc=%d\n", __func__, rc);
+		      " rc=%d\n",
+		      __func__, rc);
 		panic();
 	}
 
@@ -504,17 +520,18 @@ static void drtm_dl_reset_dlme_el_state(enum drtm_dlme_el dlme_el)
 		break;
 
 	default: /* Not reached */
-		ERROR("%s(): dlme_el has the unexpected value %d\n",
-		      __func__, dlme_el);
+		ERROR("%s(): dlme_el has the unexpected value %d\n", __func__,
+		      dlme_el);
 		panic();
 	}
 
-	sctlr &= ~(/* Disable DLME's EL MMU, since the existing page-tables are untrusted. */
-		   SCTLR_M_BIT
-		   | SCTLR_EE_BIT               /* Little-endian data accesses. */
-		  );
+	sctlr &=
+		~(/* Disable DLME's EL MMU, since the existing page-tables are untrusted. */
+		  SCTLR_M_BIT | SCTLR_EE_BIT /* Little-endian data accesses. */
+		);
 
-	sctlr |= SCTLR_C_BIT | SCTLR_I_BIT; /* Allow instruction and data caching. */
+	sctlr |= SCTLR_C_BIT |
+		 SCTLR_I_BIT; /* Allow instruction and data caching. */
 
 	switch (dlme_el) {
 	case DLME_AT_EL1:
@@ -531,7 +548,8 @@ static void drtm_dl_reset_dlme_context(enum drtm_dlme_el dlme_el)
 {
 	void *ns_ctx = cm_get_context(NON_SECURE);
 	gp_regs_t *gpregs = get_gpregs_ctx(ns_ctx);
-	uint64_t spsr_el3 = read_ctx_reg(get_el3state_ctx(ns_ctx), CTX_SPSR_EL3);
+	uint64_t spsr_el3 =
+		read_ctx_reg(get_el3state_ctx(ns_ctx), CTX_SPSR_EL3);
 
 	/* Reset all gpregs, including SP_EL0. */
 	memset(gpregs, 0, sizeof(*gpregs));
@@ -556,7 +574,8 @@ static void drtm_dl_reset_dlme_context(enum drtm_dlme_el dlme_el)
 	write_ctx_reg(get_el3state_ctx(ns_ctx), CTX_SPSR_EL3, spsr_el3);
 }
 
-static void drtm_dl_prepare_eret_to_dlme(const struct_drtm_dl_args *args, enum drtm_dlme_el dlme_el)
+static void drtm_dl_prepare_eret_to_dlme(const struct_drtm_dl_args *args,
+					 enum drtm_dlme_el dlme_el)
 {
 	void *ctx = cm_get_context(NON_SECURE);
 	uint64_t dlme_ep = DL_ARGS_GET_DLME_ENTRY_POINT(args);
@@ -584,7 +603,8 @@ static uint64_t drtm_dynamic_launch(uint64_t x1, void *handle)
 	enum drtm_retc dma_prot_ret;
 	struct_drtm_dl_args args;
 	/* DLME should be highest NS exception level */
-	enum drtm_dlme_el dlme_el = (el_implemented(2) != EL_IMPL_NONE) ? MODE_EL2 : MODE_EL1;
+	enum drtm_dlme_el dlme_el =
+		(el_implemented(2) != EL_IMPL_NONE) ? MODE_EL2 : MODE_EL1;
 
 	/* Ensure that only boot PE is powered on */
 	ret = drtm_dl_check_cores();
@@ -671,20 +691,16 @@ err_undo_dma_prot:
 	dma_prot_ret = drtm_dma_prot_disengage();
 	if (dma_prot_ret != SUCCESS) {
 		ERROR("%s(): drtm_dma_prot_disengage() failed unexpectedly"
-		      " rc=%d\n", __func__, ret);
+		      " rc=%d\n",
+		      __func__, ret);
 		panic();
 	}
 
 	SMC_RET1(handle, ret);
 }
 
-uint64_t drtm_smc_handler(uint32_t smc_fid,
-			  uint64_t x1,
-			  uint64_t x2,
-			  uint64_t x3,
-			  uint64_t x4,
-			  void *cookie,
-			  void *handle,
+uint64_t drtm_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
+			  uint64_t x3, uint64_t x4, void *cookie, void *handle,
 			  uint64_t flags)
 {
 	/* Check that the SMC call is from the Normal World. */
@@ -697,7 +713,7 @@ uint64_t drtm_smc_handler(uint32_t smc_fid,
 		INFO("DRTM service handler: version\n");
 		/* Return the version of current implementation */
 		SMC_RET1(handle, ARM_DRTM_VERSION);
-		break;	/* not reached */
+		break; /* not reached */
 
 	case ARM_DRTM_SVC_FEATURES:
 		if (((x1 >> ARM_DRTM_FUNC_SHIFT) & ARM_DRTM_FUNC_MASK) ==
@@ -706,50 +722,50 @@ uint64_t drtm_smc_handler(uint32_t smc_fid,
 			switch (x1 & FUNCID_MASK) {
 			case ARM_DRTM_SVC_VERSION:
 				SMC_RET1(handle, SUCCESS);
-				break;	/* not reached */
+				break; /* not reached */
 
 			case ARM_DRTM_SVC_FEATURES:
 				SMC_RET1(handle, SUCCESS);
-				break;	/* not reached */
+				break; /* not reached */
 
 			case ARM_DRTM_SVC_UNPROTECT_MEM:
 				SMC_RET1(handle, SUCCESS);
-				break;	/* not reached */
+				break; /* not reached */
 
 			case ARM_DRTM_SVC_DYNAMIC_LAUNCH:
 				SMC_RET1(handle, SUCCESS);
-				break;	/* not reached */
+				break; /* not reached */
 
 			case ARM_DRTM_SVC_CLOSE_LOCALITY:
 				WARN("ARM_DRTM_SVC_CLOSE_LOCALITY feature %s",
 				     "is not supported\n");
 				SMC_RET1(handle, NOT_SUPPORTED);
-				break;	/* not reached */
+				break; /* not reached */
 
 			case ARM_DRTM_SVC_GET_ERROR:
 				SMC_RET1(handle, SUCCESS);
-				break;	/* not reached */
+				break; /* not reached */
 
 			case ARM_DRTM_SVC_SET_ERROR:
 				SMC_RET1(handle, SUCCESS);
-				break;	/* not reached */
+				break; /* not reached */
 
 			case ARM_DRTM_SVC_SET_TCB_HASH:
 				WARN("ARM_DRTM_SVC_TCB_HASH feature %s",
 				     "is not supported\n");
 				SMC_RET1(handle, NOT_SUPPORTED);
-				break;	/* not reached */
+				break; /* not reached */
 
 			case ARM_DRTM_SVC_LOCK_TCB_HASH:
 				WARN("ARM_DRTM_SVC_LOCK_TCB_HASH feature %s",
 				     "is not supported\n");
 				SMC_RET1(handle, NOT_SUPPORTED);
-				break;	/* not reached */
+				break; /* not reached */
 
 			default:
 				ERROR("Unknown DRTM service function\n");
 				SMC_RET1(handle, NOT_SUPPORTED);
-				break;	/* not reached */
+				break; /* not reached */
 			}
 		} else {
 			/* Dispatch feature-based queries. */
@@ -757,81 +773,81 @@ uint64_t drtm_smc_handler(uint32_t smc_fid,
 			case ARM_DRTM_FEATURES_TPM:
 				INFO("++ DRTM service handler: TPM features\n");
 				return drtm_features_tpm(handle);
-				break;	/* not reached */
+				break; /* not reached */
 
 			case ARM_DRTM_FEATURES_MEM_REQ:
 				INFO("++ DRTM service handler: Min. mem."
 				     " requirement features\n");
 				return drtm_features_mem_req(handle);
-				break;	/* not reached */
+				break; /* not reached */
 
 			case ARM_DRTM_FEATURES_DMA_PROT:
 				INFO("++ DRTM service handler: "
 				     "DMA protection features\n");
 				return drtm_features_dma_prot(handle);
-				break;	/* not reached */
+				break; /* not reached */
 
 			case ARM_DRTM_FEATURES_BOOT_PE_ID:
 				INFO("++ DRTM service handler: "
 				     "Boot PE ID features\n");
 				return drtm_features_boot_pe_id(handle);
-				break;	/* not reached */
+				break; /* not reached */
 
 			case ARM_DRTM_FEATURES_TCB_HASHES:
 				INFO("++ DRTM service handler: "
 				     "TCB-hashes features\n");
 				return drtm_features_tcb_hashes(handle);
-				break;	/* not reached */
+				break; /* not reached */
 
 			default:
 				ERROR("Unknown ARM DRTM service feature\n");
 				SMC_RET1(handle, NOT_SUPPORTED);
-				break;	/* not reached */
+				break; /* not reached */
 			}
 		}
 
 	case ARM_DRTM_SVC_UNPROTECT_MEM:
 		INFO("DRTM service handler: unprotect mem\n");
 		return drtm_unprotect_mem(handle);
-		break;	/* not reached */
+		break; /* not reached */
 
 	case ARM_DRTM_SVC_DYNAMIC_LAUNCH:
 		INFO("DRTM service handler: dynamic launch\n");
 		return drtm_dynamic_launch(x1, handle);
-		break;	/* not reached */
+		break; /* not reached */
 
 	case ARM_DRTM_SVC_CLOSE_LOCALITY:
 		WARN("DRTM service handler: close locality %s\n",
 		     "is not supported");
 		SMC_RET1(handle, NOT_SUPPORTED);
-		break;	/* not reached */
+		break; /* not reached */
 
 	case ARM_DRTM_SVC_GET_ERROR:
 		INFO("DRTM service handler: get error\n");
 		drtm_get_error(handle);
-		break;	/* not reached */
+		break; /* not reached */
 
 	case ARM_DRTM_SVC_SET_ERROR:
 		INFO("DRTM service handler: set error\n");
 		drtm_set_error(x1, handle);
-		break;	/* not reached */
+		break; /* not reached */
 
 	case ARM_DRTM_SVC_SET_TCB_HASH:
 		WARN("DRTM service handler: set TCB hash %s\n",
 		     "is not supported");
 		SMC_RET1(handle, NOT_SUPPORTED);
-		break;  /* not reached */
+		break; /* not reached */
 
 	case ARM_DRTM_SVC_LOCK_TCB_HASH:
 		WARN("DRTM service handler: lock TCB hash %s\n",
 		     "is not supported");
 		SMC_RET1(handle, NOT_SUPPORTED);
-		break;  /* not reached */
+		break; /* not reached */
 
 	default:
 		ERROR("Unknown DRTM service function: 0x%x\n", smc_fid);
 		SMC_RET1(handle, SMC_UNK);
-		break;	/* not reached */
+		break; /* not reached */
 	}
 
 	/* not reached */

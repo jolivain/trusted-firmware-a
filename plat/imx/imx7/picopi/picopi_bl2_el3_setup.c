@@ -1,46 +1,41 @@
 /*
- * Copyright (c) 2018-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <common/debug.h>
 #include <drivers/console.h>
 #include <drivers/mmc.h>
-#include <lib/utils.h>
-
+#include <imx7_def.h>
 #include <imx_caam.h>
 #include <imx_clock.h>
 #include <imx_io_mux.h>
 #include <imx_uart.h>
 #include <imx_usdhc.h>
-#include <imx7_def.h>
+#include <lib/utils.h>
 
-#define UART5_CLK_SELECT (CCM_TARGET_ROOT_ENABLE |\
-			  CCM_TRGT_MUX_UART5_CLK_ROOT_OSC_24M)
+#include <platform_def.h>
 
-#define USDHC_CLK_SELECT (CCM_TARGET_ROOT_ENABLE |\
-			  CCM_TRGT_MUX_NAND_USDHC_BUS_CLK_ROOT_AHB |\
-			  CCM_TARGET_POST_PODF(2))
+#define UART5_CLK_SELECT \
+	(CCM_TARGET_ROOT_ENABLE | CCM_TRGT_MUX_UART5_CLK_ROOT_OSC_24M)
 
-#define USB_CLK_SELECT (CCM_TARGET_ROOT_ENABLE |\
-			CCM_TRGT_MUX_USB_HSIC_CLK_ROOT_SYS_PLL)
+#define USDHC_CLK_SELECT                                                     \
+	(CCM_TARGET_ROOT_ENABLE | CCM_TRGT_MUX_NAND_USDHC_BUS_CLK_ROOT_AHB | \
+	 CCM_TARGET_POST_PODF(2))
 
-#define PICOPI_UART5_RX_MUX \
-	IOMUXC_SW_MUX_CTL_PAD_I2C4_SCL_ALT1_UART5_RX_DATA
+#define USB_CLK_SELECT \
+	(CCM_TARGET_ROOT_ENABLE | CCM_TRGT_MUX_USB_HSIC_CLK_ROOT_SYS_PLL)
 
-#define PICOPI_UART5_TX_MUX \
-	IOMUXC_SW_MUX_CTL_PAD_I2C4_SDA_ALT1_UART5_TX_DATA
+#define PICOPI_UART5_RX_MUX IOMUXC_SW_MUX_CTL_PAD_I2C4_SCL_ALT1_UART5_RX_DATA
 
-#define PICOPI_SD3_FEATURES \
-	(IOMUXC_SW_PAD_CTL_PAD_SD3_PU_47K            | \
-	 IOMUXC_SW_PAD_CTL_PAD_SD3_PE                | \
-	 IOMUXC_SW_PAD_CTL_PAD_SD3_HYS               | \
-	 IOMUXC_SW_PAD_CTL_PAD_SD3_SLEW_SLOW         | \
+#define PICOPI_UART5_TX_MUX IOMUXC_SW_MUX_CTL_PAD_I2C4_SDA_ALT1_UART5_TX_DATA
+
+#define PICOPI_SD3_FEATURES                                                    \
+	(IOMUXC_SW_PAD_CTL_PAD_SD3_PU_47K | IOMUXC_SW_PAD_CTL_PAD_SD3_PE |     \
+	 IOMUXC_SW_PAD_CTL_PAD_SD3_HYS | IOMUXC_SW_PAD_CTL_PAD_SD3_SLEW_SLOW | \
 	 IOMUXC_SW_PAD_CTL_PAD_SD3_DSE_3_X6)
 
 static struct mmc_device_info mmc_info;
@@ -55,18 +50,29 @@ static void picopi_setup_pinmux(void)
 					 PICOPI_UART5_RX_MUX);
 
 	/* Configure USDHC3 */
-	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_SD3_CLK_OFFSET, 0);
-	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_SD3_CMD_OFFSET, 0);
-	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_SD3_DATA0_OFFSET, 0);
-	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_SD3_DATA1_OFFSET, 0);
-	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_SD3_DATA2_OFFSET, 0);
-	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_SD3_DATA3_OFFSET, 0);
-	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_SD3_DATA4_OFFSET, 0);
-	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_SD3_DATA5_OFFSET, 0);
-	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_SD3_DATA6_OFFSET, 0);
-	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_SD3_DATA7_OFFSET, 0);
-	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_GPIO1_IO14_OFFSET,
-					 IOMUXC_SW_MUX_CTL_PAD_GPIO1_IO14_ALT1_SD3_CD_B);
+	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_SD3_CLK_OFFSET,
+					 0);
+	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_SD3_CMD_OFFSET,
+					 0);
+	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_SD3_DATA0_OFFSET,
+					 0);
+	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_SD3_DATA1_OFFSET,
+					 0);
+	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_SD3_DATA2_OFFSET,
+					 0);
+	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_SD3_DATA3_OFFSET,
+					 0);
+	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_SD3_DATA4_OFFSET,
+					 0);
+	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_SD3_DATA5_OFFSET,
+					 0);
+	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_SD3_DATA6_OFFSET,
+					 0);
+	imx_io_muxc_set_pad_alt_function(IOMUXC_SW_MUX_CTL_PAD_SD3_DATA7_OFFSET,
+					 0);
+	imx_io_muxc_set_pad_alt_function(
+		IOMUXC_SW_MUX_CTL_PAD_GPIO1_IO14_OFFSET,
+		IOMUXC_SW_MUX_CTL_PAD_GPIO1_IO14_ALT1_SD3_CD_B);
 
 	imx_io_muxc_set_pad_features(IOMUXC_SW_PAD_CTL_PAD_SD3_CLK_OFFSET,
 				     PICOPI_SD3_FEATURES);

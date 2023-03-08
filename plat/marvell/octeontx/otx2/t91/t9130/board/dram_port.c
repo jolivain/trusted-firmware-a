@@ -9,17 +9,16 @@
 #include <common/debug.h>
 #include <drivers/mentor/mi2cv.h>
 #include <lib/mmio.h>
-
 #include <mv_ddr_if.h>
 #include <mvebu_def.h>
 #include <plat_marvell.h>
 
-#define MVEBU_CP_MPP_CTRL37_OFFS		20
-#define MVEBU_CP_MPP_CTRL38_OFFS		24
-#define MVEBU_CP_MPP_CTRL37_I2C0_SCK_ENA	0x2
-#define MVEBU_CP_MPP_CTRL38_I2C0_SDA_ENA	0x2
+#define MVEBU_CP_MPP_CTRL37_OFFS 20
+#define MVEBU_CP_MPP_CTRL38_OFFS 24
+#define MVEBU_CP_MPP_CTRL37_I2C0_SCK_ENA 0x2
+#define MVEBU_CP_MPP_CTRL38_I2C0_SDA_ENA 0x2
 
-#define MVEBU_MPP_CTRL_MASK			0xf
+#define MVEBU_MPP_CTRL_MASK 0xf
 
 /*
  * This struct provides the DRAM training code with
@@ -122,11 +121,9 @@ static void mpp_config(void)
 	/* configure CP0 MPP 37 and 38 to i2c */
 	val = mmio_read_32(reg);
 	val &= ~((MVEBU_MPP_CTRL_MASK << MVEBU_CP_MPP_CTRL37_OFFS) |
-		(MVEBU_MPP_CTRL_MASK << MVEBU_CP_MPP_CTRL38_OFFS));
-	val |= (MVEBU_CP_MPP_CTRL37_I2C0_SCK_ENA <<
-			MVEBU_CP_MPP_CTRL37_OFFS) |
-		(MVEBU_CP_MPP_CTRL38_I2C0_SDA_ENA <<
-			MVEBU_CP_MPP_CTRL38_OFFS);
+		 (MVEBU_MPP_CTRL_MASK << MVEBU_CP_MPP_CTRL38_OFFS));
+	val |= (MVEBU_CP_MPP_CTRL37_I2C0_SCK_ENA << MVEBU_CP_MPP_CTRL37_OFFS) |
+	       (MVEBU_CP_MPP_CTRL38_I2C0_SDA_ENA << MVEBU_CP_MPP_CTRL38_OFFS);
 	mmio_write_32(reg, val);
 }
 

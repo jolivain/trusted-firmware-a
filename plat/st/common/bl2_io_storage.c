@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -32,15 +32,15 @@
 #include <lib/fconf/fconf.h>
 #include <lib/mmio.h>
 #include <lib/utils.h>
-#include <plat/common/platform.h>
-#include <tools_share/firmware_image_package.h>
-
-#include <platform_def.h>
 #include <stm32cubeprogrammer.h>
 #include <stm32mp_efi.h>
 #include <stm32mp_fconf_getter.h>
 #include <stm32mp_io_storage.h>
+#include <tools_share/firmware_image_package.h>
 #include <usb_dfu.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 /* IO devices */
 uintptr_t fip_dev_handle;
@@ -85,11 +85,9 @@ static io_mtd_dev_spec_t spi_nor_dev_spec = {
 
 #if STM32MP_RAW_NAND
 static io_mtd_dev_spec_t nand_dev_spec = {
-	.ops = {
-		.init = nand_raw_init,
-		.read = nand_read,
-		.seek = nand_seek_bb
-	},
+	.ops = { .init = nand_raw_init,
+		 .read = nand_read,
+		 .seek = nand_seek_bb },
 };
 
 static const io_dev_connector_t *nand_dev_con;
@@ -97,11 +95,9 @@ static const io_dev_connector_t *nand_dev_con;
 
 #if STM32MP_SPI_NAND
 static io_mtd_dev_spec_t spi_nand_dev_spec = {
-	.ops = {
-		.init = spi_nand_init,
-		.read = nand_read,
-		.seek = nand_seek_bb
-	},
+	.ops = { .init = spi_nand_init,
+		 .read = nand_read,
+		 .seek = nand_seek_bb },
 };
 #endif
 
@@ -156,14 +152,16 @@ static uint32_t get_boot_part_fip_header(void)
 {
 	io_block_spec_t emmc_boot_fip_block_spec = {
 		.offset = STM32MP_EMMC_BOOT_FIP_OFFSET,
-		.length = MMC_BLOCK_SIZE, /* We are interested only in first 4 bytes */
+		.length =
+			MMC_BLOCK_SIZE, /* We are interested only in first 4 bytes */
 	};
 	uint32_t magic = 0U;
 	int io_result;
 	size_t bytes_read;
 	uintptr_t fip_hdr_handle;
 
-	io_result = io_open(storage_dev_handle, (uintptr_t)&emmc_boot_fip_block_spec,
+	io_result = io_open(storage_dev_handle,
+			    (uintptr_t)&emmc_boot_fip_block_spec,
 			    &fip_hdr_handle);
 	assert(io_result == 0);
 
@@ -175,8 +173,7 @@ static uint32_t get_boot_part_fip_header(void)
 
 	io_close(fip_hdr_handle);
 
-	VERBOSE("%s: eMMC boot magic at offset 256K: %08x\n",
-		__func__, magic);
+	VERBOSE("%s: eMMC boot magic at offset 256K: %08x\n", __func__, magic);
 
 	return magic;
 }
@@ -285,7 +282,8 @@ static void boot_mmc(enum mmc_device_type mmc_dev_type,
 		VERBOSE("%s: FIP header found on eMMC boot partition\n",
 			__func__);
 		image_block_spec.offset = STM32MP_EMMC_BOOT_FIP_OFFSET;
-		image_block_spec.length = mmc_boot_part_size() - STM32MP_EMMC_BOOT_FIP_OFFSET;
+		image_block_spec.length =
+			mmc_boot_part_size() - STM32MP_EMMC_BOOT_FIP_OFFSET;
 	}
 #endif
 }
@@ -303,8 +301,7 @@ static void boot_spi_nor(boot_api_context_t *boot_context)
 	assert(io_result == 0);
 
 	/* Open connections to device */
-	io_result = io_dev_open(spi_dev_con,
-				(uintptr_t)&spi_nor_dev_spec,
+	io_result = io_dev_open(spi_dev_con, (uintptr_t)&spi_nor_dev_spec,
 				&storage_dev_handle);
 	assert(io_result == 0);
 }
@@ -341,8 +338,7 @@ static void boot_spi_nand(boot_api_context_t *boot_context)
 	assert(io_result == 0);
 
 	/* Open connections to device */
-	io_result = io_dev_open(spi_dev_con,
-				(uintptr_t)&spi_nand_dev_spec,
+	io_result = io_dev_open(spi_dev_con, (uintptr_t)&spi_nand_dev_spec,
 				&storage_dev_handle);
 	assert(io_result == 0);
 }
@@ -370,7 +366,8 @@ static void stm32cubeprogrammer_uart(void)
 	uintptr_t uart_base;
 
 	uart_base = get_uart_address(boot_context->boot_interface_instance);
-	ret = stm32cubeprog_uart_load(uart_base, DWL_BUFFER_BASE, DWL_BUFFER_SIZE);
+	ret = stm32cubeprog_uart_load(uart_base, DWL_BUFFER_BASE,
+				      DWL_BUFFER_SIZE);
 	assert(ret == 0);
 }
 #endif
@@ -390,7 +387,6 @@ static void stm32cubeprogrammer_usb(void)
 #endif
 #endif /* STM32MP_UART_PROGRAMMER || STM32MP_USB_PROGRAMMER */
 
-
 void stm32mp_io_setup(void)
 {
 	int io_result __unused;
@@ -408,15 +404,13 @@ void stm32mp_io_setup(void)
 	io_result = register_io_dev_fip(&fip_dev_con);
 	assert(io_result == 0);
 
-	io_result = io_dev_open(fip_dev_con, (uintptr_t)NULL,
-				&fip_dev_handle);
+	io_result = io_dev_open(fip_dev_con, (uintptr_t)NULL, &fip_dev_handle);
 
 #ifndef DECRYPTION_SUPPORT_none
 	io_result = register_io_dev_enc(&enc_dev_con);
 	assert(io_result == 0);
 
-	io_result = io_dev_open(enc_dev_con, (uintptr_t)NULL,
-				&enc_dev_handle);
+	io_result = io_dev_open(enc_dev_con, (uintptr_t)NULL, &enc_dev_handle);
 	assert(io_result == 0);
 #endif
 
@@ -515,11 +509,14 @@ int bl2_plat_handle_pre_image_load(unsigned int image_id)
 #endif
 			gpt_init_done = true;
 		} else {
-			bl_mem_params_node_t *bl_mem_params = get_bl_mem_params_node(image_id);
+			bl_mem_params_node_t *bl_mem_params =
+				get_bl_mem_params_node(image_id);
 			assert(bl_mem_params != NULL);
 
-			mmc_block_dev_spec.buffer.offset = bl_mem_params->image_info.image_base;
-			mmc_block_dev_spec.buffer.length = bl_mem_params->image_info.image_max_size;
+			mmc_block_dev_spec.buffer.offset =
+				bl_mem_params->image_info.image_base;
+			mmc_block_dev_spec.buffer.length =
+				bl_mem_params->image_info.image_max_size;
 		}
 
 		break;
@@ -606,7 +603,7 @@ int plat_get_image_source(unsigned int image_id, uintptr_t *dev_handle,
  *     - we already boot FWU_MAX_TRIAL_REBOOT times in trial mode.
  * we select the previous_active_index.
  */
-#define INVALID_BOOT_IDX		0xFFFFFFFFU
+#define INVALID_BOOT_IDX 0xFFFFFFFFU
 
 uint32_t plat_fwu_get_boot_idx(void)
 {
@@ -667,8 +664,7 @@ void plat_fwu_set_images_source(const struct fwu_metadata *metadata)
 			panic();
 		}
 
-		img_uuid =
-			&metadata->img_entry[i].img_props[boot_idx].img_uuid;
+		img_uuid = &metadata->img_entry[i].img_props[boot_idx].img_uuid;
 
 		entry = get_partition_entry_by_uuid(img_uuid);
 		if (entry == NULL) {
@@ -681,10 +677,8 @@ void plat_fwu_set_images_source(const struct fwu_metadata *metadata)
 	}
 }
 
-static int plat_set_image_source(unsigned int image_id,
-				 uintptr_t *handle,
-				 uintptr_t *image_spec,
-				 const char *part_name)
+static int plat_set_image_source(unsigned int image_id, uintptr_t *handle,
+				 uintptr_t *image_spec, const char *part_name)
 {
 	struct plat_io_policy *policy;
 	io_block_spec_t *spec;
@@ -707,8 +701,7 @@ static int plat_set_image_source(unsigned int image_id,
 	return 0;
 }
 
-int plat_fwu_set_metadata_image_source(unsigned int image_id,
-				       uintptr_t *handle,
+int plat_fwu_set_metadata_image_source(unsigned int image_id, uintptr_t *handle,
 				       uintptr_t *image_spec)
 {
 	char *part_name;
@@ -724,7 +717,6 @@ int plat_fwu_set_metadata_image_source(unsigned int image_id,
 		part_name = METADATA_PART_2;
 	}
 
-	return plat_set_image_source(image_id, handle, image_spec,
-				     part_name);
+	return plat_set_image_source(image_id, handle, image_spec, part_name);
 }
 #endif /* (STM32MP_SDMMC || STM32MP_EMMC) && PSA_FWU_SUPPORT */

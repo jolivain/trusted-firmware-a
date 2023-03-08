@@ -17,7 +17,7 @@
 
 extern void rcar_dma_exec(uintptr_t dst, uint32_t src, uint32_t len);
 
-static int32_t memdrv_dev_open(const uintptr_t dev __attribute__ ((unused)),
+static int32_t memdrv_dev_open(const uintptr_t dev __attribute__((unused)),
 			       io_dev_info_t **dev_info);
 static int32_t memdrv_dev_close(io_dev_info_t *dev_info);
 
@@ -42,7 +42,7 @@ static io_type_t device_type_memdrv(void)
 static int32_t memdrv_block_open(io_dev_info_t *dev_info, const uintptr_t spec,
 				 io_entity_t *entity)
 {
-	const io_drv_spec_t *block_spec = (io_drv_spec_t *) spec;
+	const io_drv_spec_t *block_spec = (io_drv_spec_t *)spec;
 
 	/*
 	 * Since we need to track open state for seek() we only allow one open
@@ -58,7 +58,7 @@ static int32_t memdrv_block_open(io_dev_info_t *dev_info, const uintptr_t spec,
 	current_file.file_pos = 0;
 	current_file.in_use = 1;
 
-	entity->info = (uintptr_t) &current_file;
+	entity->info = (uintptr_t)&current_file;
 
 	return IO_SUCCESS;
 }
@@ -70,7 +70,7 @@ static int32_t memdrv_block_seek(io_entity_t *entity, int32_t mode,
 		return IO_FAIL;
 	}
 
-	((file_state_t *) entity->info)->file_pos = offset;
+	((file_state_t *)entity->info)->file_pos = offset;
 
 	return IO_SUCCESS;
 }
@@ -80,11 +80,11 @@ static int32_t memdrv_block_read(io_entity_t *entity, uintptr_t buffer,
 {
 	file_state_t *fp;
 
-	fp = (file_state_t *) entity->info;
+	fp = (file_state_t *)entity->info;
 
-	NOTICE("BL2: dst=0x%lx src=0x%llx len=%ld(0x%lx)\n",
-	       buffer, (unsigned long long)fp->base +
-	       (unsigned long long)fp->file_pos, length, length);
+	NOTICE("BL2: dst=0x%lx src=0x%llx len=%ld(0x%lx)\n", buffer,
+	       (unsigned long long)fp->base + (unsigned long long)fp->file_pos,
+	       length, length);
 
 	if (FLASH_MEMORY_SIZE < (fp->file_pos + (signed long long)length)) {
 		ERROR("BL2: check load image (source address)\n");
@@ -128,10 +128,10 @@ static const io_dev_connector_t memdrv_dev_connector = {
 	.dev_open = &memdrv_dev_open
 };
 
-static int32_t memdrv_dev_open(const uintptr_t dev __attribute__ ((unused)),
+static int32_t memdrv_dev_open(const uintptr_t dev __attribute__((unused)),
 			       io_dev_info_t **dev_info)
 {
-	*dev_info = (io_dev_info_t *) &memdrv_dev_info;
+	*dev_info = (io_dev_info_t *)&memdrv_dev_info;
 
 	return IO_SUCCESS;
 }

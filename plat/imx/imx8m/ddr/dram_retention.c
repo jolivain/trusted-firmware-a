@@ -5,25 +5,26 @@
  */
 
 #include <stdbool.h>
-#include <lib/mmio.h>
 
 #include <dram.h>
+#include <lib/mmio.h>
+
 #include <platform_def.h>
 
-#define SRC_DDR1_RCR		(IMX_SRC_BASE + 0x1000)
-#define SRC_DDR2_RCR		(IMX_SRC_BASE + 0x1004)
+#define SRC_DDR1_RCR (IMX_SRC_BASE + 0x1000)
+#define SRC_DDR2_RCR (IMX_SRC_BASE + 0x1004)
 
-#define PU_PGC_UP_TRG		0xf8
-#define PU_PGC_DN_TRG		0x104
-#define GPC_PU_PWRHSK		(IMX_GPC_BASE + 0x01FC)
-#define CCM_SRC_CTRL_OFFSET     (IMX_CCM_BASE + 0x800)
-#define CCM_CCGR_OFFSET         (IMX_CCM_BASE + 0x4000)
-#define CCM_SRC_CTRL(n)		(CCM_SRC_CTRL_OFFSET + 0x10 * (n))
-#define CCM_CCGR(n)		(CCM_CCGR_OFFSET + 0x10 * (n))
+#define PU_PGC_UP_TRG 0xf8
+#define PU_PGC_DN_TRG 0x104
+#define GPC_PU_PWRHSK (IMX_GPC_BASE + 0x01FC)
+#define CCM_SRC_CTRL_OFFSET (IMX_CCM_BASE + 0x800)
+#define CCM_CCGR_OFFSET (IMX_CCM_BASE + 0x4000)
+#define CCM_SRC_CTRL(n) (CCM_SRC_CTRL_OFFSET + 0x10 * (n))
+#define CCM_CCGR(n) (CCM_CCGR_OFFSET + 0x10 * (n))
 
-#define DRAM_PLL_CTRL		(IMX_ANAMIX_BASE + 0x50)
+#define DRAM_PLL_CTRL (IMX_ANAMIX_BASE + 0x50)
 
-#define DBGCAM_EMPTY		0x36000000
+#define DBGCAM_EMPTY 0x36000000
 
 void dram_enter_retention(void)
 {
@@ -191,7 +192,7 @@ void dram_exit_retention(void)
 	}
 
 	mmio_write_32(DDRC_PCTRL_0(0), 0x1);
-	 /* dis_auto-refresh is set to 0 */
+	/* dis_auto-refresh is set to 0 */
 	mmio_write_32(DDRC_RFSHCTL3(0), 0x0);
 
 	/* should check PhyInLP3 pub reg */

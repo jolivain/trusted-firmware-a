@@ -4,15 +4,13 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <platform_def.h>
-
 #include <common/debug.h>
 #include <lib/psci/psci.h>
 
+#include <platform_def.h>
+
 static const unsigned char rcar_power_domain_tree_desc[] = {
-	1,
-	PLATFORM_CLUSTER_COUNT,
-	PLATFORM_CLUSTER0_CORE_COUNT,
+	1, PLATFORM_CLUSTER_COUNT, PLATFORM_CLUSTER0_CORE_COUNT,
 	PLATFORM_CLUSTER1_CORE_COUNT
 };
 
@@ -44,4 +42,3 @@ int plat_core_pos_by_mpidr(u_register_t mpidr)
 
 	return (cpu_id + cluster_id * PLATFORM_CLUSTER0_CORE_COUNT);
 }
-

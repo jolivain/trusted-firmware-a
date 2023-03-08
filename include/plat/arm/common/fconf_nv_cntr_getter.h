@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, Arm Limited. All rights reserved.
+ * Copyright (c) 2020-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,7 +10,7 @@
 #include <common/nv_cntr_ids.h>
 #include <lib/fconf/fconf.h>
 
-#define cot__nv_cntr_addr_getter(id)		nv_cntr_base_addr[id]
+#define cot__nv_cntr_addr_getter(id) nv_cntr_base_addr[id]
 
 extern uintptr_t nv_cntr_base_addr[MAX_NV_CTR_IDS];
 

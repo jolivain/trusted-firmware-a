@@ -40,8 +40,8 @@ static inline void stm32mp_register_secure_periph_iomem(uintptr_t base __unused)
 {
 }
 
-static inline
-void stm32mp_register_non_secure_periph_iomem(uintptr_t base __unused)
+static inline void
+stm32mp_register_non_secure_periph_iomem(uintptr_t base __unused)
 {
 }
 

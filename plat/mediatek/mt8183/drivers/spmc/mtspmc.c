@@ -5,19 +5,20 @@
  */
 
 #include <assert.h>
+
 #include <arch_helpers.h>
+#include <common/debug.h>
 #include <cortex_a53.h>
 #include <cortex_a73.h>
-#include <common/debug.h>
-#include <lib/mmio.h>
-#include <platform_def.h>
-#include <mcucfg.h>
-#include <spm.h>
 #include <drivers/delay_timer.h>
+#include <lib/mmio.h>
+#include <mcucfg.h>
 #include <mtspmc.h>
+#include <spm.h>
+
+#include <platform_def.h>
 
 #include "mtspmc_private.h"
-
 
 static void set_retention(int cluster, int tick)
 {
@@ -73,9 +74,10 @@ void spm_enable_cluster_auto_off(int cluster)
 void mcucfg_set_bootaddr(int cluster, int cpu, uintptr_t bootaddr)
 {
 	uintptr_t reg;
-	const uintptr_t mp2_bootreg[] = {
-			MCUCFG_MP2_RVADDR0, MCUCFG_MP2_RVADDR1,
-			MCUCFG_MP2_RVADDR2, MCUCFG_MP2_RVADDR3 };
+	const uintptr_t mp2_bootreg[] = { MCUCFG_MP2_RVADDR0,
+					  MCUCFG_MP2_RVADDR1,
+					  MCUCFG_MP2_RVADDR2,
+					  MCUCFG_MP2_RVADDR3 };
 
 	if (cluster) {
 		assert(cpu >= 0 && cpu < 4);
@@ -90,9 +92,10 @@ void mcucfg_set_bootaddr(int cluster, int cpu, uintptr_t bootaddr)
 uintptr_t mcucfg_get_bootaddr(int cluster, int cpu)
 {
 	uintptr_t reg;
-	const uintptr_t mp2_bootreg[] = {
-			MCUCFG_MP2_RVADDR0, MCUCFG_MP2_RVADDR1,
-			MCUCFG_MP2_RVADDR2, MCUCFG_MP2_RVADDR3 };
+	const uintptr_t mp2_bootreg[] = { MCUCFG_MP2_RVADDR0,
+					  MCUCFG_MP2_RVADDR1,
+					  MCUCFG_MP2_RVADDR2,
+					  MCUCFG_MP2_RVADDR3 };
 
 	if (cluster) {
 		assert(cpu >= 0 && cpu < 4);
@@ -292,7 +295,7 @@ void spm_poweroff_cluster(int cluster)
 	if (cluster) {
 		pwr_rst_ctl = mmio_read_32(MCUCFG_MP2_PWR_RST_CTL);
 		mmio_write_32(MCUCFG_MP2_PWR_RST_CTL,
-				(pwr_rst_ctl & ~SW_RST_B) | TOPAON_APB_MASK);
+			      (pwr_rst_ctl & ~SW_RST_B) | TOPAON_APB_MASK);
 	}
 
 	/* CPU_EXT_BUCK_ISO[0]=1 */
@@ -334,7 +337,7 @@ void spm_poweron_cluster(int cluster)
 		 */
 		pwr_rst_ctl = mmio_read_32(MCUCFG_MP2_PWR_RST_CTL);
 		mmio_write_32(MCUCFG_MP2_PWR_RST_CTL,
-				(pwr_rst_ctl | SW_RST_B) & ~TOPAON_APB_MASK);
+			      (pwr_rst_ctl | SW_RST_B) & ~TOPAON_APB_MASK);
 	}
 
 	/* Set PWR_ON_2ND = 0 */

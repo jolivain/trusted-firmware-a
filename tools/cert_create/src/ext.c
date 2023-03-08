@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,6 +7,7 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <string.h>
+
 #include <openssl/asn1.h>
 #include <openssl/asn1t.h>
 #include <openssl/err.h>
@@ -59,7 +60,7 @@ int ext_init(void)
 #ifdef PDEF_EXTS
 			    + (num_pdef_extensions * sizeof(pdef_extensions[0]))
 #endif
-			    );
+	);
 	if (extensions == NULL) {
 		ERROR("%s:%d Failed to allocate memory.\n", __func__, __LINE__);
 		return 1;
@@ -69,7 +70,7 @@ int ext_init(void)
 	       (num_def_extensions * sizeof(def_extensions[0])));
 #ifdef PDEF_EXTS
 	memcpy(&extensions[num_def_extensions], &pdef_extensions[0],
-		(num_pdef_extensions * sizeof(pdef_extensions[0])));
+	       (num_pdef_extensions * sizeof(pdef_extensions[0])));
 	num_extensions = num_def_extensions + num_pdef_extensions;
 #else
 	num_extensions = num_def_extensions;
@@ -137,8 +138,7 @@ int ext_init(void)
  *
  * Return: Extension address, NULL if error
  */
-static
-X509_EXTENSION *ext_new(int nid, int crit, unsigned char *data, int len)
+static X509_EXTENSION *ext_new(int nid, int crit, unsigned char *data, int len)
 {
 	X509_EXTENSION *ex;
 	ASN1_OCTET_STRING *ext_data;
@@ -179,7 +179,7 @@ X509_EXTENSION *ext_new(int nid, int crit, unsigned char *data, int len)
  * Return: Extension address, NULL if error
  */
 X509_EXTENSION *ext_new_hash(int nid, int crit, const EVP_MD *md,
-		unsigned char *buf, size_t len)
+			     unsigned char *buf, size_t len)
 {
 	X509_EXTENSION *ex;
 	HASH *hash;
@@ -331,4 +331,3 @@ void ext_cleanup(void)
 	free(extensions);
 	X509V3_EXT_cleanup();
 }
-

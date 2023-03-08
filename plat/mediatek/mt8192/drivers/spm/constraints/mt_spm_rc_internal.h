@@ -9,11 +9,10 @@
 
 #include <stdbool.h>
 
-#define SPM_FLAG_SRAM_SLEEP_CTRL			\
-	(SPM_FLAG_DISABLE_SSPM_SRAM_SLEEP |		\
-	 SPM_FLAG_DISABLE_DRAMC_MCU_SRAM_SLEEP |	\
-	 SPM_FLAG_DISABLE_SYSRAM_SLEEP |		\
-	 SPM_FLAG_DISABLE_MCUPM_SRAM_SLEEP |		\
+#define SPM_FLAG_SRAM_SLEEP_CTRL                                             \
+	(SPM_FLAG_DISABLE_SSPM_SRAM_SLEEP |                                  \
+	 SPM_FLAG_DISABLE_DRAMC_MCU_SRAM_SLEEP |                             \
+	 SPM_FLAG_DISABLE_SYSRAM_SLEEP | SPM_FLAG_DISABLE_MCUPM_SRAM_SLEEP | \
 	 SPM_FLAG_DISABLE_SRAM_EVENT)
 
 /* cpu buck/ldo constraint function */

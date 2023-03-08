@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,34 +8,33 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
-#include <lib/mmio.h>
-
 #include <hisi_ipc.h>
 #include <hisi_sram_map.h>
+#include <lib/mmio.h>
+
+#include <platform_def.h>
 
 static int ipc_init;
 
-static unsigned int cpu_ipc_num[PLATFORM_CLUSTER_COUNT][PLATFORM_CORE_COUNT_PER_CLUSTER] = {
-	{
-		HISI_IPC_MCU_INT_SRC_ACPU0_PD,
-		HISI_IPC_MCU_INT_SRC_ACPU1_PD,
-		HISI_IPC_MCU_INT_SRC_ACPU2_PD,
-		HISI_IPC_MCU_INT_SRC_ACPU3_PD,
-	},
-	{
-		HISI_IPC_MCU_INT_SRC_ACPU4_PD,
-		HISI_IPC_MCU_INT_SRC_ACPU5_PD,
-		HISI_IPC_MCU_INT_SRC_ACPU6_PD,
-		HISI_IPC_MCU_INT_SRC_ACPU7_PD,
-	}
-};
+static unsigned int cpu_ipc_num[PLATFORM_CLUSTER_COUNT]
+			       [PLATFORM_CORE_COUNT_PER_CLUSTER] = {
+				       {
+					       HISI_IPC_MCU_INT_SRC_ACPU0_PD,
+					       HISI_IPC_MCU_INT_SRC_ACPU1_PD,
+					       HISI_IPC_MCU_INT_SRC_ACPU2_PD,
+					       HISI_IPC_MCU_INT_SRC_ACPU3_PD,
+				       },
+				       {
+					       HISI_IPC_MCU_INT_SRC_ACPU4_PD,
+					       HISI_IPC_MCU_INT_SRC_ACPU5_PD,
+					       HISI_IPC_MCU_INT_SRC_ACPU6_PD,
+					       HISI_IPC_MCU_INT_SRC_ACPU7_PD,
+				       }
+			       };
 
-int hisi_cpus_pd_in_cluster_besides_curr(unsigned int cpu,
-					 unsigned int cluster)
+int hisi_cpus_pd_in_cluster_besides_curr(unsigned int cpu, unsigned int cluster)
 {
 	unsigned int val = 0, cpu_val = 0;
 	int i;
@@ -44,7 +43,6 @@ int hisi_cpus_pd_in_cluster_besides_curr(unsigned int cpu,
 	val = val >> (cluster * 16);
 
 	for (i = 0; i < PLATFORM_CORE_COUNT_PER_CLUSTER; i++) {
-
 		if (cpu == i)
 			continue;
 

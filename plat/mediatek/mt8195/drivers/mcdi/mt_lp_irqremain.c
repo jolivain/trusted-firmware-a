@@ -9,9 +9,9 @@
 #include <mt_lp_rm.h>
 #include <plat_mtk_lpm.h>
 
-#define KEYPAD_IRQ_ID		U(138)
+#define KEYPAD_IRQ_ID U(138)
 
-#define KEYPAD_WAKESRC		0x4
+#define KEYPAD_WAKESRC 0x4
 
 static struct mt_irqremain remain_irqs;
 

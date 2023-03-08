@@ -1,15 +1,17 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
+
 #include <common/bl_common.h>
 #include <common/interrupt_props.h>
 #include <drivers/arm/gicv2.h>
 #include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_mmu_helpers.h>
+
 #include <plat/common/platform.h>
 #include <platform_def.h>
 
@@ -34,8 +36,8 @@ entry_point_info_t *bl31_plat_get_next_image_ep_info(uint32_t type)
 {
 	entry_point_info_t *next_image_info;
 
-	next_image_info = (type == NON_SECURE) ?
-			  &bl33_image_ep_info : &bl32_image_ep_info;
+	next_image_info = (type == NON_SECURE) ? &bl33_image_ep_info :
+						 &bl32_image_ep_info;
 
 	/* None of the images can have 0x0 as the entrypoint. */
 	if (next_image_info->pc != 0U)

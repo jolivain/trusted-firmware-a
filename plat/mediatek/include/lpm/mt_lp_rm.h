@@ -9,9 +9,9 @@
 
 #include <stdbool.h>
 
-#define MT_RM_STATUS_OK		(0)
-#define MT_RM_STATUS_BAD	(-1)
-#define MT_RM_STATUS_STOP	(-2)
+#define MT_RM_STATUS_OK (0)
+#define MT_RM_STATUS_BAD (-1)
+#define MT_RM_STATUS_STOP (-2)
 
 enum PLAT_MT_LPM_RC_TYPE {
 	PLAT_RC_UPDATE_CONDITION,
@@ -55,12 +55,15 @@ struct mt_resource_manager {
 };
 
 extern int mt_lp_rm_register(struct mt_resource_manager *rm);
-extern int mt_lp_rm_do_constraint(unsigned int constraint_id, unsigned int cpuid, int stateid);
+extern int mt_lp_rm_do_constraint(unsigned int constraint_id,
+				  unsigned int cpuid, int stateid);
 extern int mt_lp_rm_find_constraint(unsigned int idx, unsigned int cpuid,
 				    int stateid, void *priv);
-extern int mt_lp_rm_find_and_run_constraint(unsigned int idx, unsigned int cpuid,
-					    int stateid, void *priv);
-extern int mt_lp_rm_reset_constraint(unsigned int idx, unsigned int cpuid, int stateid);
+extern int mt_lp_rm_find_and_run_constraint(unsigned int idx,
+					    unsigned int cpuid, int stateid,
+					    void *priv);
+extern int mt_lp_rm_reset_constraint(unsigned int idx, unsigned int cpuid,
+				     int stateid);
 extern int mt_lp_rm_do_update(int stateid, int type, void const *p);
 extern int mt_lp_rm_get_status(unsigned int type, void *priv);
 

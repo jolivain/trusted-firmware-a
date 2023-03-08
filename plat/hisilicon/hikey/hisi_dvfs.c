@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,27 +7,26 @@
 #include <assert.h>
 #include <string.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <drivers/console.h>
-#include <lib/mmio.h>
-#include <plat/common/platform.h>
-
 #include <hi6220.h>
 #include <hi6553.h>
 #include <hisi_sram_map.h>
+#include <lib/mmio.h>
 
-#define ACPU_FREQ_MAX_NUM		5
-#define	ACPU_OPP_NUM			7
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
-#define ACPU_VALID_VOLTAGE_MAGIC	(0x5A5AC5C5)
+#define ACPU_FREQ_MAX_NUM 5
+#define ACPU_OPP_NUM 7
 
-#define ACPU_WAIT_TIMEOUT		(200)
-#define ACPU_WAIT_FOR_WFI_TIMOUT	(2000)
-#define ACPU_DFS_STATE_CNT		(0x10000)
+#define ACPU_VALID_VOLTAGE_MAGIC (0x5A5AC5C5)
+
+#define ACPU_WAIT_TIMEOUT (200)
+#define ACPU_WAIT_FOR_WFI_TIMOUT (2000)
+#define ACPU_DFS_STATE_CNT (0x10000)
 
 struct acpu_dvfs_sram_stru {
 	unsigned int magic;
@@ -61,17 +60,15 @@ struct acpu_dvfs_opp_para {
 };
 
 unsigned int efuse_acpu_freq[] = {
-	1200000, 1250000, 1300000, 1350000,
-	1400000, 1450000, 1500000, 1550000,
-	1600000, 1650000, 1700000, 1750000,
-	1800000, 1850000, 1900000, 1950000,
+	1200000, 1250000, 1300000, 1350000, 1400000, 1450000, 1500000, 1550000,
+	1600000, 1650000, 1700000, 1750000, 1800000, 1850000, 1900000, 1950000,
 };
 
 struct acpu_dvfs_opp_para hi6220_acpu_profile[] = {
-	{ 208000,  0x61E5, 0x022, 0x3A, 0x5220102B, 0x05555555 },
-	{ 432000,  0x10A6, 0x121, 0x3A, 0x5120102D, 0x10000005 },
-	{ 729000,  0x2283, 0x100, 0x4A, 0x51101026, 0x10000005 },
-	{ 960000,  0x1211, 0x100, 0x5B, 0x51101032, 0x10000005 },
+	{ 208000, 0x61E5, 0x022, 0x3A, 0x5220102B, 0x05555555 },
+	{ 432000, 0x10A6, 0x121, 0x3A, 0x5120102D, 0x10000005 },
+	{ 729000, 0x2283, 0x100, 0x4A, 0x51101026, 0x10000005 },
+	{ 960000, 0x1211, 0x100, 0x5B, 0x51101032, 0x10000005 },
 	{ 1200000, 0x1211, 0x100, 0x6B, 0x5110207D, 0x10000005 },
 	{ 1400000, 0x1211, 0x100, 0x6B, 0x51101049, 0x10000005 },
 	{ 1500000, 0x1211, 0x100, 0x6B, 0x51101049, 0x10000005 },
@@ -81,8 +78,7 @@ struct acpu_dvfs_opp_para *acpu_dvfs_profile = hi6220_acpu_profile;
 struct acpu_dvfs_sram_stru *acpu_dvfs_sram_buf =
 	(struct acpu_dvfs_sram_stru *)MEMORY_AXI_ACPU_FREQ_VOL_ADDR;
 
-static inline void write_reg_mask(uintptr_t addr,
-				  uint32_t val, uint32_t mask)
+static inline void write_reg_mask(uintptr_t addr, uint32_t val, uint32_t mask)
 {
 	uint32_t reg;
 
@@ -91,8 +87,8 @@ static inline void write_reg_mask(uintptr_t addr,
 	mmio_write_32(addr, reg);
 }
 
-static inline uint32_t read_reg_mask(uintptr_t addr,
-				     uint32_t mask, uint32_t offset)
+static inline uint32_t read_reg_mask(uintptr_t addr, uint32_t mask,
+				     uint32_t offset)
 {
 	uint32_t reg;
 
@@ -113,7 +109,7 @@ static int acpu_dvfs_syspll_cfg(unsigned int prof_id)
 	 *  - ACPUSYSPLLCFG.acpu_syspll_clken_cfg = 0x1;
 	 */
 	write_reg_mask(PMCTRL_ACPUSYSPLLCFG, 0x3 << 12, 0x3 << 12);
-	write_reg_mask(PMCTRL_ACPUSYSPLLCFG, 0x1 << 4,  0x1 << 4);
+	write_reg_mask(PMCTRL_ACPUSYSPLLCFG, 0x1 << 4, 0x1 << 4);
 
 	/*
 	 * step 2:
@@ -158,28 +154,43 @@ static void acpu_dvfs_clk_div_cfg(unsigned int prof_id,
 				  unsigned int *acpu_ddr_cfg)
 {
 	if (prof_id == 0) {
-		write_reg_mask(PMCTRL_ACPUCLKDIV,
-			(0x1 << SOC_PMCTRL_ACPUCLKDIV_cpuext_clk_div_cfg_START) |
-			(0x1 << SOC_PMCTRL_ACPUCLKDIV_acpu_ddr_clk_div_cfg_START),
-			(0x3 << SOC_PMCTRL_ACPUCLKDIV_cpuext_clk_div_cfg_START) |
-			(0x3 << SOC_PMCTRL_ACPUCLKDIV_acpu_ddr_clk_div_cfg_START));
+		write_reg_mask(
+			PMCTRL_ACPUCLKDIV,
+			(0x1
+			 << SOC_PMCTRL_ACPUCLKDIV_cpuext_clk_div_cfg_START) |
+				(0x1
+				 << SOC_PMCTRL_ACPUCLKDIV_acpu_ddr_clk_div_cfg_START),
+			(0x3
+			 << SOC_PMCTRL_ACPUCLKDIV_cpuext_clk_div_cfg_START) |
+				(0x3
+				 << SOC_PMCTRL_ACPUCLKDIV_acpu_ddr_clk_div_cfg_START));
 		*cpuext_cfg = 0x1;
 		*acpu_ddr_cfg = 0x1;
 	} else if (prof_id == 1) {
-		write_reg_mask(PMCTRL_ACPUCLKDIV,
-			(0x1 << SOC_PMCTRL_ACPUCLKDIV_cpuext_clk_div_cfg_START) |
-			(0x1 << SOC_PMCTRL_ACPUCLKDIV_acpu_ddr_clk_div_cfg_START),
-			(0x3 << SOC_PMCTRL_ACPUCLKDIV_cpuext_clk_div_cfg_START) |
-			(0x3 << SOC_PMCTRL_ACPUCLKDIV_acpu_ddr_clk_div_cfg_START));
+		write_reg_mask(
+			PMCTRL_ACPUCLKDIV,
+			(0x1
+			 << SOC_PMCTRL_ACPUCLKDIV_cpuext_clk_div_cfg_START) |
+				(0x1
+				 << SOC_PMCTRL_ACPUCLKDIV_acpu_ddr_clk_div_cfg_START),
+			(0x3
+			 << SOC_PMCTRL_ACPUCLKDIV_cpuext_clk_div_cfg_START) |
+				(0x3
+				 << SOC_PMCTRL_ACPUCLKDIV_acpu_ddr_clk_div_cfg_START));
 		*cpuext_cfg = 0x1;
 		*acpu_ddr_cfg = 0x1;
 	} else {
 		/* ddr has not been inited */
-		write_reg_mask(PMCTRL_ACPUCLKDIV,
-			(0x1 << SOC_PMCTRL_ACPUCLKDIV_cpuext_clk_div_cfg_START) |
-			(0x0 << SOC_PMCTRL_ACPUCLKDIV_acpu_ddr_clk_div_cfg_START),
-			(0x3 << SOC_PMCTRL_ACPUCLKDIV_cpuext_clk_div_cfg_START) |
-			(0x3 << SOC_PMCTRL_ACPUCLKDIV_acpu_ddr_clk_div_cfg_START));
+		write_reg_mask(
+			PMCTRL_ACPUCLKDIV,
+			(0x1
+			 << SOC_PMCTRL_ACPUCLKDIV_cpuext_clk_div_cfg_START) |
+				(0x0
+				 << SOC_PMCTRL_ACPUCLKDIV_acpu_ddr_clk_div_cfg_START),
+			(0x3
+			 << SOC_PMCTRL_ACPUCLKDIV_cpuext_clk_div_cfg_START) |
+				(0x3
+				 << SOC_PMCTRL_ACPUCLKDIV_acpu_ddr_clk_div_cfg_START));
 		*cpuext_cfg = 0x1;
 		*acpu_ddr_cfg = 0x0;
 	}
@@ -222,7 +233,8 @@ static int acpu_dvfs_freq_ascend(unsigned int cur_prof, unsigned int tar_prof)
 	 */
 	count = 0;
 	do {
-		reg0 = read_reg_mask(PMCTRL_ACPUPLLSEL, 0x1,
+		reg0 = read_reg_mask(
+			PMCTRL_ACPUPLLSEL, 0x1,
 			SOC_PMCTRL_ACPUPLLSEL_syspll_sw_stat_START);
 		if ((count++) > ACPU_DFS_STATE_CNT) {
 			ERROR("%s: syspll sw status timeout\n", __func__);
@@ -232,20 +244,19 @@ static int acpu_dvfs_freq_ascend(unsigned int cur_prof, unsigned int tar_prof)
 
 	/* Enable VD functionality if > 800MHz */
 	if (acpu_dvfs_profile[tar_prof].freq > 800000) {
-
-		write_reg_mask(ACPU_SC_VD_HPM_CTRL,
-			HPM_OSC_DIV_VAL, HPM_OSC_DIV_MASK);
+		write_reg_mask(ACPU_SC_VD_HPM_CTRL, HPM_OSC_DIV_VAL,
+			       HPM_OSC_DIV_MASK);
 
 		/*
 		 * step 5:
 		 *  - ACPU_SC_VD_HPM_CTRL.hpm_dly_exp = 0xC7A;
 		 *  - ACPU_SC_VD_MASK_PATTERN_CTRL[12:0] = 0xCCB;
 		 */
-		write_reg_mask(ACPU_SC_VD_HPM_CTRL,
-			HPM_DLY_EXP_VAL, HPM_DLY_EXP_MASK);
+		write_reg_mask(ACPU_SC_VD_HPM_CTRL, HPM_DLY_EXP_VAL,
+			       HPM_DLY_EXP_MASK);
 		write_reg_mask(ACPU_SC_VD_MASK_PATTERN_CTRL,
-			ACPU_SC_VD_MASK_PATTERN_VAL,
-			ACPU_SC_VD_MASK_PATTERN_MASK);
+			       ACPU_SC_VD_MASK_PATTERN_VAL,
+			       ACPU_SC_VD_MASK_PATTERN_MASK);
 
 		/*
 		 * step 6:
@@ -269,20 +280,19 @@ static int acpu_dvfs_freq_ascend(unsigned int cur_prof, unsigned int tar_prof)
 		 * step 8:
 		 *  - ACPU_SC_VD_CTRL.tune = 0x7;
 		 */
-		write_reg_mask(ACPU_SC_VD_CTRL,
-			ACPU_SC_VD_SHIFT_TABLE_TUNE_VAL,
-			ACPU_SC_VD_SHIFT_TABLE_TUNE_MASK);
+		write_reg_mask(ACPU_SC_VD_CTRL, ACPU_SC_VD_SHIFT_TABLE_TUNE_VAL,
+			       ACPU_SC_VD_SHIFT_TABLE_TUNE_MASK);
 	}
 
 	/* step 9: ACPUPLLCTRL.acpupll_en_cfg = 0x0 */
 	write_reg_mask(PMCTRL_ACPUPLLCTRL, 0x0,
-		0x1 << SOC_PMCTRL_ACPUPLLCTRL_acpupll_en_cfg_START);
+		       0x1 << SOC_PMCTRL_ACPUPLLCTRL_acpupll_en_cfg_START);
 
 	/* step 10: set PMCTRL_ACPUPLLFREQ and PMCTRL_ACPUPLLFRAC */
 	mmio_write_32(PMCTRL_ACPUPLLFREQ,
-		acpu_dvfs_profile[tar_prof].acpu_pll_freq);
+		      acpu_dvfs_profile[tar_prof].acpu_pll_freq);
 	mmio_write_32(PMCTRL_ACPUPLLFRAC,
-		acpu_dvfs_profile[tar_prof].acpu_pll_frac);
+		      acpu_dvfs_profile[tar_prof].acpu_pll_frac);
 
 	/*
 	 * step 11:
@@ -294,8 +304,8 @@ static int acpu_dvfs_freq_ascend(unsigned int cur_prof, unsigned int tar_prof)
 		count++;
 
 	write_reg_mask(PMCTRL_ACPUPLLCTRL,
-		0x1 << SOC_PMCTRL_ACPUPLLCTRL_acpupll_en_cfg_START,
-		0x1 << SOC_PMCTRL_ACPUPLLCTRL_acpupll_en_cfg_START);
+		       0x1 << SOC_PMCTRL_ACPUPLLCTRL_acpupll_en_cfg_START,
+		       0x1 << SOC_PMCTRL_ACPUPLLCTRL_acpupll_en_cfg_START);
 
 	/* step 12: PMCTRL_ACPUVOLPMUADDR = 0x100da */
 	mmio_write_32(PMCTRL_ACPUVOLPMUADDR, 0x100da);
@@ -308,7 +318,8 @@ static int acpu_dvfs_freq_ascend(unsigned int cur_prof, unsigned int tar_prof)
 	 *  - PMCTRL_ACPUDESTVOL.acpu_dest_vol = 0x3A (1300MHz);
 	 *  - PMCTRL_ACPUDESTVOL.acpu_dest_vol = 0x3A (1500MHz);
 	 */
-	write_reg_mask(PMCTRL_ACPUDESTVOL,
+	write_reg_mask(
+		PMCTRL_ACPUDESTVOL,
 		acpu_dvfs_profile[tar_prof].acpu_vol_profile,
 		((0x1 << (SOC_PMCTRL_ACPUDESTVOL_acpu_dest_vol_END + 1)) - 1));
 
@@ -321,11 +332,14 @@ static int acpu_dvfs_freq_ascend(unsigned int cur_prof, unsigned int tar_prof)
 	 */
 	count = 0;
 	do {
-		reg0 = read_reg_mask(PMCTRL_ACPUDESTVOL, 0x7F,
+		reg0 = read_reg_mask(
+			PMCTRL_ACPUDESTVOL, 0x7F,
 			SOC_PMCTRL_ACPUDESTVOL_acpu_dest_vol_START);
-		reg1 = read_reg_mask(PMCTRL_ACPUDESTVOL, 0x7F,
+		reg1 = read_reg_mask(
+			PMCTRL_ACPUDESTVOL, 0x7F,
 			SOC_PMCTRL_ACPUDESTVOL_acpu_vol_using_START);
-		reg2 = read_reg_mask(PMCTRL_ACPUVOLTTIMEOUT, 0x1,
+		reg2 = read_reg_mask(
+			PMCTRL_ACPUVOLTTIMEOUT, 0x1,
 			SOC_PMCTRL_ACPUVOLTIMEOUT_acpu_vol_timeout_START);
 		if ((count++) > ACPU_DFS_STATE_CNT) {
 			ERROR("%s: acpu destvol cfg timeout.\n", __func__);
@@ -344,22 +358,24 @@ static int acpu_dvfs_freq_ascend(unsigned int cur_prof, unsigned int tar_prof)
 	 */
 	count = 0;
 	do {
-		reg0 = read_reg_mask(PMCTRL_ACPUCLKDIV, 0x3,
+		reg0 = read_reg_mask(
+			PMCTRL_ACPUCLKDIV, 0x3,
 			SOC_PMCTRL_ACPUCLKDIV_acpu_ddr_clk_div_stat_START);
-		reg1 = read_reg_mask(PMCTRL_ACPUCLKDIV, 0x3,
+		reg1 = read_reg_mask(
+			PMCTRL_ACPUCLKDIV, 0x3,
 			SOC_PMCTRL_ACPUCLKDIV_cpuext_clk_div_stat_START);
-		reg2 = read_reg_mask(PMCTRL_ACPUPLLCTRL, 0x1,
+		reg2 = read_reg_mask(
+			PMCTRL_ACPUPLLCTRL, 0x1,
 			SOC_PMCTRL_ACPUPLLCTRL_acpupll_timeout_START);
 		if ((count++) > ACPU_DFS_STATE_CNT) {
 			ERROR("%s: acpu clk div cfg timeout.\n", __func__);
 			return -1;
 		}
-	} while ((reg1 != cpuext_cfg_val) ||
-		(reg0 != acpu_ddr_cfg_val) ||
-		(reg2 != 0x1));
+	} while ((reg1 != cpuext_cfg_val) || (reg0 != acpu_ddr_cfg_val) ||
+		 (reg2 != 0x1));
 
 	write_reg_mask(PMCTRL_ACPUPLLSEL, 0x0,
-		0x1 << SOC_PMCTRL_ACPUPLLSEL_acpu_pllsw_cfg_START);
+		       0x1 << SOC_PMCTRL_ACPUPLLSEL_acpu_pllsw_cfg_START);
 
 	/*
 	 * step 16:
@@ -376,7 +392,8 @@ static int acpu_dvfs_freq_ascend(unsigned int cur_prof, unsigned int tar_prof)
 	 */
 	count = 0;
 	do {
-		reg0 = read_reg_mask(PMCTRL_ACPUPLLSEL, 0x1,
+		reg0 = read_reg_mask(
+			PMCTRL_ACPUPLLSEL, 0x1,
 			SOC_PMCTRL_ACPUPLLSEL_acpu_pllsw_stat_START);
 		if ((count++) > ACPU_DFS_STATE_CNT) {
 			ERROR("%s: acpu pll sw status timeout.\n", __func__);
@@ -385,12 +402,14 @@ static int acpu_dvfs_freq_ascend(unsigned int cur_prof, unsigned int tar_prof)
 	} while (reg0 != 0x1);
 
 	if (acpu_dvfs_profile[tar_prof].freq > 800000)
-		write_reg_mask(ACPU_SC_VD_CTRL,
-			ACPU_SC_VD_EN_ASIC_VAL, ACPU_SC_VD_EN_MASK);
+		write_reg_mask(ACPU_SC_VD_CTRL, ACPU_SC_VD_EN_ASIC_VAL,
+			       ACPU_SC_VD_EN_MASK);
 
-	write_reg_mask(PMCTRL_ACPUSYSPLLCFG, 0x0,
+	write_reg_mask(
+		PMCTRL_ACPUSYSPLLCFG, 0x0,
 		(0x3 << SOC_PMCTRL_ACPUSYSPLLCFG_acpu_subsys_clk_div_sw_START) |
-		(0x1 << SOC_PMCTRL_ACPUSYSPLLCFG_acpu_syspll_clken_cfg_START));
+			(0x1
+			 << SOC_PMCTRL_ACPUSYSPLLCFG_acpu_syspll_clken_cfg_START));
 
 	return 0;
 }
@@ -432,8 +451,10 @@ static int acpu_dvfs_freq_descend(unsigned int cur_prof, unsigned int tar_prof)
 	 * step 6
 	 *  - Config PMCTRL_ACPUPLLFREQ and ACPUPLLFRAC
 	 */
-	mmio_write_32(PMCTRL_ACPUPLLFREQ, acpu_dvfs_profile[tar_prof].acpu_pll_freq);
-	mmio_write_32(PMCTRL_ACPUPLLFRAC, acpu_dvfs_profile[tar_prof].acpu_pll_frac);
+	mmio_write_32(PMCTRL_ACPUPLLFREQ,
+		      acpu_dvfs_profile[tar_prof].acpu_pll_freq);
+	mmio_write_32(PMCTRL_ACPUPLLFRAC,
+		      acpu_dvfs_profile[tar_prof].acpu_pll_frac);
 
 	/*
 	 * step 7:
@@ -445,25 +466,24 @@ static int acpu_dvfs_freq_descend(unsigned int cur_prof, unsigned int tar_prof)
 		count++;
 
 	write_reg_mask(PMCTRL_ACPUPLLCTRL,
-		0x1 << SOC_PMCTRL_ACPUPLLCTRL_acpupll_en_cfg_START,
-		0x1 << SOC_PMCTRL_ACPUPLLCTRL_acpupll_en_cfg_START);
+		       0x1 << SOC_PMCTRL_ACPUPLLCTRL_acpupll_en_cfg_START,
+		       0x1 << SOC_PMCTRL_ACPUPLLCTRL_acpupll_en_cfg_START);
 
 	/* Enable VD functionality if > 800MHz */
 	if (acpu_dvfs_profile[tar_prof].freq > 800000) {
-
-		write_reg_mask(ACPU_SC_VD_HPM_CTRL,
-			HPM_OSC_DIV_VAL, HPM_OSC_DIV_MASK);
+		write_reg_mask(ACPU_SC_VD_HPM_CTRL, HPM_OSC_DIV_VAL,
+			       HPM_OSC_DIV_MASK);
 
 		/*
 		 * step 9:
 		 *  - ACPU_SC_VD_HPM_CTRL.hpm_dly_exp = 0xC7A;
 		 *  - ACPU_SC_VD_MASK_PATTERN_CTRL[12:0] = 0xCCB;
 		 */
-		write_reg_mask(ACPU_SC_VD_HPM_CTRL,
-			HPM_DLY_EXP_VAL, HPM_DLY_EXP_MASK);
+		write_reg_mask(ACPU_SC_VD_HPM_CTRL, HPM_DLY_EXP_VAL,
+			       HPM_DLY_EXP_MASK);
 		write_reg_mask(ACPU_SC_VD_MASK_PATTERN_CTRL,
-			ACPU_SC_VD_MASK_PATTERN_VAL,
-			ACPU_SC_VD_MASK_PATTERN_MASK);
+			       ACPU_SC_VD_MASK_PATTERN_VAL,
+			       ACPU_SC_VD_MASK_PATTERN_MASK);
 
 		/*
 		 * step 10:
@@ -487,9 +507,8 @@ static int acpu_dvfs_freq_descend(unsigned int cur_prof, unsigned int tar_prof)
 		 * step 12:
 		 *  - ACPU_SC_VD_CTRL.tune = 0x7;
 		 */
-		write_reg_mask(ACPU_SC_VD_CTRL,
-			ACPU_SC_VD_SHIFT_TABLE_TUNE_VAL,
-			ACPU_SC_VD_SHIFT_TABLE_TUNE_MASK);
+		write_reg_mask(ACPU_SC_VD_CTRL, ACPU_SC_VD_SHIFT_TABLE_TUNE_VAL,
+			       ACPU_SC_VD_SHIFT_TABLE_TUNE_MASK);
 	}
 
 	/*
@@ -499,7 +518,8 @@ static int acpu_dvfs_freq_descend(unsigned int cur_prof, unsigned int tar_prof)
 	 */
 	count = 0;
 	do {
-		reg0 = read_reg_mask(PMCTRL_ACPUPLLCTRL, 0x1,
+		reg0 = read_reg_mask(
+			PMCTRL_ACPUPLLCTRL, 0x1,
 			SOC_PMCTRL_ACPUPLLCTRL_acpupll_timeout_START);
 		if ((count++) > ACPU_DFS_STATE_CNT) {
 			ERROR("%s: acpupll timeout.\n", __func__);
@@ -508,7 +528,7 @@ static int acpu_dvfs_freq_descend(unsigned int cur_prof, unsigned int tar_prof)
 	} while (reg0 != 0x1);
 
 	write_reg_mask(PMCTRL_ACPUPLLSEL, 0x0,
-		0x1 << SOC_PMCTRL_ACPUPLLSEL_acpu_pllsw_cfg_START);
+		       0x1 << SOC_PMCTRL_ACPUPLLSEL_acpu_pllsw_cfg_START);
 
 	/*
 	 * step 14:
@@ -523,7 +543,8 @@ static int acpu_dvfs_freq_descend(unsigned int cur_prof, unsigned int tar_prof)
 	 */
 	count = 0;
 	do {
-		reg0 = read_reg_mask(PMCTRL_ACPUPLLSEL, 0x1,
+		reg0 = read_reg_mask(
+			PMCTRL_ACPUPLLSEL, 0x1,
 			SOC_PMCTRL_ACPUPLLSEL_acpu_pllsw_stat_START);
 		if ((count++) > ACPU_DFS_STATE_CNT) {
 			ERROR("%s: acpupll sw status timeout.\n", __func__);
@@ -532,17 +553,19 @@ static int acpu_dvfs_freq_descend(unsigned int cur_prof, unsigned int tar_prof)
 	} while (reg0 != 0x1);
 
 	if (acpu_dvfs_profile[tar_prof].freq > 800000)
-		write_reg_mask(ACPU_SC_VD_CTRL,
-			ACPU_SC_VD_EN_ASIC_VAL, ACPU_SC_VD_EN_MASK);
+		write_reg_mask(ACPU_SC_VD_CTRL, ACPU_SC_VD_EN_ASIC_VAL,
+			       ACPU_SC_VD_EN_MASK);
 
 	/*
 	 * step 15:
 	 *  - PMCTRL_ACPUSYSPLLCFG.acpu_subsys_clk_div_sw = 0x0;
 	 *  - ACPUSYSPLLCFG.acpu_syspll_clken_cfg = 0x0;
 	 */
-	write_reg_mask(PMCTRL_ACPUSYSPLLCFG, 0x0,
+	write_reg_mask(
+		PMCTRL_ACPUSYSPLLCFG, 0x0,
 		(0x3 << SOC_PMCTRL_ACPUSYSPLLCFG_acpu_subsys_clk_div_sw_START) |
-		(0x1 << SOC_PMCTRL_ACPUSYSPLLCFG_acpu_syspll_clken_cfg_START));
+			(0x1
+			 << SOC_PMCTRL_ACPUSYSPLLCFG_acpu_syspll_clken_cfg_START));
 
 	/*
 	 * step 16:
@@ -551,7 +574,7 @@ static int acpu_dvfs_freq_descend(unsigned int cur_prof, unsigned int tar_prof)
 	count = 0;
 	do {
 		reg0 = read_reg_mask(ACPU_SC_CPU_STAT, 0x3,
-			ACPU_SC_CPU_STAT_CLK_DIV_STATUS_VD_SHIFT);
+				     ACPU_SC_CPU_STAT_CLK_DIV_STATUS_VD_SHIFT);
 		if ((count++) > ACPU_DFS_STATE_CNT) {
 			ERROR("%s: clk div status timeout.\n", __func__);
 			return -1;
@@ -568,9 +591,11 @@ static int acpu_dvfs_freq_descend(unsigned int cur_prof, unsigned int tar_prof)
 	 */
 	count = 0;
 	do {
-		reg0 = read_reg_mask(PMCTRL_ACPUCLKDIV, 0x3,
+		reg0 = read_reg_mask(
+			PMCTRL_ACPUCLKDIV, 0x3,
 			SOC_PMCTRL_ACPUCLKDIV_cpuext_clk_div_stat_START);
-		reg1 = read_reg_mask(PMCTRL_ACPUCLKDIV, 0x3,
+		reg1 = read_reg_mask(
+			PMCTRL_ACPUCLKDIV, 0x3,
 			SOC_PMCTRL_ACPUCLKDIV_acpu_ddr_clk_div_stat_START);
 		if ((count++) > ACPU_DFS_STATE_CNT) {
 			ERROR("%s: acpu clk div cfg timeout.\n", __func__);
@@ -593,7 +618,8 @@ static int acpu_dvfs_freq_descend(unsigned int cur_prof, unsigned int tar_prof)
 	 *  - PMCTRL_ACPUSYSPLLCFG.acpu_subsys_clk_div_sw = 0x0;
 	 *  - ACPUSYSPLLCFG.acpu_syspll_clken_cfg = 0x0;
 	 */
-	write_reg_mask(PMCTRL_ACPUDESTVOL,
+	write_reg_mask(
+		PMCTRL_ACPUDESTVOL,
 		acpu_dvfs_profile[tar_prof].acpu_vol_profile,
 		((0x1 << (SOC_PMCTRL_ACPUDESTVOL_acpu_dest_vol_END + 1)) - 1));
 
@@ -604,11 +630,14 @@ static int acpu_dvfs_freq_descend(unsigned int cur_prof, unsigned int tar_prof)
 	 */
 	count = 0;
 	do {
-		reg0 = read_reg_mask(PMCTRL_ACPUDESTVOL, 0x7F,
+		reg0 = read_reg_mask(
+			PMCTRL_ACPUDESTVOL, 0x7F,
 			SOC_PMCTRL_ACPUDESTVOL_acpu_dest_vol_START);
-		reg1 = read_reg_mask(PMCTRL_ACPUDESTVOL, 0x7F,
+		reg1 = read_reg_mask(
+			PMCTRL_ACPUDESTVOL, 0x7F,
 			SOC_PMCTRL_ACPUDESTVOL_acpu_vol_using_START);
-		reg2 = read_reg_mask(PMCTRL_ACPUVOLTTIMEOUT, 0x1,
+		reg2 = read_reg_mask(
+			PMCTRL_ACPUVOLTTIMEOUT, 0x1,
 			SOC_PMCTRL_ACPUVOLTIMEOUT_acpu_vol_timeout_START);
 		if ((count++) > ACPU_DFS_STATE_CNT) {
 			ERROR("%s: acpu destvol cfg timeout.\n", __func__);
@@ -624,15 +653,15 @@ int acpu_dvfs_target(unsigned int curr_prof, unsigned int target_prof)
 	int ret = 0;
 
 	if (curr_prof == target_prof) {
-		INFO("%s: target_prof is equal curr_prof: is %d!\n",
-			__func__, curr_prof);
+		INFO("%s: target_prof is equal curr_prof: is %d!\n", __func__,
+		     curr_prof);
 		return 0;
 	}
 
 	if ((curr_prof >= ACPU_FREQ_MAX_NUM) ||
 	    (target_prof >= ACPU_FREQ_MAX_NUM)) {
-		INFO("%s: invalid parameter %d %d\n",
-			__func__, curr_prof, target_prof);
+		INFO("%s: invalid parameter %d %d\n", __func__, curr_prof,
+		     target_prof);
 		return -1;
 	}
 
@@ -667,7 +696,6 @@ static int acpu_dvfs_set_freq(void)
 	max_freq = acpu_dvfs_sram_buf->support_freq_max;
 
 	for (i = 0; i < acpu_dvfs_sram_buf->support_freq_num; i++) {
-
 		if (max_freq == hi6220_acpu_profile[i].freq) {
 			target_prof = i;
 			break;
@@ -691,12 +719,11 @@ static int acpu_dvfs_set_freq(void)
 		return -1;
 	}
 
-	INFO("%s: support freq num is %d\n",
-		__func__, acpu_dvfs_sram_buf->support_freq_num);
-	INFO("%s: start prof is 0x%x\n",
-		__func__,  acpu_dvfs_sram_buf->start_prof);
-	INFO("%s: magic is 0x%x\n",
-		__func__, acpu_dvfs_sram_buf->magic);
+	INFO("%s: support freq num is %d\n", __func__,
+	     acpu_dvfs_sram_buf->support_freq_num);
+	INFO("%s: start prof is 0x%x\n", __func__,
+	     acpu_dvfs_sram_buf->start_prof);
+	INFO("%s: magic is 0x%x\n", __func__, acpu_dvfs_sram_buf->magic);
 	INFO("%s: voltage:\n", __func__);
 	for (i = 0; i < acpu_dvfs_sram_buf->support_freq_num; i++)
 		INFO("  - %d: 0x%x\n", i, acpu_dvfs_sram_buf->vol[i]);
@@ -765,12 +792,13 @@ void init_acpu_dvfs(void)
 
 	/* init parameters */
 	mmio_write_32(ACPU_CHIP_MAX_FREQ, efuse_acpu_freq[8]);
-	INFO("%s: ACPU_CHIP_MAX_FREQ=0x%x.\n",
-		__func__, mmio_read_32(ACPU_CHIP_MAX_FREQ));
+	INFO("%s: ACPU_CHIP_MAX_FREQ=0x%x.\n", __func__,
+	     mmio_read_32(ACPU_CHIP_MAX_FREQ));
 
 	/* set maximum support frequency to 1.2GHz */
 	for (i = 0; i < ACPU_FREQ_MAX_NUM; i++)
-		acpu_dvfs_sram_buf->vol[i] = hi6220_acpu_profile[i].acpu_vol_profile;
+		acpu_dvfs_sram_buf->vol[i] =
+			hi6220_acpu_profile[i].acpu_vol_profile;
 
 	acpu_dvfs_sram_buf->support_freq_num = ACPU_FREQ_MAX_NUM;
 	acpu_dvfs_sram_buf->support_freq_max = 1200000;

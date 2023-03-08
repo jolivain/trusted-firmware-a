@@ -12,6 +12,7 @@
 #include <common/fdt_wrappers.h>
 #include <fconf_hw_config_getter.h>
 #include <libfdt.h>
+
 #include <plat/common/platform.h>
 
 struct gicv3_config_t gicv3_config;
@@ -24,11 +25,11 @@ struct ns_dram_layout dram_layout;
  * Each NS DRAM bank entry is 'reg' node property which is
  * a sequence of (address, length) pairs of 32-bit values.
  */
-#define DRAM_ENTRY_SIZE		(4UL * sizeof(uint32_t))
+#define DRAM_ENTRY_SIZE (4UL * sizeof(uint32_t))
 
 CASSERT(ARM_DRAM_NUM_BANKS == 2UL, ARM_DRAM_NUM_BANKS_mismatch);
 
-#define ILLEGAL_ADDR	ULL(~0)
+#define ILLEGAL_ADDR ULL(~0)
 
 int fconf_populate_gicv3_config(uintptr_t config)
 {
@@ -73,7 +74,8 @@ int fconf_populate_gicv3_config(uintptr_t config)
 int fconf_populate_topology(uintptr_t config)
 {
 	int err, node, cluster_node, core_node, thread_node;
-	uint32_t cluster_count = 0, max_cpu_per_cluster = 0, total_cpu_count = 0;
+	uint32_t cluster_count = 0, max_cpu_per_cluster = 0,
+		 total_cpu_count = 0;
 	uint32_t max_pwr_lvl = 0;
 
 	/* Necessary to work with libfdt APIs */
@@ -101,7 +103,8 @@ int fconf_populate_topology(uintptr_t config)
 	/* Find the offset of the "cpus" node */
 	node = fdt_path_offset(hw_config_dtb, "/cpus");
 	if (node < 0) {
-		ERROR("FCONF: Node '%s' not found in hardware configuration dtb\n", "cpus");
+		ERROR("FCONF: Node '%s' not found in hardware configuration dtb\n",
+		      "cpus");
 		return node;
 	}
 
@@ -130,11 +133,12 @@ int fconf_populate_topology(uintptr_t config)
 	/* Locate the cpu-map child node */
 	node = fdt_subnode_offset(hw_config_dtb, node, "cpu-map");
 	if (node < 0) {
-		ERROR("FCONF: Node '%s' not found in hardware configuration dtb\n", "cpu-map");
+		ERROR("FCONF: Node '%s' not found in hardware configuration dtb\n",
+		      "cpu-map");
 		return node;
 	}
 
-	uint32_t cpus_per_cluster[PLAT_ARM_CLUSTER_COUNT] = {0};
+	uint32_t cpus_per_cluster[PLAT_ARM_CLUSTER_COUNT] = { 0 };
 
 	/* Iterate through cluster nodes */
 	fdt_for_each_subnode(cluster_node, hw_config_dtb, node) {
@@ -147,7 +151,8 @@ int fconf_populate_topology(uintptr_t config)
 				cpus_per_cluster[cluster_count]++;
 			} else {
 				/* Multi-threaded CPU description is found in dtb */
-				fdt_for_each_subnode(thread_node, hw_config_dtb, core_node) {
+				fdt_for_each_subnode(thread_node, hw_config_dtb,
+						     core_node) {
 					cpus_per_cluster[cluster_count]++;
 				}
 
@@ -159,19 +164,20 @@ int fconf_populate_topology(uintptr_t config)
 
 		/* Ensure every cluster node has at least 1 child node */
 		if (cpus_per_cluster[cluster_count] < 1U) {
-			ERROR("FCONF: Unable to locate the core node in cluster %d\n", cluster_count);
+			ERROR("FCONF: Unable to locate the core node in cluster %d\n",
+			      cluster_count);
 			return -1;
 		}
 
 		VERBOSE("CLUSTER ID: %d cpu-count: %d\n", cluster_count,
-					cpus_per_cluster[cluster_count]);
+			cpus_per_cluster[cluster_count]);
 
 		/* Find the maximum number of cpus in any cluster */
-		max_cpu_per_cluster = MAX(max_cpu_per_cluster, cpus_per_cluster[cluster_count]);
+		max_cpu_per_cluster = MAX(max_cpu_per_cluster,
+					  cpus_per_cluster[cluster_count]);
 		total_cpu_count += cpus_per_cluster[cluster_count];
 		cluster_count++;
 	}
-
 
 	/* At least one cluster node is expected in hardware configuration dtb */
 	if (cluster_count < 1U) {
@@ -220,10 +226,10 @@ int fconf_populate_uart_config(uintptr_t config)
 
 	/* uart serial node has its offset and size of address in reg property */
 	err = fdt_get_reg_props_by_index(hw_config_dtb, uart_node, 0, &addr,
-						NULL);
+					 NULL);
 	if (err < 0) {
 		ERROR("FCONF: Failed to read reg property of '%s' node\n",
-			"uart serial");
+		      "uart serial");
 		return err;
 	}
 	VERBOSE("FCONF: UART node address: %lx\n", addr);
@@ -232,8 +238,8 @@ int fconf_populate_uart_config(uintptr_t config)
 	 * Perform address translation of local device address to CPU address
 	 * domain.
 	 */
-	translated_addr = fdtw_translate_address(hw_config_dtb,
-						 uart_node, (uint64_t)addr);
+	translated_addr = fdtw_translate_address(hw_config_dtb, uart_node,
+						 (uint64_t)addr);
 	if (translated_addr == ILLEGAL_ADDR) {
 		ERROR("FCONF: failed to translate UART node base address");
 		return -1;
@@ -265,7 +271,7 @@ int fconf_populate_uart_config(uintptr_t config)
 	 * clock.
 	 */
 	err = fdt_read_uint32(hw_config_dtb, node, "clock-frequency",
-				&uart_serial_config.uart_clk);
+			      &uart_serial_config.uart_clk);
 	if (err < 0) {
 		ERROR("FCONF: Could not read clock-frequency property in clk node\n");
 		return err;
@@ -287,14 +293,17 @@ int fconf_populate_cpu_timer(uintptr_t config)
 	/* Find the node offset point to "arm,armv8-timer" compatible property,
 	 * a per-core architected timer attached to a GIC to deliver its per-processor
 	 * interrupts via PPIs */
-	node = fdt_node_offset_by_compatible(hw_config_dtb, -1, "arm,armv8-timer");
+	node = fdt_node_offset_by_compatible(hw_config_dtb, -1,
+					     "arm,armv8-timer");
 	if (node < 0) {
-		ERROR("FCONF: Unrecognized hardware configuration dtb (%d)\n", node);
+		ERROR("FCONF: Unrecognized hardware configuration dtb (%d)\n",
+		      node);
 		return node;
 	}
 
 	/* Locate the cell holding the clock-frequency, an optional field */
-	err = fdt_read_uint32(hw_config_dtb, node, "clock-frequency", &cpu_timer.clock_freq);
+	err = fdt_read_uint32(hw_config_dtb, node, "clock-frequency",
+			      &cpu_timer.clock_freq);
 	if (err < 0) {
 		WARN("FCONF failed to read clock-frequency property\n");
 	}
@@ -340,11 +349,12 @@ int fconf_populate_dram_layout(uintptr_t config)
 
 	for (unsigned long i = 0UL; i < dram_layout.num_banks; i++) {
 		int err = fdt_get_reg_props_by_index(
-				hw_config_dtb, node, (int)i,
-				&dram_layout.dram_bank[i].base,
-				(size_t *)&dram_layout.dram_bank[i].size);
+			hw_config_dtb, node, (int)i,
+			&dram_layout.dram_bank[i].base,
+			(size_t *)&dram_layout.dram_bank[i].size);
 		if (err < 0) {
-			ERROR("FCONF: Failed to read 'reg' property #%lu of 'memory' node\n", i);
+			ERROR("FCONF: Failed to read 'reg' property #%lu of 'memory' node\n",
+			      i);
 			return err;
 		}
 	}

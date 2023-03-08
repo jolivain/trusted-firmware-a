@@ -9,23 +9,22 @@
 #include <common/debug.h>
 #include <drivers/mentor/mi2cv.h>
 #include <lib/mmio.h>
-
 #include <mv_ddr_if.h>
 #include <mvebu_def.h>
 #include <plat_marvell.h>
 
-#define MVEBU_AP_MPP_CTRL0_7_REG                MVEBU_AP_MPP_REGS(0)
-#define MVEBU_AP_MPP_CTRL4_OFFS                 16
-#define MVEBU_AP_MPP_CTRL5_OFFS                 20
-#define MVEBU_AP_MPP_CTRL4_I2C0_SDA_ENA         0x3
-#define MVEBU_AP_MPP_CTRL5_I2C0_SCK_ENA         0x3
+#define MVEBU_AP_MPP_CTRL0_7_REG MVEBU_AP_MPP_REGS(0)
+#define MVEBU_AP_MPP_CTRL4_OFFS 16
+#define MVEBU_AP_MPP_CTRL5_OFFS 20
+#define MVEBU_AP_MPP_CTRL4_I2C0_SDA_ENA 0x3
+#define MVEBU_AP_MPP_CTRL5_I2C0_SCK_ENA 0x3
 
-#define MVEBU_CP_MPP_CTRL37_OFFS		20
-#define MVEBU_CP_MPP_CTRL38_OFFS		24
-#define MVEBU_CP_MPP_CTRL37_I2C0_SCK_ENA	0x2
-#define MVEBU_CP_MPP_CTRL38_I2C0_SDA_ENA	0x2
+#define MVEBU_CP_MPP_CTRL37_OFFS 20
+#define MVEBU_CP_MPP_CTRL38_OFFS 24
+#define MVEBU_CP_MPP_CTRL37_I2C0_SCK_ENA 0x2
+#define MVEBU_CP_MPP_CTRL38_I2C0_SDA_ENA 0x2
 
-#define MVEBU_MPP_CTRL_MASK			0xf
+#define MVEBU_MPP_CTRL_MASK 0xf
 
 /*
  * This struct provides the DRAM training code with
@@ -36,58 +35,63 @@ static struct mv_ddr_topology_map board_topology_map = {
 	DEBUG_LEVEL_ERROR,
 	0x1, /* active interfaces */
 	/* cs_mask, mirror, dqs_swap, ck_swap X subphys */
-	{ { { {0x1, 0x0, 0, 0},	/* FIXME: change the cs mask for all 64 bit */
-	      {0x1, 0x0, 0, 0},
-	      {0x1, 0x0, 0, 0},
-	      {0x1, 0x0, 0, 0},
-	      {0x1, 0x0, 0, 0},
-	      {0x1, 0x0, 0, 0},
-	      {0x1, 0x0, 0, 0},
-	      {0x1, 0x0, 0, 0},
-	      {0x1, 0x0, 0, 0} },
-	   /* TODO: double check if the speed bin is 2400T */
-	   SPEED_BIN_DDR_2400T,		/* speed_bin */
-	   MV_DDR_DEV_WIDTH_8BIT,	/* sdram device width */
-	   MV_DDR_DIE_CAP_8GBIT,	/* die capacity */
-	   MV_DDR_FREQ_SAR,		/* frequency */
-	   0, 0,			/* cas_l, cas_wl */
-	   MV_DDR_TEMP_LOW} },		/* temperature */
-	   MV_DDR_64BIT_BUS_MASK,	/* subphys mask */
-	   MV_DDR_CFG_SPD,		/* ddr configuration data source */
-	NOT_COMBINED,			/* ddr twin-die combined*/
-	{ {0} },			/* raw spd data */
-	{0},				/* timing parameters */
-	{				/* electrical configuration */
-		{			/* memory electrical configuration */
-			MV_DDR_RTT_NOM_PARK_RZQ_DISABLE,	/* rtt_nom */
+	{ { { { 0x1, 0x0, 0, 0 }, /* FIXME: change the cs mask for all 64 bit */
+	      { 0x1, 0x0, 0, 0 },
+	      { 0x1, 0x0, 0, 0 },
+	      { 0x1, 0x0, 0, 0 },
+	      { 0x1, 0x0, 0, 0 },
+	      { 0x1, 0x0, 0, 0 },
+	      { 0x1, 0x0, 0, 0 },
+	      { 0x1, 0x0, 0, 0 },
+	      { 0x1, 0x0, 0, 0 } },
+	    /* TODO: double check if the speed bin is 2400T */
+	    SPEED_BIN_DDR_2400T, /* speed_bin */
+	    MV_DDR_DEV_WIDTH_8BIT, /* sdram device width */
+	    MV_DDR_DIE_CAP_8GBIT, /* die capacity */
+	    MV_DDR_FREQ_SAR, /* frequency */
+	    0,
+	    0, /* cas_l, cas_wl */
+	    MV_DDR_TEMP_LOW } }, /* temperature */
+	MV_DDR_64BIT_BUS_MASK, /* subphys mask */
+	MV_DDR_CFG_SPD, /* ddr configuration data source */
+	NOT_COMBINED, /* ddr twin-die combined*/
+	{ { 0 } }, /* raw spd data */
+	{ 0 }, /* timing parameters */
+	{
+		/* electrical configuration */
+		{
+			/* memory electrical configuration */
+			MV_DDR_RTT_NOM_PARK_RZQ_DISABLE, /* rtt_nom */
 			{
 				MV_DDR_RTT_NOM_PARK_RZQ_DIV4, /* rtt_park 1cs */
-				MV_DDR_RTT_NOM_PARK_RZQ_DIV1  /* rtt_park 2cs */
+				MV_DDR_RTT_NOM_PARK_RZQ_DIV1 /* rtt_park 2cs */
 			},
 			{
-				MV_DDR_RTT_WR_DYN_ODT_OFF,	/* rtt_wr 1cs */
-				MV_DDR_RTT_WR_RZQ_DIV2		/* rtt_wr 2cs */
+				MV_DDR_RTT_WR_DYN_ODT_OFF, /* rtt_wr 1cs */
+				MV_DDR_RTT_WR_RZQ_DIV2 /* rtt_wr 2cs */
 			},
-			MV_DDR_DIC_RZQ_DIV7	/* dic */
+			MV_DDR_DIC_RZQ_DIV7 /* dic */
 		},
-		{			/* phy electrical configuration */
-			MV_DDR_OHM_30,	/* data_drv_p */
-			MV_DDR_OHM_30,	/* data_drv_n */
-			MV_DDR_OHM_30,	/* ctrl_drv_p */
-			MV_DDR_OHM_30,	/* ctrl_drv_n */
+		{
+			/* phy electrical configuration */
+			MV_DDR_OHM_30, /* data_drv_p */
+			MV_DDR_OHM_30, /* data_drv_n */
+			MV_DDR_OHM_30, /* ctrl_drv_p */
+			MV_DDR_OHM_30, /* ctrl_drv_n */
 			{
-				MV_DDR_OHM_60,	/* odt_p 1cs */
-				MV_DDR_OHM_120	/* odt_p 2cs */
+				MV_DDR_OHM_60, /* odt_p 1cs */
+				MV_DDR_OHM_120 /* odt_p 2cs */
 			},
 			{
-				MV_DDR_OHM_60,	/* odt_n 1cs */
-				MV_DDR_OHM_120	/* odt_n 2cs */
+				MV_DDR_OHM_60, /* odt_n 1cs */
+				MV_DDR_OHM_120 /* odt_n 2cs */
 			},
 		},
-		{			/* mac electrical configuration */
-			MV_DDR_ODT_CFG_NORMAL,		/* odtcfg_pattern */
-			MV_DDR_ODT_CFG_ALWAYS_ON,	/* odtcfg_write */
-			MV_DDR_ODT_CFG_NORMAL,		/* odtcfg_read */
+		{
+			/* mac electrical configuration */
+			MV_DDR_ODT_CFG_NORMAL, /* odtcfg_pattern */
+			MV_DDR_ODT_CFG_ALWAYS_ON, /* odtcfg_write */
+			MV_DDR_ODT_CFG_NORMAL, /* odtcfg_read */
 		},
 	}
 };
@@ -103,12 +107,12 @@ static void mpp_config(void)
 	uint32_t val;
 	uintptr_t reg;
 
-       /* configure ap mmps 4, 5 to I2C */
+	/* configure ap mmps 4, 5 to I2C */
 	reg = MVEBU_AP_MPP_CTRL0_7_REG;
 
 	val = mmio_read_32(reg);
 	val &= ~((MVEBU_MPP_CTRL_MASK << MVEBU_AP_MPP_CTRL4_OFFS) |
-		(MVEBU_MPP_CTRL_MASK << MVEBU_AP_MPP_CTRL5_OFFS));
+		 (MVEBU_MPP_CTRL_MASK << MVEBU_AP_MPP_CTRL5_OFFS));
 	val |= ((MVEBU_AP_MPP_CTRL4_I2C0_SDA_ENA << MVEBU_AP_MPP_CTRL4_OFFS) |
 		(MVEBU_AP_MPP_CTRL5_I2C0_SCK_ENA << MVEBU_AP_MPP_CTRL5_OFFS));
 

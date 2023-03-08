@@ -1,11 +1,12 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <drivers/arm/gicv2.h>
 #include <drivers/arm/gic_common.h>
+#include <drivers/arm/gicv2.h>
+
 #include <platform_def.h>
 
 static const interrupt_prop_t qemu_interrupt_props[] = {

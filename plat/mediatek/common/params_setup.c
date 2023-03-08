@@ -4,10 +4,11 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <lib/bl_aux_params/bl_aux_params.h>
-#include <common/debug.h>
-#include <plat_params.h>
 #include <string.h>
+
+#include <common/debug.h>
+#include <lib/bl_aux_params/bl_aux_params.h>
+#include <plat_params.h>
 
 static struct bl_aux_gpio_info rst_gpio;
 
@@ -32,4 +33,3 @@ void params_early_setup(u_register_t plat_param_from_bl2)
 {
 	bl_aux_params_parse(plat_param_from_bl2, mtk_aux_param_handler);
 }
-

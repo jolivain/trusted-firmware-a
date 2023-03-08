@@ -80,7 +80,6 @@ int fixed_regulator_register(void)
 
 		count++;
 		assert(count <= PLAT_NB_FIXED_REGS);
-
 	}
 
 	return 0;

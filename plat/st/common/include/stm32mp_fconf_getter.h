@@ -13,10 +13,11 @@
 #include <tools_share/uuid.h>
 
 /* IO policies */
-#define stm32mp__io_policies_getter(id) __extension__ ({	\
-	assert((id) < MAX_NUMBER_IDS);				\
-	&policies[id];						\
-})
+#define stm32mp__io_policies_getter(id)        \
+	__extension__({                        \
+		assert((id) < MAX_NUMBER_IDS); \
+		&policies[id];                 \
+	})
 
 struct plat_io_policy {
 	uintptr_t *dev_handle;

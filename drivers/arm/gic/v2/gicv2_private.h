@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -17,11 +17,11 @@
  ******************************************************************************/
 void gicv2_spis_configure_defaults(uintptr_t gicd_base);
 void gicv2_secure_spis_configure_props(uintptr_t gicd_base,
-		const interrupt_prop_t *interrupt_props,
-		unsigned int interrupt_props_num);
+				       const interrupt_prop_t *interrupt_props,
+				       unsigned int interrupt_props_num);
 void gicv2_secure_ppi_sgi_setup_props(uintptr_t gicd_base,
-		const interrupt_prop_t *interrupt_props,
-		unsigned int interrupt_props_num);
+				      const interrupt_prop_t *interrupt_props,
+				      unsigned int interrupt_props_num);
 unsigned int gicv2_get_cpuif_id(uintptr_t base);
 
 /*******************************************************************************
@@ -41,7 +41,7 @@ static inline unsigned int gicd_get_itargetsr(uintptr_t base, unsigned int id)
 }
 
 static inline void gicd_set_itargetsr(uintptr_t base, unsigned int id,
-		unsigned int target)
+				      unsigned int target)
 {
 	uint8_t val = target & GIC_TARGET_CPU_MASK;
 
@@ -125,7 +125,6 @@ static inline void gicc_write_BPR(uintptr_t base, unsigned int val)
 {
 	mmio_write_32(base + GICC_BPR, val);
 }
-
 
 static inline void gicc_write_IAR(uintptr_t base, unsigned int val)
 {

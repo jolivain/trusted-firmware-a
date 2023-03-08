@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -23,7 +23,7 @@ static const uuid_t uuid_null;
 static uintptr_t trng_rnd32(uint32_t nbits, void *handle)
 {
 	uint32_t mask = ~0U;
-	uint64_t ent[2] = {0};
+	uint64_t ent[2] = { 0 };
 
 	if (nbits == 0U || nbits > TRNG_RND32_ENTROPY_MAXBITS) {
 		SMC_RET1(handle, TRNG_E_INVALID_PARAMS);
@@ -59,7 +59,7 @@ static uintptr_t trng_rnd32(uint32_t nbits, void *handle)
 static uintptr_t trng_rnd64(uint32_t nbits, void *handle)
 {
 	uint64_t mask = ~0ULL;
-	uint64_t ent[3] = {0};
+	uint64_t ent[3] = { 0 };
 
 	if (nbits == 0U || nbits > TRNG_RND64_ENTROPY_MAXBITS) {
 		SMC_RET1(handle, TRNG_E_INVALID_PARAMS);
@@ -101,8 +101,7 @@ bool is_trng_fid(uint32_t smc_fid)
 {
 	return ((smc_fid == ARM_TRNG_VERSION) ||
 		(smc_fid == ARM_TRNG_FEATURES) ||
-		(smc_fid == ARM_TRNG_GET_UUID) ||
-		(smc_fid == ARM_TRNG_RND32) ||
+		(smc_fid == ARM_TRNG_GET_UUID) || (smc_fid == ARM_TRNG_RND32) ||
 		(smc_fid == ARM_TRNG_RND64));
 }
 
@@ -116,8 +115,8 @@ uintptr_t trng_smc_handler(uint32_t smc_fid, u_register_t x1, u_register_t x2,
 
 	switch (smc_fid) {
 	case ARM_TRNG_VERSION:
-		SMC_RET1(handle, MAKE_SMCCC_VERSION(
-			TRNG_VERSION_MAJOR, TRNG_VERSION_MINOR));
+		SMC_RET1(handle, MAKE_SMCCC_VERSION(TRNG_VERSION_MAJOR,
+						    TRNG_VERSION_MINOR));
 		break; /* unreachable */
 
 	case ARM_TRNG_FEATURES:

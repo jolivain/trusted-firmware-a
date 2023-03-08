@@ -11,8 +11,8 @@
 #include <dcfg.h>
 
 #if defined(NXP_HAS_CCN504) || defined(NXP_HAS_CCN508)
-#define CCN_HN_F_SAM_CTL		0x8
-#define CCN_HN_F_REGION_SIZE		0x10000
+#define CCN_HN_F_SAM_CTL 0x8
+#define CCN_HN_F_REGION_SIZE 0x10000
 #endif
 
 unsigned long get_ddr_freq(struct sysinfo *sys, int ctrl_num);

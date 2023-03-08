@@ -10,32 +10,31 @@
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-
 #include <paxb.h>
 #include <sr_def.h>
 #include <sr_utils.h>
 
-#define PCIE_CORE_PWR_ARR_POWERON        0x8
-#define PCIE_CORE_PWR_ARR_POWEROK        0x4
-#define PCIE_CORE_PWR_POWERON            0x2
-#define PCIE_CORE_PWR_POWEROK            0x1
+#define PCIE_CORE_PWR_ARR_POWERON 0x8
+#define PCIE_CORE_PWR_ARR_POWEROK 0x4
+#define PCIE_CORE_PWR_POWERON 0x2
+#define PCIE_CORE_PWR_POWEROK 0x1
 
-#define PCIE_CORE_USER_CFG               (PCIE_CORE_BASE + 0x38)
-#define PCIE_PAXB_SMMU_SID_CFG           (PCIE_CORE_BASE + 0x60)
+#define PCIE_CORE_USER_CFG (PCIE_CORE_BASE + 0x38)
+#define PCIE_PAXB_SMMU_SID_CFG (PCIE_CORE_BASE + 0x60)
 #ifdef SID_B8_D1_F1
-#define PAXB_SMMU_SID_CFG_BUS_WIDTH      (0x8 << 8)
-#define PAXB_SMMU_SID_CFG_DEV_WIDTH      (0x1 << 12)
-#define PAXB_SMMU_SID_CFG_FUN_WIDTH      (0x1 << 16)
+#define PAXB_SMMU_SID_CFG_BUS_WIDTH (0x8 << 8)
+#define PAXB_SMMU_SID_CFG_DEV_WIDTH (0x1 << 12)
+#define PAXB_SMMU_SID_CFG_FUN_WIDTH (0x1 << 16)
 #else
-#define PAXB_SMMU_SID_CFG_BUS_WIDTH      (0x2 << 8)
-#define PAXB_SMMU_SID_CFG_DEV_WIDTH      (0x5 << 12)
-#define PAXB_SMMU_SID_CFG_FUN_WIDTH      (0x3 << 16)
+#define PAXB_SMMU_SID_CFG_BUS_WIDTH (0x2 << 8)
+#define PAXB_SMMU_SID_CFG_DEV_WIDTH (0x5 << 12)
+#define PAXB_SMMU_SID_CFG_FUN_WIDTH (0x3 << 16)
 #endif
 
 #define PAXB_APB_TIMEOUT_COUNT_OFFSET 0x034
 
 /* allow up to 5 ms for each power switch to stabilize */
-#define PCIE_CORE_PWR_TIMEOUT_MS      5
+#define PCIE_CORE_PWR_TIMEOUT_MS 5
 
 /* wait 1 microsecond for PCIe core soft reset */
 #define PCIE_CORE_SOFT_RST_DELAY_US 1
@@ -43,191 +42,189 @@
 /*
  * List of PAXB APB registers
  */
-#define PAXB_BASE                        0x48000000
-#define PAXB_BASE_OFFSET                 0x4000
-#define PAXB_OFFSET(core)                (PAXB_BASE + \
-					  (core) * PAXB_BASE_OFFSET)
+#define PAXB_BASE 0x48000000
+#define PAXB_BASE_OFFSET 0x4000
+#define PAXB_OFFSET(core) (PAXB_BASE + (core)*PAXB_BASE_OFFSET)
 
-#define PAXB_CLK_CTRL_OFFSET             0x000
-#define PAXB_EP_PERST_SRC_SEL_MASK       (1 << 2)
-#define PAXB_EP_MODE_PERST_MASK          (1 << 1)
-#define PAXB_RC_PCIE_RST_OUT_MASK        (1 << 0)
+#define PAXB_CLK_CTRL_OFFSET 0x000
+#define PAXB_EP_PERST_SRC_SEL_MASK (1 << 2)
+#define PAXB_EP_MODE_PERST_MASK (1 << 1)
+#define PAXB_RC_PCIE_RST_OUT_MASK (1 << 0)
 
-#define PAXB_MAX_IMAP_WINDOWS            8
-#define PAXB_IMAP_REG_WIDTH              8
-#define PAXB_IMAP0_REG_WIDTH             4
-#define PAXB_AXUSER_REG_WIDTH            4
+#define PAXB_MAX_IMAP_WINDOWS 8
+#define PAXB_IMAP_REG_WIDTH 8
+#define PAXB_IMAP0_REG_WIDTH 4
+#define PAXB_AXUSER_REG_WIDTH 4
 
-#define PAXB_CFG_IND_ADDR_OFFSET         0x120
-#define PAXB_CFG_IND_DATA_OFFSET         0x124
-#define PAXB_CFG_IND_ADDR_MASK           0x1ffc
-#define PAXB_CFG_CFG_TYPE_MASK           0x1
+#define PAXB_CFG_IND_ADDR_OFFSET 0x120
+#define PAXB_CFG_IND_DATA_OFFSET 0x124
+#define PAXB_CFG_IND_ADDR_MASK 0x1ffc
+#define PAXB_CFG_CFG_TYPE_MASK 0x1
 
-#define PAXB_EP_CFG_ADDR_OFFSET          0x1f8
-#define PAXB_EP_CFG_DATA_OFFSET          0x1fc
-#define PAXB_EP_CFG_ADDR_MASK            0xffc
-#define PAXB_EP_CFG_TYPE_MASK            0x1
+#define PAXB_EP_CFG_ADDR_OFFSET 0x1f8
+#define PAXB_EP_CFG_DATA_OFFSET 0x1fc
+#define PAXB_EP_CFG_ADDR_MASK 0xffc
+#define PAXB_EP_CFG_TYPE_MASK 0x1
 
-#define PAXB_0_DEFAULT_IMAP              0xed0
-#define DEFAULT_ADDR_INVALID             BIT(0)
-#define PAXB_0_DEFAULT_IMAP_AXUSER       0xed8
-#define PAXB_0_DEFAULT_IMAP_AXCACHE      0xedc
-#define IMAP_AXCACHE                     0xff
-#define OARR_VALID                       BIT(0)
-#define IMAP_VALID                       BIT(0)
+#define PAXB_0_DEFAULT_IMAP 0xed0
+#define DEFAULT_ADDR_INVALID BIT(0)
+#define PAXB_0_DEFAULT_IMAP_AXUSER 0xed8
+#define PAXB_0_DEFAULT_IMAP_AXCACHE 0xedc
+#define IMAP_AXCACHE 0xff
+#define OARR_VALID BIT(0)
+#define IMAP_VALID BIT(0)
 
-#define PAXB_IMAP0_BASE_OFFSET           0xc00
-#define PAXB_IARR0_BASE_OFFSET           0xd00
-#define PAXB_IMAP0_OFFSET(idx)           (PAXB_IMAP0_BASE_OFFSET + \
-					  (idx) * PAXB_IMAP0_REG_WIDTH)
-#define PAXB_IMAP0_WINDOW_SIZE           0x1000
+#define PAXB_IMAP0_BASE_OFFSET 0xc00
+#define PAXB_IARR0_BASE_OFFSET 0xd00
+#define PAXB_IMAP0_OFFSET(idx) \
+	(PAXB_IMAP0_BASE_OFFSET + (idx)*PAXB_IMAP0_REG_WIDTH)
+#define PAXB_IMAP0_WINDOW_SIZE 0x1000
 
-#define PAXB_IMAP2_OFFSET                0xcc0
-#define PAXB_IMAP0_REGS_TYPE_OFFSET      0xcd0
-#define PAXB_IARR2_LOWER_OFFSET          0xd10
+#define PAXB_IMAP2_OFFSET 0xcc0
+#define PAXB_IMAP0_REGS_TYPE_OFFSET 0xcd0
+#define PAXB_IARR2_LOWER_OFFSET 0xd10
 
-#define PAXB_IMAP3_BASE_OFFSET           0xe08
-#define PAXB_IMAP3_OFFSET(idx)           (PAXB_IMAP3_BASE_OFFSET + \
-					  (idx) * PAXB_IMAP_REG_WIDTH)
+#define PAXB_IMAP3_BASE_OFFSET 0xe08
+#define PAXB_IMAP3_OFFSET(idx) \
+	(PAXB_IMAP3_BASE_OFFSET + (idx)*PAXB_IMAP_REG_WIDTH)
 
-#define PAXB_IMAP3_0_AXUSER_B_OFFSET     0xe48
-#define PAXB_IMAP3_0_AXUSER_OFFSET(idx)  (PAXB_IMAP3_0_AXUSER_B_OFFSET + \
-					  (idx) * PAXB_AXUSER_REG_WIDTH)
+#define PAXB_IMAP3_0_AXUSER_B_OFFSET 0xe48
+#define PAXB_IMAP3_0_AXUSER_OFFSET(idx) \
+	(PAXB_IMAP3_0_AXUSER_B_OFFSET + (idx)*PAXB_AXUSER_REG_WIDTH)
 
-#define PAXB_IMAP4_BASE_OFFSET           0xe70
-#define PAXB_IMAP4_OFFSET(idx)           (PAXB_IMAP4_BASE_OFFSET + \
-					  (idx) * PAXB_IMAP_REG_WIDTH)
+#define PAXB_IMAP4_BASE_OFFSET 0xe70
+#define PAXB_IMAP4_OFFSET(idx) \
+	(PAXB_IMAP4_BASE_OFFSET + (idx)*PAXB_IMAP_REG_WIDTH)
 
-#define PAXB_IMAP4_0_AXUSER_B_OFFSET     0xeb0
-#define PAXB_IMAP4_0_AXUSER_OFFSET(idx)  (PAXB_IMAP4_0_AXUSER_B_OFFSET + \
-					  (idx) * PAXB_AXUSER_REG_WIDTH)
+#define PAXB_IMAP4_0_AXUSER_B_OFFSET 0xeb0
+#define PAXB_IMAP4_0_AXUSER_OFFSET(idx) \
+	(PAXB_IMAP4_0_AXUSER_B_OFFSET + (idx)*PAXB_AXUSER_REG_WIDTH)
 
-#define PAXB_CFG_LINK_STATUS_OFFSET      0xf0c
-#define PAXB_CFG_PHYLINKUP_MASK          (1 << 3)
-#define PAXB_CFG_DL_ACTIVE_MASK          (1 << 2)
+#define PAXB_CFG_LINK_STATUS_OFFSET 0xf0c
+#define PAXB_CFG_PHYLINKUP_MASK (1 << 3)
+#define PAXB_CFG_DL_ACTIVE_MASK (1 << 2)
 
-#define PAXB_IMAP0_0_AXUSER_OFFSET       0xf60
-#define PAXB_IMAP2_AXUSER_OFFSET         0xfe0
+#define PAXB_IMAP0_0_AXUSER_OFFSET 0xf60
+#define PAXB_IMAP2_AXUSER_OFFSET 0xfe0
 
 /* cacheable write-back, allocate on both reads and writes */
-#define IMAP_ARCACHE                     0x0f0
-#define IMAP_AWCACHE                     0xf00
+#define IMAP_ARCACHE 0x0f0
+#define IMAP_AWCACHE 0xf00
 /* normal access, nonsecure access, and data access */
 /* AWQOS:0xe and ARQOS:0xa */
 /* AWPROT:0x2 and ARPROT:0x1 */
-#define IMAP_AXUSER                      0x002e002a
+#define IMAP_AXUSER 0x002e002a
 
 /*
  * List of NIC security and PIPEMUX related registers
  */
-#define SR_PCIE_NIC_SECURITY_BASE      0x58100000
-#define NS3Z_PCIE_NIC_SECURITY_BASE    0x48100000
+#define SR_PCIE_NIC_SECURITY_BASE 0x58100000
+#define NS3Z_PCIE_NIC_SECURITY_BASE 0x48100000
 
-#define GITS_TRANSLATER                0x63c30000
+#define GITS_TRANSLATER 0x63c30000
 
-#define VENDOR_ID                 0x14e4
-#define CFG_RC_DEV_ID             0x434
-#define CFG_RC_DEV_SUBID          0x438
-#define PCI_BRIDGE_CTRL_REG_OFFSET     0x43c
-#define PCI_CLASS_BRIDGE_MASK          0xffff00
-#define PCI_CLASS_BRIDGE_SHIFT         8
-#define PCI_CLASS_BRIDGE_PCI           0x0604
+#define VENDOR_ID 0x14e4
+#define CFG_RC_DEV_ID 0x434
+#define CFG_RC_DEV_SUBID 0x438
+#define PCI_BRIDGE_CTRL_REG_OFFSET 0x43c
+#define PCI_CLASS_BRIDGE_MASK 0xffff00
+#define PCI_CLASS_BRIDGE_SHIFT 8
+#define PCI_CLASS_BRIDGE_PCI 0x0604
 
 /*
  * List of PAXB RC configuration space registers
  */
 
 /* first capability list entry */
-#define PCI_CAPABILITY_LIST_OFFSET    0x34
-#define PCI_CAPABILITY_SPEED_OFFSET   0xc
-#define PCI_EP_CAPABILITY_OFFSET      0x10
+#define PCI_CAPABILITY_LIST_OFFSET 0x34
+#define PCI_CAPABILITY_SPEED_OFFSET 0xc
+#define PCI_EP_CAPABILITY_OFFSET 0x10
 
-#define CFG_RC_LINK_STATUS_CTRL_2     0x0dc
-#define CFG_RC_LINK_SPEED_SHIFT       0
-#define CFG_RC_LINK_SPEED_MASK        (0xf << CFG_RC_LINK_SPEED_SHIFT)
+#define CFG_RC_LINK_STATUS_CTRL_2 0x0dc
+#define CFG_RC_LINK_SPEED_SHIFT 0
+#define CFG_RC_LINK_SPEED_MASK (0xf << CFG_RC_LINK_SPEED_SHIFT)
 
-#define CFG_RC_DEVICE_CAP             0x4d4
-#define CFG_RC_DEVICE_CAP_MPS_SHIFT   0
-#define CFG_RC_DEVICE_CAP_MPS_MASK    (0x7 << CFG_RC_DEVICE_CAP_MPS_SHIFT)
+#define CFG_RC_DEVICE_CAP 0x4d4
+#define CFG_RC_DEVICE_CAP_MPS_SHIFT 0
+#define CFG_RC_DEVICE_CAP_MPS_MASK (0x7 << CFG_RC_DEVICE_CAP_MPS_SHIFT)
 /* MPS 256 bytes */
-#define CFG_RC_DEVICE_CAP_MPS_256B    (0x1 << CFG_RC_DEVICE_CAP_MPS_SHIFT)
+#define CFG_RC_DEVICE_CAP_MPS_256B (0x1 << CFG_RC_DEVICE_CAP_MPS_SHIFT)
 /* MPS 512 bytes */
-#define CFG_RC_DEVICE_CAP_MPS_512B    (0x2 << CFG_RC_DEVICE_CAP_MPS_SHIFT)
+#define CFG_RC_DEVICE_CAP_MPS_512B (0x2 << CFG_RC_DEVICE_CAP_MPS_SHIFT)
 
-#define CFG_RC_TL_FCIMM_NP_LIMIT       0xa10
-#define CFG_RC_TL_FCIMM_NP_VAL         0x01500000
-#define CFG_RC_TL_FCIMM_P_LIMIT        0xa14
-#define CFG_RC_TL_FCIMM_P_VAL          0x03408080
+#define CFG_RC_TL_FCIMM_NP_LIMIT 0xa10
+#define CFG_RC_TL_FCIMM_NP_VAL 0x01500000
+#define CFG_RC_TL_FCIMM_P_LIMIT 0xa14
+#define CFG_RC_TL_FCIMM_P_VAL 0x03408080
 
-#define CFG_RC_LINK_CAP               0x4dc
-#define CFG_RC_LINK_CAP_SPEED_SHIFT   0
-#define CFG_RC_LINK_CAP_SPEED_MASK    (0xf << CFG_RC_LINK_CAP_SPEED_SHIFT)
-#define CFG_RC_LINK_CAP_WIDTH_SHIFT   4
-#define CFG_RC_LINK_CAP_WIDTH_MASK    (0x1f << CFG_RC_LINK_CAP_WIDTH_SHIFT)
+#define CFG_RC_LINK_CAP 0x4dc
+#define CFG_RC_LINK_CAP_SPEED_SHIFT 0
+#define CFG_RC_LINK_CAP_SPEED_MASK (0xf << CFG_RC_LINK_CAP_SPEED_SHIFT)
+#define CFG_RC_LINK_CAP_WIDTH_SHIFT 4
+#define CFG_RC_LINK_CAP_WIDTH_MASK (0x1f << CFG_RC_LINK_CAP_WIDTH_SHIFT)
 
-#define CFG_LINK_CAP_RC               0x4f0
-#define CFG_RC_DL_ACTIVE_SHIFT        0
-#define CFG_RC_DL_ACTIVE_MASK         (0x1 << CFG_RC_DL_ACTIVE_SHIFT)
-#define CFG_RC_SLOT_CLK_SHIFT         1
-#define CFG_RC_SLOT_CLK_MASK          (0x1 << CFG_RC_SLOT_CLK_SHIFT)
+#define CFG_LINK_CAP_RC 0x4f0
+#define CFG_RC_DL_ACTIVE_SHIFT 0
+#define CFG_RC_DL_ACTIVE_MASK (0x1 << CFG_RC_DL_ACTIVE_SHIFT)
+#define CFG_RC_SLOT_CLK_SHIFT 1
+#define CFG_RC_SLOT_CLK_MASK (0x1 << CFG_RC_SLOT_CLK_SHIFT)
 
-#define CFG_ROOT_CAP_RC               0x4f8
-#define CFG_ROOT_CAP_LTR_SHIFT        1
-#define CFG_ROOT_CAP_LTR_MASK         (0x1 << CFG_ROOT_CAP_LTR_SHIFT)
+#define CFG_ROOT_CAP_RC 0x4f8
+#define CFG_ROOT_CAP_LTR_SHIFT 1
+#define CFG_ROOT_CAP_LTR_MASK (0x1 << CFG_ROOT_CAP_LTR_SHIFT)
 
-#define CFG_RC_CLKREQ_ENABLED         0x4fc
-#define CFG_RC_CLKREQ_ENABLED_SHIFT   0
-#define CFG_RC_CLKREQ_ENABLED_MASK    (0x1 << CFG_RC_CLKREQ_ENABLED_SHIFT)
+#define CFG_RC_CLKREQ_ENABLED 0x4fc
+#define CFG_RC_CLKREQ_ENABLED_SHIFT 0
+#define CFG_RC_CLKREQ_ENABLED_MASK (0x1 << CFG_RC_CLKREQ_ENABLED_SHIFT)
 
-#define CFG_RC_COEFF_ADDR             0x638
+#define CFG_RC_COEFF_ADDR 0x638
 
-#define CFG_RC_TL_CTRL_0              0x800
-#define RC_MEM_DW_CHK_MASK            0x03fe
+#define CFG_RC_TL_CTRL_0 0x800
+#define RC_MEM_DW_CHK_MASK 0x03fe
 
-#define CFG_RC_PDL_CTRL_4             0x1010
-#define NPH_FC_INIT_SHIFT             24
-#define NPH_FC_INIT_MASK              (U(0xff) << NPH_FC_INIT_SHIFT)
-#define PD_FC_INIT_SHIFT              12
-#define PD_FC_INIT_MASK               (0xffff << PD_FC_INIT_SHIFT)
+#define CFG_RC_PDL_CTRL_4 0x1010
+#define NPH_FC_INIT_SHIFT 24
+#define NPH_FC_INIT_MASK (U(0xff) << NPH_FC_INIT_SHIFT)
+#define PD_FC_INIT_SHIFT 12
+#define PD_FC_INIT_MASK (0xffff << PD_FC_INIT_SHIFT)
 
-#define CFG_RC_PDL_CTRL_5             0x1014
-#define PH_INIT_SHIFT                 0
-#define PH_INIT_MASK                  (0xff << PH_INIT_SHIFT)
+#define CFG_RC_PDL_CTRL_5 0x1014
+#define PH_INIT_SHIFT 0
+#define PH_INIT_MASK (0xff << PH_INIT_SHIFT)
 
-#define DL_STATUS_OFFSET              0x1048
-#define PHYLINKUP                     BIT(13)
+#define DL_STATUS_OFFSET 0x1048
+#define PHYLINKUP BIT(13)
 
-#define PH_INIT                       0x10
-#define PD_FC_INIT                    0x100
-#define NPH_FC_INIT                   0x8
+#define PH_INIT 0x10
+#define PD_FC_INIT 0x100
+#define NPH_FC_INIT 0x8
 
-#define SRP_PH_INIT                   0x7F
-#define SRP_PD_FC_INIT                0x200
-#define SRP_NPH_FC_INIT               0x7F
+#define SRP_PH_INIT 0x7F
+#define SRP_PD_FC_INIT 0x200
+#define SRP_NPH_FC_INIT 0x7F
 
-#define CFG_ADDR_BUS_NUM_SHIFT        20
-#define CFG_ADDR_DEV_NUM_SHIFT        15
-#define CFG_ADDR_FUNC_NUM_SHIFT       12
-#define CFG_ADDR_REG_NUM_SHIFT        2
-#define CFG_ADDR_REG_NUM_MASK         0x00000ffc
-#define CFG_ADDR_CFG_TYPE_MASK        0x00000003
+#define CFG_ADDR_BUS_NUM_SHIFT 20
+#define CFG_ADDR_DEV_NUM_SHIFT 15
+#define CFG_ADDR_FUNC_NUM_SHIFT 12
+#define CFG_ADDR_REG_NUM_SHIFT 2
+#define CFG_ADDR_REG_NUM_MASK 0x00000ffc
+#define CFG_ADDR_CFG_TYPE_MASK 0x00000003
 
-#define DL_LINK_UP_TIMEOUT_MS         1000
+#define DL_LINK_UP_TIMEOUT_MS 1000
 
-#define CFG_RETRY_STATUS              0xffff0001
-#define CRS_TIMEOUT_MS                5000
+#define CFG_RETRY_STATUS 0xffff0001
+#define CRS_TIMEOUT_MS 5000
 
 /* create EP config data to write */
-#define DEF_BUS_NO                    1 /* default bus 1 */
-#define DEF_SLOT_NO                   0 /* default slot 0 */
-#define DEF_FN_NO                     0 /* default fn 0 */
+#define DEF_BUS_NO 1 /* default bus 1 */
+#define DEF_SLOT_NO 0 /* default slot 0 */
+#define DEF_FN_NO 0 /* default fn 0 */
 
-#define EP_CONFIG_VAL(bus_no, slot, fn, where) \
-	(((bus_no) << CFG_ADDR_BUS_NUM_SHIFT) | \
-	((slot) << CFG_ADDR_DEV_NUM_SHIFT) | \
-	((fn) << CFG_ADDR_FUNC_NUM_SHIFT) | \
-	((where) & CFG_ADDR_REG_NUM_MASK) | \
-	(1 & CFG_ADDR_CFG_TYPE_MASK))
+#define EP_CONFIG_VAL(bus_no, slot, fn, where)                                 \
+	(((bus_no) << CFG_ADDR_BUS_NUM_SHIFT) |                                \
+	 ((slot) << CFG_ADDR_DEV_NUM_SHIFT) |                                  \
+	 ((fn) << CFG_ADDR_FUNC_NUM_SHIFT) | ((where)&CFG_ADDR_REG_NUM_MASK) | \
+	 (1 & CFG_ADDR_CFG_TYPE_MASK))
 
 /* PAXB security offset */
 #define PAXB_SECURITY_IDM_OFFSET 0x1c
@@ -335,8 +332,8 @@ static void paxb_perst_ctrl(unsigned int core_idx, bool assert)
 
 	if (assert) {
 		mmio_clrbits_32(clk_ctrl, PAXB_EP_PERST_SRC_SEL_MASK |
-				PAXB_EP_MODE_PERST_MASK |
-				PAXB_RC_PCIE_RST_OUT_MASK);
+						  PAXB_EP_MODE_PERST_MASK |
+						  PAXB_RC_PCIE_RST_OUT_MASK);
 		udelay(250);
 	} else {
 		mmio_setbits_32(clk_ctrl, PAXB_RC_PCIE_RST_OUT_MASK);
@@ -516,12 +513,11 @@ static int pcie_cores_init(void)
 	return ret;
 }
 
-void paxb_rc_cfg_write(unsigned int core_idx, unsigned int where,
-			      uint32_t val)
+void paxb_rc_cfg_write(unsigned int core_idx, unsigned int where, uint32_t val)
 {
 	mmio_write_32(PAXB_OFFSET(core_idx) + PAXB_CFG_IND_ADDR_OFFSET,
 		      (where & PAXB_CFG_IND_ADDR_MASK) |
-		      PAXB_CFG_CFG_TYPE_MASK);
+			      PAXB_CFG_CFG_TYPE_MASK);
 	mmio_write_32(PAXB_OFFSET(core_idx) + PAXB_CFG_IND_DATA_OFFSET, val);
 }
 
@@ -531,7 +527,7 @@ unsigned int paxb_rc_cfg_read(unsigned int core_idx, unsigned int where)
 
 	mmio_write_32(PAXB_OFFSET(core_idx) + PAXB_CFG_IND_ADDR_OFFSET,
 		      (where & PAXB_CFG_IND_ADDR_MASK) |
-		      PAXB_CFG_CFG_TYPE_MASK);
+			      PAXB_CFG_CFG_TYPE_MASK);
 	val = mmio_read_32(PAXB_OFFSET(core_idx) + PAXB_CFG_IND_DATA_OFFSET);
 
 	return val;
@@ -548,8 +544,8 @@ static void paxb_cfg_mps(void)
 		val = paxb_rc_cfg_read(core_idx, CFG_RC_DEVICE_CAP);
 		val &= ~CFG_RC_DEVICE_CAP_MPS_MASK;
 		mps = CFG_RC_DEVICE_CAP_MPS_256B;
-		if (core_idx == 0 || core_idx == 1 ||
-		    core_idx == 6 || core_idx == 7) {
+		if (core_idx == 0 || core_idx == 1 || core_idx == 6 ||
+		    core_idx == 7) {
 			mps = CFG_RC_DEVICE_CAP_MPS_512B;
 		}
 		val |= mps;
@@ -570,7 +566,8 @@ static void paxb_cfg_dev_id(void)
 
 		/* Set Core in RC mode */
 		mmio_setbits_32(PCIE_CORE_USER_CFG +
-				(core_idx * PCIE_CORE_PWR_OFFSET), 1);
+					(core_idx * PCIE_CORE_PWR_OFFSET),
+				1);
 
 		/* force class to PCI_CLASS_BRIDGE_PCI (0x0604) */
 		val = paxb_rc_cfg_read(core_idx, PCI_BRIDGE_CTRL_REG_OFFSET);
@@ -620,8 +617,8 @@ static void paxb_cfg_pdl_ctrl(void)
 		ph = PH_INIT;
 		pd = PD_FC_INIT;
 
-		if (core_idx == 0 || core_idx == 1 ||
-		    core_idx == 6 || core_idx == 7) {
+		if (core_idx == 0 || core_idx == 1 || core_idx == 6 ||
+		    core_idx == 7) {
 			nph = SRP_NPH_FC_INIT;
 			ph = SRP_PH_INIT;
 			pd = SRP_PD_FC_INIT;
@@ -644,10 +641,10 @@ static void paxb_cfg_pdl_ctrl(void)
 		 * performance on all the slots.
 		 */
 		paxb_rc_cfg_write(core_idx, CFG_RC_TL_FCIMM_NP_LIMIT,
-				CFG_RC_TL_FCIMM_NP_VAL);
+				  CFG_RC_TL_FCIMM_NP_VAL);
 
 		paxb_rc_cfg_write(core_idx, CFG_RC_TL_FCIMM_P_LIMIT,
-				CFG_RC_TL_FCIMM_P_VAL);
+				  CFG_RC_TL_FCIMM_P_VAL);
 	}
 }
 
@@ -716,8 +713,7 @@ static void paxb_ib_regs_bypass(void)
 			      IMAP_AXCACHE);
 
 		/* Configure MSI IMAP window */
-		mmio_setbits_32(PAXB_OFFSET(i) +
-				PAXB_IMAP0_REGS_TYPE_OFFSET,
+		mmio_setbits_32(PAXB_OFFSET(i) + PAXB_IMAP0_REGS_TYPE_OFFSET,
 				0x1);
 		mmio_write_32(PAXB_OFFSET(i) + PAXB_IARR0_BASE_OFFSET,
 			      GITS_TRANSLATER | OARR_VALID);
@@ -725,7 +721,7 @@ static void paxb_ib_regs_bypass(void)
 			mmio_write_32(PAXB_OFFSET(i) + PAXB_IMAP0_OFFSET(j),
 				      (GITS_TRANSLATER +
 				       (j * PAXB_IMAP0_WINDOW_SIZE)) |
-				      IMAP_VALID);
+					      IMAP_VALID);
 		}
 	}
 }
@@ -742,7 +738,7 @@ static void paxb_ib_regs_init(void)
 		mmio_write_32(PAXB_OFFSET(core_idx) + PAXB_IARR2_LOWER_OFFSET,
 			      0x0);
 		mmio_setbits_32(PAXB_OFFSET(core_idx) +
-				PAXB_IMAP0_REGS_TYPE_OFFSET,
+					PAXB_IMAP0_REGS_TYPE_OFFSET,
 				0x1);
 	}
 }
@@ -757,8 +753,8 @@ static void paxb_cfg_apb_timeout(void)
 
 		/* allow unlimited timeout */
 		mmio_write_32(PAXB_OFFSET(core_idx) +
-			PAXB_APB_TIMEOUT_COUNT_OFFSET,
-			0xFFFFFFFF);
+				      PAXB_APB_TIMEOUT_COUNT_OFFSET,
+			      0xFFFFFFFF);
 	}
 }
 
@@ -815,10 +811,10 @@ static void paxb_cfg_coherency(void)
 				      0x0);
 
 			mmio_write_32(PAXB_OFFSET(i) +
-				      PAXB_IMAP3_0_AXUSER_OFFSET(j),
+					      PAXB_IMAP3_0_AXUSER_OFFSET(j),
 				      IMAP_AXUSER);
 			mmio_write_32(PAXB_OFFSET(i) +
-				      PAXB_IMAP4_0_AXUSER_OFFSET(j),
+					      PAXB_IMAP4_0_AXUSER_OFFSET(j),
 				      IMAP_AXUSER);
 		}
 	}
@@ -834,23 +830,28 @@ void paxb_ns_init(enum paxb_type type)
 	switch (type) {
 	case PAXB_SR:
 		for (reg = 0; reg < ARRAY_SIZE(paxb_sec_reg_offset); reg++) {
-
 			mmio_setbits_32(SR_PCIE_NIC_SECURITY_BASE +
-					paxb_sec_reg_offset[reg], 0x1);
+						paxb_sec_reg_offset[reg],
+					0x1);
 		}
-	/* Enabled all PAXB's relevant IDM blocks access in non-secure mode */
-	mmio_setbits_32(SR_PCIE_NIC_SECURITY_BASE + PAXB_SECURITY_IDM_OFFSET,
-			0xffff);
+		/* Enabled all PAXB's relevant IDM blocks access in non-secure mode */
+		mmio_setbits_32(SR_PCIE_NIC_SECURITY_BASE +
+					PAXB_SECURITY_IDM_OFFSET,
+				0xffff);
 		break;
 	case PAXB_NS3Z:
 		mmio_setbits_32(NS3Z_PCIE_NIC_SECURITY_BASE +
-				paxb_sec_reg_offset[0], 0x1);
+					paxb_sec_reg_offset[0],
+				0x1);
 		mmio_setbits_32(NS3Z_PCIE_NIC_SECURITY_BASE +
-				PAXB_SECURITY_IDM_OFFSET, 0xffff);
+					PAXB_SECURITY_IDM_OFFSET,
+				0xffff);
 		mmio_setbits_32(NS3Z_PCIE_NIC_SECURITY_BASE +
-				PAXB_SECURITY_APB_OFFSET, 0x7);
+					PAXB_SECURITY_APB_OFFSET,
+				0x7);
 		mmio_setbits_32(NS3Z_PCIE_NIC_SECURITY_BASE +
-				PAXB_SECURITY_ECAM_OFFSET, 0x1);
+					PAXB_SECURITY_ECAM_OFFSET,
+				0x1);
 		break;
 	}
 }

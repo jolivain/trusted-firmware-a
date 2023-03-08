@@ -11,10 +11,7 @@
 #include <stdbool.h>
 
 /* List of hash algorithms */
-enum hash_algo {
-	SHA1 = 0,
-	SHA256
-};
+enum hash_algo { SHA1 = 0, SHA256 };
 
 /* number of bytes in the SHA256-256 digest */
 #define SHA256_DIGEST_SIZE 32
@@ -34,26 +31,26 @@ enum hash_algo {
 /* number of bytes in the block */
 #define SHA256_DATA_SIZE 64
 
-#define MAX_SG		12
+#define MAX_SG 12
 
 struct sg_entry {
 #if defined(NXP_SEC_LE)
-	uint32_t addr_lo;	/* Memory Address - lo */
-	uint32_t addr_hi;	/* Memory Address of start of buffer - hi */
+	uint32_t addr_lo; /* Memory Address - lo */
+	uint32_t addr_hi; /* Memory Address of start of buffer - hi */
 #else
-	uint32_t addr_hi;	/* Memory Address of start of buffer - hi */
-	uint32_t addr_lo;	/* Memory Address - lo */
+	uint32_t addr_hi; /* Memory Address of start of buffer - hi */
+	uint32_t addr_lo; /* Memory Address - lo */
 #endif
 
-	uint32_t len_flag;	/* Length of the data in the frame */
-#define SG_ENTRY_LENGTH_MASK	0x3FFFFFFF
-#define SG_ENTRY_EXTENSION_BIT	0x80000000
-#define SG_ENTRY_FINAL_BIT	0x40000000
+	uint32_t len_flag; /* Length of the data in the frame */
+#define SG_ENTRY_LENGTH_MASK 0x3FFFFFFF
+#define SG_ENTRY_EXTENSION_BIT 0x80000000
+#define SG_ENTRY_FINAL_BIT 0x40000000
 	uint32_t bpid_offset;
-#define SG_ENTRY_BPID_MASK	0x00FF0000
-#define SG_ENTRY_BPID_SHIFT	16
-#define SG_ENTRY_OFFSET_MASK	0x00001FFF
-#define SG_ENTRY_OFFSET_SHIFT	0
+#define SG_ENTRY_BPID_MASK 0x00FF0000
+#define SG_ENTRY_BPID_SHIFT 16
+#define SG_ENTRY_OFFSET_MASK 0x00001FFF
+#define SG_ENTRY_OFFSET_SHIFT 0
 };
 
 /*

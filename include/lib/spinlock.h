@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -21,8 +21,8 @@ void spin_unlock(spinlock_t *lock);
 #else
 
 /* Spin lock definitions for use in assembly */
-#define SPINLOCK_ASM_ALIGN	2
-#define SPINLOCK_ASM_SIZE	4
+#define SPINLOCK_ASM_ALIGN 2
+#define SPINLOCK_ASM_SIZE 4
 
 #endif
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,6 +13,7 @@
 #include <common/debug.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/el3_runtime/pubsub_events.h>
+
 #include <plat/common/platform.h>
 
 #include "psci_private.h"
@@ -56,8 +57,7 @@ static int cpu_on_validate_state(aff_info_state_t aff_state)
  * The state of all the relevant power domains are changed after calling the
  * platform handler as it can return error.
  ******************************************************************************/
-int psci_cpu_on_start(u_register_t target_cpu,
-		      const entry_point_info_t *ep)
+int psci_cpu_on_start(u_register_t target_cpu, const entry_point_info_t *ep)
 {
 	int rc;
 	aff_info_state_t target_aff_state;
@@ -67,7 +67,6 @@ int psci_cpu_on_start(u_register_t target_cpu,
 	/* Calling function must supply valid input arguments */
 	assert(ret >= 0);
 	assert(ep != NULL);
-
 
 	/*
 	 * This function must only be called on platforms where the
@@ -95,8 +94,7 @@ int psci_cpu_on_start(u_register_t target_cpu,
 	 * target CPUs shutdown was not seen by the current CPU's cluster. And
 	 * so the cache may contain stale data for the target CPU.
 	 */
-	flush_cpu_data_by_index(target_idx,
-				psci_svc_cpu_data.aff_info_state);
+	flush_cpu_data_by_index(target_idx, psci_svc_cpu_data.aff_info_state);
 	rc = cpu_on_validate_state(psci_get_aff_info_state_by_idx(target_idx));
 	if (rc != PSCI_E_SUCCESS)
 		goto exit;
@@ -115,8 +113,7 @@ int psci_cpu_on_start(u_register_t target_cpu,
 	 * turned OFF.
 	 */
 	psci_set_aff_info_state_by_idx(target_idx, AFF_STATE_ON_PENDING);
-	flush_cpu_data_by_index(target_idx,
-				psci_svc_cpu_data.aff_info_state);
+	flush_cpu_data_by_index(target_idx, psci_svc_cpu_data.aff_info_state);
 
 	/*
 	 * The cache line invalidation by the target CPU after setting the
@@ -127,7 +124,8 @@ int psci_cpu_on_start(u_register_t target_cpu,
 	target_aff_state = psci_get_aff_info_state_by_idx(target_idx);
 	if (target_aff_state != AFF_STATE_ON_PENDING) {
 		assert(target_aff_state == AFF_STATE_OFF);
-		psci_set_aff_info_state_by_idx(target_idx, AFF_STATE_ON_PENDING);
+		psci_set_aff_info_state_by_idx(target_idx,
+					       AFF_STATE_ON_PENDING);
 		flush_cpu_data_by_index(target_idx,
 					psci_svc_cpu_data.aff_info_state);
 
@@ -166,7 +164,8 @@ exit:
  * are called by the common finisher routine in psci_common.c. The `state_info`
  * is the psci_power_state from which this CPU has woken up from.
  ******************************************************************************/
-void psci_cpu_on_finish(unsigned int cpu_idx, const psci_power_state_t *state_info)
+void psci_cpu_on_finish(unsigned int cpu_idx,
+			const psci_power_state_t *state_info)
 {
 	/*
 	 * Plat. management: Perform the platform specific actions

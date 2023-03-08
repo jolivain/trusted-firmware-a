@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) Siemens AG, 2020-2021
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -25,8 +25,7 @@ static sdei_ev_map_t zynqmp_sdei_private[] = {
 };
 
 /* Shared event mappings */
-static sdei_ev_map_t zynqmp_sdei_shared[] = {
-};
+static sdei_ev_map_t zynqmp_sdei_shared[] = {};
 
 void plat_sdei_setup(void)
 {

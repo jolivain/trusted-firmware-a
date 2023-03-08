@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,15 +8,16 @@
 #include <common/debug.h>
 #include <common/fdt_wrappers.h>
 #include <libfdt.h>
+
 #include <plat/arm/common/fconf_sec_intr_config.h>
 
-#define G0_INTR_NUM(i)		g0_intr_prop[3U * (i)]
-#define G0_INTR_PRIORITY(i)	g0_intr_prop[3U * (i) + 1]
-#define G0_INTR_CONFIG(i)	g0_intr_prop[3U * (i) + 2]
+#define G0_INTR_NUM(i) g0_intr_prop[3U * (i)]
+#define G0_INTR_PRIORITY(i) g0_intr_prop[3U * (i) + 1]
+#define G0_INTR_CONFIG(i) g0_intr_prop[3U * (i) + 2]
 
-#define G1S_INTR_NUM(i)		g1s_intr_prop[3U * (i)]
-#define G1S_INTR_PRIORITY(i)	g1s_intr_prop[3U * (i) + 1]
-#define G1S_INTR_CONFIG(i)	g1s_intr_prop[3U * (i) + 2]
+#define G1S_INTR_NUM(i) g1s_intr_prop[3U * (i)]
+#define G1S_INTR_PRIORITY(i) g1s_intr_prop[3U * (i) + 1]
+#define G1S_INTR_CONFIG(i) g1s_intr_prop[3U * (i) + 2]
 
 struct sec_intr_prop_t sec_intr_prop;
 
@@ -37,15 +38,16 @@ int fconf_populate_sec_intr_config(uintptr_t config)
 	const void *hw_config_dtb = (const void *)config;
 
 	node = fdt_node_offset_by_compatible(hw_config_dtb, -1,
-						"arm,secure_interrupt_desc");
+					     "arm,secure_interrupt_desc");
 	if (node < 0) {
 		ERROR("FCONF: Unable to locate node with %s compatible property\n",
-						"arm,secure_interrupt_desc");
+		      "arm,secure_interrupt_desc");
 		return node;
 	}
 
 	/* Read number of Group 0 interrupts specified by platform */
-	err = fdt_read_uint32(hw_config_dtb, node, "g0_intr_cnt", &g0_intr_count);
+	err = fdt_read_uint32(hw_config_dtb, node, "g0_intr_cnt",
+			      &g0_intr_count);
 	if (err < 0) {
 		ERROR("FCONF: Could not locate g0s_intr_cnt property\n");
 		return err;
@@ -59,7 +61,7 @@ int fconf_populate_sec_intr_config(uintptr_t config)
 
 	/* Read number of Group 1 secure interrupts specified by platform */
 	err = fdt_read_uint32(hw_config_dtb, node, "g1s_intr_cnt",
-				&g1s_intr_count);
+			      &g1s_intr_count);
 	if (err < 0) {
 		ERROR("FCONF: Could not locate g1s_intr_cnt property\n");
 		return err;
@@ -77,7 +79,7 @@ int fconf_populate_sec_intr_config(uintptr_t config)
 	 */
 	if ((g0_intr_count + g1s_intr_count) > SEC_INT_COUNT_MAX) {
 		ERROR("FCONF: Total number of secure interrupts exceed limit the of %d\n",
-				SEC_INT_COUNT_MAX);
+		      SEC_INT_COUNT_MAX);
 		return -1;
 	}
 
@@ -85,7 +87,7 @@ int fconf_populate_sec_intr_config(uintptr_t config)
 
 	/* Read the Group 0 interrupt descriptors */
 	err = fdt_read_uint32_array(hw_config_dtb, node, "g0_intr_desc",
-				g0_intr_count * 3, g0_intr_prop);
+				    g0_intr_count * 3, g0_intr_prop);
 	if (err < 0) {
 		ERROR("FCONF: Read cell failed for 'g0s_intr_desc': %d\n", err);
 		return err;
@@ -93,7 +95,7 @@ int fconf_populate_sec_intr_config(uintptr_t config)
 
 	/* Read the Group 1 secure interrupt descriptors */
 	err = fdt_read_uint32_array(hw_config_dtb, node, "g1s_intr_desc",
-				g1s_intr_count * 3, g1s_intr_prop);
+				    g1s_intr_count * 3, g1s_intr_prop);
 	if (err < 0) {
 		ERROR("FCONF: Read cell failed for 'g1s_intr_desc': %d\n", err);
 		return err;
@@ -128,4 +130,5 @@ int fconf_populate_sec_intr_config(uintptr_t config)
 	return 0;
 }
 
-FCONF_REGISTER_POPULATOR(HW_CONFIG, sec_intr_prop, fconf_populate_sec_intr_config);
+FCONF_REGISTER_POPULATOR(HW_CONFIG, sec_intr_prop,
+			 fconf_populate_sec_intr_config);

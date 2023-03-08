@@ -1,56 +1,57 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
+#include <bl31/interrupt_mgmt.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
-#include <bl31/interrupt_mgmt.h>
+#include <drivers/arm/pl011.h>
 #include <drivers/console.h>
 #include <drivers/rpi3/gpio/rpi3_gpio.h>
 #include <drivers/ti/uart/uart_16550.h>
-#include <drivers/arm/pl011.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-
 #include <rpi_hw.h>
 #include <rpi_shared.h>
 
-#define MAP_DEVICE0	MAP_REGION_FLAT(DEVICE0_BASE,			\
-					DEVICE0_SIZE,			\
-					MT_DEVICE | MT_RW | MT_SECURE)
+#include <platform_def.h>
+
+#define MAP_DEVICE0                                 \
+	MAP_REGION_FLAT(DEVICE0_BASE, DEVICE0_SIZE, \
+			MT_DEVICE | MT_RW | MT_SECURE)
 
 #ifdef SHARED_RAM_BASE
-#define MAP_SHARED_RAM	MAP_REGION_FLAT(SHARED_RAM_BASE,		\
-					SHARED_RAM_SIZE,		\
-					MT_DEVICE | MT_RW | MT_SECURE)
+#define MAP_SHARED_RAM                                    \
+	MAP_REGION_FLAT(SHARED_RAM_BASE, SHARED_RAM_SIZE, \
+			MT_DEVICE | MT_RW | MT_SECURE)
 #endif
 
 #ifdef RPI3_PRELOADED_DTB_BASE
-#define MAP_NS_DTB	MAP_REGION_FLAT(RPI3_PRELOADED_DTB_BASE, 0x10000, \
-					MT_MEMORY | MT_RW | MT_NS)
+#define MAP_NS_DTB                                        \
+	MAP_REGION_FLAT(RPI3_PRELOADED_DTB_BASE, 0x10000, \
+			MT_MEMORY | MT_RW | MT_NS)
 #endif
 
-#define MAP_NS_DRAM0	MAP_REGION_FLAT(NS_DRAM0_BASE, NS_DRAM0_SIZE,	\
-					MT_MEMORY | MT_RW | MT_NS)
+#define MAP_NS_DRAM0 \
+	MAP_REGION_FLAT(NS_DRAM0_BASE, NS_DRAM0_SIZE, MT_MEMORY | MT_RW | MT_NS)
 
-#define MAP_FIP		MAP_REGION_FLAT(PLAT_RPI3_FIP_BASE,		\
-					PLAT_RPI3_FIP_MAX_SIZE,		\
-					MT_MEMORY | MT_RO | MT_NS)
+#define MAP_FIP                                                     \
+	MAP_REGION_FLAT(PLAT_RPI3_FIP_BASE, PLAT_RPI3_FIP_MAX_SIZE, \
+			MT_MEMORY | MT_RO | MT_NS)
 
-#define MAP_BL32_MEM	MAP_REGION_FLAT(BL32_MEM_BASE, BL32_MEM_SIZE,	\
-					MT_MEMORY | MT_RW | MT_SECURE)
+#define MAP_BL32_MEM                                  \
+	MAP_REGION_FLAT(BL32_MEM_BASE, BL32_MEM_SIZE, \
+			MT_MEMORY | MT_RW | MT_SECURE)
 
 #ifdef SPD_opteed
-#define MAP_OPTEE_PAGEABLE	MAP_REGION_FLAT(		\
-				RPI3_OPTEE_PAGEABLE_LOAD_BASE,	\
-				RPI3_OPTEE_PAGEABLE_LOAD_SIZE,	\
-				MT_MEMORY | MT_RW | MT_SECURE)
+#define MAP_OPTEE_PAGEABLE                             \
+	MAP_REGION_FLAT(RPI3_OPTEE_PAGEABLE_LOAD_BASE, \
+			RPI3_OPTEE_PAGEABLE_LOAD_SIZE, \
+			MT_MEMORY | MT_RW | MT_SECURE)
 #endif
 
 /*
@@ -66,7 +67,7 @@ static const mmap_region_t plat_rpi3_mmap[] = {
 #ifdef SPD_opteed
 	MAP_OPTEE_PAGEABLE,
 #endif
-	{0}
+	{ 0 }
 };
 #endif
 
@@ -75,13 +76,11 @@ static const mmap_region_t plat_rpi3_mmap[] = {
 #ifdef MAP_SHARED_RAM
 	MAP_SHARED_RAM,
 #endif
-	MAP_DEVICE0,
-	MAP_FIP,
-	MAP_NS_DRAM0,
+	MAP_DEVICE0,	MAP_FIP, MAP_NS_DRAM0,
 #ifdef BL32_BASE
 	MAP_BL32_MEM,
 #endif
-	{0}
+	{ 0 }
 };
 #endif
 
@@ -97,7 +96,7 @@ static const mmap_region_t plat_rpi3_mmap[] = {
 #ifdef BL32_BASE
 	MAP_BL32_MEM,
 #endif
-	{0}
+	{ 0 }
 };
 #endif
 
@@ -105,7 +104,6 @@ static const mmap_region_t plat_rpi3_mmap[] = {
  * Function that sets up the console
  ******************************************************************************/
 static console_t rpi3_console;
-
 
 static bool rpi3_use_mini_uart(void)
 {
@@ -123,8 +121,7 @@ void rpi3_console_init(void)
 	rpi3_gpio_init();
 
 	if (rpi3_use_mini_uart())
-		rc = console_16550_register(PLAT_RPI_MINI_UART_BASE,
-					    0,
+		rc = console_16550_register(PLAT_RPI_MINI_UART_BASE, 0,
 					    PLAT_RPI_UART_BAUDRATE,
 					    &rpi3_console);
 	else
@@ -152,40 +149,37 @@ void rpi3_setup_page_tables(uintptr_t total_base, size_t total_size,
 			    uintptr_t code_start, uintptr_t code_limit,
 			    uintptr_t rodata_start, uintptr_t rodata_limit
 #if USE_COHERENT_MEM
-			    , uintptr_t coh_start, uintptr_t coh_limit
+			    ,
+			    uintptr_t coh_start, uintptr_t coh_limit
 #endif
-			    )
+)
 {
 	/*
 	 * Map the Trusted SRAM with appropriate memory attributes.
 	 * Subsequent mappings will adjust the attributes for specific regions.
 	 */
 	VERBOSE("Trusted SRAM seen by this BL image: %p - %p\n",
-		(void *) total_base, (void *) (total_base + total_size));
-	mmap_add_region(total_base, total_base,
-			total_size,
+		(void *)total_base, (void *)(total_base + total_size));
+	mmap_add_region(total_base, total_base, total_size,
 			MT_MEMORY | MT_RW | MT_SECURE);
 
 	/* Re-map the code section */
-	VERBOSE("Code region: %p - %p\n",
-		(void *) code_start, (void *) code_limit);
-	mmap_add_region(code_start, code_start,
-			code_limit - code_start,
+	VERBOSE("Code region: %p - %p\n", (void *)code_start,
+		(void *)code_limit);
+	mmap_add_region(code_start, code_start, code_limit - code_start,
 			MT_CODE | MT_SECURE);
 
 	/* Re-map the read-only data section */
-	VERBOSE("Read-only data region: %p - %p\n",
-		(void *) rodata_start, (void *) rodata_limit);
-	mmap_add_region(rodata_start, rodata_start,
-			rodata_limit - rodata_start,
+	VERBOSE("Read-only data region: %p - %p\n", (void *)rodata_start,
+		(void *)rodata_limit);
+	mmap_add_region(rodata_start, rodata_start, rodata_limit - rodata_start,
 			MT_RO_DATA | MT_SECURE);
 
 #if USE_COHERENT_MEM
 	/* Re-map the coherent memory region */
-	VERBOSE("Coherent region: %p - %p\n",
-		(void *) coh_start, (void *) coh_limit);
-	mmap_add_region(coh_start, coh_start,
-			coh_limit - coh_start,
+	VERBOSE("Coherent region: %p - %p\n", (void *)coh_start,
+		(void *)coh_limit);
+	mmap_add_region(coh_start, coh_start, coh_limit - coh_start,
 			MT_DEVICE | MT_RW | MT_SECURE);
 #endif
 
@@ -243,5 +237,5 @@ uint32_t plat_interrupt_type_to_line(uint32_t type, uint32_t security_state)
 		return __builtin_ctz(SCR_IRQ_BIT);
 
 	/* Secure interrupts are signalled on the FIQ line always. */
-	return  __builtin_ctz(SCR_FIQ_BIT);
+	return __builtin_ctz(SCR_FIQ_BIT);
 }

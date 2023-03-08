@@ -1,14 +1,16 @@
 /*
- * Copyright (c) 2019, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
+#include <stdint.h>
+
 #include <drivers/arm/scu.h>
 #include <lib/mmio.h>
+
 #include <plat/common/platform.h>
-#include <stdint.h>
 
 /*******************************************************************************
  * Turn ON snoop control unit. This is needed to synchronize the data between

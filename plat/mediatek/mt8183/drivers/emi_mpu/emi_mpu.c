@@ -1,12 +1,12 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <common/debug.h>
-#include <lib/mmio.h>
 #include <emi_mpu.h>
+#include <lib/mmio.h>
 
 int is_4GB(void)
 {
@@ -21,10 +21,8 @@ int is_4GB(void)
  * @access_permission: EMI MPU access permission
  * Return 0 for success, otherwise negative status code.
  */
-int emi_mpu_set_region_protection(
-	unsigned long start, unsigned long end,
-	int region,
-	unsigned int access_permission)
+int emi_mpu_set_region_protection(unsigned long start, unsigned long end,
+				  int region, unsigned int access_permission)
 {
 	int ret = 0;
 
@@ -133,15 +131,14 @@ void emi_mpu_init(void)
 {
 	/* Set permission */
 	emi_mpu_set_region_protection(0x40000000UL, 0x4FFFFFFFUL, 0,
-				(FORBIDDEN << 3 | FORBIDDEN << 6));
+				      (FORBIDDEN << 3 | FORBIDDEN << 6));
 	emi_mpu_set_region_protection(0x50000000UL, 0x528FFFFFUL, 1,
-				(FORBIDDEN << 6));
+				      (FORBIDDEN << 6));
 	emi_mpu_set_region_protection(0x52900000UL, 0x5FFFFFFFUL, 2,
-				(FORBIDDEN << 3 | FORBIDDEN << 6));
+				      (FORBIDDEN << 3 | FORBIDDEN << 6));
 	emi_mpu_set_region_protection(0x60000000UL, 0xFFFFFFFFUL, 3,
-				(FORBIDDEN << 3 | FORBIDDEN << 6));
+				      (FORBIDDEN << 3 | FORBIDDEN << 6));
 	emi_mpu_set_region_protection(0x100000000UL, 0x23FFFFFFFUL, 4,
-				(FORBIDDEN << 3 | FORBIDDEN << 6));
+				      (FORBIDDEN << 3 | FORBIDDEN << 6));
 	dump_emi_mpu_regions();
 }
-

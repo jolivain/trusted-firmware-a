@@ -25,7 +25,7 @@ uint32_t emmc_interrupt(void)
 	uint32_t cut_ver;
 	uint32_t end_bit;
 
-	prr_data = mmio_read_32((uintptr_t) RCAR_PRR);
+	prr_data = mmio_read_32((uintptr_t)RCAR_PRR);
 	cut_ver = prr_data & PRR_CUT_MASK;
 	if ((prr_data & PRR_PRODUCT_MASK) == PRR_PRODUCT_H3) {
 		if (cut_ver == PRR_PRODUCT_10) {
@@ -50,10 +50,10 @@ uint32_t emmc_interrupt(void)
 	mmc_drv_obj.error_info.info2 = GETR_32(SD_INFO2);
 
 	/* SD_INFO EVENT */
-	mmc_drv_obj.int_event1 =
-	    mmc_drv_obj.error_info.info1 & GETR_32(SD_INFO1_MASK);
-	mmc_drv_obj.int_event2 =
-	    mmc_drv_obj.error_info.info2 & GETR_32(SD_INFO2_MASK);
+	mmc_drv_obj.int_event1 = mmc_drv_obj.error_info.info1 &
+				 GETR_32(SD_INFO1_MASK);
+	mmc_drv_obj.int_event2 = mmc_drv_obj.error_info.info2 &
+				 GETR_32(SD_INFO2_MASK);
 
 	/* ERR_STS */
 	mmc_drv_obj.error_info.status1 = GETR_32(SD_ERR_STS1);
@@ -64,17 +64,17 @@ uint32_t emmc_interrupt(void)
 	mmc_drv_obj.error_info.dm_info2 = GETR_32(DM_CM_INFO2);
 
 	/* DM_CM_INFO EVENT */
-	mmc_drv_obj.dm_event1 =
-	    mmc_drv_obj.error_info.dm_info1 & GETR_32(DM_CM_INFO1_MASK);
-	mmc_drv_obj.dm_event2 =
-	    mmc_drv_obj.error_info.dm_info2 & GETR_32(DM_CM_INFO2_MASK);
+	mmc_drv_obj.dm_event1 = mmc_drv_obj.error_info.dm_info1 &
+				GETR_32(DM_CM_INFO1_MASK);
+	mmc_drv_obj.dm_event2 = mmc_drv_obj.error_info.dm_info2 &
+				GETR_32(DM_CM_INFO2_MASK);
 
 	/* ERR SD_INFO2 */
 	if ((SD_INFO2_ALL_ERR & mmc_drv_obj.int_event2) != 0) {
-		SETR_32(SD_INFO1_MASK, 0x00000000U);	/* interrupt disable */
-		SETR_32(SD_INFO2_MASK, SD_INFO2_CLEAR);	/* interrupt disable */
-		SETR_32(SD_INFO1, 0x00000000U);	/* interrupt clear */
-		SETR_32(SD_INFO2, SD_INFO2_CLEAR);	/* interrupt clear */
+		SETR_32(SD_INFO1_MASK, 0x00000000U); /* interrupt disable */
+		SETR_32(SD_INFO2_MASK, SD_INFO2_CLEAR); /* interrupt disable */
+		SETR_32(SD_INFO1, 0x00000000U); /* interrupt clear */
+		SETR_32(SD_INFO2, SD_INFO2_CLEAR); /* interrupt clear */
 		mmc_drv_obj.state_machine_blocking = FALSE;
 	}
 
@@ -160,7 +160,7 @@ uint32_t emmc_interrupt(void)
 		/* nothing to do. */
 	}
 
-	return (uint32_t) 0;
+	return (uint32_t)0;
 }
 
 static EMMC_ERROR_CODE emmc_trans_sector(uint32_t *buff_address_virtual)
@@ -172,28 +172,27 @@ static EMMC_ERROR_CODE emmc_trans_sector(uint32_t *buff_address_virtual)
 		return EMMC_ERR_PARAM;
 	}
 
-	if ((mmc_drv_obj.during_transfer != TRUE)
-	    || (mmc_drv_obj.remain_size == 0)) {
+	if ((mmc_drv_obj.during_transfer != TRUE) ||
+	    (mmc_drv_obj.remain_size == 0)) {
 		return EMMC_ERR_STATE;
 	}
 
-	bufPtrLL = (uint64_t *) buff_address_virtual;
+	bufPtrLL = (uint64_t *)buff_address_virtual;
 	length = mmc_drv_obj.remain_size;
 
 	/* data transefer */
 	for (i = 0; i < (length >> 3); i++) {
 		/* Write */
 		if (mmc_drv_obj.cmd_info.dir == HAL_MEMCARD_WRITE) {
-			SETR_64(SD_BUF0, *bufPtrLL);	/* buffer --> FIFO */
+			SETR_64(SD_BUF0, *bufPtrLL); /* buffer --> FIFO */
 		}
 		/* Read */
 		else {
 			/* Checks when the read data reaches SD_SIZE. */
 			/* The BRE bit is cleared at emmc_interrupt function. */
-			if (((i %
-			      (uint32_t) (EMMC_BLOCK_LENGTH >>
-					  EMMC_BUF_SIZE_SHIFT)) == 0U)
-			    && (i != 0U)) {
+			if (((i % (uint32_t)(EMMC_BLOCK_LENGTH >>
+					     EMMC_BUF_SIZE_SHIFT)) == 0U) &&
+			    (i != 0U)) {
 				/* BRE check */
 				while (((GETR_32(SD_INFO2)) & SD_INFO2_BRE) ==
 				       0U) {
@@ -204,11 +203,10 @@ static EMMC_ERROR_CODE emmc_trans_sector(uint32_t *buff_address_virtual)
 					}
 				}
 				/* BRE clear */
-				SETR_32(SD_INFO2,
-					(uint32_t) (GETR_32(SD_INFO2) &
-						    ~SD_INFO2_BRE));
+				SETR_32(SD_INFO2, (uint32_t)(GETR_32(SD_INFO2) &
+							     ~SD_INFO2_BRE));
 			}
-			*bufPtrLL = GETR_64(SD_BUF0);	/* FIFO --> buffer */
+			*bufPtrLL = GETR_64(SD_BUF0); /* FIFO --> buffer */
 		}
 		bufPtrLL++;
 	}

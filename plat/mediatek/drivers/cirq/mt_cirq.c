@@ -8,7 +8,6 @@
 #include <common/debug.h>
 #include <drivers/arm/gic_common.h>
 #include <lib/mmio.h>
-
 #include <mt_cirq.h>
 #include <mt_gic_v3.h>
 
@@ -34,30 +33,18 @@ int mt_irq_mask_restore(struct mtk_irq_mask *mask)
 		return -1;
 	}
 
-	 mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x4),
-		mask->mask1);
-	 mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x8),
-		mask->mask2);
-	 mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0xc),
-		mask->mask3);
-	 mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x10),
-		mask->mask4);
-	 mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x14),
-		mask->mask5);
-	 mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x18),
-		mask->mask6);
-	 mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x1c),
-		mask->mask7);
-	 mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x20),
-		mask->mask8);
-	 mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x24),
-		mask->mask9);
-	 mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x28),
-		mask->mask10);
-	 mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x2c),
-		mask->mask11);
-	 mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x30),
-		mask->mask12);
+	mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x4), mask->mask1);
+	mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x8), mask->mask2);
+	mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0xc), mask->mask3);
+	mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x10), mask->mask4);
+	mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x14), mask->mask5);
+	mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x18), mask->mask6);
+	mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x1c), mask->mask7);
+	mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x20), mask->mask8);
+	mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x24), mask->mask9);
+	mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x28), mask->mask10);
+	mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x2c), mask->mask11);
+	mmio_write_32((BASE_GICD_BASE + GICD_ISENABLER + 0x30), mask->mask12);
 	/* make sure dist changes happen */
 	dsb();
 
@@ -74,56 +61,56 @@ int mt_irq_mask_all(struct mtk_irq_mask *mask)
 {
 	if (mask != NULL) {
 		/* for SPI */
-		mask->mask1 = mmio_read_32((BASE_GICD_BASE +
-			GICD_ISENABLER + 0x4));
-		mask->mask2 = mmio_read_32((BASE_GICD_BASE +
-			GICD_ISENABLER + 0x8));
-		mask->mask3 = mmio_read_32((BASE_GICD_BASE +
-			GICD_ISENABLER + 0xc));
-		mask->mask4 = mmio_read_32((BASE_GICD_BASE +
-			GICD_ISENABLER + 0x10));
-		mask->mask5 = mmio_read_32((BASE_GICD_BASE +
-			GICD_ISENABLER + 0x14));
-		mask->mask6 = mmio_read_32((BASE_GICD_BASE +
-			GICD_ISENABLER + 0x18));
-		mask->mask7 = mmio_read_32((BASE_GICD_BASE +
-			GICD_ISENABLER + 0x1c));
-		mask->mask8 = mmio_read_32((BASE_GICD_BASE +
-			GICD_ISENABLER + 0x20));
-		mask->mask9 = mmio_read_32((BASE_GICD_BASE +
-			GICD_ISENABLER + 0x24));
-		mask->mask10 = mmio_read_32((BASE_GICD_BASE +
-			GICD_ISENABLER + 0x28));
-		mask->mask11 = mmio_read_32((BASE_GICD_BASE +
-			GICD_ISENABLER + 0x2c));
-		mask->mask12 = mmio_read_32((BASE_GICD_BASE +
-			GICD_ISENABLER + 0x30));
+		mask->mask1 =
+			mmio_read_32((BASE_GICD_BASE + GICD_ISENABLER + 0x4));
+		mask->mask2 =
+			mmio_read_32((BASE_GICD_BASE + GICD_ISENABLER + 0x8));
+		mask->mask3 =
+			mmio_read_32((BASE_GICD_BASE + GICD_ISENABLER + 0xc));
+		mask->mask4 =
+			mmio_read_32((BASE_GICD_BASE + GICD_ISENABLER + 0x10));
+		mask->mask5 =
+			mmio_read_32((BASE_GICD_BASE + GICD_ISENABLER + 0x14));
+		mask->mask6 =
+			mmio_read_32((BASE_GICD_BASE + GICD_ISENABLER + 0x18));
+		mask->mask7 =
+			mmio_read_32((BASE_GICD_BASE + GICD_ISENABLER + 0x1c));
+		mask->mask8 =
+			mmio_read_32((BASE_GICD_BASE + GICD_ISENABLER + 0x20));
+		mask->mask9 =
+			mmio_read_32((BASE_GICD_BASE + GICD_ISENABLER + 0x24));
+		mask->mask10 =
+			mmio_read_32((BASE_GICD_BASE + GICD_ISENABLER + 0x28));
+		mask->mask11 =
+			mmio_read_32((BASE_GICD_BASE + GICD_ISENABLER + 0x2c));
+		mask->mask12 =
+			mmio_read_32((BASE_GICD_BASE + GICD_ISENABLER + 0x30));
 
 		/* for SPI */
 		mmio_write_32((BASE_GICD_BASE + GICD_ICENABLER + 0x4),
-			0xFFFFFFFF);
+			      0xFFFFFFFF);
 		mmio_write_32((BASE_GICD_BASE + GICD_ICENABLER + 0x8),
-			0xFFFFFFFF);
+			      0xFFFFFFFF);
 		mmio_write_32((BASE_GICD_BASE + GICD_ICENABLER + 0xC),
-			0xFFFFFFFF);
+			      0xFFFFFFFF);
 		mmio_write_32((BASE_GICD_BASE + GICD_ICENABLER + 0x10),
-			0xFFFFFFFF);
+			      0xFFFFFFFF);
 		mmio_write_32((BASE_GICD_BASE + GICD_ICENABLER + 0x14),
-			0xFFFFFFFF);
+			      0xFFFFFFFF);
 		mmio_write_32((BASE_GICD_BASE + GICD_ICENABLER + 0x18),
-			0xFFFFFFFF);
+			      0xFFFFFFFF);
 		mmio_write_32((BASE_GICD_BASE + GICD_ICENABLER + 0x1C),
-			0xFFFFFFFF);
+			      0xFFFFFFFF);
 		mmio_write_32((BASE_GICD_BASE + GICD_ICENABLER + 0x20),
-			0xFFFFFFFF);
+			      0xFFFFFFFF);
 		mmio_write_32((BASE_GICD_BASE + GICD_ICENABLER + 0x24),
-			0xFFFFFFFF);
+			      0xFFFFFFFF);
 		mmio_write_32((BASE_GICD_BASE + GICD_ICENABLER + 0x28),
-			0xFFFFFFFF);
+			      0xFFFFFFFF);
 		mmio_write_32((BASE_GICD_BASE + GICD_ICENABLER + 0x2c),
-			0xFFFFFFFF);
+			      0xFFFFFFFF);
 		mmio_write_32((BASE_GICD_BASE + GICD_ICENABLER + 0x30),
-			0xFFFFFFFF);
+			      0xFFFFFFFF);
 		/* make sure distributor changes happen */
 		dsb();
 
@@ -148,7 +135,7 @@ static uint32_t mt_irq_get_pol(uint32_t irq)
 
 	reg = ((irq - 32U) / 32U);
 
-	return  mmio_read_32(base + reg * 4U);
+	return mmio_read_32(base + reg * 4U);
 #else
 	return 0;
 #endif
@@ -181,7 +168,7 @@ static void collect_all_wakeup_events(void)
 	uint32_t irq_mask;
 
 	if ((cirq_all_events.wakeup_events == NULL) ||
-			cirq_all_events.num_of_events == 0U) {
+	    cirq_all_events.num_of_events == 0U) {
 		return;
 	}
 
@@ -202,8 +189,8 @@ static void collect_all_wakeup_events(void)
 			 * CIRQ default pol is low
 			 */
 			pol_mask = mt_irq_get_pol(
-					cirq_all_events.wakeup_events[i])
-					& irq_mask;
+					   cirq_all_events.wakeup_events[i]) &
+				   irq_mask;
 			/*
 			 * 0 means rising
 			 */
@@ -214,8 +201,8 @@ static void collect_all_wakeup_events(void)
 			 * CIRQ could monitor edge/level trigger
 			 * cirq register (0: edge, 1: level)
 			 */
-			if (mt_irq_get_sens(cirq_all_events.wakeup_events[i])
-				== SENS_EDGE) {
+			if (mt_irq_get_sens(cirq_all_events.wakeup_events[i]) ==
+			    SENS_EDGE) {
 				cirq_all_events.table[cirq_reg].sen |= mask;
 			}
 
@@ -313,7 +300,7 @@ static void __cirq_fast_clone(void)
 	struct cirq_reg *reg;
 	unsigned int i;
 
-	for (i = 0U; i < CIRQ_REG_NUM ; ++i) {
+	for (i = 0U; i < CIRQ_REG_NUM; ++i) {
 		uint32_t cirq_bit;
 
 		reg = &cirq_all_events.table[i];
@@ -323,7 +310,7 @@ static void __cirq_fast_clone(void)
 		}
 
 		mmio_write_32(CIRQ_SENS_CLR_BASE + (reg->reg_num * 4U),
-				    reg->sen);
+			      reg->sen);
 
 		for (cirq_bit = 0U; cirq_bit < 32U; ++cirq_bit) {
 			uint32_t val, cirq_id;
@@ -396,10 +383,10 @@ uint32_t mt_irq_get_pending_vec(uint32_t start_irq)
 	MSB_num = start_irq % 32U;
 	if (MSB_num != 0U) {
 		LSB_num = 32U - MSB_num;
-		LSB_vec = mmio_read_32(base + GICD_ISPENDR +
-			reg * 4U) >> MSB_num;
-		MSB_vec = mmio_read_32(base + GICD_ISPENDR +
-			(reg + 1U) * 4U) << LSB_num;
+		LSB_vec = mmio_read_32(base + GICD_ISPENDR + reg * 4U) >>
+			  MSB_num;
+		MSB_vec = mmio_read_32(base + GICD_ISPENDR + (reg + 1U) * 4U)
+			  << LSB_num;
 		pending_vec = MSB_vec | LSB_vec;
 	} else {
 		pending_vec = mmio_read_32(base + GICD_ISPENDR + reg * 4);
@@ -427,8 +414,8 @@ void mt_cirq_ack_all(void)
 		 * , since cirq start irq might not be 32 aligned with gic,
 		 * need an exotic API to get proper vector of pending irq
 		 */
-		pend_vec = mt_irq_get_pending_vec(CIRQ_SPI_START
-			+ (i + 1U) * 32U);
+		pend_vec =
+			mt_irq_get_pending_vec(CIRQ_SPI_START + (i + 1U) * 32U);
 		mask_vec = mt_cirq_get_mask_vec(i);
 		/* those should be acked are: "not (pending & not masked)",
 		 */
@@ -479,8 +466,8 @@ void mt_irq_unmask_for_sleep_ex(uint32_t irq)
 
 	mask = 1U << (irq % 32U);
 
-	mmio_write_32(BASE_GICD_BASE + GICD_ISENABLER +
-		((irq / 32U) * 4U), mask);
+	mmio_write_32(BASE_GICD_BASE + GICD_ISENABLER + ((irq / 32U) * 4U),
+		      mask);
 }
 
 void mt_cirq_mask_all(void)
@@ -498,7 +485,7 @@ static void cirq_fast_sw_flush(void)
 	struct cirq_reg *reg;
 	unsigned int i;
 
-	for (i = 0U; i < CIRQ_REG_NUM ; ++i) {
+	for (i = 0U; i < CIRQ_REG_NUM; ++i) {
 		uint32_t cirq_bit;
 
 		reg = &cirq_all_events.table[i];
@@ -507,8 +494,8 @@ static void cirq_fast_sw_flush(void)
 			continue;
 		}
 
-		reg->pending = mmio_read_32(CIRQ_STA_BASE +
-			(reg->reg_num << 2U));
+		reg->pending =
+			mmio_read_32(CIRQ_STA_BASE + (reg->reg_num << 2U));
 		reg->pending &= reg->mask;
 
 		for (cirq_bit = 0U; cirq_bit < 32U; ++cirq_bit) {
@@ -523,7 +510,7 @@ static void cirq_fast_sw_flush(void)
 			mt_irq_set_pending(CIRQ_TO_IRQ_NUM(cirq_id));
 			if (CIRQ_TO_IRQ_NUM(cirq_id) == MD_WDT_IRQ_BIT_ID) {
 				INFO("Set MD_WDT_IRQ pending in %s\n",
-					__func__);
+				     __func__);
 			}
 		}
 	}

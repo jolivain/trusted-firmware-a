@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -16,9 +16,10 @@
 #include <lib/mmio.h>
 #include <libfdt.h>
 
-#include "fpga_private.h"
 #include <plat/common/platform.h>
 #include <platform_def.h>
+
+#include "fpga_private.h"
 
 static entry_point_info_t bl33_image_ep_info;
 static unsigned int system_freq;
@@ -125,8 +126,8 @@ entry_point_info_t *bl31_plat_get_next_image_ep_info(uint32_t type)
  * a full fledged PL011. So the baudrate divider registers exist.
  */
 #ifndef UARTIBRD
-#define UARTIBRD	0x024
-#define UARTFBRD	0x028
+#define UARTIBRD 0x024
+#define UARTFBRD 0x028
 #endif
 
 /* Round an integer to the closest multiple of a value. */
@@ -139,9 +140,9 @@ static unsigned int round_multiple(unsigned int x, unsigned int multiple)
 	return ((x + (multiple / 2 - 1)) / multiple) * multiple;
 }
 
-#define PL011_FRAC_SHIFT	6
-#define FPGA_DEFAULT_BAUDRATE	38400
-#define PL011_OVERSAMPLING	16
+#define PL011_FRAC_SHIFT 6
+#define FPGA_DEFAULT_BAUDRATE 38400
+#define PL011_OVERSAMPLING 16
 static unsigned int pl011_freq_from_divider(unsigned int divider)
 {
 	unsigned int freq;
@@ -181,8 +182,8 @@ static unsigned int fpga_get_system_frequency(void)
 		uintptr_t pl011_base;
 		unsigned int divider;
 
-		err = fdt_get_reg_props_by_index(fdt, node, 0,
-						 &pl011_base, NULL);
+		err = fdt_get_reg_props_by_index(fdt, node, 0, &pl011_base,
+						 NULL);
 		if (err >= 0) {
 			divider = mmio_read_32(pl011_base + UARTIBRD);
 			divider <<= PL011_FRAC_SHIFT;
@@ -241,9 +242,7 @@ static void fpga_dtb_update_clock(void *fdt, unsigned int freq)
 		return;
 	}
 
-	err = fdt_setprop_inplace(fdt, node,
-				  "clock-frequency",
-				  &freq_dtb,
+	err = fdt_setprop_inplace(fdt, node, "clock-frequency", &freq_dtb,
 				  sizeof(freq_dtb));
 	if (err < 0) {
 		WARN("Could not update DT baud clock frequency\n");
@@ -252,7 +251,7 @@ static void fpga_dtb_update_clock(void *fdt, unsigned int freq)
 	}
 }
 
-#define CMDLINE_SIGNATURE	"CMD:"
+#define CMDLINE_SIGNATURE "CMD:"
 
 static int fpga_dtb_set_commandline(void *fdt, const char *cmdline)
 {
@@ -351,7 +350,7 @@ static void fpga_prepare_dtb(void)
 			unsigned int nr_cores = fpga_get_nr_gic_cores();
 
 			INFO("Adjusting GICR DT region to cover %u cores\n",
-			      nr_cores);
+			     nr_cores);
 			err = fdt_adjust_gic_redist(fdt, nr_cores,
 						    fpga_get_redist_base(),
 						    fpga_get_redist_size());
@@ -365,8 +364,8 @@ static void fpga_prepare_dtb(void)
 
 	/* Check whether we support the SPE PMU. Remove the DT node if not. */
 	if (!spe_supported()) {
-		int node = fdt_node_offset_by_compatible(fdt, 0,
-				     "arm,statistical-profiling-extension-v1");
+		int node = fdt_node_offset_by_compatible(
+			fdt, 0, "arm,statistical-profiling-extension-v1");
 
 		if (node >= 0) {
 			fdt_del_node(fdt, node);
@@ -375,8 +374,8 @@ static void fpga_prepare_dtb(void)
 
 	/* Check whether we have an ITS. Remove the DT node if not. */
 	if (!fpga_has_its()) {
-		int node = fdt_node_offset_by_compatible(fdt, 0,
-							 "arm,gic-v3-its");
+		int node =
+			fdt_node_offset_by_compatible(fdt, 0, "arm,gic-v3-its");
 
 		if (node >= 0) {
 			fdt_del_node(fdt, node);

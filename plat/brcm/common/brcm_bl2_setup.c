@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,15 +8,15 @@
 #include <string.h>
 
 #include <arch_helpers.h>
+#include <bcm_console.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <common/desc_image_load.h>
 #include <drivers/arm/sp804_delay_timer.h>
 #include <lib/mmio.h>
 
-#include <bcm_console.h>
-#include <platform_def.h>
 #include <plat/brcm/common/plat_brcm.h>
+#include <platform_def.h>
 
 /* Data structure which holds the extents of the trusted SRAM for BL2 */
 static meminfo_t bl2_tzram_layout __aligned(CACHE_WRITEBACK_GRANULE);
@@ -44,8 +44,7 @@ void plat_bcm_security_setup(void)
 {
 }
 
-void bcm_bl2_early_platform_setup(uintptr_t tb_fw_config,
-				  meminfo_t *mem_layout)
+void bcm_bl2_early_platform_setup(uintptr_t tb_fw_config, meminfo_t *mem_layout)
 {
 	/* Initialize the console to provide early debug support */
 	bcm_console_boot_init();
@@ -57,8 +56,7 @@ void bcm_bl2_early_platform_setup(uintptr_t tb_fw_config,
 	plat_brcm_io_setup();
 
 	/* Log HW reset event */
-	INFO("RESET: 0x%x\n",
-		mmio_read_32(CRMU_RESET_EVENT_LOG));
+	INFO("RESET: 0x%x\n", mmio_read_32(CRMU_RESET_EVENT_LOG));
 }
 
 void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1,
@@ -68,8 +66,8 @@ void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	plat_bcm_bl2_early_platform_setup();
 
 	/* Initialize delay timer driver using SP804 dual timer 0 */
-	sp804_timer_init(SP804_TIMER0_BASE,
-			 SP804_TIMER0_CLKMULT, SP804_TIMER0_CLKDIV);
+	sp804_timer_init(SP804_TIMER0_BASE, SP804_TIMER0_CLKMULT,
+			 SP804_TIMER0_CLKDIV);
 
 	/* BRCM platforms generic setup */
 	bcm_bl2_early_platform_setup((uintptr_t)arg0, (meminfo_t *)arg1);
@@ -111,10 +109,10 @@ void bcm_bl2_plat_arch_setup(void)
 #if USE_COHERENT_MEM
 			MAP_REGION_FLAT(BL_COHERENT_RAM_BASE,
 					BL_COHERENT_RAM_END -
-					BL_COHERENT_RAM_BASE,
+						BL_COHERENT_RAM_BASE,
 					MT_DEVICE | MT_RW | MT_SECURE),
 #endif
-			{0}
+			{ 0 }
 		};
 
 		setup_page_tables(bl_regions, plat_brcm_get_mmap());

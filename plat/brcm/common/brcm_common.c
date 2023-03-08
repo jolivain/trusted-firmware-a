@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,9 +9,9 @@
 #include <arch.h>
 #include <arch_helpers.h>
 #include <common/debug.h>
-#include <plat/common/platform.h>
-
 #include <plat_brcm.h>
+
+#include <plat/common/platform.h>
 #include <platform_def.h>
 
 /* Weak definitions may be overridden in specific BRCM platform */

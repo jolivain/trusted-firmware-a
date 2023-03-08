@@ -161,18 +161,12 @@ static void brcm_stingray_pnor_pinmux_init(void)
 }
 
 #if BL2_TEST_EXT_SRAM
-#define SRAM_CHECKS_GRANUL	0x100000
-#define SRAM_CHECKS_CNT		8
+#define SRAM_CHECKS_GRANUL 0x100000
+#define SRAM_CHECKS_CNT 8
 static unsigned int sram_checks[SRAM_CHECKS_CNT] = {
 	/* offset, magic */
-	0xd00dfeed,
-	0xfadebabe,
-	0xc001d00d,
-	0xa5a5b5b5,
-	0x5a5a5b5b,
-	0xc5c5d5d5,
-	0x5c5c5d5d,
-	0xe5e5f5f5,
+	0xd00dfeed, 0xfadebabe, 0xc001d00d, 0xa5a5b5b5,
+	0x5a5a5b5b, 0xc5c5d5d5, 0x5c5c5d5d, 0xe5e5f5f5,
 };
 #endif
 
@@ -237,13 +231,13 @@ static void brcm_stingray_pnor_sram_init(void)
 #ifdef EMULATION_SETUP
 	/* TODO: Final values to be provided by DV folks */
 	val &= ~(0x7 << 7); /* set_wr_bl */
-	val &= ~(0x7 << 3);  /* set_rd_bl */
+	val &= ~(0x7 << 3); /* set_rd_bl */
 	val &= ~(0x3);
 	val |= (0x1); /* set_mw */
 #else
 	/* TODO: Final values to be provided by DV folks */
 	val &= ~(0x7 << 7); /* set_wr_bl */
-	val &= ~(0x7 << 3);  /* set_rd_bl */
+	val &= ~(0x7 << 3); /* set_rd_bl */
 	val &= ~(0x3);
 	val |= (0x1); /* set_mw */
 #endif
@@ -263,8 +257,7 @@ static void brcm_stingray_pnor_sram_init(void)
 		i = (off / SRAM_CHECKS_GRANUL) % SRAM_CHECKS_CNT;
 		val = sram_checks[i];
 		INFO(" -- pnor sram write addr=0x%lx value=0x%lx\n",
-		     (unsigned long)(NOR_BASE_ADDR + off),
-		     (unsigned long)val);
+		     (unsigned long)(NOR_BASE_ADDR + off), (unsigned long)val);
 		mmio_write_32((uintptr_t)(NOR_BASE_ADDR + off), val);
 	}
 	tmp = 0;
@@ -272,13 +265,12 @@ static void brcm_stingray_pnor_sram_init(void)
 		i = (off / SRAM_CHECKS_GRANUL) % SRAM_CHECKS_CNT;
 		val = mmio_read_32((uintptr_t)(NOR_BASE_ADDR + off));
 		INFO(" -- pnor sram read addr=0x%lx value=0x%lx\n",
-		     (unsigned long)(NOR_BASE_ADDR + off),
-		     (unsigned long)val);
+		     (unsigned long)(NOR_BASE_ADDR + off), (unsigned long)val);
 		if (val == sram_checks[i])
 			tmp++;
 	}
-	INFO(" -- pnor sram checks pass=%d total=%d\n",
-	     tmp, (NOR_SIZE / SRAM_CHECKS_GRANUL));
+	INFO(" -- pnor sram checks pass=%d total=%d\n", tmp,
+	     (NOR_SIZE / SRAM_CHECKS_GRANUL));
 
 	if (tmp != (NOR_SIZE / SRAM_CHECKS_GRANUL)) {
 		INFO(" - pnor sram init failed.\n");

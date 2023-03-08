@@ -17,8 +17,7 @@ void bcm_elog_exit(void);
 int bcm_elog_copy_log(void *dst, uint32_t max_size);
 void bcm_elog(const char *fmt, ...);
 #else
-static inline int bcm_elog_init(void *base, uint32_t size,
-				unsigned int level)
+static inline int bcm_elog_init(void *base, uint32_t size, unsigned int level)
 {
 	return 0;
 }

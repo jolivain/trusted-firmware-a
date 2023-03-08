@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,19 +8,15 @@
 #include <errno.h>
 #include <string.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <bl31/bl31.h>
 #include <common/debug.h>
+#include <dfs.h>
 #include <drivers/arm/gicv3.h>
 #include <drivers/delay_timer.h>
 #include <drivers/gpio.h>
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
-#include <plat/common/platform.h>
-
-#include <dfs.h>
 #include <m0_ctl.h>
 #include <plat_params.h>
 #include <plat_private.h>
@@ -31,6 +27,9 @@
 #include <secure.h>
 #include <soc.h>
 #include <suspend.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 DEFINE_BAKERY_LOCK(rockchip_pd_lock);
 
@@ -64,9 +63,9 @@ static gicv3_redist_ctx_t rdist_ctx;
 
 static uint32_t core_pm_cfg_info[PLATFORM_CORE_COUNT]
 #if USE_COHERENT_MEM
-__attribute__ ((section(".tzfw_coherent_mem")))
+	__attribute__((section(".tzfw_coherent_mem")))
 #endif
-;/* coheront */
+	; /* coheront */
 
 static void pmu_bus_idle_req(uint32_t bus, uint32_t state)
 {
@@ -94,11 +93,9 @@ static void pmu_bus_idle_req(uint32_t bus, uint32_t state)
 
 	if (bus_state != bus_req || bus_ack != bus_req) {
 		INFO("%s:st=%x(%x)\n", __func__,
-		     mmio_read_32(PMU_BASE + PMU_BUS_IDLE_ST),
-		     bus_state);
+		     mmio_read_32(PMU_BASE + PMU_BUS_IDLE_ST), bus_state);
 		INFO("%s:st=%x(%x)\n", __func__,
-		     mmio_read_32(PMU_BASE + PMU_BUS_IDLE_ACK),
-		     bus_ack);
+		     mmio_read_32(PMU_BASE + PMU_BUS_IDLE_ACK), bus_ack);
 	}
 }
 
@@ -447,7 +444,7 @@ static void pmu_scu_b_pwrdn(void)
 
 	if ((mmio_read_32(PMU_BASE + PMU_PWRDN_ST) &
 	     (BIT(PMU_A72_B0_PWRDWN_ST) | BIT(PMU_A72_B1_PWRDWN_ST))) !=
-	     (BIT(PMU_A72_B0_PWRDWN_ST) | BIT(PMU_A72_B1_PWRDWN_ST))) {
+	    (BIT(PMU_A72_B0_PWRDWN_ST) | BIT(PMU_A72_B1_PWRDWN_ST))) {
 		ERROR("%s: not all cpus is off\n", __func__);
 		return;
 	}
@@ -572,8 +569,8 @@ static inline void clst_pwr_domain_suspend(plat_local_state_t lvl_state)
 			clst_st_msk = CLST_L_CPUS_MSK;
 		} else {
 			pll_id = ABPLL_ID;
-			clst_st_msk = CLST_B_CPUS_MSK <<
-				       PLATFORM_CLUSTER0_CORE_COUNT;
+			clst_st_msk = CLST_B_CPUS_MSK
+				      << PLATFORM_CLUSTER0_CORE_COUNT;
 		}
 
 		clst_st_chk_msk = clst_st_msk & ~(BIT(cpu_id));
@@ -617,11 +614,11 @@ static int clst_pwr_domain_resume(plat_local_state_t lvl_state)
 			pll_id = ABPLL_ID;
 
 		pll_st = mmio_read_32(CRU_BASE + CRU_PLL_CON(pll_id, 3)) >>
-				 PLL_MODE_SHIFT;
+			 PLL_MODE_SHIFT;
 
 		if (pll_st != NORMAL_MODE) {
-			WARN("%s: clst (%d) is in error mode (%d)\n",
-			     __func__, pll_id, pll_st);
+			WARN("%s: clst (%d) is in error mode (%d)\n", __func__,
+			     pll_id, pll_st);
 			return -1;
 		}
 	}
@@ -667,8 +664,7 @@ int rockchip_soc_cores_pwr_dm_off(void)
 	return PSCI_E_SUCCESS;
 }
 
-int rockchip_soc_hlvl_pwr_dm_off(uint32_t lvl,
-				 plat_local_state_t lvl_state)
+int rockchip_soc_hlvl_pwr_dm_off(uint32_t lvl, plat_local_state_t lvl_state)
 {
 	if (lvl == MPIDR_AFFLVL1) {
 		clst_pwr_domain_suspend(lvl_state);
@@ -705,8 +701,7 @@ int rockchip_soc_cores_pwr_dm_on_finish(void)
 {
 	uint32_t cpu_id = plat_my_core_pos();
 
-	mmio_write_32(PMU_BASE + PMU_CORE_PM_CON(cpu_id),
-		      CORES_PM_DISABLE);
+	mmio_write_32(PMU_BASE + PMU_CORE_PM_CON(cpu_id), CORES_PM_DISABLE);
 	return PSCI_E_SUCCESS;
 }
 
@@ -849,40 +844,27 @@ static void sys_slp_config(void)
 	mmio_write_32(GRF_BASE + GRF_SOC_CON4, CCI_FORCE_WAKEUP);
 	mmio_write_32(PMU_BASE + PMU_CCI500_CON,
 		      BIT_WITH_WMSK(PMU_CLR_PREQ_CCI500_HW) |
-		      BIT_WITH_WMSK(PMU_CLR_QREQ_CCI500_HW) |
-		      BIT_WITH_WMSK(PMU_QGATING_CCI500_CFG));
+			      BIT_WITH_WMSK(PMU_CLR_QREQ_CCI500_HW) |
+			      BIT_WITH_WMSK(PMU_QGATING_CCI500_CFG));
 
 	mmio_write_32(PMU_BASE + PMU_ADB400_CON,
 		      BIT_WITH_WMSK(PMU_CLR_CORE_L_HW) |
-		      BIT_WITH_WMSK(PMU_CLR_CORE_L_2GIC_HW) |
-		      BIT_WITH_WMSK(PMU_CLR_GIC2_CORE_L_HW));
+			      BIT_WITH_WMSK(PMU_CLR_CORE_L_2GIC_HW) |
+			      BIT_WITH_WMSK(PMU_CLR_GIC2_CORE_L_HW));
 
-	slp_mode_cfg = BIT(PMU_PWR_MODE_EN) |
-		       BIT(PMU_WKUP_RST_EN) |
-		       BIT(PMU_INPUT_CLAMP_EN) |
-		       BIT(PMU_POWER_OFF_REQ_CFG) |
-		       BIT(PMU_CPU0_PD_EN) |
-		       BIT(PMU_L2_FLUSH_EN) |
-		       BIT(PMU_L2_IDLE_EN) |
-		       BIT(PMU_SCU_PD_EN) |
-		       BIT(PMU_CCI_PD_EN) |
-		       BIT(PMU_CLK_CORE_SRC_GATE_EN) |
-		       BIT(PMU_ALIVE_USE_LF) |
-		       BIT(PMU_SREF0_ENTER_EN) |
-		       BIT(PMU_SREF1_ENTER_EN) |
-		       BIT(PMU_DDRC0_GATING_EN) |
-		       BIT(PMU_DDRC1_GATING_EN) |
-		       BIT(PMU_DDRIO0_RET_EN) |
-		       BIT(PMU_DDRIO0_RET_DE_REQ) |
-		       BIT(PMU_DDRIO1_RET_EN) |
-		       BIT(PMU_DDRIO1_RET_DE_REQ) |
-		       BIT(PMU_CENTER_PD_EN) |
-		       BIT(PMU_PERILP_PD_EN) |
-		       BIT(PMU_CLK_PERILP_SRC_GATE_EN) |
-		       BIT(PMU_PLL_PD_EN) |
-		       BIT(PMU_CLK_CENTER_SRC_GATE_EN) |
-		       BIT(PMU_OSC_DIS) |
-		       BIT(PMU_PMU_USE_LF);
+	slp_mode_cfg = BIT(PMU_PWR_MODE_EN) | BIT(PMU_WKUP_RST_EN) |
+		       BIT(PMU_INPUT_CLAMP_EN) | BIT(PMU_POWER_OFF_REQ_CFG) |
+		       BIT(PMU_CPU0_PD_EN) | BIT(PMU_L2_FLUSH_EN) |
+		       BIT(PMU_L2_IDLE_EN) | BIT(PMU_SCU_PD_EN) |
+		       BIT(PMU_CCI_PD_EN) | BIT(PMU_CLK_CORE_SRC_GATE_EN) |
+		       BIT(PMU_ALIVE_USE_LF) | BIT(PMU_SREF0_ENTER_EN) |
+		       BIT(PMU_SREF1_ENTER_EN) | BIT(PMU_DDRC0_GATING_EN) |
+		       BIT(PMU_DDRC1_GATING_EN) | BIT(PMU_DDRIO0_RET_EN) |
+		       BIT(PMU_DDRIO0_RET_DE_REQ) | BIT(PMU_DDRIO1_RET_EN) |
+		       BIT(PMU_DDRIO1_RET_DE_REQ) | BIT(PMU_CENTER_PD_EN) |
+		       BIT(PMU_PERILP_PD_EN) | BIT(PMU_CLK_PERILP_SRC_GATE_EN) |
+		       BIT(PMU_PLL_PD_EN) | BIT(PMU_CLK_CENTER_SRC_GATE_EN) |
+		       BIT(PMU_OSC_DIS) | BIT(PMU_PMU_USE_LF);
 
 	mmio_setbits_32(PMU_BASE + PMU_WKUP_CFG4, BIT(PMU_GPIO_WKUP_EN));
 	mmio_write_32(PMU_BASE + PMU_PWRMODE_CON, slp_mode_cfg);
@@ -919,15 +901,16 @@ static void suspend_apio(void)
 
 	/* save gpio2 ~ gpio4 iomux and pull mode */
 	for (i = 0; i < 12; i++) {
-		iomux_status[i] = mmio_read_32(GRF_BASE +
-				GRF_GPIO2A_IOMUX + i * 4);
-		pull_mode_status[i] = mmio_read_32(GRF_BASE +
-				GRF_GPIO2A_P + i * 4);
+		iomux_status[i] =
+			mmio_read_32(GRF_BASE + GRF_GPIO2A_IOMUX + i * 4);
+		pull_mode_status[i] =
+			mmio_read_32(GRF_BASE + GRF_GPIO2A_P + i * 4);
 	}
 
 	/* store gpio2 ~ gpio4 clock gate state */
 	gpio_2_4_clk_gate = (mmio_read_32(CRU_BASE + CRU_CLKGATE_CON(31)) >>
-				PCLK_GPIO2_GATE_SHIFT) & 0x07;
+			     PCLK_GPIO2_GATE_SHIFT) &
+			    0x07;
 
 	/* enable gpio2 ~ gpio4 clock gate */
 	mmio_write_32(CRU_BASE + CRU_CLKGATE_CON(31),
@@ -940,7 +923,6 @@ static void suspend_apio(void)
 
 	/* apio1 charge gpio3a0 ~ gpio3c7 */
 	if (suspend_apio->apio1) {
-
 		/* set gpio3a0 ~ gpio3c7 iomux to gpio */
 		mmio_write_32(GRF_BASE + GRF_GPIO3A_IOMUX,
 			      REG_SOC_WMSK | GRF_IOMUX_GPIO);
@@ -960,7 +942,6 @@ static void suspend_apio(void)
 
 	/* apio2 charge gpio2a0 ~ gpio2b4 */
 	if (suspend_apio->apio2) {
-
 		/* set gpio2a0 ~ gpio2b4 iomux to gpio */
 		mmio_write_32(GRF_BASE + GRF_GPIO2A_IOMUX,
 			      REG_SOC_WMSK | GRF_IOMUX_GPIO);
@@ -977,7 +958,6 @@ static void suspend_apio(void)
 
 	/* apio3 charge gpio2c0 ~ gpio2d4*/
 	if (suspend_apio->apio3) {
-
 		/* set gpio2a0 ~ gpio2b4 iomux to gpio */
 		mmio_write_32(GRF_BASE + GRF_GPIO2C_IOMUX,
 			      REG_SOC_WMSK | GRF_IOMUX_GPIO);
@@ -994,7 +974,6 @@ static void suspend_apio(void)
 
 	/* apio4 charge gpio4c0 ~ gpio4c7, gpio4d0 ~ gpio4d6 */
 	if (suspend_apio->apio4) {
-
 		/* set gpio4c0 ~ gpio4d6 iomux to gpio */
 		mmio_write_32(GRF_BASE + GRF_GPIO4C_IOMUX,
 			      REG_SOC_WMSK | GRF_IOMUX_GPIO);
@@ -1092,8 +1071,8 @@ void sram_save(void)
 			   (char *)&__bl31_sram_text_start;
 	size_t data_size = (char *)&__bl31_sram_data_real_end -
 			   (char *)&__bl31_sram_data_start;
-	size_t incbin_size = (char *)&__sram_incbin_real_end -
-			     (char *)&__sram_incbin_start;
+	size_t incbin_size =
+		(char *)&__sram_incbin_real_end - (char *)&__sram_incbin_start;
 
 	memcpy(&store_sram[0], &__bl31_sram_text_start, text_size);
 	memcpy(&store_sram[text_size], &__bl31_sram_data_start, data_size);
@@ -1107,8 +1086,8 @@ void sram_restore(void)
 			   (char *)&__bl31_sram_text_start;
 	size_t data_size = (char *)&__bl31_sram_data_real_end -
 			   (char *)&__bl31_sram_data_start;
-	size_t incbin_size = (char *)&__sram_incbin_real_end -
-			     (char *)&__sram_incbin_start;
+	size_t incbin_size =
+		(char *)&__sram_incbin_real_end - (char *)&__sram_incbin_start;
 
 	memcpy(&__bl31_sram_text_start, &store_sram[0], text_size);
 	memcpy(&__bl31_sram_data_start, &store_sram[text_size], data_size);
@@ -1125,20 +1104,20 @@ struct uart_debug {
 	uint32_t uart_lcr;
 };
 
-#define UART_DLL	0x00
-#define UART_DLH	0x04
-#define UART_IER	0x04
-#define UART_FCR	0x08
-#define UART_LCR	0x0c
-#define UART_MCR	0x10
-#define UARTSRR		0x88
+#define UART_DLL 0x00
+#define UART_DLH 0x04
+#define UART_IER 0x04
+#define UART_FCR 0x08
+#define UART_LCR 0x0c
+#define UART_MCR 0x10
+#define UARTSRR 0x88
 
-#define UART_RESET	BIT(0)
-#define UARTFCR_FIFOEN	BIT(0)
-#define RCVR_FIFO_RESET	BIT(1)
-#define XMIT_FIFO_RESET	BIT(2)
-#define DIAGNOSTIC_MODE	BIT(4)
-#define UARTLCR_DLAB	BIT(7)
+#define UART_RESET BIT(0)
+#define UARTFCR_FIFOEN BIT(0)
+#define RCVR_FIFO_RESET BIT(1)
+#define XMIT_FIFO_RESET BIT(2)
+#define DIAGNOSTIC_MODE BIT(4)
+#define UARTLCR_DLAB BIT(7)
 
 static struct uart_debug uart_save;
 
@@ -1152,8 +1131,7 @@ void suspend_uart(void)
 	uart_save.uart_lcr = mmio_read_32(uart_base + UART_LCR);
 	uart_save.uart_ier = mmio_read_32(uart_base + UART_IER);
 	uart_save.uart_mcr = mmio_read_32(uart_base + UART_MCR);
-	mmio_write_32(uart_base + UART_LCR,
-		      uart_save.uart_lcr | UARTLCR_DLAB);
+	mmio_write_32(uart_base + UART_LCR, uart_save.uart_lcr | UARTLCR_DLAB);
 	uart_save.uart_dll = mmio_read_32(uart_base + UART_DLL);
 	uart_save.uart_dlh = mmio_read_32(uart_base + UART_DLH);
 	mmio_write_32(uart_base + UART_LCR, uart_save.uart_lcr);
@@ -1288,14 +1266,12 @@ void cru_register_restore(void)
 	int i;
 
 	for (i = 0; i <= CRU_SDIO0_CON1; i = i + 4) {
-
 		/*
 		 * since DPLL, CRU_CLKSEL_CON6 have been restore in
 		 * dmc_resume, ABPLL will resote later, so skip them
 		 */
-		if ((i == CRU_CLKSEL_CON6) ||
-		    (i >= CRU_PLL_CON(ABPLL_ID, 0) &&
-		     i <= CRU_PLL_CON(DPLL_ID, 5)))
+		if ((i == CRU_CLKSEL_CON6) || (i >= CRU_PLL_CON(ABPLL_ID, 0) &&
+					       i <= CRU_PLL_CON(DPLL_ID, 5)))
 			continue;
 
 		if ((i == CRU_PLL_CON(ALPLL_ID, 2)) ||
@@ -1324,7 +1300,7 @@ void wdt_register_save(void)
 		store_wdt0[i] = mmio_read_32(WDT0_BASE + i * 4);
 		store_wdt1[i] = mmio_read_32(WDT1_BASE + i * 4);
 	}
-	pmu_enable_watchdog0 = (uint8_t) store_wdt0[0] & 0x1;
+	pmu_enable_watchdog0 = (uint8_t)store_wdt0[0] & 0x1;
 }
 
 void wdt_register_restore(void)
@@ -1357,16 +1333,11 @@ int rockchip_soc_sys_pwr_dm_suspend(void)
 	save_usbphy();
 
 	pmu_power_domains_suspend();
-	set_hw_idle(BIT(PMU_CLR_CENTER1) |
-		    BIT(PMU_CLR_ALIVE) |
-		    BIT(PMU_CLR_MSCH0) |
-		    BIT(PMU_CLR_MSCH1) |
-		    BIT(PMU_CLR_CCIM0) |
-		    BIT(PMU_CLR_CCIM1) |
-		    BIT(PMU_CLR_CENTER) |
-		    BIT(PMU_CLR_PERILP) |
-		    BIT(PMU_CLR_PERILPM0) |
-		    BIT(PMU_CLR_GIC));
+	set_hw_idle(BIT(PMU_CLR_CENTER1) | BIT(PMU_CLR_ALIVE) |
+		    BIT(PMU_CLR_MSCH0) | BIT(PMU_CLR_MSCH1) |
+		    BIT(PMU_CLR_CCIM0) | BIT(PMU_CLR_CCIM1) |
+		    BIT(PMU_CLR_CENTER) | BIT(PMU_CLR_PERILP) |
+		    BIT(PMU_CLR_PERILPM0) | BIT(PMU_CLR_GIC));
 	set_pmu_rsthold();
 	sys_slp_config();
 
@@ -1377,18 +1348,18 @@ int rockchip_soc_sys_pwr_dm_suspend(void)
 
 	mmio_write_32(SGRF_BASE + SGRF_SOC_CON(1),
 		      ((uintptr_t)&pmu_cpuson_entrypoint >>
-			CPU_BOOT_ADDR_ALIGN) | CPU_BOOT_ADDR_WMASK);
+		       CPU_BOOT_ADDR_ALIGN) |
+			      CPU_BOOT_ADDR_WMASK);
 
 	mmio_write_32(PMU_BASE + PMU_ADB400_CON,
 		      BIT_WITH_WMSK(PMU_PWRDWN_REQ_CORE_B_2GIC_SW) |
-		      BIT_WITH_WMSK(PMU_PWRDWN_REQ_CORE_B_SW) |
-		      BIT_WITH_WMSK(PMU_PWRDWN_REQ_GIC2_CORE_B_SW));
+			      BIT_WITH_WMSK(PMU_PWRDWN_REQ_CORE_B_SW) |
+			      BIT_WITH_WMSK(PMU_PWRDWN_REQ_GIC2_CORE_B_SW));
 	dsb();
 	status = BIT(PMU_PWRDWN_REQ_CORE_B_2GIC_SW_ST) |
-		BIT(PMU_PWRDWN_REQ_CORE_B_SW_ST) |
-		BIT(PMU_PWRDWN_REQ_GIC2_CORE_B_SW_ST);
-	while ((mmio_read_32(PMU_BASE +
-	       PMU_ADB400_ST) & status) != status) {
+		 BIT(PMU_PWRDWN_REQ_CORE_B_SW_ST) |
+		 BIT(PMU_PWRDWN_REQ_GIC2_CORE_B_SW_ST);
+	while ((mmio_read_32(PMU_BASE + PMU_ADB400_ST) & status) != status) {
 		wait_cnt++;
 		if (wait_cnt >= MAX_WAIT_COUNT) {
 			ERROR("%s:wait cluster-b l2(%x)\n", __func__,
@@ -1458,30 +1429,28 @@ int rockchip_soc_sys_pwr_dm_resume(void)
 
 	mmio_write_32(SGRF_BASE + SGRF_SOC_CON(1),
 		      (cpu_warm_boot_addr >> CPU_BOOT_ADDR_ALIGN) |
-		      CPU_BOOT_ADDR_WMASK);
+			      CPU_BOOT_ADDR_WMASK);
 
 	mmio_write_32(PMU_BASE + PMU_CCI500_CON,
 		      WMSK_BIT(PMU_CLR_PREQ_CCI500_HW) |
-		      WMSK_BIT(PMU_CLR_QREQ_CCI500_HW) |
-		      WMSK_BIT(PMU_QGATING_CCI500_CFG));
+			      WMSK_BIT(PMU_CLR_QREQ_CCI500_HW) |
+			      WMSK_BIT(PMU_QGATING_CCI500_CFG));
 	dsb();
-	mmio_clrbits_32(PMU_BASE + PMU_PWRDN_CON,
-			BIT(PMU_SCU_B_PWRDWN_EN));
+	mmio_clrbits_32(PMU_BASE + PMU_PWRDN_CON, BIT(PMU_SCU_B_PWRDWN_EN));
 
 	mmio_write_32(PMU_BASE + PMU_ADB400_CON,
 		      WMSK_BIT(PMU_PWRDWN_REQ_CORE_B_2GIC_SW) |
-		      WMSK_BIT(PMU_PWRDWN_REQ_CORE_B_SW) |
-		      WMSK_BIT(PMU_PWRDWN_REQ_GIC2_CORE_B_SW) |
-		      WMSK_BIT(PMU_CLR_CORE_L_HW) |
-		      WMSK_BIT(PMU_CLR_CORE_L_2GIC_HW) |
-		      WMSK_BIT(PMU_CLR_GIC2_CORE_L_HW));
+			      WMSK_BIT(PMU_PWRDWN_REQ_CORE_B_SW) |
+			      WMSK_BIT(PMU_PWRDWN_REQ_GIC2_CORE_B_SW) |
+			      WMSK_BIT(PMU_CLR_CORE_L_HW) |
+			      WMSK_BIT(PMU_CLR_CORE_L_2GIC_HW) |
+			      WMSK_BIT(PMU_CLR_GIC2_CORE_L_HW));
 
 	status = BIT(PMU_PWRDWN_REQ_CORE_B_2GIC_SW_ST) |
-		BIT(PMU_PWRDWN_REQ_CORE_B_SW_ST) |
-		BIT(PMU_PWRDWN_REQ_GIC2_CORE_B_SW_ST);
+		 BIT(PMU_PWRDWN_REQ_CORE_B_SW_ST) |
+		 BIT(PMU_PWRDWN_REQ_GIC2_CORE_B_SW_ST);
 
-	while ((mmio_read_32(PMU_BASE +
-	   PMU_ADB400_ST) & status)) {
+	while ((mmio_read_32(PMU_BASE + PMU_ADB400_ST) & status)) {
 		wait_cnt++;
 		if (wait_cnt >= MAX_WAIT_COUNT) {
 			ERROR("%s:wait cluster-b l2(%x)\n", __func__,
@@ -1495,16 +1464,11 @@ int rockchip_soc_sys_pwr_dm_resume(void)
 	pmu_power_domains_resume();
 
 	restore_abpll();
-	clr_hw_idle(BIT(PMU_CLR_CENTER1) |
-				BIT(PMU_CLR_ALIVE) |
-				BIT(PMU_CLR_MSCH0) |
-				BIT(PMU_CLR_MSCH1) |
-				BIT(PMU_CLR_CCIM0) |
-				BIT(PMU_CLR_CCIM1) |
-				BIT(PMU_CLR_CENTER) |
-				BIT(PMU_CLR_PERILP) |
-				BIT(PMU_CLR_PERILPM0) |
-				BIT(PMU_CLR_GIC));
+	clr_hw_idle(BIT(PMU_CLR_CENTER1) | BIT(PMU_CLR_ALIVE) |
+		    BIT(PMU_CLR_MSCH0) | BIT(PMU_CLR_MSCH1) |
+		    BIT(PMU_CLR_CCIM0) | BIT(PMU_CLR_CCIM1) |
+		    BIT(PMU_CLR_CENTER) | BIT(PMU_CLR_PERILP) |
+		    BIT(PMU_CLR_PERILPM0) | BIT(PMU_CLR_GIC));
 
 	gicv3_distif_init_restore(&dist_ctx);
 	gicv3_rdistif_init_restore(plat_my_core_pos(), &rdist_ctx);
@@ -1565,29 +1529,29 @@ void rockchip_plat_mmu_el3(void)
 	size_t sram_size;
 
 	/* sram.text size */
-	sram_size = (char *)&__bl31_sram_text_end -
-		    (char *)&__bl31_sram_text_start;
+	sram_size =
+		(char *)&__bl31_sram_text_end - (char *)&__bl31_sram_text_start;
 	mmap_add_region((unsigned long)&__bl31_sram_text_start,
-			(unsigned long)&__bl31_sram_text_start,
-			sram_size, MT_MEMORY | MT_RO | MT_SECURE);
+			(unsigned long)&__bl31_sram_text_start, sram_size,
+			MT_MEMORY | MT_RO | MT_SECURE);
 
 	/* sram.data size */
-	sram_size = (char *)&__bl31_sram_data_end -
-		    (char *)&__bl31_sram_data_start;
+	sram_size =
+		(char *)&__bl31_sram_data_end - (char *)&__bl31_sram_data_start;
 	mmap_add_region((unsigned long)&__bl31_sram_data_start,
-			(unsigned long)&__bl31_sram_data_start,
-			sram_size, MT_MEMORY | MT_RW | MT_SECURE);
+			(unsigned long)&__bl31_sram_data_start, sram_size,
+			MT_MEMORY | MT_RW | MT_SECURE);
 
 	sram_size = (char *)&__bl31_sram_stack_end -
 		    (char *)&__bl31_sram_stack_start;
 	mmap_add_region((unsigned long)&__bl31_sram_stack_start,
-			(unsigned long)&__bl31_sram_stack_start,
-			sram_size, MT_MEMORY | MT_RW | MT_SECURE);
+			(unsigned long)&__bl31_sram_stack_start, sram_size,
+			MT_MEMORY | MT_RW | MT_SECURE);
 
 	sram_size = (char *)&__sram_incbin_end - (char *)&__sram_incbin_start;
 	mmap_add_region((unsigned long)&__sram_incbin_start,
-			(unsigned long)&__sram_incbin_start,
-			sram_size, MT_NON_CACHEABLE | MT_RW | MT_SECURE);
+			(unsigned long)&__sram_incbin_start, sram_size,
+			MT_NON_CACHEABLE | MT_RW | MT_SECURE);
 }
 
 void plat_rockchip_pmu_init(void)
@@ -1608,7 +1572,7 @@ void plat_rockchip_pmu_init(void)
 	/* config cpu's warm boot address */
 	mmio_write_32(SGRF_BASE + SGRF_SOC_CON(1),
 		      (cpu_warm_boot_addr >> CPU_BOOT_ADDR_ALIGN) |
-		      CPU_BOOT_ADDR_WMASK);
+			      CPU_BOOT_ADDR_WMASK);
 	mmio_write_32(PMU_BASE + PMU_NOC_AUTO_ENA, NOC_AUTO_ENABLE);
 
 	/*

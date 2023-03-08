@@ -1,17 +1,17 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <lib/psci/psci.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 /* Allow ARM Standard platforms to override these functions */
 #pragma weak plat_arm_program_trusted_mailbox
@@ -22,7 +22,7 @@
  * parameter.
  ******************************************************************************/
 int arm_validate_power_state(unsigned int power_state,
-			    psci_power_state_t *req_state)
+			     psci_power_state_t *req_state)
 {
 	unsigned int pstate = psci_get_pstate_type(power_state);
 	unsigned int pwr_lvl = psci_get_pstate_pwrlvl(power_state);
@@ -42,12 +42,10 @@ int arm_validate_power_state(unsigned int power_state,
 		if (pwr_lvl != ARM_PWR_LVL0)
 			return PSCI_E_INVALID_PARAMS;
 
-		req_state->pwr_domain_state[ARM_PWR_LVL0] =
-					ARM_LOCAL_STATE_RET;
+		req_state->pwr_domain_state[ARM_PWR_LVL0] = ARM_LOCAL_STATE_RET;
 	} else {
 		for (i = ARM_PWR_LVL0; i <= pwr_lvl; i++)
-			req_state->pwr_domain_state[i] =
-					ARM_LOCAL_STATE_OFF;
+			req_state->pwr_domain_state[i] = ARM_LOCAL_STATE_OFF;
 	}
 
 	/*
@@ -66,7 +64,7 @@ int arm_validate_power_state(unsigned int power_state,
  * state.
  ******************************************************************************/
 int arm_validate_power_state(unsigned int power_state,
-				psci_power_state_t *req_state)
+			     psci_power_state_t *req_state)
 {
 	unsigned int state_id;
 	int i;
@@ -93,7 +91,7 @@ int arm_validate_power_state(unsigned int power_state,
 	/* Parse the State ID and populate the state info parameter */
 	while (state_id) {
 		req_state->pwr_domain_state[i++] = state_id &
-						ARM_LOCAL_PSTATE_MASK;
+						   ARM_LOCAL_PSTATE_MASK;
 		state_id >>= ARM_LOCAL_PSTATE_WIDTH;
 	}
 
@@ -111,13 +109,13 @@ int arm_validate_ns_entrypoint(uintptr_t entrypoint)
 	 * Check if the non secure entrypoint lies within the non
 	 * secure DRAM.
 	 */
-	if ((entrypoint >= ARM_NS_DRAM1_BASE) && (entrypoint <
-			(ARM_NS_DRAM1_BASE + ARM_NS_DRAM1_SIZE))) {
+	if ((entrypoint >= ARM_NS_DRAM1_BASE) &&
+	    (entrypoint < (ARM_NS_DRAM1_BASE + ARM_NS_DRAM1_SIZE))) {
 		return 0;
 	}
 #ifdef __aarch64__
-	if ((entrypoint >= ARM_DRAM2_BASE) && (entrypoint <
-			(ARM_DRAM2_BASE + ARM_DRAM2_SIZE))) {
+	if ((entrypoint >= ARM_DRAM2_BASE) &&
+	    (entrypoint < (ARM_DRAM2_BASE + ARM_DRAM2_SIZE))) {
 		return 0;
 	}
 #endif
@@ -127,8 +125,9 @@ int arm_validate_ns_entrypoint(uintptr_t entrypoint)
 
 int arm_validate_psci_entrypoint(uintptr_t entrypoint)
 {
-	return (arm_validate_ns_entrypoint(entrypoint) == 0) ? PSCI_E_SUCCESS :
-		PSCI_E_INVALID_ADDRESS;
+	return (arm_validate_ns_entrypoint(entrypoint) == 0) ?
+		       PSCI_E_SUCCESS :
+		       PSCI_E_INVALID_ADDRESS;
 }
 
 /******************************************************************************
@@ -182,7 +181,7 @@ void arm_system_pwr_domain_resume(void)
  ******************************************************************************/
 void plat_arm_program_trusted_mailbox(uintptr_t address)
 {
-	uintptr_t *mailbox = (void *) PLAT_ARM_TRUSTED_MAILBOX_BASE;
+	uintptr_t *mailbox = (void *)PLAT_ARM_TRUSTED_MAILBOX_BASE;
 
 	*mailbox = address;
 
@@ -191,8 +190,8 @@ void plat_arm_program_trusted_mailbox(uintptr_t address)
 	 * ARM_SHARED_RAM region.
 	 */
 	assert((PLAT_ARM_TRUSTED_MAILBOX_BASE >= ARM_SHARED_RAM_BASE) &&
-		((PLAT_ARM_TRUSTED_MAILBOX_BASE + sizeof(*mailbox)) <= \
-				(ARM_SHARED_RAM_BASE + ARM_SHARED_RAM_SIZE)));
+	       ((PLAT_ARM_TRUSTED_MAILBOX_BASE + sizeof(*mailbox)) <=
+		(ARM_SHARED_RAM_BASE + ARM_SHARED_RAM_SIZE)));
 }
 
 /*******************************************************************************
@@ -200,7 +199,7 @@ void plat_arm_program_trusted_mailbox(uintptr_t address)
  * `plat_setup_psci_ops`.
  ******************************************************************************/
 int __init plat_setup_psci_ops(uintptr_t sec_entrypoint,
-				const plat_psci_ops_t **psci_ops)
+			       const plat_psci_ops_t **psci_ops)
 {
 	*psci_ops = plat_arm_psci_override_pm_ops(&plat_arm_psci_pm_ops);
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -57,9 +57,9 @@ void gicv3_rdistif_mark_core_asleep(uintptr_t gicr_base)
  * initialise each Redistributor interface.
  ******************************************************************************/
 void gicv3_rdistif_base_addrs_probe(uintptr_t *rdistif_base_addrs,
-					unsigned int rdistif_num,
-					uintptr_t gicr_base,
-					mpidr_hash_fn mpidr_to_core_pos)
+				    unsigned int rdistif_num,
+				    uintptr_t gicr_base,
+				    mpidr_hash_fn mpidr_to_core_pos)
 {
 	u_register_t mpidr;
 	unsigned int proc_num;
@@ -82,7 +82,7 @@ void gicv3_rdistif_base_addrs_probe(uintptr_t *rdistif_base_addrs,
 			proc_num = mpidr_to_core_pos(mpidr);
 		} else {
 			proc_num = (typer_val >> TYPER_PROC_NUM_SHIFT) &
-				TYPER_PROC_NUM_MASK;
+				   TYPER_PROC_NUM_MASK;
 		}
 
 		if (proc_num < rdistif_num) {
@@ -126,7 +126,10 @@ unsigned int gicv3_get_espi_limit(uintptr_t gicd_base)
 		 * 32 * (GICD_TYPER.ESPI_range + 1) + 4096
 		 */
 		return ((((typer_reg >> TYPER_ESPI_RANGE_SHIFT) &
-			TYPER_ESPI_RANGE_MASK) + 1U) << 5) + MIN_ESPI_ID;
+			  TYPER_ESPI_RANGE_MASK) +
+			 1U)
+			<< 5) +
+		       MIN_ESPI_ID;
 	}
 
 	return 0U;
@@ -157,7 +160,7 @@ void gicv3_spis_config_defaults(uintptr_t gicd_base)
 		INFO("Maximum ESPI INTID supported: %u\n", num_eints - 1);
 
 		for (i = MIN_ESPI_ID; i < num_eints;
-					i += (1U << IGROUPR_SHIFT)) {
+		     i += (1U << IGROUPR_SHIFT)) {
 			gicd_write_igroupr(gicd_base, i, ~0U);
 		}
 	} else {
@@ -171,8 +174,7 @@ void gicv3_spis_config_defaults(uintptr_t gicd_base)
 	}
 
 #if GIC_EXT_INTID
-	for (i = MIN_ESPI_ID; i < num_eints;
-					i += (1U << IPRIORITYR_SHIFT)) {
+	for (i = MIN_ESPI_ID; i < num_eints; i += (1U << IPRIORITYR_SHIFT)) {
 		gicd_write_ipriorityr(gicd_base, i, GICD_IPRIORITYR_DEF_VAL);
 	}
 #endif
@@ -193,9 +195,10 @@ void gicv3_spis_config_defaults(uintptr_t gicd_base)
 /*******************************************************************************
  * Helper function to configure properties of secure (E)SPIs
  ******************************************************************************/
-unsigned int gicv3_secure_spis_config_props(uintptr_t gicd_base,
-		const interrupt_prop_t *interrupt_props,
-		unsigned int interrupt_props_num)
+unsigned int
+gicv3_secure_spis_config_props(uintptr_t gicd_base,
+			       const interrupt_prop_t *interrupt_props,
+			       unsigned int interrupt_props_num)
 {
 	unsigned int i;
 	const interrupt_prop_t *current_prop;
@@ -222,7 +225,7 @@ unsigned int gicv3_secure_spis_config_props(uintptr_t gicd_base,
 
 		/* Configure this interrupt as G0 or a G1S interrupt */
 		assert((current_prop->intr_grp == INTR_GROUP0) ||
-				(current_prop->intr_grp == INTR_GROUP1S));
+		       (current_prop->intr_grp == INTR_GROUP1S));
 
 		if (current_prop->intr_grp == INTR_GROUP1S) {
 			gicd_set_igrpmodr(gicd_base, intr_num);
@@ -237,13 +240,12 @@ unsigned int gicv3_secure_spis_config_props(uintptr_t gicd_base,
 
 		/* Set the priority of this interrupt */
 		gicd_set_ipriorityr(gicd_base, intr_num,
-					current_prop->intr_pri);
+				    current_prop->intr_pri);
 
 		/* Target (E)SPIs to the primary CPU */
 		gic_affinity_val =
 			gicd_irouter_val_from_mpidr(read_mpidr(), 0U);
-		gicd_write_irouter(gicd_base, intr_num,
-					gic_affinity_val);
+		gicd_write_irouter(gicd_base, intr_num, gic_affinity_val);
 
 		/* Enable this interrupt */
 		gicd_set_isenabler(gicd_base, intr_num);
@@ -262,7 +264,9 @@ void gicv3_ppi_sgi_config_defaults(uintptr_t gicr_base)
 #if GIC_EXT_INTID
 	/* Calculate number of PPI registers */
 	ppi_regs_num = (unsigned int)((gicr_read_typer(gicr_base) >>
-			TYPER_PPI_NUM_SHIFT) & TYPER_PPI_NUM_MASK) + 1;
+				       TYPER_PPI_NUM_SHIFT) &
+				      TYPER_PPI_NUM_MASK) +
+		       1;
 	/* All other values except PPInum [0-2] are reserved */
 	if (ppi_regs_num > 3U) {
 		ppi_regs_num = 1U;
@@ -292,7 +296,8 @@ void gicv3_ppi_sgi_config_defaults(uintptr_t gicr_base)
 	regs_num = ppi_regs_num << 3;
 	for (i = 0U; i < regs_num; ++i) {
 		/* Setup the default (E)PPI/SGI priorities doing 4 at a time */
-		gicr_write_ipriorityr(gicr_base, i << 2, GICD_IPRIORITYR_DEF_VAL);
+		gicr_write_ipriorityr(gicr_base, i << 2,
+				      GICD_IPRIORITYR_DEF_VAL);
 	}
 
 	/* 16 interrupt IDs per GICR_ICFGR register */
@@ -306,9 +311,10 @@ void gicv3_ppi_sgi_config_defaults(uintptr_t gicr_base)
 /*******************************************************************************
  * Helper function to configure properties of secure G0 and G1S (E)PPIs and SGIs
  ******************************************************************************/
-unsigned int gicv3_secure_ppi_sgi_config_props(uintptr_t gicr_base,
-		const interrupt_prop_t *interrupt_props,
-		unsigned int interrupt_props_num)
+unsigned int
+gicv3_secure_ppi_sgi_config_props(uintptr_t gicr_base,
+				  const interrupt_prop_t *interrupt_props,
+				  unsigned int interrupt_props_num)
 {
 	unsigned int i;
 	const interrupt_prop_t *current_prop;
@@ -334,7 +340,7 @@ unsigned int gicv3_secure_ppi_sgi_config_props(uintptr_t gicr_base,
 
 		/* Configure this interrupt as G0 or a G1S interrupt */
 		assert((current_prop->intr_grp == INTR_GROUP0) ||
-			(current_prop->intr_grp == INTR_GROUP1S));
+		       (current_prop->intr_grp == INTR_GROUP1S));
 
 		if (current_prop->intr_grp == INTR_GROUP1S) {
 			gicr_set_igrpmodr(gicr_base, intr_num);
@@ -346,7 +352,7 @@ unsigned int gicv3_secure_ppi_sgi_config_props(uintptr_t gicr_base,
 
 		/* Set the priority of this interrupt */
 		gicr_set_ipriorityr(gicr_base, intr_num,
-					current_prop->intr_pri);
+				    current_prop->intr_pri);
 
 		/*
 		 * Set interrupt configuration for (E)PPIs.
@@ -354,7 +360,7 @@ unsigned int gicv3_secure_ppi_sgi_config_props(uintptr_t gicr_base,
 		 */
 		if (intr_num >= MIN_PPI_ID) {
 			gicr_set_icfgr(gicr_base, intr_num,
-					current_prop->intr_cfg);
+				       current_prop->intr_cfg);
 		}
 
 		/* Enable this interrupt */
@@ -418,8 +424,7 @@ unsigned int gicv3_get_component_partnum(const uintptr_t gic_frame)
  * @gic_rev:     retrieved revision of GIC
  ******************************************************************************/
 void gicv3_get_component_prodid_rev(const uintptr_t gicd_base,
-				    unsigned int *gic_prod_id,
-				    uint8_t *gic_rev)
+				    unsigned int *gic_prod_id, uint8_t *gic_rev)
 {
 	unsigned int gicd_iidr;
 	uint8_t gic_variant;
@@ -439,5 +444,4 @@ void gicv3_get_component_prodid_rev(const uintptr_t gicd_base,
 	 * gic_rev = gic_variant[7:4] and gic_rev[0:3]
 	 */
 	*gic_rev = *gic_rev | gic_variant << 0x4;
-
 }

@@ -4,26 +4,28 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <arch.h>
-#include <arch_helpers.h>
 #include <assert.h>
-#include <common/bl_common.h>
-#include <context.h>
-#include <lib/el3_runtime/context_mgmt.h>
-#include <common/debug.h>
-#include <denver.h>
-#include <mce.h>
-#include <mce_private.h>
-#include <platform_def.h>
+#include <errno.h>
+#include <inttypes.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <string.h>
-#include <errno.h>
-#include <inttypes.h>
+
+#include <arch.h>
+#include <arch_helpers.h>
+#include <common/bl_common.h>
+#include <common/debug.h>
+#include <context.h>
+#include <denver.h>
+#include <lib/el3_runtime/context_mgmt.h>
+#include <mce.h>
+#include <mce_private.h>
 #include <t194_nvg.h>
 #include <tegra_def.h>
 #include <tegra_platform.h>
 #include <tegra_private.h>
+
+#include <platform_def.h>
 
 /* Handler to check if MCE firmware is supported */
 static bool mce_firmware_not_supported(void)
@@ -41,7 +43,7 @@ static bool mce_firmware_not_supported(void)
  * Common handler for all MCE commands
  ******************************************************************************/
 int32_t mce_command_handler(uint64_t cmd, uint64_t arg0, uint64_t arg1,
-			uint64_t arg2)
+			    uint64_t arg2)
 {
 	int32_t ret = 0;
 
@@ -92,7 +94,8 @@ int32_t mce_update_gsc_videomem(void)
 	if (mce_firmware_not_supported()) {
 		ret = -EINVAL;
 	} else {
-		ret = nvg_update_ccplex_gsc((uint32_t)TEGRA_NVG_CHANNEL_UPDATE_GSC_VPR);
+		ret = nvg_update_ccplex_gsc(
+			(uint32_t)TEGRA_NVG_CHANNEL_UPDATE_GSC_VPR);
 	}
 
 	return ret;
@@ -111,7 +114,8 @@ int32_t mce_update_gsc_tzdram(void)
 	if (mce_firmware_not_supported()) {
 		ret = -EINVAL;
 	} else {
-		ret = nvg_update_ccplex_gsc((uint32_t)TEGRA_NVG_CHANNEL_UPDATE_GSC_TZ_DRAM);
+		ret = nvg_update_ccplex_gsc(
+			(uint32_t)TEGRA_NVG_CHANNEL_UPDATE_GSC_TZ_DRAM);
 	}
 
 	return ret;
@@ -124,7 +128,7 @@ void mce_update_cstate_info(const mce_cstate_info_t *cstate)
 {
 	/* issue the UPDATE_CSTATE_INFO request */
 	nvg_update_cstate_info(cstate->cluster, cstate->ccplex, cstate->system,
-		cstate->wake_mask, cstate->update_wake_mask);
+			       cstate->wake_mask, cstate->update_wake_mask);
 }
 
 /*******************************************************************************
@@ -152,7 +156,7 @@ void mce_verify_firmware_version(void)
 	major = (uint32_t)(version >> 32);
 
 	INFO("MCE Version - HW=%u:%u, SW=%u:%u\n", major, minor,
-		TEGRA_NVG_VERSION_MAJOR, TEGRA_NVG_VERSION_MINOR);
+	     TEGRA_NVG_VERSION_MAJOR, TEGRA_NVG_VERSION_MINOR);
 
 	/*
 	 * Verify that the MCE firmware version and the interface header
@@ -208,7 +212,7 @@ void mce_enable_strict_checking(void)
 		ret = nvg_roc_clean_cache_trbits();
 		if (ret < 0) {
 			ERROR("%s: flush cache_trbits failed(%d)\n", __func__,
-				ret);
+			      ret);
 			return;
 		}
 

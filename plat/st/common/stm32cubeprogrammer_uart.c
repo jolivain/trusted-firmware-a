@@ -5,7 +5,6 @@
  */
 
 #include <assert.h>
-#include <endian.h>
 #include <errno.h>
 #include <string.h>
 
@@ -15,41 +14,37 @@
 #include <drivers/st/stm32_iwdg.h>
 #include <drivers/st/stm32_uart.h>
 #include <drivers/st/stm32_uart_regs.h>
+#include <endian.h>
 #include <lib/mmio.h>
+#include <stm32cubeprogrammer.h>
 #include <tools_share/firmware_image_package.h>
 
 #include <platform_def.h>
-#include <stm32cubeprogrammer.h>
 
 /* USART bootloader protocol version V4.0 */
-#define USART_BL_VERSION	0x40U
+#define USART_BL_VERSION 0x40U
 
 /* Command definition */
-#define GET_CMD_COMMAND		0x00U
-#define GET_VER_COMMAND		0x01U
-#define GET_ID_COMMAND		0x02U
-#define PHASE_COMMAND		0x03U
-#define READ_PART_COMMAND	0x12U
-#define START_COMMAND		0x21U
-#define DOWNLOAD_COMMAND	0x31U
+#define GET_CMD_COMMAND 0x00U
+#define GET_VER_COMMAND 0x01U
+#define GET_ID_COMMAND 0x02U
+#define PHASE_COMMAND 0x03U
+#define READ_PART_COMMAND 0x12U
+#define START_COMMAND 0x21U
+#define DOWNLOAD_COMMAND 0x31U
 
 /* Answer defines */
-#define INIT_BYTE		0x7FU
-#define ACK_BYTE		0x79U
-#define NACK_BYTE		0x1FU
-#define ABORT			0x5FU
+#define INIT_BYTE 0x7FU
+#define ACK_BYTE 0x79U
+#define NACK_BYTE 0x1FU
+#define ABORT 0x5FU
 
-#define UNDEFINED_DOWN_ADDR	U(0xFFFFFFFF)
-#define PROGRAMMER_TIMEOUT_US	20000U
+#define UNDEFINED_DOWN_ADDR U(0xFFFFFFFF)
+#define PROGRAMMER_TIMEOUT_US 20000U
 
-static const uint8_t command_tab[] = {
-	GET_CMD_COMMAND,
-	GET_VER_COMMAND,
-	GET_ID_COMMAND,
-	PHASE_COMMAND,
-	START_COMMAND,
-	DOWNLOAD_COMMAND
-};
+static const uint8_t command_tab[] = { GET_CMD_COMMAND, GET_VER_COMMAND,
+				       GET_ID_COMMAND,	PHASE_COMMAND,
+				       START_COMMAND,	DOWNLOAD_COMMAND };
 
 /* STM32CubeProgrammer over UART handle */
 struct stm32prog_uart_handle_s {
@@ -63,16 +58,17 @@ struct stm32prog_uart_handle_s {
 } handle;
 
 /* Trace and handle unrecoverable UART protocol error */
-#define STM32PROG_ERROR(...) \
-	{ \
-		ERROR(__VA_ARGS__); \
-		if (handle.phase != PHASE_RESET) { \
-			snprintf((char *)&handle.error, sizeof(handle.error), __VA_ARGS__); \
-			handle.phase = PHASE_RESET; \
-			handle.addr = (uint8_t *)UNDEFINED_DOWN_ADDR; \
-			handle.len = 0U; \
-			handle.packet = 0U; \
-		} \
+#define STM32PROG_ERROR(...)                                                  \
+	{                                                                     \
+		ERROR(__VA_ARGS__);                                           \
+		if (handle.phase != PHASE_RESET) {                            \
+			snprintf((char *)&handle.error, sizeof(handle.error), \
+				 __VA_ARGS__);                                \
+			handle.phase = PHASE_RESET;                           \
+			handle.addr = (uint8_t *)UNDEFINED_DOWN_ADDR;         \
+			handle.len = 0U;                                      \
+			handle.packet = 0U;                                   \
+		}                                                             \
 	}
 
 static int uart_write(const uint8_t *addr, uint16_t size)
@@ -189,10 +185,8 @@ static int uart_receive_command(uint8_t *command)
 
 static int get_cmd_command(void)
 {
-	const uint8_t msg[2] = {
-		sizeof(command_tab), /* Length of data - 1 */
-		USART_BL_VERSION
-	};
+	const uint8_t msg[2] = { sizeof(command_tab), /* Length of data - 1 */
+				 USART_BL_VERSION };
 	int ret;
 
 	ret = uart_write(msg, sizeof(msg));
@@ -228,7 +222,8 @@ static int uart_send_phase(uint32_t address)
 
 	/* Additional information only for RESET phase */
 	if (handle.phase == PHASE_RESET) {
-		error_size = strnlen((char *)&handle.error, sizeof(handle.error));
+		error_size =
+			strnlen((char *)&handle.error, sizeof(handle.error));
 	}
 	ret = uart_write_8(msg_size + error_size);
 	if (ret != 0) {
@@ -263,7 +258,7 @@ static int uart_send_phase(uint32_t address)
 static int uart_download_part(void)
 {
 	uint8_t operation = 0U;
-	uint8_t xor;
+	uint8_t xor ;
 	uint8_t byte = 0U;
 	uint32_t packet_number = 0U;
 	uint32_t packet_size = 0U;
@@ -318,7 +313,8 @@ static int uart_download_part(void)
 	xor = byte;
 	packet_size = byte + 1U;
 	if (handle.len < packet_size) {
-		STM32PROG_ERROR("Download overflow at %p\n", handle.addr + packet_size);
+		STM32PROG_ERROR("Download overflow at %p\n",
+				handle.addr + packet_size);
 		return 0;
 	}
 
@@ -409,8 +405,7 @@ static int uart_read(uint8_t id, uintptr_t buffer, size_t length)
 	handle.addr = (uint8_t *)buffer;
 	handle.len = length;
 
-	INFO("UART: read phase %u at 0x%lx size 0x%x\n",
-	     id, buffer, length);
+	INFO("UART: read phase %u at 0x%lx size 0x%x\n", id, buffer, length);
 	while (!start_done) {
 		ret = uart_receive_command(&command);
 		if (ret != 0) {

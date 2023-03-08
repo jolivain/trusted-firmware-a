@@ -8,9 +8,8 @@
 #include <drivers/delay_timer.h>
 #include <rtc.h>
 
-
-static void RTC_Config_Interface(uint32_t addr, uint16_t data,
-			    uint16_t mask, uint16_t shift)
+static void RTC_Config_Interface(uint32_t addr, uint16_t data, uint16_t mask,
+				 uint16_t shift)
 {
 	uint16_t pmic_reg;
 
@@ -40,8 +39,8 @@ static int32_t rtc_enable_k_eosc(void)
 
 	/* Turning on eosc cali mode clock */
 	RTC_Config_Interface(PMIC_RG_SCK_TOP_CKPDN_CON0_CLR, 1,
-			PMIC_RG_RTC_EOSC32_CK_PDN_MASK,
-			PMIC_RG_RTC_EOSC32_CK_PDN_SHIFT);
+			     PMIC_RG_RTC_EOSC32_CK_PDN_MASK,
+			     PMIC_RG_RTC_EOSC32_CK_PDN_SHIFT);
 
 	alm_sec = RTC_Read(RTC_AL_SEC) & (~RTC_LPD_OPT_MASK);
 	RTC_Write(RTC_AL_SEC, alm_sec);
@@ -92,8 +91,9 @@ static int32_t rtc_enable_k_eosc(void)
 	}
 
 	/* Enable K EOSC mode :use solution1 of eosc cali to fix mt6359p 32K*/
-	RTC_Write(RTC_AL_YEA, (((RTC_Read(RTC_AL_YEA) | RTC_K_EOSC_RSV_0)
-				& (~RTC_K_EOSC_RSV_1)) | (RTC_K_EOSC_RSV_2)));
+	RTC_Write(RTC_AL_YEA, (((RTC_Read(RTC_AL_YEA) | RTC_K_EOSC_RSV_0) &
+				(~RTC_K_EOSC_RSV_1)) |
+			       (RTC_K_EOSC_RSV_2)));
 	ret = RTC_Write_Trigger();
 	if (ret == 0) {
 		return 0;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited. All rights reserved.
  * Copyright (c) 2018, Icenowy Zheng <icenowy@aosc.io>
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -13,15 +13,14 @@
 #include <drivers/allwinner/axp.h>
 #include <drivers/allwinner/sunxi_rsb.h>
 #include <lib/mmio.h>
-
 #include <sunxi_cpucfg.h>
 #include <sunxi_def.h>
 #include <sunxi_mmap.h>
 #include <sunxi_private.h>
 
-#define AXP305_I2C_ADDR	0x36
-#define AXP305_HW_ADDR	0x745
-#define AXP305_RT_ADDR	0x3a
+#define AXP305_I2C_ADDR 0x36
+#define AXP305_HW_ADDR 0x745
+#define AXP305_RT_ADDR 0x3a
 
 static enum pmic_type {
 	UNKNOWN,
@@ -110,7 +109,7 @@ void sunxi_power_down(void)
 void sunxi_cpu_power_off_self(void)
 {
 	u_register_t mpidr = read_mpidr();
-	unsigned int core  = MPIDR_AFFLVL0_VAL(mpidr);
+	unsigned int core = MPIDR_AFFLVL0_VAL(mpidr);
 
 	/* Enable the CPUIDLE hardware (only really needs to be done once). */
 	mmio_write_32(SUNXI_CPUIDLE_EN_REG, 0x16aa0000);

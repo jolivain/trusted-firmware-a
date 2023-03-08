@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#if RCAR_QOS_TYPE  == RCAR_QOS_TYPE_DEFAULT
+#if RCAR_QOS_TYPE == RCAR_QOS_TYPE_DEFAULT
 static const uint64_t mstat_fix[] = {
 	/* 0x0000, */ 0x0000000000000000UL,
 	/* 0x0008, */ 0x0000000000000000UL,
@@ -241,4 +241,3 @@ static const uint64_t mstat_be[] = {
 	/* 0x0390, */ 0x0012001006003401UL,
 };
 #endif
-

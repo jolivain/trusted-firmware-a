@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,7 +8,6 @@
 #define SUNXI_PRIVATE_H
 
 #include <common/fdt_fixup.h>
-
 #include <lib/psci/psci.h>
 
 extern const struct psci_cpu_idle_state sunxi_idle_states[];

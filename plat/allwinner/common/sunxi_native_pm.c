@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,13 +10,12 @@
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
-
 #include <sunxi_mmap.h>
 #include <sunxi_private.h>
 
-#define SUNXI_WDOG0_CTRL_REG		(SUNXI_R_WDOG_BASE + 0x0010)
-#define SUNXI_WDOG0_CFG_REG		(SUNXI_R_WDOG_BASE + 0x0014)
-#define SUNXI_WDOG0_MODE_REG		(SUNXI_R_WDOG_BASE + 0x0018)
+#define SUNXI_WDOG0_CTRL_REG (SUNXI_R_WDOG_BASE + 0x0010)
+#define SUNXI_WDOG0_CFG_REG (SUNXI_R_WDOG_BASE + 0x0014)
+#define SUNXI_WDOG0_MODE_REG (SUNXI_R_WDOG_BASE + 0x0018)
 
 static int sunxi_pwr_domain_on(u_register_t mpidr)
 {
@@ -67,12 +66,12 @@ static void __dead2 sunxi_system_reset(void)
 }
 
 static const plat_psci_ops_t sunxi_native_psci_ops = {
-	.pwr_domain_on			= sunxi_pwr_domain_on,
-	.pwr_domain_off			= sunxi_pwr_domain_off,
-	.pwr_domain_on_finish		= sunxi_pwr_domain_on_finish,
-	.system_off			= sunxi_system_off,
-	.system_reset			= sunxi_system_reset,
-	.validate_ns_entrypoint		= sunxi_validate_ns_entrypoint,
+	.pwr_domain_on = sunxi_pwr_domain_on,
+	.pwr_domain_off = sunxi_pwr_domain_off,
+	.pwr_domain_on_finish = sunxi_pwr_domain_on_finish,
+	.system_off = sunxi_system_off,
+	.system_reset = sunxi_system_reset,
+	.validate_ns_entrypoint = sunxi_validate_ns_entrypoint,
 };
 
 void sunxi_set_native_psci_ops(const plat_psci_ops_t **psci_ops)

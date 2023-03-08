@@ -12,102 +12,100 @@
 /**************************************
  * Config and Parameter
  **************************************/
-#define POWER_ON_VAL0_DEF	0x0000F100
-#define POWER_ON_VAL1_DEF	0x80015860
-#define PCM_WDT_TIMEOUT		(30 * 32768)	/* 30s */
-#define PCM_TIMER_MAX		(0xffffffff - PCM_WDT_TIMEOUT)
+#define POWER_ON_VAL0_DEF 0x0000F100
+#define POWER_ON_VAL1_DEF 0x80015860
+#define PCM_WDT_TIMEOUT (30 * 32768) /* 30s */
+#define PCM_TIMER_MAX (0xffffffff - PCM_WDT_TIMEOUT)
 
 /**************************************
  * Define and Declare
  **************************************/
 /* PCM_PWR_IO_EN */
-#define PCM_PWRIO_EN_R0		(1U << 0)
-#define PCM_PWRIO_EN_R7		(1U << 7)
-#define PCM_RF_SYNC_R0		(1U << 16)
-#define PCM_RF_SYNC_R6		(1U << 22)
-#define PCM_RF_SYNC_R7		(1U << 23)
+#define PCM_PWRIO_EN_R0 (1U << 0)
+#define PCM_PWRIO_EN_R7 (1U << 7)
+#define PCM_RF_SYNC_R0 (1U << 16)
+#define PCM_RF_SYNC_R6 (1U << 22)
+#define PCM_RF_SYNC_R7 (1U << 23)
 
 /* SPM_SWINT */
-#define PCM_SW_INT0		(1U << 0)
-#define PCM_SW_INT1		(1U << 1)
-#define PCM_SW_INT2		(1U << 2)
-#define PCM_SW_INT3		(1U << 3)
-#define PCM_SW_INT4		(1U << 4)
-#define PCM_SW_INT5		(1U << 5)
-#define PCM_SW_INT6		(1U << 6)
-#define PCM_SW_INT7		(1U << 7)
-#define PCM_SW_INT8		(1U << 8)
-#define PCM_SW_INT9		(1U << 9)
-#define PCM_SW_INT_ALL		(PCM_SW_INT9 | PCM_SW_INT8 | PCM_SW_INT7 | \
-				 PCM_SW_INT6 | PCM_SW_INT5 | PCM_SW_INT4 | \
-				 PCM_SW_INT3 | PCM_SW_INT2 | PCM_SW_INT1 | \
-				 PCM_SW_INT0)
+#define PCM_SW_INT0 (1U << 0)
+#define PCM_SW_INT1 (1U << 1)
+#define PCM_SW_INT2 (1U << 2)
+#define PCM_SW_INT3 (1U << 3)
+#define PCM_SW_INT4 (1U << 4)
+#define PCM_SW_INT5 (1U << 5)
+#define PCM_SW_INT6 (1U << 6)
+#define PCM_SW_INT7 (1U << 7)
+#define PCM_SW_INT8 (1U << 8)
+#define PCM_SW_INT9 (1U << 9)
+#define PCM_SW_INT_ALL                                                         \
+	(PCM_SW_INT9 | PCM_SW_INT8 | PCM_SW_INT7 | PCM_SW_INT6 | PCM_SW_INT5 | \
+	 PCM_SW_INT4 | PCM_SW_INT3 | PCM_SW_INT2 | PCM_SW_INT1 | PCM_SW_INT0)
 
 /* SPM_AP_STANDBY_CON */
-#define WFI_OP_AND		1
-#define WFI_OP_OR		0
+#define WFI_OP_AND 1
+#define WFI_OP_OR 0
 
 /* SPM_IRQ_MASK */
-#define ISRM_TWAM		(1U << 2)
-#define ISRM_PCM_RETURN		(1U << 3)
-#define ISRM_RET_IRQ0		(1U << 8)
-#define ISRM_RET_IRQ1		(1U << 9)
-#define ISRM_RET_IRQ2		(1U << 10)
-#define ISRM_RET_IRQ3		(1U << 11)
-#define ISRM_RET_IRQ4		(1U << 12)
-#define ISRM_RET_IRQ5		(1U << 13)
-#define ISRM_RET_IRQ6		(1U << 14)
-#define ISRM_RET_IRQ7		(1U << 15)
-#define ISRM_RET_IRQ8		(1U << 16)
-#define ISRM_RET_IRQ9		(1U << 17)
-#define ISRM_RET_IRQ_AUX	((ISRM_RET_IRQ9) | (ISRM_RET_IRQ8) | \
-				 (ISRM_RET_IRQ7) | (ISRM_RET_IRQ6) | \
-				 (ISRM_RET_IRQ5) | (ISRM_RET_IRQ4) | \
-				 (ISRM_RET_IRQ3) | (ISRM_RET_IRQ2) | \
-				 (ISRM_RET_IRQ1))
-#define ISRM_ALL_EXC_TWAM	(ISRM_RET_IRQ_AUX)
-#define ISRM_ALL		(ISRM_ALL_EXC_TWAM | ISRM_TWAM)
+#define ISRM_TWAM (1U << 2)
+#define ISRM_PCM_RETURN (1U << 3)
+#define ISRM_RET_IRQ0 (1U << 8)
+#define ISRM_RET_IRQ1 (1U << 9)
+#define ISRM_RET_IRQ2 (1U << 10)
+#define ISRM_RET_IRQ3 (1U << 11)
+#define ISRM_RET_IRQ4 (1U << 12)
+#define ISRM_RET_IRQ5 (1U << 13)
+#define ISRM_RET_IRQ6 (1U << 14)
+#define ISRM_RET_IRQ7 (1U << 15)
+#define ISRM_RET_IRQ8 (1U << 16)
+#define ISRM_RET_IRQ9 (1U << 17)
+#define ISRM_RET_IRQ_AUX                                       \
+	((ISRM_RET_IRQ9) | (ISRM_RET_IRQ8) | (ISRM_RET_IRQ7) | \
+	 (ISRM_RET_IRQ6) | (ISRM_RET_IRQ5) | (ISRM_RET_IRQ4) | \
+	 (ISRM_RET_IRQ3) | (ISRM_RET_IRQ2) | (ISRM_RET_IRQ1))
+#define ISRM_ALL_EXC_TWAM (ISRM_RET_IRQ_AUX)
+#define ISRM_ALL (ISRM_ALL_EXC_TWAM | ISRM_TWAM)
 
 /* SPM_IRQ_STA */
-#define ISRS_TWAM		(1U << 2)
-#define ISRS_PCM_RETURN		(1U << 3)
-#define ISRC_TWAM		ISRS_TWAM
-#define ISRC_ALL_EXC_TWAM	ISRS_PCM_RETURN
-#define ISRC_ALL		(ISRC_ALL_EXC_TWAM | ISRC_TWAM)
+#define ISRS_TWAM (1U << 2)
+#define ISRS_PCM_RETURN (1U << 3)
+#define ISRC_TWAM ISRS_TWAM
+#define ISRC_ALL_EXC_TWAM ISRS_PCM_RETURN
+#define ISRC_ALL (ISRC_ALL_EXC_TWAM | ISRC_TWAM)
 
 /* SPM_WAKEUP_MISC */
-#define WAKE_MISC_GIC_WAKEUP             0x3FF
-#define WAKE_MISC_DVFSRC_IRQ	         DVFSRC_IRQ_LSB
-#define WAKE_MISC_REG_CPU_WAKEUP         SPM_WAKEUP_MISC_REG_CPU_WAKEUP_LSB
-#define WAKE_MISC_PCM_TIMER_EVENT        PCM_TIMER_EVENT_LSB
-#define WAKE_MISC_PMIC_OUT_B		 ((1U << 19) | (1U << 20))
-#define WAKE_MISC_TWAM_IRQ_B             TWAM_IRQ_B_LSB
-#define WAKE_MISC_PMSR_IRQ_B_SET0        PMSR_IRQ_B_SET0_LSB
-#define WAKE_MISC_PMSR_IRQ_B_SET1        PMSR_IRQ_B_SET1_LSB
-#define WAKE_MISC_PMSR_IRQ_B_SET2        PMSR_IRQ_B_SET2_LSB
-#define WAKE_MISC_SPM_ACK_CHK_WAKEUP_0   SPM_ACK_CHK_WAKEUP_0_LSB
-#define WAKE_MISC_SPM_ACK_CHK_WAKEUP_1	 SPM_ACK_CHK_WAKEUP_1_LSB
-#define WAKE_MISC_SPM_ACK_CHK_WAKEUP_2	 SPM_ACK_CHK_WAKEUP_2_LSB
-#define WAKE_MISC_SPM_ACK_CHK_WAKEUP_3	 SPM_ACK_CHK_WAKEUP_3_LSB
+#define WAKE_MISC_GIC_WAKEUP 0x3FF
+#define WAKE_MISC_DVFSRC_IRQ DVFSRC_IRQ_LSB
+#define WAKE_MISC_REG_CPU_WAKEUP SPM_WAKEUP_MISC_REG_CPU_WAKEUP_LSB
+#define WAKE_MISC_PCM_TIMER_EVENT PCM_TIMER_EVENT_LSB
+#define WAKE_MISC_PMIC_OUT_B ((1U << 19) | (1U << 20))
+#define WAKE_MISC_TWAM_IRQ_B TWAM_IRQ_B_LSB
+#define WAKE_MISC_PMSR_IRQ_B_SET0 PMSR_IRQ_B_SET0_LSB
+#define WAKE_MISC_PMSR_IRQ_B_SET1 PMSR_IRQ_B_SET1_LSB
+#define WAKE_MISC_PMSR_IRQ_B_SET2 PMSR_IRQ_B_SET2_LSB
+#define WAKE_MISC_SPM_ACK_CHK_WAKEUP_0 SPM_ACK_CHK_WAKEUP_0_LSB
+#define WAKE_MISC_SPM_ACK_CHK_WAKEUP_1 SPM_ACK_CHK_WAKEUP_1_LSB
+#define WAKE_MISC_SPM_ACK_CHK_WAKEUP_2 SPM_ACK_CHK_WAKEUP_2_LSB
+#define WAKE_MISC_SPM_ACK_CHK_WAKEUP_3 SPM_ACK_CHK_WAKEUP_3_LSB
 #define WAKE_MISC_SPM_ACK_CHK_WAKEUP_ALL SPM_ACK_CHK_WAKEUP_ALL_LSB
-#define WAKE_MISC_PMIC_IRQ_ACK           PMIC_IRQ_ACK_LSB
-#define WAKE_MISC_PMIC_SCP_IRQ           PMIC_SCP_IRQ_LSB
+#define WAKE_MISC_PMIC_IRQ_ACK PMIC_IRQ_ACK_LSB
+#define WAKE_MISC_PMIC_SCP_IRQ PMIC_SCP_IRQ_LSB
 
 /* ABORT MASK for DEBUG FOORTPRINT */
-#define DEBUG_ABORT_MASK				\
-	(SPM_DBG_DEBUG_IDX_DRAM_SREF_ABORT_IN_APSRC |	\
+#define DEBUG_ABORT_MASK                              \
+	(SPM_DBG_DEBUG_IDX_DRAM_SREF_ABORT_IN_APSRC | \
 	 SPM_DBG_DEBUG_IDX_DRAM_SREF_ABORT_IN_DDREN)
 
-#define DEBUG_ABORT_MASK_1					\
-	(SPM_DBG1_DEBUG_IDX_VRCXO_SLEEP_ABORT |			\
-	 SPM_DBG1_DEBUG_IDX_PWRAP_SLEEP_ACK_LOW_ABORT |		\
-	 SPM_DBG1_DEBUG_IDX_PWRAP_SLEEP_ACK_HIGH_ABORT |	\
-	 SPM_DBG1_DEBUG_IDX_EMI_SLP_IDLE_ABORT |		\
-	 SPM_DBG1_DEBUG_IDX_SCP_SLP_ACK_LOW_ABORT |		\
-	 SPM_DBG1_DEBUG_IDX_SCP_SLP_ACK_HIGH_ABORT |		\
+#define DEBUG_ABORT_MASK_1                               \
+	(SPM_DBG1_DEBUG_IDX_VRCXO_SLEEP_ABORT |          \
+	 SPM_DBG1_DEBUG_IDX_PWRAP_SLEEP_ACK_LOW_ABORT |  \
+	 SPM_DBG1_DEBUG_IDX_PWRAP_SLEEP_ACK_HIGH_ABORT | \
+	 SPM_DBG1_DEBUG_IDX_EMI_SLP_IDLE_ABORT |         \
+	 SPM_DBG1_DEBUG_IDX_SCP_SLP_ACK_LOW_ABORT |      \
+	 SPM_DBG1_DEBUG_IDX_SCP_SLP_ACK_HIGH_ABORT |     \
 	 SPM_DBG1_DEBUG_IDX_SPM_DVFS_CMD_RDY_ABORT)
 
-#define MCUPM_MBOX_WAKEUP_CPU		0x0C55FD10
+#define MCUPM_MBOX_WAKEUP_CPU 0x0C55FD10
 
 struct pwr_ctrl {
 	uint32_t pcm_flags;
@@ -507,27 +505,27 @@ enum pwr_ctrl_enum {
 	PW_MAX_COUNT,
 };
 
-#define SPM_INTERNAL_STATUS_HW_S1	(1U << 0)
-#define SPM_ACK_CHK_3_SEL_HW_S1		0x00350098
-#define SPM_ACK_CHK_3_HW_S1_CNT		1
-#define SPM_ACK_CHK_3_CON_HW_MODE_TRIG	0x800
-#define SPM_ACK_CHK_3_CON_EN		0x110
-#define SPM_ACK_CHK_3_CON_CLR_ALL	0x2
-#define SPM_ACK_CHK_3_CON_RESULT	0x8000
+#define SPM_INTERNAL_STATUS_HW_S1 (1U << 0)
+#define SPM_ACK_CHK_3_SEL_HW_S1 0x00350098
+#define SPM_ACK_CHK_3_HW_S1_CNT 1
+#define SPM_ACK_CHK_3_CON_HW_MODE_TRIG 0x800
+#define SPM_ACK_CHK_3_CON_EN 0x110
+#define SPM_ACK_CHK_3_CON_CLR_ALL 0x2
+#define SPM_ACK_CHK_3_CON_RESULT 0x8000
 
 struct wake_status_trace_comm {
-	uint32_t debug_flag;	/* PCM_WDT_LATCH_SPARE_0 */
-	uint32_t debug_flag1;	/* PCM_WDT_LATCH_SPARE_1 */
-	uint32_t timer_out;	/* SPM_SW_RSV_6*/
-	uint32_t b_sw_flag0;	/* SPM_SW_RSV_7 */
-	uint32_t b_sw_flag1;	/* SPM_SW_RSV_7 */
-	uint32_t r12;		/* SPM_SW_RSV_0 */
-	uint32_t r13;		/* PCM_REG13_DATA */
-	uint32_t req_sta0;	/* SRC_REQ_STA_0 */
-	uint32_t req_sta1;	/* SRC_REQ_STA_1 */
-	uint32_t req_sta2;	/* SRC_REQ_STA_2 */
-	uint32_t req_sta3;	/* SRC_REQ_STA_3 */
-	uint32_t req_sta4;	/* SRC_REQ_STA_4 */
+	uint32_t debug_flag; /* PCM_WDT_LATCH_SPARE_0 */
+	uint32_t debug_flag1; /* PCM_WDT_LATCH_SPARE_1 */
+	uint32_t timer_out; /* SPM_SW_RSV_6*/
+	uint32_t b_sw_flag0; /* SPM_SW_RSV_7 */
+	uint32_t b_sw_flag1; /* SPM_SW_RSV_7 */
+	uint32_t r12; /* SPM_SW_RSV_0 */
+	uint32_t r13; /* PCM_REG13_DATA */
+	uint32_t req_sta0; /* SRC_REQ_STA_0 */
+	uint32_t req_sta1; /* SRC_REQ_STA_1 */
+	uint32_t req_sta2; /* SRC_REQ_STA_2 */
+	uint32_t req_sta3; /* SRC_REQ_STA_3 */
+	uint32_t req_sta4; /* SRC_REQ_STA_4 */
 };
 
 struct wake_status_trace {
@@ -536,38 +534,38 @@ struct wake_status_trace {
 
 struct wake_status {
 	struct wake_status_trace tr;
-	uint32_t r12;			/* SPM_BK_WAKE_EVENT */
-	uint32_t r12_ext;		/* SPM_WAKEUP_EXT_STA */
-	uint32_t raw_sta;		/* SPM_WAKEUP_STA */
-	uint32_t raw_ext_sta;		/* SPM_WAKEUP_EXT_STA */
-	uint32_t md32pcm_wakeup_sta;	/* MD32CPM_WAKEUP_STA */
-	uint32_t md32pcm_event_sta;	/* MD32PCM_EVENT_STA */
-	uint32_t wake_misc;		/* SPM_BK_WAKE_MISC */
-	uint32_t timer_out;		/* SPM_BK_PCM_TIMER */
-	uint32_t r13;			/* PCM_REG13_DATA */
-	uint32_t idle_sta;		/* SUBSYS_IDLE_STA */
-	uint32_t req_sta0;		/* SRC_REQ_STA_0 */
-	uint32_t req_sta1;		/* SRC_REQ_STA_1 */
-	uint32_t req_sta2;		/* SRC_REQ_STA_2 */
-	uint32_t req_sta3;		/* SRC_REQ_STA_3 */
-	uint32_t req_sta4;		/* SRC_REQ_STA_4 */
-	uint32_t cg_check_sta;		/* SPM_CG_CHECK_STA */
-	uint32_t debug_flag;		/* PCM_WDT_LATCH_SPARE_0 */
-	uint32_t debug_flag1;		/* PCM_WDT_LATCH_SPARE_1 */
-	uint32_t b_sw_flag0;		/* SPM_SW_RSV_7 */
-	uint32_t b_sw_flag1;		/* SPM_SW_RSV_8 */
-	uint32_t isr;			/* SPM_IRQ_STA */
-	uint32_t sw_flag0;		/* SPM_SW_FLAG_0 */
-	uint32_t sw_flag1;		/* SPM_SW_FLAG_1 */
-	uint32_t clk_settle;		/* SPM_CLK_SETTLE */
-	uint32_t src_req;		/* SPM_SRC_REQ */
+	uint32_t r12; /* SPM_BK_WAKE_EVENT */
+	uint32_t r12_ext; /* SPM_WAKEUP_EXT_STA */
+	uint32_t raw_sta; /* SPM_WAKEUP_STA */
+	uint32_t raw_ext_sta; /* SPM_WAKEUP_EXT_STA */
+	uint32_t md32pcm_wakeup_sta; /* MD32CPM_WAKEUP_STA */
+	uint32_t md32pcm_event_sta; /* MD32PCM_EVENT_STA */
+	uint32_t wake_misc; /* SPM_BK_WAKE_MISC */
+	uint32_t timer_out; /* SPM_BK_PCM_TIMER */
+	uint32_t r13; /* PCM_REG13_DATA */
+	uint32_t idle_sta; /* SUBSYS_IDLE_STA */
+	uint32_t req_sta0; /* SRC_REQ_STA_0 */
+	uint32_t req_sta1; /* SRC_REQ_STA_1 */
+	uint32_t req_sta2; /* SRC_REQ_STA_2 */
+	uint32_t req_sta3; /* SRC_REQ_STA_3 */
+	uint32_t req_sta4; /* SRC_REQ_STA_4 */
+	uint32_t cg_check_sta; /* SPM_CG_CHECK_STA */
+	uint32_t debug_flag; /* PCM_WDT_LATCH_SPARE_0 */
+	uint32_t debug_flag1; /* PCM_WDT_LATCH_SPARE_1 */
+	uint32_t b_sw_flag0; /* SPM_SW_RSV_7 */
+	uint32_t b_sw_flag1; /* SPM_SW_RSV_8 */
+	uint32_t isr; /* SPM_IRQ_STA */
+	uint32_t sw_flag0; /* SPM_SW_FLAG_0 */
+	uint32_t sw_flag1; /* SPM_SW_FLAG_1 */
+	uint32_t clk_settle; /* SPM_CLK_SETTLE */
+	uint32_t src_req; /* SPM_SRC_REQ */
 	uint32_t log_index;
 	uint32_t abort;
-	uint32_t rt_req_sta0;		/* SPM_SW_RSV_2 */
-	uint32_t rt_req_sta1;		/* SPM_SW_RSV_3 */
-	uint32_t rt_req_sta2;		/* SPM_SW_RSV_4 */
-	uint32_t rt_req_sta3;		/* SPM_SW_RSV_5 */
-	uint32_t rt_req_sta4;		/* SPM_SW_RSV_6 */
+	uint32_t rt_req_sta0; /* SPM_SW_RSV_2 */
+	uint32_t rt_req_sta1; /* SPM_SW_RSV_3 */
+	uint32_t rt_req_sta2; /* SPM_SW_RSV_4 */
+	uint32_t rt_req_sta3; /* SPM_SW_RSV_5 */
+	uint32_t rt_req_sta4; /* SPM_SW_RSV_6 */
 	uint32_t mcupm_req_sta;
 };
 

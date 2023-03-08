@@ -1,9 +1,8 @@
 /*
- * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
-
 
 /*******************************************************************************
  * This is the Secure Payload Dispatcher (SPD). The dispatcher is meant to be a
@@ -27,8 +26,9 @@
 #include <common/debug.h>
 #include <common/runtime_svc.h>
 #include <lib/el3_runtime/context_mgmt.h>
-#include <plat/common/platform.h>
 #include <tools_share/uuid.h>
+
+#include <plat/common/platform.h>
 
 #include "tspd_private.h"
 
@@ -43,11 +43,9 @@ tsp_vectors_t *tsp_vectors;
  ******************************************************************************/
 tsp_context_t tspd_sp_context[TSPD_CORE_COUNT];
 
-
 /* TSP UID */
-DEFINE_SVC_UUID2(tsp_uuid,
-	0xa056305b, 0x9132, 0x7b42, 0x98, 0x11,
-	0x71, 0x68, 0xca, 0x50, 0xf3, 0xfa);
+DEFINE_SVC_UUID2(tsp_uuid, 0xa056305b, 0x9132, 0x7b42, 0x98, 0x11, 0x71, 0x68,
+		 0xca, 0x50, 0xf3, 0xfa);
 
 int32_t tspd_init(void);
 
@@ -105,10 +103,8 @@ uint64_t tspd_handle_sp_preemption(void *handle)
  * a scenario where the above assumptions do not hold true. This is demonstrated
  * below through Note 1.
  ******************************************************************************/
-static uint64_t tspd_sel1_interrupt_handler(uint32_t id,
-					    uint32_t flags,
-					    void *handle,
-					    void *cookie)
+static uint64_t tspd_sel1_interrupt_handler(uint32_t id, uint32_t flags,
+					    void *handle, void *cookie)
 {
 	uint32_t linear_id;
 	tsp_context_t *tsp_ctx;
@@ -190,18 +186,19 @@ static uint64_t tspd_sel1_interrupt_handler(uint32_t id,
 	 * interrupt handling.
 	 */
 	if (get_yield_smc_active_flag(tsp_ctx->state)) {
-		tsp_ctx->saved_spsr_el3 = (uint32_t)SMC_GET_EL3(&tsp_ctx->cpu_ctx,
-						      CTX_SPSR_EL3);
-		tsp_ctx->saved_elr_el3 = SMC_GET_EL3(&tsp_ctx->cpu_ctx,
-						     CTX_ELR_EL3);
+		tsp_ctx->saved_spsr_el3 =
+			(uint32_t)SMC_GET_EL3(&tsp_ctx->cpu_ctx, CTX_SPSR_EL3);
+		tsp_ctx->saved_elr_el3 =
+			SMC_GET_EL3(&tsp_ctx->cpu_ctx, CTX_ELR_EL3);
 #if TSP_NS_INTR_ASYNC_PREEMPT
 		memcpy(&tsp_ctx->sp_ctx, &tsp_ctx->cpu_ctx, TSPD_SP_CTX_SIZE);
 #endif
 	}
 
 	cm_el1_sysregs_context_restore(SECURE);
-	cm_set_elr_spsr_el3(SECURE, (uint64_t) &tsp_vectors->sel1_intr_entry,
-		    SPSR_64(MODE_EL1, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS));
+	cm_set_elr_spsr_el3(SECURE, (uint64_t)&tsp_vectors->sel1_intr_entry,
+			    SPSR_64(MODE_EL1, MODE_SP_ELX,
+				    DISABLE_ALL_EXCEPTIONS));
 
 	cm_set_next_eret_context(SECURE);
 
@@ -212,7 +209,8 @@ static uint64_t tspd_sel1_interrupt_handler(uint32_t id,
 	 * this address from ELR_EL3 as the secure context will not take effect
 	 * until el3_exit().
 	 */
-	SMC_RET2(&tsp_ctx->cpu_ctx, TSP_HANDLE_SEL1_INTR_AND_RETURN, read_elr_el3());
+	SMC_RET2(&tsp_ctx->cpu_ctx, TSP_HANDLE_SEL1_INTR_AND_RETURN,
+		 read_elr_el3());
 }
 
 #if TSP_NS_INTR_ASYNC_PREEMPT
@@ -221,10 +219,8 @@ static uint64_t tspd_sel1_interrupt_handler(uint32_t id,
  * TSPD. It validates the interrupt and upon success arranges entry into the
  * normal world for handling the interrupt.
  ******************************************************************************/
-static uint64_t tspd_ns_interrupt_handler(uint32_t id,
-					    uint32_t flags,
-					    void *handle,
-					    void *cookie)
+static uint64_t tspd_ns_interrupt_handler(uint32_t id, uint32_t flags,
+					  void *handle, void *cookie)
 {
 	/* Check the security state when the exception was generated */
 	assert(get_interrupt_src_ss(flags) == SECURE);
@@ -259,8 +255,8 @@ static int32_t tspd_setup(void)
 	tsp_ep_info = bl31_plat_get_next_image_ep_info(SECURE);
 	if (!tsp_ep_info) {
 		WARN("No TSP provided by BL2 boot loader, Booting device"
-			" without TSP initialization. SMC`s destined for TSP"
-			" will return SMC_UNK\n");
+		     " without TSP initialization. SMC`s destined for TSP"
+		     " will return SMC_UNK\n");
 		return 1;
 	}
 
@@ -277,10 +273,8 @@ static int32_t tspd_setup(void)
 	 * state i.e whether AArch32 or AArch64. Assuming it's AArch64
 	 * for the time being.
 	 */
-	tspd_init_tsp_ep_state(tsp_ep_info,
-				TSP_AARCH64,
-				tsp_ep_info->pc,
-				&tspd_sp_context[linear_id]);
+	tspd_init_tsp_ep_state(tsp_ep_info, TSP_AARCH64, tsp_ep_info->pc,
+			       &tspd_sp_context[linear_id]);
 
 #if TSP_INIT_ASYNC
 	bl31_set_next_image_type(SECURE);
@@ -329,7 +323,6 @@ int32_t tspd_init(void)
 	return rc;
 }
 
-
 /*******************************************************************************
  * This function is responsible for handling all SMCs in the Trusted OS/App
  * range from the non-secure state as defined in the SMC Calling Convention
@@ -338,14 +331,10 @@ int32_t tspd_init(void)
  * will also return any information that the secure payload needs to do the
  * work assigned to it.
  ******************************************************************************/
-static uintptr_t tspd_smc_handler(uint32_t smc_fid,
-			 u_register_t x1,
-			 u_register_t x2,
-			 u_register_t x3,
-			 u_register_t x4,
-			 void *cookie,
-			 void *handle,
-			 u_register_t flags)
+static uintptr_t tspd_smc_handler(uint32_t smc_fid, u_register_t x1,
+				  u_register_t x2, u_register_t x3,
+				  u_register_t x4, void *cookie, void *handle,
+				  u_register_t flags)
 {
 	cpu_context_t *ns_cpu_context;
 	uint32_t linear_id = plat_my_core_pos(), ns;
@@ -359,7 +348,6 @@ static uintptr_t tspd_smc_handler(uint32_t smc_fid,
 	ns = is_caller_non_secure(flags);
 
 	switch (smc_fid) {
-
 	/*
 	 * This function ID is used by TSP to indicate that it was
 	 * preempted by a normal world IRQ.
@@ -388,11 +376,9 @@ static uintptr_t tspd_smc_handler(uint32_t smc_fid,
 		 * this SMC.
 		 */
 		if (get_yield_smc_active_flag(tsp_ctx->state)) {
-			SMC_SET_EL3(&tsp_ctx->cpu_ctx,
-				    CTX_SPSR_EL3,
+			SMC_SET_EL3(&tsp_ctx->cpu_ctx, CTX_SPSR_EL3,
 				    tsp_ctx->saved_spsr_el3);
-			SMC_SET_EL3(&tsp_ctx->cpu_ctx,
-				    CTX_ELR_EL3,
+			SMC_SET_EL3(&tsp_ctx->cpu_ctx, CTX_ELR_EL3,
 				    tsp_ctx->saved_elr_el3);
 #if TSP_NS_INTR_ASYNC_PREEMPT
 			/*
@@ -400,7 +386,7 @@ static uintptr_t tspd_smc_handler(uint32_t smc_fid,
 			 * secure context.
 			 */
 			memcpy(&tsp_ctx->cpu_ctx, &tsp_ctx->sp_ctx,
-				TSPD_SP_CTX_SIZE);
+			       TSPD_SP_CTX_SIZE);
 #endif
 		}
 
@@ -424,12 +410,11 @@ static uintptr_t tspd_smc_handler(uint32_t smc_fid,
 
 			SMC_RET1(ns_cpu_context, SMC_PREEMPTED);
 		} else {
-			SMC_RET0((uint64_t) ns_cpu_context);
+			SMC_RET0((uint64_t)ns_cpu_context);
 		}
 #else
-		SMC_RET0((uint64_t) ns_cpu_context);
+		SMC_RET0((uint64_t)ns_cpu_context);
 #endif
-
 
 	/*
 	 * This function ID is used only by the SP to indicate it has
@@ -444,7 +429,7 @@ static uintptr_t tspd_smc_handler(uint32_t smc_fid,
 		 * only once on the primary cpu
 		 */
 		assert(tsp_vectors == NULL);
-		tsp_vectors = (tsp_vectors_t *) x1;
+		tsp_vectors = (tsp_vectors_t *)x1;
 
 		if (tsp_vectors) {
 			set_tsp_pstate(tsp_ctx->state, TSP_PSTATE_ON);
@@ -462,9 +447,9 @@ static uintptr_t tspd_smc_handler(uint32_t smc_fid,
 			 */
 			flags = 0;
 			set_interrupt_rm_flag(flags, NON_SECURE);
-			rc = register_interrupt_type_handler(INTR_TYPE_S_EL1,
-						tspd_sel1_interrupt_handler,
-						flags);
+			rc = register_interrupt_type_handler(
+				INTR_TYPE_S_EL1, tspd_sel1_interrupt_handler,
+				flags);
 			if (rc)
 				panic();
 
@@ -477,9 +462,8 @@ static uintptr_t tspd_smc_handler(uint32_t smc_fid,
 			flags = 0;
 			set_interrupt_rm_flag(flags, SECURE);
 
-			rc = register_interrupt_type_handler(INTR_TYPE_NS,
-						tspd_ns_interrupt_handler,
-						flags);
+			rc = register_interrupt_type_handler(
+				INTR_TYPE_NS, tspd_ns_interrupt_handler, flags);
 			if (rc)
 				panic();
 
@@ -490,7 +474,6 @@ static uintptr_t tspd_smc_handler(uint32_t smc_fid,
 #endif
 		}
 
-
 #if TSP_INIT_ASYNC
 		/* Save the Secure EL1 system register context */
 		assert(cm_get_context(SECURE) == &tsp_ctx->cpu_ctx);
@@ -500,7 +483,7 @@ static uintptr_t tspd_smc_handler(uint32_t smc_fid,
 		next_image_info = bl31_plat_get_next_image_ep_info(NON_SECURE);
 		assert(next_image_info);
 		assert(NON_SECURE ==
-				GET_SECURITY_STATE(next_image_info->h.attr));
+		       GET_SECURITY_STATE(next_image_info->h.attr));
 
 		cm_init_my_context(next_image_info);
 		cm_prepare_el3_exit(NON_SECURE);
@@ -612,12 +595,14 @@ static uintptr_t tspd_smc_handler(uint32_t smc_fid,
 			 * flags as appropriate.
 			 */
 			if (GET_SMC_TYPE(smc_fid) == SMC_TYPE_FAST) {
-				cm_set_elr_el3(SECURE, (uint64_t)
-						&tsp_vectors->fast_smc_entry);
+				cm_set_elr_el3(
+					SECURE,
+					(uint64_t)&tsp_vectors->fast_smc_entry);
 			} else {
 				set_yield_smc_active_flag(tsp_ctx->state);
-				cm_set_elr_el3(SECURE, (uint64_t)
-						&tsp_vectors->yield_smc_entry);
+				cm_set_elr_el3(
+					SECURE,
+					(uint64_t)&tsp_vectors->yield_smc_entry);
 #if TSP_NS_INTR_ASYNC_PREEMPT
 				/*
 				 * Enable the routing of NS interrupts to EL3
@@ -797,23 +782,13 @@ static uintptr_t tspd_smc_handler(uint32_t smc_fid,
 }
 
 /* Define a SPD runtime service descriptor for fast SMC calls */
-DECLARE_RT_SVC(
-	tspd_fast,
+DECLARE_RT_SVC(tspd_fast,
 
-	OEN_TOS_START,
-	OEN_TOS_END,
-	SMC_TYPE_FAST,
-	tspd_setup,
-	tspd_smc_handler
-);
+	       OEN_TOS_START, OEN_TOS_END, SMC_TYPE_FAST, tspd_setup,
+	       tspd_smc_handler);
 
 /* Define a SPD runtime service descriptor for Yielding SMC Calls */
-DECLARE_RT_SVC(
-	tspd_std,
+DECLARE_RT_SVC(tspd_std,
 
-	OEN_TOS_START,
-	OEN_TOS_END,
-	SMC_TYPE_YIELD,
-	NULL,
-	tspd_smc_handler
-);
+	       OEN_TOS_START, OEN_TOS_END, SMC_TYPE_YIELD, NULL,
+	       tspd_smc_handler);

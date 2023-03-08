@@ -7,36 +7,36 @@
 #ifndef PWRC_H
 #define PWRC_H
 
-#define PPOFFR_OFF		0x0
-#define PPONR_OFF		0x4
-#define PCOFFR_OFF		0x8
-#define PWKUPR_OFF		0xc
-#define PSYSR_OFF		0x10
+#define PPOFFR_OFF 0x0
+#define PPONR_OFF 0x4
+#define PCOFFR_OFF 0x8
+#define PWKUPR_OFF 0xc
+#define PSYSR_OFF 0x10
 
-#define PWKUPR_WEN		(1ull << 31)
+#define PWKUPR_WEN (1ull << 31)
 
-#define PSYSR_AFF_L2		(1U << 31)
-#define PSYSR_AFF_L1		(1 << 30)
-#define PSYSR_AFF_L0		(1 << 29)
-#define PSYSR_WEN		(1 << 28)
-#define PSYSR_PC		(1 << 27)
-#define PSYSR_PP		(1 << 26)
+#define PSYSR_AFF_L2 (1U << 31)
+#define PSYSR_AFF_L1 (1 << 30)
+#define PSYSR_AFF_L0 (1 << 29)
+#define PSYSR_WEN (1 << 28)
+#define PSYSR_PC (1 << 27)
+#define PSYSR_PP (1 << 26)
 
-#define PSYSR_WK_SHIFT		(24)
-#define PSYSR_WK_MASK		(0x3)
-#define PSYSR_WK(x)		(((x) >> PSYSR_WK_SHIFT) & PSYSR_WK_MASK)
+#define PSYSR_WK_SHIFT (24)
+#define PSYSR_WK_MASK (0x3)
+#define PSYSR_WK(x) (((x) >> PSYSR_WK_SHIFT) & PSYSR_WK_MASK)
 
-#define WKUP_COLD		0x0
-#define WKUP_RESET		0x1
-#define WKUP_PPONR		0x2
-#define WKUP_GICREQ		0x3
+#define WKUP_COLD 0x0
+#define WKUP_RESET 0x1
+#define WKUP_PPONR 0x2
+#define WKUP_GICREQ 0x3
 
-#define RCAR_INVALID		(0xffffffffU)
-#define PSYSR_INVALID		0xffffffff
+#define RCAR_INVALID (0xffffffffU)
+#define PSYSR_INVALID 0xffffffff
 
-#define RCAR_CLUSTER_A53A57	(0U)
-#define RCAR_CLUSTER_CA53	(1U)
-#define RCAR_CLUSTER_CA57	(2U)
+#define RCAR_CLUSTER_A53A57 (0U)
+#define RCAR_CLUSTER_CA53 (1U)
+#define RCAR_CLUSTER_CA57 (2U)
 
 extern u_register_t rcar_boot_mpidr;
 

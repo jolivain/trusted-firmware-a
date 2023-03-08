@@ -9,12 +9,12 @@
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-
 #include <mdio.h>
 #include <platform_usb.h>
 #include <sr_utils.h>
-#include "sr_usb.h"
 #include <usbh_xhci_regs.h>
+
+#include "sr_usb.h"
 
 static uint32_t usb_func = USB3_DRD | USB3H_USB2DRD;
 
@@ -74,7 +74,7 @@ static void usb3h_usb2drd_init(void)
 
 	/* USB 3.0 phy Analog Block Initialization */
 	mdio_write(MDIO_BUS_ID, USB3H_PHY_ID, USB3_PHY_MDIO_BLOCK_BASE_REG,
-			USB3_PHY_ANA_BLOCK_BASE);
+		   USB3_PHY_ANA_BLOCK_BASE);
 	mdio_write(MDIO_BUS_ID, USB3H_PHY_ID, USB3_PHY_ANA_REG0, 0x4646U);
 	mdio_write(MDIO_BUS_ID, USB3H_PHY_ID, USB3_PHY_ANA_REG1, 0x80c9U);
 	mdio_write(MDIO_BUS_ID, USB3H_PHY_ID, USB3_PHY_ANA_REG2, 0x88a6U);
@@ -84,7 +84,7 @@ static void usb3h_usb2drd_init(void)
 
 	/* USB 3.0 phy RXPMD Block initialization*/
 	mdio_write(MDIO_BUS_ID, USB3H_PHY_ID, USB3_PHY_MDIO_BLOCK_BASE_REG,
-			USB3_PHY_RXPMD_BLOCK_BASE);
+		   USB3_PHY_RXPMD_BLOCK_BASE);
 	mdio_write(MDIO_BUS_ID, USB3H_PHY_ID, USB3_PHY_RXPMD_REG1, 0x4052U);
 	mdio_write(MDIO_BUS_ID, USB3H_PHY_ID, USB3_PHY_RXPMD_REG2, 0x4cU);
 	mdio_write(MDIO_BUS_ID, USB3H_PHY_ID, USB3_PHY_RXPMD_REG5, 0x7U);
@@ -92,13 +92,13 @@ static void usb3h_usb2drd_init(void)
 
 	/* USB 3.0 phy AEQ Block initialization*/
 	mdio_write(MDIO_BUS_ID, USB3H_PHY_ID, USB3_PHY_MDIO_BLOCK_BASE_REG,
-			USB3_PHY_AEQ_BLOCK_BASE);
+		   USB3_PHY_AEQ_BLOCK_BASE);
 	mdio_write(MDIO_BUS_ID, USB3H_PHY_ID, USB3_PHY_AEQ_REG1, 0x3000U);
 	mdio_write(MDIO_BUS_ID, USB3H_PHY_ID, USB3_PHY_AEQ_REG3, 0x2c70U);
 
 	/* USB 3.0 phy TXPMD Block initialization*/
 	mdio_write(MDIO_BUS_ID, USB3H_PHY_ID, USB3_PHY_MDIO_BLOCK_BASE_REG,
-			USB3_PHY_TXPMD_BLOCK_BASE);
+		   USB3_PHY_TXPMD_BLOCK_BASE);
 	mdio_write(MDIO_BUS_ID, USB3H_PHY_ID, USB3_PHY_TXPMD_REG1, 0x100fU);
 	mdio_write(MDIO_BUS_ID, USB3H_PHY_ID, USB3_PHY_TXPMD_REG2, 0x238cU);
 }
@@ -127,7 +127,7 @@ static void usb3drd_init(void)
 
 	/* USB 3.0 DRD phy Analog Block Initialization */
 	mdio_write(MDIO_BUS_ID, USB3DRD_PHY_ID, USB3_PHY_MDIO_BLOCK_BASE_REG,
-			USB3_PHY_ANA_BLOCK_BASE);
+		   USB3_PHY_ANA_BLOCK_BASE);
 	mdio_write(MDIO_BUS_ID, USB3DRD_PHY_ID, USB3_PHY_ANA_REG0, 0x4646U);
 	mdio_write(MDIO_BUS_ID, USB3DRD_PHY_ID, USB3_PHY_ANA_REG1, 0x80c9U);
 	mdio_write(MDIO_BUS_ID, USB3DRD_PHY_ID, USB3_PHY_ANA_REG2, 0x88a6U);
@@ -137,7 +137,7 @@ static void usb3drd_init(void)
 
 	/* USB 3.0 DRD phy RXPMD Block initialization*/
 	mdio_write(MDIO_BUS_ID, USB3DRD_PHY_ID, USB3_PHY_MDIO_BLOCK_BASE_REG,
-			USB3_PHY_RXPMD_BLOCK_BASE);
+		   USB3_PHY_RXPMD_BLOCK_BASE);
 	mdio_write(MDIO_BUS_ID, USB3DRD_PHY_ID, USB3_PHY_RXPMD_REG1, 0x4052U);
 	mdio_write(MDIO_BUS_ID, USB3DRD_PHY_ID, USB3_PHY_RXPMD_REG2, 0x4cU);
 	mdio_write(MDIO_BUS_ID, USB3DRD_PHY_ID, USB3_PHY_RXPMD_REG5, 0x7U);
@@ -145,13 +145,13 @@ static void usb3drd_init(void)
 
 	/* USB 3.0 DRD phy AEQ Block initialization*/
 	mdio_write(MDIO_BUS_ID, USB3DRD_PHY_ID, USB3_PHY_MDIO_BLOCK_BASE_REG,
-			USB3_PHY_AEQ_BLOCK_BASE);
+		   USB3_PHY_AEQ_BLOCK_BASE);
 	mdio_write(MDIO_BUS_ID, USB3DRD_PHY_ID, USB3_PHY_AEQ_REG1, 0x3000U);
 	mdio_write(MDIO_BUS_ID, USB3DRD_PHY_ID, USB3_PHY_AEQ_REG3, 0x2c70U);
 
 	/* USB 3.0 DRD phy TXPMD Block initialization*/
 	mdio_write(MDIO_BUS_ID, USB3DRD_PHY_ID, USB3_PHY_MDIO_BLOCK_BASE_REG,
-			USB3_PHY_TXPMD_BLOCK_BASE);
+		   USB3_PHY_TXPMD_BLOCK_BASE);
 	mdio_write(MDIO_BUS_ID, USB3DRD_PHY_ID, USB3_PHY_TXPMD_REG1, 0x100fU);
 	mdio_write(MDIO_BUS_ID, USB3DRD_PHY_ID, USB3_PHY_TXPMD_REG2, 0x238cU);
 }
@@ -195,16 +195,14 @@ void usb_enable_coherence(void)
 		mmio_clrsetbits_32(DRDU2D_BDC_REGS_AXIRDA,
 				   (USBAXIRD_UA_MASK | USBAXIRD_SA_MASK),
 				   (USBAXIRD_UA_VAL | USBAXIRD_SA_VAL));
-
 	}
 
 	if (usb_func & USB3_DRD) {
 		mmio_setbits_32(DRDU3_SOFT_RESET_CTRL,
 				(DRDU3_XHC_AXI_SOFT_RST_N |
-				DRDU3_BDC_AXI_SOFT_RST_N));
-		mmio_setbits_32(DRDU3_U3PHY_CTRL,
-				(DRDU3_U3XHC_SOFT_RST_N |
-				DRDU3_U3BDC_SOFT_RST_N));
+				 DRDU3_BDC_AXI_SOFT_RST_N));
+		mmio_setbits_32(DRDU3_U3PHY_CTRL, (DRDU3_U3XHC_SOFT_RST_N |
+						   DRDU3_U3BDC_SOFT_RST_N));
 
 		mmio_clrsetbits_32(DRDU3H_XHC_REGS_AXIWRA,
 				   (USBAXIWR_UA_MASK | USBAXIWR_SA_MASK),
@@ -230,8 +228,7 @@ void xhci_phy_init(void)
 	uint32_t val;
 
 	INFO("usb init start\n");
-	mmio_setbits_32(CDRU_MISC_CLK_ENABLE_CONTROL,
-			CDRU_MISC_CLK_USBSS);
+	mmio_setbits_32(CDRU_MISC_CLK_ENABLE_CONTROL, CDRU_MISC_CLK_USBSS);
 
 	mmio_setbits_32(CDRU_MISC_RESET_CONTROL, CDRU_USBSS_RESET_N);
 
@@ -239,9 +236,9 @@ void xhci_phy_init(void)
 		VERBOSE(" - configure stream_id = 0x6800 for DRDU3\n");
 		val = SR_SID_VAL(0x3U, 0x1U, 0x0U) << ICFG_USB_SID_SHIFT;
 		mmio_write_32(ICFG_DRDU3_SID_CTRL + ICFG_USB_SID_AWADDR_OFFSET,
-				val);
+			      val);
 		mmio_write_32(ICFG_DRDU3_SID_CTRL + ICFG_USB_SID_ARADDR_OFFSET,
-				val);
+			      val);
 
 		/*
 		 * DRDU3 Device USB Space, DRDU3 Host USB Space,
@@ -255,16 +252,16 @@ void xhci_phy_init(void)
 		VERBOSE(" - configure stream_id = 0x6801 for USB3H\n");
 		val = SR_SID_VAL(0x3U, 0x1U, 0x1U) << ICFG_USB_SID_SHIFT;
 		mmio_write_32(ICFG_USB3H_SID_CTRL + ICFG_USB_SID_AWADDR_OFFSET,
-				val);
+			      val);
 		mmio_write_32(ICFG_USB3H_SID_CTRL + ICFG_USB_SID_ARADDR_OFFSET,
-				val);
+			      val);
 
 		VERBOSE(" - configure stream_id = 0x6802 for DRDU2\n");
 		val = SR_SID_VAL(0x3U, 0x1U, 0x2U) << ICFG_USB_SID_SHIFT;
 		mmio_write_32(ICFG_DRDU2_SID_CTRL + ICFG_USB_SID_AWADDR_OFFSET,
-				val);
+			      val);
 		mmio_write_32(ICFG_DRDU2_SID_CTRL + ICFG_USB_SID_ARADDR_OFFSET,
-				val);
+			      val);
 
 		/* DRDU2 APB Bridge:DRDU2 USB Device, USB3H SS Config */
 		mmio_setbits_32(USBIC_GPV_SECURITY1, USBIC_GPV_SECURITY1_FIELD);

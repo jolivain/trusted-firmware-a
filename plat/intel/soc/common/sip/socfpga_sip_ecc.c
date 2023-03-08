@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: BSD-3-Clause
 /*
- * Copyright (c) 2020-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
  */
 
 #include <assert.h>
+
 #include <common/debug.h>
 #include <common/runtime_svc.h>
 #include <lib/mmio.h>

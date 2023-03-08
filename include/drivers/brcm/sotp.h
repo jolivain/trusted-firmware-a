@@ -27,7 +27,7 @@
 #define SOTP_REGS_SOTP_CHIP_STATES_OTP_ERASED_MASK (1 << 16)
 
 #define SOTP_DEVICE_SECURE_CFG0_CID_MASK (3 << 2)
-#define SOTP_DEVICE_SECURE_CFG0_AB_MASK  (3 << 6)
+#define SOTP_DEVICE_SECURE_CFG0_AB_MASK (3 << 6)
 #define SOTP_DEVICE_SECURE_CFG0_DEV_MASK (3 << 8)
 
 #define SOTP_BOOT_SOURCE_SHIFT 8
@@ -61,7 +61,7 @@
 #define SOTP_EC_EN_MASK (3 << 18)
 
 #define SOTP_ENC_DEV_TYPE_AB_DEV ((uint64_t)0x19999800000)
-#define SOTP_ENC_DEV_TYPE_MASK   ((uint64_t)0x1ffff800000)
+#define SOTP_ENC_DEV_TYPE_MASK ((uint64_t)0x1ffff800000)
 
 uint64_t sotp_mem_read(uint32_t offset, uint32_t sotp_add_ecc);
 void sotp_mem_write(uint32_t addr, uint32_t sotp_add_ecc, uint64_t wdata);

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,6 +10,7 @@
 #include <common/debug.h>
 #include <drivers/arm/css/css_scp.h>
 #include <drivers/arm/css/css_scpi.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <plat/arm/css/common/css_pm.h>
 
@@ -37,10 +38,8 @@ void css_scp_suspend(const struct psci_power_state *target_state)
 	 * Ask the SCP to power down the appropriate components depending upon
 	 * their state.
 	 */
-	scpi_set_css_power_state(read_mpidr_el1(),
-				 scpi_power_off,
-				 cluster_state,
-				 system_state);
+	scpi_set_css_power_state(read_mpidr_el1(), scpi_power_off,
+				 cluster_state, system_state);
 }
 
 /*
@@ -103,14 +102,16 @@ int css_scp_get_power_state(u_register_t mpidr, unsigned int power_level)
 		element = (mpidr >> MPIDR_AFF1_SHIFT) & MPIDR_AFFLVL_MASK;
 #else
 		element = mpidr & MPIDR_AFFLVL_MASK;
-#endif  /* ARM_PLAT_MT */
+#endif /* ARM_PLAT_MT */
 		return CSS_CPU_PWR_STATE(cpu_state, element) ==
-			CSS_CPU_PWR_STATE_ON ? HW_ON : HW_OFF;
+				       CSS_CPU_PWR_STATE_ON ?
+			       HW_ON :
+			       HW_OFF;
 	} else {
 		assert(cluster_state == CSS_CLUSTER_PWR_STATE_ON ||
-				cluster_state == CSS_CLUSTER_PWR_STATE_OFF);
+		       cluster_state == CSS_CLUSTER_PWR_STATE_OFF);
 		return cluster_state == CSS_CLUSTER_PWR_STATE_ON ? HW_ON :
-			HW_OFF;
+								   HW_OFF;
 	}
 }
 

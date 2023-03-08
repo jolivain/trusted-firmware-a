@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -12,6 +12,7 @@
 #include <lib/bakery_lock.h>
 #include <lib/el3_runtime/cpu_data.h>
 #include <lib/utils_def.h>
+
 #include <plat/common/platform.h>
 
 /*
@@ -44,7 +45,7 @@
  * Using this value, if provided, rather than the linker generated value results in
  * more efficient code
  */
-CASSERT((PLAT_PERCPU_BAKERY_LOCK_SIZE & (CACHE_WRITEBACK_GRANULE - 1)) == 0, \
+CASSERT((PLAT_PERCPU_BAKERY_LOCK_SIZE & (CACHE_WRITEBACK_GRANULE - 1)) == 0,
 	PLAT_PERCPU_BAKERY_LOCK_SIZE_not_cacheline_multiple);
 #define PERCPU_BAKERY_LOCK_SIZE (PLAT_PERCPU_BAKERY_LOCK_SIZE)
 #else
@@ -61,7 +62,7 @@ static inline bakery_lock_t *get_bakery_info(unsigned int cpu_ix,
 					     bakery_lock_t *lock)
 {
 	return (bakery_info_t *)((uintptr_t)lock +
-				cpu_ix * PERCPU_BAKERY_LOCK_SIZE);
+				 cpu_ix * PERCPU_BAKERY_LOCK_SIZE);
 }
 
 static inline void write_cache_op(uintptr_t addr, bool cached)
@@ -83,8 +84,8 @@ static inline void read_cache_op(uintptr_t addr, bool cached)
 }
 
 /* Helper function to check if the lock is acquired */
-static inline __unused bool is_lock_acquired(const bakery_info_t *my_bakery_info,
-				    bool is_cached)
+static inline __unused bool
+is_lock_acquired(const bakery_info_t *my_bakery_info, bool is_cached)
 {
 	/*
 	 * Even though lock data is updated only by the owning cpu and
@@ -98,8 +99,8 @@ static inline __unused bool is_lock_acquired(const bakery_info_t *my_bakery_info
 	return bakery_ticket_number(my_bakery_info->lock_data) != 0U;
 }
 
-static unsigned int bakery_get_ticket(bakery_lock_t *lock,
-				      unsigned int me, bool is_cached)
+static unsigned int bakery_get_ticket(bakery_lock_t *lock, unsigned int me,
+				      bool is_cached)
 {
 	unsigned int my_ticket, their_ticket;
 	unsigned int they;
@@ -120,7 +121,8 @@ static unsigned int bakery_get_ticket(bakery_lock_t *lock,
 	 * going to allocate a ticket for this cpu.
 	 */
 	my_ticket = 0U;
-	my_bakery_info->lock_data = make_bakery_data(CHOOSING_TICKET, my_ticket);
+	my_bakery_info->lock_data =
+		make_bakery_data(CHOOSING_TICKET, my_ticket);
 
 	write_cache_op((uintptr_t)my_bakery_info, is_cached);
 
@@ -145,7 +147,8 @@ static unsigned int bakery_get_ticket(bakery_lock_t *lock,
 		 * Update this cpu's ticket number if a higher ticket number is
 		 * seen
 		 */
-		their_ticket = bakery_ticket_number(their_bakery_info->lock_data);
+		their_ticket =
+			bakery_ticket_number(their_bakery_info->lock_data);
 		if (their_ticket > my_ticket)
 			my_ticket = their_ticket;
 	}
@@ -203,7 +206,8 @@ void bakery_lock_get(bakery_lock_t *lock)
 		 * (valid) ticket value. If they do, compare priorities
 		 */
 		their_ticket = bakery_ticket_number(their_bakery_data);
-		if (their_ticket && (bakery_get_priority(their_ticket, they) < my_prio)) {
+		if (their_ticket &&
+		    (bakery_get_priority(their_ticket, they) < my_prio)) {
 			/*
 			 * They have higher priority (lower value). Wait for
 			 * their ticket value to change (either release the lock
@@ -212,9 +216,11 @@ void bakery_lock_get(bakery_lock_t *lock)
 			 */
 			do {
 				wfe();
-				read_cache_op((uintptr_t)their_bakery_info, is_cached);
-			} while (their_ticket
-				== bakery_ticket_number(their_bakery_info->lock_data));
+				read_cache_op((uintptr_t)their_bakery_info,
+					      is_cached);
+			} while (their_ticket ==
+				 bakery_ticket_number(
+					 their_bakery_info->lock_data));
 		}
 	}
 

@@ -19,39 +19,39 @@
 #include <platform_def.h>
 
 #if STM32_RNG_VER == 2
-#define DT_RNG_COMPAT		"st,stm32-rng"
+#define DT_RNG_COMPAT "st,stm32-rng"
 #endif
 #if STM32_RNG_VER == 4
-#define DT_RNG_COMPAT		"st,stm32mp13-rng"
+#define DT_RNG_COMPAT "st,stm32mp13-rng"
 #endif
-#define RNG_CR			0x00U
-#define RNG_SR			0x04U
-#define RNG_DR			0x08U
+#define RNG_CR 0x00U
+#define RNG_SR 0x04U
+#define RNG_DR 0x08U
 
-#define RNG_CR_RNGEN		BIT(2)
-#define RNG_CR_IE		BIT(3)
-#define RNG_CR_CED		BIT(5)
-#define RNG_CR_CLKDIV		GENMASK(19, 16)
-#define RNG_CR_CLKDIV_SHIFT	16U
-#define RNG_CR_CONDRST		BIT(30)
+#define RNG_CR_RNGEN BIT(2)
+#define RNG_CR_IE BIT(3)
+#define RNG_CR_CED BIT(5)
+#define RNG_CR_CLKDIV GENMASK(19, 16)
+#define RNG_CR_CLKDIV_SHIFT 16U
+#define RNG_CR_CONDRST BIT(30)
 
-#define RNG_SR_DRDY		BIT(0)
-#define RNG_SR_CECS		BIT(1)
-#define RNG_SR_SECS		BIT(2)
-#define RNG_SR_CEIS		BIT(5)
-#define RNG_SR_SEIS		BIT(6)
+#define RNG_SR_DRDY BIT(0)
+#define RNG_SR_CECS BIT(1)
+#define RNG_SR_SECS BIT(2)
+#define RNG_SR_CEIS BIT(5)
+#define RNG_SR_SEIS BIT(6)
 
-#define RNG_TIMEOUT_US		100000U
-#define RNG_TIMEOUT_STEP_US	10U
+#define RNG_TIMEOUT_US 100000U
+#define RNG_TIMEOUT_STEP_US 10U
 
-#define TIMEOUT_US_1MS		1000U
+#define TIMEOUT_US_1MS 1000U
 
-#define RNG_NIST_CONFIG_A	0x00F40F00U
-#define RNG_NIST_CONFIG_B	0x01801000U
-#define RNG_NIST_CONFIG_C	0x00F00D00U
-#define RNG_NIST_CONFIG_MASK	GENMASK(25, 8)
+#define RNG_NIST_CONFIG_A 0x00F40F00U
+#define RNG_NIST_CONFIG_B 0x01801000U
+#define RNG_NIST_CONFIG_C 0x00F00D00U
+#define RNG_NIST_CONFIG_MASK GENMASK(25, 8)
 
-#define RNG_MAX_NOISE_CLK_FREQ	48000000U
+#define RNG_MAX_NOISE_CLK_FREQ 48000000U
 
 struct stm32_rng_instance {
 	uintptr_t base;
@@ -99,7 +99,8 @@ static uint32_t stm32_rng_clock_freq_restrain(void)
 		clock_div++;
 	}
 
-	VERBOSE("RNG clk rate : %lu\n", clk_get_rate(stm32_rng.clock) >> clock_div);
+	VERBOSE("RNG clk rate : %lu\n",
+		clk_get_rate(stm32_rng.clock) >> clock_div);
 
 	return clock_div;
 }
@@ -124,7 +125,8 @@ static int stm32_rng_enable(void)
 	mmio_clrsetbits_32(stm32_rng.base + RNG_CR, RNG_CR_CLKDIV,
 			   (clock_div << RNG_CR_CLKDIV_SHIFT));
 
-	mmio_clrsetbits_32(stm32_rng.base + RNG_CR, RNG_CR_CONDRST, RNG_CR_RNGEN);
+	mmio_clrsetbits_32(stm32_rng.base + RNG_CR, RNG_CR_CONDRST,
+			   RNG_CR_RNGEN);
 #endif
 	timeout = timeout_init_us(RNG_TIMEOUT_US);
 	sr = mmio_read_32(stm32_rng.base + RNG_SR);

@@ -1,12 +1,10 @@
 /*
- * Copyright (c) 2018-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-
-#include <platform_def.h>
 
 #include <arch.h>
 #include <arch_helpers.h>
@@ -16,13 +14,15 @@
 #include <lib/mmio.h>
 #include <sq_common.h>
 
+#include <platform_def.h>
+
 static console_t console;
 static entry_point_info_t bl32_image_ep_info;
 static entry_point_info_t bl33_image_ep_info;
 
 IMPORT_SYM(uintptr_t, __SPM_SHIM_EXCEPTIONS_START__, SPM_SHIM_EXCEPTIONS_START);
-IMPORT_SYM(uintptr_t, __SPM_SHIM_EXCEPTIONS_END__,   SPM_SHIM_EXCEPTIONS_END);
-IMPORT_SYM(uintptr_t, __SPM_SHIM_EXCEPTIONS_LMA__,   SPM_SHIM_EXCEPTIONS_LMA);
+IMPORT_SYM(uintptr_t, __SPM_SHIM_EXCEPTIONS_END__, SPM_SHIM_EXCEPTIONS_END);
+IMPORT_SYM(uintptr_t, __SPM_SHIM_EXCEPTIONS_LMA__, SPM_SHIM_EXCEPTIONS_LMA);
 
 unsigned int plat_get_syscnt_freq2(void)
 {
@@ -48,13 +48,13 @@ entry_point_info_t *bl31_plat_get_next_image_ep_info(uint32_t type)
 void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 				u_register_t arg2, u_register_t arg3)
 {
-	void *from_bl2 = (void *) arg0;
-	bl_params_node_t *bl_params = ((bl_params_t *) from_bl2)->head;
+	void *from_bl2 = (void *)arg0;
+	bl_params_node_t *bl_params = ((bl_params_t *)from_bl2)->head;
 
 	/* Initialize the console to provide early debug support */
 	(void)console_pl011_register(PLAT_SQ_BOOT_UART_BASE,
-			       PLAT_SQ_BOOT_UART_CLK_IN_HZ,
-			       SQ_CONSOLE_BAUDRATE, &console);
+				     PLAT_SQ_BOOT_UART_CLK_IN_HZ,
+				     SQ_CONSOLE_BAUDRATE, &console);
 
 	console_set_scope(&console, CONSOLE_FLAG_BOOT | CONSOLE_FLAG_RUNTIME);
 
@@ -109,8 +109,8 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 {
 	/* Initialize the console to provide early debug support */
 	(void)console_pl011_register(PLAT_SQ_BOOT_UART_BASE,
-			       PLAT_SQ_BOOT_UART_CLK_IN_HZ,
-			       SQ_CONSOLE_BAUDRATE, &console);
+				     PLAT_SQ_BOOT_UART_CLK_IN_HZ,
+				     SQ_CONSOLE_BAUDRATE, &console);
 
 	console_set_scope(&console, CONSOLE_FLAG_BOOT | CONSOLE_FLAG_RUNTIME);
 
@@ -122,7 +122,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	plat_sq_pwrc_setup();
 
 #ifdef SPD_opteed
-	struct draminfo di = {0};
+	struct draminfo di = { 0 };
 
 	sq_scp_get_draminfo(&di);
 
@@ -133,10 +133,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	if ((di.base1 + di.size1) <= BL32_BASE) {
 		NOTICE("OP-TEE has been loaded by SCP firmware\n");
 		/* Populate entry point information for BL32 */
-		SET_PARAM_HEAD(&bl32_image_ep_info,
-					PARAM_EP,
-					VERSION_1,
-					0);
+		SET_PARAM_HEAD(&bl32_image_ep_info, PARAM_EP, VERSION_1, 0);
 		SET_SECURITY_STATE(bl32_image_ep_info.h.attr, SECURE);
 		bl32_image_ep_info.pc = BL32_BASE;
 		bl32_image_ep_info.spsr = sq_get_spsr_for_bl32_entry();
@@ -146,10 +143,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 #endif /* SPD_opteed */
 
 	/* Populate entry point information for BL33 */
-	SET_PARAM_HEAD(&bl33_image_ep_info,
-				PARAM_EP,
-				VERSION_1,
-				0);
+	SET_PARAM_HEAD(&bl33_image_ep_info, PARAM_EP, VERSION_1, 0);
 	/*
 	 * Tell BL31 where the non-trusted software image
 	 * is located and the entry state information
@@ -169,7 +163,8 @@ static void sq_configure_sys_timer(void)
 	reg_val |= (1 << CNTACR_RFRQ_SHIFT) | (1 << CNTACR_RVOFF_SHIFT);
 	reg_val |= (1 << CNTACR_RWVT_SHIFT) | (1 << CNTACR_RWPT_SHIFT);
 	mmio_write_32(SQ_SYS_TIMCTL_BASE +
-		      CNTACR_BASE(PLAT_SQ_NSTIMER_FRAME_ID), reg_val);
+			      CNTACR_BASE(PLAT_SQ_NSTIMER_FRAME_ID),
+		      reg_val);
 
 	reg_val = (1 << CNTNSAR_NS_SHIFT(PLAT_SQ_NSTIMER_FRAME_ID));
 	mmio_write_32(SQ_SYS_TIMCTL_BASE + CNTNSAR, reg_val);
@@ -198,7 +193,7 @@ void bl31_platform_setup(void)
 
 	/* Enable and initialize the System level generic timer */
 	mmio_write_32(SQ_SYS_CNTCTL_BASE + CNTCR_OFF,
-			CNTCR_FCREQ(0U) | CNTCR_EN);
+		      CNTCR_FCREQ(0U) | CNTCR_EN);
 
 	/* Allow access to the System counter timer module */
 	sq_configure_sys_timer();
@@ -215,19 +210,16 @@ void bl31_plat_arch_setup(void)
 {
 	static const mmap_region_t secure_partition_mmap[] = {
 #if SPM_MM
-		MAP_REGION_FLAT(PLAT_SPM_BUF_BASE,
-				PLAT_SPM_BUF_SIZE,
+		MAP_REGION_FLAT(PLAT_SPM_BUF_BASE, PLAT_SPM_BUF_SIZE,
 				MT_RW_DATA | MT_SECURE),
-		MAP_REGION_FLAT(PLAT_SQ_SP_PRIV_BASE,
-				PLAT_SQ_SP_PRIV_SIZE,
+		MAP_REGION_FLAT(PLAT_SQ_SP_PRIV_BASE, PLAT_SQ_SP_PRIV_SIZE,
 				MT_RW_DATA | MT_SECURE),
 #endif
 #if !RESET_TO_BL31
-		MAP_REGION_FLAT(BL2_MAILBOX_BASE,
-				BL2_MAILBOX_SIZE,
+		MAP_REGION_FLAT(BL2_MAILBOX_BASE, BL2_MAILBOX_SIZE,
 				MT_RW | MT_SECURE),
 #endif
-		{0},
+		{ 0 },
 	};
 
 	sq_mmap_setup(BL31_BASE, BL31_SIZE, secure_partition_mmap);
@@ -237,7 +229,7 @@ void bl31_plat_arch_setup(void)
 	memcpy((void *)SPM_SHIM_EXCEPTIONS_START,
 	       (void *)SPM_SHIM_EXCEPTIONS_LMA,
 	       (uintptr_t)SPM_SHIM_EXCEPTIONS_END -
-	       (uintptr_t)SPM_SHIM_EXCEPTIONS_START);
+		       (uintptr_t)SPM_SHIM_EXCEPTIONS_START);
 #endif
 }
 

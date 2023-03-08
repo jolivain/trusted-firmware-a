@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,41 +9,40 @@
 
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
+#include <hi3660.h>
 #include <lib/mmio.h>
 
-#include <hi3660.h>
 #include "hikey960_private.h"
 
-#define ADC_ADCIN0				0
-#define ADC_ADCIN1				1
-#define ADC_ADCIN2				2
+#define ADC_ADCIN0 0
+#define ADC_ADCIN1 1
+#define ADC_ADCIN2 2
 
-#define HKADC_DATA_GRADE0			0
-#define HKADC_DATA_GRADE1			100
-#define HKADC_DATA_GRADE2			300
-#define HKADC_DATA_GRADE3			500
-#define HKADC_DATA_GRADE4			700
-#define HKADC_DATA_GRADE5			900
-#define HKADC_DATA_GRADE6			1100
-#define HKADC_DATA_GRADE7			1300
-#define HKADC_DATA_GRADE8			1500
-#define HKADC_DATA_GRADE9			1700
-#define HKADC_DATA_GRADE10			1800
+#define HKADC_DATA_GRADE0 0
+#define HKADC_DATA_GRADE1 100
+#define HKADC_DATA_GRADE2 300
+#define HKADC_DATA_GRADE3 500
+#define HKADC_DATA_GRADE4 700
+#define HKADC_DATA_GRADE5 900
+#define HKADC_DATA_GRADE6 1100
+#define HKADC_DATA_GRADE7 1300
+#define HKADC_DATA_GRADE8 1500
+#define HKADC_DATA_GRADE9 1700
+#define HKADC_DATA_GRADE10 1800
 
-#define BOARDID_VALUE0				0
-#define BOARDID_VALUE1				1
-#define BOARDID_VALUE2				2
-#define BOARDID_VALUE3				3
-#define BOARDID_VALUE4				4
-#define BOARDID_VALUE5				5
-#define BOARDID_VALUE6				6
-#define BOARDID_VALUE7				7
-#define BOARDID_VALUE8				8
-#define BOARDID_VALUE9				9
-#define BOARDID_UNKNOWN				0xF
+#define BOARDID_VALUE0 0
+#define BOARDID_VALUE1 1
+#define BOARDID_VALUE2 2
+#define BOARDID_VALUE3 3
+#define BOARDID_VALUE4 4
+#define BOARDID_VALUE5 5
+#define BOARDID_VALUE6 6
+#define BOARDID_VALUE7 7
+#define BOARDID_VALUE8 8
+#define BOARDID_VALUE9 9
+#define BOARDID_UNKNOWN 0xF
 
-#define BOARDID3_BASE				5
-
+#define BOARDID3_BASE 5
 
 static void init_adc(void)
 {
@@ -62,7 +61,7 @@ static void init_adc(void)
 
 static int get_adc(unsigned int channel, unsigned int *value)
 {
-	unsigned int	data, value1, value0;
+	unsigned int data, value1, value0;
 
 	if (channel > HKADC_CHANNEL_MAX) {
 		WARN("invalid channel:%d\n", channel);
@@ -110,7 +109,7 @@ static int get_value(unsigned int channel, unsigned int *value)
 
 static int adcin_data_remap(unsigned int adcin_value)
 {
-	int	ret;
+	int ret;
 
 	if (adcin_value < HKADC_DATA_GRADE1)
 		ret = BOARDID_VALUE0;
@@ -139,8 +138,8 @@ static int adcin_data_remap(unsigned int adcin_value)
 
 int hikey960_read_boardid(unsigned int *id)
 {
-	unsigned int	adcin0, adcin1, adcin2;
-	unsigned int	adcin0_remap, adcin1_remap, adcin2_remap;
+	unsigned int adcin0, adcin1, adcin2;
+	unsigned int adcin0_remap, adcin1_remap, adcin2_remap;
 
 	assert(id != NULL);
 
@@ -162,6 +161,6 @@ int hikey960_read_boardid(unsigned int *id)
 	if (adcin2_remap == BOARDID_UNKNOWN)
 		return -EINVAL;
 	*id = BOARDID3_BASE * 1000 + (adcin2_remap * 100) +
-		(adcin1_remap * 10) + adcin0_remap;
+	      (adcin1_remap * 10) + adcin0_remap;
 	return 0;
 }

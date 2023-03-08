@@ -10,11 +10,12 @@
 #include <stdbool.h>
 
 #include <mtk_dcm.h>
+
 #include <platform_def.h>
 
 /* Base */
-#define MP_CPUSYS_TOP_BASE	(MCUCFG_BASE + 0x8000)
-#define CPCCFG_REG_BASE		(MCUCFG_BASE + 0xA800)
+#define MP_CPUSYS_TOP_BASE (MCUCFG_BASE + 0x8000)
+#define CPCCFG_REG_BASE (MCUCFG_BASE + 0xA800)
 
 /* Register Definition */
 #define MP_CPUSYS_TOP_CPU_PLLDIV_CFG0 (MP_CPUSYS_TOP_BASE + 0x22a0)

@@ -6,18 +6,18 @@
  */
 
 #include "ddr_phy_access.h"
-#include <lib/mmio.h>
-#include <drivers/marvell/ccu.h>
 #include <errno.h>
 
-#define DDR_PHY_END_ADDRESS	0x100000
+#include <drivers/marvell/ccu.h>
+#include <lib/mmio.h>
+
+#define DDR_PHY_END_ADDRESS 0x100000
 
 #ifdef DDR_PHY_DEBUG
 #define debug_printf(...) printf(__VA_ARGS__)
 #else
 #define debug_printf(...)
 #endif
-
 
 /*
  * This routine writes 'data' to specified 'address' offset,

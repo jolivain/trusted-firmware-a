@@ -4,27 +4,28 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <endian.h>
 #include <errno.h>
 #include <limits.h>
 
+#include <boot_api.h>
 #include <common/debug.h>
 #include <common/tbbr/cot_def.h>
 #include <drivers/st/stm32_hash.h>
+#include <endian.h>
 #include <lib/fconf/fconf.h>
 #include <lib/fconf/fconf_dyn_cfg_getter.h>
 #include <lib/fconf/fconf_tbbr_getter.h>
 #include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include <plat/common/platform.h>
 
-#include <boot_api.h>
+#include <plat/common/platform.h>
 #include <platform_def.h>
 
 #define HEADER_AND_EXT_TOTAL_SIZE 512
 
-static uint8_t der_sha256_header[] = {0x30, 0x31, 0x30, 0x0d, 0x06, 0x09, 0x60,
-	0x86, 0x48, 0x01, 0x65, 0x03, 0x04, 0x02, 0x01, 0x05, 0x00, 0x04, 0x20};
+static uint8_t der_sha256_header[] = { 0x30, 0x31, 0x30, 0x0d, 0x06, 0x09, 0x60,
+				       0x86, 0x48, 0x01, 0x65, 0x03, 0x04, 0x02,
+				       0x01, 0x05, 0x00, 0x04, 0x20 };
 static uint8_t root_pk_hash[HASH_DER_LEN];
 
 static int copy_hash_from_otp(const char *otp_name, uint8_t *hash, size_t len)
@@ -67,7 +68,8 @@ static int copy_hash_from_otp(const char *otp_name, uint8_t *hash, size_t len)
 		 * programmed : Invalid Key
 		 */
 		if (!stm32mp_is_closed_device() && !valid) {
-			if ((tmp != 0U) && (tmp != 0xFFFFFFFFU) && (tmp != first)) {
+			if ((tmp != 0U) && (tmp != 0xFFFFFFFFU) &&
+			    (tmp != first)) {
 				valid = true;
 			}
 		}
@@ -96,9 +98,11 @@ static int get_rotpk_hash(void *cookie, uint8_t *hash, size_t len)
 	uint32_t pk_idx = 0U;
 	uint8_t calc_hash[BOOT_API_SHA256_DIGEST_SIZE_IN_BYTES];
 	uint8_t otp_hash[BOOT_API_SHA256_DIGEST_SIZE_IN_BYTES];
-	boot_api_image_header_t *hdr = (boot_api_image_header_t *)(SRAM3_BASE + SRAM3_SIZE -
-								   HEADER_AND_EXT_TOTAL_SIZE);
-	boot_extension_header_t *ext_header = (boot_extension_header_t *)hdr->ext_header;
+	boot_api_image_header_t *hdr =
+		(boot_api_image_header_t *)(SRAM3_BASE + SRAM3_SIZE -
+					    HEADER_AND_EXT_TOTAL_SIZE);
+	boot_extension_header_t *ext_header =
+		(boot_extension_header_t *)hdr->ext_header;
 	boot_ext_header_params_authentication_t *param;
 
 	if (cookie != NULL) {
@@ -116,7 +120,8 @@ static int get_rotpk_hash(void *cookie, uint8_t *hash, size_t len)
 
 	stm32_hash_init(HASH_SHA256);
 	ret = stm32_hash_final_update((uint8_t *)param->pk_hashes,
-				      param->nb_pk * sizeof(boot_api_sha256_t), calc_hash);
+				      param->nb_pk * sizeof(boot_api_sha256_t),
+				      calc_hash);
 	if (ret != 0) {
 		VERBOSE("%s: hash failed\n", __func__);
 		return -EINVAL;

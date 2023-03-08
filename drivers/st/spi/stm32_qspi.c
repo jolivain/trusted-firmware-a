@@ -21,89 +21,89 @@
 #include <platform_def.h>
 
 /* Timeout for device interface reset */
-#define TIMEOUT_US_1_MS			1000U
+#define TIMEOUT_US_1_MS 1000U
 
 /* QUADSPI registers */
-#define QSPI_CR			0x00U
-#define QSPI_DCR		0x04U
-#define QSPI_SR			0x08U
-#define QSPI_FCR		0x0CU
-#define QSPI_DLR		0x10U
-#define QSPI_CCR		0x14U
-#define QSPI_AR			0x18U
-#define QSPI_ABR		0x1CU
-#define QSPI_DR			0x20U
-#define QSPI_PSMKR		0x24U
-#define QSPI_PSMAR		0x28U
-#define QSPI_PIR		0x2CU
-#define QSPI_LPTR		0x30U
+#define QSPI_CR 0x00U
+#define QSPI_DCR 0x04U
+#define QSPI_SR 0x08U
+#define QSPI_FCR 0x0CU
+#define QSPI_DLR 0x10U
+#define QSPI_CCR 0x14U
+#define QSPI_AR 0x18U
+#define QSPI_ABR 0x1CU
+#define QSPI_DR 0x20U
+#define QSPI_PSMKR 0x24U
+#define QSPI_PSMAR 0x28U
+#define QSPI_PIR 0x2CU
+#define QSPI_LPTR 0x30U
 
 /* QUADSPI control register */
-#define QSPI_CR_EN		BIT(0)
-#define QSPI_CR_ABORT		BIT(1)
-#define QSPI_CR_DMAEN		BIT(2)
-#define QSPI_CR_TCEN		BIT(3)
-#define QSPI_CR_SSHIFT		BIT(4)
-#define QSPI_CR_DFM		BIT(6)
-#define QSPI_CR_FSEL		BIT(7)
-#define QSPI_CR_FTHRES_SHIFT	8U
-#define QSPI_CR_TEIE		BIT(16)
-#define QSPI_CR_TCIE		BIT(17)
-#define QSPI_CR_FTIE		BIT(18)
-#define QSPI_CR_SMIE		BIT(19)
-#define QSPI_CR_TOIE		BIT(20)
-#define QSPI_CR_APMS		BIT(22)
-#define QSPI_CR_PMM		BIT(23)
-#define QSPI_CR_PRESCALER_MASK	GENMASK_32(31, 24)
-#define QSPI_CR_PRESCALER_SHIFT	24U
+#define QSPI_CR_EN BIT(0)
+#define QSPI_CR_ABORT BIT(1)
+#define QSPI_CR_DMAEN BIT(2)
+#define QSPI_CR_TCEN BIT(3)
+#define QSPI_CR_SSHIFT BIT(4)
+#define QSPI_CR_DFM BIT(6)
+#define QSPI_CR_FSEL BIT(7)
+#define QSPI_CR_FTHRES_SHIFT 8U
+#define QSPI_CR_TEIE BIT(16)
+#define QSPI_CR_TCIE BIT(17)
+#define QSPI_CR_FTIE BIT(18)
+#define QSPI_CR_SMIE BIT(19)
+#define QSPI_CR_TOIE BIT(20)
+#define QSPI_CR_APMS BIT(22)
+#define QSPI_CR_PMM BIT(23)
+#define QSPI_CR_PRESCALER_MASK GENMASK_32(31, 24)
+#define QSPI_CR_PRESCALER_SHIFT 24U
 
 /* QUADSPI device configuration register */
-#define QSPI_DCR_CKMODE		BIT(0)
-#define QSPI_DCR_CSHT_MASK	GENMASK_32(10, 8)
-#define QSPI_DCR_CSHT_SHIFT	8U
-#define QSPI_DCR_FSIZE_MASK	GENMASK_32(20, 16)
-#define QSPI_DCR_FSIZE_SHIFT	16U
+#define QSPI_DCR_CKMODE BIT(0)
+#define QSPI_DCR_CSHT_MASK GENMASK_32(10, 8)
+#define QSPI_DCR_CSHT_SHIFT 8U
+#define QSPI_DCR_FSIZE_MASK GENMASK_32(20, 16)
+#define QSPI_DCR_FSIZE_SHIFT 16U
 
 /* QUADSPI status register */
-#define QSPI_SR_TEF		BIT(0)
-#define QSPI_SR_TCF		BIT(1)
-#define QSPI_SR_FTF		BIT(2)
-#define QSPI_SR_SMF		BIT(3)
-#define QSPI_SR_TOF		BIT(4)
-#define QSPI_SR_BUSY		BIT(5)
+#define QSPI_SR_TEF BIT(0)
+#define QSPI_SR_TCF BIT(1)
+#define QSPI_SR_FTF BIT(2)
+#define QSPI_SR_SMF BIT(3)
+#define QSPI_SR_TOF BIT(4)
+#define QSPI_SR_BUSY BIT(5)
 
 /* QUADSPI flag clear register */
-#define QSPI_FCR_CTEF		BIT(0)
-#define QSPI_FCR_CTCF		BIT(1)
-#define QSPI_FCR_CSMF		BIT(3)
-#define QSPI_FCR_CTOF		BIT(4)
+#define QSPI_FCR_CTEF BIT(0)
+#define QSPI_FCR_CTCF BIT(1)
+#define QSPI_FCR_CSMF BIT(3)
+#define QSPI_FCR_CTOF BIT(4)
 
 /* QUADSPI communication configuration register */
-#define QSPI_CCR_DDRM		BIT(31)
-#define QSPI_CCR_DHHC		BIT(30)
-#define QSPI_CCR_SIOO		BIT(28)
-#define QSPI_CCR_FMODE_SHIFT	26U
-#define QSPI_CCR_DMODE_SHIFT	24U
-#define QSPI_CCR_DCYC_SHIFT	18U
-#define QSPI_CCR_ABSIZE_SHIFT	16U
-#define QSPI_CCR_ABMODE_SHIFT	14U
-#define QSPI_CCR_ADSIZE_SHIFT	12U
-#define QSPI_CCR_ADMODE_SHIFT	10U
-#define QSPI_CCR_IMODE_SHIFT	8U
-#define QSPI_CCR_IND_WRITE	0U
-#define QSPI_CCR_IND_READ	1U
-#define QSPI_CCR_MEM_MAP	3U
+#define QSPI_CCR_DDRM BIT(31)
+#define QSPI_CCR_DHHC BIT(30)
+#define QSPI_CCR_SIOO BIT(28)
+#define QSPI_CCR_FMODE_SHIFT 26U
+#define QSPI_CCR_DMODE_SHIFT 24U
+#define QSPI_CCR_DCYC_SHIFT 18U
+#define QSPI_CCR_ABSIZE_SHIFT 16U
+#define QSPI_CCR_ABMODE_SHIFT 14U
+#define QSPI_CCR_ADSIZE_SHIFT 12U
+#define QSPI_CCR_ADMODE_SHIFT 10U
+#define QSPI_CCR_IMODE_SHIFT 8U
+#define QSPI_CCR_IND_WRITE 0U
+#define QSPI_CCR_IND_READ 1U
+#define QSPI_CCR_MEM_MAP 3U
 
-#define QSPI_MAX_CHIP		2U
+#define QSPI_MAX_CHIP 2U
 
-#define QSPI_FIFO_TIMEOUT_US	30U
-#define QSPI_CMD_TIMEOUT_US	1000U
-#define QSPI_BUSY_TIMEOUT_US	100U
-#define QSPI_ABT_TIMEOUT_US	100U
+#define QSPI_FIFO_TIMEOUT_US 30U
+#define QSPI_CMD_TIMEOUT_US 1000U
+#define QSPI_BUSY_TIMEOUT_US 100U
+#define QSPI_ABT_TIMEOUT_US 100U
 
-#define DT_QSPI_COMPAT		"st,stm32f469-qspi"
+#define DT_QSPI_COMPAT "st,stm32f469-qspi"
 
-#define FREQ_100MHZ		100000000U
+#define FREQ_100MHZ 100000000U
 
 struct stm32_qspi_ctrl {
 	uintptr_t reg_base;
@@ -178,7 +178,7 @@ static void stm32_qspi_write_fifo(uint8_t *val, uintptr_t addr)
 
 static int stm32_qspi_poll(const struct spi_mem_op *op)
 {
-	void (*fifo)(uint8_t *val, uintptr_t addr);
+	void (*fifo)(uint8_t * val, uintptr_t addr);
 	uint32_t len;
 	uint8_t *buf;
 
@@ -193,8 +193,8 @@ static int stm32_qspi_poll(const struct spi_mem_op *op)
 	for (len = op->data.nbytes; len != 0U; len--) {
 		uint64_t timeout = timeout_init_us(QSPI_FIFO_TIMEOUT_US);
 
-		while ((mmio_read_32(qspi_base() + QSPI_SR) &
-			QSPI_SR_FTF) == 0U) {
+		while ((mmio_read_32(qspi_base() + QSPI_SR) & QSPI_SR_FTF) ==
+		       0U) {
 			if (timeout_elapsed(timeout)) {
 				ERROR("%s: fifo timeout\n", __func__);
 				return -ETIMEDOUT;
@@ -248,8 +248,8 @@ static int stm32_qspi_exec_op(const struct spi_mem_op *op)
 
 	VERBOSE("%s: cmd:%x mode:%d.%d.%d.%d addr:%" PRIx64 " len:%x\n",
 		__func__, op->cmd.opcode, op->cmd.buswidth, op->addr.buswidth,
-		op->dummy.buswidth, op->data.buswidth,
-		op->addr.val, op->data.nbytes);
+		op->dummy.buswidth, op->data.buswidth, op->addr.val,
+		op->data.nbytes);
 
 	addr_max = op->addr.val + op->data.nbytes + 1U;
 
@@ -272,18 +272,18 @@ static int stm32_qspi_exec_op(const struct spi_mem_op *op)
 
 	if (op->addr.nbytes != 0U) {
 		ccr |= (op->addr.nbytes - 1U) << QSPI_CCR_ADSIZE_SHIFT;
-		ccr |= stm32_qspi_get_mode(op->addr.buswidth) <<
-			QSPI_CCR_ADMODE_SHIFT;
+		ccr |= stm32_qspi_get_mode(op->addr.buswidth)
+		       << QSPI_CCR_ADMODE_SHIFT;
 	}
 
 	if ((op->dummy.buswidth != 0U) && (op->dummy.nbytes != 0U)) {
-		ccr |= (op->dummy.nbytes * 8U / op->dummy.buswidth) <<
-			QSPI_CCR_DCYC_SHIFT;
+		ccr |= (op->dummy.nbytes * 8U / op->dummy.buswidth)
+		       << QSPI_CCR_DCYC_SHIFT;
 	}
 
 	if (op->data.nbytes != 0U) {
-		ccr |= stm32_qspi_get_mode(op->data.buswidth) <<
-			QSPI_CCR_DMODE_SHIFT;
+		ccr |= stm32_qspi_get_mode(op->data.buswidth)
+		       << QSPI_CCR_DMODE_SHIFT;
 	}
 
 	mmio_write_32(qspi_base() + QSPI_CCR, ccr);

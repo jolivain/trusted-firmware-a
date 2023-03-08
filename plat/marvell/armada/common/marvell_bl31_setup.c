@@ -14,11 +14,11 @@
 #include <drivers/arm/cci.h>
 #endif
 #include <drivers/console.h>
-#include <plat/common/platform.h>
-
 #include <marvell_def.h>
 #include <marvell_plat_priv.h>
 #include <plat_marvell.h>
+
+#include <plat/common/platform.h>
 
 /*
  * Placeholder variables for copying the arguments that have been passed to
@@ -46,8 +46,8 @@ entry_point_info_t *bl31_plat_get_next_image_ep_info(uint32_t type)
 	entry_point_info_t *next_image_info;
 
 	assert(sec_state_is_valid(type));
-	next_image_info = (type == NON_SECURE)
-			? &bl33_image_ep_info : &bl32_image_ep_info;
+	next_image_info = (type == NON_SECURE) ? &bl33_image_ep_info :
+						 &bl32_image_ep_info;
 
 	return next_image_info;
 }
@@ -61,8 +61,7 @@ entry_point_info_t *bl31_plat_get_next_image_ep_info(uint32_t type)
  * we are guaranteed to pick up good data.
  *****************************************************************************
  */
-void marvell_bl31_early_platform_setup(void *from_bl2,
-				       uintptr_t soc_fw_config,
+void marvell_bl31_early_platform_setup(void *from_bl2, uintptr_t soc_fw_config,
 				       uintptr_t hw_config,
 				       void *plat_params_from_bl2)
 {
@@ -76,20 +75,14 @@ void marvell_bl31_early_platform_setup(void *from_bl2,
 
 #ifdef BL32_BASE
 	/* Populate entry point information for BL32 */
-	SET_PARAM_HEAD(&bl32_image_ep_info,
-				PARAM_EP,
-				VERSION_1,
-				0);
+	SET_PARAM_HEAD(&bl32_image_ep_info, PARAM_EP, VERSION_1, 0);
 	SET_SECURITY_STATE(bl32_image_ep_info.h.attr, SECURE);
 	bl32_image_ep_info.pc = BL32_BASE;
 	bl32_image_ep_info.spsr = marvell_get_spsr_for_bl32_entry();
 #endif /* BL32_BASE */
 
 	/* Populate entry point information for BL33 */
-	SET_PARAM_HEAD(&bl33_image_ep_info,
-				PARAM_EP,
-				VERSION_1,
-				0);
+	SET_PARAM_HEAD(&bl33_image_ep_info, PARAM_EP, VERSION_1, 0);
 	/*
 	 * Tell BL31 where the non-trusted software image
 	 * is located and the entry state information
@@ -105,7 +98,7 @@ void marvell_bl31_early_platform_setup(void *from_bl2,
 	 * In release builds, it's not used.
 	 */
 	assert(((unsigned long long)plat_params_from_bl2) ==
-		MARVELL_BL31_PLAT_PARAM_VAL);
+	       MARVELL_BL31_PLAT_PARAM_VAL);
 
 	/*
 	 * Check params passed from BL2 should not be NULL,
@@ -206,17 +199,13 @@ void bl31_plat_runtime_setup(void)
  */
 void marvell_bl31_plat_arch_setup(void)
 {
-	marvell_setup_page_tables(BL31_BASE,
-				  BL31_END - BL31_BASE,
-				  BL_CODE_BASE,
-				  BL_CODE_END,
-				  BL_RO_DATA_BASE,
-				  BL_RO_DATA_END
+	marvell_setup_page_tables(BL31_BASE, BL31_END - BL31_BASE, BL_CODE_BASE,
+				  BL_CODE_END, BL_RO_DATA_BASE, BL_RO_DATA_END
 #if USE_COHERENT_MEM
-				, BL_COHERENT_RAM_BASE,
-				  BL_COHERENT_RAM_END
+				  ,
+				  BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END
 #endif
-			);
+	);
 
 #if BL31_CACHE_DISABLE
 	enable_mmu_el3(DISABLE_DCACHE);

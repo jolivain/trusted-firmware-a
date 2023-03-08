@@ -19,8 +19,8 @@
 
 #include <platform_def.h>
 
-#define PMIC_NODE_NOT_FOUND	1
-#define NB_REG			14U
+#define PMIC_NODE_NOT_FOUND 1
+#define NB_REG 14U
 
 static struct i2c_handle_s i2c_handle;
 static uint32_t pmic_i2c_addr;
@@ -68,8 +68,7 @@ static bool dt_pmic_is_secure(void)
 {
 	int status = dt_pmic_status();
 
-	return (status >= 0) &&
-	       (status == DT_SECURE) &&
+	return (status >= 0) && (status == DT_SECURE) &&
 	       (i2c_handle.dt_status == DT_SECURE);
 }
 
@@ -138,24 +137,24 @@ bool initialize_pmic_i2c(void)
 	}
 
 	/* Initialize PMIC I2C */
-	i2c->i2c_base_addr		= i2c_info.base;
-	i2c->dt_status			= i2c_info.status;
-	i2c->clock			= i2c_info.clock;
-	i2c->i2c_state			= I2C_STATE_RESET;
-	i2c_init.own_address1		= pmic_i2c_addr;
-	i2c_init.addressing_mode	= I2C_ADDRESSINGMODE_7BIT;
-	i2c_init.dual_address_mode	= I2C_DUALADDRESS_DISABLE;
-	i2c_init.own_address2		= 0;
-	i2c_init.own_address2_masks	= I2C_OAR2_OA2NOMASK;
-	i2c_init.general_call_mode	= I2C_GENERALCALL_DISABLE;
-	i2c_init.no_stretch_mode	= I2C_NOSTRETCH_DISABLE;
-	i2c_init.analog_filter		= 1;
-	i2c_init.digital_filter_coef	= 0;
+	i2c->i2c_base_addr = i2c_info.base;
+	i2c->dt_status = i2c_info.status;
+	i2c->clock = i2c_info.clock;
+	i2c->i2c_state = I2C_STATE_RESET;
+	i2c_init.own_address1 = pmic_i2c_addr;
+	i2c_init.addressing_mode = I2C_ADDRESSINGMODE_7BIT;
+	i2c_init.dual_address_mode = I2C_DUALADDRESS_DISABLE;
+	i2c_init.own_address2 = 0;
+	i2c_init.own_address2_masks = I2C_OAR2_OA2NOMASK;
+	i2c_init.general_call_mode = I2C_GENERALCALL_DISABLE;
+	i2c_init.no_stretch_mode = I2C_NOSTRETCH_DISABLE;
+	i2c_init.analog_filter = 1;
+	i2c_init.digital_filter_coef = 0;
 
 	ret = stm32_i2c_init(i2c, &i2c_init);
 	if (ret != 0) {
-		ERROR("Cannot initialize I2C %x (%d)\n",
-		      i2c->i2c_base_addr, ret);
+		ERROR("Cannot initialize I2C %x (%d)\n", i2c->i2c_base_addr,
+		      ret);
 		panic();
 	}
 
@@ -199,7 +198,6 @@ void initialize_pmic(void)
 	if (stpmic1_powerctrl_on() < 0) {
 		panic();
 	}
-
 }
 
 #if DEBUG
@@ -454,12 +452,11 @@ static const struct regul_ops pmic_ops = {
 	.set_flag = pmic_set_flag,
 };
 
-#define DEFINE_REGU(name) { \
-	.node_name = (name), \
-	.ops = &pmic_ops, \
-	.driver_data = NULL, \
-	.enable_ramp_delay = 1000, \
-}
+#define DEFINE_REGU(name)                                                   \
+	{                                                                   \
+		.node_name = (name), .ops = &pmic_ops, .driver_data = NULL, \
+		.enable_ramp_delay = 1000,                                  \
+	}
 
 static const struct regul_description pmic_regs[NB_REG] = {
 	[STPMIC1_BUCK1] = DEFINE_REGU("buck1"),

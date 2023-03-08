@@ -31,204 +31,116 @@ struct dynamic_odt {
 #endif
 #ifdef NXP_DDR_PHY_GEN2
 static const struct dynamic_odt single_D[4] = {
-	{	/* cs0 */
-		DDR_ODT_NEVER,
-		DDR_ODT_ALL,
-		DDR4_RTT_80_OHM,
-		DDR4_RTT_WR_OFF
-	},
-	{	/* cs1 */
-		DDR_ODT_NEVER,
-		DDR_ODT_NEVER,
-		DDR4_RTT_OFF,
-		DDR4_RTT_WR_OFF
-	},
+	{ /* cs0 */
+	  DDR_ODT_NEVER, DDR_ODT_ALL, DDR4_RTT_80_OHM, DDR4_RTT_WR_OFF },
+	{ /* cs1 */
+	  DDR_ODT_NEVER, DDR_ODT_NEVER, DDR4_RTT_OFF, DDR4_RTT_WR_OFF },
 	{},
 	{}
 };
 
 static const struct dynamic_odt single_S[4] = {
-	{	/* cs0 */
-		DDR_ODT_NEVER,
-		DDR_ODT_ALL,
-		DDR4_RTT_80_OHM,
-		DDR4_RTT_WR_OFF
-	},
+	{ /* cs0 */
+	  DDR_ODT_NEVER, DDR_ODT_ALL, DDR4_RTT_80_OHM, DDR4_RTT_WR_OFF },
 	{},
 	{},
 	{},
 };
 
 static const struct dynamic_odt dual_DD[4] = {
-	{	/* cs0 */
-		DDR_ODT_OTHER_DIMM,
-		DDR_ODT_ALL,
-		DDR4_RTT_60_OHM,
-		DDR4_RTT_WR_240_OHM
-	},
-	{	/* cs1 */
-		DDR_ODT_OTHER_DIMM,
-		DDR_ODT_ALL,
-		DDR4_RTT_60_OHM,
-		DDR4_RTT_WR_240_OHM
-	},
-	{	/* cs2 */
-		DDR_ODT_OTHER_DIMM,
-		DDR_ODT_ALL,
-		DDR4_RTT_60_OHM,
-		DDR4_RTT_WR_240_OHM
-	},
-	{	/* cs3 */
-		DDR_ODT_OTHER_DIMM,
-		DDR_ODT_ALL,
-		DDR4_RTT_60_OHM,
-		DDR4_RTT_WR_240_OHM
-	}
+	{ /* cs0 */
+	  DDR_ODT_OTHER_DIMM, DDR_ODT_ALL, DDR4_RTT_60_OHM,
+	  DDR4_RTT_WR_240_OHM },
+	{ /* cs1 */
+	  DDR_ODT_OTHER_DIMM, DDR_ODT_ALL, DDR4_RTT_60_OHM,
+	  DDR4_RTT_WR_240_OHM },
+	{ /* cs2 */
+	  DDR_ODT_OTHER_DIMM, DDR_ODT_ALL, DDR4_RTT_60_OHM,
+	  DDR4_RTT_WR_240_OHM },
+	{ /* cs3 */
+	  DDR_ODT_OTHER_DIMM, DDR_ODT_ALL, DDR4_RTT_60_OHM,
+	  DDR4_RTT_WR_240_OHM }
 };
 
 static const struct dynamic_odt dual_SS[4] = {
-	{	/* cs0 */
-		DDR_ODT_NEVER,
-		DDR_ODT_ALL,
-		DDR4_RTT_80_OHM,
-		DDR4_RTT_WR_OFF
-	},
+	{ /* cs0 */
+	  DDR_ODT_NEVER, DDR_ODT_ALL, DDR4_RTT_80_OHM, DDR4_RTT_WR_OFF },
 	{},
-	{	/* cs2 */
-		DDR_ODT_NEVER,
-		DDR_ODT_ALL,
-		DDR4_RTT_80_OHM,
-		DDR4_RTT_WR_OFF
-	},
+	{ /* cs2 */
+	  DDR_ODT_NEVER, DDR_ODT_ALL, DDR4_RTT_80_OHM, DDR4_RTT_WR_OFF },
 	{}
 };
 
 static const struct dynamic_odt dual_D0[4] = {
-	{	/* cs0 */
-		DDR_ODT_NEVER,
-		DDR_ODT_SAME_DIMM,
-		DDR4_RTT_80_OHM,
-		DDR4_RTT_WR_OFF
-	},
-	{	/* cs1 */
-		DDR_ODT_NEVER,
-		DDR_ODT_NEVER,
-		DDR4_RTT_80_OHM,
-		DDR4_RTT_WR_OFF
-	},
+	{ /* cs0 */
+	  DDR_ODT_NEVER, DDR_ODT_SAME_DIMM, DDR4_RTT_80_OHM, DDR4_RTT_WR_OFF },
+	{ /* cs1 */
+	  DDR_ODT_NEVER, DDR_ODT_NEVER, DDR4_RTT_80_OHM, DDR4_RTT_WR_OFF },
 	{},
 	{}
 };
 
 static const struct dynamic_odt dual_S0[4] = {
-	{	/* cs0 */
-		DDR_ODT_NEVER,
-		DDR_ODT_CS,
-		DDR4_RTT_80_OHM,
-		DDR4_RTT_WR_OFF
-	},
+	{ /* cs0 */
+	  DDR_ODT_NEVER, DDR_ODT_CS, DDR4_RTT_80_OHM, DDR4_RTT_WR_OFF },
 	{},
 	{},
 	{}
 };
 #else
 static const struct dynamic_odt single_D[4] = {
-	{	/* cs0 */
-		DDR_ODT_NEVER,
-		DDR_ODT_ALL,
-		DDR4_RTT_40_OHM,
-		DDR4_RTT_WR_OFF
-	},
-	{	/* cs1 */
-		DDR_ODT_NEVER,
-		DDR_ODT_NEVER,
-		DDR4_RTT_OFF,
-		DDR4_RTT_WR_OFF
-	},
+	{ /* cs0 */
+	  DDR_ODT_NEVER, DDR_ODT_ALL, DDR4_RTT_40_OHM, DDR4_RTT_WR_OFF },
+	{ /* cs1 */
+	  DDR_ODT_NEVER, DDR_ODT_NEVER, DDR4_RTT_OFF, DDR4_RTT_WR_OFF },
 	{},
 	{}
 };
 
 static const struct dynamic_odt single_S[4] = {
-	{	/* cs0 */
-		DDR_ODT_NEVER,
-		DDR_ODT_ALL,
-		DDR4_RTT_40_OHM,
-		DDR4_RTT_WR_OFF
-	},
+	{ /* cs0 */
+	  DDR_ODT_NEVER, DDR_ODT_ALL, DDR4_RTT_40_OHM, DDR4_RTT_WR_OFF },
 	{},
 	{},
 	{},
 };
 
 static const struct dynamic_odt dual_DD[4] = {
-	{	/* cs0 */
-		DDR_ODT_NEVER,
-		DDR_ODT_SAME_DIMM,
-		DDR4_RTT_120_OHM,
-		DDR4_RTT_WR_OFF
-	},
-	{	/* cs1 */
-		DDR_ODT_OTHER_DIMM,
-		DDR_ODT_OTHER_DIMM,
-		DDR4_RTT_34_OHM,
-		DDR4_RTT_WR_OFF
-	},
-	{	/* cs2 */
-		DDR_ODT_NEVER,
-		DDR_ODT_SAME_DIMM,
-		DDR4_RTT_120_OHM,
-		DDR4_RTT_WR_OFF
-	},
-	{	/* cs3 */
-		DDR_ODT_OTHER_DIMM,
-		DDR_ODT_OTHER_DIMM,
-		DDR4_RTT_34_OHM,
-		DDR4_RTT_WR_OFF
-	}
+	{ /* cs0 */
+	  DDR_ODT_NEVER, DDR_ODT_SAME_DIMM, DDR4_RTT_120_OHM, DDR4_RTT_WR_OFF },
+	{ /* cs1 */
+	  DDR_ODT_OTHER_DIMM, DDR_ODT_OTHER_DIMM, DDR4_RTT_34_OHM,
+	  DDR4_RTT_WR_OFF },
+	{ /* cs2 */
+	  DDR_ODT_NEVER, DDR_ODT_SAME_DIMM, DDR4_RTT_120_OHM, DDR4_RTT_WR_OFF },
+	{ /* cs3 */
+	  DDR_ODT_OTHER_DIMM, DDR_ODT_OTHER_DIMM, DDR4_RTT_34_OHM,
+	  DDR4_RTT_WR_OFF }
 };
 
 static const struct dynamic_odt dual_SS[4] = {
-	{	/* cs0 */
-		DDR_ODT_OTHER_DIMM,
-		DDR_ODT_ALL,
-		DDR4_RTT_34_OHM,
-		DDR4_RTT_WR_120_OHM
-	},
+	{ /* cs0 */
+	  DDR_ODT_OTHER_DIMM, DDR_ODT_ALL, DDR4_RTT_34_OHM,
+	  DDR4_RTT_WR_120_OHM },
 	{},
-	{	/* cs2 */
-		DDR_ODT_OTHER_DIMM,
-		DDR_ODT_ALL,
-		DDR4_RTT_34_OHM,
-		DDR4_RTT_WR_120_OHM
-	},
+	{ /* cs2 */
+	  DDR_ODT_OTHER_DIMM, DDR_ODT_ALL, DDR4_RTT_34_OHM,
+	  DDR4_RTT_WR_120_OHM },
 	{}
 };
 
 static const struct dynamic_odt dual_D0[4] = {
-	{	/* cs0 */
-		DDR_ODT_NEVER,
-		DDR_ODT_SAME_DIMM,
-		DDR4_RTT_40_OHM,
-		DDR4_RTT_WR_OFF
-	},
-	{	/* cs1 */
-		DDR_ODT_NEVER,
-		DDR_ODT_NEVER,
-		DDR4_RTT_OFF,
-		DDR4_RTT_WR_OFF
-	},
+	{ /* cs0 */
+	  DDR_ODT_NEVER, DDR_ODT_SAME_DIMM, DDR4_RTT_40_OHM, DDR4_RTT_WR_OFF },
+	{ /* cs1 */
+	  DDR_ODT_NEVER, DDR_ODT_NEVER, DDR4_RTT_OFF, DDR4_RTT_WR_OFF },
 	{},
 	{}
 };
 
 static const struct dynamic_odt dual_S0[4] = {
-	{	/* cs0 */
-		DDR_ODT_NEVER,
-		DDR_ODT_CS,
-		DDR4_RTT_40_OHM,
-		DDR4_RTT_WR_OFF
-	},
+	{ /* cs0 */
+	  DDR_ODT_NEVER, DDR_ODT_CS, DDR4_RTT_40_OHM, DDR4_RTT_WR_OFF },
 	{},
 	{},
 	{}
@@ -259,10 +171,8 @@ static inline unsigned int auto_bank_intlv(const int cs_in_use,
 	return 0U;
 }
 
-static int cal_odt(const unsigned int clk,
-		   struct memctl_opt *popts,
-		   struct ddr_conf *conf,
-		   struct dimm_params *pdimm,
+static int cal_odt(const unsigned int clk, struct memctl_opt *popts,
+		   struct ddr_conf *conf, struct dimm_params *pdimm,
 		   const int dimm_slot_per_ctrl)
 
 {
@@ -270,8 +180,8 @@ static int cal_odt(const unsigned int clk,
 	const struct dynamic_odt *pdodt = NULL;
 
 	static const struct dynamic_odt *table[2][5] = {
-		{single_S, single_D, NULL, NULL},
-		{dual_SS, dual_DD, NULL, NULL},
+		{ single_S, single_D, NULL, NULL },
+		{ dual_SS, dual_DD, NULL, NULL },
 	};
 
 	if (dimm_slot_per_ctrl != 1 && dimm_slot_per_ctrl != 2) {
@@ -281,11 +191,13 @@ static int cal_odt(const unsigned int clk,
 
 	pdodt = table[dimm_slot_per_ctrl - 1][pdimm->n_ranks - 1];
 	if (pdodt == dual_SS) {
-		pdodt = (conf->cs_in_use == 0x5) ? dual_SS :
-			((conf->cs_in_use == 0x1) ? dual_S0 : NULL);
+		pdodt = (conf->cs_in_use == 0x5) ?
+				dual_SS :
+				((conf->cs_in_use == 0x1) ? dual_S0 : NULL);
 	} else if (pdodt == dual_DD) {
-		pdodt = (conf->cs_in_use == 0xf) ? dual_DD :
-			((conf->cs_in_use == 0x3) ? dual_D0 : NULL);
+		pdodt = (conf->cs_in_use == 0xf) ?
+				dual_DD :
+				((conf->cs_in_use == 0x3) ? dual_D0 : NULL);
 	}
 	if (pdodt == dual_DD && pdimm->package_3ds) {
 		ERROR("Too many 3DS DIMMs.\n");
@@ -301,31 +213,25 @@ static int cal_odt(const unsigned int clk,
 	for (i = 0U; i < DDRC_NUM_CS; i++) {
 		debug("cs %d\n", i);
 		popts->cs_odt[i].odt_rd_cfg = pdodt[i].odt_rd_cfg;
-		debug("     odt_rd_cfg 0x%x\n",
-			  popts->cs_odt[i].odt_rd_cfg);
+		debug("     odt_rd_cfg 0x%x\n", popts->cs_odt[i].odt_rd_cfg);
 		popts->cs_odt[i].odt_wr_cfg = pdodt[i].odt_wr_cfg;
-		debug("     odt_wr_cfg 0x%x\n",
-			  popts->cs_odt[i].odt_wr_cfg);
+		debug("     odt_wr_cfg 0x%x\n", popts->cs_odt[i].odt_wr_cfg);
 		popts->cs_odt[i].odt_rtt_norm = pdodt[i].odt_rtt_norm;
 		debug("     odt_rtt_norm 0x%x\n",
-			  popts->cs_odt[i].odt_rtt_norm);
+		      popts->cs_odt[i].odt_rtt_norm);
 		popts->cs_odt[i].odt_rtt_wr = pdodt[i].odt_rtt_wr;
-		debug("     odt_rtt_wr 0x%x\n",
-			  popts->cs_odt[i].odt_rtt_wr);
+		debug("     odt_rtt_wr 0x%x\n", popts->cs_odt[i].odt_rtt_wr);
 		popts->cs_odt[i].auto_precharge = 0;
 		debug("     auto_precharge %d\n",
-			  popts->cs_odt[i].auto_precharge);
+		      popts->cs_odt[i].auto_precharge);
 	}
 
 	return 0;
 }
 
-static int cal_opts(const unsigned int clk,
-		    struct memctl_opt *popts,
-		    struct ddr_conf *conf,
-		    struct dimm_params *pdimm,
-		    const int dimm_slot_per_ctrl,
-		    const unsigned int ip_rev)
+static int cal_opts(const unsigned int clk, struct memctl_opt *popts,
+		    struct ddr_conf *conf, struct dimm_params *pdimm,
+		    const int dimm_slot_per_ctrl, const unsigned int ip_rev)
 {
 	popts->rdimm = pdimm->rdimm;
 	popts->mirrored_dimm = pdimm->mirrored_dimm;
@@ -378,10 +284,8 @@ static int cal_opts(const unsigned int clk,
 	return 0;
 }
 
-static void cal_intlv(const int num_ctlrs,
-		      struct memctl_opt *popts,
-		      struct ddr_conf *conf,
-		      struct dimm_params *pdimm)
+static void cal_intlv(const int num_ctlrs, struct memctl_opt *popts,
+		      struct ddr_conf *conf, struct dimm_params *pdimm)
 {
 #ifdef NXP_DDR_INTLV_256B
 	if (num_ctlrs == 2) {
@@ -405,7 +309,7 @@ static int update_burst_length(struct memctl_opt *popts)
 		popts->otf_burst_chop_en = 0;
 		popts->burst_length = DDR_BL8;
 	} else if (popts->otf_burst_chop_en != 0) { /* on-the-fly burst chop */
-		popts->burst_length = DDR_OTF;	/* on-the-fly BC4 and BL8 */
+		popts->burst_length = DDR_OTF; /* on-the-fly BC4 and BL8 */
 	} else {
 		popts->burst_length = DDR_BL8;
 	}
@@ -429,8 +333,7 @@ static int update_burst_length(struct memctl_opt *popts)
 	return 0;
 }
 
-int cal_board_params(struct ddr_info *priv,
-		     const struct board_timing *dimm,
+int cal_board_params(struct ddr_info *priv, const struct board_timing *dimm,
 		     int len)
 {
 	const unsigned long speed = priv->clk / 1000000;
@@ -475,21 +378,14 @@ static int synthesize_ctlr(struct ddr_info *priv)
 {
 	int ret;
 
-	ret = cal_odt(priv->clk,
-		      &priv->opt,
-		      &priv->conf,
-		      &priv->dimm,
+	ret = cal_odt(priv->clk, &priv->opt, &priv->conf, &priv->dimm,
 		      priv->dimm_on_ctlr);
 	if (ret != 0) {
 		return ret;
 	}
 
-	ret = cal_opts(priv->clk,
-		       &priv->opt,
-		       &priv->conf,
-		       &priv->dimm,
-		       priv->dimm_on_ctlr,
-		       priv->ip_rev);
+	ret = cal_opts(priv->clk, &priv->opt, &priv->conf, &priv->dimm,
+		       priv->dimm_on_ctlr, priv->ip_rev);
 
 	if (ret != 0) {
 		return ret;
@@ -545,7 +441,7 @@ static int parse_spd(struct ddr_info *priv)
 			debug("addr 0x%x\n", addr);
 			ret = read_spd(addr, &spd[spd_idx],
 				       sizeof(struct ddr4_spd));
-			if (ret != 0) {	/* invalid */
+			if (ret != 0) { /* invalid */
 				debug("Invalid SPD at address 0x%x\n", addr);
 				continue;
 			}
@@ -569,8 +465,8 @@ static int parse_spd(struct ddr_info *priv)
 				}
 			}
 
-			if (spd_idx != 0 && spd_checksum[0] !=
-			    spd_checksum[spd_idx]) {
+			if (spd_idx != 0 &&
+			    spd_checksum[0] != spd_checksum[spd_idx]) {
 				ERROR("Not identical DIMMs.\n");
 				return -EINVAL;
 			}
@@ -596,8 +492,7 @@ static int parse_spd(struct ddr_info *priv)
 			}
 			break;
 		case 2:
-			if (valid_mask != 0x5 &&
-			    valid_mask != 0xf &&
+			if (valid_mask != 0x5 && valid_mask != 0xf &&
 			    (valid_mask & 0x7) != 0x4 &&
 			    (valid_mask & 0xd) != 0x1) {
 				ERROR("Invalid DIMM combination.\n");
@@ -614,7 +509,7 @@ static int parse_spd(struct ddr_info *priv)
 		return -EINVAL;
 	}
 	/* now we have valid and identical DIMMs on controllers */
-#endif	/* CONFIG_DDR_NODIMM */
+#endif /* CONFIG_DDR_NODIMM */
 
 	debug("cal cs\n");
 	conf->cs_in_use = 0;
@@ -654,11 +549,10 @@ static int parse_spd(struct ddr_info *priv)
 	return valid_mask;
 }
 
-static unsigned long long assign_intlv_addr(
-	const struct dimm_params *pdimm,
-	const struct memctl_opt *opt,
-	struct ddr_conf *conf,
-	const unsigned long long current_mem_base)
+static unsigned long long
+assign_intlv_addr(const struct dimm_params *pdimm, const struct memctl_opt *opt,
+		  struct ddr_conf *conf,
+		  const unsigned long long current_mem_base)
 {
 	int i;
 	int ctlr_density_mul = 0;
@@ -706,11 +600,10 @@ static unsigned long long assign_intlv_addr(
 	return total_ctlr_mem;
 }
 
-static unsigned long long assign_non_intlv_addr(
-	const struct dimm_params *pdimm,
-	const struct memctl_opt *opt,
-	struct ddr_conf *conf,
-	unsigned long long current_mem_base)
+static unsigned long long
+assign_non_intlv_addr(const struct dimm_params *pdimm,
+		      const struct memctl_opt *opt, struct ddr_conf *conf,
+		      unsigned long long current_mem_base)
 {
 	int i;
 	const unsigned long long rank_density = pdimm->rank_density >>
@@ -745,8 +638,9 @@ static unsigned long long assign_non_intlv_addr(
 		}
 		break;
 	case DDR_BA_NONE:
-		for (i = 0; ((conf->cs_in_use & (1 << i)) != 0) &&
-			     (i < DDRC_NUM_CS); i++) {
+		for (i = 0;
+		     ((conf->cs_in_use & (1 << i)) != 0) && (i < DDRC_NUM_CS);
+		     i++) {
 			conf->cs_base_addr[i] = current_mem_base;
 			conf->cs_size[i] = rank_density;
 			current_mem_base += rank_density;
@@ -757,8 +651,8 @@ static unsigned long long assign_non_intlv_addr(
 		ERROR("Unsupported bank interleaving\n");
 		return 0;
 	}
-	for (i = 0; ((conf->cs_in_use & (1 << i)) != 0) &&
-		     (i < DDRC_NUM_CS); i++) {
+	for (i = 0; ((conf->cs_in_use & (1 << i)) != 0) && (i < DDRC_NUM_CS);
+	     i++) {
 		debug("CS %d\n", i);
 		debug("    base_addr 0x%llx\n", conf->cs_base_addr[i]);
 		debug("    size 0x%llx\n", conf->cs_size[i]);
@@ -768,7 +662,7 @@ static unsigned long long assign_non_intlv_addr(
 }
 
 unsigned long long assign_addresses(struct ddr_info *priv)
-		   __attribute__ ((weak));
+	__attribute__((weak));
 
 unsigned long long assign_addresses(struct ddr_info *priv)
 {
@@ -781,8 +675,8 @@ unsigned long long assign_addresses(struct ddr_info *priv)
 	total_mem = 0ULL;
 	debug("ctlr_intlv %d\n", opt->ctlr_intlv);
 	if (opt->ctlr_intlv != 0) {
-		total_mem = assign_intlv_addr(dimm, opt, conf,
-					      current_mem_base);
+		total_mem =
+			assign_intlv_addr(dimm, opt, conf, current_mem_base);
 	} else {
 		/*
 		 * Simple linear assignment if memory controllers are not
@@ -802,12 +696,8 @@ static int cal_ddrc_regs(struct ddr_info *priv)
 {
 	int ret;
 
-	ret = compute_ddrc(priv->clk,
-			   &priv->opt,
-			   &priv->conf,
-			   &priv->ddr_reg,
-			   &priv->dimm,
-			   priv->ip_rev);
+	ret = compute_ddrc(priv->clk, &priv->opt, &priv->conf, &priv->ddr_reg,
+			   &priv->dimm, priv->ip_rev);
 	if (ret != 0) {
 		ERROR("Calculating DDR registers failed\n");
 	}
@@ -835,9 +725,10 @@ static int write_ddrc_regs(struct ddr_info *priv)
 
 long long dram_init(struct ddr_info *priv
 #if defined(NXP_HAS_CCN504) || defined(NXP_HAS_CCN508)
-		    , uintptr_t nxp_ccn_hn_f0_addr
+		    ,
+		    uintptr_t nxp_ccn_hn_f0_addr
 #endif
-		)
+)
 {
 	uint64_t time __unused;
 	long long dram_size;

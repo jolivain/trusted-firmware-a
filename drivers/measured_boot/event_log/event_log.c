@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2020-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,21 +7,21 @@
 #include <assert.h>
 #include <errno.h>
 #include <string.h>
-#include <arch_helpers.h>
 
+#include <arch_helpers.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <drivers/auth/crypto_mod.h>
 #include <drivers/measured_boot/event_log/event_log.h>
 
 #if TPM_ALG_ID == TPM_ALG_SHA512
-#define	CRYPTO_MD_ID	CRYPTO_MD_SHA512
+#define CRYPTO_MD_ID CRYPTO_MD_SHA512
 #elif TPM_ALG_ID == TPM_ALG_SHA384
-#define	CRYPTO_MD_ID	CRYPTO_MD_SHA384
+#define CRYPTO_MD_ID CRYPTO_MD_SHA384
 #elif TPM_ALG_ID == TPM_ALG_SHA256
-#define	CRYPTO_MD_ID	CRYPTO_MD_SHA256
+#define CRYPTO_MD_ID CRYPTO_MD_SHA256
 #else
-#  error Invalid TPM algorithm.
+#error Invalid TPM algorithm.
 #endif /* TPM_ALG_ID */
 
 /* Running Event Log Pointer */
@@ -32,25 +32,22 @@ static uintptr_t log_end;
 
 /* TCG_EfiSpecIdEvent */
 static const id_event_headers_t id_event_header = {
-	.header = {
-		.pcr_index = PCR_0,
-		.event_type = EV_NO_ACTION,
-		.digest = {0},
-		.event_size = (uint32_t)(sizeof(id_event_struct_t) +
-				(sizeof(id_event_algorithm_size_t) *
-				HASH_ALG_COUNT))
-	},
+	.header = { .pcr_index = PCR_0,
+		    .event_type = EV_NO_ACTION,
+		    .digest = { 0 },
+		    .event_size =
+			    (uint32_t)(sizeof(id_event_struct_t) +
+				       (sizeof(id_event_algorithm_size_t) *
+					HASH_ALG_COUNT)) },
 
-	.struct_header = {
-		.signature = TCG_ID_EVENT_SIGNATURE_03,
-		.platform_class = PLATFORM_CLASS_CLIENT,
-		.spec_version_minor = TCG_SPEC_VERSION_MINOR_TPM2,
-		.spec_version_major = TCG_SPEC_VERSION_MAJOR_TPM2,
-		.spec_errata = TCG_SPEC_ERRATA_TPM2,
-		.uintn_size = (uint8_t)(sizeof(unsigned int) /
-					sizeof(uint32_t)),
-		.number_of_algorithms = HASH_ALG_COUNT
-	}
+	.struct_header = { .signature = TCG_ID_EVENT_SIGNATURE_03,
+			   .platform_class = PLATFORM_CLASS_CLIENT,
+			   .spec_version_minor = TCG_SPEC_VERSION_MINOR_TPM2,
+			   .spec_version_major = TCG_SPEC_VERSION_MAJOR_TPM2,
+			   .spec_errata = TCG_SPEC_ERRATA_TPM2,
+			   .uintn_size = (uint8_t)(sizeof(unsigned int) /
+						   sizeof(uint32_t)),
+			   .number_of_algorithms = HASH_ALG_COUNT }
 };
 
 static const event2_header_t locality_event_header = {
@@ -70,9 +67,7 @@ static const event2_header_t locality_event_header = {
 	 * All EV_NO_ACTION events SHALL set TCG_PCR_EVENT2.digests to all
 	 * 0x00's for each allocated Hash algorithm
 	 */
-	.digests = {
-		.count = HASH_ALG_COUNT
-	}
+	.digests = { .count = HASH_ALG_COUNT }
 };
 
 /*
@@ -121,7 +116,7 @@ void event_log_record(const uint8_t *hash, uint32_t event_type,
 
 	/* TCG_PCR_EVENT2.Digests[] */
 	ptr = (uint8_t *)((uintptr_t)ptr +
-			offsetof(tpml_digest_values, digests));
+			  offsetof(tpml_digest_values, digests));
 
 	/* TCG_PCR_EVENT2.Digests[].AlgorithmId */
 	((tpmt_ha *)ptr)->algorithm_id = TPM_ALG_ID;
@@ -139,12 +134,12 @@ void event_log_record(const uint8_t *hash, uint32_t event_type,
 	/* Copy event data to TCG_PCR_EVENT2.Event */
 	if (metadata_ptr->name != NULL) {
 		(void)memcpy((void *)(((event2_data_t *)ptr)->event),
-				(const void *)metadata_ptr->name, name_len);
+			     (const void *)metadata_ptr->name, name_len);
 	}
 
 	/* End of event data */
-	log_ptr = (uint8_t *)((uintptr_t)ptr +
-			offsetof(event2_data_t, event) + name_len);
+	log_ptr = (uint8_t *)((uintptr_t)ptr + offsetof(event2_data_t, event) +
+			      name_len);
 }
 
 void event_log_buf_init(uint8_t *event_log_start, uint8_t *event_log_finish)
@@ -184,7 +179,7 @@ void event_log_write_specid_event(void)
 	 * Copy TCG_EfiSpecIDEventStruct structure header
 	 */
 	(void)memcpy(ptr, (const void *)&id_event_header,
-			sizeof(id_event_header));
+		     sizeof(id_event_header));
 	ptr = (uint8_t *)((uintptr_t)ptr + sizeof(id_event_header));
 
 	/* TCG_EfiSpecIdEventAlgorithmSize structure */
@@ -198,7 +193,7 @@ void event_log_write_specid_event(void)
 	 */
 	((id_event_struct_data_t *)ptr)->vendor_info_size = 0;
 	log_ptr = (uint8_t *)((uintptr_t)ptr +
-			offsetof(id_event_struct_data_t, vendor_info));
+			      offsetof(id_event_struct_data_t, vendor_info));
 }
 
 /*
@@ -224,7 +219,7 @@ void event_log_write_header(void)
 
 	/* Copy Startup Locality Event Header */
 	(void)memcpy(ptr, (const void *)&locality_event_header,
-			sizeof(locality_event_header));
+		     sizeof(locality_event_header));
 	ptr = (uint8_t *)((uintptr_t)ptr + sizeof(locality_event_header));
 
 	/* TCG_PCR_EVENT2.Digests[].AlgorithmId */
@@ -232,8 +227,8 @@ void event_log_write_header(void)
 
 	/* TCG_PCR_EVENT2.Digests[].Digest[] */
 	(void)memset(&((tpmt_ha *)ptr)->digest, 0, TCG_DIGEST_SIZE);
-	ptr = (uint8_t *)((uintptr_t)ptr +
-			offsetof(tpmt_ha, digest) + TCG_DIGEST_SIZE);
+	ptr = (uint8_t *)((uintptr_t)ptr + offsetof(tpmt_ha, digest) +
+			  TCG_DIGEST_SIZE);
 
 	/* TCG_PCR_EVENT2.EventSize */
 	((event2_data_t *)ptr)->event_size =
@@ -242,22 +237,23 @@ void event_log_write_header(void)
 
 	/* TCG_EfiStartupLocalityEvent.Signature */
 	(void)memcpy(ptr, (const void *)locality_signature,
-		sizeof(TCG_STARTUP_LOCALITY_SIGNATURE));
+		     sizeof(TCG_STARTUP_LOCALITY_SIGNATURE));
 
 	/*
 	 * TCG_EfiStartupLocalityEvent.StartupLocality = 0:
 	 * the platform's boot firmware
 	 */
 	((startup_locality_event_t *)ptr)->startup_locality = 0U;
-	log_ptr = (uint8_t *)((uintptr_t)ptr + sizeof(startup_locality_event_t));
+	log_ptr =
+		(uint8_t *)((uintptr_t)ptr + sizeof(startup_locality_event_t));
 }
 
 int event_log_measure(uintptr_t data_base, uint32_t data_size,
 		      unsigned char hash_data[CRYPTO_MD_MAX_SIZE])
 {
 	/* Calculate hash */
-	return crypto_mod_calc_hash(CRYPTO_MD_ID,
-				    (void *)data_base, data_size, hash_data);
+	return crypto_mod_calc_hash(CRYPTO_MD_ID, (void *)data_base, data_size,
+				    hash_data);
 }
 
 /*
@@ -283,7 +279,7 @@ int event_log_measure_and_record(uintptr_t data_base, uint32_t data_size,
 
 	/* Get the metadata associated with this image. */
 	while ((metadata_ptr->id != EVLOG_INVALID_ID) &&
-		(metadata_ptr->id != data_id)) {
+	       (metadata_ptr->id != data_id)) {
 		metadata_ptr++;
 	}
 	assert(metadata_ptr->id != EVLOG_INVALID_ID);

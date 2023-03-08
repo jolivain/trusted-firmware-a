@@ -11,12 +11,11 @@
 #include <common/debug.h>
 #include <drivers/marvell/addr_map.h>
 #include <lib/mmio.h>
-
 #include <mvebu_def.h>
 
 #include "mc_trustzone.h"
 
-#define TZ_SIZE(x)		((x) >> 13)
+#define TZ_SIZE(x) ((x) >> 13)
 
 static int fls(int x)
 {
@@ -52,7 +51,8 @@ void tz_enable_win(int ap_index, const struct addr_map_win *win, int win_id)
 
 	if (base & 0xfff) {
 		base = base & ~0xfff;
-		WARN("Attempt to open MC TZ win. at 0x%" PRIx64 ", truncate to 0x%x\n",
+		WARN("Attempt to open MC TZ win. at 0x%" PRIx64
+		     ", truncate to 0x%x\n",
 		     win->base_addr, base);
 	}
 
@@ -68,7 +68,7 @@ void tz_enable_win(int ap_index, const struct addr_map_win *win, int win_id)
 		mmio_read_32(MVEBU_AP_MC_TRUSTZONE_REG_LOW(ap_index, win_id)));
 
 	mmio_write_32(MVEBU_AP_MC_TRUSTZONE_REG_HIGH(ap_index, win_id),
-		     (win->base_addr >> 32));
+		      (win->base_addr >> 32));
 
 	VERBOSE("%s: Win%d[0x%x] configured to 0x%x\n", __func__, win_id,
 		MVEBU_AP_MC_TRUSTZONE_REG_HIGH(ap_index, win_id),

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,8 +9,8 @@
 #include <stdint.h>
 #include <string.h>
 
-#include <arch_helpers.h>
 #include <arch_features.h>
+#include <arch_helpers.h>
 #include <bl31/ehf.h>
 #include <bl31/interrupt_mgmt.h>
 #include <common/bl_common.h>
@@ -22,13 +22,13 @@
 #include "sdei_private.h"
 
 /* x0-x17 GPREGS context */
-#define SDEI_SAVED_GPREGS	18U
+#define SDEI_SAVED_GPREGS 18U
 
 /* Maximum preemption nesting levels: Critical priority and Normal priority */
-#define MAX_EVENT_NESTING	2U
+#define MAX_EVENT_NESTING 2U
 
 /* Per-CPU SDEI state access macro */
-#define sdei_get_this_pe_state()	(&cpu_state[plat_my_core_pos()])
+#define sdei_get_this_pe_state() (&cpu_state[plat_my_core_pos()])
 
 /* Structure to store information about an outstanding dispatch */
 typedef struct sdei_dispatch_context {
@@ -89,19 +89,21 @@ void sdei_pe_unmask(void)
 	 * targeted to this PE.
 	 */
 	if (state->pending_enables) {
-		for_each_private_map(i, map) {
+		for_each_private_map(i, map)
+		{
 			se = get_event_entry(map);
 			if (is_map_bound(map) && GET_EV_STATE(se, ENABLED))
 				plat_ic_enable_interrupt(map->intr);
 		}
 
-		for_each_shared_map(i, map) {
+		for_each_shared_map(i, map)
+		{
 			se = get_event_entry(map);
 
 			sdei_map_lock(map);
 			if (is_map_bound(map) && GET_EV_STATE(se, ENABLED) &&
-					(se->reg_flags == SDEI_REGF_RM_PE) &&
-					(se->affinity == my_mpidr)) {
+			    (se->reg_flags == SDEI_REGF_RM_PE) &&
+			    (se->affinity == my_mpidr)) {
 				plat_ic_enable_interrupt(map->intr);
 			}
 			sdei_map_unlock(map);
@@ -156,7 +158,7 @@ static sdei_dispatch_context_t *get_outstanding_dispatch(void)
 }
 
 static sdei_dispatch_context_t *save_event_ctx(sdei_ev_map_t *map,
-		void *tgt_ctx)
+					       void *tgt_ctx)
 {
 	sdei_dispatch_context_t *disp_ctx;
 	const gp_regs_t *tgt_gpregs;
@@ -178,7 +180,8 @@ static sdei_dispatch_context_t *save_event_ctx(sdei_ev_map_t *map,
 	return disp_ctx;
 }
 
-static void restore_event_ctx(const sdei_dispatch_context_t *disp_ctx, void *tgt_ctx)
+static void restore_event_ctx(const sdei_dispatch_context_t *disp_ctx,
+			      void *tgt_ctx)
 {
 	gp_regs_t *tgt_gpregs;
 	el3_state_t *tgt_el3;
@@ -188,7 +191,7 @@ static void restore_event_ctx(const sdei_dispatch_context_t *disp_ctx, void *tgt
 	tgt_el3 = get_el3state_ctx(tgt_ctx);
 
 	CASSERT(sizeof(disp_ctx->x) == (SDEI_SAVED_GPREGS * sizeof(uint64_t)),
-			foo);
+		foo);
 
 	/* Restore general purpose and exception registers */
 	memcpy(tgt_gpregs, disp_ctx->x, sizeof(disp_ctx->x));
@@ -201,7 +204,7 @@ static void restore_event_ctx(const sdei_dispatch_context_t *disp_ctx, void *tgt
 
 	/* Restore CVE-2018-3639 mitigation state */
 	write_ctx_reg(tgt_cve_2018_3639, CTX_CVE_2018_3639_DISABLE,
-		disp_ctx->disable_cve_2018_3639);
+		      disp_ctx->disable_cve_2018_3639);
 #endif
 }
 
@@ -242,11 +245,12 @@ static cpu_context_t *restore_and_resume_ns_context(void)
  *   ARM DDI 0487F.c page J1-7635
  */
 
-static void sdei_set_elr_spsr(sdei_entry_t *se, sdei_dispatch_context_t *disp_ctx)
+static void sdei_set_elr_spsr(sdei_entry_t *se,
+			      sdei_dispatch_context_t *disp_ctx)
 {
 	unsigned int client_el = sdei_client_el();
-	u_register_t sdei_spsr = SPSR_64(client_el, MODE_SP_ELX,
-					DISABLE_ALL_EXCEPTIONS);
+	u_register_t sdei_spsr =
+		SPSR_64(client_el, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 
 	u_register_t interrupted_pstate = disp_ctx->spsr_el3;
 
@@ -271,26 +275,25 @@ static void sdei_set_elr_spsr(sdei_entry_t *se, sdei_dispatch_context_t *disp_ct
 	 */
 	u_register_t hcr_el2 = read_hcr();
 	bool el_is_in_host = is_armv8_1_vhe_present() &&
-			     (hcr_el2 & HCR_TGE_BIT) &&
-			     (hcr_el2 & HCR_E2H_BIT);
+			     (hcr_el2 & HCR_TGE_BIT) && (hcr_el2 & HCR_E2H_BIT);
 
 	if (is_armv8_1_pan_present() &&
 	    ((client_el == MODE_EL1) ||
-		(client_el == MODE_EL2 && el_is_in_host)) &&
+	     (client_el == MODE_EL2 && el_is_in_host)) &&
 	    ((client_el_sctlr & SCTLR_SPAN_BIT) == 0U)) {
-		sdei_spsr |=  SPSR_PAN_BIT;
+		sdei_spsr |= SPSR_PAN_BIT;
 	} else {
 		sdei_spsr |= (interrupted_pstate & SPSR_PAN_BIT);
 	}
 
 	/* If SSBS is implemented, take the value from the client el SCTLR */
-	u_register_t ssbs_enabled = (read_id_aa64pfr1_el1()
-					>> ID_AA64PFR1_EL1_SSBS_SHIFT)
-					& ID_AA64PFR1_EL1_SSBS_MASK;
+	u_register_t ssbs_enabled =
+		(read_id_aa64pfr1_el1() >> ID_AA64PFR1_EL1_SSBS_SHIFT) &
+		ID_AA64PFR1_EL1_SSBS_MASK;
 	if (ssbs_enabled != SSBS_UNAVAILABLE) {
-		u_register_t  ssbs_bit = ((client_el_sctlr & SCTLR_DSSBS_BIT)
-						>> SCTLR_DSSBS_SHIFT)
-						<< SPSR_SSBS_SHIFT_AARCH64;
+		u_register_t ssbs_bit = ((client_el_sctlr & SCTLR_DSSBS_BIT) >>
+					 SCTLR_DSSBS_SHIFT)
+					<< SPSR_SSBS_SHIFT_AARCH64;
 		sdei_spsr |= ssbs_bit;
 	}
 
@@ -302,7 +305,7 @@ static void sdei_set_elr_spsr(sdei_entry_t *se, sdei_dispatch_context_t *disp_ct
 	/* Take the DIT field from the pstate of the interrupted el */
 	sdei_spsr |= (interrupted_pstate & SPSR_DIT_BIT);
 
-	cm_set_elr_spsr_el3(NON_SECURE, (uintptr_t) se->ep, sdei_spsr);
+	cm_set_elr_spsr_el3(NON_SECURE, (uintptr_t)se->ep, sdei_spsr);
 }
 
 /*
@@ -310,7 +313,7 @@ static void sdei_set_elr_spsr(sdei_entry_t *se, sdei_dispatch_context_t *disp_ct
  * SDEI client.
  */
 static void setup_ns_dispatch(sdei_ev_map_t *map, sdei_entry_t *se,
-		cpu_context_t *ctx, jmp_buf *dispatch_jmp)
+			      cpu_context_t *ctx, jmp_buf *dispatch_jmp)
 {
 	sdei_dispatch_context_t *disp_ctx;
 
@@ -325,7 +328,7 @@ static void setup_ns_dispatch(sdei_ev_map_t *map, sdei_entry_t *se,
 	 * - x2: Interrupted PC
 	 * - x3: Interrupted SPSR
 	 */
-	SMC_SET_GP(ctx, CTX_GPREG_X0, (uint64_t) map->ev_num);
+	SMC_SET_GP(ctx, CTX_GPREG_X0, (uint64_t)map->ev_num);
 	SMC_SET_GP(ctx, CTX_GPREG_X1, se->arg);
 	SMC_SET_GP(ctx, CTX_GPREG_X2, disp_ctx->elr_el3);
 	SMC_SET_GP(ctx, CTX_GPREG_X3, disp_ctx->spsr_el3);
@@ -338,8 +341,8 @@ static void setup_ns_dispatch(sdei_ev_map_t *map, sdei_entry_t *se,
 	tgt_cve_2018_3639 = get_cve_2018_3639_ctx(ctx);
 
 	/* Save CVE-2018-3639 mitigation state */
-	disp_ctx->disable_cve_2018_3639 = read_ctx_reg(tgt_cve_2018_3639,
-		CTX_CVE_2018_3639_DISABLE);
+	disp_ctx->disable_cve_2018_3639 =
+		read_ctx_reg(tgt_cve_2018_3639, CTX_CVE_2018_3639_DISABLE);
 
 	/* Force SDEI handler to execute with mitigation enabled by default */
 	write_ctx_reg(tgt_cve_2018_3639, CTX_CVE_2018_3639_DISABLE, 0);
@@ -350,7 +353,8 @@ static void setup_ns_dispatch(sdei_ev_map_t *map, sdei_entry_t *se,
 
 /* Handle a triggered SDEI interrupt while events were masked on this PE */
 static void handle_masked_trigger(sdei_ev_map_t *map, sdei_entry_t *se,
-		sdei_cpu_state_t *state, unsigned int intr_raw)
+				  sdei_cpu_state_t *state,
+				  unsigned int intr_raw)
 {
 	uint64_t my_mpidr __unused = (read_mpidr_el1() & MPIDR_AFFINITY_MASK);
 	bool disable = false;
@@ -405,7 +409,7 @@ static void handle_masked_trigger(sdei_ev_map_t *map, sdei_entry_t *se,
 
 /* SDEI main interrupt handler */
 int sdei_intr_handler(uint32_t intr_raw, uint32_t flags, void *handle,
-		void *cookie)
+		      void *cookie)
 {
 	sdei_entry_t *se;
 	cpu_context_t *ctx;
@@ -488,7 +492,7 @@ int sdei_intr_handler(uint32_t intr_raw, uint32_t flags, void *handle,
 
 	if (!can_sdei_state_trans(se, DO_DISPATCH)) {
 		SDEI_LOG("SDEI event 0x%x can't be dispatched; state=0x%x\n",
-				map->ev_num, se->state);
+			 map->ev_num, se->state);
 
 		/*
 		 * If the event is registered, leave the interrupt pending so
@@ -533,8 +537,8 @@ int sdei_intr_handler(uint32_t intr_raw, uint32_t flags, void *handle,
 	if (is_event_shared(map))
 		sdei_map_unlock(map);
 
-	SDEI_LOG("ACK %" PRIx64 ", ev:0x%x ss:%d spsr:%lx ELR:%lx\n",
-		 mpidr, map->ev_num, sec_state, read_spsr_el3(), read_elr_el3());
+	SDEI_LOG("ACK %" PRIx64 ", ev:0x%x ss:%d spsr:%lx ELR:%lx\n", mpidr,
+		 map->ev_num, sec_state, read_spsr_el3(), read_elr_el3());
 
 	ctx = handle;
 
@@ -703,10 +707,10 @@ int sdei_event_complete(bool resume, uint64_t pc)
 		sdei_map_unlock(map);
 
 	/* Having done sanity checks, pop dispatch */
-	(void) pop_dispatch();
+	(void)pop_dispatch();
 
 	SDEI_LOG("EOI:%lx, %d spsr:%lx elr:%lx\n", read_mpidr_el1(),
-			map->ev_num, read_spsr_el3(), read_elr_el3());
+		 map->ev_num, read_spsr_el3(), read_elr_el3());
 
 	/*
 	 * Restore Non-secure to how it was originally interrupted. Once done,
@@ -720,8 +724,9 @@ int sdei_event_complete(bool resume, uint64_t pc)
 		 * Complete-and-resume call. Prepare the Non-secure context
 		 * (currently active) for complete and resume.
 		 */
-		cm_set_elr_spsr_el3(NON_SECURE, pc, SPSR_64(client_el,
-					MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS));
+		cm_set_elr_spsr_el3(NON_SECURE, pc,
+				    SPSR_64(client_el, MODE_SP_ELX,
+					    DISABLE_ALL_EXCEPTIONS));
 
 		/*
 		 * Make it look as if a synchronous exception were taken at the
@@ -770,5 +775,5 @@ int64_t sdei_event_context(void *handle, unsigned int param)
 	 * which can complete the event
 	 */
 
-	return (int64_t) disp_ctx->x[param];
+	return (int64_t)disp_ctx->x[param];
 }

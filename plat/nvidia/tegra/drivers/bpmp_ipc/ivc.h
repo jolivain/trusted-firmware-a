@@ -7,13 +7,14 @@
 #ifndef BPMP_IVC_H
 #define BPMP_IVC_H
 
-#include <lib/utils_def.h>
-#include <stdint.h>
 #include <stddef.h>
+#include <stdint.h>
 
-#define IVC_ALIGN		U(64)
-#define IVC_CHHDR_TX_FIELDS	U(16)
-#define IVC_CHHDR_RX_FIELDS	U(16)
+#include <lib/utils_def.h>
+
+#define IVC_ALIGN U(64)
+#define IVC_CHHDR_TX_FIELDS U(16)
+#define IVC_CHHDR_RX_FIELDS U(16)
 
 struct ivc_channel_header;
 
@@ -28,11 +29,11 @@ struct ivc {
 };
 
 /* callback handler for notify on receiving a response */
-typedef void (* ivc_notify_function)(const struct ivc *);
+typedef void (*ivc_notify_function)(const struct ivc *);
 
 int32_t tegra_ivc_init(struct ivc *ivc, uintptr_t rx_base, uintptr_t tx_base,
-		uint32_t nframes, uint32_t frame_size,
-		ivc_notify_function notify);
+		       uint32_t nframes, uint32_t frame_size,
+		       ivc_notify_function notify);
 size_t tegra_ivc_total_queue_size(size_t queue_size);
 size_t tegra_ivc_align(size_t size);
 int32_t tegra_ivc_channel_notified(struct ivc *ivc);

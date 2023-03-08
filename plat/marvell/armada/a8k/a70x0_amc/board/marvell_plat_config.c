@@ -40,9 +40,9 @@ int marvell_get_amb_memory_map(struct addr_map_win **win, uint32_t *size,
 struct addr_map_win io_win_memory_map[] = {
 #ifndef IMAGE_BLE
 	/* MCI 0 indirect window */
-	{MVEBU_MCI_REG_BASE_REMAP(0),	0x100000,	MCI_0_TID},
+	{ MVEBU_MCI_REG_BASE_REMAP(0), 0x100000, MCI_0_TID },
 	/* MCI 1 indirect window */
-	{MVEBU_MCI_REG_BASE_REMAP(1),	0x100000,	MCI_1_TID},
+	{ MVEBU_MCI_REG_BASE_REMAP(1), 0x100000, MCI_1_TID },
 #endif
 };
 
@@ -70,9 +70,9 @@ int marvell_get_io_win_memory_map(int ap_index, struct addr_map_win **win,
  */
 struct addr_map_win iob_memory_map[] = {
 	/* PEX0_X4 window */
-	{0x00000000f6000000,	0x6000000,	PEX0_TID},
-	{0x00000000c0000000,    0x30000000,     PEX0_TID},
-	{0x0000000800000000,    0x200000000,    PEX0_TID},
+	{ 0x00000000f6000000, 0x6000000, PEX0_TID },
+	{ 0x00000000c0000000, 0x30000000, PEX0_TID },
+	{ 0x0000000800000000, 0x200000000, PEX0_TID },
 };
 
 int marvell_get_iob_memory_map(struct addr_map_win **win, uint32_t *size,
@@ -91,17 +91,17 @@ int marvell_get_iob_memory_map(struct addr_map_win **win, uint32_t *size,
  */
 struct addr_map_win ccu_memory_map[] = {
 #ifdef IMAGE_BLE
-	{0x00000000f2000000,	0x4000000,	IO_0_TID}, /* IO window */
+	{ 0x00000000f2000000, 0x4000000, IO_0_TID }, /* IO window */
 #else
 #if LLC_SRAM
 	/* This entry is prepared for OP-TEE OS that enables the LLC SRAM
 	 * and changes the window target to SRAM_TID.
 	 */
-	{PLAT_MARVELL_LLC_SRAM_BASE, PLAT_MARVELL_LLC_SRAM_SIZE, DRAM_0_TID},
+	{ PLAT_MARVELL_LLC_SRAM_BASE, PLAT_MARVELL_LLC_SRAM_SIZE, DRAM_0_TID },
 #endif
-	{0x00000000f2000000,	0xe000000,	IO_0_TID},
-	{0x00000000c0000000,    0x30000000,	IO_0_TID}, /* IO window */
-	{0x0000000800000000,    0x200000000,	IO_0_TID}, /* IO window */
+	{ 0x00000000f2000000, 0xe000000, IO_0_TID },
+	{ 0x00000000c0000000, 0x30000000, IO_0_TID }, /* IO window */
+	{ 0x0000000800000000, 0x200000000, IO_0_TID }, /* IO window */
 #endif
 };
 

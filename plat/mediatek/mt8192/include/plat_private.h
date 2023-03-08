@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,9 +10,7 @@
 /*******************************************************************************
  * Function and variable prototypes
  ******************************************************************************/
-void plat_configure_mmu_el3(uintptr_t total_base,
-			    uintptr_t total_size,
-			    uintptr_t ro_start,
-			    uintptr_t ro_limit);
+void plat_configure_mmu_el3(uintptr_t total_base, uintptr_t total_size,
+			    uintptr_t ro_start, uintptr_t ro_limit);
 
 #endif /* PLAT_PRIVATE_H */

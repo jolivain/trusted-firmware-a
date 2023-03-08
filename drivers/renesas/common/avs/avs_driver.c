@@ -4,11 +4,12 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include "avs_driver.h"
+
 #include <common/debug.h>
 #include <lib/mmio.h>
 #include <lib/utils_def.h>
 
-#include "avs_driver.h"
 #include "cpg_registers.h"
 #include "rcar_def.h"
 #include "rcar_private.h"
@@ -16,104 +17,104 @@
 #if (AVS_SETTING_ENABLE == 1)
 #if PMIC_ROHM_BD9571
 /* Read PMIC register for debug. 1:enable / 0:disable */
-#define AVS_READ_PMIC_REG_ENABLE	0
+#define AVS_READ_PMIC_REG_ENABLE 0
 /* The re-try number of times of the AVS setting. */
-#define AVS_RETRY_NUM			(1U)
+#define AVS_RETRY_NUM (1U)
 #endif /* PMIC_ROHM_BD9571 */
 
 /* Base address of Adaptive Voltage Scaling module registers*/
-#define AVS_BASE			(0xE60A0000U)
+#define AVS_BASE (0xE60A0000U)
 /* Adaptive Dynamic Voltage ADJust Parameter2 registers */
-#define ADVADJP2			(AVS_BASE + 0x013CU)
+#define ADVADJP2 (AVS_BASE + 0x013CU)
 
 /* Mask VOLCOND bit in ADVADJP2 registers */
-#define ADVADJP2_VOLCOND_MASK		(0x000001FFU)	/* VOLCOND[8:0] */
+#define ADVADJP2_VOLCOND_MASK (0x000001FFU) /* VOLCOND[8:0] */
 
 #if PMIC_ROHM_BD9571
 /* I2C for DVFS bit in CPG registers for module standby and software reset*/
-#define CPG_SYS_DVFS_BIT		(0x04000000U)
+#define CPG_SYS_DVFS_BIT (0x04000000U)
 #endif /* PMIC_ROHM_BD9571 */
 /* ADVFS Module bit in CPG registers for module standby and software reset*/
-#define CPG_SYS_ADVFS_BIT		(0x02000000U)
+#define CPG_SYS_ADVFS_BIT (0x02000000U)
 
 #if PMIC_ROHM_BD9571
 /* Base address of IICDVFS registers*/
-#define IIC_DVFS_BASE			(0xE60B0000U)
+#define IIC_DVFS_BASE (0xE60B0000U)
 /* IIC bus data register */
-#define IIC_ICDR			(IIC_DVFS_BASE + 0x0000U)
+#define IIC_ICDR (IIC_DVFS_BASE + 0x0000U)
 /* IIC bus control register */
-#define IIC_ICCR			(IIC_DVFS_BASE + 0x0004U)
+#define IIC_ICCR (IIC_DVFS_BASE + 0x0004U)
 /* IIC bus status register */
-#define IIC_ICSR			(IIC_DVFS_BASE + 0x0008U)
+#define IIC_ICSR (IIC_DVFS_BASE + 0x0008U)
 /* IIC interrupt control register */
-#define IIC_ICIC			(IIC_DVFS_BASE + 0x000CU)
+#define IIC_ICIC (IIC_DVFS_BASE + 0x000CU)
 /* IIC clock control register low */
-#define IIC_ICCL			(IIC_DVFS_BASE + 0x0010U)
+#define IIC_ICCL (IIC_DVFS_BASE + 0x0010U)
 /* IIC clock control register high */
-#define IIC_ICCH			(IIC_DVFS_BASE + 0x0014U)
+#define IIC_ICCH (IIC_DVFS_BASE + 0x0014U)
 
 /* Bit in ICSR register */
-#define ICSR_BUSY			(0x10U)
-#define ICSR_AL				(0x08U)
-#define ICSR_TACK			(0x04U)
-#define ICSR_WAIT			(0x02U)
-#define ICSR_DTE			(0x01U)
+#define ICSR_BUSY (0x10U)
+#define ICSR_AL (0x08U)
+#define ICSR_TACK (0x04U)
+#define ICSR_WAIT (0x02U)
+#define ICSR_DTE (0x01U)
 
 /* Bit in ICIC register */
-#define ICIC_TACKE			(0x04U)
-#define ICIC_WAITE			(0x02U)
-#define ICIC_DTEE			(0x01U)
+#define ICIC_TACKE (0x04U)
+#define ICIC_WAITE (0x02U)
+#define ICIC_DTEE (0x01U)
 
 /* I2C bus interface enable */
-#define ICCR_ENABLE			(0x80U)
+#define ICCR_ENABLE (0x80U)
 /* Start condition */
-#define ICCR_START			(0x94U)
+#define ICCR_START (0x94U)
 /* Stop condition */
-#define ICCR_STOP			(0x90U)
+#define ICCR_STOP (0x90U)
 /* Restart condition with change to receive mode change */
-#define ICCR_START_RECV			(0x81U)
+#define ICCR_START_RECV (0x81U)
 /* Stop condition for receive mode */
-#define ICCR_STOP_RECV			(0xC0U)
+#define ICCR_STOP_RECV (0xC0U)
 
 /* Low-level period of SCL */
-#define ICCL_FREQ_8p33M			(0x07U)	/* for CP Phy 8.3333MHz */
-#define ICCL_FREQ_10M			(0x09U)	/* for CP Phy 10MHz */
-#define ICCL_FREQ_12p5M			(0x0BU)	/* for CP Phy 12.5MHz */
-#define ICCL_FREQ_16p66M		(0x0EU)	/* for CP Phy 16.6666MHz */
+#define ICCL_FREQ_8p33M (0x07U) /* for CP Phy 8.3333MHz */
+#define ICCL_FREQ_10M (0x09U) /* for CP Phy 10MHz */
+#define ICCL_FREQ_12p5M (0x0BU) /* for CP Phy 12.5MHz */
+#define ICCL_FREQ_16p66M (0x0EU) /* for CP Phy 16.6666MHz */
 /* High-level period of SCL */
-#define ICCH_FREQ_8p33M			(0x01U)	/* for CP Phy 8.3333MHz */
-#define ICCH_FREQ_10M			(0x02U)	/* for CP Phy 10MHz */
-#define ICCH_FREQ_12p5M			(0x03U)	/* for CP Phy 12.5MHz */
-#define ICCH_FREQ_16p66M		(0x05U)	/* for CP Phy 16.6666MHz */
+#define ICCH_FREQ_8p33M (0x01U) /* for CP Phy 8.3333MHz */
+#define ICCH_FREQ_10M (0x02U) /* for CP Phy 10MHz */
+#define ICCH_FREQ_12p5M (0x03U) /* for CP Phy 12.5MHz */
+#define ICCH_FREQ_16p66M (0x05U) /* for CP Phy 16.6666MHz */
 
 /* PMIC */
 /* ROHM BD9571 slave address + (W) */
-#define PMIC_W_SLAVE_ADDRESS		(0x60U)
+#define PMIC_W_SLAVE_ADDRESS (0x60U)
 /* ROHM BD9571 slave address + (R) */
-#define PMIC_R_SLAVE_ADDRESS		(0x61U)
+#define PMIC_R_SLAVE_ADDRESS (0x61U)
 /* ROHM BD9571 DVFS SetVID register */
-#define PMIC_DVFS_SETVID		(0x54U)
+#define PMIC_DVFS_SETVID (0x54U)
 #endif /* PMIC_ROHM_BD9571  */
 
 /* Individual information */
-#define EFUSE_AVS0			(0U)
-#define EFUSE_AVS_NUM			ARRAY_SIZE(init_vol_tbl)
+#define EFUSE_AVS0 (0U)
+#define EFUSE_AVS_NUM ARRAY_SIZE(init_vol_tbl)
 
 typedef struct {
-	uint32_t avs;		/* AVS code */
-	uint8_t vol;		/* Voltage */
+	uint32_t avs; /* AVS code */
+	uint8_t vol; /* Voltage */
 } initial_voltage_t;
 
 static const initial_voltage_t init_vol_tbl[] = {
 	/* AVS code, ROHM BD9571 DVFS SetVID register */
-	{0x00U, 0x53U},		/* AVS0, 0.83V */
-	{0x01U, 0x52U},		/* AVS1, 0.82V */
-	{0x02U, 0x51U},		/* AVS2, 0.81V */
-	{0x04U, 0x50U},		/* AVS3, 0.80V */
-	{0x08U, 0x4FU},		/* AVS4, 0.79V */
-	{0x10U, 0x4EU},		/* AVS5, 0.78V */
-	{0x20U, 0x4DU},		/* AVS6, 0.77V */
-	{0x40U, 0x4CU}		/* AVS7, 0.76V */
+	{ 0x00U, 0x53U }, /* AVS0, 0.83V */
+	{ 0x01U, 0x52U }, /* AVS1, 0.82V */
+	{ 0x02U, 0x51U }, /* AVS2, 0.81V */
+	{ 0x04U, 0x50U }, /* AVS3, 0.80V */
+	{ 0x08U, 0x4FU }, /* AVS4, 0.79V */
+	{ 0x10U, 0x4EU }, /* AVS5, 0.78V */
+	{ 0x20U, 0x4DU }, /* AVS6, 0.77V */
+	{ 0x40U, 0x4CU } /* AVS7, 0.76V */
 };
 
 #if PMIC_ROHM_BD9571
@@ -136,11 +137,7 @@ typedef enum {
 } avs_status_t;
 
 /* Kind of AVS error */
-typedef enum {
-	avs_error_none = 0,
-	avs_error_al,
-	avs_error_nack
-} avs_error_t;
+typedef enum { avs_error_none = 0, avs_error_al, avs_error_nack } avs_error_t;
 
 static avs_status_t avs_status;
 static uint32_t avs_retry;
@@ -183,7 +180,7 @@ void rcar_avs_init(void)
 	}
 
 	if (efuse_avs >= EFUSE_AVS_NUM)
-		efuse_avs = EFUSE_AVS0;	/* Not applicable */
+		efuse_avs = EFUSE_AVS0; /* Not applicable */
 #if PMIC_ROHM_BD9571
 	/* Enable clock supply to DVFS. */
 	mstpcr_write(CPG_SMSTPCR9, CPG_MSTPSR9, CPG_SYS_DVFS_BIT);
@@ -220,8 +217,8 @@ void rcar_avs_setting(void)
 		avs_set_iic_clock();
 		/* Set ICIC.TACKE=1, ICIC.WAITE=1, ICIC.DTEE=1 to */
 		/* enable interrupt control.                      */
-		mmio_write_8(IIC_ICIC, mmio_read_8(IIC_ICIC)
-			     | ICIC_TACKE | ICIC_WAITE | ICIC_DTEE);
+		mmio_write_8(IIC_ICIC, mmio_read_8(IIC_ICIC) | ICIC_TACKE |
+					       ICIC_WAITE | ICIC_DTEE);
 		/* Write H'94 in ICCR to issue start condition */
 		mmio_write_8(IIC_ICCR, ICCR_START);
 		/* Set next status */
@@ -240,8 +237,9 @@ void rcar_avs_setting(void)
 			/* Was data transmission enabled ? */
 			if ((mmio_read_8(IIC_ICSR) & ICSR_DTE) == ICSR_DTE) {
 				/* Clear ICIC.DTEE to disable a DTE interrupt */
-				mmio_write_8(IIC_ICIC, mmio_read_8(IIC_ICIC)
-					     & (uint8_t) (~ICIC_DTEE));
+				mmio_write_8(IIC_ICIC,
+					     mmio_read_8(IIC_ICIC) &
+						     (uint8_t)(~ICIC_DTEE));
 				/* Send PMIC slave address + (W) */
 				mmio_write_8(IIC_ICDR, PMIC_W_SLAVE_ADDRESS);
 				/* Set next status */
@@ -264,8 +262,9 @@ void rcar_avs_setting(void)
 				/* Write PMIC DVFS_SetVID address */
 				mmio_write_8(IIC_ICDR, PMIC_DVFS_SETVID);
 				/* Clear ICSR.WAIT to exit from wait state. */
-				mmio_write_8(IIC_ICSR, mmio_read_8(IIC_ICSR)
-					     & (uint8_t) (~ICSR_WAIT));
+				mmio_write_8(IIC_ICSR,
+					     mmio_read_8(IIC_ICSR) &
+						     (uint8_t)(~ICSR_WAIT));
 				/* Set next status */
 				avs_status = avs_status_write_reg_data;
 			}
@@ -296,8 +295,9 @@ void rcar_avs_setting(void)
 				mmio_write_8(IIC_ICDR,
 					     init_vol_tbl[efuse_avs].vol);
 				/* Clear ICSR.WAIT to exit from wait state. */
-				mmio_write_8(IIC_ICSR, mmio_read_8(IIC_ICSR)
-					     & (uint8_t) (~ICSR_WAIT));
+				mmio_write_8(IIC_ICSR,
+					     mmio_read_8(IIC_ICSR) &
+						     (uint8_t)(~ICSR_WAIT));
 				/* Set next status */
 				avs_status = avs_status_stop_condition;
 			}
@@ -317,8 +317,9 @@ void rcar_avs_setting(void)
 				/* Write H'90 in ICCR to issue stop condition */
 				mmio_write_8(IIC_ICCR, ICCR_STOP);
 				/* Clear ICSR.WAIT to exit from wait state. */
-				mmio_write_8(IIC_ICSR, mmio_read_8(IIC_ICSR)
-					     & (uint8_t) (~ICSR_WAIT));
+				mmio_write_8(IIC_ICSR,
+					     mmio_read_8(IIC_ICSR) &
+						     (uint8_t)(~ICSR_WAIT));
 				/* Set next status */
 				avs_status = avs_status_end;
 			}
@@ -335,8 +336,8 @@ void rcar_avs_setting(void)
 		break;
 	case avs_status_al_start:
 		/* Clear ICSR.AL bit */
-		mmio_write_8(IIC_ICSR, (mmio_read_8(IIC_ICSR)
-					& (uint8_t) (~ICSR_AL)));
+		mmio_write_8(IIC_ICSR,
+			     (mmio_read_8(IIC_ICSR) & (uint8_t)(~ICSR_AL)));
 		/* Transmit a clock pulse */
 		mmio_write_8(IIC_ICDR, init_vol_tbl[EFUSE_AVS0].vol);
 		/* Set next status */
@@ -344,8 +345,8 @@ void rcar_avs_setting(void)
 		break;
 	case avs_status_al_transfer:
 		/* Clear ICSR.AL bit */
-		mmio_write_8(IIC_ICSR, (mmio_read_8(IIC_ICSR)
-					& (uint8_t) (~ICSR_AL)));
+		mmio_write_8(IIC_ICSR,
+			     (mmio_read_8(IIC_ICSR) & (uint8_t)(~ICSR_AL)));
 		/* Set next status */
 		avs_status = avs_status_error_stop;
 		break;
@@ -353,11 +354,12 @@ void rcar_avs_setting(void)
 		/* Write H'90 in ICCR to issue stop condition */
 		mmio_write_8(IIC_ICCR, ICCR_STOP);
 		/* Disable a WAIT and DTEE interrupt. */
-		mmio_write_8(IIC_ICIC, mmio_read_8(IIC_ICIC)
-			     & (uint8_t) (~(ICIC_WAITE | ICIC_DTEE)));
+		mmio_write_8(IIC_ICIC,
+			     mmio_read_8(IIC_ICIC) &
+				     (uint8_t)(~(ICIC_WAITE | ICIC_DTEE)));
 		/* Clear ICSR.TACK bit */
-		mmio_write_8(IIC_ICSR, mmio_read_8(IIC_ICSR)
-			     & (uint8_t) (~ICSR_TACK));
+		mmio_write_8(IIC_ICSR,
+			     mmio_read_8(IIC_ICSR) & (uint8_t)(~ICSR_TACK));
 		/* Set next status */
 		avs_status = ave_status_error_end;
 		break;
@@ -367,8 +369,8 @@ void rcar_avs_setting(void)
 			/* Write H'90 in ICCR to issue stop condition */
 			mmio_write_8(IIC_ICCR, ICCR_STOP);
 			/* Clear ICSR.WAIT to exit from wait state. */
-			mmio_write_8(IIC_ICSR, mmio_read_8(IIC_ICSR)
-				     & (uint8_t) (~ICSR_WAIT));
+			mmio_write_8(IIC_ICSR, mmio_read_8(IIC_ICSR) &
+						       (uint8_t)(~ICSR_WAIT));
 			/* Set next status */
 			avs_status = ave_status_error_end;
 		}
@@ -421,8 +423,8 @@ void rcar_avs_end(void)
 		uint8_t addr = PMIC_DVFS_SETVID;
 		uint8_t value = avs_read_pmic_reg(addr);
 
-		NOTICE("Read PMIC register. address=0x%x value=0x%x\n",
-		       addr, value);
+		NOTICE("Read PMIC register. address=0x%x value=0x%x\n", addr,
+		       value);
 	}
 #endif
 
@@ -451,7 +453,8 @@ static avs_error_t avs_check_error(void)
 
 	if ((mmio_read_8(IIC_ICSR) & ICSR_AL) == ICSR_AL) {
 		NOTICE("%s AVS status=%d Retry=%u\n",
-		       "Loss of arbitration is detected.", avs_status, avs_retry);
+		       "Loss of arbitration is detected.", avs_status,
+		       avs_retry);
 		/* Check of retry number of times */
 		if (avs_retry >= AVS_RETRY_NUM) {
 			ERROR("AVS setting failed in retry. max=%u\n",
@@ -492,23 +495,23 @@ static void avs_set_iic_clock(void)
 	/* Set the module clock (CP phy) for the IIC-DVFS. */
 	/* CP phy is EXTAL / 2.                            */
 	switch (md_pin) {
-	case MD14_MD13_TYPE_0:	/* EXTAL = 16.6666MHz */
+	case MD14_MD13_TYPE_0: /* EXTAL = 16.6666MHz */
 		mmio_write_8(IIC_ICCL, ICCL_FREQ_8p33M);
 		mmio_write_8(IIC_ICCH, ICCH_FREQ_8p33M);
 		break;
-	case MD14_MD13_TYPE_1:	/* EXTAL = 20MHz */
+	case MD14_MD13_TYPE_1: /* EXTAL = 20MHz */
 		mmio_write_8(IIC_ICCL, ICCL_FREQ_10M);
 		mmio_write_8(IIC_ICCH, ICCH_FREQ_10M);
 		break;
-	case MD14_MD13_TYPE_2:	/* EXTAL = 25MHz (H3/M3) */
+	case MD14_MD13_TYPE_2: /* EXTAL = 25MHz (H3/M3) */
 		mmio_write_8(IIC_ICCL, ICCL_FREQ_12p5M);
 		mmio_write_8(IIC_ICCH, ICCH_FREQ_12p5M);
 		break;
-	case MD14_MD13_TYPE_3:	/* EXTAL = 33.3333MHz */
+	case MD14_MD13_TYPE_3: /* EXTAL = 33.3333MHz */
 		mmio_write_8(IIC_ICCL, ICCL_FREQ_16p66M);
 		mmio_write_8(IIC_ICCH, ICCH_FREQ_16p66M);
 		break;
-	default:		/* This case is not possible. */
+	default: /* This case is not possible. */
 		/* CP Phy frequency is to be set for the 16.66MHz */
 		mmio_write_8(IIC_ICCL, ICCL_FREQ_16p66M);
 		mmio_write_8(IIC_ICCH, ICCH_FREQ_16p66M);
@@ -543,7 +546,7 @@ static uint8_t avs_read_pmic_reg(uint8_t addr)
 	avs_poll(ICSR_DTE, 1U);
 
 	/* Clear ICIC.DTEE to disable a DTE interrupt. */
-	mmio_write_8(IIC_ICIC, mmio_read_8(IIC_ICIC) & (uint8_t) (~ICIC_DTEE));
+	mmio_write_8(IIC_ICIC, mmio_read_8(IIC_ICIC) & (uint8_t)(~ICIC_DTEE));
 	/* Send slave address of PMIC */
 	mmio_write_8(IIC_ICDR, PMIC_W_SLAVE_ADDRESS);
 
@@ -553,7 +556,7 @@ static uint8_t avs_read_pmic_reg(uint8_t addr)
 	/* write PMIC address */
 	mmio_write_8(IIC_ICDR, addr);
 	/* Clear ICSR.WAIT to exit from WAIT status. */
-	mmio_write_8(IIC_ICSR, mmio_read_8(IIC_ICSR) & (uint8_t) (~ICSR_WAIT));
+	mmio_write_8(IIC_ICSR, mmio_read_8(IIC_ICSR) & (uint8_t)(~ICSR_WAIT));
 
 	/* Wait for a until ICSR.WAIT becomes 1. */
 	avs_poll(ICSR_WAIT, 1U);
@@ -561,7 +564,7 @@ static uint8_t avs_read_pmic_reg(uint8_t addr)
 	/* Write H'94 in ICCR to issue restart condition */
 	mmio_write_8(IIC_ICCR, ICCR_START);
 	/* Clear ICSR.WAIT to exit from WAIT status. */
-	mmio_write_8(IIC_ICSR, mmio_read_8(IIC_ICSR) & (uint8_t) (~ICSR_WAIT));
+	mmio_write_8(IIC_ICSR, mmio_read_8(IIC_ICSR) & (uint8_t)(~ICSR_WAIT));
 	/* Set ICIC.DTEE=1 to enable data transmission interrupt. */
 	mmio_write_8(IIC_ICIC, mmio_read_8(IIC_ICIC) | ICIC_DTEE);
 
@@ -569,7 +572,7 @@ static uint8_t avs_read_pmic_reg(uint8_t addr)
 	avs_poll(ICSR_DTE, 1U);
 
 	/* Clear ICIC.DTEE to disable a DTE interrupt. */
-	mmio_write_8(IIC_ICIC, mmio_read_8(IIC_ICIC) & (uint8_t) (~ICIC_DTEE));
+	mmio_write_8(IIC_ICIC, mmio_read_8(IIC_ICIC) & (uint8_t)(~ICIC_DTEE));
 	/* Send slave address of PMIC */
 	mmio_write_8(IIC_ICDR, PMIC_R_SLAVE_ADDRESS);
 
@@ -580,7 +583,7 @@ static uint8_t avs_read_pmic_reg(uint8_t addr)
 	/* for changing the transmission mode to the receive mode.      */
 	mmio_write_8(IIC_ICCR, ICCR_START_RECV);
 	/* Clear ICSR.WAIT to exit from WAIT status. */
-	mmio_write_8(IIC_ICSR, mmio_read_8(IIC_ICSR) & (uint8_t) (~ICSR_WAIT));
+	mmio_write_8(IIC_ICSR, mmio_read_8(IIC_ICSR) & (uint8_t)(~ICSR_WAIT));
 
 	/* Wait for a until ICSR.WAIT becomes 1. */
 	avs_poll(ICSR_WAIT, 1U);
@@ -588,7 +591,7 @@ static uint8_t avs_read_pmic_reg(uint8_t addr)
 	/* Set ICCR to H'C0 for the STOP condition */
 	mmio_write_8(IIC_ICCR, ICCR_STOP_RECV);
 	/* Clear ICSR.WAIT to exit from WAIT status. */
-	mmio_write_8(IIC_ICSR, mmio_read_8(IIC_ICSR) & (uint8_t) (~ICSR_WAIT));
+	mmio_write_8(IIC_ICSR, mmio_read_8(IIC_ICSR) & (uint8_t)(~ICSR_WAIT));
 	/* Set ICIC.DTEE=1 to enable data transmission interrupt. */
 	mmio_write_8(IIC_ICIC, mmio_read_8(IIC_ICIC) | ICIC_DTEE);
 
@@ -597,7 +600,7 @@ static uint8_t avs_read_pmic_reg(uint8_t addr)
 
 	/* Receive DVFS SetVID register */
 	/* Clear ICIC.DTEE to disable a DTE interrupt. */
-	mmio_write_8(IIC_ICIC, mmio_read_8(IIC_ICIC) & (uint8_t) (~ICIC_DTEE));
+	mmio_write_8(IIC_ICIC, mmio_read_8(IIC_ICIC) & (uint8_t)(~ICIC_DTEE));
 	/* Receive DVFS SetVID register */
 	reg = mmio_read_8(IIC_ICDR);
 

@@ -9,11 +9,10 @@
 #include <arch.h>
 #include <arch_helpers.h>
 #include <common/debug.h>
-#include <lib/mmio.h>
-#include <lib/psci/psci.h>
-
 #include <gpc.h>
 #include <imx8m_psci.h>
+#include <lib/mmio.h>
+#include <lib/psci/psci.h>
 #include <plat_imx8.h>
 
 static const plat_psci_ops_t imx_plat_psci_ops = {

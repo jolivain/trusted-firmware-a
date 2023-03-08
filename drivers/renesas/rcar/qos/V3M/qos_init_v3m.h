@@ -10,4 +10,4 @@
 
 void qos_init_v3m(void);
 
-#endif	/* QOS_INIT_H_V3M__ */
+#endif /* QOS_INIT_H_V3M__ */

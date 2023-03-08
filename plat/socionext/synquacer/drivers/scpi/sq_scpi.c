@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,26 +7,24 @@
 #include <assert.h>
 #include <string.h>
 
-#include <platform_def.h>
-
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <sq_common.h>
 
+#include <platform_def.h>
+
 #include "sq_mhu.h"
 #include "sq_scpi.h"
 
-#define SCPI_SHARED_MEM_SCP_TO_AP	PLAT_SQ_SCP_COM_SHARED_MEM_BASE
-#define SCPI_SHARED_MEM_AP_TO_SCP	(PLAT_SQ_SCP_COM_SHARED_MEM_BASE \
-								 + 0x100)
+#define SCPI_SHARED_MEM_SCP_TO_AP PLAT_SQ_SCP_COM_SHARED_MEM_BASE
+#define SCPI_SHARED_MEM_AP_TO_SCP (PLAT_SQ_SCP_COM_SHARED_MEM_BASE + 0x100)
 
-#define SCPI_CMD_HEADER_AP_TO_SCP		\
-	((scpi_cmd_t *) SCPI_SHARED_MEM_AP_TO_SCP)
-#define SCPI_CMD_PAYLOAD_AP_TO_SCP		\
-	((void *) (SCPI_SHARED_MEM_AP_TO_SCP + sizeof(scpi_cmd_t)))
+#define SCPI_CMD_HEADER_AP_TO_SCP ((scpi_cmd_t *)SCPI_SHARED_MEM_AP_TO_SCP)
+#define SCPI_CMD_PAYLOAD_AP_TO_SCP \
+	((void *)(SCPI_SHARED_MEM_AP_TO_SCP + sizeof(scpi_cmd_t)))
 
 /* ID of the MHU slot used for the SCPI protocol */
-#define SCPI_MHU_SLOT_ID		0
+#define SCPI_MHU_SLOT_ID 0
 
 static void scpi_secure_message_start(void)
 {
@@ -56,7 +54,7 @@ static void scpi_secure_message_receive(scpi_cmd_t *cmd)
 	/* Expect an SCPI message, reject any other protocol */
 	if (mhu_status != (1 << SCPI_MHU_SLOT_ID)) {
 		ERROR("MHU: Unexpected protocol (MHU status: 0x%x)\n",
-			mhu_status);
+		      mhu_status);
 		panic();
 	}
 
@@ -67,7 +65,7 @@ static void scpi_secure_message_receive(scpi_cmd_t *cmd)
 	 */
 	dmbld();
 
-	memcpy(cmd, (void *) SCPI_SHARED_MEM_SCP_TO_AP, sizeof(*cmd));
+	memcpy(cmd, (void *)SCPI_SHARED_MEM_SCP_TO_AP, sizeof(*cmd));
 }
 
 static void scpi_secure_message_end(void)
@@ -90,11 +88,13 @@ int scpi_wait_ready(void)
 	/* We are expecting 'SCP Ready', produce correct error if it's not */
 	if (scpi_cmd.id != SCPI_CMD_SCP_READY) {
 		ERROR("Unexpected SCP command: expected command #%u,"
-		      "got command #%u\n", SCPI_CMD_SCP_READY, scpi_cmd.id);
+		      "got command #%u\n",
+		      SCPI_CMD_SCP_READY, scpi_cmd.id);
 		status = SCP_E_SUPPORT;
 	} else if (scpi_cmd.size != 0) {
 		ERROR("SCP_READY command has incorrect size: expected 0,"
-		      "got %u\n", scpi_cmd.size);
+		      "got %u\n",
+		      scpi_cmd.size);
 		status = SCP_E_SIZE;
 	}
 
@@ -106,7 +106,7 @@ int scpi_wait_ready(void)
 	 */
 	scpi_cmd.status = status;
 	scpi_secure_message_start();
-	memcpy((void *) SCPI_SHARED_MEM_AP_TO_SCP, &scpi_cmd, sizeof(scpi_cmd));
+	memcpy((void *)SCPI_SHARED_MEM_AP_TO_SCP, &scpi_cmd, sizeof(scpi_cmd));
 	scpi_secure_message_send(0);
 	scpi_secure_message_end();
 
@@ -114,14 +114,15 @@ int scpi_wait_ready(void)
 }
 
 void scpi_set_sq_power_state(unsigned int mpidr, scpi_power_state_t cpu_state,
-		scpi_power_state_t cluster_state, scpi_power_state_t sq_state)
+			     scpi_power_state_t cluster_state,
+			     scpi_power_state_t sq_state)
 {
 	scpi_cmd_t *cmd;
 	uint32_t state = 0;
 	uint32_t *payload_addr;
 
-	state |= mpidr & 0x0f;	/* CPU ID */
-	state |= (mpidr & 0xf00) >> 4;	/* Cluster ID */
+	state |= mpidr & 0x0f; /* CPU ID */
+	state |= (mpidr & 0xf00) >> 4; /* Cluster ID */
 	state |= cpu_state << 8;
 	state |= cluster_state << 12;
 	state |= sq_state << 16;
@@ -176,19 +177,19 @@ uint32_t scpi_get_draminfo(struct draminfo *info)
 {
 	scpi_cmd_t *cmd;
 	struct {
-		scpi_cmd_t	cmd;
-		struct draminfo	info;
+		scpi_cmd_t cmd;
+		struct draminfo info;
 	} response;
 	uint32_t mhu_status;
 
 	scpi_secure_message_start();
 
 	/* Populate the command header */
-	cmd		= SCPI_CMD_HEADER_AP_TO_SCP;
-	cmd->id		= SCPI_CMD_GET_DRAMINFO;
-	cmd->set	= SCPI_SET_EXTENDED;
-	cmd->sender	= 0;
-	cmd->size	= 0;
+	cmd = SCPI_CMD_HEADER_AP_TO_SCP;
+	cmd->id = SCPI_CMD_GET_DRAMINFO;
+	cmd->set = SCPI_SET_EXTENDED;
+	cmd->sender = 0;
+	cmd->size = 0;
 
 	scpi_secure_message_send(0);
 
@@ -197,7 +198,7 @@ uint32_t scpi_get_draminfo(struct draminfo *info)
 	/* Expect an SCPI message, reject any other protocol */
 	if (mhu_status != (1 << SCPI_MHU_SLOT_ID)) {
 		ERROR("MHU: Unexpected protocol (MHU status: 0x%x)\n",
-			mhu_status);
+		      mhu_status);
 		panic();
 	}
 

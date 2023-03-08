@@ -19,7 +19,6 @@
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/spinlock.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-
 #include <platform.h>
 #include <qti_plat.h>
 #include <qtiseclib_cb_interface.h>
@@ -56,8 +55,8 @@ void qtiseclib_cb_log(unsigned int loglvl, const char *fmt, ...)
 
 		spin_lock(&qti_log_lock);
 		printf("QTISECLIB [%x%08x]",
-		       (uint32_t) ((uptime >> 32) & 0xFFFFFFFF),
-		       (uint32_t) (uptime & 0xFFFFFFFF));
+		       (uint32_t)((uptime >> 32) & 0xFFFFFFFF),
+		       (uint32_t)(uptime & 0xFFFFFFFF));
 		vprintf(fmt, argp);
 		putchar('\n');
 		spin_unlock(&qti_log_lock);
@@ -68,12 +67,12 @@ void qtiseclib_cb_log(unsigned int loglvl, const char *fmt, ...)
 
 void qtiseclib_cb_spin_lock(qtiseclib_cb_spinlock_t *lock)
 {
-	spin_lock((spinlock_t *) lock);
+	spin_lock((spinlock_t *)lock);
 }
 
 void qtiseclib_cb_spin_unlock(qtiseclib_cb_spinlock_t *lock)
 {
-	spin_unlock((spinlock_t *) lock);
+	spin_unlock((spinlock_t *)lock);
 }
 
 unsigned int qtiseclib_cb_plat_my_core_pos(void)
@@ -138,13 +137,13 @@ void qtiseclib_cb_get_ns_ctx(qtiseclib_dbg_a64_ctxt_regs_type *qti_ns_ctx)
 	}
 
 	qti_ns_ctx->spsr_el3 =
-	    read_ctx_reg(get_el3state_ctx(ctx), CTX_SPSR_EL3);
+		read_ctx_reg(get_el3state_ctx(ctx), CTX_SPSR_EL3);
 	qti_ns_ctx->elr_el3 = read_ctx_reg(get_el3state_ctx(ctx), CTX_ELR_EL3);
 
 	qti_ns_ctx->spsr_el1 =
-	    read_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_SPSR_EL1);
+		read_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_SPSR_EL1);
 	qti_ns_ctx->elr_el1 =
-	    read_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_ELR_EL1);
+		read_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_ELR_EL1);
 	qti_ns_ctx->sp_el1 = read_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_SP_EL1);
 
 	qti_ns_ctx->x0 = read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X0);
@@ -179,7 +178,7 @@ void qtiseclib_cb_get_ns_ctx(qtiseclib_dbg_a64_ctxt_regs_type *qti_ns_ctx)
 	qti_ns_ctx->x29 = read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X29);
 	qti_ns_ctx->x30 = read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_LR);
 	qti_ns_ctx->sp_el0 =
-	    read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_SP_EL0);
+		read_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_SP_EL0);
 }
 
 void qtiseclib_cb_flush_dcache_all(void)
@@ -208,4 +207,3 @@ int qtiseclib_cb_mmap_remove_dynamic_region(uintptr_t base_va, size_t size)
 	return qti_mmap_remove_dynamic_region(base_va, size);
 }
 #endif
-

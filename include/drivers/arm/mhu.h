@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -14,14 +14,14 @@
  * Generic MHU error enumeration types.
  */
 enum mhu_error_t {
-	MHU_ERR_NONE			=  0,
-	MHU_ERR_NOT_INIT		= -1,
-	MHU_ERR_ALREADY_INIT		= -2,
-	MHU_ERR_UNSUPPORTED_VERSION	= -3,
-	MHU_ERR_UNSUPPORTED		= -4,
-	MHU_ERR_INVALID_ARG		= -5,
-	MHU_ERR_BUFFER_TOO_SMALL	= -6,
-	MHU_ERR_GENERAL			= -7,
+	MHU_ERR_NONE = 0,
+	MHU_ERR_NOT_INIT = -1,
+	MHU_ERR_ALREADY_INIT = -2,
+	MHU_ERR_UNSUPPORTED_VERSION = -3,
+	MHU_ERR_UNSUPPORTED = -4,
+	MHU_ERR_INVALID_ARG = -5,
+	MHU_ERR_BUFFER_TOO_SMALL = -6,
+	MHU_ERR_GENERAL = -7,
 };
 
 /**
@@ -34,7 +34,6 @@ enum mhu_error_t {
  * This function must be called before mhu_send_data().
  */
 enum mhu_error_t mhu_init_sender(uintptr_t mhu_sender_base);
-
 
 /**
  * Initializes receiver MHU.

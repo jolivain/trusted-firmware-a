@@ -6,6 +6,7 @@
 
 #include <common/debug.h>
 #include <meson_console.h>
+
 #include <platform_def.h>
 
 /*******************************************************************************
@@ -17,8 +18,7 @@ void aml_console_init(void)
 {
 	int rc = console_meson_register(AML_UART0_AO_BASE,
 					AML_UART0_AO_CLK_IN_HZ,
-					AML_UART_BAUDRATE,
-					&aml_console);
+					AML_UART_BAUDRATE, &aml_console);
 	if (rc == 0) {
 		/*
 		 * The crash console doesn't use the multi console API, it uses

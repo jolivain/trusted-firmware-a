@@ -8,20 +8,21 @@
 
 #include <common/debug.h>
 #include <drivers/io/io_block.h>
-#include "ifc.h"
 #include <lib/xlat_tables/xlat_tables_v2.h>
 #include <nxp_timer.h>
+
+#include "ifc.h"
 
 /* Private structure for NAND driver data */
 static struct nand_info nand_drv_data;
 
 static int update_bbt(uint32_t idx, uint32_t blk, uint32_t *updated,
-		struct nand_info *nand);
+		      struct nand_info *nand);
 
 static int nand_wait(struct nand_info *nand)
 {
 	int timeout = 1;
-	uint32_t  neesr;
+	uint32_t neesr;
 	unsigned long start_time;
 
 	start_time = get_timer_val(0);
@@ -36,15 +37,15 @@ static int nand_wait(struct nand_info *nand)
 			/* check for other errors */
 			if (neesr & NAND_EVTER_STAT_FTOER) {
 				ERROR("%s NAND_EVTER_STAT_FTOER occurs\n",
-						__func__);
+				      __func__);
 				return -1;
 			} else if (neesr & NAND_EVTER_STAT_ECCER) {
 				ERROR("%s NAND_EVTER_STAT_ECCER occurs\n",
-						__func__);
+				      __func__);
 				return -1;
 			} else if (neesr & NAND_EVTER_STAT_DQSER) {
 				ERROR("%s NAND_EVTER_STAT_DQSER occurs\n",
-						__func__);
+				      __func__);
 				return -1;
 			}
 
@@ -188,12 +189,14 @@ static void nand_get_params(struct nand_info *nand)
 	 * Large Page : 8 /16 Bit : 0x0
 	 */
 	nand->bad_marker_loc = (nand->page_size == 512) ?
-				((nand->port_size == 8) ? 0x5 : 0xa) : 0;
+				       ((nand->port_size == 8) ? 0x5 : 0xa) :
+				       0;
 
 	/* check for the device is ONFI compliant or not */
-	nand->onfi_dev_flag =
-	   (read_reg(nand, NAND_EVTER_STAT) & NAND_EVTER_STAT_BBI_SRCH_SEL)
-	   ? 1 : 0;
+	nand->onfi_dev_flag = (read_reg(nand, NAND_EVTER_STAT) &
+			       NAND_EVTER_STAT_BBI_SRCH_SEL) ?
+				      1 :
+				      0;
 
 	/* NAND Blk serached count for incremental Bad block search cnt */
 	nand->bbs = 0;
@@ -234,14 +237,9 @@ static int nand_init(struct nand_info *nand)
 	return 0;
 }
 
-static int nand_read_data(
-		uintptr_t ifc_region_addr,
-		uint32_t row_add,
-		uint32_t col_add,
-		uint32_t byte_cnt,
-		uint8_t *data,
-		uint32_t main_spare,
-		struct nand_info *nand)
+static int nand_read_data(uintptr_t ifc_region_addr, uint32_t row_add,
+			  uint32_t col_add, uint32_t byte_cnt, uint8_t *data,
+			  uint32_t main_spare, struct nand_info *nand)
 {
 	uint32_t page_size_add_bits = U(0);
 	uint32_t page_add_in_actual, page_add;
@@ -260,7 +258,7 @@ static int nand_read_data(
 	/* Program FCR for small Page */
 	if (nand->page_size == U(512)) {
 		if (byte_cnt == 0 ||
-			(byte_cnt != 0  && main_spare == 0 && col_add <= 255)) {
+		    (byte_cnt != 0 && main_spare == 0 && col_add <= 255)) {
 			write_reg(nand, NAND_FCR0,
 				  (NAND_CMD_READ0 << FCR_CMD0_SHIFT));
 		} else if (main_spare == 0) {
@@ -273,22 +271,25 @@ static int nand_read_data(
 
 	} else {
 		/* Program FCR for Large Page */
-		write_reg(nand, NAND_FCR0, (NAND_CMD_READ0 << FCR_CMD0_SHIFT) |
-			  (NAND_CMD_READSTART << FCR_CMD1_SHIFT));
+		write_reg(nand, NAND_FCR0,
+			  (NAND_CMD_READ0 << FCR_CMD0_SHIFT) |
+				  (NAND_CMD_READSTART << FCR_CMD1_SHIFT));
 	}
 	if (nand->page_size == U(512)) {
-		write_reg(nand, NAND_FIR0, ((FIR_OP_CW0 << FIR_OP0_SHIFT) |
-					  (FIR_OP_CA0 << FIR_OP1_SHIFT) |
-					  (FIR_OP_RA0 << FIR_OP2_SHIFT) |
-					  (FIR_OP_BTRD << FIR_OP3_SHIFT) |
-					  (FIR_OP_NOP << FIR_OP4_SHIFT)));
+		write_reg(nand, NAND_FIR0,
+			  ((FIR_OP_CW0 << FIR_OP0_SHIFT) |
+			   (FIR_OP_CA0 << FIR_OP1_SHIFT) |
+			   (FIR_OP_RA0 << FIR_OP2_SHIFT) |
+			   (FIR_OP_BTRD << FIR_OP3_SHIFT) |
+			   (FIR_OP_NOP << FIR_OP4_SHIFT)));
 		write_reg(nand, NAND_FIR1, U(0x00000000));
 	} else {
-		write_reg(nand, NAND_FIR0, ((FIR_OP_CW0 << FIR_OP0_SHIFT) |
-					 (FIR_OP_CA0 << FIR_OP1_SHIFT) |
-					 (FIR_OP_RA0 << FIR_OP2_SHIFT) |
-					 (FIR_OP_CMD1 << FIR_OP3_SHIFT) |
-					 (FIR_OP_BTRD << FIR_OP4_SHIFT)));
+		write_reg(nand, NAND_FIR0,
+			  ((FIR_OP_CW0 << FIR_OP0_SHIFT) |
+			   (FIR_OP_CA0 << FIR_OP1_SHIFT) |
+			   (FIR_OP_RA0 << FIR_OP2_SHIFT) |
+			   (FIR_OP_CMD1 << FIR_OP3_SHIFT) |
+			   (FIR_OP_BTRD << FIR_OP4_SHIFT)));
 
 		write_reg(nand, NAND_FIR1, (FIR_OP_NOP << FIR_OP5_SHIFT));
 	}
@@ -329,16 +330,15 @@ static int nand_read_data(
 
 	/* Depending Byte_count copy full page or partial page from SRAM */
 	if (byte_cnt == 0)
-		memcpy(data, (void *)sram_addr_calc,
-			nand->page_size);
+		memcpy(data, (void *)sram_addr_calc, nand->page_size);
 	else
 		memcpy(data, (void *)sram_addr_calc, byte_cnt);
 
 	return 0;
 }
 
-static int nand_read(struct nand_info *nand, int32_t src_addr,
-		uintptr_t dst, uint32_t size)
+static int nand_read(struct nand_info *nand, int32_t src_addr, uintptr_t dst,
+		     uint32_t size)
 {
 	uint32_t log_blk = U(0);
 	uint32_t pg_no = U(0);
@@ -358,17 +358,17 @@ static int nand_read(struct nand_info *nand, int32_t src_addr,
 	while (size) {
 		log_blk = (src_addr / nand->blk_size);
 		pg_no = ((src_addr - (log_blk * nand->blk_size)) /
-					 nand->page_size);
+			 nand->page_size);
 		pblk = log_blk;
 
-		 // iterate the bbt to find the block
+		// iterate the bbt to find the block
 		for (i = 0; i <= nand->bbt_max; i++) {
 			if (nand->bbt[i] == EMPTY_VAL_CHECK) {
 				ret = update_bbt(i, pblk, &updated, nand);
 
 				if (ret != 0)
 					return ret;
-				 /*
+				/*
 				  * if table not updated and we reached
 				  * end of table
 				  */
@@ -391,16 +391,14 @@ static int nand_read(struct nand_info *nand, int32_t src_addr,
 
 			row_off = (pblk << nand->pi_width) | pg_no;
 
-			ret = nand_read_data(
-					nand->ifc_region_addr,
-					row_off,
-					col_off,
-					byte_cnt, out, MAIN, nand);
+			ret = nand_read_data(nand->ifc_region_addr, row_off,
+					     col_off, byte_cnt, out, MAIN,
+					     nand);
 
 			if (ret != 0)
 				return ret;
 		} else {
-			 /*
+			/*
 			  * fullpage/Partial Page
 			  * if byte_cnt = 0 full page
 			  * else partial page
@@ -408,17 +406,14 @@ static int nand_read(struct nand_info *nand, int32_t src_addr,
 			if (size < nand->page_size) {
 				byte_cnt = size;
 				read_cnt = size;
-			} else	{
+			} else {
 				byte_cnt = nand->page_size;
 				read_cnt = 0;
 			}
 			row_off = (pblk << nand->pi_width) | pg_no;
 
-			ret = nand_read_data(
-					nand->ifc_region_addr,
-					row_off,
-					0,
-					read_cnt, out, MAIN, nand);
+			ret = nand_read_data(nand->ifc_region_addr, row_off, 0,
+					     read_cnt, out, MAIN, nand);
 
 			if (ret != 0) {
 				ERROR("Error from nand-read_data %d\n", ret);
@@ -441,11 +436,8 @@ static int isgoodblock(uint32_t blk, uint32_t *gb, struct nand_info *nand)
 	*gb = 0;
 
 	/* read Page 0 of blk */
-	ret = nand_read_data(
-			nand->ifc_region_addr,
-			blk << nand->pi_width,
-			nand->bad_marker_loc,
-			0x2, buf, 1, nand);
+	ret = nand_read_data(nand->ifc_region_addr, blk << nand->pi_width,
+			     nand->bad_marker_loc, 0x2, buf, 1, nand);
 
 	if (ret != 0)
 		return ret;
@@ -460,17 +452,15 @@ static int isgoodblock(uint32_t blk, uint32_t *gb, struct nand_info *nand)
 		if (buf[0] == 0xff) {
 			/* check page 1 */
 			if (nand->onfi_dev_flag)
-				ret =  nand_read_data(
-						nand->ifc_region_addr,
-						row_add | (nand->ppb - 1),
-						nand->bad_marker_loc,
-						0x2, buf, SPARE, nand);
+				ret = nand_read_data(nand->ifc_region_addr,
+						     row_add | (nand->ppb - 1),
+						     nand->bad_marker_loc, 0x2,
+						     buf, SPARE, nand);
 			else
-				ret =  nand_read_data(
-						nand->ifc_region_addr,
-						row_add | 1,
-						nand->bad_marker_loc,
-						0x2, buf, SPARE, nand);
+				ret = nand_read_data(nand->ifc_region_addr,
+						     row_add | 1,
+						     nand->bad_marker_loc, 0x2,
+						     buf, SPARE, nand);
 
 			if (ret != 0)
 				return ret;
@@ -486,28 +476,24 @@ static int isgoodblock(uint32_t blk, uint32_t *gb, struct nand_info *nand)
 	} else {
 		/* Port size 16-Bit */
 		/* check if page 0 has 0xffff */
-		if ((buf[0] == 0xff) &&
-			(buf[1] == 0xff)) {
+		if ((buf[0] == 0xff) && (buf[1] == 0xff)) {
 			/* check page 1 for 0xffff */
 			if (nand->onfi_dev_flag) {
-				ret =  nand_read_data(
-						nand->ifc_region_addr,
-						row_add | (nand->ppb - 1),
-						nand->bad_marker_loc,
-						0x2, buf, SPARE, nand);
+				ret = nand_read_data(nand->ifc_region_addr,
+						     row_add | (nand->ppb - 1),
+						     nand->bad_marker_loc, 0x2,
+						     buf, SPARE, nand);
 			} else {
-				ret =  nand_read_data(
-						nand->ifc_region_addr,
-						row_add | 1,
-						nand->bad_marker_loc,
-						0x2, buf, SPARE, nand);
+				ret = nand_read_data(nand->ifc_region_addr,
+						     row_add | 1,
+						     nand->bad_marker_loc, 0x2,
+						     buf, SPARE, nand);
 			}
 
 			if (ret != 0)
 				return ret;
 
-			if ((buf[0] == 0xff) &&
-				(buf[1] == 0xff)) {
+			if ((buf[0] == 0xff) && (buf[1] == 0xff)) {
 				*gb = GOOD_BLK;
 			} else {
 				*gb = BAD_BLK;
@@ -520,8 +506,8 @@ static int isgoodblock(uint32_t blk, uint32_t *gb, struct nand_info *nand)
 	return 0;
 }
 
-static int update_bbt(uint32_t idx, uint32_t blk,
-			   uint32_t *updated,  struct nand_info *nand)
+static int update_bbt(uint32_t idx, uint32_t blk, uint32_t *updated,
+		      struct nand_info *nand)
 {
 	uint32_t sblk;
 	uint32_t lgb;
@@ -547,7 +533,6 @@ static int update_bbt(uint32_t idx, uint32_t blk,
 		/* this is when lgb = 0 */
 		sblk = blk;
 
-
 	lgb = nand->lgb;
 
 	/* loop from blk to find a good block */
@@ -555,7 +540,7 @@ static int update_bbt(uint32_t idx, uint32_t blk,
 		while (lgb <= sblk) {
 			uint32_t gb = 0;
 
-			ret =  isgoodblock(lgb, &gb, nand);
+			ret = isgoodblock(lgb, &gb, nand);
 			if (ret != 0)
 				return ret;
 
@@ -581,7 +566,7 @@ static int update_bbt(uint32_t idx, uint32_t blk,
 		/* the access block found */
 		if (sblk == blk) {
 			/* when good block found update lgb */
-			nand->lgb =  blk;
+			nand->lgb = blk;
 			break;
 		}
 		sblk++;
@@ -618,12 +603,9 @@ static struct io_block_dev_spec ifc_nand_spec = {
 	.block_size = UL(2048),
 };
 
-int ifc_nand_init(uintptr_t *block_dev_spec,
-			uintptr_t ifc_region_addr,
-			uintptr_t ifc_register_addr,
-			size_t ifc_sram_size,
-			uintptr_t ifc_nand_blk_offset,
-			size_t ifc_nand_blk_size)
+int ifc_nand_init(uintptr_t *block_dev_spec, uintptr_t ifc_region_addr,
+		  uintptr_t ifc_register_addr, size_t ifc_sram_size,
+		  uintptr_t ifc_nand_blk_offset, size_t ifc_nand_blk_size)
 {
 	struct nand_info *nand = NULL;
 	int ret;
@@ -651,8 +633,8 @@ int ifc_nand_init(uintptr_t *block_dev_spec,
 	*block_dev_spec = (uintptr_t)&ifc_nand_spec;
 
 	/* Adding NAND SRAM< Buffer in XLAT Table */
-	mmap_add_region(ifc_region_addr, ifc_region_addr,
-			ifc_sram_size, MT_DEVICE | MT_RW);
+	mmap_add_region(ifc_region_addr, ifc_region_addr, ifc_sram_size,
+			MT_DEVICE | MT_RW);
 
 	return 0;
 }

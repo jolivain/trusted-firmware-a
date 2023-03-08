@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -17,7 +17,7 @@ struct file_state {
 	size_t size;
 };
 
-static struct file_state current_file = {0};
+static struct file_state current_file = { 0 };
 
 /* Identify the device type as dummy */
 static io_type_t device_type_dummy(void)
@@ -28,18 +28,16 @@ static io_type_t device_type_dummy(void)
 /* Dummy device functions */
 static int dummy_dev_open(const uintptr_t dev_spec, io_dev_info_t **dev_info);
 static int dummy_block_open(io_dev_info_t *dev_info, const uintptr_t spec,
-			     io_entity_t *entity);
+			    io_entity_t *entity);
 static int dummy_block_len(io_entity_t *entity, size_t *length);
 static int dummy_block_read(io_entity_t *entity, uintptr_t buffer,
-			     size_t length, size_t *length_read);
+			    size_t length, size_t *length_read);
 static int dummy_block_close(io_entity_t *entity);
 static int dummy_dev_close(io_dev_info_t *dev_info);
-
 
 static const io_dev_connector_t dummy_dev_connector = {
 	.dev_open = dummy_dev_open
 };
-
 
 static const io_dev_funcs_t dummy_dev_funcs = {
 	.type = device_type_dummy,
@@ -53,16 +51,12 @@ static const io_dev_funcs_t dummy_dev_funcs = {
 	.dev_close = dummy_dev_close,
 };
 
-
-static const io_dev_info_t dummy_dev_info = {
-	.funcs = &dummy_dev_funcs,
-	.info = (uintptr_t)NULL
-};
-
+static const io_dev_info_t dummy_dev_info = { .funcs = &dummy_dev_funcs,
+					      .info = (uintptr_t)NULL };
 
 /* Open a connection to the dummy device */
 static int dummy_dev_open(const uintptr_t dev_spec __attribute__((unused)),
-			   io_dev_info_t **dev_info)
+			  io_dev_info_t **dev_info)
 {
 	assert(dev_info != NULL);
 	*dev_info = (io_dev_info_t *)&dummy_dev_info;
@@ -70,17 +64,15 @@ static int dummy_dev_open(const uintptr_t dev_spec __attribute__((unused)),
 	return 0;
 }
 
-
 /* Close a connection to the dummy device */
 static int dummy_dev_close(io_dev_info_t *dev_info)
 {
 	return 0;
 }
 
-
 /* Open a file on the dummy device */
 static int dummy_block_open(io_dev_info_t *dev_info, const uintptr_t spec,
-			     io_entity_t *entity)
+			    io_entity_t *entity)
 {
 	int result;
 	const io_block_spec_t *block_spec = (io_block_spec_t *)spec;
@@ -101,22 +93,20 @@ static int dummy_block_open(io_dev_info_t *dev_info, const uintptr_t spec,
 	return result;
 }
 
-
 /* Return the size of a file on the dummy device */
 static int dummy_block_len(io_entity_t *entity, size_t *length)
 {
 	assert(entity != NULL);
 	assert(length != NULL);
 
-	*length =  ((struct file_state *)entity->info)->size;
+	*length = ((struct file_state *)entity->info)->size;
 
 	return 0;
 }
 
-
 /* Read data from a file on the dummy device */
 static int dummy_block_read(io_entity_t *entity, uintptr_t buffer,
-			     size_t length, size_t *length_read)
+			    size_t length, size_t *length_read)
 {
 	assert(length_read != NULL);
 
@@ -124,7 +114,6 @@ static int dummy_block_read(io_entity_t *entity, uintptr_t buffer,
 
 	return 0;
 }
-
 
 /* Close a file on the dummy device */
 static int dummy_block_close(io_entity_t *entity)
@@ -136,7 +125,6 @@ static int dummy_block_close(io_entity_t *entity)
 
 	return 0;
 }
-
 
 /* Exported functions */
 

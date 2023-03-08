@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier:    BSD-3-Clause
  *
@@ -11,8 +11,10 @@
 
 #include <common/debug.h>
 #include <common/runtime_svc.h>
-#include "drtm_main.h"
+
 #include <plat/common/platform.h>
+
+#include "drtm_main.h"
 
 uint64_t drtm_set_error(uint64_t x1, void *ctx)
 {
@@ -52,7 +54,7 @@ void drtm_enter_remediation(uint64_t err_code, const char *err_str)
 	}
 
 	ERROR("DRTM: entering remediation of error:\n%" PRIu64 "\t\'%s\'\n",
-	       err_code, err_str);
+	      err_code, err_str);
 
 	ERROR("%s(): system reset is not yet supported\n", __func__);
 	plat_system_reset();

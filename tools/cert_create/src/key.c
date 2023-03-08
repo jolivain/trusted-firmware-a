@@ -1,14 +1,14 @@
 /*
- * Copyright (c) 2015-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <getopt.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+#include <getopt.h>
 #include <openssl/conf.h>
 #include <openssl/evp.h>
 #include <openssl/pem.h>
@@ -19,7 +19,7 @@
 #include "key.h"
 #include "sha.h"
 
-#define MAX_FILENAME_LEN		1024
+#define MAX_FILENAME_LEN 1024
 
 key_t *keys;
 unsigned int num_keys;
@@ -226,8 +226,8 @@ int key_store(key_t *key)
 	if (key->fn) {
 		fp = fopen(key->fn, "w");
 		if (fp) {
-			PEM_write_PrivateKey(fp, key->key,
-					NULL, NULL, 0, NULL, NULL);
+			PEM_write_PrivateKey(fp, key->key, NULL, NULL, 0, NULL,
+					     NULL);
 			fclose(fp);
 			return 1;
 		} else {
@@ -250,7 +250,7 @@ int key_init(void)
 #ifdef PDEF_KEYS
 		      + (num_pdef_keys * sizeof(pdef_keys[0]))
 #endif
-		      );
+	);
 
 	if (keys == NULL) {
 		ERROR("%s:%d Failed to allocate memory.\n", __func__, __LINE__);
@@ -260,13 +260,13 @@ int key_init(void)
 	memcpy(&keys[0], &def_keys[0], (num_def_keys * sizeof(def_keys[0])));
 #ifdef PDEF_KEYS
 	memcpy(&keys[num_def_keys], &pdef_keys[0],
-		(num_pdef_keys * sizeof(pdef_keys[0])));
+	       (num_pdef_keys * sizeof(pdef_keys[0])));
 
 	num_keys = num_def_keys + num_pdef_keys;
 #else
 	num_keys = num_def_keys;
 #endif
-		   ;
+	;
 
 	for (i = 0; i < num_keys; i++) {
 		key = &keys[i];
@@ -315,4 +315,3 @@ void key_cleanup(void)
 	}
 	free(keys);
 }
-

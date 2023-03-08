@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,8 +8,9 @@
 #include <common/debug.h>
 #include <lib/mmio.h>
 #include <plat_debug.h>
-#include <platform_def.h>
 #include <spm.h>
+
+#include <platform_def.h>
 
 void circular_buffer_setup(void)
 {
@@ -26,11 +27,14 @@ void circular_buffer_unlock(void)
 	sync_writel(VPROC_EXT_CTL, mmio_read_32(VPROC_EXT_CTL) & ~(0x1 << 1));
 
 	/* Release vproc apb mask (set 0x0C53_2008[1] to 0x0) */
-	sync_writel(CA15M_PWR_RST_CTL, mmio_read_32(CA15M_PWR_RST_CTL) & ~(0x1 << 1));
+	sync_writel(CA15M_PWR_RST_CTL,
+		    mmio_read_32(CA15M_PWR_RST_CTL) & ~(0x1 << 1));
 
 	for (i = 1; i <= 4; ++i)
 		sync_writel(MP1_CPUTOP_PWR_CON + i * 4,
-			    (mmio_read_32(MP1_CPUTOP_PWR_CON + i * 4) & ~(0x4))|(0x4));
+			    (mmio_read_32(MP1_CPUTOP_PWR_CON + i * 4) &
+			     ~(0x4)) |
+				    (0x4));
 
 	/* Set DFD.en */
 	sync_writel(DFD_INTERNAL_CTL, 0x1);

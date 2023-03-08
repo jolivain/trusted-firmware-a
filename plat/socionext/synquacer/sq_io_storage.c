@@ -15,10 +15,10 @@
 #include <lib/mmio.h>
 #include <lib/utils_def.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
+#include <sq_common.h>
 #include <tools_share/firmware_image_package.h>
 
 #include <platform_def.h>
-#include <sq_common.h>
 
 static const io_dev_connector_t *sq_fip_dev_con;
 static uintptr_t sq_fip_dev_handle;
@@ -27,8 +27,9 @@ static const io_dev_connector_t *sq_backend_dev_con;
 static uintptr_t sq_backend_dev_handle;
 
 static io_block_spec_t sq_fip_spec = {
-	.offset = PLAT_SQ_FIP_IOBASE,	/* FIP Image is at 5MB offset on memory-mapped NOR flash */
-	.length = PLAT_SQ_FIP_MAXSIZE,	/* Expected maximum FIP image size */
+	.offset =
+		PLAT_SQ_FIP_IOBASE, /* FIP Image is at 5MB offset on memory-mapped NOR flash */
+	.length = PLAT_SQ_FIP_MAXSIZE, /* Expected maximum FIP image size */
 };
 
 static const io_uuid_spec_t sq_bl2_spec = {
@@ -161,8 +162,9 @@ static int sq_update_fip_spec(void)
 	uint32_t boot_index;
 	int ret;
 
-	ret = mmap_add_dynamic_region(PLAT_SQ_BOOTIDX_BASE, PLAT_SQ_BOOTIDX_BASE,
-				      PAGE_SIZE, MT_RO_DATA | MT_SECURE);
+	ret = mmap_add_dynamic_region(PLAT_SQ_BOOTIDX_BASE,
+				      PLAT_SQ_BOOTIDX_BASE, PAGE_SIZE,
+				      MT_RO_DATA | MT_SECURE);
 	if (ret) {
 		return ret;
 	}
@@ -189,7 +191,8 @@ static int sq_io_memmap_setup(void)
 	}
 
 	ret = mmap_add_dynamic_region(sq_fip_spec.offset, sq_fip_spec.offset,
-				      sq_fip_spec.length, MT_RO_DATA | MT_SECURE);
+				      sq_fip_spec.length,
+				      MT_RO_DATA | MT_SECURE);
 	if (ret) {
 		return ret;
 	}

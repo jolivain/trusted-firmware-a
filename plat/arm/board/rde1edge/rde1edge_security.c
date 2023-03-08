@@ -1,18 +1,16 @@
 /*
- * Copyright (c) 2019-2021, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <platform_def.h>
-
 #include <common/debug.h>
 #include <sgi_dmc620_tzc_regions.h>
 
-uintptr_t rde1edge_dmc_base[] = {
-	RDE1EDGE_DMC620_BASE0,
-	RDE1EDGE_DMC620_BASE1
-};
+#include <platform_def.h>
+
+uintptr_t rde1edge_dmc_base[] = { RDE1EDGE_DMC620_BASE0,
+				  RDE1EDGE_DMC620_BASE1 };
 
 static const tzc_dmc620_driver_data_t rde1edge_plat_driver_data = {
 	.dmc_base = rde1edge_dmc_base,

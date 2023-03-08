@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2022-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -14,11 +14,12 @@
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <lib/spinlock.h>
-#include <plat/common/platform.h>
 #include <platform_tsp.h>
-#include "tsp_private.h"
 
+#include <plat/common/platform.h>
 #include <platform_def.h>
+
+#include "tsp_private.h"
 
 /*******************************************************************************
  * Per cpu data structure to populate parameters for an SMC in C code and use
@@ -31,14 +32,9 @@ static smc_args_t tsp_smc_args[PLATFORM_CORE_COUNT];
  ******************************************************************************/
 work_statistics_t tsp_stats[PLATFORM_CORE_COUNT];
 
-smc_args_t *set_smc_args(uint64_t arg0,
-			 uint64_t arg1,
-			 uint64_t arg2,
-			 uint64_t arg3,
-			 uint64_t arg4,
-			 uint64_t arg5,
-			 uint64_t arg6,
-			 uint64_t arg7)
+smc_args_t *set_smc_args(uint64_t arg0, uint64_t arg1, uint64_t arg2,
+			 uint64_t arg3, uint64_t arg4, uint64_t arg5,
+			 uint64_t arg6, uint64_t arg7)
 {
 	uint32_t linear_id;
 	smc_args_t *pcpu_smc_args;
@@ -85,14 +81,9 @@ void tsp_setup(void)
  * This function performs any remaining bookkeeping in the test secure payload
  * before the system is switched off (in response to a psci SYSTEM_OFF request).
  ******************************************************************************/
-smc_args_t *tsp_system_off_main(uint64_t arg0,
-				uint64_t arg1,
-				uint64_t arg2,
-				uint64_t arg3,
-				uint64_t arg4,
-				uint64_t arg5,
-				uint64_t arg6,
-				uint64_t arg7)
+smc_args_t *tsp_system_off_main(uint64_t arg0, uint64_t arg1, uint64_t arg2,
+				uint64_t arg3, uint64_t arg4, uint64_t arg5,
+				uint64_t arg6, uint64_t arg7)
 {
 	uint32_t linear_id = plat_my_core_pos();
 
@@ -102,8 +93,7 @@ smc_args_t *tsp_system_off_main(uint64_t arg0,
 
 	INFO("TSP: cpu 0x%lx SYSTEM_OFF request\n", read_mpidr());
 	INFO("TSP: cpu 0x%lx: %d smcs, %d erets requests\n", read_mpidr(),
-	     tsp_stats[linear_id].smc_count,
-	     tsp_stats[linear_id].eret_count);
+	     tsp_stats[linear_id].smc_count, tsp_stats[linear_id].eret_count);
 
 	/* Indicate to the SPD that we have completed this request. */
 	return set_smc_args(TSP_SYSTEM_OFF_DONE, 0, 0, 0, 0, 0, 0, 0);
@@ -113,14 +103,9 @@ smc_args_t *tsp_system_off_main(uint64_t arg0,
  * This function performs any remaining bookkeeping in the test secure payload
  * before the system is reset (in response to a psci SYSTEM_RESET request).
  ******************************************************************************/
-smc_args_t *tsp_system_reset_main(uint64_t arg0,
-				  uint64_t arg1,
-				  uint64_t arg2,
-				  uint64_t arg3,
-				  uint64_t arg4,
-				  uint64_t arg5,
-				  uint64_t arg6,
-				  uint64_t arg7)
+smc_args_t *tsp_system_reset_main(uint64_t arg0, uint64_t arg1, uint64_t arg2,
+				  uint64_t arg3, uint64_t arg4, uint64_t arg5,
+				  uint64_t arg6, uint64_t arg7)
 {
 	uint32_t linear_id = plat_my_core_pos();
 
@@ -130,8 +115,7 @@ smc_args_t *tsp_system_reset_main(uint64_t arg0,
 
 	INFO("TSP: cpu 0x%lx SYSTEM_RESET request\n", read_mpidr());
 	INFO("TSP: cpu 0x%lx: %d smcs, %d erets requests\n", read_mpidr(),
-	     tsp_stats[linear_id].smc_count,
-	     tsp_stats[linear_id].eret_count);
+	     tsp_stats[linear_id].smc_count, tsp_stats[linear_id].eret_count);
 
 	/* Indicate to the SPD that we have completed this request. */
 	return set_smc_args(TSP_SYSTEM_RESET_DONE, 0, 0, 0, 0, 0, 0, 0);
@@ -143,14 +127,9 @@ smc_args_t *tsp_system_reset_main(uint64_t arg0,
  * handler such as locks or dynamically allocated memory so following SMC
  * request are executed in a clean environment.
  ******************************************************************************/
-smc_args_t *tsp_abort_smc_handler(uint64_t func,
-				  uint64_t arg1,
-				  uint64_t arg2,
-				  uint64_t arg3,
-				  uint64_t arg4,
-				  uint64_t arg5,
-				  uint64_t arg6,
-				  uint64_t arg7)
+smc_args_t *tsp_abort_smc_handler(uint64_t func, uint64_t arg1, uint64_t arg2,
+				  uint64_t arg3, uint64_t arg4, uint64_t arg5,
+				  uint64_t arg6, uint64_t arg7)
 {
 	return set_smc_args(TSP_ABORT_DONE, 0, 0, 0, 0, 0, 0, 0);
 }

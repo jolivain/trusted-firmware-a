@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,7 +9,6 @@
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
-
 #include <plat_private.h>
 #include <secure.h>
 #include <soc.h>
@@ -54,8 +53,7 @@ static void sgrf_ddr_rgn_global_bypass(uint32_t bypass)
  * For example, if we would like to set the range [0, 32MB) is security via
  * DDR_RGN0, then rgn == 0, st_mb == 0, ed_mb == 31.
  */
-static void sgrf_ddr_rgn_config(uint32_t rgn,
-				uintptr_t st, size_t sz)
+static void sgrf_ddr_rgn_config(uint32_t rgn, uintptr_t st, size_t sz)
 {
 	uintptr_t ed = st + sz;
 	uintptr_t st_mb, ed_mb;
@@ -78,8 +76,7 @@ static void sgrf_ddr_rgn_config(uint32_t rgn,
 	mmio_write_32(SGRF_BASE + SGRF_DDRRGN_CON0_16(rgn + 8),
 		      BITS_WITH_WMASK((ed_mb - 1), SGRF_DDR_RGN_0_16_WMSK, 0));
 
-	mmio_write_32(SGRF_BASE + SGRF_DDRRGN_CON0_16(16),
-		      BIT_WITH_WMSK(rgn));
+	mmio_write_32(SGRF_BASE + SGRF_DDRRGN_CON0_16(16), BIT_WITH_WMSK(rgn));
 }
 
 void secure_watchdog_gate(void)
@@ -91,7 +88,7 @@ void secure_watchdog_gate(void)
 	 */
 	mmio_write_32(SGRF_BASE + SGRF_SOC_CON(3),
 		      BIT_WITH_WMSK(PCLK_WDT_CA53_GATE_SHIFT) |
-		      BIT_WITH_WMSK(PCLK_WDT_CM0_GATE_SHIFT));
+			      BIT_WITH_WMSK(PCLK_WDT_CM0_GATE_SHIFT));
 }
 
 __pmusramfunc void secure_watchdog_ungate(void)
@@ -103,7 +100,7 @@ __pmusramfunc void secure_watchdog_ungate(void)
 	 */
 	mmio_write_32(SGRF_BASE + SGRF_SOC_CON(3),
 		      WMSK_BIT(PCLK_WDT_CA53_GATE_SHIFT) |
-		      WMSK_BIT(PCLK_WDT_CM0_GATE_SHIFT));
+			      WMSK_BIT(PCLK_WDT_CM0_GATE_SHIFT));
 }
 
 __pmusramfunc void sram_secure_timer_init(void)
@@ -144,8 +141,7 @@ void secure_sgrf_init(void)
 
 	/* security config for slave */
 	mmio_write_32(SGRF_BASE + SGRF_PMU_SLV_CON0_1(0),
-		      SGRF_PMU_SLV_S_CFGED |
-		      SGRF_PMU_SLV_CRYPTO1_NS);
+		      SGRF_PMU_SLV_S_CFGED | SGRF_PMU_SLV_CRYPTO1_NS);
 	mmio_write_32(SGRF_BASE + SGRF_PMU_SLV_CON0_1(1),
 		      SGRF_SLV_S_WMSK | SGRF_PMUSRAM_S);
 	mmio_write_32(SGRF_BASE + SGRF_SLV_SECURE_CON0_4(0),

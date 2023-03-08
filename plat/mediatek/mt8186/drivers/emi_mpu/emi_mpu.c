@@ -1,22 +1,23 @@
 /*
- * Copyright (c) 2021-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <string.h>
+
 #include <common/debug.h>
-#include <lib/mmio.h>
 #include <emi_mpu.h>
+#include <lib/mmio.h>
 
 #if ENABLE_EMI_MPU_SW_LOCK
 static unsigned char region_lock_state[EMI_MPU_REGION_NUM];
 #endif
 
-#define EMI_MPU_START_MASK		(0x00FFFFFF)
-#define EMI_MPU_END_MASK		(0x00FFFFFF)
-#define EMI_MPU_APC_SW_LOCK_MASK	(0x00FFFFFF)
-#define EMI_MPU_APC_HW_LOCK_MASK	(0x80FFFFFF)
+#define EMI_MPU_START_MASK (0x00FFFFFF)
+#define EMI_MPU_END_MASK (0x00FFFFFF)
+#define EMI_MPU_APC_SW_LOCK_MASK (0x00FFFFFF)
+#define EMI_MPU_APC_HW_LOCK_MASK (0x80FFFFFF)
 
 static int _emi_mpu_set_protection(unsigned int start, unsigned int end,
 				   unsigned int apc)
@@ -29,7 +30,7 @@ static int _emi_mpu_set_protection(unsigned int start, unsigned int end,
 	dgroup = (end >> 24) & 0xFF;
 	end &= EMI_MPU_END_MASK;
 
-	if  ((region >= EMI_MPU_REGION_NUM) || (dgroup > EMI_MPU_DGROUP_NUM)) {
+	if ((region >= EMI_MPU_REGION_NUM) || (dgroup > EMI_MPU_DGROUP_NUM)) {
 		WARN("invalid region, domain\n");
 		return -1;
 	}
@@ -83,9 +84,11 @@ int emi_mpu_set_protection(struct emi_region_info_t *region_info)
 		(region_info->region << 24);
 
 	for (i = EMI_MPU_DGROUP_NUM - 1; i >= 0; i--) {
-		end = (unsigned int)(region_info->end >> EMI_MPU_ALIGN_BITS) | (i << 24);
+		end = (unsigned int)(region_info->end >> EMI_MPU_ALIGN_BITS) |
+		      (i << 24);
 
-		if (_emi_mpu_set_protection(start, end, region_info->apc[i]) < 0) {
+		if (_emi_mpu_set_protection(start, end, region_info->apc[i]) <
+		    0) {
 			WARN("failed to set emi mpu protection(%d, %d, %d)\n",
 			     start, end, region_info->apc[i]);
 		}
@@ -102,32 +105,32 @@ void emi_mpu_init(void)
 	region_info.start = 0x50000000ULL;
 	region_info.end = 0x5109FFFFULL;
 	region_info.region = 2;
-	SET_ACCESS_PERMISSION(region_info.apc, 1,
-			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
-			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
-			      FORBIDDEN, FORBIDDEN, FORBIDDEN, NO_PROTECTION,
-			      FORBIDDEN, FORBIDDEN, FORBIDDEN, NO_PROTECTION);
-	emi_mpu_set_protection(&region_info);
-
-	/* DSP protect address */
-	region_info.start = 0x60000000ULL;	/* dram base addr */
-	region_info.end = 0x610FFFFFULL;
-	region_info.region = 3;
-	SET_ACCESS_PERMISSION(region_info.apc, 1,
+	SET_ACCESS_PERMISSION(region_info.apc, 1, FORBIDDEN, FORBIDDEN,
 			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
 			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
 			      FORBIDDEN, NO_PROTECTION, FORBIDDEN, FORBIDDEN,
-			      FORBIDDEN, FORBIDDEN, FORBIDDEN, NO_PROTECTION);
+			      FORBIDDEN, NO_PROTECTION);
+	emi_mpu_set_protection(&region_info);
+
+	/* DSP protect address */
+	region_info.start = 0x60000000ULL; /* dram base addr */
+	region_info.end = 0x610FFFFFULL;
+	region_info.region = 3;
+	SET_ACCESS_PERMISSION(region_info.apc, 1, FORBIDDEN, FORBIDDEN,
+			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
+			      FORBIDDEN, FORBIDDEN, FORBIDDEN, NO_PROTECTION,
+			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
+			      FORBIDDEN, NO_PROTECTION);
 	emi_mpu_set_protection(&region_info);
 
 	/* Forbidden All */
-	region_info.start = 0x40000000ULL;	/* dram base addr */
+	region_info.start = 0x40000000ULL; /* dram base addr */
 	region_info.end = 0x1FFFF0000ULL;
 	region_info.region = 4;
-	SET_ACCESS_PERMISSION(region_info.apc, 1,
+	SET_ACCESS_PERMISSION(region_info.apc, 1, FORBIDDEN, FORBIDDEN,
 			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
 			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
 			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
-			      FORBIDDEN, FORBIDDEN, FORBIDDEN, NO_PROTECTION);
+			      FORBIDDEN, NO_PROTECTION);
 	emi_mpu_set_protection(&region_info);
 }

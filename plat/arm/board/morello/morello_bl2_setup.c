@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,10 +8,11 @@
 #include <drivers/arm/css/sds.h>
 #include <lib/mmio.h>
 #include <lib/utils.h>
+
 #include <plat/arm/common/plat_arm.h>
+#include <platform_def.h>
 
 #include "morello_def.h"
-#include <platform_def.h>
 
 #ifdef TARGET_PLATFORM_FVP
 /*
@@ -45,7 +46,7 @@ struct morello_plat_info {
 
 /* Compile time assertion to ensure the size of structure is 18 bytes */
 CASSERT(sizeof(struct morello_plat_info) == MORELLO_SDS_PLATFORM_INFO_SIZE,
-		assert_invalid_plat_info_size);
+	assert_invalid_plat_info_size);
 
 #ifdef TARGET_PLATFORM_SOC
 /*
@@ -65,7 +66,7 @@ static void dmc_ecc_setup(struct morello_plat_info *plat_info)
 	uint64_t usable_mem_size;
 
 	INFO("Total DIMM size: %uGB\n",
-			(uint32_t)(plat_info->local_ddr_size / 0x40000000));
+	     (uint32_t)(plat_info->local_ddr_size / 0x40000000));
 
 	assert(plat_info->local_ddr_size > ARM_DRAM1_SIZE);
 	dram2_size = plat_info->local_ddr_size - ARM_DRAM1_SIZE;
@@ -74,8 +75,8 @@ static void dmc_ecc_setup(struct morello_plat_info *plat_info)
 	zero_normalmem((void *)ARM_DRAM1_BASE, ARM_DRAM1_SIZE);
 	flush_dcache_range(ARM_DRAM1_BASE, ARM_DRAM1_SIZE);
 
-	INFO("Zeroing DDR memory range 0x%llx - 0x%llx\n",
-		ARM_DRAM2_BASE, ARM_DRAM2_BASE + dram2_size);
+	INFO("Zeroing DDR memory range 0x%llx - 0x%llx\n", ARM_DRAM2_BASE,
+	     ARM_DRAM2_BASE + dram2_size);
 	zero_normalmem((void *)ARM_DRAM2_BASE, dram2_size);
 	flush_dcache_range(ARM_DRAM2_BASE, dram2_size);
 
@@ -91,14 +92,12 @@ static void dmc_ecc_setup(struct morello_plat_info *plat_info)
 	mmio_write_32(MORELLO_DMC1_MEMC_CMD_REG, MORELLO_DMC_MEMC_CMD_CONFIG);
 
 	while ((mmio_read_32(MORELLO_DMC0_MEMC_STATUS_REG) &
-			MORELLO_DMC_MEMC_STATUS_MASK) !=
-			MORELLO_DMC_MEMC_CMD_CONFIG) {
+		MORELLO_DMC_MEMC_STATUS_MASK) != MORELLO_DMC_MEMC_CMD_CONFIG) {
 		continue;
 	}
 
 	while ((mmio_read_32(MORELLO_DMC1_MEMC_STATUS_REG) &
-			MORELLO_DMC_MEMC_STATUS_MASK) !=
-			MORELLO_DMC_MEMC_CMD_CONFIG) {
+		MORELLO_DMC_MEMC_STATUS_MASK) != MORELLO_DMC_MEMC_CMD_CONFIG) {
 		continue;
 	}
 
@@ -106,7 +105,7 @@ static void dmc_ecc_setup(struct morello_plat_info *plat_info)
 	if (plat_info->scc_config & MORELLO_SCC_CLIENT_MODE_MASK) {
 		INFO("Configuring DMC Bing in client mode\n");
 		usable_mem_size = plat_info->local_ddr_size -
-			(plat_info->local_ddr_size / 128ULL);
+				  (plat_info->local_ddr_size / 128ULL);
 
 		/* Linear DDR address */
 		tag_mem_base = usable_mem_size;
@@ -116,8 +115,8 @@ static void dmc_ecc_setup(struct morello_plat_info *plat_info)
 		if (tag_mem_base < ARM_DRAM1_BASE) {
 			tag_mem_base += ARM_DRAM1_BASE;
 		} else {
-			tag_mem_base = tag_mem_base - ARM_DRAM1_BASE +
-				ARM_DRAM2_BASE;
+			tag_mem_base =
+				tag_mem_base - ARM_DRAM1_BASE + ARM_DRAM2_BASE;
 		}
 
 		mmio_write_32(MORELLO_DMC0_CAP_CTRL_REG, 0x1);
@@ -138,13 +137,13 @@ static void dmc_ecc_setup(struct morello_plat_info *plat_info)
 		}
 
 		mmio_write_32(MORELLO_DMC0_MEM_ADDR_CTL,
-				(uint32_t)tag_mem_base);
+			      (uint32_t)tag_mem_base);
 		mmio_write_32(MORELLO_DMC1_MEM_ADDR_CTL,
-				(uint32_t)tag_mem_base);
+			      (uint32_t)tag_mem_base);
 		mmio_write_32(MORELLO_DMC0_MEM_ADDR_CTL2,
-				(uint32_t)(tag_mem_base >> 32));
+			      (uint32_t)(tag_mem_base >> 32));
 		mmio_write_32(MORELLO_DMC1_MEM_ADDR_CTL2,
-				(uint32_t)(tag_mem_base >> 32));
+			      (uint32_t)(tag_mem_base >> 32));
 
 		mmio_setbits_32(MORELLO_DMC0_MEM_ACCESS_CTL,
 				MORELLO_DMC_MEM_ACCESS_DIS);
@@ -162,23 +161,21 @@ static void dmc_ecc_setup(struct morello_plat_info *plat_info)
 	INFO("Enabling ECC on DMCs\n");
 	/* Enable ECC in DMCs */
 	mmio_setbits_32(MORELLO_DMC0_ERR0CTLR0_REG,
-		MORELLO_DMC_ERR0CTLR0_ECC_EN);
+			MORELLO_DMC_ERR0CTLR0_ECC_EN);
 	mmio_setbits_32(MORELLO_DMC1_ERR0CTLR0_REG,
-		MORELLO_DMC_ERR0CTLR0_ECC_EN);
+			MORELLO_DMC_ERR0CTLR0_ECC_EN);
 
 	/* Set DMCs to READY state */
 	mmio_write_32(MORELLO_DMC0_MEMC_CMD_REG, MORELLO_DMC_MEMC_CMD_READY);
 	mmio_write_32(MORELLO_DMC1_MEMC_CMD_REG, MORELLO_DMC_MEMC_CMD_READY);
 
 	while ((mmio_read_32(MORELLO_DMC0_MEMC_STATUS_REG) &
-			MORELLO_DMC_MEMC_STATUS_MASK) !=
-			MORELLO_DMC_MEMC_CMD_READY) {
+		MORELLO_DMC_MEMC_STATUS_MASK) != MORELLO_DMC_MEMC_CMD_READY) {
 		continue;
 	}
 
 	while ((mmio_read_32(MORELLO_DMC1_MEMC_STATUS_REG) &
-			MORELLO_DMC_MEMC_STATUS_MASK) !=
-			MORELLO_DMC_MEMC_CMD_READY) {
+		MORELLO_DMC_MEMC_STATUS_MASK) != MORELLO_DMC_MEMC_CMD_READY) {
 		continue;
 	}
 }
@@ -196,10 +193,9 @@ void bl2_platform_setup(void)
 	}
 
 	ret = sds_struct_read(MORELLO_SDS_PLATFORM_INFO_STRUCT_ID,
-				MORELLO_SDS_PLATFORM_INFO_OFFSET,
-				&plat_info,
-				MORELLO_SDS_PLATFORM_INFO_SIZE,
-				SDS_ACCESS_MODE_NON_CACHED);
+			      MORELLO_SDS_PLATFORM_INFO_OFFSET, &plat_info,
+			      MORELLO_SDS_PLATFORM_INFO_SIZE,
+			      SDS_ACCESS_MODE_NON_CACHED);
 	if (ret != SDS_OK) {
 		ERROR("Error getting platform info from SDS. ret:%d\n", ret);
 		panic();
@@ -209,11 +205,10 @@ void bl2_platform_setup(void)
 #ifdef TARGET_PLATFORM_FVP
 	if (plat_info.local_ddr_size == 0U) {
 #else
-	if ((plat_info.local_ddr_size == 0U)
-		|| (plat_info.local_ddr_size > MORELLO_MAX_DDR_CAPACITY)
-		|| (plat_info.remote_ddr_size > MORELLO_MAX_DDR_CAPACITY)
-		|| (plat_info.remote_chip_count > MORELLO_MAX_REMOTE_CHIP_COUNT)
-		) {
+	if ((plat_info.local_ddr_size == 0U) ||
+	    (plat_info.local_ddr_size > MORELLO_MAX_DDR_CAPACITY) ||
+	    (plat_info.remote_ddr_size > MORELLO_MAX_DDR_CAPACITY) ||
+	    (plat_info.remote_chip_count > MORELLO_MAX_REMOTE_CHIP_COUNT)) {
 #endif
 		ERROR("platform info SDS is corrupted\n");
 		panic();

@@ -16,9 +16,10 @@
 #include <string.h>
 
 #include <common/debug.h>
-#include "ddr_io.h"
 #include <drivers/delay_timer.h>
 #include <fsl_mmdc.h>
+
+#include "ddr_io.h"
 
 static void set_wait_for_bits_clear(void *ptr, unsigned int value,
 				    unsigned int bits)
@@ -79,47 +80,39 @@ void mmdc_init(const struct fsl_mmdc_info *priv, uintptr_t nxp_ddr_addr)
 #endif
 
 	/* 8a. dram init sequence: update MRs for ZQ, ODT, PRE, etc */
-	ddr_out32(&mmdc->mdscr, CMD_ADDR_LSB_MR_ADDR(8) |
-				MDSCR_ENABLE_CON_REQ |
-				CMD_LOAD_MODE_REG |
-				CMD_BANK_ADDR_2);
+	ddr_out32(&mmdc->mdscr, CMD_ADDR_LSB_MR_ADDR(8) | MDSCR_ENABLE_CON_REQ |
+					CMD_LOAD_MODE_REG | CMD_BANK_ADDR_2);
 
-	ddr_out32(&mmdc->mdscr, CMD_ADDR_LSB_MR_ADDR(0) |
-				MDSCR_ENABLE_CON_REQ |
-				CMD_LOAD_MODE_REG |
-				CMD_BANK_ADDR_3);
+	ddr_out32(&mmdc->mdscr, CMD_ADDR_LSB_MR_ADDR(0) | MDSCR_ENABLE_CON_REQ |
+					CMD_LOAD_MODE_REG | CMD_BANK_ADDR_3);
 
-	ddr_out32(&mmdc->mdscr, CMD_ADDR_LSB_MR_ADDR(4) |
-				MDSCR_ENABLE_CON_REQ |
-				CMD_LOAD_MODE_REG |
-				CMD_BANK_ADDR_1);
+	ddr_out32(&mmdc->mdscr, CMD_ADDR_LSB_MR_ADDR(4) | MDSCR_ENABLE_CON_REQ |
+					CMD_LOAD_MODE_REG | CMD_BANK_ADDR_1);
 
 	ddr_out32(&mmdc->mdscr, CMD_ADDR_MSB_MR_OP(0x19) |
-				CMD_ADDR_LSB_MR_ADDR(0x30) |
-				MDSCR_ENABLE_CON_REQ |
-				CMD_LOAD_MODE_REG | CMD_BANK_ADDR_0);
+					CMD_ADDR_LSB_MR_ADDR(0x30) |
+					MDSCR_ENABLE_CON_REQ |
+					CMD_LOAD_MODE_REG | CMD_BANK_ADDR_0);
 
 	/* 8b. ZQ calibration */
-	ddr_out32(&mmdc->mdscr, CMD_ADDR_MSB_MR_OP(0x4) |
-				MDSCR_ENABLE_CON_REQ |
-				CMD_ZQ_CALIBRATION | CMD_BANK_ADDR_0);
+	ddr_out32(&mmdc->mdscr, CMD_ADDR_MSB_MR_OP(0x4) | MDSCR_ENABLE_CON_REQ |
+					CMD_ZQ_CALIBRATION | CMD_BANK_ADDR_0);
 
 	set_wait_for_bits_clear(&mmdc->mpzqhwctrl, priv->mpzqhwctrl,
 				MPZQHWCTRL_ZQ_HW_FORCE);
 
 	/* 9a. calibrations now, wr lvl */
-	ddr_out32(&mmdc->mdscr,  CMD_ADDR_LSB_MR_ADDR(0x84) | MDSCR_WL_EN |
-				MDSCR_ENABLE_CON_REQ |
-				CMD_LOAD_MODE_REG | CMD_BANK_ADDR_1);
+	ddr_out32(&mmdc->mdscr, CMD_ADDR_LSB_MR_ADDR(0x84) | MDSCR_WL_EN |
+					MDSCR_ENABLE_CON_REQ |
+					CMD_LOAD_MODE_REG | CMD_BANK_ADDR_1);
 
 	set_wait_for_bits_clear(&mmdc->mpwlgcr, MPWLGCR_HW_WL_EN,
 				MPWLGCR_HW_WL_EN);
 
 	mdelay(1);
 
-	ddr_out32(&mmdc->mdscr, CMD_ADDR_LSB_MR_ADDR(4) |
-				MDSCR_ENABLE_CON_REQ |
-				CMD_LOAD_MODE_REG | CMD_BANK_ADDR_1);
+	ddr_out32(&mmdc->mdscr, CMD_ADDR_LSB_MR_ADDR(4) | MDSCR_ENABLE_CON_REQ |
+					CMD_LOAD_MODE_REG | CMD_BANK_ADDR_1);
 
 	ddr_out32(&mmdc->mdscr, MDSCR_ENABLE_CON_REQ);
 
@@ -127,10 +120,11 @@ void mmdc_init(const struct fsl_mmdc_info *priv, uintptr_t nxp_ddr_addr)
 
 	/* 9b. read DQS gating calibration */
 	ddr_out32(&mmdc->mdscr, CMD_ADDR_MSB_MR_OP(4) | MDSCR_ENABLE_CON_REQ |
-				CMD_PRECHARGE_BANK_OPEN | CMD_BANK_ADDR_0);
+					CMD_PRECHARGE_BANK_OPEN |
+					CMD_BANK_ADDR_0);
 
 	ddr_out32(&mmdc->mdscr, CMD_ADDR_LSB_MR_ADDR(4) | MDSCR_ENABLE_CON_REQ |
-				CMD_LOAD_MODE_REG | CMD_BANK_ADDR_3);
+					CMD_LOAD_MODE_REG | CMD_BANK_ADDR_3);
 
 	ddr_out32(&mmdc->mppdcmpr2, MPPDCMPR2_MPR_COMPARE_EN);
 
@@ -145,21 +139,22 @@ void mmdc_init(const struct fsl_mmdc_info *priv, uintptr_t nxp_ddr_addr)
 				AUTO_RD_DQS_GATING_CALIBRATION_EN,
 				AUTO_RD_DQS_GATING_CALIBRATION_EN);
 
-	ddr_out32(&mmdc->mdscr,  MDSCR_ENABLE_CON_REQ | CMD_LOAD_MODE_REG |
-				CMD_BANK_ADDR_3);
+	ddr_out32(&mmdc->mdscr,
+		  MDSCR_ENABLE_CON_REQ | CMD_LOAD_MODE_REG | CMD_BANK_ADDR_3);
 
 	/* 9c. read calibration */
 	ddr_out32(&mmdc->mdscr, CMD_ADDR_MSB_MR_OP(4) | MDSCR_ENABLE_CON_REQ |
-				CMD_PRECHARGE_BANK_OPEN | CMD_BANK_ADDR_0);
+					CMD_PRECHARGE_BANK_OPEN |
+					CMD_BANK_ADDR_0);
 	ddr_out32(&mmdc->mdscr, CMD_ADDR_LSB_MR_ADDR(4) | MDSCR_ENABLE_CON_REQ |
-				CMD_LOAD_MODE_REG | CMD_BANK_ADDR_3);
-	ddr_out32(&mmdc->mppdcmpr2,  MPPDCMPR2_MPR_COMPARE_EN);
+					CMD_LOAD_MODE_REG | CMD_BANK_ADDR_3);
+	ddr_out32(&mmdc->mppdcmpr2, MPPDCMPR2_MPR_COMPARE_EN);
 	set_wait_for_bits_clear(&mmdc->mprddlhwctl,
 				MPRDDLHWCTL_AUTO_RD_CALIBRATION_EN,
 				MPRDDLHWCTL_AUTO_RD_CALIBRATION_EN);
 
-	ddr_out32(&mmdc->mdscr, MDSCR_ENABLE_CON_REQ | CMD_LOAD_MODE_REG |
-				CMD_BANK_ADDR_3);
+	ddr_out32(&mmdc->mdscr,
+		  MDSCR_ENABLE_CON_REQ | CMD_LOAD_MODE_REG | CMD_BANK_ADDR_3);
 
 	/* 10. configure power-down, self-refresh entry, exit parameters */
 	ddr_out32(&mmdc->mdpdc, priv->mdpdc);
@@ -168,8 +163,7 @@ void mmdc_init(const struct fsl_mmdc_info *priv, uintptr_t nxp_ddr_addr)
 	/* 11. ZQ config again? do nothing here */
 
 	/* 12. refresh scheme */
-	set_wait_for_bits_clear(&mmdc->mdref, priv->mdref,
-				MDREF_START_REFRESH);
+	set_wait_for_bits_clear(&mmdc->mdref, priv->mdref, MDREF_START_REFRESH);
 
 	/* 13. disable CON_REQ */
 	ddr_out32(&mmdc->mdscr, MDSCR_DISABLE_CFG_REQ);

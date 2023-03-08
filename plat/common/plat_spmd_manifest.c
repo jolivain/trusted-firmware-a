@@ -7,7 +7,6 @@
 #include <assert.h>
 #include <errno.h>
 #include <inttypes.h>
-#include <libfdt.h>
 #include <stdint.h>
 #include <string.h>
 
@@ -15,8 +14,10 @@
 #include <common/debug.h>
 #include <common/fdt_wrappers.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include <platform_def.h>
+#include <libfdt.h>
 #include <services/spm_core_manifest.h>
+
+#include <platform_def.h>
 
 #define ATTRIBUTE_ROOT_NODE_STR "attribute"
 
@@ -24,8 +25,7 @@
  * SPMC attribute node parser
  ******************************************************************************/
 static int manifest_parse_attribute(spmc_manifest_attribute_t *attr,
-				    const void *fdt,
-				    int node)
+				    const void *fdt, int node)
 {
 	uint32_t val32;
 	int rc;
@@ -35,14 +35,14 @@ static int manifest_parse_attribute(spmc_manifest_attribute_t *attr,
 	rc = fdt_read_uint32(fdt, node, "maj_ver", &attr->major_version);
 	if (rc != 0) {
 		ERROR("Missing FFA %s version in SPM Core manifest.\n",
-			"major");
+		      "major");
 		return rc;
 	}
 
 	rc = fdt_read_uint32(fdt, node, "min_ver", &attr->minor_version);
 	if (rc != 0) {
 		ERROR("Missing FFA %s version in SPM Core manifest.\n",
-			"minor");
+		      "minor");
 		return rc;
 	}
 
@@ -57,25 +57,25 @@ static int manifest_parse_attribute(spmc_manifest_attribute_t *attr,
 	rc = fdt_read_uint32(fdt, node, "exec_state", &attr->exec_state);
 	if (rc != 0) {
 		NOTICE("%s not specified in SPM Core manifest.\n",
-			"Execution state");
+		       "Execution state");
 	}
 
 	rc = fdt_read_uint32(fdt, node, "binary_size", &attr->binary_size);
 	if (rc != 0) {
 		NOTICE("%s not specified in SPM Core manifest.\n",
-			"Binary size");
+		       "Binary size");
 	}
 
 	rc = fdt_read_uint64(fdt, node, "load_address", &attr->load_address);
 	if (rc != 0) {
 		NOTICE("%s not specified in SPM Core manifest.\n",
-			"Load address");
+		       "Load address");
 	}
 
 	rc = fdt_read_uint64(fdt, node, "entrypoint", &attr->entrypoint);
 	if (rc != 0) {
 		NOTICE("%s not specified in SPM Core manifest.\n",
-			"Entry point");
+		       "Entry point");
 	}
 
 	VERBOSE("SPM Core manifest attribute section:\n");
@@ -92,18 +92,17 @@ static int manifest_parse_attribute(spmc_manifest_attribute_t *attr,
  * Root node handler
  ******************************************************************************/
 static int manifest_parse_root(spmc_manifest_attribute_t *manifest,
-			       const void *fdt,
-			       int root)
+			       const void *fdt, int root)
 {
 	int node;
 
 	assert(manifest != NULL);
 
 	node = fdt_subnode_offset_namelen(fdt, root, ATTRIBUTE_ROOT_NODE_STR,
-		sizeof(ATTRIBUTE_ROOT_NODE_STR) - 1);
+					  sizeof(ATTRIBUTE_ROOT_NODE_STR) - 1);
 	if (node < 0) {
 		ERROR("Root node doesn't contain subnode '%s'\n",
-			ATTRIBUTE_ROOT_NODE_STR);
+		      ATTRIBUTE_ROOT_NODE_STR);
 		return node;
 	}
 
@@ -148,8 +147,7 @@ int plat_spm_core_manifest_load(spmc_manifest_attribute_t *manifest,
 	/* Map first SPMC manifest page in the SPMD translation regime */
 	pm_base_align = page_align(pm_base, DOWN);
 	rc = mmap_add_dynamic_region((unsigned long long)pm_base_align,
-				     pm_base_align,
-				     PAGE_SIZE,
+				     pm_base_align, PAGE_SIZE,
 				     MT_RO_DATA | EL3_PAS);
 	if (rc != 0) {
 		ERROR("Error while mapping SPM Core manifest (%d).\n", rc);
@@ -172,7 +170,7 @@ int plat_spm_core_manifest_load(spmc_manifest_attribute_t *manifest,
 	VERBOSE("Reading SPM Core manifest at address %p\n", pm_addr);
 
 	rc = fdt_node_offset_by_compatible(pm_addr, -1,
-				"arm,ffa-core-manifest-1.0");
+					   "arm,ffa-core-manifest-1.0");
 	if (rc < 0) {
 		ERROR("Unrecognized SPM Core manifest\n");
 		goto exit_unmap;
@@ -184,7 +182,7 @@ exit_unmap:
 	unmap_ret = mmap_remove_dynamic_region(pm_base_align, PAGE_SIZE);
 	if (unmap_ret != 0) {
 		ERROR("Error while unmapping SPM Core manifest (%d).\n",
-			unmap_ret);
+		      unmap_ret);
 		if (rc == 0) {
 			rc = unmap_ret;
 		}

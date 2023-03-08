@@ -9,6 +9,7 @@
 #define PLAT_CONSOLE_H
 
 #include <stdint.h>
+
 #include <drivers/console.h>
 
 #if (NXP_CONSOLE == NS16550)
@@ -33,6 +34,6 @@ int nxp_console_16550_register(uintptr_t baseaddr, uint32_t clock,
  * and register with console framework
  */
 void plat_console_init(uintptr_t nxp_console_addr, uint32_t uart_clk_div,
-			uint32_t baud);
+		       uint32_t baud);
 
 #endif

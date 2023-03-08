@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,15 +12,15 @@
 #include <drivers/generic_delay_timer.h>
 #include <drivers/ti/uart/uart_16550.h>
 #include <lib/mmio.h>
-#include <plat/arm/common/plat_arm.h>
-#include <plat/common/common_def.h>
-#include <plat/common/platform.h>
-
 #include <mcucfg.h>
 #include <mtcmos.h>
 #include <mtk_plat_common.h>
 #include <plat_private.h>
 #include <spm.h>
+
+#include <plat/arm/common/plat_arm.h>
+#include <plat/common/common_def.h>
+#include <plat/common/platform.h>
 
 static entry_point_info_t bl32_ep_info;
 static entry_point_info_t bl33_ep_info;
@@ -32,34 +32,35 @@ static void platform_setup_cpu(void)
 
 	/* setup big cores */
 	mmio_write_32((uintptr_t)&mt8173_mcucfg->mp1_config_res,
-		MP1_DIS_RGU0_WAIT_PD_CPUS_L1_ACK |
-		MP1_DIS_RGU1_WAIT_PD_CPUS_L1_ACK |
-		MP1_DIS_RGU2_WAIT_PD_CPUS_L1_ACK |
-		MP1_DIS_RGU3_WAIT_PD_CPUS_L1_ACK |
-		MP1_DIS_RGU_NOCPU_WAIT_PD_CPUS_L1_ACK);
+		      MP1_DIS_RGU0_WAIT_PD_CPUS_L1_ACK |
+			      MP1_DIS_RGU1_WAIT_PD_CPUS_L1_ACK |
+			      MP1_DIS_RGU2_WAIT_PD_CPUS_L1_ACK |
+			      MP1_DIS_RGU3_WAIT_PD_CPUS_L1_ACK |
+			      MP1_DIS_RGU_NOCPU_WAIT_PD_CPUS_L1_ACK);
 	mmio_setbits_32((uintptr_t)&mt8173_mcucfg->mp1_miscdbg, MP1_AINACTS);
 	mmio_setbits_32((uintptr_t)&mt8173_mcucfg->mp1_clkenm_div,
-		MP1_SW_CG_GEN);
+			MP1_SW_CG_GEN);
 	mmio_clrbits_32((uintptr_t)&mt8173_mcucfg->mp1_rst_ctl,
-		MP1_L2RSTDISABLE);
+			MP1_L2RSTDISABLE);
 
 	/* set big cores arm64 boot mode */
 	mmio_setbits_32((uintptr_t)&mt8173_mcucfg->mp1_cpucfg,
-		MP1_CPUCFG_64BIT);
+			MP1_CPUCFG_64BIT);
 
 	/* set LITTLE cores arm64 boot mode */
 	mmio_setbits_32((uintptr_t)&mt8173_mcucfg->mp0_rv_addr[0].rv_addr_hw,
-		MP0_CPUCFG_64BIT);
+			MP0_CPUCFG_64BIT);
 
 	/* enable dcm control */
 	mmio_setbits_32((uintptr_t)&mt8173_mcucfg->bus_fabric_dcm_ctrl,
-		ADB400_GRP_DCM_EN | CCI400_GRP_DCM_EN | ADBCLK_GRP_DCM_EN |
-		EMICLK_GRP_DCM_EN | ACLK_GRP_DCM_EN | L2C_IDLE_DCM_EN |
-		INFRACLK_PSYS_DYNAMIC_CG_EN);
+			ADB400_GRP_DCM_EN | CCI400_GRP_DCM_EN |
+				ADBCLK_GRP_DCM_EN | EMICLK_GRP_DCM_EN |
+				ACLK_GRP_DCM_EN | L2C_IDLE_DCM_EN |
+				INFRACLK_PSYS_DYNAMIC_CG_EN);
 	mmio_setbits_32((uintptr_t)&mt8173_mcucfg->l2c_sram_ctrl,
-		L2C_SRAM_DCM_EN);
+			L2C_SRAM_DCM_EN);
 	mmio_setbits_32((uintptr_t)&mt8173_mcucfg->cci_clk_ctrl,
-		MCU_BUS_DCM_EN);
+			MCU_BUS_DCM_EN);
 }
 
 static void platform_setup_sram(void)
@@ -102,7 +103,8 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 {
 	static console_t console;
 
-	console_16550_register(MT8173_UART0_BASE, MT8173_UART_CLOCK, MT8173_BAUDRATE, &console);
+	console_16550_register(MT8173_UART0_BASE, MT8173_UART_CLOCK,
+			       MT8173_BAUDRATE, &console);
 
 	VERBOSE("bl31_setup\n");
 
@@ -136,11 +138,7 @@ void bl31_plat_arch_setup(void)
 	plat_cci_init();
 	plat_cci_enable();
 
-	plat_configure_mmu_el3(BL_CODE_BASE,
-			       BL_COHERENT_RAM_END - BL_CODE_BASE,
-			       BL_CODE_BASE,
-			       BL_CODE_END,
-			       BL_COHERENT_RAM_BASE,
+	plat_configure_mmu_el3(BL_CODE_BASE, BL_COHERENT_RAM_END - BL_CODE_BASE,
+			       BL_CODE_BASE, BL_CODE_END, BL_COHERENT_RAM_BASE,
 			       BL_COHERENT_RAM_END);
 }
-

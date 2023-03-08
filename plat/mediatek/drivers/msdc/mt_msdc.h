@@ -9,7 +9,7 @@
 
 #include <mt_msdc_priv.h>
 
-uint64_t msdc_smc_dispatcher(uint64_t arg0, uint64_t arg1,
-			     uint64_t arg2, uint64_t arg3);
+uint64_t msdc_smc_dispatcher(uint64_t arg0, uint64_t arg1, uint64_t arg2,
+			     uint64_t arg3);
 
 #endif

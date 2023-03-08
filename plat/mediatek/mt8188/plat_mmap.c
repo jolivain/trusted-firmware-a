@@ -5,7 +5,9 @@
  */
 
 #include <stdint.h>
+
 #include <mtk_mmap_pool.h>
+
 #include <platform_def.h>
 
 static const mmap_region_t plat_mmap[] = {

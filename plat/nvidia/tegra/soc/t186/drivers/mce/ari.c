@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,33 +10,33 @@
 #include <arch.h>
 #include <arch_helpers.h>
 #include <common/debug.h>
-#include <drivers/delay_timer.h>
 #include <denver.h>
+#include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-#include <plat/common/platform.h>
-
 #include <mce_private.h>
 #include <t18x_ari.h>
+
+#include <plat/common/platform.h>
 
 /*******************************************************************************
  * Register offsets for ARI request/results
  ******************************************************************************/
-#define ARI_REQUEST			0x0U
-#define ARI_REQUEST_EVENT_MASK		0x4U
-#define ARI_STATUS			0x8U
-#define ARI_REQUEST_DATA_LO		0xCU
-#define ARI_REQUEST_DATA_HI		0x10U
-#define ARI_RESPONSE_DATA_LO		0x14U
-#define ARI_RESPONSE_DATA_HI		0x18U
+#define ARI_REQUEST 0x0U
+#define ARI_REQUEST_EVENT_MASK 0x4U
+#define ARI_STATUS 0x8U
+#define ARI_REQUEST_DATA_LO 0xCU
+#define ARI_REQUEST_DATA_HI 0x10U
+#define ARI_RESPONSE_DATA_LO 0x14U
+#define ARI_RESPONSE_DATA_HI 0x18U
 
 /* Status values for the current request */
-#define ARI_REQ_PENDING			1U
-#define ARI_REQ_ONGOING			3U
-#define ARI_REQUEST_VALID_BIT		(1U << 8)
-#define ARI_EVT_MASK_STANDBYWFI_BIT	(1U << 7)
+#define ARI_REQ_PENDING 1U
+#define ARI_REQ_ONGOING 3U
+#define ARI_REQUEST_VALID_BIT (1U << 8)
+#define ARI_EVT_MASK_STANDBYWFI_BIT (1U << 7)
 
 /* default timeout (us) to wait for ARI completion */
-#define ARI_MAX_RETRY_COUNT		U(2000000)
+#define ARI_MAX_RETRY_COUNT U(2000000)
 
 /*******************************************************************************
  * ARI helper functions
@@ -77,8 +77,8 @@ static inline void ari_clobber_response(uint32_t ari_base)
 	ari_write_32(ari_base, 0, ARI_RESPONSE_DATA_HI);
 }
 
-static int32_t ari_request_wait(uint32_t ari_base, uint32_t evt_mask, uint32_t req,
-		uint32_t lo, uint32_t hi)
+static int32_t ari_request_wait(uint32_t ari_base, uint32_t evt_mask,
+				uint32_t req, uint32_t lo, uint32_t hi)
 {
 	uint32_t retries = (uint32_t)ARI_MAX_RETRY_COUNT;
 	uint32_t status;
@@ -102,16 +102,16 @@ static int32_t ari_request_wait(uint32_t ari_base, uint32_t evt_mask, uint32_t r
 		if ((req == TEGRA_ARI_MISC_CCPLEX) &&
 		    ((lo == TEGRA_ARI_MISC_CCPLEX_SHUTDOWN_POWER_OFF) ||
 		     (lo == TEGRA_ARI_MISC_CCPLEX_SHUTDOWN_REBOOT))) {
-				ret = 0;
+			ret = 0;
 		} else {
 			/*
 			 * Wait for the command response for not more than the timeout
 			 */
 			while (retries != 0U) {
-
 				/* read the command status */
 				status = ari_read_32(ari_base, ARI_STATUS);
-				if ((status & (ARI_REQ_ONGOING | ARI_REQ_PENDING)) == 0U) {
+				if ((status & (ARI_REQ_ONGOING |
+					       ARI_REQ_PENDING)) == 0U) {
 					break;
 				}
 
@@ -125,7 +125,7 @@ static int32_t ari_request_wait(uint32_t ari_base, uint32_t evt_mask, uint32_t r
 			/* assert if the command timed out */
 			if (retries == 0U) {
 				ERROR("ARI request timed out: req %d on CPU %d\n",
-					req, plat_my_core_pos());
+				      req, plat_my_core_pos());
 				assert(retries != 0U);
 			}
 		}
@@ -139,10 +139,8 @@ int32_t ari_enter_cstate(uint32_t ari_base, uint32_t state, uint32_t wake_time)
 	int32_t ret = 0;
 
 	/* check for allowed power state */
-	if ((state != TEGRA_ARI_CORE_C0) &&
-	    (state != TEGRA_ARI_CORE_C1) &&
-	    (state != TEGRA_ARI_CORE_C6) &&
-	    (state != TEGRA_ARI_CORE_C7)) {
+	if ((state != TEGRA_ARI_CORE_C0) && (state != TEGRA_ARI_CORE_C1) &&
+	    (state != TEGRA_ARI_CORE_C6) && (state != TEGRA_ARI_CORE_C7)) {
 		ERROR("%s: unknown cstate (%d)\n", __func__, state);
 		ret = EINVAL;
 	} else {
@@ -151,15 +149,17 @@ int32_t ari_enter_cstate(uint32_t ari_base, uint32_t state, uint32_t wake_time)
 
 		/* Enter the cstate, to be woken up after wake_time (TSC ticks) */
 		ret = ari_request_wait(ari_base, ARI_EVT_MASK_STANDBYWFI_BIT,
-			(uint32_t)TEGRA_ARI_ENTER_CSTATE, state, wake_time);
+				       (uint32_t)TEGRA_ARI_ENTER_CSTATE, state,
+				       wake_time);
 	}
 
 	return ret;
 }
 
-int32_t ari_update_cstate_info(uint32_t ari_base, uint32_t cluster, uint32_t ccplex,
-	uint32_t system, uint8_t sys_state_force, uint32_t wake_mask,
-	uint8_t update_wake_mask)
+int32_t ari_update_cstate_info(uint32_t ari_base, uint32_t cluster,
+			       uint32_t ccplex, uint32_t system,
+			       uint8_t sys_state_force, uint32_t wake_mask,
+			       uint8_t update_wake_mask)
 {
 	uint64_t val = 0U;
 
@@ -169,19 +169,20 @@ int32_t ari_update_cstate_info(uint32_t ari_base, uint32_t cluster, uint32_t ccp
 	/* update CLUSTER_CSTATE? */
 	if (cluster != 0U) {
 		val |= (cluster & CLUSTER_CSTATE_MASK) |
-			CLUSTER_CSTATE_UPDATE_BIT;
+		       CLUSTER_CSTATE_UPDATE_BIT;
 	}
 
 	/* update CCPLEX_CSTATE? */
 	if (ccplex != 0U) {
 		val |= ((ccplex & CCPLEX_CSTATE_MASK) << CCPLEX_CSTATE_SHIFT) |
-			CCPLEX_CSTATE_UPDATE_BIT;
+		       CCPLEX_CSTATE_UPDATE_BIT;
 	}
 
 	/* update SYSTEM_CSTATE? */
 	if (system != 0U) {
 		val |= ((system & SYSTEM_CSTATE_MASK) << SYSTEM_CSTATE_SHIFT) |
-		       (((uint64_t)sys_state_force << SYSTEM_CSTATE_FORCE_UPDATE_SHIFT) |
+		       (((uint64_t)sys_state_force
+			 << SYSTEM_CSTATE_FORCE_UPDATE_SHIFT) |
 			SYSTEM_CSTATE_UPDATE_BIT);
 	}
 
@@ -191,11 +192,13 @@ int32_t ari_update_cstate_info(uint32_t ari_base, uint32_t cluster, uint32_t ccp
 	}
 
 	/* set the updated cstate info */
-	return ari_request_wait(ari_base, 0U, (uint32_t)TEGRA_ARI_UPDATE_CSTATE_INFO,
+	return ari_request_wait(ari_base, 0U,
+				(uint32_t)TEGRA_ARI_UPDATE_CSTATE_INFO,
 				(uint32_t)val, wake_mask);
 }
 
-int32_t ari_update_crossover_time(uint32_t ari_base, uint32_t type, uint32_t time)
+int32_t ari_update_crossover_time(uint32_t ari_base, uint32_t type,
+				  uint32_t time)
 {
 	int32_t ret = 0;
 
@@ -209,7 +212,8 @@ int32_t ari_update_crossover_time(uint32_t ari_base, uint32_t type, uint32_t tim
 
 		/* update crossover threshold time */
 		ret = ari_request_wait(ari_base, 0U,
-				(uint32_t)TEGRA_ARI_UPDATE_CROSSOVER, type, time);
+				       (uint32_t)TEGRA_ARI_UPDATE_CROSSOVER,
+				       type, time);
 	}
 
 	return ret;
@@ -228,7 +232,8 @@ uint64_t ari_read_cstate_stats(uint32_t ari_base, uint32_t state)
 		ari_clobber_response(ari_base);
 
 		ret = ari_request_wait(ari_base, 0U,
-				(uint32_t)TEGRA_ARI_CSTATE_STATS, state, 0U);
+				       (uint32_t)TEGRA_ARI_CSTATE_STATS, state,
+				       0U);
 		if (ret != 0) {
 			result = EINVAL;
 		} else {
@@ -238,14 +243,16 @@ uint64_t ari_read_cstate_stats(uint32_t ari_base, uint32_t state)
 	return result;
 }
 
-int32_t ari_write_cstate_stats(uint32_t ari_base, uint32_t state, uint32_t stats)
+int32_t ari_write_cstate_stats(uint32_t ari_base, uint32_t state,
+			       uint32_t stats)
 {
 	/* clean the previous response state */
 	ari_clobber_response(ari_base);
 
 	/* write the cstate stats */
-	return ari_request_wait(ari_base, 0U, (uint32_t)TEGRA_ARI_WRITE_CSTATE_STATS,
-			state, stats);
+	return ari_request_wait(ari_base, 0U,
+				(uint32_t)TEGRA_ARI_WRITE_CSTATE_STATS, state,
+				stats);
 }
 
 uint64_t ari_enumeration_misc(uint32_t ari_base, uint32_t cmd, uint32_t data)
@@ -262,7 +269,8 @@ uint64_t ari_enumeration_misc(uint32_t ari_base, uint32_t cmd, uint32_t data)
 		local_data = 0U;
 	}
 
-	ret = ari_request_wait(ari_base, 0U, (uint32_t)TEGRA_ARI_MISC, cmd, local_data);
+	ret = ari_request_wait(ari_base, 0U, (uint32_t)TEGRA_ARI_MISC, cmd,
+			       local_data);
 	if (ret != 0) {
 		resp = (uint64_t)ret;
 	} else {
@@ -274,7 +282,8 @@ uint64_t ari_enumeration_misc(uint32_t ari_base, uint32_t cmd, uint32_t data)
 	return resp;
 }
 
-int32_t ari_is_ccx_allowed(uint32_t ari_base, uint32_t state, uint32_t wake_time)
+int32_t ari_is_ccx_allowed(uint32_t ari_base, uint32_t state,
+			   uint32_t wake_time)
 {
 	int32_t ret;
 	uint32_t result;
@@ -283,7 +292,7 @@ int32_t ari_is_ccx_allowed(uint32_t ari_base, uint32_t state, uint32_t wake_time
 	ari_clobber_response(ari_base);
 
 	ret = ari_request_wait(ari_base, 0U, (uint32_t)TEGRA_ARI_IS_CCX_ALLOWED,
-			state & 0x7U, wake_time);
+			       state & 0x7U, wake_time);
 	if (ret != 0) {
 		ERROR("%s: failed (%d)\n", __func__, ret);
 		result = 0U;
@@ -295,7 +304,8 @@ int32_t ari_is_ccx_allowed(uint32_t ari_base, uint32_t state, uint32_t wake_time
 	return (int32_t)result;
 }
 
-int32_t ari_is_sc7_allowed(uint32_t ari_base, uint32_t state, uint32_t wake_time)
+int32_t ari_is_sc7_allowed(uint32_t ari_base, uint32_t state,
+			   uint32_t wake_time)
 {
 	int32_t ret, result;
 
@@ -309,7 +319,8 @@ int32_t ari_is_sc7_allowed(uint32_t ari_base, uint32_t state, uint32_t wake_time
 		ari_clobber_response(ari_base);
 
 		ret = ari_request_wait(ari_base, 0U,
-			(uint32_t)TEGRA_ARI_IS_SC7_ALLOWED, state, wake_time);
+				       (uint32_t)TEGRA_ARI_IS_SC7_ALLOWED,
+				       state, wake_time);
 		if (ret != 0) {
 			ERROR("%s: failed (%d)\n", __func__, ret);
 			result = 0;
@@ -348,14 +359,16 @@ int32_t ari_online_core(uint32_t ari_base, uint32_t core)
 			/* clean the previous response state */
 			ari_clobber_response(ari_base);
 			ret = ari_request_wait(ari_base, 0U,
-				(uint32_t)TEGRA_ARI_ONLINE_CORE, core, 0U);
+					       (uint32_t)TEGRA_ARI_ONLINE_CORE,
+					       core, 0U);
 		}
 	}
 
 	return ret;
 }
 
-int32_t ari_cc3_ctrl(uint32_t ari_base, uint32_t freq, uint32_t volt, uint8_t enable)
+int32_t ari_cc3_ctrl(uint32_t ari_base, uint32_t freq, uint32_t volt,
+		     uint8_t enable)
 {
 	uint32_t val;
 
@@ -372,12 +385,12 @@ int32_t ari_cc3_ctrl(uint32_t ari_base, uint32_t freq, uint32_t volt, uint8_t en
 	 * StandbyWFI or the equivalent signal, and always keeping the IDLE
 	 * voltage/frequency request register enabled.
 	 */
-	val = (((freq & MCE_AUTO_CC3_FREQ_MASK) << MCE_AUTO_CC3_FREQ_SHIFT) |\
-		((volt & MCE_AUTO_CC3_VTG_MASK) << MCE_AUTO_CC3_VTG_SHIFT) |\
-		((enable != 0U) ? MCE_AUTO_CC3_ENABLE_BIT : 0U));
+	val = (((freq & MCE_AUTO_CC3_FREQ_MASK) << MCE_AUTO_CC3_FREQ_SHIFT) |
+	       ((volt & MCE_AUTO_CC3_VTG_MASK) << MCE_AUTO_CC3_VTG_SHIFT) |
+	       ((enable != 0U) ? MCE_AUTO_CC3_ENABLE_BIT : 0U));
 
-	return ari_request_wait(ari_base, 0U,
-			(uint32_t)TEGRA_ARI_CC3_CTRL, val, 0U);
+	return ari_request_wait(ari_base, 0U, (uint32_t)TEGRA_ARI_CC3_CTRL, val,
+				0U);
 }
 
 int32_t ari_reset_vector_update(uint32_t ari_base)
@@ -390,7 +403,8 @@ int32_t ari_reset_vector_update(uint32_t ari_base)
 	 * and SC7 exit
 	 */
 	(void)ari_request_wait(ari_base, 0U,
-			(uint32_t)TEGRA_ARI_COPY_MISCREG_AA64_RST, 0U, 0U);
+			       (uint32_t)TEGRA_ARI_COPY_MISCREG_AA64_RST, 0U,
+			       0U);
 
 	return 0;
 }
@@ -401,7 +415,8 @@ int32_t ari_roc_flush_cache_trbits(uint32_t ari_base)
 	ari_clobber_response(ari_base);
 
 	return ari_request_wait(ari_base, 0U,
-			(uint32_t)TEGRA_ARI_ROC_FLUSH_CACHE_TRBITS, 0U, 0U);
+				(uint32_t)TEGRA_ARI_ROC_FLUSH_CACHE_TRBITS, 0U,
+				0U);
 }
 
 int32_t ari_roc_flush_cache(uint32_t ari_base)
@@ -409,8 +424,8 @@ int32_t ari_roc_flush_cache(uint32_t ari_base)
 	/* clean the previous response state */
 	ari_clobber_response(ari_base);
 
-	return ari_request_wait(ari_base, 0U,
-			(uint32_t)TEGRA_ARI_ROC_FLUSH_CACHE_ONLY, 0U, 0U);
+	return ari_request_wait(
+		ari_base, 0U, (uint32_t)TEGRA_ARI_ROC_FLUSH_CACHE_ONLY, 0U, 0U);
 }
 
 int32_t ari_roc_clean_cache(uint32_t ari_base)
@@ -418,8 +433,8 @@ int32_t ari_roc_clean_cache(uint32_t ari_base)
 	/* clean the previous response state */
 	ari_clobber_response(ari_base);
 
-	return ari_request_wait(ari_base, 0U,
-			(uint32_t)TEGRA_ARI_ROC_CLEAN_CACHE_ONLY, 0U, 0U);
+	return ari_request_wait(
+		ari_base, 0U, (uint32_t)TEGRA_ARI_ROC_CLEAN_CACHE_ONLY, 0U, 0U);
 }
 
 uint64_t ari_read_write_mca(uint32_t ari_base, uint64_t cmd, uint64_t *data)
@@ -454,7 +469,7 @@ uint64_t ari_read_write_mca(uint32_t ari_base, uint64_t cmd, uint64_t *data)
 				resp_lo = ari_get_request_low(ari_base);
 				resp_hi = ari_get_request_high(ari_base);
 				*data = ((uint64_t)resp_hi << 32U) |
-					 (uint64_t)resp_lo;
+					(uint64_t)resp_lo;
 			}
 		}
 	}
@@ -478,7 +493,8 @@ int32_t ari_update_ccplex_gsc(uint32_t ari_base, uint32_t gsc_idx)
 		 * of the CCPLEX.
 		 */
 		(void)ari_request_wait(ari_base, 0U,
-				(uint32_t)TEGRA_ARI_UPDATE_CCPLEX_GSC, gsc_idx, 0U);
+				       (uint32_t)TEGRA_ARI_UPDATE_CCPLEX_GSC,
+				       gsc_idx, 0U);
 	}
 
 	return ret;
@@ -492,12 +508,12 @@ void ari_enter_ccplex_state(uint32_t ari_base, uint32_t state_idx)
 	/*
 	 * The MCE will shutdown or restart the entire system
 	 */
-	(void)ari_request_wait(ari_base, 0U,
-			(uint32_t)TEGRA_ARI_MISC_CCPLEX, state_idx, 0U);
+	(void)ari_request_wait(ari_base, 0U, (uint32_t)TEGRA_ARI_MISC_CCPLEX,
+			       state_idx, 0U);
 }
 
 int32_t ari_read_write_uncore_perfmon(uint32_t ari_base, uint64_t req,
-		uint64_t *data)
+				      uint64_t *data)
 {
 	int32_t ret, result;
 	uint32_t val, req_status;
@@ -517,24 +533,26 @@ int32_t ari_read_write_uncore_perfmon(uint32_t ari_base, uint64_t req,
 		 * For "write" commands get the value that has to be written
 		 * to the uncore perfmon registers
 		 */
-		val = (req_cmd == UNCORE_PERFMON_CMD_WRITE) ?
-			(uint32_t)*data : 0U;
+		val = (req_cmd == UNCORE_PERFMON_CMD_WRITE) ? (uint32_t)*data :
+							      0U;
 
 		ret = ari_request_wait(ari_base, 0U,
-			(uint32_t)TEGRA_ARI_PERFMON, val, (uint32_t)req);
+				       (uint32_t)TEGRA_ARI_PERFMON, val,
+				       (uint32_t)req);
 		if (ret != 0) {
 			result = ret;
 		} else {
 			/* read the command status value */
 			req_status = ari_get_response_high(ari_base) &
-					 UNCORE_PERFMON_RESP_STATUS_MASK;
+				     UNCORE_PERFMON_RESP_STATUS_MASK;
 
 			/*
 			 * For "read" commands get the data from the uncore
 			 * perfmon registers
 			 */
 			req_status &= UNCORE_PERFMON_RESP_STATUS_MASK;
-			if ((req_status == 0U) && (req_cmd == UNCORE_PERFMON_CMD_READ)) {
+			if ((req_status == 0U) &&
+			    (req_cmd == UNCORE_PERFMON_CMD_READ)) {
 				*data = ari_get_response_low(ari_base);
 			}
 			result = (int32_t)req_status;
@@ -552,13 +570,14 @@ void ari_misc_ccplex(uint32_t ari_base, uint32_t index, uint32_t value)
 	 */
 
 	if ((index > TEGRA_ARI_MISC_CCPLEX_EDBGREQ) ||
-		((index == TEGRA_ARI_MISC_CCPLEX_CORESIGHT_CG_CTRL) &&
-		(value > 1U))) {
+	    ((index == TEGRA_ARI_MISC_CCPLEX_CORESIGHT_CG_CTRL) &&
+	     (value > 1U))) {
 		ERROR("%s: invalid parameters \n", __func__);
 	} else {
 		/* clean the previous response state */
 		ari_clobber_response(ari_base);
 		(void)ari_request_wait(ari_base, 0U,
-			(uint32_t)TEGRA_ARI_MISC_CCPLEX, index, value);
+				       (uint32_t)TEGRA_ARI_MISC_CCPLEX, index,
+				       value);
 	}
 }

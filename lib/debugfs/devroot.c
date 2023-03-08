@@ -1,10 +1,11 @@
 /*
- * Copyright (c) 2019, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
+
 #include <common/debug.h>
 #include <lib/debugfs.h>
 
@@ -15,20 +16,19 @@
  * This array contains the directories available from the root directory.
  ******************************************************************************/
 static const dirtab_t dirtab[] = {
-	{"dev",   CHDIR | DEV_ROOT_QDEV,   0, O_READ},
-	{"blobs", CHDIR | DEV_ROOT_QBLOBS, 0, O_READ},
-	{"fip",   CHDIR | DEV_ROOT_QFIP,   0, O_READ}
+	{ "dev", CHDIR | DEV_ROOT_QDEV, 0, O_READ },
+	{ "blobs", CHDIR | DEV_ROOT_QBLOBS, 0, O_READ },
+	{ "fip", CHDIR | DEV_ROOT_QFIP, 0, O_READ }
 };
 
-static const dirtab_t devfstab[] = {
-};
+static const dirtab_t devfstab[] = {};
 
 /*******************************************************************************
  * This function exposes the elements of the root directory.
  * It also exposes the content of the dev and blobs directories.
  ******************************************************************************/
-static int rootgen(chan_t *channel, const dirtab_t *tab, int ntab,
-		   int n, dir_t *dir)
+static int rootgen(chan_t *channel, const dirtab_t *tab, int ntab, int n,
+		   dir_t *dir)
 {
 	switch (channel->qid & ~CHDIR) {
 	case DEV_ROOT_QROOT:
@@ -84,14 +84,12 @@ static int rootstat(chan_t *channel, const char *file, dir_t *dir)
 	return devstat(channel, file, dir, NULL, 0, rootgen);
 }
 
-const dev_t rootdevtab = {
-	.id = '/',
-	.stat = rootstat,
-	.clone = devclone,
-	.attach = devattach,
-	.walk = rootwalk,
-	.read = rootread,
-	.write = deverrwrite,
-	.mount = deverrmount,
-	.seek = devseek
-};
+const dev_t rootdevtab = { .id = '/',
+			   .stat = rootstat,
+			   .clone = devclone,
+			   .attach = devattach,
+			   .walk = rootwalk,
+			   .read = rootread,
+			   .write = deverrwrite,
+			   .mount = deverrmount,
+			   .seek = devseek };

@@ -9,7 +9,6 @@
 
 #include <arch_helpers.h>
 #include <lib/psci/psci.h>
-
 #include <marvell_pm.h>
 
 /* Standard ARM platforms are expected to export plat_arm_psci_pm_ops */
@@ -31,7 +30,7 @@ void marvell_program_mailbox(uintptr_t address)
 	 */
 	assert((PLAT_MARVELL_MAILBOX_BASE >= MARVELL_SHARED_RAM_BASE) &&
 	       ((PLAT_MARVELL_MAILBOX_BASE + sizeof(*mailbox)) <=
-	       (MARVELL_SHARED_RAM_BASE + MARVELL_SHARED_RAM_SIZE)));
+		(MARVELL_SHARED_RAM_BASE + MARVELL_SHARED_RAM_SIZE)));
 
 	mailbox[MBOX_IDX_MAGIC] = MVEBU_MAILBOX_MAGIC_NUM;
 	mailbox[MBOX_IDX_SEC_ADDR] = address;
@@ -39,7 +38,7 @@ void marvell_program_mailbox(uintptr_t address)
 	/* Flush data cache if the mail box shared RAM is cached */
 #if PLAT_MARVELL_SHARED_RAM_CACHED
 	flush_dcache_range((uintptr_t)PLAT_MARVELL_MAILBOX_BASE +
-			   8 * MBOX_IDX_MAGIC,
+				   8 * MBOX_IDX_MAGIC,
 			   2 * sizeof(uint64_t));
 #endif
 }

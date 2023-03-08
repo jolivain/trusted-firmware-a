@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2018, 2020, The Linux Foundation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -12,59 +12,53 @@
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
-
 #include <platform.h>
-#include <platform_def.h>
 #include <qti_cpu.h>
 #include <qti_plat.h>
 #include <qtiseclib_cb_interface.h>
 #include <qtiseclib_defs_plat.h>
 #include <qtiseclib_interface.h>
 
-#define QTI_LOCAL_PSTATE_WIDTH		4
-#define QTI_LOCAL_PSTATE_MASK		((1 << QTI_LOCAL_PSTATE_WIDTH) - 1)
+#include <platform_def.h>
+
+#define QTI_LOCAL_PSTATE_WIDTH 4
+#define QTI_LOCAL_PSTATE_MASK ((1 << QTI_LOCAL_PSTATE_WIDTH) - 1)
 
 /* Make composite power state parameter till level 0 */
 #define qti_make_pwrstate_lvl0(lvl0_state, type) \
-		(((lvl0_state) << PSTATE_ID_SHIFT) | ((type) << PSTATE_TYPE_SHIFT))
+	(((lvl0_state) << PSTATE_ID_SHIFT) | ((type) << PSTATE_TYPE_SHIFT))
 
 /* Make composite power state parameter till level 1 */
 #define qti_make_pwrstate_lvl1(lvl1_state, lvl0_state, type) \
-		(((lvl1_state) << QTI_LOCAL_PSTATE_WIDTH) | \
-		qti_make_pwrstate_lvl0(lvl0_state, type))
+	(((lvl1_state) << QTI_LOCAL_PSTATE_WIDTH) |          \
+	 qti_make_pwrstate_lvl0(lvl0_state, type))
 
 /* Make composite power state parameter till level 2 */
 #define qti_make_pwrstate_lvl2(lvl2_state, lvl1_state, lvl0_state, type) \
-		(((lvl2_state) << (QTI_LOCAL_PSTATE_WIDTH * 2)) | \
-		qti_make_pwrstate_lvl1(lvl1_state, lvl0_state, type))
+	(((lvl2_state) << (QTI_LOCAL_PSTATE_WIDTH * 2)) |                \
+	 qti_make_pwrstate_lvl1(lvl1_state, lvl0_state, type))
 
 /* Make composite power state parameter till level 3 */
-#define qti_make_pwrstate_lvl3(lvl3_state, lvl2_state, lvl1_state, lvl0_state, type) \
-		(((lvl3_state) << (QTI_LOCAL_PSTATE_WIDTH * 3)) | \
-		qti_make_pwrstate_lvl2(lvl2_state, lvl1_state, lvl0_state, type))
+#define qti_make_pwrstate_lvl3(lvl3_state, lvl2_state, lvl1_state, lvl0_state, \
+			       type)                                           \
+	(((lvl3_state) << (QTI_LOCAL_PSTATE_WIDTH * 3)) |                      \
+	 qti_make_pwrstate_lvl2(lvl2_state, lvl1_state, lvl0_state, type))
 
 /* QTI_CORE_PWRDN_EN_MASK happens to be same across all CPUs */
-#define QTI_CORE_PWRDN_EN_MASK		1
+#define QTI_CORE_PWRDN_EN_MASK 1
 
 /* cpu power control happens to be same across all CPUs */
 DEFINE_RENAME_SYSREG_RW_FUNCS(cpu_pwrctrl_val, S3_0_C15_C2_7)
 
 const unsigned int qti_pm_idle_states[] = {
-	qti_make_pwrstate_lvl0(QTI_LOCAL_STATE_OFF,
+	qti_make_pwrstate_lvl0(QTI_LOCAL_STATE_OFF, PSTATE_TYPE_POWERDOWN),
+	qti_make_pwrstate_lvl0(QTI_LOCAL_STATE_DEEPOFF, PSTATE_TYPE_POWERDOWN),
+	qti_make_pwrstate_lvl1(QTI_LOCAL_STATE_DEEPOFF, QTI_LOCAL_STATE_DEEPOFF,
 			       PSTATE_TYPE_POWERDOWN),
-	qti_make_pwrstate_lvl0(QTI_LOCAL_STATE_DEEPOFF,
-			       PSTATE_TYPE_POWERDOWN),
-	qti_make_pwrstate_lvl1(QTI_LOCAL_STATE_DEEPOFF,
-			       QTI_LOCAL_STATE_DEEPOFF,
-			       PSTATE_TYPE_POWERDOWN),
-	qti_make_pwrstate_lvl2(QTI_LOCAL_STATE_OFF,
-			       QTI_LOCAL_STATE_DEEPOFF,
-			       QTI_LOCAL_STATE_DEEPOFF,
-			       PSTATE_TYPE_POWERDOWN),
-	qti_make_pwrstate_lvl3(QTI_LOCAL_STATE_OFF,
-			       QTI_LOCAL_STATE_DEEPOFF,
-			       QTI_LOCAL_STATE_DEEPOFF,
-			       QTI_LOCAL_STATE_DEEPOFF,
+	qti_make_pwrstate_lvl2(QTI_LOCAL_STATE_OFF, QTI_LOCAL_STATE_DEEPOFF,
+			       QTI_LOCAL_STATE_DEEPOFF, PSTATE_TYPE_POWERDOWN),
+	qti_make_pwrstate_lvl3(QTI_LOCAL_STATE_OFF, QTI_LOCAL_STATE_DEEPOFF,
+			       QTI_LOCAL_STATE_DEEPOFF, QTI_LOCAL_STATE_DEEPOFF,
 			       PSTATE_TYPE_POWERDOWN),
 	0,
 };
@@ -102,7 +96,7 @@ int qti_validate_power_state(unsigned int power_state,
 	/* Parse the State ID and populate the state info parameter */
 	while (state_id) {
 		req_state->pwr_domain_state[i++] = state_id &
-		    QTI_LOCAL_PSTATE_MASK;
+						   QTI_LOCAL_PSTATE_MASK;
 		state_id >>= QTI_LOCAL_PSTATE_WIDTH;
 	}
 
@@ -155,7 +149,7 @@ static bool is_cpu_off(const psci_power_state_t *target_state)
 static void qti_cpu_power_on_finish(const psci_power_state_t *target_state)
 {
 	const uint8_t *pwr_states =
-	    (const uint8_t *)target_state->pwr_domain_state;
+		(const uint8_t *)target_state->pwr_domain_state;
 	qtiseclib_psci_node_on_finish(pwr_states);
 
 	if (is_cpu_off(target_state)) {
@@ -169,8 +163,8 @@ static void qti_cpu_standby(plat_local_state_t cpu_state)
 
 static void qti_node_power_off(const psci_power_state_t *target_state)
 {
-	qtiseclib_psci_node_power_off((const uint8_t *)
-				      target_state->pwr_domain_state);
+	qtiseclib_psci_node_power_off(
+		(const uint8_t *)target_state->pwr_domain_state);
 	if (is_cpu_off(target_state)) {
 		plat_qti_gic_cpuif_disable();
 		qti_set_cpupwrctlr_val();
@@ -179,8 +173,8 @@ static void qti_node_power_off(const psci_power_state_t *target_state)
 
 static void qti_node_suspend(const psci_power_state_t *target_state)
 {
-	qtiseclib_psci_node_suspend((const uint8_t *)target_state->
-				    pwr_domain_state);
+	qtiseclib_psci_node_suspend(
+		(const uint8_t *)target_state->pwr_domain_state);
 	if (is_cpu_off(target_state)) {
 		plat_qti_gic_cpuif_disable();
 		qti_set_cpupwrctlr_val();
@@ -190,7 +184,7 @@ static void qti_node_suspend(const psci_power_state_t *target_state)
 static void qti_node_suspend_finish(const psci_power_state_t *target_state)
 {
 	const uint8_t *pwr_states =
-	    (const uint8_t *)target_state->pwr_domain_state;
+		(const uint8_t *)target_state->pwr_domain_state;
 	qtiseclib_psci_node_suspend_finish(pwr_states);
 	if (is_cpu_off(target_state)) {
 		plat_qti_gic_cpuif_enable();
@@ -199,7 +193,6 @@ static void qti_node_suspend_finish(const psci_power_state_t *target_state)
 
 __dead2 void qti_domain_power_down_wfi(const psci_power_state_t *target_state)
 {
-
 	/* For now just do WFI - add any target specific handling if needed */
 	psci_power_down_wfi();
 	/* We should never reach here */
@@ -242,8 +235,8 @@ void qti_get_sys_suspend_power_state(psci_power_state_t *req_state)
 
 	/* Parse the State ID and populate the state info parameter */
 	while (state_id) {
-		req_state->pwr_domain_state[i++] =
-		    state_id & QTI_LOCAL_PSTATE_MASK;
+		req_state->pwr_domain_state[i++] = state_id &
+						   QTI_LOCAL_PSTATE_MASK;
 		state_id >>= QTI_LOCAL_PSTATE_WIDTH;
 	}
 }

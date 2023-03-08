@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,9 +7,9 @@
 #include <common/debug.h>
 #include <drivers/arm/pl061_gpio.h>
 #include <drivers/delay_timer.h>
+#include <hi3660.h>
 #include <lib/mmio.h>
 
-#include <hi3660.h>
 #include "hikey960_private.h"
 
 void hikey960_clk_init(void)

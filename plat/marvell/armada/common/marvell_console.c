@@ -1,16 +1,15 @@
 /*
- * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <common/debug.h>
 #include <drivers/console.h>
-
 #include <plat_marvell.h>
+
+#include <platform_def.h>
 
 #ifdef PLAT_a3700
 #include <drivers/marvell/uart/a3700_console.h>
@@ -31,11 +30,10 @@ static console_t marvell_runtime_console;
 /* Initialize the console to provide early debug support */
 void marvell_console_boot_init(void)
 {
-	int rc =
-	console_marvell_register(PLAT_MARVELL_UART_BASE,
-				 PLAT_MARVELL_UART_CLK_IN_HZ,
-				 MARVELL_CONSOLE_BAUDRATE,
-				 &marvell_boot_console);
+	int rc = console_marvell_register(PLAT_MARVELL_UART_BASE,
+					  PLAT_MARVELL_UART_CLK_IN_HZ,
+					  MARVELL_CONSOLE_BAUDRATE,
+					  &marvell_boot_console);
 	if (rc == 0) {
 		/*
 		 * The crash console doesn't use the multi console API, it uses
@@ -58,11 +56,10 @@ void marvell_console_boot_end(void)
 /* Initialize the runtime console */
 void marvell_console_runtime_init(void)
 {
-	int rc =
-	console_marvell_register(PLAT_MARVELL_UART_BASE,
-				 PLAT_MARVELL_UART_CLK_IN_HZ,
-				 MARVELL_CONSOLE_BAUDRATE,
-				 &marvell_runtime_console);
+	int rc = console_marvell_register(PLAT_MARVELL_UART_BASE,
+					  PLAT_MARVELL_UART_CLK_IN_HZ,
+					  MARVELL_CONSOLE_BAUDRATE,
+					  &marvell_runtime_console);
 	if (rc == 0)
 		panic();
 

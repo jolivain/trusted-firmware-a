@@ -18,10 +18,9 @@
  ******************************************************************************/
 static bool tee_validate_header(optee_header_t *header)
 {
-	if ((header->magic == TEE_MAGIC_NUM_OPTEE) &&
-		(header->version == 2u) &&
-		(header->nb_images > 0u) &&
-		(header->nb_images <= OPTEE_MAX_NUM_IMAGES)) {
+	if ((header->magic == TEE_MAGIC_NUM_OPTEE) && (header->version == 2u) &&
+	    (header->nb_images > 0u) &&
+	    (header->nb_images <= OPTEE_MAX_NUM_IMAGES)) {
 		return true;
 	}
 
@@ -37,14 +36,13 @@ bool optee_header_is_valid(uintptr_t header_base)
  * Parse the OPTEE image
  * Return 0 on success or a negative error code otherwise.
  ******************************************************************************/
-static int parse_optee_image(image_info_t *image_info,
-		optee_image_t *image)
+static int parse_optee_image(image_info_t *image_info, optee_image_t *image)
 {
 	uintptr_t init_load_addr, free_end, requested_end;
 	size_t init_size;
 
 	init_load_addr = ((uint64_t)image->load_addr_hi << 32) |
-					image->load_addr_lo;
+			 image->load_addr_lo;
 	init_size = image->size;
 
 	/*
@@ -72,13 +70,13 @@ static int parse_optee_image(image_info_t *image_info,
 	 * space for OPTEE.
 	 */
 	if (!((init_load_addr >= image_info->image_base) &&
-			(requested_end <= free_end))) {
+	      (requested_end <= free_end))) {
 		WARN("The load address in optee header %p - %p is not in reserved area: %p - %p.\n",
-				(void *)init_load_addr,
-				(void *)(init_load_addr + init_size),
-				(void *)image_info->image_base,
-				(void *)(image_info->image_base +
-					image_info->image_max_size));
+		     (void *)init_load_addr,
+		     (void *)(init_load_addr + init_size),
+		     (void *)image_info->image_base,
+		     (void *)(image_info->image_base +
+			      image_info->image_max_size));
 		return -1;
 	}
 
@@ -102,8 +100,8 @@ static int parse_optee_image(image_info_t *image_info,
  * Return 0 on success or a negative error code otherwise.
  ******************************************************************************/
 int parse_optee_header(entry_point_info_t *header_ep,
-		image_info_t *pager_image_info,
-		image_info_t *paged_image_info)
+		       image_info_t *pager_image_info,
+		       image_info_t *paged_image_info)
 
 {
 	optee_header_t *header;
@@ -153,11 +151,11 @@ int parse_optee_header(entry_point_info_t *header_ep,
 	/* Parse OPTEE image */
 	for (num = 0U; num < header->nb_images; num++) {
 		if (header->optee_image_list[num].image_id ==
-				OPTEE_PAGER_IMAGE_ID) {
+		    OPTEE_PAGER_IMAGE_ID) {
 			ret = parse_optee_image(pager_image_info,
-				&header->optee_image_list[num]);
+						&header->optee_image_list[num]);
 		} else if (header->optee_image_list[num].image_id ==
-				OPTEE_PAGED_IMAGE_ID) {
+			   OPTEE_PAGED_IMAGE_ID) {
 			if (paged_image_info == NULL) {
 				if (header->optee_image_list[num].size != 0U) {
 					ERROR("Paged image is not supported\n");
@@ -166,8 +164,9 @@ int parse_optee_header(entry_point_info_t *header_ep,
 
 				continue;
 			} else {
-				ret = parse_optee_image(paged_image_info,
-							&header->optee_image_list[num]);
+				ret = parse_optee_image(
+					paged_image_info,
+					&header->optee_image_list[num]);
 			}
 		} else {
 			ERROR("Parse optee image failed.\n");
@@ -183,7 +182,7 @@ int parse_optee_header(entry_point_info_t *header_ep,
 	 * header image is parsed, it will be unuseful, and the actual
 	 * execution image after BL31 is pager image.
 	 */
-	header_ep->pc =	pager_image_info->image_base;
+	header_ep->pc = pager_image_info->image_base;
 
 	/*
 	 * The paged load address and size are populated in

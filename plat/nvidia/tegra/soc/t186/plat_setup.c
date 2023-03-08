@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -23,8 +23,6 @@
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/utils.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include <plat/common/platform.h>
-
 #include <mce.h>
 #include <memctrl.h>
 #include <smmu.h>
@@ -32,14 +30,16 @@
 #include <tegra_platform.h>
 #include <tegra_private.h>
 
+#include <plat/common/platform.h>
+
 extern void memcpy16(void *dest, const void *src, unsigned int length);
 
 /*******************************************************************************
  * Tegra186 CPU numbers in cluster #0
  *******************************************************************************
  */
-#define TEGRA186_CLUSTER0_CORE2		2U
-#define TEGRA186_CLUSTER0_CORE3		3U
+#define TEGRA186_CLUSTER0_CORE2 2U
+#define TEGRA186_CLUSTER0_CORE3 3U
 
 /*******************************************************************************
  * The Tegra power domain tree has a single system level power domain i.e. a
@@ -104,17 +104,20 @@ static const mmap_region_t tegra_mmap[] = {
 			MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(TEGRA_MMCRAB_BASE, 0x60000U, /* 384KB */
 			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(TEGRA_ARM_ACTMON_CTR_BASE, 0x20000U, /* 128KB - ARM/Denver */
+	MAP_REGION_FLAT(TEGRA_ARM_ACTMON_CTR_BASE,
+			0x20000U, /* 128KB - ARM/Denver */
 			MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(TEGRA_SMMU0_BASE, 0x1000000U, /* 64KB */
 			MT_DEVICE | MT_RW | MT_SECURE),
 	MAP_REGION_FLAT(TEGRA_HSP_DBELL_BASE, 0x10000U, /* 64KB */
 			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(TEGRA_BPMP_IPC_TX_PHYS_BASE, TEGRA_BPMP_IPC_CH_MAP_SIZE, /* 4KB */
+	MAP_REGION_FLAT(TEGRA_BPMP_IPC_TX_PHYS_BASE,
+			TEGRA_BPMP_IPC_CH_MAP_SIZE, /* 4KB */
 			MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(TEGRA_BPMP_IPC_RX_PHYS_BASE, TEGRA_BPMP_IPC_CH_MAP_SIZE, /* 4KB */
+	MAP_REGION_FLAT(TEGRA_BPMP_IPC_RX_PHYS_BASE,
+			TEGRA_BPMP_IPC_CH_MAP_SIZE, /* 4KB */
 			MT_DEVICE | MT_RW | MT_SECURE),
-	{0}
+	{ 0 }
 };
 
 /*******************************************************************************
@@ -137,13 +140,13 @@ uint32_t plat_get_syscnt_freq2(void)
 /*******************************************************************************
  * Maximum supported UART controllers
  ******************************************************************************/
-#define TEGRA186_MAX_UART_PORTS		7
+#define TEGRA186_MAX_UART_PORTS 7
 
 /*******************************************************************************
  * This variable holds the UART port base addresses
  ******************************************************************************/
 static uint32_t tegra186_uart_addresses[TEGRA186_MAX_UART_PORTS + 1] = {
-	0,	/* undefined - treated as an error case */
+	0, /* undefined - treated as an error case */
 	TEGRA_UARTA_BASE,
 	TEGRA_UARTB_BASE,
 	TEGRA_UARTC_BASE,
@@ -176,7 +179,8 @@ void plat_enable_console(int32_t id)
 					     TEGRA_CONSOLE_BAUDRATE,
 					     &uart_console);
 		console_set_scope(&uart_console, CONSOLE_FLAG_BOOT |
-			CONSOLE_FLAG_RUNTIME | CONSOLE_FLAG_CRASH);
+							 CONSOLE_FLAG_RUNTIME |
+							 CONSOLE_FLAG_CRASH);
 	}
 }
 
@@ -199,7 +203,7 @@ void plat_early_platform_setup(void)
 	 * Do initial security configuration to allow DRAM/device access.
 	 */
 	tegra_memctrl_tzdram_setup(plat_params->tzdram_base,
-			(uint32_t)plat_params->tzdram_size);
+				   (uint32_t)plat_params->tzdram_size);
 
 	impl = (read_midr() >> MIDR_IMPL_SHIFT) & (uint64_t)MIDR_IMPL_MASK;
 
@@ -209,7 +213,6 @@ void plat_early_platform_setup(void)
 	 */
 	if ((plat_params->l2_ecc_parity_prot_dis != 1) &&
 	    (impl != (uint64_t)DENVER_IMPL)) {
-
 		val = read_l2ctlr_el1();
 		val |= CORTEX_A57_L2_ECC_PARITY_PROTECTION_BIT;
 		write_l2ctlr_el1(val);
@@ -234,11 +237,11 @@ void plat_late_platform_setup(void)
 /* Secure IRQs for Tegra186 */
 static const interrupt_prop_t tegra186_interrupt_props[] = {
 	INTR_PROP_DESC(TEGRA_SDEI_SGI_PRIVATE, PLAT_SDEI_CRITICAL_PRI,
-			GICV2_INTR_GROUP0, GIC_INTR_CFG_EDGE),
+		       GICV2_INTR_GROUP0, GIC_INTR_CFG_EDGE),
 	INTR_PROP_DESC(TEGRA186_TOP_WDT_IRQ, PLAT_TEGRA_WDT_PRIO,
-			GICV2_INTR_GROUP0, GIC_INTR_CFG_EDGE),
+		       GICV2_INTR_GROUP0, GIC_INTR_CFG_EDGE),
 	INTR_PROP_DESC(TEGRA186_AON_WDT_IRQ, PLAT_TEGRA_WDT_PRIO,
-			GICV2_INTR_GROUP0, GIC_INTR_CFG_EDGE)
+		       GICV2_INTR_GROUP0, GIC_INTR_CFG_EDGE)
 };
 
 /*******************************************************************************
@@ -246,7 +249,8 @@ static const interrupt_prop_t tegra186_interrupt_props[] = {
  ******************************************************************************/
 void plat_gic_setup(void)
 {
-	tegra_gic_setup(tegra186_interrupt_props, ARRAY_SIZE(tegra186_interrupt_props));
+	tegra_gic_setup(tegra186_interrupt_props,
+			ARRAY_SIZE(tegra186_interrupt_props));
 	tegra_gic_init();
 
 	/*
@@ -291,8 +295,10 @@ int32_t plat_core_pos_by_mpidr(u_register_t mpidr)
 	u_register_t cluster_id, cpu_id, pos;
 	int32_t ret;
 
-	cluster_id = (mpidr >> (u_register_t)MPIDR_AFF1_SHIFT) & (u_register_t)MPIDR_AFFLVL_MASK;
-	cpu_id = (mpidr >> (u_register_t)MPIDR_AFF0_SHIFT) & (u_register_t)MPIDR_AFFLVL_MASK;
+	cluster_id = (mpidr >> (u_register_t)MPIDR_AFF1_SHIFT) &
+		     (u_register_t)MPIDR_AFFLVL_MASK;
+	cpu_id = (mpidr >> (u_register_t)MPIDR_AFF0_SHIFT) &
+		 (u_register_t)MPIDR_AFFLVL_MASK;
 
 	/*
 	 * Validate cluster_id by checking whether it represents
@@ -308,7 +314,8 @@ int32_t plat_core_pos_by_mpidr(u_register_t mpidr)
 		pos = cpu_id + (cluster_id << 2U);
 
 		/* check for non-existent CPUs */
-		if ((pos == TEGRA186_CLUSTER0_CORE2) || (pos == TEGRA186_CLUSTER0_CORE3)) {
+		if ((pos == TEGRA186_CLUSTER0_CORE2) ||
+		    (pos == TEGRA186_CLUSTER0_CORE3)) {
 			ret = PSCI_E_NOT_PRESENT;
 		} else {
 			ret = (int32_t)pos;
@@ -323,18 +330,20 @@ int32_t plat_core_pos_by_mpidr(u_register_t mpidr)
  ******************************************************************************/
 void plat_relocate_bl32_image(const image_info_t *bl32_img_info)
 {
-	const plat_params_from_bl2_t *plat_bl31_params = plat_get_bl31_plat_params();
-	const entry_point_info_t *bl32_ep_info = bl31_plat_get_next_image_ep_info(SECURE);
+	const plat_params_from_bl2_t *plat_bl31_params =
+		plat_get_bl31_plat_params();
+	const entry_point_info_t *bl32_ep_info =
+		bl31_plat_get_next_image_ep_info(SECURE);
 	uint64_t tzdram_start, tzdram_end, bl32_start, bl32_end;
 
 	if ((bl32_img_info != NULL) && (bl32_ep_info != NULL)) {
-
 		/* Relocate BL32 if it resides outside of the TZDRAM */
 		tzdram_start = plat_bl31_params->tzdram_base;
 		tzdram_end = plat_bl31_params->tzdram_base +
-				plat_bl31_params->tzdram_size;
+			     plat_bl31_params->tzdram_size;
 		bl32_start = bl32_img_info->image_base;
-		bl32_end = bl32_img_info->image_base + bl32_img_info->image_size;
+		bl32_end =
+			bl32_img_info->image_base + bl32_img_info->image_size;
 
 		assert(tzdram_end > tzdram_start);
 		assert(bl32_end > bl32_start);
@@ -343,12 +352,11 @@ void plat_relocate_bl32_image(const image_info_t *bl32_img_info)
 
 		/* relocate BL32 */
 		if ((bl32_start >= tzdram_end) || (bl32_end <= tzdram_start)) {
-
 			INFO("Relocate BL32 to TZDRAM\n");
 
 			(void)memcpy16((void *)(uintptr_t)bl32_ep_info->pc,
-				(void *)(uintptr_t)bl32_start,
-				bl32_img_info->image_size);
+				       (void *)(uintptr_t)bl32_start,
+				       bl32_img_info->image_size);
 
 			/* clean up non-secure intermediate buffer */
 			zeromem((void *)(uintptr_t)bl32_start,

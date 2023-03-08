@@ -11,15 +11,13 @@
 #include <common/runtime_svc.h>
 #include <drivers/scmi-msg.h>
 #include <lib/psci/psci.h>
-#include <tools_share/uuid.h>
-
 #include <stm32mp1_smc.h>
+#include <tools_share/uuid.h>
 
 #include "bsec_svc.h"
 
 /* STM32 SiP Service UUID */
-DEFINE_SVC_UUID2(stm32_sip_svc_uid,
-		 0xa778aa50, 0xf49b, 0x144a, 0x8a, 0x5e,
+DEFINE_SVC_UUID2(stm32_sip_svc_uid, 0xa778aa50, 0xf49b, 0x144a, 0x8a, 0x5e,
 		 0x26, 0x4d, 0x59, 0x94, 0xc2, 0x14);
 
 /* Setup STM32MP1 Standard Services */
@@ -91,10 +89,5 @@ static uintptr_t stm32mp1_svc_smc_handler(uint32_t smc_fid, u_register_t x1,
 }
 
 /* Register Standard Service Calls as runtime service */
-DECLARE_RT_SVC(stm32mp1_sip_svc,
-	       OEN_SIP_START,
-	       OEN_SIP_END,
-	       SMC_TYPE_FAST,
-	       stm32mp1_svc_setup,
-	       stm32mp1_svc_smc_handler
-);
+DECLARE_RT_SVC(stm32mp1_sip_svc, OEN_SIP_START, OEN_SIP_END, SMC_TYPE_FAST,
+	       stm32mp1_svc_setup, stm32mp1_svc_smc_handler);

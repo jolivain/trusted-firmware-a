@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,21 +11,17 @@
 #include <drivers/arm/cci.h>
 #include <drivers/arm/gicv2.h>
 #include <drivers/arm/sp804_delay_timer.h>
-#include <lib/mmio.h>
-#include <lib/psci/psci.h>
-
 #include <hi6220.h>
 #include <hikey_def.h>
 #include <hisi_ipc.h>
 #include <hisi_pwrc.h>
 #include <hisi_sram_map.h>
+#include <lib/mmio.h>
+#include <lib/psci/psci.h>
 
-#define CORE_PWR_STATE(state) \
-	((state)->pwr_domain_state[MPIDR_AFFLVL0])
-#define CLUSTER_PWR_STATE(state) \
-	((state)->pwr_domain_state[MPIDR_AFFLVL1])
-#define SYSTEM_PWR_STATE(state) \
-	((state)->pwr_domain_state[PLAT_MAX_PWR_LVL])
+#define CORE_PWR_STATE(state) ((state)->pwr_domain_state[MPIDR_AFFLVL0])
+#define CLUSTER_PWR_STATE(state) ((state)->pwr_domain_state[MPIDR_AFFLVL1])
+#define SYSTEM_PWR_STATE(state) ((state)->pwr_domain_state[PLAT_MAX_PWR_LVL])
 
 static uintptr_t hikey_sec_entrypoint;
 
@@ -55,7 +51,6 @@ static void hikey_pwr_domain_on_finish(const psci_power_state_t *target_state)
 	mpidr = read_mpidr();
 	cluster = MPIDR_AFFLVL1_VAL(mpidr);
 	cpu = MPIDR_AFFLVL0_VAL(mpidr);
-
 
 	/*
 	 * Enable CCI coherency for this cluster.
@@ -98,14 +93,13 @@ static void hikey_pwr_domain_suspend(const psci_power_state_t *target_state)
 {
 	u_register_t mpidr = read_mpidr_el1();
 	unsigned int cpu = mpidr & MPIDR_CPU_MASK;
-	unsigned int cluster =
-		(mpidr & MPIDR_CLUSTER_MASK) >> MPIDR_AFFINITY_BITS;
+	unsigned int cluster = (mpidr & MPIDR_CLUSTER_MASK) >>
+			       MPIDR_AFFINITY_BITS;
 
 	if (CORE_PWR_STATE(target_state) != PLAT_MAX_OFF_STATE)
 		return;
 
 	if (CORE_PWR_STATE(target_state) == PLAT_MAX_OFF_STATE) {
-
 		/* Program the jump address for the target cpu */
 		hisi_pwrc_set_core_bx_addr(cpu, cluster, hikey_sec_entrypoint);
 
@@ -130,7 +124,8 @@ static void hikey_pwr_domain_suspend(const psci_power_state_t *target_state)
 	}
 }
 
-static void hikey_pwr_domain_suspend_finish(const psci_power_state_t *target_state)
+static void
+hikey_pwr_domain_suspend_finish(const psci_power_state_t *target_state)
 {
 	unsigned long mpidr;
 	unsigned int cluster, cpu;
@@ -174,8 +169,8 @@ static void __dead2 hikey_system_off(void)
 
 	/* Pull down GPIO_0_0 to trigger PMIC shutdown */
 	mmio_write_32(0xF8001810, 0x2); /* Pinmux */
-	mmio_write_8(0xF8011400, 1);	/* Pin direction */
-	mmio_write_8(0xF8011004, 0);	/* Pin output value */
+	mmio_write_8(0xF8011400, 1); /* Pin direction */
+	mmio_write_8(0xF8011004, 0); /* Pin output value */
 
 	/* Wait for 2s to power off system by PMIC */
 	sp804_timer_init(SP804_TIMER0_BASE, 10, 192);
@@ -232,12 +227,10 @@ int hikey_validate_power_state(unsigned int power_state,
 		if (pwr_lvl != MPIDR_AFFLVL0)
 			return PSCI_E_INVALID_PARAMS;
 
-		req_state->pwr_domain_state[MPIDR_AFFLVL0] =
-					PLAT_MAX_RET_STATE;
+		req_state->pwr_domain_state[MPIDR_AFFLVL0] = PLAT_MAX_RET_STATE;
 	} else {
 		for (i = MPIDR_AFFLVL0; i <= pwr_lvl; i++)
-			req_state->pwr_domain_state[i] =
-					PLAT_MAX_OFF_STATE;
+			req_state->pwr_domain_state[i] = PLAT_MAX_OFF_STATE;
 	}
 
 	/*
@@ -262,17 +255,17 @@ static int hikey_validate_ns_entrypoint(uintptr_t entrypoint)
 }
 
 static const plat_psci_ops_t hikey_psci_ops = {
-	.cpu_standby			= NULL,
-	.pwr_domain_on			= hikey_pwr_domain_on,
-	.pwr_domain_on_finish		= hikey_pwr_domain_on_finish,
-	.pwr_domain_off			= hikey_pwr_domain_off,
-	.pwr_domain_suspend		= hikey_pwr_domain_suspend,
-	.pwr_domain_suspend_finish	= hikey_pwr_domain_suspend_finish,
-	.system_off			= hikey_system_off,
-	.system_reset			= hikey_system_reset,
-	.validate_power_state		= hikey_validate_power_state,
-	.validate_ns_entrypoint		= hikey_validate_ns_entrypoint,
-	.get_sys_suspend_power_state	= hikey_get_sys_suspend_power_state,
+	.cpu_standby = NULL,
+	.pwr_domain_on = hikey_pwr_domain_on,
+	.pwr_domain_on_finish = hikey_pwr_domain_on_finish,
+	.pwr_domain_off = hikey_pwr_domain_off,
+	.pwr_domain_suspend = hikey_pwr_domain_suspend,
+	.pwr_domain_suspend_finish = hikey_pwr_domain_suspend_finish,
+	.system_off = hikey_system_off,
+	.system_reset = hikey_system_reset,
+	.validate_power_state = hikey_validate_power_state,
+	.validate_ns_entrypoint = hikey_validate_ns_entrypoint,
+	.get_sys_suspend_power_state = hikey_get_sys_suspend_power_state,
 };
 
 int plat_setup_psci_ops(uintptr_t sec_entrypoint,

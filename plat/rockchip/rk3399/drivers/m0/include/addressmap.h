@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,6 +10,6 @@
 #include <addressmap_shared.h>
 
 /* Registers base address for M0 */
-#define MMIO_BASE			0x40000000
+#define MMIO_BASE 0x40000000
 
 #endif /* ADDRESSMAP_H */

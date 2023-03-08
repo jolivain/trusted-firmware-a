@@ -4,19 +4,19 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 /*
- * Portions copyright (c) 2020, ARM Limited and Contributors.
+ * Portions copyright (c) 2020-2023, ARM Limited and Contributors.
  * All rights reserved.
  */
 
 #ifndef STDINT__H
 #define STDINT__H
 
-#define INT64_MAX  LONG_MAX
-#define INT64_MIN  LONG_MIN
+#define INT64_MAX LONG_MAX
+#define INT64_MIN LONG_MIN
 #define UINT64_MAX ULONG_MAX
 
-#define INT64_C(x) x ## L
-#define UINT64_C(x) x ## UL
+#define INT64_C(x) x##L
+#define UINT64_C(x) x##UL
 
 typedef long int64_t;
 typedef unsigned long uint64_t;

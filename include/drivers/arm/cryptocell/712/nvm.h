@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,8 +8,7 @@
 #define _NVM__H
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
 #include "cc_crypto_boot_defs.h"
@@ -46,7 +45,10 @@ CCError_t NVM_GetLCS(unsigned long hwBaseAddress, uint32_t *lcs_ptr);
  * @return CCError_t - On success the value CC_OK is returned, and on failure   -a value from NVM_error.h
  */
 
-CCError_t NVM_ReadHASHPubKey(unsigned long hwBaseAddress, CCSbPubKeyIndexType_t pubKeyIndex, CCHashResult_t PubKeyHASH, uint32_t hashSizeInWords);
+CCError_t NVM_ReadHASHPubKey(unsigned long hwBaseAddress,
+			     CCSbPubKeyIndexType_t pubKeyIndex,
+			     CCHashResult_t PubKeyHASH,
+			     uint32_t hashSizeInWords);
 
 #ifdef __cplusplus
 }

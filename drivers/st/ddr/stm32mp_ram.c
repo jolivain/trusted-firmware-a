@@ -39,19 +39,23 @@ int stm32mp_ddr_dt_get_info(void *fdt, int node, struct stm32mp_ddr_info *info)
 	return 0;
 }
 
-int stm32mp_ddr_dt_get_param(void *fdt, int node, const struct stm32mp_ddr_param *param,
+int stm32mp_ddr_dt_get_param(void *fdt, int node,
+			     const struct stm32mp_ddr_param *param,
 			     uint32_t param_size, uintptr_t config)
 {
 	int ret;
 	uint32_t idx;
 
 	for (idx = 0U; idx < param_size; idx++) {
-		ret = fdt_read_uint32_array(fdt, node, param[idx].name, param[idx].size,
-					    (void *)(config + param[idx].offset));
+		ret = fdt_read_uint32_array(
+			fdt, node, param[idx].name, param[idx].size,
+			(void *)(config + param[idx].offset));
 
-		VERBOSE("%s: %s[0x%x] = %d\n", __func__, param[idx].name, param[idx].size, ret);
+		VERBOSE("%s: %s[0x%x] = %d\n", __func__, param[idx].name,
+			param[idx].size, ret);
 		if (ret != 0) {
-			ERROR("%s: Cannot read %s, error=%d\n", __func__, param[idx].name, ret);
+			ERROR("%s: Cannot read %s, error=%d\n", __func__,
+			      param[idx].name, ret);
 			return -EINVAL;
 		}
 	}

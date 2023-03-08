@@ -20,35 +20,33 @@
 #include <platform_def.h>
 
 /* UART time-out value */
-#define STM32_UART_TIMEOUT_US	20000U
+#define STM32_UART_TIMEOUT_US 20000U
 
 /* Mask to clear ALL the configuration registers */
 
-#define STM32_UART_CR1_FIELDS \
-		(USART_CR1_M | USART_CR1_PCE | USART_CR1_PS | USART_CR1_TE | \
-		 USART_CR1_RE | USART_CR1_OVER8 | USART_CR1_FIFOEN)
+#define STM32_UART_CR1_FIELDS                                        \
+	(USART_CR1_M | USART_CR1_PCE | USART_CR1_PS | USART_CR1_TE | \
+	 USART_CR1_RE | USART_CR1_OVER8 | USART_CR1_FIFOEN)
 
-#define STM32_UART_CR2_FIELDS \
-		(USART_CR2_SLVEN | USART_CR2_DIS_NSS | USART_CR2_ADDM7 | \
-		 USART_CR2_LBDL | USART_CR2_LBDIE | USART_CR2_LBCL | \
-		 USART_CR2_CPHA | USART_CR2_CPOL | USART_CR2_CLKEN | \
-		 USART_CR2_STOP | USART_CR2_LINEN | USART_CR2_SWAP | \
-		 USART_CR2_RXINV | USART_CR2_TXINV | USART_CR2_DATAINV | \
-		 USART_CR2_MSBFIRST | USART_CR2_ABREN | USART_CR2_ABRMODE | \
-		 USART_CR2_RTOEN | USART_CR2_ADD)
+#define STM32_UART_CR2_FIELDS                                                  \
+	(USART_CR2_SLVEN | USART_CR2_DIS_NSS | USART_CR2_ADDM7 |               \
+	 USART_CR2_LBDL | USART_CR2_LBDIE | USART_CR2_LBCL | USART_CR2_CPHA |  \
+	 USART_CR2_CPOL | USART_CR2_CLKEN | USART_CR2_STOP | USART_CR2_LINEN | \
+	 USART_CR2_SWAP | USART_CR2_RXINV | USART_CR2_TXINV |                  \
+	 USART_CR2_DATAINV | USART_CR2_MSBFIRST | USART_CR2_ABREN |            \
+	 USART_CR2_ABRMODE | USART_CR2_RTOEN | USART_CR2_ADD)
 
-#define STM32_UART_CR3_FIELDS \
-		(USART_CR3_EIE | USART_CR3_IREN | USART_CR3_IRLP | \
-		 USART_CR3_HDSEL | USART_CR3_NACK | USART_CR3_SCEN | \
-		 USART_CR3_DMAR | USART_CR3_DMAT | USART_CR3_RTSE | \
-		 USART_CR3_CTSE | USART_CR3_CTSIE | USART_CR3_ONEBIT | \
-		 USART_CR3_OVRDIS | USART_CR3_DDRE | USART_CR3_DEM | \
-		 USART_CR3_DEP | USART_CR3_SCARCNT | USART_CR3_WUS | \
-		 USART_CR3_WUFIE | USART_CR3_TXFTIE | USART_CR3_TCBGTIE | \
-		 USART_CR3_RXFTCFG | USART_CR3_RXFTIE | USART_CR3_TXFTCFG)
+#define STM32_UART_CR3_FIELDS                                                \
+	(USART_CR3_EIE | USART_CR3_IREN | USART_CR3_IRLP | USART_CR3_HDSEL | \
+	 USART_CR3_NACK | USART_CR3_SCEN | USART_CR3_DMAR | USART_CR3_DMAT | \
+	 USART_CR3_RTSE | USART_CR3_CTSE | USART_CR3_CTSIE |                 \
+	 USART_CR3_ONEBIT | USART_CR3_OVRDIS | USART_CR3_DDRE |              \
+	 USART_CR3_DEM | USART_CR3_DEP | USART_CR3_SCARCNT | USART_CR3_WUS | \
+	 USART_CR3_WUFIE | USART_CR3_TXFTIE | USART_CR3_TCBGTIE |            \
+	 USART_CR3_RXFTCFG | USART_CR3_RXFTIE | USART_CR3_TXFTCFG)
 
-#define STM32_UART_ISR_ERRORS	 \
-		(USART_ISR_ORE | USART_ISR_NE |  USART_ISR_FE | USART_ISR_PE)
+#define STM32_UART_ISR_ERRORS \
+	(USART_ISR_ORE | USART_ISR_NE | USART_ISR_FE | USART_ISR_PE)
 
 static const uint16_t presc_table[STM32_UART_PRESCALER_NB] = {
 	1U, 2U, 4U, 6U, 8U, 10U, 12U, 16U, 32U, 64U, 128U, 256U
@@ -61,14 +59,12 @@ static const uint16_t presc_table[STM32_UART_PRESCALER_NB] = {
  * @param  prescaler: UART prescaler value.
  * @retval Division result.
  */
-static uint32_t uart_div_sampling8(unsigned long clockfreq,
-				   uint32_t baud_rate,
+static uint32_t uart_div_sampling8(unsigned long clockfreq, uint32_t baud_rate,
 				   uint32_t prescaler)
 {
 	uint32_t scaled_freq = clockfreq / presc_table[prescaler];
 
 	return ((scaled_freq * 2) + (baud_rate / 2)) / baud_rate;
-
 }
 
 /* @brief  BRR division operation to set BRR register in 16-bit oversampling
@@ -78,14 +74,12 @@ static uint32_t uart_div_sampling8(unsigned long clockfreq,
  * @param  prescaler: UART prescaler value.
  * @retval Division result.
  */
-static uint32_t uart_div_sampling16(unsigned long clockfreq,
-				    uint32_t baud_rate,
+static uint32_t uart_div_sampling16(unsigned long clockfreq, uint32_t baud_rate,
 				    uint32_t prescaler)
 {
 	uint32_t scaled_freq = clockfreq / presc_table[prescaler];
 
 	return (scaled_freq + (baud_rate / 2)) / baud_rate;
-
 }
 
 /*
@@ -120,16 +114,14 @@ static int uart_set_config(struct stm32_uart_handle_s *huart,
 
 	int_div = clockfreq / init->baud_rate;
 	if (int_div < 16U) {
-		uint32_t usartdiv = uart_div_sampling8(clockfreq,
-						       init->baud_rate,
-						       init->prescaler);
+		uint32_t usartdiv = uart_div_sampling8(
+			clockfreq, init->baud_rate, init->prescaler);
 
 		brrtemp = (usartdiv & USART_BRR_DIV_MANTISSA) |
 			  ((usartdiv & USART_BRR_DIV_FRACTION) >> 1);
 		over_sampling = USART_CR1_OVER8;
 	} else {
-		brrtemp = uart_div_sampling16(clockfreq,
-					      init->baud_rate,
+		brrtemp = uart_div_sampling16(clockfreq, init->baud_rate,
 					      init->prescaler) &
 			  (USART_BRR_DIV_FRACTION | USART_BRR_DIV_MANTISSA);
 		over_sampling = 0x0U;
@@ -145,12 +137,10 @@ static int uart_set_config(struct stm32_uart_handle_s *huart,
 	 * - set TE and RE bits according to init->mode value,
 	 * - set OVER8 bit according baudrate and clock.
 	 */
-	tmpreg = init->word_length |
-		 init->parity |
-		 init->mode |
-		 over_sampling |
+	tmpreg = init->word_length | init->parity | init->mode | over_sampling |
 		 init->fifo_mode;
-	mmio_clrsetbits_32(huart->base + USART_CR1, STM32_UART_CR1_FIELDS, tmpreg);
+	mmio_clrsetbits_32(huart->base + USART_CR1, STM32_UART_CR1_FIELDS,
+			   tmpreg);
 
 	/*
 	 * --------------------- USART CR2 Configuration ---------------------
@@ -174,11 +164,11 @@ static int uart_set_config(struct stm32_uart_handle_s *huart,
 	tmpreg = init->hw_flow_control | init->one_bit_sampling;
 
 	if (init->fifo_mode == USART_CR1_FIFOEN) {
-		tmpreg |= init->tx_fifo_threshold |
-			  init->rx_fifo_threshold;
+		tmpreg |= init->tx_fifo_threshold | init->rx_fifo_threshold;
 	}
 
-	mmio_clrsetbits_32(huart->base + USART_CR3, STM32_UART_CR3_FIELDS, tmpreg);
+	mmio_clrsetbits_32(huart->base + USART_CR3, STM32_UART_CR3_FIELDS,
+			   tmpreg);
 
 	/*
 	 * --------------------- USART PRESC Configuration -------------------
@@ -198,7 +188,8 @@ static int uart_set_config(struct stm32_uart_handle_s *huart,
  * @param  flag: Specifies the UART flag to check.
  * @retval UART status.
  */
-static int stm32_uart_wait_flag(struct stm32_uart_handle_s *huart, uint32_t flag)
+static int stm32_uart_wait_flag(struct stm32_uart_handle_s *huart,
+				uint32_t flag)
 {
 	uint64_t timeout_ref = timeout_init_us(STM32_UART_TIMEOUT_US);
 
@@ -221,7 +212,8 @@ static int stm32_uart_check_idle(struct stm32_uart_handle_s *huart)
 	int ret;
 
 	/* Check if the transmitter is enabled */
-	if ((mmio_read_32(huart->base + USART_CR1) & USART_CR1_TE) == USART_CR1_TE) {
+	if ((mmio_read_32(huart->base + USART_CR1) & USART_CR1_TE) ==
+	    USART_CR1_TE) {
 		ret = stm32_uart_wait_flag(huart, USART_ISR_TEACK);
 		if (ret != 0) {
 			return ret;
@@ -229,7 +221,8 @@ static int stm32_uart_check_idle(struct stm32_uart_handle_s *huart)
 	}
 
 	/* Check if the receiver is enabled */
-	if ((mmio_read_32(huart->base + USART_CR1) & USART_CR1_RE) == USART_CR1_RE) {
+	if ((mmio_read_32(huart->base + USART_CR1) & USART_CR1_RE) ==
+	    USART_CR1_RE) {
 		ret = stm32_uart_wait_flag(huart, USART_ISR_REACK);
 		if (ret != 0) {
 			return ret;
@@ -275,7 +268,8 @@ static unsigned int stm32_uart_rdr_mask(const struct stm32_uart_init_s *init)
  */
 static bool stm32_uart_error_detected(struct stm32_uart_handle_s *huart)
 {
-	return (mmio_read_32(huart->base + USART_ISR) & STM32_UART_ISR_ERRORS) != 0U;
+	return (mmio_read_32(huart->base + USART_ISR) &
+		STM32_UART_ISR_ERRORS) != 0U;
 }
 
 /*
@@ -302,8 +296,7 @@ void stm32_uart_stop(uintptr_t base)
  * @param  init: UART initialization parameter.
  * @retval UART status.
  */
-int stm32_uart_init(struct stm32_uart_handle_s *huart,
-		    uintptr_t base_addr,
+int stm32_uart_init(struct stm32_uart_handle_s *huart, uintptr_t base_addr,
 		    const struct stm32_uart_init_s *init)
 {
 	int ret;

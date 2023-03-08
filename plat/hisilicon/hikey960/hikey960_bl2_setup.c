@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,8 +7,6 @@
 #include <assert.h>
 #include <errno.h>
 #include <string.h>
-
-#include <platform_def.h>
 
 #include <arch_helpers.h>
 #include <common/bl_common.h>
@@ -21,15 +19,18 @@
 #include <drivers/partition/partition.h>
 #include <drivers/ufs.h>
 #include <lib/mmio.h>
+
+#include <platform_def.h>
 #ifdef SPD_opteed
 #include <lib/optee_utils.h>
 #endif
 
 #include <hi3660.h>
+
 #include "hikey960_def.h"
 #include "hikey960_private.h"
 
-#define BL2_RW_BASE		(BL_CODE_END)
+#define BL2_RW_BASE (BL_CODE_END)
 
 /* BL2 platform parameters passed to BL31 */
 static plat_params_from_bl2_t plat_params_from_bl2;
@@ -57,24 +58,23 @@ int plat_hikey960_bl2_handle_scp_bl2(image_info_t *scp_bl2_image_info)
 
 	INFO("BL2: Initiating SCP_BL2 transfer to SCP\n");
 
-	INFO("BL2: SCP_BL2: 0x%lx@0x%x\n",
-	     scp_bl2_image_info->image_base,
+	INFO("BL2: SCP_BL2: 0x%lx@0x%x\n", scp_bl2_image_info->image_base,
 	     scp_bl2_image_info->image_size);
 
 	buf = (int *)scp_bl2_image_info->image_base;
 
 	INFO("BL2: SCP_BL2 HEAD:\n");
 	for (i = 0; i < 64; i += 4)
-		INFO("BL2: SCP_BL2 0x%x 0x%x 0x%x 0x%x\n",
-			buf[i], buf[i+1], buf[i+2], buf[i+3]);
+		INFO("BL2: SCP_BL2 0x%x 0x%x 0x%x 0x%x\n", buf[i], buf[i + 1],
+		     buf[i + 2], buf[i + 3]);
 
 	buf = (int *)(scp_bl2_image_info->image_base +
 		      scp_bl2_image_info->image_size - 256);
 
 	INFO("BL2: SCP_BL2 TAIL:\n");
 	for (i = 0; i < 64; i += 4)
-		INFO("BL2: SCP_BL2 0x%x 0x%x 0x%x 0x%x\n",
-			buf[i], buf[i+1], buf[i+2], buf[i+3]);
+		INFO("BL2: SCP_BL2 0x%x 0x%x 0x%x 0x%x\n", buf[i], buf[i + 1],
+		     buf[i + 2], buf[i + 3]);
 
 	INFO("BL2: SCP_BL2 transferred to SCP\n");
 
@@ -108,8 +108,7 @@ static void hikey960_ufs_reset(void)
 	mmio_setbits_32(UFS_SYS_PSW_POWER_CTRL_REG, BIT_UFS_PSW_MTCMOS_EN);
 	mdelay(1);
 	mmio_setbits_32(UFS_SYS_HC_LP_CTRL_REG, BIT_SYSCTRL_PWR_READY);
-	mmio_write_32(UFS_SYS_UFS_DEVICE_RESET_CTRL_REG,
-		      MASK_UFS_DEVICE_RESET);
+	mmio_write_32(UFS_SYS_UFS_DEVICE_RESET_CTRL_REG, MASK_UFS_DEVICE_RESET);
 	/* clear SC_DIV_UFS_PERIBUS */
 	mask = SC_DIV_UFS_PERIBUS << 16;
 	mmio_write_32(CRG_CLKDIV17_REG, mask);
@@ -136,8 +135,7 @@ static void hikey960_ufs_reset(void)
 	mmio_write_32(UFS_SYS_UFS_DEVICE_RESET_CTRL_REG,
 		      MASK_UFS_DEVICE_RESET | BIT_UFS_DEVICE_RESET);
 	mdelay(20);
-	mmio_write_32(UFS_SYS_UFS_DEVICE_RESET_CTRL_REG,
-		      0x03300330);
+	mmio_write_32(UFS_SYS_UFS_DEVICE_RESET_CTRL_REG, 0x03300330);
 
 	mmio_write_32(CRG_PERRSTDIS3_REG, PERI_UFS_BIT);
 	do {
@@ -204,7 +202,7 @@ uint32_t hikey960_get_spsr_for_bl33_entry(void)
 	 * well.
 	 */
 	spsr = SPSR_MODE32(mode, plat_get_ns_image_entrypoint() & 0x1,
-			SPSR_E_LITTLE, DISABLE_ALL_EXCEPTIONS);
+			   SPSR_E_LITTLE, DISABLE_ALL_EXCEPTIONS);
 	return spsr;
 }
 #endif /* __aarch64__ */
@@ -222,7 +220,8 @@ int hikey960_bl2_handle_post_image_load(unsigned int image_id)
 	switch (image_id) {
 	case BL31_IMAGE_ID:
 		/* Pass BL2 platform parameter to BL31 */
-		bl_mem_params->ep_info.args.arg1 = (uint64_t) &plat_params_from_bl2;
+		bl_mem_params->ep_info.args.arg1 =
+			(uint64_t)&plat_params_from_bl2;
 		break;
 
 #ifdef __aarch64__
@@ -235,26 +234,29 @@ int hikey960_bl2_handle_post_image_load(unsigned int image_id)
 		assert(paged_mem_params);
 
 		err = parse_optee_header(&bl_mem_params->ep_info,
-				&pager_mem_params->image_info,
-				&paged_mem_params->image_info);
+					 &pager_mem_params->image_info,
+					 &paged_mem_params->image_info);
 		if (err != 0) {
 			WARN("OPTEE header parse error.\n");
 		}
 #endif
-		bl_mem_params->ep_info.spsr = hikey960_get_spsr_for_bl32_entry();
+		bl_mem_params->ep_info.spsr =
+			hikey960_get_spsr_for_bl32_entry();
 		break;
 #endif
 
 	case BL33_IMAGE_ID:
 		/* BL33 expects to receive the primary CPU MPID (through r0) */
 		bl_mem_params->ep_info.args.arg0 = 0xffff & read_mpidr();
-		bl_mem_params->ep_info.spsr = hikey960_get_spsr_for_bl33_entry();
+		bl_mem_params->ep_info.spsr =
+			hikey960_get_spsr_for_bl33_entry();
 		break;
 
 #ifdef SCP_BL2_BASE
 	case SCP_BL2_IMAGE_ID:
 		/* The subsequent handling of SCP_BL2 is platform specific */
-		err = plat_hikey960_bl2_handle_scp_bl2(&bl_mem_params->image_info);
+		err = plat_hikey960_bl2_handle_scp_bl2(
+			&bl_mem_params->image_info);
 		if (err) {
 			WARN("Failure in platform-specific handling of SCP_BL2 image.\n");
 		}
@@ -294,8 +296,8 @@ void bl2_el3_early_platform_setup(u_register_t arg1, u_register_t arg2,
 	else
 		uart_base = PL011_UART6_BASE;
 	/* Initialize the console to provide early debug support */
-	console_pl011_register(uart_base, PL011_UART_CLK_IN_HZ,
-			       PL011_BAUDRATE, &console);
+	console_pl011_register(uart_base, PL011_UART_CLK_IN_HZ, PL011_BAUDRATE,
+			       &console);
 	/*
 	 * Allow BL2 to see the whole Trusted RAM.
 	 */
@@ -306,10 +308,8 @@ void bl2_el3_early_platform_setup(u_register_t arg1, u_register_t arg2,
 void bl2_el3_plat_arch_setup(void)
 {
 	hikey960_init_mmu_el3(bl2_el3_tzram_layout.total_base,
-			      bl2_el3_tzram_layout.total_size,
-			      BL_CODE_BASE,
-			      BL_CODE_END,
-			      BL_COHERENT_RAM_BASE,
+			      bl2_el3_tzram_layout.total_size, BL_CODE_BASE,
+			      BL_CODE_END, BL_COHERENT_RAM_BASE,
 			      BL_COHERENT_RAM_END);
 }
 
@@ -340,5 +340,6 @@ void bl2_platform_setup(void)
 		ERROR("BL2: could not read serial number\n");
 	}
 	INFO("BL2: fastboot_serno %lx\n", plat_params_from_bl2.fastboot_serno);
-	flush_dcache_range((uintptr_t)&plat_params_from_bl2, sizeof(plat_params_from_bl2_t));
+	flush_dcache_range((uintptr_t)&plat_params_from_bl2,
+			   sizeof(plat_params_from_bl2_t));
 }

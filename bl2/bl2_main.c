@@ -1,13 +1,13 @@
 /*
- * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <arch_helpers.h>
 #include <arch_features.h>
+#include <arch_helpers.h>
 #include <bl1/bl1.h>
 #include <bl2/bl2.h>
 #include <common/bl_common.h>
@@ -17,14 +17,15 @@
 #include <drivers/console.h>
 #include <drivers/fwu/fwu.h>
 #include <lib/extensions/pauth.h>
+
 #include <plat/common/platform.h>
 
 #include "bl2_private.h"
 
 #ifdef __aarch64__
-#define NEXT_IMAGE	"BL31"
+#define NEXT_IMAGE "BL31"
 #else
-#define NEXT_IMAGE	"BL32"
+#define NEXT_IMAGE "BL32"
 #endif
 
 #if BL2_AT_EL3
@@ -131,7 +132,8 @@ void bl2_main(void)
 	 * control to the BL32 (if present) and BL33 software images will
 	 * be passed to next BL image as an argument.
 	 */
-	smc(BL1_SMC_RUN_IMAGE, (unsigned long)next_bl_ep_info, 0, 0, 0, 0, 0, 0);
+	smc(BL1_SMC_RUN_IMAGE, (unsigned long)next_bl_ep_info, 0, 0, 0, 0, 0,
+	    0);
 #else /* if BL2_AT_EL3 || ENABLE_RME */
 	NOTICE("BL2: Booting " NEXT_IMAGE "\n");
 	print_entry_point_info(next_bl_ep_info);

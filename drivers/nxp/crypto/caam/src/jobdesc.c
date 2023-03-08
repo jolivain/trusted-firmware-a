@@ -5,15 +5,16 @@
  *
  */
 
+#include <assert.h>
 #include <errno.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <assert.h>
-#include "caam.h"
 #include <common/debug.h>
+
+#include "caam.h"
 #include "jobdesc.h"
 #include "rsa.h"
 #include "sec_hw_specific.h"
@@ -56,14 +57,14 @@ void desc_add_ptr(uint32_t *desc, phys_addr_t *ptr)
 {
 	uint32_t len = desc_length(desc);
 
-	assert((len + (uint32_t) (sizeof(phys_addr_t) / sizeof(uint32_t)))
-		< MAX_DESC_SIZE_WORDS);
+	assert((len + (uint32_t)(sizeof(phys_addr_t) / sizeof(uint32_t))) <
+	       MAX_DESC_SIZE_WORDS);
 
 	/* Add Word at Last */
-	phys_addr_t *last = (phys_addr_t *) (desc + len);
+	phys_addr_t *last = (phys_addr_t *)(desc + len);
 
 #ifdef CONFIG_PHYS_64BIT
-	ptr_addr_t *ptr_addr = (ptr_addr_t *) last;
+	ptr_addr_t *ptr_addr = (ptr_addr_t *)last;
 
 	ptr_addr->high = PHYS_ADDR_HI(ptr);
 	ptr_addr->low = PHYS_ADDR_LO(ptr);
@@ -72,13 +73,12 @@ void desc_add_ptr(uint32_t *desc, phys_addr_t *ptr)
 #endif
 
 	/* Increase the length */
-	desc[0] += (uint32_t) (sizeof(phys_addr_t) / sizeof(uint32_t));
+	desc[0] += (uint32_t)(sizeof(phys_addr_t) / sizeof(uint32_t));
 }
 
 /* Descriptor to generate Random words */
-int cnstr_rng_jobdesc(uint32_t *desc, uint32_t state_handle,
-		      uint32_t *add_inp, uint32_t add_ip_len,
-		      uint8_t *out_data, uint32_t len)
+int cnstr_rng_jobdesc(uint32_t *desc, uint32_t state_handle, uint32_t *add_inp,
+		      uint32_t add_ip_len, uint8_t *out_data, uint32_t len)
 {
 	phys_addr_t *phys_addr_out = vtop(out_data);
 
@@ -98,7 +98,6 @@ int cnstr_rng_jobdesc(uint32_t *desc, uint32_t state_handle,
 	desc_add_ptr(desc, phys_addr_out);
 
 	return 0;
-
 }
 
 /* Construct descriptor to instantiate RNG */
@@ -121,11 +120,11 @@ int cnstr_rng_instantiate_jobdesc(uint32_t *desc)
 }
 
 /* Construct descriptor to generate hw key blob */
-int cnstr_hw_encap_blob_jobdesc(uint32_t *desc,
-				uint8_t *key_idnfr, uint32_t key_sz,
-				uint32_t key_class, uint8_t *plain_txt,
-				uint32_t in_sz, uint8_t *enc_blob,
-				uint32_t out_sz, uint32_t operation)
+int cnstr_hw_encap_blob_jobdesc(uint32_t *desc, uint8_t *key_idnfr,
+				uint32_t key_sz, uint32_t key_class,
+				uint8_t *plain_txt, uint32_t in_sz,
+				uint8_t *enc_blob, uint32_t out_sz,
+				uint32_t operation)
 {
 	phys_addr_t *phys_key_idnfr, *phys_addr_in, *phys_addr_out;
 	int i = 0;
@@ -174,9 +173,8 @@ int cnstr_hw_encap_blob_jobdesc(uint32_t *desc,
  * Return	: Void
  * Description	: Creates the descriptor for PKHA RSA
  ***************************************************************************/
-void cnstr_jobdesc_pkha_rsaexp(uint32_t *desc,
-			       struct pk_in_params *pkin, uint8_t *out,
-			       uint32_t out_siz)
+void cnstr_jobdesc_pkha_rsaexp(uint32_t *desc, struct pk_in_params *pkin,
+			       uint8_t *out, uint32_t out_siz)
 {
 	phys_addr_t *ptr_addr_e, *ptr_addr_a, *ptr_addr_n, *ptr_addr_out;
 
@@ -226,16 +224,15 @@ void cnstr_hash_jobdesc(uint32_t *desc, uint8_t *msg, uint32_t msgsz,
 	desc_add_word(desc, U(0x8443000d));
 
 	if (msgsz > U(0xffff)) {
-		desc_add_word(desc, U(0x25540000));	/* FIFO Load */
-		desc_add_ptr(desc, ptr_addr_in);	/* Pointer to msg */
-		desc_add_word(desc, msgsz);	/* Size */
-		desc_add_word(desc, U(0x54200020));	/* FIFO Store */
-		desc_add_ptr(desc, ptr_addr_out);	/* Pointer to Result */
+		desc_add_word(desc, U(0x25540000)); /* FIFO Load */
+		desc_add_ptr(desc, ptr_addr_in); /* Pointer to msg */
+		desc_add_word(desc, msgsz); /* Size */
+		desc_add_word(desc, U(0x54200020)); /* FIFO Store */
+		desc_add_ptr(desc, ptr_addr_out); /* Pointer to Result */
 	} else {
 		desc_add_word(desc, U(0x25140000) | msgsz);
 		desc_add_ptr(desc, ptr_addr_in);
 		desc_add_word(desc, U(0x54200020));
 		desc_add_ptr(desc, ptr_addr_out);
 	}
-
 }

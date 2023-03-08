@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -25,10 +25,8 @@ static uintptr_t fip_dev_handle;
 static const io_dev_connector_t *mmc_dev_con;
 static uintptr_t mmc_dev_handle;
 
-static const io_block_spec_t mmc_fip_spec = {
-	.offset = IMX_FIP_MMC_BASE,
-	.length = IMX_FIP_SIZE
-};
+static const io_block_spec_t mmc_fip_spec = { .offset = IMX_FIP_MMC_BASE,
+					      .length = IMX_FIP_SIZE };
 
 static const io_block_dev_spec_t mmc_dev_spec = {
 	/* It's used as temp buffer in block driver. */
@@ -50,10 +48,8 @@ static int open_mmc(const uintptr_t spec);
 static const io_dev_connector_t *memmap_dev_con;
 static uintptr_t memmap_dev_handle;
 
-static const io_block_spec_t fip_block_spec = {
-	.offset = IMX_FIP_BASE,
-	.length = IMX_FIP_SIZE
-};
+static const io_block_spec_t fip_block_spec = { .offset = IMX_FIP_BASE,
+						.length = IMX_FIP_SIZE };
 static int open_memmap(const uintptr_t spec);
 #endif
 
@@ -122,84 +118,49 @@ struct plat_io_policy {
 
 static const struct plat_io_policy policies[] = {
 #ifndef IMX_FIP_MMAP
-	[FIP_IMAGE_ID] = {
-		&mmc_dev_handle,
-		(uintptr_t)&mmc_fip_spec,
-		open_mmc
-	},
+	[FIP_IMAGE_ID] = { &mmc_dev_handle, (uintptr_t)&mmc_fip_spec,
+			   open_mmc },
 #else
-	[FIP_IMAGE_ID] = {
-		&memmap_dev_handle,
-		(uintptr_t)&fip_block_spec,
-		open_memmap
-	},
+	[FIP_IMAGE_ID] = { &memmap_dev_handle, (uintptr_t)&fip_block_spec,
+			   open_memmap },
 #endif
-	[BL31_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl31_uuid_spec,
-		open_fip
-	},
-	[BL32_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl32_uuid_spec,
-		open_fip
-	},
-	[BL32_EXTRA1_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl32_extra1_uuid_spec,
-		open_fip
-	},
-	[BL32_EXTRA2_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl32_extra2_uuid_spec,
-		open_fip
-	},
-	[BL33_IMAGE_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&bl33_uuid_spec,
-		open_fip
-	},
+	[BL31_IMAGE_ID] = { &fip_dev_handle, (uintptr_t)&bl31_uuid_spec,
+			    open_fip },
+	[BL32_IMAGE_ID] = { &fip_dev_handle, (uintptr_t)&bl32_uuid_spec,
+			    open_fip },
+	[BL32_EXTRA1_IMAGE_ID] = { &fip_dev_handle,
+				   (uintptr_t)&bl32_extra1_uuid_spec,
+				   open_fip },
+	[BL32_EXTRA2_IMAGE_ID] = { &fip_dev_handle,
+				   (uintptr_t)&bl32_extra2_uuid_spec,
+				   open_fip },
+	[BL33_IMAGE_ID] = { &fip_dev_handle, (uintptr_t)&bl33_uuid_spec,
+			    open_fip },
 #if TRUSTED_BOARD_BOOT
-	[TRUSTED_BOOT_FW_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&tb_fw_cert_uuid_spec,
-		open_fip
-	},
-	[SOC_FW_KEY_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&soc_fw_key_cert_uuid_spec,
-		open_fip
-	},
-	[TRUSTED_KEY_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&trusted_key_cert_uuid_spec,
-		open_fip
-	},
-	[TRUSTED_OS_FW_KEY_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&tos_fw_key_cert_uuid_spec,
-		open_fip
-	},
-	[NON_TRUSTED_FW_KEY_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&nt_fw_key_cert_uuid_spec,
-		open_fip
-	},
-	[SOC_FW_CONTENT_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&soc_fw_content_cert_uuid_spec,
-		open_fip
-	},
-	[TRUSTED_OS_FW_CONTENT_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&tos_fw_cert_uuid_spec,
-		open_fip
-	},
-	[NON_TRUSTED_FW_CONTENT_CERT_ID] = {
-		&fip_dev_handle,
-		(uintptr_t)&nt_fw_cert_uuid_spec,
-		open_fip
-	},
+	[TRUSTED_BOOT_FW_CERT_ID] = { &fip_dev_handle,
+				      (uintptr_t)&tb_fw_cert_uuid_spec,
+				      open_fip },
+	[SOC_FW_KEY_CERT_ID] = { &fip_dev_handle,
+				 (uintptr_t)&soc_fw_key_cert_uuid_spec,
+				 open_fip },
+	[TRUSTED_KEY_CERT_ID] = { &fip_dev_handle,
+				  (uintptr_t)&trusted_key_cert_uuid_spec,
+				  open_fip },
+	[TRUSTED_OS_FW_KEY_CERT_ID] = { &fip_dev_handle,
+					(uintptr_t)&tos_fw_key_cert_uuid_spec,
+					open_fip },
+	[NON_TRUSTED_FW_KEY_CERT_ID] = { &fip_dev_handle,
+					 (uintptr_t)&nt_fw_key_cert_uuid_spec,
+					 open_fip },
+	[SOC_FW_CONTENT_CERT_ID] = { &fip_dev_handle,
+				     (uintptr_t)&soc_fw_content_cert_uuid_spec,
+				     open_fip },
+	[TRUSTED_OS_FW_CONTENT_CERT_ID] = { &fip_dev_handle,
+					    (uintptr_t)&tos_fw_cert_uuid_spec,
+					    open_fip },
+	[NON_TRUSTED_FW_CONTENT_CERT_ID] = { &fip_dev_handle,
+					     (uintptr_t)&nt_fw_cert_uuid_spec,
+					     open_fip },
 #endif /* TRUSTED_BOARD_BOOT */
 };
 
@@ -295,7 +256,6 @@ void plat_imx_io_setup(void)
 	result = register_io_dev_fip(&fip_dev_con);
 	assert(result == 0);
 
-	result = io_dev_open(fip_dev_con, (uintptr_t)NULL,
-			     &fip_dev_handle);
+	result = io_dev_open(fip_dev_con, (uintptr_t)NULL, &fip_dev_handle);
 	assert(result == 0);
 }

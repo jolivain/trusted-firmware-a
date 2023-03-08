@@ -1,29 +1,30 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <m0_param.h>
+
 #include "rk3399_mcu.h"
 
 /* use 24MHz SysTick */
-#define US_TO_CYCLE(US)	(US * 24)
+#define US_TO_CYCLE(US) (US * 24)
 
-#define SYST_CST	0xe000e010
+#define SYST_CST 0xe000e010
 /* enable counter */
-#define ENABLE		(1 << 0)
+#define ENABLE (1 << 0)
 /* count down to 0 does not cause SysTick exception to pend */
-#define TICKINT		(1 << 1)
+#define TICKINT (1 << 1)
 /* core clock used for SysTick */
-#define CLKSOURCE	(1 << 2)
+#define CLKSOURCE (1 << 2)
 
-#define COUNTFLAG	(1 << 16)
-#define SYST_RVR	0xe000e014
-#define MAX_VALUE	0xffffff
-#define MAX_USECS	(MAX_VALUE / US_TO_CYCLE(1))
-#define SYST_CVR	0xe000e018
-#define SYST_CALIB	0xe000e01c
+#define COUNTFLAG (1 << 16)
+#define SYST_RVR 0xe000e014
+#define MAX_VALUE 0xffffff
+#define MAX_USECS (MAX_VALUE / US_TO_CYCLE(1))
+#define SYST_CVR 0xe000e018
+#define SYST_CALIB 0xe000e01c
 
 unsigned int remaining_usecs;
 

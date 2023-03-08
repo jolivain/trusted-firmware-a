@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -34,18 +34,16 @@ void clear_mem_regions(mem_region_t *tbl, size_t nregions);
  * in a way that they minimize the number of entries used in the
  * translation tables.
  */
-void clear_map_dyn_mem_regions(struct mem_region *regions,
-			       size_t nregions,
-			       uintptr_t va,
-			       size_t chunk);
+void clear_map_dyn_mem_regions(struct mem_region *regions, size_t nregions,
+			       uintptr_t va, size_t chunk);
 
 /*
  * checks that a region (addr + nbytes-1) of memory is totally covered by
  * one of the regions defined in tbl. Caller must ensure that (addr+nbytes-1)
  * doesn't overflow.
  */
-int mem_region_in_array_chk(mem_region_t *tbl, size_t nregions,
-			    uintptr_t addr, size_t nbytes);
+int mem_region_in_array_chk(mem_region_t *tbl, size_t nregions, uintptr_t addr,
+			    size_t nbytes);
 
 /*
  * Fill a region of normal memory of size "length" in bytes with zero bytes.
@@ -78,16 +76,16 @@ void zeromem(void *mem, u_register_t length);
  * This helps when Position Independent Executable needs to reference a symbol
  * which is constant and does not depend on the execute address of the binary.
  */
-#define DEFINE_LOAD_SYM_ADDR(_name)		\
-static inline u_register_t load_addr_## _name(void)			\
-{									\
-	u_register_t v;							\
-	__asm__ volatile ("ldr %0, =" #_name : "=r" (v) : "X" (#_name));\
-	return v;							\
-}
+#define DEFINE_LOAD_SYM_ADDR(_name)                                           \
+	static inline u_register_t load_addr_##_name(void)                    \
+	{                                                                     \
+		u_register_t v;                                               \
+		__asm__ volatile("ldr %0, =" #_name : "=r"(v) : "X"(#_name)); \
+		return v;                                                     \
+	}
 
 /* Helper to invoke the function defined by DEFINE_LOAD_SYM_ADDR() */
-#define LOAD_ADDR_OF(_name)	(typeof(_name) *) load_addr_## _name()
+#define LOAD_ADDR_OF(_name) (typeof(_name) *)load_addr_##_name()
 
 #endif /* !(defined(__LINKER__) || defined(__ASSEMBLER__)) */
 

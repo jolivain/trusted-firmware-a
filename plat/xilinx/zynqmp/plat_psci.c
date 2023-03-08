@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,10 +12,11 @@
 #include <drivers/arm/gicv2.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
+#include <plat_private.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 
-#include <plat_private.h>
 #include "pm_api_sys.h"
 #include "pm_client.h"
 
@@ -93,7 +94,8 @@ static void zynqmp_pwr_domain_suspend(const psci_power_state_t *target_state)
 			__func__, i, target_state->pwr_domain_state[i]);
 
 	state = target_state->pwr_domain_state[1] > PLAT_MAX_RET_STATE ?
-		PM_STATE_SUSPEND_TO_RAM : PM_STATE_CPU_IDLE;
+			PM_STATE_SUSPEND_TO_RAM :
+			PM_STATE_CPU_IDLE;
 
 	/* Send request to PMU to suspend this core */
 	pm_self_suspend(proc->node_id, MAX_LATENCY, state, zynqmp_sec_entry);
@@ -115,7 +117,8 @@ static void zynqmp_pwr_domain_on_finish(const psci_power_state_t *target_state)
 	gicv2_cpuif_enable();
 }
 
-static void zynqmp_pwr_domain_suspend_finish(const psci_power_state_t *target_state)
+static void
+zynqmp_pwr_domain_suspend_finish(const psci_power_state_t *target_state)
 {
 	uint32_t cpu_id = plat_my_core_pos();
 	const struct pm_proc *proc = pm_get_proc(cpu_id);
@@ -149,8 +152,7 @@ static void __dead2 zynqmp_system_off(void)
 	plat_arm_interconnect_exit_coherency();
 
 	/* Send the power down request to the PMU */
-	pm_system_shutdown(PMF_SHUTDOWN_TYPE_SHUTDOWN,
-			   pm_get_shutdown_scope());
+	pm_system_shutdown(PMF_SHUTDOWN_TYPE_SHUTDOWN, pm_get_shutdown_scope());
 
 	while (1) {
 		wfi();
@@ -163,8 +165,7 @@ static void __dead2 zynqmp_system_reset(void)
 	plat_arm_interconnect_exit_coherency();
 
 	/* Send the system reset request to the PMU */
-	pm_system_shutdown(PMF_SHUTDOWN_TYPE_RESET,
-			   pm_get_shutdown_scope());
+	pm_system_shutdown(PMF_SHUTDOWN_TYPE_RESET, pm_get_shutdown_scope());
 
 	while (1) {
 		wfi();
@@ -172,7 +173,7 @@ static void __dead2 zynqmp_system_reset(void)
 }
 
 static int32_t zynqmp_validate_power_state(uint32_t power_state,
-				psci_power_state_t *req_state)
+					   psci_power_state_t *req_state)
 {
 	VERBOSE("%s: power_state: 0x%x\n", __func__, power_state);
 
@@ -204,16 +205,16 @@ static void zynqmp_get_sys_suspend_power_state(psci_power_state_t *req_state)
  * Export the platform handlers to enable psci to invoke them
  ******************************************************************************/
 static const struct plat_psci_ops zynqmp_psci_ops = {
-	.cpu_standby			= zynqmp_cpu_standby,
-	.pwr_domain_on			= zynqmp_pwr_domain_on,
-	.pwr_domain_off			= zynqmp_pwr_domain_off,
-	.pwr_domain_suspend		= zynqmp_pwr_domain_suspend,
-	.pwr_domain_on_finish		= zynqmp_pwr_domain_on_finish,
-	.pwr_domain_suspend_finish	= zynqmp_pwr_domain_suspend_finish,
-	.system_off			= zynqmp_system_off,
-	.system_reset			= zynqmp_system_reset,
-	.validate_power_state		= zynqmp_validate_power_state,
-	.get_sys_suspend_power_state	= zynqmp_get_sys_suspend_power_state,
+	.cpu_standby = zynqmp_cpu_standby,
+	.pwr_domain_on = zynqmp_pwr_domain_on,
+	.pwr_domain_off = zynqmp_pwr_domain_off,
+	.pwr_domain_suspend = zynqmp_pwr_domain_suspend,
+	.pwr_domain_on_finish = zynqmp_pwr_domain_on_finish,
+	.pwr_domain_suspend_finish = zynqmp_pwr_domain_suspend_finish,
+	.system_off = zynqmp_system_off,
+	.system_reset = zynqmp_system_reset,
+	.validate_power_state = zynqmp_validate_power_state,
+	.get_sys_suspend_power_state = zynqmp_get_sys_suspend_power_state,
 };
 
 /*******************************************************************************

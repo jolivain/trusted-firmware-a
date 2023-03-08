@@ -30,15 +30,14 @@
  */
 
 /*
- * Portions copyright (c) 2018, ARM Limited and Contributors.
+ * Portions copyright (c) 2018-2023, ARM Limited and Contributors.
  * All rights reserved.
  */
 
 #include <stddef.h>
 #include <string.h>
 
-char *
-strchr(const char *p, int ch)
+char *strchr(const char *p, int ch)
 {
 	char c;
 

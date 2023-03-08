@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -8,13 +8,14 @@
 #include <assert.h>
 
 #include <arch_helpers.h>
-#include <bl31/interrupt_mgmt.h>
 #include <bl31/ehf.h>
+#include <bl31/interrupt_mgmt.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <context.h>
 #include <denver.h>
 #include <lib/el3_runtime/context_mgmt.h>
+
 #include <plat/common/platform.h>
 
 #if ENABLE_WDT_LEGACY_FIQ_HANDLING
@@ -24,7 +25,7 @@
 #include <tegra_private.h>
 
 /* Legacy FIQ used by earlier Tegra platforms */
-#define LEGACY_FIQ_PPI_WDT		28U
+#define LEGACY_FIQ_PPI_WDT 28U
 
 /*******************************************************************************
  * Static variables
@@ -37,7 +38,7 @@ static pcpu_fiq_state_t fiq_state[PLATFORM_CORE_COUNT];
  * Handler for FIQ interrupts
  ******************************************************************************/
 static int tegra_fiq_interrupt_handler(unsigned int id, unsigned int flags,
-		void *handle, void *cookie)
+				       void *handle, void *cookie)
 {
 	cpu_context_t *ctx = cm_get_context(NON_SECURE);
 	el3_state_t *el3state_ctx = get_el3state_ctx(ctx);
@@ -52,7 +53,6 @@ static int tegra_fiq_interrupt_handler(unsigned int id, unsigned int flags,
 	 * been registered
 	 */
 	if (ns_fiq_handler_addr != 0U) {
-
 		/*
 		 * The FIQ was generated when the execution was in the non-secure
 		 * world. Save the context registers to start with.
@@ -63,8 +63,10 @@ static int tegra_fiq_interrupt_handler(unsigned int id, unsigned int flags,
 		 * Save elr_el3 and spsr_el3 from the saved context, and overwrite
 		 * the context with the NS fiq_handler_addr and SPSR value.
 		 */
-		fiq_state[cpu].elr_el3 = read_ctx_reg((el3state_ctx), (uint32_t)(CTX_ELR_EL3));
-		fiq_state[cpu].spsr_el3 = read_ctx_reg((el3state_ctx), (uint32_t)(CTX_SPSR_EL3));
+		fiq_state[cpu].elr_el3 =
+			read_ctx_reg((el3state_ctx), (uint32_t)(CTX_ELR_EL3));
+		fiq_state[cpu].spsr_el3 =
+			read_ctx_reg((el3state_ctx), (uint32_t)(CTX_SPSR_EL3));
 
 		/*
 		 * Set the new ELR to continue execution in the NS world using the
@@ -106,7 +108,8 @@ void tegra_fiq_handler_setup(void)
 		 * Register an interrupt handler for FIQ interrupts generated for
 		 * NS interrupt sources
 		 */
-		ehf_register_priority_handler(PLAT_TEGRA_WDT_PRIO, tegra_fiq_interrupt_handler);
+		ehf_register_priority_handler(PLAT_TEGRA_WDT_PRIO,
+					      tegra_fiq_interrupt_handler);
 
 		/* handler is now active */
 		fiq_handler_active = 1;
@@ -136,8 +139,10 @@ int32_t tegra_fiq_get_intr_context(void)
 	 * We store the ELR_EL3, SPSR_EL3, SP_EL0 and SP_EL1 registers so
 	 * that el3_exit() sends these values back to the NS world.
 	 */
-	write_ctx_reg((gpregs_ctx), (uint32_t)(CTX_GPREG_X0), (fiq_state[cpu].elr_el3));
-	write_ctx_reg((gpregs_ctx), (uint32_t)(CTX_GPREG_X1), (fiq_state[cpu].spsr_el3));
+	write_ctx_reg((gpregs_ctx), (uint32_t)(CTX_GPREG_X0),
+		      (fiq_state[cpu].elr_el3));
+	write_ctx_reg((gpregs_ctx), (uint32_t)(CTX_GPREG_X1),
+		      (fiq_state[cpu].spsr_el3));
 
 	val = read_ctx_reg((gpregs_ctx), (uint32_t)(CTX_GPREG_SP_EL0));
 	write_ctx_reg((gpregs_ctx), (uint32_t)(CTX_GPREG_X2), (val));

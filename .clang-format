@@ -83,8 +83,10 @@ IncludeCategories:
     Priority: 1
   - Regex: '^<(platform_def\.h)|(plat/.+)>$'
     Priority: 3
-  - Regex: '^.+$'
+  - Regex: '^<.+>$'
     Priority: 2
+  - Regex: '^".+"$'
+    Priority: 4
 IncludeIsMainRegex: '(Test)?$'
 IndentCaseLabels: false
 IndentGotoLabels: false

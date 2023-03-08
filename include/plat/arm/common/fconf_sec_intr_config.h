@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,7 +11,7 @@
 
 #include <platform_def.h>
 
-#define hw_config__sec_intr_prop_getter(id)	sec_intr_prop.id
+#define hw_config__sec_intr_prop_getter(id) sec_intr_prop.id
 
 #define SEC_INT_COUNT_MAX U(15)
 

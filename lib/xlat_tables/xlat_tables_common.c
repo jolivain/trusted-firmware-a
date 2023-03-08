@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,15 +9,15 @@
 #include <stdint.h>
 #include <string.h>
 
-#include <platform_def.h>
-
 #include <arch.h>
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <lib/cassert.h>
 #include <lib/utils.h>
 #include <lib/xlat_tables/xlat_tables.h>
+
 #include <plat/common/common_def.h>
+#include <platform_def.h>
 
 #include "xlat_tables_private.h"
 
@@ -26,20 +26,22 @@
 #define LVL1_SPACER "  "
 #define LVL2_SPACER "    "
 #define LVL3_SPACER "      "
-#define get_level_spacer(level)		\
-			(((level) == U(0)) ? LVL0_SPACER : \
-			(((level) == U(1)) ? LVL1_SPACER : \
-			(((level) == U(2)) ? LVL2_SPACER : LVL3_SPACER)))
+#define get_level_spacer(level)         \
+	(((level) == U(0)) ?            \
+		 LVL0_SPACER :          \
+		 (((level) == U(1)) ?   \
+			  LVL1_SPACER : \
+			  (((level) == U(2)) ? LVL2_SPACER : LVL3_SPACER)))
 #define debug_print(...) printf(__VA_ARGS__)
 #else
 #define debug_print(...) ((void)0)
 #endif
 
-#define UNSET_DESC	~0ULL
-#define MT_UNKNOWN	~0U
+#define UNSET_DESC ~0ULL
+#define MT_UNKNOWN ~0U
 
-static uint64_t xlat_tables[MAX_XLAT_TABLES][XLAT_TABLE_ENTRIES]
-			__aligned(XLAT_TABLE_SIZE) __section(".xlat_table");
+static uint64_t xlat_tables[MAX_XLAT_TABLES][XLAT_TABLE_ENTRIES] __aligned(
+	XLAT_TABLE_SIZE) __section(".xlat_table");
 
 static unsigned int next_xlat;
 static unsigned long long xlat_max_pa;
@@ -54,7 +56,6 @@ static uint64_t ap1_mask;
  */
 static mmap_region_t mmap[MAX_MMAP_REGIONS + 1];
 
-
 void print_mmap(void)
 {
 #if LOG_LEVEL >= LOG_LEVEL_VERBOSE
@@ -62,16 +63,16 @@ void print_mmap(void)
 	mmap_region_t *mm = mmap;
 	while (mm->size != 0U) {
 		debug_print(" VA:%p  PA:0x%llx  size:0x%zx  attr:0x%x\n",
-				(void *)mm->base_va, mm->base_pa,
-				mm->size, mm->attr);
+			    (void *)mm->base_va, mm->base_pa, mm->size,
+			    mm->attr);
 		++mm;
 	};
 	debug_print("\n");
 #endif
 }
 
-void mmap_add_region(unsigned long long base_pa, uintptr_t base_va,
-		     size_t size, unsigned int attr)
+void mmap_add_region(unsigned long long base_pa, uintptr_t base_va, size_t size,
+		     unsigned int attr)
 {
 	mmap_region_t *mm = mmap;
 	const mmap_region_t *mm_last = mm + ARRAY_SIZE(mmap) - 1U;
@@ -89,15 +90,14 @@ void mmap_add_region(unsigned long long base_pa, uintptr_t base_va,
 	assert(base_va < end_va);
 
 	assert((base_va + (uintptr_t)size - (uintptr_t)1) <=
-					(PLAT_VIRT_ADDR_SPACE_SIZE - 1U));
+	       (PLAT_VIRT_ADDR_SPACE_SIZE - 1U));
 	assert((base_pa + (unsigned long long)size - 1ULL) <=
-					(PLAT_PHY_ADDR_SPACE_SIZE - 1U));
+	       (PLAT_PHY_ADDR_SPACE_SIZE - 1U));
 
 #if ENABLE_ASSERTIONS
 
 	/* Check for PAs and VAs overlaps with all other regions */
 	for (mm = mmap; mm->size; ++mm) {
-
 		uintptr_t mm_end_va = mm->base_va + mm->size - 1U;
 
 		/*
@@ -125,12 +125,12 @@ void mmap_add_region(unsigned long long base_pa, uintptr_t base_va,
 			 */
 
 			unsigned long long mm_end_pa =
-						     mm->base_pa + mm->size - 1;
+				mm->base_pa + mm->size - 1;
 
 			bool separated_pa = (end_pa < mm->base_pa) ||
-				(base_pa > mm_end_pa);
+					    (base_pa > mm_end_pa);
 			bool separated_va = (end_va < mm->base_va) ||
-				(base_va > mm_end_va);
+					    (base_va > mm_end_va);
 
 			assert(separated_va && separated_pa);
 		}
@@ -202,7 +202,8 @@ static uint64_t mmap_desc(unsigned int attr, unsigned long long addr_pa,
 	 */
 	desc |= (level == XLAT_TABLE_LEVEL_MAX) ? PAGE_DESC : BLOCK_DESC;
 	desc |= ((attr & MT_NS) != 0U) ? LOWER_ATTRS(NS) : 0U;
-	desc |= ((attr & MT_RW) != 0U) ? LOWER_ATTRS(AP_RW) : LOWER_ATTRS(AP_RO);
+	desc |= ((attr & MT_RW) != 0U) ? LOWER_ATTRS(AP_RW) :
+					 LOWER_ATTRS(AP_RO);
 	/*
 	 * Always set the access flag, as this library assumes access flag
 	 * faults aren't managed.
@@ -247,7 +248,8 @@ static uint64_t mmap_desc(unsigned int attr, unsigned long long addr_pa,
 		 * For read-only memory, rely on the MT_EXECUTE/MT_EXECUTE_NEVER
 		 * attribute to figure out the value of the XN bit.
 		 */
-		if (((attr & MT_RW) != 0U) || ((attr & MT_EXECUTE_NEVER) != 0U)) {
+		if (((attr & MT_RW) != 0U) ||
+		    ((attr & MT_EXECUTE_NEVER) != 0U)) {
 			desc |= execute_never_mask;
 		}
 
@@ -259,8 +261,9 @@ static uint64_t mmap_desc(unsigned int attr, unsigned long long addr_pa,
 		}
 	}
 
-	debug_print((mem_type == MT_MEMORY) ? "MEM" :
-		((mem_type == MT_NON_CACHEABLE) ? "NC" : "DEV"));
+	debug_print((mem_type == MT_MEMORY) ?
+			    "MEM" :
+			    ((mem_type == MT_NON_CACHEABLE) ? "NC" : "DEV"));
 	debug_print(((attr & MT_RW) != 0U) ? "-RW" : "-RO");
 	debug_print(((attr & MT_NS) != 0U) ? "-NS" : "-S");
 	debug_print(((attr & MT_EXECUTE_NEVER) != 0U) ? "-XN" : "-EXEC");
@@ -297,8 +300,7 @@ static unsigned int mmap_region_attr(const mmap_region_t *mm, uintptr_t base_va,
 	 * in region 2. The loop shouldn't stop at region 2 as inner regions
 	 * have priority over outer regions, it should stop at region 5.
 	 */
-	for ( ; ; ++mm) {
-
+	for (;; ++mm) {
 		if (mm->size == 0U)
 			return ret; /* Reached end of list */
 
@@ -312,7 +314,7 @@ static unsigned int mmap_region_attr(const mmap_region_t *mm, uintptr_t base_va,
 			continue; /* Region doesn't override attribs so skip */
 
 		if ((mm->base_va > base_va) ||
-			((mm->base_va + mm->size - 1U) < (base_va + size - 1U)))
+		    ((mm->base_va + mm->size - 1U) < (base_va + size - 1U)))
 			return MT_UNKNOWN; /* Region doesn't fully cover area */
 
 		*attr = mm->attr;
@@ -322,22 +324,22 @@ static unsigned int mmap_region_attr(const mmap_region_t *mm, uintptr_t base_va,
 }
 
 static mmap_region_t *init_xlation_table_inner(mmap_region_t *mm,
-					uintptr_t base_va,
-					uint64_t *table,
-					unsigned int level)
+					       uintptr_t base_va,
+					       uint64_t *table,
+					       unsigned int level)
 {
 	assert((level >= XLAT_TABLE_LEVEL_MIN) &&
 	       (level <= XLAT_TABLE_LEVEL_MAX));
 
 	unsigned int level_size_shift =
-		       L0_XLAT_ADDRESS_SHIFT - level * XLAT_TABLE_ENTRIES_SHIFT;
+		L0_XLAT_ADDRESS_SHIFT - level * XLAT_TABLE_ENTRIES_SHIFT;
 	u_register_t level_size = (u_register_t)1 << level_size_shift;
-	u_register_t level_index_mask =
-		((u_register_t)XLAT_TABLE_ENTRIES_MASK) << level_size_shift;
+	u_register_t level_index_mask = ((u_register_t)XLAT_TABLE_ENTRIES_MASK)
+					<< level_size_shift;
 
 	debug_print("New xlat table:\n");
 
-	do  {
+	do {
 		uint64_t desc = UNSET_DESC;
 
 		if (mm->size == 0U) {
@@ -350,12 +352,12 @@ static mmap_region_t *init_xlation_table_inner(mmap_region_t *mm,
 		}
 
 		debug_print("%s VA:%p size:0x%llx ", get_level_spacer(level),
-			(void *)base_va, (unsigned long long)level_size);
+			    (void *)base_va, (unsigned long long)level_size);
 
 		if (mm->base_va > (base_va + level_size - 1U)) {
 			/* Next region is after this area. Nothing to map yet */
 			desc = INVALID_DESC;
-		/* Make sure that the current level allows block descriptors */
+			/* Make sure that the current level allows block descriptors */
 		} else if (level >= XLAT_BLOCK_LEVEL_MIN) {
 			/*
 			 * Try to get attributes of this area. It will fail if
@@ -368,8 +370,9 @@ static mmap_region_t *init_xlation_table_inner(mmap_region_t *mm,
 
 			if (r == 0U) {
 				desc = mmap_desc(attr,
-					base_va - mm->base_va + mm->base_pa,
-					level);
+						 base_va - mm->base_va +
+							 mm->base_pa,
+						 level);
 			}
 		}
 
@@ -382,8 +385,8 @@ static mmap_region_t *init_xlation_table_inner(mmap_region_t *mm,
 			desc = TABLE_DESC | (uintptr_t)new_table;
 
 			/* Recurse to fill in new table */
-			mm = init_xlation_table_inner(mm, base_va,
-						new_table, level + 1U);
+			mm = init_xlation_table_inner(mm, base_va, new_table,
+						      level + 1U);
 		}
 
 		debug_print("\n");
@@ -396,9 +399,8 @@ static mmap_region_t *init_xlation_table_inner(mmap_region_t *mm,
 	return mm;
 }
 
-void init_xlation_table(uintptr_t base_va, uint64_t *table,
-			unsigned int level, uintptr_t *max_va,
-			unsigned long long *max_pa)
+void init_xlation_table(uintptr_t base_va, uint64_t *table, unsigned int level,
+			uintptr_t *max_va, unsigned long long *max_pa)
 {
 	unsigned int el = xlat_arch_current_el();
 

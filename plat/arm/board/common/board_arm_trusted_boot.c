@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,6 +13,7 @@
 #include <drivers/delay_timer.h>
 #include <lib/cassert.h>
 #include <lib/fconf/fconf.h>
+
 #include <plat/common/common_def.h>
 #include <plat/common/platform.h>
 #if defined(ARM_COT_cca)
@@ -29,26 +30,22 @@
 
 #if !ARM_CRYPTOCELL_INTEG
 #if !ARM_ROTPK_LOCATION_ID
-  #error "ARM_ROTPK_LOCATION_ID not defined"
+#error "ARM_ROTPK_LOCATION_ID not defined"
 #endif
 #endif
 
 #if COT_DESC_IN_DTB && defined(IMAGE_BL2)
 uintptr_t nv_cntr_base_addr[MAX_NV_CTR_IDS];
 #else
-uintptr_t nv_cntr_base_addr[MAX_NV_CTR_IDS] = {
-	TFW_NVCTR_BASE,
-	NTFW_CTR_BASE
-};
+uintptr_t nv_cntr_base_addr[MAX_NV_CTR_IDS] = { TFW_NVCTR_BASE, NTFW_CTR_BASE };
 #endif
-
 
 /* Weak definition may be overridden in specific platform */
 #pragma weak plat_get_nv_ctr
 #pragma weak plat_set_nv_ctr
 
 extern unsigned char arm_rotpk_header[], arm_rotpk_key[], arm_rotpk_hash_end[],
-       arm_rotpk_key_end[];
+	arm_rotpk_key_end[];
 
 #if (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_REGS_ID) || ARM_CRYPTOCELL_INTEG
 static unsigned char rotpk_hash_der[ARM_ROTPK_HEADER_LEN + ARM_ROTPK_HASH_LEN];
@@ -59,7 +56,7 @@ static unsigned char rotpk_hash_der[ARM_ROTPK_HEADER_LEN + ARM_ROTPK_HASH_LEN];
  * Return the ROTPK hash stored in dedicated registers.
  */
 int arm_get_rotpk_info_regs(void **key_ptr, unsigned int *key_len,
-			unsigned int *flags)
+			    unsigned int *flags)
 {
 	uint8_t *dst;
 	uint32_t *src, tmp;
@@ -77,7 +74,7 @@ int arm_get_rotpk_info_regs(void **key_ptr, unsigned int *key_len,
 	words = ARM_ROTPK_HASH_LEN >> 2;
 
 	src = (uint32_t *)TZ_PUB_KEY_HASH_BASE;
-	for (i = 0 ; i < words ; i++) {
+	for (i = 0; i < words; i++) {
 		tmp = src[words - 1 - i];
 		/* Words are read in little endian */
 		*dst++ = (uint8_t)(tmp & 0xFF);
@@ -93,11 +90,11 @@ int arm_get_rotpk_info_regs(void **key_ptr, unsigned int *key_len,
 }
 #endif
 
-#if (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_RSA_ID) || \
-    (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_ECDSA_ID) || \
-    (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_FULL_DEV_RSA_KEY_ID)
+#if (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_RSA_ID) ||       \
+	(ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_ECDSA_ID) || \
+	(ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_FULL_DEV_RSA_KEY_ID)
 int arm_get_rotpk_info_dev(void **key_ptr, unsigned int *key_len,
-			unsigned int *flags)
+			   unsigned int *flags)
 {
 	if (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_FULL_DEV_RSA_KEY_ID) {
 		*key_ptr = arm_rotpk_key;
@@ -117,7 +114,7 @@ int arm_get_rotpk_info_dev(void **key_ptr, unsigned int *key_len,
  * Return ROTPK hash from CryptoCell.
  */
 int arm_get_rotpk_info_cc(void **key_ptr, unsigned int *key_len,
-			unsigned int *flags)
+			  unsigned int *flags)
 {
 	unsigned char *dst;
 
@@ -138,15 +135,15 @@ int arm_get_rotpk_info_cc(void **key_ptr, unsigned int *key_len,
  * Wrapper function for most Arm platforms to get ROTPK info.
  */
 static int get_rotpk_info(void **key_ptr, unsigned int *key_len,
-				unsigned int *flags)
+			  unsigned int *flags)
 {
 #if ARM_CRYPTOCELL_INTEG
 	return arm_get_rotpk_info_cc(key_ptr, key_len, flags);
 #else
 
-#if (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_RSA_ID) || \
-    (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_ECDSA_ID) || \
-    (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_FULL_DEV_RSA_KEY_ID)
+#if (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_RSA_ID) ||       \
+	(ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_ECDSA_ID) || \
+	(ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_FULL_DEV_RSA_KEY_ID)
 	return arm_get_rotpk_info_dev(key_ptr, key_len, flags);
 #elif (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_REGS_ID)
 	return arm_get_rotpk_info_regs(key_ptr, key_len, flags);
@@ -242,10 +239,10 @@ int plat_get_nv_ctr(void *cookie, unsigned int *nv_ctr)
 	oid = (const char *)cookie;
 	if (strcmp(oid, TRUSTED_FW_NVCOUNTER_OID) == 0) {
 		nv_ctr_addr = (uint32_t *)FCONF_GET_PROPERTY(cot, nv_cntr_addr,
-							TRUSTED_NV_CTR_ID);
+							     TRUSTED_NV_CTR_ID);
 	} else if (strcmp(oid, NON_TRUSTED_FW_NVCOUNTER_OID) == 0) {
-		nv_ctr_addr = (uint32_t *)FCONF_GET_PROPERTY(cot, nv_cntr_addr,
-							NON_TRUSTED_NV_CTR_ID);
+		nv_ctr_addr = (uint32_t *)FCONF_GET_PROPERTY(
+			cot, nv_cntr_addr, NON_TRUSTED_NV_CTR_ID);
 	} else {
 		return 1;
 	}

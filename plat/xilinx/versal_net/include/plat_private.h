@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2021-2022, Xilinx, Inc. All rights reserved.
  * Copyright (C) 2022, Advanced Micro Devices, Inc. All rights reserved.
  *
@@ -35,7 +35,7 @@ extern uint32_t cpu_clock, platform_id, platform_version;
 void board_detection(void);
 char *board_name_decode(void);
 uint64_t smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2, uint64_t x3,
-		       uint64_t x4, void *cookie, void *handle, uint64_t flags);
+		     uint64_t x4, void *cookie, void *handle, uint64_t flags);
 int32_t sip_svc_setup_init(void);
 /*
  * Register handler to specific GIC entrance
@@ -43,7 +43,7 @@ int32_t sip_svc_setup_init(void);
  */
 int request_intr_type_el3(uint32_t irq, interrupt_type_handler_t fiq_handler);
 
-#define PM_GET_CHIPID			(24U)
-#define IOCTL_OSPI_MUX_SELECT		(21U)
+#define PM_GET_CHIPID (24U)
+#define IOCTL_OSPI_MUX_SELECT (21U)
 
 #endif /* PLAT_PRIVATE_H */

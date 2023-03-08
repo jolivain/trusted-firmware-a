@@ -53,7 +53,8 @@ static void dfd_setup(uint64_t base_addr, uint64_t chain_length,
 		sync_writel(DFD_V35_SEQ0_0, DFD_V35_SEQ0_0_VAL);
 
 		if (cache_dump & DFD_PARITY_ERR_TRIGGER) {
-			sync_writel(DFD_HW_TRIGGER_MASK, DFD_HW_TRIGGER_MASK_VAL);
+			sync_writel(DFD_HW_TRIGGER_MASK,
+				    DFD_HW_TRIGGER_MASK_VAL);
 			mmio_setbits_32(DFD_INTERNAL_CTL, BIT(4));
 		}
 	}
@@ -67,8 +68,8 @@ void dfd_resume(void)
 	}
 }
 
-uint64_t dfd_smc_dispatcher(uint64_t arg0, uint64_t arg1,
-			    uint64_t arg2, uint64_t arg3)
+uint64_t dfd_smc_dispatcher(uint64_t arg0, uint64_t arg1, uint64_t arg2,
+			    uint64_t arg3)
 {
 	uint64_t ret = 0L;
 

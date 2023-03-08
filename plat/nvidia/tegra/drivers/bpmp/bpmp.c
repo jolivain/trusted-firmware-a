@@ -1,22 +1,24 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <arch_helpers.h>
 #include <assert.h>
+#include <errno.h>
+#include <stdbool.h>
+#include <string.h>
+
+#include <arch_helpers.h>
 #include <bpmp.h>
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
-#include <errno.h>
 #include <lib/mmio.h>
-#include <plat/common/platform.h>
-#include <stdbool.h>
-#include <string.h>
 #include <tegra_def.h>
 
-#define BPMP_TIMEOUT	500 /* 500ms */
+#include <plat/common/platform.h>
+
+#define BPMP_TIMEOUT 500 /* 500ms */
 
 static uint32_t channel_base[NR_CHANNELS];
 static uint32_t bpmp_init_state = BPMP_INIT_PENDING;
@@ -49,14 +51,13 @@ static void free_master(unsigned int ch)
 
 /* should be called with local irqs disabled */
 int32_t tegra_bpmp_send_receive_atomic(int mrq, const void *ob_data, int ob_sz,
-		void *ib_data, int ib_sz)
+				       void *ib_data, int ib_sz)
 {
 	unsigned int ch = (unsigned int)plat_my_core_pos();
 	mb_data_t *p = (mb_data_t *)(uintptr_t)channel_base[ch];
 	int32_t ret = -ETIMEDOUT, timeout = 0;
 
 	if (bpmp_init_state == BPMP_INIT_COMPLETE) {
-
 		/* loop until BPMP is free */
 		for (timeout = 0; timeout < BPMP_TIMEOUT; timeout++) {
 			if (master_free(ch) == true) {
@@ -67,7 +68,6 @@ int32_t tegra_bpmp_send_receive_atomic(int mrq, const void *ob_data, int ob_sz,
 		}
 
 		if (timeout != BPMP_TIMEOUT) {
-
 			/* generate the command struct */
 			p->code = mrq;
 			p->flags = DO_ACK;
@@ -88,7 +88,6 @@ int32_t tegra_bpmp_send_receive_atomic(int mrq, const void *ob_data, int ob_sz,
 			}
 
 			if (timeout != BPMP_TIMEOUT) {
-
 				/* get the command response */
 				(void)memcpy(ib_data, (const void *)p->data,
 					     (size_t)ib_sz);
@@ -120,7 +119,6 @@ int tegra_bpmp_init(void)
 	int ret = 0;
 
 	if (bpmp_init_state == BPMP_INIT_PENDING) {
-
 		/* check if the bpmp processor is alive. */
 		do {
 			val = mmio_read_32(TEGRA_RES_SEMA_BASE + STA_OFFSET);
@@ -132,15 +130,16 @@ int tegra_bpmp_init(void)
 		} while ((val != SIGN_OF_LIFE) && (timeout > 0U));
 
 		if (val == SIGN_OF_LIFE) {
-
 			/* check if clock for the atomics block is enabled */
-			val = mmio_read_32(TEGRA_CAR_RESET_BASE + TEGRA_CLK_ENB_V);
+			val = mmio_read_32(TEGRA_CAR_RESET_BASE +
+					   TEGRA_CLK_ENB_V);
 			if ((val & CAR_ENABLE_ATOMICS) == 0) {
 				ERROR("Clock to the atomics block is disabled\n");
 			}
 
 			/* check if the atomics block is out of reset */
-			val = mmio_read_32(TEGRA_CAR_RESET_BASE + TEGRA_RST_DEV_CLR_V);
+			val = mmio_read_32(TEGRA_CAR_RESET_BASE +
+					   TEGRA_RST_DEV_CLR_V);
 			if ((val & CAR_ENABLE_ATOMICS) == CAR_ENABLE_ATOMICS) {
 				ERROR("Reset to the atomics block is asserted\n");
 			}
@@ -150,10 +149,9 @@ int tegra_bpmp_init(void)
 
 			/* channel area is setup by BPMP before signaling handshake */
 			for (ch = 0; ch < NR_CHANNELS; ch++) {
-
 				/* issue command to get the channel base address */
 				mmio_write_32(base, (ch << TRIGGER_ID_SHIFT) |
-					      ATOMIC_CMD_GET);
+							    ATOMIC_CMD_GET);
 
 				/* get the base address for the channel */
 				channel_base[ch] = mmio_read_32(base);
@@ -202,10 +200,8 @@ void tegra_bpmp_resume(void)
 	uint32_t val, timeout = 0;
 
 	if (bpmp_init_state == BPMP_SUSPEND_ENTRY) {
-
 		/* check if the bpmp processor is alive. */
 		do {
-
 			val = mmio_read_32(TEGRA_RES_SEMA_BASE + STA_OFFSET);
 			if (val != SIGN_OF_LIFE) {
 				mdelay(1);
@@ -215,8 +211,8 @@ void tegra_bpmp_resume(void)
 		} while ((val != SIGN_OF_LIFE) && (timeout < BPMP_TIMEOUT));
 
 		if (val == SIGN_OF_LIFE) {
-
-			INFO("%s: BPMP took %d ms to resume\n", __func__, timeout);
+			INFO("%s: BPMP took %d ms to resume\n", __func__,
+			     timeout);
 
 			/* mark state as "initialized" */
 			bpmp_init_state = BPMP_INIT_COMPLETE;

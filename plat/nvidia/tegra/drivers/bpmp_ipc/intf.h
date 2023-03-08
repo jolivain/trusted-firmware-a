@@ -10,15 +10,15 @@
 /**
  * Flags used in IPC req
  */
-#define FLAG_DO_ACK			(U(1) << 0)
-#define FLAG_RING_DOORBELL		(U(1) << 1)
+#define FLAG_DO_ACK (U(1) << 0)
+#define FLAG_RING_DOORBELL (U(1) << 1)
 
 /* Bit 1 is designated for CCPlex in secure world */
-#define HSP_MASTER_CCPLEX_BIT	(U(1) << 1)
+#define HSP_MASTER_CCPLEX_BIT (U(1) << 1)
 /* Bit 19 is designated for BPMP in non-secure world */
-#define HSP_MASTER_BPMP_BIT		(U(1) << 19)
+#define HSP_MASTER_BPMP_BIT (U(1) << 19)
 /* Timeout to receive response from BPMP is 1 sec */
-#define TIMEOUT_RESPONSE_FROM_BPMP_US	U(1000000) /* in microseconds */
+#define TIMEOUT_RESPONSE_FROM_BPMP_US U(1000000) /* in microseconds */
 
 /**
  * IVC protocol defines and command/response frame
@@ -27,8 +27,8 @@
 /**
  * IVC specific defines
  */
-#define IVC_CMD_SZ_BYTES		U(128)
-#define IVC_DATA_SZ_BYTES		U(120)
+#define IVC_CMD_SZ_BYTES U(128)
+#define IVC_DATA_SZ_BYTES U(120)
 
 /**
  * Holds frame data for an IPC request
@@ -51,15 +51,15 @@ struct frame_data {
 /**
  * MRQ command codes
  */
-#define MRQ_RESET			U(20)
-#define MRQ_CLK				U(22)
+#define MRQ_RESET U(20)
+#define MRQ_CLK U(22)
 
 /**
  * Reset sub-commands
  */
-#define CMD_RESET_ASSERT		U(1)
-#define CMD_RESET_DEASSERT		U(2)
-#define CMD_RESET_MODULE		U(3)
+#define CMD_RESET_ASSERT U(1)
+#define CMD_RESET_DEASSERT U(2)
+#define CMD_RESET_MODULE U(3)
 
 /**
  * Used by the sender of an #MRQ_RESET message to request BPMP to
@@ -122,6 +122,6 @@ struct mrq_clk_request {
 /**
  * Macro to prepare the MRQ_CLK sub-command
  */
-#define make_mrq_clk_cmd(cmd, id)	(((cmd) << 24) | (id & 0xFFFFFF))
+#define make_mrq_clk_cmd(cmd, id) (((cmd) << 24) | (id & 0xFFFFFF))
 
 #endif /* BPMP_INTF_H */

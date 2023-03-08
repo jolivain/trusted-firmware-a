@@ -10,11 +10,10 @@
 #include <inttypes.h>
 #include <stdint.h>
 
+#include <armada_common.h>
 #include <common/debug.h>
 #include <drivers/marvell/io_win.h>
 #include <lib/mmio.h>
-
-#include <armada_common.h>
 #include <mvebu.h>
 #include <mvebu_def.h>
 
@@ -23,20 +22,17 @@
 #endif
 
 /* common defines */
-#define WIN_ENABLE_BIT			(0x1)
+#define WIN_ENABLE_BIT (0x1)
 /* Physical address of the base of the window = {Addr[19:0],20`h0} */
-#define ADDRESS_SHIFT			(20 - 4)
-#define ADDRESS_MASK			(0xFFFFFFF0)
-#define IO_WIN_ALIGNMENT_1M		(0x100000)
-#define IO_WIN_ALIGNMENT_64K		(0x10000)
+#define ADDRESS_SHIFT (20 - 4)
+#define ADDRESS_MASK (0xFFFFFFF0)
+#define IO_WIN_ALIGNMENT_1M (0x100000)
+#define IO_WIN_ALIGNMENT_64K (0x10000)
 
 /* AP registers */
-#define IO_WIN_ALR_OFFSET(ap, win)	(MVEBU_IO_WIN_BASE(ap) + 0x0 + \
-						(0x10 * win))
-#define IO_WIN_AHR_OFFSET(ap, win)	(MVEBU_IO_WIN_BASE(ap) + 0x8 + \
-						(0x10 * win))
-#define IO_WIN_CR_OFFSET(ap, win)	(MVEBU_IO_WIN_BASE(ap) + 0xC + \
-						(0x10 * win))
+#define IO_WIN_ALR_OFFSET(ap, win) (MVEBU_IO_WIN_BASE(ap) + 0x0 + (0x10 * win))
+#define IO_WIN_AHR_OFFSET(ap, win) (MVEBU_IO_WIN_BASE(ap) + 0x8 + (0x10 * win))
+#define IO_WIN_CR_OFFSET(ap, win) (MVEBU_IO_WIN_BASE(ap) + 0xC + (0x10 * win))
 
 /* For storage of CR, ALR, AHR abd GCR */
 static uint32_t io_win_regs_save[MVEBU_IO_WIN_MAX_WINS * 3 + 1];
@@ -54,8 +50,8 @@ static void io_win_check(struct addr_map_win *win)
 	/* size parameter validity check */
 	if (IS_NOT_ALIGN(win->win_size, IO_WIN_ALIGNMENT_1M)) {
 		win->win_size = ALIGN_UP(win->win_size, IO_WIN_ALIGNMENT_1M);
-		NOTICE("%s: Aligning size to 0x%" PRIx64 "\n",
-		       __func__, win->win_size);
+		NOTICE("%s: Aligning size to 0x%" PRIx64 "\n", __func__,
+		       win->win_size);
 	}
 }
 
@@ -145,8 +141,8 @@ void iow_temp_win_remove(int ap_index, struct addr_map_win *win, int size)
 		base <<= ADDRESS_SHIFT;
 
 		if ((win->target_id != target) || (win->base_addr != base)) {
-			ERROR("%s: Trying to remove bad window-%d!\n",
-			      __func__, win_id);
+			ERROR("%s: Trying to remove bad window-%d!\n", __func__,
+			      win_id);
 			continue;
 		}
 		io_win_disable_window(ap_index, win_id);
@@ -169,17 +165,18 @@ static void dump_io_win(int ap_index)
 		if (alr & WIN_ENABLE_BIT) {
 			alr &= ~WIN_ENABLE_BIT;
 			ahr = mmio_read_32(IO_WIN_AHR_OFFSET(ap_index, win_id));
-			trgt_id = mmio_read_32(IO_WIN_CR_OFFSET(ap_index,
-								win_id));
+			trgt_id = mmio_read_32(
+				IO_WIN_CR_OFFSET(ap_index, win_id));
 			start = ((uint64_t)alr << ADDRESS_SHIFT);
 			end = (((uint64_t)ahr + 0x10) << ADDRESS_SHIFT);
-			printf("\tio-win %d     0x%016" PRIx64 " 0x%016" PRIx64 "\n",
+			printf("\tio-win %d     0x%016" PRIx64 " 0x%016" PRIx64
+			       "\n",
 			       trgt_id, start, end);
 		}
 	}
 	printf("\tio-win gcr is %x\n",
 	       mmio_read_32(MVEBU_IO_WIN_BASE(ap_index) +
-	       MVEBU_IO_WIN_GCR_OFFSET));
+			    MVEBU_IO_WIN_GCR_OFFSET));
 }
 #endif
 

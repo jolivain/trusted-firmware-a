@@ -8,9 +8,9 @@
 #ifndef CSU_H
 #define CSU_H
 
-#define CSU_SEC_ACCESS_REG_OFFSET	(0x0021CU)
+#define CSU_SEC_ACCESS_REG_OFFSET (0x0021CU)
 /* Bit mask */
-#define TZASC_BYPASS_MUX_DISABLE        (0x4U)
+#define TZASC_BYPASS_MUX_DISABLE (0x4U)
 
 /* Macros defining access permissions to configure
  * the regions controlled by Central Security Unit.
@@ -36,7 +36,7 @@ struct csu_ns_dev_st {
 	uint32_t val;
 };
 
-void enable_layerscape_ns_access(struct csu_ns_dev_st *csu_ns_dev,
-				 uint32_t num, uintptr_t nxp_csu_addr);
+void enable_layerscape_ns_access(struct csu_ns_dev_st *csu_ns_dev, uint32_t num,
+				 uintptr_t nxp_csu_addr);
 
 #endif

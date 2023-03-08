@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -26,8 +26,8 @@ void gicd_set_icfgr(uintptr_t base, unsigned int id, unsigned int cfg)
 
 	/* Clear the field, and insert required configuration */
 	mmio_clrsetbits_32(base + GICD_OFFSET(ICFG, id),
-				(uint32_t)GIC_CFG_MASK << bit_shift,
-				(cfg & GIC_CFG_MASK) << bit_shift);
+			   (uint32_t)GIC_CFG_MASK << bit_shift,
+			   (cfg & GIC_CFG_MASK) << bit_shift);
 }
 
 /*

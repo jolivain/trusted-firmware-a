@@ -8,14 +8,15 @@
 
 #include "socfpga_handoff.h"
 
-#define SWAP_UINT32(x) (((x) >> 24) | (((x) & 0x00FF0000) >> 8) |	\
-				(((x) & 0x0000FF00) << 8) | ((x) << 24))
+#define SWAP_UINT32(x)                                                     \
+	(((x) >> 24) | (((x)&0x00FF0000) >> 8) | (((x)&0x0000FF00) << 8) | \
+	 ((x) << 24))
 
 int socfpga_get_handoff(handoff *reverse_hoff_ptr)
 {
 	int i;
 	uint32_t *buffer;
-	handoff *handoff_ptr = (handoff *) PLAT_HANDOFF_OFFSET;
+	handoff *handoff_ptr = (handoff *)PLAT_HANDOFF_OFFSET;
 
 	memcpy(reverse_hoff_ptr, handoff_ptr, sizeof(handoff));
 	buffer = (uint32_t *)reverse_hoff_ptr;

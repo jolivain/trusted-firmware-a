@@ -15,19 +15,20 @@
 #include <drivers/io/io_driver.h>
 #include <drivers/io/io_storage.h>
 #include <lib/mmio.h>
-#include <plat/common/platform.h>
 #include <tools_share/firmware_image_package.h>
 #include <tools_share/uuid.h>
 
-#include "io_rcar.h"
+#include <plat/common/platform.h>
+#include <platform_def.h>
+
 #include "io_common.h"
 #include "io_private.h"
-#include <platform_def.h>
+#include "io_rcar.h"
 
 extern int32_t plat_get_drv_source(uint32_t id, uintptr_t *dev,
 				   uintptr_t *image_spec);
 
-static int32_t rcar_dev_open(const uintptr_t dev_spec __attribute__ ((unused)),
+static int32_t rcar_dev_open(const uintptr_t dev_spec __attribute__((unused)),
 			     io_dev_info_t **dev_info);
 static int32_t rcar_dev_close(io_dev_info_t *dev_info);
 
@@ -48,74 +49,74 @@ typedef struct {
 	uintptr_t offset;
 	uint32_t size;
 	uintptr_t dst;
-	uintptr_t partition;	/* for eMMC */
+	uintptr_t partition; /* for eMMC */
 	/* RCAR_EMMC_PARTITION_BOOT_0 */
 	/* RCAR_EMMC_PARTITION_BOOT_1 */
 	/* RCAR_EMMC_PARTITION_USER   */
 } file_state_t;
 
-#define RCAR_GET_FLASH_ADR(a, b)	((uint32_t)((0x40000U * (a)) + (b)))
-#define RCAR_ATTR_SET_CALCADDR(a)	((a) & 0xF)
-#define RCAR_ATTR_SET_ISNOLOAD(a)	(((a) & 0x1) << 16U)
-#define RCAR_ATTR_SET_CERTOFF(a)	(((a) & 0xF) << 8U)
-#define RCAR_ATTR_SET_ALL(a, b, c)	((uint32_t)(RCAR_ATTR_SET_CALCADDR(a) |\
-					RCAR_ATTR_SET_ISNOLOAD(b) |\
-					RCAR_ATTR_SET_CERTOFF(c)))
+#define RCAR_GET_FLASH_ADR(a, b) ((uint32_t)((0x40000U * (a)) + (b)))
+#define RCAR_ATTR_SET_CALCADDR(a) ((a)&0xF)
+#define RCAR_ATTR_SET_ISNOLOAD(a) (((a)&0x1) << 16U)
+#define RCAR_ATTR_SET_CERTOFF(a) (((a)&0xF) << 8U)
+#define RCAR_ATTR_SET_ALL(a, b, c)                                          \
+	((uint32_t)(RCAR_ATTR_SET_CALCADDR(a) | RCAR_ATTR_SET_ISNOLOAD(b) | \
+		    RCAR_ATTR_SET_CERTOFF(c)))
 
-#define RCAR_ATTR_GET_CALCADDR(a)	((a) & 0xFU)
-#define RCAR_ATTR_GET_ISNOLOAD(a)	(((a) >> 16) & 0x1U)
-#define RCAR_ATTR_GET_CERTOFF(a)	((uint32_t)(((a) >> 8) & 0xFU))
+#define RCAR_ATTR_GET_CALCADDR(a) ((a)&0xFU)
+#define RCAR_ATTR_GET_ISNOLOAD(a) (((a) >> 16) & 0x1U)
+#define RCAR_ATTR_GET_CERTOFF(a) ((uint32_t)(((a) >> 8) & 0xFU))
 
-#define RCAR_MAX_BL3X_IMAGE		(8U)
-#define RCAR_SECTOR6_CERT_OFFSET	(0x400U)
-#define RCAR_SDRAM_certESS		(0x43F00000U)
-#define RCAR_CERT_SIZE			(0x800U)
-#define RCAR_CERT_INFO_SIZE_OFFSET	(0x264U)
-#define RCAR_CERT_INFO_DST_OFFSET	(0x154U)
-#define RCAR_CERT_INFO_SIZE_OFFSET1	(0x364U)
-#define RCAR_CERT_INFO_DST_OFFSET1	(0x1D4U)
-#define RCAR_CERT_INFO_SIZE_OFFSET2	(0x464U)
-#define RCAR_CERT_INFO_DST_OFFSET2	(0x254U)
-#define RCAR_CERT_LOAD			(1U)
+#define RCAR_MAX_BL3X_IMAGE (8U)
+#define RCAR_SECTOR6_CERT_OFFSET (0x400U)
+#define RCAR_SDRAM_certESS (0x43F00000U)
+#define RCAR_CERT_SIZE (0x800U)
+#define RCAR_CERT_INFO_SIZE_OFFSET (0x264U)
+#define RCAR_CERT_INFO_DST_OFFSET (0x154U)
+#define RCAR_CERT_INFO_SIZE_OFFSET1 (0x364U)
+#define RCAR_CERT_INFO_DST_OFFSET1 (0x1D4U)
+#define RCAR_CERT_INFO_SIZE_OFFSET2 (0x464U)
+#define RCAR_CERT_INFO_DST_OFFSET2 (0x254U)
+#define RCAR_CERT_LOAD (1U)
 
-#define RCAR_FLASH_CERT_HEADER		RCAR_GET_FLASH_ADR(6U, 0U)
-#define RCAR_EMMC_CERT_HEADER		(0x00030000U)
+#define RCAR_FLASH_CERT_HEADER RCAR_GET_FLASH_ADR(6U, 0U)
+#define RCAR_EMMC_CERT_HEADER (0x00030000U)
 
-#define RCAR_COUNT_LOAD_BL33		(2U)
-#define RCAR_COUNT_LOAD_BL33X		(3U)
+#define RCAR_COUNT_LOAD_BL33 (2U)
+#define RCAR_COUNT_LOAD_BL33X (3U)
 
 static const plat_rcar_name_offset_t name_offset[] = {
-	{BL31_IMAGE_ID, 0U, RCAR_ATTR_SET_ALL(0, 0, 0)},
+	{ BL31_IMAGE_ID, 0U, RCAR_ATTR_SET_ALL(0, 0, 0) },
 
 	/* BL3-2 is optional in the platform */
-	{BL32_IMAGE_ID, 0U, RCAR_ATTR_SET_ALL(1, 0, 1)},
-	{BL33_IMAGE_ID, 0U, RCAR_ATTR_SET_ALL(2, 0, 2)},
-	{BL332_IMAGE_ID, 0U, RCAR_ATTR_SET_ALL(3, 0, 3)},
-	{BL333_IMAGE_ID, 0U, RCAR_ATTR_SET_ALL(4, 0, 4)},
-	{BL334_IMAGE_ID, 0U, RCAR_ATTR_SET_ALL(5, 0, 5)},
-	{BL335_IMAGE_ID, 0U, RCAR_ATTR_SET_ALL(6, 0, 6)},
-	{BL336_IMAGE_ID, 0U, RCAR_ATTR_SET_ALL(7, 0, 7)},
-	{BL337_IMAGE_ID, 0U, RCAR_ATTR_SET_ALL(8, 0, 8)},
-	{BL338_IMAGE_ID, 0U, RCAR_ATTR_SET_ALL(9, 0, 9)},
+	{ BL32_IMAGE_ID, 0U, RCAR_ATTR_SET_ALL(1, 0, 1) },
+	{ BL33_IMAGE_ID, 0U, RCAR_ATTR_SET_ALL(2, 0, 2) },
+	{ BL332_IMAGE_ID, 0U, RCAR_ATTR_SET_ALL(3, 0, 3) },
+	{ BL333_IMAGE_ID, 0U, RCAR_ATTR_SET_ALL(4, 0, 4) },
+	{ BL334_IMAGE_ID, 0U, RCAR_ATTR_SET_ALL(5, 0, 5) },
+	{ BL335_IMAGE_ID, 0U, RCAR_ATTR_SET_ALL(6, 0, 6) },
+	{ BL336_IMAGE_ID, 0U, RCAR_ATTR_SET_ALL(7, 0, 7) },
+	{ BL337_IMAGE_ID, 0U, RCAR_ATTR_SET_ALL(8, 0, 8) },
+	{ BL338_IMAGE_ID, 0U, RCAR_ATTR_SET_ALL(9, 0, 9) },
 };
 
 #if TRUSTED_BOARD_BOOT
 static const plat_rcar_name_offset_t cert_offset[] = {
 	/* Certificates */
-	{TRUSTED_KEY_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 0)},
-	{SOC_FW_KEY_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 0)},
-	{TRUSTED_OS_FW_KEY_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 0)},
-	{NON_TRUSTED_FW_KEY_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 0)},
-	{SOC_FW_CONTENT_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 0)},
-	{TRUSTED_OS_FW_CONTENT_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 1)},
-	{NON_TRUSTED_FW_CONTENT_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 2)},
-	{BL332_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 3)},
-	{BL333_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 4)},
-	{BL334_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 5)},
-	{BL335_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 6)},
-	{BL336_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 7)},
-	{BL337_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 8)},
-	{BL338_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 9)},
+	{ TRUSTED_KEY_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 0) },
+	{ SOC_FW_KEY_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 0) },
+	{ TRUSTED_OS_FW_KEY_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 0) },
+	{ NON_TRUSTED_FW_KEY_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 0) },
+	{ SOC_FW_CONTENT_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 0) },
+	{ TRUSTED_OS_FW_CONTENT_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 1) },
+	{ NON_TRUSTED_FW_CONTENT_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 2) },
+	{ BL332_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 3) },
+	{ BL333_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 4) },
+	{ BL334_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 5) },
+	{ BL335_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 6) },
+	{ BL336_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 7) },
+	{ BL337_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 8) },
+	{ BL338_CERT_ID, 0U, RCAR_ATTR_SET_ALL(0, 1, 9) },
 };
 #endif /* TRUSTED_BOARD_BOOT */
 
@@ -151,8 +152,8 @@ int32_t rcar_get_certificate(const int32_t name, uint32_t *cert)
 	return -EINVAL;
 }
 
-#define MFISBTSTSR			(0xE6260604U)
-#define MFISBTSTSR_BOOT_PARTITION	(0x00000010U)
+#define MFISBTSTSR (0xE6260604U)
+#define MFISBTSTSR_BOOT_PARTITION (0x00000010U)
 
 static int32_t file_to_offset(const int32_t name, uintptr_t *offset,
 			      uint32_t *cert, uint32_t *no_load,
@@ -199,8 +200,8 @@ static int32_t file_to_offset(const int32_t name, uintptr_t *offset,
 	return -EINVAL;
 }
 
-#define RCAR_BOOT_KEY_CERT_NEW	(0xE6300F00U)
-#define	RCAR_CERT_MAGIC_NUM	(0xE291F358U)
+#define RCAR_BOOT_KEY_CERT_NEW (0xE6300F00U)
+#define RCAR_CERT_MAGIC_NUM (0xE291F358U)
 
 void rcar_read_certificate(uint64_t cert, uint32_t *len, uintptr_t *dst)
 {
@@ -247,8 +248,8 @@ void rcar_read_certificate(uint64_t cert, uint32_t *len, uintptr_t *dst)
 
 		*len = mmio_read_32(size) * 4U;
 		dsth = dstl + 4U;
-		*dst = ((uintptr_t) mmio_read_32(dsth) << 32) +
-		    ((uintptr_t) mmio_read_32(dstl));
+		*dst = ((uintptr_t)mmio_read_32(dsth) << 32) +
+		       ((uintptr_t)mmio_read_32(dstl));
 		return;
 	}
 
@@ -256,8 +257,8 @@ void rcar_read_certificate(uint64_t cert, uint32_t *len, uintptr_t *dst)
 	*len = mmio_read_32(size) * 4U;
 	dstl = cert + RCAR_CERT_INFO_DST_OFFSET;
 	dsth = dstl + 4U;
-	*dst = ((uintptr_t) mmio_read_32(dsth) << 32) +
-	    ((uintptr_t) mmio_read_32(dstl));
+	*dst = ((uintptr_t)mmio_read_32(dsth) << 32) +
+	       ((uintptr_t)mmio_read_32(dstl));
 }
 
 static int32_t check_load_area(uintptr_t dst, uintptr_t len)
@@ -270,7 +271,7 @@ static int32_t check_load_area(uintptr_t dst, uintptr_t len)
 	dram_start = legacy ? DRAM1_BASE : DRAM_40BIT_BASE;
 
 	dram_end = legacy ? DRAM1_BASE + DRAM1_SIZE :
-	    DRAM_40BIT_BASE + DRAM_40BIT_SIZE;
+			    DRAM_40BIT_BASE + DRAM_40BIT_SIZE;
 
 	prot_start = legacy ? DRAM_PROTECTED_BASE : DRAM_40BIT_PROTECTED_BASE;
 
@@ -308,16 +309,9 @@ static int32_t load_bl33x(void)
 	uintptr_t offset;
 	int32_t rc;
 	size_t cnt;
-	const int32_t img[] = {
-		BL33_IMAGE_ID,
-		BL332_IMAGE_ID,
-		BL333_IMAGE_ID,
-		BL334_IMAGE_ID,
-		BL335_IMAGE_ID,
-		BL336_IMAGE_ID,
-		BL337_IMAGE_ID,
-		BL338_IMAGE_ID
-	};
+	const int32_t img[] = { BL33_IMAGE_ID,	BL332_IMAGE_ID, BL333_IMAGE_ID,
+				BL334_IMAGE_ID, BL335_IMAGE_ID, BL336_IMAGE_ID,
+				BL337_IMAGE_ID, BL338_IMAGE_ID };
 
 	if (loaded != IO_NOT_SUPPORTED) {
 		return loaded;
@@ -332,8 +326,8 @@ static int32_t load_bl33x(void)
 			return loaded;
 		}
 
-		rcar_read_certificate((uint64_t) cert, &len, &dst);
-		((io_drv_spec_t *) rcar_spec)->partition = partition;
+		rcar_read_certificate((uint64_t)cert, &len, &dst);
+		((io_drv_spec_t *)rcar_spec)->partition = partition;
 
 		rc = io_open(rcar_handle, rcar_spec, &handle);
 		if (rc != IO_SUCCESS) {
@@ -380,7 +374,7 @@ static int32_t load_bl33x(void)
 
 static int32_t rcar_dev_init(io_dev_info_t *dev_info, const uintptr_t name)
 {
-	static uint64_t header[64] __aligned(FLASH_TRANS_SIZE_UNIT) = {0UL};
+	static uint64_t header[64] __aligned(FLASH_TRANS_SIZE_UNIT) = { 0UL };
 	uintptr_t handle;
 	ssize_t offset;
 	uint32_t i;
@@ -417,21 +411,21 @@ static int32_t rcar_dev_init(io_dev_info_t *dev_info, const uintptr_t name)
 	 * [8] BL33-8 image address
 	 */
 	offset = name == EMMC_DEV_ID ? RCAR_EMMC_CERT_HEADER :
-	    RCAR_FLASH_CERT_HEADER;
+				       RCAR_FLASH_CERT_HEADER;
 	rc = io_seek(handle, IO_SEEK_SET, offset);
 	if (rc != IO_SUCCESS) {
 		WARN("Firmware Image Package header failed to seek\n");
 		goto error;
 	}
 
-	rc = io_read(handle, (uintptr_t) &header, sizeof(header), &cnt);
+	rc = io_read(handle, (uintptr_t)&header, sizeof(header), &cnt);
 	if (rc != IO_SUCCESS) {
 		WARN("Firmware Image Package header failed to read\n");
 		goto error;
 	}
 
 #if RCAR_BL2_DCACHE == 1
-	inv_dcache_range((uint64_t) header, sizeof(header));
+	inv_dcache_range((uint64_t)header, sizeof(header));
 #endif
 
 	rcar_image_number = header[0];
@@ -474,13 +468,12 @@ error:
 	io_close(handle);
 
 	return rc;
-
 }
 
 static int32_t rcar_file_open(io_dev_info_t *info, const uintptr_t file_spec,
 			      io_entity_t *entity)
 {
-	const io_drv_spec_t *spec = (io_drv_spec_t *) file_spec;
+	const io_drv_spec_t *spec = (io_drv_spec_t *)file_spec;
 	uintptr_t partition, offset, dst;
 	uint32_t noload, cert, len;
 	int32_t rc;
@@ -510,12 +503,12 @@ static int32_t rcar_file_open(io_dev_info_t *info, const uintptr_t file_spec,
 		current_file.position = 0;
 		current_file.no_load = noload;
 		current_file.partition = 0;
-		entity->info = (uintptr_t) &current_file;
+		entity->info = (uintptr_t)&current_file;
 
 		return IO_SUCCESS;
 	}
 
-	rcar_read_certificate((uint64_t) cert, &len, &dst);
+	rcar_read_certificate((uint64_t)cert, &len, &dst);
 
 	/* Baylibre: HACK */
 	if (spec->offset == BL31_IMAGE_ID && len < RCAR_TRUSTED_SRAM_SIZE) {
@@ -530,14 +523,14 @@ static int32_t rcar_file_open(io_dev_info_t *info, const uintptr_t file_spec,
 	current_file.position = 0;
 	current_file.size = len;
 	current_file.dst = dst;
-	entity->info = (uintptr_t) &current_file;
+	entity->info = (uintptr_t)&current_file;
 
 	return IO_SUCCESS;
 }
 
 static int32_t rcar_file_len(io_entity_t *entity, size_t *length)
 {
-	*length = ((file_state_t *) entity->info)->size;
+	*length = ((file_state_t *)entity->info)->size;
 
 	NOTICE("%s: len: 0x%08lx\n", __func__, *length);
 
@@ -547,7 +540,7 @@ static int32_t rcar_file_len(io_entity_t *entity, size_t *length)
 static int32_t rcar_file_read(io_entity_t *entity, uintptr_t buffer,
 			      size_t length, size_t *cnt)
 {
-	file_state_t *fp = (file_state_t *) entity->info;
+	file_state_t *fp = (file_state_t *)entity->info;
 	ssize_t offset = fp->offset + fp->position;
 	uintptr_t handle;
 	int32_t rc;
@@ -562,7 +555,7 @@ static int32_t rcar_file_read(io_entity_t *entity, uintptr_t buffer,
 		return IO_SUCCESS;
 	}
 
-	((io_drv_spec_t *) rcar_spec)->partition = fp->partition;
+	((io_drv_spec_t *)rcar_spec)->partition = fp->partition;
 
 	rc = io_open(rcar_handle, rcar_spec, &handle);
 	if (rc != IO_SUCCESS) {
@@ -627,19 +620,16 @@ static const io_dev_funcs_t rcar_dev_funcs = {
 	.dev_close = &rcar_dev_close,
 };
 
-static const io_dev_info_t rcar_dev_info = {
-	.funcs = &rcar_dev_funcs,
-	.info = (uintptr_t) 0
-};
+static const io_dev_info_t rcar_dev_info = { .funcs = &rcar_dev_funcs,
+					     .info = (uintptr_t)0 };
 
-static const io_dev_connector_t rcar_dev_connector = {
-	.dev_open = &rcar_dev_open
-};
+static const io_dev_connector_t rcar_dev_connector = { .dev_open =
+							       &rcar_dev_open };
 
-static int32_t rcar_dev_open(const uintptr_t dev_spec __attribute__ ((unused)),
+static int32_t rcar_dev_open(const uintptr_t dev_spec __attribute__((unused)),
 			     io_dev_info_t **dev_info)
 {
-	*dev_info = (io_dev_info_t *) &rcar_dev_info;
+	*dev_info = (io_dev_info_t *)&rcar_dev_info;
 
 	return IO_SUCCESS;
 }

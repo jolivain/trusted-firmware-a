@@ -9,30 +9,26 @@
 #include <drivers/delay_timer.h>
 #include <drivers/marvell/thermal.h>
 #include <lib/mmio.h>
-
 #include <mvebu_def.h>
 
-#define THERMAL_TIMEOUT					1200
+#define THERMAL_TIMEOUT 1200
 
-#define THERMAL_SEN_CTRL_LSB_STRT_OFFSET		0
-#define THERMAL_SEN_CTRL_LSB_STRT_MASK			\
-				(0x1 << THERMAL_SEN_CTRL_LSB_STRT_OFFSET)
-#define THERMAL_SEN_CTRL_LSB_RST_OFFSET			1
-#define THERMAL_SEN_CTRL_LSB_RST_MASK			\
-				(0x1 << THERMAL_SEN_CTRL_LSB_RST_OFFSET)
-#define THERMAL_SEN_CTRL_LSB_EN_OFFSET			2
-#define THERMAL_SEN_CTRL_LSB_EN_MASK			\
-				(0x1 << THERMAL_SEN_CTRL_LSB_EN_OFFSET)
+#define THERMAL_SEN_CTRL_LSB_STRT_OFFSET 0
+#define THERMAL_SEN_CTRL_LSB_STRT_MASK (0x1 << THERMAL_SEN_CTRL_LSB_STRT_OFFSET)
+#define THERMAL_SEN_CTRL_LSB_RST_OFFSET 1
+#define THERMAL_SEN_CTRL_LSB_RST_MASK (0x1 << THERMAL_SEN_CTRL_LSB_RST_OFFSET)
+#define THERMAL_SEN_CTRL_LSB_EN_OFFSET 2
+#define THERMAL_SEN_CTRL_LSB_EN_MASK (0x1 << THERMAL_SEN_CTRL_LSB_EN_OFFSET)
 
-#define THERMAL_SEN_CTRL_STATS_VALID_OFFSET		16
-#define THERMAL_SEN_CTRL_STATS_VALID_MASK		\
-				(0x1 << THERMAL_SEN_CTRL_STATS_VALID_OFFSET)
-#define THERMAL_SEN_CTRL_STATS_TEMP_OUT_OFFSET		0
-#define THERMAL_SEN_CTRL_STATS_TEMP_OUT_MASK		\
-			(0x3FF << THERMAL_SEN_CTRL_STATS_TEMP_OUT_OFFSET)
+#define THERMAL_SEN_CTRL_STATS_VALID_OFFSET 16
+#define THERMAL_SEN_CTRL_STATS_VALID_MASK \
+	(0x1 << THERMAL_SEN_CTRL_STATS_VALID_OFFSET)
+#define THERMAL_SEN_CTRL_STATS_TEMP_OUT_OFFSET 0
+#define THERMAL_SEN_CTRL_STATS_TEMP_OUT_MASK \
+	(0x3FF << THERMAL_SEN_CTRL_STATS_TEMP_OUT_OFFSET)
 
-#define THERMAL_SEN_OUTPUT_MSB				512
-#define THERMAL_SEN_OUTPUT_COMP				1024
+#define THERMAL_SEN_OUTPUT_MSB 512
+#define THERMAL_SEN_OUTPUT_COMP 1024
 
 struct tsen_regs {
 	uint32_t ext_tsen_ctrl_lsb;
@@ -93,7 +89,7 @@ static int ext_tsen_read(struct tsen_config *tsen_cfg, int *temp)
 
 	reg = mmio_read_32((uintptr_t)&base->ext_tsen_status);
 	reg = ((reg & THERMAL_SEN_CTRL_STATS_TEMP_OUT_MASK) >>
-		THERMAL_SEN_CTRL_STATS_TEMP_OUT_OFFSET);
+	       THERMAL_SEN_CTRL_STATS_TEMP_OUT_OFFSET);
 
 	/*
 	 * TSEN output format is signed as a 2s complement number
@@ -108,21 +104,20 @@ static int ext_tsen_read(struct tsen_config *tsen_cfg, int *temp)
 		return -1;
 	}
 
-	*temp = ((tsen_cfg->tsen_gain * ((int)reg)) +
-		 tsen_cfg->tsen_offset) / tsen_cfg->tsen_divisor;
+	*temp = ((tsen_cfg->tsen_gain * ((int)reg)) + tsen_cfg->tsen_offset) /
+		tsen_cfg->tsen_divisor;
 
 	return 0;
 }
 
-static struct tsen_config tsen_cfg = {
-	.tsen_offset = 153400,
-	.tsen_gain = 425,
-	.tsen_divisor = 1000,
-	.tsen_ready = 0,
-	.regs_base = (void *)MVEBU_AP_EXT_TSEN_BASE,
-	.ptr_tsen_probe = ext_tsen_probe,
-	.ptr_tsen_read = ext_tsen_read
-};
+static struct tsen_config tsen_cfg = { .tsen_offset = 153400,
+				       .tsen_gain = 425,
+				       .tsen_divisor = 1000,
+				       .tsen_ready = 0,
+				       .regs_base =
+					       (void *)MVEBU_AP_EXT_TSEN_BASE,
+				       .ptr_tsen_probe = ext_tsen_probe,
+				       .ptr_tsen_read = ext_tsen_read };
 
 struct tsen_config *marvell_thermal_config_get(void)
 {

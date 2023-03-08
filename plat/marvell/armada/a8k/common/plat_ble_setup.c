@@ -5,6 +5,7 @@
  * https://spdx.org/licenses
  */
 
+#include <armada_common.h>
 #include <common/debug.h>
 #include <drivers/marvell/ap807_clocks_init.h>
 #include <drivers/marvell/aro.h>
@@ -12,75 +13,70 @@
 #include <drivers/marvell/io_win.h>
 #include <drivers/marvell/mochi/ap_setup.h>
 #include <drivers/marvell/mochi/cp110_setup.h>
-
-#include <armada_common.h>
 #include <efuse_def.h>
 #include <mv_ddr_if.h>
 #include <mvebu_def.h>
 #include <plat_marvell.h>
 
 /* Register for skip image use */
-#define SCRATCH_PAD_REG2		0xF06F00A8
-#define SCRATCH_PAD_SKIP_VAL		0x01
+#define SCRATCH_PAD_REG2 0xF06F00A8
+#define SCRATCH_PAD_SKIP_VAL 0x01
 #define NUM_OF_GPIO_PER_REG 32
 
-#define MMAP_SAVE_AND_CONFIG		0
-#define MMAP_RESTORE_SAVED		1
+#define MMAP_SAVE_AND_CONFIG 0
+#define MMAP_RESTORE_SAVED 1
 
 /* SAR clock settings */
-#define MVEBU_AP_SAR_REG_BASE(r)	(MVEBU_AP_GEN_MGMT_BASE + 0x200 +\
-								((r) << 2))
+#define MVEBU_AP_SAR_REG_BASE(r) (MVEBU_AP_GEN_MGMT_BASE + 0x200 + ((r) << 2))
 
-#define SAR_CLOCK_FREQ_MODE_OFFSET	(0)
-#define SAR_CLOCK_FREQ_MODE_MASK	(0x1f << SAR_CLOCK_FREQ_MODE_OFFSET)
-#define SAR_PIDI_LOW_SPEED_OFFSET	(20)
-#define SAR_PIDI_LOW_SPEED_MASK		(1 << SAR_PIDI_LOW_SPEED_OFFSET)
-#define SAR_PIDI_LOW_SPEED_SHIFT	(15)
-#define SAR_PIDI_LOW_SPEED_SET		(1 << SAR_PIDI_LOW_SPEED_SHIFT)
+#define SAR_CLOCK_FREQ_MODE_OFFSET (0)
+#define SAR_CLOCK_FREQ_MODE_MASK (0x1f << SAR_CLOCK_FREQ_MODE_OFFSET)
+#define SAR_PIDI_LOW_SPEED_OFFSET (20)
+#define SAR_PIDI_LOW_SPEED_MASK (1 << SAR_PIDI_LOW_SPEED_OFFSET)
+#define SAR_PIDI_LOW_SPEED_SHIFT (15)
+#define SAR_PIDI_LOW_SPEED_SET (1 << SAR_PIDI_LOW_SPEED_SHIFT)
 
-#define FREQ_MODE_AP_SAR_REG_NUM	(0)
-#define SAR_CLOCK_FREQ_MODE(v)		(((v) & SAR_CLOCK_FREQ_MODE_MASK) >> \
-					SAR_CLOCK_FREQ_MODE_OFFSET)
+#define FREQ_MODE_AP_SAR_REG_NUM (0)
+#define SAR_CLOCK_FREQ_MODE(v) \
+	(((v)&SAR_CLOCK_FREQ_MODE_MASK) >> SAR_CLOCK_FREQ_MODE_OFFSET)
 
-#define AVS_I2C_EEPROM_ADDR		0x57	/* EEPROM */
-#define AVS_EN_CTRL_REG			(MVEBU_AP_GEN_MGMT_BASE + 0x130)
-#define AVS_ENABLE_OFFSET		(0)
-#define AVS_SOFT_RESET_OFFSET		(2)
-#define AVS_TARGET_DELTA_OFFSET		(21)
+#define AVS_I2C_EEPROM_ADDR 0x57 /* EEPROM */
+#define AVS_EN_CTRL_REG (MVEBU_AP_GEN_MGMT_BASE + 0x130)
+#define AVS_ENABLE_OFFSET (0)
+#define AVS_SOFT_RESET_OFFSET (2)
+#define AVS_TARGET_DELTA_OFFSET (21)
 
 #ifndef MVEBU_SOC_AP807
-	/* AP806 SVC bits */
-	#define AVS_LOW_VDD_LIMIT_OFFSET	(4)
-	#define AVS_HIGH_VDD_LIMIT_OFFSET	(12)
-	#define AVS_VDD_LOW_LIMIT_MASK	(0xFF << AVS_LOW_VDD_LIMIT_OFFSET)
-	#define AVS_VDD_HIGH_LIMIT_MASK	(0xFF << AVS_HIGH_VDD_LIMIT_OFFSET)
+/* AP806 SVC bits */
+#define AVS_LOW_VDD_LIMIT_OFFSET (4)
+#define AVS_HIGH_VDD_LIMIT_OFFSET (12)
+#define AVS_VDD_LOW_LIMIT_MASK (0xFF << AVS_LOW_VDD_LIMIT_OFFSET)
+#define AVS_VDD_HIGH_LIMIT_MASK (0xFF << AVS_HIGH_VDD_LIMIT_OFFSET)
 #else
-	/* AP807 SVC bits */
-	#define AVS_LOW_VDD_LIMIT_OFFSET	(3)
-	#define AVS_HIGH_VDD_LIMIT_OFFSET	(13)
-	#define AVS_VDD_LOW_LIMIT_MASK	(0x3FF << AVS_LOW_VDD_LIMIT_OFFSET)
-	#define AVS_VDD_HIGH_LIMIT_MASK	(0x3FF << AVS_HIGH_VDD_LIMIT_OFFSET)
+/* AP807 SVC bits */
+#define AVS_LOW_VDD_LIMIT_OFFSET (3)
+#define AVS_HIGH_VDD_LIMIT_OFFSET (13)
+#define AVS_VDD_LOW_LIMIT_MASK (0x3FF << AVS_LOW_VDD_LIMIT_OFFSET)
+#define AVS_VDD_HIGH_LIMIT_MASK (0x3FF << AVS_HIGH_VDD_LIMIT_OFFSET)
 #endif
 
 /* VDD limit is 0.9V for A70x0 @ CPU frequency < 1600MHz */
-#define AVS_A7K_LOW_CLK_VALUE		((0x80 << AVS_TARGET_DELTA_OFFSET) | \
-					 (0x1A << AVS_HIGH_VDD_LIMIT_OFFSET) | \
-					 (0x1A << AVS_LOW_VDD_LIMIT_OFFSET) | \
-					 (0x1 << AVS_SOFT_RESET_OFFSET) | \
-					 (0x1 << AVS_ENABLE_OFFSET))
+#define AVS_A7K_LOW_CLK_VALUE                                                  \
+	((0x80 << AVS_TARGET_DELTA_OFFSET) |                                   \
+	 (0x1A << AVS_HIGH_VDD_LIMIT_OFFSET) |                                 \
+	 (0x1A << AVS_LOW_VDD_LIMIT_OFFSET) | (0x1 << AVS_SOFT_RESET_OFFSET) | \
+	 (0x1 << AVS_ENABLE_OFFSET))
 /* VDD limit is 1.0V for all A80x0 devices */
-#define AVS_A8K_CLK_VALUE		((0x80 << AVS_TARGET_DELTA_OFFSET) | \
-					 (0x24 << AVS_HIGH_VDD_LIMIT_OFFSET) | \
-					 (0x24 << AVS_LOW_VDD_LIMIT_OFFSET) | \
-					 (0x1 << AVS_SOFT_RESET_OFFSET) | \
-					 (0x1 << AVS_ENABLE_OFFSET))
+#define AVS_A8K_CLK_VALUE                                                      \
+	((0x80 << AVS_TARGET_DELTA_OFFSET) |                                   \
+	 (0x24 << AVS_HIGH_VDD_LIMIT_OFFSET) |                                 \
+	 (0x24 << AVS_LOW_VDD_LIMIT_OFFSET) | (0x1 << AVS_SOFT_RESET_OFFSET) | \
+	 (0x1 << AVS_ENABLE_OFFSET))
 
 /* VDD is 0.88V for 2GHz clock on CN913x devices */
-#define AVS_AP807_CLK_VALUE		((0x80UL << 24) | \
-					 (0x2dc << 13) | \
-					 (0x2dc << 3) | \
-					 (0x1 << AVS_SOFT_RESET_OFFSET) | \
-					 (0x1 << AVS_ENABLE_OFFSET))
+#define AVS_AP807_CLK_VALUE                              \
+	((0x80UL << 24) | (0x2dc << 13) | (0x2dc << 3) | \
+	 (0x1 << AVS_SOFT_RESET_OFFSET) | (0x1 << AVS_ENABLE_OFFSET))
 
 /*
  * - Identification information in the LD-0 eFuse:
@@ -92,48 +88,48 @@
  *				  resulting in 2 CPUs active only (7020)
  */
 /* Offsets for 2 efuse fields combined into single 64-bit value [125:63] */
-#define EFUSE_AP_LD0_DRO_OFFS		2		/* LD0[74:65] */
-#define EFUSE_AP_LD0_DRO_MASK		0x3FF
-#define EFUSE_AP_LD0_REVID_OFFS		12		/* LD0[78:75] */
-#define EFUSE_AP_LD0_REVID_MASK		0xF
-#define EFUSE_AP_LD0_BIN_OFFS		16		/* LD0[80:79] */
-#define EFUSE_AP_LD0_BIN_MASK		0x3
-#define EFUSE_AP_LD0_SWREV_MASK		0x7
+#define EFUSE_AP_LD0_DRO_OFFS 2 /* LD0[74:65] */
+#define EFUSE_AP_LD0_DRO_MASK 0x3FF
+#define EFUSE_AP_LD0_REVID_OFFS 12 /* LD0[78:75] */
+#define EFUSE_AP_LD0_REVID_MASK 0xF
+#define EFUSE_AP_LD0_BIN_OFFS 16 /* LD0[80:79] */
+#define EFUSE_AP_LD0_BIN_MASK 0x3
+#define EFUSE_AP_LD0_SWREV_MASK 0x7
 
 #ifndef MVEBU_SOC_AP807
-	/* AP806 AVS work points in the LD0 eFuse
+/* AP806 AVS work points in the LD0 eFuse
 	 * SVC1 work point:     LD0[88:81]
 	 * SVC2 work point:     LD0[96:89]
 	 * SVC3 work point:     LD0[104:97]
 	 * SVC4 work point:     LD0[112:105]
 	 */
-	#define EFUSE_AP_LD0_SVC1_OFFS		18	/* LD0[88:81] */
-	#define EFUSE_AP_LD0_SVC2_OFFS		26	/* LD0[96:89] */
-	#define EFUSE_AP_LD0_SVC3_OFFS		34	/* LD0[104:97] */
-	#define EFUSE_AP_LD0_WP_MASK		0xFF
-	#define EFUSE_AP_LD0_SWREV_OFFS		50	/* LD0[115:113] */
+#define EFUSE_AP_LD0_SVC1_OFFS 18 /* LD0[88:81] */
+#define EFUSE_AP_LD0_SVC2_OFFS 26 /* LD0[96:89] */
+#define EFUSE_AP_LD0_SVC3_OFFS 34 /* LD0[104:97] */
+#define EFUSE_AP_LD0_WP_MASK 0xFF
+#define EFUSE_AP_LD0_SWREV_OFFS 50 /* LD0[115:113] */
 #else
-	/* AP807 AVS work points in the LD0 eFuse
+/* AP807 AVS work points in the LD0 eFuse
 	 * SVC1 work point:     LD0[91:81]
 	 * SVC2 work point:     LD0[102:92]
 	 * SVC3 work point:     LD0[113:103]
 	 */
-	#define EFUSE_AP_LD0_SVC1_OFFS		18	/* LD0[91:81] */
-	#define EFUSE_AP_LD0_SVC2_OFFS		29	/* LD0[102:92] */
-	#define EFUSE_AP_LD0_SVC3_OFFS		40	/* LD0[113:103] */
-	#define EFUSE_AP_LD0_WP_MASK		0x7FF	/* 10 data,1 parity */
-	#define EFUSE_AP_LD0_SWREV_OFFS		51	/* LD0[116:114] */
+#define EFUSE_AP_LD0_SVC1_OFFS 18 /* LD0[91:81] */
+#define EFUSE_AP_LD0_SVC2_OFFS 29 /* LD0[102:92] */
+#define EFUSE_AP_LD0_SVC3_OFFS 40 /* LD0[113:103] */
+#define EFUSE_AP_LD0_WP_MASK 0x7FF /* 10 data,1 parity */
+#define EFUSE_AP_LD0_SWREV_OFFS 51 /* LD0[116:114] */
 #endif
 
-#define EFUSE_AP_LD0_SVC4_OFFS			42	/* LD0[112:105] */
+#define EFUSE_AP_LD0_SVC4_OFFS 42 /* LD0[112:105] */
 
-#define EFUSE_AP_LD0_CLUSTER_DOWN_OFFS		4
+#define EFUSE_AP_LD0_CLUSTER_DOWN_OFFS 4
 
 #if MARVELL_SVC_TEST
-#define MVEBU_CP_MPP_CTRL37_OFFS	20
-#define MVEBU_CP_MPP_CTRL38_OFFS	24
-#define MVEBU_CP_MPP_I2C_FUNC		2
-#define MVEBU_MPP_CTRL_MASK		0xf
+#define MVEBU_CP_MPP_CTRL37_OFFS 20
+#define MVEBU_CP_MPP_CTRL38_OFFS 24
+#define MVEBU_CP_MPP_I2C_FUNC 2
+#define MVEBU_MPP_CTRL_MASK 0xf
 #endif
 
 /* Return the AP revision of the chip */
@@ -143,7 +139,7 @@ static unsigned int ble_get_ap_type(void)
 
 	chip_rev_id = mmio_read_32(MVEBU_CSS_GWD_CTRL_IIDR2_REG);
 	chip_rev_id = ((chip_rev_id & GWD_IIDR2_CHIP_ID_MASK) >>
-			GWD_IIDR2_CHIP_ID_OFFSET);
+		       GWD_IIDR2_CHIP_ID_OFFSET);
 
 	return chip_rev_id;
 }
@@ -200,12 +196,10 @@ static void ble_plat_avs_config(void)
 	uint32_t freq_mode, device_id;
 	uint32_t avs_val = 0;
 
-	freq_mode =
-		SAR_CLOCK_FREQ_MODE(mmio_read_32(MVEBU_AP_SAR_REG_BASE(
-						 FREQ_MODE_AP_SAR_REG_NUM)));
+	freq_mode = SAR_CLOCK_FREQ_MODE(
+		mmio_read_32(MVEBU_AP_SAR_REG_BASE(FREQ_MODE_AP_SAR_REG_NUM)));
 	/* Check which SoC is running and act accordingly */
 	if (ble_get_ap_type() == CHIP_ID_AP807) {
-
 		avs_val = AVS_AP807_CLK_VALUE;
 
 	} else {
@@ -281,7 +275,7 @@ static uint32_t avs_update_from_eeprom(uint32_t avs_workpoint)
 	 *         | Valid only for AP807 platforms and must be less than 0x4
 	 * ---------------------------------------------------------------------
 	 */
-	static uint8_t  avs_step[3] = {0};
+	static uint8_t avs_step[3] = { 0 };
 	uintptr_t reg;
 	uint32_t val;
 	unsigned int ap_type = ble_get_ap_type();
@@ -291,8 +285,8 @@ static uint32_t avs_update_from_eeprom(uint32_t avs_workpoint)
 		/* Get correction steps from the EEPROM */
 		if ((avs_step[0] != 0) && (avs_step[0] != 0xff)) {
 			NOTICE("AVS request to step %s by 0x%x from old 0x%x\n",
-				avs_step[0] & 0x80 ? "DOWN" : "UP",
-				avs_step[0] & 0x7f, new_wp);
+			       avs_step[0] & 0x80 ? "DOWN" : "UP",
+			       avs_step[0] & 0x7f, new_wp);
 			if (avs_step[0] & 0x80)
 				new_wp -= avs_step[0] & 0x7f;
 			else
@@ -311,7 +305,7 @@ static uint32_t avs_update_from_eeprom(uint32_t avs_workpoint)
 	val &= ~((MVEBU_MPP_CTRL_MASK << MVEBU_CP_MPP_CTRL37_OFFS) |
 		 (MVEBU_MPP_CTRL_MASK << MVEBU_CP_MPP_CTRL38_OFFS));
 	val |= (MVEBU_CP_MPP_I2C_FUNC << MVEBU_CP_MPP_CTRL37_OFFS) |
-		(MVEBU_CP_MPP_I2C_FUNC << MVEBU_CP_MPP_CTRL38_OFFS);
+	       (MVEBU_CP_MPP_I2C_FUNC << MVEBU_CP_MPP_CTRL38_OFFS);
 	mmio_write_32(reg, val);
 
 	/* Init CP0 i2c-0 */
@@ -320,8 +314,8 @@ static uint32_t avs_update_from_eeprom(uint32_t avs_workpoint)
 	/* Read EEPROM only once at the fist call! */
 	i2c_read(AVS_I2C_EEPROM_ADDR, 0x120, 2, avs_step, 3);
 	NOTICE("== SVC test build ==\n");
-	NOTICE("EEPROM holds values 0x%x, 0x%x and 0x%x\n",
-		avs_step[0], avs_step[1], avs_step[2]);
+	NOTICE("EEPROM holds values 0x%x, 0x%x and 0x%x\n", avs_step[0],
+	       avs_step[1], avs_step[2]);
 
 	/* Override the AVS value? */
 	if ((ap_type != CHIP_ID_AP807) && (avs_step[1] < 0x33)) {
@@ -360,8 +354,8 @@ static void ble_plat_svc_config(void)
 	uint32_t reg_val, avs_workpoint, freq_pidi_mode;
 	uint64_t efuse;
 	uint32_t device_id, single_cluster;
-	uint16_t  svc[4], perr[4], i, sw_ver;
-	uint8_t	 avs_data_bits, min_sw_ver, svc_fields;
+	uint16_t svc[4], perr[4], i, sw_ver;
+	uint8_t avs_data_bits, min_sw_ver, svc_fields;
 	unsigned int ap_type;
 
 	/* Get test EERPOM data */
@@ -398,9 +392,7 @@ static void ble_plat_svc_config(void)
 
 	/* Frequency mode from SAR */
 	freq_pidi_mode = SAR_CLOCK_FREQ_MODE(
-				mmio_read_32(
-					MVEBU_AP_SAR_REG_BASE(
-						FREQ_MODE_AP_SAR_REG_NUM)));
+		mmio_read_32(MVEBU_AP_SAR_REG_BASE(FREQ_MODE_AP_SAR_REG_NUM)));
 
 	/* Decode all SVC work points */
 	svc[0] = (efuse >> EFUSE_AP_LD0_SVC1_OFFS) & EFUSE_AP_LD0_WP_MASK;
@@ -411,16 +403,16 @@ static void ble_plat_svc_config(void)
 	ap_type = ble_get_ap_type();
 
 	if (ap_type != CHIP_ID_AP807) {
-		svc[3] = (efuse >> EFUSE_AP_LD0_SVC4_OFFS)
-			 & EFUSE_AP_LD0_WP_MASK;
+		svc[3] = (efuse >> EFUSE_AP_LD0_SVC4_OFFS) &
+			 EFUSE_AP_LD0_WP_MASK;
 		INFO("SVC: Efuse WP: [0]=0x%x, [1]=0x%x, [2]=0x%x, [3]=0x%x\n",
 		     svc[0], svc[1], svc[2], svc[3]);
 		avs_data_bits = 7;
 		min_sw_ver = 2; /* parity check from sw revision 2 */
 		svc_fields = 4;
 	} else {
-		INFO("SVC: Efuse WP: [0]=0x%x, [1]=0x%x, [2]=0x%x\n",
-		     svc[0], svc[1], svc[2]);
+		INFO("SVC: Efuse WP: [0]=0x%x, [1]=0x%x, [2]=0x%x\n", svc[0],
+		     svc[1], svc[2]);
 		avs_data_bits = 10;
 		min_sw_ver = 1; /* parity check required from sw revision 1 */
 		svc_fields = 3;
@@ -448,7 +440,7 @@ static void ble_plat_svc_config(void)
 	    device_id == MVEBU_80X0_CP115_DEV_ID) {
 		/* A8040/A8020 */
 		NOTICE("SVC: DEV ID: %s, FREQ Mode: 0x%x\n",
-			single_cluster == 0 ? "8040" : "8020", freq_pidi_mode);
+		       single_cluster == 0 ? "8040" : "8020", freq_pidi_mode);
 		switch (freq_pidi_mode) {
 		case CPU_1800_DDR_1050_RCLK_1050:
 			if (perr[1])
@@ -479,10 +471,10 @@ static void ble_plat_svc_config(void)
 		   device_id == MVEBU_70X0_CP115_DEV_ID) {
 		/* A7040/A7020/A6040 */
 		NOTICE("SVC: DEV ID: %s, FREQ Mode: 0x%x\n",
-			single_cluster == 0 ? "7040" : "7020", freq_pidi_mode);
+		       single_cluster == 0 ? "7040" : "7020", freq_pidi_mode);
 		switch (freq_pidi_mode) {
 		case CPU_1400_DDR_800_RCLK_800:
-			if (single_cluster) {/* 7020 */
+			if (single_cluster) { /* 7020 */
 				if (perr[1])
 					goto perror;
 				avs_workpoint = svc[1];
@@ -493,7 +485,7 @@ static void ble_plat_svc_config(void)
 			}
 			break;
 		case CPU_1200_DDR_800_RCLK_800:
-			if (single_cluster) {/* 7020 */
+			if (single_cluster) { /* 7020 */
 				if (perr[2])
 					goto perror;
 				avs_workpoint = svc[2];
@@ -505,7 +497,7 @@ static void ble_plat_svc_config(void)
 			break;
 		case CPU_800_DDR_800_RCLK_800:
 		case CPU_1000_DDR_800_RCLK_800:
-			if (single_cluster) {/* 7020 */
+			if (single_cluster) { /* 7020 */
 				if (perr[3])
 					goto perror;
 				avs_workpoint = svc[3];
@@ -522,18 +514,18 @@ static void ble_plat_svc_config(void)
 			break;
 		case CPU_1600_DDR_800_RCLK_800: /* 7020 only */
 		default:
-			if (single_cluster) {/* 7020 */
+			if (single_cluster) { /* 7020 */
 				if (perr[0])
 					goto perror;
 				avs_workpoint = svc[0];
 			} else {
 #if MARVELL_SVC_TEST
 				reg_val = mmio_read_32(AVS_EN_CTRL_REG);
-				avs_workpoint = (reg_val &
-					AVS_VDD_LOW_LIMIT_MASK) >>
+				avs_workpoint =
+					(reg_val & AVS_VDD_LOW_LIMIT_MASK) >>
 					AVS_LOW_VDD_LIMIT_OFFSET;
 				NOTICE("7040 1600Mhz, avs = 0x%x\n",
-					avs_workpoint);
+				       avs_workpoint);
 #else
 				NOTICE("SVC: AVS work point not changed\n");
 				return;
@@ -542,8 +534,8 @@ static void ble_plat_svc_config(void)
 			break;
 		}
 	} else if (device_id == MVEBU_3900_DEV_ID) {
-		NOTICE("SVC: DEV ID: %s, FREQ Mode: 0x%x\n",
-		       "3900", freq_pidi_mode);
+		NOTICE("SVC: DEV ID: %s, FREQ Mode: 0x%x\n", "3900",
+		       freq_pidi_mode);
 		switch (freq_pidi_mode) {
 		case CPU_1600_DDR_1200_RCLK_1200:
 			if (perr[0])
@@ -562,8 +554,8 @@ static void ble_plat_svc_config(void)
 			break;
 		}
 	} else if (device_id == MVEBU_CN9130_DEV_ID) {
-		NOTICE("SVC: DEV ID: %s, FREQ Mode: 0x%x\n",
-		       "CN913x", freq_pidi_mode);
+		NOTICE("SVC: DEV ID: %s, FREQ Mode: 0x%x\n", "CN913x",
+		       freq_pidi_mode);
 		switch (freq_pidi_mode) {
 		case CPU_2200_DDR_1200_RCLK_1200:
 			if (perr[0])
@@ -582,9 +574,8 @@ static void ble_plat_svc_config(void)
 			break;
 		default:
 			ERROR("SVC: Unsupported Frequency 0x%x\n",
-				freq_pidi_mode);
+			      freq_pidi_mode);
 			return;
-
 		}
 	} else {
 		ERROR("SVC: Unsupported Device ID 0x%x\n", device_id);
@@ -609,10 +600,10 @@ static void ble_plat_svc_config(void)
 	avs_workpoint = avs_update_from_eeprom(avs_workpoint);
 
 set_aws_wp:
-	reg_val  = mmio_read_32(AVS_EN_CTRL_REG);
+	reg_val = mmio_read_32(AVS_EN_CTRL_REG);
 	NOTICE("SVC: AVS work point changed from 0x%x to 0x%x\n",
-		(reg_val & AVS_VDD_LOW_LIMIT_MASK) >> AVS_LOW_VDD_LIMIT_OFFSET,
-		avs_workpoint);
+	       (reg_val & AVS_VDD_LOW_LIMIT_MASK) >> AVS_LOW_VDD_LIMIT_OFFSET,
+	       avs_workpoint);
 	reg_val &= ~(AVS_VDD_LOW_LIMIT_MASK | AVS_VDD_HIGH_LIMIT_MASK);
 	reg_val |= 0x1 << AVS_ENABLE_OFFSET;
 	reg_val |= avs_workpoint << AVS_HIGH_VDD_LIMIT_OFFSET;
@@ -647,7 +638,7 @@ static int ble_skip_image_gpio(struct skip_image *skip_im)
 	unsigned int offset = 0;
 
 	switch (skip_im->info.test.cp_ap) {
-	case(CP):
+	case (CP):
 		mpp_address = MVEBU_CP_GPIO_DATA_IN(skip_im->info.test.cp_index,
 						    skip_im->info.gpio.num);
 		if (skip_im->info.gpio.num > NUM_OF_GPIO_PER_REG)
@@ -655,7 +646,7 @@ static int ble_skip_image_gpio(struct skip_image *skip_im)
 		else
 			offset = skip_im->info.gpio.num;
 		break;
-	case(AP):
+	case (AP):
 		mpp_address = MVEBU_AP_GPIO_DATA_IN;
 		offset = skip_im->info.gpio.num;
 		break;
@@ -678,7 +669,7 @@ static int ble_skip_image_gpio(struct skip_image *skip_im)
  * 1: (true) images request been made.
  * 0: (false) no image request been made.
  */
-static int  ble_skip_current_image(void)
+static int ble_skip_current_image(void)
 {
 	struct skip_image *skip_im;
 
@@ -704,7 +695,6 @@ static int  ble_skip_current_image(void)
 	return 0;
 }
 #endif
-
 
 int ble_plat_setup(int *skip)
 {
@@ -741,9 +731,8 @@ int ble_plat_setup(int *skip)
 	ble_plat_svc_config();
 
 	/* read clk option from sampled-at-reset register */
-	freq_mode =
-		SAR_CLOCK_FREQ_MODE(mmio_read_32(MVEBU_AP_SAR_REG_BASE(
-						 FREQ_MODE_AP_SAR_REG_NUM)));
+	freq_mode = SAR_CLOCK_FREQ_MODE(
+		mmio_read_32(MVEBU_AP_SAR_REG_BASE(FREQ_MODE_AP_SAR_REG_NUM)));
 
 	/* work with PLL clock driver in AP807 */
 	if (ble_get_ap_type() == CHIP_ID_AP807)

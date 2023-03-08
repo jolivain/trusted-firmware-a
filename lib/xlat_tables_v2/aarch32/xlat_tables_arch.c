@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,14 +7,14 @@
 #include <assert.h>
 #include <stdbool.h>
 
-#include <platform_def.h>
-
 #include <arch.h>
 #include <arch_features.h>
 #include <arch_helpers.h>
 #include <lib/cassert.h>
 #include <lib/utils_def.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
+
+#include <platform_def.h>
 
 #include "../xlat_tables_private.h"
 
@@ -178,9 +178,8 @@ void setup_mmu_cfg(uint64_t *params, unsigned int flags,
 	/* Set attributes in the right indices of the MAIR */
 	mair = MAIR0_ATTR_SET(ATTR_DEVICE, ATTR_DEVICE_INDEX);
 	mair |= MAIR0_ATTR_SET(ATTR_IWBWA_OWBWA_NTR,
-			ATTR_IWBWA_OWBWA_NTR_INDEX);
-	mair |= MAIR0_ATTR_SET(ATTR_NON_CACHEABLE,
-			ATTR_NON_CACHEABLE_INDEX);
+			       ATTR_IWBWA_OWBWA_NTR_INDEX);
+	mair |= MAIR0_ATTR_SET(ATTR_NON_CACHEABLE, ATTR_NON_CACHEABLE_INDEX);
 
 	/*
 	 * Configure the control register for stage 1 of the PL1&0 or EL2
@@ -205,9 +204,8 @@ void setup_mmu_cfg(uint64_t *params, unsigned int flags,
 		 * Set HTCR bits as well. Set HTTBR table properties
 		 * as Inner & outer WBWA & shareable.
 		 */
-		ttbcr |= HTCR_RES1 |
-			 HTCR_SH0_INNER_SHAREABLE | HTCR_RGN0_OUTER_WBA |
-			 HTCR_RGN0_INNER_WBA;
+		ttbcr |= HTCR_RES1 | HTCR_SH0_INNER_SHAREABLE |
+			 HTCR_RGN0_OUTER_WBA | HTCR_RGN0_INNER_WBA;
 	}
 
 	/*
@@ -219,7 +217,7 @@ void setup_mmu_cfg(uint64_t *params, unsigned int flags,
 		uintptr_t virtual_addr_space_size = max_va + 1U;
 
 		assert(virtual_addr_space_size >=
-			xlat_get_min_virt_addr_space_size());
+		       xlat_get_min_virt_addr_space_size());
 		assert(IS_POWER_OF_TWO(virtual_addr_space_size));
 
 		/*
@@ -228,7 +226,7 @@ void setup_mmu_cfg(uint64_t *params, unsigned int flags,
 		 */
 		int t0sz = 32 - __builtin_ctzll(virtual_addr_space_size);
 
-		ttbcr |= (uint32_t) t0sz;
+		ttbcr |= (uint32_t)t0sz;
 	}
 
 	/*
@@ -238,15 +236,15 @@ void setup_mmu_cfg(uint64_t *params, unsigned int flags,
 	if ((flags & XLAT_TABLE_NC) != 0U) {
 		/* Inner & outer non-cacheable non-shareable. */
 		ttbcr |= TTBCR_SH0_NON_SHAREABLE | TTBCR_RGN0_OUTER_NC |
-			TTBCR_RGN0_INNER_NC;
+			 TTBCR_RGN0_INNER_NC;
 	} else {
 		/* Inner & outer WBWA & shareable. */
 		ttbcr |= TTBCR_SH0_INNER_SHAREABLE | TTBCR_RGN0_OUTER_WBA |
-			TTBCR_RGN0_INNER_WBA;
+			 TTBCR_RGN0_INNER_WBA;
 	}
 
 	/* Set TTBR0 bits as well */
-	ttbr0 = (uint64_t)(uintptr_t) base_table;
+	ttbr0 = (uint64_t)(uintptr_t)base_table;
 
 	if (is_armv8_2_ttcnp_present()) {
 		/* Enable CnP bit so as to share page tables with all PEs. */
@@ -255,6 +253,6 @@ void setup_mmu_cfg(uint64_t *params, unsigned int flags,
 
 	/* Now populate MMU configuration */
 	params[MMU_CFG_MAIR] = mair;
-	params[MMU_CFG_TCR] = (uint64_t) ttbcr;
+	params[MMU_CFG_TCR] = (uint64_t)ttbcr;
 	params[MMU_CFG_TTBR0] = ttbr0;
 }

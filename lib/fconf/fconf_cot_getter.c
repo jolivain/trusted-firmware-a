@@ -7,24 +7,21 @@
 #include <assert.h>
 #include <stddef.h>
 
-#include <mbedtls/version.h>
-
 #include <common/fdt_wrappers.h>
 #include <common/tbbr/cot_def.h>
 #include <drivers/auth/auth_mod.h>
 #include <lib/fconf/fconf.h>
 #include <lib/object_pool.h>
 #include <libfdt.h>
-
+#include <mbedtls/version.h>
 #include <tools_share/tbbr_oid.h>
 
 /* static structures used during authentication process */
-static auth_param_type_desc_t sig = AUTH_PARAM_TYPE_DESC(
-			AUTH_PARAM_SIG, 0);
-static auth_param_type_desc_t sig_alg = AUTH_PARAM_TYPE_DESC(
-			AUTH_PARAM_SIG_ALG, 0);
-static auth_param_type_desc_t raw_data = AUTH_PARAM_TYPE_DESC(
-			AUTH_PARAM_RAW_DATA, 0);
+static auth_param_type_desc_t sig = AUTH_PARAM_TYPE_DESC(AUTH_PARAM_SIG, 0);
+static auth_param_type_desc_t sig_alg =
+	AUTH_PARAM_TYPE_DESC(AUTH_PARAM_SIG_ALG, 0);
+static auth_param_type_desc_t raw_data =
+	AUTH_PARAM_TYPE_DESC(AUTH_PARAM_RAW_DATA, 0);
 
 /* pointers to an array of CoT descriptors */
 static const auth_img_desc_t *cot_desc[MAX_NUMBER_IDS];
@@ -125,13 +122,13 @@ static int get_auth_param_type_desc(unsigned int img_id,
 	img_type_t type = auth_img_descs[img_id].img_type;
 
 	if (type == IMG_CERT) {
-		img_auth_method =
-		&auth_img_descs[img_id].img_auth_methods[AUTH_METHOD_SIG];
+		img_auth_method = &auth_img_descs[img_id]
+					   .img_auth_methods[AUTH_METHOD_SIG];
 		*type_desc = img_auth_method->param.sig.pk;
 		*buf_size = PK_DER_LEN;
 	} else if (type == IMG_RAW) {
-		img_auth_method =
-		&auth_img_descs[img_id].img_auth_methods[AUTH_METHOD_HASH];
+		img_auth_method = &auth_img_descs[img_id]
+					   .img_auth_methods[AUTH_METHOD_HASH];
 		*type_desc = img_auth_method->param.hash.hash;
 		*buf_size = HASH_DER_LEN;
 	} else {
@@ -229,8 +226,8 @@ static int populate_and_set_auth_methods(const void *dtb, int node,
 	int rc;
 	char *oid = NULL;
 
-	auth_method_desc_t *auth_method = pool_alloc_n(&auth_methods_pool,
-					AUTH_METHOD_NUM);
+	auth_method_desc_t *auth_method =
+		pool_alloc_n(&auth_methods_pool, AUTH_METHOD_NUM);
 
 	/*
 	 * This is as per binding document where certificates are
@@ -243,7 +240,7 @@ static int populate_and_set_auth_methods(const void *dtb, int node,
 			rc = get_oid(dtb, node, "signing-key", &oid);
 			if (rc < 0) {
 				ERROR("FCONF: Can't read %s property\n",
-					"signing-key");
+				      "signing-key");
 				return rc;
 			}
 		}
@@ -251,8 +248,7 @@ static int populate_and_set_auth_methods(const void *dtb, int node,
 	} else if (type == IMG_RAW) {
 		rc = get_oid(dtb, node, "hash", &oid);
 		if (rc < 0) {
-			ERROR("FCONF: Can't read %s property\n",
-				"hash");
+			ERROR("FCONF: Can't read %s property\n", "hash");
 			return rc;
 		}
 		auth_method_type = AUTH_METHOD_HASH;
@@ -260,8 +256,7 @@ static int populate_and_set_auth_methods(const void *dtb, int node,
 		return -1;
 	}
 
-	set_auth_method(auth_method_type, oid,
-			&auth_method[auth_method_type]);
+	set_auth_method(auth_method_type, oid, &auth_method[auth_method_type]);
 
 	/* Retrieve the optional property */
 	rc = get_oid(dtb, node, "antirollback-counter", &oid);
@@ -292,8 +287,7 @@ static int get_parent_img_id(const void *dtb, int node,
 
 	err = fdt_read_uint32(dtb, node, "parent", &phandle);
 	if (err < 0) {
-		ERROR("FCONF: Could not read %s property in node\n",
-			"parent");
+		ERROR("FCONF: Could not read %s property in node\n", "parent");
 		return err;
 	}
 
@@ -306,7 +300,7 @@ static int get_parent_img_id(const void *dtb, int node,
 	err = fdt_read_uint32(dtb, node, "image-id", parent_img_id);
 	if (err < 0) {
 		ERROR("FCONF: Could not read %s property in node\n",
-			"image-id");
+		      "image-id");
 	}
 
 	return err;
@@ -328,13 +322,11 @@ static int set_desc_data(const void *dtb, int node, img_type_t type)
 
 	rc = fdt_read_uint32(dtb, node, "image-id", &img_id);
 	if (rc < 0) {
-		ERROR("FCONF: Can't find property %s in node\n",
-			"image-id");
+		ERROR("FCONF: Can't find property %s in node\n", "image-id");
 		return rc;
 	}
 
-	if (fdt_getprop(dtb, node, "root-certificate",
-					NULL) != NULL) {
+	if (fdt_getprop(dtb, node, "root-certificate", NULL) != NULL) {
 		root_certificate = true;
 	}
 
@@ -350,15 +342,14 @@ static int set_desc_data(const void *dtb, int node, img_type_t type)
 	auth_img_descs[img_id].img_type = type;
 
 	rc = populate_and_set_auth_methods(dtb, node, img_id, type,
-				root_certificate);
+					   root_certificate);
 	if (rc < 0) {
 		return rc;
 	}
 
 	if (type == IMG_CERT) {
-		auth_param_desc_t *auth_param =
-			pool_alloc_n(&auth_params_pool,
-					COT_MAX_VERIFIED_PARAMS);
+		auth_param_desc_t *auth_param = pool_alloc_n(
+			&auth_params_pool, COT_MAX_VERIFIED_PARAMS);
 		auth_img_descs[img_id].authenticated_data = &auth_param[0];
 	}
 
@@ -388,7 +379,7 @@ static int populate_manifest_descs(const void *dtb)
 	node = fdt_node_offset_by_compatible(dtb, -1, compatible_str);
 	if (node < 0) {
 		ERROR("FCONF: Can't find %s compatible in node\n",
-			compatible_str);
+		      compatible_str);
 		return node;
 	}
 
@@ -423,7 +414,7 @@ static int populate_image_descs(const void *dtb)
 	node = fdt_node_offset_by_compatible(dtb, -1, compatible_str);
 	if (node < 0) {
 		ERROR("FCONF: Can't find %s compatible in node\n",
-			compatible_str);
+		      compatible_str);
 		return node;
 	}
 
@@ -456,37 +447,35 @@ static int fconf_populate_cot_descs(uintptr_t config)
 	/* populate manifest descs information */
 	rc = populate_manifest_descs(dtb);
 	if (rc < 0) {
-		ERROR("FCONF: population of %s descs failed %d\n",
-			"manifest", rc);
+		ERROR("FCONF: population of %s descs failed %d\n", "manifest",
+		      rc);
 		return rc;
 	}
 
 	/* populate image descs information */
 	rc = populate_image_descs(dtb);
 	if (rc < 0) {
-		ERROR("FCONF: population of %s descs failed %d\n",
-			"images", rc);
+		ERROR("FCONF: population of %s descs failed %d\n", "images",
+		      rc);
 		return rc;
 	}
 
 	/* update parent's authentication data */
 	for (unsigned int i = 0U; i < MAX_NUMBER_IDS; i++) {
 		if (auth_img_descs[i].parent != NULL) {
-			rc = get_auth_param_type_desc(i,
-						&type_desc,
-						&auth_buf_size);
+			rc = get_auth_param_type_desc(i, &type_desc,
+						      &auth_buf_size);
 			if (rc < 0) {
 				ERROR("FCONF: failed to get auth data %d\n",
-					rc);
+				      rc);
 				return rc;
 			}
 
 			rc = update_parent_auth_data(auth_img_descs[i].parent,
-						type_desc,
-						auth_buf_size);
+						     type_desc, auth_buf_size);
 			if (rc < 0) {
 				ERROR("FCONF: auth data update failed %d\n",
-					rc);
+				      rc);
 				return rc;
 			}
 		}

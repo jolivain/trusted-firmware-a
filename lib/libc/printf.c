@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,15 +11,16 @@
 #include <stdint.h>
 #include <stdio.h>
 
-#define get_num_va_args(_args, _lcount)				\
-	(((_lcount) > 1)  ? va_arg(_args, long long int) :	\
-	(((_lcount) == 1) ? va_arg(_args, long int) :		\
-			    va_arg(_args, int)))
+#define get_num_va_args(_args, _lcount)                                  \
+	(((_lcount) > 1) ? va_arg(_args, long long int) :                \
+			   (((_lcount) == 1) ? va_arg(_args, long int) : \
+					       va_arg(_args, int)))
 
-#define get_unum_va_args(_args, _lcount)				\
-	(((_lcount) > 1)  ? va_arg(_args, unsigned long long int) :	\
-	(((_lcount) == 1) ? va_arg(_args, unsigned long int) :		\
-			    va_arg(_args, unsigned int)))
+#define get_unum_va_args(_args, _lcount)                                \
+	(((_lcount) > 1) ?                                              \
+		 va_arg(_args, unsigned long long int) :                \
+		 (((_lcount) == 1) ? va_arg(_args, unsigned long int) : \
+				     va_arg(_args, unsigned int)))
 
 static int string_print(const char *str)
 {
@@ -27,7 +28,7 @@ static int string_print(const char *str)
 
 	assert(str != NULL);
 
-	for ( ; *str != '\0'; str++) {
+	for (; *str != '\0'; str++) {
 		(void)putchar(*str);
 		count++;
 	}
@@ -127,8 +128,8 @@ loop:
 				} else
 					unum = (unsigned long long int)num;
 
-				count += unsigned_num_print(unum, 10,
-							    padc, padn);
+				count += unsigned_num_print(unum, 10, padc,
+							    padn);
 				break;
 			case 's':
 				str = va_arg(args, char *);
@@ -141,13 +142,13 @@ loop:
 					padn -= 2;
 				}
 
-				count += unsigned_num_print(unum, 16,
-							    padc, padn);
+				count += unsigned_num_print(unum, 16, padc,
+							    padn);
 				break;
 			case 'x':
 				unum = get_unum_va_args(args, l_count);
-				count += unsigned_num_print(unum, 16,
-							    padc, padn);
+				count += unsigned_num_print(unum, 16, padc,
+							    padn);
 				break;
 			case 'z':
 				if (sizeof(size_t) == 8U)
@@ -161,8 +162,8 @@ loop:
 				goto loop;
 			case 'u':
 				unum = get_unum_va_args(args, l_count);
-				count += unsigned_num_print(unum, 10,
-							    padc, padn);
+				count += unsigned_num_print(unum, 10, padc,
+							    padn);
 				break;
 			case '0':
 				padc = '0';

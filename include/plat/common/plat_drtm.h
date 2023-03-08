@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,6 +8,7 @@
 #define PLAT_DRTM_H
 
 #include <stdint.h>
+
 #include <lib/xlat_tables/xlat_tables_compat.h>
 
 typedef struct {
@@ -43,8 +44,7 @@ const mmap_region_t *plat_get_addr_mmap(void);
 bool plat_has_non_host_platforms(void);
 bool plat_has_unmanaged_dma_peripherals(void);
 unsigned int plat_get_total_smmus(void);
-void plat_enumerate_smmus(const uintptr_t **smmus_out,
-			  size_t *smmu_count_out);
+void plat_enumerate_smmus(const uintptr_t **smmus_out, size_t *smmu_count_out);
 const plat_drtm_dma_prot_features_t *plat_drtm_get_dma_prot_features(void);
 uint64_t plat_drtm_dma_prot_get_max_table_bytes(void);
 
@@ -68,7 +68,6 @@ int plat_get_drtm_error(uint64_t *error_code);
  * Platform-specific function to ensure passed region lies within
  * Non-Secure region of DRAM
  */
-int plat_drtm_validate_ns_region(uintptr_t region_start,
-				 size_t region_size);
+int plat_drtm_validate_ns_region(uintptr_t region_start, size_t region_size);
 
 #endif /* PLAT_DRTM_H */

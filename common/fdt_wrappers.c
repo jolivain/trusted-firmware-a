@@ -12,11 +12,10 @@
 #include <stdint.h>
 #include <string.h>
 
-#include <libfdt.h>
-
 #include <common/debug.h>
 #include <common/fdt_wrappers.h>
 #include <common/uuid.h>
+#include <libfdt.h>
 
 /*
  * Read cells from a given property of the given node. Any number of 32-bit
@@ -76,7 +75,7 @@ uint32_t fdt_read_uint32_default(const void *dtb, int node,
 int fdt_read_uint64(const void *dtb, int node, const char *prop_name,
 		    uint64_t *value)
 {
-	uint32_t array[2] = {0, 0};
+	uint32_t array[2] = { 0, 0 };
 	int ret;
 
 	ret = fdt_read_uint32_array(dtb, node, prop_name, 2, array);
@@ -106,7 +105,7 @@ int fdtw_read_bytes(const void *dtb, int node, const char *prop,
 
 	/* Access property and obtain its length (in bytes) */
 	ptr = fdt_getprop_namelen(dtb, node, prop, (int)strlen(prop),
-					&value_len);
+				  &value_len);
 	if (ptr == NULL) {
 		WARN("Couldn't find property %s in dtb\n", prop);
 		return -1;
@@ -128,8 +127,8 @@ int fdtw_read_bytes(const void *dtb, int node, const char *prop,
  * characters are read, and a NUL terminator is added. Returns 0 on success,
  * and -1 upon error.
  */
-int fdtw_read_string(const void *dtb, int node, const char *prop,
-		char *str, size_t size)
+int fdtw_read_string(const void *dtb, int node, const char *prop, char *str,
+		     size_t size)
 {
 	const char *ptr;
 	size_t len;
@@ -193,7 +192,7 @@ int fdtw_read_uuid(const void *dtb, int node, const char *prop,
  * of the property are written. Returns 0 on success, and -1 upon error.
  */
 int fdtw_write_inplace_cells(void *dtb, int node, const char *prop,
-		unsigned int cells, void *value)
+			     unsigned int cells, void *value)
 {
 	int err, len;
 
@@ -254,8 +253,7 @@ int fdtw_write_inplace_bytes(void *dtb, int node, const char *prop,
 	}
 
 	/* Set property value in place */
-	err = fdt_setprop_inplace_namelen_partial(dtb, node, prop,
-						  namelen, 0,
+	err = fdt_setprop_inplace_namelen_partial(dtb, node, prop, namelen, 0,
 						  data, (int)length);
 	if (err != 0) {
 		WARN("Set property %s failed with error %d\n", prop, err);
@@ -379,7 +377,6 @@ int fdt_get_stdout_node_offset(const void *dtb)
 	return fdt_path_offset(dtb, path);
 }
 
-
 /*******************************************************************************
  * Only devices which are direct children of root node use CPU address domain.
  * All other devices use addresses that are local to the device node and cannot
@@ -393,38 +390,40 @@ int fdt_get_stdout_node_offset(const void *dtb)
  ******************************************************************************/
 
 static bool fdtw_xlat_hit(const fdt32_t *value, int child_addr_size,
-		int parent_addr_size, int range_size, uint64_t base_address,
-		uint64_t *translated_addr)
+			  int parent_addr_size, int range_size,
+			  uint64_t base_address, uint64_t *translated_addr)
 {
 	uint64_t local_address, parent_address, addr_range;
 
 	local_address = fdt_read_prop_cells(value, child_addr_size);
-	parent_address = fdt_read_prop_cells(value + child_addr_size,
-				parent_addr_size);
-	addr_range = fdt_read_prop_cells(value + child_addr_size +
-				parent_addr_size,
-				range_size);
-	VERBOSE("DT: Address %" PRIx64 " mapped to %" PRIx64 " with range %" PRIx64 "\n",
+	parent_address =
+		fdt_read_prop_cells(value + child_addr_size, parent_addr_size);
+	addr_range = fdt_read_prop_cells(
+		value + child_addr_size + parent_addr_size, range_size);
+	VERBOSE("DT: Address %" PRIx64 " mapped to %" PRIx64
+		" with range %" PRIx64 "\n",
 		local_address, parent_address, addr_range);
 
 	/* Perform range check */
 	if ((base_address < local_address) ||
-		(base_address >= local_address + addr_range)) {
+	    (base_address >= local_address + addr_range)) {
 		return false;
 	}
 
 	/* Found hit for the addr range that needs to be translated */
 	*translated_addr = parent_address + (base_address - local_address);
-	VERBOSE("DT: child address %" PRIx64 "mapped to %" PRIx64 " in parent bus\n",
+	VERBOSE("DT: child address %" PRIx64 "mapped to %" PRIx64
+		" in parent bus\n",
 		local_address, parent_address);
 	return true;
 }
 
-#define ILLEGAL_ADDR	ULL(~0)
+#define ILLEGAL_ADDR ULL(~0)
 
-static uint64_t fdtw_search_all_xlat_entries(const void *dtb,
-				const struct fdt_property *ranges_prop,
-				int local_bus, uint64_t base_address)
+static uint64_t
+fdtw_search_all_xlat_entries(const void *dtb,
+			     const struct fdt_property *ranges_prop,
+			     int local_bus, uint64_t base_address)
 {
 	uint64_t translated_addr;
 	const fdt32_t *next_entry;
@@ -456,7 +455,7 @@ static uint64_t fdtw_search_all_xlat_entries(const void *dtb,
 	 * is stored in big endian mode.
 	 */
 	length = fdt32_to_cpu(ranges_prop->len);
-	nxlat_entries = (length/sizeof(uint32_t))/ncells_xlat;
+	nxlat_entries = (length / sizeof(uint32_t)) / ncells_xlat;
 
 	assert(nxlat_entries > 0);
 
@@ -465,8 +464,8 @@ static uint64_t fdtw_search_all_xlat_entries(const void *dtb,
 	/* Iterate over the entries in the "ranges" */
 	for (int i = 0; i < nxlat_entries; i++) {
 		if (fdtw_xlat_hit(next_entry, self_addr_cells,
-				parent_addr_cells, self_size_cells, base_address,
-				&translated_addr)){
+				  parent_addr_cells, self_size_cells,
+				  base_address, &translated_addr)) {
 			return translated_addr;
 		}
 		next_entry = next_entry + ncells_xlat;
@@ -476,7 +475,6 @@ static uint64_t fdtw_search_all_xlat_entries(const void *dtb,
 	     base_address, fdt_get_name(dtb, local_bus, NULL));
 	return ILLEGAL_ADDR;
 }
-
 
 /*******************************************************************************
  * address mapping needs to be done recursively starting from current node to
@@ -543,8 +541,8 @@ uint64_t fdtw_translate_address(const void *dtb, int node,
 	 */
 
 	/* Read the ranges property */
-	const struct fdt_property *property = fdt_get_property(dtb,
-					local_bus_node, "ranges", &length);
+	const struct fdt_property *property =
+		fdt_get_property(dtb, local_bus_node, "ranges", &length);
 
 	if (property == NULL) {
 		if (local_bus_node == 0) {
@@ -555,17 +553,18 @@ uint64_t fdtw_translate_address(const void *dtb, int node,
 			return base_address;
 		}
 		INFO("DT: Couldn't find ranges property in node %s\n",
-			node_name);
+		     node_name);
 		return ILLEGAL_ADDR;
 	} else if (length == 0) {
 		/* empty ranges indicates identity map to parent bus */
-		return fdtw_translate_address(dtb, local_bus_node, base_address);
+		return fdtw_translate_address(dtb, local_bus_node,
+					      base_address);
 	}
 
 	VERBOSE("DT: Translation lookup in node %s at offset %d\n", node_name,
 		local_bus_node);
-	global_address = fdtw_search_all_xlat_entries(dtb, property,
-				local_bus_node, base_address);
+	global_address = fdtw_search_all_xlat_entries(
+		dtb, property, local_bus_node, base_address);
 
 	if (global_address == ILLEGAL_ADDR) {
 		return ILLEGAL_ADDR;
@@ -584,7 +583,8 @@ uint64_t fdtw_translate_address(const void *dtb, int node,
  * Returns `0` on success, or a negative integer representing an error code.
  */
 int fdtw_for_each_cpu(const void *dtb,
-		      int (*callback)(const void *dtb, int node, uintptr_t mpidr))
+		      int (*callback)(const void *dtb, int node,
+				      uintptr_t mpidr))
 {
 	int ret = 0;
 	int parent, node = 0;

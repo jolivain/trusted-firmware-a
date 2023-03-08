@@ -12,7 +12,8 @@
 #include <lib/xlat_tables/xlat_tables_v2.h>
 
 int flexspi_nor_io_setup(uintptr_t nxp_flexspi_flash_addr,
-			 size_t nxp_flexspi_flash_size, uint32_t fspi_base_reg_addr)
+			 size_t nxp_flexspi_flash_size,
+			 uint32_t fspi_base_reg_addr)
 {
 	int ret = 0;
 

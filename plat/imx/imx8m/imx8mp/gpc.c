@@ -10,18 +10,18 @@
 
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
+#include <gpc.h>
+#include <imx_aipstz.h>
+#include <imx_sip_svc.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
 #include <lib/smccc.h>
 #include <services/std_svc.h>
 
-#include <gpc.h>
-#include <imx_aipstz.h>
-#include <imx_sip_svc.h>
 #include <platform_def.h>
 
-#define CCGR(x)		(0x4000 + (x) * 0x10)
-#define IMR_NUM		U(5)
+#define CCGR(x) (0x4000 + (x)*0x10)
+#define IMR_NUM U(5)
 
 struct imx_noc_setting {
 	uint32_t domain_id;
@@ -96,18 +96,18 @@ static struct imx_pwr_domain pu_domains[MAX_DOMAINS] = {
 };
 
 static struct imx_noc_setting noc_setting[] = {
-	{MLMIX, 0x180, 0x180, 0x80000303, 0x0, 0x0},
-	{AUDIOMIX, 0x200, 0x200, 0x80000303, 0x0, 0x0},
-	{AUDIOMIX, 0x280, 0x480, 0x80000404, 0x0, 0x0},
-	{GPUMIX, 0x500, 0x580, 0x80000303, 0x0, 0x0},
-	{HDMIMIX, 0x600, 0x680, 0x80000202, 0x0, 0x1},
-	{HDMIMIX, 0x700, 0x700, 0x80000505, 0x0, 0x0},
-	{HSIOMIX, 0x780, 0x900, 0x80000303, 0x0, 0x0},
-	{MEDIAMIX, 0x980, 0xb80, 0x80000202, 0x0, 0x1},
-	{MEDIAMIX_ISPDWP, 0xc00, 0xd00, 0x80000505, 0x0, 0x0},
-	{VPU_G1, 0xd80, 0xd80, 0x80000303, 0x0, 0x0},
-	{VPU_G2, 0xe00, 0xe00, 0x80000303, 0x0, 0x0},
-	{VPU_H1, 0xe80, 0xe80, 0x80000303, 0x0, 0x0}
+	{ MLMIX, 0x180, 0x180, 0x80000303, 0x0, 0x0 },
+	{ AUDIOMIX, 0x200, 0x200, 0x80000303, 0x0, 0x0 },
+	{ AUDIOMIX, 0x280, 0x480, 0x80000404, 0x0, 0x0 },
+	{ GPUMIX, 0x500, 0x580, 0x80000303, 0x0, 0x0 },
+	{ HDMIMIX, 0x600, 0x680, 0x80000202, 0x0, 0x1 },
+	{ HDMIMIX, 0x700, 0x700, 0x80000505, 0x0, 0x0 },
+	{ HSIOMIX, 0x780, 0x900, 0x80000303, 0x0, 0x0 },
+	{ MEDIAMIX, 0x980, 0xb80, 0x80000202, 0x0, 0x1 },
+	{ MEDIAMIX_ISPDWP, 0xc00, 0xd00, 0x80000505, 0x0, 0x0 },
+	{ VPU_G1, 0xd80, 0xd80, 0x80000303, 0x0, 0x0 },
+	{ VPU_G2, 0xe00, 0xe00, 0x80000303, 0x0, 0x0 },
+	{ VPU_H1, 0xe80, 0xe80, 0x80000303, 0x0, 0x0 }
 };
 
 static struct clk_setting hsiomix_clk[] = {
@@ -117,8 +117,13 @@ static struct clk_setting hsiomix_clk[] = {
 };
 
 static struct aipstz_cfg aipstz5[] = {
-	{IMX_AIPSTZ5, 0x77777777, 0x77777777, .opacr = {0x0, 0x0, 0x0, 0x0, 0x0}, },
-	{0},
+	{
+		IMX_AIPSTZ5,
+		0x77777777,
+		0x77777777,
+		.opacr = { 0x0, 0x0, 0x0, 0x0, 0x0 },
+	},
+	{ 0 },
 };
 
 static unsigned int pu_domain_status;
@@ -145,9 +150,11 @@ static void imx_noc_qos(unsigned int domain_id)
 		mmio_write_32(IMX_MEDIAMIX_CTL_BASE + RST_DIV, 0x40030000);
 
 		/* set GPR to make lcdif read hurry level 0x7 */
-		hurry = mmio_read_32(IMX_MEDIAMIX_CTL_BASE + LCDIF_ARCACHE_CTRL);
+		hurry = mmio_read_32(IMX_MEDIAMIX_CTL_BASE +
+				     LCDIF_ARCACHE_CTRL);
 		hurry |= 0xfc00;
-		mmio_write_32(IMX_MEDIAMIX_CTL_BASE + LCDIF_ARCACHE_CTRL, hurry);
+		mmio_write_32(IMX_MEDIAMIX_CTL_BASE + LCDIF_ARCACHE_CTRL,
+			      hurry);
 		/* set GPR to make isi write hurry level 0x7 */
 		hurry = mmio_read_32(IMX_MEDIAMIX_CTL_BASE + ISI_CACHE_CTRL);
 		hurry |= 0x1ff00000;
@@ -161,9 +168,12 @@ static void imx_noc_qos(unsigned int domain_id)
 			uint32_t offset = noc_setting[i].start;
 
 			while (offset <= noc_setting[i].end) {
-				mmio_write_32(IMX_NOC_BASE + offset + 0x8, noc_setting[i].prioriy);
-				mmio_write_32(IMX_NOC_BASE + offset + 0xc, noc_setting[i].mode);
-				mmio_write_32(IMX_NOC_BASE + offset + 0x18, noc_setting[i].socket_qos_en);
+				mmio_write_32(IMX_NOC_BASE + offset + 0x8,
+					      noc_setting[i].prioriy);
+				mmio_write_32(IMX_NOC_BASE + offset + 0xc,
+					      noc_setting[i].mode);
+				mmio_write_32(IMX_NOC_BASE + offset + 0x18,
+					      noc_setting[i].socket_qos_en);
 				offset += 0x80;
 			}
 		}
@@ -182,9 +192,12 @@ void imx_gpc_pm_domain_enable(uint32_t domain_id, bool on)
 
 	if (domain_id == HSIOMIX) {
 		for (i = 0; i < ARRAY_SIZE(hsiomix_clk); i++) {
-			hsiomix_clk[i].val = mmio_read_32(IMX_CCM_BASE + hsiomix_clk[i].offset);
+			hsiomix_clk[i].val = mmio_read_32(
+				IMX_CCM_BASE + hsiomix_clk[i].offset);
 			mmio_setbits_32(IMX_CCM_BASE + hsiomix_clk[i].offset,
-					hsiomix_clk[i].type == CCM_ROOT_SLICE ? BIT(28) : 0x3);
+					hsiomix_clk[i].type == CCM_ROOT_SLICE ?
+						BIT(28) :
+						0x3);
 		}
 	}
 
@@ -197,18 +210,22 @@ void imx_gpc_pm_domain_enable(uint32_t domain_id, bool on)
 			/* assert the reset */
 			mmio_write_32(IMX_HDMI_CTL_BASE + RTX_RESET_CTL0, 0x0);
 			/* enable all th function clock */
-			mmio_write_32(IMX_HDMI_CTL_BASE + RTX_CLK_CTL0, 0xFFFFFFFF);
-			mmio_write_32(IMX_HDMI_CTL_BASE + RTX_CLK_CTL1, 0x7ffff87e);
+			mmio_write_32(IMX_HDMI_CTL_BASE + RTX_CLK_CTL0,
+				      0xFFFFFFFF);
+			mmio_write_32(IMX_HDMI_CTL_BASE + RTX_CLK_CTL1,
+				      0x7ffff87e);
 		}
 
 		/* clear the PGC bit */
 		mmio_clrbits_32(IMX_GPC_BASE + pwr_domain->pgc_offset, 0x1);
 
 		/* power up the domain */
-		mmio_setbits_32(IMX_GPC_BASE + PU_PGC_UP_TRG, pwr_domain->pwr_req);
+		mmio_setbits_32(IMX_GPC_BASE + PU_PGC_UP_TRG,
+				pwr_domain->pwr_req);
 
 		/* wait for power request done */
-		while (mmio_read_32(IMX_GPC_BASE + PU_PGC_UP_TRG) & pwr_domain->pwr_req)
+		while (mmio_read_32(IMX_GPC_BASE + PU_PGC_UP_TRG) &
+		       pwr_domain->pwr_req)
 			;
 
 		if (domain_id == HDMIMIX) {
@@ -219,10 +236,13 @@ void imx_gpc_pm_domain_enable(uint32_t domain_id, bool on)
 			mmio_write_32(IMX_HDMI_CTL_BASE + RTX_CLK_CTL0, 0x0);
 			mmio_write_32(IMX_HDMI_CTL_BASE + RTX_CLK_CTL1, 0x0);
 			/* deassert the reset */
-			mmio_write_32(IMX_HDMI_CTL_BASE + RTX_RESET_CTL0, 0xffffffff);
+			mmio_write_32(IMX_HDMI_CTL_BASE + RTX_RESET_CTL0,
+				      0xffffffff);
 			/* enable all the clock again */
-			mmio_write_32(IMX_HDMI_CTL_BASE + RTX_CLK_CTL0, 0xFFFFFFFF);
-			mmio_write_32(IMX_HDMI_CTL_BASE + RTX_CLK_CTL1, 0x7ffff87e);
+			mmio_write_32(IMX_HDMI_CTL_BASE + RTX_CLK_CTL0,
+				      0xFFFFFFFF);
+			mmio_write_32(IMX_HDMI_CTL_BASE + RTX_CLK_CTL1,
+				      0x7ffff87e);
 		}
 
 		if (domain_id == HSIOMIX) {
@@ -233,10 +253,12 @@ void imx_gpc_pm_domain_enable(uint32_t domain_id, bool on)
 		/* handle the ADB400 sync */
 		if (pwr_domain->need_sync) {
 			/* clear adb power down request */
-			mmio_setbits_32(IMX_GPC_BASE + GPC_PU_PWRHSK, pwr_domain->adb400_sync);
+			mmio_setbits_32(IMX_GPC_BASE + GPC_PU_PWRHSK,
+					pwr_domain->adb400_sync);
 
 			/* wait for adb power request ack */
-			while (!(mmio_read_32(IMX_GPC_BASE + GPC_PU_PWRHSK) & pwr_domain->adb400_ack))
+			while (!(mmio_read_32(IMX_GPC_BASE + GPC_PU_PWRHSK) &
+				 pwr_domain->adb400_ack))
 				;
 		}
 
@@ -258,10 +280,12 @@ void imx_gpc_pm_domain_enable(uint32_t domain_id, bool on)
 		/* handle the ADB400 sync */
 		if (pwr_domain->need_sync) {
 			/* set adb power down request */
-			mmio_clrbits_32(IMX_GPC_BASE + GPC_PU_PWRHSK, pwr_domain->adb400_sync);
+			mmio_clrbits_32(IMX_GPC_BASE + GPC_PU_PWRHSK,
+					pwr_domain->adb400_sync);
 
 			/* wait for adb power request ack */
-			while ((mmio_read_32(IMX_GPC_BASE + GPC_PU_PWRHSK) & pwr_domain->adb400_ack))
+			while ((mmio_read_32(IMX_GPC_BASE + GPC_PU_PWRHSK) &
+				pwr_domain->adb400_ack))
 				;
 		}
 
@@ -272,24 +296,29 @@ void imx_gpc_pm_domain_enable(uint32_t domain_id, bool on)
 		 * leave the G1, G2, H1 power domain on until VPUMIX power off,
 		 * otherwise system will hang due to VPUMIX ACK
 		 */
-		if (domain_id == VPU_H1 || domain_id == VPU_G1 || domain_id == VPU_G2) {
+		if (domain_id == VPU_H1 || domain_id == VPU_G1 ||
+		    domain_id == VPU_G2) {
 			return;
 		}
 
 		if (domain_id == VPUMIX) {
-			mmio_write_32(IMX_GPC_BASE + PU_PGC_DN_TRG, VPU_G1_PWR_REQ |
-				 VPU_G2_PWR_REQ | VPU_H1_PWR_REQ);
+			mmio_write_32(IMX_GPC_BASE + PU_PGC_DN_TRG,
+				      VPU_G1_PWR_REQ | VPU_G2_PWR_REQ |
+					      VPU_H1_PWR_REQ);
 
-			while (mmio_read_32(IMX_GPC_BASE + PU_PGC_DN_TRG) & (VPU_G1_PWR_REQ |
-					VPU_G2_PWR_REQ | VPU_H1_PWR_REQ))
+			while (mmio_read_32(IMX_GPC_BASE + PU_PGC_DN_TRG) &
+			       (VPU_G1_PWR_REQ | VPU_G2_PWR_REQ |
+				VPU_H1_PWR_REQ))
 				;
 		}
 
 		/* power down the domain */
-		mmio_setbits_32(IMX_GPC_BASE + PU_PGC_DN_TRG, pwr_domain->pwr_req);
+		mmio_setbits_32(IMX_GPC_BASE + PU_PGC_DN_TRG,
+				pwr_domain->pwr_req);
 
 		/* wait for power request done */
-		while (mmio_read_32(IMX_GPC_BASE + PU_PGC_DN_TRG) & pwr_domain->pwr_req)
+		while (mmio_read_32(IMX_GPC_BASE + PU_PGC_DN_TRG) &
+		       pwr_domain->pwr_req)
 			;
 
 		if (domain_id == HDMIMIX) {
@@ -301,7 +330,8 @@ void imx_gpc_pm_domain_enable(uint32_t domain_id, bool on)
 
 	if (domain_id == HSIOMIX) {
 		for (i = 0; i < ARRAY_SIZE(hsiomix_clk); i++) {
-			mmio_write_32(IMX_CCM_BASE + hsiomix_clk[i].offset, hsiomix_clk[i].val);
+			mmio_write_32(IMX_CCM_BASE + hsiomix_clk[i].offset,
+				      hsiomix_clk[i].val);
 		}
 	}
 }
@@ -328,8 +358,8 @@ void imx_gpc_init(void)
 	mmio_write_32(IMX_GPC_BASE + LPCR_A53_BSC, val);
 
 	/* clear MASTER1 & MASTER2 mapping in CPU0(A53) */
-	mmio_clrbits_32(IMX_GPC_BASE + MST_CPU_MAPPING, (MASTER1_MAPPING |
-		MASTER2_MAPPING));
+	mmio_clrbits_32(IMX_GPC_BASE + MST_CPU_MAPPING,
+			(MASTER1_MAPPING | MASTER2_MAPPING));
 
 	/* set all mix/PU in A53 domain */
 	mmio_write_32(IMX_GPC_BASE + PGC_CPU_0_1_MAPPING, 0x3fffff);

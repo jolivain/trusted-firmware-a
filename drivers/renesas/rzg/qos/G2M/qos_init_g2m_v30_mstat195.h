@@ -227,4 +227,4 @@ static uint64_t mstat_be[] = {
 	/* 0x0350, */ 0x0000000000000000UL,
 };
 
-#endif	/* QOS_INIT_G2M_V30_MSTAT195_H */
+#endif /* QOS_INIT_G2M_V30_MSTAT195_H */

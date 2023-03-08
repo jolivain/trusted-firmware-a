@@ -6,6 +6,7 @@
 
 #include <stddef.h>
 #include <string.h>
+
 #include <common/debug.h>
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
@@ -24,8 +25,9 @@
 #include <mtk_plat_common.h>
 #include <plat_mtk_lpm.h>
 #include <plat_pm.h>
-#include <platform_def.h>
 #include <sleep_def.h>
+
+#include <platform_def.h>
 
 #ifdef MT_SPM_USING_BAKERY_LOCK
 DEFINE_BAKERY_LOCK(spm_lock);
@@ -36,13 +38,13 @@ spinlock_t spm_lock;
 #endif
 
 /* CLK_SCP_CFG_0 */
-#define CLK_SCP_CFG_0		(TOPCKGEN_BASE + 0x200)
-#define SPM_CK_CONTROL_EN	0x3FF
+#define CLK_SCP_CFG_0 (TOPCKGEN_BASE + 0x200)
+#define SPM_CK_CONTROL_EN 0x3FF
 
 /* CLK_SCP_CFG_1 */
-#define CLK_SCP_CFG_1		(TOPCKGEN_BASE + 0x210)
-#define CLK_SCP_CFG_1_MASK	0x100C
-#define CLK_SCP_CFG_1_SPM	0x3
+#define CLK_SCP_CFG_1 (TOPCKGEN_BASE + 0x210)
+#define CLK_SCP_CFG_1_MASK 0x100C
+#define CLK_SCP_CFG_1_SPM 0x3
 
 struct mt_resource_constraint plat_constraint_bus26m = {
 	.is_valid = spm_is_valid_rc_bus26m,

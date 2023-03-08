@@ -5,11 +5,11 @@
  */
 
 #include <assert.h>
-#include <drivers/delay_timer.h>
 #include <errno.h>
 #include <string.h>
 
 #include <bpmp_ipc.h>
+#include <drivers/delay_timer.h>
 #include <pmc.h>
 #include <security_engine.h>
 #include <tegra_private.h>
@@ -19,13 +19,13 @@
 /*******************************************************************************
  * Constants and Macros
  ******************************************************************************/
-#define SE0_MAX_BUSY_TIMEOUT_MS		U(100)	/* 100ms */
-#define BYTES_IN_WORD			U(4)
-#define SHA256_MAX_HASH_RESULT		U(7)
-#define SHA256_DST_SIZE			U(32)
-#define SHA_FIRST_OP			U(1)
-#define MAX_SHA_ENGINE_CHUNK_SIZE	U(0xFFFFFF)
-#define SHA256_MSG_LENGTH_ONETIME	U(0xffff)
+#define SE0_MAX_BUSY_TIMEOUT_MS U(100) /* 100ms */
+#define BYTES_IN_WORD U(4)
+#define SHA256_MAX_HASH_RESULT U(7)
+#define SHA256_DST_SIZE U(32)
+#define SHA_FIRST_OP U(1)
+#define MAX_SHA_ENGINE_CHUNK_SIZE U(0xFFFFFF)
+#define SHA256_MSG_LENGTH_ONETIME U(0xffff)
 
 /*
  * Check that SE operation has completed after kickoff
@@ -43,23 +43,22 @@ static int32_t tegra_se_operation_complete(void)
 	val = tegra_se_read_32(SE0_INT_STATUS_REG_OFFSET);
 	if (SE0_INT_OP_DONE(val) == SE0_INT_OP_DONE_CLEAR) {
 		ERROR("%s: Engine busy state too many times! val = 0x%x\n",
-			__func__, val);
+		      __func__, val);
 		return -ETIMEDOUT;
 	}
 
 	/* Read SE0 status idle to ensure H/W operation complete */
 	val = tegra_se_read_32(SE0_SHA_STATUS_0);
 	if (val != SE0_SHA_STATUS_IDLE) {
-		ERROR("%s: Idle state timeout! val = 0x%x\n", __func__,
-			val);
+		ERROR("%s: Idle state timeout! val = 0x%x\n", __func__, val);
 		return -ETIMEDOUT;
 	}
 
 	/* Ensure that no errors are thrown during operation */
 	val = tegra_se_read_32(SE0_ERR_STATUS_REG_OFFSET);
 	if (val != SE0_ERR_STATUS_CLEAR) {
-		ERROR("%s: Error during SE operation! val = 0x%x",
-			__func__, val);
+		ERROR("%s: Error during SE operation! val = 0x%x", __func__,
+		      val);
 		return -ENOTSUP;
 	}
 
@@ -70,7 +69,9 @@ static int32_t tegra_se_operation_complete(void)
  * Security engine primitive normal operations
  */
 static int32_t tegra_se_start_normal_operation(uint64_t src_addr,
-		uint32_t nbytes, uint32_t last_buf, uint32_t src_len_inbytes)
+					       uint32_t nbytes,
+					       uint32_t last_buf,
+					       uint32_t src_len_inbytes)
 {
 	int32_t ret = 0;
 	uint32_t val = 0U;
@@ -84,7 +85,7 @@ static int32_t tegra_se_start_normal_operation(uint64_t src_addr,
 	src_in_lo = (uint32_t)src_addr;
 	src_in_msb = ((uint32_t)(src_addr >> 32U) & 0xffU);
 	src_in_hi = ((src_in_msb << SE0_IN_HI_ADDR_HI_0_MSB_SHIFT) |
-				(nbytes & 0xffffffU));
+		     (nbytes & 0xffffffU));
 
 	/* set SRC_IN_ADDR_LO and SRC_IN_ADDR_HI*/
 	tegra_se_write_32(SE0_IN_ADDR, src_in_lo);
@@ -103,8 +104,9 @@ static int32_t tegra_se_start_normal_operation(uint64_t src_addr,
 
 	/* Start SHA256 operation */
 	if (last_buf == 1U) {
-		tegra_se_write_32(SE0_OPERATION_REG_OFFSET, SE0_OP_START |
-				SE0_UNIT_OPERATION_PKT_LASTBUF_FIELD);
+		tegra_se_write_32(SE0_OPERATION_REG_OFFSET,
+				  SE0_OP_START |
+					  SE0_UNIT_OPERATION_PKT_LASTBUF_FIELD);
 	} else {
 		tegra_se_write_32(SE0_OPERATION_REG_OFFSET, SE0_OP_START);
 	}
@@ -123,7 +125,7 @@ static int32_t tegra_se_start_normal_operation(uint64_t src_addr,
 }
 
 static int32_t tegra_se_calculate_sha256_hash(uint64_t src_addr,
-						uint32_t src_len_inbyte)
+					      uint32_t src_len_inbyte)
 {
 	uint32_t val, last_buf, i;
 	int32_t ret = 0;
@@ -151,7 +153,7 @@ static int32_t tegra_se_calculate_sha256_hash(uint64_t src_addr,
 
 	/* program SE0_CONFIG for SHA256 operation */
 	val = SE0_CONFIG_ENC_ALG_SHA | SE0_CONFIG_ENC_MODE_SHA256 |
-		SE0_CONFIG_DEC_ALG_NOP | SE0_CONFIG_DST_HASHREG;
+	      SE0_CONFIG_DEC_ALG_NOP | SE0_CONFIG_DST_HASHREG;
 	tegra_se_write_32(SE0_SHA_CONFIG, val);
 
 	/* set SE0_SHA_MSG_LENGTH registers */
@@ -189,7 +191,7 @@ static int32_t tegra_se_calculate_sha256_hash(uint64_t src_addr,
 	 */
 	bytes_left = src_len_inbyte;
 	for (operations = 1U; operations <= number_of_operations;
-								operations++) {
+	     operations++) {
 		if (operations == SHA_FIRST_OP) {
 			val = SE0_SHA_CONFIG_HW_INIT_HASH;
 		} else {
@@ -197,12 +199,13 @@ static int32_t tegra_se_calculate_sha256_hash(uint64_t src_addr,
 			 * SHA:HASH_RESULT(0..7) to continue the SHA
 			 * calculation and tell the SHA engine to use it.
 			 */
-			for (i = 0U; (i / BYTES_IN_WORD) <=
-				SHA256_MAX_HASH_RESULT; i += BYTES_IN_WORD) {
+			for (i = 0U;
+			     (i / BYTES_IN_WORD) <= SHA256_MAX_HASH_RESULT;
+			     i += BYTES_IN_WORD) {
 				val = tegra_se_read_32(SE0_SHA_HASH_RESULT_0 +
-									i);
+						       i);
 				tegra_se_write_32(SE0_SHA_HASH_RESULT_0 + i,
-									val);
+						  val);
 			}
 			val = SE0_SHA_CONFIG_HW_INIT_HASH_DISABLE;
 			if (len_bits_lsb <= (max_bytes * 8U)) {
@@ -214,8 +217,8 @@ static int32_t tegra_se_calculate_sha256_hash(uint64_t src_addr,
 		}
 		tegra_se_write_32(SE0_SHA_TASK_CONFIG, val);
 
-		max_bytes = (SHA256_HASH_SIZE_BYTES *
-						SHA256_MSG_LENGTH_ONETIME);
+		max_bytes =
+			(SHA256_HASH_SIZE_BYTES * SHA256_MSG_LENGTH_ONETIME);
 		if (bytes_left < max_bytes) {
 			max_bytes = bytes_left;
 			last_buf = 1U;
@@ -225,7 +228,7 @@ static int32_t tegra_se_calculate_sha256_hash(uint64_t src_addr,
 		}
 		/* start operation */
 		ret = tegra_se_start_normal_operation(src_addr, max_bytes,
-					last_buf, src_len_inbyte);
+						      last_buf, src_len_inbyte);
 		if (ret != 0) {
 			ERROR("Error during SE operation! 0x%x", ret);
 			return -EINVAL;
@@ -248,7 +251,8 @@ int32_t tegra_se_save_sha256_hash(uint64_t bl31_base, uint32_t src_len_inbyte)
 	 * registers.
 	 */
 	security = tegra_se_read_32(SE0_SECURITY);
-	tegra_se_write_32(SE0_SECURITY, security | SE0_SECURITY_SE_SOFT_SETTING);
+	tegra_se_write_32(SE0_SECURITY,
+			  security | SE0_SECURITY_SE_SOFT_SETTING);
 
 	ret = tegra_se_calculate_sha256_hash(bl31_base, src_len_inbyte);
 	if (ret != 0L) {
@@ -264,7 +268,6 @@ int32_t tegra_se_save_sha256_hash(uint64_t bl31_base, uint32_t src_len_inbyte)
 	/* read SHA256_HASH_RESULT and save to PMC Scratch registers */
 	scratch_offset = SECURE_SCRATCH_TZDRAM_SHA256_HASH_START;
 	while (scratch_offset <= SECURE_SCRATCH_TZDRAM_SHA256_HASH_END) {
-
 		val = tegra_se_read_32(SE0_SHA_HASH_RESULT_0 + hash_offset);
 		mmio_write_32(TEGRA_SCRATCH_BASE + scratch_offset, val);
 
@@ -274,4 +277,3 @@ int32_t tegra_se_save_sha256_hash(uint64_t bl31_base, uint32_t src_len_inbyte)
 
 	return ret;
 }
-

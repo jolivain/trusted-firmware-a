@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <platform_def.h>
+#include "bsec_svc.h"
 
 #include <common/debug.h>
 #include <drivers/st/bsec.h>
 #include <drivers/st/bsec2_reg.h>
-
 #include <stm32mp1_smc.h>
 
-#include "bsec_svc.h"
+#include <platform_def.h>
 
 uint32_t bsec_main(uint32_t x1, uint32_t x2, uint32_t x3,
 		   uint32_t *ret_otp_value)

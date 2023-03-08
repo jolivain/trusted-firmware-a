@@ -5,7 +5,9 @@
  */
 
 #include <assert.h>
+
 #include <mtgpio.h>
+
 #include <platform_def.h>
 
 uintptr_t mt_gpio_find_reg_addr(uint32_t pin)

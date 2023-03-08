@@ -5,15 +5,16 @@
  *
  */
 
-#include <common/debug.h>
 #include "dcfg.h"
+
+#include <common/debug.h>
 #include <lib/mmio.h>
 #ifdef NXP_SFP_ENABLED
 #include <sfp.h>
 #endif
 
-static soc_info_t soc_info = {0};
-static devdisr5_info_t devdisr5_info = {0};
+static soc_info_t soc_info = { 0 };
+static devdisr5_info_t devdisr5_info = { 0 };
 static dcfg_init_info_t *dcfg_init_info;
 
 /* Read the PORSR1 register */
@@ -25,20 +26,19 @@ uint32_t read_reg_porsr1(void)
 		return dcfg_init_info->porsr1;
 	}
 
-	porsr1_addr = (void *)
-			(dcfg_init_info->g_nxp_dcfg_addr + DCFG_PORSR1_OFFSET);
+	porsr1_addr =
+		(void *)(dcfg_init_info->g_nxp_dcfg_addr + DCFG_PORSR1_OFFSET);
 	dcfg_init_info->porsr1 = gur_in32(porsr1_addr);
 
 	return dcfg_init_info->porsr1;
 }
-
 
 const soc_info_t *get_soc_info(void)
 {
 	uint32_t reg;
 
 	if (soc_info.is_populated == true) {
-		return (const soc_info_t *) &soc_info;
+		return (const soc_info_t *)&soc_info;
 	}
 
 	reg = gur_in32(dcfg_init_info->g_nxp_dcfg_addr + DCFG_SVR_OFFSET);
@@ -50,7 +50,7 @@ const soc_info_t *get_soc_info(void)
 		(((reg & SVR_SEC_MASK) >> SVR_SEC_SHIFT) == 0) ? true : false;
 
 	soc_info.is_populated = true;
-	return (const soc_info_t *) &soc_info;
+	return (const soc_info_t *)&soc_info;
 }
 
 void dcfg_init(dcfg_init_info_t *dcfg_init_data)
@@ -70,7 +70,7 @@ const devdisr5_info_t *get_devdisr5_info(void)
 	uint32_t reg;
 
 	if (devdisr5_info.is_populated == true)
-		return (const devdisr5_info_t *) &devdisr5_info;
+		return (const devdisr5_info_t *)&devdisr5_info;
 
 	reg = gur_in32(dcfg_init_info->g_nxp_dcfg_addr + DCFG_DEVDISR5_OFFSET);
 
@@ -81,7 +81,7 @@ const devdisr5_info_t *get_devdisr5_info(void)
 	devdisr5_info.ocram_present = (reg & DISR5_OCRAM_MASK) ? 0 : 1;
 	devdisr5_info.is_populated = true;
 
-	return (const devdisr5_info_t *) &devdisr5_info;
+	return (const devdisr5_info_t *)&devdisr5_info;
 }
 
 int get_clocks(struct sysinfo *sys)
@@ -95,18 +95,15 @@ int get_clocks(struct sysinfo *sys)
 	sys->freq_ddr_pll0 = ddrclk;
 	sys->freq_ddr_pll1 = ddrclk;
 
-	sys->freq_platform *= (gur_in32(rcwsr0) >>
-				RCWSR0_SYS_PLL_RAT_SHIFT) &
-				RCWSR0_SYS_PLL_RAT_MASK;
+	sys->freq_platform *= (gur_in32(rcwsr0) >> RCWSR0_SYS_PLL_RAT_SHIFT) &
+			      RCWSR0_SYS_PLL_RAT_MASK;
 
 	sys->freq_platform /= dcfg_init_info->nxp_plat_clk_divider;
 
-	sys->freq_ddr_pll0 *= (gur_in32(rcwsr0) >>
-				RCWSR0_MEM_PLL_RAT_SHIFT) &
-				RCWSR0_MEM_PLL_RAT_MASK;
-	sys->freq_ddr_pll1 *= (gur_in32(rcwsr0) >>
-				RCWSR0_MEM2_PLL_RAT_SHIFT) &
-				RCWSR0_MEM2_PLL_RAT_MASK;
+	sys->freq_ddr_pll0 *= (gur_in32(rcwsr0) >> RCWSR0_MEM_PLL_RAT_SHIFT) &
+			      RCWSR0_MEM_PLL_RAT_MASK;
+	sys->freq_ddr_pll1 *= (gur_in32(rcwsr0) >> RCWSR0_MEM2_PLL_RAT_SHIFT) &
+			      RCWSR0_MEM2_PLL_RAT_MASK;
 	if (sys->freq_platform == 0) {
 		return 1;
 	} else {
@@ -134,8 +131,7 @@ bool check_boot_mode_secure(uint32_t *mode)
 
 	rcwsr = (void *)(dcfg_init_info->g_nxp_dcfg_addr + RCWSR_SB_EN_OFFSET);
 
-	val = (gur_in32(rcwsr) >> RCWSR_SBEN_SHIFT) &
-				RCWSR_SBEN_MASK;
+	val = (gur_in32(rcwsr) >> RCWSR_SBEN_SHIFT) & RCWSR_SBEN_MASK;
 
 	if (val == RCWSR_SBEN_MASK) {
 		*mode = 0U;
@@ -148,9 +144,9 @@ bool check_boot_mode_secure(uint32_t *mode)
 
 void error_handler(int error_code)
 {
-	 /* Dump error code in SCRATCH4 register */
+	/* Dump error code in SCRATCH4 register */
 	INFO("Error in Fuse Provisioning: %x\n", error_code);
-	gur_out32((void *)
-		  (dcfg_init_info->g_nxp_dcfg_addr + DCFG_SCRATCH4_OFFSET),
+	gur_out32((void *)(dcfg_init_info->g_nxp_dcfg_addr +
+			   DCFG_SCRATCH4_OFFSET),
 		  error_code);
 }

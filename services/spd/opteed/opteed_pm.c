@@ -10,6 +10,7 @@
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <lib/el3_runtime/context_mgmt.h>
+
 #include <plat/common/platform.h>
 
 #include "opteed_private.h"
@@ -40,7 +41,7 @@ static int32_t opteed_cpu_off_handler(u_register_t unused)
 	assert(get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_ON);
 
 	/* Program the entry point and enter OPTEE */
-	cm_set_elr_el3(SECURE, (uint64_t) &optee_vector_table->cpu_off_entry);
+	cm_set_elr_el3(SECURE, (uint64_t)&optee_vector_table->cpu_off_entry);
 	rc = opteed_synchronous_sp_entry(optee_ctx);
 
 	/*
@@ -56,7 +57,7 @@ static int32_t opteed_cpu_off_handler(u_register_t unused)
 	 */
 	set_optee_pstate(optee_ctx->state, OPTEE_PSTATE_OFF);
 
-	 return 0;
+	return 0;
 }
 
 /*******************************************************************************
@@ -80,7 +81,8 @@ static void opteed_cpu_suspend_handler(u_register_t max_off_pwrlvl)
 		      max_off_pwrlvl);
 
 	/* Program the entry point and enter OPTEE */
-	cm_set_elr_el3(SECURE, (uint64_t) &optee_vector_table->cpu_suspend_entry);
+	cm_set_elr_el3(SECURE,
+		       (uint64_t)&optee_vector_table->cpu_suspend_entry);
 	rc = opteed_synchronous_sp_entry(optee_ctx);
 
 	/*
@@ -112,8 +114,8 @@ void opteed_cpu_on_finish_handler(u_register_t unused)
 	       get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_UNKNOWN);
 
 	opteed_init_optee_ep_state(&optee_on_entrypoint, opteed_rw,
-				(uint64_t)&optee_vector_table->cpu_on_entry,
-				0, 0, 0, optee_ctx);
+				   (uint64_t)&optee_vector_table->cpu_on_entry,
+				   0, 0, 0, optee_ctx);
 
 	/* Initialise this cpu's secure context */
 	cm_init_my_context(&optee_on_entrypoint);
@@ -151,10 +153,9 @@ static void opteed_cpu_suspend_finish_handler(u_register_t max_off_pwrlvl)
 	assert(get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_SUSPEND);
 
 	/* Program the entry point, max_off_pwrlvl and enter the SP */
-	write_ctx_reg(get_gpregs_ctx(&optee_ctx->cpu_ctx),
-		      CTX_GPREG_X0,
+	write_ctx_reg(get_gpregs_ctx(&optee_ctx->cpu_ctx), CTX_GPREG_X0,
 		      max_off_pwrlvl);
-	cm_set_elr_el3(SECURE, (uint64_t) &optee_vector_table->cpu_resume_entry);
+	cm_set_elr_el3(SECURE, (uint64_t)&optee_vector_table->cpu_resume_entry);
 	rc = opteed_synchronous_sp_entry(optee_ctx);
 
 	/*
@@ -198,7 +199,7 @@ static void opteed_system_off(void)
 	assert(get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_ON);
 
 	/* Program the entry point */
-	cm_set_elr_el3(SECURE, (uint64_t) &optee_vector_table->system_off_entry);
+	cm_set_elr_el3(SECURE, (uint64_t)&optee_vector_table->system_off_entry);
 
 	/* Enter OPTEE. We do not care about the return value because we
 	 * must continue the shutdown anyway */
@@ -226,13 +227,13 @@ static void opteed_system_reset(void)
 	assert(get_optee_pstate(optee_ctx->state) == OPTEE_PSTATE_ON);
 
 	/* Program the entry point */
-	cm_set_elr_el3(SECURE, (uint64_t) &optee_vector_table->system_reset_entry);
+	cm_set_elr_el3(SECURE,
+		       (uint64_t)&optee_vector_table->system_reset_entry);
 
 	/* Enter OPTEE. We do not care about the return value because we
 	 * must continue the reset anyway */
 	opteed_synchronous_sp_entry(optee_ctx);
 }
-
 
 /*******************************************************************************
  * Structure populated by the OPTEE Dispatcher to be given a chance to

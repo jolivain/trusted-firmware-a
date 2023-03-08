@@ -43,13 +43,14 @@ struct mt_lp_publish_event {
 };
 
 #if MTK_PUBEVENT_ENABLE
-#define MT_LP_PUBLISH_EVENT(x) ({\
-	PUBLISH_EVENT_ARG(lpm_publish_event, (const void *)(x)); })
-#define MT_LP_SUSPEND_PUBLISH_EVENT(x) ({\
-	PUBLISH_EVENT_ARG(suspend_publish_event, (const void *)(x)); })
+#define MT_LP_PUBLISH_EVENT(x) \
+	({ PUBLISH_EVENT_ARG(lpm_publish_event, (const void *)(x)); })
+#define MT_LP_SUSPEND_PUBLISH_EVENT(x) \
+	({ PUBLISH_EVENT_ARG(suspend_publish_event, (const void *)(x)); })
 
-#define MT_LP_SUBSCRIBE_SUSPEND(func)	SUBSCRIBE_TO_EVENT(suspend_publish_event, func)
-#define MT_LP_SUBSCRIBE_LPM(func)	SUBSCRIBE_TO_EVENT(lpm_publish_event, func)
+#define MT_LP_SUBSCRIBE_SUSPEND(func) \
+	SUBSCRIBE_TO_EVENT(suspend_publish_event, func)
+#define MT_LP_SUBSCRIBE_LPM(func) SUBSCRIBE_TO_EVENT(lpm_publish_event, func)
 #else
 #define MT_LP_PUBLISH_EVENT(x) ({ (void)x; })
 #define MT_LP_SUSPEND_PUBLISH_EVENT(x) ({ (void)x; })

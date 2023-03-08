@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -19,9 +19,10 @@ void rpi3_setup_page_tables(uintptr_t total_base, size_t total_size,
 			    uintptr_t code_start, uintptr_t code_limit,
 			    uintptr_t rodata_start, uintptr_t rodata_limit
 #if USE_COHERENT_MEM
-			    , uintptr_t coh_start, uintptr_t coh_limit
+			    ,
+			    uintptr_t coh_start, uintptr_t coh_limit
 #endif
-			    );
+);
 
 /* Optional functions required in the Raspberry Pi 3 port */
 unsigned int plat_rpi3_calc_core_pos(u_register_t mpidr);

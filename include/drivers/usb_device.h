@@ -11,97 +11,97 @@
 
 #include <lib/utils_def.h>
 
-#define USBD_MAX_NUM_INTERFACES			1U
-#define USBD_MAX_NUM_CONFIGURATION		1U
+#define USBD_MAX_NUM_INTERFACES 1U
+#define USBD_MAX_NUM_CONFIGURATION 1U
 
-#define USB_LEN_DEV_QUALIFIER_DESC		0x0AU
-#define USB_LEN_DEV_DESC			0x12U
-#define USB_LEN_CFG_DESC			0x09U
-#define USB_LEN_IF_DESC				0x09U
-#define USB_LEN_EP_DESC				0x07U
-#define USB_LEN_OTG_DESC			0x03U
-#define USB_LEN_LANGID_STR_DESC			0x04U
-#define USB_LEN_OTHER_SPEED_DESC_SIZ		0x09U
+#define USB_LEN_DEV_QUALIFIER_DESC 0x0AU
+#define USB_LEN_DEV_DESC 0x12U
+#define USB_LEN_CFG_DESC 0x09U
+#define USB_LEN_IF_DESC 0x09U
+#define USB_LEN_EP_DESC 0x07U
+#define USB_LEN_OTG_DESC 0x03U
+#define USB_LEN_LANGID_STR_DESC 0x04U
+#define USB_LEN_OTHER_SPEED_DESC_SIZ 0x09U
 
-#define USBD_IDX_LANGID_STR			0x00U
-#define USBD_IDX_MFC_STR			0x01U
-#define USBD_IDX_PRODUCT_STR			0x02U
-#define USBD_IDX_SERIAL_STR			0x03U
-#define USBD_IDX_CONFIG_STR			0x04U
-#define USBD_IDX_INTERFACE_STR			0x05U
-#define USBD_IDX_USER0_STR			0x06U
+#define USBD_IDX_LANGID_STR 0x00U
+#define USBD_IDX_MFC_STR 0x01U
+#define USBD_IDX_PRODUCT_STR 0x02U
+#define USBD_IDX_SERIAL_STR 0x03U
+#define USBD_IDX_CONFIG_STR 0x04U
+#define USBD_IDX_INTERFACE_STR 0x05U
+#define USBD_IDX_USER0_STR 0x06U
 
-#define USB_REQ_TYPE_STANDARD			0x00U
-#define USB_REQ_TYPE_CLASS			0x20U
-#define USB_REQ_TYPE_VENDOR			0x40U
-#define USB_REQ_TYPE_MASK			0x60U
+#define USB_REQ_TYPE_STANDARD 0x00U
+#define USB_REQ_TYPE_CLASS 0x20U
+#define USB_REQ_TYPE_VENDOR 0x40U
+#define USB_REQ_TYPE_MASK 0x60U
 
-#define USB_REQ_RECIPIENT_DEVICE		0x00U
-#define USB_REQ_RECIPIENT_INTERFACE		0x01U
-#define USB_REQ_RECIPIENT_ENDPOINT		0x02U
-#define USB_REQ_RECIPIENT_MASK			0x1FU
+#define USB_REQ_RECIPIENT_DEVICE 0x00U
+#define USB_REQ_RECIPIENT_INTERFACE 0x01U
+#define USB_REQ_RECIPIENT_ENDPOINT 0x02U
+#define USB_REQ_RECIPIENT_MASK 0x1FU
 
-#define USB_REQ_DIRECTION			0x80U
+#define USB_REQ_DIRECTION 0x80U
 
-#define USB_REQ_GET_STATUS			0x00U
-#define USB_REQ_CLEAR_FEATURE			0x01U
-#define USB_REQ_SET_FEATURE			0x03U
-#define USB_REQ_SET_ADDRESS			0x05U
-#define USB_REQ_GET_DESCRIPTOR			0x06U
-#define USB_REQ_SET_DESCRIPTOR			0x07U
-#define USB_REQ_GET_CONFIGURATION		0x08U
-#define USB_REQ_SET_CONFIGURATION		0x09U
-#define USB_REQ_GET_INTERFACE			0x0AU
-#define USB_REQ_SET_INTERFACE			0x0BU
-#define USB_REQ_SYNCH_FRAME			0x0CU
+#define USB_REQ_GET_STATUS 0x00U
+#define USB_REQ_CLEAR_FEATURE 0x01U
+#define USB_REQ_SET_FEATURE 0x03U
+#define USB_REQ_SET_ADDRESS 0x05U
+#define USB_REQ_GET_DESCRIPTOR 0x06U
+#define USB_REQ_SET_DESCRIPTOR 0x07U
+#define USB_REQ_GET_CONFIGURATION 0x08U
+#define USB_REQ_SET_CONFIGURATION 0x09U
+#define USB_REQ_GET_INTERFACE 0x0AU
+#define USB_REQ_SET_INTERFACE 0x0BU
+#define USB_REQ_SYNCH_FRAME 0x0CU
 
-#define USB_DESC_TYPE_DEVICE			0x01U
-#define USB_DESC_TYPE_CONFIGURATION		0x02U
-#define USB_DESC_TYPE_STRING			0x03U
-#define USB_DESC_TYPE_INTERFACE			0x04U
-#define USB_DESC_TYPE_ENDPOINT			0x05U
-#define USB_DESC_TYPE_DEVICE_QUALIFIER		0x06U
-#define USB_DESC_TYPE_OTHER_SPEED_CONFIGURATION	0x07U
-#define USB_DESC_TYPE_BOS			0x0FU
+#define USB_DESC_TYPE_DEVICE 0x01U
+#define USB_DESC_TYPE_CONFIGURATION 0x02U
+#define USB_DESC_TYPE_STRING 0x03U
+#define USB_DESC_TYPE_INTERFACE 0x04U
+#define USB_DESC_TYPE_ENDPOINT 0x05U
+#define USB_DESC_TYPE_DEVICE_QUALIFIER 0x06U
+#define USB_DESC_TYPE_OTHER_SPEED_CONFIGURATION 0x07U
+#define USB_DESC_TYPE_BOS 0x0FU
 
-#define USB_CONFIG_REMOTE_WAKEUP		2U
-#define USB_CONFIG_SELF_POWERED			1U
+#define USB_CONFIG_REMOTE_WAKEUP 2U
+#define USB_CONFIG_SELF_POWERED 1U
 
-#define USB_MAX_EP0_SIZE			64U
+#define USB_MAX_EP0_SIZE 64U
 
 /* Device Status */
-#define USBD_STATE_DEFAULT			1U
-#define USBD_STATE_ADDRESSED			2U
-#define USBD_STATE_CONFIGURED			3U
-#define USBD_STATE_SUSPENDED			4U
+#define USBD_STATE_DEFAULT 1U
+#define USBD_STATE_ADDRESSED 2U
+#define USBD_STATE_CONFIGURED 3U
+#define USBD_STATE_SUSPENDED 4U
 
 /* EP0 State */
-#define USBD_EP0_IDLE				0U
-#define USBD_EP0_SETUP				1U
-#define USBD_EP0_DATA_IN			2U
-#define USBD_EP0_DATA_OUT			3U
-#define USBD_EP0_STATUS_IN			4U
-#define USBD_EP0_STATUS_OUT			5U
-#define USBD_EP0_STALL				6U
+#define USBD_EP0_IDLE 0U
+#define USBD_EP0_SETUP 1U
+#define USBD_EP0_DATA_IN 2U
+#define USBD_EP0_DATA_OUT 3U
+#define USBD_EP0_STATUS_IN 4U
+#define USBD_EP0_STATUS_OUT 5U
+#define USBD_EP0_STALL 6U
 
-#define USBD_EP_TYPE_CTRL			0U
-#define USBD_EP_TYPE_ISOC			1U
-#define USBD_EP_TYPE_BULK			2U
-#define USBD_EP_TYPE_INTR			3U
+#define USBD_EP_TYPE_CTRL 0U
+#define USBD_EP_TYPE_ISOC 1U
+#define USBD_EP_TYPE_BULK 2U
+#define USBD_EP_TYPE_INTR 3U
 
-#define  USBD_OUT_EPNUM_MASK			GENMASK(15, 0)
-#define  USBD_OUT_COUNT_MASK			GENMASK(31, 16)
-#define  USBD_OUT_COUNT_SHIFT			16U
+#define USBD_OUT_EPNUM_MASK GENMASK(15, 0)
+#define USBD_OUT_COUNT_MASK GENMASK(31, 16)
+#define USBD_OUT_COUNT_SHIFT 16U
 
 /* Number of EP supported, allow to reduce footprint: default max = 15 */
 #ifndef CONFIG_USBD_EP_NB
-#define  USBD_EP_NB				15U
+#define USBD_EP_NB 15U
 #else
-#define  USBD_EP_NB				CONFIG_USBD_EP_NB
+#define USBD_EP_NB CONFIG_USBD_EP_NB
 #endif
 
-#define LOBYTE(x)	((uint8_t)((x) & 0x00FF))
-#define HIBYTE(x)	((uint8_t)(((x) & 0xFF00) >> 8))
+#define LOBYTE(x) ((uint8_t)((x)&0x00FF))
+#define HIBYTE(x) ((uint8_t)(((x)&0xFF00) >> 8))
 
 struct usb_setup_req {
 	uint8_t bm_request;
@@ -129,12 +129,7 @@ struct usb_class {
 };
 
 /* Following USB Device status */
-enum usb_status {
-	USBD_OK = 0U,
-	USBD_BUSY,
-	USBD_FAIL,
-	USBD_TIMEOUT
-};
+enum usb_status { USBD_OK = 0U, USBD_BUSY, USBD_FAIL, USBD_TIMEOUT };
 
 /* Action to do after IT handling */
 enum usb_action {
@@ -211,17 +206,17 @@ struct usb_driver {
 	enum usb_status (*ep_start_xfer)(void *handle, struct usbd_ep *ep);
 	enum usb_status (*ep0_start_xfer)(void *handle, struct usbd_ep *ep);
 	enum usb_status (*write_packet)(void *handle, uint8_t *src,
-				     uint8_t ch_ep_num, uint16_t len);
+					uint8_t ch_ep_num, uint16_t len);
 	void *(*read_packet)(void *handle, uint8_t *dest, uint16_t len);
 	enum usb_status (*ep_set_stall)(void *handle, struct usbd_ep *ep);
 	enum usb_status (*start_device)(void *handle);
 	enum usb_status (*stop_device)(void *handle);
 	enum usb_status (*set_address)(void *handle, uint8_t address);
-	enum usb_status (*write_empty_tx_fifo)(void *handle,
-					    uint32_t epnum, uint32_t xfer_len,
-					    uint32_t *xfer_count,
-					    uint32_t maxpacket,
-					    uint8_t **xfer_buff);
+	enum usb_status (*write_empty_tx_fifo)(void *handle, uint32_t epnum,
+					       uint32_t xfer_len,
+					       uint32_t *xfer_count,
+					       uint32_t maxpacket,
+					       uint8_t **xfer_buff);
 	enum usb_action (*it_handler)(void *handle, uint32_t *param);
 };
 

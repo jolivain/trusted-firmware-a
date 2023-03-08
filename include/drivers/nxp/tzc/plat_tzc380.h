@@ -22,8 +22,8 @@
  *  Region 1 (DRAM0, Secure Memory),
  *  Region 2 (DRAM0, Shared memory)
  */
-#define MAX_NUM_TZC_REGION	3
-#define DEFAULT_TZASC_CONFIG	1
+#define MAX_NUM_TZC_REGION 3
+#define DEFAULT_TZASC_CONFIG 1
 #endif
 
 struct tzc380_reg {
@@ -35,13 +35,11 @@ struct tzc380_reg {
 };
 
 void mem_access_setup(uintptr_t base, uint32_t total_regions,
-			struct tzc380_reg *tzc380_reg_list);
+		      struct tzc380_reg *tzc380_reg_list);
 
-int populate_tzc380_reg_list(struct tzc380_reg *tzc380_reg_list,
-			     int dram_idx, int list_idx,
-			     uint64_t dram_start_addr,
-			     uint64_t dram_size,
-			     uint32_t secure_dram_sz,
+int populate_tzc380_reg_list(struct tzc380_reg *tzc380_reg_list, int dram_idx,
+			     int list_idx, uint64_t dram_start_addr,
+			     uint64_t dram_size, uint32_t secure_dram_sz,
 			     uint32_t shrd_dram_sz);
 
 #endif /* PLAT_TZC380_H */

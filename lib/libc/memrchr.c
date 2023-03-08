@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -14,7 +14,7 @@ void *memrchr(const void *src, int c, size_t len)
 
 	while (len--) {
 		if (*s == (unsigned char)c) {
-			return (void*) s;
+			return (void *)s;
 		}
 
 		s--;

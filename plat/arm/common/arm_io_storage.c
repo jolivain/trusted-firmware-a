@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2021, ARM Limited. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -27,8 +27,8 @@ uintptr_t memmap_dev_handle;
 
 #if ARM_GPT_SUPPORT
 /* fip partition names */
-static const char * const fip_part_names[] = {"FIP_A", "FIP_B"};
-CASSERT(sizeof(fip_part_names)/sizeof(char *) == NR_OF_FW_BANKS,
+static const char *const fip_part_names[] = { "FIP_A", "FIP_B" };
+CASSERT(sizeof(fip_part_names) / sizeof(char *) == NR_OF_FW_BANKS,
 	assert_fip_partition_names_missing);
 #endif /* ARM_GPT_SUPPORT */
 
@@ -84,8 +84,7 @@ int arm_io_setup(void)
 	}
 
 	/* Open connections to devices and cache the handles */
-	io_result = io_dev_open(fip_dev_con, (uintptr_t)NULL,
-				&fip_dev_handle);
+	io_result = io_dev_open(fip_dev_con, (uintptr_t)NULL, &fip_dev_handle);
 	if (io_result < 0) {
 		return io_result;
 	}
@@ -106,10 +105,9 @@ void plat_arm_io_setup(void)
 	}
 }
 
-int plat_arm_get_alt_image_source(
-	unsigned int image_id __unused,
-	uintptr_t *dev_handle __unused,
-	uintptr_t *image_spec __unused)
+int plat_arm_get_alt_image_source(unsigned int image_id __unused,
+				  uintptr_t *dev_handle __unused,
+				  uintptr_t *image_spec __unused)
 {
 	/* By default do not try an alternative */
 	return -ENOENT;
@@ -169,9 +167,8 @@ int arm_set_image_source(unsigned int image_id, const char *part_name,
 		return -ENOENT;
 	}
 
-	struct plat_io_policy *policy = FCONF_GET_PROPERTY(arm,
-							   io_policies,
-							   image_id);
+	struct plat_io_policy *policy =
+		FCONF_GET_PROPERTY(arm, io_policies, image_id);
 
 	assert(policy != NULL);
 	assert(policy->image_spec != 0UL);
@@ -203,8 +200,7 @@ void arm_set_fip_addr(uint32_t active_fw_bank_idx)
 
 	int result = arm_set_image_source(FIP_IMAGE_ID,
 					  fip_part_names[active_fw_bank_idx],
-					  &dev_handle,
-					  &image_spec);
+					  &dev_handle, &image_spec);
 	if (result != 0) {
 		panic();
 	}
@@ -235,13 +231,11 @@ int plat_fwu_set_metadata_image_source(unsigned int image_id,
 
 	if (image_id == FWU_METADATA_IMAGE_ID) {
 		result = arm_set_image_source(FWU_METADATA_IMAGE_ID,
-					      "FWU-Metadata",
-					      dev_handle,
+					      "FWU-Metadata", dev_handle,
 					      image_spec);
 	} else if (image_id == BKUP_FWU_METADATA_IMAGE_ID) {
 		result = arm_set_image_source(BKUP_FWU_METADATA_IMAGE_ID,
-					      "Bkup-FWU-Metadata",
-					      dev_handle,
+					      "Bkup-FWU-Metadata", dev_handle,
 					      image_spec);
 	}
 

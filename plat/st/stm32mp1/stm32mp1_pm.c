@@ -16,8 +16,8 @@
 #include <dt-bindings/clock/stm32mp1-clks.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
-#include <plat/common/platform.h>
 
+#include <plat/common/platform.h>
 #include <platform_def.h>
 
 static uintptr_t stm32_sec_entrypoint;
@@ -128,14 +128,14 @@ static void stm32_pwr_domain_on_finish(const psci_power_state_t *target_state)
  * having been suspended earlier. The target_state encodes the low power state
  * that each level has woken up from.
  ******************************************************************************/
-static void stm32_pwr_domain_suspend_finish(const psci_power_state_t
-					    *target_state)
+static void
+stm32_pwr_domain_suspend_finish(const psci_power_state_t *target_state)
 {
 	/* Nothing to do, power domain is not disabled */
 }
 
-static void __dead2 stm32_pwr_domain_pwr_down_wfi(const psci_power_state_t
-						  *target_state)
+static void __dead2
+stm32_pwr_domain_pwr_down_wfi(const psci_power_state_t *target_state)
 {
 	ERROR("stm32mpu1 Power Down WFI: operation not handled.\n");
 	panic();
@@ -153,7 +153,7 @@ static void __dead2 stm32_system_reset(void)
 			RCC_MP_GRSTCSETR_MPSYSRST);
 
 	/* Loop in case system reset is not immediately caught */
-	for ( ; ; ) {
+	for (;;) {
 		;
 	}
 }

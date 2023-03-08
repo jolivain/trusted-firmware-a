@@ -4,14 +4,14 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <drivers/arm/gicv3.h>
 #include <drivers/arm/gic_common.h>
-#include <platform_def.h>
+#include <drivers/arm/gicv3.h>
+
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 static const interrupt_prop_t qemu_interrupt_props[] = {
-	PLATFORM_G1S_PROPS(INTR_GROUP1S),
-	PLATFORM_G0_PROPS(INTR_GROUP0)
+	PLATFORM_G1S_PROPS(INTR_GROUP1S), PLATFORM_G0_PROPS(INTR_GROUP0)
 };
 
 static uintptr_t qemu_rdistif_base_addrs[PLATFORM_CORE_COUNT];

@@ -1,20 +1,18 @@
 /*
- * Copyright (c) 2016-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <platform_def.h>
-
 #include <arch.h>
 #include <drivers/arm/cci.h>
 #include <lib/utils.h>
-#include <plat/arm/common/plat_arm.h>
 
-static const int cci_map[] = {
-	PLAT_ARM_CCI_CLUSTER0_SL_IFACE_IX,
-	PLAT_ARM_CCI_CLUSTER1_SL_IFACE_IX
-};
+#include <plat/arm/common/plat_arm.h>
+#include <platform_def.h>
+
+static const int cci_map[] = { PLAT_ARM_CCI_CLUSTER0_SL_IFACE_IX,
+			       PLAT_ARM_CCI_CLUSTER1_SL_IFACE_IX };
 
 /******************************************************************************
  * The following functions are defined as weak to allow a platform to override
@@ -23,7 +21,6 @@ static const int cci_map[] = {
 #pragma weak plat_arm_interconnect_init
 #pragma weak plat_arm_interconnect_enter_coherency
 #pragma weak plat_arm_interconnect_exit_coherency
-
 
 /******************************************************************************
  * Helper function to initialize ARM CCI driver.

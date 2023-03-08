@@ -20,13 +20,13 @@
  */
 
 /* Start address (sector) */
-#define EMMC_ERASE_START_BLOCK		0x0
+#define EMMC_ERASE_START_BLOCK 0x0
 /* Number of blocks to be erased */
-#define EMMC_ERASE_BLOCK_COUNT		0x1
+#define EMMC_ERASE_BLOCK_COUNT 0x1
 
-#define EMMC_ERASE_USER_AREA		0
-#define EMMC_ERASE_BOOT_PARTITION1	1
-#define EMMC_ERASE_BOOT_PARTITION2	2
+#define EMMC_ERASE_USER_AREA 0
+#define EMMC_ERASE_BOOT_PARTITION1 1
+#define EMMC_ERASE_BOOT_PARTITION2 2
 
 /* eMMC partition to be erased */
 #define EMMC_ERASE_PARTITION EMMC_ERASE_USER_AREA

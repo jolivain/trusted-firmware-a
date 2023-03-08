@@ -1,15 +1,15 @@
 /*
- * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
-
-#include <platform_def.h>
 
 #include <common/bl_common.h>
 #include <common/interrupt_props.h>
 #include <drivers/arm/gicv2.h>
 #include <lib/utils.h>
+
+#include <platform_def.h>
 
 /******************************************************************************
  * The following functions are defined as weak to allow a platform to override
@@ -24,9 +24,7 @@
 /******************************************************************************
  * List of interrupts.
  *****************************************************************************/
-static const interrupt_prop_t g0_interrupt_props[] = {
-	PLAT_RK_GICV2_G0_IRQS
-};
+static const interrupt_prop_t g0_interrupt_props[] = { PLAT_RK_GICV2_G0_IRQS };
 
 /*
  * Ideally `rockchip_gic_data` structure definition should be a `const` but it

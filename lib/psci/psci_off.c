@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,6 +12,7 @@
 #include <common/debug.h>
 #include <lib/pmf/pmf.h>
 #include <lib/runtime_instr.h>
+
 #include <plat/common/platform.h>
 
 #include "psci_private.h"
@@ -45,7 +46,7 @@ int psci_do_cpu_off(unsigned int end_pwrlvl)
 	int rc = PSCI_E_SUCCESS;
 	unsigned int idx = plat_my_core_pos();
 	psci_power_state_t state_info;
-	unsigned int parent_nodes[PLAT_MAX_PWR_LVL] = {0};
+	unsigned int parent_nodes[PLAT_MAX_PWR_LVL] = { 0 };
 
 	/*
 	 * This function must only be called on platforms where the
@@ -101,9 +102,8 @@ int psci_do_cpu_off(unsigned int end_pwrlvl)
 	 * Flush cache line so that even if CPU power down happens
 	 * the timestamp update is reflected in memory.
 	 */
-	PMF_CAPTURE_TIMESTAMP(rt_instr_svc,
-		RT_INSTR_ENTER_CFLUSH,
-		PMF_CACHE_MAINT);
+	PMF_CAPTURE_TIMESTAMP(rt_instr_svc, RT_INSTR_ENTER_CFLUSH,
+			      PMF_CACHE_MAINT);
 #endif
 
 	/*
@@ -112,9 +112,8 @@ int psci_do_cpu_off(unsigned int end_pwrlvl)
 	psci_pwrdown_cpu(psci_find_max_off_lvl(&state_info));
 
 #if ENABLE_RUNTIME_INSTRUMENTATION
-	PMF_CAPTURE_TIMESTAMP(rt_instr_svc,
-		RT_INSTR_EXIT_CFLUSH,
-		PMF_NO_CACHE_MAINT);
+	PMF_CAPTURE_TIMESTAMP(rt_instr_svc, RT_INSTR_EXIT_CFLUSH,
+			      PMF_NO_CACHE_MAINT);
 #endif
 
 	/*
@@ -160,9 +159,8 @@ exit:
 		 * timestamp cache line will be flushed before return to
 		 * normal world on wakeup.
 		 */
-		PMF_CAPTURE_TIMESTAMP(rt_instr_svc,
-		    RT_INSTR_ENTER_HW_LOW_PWR,
-		    PMF_NO_CACHE_MAINT);
+		PMF_CAPTURE_TIMESTAMP(rt_instr_svc, RT_INSTR_ENTER_HW_LOW_PWR,
+				      PMF_NO_CACHE_MAINT);
 #endif
 
 		if (psci_plat_pm_ops->pwr_domain_pwr_down_wfi != NULL) {

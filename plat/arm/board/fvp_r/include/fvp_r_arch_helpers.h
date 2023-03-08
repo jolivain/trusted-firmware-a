@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,11 +12,11 @@
 /*******************************************************************************
  * MPU register definitions
  ******************************************************************************/
-#define MPUIR_EL2		S3_4_C0_C0_4
-#define PRBAR_EL2		S3_4_C6_C8_0
-#define PRLAR_EL2		S3_4_C6_C8_1
-#define PRSELR_EL2		S3_4_C6_C2_1
-#define PRENR_EL2		S3_4_C6_C1_1
+#define MPUIR_EL2 S3_4_C0_C0_4
+#define PRBAR_EL2 S3_4_C6_C8_0
+#define PRLAR_EL2 S3_4_C6_C8_1
+#define PRSELR_EL2 S3_4_C6_C2_1
+#define PRENR_EL2 S3_4_C6_C1_1
 
 /* v8-R64 MPU registers */
 DEFINE_RENAME_SYSREG_RW_FUNCS(mpuir_el2, MPUIR_EL2)

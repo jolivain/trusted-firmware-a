@@ -12,11 +12,11 @@
 #include "../qos_reg.h"
 #include "qos_init_e3_v10.h"
 
-#define	RCAR_QOS_VERSION		"rev.0.05"
+#define RCAR_QOS_VERSION "rev.0.05"
 
-#define REF_ARS_ARBSTOPCYCLE_E3	(((SL_INIT_SSLOTCLK_E3) - 5U) << 16U)
+#define REF_ARS_ARBSTOPCYCLE_E3 (((SL_INIT_SSLOTCLK_E3)-5U) << 16U)
 
-#if RCAR_QOS_TYPE  == RCAR_QOS_TYPE_DEFAULT
+#if RCAR_QOS_TYPE == RCAR_QOS_TYPE_DEFAULT
 
 #if RCAR_REF_INT == RCAR_REF_DEFAULT
 #include "qos_init_e3_v10_mstat390.h"
@@ -88,7 +88,7 @@ void qos_init_e3_v10(void)
 #endif
 
 #if !(RCAR_QOS_TYPE == RCAR_QOS_NONE)
-#if RCAR_QOS_TYPE  == RCAR_QOS_TYPE_DEFAULT
+#if RCAR_QOS_TYPE == RCAR_QOS_TYPE_DEFAULT
 	NOTICE("BL2: QoS is default setting(%s)\n", RCAR_QOS_VERSION);
 #endif
 
@@ -106,9 +106,8 @@ void qos_init_e3_v10(void)
 	io_write_32(QOSCTRL_EARLYR, 0x00000000U);
 	io_write_32(QOSCTRL_RACNT0, 0x00010003U);
 
-	io_write_32(QOSCTRL_SL_INIT,
-		    SL_INIT_REFFSSLOT | SL_INIT_SLOTSSLOT |
-		    SL_INIT_SSLOTCLK_E3);
+	io_write_32(QOSCTRL_SL_INIT, SL_INIT_REFFSSLOT | SL_INIT_SLOTSSLOT |
+					     SL_INIT_SSLOTCLK_E3);
 	io_write_32(QOSCTRL_REF_ARS, REF_ARS_ARBSTOPCYCLE_E3);
 
 	/* QOSBW SRAM setting */

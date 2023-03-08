@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,35 +12,35 @@
 #include "sdei_private.h"
 
 /* Aliases for SDEI handler states: 'R'unning, 'E'nabled, and re'G'istered */
-#define r_		0U
-#define R_		(1u << SDEI_STATF_RUNNING)
+#define r_ 0U
+#define R_ (1u << SDEI_STATF_RUNNING)
 
-#define e_		0U
-#define E_		(1u << SDEI_STATF_ENABLED)
+#define e_ 0U
+#define E_ (1u << SDEI_STATF_ENABLED)
 
-#define g_		0U
-#define G_		(1u << SDEI_STATF_REGISTERED)
+#define g_ 0U
+#define G_ (1u << SDEI_STATF_REGISTERED)
 
 /* All possible composite handler states */
-#define reg_		(r_ | e_ | g_)
-#define reG_		(r_ | e_ | G_)
-#define rEg_		(r_ | E_ | g_)
-#define rEG_		(r_ | E_ | G_)
-#define Reg_		(R_ | e_ | g_)
-#define ReG_		(R_ | e_ | G_)
-#define REg_		(R_ | E_ | g_)
-#define REG_		(R_ | E_ | G_)
+#define reg_ (r_ | e_ | g_)
+#define reG_ (r_ | e_ | G_)
+#define rEg_ (r_ | E_ | g_)
+#define rEG_ (r_ | E_ | G_)
+#define Reg_ (R_ | e_ | g_)
+#define ReG_ (R_ | e_ | G_)
+#define REg_ (R_ | E_ | g_)
+#define REG_ (R_ | E_ | G_)
 
-#define MAX_STATES	(REG_ + 1u)
+#define MAX_STATES (REG_ + 1u)
 
 /* Invalid state */
-#define	SDEI_STATE_INVALID	((sdei_state_t) (-1))
+#define SDEI_STATE_INVALID ((sdei_state_t)(-1))
 
 /* No change in state */
-#define	SDEI_STATE_NOP		((sdei_state_t) (-2))
+#define SDEI_STATE_NOP ((sdei_state_t)(-2))
 
-#define X___		SDEI_STATE_INVALID
-#define NOP_		SDEI_STATE_NOP
+#define X___ SDEI_STATE_INVALID
+#define NOP_ SDEI_STATE_NOP
 
 /* Ensure special states don't overlap with valid ones */
 CASSERT(X___ > REG_, sdei_state_overlap_invalid);

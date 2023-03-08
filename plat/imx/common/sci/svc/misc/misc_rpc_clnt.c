@@ -15,11 +15,13 @@
 
 /* Includes */
 
-#include <sci/sci_types.h>
-#include <sci/svc/rm/sci_rm_api.h>
-#include <sci/svc/misc/sci_misc_api.h>
-#include <sci/sci_rpc.h>
 #include <stdlib.h>
+
+#include <sci/sci_rpc.h>
+#include <sci/sci_types.h>
+#include <sci/svc/misc/sci_misc_api.h>
+#include <sci/svc/rm/sci_rm_api.h>
+
 #include "sci_misc_rpc.h"
 
 /* Local Defines */
@@ -28,8 +30,8 @@
 
 /* Local Functions */
 
-sc_err_t sc_misc_set_control(sc_ipc_t ipc, sc_rsrc_t resource,
-			     sc_ctrl_t ctrl, uint32_t val)
+sc_err_t sc_misc_set_control(sc_ipc_t ipc, sc_rsrc_t resource, sc_ctrl_t ctrl,
+			     uint32_t val)
 {
 	sc_rpc_msg_t msg;
 	uint8_t result;
@@ -48,8 +50,8 @@ sc_err_t sc_misc_set_control(sc_ipc_t ipc, sc_rsrc_t resource,
 	return (sc_err_t)result;
 }
 
-sc_err_t sc_misc_get_control(sc_ipc_t ipc, sc_rsrc_t resource,
-			     sc_ctrl_t ctrl, uint32_t *val)
+sc_err_t sc_misc_get_control(sc_ipc_t ipc, sc_rsrc_t resource, sc_ctrl_t ctrl,
+			     uint32_t *val)
 {
 	sc_rpc_msg_t msg;
 	uint8_t result;
@@ -132,8 +134,8 @@ sc_err_t sc_misc_seco_image_load(sc_ipc_t ipc, sc_faddr_t addr_src,
 	return (sc_err_t)result;
 }
 
-sc_err_t sc_misc_seco_authenticate(sc_ipc_t ipc,
-				   sc_misc_seco_auth_cmd_t cmd, sc_faddr_t addr)
+sc_err_t sc_misc_seco_authenticate(sc_ipc_t ipc, sc_misc_seco_auth_cmd_t cmd,
+				   sc_faddr_t addr)
 {
 	sc_rpc_msg_t msg;
 	uint8_t result;
@@ -241,9 +243,8 @@ void sc_misc_seco_build_info(sc_ipc_t ipc, uint32_t *version, uint32_t *commit)
 		*commit = RPC_U32(&msg, 4U);
 }
 
-sc_err_t sc_misc_seco_chip_info(sc_ipc_t ipc, uint16_t *lc,
-				uint16_t *monotonic, uint32_t *uid_l,
-				uint32_t *uid_h)
+sc_err_t sc_misc_seco_chip_info(sc_ipc_t ipc, uint16_t *lc, uint16_t *monotonic,
+				uint32_t *uid_l, uint32_t *uid_h)
 {
 	sc_rpc_msg_t msg;
 	uint8_t result;
@@ -426,8 +427,8 @@ sc_err_t sc_misc_otp_fuse_write(sc_ipc_t ipc, uint32_t word, uint32_t val)
 	return (sc_err_t)result;
 }
 
-sc_err_t sc_misc_set_temp(sc_ipc_t ipc, sc_rsrc_t resource,
-			  sc_misc_temp_t temp, int16_t celsius, int8_t tenths)
+sc_err_t sc_misc_set_temp(sc_ipc_t ipc, sc_rsrc_t resource, sc_misc_temp_t temp,
+			  int16_t celsius, int8_t tenths)
 {
 	sc_rpc_msg_t msg;
 	uint8_t result;
@@ -436,9 +437,9 @@ sc_err_t sc_misc_set_temp(sc_ipc_t ipc, sc_rsrc_t resource,
 	RPC_SVC(&msg) = (uint8_t)SC_RPC_SVC_MISC;
 	RPC_FUNC(&msg) = (uint8_t)MISC_FUNC_SET_TEMP;
 	RPC_U16(&msg, 0U) = (uint16_t)resource;
-	RPC_I16(&msg, 2U) = (int16_t) celsius;
+	RPC_I16(&msg, 2U) = (int16_t)celsius;
 	RPC_U8(&msg, 4U) = (uint8_t)temp;
-	RPC_I8(&msg, 5U) = (int8_t) tenths;
+	RPC_I8(&msg, 5U) = (int8_t)tenths;
 	RPC_SIZE(&msg) = 3U;
 
 	sc_call_rpc(ipc, &msg, SC_FALSE);
@@ -447,9 +448,8 @@ sc_err_t sc_misc_set_temp(sc_ipc_t ipc, sc_rsrc_t resource,
 	return (sc_err_t)result;
 }
 
-sc_err_t sc_misc_get_temp(sc_ipc_t ipc, sc_rsrc_t resource,
-			  sc_misc_temp_t temp, int16_t *celsius,
-			  int8_t *tenths)
+sc_err_t sc_misc_get_temp(sc_ipc_t ipc, sc_rsrc_t resource, sc_misc_temp_t temp,
+			  int16_t *celsius, int8_t *tenths)
 {
 	sc_rpc_msg_t msg;
 	uint8_t result;

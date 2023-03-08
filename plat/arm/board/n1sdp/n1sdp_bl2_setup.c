@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,8 +9,9 @@
 #include <lib/mmio.h>
 #include <lib/utils.h>
 
-#include "n1sdp_def.h"
 #include <plat/arm/common/plat_arm.h>
+
+#include "n1sdp_def.h"
 
 struct n1sdp_plat_info {
 	bool multichip_mode;
@@ -32,8 +33,7 @@ void dmc_ecc_setup(uint8_t ddr_size_gb)
 {
 	uint64_t dram2_size;
 
-	dram2_size = (ddr_size_gb * 1024UL * 1024UL * 1024UL) -
-			ARM_DRAM1_SIZE;
+	dram2_size = (ddr_size_gb * 1024UL * 1024UL * 1024UL) - ARM_DRAM1_SIZE;
 
 	INFO("Zeroing DDR memories\n");
 	zero_normalmem((void *)ARM_DRAM1_BASE, ARM_DRAM1_SIZE);
@@ -67,19 +67,18 @@ void bl2_platform_setup(void)
 	}
 
 	ret = sds_struct_read(N1SDP_SDS_PLATFORM_INFO_STRUCT_ID,
-				N1SDP_SDS_PLATFORM_INFO_OFFSET,
-				&plat_info,
-				N1SDP_SDS_PLATFORM_INFO_SIZE,
-				SDS_ACCESS_MODE_NON_CACHED);
+			      N1SDP_SDS_PLATFORM_INFO_OFFSET, &plat_info,
+			      N1SDP_SDS_PLATFORM_INFO_SIZE,
+			      SDS_ACCESS_MODE_NON_CACHED);
 	if (ret != SDS_OK) {
 		ERROR("Error getting platform info from SDS\n");
 		panic();
 	}
 	/* Validate plat_info SDS */
-	if ((plat_info.local_ddr_size == 0)
-		|| (plat_info.local_ddr_size > N1SDP_MAX_DDR_CAPACITY_GB)
-		|| (plat_info.remote_ddr_size > N1SDP_MAX_DDR_CAPACITY_GB)
-		|| (plat_info.secondary_count > N1SDP_MAX_SECONDARY_COUNT)) {
+	if ((plat_info.local_ddr_size == 0) ||
+	    (plat_info.local_ddr_size > N1SDP_MAX_DDR_CAPACITY_GB) ||
+	    (plat_info.remote_ddr_size > N1SDP_MAX_DDR_CAPACITY_GB) ||
+	    (plat_info.secondary_count > N1SDP_MAX_SECONDARY_COUNT)) {
 		ERROR("platform info SDS is corrupted\n");
 		panic();
 	}

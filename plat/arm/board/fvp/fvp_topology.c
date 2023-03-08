@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,18 +10,17 @@
 #include <drivers/arm/fvp/fvp_pwrc.h>
 #include <fconf_hw_config_getter.h>
 #include <lib/cassert.h>
+
 #include <plat/arm/common/arm_config.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
-
 #include <platform_def.h>
 
 /* The FVP power domain tree descriptor */
 static unsigned char fvp_power_domain_tree_desc[FVP_CLUSTER_COUNT + 2];
 
-
 CASSERT(((FVP_CLUSTER_COUNT > 0) && (FVP_CLUSTER_COUNT <= 256)),
-			assert_invalid_fvp_cluster_count);
+	assert_invalid_fvp_cluster_count);
 
 /*******************************************************************************
  * This function dynamically constructs the topology according to cpu-map node
@@ -40,16 +39,19 @@ const unsigned char *plat_get_power_domain_tree_desc(void)
 	cluster_count = FVP_CLUSTER_COUNT;
 	cpus_per_cluster = FVP_MAX_CPUS_PER_CLUSTER * FVP_MAX_PE_PER_CPU;
 #else
-	cluster_count = FCONF_GET_PROPERTY(hw_config, topology, plat_cluster_count);
-	cpus_per_cluster = FCONF_GET_PROPERTY(hw_config, topology, cluster_cpu_count);
+	cluster_count =
+		FCONF_GET_PROPERTY(hw_config, topology, plat_cluster_count);
+	cpus_per_cluster =
+		FCONF_GET_PROPERTY(hw_config, topology, cluster_cpu_count);
 	/* Several FVP Models use the same blanket dts. Ex: FVP_Base_Cortex-A65x4
 	 * and FVP_Base_Cortex-A65AEx8 both use same dts but have different number of
 	 * CPUs in the cluster, as reflected by build flags FVP_MAX_CPUS_PER_CLUSTER.
 	 * Take the minimum of two to ensure PSCI functions do not exceed the size of
 	 * the PSCI data structures allocated at build time.
 	 */
-	cpus_per_cluster = MIN(cpus_per_cluster,
-			(uint32_t)(FVP_MAX_CPUS_PER_CLUSTER * FVP_MAX_PE_PER_CPU));
+	cpus_per_cluster =
+		MIN(cpus_per_cluster,
+		    (uint32_t)(FVP_MAX_CPUS_PER_CLUSTER * FVP_MAX_PE_PER_CPU));
 
 #endif
 
@@ -64,7 +66,8 @@ const unsigned char *plat_get_power_domain_tree_desc(void)
 	fvp_power_domain_tree_desc[1] = (unsigned char)cluster_count;
 
 	for (i = 0; i < cluster_count; i++)
-		fvp_power_domain_tree_desc[i + 2] = (unsigned char)cpus_per_cluster;
+		fvp_power_domain_tree_desc[i + 2] =
+			(unsigned char)cpus_per_cluster;
 
 	return fvp_power_domain_tree_desc;
 }
@@ -119,5 +122,5 @@ int plat_core_pos_by_mpidr(u_register_t mpidr)
 	 * bit set.
 	 */
 	mpidr |= (read_mpidr_el1() & MPIDR_MT_MASK);
-	return (int) plat_arm_calc_core_pos(mpidr);
+	return (int)plat_arm_calc_core_pos(mpidr);
 }

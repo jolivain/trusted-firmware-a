@@ -1,10 +1,11 @@
 /*
- * Copyright (c) 2019, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <drivers/arm/sp805.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,9 +13,10 @@
 #include <common/tf_crc32.h>
 #include <drivers/io/io_storage.h>
 #include <drivers/partition/efi.h>
-#include <drivers/partition/partition.h>
 #include <drivers/partition/gpt.h>
 #include <drivers/partition/mbr.h>
+#include <drivers/partition/partition.h>
+
 #include <plat/common/platform.h>
 
 static uint8_t mbr_sector[PLAT_PARTITION_BLOCK_SIZE];
@@ -34,12 +35,13 @@ static void dump_entries(int num)
 			name[len + j] = ' ';
 		}
 		name[EFI_NAMELEN - 1] = '\0';
-		VERBOSE("%d: %s %" PRIx64 "-%" PRIx64 "\n", i + 1, name, list.list[i].start,
+		VERBOSE("%d: %s %" PRIx64 "-%" PRIx64 "\n", i + 1, name,
+			list.list[i].start,
 			list.list[i].start + list.list[i].length - 4);
 	}
 }
 #else
-#define dump_entries(num)	((void)num)
+#define dump_entries(num) ((void)num)
 #endif
 
 /*
@@ -67,8 +69,10 @@ static int load_mbr_header(uintptr_t image_handle, mbr_entry_t *mbr_entry)
 	}
 
 	/* Check MBR boot signature. */
-	if ((mbr_sector[LEGACY_PARTITION_BLOCK_SIZE - 2] != MBR_SIGNATURE_FIRST) ||
-	    (mbr_sector[LEGACY_PARTITION_BLOCK_SIZE - 1] != MBR_SIGNATURE_SECOND)) {
+	if ((mbr_sector[LEGACY_PARTITION_BLOCK_SIZE - 2] !=
+	     MBR_SIGNATURE_FIRST) ||
+	    (mbr_sector[LEGACY_PARTITION_BLOCK_SIZE - 1] !=
+	     MBR_SIGNATURE_SECOND)) {
 		return -ENOENT;
 	}
 	offset = (uintptr_t)&mbr_sector + MBR_PRIMARY_ENTRY_OFFSET;
@@ -91,13 +95,13 @@ static int load_gpt_header(uintptr_t image_handle)
 	if (result != 0) {
 		return result;
 	}
-	result = io_read(image_handle, (uintptr_t)&header,
-			 sizeof(gpt_header_t), &bytes_read);
+	result = io_read(image_handle, (uintptr_t)&header, sizeof(gpt_header_t),
+			 &bytes_read);
 	if ((result != 0) || (sizeof(gpt_header_t) != bytes_read)) {
 		return result;
 	}
-	if (memcmp(header.signature, GPT_SIGNATURE,
-		   sizeof(header.signature)) != 0) {
+	if (memcmp(header.signature, GPT_SIGNATURE, sizeof(header.signature)) !=
+	    0) {
 		return -EINVAL;
 	}
 
@@ -127,7 +131,7 @@ static int load_gpt_header(uintptr_t image_handle)
 }
 
 static int load_mbr_entry(uintptr_t image_handle, mbr_entry_t *mbr_entry,
-			int part_number)
+			  int part_number)
 {
 	size_t bytes_read;
 	uintptr_t offset;
@@ -148,13 +152,14 @@ static int load_mbr_entry(uintptr_t image_handle, mbr_entry_t *mbr_entry,
 	}
 
 	/* Check MBR boot signature. */
-	if ((mbr_sector[LEGACY_PARTITION_BLOCK_SIZE - 2] != MBR_SIGNATURE_FIRST) ||
-	    (mbr_sector[LEGACY_PARTITION_BLOCK_SIZE - 1] != MBR_SIGNATURE_SECOND)) {
+	if ((mbr_sector[LEGACY_PARTITION_BLOCK_SIZE - 2] !=
+	     MBR_SIGNATURE_FIRST) ||
+	    (mbr_sector[LEGACY_PARTITION_BLOCK_SIZE - 1] !=
+	     MBR_SIGNATURE_SECOND)) {
 		return -ENOENT;
 	}
-	offset = (uintptr_t)&mbr_sector +
-		MBR_PRIMARY_ENTRY_OFFSET +
-		MBR_PRIMARY_ENTRY_SIZE * part_number;
+	offset = (uintptr_t)&mbr_sector + MBR_PRIMARY_ENTRY_OFFSET +
+		 MBR_PRIMARY_ENTRY_SIZE * part_number;
 	memcpy(mbr_entry, (void *)offset, sizeof(mbr_entry_t));
 
 	return 0;
@@ -225,7 +230,7 @@ int load_partition_table(unsigned int image_id)
 	result = plat_get_image_source(image_id, &dev_handle, &image_spec);
 	if (result != 0) {
 		WARN("Failed to obtain reference to image id=%u (%i)\n",
-			image_id, result);
+		     image_id, result);
 		return result;
 	}
 

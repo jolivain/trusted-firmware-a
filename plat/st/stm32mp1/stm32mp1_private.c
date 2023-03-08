@@ -17,10 +17,10 @@
 #include <platform_def.h>
 
 #if STM32MP13
-#define TAMP_BOOT_MODE_BACKUP_REG_ID	U(30)
+#define TAMP_BOOT_MODE_BACKUP_REG_ID U(30)
 #endif
 #if STM32MP15
-#define TAMP_BOOT_MODE_BACKUP_REG_ID	U(20)
+#define TAMP_BOOT_MODE_BACKUP_REG_ID U(20)
 #endif
 
 /*
@@ -28,80 +28,58 @@
  * It should be writeable only by secure world, but also readable by non secure
  * (so it should be in Zone 2).
  */
-#define TAMP_BOOT_FWU_INFO_REG_ID	U(10)
-#define TAMP_BOOT_FWU_INFO_IDX_MSK	GENMASK(3, 0)
-#define TAMP_BOOT_FWU_INFO_IDX_OFF	U(0)
-#define TAMP_BOOT_FWU_INFO_CNT_MSK	GENMASK(7, 4)
-#define TAMP_BOOT_FWU_INFO_CNT_OFF	U(4)
+#define TAMP_BOOT_FWU_INFO_REG_ID U(10)
+#define TAMP_BOOT_FWU_INFO_IDX_MSK GENMASK(3, 0)
+#define TAMP_BOOT_FWU_INFO_IDX_OFF U(0)
+#define TAMP_BOOT_FWU_INFO_CNT_MSK GENMASK(7, 4)
+#define TAMP_BOOT_FWU_INFO_CNT_OFF U(4)
 
 #if defined(IMAGE_BL2)
-#define MAP_SEC_SYSRAM	MAP_REGION_FLAT(STM32MP_SYSRAM_BASE, \
-					STM32MP_SYSRAM_SIZE, \
-					MT_MEMORY | \
-					MT_RW | \
-					MT_SECURE | \
-					MT_EXECUTE_NEVER)
+#define MAP_SEC_SYSRAM                                            \
+	MAP_REGION_FLAT(STM32MP_SYSRAM_BASE, STM32MP_SYSRAM_SIZE, \
+			MT_MEMORY | MT_RW | MT_SECURE | MT_EXECUTE_NEVER)
 #elif defined(IMAGE_BL32)
-#define MAP_SEC_SYSRAM	MAP_REGION_FLAT(STM32MP_SEC_SYSRAM_BASE, \
-					STM32MP_SEC_SYSRAM_SIZE, \
-					MT_MEMORY | \
-					MT_RW | \
-					MT_SECURE | \
-					MT_EXECUTE_NEVER)
+#define MAP_SEC_SYSRAM                                                    \
+	MAP_REGION_FLAT(STM32MP_SEC_SYSRAM_BASE, STM32MP_SEC_SYSRAM_SIZE, \
+			MT_MEMORY | MT_RW | MT_SECURE | MT_EXECUTE_NEVER)
 
 /* Non-secure SYSRAM is used a uncached memory for SCMI message transfer */
-#define MAP_NS_SYSRAM	MAP_REGION_FLAT(STM32MP_NS_SYSRAM_BASE, \
-					STM32MP_NS_SYSRAM_SIZE, \
-					MT_DEVICE | \
-					MT_RW | \
-					MT_NS | \
-					MT_EXECUTE_NEVER)
+#define MAP_NS_SYSRAM                                                   \
+	MAP_REGION_FLAT(STM32MP_NS_SYSRAM_BASE, STM32MP_NS_SYSRAM_SIZE, \
+			MT_DEVICE | MT_RW | MT_NS | MT_EXECUTE_NEVER)
 #endif
 
 #if STM32MP13
-#define MAP_SRAM_ALL	MAP_REGION_FLAT(SRAMS_BASE, \
-					SRAMS_SIZE_2MB_ALIGNED, \
-					MT_MEMORY | \
-					MT_RW | \
-					MT_SECURE | \
-					MT_EXECUTE_NEVER)
+#define MAP_SRAM_ALL                                        \
+	MAP_REGION_FLAT(SRAMS_BASE, SRAMS_SIZE_2MB_ALIGNED, \
+			MT_MEMORY | MT_RW | MT_SECURE | MT_EXECUTE_NEVER)
 #endif
 
-#define MAP_DEVICE1	MAP_REGION_FLAT(STM32MP1_DEVICE1_BASE, \
-					STM32MP1_DEVICE1_SIZE, \
-					MT_DEVICE | \
-					MT_RW | \
-					MT_SECURE | \
-					MT_EXECUTE_NEVER)
+#define MAP_DEVICE1                                                   \
+	MAP_REGION_FLAT(STM32MP1_DEVICE1_BASE, STM32MP1_DEVICE1_SIZE, \
+			MT_DEVICE | MT_RW | MT_SECURE | MT_EXECUTE_NEVER)
 
-#define MAP_DEVICE2	MAP_REGION_FLAT(STM32MP1_DEVICE2_BASE, \
-					STM32MP1_DEVICE2_SIZE, \
-					MT_DEVICE | \
-					MT_RW | \
-					MT_SECURE | \
-					MT_EXECUTE_NEVER)
+#define MAP_DEVICE2                                                   \
+	MAP_REGION_FLAT(STM32MP1_DEVICE2_BASE, STM32MP1_DEVICE2_SIZE, \
+			MT_DEVICE | MT_RW | MT_SECURE | MT_EXECUTE_NEVER)
 
 #if defined(IMAGE_BL2)
-static const mmap_region_t stm32mp1_mmap[] = {
-	MAP_SEC_SYSRAM,
+static const mmap_region_t stm32mp1_mmap[] = { MAP_SEC_SYSRAM,
 #if STM32MP13
-	MAP_SRAM_ALL,
+					       MAP_SRAM_ALL,
 #endif
-	MAP_DEVICE1,
+					       MAP_DEVICE1,
 #if STM32MP_RAW_NAND
-	MAP_DEVICE2,
+					       MAP_DEVICE2,
 #endif
-	{0}
-};
+					       { 0 } };
 #endif
 #if defined(IMAGE_BL32)
-static const mmap_region_t stm32mp1_mmap[] = {
-	MAP_SEC_SYSRAM,
-	MAP_NS_SYSRAM,
-	MAP_DEVICE1,
-	MAP_DEVICE2,
-	{0}
-};
+static const mmap_region_t stm32mp1_mmap[] = { MAP_SEC_SYSRAM,
+					       MAP_NS_SYSRAM,
+					       MAP_DEVICE1,
+					       MAP_DEVICE2,
+					       { 0 } };
 #endif
 
 void configure_mmu(void)
@@ -213,14 +191,8 @@ int stm32_get_gpio_bank_pinctrl_node(void *fdt, unsigned int bank)
  * UART Management
  */
 static const uintptr_t stm32mp1_uart_addresses[8] = {
-	USART1_BASE,
-	USART2_BASE,
-	USART3_BASE,
-	UART4_BASE,
-	UART5_BASE,
-	USART6_BASE,
-	UART7_BASE,
-	UART8_BASE,
+	USART1_BASE, USART2_BASE, USART3_BASE, UART4_BASE,
+	UART5_BASE,  USART6_BASE, UART7_BASE,  UART8_BASE,
 };
 
 uintptr_t get_uart_address(uint32_t instance_nb)
@@ -241,31 +213,38 @@ struct gpio_bank_pin_list {
 };
 
 static const struct gpio_bank_pin_list gpio_list[] = {
-	{	/* USART2_RX: GPIOA3 */
+	{
+		/* USART2_RX: GPIOA3 */
 		.bank = 0U,
 		.pin = 3U,
 	},
-	{	/* USART3_RX: GPIOB12 */
+	{
+		/* USART3_RX: GPIOB12 */
 		.bank = 1U,
 		.pin = 12U,
 	},
-	{	/* UART4_RX: GPIOB2 */
+	{
+		/* UART4_RX: GPIOB2 */
 		.bank = 1U,
 		.pin = 2U,
 	},
-	{	/* UART5_RX: GPIOB4 */
+	{
+		/* UART5_RX: GPIOB4 */
 		.bank = 1U,
 		.pin = 5U,
 	},
-	{	/* USART6_RX: GPIOC7 */
+	{
+		/* USART6_RX: GPIOC7 */
 		.bank = 2U,
 		.pin = 7U,
 	},
-	{	/* UART7_RX: GPIOF6 */
+	{
+		/* UART7_RX: GPIOF6 */
 		.bank = 5U,
 		.pin = 6U,
 	},
-	{	/* UART8_RX: GPIOE0 */
+	{
+		/* UART8_RX: GPIOE0 */
 		.bank = 4U,
 		.pin = 0U,
 	},
@@ -328,7 +307,7 @@ static uint32_t get_part_number(void)
 	}
 
 	part_number = (part_number & PART_NUMBER_OTP_PART_MASK) >>
-		PART_NUMBER_OTP_PART_SHIFT;
+		      PART_NUMBER_OTP_PART_SHIFT;
 
 	part_number |= stm32mp_get_chip_dev_id() << 16;
 
@@ -344,8 +323,7 @@ static uint32_t get_cpu_package(void)
 		panic();
 	}
 
-	package = (package & PACKAGE_OTP_PKG_MASK) >>
-		PACKAGE_OTP_PKG_SHIFT;
+	package = (package & PACKAGE_OTP_PKG_MASK) >> PACKAGE_OTP_PKG_SHIFT;
 
 	return package;
 }
@@ -481,8 +459,8 @@ void stm32mp_get_soc_name(char name[STM32_SOC_NAME_SIZE])
 		break;
 	}
 
-	snprintf(name, STM32_SOC_NAME_SIZE,
-		 "STM32MP%s%s Rev.%s", cpu_s, pkg, cpu_r);
+	snprintf(name, STM32_SOC_NAME_SIZE, "STM32MP%s%s Rev.%s", cpu_s, pkg,
+		 cpu_r);
 }
 
 void stm32mp_print_cpuinfo(void)
@@ -674,8 +652,9 @@ void stm32mp1_fwu_set_boot_idx(void)
 	clk_enable(RTCAPB);
 	mmio_clrsetbits_32(tamp_bkpr(TAMP_BOOT_FWU_INFO_REG_ID),
 			   TAMP_BOOT_FWU_INFO_IDX_MSK,
-			   (plat_fwu_get_boot_idx() << TAMP_BOOT_FWU_INFO_IDX_OFF) &
-			   TAMP_BOOT_FWU_INFO_IDX_MSK);
+			   (plat_fwu_get_boot_idx()
+			    << TAMP_BOOT_FWU_INFO_IDX_OFF) &
+				   TAMP_BOOT_FWU_INFO_IDX_MSK);
 	clk_disable(RTCAPB);
 }
 
@@ -686,13 +665,14 @@ uint32_t stm32_get_and_dec_fwu_trial_boot_cnt(void)
 
 	clk_enable(RTCAPB);
 	try_cnt = (mmio_read_32(bkpr_fwu_cnt) & TAMP_BOOT_FWU_INFO_CNT_MSK) >>
-		TAMP_BOOT_FWU_INFO_CNT_OFF;
+		  TAMP_BOOT_FWU_INFO_CNT_OFF;
 
 	assert(try_cnt <= FWU_MAX_TRIAL_REBOOT);
 
 	if (try_cnt != 0U) {
 		mmio_clrsetbits_32(bkpr_fwu_cnt, TAMP_BOOT_FWU_INFO_CNT_MSK,
-				   (try_cnt - 1U) << TAMP_BOOT_FWU_INFO_CNT_OFF);
+				   (try_cnt - 1U)
+					   << TAMP_BOOT_FWU_INFO_CNT_OFF);
 	}
 	clk_disable(RTCAPB);
 
@@ -705,8 +685,9 @@ void stm32_set_max_fwu_trial_boot_cnt(void)
 
 	clk_enable(RTCAPB);
 	mmio_clrsetbits_32(bkpr_fwu_cnt, TAMP_BOOT_FWU_INFO_CNT_MSK,
-			   (FWU_MAX_TRIAL_REBOOT << TAMP_BOOT_FWU_INFO_CNT_OFF) &
-			   TAMP_BOOT_FWU_INFO_CNT_MSK);
+			   (FWU_MAX_TRIAL_REBOOT
+			    << TAMP_BOOT_FWU_INFO_CNT_OFF) &
+				   TAMP_BOOT_FWU_INFO_CNT_MSK);
 	clk_disable(RTCAPB);
 }
 #endif /* PSA_FWU_SUPPORT */

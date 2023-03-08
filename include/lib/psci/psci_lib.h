@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,8 +11,9 @@
 
 #ifndef __ASSEMBLER__
 
-#include <cdefs.h>
 #include <stdint.h>
+
+#include <cdefs.h>
 
 /*******************************************************************************
  * Optional structure populated by the Secure Payload Dispatcher to be given a
@@ -43,52 +44,44 @@ typedef void (*mailbox_entrypoint_t)(void);
  *****************************************************************************/
 typedef struct psci_lib_args {
 	/* The version information of PSCI Library Interface */
-	param_header_t		h;
+	param_header_t h;
 	/* The warm boot entrypoint function */
-	mailbox_entrypoint_t	mailbox_ep;
+	mailbox_entrypoint_t mailbox_ep;
 } psci_lib_args_t;
 
 /* Helper macro to set the psci_lib_args_t structure at runtime */
-#define SET_PSCI_LIB_ARGS_V1(_p, _entry)	do {			\
-	SET_PARAM_HEAD(_p, PARAM_PSCI_LIB_ARGS, VERSION_1, 0);		\
-	(_p)->mailbox_ep = (_entry);					\
+#define SET_PSCI_LIB_ARGS_V1(_p, _entry)                               \
+	do {                                                           \
+		SET_PARAM_HEAD(_p, PARAM_PSCI_LIB_ARGS, VERSION_1, 0); \
+		(_p)->mailbox_ep = (_entry);                           \
 	} while (0)
 
 /* Helper macro to define the psci_lib_args_t statically */
-#define DEFINE_STATIC_PSCI_LIB_ARGS_V1(_name, _entry)		\
-	static const psci_lib_args_t (_name) = {		\
-		.h.type = (uint8_t)PARAM_PSCI_LIB_ARGS,		\
-		.h.version = (uint8_t)VERSION_1,		\
-		.h.size = (uint16_t)sizeof(_name),		\
-		.h.attr = 0U,					\
-		.mailbox_ep = (_entry)				\
-	}
+#define DEFINE_STATIC_PSCI_LIB_ARGS_V1(_name, _entry)              \
+	static const psci_lib_args_t(                              \
+		_name) = { .h.type = (uint8_t)PARAM_PSCI_LIB_ARGS, \
+			   .h.version = (uint8_t)VERSION_1,        \
+			   .h.size = (uint16_t)sizeof(_name),      \
+			   .h.attr = 0U,                           \
+			   .mailbox_ep = (_entry) }
 
 /* Helper macro to verify the pointer to psci_lib_args_t structure */
-#define VERIFY_PSCI_LIB_ARGS_V1(_p)	(((_p) != NULL)		\
-		&& ((_p)->h.type == PARAM_PSCI_LIB_ARGS)	\
-		&& ((_p)->h.version == VERSION_1)		\
-		&& ((_p)->h.size == sizeof(*(_p)))		\
-		&& ((_p)->h.attr == 0)				\
-		&& ((_p)->mailbox_ep != NULL))
+#define VERIFY_PSCI_LIB_ARGS_V1(_p)                                           \
+	(((_p) != NULL) && ((_p)->h.type == PARAM_PSCI_LIB_ARGS) &&           \
+	 ((_p)->h.version == VERSION_1) && ((_p)->h.size == sizeof(*(_p))) && \
+	 ((_p)->h.attr == 0) && ((_p)->mailbox_ep != NULL))
 
 /******************************************************************************
  * PSCI Library Interfaces
  *****************************************************************************/
-u_register_t psci_smc_handler(uint32_t smc_fid,
-			  u_register_t x1,
-			  u_register_t x2,
-			  u_register_t x3,
-			  u_register_t x4,
-			  void *cookie,
-			  void *handle,
-			  u_register_t flags);
+u_register_t psci_smc_handler(uint32_t smc_fid, u_register_t x1,
+			      u_register_t x2, u_register_t x3, u_register_t x4,
+			      void *cookie, void *handle, u_register_t flags);
 int psci_setup(const psci_lib_args_t *lib_args);
 int psci_secondaries_brought_up(void);
 void psci_warmboot_entrypoint(void);
 void psci_register_spd_pm_hook(const spd_pm_ops_t *pm);
-void psci_prepare_next_non_secure_ctx(
-			  entry_point_info_t *next_image_info);
+void psci_prepare_next_non_secure_ctx(entry_point_info_t *next_image_info);
 int psci_stop_other_cores(unsigned int wait_ms,
 			  void (*stop_func)(u_register_t mpidr));
 bool psci_is_last_on_cpu_safe(void);

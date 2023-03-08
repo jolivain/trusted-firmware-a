@@ -8,6 +8,7 @@
 #include <lib/mmio.h>
 #include <mcucfg.h>
 #include <mt_timer.h>
+
 #include <platform_def.h>
 
 static void enable_systimer_compensation(void)

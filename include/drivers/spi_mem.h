@@ -11,9 +11,9 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#define SPI_MEM_BUSWIDTH_1_LINE		1U
-#define SPI_MEM_BUSWIDTH_2_LINE		2U
-#define SPI_MEM_BUSWIDTH_4_LINE		4U
+#define SPI_MEM_BUSWIDTH_1_LINE 1U
+#define SPI_MEM_BUSWIDTH_2_LINE 2U
+#define SPI_MEM_BUSWIDTH_4_LINE 4U
 
 /*
  * enum spi_mem_data_dir - Describes the direction of a SPI memory data
@@ -72,16 +72,16 @@ struct spi_mem_op {
 };
 
 /* SPI mode flags */
-#define SPI_CPHA	BIT(0)			/* clock phase */
-#define SPI_CPOL	BIT(1)			/* clock polarity */
-#define SPI_CS_HIGH	BIT(2)			/* CS active high */
-#define SPI_LSB_FIRST	BIT(3)			/* per-word bits-on-wire */
-#define SPI_3WIRE	BIT(4)			/* SI/SO signals shared */
-#define SPI_PREAMBLE	BIT(5)			/* Skip preamble bytes */
-#define SPI_TX_DUAL	BIT(6)			/* transmit with 2 wires */
-#define SPI_TX_QUAD	BIT(7)			/* transmit with 4 wires */
-#define SPI_RX_DUAL	BIT(8)			/* receive with 2 wires */
-#define SPI_RX_QUAD	BIT(9)			/* receive with 4 wires */
+#define SPI_CPHA BIT(0) /* clock phase */
+#define SPI_CPOL BIT(1) /* clock polarity */
+#define SPI_CS_HIGH BIT(2) /* CS active high */
+#define SPI_LSB_FIRST BIT(3) /* per-word bits-on-wire */
+#define SPI_3WIRE BIT(4) /* SI/SO signals shared */
+#define SPI_PREAMBLE BIT(5) /* Skip preamble bytes */
+#define SPI_TX_DUAL BIT(6) /* transmit with 2 wires */
+#define SPI_TX_QUAD BIT(7) /* transmit with 4 wires */
+#define SPI_RX_DUAL BIT(8) /* receive with 2 wires */
+#define SPI_RX_QUAD BIT(9) /* receive with 4 wires */
 
 struct spi_bus_ops {
 	/*
@@ -124,7 +124,6 @@ struct spi_bus_ops {
 };
 
 int spi_mem_exec_op(const struct spi_mem_op *op);
-int spi_mem_init_slave(void *fdt, int bus_node,
-		       const struct spi_bus_ops *ops);
+int spi_mem_init_slave(void *fdt, int bus_node, const struct spi_bus_ops *ops);
 
 #endif /* DRIVERS_SPI_MEM_H */

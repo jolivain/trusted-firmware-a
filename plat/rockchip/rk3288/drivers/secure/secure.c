@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,7 +9,6 @@
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
-
 #include <plat_private.h>
 #include <secure.h>
 #include <soc.h>
@@ -18,8 +17,7 @@ static void sgrf_ddr_rgn_global_bypass(uint32_t bypass)
 {
 	if (bypass)
 		/* set bypass (non-secure regions) for whole ddr regions */
-		mmio_write_32(SGRF_BASE + SGRF_SOC_CON(21),
-			      SGRF_DDR_RGN_BYPS);
+		mmio_write_32(SGRF_BASE + SGRF_SOC_CON(21), SGRF_DDR_RGN_BYPS);
 	else
 		/* cancel bypass for whole ddr regions */
 		mmio_write_32(SGRF_BASE + SGRF_SOC_CON(21),

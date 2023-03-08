@@ -13,6 +13,7 @@
 #include <drivers/spi_nand.h>
 #include <drivers/spi_nor.h>
 #include <lib/utils.h>
+
 #include <plat/common/platform.h>
 
 #if STM32MP_RAW_NAND || STM32MP_SPI_NAND
@@ -67,9 +68,14 @@ static int get_data_from_otp(struct nand_device *nand_dev, bool is_slc)
 	}
 
 	/* Check OTP configuration for this device */
-	if ((((nand2_param & NAND2_CONFIG_DISTRIB) == NAND2_PNAND_NAND1_SNAND_NAND2) && !is_slc) ||
-	    (((nand2_param & NAND2_CONFIG_DISTRIB) == NAND2_PNAND_NAND2_SNAND_NAND1) && is_slc)) {
-		nand_param = nand2_param << (NAND_PAGE_SIZE_SHIFT - NAND2_PAGE_SIZE_SHIFT);
+	if ((((nand2_param & NAND2_CONFIG_DISTRIB) ==
+	      NAND2_PNAND_NAND1_SNAND_NAND2) &&
+	     !is_slc) ||
+	    (((nand2_param & NAND2_CONFIG_DISTRIB) ==
+	      NAND2_PNAND_NAND2_SNAND_NAND1) &&
+	     is_slc)) {
+		nand_param = nand2_param
+			     << (NAND_PAGE_SIZE_SHIFT - NAND2_PAGE_SIZE_SHIFT);
 	}
 #endif
 
@@ -116,8 +122,8 @@ static int get_data_from_otp(struct nand_device *nand_dev, bool is_slc)
 		return -EINVAL;
 	}
 
-	nand_dev->size = ((nand_param & NAND_BLOCK_NB_MASK) >>
-			  NAND_BLOCK_NB_SHIFT) *
+	nand_dev->size =
+		((nand_param & NAND_BLOCK_NB_MASK) >> NAND_BLOCK_NB_SHIFT) *
 		NAND_BLOCK_NB_UNIT * nand_dev->block_size;
 
 ecc:

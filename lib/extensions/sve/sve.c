@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -20,7 +20,7 @@ CASSERT((SVE_VECTOR_LEN % 128) == 0, assert_sve_vl_granule);
  * Converts SVE vector size restriction in bytes to LEN according to ZCR_EL3 documentation.
  * VECTOR_SIZE = (LEN+1) * 128
  */
-#define CONVERT_SVE_LENGTH(x)	(((x / 128) - 1))
+#define CONVERT_SVE_LENGTH(x) (((x / 128) - 1))
 
 static bool sve_supported(void)
 {
@@ -46,7 +46,7 @@ void sve_enable(cpu_context_t *context)
 
 	/* Restrict maximum SVE vector length (SVE_VECTOR_LEN+1) * 128. */
 	write_ctx_reg(get_el3state_ctx(context), CTX_ZCR_EL3,
-		(ZCR_EL3_LEN_MASK & CONVERT_SVE_LENGTH(SVE_VECTOR_LEN)));
+		      (ZCR_EL3_LEN_MASK & CONVERT_SVE_LENGTH(SVE_VECTOR_LEN)));
 }
 
 void sve_disable(cpu_context_t *context)
@@ -64,7 +64,7 @@ void sve_disable(cpu_context_t *context)
 
 	/* Disable SVE and FPU since they share registers. */
 	reg = read_ctx_reg(state, CTX_CPTR_EL3);
-	reg &= ~CPTR_EZ_BIT;	/* Trap SVE */
-	reg |= TFP_BIT;		/* Trap FPU/SIMD */
+	reg &= ~CPTR_EZ_BIT; /* Trap SVE */
+	reg |= TFP_BIT; /* Trap FPU/SIMD */
 	write_ctx_reg(state, CTX_CPTR_EL3, reg);
 }

@@ -8,9 +8,9 @@
 
 #include <armada_common.h>
 #include <common/debug.h>
+#include <drivers/console.h>
 #include <drivers/delay_timer.h>
 #include <drivers/ti/uart/uart_16550.h>
-#include <drivers/console.h>
 #include <plat_marvell.h>
 
 /*****************************************************************************
@@ -42,11 +42,11 @@ int system_power_off(void)
 	system_off_now[len - 1] = add_xor_checksum(system_off_now, len);
 
 	console_16550_register(PLAT_MARVELL_UART_BASE + 0x100,
-		PLAT_MARVELL_UART_CLK_IN_HZ, 115200, &console);
+			       PLAT_MARVELL_UART_CLK_IN_HZ, 115200, &console);
 
 	/* Send system_off_now to console */
 	for (i = 0; i < len; i++) {
-		console.putc(system_off_now[i],	&console);
+		console.putc(system_off_now[i], &console);
 		udelay(1000);
 	}
 

@@ -20,8 +20,8 @@
 #include <mt_gic_v3.h>
 #include <mt_spm.h>
 #include <mt_timer.h>
-#include <mtk_dcm.h>
 #include <mtgpio.h>
+#include <mtk_dcm.h>
 #include <plat_params.h>
 #include <plat_private.h>
 
@@ -68,8 +68,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	if (coreboot_serial.type) {
 		console_16550_register(coreboot_serial.baseaddr,
 				       coreboot_serial.input_hertz,
-				       coreboot_serial.baud,
-				       &console);
+				       coreboot_serial.baud, &console);
 	}
 #else
 	console_16550_register(UART0_BASE, UART_CLOCK, UART_BAUDRATE, &console);
@@ -79,7 +78,6 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 
 	bl31_params_parse_helper(arg0, &bl32_ep_info, &bl33_ep_info);
 }
-
 
 /*******************************************************************************
  * Perform any BL31 platform setup code
@@ -110,8 +108,6 @@ void bl31_platform_setup(void)
  ******************************************************************************/
 void bl31_plat_arch_setup(void)
 {
-	plat_configure_mmu_el3(BL31_START,
-			       BL31_END - BL31_START,
-			       BL_CODE_BASE,
+	plat_configure_mmu_el3(BL31_START, BL31_END - BL31_START, BL_CODE_BASE,
 			       BL_CODE_END);
 }

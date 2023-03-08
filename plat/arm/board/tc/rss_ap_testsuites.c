@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Ltd. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Ltd. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -20,6 +20,5 @@
 #include <delegated_attest_ns_interface_testsuite.c>
 
 #undef register_testsuite_extra_ns_interface
-#define register_testsuite_extra_ns_interface \
-	register_testsuite_measured_boot
+#define register_testsuite_extra_ns_interface register_testsuite_measured_boot
 #include <measured_boot_ns_interface_testsuite.c>

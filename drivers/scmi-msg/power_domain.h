@@ -10,7 +10,7 @@
 
 #include <lib/utils_def.h>
 
-#define SCMI_PROTOCOL_VERSION_PD	0x21000U
+#define SCMI_PROTOCOL_VERSION_PD 0x21000U
 
 /*
  * Identifiers of the SCMI POWER DOMAIN Protocol commands
@@ -34,7 +34,7 @@ struct scmi_protocol_attributes_p2a_pd {
 	uint32_t statistics_len;
 };
 
-#define SCMI_PD_NAME_LENGTH_MAX	16U
+#define SCMI_PD_NAME_LENGTH_MAX 16U
 
 struct scmi_pd_attributes_p2a {
 	int32_t status;

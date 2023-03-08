@@ -4,44 +4,40 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <assert.h>
+#include <errno.h>
+#include <stdbool.h>
+
 #include <arch.h>
 #include <arch_helpers.h>
-#include <assert.h>
 #include <common/bl_common.h>
-#include <lib/el3_runtime/context_mgmt.h>
 #include <common/debug.h>
-#include <errno.h>
+#include <common/runtime_svc.h>
+#include <lib/el3_runtime/context_mgmt.h>
 #include <mce.h>
 #include <mce_private.h>
 #include <memctrl.h>
-#include <common/runtime_svc.h>
-#include <tegra_private.h>
-#include <tegra_platform.h>
 #include <smmu.h>
-#include <stdbool.h>
+#include <tegra_platform.h>
+#include <tegra_private.h>
 
 /*******************************************************************************
  * Tegra194 SiP SMCs
  ******************************************************************************/
-#define TEGRA_SIP_GET_SMMU_PER		0xC200FF00U
-#define TEGRA_SIP_CLEAR_RAS_CORRECTED_ERRORS	0xC200FF01U
+#define TEGRA_SIP_GET_SMMU_PER 0xC200FF00U
+#define TEGRA_SIP_CLEAR_RAS_CORRECTED_ERRORS 0xC200FF01U
 
 /*******************************************************************************
  * This function is responsible for handling all T194 SiP calls
  ******************************************************************************/
-int32_t plat_sip_handler(uint32_t smc_fid,
-		     uint64_t x1,
-		     uint64_t x2,
-		     uint64_t x3,
-		     uint64_t x4,
-		     const void *cookie,
-		     void *handle,
-		     uint64_t flags)
+int32_t plat_sip_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
+			 uint64_t x3, uint64_t x4, const void *cookie,
+			 void *handle, uint64_t flags)
 {
 	int32_t ret = 0;
-	uint32_t i, smmu_per[6] = {0};
+	uint32_t i, smmu_per[6] = { 0 };
 	uint32_t num_smmu_devices = plat_get_num_smmu_devices();
-	uint64_t per[3] = {0ULL};
+	uint64_t per[3] = { 0ULL };
 
 	(void)x1;
 	(void)x4;
@@ -72,8 +68,7 @@ int32_t plat_sip_handler(uint32_t smc_fid,
 		break;
 
 #if RAS_EXTENSION
-	case TEGRA_SIP_CLEAR_RAS_CORRECTED_ERRORS:
-	{
+	case TEGRA_SIP_CLEAR_RAS_CORRECTED_ERRORS: {
 		/*
 		 * clear all RAS error records for corrected errors at first.
 		 * x1 shall be 0 for first SMC call after FHI is asserted.

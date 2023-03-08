@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -24,10 +24,6 @@
  *   TCO=0
  *   NZCV=0
  */
-#define REALM_SPSR_EL2		(					\
-					SPSR_M_EL2H			| \
-					(0xF << SPSR_DAIF_SHIFT)	| \
-					SPSR_PAN_BIT			\
-				)
+#define REALM_SPSR_EL2 (SPSR_M_EL2H | (0xF << SPSR_DAIF_SHIFT) | SPSR_PAN_BIT)
 
 #endif /* RMMD_INITIAL_CONTEXT_H */

@@ -1,18 +1,15 @@
 /*
- * Copyright (c) 2018-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <platform_def.h>
-
 #include <common/debug.h>
 #include <sgi_dmc620_tzc_regions.h>
 
-uintptr_t sgi575_dmc_base[] = {
-	SGI575_DMC620_BASE0,
-	SGI575_DMC620_BASE1
-};
+#include <platform_def.h>
+
+uintptr_t sgi575_dmc_base[] = { SGI575_DMC620_BASE0, SGI575_DMC620_BASE1 };
 
 static const tzc_dmc620_driver_data_t sgi575_plat_driver_data = {
 	.dmc_base = sgi575_dmc_base,

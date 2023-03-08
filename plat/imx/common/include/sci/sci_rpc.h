@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -15,46 +15,46 @@
 
 #include <stdbool.h>
 
-#include <sci/sci_types.h>
 #include <sci/sci_ipc.h>
+#include <sci/sci_types.h>
 
 /* Defines */
 
-#define SC_RPC_VERSION          1U
+#define SC_RPC_VERSION 1U
 
-#define SC_RPC_MAX_MSG          8U
+#define SC_RPC_MAX_MSG 8U
 
-#define RPC_VER(MSG)            ((MSG)->version)
-#define RPC_SIZE(MSG)           ((MSG)->size)
-#define RPC_SVC(MSG)            ((MSG)->svc)
-#define RPC_FUNC(MSG)           ((MSG)->func)
-#define RPC_R8(MSG)             ((MSG)->func)
-#define RPC_I32(MSG, IDX)       ((MSG)->DATA.i32[(IDX) / 4U])
-#define RPC_I16(MSG, IDX)       ((MSG)->DATA.i16[(IDX) / 2U])
-#define RPC_I8(MSG, IDX)        ((MSG)->DATA.i8[(IDX)])
-#define RPC_U32(MSG, IDX)       ((MSG)->DATA.u32[(IDX) / 4U])
-#define RPC_U16(MSG, IDX)       ((MSG)->DATA.u16[(IDX) / 2U])
-#define RPC_U8(MSG, IDX)        ((MSG)->DATA.u8[(IDX)])
+#define RPC_VER(MSG) ((MSG)->version)
+#define RPC_SIZE(MSG) ((MSG)->size)
+#define RPC_SVC(MSG) ((MSG)->svc)
+#define RPC_FUNC(MSG) ((MSG)->func)
+#define RPC_R8(MSG) ((MSG)->func)
+#define RPC_I32(MSG, IDX) ((MSG)->DATA.i32[(IDX) / 4U])
+#define RPC_I16(MSG, IDX) ((MSG)->DATA.i16[(IDX) / 2U])
+#define RPC_I8(MSG, IDX) ((MSG)->DATA.i8[(IDX)])
+#define RPC_U32(MSG, IDX) ((MSG)->DATA.u32[(IDX) / 4U])
+#define RPC_U16(MSG, IDX) ((MSG)->DATA.u16[(IDX) / 2U])
+#define RPC_U8(MSG, IDX) ((MSG)->DATA.u8[(IDX)])
 
-#define SC_RPC_SVC_UNKNOWN      0U
-#define SC_RPC_SVC_RETURN       1U
-#define SC_RPC_SVC_PM           2U
-#define SC_RPC_SVC_RM           3U
-#define SC_RPC_SVC_TIMER        5U
-#define SC_RPC_SVC_PAD          6U
-#define SC_RPC_SVC_MISC         7U
-#define SC_RPC_SVC_IRQ          8U
-#define SC_RPC_SVC_ABORT        9U
+#define SC_RPC_SVC_UNKNOWN 0U
+#define SC_RPC_SVC_RETURN 1U
+#define SC_RPC_SVC_PM 2U
+#define SC_RPC_SVC_RM 3U
+#define SC_RPC_SVC_TIMER 5U
+#define SC_RPC_SVC_PAD 6U
+#define SC_RPC_SVC_MISC 7U
+#define SC_RPC_SVC_IRQ 8U
+#define SC_RPC_SVC_ABORT 9U
 
-#define SC_RPC_ASYNC_STATE_RD_START      0U
-#define SC_RPC_ASYNC_STATE_RD_ACTIVE     1U
-#define SC_RPC_ASYNC_STATE_RD_DONE       2U
-#define SC_RPC_ASYNC_STATE_WR_START      3U
-#define SC_RPC_ASYNC_STATE_WR_ACTIVE     4U
-#define SC_RPC_ASYNC_STATE_WR_DONE       5U
+#define SC_RPC_ASYNC_STATE_RD_START 0U
+#define SC_RPC_ASYNC_STATE_RD_ACTIVE 1U
+#define SC_RPC_ASYNC_STATE_RD_DONE 2U
+#define SC_RPC_ASYNC_STATE_WR_START 3U
+#define SC_RPC_ASYNC_STATE_WR_ACTIVE 4U
+#define SC_RPC_ASYNC_STATE_WR_DONE 5U
 
-#define SC_RPC_MU_GIR_SVC       0x1U
-#define SC_RPC_MU_GIR_DBG       0x8U
+#define SC_RPC_MU_GIR_SVC 0x1U
+#define SC_RPC_MU_GIR_DBG 0x8U
 
 /* Types */
 

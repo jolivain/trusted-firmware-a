@@ -17,33 +17,34 @@
  */
 
 /* regulator-always-on : regulator should never be disabled */
-#define REGUL_ALWAYS_ON		BIT(0)
+#define REGUL_ALWAYS_ON BIT(0)
 /*
  * regulator-boot-on:
  * It's expected that this regulator was left on by the bootloader.
  * The core shouldn't prevent it from being turned off later.
  * The regulator is needed to exit from suspend so it is turned on during suspend entry.
  */
-#define REGUL_BOOT_ON		BIT(1)
+#define REGUL_BOOT_ON BIT(1)
 /* regulator-over-current-protection: Enable over current protection. */
-#define REGUL_OCP		BIT(2)
+#define REGUL_OCP BIT(2)
 /* regulator-active-discharge: enable active discharge. */
-#define REGUL_ACTIVE_DISCHARGE	BIT(3)
+#define REGUL_ACTIVE_DISCHARGE BIT(3)
 /* regulator-pull-down: Enable pull down resistor when the regulator is disabled. */
-#define REGUL_PULL_DOWN		BIT(4)
+#define REGUL_PULL_DOWN BIT(4)
 /*
  * st,mask-reset: set mask reset for the regulator, meaning that the regulator
  * setting is maintained during pmic reset.
  */
-#define REGUL_MASK_RESET	BIT(5)
+#define REGUL_MASK_RESET BIT(5)
 /* st,regulator-sink-source: set the regulator in sink source mode */
-#define REGUL_SINK_SOURCE	BIT(6)
+#define REGUL_SINK_SOURCE BIT(6)
 /* st,regulator-bypass: set the regulator in bypass mode */
-#define REGUL_ENABLE_BYPASS	BIT(7)
+#define REGUL_ENABLE_BYPASS BIT(7)
 
 struct rdev *regulator_get_by_name(const char *node_name);
 
-struct rdev *regulator_get_by_supply_name(const void *fdt, int node, const char *name);
+struct rdev *regulator_get_by_supply_name(const void *fdt, int node,
+					  const char *name);
 
 int regulator_enable(struct rdev *rdev);
 int regulator_disable(struct rdev *rdev);
@@ -53,8 +54,10 @@ int regulator_set_voltage(struct rdev *rdev, uint16_t volt);
 int regulator_set_min_voltage(struct rdev *rdev);
 int regulator_get_voltage(const struct rdev *rdev);
 
-int regulator_list_voltages(const struct rdev *rdev, const uint16_t **levels, size_t *count);
-void regulator_get_range(const struct rdev *rdev, uint16_t *min_mv, uint16_t *max_mv);
+int regulator_list_voltages(const struct rdev *rdev, const uint16_t **levels,
+			    size_t *count);
+void regulator_get_range(const struct rdev *rdev, uint16_t *min_mv,
+			 uint16_t *max_mv);
 int regulator_set_flag(struct rdev *rdev, uint16_t flag);
 
 /*
@@ -62,8 +65,8 @@ int regulator_set_flag(struct rdev *rdev, uint16_t flag);
  */
 
 /* set_state() arguments */
-#define STATE_DISABLE		false
-#define STATE_ENABLE		true
+#define STATE_DISABLE false
+#define STATE_ENABLE true
 
 struct regul_description {
 	const char *node_name;

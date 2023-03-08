@@ -10,8 +10,8 @@
 #ifndef TI_SCI_H
 #define TI_SCI_H
 
-#include <stdint.h>
 #include <stdbool.h>
+#include <stdint.h>
 
 /**
  * Device control operations
@@ -58,8 +58,8 @@ int ti_sci_device_put_no_wait(uint32_t id);
 int ti_sci_device_is_valid(uint32_t id);
 int ti_sci_device_get_clcnt(uint32_t id, uint32_t *count);
 int ti_sci_device_is_idle(uint32_t id, bool *r_state);
-int ti_sci_device_is_stop(uint32_t id, bool *r_state,  bool *curr_state);
-int ti_sci_device_is_on(uint32_t id, bool *r_state,  bool *curr_state);
+int ti_sci_device_is_stop(uint32_t id, bool *r_state, bool *curr_state);
+int ti_sci_device_is_on(uint32_t id, bool *r_state, bool *curr_state);
 int ti_sci_device_is_trans(uint32_t id, bool *curr_state);
 int ti_sci_device_set_resets(uint32_t id, uint32_t reset_state);
 int ti_sci_device_get_resets(uint32_t id, uint32_t *reset_state);
@@ -112,19 +112,16 @@ int ti_sci_device_get_resets(uint32_t id, uint32_t *reset_state);
  * usage count by balancing get_clock with put_clock. No refcounting is
  * managed by driver for that purpose.
  */
-int ti_sci_clock_get(uint32_t dev_id, uint8_t clk_id,
-		     bool needs_ssc, bool can_change_freq,
-		     bool enable_input_term);
+int ti_sci_clock_get(uint32_t dev_id, uint8_t clk_id, bool needs_ssc,
+		     bool can_change_freq, bool enable_input_term);
 int ti_sci_clock_idle(uint32_t dev_id, uint8_t clk_id);
 int ti_sci_clock_put(uint32_t dev_id, uint8_t clk_id);
-int ti_sci_clock_is_auto(uint32_t dev_id, uint8_t clk_id,
-			 bool *req_state);
-int ti_sci_clock_is_on(uint32_t dev_id, uint8_t clk_id,
-		       bool *req_state, bool *curr_state);
-int ti_sci_clock_is_off(uint32_t dev_id, uint8_t clk_id,
-			bool *req_state, bool *curr_state);
-int ti_sci_clock_set_parent(uint32_t dev_id, uint8_t clk_id,
-			    uint8_t parent_id);
+int ti_sci_clock_is_auto(uint32_t dev_id, uint8_t clk_id, bool *req_state);
+int ti_sci_clock_is_on(uint32_t dev_id, uint8_t clk_id, bool *req_state,
+		       bool *curr_state);
+int ti_sci_clock_is_off(uint32_t dev_id, uint8_t clk_id, bool *req_state,
+			bool *curr_state);
+int ti_sci_clock_set_parent(uint32_t dev_id, uint8_t clk_id, uint8_t parent_id);
 int ti_sci_clock_get_parent(uint32_t dev_id, uint8_t clk_id,
 			    uint8_t *parent_id);
 int ti_sci_clock_get_num_parents(uint32_t dev_id, uint8_t clk_id,
@@ -132,9 +129,8 @@ int ti_sci_clock_get_num_parents(uint32_t dev_id, uint8_t clk_id,
 int ti_sci_clock_get_match_freq(uint32_t dev_id, uint8_t clk_id,
 				uint64_t min_freq, uint64_t target_freq,
 				uint64_t max_freq, uint64_t *match_freq);
-int ti_sci_clock_set_freq(uint32_t dev_id, uint8_t clk_id,
-			  uint64_t min_freq, uint64_t target_freq,
-			  uint64_t max_freq);
+int ti_sci_clock_set_freq(uint32_t dev_id, uint8_t clk_id, uint64_t min_freq,
+			  uint64_t target_freq, uint64_t max_freq);
 int ti_sci_clock_get_freq(uint32_t dev_id, uint8_t clk_id, uint64_t *freq);
 
 /**
@@ -185,8 +181,7 @@ int ti_sci_proc_set_boot_ctrl_no_wait(uint8_t proc_id,
 				      uint32_t control_flags_clear);
 int ti_sci_proc_auth_boot_image(uint8_t proc_id, uint64_t cert_addr);
 int ti_sci_proc_get_boot_status(uint8_t proc_id, uint64_t *bv,
-				uint32_t *cfg_flags,
-				uint32_t *ctrl_flags,
+				uint32_t *cfg_flags, uint32_t *ctrl_flags,
 				uint32_t *sts_flags);
 int ti_sci_proc_wait_boot_status(uint8_t proc_id, uint8_t num_wait_iterations,
 				 uint8_t num_match_iterations,
@@ -218,8 +213,7 @@ int ti_sci_proc_wait_boot_status_no_wait(uint8_t proc_id,
  * NOTE: for all these functions, the following are generic in nature:
  * Returns 0 for successful request, else returns corresponding error message.
  */
-int ti_sci_enter_sleep(uint8_t proc_id,
-		       uint8_t mode,
+int ti_sci_enter_sleep(uint8_t proc_id, uint8_t mode,
 		       uint64_t core_resume_addr);
 
 /**

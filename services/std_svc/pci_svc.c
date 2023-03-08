@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -38,14 +38,9 @@ static uint64_t validate_rw_addr_sz(uint32_t addr, uint64_t off, uint64_t sz)
 	return SMC_PCI_CALL_SUCCESS;
 }
 
-uint64_t pci_smc_handler(uint32_t smc_fid,
-			     u_register_t x1,
-			     u_register_t x2,
-			     u_register_t x3,
-			     u_register_t x4,
-			     void *cookie,
-			     void *handle,
-			     u_register_t flags)
+uint64_t pci_smc_handler(uint32_t smc_fid, u_register_t x1, u_register_t x2,
+			 u_register_t x3, u_register_t x4, void *cookie,
+			 void *handle, u_register_t flags)
 {
 	switch (smc_fid) {
 	case SMC_PCI_VERSION: {
@@ -99,7 +94,7 @@ uint64_t pci_smc_handler(uint32_t smc_fid,
 		uint32_t start_end_bus;
 
 		if ((x2 != 0U) || (x3 != 0U) || (x4 != 0U)) {
-		    SMC_RET3(handle, SMC_PCI_CALL_INVAL_PARAM, 0U, 0U);
+			SMC_RET3(handle, SMC_PCI_CALL_INVAL_PARAM, 0U, 0U);
 		}
 		ret = pci_get_bus_for_seg(x1, &start_end_bus, &nseg);
 		SMC_RET3(handle, ret, start_end_bus, nseg);

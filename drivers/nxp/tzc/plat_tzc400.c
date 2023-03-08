@@ -6,7 +6,6 @@
  */
 
 #include <common/debug.h>
-
 #include <plat_tzc400.h>
 
 #pragma weak populate_tzc400_reg_list
@@ -75,11 +74,9 @@
  *	list_idx	: last populated index + 1
  *
  ****************************************************************************/
-int populate_tzc400_reg_list(struct tzc400_reg *tzc400_reg_list,
-			     int dram_idx, int list_idx,
-			     uint64_t dram_start_addr,
-			     uint64_t dram_size,
-			     uint32_t secure_dram_sz,
+int populate_tzc400_reg_list(struct tzc400_reg *tzc400_reg_list, int dram_idx,
+			     int list_idx, uint64_t dram_start_addr,
+			     uint64_t dram_size, uint32_t secure_dram_sz,
 			     uint32_t shrd_dram_sz)
 {
 	if (list_idx == 0) {
@@ -91,21 +88,22 @@ int populate_tzc400_reg_list(struct tzc400_reg *tzc400_reg_list,
 	if (dram_idx == 0) {
 		/* TZC Region 1 on DRAM0 for Secure Memory*/
 		tzc400_reg_list[list_idx].reg_filter_en = 1;
-		tzc400_reg_list[list_idx].start_addr = dram_start_addr + dram_size;
-		tzc400_reg_list[list_idx].end_addr = dram_start_addr + dram_size
-						+ secure_dram_sz - 1;
+		tzc400_reg_list[list_idx].start_addr =
+			dram_start_addr + dram_size;
+		tzc400_reg_list[list_idx].end_addr =
+			dram_start_addr + dram_size + secure_dram_sz - 1;
 		tzc400_reg_list[list_idx].sec_attr = TZC_REGION_S_RDWR;
-		tzc400_reg_list[list_idx].nsaid_permissions = TZC_REGION_NS_NONE;
+		tzc400_reg_list[list_idx].nsaid_permissions =
+			TZC_REGION_NS_NONE;
 		list_idx++;
 
 		/* TZC Region 2 on DRAM0 for Shared Memory*/
 		tzc400_reg_list[list_idx].reg_filter_en = 1;
-		tzc400_reg_list[list_idx].start_addr = dram_start_addr + dram_size
-							+ secure_dram_sz;
-		tzc400_reg_list[list_idx].end_addr = dram_start_addr + dram_size
-							+ secure_dram_sz
-							+ shrd_dram_sz
-							- 1;
+		tzc400_reg_list[list_idx].start_addr =
+			dram_start_addr + dram_size + secure_dram_sz;
+		tzc400_reg_list[list_idx].end_addr =
+			dram_start_addr + dram_size + secure_dram_sz +
+			shrd_dram_sz - 1;
 		tzc400_reg_list[list_idx].sec_attr = TZC_REGION_S_RDWR;
 		tzc400_reg_list[list_idx].nsaid_permissions = TZC_NS_ACCESS_ID;
 		list_idx++;
@@ -113,8 +111,8 @@ int populate_tzc400_reg_list(struct tzc400_reg *tzc400_reg_list,
 		/* TZC Region 3 on DRAM0 for Non-Secure Memory*/
 		tzc400_reg_list[list_idx].reg_filter_en = 1;
 		tzc400_reg_list[list_idx].start_addr = dram_start_addr;
-		tzc400_reg_list[list_idx].end_addr = dram_start_addr + dram_size
-							- 1;
+		tzc400_reg_list[list_idx].end_addr =
+			dram_start_addr + dram_size - 1;
 		tzc400_reg_list[list_idx].sec_attr = TZC_REGION_S_RDWR;
 		tzc400_reg_list[list_idx].nsaid_permissions = TZC_NS_ACCESS_ID;
 		list_idx++;
@@ -122,8 +120,8 @@ int populate_tzc400_reg_list(struct tzc400_reg *tzc400_reg_list,
 		/* TZC Region 3+i on DRAM(> 0) for Non-Secure Memory*/
 		tzc400_reg_list[list_idx].reg_filter_en = 1;
 		tzc400_reg_list[list_idx].start_addr = dram_start_addr;
-		tzc400_reg_list[list_idx].end_addr = dram_start_addr + dram_size
-							- 1;
+		tzc400_reg_list[list_idx].end_addr =
+			dram_start_addr + dram_size - 1;
 		tzc400_reg_list[list_idx].sec_attr = TZC_REGION_S_RDWR;
 		tzc400_reg_list[list_idx].nsaid_permissions = TZC_NS_ACCESS_ID;
 		list_idx++;
@@ -132,18 +130,16 @@ int populate_tzc400_reg_list(struct tzc400_reg *tzc400_reg_list,
 	return list_idx;
 }
 #else
-int populate_tzc400_reg_list(struct tzc400_reg *tzc400_reg_list,
-			     int dram_idx, int list_idx,
-			     uint64_t dram_start_addr,
-			     uint64_t dram_size,
-			     uint32_t secure_dram_sz,
+int populate_tzc400_reg_list(struct tzc400_reg *tzc400_reg_list, int dram_idx,
+			     int list_idx, uint64_t dram_start_addr,
+			     uint64_t dram_size, uint32_t secure_dram_sz,
 			     uint32_t shrd_dram_sz)
 {
 	ERROR("tzc400_reg_list used is not a default list\n");
 	ERROR("%s needs to be over-written.\n", __func__);
 	return 0;
 }
-#endif	/* DEFAULT_TZASC_CONFIG */
+#endif /* DEFAULT_TZASC_CONFIG */
 
 /*******************************************************************************
  * Configure memory access permissions
@@ -168,8 +164,7 @@ void mem_access_setup(uintptr_t base, uint32_t total_regions,
 
 	for (list_indx = 1U; list_indx < total_regions; list_indx++) {
 		tzc400_configure_region(
-			tzc400_reg_list[list_indx].reg_filter_en,
-			list_indx,
+			tzc400_reg_list[list_indx].reg_filter_en, list_indx,
 			tzc400_reg_list[list_indx].start_addr,
 			tzc400_reg_list[list_indx].end_addr,
 			tzc400_reg_list[list_indx].sec_attr,

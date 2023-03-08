@@ -1,14 +1,13 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <lib/mmio.h>
-#include <lib/utils_def.h>
-
 #include <imx_aips.h>
 #include <imx_regs.h>
+#include <lib/mmio.h>
+#include <lib/utils_def.h>
 
 static void imx_aips_set_default_access(struct aipstz_regs *aips_regs)
 {

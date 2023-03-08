@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,18 +12,16 @@
 #include <lib/mmio.h>
 #include <lib/smccc.h>
 #include <lib/xlat_tables/xlat_tables.h>
-#include <plat/common/platform.h>
-#include <services/arm_arch_svc.h>
-
 #include <mtk_plat_common.h>
 #include <mtk_sip_svc.h>
 #include <plat_private.h>
+#include <services/arm_arch_svc.h>
 
-void clean_top_32b_of_param(uint32_t smc_fid,
-				u_register_t *px1,
-				u_register_t *px2,
-				u_register_t *px3,
-				u_register_t *px4)
+#include <plat/common/platform.h>
+
+void clean_top_32b_of_param(uint32_t smc_fid, u_register_t *px1,
+			    u_register_t *px2, u_register_t *px3,
+			    u_register_t *px4)
 {
 	/* if parameters from SMC32. Clean top 32 bits */
 	if (GET_SMC_CC(smc_fid) == SMC_64) {

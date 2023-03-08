@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,18 +8,18 @@
 
 #include <arch_helpers.h>
 #include <common/debug.h>
-#include <drivers/arm/gicv3.h>
 #include <drivers/arm/fvp/fvp_pwrc.h>
+#include <drivers/arm/gicv3.h>
 #include <lib/extensions/spe.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
+
 #include <plat/arm/common/arm_config.h>
 #include <plat/arm/common/plat_arm.h>
 #include <platform_def.h>
 
-#include "fvp_private.h"
 #include "../drivers/arm/gic/v3/gicv3_private.h"
-
+#include "fvp_private.h"
 
 #if ARM_RECOM_STATE_ID_ENC
 /*
@@ -31,16 +31,17 @@
 const unsigned int arm_pm_idle_states[] = {
 	/* State-id - 0x01 */
 	arm_make_pwrstate_lvl1(ARM_LOCAL_STATE_RUN, ARM_LOCAL_STATE_RET,
-			ARM_PWR_LVL0, PSTATE_TYPE_STANDBY),
+			       ARM_PWR_LVL0, PSTATE_TYPE_STANDBY),
 	/* State-id - 0x02 */
 	arm_make_pwrstate_lvl1(ARM_LOCAL_STATE_RUN, ARM_LOCAL_STATE_OFF,
-			ARM_PWR_LVL0, PSTATE_TYPE_POWERDOWN),
+			       ARM_PWR_LVL0, PSTATE_TYPE_POWERDOWN),
 	/* State-id - 0x22 */
 	arm_make_pwrstate_lvl1(ARM_LOCAL_STATE_OFF, ARM_LOCAL_STATE_OFF,
-			ARM_PWR_LVL1, PSTATE_TYPE_POWERDOWN),
+			       ARM_PWR_LVL1, PSTATE_TYPE_POWERDOWN),
 	/* State-id - 0x222 */
 	arm_make_pwrstate_lvl2(ARM_LOCAL_STATE_OFF, ARM_LOCAL_STATE_OFF,
-		ARM_LOCAL_STATE_OFF, ARM_PWR_LVL2, PSTATE_TYPE_POWERDOWN),
+			       ARM_LOCAL_STATE_OFF, ARM_PWR_LVL2,
+			       PSTATE_TYPE_POWERDOWN),
 	0,
 };
 #endif
@@ -94,24 +95,27 @@ static void fvp_cluster_pwrdwn_common(void)
  * from `fake` system suspend the GIC must not be powered off.
  */
 void arm_gicv3_distif_pre_save(unsigned int rdist_proc_num)
-{}
+{
+}
 
 void arm_gicv3_distif_post_restore(unsigned int rdist_proc_num)
-{}
+{
+}
 
-static void fvp_power_domain_on_finish_common(const psci_power_state_t *target_state)
+static void
+fvp_power_domain_on_finish_common(const psci_power_state_t *target_state)
 {
 	unsigned long mpidr;
 
 	assert(target_state->pwr_domain_state[ARM_PWR_LVL0] ==
-					ARM_LOCAL_STATE_OFF);
+	       ARM_LOCAL_STATE_OFF);
 
 	/* Get the mpidr for this cpu */
 	mpidr = read_mpidr_el1();
 
 	/* Perform the common cluster specific operations */
 	if (target_state->pwr_domain_state[ARM_PWR_LVL1] ==
-					ARM_LOCAL_STATE_OFF) {
+	    ARM_LOCAL_STATE_OFF) {
 		/*
 		 * This CPU might have woken up whilst the cluster was
 		 * attempting to power down. In this case the FVP power
@@ -127,8 +131,7 @@ static void fvp_power_domain_on_finish_common(const psci_power_state_t *target_s
 		fvp_interconnect_enable();
 	}
 	/* Perform the common system specific operations */
-	if (target_state->pwr_domain_state[ARM_PWR_LVL2] ==
-						ARM_LOCAL_STATE_OFF)
+	if (target_state->pwr_domain_state[ARM_PWR_LVL2] == ARM_LOCAL_STATE_OFF)
 		arm_system_pwr_domain_resume();
 
 	/*
@@ -200,7 +203,7 @@ static int fvp_pwr_domain_on(u_register_t mpidr)
 static void fvp_pwr_domain_off(const psci_power_state_t *target_state)
 {
 	assert(target_state->pwr_domain_state[ARM_PWR_LVL0] ==
-					ARM_LOCAL_STATE_OFF);
+	       ARM_LOCAL_STATE_OFF);
 
 	/*
 	 * If execution reaches this stage then this power domain will be
@@ -217,10 +220,8 @@ static void fvp_pwr_domain_off(const psci_power_state_t *target_state)
 	/* Program the power controller to power off this cpu. */
 	fvp_pwrc_write_ppoffr(read_mpidr_el1());
 
-	if (target_state->pwr_domain_state[ARM_PWR_LVL1] ==
-					ARM_LOCAL_STATE_OFF)
+	if (target_state->pwr_domain_state[ARM_PWR_LVL1] == ARM_LOCAL_STATE_OFF)
 		fvp_cluster_pwrdwn_common();
-
 }
 
 /*******************************************************************************
@@ -235,12 +236,11 @@ static void fvp_pwr_domain_suspend(const psci_power_state_t *target_state)
 	 * FVP has retention only at cpu level. Just return
 	 * as nothing is to be done for retention.
 	 */
-	if (target_state->pwr_domain_state[ARM_PWR_LVL0] ==
-					ARM_LOCAL_STATE_RET)
+	if (target_state->pwr_domain_state[ARM_PWR_LVL0] == ARM_LOCAL_STATE_RET)
 		return;
 
 	assert(target_state->pwr_domain_state[ARM_PWR_LVL0] ==
-					ARM_LOCAL_STATE_OFF);
+	       ARM_LOCAL_STATE_OFF);
 
 	/* Get the mpidr for this cpu */
 	mpidr = read_mpidr_el1();
@@ -258,13 +258,11 @@ static void fvp_pwr_domain_suspend(const psci_power_state_t *target_state)
 	 */
 
 	/* Perform the common cluster specific operations */
-	if (target_state->pwr_domain_state[ARM_PWR_LVL1] ==
-					ARM_LOCAL_STATE_OFF)
+	if (target_state->pwr_domain_state[ARM_PWR_LVL1] == ARM_LOCAL_STATE_OFF)
 		fvp_cluster_pwrdwn_common();
 
 	/* Perform the common system specific operations */
-	if (target_state->pwr_domain_state[ARM_PWR_LVL2] ==
-						ARM_LOCAL_STATE_OFF)
+	if (target_state->pwr_domain_state[ARM_PWR_LVL2] == ARM_LOCAL_STATE_OFF)
 		arm_system_pwr_domain_save();
 
 	/* Program the power controller to power off this cpu. */
@@ -279,7 +277,6 @@ static void fvp_pwr_domain_suspend(const psci_power_state_t *target_state)
 static void fvp_pwr_domain_on_finish(const psci_power_state_t *target_state)
 {
 	fvp_power_domain_on_finish_common(target_state);
-
 }
 
 /*******************************************************************************
@@ -287,7 +284,8 @@ static void fvp_pwr_domain_on_finish(const psci_power_state_t *target_state)
  * and its cluster are fully participating in coherent transaction on the
  * interconnect. Data cache must be enabled for CPU at this point.
  ******************************************************************************/
-static void fvp_pwr_domain_on_finish_late(const psci_power_state_t *target_state)
+static void
+fvp_pwr_domain_on_finish_late(const psci_power_state_t *target_state)
 {
 	/* Program GIC per-cpu distributor or re-distributor interface */
 	plat_arm_gic_pcpu_init();
@@ -303,13 +301,13 @@ static void fvp_pwr_domain_on_finish_late(const psci_power_state_t *target_state
  * TODO: At the moment we reuse the on finisher and reinitialize the secure
  * context. Need to implement a separate suspend finisher.
  ******************************************************************************/
-static void fvp_pwr_domain_suspend_finish(const psci_power_state_t *target_state)
+static void
+fvp_pwr_domain_suspend_finish(const psci_power_state_t *target_state)
 {
 	/*
 	 * Nothing to be done on waking up from retention from CPU level.
 	 */
-	if (target_state->pwr_domain_state[ARM_PWR_LVL0] ==
-					ARM_LOCAL_STATE_RET)
+	if (target_state->pwr_domain_state[ARM_PWR_LVL0] == ARM_LOCAL_STATE_RET)
 		return;
 
 	fvp_power_domain_on_finish_common(target_state);
@@ -325,9 +323,8 @@ static void __dead2 fvp_system_off(void)
 {
 	/* Write the System Configuration Control Register */
 	mmio_write_32(V2M_SYSREGS_BASE + V2M_SYS_CFGCTRL,
-		V2M_CFGCTRL_START |
-		V2M_CFGCTRL_RW |
-		V2M_CFGCTRL_FUNC(V2M_FUNC_SHUTDOWN));
+		      V2M_CFGCTRL_START | V2M_CFGCTRL_RW |
+			      V2M_CFGCTRL_FUNC(V2M_FUNC_SHUTDOWN));
 	wfi();
 	ERROR("FVP System Off: operation not handled.\n");
 	panic();
@@ -337,16 +334,14 @@ static void __dead2 fvp_system_reset(void)
 {
 	/* Write the System Configuration Control Register */
 	mmio_write_32(V2M_SYSREGS_BASE + V2M_SYS_CFGCTRL,
-		V2M_CFGCTRL_START |
-		V2M_CFGCTRL_RW |
-		V2M_CFGCTRL_FUNC(V2M_FUNC_REBOOT));
+		      V2M_CFGCTRL_START | V2M_CFGCTRL_RW |
+			      V2M_CFGCTRL_FUNC(V2M_FUNC_REBOOT));
 	wfi();
 	ERROR("FVP System Reset: operation not handled.\n");
 	panic();
 }
 
-static int fvp_node_hw_state(u_register_t target_cpu,
-			     unsigned int power_level)
+static int fvp_node_hw_state(u_register_t target_cpu, unsigned int power_level)
 {
 	unsigned int psysr;
 	int ret;
@@ -402,7 +397,7 @@ static void fvp_get_sys_suspend_power_state(psci_power_state_t *req_state)
  * will be downgraded to the lower level.
  */
 static int fvp_validate_power_state(unsigned int power_state,
-			    psci_power_state_t *req_state)
+				    psci_power_state_t *req_state)
 {
 	int rc;
 	rc = arm_validate_power_state(power_state, req_state);
@@ -423,8 +418,8 @@ static int fvp_validate_power_state(unsigned int power_state,
  * PSCI_STAT_COUNT/RESIDENCY at the system power domain level.
  */
 static int fvp_translate_power_state_by_mpidr(u_register_t mpidr,
-		unsigned int power_state,
-		psci_power_state_t *output_state)
+					      unsigned int power_state,
+					      psci_power_state_t *output_state)
 {
 	return arm_validate_power_state(power_state, output_state);
 }
@@ -456,9 +451,9 @@ plat_psci_ops_t plat_arm_psci_pm_ops = {
 	 */
 	.get_sys_suspend_power_state = fvp_get_sys_suspend_power_state,
 #endif
-	.mem_protect_chk	= arm_psci_mem_protect_chk,
-	.read_mem_protect	= arm_psci_read_mem_protect,
-	.write_mem_protect	= arm_nor_psci_write_mem_protect,
+	.mem_protect_chk = arm_psci_mem_protect_chk,
+	.read_mem_protect = arm_psci_read_mem_protect,
+	.write_mem_protect = arm_nor_psci_write_mem_protect,
 };
 
 const plat_psci_ops_t *plat_arm_psci_override_pm_ops(plat_psci_ops_t *ops)

@@ -9,29 +9,27 @@
 #include <inttypes.h>
 
 #include <arch_helpers.h>
+#include <brcm_scpi.h>
+#include <chimp.h>
+#include <cmn_plat_util.h>
 #include <common/debug.h>
 #include <drivers/arm/ccn.h>
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
 #include <lib/spinlock.h>
-
-#include <brcm_scpi.h>
-#include <chimp.h>
-#include <cmn_plat_util.h>
 #include <plat_brcm.h>
-#include <platform_def.h>
 #include <sr_utils.h>
+
+#include <platform_def.h>
 
 #include "m0_cfg.h"
 
+#define CORE_PWR_STATE(state) ((state)->pwr_domain_state[MPIDR_AFFLVL0])
+#define CLUSTER_PWR_STATE(state) ((state)->pwr_domain_state[MPIDR_AFFLVL1])
+#define SYSTEM_PWR_STATE(state) ((state)->pwr_domain_state[MPIDR_AFFLVL2])
 
-#define CORE_PWR_STATE(state)	((state)->pwr_domain_state[MPIDR_AFFLVL0])
-#define CLUSTER_PWR_STATE(state)	\
-			((state)->pwr_domain_state[MPIDR_AFFLVL1])
-#define SYSTEM_PWR_STATE(state)	((state)->pwr_domain_state[MPIDR_AFFLVL2])
-
-#define VENDOR_RST_TYPE_SHIFT	4
+#define VENDOR_RST_TYPE_SHIFT 4
 
 #if HW_ASSISTED_COHERENCY
 /*
@@ -120,14 +118,15 @@ static void brcm_power_down_common(void)
 		standbywfil2 = CDRU_PROC_EVENT_CLEAR__IH3_CDRU_STANDBYWFIL2;
 		break;
 	default:
-		ERROR("Invalid cluster #%" PRIx64 "\n", MPIDR_AFFLVL1_VAL(mpidr));
+		ERROR("Invalid cluster #%" PRIx64 "\n",
+		      MPIDR_AFFLVL1_VAL(mpidr));
 		return;
 	}
 	/* Clear the WFI status bit */
 	event_lock_get(event_lock);
 	mmio_setbits_32(CDRU_PROC_EVENT_CLEAR,
 			(1 << (standbywfi + MPIDR_AFFLVL0_VAL(mpidr))) |
-			(1 << standbywfil2));
+				(1 << standbywfil2));
 	event_lock_release(event_lock);
 }
 
@@ -151,10 +150,8 @@ static void brcm_scp_suspend(const psci_power_state_t *target_state)
 	 * Ask the SCP to power down the appropriate components depending upon
 	 * their state.
 	 */
-	scpi_set_brcm_power_state(read_mpidr_el1(),
-				  scpi_power_off,
-				  cluster_state,
-				  system_state);
+	scpi_set_brcm_power_state(read_mpidr_el1(), scpi_power_off,
+				  cluster_state, system_state);
 }
 
 /*
@@ -294,7 +291,7 @@ static void __dead2 brcm_system_reset(void)
 }
 
 static int brcm_system_reset2(int is_vendor, int reset_type,
-		      u_register_t cookie)
+			      u_register_t cookie)
 {
 	if (!is_vendor) {
 		/* Architectural warm boot: only warm reset is supported */
@@ -342,7 +339,7 @@ static int brcm_validate_ns_entrypoint(uintptr_t entrypoint)
  * parameter.
  ******************************************************************************/
 static int brcm_validate_power_state(unsigned int power_state,
-			    psci_power_state_t *req_state)
+				     psci_power_state_t *req_state)
 {
 	int pstate = psci_get_pstate_type(power_state);
 	int pwr_lvl = psci_get_pstate_pwrlvl(power_state);
@@ -363,11 +360,10 @@ static int brcm_validate_power_state(unsigned int power_state,
 			return PSCI_E_INVALID_PARAMS;
 
 		req_state->pwr_domain_state[MPIDR_AFFLVL0] =
-					PLAT_LOCAL_STATE_RET;
+			PLAT_LOCAL_STATE_RET;
 	} else {
 		for (i = MPIDR_AFFLVL0; i <= pwr_lvl; i++)
-			req_state->pwr_domain_state[i] =
-					PLAT_LOCAL_STATE_OFF;
+			req_state->pwr_domain_state[i] = PLAT_LOCAL_STATE_OFF;
 	}
 
 	/*
@@ -384,15 +380,15 @@ static int brcm_validate_power_state(unsigned int power_state,
  * platform will take care of registering the handlers with PSCI.
  ******************************************************************************/
 plat_psci_ops_t plat_brcm_psci_pm_ops = {
-	.pwr_domain_on		= brcm_pwr_domain_on,
-	.pwr_domain_on_finish	= brcm_pwr_domain_on_finish,
-	.pwr_domain_off		= brcm_pwr_domain_off,
-	.cpu_standby		= brcm_cpu_standby,
-	.system_off		= brcm_scp_sys_shutdown,
-	.system_reset		= brcm_system_reset,
-	.system_reset2		= brcm_system_reset2,
+	.pwr_domain_on = brcm_pwr_domain_on,
+	.pwr_domain_on_finish = brcm_pwr_domain_on_finish,
+	.pwr_domain_off = brcm_pwr_domain_off,
+	.cpu_standby = brcm_cpu_standby,
+	.system_off = brcm_scp_sys_shutdown,
+	.system_reset = brcm_system_reset,
+	.system_reset2 = brcm_system_reset2,
 	.validate_ns_entrypoint = brcm_validate_ns_entrypoint,
-	.validate_power_state	= brcm_validate_power_state,
+	.validate_power_state = brcm_validate_power_state,
 };
 
 int plat_setup_psci_ops(uintptr_t sec_entrypoint,

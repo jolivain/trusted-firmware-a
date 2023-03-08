@@ -11,15 +11,17 @@
 
 #include <common/debug.h>
 #include <lib/mmio.h>
-#include <plat/common/platform.h>
 #include <lib/pm/mtk_pm.h>
 #include <lpm/mt_lp_rqm.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
+
 #include "mt_spm.h"
 #include "mt_spm_conservation.h"
 #include "mt_spm_reg.h"
-#include <platform_def.h>
 
-#define INFRA_EMI_DCM_CFG0	U(0x10002028)
+#define INFRA_EMI_DCM_CFG0 U(0x10002028)
 
 static struct wake_status spm_wakesta; /* record last wakesta */
 static wake_reason_t spm_wake_reason = WR_NONE;
@@ -96,8 +98,7 @@ static void go_to_spm_after_wfi(int state_id, unsigned int ext_opand,
 }
 
 int spm_conservation(int state_id, unsigned int ext_opand,
-		     struct spm_lp_scen *spm_lp,
-		     unsigned int resource_req)
+		     struct spm_lp_scen *spm_lp, unsigned int resource_req)
 {
 	unsigned int rc_state = resource_req;
 
@@ -112,7 +113,8 @@ int spm_conservation(int state_id, unsigned int ext_opand,
 	return 0;
 }
 
-void spm_conservation_finish(int state_id, unsigned int ext_opand, struct spm_lp_scen *spm_lp,
+void spm_conservation_finish(int state_id, unsigned int ext_opand,
+			     struct spm_lp_scen *spm_lp,
 			     struct wake_status **status)
 {
 	spin_lock(&spm_lock);

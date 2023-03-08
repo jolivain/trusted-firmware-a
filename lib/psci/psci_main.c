@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,16 +13,16 @@
 #include <lib/pmf/pmf.h>
 #include <lib/runtime_instr.h>
 #include <lib/smccc.h>
-#include <plat/common/platform.h>
 #include <services/arm_arch_svc.h>
+
+#include <plat/common/platform.h>
 
 #include "psci_private.h"
 
 /*******************************************************************************
  * PSCI frontend api for servicing SMCs. Described in the PSCI spec.
  ******************************************************************************/
-int psci_cpu_on(u_register_t target_cpu,
-		uintptr_t entrypoint,
+int psci_cpu_on(u_register_t target_cpu, uintptr_t entrypoint,
 		u_register_t context_id)
 
 {
@@ -51,14 +51,13 @@ unsigned int psci_version(void)
 	return PSCI_MAJOR_VER | PSCI_MINOR_VER;
 }
 
-int psci_cpu_suspend(unsigned int power_state,
-		     uintptr_t entrypoint,
+int psci_cpu_suspend(unsigned int power_state, uintptr_t entrypoint,
 		     u_register_t context_id)
 {
 	int rc;
 	unsigned int target_pwrlvl, is_power_down_state;
 	entry_point_info_t ep;
-	psci_power_state_t state_info = { {PSCI_LOCAL_STATE_RUN} };
+	psci_power_state_t state_info = { { PSCI_LOCAL_STATE_RUN } };
 	plat_local_state_t cpu_pd_state;
 
 	/* Validate the power_state parameter */
@@ -74,8 +73,8 @@ int psci_cpu_suspend(unsigned int power_state,
 	is_power_down_state = psci_get_pstate_type(power_state);
 
 	/* Sanity check the requested suspend levels */
-	assert(psci_validate_suspend_req(&state_info, is_power_down_state)
-			== PSCI_E_SUCCESS);
+	assert(psci_validate_suspend_req(&state_info, is_power_down_state) ==
+	       PSCI_E_SUCCESS);
 
 	target_pwrlvl = psci_find_target_suspend_lvl(&state_info);
 	if (target_pwrlvl == PSCI_INVALID_PWR_LVL) {
@@ -85,7 +84,7 @@ int psci_cpu_suspend(unsigned int power_state,
 
 	/* Fast path for CPU standby.*/
 	if (is_cpu_standby_req(is_power_down_state, target_pwrlvl)) {
-		if  (psci_plat_pm_ops->cpu_standby == NULL)
+		if (psci_plat_pm_ops->cpu_standby == NULL)
 			return PSCI_E_INVALID_PARAMS;
 
 		/*
@@ -100,9 +99,8 @@ int psci_cpu_suspend(unsigned int power_state,
 #endif
 
 #if ENABLE_RUNTIME_INSTRUMENTATION
-		PMF_CAPTURE_TIMESTAMP(rt_instr_svc,
-		    RT_INSTR_ENTER_HW_LOW_PWR,
-		    PMF_NO_CACHE_MAINT);
+		PMF_CAPTURE_TIMESTAMP(rt_instr_svc, RT_INSTR_ENTER_HW_LOW_PWR,
+				      PMF_NO_CACHE_MAINT);
 #endif
 
 		psci_plat_pm_ops->cpu_standby(cpu_pd_state);
@@ -111,9 +109,8 @@ int psci_cpu_suspend(unsigned int power_state,
 		psci_set_cpu_local_state(PSCI_LOCAL_STATE_RUN);
 
 #if ENABLE_RUNTIME_INSTRUMENTATION
-		PMF_CAPTURE_TIMESTAMP(rt_instr_svc,
-		    RT_INSTR_EXIT_HW_LOW_PWR,
-		    PMF_NO_CACHE_MAINT);
+		PMF_CAPTURE_TIMESTAMP(rt_instr_svc, RT_INSTR_EXIT_HW_LOW_PWR,
+				      PMF_NO_CACHE_MAINT);
 #endif
 
 #if ENABLE_PSCI_STAT
@@ -142,14 +139,11 @@ int psci_cpu_suspend(unsigned int power_state,
 	 * might return if the power down was abandoned for any reason, e.g.
 	 * arrival of an interrupt
 	 */
-	psci_cpu_suspend_start(&ep,
-			    target_pwrlvl,
-			    &state_info,
-			    is_power_down_state);
+	psci_cpu_suspend_start(&ep, target_pwrlvl, &state_info,
+			       is_power_down_state);
 
 	return PSCI_E_SUCCESS;
 }
-
 
 int psci_system_suspend(uintptr_t entrypoint, u_register_t context_id)
 {
@@ -177,20 +171,18 @@ int psci_system_suspend(uintptr_t entrypoint, u_register_t context_id)
 		return PSCI_E_DENIED;
 
 	/* Ensure that the psci_power_state makes sense */
-	assert(psci_validate_suspend_req(&state_info, PSTATE_TYPE_POWERDOWN)
-						== PSCI_E_SUCCESS);
+	assert(psci_validate_suspend_req(&state_info, PSTATE_TYPE_POWERDOWN) ==
+	       PSCI_E_SUCCESS);
 	assert(is_local_state_off(
-			state_info.pwr_domain_state[PLAT_MAX_PWR_LVL]) != 0);
+		       state_info.pwr_domain_state[PLAT_MAX_PWR_LVL]) != 0);
 
 	/*
 	 * Do what is needed to enter the system suspend state. This function
 	 * might return if the power down was abandoned for any reason, e.g.
 	 * arrival of an interrupt
 	 */
-	psci_cpu_suspend_start(&ep,
-			    PLAT_MAX_PWR_LVL,
-			    &state_info,
-			    PSTATE_TYPE_POWERDOWN);
+	psci_cpu_suspend_start(&ep, PLAT_MAX_PWR_LVL, &state_info,
+			       PSTATE_TYPE_POWERDOWN);
 
 	return PSCI_E_SUCCESS;
 }
@@ -248,8 +240,7 @@ int psci_affinity_info(u_register_t target_affinity,
 	 * target CPUs shutdown was not seen by the current CPU's cluster. And
 	 * so the cache may contain stale data for the target CPU.
 	 */
-	flush_cpu_data_by_index(target_idx,
-				psci_svc_cpu_data.aff_info_state);
+	flush_cpu_data_by_index(target_idx, psci_svc_cpu_data.aff_info_state);
 
 	return psci_get_aff_info_state_by_idx(target_idx);
 }
@@ -261,8 +252,8 @@ int psci_migrate(u_register_t target_cpu)
 
 	rc = psci_spd_migrate_info(&resident_cpu_mpidr);
 	if (rc != PSCI_TOS_UP_MIG_CAP)
-		return (rc == PSCI_TOS_NOT_UP_MIG_CAP) ?
-			  PSCI_E_DENIED : PSCI_E_NOT_SUPPORTED;
+		return (rc == PSCI_TOS_NOT_UP_MIG_CAP) ? PSCI_E_DENIED :
+							 PSCI_E_NOT_SUPPORTED;
 
 	/*
 	 * Migrate should only be invoked on the CPU where
@@ -302,13 +293,12 @@ u_register_t psci_migrate_info_up_cpu(void)
 	 */
 	rc = psci_spd_migrate_info(&resident_cpu_mpidr);
 	if ((rc != PSCI_TOS_NOT_UP_MIG_CAP) && (rc != PSCI_TOS_UP_MIG_CAP))
-		return (u_register_t)(register_t) PSCI_E_INVALID_PARAMS;
+		return (u_register_t)(register_t)PSCI_E_INVALID_PARAMS;
 
 	return resident_cpu_mpidr;
 }
 
-int psci_node_hw_state(u_register_t target_cpu,
-		       unsigned int power_level)
+int psci_node_hw_state(u_register_t target_cpu, unsigned int power_level)
 {
 	int rc;
 
@@ -327,9 +317,8 @@ int psci_node_hw_state(u_register_t target_cpu,
 	 */
 	assert(psci_plat_pm_ops->get_node_hw_state != NULL);
 	rc = psci_plat_pm_ops->get_node_hw_state(target_cpu, power_level);
-	assert(((rc >= HW_ON) && (rc <= HW_STANDBY))
-		|| (rc == PSCI_E_NOT_SUPPORTED)
-		|| (rc == PSCI_E_INVALID_PARAMS));
+	assert(((rc >= HW_ON) && (rc <= HW_STANDBY)) ||
+	       (rc == PSCI_E_NOT_SUPPORTED) || (rc == PSCI_E_INVALID_PARAMS));
 	return rc;
 }
 
@@ -345,10 +334,9 @@ int psci_features(unsigned int psci_fid)
 		local_caps &= PSCI_CAP_64BIT_MASK;
 
 	/* Check for invalid fid */
-	if (!(is_std_svc_call(psci_fid) && is_valid_fast_smc(psci_fid)
-			&& is_psci_fid(psci_fid)))
+	if (!(is_std_svc_call(psci_fid) && is_valid_fast_smc(psci_fid) &&
+	      is_psci_fid(psci_fid)))
 		return PSCI_E_NOT_SUPPORTED;
-
 
 	/* Check if the psci fid is supported or not */
 	if ((local_caps & define_psci_cap(psci_fid)) == 0U)
@@ -360,10 +348,11 @@ int psci_features(unsigned int psci_fid)
 		/*
 		 * The trusted firmware does not support OS Initiated Mode.
 		 */
-		unsigned int ret = ((FF_PSTATE << FF_PSTATE_SHIFT) |
-			(((FF_SUPPORTS_OS_INIT_MODE == 1U) ? 0U : 1U)
-				<< FF_MODE_SUPPORT_SHIFT));
-		return (int) ret;
+		unsigned int ret =
+			((FF_PSTATE << FF_PSTATE_SHIFT) |
+			 (((FF_SUPPORTS_OS_INIT_MODE == 1U) ? 0U : 1U)
+			  << FF_MODE_SUPPORT_SHIFT));
+		return (int)ret;
 	}
 
 	/* Return 0 for all other fid's */
@@ -373,14 +362,9 @@ int psci_features(unsigned int psci_fid)
 /*******************************************************************************
  * PSCI top level handler for servicing SMCs.
  ******************************************************************************/
-u_register_t psci_smc_handler(uint32_t smc_fid,
-			  u_register_t x1,
-			  u_register_t x2,
-			  u_register_t x3,
-			  u_register_t x4,
-			  void *cookie,
-			  void *handle,
-			  u_register_t flags)
+u_register_t psci_smc_handler(uint32_t smc_fid, u_register_t x1,
+			      u_register_t x2, u_register_t x3, u_register_t x4,
+			      void *cookie, void *handle, u_register_t flags)
 {
 	u_register_t ret;
 
@@ -485,8 +469,8 @@ u_register_t psci_smc_handler(uint32_t smc_fid,
 
 		switch (smc_fid) {
 		case PSCI_CPU_SUSPEND_AARCH64:
-			ret = (u_register_t)
-				psci_cpu_suspend((unsigned int)x1, x2, x3);
+			ret = (u_register_t)psci_cpu_suspend((unsigned int)x1,
+							     x2, x3);
 			break;
 
 		case PSCI_CPU_ON_AARCH64:
@@ -494,8 +478,8 @@ u_register_t psci_smc_handler(uint32_t smc_fid,
 			break;
 
 		case PSCI_AFFINITY_INFO_AARCH64:
-			ret = (u_register_t)
-				psci_affinity_info(x1, (unsigned int)x2);
+			ret = (u_register_t)psci_affinity_info(
+				x1, (unsigned int)x2);
 			break;
 
 		case PSCI_MIG_AARCH64:
@@ -508,7 +492,7 @@ u_register_t psci_smc_handler(uint32_t smc_fid,
 
 		case PSCI_NODE_HW_STATE_AARCH64:
 			ret = (u_register_t)psci_node_hw_state(
-					x1, (unsigned int) x2);
+				x1, (unsigned int)x2);
 			break;
 
 		case PSCI_SYSTEM_SUSPEND_AARCH64:
@@ -517,11 +501,11 @@ u_register_t psci_smc_handler(uint32_t smc_fid,
 
 #if ENABLE_PSCI_STAT
 		case PSCI_STAT_RESIDENCY_AARCH64:
-			ret = psci_stat_residency(x1, (unsigned int) x2);
+			ret = psci_stat_residency(x1, (unsigned int)x2);
 			break;
 
 		case PSCI_STAT_COUNT_AARCH64:
-			ret = psci_stat_count(x1, (unsigned int) x2);
+			ret = psci_stat_count(x1, (unsigned int)x2);
 			break;
 #endif
 
@@ -531,7 +515,7 @@ u_register_t psci_smc_handler(uint32_t smc_fid,
 
 		case PSCI_SYSTEM_RESET2_AARCH64:
 			/* We should never return from psci_system_reset2() */
-			ret = psci_system_reset2((uint32_t) x1, x2);
+			ret = psci_system_reset2((uint32_t)x1, x2);
 			break;
 
 		default:

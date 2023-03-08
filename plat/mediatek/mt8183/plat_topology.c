@@ -1,12 +1,13 @@
 /*
- * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <arch.h>
-#include <platform_def.h>
 #include <lib/psci/psci.h>
+
+#include <platform_def.h>
 
 const unsigned char mtk_power_domain_tree_desc[] = {
 	/* Number of root nodes */

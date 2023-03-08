@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,11 +10,11 @@
 #include <arch_helpers.h>
 #include <common/debug.h>
 #include <drivers/arm/sp804_delay_timer.h>
-#include <lib/mmio.h>
-
 #include <hi6220.h>
 #include <hi6553.h>
 #include <hisi_sram_map.h>
+#include <lib/mmio.h>
+
 #include "hikey_private.h"
 
 static void init_pll(void)
@@ -95,7 +95,6 @@ static void init_freq(void)
 	data |= (1 << 4);
 	mmio_write_32((0xf7032000 + 0x110), data);
 
-
 	data = mmio_read_32((0xf7032000 + 0x110));
 	data &= ~0x7;
 	data |= 0x5;
@@ -103,14 +102,12 @@ static void init_freq(void)
 	dsb();
 	mdelay(10);
 
-
 	do {
 		data = mmio_read_32((0xf6504000 + 0x008));
 		data &= (3 << 20);
 	} while (data != (3 << 20));
 	dsb();
 	mdelay(10);
-
 
 	data = mmio_read_32((0xf6504000 + 0x054));
 	data &= ~((1 << 0) | (1 << 11));
@@ -158,7 +155,6 @@ static void init_freq(void)
 	mmio_write_32((0xf6504000 + 0x054), data);
 	dsb();
 
-
 	data = mmio_read_32((0xf7032000 + 0x000));
 	data &= ~(1 << 0);
 	mmio_write_32((0xf7032000 + 0x000), data);
@@ -166,7 +162,6 @@ static void init_freq(void)
 	mmio_write_32((0xf7032000 + 0x004), 0x5110207d);
 	mmio_write_32((0xf7032000 + 0x134), 0x10000005);
 	data = mmio_read_32((0xf7032000 + 0x134));
-
 
 	data = mmio_read_32((0xf7032000 + 0x000));
 	data |= (1 << 0);
@@ -188,8 +183,7 @@ static void init_freq(void)
 	} while (!(data & 1));
 
 	data = mmio_read_32((0xf7032000 + 0x104));
-	data &= ~((3 << 0) |
-			(3 << 8));
+	data &= ~((3 << 0) | (3 << 8));
 	cpuext_cfg = 1;
 	ddr_cfg = 1;
 	data |= cpuext_cfg | (ddr_cfg << 8);
@@ -224,8 +218,7 @@ static void init_freq(void)
 	dsb();
 
 	data = mmio_read_32((0xf7032000 + 0x110));
-	data &= ~((1 << 4) |
-			(3 << 12));
+	data &= ~((1 << 4) | (3 << 12));
 	mmio_write_32((0xf7032000 + 0x110), data);
 }
 
@@ -233,7 +226,6 @@ int cat_533mhz_800mhz(void)
 {
 	unsigned int data, i;
 	unsigned int bdl[5];
-
 
 	data = mmio_read_32((0xf712c000 + 0x1c8));
 	data &= 0xfffff0f0;
@@ -249,14 +241,12 @@ int cat_533mhz_800mhz(void)
 		mmio_write_32((0xf712c000 + 0x14c), data);
 		mmio_write_32((0xf712c000 + 0x150), data);
 
-
 		data = mmio_read_32((0xf712c000 + 0x070));
 		data |= 0x80000;
 		mmio_write_32((0xf712c000 + 0x070), data);
 		data = mmio_read_32((0xf712c000 + 0x070));
 		data &= 0xfff7ffff;
 		mmio_write_32((0xf712c000 + 0x070), data);
-
 
 		mmio_write_32((0xf712c000 + 0x004), 0x8000);
 		mmio_write_32((0xf712c000 + 0x004), 0x0);
@@ -279,8 +269,8 @@ int cat_533mhz_800mhz(void)
 			bdl[3] = mmio_read_32((0xf712c000 + 0x14c));
 			bdl[4] = mmio_read_32((0xf712c000 + 0x150));
 			if ((!(bdl[0] & 0x1f001f)) || (!(bdl[1] & 0x1f001f)) ||
-					(!(bdl[2] & 0x1f001f)) || (!(bdl[3] & 0x1f001f)) ||
-					(!(bdl[4] & 0x1f001f))) {
+			    (!(bdl[2] & 0x1f001f)) || (!(bdl[3] & 0x1f001f)) ||
+			    (!(bdl[4] & 0x1f001f))) {
 				WARN("lpddr3 cat deskew error\n");
 				if (i == 0x1f) {
 					WARN("addrnbdl is max\n");
@@ -312,7 +302,6 @@ static void ddrx_rdet(void)
 	data &= 0xfffffff0;
 	data |= 0xf;
 	mmio_write_32((0xf712c000 + 0x0dc), data);
-
 
 	data = mmio_read_32((0xf712c000 + 0x070));
 	data |= 0x80000;
@@ -358,7 +347,6 @@ static void ddrx_rdet(void)
 		data &= ~0x7f;
 		data |= bdl[3];
 		mmio_write_32((0xf712c000 + 0x3ac), data);
-
 
 		data = mmio_read_32((0xf712c000 + 0x070));
 		data |= 0x80000;
@@ -1099,7 +1087,6 @@ static void ddrc_common_init(int freq)
 	mmio_write_32((0xf712c000 + 0x1e4), 0xfe007600);
 	mmio_write_32((0xf7128000 + 0x01c), 0xaf001);
 
-
 	data = mmio_read_32((0xf7128000 + 0x280));
 	data |= 1 << 7;
 	mmio_write_32((0xf7128000 + 0x280), data);
@@ -1120,7 +1107,6 @@ static void ddrc_common_init(int freq)
 	} while (data & 1);
 	mmio_write_32((0xf7128000 + 0x000), 0x2);
 }
-
 
 static int dienum_det_and_rowcol_cfg(void)
 {
@@ -1312,14 +1298,14 @@ int lpddr3_freq_init(int freq)
 	if (freq > DDR_FREQ_400M) {
 		ddr_phy_reset();
 		set_ddrc_533mhz();
-		lpddrx_save_ddl_para_mission((uint32_t *)MEMORY_AXI_DDR_DDL_ADDR,
-					     16 * 3);
+		lpddrx_save_ddl_para_mission(
+			(uint32_t *)MEMORY_AXI_DDR_DDL_ADDR, 16 * 3);
 	}
 	if (freq > DDR_FREQ_533M) {
 		ddr_phy_reset();
 		set_ddrc_800mhz();
-		lpddrx_save_ddl_para_mission((uint32_t *)MEMORY_AXI_DDR_DDL_ADDR,
-					     16 * 3 + 61);
+		lpddrx_save_ddl_para_mission(
+			(uint32_t *)MEMORY_AXI_DDR_DDL_ADDR, 16 * 3 + 61);
 	}
 	return 0;
 }
@@ -1328,7 +1314,6 @@ static void init_ddr(int freq)
 {
 	unsigned int data;
 	int ret;
-
 
 	data = mmio_read_32((0xf7032000 + 0x030));
 	data |= 1;
@@ -1395,7 +1380,6 @@ static void init_ddrc_qos(void)
 	mmio_write_32((0xf7120000 + 0x200 + port * 0x10), 0x30000);
 	mmio_write_32((0xf7120000 + 0x204 + port * 0x10), 0x1234567);
 	mmio_write_32((0xf7120000 + 0x208 + port * 0x10), 0x1234567);
-
 
 	mmio_write_32((0xf7124000 + 0x09c), 0xff7fff);
 	mmio_write_32((0xf7124000 + 0x0a0), 0xff);

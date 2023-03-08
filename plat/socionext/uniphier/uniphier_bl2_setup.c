@@ -1,12 +1,10 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <errno.h>
-
-#include <platform_def.h>
 
 #include <common/bl_common.h>
 #include <common/debug.h>
@@ -14,15 +12,17 @@
 #include <common/image_decompress.h>
 #include <drivers/io/io_storage.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
+
 #include <plat/common/platform.h>
+#include <platform_def.h>
 #ifdef UNIPHIER_DECOMPRESS_GZIP
 #include <tf_gunzip.h>
 #endif
 
 #include "uniphier.h"
 
-#define UNIPHIER_IMAGE_BUF_OFFSET	0x03800000UL
-#define UNIPHIER_IMAGE_BUF_SIZE		0x00800000UL
+#define UNIPHIER_IMAGE_BUF_OFFSET 0x03800000UL
+#define UNIPHIER_IMAGE_BUF_SIZE 0x00800000UL
 
 static uintptr_t uniphier_mem_base = UNIPHIER_MEM_BASE;
 static unsigned int uniphier_soc = UNIPHIER_SOC_UNKNOWN;

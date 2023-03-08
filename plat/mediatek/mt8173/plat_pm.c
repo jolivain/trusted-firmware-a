@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -15,8 +15,6 @@
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
-#include <plat/arm/common/plat_arm.h>
-
 #include <mcucfg.h>
 #include <mt8173_def.h>
 #include <mt_cpuxgpt.h> /* generic_timer_backup() */
@@ -29,15 +27,19 @@
 #include <spm_suspend.h>
 #include <wdt.h>
 
-#define MTK_PWR_LVL0	0
-#define MTK_PWR_LVL1	1
-#define MTK_PWR_LVL2	2
+#include <plat/arm/common/plat_arm.h>
+
+#define MTK_PWR_LVL0 0
+#define MTK_PWR_LVL1 1
+#define MTK_PWR_LVL2 2
 
 /* Macros to read the MTK power domain state */
-#define MTK_CORE_PWR_STATE(state)	(state)->pwr_domain_state[MTK_PWR_LVL0]
-#define MTK_CLUSTER_PWR_STATE(state)	(state)->pwr_domain_state[MTK_PWR_LVL1]
-#define MTK_SYSTEM_PWR_STATE(state)	((PLAT_MAX_PWR_LVL > MTK_PWR_LVL1) ?\
-			(state)->pwr_domain_state[MTK_PWR_LVL2] : 0)
+#define MTK_CORE_PWR_STATE(state) (state)->pwr_domain_state[MTK_PWR_LVL0]
+#define MTK_CLUSTER_PWR_STATE(state) (state)->pwr_domain_state[MTK_PWR_LVL1]
+#define MTK_SYSTEM_PWR_STATE(state)                        \
+	((PLAT_MAX_PWR_LVL > MTK_PWR_LVL1) ?               \
+		 (state)->pwr_domain_state[MTK_PWR_LVL2] : \
+		 0)
 
 #if PSCI_EXTENDED_STATE_ID
 /*
@@ -49,17 +51,21 @@
 const unsigned int mtk_pm_idle_states[] = {
 	/* State-id - 0x001 */
 	mtk_make_pwrstate_lvl2(MTK_LOCAL_STATE_RUN, MTK_LOCAL_STATE_RUN,
-		MTK_LOCAL_STATE_RET, MTK_PWR_LVL0, PSTATE_TYPE_STANDBY),
+			       MTK_LOCAL_STATE_RET, MTK_PWR_LVL0,
+			       PSTATE_TYPE_STANDBY),
 	/* State-id - 0x002 */
 	mtk_make_pwrstate_lvl2(MTK_LOCAL_STATE_RUN, MTK_LOCAL_STATE_RUN,
-		MTK_LOCAL_STATE_OFF, MTK_PWR_LVL0, PSTATE_TYPE_POWERDOWN),
+			       MTK_LOCAL_STATE_OFF, MTK_PWR_LVL0,
+			       PSTATE_TYPE_POWERDOWN),
 	/* State-id - 0x022 */
 	mtk_make_pwrstate_lvl2(MTK_LOCAL_STATE_RUN, MTK_LOCAL_STATE_OFF,
-		MTK_LOCAL_STATE_OFF, MTK_PWR_LVL1, PSTATE_TYPE_POWERDOWN),
+			       MTK_LOCAL_STATE_OFF, MTK_PWR_LVL1,
+			       PSTATE_TYPE_POWERDOWN),
 #if PLAT_MAX_PWR_LVL > MTK_PWR_LVL1
 	/* State-id - 0x222 */
 	mtk_make_pwrstate_lvl2(MTK_LOCAL_STATE_OFF, MTK_LOCAL_STATE_OFF,
-		MTK_LOCAL_STATE_OFF, MTK_PWR_LVL2, PSTATE_TYPE_POWERDOWN),
+			       MTK_LOCAL_STATE_OFF, MTK_PWR_LVL2,
+			       PSTATE_TYPE_POWERDOWN),
 #endif
 	0,
 };
@@ -89,9 +95,8 @@ struct system_context {
  */
 static struct system_context dormant_data[1];
 
-static inline struct cluster_context *system_cluster(
-						struct system_context *system,
-						uint32_t clusterid)
+static inline struct cluster_context *
+system_cluster(struct system_context *system, uint32_t clusterid)
 {
 	return &system->cluster[clusterid];
 }
@@ -130,22 +135,22 @@ static void mt_save_generic_timer(unsigned long *container)
 	__asm__ volatile("mrs	%x0, cntkctl_el1\n\t"
 			 "mrs	%x1, cntp_cval_el0\n\t"
 			 "stp	%x0, %x1, [%2, #0]"
-			 : "=&r" (ctl), "=&r" (val)
-			 : "r" (container)
+			 : "=&r"(ctl), "=&r"(val)
+			 : "r"(container)
 			 : "memory");
 
 	__asm__ volatile("mrs	%x0, cntp_tval_el0\n\t"
 			 "mrs	%x1, cntp_ctl_el0\n\t"
 			 "stp	%x0, %x1, [%2, #16]"
-			 : "=&r" (val), "=&r" (ctl)
-			 : "r" (container)
+			 : "=&r"(val), "=&r"(ctl)
+			 : "r"(container)
 			 : "memory");
 
 	__asm__ volatile("mrs	%x0, cntv_tval_el0\n\t"
 			 "mrs	%x1, cntv_ctl_el0\n\t"
 			 "stp	%x0, %x1, [%2, #32]"
-			 : "=&r" (val), "=&r" (ctl)
-			 : "r" (container)
+			 : "=&r"(val), "=&r"(ctl)
+			 : "r"(container)
 			 : "memory");
 }
 
@@ -157,22 +162,22 @@ static void mt_restore_generic_timer(unsigned long *container)
 	__asm__ volatile("ldp	%x0, %x1, [%2, #0]\n\t"
 			 "msr	cntkctl_el1, %x0\n\t"
 			 "msr	cntp_cval_el0, %x1"
-			 : "=&r" (ctl), "=&r" (val)
-			 : "r" (container)
+			 : "=&r"(ctl), "=&r"(val)
+			 : "r"(container)
 			 : "memory");
 
 	__asm__ volatile("ldp	%x0, %x1, [%2, #16]\n\t"
 			 "msr	cntp_tval_el0, %x0\n\t"
 			 "msr	cntp_ctl_el0, %x1"
-			 : "=&r" (val), "=&r" (ctl)
-			 : "r" (container)
+			 : "=&r"(val), "=&r"(ctl)
+			 : "r"(container)
 			 : "memory");
 
 	__asm__ volatile("ldp	%x0, %x1, [%2, #32]\n\t"
 			 "msr	cntv_tval_el0, %x0\n\t"
 			 "msr	cntv_ctl_el0, %x1"
-			 : "=&r" (val), "=&r" (ctl)
-			 : "r" (container)
+			 : "=&r"(val), "=&r"(ctl)
+			 : "r"(container)
 			 : "memory");
 }
 
@@ -181,7 +186,9 @@ static inline uint64_t read_cntpctl(void)
 	uint64_t cntpctl;
 
 	__asm__ volatile("mrs	%x0, cntp_ctl_el0"
-			 : "=r" (cntpctl) : : "memory");
+			 : "=r"(cntpctl)
+			 :
+			 : "memory");
 
 	return cntpctl;
 }
@@ -269,8 +276,8 @@ static int plat_power_domain_on(unsigned long mpidr)
 		rv = (uintptr_t)&mt8173_mcucfg->mp0_rv_addr[cpu_id].rv_addr_lw;
 
 	mmio_write_32(rv, secure_entrypoint);
-	INFO("mt_on[%ld:%ld], entry %x\n",
-		cluster_id, cpu_id, mmio_read_32(rv));
+	INFO("mt_on[%ld:%ld], entry %x\n", cluster_id, cpu_id,
+	     mmio_read_32(rv));
 
 	spm_hotplug_on(mpidr);
 	return rc;
@@ -376,7 +383,7 @@ static void plat_power_domain_on_finish(const psci_power_state_t *state)
 	assert(state->pwr_domain_state[MPIDR_AFFLVL0] == MTK_LOCAL_STATE_OFF);
 
 	if ((PLAT_MAX_PWR_LVL > MTK_PWR_LVL1) &&
-		(state->pwr_domain_state[MTK_PWR_LVL2] == MTK_LOCAL_STATE_OFF))
+	    (state->pwr_domain_state[MTK_PWR_LVL2] == MTK_LOCAL_STATE_OFF))
 		mtk_system_pwr_domain_resume();
 
 	if (state->pwr_domain_state[MPIDR_AFFLVL1] == MTK_LOCAL_STATE_OFF) {
@@ -385,7 +392,7 @@ static void plat_power_domain_on_finish(const psci_power_state_t *state)
 	}
 
 	if ((PLAT_MAX_PWR_LVL > MTK_PWR_LVL1) &&
-		(state->pwr_domain_state[MTK_PWR_LVL2] == MTK_LOCAL_STATE_OFF))
+	    (state->pwr_domain_state[MTK_PWR_LVL2] == MTK_LOCAL_STATE_OFF))
 		return;
 
 	/* Enable the gic cpu interface */
@@ -467,7 +474,7 @@ static void __dead2 plat_system_reset(void)
 
 #if !PSCI_EXTENDED_STATE_ID
 static int plat_validate_power_state(unsigned int power_state,
-					psci_power_state_t *req_state)
+				     psci_power_state_t *req_state)
 {
 	int pstate = psci_get_pstate_type(power_state);
 	int pwr_lvl = psci_get_pstate_pwrlvl(power_state);
@@ -487,12 +494,10 @@ static int plat_validate_power_state(unsigned int power_state,
 		if (pwr_lvl != 0)
 			return PSCI_E_INVALID_PARAMS;
 
-		req_state->pwr_domain_state[MTK_PWR_LVL0] =
-					MTK_LOCAL_STATE_RET;
+		req_state->pwr_domain_state[MTK_PWR_LVL0] = MTK_LOCAL_STATE_RET;
 	} else {
 		for (i = 0; i <= pwr_lvl; i++)
-			req_state->pwr_domain_state[i] =
-					MTK_LOCAL_STATE_OFF;
+			req_state->pwr_domain_state[i] = MTK_LOCAL_STATE_OFF;
 	}
 
 	/*
@@ -505,7 +510,7 @@ static int plat_validate_power_state(unsigned int power_state,
 }
 #else
 int plat_validate_power_state(unsigned int power_state,
-				psci_power_state_t *req_state)
+			      psci_power_state_t *req_state)
 {
 	unsigned int state_id;
 	int i;
@@ -532,7 +537,7 @@ int plat_validate_power_state(unsigned int power_state,
 	/* Parse the State ID and populate the state info parameter */
 	while (state_id) {
 		req_state->pwr_domain_state[i++] = state_id &
-						MTK_LOCAL_PSTATE_MASK;
+						   MTK_LOCAL_PSTATE_MASK;
 		state_id >>= MTK_LOCAL_PSTATE_WIDTH;
 	}
 
@@ -553,16 +558,16 @@ void mtk_system_pwr_domain_resume(void)
 }
 
 static const plat_psci_ops_t plat_plat_pm_ops = {
-	.cpu_standby			= plat_cpu_standby,
-	.pwr_domain_on			= plat_power_domain_on,
-	.pwr_domain_on_finish		= plat_power_domain_on_finish,
-	.pwr_domain_off			= plat_power_domain_off,
-	.pwr_domain_suspend		= plat_power_domain_suspend,
-	.pwr_domain_suspend_finish	= plat_power_domain_suspend_finish,
-	.system_off			= plat_system_off,
-	.system_reset			= plat_system_reset,
-	.validate_power_state		= plat_validate_power_state,
-	.get_sys_suspend_power_state	= plat_get_sys_suspend_power_state,
+	.cpu_standby = plat_cpu_standby,
+	.pwr_domain_on = plat_power_domain_on,
+	.pwr_domain_on_finish = plat_power_domain_on_finish,
+	.pwr_domain_off = plat_power_domain_off,
+	.pwr_domain_suspend = plat_power_domain_suspend,
+	.pwr_domain_suspend_finish = plat_power_domain_suspend_finish,
+	.system_off = plat_system_off,
+	.system_reset = plat_system_reset,
+	.validate_power_state = plat_validate_power_state,
+	.get_sys_suspend_power_state = plat_get_sys_suspend_power_state,
 };
 
 int plat_setup_psci_ops(uintptr_t sec_entrypoint,

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -20,7 +20,7 @@ enum {
 
 /* Supported key algorithms */
 enum {
-	KEY_ALG_RSA,		/* RSA PSS as defined by PKCS#1 v2.1 (default) */
+	KEY_ALG_RSA, /* RSA PSS as defined by PKCS#1 v2.1 (default) */
 #ifndef OPENSSL_NO_EC
 	KEY_ALG_ECDSA_NIST,
 	KEY_ALG_ECDSA_BRAINPOOL_R,
@@ -30,10 +30,10 @@ enum {
 };
 
 /* Maximum number of valid key sizes per algorithm */
-#define KEY_SIZE_MAX_NUM	4
+#define KEY_SIZE_MAX_NUM 4
 
 /* Supported hash algorithms */
-enum{
+enum {
 	HASH_ALG_SHA256,
 	HASH_ALG_SHA384,
 	HASH_ALG_SHA512,
@@ -42,11 +42,11 @@ enum{
 /* Supported key sizes */
 /* NOTE: the first item in each array is the default key size */
 static const unsigned int KEY_SIZES[KEY_ALG_MAX_NUM][KEY_SIZE_MAX_NUM] = {
-	{ 2048, 1024, 3072, 4096 },	/* KEY_ALG_RSA */
+	{ 2048, 1024, 3072, 4096 }, /* KEY_ALG_RSA */
 #ifndef OPENSSL_NO_EC
-	{},				/* KEY_ALG_ECDSA_NIST */
-	{},				/* KEY_ALG_ECDSA_BRAINPOOL_R */
-	{}				/* KEY_ALG_ECDSA_BRAINPOOL_T */
+	{}, /* KEY_ALG_ECDSA_NIST */
+	{}, /* KEY_ALG_ECDSA_BRAINPOOL_R */
+	{} /* KEY_ALG_ECDSA_BRAINPOOL_T */
 #endif /* OPENSSL_NO_EC */
 };
 
@@ -59,12 +59,12 @@ static const unsigned int KEY_SIZES[KEY_ALG_MAX_NUM][KEY_SIZE_MAX_NUM] = {
  * parameters
  */
 typedef struct key_s {
-	int id;			/* Key id */
-	const char *opt;	/* Command line option to specify a key */
-	const char *help_msg;	/* Help message */
-	const char *desc;	/* Key description (debug purposes) */
-	char *fn;		/* Filename to load/store the key */
-	EVP_PKEY *key;		/* Key container */
+	int id; /* Key id */
+	const char *opt; /* Command line option to specify a key */
+	const char *help_msg; /* Help message */
+	const char *desc; /* Key description (debug purposes) */
+	char *fn; /* Filename to load/store the key */
+	EVP_PKEY *key; /* Key container */
 } key_t;
 
 /* Exported API */
@@ -79,14 +79,15 @@ int key_store(key_t *key);
 void key_cleanup(void);
 
 /* Macro to register the keys used in the CoT */
-#define REGISTER_KEYS(_keys) \
+#define REGISTER_KEYS(_keys)         \
 	key_t *def_keys = &_keys[0]; \
-	const unsigned int num_def_keys = sizeof(_keys)/sizeof(_keys[0])
+	const unsigned int num_def_keys = sizeof(_keys) / sizeof(_keys[0])
 
 /* Macro to register the platform defined keys used in the CoT */
-#define PLAT_REGISTER_KEYS(_pdef_keys) \
+#define PLAT_REGISTER_KEYS(_pdef_keys)     \
 	key_t *pdef_keys = &_pdef_keys[0]; \
-	const unsigned int num_pdef_keys = sizeof(_pdef_keys)/sizeof(_pdef_keys[0])
+	const unsigned int num_pdef_keys = \
+		sizeof(_pdef_keys) / sizeof(_pdef_keys[0])
 
 /* Exported variables */
 extern key_t *def_keys;

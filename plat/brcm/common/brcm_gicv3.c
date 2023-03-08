@@ -1,12 +1,12 @@
 /*
- * Copyright (c) 2019-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <drivers/arm/gicv3.h>
-#include <plat/common/platform.h>
 
+#include <plat/common/platform.h>
 #include <platform_def.h>
 
 /* The GICv3 driver only needs to be initialized in EL3 */

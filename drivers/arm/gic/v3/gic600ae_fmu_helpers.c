@@ -13,32 +13,32 @@
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
 
-#define GICFMU_IDLE_TIMEOUT_US		U(2000000)
+#define GICFMU_IDLE_TIMEOUT_US U(2000000)
 
 /* Macro to write 32-bit FMU registers */
-#define GIC_FMU_WRITE_32(base, reg, val) \
-	do { \
+#define GIC_FMU_WRITE_32(base, reg, val)                \
+	do {                                            \
 		/* \
 		 * This register receives the unlock key that is required for \
 		 * writes to FMU registers to be successful. \
-		 */ \
+		 */                                    \
 		mmio_write_32(base + GICFMU_KEY, 0xBE); \
-		/* Perform the actual write */ \
-		mmio_write_32((base) + (reg), (val)); \
+		/* Perform the actual write */          \
+		mmio_write_32((base) + (reg), (val));   \
 	} while (false)
 
 /* Macro to write 64-bit FMU registers */
-#define GIC_FMU_WRITE_64(base, reg, n, val) \
-	do { \
+#define GIC_FMU_WRITE_64(base, reg, n, val)                         \
+	do {                                                        \
 		/* \
 		 * This register receives the unlock key that is required for \
 		 * writes to FMU registers to be successful. \
-		 */ \
-		mmio_write_32(base + GICFMU_KEY, 0xBE); \
+		 */                                                \
+		mmio_write_32(base + GICFMU_KEY, 0xBE);             \
 		/* \
 		 * APB bus is 32-bit wide; so split the 64-bit write into \
 		 * two 32-bit writes \
-		 */ \
+		 */                                                \
 		mmio_write_32((base) + reg##_LO + (n * 64), (val)); \
 		mmio_write_32((base) + reg##_HI + (n * 64), (val)); \
 	} while (false)
@@ -63,24 +63,24 @@ static void wait_until_fmu_is_idle(uintptr_t base)
 	} while (status == U(0));
 }
 
-#define GIC_FMU_WRITE_ON_IDLE_32(base, reg, val) \
-	do { \
-		/* Wait until FMU is ready */ \
-		wait_until_fmu_is_idle(base); \
-		/* Actual register write */ \
+#define GIC_FMU_WRITE_ON_IDLE_32(base, reg, val)  \
+	do {                                      \
+		/* Wait until FMU is ready */     \
+		wait_until_fmu_is_idle(base);     \
+		/* Actual register write */       \
 		GIC_FMU_WRITE_32(base, reg, val); \
-		/* Wait until FMU is ready */ \
-		wait_until_fmu_is_idle(base); \
+		/* Wait until FMU is ready */     \
+		wait_until_fmu_is_idle(base);     \
 	} while (false)
 
-#define GIC_FMU_WRITE_ON_IDLE_64(base, reg, n, val) \
-	do { \
-		/* Wait until FMU is ready */ \
-		wait_until_fmu_is_idle(base); \
-		/* Actual register write */ \
+#define GIC_FMU_WRITE_ON_IDLE_64(base, reg, n, val)  \
+	do {                                         \
+		/* Wait until FMU is ready */        \
+		wait_until_fmu_is_idle(base);        \
+		/* Actual register write */          \
 		GIC_FMU_WRITE_64(base, reg, n, val); \
-		/* Wait until FMU is ready */ \
-		wait_until_fmu_is_idle(base); \
+		/* Wait until FMU is ready */        \
+		wait_until_fmu_is_idle(base);        \
 	} while (false)
 
 /*******************************************************************************
@@ -97,9 +97,11 @@ uint64_t gic_fmu_read_errfr(uintptr_t base, unsigned int n)
 	 * APB bus is 32-bit wide; so split the 64-bit read into
 	 * two 32-bit reads
 	 */
-	uint64_t reg_val = (uint64_t)mmio_read_32(base + GICFMU_ERRFR_LO + n * 64U);
+	uint64_t reg_val =
+		(uint64_t)mmio_read_32(base + GICFMU_ERRFR_LO + n * 64U);
 
-	reg_val |= ((uint64_t)mmio_read_32(base + GICFMU_ERRFR_HI + n * 64U) << 32);
+	reg_val |= ((uint64_t)mmio_read_32(base + GICFMU_ERRFR_HI + n * 64U)
+		    << 32);
 	return reg_val;
 }
 
@@ -113,9 +115,11 @@ uint64_t gic_fmu_read_errctlr(uintptr_t base, unsigned int n)
 	 * APB bus is 32-bit wide; so split the 64-bit read into
 	 * two 32-bit reads
 	 */
-	uint64_t reg_val = (uint64_t)mmio_read_32(base + GICFMU_ERRCTLR_LO + n * 64U);
+	uint64_t reg_val =
+		(uint64_t)mmio_read_32(base + GICFMU_ERRCTLR_LO + n * 64U);
 
-	reg_val |= ((uint64_t)mmio_read_32(base + GICFMU_ERRCTLR_HI + n * 64U) << 32);
+	reg_val |= ((uint64_t)mmio_read_32(base + GICFMU_ERRCTLR_HI + n * 64U)
+		    << 32);
 	return reg_val;
 }
 
@@ -129,9 +133,11 @@ uint64_t gic_fmu_read_errstatus(uintptr_t base, unsigned int n)
 	 * APB bus is 32-bit wide; so split the 64-bit read into
 	 * two 32-bit reads
 	 */
-	uint64_t reg_val = (uint64_t)mmio_read_32(base + GICFMU_ERRSTATUS_LO + n * 64U);
+	uint64_t reg_val =
+		(uint64_t)mmio_read_32(base + GICFMU_ERRSTATUS_LO + n * 64U);
 
-	reg_val |= ((uint64_t)mmio_read_32(base + GICFMU_ERRSTATUS_HI + n * 64U) << 32);
+	reg_val |= ((uint64_t)mmio_read_32(base + GICFMU_ERRSTATUS_HI + n * 64U)
+		    << 32);
 	return reg_val;
 }
 
@@ -283,11 +289,11 @@ void gic_fmu_disable_all_sm_blkid(uintptr_t base, unsigned int blkid)
 		max_smid = FMU_SMID_WAKERQ_MAX;
 		break;
 
-	case FMU_BLK_ITS0...FMU_BLK_ITS7:
+	case FMU_BLK_ITS0 ... FMU_BLK_ITS7:
 		max_smid = FMU_SMID_ITS_MAX;
 		break;
 
-	case FMU_BLK_PPI0...FMU_BLK_PPI31:
+	case FMU_BLK_PPI0 ... FMU_BLK_PPI31:
 		max_smid = FMU_SMID_PPI_MAX;
 		break;
 
@@ -298,7 +304,8 @@ void gic_fmu_disable_all_sm_blkid(uintptr_t base, unsigned int blkid)
 
 	/* Disable all Safety Mechanisms for a given block id */
 	for (unsigned int i = 0U; i < max_smid; i++) {
-		smen = (blkid << FMU_SMEN_BLK_SHIFT) | (i << FMU_SMEN_SMID_SHIFT);
+		smen = (blkid << FMU_SMEN_BLK_SHIFT) |
+		       (i << FMU_SMEN_SMID_SHIFT);
 		gic_fmu_write_smen(base, smen);
 	}
 }

@@ -10,11 +10,10 @@
 #include <inttypes.h>
 #include <stdint.h>
 
+#include <armada_common.h>
 #include <common/debug.h>
 #include <drivers/marvell/gwin.h>
 #include <lib/mmio.h>
-
-#include <armada_common.h>
 #include <mvebu.h>
 #include <mvebu_def.h>
 
@@ -23,29 +22,25 @@
 #endif
 
 /* common defines */
-#define WIN_ENABLE_BIT			(0x1)
-#define WIN_TARGET_MASK			(0xF)
-#define WIN_TARGET_SHIFT		(0x8)
-#define WIN_TARGET(tgt)			(((tgt) & WIN_TARGET_MASK) \
-					<< WIN_TARGET_SHIFT)
+#define WIN_ENABLE_BIT (0x1)
+#define WIN_TARGET_MASK (0xF)
+#define WIN_TARGET_SHIFT (0x8)
+#define WIN_TARGET(tgt) (((tgt)&WIN_TARGET_MASK) << WIN_TARGET_SHIFT)
 
 /* Bits[43:26] of the physical address are the window base,
  * which is aligned to 64MB
  */
-#define ADDRESS_RSHIFT			(26)
-#define ADDRESS_LSHIFT			(10)
-#define GWIN_ALIGNMENT_64M		(0x4000000)
+#define ADDRESS_RSHIFT (26)
+#define ADDRESS_LSHIFT (10)
+#define GWIN_ALIGNMENT_64M (0x4000000)
 
 /* AP registers */
-#define GWIN_CR_OFFSET(ap, win)		(MVEBU_GWIN_BASE(ap) + 0x0 + \
-						(0x10 * (win)))
-#define GWIN_ALR_OFFSET(ap, win)	(MVEBU_GWIN_BASE(ap) + 0x8 + \
-						(0x10 * (win)))
-#define GWIN_AHR_OFFSET(ap, win)	(MVEBU_GWIN_BASE(ap) + 0xc + \
-						(0x10 * (win)))
+#define GWIN_CR_OFFSET(ap, win) (MVEBU_GWIN_BASE(ap) + 0x0 + (0x10 * (win)))
+#define GWIN_ALR_OFFSET(ap, win) (MVEBU_GWIN_BASE(ap) + 0x8 + (0x10 * (win)))
+#define GWIN_AHR_OFFSET(ap, win) (MVEBU_GWIN_BASE(ap) + 0xc + (0x10 * (win)))
 
-#define CCU_GRU_CR_OFFSET(ap)		(MVEBU_CCU_GRU_BASE(ap))
-#define CCR_GRU_CR_GWIN_MBYPASS		(1 << 1)
+#define CCU_GRU_CR_OFFSET(ap) (MVEBU_CCU_GRU_BASE(ap))
+#define CCR_GRU_CR_GWIN_MBYPASS (1 << 1)
 
 static void gwin_check(struct addr_map_win *win)
 {
@@ -59,8 +54,8 @@ static void gwin_check(struct addr_map_win *win)
 	/* size parameter validity check */
 	if (IS_NOT_ALIGN(win->win_size, GWIN_ALIGNMENT_64M)) {
 		win->win_size = ALIGN_UP(win->win_size, GWIN_ALIGNMENT_64M);
-		NOTICE("%s: Aligning window size to 0x%" PRIx64 "\n",
-		       __func__, win->win_size);
+		NOTICE("%s: Aligning window size to 0x%" PRIx64 "\n", __func__,
+		       win->win_size);
 	}
 }
 
@@ -142,8 +137,8 @@ void gwin_temp_win_remove(int ap_index, struct addr_map_win *win, int size)
 		base <<= ADDRESS_RSHIFT;
 
 		if (win->target_id != target) {
-			ERROR("%s: Trying to remove bad window-%d!\n",
-			      __func__, win_id);
+			ERROR("%s: Trying to remove bad window-%d!\n", __func__,
+			      win_id);
 			continue;
 		}
 		gwin_disable_window(ap_index, win_id);
@@ -163,14 +158,15 @@ static void dump_gwin(int ap_index)
 		uint32_t cr;
 		uint64_t alr, ahr;
 
-		cr  = mmio_read_32(GWIN_CR_OFFSET(ap_index, win_num));
+		cr = mmio_read_32(GWIN_CR_OFFSET(ap_index, win_num));
 		/* Window enabled */
 		if (cr & WIN_ENABLE_BIT) {
 			alr = mmio_read_32(GWIN_ALR_OFFSET(ap_index, win_num));
 			alr = (alr >> ADDRESS_LSHIFT) << ADDRESS_RSHIFT;
 			ahr = mmio_read_32(GWIN_AHR_OFFSET(ap_index, win_num));
 			ahr = (ahr >> ADDRESS_LSHIFT) << ADDRESS_RSHIFT;
-			printf("\tgwin   %d     0x%016" PRIx64 " 0x%016" PRIx64 "\n",
+			printf("\tgwin   %d     0x%016" PRIx64 " 0x%016" PRIx64
+			       "\n",
 			       (cr >> 8) & 0xF, alr, ahr);
 		}
 	}

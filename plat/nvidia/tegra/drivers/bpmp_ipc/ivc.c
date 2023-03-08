@@ -4,13 +4,14 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <arch_helpers.h>
 #include <assert.h>
-#include <common/debug.h>
 #include <errno.h>
 #include <stdbool.h>
 #include <stddef.h>
 #include <string.h>
+
+#include <arch_helpers.h>
+#include <common/debug.h>
 
 #include "ivc.h"
 
@@ -71,8 +72,9 @@ struct ivc_channel_header {
 	};
 };
 
-static inline bool ivc_channel_empty(const struct ivc *ivc,
-		volatile const struct ivc_channel_header *ch)
+static inline bool
+ivc_channel_empty(const struct ivc *ivc,
+		  volatile const struct ivc_channel_header *ch)
 {
 	/*
 	 * This function performs multiple checks on the same values with
@@ -102,8 +104,9 @@ static inline bool ivc_channel_empty(const struct ivc *ivc,
 	return ret;
 }
 
-static inline bool ivc_channel_full(const struct ivc *ivc,
-		volatile const struct ivc_channel_header *ch)
+static inline bool
+ivc_channel_full(const struct ivc *ivc,
+		 volatile const struct ivc_channel_header *ch)
 {
 	uint32_t wr_count = ch->w_count;
 	uint32_t rd_count = ch->r_count;
@@ -117,8 +120,9 @@ static inline bool ivc_channel_full(const struct ivc *ivc,
 	return ((wr_count - rd_count) >= ivc->nframes);
 }
 
-static inline uint32_t ivc_channel_avail_count(const struct ivc *ivc,
-		volatile const struct ivc_channel_header *ch)
+static inline uint32_t
+ivc_channel_avail_count(const struct ivc *ivc,
+			volatile const struct ivc_channel_header *ch)
 {
 	uint32_t wr_count = ch->w_count;
 	uint32_t rd_count = ch->r_count;
@@ -212,19 +216,20 @@ bool tegra_ivc_tx_empty(const struct ivc *ivc)
 }
 
 static inline uintptr_t calc_frame_offset(uint32_t frame_index,
-	uint32_t frame_size, uint32_t frame_offset)
+					  uint32_t frame_size,
+					  uint32_t frame_offset)
 {
-    return ((uintptr_t)frame_index * (uintptr_t)frame_size) +
-	    (uintptr_t)frame_offset;
+	return ((uintptr_t)frame_index * (uintptr_t)frame_size) +
+	       (uintptr_t)frame_offset;
 }
 
 static void *ivc_frame_pointer(const struct ivc *ivc,
-				volatile const struct ivc_channel_header *ch,
-				uint32_t frame)
+			       volatile const struct ivc_channel_header *ch,
+			       uint32_t frame)
 {
 	assert(frame < ivc->nframes);
 	return (void *)((uintptr_t)(&ch[1]) +
-		calc_frame_offset(frame, ivc->frame_size, 0));
+			calc_frame_offset(frame, ivc->frame_size, 0));
 }
 
 int32_t tegra_ivc_read(struct ivc *ivc, void *buf, size_t max_read)
@@ -267,7 +272,8 @@ int32_t tegra_ivc_read(struct ivc *ivc, void *buf, size_t max_read)
 	 * The available count can only asynchronously increase, so the
 	 * worst possible side-effect will be a spurious notification.
 	 */
-	if (ivc_channel_avail_count(ivc, ivc->rx_channel) == (ivc->nframes - (uint32_t)1U)) {
+	if (ivc_channel_avail_count(ivc, ivc->rx_channel) ==
+	    (ivc->nframes - (uint32_t)1U)) {
 		ivc->notify(ivc);
 	}
 
@@ -314,7 +320,8 @@ int32_t tegra_ivc_read_advance(struct ivc *ivc)
 	 * The available count can only asynchronously increase, so the
 	 * worst possible side-effect will be a spurious notification.
 	 */
-	if (ivc_channel_avail_count(ivc, ivc->rx_channel) == (ivc->nframes - (uint32_t)1U)) {
+	if (ivc_channel_avail_count(ivc, ivc->rx_channel) ==
+	    (ivc->nframes - (uint32_t)1U)) {
 		ivc->notify(ivc);
 	}
 
@@ -480,7 +487,7 @@ int32_t tegra_ivc_channel_notified(struct ivc *ivc)
 		ivc->notify(ivc);
 
 	} else if ((ivc->tx_channel->state == (uint32_t)ivc_state_sync) &&
-			(peer_state == (uint32_t)ivc_state_ack)) {
+		   (peer_state == (uint32_t)ivc_state_ack)) {
 		/*
 		 * Order observation of ivc_state_sync before stores clearing
 		 * tx_channel.
@@ -546,7 +553,9 @@ int32_t tegra_ivc_channel_notified(struct ivc *ivc)
 		 */
 	}
 
-	return ((ivc->tx_channel->state == (uint32_t)ivc_state_established) ? 0 : -EAGAIN);
+	return ((ivc->tx_channel->state == (uint32_t)ivc_state_established) ?
+			0 :
+			-EAGAIN);
 }
 
 size_t tegra_ivc_align(size_t size)
@@ -558,19 +567,19 @@ size_t tegra_ivc_total_queue_size(size_t queue_size)
 {
 	if ((queue_size & (IVC_ALIGN - 1U)) != 0U) {
 		ERROR("queue_size (%d) must be %d-byte aligned\n",
-				(int32_t)queue_size, IVC_ALIGN);
+		      (int32_t)queue_size, IVC_ALIGN);
 		return 0;
 	}
 	return queue_size + sizeof(struct ivc_channel_header);
 }
 
 static int32_t check_ivc_params(uintptr_t queue_base1, uintptr_t queue_base2,
-		uint32_t nframes, uint32_t frame_size)
+				uint32_t nframes, uint32_t frame_size)
 {
-	assert((offsetof(struct ivc_channel_header, w_count)
-				& (IVC_ALIGN - 1U)) == 0U);
-	assert((offsetof(struct ivc_channel_header, r_count)
-				& (IVC_ALIGN - 1U)) == 0U);
+	assert((offsetof(struct ivc_channel_header, w_count) &
+		(IVC_ALIGN - 1U)) == 0U);
+	assert((offsetof(struct ivc_channel_header, r_count) &
+		(IVC_ALIGN - 1U)) == 0U);
 	assert((sizeof(struct ivc_channel_header) & (IVC_ALIGN - 1U)) == 0U);
 
 	if (((uint64_t)nframes * (uint64_t)frame_size) >= 0x100000000ULL) {
@@ -592,23 +601,22 @@ static int32_t check_ivc_params(uintptr_t queue_base1, uintptr_t queue_base2,
 	}
 
 	if ((frame_size & (IVC_ALIGN - 1U)) != 0U) {
-		ERROR("frame size not adequately aligned: %u\n",
-				frame_size);
+		ERROR("frame size not adequately aligned: %u\n", frame_size);
 		return -EINVAL;
 	}
 
 	if (queue_base1 < queue_base2) {
-		if ((queue_base1 + ((uint64_t)frame_size * nframes)) > queue_base2) {
+		if ((queue_base1 + ((uint64_t)frame_size * nframes)) >
+		    queue_base2) {
 			ERROR("queue regions overlap: %lx + %x, %x\n",
-					queue_base1, frame_size,
-					frame_size * nframes);
+			      queue_base1, frame_size, frame_size * nframes);
 			return -EINVAL;
 		}
 	} else {
-		if ((queue_base2 + ((uint64_t)frame_size * nframes)) > queue_base1) {
+		if ((queue_base2 + ((uint64_t)frame_size * nframes)) >
+		    queue_base1) {
 			ERROR("queue regions overlap: %lx + %x, %x\n",
-					queue_base2, frame_size,
-					frame_size * nframes);
+			      queue_base2, frame_size, frame_size * nframes);
 			return -EINVAL;
 		}
 	}
@@ -617,8 +625,8 @@ static int32_t check_ivc_params(uintptr_t queue_base1, uintptr_t queue_base2,
 }
 
 int32_t tegra_ivc_init(struct ivc *ivc, uintptr_t rx_base, uintptr_t tx_base,
-		uint32_t nframes, uint32_t frame_size,
-		ivc_notify_function notify)
+		       uint32_t nframes, uint32_t frame_size,
+		       ivc_notify_function notify)
 {
 	int32_t result;
 

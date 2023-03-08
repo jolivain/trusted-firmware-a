@@ -1,16 +1,16 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
-
-#include <platform_def.h>
 
 #include <common/bl_common.h>
 #include <common/interrupt_props.h>
 #include <drivers/arm/gicv3.h>
 #include <lib/utils.h>
+
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 /******************************************************************************
  * The following functions are defined as weak to allow a platform to override
@@ -26,8 +26,7 @@
 uintptr_t rdistif_base_addrs[PLATFORM_CORE_COUNT];
 
 static const interrupt_prop_t g01s_interrupt_props[] = {
-	PLAT_RK_GICV3_G0_IRQS,
-	PLAT_RK_GICV3_G1S_IRQS
+	PLAT_RK_GICV3_G0_IRQS, PLAT_RK_GICV3_G1S_IRQS
 };
 
 static unsigned int plat_rockchip_mpidr_to_core_pos(unsigned long mpidr)

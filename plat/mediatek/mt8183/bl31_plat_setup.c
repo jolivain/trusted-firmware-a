@@ -5,30 +5,32 @@
  */
 
 #include <assert.h>
+
 #include <arch_helpers.h>
 #include <common/bl_common.h>
+#include <common/debug.h>
 #include <common/desc_image_load.h>
 #include <devapc.h>
-#include <emi_mpu.h>
-#include <plat/common/common_def.h>
 #include <drivers/console.h>
-#include <common/debug.h>
 #include <drivers/generic_delay_timer.h>
+#include <drivers/ti/uart/uart_16550.h>
+#include <emi_mpu.h>
+#include <lib/coreboot.h>
+#include <lib/mmio.h>
 #include <mcucfg.h>
 #include <mt_gic_v3.h>
 #include <mt_timer.h>
-#include <lib/coreboot.h>
-#include <lib/mmio.h>
 #include <mtk_mcdi.h>
 #include <mtk_plat_common.h>
 #include <mtspmc.h>
 #include <plat_debug.h>
 #include <plat_params.h>
 #include <plat_private.h>
-#include <platform_def.h>
 #include <scu.h>
 #include <spm.h>
-#include <drivers/ti/uart/uart_16550.h>
+
+#include <plat/common/common_def.h>
+#include <platform_def.h>
 
 static entry_point_info_t bl32_ep_info;
 static entry_point_info_t bl33_ep_info;
@@ -40,46 +42,42 @@ static void platform_setup_cpu(void)
 	/* Mcusys dcm control */
 	/* Enable pll plldiv dcm */
 	mmio_setbits_32((uintptr_t)&mt8183_mcucfg->bus_pll_divider_cfg,
-		BUS_PLLDIV_DCM);
+			BUS_PLLDIV_DCM);
 	mmio_setbits_32((uintptr_t)&mt8183_mcucfg->mp0_pll_divider_cfg,
-		MP0_PLLDIV_DCM);
+			MP0_PLLDIV_DCM);
 	mmio_setbits_32((uintptr_t)&mt8183_mcucfg->mp2_pll_divider_cfg,
-		MP2_PLLDIV_DCM);
+			MP2_PLLDIV_DCM);
 	/* Enable mscib dcm  */
 	mmio_clrsetbits_32((uintptr_t)&mt8183_mcucfg->mscib_dcm_en,
-		MCSIB_CACTIVE_SEL_MASK, MCSIB_CACTIVE_SEL);
+			   MCSIB_CACTIVE_SEL_MASK, MCSIB_CACTIVE_SEL);
 	mmio_clrsetbits_32((uintptr_t)&mt8183_mcucfg->mscib_dcm_en,
-		MCSIB_DCM_MASK, MCSIB_DCM);
+			   MCSIB_DCM_MASK, MCSIB_DCM);
 	/* Enable adb400 dcm */
 	mmio_clrsetbits_32((uintptr_t)&mt8183_mcucfg->cci_adb400_dcm_config,
-		CCI_ADB400_DCM_MASK, CCI_ADB400_DCM);
+			   CCI_ADB400_DCM_MASK, CCI_ADB400_DCM);
 	/* Enable bus clock dcm */
-	mmio_setbits_32((uintptr_t)&mt8183_mcucfg->cci_clk_ctrl,
-		MCU_BUS_DCM);
+	mmio_setbits_32((uintptr_t)&mt8183_mcucfg->cci_clk_ctrl, MCU_BUS_DCM);
 	/* Enable bus fabric dcm */
 	mmio_clrsetbits_32(
 		(uintptr_t)&mt8183_mcucfg->mcusys_bus_fabric_dcm_ctrl,
-		MCUSYS_BUS_FABRIC_DCM_MASK,
-		MCUSYS_BUS_FABRIC_DCM);
+		MCUSYS_BUS_FABRIC_DCM_MASK, MCUSYS_BUS_FABRIC_DCM);
 	/* Enable l2c sram dcm */
-	mmio_setbits_32((uintptr_t)&mt8183_mcucfg->l2c_sram_ctrl,
-		L2C_SRAM_DCM);
+	mmio_setbits_32((uintptr_t)&mt8183_mcucfg->l2c_sram_ctrl, L2C_SRAM_DCM);
 	/* Enable busmp0 sync dcm */
 	mmio_clrsetbits_32((uintptr_t)&mt8183_mcucfg->sync_dcm_config,
-		SYNC_DCM_MASK, SYNC_DCM);
+			   SYNC_DCM_MASK, SYNC_DCM);
 	/* Enable cntvalue dcm */
 	mmio_setbits_32((uintptr_t)&mt8183_mcucfg->mcu_misc_dcm_ctrl,
-		CNTVALUEB_DCM);
+			CNTVALUEB_DCM);
 	/* Enable dcm cluster stall */
-	mmio_clrsetbits_32(
-		(uintptr_t)&mt8183_mcucfg->sync_dcm_cluster_config,
-		MCUSYS_MAX_ACCESS_LATENCY_MASK,
-		MCUSYS_MAX_ACCESS_LATENCY);
+	mmio_clrsetbits_32((uintptr_t)&mt8183_mcucfg->sync_dcm_cluster_config,
+			   MCUSYS_MAX_ACCESS_LATENCY_MASK,
+			   MCUSYS_MAX_ACCESS_LATENCY);
 	mmio_setbits_32((uintptr_t)&mt8183_mcucfg->sync_dcm_cluster_config,
-		MCU0_SYNC_DCM_STALL_WR_EN);
+			MCU0_SYNC_DCM_STALL_WR_EN);
 	/* Enable rgu dcm */
 	mmio_setbits_32((uintptr_t)&mt8183_mcucfg->mp0_rgu_dcm_config,
-		CPUSYS_RGU_DCM_CINFIG);
+			CPUSYS_RGU_DCM_CINFIG);
 }
 
 /*******************************************************************************
@@ -121,8 +119,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	if (coreboot_serial.type)
 		console_16550_register(coreboot_serial.baseaddr,
 				       coreboot_serial.input_hertz,
-				       coreboot_serial.baud,
-				       &console);
+				       coreboot_serial.baud, &console);
 #else
 	console_16550_register(UART0_BASE, UART_CLOCK, UART_BAUDRATE, &console);
 #endif
@@ -131,7 +128,6 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 
 	bl31_params_parse_helper(arg0, &bl32_ep_info, &bl33_ep_info);
 }
-
 
 /*******************************************************************************
  * Perform any BL31 platform setup code
@@ -172,10 +168,7 @@ void bl31_plat_arch_setup(void)
 
 	enable_scu(read_mpidr());
 
-	plat_configure_mmu_el3(BL_CODE_BASE,
-			       BL_COHERENT_RAM_END - BL_CODE_BASE,
-			       BL_CODE_BASE,
-			       BL_CODE_END,
-			       BL_COHERENT_RAM_BASE,
+	plat_configure_mmu_el3(BL_CODE_BASE, BL_COHERENT_RAM_END - BL_CODE_BASE,
+			       BL_CODE_BASE, BL_CODE_END, BL_COHERENT_RAM_BASE,
 			       BL_COHERENT_RAM_END);
 }

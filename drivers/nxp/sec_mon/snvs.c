@@ -20,7 +20,7 @@ void snvs_init(uintptr_t nxp_snvs_addr)
 
 uint32_t get_snvs_state(void)
 {
-	struct snvs_regs *snvs = (struct snvs_regs *) (g_nxp_snvs_addr);
+	struct snvs_regs *snvs = (struct snvs_regs *)(g_nxp_snvs_addr);
 
 	return (snvs_read32(&snvs->hp_stat) & HPSTS_MASK_SSM_ST);
 }
@@ -28,7 +28,7 @@ uint32_t get_snvs_state(void)
 static uint32_t do_snvs_state_transition(uint32_t state_transtion_bit,
 					 uint32_t target_state)
 {
-	struct snvs_regs *snvs = (struct snvs_regs *) (g_nxp_snvs_addr);
+	struct snvs_regs *snvs = (struct snvs_regs *)(g_nxp_snvs_addr);
 	uint32_t sts = get_snvs_state();
 	uint32_t fetch_cnt = 16U;
 	uint32_t val = snvs_read32(&snvs->hp_com) | state_transtion_bit;
@@ -44,7 +44,7 @@ static uint32_t do_snvs_state_transition(uint32_t state_transtion_bit,
 }
 void transition_snvs_non_secure(void)
 {
-	struct snvs_regs *snvs = (struct snvs_regs *) (g_nxp_snvs_addr);
+	struct snvs_regs *snvs = (struct snvs_regs *)(g_nxp_snvs_addr);
 	uint32_t sts = get_snvs_state();
 
 	switch (sts) {
@@ -53,7 +53,8 @@ void transition_snvs_non_secure(void)
 		 * transition to Non-Secure State.
 		 */
 	case HPSTS_CHECK_SSM_ST:
-		sts = do_snvs_state_transition(HPCOM_SW_SV, HPSTS_NON_SECURE_SSM_ST);
+		sts = do_snvs_state_transition(HPCOM_SW_SV,
+					       HPSTS_NON_SECURE_SSM_ST);
 		break;
 
 		/* If initial state is Trusted, Secure or Soft-Fail, then
@@ -63,14 +64,16 @@ void transition_snvs_non_secure(void)
 	case HPSTS_TRUST_SSM_ST:
 	case HPSTS_SECURE_SSM_ST:
 	case HPSTS_SOFT_FAIL_SSM_ST:
-		sts = do_snvs_state_transition(HPCOM_SW_SV, HPSTS_NON_SECURE_SSM_ST);
+		sts = do_snvs_state_transition(HPCOM_SW_SV,
+					       HPSTS_NON_SECURE_SSM_ST);
 
 		/* If SSM Soft Fail to Non-Secure State Transition
 		 * Disable is not set, then set SSM_ST bit and
 		 * transition to Non-Secure State.
 		 */
 		if ((snvs_read32(&snvs->hp_com) & HPCOM_SSM_SFNS_DIS) == 0) {
-			sts = do_snvs_state_transition(HPCOM_SSM_ST, HPSTS_NON_SECURE_SSM_ST);
+			sts = do_snvs_state_transition(HPCOM_SSM_ST,
+						       HPSTS_NON_SECURE_SSM_ST);
 		}
 		break;
 	default:
@@ -85,7 +88,7 @@ void transition_snvs_soft_fail(void)
 
 uint32_t transition_snvs_trusted(void)
 {
-	struct snvs_regs *snvs = (struct snvs_regs *) (g_nxp_snvs_addr);
+	struct snvs_regs *snvs = (struct snvs_regs *)(g_nxp_snvs_addr);
 	uint32_t sts = get_snvs_state();
 
 	switch (sts) {
@@ -93,7 +96,8 @@ uint32_t transition_snvs_trusted(void)
 		 * change the state to trusted.
 		 */
 	case HPSTS_CHECK_SSM_ST:
-		sts = do_snvs_state_transition(HPCOM_SSM_ST, HPSTS_TRUST_SSM_ST);
+		sts = do_snvs_state_transition(HPCOM_SSM_ST,
+					       HPSTS_TRUST_SSM_ST);
 		break;
 		/* If SSM Secure to Trusted State Transition Disable
 		 * is not set, then set SSM_ST bit and
@@ -101,7 +105,8 @@ uint32_t transition_snvs_trusted(void)
 		 */
 	case HPSTS_SECURE_SSM_ST:
 		if ((snvs_read32(&snvs->hp_com) & HPCOM_SSM_ST_DIS) == 0) {
-			sts = do_snvs_state_transition(HPCOM_SSM_ST, HPSTS_TRUST_SSM_ST);
+			sts = do_snvs_state_transition(HPCOM_SSM_ST,
+						       HPSTS_TRUST_SSM_ST);
 		}
 		break;
 		/* If initial state is Soft-Fail or Non-Secure, then
@@ -138,12 +143,12 @@ void snvs_write_lp_gpr_bit(uint32_t offset, uint32_t bit_pos, bool flag_val)
 {
 	if (flag_val) {
 		snvs_write32(g_nxp_snvs_addr + offset,
-			     (snvs_read32(g_nxp_snvs_addr + offset))
-			     | (1 << bit_pos));
+			     (snvs_read32(g_nxp_snvs_addr + offset)) |
+				     (1 << bit_pos));
 	} else {
 		snvs_write32(g_nxp_snvs_addr + offset,
-			     (snvs_read32(g_nxp_snvs_addr + offset))
-			     & ~(1 << bit_pos));
+			     (snvs_read32(g_nxp_snvs_addr + offset)) &
+				     ~(1 << bit_pos));
 	}
 }
 
@@ -154,17 +159,13 @@ uint32_t snvs_read_lp_gpr_bit(uint32_t offset, uint32_t bit_pos)
 
 void snvs_disable_zeroize_lp_gpr(void)
 {
-	snvs_write_lp_gpr_bit(NXP_LPCR_OFFSET,
-			  NXP_GPR_Z_DIS_BIT,
-			  true);
+	snvs_write_lp_gpr_bit(NXP_LPCR_OFFSET, NXP_GPR_Z_DIS_BIT, true);
 }
 
 #if defined(NXP_NV_SW_MAINT_LAST_EXEC_DATA) && defined(NXP_COINED_BB)
 void snvs_write_app_data_bit(uint32_t bit_pos)
 {
-	snvs_write_lp_gpr_bit(NXP_APP_DATA_LP_GPR_OFFSET,
-			      bit_pos,
-			      true);
+	snvs_write_lp_gpr_bit(NXP_APP_DATA_LP_GPR_OFFSET, bit_pos, true);
 }
 
 uint32_t snvs_read_app_data(void)

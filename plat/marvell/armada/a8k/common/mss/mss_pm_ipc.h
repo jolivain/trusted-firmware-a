@@ -13,7 +13,6 @@
 /* Currently MSS does not support Cluster level Power Down */
 #define DISABLE_CLUSTER_LEVEL
 
-
 /*****************************************************************************
  * mss_pm_ipc_msg_send
  *
@@ -30,6 +29,5 @@ int mss_pm_ipc_msg_send(unsigned int channel_id, unsigned int msg_id,
  *****************************************************************************
  */
 int mss_pm_ipc_msg_trigger(void);
-
 
 #endif /* MSS_PM_IPC_H */

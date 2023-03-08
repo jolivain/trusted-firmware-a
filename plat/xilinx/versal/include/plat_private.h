@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2018-2022, Xilinx, Inc. All rights reserved.
  * Copyright (c) 2022, Advanced Micro Devices, Inc. All rights reserved.
  *
@@ -9,8 +9,8 @@
 #ifndef PLAT_PRIVATE_H
 #define PLAT_PRIVATE_H
 
-#include <lib/xlat_tables/xlat_tables.h>
 #include <bl31/interrupt_mgmt.h>
+#include <lib/xlat_tables/xlat_tables.h>
 
 typedef struct versal_intr_info_type_el3 {
 	uint32_t id;
@@ -34,6 +34,7 @@ uint32_t versal_calc_core_pos(u_register_t mpidr);
  * Register handler to specific GIC entrance
  * for INTR_TYPE_EL3 type of interrupt
  */
-int32_t request_intr_type_el3(uint32_t irq, interrupt_type_handler_t fiq_handler);
+int32_t request_intr_type_el3(uint32_t irq,
+			      interrupt_type_handler_t fiq_handler);
 
 #endif /* PLAT_PRIVATE_H */

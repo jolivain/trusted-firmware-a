@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -20,20 +20,21 @@
  *
  ******************************************************************************/
 
+#include <assert.h>
+#include <stdbool.h>
+#include <string.h>
+
 #include <arch.h>
 #include <arch_helpers.h>
-#include <assert.h>
 #include <lib/mmio.h>
 #include <lib/utils_def.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
 #include <profiler.h>
-#include <stdbool.h>
-#include <string.h>
 
 static uint64_t shmem_base_addr;
 
-#define MAX_PROFILER_RECORDS	U(16)
-#define TAG_LEN_BYTES		U(56)
+#define MAX_PROFILER_RECORDS U(16)
+#define TAG_LEN_BYTES U(56)
 
 /*******************************************************************************
  * Profiler entry format
@@ -64,7 +65,7 @@ void boot_profiler_init(uint64_t shmem_base, uint32_t tmr_base)
 
 	/* calculate the base address of the last record */
 	shmem_end_base = shmem_base + (sizeof(profiler_rec_t) *
-			 (MAX_PROFILER_RECORDS - U(1)));
+				       (MAX_PROFILER_RECORDS - U(1)));
 
 	/* calculate the head, tail and cur values */
 	head = (profiler_rec_t *)shmem_base;
@@ -90,7 +91,6 @@ void boot_profiler_add_record(const char *str)
 	}
 
 	if (head != NULL) {
-
 		/*
 		 * The profiler runs with/without MMU enabled. Check
 		 * if MMU is enabled and memmap the shmem buffer, in
@@ -98,11 +98,10 @@ void boot_profiler_add_record(const char *str)
 		 */
 		if ((!is_shmem_buf_mapped) &&
 		    ((read_sctlr_el3() & SCTLR_M_BIT) != U(0))) {
-
-			(void)mmap_add_dynamic_region(shmem_base_addr,
-					shmem_base_addr,
-					PROFILER_SIZE_BYTES,
-					(MT_NS | MT_RW | MT_EXECUTE_NEVER));
+			(void)mmap_add_dynamic_region(
+				shmem_base_addr, shmem_base_addr,
+				PROFILER_SIZE_BYTES,
+				(MT_NS | MT_RW | MT_EXECUTE_NEVER));
 
 			is_shmem_buf_mapped = true;
 		}
@@ -126,7 +125,6 @@ void boot_profiler_add_record(const char *str)
 void boot_profiler_deinit(void)
 {
 	if (shmem_base_addr != ULL(0)) {
-
 		/* clean up resources */
 		cur = NULL;
 		head = NULL;
@@ -138,7 +136,7 @@ void boot_profiler_deinit(void)
 		/* unmap the shmem buffer */
 		if (is_shmem_buf_mapped) {
 			(void)mmap_remove_dynamic_region(shmem_base_addr,
-					PROFILER_SIZE_BYTES);
+							 PROFILER_SIZE_BYTES);
 		}
 	}
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -19,7 +19,7 @@
  * lengths will write the max value into SMCR_ELx then read it back to see how
  * many bits are implemented.
  */
-#define SME_SMCR_LEN_MAX	U(0x1FF)
+#define SME_SMCR_LEN_MAX U(0x1FF)
 
 void sme_enable(cpu_context_t *context);
 void sme_disable(cpu_context_t *context);

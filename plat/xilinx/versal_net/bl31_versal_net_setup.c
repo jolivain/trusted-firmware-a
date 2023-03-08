@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2018-2022, Xilinx, Inc. All rights reserved.
  * Copyright (C) 2022-2023, Advanced Micro Devices, Inc. All rights reserved.
  *
@@ -20,12 +20,12 @@
 #include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
 #include <libfdt.h>
-#include <plat/common/platform.h>
 #include <plat_arm.h>
-
 #include <plat_private.h>
 #include <plat_startup.h>
 #include <versal_net_def.h>
+
+#include <plat/common/platform.h>
 
 static entry_point_info_t bl32_image_ep_info;
 static entry_point_info_t bl33_image_ep_info;
@@ -55,8 +55,8 @@ static inline void bl31_set_default_config(void)
 	bl32_image_ep_info.pc = BL32_BASE;
 	bl32_image_ep_info.spsr = arm_get_spsr_for_bl32_entry();
 	bl33_image_ep_info.pc = plat_get_ns_image_entrypoint();
-	bl33_image_ep_info.spsr = SPSR_64(MODE_EL2, MODE_SP_ELX,
-					DISABLE_ALL_EXCEPTIONS);
+	bl33_image_ep_info.spsr =
+		SPSR_64(MODE_EL2, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 }
 
 /*
@@ -100,14 +100,14 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 
 		/* Initialize the console to provide early debug support */
 		rc = console_pl011_register(VERSAL_NET_UART_BASE, uart_clock,
-				    VERSAL_NET_UART_BAUDRATE,
-				    &versal_net_runtime_console);
+					    VERSAL_NET_UART_BAUDRATE,
+					    &versal_net_runtime_console);
 		if (rc == 0) {
 			panic();
 		}
 
-		console_set_scope(&versal_net_runtime_console, CONSOLE_FLAG_BOOT |
-				CONSOLE_FLAG_RUNTIME);
+		console_set_scope(&versal_net_runtime_console,
+				  CONSOLE_FLAG_BOOT | CONSOLE_FLAG_RUNTIME);
 	} else if (VERSAL_NET_CONSOLE_IS(dcc)) {
 		/* Initialize the dcc console for debug.
 		 * dcc is over jtag and does not configures uart0 or uart1.
@@ -222,12 +222,13 @@ void bl31_plat_arch_setup(void)
 {
 	const mmap_region_t bl_regions[] = {
 		MAP_REGION_FLAT(BL31_BASE, BL31_END - BL31_BASE,
-			MT_MEMORY | MT_RW | MT_SECURE),
+				MT_MEMORY | MT_RW | MT_SECURE),
 		MAP_REGION_FLAT(BL_CODE_BASE, BL_CODE_END - BL_CODE_BASE,
 				MT_CODE | MT_SECURE),
-		MAP_REGION_FLAT(BL_RO_DATA_BASE, BL_RO_DATA_END - BL_RO_DATA_BASE,
+		MAP_REGION_FLAT(BL_RO_DATA_BASE,
+				BL_RO_DATA_END - BL_RO_DATA_BASE,
 				MT_RO_DATA | MT_SECURE),
-		{0}
+		{ 0 }
 	};
 
 	setup_page_tables(bl_regions, plat_versal_net_get_mmap());

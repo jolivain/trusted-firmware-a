@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -15,8 +15,7 @@
 /*
  * API to set the SCMI power domain power state.
  */
-int scmi_pwr_state_set(void *p, uint32_t domain_id,
-					uint32_t scmi_pwr_state)
+int scmi_pwr_state_set(void *p, uint32_t domain_id, uint32_t scmi_pwr_state)
 {
 	mailbox_mem_t *mbx_mem;
 	unsigned int token = 0;
@@ -35,11 +34,11 @@ int scmi_pwr_state_set(void *p, uint32_t domain_id,
 
 	mbx_mem = (mailbox_mem_t *)(ch->info->scmi_mbx_mem);
 	mbx_mem->msg_header = SCMI_MSG_CREATE(SCMI_PWR_DMN_PROTO_ID,
-			SCMI_PWR_STATE_SET_MSG, token);
+					      SCMI_PWR_STATE_SET_MSG, token);
 	mbx_mem->len = SCMI_PWR_STATE_SET_MSG_LEN;
 	mbx_mem->flags = SCMI_FLAG_RESP_POLL;
-	SCMI_PAYLOAD_ARG3(mbx_mem->payload, pwr_state_set_msg_flag,
-						domain_id, scmi_pwr_state);
+	SCMI_PAYLOAD_ARG3(mbx_mem->payload, pwr_state_set_msg_flag, domain_id,
+			  scmi_pwr_state);
 
 	scmi_send_sync_command(ch);
 
@@ -56,8 +55,7 @@ int scmi_pwr_state_set(void *p, uint32_t domain_id,
 /*
  * API to get the SCMI power domain power state.
  */
-int scmi_pwr_state_get(void *p, uint32_t domain_id,
-					uint32_t *scmi_pwr_state)
+int scmi_pwr_state_get(void *p, uint32_t domain_id, uint32_t *scmi_pwr_state)
 {
 	mailbox_mem_t *mbx_mem;
 	unsigned int token = 0;
@@ -70,7 +68,7 @@ int scmi_pwr_state_get(void *p, uint32_t domain_id,
 
 	mbx_mem = (mailbox_mem_t *)(ch->info->scmi_mbx_mem);
 	mbx_mem->msg_header = SCMI_MSG_CREATE(SCMI_PWR_DMN_PROTO_ID,
-			SCMI_PWR_STATE_GET_MSG, token);
+					      SCMI_PWR_STATE_GET_MSG, token);
 	mbx_mem->len = SCMI_PWR_STATE_GET_MSG_LEN;
 	mbx_mem->flags = SCMI_FLAG_RESP_POLL;
 	SCMI_PAYLOAD_ARG1(mbx_mem->payload, domain_id);

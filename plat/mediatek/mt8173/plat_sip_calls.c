@@ -1,29 +1,24 @@
 /*
- * Copyright (c) 2015, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <common/debug.h>
 #include <common/runtime_svc.h>
-#include <lib/mmio.h>
-
 #include <crypt.h>
+#include <lib/mmio.h>
 #include <mtcmos.h>
 #include <mtk_sip_svc.h>
 #include <plat_sip_calls.h>
 #include <wdt.h>
 
 /* Authorized secure register list */
-enum {
-	SREG_HDMI_COLOR_EN = 0x14000904
-};
+enum { SREG_HDMI_COLOR_EN = 0x14000904 };
 
-static const uint32_t authorized_sreg[] = {
-	SREG_HDMI_COLOR_EN
-};
+static const uint32_t authorized_sreg[] = { SREG_HDMI_COLOR_EN };
 
-#define authorized_sreg_cnt	\
+#define authorized_sreg_cnt \
 	(sizeof(authorized_sreg) / sizeof(authorized_sreg[0]))
 
 uint64_t mt_sip_set_authorized_sreg(uint32_t sreg, uint32_t val)
@@ -67,14 +62,9 @@ static uint64_t mt_sip_pwr_mtcmos_support(void)
 	return MTK_SIP_E_SUCCESS;
 }
 
-uint64_t mediatek_plat_sip_handler(uint32_t smc_fid,
-				   uint64_t x1,
-				   uint64_t x2,
-				   uint64_t x3,
-				   uint64_t x4,
-				   void *cookie,
-				   void *handle,
-				   uint64_t flags)
+uint64_t mediatek_plat_sip_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
+				   uint64_t x3, uint64_t x4, void *cookie,
+				   void *handle, uint64_t flags)
 {
 	uint64_t ret;
 

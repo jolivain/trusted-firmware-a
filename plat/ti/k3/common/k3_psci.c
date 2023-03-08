@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,13 +9,13 @@
 
 #include <arch_helpers.h>
 #include <common/debug.h>
+#include <k3_gicv3.h>
 #include <lib/el3_runtime/cpu_data.h>
 #include <lib/psci/psci.h>
-#include <plat/common/platform.h>
-
-#include <ti_sci_protocol.h>
-#include <k3_gicv3.h>
 #include <ti_sci.h>
+#include <ti_sci_protocol.h>
+
+#include <plat/common/platform.h>
 
 #define CORE_PWR_STATE(state) ((state)->pwr_domain_state[MPIDR_AFFLVL0])
 #define CLUSTER_PWR_STATE(state) ((state)->pwr_domain_state[MPIDR_AFFLVL1])
@@ -65,10 +65,11 @@ static int k3_pwr_domain_on(u_register_t mpidr)
 	}
 
 	/* sanity check these are off before starting a core */
-	ret = ti_sci_proc_set_boot_ctrl(proc_id,
-			0, PROC_BOOT_CTRL_FLAG_ARMV8_L2FLUSHREQ |
-			   PROC_BOOT_CTRL_FLAG_ARMV8_AINACTS |
-			   PROC_BOOT_CTRL_FLAG_ARMV8_ACINACTM);
+	ret = ti_sci_proc_set_boot_ctrl(
+		proc_id, 0,
+		PROC_BOOT_CTRL_FLAG_ARMV8_L2FLUSHREQ |
+			PROC_BOOT_CTRL_FLAG_ARMV8_AINACTS |
+			PROC_BOOT_CTRL_FLAG_ARMV8_ACINACTM);
 	if (ret) {
 		ERROR("Request to clear boot configuration failed: %d\n", ret);
 		return PSCI_E_INTERN_FAIL;
@@ -113,14 +114,15 @@ void k3_pwr_domain_off(const psci_power_state_t *target_state)
 	}
 
 	/* Start by sending wait for WFI command */
-	ret = ti_sci_proc_wait_boot_status_no_wait(proc_id,
-			/*
+	ret = ti_sci_proc_wait_boot_status_no_wait(
+		proc_id,
+		/*
 			 * Wait maximum time to give us the best chance to get
 			 * to WFI before this command timeouts
 			 */
-			UINT8_MAX, 100, UINT8_MAX, UINT8_MAX,
-			/* Wait for WFI */
-			PROC_BOOT_STATUS_FLAG_ARMV8_WFI, 0, 0, 0);
+		UINT8_MAX, 100, UINT8_MAX, UINT8_MAX,
+		/* Wait for WFI */
+		PROC_BOOT_STATUS_FLAG_ARMV8_WFI, 0, 0, 0);
 	if (ret) {
 		ERROR("Sending wait for WFI failed (%d)\n", ret);
 		return;
@@ -138,50 +140,50 @@ void k3_pwr_domain_off(const psci_power_state_t *target_state)
 		return;
 
 	/* set AINACTS */
-	ret = ti_sci_proc_set_boot_ctrl_no_wait(proc_id,
-			PROC_BOOT_CTRL_FLAG_ARMV8_AINACTS, 0);
+	ret = ti_sci_proc_set_boot_ctrl_no_wait(
+		proc_id, PROC_BOOT_CTRL_FLAG_ARMV8_AINACTS, 0);
 	if (ret) {
 		ERROR("Sending set control message failed (%d)\n", ret);
 		return;
 	}
 
 	/* set L2FLUSHREQ */
-	ret = ti_sci_proc_set_boot_ctrl_no_wait(proc_id,
-			PROC_BOOT_CTRL_FLAG_ARMV8_L2FLUSHREQ, 0);
+	ret = ti_sci_proc_set_boot_ctrl_no_wait(
+		proc_id, PROC_BOOT_CTRL_FLAG_ARMV8_L2FLUSHREQ, 0);
 	if (ret) {
 		ERROR("Sending set control message failed (%d)\n", ret);
 		return;
 	}
 
 	/* wait for L2FLUSHDONE*/
-	ret = ti_sci_proc_wait_boot_status_no_wait(proc_id,
-			UINT8_MAX, 2, UINT8_MAX, UINT8_MAX,
-			PROC_BOOT_STATUS_FLAG_ARMV8_L2F_DONE, 0, 0, 0);
+	ret = ti_sci_proc_wait_boot_status_no_wait(
+		proc_id, UINT8_MAX, 2, UINT8_MAX, UINT8_MAX,
+		PROC_BOOT_STATUS_FLAG_ARMV8_L2F_DONE, 0, 0, 0);
 	if (ret) {
 		ERROR("Sending wait message failed (%d)\n", ret);
 		return;
 	}
 
 	/* clear L2FLUSHREQ */
-	ret = ti_sci_proc_set_boot_ctrl_no_wait(proc_id,
-			0, PROC_BOOT_CTRL_FLAG_ARMV8_L2FLUSHREQ);
+	ret = ti_sci_proc_set_boot_ctrl_no_wait(
+		proc_id, 0, PROC_BOOT_CTRL_FLAG_ARMV8_L2FLUSHREQ);
 	if (ret) {
 		ERROR("Sending set control message failed (%d)\n", ret);
 		return;
 	}
 
 	/* set ACINACTM */
-	ret = ti_sci_proc_set_boot_ctrl_no_wait(proc_id,
-			PROC_BOOT_CTRL_FLAG_ARMV8_ACINACTM, 0);
+	ret = ti_sci_proc_set_boot_ctrl_no_wait(
+		proc_id, PROC_BOOT_CTRL_FLAG_ARMV8_ACINACTM, 0);
 	if (ret) {
 		ERROR("Sending set control message failed (%d)\n", ret);
 		return;
 	}
 
 	/* wait for STANDBYWFIL2 */
-	ret = ti_sci_proc_wait_boot_status_no_wait(proc_id,
-			UINT8_MAX, 2, UINT8_MAX, UINT8_MAX,
-			PROC_BOOT_STATUS_FLAG_ARMV8_STANDBYWFIL2, 0, 0, 0);
+	ret = ti_sci_proc_wait_boot_status_no_wait(
+		proc_id, UINT8_MAX, 2, UINT8_MAX, UINT8_MAX,
+		PROC_BOOT_STATUS_FLAG_ARMV8_STANDBYWFIL2, 0, 0, 0);
 	if (ret) {
 		ERROR("Sending wait message failed (%d)\n", ret);
 		return;

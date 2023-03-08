@@ -1,38 +1,40 @@
 /*
- * Copyright (c) 2019-2021, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-#include <lib/debugfs.h>
 #include <limits.h>
-#include <plat/arm/common/plat_arm.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include <lib/debugfs.h>
 #include <tools_share/firmware_image_package.h>
+
+#include <plat/arm/common/plat_arm.h>
 
 #include "dev.h"
 
-#define NR_FIPS		1
-#define STOC_HEADER	(sizeof(fip_toc_header_t))
-#define STOC_ENTRY	(sizeof(fip_toc_entry_t))
+#define NR_FIPS 1
+#define STOC_HEADER (sizeof(fip_toc_header_t))
+#define STOC_ENTRY (sizeof(fip_toc_entry_t))
 
 struct fipfile {
-	chan_t	*c;
-	long	offset[NR_FILES];
-	long	size[NR_FILES];
+	chan_t *c;
+	long offset[NR_FILES];
+	long size[NR_FILES];
 };
 
 struct fip_entry {
-	uuid_t		uuid;
-	long long	offset_address;
-	long long	size;
-	long long	flags;
+	uuid_t uuid;
+	long long offset_address;
+	long long size;
+	long long flags;
 };
 
 struct uuidnames {
-	const char   name[NAMELEN];
+	const char name[NAMELEN];
 	const uuid_t uuid;
 };
 
@@ -45,39 +47,39 @@ struct uuidnames {
  * the coming Property Access Layer / Firmware CONFiguration feature.
  ******************************************************************************/
 static const struct uuidnames uuidnames[] = {
-	{"",			{ {0}, {0}, {0}, 0, 0, {0} } },
-	{"bl2.bin",		UUID_TRUSTED_BOOT_FIRMWARE_BL2},
-	{"scp-bl2.bin",		UUID_SCP_FIRMWARE_SCP_BL2},
-	{"bl31.bin",		UUID_EL3_RUNTIME_FIRMWARE_BL31},
-	{"bl32.bin",		UUID_SECURE_PAYLOAD_BL32},
-	{"bl33.bin",		UUID_NON_TRUSTED_FIRMWARE_BL33},
-	{"tb-fw.crt",		UUID_TRUSTED_BOOT_FW_CERT},
-	{"trstd-k.crt",		UUID_TRUSTED_KEY_CERT},
-	{"scp-fw-k.crt",	UUID_SCP_FW_KEY_CERT},
-	{"soc-fw-k.crt",	UUID_SOC_FW_KEY_CERT},
-	{"tos-fw-k.crt",	UUID_TRUSTED_OS_FW_KEY_CERT},
-	{"nt-fw-k.crt",		UUID_NON_TRUSTED_FW_KEY_CERT},
-	{"scp-fw-c.crt",	UUID_SCP_FW_CONTENT_CERT},
-	{"soc-fw-c.crt",	UUID_SOC_FW_CONTENT_CERT},
-	{"tos-fw-c.crt",	UUID_TRUSTED_OS_FW_CONTENT_CERT},
-	{"nt-fw-c.crt",		UUID_NON_TRUSTED_FW_CONTENT_CERT},
-	{ },
-	{"fwu.crt",		UUID_TRUSTED_FWU_CERT},
-	{"scp-bl2u.bin",	UUID_TRUSTED_UPDATE_FIRMWARE_SCP_BL2U},
-	{"bl2u.bin",		UUID_TRUSTED_UPDATE_FIRMWARE_BL2U},
-	{"ns-bl2u.bin",		UUID_TRUSTED_UPDATE_FIRMWARE_NS_BL2U},
-	{"bl32-xtr1.bin",	UUID_SECURE_PAYLOAD_BL32_EXTRA1},
-	{"bl32-xtr2.bin",	UUID_SECURE_PAYLOAD_BL32_EXTRA2},
-	{"hw.cfg",		UUID_HW_CONFIG},
-	{"tb-fw.cfg",		UUID_TB_FW_CONFIG},
-	{"soc-fw.cfg",		UUID_SOC_FW_CONFIG},
-	{"tos-fw.cfg",		UUID_TOS_FW_CONFIG},
-	{"nt-fw.cfg",		UUID_NT_FW_CONFIG},
-	{"fw.cfg",		UUID_FW_CONFIG},
-	{"rot-k.crt",		UUID_ROT_KEY_CERT},
-	{"nt-k.crt",		UUID_NON_TRUSTED_WORLD_KEY_CERT},
-	{"sip-sp.crt",		UUID_SIP_SECURE_PARTITION_CONTENT_CERT},
-	{"plat-sp.crt",		UUID_PLAT_SECURE_PARTITION_CONTENT_CERT}
+	{ "", { { 0 }, { 0 }, { 0 }, 0, 0, { 0 } } },
+	{ "bl2.bin", UUID_TRUSTED_BOOT_FIRMWARE_BL2 },
+	{ "scp-bl2.bin", UUID_SCP_FIRMWARE_SCP_BL2 },
+	{ "bl31.bin", UUID_EL3_RUNTIME_FIRMWARE_BL31 },
+	{ "bl32.bin", UUID_SECURE_PAYLOAD_BL32 },
+	{ "bl33.bin", UUID_NON_TRUSTED_FIRMWARE_BL33 },
+	{ "tb-fw.crt", UUID_TRUSTED_BOOT_FW_CERT },
+	{ "trstd-k.crt", UUID_TRUSTED_KEY_CERT },
+	{ "scp-fw-k.crt", UUID_SCP_FW_KEY_CERT },
+	{ "soc-fw-k.crt", UUID_SOC_FW_KEY_CERT },
+	{ "tos-fw-k.crt", UUID_TRUSTED_OS_FW_KEY_CERT },
+	{ "nt-fw-k.crt", UUID_NON_TRUSTED_FW_KEY_CERT },
+	{ "scp-fw-c.crt", UUID_SCP_FW_CONTENT_CERT },
+	{ "soc-fw-c.crt", UUID_SOC_FW_CONTENT_CERT },
+	{ "tos-fw-c.crt", UUID_TRUSTED_OS_FW_CONTENT_CERT },
+	{ "nt-fw-c.crt", UUID_NON_TRUSTED_FW_CONTENT_CERT },
+	{},
+	{ "fwu.crt", UUID_TRUSTED_FWU_CERT },
+	{ "scp-bl2u.bin", UUID_TRUSTED_UPDATE_FIRMWARE_SCP_BL2U },
+	{ "bl2u.bin", UUID_TRUSTED_UPDATE_FIRMWARE_BL2U },
+	{ "ns-bl2u.bin", UUID_TRUSTED_UPDATE_FIRMWARE_NS_BL2U },
+	{ "bl32-xtr1.bin", UUID_SECURE_PAYLOAD_BL32_EXTRA1 },
+	{ "bl32-xtr2.bin", UUID_SECURE_PAYLOAD_BL32_EXTRA2 },
+	{ "hw.cfg", UUID_HW_CONFIG },
+	{ "tb-fw.cfg", UUID_TB_FW_CONFIG },
+	{ "soc-fw.cfg", UUID_SOC_FW_CONFIG },
+	{ "tos-fw.cfg", UUID_TOS_FW_CONFIG },
+	{ "nt-fw.cfg", UUID_NT_FW_CONFIG },
+	{ "fw.cfg", UUID_FW_CONFIG },
+	{ "rot-k.crt", UUID_ROT_KEY_CERT },
+	{ "nt-k.crt", UUID_NON_TRUSTED_WORLD_KEY_CERT },
+	{ "sip-sp.crt", UUID_SIP_SECURE_PARTITION_CONTENT_CERT },
+	{ "plat-sp.crt", UUID_PLAT_SECURE_PARTITION_CONTENT_CERT }
 };
 
 /*******************************************************************************
@@ -154,15 +156,15 @@ static int fipgen(chan_t *c, const dirtab_t *tab, int ntab, int n, dir_t *dir)
 	}
 
 	for (i = 1; i < NELEM(uuidnames); i++) {
-		if (memcmp(&uuidnames[i].uuid,
-			   &entry.uuid, sizeof(uuid_t)) == 0) {
+		if (memcmp(&uuidnames[i].uuid, &entry.uuid, sizeof(uuid_t)) ==
+		    0) {
 			break;
 		}
 	}
 
 	if (i < NELEM(uuidnames)) {
-		make_dir_entry(c, dir, uuidnames[i].name,
-			       entry.size, n, O_READ);
+		make_dir_entry(c, dir, uuidnames[i].name, entry.size, n,
+			       O_READ);
 	} else {
 		// TODO: set name depending on uuid node value
 		make_dir_entry(c, dir, unk, entry.size, n, O_READ);
@@ -307,15 +309,12 @@ err:
 	return NULL;
 }
 
-const dev_t fipdevtab = {
-	.id = 'F',
-	.stat = fipstat,
-	.clone = devclone,
-	.attach = devattach,
-	.walk = fipwalk,
-	.read = fipread,
-	.write = deverrwrite,
-	.mount = fipmount,
-	.seek = devseek
-};
-
+const dev_t fipdevtab = { .id = 'F',
+			  .stat = fipstat,
+			  .clone = devclone,
+			  .attach = devattach,
+			  .walk = fipwalk,
+			  .read = fipread,
+			  .write = deverrwrite,
+			  .mount = fipmount,
+			  .seek = devseek };

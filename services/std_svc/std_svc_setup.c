@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -26,13 +26,12 @@
 #include <tools_share/uuid.h>
 
 /* Standard Service UUID */
-static uuid_t arm_svc_uid = {
-	{0x5b, 0x90, 0x8d, 0x10},
-	{0x63, 0xf8},
-	{0xe8, 0x47},
-	0xae, 0x2d,
-	{0xc0, 0xfb, 0x56, 0x41, 0xf6, 0xe2}
-};
+static uuid_t arm_svc_uid = { { 0x5b, 0x90, 0x8d, 0x10 },
+			      { 0x63, 0xf8 },
+			      { 0xe8, 0x47 },
+			      0xae,
+			      0x2d,
+			      { 0xc0, 0xfb, 0x56, 0x41, 0xf6, 0xe2 } };
 
 /* Setup Standard Services */
 static int32_t std_svc_setup(void)
@@ -92,14 +91,10 @@ static int32_t std_svc_setup(void)
  * Top-level Standard Service SMC handler. This handler will in turn dispatch
  * calls to PSCI SMC handler
  */
-static uintptr_t std_svc_smc_handler(uint32_t smc_fid,
-			     u_register_t x1,
-			     u_register_t x2,
-			     u_register_t x3,
-			     u_register_t x4,
-			     void *cookie,
-			     void *handle,
-			     u_register_t flags)
+static uintptr_t std_svc_smc_handler(uint32_t smc_fid, u_register_t x1,
+				     u_register_t x2, u_register_t x3,
+				     u_register_t x4, void *cookie,
+				     void *handle, u_register_t flags)
 {
 	if (((smc_fid >> FUNCID_CC_SHIFT) & FUNCID_CC_MASK) == SMC_32) {
 		/* 32-bit SMC function, clear top parameter bits */
@@ -123,19 +118,17 @@ static uintptr_t std_svc_smc_handler(uint32_t smc_fid,
 		 * Flush cache line so that even if CPU power down happens
 		 * the timestamp update is reflected in memory.
 		 */
-		PMF_WRITE_TIMESTAMP(rt_instr_svc,
-		    RT_INSTR_ENTER_PSCI,
-		    PMF_CACHE_MAINT,
-		    get_cpu_data(cpu_data_pmf_ts[CPU_DATA_PMF_TS0_IDX]));
+		PMF_WRITE_TIMESTAMP(
+			rt_instr_svc, RT_INSTR_ENTER_PSCI, PMF_CACHE_MAINT,
+			get_cpu_data(cpu_data_pmf_ts[CPU_DATA_PMF_TS0_IDX]));
 #endif
 
-		ret = psci_smc_handler(smc_fid, x1, x2, x3, x4,
-		    cookie, handle, flags);
+		ret = psci_smc_handler(smc_fid, x1, x2, x3, x4, cookie, handle,
+				       flags);
 
 #if ENABLE_RUNTIME_INSTRUMENTATION
-		PMF_CAPTURE_TIMESTAMP(rt_instr_svc,
-		    RT_INSTR_EXIT_PSCI,
-		    PMF_NO_CACHE_MAINT);
+		PMF_CAPTURE_TIMESTAMP(rt_instr_svc, RT_INSTR_EXIT_PSCI,
+				      PMF_NO_CACHE_MAINT);
 #endif
 
 		SMC_RET1(handle, ret);
@@ -166,14 +159,14 @@ static uintptr_t std_svc_smc_handler(uint32_t smc_fid,
 #if SDEI_SUPPORT
 	if (is_sdei_fid(smc_fid)) {
 		return sdei_smc_handler(smc_fid, x1, x2, x3, x4, cookie, handle,
-				flags);
+					flags);
 	}
 #endif
 
 #if TRNG_SUPPORT
 	if (is_trng_fid(smc_fid)) {
 		return trng_smc_handler(smc_fid, x1, x2, x3, x4, cookie, handle,
-				flags);
+					flags);
 	}
 #endif /* TRNG_SUPPORT */
 
@@ -185,8 +178,8 @@ static uintptr_t std_svc_smc_handler(uint32_t smc_fid,
 	}
 
 	if (is_rmi_fid(smc_fid)) {
-		return rmmd_rmi_handler(smc_fid, x1, x2, x3, x4, cookie,
-					handle, flags);
+		return rmmd_rmi_handler(smc_fid, x1, x2, x3, x4, cookie, handle,
+					flags);
 	}
 #endif
 
@@ -221,18 +214,14 @@ static uintptr_t std_svc_smc_handler(uint32_t smc_fid,
 		SMC_RET2(handle, STD_SVC_VERSION_MAJOR, STD_SVC_VERSION_MINOR);
 
 	default:
-		VERBOSE("Unimplemented Standard Service Call: 0x%x \n", smc_fid);
+		VERBOSE("Unimplemented Standard Service Call: 0x%x \n",
+			smc_fid);
 		SMC_RET1(handle, SMC_UNK);
 	}
 }
 
 /* Register Standard Service Calls as runtime service */
-DECLARE_RT_SVC(
-		std_svc,
+DECLARE_RT_SVC(std_svc,
 
-		OEN_STD_START,
-		OEN_STD_END,
-		SMC_TYPE_FAST,
-		std_svc_setup,
-		std_svc_smc_handler
-);
+	       OEN_STD_START, OEN_STD_END, SMC_TYPE_FAST, std_svc_setup,
+	       std_svc_smc_handler);

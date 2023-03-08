@@ -5,7 +5,6 @@
  */
 
 #include <drivers/delay_timer.h>
-
 #include <qti_plat.h>
 #include <spmi_arb.h>
 
@@ -14,10 +13,10 @@
  * include other part numbers like PM6150.
  */
 
-#define RESET_TYPE_WARM_RESET		1
-#define RESET_TYPE_SHUTDOWN		4
+#define RESET_TYPE_WARM_RESET 1
+#define RESET_TYPE_SHUTDOWN 4
 
-#define S2_RESET_EN			BIT(7)
+#define S2_RESET_EN BIT(7)
 
 static void configure_ps_hold(uint32_t reset_type)
 {

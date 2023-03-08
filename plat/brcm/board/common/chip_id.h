@@ -11,11 +11,11 @@
 
 #include <platform_def.h>
 
-#define CHIP_REV_MAJOR_MASK	0xF0
-#define CHIP_REV_MAJOR_AX	0x00
-#define CHIP_REV_MAJOR_BX	0x10
-#define CHIP_REV_MAJOR_CX	0x20
-#define CHIP_REV_MAJOR_DX	0x30
+#define CHIP_REV_MAJOR_MASK 0xF0
+#define CHIP_REV_MAJOR_AX 0x00
+#define CHIP_REV_MAJOR_BX 0x10
+#define CHIP_REV_MAJOR_CX 0x20
+#define CHIP_REV_MAJOR_DX 0x30
 
 /* Get Chip ID (product number) of the chip */
 static inline unsigned int chip_get_product_id(void)

@@ -9,11 +9,9 @@
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-
 #include <mcucfg.h>
 #include <mtspmc.h>
 #include <mtspmc_private.h>
-
 
 void mcucfg_disable_gic_wakeup(uint32_t cluster, uint32_t cpu)
 {

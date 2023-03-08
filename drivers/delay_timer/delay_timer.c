@@ -1,15 +1,15 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <drivers/delay_timer.h>
 #include <lib/utils_def.h>
+
+#include <platform_def.h>
 
 /***********************************************************
  * The delay timer implementation
@@ -22,10 +22,9 @@ static const timer_ops_t *timer_ops;
  ***********************************************************/
 void udelay(uint32_t usec)
 {
-	assert((timer_ops != NULL) &&
-		(timer_ops->clk_mult != 0U) &&
-		(timer_ops->clk_div != 0U) &&
-		(timer_ops->get_timer_value != NULL));
+	assert((timer_ops != NULL) && (timer_ops->clk_mult != 0U) &&
+	       (timer_ops->clk_div != 0U) &&
+	       (timer_ops->get_timer_value != NULL));
 
 	uint32_t start, delta;
 	uint64_t total_delta;
@@ -35,9 +34,9 @@ void udelay(uint32_t usec)
 	start = timer_ops->get_timer_value();
 
 	/* Add an extra tick to avoid delaying less than requested. */
-	total_delta =
-		div_round_up((uint64_t)usec * timer_ops->clk_div,
-						timer_ops->clk_mult) + 1U;
+	total_delta = div_round_up((uint64_t)usec * timer_ops->clk_div,
+				   timer_ops->clk_mult) +
+		      1U;
 	/*
 	 * Precaution for the total_delta ~ UINT32_MAX and the fact that we
 	 * cannot catch every tick of the timer.
@@ -73,10 +72,8 @@ void mdelay(uint32_t msec)
  ***********************************************************/
 void timer_init(const timer_ops_t *ops_ptr)
 {
-	assert((ops_ptr != NULL)  &&
-		(ops_ptr->clk_mult != 0U) &&
-		(ops_ptr->clk_div != 0U) &&
-		(ops_ptr->get_timer_value != NULL));
+	assert((ops_ptr != NULL) && (ops_ptr->clk_mult != 0U) &&
+	       (ops_ptr->clk_div != 0U) && (ops_ptr->get_timer_value != NULL));
 
 	timer_ops = ops_ptr;
 }

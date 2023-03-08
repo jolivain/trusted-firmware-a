@@ -28,19 +28,12 @@
  *		in case of CP(cp_index = 0 if CP0, cp_index = 1 if CP1)
  */
 struct skip_image {
-	enum {
-		GPIO,
-		I2C,
-		USER_DEFINED
-	} detection_method;
+	enum { GPIO, I2C, USER_DEFINED } detection_method;
 
 	struct {
 		struct {
 			int num;
-			enum {
-				HIGH,
-				LOW
-			} button_state;
+			enum { HIGH, LOW } button_state;
 
 		} gpio;
 
@@ -50,10 +43,7 @@ struct skip_image {
 		} i2c;
 
 		struct {
-			enum {
-				CP,
-				AP
-			} cp_ap;
+			enum { CP, AP } cp_ap;
 			int cp_index;
 		} test;
 	} info;
@@ -77,14 +67,11 @@ struct skip_image {
  *		   in unit of ms
  */
 /* Max GPIO number used to notify PMIC to power off the SoC */
-#define PMIC_GPIO_MAX_NUMBER		8
+#define PMIC_GPIO_MAX_NUMBER 8
 /* Max GPIO toggling steps in sequence to power off the SoC */
-#define PMIC_GPIO_MAX_TOGGLE_STEP	8
+#define PMIC_GPIO_MAX_TOGGLE_STEP 8
 
-enum gpio_output_state {
-	GPIO_LOW = 0,
-	GPIO_HIGH
-};
+enum gpio_output_state { GPIO_LOW = 0, GPIO_HIGH };
 
 typedef struct gpio_info {
 	int cp_index;
@@ -111,17 +98,16 @@ int marvell_gpio_config(void);
 uint32_t marvell_get_io_win_gcr_target(int ap_idx);
 uint32_t marvell_get_ccu_gcr_target(int ap_idx);
 
-
 /*
  * The functions below are defined as Weak and may be overridden
  * in specific Marvell standard platform
  */
-int marvell_get_amb_memory_map(struct addr_map_win **win,
-			       uint32_t *size, uintptr_t base);
+int marvell_get_amb_memory_map(struct addr_map_win **win, uint32_t *size,
+			       uintptr_t base);
 int marvell_get_io_win_memory_map(int ap_idx, struct addr_map_win **win,
 				  uint32_t *size);
-int marvell_get_iob_memory_map(struct addr_map_win **win,
-			       uint32_t *size, uintptr_t base);
+int marvell_get_iob_memory_map(struct addr_map_win **win, uint32_t *size,
+			       uintptr_t base);
 int marvell_get_ccu_memory_map(int ap_idx, struct addr_map_win **win,
 			       uint32_t *size);
 int system_power_off(void);

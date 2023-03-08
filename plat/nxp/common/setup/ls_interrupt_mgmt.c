@@ -8,6 +8,7 @@
 #include <bl31/interrupt_mgmt.h>
 #include <common/debug.h>
 #include <ls_interrupt_mgmt.h>
+
 #include <plat/common/platform.h>
 
 static interrupt_type_handler_t type_el3_interrupt_table[MAX_INTR_EL3];
@@ -30,7 +31,7 @@ int request_intr_type_el3(uint32_t id, interrupt_type_handler_t handler)
 }
 
 static uint64_t ls_el3_interrupt_handler(uint32_t id, uint32_t flags,
-					  void *handle, void *cookie)
+					 void *handle, void *cookie)
 {
 	uint32_t intr_id;
 	interrupt_type_handler_t handler;

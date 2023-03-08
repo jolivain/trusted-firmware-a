@@ -9,11 +9,7 @@
 
 #include <platform_def.h>
 
-enum stm32mp_ddr_base_type {
-	DDR_BASE,
-	DDRPHY_BASE,
-	NONE_BASE
-};
+enum stm32mp_ddr_base_type { DDR_BASE, DDRPHY_BASE, NONE_BASE };
 
 enum stm32mp_ddr_reg_type {
 	REG_REG,
@@ -27,8 +23,8 @@ enum stm32mp_ddr_reg_type {
 
 struct stm32mp_ddr_reg_desc {
 	const char *name;
-	uint16_t offset;	/* Offset for base address */
-	uint8_t par_offset;	/* Offset for parameter array */
+	uint16_t offset; /* Offset for base address */
+	uint8_t par_offset; /* Offset for parameter array */
 };
 
 struct stm32mp_ddr_reg_info {
@@ -54,13 +50,14 @@ struct stm32mp_ddr_priv {
 struct stm32mp_ddr_info {
 	const char *name;
 	uint32_t speed; /* in kHZ */
-	uint32_t size;  /* Memory size in byte = col * row * width */
+	uint32_t size; /* Memory size in byte = col * row * width */
 };
 
-#define TIMEOUT_US_1S	1000000U
+#define TIMEOUT_US_1S 1000000U
 
-void stm32mp_ddr_set_reg(const struct stm32mp_ddr_priv *priv, enum stm32mp_ddr_reg_type type,
-			 const void *param, const struct stm32mp_ddr_reg_info *ddr_registers);
+void stm32mp_ddr_set_reg(const struct stm32mp_ddr_priv *priv,
+			 enum stm32mp_ddr_reg_type type, const void *param,
+			 const struct stm32mp_ddr_reg_info *ddr_registers);
 void stm32mp_ddr_start_sw_done(struct stm32mp_ddrctl *ctl);
 void stm32mp_ddr_wait_sw_done_ack(struct stm32mp_ddrctl *ctl);
 void stm32mp_ddr_enable_axi_port(struct stm32mp_ddrctl *ctl);

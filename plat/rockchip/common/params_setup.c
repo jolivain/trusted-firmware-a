@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,20 +9,20 @@
 #include <limits.h>
 #include <string.h>
 
-#include <lib/bl_aux_params/bl_aux_params.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <drivers/console.h>
 #include <drivers/gpio.h>
-#include <libfdt.h>
+#include <lib/bl_aux_params/bl_aux_params.h>
 #include <lib/coreboot.h>
 #include <lib/mmio.h>
-#include <plat/common/platform.h>
-
+#include <libfdt.h>
 #include <plat_params.h>
 #include <plat_private.h>
 
-static struct bl_aux_gpio_info rst_gpio = { .index = UINT_MAX } ;
+#include <plat/common/platform.h>
+
+static struct bl_aux_gpio_info rst_gpio = { .index = UINT_MAX };
 static struct bl_aux_gpio_info poweroff_gpio = { .index = UINT_MAX };
 static struct bl_aux_gpio_info suspend_gpio[10];
 uint32_t suspend_gpio_cnt;
@@ -63,8 +63,8 @@ static void plat_rockchip_dt_process_fdt_uart(void *fdt)
 	if (node_offset < 0)
 		return;
 
-	stdout_path = fdt_getprop(fdt, node_offset, prop_name,
-				  &stdout_path_len);
+	stdout_path =
+		fdt_getprop(fdt, node_offset, prop_name, &stdout_path_len);
 	if (stdout_path == NULL)
 		return;
 
@@ -247,8 +247,8 @@ void params_early_setup(u_register_t plat_param_from_bl2)
 		 * we're doing is setting up UART, this doesn't need to be
 		 * fatal.
 		 */
-		WARN("%s: found FDT but could not parse: error %d\n",
-		     __func__, ret);
+		WARN("%s: found FDT but could not parse: error %d\n", __func__,
+		     ret);
 		return;
 	}
 

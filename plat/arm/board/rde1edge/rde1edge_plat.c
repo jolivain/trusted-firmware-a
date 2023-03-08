@@ -1,16 +1,17 @@
 /*
- * Copyright (c) 2018-2020, Arm Limited. All rights reserved.
+ * Copyright (c) 2018-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <plat/common/platform.h>
 #include <sgi_plat.h>
+
+#include <plat/common/platform.h>
 
 unsigned int plat_arm_sgi_get_platform_id(void)
 {
-	return mmio_read_32(SID_REG_BASE + SID_SYSTEM_ID_OFFSET)
-				& SID_SYSTEM_ID_PART_NUM_MASK;
+	return mmio_read_32(SID_REG_BASE + SID_SYSTEM_ID_OFFSET) &
+	       SID_SYSTEM_ID_PART_NUM_MASK;
 }
 
 unsigned int plat_arm_sgi_get_config_id(void)

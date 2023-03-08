@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,7 +11,7 @@
 
 #include <platform_def.h>
 
-#define sdei__dyn_config_getter(id)	sdei_dyn_config.id
+#define sdei__dyn_config_getter(id) sdei_dyn_config.id
 
 struct sdei_dyn_config_t {
 	uint32_t private_ev_cnt;

@@ -29,7 +29,7 @@ enum amb_attribute_ids {
 	AMB_BOOT_ROM_ID = 0x1D,
 };
 
-#define AMB_MAX_WIN_ID		7
+#define AMB_MAX_WIN_ID 7
 
 int init_amb_adec(uintptr_t base);
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -14,12 +14,12 @@
 #include <drivers/auth/img_parser_mod.h>
 #include <lib/utils_def.h>
 
-IMPORT_SYM(uintptr_t, __PARSER_LIB_DESCS_START__,	PARSER_LIB_DESCS_START);
-IMPORT_SYM(uintptr_t, __PARSER_LIB_DESCS_END__,		PARSER_LIB_DESCS_END);
+IMPORT_SYM(uintptr_t, __PARSER_LIB_DESCS_START__, PARSER_LIB_DESCS_START);
+IMPORT_SYM(uintptr_t, __PARSER_LIB_DESCS_END__, PARSER_LIB_DESCS_END);
 static unsigned int parser_lib_indices[IMG_MAX_TYPES];
 static img_parser_lib_desc_t *parser_lib_descs;
 
-#define INVALID_IDX		UINT_MAX
+#define INVALID_IDX UINT_MAX
 
 static void validate_desc(img_parser_lib_desc_t *desc)
 {
@@ -45,9 +45,8 @@ void img_parser_init(void)
 	mod_num /= sizeof(img_parser_lib_desc_t);
 	assert(mod_num > 0);
 
-	parser_lib_descs = (img_parser_lib_desc_t *) PARSER_LIB_DESCS_START;
+	parser_lib_descs = (img_parser_lib_desc_t *)PARSER_LIB_DESCS_START;
 	for (index = 0; index < mod_num; index++) {
-
 		/* Check that the image parser library descriptor is valid */
 		validate_desc(&parser_lib_descs[index]);
 
@@ -56,15 +55,15 @@ void img_parser_init(void)
 
 		/* Ensure only one parser is registered for each image type */
 		assert(parser_lib_indices[parser_lib_descs[index].img_type] ==
-				INVALID_IDX);
+		       INVALID_IDX);
 
 		/* Keep the index of this hash calculator */
 		parser_lib_indices[parser_lib_descs[index].img_type] = index;
 	}
 }
 
-int img_parser_check_integrity(img_type_t img_type,
-			       void *img_ptr, unsigned int img_len)
+int img_parser_check_integrity(img_type_t img_type, void *img_ptr,
+			       unsigned int img_len)
 {
 	unsigned int idx;
 
@@ -122,5 +121,5 @@ int img_parser_get_auth_param(img_type_t img_type,
 
 	/* Call the function to obtain the parameter */
 	return parser_lib_descs[idx].get_auth_param(type_desc, img_ptr, img_len,
-			param_ptr, param_len);
+						    param_ptr, param_len);
 }

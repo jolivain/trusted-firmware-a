@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,8 +10,7 @@
  * The power domain tree descriptor.
  ******************************************************************************/
 static const unsigned char sgi575_pd_tree_desc[] = {
-	PLAT_ARM_CLUSTER_COUNT,
-	CSS_SGI_MAX_CPUS_PER_CLUSTER,
+	PLAT_ARM_CLUSTER_COUNT, CSS_SGI_MAX_CPUS_PER_CLUSTER,
 	CSS_SGI_MAX_CPUS_PER_CLUSTER
 };
 

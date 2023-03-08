@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,27 +7,32 @@
 #include <assert.h>
 #include <string.h>
 
-#include <platform_def.h>
-
 #include <arch.h>
 #include <arch_helpers.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
-#include <lib/mmio.h>
-#include <lib/xlat_tables/xlat_tables_v2.h>
-
 #include <k3_console.h>
 #include <k3_gicv3.h>
+#include <lib/mmio.h>
+#include <lib/xlat_tables/xlat_tables_v2.h>
 #include <ti_sci.h>
+
+#include <platform_def.h>
 
 /* Table of regions to map using the MMU */
 const mmap_region_t plat_k3_mmap[] = {
-	MAP_REGION_FLAT(K3_USART_BASE,       K3_USART_SIZE,       MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(K3_GIC_BASE,         K3_GIC_SIZE,         MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(K3_GTC_BASE,         K3_GTC_SIZE,         MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(SEC_PROXY_RT_BASE,   SEC_PROXY_RT_SIZE,   MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(SEC_PROXY_SCFG_BASE, SEC_PROXY_SCFG_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
-	MAP_REGION_FLAT(SEC_PROXY_DATA_BASE, SEC_PROXY_DATA_SIZE, MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(K3_USART_BASE, K3_USART_SIZE,
+			MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(K3_GIC_BASE, K3_GIC_SIZE,
+			MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(K3_GTC_BASE, K3_GTC_SIZE,
+			MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(SEC_PROXY_RT_BASE, SEC_PROXY_RT_SIZE,
+			MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(SEC_PROXY_SCFG_BASE, SEC_PROXY_SCFG_SIZE,
+			MT_DEVICE | MT_RW | MT_SECURE),
+	MAP_REGION_FLAT(SEC_PROXY_DATA_BASE, SEC_PROXY_DATA_SIZE,
+			MT_DEVICE | MT_RW | MT_SECURE),
 	{ /* sentinel */ }
 };
 
@@ -74,8 +79,8 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	/* Populate entry point information for BL32 */
 	SET_PARAM_HEAD(&bl32_image_ep_info, PARAM_EP, VERSION_1, 0);
 	bl32_image_ep_info.pc = BL32_BASE;
-	bl32_image_ep_info.spsr = SPSR_64(MODE_EL1, MODE_SP_ELX,
-					  DISABLE_ALL_EXCEPTIONS);
+	bl32_image_ep_info.spsr =
+		SPSR_64(MODE_EL1, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 	SET_SECURITY_STATE(bl32_image_ep_info.h.attr, SECURE);
 #endif
 
@@ -102,11 +107,17 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 void bl31_plat_arch_setup(void)
 {
 	const mmap_region_t bl_regions[] = {
-		MAP_REGION_FLAT(BL31_START,           BL31_SIZE,			          MT_MEMORY  | MT_RW | MT_SECURE),
-		MAP_REGION_FLAT(BL_CODE_BASE,         BL_CODE_END         - BL_CODE_BASE,         MT_CODE    | MT_RO | MT_SECURE),
-		MAP_REGION_FLAT(BL_RO_DATA_BASE,      BL_RO_DATA_END      - BL_RO_DATA_BASE,      MT_RO_DATA | MT_RO | MT_SECURE),
+		MAP_REGION_FLAT(BL31_START, BL31_SIZE,
+				MT_MEMORY | MT_RW | MT_SECURE),
+		MAP_REGION_FLAT(BL_CODE_BASE, BL_CODE_END - BL_CODE_BASE,
+				MT_CODE | MT_RO | MT_SECURE),
+		MAP_REGION_FLAT(BL_RO_DATA_BASE,
+				BL_RO_DATA_END - BL_RO_DATA_BASE,
+				MT_RO_DATA | MT_RO | MT_SECURE),
 #if USE_COHERENT_MEM
-		MAP_REGION_FLAT(BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END - BL_COHERENT_RAM_BASE, MT_DEVICE  | MT_RW | MT_SECURE),
+		MAP_REGION_FLAT(BL_COHERENT_RAM_BASE,
+				BL_COHERENT_RAM_END - BL_COHERENT_RAM_BASE,
+				MT_DEVICE | MT_RW | MT_SECURE),
 #endif
 		{ /* sentinel */ }
 	};

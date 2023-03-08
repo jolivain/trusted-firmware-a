@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,23 +8,20 @@
 #include <inttypes.h>
 #include <stdint.h>
 
-#include <libfdt.h>
-
-#include <platform_def.h>
 #include <arch_helpers.h>
 #include <common/bl_common.h>
+#include <common/fdt_fixup.h>
+#include <common/fdt_wrappers.h>
+#include <drivers/arm/gicv2.h>
 #include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_mmu_helpers.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
-#include <plat/common/platform.h>
-#include <common/fdt_fixup.h>
-#include <common/fdt_wrappers.h>
 #include <libfdt.h>
-
-#include <drivers/arm/gicv2.h>
-
 #include <rpi_shared.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 /*
  * Fields at the beginning of armstub8.bin.
@@ -60,8 +57,8 @@ entry_point_info_t *bl31_plat_get_next_image_ep_info(uint32_t type)
 
 	assert(sec_state_is_valid(type) != 0);
 
-	next_image_info = (type == NON_SECURE)
-			? &bl33_image_ep_info : &bl32_image_ep_info;
+	next_image_info = (type == NON_SECURE) ? &bl33_image_ep_info :
+						 &bl32_image_ep_info;
 
 	/* None of the images can have 0x0 as the entrypoint. */
 	if (next_image_info->pc) {
@@ -101,13 +98,12 @@ static uintptr_t rpi4_get_dtb_address(void)
 
 static void ldelay(register_t delay)
 {
-	__asm__ volatile (
-		"1:\tcbz %0, 2f\n\t"
-		"sub %0, %0, #1\n\t"
-		"b 1b\n"
-		"2:"
-		: "=&r" (delay) : "0" (delay)
-	);
+	__asm__ volatile("1:\tcbz %0, 2f\n\t"
+			 "sub %0, %0, #1\n\t"
+			 "b 1b\n"
+			 "2:"
+			 : "=&r"(delay)
+			 : "0"(delay));
 }
 
 /*******************************************************************************
@@ -143,7 +139,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	SET_SECURITY_STATE(bl33_image_ep_info.h.attr, NON_SECURE);
 
 #if RPI3_DIRECT_LINUX_BOOT
-# if RPI3_BL33_IN_AARCH32
+#if RPI3_BL33_IN_AARCH32
 	/*
 	 * According to the file ``Documentation/arm/Booting`` of the Linux
 	 * kernel tree, Linux expects:
@@ -155,7 +151,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	bl33_image_ep_info.args.arg0 = 0U;
 	bl33_image_ep_info.args.arg1 = ~0U;
 	bl33_image_ep_info.args.arg2 = rpi4_get_dtb_address();
-# else
+#else
 	/*
 	 * According to the file ``Documentation/arm64/booting.txt`` of the
 	 * Linux kernel tree, Linux expects the physical address of the device
@@ -167,7 +163,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	bl33_image_ep_info.args.arg1 = 0ULL;
 	bl33_image_ep_info.args.arg2 = 0ULL;
 	bl33_image_ep_info.args.arg3 = 0ULL;
-# endif /* RPI3_BL33_IN_AARCH32 */
+#endif /* RPI3_BL33_IN_AARCH32 */
 #endif /* RPI3_DIRECT_LINUX_BOOT */
 }
 
@@ -181,7 +177,7 @@ void bl31_plat_arch_setup(void)
 	if (stub_magic == 0) {
 		unsigned long long dtb_region = dtb_ptr32;
 
-		dtb_region &= ~0x1fffff;	/* Align to 2 MB. */
+		dtb_region &= ~0x1fffff; /* Align to 2 MB. */
 		mmap_add_region(dtb_region, dtb_region, 4U << 20,
 				MT_MEMORY | MT_RW | MT_NS);
 	}
@@ -192,13 +188,13 @@ void bl31_plat_arch_setup(void)
 	 */
 	mmap_add_region(0, 0, 4096, MT_NON_CACHEABLE | MT_RW | MT_SECURE);
 
-	rpi3_setup_page_tables(BL31_BASE, BL31_END - BL31_BASE,
-			       BL_CODE_BASE, BL_CODE_END,
-			       BL_RO_DATA_BASE, BL_RO_DATA_END
+	rpi3_setup_page_tables(BL31_BASE, BL31_END - BL31_BASE, BL_CODE_BASE,
+			       BL_CODE_END, BL_RO_DATA_BASE, BL_RO_DATA_END
 #if USE_COHERENT_MEM
-			       , BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END
+			       ,
+			       BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END
 #endif
-			      );
+	);
 
 	enable_mmu_el3(0);
 }
@@ -236,7 +232,8 @@ static void remove_spintable_memreserve(void *dtb)
 			fdt_del_mem_rsv(dtb, i);
 			return;
 		}
-		WARN("Keeping unknown /memreserve/ region at 0, size: %" PRId64 "\n",
+		WARN("Keeping unknown /memreserve/ region at 0, size: %" PRId64
+		     "\n",
 		     size);
 	}
 }
@@ -276,9 +273,9 @@ static void rpi4_prepare_dtb(void)
 		WARN("Failed to add reserved memory nodes to DT.\n");
 
 	offs = fdt_node_offset_by_compatible(dtb, 0, "arm,gic-400");
-	gic_int_prop[0] = cpu_to_fdt32(1);		// PPI
-	gic_int_prop[1] = cpu_to_fdt32(9);		// PPI #9
-	gic_int_prop[2] = cpu_to_fdt32(0x0f04);		// all cores, level high
+	gic_int_prop[0] = cpu_to_fdt32(1); // PPI
+	gic_int_prop[1] = cpu_to_fdt32(9); // PPI #9
+	gic_int_prop[2] = cpu_to_fdt32(0x0f04); // all cores, level high
 	fdt_setprop(dtb, offs, "interrupts", gic_int_prop, 12);
 
 	offs = fdt_path_offset(dtb, "/chosen");

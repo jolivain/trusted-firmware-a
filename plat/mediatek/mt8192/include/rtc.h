@@ -9,4 +9,4 @@
 
 #include <rtc_mt6359p.h>
 
-#endif  /* RTC_H */
+#endif /* RTC_H */

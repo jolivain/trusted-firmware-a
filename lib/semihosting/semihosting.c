@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,7 +11,7 @@
 #include <lib/semihosting.h>
 
 #ifndef SEMIHOSTING_SUPPORTED
-#define SEMIHOSTING_SUPPORTED  1
+#define SEMIHOSTING_SUPPORTED 1
 #endif
 
 long semihosting_call(unsigned long operation, uintptr_t system_block_address);
@@ -66,7 +66,7 @@ long semihosting_file_seek(long file_handle, ssize_t offset)
 
 	if (result < 0) {
 		result = semihosting_call(SEMIHOSTING_SYS_ERRNO, 0);
-	} else  {
+	} else {
 		result = 0;
 	}
 
@@ -99,7 +99,7 @@ long semihosting_file_read(long file_handle, size_t *length, uintptr_t buffer)
 }
 
 long semihosting_file_write(long file_handle, size_t *length,
-				const uintptr_t buffer)
+			    const uintptr_t buffer)
 {
 	smh_file_read_write_block_t write_block;
 	long result = -EINVAL;
@@ -113,7 +113,7 @@ long semihosting_file_write(long file_handle, size_t *length,
 	write_block.length = *length;
 
 	result = semihosting_call(SEMIHOSTING_SYS_WRITE,
-		(uintptr_t)&write_block);
+				  (uintptr_t)&write_block);
 
 	*length = result;
 
@@ -153,7 +153,7 @@ long semihosting_system(char *command_line)
 	system_block.command_length = strlen(command_line);
 
 	return semihosting_call(SEMIHOSTING_SYS_SYSTEM,
-		(uintptr_t)&system_block);
+				(uintptr_t)&system_block);
 }
 
 long semihosting_get_flen(const char *file_name)
@@ -174,9 +174,8 @@ long semihosting_get_flen(const char *file_name)
 	return (semihosting_file_close(file_handle) != 0) ? -1 : length;
 }
 
-long semihosting_download_file(const char *file_name,
-			      size_t buf_size,
-			      uintptr_t buf)
+long semihosting_download_file(const char *file_name, size_t buf_size,
+			       uintptr_t buf)
 {
 	long ret = -EINVAL;
 	size_t length;
@@ -225,7 +224,7 @@ semihosting_fail:
 void semihosting_exit(uint32_t reason, uint32_t subcode)
 {
 #ifdef __aarch64__
-	uint64_t parameters[] = {reason, subcode};
+	uint64_t parameters[] = { reason, subcode };
 
 	(void)semihosting_call(SEMIHOSTING_SYS_EXIT, (uintptr_t)&parameters);
 #else

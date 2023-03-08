@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,9 +7,8 @@
 #include <stdint.h>
 #include <string.h>
 
-#include <lib/utils.h>
-
 #include <dram.h>
+#include <lib/utils.h>
 
 #include "dram_spec_timing.h"
 
@@ -20,105 +19,105 @@ static const uint8_t ddr3_cl_cwl[][7] = {
 	 * cl<<4, cwl  cl<<4, cwl  cl<<4, cwl
 	 */
 	/* DDR3_800D (5-5-5) */
-	{((5 << 4) | 5), ((5 << 4) | 5), 0, 0, 0, 0, 0},
+	{ ((5 << 4) | 5), ((5 << 4) | 5), 0, 0, 0, 0, 0 },
 	/* DDR3_800E (6-6-6) */
-	{((5 << 4) | 5), ((6 << 4) | 5), 0, 0, 0, 0, 0},
+	{ ((5 << 4) | 5), ((6 << 4) | 5), 0, 0, 0, 0, 0 },
 	/* DDR3_1066E (6-6-6) */
-	{((5 << 4) | 5), ((5 << 4) | 5), ((6 << 4) | 6), 0, 0, 0, 0},
+	{ ((5 << 4) | 5), ((5 << 4) | 5), ((6 << 4) | 6), 0, 0, 0, 0 },
 	/* DDR3_1066F (7-7-7) */
-	{((5 << 4) | 5), ((6 << 4) | 5), ((7 << 4) | 6), 0, 0, 0, 0},
+	{ ((5 << 4) | 5), ((6 << 4) | 5), ((7 << 4) | 6), 0, 0, 0, 0 },
 	/* DDR3_1066G (8-8-8) */
-	{((5 << 4) | 5), ((6 << 4) | 5), ((8 << 4) | 6), 0, 0, 0, 0},
+	{ ((5 << 4) | 5), ((6 << 4) | 5), ((8 << 4) | 6), 0, 0, 0, 0 },
 	/* DDR3_1333F (7-7-7) */
-	{((5 << 4) | 5), ((5 << 4) | 5), ((6 << 4) | 6), ((7 << 4) | 7),
-	 0, 0, 0},
+	{ ((5 << 4) | 5), ((5 << 4) | 5), ((6 << 4) | 6), ((7 << 4) | 7), 0, 0,
+	  0 },
 	/* DDR3_1333G (8-8-8) */
-	{((5 << 4) | 5), ((5 << 4) | 5), ((7 << 4) | 6), ((8 << 4) | 7),
-	 0, 0, 0},
+	{ ((5 << 4) | 5), ((5 << 4) | 5), ((7 << 4) | 6), ((8 << 4) | 7), 0, 0,
+	  0 },
 	/* DDR3_1333H (9-9-9) */
-	{((5 << 4) | 5), ((6 << 4) | 5), ((8 << 4) | 6), ((9 << 4) | 7),
-	 0, 0, 0},
+	{ ((5 << 4) | 5), ((6 << 4) | 5), ((8 << 4) | 6), ((9 << 4) | 7), 0, 0,
+	  0 },
 	/* DDR3_1333J (10-10-10) */
-	{((5 << 4) | 5), ((6 << 4) | 5), ((8 << 4) | 6), ((10 << 4) | 7),
-	 0, 0, 0},
+	{ ((5 << 4) | 5), ((6 << 4) | 5), ((8 << 4) | 6), ((10 << 4) | 7), 0, 0,
+	  0 },
 	/* DDR3_1600G (8-8-8) */
-	{((5 << 4) | 5), ((5 << 4) | 5), ((6 << 4) | 6), ((7 << 4) | 7),
-	 ((8 << 4) | 8), 0, 0},
+	{ ((5 << 4) | 5), ((5 << 4) | 5), ((6 << 4) | 6), ((7 << 4) | 7),
+	  ((8 << 4) | 8), 0, 0 },
 	/* DDR3_1600H (9-9-9) */
-	{((5 << 4) | 5), ((5 << 4) | 5), ((6 << 4) | 6), ((8 << 4) | 7),
-	 ((9 << 4) | 8), 0, 0},
+	{ ((5 << 4) | 5), ((5 << 4) | 5), ((6 << 4) | 6), ((8 << 4) | 7),
+	  ((9 << 4) | 8), 0, 0 },
 	/* DDR3_1600J (10-10-10) */
-	{((5 << 4) | 5), ((5 << 4) | 5), ((7 << 4) | 6), ((9 << 4) | 7),
-	 ((10 << 4) | 8), 0, 0},
+	{ ((5 << 4) | 5), ((5 << 4) | 5), ((7 << 4) | 6), ((9 << 4) | 7),
+	  ((10 << 4) | 8), 0, 0 },
 	/* DDR3_1600K (11-11-11) */
-	{((5 << 4) | 5), ((6 << 4) | 5), ((8 << 4) | 6), ((10 << 4) | 7),
-	 ((11 << 4) | 8), 0, 0},
+	{ ((5 << 4) | 5), ((6 << 4) | 5), ((8 << 4) | 6), ((10 << 4) | 7),
+	  ((11 << 4) | 8), 0, 0 },
 	/* DDR3_1866J (10-10-10) */
-	{((5 << 4) | 5), ((5 << 4) | 5), ((6 << 4) | 6), ((8 << 4) | 7),
-	 ((9 << 4) | 8), ((11 << 4) | 9), 0},
+	{ ((5 << 4) | 5), ((5 << 4) | 5), ((6 << 4) | 6), ((8 << 4) | 7),
+	  ((9 << 4) | 8), ((11 << 4) | 9), 0 },
 	/* DDR3_1866K (11-11-11) */
-	{((5 << 4) | 5), ((5 << 4) | 5), ((7 << 4) | 6), ((8 << 4) | 7),
-	 ((10 << 4) | 8), ((11 << 4) | 9), 0},
+	{ ((5 << 4) | 5), ((5 << 4) | 5), ((7 << 4) | 6), ((8 << 4) | 7),
+	  ((10 << 4) | 8), ((11 << 4) | 9), 0 },
 	/* DDR3_1866L (12-12-12) */
-	{((6 << 4) | 5), ((6 << 4) | 5), ((7 << 4) | 6), ((9 << 4) | 7),
-	 ((11 << 4) | 8), ((12 << 4) | 9), 0},
+	{ ((6 << 4) | 5), ((6 << 4) | 5), ((7 << 4) | 6), ((9 << 4) | 7),
+	  ((11 << 4) | 8), ((12 << 4) | 9), 0 },
 	/* DDR3_1866M (13-13-13) */
-	{((6 << 4) | 5), ((6 << 4) | 5), ((8 << 4) | 6), ((10 << 4) | 7),
-	 ((11 << 4) | 8), ((13 << 4) | 9), 0},
+	{ ((6 << 4) | 5), ((6 << 4) | 5), ((8 << 4) | 6), ((10 << 4) | 7),
+	  ((11 << 4) | 8), ((13 << 4) | 9), 0 },
 	/* DDR3_2133K (11-11-11) */
-	{((5 << 4) | 5), ((5 << 4) | 5), ((6 << 4) | 6), ((7 << 4) | 7),
-	 ((9 << 4) | 8), ((10 << 4) | 9), ((11 << 4) | 10)},
+	{ ((5 << 4) | 5), ((5 << 4) | 5), ((6 << 4) | 6), ((7 << 4) | 7),
+	  ((9 << 4) | 8), ((10 << 4) | 9), ((11 << 4) | 10) },
 	/* DDR3_2133L (12-12-12) */
-	{((5 << 4) | 5), ((5 << 4) | 5), ((6 << 4) | 6), ((8 << 4) | 7),
-	 ((9 << 4) | 8), ((11 << 4) | 9), ((12 << 4) | 10)},
+	{ ((5 << 4) | 5), ((5 << 4) | 5), ((6 << 4) | 6), ((8 << 4) | 7),
+	  ((9 << 4) | 8), ((11 << 4) | 9), ((12 << 4) | 10) },
 	/* DDR3_2133M (13-13-13) */
-	{((5 << 4) | 5), ((5 << 4) | 5), ((7 << 4) | 6), ((9 << 4) | 7),
-	 ((10 << 4) | 8), ((12 << 4) | 9), ((13 << 4) | 10)},
+	{ ((5 << 4) | 5), ((5 << 4) | 5), ((7 << 4) | 6), ((9 << 4) | 7),
+	  ((10 << 4) | 8), ((12 << 4) | 9), ((13 << 4) | 10) },
 	/* DDR3_2133N (14-14-14) */
-	{((6 << 4) | 5), ((6 << 4) | 5), ((7 << 4) | 6), ((9 << 4) | 7),
-	 ((11 << 4) | 8), ((13 << 4) | 9), ((14 << 4) | 10)},
+	{ ((6 << 4) | 5), ((6 << 4) | 5), ((7 << 4) | 6), ((9 << 4) | 7),
+	  ((11 << 4) | 8), ((13 << 4) | 9), ((14 << 4) | 10) },
 	/* DDR3_DEFAULT */
-	{((6 << 4) | 5), ((6 << 4) | 5), ((8 << 4) | 6), ((10 << 4) | 7),
-	 ((11 << 4) | 8), ((13 << 4) | 9), ((14 << 4) | 10)}
+	{ ((6 << 4) | 5), ((6 << 4) | 5), ((8 << 4) | 6), ((10 << 4) | 7),
+	  ((11 << 4) | 8), ((13 << 4) | 9), ((14 << 4) | 10) }
 };
 
 static const uint16_t ddr3_trc_tfaw[] = {
 	/* tRC      tFAW */
-	((50 << 8) | 50),	/* DDR3_800D (5-5-5) */
-	((53 << 8) | 50),	/* DDR3_800E (6-6-6) */
+	((50 << 8) | 50), /* DDR3_800D (5-5-5) */
+	((53 << 8) | 50), /* DDR3_800E (6-6-6) */
 
-	((49 << 8) | 50),	/* DDR3_1066E (6-6-6) */
-	((51 << 8) | 50),	/* DDR3_1066F (7-7-7) */
-	((53 << 8) | 50),	/* DDR3_1066G (8-8-8) */
+	((49 << 8) | 50), /* DDR3_1066E (6-6-6) */
+	((51 << 8) | 50), /* DDR3_1066F (7-7-7) */
+	((53 << 8) | 50), /* DDR3_1066G (8-8-8) */
 
-	((47 << 8) | 45),	/* DDR3_1333F (7-7-7) */
-	((48 << 8) | 45),	/* DDR3_1333G (8-8-8) */
-	((50 << 8) | 45),	/* DDR3_1333H (9-9-9) */
-	((51 << 8) | 45),	/* DDR3_1333J (10-10-10) */
+	((47 << 8) | 45), /* DDR3_1333F (7-7-7) */
+	((48 << 8) | 45), /* DDR3_1333G (8-8-8) */
+	((50 << 8) | 45), /* DDR3_1333H (9-9-9) */
+	((51 << 8) | 45), /* DDR3_1333J (10-10-10) */
 
-	((45 << 8) | 40),	/* DDR3_1600G (8-8-8) */
-	((47 << 8) | 40),	/* DDR3_1600H (9-9-9)*/
-	((48 << 8) | 40),	/* DDR3_1600J (10-10-10) */
-	((49 << 8) | 40),	/* DDR3_1600K (11-11-11) */
+	((45 << 8) | 40), /* DDR3_1600G (8-8-8) */
+	((47 << 8) | 40), /* DDR3_1600H (9-9-9)*/
+	((48 << 8) | 40), /* DDR3_1600J (10-10-10) */
+	((49 << 8) | 40), /* DDR3_1600K (11-11-11) */
 
-	((45 << 8) | 35),	/* DDR3_1866J (10-10-10) */
-	((46 << 8) | 35),	/* DDR3_1866K (11-11-11) */
-	((47 << 8) | 35),	/* DDR3_1866L (12-12-12) */
-	((48 << 8) | 35),	/* DDR3_1866M (13-13-13) */
+	((45 << 8) | 35), /* DDR3_1866J (10-10-10) */
+	((46 << 8) | 35), /* DDR3_1866K (11-11-11) */
+	((47 << 8) | 35), /* DDR3_1866L (12-12-12) */
+	((48 << 8) | 35), /* DDR3_1866M (13-13-13) */
 
-	((44 << 8) | 35),	/* DDR3_2133K (11-11-11) */
-	((45 << 8) | 35),	/* DDR3_2133L (12-12-12) */
-	((46 << 8) | 35),	/* DDR3_2133M (13-13-13) */
-	((47 << 8) | 35),	/* DDR3_2133N (14-14-14) */
+	((44 << 8) | 35), /* DDR3_2133K (11-11-11) */
+	((45 << 8) | 35), /* DDR3_2133L (12-12-12) */
+	((46 << 8) | 35), /* DDR3_2133M (13-13-13) */
+	((47 << 8) | 35), /* DDR3_2133N (14-14-14) */
 
-	((53 << 8) | 50)	/* DDR3_DEFAULT */
+	((53 << 8) | 50) /* DDR3_DEFAULT */
 };
 
 static uint32_t get_max_speed_rate(struct timing_related_config *timing_config)
 {
 	if (timing_config->ch_cnt > 1)
 		return max(timing_config->dram_info[0].speed_rate,
-					timing_config->dram_info[1].speed_rate);
+			   timing_config->dram_info[1].speed_rate);
 	else
 		return timing_config->dram_info[0].speed_rate;
 }
@@ -131,66 +130,65 @@ get_max_die_capability(struct timing_related_config *timing_config)
 
 	for (ch = 0; ch < timing_config->ch_cnt; ch++) {
 		for (cs = 0; cs < timing_config->dram_info[ch].cs_cnt; cs++) {
-			die_cap = max(die_cap,
-				      timing_config->
-				      dram_info[ch].per_die_capability[cs]);
+			die_cap = max(die_cap, timing_config->dram_info[ch]
+						       .per_die_capability[cs]);
 		}
 	}
 	return die_cap;
 }
 
 /* tRSTL, 100ns */
-#define DDR3_TRSTL		(100)
+#define DDR3_TRSTL (100)
 /* trsth, 500us */
-#define DDR3_TRSTH		(500000)
+#define DDR3_TRSTH (500000)
 /* trefi, 7.8us */
-#define DDR3_TREFI_7_8_US	(7800)
+#define DDR3_TREFI_7_8_US (7800)
 /* tWR, 15ns */
-#define DDR3_TWR		(15)
+#define DDR3_TWR (15)
 /* tRTP, max(4 tCK,7.5ns) */
-#define DDR3_TRTP		(7)
+#define DDR3_TRTP (7)
 /* tRRD = max(4nCK, 10ns) */
-#define DDR3_TRRD		(10)
+#define DDR3_TRRD (10)
 /* tCK */
-#define DDR3_TCCD		(4)
+#define DDR3_TCCD (4)
 /*tWTR, max(4 tCK,7.5ns)*/
-#define DDR3_TWTR		(7)
+#define DDR3_TWTR (7)
 /* tCK */
-#define DDR3_TRTW		(0)
+#define DDR3_TRTW (0)
 /* tRAS, 37.5ns(400MHz) 37.5ns(533MHz) */
-#define DDR3_TRAS		(37)
+#define DDR3_TRAS (37)
 /* ns */
-#define DDR3_TRFC_512MBIT	(90)
+#define DDR3_TRFC_512MBIT (90)
 /* ns */
-#define DDR3_TRFC_1GBIT		(110)
+#define DDR3_TRFC_1GBIT (110)
 /* ns */
-#define DDR3_TRFC_2GBIT		(160)
+#define DDR3_TRFC_2GBIT (160)
 /* ns */
-#define DDR3_TRFC_4GBIT		(300)
+#define DDR3_TRFC_4GBIT (300)
 /* ns */
-#define DDR3_TRFC_8GBIT		(350)
+#define DDR3_TRFC_8GBIT (350)
 
 /*pd and sr*/
-#define DDR3_TXP		(7) /* tXP, max(3 tCK, 7.5ns)( < 933MHz) */
-#define DDR3_TXPDLL		(24) /* tXPDLL, max(10 tCK, 24ns) */
-#define DDR3_TDLLK		(512) /* tXSR, tDLLK=512 tCK */
-#define DDR3_TCKE_400MHZ	(7) /* tCKE, max(3 tCK,7.5ns)(400MHz) */
-#define DDR3_TCKE_533MHZ	(6) /* tCKE, max(3 tCK,5.625ns)(533MHz) */
-#define DDR3_TCKSRE		(10) /* tCKSRX, max(5 tCK, 10ns) */
+#define DDR3_TXP (7) /* tXP, max(3 tCK, 7.5ns)( < 933MHz) */
+#define DDR3_TXPDLL (24) /* tXPDLL, max(10 tCK, 24ns) */
+#define DDR3_TDLLK (512) /* tXSR, tDLLK=512 tCK */
+#define DDR3_TCKE_400MHZ (7) /* tCKE, max(3 tCK,7.5ns)(400MHz) */
+#define DDR3_TCKE_533MHZ (6) /* tCKE, max(3 tCK,5.625ns)(533MHz) */
+#define DDR3_TCKSRE (10) /* tCKSRX, max(5 tCK, 10ns) */
 
 /*mode register timing*/
-#define DDR3_TMOD		(15) /* tMOD, max(12 tCK,15ns) */
-#define DDR3_TMRD		(4) /* tMRD, 4 tCK */
+#define DDR3_TMOD (15) /* tMOD, max(12 tCK,15ns) */
+#define DDR3_TMRD (4) /* tMRD, 4 tCK */
 
 /* ZQ */
-#define DDR3_TZQINIT		(640) /* tZQinit, max(512 tCK, 640ns) */
-#define DDR3_TZQCS		(80) /* tZQCS, max(64 tCK, 80ns) */
-#define DDR3_TZQOPER		(320) /* tZQoper, max(256 tCK, 320ns) */
+#define DDR3_TZQINIT (640) /* tZQinit, max(512 tCK, 640ns) */
+#define DDR3_TZQCS (80) /* tZQCS, max(64 tCK, 80ns) */
+#define DDR3_TZQOPER (320) /* tZQoper, max(256 tCK, 320ns) */
 
 /* Write leveling */
-#define DDR3_TWLMRD		(40) /* tCK */
-#define DDR3_TWLO		(9) /* max 7.5ns */
-#define DDR3_TWLDQSEN		(25) /* tCK */
+#define DDR3_TWLMRD (40) /* tCK */
+#define DDR3_TWLO (9) /* max 7.5ns */
+#define DDR3_TWLDQSEN (25) /* tCK */
 
 /*
  * Description: depend on input parameter "timing_config",
@@ -286,13 +284,11 @@ static void ddr3_get_parameter(struct timing_related_config *timing_config,
 		tmp = tmp >> 1;
 	}
 	if (pdram_timing->bl == 4)
-		pdram_timing->mr[0] = DDR3_BC4
-				| DDR3_CL(pdram_timing->cl)
-				| DDR3_WR(tmp);
+		pdram_timing->mr[0] = DDR3_BC4 | DDR3_CL(pdram_timing->cl) |
+				      DDR3_WR(tmp);
 	else
-		pdram_timing->mr[0] = DDR3_BL8
-				| DDR3_CL(pdram_timing->cl)
-				| DDR3_WR(tmp);
+		pdram_timing->mr[0] = DDR3_BL8 | DDR3_CL(pdram_timing->cl) |
+				      DDR3_WR(tmp);
 	tmp = ((DDR3_TRTP * nmhz + (nmhz >> 1) + 999) / 1000);
 	pdram_timing->trtp = max(4, tmp);
 	pdram_timing->trc =
@@ -304,11 +300,10 @@ static void ddr3_get_parameter(struct timing_related_config *timing_config,
 	pdram_timing->twtr = max(4, tmp);
 	pdram_timing->trtw = DDR3_TRTW;
 	pdram_timing->tras_max = 9 * pdram_timing->trefi;
-	pdram_timing->tras_min = ((DDR3_TRAS * nmhz + (nmhz >> 1) + 999)
-		/ 1000);
+	pdram_timing->tras_min =
+		((DDR3_TRAS * nmhz + (nmhz >> 1) + 999) / 1000);
 	pdram_timing->tfaw =
-		(((ddr3_trc_tfaw[ddr_speed_bin] & 0x0ff) * nmhz + 999)
-						/ 1000);
+		(((ddr3_trc_tfaw[ddr_speed_bin] & 0x0ff) * nmhz + 999) / 1000);
 	/* tRFC, 90ns(512Mb),110ns(1Gb),160ns(2Gb),300ns(4Gb),350ns(8Gb) */
 	if (ddr_capability_per_die <= 0x4000000)
 		tmp = DDR3_TRFC_512MBIT;
@@ -359,55 +354,55 @@ static void ddr3_get_parameter(struct timing_related_config *timing_config,
 	pdram_timing->twlo = ((DDR3_TWLO * nmhz + (nmhz >> 1) + 999) / 1000);
 }
 
-#define LPDDR2_TINIT1		(100) /* ns */
-#define LPDDR2_TINIT2		(5) /* tCK */
-#define LPDDR2_TINIT3		(200000) /* 200us */
-#define LPDDR2_TINIT4		(1000) /* 1us */
-#define LPDDR2_TINIT5		(10000) /* 10us */
-#define LPDDR2_TRSTL		(0) /* tCK */
-#define LPDDR2_TRSTH		(500000) /* 500us */
-#define LPDDR2_TREFI_3_9_US	(3900) /* 3.9us */
-#define LPDDR2_TREFI_7_8_US	(7800) /* 7.8us */
+#define LPDDR2_TINIT1 (100) /* ns */
+#define LPDDR2_TINIT2 (5) /* tCK */
+#define LPDDR2_TINIT3 (200000) /* 200us */
+#define LPDDR2_TINIT4 (1000) /* 1us */
+#define LPDDR2_TINIT5 (10000) /* 10us */
+#define LPDDR2_TRSTL (0) /* tCK */
+#define LPDDR2_TRSTH (500000) /* 500us */
+#define LPDDR2_TREFI_3_9_US (3900) /* 3.9us */
+#define LPDDR2_TREFI_7_8_US (7800) /* 7.8us */
 
 /* base timing */
-#define LPDDR2_TRCD		(24) /* tRCD,15ns(Fast)18ns(Typ)24ns(Slow) */
-#define LPDDR2_TRP_PB		(18) /* tRPpb,15ns(Fast)18ns(Typ)24ns(Slow) */
-#define LPDDR2_TRP_AB_8_BANK	(21) /* tRPab,18ns(Fast)21ns(Typ)27ns(Slow) */
-#define LPDDR2_TWR		(15) /* tWR, max(3tCK,15ns) */
-#define LPDDR2_TRTP		(7) /* tRTP, max(2tCK, 7.5ns) */
-#define LPDDR2_TRRD		(10) /* tRRD, max(2tCK,10ns) */
-#define LPDDR2_TCCD		(2) /* tCK */
-#define LPDDR2_TWTR_GREAT_200MHZ	(7) /* ns */
-#define LPDDR2_TWTR_LITTLE_200MHZ	(10) /* ns */
-#define LPDDR2_TRTW		(0) /* tCK */
-#define LPDDR2_TRAS_MAX		(70000) /* 70us */
-#define LPDDR2_TRAS		(42) /* tRAS, max(3tCK,42ns) */
-#define LPDDR2_TFAW_GREAT_200MHZ	(50) /* max(8tCK,50ns) */
-#define LPDDR2_TFAW_LITTLE_200MHZ	(60) /* max(8tCK,60ns) */
-#define LPDDR2_TRFC_8GBIT	(210) /* ns */
-#define LPDDR2_TRFC_4GBIT	(130) /* ns */
-#define LPDDR2_TDQSCK_MIN	(2) /* tDQSCKmin, 2.5ns */
-#define LPDDR2_TDQSCK_MAX	(5) /* tDQSCKmax, 5.5ns */
+#define LPDDR2_TRCD (24) /* tRCD,15ns(Fast)18ns(Typ)24ns(Slow) */
+#define LPDDR2_TRP_PB (18) /* tRPpb,15ns(Fast)18ns(Typ)24ns(Slow) */
+#define LPDDR2_TRP_AB_8_BANK (21) /* tRPab,18ns(Fast)21ns(Typ)27ns(Slow) */
+#define LPDDR2_TWR (15) /* tWR, max(3tCK,15ns) */
+#define LPDDR2_TRTP (7) /* tRTP, max(2tCK, 7.5ns) */
+#define LPDDR2_TRRD (10) /* tRRD, max(2tCK,10ns) */
+#define LPDDR2_TCCD (2) /* tCK */
+#define LPDDR2_TWTR_GREAT_200MHZ (7) /* ns */
+#define LPDDR2_TWTR_LITTLE_200MHZ (10) /* ns */
+#define LPDDR2_TRTW (0) /* tCK */
+#define LPDDR2_TRAS_MAX (70000) /* 70us */
+#define LPDDR2_TRAS (42) /* tRAS, max(3tCK,42ns) */
+#define LPDDR2_TFAW_GREAT_200MHZ (50) /* max(8tCK,50ns) */
+#define LPDDR2_TFAW_LITTLE_200MHZ (60) /* max(8tCK,60ns) */
+#define LPDDR2_TRFC_8GBIT (210) /* ns */
+#define LPDDR2_TRFC_4GBIT (130) /* ns */
+#define LPDDR2_TDQSCK_MIN (2) /* tDQSCKmin, 2.5ns */
+#define LPDDR2_TDQSCK_MAX (5) /* tDQSCKmax, 5.5ns */
 
 /*pd and sr*/
-#define LPDDR2_TXP		(7) /* tXP, max(2tCK,7.5ns) */
-#define LPDDR2_TXPDLL		(0)
-#define LPDDR2_TDLLK		(0) /* tCK */
-#define LPDDR2_TCKE		(3) /* tCK */
-#define LPDDR2_TCKESR		(15) /* tCKESR, max(3tCK,15ns) */
-#define LPDDR2_TCKSRE		(1) /* tCK */
-#define LPDDR2_TCKSRX		(2) /* tCK */
+#define LPDDR2_TXP (7) /* tXP, max(2tCK,7.5ns) */
+#define LPDDR2_TXPDLL (0)
+#define LPDDR2_TDLLK (0) /* tCK */
+#define LPDDR2_TCKE (3) /* tCK */
+#define LPDDR2_TCKESR (15) /* tCKESR, max(3tCK,15ns) */
+#define LPDDR2_TCKSRE (1) /* tCK */
+#define LPDDR2_TCKSRX (2) /* tCK */
 
 /*mode register timing*/
-#define LPDDR2_TMOD		(0)
-#define LPDDR2_TMRD		(5) /* tMRD, (=tMRW), 5 tCK */
-#define LPDDR2_TMRR		(2) /* tCK */
+#define LPDDR2_TMOD (0)
+#define LPDDR2_TMRD (5) /* tMRD, (=tMRW), 5 tCK */
+#define LPDDR2_TMRR (2) /* tCK */
 
 /*ZQ*/
-#define LPDDR2_TZQINIT		(1000) /* ns */
-#define LPDDR2_TZQCS		(90) /* tZQCS, max(6tCK,90ns) */
-#define LPDDR2_TZQCL		(360) /* tZQCL, max(6tCK,360ns) */
-#define LPDDR2_TZQRESET		(50) /* ZQreset, max(3tCK,50ns) */
+#define LPDDR2_TZQINIT (1000) /* ns */
+#define LPDDR2_TZQCS (90) /* tZQCS, max(6tCK,90ns) */
+#define LPDDR2_TZQCL (360) /* tZQCL, max(6tCK,360ns) */
+#define LPDDR2_TZQRESET (50) /* ZQreset, max(3tCK,50ns) */
 
 /*
  * Description: depend on input parameter "timing_config",
@@ -489,11 +484,9 @@ static void lpddr2_get_parameter(struct timing_related_config *timing_config,
 	 * 15.6us(<256Mb) 7.8us(256Mb-1Gb) 3.9us(2Gb-8Gb)
 	 */
 	if (ddr_capability_per_die >= 0x10000000)
-		pdram_timing->trefi = (LPDDR2_TREFI_3_9_US * nmhz + 999)
-							/ 1000;
+		pdram_timing->trefi = (LPDDR2_TREFI_3_9_US * nmhz + 999) / 1000;
 	else
-		pdram_timing->trefi = (LPDDR2_TREFI_7_8_US * nmhz + 999)
-							/ 1000;
+		pdram_timing->trefi = (LPDDR2_TREFI_7_8_US * nmhz + 999) / 1000;
 	/* base timing */
 	tmp = ((LPDDR2_TRCD * nmhz + 999) / 1000);
 	pdram_timing->trcd = max(3, tmp);
@@ -513,8 +506,9 @@ static void lpddr2_get_parameter(struct timing_related_config *timing_config,
 	twr_tmp = ((LPDDR2_TWR * nmhz + 999) / 1000);
 	twr_tmp = max(3, twr_tmp);
 	pdram_timing->twr = twr_tmp;
-	bl_tmp = (pdram_timing->bl == 16) ? LPDDR2_BL16 :
-			((pdram_timing->bl == 8) ? LPDDR2_BL8 : LPDDR2_BL4);
+	bl_tmp = (pdram_timing->bl == 16) ?
+			 LPDDR2_BL16 :
+			 ((pdram_timing->bl == 8) ? LPDDR2_BL8 : LPDDR2_BL4);
 	pdram_timing->mr[1] = bl_tmp | LPDDR2_N_WR(twr_tmp);
 	tmp = ((LPDDR2_TRTP * nmhz + (nmhz >> 1) + 999) / 1000);
 	pdram_timing->trtp = max(2, tmp);
@@ -528,26 +522,24 @@ static void lpddr2_get_parameter(struct timing_related_config *timing_config,
 	pdram_timing->tccd = LPDDR2_TCCD;
 	/* tWTR, max(2tCK, 7.5ns(533-266MHz)  10ns(200-166MHz)) */
 	if (nmhz > 200)
-		tmp = ((LPDDR2_TWTR_GREAT_200MHZ * nmhz + (nmhz >> 1) +
-			  999) / 1000);
+		tmp = ((LPDDR2_TWTR_GREAT_200MHZ * nmhz + (nmhz >> 1) + 999) /
+		       1000);
 	else
 		tmp = ((LPDDR2_TWTR_LITTLE_200MHZ * nmhz + 999) / 1000);
 	pdram_timing->twtr = max(2, tmp);
 	pdram_timing->trtw = LPDDR2_TRTW;
 	if (nmhz <= 200)
-		pdram_timing->tfaw = (LPDDR2_TFAW_LITTLE_200MHZ * nmhz + 999)
-							/ 1000;
+		pdram_timing->tfaw =
+			(LPDDR2_TFAW_LITTLE_200MHZ * nmhz + 999) / 1000;
 	else
-		pdram_timing->tfaw = (LPDDR2_TFAW_GREAT_200MHZ * nmhz + 999)
-							/ 1000;
+		pdram_timing->tfaw =
+			(LPDDR2_TFAW_GREAT_200MHZ * nmhz + 999) / 1000;
 	/* tRFC, 90ns(<=512Mb) 130ns(1Gb-4Gb) 210ns(8Gb) */
 	if (ddr_capability_per_die >= 0x40000000) {
-		pdram_timing->trfc =
-			(LPDDR2_TRFC_8GBIT * nmhz + 999) / 1000;
+		pdram_timing->trfc = (LPDDR2_TRFC_8GBIT * nmhz + 999) / 1000;
 		tmp = (((LPDDR2_TRFC_8GBIT + 10) * nmhz + 999) / 1000);
 	} else {
-		pdram_timing->trfc =
-			(LPDDR2_TRFC_4GBIT * nmhz + 999) / 1000;
+		pdram_timing->trfc = (LPDDR2_TRFC_4GBIT * nmhz + 999) / 1000;
 		tmp = (((LPDDR2_TRFC_4GBIT + 10) * nmhz + 999) / 1000);
 	}
 	if (tmp < 2)
@@ -555,11 +547,10 @@ static void lpddr2_get_parameter(struct timing_related_config *timing_config,
 	pdram_timing->txsr = tmp;
 	pdram_timing->txsnr = tmp;
 	/* tdqsck use rounded down */
-	pdram_timing->tdqsck = ((LPDDR2_TDQSCK_MIN * nmhz + (nmhz >> 1))
-					/ 1000);
+	pdram_timing->tdqsck =
+		((LPDDR2_TDQSCK_MIN * nmhz + (nmhz >> 1)) / 1000);
 	pdram_timing->tdqsck_max =
-			((LPDDR2_TDQSCK_MAX * nmhz + (nmhz >> 1) + 999)
-					/ 1000);
+		((LPDDR2_TDQSCK_MAX * nmhz + (nmhz >> 1) + 999) / 1000);
 	/* pd and sr */
 	tmp = ((LPDDR2_TXP * nmhz + (nmhz >> 1) + 999) / 1000);
 	pdram_timing->txp = max(2, tmp);
@@ -584,70 +575,70 @@ static void lpddr2_get_parameter(struct timing_related_config *timing_config,
 	pdram_timing->tzqreset = max(3, tmp);
 }
 
-#define LPDDR3_TINIT1		(100) /* ns */
-#define LPDDR3_TINIT2		(5) /* tCK */
-#define LPDDR3_TINIT3		(200000) /* 200us */
-#define LPDDR3_TINIT4		(1000) /* 1us */
-#define LPDDR3_TINIT5		(10000) /* 10us */
-#define LPDDR3_TRSTL		(0)
-#define LPDDR3_TRSTH		(0) /* 500us */
-#define LPDDR3_TREFI_3_9_US	(3900) /* 3.9us */
+#define LPDDR3_TINIT1 (100) /* ns */
+#define LPDDR3_TINIT2 (5) /* tCK */
+#define LPDDR3_TINIT3 (200000) /* 200us */
+#define LPDDR3_TINIT4 (1000) /* 1us */
+#define LPDDR3_TINIT5 (10000) /* 10us */
+#define LPDDR3_TRSTL (0)
+#define LPDDR3_TRSTH (0) /* 500us */
+#define LPDDR3_TREFI_3_9_US (3900) /* 3.9us */
 
 /* base timging */
-#define LPDDR3_TRCD	(18) /* tRCD,15ns(Fast)18ns(Typ)24ns(Slow) */
-#define LPDDR3_TRP_PB	(18) /* tRPpb, 15ns(Fast) 18ns(Typ) 24ns(Slow) */
-#define LPDDR3_TRP_AB	(21) /* tRPab, 18ns(Fast) 21ns(Typ) 27ns(Slow) */
-#define LPDDR3_TWR	(15) /* tWR, max(4tCK,15ns) */
-#define LPDDR3_TRTP	(7) /* tRTP, max(4tCK, 7.5ns) */
-#define LPDDR3_TRRD	(10) /* tRRD, max(2tCK,10ns) */
-#define LPDDR3_TCCD	(4) /* tCK */
-#define LPDDR3_TWTR	(7) /* tWTR, max(4tCK, 7.5ns) */
-#define LPDDR3_TRTW	(0) /* tCK register min valid value */
-#define LPDDR3_TRAS_MAX	(70000) /* 70us */
-#define LPDDR3_TRAS	(42) /* tRAS, max(3tCK,42ns) */
-#define LPDDR3_TFAW	(50) /* tFAW,max(8tCK, 50ns) */
-#define LPDDR3_TRFC_8GBIT	(210) /* tRFC, 130ns(4Gb) 210ns(>4Gb) */
-#define LPDDR3_TRFC_4GBIT	(130) /* ns */
-#define LPDDR3_TDQSCK_MIN	(2) /* tDQSCKmin,2.5ns */
-#define LPDDR3_TDQSCK_MAX	(5) /* tDQSCKmax,5.5ns */
+#define LPDDR3_TRCD (18) /* tRCD,15ns(Fast)18ns(Typ)24ns(Slow) */
+#define LPDDR3_TRP_PB (18) /* tRPpb, 15ns(Fast) 18ns(Typ) 24ns(Slow) */
+#define LPDDR3_TRP_AB (21) /* tRPab, 18ns(Fast) 21ns(Typ) 27ns(Slow) */
+#define LPDDR3_TWR (15) /* tWR, max(4tCK,15ns) */
+#define LPDDR3_TRTP (7) /* tRTP, max(4tCK, 7.5ns) */
+#define LPDDR3_TRRD (10) /* tRRD, max(2tCK,10ns) */
+#define LPDDR3_TCCD (4) /* tCK */
+#define LPDDR3_TWTR (7) /* tWTR, max(4tCK, 7.5ns) */
+#define LPDDR3_TRTW (0) /* tCK register min valid value */
+#define LPDDR3_TRAS_MAX (70000) /* 70us */
+#define LPDDR3_TRAS (42) /* tRAS, max(3tCK,42ns) */
+#define LPDDR3_TFAW (50) /* tFAW,max(8tCK, 50ns) */
+#define LPDDR3_TRFC_8GBIT (210) /* tRFC, 130ns(4Gb) 210ns(>4Gb) */
+#define LPDDR3_TRFC_4GBIT (130) /* ns */
+#define LPDDR3_TDQSCK_MIN (2) /* tDQSCKmin,2.5ns */
+#define LPDDR3_TDQSCK_MAX (5) /* tDQSCKmax,5.5ns */
 
 /* pd and sr */
-#define LPDDR3_TXP	(7) /* tXP, max(3tCK,7.5ns) */
-#define LPDDR3_TXPDLL	(0)
-#define LPDDR3_TCKE	(7) /* tCKE, (max 7.5ns,3 tCK) */
-#define LPDDR3_TCKESR	(15) /* tCKESR, max(3tCK,15ns) */
-#define LPDDR3_TCKSRE	(2) /* tCKSRE=tCPDED, 2 tCK */
-#define LPDDR3_TCKSRX	(2) /* tCKSRX, 2 tCK */
+#define LPDDR3_TXP (7) /* tXP, max(3tCK,7.5ns) */
+#define LPDDR3_TXPDLL (0)
+#define LPDDR3_TCKE (7) /* tCKE, (max 7.5ns,3 tCK) */
+#define LPDDR3_TCKESR (15) /* tCKESR, max(3tCK,15ns) */
+#define LPDDR3_TCKSRE (2) /* tCKSRE=tCPDED, 2 tCK */
+#define LPDDR3_TCKSRX (2) /* tCKSRX, 2 tCK */
 
 /* mode register timing */
-#define LPDDR3_TMOD	(0)
-#define LPDDR3_TMRD	(14) /* tMRD, (=tMRW), max(14ns, 10 tCK) */
-#define LPDDR3_TMRR	(4) /* tMRR, 4 tCK */
-#define LPDDR3_TMRRI	LPDDR3_TRCD
+#define LPDDR3_TMOD (0)
+#define LPDDR3_TMRD (14) /* tMRD, (=tMRW), max(14ns, 10 tCK) */
+#define LPDDR3_TMRR (4) /* tMRR, 4 tCK */
+#define LPDDR3_TMRRI LPDDR3_TRCD
 
 /* ODT */
-#define LPDDR3_TODTON	(3) /* 3.5ns */
+#define LPDDR3_TODTON (3) /* 3.5ns */
 
 /* ZQ */
-#define LPDDR3_TZQINIT	(1000) /* 1us */
-#define LPDDR3_TZQCS	(90) /* tZQCS, 90ns */
-#define LPDDR3_TZQCL	(360) /* 360ns */
-#define LPDDR3_TZQRESET	(50) /* ZQreset, max(3tCK,50ns) */
+#define LPDDR3_TZQINIT (1000) /* 1us */
+#define LPDDR3_TZQCS (90) /* tZQCS, 90ns */
+#define LPDDR3_TZQCL (360) /* 360ns */
+#define LPDDR3_TZQRESET (50) /* ZQreset, max(3tCK,50ns) */
 /* write leveling */
-#define LPDDR3_TWLMRD	(40) /* ns */
-#define LPDDR3_TWLO	(20) /* ns */
-#define LPDDR3_TWLDQSEN	(25) /* ns */
+#define LPDDR3_TWLMRD (40) /* ns */
+#define LPDDR3_TWLO (20) /* ns */
+#define LPDDR3_TWLDQSEN (25) /* ns */
 /* CA training */
-#define LPDDR3_TCACKEL	(10) /* tCK */
-#define LPDDR3_TCAENT	(10) /* tCK */
-#define LPDDR3_TCAMRD	(20) /* tCK */
-#define LPDDR3_TCACKEH	(10) /* tCK */
-#define LPDDR3_TCAEXT	(10) /* tCK */
-#define LPDDR3_TADR	(20) /* ns */
-#define LPDDR3_TMRZ	(3) /* ns */
+#define LPDDR3_TCACKEL (10) /* tCK */
+#define LPDDR3_TCAENT (10) /* tCK */
+#define LPDDR3_TCAMRD (20) /* tCK */
+#define LPDDR3_TCACKEH (10) /* tCK */
+#define LPDDR3_TCAEXT (10) /* tCK */
+#define LPDDR3_TADR (20) /* ns */
+#define LPDDR3_TMRZ (3) /* ns */
 
 /* FSP */
-#define LPDDR3_TFC_LONG	(250) /* ns */
+#define LPDDR3_TFC_LONG (250) /* ns */
 
 /*
  * Description: depend on input parameter "timing_config",
@@ -799,28 +790,24 @@ static void lpddr3_get_parameter(struct timing_related_config *timing_config,
 	pdram_timing->tccd = LPDDR3_TCCD;
 	tmp = ((LPDDR3_TWTR * nmhz + (nmhz >> 1) + 999) / 1000);
 	pdram_timing->twtr = max(4, tmp);
-	pdram_timing->trtw =  ((LPDDR3_TRTW * nmhz + 999) / 1000);
+	pdram_timing->trtw = ((LPDDR3_TRTW * nmhz + 999) / 1000);
 	pdram_timing->tras_max = ((LPDDR3_TRAS_MAX * nmhz + 999) / 1000);
 	tmp = (LPDDR3_TFAW * nmhz + 999) / 1000;
 	pdram_timing->tfaw = max(8, tmp);
 	if (ddr_capability_per_die > 0x20000000) {
-		pdram_timing->trfc =
-			(LPDDR3_TRFC_8GBIT * nmhz + 999) / 1000;
+		pdram_timing->trfc = (LPDDR3_TRFC_8GBIT * nmhz + 999) / 1000;
 		tmp = (((LPDDR3_TRFC_8GBIT + 10) * nmhz + 999) / 1000);
 	} else {
-		pdram_timing->trfc =
-			(LPDDR3_TRFC_4GBIT * nmhz + 999) / 1000;
+		pdram_timing->trfc = (LPDDR3_TRFC_4GBIT * nmhz + 999) / 1000;
 		tmp = (((LPDDR3_TRFC_4GBIT + 10) * nmhz + 999) / 1000);
 	}
 	pdram_timing->txsr = max(2, tmp);
 	pdram_timing->txsnr = max(2, tmp);
 	/* tdqsck use rounded down */
 	pdram_timing->tdqsck =
-			((LPDDR3_TDQSCK_MIN * nmhz + (nmhz >> 1))
-					/ 1000);
+		((LPDDR3_TDQSCK_MIN * nmhz + (nmhz >> 1)) / 1000);
 	pdram_timing->tdqsck_max =
-			((LPDDR3_TDQSCK_MAX * nmhz + (nmhz >> 1) + 999)
-					/ 1000);
+		((LPDDR3_TDQSCK_MAX * nmhz + (nmhz >> 1) + 999) / 1000);
 	/*pd and sr*/
 	tmp = ((LPDDR3_TXP * nmhz + (nmhz >> 1) + 999) / 1000);
 	pdram_timing->txp = max(3, tmp);
@@ -839,14 +826,12 @@ static void lpddr3_get_parameter(struct timing_related_config *timing_config,
 	tmp = ((LPDDR3_TRCD * nmhz + 999) / 1000);
 	pdram_timing->tmrri = max(3, tmp);
 	/* ODT */
-	pdram_timing->todton = (LPDDR3_TODTON * nmhz + (nmhz >> 1) + 999)
-				/ 1000;
+	pdram_timing->todton =
+		(LPDDR3_TODTON * nmhz + (nmhz >> 1) + 999) / 1000;
 	/* ZQ */
 	pdram_timing->tzqinit = (LPDDR3_TZQINIT * nmhz + 999) / 1000;
-	pdram_timing->tzqcs =
-		((LPDDR3_TZQCS * nmhz + 999) / 1000);
-	pdram_timing->tzqoper =
-		((LPDDR3_TZQCL * nmhz + 999) / 1000);
+	pdram_timing->tzqcs = ((LPDDR3_TZQCS * nmhz + 999) / 1000);
+	pdram_timing->tzqoper = ((LPDDR3_TZQCL * nmhz + 999) / 1000);
 	tmp = ((LPDDR3_TZQRESET * nmhz + 999) / 1000);
 	pdram_timing->tzqreset = max(3, tmp);
 	/* write leveling */
@@ -867,83 +852,83 @@ static void lpddr3_get_parameter(struct timing_related_config *timing_config,
 	pdram_timing->tfc_long = (LPDDR3_TFC_LONG * nmhz + 999) / 1000;
 }
 
-#define LPDDR4_TINIT1	(200000) /* 200us */
-#define LPDDR4_TINIT2	(10) /* 10ns */
-#define LPDDR4_TINIT3	(2000000) /* 2ms */
-#define LPDDR4_TINIT4	(5) /* tCK */
-#define LPDDR4_TINIT5	(2000) /* 2us */
-#define LPDDR4_TRSTL		LPDDR4_TINIT1
-#define LPDDR4_TRSTH		LPDDR4_TINIT3
-#define LPDDR4_TREFI_3_9_US	(3900) /* 3.9us */
+#define LPDDR4_TINIT1 (200000) /* 200us */
+#define LPDDR4_TINIT2 (10) /* 10ns */
+#define LPDDR4_TINIT3 (2000000) /* 2ms */
+#define LPDDR4_TINIT4 (5) /* tCK */
+#define LPDDR4_TINIT5 (2000) /* 2us */
+#define LPDDR4_TRSTL LPDDR4_TINIT1
+#define LPDDR4_TRSTH LPDDR4_TINIT3
+#define LPDDR4_TREFI_3_9_US (3900) /* 3.9us */
 
 /* base timging */
-#define LPDDR4_TRCD	(18) /* tRCD, max(18ns,4tCK) */
-#define LPDDR4_TRP_PB	(18) /* tRPpb, max(18ns, 4tCK) */
-#define LPDDR4_TRP_AB	(21) /* tRPab, max(21ns, 4tCK) */
-#define LPDDR4_TRRD	(10) /* tRRD, max(4tCK,10ns) */
-#define LPDDR4_TCCD_BL16	(8) /* tCK */
-#define LPDDR4_TCCD_BL32	(16) /* tCK */
-#define LPDDR4_TWTR	(10) /* tWTR, max(8tCK, 10ns) */
-#define LPDDR4_TRTW	(0) /* tCK register min valid value */
+#define LPDDR4_TRCD (18) /* tRCD, max(18ns,4tCK) */
+#define LPDDR4_TRP_PB (18) /* tRPpb, max(18ns, 4tCK) */
+#define LPDDR4_TRP_AB (21) /* tRPab, max(21ns, 4tCK) */
+#define LPDDR4_TRRD (10) /* tRRD, max(4tCK,10ns) */
+#define LPDDR4_TCCD_BL16 (8) /* tCK */
+#define LPDDR4_TCCD_BL32 (16) /* tCK */
+#define LPDDR4_TWTR (10) /* tWTR, max(8tCK, 10ns) */
+#define LPDDR4_TRTW (0) /* tCK register min valid value */
 #define LPDDR4_TRAS_MAX (70000) /* 70us */
-#define LPDDR4_TRAS	(42) /* tRAS, max(3tCK,42ns) */
-#define LPDDR4_TFAW	(40) /* tFAW,min 40ns) */
-#define LPDDR4_TRFC_12GBIT	(280) /* tRFC, 280ns(>=12Gb) */
-#define LPDDR4_TRFC_6GBIT	(180) /* 6Gb/8Gb 180ns */
-#define LPDDR4_TRFC_4GBIT	(130) /* 4Gb 130ns */
-#define LPDDR4_TDQSCK_MIN	(1) /* tDQSCKmin,1.5ns */
-#define LPDDR4_TDQSCK_MAX	(3) /* tDQSCKmax,3.5ns */
-#define LPDDR4_TPPD		(4) /* tCK */
+#define LPDDR4_TRAS (42) /* tRAS, max(3tCK,42ns) */
+#define LPDDR4_TFAW (40) /* tFAW,min 40ns) */
+#define LPDDR4_TRFC_12GBIT (280) /* tRFC, 280ns(>=12Gb) */
+#define LPDDR4_TRFC_6GBIT (180) /* 6Gb/8Gb 180ns */
+#define LPDDR4_TRFC_4GBIT (130) /* 4Gb 130ns */
+#define LPDDR4_TDQSCK_MIN (1) /* tDQSCKmin,1.5ns */
+#define LPDDR4_TDQSCK_MAX (3) /* tDQSCKmax,3.5ns */
+#define LPDDR4_TPPD (4) /* tCK */
 
 /* pd and sr */
-#define LPDDR4_TXP	(7) /* tXP, max(5tCK,7.5ns) */
-#define LPDDR4_TCKE	(7) /* tCKE, max(7.5ns,4 tCK) */
-#define LPDDR4_TESCKE	(1) /* tESCKE, max(1.75ns, 3tCK) */
-#define LPDDR4_TSR	(15) /* tSR, max(15ns, 3tCK) */
-#define LPDDR4_TCMDCKE	(1) /* max(1.75ns, 3tCK) */
-#define LPDDR4_TCSCKE	(1) /* 1.75ns */
-#define LPDDR4_TCKELCS	(5) /* max(5ns, 5tCK) */
-#define LPDDR4_TCSCKEH	(1) /* 1.75ns */
-#define LPDDR4_TCKEHCS	(7) /* max(7.5ns, 5tCK) */
-#define LPDDR4_TMRWCKEL	(14) /* max(14ns, 10tCK) */
-#define LPDDR4_TCKELCMD	(7) /* max(7.5ns, 3tCK) */
-#define LPDDR4_TCKEHCMD	(7) /* max(7.5ns, 3tCK) */
-#define LPDDR4_TCKELPD	(7) /* max(7.5ns, 3tCK) */
-#define LPDDR4_TCKCKEL	(7) /* max(7.5ns, 3tCK) */
+#define LPDDR4_TXP (7) /* tXP, max(5tCK,7.5ns) */
+#define LPDDR4_TCKE (7) /* tCKE, max(7.5ns,4 tCK) */
+#define LPDDR4_TESCKE (1) /* tESCKE, max(1.75ns, 3tCK) */
+#define LPDDR4_TSR (15) /* tSR, max(15ns, 3tCK) */
+#define LPDDR4_TCMDCKE (1) /* max(1.75ns, 3tCK) */
+#define LPDDR4_TCSCKE (1) /* 1.75ns */
+#define LPDDR4_TCKELCS (5) /* max(5ns, 5tCK) */
+#define LPDDR4_TCSCKEH (1) /* 1.75ns */
+#define LPDDR4_TCKEHCS (7) /* max(7.5ns, 5tCK) */
+#define LPDDR4_TMRWCKEL (14) /* max(14ns, 10tCK) */
+#define LPDDR4_TCKELCMD (7) /* max(7.5ns, 3tCK) */
+#define LPDDR4_TCKEHCMD (7) /* max(7.5ns, 3tCK) */
+#define LPDDR4_TCKELPD (7) /* max(7.5ns, 3tCK) */
+#define LPDDR4_TCKCKEL (7) /* max(7.5ns, 3tCK) */
 
 /* mode register timing */
-#define LPDDR4_TMRD	(14) /* tMRD, (=tMRW), max(14ns, 10 tCK) */
-#define LPDDR4_TMRR	(8) /* tMRR, 8 tCK */
+#define LPDDR4_TMRD (14) /* tMRD, (=tMRW), max(14ns, 10 tCK) */
+#define LPDDR4_TMRR (8) /* tMRR, 8 tCK */
 
 /* ODT */
-#define LPDDR4_TODTON	(3) /* 3.5ns */
+#define LPDDR4_TODTON (3) /* 3.5ns */
 
 /* ZQ */
-#define LPDDR4_TZQCAL	(1000) /* 1us */
-#define LPDDR4_TZQLAT	(30) /* tZQLAT, max(30ns,8tCK) */
+#define LPDDR4_TZQCAL (1000) /* 1us */
+#define LPDDR4_TZQLAT (30) /* tZQLAT, max(30ns,8tCK) */
 #define LPDDR4_TZQRESET (50) /* ZQreset, max(3tCK,50ns) */
-#define LPDDR4_TZQCKE	(1) /* tZQCKE, max(1.75ns, 3tCK) */
+#define LPDDR4_TZQCKE (1) /* tZQCKE, max(1.75ns, 3tCK) */
 
 /* write leveling */
-#define LPDDR4_TWLMRD	(40) /* tCK */
-#define LPDDR4_TWLO	(20) /* ns */
+#define LPDDR4_TWLMRD (40) /* tCK */
+#define LPDDR4_TWLO (20) /* ns */
 #define LPDDR4_TWLDQSEN (20) /* tCK */
 
 /* CA training */
-#define LPDDR4_TCAENT	(250) /* ns */
-#define LPDDR4_TADR	(20) /* ns */
-#define LPDDR4_TMRZ	(1) /* 1.5ns */
-#define LPDDR4_TVREF_LONG	(250) /* ns */
-#define LPDDR4_TVREF_SHORT	(100) /* ns */
+#define LPDDR4_TCAENT (250) /* ns */
+#define LPDDR4_TADR (20) /* ns */
+#define LPDDR4_TMRZ (1) /* 1.5ns */
+#define LPDDR4_TVREF_LONG (250) /* ns */
+#define LPDDR4_TVREF_SHORT (100) /* ns */
 
 /* VRCG */
-#define LPDDR4_TVRCG_ENABLE	(200) /* ns */
-#define LPDDR4_TVRCG_DISABLE	(100) /* ns */
+#define LPDDR4_TVRCG_ENABLE (200) /* ns */
+#define LPDDR4_TVRCG_DISABLE (100) /* ns */
 
 /* FSP */
-#define LPDDR4_TFC_LONG		(250) /* ns */
-#define LPDDR4_TCKFSPE		(7) /* max(7.5ns, 4tCK) */
-#define LPDDR4_TCKFSPX		(7) /* max(7.5ns, 4tCK) */
+#define LPDDR4_TFC_LONG (250) /* ns */
+#define LPDDR4_TCKFSPE (7) /* max(7.5ns, 4tCK) */
+#define LPDDR4_TCKFSPX (7) /* max(7.5ns, 4tCK) */
 
 /*
  * Description: depend on input parameter "timing_config",
@@ -1026,11 +1011,11 @@ static void lpddr4_get_parameter(struct timing_related_config *timing_config,
 		if (timing_config->rdbi) {
 			pdram_timing->cl = 28;
 			pdram_timing->mr[2] = LPDDR4_RL28_NRTP10 |
-						LPDDR4_A_WL12;
+					      LPDDR4_A_WL12;
 		} else {
 			pdram_timing->cl = 24;
 			pdram_timing->mr[2] = LPDDR4_RL24_NRTP10 |
-						LPDDR4_A_WL12;
+					      LPDDR4_A_WL12;
 		}
 		pdram_timing->cwl = 12;
 		pdram_timing->twr = 24;
@@ -1040,11 +1025,11 @@ static void lpddr4_get_parameter(struct timing_related_config *timing_config,
 		if (timing_config->rdbi) {
 			pdram_timing->cl = 32;
 			pdram_timing->mr[2] = LPDDR4_RL32_NRTP12 |
-						LPDDR4_A_WL14;
+					      LPDDR4_A_WL14;
 		} else {
 			pdram_timing->cl = 28;
 			pdram_timing->mr[2] = LPDDR4_RL28_NRTP12 |
-						LPDDR4_A_WL14;
+					      LPDDR4_A_WL14;
 		}
 		pdram_timing->cwl = 14;
 		pdram_timing->twr = 30;
@@ -1054,11 +1039,11 @@ static void lpddr4_get_parameter(struct timing_related_config *timing_config,
 		if (timing_config->rdbi) {
 			pdram_timing->cl = 36;
 			pdram_timing->mr[2] = LPDDR4_RL36_NRTP14 |
-						LPDDR4_A_WL16;
+					      LPDDR4_A_WL16;
 		} else {
 			pdram_timing->cl = 32;
 			pdram_timing->mr[2] = LPDDR4_RL32_NRTP14 |
-						LPDDR4_A_WL16;
+					      LPDDR4_A_WL16;
 		}
 		pdram_timing->cwl = 16;
 		pdram_timing->twr = 34;
@@ -1068,11 +1053,11 @@ static void lpddr4_get_parameter(struct timing_related_config *timing_config,
 		if (timing_config->rdbi) {
 			pdram_timing->cl = 40;
 			pdram_timing->mr[2] = LPDDR4_RL40_NRTP16 |
-						LPDDR4_A_WL18;
+					      LPDDR4_A_WL18;
 		} else {
 			pdram_timing->cl = 36;
 			pdram_timing->mr[2] = LPDDR4_RL36_NRTP16 |
-						LPDDR4_A_WL18;
+					      LPDDR4_A_WL18;
 		}
 		pdram_timing->cwl = 18;
 		pdram_timing->twr = 40;
@@ -1183,73 +1168,59 @@ static void lpddr4_get_parameter(struct timing_related_config *timing_config,
 	pdram_timing->tccdmw = 4 * pdram_timing->tccd;
 	tmp = ((LPDDR4_TWTR * nmhz + 999) / 1000);
 	pdram_timing->twtr = max(8, tmp);
-	pdram_timing->trtw =  ((LPDDR4_TRTW * nmhz + 999) / 1000);
+	pdram_timing->trtw = ((LPDDR4_TRTW * nmhz + 999) / 1000);
 	pdram_timing->tras_max = ((LPDDR4_TRAS_MAX * nmhz + 999) / 1000);
 	pdram_timing->tfaw = (LPDDR4_TFAW * nmhz + 999) / 1000;
 	if (ddr_capability_per_die > 0x60000000) {
 		/* >= 12Gb */
-		pdram_timing->trfc =
-			(LPDDR4_TRFC_12GBIT * nmhz + 999) / 1000;
-		tmp = (((LPDDR4_TRFC_12GBIT + 7) * nmhz + (nmhz >> 1) +
-				999) / 1000);
+		pdram_timing->trfc = (LPDDR4_TRFC_12GBIT * nmhz + 999) / 1000;
+		tmp = (((LPDDR4_TRFC_12GBIT + 7) * nmhz + (nmhz >> 1) + 999) /
+		       1000);
 	} else if (ddr_capability_per_die > 0x30000000) {
-		pdram_timing->trfc =
-			(LPDDR4_TRFC_6GBIT * nmhz + 999) / 1000;
-		tmp = (((LPDDR4_TRFC_6GBIT + 7) * nmhz + (nmhz >> 1) +
-				999) / 1000);
+		pdram_timing->trfc = (LPDDR4_TRFC_6GBIT * nmhz + 999) / 1000;
+		tmp = (((LPDDR4_TRFC_6GBIT + 7) * nmhz + (nmhz >> 1) + 999) /
+		       1000);
 	} else {
-		pdram_timing->trfc =
-			(LPDDR4_TRFC_4GBIT * nmhz + 999) / 1000;
-		tmp = (((LPDDR4_TRFC_4GBIT + 7) * nmhz + (nmhz >> 1) +
-				999) / 1000);
+		pdram_timing->trfc = (LPDDR4_TRFC_4GBIT * nmhz + 999) / 1000;
+		tmp = (((LPDDR4_TRFC_4GBIT + 7) * nmhz + (nmhz >> 1) + 999) /
+		       1000);
 	}
 	pdram_timing->txsr = max(2, tmp);
 	pdram_timing->txsnr = max(2, tmp);
 	/* tdqsck use rounded down */
-	pdram_timing->tdqsck =  ((LPDDR4_TDQSCK_MIN * nmhz +
-				(nmhz >> 1)) / 1000);
-	pdram_timing->tdqsck_max =  ((LPDDR4_TDQSCK_MAX * nmhz +
-				(nmhz >> 1) + 999) / 1000);
+	pdram_timing->tdqsck =
+		((LPDDR4_TDQSCK_MIN * nmhz + (nmhz >> 1)) / 1000);
+	pdram_timing->tdqsck_max =
+		((LPDDR4_TDQSCK_MAX * nmhz + (nmhz >> 1) + 999) / 1000);
 	pdram_timing->tppd = LPDDR4_TPPD;
 	/* pd and sr */
 	tmp = ((LPDDR4_TXP * nmhz + (nmhz >> 1) + 999) / 1000);
 	pdram_timing->txp = max(5, tmp);
 	tmp = ((LPDDR4_TCKE * nmhz + (nmhz >> 1) + 999) / 1000);
 	pdram_timing->tcke = max(4, tmp);
-	tmp = ((LPDDR4_TESCKE * nmhz +
-		((nmhz * 3) / 4) +
-		999) / 1000);
+	tmp = ((LPDDR4_TESCKE * nmhz + ((nmhz * 3) / 4) + 999) / 1000);
 	pdram_timing->tescke = max(3, tmp);
 	tmp = ((LPDDR4_TSR * nmhz + 999) / 1000);
 	pdram_timing->tsr = max(3, tmp);
-	tmp = ((LPDDR4_TCMDCKE * nmhz +
-		((nmhz * 3) / 4) +
-		999) / 1000);
+	tmp = ((LPDDR4_TCMDCKE * nmhz + ((nmhz * 3) / 4) + 999) / 1000);
 	pdram_timing->tcmdcke = max(3, tmp);
-	pdram_timing->tcscke = ((LPDDR4_TCSCKE * nmhz +
-		((nmhz * 3) / 4) +
-		999) / 1000);
+	pdram_timing->tcscke =
+		((LPDDR4_TCSCKE * nmhz + ((nmhz * 3) / 4) + 999) / 1000);
 	tmp = ((LPDDR4_TCKELCS * nmhz + 999) / 1000);
 	pdram_timing->tckelcs = max(5, tmp);
-	pdram_timing->tcsckeh = ((LPDDR4_TCSCKEH * nmhz +
-		((nmhz * 3) / 4) +
-		999) / 1000);
-	tmp = ((LPDDR4_TCKEHCS * nmhz +
-		(nmhz >> 1) + 999) / 1000);
+	pdram_timing->tcsckeh =
+		((LPDDR4_TCSCKEH * nmhz + ((nmhz * 3) / 4) + 999) / 1000);
+	tmp = ((LPDDR4_TCKEHCS * nmhz + (nmhz >> 1) + 999) / 1000);
 	pdram_timing->tckehcs = max(5, tmp);
 	tmp = ((LPDDR4_TMRWCKEL * nmhz + 999) / 1000);
 	pdram_timing->tmrwckel = max(10, tmp);
-	tmp = ((LPDDR4_TCKELCMD * nmhz + (nmhz >> 1) +
-		999) / 1000);
+	tmp = ((LPDDR4_TCKELCMD * nmhz + (nmhz >> 1) + 999) / 1000);
 	pdram_timing->tckelcmd = max(3, tmp);
-	tmp = ((LPDDR4_TCKEHCMD * nmhz + (nmhz >> 1) +
-		999) / 1000);
+	tmp = ((LPDDR4_TCKEHCMD * nmhz + (nmhz >> 1) + 999) / 1000);
 	pdram_timing->tckehcmd = max(3, tmp);
-	tmp = ((LPDDR4_TCKELPD * nmhz + (nmhz >> 1) +
-		999) / 1000);
+	tmp = ((LPDDR4_TCKELPD * nmhz + (nmhz >> 1) + 999) / 1000);
 	pdram_timing->tckelpd = max(3, tmp);
-	tmp = ((LPDDR4_TCKCKEL * nmhz + (nmhz >> 1) +
-		999) / 1000);
+	tmp = ((LPDDR4_TCKCKEL * nmhz + (nmhz >> 1) + 999) / 1000);
 	pdram_timing->tckckel = max(3, tmp);
 	/* mode register timing */
 	tmp = ((LPDDR4_TMRD * nmhz + 999) / 1000);
@@ -1257,17 +1228,15 @@ static void lpddr4_get_parameter(struct timing_related_config *timing_config,
 	pdram_timing->tmrr = LPDDR4_TMRR;
 	pdram_timing->tmrri = pdram_timing->trcd + 3;
 	/* ODT */
-	pdram_timing->todton = (LPDDR4_TODTON * nmhz + (nmhz >> 1) + 999)
-				/ 1000;
+	pdram_timing->todton =
+		(LPDDR4_TODTON * nmhz + (nmhz >> 1) + 999) / 1000;
 	/* ZQ */
 	pdram_timing->tzqcal = (LPDDR4_TZQCAL * nmhz + 999) / 1000;
 	tmp = ((LPDDR4_TZQLAT * nmhz + 999) / 1000);
 	pdram_timing->tzqlat = max(8, tmp);
 	tmp = ((LPDDR4_TZQRESET * nmhz + 999) / 1000);
 	pdram_timing->tzqreset = max(3, tmp);
-	tmp = ((LPDDR4_TZQCKE * nmhz +
-		((nmhz * 3) / 4) +
-		999) / 1000);
+	tmp = ((LPDDR4_TZQCKE * nmhz + ((nmhz * 3) / 4) + 999) / 1000);
 	pdram_timing->tzqcke = max(3, tmp);
 	/* write leveling */
 	pdram_timing->twlmrd = LPDDR4_TWLMRD;
@@ -1280,10 +1249,9 @@ static void lpddr4_get_parameter(struct timing_related_config *timing_config,
 	pdram_timing->tvref_long = (LPDDR4_TVREF_LONG * nmhz + 999) / 1000;
 	pdram_timing->tvref_short = (LPDDR4_TVREF_SHORT * nmhz + 999) / 1000;
 	/* VRCG */
-	pdram_timing->tvrcg_enable = (LPDDR4_TVRCG_ENABLE * nmhz +
-					999) / 1000;
-	pdram_timing->tvrcg_disable = (LPDDR4_TVRCG_DISABLE * nmhz +
-					999) / 1000;
+	pdram_timing->tvrcg_enable = (LPDDR4_TVRCG_ENABLE * nmhz + 999) / 1000;
+	pdram_timing->tvrcg_disable =
+		(LPDDR4_TVRCG_DISABLE * nmhz + 999) / 1000;
 	/* FSP */
 	pdram_timing->tfc_long = (LPDDR4_TFC_LONG * nmhz + 999) / 1000;
 	tmp = (LPDDR4_TCKFSPE * nmhz + (nmhz >> 1) + 999) / 1000;

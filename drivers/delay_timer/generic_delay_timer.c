@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -14,6 +14,7 @@
 #include <drivers/delay_timer.h>
 #include <drivers/generic_delay_timer.h>
 #include <lib/utils_def.h>
+
 #include <plat/common/platform.h>
 
 static timer_ops_t ops;
@@ -31,9 +32,9 @@ static uint32_t get_timer_value(void)
 
 void generic_delay_timer_init_args(uint32_t mult, uint32_t div)
 {
-	ops.get_timer_value	= get_timer_value;
-	ops.clk_mult		= mult;
-	ops.clk_div		= div;
+	ops.get_timer_value = get_timer_value;
+	ops.clk_mult = mult;
+	ops.clk_div = div;
 
 	timer_init(&ops);
 
@@ -49,7 +50,7 @@ void generic_delay_timer_init(void)
 	unsigned int mult = MHZ_TICKS_PER_SEC;
 
 	/* Value in ticks per second (Hz) */
-	unsigned int div  = plat_get_syscnt_freq2();
+	unsigned int div = plat_get_syscnt_freq2();
 
 	/* Reduce multiplier and divider by dividing them repeatedly by 10 */
 	while (((mult % 10U) == 0U) && ((div % 10U) == 0U)) {
@@ -59,4 +60,3 @@ void generic_delay_timer_init(void)
 
 	generic_delay_timer_init_args(mult, div);
 }
-

@@ -5,16 +5,15 @@
  * https://spdx.org/licenses
  */
 
-#include <platform_def.h>
-
 #include <bl1/bl1.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <drivers/arm/sp805.h>
 #include <drivers/console.h>
-#include <plat/common/platform.h>
-
 #include <plat_marvell.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
 
 /* Weak definitions may be overridden in specific Marvell standard platform */
 #pragma weak bl1_early_platform_setup
@@ -56,17 +55,14 @@ void bl1_early_platform_setup(void)
  */
 void marvell_bl1_plat_arch_setup(void)
 {
-	marvell_setup_page_tables(bl1_ram_layout.total_base,
-				  bl1_ram_layout.total_size,
-				  BL1_RO_BASE,
-				  BL1_RO_LIMIT,
-				  BL1_RO_DATA_BASE,
-				  BL1_RO_DATA_END
+	marvell_setup_page_tables(
+		bl1_ram_layout.total_base, bl1_ram_layout.total_size,
+		BL1_RO_BASE, BL1_RO_LIMIT, BL1_RO_DATA_BASE, BL1_RO_DATA_END
 #if USE_COHERENT_MEM
-				, BL_COHERENT_RAM_BASE,
-				  BL_COHERENT_RAM_END
+		,
+		BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END
 #endif
-				);
+	);
 	enable_mmu_el3(0);
 }
 

@@ -6,7 +6,7 @@
  */
 
 #ifndef POLICY_H
-#define	POLICY_H
+#define POLICY_H
 
 /* Set this to 0x0 to leave the default SMMU page size in sACR
  * Set this to 0x1 to change the SMMU page size to 64K

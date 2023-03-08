@@ -17,9 +17,7 @@ enum {
 	PMIC_VSRAM_PROC11_OP_EN = 0x1b4e
 };
 
-enum {
-	PMIC_RG_SDN_DLY_ENB = 1U << 10
-};
+enum { PMIC_RG_SDN_DLY_ENB = 1U << 10 };
 
 /* external API */
 void bcpu_enable(uint32_t en);

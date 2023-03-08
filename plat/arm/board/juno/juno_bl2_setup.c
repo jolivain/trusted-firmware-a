@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2017,2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2017,2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -25,10 +25,11 @@ int arm_bl2_plat_handle_post_image_load(unsigned int image_id)
 	int err = arm_bl2_handle_post_image_load(image_id);
 
 	if (!err && (image_id == BL32_IMAGE_ID)) {
-		bl_mem_params_node_t *bl_mem_params = get_bl_mem_params_node(image_id);
+		bl_mem_params_node_t *bl_mem_params =
+			get_bl_mem_params_node(image_id);
 		assert(bl_mem_params);
-		bl_mem_params->ep_info.spsr = SPSR_64(MODE_EL3, MODE_SP_ELX,
-			DISABLE_ALL_EXCEPTIONS);
+		bl_mem_params->ep_info.spsr =
+			SPSR_64(MODE_EL3, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 	}
 
 	return err;

@@ -1,27 +1,27 @@
 /*
- * Copyright (c) 2017-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
+#include <errno.h>
 
 #include <arch_helpers.h>
 #include <common/debug.h>
-#include <errno.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
 
 #include "uniphier.h"
 
-#define UNIPHIER_ROM_RSV0		0x0
+#define UNIPHIER_ROM_RSV0 0x0
 
-#define UNIPHIER_SLFRSTSEL		0x10
-#define   UNIPHIER_SLFRSTSEL_MASK		GENMASK(1, 0)
-#define UNIPHIER_SLFRSTCTL		0x14
-#define   UNIPHIER_SLFRSTCTL_RST		BIT(0)
+#define UNIPHIER_SLFRSTSEL 0x10
+#define UNIPHIER_SLFRSTSEL_MASK GENMASK(1, 0)
+#define UNIPHIER_SLFRSTCTL 0x14
+#define UNIPHIER_SLFRSTCTL_RST BIT(0)
 
-#define MPIDR_AFFINITY_INVALID		((u_register_t)-1)
+#define MPIDR_AFFINITY_INVALID ((u_register_t)-1)
 
 static uintptr_t uniphier_rom_rsv_base;
 static uintptr_t uniphier_slfrst_base;
@@ -51,8 +51,8 @@ static void uniphier_psci_pwr_domain_off(const psci_power_state_t *target_state)
 	uniphier_gic_cpuif_disable();
 }
 
-static void uniphier_psci_pwr_domain_on_finish(
-					const psci_power_state_t *target_state)
+static void
+uniphier_psci_pwr_domain_on_finish(const psci_power_state_t *target_state)
 {
 	uniphier_gic_pcpu_init();
 	uniphier_gic_cpuif_enable();
@@ -60,8 +60,8 @@ static void uniphier_psci_pwr_domain_on_finish(
 	uniphier_cci_enable();
 }
 
-static void __dead2 uniphier_psci_pwr_domain_pwr_down_wfi(
-					const psci_power_state_t *target_state)
+static void __dead2
+uniphier_psci_pwr_domain_pwr_down_wfi(const psci_power_state_t *target_state)
 {
 	/*
 	 * The Boot ROM cannot distinguish warm and cold resets.

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -14,7 +14,6 @@
 static bl_load_info_t bl_load_info;
 static bl_params_t next_bl_params;
 
-
 /*******************************************************************************
  * This function flushes the data structures so that they are visible
  * in memory for the next BL image.
@@ -22,8 +21,7 @@ static bl_params_t next_bl_params;
 void flush_bl_params_desc(void)
 {
 	flush_bl_params_desc_args(bl_mem_params_desc_ptr,
-		bl_mem_params_desc_num,
-		&next_bl_params);
+				  bl_mem_params_desc_num, &next_bl_params);
 }
 
 /*******************************************************************************
@@ -31,18 +29,18 @@ void flush_bl_params_desc(void)
  * are visible in memory for the next BL image.
  ******************************************************************************/
 void flush_bl_params_desc_args(bl_mem_params_node_t *mem_params_desc_ptr,
-	unsigned int mem_params_desc_num,
-	bl_params_t *next_bl_params_ptr)
+			       unsigned int mem_params_desc_num,
+			       bl_params_t *next_bl_params_ptr)
 {
 	assert(mem_params_desc_ptr != NULL);
 	assert(mem_params_desc_num != 0U);
 	assert(next_bl_params_ptr != NULL);
 
 	flush_dcache_range((uintptr_t)mem_params_desc_ptr,
-		sizeof(*mem_params_desc_ptr) * mem_params_desc_num);
+			   sizeof(*mem_params_desc_ptr) * mem_params_desc_num);
 
 	flush_dcache_range((uintptr_t)next_bl_params_ptr,
-			sizeof(*next_bl_params_ptr));
+			   sizeof(*next_bl_params_ptr));
 }
 
 /*******************************************************************************
@@ -103,16 +101,17 @@ bl_load_info_t *get_bl_load_info_from_mem_params_desc(void)
 
 	/* Go through the image descriptor array and create the list */
 	for (; index < bl_mem_params_desc_num; index++) {
-
 		/* Populate the image information */
 		bl_node_info->image_id = bl_mem_params_desc_ptr[index].image_id;
-		bl_node_info->image_info = &bl_mem_params_desc_ptr[index].image_info;
+		bl_node_info->image_info =
+			&bl_mem_params_desc_ptr[index].image_info;
 
 		/* Link next image if present */
 		if ((index + 1U) < bl_mem_params_desc_num) {
 			/* Get the memory and link the next node */
 			bl_node_info->next_load_info =
-				&bl_mem_params_desc_ptr[index + 1U].load_node_mem;
+				&bl_mem_params_desc_ptr[index + 1U]
+					 .load_node_mem;
 			bl_node_info = bl_node_info->next_load_info;
 		}
 	}
@@ -142,11 +141,11 @@ bl_params_t *get_next_bl_params_from_mem_params_desc(void)
 
 	/* Get the list HEAD */
 	for (count = 0U; count < bl_mem_params_desc_num; count++) {
-
 		desc_ptr = &bl_mem_params_desc_ptr[count];
 
 		if ((EP_GET_EXE(desc_ptr->ep_info.h.attr) == EXECUTABLE) &&
-			(EP_GET_FIRST_EXE(desc_ptr->ep_info.h.attr) == EP_FIRST_EXE)) {
+		    (EP_GET_FIRST_EXE(desc_ptr->ep_info.h.attr) ==
+		     EP_FIRST_EXE)) {
 			next_bl_params.head = &desc_ptr->params_node_mem;
 			link_index = count;
 			break;
@@ -164,7 +163,6 @@ bl_params_t *get_next_bl_params_from_mem_params_desc(void)
 	 * This bounded loop is to make sure that we are not looping forever.
 	 */
 	for (count = 0U; count < bl_mem_params_desc_num; count++) {
-
 		desc_ptr = &bl_mem_params_desc_ptr[link_index];
 
 		/* Make sure the image is executable */
@@ -183,7 +181,8 @@ bl_params_t *get_next_bl_params_from_mem_params_desc(void)
 			assert(bl_last_exec_node->next_params_info == NULL);
 
 			/* Link the previous node to the current one */
-			bl_last_exec_node->next_params_info = bl_current_exec_node;
+			bl_last_exec_node->next_params_info =
+				bl_current_exec_node;
 		}
 
 		/* Update the last node */
@@ -197,7 +196,7 @@ bl_params_t *get_next_bl_params_from_mem_params_desc(void)
 		/* Get the index for the next hand-off image */
 		link_index = get_bl_params_node_index(img_id);
 		assert((link_index > 0U) &&
-			(link_index < bl_mem_params_desc_num));
+		       (link_index < bl_mem_params_desc_num));
 	}
 
 	/* Invalid image is expected to terminate the loop */
@@ -230,8 +229,7 @@ void populate_next_bl_params_config(bl_params_t *bl2_to_next_bl_params)
 		hw_config_base = mem_params->image_info.image_base;
 
 	for (params_node = bl2_to_next_bl_params->head; params_node != NULL;
-			params_node = params_node->next_params_info) {
-
+	     params_node = params_node->next_params_info) {
 		fw_config_base = 0;
 
 		switch (params_node->image_id) {
@@ -239,7 +237,7 @@ void populate_next_bl_params_config(bl_params_t *bl2_to_next_bl_params)
 			fw_config_id = SOC_FW_CONFIG_ID;
 			break;
 		case BL32_IMAGE_ID:
-		/*
+			/*
 		 * At the moment, OPTEE cannot accept a DTB in secure memory,
 		 * so fall back and use NT_FW_CONFIG instead.
 		 * This MUST be fixed as soon as OPTEE has support to
@@ -260,7 +258,8 @@ void populate_next_bl_params_config(bl_params_t *bl2_to_next_bl_params)
 		if (fw_config_id != INVALID_IMAGE_ID) {
 			mem_params = get_bl_mem_params_node(fw_config_id);
 			if (mem_params != NULL) {
-				fw_config_base = mem_params->image_info.image_base;
+				fw_config_base =
+					mem_params->image_info.image_base;
 			}
 		}
 
@@ -288,17 +287,17 @@ void populate_next_bl_params_config(bl_params_t *bl2_to_next_bl_params)
 			if (params_node == bl2_to_next_bl_params->head) {
 				if (params_node->ep_info->args.arg1 == 0U)
 					params_node->ep_info->args.arg1 =
-								fw_config_base;
+						fw_config_base;
 				if (params_node->ep_info->args.arg2 == 0U)
 					params_node->ep_info->args.arg2 =
-								hw_config_base;
+						hw_config_base;
 			} else {
 				if (params_node->ep_info->args.arg0 == 0U)
 					params_node->ep_info->args.arg0 =
-								fw_config_base;
+						fw_config_base;
 				if (params_node->ep_info->args.arg1 == 0U)
 					params_node->ep_info->args.arg1 =
-								hw_config_base;
+						hw_config_base;
 			}
 #ifdef SPD_opteed
 		}

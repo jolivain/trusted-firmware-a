@@ -1,16 +1,16 @@
 /*
- * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
-#include <drivers/arm/gicv3.h>
 #include <common/interrupt_props.h>
+#include <drivers/arm/gicv3.h>
+
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 #include "uniphier.h"
 

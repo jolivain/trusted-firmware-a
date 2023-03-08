@@ -18,8 +18,9 @@
 #include <lib/utils.h>
 #include <load_img.h>
 
-#include "plat_common.h"
 #include <platform_def.h>
+
+#include "plat_common.h"
 
 #ifdef CONFIG_STATIC_DDR
 
@@ -238,53 +239,52 @@ const struct dimm_params ddr_raw_timing = {
 	.refresh_rate_ps = U(7800000),
 };
 
-int ddr_get_ddr_params(struct dimm_params *pdimm,
-			    struct ddr_conf *conf)
+int ddr_get_ddr_params(struct dimm_params *pdimm, struct ddr_conf *conf)
 {
 	static const char dimm_model[] = "Fixed DDR on board";
 
-	conf->dimm_in_use[0] = 1;	/* Modify accordingly */
+	conf->dimm_in_use[0] = 1; /* Modify accordingly */
 	memcpy(pdimm, &ddr_raw_timing, sizeof(struct dimm_params));
 	memcpy(pdimm->mpart, dimm_model, sizeof(dimm_model) - 1);
 
 	/* valid DIMM mask, change accordingly, together with dimm_on_ctlr. */
 	return 0x5;
 }
-#endif	/* CONFIG_DDR_NODIMM */
+#endif /* CONFIG_DDR_NODIMM */
 
 int ddr_board_options(struct ddr_info *priv)
 {
 	struct memctl_opt *popts = &priv->opt;
 	const struct ddr_conf *conf = &priv->conf;
 
-	popts->vref_dimm = U(0x24);		/* range 1, 83.4% */
+	popts->vref_dimm = U(0x24); /* range 1, 83.4% */
 	popts->rtt_override = 0;
 	popts->rtt_park = U(240);
 	popts->otf_burst_chop_en = 0;
 	popts->burst_length = U(DDR_BL8);
 	popts->trwt_override = U(1);
-	popts->bstopre = U(0);			/* auto precharge */
+	popts->bstopre = U(0); /* auto precharge */
 	popts->addr_hash = 1;
 
 	/* Set ODT impedance on PHY side */
 	switch (conf->cs_on_dimm[1]) {
-	case 0xc:	/* Two slots dual rank */
-	case 0x4:	/* Two slots single rank, not valid for interleaving */
+	case 0xc: /* Two slots dual rank */
+	case 0x4: /* Two slots single rank, not valid for interleaving */
 		popts->trwt = U(0xf);
 		popts->twrt = U(0x7);
 		popts->trrt = U(0x7);
 		popts->twwt = U(0x7);
-		popts->vref_phy = U(0x6B);	/* 83.6% */
+		popts->vref_phy = U(0x6B); /* 83.6% */
 		popts->odt = U(60);
 		popts->phy_tx_impedance = U(28);
 		break;
-	case 0:		/* One slot used */
+	case 0: /* One slot used */
 	default:
 		popts->trwt = U(0x3);
 		popts->twrt = U(0x3);
 		popts->trrt = U(0x3);
 		popts->twwt = U(0x3);
-		popts->vref_phy = U(0x60);	/* 75% */
+		popts->vref_phy = U(0x60); /* 75% */
 		popts->odt = U(48);
 		popts->phy_tx_impedance = U(28);
 		break;
@@ -299,7 +299,7 @@ long long init_ddr(uint32_t wrm_bt_flg)
 long long init_ddr(void)
 #endif
 {
-	int spd_addr[] = {0x51U, 0x52U, 0x53U, 0x54U};
+	int spd_addr[] = { 0x51U, 0x52U, 0x53U, 0x54U };
 	struct ddr_info info;
 	struct sysinfo sys;
 	long long dram_size;
@@ -342,10 +342,10 @@ long long init_ddr(void)
 
 	dram_size = dram_init(&info
 #if defined(NXP_HAS_CCN504) || defined(NXP_HAS_CCN508)
-		    , NXP_CCN_HN_F_0_ADDR
+			      ,
+			      NXP_CCN_HN_F_0_ADDR
 #endif
-		    );
-
+	);
 
 	if (dram_size < 0) {
 		ERROR("DDR init failed.\n");

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, Arm Limited. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,7 +9,7 @@
 
 #include <lib/extensions/amu.h>
 
-#define amu__config_getter(id)	fconf_amu_config.id
+#define amu__config_getter(id) fconf_amu_config.id
 
 struct fconf_amu_config {
 	const struct amu_topology *topology;

@@ -1,28 +1,25 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-#include <cdefs.h>
 #include <stdlib.h>
 #include <string.h>
 
+#include <cdefs.h>
+#include <cdn_dp.h>
 #include <lib/smccc.h>
 
-#include <cdn_dp.h>
-
-__asm__(
-	".pushsection .text.hdcp_handler, \"ax\", %progbits\n"
+__asm__(".pushsection .text.hdcp_handler, \"ax\", %progbits\n"
 	".global hdcp_handler\n"
 	".balign 4\n"
 	"hdcp_handler:\n"
 	".incbin \"" HDCPFW "\"\n"
 	".type hdcp_handler, %function\n"
 	".size hdcp_handler, .- hdcp_handler\n"
-	".popsection\n"
-);
+	".popsection\n");
 
 static uint64_t *hdcp_key_pdata;
 static struct cdn_dp_hdcp_key_1x key;
@@ -47,15 +44,11 @@ uint64_t dp_hdcp_ctrl(uint64_t type)
 	}
 }
 
-uint64_t dp_hdcp_store_key(uint64_t x1,
-			   uint64_t x2,
-			   uint64_t x3,
-			   uint64_t x4,
-			   uint64_t x5,
-			   uint64_t x6)
+uint64_t dp_hdcp_store_key(uint64_t x1, uint64_t x2, uint64_t x3, uint64_t x4,
+			   uint64_t x5, uint64_t x6)
 {
 	if (hdcp_key_pdata < (uint64_t *)&key ||
-		hdcp_key_pdata + 6 > (uint64_t *)(&key + 1))
+	    hdcp_key_pdata + 6 > (uint64_t *)(&key + 1))
 		return PSCI_E_INVALID_PARAMS;
 
 	hdcp_key_pdata[0] = x1;

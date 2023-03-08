@@ -7,24 +7,24 @@
 #include <arch_helpers.h>
 #include <drivers/delay_timer.h>
 #include <lib/mmio.h>
-
 #include <msm8916_mmap.h>
+
 #include "msm8916_pm.h"
 
-#define CPU_PWR_CTL			0x4
-#define APC_PWR_GATE_CTL		0x14
+#define CPU_PWR_CTL 0x4
+#define APC_PWR_GATE_CTL 0x14
 
-#define CPU_PWR_CTL_CLAMP		BIT_32(0)
-#define CPU_PWR_CTL_CORE_MEM_CLAMP	BIT_32(1)
-#define CPU_PWR_CTL_L1_RST_DIS		BIT_32(2)
-#define CPU_PWR_CTL_CORE_MEM_HS		BIT_32(3)
-#define CPU_PWR_CTL_CORE_RST		BIT_32(4)
-#define CPU_PWR_CTL_COREPOR_RST		BIT_32(5)
-#define CPU_PWR_CTL_GATE_CLK		BIT_32(6)
-#define CPU_PWR_CTL_CORE_PWRD_UP	BIT_32(7)
+#define CPU_PWR_CTL_CLAMP BIT_32(0)
+#define CPU_PWR_CTL_CORE_MEM_CLAMP BIT_32(1)
+#define CPU_PWR_CTL_L1_RST_DIS BIT_32(2)
+#define CPU_PWR_CTL_CORE_MEM_HS BIT_32(3)
+#define CPU_PWR_CTL_CORE_RST BIT_32(4)
+#define CPU_PWR_CTL_COREPOR_RST BIT_32(5)
+#define CPU_PWR_CTL_GATE_CLK BIT_32(6)
+#define CPU_PWR_CTL_CORE_PWRD_UP BIT_32(7)
 
-#define APC_PWR_GATE_CTL_GHDS_EN	BIT_32(0)
-#define APC_PWR_GATE_CTL_GHDS_CNT(cnt)	((cnt) << 24)
+#define APC_PWR_GATE_CTL_GHDS_EN BIT_32(0)
+#define APC_PWR_GATE_CTL_GHDS_CNT(cnt) ((cnt) << 24)
 
 /* Boot a secondary CPU core for the first time. */
 void msm8916_cpu_boot(unsigned int core)
@@ -37,8 +37,8 @@ void msm8916_cpu_boot(unsigned int core)
 	mmio_write_32(acs + CPU_PWR_CTL, pwr_ctl);
 	dsb();
 
-	mmio_write_32(acs + APC_PWR_GATE_CTL, APC_PWR_GATE_CTL_GHDS_EN |
-		      APC_PWR_GATE_CTL_GHDS_CNT(16));
+	mmio_write_32(acs + APC_PWR_GATE_CTL,
+		      APC_PWR_GATE_CTL_GHDS_EN | APC_PWR_GATE_CTL_GHDS_CNT(16));
 	dsb();
 	udelay(2);
 

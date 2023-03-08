@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,10 +13,9 @@
 
 #include <common/debug.h>
 #include <common/runtime_svc.h>
+#include <ipi.h>
 #include <lib/bakery_lock.h>
 #include <lib/mmio.h>
-
-#include <ipi.h>
 #include <plat_ipi.h>
 #include <plat_private.h>
 
@@ -27,23 +26,27 @@
  ********************************************************************/
 
 /* IPI SMC calls macros: */
-#define IPI_SMC_OPEN_IRQ_MASK		0x00000001U /* IRQ enable bit in IPI
+#define IPI_SMC_OPEN_IRQ_MASK \
+	0x00000001U /* IRQ enable bit in IPI
 						     * open SMC call
 						     */
-#define IPI_SMC_NOTIFY_BLOCK_MASK	0x00000001U /* Flag to indicate if
+#define IPI_SMC_NOTIFY_BLOCK_MASK \
+	0x00000001U /* Flag to indicate if
 						     * IPI notification needs
 						     * to be blocking.
 						     */
-#define IPI_SMC_ENQUIRY_DIRQ_MASK	0x00000001U /* Flag to indicate if
+#define IPI_SMC_ENQUIRY_DIRQ_MASK \
+	0x00000001U /* Flag to indicate if
 						     * notification interrupt
 						     * to be disabled.
 						     */
-#define IPI_SMC_ACK_EIRQ_MASK		0x00000001U /* Flag to indicate if
+#define IPI_SMC_ACK_EIRQ_MASK \
+	0x00000001U /* Flag to indicate if
 						     * notification interrupt
 						     * to be enable.
 						     */
 
-#define UNSIGNED32_MASK			0xFFFFFFFFU /* 32bit mask */
+#define UNSIGNED32_MASK 0xFFFFFFFFU /* 32bit mask */
 
 /**
  * ipi_smc_handler() - SMC handler for IPI SMC calls
@@ -97,8 +100,7 @@ uint64_t ipi_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 	case IPI_MAILBOX_RELEASE:
 		ipi_mb_release(ipi_local_id, ipi_remote_id);
 		SMC_RET1(handle, 0);
-	case IPI_MAILBOX_STATUS_ENQUIRY:
-	{
+	case IPI_MAILBOX_STATUS_ENQUIRY: {
 		int32_t disable_irq;
 
 		disable_irq = (x3 & IPI_SMC_ENQUIRY_DIRQ_MASK) ? 1 : 0;
@@ -107,16 +109,14 @@ uint64_t ipi_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 			ipi_mb_disable_irq(ipi_local_id, ipi_remote_id);
 		SMC_RET1(handle, ret);
 	}
-	case IPI_MAILBOX_NOTIFY:
-	{
+	case IPI_MAILBOX_NOTIFY: {
 		uint32_t is_blocking;
 
 		is_blocking = (x3 & IPI_SMC_NOTIFY_BLOCK_MASK) ? 1 : 0;
 		ipi_mb_notify(ipi_local_id, ipi_remote_id, is_blocking);
 		SMC_RET1(handle, 0);
 	}
-	case IPI_MAILBOX_ACK:
-	{
+	case IPI_MAILBOX_ACK: {
 		int32_t enable_irq;
 
 		enable_irq = (x3 & IPI_SMC_ACK_EIRQ_MASK) ? 1 : 0;

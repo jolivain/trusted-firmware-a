@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,8 +7,6 @@
 #include <assert.h>
 #include <errno.h>
 #include <string.h>
-
-#include <platform_def.h>
 
 #include <arch_helpers.h>
 #include <bl1/tbbr/tbbr_img_desc.h>
@@ -21,10 +19,12 @@
 #include <drivers/dw_ufs.h>
 #include <drivers/generic_delay_timer.h>
 #include <drivers/ufs.h>
-#include <lib/mmio.h>
-#include <plat/common/platform.h>
-
 #include <hi3660.h>
+#include <lib/mmio.h>
+
+#include <plat/common/platform.h>
+#include <platform_def.h>
+
 #include "hikey960_def.h"
 #include "hikey960_private.h"
 
@@ -49,9 +49,9 @@ static console_t console;
  *****************************************************************************/
 static const interrupt_prop_t g0_interrupt_props[] = {
 	INTR_PROP_DESC(IRQ_SEC_PHY_TIMER, GIC_HIGHEST_SEC_PRIORITY,
-			GICV2_INTR_GROUP0, GIC_INTR_CFG_LEVEL),
+		       GICV2_INTR_GROUP0, GIC_INTR_CFG_LEVEL),
 	INTR_PROP_DESC(IRQ_SEC_SGI_0, GIC_HIGHEST_SEC_PRIORITY,
-			GICV2_INTR_GROUP0, GIC_INTR_CFG_LEVEL),
+		       GICV2_INTR_GROUP0, GIC_INTR_CFG_LEVEL),
 };
 
 const gicv2_driver_data_t hikey960_gic_data = {
@@ -80,8 +80,8 @@ void bl1_early_platform_setup(void)
 	else
 		uart_base = PL011_UART6_BASE;
 	/* Initialize the console to provide early debug support */
-	console_pl011_register(uart_base, PL011_UART_CLK_IN_HZ,
-			       PL011_BAUDRATE, &console);
+	console_pl011_register(uart_base, PL011_UART_CLK_IN_HZ, PL011_BAUDRATE,
+			       &console);
 
 	/* Allow BL1 to see the whole Trusted RAM */
 	bl1_tzram_layout.total_base = BL1_RW_BASE;
@@ -99,10 +99,8 @@ void bl1_early_platform_setup(void)
 void bl1_plat_arch_setup(void)
 {
 	hikey960_init_mmu_el3(bl1_tzram_layout.total_base,
-			      bl1_tzram_layout.total_size,
-			      BL1_RO_BASE,
-			      BL1_RO_LIMIT,
-			      BL_COHERENT_RAM_BASE,
+			      bl1_tzram_layout.total_size, BL1_RO_BASE,
+			      BL1_RO_LIMIT, BL_COHERENT_RAM_BASE,
 			      BL_COHERENT_RAM_END);
 }
 
@@ -130,8 +128,7 @@ static void hikey960_ufs_reset(void)
 	mmio_setbits_32(UFS_SYS_PSW_POWER_CTRL_REG, BIT_UFS_PSW_MTCMOS_EN);
 	mdelay(1);
 	mmio_setbits_32(UFS_SYS_HC_LP_CTRL_REG, BIT_SYSCTRL_PWR_READY);
-	mmio_write_32(UFS_SYS_UFS_DEVICE_RESET_CTRL_REG,
-		      MASK_UFS_DEVICE_RESET);
+	mmio_write_32(UFS_SYS_UFS_DEVICE_RESET_CTRL_REG, MASK_UFS_DEVICE_RESET);
 	/* clear SC_DIV_UFS_PERIBUS */
 	mask = SC_DIV_UFS_PERIBUS << 16;
 	mmio_write_32(CRG_CLKDIV17_REG, mask);
@@ -158,8 +155,7 @@ static void hikey960_ufs_reset(void)
 	mmio_write_32(UFS_SYS_UFS_DEVICE_RESET_CTRL_REG,
 		      MASK_UFS_DEVICE_RESET | BIT_UFS_DEVICE_RESET);
 	mdelay(20);
-	mmio_write_32(UFS_SYS_UFS_DEVICE_RESET_CTRL_REG,
-		      0x03300330);
+	mmio_write_32(UFS_SYS_UFS_DEVICE_RESET_CTRL_REG, 0x03300330);
 
 	mmio_write_32(CRG_PERRSTDIS3_REG, PERI_UFS_BIT);
 	do {
@@ -231,8 +227,7 @@ image_desc_t *bl1_plat_get_image_desc(unsigned int image_id)
 	return NULL;
 }
 
-void bl1_plat_set_ep_info(unsigned int image_id,
-		entry_point_info_t *ep_info)
+void bl1_plat_set_ep_info(unsigned int image_id, entry_point_info_t *ep_info)
 {
 	unsigned int data = 0;
 	uintptr_t tmp = HIKEY960_NS_TMP_OFFSET;
@@ -240,8 +235,7 @@ void bl1_plat_set_ep_info(unsigned int image_id,
 	if (image_id != NS_BL1U_IMAGE_ID)
 		panic();
 	/* Copy NS BL1U from 0x1AC1_8000 to 0x1AC9_8000 */
-	memcpy((void *)tmp, (void *)HIKEY960_NS_IMAGE_OFFSET,
-		NS_BL1U_SIZE);
+	memcpy((void *)tmp, (void *)HIKEY960_NS_IMAGE_OFFSET, NS_BL1U_SIZE);
 	memcpy((void *)NS_BL1U_BASE, (void *)tmp, NS_BL1U_SIZE);
 	inv_dcache_range(NS_BL1U_BASE, NS_BL1U_SIZE);
 	/* Initialize the GIC driver, cpu and distributor interfaces */
@@ -260,6 +254,5 @@ void bl1_plat_set_ep_info(unsigned int image_id,
 	INFO("cpacr_el1:0x%x\n", data);
 
 	ep_info->args.arg0 = 0xffff & read_mpidr();
-	ep_info->spsr = SPSR_64(MODE_EL1, MODE_SP_ELX,
-				DISABLE_ALL_EXCEPTIONS);
+	ep_info->spsr = SPSR_64(MODE_EL1, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 }

@@ -18,11 +18,11 @@
 
 /* TBBR CoT definitions */
 #if defined(SPD_spmd)
-#define COT_MAX_VERIFIED_PARAMS		8
+#define COT_MAX_VERIFIED_PARAMS 8
 #elif defined(ARM_COT_cca)
-#define COT_MAX_VERIFIED_PARAMS		8
+#define COT_MAX_VERIFIED_PARAMS 8
 #else
-#define COT_MAX_VERIFIED_PARAMS		4
+#define COT_MAX_VERIFIED_PARAMS 4
 #endif
 
 /*
@@ -35,26 +35,26 @@
  */
 #if TF_MBEDTLS_USE_RSA
 #if TF_MBEDTLS_KEY_SIZE == 1024
-#define PK_DER_LEN                      162
+#define PK_DER_LEN 162
 #elif TF_MBEDTLS_KEY_SIZE == 2048
-#define PK_DER_LEN                      294
+#define PK_DER_LEN 294
 #elif TF_MBEDTLS_KEY_SIZE == 3072
-#define PK_DER_LEN                      422
+#define PK_DER_LEN 422
 #elif TF_MBEDTLS_KEY_SIZE == 4096
-#define PK_DER_LEN                      550
+#define PK_DER_LEN 550
 #else
 #error "Invalid value for TF_MBEDTLS_KEY_SIZE"
 #endif
 #else /* Only using ECDSA keys. */
-#define PK_DER_LEN                      92
+#define PK_DER_LEN 92
 #endif
 
 #if TF_MBEDTLS_HASH_ALG_ID == TF_MBEDTLS_SHA256
-#define HASH_DER_LEN                    51
+#define HASH_DER_LEN 51
 #elif TF_MBEDTLS_HASH_ALG_ID == TF_MBEDTLS_SHA384
-#define HASH_DER_LEN                    67
+#define HASH_DER_LEN 67
 #elif TF_MBEDTLS_HASH_ALG_ID == TF_MBEDTLS_SHA512
-#define HASH_DER_LEN                    83
+#define HASH_DER_LEN 83
 #else
 #error "Invalid value for TF_MBEDTLS_HASH_ALG_ID"
 #endif

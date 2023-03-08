@@ -13,38 +13,38 @@
 #include <platform_def.h>
 
 /* Max instances */
-#define MAX_I2C					2U
+#define MAX_I2C 2U
 
 /* Transaction error codes defined in Master command register (0x30) */
-#define MSTR_STS_XACT_SUCCESS			0U
-#define MSTR_STS_LOST_ARB			1U
-#define MSTR_STS_NACK_FIRST_BYTE		2U
- /* NACK on a byte other than the first byte */
-#define MSTR_STS_NACK_NON_FIRST_BYTE		3U
+#define MSTR_STS_XACT_SUCCESS 0U
+#define MSTR_STS_LOST_ARB 1U
+#define MSTR_STS_NACK_FIRST_BYTE 2U
+/* NACK on a byte other than the first byte */
+#define MSTR_STS_NACK_NON_FIRST_BYTE 3U
 
-#define MSTR_STS_TTIMEOUT_EXCEEDED		4U
-#define MSTR_STS_TX_TLOW_MEXT_EXCEEDED		5U
-#define MSTR_STS_RX_TLOW_MEXT_EXCEEDED		6U
+#define MSTR_STS_TTIMEOUT_EXCEEDED 4U
+#define MSTR_STS_TX_TLOW_MEXT_EXCEEDED 5U
+#define MSTR_STS_RX_TLOW_MEXT_EXCEEDED 6U
 
 /* SMBUS protocol values defined in register 0x30 */
-#define SMBUS_PROT_QUICK_CMD			0U
-#define SMBUS_PROT_SEND_BYTE			1U
-#define SMBUS_PROT_RECV_BYTE			2U
-#define SMBUS_PROT_WR_BYTE			3U
-#define SMBUS_PROT_RD_BYTE			4U
-#define SMBUS_PROT_WR_WORD			5U
-#define SMBUS_PROT_RD_WORD			6U
-#define SMBUS_PROT_BLK_WR			7U
-#define SMBUS_PROT_BLK_RD			8U
-#define SMBUS_PROT_PROC_CALL			9U
-#define SMBUS_PROT_BLK_WR_BLK_RD_PROC_CALL	10U
+#define SMBUS_PROT_QUICK_CMD 0U
+#define SMBUS_PROT_SEND_BYTE 1U
+#define SMBUS_PROT_RECV_BYTE 2U
+#define SMBUS_PROT_WR_BYTE 3U
+#define SMBUS_PROT_RD_BYTE 4U
+#define SMBUS_PROT_WR_WORD 5U
+#define SMBUS_PROT_RD_WORD 6U
+#define SMBUS_PROT_BLK_WR 7U
+#define SMBUS_PROT_BLK_RD 8U
+#define SMBUS_PROT_PROC_CALL 9U
+#define SMBUS_PROT_BLK_WR_BLK_RD_PROC_CALL 10U
 
 /* Number can be changed later */
-#define BUS_BUSY_COUNT				100000U
+#define BUS_BUSY_COUNT 100000U
 
-#define IPROC_I2C_INVALID_ADDR			0xFFU
+#define IPROC_I2C_INVALID_ADDR 0xFFU
 
-#define I2C_SMBUS_BLOCK_MAX			32U
+#define I2C_SMBUS_BLOCK_MAX 32U
 
 /*
  * Enum to specify clock speed. The user will provide it during initialization.
@@ -76,10 +76,8 @@ struct iproc_xact_info {
 	uint32_t cmd_valid;
 };
 
-static const uintptr_t smbus_base_reg_addr[MAX_I2C] = {
-	SMBUS0_REGS_BASE,
-	SMBUS1_REGS_BASE
-};
+static const uintptr_t smbus_base_reg_addr[MAX_I2C] = { SMBUS0_REGS_BASE,
+							SMBUS1_REGS_BASE };
 
 /* Function to read a value from specified register. */
 static uint32_t iproc_i2c_reg_read(uint32_t bus_id, unsigned long reg_addr)
@@ -96,8 +94,7 @@ static uint32_t iproc_i2c_reg_read(uint32_t bus_id, unsigned long reg_addr)
 }
 
 /* Function to write a value ('val') in to a specified register. */
-static void iproc_i2c_reg_write(uint32_t bus_id,
-				unsigned long reg_addr,
+static void iproc_i2c_reg_write(uint32_t bus_id, unsigned long reg_addr,
 				uint32_t val)
 {
 	uintptr_t smbus;
@@ -110,10 +107,8 @@ static void iproc_i2c_reg_write(uint32_t bus_id,
 }
 
 /* Function to clear and set bits in a specified register. */
-static void iproc_i2c_reg_clearset(uint32_t bus_id,
-				   unsigned long reg_addr,
-				   uint32_t clear,
-				   uint32_t set)
+static void iproc_i2c_reg_clearset(uint32_t bus_id, unsigned long reg_addr,
+				   uint32_t clear, uint32_t set)
 {
 	uintptr_t smbus;
 
@@ -246,8 +241,7 @@ static void iproc_i2c_write_trans_data(struct iproc_xact_info *info)
 		break;
 	case SMBUS_PROT_SEND_BYTE:
 		num_data_bytes = info->size;
-		iproc_i2c_reg_write(info->bus_id, SMB_MSTRDATAWR_REG,
-				    devaddr);
+		iproc_i2c_reg_write(info->bus_id, SMB_MSTRDATAWR_REG, devaddr);
 		break;
 	case SMBUS_PROT_RD_BYTE:
 	case SMBUS_PROT_RD_WORD:
@@ -262,8 +256,7 @@ static void iproc_i2c_write_trans_data(struct iproc_xact_info *info)
 		break;
 	case SMBUS_PROT_WR_BYTE:
 	case SMBUS_PROT_WR_WORD:
-		iproc_i2c_reg_write(info->bus_id, SMB_MSTRDATAWR_REG,
-				    devaddr);
+		iproc_i2c_reg_write(info->bus_id, SMB_MSTRDATAWR_REG, devaddr);
 		/*
 		 * No additional bytes to be written. Data portion is written
 		 * in the 'for' loop below
@@ -271,8 +264,7 @@ static void iproc_i2c_write_trans_data(struct iproc_xact_info *info)
 		num_data_bytes = info->size;
 		break;
 	case SMBUS_PROT_BLK_WR:
-		iproc_i2c_reg_write(info->bus_id, SMB_MSTRDATAWR_REG,
-				    devaddr);
+		iproc_i2c_reg_write(info->bus_id, SMB_MSTRDATAWR_REG, devaddr);
 		/* 3rd byte is byte count */
 		iproc_i2c_reg_write(info->bus_id, SMB_MSTRDATAWR_REG,
 				    info->size);
@@ -295,9 +287,9 @@ static void iproc_i2c_write_trans_data(struct iproc_xact_info *info)
 	for (i = 0U; num_data_bytes; --num_data_bytes, i++) {
 		/* For the last byte, set MASTER_WR_STATUS bit */
 		regval = (num_data_bytes == 1U) ?
-			 info->data[i] | SMB_MSTRWRSTS_MASK : info->data[i];
-		iproc_i2c_reg_write(info->bus_id, SMB_MSTRDATAWR_REG,
-				    regval);
+				 info->data[i] | SMB_MSTRWRSTS_MASK :
+				 info->data[i];
+		iproc_i2c_reg_write(info->bus_id, SMB_MSTRDATAWR_REG, regval);
 	}
 }
 
@@ -319,7 +311,7 @@ static int iproc_i2c_write_master_command(uint32_t mastercmd,
 		udelay(1U);
 		if (retry++ > BUS_BUSY_COUNT) {
 			ERROR("%s: START_BUSY bit didn't clear, exiting\n",
-				__func__);
+			      __func__);
 			return -1;
 		}
 		regval = iproc_i2c_reg_read(info->bus_id, SMB_MSTRCMD_REG);
@@ -337,7 +329,6 @@ static int iproc_i2c_write_master_command(uint32_t mastercmd,
 		}
 	}
 	return 0;
-
 }
 /* Function to initiate data send and verify completion status */
 static int iproc_i2c_data_send(struct iproc_xact_info *info)
@@ -360,7 +351,7 @@ static int iproc_i2c_data_send(struct iproc_xact_info *info)
 	 * start_busy_command bit to initiate the write transaction
 	 */
 	mastercmd = (info->smb_proto << SMB_MSTRSMBUSPROTO_SHIFT) |
-	    SMB_MSTRSTARTBUSYCMD_MASK;
+		    SMB_MSTRSTARTBUSYCMD_MASK;
 
 	if (iproc_i2c_write_master_command(mastercmd, info)) {
 		return -1;
@@ -396,7 +387,7 @@ static int iproc_i2c_data_recv(struct iproc_xact_info *info,
 	 * start_busy_command bit to initiate the write transaction
 	 */
 	mastercmd = (info->smb_proto << SMB_MSTRSMBUSPROTO_SHIFT) |
-		     SMB_MSTRSTARTBUSYCMD_MASK | info->size;
+		    SMB_MSTRSTARTBUSYCMD_MASK | info->size;
 
 	if (iproc_i2c_write_master_command(mastercmd, info)) {
 		return -1;
@@ -416,8 +407,8 @@ static int iproc_i2c_data_recv(struct iproc_xact_info *info,
 		 * and contact hw engg.
 		 * Assumption: PEC is disabled
 		 */
-		for (i = 0U; (i < *num_bytes_read) &&
-		     (i < I2C_SMBUS_BLOCK_MAX); i++) {
+		for (i = 0U; (i < *num_bytes_read) && (i < I2C_SMBUS_BLOCK_MAX);
+		     i++) {
 			/* Read Rx FIFO for data bytes */
 			regval = iproc_i2c_reg_read(info->bus_id,
 						    SMB_MSTRDATARD_REG);
@@ -635,8 +626,8 @@ int i2c_recv_byte(uint32_t bus_id, uint8_t devaddr, uint8_t *value)
 	rc = iproc_i2c_data_recv(&info, &num_bytes_read);
 
 	if (rc < 0) {
-		printf("%s: %s error accessing device 0x%x\n",
-		__func__, "Read", devaddr);
+		printf("%s: %s error accessing device 0x%x\n", __func__, "Read",
+		       devaddr);
 	}
 
 	return rc;
@@ -669,17 +660,15 @@ int i2c_send_byte(uint32_t bus_id, uint8_t devaddr, uint8_t value)
 	rc = iproc_i2c_data_send(&info);
 
 	if (rc < 0) {
-		ERROR("%s: %s error accessing device 0x%x\n",
-		__func__, "Write", devaddr);
+		ERROR("%s: %s error accessing device 0x%x\n", __func__, "Write",
+		      devaddr);
 	}
 
 	return rc;
 }
 
 /* Helper function to read a single byte */
-static int i2c_read_byte(uint32_t bus_id,
-			 uint8_t devaddr,
-			 uint8_t regoffset,
+static int i2c_read_byte(uint32_t bus_id, uint8_t devaddr, uint8_t regoffset,
 			 uint8_t *value)
 {
 	int rc;
@@ -693,8 +682,8 @@ static int i2c_read_byte(uint32_t bus_id,
 	rc = iproc_i2c_data_recv(&info, &num_bytes_read);
 
 	if (rc < 0) {
-		ERROR("%s: %s error accessing device 0x%x\n",
-		       __func__, "Read", devaddr);
+		ERROR("%s: %s error accessing device 0x%x\n", __func__, "Read",
+		      devaddr);
 	}
 	return rc;
 }
@@ -717,12 +706,8 @@ static int i2c_read_byte(uint32_t bus_id,
  * Return:
  *	0 on success, or -1 on failure.
  */
-int i2c_read(uint32_t bus_id,
-	     uint8_t devaddr,
-	     uint32_t addr,
-	     int alen,
-	     uint8_t *buffer,
-	     int len)
+int i2c_read(uint32_t bus_id, uint8_t devaddr, uint32_t addr, int alen,
+	     uint8_t *buffer, int len)
 {
 	uint32_t i;
 
@@ -748,9 +733,7 @@ int i2c_read(uint32_t bus_id,
 }
 
 /* Helper function to write a single byte */
-static int i2c_write_byte(uint32_t bus_id,
-			  uint8_t devaddr,
-			  uint8_t regoffset,
+static int i2c_write_byte(uint32_t bus_id, uint8_t devaddr, uint8_t regoffset,
 			  uint8_t value)
 {
 	int rc;
@@ -763,8 +746,8 @@ static int i2c_write_byte(uint32_t bus_id,
 	rc = iproc_i2c_data_send(&info);
 
 	if (rc < 0) {
-		ERROR("%s: %s error accessing device 0x%x\n",
-		       __func__, "Write", devaddr);
+		ERROR("%s: %s error accessing device 0x%x\n", __func__, "Write",
+		      devaddr);
 		return -1;
 	}
 
@@ -789,12 +772,8 @@ static int i2c_write_byte(uint32_t bus_id,
  * Return:
  *	0 on success, or -1 on failure.
  */
-int i2c_write(uint32_t bus_id,
-	      uint8_t devaddr,
-	      uint32_t addr,
-	      int alen,
-	      uint8_t *buffer,
-	      int len)
+int i2c_write(uint32_t bus_id, uint8_t devaddr, uint32_t addr, int alen,
+	      uint8_t *buffer, int len)
 {
 	uint32_t i;
 
@@ -883,4 +862,3 @@ uint32_t i2c_get_bus_speed(uint32_t bus_id)
 	}
 	return retval;
 }
-

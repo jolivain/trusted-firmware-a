@@ -31,18 +31,18 @@
  * @name Defines for type widths
  */
 /*@{*/
-#define SC_TIMER_ACTION_W   3U	/* Width of sc_timer_wdog_action_t */
+#define SC_TIMER_ACTION_W 3U /* Width of sc_timer_wdog_action_t */
 /*@}*/
 
 /*!
  * @name Defines for sc_timer_wdog_action_t
  */
 /*@{*/
-#define SC_TIMER_WDOG_ACTION_PARTITION      0U	/* Reset partition */
-#define SC_TIMER_WDOG_ACTION_WARM           1U	/* Warm reset system */
-#define SC_TIMER_WDOG_ACTION_COLD           2U	/* Cold reset system */
-#define SC_TIMER_WDOG_ACTION_BOARD          3U	/* Reset board */
-#define SC_TIMER_WDOG_ACTION_IRQ            4U	/* Only generate IRQs */
+#define SC_TIMER_WDOG_ACTION_PARTITION 0U /* Reset partition */
+#define SC_TIMER_WDOG_ACTION_WARM 1U /* Warm reset system */
+#define SC_TIMER_WDOG_ACTION_COLD 2U /* Cold reset system */
+#define SC_TIMER_WDOG_ACTION_BOARD 3U /* Reset board */
+#define SC_TIMER_WDOG_ACTION_IRQ 4U /* Only generate IRQs */
 /*@}*/
 
 /* Types */
@@ -139,8 +139,7 @@ sc_err_t sc_timer_ping_wdog(sc_ipc_t ipc);
  *
  * @return Returns an error code (SC_ERR_NONE = success).
  */
-sc_err_t sc_timer_get_wdog_status(sc_ipc_t ipc,
-				  sc_timer_wdog_time_t *timeout,
+sc_err_t sc_timer_get_wdog_status(sc_ipc_t ipc, sc_timer_wdog_time_t *timeout,
 				  sc_timer_wdog_time_t *max_timeout,
 				  sc_timer_wdog_time_t *remaining_time);
 
@@ -179,8 +178,8 @@ sc_err_t sc_timer_pt_get_wdog_status(sc_ipc_t ipc, sc_rm_pt_t pt,
  * - SC_ERR_NOACCESS if caller's partition is not the SYSTEM owner,
  * - SC_ERR_LOCKED if the watchdog is locked
  */
-sc_err_t sc_timer_set_wdog_action(sc_ipc_t ipc,
-				  sc_rm_pt_t pt, sc_timer_wdog_action_t action);
+sc_err_t sc_timer_set_wdog_action(sc_ipc_t ipc, sc_rm_pt_t pt,
+				  sc_timer_wdog_action_t action);
 
 /* @} */
 
@@ -353,6 +352,6 @@ sc_err_t sc_timer_cancel_sysctr_alarm(sc_ipc_t ipc);
 
 /* @} */
 
-#endif				/* SC_TIMER_API_H */
+#endif /* SC_TIMER_API_H */
 
 /**@}*/

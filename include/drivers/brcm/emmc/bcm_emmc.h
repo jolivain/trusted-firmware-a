@@ -13,21 +13,21 @@
 
 #include <platform_def.h>
 
-#include "emmc_chal_types.h"
 #include "emmc_chal_sd.h"
-#include "emmc_csl_sdprot.h"
+#include "emmc_chal_types.h"
 #include "emmc_csl_sdcmd.h"
+#include "emmc_csl_sdprot.h"
 #include "emmc_pboot_hal_memory_drv.h"
 
 /* ------------------------------------------------------------------- */
-#define EXT_CSD_SIZE		512
+#define EXT_CSD_SIZE 512
 
 #ifdef PLAT_SD_MAX_READ_LENGTH
 #define SD_MAX_READ_LENGTH PLAT_SD_MAX_READ_LENGTH
 #ifdef USE_EMMC_LARGE_BLK_TRANSFER_LENGTH
-#define SD_MAX_BLK_TRANSFER_LENGTH	0x10000000
+#define SD_MAX_BLK_TRANSFER_LENGTH 0x10000000
 #else
-#define SD_MAX_BLK_TRANSFER_LENGTH	0x1000
+#define SD_MAX_BLK_TRANSFER_LENGTH 0x1000
 #endif
 #else
 #define SD_MAX_READ_LENGTH EMMC_BLOCK_SIZE
@@ -77,12 +77,12 @@ struct emmc_global_vars {
 #define ICFG_SDIO0_CAP1__SDR104_R 1
 #define ICFG_SDIO0_CAP1__SDR50_R 0
 
-#define SDIO0_CTRL_REGS_BASE_ADDR	   (SDIO0_EMMCSDXC_SYSADDR)
-#define SDIO0_IDM_RESET_CTRL_ADDR	   (SDIO_IDM0_IDM_RESET_CONTROL)
+#define SDIO0_CTRL_REGS_BASE_ADDR (SDIO0_EMMCSDXC_SYSADDR)
+#define SDIO0_IDM_RESET_CTRL_ADDR (SDIO_IDM0_IDM_RESET_CONTROL)
 
-#define EMMC_CTRL_REGS_BASE_ADDR	    SDIO0_CTRL_REGS_BASE_ADDR
-#define EMMC_IDM_RESET_CTRL_ADDR	    SDIO0_IDM_RESET_CTRL_ADDR
-#define EMMC_IDM_IO_CTRL_DIRECT_ADDR	SDIO_IDM0_IO_CONTROL_DIRECT
+#define EMMC_CTRL_REGS_BASE_ADDR SDIO0_CTRL_REGS_BASE_ADDR
+#define EMMC_IDM_RESET_CTRL_ADDR SDIO0_IDM_RESET_CTRL_ADDR
+#define EMMC_IDM_IO_CTRL_DIRECT_ADDR SDIO_IDM0_IO_CONTROL_DIRECT
 
 extern struct emmc_global_buffer *emmc_global_buf_ptr;
 

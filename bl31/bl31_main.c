@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -20,12 +20,13 @@
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/pmf/pmf.h>
 #include <lib/runtime_instr.h>
-#include <plat/common/platform.h>
 #include <services/std_svc.h>
 
+#include <plat/common/platform.h>
+
 #if ENABLE_RUNTIME_INSTRUMENTATION
-PMF_REGISTER_SERVICE_SMC(rt_instr_svc, PMF_RT_INSTR_SVC_ID,
-	RT_INSTR_TOTAL_IDS, PMF_STORE_ENABLE)
+PMF_REGISTER_SERVICE_SMC(rt_instr_svc, PMF_RT_INSTR_SVC_ID, RT_INSTR_TOTAL_IDS,
+			 PMF_STORE_ENABLE)
 #endif
 
 /*******************************************************************************
@@ -233,7 +234,7 @@ void __init bl31_prepare_next_image_entry(void)
 	 */
 	if (el_implemented(1) == EL_IMPL_A64ONLY) {
 		ERROR("EL1 supports AArch64-only. Please set build flag "
-				"CTX_INCLUDE_AARCH32_REGS = 0\n");
+		      "CTX_INCLUDE_AARCH32_REGS = 0\n");
 		panic();
 	}
 #endif
@@ -247,7 +248,7 @@ void __init bl31_prepare_next_image_entry(void)
 	assert(image_type == GET_SECURITY_STATE(next_image_info->h.attr));
 
 	INFO("BL31: Preparing for EL3 exit to %s world\n",
-		(image_type == SECURE) ? "secure" : "normal");
+	     (image_type == SECURE) ? "secure" : "normal");
 	print_entry_point_info(next_image_info);
 	cm_init_my_context(next_image_info);
 

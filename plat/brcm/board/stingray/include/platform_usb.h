@@ -9,8 +9,8 @@
 
 #include <platform_def.h>
 
-#define USB3_DRD		BIT(0U)
-#define USB3H_USB2DRD		BIT(1U)
+#define USB3_DRD BIT(0U)
+#define USB3H_USB2DRD BIT(1U)
 
 extern const unsigned int xhc_portsc_reg_offset[MAX_USB_PORTS];
 

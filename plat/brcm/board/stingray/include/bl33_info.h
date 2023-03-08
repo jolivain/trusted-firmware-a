@@ -8,7 +8,7 @@
 #define BL33_INFO_H
 
 /* Increase version number each time this file is modified */
-#define BL33_INFO_VERSION	4
+#define BL33_INFO_VERSION 4
 
 struct chip_info {
 	unsigned int chip_id;

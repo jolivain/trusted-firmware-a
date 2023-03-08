@@ -1,20 +1,20 @@
 /*
- * Copyright (c) 2016-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
-#include <platform_def.h>
-
 #include <bl32/sp_min/platform_sp_min.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <drivers/console.h>
 #include <lib/mmio.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 static entry_point_info_t bl33_image_ep_info;
 
@@ -23,10 +23,9 @@ static entry_point_info_t bl33_image_ep_info;
 #pragma weak sp_min_plat_arch_setup
 #pragma weak plat_arm_sp_min_early_platform_setup
 
-#define MAP_BL_SP_MIN_TOTAL	MAP_REGION_FLAT(			\
-					BL32_BASE,			\
-					BL32_END - BL32_BASE,		\
-					MT_MEMORY | MT_RW | MT_SECURE)
+#define MAP_BL_SP_MIN_TOTAL                              \
+	MAP_REGION_FLAT(BL32_BASE, BL32_END - BL32_BASE, \
+			MT_MEMORY | MT_RW | MT_SECURE)
 
 /*
  * Check that BL32_BASE is above ARM_FW_CONFIG_LIMIT. The reserved page
@@ -62,7 +61,8 @@ entry_point_info_t *sp_min_plat_get_bl33_ep_info(void)
  * Utility function to perform early platform setup.
  ******************************************************************************/
 void arm_sp_min_early_platform_setup(void *from_bl2, uintptr_t tos_fw_config,
-			uintptr_t hw_config, void *plat_params_from_bl2)
+				     uintptr_t hw_config,
+				     void *plat_params_from_bl2)
 {
 	/* Initialize the console to provide early debug support */
 	arm_console_boot_init();
@@ -73,10 +73,7 @@ void arm_sp_min_early_platform_setup(void *from_bl2, uintptr_t tos_fw_config,
 	assert(plat_params_from_bl2 == NULL);
 
 	/* Populate entry point information for BL33 */
-	SET_PARAM_HEAD(&bl33_image_ep_info,
-				PARAM_EP,
-				VERSION_1,
-				0);
+	SET_PARAM_HEAD(&bl33_image_ep_info, PARAM_EP, VERSION_1, 0);
 	/*
 	 * Tell SP_MIN where the non-trusted software image
 	 * is located and the entry state information
@@ -85,7 +82,7 @@ void arm_sp_min_early_platform_setup(void *from_bl2, uintptr_t tos_fw_config,
 	bl33_image_ep_info.spsr = arm_get_spsr_for_bl33_entry();
 	SET_SECURITY_STATE(bl33_image_ep_info.h.attr, NON_SECURE);
 
-# if ARM_LINUX_KERNEL_AS_BL33
+#if ARM_LINUX_KERNEL_AS_BL33
 	/*
 	 * According to the file ``Documentation/arm/Booting`` of the Linux
 	 * kernel tree, Linux expects:
@@ -96,7 +93,7 @@ void arm_sp_min_early_platform_setup(void *from_bl2, uintptr_t tos_fw_config,
 	bl33_image_ep_info.args.arg0 = 0U;
 	bl33_image_ep_info.args.arg1 = ~0U;
 	bl33_image_ep_info.args.arg2 = (u_register_t)ARM_PRELOADED_DTB_BASE;
-# endif
+#endif
 
 #else /* RESET_TO_SP_MIN */
 
@@ -127,14 +124,13 @@ void arm_sp_min_early_platform_setup(void *from_bl2, uintptr_t tos_fw_config,
 		panic();
 
 #endif /* RESET_TO_SP_MIN */
-
 }
 
 /*******************************************************************************
  * Default implementation for sp_min_platform_setup2() for ARM platforms
  ******************************************************************************/
 void plat_arm_sp_min_early_platform_setup(u_register_t arg0, u_register_t arg1,
-			u_register_t arg2, u_register_t arg3)
+					  u_register_t arg2, u_register_t arg3)
 {
 	arm_sp_min_early_platform_setup((void *)arg0, arg1, arg2, (void *)arg3);
 
@@ -156,7 +152,7 @@ void plat_arm_sp_min_early_platform_setup(u_register_t arg0, u_register_t arg1,
 }
 
 void sp_min_early_platform_setup2(u_register_t arg0, u_register_t arg1,
-			u_register_t arg2, u_register_t arg3)
+				  u_register_t arg2, u_register_t arg3)
 {
 	plat_arm_sp_min_early_platform_setup(arg0, arg1, arg2, arg3);
 }
@@ -200,7 +196,7 @@ void sp_min_platform_setup(void)
 	/* Enable and initialize the System level generic timer */
 #ifdef ARM_SYS_CNTCTL_BASE
 	mmio_write_32(ARM_SYS_CNTCTL_BASE + CNTCR_OFF,
-			CNTCR_FCREQ(0U) | CNTCR_EN);
+		      CNTCR_FCREQ(0U) | CNTCR_EN);
 #endif
 #ifdef ARM_SYS_TIMCTL_BASE
 	/* Allow access to the System counter timer module */
@@ -227,7 +223,7 @@ void arm_sp_min_plat_arch_setup(void)
 #if USE_COHERENT_MEM
 		ARM_MAP_BL_COHERENT_RAM,
 #endif
-		{0}
+		{ 0 }
 	};
 
 	setup_page_tables(bl_regions, plat_arm_get_mmap());

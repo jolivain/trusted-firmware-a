@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2022-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -16,14 +16,15 @@
 #include <lib/utils.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
 #include <libfdt.h>
-#include <plat/common/common_def.h>
-#include <plat/common/platform.h>
 #include <services/ffa_svc.h>
-#include "spm_common.h"
-#include "spmc.h"
 #include <tools_share/firmware_image_package.h>
 
+#include <plat/common/common_def.h>
+#include <plat/common/platform.h>
 #include <platform_def.h>
+
+#include "spm_common.h"
+#include "spmc.h"
 
 /*
  * Statically allocate a page of memory for passing boot information to an SP.
@@ -47,10 +48,10 @@ static void spmc_create_boot_info(entry_point_info_t *ep_info,
 	 * Calculate the maximum size of the manifest that can be accommodated
 	 * in the boot information memory region.
 	 */
-	const unsigned int
-	max_manifest_sz = sizeof(ffa_boot_info_mem) -
-			  (sizeof(struct ffa_boot_info_header) +
-			   sizeof(struct ffa_boot_info_desc));
+	const unsigned int max_manifest_sz =
+		sizeof(ffa_boot_info_mem) -
+		(sizeof(struct ffa_boot_info_header) +
+		 sizeof(struct ffa_boot_info_desc));
 
 	/*
 	 * The current implementation only supports the FF-A v1.1
@@ -80,14 +81,14 @@ static void spmc_create_boot_info(entry_point_info_t *ep_info,
 	 * Populate the ffa_boot_info_header at the start of the boot info
 	 * region.
 	 */
-	boot_header = (struct ffa_boot_info_header *) ffa_boot_info_mem;
+	boot_header = (struct ffa_boot_info_header *)ffa_boot_info_mem;
 
 	/* Position the ffa_boot_info_desc after the ffa_boot_info_header. */
 	boot_header->offset_boot_info_desc =
-					sizeof(struct ffa_boot_info_header);
-	boot_descriptor = (struct ffa_boot_info_desc *)
-			  (ffa_boot_info_mem +
-			   boot_header->offset_boot_info_desc);
+		sizeof(struct ffa_boot_info_header);
+	boot_descriptor = (struct ffa_boot_info_desc
+				   *)(ffa_boot_info_mem +
+				      boot_header->offset_boot_info_desc);
 
 	/*
 	 * We must use the FF-A version coresponding to the version implemented
@@ -117,13 +118,13 @@ static void spmc_create_boot_info(entry_point_info_t *ep_info,
 	 * Copy the manifest into boot info region after the boot information
 	 * descriptor.
 	 */
-	boot_descriptor->size_boot_info = (uint32_t) ep_info->args.arg1;
+	boot_descriptor->size_boot_info = (uint32_t)ep_info->args.arg1;
 
-	manifest_addr = (uintptr_t) (ffa_boot_info_mem +
-				     boot_header->offset_boot_info_desc +
-				     boot_header->size_boot_info_desc);
+	manifest_addr = (uintptr_t)(ffa_boot_info_mem +
+				    boot_header->offset_boot_info_desc +
+				    boot_header->size_boot_info_desc);
 
-	memcpy((void *) manifest_addr, (void *) ep_info->args.arg0,
+	memcpy((void *)manifest_addr, (void *)ep_info->args.arg0,
 	       boot_descriptor->size_boot_info);
 
 	boot_descriptor->content = manifest_addr;
@@ -135,10 +136,8 @@ static void spmc_create_boot_info(entry_point_info_t *ep_info,
 					    boot_header->size_boot_info_desc);
 
 	INFO("SP boot info @ 0x%lx, size: %u bytes.\n",
-	     (uintptr_t) ffa_boot_info_mem,
-	     boot_header->size_boot_info_blob);
-	INFO("SP manifest @ 0x%lx, size: %u bytes.\n",
-	     boot_descriptor->content,
+	     (uintptr_t)ffa_boot_info_mem, boot_header->size_boot_info_blob);
+	INFO("SP manifest @ 0x%lx, size: %u bytes.\n", boot_descriptor->content,
 	     boot_descriptor->size_boot_info);
 }
 
@@ -160,14 +159,13 @@ void spmc_el1_sp_setup(struct secure_partition_desc *sp,
 	assert(ep_info != NULL);
 
 	/* Initialise the SPSR for S-EL1 SPs. */
-	ep_info->spsr =	SPSR_64(MODE_EL1, MODE_SP_ELX,
-				DISABLE_ALL_EXCEPTIONS);
+	ep_info->spsr = SPSR_64(MODE_EL1, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 
 	/*
 	 * TF-A Implementation defined behaviour to provide the linear
 	 * core ID in the x4 register.
 	 */
-	ep_info->args.arg4 = (uintptr_t) plat_my_core_pos();
+	ep_info->args.arg4 = (uintptr_t)plat_my_core_pos();
 
 	/*
 	 * Check whether setup is being performed for the primary or a secondary
@@ -188,8 +186,7 @@ void spmc_el1_sp_setup(struct secure_partition_desc *sp,
 
 /* Common initialisation for all SPs. */
 void spmc_sp_common_setup(struct secure_partition_desc *sp,
-			  entry_point_info_t *ep_info,
-			  int32_t boot_info_reg)
+			  entry_point_info_t *ep_info, int32_t boot_info_reg)
 {
 	uint16_t sp_id;
 
@@ -239,16 +236,16 @@ void spmc_sp_common_setup(struct secure_partition_desc *sp,
 		 */
 		switch (boot_info_reg) {
 		case 0:
-			ep_info->args.arg0 = (uintptr_t) ffa_boot_info_mem;
+			ep_info->args.arg0 = (uintptr_t)ffa_boot_info_mem;
 			break;
 		case 1:
-			ep_info->args.arg1 = (uintptr_t) ffa_boot_info_mem;
+			ep_info->args.arg1 = (uintptr_t)ffa_boot_info_mem;
 			break;
 		case 2:
-			ep_info->args.arg2 = (uintptr_t) ffa_boot_info_mem;
+			ep_info->args.arg2 = (uintptr_t)ffa_boot_info_mem;
 			break;
 		case 3:
-			ep_info->args.arg3 = (uintptr_t) ffa_boot_info_mem;
+			ep_info->args.arg3 = (uintptr_t)ffa_boot_info_mem;
 			break;
 		default:
 			ERROR("Invalid value for \"gp-register-num\" %d.\n",

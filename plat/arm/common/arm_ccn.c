@@ -1,14 +1,14 @@
 /*
- * Copyright (c) 2016-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include <platform_def.h>
-
 #include <arch.h>
 #include <drivers/arm/ccn.h>
+
 #include <plat/arm/common/plat_arm.h>
+#include <platform_def.h>
 
 static const unsigned char master_to_rn_id_map[] = {
 	PLAT_ARM_CLUSTER_TO_CCN_ID_MAP
@@ -21,7 +21,7 @@ static const ccn_desc_t arm_ccn_desc = {
 };
 
 CASSERT(PLAT_ARM_CLUSTER_COUNT == ARRAY_SIZE(master_to_rn_id_map),
-		assert_invalid_cluster_count_for_ccn_variant);
+	assert_invalid_cluster_count_for_ccn_variant);
 
 /******************************************************************************
  * The following functions are defined as weak to allow a platform to override
@@ -30,7 +30,6 @@ CASSERT(PLAT_ARM_CLUSTER_COUNT == ARRAY_SIZE(master_to_rn_id_map),
 #pragma weak plat_arm_interconnect_init
 #pragma weak plat_arm_interconnect_enter_coherency
 #pragma weak plat_arm_interconnect_exit_coherency
-
 
 /******************************************************************************
  * Helper function to initialize ARM CCN driver.

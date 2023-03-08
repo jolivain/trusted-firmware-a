@@ -11,11 +11,11 @@
 
 #include <common/debug.h>
 #include <lib/mmio.h>
-#include <plat/common/platform.h>
-#include <tools_share/tbbr_oid.h>
-
 #include <sbl_util.h>
 #include <sotp.h>
+#include <tools_share/tbbr_oid.h>
+
+#include <plat/common/platform.h>
 
 /* Weak definition may be overridden in specific platform */
 #pragma weak plat_match_rotpk
@@ -23,44 +23,42 @@
 #pragma weak plat_set_nv_ctr
 
 /* SHA256 algorithm */
-#define SHA256_BYTES			32
+#define SHA256_BYTES 32
 
 /* ROTPK locations */
-#define ARM_ROTPK_REGS_ID		1
-#define ARM_ROTPK_DEVEL_RSA_ID		2
-#define BRCM_ROTPK_SOTP_RSA_ID		3
+#define ARM_ROTPK_REGS_ID 1
+#define ARM_ROTPK_DEVEL_RSA_ID 2
+#define BRCM_ROTPK_SOTP_RSA_ID 3
 
 #if !ARM_ROTPK_LOCATION_ID
-  #error "ARM_ROTPK_LOCATION_ID not defined"
+#error "ARM_ROTPK_LOCATION_ID not defined"
 #endif
 
 static const unsigned char rotpk_hash_hdr[] =
-		"\x30\x31\x30\x0D\x06\x09\x60\x86\x48"
-		"\x01\x65\x03\x04\x02\x01\x05\x00\x04\x20";
+	"\x30\x31\x30\x0D\x06\x09\x60\x86\x48"
+	"\x01\x65\x03\x04\x02\x01\x05\x00\x04\x20";
 static const unsigned int rotpk_hash_hdr_len = sizeof(rotpk_hash_hdr) - 1;
 static unsigned char rotpk_hash_der[sizeof(rotpk_hash_hdr) - 1 + SHA256_BYTES];
 
 #if (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_RSA_ID)
 static const unsigned char arm_devel_rotpk_hash[] =
-		"\xB0\xF3\x82\x09\x12\x97\xD8\x3A"
-		"\x37\x7A\x72\x47\x1B\xEC\x32\x73"
-		"\xE9\x92\x32\xE2\x49\x59\xF6\x5E"
-		"\x8B\x4A\x4A\x46\xD8\x22\x9A\xDA";
+	"\xB0\xF3\x82\x09\x12\x97\xD8\x3A"
+	"\x37\x7A\x72\x47\x1B\xEC\x32\x73"
+	"\xE9\x92\x32\xE2\x49\x59\xF6\x5E"
+	"\x8B\x4A\x4A\x46\xD8\x22\x9A\xDA";
 #endif
 
 #pragma weak plat_rotpk_hash
-const unsigned char plat_rotpk_hash[] =
-		"\xdb\x06\x67\x95\x4f\x88\x2b\x88"
-		"\x49\xbf\x70\x3f\xde\x50\x4a\x96"
-		"\xd8\x17\x69\xd4\xa0\x6c\xba\xee"
-		"\x66\x3e\x71\x82\x2d\x95\x69\xe4";
+const unsigned char plat_rotpk_hash[] = "\xdb\x06\x67\x95\x4f\x88\x2b\x88"
+					"\x49\xbf\x70\x3f\xde\x50\x4a\x96"
+					"\xd8\x17\x69\xd4\xa0\x6c\xba\xee"
+					"\x66\x3e\x71\x82\x2d\x95\x69\xe4";
 
 #pragma weak rom_slice
-const unsigned char rom_slice[] =
-		"\x77\x06\xbc\x98\x40\xbe\xfd\xab"
-		"\x60\x4b\x74\x3c\x9a\xb3\x80\x75"
-		"\x39\xb6\xda\x27\x07\x2e\x5b\xbf"
-		"\x5c\x47\x91\xc9\x95\x26\x26\x0c";
+const unsigned char rom_slice[] = "\x77\x06\xbc\x98\x40\xbe\xfd\xab"
+				  "\x60\x4b\x74\x3c\x9a\xb3\x80\x75"
+				  "\x39\xb6\xda\x27\x07\x2e\x5b\xbf"
+				  "\x5c\x47\x91\xc9\x95\x26\x26\x0c";
 
 #if (ARM_ROTPK_LOCATION_ID == BRCM_ROTPK_SOTP_RSA_ID)
 static int plat_is_trusted_boot(void)
@@ -92,10 +90,8 @@ static int plat_fast_auth_enabled(void)
 	uint64_t section3_row0_data;
 	uint64_t section3_row1_data;
 
-	section3_row0_data =
-		sotp_mem_read(SOTP_DEVICE_SECURE_CFG0_ROW, 0);
-	section3_row1_data =
-		sotp_mem_read(SOTP_DEVICE_SECURE_CFG1_ROW, 0);
+	section3_row0_data = sotp_mem_read(SOTP_DEVICE_SECURE_CFG0_ROW, 0);
+	section3_row1_data = sotp_mem_read(SOTP_DEVICE_SECURE_CFG1_ROW, 0);
 
 	chip_state = mmio_read_32(SOTP_REGS_SOTP_CHIP_STATES);
 
@@ -173,7 +169,7 @@ int plat_get_rotpk_info(void *cookie, void **key_ptr, unsigned int *key_len,
 
 	/* Swap bytes 0-15 (first four registers) */
 	src = (uint32_t *)TZ_PUB_KEY_HASH_BASE;
-	for (i = 0 ; i < words ; i++) {
+	for (i = 0; i < words; i++) {
 		tmp = src[words - 1 - i];
 		/* Words are read in little endian */
 		*dst++ = (uint8_t)((tmp >> 24) & 0xFF);
@@ -184,7 +180,7 @@ int plat_get_rotpk_info(void *cookie, void **key_ptr, unsigned int *key_len,
 
 	/* Swap bytes 16-31 (last four registers) */
 	src = (uint32_t *)(TZ_PUB_KEY_HASH_BASE + SHA256_BYTES / 2);
-	for (i = 0 ; i < words ; i++) {
+	for (i = 0; i < words; i++) {
 		tmp = src[words - 1 - i];
 		*dst++ = (uint8_t)((tmp >> 24) & 0xFF);
 		*dst++ = (uint8_t)((tmp >> 16) & 0xFF);
@@ -192,97 +188,93 @@ int plat_get_rotpk_info(void *cookie, void **key_ptr, unsigned int *key_len,
 		*dst++ = (uint8_t)(tmp & 0xFF);
 	}
 #elif (ARM_ROTPK_LOCATION_ID == BRCM_ROTPK_SOTP_RSA_ID)
-{
-	int i;
-	int ret = -1;
+	{
+		int i;
+		int ret = -1;
 
-	/*
+		/*
 	 * In non-AB mode, we do not read the key.
 	 * In AB mode:
 	 * - The Dauth is in BL11 if SBL is enabled
 	 * - The Dauth is in SOTP if SBL is disabled.
 	 */
-	if (plat_is_trusted_boot() == 0) {
-
-		INFO("NON-AB: Do not read DAUTH!\n");
-		*flags = ROTPK_NOT_DEPLOYED;
-		ret = 0;
-
-	} else if ((sbl_status() == SBL_ENABLED) &&
-		(mmio_read_32(BL11_DAUTH_BASE) == BL11_DAUTH_ID)) {
-
-		/* Read hash from BL11 */
-		INFO("readKeys (DAUTH) from BL11\n");
-
-		memcpy(dst,
-			(void *)(BL11_DAUTH_BASE + sizeof(uint32_t)),
-			SHA256_BYTES);
-
-		for (i = 0; i < SHA256_BYTES; i++)
-			if (dst[i] != 0)
-				break;
-
-		if (i >= SHA256_BYTES)
-			ERROR("Hash not valid from BL11\n");
-		else
+		if (plat_is_trusted_boot() == 0) {
+			INFO("NON-AB: Do not read DAUTH!\n");
+			*flags = ROTPK_NOT_DEPLOYED;
 			ret = 0;
 
-	} else if (sotp_key_erased()) {
+		} else if ((sbl_status() == SBL_ENABLED) &&
+			   (mmio_read_32(BL11_DAUTH_BASE) == BL11_DAUTH_ID)) {
+			/* Read hash from BL11 */
+			INFO("readKeys (DAUTH) from BL11\n");
 
-		memcpy(dst, plat_rotpk_hash, SHA256_BYTES);
+			memcpy(dst,
+			       (void *)(BL11_DAUTH_BASE + sizeof(uint32_t)),
+			       SHA256_BYTES);
 
-		INFO("SOTP erased, Use internal key hash.\n");
-		ret = 0;
+			for (i = 0; i < SHA256_BYTES; i++)
+				if (dst[i] != 0)
+					break;
 
-	} else if (plat_fast_auth_enabled()) {
-
-		INFO("AB DEV: FAST AUTH!\n");
-		*flags = ROTPK_NOT_DEPLOYED;
-		ret = 0;
-
-	} else if (!(mmio_read_32(SOTP_STATUS_1) & SOTP_DAUTH_ECC_ERROR_MASK)) {
-
-		/* Read hash from SOTP */
-		ret = sotp_read_key(dst,
-				    SHA256_BYTES,
-				    SOTP_DAUTH_ROW,
-				    SOTP_K_HMAC_ROW-1);
-
-		INFO("sotp_read_key (DAUTH): %i\n", ret);
-
-	} else {
-
-		uint64_t row_data;
-		uint32_t k;
-
-		for (k = 0; k < (SOTP_K_HMAC_ROW - SOTP_DAUTH_ROW); k++) {
-			row_data = sotp_mem_read(SOTP_DAUTH_ROW + k,
-					SOTP_ROW_NO_ECC);
-
-			if (row_data != 0)
-				break;
-		}
-
-		if (k == (SOTP_K_HMAC_ROW - SOTP_DAUTH_ROW)) {
-			INFO("SOTP NOT PROGRAMMED: Do not use DAUTH!\n");
-
-			if (sotp_mem_read(SOTP_ATF2_CFG_ROW_ID,
-					SOTP_ROW_NO_ECC) & SOTP_ROMKEY_MASK) {
-				memcpy(dst, plat_rotpk_hash, SHA256_BYTES);
-
-				INFO("Use internal key hash.\n");
+			if (i >= SHA256_BYTES)
+				ERROR("Hash not valid from BL11\n");
+			else
 				ret = 0;
-			} else {
-				*flags = ROTPK_NOT_DEPLOYED;
-				ret = 0;
-			}
+
+		} else if (sotp_key_erased()) {
+			memcpy(dst, plat_rotpk_hash, SHA256_BYTES);
+
+			INFO("SOTP erased, Use internal key hash.\n");
+			ret = 0;
+
+		} else if (plat_fast_auth_enabled()) {
+			INFO("AB DEV: FAST AUTH!\n");
+			*flags = ROTPK_NOT_DEPLOYED;
+			ret = 0;
+
+		} else if (!(mmio_read_32(SOTP_STATUS_1) &
+			     SOTP_DAUTH_ECC_ERROR_MASK)) {
+			/* Read hash from SOTP */
+			ret = sotp_read_key(dst, SHA256_BYTES, SOTP_DAUTH_ROW,
+					    SOTP_K_HMAC_ROW - 1);
+
+			INFO("sotp_read_key (DAUTH): %i\n", ret);
+
 		} else {
-			INFO("No hash found in SOTP\n");
+			uint64_t row_data;
+			uint32_t k;
+
+			for (k = 0; k < (SOTP_K_HMAC_ROW - SOTP_DAUTH_ROW);
+			     k++) {
+				row_data = sotp_mem_read(SOTP_DAUTH_ROW + k,
+							 SOTP_ROW_NO_ECC);
+
+				if (row_data != 0)
+					break;
+			}
+
+			if (k == (SOTP_K_HMAC_ROW - SOTP_DAUTH_ROW)) {
+				INFO("SOTP NOT PROGRAMMED: Do not use DAUTH!\n");
+
+				if (sotp_mem_read(SOTP_ATF2_CFG_ROW_ID,
+						  SOTP_ROW_NO_ECC) &
+				    SOTP_ROMKEY_MASK) {
+					memcpy(dst, plat_rotpk_hash,
+					       SHA256_BYTES);
+
+					INFO("Use internal key hash.\n");
+					ret = 0;
+				} else {
+					*flags = ROTPK_NOT_DEPLOYED;
+					ret = 0;
+				}
+			} else {
+				INFO("No hash found in SOTP\n");
+			}
 		}
+		if (ret)
+			return ret;
 	}
-	if (ret)
-		return ret;
-}
 #endif
 
 	*key_ptr = (void *)rotpk_hash_der;
@@ -294,14 +286,13 @@ int plat_get_rotpk_info(void *cookie, void **key_ptr, unsigned int *key_len,
 
 #define SOTP_NUM_BITS_PER_ROW 41
 #define SOTP_NVCTR_ROW_ALL_ONES 0x1ffffffffff
-#define SOTP_NVCTR_TRUSTED_IN_USE \
-		((uint64_t)0x3 << (SOTP_NUM_BITS_PER_ROW-2))
+#define SOTP_NVCTR_TRUSTED_IN_USE ((uint64_t)0x3 << (SOTP_NUM_BITS_PER_ROW - 2))
 #define SOTP_NVCTR_NON_TRUSTED_IN_USE ((uint64_t)0x3)
 #define SOTP_NVCTR_TRUSTED_NEAR_END SOTP_NVCTR_NON_TRUSTED_IN_USE
 #define SOTP_NVCTR_NON_TRUSTED_NEAR_END SOTP_NVCTR_TRUSTED_IN_USE
 
 #define SOTP_NVCTR_ROW_START 64
-#define SOTP_NVCTR_ROW_END   75
+#define SOTP_NVCTR_ROW_END 75
 
 /*
  * SOTP NVCTR are stored in section 10 of SOTP (rows 64-75).
@@ -374,7 +365,7 @@ unsigned int sotp_get_trusted_nvctr(void)
 		 * Current row in use and has data in last 2 bits as well.
 		 * Check if next row also has data for this counter
 		 */
-		nextrowdata = sotp_mem_read(rownum+1, SOTP_ROW_NO_ECC);
+		nextrowdata = sotp_mem_read(rownum + 1, SOTP_ROW_NO_ECC);
 		if (nextrowdata & SOTP_NVCTR_TRUSTED_IN_USE) {
 			/* Next row also has data so increment rownum */
 			rownum++;
@@ -422,7 +413,7 @@ unsigned int sotp_get_nontrusted_nvctr(void)
 		 * Current row in use and has data in last 2 bits as well.
 		 * Check if next row also has data for this counter
 		 */
-		nextrowdata = sotp_mem_read(rownum-1, SOTP_ROW_NO_ECC);
+		nextrowdata = sotp_mem_read(rownum - 1, SOTP_ROW_NO_ECC);
 		if (nextrowdata & SOTP_NVCTR_NON_TRUSTED_IN_USE) {
 			/* Next row also has data so decrement rownum */
 			rownum--;
@@ -435,9 +426,8 @@ unsigned int sotp_get_nontrusted_nvctr(void)
 	}
 
 	if (rowdata & SOTP_NVCTR_NON_TRUSTED_IN_USE) {
-		while ((rowdata & ((uint64_t)0x1 << (SOTP_NUM_BITS_PER_ROW-1)))
-			==
-			0) {
+		while ((rowdata &
+			((uint64_t)0x1 << (SOTP_NUM_BITS_PER_ROW - 1))) == 0) {
 			nvctr--;
 			rowdata <<= 1;
 		}
@@ -585,7 +575,7 @@ int plat_get_nv_ctr(void *cookie, unsigned int *nv_ctr)
 
 	*nv_ctr = 0;
 	if ((sotp_mem_read(SOTP_ATF_CFG_ROW_ID, SOTP_ROW_NO_ECC) &
-			SOTP_ATF_NVCOUNTER_ENABLE_MASK)) {
+	     SOTP_ATF_NVCOUNTER_ENABLE_MASK)) {
 		oid = (const char *)cookie;
 		if (strcmp(oid, TRUSTED_FW_NVCOUNTER_OID) == 0)
 			*nv_ctr = sotp_get_trusted_nvctr();
@@ -607,7 +597,7 @@ int plat_set_nv_ctr(void *cookie, unsigned int nv_ctr)
 	const char *oid;
 
 	if (sotp_mem_read(SOTP_ATF_CFG_ROW_ID, SOTP_ROW_NO_ECC) &
-			SOTP_ATF_NVCOUNTER_ENABLE_MASK) {
+	    SOTP_ATF_NVCOUNTER_ENABLE_MASK) {
 		INFO("set CTR %i\n", nv_ctr);
 		oid = (const char *)cookie;
 		if (strcmp(oid, TRUSTED_FW_NVCOUNTER_OID) == 0)

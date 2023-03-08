@@ -5,12 +5,14 @@
  */
 
 #include <assert.h>
-#include <plat/common/platform.h>
+
 #include <lib/pm/mtk_pm.h>
 
-#define MTK_PM_ST_SMP_READY	BIT(0)
-#define MTK_PM_ST_PWR_READY	BIT(1)
-#define MTK_PM_ST_RESET_READY	BIT(2)
+#include <plat/common/platform.h>
+
+#define MTK_PM_ST_SMP_READY BIT(0)
+#define MTK_PM_ST_PWR_READY BIT(1)
+#define MTK_PM_ST_RESET_READY BIT(2)
 
 static uintptr_t mtk_secure_entrypoint;
 static plat_init_func mtk_plat_smp_init;
@@ -34,7 +36,8 @@ int plat_pm_ops_setup_pwr(struct plat_pm_pwr_ctrl *ops)
 	}
 
 	if (!mtk_pm_ops.pwr_domain_suspend_finish) {
-		mtk_pm_ops.pwr_domain_suspend_finish = ops->pwr_domain_suspend_finish;
+		mtk_pm_ops.pwr_domain_suspend_finish =
+			ops->pwr_domain_suspend_finish;
 	}
 
 	if (!mtk_pm_ops.validate_power_state) {
@@ -42,7 +45,8 @@ int plat_pm_ops_setup_pwr(struct plat_pm_pwr_ctrl *ops)
 	}
 
 	if (!mtk_pm_ops.get_sys_suspend_power_state) {
-		mtk_pm_ops.get_sys_suspend_power_state = ops->get_sys_suspend_power_state;
+		mtk_pm_ops.get_sys_suspend_power_state =
+			ops->get_sys_suspend_power_state;
 	}
 
 	mtk_pm_status |= MTK_PM_ST_PWR_READY;

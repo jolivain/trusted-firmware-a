@@ -6,7 +6,7 @@
 #ifndef CUSTOM_SVC_H
 #define CUSTOM_SVC_H
 
-#define ZYNQMP_SIP_SVC_CUSTOM   U(0x82002000)
+#define ZYNQMP_SIP_SVC_CUSTOM U(0x82002000)
 #define ZYNQMP_SIP_SVC64_CUSTOM U(0xC2002000)
 
 uint64_t custom_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,

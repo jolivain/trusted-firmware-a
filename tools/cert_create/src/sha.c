@@ -1,10 +1,11 @@
 /*
- * Copyright (c) 2015-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <stdio.h>
+
 #include "debug.h"
 #include "key.h"
 #if USING_OPENSSL3
@@ -14,12 +15,12 @@
 #include <openssl/sha.h>
 #endif
 
-#define BUFFER_SIZE	256
+#define BUFFER_SIZE 256
 
 #if USING_OPENSSL3
 static int get_algorithm_nid(int hash_alg)
 {
-	int nids[] = {NID_sha256, NID_sha384, NID_sha512};
+	int nids[] = { NID_sha256, NID_sha384, NID_sha512 };
 	if (hash_alg < 0 || hash_alg >= sizeof(nids) / sizeof(*nids)) {
 		return NID_undef;
 	}
@@ -115,4 +116,3 @@ err:
 
 #endif
 }
-

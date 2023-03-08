@@ -7,14 +7,14 @@
 #include <errno.h>
 #include <limits.h>
 
-#include <platform_def.h>
-
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <drivers/delay_timer.h>
 #include <drivers/st/stm32mp_reset.h>
 #include <lib/mmio.h>
 #include <lib/utils_def.h>
+
+#include <platform_def.h>
 
 static uint32_t id2reg_offset(unsigned int reset_id)
 {

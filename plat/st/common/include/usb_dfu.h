@@ -11,33 +11,34 @@
 
 #include <drivers/usb_device.h>
 
-#define DFU_DESCRIPTOR_TYPE		0x21U
+#define DFU_DESCRIPTOR_TYPE 0x21U
 
 /* Max DFU Packet Size = 1024 bytes */
-#define USBD_DFU_XFER_SIZE		1024U
+#define USBD_DFU_XFER_SIZE 1024U
 
-#define TRANSFER_SIZE_BYTES(size) \
-	((uint8_t)((size) & 0xFF)), /* XFERSIZEB0 */\
-	((uint8_t)((size) >> 8))    /* XFERSIZEB1 */
+#define TRANSFER_SIZE_BYTES(size)                  \
+	((uint8_t)((size)&0xFF)), /* XFERSIZEB0 */ \
+		((uint8_t)((size) >> 8)) /* XFERSIZEB1 */
 
 /*
  * helper for descriptor of DFU interface 0 Alternate setting n
  * with iInterface = index of string descriptor, assumed Nth user string
  */
-#define USBD_DFU_IF_DESC(n)	0x09U, /* Interface Descriptor size */\
-				USB_DESC_TYPE_INTERFACE, /* descriptor type */\
-				0x00U, /* Number of Interface */\
-				(n), /* Alternate setting */\
-				0x00U, /* bNumEndpoints*/\
-				0xFEU, /* Application Specific Class Code */\
-				0x01U, /* Device Firmware Upgrade Code */\
-				0x02U, /* DFU mode protocol */ \
-				USBD_IDX_USER0_STR + (n) /* iInterface */
+#define USBD_DFU_IF_DESC(n)                                    \
+	0x09U, /* Interface Descriptor size */                 \
+		USB_DESC_TYPE_INTERFACE, /* descriptor type */ \
+		0x00U, /* Number of Interface */               \
+		(n), /* Alternate setting */                   \
+		0x00U, /* bNumEndpoints*/                      \
+		0xFEU, /* Application Specific Class Code */   \
+		0x01U, /* Device Firmware Upgrade Code */      \
+		0x02U, /* DFU mode protocol */                 \
+		USBD_IDX_USER0_STR + (n) /* iInterface */
 
 /* DFU1.1 Standard */
-#define USB_DFU_VERSION			0x0110U
-#define USB_DFU_ITF_SIZ			9U
-#define USB_DFU_DESC_SIZ(itf)		(USB_DFU_ITF_SIZ * ((itf) + 2U))
+#define USB_DFU_VERSION 0x0110U
+#define USB_DFU_ITF_SIZ 9U
+#define USB_DFU_DESC_SIZ(itf) (USB_DFU_ITF_SIZ * ((itf) + 2U))
 
 /*
  * bmAttribute value for DFU:
@@ -48,9 +49,9 @@
  * Reserved (bit4-6)
  * bitAcceleratedST = 0(bit 7)
  */
-#define DFU_BM_ATTRIBUTE		0x0FU
+#define DFU_BM_ATTRIBUTE 0x0FU
 
-#define DFU_STATUS_SIZE			6U
+#define DFU_STATUS_SIZE 6U
 
 /* Callback for media access */
 struct usb_dfu_media {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,11 +8,10 @@
 #include <string.h>
 
 #include <lib/mmio.h>
-
 #include <rpi_hw.h>
 
 /* Initial amount of values to discard */
-#define RNG_WARMUP_COUNT	U(0x40000)
+#define RNG_WARMUP_COUNT U(0x40000)
 
 static void rpi3_rng_initialize(void)
 {
@@ -42,9 +41,10 @@ static uint32_t rpi3_rng_get_word(void)
 
 	do {
 		/* Get number of available words to read */
-		nwords = (mmio_read_32(RPI3_RNG_BASE + RPI3_RNG_STATUS_OFFSET)
-				       >> RPI3_RNG_STATUS_NUM_WORDS_SHIFT)
-				       & RPI3_RNG_STATUS_NUM_WORDS_MASK;
+		nwords =
+			(mmio_read_32(RPI3_RNG_BASE + RPI3_RNG_STATUS_OFFSET) >>
+			 RPI3_RNG_STATUS_NUM_WORDS_SHIFT) &
+			RPI3_RNG_STATUS_NUM_WORDS_MASK;
 	} while (nwords == 0U);
 
 	return mmio_read_32(RPI3_RNG_BASE + RPI3_RNG_DATA_OFFSET);
@@ -58,7 +58,7 @@ void rpi3_rng_read(void *buf, size_t len)
 
 	assert(buf != NULL);
 	assert(len != 0U);
-	assert(check_uptr_overflow((uintptr_t) buf, (uintptr_t) len) == 0);
+	assert(check_uptr_overflow((uintptr_t)buf, (uintptr_t)len) == 0);
 
 	rpi3_rng_initialize();
 

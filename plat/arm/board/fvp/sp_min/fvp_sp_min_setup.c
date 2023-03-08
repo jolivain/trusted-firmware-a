@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,12 +10,13 @@
 #include <common/debug.h>
 #include <lib/fconf/fconf.h>
 #include <lib/fconf/fconf_dyn_cfg_getter.h>
+
 #include <plat/arm/common/plat_arm.h>
 
 #include "../fvp_private.h"
 
 void plat_arm_sp_min_early_platform_setup(u_register_t arg0, u_register_t arg1,
-			u_register_t arg2, u_register_t arg3)
+					  u_register_t arg2, u_register_t arg3)
 {
 	const struct dyn_cfg_dtb_info_t *tos_fw_config_info __unused;
 
@@ -99,8 +100,7 @@ void sp_min_plat_arch_setup(void)
 	 * size
 	 */
 	rc = mmap_add_dynamic_region((unsigned long long)hw_config_base_align,
-				     hw_config_base_align,
-				     mapped_size_align,
+				     hw_config_base_align, mapped_size_align,
 				     MT_RO_DATA);
 	if (rc != 0) {
 		ERROR("Error while mapping HW_CONFIG device tree (%d).\n", rc);
@@ -111,7 +111,8 @@ void sp_min_plat_arch_setup(void)
 	fconf_populate("HW_CONFIG", hw_config_info->config_addr);
 
 	/* unmap the HW_CONFIG memory region */
-	rc = mmap_remove_dynamic_region(hw_config_base_align, mapped_size_align);
+	rc = mmap_remove_dynamic_region(hw_config_base_align,
+					mapped_size_align);
 	if (rc != 0) {
 		ERROR("Error while unmapping HW_CONFIG device tree (%d).\n",
 		      rc);

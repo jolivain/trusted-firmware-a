@@ -7,35 +7,35 @@
 #include <assert.h>
 
 #include <drivers/gpio.h>
-#include <lib/mmio.h>
-#include <plat/common/platform.h>
-
 #include <iproc_gpio.h>
+#include <lib/mmio.h>
+
+#include <plat/common/platform.h>
 #include <platform_def.h>
 
-#define IPROC_GPIO_DATA_IN_OFFSET     0x00
-#define IPROC_GPIO_DATA_OUT_OFFSET    0x04
-#define IPROC_GPIO_OUT_EN_OFFSET      0x08
-#define IPROC_GPIO_PAD_RES_OFFSET     0x34
-#define IPROC_GPIO_RES_EN_OFFSET      0x38
+#define IPROC_GPIO_DATA_IN_OFFSET 0x00
+#define IPROC_GPIO_DATA_OUT_OFFSET 0x04
+#define IPROC_GPIO_OUT_EN_OFFSET 0x08
+#define IPROC_GPIO_PAD_RES_OFFSET 0x34
+#define IPROC_GPIO_RES_EN_OFFSET 0x38
 
-#define PINMUX_OFFSET(gpio)           ((gpio) * 4)
-#define PINCONF_OFFSET(gpio)          ((gpio) * 4)
-#define PINCONF_PULL_UP               BIT(4)
-#define PINCONF_PULL_DOWN             BIT(5)
+#define PINMUX_OFFSET(gpio) ((gpio)*4)
+#define PINCONF_OFFSET(gpio) ((gpio)*4)
+#define PINCONF_PULL_UP BIT(4)
+#define PINCONF_PULL_DOWN BIT(5)
 
 /*
  * iProc GPIO bank is always 0x200 per bank,
  * with each bank supporting 32 GPIOs.
  */
-#define GPIO_BANK_SIZE                0x200
-#define NGPIOS_PER_BANK               32
-#define GPIO_BANK(pin)                ((pin) / NGPIOS_PER_BANK)
+#define GPIO_BANK_SIZE 0x200
+#define NGPIOS_PER_BANK 32
+#define GPIO_BANK(pin) ((pin) / NGPIOS_PER_BANK)
 
-#define IPROC_GPIO_REG(pin, reg)      (GPIO_BANK(pin) * GPIO_BANK_SIZE + (reg))
-#define IPROC_GPIO_SHIFT(pin)         ((pin) % NGPIOS_PER_BANK)
+#define IPROC_GPIO_REG(pin, reg) (GPIO_BANK(pin) * GPIO_BANK_SIZE + (reg))
+#define IPROC_GPIO_SHIFT(pin) ((pin) % NGPIOS_PER_BANK)
 
-#define MUX_GPIO_MODE                 0x3
+#define MUX_GPIO_MODE 0x3
 
 /*
  * @base: base address of the gpio controller
@@ -103,7 +103,8 @@ static int get_direction(int gpio)
 
 	mux_to_gpio(g, gpio);
 	dir = gpio_get_bit(g->base, IPROC_GPIO_OUT_EN_OFFSET, gpio) ?
-		GPIO_DIR_OUT : GPIO_DIR_IN;
+		      GPIO_DIR_OUT :
+		      GPIO_DIR_IN;
 
 	return dir;
 }
@@ -122,7 +123,8 @@ static int get_value(int gpio)
 	 * otherwise, read from the GPIO_IN register
 	 */
 	offset = gpio_get_bit(g->base, IPROC_GPIO_OUT_EN_OFFSET, gpio) ?
-		IPROC_GPIO_DATA_OUT_OFFSET : IPROC_GPIO_DATA_IN_OFFSET;
+			 IPROC_GPIO_DATA_OUT_OFFSET :
+			 IPROC_GPIO_DATA_IN_OFFSET;
 
 	return gpio_get_bit(g->base, offset, gpio);
 }
@@ -165,7 +167,8 @@ static int get_pull(int gpio)
 		return GPIO_PULL_NONE;
 
 	return gpio_get_bit(g->base, IPROC_GPIO_PAD_RES_OFFSET, gpio) ?
-		GPIO_PULL_UP : GPIO_PULL_DOWN;
+		       GPIO_PULL_UP :
+		       GPIO_PULL_DOWN;
 }
 
 static void set_pull(int gpio, int pull)

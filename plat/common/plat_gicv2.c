@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  * Portions copyright (c) 2021-2022, ProvenRun S.A.S. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -11,6 +11,7 @@
 #include <bl31/interrupt_mgmt.h>
 #include <drivers/arm/gic_common.h>
 #include <drivers/arm/gicv2.h>
+
 #include <plat/common/platform.h>
 
 /*
@@ -109,9 +110,9 @@ uint32_t plat_ic_get_interrupt_type(uint32_t id)
 	/* Assume that all secure interrupts are S-EL1 interrupts */
 	return (type == GICV2_INTR_GROUP1) ? INTR_TYPE_NS :
 #if GICV2_G0_FOR_EL3
-		INTR_TYPE_EL3;
+					     INTR_TYPE_EL3;
 #else
-		INTR_TYPE_S_EL1;
+					     INTR_TYPE_S_EL1;
 #endif
 }
 
@@ -133,8 +134,7 @@ void plat_ic_end_of_interrupt(uint32_t id)
  * SCR_EL3 to control its routing to EL3. The interrupt line is represented
  * as the bit position of the IRQ or FIQ bit in the SCR_EL3.
  */
-uint32_t plat_interrupt_type_to_line(uint32_t type,
-				uint32_t security_state)
+uint32_t plat_interrupt_type_to_line(uint32_t type, uint32_t security_state)
 {
 	assert((type == INTR_TYPE_S_EL1) || (type == INTR_TYPE_EL3) ||
 	       (type == INTR_TYPE_NS));
@@ -289,7 +289,7 @@ void plat_ic_raise_s_el1_sgi(int sgi_num, u_register_t target)
 }
 
 void plat_ic_set_spi_routing(unsigned int id, unsigned int routing_mode,
-		u_register_t mpidr)
+			     u_register_t mpidr)
 {
 	int proc_num = 0;
 

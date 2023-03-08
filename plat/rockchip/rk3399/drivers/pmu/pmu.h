@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,8 +12,8 @@
 #include <soc.h>
 
 /* Allocate sp reginon in pmusram */
-#define PSRAM_SP_SIZE		0x80
-#define PSRAM_SP_BOTTOM		(PSRAM_SP_TOP - PSRAM_SP_SIZE)
+#define PSRAM_SP_SIZE 0x80
+#define PSRAM_SP_BOTTOM (PSRAM_SP_TOP - PSRAM_SP_SIZE)
 
 /*****************************************************************************
  * Common define for per soc pmu.h
@@ -28,9 +28,9 @@ enum cores_pm_ctr_mode {
 /*****************************************************************************
  * pmu con,reg
  *****************************************************************************/
-#define PMU_WKUP_CFG(n)	((n) * 4)
+#define PMU_WKUP_CFG(n) ((n)*4)
 
-#define PMU_CORE_PM_CON(cpu)		(0xc0 + (cpu * 4))
+#define PMU_CORE_PM_CON(cpu) (0xc0 + (cpu * 4))
 
 /* the shift of bits for cores status */
 enum pmu_core_pwrst_shift {
@@ -40,59 +40,61 @@ enum pmu_core_pwrst_shift {
 	clstb_cpu_wfi = 16
 };
 
-#define CKECK_WFE_MSK		0x1
-#define CKECK_WFI_MSK		0x10
-#define CKECK_WFEI_MSK		0x11
+#define CKECK_WFE_MSK 0x1
+#define CKECK_WFI_MSK 0x10
+#define CKECK_WFEI_MSK 0x11
 
 /* Specific features required  */
-#define AP_PWROFF		0x0a
+#define AP_PWROFF 0x0a
 
-#define GPIO0A0_SMT_ENABLE	BITS_WITH_WMASK(1, 3, 0)
-#define GPIO1A6_IOMUX		BITS_WITH_WMASK(0, 3, 12)
+#define GPIO0A0_SMT_ENABLE BITS_WITH_WMASK(1, 3, 0)
+#define GPIO1A6_IOMUX BITS_WITH_WMASK(0, 3, 12)
 
-#define TSADC_INT_PIN		38
-#define CORES_PM_DISABLE	0x0
+#define TSADC_INT_PIN 38
+#define CORES_PM_DISABLE 0x0
 
-#define PD_CTR_LOOP		10000
-#define CHK_CPU_LOOP		500
-#define MAX_WAIT_COUNT		1000
+#define PD_CTR_LOOP 10000
+#define CHK_CPU_LOOP 500
+#define MAX_WAIT_COUNT 1000
 
-#define	GRF_SOC_CON4		0x0e210
+#define GRF_SOC_CON4 0x0e210
 
-#define PMUGRF_GPIO0A_SMT	0x0120
-#define PMUGRF_SOC_CON0		0x0180
+#define PMUGRF_GPIO0A_SMT 0x0120
+#define PMUGRF_SOC_CON0 0x0180
 
-#define CCI_FORCE_WAKEUP	WMSK_BIT(8)
-#define EXTERNAL_32K		WMSK_BIT(0)
+#define CCI_FORCE_WAKEUP WMSK_BIT(8)
+#define EXTERNAL_32K WMSK_BIT(0)
 
-#define PLL_PD_HW		0xff
-#define IOMUX_CLK_32K		0x00030002
-#define NOC_AUTO_ENABLE		0x3fffffff
+#define PLL_PD_HW 0xff
+#define IOMUX_CLK_32K 0x00030002
+#define NOC_AUTO_ENABLE 0x3fffffff
 
 #define SAVE_QOS(array, NAME) \
 	RK3399_CPU_AXI_SAVE_QOS(array, CPU_AXI_##NAME##_QOS_BASE)
 #define RESTORE_QOS(array, NAME) \
 	RK3399_CPU_AXI_RESTORE_QOS(array, CPU_AXI_##NAME##_QOS_BASE)
 
-#define RK3399_CPU_AXI_SAVE_QOS(array, base) do { \
-	array[0] = mmio_read_32(base + CPU_AXI_QOS_ID_COREID); \
-	array[1] = mmio_read_32(base + CPU_AXI_QOS_REVISIONID); \
-	array[2] = mmio_read_32(base + CPU_AXI_QOS_PRIORITY); \
-	array[3] = mmio_read_32(base + CPU_AXI_QOS_MODE); \
-	array[4] = mmio_read_32(base + CPU_AXI_QOS_BANDWIDTH); \
-	array[5] = mmio_read_32(base + CPU_AXI_QOS_SATURATION); \
-	array[6] = mmio_read_32(base + CPU_AXI_QOS_EXTCONTROL); \
-} while (0)
+#define RK3399_CPU_AXI_SAVE_QOS(array, base)                            \
+	do {                                                            \
+		array[0] = mmio_read_32(base + CPU_AXI_QOS_ID_COREID);  \
+		array[1] = mmio_read_32(base + CPU_AXI_QOS_REVISIONID); \
+		array[2] = mmio_read_32(base + CPU_AXI_QOS_PRIORITY);   \
+		array[3] = mmio_read_32(base + CPU_AXI_QOS_MODE);       \
+		array[4] = mmio_read_32(base + CPU_AXI_QOS_BANDWIDTH);  \
+		array[5] = mmio_read_32(base + CPU_AXI_QOS_SATURATION); \
+		array[6] = mmio_read_32(base + CPU_AXI_QOS_EXTCONTROL); \
+	} while (0)
 
-#define RK3399_CPU_AXI_RESTORE_QOS(array, base) do { \
-	mmio_write_32(base + CPU_AXI_QOS_ID_COREID, array[0]); \
-	mmio_write_32(base + CPU_AXI_QOS_REVISIONID, array[1]); \
-	mmio_write_32(base + CPU_AXI_QOS_PRIORITY, array[2]); \
-	mmio_write_32(base + CPU_AXI_QOS_MODE, array[3]); \
-	mmio_write_32(base + CPU_AXI_QOS_BANDWIDTH, array[4]); \
-	mmio_write_32(base + CPU_AXI_QOS_SATURATION, array[5]); \
-	mmio_write_32(base + CPU_AXI_QOS_EXTCONTROL, array[6]); \
-} while (0)
+#define RK3399_CPU_AXI_RESTORE_QOS(array, base)                         \
+	do {                                                            \
+		mmio_write_32(base + CPU_AXI_QOS_ID_COREID, array[0]);  \
+		mmio_write_32(base + CPU_AXI_QOS_REVISIONID, array[1]); \
+		mmio_write_32(base + CPU_AXI_QOS_PRIORITY, array[2]);   \
+		mmio_write_32(base + CPU_AXI_QOS_MODE, array[3]);       \
+		mmio_write_32(base + CPU_AXI_QOS_BANDWIDTH, array[4]);  \
+		mmio_write_32(base + CPU_AXI_QOS_SATURATION, array[5]); \
+		mmio_write_32(base + CPU_AXI_QOS_EXTCONTROL, array[6]); \
+	} while (0)
 
 struct pmu_slpdata_s {
 	uint32_t cci_m0_qos[CPU_AXI_QOS_NUM_REGS];

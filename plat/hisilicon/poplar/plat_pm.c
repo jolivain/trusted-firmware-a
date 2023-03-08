@@ -1,12 +1,10 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
-
-#include <platform_def.h>
 
 #include <arch_helpers.h>
 #include <common/bl_common.h>
@@ -15,17 +13,19 @@
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
+
 #include <plat/common/platform.h>
+#include <platform_def.h>
 
 #include "hi3798cv200.h"
 #include "plat_private.h"
 
-#define REG_PERI_CPU_RVBARADDR		0xF8A80034
-#define REG_PERI_CPU_AARCH_MODE		0xF8A80030
+#define REG_PERI_CPU_RVBARADDR 0xF8A80034
+#define REG_PERI_CPU_AARCH_MODE 0xF8A80030
 
-#define REG_CPU_LP_CPU_SW_BEGIN		10
-#define CPU_REG_COREPO_SRST		12
-#define CPU_REG_CORE_SRST		8
+#define REG_CPU_LP_CPU_SW_BEGIN 10
+#define CPU_REG_COREPO_SRST 12
+#define CPU_REG_CORE_SRST 8
 
 static void poplar_cpu_standby(plat_local_state_t cpu_state)
 {
@@ -74,7 +74,7 @@ static void poplar_pwr_domain_suspend(const psci_power_state_t *target_state)
 static void poplar_pwr_domain_on_finish(const psci_power_state_t *target_state)
 {
 	assert(target_state->pwr_domain_state[MPIDR_AFFLVL0] ==
-					PLAT_MAX_OFF_STATE);
+	       PLAT_MAX_OFF_STATE);
 
 	/* Enable the gic cpu interface */
 	poplar_gic_pcpu_init();
@@ -83,8 +83,8 @@ static void poplar_pwr_domain_on_finish(const psci_power_state_t *target_state)
 	poplar_gic_cpuif_enable();
 }
 
-static void poplar_pwr_domain_suspend_finish(
-		const psci_power_state_t *target_state)
+static void
+poplar_pwr_domain_suspend_finish(const psci_power_state_t *target_state)
 {
 	assert(0);
 }
@@ -98,8 +98,8 @@ static void __dead2 poplar_system_off(void)
 static void __dead2 poplar_system_reset(void)
 {
 	mmio_write_32((uintptr_t)(HISI_WDG0_BASE + 0xc00), 0x1ACCE551);
-	mmio_write_32((uintptr_t)(HISI_WDG0_BASE + 0x0),   0x00000100);
-	mmio_write_32((uintptr_t)(HISI_WDG0_BASE + 0x8),   0x00000003);
+	mmio_write_32((uintptr_t)(HISI_WDG0_BASE + 0x0), 0x00000100);
+	mmio_write_32((uintptr_t)(HISI_WDG0_BASE + 0x8), 0x00000003);
 
 	wfi();
 	ERROR("Poplar System Reset: operation not handled.\n");
@@ -149,17 +149,17 @@ static void poplar_get_sys_suspend_power_state(psci_power_state_t *req_state)
 }
 
 static const plat_psci_ops_t poplar_plat_psci_ops = {
-	.cpu_standby			= poplar_cpu_standby,
-	.pwr_domain_on			= poplar_pwr_domain_on,
-	.pwr_domain_off			= poplar_pwr_domain_off,
-	.pwr_domain_suspend		= poplar_pwr_domain_suspend,
-	.pwr_domain_on_finish		= poplar_pwr_domain_on_finish,
-	.pwr_domain_suspend_finish	= poplar_pwr_domain_suspend_finish,
-	.system_off			= poplar_system_off,
-	.system_reset			= poplar_system_reset,
-	.validate_power_state		= poplar_validate_power_state,
-	.validate_ns_entrypoint		= poplar_validate_ns_entrypoint,
-	.get_sys_suspend_power_state	= poplar_get_sys_suspend_power_state,
+	.cpu_standby = poplar_cpu_standby,
+	.pwr_domain_on = poplar_pwr_domain_on,
+	.pwr_domain_off = poplar_pwr_domain_off,
+	.pwr_domain_suspend = poplar_pwr_domain_suspend,
+	.pwr_domain_on_finish = poplar_pwr_domain_on_finish,
+	.pwr_domain_suspend_finish = poplar_pwr_domain_suspend_finish,
+	.system_off = poplar_system_off,
+	.system_reset = poplar_system_reset,
+	.validate_power_state = poplar_validate_power_state,
+	.validate_ns_entrypoint = poplar_validate_ns_entrypoint,
+	.get_sys_suspend_power_state = poplar_get_sys_suspend_power_state,
 };
 
 int plat_setup_psci_ops(uintptr_t sec_entrypoint,

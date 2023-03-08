@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,6 +13,7 @@
 #include <common/debug.h>
 #include <lib/pmf/pmf.h>
 #include <lib/utils_def.h>
+
 #include <plat/common/platform.h>
 
 /*******************************************************************************
@@ -25,14 +26,15 @@
  * service function pointers.
  ******************************************************************************/
 
-IMPORT_SYM(uintptr_t, __PMF_SVC_DESCS_START__,		PMF_SVC_DESCS_START);
-IMPORT_SYM(uintptr_t, __PMF_SVC_DESCS_END__,		PMF_SVC_DESCS_END);
-IMPORT_SYM(uintptr_t, __PMF_PERCPU_TIMESTAMP_END__,	PMF_PERCPU_TIMESTAMP_END);
-IMPORT_SYM(uintptr_t,  __PMF_TIMESTAMP_START__,		PMF_TIMESTAMP_ARRAY_START);
+IMPORT_SYM(uintptr_t, __PMF_SVC_DESCS_START__, PMF_SVC_DESCS_START);
+IMPORT_SYM(uintptr_t, __PMF_SVC_DESCS_END__, PMF_SVC_DESCS_END);
+IMPORT_SYM(uintptr_t, __PMF_PERCPU_TIMESTAMP_END__, PMF_PERCPU_TIMESTAMP_END);
+IMPORT_SYM(uintptr_t, __PMF_TIMESTAMP_START__, PMF_TIMESTAMP_ARRAY_START);
 
-#define PMF_PERCPU_TIMESTAMP_SIZE	(PMF_PERCPU_TIMESTAMP_END - PMF_TIMESTAMP_ARRAY_START)
+#define PMF_PERCPU_TIMESTAMP_SIZE \
+	(PMF_PERCPU_TIMESTAMP_END - PMF_TIMESTAMP_ARRAY_START)
 
-#define PMF_SVC_DESCS_MAX		10
+#define PMF_SVC_DESCS_MAX 10
 
 /*
  * This is used to traverse through registered PMF services.
@@ -59,16 +61,15 @@ int pmf_setup(void)
 	int pmf_svc_descs_num, temp_val;
 
 	/* If no PMF services are registered then simply bail out */
-	pmf_svc_descs_num = (PMF_SVC_DESCS_END - PMF_SVC_DESCS_START)/
-				 sizeof(pmf_svc_desc_t);
+	pmf_svc_descs_num = (PMF_SVC_DESCS_END - PMF_SVC_DESCS_START) /
+			    sizeof(pmf_svc_desc_t);
 	if (pmf_svc_descs_num == 0)
 		return 0;
 
 	assert(pmf_svc_descs_num < PMF_SVC_DESCS_MAX);
 
-	pmf_svc_descs = (pmf_svc_desc_t *) PMF_SVC_DESCS_START;
+	pmf_svc_descs = (pmf_svc_desc_t *)PMF_SVC_DESCS_START;
 	for (ii = 0; ii < pmf_svc_descs_num; ii++) {
-
 		assert(pmf_svc_descs[ii].get_ts != NULL);
 
 		/*
@@ -79,8 +80,8 @@ int pmf_setup(void)
 			rc = pmf_svc_descs[ii].init();
 			if (rc != 0) {
 				WARN("Could not initialize PMF"
-					"service %s - skipping \n",
-					pmf_svc_descs[ii].name);
+				     "service %s - skipping \n",
+				     pmf_svc_descs[ii].name);
 				continue;
 			}
 		}
@@ -98,12 +99,12 @@ int pmf_setup(void)
 	for (ii = 1; ii < pmf_num_services; ii++) {
 		for (jj = 0; jj < (pmf_num_services - ii); jj++) {
 			if ((pmf_svc_descs[jj].svc_config & PMF_SVC_ID_MASK) >
-				(pmf_svc_descs[jj + 1].svc_config &
-						PMF_SVC_ID_MASK)) {
+			    (pmf_svc_descs[jj + 1].svc_config &
+			     PMF_SVC_ID_MASK)) {
 				temp_val = pmf_svc_descs_indices[jj];
 				pmf_svc_descs_indices[jj] =
-						pmf_svc_descs_indices[jj+1];
-				pmf_svc_descs_indices[jj+1] = temp_val;
+					pmf_svc_descs_indices[jj + 1];
+				pmf_svc_descs_indices[jj + 1] = temp_val;
 			}
 		}
 	}
@@ -143,8 +144,9 @@ static pmf_svc_desc_t *get_service(unsigned int tid)
 	/*
 	 * Make sure the Service found supports the tid range.
 	 */
-	if ((svc_id == desc_svc_id) && ((tid & PMF_TID_MASK) <
-		(pmf_svc_descs[index].svc_config & PMF_TID_MASK)))
+	if ((svc_id == desc_svc_id) &&
+	    ((tid & PMF_TID_MASK) <
+	     (pmf_svc_descs[index].svc_config & PMF_TID_MASK)))
 		return (pmf_svc_desc_t *)&pmf_svc_descs[index];
 
 	return NULL;
@@ -154,10 +156,8 @@ static pmf_svc_desc_t *get_service(unsigned int tid)
  * This function gets the time-stamp value for the PMF services
  * registered for SMC interface based on `tid` and `mpidr`.
  */
-int pmf_get_timestamp_smc(unsigned int tid,
-		u_register_t mpidr,
-		unsigned int flags,
-		unsigned long long *ts_value)
+int pmf_get_timestamp_smc(unsigned int tid, u_register_t mpidr,
+			  unsigned int flags, unsigned long long *ts_value)
 {
 	pmf_svc_desc_t *svc_desc;
 	assert(ts_value != NULL);
@@ -181,26 +181,25 @@ int pmf_get_timestamp_smc(unsigned int tid,
  */
 void __pmf_dump_timestamp(unsigned int tid, unsigned long long ts)
 {
-	printf("PMF:cpu %u	tid %u	ts %llu\n",
-		plat_my_core_pos(), tid, ts);
+	printf("PMF:cpu %u	tid %u	ts %llu\n", plat_my_core_pos(), tid,
+	       ts);
 }
 
 /*
  * This function calculate the address identified by
  * `base_addr`, `tid` and `cpuid`.
  */
-static inline uintptr_t calc_ts_addr(uintptr_t base_addr,
-		unsigned int tid,
-		unsigned int cpuid)
+static inline uintptr_t calc_ts_addr(uintptr_t base_addr, unsigned int tid,
+				     unsigned int cpuid)
 {
 	assert(cpuid < PLATFORM_CORE_COUNT);
 	assert(base_addr >= PMF_TIMESTAMP_ARRAY_START);
-	assert(base_addr < ((PMF_TIMESTAMP_ARRAY_START +
-		PMF_PERCPU_TIMESTAMP_SIZE) - ((tid & PMF_TID_MASK) *
-		sizeof(unsigned long long))));
+	assert(base_addr <
+	       ((PMF_TIMESTAMP_ARRAY_START + PMF_PERCPU_TIMESTAMP_SIZE) -
+		((tid & PMF_TID_MASK) * sizeof(unsigned long long))));
 
 	base_addr += ((cpuid * PMF_PERCPU_TIMESTAMP_SIZE) +
-		((tid & PMF_TID_MASK) * sizeof(unsigned long long)));
+		      ((tid & PMF_TID_MASK) * sizeof(unsigned long long)));
 
 	return base_addr;
 }
@@ -211,12 +210,11 @@ static inline uintptr_t calc_ts_addr(uintptr_t base_addr,
  * Note: The timestamp addresses are cache line aligned per cpu
  * and only the owning CPU would ever write into it.
  */
-void __pmf_store_timestamp(uintptr_t base_addr,
-			unsigned int tid,
-			unsigned long long ts)
+void __pmf_store_timestamp(uintptr_t base_addr, unsigned int tid,
+			   unsigned long long ts)
 {
-	unsigned long long *ts_addr = (unsigned long long *)calc_ts_addr(base_addr,
-				 tid, plat_my_core_pos());
+	unsigned long long *ts_addr = (unsigned long long *)calc_ts_addr(
+		base_addr, tid, plat_my_core_pos());
 	*ts_addr = ts;
 }
 
@@ -226,11 +224,11 @@ void __pmf_store_timestamp(uintptr_t base_addr,
  * and only the owning CPU would ever write into it.
  */
 void __pmf_store_timestamp_with_cache_maint(uintptr_t base_addr,
-			unsigned int tid,
-			unsigned long long ts)
+					    unsigned int tid,
+					    unsigned long long ts)
 {
-	unsigned long long *ts_addr = (unsigned long long *)calc_ts_addr(base_addr,
-				 tid, plat_my_core_pos());
+	unsigned long long *ts_addr = (unsigned long long *)calc_ts_addr(
+		base_addr, tid, plat_my_core_pos());
 	*ts_addr = ts;
 	flush_dcache_range((uintptr_t)ts_addr, sizeof(unsigned long long));
 }
@@ -240,17 +238,16 @@ void __pmf_store_timestamp_with_cache_maint(uintptr_t base_addr,
  * `base_addr`, `tid` and `cpuid`.
  * Note: The timestamp addresses are cache line aligned per cpu.
  */
-unsigned long long __pmf_get_timestamp(uintptr_t base_addr,
-			unsigned int tid,
-			unsigned int cpuid,
-			unsigned int flags)
+unsigned long long __pmf_get_timestamp(uintptr_t base_addr, unsigned int tid,
+				       unsigned int cpuid, unsigned int flags)
 {
 	assert(cpuid < PLATFORM_CORE_COUNT);
-	unsigned long long *ts_addr = (unsigned long long *)calc_ts_addr(base_addr,
-				tid, cpuid);
+	unsigned long long *ts_addr =
+		(unsigned long long *)calc_ts_addr(base_addr, tid, cpuid);
 
 	if ((flags & PMF_CACHE_MAINT) != 0U)
-		inv_dcache_range((uintptr_t)ts_addr, sizeof(unsigned long long));
+		inv_dcache_range((uintptr_t)ts_addr,
+				 sizeof(unsigned long long));
 
 	return *ts_addr;
 }
