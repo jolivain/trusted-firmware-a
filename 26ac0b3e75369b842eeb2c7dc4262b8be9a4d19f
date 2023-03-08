@@ -16,6 +16,24 @@
       "message": "you don\u0027t need the check here as this code is unreachable in the opposite case. I\u0027m also fairly certain you can go without the whole sequence as well since this is the case where el2 is unpopulated therefore it won\u0027t be context switched (and it\u0027s missing below). As such, the reset value should be unmodified since reset. I\u0027m not sure of a specific config to test this with though...",
       "revId": "26ac0b3e75369b842eeb2c7dc4262b8be9a4d19f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f34c0b2_49338e3a",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-03-08T18:04:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3ab877e_aaac3d2d",
+      "revId": "26ac0b3e75369b842eeb2c7dc4262b8be9a4d19f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
