@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c989493_313a2f63",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-03-08T15:03:09Z",
+      "side": 1,
+      "message": "I believe this should be a non-secure mapping, right?",
+      "range": {
+        "startLine": 345,
+        "startChar": 25,
+        "endLine": 345,
+        "endChar": 34
+      },
+      "revId": "53de9ba8489daf50ce88c237fdc946dd25101139",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74d3580d_c4daade7",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-03-08T15:03:09Z",
+      "side": 1,
+      "message": "Should be \"Non-secure Memory\" in the comment?\nBTW, I am not convinced this comment has much value. The macro name (ARM_MAP_EVENT_LOG_DRAM1) is already quite explicit IMO.",
+      "range": {
+        "startLine": 116,
+        "startChar": 34,
+        "endLine": 116,
+        "endChar": 47
+      },
+      "revId": "53de9ba8489daf50ce88c237fdc946dd25101139",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdb3b7bf_e8b49101",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-03-08T15:03:09Z",
+      "side": 1,
+      "message": "Here I would add a comment. Something along these lines:\n\n Needs an extra page table to map the page where BL2 copies the event log for SPD consumption.",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 28
+      },
+      "revId": "53de9ba8489daf50ce88c237fdc946dd25101139",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
