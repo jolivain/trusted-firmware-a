@@ -46,6 +46,30 @@
       },
       "revId": "49b96165164ebfca5514f394d0896fb3fc70d5e7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e03ba1b6_2e24f466",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-08T20:34:25Z",
+      "side": 1,
+      "message": "\u0027event_log_cur_size\u0027 is actual size and it is always less than PLAT_ARM_EVENT_LOG_MAX_SIZE (ensured by assert implemented in the Event Log driver).\n\nHence CASSERT(ARM_EVENT_LOG_DRAM1_SIZE \u003e\u003d PLAT_ARM_EVENT_LOG_MAX_SIZE) makes sense! Done the changes accordingly.",
+      "parentUuid": "461ba112_96beba38",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 2
+      },
+      "revId": "49b96165164ebfca5514f394d0896fb3fc70d5e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
