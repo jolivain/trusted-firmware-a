@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e7cf1bb_cc428c79",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-08T12:52:12Z",
+      "side": 1,
+      "message": "Resolve this error pointed out by CI -\n\nChange-Id: I7206e64b65346bfdcc48d6acd3792b436041e45f\nSigned-off-by: Annam Sai Manisha \u003cannam.saimanisha@arm.com\u003e\n✖   subject must not be sentence-case, start-case, pascal-case, upper-case [subject-case]\n⚠   body\u0027s lines must not be longer than 72 characters [body-max-line-length]\n\n✖   found 1 problems, 1 warnings\nⓘ   Get help: https://github.com/conventional-changelog/commitlint/#what-is-commitlint",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "b08a71c1e566d8b3bf31372debbd096b16ff1900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
