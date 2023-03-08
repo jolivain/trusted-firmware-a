@@ -33,6 +33,24 @@
       "message": "This is more of a general question: if this is a dependency, why don\u0027t we enforce this instead of just complaining here? I saw this in several places, so perhaps there is a rationale here?\n\nFrom a practical standpoint, this moves the burden of enumerating all dependencies to the user, instead of declaring this in the source.",
       "revId": "51f01bd4d71cbac069dfb7028d09e6ef101cb5e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "501875fb_a492f49e",
+        "filename": "Makefile",
+        "patchSetId": 9
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-08T10:36:31Z",
+      "side": 1,
+      "message": "Agree with your suggestion here.\nNot exactly sure of the reasons at other places, but setting up the dependencies makes it more reasonable. I will modify it.\nThanks!",
+      "parentUuid": "e3292f51_2ffebca5",
+      "revId": "51f01bd4d71cbac069dfb7028d09e6ef101cb5e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
