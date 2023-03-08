@@ -70,6 +70,30 @@
       },
       "revId": "5fe64f4130ea8c2b7da738e83154bdec9b2cc81c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6163baf_1f6aed10",
+        "filename": "include/lib/libc/cdefs.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-08T00:06:14Z",
+      "side": 1,
+      "message": "Yeah, good points, this is indeed cdefs.h, so we should be more strict on those names.",
+      "parentUuid": "c1f018c1_86fdd954",
+      "range": {
+        "startLine": 18,
+        "startChar": 35,
+        "endLine": 18,
+        "endChar": 46
+      },
+      "revId": "5fe64f4130ea8c2b7da738e83154bdec9b2cc81c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
