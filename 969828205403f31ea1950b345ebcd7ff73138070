@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10e3eddd_a8688548",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-09T11:19:14Z",
+      "side": 1,
+      "message": "Oh right, feature detection runs way later and the case where DIT isn\u0027t implemented but flag is 1 blows this up.",
+      "parentUuid": "c7682ffb_a6d3ced7",
+      "revId": "969828205403f31ea1950b345ebcd7ff73138070",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bdafa993_f15cbc90",
