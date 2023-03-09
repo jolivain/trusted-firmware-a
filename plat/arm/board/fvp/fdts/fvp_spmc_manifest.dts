@@ -15,7 +15,7 @@
 / {
 	compatible = "arm,ffa-core-manifest-1.0";
 	#address-cells = <2>;
-	#size-cells = <1>;
+	#size-cells = <2>;
 
 	attribute {
 		spmc_id = <0x8000>;
@@ -60,9 +60,6 @@
 	};
 
 	cpus {
-		#address-cells = <0x2>;
-		#size-cells = <0x0>;
-
 		CPU_0
 
 		/*
@@ -78,9 +75,15 @@
 		CPU_1
 	};
 
-	memory@6000000 {
+	memory@0 {
 		device_type = "memory";
-		reg = <0x0 0x6000000 0x2000000>; /* Trusted DRAM */
+		reg = <0x0 0x6000000 0x0 0x2000000 0x0 0xff000000 0x0 0x1000000>;
+	};
+
+	memory@1 {
+		device_type = "ns-memory";
+		reg = <0x0 0x80000000 0x0 0x7f000000     /* range 2-4GB size 2GB    */
+                       0x8800 0x80000000 0x0 0x100000>; /* range 136TB-256TB size 120TB */
 	};
 
 #if MEASURED_BOOT
