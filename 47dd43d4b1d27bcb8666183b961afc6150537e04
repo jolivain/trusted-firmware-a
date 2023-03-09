@@ -151,6 +151,30 @@
       },
       "revId": "47dd43d4b1d27bcb8666183b961afc6150537e04",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e554bd35_164247a4",
+        "filename": "fdts/tc.dts",
+        "patchSetId": 4
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1000996
+      },
+      "writtenOn": "2023-03-09T10:47:15Z",
+      "side": 1,
+      "message": "I have changed the label to ap_ns_uart(short form mentioned in interrupt map of AP for Non-secure UART) according to spec",
+      "parentUuid": "b7b353e3_bbf8fa9a",
+      "range": {
+        "startLine": 330,
+        "startChar": 1,
+        "endLine": 330,
+        "endChar": 10
+      },
+      "revId": "47dd43d4b1d27bcb8666183b961afc6150537e04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
