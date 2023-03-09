@@ -16,6 +16,24 @@
       "message": "Hi Manish,\n\nThanks for kicking off the CI run! The line ending test in the `tf-a-static-checks` job failed due to the newly added png files in https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17896. From the CI scripts https://git.trustedfirmware.org/ci/tf-a-ci-scripts.git/tree/script/static-checks/static-checks.sh#n65 and https://git.trustedfirmware.org/ci/tf-a-ci-scripts.git/tree/script/static-checks/static-checks-coding-style-line-endings.sh#n19, I see that we\u0027re not filtering for source and doc files in CI runs. I can go ahead and update static-checks-coding-style-line-endings.sh to account for this or is this something we can manually override?\n\nThanks!\nWing",
       "revId": "f74caee4f96573b2246fd1dd4e815fdbf6c618b0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5b8c564_e4173945",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-03-09T13:06:02Z",
+      "side": 1,
+      "message": "We can definitely override it manually but it makes sense to fix it in static check scripts file. Feel free to provide the fix for that too.\nThank you!",
+      "parentUuid": "3b190d16_6f188c0b",
+      "revId": "f74caee4f96573b2246fd1dd4e815fdbf6c618b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
