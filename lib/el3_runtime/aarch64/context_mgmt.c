@@ -490,11 +490,11 @@ void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 
 /*******************************************************************************
  * Enable architecture extensions on first entry to Non-secure world.
- * This function updates some registers in-place.
+ * This function only updates registers in-place.
  ******************************************************************************/
-static void manage_extensions_nonsecure_mixed(void)
-{
 #if IMAGE_BL31
+void cm_manage_extensions_el3(void)
+{
 	if (is_feat_spe_supported()) {
 		spe_enable_el3();
 	}
@@ -526,8 +526,8 @@ static void manage_extensions_nonsecure_mixed(void)
 	if (is_feat_pmuv3_supported()) {
 		pmuv3_enable_el3();
 	}
-#endif
 }
+#endif
 
 /*******************************************************************************
  * Enable architecture extensions on first entry to Non-secure world.
@@ -650,7 +650,6 @@ static void manage_extensions_secure(cpu_context_t *ctx)
 		 * Enable SME, SVE, FPU/SIMD in secure context, secure manager
 		 * must ensure SME, SVE, and FPU/SIMD context properly managed.
 		 */
-			sme_enable_el3();
 			sme_enable(ctx);
 		} else {
 		/*
@@ -841,7 +840,6 @@ void cm_prepare_el3_exit(uint32_t security_state)
 		} else if (el2_implemented != EL_IMPL_NONE) {
 			init_el2_no_hypervisor(ctx);
 		}
-		manage_extensions_nonsecure_mixed();
 	}
 
 	cm_el1_sysregs_context_restore(security_state);
@@ -1141,13 +1139,6 @@ void cm_prepare_el3_exit_ns(void)
 	assert(((scr_el3 & SCR_HCE_BIT) != 0UL) &&
 			(el_implemented(2U) != EL_IMPL_NONE));
 #endif
-
-	/*
-	 * Currently some extensions are configured using
-	 * direct register updates. Therefore, do this here
-	 * instead of when setting up context.
-	 */
-	manage_extensions_nonsecure_mixed();
 
 	/*
 	 * Set the NS bit to be able to access the ICC_SRE_EL2
