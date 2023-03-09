@@ -360,10 +360,12 @@ vector_entry serror_aarch64
 	save_x30
 	apply_at_speculative_wa
 #if RAS_EXTENSION
-	msr	daifclr, #DAIF_ABT_BIT
+	esb
 #else
-	check_and_unmask_ea
+	dsb	sy
 #endif
+	msr	daifclr, #DAIF_ABT_BIT
+	isb
 	b	handle_lower_el_async_ea
 
 end_vector_entry serror_aarch64
