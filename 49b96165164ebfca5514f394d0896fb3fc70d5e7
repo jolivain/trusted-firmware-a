@@ -70,6 +70,30 @@
       },
       "revId": "49b96165164ebfca5514f394d0896fb3fc70d5e7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63239ea4_114e6e4d",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-03-09T07:24:18Z",
+      "side": 1,
+      "message": "On further thoughts, I realized that this static assertion makes an assumption on the size of the event log allocated by BL1. IOW, it introduces a binary dependency between BL1 and BL2. I suppose that\u0027s fine on Base AEM FVP but that would be incorrect if we were using another BootROM implementation, alongside TF-A BL2. In the latter case, using event_log_cur_size would be the right thing to do.\n\nI am now leaning towards reintroducing the runtime check (in place of a static assertion). What\u0027s the point of dynamically passing \u0027event_log_cur_size\u0027 through the DTB in the first place if we don\u0027t make use of it? This seems to go against the intended design...\n\nSorry for changing my mind on this!",
+      "parentUuid": "e03ba1b6_2e24f466",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 2
+      },
+      "revId": "49b96165164ebfca5514f394d0896fb3fc70d5e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
