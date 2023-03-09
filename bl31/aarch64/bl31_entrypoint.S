@@ -99,6 +99,9 @@ func bl31_entrypoint
 	bl	pauth_init_enable_el3
 #endif /* ENABLE_PAUTH */
 
+	/* Init registers that never change for the lifetime of TF-A */
+	bl	cm_manage_extensions_el3
+
 	/* --------------------------------------------------------------------
 	 * Jump to main function
 	 * --------------------------------------------------------------------
@@ -196,6 +199,8 @@ func bl31_warm_entrypoint
 	mov	x0, #DISABLE_DCACHE
 #endif
 	bl	bl31_plat_enable_mmu
+	/* Init registers that never change for the lifetime of TF-A */
+	bl	cm_manage_extensions_el3
 
 #if ENABLE_RME
 	/*
