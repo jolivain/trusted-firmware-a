@@ -16,6 +16,24 @@
       "message": "We\u0027d have to investigate failure with TC0 model:\nhttps://ci.trustedfirmware.org/job/tf-a-ci-gateway/31539/\nI believe this is related to how OpenCI connects to serial ports.\nProvided this patch changed order of serial consoles, the OpenCI may be confused.\n\nAlso this TF-A-tests / cactus dts file needs a change:\nhttps://git.trustedfirmware.org/TF-A/tf-a-tests.git/tree/spm/cactus/plat/arm/tc0/fdts/cactus.dts#n77",
       "revId": "ce38067a0f33eb2dfb96e608e1dc73fdc5574555",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3906b324_3f44a3d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000996
+      },
+      "writtenOn": "2023-03-09T13:40:34Z",
+      "side": 1,
+      "message": "I have updated the changes for tc0 here\nhttps://review.trustedfirmware.org/c/TF-A/tf-a-tests/+/19957\nbut the changes are unverified as tf-a-tests is not used in TotalCompute",
+      "parentUuid": "cbbf9485_6d1d76ee",
+      "revId": "ce38067a0f33eb2dfb96e608e1dc73fdc5574555",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
