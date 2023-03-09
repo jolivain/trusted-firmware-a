@@ -357,15 +357,17 @@ vector_entry fiq_aarch64
 end_vector_entry fiq_aarch64
 
 vector_entry serror_aarch64
+	/*
+	 * Serror from lower EL is only expected if scr_el3.EA is set. It is fatal and unexpected,
+	 * if it reaches here for lower EL which has not configured SErrors to be routed to EL3.
+	 * We don't need special handling here but it will eventually panic and die.
+	 */
 	save_x30
 	apply_at_speculative_wa
-#if RAS_EXTENSION
+	dsb	/* Sync all outstanding errors */
 	msr	daifclr, #DAIF_ABT_BIT
-#else
-	check_and_unmask_ea
-#endif
+	isb
 	b	handle_lower_el_async_ea
-
 end_vector_entry serror_aarch64
 
 	/* ---------------------------------------------------------------------
@@ -400,15 +402,17 @@ vector_entry fiq_aarch32
 end_vector_entry fiq_aarch32
 
 vector_entry serror_aarch32
+	/*
+	 * Serror from lower EL is only expected if scr_el3.EA is set. It is fatal and unexpected,
+	 * if it reaches here for lower EL which has not configured SErrors to be routed to EL3.
+	 * We don't need special handling here but it will eventually panic and die.
+	 */
 	save_x30
 	apply_at_speculative_wa
-#if RAS_EXTENSION
+	dsb	/* Sync all outstanding errors */
 	msr	daifclr, #DAIF_ABT_BIT
-#else
-	check_and_unmask_ea
-#endif
+	isb
 	b	handle_lower_el_async_ea
-
 end_vector_entry serror_aarch32
 
 #ifdef MONITOR_TRAPS
