@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -182,7 +182,7 @@ static int auth_signature(const auth_method_param_sig_t *param,
 	}
 	return_if_error(rc);
 
-	if (flags & (ROTPK_IS_HASH | ROTPK_NOT_DEPLOYED)) {
+	if (flags & (ROTPK_IS_HASH | ROTPK_IS_FULL_KEY | ROTPK_NOT_DEPLOYED)) {
 		/* If the PK is a hash of the key or if the ROTPK is not
 		   deployed on the platform, retrieve the key from the image */
 		pk_hash_ptr = pk_ptr;
@@ -202,6 +202,12 @@ static int auth_signature(const auth_method_param_sig_t *param,
 		if (flags & ROTPK_NOT_DEPLOYED) {
 			NOTICE("ROTPK is not deployed on platform. "
 				"Skipping ROTPK verification.\n");
+		} else if (flags & ROTPK_IS_FULL_KEY) {
+			if (pk_len != pk_hash_len) {
+				ERROR("plat and cert ROTPK len mismatch\n");
+				return -1;
+			}
+			rc = memcmp(pk_hash_ptr, pk_ptr, pk_len);
 		} else {
 			/* platform may store the hash of a prefixed, suffixed or modified pk */
 			rc = plat_convert_pk(pk_ptr, pk_len, &pk_ptr, &pk_len);
