@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bb41fc5e_02a02a40",
+        "filename": "plat/arm/board/morello/morello_bl2_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-10T14:35:42Z",
+      "side": 1,
+      "message": "Okay. Please push the patch and resolve this comment.",
+      "parentUuid": "8d61512f_6b9b59ea",
+      "range": {
+        "startLine": 48,
+        "startChar": 61,
+        "endLine": 48,
+        "endChar": 63
+      },
+      "revId": "a841dbd4931b0ec0106ebed5ef311f500d93d1d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5a886429_bed15fbc",
         "filename": "plat/arm/board/morello/morello_bl31_setup.c",
         "patchSetId": 2
@@ -203,6 +227,54 @@
       "side": 1,
       "message": "\u003e  there might not be many SMC calls to retrieve the SoC revision?\n\nEven if it\u0027s a single call, I think it makes sense to handle SDS initialization during platform setup rather than delaying it. This might be useful to retrieve SDS information for different use cases that you will encounter in BL31 in the future, and it also helps this particular SMC to respond faster.",
       "parentUuid": "2dccb172_fb85c481",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 35
+      },
+      "revId": "a841dbd4931b0ec0106ebed5ef311f500d93d1d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26ec3f57_845f01f0",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-10T14:35:42Z",
+      "side": 1,
+      "message": "I feel use of MORELLO_SDS_PLATFORM_INFO_SIZE is error prone. Imagine adding a new field to the struct morello_plat_info but the developer forgot to increase the MORELLO_SDS_PLATFORM_INFO_SIZE",
+      "parentUuid": "585b27dc_0a59213a",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 34
+      },
+      "revId": "a841dbd4931b0ec0106ebed5ef311f500d93d1d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afcfcc4e_4d90d646",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-10T14:35:42Z",
+      "side": 1,
+      "message": "I agree with Manish\u0027s observation.",
+      "parentUuid": "06012ce2_eb2ad64a",
       "range": {
         "startLine": 114,
         "startChar": 0,
