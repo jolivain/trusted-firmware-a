@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67cd2c22_f0ecb3fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-03-10T10:18:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59877137_4cfbfce3",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 43
+      },
+      "revId": "bdf02a11b0a890a363ef44ed4ee02e8102749954",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4dbc913_361e7f53",
@@ -43,6 +67,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6150e1a1_898a8626",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-03-10T10:18:19Z",
+      "side": 1,
+      "message": "I am keeping it in line with el3_exit path.",
+      "parentUuid": "f4dbc913_361e7f53",
+      "revId": "bdf02a11b0a890a363ef44ed4ee02e8102749954",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fd9796f8_6f880dd8",
         "filename": "bl31/aarch64/runtime_exceptions.S",
         "patchSetId": 1
@@ -54,6 +96,30 @@
       "writtenOn": "2023-03-10T09:54:15Z",
       "side": 1,
       "message": "Fix this path as well.",
+      "range": {
+        "startLine": 407,
+        "startChar": 0,
+        "endLine": 411,
+        "endChar": 6
+      },
+      "revId": "bdf02a11b0a890a363ef44ed4ee02e8102749954",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dec16ba_e7ac1e6c",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-03-10T10:18:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd9796f8_6f880dd8",
       "range": {
         "startLine": 407,
         "startChar": 0,
