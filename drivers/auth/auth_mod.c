@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -211,6 +211,20 @@ static int auth_signature(const auth_method_param_sig_t *param,
 			rc = crypto_mod_verify_hash(pk_ptr, pk_len,
 				    pk_hash_ptr, pk_hash_len);
 		}
+	} else if (flags & ROTPK_IS_FULL_KEY) {
+		void *hw_pk_ptr, *hw_pk_len;
+
+		hw_pk_ptr = pk_ptr;
+		hw_pk_len = pk_len;
+
+		rc = img_parser_get_auth_param(img_desc->img_type,
+					       param->pk, img, img_len,
+					       &pk_ptr, &pk_len);
+		return_if_error(rc);
+		assert(hw_pk_len == pk_len)
+
+		rc = memcmp(hw_pk_ptr, pk_ptr, pk_len);
+		return_if_error(rc);
 	} else {
 		/* Ask the crypto module to verify the signature */
 		rc = crypto_mod_verify_signature(data_ptr, data_len,
