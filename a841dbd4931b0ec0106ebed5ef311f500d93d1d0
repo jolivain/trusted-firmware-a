@@ -191,6 +191,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "06012ce2_eb2ad64a",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-10T14:15:05Z",
+      "side": 1,
+      "message": "\u003e  there might not be many SMC calls to retrieve the SoC revision?\n\nEven if it\u0027s a single call, I think it makes sense to handle SDS initialization during platform setup rather than delaying it. This might be useful to retrieve SDS information for different use cases that you will encounter in BL31 in the future, and it also helps this particular SMC to respond faster.",
+      "parentUuid": "2dccb172_fb85c481",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 35
+      },
+      "revId": "a841dbd4931b0ec0106ebed5ef311f500d93d1d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1b748e90_0eb99ae8",
         "filename": "plat/arm/board/morello/morello_bl31_setup.c",
         "patchSetId": 2
