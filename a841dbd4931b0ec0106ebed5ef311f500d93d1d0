@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8d61512f_6b9b59ea",
+        "filename": "plat/arm/board/morello/morello_bl2_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2023-03-10T05:26:05Z",
+      "side": 1,
+      "message": "the existing value itself is wrong, would prefer to submit a new patch to fix this issue instead of fixing it in this patch.",
+      "parentUuid": "a16cc4c7_60ccd9d1",
+      "range": {
+        "startLine": 48,
+        "startChar": 61,
+        "endLine": 48,
+        "endChar": 63
+      },
+      "revId": "a841dbd4931b0ec0106ebed5ef311f500d93d1d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5a886429_bed15fbc",
         "filename": "plat/arm/board/morello/morello_bl31_setup.c",
         "patchSetId": 2
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "585b27dc_0a59213a",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2023-03-10T05:26:05Z",
+      "side": 1,
+      "message": "we could use sizeof(struct morello_plat_info) but as the size of the structure is already known is their a benefit of using sizeof() instead of the macro?",
+      "parentUuid": "5a886429_bed15fbc",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 34
+      },
+      "revId": "a841dbd4931b0ec0106ebed5ef311f500d93d1d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1b748e90_0eb99ae8",
         "filename": "plat/arm/board/morello/morello_bl31_setup.c",
         "patchSetId": 2
@@ -60,6 +108,30 @@
       "writtenOn": "2023-03-09T16:58:14Z",
       "side": 1,
       "message": "If EL3 firmware is not able to find the SoC version, shouldnt it just return something like -1? It looks weird that a call from lower EL to query for SoC version could lead to crash of the entire system.",
+      "range": {
+        "startLine": 127,
+        "startChar": 2,
+        "endLine": 127,
+        "endChar": 10
+      },
+      "revId": "a841dbd4931b0ec0106ebed5ef311f500d93d1d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3121510f_15671415",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2023-03-10T05:26:05Z",
+      "side": 1,
+      "message": "Although we could return -1 instead of panic() here, the plat_info structure contains platform details which is necessary for platform setup and the call to fetch the information is never expected to fail so I would prefer that we do panic() here.",
+      "parentUuid": "1b748e90_0eb99ae8",
       "range": {
         "startLine": 127,
         "startChar": 2,
