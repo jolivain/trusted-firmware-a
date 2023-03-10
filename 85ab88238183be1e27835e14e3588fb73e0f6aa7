@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "732ee679_480d12c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-03-10T07:07:54Z",
+      "side": 1,
+      "message": "I\u0027m interested in thoughts on this approach where we first use one service ID in the dispatcher as long as image loading is possible and then let OP-TEE replace it with its own.\n\nThis is a way of letting the Linux kernel driver know whether the image loading service is available.",
+      "revId": "85ab88238183be1e27835e14e3588fb73e0f6aa7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
