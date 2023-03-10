@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "640b0af9_4c669bb0",
+        "filename": "plat/arm/board/morello/morello_bl2_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2023-03-10T12:46:02Z",
+      "side": 1,
+      "message": "Yes, have already observed this and plan to push to do this in a new patch instead of doing it here.",
+      "parentUuid": "52bd496c_fcd2de33",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 0
+      },
+      "revId": "a841dbd4931b0ec0106ebed5ef311f500d93d1d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a16cc4c7_60ccd9d1",
         "filename": "plat/arm/board/morello/morello_bl2_setup.c",
         "patchSetId": 2
@@ -131,6 +155,30 @@
       "writtenOn": "2023-03-10T12:19:03Z",
       "side": 1,
       "message": "Are SDS initialisation and its reading required on every SMC call? In my opinion, this is not necessary since the SOC revision information is constant and will not change at run time.\nBL31 init (may be during bl31_plat_setup) should cache this information in some global variable, and this call should simply return that global variable.\nPlease let me know what do you think?",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 35
+      },
+      "revId": "a841dbd4931b0ec0106ebed5ef311f500d93d1d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dccb172_fb85c481",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2023-03-10T12:46:02Z",
+      "side": 1,
+      "message": "Yes, SoC revision is constant and will not change during runtime. However, would it make sense to cache it in a global variable since the only use of the SoC revision is in this function and there might not be many SMC calls to retrieve the SoC revision?\nPlease let me know your thoughts on this.",
+      "parentUuid": "eaebf124_029f218c",
       "range": {
         "startLine": 114,
         "startChar": 0,
