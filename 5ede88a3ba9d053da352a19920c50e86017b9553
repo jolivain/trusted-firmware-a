@@ -3,6 +3,109 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5f884b4d_bdaeb171",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-10T17:05:04Z",
+      "side": 1,
+      "message": "What is the guidance for new features? Do we start by calling them experimental?",
+      "range": {
+        "startLine": 1089,
+        "startChar": 2,
+        "endLine": 1090,
+        "endChar": 79
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8551c923_6d09dbd4",
+        "filename": "include/services/errata_abi_svc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-10T17:05:04Z",
+      "side": 1,
+      "message": "2023 only? Why 2022?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d8574c5_bace2103",
+        "filename": "include/services/errata_abi_svc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-10T17:05:04Z",
+      "side": 1,
+      "message": "Are these white spaces? If yes, can you please use tabs?",
+      "range": {
+        "startLine": 16,
+        "startChar": 22,
+        "endLine": 16,
+        "endChar": 48
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6571fada_4b6d3114",
+        "filename": "include/services/errata_abi_svc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-10T17:05:04Z",
+      "side": 1,
+      "message": "Can we please align the values for all #defines?",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31f1ac3f_d00d0761",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-10T17:05:04Z",
+      "side": 1,
+      "message": "Errata mitigations should be in separate patches, IMO",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "13cb287a_30f2f281",
         "filename": "plat/arm/board/fvp/platform.mk",
         "patchSetId": 1
@@ -20,6 +123,161 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2bf4d06f_859c3615",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-10T17:05:04Z",
+      "side": 1,
+      "message": "What does H_INC mean?",
+      "range": {
+        "startLine": 506,
+        "startChar": 11,
+        "endLine": 506,
+        "endChar": 16
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae752af0_ac8727fd",
+        "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-10T17:05:04Z",
+      "side": 1,
+      "message": "2023?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b24b2694_7a56f4cc",
+        "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-10T17:05:04Z",
+      "side": 1,
+      "message": "Are these spaces? If yes, can you please use tabs?",
+      "range": {
+        "startLine": 13,
+        "startChar": 16,
+        "endLine": 13,
+        "endChar": 18
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fe25ac8_629ac162",
+        "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-10T17:05:04Z",
+      "side": 1,
+      "message": "We already have MIDR values in individual headers for the CPUs. Maintaining them at multiple places comes with a cost. Can we maintain only one copy?",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaddd92c_c5d9f06f",
+        "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-10T17:05:04Z",
+      "side": 1,
+      "message": "partnum?",
+      "range": {
+        "startLine": 55,
+        "startChar": 20,
+        "endLine": 55,
+        "endChar": 22
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63c6225a_f967759b",
+        "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-10T17:05:04Z",
+      "side": 1,
+      "message": "missing space",
+      "range": {
+        "startLine": 58,
+        "startChar": 7,
+        "endLine": 58,
+        "endChar": 10
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f03fbaf7_69293209",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-10T17:05:04Z",
+      "side": 1,
+      "message": "Why do we need the extra entries?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 22
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8a69229b_a6a37e8b",
         "filename": "services/std_svc/errata_abi/errata_abi_main.c",
         "patchSetId": 1
@@ -31,6 +289,29 @@
       "writtenOn": "2023-03-03T10:36:01Z",
       "side": 1,
       "message": "nit: multiline comment style should be like https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#comments",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91f52004_c34e438c",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-10T17:05:04Z",
+      "side": 1,
+      "message": "binary.",
+      "range": {
+        "startLine": 538,
+        "startChar": 8,
+        "endLine": 538,
+        "endChar": 11
+      },
       "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -88,6 +369,52 @@
       "writtenOn": "2023-03-03T10:36:01Z",
       "side": 1,
       "message": "why not use the cpu_get_rev_var function? saves on a lot of lines",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa1e1c6c_6c83a993",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-10T17:05:04Z",
+      "side": 1,
+      "message": "IIUC, you are comparing the part number instead. Can we rename the variable to say part_num instead of MIDR?",
+      "range": {
+        "startLine": 614,
+        "startChar": 1,
+        "endLine": 614,
+        "endChar": 9
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfdde83d_f0c170a4",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-10T17:05:04Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 616,
+        "startChar": 18,
+        "endLine": 616,
+        "endChar": 19
+      },
       "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
