@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8b2c2a7_dca11ff5",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-10T16:38:50Z",
+      "side": 1,
+      "message": "nit: this is different to quite literally every other _MASK definition. Couldn\u0027t a third macro do what the switch needs this to do?",
+      "revId": "b8d8a5825a396206480a75ef45ac3be8e22886cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
