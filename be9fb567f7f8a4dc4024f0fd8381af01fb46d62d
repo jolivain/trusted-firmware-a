@@ -16,6 +16,24 @@
       "message": "As per spec, psci_features can be used to determine if SMCCC_VERSION is implemented. And then, SMCCC_VERSION can be used to infer if SMCCC_ARCH_FEATURES is implemented(by checking if smccc version is \u003e\u003d v1.1 ). I dont think psci_features can be directly used to determine if SMCCC_ARCH_FEATURES is implemented.",
       "revId": "be9fb567f7f8a4dc4024f0fd8381af01fb46d62d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f42e8b5_8cce2067",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000321
+      },
+      "writtenOn": "2023-03-10T10:07:00Z",
+      "side": 1,
+      "message": "Thanks for the info.\n\nU-Boot PSCI driver we are trying to reuse detects the PSCI 1.0 version using device tree then it invokes SMCCC_ARCH_FEATURES using PSCI_FEATURES:\n\nhttps://github.com/u-boot/u-boot/blob/master/drivers/firmware/psci.c#L138\n\n/*\n* SMCCC features discovery invoke SMCCC standard function ID\n* ARM_SMCCC_ARCH_FEATURES but this sequence requires that this\n* standard ARM_SMCCC_ARCH_FEATURES function ID itself is supported.\n* It is queried here with invoking PSCI_FEATURES known available\n* from PSCI 1.0.\n*/",
+      "parentUuid": "4a45a061_7e2911f4",
+      "revId": "be9fb567f7f8a4dc4024f0fd8381af01fb46d62d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
