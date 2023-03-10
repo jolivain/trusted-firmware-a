@@ -290,15 +290,14 @@ endfunc cpu_rev_var_range
  */
 	.globl print_errata_status
 func print_errata_status
+	func_prologue 16
 #ifdef IMAGE_BL1
 	/*
 	 * BL1 doesn't have per-CPU data. So retrieve the CPU operations
 	 * directly.
 	 */
-	stp	xzr, x30, [sp, #-16]!
 	bl	get_cpu_ops_ptr
-	ldp	xzr, x30, [sp], #16
-	ldr	x1, [x0, #CPU_ERRATA_FUNC]
+	ldr     x1, [x0, #CPU_ERRATA_FUNC]
 	cbnz	x1, .Lprint
 #else
 	/*
@@ -322,7 +321,7 @@ func print_errata_status
 	/*
 	 * Printing errata status requires atomically testing the printed flag.
 	 */
-	stp	x19, x30, [sp, #-16]!
+	str	x19, [sp]
 	mov	x19, x0
 
 	/*
@@ -334,14 +333,15 @@ func print_errata_status
 	ldr	x1, [x1, #CPU_ERRATA_PRINTED]
 	bl	errata_needs_reporting
 	mov	x1, x19
-	ldp	x19, x30, [sp], #16
+	ldr	x19, [sp]
 	cbnz	x0, .Lprint
 #endif
-.Lnoprint:
-	ret
 .Lprint:
 	/* Jump to errata reporting function for this CPU */
-	br	x1
+	blr	x1
+.Lnoprint:
+	func_epilogue 16
+	ret
 endfunc print_errata_status
 #endif
 
