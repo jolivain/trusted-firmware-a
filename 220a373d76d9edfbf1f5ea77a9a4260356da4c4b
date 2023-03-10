@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69f181bd_c4a03694",
+        "filename": ".clang-format",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-03-10T11:54:06Z",
+      "side": 1,
+      "message": "maybe?\n\n# for marco alignments\nAlignConsecutiveMacros:\n  Enabled: true\n  AcrossEmptyLines: true\n  AcrossComments: false\n\n\n# Align escaped newlines as far right as possible\nAlignEscapedNewlines: Left",
+      "revId": "220a373d76d9edfbf1f5ea77a9a4260356da4c4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
