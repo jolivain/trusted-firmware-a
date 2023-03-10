@@ -25,12 +25,42 @@
 #endif
 
 
-	.macro	func_prologue
+	/*
+	 * Create a stack frame at the start of an assembly function. Will also
+	 * add all necessary debug information for a pretty stack trace.
+	 *
+	 *   _frame_size: requested space for calller to use. Must be a mutliple
+	 *     of 16 for stack pointer alignment
+	 */
+	.macro	func_prologue _frame_size=0
+	.if \_frame_size & 0xf
+	.error "frame_size must have stack pointer alignment (multiple of 16)"
+	.endif
+
+	/* put frame record at top of frame */
 	stp	x29, x30, [sp, #-0x10]!
 	mov	x29,sp
+	.if \_frame_size
+	sub	sp, sp, #\_frame_size
+	.endif
+
+	/* point CFA to start of frame record, i.e. x29 + 0x10 */
+	.cfi_def_cfa	x29,  0x10
+	/* inform it about x29, x30 locations */
+	.cfi_offset	x30, -0x8
+	.cfi_offset	x29, -0x10
 	.endm
 
-	.macro	func_epilogue
+	/*
+	 * Clear stack frame at the end of an assembly function.
+	 *
+	 *   _frame_size: the value passed to func_prologue
+	 */
+	.macro	func_epilogue _frame_size=0
+	/* remove requested space */
+	.if \_frame_size
+	add	sp, sp, #\_frame_size
+	.endif
 	ldp	x29, x30, [sp], #0x10
 	.endm
 
