@@ -309,6 +309,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8c4da5a_d3f09ac7",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-10T15:55:36Z",
+      "side": 1,
+      "message": "CASSERT makes sure this doesnt happen.",
+      "parentUuid": "26ec3f57_845f01f0",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 34
+      },
+      "revId": "a841dbd4931b0ec0106ebed5ef311f500d93d1d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b748e90_0eb99ae8",
