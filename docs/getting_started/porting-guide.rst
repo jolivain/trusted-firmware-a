@@ -762,6 +762,8 @@ to the ROTPK in the flags parameter:
 
     ROTPK_IS_HASH      : Indicates that the ROTPK returned by the platform is a
                          hash.
+    ROTPK_IS_FULL_KEY  : Indicates that the ROTPK returned by the platform is a
+                         full key.
     ROTPK_NOT_DEPLOYED : This allows the platform to skip certificate ROTPK
                          verification while the platform ROTPK is not deployed.
                          When this flag is set, the function does not need to

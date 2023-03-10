@@ -44,10 +44,15 @@ enum fw_enc_status_t;
  * plat_get_rotpk_info() flags
  ******************************************************************************/
 #define ROTPK_IS_HASH			(1 << 0)
-/* Flag used to skip verification of the certificate ROTPK while the platform
-   ROTPK is not deployed */
+
+/*
+ * Flag used to skip verification of the certificate ROTPK while the platform
+ * ROTPK is not deployed
+ */
 #define ROTPK_NOT_DEPLOYED		(1 << 1)
 
+/* Flag used to indicate platform stores full ROTPK */
+#define ROTPK_IS_FULL_KEY		(1 << 2)
 /*******************************************************************************
  * plat_get_enc_key_info() flags
  ******************************************************************************/

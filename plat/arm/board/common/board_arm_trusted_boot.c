@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -102,7 +102,7 @@ int arm_get_rotpk_info_dev(void **key_ptr, unsigned int *key_len,
 	if (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_FULL_DEV_RSA_KEY_ID) {
 		*key_ptr = arm_rotpk_key;
 		*key_len = arm_rotpk_key_end - arm_rotpk_key;
-		*flags = 0;
+		*flags = ROTPK_IS_FULL_KEY;
 	} else {
 		*key_ptr = arm_rotpk_header;
 		*key_len = arm_rotpk_hash_end - arm_rotpk_header;
