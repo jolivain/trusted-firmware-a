@@ -189,6 +189,30 @@
       },
       "revId": "abc5819f11ed30c92054045eb5c0d95544176e24",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8adc9a1_07148cdc",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-03-10T22:44:38Z",
+      "side": 1,
+      "message": "I would not expect any implementations to provide the IDs in order unless mandated. Therefore I expect a limit corresponding to that scenario would not be used and could cause extra confusion. If we went with this direction I think a platform configurable value could be the simpler option. This could be adjusted accordingly depending on the expected environment and threat model.",
+      "parentUuid": "239deecc_326fcb7e",
+      "range": {
+        "startLine": 1107,
+        "startChar": 45,
+        "endLine": 1108,
+        "endChar": 62
+      },
+      "revId": "abc5819f11ed30c92054045eb5c0d95544176e24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
