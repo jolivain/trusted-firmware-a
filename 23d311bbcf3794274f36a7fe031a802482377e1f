@@ -69,6 +69,29 @@
       "parentUuid": "000afb21_7c56480f",
       "revId": "23d311bbcf3794274f36a7fe031a802482377e1f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e69b946_6687ed8b",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-03-10T14:29:29Z",
+      "side": 1,
+      "message": "RAS is a unique FEAT and this check is not fully correct. It should be guarded under newly introduced macro for Firmware first handling of RAS errors. https://review.trustedfirmware.org/q/topic:%22mp%252Ffeat_ras%22+(status:open%20OR%20status:merged) \n\nRAS_EXTENSION as it stands today means, RAS handling of errors by EL3, but systems which do handle RAS errors at lower EL is_feat_ras_supported() will be true they do not register any handler in Firmwar. That\u0027s what my patchset is trying to refactor.\n\nDon\u0027t bother about this patch i will take care of it.",
+      "range": {
+        "startLine": 257,
+        "startChar": 1,
+        "endLine": 257,
+        "endChar": 29
+      },
+      "revId": "23d311bbcf3794274f36a7fe031a802482377e1f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
