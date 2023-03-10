@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1229ea12_d3ca3ca1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-10T10:43:44Z",
+      "side": 1,
+      "message": "Suggest : \"replace RAS_EXTENSION flag\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 52
+      },
+      "revId": "7537b6fe435b951656543e165991b3b3fef1ce5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c37da140_256a2f83",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-10T10:43:44Z",
+      "side": 1,
+      "message": "Suggest:\n\"Tying RAS_EXTENSION to FFH is not correct as the feature is needed for proper RAS handling in KFH as well.\"",
+      "range": {
+        "startLine": 12,
+        "startChar": 43,
+        "endLine": 14,
+        "endChar": 0
+      },
+      "revId": "7537b6fe435b951656543e165991b3b3fef1ce5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adda1b30_3e99e056",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-10T10:43:44Z",
+      "side": 1,
+      "message": "breaks down the RAS_EXTENSION flag into a flag to denote the CPU architecture `ENABLE_FEAT_RAS` and another flag to denote the RAS handling mode. The FFH RAS handling mode is denoted by RAS_FFH_SUPPORT and KFH will be denoted by RAS_KFH_SUPPORT.",
+      "range": {
+        "startLine": 15,
+        "startChar": 11,
+        "endLine": 15,
+        "endChar": 35
+      },
+      "revId": "7537b6fe435b951656543e165991b3b3fef1ce5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6345e098_a5efbdfa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-10T10:43:44Z",
+      "side": 1,
+      "message": "better to align the KFH and FFH and call this RAS_FFH_SUPPORT We can add documentation to explain what FFH and KFH means for each world.",
+      "range": {
+        "startLine": 16,
+        "startChar": 59,
+        "endLine": 16,
+        "endChar": 62
+      },
+      "revId": "7537b6fe435b951656543e165991b3b3fef1ce5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1f71964_8a91da67",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-10T10:43:44Z",
+      "side": 1,
+      "message": "Suggest :\n\"The previous RAS_EXTENSION is now 2 options : ENABLE_FEAT_RAS  and RAS_FFH_SUPPORT. Set both these flags to get equivalent functionality.\"",
+      "revId": "7537b6fe435b951656543e165991b3b3fef1ce5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
