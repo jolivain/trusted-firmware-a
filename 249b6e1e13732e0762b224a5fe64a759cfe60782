@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dca572db_430cd748",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-03-10T17:58:20Z",
+      "side": 1,
+      "message": "Hi Wing,\n\nSome minor comments, otherwise, generally looks good to me.\n\nThanks,\nHarrison",
+      "revId": "249b6e1e13732e0762b224a5fe64a759cfe60782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3136f163_91deb53a",
+        "filename": "docs/design_documents/psci_osi_mode.rst",
+        "patchSetId": 11
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-03-10T17:58:20Z",
+      "side": 1,
+      "message": "nit: driver",
+      "range": {
+        "startLine": 110,
+        "startChar": 28,
+        "endLine": 110,
+        "endChar": 35
+      },
+      "revId": "249b6e1e13732e0762b224a5fe64a759cfe60782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a9ce71b_f6777f18",
+        "filename": "docs/design_documents/psci_osi_mode.rst",
+        "patchSetId": 11
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-03-10T17:58:20Z",
+      "side": 1,
+      "message": "Would it be possible to utilize sphinx utilities to define these prototypes? As they are, its slightly difficult to parse out as they\u0027re rendered as plain text. This isn\u0027t yet done in other parts of the documentation, which results in inconsistent representation of function prototypes.\n\nSphinx has some pretty neat language specific features, for example:\n\n.. c:macro:: PSCI_FEATURES\n\n    :param unsigned int: Function ID\n    :retval -1: NOT_SUPPORTED\n    :retval int: A set of feature flags associated with the function, if the function is implemented",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 14
+      },
+      "revId": "249b6e1e13732e0762b224a5fe64a759cfe60782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96c02497_7ef4eb4e",
+        "filename": "docs/design_documents/psci_osi_mode.rst",
+        "patchSetId": 11
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-03-10T17:58:20Z",
+      "side": 1,
+      "message": "nit: .. note::",
+      "range": {
+        "startLine": 357,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 5
+      },
+      "revId": "249b6e1e13732e0762b224a5fe64a759cfe60782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
