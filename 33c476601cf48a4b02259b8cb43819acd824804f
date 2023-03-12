@@ -22,6 +22,30 @@
       },
       "revId": "33c476601cf48a4b02259b8cb43819acd824804f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd1c5437_b5b5752d",
+        "filename": "plat/nvidia/tegra/common/tegra_platform.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-12T12:55:09Z",
+      "side": 1,
+      "message": "It is to reflect the chip ID value expected by the clients of the SMC. The major version is expected to be part of the chip ID value and hence the change.",
+      "parentUuid": "0382f9a7_bfd81e7b",
+      "range": {
+        "startLine": 279,
+        "startChar": 30,
+        "endLine": 279,
+        "endChar": 73
+      },
+      "revId": "33c476601cf48a4b02259b8cb43819acd824804f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
