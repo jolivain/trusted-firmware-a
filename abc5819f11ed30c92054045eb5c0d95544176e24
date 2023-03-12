@@ -213,6 +213,30 @@
       },
       "revId": "abc5819f11ed30c92054045eb5c0d95544176e24",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94329aa4_4d1d8cd9",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-03-12T04:36:49Z",
+      "side": 1,
+      "message": "What about just having firmware sort the IDs itself?",
+      "parentUuid": "b8adc9a1_07148cdc",
+      "range": {
+        "startLine": 1107,
+        "startChar": 45,
+        "endLine": 1108,
+        "endChar": 62
+      },
+      "revId": "abc5819f11ed30c92054045eb5c0d95544176e24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
