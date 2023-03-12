@@ -228,6 +228,24 @@
       "parentUuid": "d3d2ed97_ddf6f576",
       "revId": "90e0c79b123cdb83011fec770dc277ed2181e108",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e57cdbde_0dafc10b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000998
+      },
+      "writtenOn": "2023-03-12T13:59:03Z",
+      "side": 1,
+      "message": "I have just read plat/arm/board/platform.mk in which CTX_INCLUDE_AARCH32_REGS is set to 0 and a53/a57/a72 are supported. So I think this is an acceptable solution.",
+      "parentUuid": "59335937_5712e38c",
+      "revId": "90e0c79b123cdb83011fec770dc277ed2181e108",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
