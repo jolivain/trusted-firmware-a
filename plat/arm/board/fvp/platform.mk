@@ -195,8 +195,15 @@ endif
 
 ifeq (${ENABLE_RME},1)
 BL2_SOURCES		+=	plat/arm/board/fvp/aarch64/fvp_helpers.S
+
 BL31_SOURCES		+=	plat/arm/board/fvp/fvp_plat_attest_token.c	\
 				plat/arm/board/fvp/fvp_realm_attest_key.c
+
+# FVP platform does not support RSS, but it can leverage RSS APIs to
+# provide hardcoded key/token on request.
+BL31_SOURCES		+=	lib/psa/delegated_attestation.c
+
+PLAT_INCLUDES		+=	-Iinclude/lib/psa
 endif
 
 ifeq (${ENABLE_FEAT_RNG_TRAP},1)
@@ -369,6 +376,10 @@ ifneq (${RESET_TO_BL2}, 0)
     override BL1_SOURCES =
 endif
 
+# RSS is not supported on FVP right now. Thus, we use the mocked version
+# of the provided PSA APIs. They return with success and hard-coded token/key.
+PLAT_RSS_NOT_SUPPORTED	:= 1
+
 # Include Measured Boot makefile before any Crypto library makefile.
 # Crypto library makefile may need default definitions of Measured Boot build
 # flags present in Measured Boot makefile.
@@ -397,17 +408,6 @@ BL2_SOURCES		+=	plat/arm/board/fvp/fvp_common_measured_boot.c	\
 				plat/arm/board/fvp/fvp_bl2_measured_boot.c	\
 				lib/psa/measured_boot.c
 
-# Note that attestation code does not depend on measured boot interfaces per se,
-# but the two features go together - attestation without boot measurements is
-# pretty much pointless...
-BL31_SOURCES		+=	lib/psa/delegated_attestation.c
-
-PLAT_INCLUDES		+=	-Iinclude/lib/psa
-
-# RSS is not supported on FVP right now. Thus, we use the mocked version
-# of the provided PSA APIs. They return with success and hard-coded data.
-PLAT_RSS_NOT_SUPPORTED	:= 1
-
 # Even though RSS is not supported on FVP (see above), we support overriding
 # PLAT_RSS_NOT_SUPPORTED from the command line, just for the purpose of building
 # the code to detect any build regressions. The resulting firmware will not be
@@ -417,8 +417,7 @@ ifneq (${PLAT_RSS_NOT_SUPPORTED},1)
     include drivers/arm/rss/rss_comms.mk
     BL1_SOURCES		+=	${RSS_COMMS_SOURCES}
     BL2_SOURCES		+=	${RSS_COMMS_SOURCES}
-    BL31_SOURCES	+=	${RSS_COMMS_SOURCES}		\
-				lib/psa/delegated_attestation.c
+    BL31_SOURCES	+=	${RSS_COMMS_SOURCES}
 
     BL1_CFLAGS		+=	-DPLAT_RSS_COMMS_PAYLOAD_MAX_SIZE=0
     BL2_CFLAGS		+=	-DPLAT_RSS_COMMS_PAYLOAD_MAX_SIZE=0
