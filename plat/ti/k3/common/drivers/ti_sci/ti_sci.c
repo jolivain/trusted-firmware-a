@@ -13,6 +13,7 @@
 #include <string.h>
 
 #include <platform_def.h>
+#include <lib/bakery_lock.h>
 
 #include <common/debug.h>
 #include <sec_proxy.h>
@@ -24,6 +25,8 @@
 __section(".tzfw_coherent_mem")
 #endif
 static uint8_t message_sequence;
+
+DEFINE_BAKERY_LOCK(ti_sci_xfer_lock);
 
 /**
  * struct ti_sci_xfer - Structure representing a message flow
@@ -145,6 +148,8 @@ static int ti_sci_do_xfer(struct ti_sci_xfer *xfer)
 	struct k3_sec_proxy_msg *rx_msg = &xfer->rx_message;
 	int ret;
 
+	bakery_lock_get(&ti_sci_xfer_lock);
+
 	/* Clear any spurious messages in receive queue */
 	ret = k3_sec_proxy_clear_rx_thread(SP_RESPONSE);
 	if (ret) {
@@ -167,6 +172,8 @@ static int ti_sci_do_xfer(struct ti_sci_xfer *xfer)
 			return ret;
 		}
 	}
+
+	bakery_lock_release(&ti_sci_xfer_lock);
 
 	return 0;
 }
