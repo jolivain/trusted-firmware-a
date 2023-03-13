@@ -72,6 +72,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30abda96_764b1576",
+        "filename": "plat/arm/board/morello/morello_bl2_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2023-03-13T16:23:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8e208a49_f20cd215",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 0
+      },
+      "revId": "a841dbd4931b0ec0106ebed5ef311f500d93d1d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a16cc4c7_60ccd9d1",
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "Okay. Please push the patch and resolve this comment.",
       "parentUuid": "8d61512f_6b9b59ea",
+      "range": {
+        "startLine": 48,
+        "startChar": 61,
+        "endLine": 48,
+        "endChar": 63
+      },
+      "revId": "a841dbd4931b0ec0106ebed5ef311f500d93d1d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f23f7f8d_b3a0172b",
+        "filename": "plat/arm/board/morello/morello_bl2_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2023-03-13T16:23:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bb41fc5e_02a02a40",
       "range": {
         "startLine": 48,
         "startChar": 61,
@@ -333,6 +381,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e4c7c64_c6eee8d1",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2023-03-13T16:23:38Z",
+      "side": 1,
+      "message": "Will push a patch to handle SDS initialization in bl31_platform_setup() and initialize a global variable of type \"struct morello_plat_info\" which will be used in this SMC call for Morello SoC platform to retrieve the SoC revision",
+      "parentUuid": "afcfcc4e_4d90d646",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 35
+      },
+      "revId": "a841dbd4931b0ec0106ebed5ef311f500d93d1d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b748e90_0eb99ae8",
@@ -394,6 +466,30 @@
       "side": 1,
       "message": "Retrieving the SOC information during BL31 init also helps in panic\u0027ing quite early if SDS reading failed during BL31 init.",
       "parentUuid": "3121510f_15671415",
+      "range": {
+        "startLine": 127,
+        "startChar": 2,
+        "endLine": 127,
+        "endChar": 10
+      },
+      "revId": "a841dbd4931b0ec0106ebed5ef311f500d93d1d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de92fb84_e42f1cba",
+        "filename": "plat/arm/board/morello/morello_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2023-03-13T16:23:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "063c993a_8797961a",
       "range": {
         "startLine": 127,
         "startChar": 2,
