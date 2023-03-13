@@ -79,6 +79,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9b1faa02_e5a20646",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-13T23:31:19Z",
+      "side": 1,
+      "message": "Arguably this problem might come from us somewhat abusing pointers for MMIO operations. The compiler sees a pointer, and treats it like a pointer (an address to a variable or function). The Linux kernel avoids this problem by defining the MMIO accessors via inline assembly.\nIf I replace the definition of the 8 bit read accessor with:\nstatic inline uint8_t mmio_read_8(uintptr_t addr)\n{\n    uint8_t val;\n    asm volatile (\"ldrb %w0, [%1]\\n\" : \"\u003dr\" (val) : \"r\" (addr));\n    return val;\n}\nthen it seems to compile fine with GCC 12 for me.\n\nAlso one problem with this patch seems to be that that this particular --param only exists for GCC \u003e\u003d 12? With GCC 11.2.0 I get:\nerror: unrecognized command-line option \u0027--param\u003dmin-pagesize\u003d0\u0027g",
+      "parentUuid": "f8e057e3_1550726e",
+      "revId": "96b32abc6124e2741df4a1bb263552567132feaa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "23d5c3d1_146dd542",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
