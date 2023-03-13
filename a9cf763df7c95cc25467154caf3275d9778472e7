@@ -16,6 +16,24 @@
       "message": "same comment as before. might want to put this under a build flag. It might be perfectly acceptable for platforms to not have any G0 interrupts or have it handled by SPMC + SPs.",
       "revId": "a9cf763df7c95cc25467154caf3275d9778472e7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cac5de7_726f7939",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-03-13T13:45:44Z",
+      "side": 1,
+      "message": "I\u0027m fine with introducing a build option. That said,\n\u003e have it handled by SPMC + SPs.\nDo you agree this isn\u0027t necessarily the way forward for FF-A?\nAs we intend to provide an ABI to forward a G0 interrupt from S-EL2 to EL3, at least for the TF-A/Hafnium reference code base there is no case of SPMC handling a G0 interrupt, or even a SP. The latter cannot claim ownership of interrupts other than G1S by the spec. I would like to prevent cases that aren\u0027t actually queried by the spec.",
+      "parentUuid": "875dfe56_99bc222a",
+      "revId": "a9cf763df7c95cc25467154caf3275d9778472e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
