@@ -16,6 +16,24 @@
       "message": "CI+2 [https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/784/] has been triggred on this entire series, and few build configurations have failed.\nListing them here.\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1807197/console\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1807343/console\nKindly resolve them.",
       "revId": "7195a0e4f4259b1273a7225aed2feb8af7f9e05f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "382fe3d0_404faf62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-13T11:23:03Z",
+      "side": 1,
+      "message": "Yeah, saw this, is_feat_dit_supported() was missing for AArch32. Already fixed.",
+      "parentUuid": "8e4246b8_eb9273a2",
+      "revId": "7195a0e4f4259b1273a7225aed2feb8af7f9e05f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
