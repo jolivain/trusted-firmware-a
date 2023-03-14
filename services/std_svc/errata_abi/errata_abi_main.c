@@ -384,27 +384,36 @@ struct em_cpu_list cpu_list[] = {
  * Function to do binary search and check for the specific errata ID
  * in the array of structures specific to the cpu identified.
  */
-int32_t binary_search(struct em_cpu_list *ptr, uint32_t erratum_id,
-			uint8_t rxpx_val)
+int32_t binary_search(struct em_cpu_list *ptr, uint32_t erratum_id, uint8_t rxpx_val)
 {
 	int low_index = 0U, mid_index = 0U;
 
 	int high_index = MAX_ERRATA_ENTRIES - 1;
 
+	assert(ptr != NULL);
+
+	/*
+	 * Pointer to the errata list of the cpu that matches
+         * extracted partnumber in the cpu list
+	 */
+	struct em_cpu *errata_list = &ptr->cpu_errata_list[0];
+
+	assert(errata_list != NULL);
+
 	while (low_index <= high_index) {
 		mid_index = (low_index + high_index) / 2;
-		if (erratum_id < ptr->cpu_errata_list[mid_index].em_errata_id) {
+		if (erratum_id < (errata_list + mid_index)->em_errata_id) {
 			high_index = mid_index - 1;
-		} else if (erratum_id > ptr->cpu_errata_list[mid_index].em_errata_id) {
+		} else if (erratum_id > (errata_list + mid_index)->em_errata_id) {
 			low_index = mid_index + 1;
-		} else if (erratum_id == ptr->cpu_errata_list[mid_index].em_errata_id) {
-
-			if (RXPX_RANGE(rxpx_val, ptr->cpu_errata_list[mid_index].em_rxpx_lo, \
-				ptr->cpu_errata_list[mid_index].em_rxpx_hi)) {
-					if (ptr->cpu_errata_list[mid_index].errata_enabled) {
-						return EM_HIGHER_EL_MITIGATION;
-					}
-					return EM_AFFECTED;
+		} else if (erratum_id == (errata_list + mid_index)->em_errata_id) {
+			if (RXPX_RANGE(rxpx_val, (errata_list + mid_index)->em_rxpx_lo, \
+				(errata_list + mid_index)->em_rxpx_hi)) {
+				if (((errata_list + mid_index)->errata_enabled) && \
+				(!((errata_list + mid_index)->non_arm_interconnect))) {
+					return EM_HIGHER_EL_MITIGATION;
+				}
+				return EM_AFFECTED;
 			}
 			return EM_NOT_AFFECTED;
 		}
