@@ -510,3 +510,7 @@ ifeq (${PLATFORM_TEST_EA_FFH}, 1)
     endif
 BL31_SOURCES	+= plat/arm/board/fvp/aarch64/fvp_ea.c
 endif
+
+ifeq (${ERRATA_ABI_SUPPORT}, 1)
+include plat/arm/board/fvp/fvp_cpu_errata.mk
+endif
