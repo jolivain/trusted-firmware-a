@@ -742,9 +742,10 @@
 #define PLAT_PERCPU_BAKERY_LOCK_SIZE		(1 * CACHE_WRITEBACK_GRANULE)
 
 /* Priority levels for ARM platforms */
-#define PLAT_RAS_PRI			0x10
-#define PLAT_SDEI_CRITICAL_PRI		0x60
-#define PLAT_SDEI_NORMAL_PRI		0x70
+#define PLAT_RAS_PRI			U(0x10)
+#define PLAT_SP_PRI			U(0x20)
+#define PLAT_SDEI_CRITICAL_PRI		U(0x60)
+#define PLAT_SDEI_NORMAL_PRI		U(0x70)
 
 /* ARM platforms use 3 upper bits of secure interrupt priority */
 #define PLAT_PRI_BITS			3
