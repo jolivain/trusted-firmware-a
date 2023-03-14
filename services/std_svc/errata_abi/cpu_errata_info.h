@@ -42,7 +42,7 @@
 	#include <cortex_a9.h>
 #endif
 
-#define MAX_SIZE		15
+#define MAX_SIZE		16
 #define UNDEF_ERRATA		UINT_MAX
 
 #define EXTRACT_REV_VAR(x)	((x & MIDR_REV_MASK) << MIDR_REV_BITS) \
@@ -67,5 +67,5 @@ struct em_cpu_list{
 };
 
 int32_t verify_errata_implemented(uint32_t errata_id, uint32_t forward_flag,
-				  void *handle);
+					void *handle);
 #endif /* ERRATA_CPUSPEC_H */
