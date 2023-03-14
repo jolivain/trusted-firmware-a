@@ -478,7 +478,14 @@ int32_t binary_search(struct em_cpu_list *ptr, uint32_t erratum_id,
 				return EM_NOT_AFFECTED;
 			} else if ((rxpx_val >= ptr->cpu_errata_list[mid_index].em_rxpx_lo) && \
 				   (rxpx_val <= ptr->cpu_errata_list[mid_index].em_rxpx_hi)) {
-				return EM_HIGHER_EL_MITIGATION;
+				if (ptr->cpu_errata_list[mid_index].arm_interconnect) {
+					int ret_val;
+					ret_val = (ptr->cpu_errata_list[mid_index].platform_affected \
+						  == true) ? EM_AFFECTED : EM_UNKNOWN_ERRATUM;
+					return ret_val;
+				} else {
+					return EM_HIGHER_EL_MITIGATION;
+				}
 			} else {
 				return EM_UNKNOWN_ERRATUM;
 			}
@@ -492,8 +499,7 @@ int32_t binary_search(struct em_cpu_list *ptr, uint32_t erratum_id,
 int32_t verify_errata_implemented(uint32_t errata_id, uint32_t forward_flag,
 				  void *handle)
 {
-	/* Read MIDR value and extract the revision
-	 * variant and cpu info. */
+	/* Read MIDR value and extract the revision variant and cpu info. */
 	static uint32_t midr_val, cpu_partnum;
 	static uint8_t  cpu_rxpx_val;
 	int32_t ret_val = EM_UNKNOWN_ERRATUM;
