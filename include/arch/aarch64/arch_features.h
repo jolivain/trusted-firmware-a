@@ -149,6 +149,40 @@ static inline bool is_feat_tcr2_supported(void)
 	return read_feat_tcrx_id_field() != 0U;
 }
 
+static inline bool is_armv8_9_s2poe_present(void)
+{
+	return ((read_id_aa64mmfr3_el1() >> ID_AA64MMFR3_EL1_S2POE_SHIFT) &
+		ID_AA64MMFR3_EL1_S2POE_MASK);
+}
+
+static inline bool is_armv8_9_s1poe_present(void)
+{
+	return ((read_id_aa64mmfr3_el1() >> ID_AA64MMFR3_EL1_S1POE_SHIFT) &
+		ID_AA64MMFR3_EL1_S1POE_MASK);
+}
+
+static inline bool is_armv8_9_poe_present(void)
+{
+	return is_armv8_9_s1poe_present() || is_armv8_9_s2poe_present();
+}
+
+static inline bool is_armv8_9_s2pie_present(void)
+{
+	return ((read_id_aa64mmfr3_el1() >> ID_AA64MMFR3_EL1_S2PIE_SHIFT) &
+		ID_AA64MMFR3_EL1_S2PIE_MASK);
+}
+
+static inline bool is_armv8_9_s1pie_present(void)
+{
+	return ((read_id_aa64mmfr3_el1() >> ID_AA64MMFR3_EL1_S1PIE_SHIFT) &
+		ID_AA64MMFR3_EL1_S1PIE_MASK);
+}
+
+static inline bool is_armv8_9_pie_present(void)
+{
+	return is_armv8_9_s1pie_present() || is_armv8_9_s2pie_present();
+}
+
 /*******************************************************************************
  * Functions to identify the presence of the Activity Monitors Extension
  ******************************************************************************/
