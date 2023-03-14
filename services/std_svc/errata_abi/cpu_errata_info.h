@@ -61,6 +61,8 @@ struct em_cpu{
 	unsigned char em_rxpx_hi;	/* highest revision of errata applicable for the cpu */
 	unsigned char hardware_mitigated;	/* hardware mitigation revision */
 	bool hw_flag;			/* flag indicates errata mitigated in hardware */
+	bool arm_interconnect;		/* interconnect flag */
+	bool platform_affected;		/* indicate if platform affected */
 };
 
 struct em_cpu_list{
