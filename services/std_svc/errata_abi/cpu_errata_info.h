@@ -32,7 +32,6 @@
 #include <neoverse_n2.h>
 #include <neoverse_v1.h>
 #include <neoverse_v2.h>
-
 #else
 #include <cortex_a15.h>
 #include <cortex_a17.h>
@@ -40,7 +39,7 @@
 #include <cortex_a9.h>
 #endif
 
-#define MAX_ERRATA_ENTRIES	15
+#define MAX_ERRATA_ENTRIES	16
 
 #define UNDEF_ERRATA		UINT_MAX
 
@@ -54,15 +53,14 @@
 /*
  * CPU specific values for errata handling
  */
-
 struct em_cpu{
 	unsigned int em_errata_id;
 	unsigned char em_rxpx_lo;	/* lowest revision of errata applicable for the cpu */
 	unsigned char em_rxpx_hi;	/* highest revision of errata applicable for the cpu */
+	bool errata_enabled;		/* indicate if errata enabled */
 	unsigned char hardware_mitigated;	/* hardware mitigation revision */
 	bool hw_flag;			/* flag indicates errata mitigated in hardware */
-	bool arm_interconnect;		/* interconnect flag */
-	bool platform_affected;		/* indicate if platform affected */
+	bool non_arm_interconnect;	/* non-arm interconnect flag */
 };
 
 struct em_cpu_list{
