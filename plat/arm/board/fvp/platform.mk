@@ -472,6 +472,7 @@ ENABLE_FEAT_S2PIE		:= 2
 ENABLE_FEAT_S1PIE		:= 2
 ENABLE_FEAT_S2POE		:= 2
 ENABLE_FEAT_S1POE		:= 2
+ENABLE_FEAT_GCS			:= 2
 
 ifeq (${SPMC_AT_EL3}, 1)
 PLAT_BL_COMMON_SOURCES	+=	plat/arm/board/fvp/fvp_el3_spmc.c
