@@ -131,6 +131,12 @@ static inline bool is_armv8_5_rng_present(void)
 		ID_AA64ISAR0_RNDR_MASK);
 }
 
+static inline bool is_armv8_9_tcr2_present(void)
+{
+	return ((read_id_aa64mmfr3_el1() >> ID_AA64MMFR3_EL1_TCRX_SHIFT) &
+		ID_AA64MMFR3_EL1_TCRX_MASK);
+}
+
 /*******************************************************************************
  * Functions to identify the presence of the Activity Monitors Extension
  ******************************************************************************/
