@@ -41,7 +41,7 @@
 #include <cortex_a9.h>
 #endif
 
-#define MAX_ERRATA_ENTRIES	15
+#define MAX_ERRATA_ENTRIES	16
 
 #define UNDEF_ERRATA		UINT_MAX
 
@@ -55,7 +55,6 @@
 /*
  * CPU specific values for errata handling
  */
-
 struct em_cpu{
 	unsigned int em_errata_id;
 	unsigned char em_rxpx_lo;	/* lowest revision of errata applicable for the cpu */
@@ -74,5 +73,5 @@ struct em_cpu_list{
 };
 
 int32_t verify_errata_implemented(uint32_t errata_id, uint32_t forward_flag,
-				  void *handle);
+					void *handle);
 #endif /* ERRATA_CPUSPEC_H */
