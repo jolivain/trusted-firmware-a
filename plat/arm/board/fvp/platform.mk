@@ -24,6 +24,9 @@ FVP_GICR_REGION_PROTECTION		:= 0
 
 FVP_DT_PREFIX		:= fvp-base-gicv3-psci
 
+# Default flag for arm/non-arm interconnect for errata ABI implementation.
+ERRATA_NON_ARM_INTERCONNECT	:=0
+
 # The FVP platform depends on this macro to build with correct GIC driver.
 $(eval $(call add_define,FVP_USE_GIC_DRIVER))
 
@@ -50,6 +53,21 @@ FVP_INTERCONNECT_DRIVER := FVP_CCN
 endif
 
 $(eval $(call add_define,FVP_INTERCONNECT_DRIVER))
+
+$(eval $(call add_define,ERRATA_NON_ARM_INTERCONNECT))
+
+# Add errata for Demeter when a non-arm interconnect is enabled.
+ifeq ($(ERRATA_NON_ARM_INTERCONNECT), 1)
+ERRATA_A710_2701952	:=1	#placeholder for cortex A710
+ERRATA_A78_2712571	:=1	#placeholder for cortex A78
+ERRATA_A78C_2712575	:=1	#placeholder for cortex A78C
+ERRATA_A78_AE_2712574	:=1	#placeholder for cortex A78_AE
+ERRATA_V2_2719103	:=1	#placeholder for neoverse V2(demeter)
+ERRATA_A715_2701951	:=1	#placeholder for cortex A715(makalu)
+ERRATA_X2_2701952	:=1	#placeholder for cortex X2(matterhorn)
+ERRATA_N2_2728475	:=1	#placeholder for neoverse N2(perseus)
+ERRATA_V1_2701953	:=1	#placeholder for neoverse V1(zeus)
+endif # ERRATA_NON_ARM_INTERCONNECT #
 
 # Choose the GIC sources depending upon the how the FVP will be invoked
 ifeq (${FVP_USE_GIC_DRIVER}, FVP_GICV3)
@@ -473,3 +491,50 @@ ifeq (${SPMC_AT_EL3}, 1)
 PLAT_BL_COMMON_SOURCES	+=	plat/arm/board/fvp/fvp_el3_spmc.c
 endif
 
+ifeq (${ERRATA_ABI_SUPPORT}, 1)
+# enable the cpu macros for errata abi interface
+ifeq (${ARCH}, aarch64)
+ifeq (${HW_ASSISTED_COHERENCY}, 0)
+CORTEX_A35_H_INC	:= 1
+CORTEX_A53_H_INC	:= 1
+CORTEX_A57_H_INC	:= 1
+CORTEX_A72_H_INC	:= 1
+CORTEX_A73_H_INC	:= 1
+$(eval $(call add_define, CORTEX_A35_H_INC))
+$(eval $(call add_define, CORTEX_A53_H_INC))
+$(eval $(call add_define, CORTEX_A57_H_INC))
+$(eval $(call add_define, CORTEX_A72_H_INC))
+$(eval $(call add_define, CORTEX_A73_H_INC))
+else
+ifeq (${CTX_INCLUDE_AARCH32_REGS}, 0)
+CORTEX_A76_H_INC	:= 1
+CORTEX_A77_H_INC	:= 1
+NEOVERSE_N1_H_INC	:= 1
+CORTEX_A78_AE_H_INC	:= 1
+CORTEX_A510_H_INC	:= 1
+CORTEX_A710_H_INC	:= 1
+CORTEX_A78C_H_INC	:= 1
+CORTEX_X2_H_INC		:= 1
+CORTEX_A55_H_INC	:= 1
+CORTEX_A75_H_INC	:= 1
+$(eval $(call add_define, CORTEX_A76_H_INC))
+$(eval $(call add_define, CORTEX_A77_H_INC))
+$(eval $(call add_define, CORTEX_A78_AE_H_INC))
+$(eval $(call add_define, CORTEX_A510_H_INC))
+$(eval $(call add_define, CORTEX_A710_H_INC))
+$(eval $(call add_define, CORTEX_A78C_H_INC))
+$(eval $(call add_define, NEOVERSE_N1_H_INC))
+$(eval $(call add_define, CORTEX_X2_H_INC))
+$(eval $(call add_define, CORTEX_A55_H_INC))
+$(eval $(call add_define, CORTEX_A75_H_INC))
+endif
+CORTEX_A55_H_INC	:= 1
+CORTEX_A75_H_INC	:= 1
+$(eval $(call add_define, CORTEX_A55_H_INC))
+$(eval $(call add_define, CORTEX_A75_H_INC))
+endif
+else
+CORTEX_A32_H_INC	:= 1
+$(eval $(call add_define, CORTEX_A32_H_INC))
+endif
+endif
