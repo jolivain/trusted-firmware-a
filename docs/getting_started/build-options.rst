@@ -355,6 +355,12 @@ Common build options
    flag can take the values 0 to 2, to align  with the ``FEATURE_DETECTION``
    mechanism. Default value is ``0``.
 
+-  ``ENABLE_PERMISSION_INDIRECTION``: Numeric value to set the bit
+   SCR_EL3.PIEN in EL3 to enable permission indirection and overlay from EL2
+   as well as adding the relevant registers to the EL2 context save/restore
+   operations. This flag can take the values 0 to 2, to align  with the
+   ``FEATURE_DETECTION`` mechanism. Default value is ``0``.
+
 -  ``ENABLE_LTO``: Boolean option to enable Link Time Optimization (LTO)
    support in GCC for TF-A. This option is currently only supported for
    AArch64. Default is 0.

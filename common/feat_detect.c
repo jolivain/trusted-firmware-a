@@ -258,6 +258,27 @@ static void read_feat_tcr2(void)
 #endif
 }
 
+/***********************************************************
+ * Feature : FEAT_S2PIE and FEAT_S1PIE (Permission Indirection)
+ **********************************************************/
+static void read_feat_sxpie(void)
+{
+#if (ENABLE_PERMISSION_INDIRECTION == FEAT_STATE_ALWAYS)
+	feat_detect_panic(is_armv8_9_pie_present(), "PIE");
+#endif
+}
+
+/***********************************************************
+ * Feature : FEAT_S2POE and FEAT_S1POE (Permission Overlay)
+ **********************************************************/
+static void read_feat_sxpoe(void)
+{
+#if (ENABLE_PERMISSION_INDIRECTION == FEAT_STATE_ALWAYS)
+	feat_detect_panic(is_armv8_9_poe_present(), "POE");
+#endif
+}
+
+
 /***********************************************************************************
  * TF-A supports many Arm architectural features starting from arch version
  * (8.0 till 8.7+). These features are mostly enabled through build flags. This
@@ -326,6 +347,9 @@ void detect_arch_features(void)
 
 	/* v8.9 features */
 	read_feat_tcr2();
+	read_feat_sxpie();
+	read_feat_sxpoe();
+
 	/* v9.0 features */
 	check_feature(ENABLE_BRBE_FOR_NS, read_feat_brbe_id_field(),
 		      "BRBE", 1, 2);
