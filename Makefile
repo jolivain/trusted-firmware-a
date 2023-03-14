@@ -1159,6 +1159,7 @@ $(eval $(call assert_booleans,\
         FEATURE_DETECTION \
 	TRNG_SUPPORT \
 	ERRATA_ABI_SUPPORT \
+	ERRATA_NON_ARM_INTERCONNECT \
 	CONDITIONAL_CMO \
 )))
 
@@ -1285,6 +1286,7 @@ $(eval $(call add_defines,\
         CRYPTO_SUPPORT \
         TRNG_SUPPORT \
         ERRATA_ABI_SUPPORT \
+	ERRATA_NON_ARM_INTERCONNECT \
         USE_COHERENT_MEM \
         USE_DEBUGFS \
         ARM_IO_IN_DTB \
