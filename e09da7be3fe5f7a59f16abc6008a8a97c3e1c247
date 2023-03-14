@@ -52,6 +52,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee88f8c0_70b5155b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2023-03-14T10:15:45Z",
+      "side": 1,
+      "message": "Comments addressed. Yes, AllowCI+2 was run with this patch using the following CI refspec (same topic): https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/19880\nAll tests passed except MISRA issues not related to the patch. Overwrote Verify label for that reason.",
+      "parentUuid": "03616d53_6d720384",
+      "revId": "e09da7be3fe5f7a59f16abc6008a8a97c3e1c247",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ce1096f_7e3d7841",
@@ -65,6 +83,30 @@
       "writtenOn": "2023-03-13T17:38:29Z",
       "side": 1,
       "message": "nit: Use additional tabs and align with above",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 18
+      },
+      "revId": "e09da7be3fe5f7a59f16abc6008a8a97c3e1c247",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54809347_c06d937f",
+        "filename": "plat/intel/soc/agilex/platform.mk",
+        "patchSetId": 18
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2023-03-14T10:15:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ce1096f_7e3d7841",
       "range": {
         "startLine": 80,
         "startChar": 0,
@@ -98,6 +140,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf307552_4228694d",
+        "filename": "plat/intel/soc/n5x/platform.mk",
+        "patchSetId": 18
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2023-03-14T10:15:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60db2493_f40dc30b",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 18
+      },
+      "revId": "e09da7be3fe5f7a59f16abc6008a8a97c3e1c247",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d600b0cf_d4b8aa6c",
@@ -111,6 +177,30 @@
       "writtenOn": "2023-03-13T17:38:29Z",
       "side": 1,
       "message": "nit: Use additional tabs and align with above",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 18
+      },
+      "revId": "e09da7be3fe5f7a59f16abc6008a8a97c3e1c247",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8bf763e_7ebe39c1",
+        "filename": "plat/intel/soc/stratix10/platform.mk",
+        "patchSetId": 18
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2023-03-14T10:15:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d600b0cf_d4b8aa6c",
       "range": {
         "startLine": 79,
         "startChar": 0,
@@ -144,6 +234,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "74790fac_55eace44",
+        "filename": "plat/nxp/common/setup/common.mk",
+        "patchSetId": 18
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2023-03-14T10:15:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfaeef8e_545690a3",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 18
+      },
+      "revId": "e09da7be3fe5f7a59f16abc6008a8a97c3e1c247",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "274fb13d_b3670abf",
@@ -157,6 +271,30 @@
       "writtenOn": "2023-03-13T17:38:29Z",
       "side": 1,
       "message": "nit: Use additional tabs and align with above",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 18
+      },
+      "revId": "e09da7be3fe5f7a59f16abc6008a8a97c3e1c247",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32e188b4_14d53f13",
+        "filename": "plat/renesas/common/common.mk",
+        "patchSetId": 18
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2023-03-14T10:15:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "274fb13d_b3670abf",
       "range": {
         "startLine": 13,
         "startChar": 0,
@@ -190,6 +328,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "500603bf_2cbf9347",
+        "filename": "plat/socionext/synquacer/platform.mk",
+        "patchSetId": 18
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2023-03-14T10:15:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f540d8dc_e803208a",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "e09da7be3fe5f7a59f16abc6008a8a97c3e1c247",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8231eed6_0fad28a0",
@@ -213,6 +375,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "153fdf59_cea64999",
+        "filename": "plat/socionext/uniphier/platform.mk",
+        "patchSetId": 18
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2023-03-14T10:15:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8231eed6_0fad28a0",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 27
+      },
+      "revId": "e09da7be3fe5f7a59f16abc6008a8a97c3e1c247",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a57155f5_76b6b0cb",
@@ -226,6 +412,30 @@
       "writtenOn": "2023-03-13T17:38:29Z",
       "side": 1,
       "message": "nit: Use additional tabs and align with above",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 17
+      },
+      "revId": "e09da7be3fe5f7a59f16abc6008a8a97c3e1c247",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9224d944_40f4fc5b",
+        "filename": "plat/st/stm32mp1/platform.mk",
+        "patchSetId": 18
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2023-03-14T10:15:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a57155f5_76b6b0cb",
       "range": {
         "startLine": 9,
         "startChar": 0,
