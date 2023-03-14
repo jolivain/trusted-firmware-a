@@ -317,6 +317,8 @@ void detect_arch_features(void)
 	/* v8.9 features */
 	check_feature(ENABLE_FEAT_TCR2, read_feat_tcrx_id_field(),
 		      "TCR2", 1, 1);
+	read_feat_sxpie();
+	read_feat_sxpoe();
 
 	/* v9.0 features */
 	check_feature(ENABLE_BRBE_FOR_NS, read_feat_brbe_id_field(),
