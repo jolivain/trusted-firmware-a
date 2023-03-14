@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <stdint.h>
 
-#define MAX_SIZE  		15
+#define MAX_SIZE  		16
 #define UNDEF_ERRATA		UINT_MAX
 
 #define EXTRACT_REV_VAR(x)	((x & MIDR_REV_MASK) << MIDR_REV_BITS) \
@@ -56,7 +56,7 @@ struct em_cpu{
 };
 
 struct em_cpu_list{
- 	unsigned long cpu_partnumber;		/* field to hold cpu specific part number defined in midr reg */
+ 	unsigned long cpu_partnumber;		/* field to hold cpu specific part number defined in midr reg*/
  	struct   em_cpu cpu_errata_list[MAX_SIZE];
 };
 
