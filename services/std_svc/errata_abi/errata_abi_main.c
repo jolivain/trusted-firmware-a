@@ -468,16 +468,24 @@ int32_t binary_search(struct em_cpu_list *ptr, uint32_t erratum_id,
 		} else if (erratum_id > ptr->cpu_errata_list[mid_index].em_errata_id) {
 			low_index = mid_index + 1;
 		} else if (erratum_id == ptr->cpu_errata_list[mid_index].em_errata_id) {
+
 		/*
 		 * errata has been fixed in the hardware for specified revision and above.
 		 */
 			if ((rxpx_val >= ptr->cpu_errata_list[mid_index].hardware_mitigated) && \
-			    (ptr->cpu_errata_list[mid_index].hw_flag)) {
+				(ptr->cpu_errata_list[mid_index].hw_flag)) {
 				return EM_NOT_AFFECTED;
 			}
 
 			if (RXPX_RANGE(rxpx_val, ptr->cpu_errata_list[mid_index].em_rxpx_lo, \
 						ptr->cpu_errata_list[mid_index].em_rxpx_hi)) {
+				if (ptr->cpu_errata_list[mid_index].arm_interconnect) {
+					int ret_val;
+					ret_val = (ptr->cpu_errata_list[mid_index]. \
+					platform_affected == true) ? EM_AFFECTED : \
+					EM_UNKNOWN_ERRATUM;
+					return ret_val;
+				}
 				return EM_HIGHER_EL_MITIGATION;
 			}
 			return EM_UNKNOWN_ERRATUM;
