@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68f6d8a0_a9237d98",
+        "filename": "plat/arm/board/fvp/fvp_plat_attest_token.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-03-14T22:23:30Z",
+      "side": 1,
+      "message": "Should we have a brief description of the purpose here? Trying to understand, is this temporary to get the hardcoded token through API?",
+      "revId": "68902cc2a61a6e4f951806b1aa0f4e2974110d85",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26ee272d_a0ddb768",
+        "filename": "plat/arm/board/fvp/fvp_realm_attest_key.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-03-14T22:23:30Z",
+      "side": 1,
+      "message": "Same comments and question here for key as I had for the token.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 8
+      },
+      "revId": "68902cc2a61a6e4f951806b1aa0f4e2974110d85",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2af95441_afa24112",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-03-14T22:23:30Z",
+      "side": 1,
+      "message": "token/key might be more consistent use.",
+      "range": {
+        "startLine": 202,
+        "startChar": 20,
+        "endLine": 202,
+        "endChar": 26
+      },
+      "revId": "68902cc2a61a6e4f951806b1aa0f4e2974110d85",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d97d5466_37db9f1d",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-03-14T22:23:30Z",
+      "side": 1,
+      "message": "token/key might be more consistent use.",
+      "range": {
+        "startLine": 379,
+        "startChar": 68,
+        "endLine": 379,
+        "endChar": 72
+      },
+      "revId": "68902cc2a61a6e4f951806b1aa0f4e2974110d85",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
