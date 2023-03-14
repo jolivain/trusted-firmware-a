@@ -47,10 +47,12 @@
 
 struct em_cpu{
  	unsigned int em_errata_id;
- 	unsigned char em_rxpx_lo;           /* lowest revision of errata applicable for the cpu*/
-	unsigned char em_rxpx_hi;           /* highest revision of errata applicable for the cpu*/
-	unsigned char hardware_mitigated;   /* indicator for hardware mitigation revision */
+ 	unsigned char em_rxpx_lo;		/* lowest revision of errata applicable for the cpu*/
+	unsigned char em_rxpx_hi;		/* highest revision of errata applicable for the cpu*/
+	unsigned char hardware_mitigated;	/* indicator for hardware mitigation revision */
 	bool hw_flag;
+	bool arm_interconnect;			/* interconnect flag */
+	bool platform_affected;			/* indicate if platform affected */
 };
 
 struct em_cpu_list{
