@@ -75,6 +75,9 @@ ENABLE_FEAT_ECV			:= 2
 ENABLE_FEAT_FGT			:= 2
 ENABLE_FEAT_TCR2		:= 2
 
+# Default flag for arm/non-arm interconnect for errata ABI implementation.
+ERRATA_NON_ARM_INTERCONNECT	:=0
+
 # The FVP platform depends on this macro to build with correct GIC driver.
 $(eval $(call add_define,FVP_USE_GIC_DRIVER))
 
@@ -101,6 +104,8 @@ FVP_INTERCONNECT_DRIVER := FVP_CCN
 endif
 
 $(eval $(call add_define,FVP_INTERCONNECT_DRIVER))
+
+$(eval $(call add_define,ERRATA_NON_ARM_INTERCONNECT))
 
 # Choose the GIC sources depending upon the how the FVP will be invoked
 ifeq (${FVP_USE_GIC_DRIVER}, FVP_GICV3)
@@ -499,3 +504,58 @@ PLAT_BL_COMMON_SOURCES	+=	plat/arm/board/fvp/fvp_el3_spmc.c
 endif
 
 PSCI_OS_INIT_MODE	:=	1
+
+#/*
+# * TODO: below lines of code to be removed
+# * after abi and framework are synchronized
+# */
+
+ifeq (${ERRATA_ABI_SUPPORT}, 1)
+# enable the cpu macros for errata abi interface
+ifeq (${ARCH}, aarch64)
+ifeq (${HW_ASSISTED_COHERENCY}, 0)
+CORTEX_A35_H_INC	:= 1
+CORTEX_A53_H_INC	:= 1
+CORTEX_A57_H_INC	:= 1
+CORTEX_A72_H_INC	:= 1
+CORTEX_A73_H_INC	:= 1
+$(eval $(call add_define, CORTEX_A35_H_INC))
+$(eval $(call add_define, CORTEX_A53_H_INC))
+$(eval $(call add_define, CORTEX_A57_H_INC))
+$(eval $(call add_define, CORTEX_A72_H_INC))
+$(eval $(call add_define, CORTEX_A73_H_INC))
+else
+ifeq (${CTX_INCLUDE_AARCH32_REGS}, 0)
+CORTEX_A76_H_INC	:= 1
+CORTEX_A77_H_INC	:= 1
+NEOVERSE_N1_H_INC	:= 1
+NEOVERSE_V1_H_INC	:= 1
+CORTEX_A78_AE_H_INC	:= 1
+CORTEX_A510_H_INC	:= 1
+CORTEX_A710_H_INC	:= 1
+CORTEX_A78C_H_INC	:= 1
+CORTEX_X2_H_INC		:= 1
+CORTEX_A55_H_INC	:= 1
+CORTEX_A75_H_INC	:= 1
+$(eval $(call add_define, CORTEX_A76_H_INC))
+$(eval $(call add_define, CORTEX_A77_H_INC))
+$(eval $(call add_define, CORTEX_A78_AE_H_INC))
+$(eval $(call add_define, CORTEX_A510_H_INC))
+$(eval $(call add_define, CORTEX_A710_H_INC))
+$(eval $(call add_define, CORTEX_A78C_H_INC))
+$(eval $(call add_define, NEOVERSE_N1_H_INC))
+$(eval $(call add_define, NEOVERSE_V1_H_INC))
+$(eval $(call add_define, CORTEX_X2_H_INC))
+$(eval $(call add_define, CORTEX_A55_H_INC))
+$(eval $(call add_define, CORTEX_A75_H_INC))
+endif
+CORTEX_A55_H_INC	:= 1
+CORTEX_A75_H_INC	:= 1
+$(eval $(call add_define, CORTEX_A55_H_INC))
+$(eval $(call add_define, CORTEX_A75_H_INC))
+endif
+else
+CORTEX_A32_H_INC	:= 1
+$(eval $(call add_define, CORTEX_A32_H_INC))
+endif
+endif
