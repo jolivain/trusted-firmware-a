@@ -40,7 +40,7 @@
 #include <cortex_a9.h>
 #endif
 
-#define MAX_ERRATA_ENTRIES	15
+#define MAX_ERRATA_ENTRIES	16
 
 #define UNDEF_ERRATA		UINT_MAX
 
@@ -54,7 +54,6 @@
 /*
  * CPU specific values for errata handling
  */
-
 struct em_cpu{
 	unsigned int em_errata_id;
 	unsigned char em_rxpx_lo;	/* lowest revision of errata applicable for the cpu */

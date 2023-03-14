@@ -30,7 +30,8 @@ struct em_cpu_list cpu_list[] = {
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
-		{UNDEF_ERRATA},	{UNDEF_ERRATA}
+		{UNDEF_ERRATA},	{UNDEF_ERRATA},
+		{UNDEF_ERRATA}
 	}
 },
 #endif /* CORTEX_A9_H_INC */
@@ -47,7 +48,7 @@ struct em_cpu_list cpu_list[] = {
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
-		{UNDEF_ERRATA}
+		{UNDEF_ERRATA},	{UNDEF_ERRATA}
 	}
 },
 #endif /* CORTEX_A15_H_INC */
@@ -64,7 +65,7 @@ struct em_cpu_list cpu_list[] = {
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
-		{UNDEF_ERRATA}
+		{UNDEF_ERRATA},	{UNDEF_ERRATA}
 	}
 },
 #endif /* CORTEX_A17_H_INC */
@@ -80,7 +81,8 @@ struct em_cpu_list cpu_list[] = {
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
-		{UNDEF_ERRATA},	{UNDEF_ERRATA}
+		{UNDEF_ERRATA},	{UNDEF_ERRATA},
+		{UNDEF_ERRATA}
 	}
 },
 #endif /* CORTEX_A35_H_INC */
@@ -119,7 +121,8 @@ struct em_cpu_list cpu_list[] = {
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
-		{UNDEF_ERRATA},	{UNDEF_ERRATA}
+		{UNDEF_ERRATA},	{UNDEF_ERRATA},
+		{UNDEF_ERRATA}
 	}
 },
 #endif /* CORTEX_A55_H_INC */
@@ -141,7 +144,7 @@ struct em_cpu_list cpu_list[] = {
 		{859972, 0x00, 0x13},
 		{1319537, 0x00, 0xFF},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
-		{UNDEF_ERRATA}
+		{UNDEF_ERRATA},	{UNDEF_ERRATA}
 	}
 },
 #endif /* CORTEX_A57_H_INC */
@@ -158,7 +161,7 @@ struct em_cpu_list cpu_list[] = {
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
-		{UNDEF_ERRATA}
+		{UNDEF_ERRATA},	{UNDEF_ERRATA}
 	}
 },
 #endif /* CORTEX_A72_H_INC */
@@ -175,7 +178,7 @@ struct em_cpu_list cpu_list[] = {
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
-		{UNDEF_ERRATA}
+		{UNDEF_ERRATA},	{UNDEF_ERRATA}
 	}
 },
 #endif /* CORTEX_A73_H_INC */
@@ -192,7 +195,7 @@ struct em_cpu_list cpu_list[] = {
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
-		{UNDEF_ERRATA}
+		{UNDEF_ERRATA},	{UNDEF_ERRATA}
 	}
 },
 #endif /* CORTEX_A75_H_INC */
@@ -213,7 +216,8 @@ struct em_cpu_list cpu_list[] = {
 		{1868343, 0x00, 0x40},
 		{1946160, 0x30, 0x41},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
-		{UNDEF_ERRATA},	{UNDEF_ERRATA}
+		{UNDEF_ERRATA},	{UNDEF_ERRATA},
+		{UNDEF_ERRATA}
 	}
 },
 #endif /* CORTEX_A76_H_INC */
@@ -232,7 +236,8 @@ struct em_cpu_list cpu_list[] = {
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
-		{UNDEF_ERRATA},	{UNDEF_ERRATA}
+		{UNDEF_ERRATA},	{UNDEF_ERRATA},
+		{UNDEF_ERRATA}
 	}
 },
 #endif /* CORTEX_A77_H_INC */
@@ -250,9 +255,18 @@ struct em_cpu_list cpu_list[] = {
 		{2242635, 0x10, 0x12},
 		{2376745, 0x00, 0x12},
 		{2395406, 0x00, 0x12},
+		#if ERRATA_NON_ARM_INTERCONNECT
+		{2712571, 0x00, 0x12, 0x00, false, \
+		ERRATA_NON_ARM_INTERCONNECT, ERRATA_A78_2712571},
 		{2742426, 0x00, 0x12},
 		{2772019, 0x00, 0x12},
 		{2779479, 0x00, 0x12},
+		#else
+		{2742426, 0x00, 0x12},
+		{2772019, 0x00, 0x12},
+		{2779479, 0x00, 0x12},
+		{UNDEF_ERRATA},
+		#endif /* ERRATA_NON_ARM_INTERCONNECT */
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA}
 	}
@@ -267,6 +281,12 @@ struct em_cpu_list cpu_list[] = {
 		{1951502, 0x00, 0x01},
 		{2376748, 0x00, 0x01},
 		{2395408, 0x00, 0x01},
+		#if ERRATA_NON_ARM_INTERCONNECT
+		{2712574, 0x00, 0x02, 0x00, false, \
+		ERRATA_NON_ARM_INTERCONNECT, ERRATA_A78_AE_2712574},
+		#else
+		{UNDEF_ERRATA},
+		#endif /* ERRATA_NON_ARM_INTERCONNECT */
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
@@ -285,8 +305,16 @@ struct em_cpu_list cpu_list[] = {
 		{2242638, 0x01, 0x02},
 		{2376749, 0x01, 0x02},
 		{2395411, 0x01, 0x02},
+		#if ERRATA_NON_ARM_INTERCONNECT
+		{2712575, 0x01, 0x02, 0x00, false, \
+		ERRATA_NON_ARM_INTERCONNECT, ERRATA_A78C_2712575},
 		{2772121, 0x00, 0x02},
 		{2779484, 0x01, 0x02},
+		#else
+		{2772121, 0x00, 0x02},
+		{2779484, 0x01, 0x02},
+		{UNDEF_ERRATA},
+		#endif /* ERRATA_NON_ARM_INTERCONNECT */
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
@@ -308,7 +336,8 @@ struct em_cpu_list cpu_list[] = {
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
-		{UNDEF_ERRATA},	{UNDEF_ERRATA}
+		{UNDEF_ERRATA},	{UNDEF_ERRATA},
+		{UNDEF_ERRATA}
 	}
 },
 #endif /* CORTEX_X1_H_INC */
@@ -331,7 +360,7 @@ struct em_cpu_list cpu_list[] = {
 		{1868343, 0x00, 0x40},
 		{1946160, 0x30, 0x41},
 		{2743102, 0x00, 0x41},
-		{UNDEF_ERRATA}
+		{UNDEF_ERRATA},	{UNDEF_ERRATA}
 	}
 },
 #endif /* NEOVERSE_N1_H_INC */
@@ -352,8 +381,16 @@ struct em_cpu_list cpu_list[] = {
 		{2216392, 0x10, 0x11},
 		{2294912, 0x00, 0x11},
 		{2372203, 0x00, 0x11},
+		#if ERRATA_NON_ARM_INTERCONNECT
+		{2701953, 0x00, 0x11, 0x12, true, \
+		ERRATA_NON_ARM_INTERCONNECT, ERRATA_V1_2701953},
 		{2743093, 0x00, 0x12},
 		{2779461, 0x00, 0x12},
+		#else
+		{2743093, 0x00, 0x12},
+		{2779461, 0x00, 0x12},
+		{UNDEF_ERRATA},
+		#endif /* ERRATA_NON_ARM_INTERCONNECT */
 		{UNDEF_ERRATA}
 	}
 },
@@ -377,7 +414,14 @@ struct em_cpu_list cpu_list[] = {
 		{2282622, 0x00, 0x21},
 		{2291219, 0x00, 0x20, 0x21, true},
 		{2371105, 0x00, 0x20, 0x21, true},
+		#if ERRATA_NON_ARM_INTERCONNECT
+		{2701952, 0x00, 0x21, 0x00, false, \
+		ERRATA_NON_ARM_INTERCONNECT, ERRATA_A710_2701952},
 		{2768515, 0x00, 0x21}
+		#else
+		{2768515, 0x00, 0x21},
+		{UNDEF_ERRATA}
+		#endif /* ERRATA_NON_ARM_INTERCONNECT */
 	}
 },
 #endif /* CORTEX_A710_H_INC */
@@ -399,7 +443,14 @@ struct em_cpu_list cpu_list[] = {
 		{2326639, 0x00, 0x00, 0x01, true},
 		{2376738, 0x00, 0x00, 0x01, true},
 		{2388450, 0x00, 0x00, 0x01, true},
+		#if ERRATA_NON_ARM_INTERCONNECT
+		{2728475, 0x00, 0x02, 0x03, true, \
+		ERRATA_NON_ARM_INTERCONNECT, ERRATA_N2_2728475},
 		{2743089, 0x00, 0x02, 0x03, true},
+		#else
+		{2743089, 0x00, 0x02, 0x03, true},
+		{UNDEF_ERRATA},
+		#endif /* ERRATA_NON_ARM_INTERCONNECT */
 		{UNDEF_ERRATA}
 	}
 },
@@ -418,7 +469,14 @@ struct em_cpu_list cpu_list[] = {
 		{2216384, 0x00, 0x20, 0x21, true},
 		{2282622, 0x00, 0x21},
 		{2371105, 0x00, 0x21},
+		#if ERRATA_NON_ARM_INTERCONNECT
+		{2701952, 0x00, 0x21, 0x00, false, \
+		ERRATA_NON_ARM_INTERCONNECT, ERRATA_X2_2701952},
 		{2768515, 0x00, 0x21},
+		#else
+		{2768515, 0x00, 0x21},
+		{UNDEF_ERRATA},
+		#endif /* ERRATA_NON_ARM_INTERCONNECT */
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
 		{UNDEF_ERRATA}
@@ -442,10 +500,55 @@ struct em_cpu_list cpu_list[] = {
 		{2666669, 0x00, 0x11, 0x12, true},
 		{2684597, 0x00, 0x12, 0x13, true},
 		{UNDEF_ERRATA},	{UNDEF_ERRATA},
-		{UNDEF_ERRATA},	{UNDEF_ERRATA}
+		{UNDEF_ERRATA},	{UNDEF_ERRATA},
+		{UNDEF_ERRATA}
 	}
 },
 #endif /* CORTEX_A510_H_INC */
+
+#if NEOVERSE_V2_H_INC
+{
+	.cpu_partnumber = NEOVERSE_V2_MIDR,
+	.cpu_errata_list = {
+		#if ERRATA_NON_ARM_INTERCONNECT
+		{2719103, 0x00, 0x01, 0x02, true, \
+		ERRATA_NON_ARM_INTERCONNECT, ERRATA_V2_2719103},
+		#else
+		{UNDEF_ERRATA},
+		#endif /* ERRATA_NON_ARM_INTERCONNECT */
+		{UNDEF_ERRATA},	{UNDEF_ERRATA},
+		{UNDEF_ERRATA},	{UNDEF_ERRATA},
+		{UNDEF_ERRATA},	{UNDEF_ERRATA},
+		{UNDEF_ERRATA},	{UNDEF_ERRATA},
+		{UNDEF_ERRATA},	{UNDEF_ERRATA},
+		{UNDEF_ERRATA},	{UNDEF_ERRATA},
+		{UNDEF_ERRATA},	{UNDEF_ERRATA},
+		{UNDEF_ERRATA}
+	}
+},
+#endif /* NEOVERSE_V2_H_INC */
+
+#if CORTEX_A715_H_INC
+{
+	.cpu_partnumber = CORTEX_MAKALU_MIDR,
+	.cpu_errata_list = {
+		#if ERRATA_NON_ARM_INTERCONNECT
+		{2701951, 0x00, 0x11, 0x12, true, \
+		ERRATA_NON_ARM_INTERCONNECT, ERRATA_A715_2701951},
+		#else
+		{UNDEF_ERRATA},
+		#endif /* ERRATA_NON_ARM_INTERCONNECT */
+		{UNDEF_ERRATA},	{UNDEF_ERRATA},
+		{UNDEF_ERRATA},	{UNDEF_ERRATA},
+		{UNDEF_ERRATA},	{UNDEF_ERRATA},
+		{UNDEF_ERRATA},	{UNDEF_ERRATA},
+		{UNDEF_ERRATA},	{UNDEF_ERRATA},
+		{UNDEF_ERRATA},	{UNDEF_ERRATA},
+		{UNDEF_ERRATA},	{UNDEF_ERRATA},
+		{UNDEF_ERRATA}
+	}
+},
+#endif /* CORTEX_A715_H_INC */
 };
 
 /*
@@ -478,11 +581,9 @@ int32_t binary_search(struct em_cpu_list *ptr, uint32_t erratum_id,
 			if (RXPX_RANGE(rxpx_val, ptr->cpu_errata_list[mid_index].em_rxpx_lo, \
 						ptr->cpu_errata_list[mid_index].em_rxpx_hi)) {
 				if (ptr->cpu_errata_list[mid_index].arm_interconnect) {
-					int ret_val;
-					ret_val = (ptr->cpu_errata_list[mid_index]. \
+					return (ptr->cpu_errata_list[mid_index]. \
 					platform_affected == true) ? EM_AFFECTED : \
 					EM_UNKNOWN_ERRATUM;
-					return ret_val;
 				}
 				return EM_HIGHER_EL_MITIGATION;
 			}
