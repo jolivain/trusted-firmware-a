@@ -204,8 +204,6 @@
 					SOC_CSS_DEVICE_SIZE,	\
 					MT_DEVICE | MT_RW | MT_SECURE | MT_USER)
 
-#define PLAT_SP_PRI				PLAT_RAS_PRI
-
 #if SPM_MM && RAS_EXTENSION
 /*
  * CPER buffer memory of 128KB is reserved and it is placed adjacent to the
