@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "33a14db6_4bf48c0d",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-14T21:44:37Z",
+      "side": 1,
+      "message": "nitpick: feel free to ignore\nplat_gic_multichip_data",
+      "range": {
+        "startLine": 22,
+        "startChar": 37,
+        "endLine": 22,
+        "endChar": 56
+      },
+      "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "332f5d27_6e838c3c",
         "filename": "drivers/arm/gic/v3/gic600_multichip.c",
         "patchSetId": 1
@@ -36,6 +59,29 @@
         "startChar": 58,
         "endLine": 33,
         "endChar": 59
+      },
+      "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db5bfbda_dfdb0f48",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-14T21:44:37Z",
+      "side": 1,
+      "message": "Isnt it error prone if you only check for max? Should you be checking both the limits?\n\nspi_id_min \u003c spi_id \u003c\u003d spi_id_max",
+      "range": {
+        "startLine": 33,
+        "startChar": 13,
+        "endLine": 33,
+        "endChar": 15
       },
       "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
@@ -93,6 +139,29 @@
         "startChar": 10,
         "endLine": 22,
         "endChar": 32
+      },
+      "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "623f5d88_af6bf7f2",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-14T21:44:37Z",
+      "side": 1,
+      "message": "Instead of invoking gicv3_derive_gicd_base() multiple times in gicv3_secure_spis_config_props() function, please use a local variable. I feel this improves readability. Preferably:\n\nuintptr_t multichip_gicd_base \u003d gicv3_derive_gicd_base(intr_num, gicd_base);",
+      "range": {
+        "startLine": 233,
+        "startChar": 19,
+        "endLine": 233,
+        "endChar": 62
       },
       "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
