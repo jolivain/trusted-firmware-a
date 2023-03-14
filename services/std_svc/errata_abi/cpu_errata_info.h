@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <stdint.h>
 
-#define MAX_SIZE  		15
+#define MAX_SIZE  		16
 #define UNDEF_ERRATA		UINT_MAX
 
 #define EXTRACT_REV_VAR(x)	((x & MIDR_REV_MASK) << MIDR_REV_BITS) \
