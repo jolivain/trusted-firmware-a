@@ -354,6 +354,22 @@ Common build options
    flag can take the values 0 to 2, to align  with the ``FEATURE_DETECTION``
    mechanism. Default value is ``0``.
 
+-  ``ENABLE_FEAT_S2PIE``: Enable support for FEAT_S2PIE at EL2 and below, and
+   context switch relevant registers.  This flag can take the values 0 to 2,
+   to align  with the ``FEATURE_DETECTION`` mechanism. Default value is ``0``.
+
+-  ``ENABLE_FEAT_S1PIE``: Enable support for FEAT_S1PIE at EL2 and below, and
+   context switch relevant registers.  This flag can take the values 0 to 2,
+   to align  with the ``FEATURE_DETECTION`` mechanism. Default value is ``0``.
+
+-  ``ENABLE_FEAT_S2POE``: Enable support for FEAT_S2POE at EL2 and below, and
+   context switch relevant registers.  This flag can take the values 0 to 2,
+   to align  with the ``FEATURE_DETECTION`` mechanism. Default value is ``0``.
+
+-  ``ENABLE_FEAT_S1POE``: Enable support for FEAT_S1POE at EL2 and below, and
+   context switch relevant registers.  This flag can take the values 0 to 2,
+   to align  with the ``FEATURE_DETECTION`` mechanism. Default value is ``0``.
+
 -  ``ENABLE_LTO``: Boolean option to enable Link Time Optimization (LTO)
    support in GCC for TF-A. This option is currently only supported for
    AArch64. Default is 0.
