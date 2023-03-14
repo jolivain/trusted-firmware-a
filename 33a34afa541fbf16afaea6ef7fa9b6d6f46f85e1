@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b39e9989_3ded9afb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-14T21:41:59Z",
+      "side": 1,
+      "message": "Has this scope been added to the changelog scope list?",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 20
+      },
+      "revId": "33a34afa541fbf16afaea6ef7fa9b6d6f46f85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05196fc0_a13e28c5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-14T21:41:59Z",
+      "side": 1,
+      "message": "Could you add a shorthand of an example of something existing that wouldn\u0027t fit?",
+      "range": {
+        "startLine": 37,
+        "startChar": 31,
+        "endLine": 37,
+        "endChar": 50
+      },
+      "revId": "33a34afa541fbf16afaea6ef7fa9b6d6f46f85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "690d6f62_ef2a85f2",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-14T21:41:59Z",
+      "side": 1,
+      "message": "Should this comment be moved above the list start to line 103?",
+      "range": {
+        "startLine": 106,
+        "startChar": 1,
+        "endLine": 106,
+        "endChar": 58
+      },
+      "revId": "33a34afa541fbf16afaea6ef7fa9b6d6f46f85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "caa4db00_4773228b",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-14T21:41:59Z",
+      "side": 1,
+      "message": "nit: typo",
+      "range": {
+        "startLine": 259,
+        "startChar": 54,
+        "endLine": 259,
+        "endChar": 56
+      },
+      "revId": "33a34afa541fbf16afaea6ef7fa9b6d6f46f85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28bf00a8_8c590116",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-14T21:41:59Z",
+      "side": 1,
+      "message": "Compile",
+      "range": {
+        "startLine": 273,
+        "startChar": 3,
+        "endLine": 273,
+        "endChar": 11
+      },
+      "revId": "33a34afa541fbf16afaea6ef7fa9b6d6f46f85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0896d771_83d29dc9",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-14T21:41:59Z",
+      "side": 1,
+      "message": "Remove/Rework or address in Jira To Do",
+      "range": {
+        "startLine": 291,
+        "startChar": 5,
+        "endLine": 291,
+        "endChar": 9
+      },
+      "revId": "33a34afa541fbf16afaea6ef7fa9b6d6f46f85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffd71751_83a9e970",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-14T21:41:59Z",
+      "side": 1,
+      "message": "I\u0027m thinking we should remove the TODOs, maybe even rewording to \u003cerrata ABI\u003e to show that it will be inserted there. Since the Errata ABI is in review, do we know if it is built upon the new framework or is that to be done later?",
+      "range": {
+        "startLine": 299,
+        "startChar": 5,
+        "endLine": 299,
+        "endChar": 9
+      },
+      "revId": "33a34afa541fbf16afaea6ef7fa9b6d6f46f85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3063e2b_07bd9dc7",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-14T21:41:59Z",
+      "side": 1,
+      "message": "spelling",
+      "range": {
+        "startLine": 328,
+        "startChar": 54,
+        "endLine": 328,
+        "endChar": 56
+      },
+      "revId": "33a34afa541fbf16afaea6ef7fa9b6d6f46f85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60433d31_a945a555",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-14T21:41:59Z",
+      "side": 1,
+      "message": "Compile",
+      "range": {
+        "startLine": 342,
+        "startChar": 3,
+        "endLine": 342,
+        "endChar": 11
+      },
+      "revId": "33a34afa541fbf16afaea6ef7fa9b6d6f46f85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1434e2ae_46400e16",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-14T21:41:59Z",
+      "side": 1,
+      "message": "Is this the only workaround helper needed to cover all the cases we want?",
+      "range": {
+        "startLine": 410,
+        "startChar": 7,
+        "endLine": 410,
+        "endChar": 21
+      },
+      "revId": "33a34afa541fbf16afaea6ef7fa9b6d6f46f85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
