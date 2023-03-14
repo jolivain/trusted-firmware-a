@@ -248,6 +248,16 @@ static void read_feat_rng_trap(void)
 #endif
 }
 
+/***********************************************************
+ * Feature : FEAT_TCR2
+ **********************************************************/
+static void read_feat_tcr2(void)
+{
+#if (ENABLE_FEAT_TCR2 == FEAT_STATE_ALWAYS)
+	feat_detect_panic(is_armv8_9_tcrx_present(), "TCR2");
+#endif
+}
+
 /***********************************************************************************
  * TF-A supports many Arm architectural features starting from arch version
  * (8.0 till 8.7+). These features are mostly enabled through build flags. This
@@ -314,6 +324,8 @@ void detect_arch_features(void)
 	/* v8.7 features */
 	check_feature(ENABLE_FEAT_HCX, read_feat_hcx_id_field(), "HCX", 1, 1);
 
+	/* v8.9 features */
+	read_feat_tcr2();
 	/* v9.0 features */
 	check_feature(ENABLE_BRBE_FOR_NS, read_feat_brbe_id_field(),
 		      "BRBE", 1, 2);
