@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21c53a93_28242de2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Will upload latest patch ",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f884b4d_bdaeb171",
@@ -31,6 +48,30 @@
       "writtenOn": "2023-03-10T17:05:04Z",
       "side": 1,
       "message": "What is the guidance for new features? Do we start by calling them experimental?",
+      "range": {
+        "startLine": 1089,
+        "startChar": 2,
+        "endLine": 1090,
+        "endChar": 79
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec1ae2ee_91b4de20",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack, since errata ABI is needed for support of the 9 platform errata\u0027s so we didn\u0027t mark as experimental.",
+      "parentUuid": "5f884b4d_bdaeb171",
       "range": {
         "startLine": 1089,
         "startChar": 2,
@@ -66,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f8c5360_dcbd0ad9",
+        "filename": "include/services/errata_abi_svc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Since I was working on this file since Nov 2022, I added in 2022 as well.",
+      "parentUuid": "8551c923_6d09dbd4",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d8574c5_bace2103",
         "filename": "include/services/errata_abi_svc.h",
         "patchSetId": 1
@@ -77,6 +142,30 @@
       "writtenOn": "2023-03-10T17:05:04Z",
       "side": 1,
       "message": "Are these white spaces? If yes, can you please use tabs?",
+      "range": {
+        "startLine": 16,
+        "startChar": 22,
+        "endLine": 16,
+        "endChar": 48
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cece40a5_cb5fc2b7",
+        "filename": "include/services/errata_abi_svc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4d8574c5_bace2103",
       "range": {
         "startLine": 16,
         "startChar": 22,
@@ -104,6 +193,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cb4e936_5e2c4300",
+        "filename": "include/services/errata_abi_svc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6571fada_4b6d3114",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31f1ac3f_d00d0761",
@@ -117,6 +224,24 @@
       "writtenOn": "2023-03-10T17:05:04Z",
       "side": 1,
       "message": "Errata mitigations should be in separate patches, IMO",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ff8b528_2294c78f",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack, I added all the errata\u0027s to a new patch, should each errata be in a separate patch?",
+      "parentUuid": "31f1ac3f_d00d0761",
       "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -138,6 +263,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b689451_ac7da28a",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack, these are errata specific flags for platforms with a non-arm interconnect. These flags can be disabled or enabled in a platform make file based on the ERRATA_NON_ARM_INTERCONNECT flag",
+      "parentUuid": "13cb287a_30f2f281",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2bf4d06f_859c3615",
@@ -151,6 +294,30 @@
       "writtenOn": "2023-03-10T17:05:04Z",
       "side": 1,
       "message": "What does H_INC mean?",
+      "range": {
+        "startLine": 506,
+        "startChar": 11,
+        "endLine": 506,
+        "endChar": 16
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33bea876_b9a2a1a4",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack, I wanted to keep the cpu names same as the header guards used in the cpu specific header files, like CORTEX_A78_H the INC I added to indicate include.",
+      "parentUuid": "2bf4d06f_859c3615",
       "range": {
         "startLine": 506,
         "startChar": 11,
@@ -184,6 +351,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2201ae68_0d0088bd",
+        "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ae752af0_ac8727fd",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b24b2694_7a56f4cc",
@@ -197,6 +388,30 @@
       "writtenOn": "2023-03-10T17:05:04Z",
       "side": 1,
       "message": "Are these spaces? If yes, can you please use tabs?",
+      "range": {
+        "startLine": 13,
+        "startChar": 16,
+        "endLine": 13,
+        "endChar": 18
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c753318d_9880a11a",
+        "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b24b2694_7a56f4cc",
       "range": {
         "startLine": 13,
         "startChar": 16,
@@ -224,6 +439,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99e24026_f347f1d8",
+        "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack, I will work on this.",
+      "parentUuid": "7fe25ac8_629ac162",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aaddd92c_c5d9f06f",
@@ -237,6 +470,30 @@
       "writtenOn": "2023-03-10T17:05:04Z",
       "side": 1,
       "message": "partnum?",
+      "range": {
+        "startLine": 55,
+        "startChar": 20,
+        "endLine": 55,
+        "endChar": 22
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8eab998_403d9217",
+        "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack, I have changed this to part number in the next patch.",
+      "parentUuid": "aaddd92c_c5d9f06f",
       "range": {
         "startLine": 55,
         "startChar": 20,
@@ -270,6 +527,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55875826_802f3aad",
+        "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "63c6225a_f967759b",
+      "range": {
+        "startLine": 58,
+        "startChar": 7,
+        "endLine": 58,
+        "endChar": 10
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f03fbaf7_69293209",
@@ -283,6 +564,30 @@
       "writtenOn": "2023-03-10T17:05:04Z",
       "side": 1,
       "message": "Why do we need the extra entries?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 22
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8822c400_044c8f90",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "If left empty, we found that the entries are zero(since initialized to size 15) and in case of cpu\u0027s with just one entry like this example, for binary search if querying for 794073 the value[middle_index] \u003d 0 which is lesser than value to be found, so the search continues to the right half of the array which again has only zeros, this throws off the binary search and it returns the wrong return value.",
+      "parentUuid": "f03fbaf7_69293209",
       "range": {
         "startLine": 27,
         "startChar": 0,
@@ -310,6 +615,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed53d702_0c0b682f",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8a69229b_a6a37e8b",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "91f52004_c34e438c",
@@ -323,6 +646,30 @@
       "writtenOn": "2023-03-10T17:05:04Z",
       "side": 1,
       "message": "binary.",
+      "range": {
+        "startLine": 538,
+        "startChar": 8,
+        "endLine": 538,
+        "endChar": 11
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87795d56_9fdac7ff",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "91f52004_c34e438c",
       "range": {
         "startLine": 538,
         "startChar": 8,
@@ -356,6 +703,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e5683f2_ffee9401",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "933e4cf3_ee770e33",
+      "range": {
+        "startLine": 543,
+        "startChar": 49,
+        "endLine": 543,
+        "endChar": 52
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65abf95e_c46fa9d3",
@@ -369,6 +740,24 @@
       "writtenOn": "2023-03-03T10:36:01Z",
       "side": 1,
       "message": "since this if has no corresponding else, couldn\u0027t it be merged with the else above it and drop a level of indentation?",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a439c375_fa09e49b",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "65abf95e_c46fa9d3",
       "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -390,6 +779,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1071c91_a6ffb2b5",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2ac68034_fefaf0f5",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa1e1c6c_6c83a993",
@@ -403,6 +810,30 @@
       "writtenOn": "2023-03-10T17:05:04Z",
       "side": 1,
       "message": "IIUC, you are comparing the part number instead. Can we rename the variable to say part_num instead of MIDR?",
+      "range": {
+        "startLine": 614,
+        "startChar": 1,
+        "endLine": 614,
+        "endChar": 9
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd364afb_492985fc",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fa1e1c6c_6c83a993",
       "range": {
         "startLine": 614,
         "startChar": 1,
@@ -436,6 +867,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af5e4987_ffa2c9a3",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dfdde83d_f0c170a4",
+      "range": {
+        "startLine": 616,
+        "startChar": 18,
+        "endLine": 616,
+        "endChar": 19
+      },
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbd59896_d15f2e11",
@@ -449,6 +904,24 @@
       "writtenOn": "2023-03-03T10:36:01Z",
       "side": 1,
       "message": "are the braces necessary?",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef02d705_a92a3176",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bbd59896_d15f2e11",
       "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -470,6 +943,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ef225dc_11ebef77",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7480966a_f640e023",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8090338a_e71d4556",
@@ -487,6 +978,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1662aeb1_5546971f",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8090338a_e71d4556",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "148a60ae_1108f188",
@@ -500,6 +1009,24 @@
       "writtenOn": "2023-03-03T10:36:01Z",
       "side": 1,
       "message": "this might be redundant or is missing something?",
+      "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "771df770_0aa28bd8",
+        "filename": "services/std_svc/std_svc_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T04:53:42Z",
+      "side": 1,
+      "message": "Ack, removed",
+      "parentUuid": "148a60ae_1108f188",
       "revId": "5ede88a3ba9d053da352a19920c50e86017b9553",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
