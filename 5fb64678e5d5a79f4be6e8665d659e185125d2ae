@@ -95,6 +95,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6296a53_c8273711",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 17
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2023-03-15T09:23:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98b44668_fa6da41b",
+      "range": {
+        "startLine": 7,
+        "startChar": 29,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "5fb64678e5d5a79f4be6e8665d659e185125d2ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59efe92c_df33586b",
@@ -182,6 +206,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cf28689_db794bf5",
+        "filename": "bl2/bl2.mk",
+        "patchSetId": 17
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2023-03-15T09:23:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "614ff746_ec55dfe4",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 39
+      },
+      "revId": "5fb64678e5d5a79f4be6e8665d659e185125d2ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bcfe8f90_06b8b840",
@@ -195,6 +243,30 @@
       "writtenOn": "2023-03-03T13:39:29Z",
       "side": 1,
       "message": "This comment makes me think that the reason we need to execute this code is tied to BL1 running before BL2, at the same privilege level. In that sense, !BL2_RUNNING_AT_EL3 does not sound like the appropriate build flag here...",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 4
+      },
+      "revId": "5fb64678e5d5a79f4be6e8665d659e185125d2ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32cd1e9b_f0ec1b0f",
+        "filename": "bl2/bl2_main.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2023-03-15T09:23:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bcfe8f90_06b8b840",
       "range": {
         "startLine": 113,
         "startChar": 0,
@@ -242,6 +314,30 @@
       "side": 1,
       "message": "Right. Good catch! Will summarize the discussion we had here on the naming in this comment.",
       "parentUuid": "2856266b_29c94415",
+      "range": {
+        "startLine": 56,
+        "startChar": 14,
+        "endLine": 56,
+        "endChar": 40
+      },
+      "revId": "5fb64678e5d5a79f4be6e8665d659e185125d2ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c357b3ae_ece2c108",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 17
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2023-03-15T09:23:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c718614e_f53fa208",
       "range": {
         "startLine": 56,
         "startChar": 14,

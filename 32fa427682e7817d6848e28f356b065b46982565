@@ -277,6 +277,24 @@
       "message": "I think we need a warning message (or even an error message) to flag usages of BL2_AT_EL3. This could say something like, \"Warning: BL2_AT_EL3 option is deprecated and will have no effect going forward. Please use BL2_AT_EL3_TWO_WORLD or ENABLE_RME instead.\" I would like this change to be obvious for whoever attempts to compile TF-A with this build option renaming.",
       "revId": "32fa427682e7817d6848e28f356b065b46982565",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1275e33d_b086d5cf",
+        "filename": "Makefile",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2023-03-15T09:23:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c60529bd_89e8eadc",
+      "revId": "32fa427682e7817d6848e28f356b065b46982565",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
