@@ -16,6 +16,23 @@
       "message": "I think it would be good to list the things done to convert to the framework, i.e. converting the reset function, cortex_a77_reset_func -\u003e cpu_reset_func_start cortex_a77. Something like that. Even just listing the things that needed to be converted. Could be helpful when converting other CPUs",
       "revId": "3c4c1514c8f3c69b9a20fc02198996376aa50268",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d991897_be06e714",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-15T21:08:02Z",
+      "side": 1,
+      "message": "I may have missed something (maybe in one of the other patches?), but were these registered with the framework itself like mentioned in the documentation, i.e. add_erratum_entry \u003ccpu_name\u003e, ERRATUM(\u003cerratum_id\u003e), \u003cerrata_flag\u003e ?\n",
+      "revId": "3c4c1514c8f3c69b9a20fc02198996376aa50268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
