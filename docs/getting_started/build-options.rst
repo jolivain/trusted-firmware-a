@@ -1095,6 +1095,9 @@ Common build options
   means platform hook won't be checked and CMOs will always be performed when
   related functions are called.
 
+- ``ERRATA_ABI_SUPPORT``: Setting this to ``1`` enables support for the
+  Errata management firmware interface for the BL31 image. This defaults to ``0``.
+
 GICv3 driver options
 --------------------
 
