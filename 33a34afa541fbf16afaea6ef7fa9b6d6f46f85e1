@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "17f6b432_85fac30a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-15T10:59:23Z",
+      "side": 1,
+      "message": "no, but I wasn\u0027t sure how to denote this. Maybe it should be feat(cpus)? I wanted to show this is a new thing but don\u0027t expect it to need its own scope.",
+      "parentUuid": "b39e9989_3ded9afb",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 20
+      },
+      "revId": "33a34afa541fbf16afaea6ef7fa9b6d6f46f85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "05196fc0_a13e28c5",
         "filename": "/COMMIT_MSG",
         "patchSetId": 13
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-14T21:41:59Z",
       "side": 1,
       "message": "Could you add a shorthand of an example of something existing that wouldn\u0027t fit?",
+      "range": {
+        "startLine": 37,
+        "startChar": 31,
+        "endLine": 37,
+        "endChar": 50
+      },
+      "revId": "33a34afa541fbf16afaea6ef7fa9b6d6f46f85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e1b1809_c043ac2a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-15T10:59:23Z",
+      "side": 1,
+      "message": "I could say something like \"...this standard definition (eg. the CVE_2022_23960), it can....\"? I don\u0027t have a particularly bad example yet, but this is in anticipation of finding one.",
+      "parentUuid": "05196fc0_a13e28c5",
       "range": {
         "startLine": 37,
         "startChar": 31,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfb9940d_75c51122",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-15T10:59:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "690d6f62_ef2a85f2",
+      "range": {
+        "startLine": 106,
+        "startChar": 1,
+        "endLine": 106,
+        "endChar": 58
+      },
+      "revId": "33a34afa541fbf16afaea6ef7fa9b6d6f46f85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "caa4db00_4773228b",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-03-14T21:41:59Z",
       "side": 1,
       "message": "nit: typo",
+      "range": {
+        "startLine": 259,
+        "startChar": 54,
+        "endLine": 259,
+        "endChar": 56
+      },
+      "revId": "33a34afa541fbf16afaea6ef7fa9b6d6f46f85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc78c98e_56a76167",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-15T10:59:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "caa4db00_4773228b",
       "range": {
         "startLine": 259,
         "startChar": 54,
@@ -116,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8945ffe7_a0db48ee",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-15T10:59:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "28bf00a8_8c590116",
+      "range": {
+        "startLine": 273,
+        "startChar": 3,
+        "endLine": 273,
+        "endChar": 11
+      },
+      "revId": "33a34afa541fbf16afaea6ef7fa9b6d6f46f85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0896d771_83d29dc9",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-03-14T21:41:59Z",
       "side": 1,
       "message": "Remove/Rework or address in Jira To Do",
+      "range": {
+        "startLine": 291,
+        "startChar": 5,
+        "endLine": 291,
+        "endChar": 9
+      },
+      "revId": "33a34afa541fbf16afaea6ef7fa9b6d6f46f85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef18aaf4_c96a919d",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-15T10:59:23Z",
+      "side": 1,
+      "message": "I\u0027ll address in comment below",
+      "parentUuid": "0896d771_83d29dc9",
       "range": {
         "startLine": 291,
         "startChar": 5,
@@ -164,6 +308,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd841027_730a676e",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-15T10:59:23Z",
+      "side": 1,
+      "message": "So I went over the errata ABI and tried to align the framework to its needs. That\u0027s why I include this last unused byte for example. The ABI is explicitly not relying on the framework and is being developed separately at the moment. That\u0027s mostly to speed up the ABI since there is a specific requirement for it and we expect this framework to take a while. When both are merged (and all cpus converted), we have a task to synchronize them. I left these TODOs as little pointers to where I expect that work to have to look at and probably touch. I could change it away from a TODO but it felt appropriate as it is something to be done :D",
+      "parentUuid": "ffd71751_83a9e970",
+      "range": {
+        "startLine": 299,
+        "startChar": 5,
+        "endLine": 299,
+        "endChar": 9
+      },
+      "revId": "33a34afa541fbf16afaea6ef7fa9b6d6f46f85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d3063e2b_07bd9dc7",
         "filename": "include/lib/cpus/aarch64/cpu_macros.S",
         "patchSetId": 13
@@ -175,6 +343,30 @@
       "writtenOn": "2023-03-14T21:41:59Z",
       "side": 1,
       "message": "spelling",
+      "range": {
+        "startLine": 328,
+        "startChar": 54,
+        "endLine": 328,
+        "endChar": 56
+      },
+      "revId": "33a34afa541fbf16afaea6ef7fa9b6d6f46f85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb9a2916_32b92b6e",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-15T10:59:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d3063e2b_07bd9dc7",
       "range": {
         "startLine": 328,
         "startChar": 54,
@@ -208,6 +400,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da5b232d_0cd95631",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-15T10:59:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "60433d31_a945a555",
+      "range": {
+        "startLine": 342,
+        "startChar": 3,
+        "endLine": 342,
+        "endChar": 11
+      },
+      "revId": "33a34afa541fbf16afaea6ef7fa9b6d6f46f85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1434e2ae_46400e16",
@@ -221,6 +437,30 @@
       "writtenOn": "2023-03-14T21:41:59Z",
       "side": 1,
       "message": "Is this the only workaround helper needed to cover all the cases we want?",
+      "range": {
+        "startLine": 410,
+        "startChar": 7,
+        "endLine": 410,
+        "endChar": 21
+      },
+      "revId": "33a34afa541fbf16afaea6ef7fa9b6d6f46f85e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "346c58c3_fee44828",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-15T10:59:23Z",
+      "side": 1,
+      "message": "unlikely, but I didn\u0027t want to speculate and wanted to leave that for when they would actually be needed, i.e. when all other cpus get converted.",
+      "parentUuid": "1434e2ae_46400e16",
       "range": {
         "startLine": 410,
         "startChar": 7,
