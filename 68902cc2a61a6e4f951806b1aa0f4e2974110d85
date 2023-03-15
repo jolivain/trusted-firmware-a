@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b16a053c_f99a0e69",
+        "filename": "plat/arm/board/fvp/fvp_plat_attest_token.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-15T09:18:14Z",
+      "side": 1,
+      "message": "The porting guide [1] already describes this function. Maybe I can add a brief note mentioning FVP doesn\u0027t support RSS today, so this function gets the hardcoded token value from RSS API. \n\n[1]: https://trustedfirmware-a.readthedocs.io/en/latest/getting_started/porting-guide.html#function-plat-rmmd-get-cca-attest-token-mandatory-when-enable-rme-1",
+      "parentUuid": "68f6d8a0_a9237d98",
+      "revId": "68902cc2a61a6e4f951806b1aa0f4e2974110d85",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26ee272d_a0ddb768",
         "filename": "plat/arm/board/fvp/fvp_realm_attest_key.c",
         "patchSetId": 3
@@ -31,6 +49,30 @@
       "writtenOn": "2023-03-14T22:23:30Z",
       "side": 1,
       "message": "Same comments and question here for key as I had for the token.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 8
+      },
+      "revId": "68902cc2a61a6e4f951806b1aa0f4e2974110d85",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3b40aa5_d03c736c",
+        "filename": "plat/arm/board/fvp/fvp_realm_attest_key.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-15T09:18:14Z",
+      "side": 1,
+      "message": "The porting guide [1] already describes this function. Maybe I can add a brief note mentioning FVP doesn\u0027t support RSS today, so this function gets the hardcoded CCA attest key via RSS API. \n\n[1]: https://trustedfirmware-a.readthedocs.io/en/latest/getting_started/porting-guide.html#function-plat-rmmd-get-cca-realm-attest-key-mandatory-when-enable-rme-1",
+      "parentUuid": "26ee272d_a0ddb768",
       "range": {
         "startLine": 12,
         "startChar": 0,
@@ -66,6 +108,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2c222ec1_17b494fa",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-15T09:18:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2af95441_afa24112",
+      "range": {
+        "startLine": 202,
+        "startChar": 20,
+        "endLine": 202,
+        "endChar": 26
+      },
+      "revId": "68902cc2a61a6e4f951806b1aa0f4e2974110d85",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d97d5466_37db9f1d",
         "filename": "plat/arm/board/fvp/platform.mk",
         "patchSetId": 3
@@ -77,6 +143,30 @@
       "writtenOn": "2023-03-14T22:23:30Z",
       "side": 1,
       "message": "token/key might be more consistent use.",
+      "range": {
+        "startLine": 379,
+        "startChar": 68,
+        "endLine": 379,
+        "endChar": 72
+      },
+      "revId": "68902cc2a61a6e4f951806b1aa0f4e2974110d85",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d644d90_0c45f64a",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-15T09:18:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d97d5466_37db9f1d",
       "range": {
         "startLine": 379,
         "startChar": 68,
