@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04602b69_6d534e39",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-15T20:49:03Z",
+      "side": 1,
+      "message": "I think it would be good to list the things done to convert to the framework, i.e. converting the reset function, cortex_a77_reset_func -\u003e cpu_reset_func_start cortex_a77. Something like that. Even just listing the things that needed to be converted. Could be helpful when converting other CPUs",
+      "revId": "3c4c1514c8f3c69b9a20fc02198996376aa50268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
