@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a75d8d3b_1888beeb",
+        "filename": ".versionrc.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-03-15T14:44:26Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be `${_ver[3]}`?",
+      "range": {
+        "startLine": 89,
+        "startChar": 50,
+        "endLine": 89,
+        "endChar": 51
+      },
+      "revId": "2e583a933a04c593c76c9addb3860a17384a11dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "783321a3_f2e1cfed",
+        "filename": ".versionrc.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-03-15T14:44:26Z",
+      "side": 1,
+      "message": "Empty line between 93 and 94 (like the other blocks)",
+      "revId": "2e583a933a04c593c76c9addb3860a17384a11dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "687b038d_0740638d",
@@ -14,6 +54,23 @@
       "writtenOn": "2023-03-08T13:01:40Z",
       "side": 1,
       "message": "Give me a ping when this is ready for review.",
+      "revId": "2e583a933a04c593c76c9addb3860a17384a11dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af278d0a_cc8f289b",
+        "filename": "pyproject.toml",
+        "patchSetId": 14
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-03-15T14:44:26Z",
+      "side": 1,
+      "message": "I think we want caret requirements (e.g. ^8.1.3) for all of these?",
       "revId": "2e583a933a04c593c76c9addb3860a17384a11dc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
