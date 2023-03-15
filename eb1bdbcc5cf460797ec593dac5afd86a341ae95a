@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f19abbe8_7c40b142",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-15T15:00:31Z",
+      "side": 1,
+      "message": "I think the scope is missing. May be you could use nxp-drivers as the scope.",
+      "revId": "eb1bdbcc5cf460797ec593dac5afd86a341ae95a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38be1fdc_b2d7677f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-15T15:00:31Z",
+      "side": 1,
+      "message": "Not sure why the commitlint job failed. I can retrigger it once the scope is fixed.",
+      "revId": "eb1bdbcc5cf460797ec593dac5afd86a341ae95a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
