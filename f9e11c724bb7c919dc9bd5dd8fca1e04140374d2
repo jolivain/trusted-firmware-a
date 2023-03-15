@@ -16,6 +16,23 @@
       "message": "LGTM but this has a dependency on the following CI patches:\n\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/19947/\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/19946/\n\nSo putting my MR-1 against it to prevent accidental merge.",
       "revId": "f9e11c724bb7c919dc9bd5dd8fca1e04140374d2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82a12998_c25667d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-15T18:52:47Z",
+      "side": 1,
+      "message": "Moving my review to MR to merge since the dependent patches are not merged ",
+      "revId": "f9e11c724bb7c919dc9bd5dd8fca1e04140374d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
