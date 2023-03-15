@@ -34,6 +34,24 @@
       "parentUuid": "439d3742_b68d4077",
       "revId": "c6c0b4238153fcdb69edde447dd76c6b811f6cd8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae1bf912_27d5b2d0",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-15T13:21:39Z",
+      "side": 1,
+      "message": "that\u0027s fine, I was questioning what this particular instruction was doing. Since the line above you already mask the necessary bits, there\u0027s no need to do it again. Then I\u0027m pretty sure this tst is doing the exact opposite check of the one you want.",
+      "parentUuid": "4e01c85b_19e999c0",
+      "revId": "c6c0b4238153fcdb69edde447dd76c6b811f6cd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
