@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4feca195_ab02a74e",
+        "filename": "lib/extensions/ras/ras_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-15T23:16:45Z",
+      "side": 1,
+      "message": "undefined reference error.\n16:51:36 aarch64-none-elf-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/bl31/ras_common.o: in function `ras_init\u0027:\n16:51:36 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/lib/extensions/ras/ras_common.c:183: undefined reference to `ehf_register_priority_handler\u0027\n16:51:36 make: *** [Makefile:1391: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/bl31/bl31.elf] Error 1\n\nMore details : https://ci.trustedfirmware.org/job/tf-a-builder/1823460/consoleFull",
+      "revId": "60023c7f01022cd13c2a30ae256ac6cd881f2fd1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
