@@ -22,6 +22,30 @@
       },
       "revId": "51f2a7126bfce12c8e462fae9f9d0e0ae9c5c135",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44685f7a_91a59c8c",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-15T09:08:04Z",
+      "side": 1,
+      "message": "The order of these \"if, else if, and else\" does not matter much, since it all depends on how the ROTPK is deployed by the platform\nAdditionally, this code is not executed very often. Non-parent certificates are the only ones that use it and in terms of security, it is always good to have less non-parent certificates (signed by ROTPK) in the platform to avoid ROTPK exposure. From a performance standpoint, putting \"if, else, if and else\" in a different order doesn\u0027t really help IMO.",
+      "parentUuid": "18de922a_4a0c4406",
+      "range": {
+        "startLine": 206,
+        "startChar": 1,
+        "endLine": 226,
+        "endChar": 3
+      },
+      "revId": "51f2a7126bfce12c8e462fae9f9d0e0ae9c5c135",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
