@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "32783bbd_b34aa0b8",
+        "filename": ".versionrc.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-03-15T18:26:21Z",
+      "side": 1,
+      "message": "Indeed, I was following the convention below assuming we never produce patch releases. Although, I guess, this will be more likely with LTS?",
+      "parentUuid": "a75d8d3b_1888beeb",
+      "range": {
+        "startLine": 89,
+        "startChar": 50,
+        "endLine": 89,
+        "endChar": 51
+      },
+      "revId": "2e583a933a04c593c76c9addb3860a17384a11dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "783321a3_f2e1cfed",
         "filename": ".versionrc.js",
         "patchSetId": 14
@@ -37,6 +61,24 @@
       "writtenOn": "2023-03-15T14:44:26Z",
       "side": 1,
       "message": "Empty line between 93 and 94 (like the other blocks)",
+      "revId": "2e583a933a04c593c76c9addb3860a17384a11dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dd20d54_71bbfad7",
+        "filename": ".versionrc.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-03-15T18:26:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "783321a3_f2e1cfed",
       "revId": "2e583a933a04c593c76c9addb3860a17384a11dc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -75,6 +117,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d29002b1_f0bb63f0",
+        "filename": "docs/Makefile",
+        "patchSetId": 14
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-03-15T18:26:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c998cc7b_09934813",
+      "revId": "2e583a933a04c593c76c9addb3860a17384a11dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea0f4cc4_20f90a0c",
@@ -98,6 +158,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51cdf6fd_7c6e83d6",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-03-15T18:26:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea0f4cc4_20f90a0c",
+      "range": {
+        "startLine": 106,
+        "startChar": 2,
+        "endLine": 106,
+        "endChar": 12
+      },
+      "revId": "2e583a933a04c593c76c9addb3860a17384a11dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af278d0a_cc8f289b",
@@ -111,6 +195,24 @@
       "writtenOn": "2023-03-15T14:44:26Z",
       "side": 1,
       "message": "I think we want caret requirements (e.g. ^8.1.3) for all of these?",
+      "revId": "2e583a933a04c593c76c9addb3860a17384a11dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f522736f_e743e685",
+        "filename": "pyproject.toml",
+        "patchSetId": 14
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-03-15T18:26:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af278d0a_cc8f289b",
       "revId": "2e583a933a04c593c76c9addb3860a17384a11dc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
