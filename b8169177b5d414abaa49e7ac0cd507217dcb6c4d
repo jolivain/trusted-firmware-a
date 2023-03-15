@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b735fec3_f08b013a",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-15T23:03:13Z",
+      "side": 1,
+      "message": "CI build failures are due to this change.\n\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1823325/consoleFull\n\n16:48:37 In file included from plat/arm/css/sgi/include/sgi_soc_platform_def.h:12,\n16:48:37                  from plat/arm/board/rdn1edge/include/platform_def.h:13,\n16:48:37                  from include/lib/psci/psci.h:10,\n16:48:37                  from include/plat/common/platform.h:12,\n16:48:37                  from lib/libc/assert.c:13:\n16:48:37 plat/arm/css/sgi/include/sgi_base_platform_def.h:207: error: \"PLAT_SP_PRI\" redefined [-Werror]\n16:48:37   207 | #define PLAT_SP_PRI                             PLAT_RAS_PRI\n16:48:37       | \n16:48:37 In file included from plat/arm/css/sgi/include/sgi_base_platform_def.h:12,\n16:48:37                  from plat/arm/css/sgi/include/sgi_soc_platform_def.h:12,\n16:48:37                  from plat/arm/board/rdn1edge/include/platform_def.h:13,\n16:48:37                  from include/lib/psci/psci.h:10,\n16:48:37                  from include/plat/common/platform.h:12,\n16:48:37                  from lib/libc/assert.c:13:\n16:48:37 include/plat/arm/common/arm_def.h:748: note: this is the location of the previous definition\n16:48:37   748 | #define PLAT_SP_PRI                     U(0x40)\n16:48:37       | \n16:48:37 cc1: all warnings being treated as errors\n16:48:37 make: *** [Makefile:1358: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/rdn1edge/debug/libc/assert.o] Error 1",
+      "revId": "b8169177b5d414abaa49e7ac0cd507217dcb6c4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
