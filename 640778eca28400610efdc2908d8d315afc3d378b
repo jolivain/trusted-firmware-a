@@ -47,6 +47,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77128093_649dca26",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1314,
+      "author": {
+        "id": 1000686
+      },
+      "writtenOn": "2023-03-15T17:10:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77b84b1a_a8e97a64",
+      "range": {
+        "startLine": 1314,
+        "startChar": 21,
+        "endLine": 1314,
+        "endChar": 22
+      },
+      "revId": "640778eca28400610efdc2908d8d315afc3d378b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4feb11a1_489d3923",
@@ -60,6 +84,30 @@
       "writtenOn": "2023-03-15T16:39:05Z",
       "side": 1,
       "message": "Shouldn\u0027t it be under #if ENABLE_FEAT_TCR2?",
+      "range": {
+        "startLine": 351,
+        "startChar": 1,
+        "endLine": 355,
+        "endChar": 2
+      },
+      "revId": "640778eca28400610efdc2908d8d315afc3d378b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f93c133b_5512e3fa",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000686
+      },
+      "writtenOn": "2023-03-15T17:10:32Z",
+      "side": 1,
+      "message": "I don\u0027t think so, there\u0027s an ENABLE_FEAT_HCX but it doesn\u0027t guard the above code for HCX and has a runtime check only (and similarly for FGT and so on) while all the things with build time defines are unconditional and don\u0027t have any runtime checks. My impression looking at the code is that things with runtime checks should use the runtime checks rather than build time defines.",
+      "parentUuid": "4feb11a1_489d3923",
       "range": {
         "startLine": 351,
         "startChar": 1,
