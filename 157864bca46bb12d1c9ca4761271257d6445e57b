@@ -194,6 +194,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55f35d92_872811f9",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000700
+      },
+      "writtenOn": "2023-03-15T09:58:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "88877322_2fdb92b1",
+      "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "134fd3c4_50698584",
@@ -213,6 +231,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8aac7df7_f7090105",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000700
+      },
+      "writtenOn": "2023-03-15T09:58:32Z",
+      "side": 1,
+      "message": "The main reason is: there are spurious error interrupts set during link-startup (UE is set multiple times even if cleared) \nAnd the error handler checks for errors based on the enabled interrupts, so we removed the error interrupts here to avoid checking for those in error handler before link-startup",
+      "parentUuid": "134fd3c4_50698584",
+      "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "de6ff05d_a477ca9b",
         "filename": "drivers/ufs/ufs.c",
         "patchSetId": 1
@@ -224,6 +260,24 @@
       "writtenOn": "2023-03-15T07:59:23Z",
       "side": 1,
       "message": "The comment may be not accurate. UE indicates that a layer is in error condition. So it\u0027s just to clear the error.",
+      "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d8d65c3_4debc83e",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000700
+      },
+      "writtenOn": "2023-03-15T09:58:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de6ff05d_a477ca9b",
       "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -298,6 +352,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96f125cf_2ffb6834",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000700
+      },
+      "writtenOn": "2023-03-15T09:58:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f27b849_49ee4653",
+      "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90ff1a7e_840e3cef",
@@ -311,6 +383,24 @@
       "writtenOn": "2023-03-15T07:59:23Z",
       "side": 1,
       "message": "UFS_INT_UCCS is removed. Is there any reason?",
+      "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12b95096_1566bd88",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1000700
+      },
+      "writtenOn": "2023-03-15T09:58:32Z",
+      "side": 1,
+      "message": "Because for transfer requests, UFSHC only sets UTRCS, UCCS is for UIC commands only\nSo waiting for UTRCS should suffice in this case",
+      "parentUuid": "90ff1a7e_840e3cef",
       "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -332,6 +422,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08e02868_691bd4ca",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1031,
+      "author": {
+        "id": 1000700
+      },
+      "writtenOn": "2023-03-15T09:58:32Z",
+      "side": 1,
+      "message": "You are right, assuming we are skipping init, we don\u0027t need this, removed",
+      "parentUuid": "36060ebb_5b5a06c2",
+      "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7c415d2_399340be",
@@ -345,6 +453,24 @@
       "writtenOn": "2023-03-15T07:59:23Z",
       "side": 1,
       "message": "Interrupts have been enabled by ufshc_reset(). So why do you need to enable it again?",
+      "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84a7aebb_b5c58af5",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1046,
+      "author": {
+        "id": 1000700
+      },
+      "writtenOn": "2023-03-15T09:58:32Z",
+      "side": 1,
+      "message": "This enables all the interrupts, including the error interrupts (UFS_INT_ERR) to ensure we check for errors post link-startup whereas the one in ufshc_reset doesn\u0027t enable all of them, as explained in the previous comment",
+      "parentUuid": "c7c415d2_399340be",
       "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
