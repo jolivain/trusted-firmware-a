@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd54a4d6_8b446f9e",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-03-15T19:07:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c5ee3f4d_d4e7ace7",
+      "revId": "cf7cdfb0a30779fd76c8ddd4075a0d9e68838ebd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32b4fc4e_b0b8ee36",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-03-15T15:45:09Z",
       "side": 1,
       "message": "Doubt: do we prefer adding a macro or just using #BIT(2)",
+      "revId": "cf7cdfb0a30779fd76c8ddd4075a0d9e68838ebd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8d59267_7e3a99c0",
+        "filename": "lib/cpus/aarch64/cortex_a78c.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-03-15T19:07:08Z",
+      "side": 1,
+      "message": "I will change.\n\nTypically for any control register bits, where the bit functionality is obvious, it better to bring that out in the macro name for readability. For chicken bits that doesn\u0027t have any pre-defined control functionality (before the errata was identified) in TRM, it\u0027s better to use #BIT. Typically you dont find any descriptions for these bits/bit positions in the TRM.",
+      "parentUuid": "32b4fc4e_b0b8ee36",
       "revId": "cf7cdfb0a30779fd76c8ddd4075a0d9e68838ebd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
