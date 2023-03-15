@@ -60,6 +60,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c998cc7b_09934813",
+        "filename": "docs/Makefile",
+        "patchSetId": 14
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-03-15T14:50:40Z",
+      "side": 1,
+      "message": "I think we should avoid forcing people to use Poetry here if we can. In the CI we can run `poetry run make help`, and locally use `poetry shell` to enter a shell with Python properly configured.",
+      "revId": "2e583a933a04c593c76c9addb3860a17384a11dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea0f4cc4_20f90a0c",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-03-15T14:50:40Z",
+      "side": 1,
+      "message": "dependencies",
+      "range": {
+        "startLine": 106,
+        "startChar": 2,
+        "endLine": 106,
+        "endChar": 12
+      },
+      "revId": "2e583a933a04c593c76c9addb3860a17384a11dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "af278d0a_cc8f289b",
         "filename": "pyproject.toml",
         "patchSetId": 14
