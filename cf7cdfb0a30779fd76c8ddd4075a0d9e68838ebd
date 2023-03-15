@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5ee3f4d_d4e7ace7",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T15:45:09Z",
+      "side": 1,
+      "message": "Nit: Should we arrange in ascending order to help in future with errata abi?",
+      "revId": "cf7cdfb0a30779fd76c8ddd4075a0d9e68838ebd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32b4fc4e_b0b8ee36",
+        "filename": "lib/cpus/aarch64/cortex_a78c.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-15T15:45:09Z",
+      "side": 1,
+      "message": "Doubt: do we prefer adding a macro or just using #BIT(2)",
+      "revId": "cf7cdfb0a30779fd76c8ddd4075a0d9e68838ebd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
