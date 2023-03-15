@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3775db3b_ff7857b8",
+        "filename": "plat/arm/board/fvp/fvp_plat_attest_token.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-03-15T15:04:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b16a053c_f99a0e69",
+      "revId": "68902cc2a61a6e4f951806b1aa0f4e2974110d85",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26ee272d_a0ddb768",
@@ -73,6 +91,30 @@
       "side": 1,
       "message": "The porting guide [1] already describes this function. Maybe I can add a brief note mentioning FVP doesn\u0027t support RSS today, so this function gets the hardcoded CCA attest key via RSS API. \n\n[1]: https://trustedfirmware-a.readthedocs.io/en/latest/getting_started/porting-guide.html#function-plat-rmmd-get-cca-realm-attest-key-mandatory-when-enable-rme-1",
       "parentUuid": "26ee272d_a0ddb768",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 8
+      },
+      "revId": "68902cc2a61a6e4f951806b1aa0f4e2974110d85",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "593cc40c_54593e43",
+        "filename": "plat/arm/board/fvp/fvp_realm_attest_key.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-03-15T15:04:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f3b40aa5_d03c736c",
       "range": {
         "startLine": 12,
         "startChar": 0,
