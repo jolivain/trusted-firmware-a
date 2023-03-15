@@ -70,6 +70,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a0dc6cb_e6a18a08",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1001001
+      },
+      "writtenOn": "2023-03-15T09:12:18Z",
+      "side": 1,
+      "message": "you are right. I missed line 61",
+      "parentUuid": "63603547_498acbb5",
+      "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74d14df7_ea8fee4c",
@@ -105,6 +123,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79df8134_34fded4f",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1001001
+      },
+      "writtenOn": "2023-03-15T09:12:18Z",
+      "side": 1,
+      "message": "If timeout_ms is 0, there should be no need to wait for 1 millisecond, as you confirm waiting extra millisecond has no impact I am fine.",
+      "parentUuid": "d77d9798_f6c1feb3",
+      "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de658df5_6420ed97",
@@ -136,6 +172,24 @@
       "side": 1,
       "message": "Is there a reason you prefer doing `return result` over `return 0`? Semantically they are the same.",
       "parentUuid": "de658df5_6420ed97",
+      "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88877322_2fdb92b1",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1001001
+      },
+      "writtenOn": "2023-03-15T09:12:18Z",
+      "side": 1,
+      "message": "Yes, they are the same semantically. To keep the style uniform with `ufs_uic_error_handler`",
+      "parentUuid": "383b4066_0d2c77c8",
       "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -222,6 +276,24 @@
       "writtenOn": "2023-03-15T07:59:23Z",
       "side": 1,
       "message": "It\u0027s better to add comments that the register is ROC type. It\u0027s also used to clear error.",
+      "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9a358f4_f4cde675",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1001001
+      },
+      "writtenOn": "2023-03-15T09:12:18Z",
+      "side": 1,
+      "message": "Adding a void makes it clear to the reader of the code that the return value is not being used and intentional.",
+      "parentUuid": "b84960f0_86f23e79",
       "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
