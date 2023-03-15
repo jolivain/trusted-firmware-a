@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "069e3e3e_db66979a",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-15T10:26:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d2181f52_a8621049",
+      "range": {
+        "startLine": 551,
+        "startChar": 66,
+        "endLine": 551,
+        "endChar": 69
+      },
+      "revId": "b6fbaeef3537ccb757a1db289f338d9656629a58",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e795a2b4_cf4b5166",
@@ -47,6 +71,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "974d6dab_3ee4eaa7",
+        "filename": "include/lib/cpus/errata.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-15T10:26:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e795a2b4_cf4b5166",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 54
+      },
+      "revId": "b6fbaeef3537ccb757a1db289f338d9656629a58",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2baa583c_d515b27e",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-03-14T21:48:57Z",
       "side": 1,
       "message": "Will this need to remain for AArch32?",
+      "range": {
+        "startLine": 173,
+        "startChar": 2,
+        "endLine": 173,
+        "endChar": 7
+      },
+      "revId": "b6fbaeef3537ccb757a1db289f338d9656629a58",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fb9b427_dc73e7e3",
+        "filename": "lib/cpus/errata_report.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-15T10:26:27Z",
+      "side": 1,
+      "message": "nope, once aarch32 errata have been registered with the framework, it can do the reporting. I demonstrate this here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19137/16",
+      "parentUuid": "2baa583c_d515b27e",
       "range": {
         "startLine": 173,
         "startChar": 2,
