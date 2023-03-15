@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd465a86_25922576",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-15T21:14:23Z",
+      "side": 1,
+      "message": "-\u003e Procedure Call Standard (PCS)",
+      "range": {
+        "startLine": 9,
+        "startChar": 23,
+        "endLine": 9,
+        "endChar": 26
+      },
+      "revId": "85b56dbe7f4bc6d8663c8266eb02035ec097b08b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5e7ebeb_3c944794",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 1495,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-15T21:14:23Z",
+      "side": 1,
+      "message": "I think it might be good to add an example, like you have in the commit message here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19131/13",
+      "revId": "85b56dbe7f4bc6d8663c8266eb02035ec097b08b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe6974e1_382913f0",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-15T21:14:23Z",
+      "side": 1,
+      "message": "I think it would also be good to reference errata_report_shim here",
+      "revId": "85b56dbe7f4bc6d8663c8266eb02035ec097b08b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
