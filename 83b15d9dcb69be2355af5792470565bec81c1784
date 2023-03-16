@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "12c34622_2cdc18f1",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-03-16T15:14:49Z",
+      "side": 1,
+      "message": "I\u0027m in full agreement, there should be minimum friction where someone is starting from scratch. I\u0027ve made some changes below that are more explicit about how you do the minimum i.e. installing poetry, python dependencies and building the documentation with make.",
+      "parentUuid": "6d758a2a_58e4d75c",
+      "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f36b980a_9f6dec12",
         "filename": "docs/getting_started/docs-build.rst",
         "patchSetId": 16
@@ -179,6 +197,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "94c490c8_41cf1e67",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-03-16T15:14:49Z",
+      "side": 1,
+      "message": "I don\u0027t really have a strong opinion here; my inclination is towards giving the minimum set of instruction to get poetry setup on a developers machine. The only thing I would be cautious about is adopting an approach that deviates from standard approaches (where we become a reference if someone can\u0027t figure out how to complete setup). As with my comment above, might be in our interest to suggest an approach and point users who really care towards alternatives in the Poetry documentation.\n\nhttps://python-poetry.org/docs/#installing-with-the-official-installer",
+      "parentUuid": "da530372_dc8f92d3",
+      "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a91ccce3_983e77ad",
         "filename": "docs/getting_started/docs-build.rst",
         "patchSetId": 16
@@ -190,6 +226,30 @@
       "writtenOn": "2023-03-16T12:23:32Z",
       "side": 1,
       "message": "`poetry run make doc`?",
+      "range": {
+        "startLine": 83,
+        "startChar": 10,
+        "endLine": 83,
+        "endChar": 36
+      },
+      "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36bb16e8_cfc81fb5",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-03-16T15:14:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a91ccce3_983e77ad",
       "range": {
         "startLine": 83,
         "startChar": 10,
@@ -255,6 +315,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "11609637_92e77492",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-03-16T15:14:49Z",
+      "side": 1,
+      "message": "I believe the docs-build page does precisely this now. I\u0027m not entirely clear on what you mean how to use it in full?",
+      "parentUuid": "c2af7b54_186a0f6e",
+      "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "097e80c2_b670b4b3",
         "filename": "pyproject.toml",
         "patchSetId": 16
@@ -266,6 +344,24 @@
       "writtenOn": "2023-03-16T11:19:05Z",
       "side": 1,
       "message": "the requirements.in says 5.3.0; why no pip-tools? the rtd-theme is also set to 1.1.1. Why do you specify click?",
+      "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5954ffab_9dac2832",
+        "filename": "pyproject.toml",
+        "patchSetId": 16
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-03-16T15:14:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "097e80c2_b670b4b3",
       "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
