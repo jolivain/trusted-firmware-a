@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9de8c103_ee4d215e",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-16T21:03:52Z",
+      "side": 1,
+      "message": "Which Macro?",
+      "range": {
+        "startLine": 100,
+        "startChar": 59,
+        "endLine": 100,
+        "endChar": 64
+      },
+      "revId": "40fa2f7246203bcb70ad1917adcd7d37f83ebf43",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c72522aa_e0e435a6",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-03-16T21:03:52Z",
+      "side": 1,
+      "message": "How will Errata ABI be using this? What part is being used - tag or list?",
+      "range": {
+        "startLine": 101,
+        "startChar": 26,
+        "endLine": 101,
+        "endChar": 48
+      },
+      "revId": "40fa2f7246203bcb70ad1917adcd7d37f83ebf43",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
