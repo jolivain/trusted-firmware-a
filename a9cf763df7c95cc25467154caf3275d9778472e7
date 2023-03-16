@@ -88,6 +88,24 @@
       "parentUuid": "56a61ea7_d92be2c5",
       "revId": "a9cf763df7c95cc25467154caf3275d9778472e7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fd7e9ae_c3ce2719",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-03-16T20:09:34Z",
+      "side": 1,
+      "message": "Yes, one of the issues is additional binary space but that should be too bad. it is mainly providing the plat_spmd_handle_group0_interrupt hook and SPMC calling this API unnecessarily. If the code does not exist, it cannot be used or exploited.\n\nits not a big deal in this particular case i think. Feel free to resolve if you think it is not necessary.",
+      "parentUuid": "78490b1f_d690bef6",
+      "revId": "a9cf763df7c95cc25467154caf3275d9778472e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
