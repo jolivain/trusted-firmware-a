@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8d879f67_9e491231",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-03-16T12:27:29Z",
+      "side": 1,
+      "message": "Should we really be duplicating what one might conveniently find in the official documentation? Might make more sense to provide a link to that documentation, so we don\u0027t have to maintain parallel documentation further down the line.",
+      "parentUuid": "2153da3e_dcd265bb",
+      "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f36b980a_9f6dec12",
         "filename": "docs/getting_started/docs-build.rst",
         "patchSetId": 16
@@ -83,6 +101,24 @@
       "writtenOn": "2023-03-16T11:19:05Z",
       "side": 1,
       "message": "Why not pip install? Then it would occasionally get updated",
+      "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56cd56c4_a1142e33",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-03-16T12:27:29Z",
+      "side": 1,
+      "message": "Their documentation suggests using their custom installer. This installs poetry in an isolated environment to your system, which avoids dependencies in your system being accidentally removed or upgraded.",
+      "parentUuid": "f36b980a_9f6dec12",
       "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -123,6 +159,24 @@
       "writtenOn": "2023-03-16T11:19:05Z",
       "side": 1,
       "message": "This becomes required for managing python dependencies, no? Can I still do pip install -r some_file.txt after? If not, the optionality of poetry is a little questionable.",
+      "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99363ac6_341d62e1",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-03-16T12:27:29Z",
+      "side": 1,
+      "message": "This something @Chris have discussed. His opinion was that if we are going to make the transition we should make a clean break from pip based environment management. We could very well keep a parallel `requirements.txt` file, however, doing so would mean having to maintain both sets of dependency files down the line. I\u0027m not opposed to this approach, indeed, it might be the more painless approach in the short term.",
+      "parentUuid": "3f420b70_87b77d13",
       "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
