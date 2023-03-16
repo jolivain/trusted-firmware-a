@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d43230bd_64d95d65",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2023-03-16T16:23:03Z",
+      "side": 1,
+      "message": "would be good if this link is referenced:\n https://developer.nvidia.com/docs/t241-fabric-4/nvidia-t241-fabric-4-errata.pdf",
+      "range": {
+        "startLine": 22,
+        "startChar": 9,
+        "endLine": 22,
+        "endChar": 21
+      },
+      "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3555cf96_15b7036a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2023-03-16T16:23:03Z",
+      "side": 1,
+      "message": "isn\u0027t a configurable interconnect capable (such as ARM\u0027s CMN-*) of doing this? on a remote chip, if it sees a gic address, it would route to the gic in the same chip instead of the gicd owner.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 53
+      },
+      "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "33a14db6_4bf48c0d",
         "filename": "drivers/arm/gic/v3/gic600_multichip.c",
         "patchSetId": 1
@@ -208,6 +254,29 @@
         "startChar": 0,
         "endLine": 20,
         "endChar": 29
+      },
+      "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ca45096_403da01d",
+        "filename": "include/drivers/arm/gic600_multichip.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2023-03-16T16:23:03Z",
+      "side": 1,
+      "message": "This would need update in the platforms that uses GIC mulitchip. The build will not fail, but the boot would fail.",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 23,
+        "endChar": 21
       },
       "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
