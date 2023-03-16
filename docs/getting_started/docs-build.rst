@@ -40,6 +40,11 @@ An example set of installation commands for Ubuntu follows:
     curl -sSL https://install.python-poetry.org | python3 -
     poetry install
 
+This installs ``poetry`` on your machine, and creates a new environment into
+which all the dependencies listed in ``pyroject.toml`` are installed. For more
+details about basic usage, and setup of the ``poetry`` please the official
+`Poetry`_ documentation.
+
 Building rendered documentation
 -------------------------------
 
@@ -95,6 +100,7 @@ build process will be placed in:
 
 *Copyright (c) 2019-2023, Arm Limited. All rights reserved.*
 
+.. _Poetry: https://python-poetry.org/docs/
 .. _Sphinx: http://www.sphinx-doc.org/en/master/
 .. _pip homepage: https://pip.pypa.io/en/stable/
 .. _Dia: https://wiki.gnome.org/Apps/Dia
