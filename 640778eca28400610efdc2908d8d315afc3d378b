@@ -140,6 +140,30 @@
       },
       "revId": "640778eca28400610efdc2908d8d315afc3d378b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03d98313_dc29f53b",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-16T12:41:29Z",
+      "side": 1,
+      "message": "Yes, using \"C if\u0027s\" and the combined runtime/build time checks is the way to go, this transition is work in progress, HCX and FGT are just the first that are already merged.\nHowever it should be named is_feat_tcr2_supported(), and written like the HCX version to still allow build time disabling.",
+      "parentUuid": "f93c133b_5512e3fa",
+      "range": {
+        "startLine": 351,
+        "startChar": 1,
+        "endLine": 355,
+        "endChar": 2
+      },
+      "revId": "640778eca28400610efdc2908d8d315afc3d378b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
