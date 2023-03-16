@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6d758a2a_58e4d75c",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-16T12:45:35Z",
+      "side": 1,
+      "message": "That\u0027s true, but it\u0027s a required step and the reality is that noone wanting to just a \"make doc\" will go there. We follow a convention of giving a minimal set of commands to get a basic build. You are right for anything more than that. So for the \"I just want a build\" use case we have to duplicate that documentation (and we\u0027ve received feedback before that if we don\u0027t, the user will get lost).",
+      "parentUuid": "8d879f67_9e491231",
+      "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f36b980a_9f6dec12",
         "filename": "docs/getting_started/docs-build.rst",
         "patchSetId": 16
@@ -119,6 +137,24 @@
       "side": 1,
       "message": "Their documentation suggests using their custom installer. This installs poetry in an isolated environment to your system, which avoids dependencies in your system being accidentally removed or upgraded.",
       "parentUuid": "f36b980a_9f6dec12",
+      "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d1c8f77_00b6dc5e",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-16T12:45:35Z",
+      "side": 1,
+      "message": "But that\u0027s why we have distributions, they solve those problems for us? We don\u0027t want some super-duper modern version so we have no requirement to isolate a run of the mill dependency in what I would consider a normal system.\n\nWe do ask the script for nodejs but that\u0027s because we require a somewhat recent version.",
+      "parentUuid": "56cd56c4_a1142e33",
       "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -177,6 +213,24 @@
       "side": 1,
       "message": "This something @Chris have discussed. His opinion was that if we are going to make the transition we should make a clean break from pip based environment management. We could very well keep a parallel `requirements.txt` file, however, doing so would mean having to maintain both sets of dependency files down the line. I\u0027m not opposed to this approach, indeed, it might be the more painless approach in the short term.",
       "parentUuid": "3f420b70_87b77d13",
+      "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2af7b54_186a0f6e",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-16T12:45:35Z",
+      "side": 1,
+      "message": "I don\u0027t mind the clean break. But if there is one, we do need to describe how to use it in full (or the minimum required to pass a `make doc`). The proposed guide doesn\u0027t really do that.",
+      "parentUuid": "99363ac6_341d62e1",
       "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
