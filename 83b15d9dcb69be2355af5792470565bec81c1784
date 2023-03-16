@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6795653_27e0316e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-16T11:19:05Z",
+      "side": 1,
+      "message": "The Readthedocs deployment would be affected. There\u0027s a .readthedocs.yaml file that describes it and needs to be updated. Sadly, I did not anticipate big changes to it so there\u0027s no staging for it.",
+      "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2153da3e_dcd265bb",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-16T11:19:05Z",
+      "side": 1,
+      "message": "This doesn\u0027t say anything about the dependency groups. If I did `poetry install`, would all of them be installed? How would I access the resulting virtual environment? I wouldn\u0027t expect anyone to know how to use this.",
+      "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f36b980a_9f6dec12",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-16T11:19:05Z",
+      "side": 1,
+      "message": "Why not pip install? Then it would occasionally get updated",
+      "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f420b70_87b77d13",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-16T11:19:05Z",
+      "side": 1,
+      "message": "This becomes required for managing python dependencies, no? Can I still do pip install -r some_file.txt after? If not, the optionality of poetry is a little questionable.",
+      "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "097e80c2_b670b4b3",
+        "filename": "pyproject.toml",
+        "patchSetId": 16
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-16T11:19:05Z",
+      "side": 1,
+      "message": "the requirements.in says 5.3.0; why no pip-tools? the rtd-theme is also set to 1.1.1. Why do you specify click?",
+      "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
