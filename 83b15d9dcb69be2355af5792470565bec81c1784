@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "53005688_bdc74a01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-03-16T12:23:32Z",
+      "side": 1,
+      "message": "FYI https://docs.readthedocs.io/en/stable/build-customization.html#install-dependencies-with-poetry",
+      "parentUuid": "a6795653_27e0316e",
+      "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2153da3e_dcd265bb",
         "filename": "docs/getting_started/docs-build.rst",
         "patchSetId": 16
@@ -65,6 +83,29 @@
       "writtenOn": "2023-03-16T11:19:05Z",
       "side": 1,
       "message": "Why not pip install? Then it would occasionally get updated",
+      "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a91ccce3_983e77ad",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-03-16T12:23:32Z",
+      "side": 1,
+      "message": "`poetry run make doc`?",
+      "range": {
+        "startLine": 83,
+        "startChar": 10,
+        "endLine": 83,
+        "endChar": 36
+      },
       "revId": "83b15d9dcb69be2355af5792470565bec81c1784",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
