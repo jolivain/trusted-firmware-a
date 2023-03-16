@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "422ce402_09fca1be",
+        "filename": "include/lib/extensions/spe.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-16T11:38:55Z",
+      "side": 1,
+      "message": "nit: please ignore if you think its not needed.\n\nSimilar to other features, can we add dummy functions here, just to ensure all are aligned.\n\n#if ENABLE_SPE_FOR_NS\nvoid spe_enable(bool el2_unused);\nvoid spe_disable(void);\n#else\nvoid spe_enable(bool el2_unused)\n{\n}\nvoid spe_disable(void)\n{\n}\n#endif ENABLE_SPE_FOR_NS\n\nFew of the tests in which are not part of CI+2, specifically Juno where in we have a CI test_config with optimization \u0027-O0\u0027\nFor this feature it might not fail as we are setting it to 2 by default and we are not overriding it in Juno as well. So no issues.\nBut if in case the platforms override this default behaviour and disable them with optimization \u0027-O0\u0027, build will fail. As this was seen recently, thought of highlighting it.",
+      "revId": "5c5fb308ffb7670a155fe95631a6abb8f7c662c4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
