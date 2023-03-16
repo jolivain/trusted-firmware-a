@@ -116,6 +116,30 @@
       },
       "revId": "640778eca28400610efdc2908d8d315afc3d378b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca6dc935_cd98762a",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000279
+      },
+      "writtenOn": "2023-03-16T12:10:23Z",
+      "side": 1,
+      "message": "I\u0027ve looked at FEAT_HCX and it is guarded by defines in `is_feat_hcx_supported`. The function checks if ENABLE_FEAT_HCX is enabled and only then checks looks at the runtime check via read_id_aa64mmfr1_el1.\nSame for FGT.\nAs it stands now - ENABLE_FEAT_TCL2 has no effect on allowing access to TCR2_EL2 or adding it to context save. \nMy suggestion is then to mimic what is done with hcx/fgt and have the following:\n\nstatic inline bool is_feat_tcr2_supported(void)\n{\n\tif (ENABLE_FEAT_TCR2 \u003d\u003d FEAT_STATE_DISABLED) {\n\t\treturn false;\n\t}\n\n\tif (ENABLE_FEAT_TCR2 \u003d\u003d FEAT_STATE_ALWAYS) {\n\t\treturn true;\n\t}\n\n\treturn is_armv8_9_tcr2_present();\n}",
+      "parentUuid": "f93c133b_5512e3fa",
+      "range": {
+        "startLine": 351,
+        "startChar": 1,
+        "endLine": 355,
+        "endChar": 2
+      },
+      "revId": "640778eca28400610efdc2908d8d315afc3d378b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
