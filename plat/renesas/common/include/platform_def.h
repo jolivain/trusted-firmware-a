@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2021, Renesas Electronics Corporation. All rights reserved.
+ * Copyright (c) 2015-2023, Renesas Electronics Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -152,7 +152,8 @@
  ******************************************************************************/
 #define BL33_BASE		DRAM1_NS_BASE
 #define BL33_COMP_SIZE		U(0x200000)
-#define BL33_COMP_BASE		(BL33_BASE - BL33_COMP_SIZE)
+#define BL33_DECOMP_SIZE	(BL33_COMP_SIZE * 32)
+#define BL33_COMP_BASE		(BL33_BASE + BL33_DECOMP_SIZE)
 
 /*******************************************************************************
  * Platform specific page table and MMU setup constants
