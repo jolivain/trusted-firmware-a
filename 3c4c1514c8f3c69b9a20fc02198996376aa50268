@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ce940966_61327200",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-16T10:51:05Z",
+      "side": 1,
+      "message": "I\u0027ll add a short blurb",
+      "parentUuid": "04602b69_6d534e39",
+      "revId": "3c4c1514c8f3c69b9a20fc02198996376aa50268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4d991897_be06e714",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 16
@@ -31,6 +49,24 @@
       "writtenOn": "2023-03-15T21:08:02Z",
       "side": 1,
       "message": "I may have missed something (maybe in one of the other patches?), but were these registered with the framework itself like mentioned in the documentation, i.e. add_erratum_entry \u003ccpu_name\u003e, ERRATUM(\u003cerratum_id\u003e), \u003cerrata_flag\u003e ?\n",
+      "revId": "3c4c1514c8f3c69b9a20fc02198996376aa50268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "265636ad_45474e18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-16T10:51:05Z",
+      "side": 1,
+      "message": "This may be my bad on documenting it, but it\u0027s a layered approach. So we can have pretty much the old style errata + an add_erratum_entry() for each. Then the workaround_\u003ctype\u003e_start combine the two, i.e. it includes the registration. That\u0027s why for aarch32 this has to happen explicitly - there are no macros to do it for us.",
+      "parentUuid": "4d991897_be06e714",
       "revId": "3c4c1514c8f3c69b9a20fc02198996376aa50268",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
