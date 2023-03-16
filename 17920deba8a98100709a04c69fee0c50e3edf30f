@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61c2b610_cd9ca04e",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-16T12:22:46Z",
+      "side": 1,
+      "message": "Similar to this change : https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/18996/11/include/lib/extensions/mpam.h\nModify in the sys_reg_trace.h.\nBuild fails for Junoplatform, tested locally and ensuring here.",
+      "revId": "17920deba8a98100709a04c69fee0c50e3edf30f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
