@@ -22,6 +22,30 @@
       },
       "revId": "9e469b049384f69436d609792747cb21f60e7082",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0046a55_e20abd65",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-03-17T17:06:45Z",
+      "side": 1,
+      "message": "Considering SPM_MM was assigned RAS priority was to allow SP to handle RAS errors. But since framework does not allows having same priority levels it means RAS and SPM_MM cannot work together. So, it is a bug in a sense that original purpose for which this was done has never been tested.",
+      "parentUuid": "ab6a9b7c_867f9a5e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 16
+      },
+      "revId": "9e469b049384f69436d609792747cb21f60e7082",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
