@@ -20,6 +20,70 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ed6c4297_2c35bfd5",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-03-17T14:27:04Z",
+      "side": 1,
+      "message": "Agree. I believe we could move plat_spmd_handle_group0_interrupt to the platform port, like the EL3 SPMC did to avoid weak functions:\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/board/fvp/fvp_el3_spmc.c#n24\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/services/std_svc/spm/el3_spmc/spmc_main.c#n1810",
+      "parentUuid": "50499340_2d5ee043",
+      "revId": "a3fac08b2ecc47badf4fe65042ca8ef66c553faf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2f9a7ad_62ebfd06",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-03-17T14:27:04Z",
+      "side": 1,
+      "message": "nit: suggest removing.\nThe description is explicit about the origin world for the secure interrupt.",
+      "range": {
+        "startLine": 270,
+        "startChar": 45,
+        "endLine": 270,
+        "endChar": 49
+      },
+      "revId": "a3fac08b2ecc47badf4fe65042ca8ef66c553faf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70ecf082_6ffb837d",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-03-17T14:27:04Z",
+      "side": 1,
+      "message": "Is this necessary to panic?\nI guess it is down to the platform port to decide?",
+      "range": {
+        "startLine": 289,
+        "startChar": 2,
+        "endLine": 289,
+        "endChar": 10
+      },
+      "revId": "a3fac08b2ecc47badf4fe65042ca8ef66c553faf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bd92bd80_7163eab8",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 1
