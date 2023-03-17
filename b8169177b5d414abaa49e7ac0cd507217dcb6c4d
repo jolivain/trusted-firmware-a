@@ -34,6 +34,24 @@
       "parentUuid": "b735fec3_f08b013a",
       "revId": "b8169177b5d414abaa49e7ac0cd507217dcb6c4d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ca46c98_81677dac",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-17T15:46:31Z",
+      "side": 1,
+      "message": "Referring to this guide : https://trustedfirmware-a.readthedocs.io/en/latest/components/exception-handling.html#the-role-of-exception-handling-framework\n\nSDEI should be lowest secure prio level . This will safe guard against availability issues if SDEI_COMPLETE is not called by malicious NS agent.\n\n#define PLAT_RAS_PRI\t\t\t0x10\n#define PLAT_SP_PRI\t\t\t0x50\n#define PLAT_SDEI_CRITICAL_PRI\t\t0x60\n#define PLAT_SDEI_NORMAL_PRI\t\t0x70\n\n\nwould be better.",
+      "parentUuid": "d80544a6_200f4591",
+      "revId": "b8169177b5d414abaa49e7ac0cd507217dcb6c4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
