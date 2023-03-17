@@ -36,6 +36,41 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "834b661e_34c59afe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-17T17:07:45Z",
+      "side": 1,
+      "message": "Superficial test looked fine.",
+      "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d642b887_15c38692",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-17T17:07:45Z",
+      "side": 1,
+      "message": "Yeah, I am not sure either, it just feels a bit weird to have two controls when we only ever use the logical OR of them in the code. But I agree that the spec provides the fine grained control, and it\u0027s usually not wise to second guess the architecture.\nSo I am fine as well with leaving it like this. I guess people usually change the setting just in Makefiles, and not on the command line, so it shouldn\u0027t really matter.",
+      "parentUuid": "e08b8628_9100a934",
+      "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "456bd0cb_d21b0de7",
