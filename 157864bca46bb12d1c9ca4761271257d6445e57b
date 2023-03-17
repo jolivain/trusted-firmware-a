@@ -247,6 +247,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12c31ef9_c8cf016a",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000700
+      },
+      "writtenOn": "2023-03-17T05:01:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8aac7df7_f7090105",
+      "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de6ff05d_a477ca9b",
@@ -370,6 +388,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07ab4cb8_e57edfb9",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000700
+      },
+      "writtenOn": "2023-03-17T05:01:07Z",
+      "side": 1,
+      "message": "Hi Vamshi, I believe the comment is providing clarity and I don\u0027t see this being mentioned in the coding guidelines, so skipping this for now.",
+      "parentUuid": "b9a358f4_f4cde675",
+      "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90ff1a7e_840e3cef",
@@ -401,6 +437,24 @@
       "side": 1,
       "message": "Because for transfer requests, UFSHC only sets UTRCS, UCCS is for UIC commands only\nSo waiting for UTRCS should suffice in this case",
       "parentUuid": "90ff1a7e_840e3cef",
+      "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "509855fe_97ca2547",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1000700
+      },
+      "writtenOn": "2023-03-17T05:01:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "12b95096_1566bd88",
       "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -471,6 +525,24 @@
       "side": 1,
       "message": "This enables all the interrupts, including the error interrupts (UFS_INT_ERR) to ensure we check for errors post link-startup whereas the one in ufshc_reset doesn\u0027t enable all of them, as explained in the previous comment",
       "parentUuid": "c7c415d2_399340be",
+      "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c96e1c52_4f271671",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1046,
+      "author": {
+        "id": 1000700
+      },
+      "writtenOn": "2023-03-17T05:01:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "84a7aebb_b5c58af5",
       "revId": "157864bca46bb12d1c9ca4761271257d6445e57b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }

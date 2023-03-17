@@ -33,6 +33,24 @@
       "message": "If ufs_uic_error_handler() returns -EAGAIN and (status \u0026 UFS_INT_FATAL) is true, this function returns -EAGAIN. Should it return -EIO instead?",
       "revId": "2c5bce3833848dac4fbb2ae19be418145e68c8a1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07278b44_46965904",
+        "filename": "drivers/ufs/ufs.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000700
+      },
+      "writtenOn": "2023-03-17T05:01:07Z",
+      "side": 1,
+      "message": "Retrying in this case is better than going over a full error handling (re-init) because some of the UIC errors gets cleared in a retry, if there\u0027s actually a fatal error associated with the command - then we\u0027ll be catching it in the next retry and there are only a maximum of 3 retries.",
+      "parentUuid": "3e669841_16aa01e5",
+      "revId": "2c5bce3833848dac4fbb2ae19be418145e68c8a1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
