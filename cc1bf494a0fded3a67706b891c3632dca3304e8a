@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74dfe1b1_950d1e0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-17T16:51:36Z",
+      "side": 1,
+      "message": "2023-03-17T14:08:21 TestError: A test failed to run, look at the error message.\n2023-03-17T14:08:21 {\u0027case\u0027: \u0027job\u0027, \u0027definition\u0027: \u0027lava\u0027, \u0027error_msg\u0027: \u0027lava-test-interactive timed out after 780 seconds\u0027, \u0027error_type\u0027: \u0027Test\u0027, \u0027result\u0027: \u0027fail\u0027}\n\nFive test_configs have failed and all report the same above error message.\nLava timeout. Have retriggered these failed ones again.",
+      "revId": "cc1bf494a0fded3a67706b891c3632dca3304e8a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
