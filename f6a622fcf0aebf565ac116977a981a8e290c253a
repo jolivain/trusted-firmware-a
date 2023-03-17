@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "60f33fb1_b2d7a9c8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-17T17:38:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d43230bd_64d95d65",
+      "range": {
+        "startLine": 22,
+        "startChar": 9,
+        "endLine": 22,
+        "endChar": 21
+      },
+      "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3555cf96_15b7036a",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-16T16:23:03Z",
       "side": 1,
       "message": "isn\u0027t a configurable interconnect capable (such as ARM\u0027s CMN-*) of doing this? on a remote chip, if it sees a gic address, it would route to the gic in the same chip instead of the gicd owner.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 53
+      },
+      "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7921ebaf_d84b1ee2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-17T17:38:22Z",
+      "side": 1,
+      "message": "I will update the commit message with the latest workaround information. It was confirmed by the internal HW team that this issue cannot be fixed.",
+      "parentUuid": "3555cf96_15b7036a",
       "range": {
         "startLine": 44,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cdd62fd_23e51f62",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-17T17:38:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "33a14db6_4bf48c0d",
+      "range": {
+        "startLine": 22,
+        "startChar": 37,
+        "endLine": 22,
+        "endChar": 56
+      },
+      "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "332f5d27_6e838c3c",
@@ -83,6 +155,24 @@
       "writtenOn": "2023-03-14T12:02:52Z",
       "side": 1,
       "message": "0U",
+      "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "547252fc_b8011678",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-17T17:38:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "332f5d27_6e838c3c",
       "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -135,6 +225,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "582e103c_64e9a11c",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-17T17:38:22Z",
+      "side": 1,
+      "message": "The array is expected to be sorted already. But I can add that extra check.",
+      "parentUuid": "db5bfbda_dfdb0f48",
+      "range": {
+        "startLine": 33,
+        "startChar": 13,
+        "endLine": 33,
+        "endChar": 15
+      },
+      "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79951aa3_f25e7ed9",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-17T17:38:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "da5acb34_2392e0c4",
+      "range": {
+        "startLine": 33,
+        "startChar": 58,
+        "endLine": 33,
+        "endChar": 59
+      },
+      "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "112869d1_02fbb045",
         "filename": "drivers/arm/gic/v3/gic600_multichip.c",
         "patchSetId": 1
@@ -146,6 +284,24 @@
       "writtenOn": "2023-03-14T12:02:52Z",
       "side": 1,
       "message": "0U",
+      "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a546e48a_912d2b45",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-17T17:38:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "112869d1_02fbb045",
       "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -167,6 +323,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f91c08b_6de66b32",
+        "filename": "drivers/arm/gic/v3/gic600_multichip.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-17T17:38:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "763d00a5_ccab5868",
+      "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97a5c6f6_cbd56743",
@@ -180,6 +354,30 @@
       "writtenOn": "2023-03-14T11:16:30Z",
       "side": 1,
       "message": "Just a small suggestion, what about a more generic gicv3_gicd_base_get?",
+      "range": {
+        "startLine": 22,
+        "startChar": 10,
+        "endLine": 22,
+        "endChar": 32
+      },
+      "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68849f49_ee050972",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-17T17:38:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "97a5c6f6_cbd56743",
       "range": {
         "startLine": 22,
         "startChar": 10,
@@ -213,6 +411,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e0618d4_c5d06b0f",
+        "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-17T17:38:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "623f5d88_af6bf7f2",
+      "range": {
+        "startLine": 233,
+        "startChar": 19,
+        "endLine": 233,
+        "endChar": 62
+      },
+      "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "efc988df_bfa9affc",
@@ -226,6 +448,30 @@
       "writtenOn": "2023-03-14T11:16:30Z",
       "side": 1,
       "message": "nit: 2023",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab225d92_2101c7a4",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-17T17:38:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "efc988df_bfa9affc",
       "range": {
         "startLine": 2,
         "startChar": 22,
@@ -259,6 +505,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab1611be_1d6e0118",
+        "filename": "include/drivers/arm/gic600_multichip.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-17T17:38:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "69ddbb56_60648e9c",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 29
+      },
+      "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ca45096_403da01d",
@@ -272,6 +542,30 @@
       "writtenOn": "2023-03-16T16:23:03Z",
       "side": 1,
       "message": "This would need update in the platforms that uses GIC mulitchip. The build will not fail, but the boot would fail.",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 23,
+        "endChar": 21
+      },
+      "revId": "f6a622fcf0aebf565ac116977a981a8e290c253a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1071dc6b_55552d6a",
+        "filename": "include/drivers/arm/gic600_multichip.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-17T17:38:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5ca45096_403da01d",
       "range": {
         "startLine": 23,
         "startChar": 1,
