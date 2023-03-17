@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e08b8628_9100a934",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000686
+      },
+      "writtenOn": "2023-03-17T15:42:46Z",
+      "side": 1,
+      "message": "Are we *sure* there\u0027s no possibility that the S1 and S2 options might be done independently, even if we are not able to imagine the situation where this would be desirable? I note that the model provides independent runtime parameters for each of the features, the only dependency I can see is that POE depends on PIE.\n\nI do agree that this results in awfully fine grained control of the options but that does feel idiomatic for the code and as far as I can see the flexibility exists for S1 without S2.",
+      "parentUuid": "9e7a1ef3_d8804250",
+      "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "456bd0cb_d21b0de7",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-03-17T15:14:02Z",
       "side": 1,
       "message": "What about we merge the two is_feat_*_supported() functions into one, and just use one build time option: ENABLE_FEAT_SXPOE? We keep the read_feat_*_id_field functions, and just ORR their result together here.",
+      "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3c257d6_c24704c8",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000686
+      },
+      "writtenOn": "2023-03-17T15:42:46Z",
+      "side": 1,
+      "message": "It seemed better to follow the idiomatic pattern and then add additional functions pulling things together, especially given that the feature check stuff can be configured for a boot time assert on each feature.",
+      "parentUuid": "456bd0cb_d21b0de7",
       "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
