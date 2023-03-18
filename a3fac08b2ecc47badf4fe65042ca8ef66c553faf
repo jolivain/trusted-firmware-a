@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7df7d7f0_d022344f",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-18T21:28:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed6c4297_2c35bfd5",
+      "revId": "a3fac08b2ecc47badf4fe65042ca8ef66c553faf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2f9a7ad_62ebfd06",
@@ -85,6 +103,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7a7145e6_28556089",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-18T21:28:50Z",
+      "side": 1,
+      "message": "We have to pass the function pointer to register with the interrupt management framework in line 545. It would be difficult to pass another boolean variable to decipher which version of the handler (nwd vs swd) to further invoke. May be we could leverage handle to indirectly infer if the fiq triggered while execution was in nwd or swd. But I believe it is simpler to maintain two independent versions. Moreover, the nwd handler accepts 4 parameters while the swd handler accepts only one parameter.\n\nLet me know if you disagree.",
+      "parentUuid": "dbba5d8c_7836bd67",
+      "range": {
+        "startLine": 270,
+        "startChar": 45,
+        "endLine": 270,
+        "endChar": 49
+      },
+      "revId": "a3fac08b2ecc47badf4fe65042ca8ef66c553faf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "70ecf082_6ffb837d",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 1
@@ -108,6 +150,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f149a1c_7fc6eeed",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-18T21:28:50Z",
+      "side": 1,
+      "message": "If platform port doesnt handle the interrupt and returns -1, we are panicking. I feel this is a safe approach.\nIf the platform doesn\u0027t want to handle the interrupt, it can still ignore the interrupt and simply return 0 to resume SPMC.\nOn the other hand, if we remove the panic and allow SPMC to resume when the platform didnt handle the interrupt, the system would enter into an undefined state. Please let me know your opinion.",
+      "parentUuid": "70ecf082_6ffb837d",
+      "range": {
+        "startLine": 289,
+        "startChar": 2,
+        "endLine": 289,
+        "endChar": 10
+      },
+      "revId": "a3fac08b2ecc47badf4fe65042ca8ef66c553faf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bd92bd80_7163eab8",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 1
@@ -119,6 +185,24 @@
       "writtenOn": "2023-03-12T06:15:55Z",
       "side": 1,
       "message": "might want to put this whole thing under a build flag, where a platform explicitly chooses to handle group0 interrupts, in the presence of spmc.",
+      "revId": "a3fac08b2ecc47badf4fe65042ca8ef66c553faf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ddbb7b5_3a102e78",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-18T21:28:50Z",
+      "side": 1,
+      "message": "Discussed in next patch review comment.",
+      "parentUuid": "bd92bd80_7163eab8",
       "revId": "a3fac08b2ecc47badf4fe65042ca8ef66c553faf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
