@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -179,6 +179,10 @@ func cortex_a15_cluster_pwr_dwn
 	bl	dcsw_op_level1
 
 	bl	plat_disable_acp
+
+	/* Flush L2 caches */
+	mov	r0, #DC_OP_CISW
+	bl	dcsw_op_level2
 
 	/* Exit cluster coherency */
 	pop	{r12, lr}
