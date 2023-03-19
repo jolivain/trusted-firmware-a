@@ -555,6 +555,18 @@ Marvell platform ports and SoC drivers
 :|F|: drivers/marvell/
 :|F|: tools/marvell/
 
+Nuvoton npcm845x platform port
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:|M|: Hila Miranda-Kuzi <hila.miranda.kuzi1@gmail.com>
+:|G|: hilamirandakuzi1_
+:|M|: Margarita Glushkin <rutigl@gmail.com>
+:|G|: `rutigl`_
+:|F|: docs/plat/npcm845x.rst
+:|F|: drivers/nuvoton/
+:|F|: include/drivers/nuvoton/
+:|F|: include/plat/nuvoton/
+:|F|: plat/nuvoton/
+
 NVidia platform ports
 ^^^^^^^^^^^^^^^^^^^^^
 :|M|: Varun Wadekar <vwadekar@nvidia.com>
@@ -959,5 +971,8 @@ Conventional Changelog Extensions
 .. _jayanthchidanand-arm: https://github.com/jayanthchidanand-arm
 .. _bytefire: https://github.com/bytefire
 .. _rupsin01: https://github.com/rupsin01
+.. _hilamirandakuzi1: https://github.com/hilamirandakuzi1
+.. _rutigl: https://github.com/rutigl
+.. _avifishman: https://github.com/avifishman
 
 .. _Project Maintenance Process: https://developer.trustedfirmware.org/w/collaboration/project-maintenance-process/
