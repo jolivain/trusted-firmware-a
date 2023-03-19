@@ -574,6 +574,20 @@ Marvell platform ports and SoC drivers
 :|F|: drivers/marvell/
 :|F|: tools/marvell/
 
+Nuvoton npcm845x platform port
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:|M|: Hila Miranda-Kuzi <hila.miranda.kuzi1@gmail.com>
+:|G|: _hilamirandakuzi1: https://github.com/hilamirandakuzi1
+:|M|: Margarita Glushkin <rutigl@gmail.com>
+:|G|: rutigl: https://github.com/rutigl
+:|M|: Avi Fishman <avi.fishman@nuvoton.com>
+:|G|: avifishman: https://github.com/avifishman
+:|F|: docs/plat/npcm845x.rst
+:|F|: drivers/nuvoton/
+:|F|: include/drivers/nuvoton/
+:|F|: include/plat/nuvoton/
+:|F|: plat/nuvoton/
+
 NVidia platform ports
 ^^^^^^^^^^^^^^^^^^^^^
 :|M|: Varun Wadekar <vwadekar@nvidia.com>
