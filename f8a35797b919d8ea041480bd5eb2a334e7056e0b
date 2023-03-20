@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca1dd9cc_0688c6d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-20T14:53:12Z",
+      "side": 1,
+      "message": "Failed test_configs were due to an other patch.\nTested in internal-CI and after rebasing the failed test_config has passed.\n\nHence triggering CI+2 again.\n",
+      "revId": "f8a35797b919d8ea041480bd5eb2a334e7056e0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
