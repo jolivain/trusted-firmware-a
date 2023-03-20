@@ -16,6 +16,24 @@
       "message": "I feel platform coordinated mode should be the default choice. Please create another build config for FVP platform to exercise OS_INIT_MODE (in CI)",
       "revId": "ba2846fa65c268e1c6b80ea1761ce8ed5c42cb61",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d68f10d_84fd6bfe",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 11
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-03-20T21:32:02Z",
+      "side": 1,
+      "message": "PSCI_OS_INIT_MODE \u003d 1 does not mean that it is the only mode supported. Platform mode will always be there.\nAlso, there is no need for extra CI as the switching(test patch) is done dynamically and its part of standard tests",
+      "parentUuid": "9d23a56e_996c9f54",
+      "revId": "ba2846fa65c268e1c6b80ea1761ce8ed5c42cb61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
