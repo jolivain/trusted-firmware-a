@@ -51,6 +51,24 @@
       "message": "Patch looks good to me. Would you be able to add a (negative)test to SMC test suite[1] to exercise this check by intentionally setting bits 23:17 to 1 for a dummy fast smc call?\n[1] https://git.trustedfirmware.org/TF-A/tf-a-tests.git/tree/tftf/tests/tests-smc.xml",
       "revId": "f8a35797b919d8ea041480bd5eb2a334e7056e0b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "425d8614_2aa8bea4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-20T15:26:27Z",
+      "side": 1,
+      "message": "Thanks for your suggestion.\nWe already have this test serving the similar purpose:\nhttps://git.trustedfirmware.org/TF-A/tf-a-tests.git/tree/tftf/tests/runtime_services/standard_service/unknown_smc.c\nHope this is sufficient. Let me know your thoughts.",
+      "parentUuid": "2d23ebd3_90491aee",
+      "revId": "f8a35797b919d8ea041480bd5eb2a334e7056e0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
