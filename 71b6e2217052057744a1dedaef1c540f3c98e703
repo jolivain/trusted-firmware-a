@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "110b0904_f1648f8c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-20T16:11:15Z",
+      "side": 1,
+      "message": "nuvoton",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "71b6e2217052057744a1dedaef1c540f3c98e703",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "474c906c_fba02902",
@@ -14,6 +37,24 @@
       "writtenOn": "2023-03-19T11:55:12Z",
       "side": 1,
       "message": "Hi Margarita and Ruth,\n\nThankyou for your streaming of a new platform. I\u0027m one of the maintainers of the project.\n\nOur CI system has identified some issues you can see them via the link above that needs to be resolved before the patches can be merged. However in summary:\n\nhttps://ci.trustedfirmware.org/job/tf-a-static-checks/4000/ provides details of various static analysis  checks that are failing.\n\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1834237/console shows some details of a failure in the documentation build.\n\nAlthough the platform build tests is showing a success your platform is not included there yet. The section at the end of the static analysis failure explains how to introduce some CI repository patches to enable that.\n\nPart of having a platform added to TF-A repository we need to establish code owners for your platform from your organisation and list them in https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/docs/about/maintainers.rst We recommend two code owners so that if one suits patches the other can give the Code-Owner-Review in gerrit as we try to enforce patch owners don\u0027t review their own patches. Van you raise a patch for that please.\n\nI suspect that\u0027s enough to get on with and myself and the other maintainers can refine going forward.\n\nI will follow up next week to give you both permission to invoke the CI yourself from gerrit (setting Allow-CI label).",
+      "revId": "71b6e2217052057744a1dedaef1c540f3c98e703",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bdba435_16776960",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-20T16:11:15Z",
+      "side": 1,
+      "message": "This link provides necessary steps to add the platform build configs to CI:\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#add-ci-configurations",
+      "parentUuid": "474c906c_fba02902",
       "revId": "71b6e2217052057744a1dedaef1c540f3c98e703",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
