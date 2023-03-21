@@ -1085,7 +1085,6 @@ $(eval $(call assert_booleans,\
         DISABLE_MTPMU \
         DYN_DISABLE_AUTH \
         EL3_EXCEPTION_HANDLING \
-        ENABLE_AMU \
         ENABLE_AMU_AUXILIARY_COUNTERS \
         ENABLE_AMU_FCONF \
         AMU_RESTRICT_COUNTERS \
@@ -1165,7 +1164,7 @@ $(eval $(call assert_numerics,\
         ENABLE_TRBE_FOR_NS \
         ENABLE_BTI \
         ENABLE_PAUTH \
-        ENABLE_FEAT_AMUv1 \
+        ENABLE_FEAT_AMU \
         ENABLE_FEAT_AMUv1p1 \
         ENABLE_FEAT_CSV2_2 \
         ENABLE_FEAT_DIT \
@@ -1222,7 +1221,7 @@ $(eval $(call add_defines,\
         CTX_INCLUDE_NEVE_REGS \
         DECRYPTION_SUPPORT_${DECRYPTION_SUPPORT} \
         DISABLE_MTPMU \
-        ENABLE_AMU \
+        ENABLE_FEAT_AMU \
         ENABLE_AMU_AUXILIARY_COUNTERS \
         ENABLE_AMU_FCONF \
         AMU_RESTRICT_COUNTERS \
@@ -1303,7 +1302,6 @@ $(eval $(call add_defines,\
         ENABLE_MPMM \
         ENABLE_MPMM_FCONF \
         ENABLE_FEAT_FGT \
-        ENABLE_FEAT_AMUv1 \
         ENABLE_FEAT_ECV \
         SIMICS_BUILD \
         ENABLE_FEAT_AMUv1p1 \
