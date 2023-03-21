@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fe39e4f_6dc4f915",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-21T12:01:26Z",
+      "side": 1,
+      "message": "The enable_amu() call in lib/el3_runtime/aarch64/context_mgmt.c should also be converted. Building with default options and running on an fvp with the amu enabled (-C cluster0.has_amu\u003d1 -C cluster0.amu_version\u003d1) blows up for me.\n",
+      "revId": "aeb27aabca6f5364bc41759b986b405bc1449769",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cf0adaa_c5b0bc1c",
+        "filename": "lib/el3_runtime/aarch32/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-21T12:01:26Z",
+      "side": 1,
+      "message": "This changes the check from ENABLE_AMU to ENABLE_FEAT_AMUv1. Is this intended? Everywhere else uses the ENABLE_AMU and it is set on the FVP. Should ENABLE_FEAT_AMUv1 be set on FVP? And neither is set to 2 on the fvp, perhaps they should?",
+      "revId": "aeb27aabca6f5364bc41759b986b405bc1449769",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd0c95fe_a2d4f926",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-21T12:01:26Z",
+      "side": 1,
+      "message": "still redundant?",
+      "revId": "aeb27aabca6f5364bc41759b986b405bc1449769",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
