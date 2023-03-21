@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64ca1912_3fd54e77",
+        "filename": "lib/el3_runtime/aarch32/context_mgmt.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-21T12:16:39Z",
+      "side": 1,
+      "message": "Right, so I think we should merge ENABLE_AMU and ENABLE_FEAT_AMUv1, and make it support the \u003d2 semantic.\nI would suggest to use ENABLE_FEAT_AMU for this new name.\nLet me give this a try, ideally this solves the problem above as well.",
+      "parentUuid": "0cf0adaa_c5b0bc1c",
+      "revId": "aeb27aabca6f5364bc41759b986b405bc1449769",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bd0c95fe_a2d4f926",
         "filename": "lib/extensions/amu/aarch64/amu.c",
         "patchSetId": 5
