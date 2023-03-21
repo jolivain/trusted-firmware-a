@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b056f23_3f3c770d",
+        "filename": "include/lib/psci/psci.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2023-03-21T05:22:32Z",
+      "side": 1,
+      "message": "You\u0027re absolutely right, I had accidentally double counted PSCI_SET_SUSPEND_MODE (once for Aarch32 and once for Aarch64). Thanks for catching this!",
+      "parentUuid": "69fd24fb_d5d3a256",
+      "range": {
+        "startLine": 86,
+        "startChar": 27,
+        "endLine": 86,
+        "endChar": 29
+      },
+      "revId": "80c76ecdd81d35d3f2468272766c5c45479c27bb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "150ae5cd_adb204e1",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-03-20T20:36:37Z",
       "side": 1,
       "message": "Can it be made static?",
+      "revId": "80c76ecdd81d35d3f2468272766c5c45479c27bb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0757e5f1_a1467cc5",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2023-03-21T05:22:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "150ae5cd_adb204e1",
       "revId": "80c76ecdd81d35d3f2468272766c5c45479c27bb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
