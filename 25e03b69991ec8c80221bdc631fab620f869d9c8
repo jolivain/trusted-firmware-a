@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c59ddca_6868c764",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-21T13:27:34Z",
+      "side": 1,
+      "message": "@Andre,\nWe are planning to get the changes merged till this patch.\nBut CI failures are kind of related to patches above this change. Just wanted to ensure no real issues.\nCould you please rename the topic of the patches above this one, so that we could get a clean\nCI+2 run?\n\n[ Reason: OPen-CI picks patches based on topic-name and not based on position of patch in relation chain, which is why CI+2 is failing].\n\nThanks!",
+      "revId": "25e03b69991ec8c80221bdc631fab620f869d9c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
