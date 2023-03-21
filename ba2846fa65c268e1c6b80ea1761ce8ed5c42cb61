@@ -34,6 +34,24 @@
       "parentUuid": "9d23a56e_996c9f54",
       "revId": "ba2846fa65c268e1c6b80ea1761ce8ed5c42cb61",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "576cd617_0fd8ebbf",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 11
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2023-03-21T05:24:40Z",
+      "side": 1,
+      "message": "Echoing Manish\u0027s comment, setting PSCI_OS_INIT_MODE to 1 indicates that a platform supports OS-initiated mode in addition to platform-coordinated mode. Platform coordinated mode is still the default, and the OS would have to call PSCI_SET_SUSPEND_MODE in order to change to OS-initiated mode.",
+      "parentUuid": "4d68f10d_84fd6bfe",
+      "revId": "ba2846fa65c268e1c6b80ea1761ce8ed5c42cb61",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
