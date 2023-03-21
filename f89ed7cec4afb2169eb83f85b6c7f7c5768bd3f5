@@ -22,6 +22,29 @@
       },
       "revId": "f89ed7cec4afb2169eb83f85b6c7f7c5768bd3f5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28e8441a_5dfd53c0",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1166,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-03-21T07:10:08Z",
+      "side": 1,
+      "message": "Do we need to check SCR_EL3.FIQ too?",
+      "range": {
+        "startLine": 1166,
+        "startChar": 6,
+        "endLine": 1166,
+        "endChar": 19
+      },
+      "revId": "f89ed7cec4afb2169eb83f85b6c7f7c5768bd3f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
