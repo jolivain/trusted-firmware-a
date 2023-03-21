@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e103bd40_a1047e22",
+        "filename": "docs/Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-21T10:40:30Z",
+      "side": 1,
+      "message": "This change looks good to me. However, other makefiles do not use this style, for example [1] and [2]. Can we use this style instead for consistency?\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/lib/romlib/Makefile#n27\n[2]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/tools/fiptool/Makefile#n44",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 0
+      },
+      "revId": "ed6956ed619db399f74c2a0253c08f8b35437496",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
