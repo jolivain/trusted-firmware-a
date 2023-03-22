@@ -46,6 +46,30 @@
       },
       "revId": "2f5bf81c4025bfe5d4ebfa51d131e94f29c7bf35",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b32e3ac8_be17bcee",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-22T16:51:38Z",
+      "side": 1,
+      "message": "This patch stack enables OS-initiated mode for FVP and QTI platforms. I noticed the validate_power_state handler is not populating this field for either FVP or QTI platforms. Please let me know if I am missing something.\n\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19036/12/plat/arm/board/fvp/fvp_pm.c#418\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19487/11/plat/qti/common/src/qti_pm.c#77",
+      "parentUuid": "c776bd01_10cb2db2",
+      "range": {
+        "startLine": 675,
+        "startChar": 19,
+        "endLine": 675,
+        "endChar": 33
+      },
+      "revId": "2f5bf81c4025bfe5d4ebfa51d131e94f29c7bf35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
