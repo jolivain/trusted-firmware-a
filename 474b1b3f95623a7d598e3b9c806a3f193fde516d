@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff48a168_44ed979a",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 23
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-03-22T16:54:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62f9da4d_7559ab15",
+      "revId": "474b1b3f95623a7d598e3b9c806a3f193fde516d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a8af496_f3684e2a",
@@ -60,6 +78,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "60c7718a_ea22d5c6",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 23
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-03-22T16:54:34Z",
+      "side": 1,
+      "message": "\u003e where? How do I use it? Perhaps the note below is better suited here\nShown in the note below. Why do we need to discuss where the environment is created?\n\u003e again, how? From trying it locally, it needed to be active before running the command. Perhaps mention?\nI\u0027m not sure this is within scope either. The use case is well documented in the official docs. We should really avoid duplication as much as possible.\n\nhttps://python-poetry.org/docs/basic-usage/#activating-the-virtual-environment",
+      "parentUuid": "0a8af496_f3684e2a",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 62
+      },
+      "revId": "474b1b3f95623a7d598e3b9c806a3f193fde516d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "65aa5b2f_40fa4e2d",
         "filename": "docs/getting_started/docs-build.rst",
         "patchSetId": 23
@@ -71,6 +113,24 @@
       "writtenOn": "2023-03-22T11:05:14Z",
       "side": 1,
       "message": "I think it\u0027s more appropriate to say that \"``poetry run`` executes the provided command in the project\u0027s virtual env\" which will make it more clear what\u0027s happening (and hinting to the fact that it needs prefixing to every docs related command)\n\nAlso, how do I exit the shell I spawned? `deactivate` didn\u0027t work...",
+      "revId": "474b1b3f95623a7d598e3b9c806a3f193fde516d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad934939_f7131ef2",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 23
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-03-22T16:54:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65aa5b2f_40fa4e2d",
       "revId": "474b1b3f95623a7d598e3b9c806a3f193fde516d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
