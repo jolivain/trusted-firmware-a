@@ -16,6 +16,23 @@
       "message": "CI+2 passed [https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/809/]",
       "revId": "b97a5e70e0acbdba713ac44943d918beff5d8281",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f1b6c22_b11ba7ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-22T10:57:38Z",
+      "side": 1,
+      "message": "LGTM.\n\nNot specifically related to this patch. Just thinking about it.\nFew of the build macros including this CTX_INCLUDE_NEVE_REGS, could be renamed and could be kept aligned with other macros like (ENABLE_FEAT_NV2) so that we have one standard format in TF-A.\nSomehow, this hasn\u0027t been followed earlier, but if everyone agrees, we could discuss and follow one standard approach for future extensions 9.2 and above as well as refactor older ones wherever applicable appropriately. @Soby and @Manish P please share your thoughts here.\nThanks!\n\n",
+      "revId": "b97a5e70e0acbdba713ac44943d918beff5d8281",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
