@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "937bef5a_430a8e4b",
+        "filename": "drivers/auth/tbbr/tbbr_cot_bl2.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-03-22T14:57:08Z",
+      "side": 1,
+      "message": "I don\u0027t like the fact that we\u0027re introducing things that are specific to some Arm platforms in a chain of trust description which was so far quite generic. This patch would set precedence for adding all sorts of platform-specific assets in this file...\n\nUnfortunately, there does not exist any chain of trust description file specific to Arm platforms or FVP right now. We might need to introduce one (as a copy of this file, which we can freely evolve) prior to this patch being merged. Let me discuss this further with some internal folks.",
+      "range": {
+        "startLine": 665,
+        "startChar": 0,
+        "endLine": 665,
+        "endChar": 24
+      },
+      "revId": "3420e879f6ae4258481117d94a4ea4395026f2a1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
