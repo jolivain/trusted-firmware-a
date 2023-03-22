@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c69b31e6_ebe60468",
+        "filename": "include/lib/cpus/cpu_ops.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-03-22T10:23:44Z",
+      "side": 1,
+      "message": "Those fields look only used when REPORT_ERRATA is set. Shouldn\u0027t they be under this flag?\nSame for the macros in the previous file.",
+      "revId": "2c82ada8528f48332c43a84904d930757ea26c1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
