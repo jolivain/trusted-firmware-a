@@ -142,6 +142,30 @@
       },
       "revId": "024f1311e1785ccfe5cecff7a22ed9a13f891172",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a98f29a6_d61c1744",
+        "filename": "include/lib/extensions/amu.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-22T15:09:52Z",
+      "side": 1,
+      "message": "It would be good the get this -O0 support decision sorted. Just two weeks ago I have been told otherwise, not only on the basis of there actually being a CI job (tf_config/fvp-no-optimize-default) doing exactly that: that test failed, so it blocked the merge. We explicitly brought those stubs back on the grounds of requiring -O0 for some debug purposes. I didn\u0027t buy those arguments, and don\u0027t see a point of supporting -O0, so would be all too happy to see that go, but that was not the decision made.",
+      "parentUuid": "acab479e_6b25044b",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 6
+      },
+      "revId": "024f1311e1785ccfe5cecff7a22ed9a13f891172",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
