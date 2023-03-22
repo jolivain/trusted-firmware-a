@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cddea1b_7623486d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-22T14:43:58Z",
+      "side": 1,
+      "message": "CI reran on top",
+      "revId": "2c82ada8528f48332c43a84904d930757ea26c1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c69b31e6_ebe60468",
@@ -14,6 +31,24 @@
       "writtenOn": "2023-03-22T10:23:44Z",
       "side": 1,
       "message": "Those fields look only used when REPORT_ERRATA is set. Shouldn\u0027t they be under this flag?\nSame for the macros in the previous file.",
+      "revId": "2c82ada8528f48332c43a84904d930757ea26c1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3524037_4300f4f9",
+        "filename": "include/lib/cpus/cpu_ops.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-22T14:43:58Z",
+      "side": 1,
+      "message": "at the moment yes, but it is not their intention to be limited like that. I expect the errata ABI to use them, which will not necessarily need REPORT_ERRATA.",
+      "parentUuid": "c69b31e6_ebe60468",
       "revId": "2c82ada8528f48332c43a84904d930757ea26c1e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
