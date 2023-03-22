@@ -46,6 +46,30 @@
       },
       "revId": "024f1311e1785ccfe5cecff7a22ed9a13f891172",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79e37bc6_2a34e64d",
+        "filename": "include/lib/extensions/amu.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-03-22T13:33:07Z",
+      "side": 1,
+      "message": "What is the benefit of doing this in the header file as opposed to cutting out the implementation? The only thing I can think of is to a avoid a function call, but it complicates the header quite a lot.\n\nIn fact I\u0027m not quite sure why we need to stub this out at all; we shouldn\u0027t be including this header at all if FEAT_AMU hasn\u0027t been enabled.",
+      "parentUuid": "78d96533_9e8a1cdf",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 6
+      },
+      "revId": "024f1311e1785ccfe5cecff7a22ed9a13f891172",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
