@@ -94,6 +94,30 @@
       },
       "revId": "024f1311e1785ccfe5cecff7a22ed9a13f891172",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb411b40_3ed78ab5",
+        "filename": "include/lib/extensions/amu.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-22T14:04:47Z",
+      "side": 1,
+      "message": "To answer on this \"complicates the header\" argument: Yes, it makes the header more ugly, and that\u0027s mostly the price we pay for supporting -O0.\nBesides, since the header is very easy to begin with, it is still readable, and once you are familiar with that pattern, it is easy to understand and read over.\nIn the Linux kernel there is the understanding that having nasty CPP constructs confined to header files is a much better approach than cluttering actual code with #ifdef\u0027s.\n\nI am actually wondering why we have separate headers for each feature, given their almost trivial content. We could as well unify them in one extension.h header.",
+      "parentUuid": "86bdcd75_b6eacaf4",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 6
+      },
+      "revId": "024f1311e1785ccfe5cecff7a22ed9a13f891172",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
