@@ -16,6 +16,24 @@
       "message": "See the TC0 L3 test build failure:\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1839639/console\n\n00:06:27.524 aarch64-none-elf-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/tc/debug/bl31/spmd_main.o: in function `spmd_group0_interrupt_handler_nwd\u0027:\n00:06:27.524 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/services/std_svc/spmd/spmd_main.c:275: undefined reference to `plat_spmd_handle_group0_interrupt\u0027\n00:06:27.524 aarch64-none-elf-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/tc/debug/bl31/spmd_main.o: in function `spmd_handle_group0_intr_swd\u0027:\n00:06:27.524 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/services/std_svc/spmd/spmd_main.c:301: undefined reference to `plat_spmd_handle_group0_interrupt\u0027\n00:06:27.524 make: *** [Makefile:1415: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/tc/debug/bl31/bl31.elf] Error 1",
       "revId": "eb433e36dfce7b0845fed96b5a1d78e03e6cd3ef",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9cea53a_93e30861",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-22T22:59:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "034e9c48_2e1b581f",
+      "revId": "eb433e36dfce7b0845fed96b5a1d78e03e6cd3ef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
