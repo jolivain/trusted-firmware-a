@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3017e005_8343d1f6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-22T15:04:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7daa9bac_db5274bf",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 65
+      },
+      "revId": "cd0f499294837267af2dd539b007a20d73ad56f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8024c7c4_a398910f",
@@ -47,6 +71,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c43686ce_b3d64e25",
+        "filename": "plat/arm/board/fvp/fvp_plat_attest_token.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-22T15:04:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8024c7c4_a398910f",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 32
+      },
+      "revId": "cd0f499294837267af2dd539b007a20d73ad56f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2cea7128_ca14e5e8",
@@ -60,6 +108,24 @@
       "writtenOn": "2023-03-22T12:11:22Z",
       "side": 1,
       "message": "It looks like things got shuffled around in this file. Could you please explain the reason behind it? On first glance, I don\u0027t see any functional change...",
+      "revId": "cd0f499294837267af2dd539b007a20d73ad56f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "325ac678_e893ff50",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-22T15:04:00Z",
+      "side": 1,
+      "message": "This change was made because before this change, the \u0027delegated_attestation.c\u0027 file was guarded under MEASURED_BOOT, but now BL31 needs it to retrieve the key and token (before this change, the FVP platform returned the hardcoded values without using RSS implementation of the PSA interface).",
+      "parentUuid": "2cea7128_ca14e5e8",
       "revId": "cd0f499294837267af2dd539b007a20d73ad56f6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
