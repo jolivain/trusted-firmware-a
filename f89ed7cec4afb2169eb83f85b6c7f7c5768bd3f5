@@ -96,6 +96,48 @@
       "message": "Food for thought, would it be fair adding a safeguard similarly to how secure interrupts are delegated to SEL2:\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/services/std_svc/spmd/spmd_main.c#n233\nThis would permit gating code paths that would resume the SPMC by any other FF-A interface than FFA_SUCCESS (as a return from FFA_EL3_INTR_HANDLE).",
       "revId": "f89ed7cec4afb2169eb83f85b6c7f7c5768bd3f5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15acacfd_3495295c",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1166,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-22T22:43:32Z",
+      "side": 1,
+      "message": "I see that the flag secure_interrupt_ongoing is helping us to enforce the following rule from the spec: \"This function must be used by the SPMC to request the SPMD to resume Normal world execution once the exception has been handled.\"\n\nThis is especially needed because we are leaving EL3 to enter S-EL2 and entering back EL3 to further resume NS-EL2/NS-EL1(which is where the secure G1 interrupt triggered). this flag can help SPMD to catch spurious invocation of FFA_NORMAL_WORLD_RESUME ABI by SPMC when there is no G1 secure interrupt involved.\n\nHowever, I am not seeing such need for Group0 interrupt handling. We entered EL3 through a SMC call and upon success, we resume SPMC. Can you please give an example how safeguarding group0 interrupt handling code paths can help us catch bugs?",
+      "parentUuid": "bfc8e145_8743d125",
+      "revId": "f89ed7cec4afb2169eb83f85b6c7f7c5768bd3f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ded1e536_3b5c3c76",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1166,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-22T22:43:32Z",
+      "side": 1,
+      "message": "If SCR_EL3.FIQ was not 0, SPMC would not even enter the fiq_handler[1] that would allow it to invoke FFA_EL3_INTR_HANDLE SMC call. Moreover, if SCR_EL3.FIQ is incorrect, execution would be trapped to fiq handler of EL3 exception handler vector[2], not here. I am wondering if the check would be useful.\n\n[1] https://review.trustedfirmware.org/c/hafnium/hafnium/+/19896/3/src/arch/aarch64/hypervisor/handler.c#1089\n[2] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/bl31/aarch64/runtime_exceptions.S#n352",
+      "parentUuid": "28e8441a_5dfd53c0",
+      "range": {
+        "startLine": 1166,
+        "startChar": 6,
+        "endLine": 1166,
+        "endChar": 19
+      },
+      "revId": "f89ed7cec4afb2169eb83f85b6c7f7c5768bd3f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
