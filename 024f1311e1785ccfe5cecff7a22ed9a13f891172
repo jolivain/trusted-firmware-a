@@ -118,6 +118,30 @@
       },
       "revId": "024f1311e1785ccfe5cecff7a22ed9a13f891172",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acab479e_6b25044b",
+        "filename": "include/lib/extensions/amu.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-03-22T14:56:05Z",
+      "side": 1,
+      "message": "We don\u0027t support -O0 (or at least don\u0027t use it by default) - even debug builds use -Os. I\u0027ll let this through on the basis of it being an existing pattern, but I think we ought to pushing IPO harder rather to deal with this than trying to DIY optimisations via the preprocessor.",
+      "parentUuid": "eb411b40_3ed78ab5",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 6
+      },
+      "revId": "024f1311e1785ccfe5cecff7a22ed9a13f891172",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
