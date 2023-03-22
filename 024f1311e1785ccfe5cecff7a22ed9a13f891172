@@ -22,6 +22,30 @@
       },
       "revId": "024f1311e1785ccfe5cecff7a22ed9a13f891172",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78d96533_9e8a1cdf",
+        "filename": "include/lib/extensions/amu.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-22T13:12:58Z",
+      "side": 1,
+      "message": "No, we deliberately want that in a header, it\u0027s a pattern the Linux kernel uses extensively, and we also use that already.\nBut it should indeed be \"static inline\", to avoid this double definition issue with -O0.",
+      "parentUuid": "74c3db97_3f6dccd5",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 6
+      },
+      "revId": "024f1311e1785ccfe5cecff7a22ed9a13f891172",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
