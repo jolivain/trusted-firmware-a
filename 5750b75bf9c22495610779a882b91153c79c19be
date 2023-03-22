@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf88e2be_df0a790f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-22T11:07:55Z",
+      "side": 1,
+      "message": "So this is the patch to address the confusion about the AMU build option.\nI put this separately for now to not disturb the other features, we can\nline this up with the other features later.\nThe existing AMU enablement patch of course now needs some rework, so I\nput this next. I briefly tested building this with various options, and \nalso booted Linux with AMU enabled and disabled on the FVP command line.\nPlease test on your side!\n",
+      "revId": "5750b75bf9c22495610779a882b91153c79c19be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
