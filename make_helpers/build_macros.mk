@@ -43,11 +43,23 @@ endef
 define default_zero
 	$(eval $(1) ?= 0)
 endef
+#
+# Convenience function for setting a variable to 1 if not previously set
+# $(eval $(call default_one,FOO))
+define default_one
+	$(eval $(1) ?= 1)
+endef
 
 # Convenience function for setting a list of variables to 0 if not previously set
 # $(eval $(call default_zeros,FOO BAR))
 define default_zeros
 	$(foreach var,$1,$(eval $(call default_zero,$(var))))
+endef
+
+# Convenience function for setting a list of variables to 1 if not previously set
+# $(eval $(call default_ones,FOO BAR))
+define default_ones
+	$(foreach var,$1,$(eval $(call default_one,$(var))))
 endef
 
 # Convenience function for adding build definitions

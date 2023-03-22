@@ -179,6 +179,9 @@ ENABLE_FEAT_TWED		:= 0
 # Flag to enable access to TCR2 (FEAT_TCR2)
 ENABLE_FEAT_TCR2		:= 0
 
+# Flag to include all implemented errata workarounds
+ENABLE_ERRATA_ALL		:= 0
+
 # By default BL31 encryption disabled
 ENCRYPT_BL31			:= 0
 
