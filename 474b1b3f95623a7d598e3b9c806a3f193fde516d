@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "460adeed_517cd8fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-22T11:05:14Z",
+      "side": 1,
+      "message": "LGTM otherwise",
+      "revId": "474b1b3f95623a7d598e3b9c806a3f193fde516d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62f9da4d_7559ab15",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 23
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-22T11:05:14Z",
+      "side": 1,
+      "message": "nit: \"poetry (python dependency manager)\" or something similar. Sentence is hard to read",
+      "revId": "474b1b3f95623a7d598e3b9c806a3f193fde516d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a8af496_f3684e2a",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 23
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-22T11:05:14Z",
+      "side": 1,
+      "message": "We\u0027ve been explicit so far in avoiding supporting virtual environments and this changes that. \n\n\u003e either creating a new environment\nwhere? How do I use it? Perhaps the note below is better suited here\n\n\u003e or re-using one created by the user\nagain, how? From trying it locally, it needed to be active before running the command. Perhaps mention?\n\n\u003e This ensures that the Python environment is isolated from\n\u003e your system environment.\nnit: maybe something like \"this will isolate tf-a\u0027s python environment from your system\u0027s\"?",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 62
+      },
+      "revId": "474b1b3f95623a7d598e3b9c806a3f193fde516d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65aa5b2f_40fa4e2d",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 23
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-22T11:05:14Z",
+      "side": 1,
+      "message": "I think it\u0027s more appropriate to say that \"``poetry run`` executes the provided command in the project\u0027s virtual env\" which will make it more clear what\u0027s happening (and hinting to the fact that it needs prefixing to every docs related command)\n\nAlso, how do I exit the shell I spawned? `deactivate` didn\u0027t work...",
+      "revId": "474b1b3f95623a7d598e3b9c806a3f193fde516d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6738936_acec61b8",
+        "filename": "pyproject.toml",
+        "patchSetId": 23
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-22T11:05:14Z",
+      "side": 1,
+      "message": "nit: a bunch of empty lines",
+      "revId": "474b1b3f95623a7d598e3b9c806a3f193fde516d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
