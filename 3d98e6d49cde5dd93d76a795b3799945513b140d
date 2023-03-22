@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "996f1791_6067025b",
+        "filename": "plat/arm/common/arm_dyn_cfg_helpers.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-22T11:35:19Z",
+      "side": 1,
+      "message": "Done, Thanks for spotting, somehow missed return here.",
+      "parentUuid": "6d4c4b55_665fa83d",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 381,
+        "endChar": 2
+      },
+      "revId": "3d98e6d49cde5dd93d76a795b3799945513b140d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32f81275_d6f789c7",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-03-22T11:03:32Z",
       "side": 1,
       "message": "Let\u0027s add a \u0027return rc;\u0027 statement here as well to avoid this type of issues in the future.",
+      "range": {
+        "startLine": 386,
+        "startChar": 2,
+        "endLine": 387,
+        "endChar": 45
+      },
+      "revId": "3d98e6d49cde5dd93d76a795b3799945513b140d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32879db9_cde3fae8",
+        "filename": "plat/arm/common/arm_dyn_cfg_helpers.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-22T11:35:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32f81275_d6f789c7",
       "range": {
         "startLine": 386,
         "startChar": 2,
