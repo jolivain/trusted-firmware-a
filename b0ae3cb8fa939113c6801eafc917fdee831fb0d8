@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de379b22_486197e7",
+        "filename": "Makefile",
+        "patchSetId": 11
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-22T22:04:05Z",
+      "side": 1,
+      "message": "Dont understand why this is required in the commit. Can you please help me understand?",
+      "range": {
+        "startLine": 713,
+        "startChar": 0,
+        "endLine": 719,
+        "endChar": 5
+      },
+      "revId": "b0ae3cb8fa939113c6801eafc917fdee831fb0d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3bfd33f_969b10bc",
+        "filename": "drivers/st/crypto/stm32_pka.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-22T22:04:05Z",
+      "side": 1,
+      "message": "This doesnt seem relevant to this commit. Am I missing something?",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 12
+      },
+      "revId": "b0ae3cb8fa939113c6801eafc917fdee831fb0d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "484be6d7_f112219e",
+        "filename": "include/arch/aarch32/asm_macros.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-22T22:04:05Z",
+      "side": 1,
+      "message": "2023?",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "b0ae3cb8fa939113c6801eafc917fdee831fb0d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e7d01a9_8b9b3461",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-22T22:04:05Z",
+      "side": 1,
+      "message": "2023?",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "b0ae3cb8fa939113c6801eafc917fdee831fb0d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b78544f4_78a4b6a9",
+        "filename": "include/lib/cpus/cpu_ops.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-22T22:04:05Z",
+      "side": 1,
+      "message": "2023. No need to use 2023-2023 format",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "b0ae3cb8fa939113c6801eafc917fdee831fb0d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "209bd716_53e7ed47",
+        "filename": "include/lib/cpus/cpu_ops.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-03-22T22:04:05Z",
+      "side": 1,
+      "message": "missing new line",
+      "revId": "b0ae3cb8fa939113c6801eafc917fdee831fb0d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
