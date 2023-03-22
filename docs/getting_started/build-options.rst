@@ -460,6 +460,12 @@ Common build options
    platform hook needs to be implemented. The value is passed as the last
    component of the option ``-fstack-protector-$ENABLE_STACK_PROTECTOR``.
 
+- ``ENABLE_ERRATA_ALL``: Boolean option to enable the workarounds for all errata
+   that TF-A implements. Normally they should be explicitly enabled depending on
+   each platform's needs, but having all enabled is useful for testing.  Not
+   recommended for `RELEASE` builds. On `DEBUG` builds defaults to 1. Otherwise
+   defaults to 0.
+
 -  ``ENCRYPT_BL31``: Binary flag to enable encryption of BL31 firmware. This
    flag depends on ``DECRYPTION_SUPPORT`` build flag.
 

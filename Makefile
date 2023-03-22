@@ -1153,6 +1153,7 @@ $(eval $(call assert_booleans,\
         ENABLE_SYS_REG_TRACE_FOR_NS \
         ENABLE_MPMM \
         ENABLE_MPMM_FCONF \
+        ENABLE_ERRATA_ALL \
         SIMICS_BUILD \
         FEATURE_DETECTION \
 	TRNG_SUPPORT \

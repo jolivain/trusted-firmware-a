@@ -179,6 +179,13 @@ ENABLE_FEAT_TWED		:= 0
 # Flag to enable access to TCR2 (FEAT_TCR2)
 ENABLE_FEAT_TCR2		:= 0
 
+# Flag to include all errata for all CPUs TF-A implements workarounds for
+ifeq (${DEBUG},1)
+	ENABLE_ERRATA_ALL		:= 1
+else
+	ENABLE_ERRATA_ALL		:= 0
+endif
+
 # By default BL31 encryption disabled
 ENCRYPT_BL31			:= 0
 
