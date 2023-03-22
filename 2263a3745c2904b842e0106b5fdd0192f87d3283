@@ -16,6 +16,24 @@
       "message": "Sorry to keep coming back to this, but I am really struggling with the intention of this patch and I\u0027m not sure this has the desired result. The way I understand it, this is a \"hack\" for anything at EL2 that doesn\u0027t understand FEAT_HCX. You want to initialize HCRX_EL2 such that they do not start blowing up. So, disable trapping for features that TF-A enables (FEAT_SME for example). So far so good, but this kind of contradicts MSCEn (which is disabled with 1) for example which will start generating exceptions now.\n\nThis raises issue 1: As far as I understand the XXX_RESET_VAL macros, HCRX_EL2_RESET_VAL is semantically wrong here. They are meant to define any bits that the architecture says should be a specific value *out of reset* and ignores the UNDEFINED ones (and writes an UNDEFINED value, usually 0). The architecture sets all of these as UNDEFINED in our case so this is not what\u0027s happening.\n\nThen there\u0027s the issue of CTX_INCLUDE_EL2_REGS. This flag must be set when there\u0027s an SPM/RMM present, but it is valid to not include those. In that case this will not run and the register remains unset. The case at line 621 below only catches the case where EL2 is empty. Perhaps it needs to be added to the case at line 606 too?\n\nFinally, what about SEL2? If this is not meant for it, then it should be moved to setup_ns_context(). If not, then this will not have an effect on SEL2, because the first call to cm_el2_sysregs_context_restore(), which is meant to write these values, skips writing them if SCR_EL3.EEL2 is not set. The EEL2 bit is only written at el3_exit which is way later and it remains zero until then.\n\nMaybe @Manish can give some input on this last point.",
       "revId": "2263a3745c2904b842e0106b5fdd0192f87d3283",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9e78acb_2c1c0c2a",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-03-22T20:34:03Z",
+      "side": 1,
+      "message": "Hi Boyan, \n\nI understand your concern. Maybe there\u0027s an intermediate solution which could be setting only some bits of the registers. By the time I started this task, we agreed with Manish to set all bits to 0. As for MSCEn, according to the ARM-ARM, the memory operations are enabled by setting the bit at 1:\n\u003e 0b0 Execution of the Memory Copy and Memory Set instructions is UNDEFINED at EL1 or EL0.\n\u003e 0b1 This control does not cause any instructions to be UNDEFINED.\n\nWith respect to the case when CTX_INCLUDE_EL2_REGS is disabled, that is considered in line 644, but I\u0027ll move it to line 606.\n\nAs for SEL2, I see what you say. I\u0027ll ask Manish about it.",
+      "parentUuid": "246f13c1_484170c6",
+      "revId": "2263a3745c2904b842e0106b5fdd0192f87d3283",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
