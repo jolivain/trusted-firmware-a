@@ -70,6 +70,30 @@
       },
       "revId": "024f1311e1785ccfe5cecff7a22ed9a13f891172",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86bdcd75_b6eacaf4",
+        "filename": "include/lib/extensions/amu.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-22T13:53:26Z",
+      "side": 1,
+      "message": "Having this in the header allows the compiler to better optimise this away, and \"static inline\" definitely helps with that.\nOriginally we left the header alone, and relied on the compiler to optimise the call away completely. However this only works with -O1 or higher, and for some reason we want to support -O0 as well.\n\nOn a higher level: we want to get rid of all those #ifdef\u0027s in the code: they hide code from the compiler (no type checking), and decrease readability. Especially nested #ifdef\u0027s can be a nightmare.\nSo the pattern is to convert:\n#if ENABLE_FEAT_AMU\n    amu_enable();\n#endif\nto:\n    if (is_feat_amu_supported()) {\n        amu_enable();\n    }\nWith the right definition of is_feat_amu_supported(), and -O1 or -Os, this has the very same effect: if ENABLE_FEAT_AMU is 0, the code will be removed, with ENABLE_FEAT_AMU being 1 the call to the check function will be removed.\nWe gain the ability of setting ENABLE_FEAT_AMU to 2, and doing a runtime check.\nThis is all hidden is is_feat_amu_supported(), but in a readable way and not using CPP.",
+      "parentUuid": "79e37bc6_2a34e64d",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 6
+      },
+      "revId": "024f1311e1785ccfe5cecff7a22ed9a13f891172",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
