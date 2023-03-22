@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdee5844_92295bd7",
+        "filename": "Makefile",
+        "patchSetId": 13
+      },
+      "lineNbr": 861,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-22T17:41:52Z",
+      "side": 1,
+      "message": "Should this consider \"\u003d2\" as well, so comparing with !\u003d 0?",
+      "revId": "045d78eafe8f1b2a1eec29e7bff1b6529fef3d71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a91c9e67_9a851b06",
+        "filename": "Makefile",
+        "patchSetId": 13
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-22T17:41:52Z",
+      "side": 1,
+      "message": "Do we actually need this warning? Can\u0027t we just always force SME to the same value as SME2, if we rely on this? And maybe document this?\nI see that problem in several places, so it\u0027s probably worth discussing this with a more general scope.",
+      "revId": "045d78eafe8f1b2a1eec29e7bff1b6529fef3d71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e28c0ab6_4efc3d05",
+        "filename": "Makefile",
+        "patchSetId": 13
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-22T17:41:52Z",
+      "side": 1,
+      "message": "This should be in the assert_numerics list instead.",
+      "revId": "045d78eafe8f1b2a1eec29e7bff1b6529fef3d71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8cf6597_d27006ba",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-22T17:41:52Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this stanza talk about a \"Numeric value ...\", like the other (newly converted) features? It looks like you implement the \"\u003d2\" choice below.",
+      "revId": "045d78eafe8f1b2a1eec29e7bff1b6529fef3d71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78780c7d_10e50b4a",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-22T17:41:52Z",
+      "side": 1,
+      "message": "Please use the ISOLATE_FIELD() macro.",
+      "revId": "045d78eafe8f1b2a1eec29e7bff1b6529fef3d71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
