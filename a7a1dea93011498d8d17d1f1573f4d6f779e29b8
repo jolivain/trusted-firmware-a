@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1611824a_a8941b93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-03-22T09:03:50Z",
+      "side": 1,
+      "message": "When I build this patch I am getting.\n\n../tf-a-ci-scripts/tf_config/versal_net-no-pm\tDEBUG\u003d1\t CROSS_COMPILE\u003daarch64-none-elf- PLAT\u003dversal_net RESET_TO_BL31\u003d1 TFA_NO_PM\u003d1\nplat/xilinx/versal_net/plat_psci.c: In function \u0027no_pm_handler\u0027:\nplat/xilinx/versal_net/plat_psci.c:202:14: error: \u0027PM_GET_CHIPID\u0027 undeclared (first use in this function)\n  202 |         case PM_GET_CHIPID:\n      |              ^~~~~~~~~~~~~\nplat/xilinx/versal_net/plat_psci.c:202:14: note: each undeclared identifier is reported only once for each function it appears in\n",
+      "revId": "a7a1dea93011498d8d17d1f1573f4d6f779e29b8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
