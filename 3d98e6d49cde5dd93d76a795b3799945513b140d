@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fb10366_93183d34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-03-22T11:05:56Z",
+      "side": 1,
+      "message": "A quick \u0027git grep \"arm,tpm_event_log\"\u0027 in the code base reveals that the imx8m and QEMU platforms might make use of TPM DTB properties as well:\n\n plat/imx/imx8m/imx8m_dyn_cfg_helpers.c:                          \"arm,tpm_event_log\");\n plat/imx/imx8m/imx8m_dyn_cfg_helpers.c: const char *compatible_tpm \u003d \"arm,tpm_event_log\";\n plat/qemu/qemu/qemu_helpers.c:  const char *compatible \u003d \"arm,tpm_event_log\";\n\nI\u0027ve not looked into the details. Could you please double-check whether any changes need to be proposed to these platforms\u0027 maintainers? If yes, then please keep these changes in separate patches to facilitate the review.",
+      "revId": "3d98e6d49cde5dd93d76a795b3799945513b140d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d4c4b55_665fa83d",
