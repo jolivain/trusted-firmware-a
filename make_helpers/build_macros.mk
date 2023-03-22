@@ -326,7 +326,9 @@ define MAKE_C
 
 $(eval OBJ := $(1)/$(patsubst %.c,%.o,$(notdir $(2))))
 $(eval DEP := $(patsubst %.o,%.d,$(OBJ)))
-$(eval BL_CPPFLAGS := $($(call uppercase,$(3))_CPPFLAGS) -DIMAGE_$(call uppercase,$(3)))
+
+$(eval BL_INCLUDE_DIRS := $($(call uppercase,$(3))_INCLUDE_DIRS))
+$(eval BL_CPPFLAGS := $($(call uppercase,$(3))_CPPFLAGS) -DIMAGE_$(call uppercase,$(3)) $(addprefix -I,$(BL_INCLUDE_DIRS)))
 $(eval BL_CFLAGS := $($(call uppercase,$(3))_CFLAGS))
 
 $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | $(3)_dirs
@@ -346,7 +348,9 @@ define MAKE_S
 
 $(eval OBJ := $(1)/$(patsubst %.S,%.o,$(notdir $(2))))
 $(eval DEP := $(patsubst %.o,%.d,$(OBJ)))
-$(eval BL_CPPFLAGS := $($(call uppercase,$(3))_CPPFLAGS) -DIMAGE_$(call uppercase,$(3)))
+
+$(eval BL_INCLUDE_DIRS := $($(call uppercase,$(3))_INCLUDE_DIRS))
+$(eval BL_CPPFLAGS := $($(call uppercase,$(3))_CPPFLAGS) -DIMAGE_$(call uppercase,$(3)) $(addprefix -I,$(BL_INCLUDE_DIRS)))
 $(eval BL_ASFLAGS := $($(call uppercase,$(3))_ASFLAGS))
 
 $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | $(3)_dirs
