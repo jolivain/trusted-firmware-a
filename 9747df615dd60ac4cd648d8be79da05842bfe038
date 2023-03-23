@@ -90,6 +90,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e3e5b87a_dbf66b8f",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-23T09:59:48Z",
+      "side": 1,
+      "message": "Suggest to enable these only for NS.\nSuffix build flags with *_FOR_NS. \n\nThe realm and Secure dispatchers would need to enable for their respective worlds.",
+      "range": {
+        "startLine": 364,
+        "startChar": 5,
+        "endLine": 364,
+        "endChar": 22
+      },
+      "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "456bd0cb_d21b0de7",
         "filename": "include/arch/aarch64/arch_features.h",
         "patchSetId": 10
@@ -136,6 +159,52 @@
       "writtenOn": "2023-03-17T15:14:02Z",
       "side": 1,
       "message": "Same as above.",
+      "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b96685d0_a1a1c05d",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-23T09:59:48Z",
+      "side": 1,
+      "message": "Perhaps restrict this to NS for now. For Realm and Secure, the relevant dispatchers can enable.",
+      "range": {
+        "startLine": 361,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 0
+      },
+      "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fbf9ff8_2f538e35",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 912,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-23T09:59:48Z",
+      "side": 1,
+      "message": "This can be added once Secure or Realm dispatchers enables it for their respective worlds.",
+      "range": {
+        "startLine": 906,
+        "startChar": 0,
+        "endLine": 912,
+        "endChar": 3
+      },
       "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
