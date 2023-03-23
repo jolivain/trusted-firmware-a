@@ -16,6 +16,24 @@
       "message": "Even though for FFH we expect this to be set, I suspect the possibility of lower EL trying to access this. \n\nWould suggest to keep this flag but make its default depend on FFH flag. The access may also be needed for hybrid FFH-KFH mode.",
       "revId": "7e672d814295e463f2cb627263155df8854b7710",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "860fe9f4_21651214",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-03-23T09:12:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6036f34e_8166cf9c",
+      "revId": "7e672d814295e463f2cb627263155df8854b7710",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
