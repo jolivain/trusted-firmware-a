@@ -15,7 +15,7 @@
 #include <cpu_macros.S>
 #include <context.h>
 
-	.globl	handle_lower_el_ea_esb
+	.globl	handle_lower_el_syncronized_ea
 	.globl	handle_lower_el_sync_ea
 	.globl	handle_lower_el_async_ea
 	.globl	reflect_ea_to_lower_el
@@ -29,12 +29,59 @@
  * panics. On return from this function, the original exception handler is
  * expected to resume.
  */
-func handle_lower_el_ea_esb
+
+func handle_lower_el_syncronized_ea
+#if ENABLE_FEAT_RAS
+	/* Synchronize/consume pending External Aborts */
+	esb
+
+	/* Unmask the SError interrupt */
+	msr	daifclr, #DAIF_ABT_BIT
+
+	/* DISR_EL1 will be updated after esb, pass it on to ea_proceed */
 	mov	x0, #ERROR_EA_ESB
 	mrs	x1, DISR_EL1
 	b	ea_proceed
-endfunc handle_lower_el_ea_esb
+#else
+	/*
+	 * Note 1: The explicit DSB at the entry of various exception vectors
+	 * for handling exceptions from lower ELs can inadvertently trigger an
+	 * SError exception in EL3 due to pending asynchronous aborts in lower
+	 * ELs. This will end up being handled by serror_sp_elx which will
+	 * ultimately panic and die.
+	 * The way to workaround is to update a flag to indicate if the exception
+	 * truly came from EL3. This flag is allocated in the cpu_context
+	 * structure and located at offset "CTX_EL3STATE_OFFSET + CTX_IS_IN_EL3"
+	 * This is not a bullet proof solution to the problem at hand because
+	 * we assume the instructions following "isb" that help to update the
+	 * flag execute without causing further exceptions.
+	 */
 
+	mrs	x0, spsr_el3
+	mrs	x1, elr_el3
+	mrs	x2, esr_el3
+
+	/* Unmask the SError interrupt, which will cause SError in EL3 */
+	msr	daifclr, #DAIF_ABT_BIT
+
+	/* Use ISB for the above unmask operation to take effect immediately */
+	isb
+	
+	/* Refer Note 1. Come back from EL3 SError vector */
+	mov 	x3, #1
+	str	x3, [sp, #CTX_EL3STATE_OFFSET + CTX_IS_IN_EL3]
+	dmb	sy
+
+	msr	spsr_el3, x0
+	msr	elr_el3, x1
+	mov	x0, #ERROR_EA_ASYNC
+	/* esr_el3 has been populated when SError was taken, pass this to platform handler */
+	mrs	x1, esr_el3
+	b	ea_proceed
+	/* Restore original esr_el3 */
+	msr	esr_el3, x2
+#endif
+endfunc handle_lower_el_syncronized_ea
 
 /*
  * This function forms the tail end of Synchronous Exception entry from lower
@@ -145,7 +192,6 @@ func handle_lower_el_async_ea
 	b	el3_exit
 endfunc handle_lower_el_async_ea
 
-#if ENABLE_FEAT_RAS && !RAS_FFH_SUPPORT
 func reflect_ea_to_lower_el
 	/*
 	 * This special handling is required to cater for handling SError from lower EL
@@ -189,7 +235,6 @@ func reflect_ea_to_lower_el
 	ldr	x30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_LR]
 	exception_return
 endfunc reflect_ea_to_lower_el
-#endif
 
 /*
  * Prelude for Synchronous External Abort handling. This function assumes that
