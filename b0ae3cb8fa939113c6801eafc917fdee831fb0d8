@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ba9be2fd_711bc06d",
+        "filename": "Makefile",
+        "patchSetId": 11
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-23T11:54:17Z",
+      "side": 1,
+      "message": "The aarch64 check was originally at the top and nothing was defined for Aarch32. But then in include/lib/cpus/aarch32/cpu_macros.S:14 it was defined for aarch32 anyway. So I took it out of there and put it here. I also extracted anything in common and this is the result.",
+      "parentUuid": "de379b22_486197e7",
+      "range": {
+        "startLine": 713,
+        "startChar": 0,
+        "endLine": 719,
+        "endChar": 5
+      },
+      "revId": "b0ae3cb8fa939113c6801eafc917fdee831fb0d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3bfd33f_969b10bc",
         "filename": "drivers/st/crypto/stm32_pka.c",
         "patchSetId": 11
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-22T22:04:05Z",
       "side": 1,
       "message": "This doesnt seem relevant to this commit. Am I missing something?",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 12
+      },
+      "revId": "b0ae3cb8fa939113c6801eafc917fdee831fb0d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d99e907_5c641a45",
+        "filename": "drivers/st/crypto/stm32_pka.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-23T11:54:17Z",
+      "side": 1,
+      "message": "Originally I got mistaken that this was meant to be the CPU_WORD_SIZE macro, Yann kindly pointed out that this is not the case. To avoid confusion I make it explicitly different as suggested.",
+      "parentUuid": "e3bfd33f_969b10bc",
       "range": {
         "startLine": 31,
         "startChar": 8,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f6670fc_2e7a2139",
+        "filename": "include/arch/aarch32/asm_macros.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-23T11:54:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "484be6d7_f112219e",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "b0ae3cb8fa939113c6801eafc917fdee831fb0d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e7d01a9_8b9b3461",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-03-22T22:04:05Z",
       "side": 1,
       "message": "2023?",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "b0ae3cb8fa939113c6801eafc917fdee831fb0d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2275e50d_63401d90",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-23T11:54:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7e7d01a9_8b9b3461",
       "range": {
         "startLine": 2,
         "startChar": 22,
@@ -116,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c2d5569_a63fa570",
+        "filename": "include/lib/cpus/cpu_ops.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-23T11:54:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b78544f4_78a4b6a9",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "b0ae3cb8fa939113c6801eafc917fdee831fb0d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "209bd716_53e7ed47",
@@ -129,6 +249,24 @@
       "writtenOn": "2023-03-22T22:04:05Z",
       "side": 1,
       "message": "missing new line",
+      "revId": "b0ae3cb8fa939113c6801eafc917fdee831fb0d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8884fac_364467bb",
+        "filename": "include/lib/cpus/cpu_ops.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-23T11:54:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "209bd716_53e7ed47",
       "revId": "b0ae3cb8fa939113c6801eafc917fdee831fb0d8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
