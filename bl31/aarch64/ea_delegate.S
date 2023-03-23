@@ -145,7 +145,7 @@ func handle_lower_el_async_ea
 	b	el3_exit
 endfunc handle_lower_el_async_ea
 
-#if ENABLE_FEAT_RAS && !RAS_FFH_SUPPORT
+#if !RAS_FFH_SUPPORT
 func reflect_ea_to_lower_el
 	/*
 	 * This special handling is required to cater for handling SError from lower EL

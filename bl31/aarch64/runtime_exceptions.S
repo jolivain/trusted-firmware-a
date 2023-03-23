@@ -53,13 +53,8 @@
 	 * With FEAT_RAS, this macro synchronizes pending errors with an ESB
 	 * instruction. When an error is thus synchronized, the handling is
 	 * delegated to platform EA handler.
-	 *
-	 * Without FEAT_RAS, this macro synchronizes pending errors using
-	 * a DSB, unmasks Asynchronous External Aborts and saves X30 before
-	 * setting the flag CTX_IS_IN_EL3.
 	 */
 	.macro check_and_unmask_ea
-#if ENABLE_FEAT_RAS
 #if RAS_FFH_SUPPORT
 	/* Synchronize pending External Aborts */
 	esb
@@ -87,43 +82,16 @@
 	dsb	sy
 	mrs	x30, ISR_EL1
 	tbz	x30, #ISR_A_SHIFT, 1f
+	/* Check whether to handle EA in EL3 or reflect it to lower EL */
+	mrs	x30, scr_el3
+	tst	x30, #SCR_EA_BIT
+	bne	2f
 	/* Not expected to come back here but use bl to save LR */
 	bl	reflect_ea_to_lower_el
-
+2:
+	b	handle_lower_el_async_ea
 #endif /* RAS_FFH_SUPPORT */
 1:
-#else
-	/*
-	 * Note 1: The explicit DSB at the entry of various exception vectors
-	 * for handling exceptions from lower ELs can inadvertently trigger an
-	 * SError exception in EL3 due to pending asynchronous aborts in lower
-	 * ELs. This will end up being handled by serror_sp_elx which will
-	 * ultimately panic and die.
-	 * The way to workaround is to update a flag to indicate if the exception
-	 * truly came from EL3. This flag is allocated in the cpu_context
-	 * structure and located at offset "CTX_EL3STATE_OFFSET + CTX_IS_IN_EL3"
-	 * This is not a bullet proof solution to the problem at hand because
-	 * we assume the instructions following "isb" that help to update the
-	 * flag execute without causing further exceptions.
-	 */
-
-	/*
-	 * For SoCs which do not implement RAS, use DSB as a barrier to
-	 * synchronize pending external aborts.
-	 */
-	dsb	sy
-
-	/* Unmask the SError interrupt */
-	msr	daifclr, #DAIF_ABT_BIT
-
-	/* Use ISB for the above unmask operation to take effect immediately */
-	isb
-
-	/* Refer Note 1. */
-	mov 	x30, #1
-	str	x30, [sp, #CTX_EL3STATE_OFFSET + CTX_IS_IN_EL3]
-	dmb	sy
-#endif
 	.endm
 
 	/* ---------------------------------------------------------------------
@@ -316,21 +284,6 @@ vector_entry fiq_sp_elx
 end_vector_entry fiq_sp_elx
 
 vector_entry serror_sp_elx
-#if !ENABLE_FEAT_RAS
-	/*
-	 * This will trigger if the exception was taken due to SError in EL3 or
-	 * because of pending asynchronous external aborts from lower EL that got
-	 * triggered due to explicit synchronization in EL3. Refer Note 1.
-	 */
-	/* Assumes SP_EL3 on entry */
-	save_x30
-	ldr	x30, [sp, #CTX_EL3STATE_OFFSET + CTX_IS_IN_EL3]
-	cbnz	x30, 1f
-
-	/* Handle asynchronous external abort from lower EL */
-	b	handle_lower_el_async_ea
-1:
-#endif
 	no_ret	plat_handle_el3_ea
 end_vector_entry serror_sp_elx
 
