@@ -16,6 +16,212 @@
       "message": "Hi Margarita\nI see you pushed another patch which seems to be duplicate of this patch. Do you plan to abandon one of these?\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20128",
       "revId": "6a6ee92a6441094b984fb00db47240c5588e6f24",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b46eb66c_41ae7992",
+        "filename": "docs/plat/npcm845x.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-23T22:46:06Z",
+      "side": 1,
+      "message": "Arm Cortex-A35 CPU.",
+      "range": {
+        "startLine": 7,
+        "startChar": 54,
+        "endLine": 8,
+        "endChar": 31
+      },
+      "revId": "6a6ee92a6441094b984fb00db47240c5588e6f24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e025eeaf_87c9b5a0",
+        "filename": "drivers/nuvoton/common/uart/nuvoton_16550_console.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-23T22:46:06Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 22
+      },
+      "revId": "6a6ee92a6441094b984fb00db47240c5588e6f24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44e73b8c_b1a3125a",
+        "filename": "drivers/nuvoton/common/uart/nuvoton_16550_console.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-23T22:46:06Z",
+      "side": 1,
+      "message": "Are these different from the implementations in ./drivers/ti/uart/aarch64/16550_console.S?",
+      "revId": "6a6ee92a6441094b984fb00db47240c5588e6f24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e87c7809_f9d9c248",
+        "filename": "include/drivers/nuvoton/npcm845x/npcm845x_clock.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-23T22:46:06Z",
+      "side": 1,
+      "message": "remove extra space",
+      "range": {
+        "startLine": 59,
+        "startChar": 22,
+        "endLine": 59,
+        "endChar": 23
+      },
+      "revId": "6a6ee92a6441094b984fb00db47240c5588e6f24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c51cb47_b2384f16",
+        "filename": "include/drivers/nuvoton/npcm845x/npcm845x_clock.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-23T22:46:06Z",
+      "side": 1,
+      "message": "remove extra tab",
+      "range": {
+        "startLine": 88,
+        "startChar": 19,
+        "endLine": 88,
+        "endChar": 20
+      },
+      "revId": "6a6ee92a6441094b984fb00db47240c5588e6f24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18825ac1_9b072ee0",
+        "filename": "include/drivers/nuvoton/npcm845x/npcm845x_clock.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-23T22:46:06Z",
+      "side": 1,
+      "message": "remove extra tab to align with definitions in previous lines",
+      "range": {
+        "startLine": 92,
+        "startChar": 23,
+        "endLine": 92,
+        "endChar": 24
+      },
+      "revId": "6a6ee92a6441094b984fb00db47240c5588e6f24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c21bed6_0bacde01",
+        "filename": "include/drivers/nuvoton/npcm845x/npcm845x_clock.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-23T22:46:06Z",
+      "side": 1,
+      "message": "same as above",
+      "revId": "6a6ee92a6441094b984fb00db47240c5588e6f24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55829f6a_2343b117",
+        "filename": "include/drivers/nuvoton/npcm845x/npcm845x_lpuart.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-23T22:46:06Z",
+      "side": 1,
+      "message": "Please keep the number of characters to 100 (preferably 80) per line.",
+      "revId": "6a6ee92a6441094b984fb00db47240c5588e6f24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12f4a66b_121f5132",
+        "filename": "include/drivers/nuvoton/npcm845x/npcm845x_lpuart.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-23T22:46:06Z",
+      "side": 1,
+      "message": "remove extra tab",
+      "range": {
+        "startLine": 59,
+        "startChar": 19,
+        "endLine": 59,
+        "endChar": 20
+      },
+      "revId": "6a6ee92a6441094b984fb00db47240c5588e6f24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65ecc7d6_8cfa2a13",
+        "filename": "include/plat/nuvoton/common/npcm845x_arm_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-23T22:46:06Z",
+      "side": 1,
+      "message": "remove tabs",
+      "revId": "6a6ee92a6441094b984fb00db47240c5588e6f24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
