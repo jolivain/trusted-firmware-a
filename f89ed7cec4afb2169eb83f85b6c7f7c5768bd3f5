@@ -156,6 +156,30 @@
       },
       "revId": "f89ed7cec4afb2169eb83f85b6c7f7c5768bd3f5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eebdfd49_604d05c6",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1166,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-03-23T07:57:42Z",
+      "side": 1,
+      "message": "The specification says:\nAn invocation of this ABI returns the NOT_SUPPORTED error code in the following scenarios:\n– The ABI is invoked at an unsupported FF-A instance.\n– The ABI is invoked at S-EL1 or S-EL2 and SCR_EL3.FIQ\u003d1.\n\nIf Hafnium can\u0027t misuse that, that\u0027s good, but there\u0027s bound to be more SPMCs out there.",
+      "parentUuid": "ded1e536_3b5c3c76",
+      "range": {
+        "startLine": 1166,
+        "startChar": 6,
+        "endLine": 1166,
+        "endChar": 19
+      },
+      "revId": "f89ed7cec4afb2169eb83f85b6c7f7c5768bd3f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
