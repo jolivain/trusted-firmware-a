@@ -137,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1cb32e71_ff357542",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-23T12:41:01Z",
+      "side": 1,
+      "message": "If a feature is enabled at EL3, there is a chance that an unenlightened SPM or RMM could result in a Realm VM and Secure Partition having the features enabled. EL3 doesn\u0027t save and restore the EL1 Context and hence there could be implications for these features being enabled without the knowledge of the respective managers. \n\nFor this particular case, probably the relevant enables in HCR (or HCRX) may have safe default values which may prevent this scenario, but as a principle, the features need enlightening in the their manager counter-parts first before being enabled at EL3, so that the right actions can be taken at S-EL2/R-EL2 for these features. At a minimum, there needs to be analysis done to ensure that it is OK to enable them for these worlds from EL3.\n\nFrom a NS PoV, this improves the feature enablement timelines from EL3 as we just need to set the right bits for NS context and not worry about the changes needed for context mgmt.\n\nFor this patch, we can probably have these changes, but it needs some time for analysis from Secure and Realm world.\n\n\u003e Suggest to enable these only for NS.\n\u003e Suffix build flags with *_FOR_NS. \n\nIgnore this, keep the flag names as is done now. I had a chat with TF-A team and it may be better to change the meaning of the flag to say this means the feature is enabled for NS. For Secure and Realm , it is upto their manager and dispatcher entities to enable or not.",
+      "parentUuid": "0ba6407f_ebfc0e52",
+      "range": {
+        "startLine": 364,
+        "startChar": 5,
+        "endLine": 364,
+        "endChar": 22
+      },
+      "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "456bd0cb_d21b0de7",
         "filename": "include/arch/aarch64/arch_features.h",
         "patchSetId": 10
