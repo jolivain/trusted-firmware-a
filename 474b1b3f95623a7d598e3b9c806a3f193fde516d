@@ -102,6 +102,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aa4724bb_6b569f55",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 23
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-23T12:26:49Z",
+      "side": 1,
+      "message": "Because \"poetry will handle\" raises more questions to me that it answers about how. If you say something like \"`poetry install` will create a virtual environment (unless you\u0027re already in one, in which case it will use that instead) and install ...\" it becomes quite clear I think. Personally, I\u0027d put the note just after this bit to answer the where question, but now that it\u0027s just after the first use, I suppose that\u0027s fair enough.\n\nAgain, we\u0027re forcing the user to use poetry, so we ought to teach them the very basics of using it (poetry install with/without venv; poetry run for single command in the venv; poetry shell for anyone used to old-style venvs). The feeback we got when I rewrote this section boiled down to \"noone reads the notes\" let alone any external links that would be \"extra\".",
+      "parentUuid": "60c7718a_ea22d5c6",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 62
+      },
+      "revId": "474b1b3f95623a7d598e3b9c806a3f193fde516d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "65aa5b2f_40fa4e2d",
         "filename": "docs/getting_started/docs-build.rst",
         "patchSetId": 23
