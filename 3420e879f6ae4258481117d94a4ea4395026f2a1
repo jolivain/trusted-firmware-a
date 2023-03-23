@@ -22,6 +22,53 @@
       },
       "revId": "3420e879f6ae4258481117d94a4ea4395026f2a1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22975303_9be55e61",
+        "filename": "drivers/auth/tbbr/tbbr_cot_bl2.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-23T15:03:28Z",
+      "side": 1,
+      "message": "This platform-specific information should not be included in a generic file. This file is currently consumed by several platforms, including imx, rpi, qemu, synquencer, sociaonext, hikey, broadcom, etc.  The file was placed in the generic layer for this reason, I believe.\n\nCoT structures specific to a platform should be placed in the platform folder. You can either copy this (along with these newly introduced CoT structures) in a new file and place it in the Arm platform folder (and compile this file instead of tbbr_cot_bl2.c for Arm platform ) or use this file as it is without introducing platform changes and additionally create a new file for newly introduced CoT structures inside Juno platform and then compile both files (tbbr_cot_bl2 + newly created file for Juno) for Arm Juno platform. Is that makes sense?",
+      "parentUuid": "937bef5a_430a8e4b",
+      "range": {
+        "startLine": 665,
+        "startChar": 0,
+        "endLine": 665,
+        "endChar": 24
+      },
+      "revId": "3420e879f6ae4258481117d94a4ea4395026f2a1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be6f95d3_c87a3860",
+        "filename": "include/export/common/tbbr/tbbr_img_def_exp.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-23T15:03:28Z",
+      "side": 1,
+      "message": "Again the placement of these images are not justified to be in common header. See ST implementation for example [1]\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/st/stm32mp1/include/plat_tbbr_img_def.h",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 40
+      },
+      "revId": "3420e879f6ae4258481117d94a4ea4395026f2a1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
