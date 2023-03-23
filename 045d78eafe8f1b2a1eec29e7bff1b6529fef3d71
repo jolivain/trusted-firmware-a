@@ -53,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cb02700_da944df6",
+        "filename": "Makefile",
+        "patchSetId": 13
+      },
+      "lineNbr": 861,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-23T14:31:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdee5844_92295bd7",
+      "revId": "045d78eafe8f1b2a1eec29e7bff1b6529fef3d71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a91c9e67_9a851b06",
@@ -66,6 +84,24 @@
       "writtenOn": "2023-03-22T17:41:52Z",
       "side": 1,
       "message": "Do we actually need this warning? Can\u0027t we just always force SME to the same value as SME2, if we rely on this? And maybe document this?\nI see that problem in several places, so it\u0027s probably worth discussing this with a more general scope.",
+      "revId": "045d78eafe8f1b2a1eec29e7bff1b6529fef3d71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31fb2110_1717c47f",
+        "filename": "Makefile",
+        "patchSetId": 13
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-23T14:31:57Z",
+      "side": 1,
+      "message": "Sure. Thanks for highlighting it.\nI will discuss with the team ( @Manish P and @Soby ) and based on the outcome will modify and document here accordingly.",
+      "parentUuid": "a91c9e67_9a851b06",
       "revId": "045d78eafe8f1b2a1eec29e7bff1b6529fef3d71",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -100,6 +136,24 @@
       "writtenOn": "2023-03-22T17:41:52Z",
       "side": 1,
       "message": "Shouldn\u0027t this stanza talk about a \"Numeric value ...\", like the other (newly converted) features? It looks like you implement the \"\u003d2\" choice below.",
+      "revId": "045d78eafe8f1b2a1eec29e7bff1b6529fef3d71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf79d9bf_ee42eec0",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-23T14:31:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8cf6597_d27006ba",
       "revId": "045d78eafe8f1b2a1eec29e7bff1b6529fef3d71",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
