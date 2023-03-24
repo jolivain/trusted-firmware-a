@@ -543,6 +543,10 @@ MediaTek platform ports
 :|G|: `mtk-rex-bc-chen`_
 :|M|: Leon Chen <leon.chen@mediatek.com>
 :|G|: `leon-chen-mtk`_
+:|M|: Jason-CH Chen <jason-ch.chen@mediatek.com>
+:|G|: `jason-ch-chen`_
+:|M|: Yidi Lin <yidilin@chromium.org>
+:|G|: `linyidi`_
 :|F|: docs/plat/mt\*.rst
 :|F|: plat/mediatek/
 
