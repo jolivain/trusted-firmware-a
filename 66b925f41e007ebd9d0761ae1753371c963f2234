@@ -34,6 +34,24 @@
       "parentUuid": "e2cccf08_b360b524",
       "revId": "66b925f41e007ebd9d0761ae1753371c963f2234",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "139f48ac_4701be7b",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-03-24T21:31:20Z",
+      "side": 0,
+      "message": "Right ok, so the check was correct in it\u0027s original purpose, however it perhaps  wasn\u0027t as through as it could be. Would it be worth extending the check to ensure both the start and end of the array is within bound as opposed to removing the check? Or is that handled elsewhere now and this can safely assumed to be correct?",
+      "parentUuid": "d2f4c3d4_b354bd86",
+      "revId": "66b925f41e007ebd9d0761ae1753371c963f2234",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
