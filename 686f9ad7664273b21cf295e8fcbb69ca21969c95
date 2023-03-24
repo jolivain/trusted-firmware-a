@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a6db35ed_db69cda7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-24T11:54:50Z",
+      "side": 1,
+      "message": "\"Favor C language over assembly language\" seems relevant. You can mention that if someone really wants to use assembly, they can use the stack trace guidelines optionally, and provide detailing accordingly.",
+      "parentUuid": "a2431af0_51958be9",
+      "revId": "686f9ad7664273b21cf295e8fcbb69ca21969c95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5595df36_853ef0f1",
         "filename": "include/arch/aarch64/asm_macros.S",
         "patchSetId": 1
