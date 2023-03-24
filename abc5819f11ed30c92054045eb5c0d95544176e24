@@ -237,6 +237,30 @@
       },
       "revId": "abc5819f11ed30c92054045eb5c0d95544176e24",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b96e9b05_6b353004",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-03-24T21:31:00Z",
+      "side": 1,
+      "message": "Apologies for the delay in replying. Checking through the spec I think should be compliant.\n\nJust to check I understand the proposal, we allow the order of partition IDs to be specified in an IMPDEF order for both the initial share/lend and for the retrieval of the memory region as things currently stand. However after validation we sort the IDs internally so when it comes to searching for valid IDs we are comparing against a sorted list. This will help reduce the computation required while maintaining compatibility with existing implementations?",
+      "parentUuid": "94329aa4_4d1d8cd9",
+      "range": {
+        "startLine": 1107,
+        "startChar": 45,
+        "endLine": 1108,
+        "endChar": 62
+      },
+      "revId": "abc5819f11ed30c92054045eb5c0d95544176e24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
