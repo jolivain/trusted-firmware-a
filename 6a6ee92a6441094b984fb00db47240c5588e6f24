@@ -174,6 +174,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a49a323_e68b0285",
+        "filename": "drivers/nuvoton/common/uart/nuvoton_16550_console.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-27T20:22:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "10726440_5db8a190",
+      "revId": "6a6ee92a6441094b984fb00db47240c5588e6f24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e87c7809_f9d9c248",
@@ -337,6 +355,30 @@
       "side": 1,
       "message": "/* No need for system because we have only one cluster */",
       "parentUuid": "f3edc65c_c44fd6c2",
+      "range": {
+        "startLine": 77,
+        "startChar": 8,
+        "endLine": 77,
+        "endChar": 38
+      },
+      "revId": "6a6ee92a6441094b984fb00db47240c5588e6f24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96fa1fa2_7024c2c2",
+        "filename": "include/plat/nuvoton/common/npcm845x_arm_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-27T20:22:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0c9ea29c_0f75cf9a",
       "range": {
         "startLine": 77,
         "startChar": 8,
@@ -655,6 +697,30 @@
       "side": 1,
       "message": "arm_common.c function plat_arm_get_mmap returns plat_arm_mmap which has to be defined in platform file itself.\nIf you have any other suggestion, please advise.",
       "parentUuid": "5bbad890_2ac16944",
+      "range": {
+        "startLine": 25,
+        "startChar": 20,
+        "endLine": 25,
+        "endChar": 33
+      },
+      "revId": "6a6ee92a6441094b984fb00db47240c5588e6f24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a838471_5d5f4850",
+        "filename": "plat/nuvoton/npcm845x/npcm845x_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-27T20:22:02Z",
+      "side": 1,
+      "message": "I think I understand the reason now. The reason for confusion is nuvoton is not an Arm platform but you seem to have reused a lot of source files that are usually meant for arm platforms. This is not the usual approach by other platforms. anyways, I am fine with your approach.",
+      "parentUuid": "612f4087_e17d1af5",
       "range": {
         "startLine": 25,
         "startChar": 20,
