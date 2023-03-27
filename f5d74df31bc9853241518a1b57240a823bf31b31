@@ -71,6 +71,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7ecbe8af_1fe63a90",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-27T10:53:28Z",
+      "side": 1,
+      "message": "Yes, the ID field also documents the 0b0010 encoding, as \"As 0b0001, plus the SME2 ZT0 register.\" So for the purpose of just SME, we should accept both values.",
+      "parentUuid": "da64a543_6bafd0ac",
+      "revId": "f5d74df31bc9853241518a1b57240a823bf31b31",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "854a554f_99bf52b0",
         "filename": "docs/getting_started/build-options.rst",
         "patchSetId": 18
