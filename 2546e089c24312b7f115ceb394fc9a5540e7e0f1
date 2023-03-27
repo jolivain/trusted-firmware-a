@@ -16,6 +16,24 @@
       "message": "This condition will never be true after the next patch: both callers of sme_enable() will check exactly is_feat_sme_supported() before doing the call.\nI think for this patch here there is still the unguarded secure case, but this gets changed in the next (SVE) patch, so this block should be removed there.\n\nI believe this is another reason we should disentangle SME and SVE in the code, and let the Makefile establish the dependency.",
       "revId": "2546e089c24312b7f115ceb394fc9a5540e7e0f1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "480b9b43_c48c8b51",
+        "filename": "lib/extensions/sme/sme.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-27T22:47:47Z",
+      "side": 1,
+      "message": "Ok. I guess, same routine to be followed at sme_disable function as well.\nLine 74.",
+      "parentUuid": "0bc47a13_95e533da",
+      "revId": "2546e089c24312b7f115ceb394fc9a5540e7e0f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
