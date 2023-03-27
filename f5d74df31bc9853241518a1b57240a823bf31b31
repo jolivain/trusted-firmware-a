@@ -16,6 +16,23 @@
       "message": "Tested here: [ https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/826/] ",
       "revId": "f5d74df31bc9853241518a1b57240a823bf31b31",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79b38992_f065be9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-03-27T10:41:14Z",
+      "side": 1,
+      "message": "I think we definitely should fix the confusion around what build options block other options, but for the sake of just the SME feature this seems be fine for now.",
+      "revId": "f5d74df31bc9853241518a1b57240a823bf31b31",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
