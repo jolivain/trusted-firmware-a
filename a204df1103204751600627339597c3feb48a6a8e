@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "61e8f76e_13b57963",
+        "filename": "drivers/arm/ethosn/ethosn_smc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-27T13:18:06Z",
+      "side": 1,
+      "message": "\u003e In either case, the service and NPU are unusable and letting the boot continue from this could make it harder to find the issue\n\nIMO, letting the boot continue isn\u0027t the problem with this function. As this function\u0027s purpose is to return success or error, the caller must take appropriate action if it receives an error from this function, and do not expect panic action inside this function.\n\nThe prototype of this function can be changed to return void instead if you prefer panic IMO (as currently, either it returns panic or success).",
+      "parentUuid": "84b6aeb3_809efeae",
+      "range": {
+        "startLine": 336,
+        "startChar": 2,
+        "endLine": 336,
+        "endChar": 10
+      },
+      "revId": "a204df1103204751600627339597c3feb48a6a8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f15b2e05_c5853c06",
         "filename": "drivers/arm/ethosn/ethosn_smc.c",
         "patchSetId": 7
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "NOTICE was chosen here to give some feedback in a release build that the driver has been enabled and setup correctly. It would be preferred to keep it as NOTICE if possible.",
       "parentUuid": "f15b2e05_c5853c06",
+      "range": {
+        "startLine": 339,
+        "startChar": 1,
+        "endLine": 339,
+        "endChar": 7
+      },
+      "revId": "a204df1103204751600627339597c3feb48a6a8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f162411c_0d8e5562",
+        "filename": "drivers/arm/ethosn/ethosn_smc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-27T13:18:06Z",
+      "side": 1,
+      "message": "Ack, then makes sense to use NOTICE here.",
+      "parentUuid": "80b1070b_f740ebe6",
       "range": {
         "startLine": 339,
         "startChar": 1,
