@@ -33,6 +33,91 @@
       "message": "I think we definitely should fix the confusion around what build options block other options, but for the sake of just the SME feature this seems be fine for now.",
       "revId": "f5d74df31bc9853241518a1b57240a823bf31b31",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d26bd394_1e21ccf1",
+        "filename": "Makefile",
+        "patchSetId": 18
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-27T10:41:50Z",
+      "side": 1,
+      "message": "This has been in for 2 years with no significant changes. Is it still experimental?",
+      "revId": "f5d74df31bc9853241518a1b57240a823bf31b31",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da64a543_6bafd0ac",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-27T10:41:50Z",
+      "side": 1,
+      "message": "Is the (1, 2) on purpose?",
+      "revId": "f5d74df31bc9853241518a1b57240a823bf31b31",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "854a554f_99bf52b0",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 18
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-27T10:41:50Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure SPD\u003dspmd works and is supported (or at least it\u0027s set up for secure context without depending on SPM)",
+      "revId": "f5d74df31bc9853241518a1b57240a823bf31b31",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55f598e8_e8f7c333",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-27T10:41:50Z",
+      "side": 1,
+      "message": "Since this has no flag, wouldn\u0027t it make sense for this function to follow the read_xxx_id_field() and the caller can check for the specific value? Then it can use the ISOLATE_FIELD macro",
+      "revId": "f5d74df31bc9853241518a1b57240a823bf31b31",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62a19fe4_79f83b19",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-27T10:41:50Z",
+      "side": 1,
+      "message": "A new-style if is required here",
+      "revId": "f5d74df31bc9853241518a1b57240a823bf31b31",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
