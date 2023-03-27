@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61aec9cd_86ea4f88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-03-27T16:42:26Z",
+      "side": 1,
+      "message": "+ bash -c npx commitlint --from\u003d5906d97a832b6f6c4ee58557a4ff197ddb358135\n⧗   input: fix(xilinx): Remove unnecessary condition\n\nRemove unnecessary condition check from pm_client_set_wakeup_sources()\nas the code will never get to this condition.\n\nSigned-off-by: Jay Buddhabhatti \u003cjay.buddhabhatti@amd.com\u003e\nChange-Id: Ia046e1188fdf6e024a146d3f4dd3d8f87a285e7f\n✖   subject must not be sentence-case, start-case, pascal-case, upper-case [subject-case]\n\nIt should be fix(xilinx): remove unnessary condition",
+      "revId": "78cc2c2950e2605543d2bc984d21d5d236f7df1a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
