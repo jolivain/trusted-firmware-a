@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3294d24e_8aaad84b",
+        "filename": "plat/mediatek/drivers/apusys/mt8188/apusys_power.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001004
+      },
+      "writtenOn": "2023-03-27T03:48:44Z",
+      "side": 1,
+      "message": "Hi Mark,\n\nYes, but in Misra C Rule 15.5 \"A function should have a single point of exit at the end\".\n\nHence we use goto to make sure there is exact one point of exit.\n\nCould you give us some advice？",
+      "parentUuid": "dd5999aa_1632d94f",
+      "range": {
+        "startLine": 34,
+        "startChar": 3,
+        "endLine": 34,
+        "endChar": 13
+      },
+      "revId": "e409ca0d2d89c5339b21f6d78a4a5d74b867a69c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3d5c566e_cdea24d4",
         "filename": "plat/mediatek/drivers/apusys/mt8188/apusys_power.c",
         "patchSetId": 1
