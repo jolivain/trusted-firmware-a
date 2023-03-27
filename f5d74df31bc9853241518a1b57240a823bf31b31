@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "172d5462_e04793ca",
+        "filename": "Makefile",
+        "patchSetId": 18
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-27T11:18:40Z",
+      "side": 1,
+      "message": "Good question.\nConsidering the existing documentation, wherein in build options, we mention it experimental, hence I added this here.\n\nAs of today, we haven\u0027t covered testing this feature completely in TFTF.\nJohn, who had introduced this feature, had mentioned TODO explicitly, mentioning the lack of support in GNU toolchain requirements.\n\nIn general, not just this, even Feature Detection and features whichever have been improved to be considered. So will definitely, need to\naddress all this. Further, as we approach close to the 2.9 release, Maintainers usually discuss this in the team.\n\nSo considering that would happen, added this check here. But I think its not a blocker and addressing it separately would be nice.\nLet me know your thoughts. Will handle it accordingly.\nThanks!",
+      "parentUuid": "d26bd394_1e21ccf1",
+      "revId": "f5d74df31bc9853241518a1b57240a823bf31b31",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "da64a543_6bafd0ac",
         "filename": "common/feat_detect.c",
         "patchSetId": 18
@@ -87,6 +105,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d81e935_254971b8",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-27T11:18:40Z",
+      "side": 1,
+      "message": "Yes, as Andre quoted, we have two versions and SME2 covers SME with additional support. So\nSME (1,2)\nSME2 (2,2)",
+      "parentUuid": "7ecbe8af_1fe63a90",
+      "revId": "f5d74df31bc9853241518a1b57240a823bf31b31",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "854a554f_99bf52b0",
@@ -100,6 +136,24 @@
       "writtenOn": "2023-03-27T10:41:50Z",
       "side": 1,
       "message": "I\u0027m pretty sure SPD\u003dspmd works and is supported (or at least it\u0027s set up for secure context without depending on SPM)",
+      "revId": "f5d74df31bc9853241518a1b57240a823bf31b31",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d4eaace_0eb54b0a",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 18
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-27T11:18:40Z",
+      "side": 1,
+      "message": "Hmm. Let me recheck and if required will modify here.",
+      "parentUuid": "854a554f_99bf52b0",
       "revId": "f5d74df31bc9853241518a1b57240a823bf31b31",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -121,6 +175,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db148810_c4f350cb",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-27T11:18:40Z",
+      "side": 1,
+      "message": "Excuse overlooked it, as we were not checking it in Feat_detection. But irrespective of that, naming convention could be followed. \nThanks for highlighting this.",
+      "parentUuid": "55f598e8_e8f7c333",
+      "revId": "f5d74df31bc9853241518a1b57240a823bf31b31",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62a19fe4_79f83b19",
@@ -134,6 +206,24 @@
       "writtenOn": "2023-03-27T10:41:50Z",
       "side": 1,
       "message": "A new-style if is required here",
+      "revId": "f5d74df31bc9853241518a1b57240a823bf31b31",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdac38ab_03163f01",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-27T11:18:40Z",
+      "side": 1,
+      "message": "Covered in the top patch ( FEAT_SVE)",
+      "parentUuid": "62a19fe4_79f83b19",
       "revId": "f5d74df31bc9853241518a1b57240a823bf31b31",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
