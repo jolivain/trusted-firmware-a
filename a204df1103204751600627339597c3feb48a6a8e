@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b0f4630_14a1fa30",
+        "filename": "drivers/arm/ethosn/ethosn_smc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-27T08:44:55Z",
+      "side": 1,
+      "message": "nit: put these checks in braces ()?",
+      "range": {
+        "startLine": 325,
+        "startChar": 5,
+        "endLine": 325,
+        "endChar": 29
+      },
+      "revId": "a204df1103204751600627339597c3feb48a6a8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d999027_00634026",
+        "filename": "drivers/arm/ethosn/ethosn_smc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-27T08:44:55Z",
+      "side": 1,
+      "message": "It would be better to return the error here and let the caller make the panic decision",
+      "range": {
+        "startLine": 336,
+        "startChar": 2,
+        "endLine": 336,
+        "endChar": 10
+      },
+      "revId": "a204df1103204751600627339597c3feb48a6a8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f15b2e05_c5853c06",
+        "filename": "drivers/arm/ethosn/ethosn_smc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-27T08:44:55Z",
+      "side": 1,
+      "message": "I think these messages should be INFO instead of NOTICE. Same at line no.343.",
+      "range": {
+        "startLine": 339,
+        "startChar": 1,
+        "endLine": 339,
+        "endChar": 7
+      },
+      "revId": "a204df1103204751600627339597c3feb48a6a8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
