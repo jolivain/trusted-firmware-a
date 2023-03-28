@@ -96,6 +96,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "923c7907_79165659",
+        "filename": "plat/mediatek/drivers/apusys/mt8188/apusys_power.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2023-03-28T15:18:52Z",
+      "side": 1,
+      "message": "I was not familiar with that rule.  My concern was the use of the goto since it is discouraged in some coding guidelines due to difficulty with readability.  If you wish to maintain Misra C compliance in this case I am ok with that.",
+      "parentUuid": "33a91ff4_a08c6061",
+      "range": {
+        "startLine": 34,
+        "startChar": 3,
+        "endLine": 34,
+        "endChar": 13
+      },
+      "revId": "e409ca0d2d89c5339b21f6d78a4a5d74b867a69c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d5c566e_cdea24d4",
