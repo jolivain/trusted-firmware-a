@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "361db10d_45007f87",
+        "filename": "drivers/arm/ethosn/ethosn_smc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-28T09:59:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "92521fa2_3c9ef065",
+      "range": {
+        "startLine": 325,
+        "startChar": 5,
+        "endLine": 325,
+        "endChar": 29
+      },
+      "revId": "a204df1103204751600627339597c3feb48a6a8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d999027_00634026",
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "Both alternatives have their pros and cons so I\u0027ve changed it to return an error and updated the other reviews with changes to the setup function accordingly.",
       "parentUuid": "61e8f76e_13b57963",
+      "range": {
+        "startLine": 336,
+        "startChar": 2,
+        "endLine": 336,
+        "endChar": 10
+      },
+      "revId": "a204df1103204751600627339597c3feb48a6a8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb05ca4c_6f88d9cc",
+        "filename": "drivers/arm/ethosn/ethosn_smc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-28T09:59:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0ff986a9_2b93b774",
       "range": {
         "startLine": 336,
         "startChar": 2,
