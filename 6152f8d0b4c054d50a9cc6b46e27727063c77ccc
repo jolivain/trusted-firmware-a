@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d769293_8959d620",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-28T13:06:36Z",
+      "side": 1,
+      "message": "include/drivers/measured_boot/rss/rss_measured_boot.h:13:10: fatal error: measured_boot.h:\nNo such file or directory\n11:54:22    13 | #include \u003cmeasured_boot.h\u003e\n\nThis CI failure is a known issue and has been resolved.\nKindly rebase your patches and re-run the CI to get it verified.",
+      "revId": "6152f8d0b4c054d50a9cc6b46e27727063c77ccc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
