@@ -46,6 +46,30 @@
       },
       "revId": "d155ef4a5d946e6604f463a5b641a66e28c1a201",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4012ffc4_2dd81e56",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-03-28T03:39:37Z",
+      "side": 1,
+      "message": "heh. that is a good point. i dont know why they would do that, so perhaps it is safe. i was only thinking of it from the perspective of flexibility..agree with you, resolving..",
+      "parentUuid": "8bed83d3_0b80b8f1",
+      "range": {
+        "startLine": 532,
+        "startChar": 6,
+        "endLine": 532,
+        "endChar": 37
+      },
+      "revId": "d155ef4a5d946e6604f463a5b641a66e28c1a201",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
