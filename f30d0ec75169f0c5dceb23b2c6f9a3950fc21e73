@@ -16,6 +16,29 @@
       "message": "Restricted it to FVP platform only to avoid change in behavior for SGI platform",
       "revId": "f30d0ec75169f0c5dceb23b2c6f9a3950fc21e73",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae07f49f_548e943a",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-28T13:19:22Z",
+      "side": 1,
+      "message": "remove from common and make is specific to FVP",
+      "range": {
+        "startLine": 779,
+        "startChar": 0,
+        "endLine": 779,
+        "endChar": 29
+      },
+      "revId": "f30d0ec75169f0c5dceb23b2c6f9a3950fc21e73",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
