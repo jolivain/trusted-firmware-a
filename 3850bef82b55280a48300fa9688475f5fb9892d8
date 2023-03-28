@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a5a5ad0_fd895654",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-03-28T20:51:22Z",
+      "side": 1,
+      "message": "Ok, I think some of the previous CI run was due to issues with not being based on the latest integration branch. Rebasing on latest integration got a bit hairy as we had an abandoned patch in the stack but I think deleting that and rebasing over this missing patch I think I have the stack rebased on integration and maintained the stack integrity.\n\nI really don\u0027t like large stacks like this as the larger the stack the more complicated and time consuming getting reviews it can be to get it passing the CI ultimately submitted. \n\nIt would be really helpful to us is to have patches grouped in smaller patch stacks.\n\nAnyway here goes with a CI run to try and identify any issues in the stack itself.",
+      "revId": "3850bef82b55280a48300fa9688475f5fb9892d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
