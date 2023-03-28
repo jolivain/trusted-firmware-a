@@ -43,6 +43,8 @@ PLAT_MHU_VERSION := 3
 
 include plat/arm/board/neoverse_rd/common/nrd-common.mk
 include drivers/arm/rss/rss_comms.mk
+include drivers/auth/mbedtls/mbedtls_common.mk
+include drivers/delegated_attestation/rss/rss_delegated_attestation.mk
 ifeq (${MEASURED_BOOT},1)
 include drivers/measured_boot/rss/rss_measured_boot.mk
 endif
@@ -96,6 +98,8 @@ BL2_SOURCES	+=	${MEASURED_BOOT_SOURCES}			\
 endif
 
 BL31_SOURCES	+=	${NRD_CPU_SOURCES}				\
+			${MBEDTLS_SOURCES}				\
+			${DELEGATED_ATTESTATION_SOURCES}		\
 			${RSS_COMMS_SOURCES}				\
 			${RDFREMONT_BASE}/rdfremont_bl31_setup.c	\
 			${RDFREMONT_BASE}/rdfremont_mhuv3.c		\
