@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64d7f53b_55e867dd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-03-28T22:27:27Z",
+      "side": 1,
+      "message": "errata",
+      "range": {
+        "startLine": 9,
+        "startChar": 20,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "bbeca4e7de15afd814c5f8c4629046898bc44767",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9fff7d1_08eb89fd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-03-28T22:27:27Z",
+      "side": 1,
+      "message": "erratum",
+      "range": {
+        "startLine": 10,
+        "startChar": 30,
+        "endLine": 10,
+        "endChar": 31
+      },
+      "revId": "bbeca4e7de15afd814c5f8c4629046898bc44767",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c82459b_54c76fc5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-03-28T22:27:27Z",
+      "side": 1,
+      "message": "Remove newline",
+      "range": {
+        "startLine": 10,
+        "startChar": 32,
+        "endLine": 11,
+        "endChar": 5
+      },
+      "revId": "bbeca4e7de15afd814c5f8c4629046898bc44767",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c916214_4e3f31d6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-03-28T22:27:27Z",
+      "side": 1,
+      "message": "After this you may want to mention \". The ABI can only be present in a system that is compliant with SMCCCv1.1 or higher.\"",
+      "range": {
+        "startLine": 13,
+        "startChar": 24,
+        "endLine": 13,
+        "endChar": 25
+      },
+      "revId": "bbeca4e7de15afd814c5f8c4629046898bc44767",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee544583_887b6ab4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-03-28T22:27:27Z",
+      "side": 1,
+      "message": "Either we have to mention all possible return status OR just mention \"the interface enables the OS to find the status of an errata mitigation in EL3. For details on all possible return values, refer the design documentation below. \"",
+      "range": {
+        "startLine": 11,
+        "startChar": 37,
+        "endLine": 14,
+        "endChar": 0
+      },
+      "revId": "bbeca4e7de15afd814c5f8c4629046898bc44767",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "300dc24a_310fd5ae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-03-28T22:27:27Z",
+      "side": 1,
+      "message": "https://developer.arm.com/documentation/den0100/latest\n\nSince we are implementing a specific version of the ABI spec, we may want to capture that in the description above. \"This implements version so and so of the errata ABI spec\"",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 59
+      },
+      "revId": "bbeca4e7de15afd814c5f8c4629046898bc44767",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b2dd6e8_014b32ed",
+        "filename": "include/services/errata_abi_svc.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-03-28T22:27:27Z",
+      "side": 1,
+      "message": "calls? Or even remove it altogether",
+      "range": {
+        "startLine": 15,
+        "startChar": 40,
+        "endLine": 15,
+        "endChar": 47
+      },
+      "revId": "bbeca4e7de15afd814c5f8c4629046898bc44767",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1473ea0_61c5712c",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-03-28T22:27:27Z",
+      "side": 1,
+      "message": "ABI",
+      "range": {
+        "startLine": 584,
+        "startChar": 32,
+        "endLine": 584,
+        "endChar": 35
+      },
+      "revId": "bbeca4e7de15afd814c5f8c4629046898bc44767",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
