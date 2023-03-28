@@ -34,6 +34,24 @@
       "parentUuid": "0bc47a13_95e533da",
       "revId": "2546e089c24312b7f115ceb394fc9a5540e7e0f1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e817a800_8ab5e466",
+        "filename": "lib/extensions/sme/sme.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-28T12:31:18Z",
+      "side": 1,
+      "message": "Well, I believe this is how it needs to be implemented. Just sharing my understanding, so that my changes are aligned with it. Please do correct if there are mistakes.\n\nSME covers SVE. \nSo if SME is present in the HW, SVE is also present by default. We cannot have a processor with SME only and not SVE. But on the other side, SVE can exist without SME.\n\n ---------------------------------\n |   SME   |   SVE    | Result   |\n ---------------------------------\n |    0    |    0     |  Valid   |\n |    0    |    1     |  Valid   |\n |    1    |    0     |  InValid |\n |    1    |    1     |  Valid   |\n ---------------------------------\n \nBased on this, I believe that if only SME flag is enabled, sme_enable is invoked,\nand within sme_enable function, we enable sve_enable. Happening at line no : 80.\n\nOn the other side, if only SVE flag is enabled, but not SME Flag, in this case,\nonly sve_enable and sve_disable functions should be invoked explicitly.\nwhich is happening in context_mgmt.c file.\n\nFurther, in secure world, if SME_SWD flag is not set, then sme_disable is invoked,\nand here we need to disable sve as well ( sve_disable).\n  \nThe one change that we need to re-consider here is that in sme_disable function\nsve_disable not required. Because sme_disable gets invoked when FEAT_SME is present, so checking for\nif (!is_feat_sme_supported()) again inside it, is not valid here, as we enter the function verifying its presence.\nSo removing the below block completely.\n\n\t/* Make sure SME is implemented in hardware before continuing. */\n\tif (!is_feat_sme_supported()) {\n\t\t/* Perhaps the hardware supports SVE only */\n\t\tsve_disable(context);\n\t\treturn;\n\t}\n\nSVE also has to be disabled irrespective of the check, because earlier we have enabled \nSVE, considering SME is present, so similarly SVE must be disabled, when SME\ngets disabled.\n\nThe existing below code disables SME and SVE completely.\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\t/* Get the context state. */\n\tstate \u003d get_el3state_ctx(context);\n\n\t/* Disable SME, SVE, and FPU since they all share registers. */\n\treg \u003d read_ctx_reg(state, CTX_CPTR_EL3);\n\treg \u0026\u003d ~ESM_BIT;\t/* Trap SME */\n\treg \u0026\u003d ~CPTR_EZ_BIT;\t/* Trap SVE */\n\treg |\u003d TFP_BIT;\t\t/* Trap FPU/SIMD */\n\twrite_ctx_reg(state, CTX_CPTR_EL3, reg);\n\n\t/* Disable access to TPIDR2_EL0. */\n\treg \u003d read_ctx_reg(state, CTX_SCR_EL3);\n\treg \u0026\u003d ~SCR_ENTP2_BIT;\n\twrite_ctx_reg(state, CTX_SCR_EL3, reg);\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nI will bring this change and run through the CI, to verify if any corner cases are missed or not.\n\nAdditionally, as discussed earlier, Makefile has to be refactored with respect to the SME and SVE flags interdependencies. This is already been worked on from Boyan. His patch will do the cleanup on top of my patch, once this get through along with some other changes.",
+      "parentUuid": "480b9b43_c48c8b51",
+      "revId": "2546e089c24312b7f115ceb394fc9a5540e7e0f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
