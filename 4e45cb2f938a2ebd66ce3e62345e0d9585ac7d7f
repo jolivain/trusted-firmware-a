@@ -16,6 +16,24 @@
       "message": "if you include each erratum\u0027s check function, you get a bunch of these checks for free and would simplify code. It is also what the we\u0027ll have to eventually do with the errata framwork, so why not do it now?",
       "revId": "4e45cb2f938a2ebd66ce3e62345e0d9585ac7d7f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aadc75c7_3cfae840",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-28T17:06:09Z",
+      "side": 1,
+      "message": "Ack, we were planning to add these changes as a part of the integration efforts after both mine and your changes were merged in.",
+      "parentUuid": "659ca4a8_7fe2a3a8",
+      "revId": "4e45cb2f938a2ebd66ce3e62345e0d9585ac7d7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
