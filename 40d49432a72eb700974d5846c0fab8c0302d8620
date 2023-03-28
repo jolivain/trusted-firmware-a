@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e99c341_1f74501d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-03-28T22:07:22Z",
+      "side": 1,
+      "message": "Split the line. Mention of applying these to FVP can be a second line",
+      "range": {
+        "startLine": 11,
+        "startChar": 7,
+        "endLine": 11,
+        "endChar": 25
+      },
+      "revId": "40d49432a72eb700974d5846c0fab8c0302d8620",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51f87839_5e962f1c",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-03-28T22:07:22Z",
+      "side": 1,
+      "message": "\"cortex \" to \"Cortex-\"\ne.g. \ncortex A710 \u003d\u003e Cortex-A710",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 56
+      },
+      "revId": "40d49432a72eb700974d5846c0fab8c0302d8620",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67975413_33394ff5",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-03-28T22:07:22Z",
+      "side": 1,
+      "message": "Remove the internal cpu names in braces. Also, follow the naming as below for consistency\ne.g. \nERRATA_V2_2719103\t:\u003d1\t#placeholder for Neoverse V2\nERRATA_A715_2701951\t:\u003d1\t#placeholder for Cortex-A715",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 56
+      },
+      "revId": "40d49432a72eb700974d5846c0fab8c0302d8620",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
