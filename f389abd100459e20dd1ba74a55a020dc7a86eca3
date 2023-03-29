@@ -3,6 +3,86 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c65459db_1ad93e0c",
+        "filename": "Makefile",
+        "patchSetId": 7
+      },
+      "lineNbr": 1282,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-29T20:34:21Z",
+      "side": 1,
+      "message": "does this flag need to be added in the checks at line 1082",
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f963dfd3_09900ef3",
+        "filename": "docs/change-log.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 6845,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-29T20:34:21Z",
+      "side": 1,
+      "message": "why is the copyright year updated? There doesnt seem to be any other change in the file.",
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c11b370_e1e7431d",
+        "filename": "include/arch/aarch32/arch.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-29T20:34:21Z",
+      "side": 1,
+      "message": "update year",
+      "range": {
+        "startLine": 2,
+        "startChar": 25,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6833ee1e_6dc9d9b1",
+        "filename": "include/services/errata_abi_svc.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-29T20:34:21Z",
+      "side": 1,
+      "message": "Can we simply name this as EM_VERSION? same for next two function id definitions.",
+      "range": {
+        "startLine": 16,
+        "startChar": 8,
+        "endLine": 16,
+        "endChar": 22
+      },
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5b94b19f_b733d57e",
         "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
         "patchSetId": 7
@@ -14,6 +94,52 @@
       "writtenOn": "2023-03-29T13:09:13Z",
       "side": 1,
       "message": "nit: stdio? Is it needed? Usually debug.h is included",
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5356477c_be83542f",
+        "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-29T20:34:21Z",
+      "side": 1,
+      "message": "remove tabs here and in following lines. Indentation is not preferred here.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 1
+      },
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7432fec2_106882cb",
+        "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-29T20:34:21Z",
+      "side": 1,
+      "message": "please use a more intuitive name relevant to errata support",
+      "range": {
+        "startLine": 45,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 16
+      },
       "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -37,6 +163,92 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7e66155f_f4fd0057",
+        "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-29T20:34:21Z",
+      "side": 1,
+      "message": "Similar to other fields in the struct em_cpu, can you put a comment explaining the significance of this field?",
+      "range": {
+        "startLine": 59,
+        "startChar": 1,
+        "endLine": 59,
+        "endChar": 13
+      },
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d199d5ac_4890525a",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-29T20:34:21Z",
+      "side": 1,
+      "message": "split into two lines",
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "348f768d_18d0b220",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-29T20:34:21Z",
+      "side": 1,
+      "message": "can this be removed? If not, please put a comment explaining its significance.",
+      "range": {
+        "startLine": 447,
+        "startChar": 0,
+        "endLine": 448,
+        "endChar": 1
+      },
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6465516_dab743aa",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-29T20:34:21Z",
+      "side": 1,
+      "message": "In the current implementation, is it always 15?",
+      "range": {
+        "startLine": 460,
+        "startChar": 14,
+        "endLine": 460,
+        "endChar": 46
+      },
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3310cdf3_5ca92426",
         "filename": "services/std_svc/errata_abi/errata_abi_main.c",
         "patchSetId": 7
@@ -54,6 +266,172 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5dafdc8e_a424cc4a",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-29T20:34:21Z",
+      "side": 1,
+      "message": "above. */",
+      "range": {
+        "startLine": 472,
+        "startChar": 18,
+        "endLine": 472,
+        "endChar": 25
+      },
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0729de88_15630437",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-29T20:34:21Z",
+      "side": 1,
+      "message": "general optimisation suggestion: A code block like this \n\nif(condition) {\n    return a;\n} else {\n    return b;\n}\n\ncan be transformed to:\n\nif(cond1) {\n    return a;\n}\n\nreturn b;",
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e66ebd62_9de1ea6d",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-29T20:34:21Z",
+      "side": 1,
+      "message": "Comment should use the following style:\n/*\n * Read ...\n */",
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d332b88f_f97ae8e9",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-29T20:34:21Z",
+      "side": 1,
+      "message": "uint8_t ?",
+      "range": {
+        "startLine": 499,
+        "startChar": 1,
+        "endLine": 499,
+        "endChar": 10
+      },
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "807527d2_993f6d3c",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-29T20:34:21Z",
+      "side": 1,
+      "message": "similar to EXTRACT_REV_VAR, please create a helper macro to extract part number",
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3900d6d2_fbac77d9",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-29T20:34:21Z",
+      "side": 1,
+      "message": "/*\n * If",
+      "range": {
+        "startLine": 515,
+        "startChar": 3,
+        "endLine": 515,
+        "endChar": 8
+      },
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c140a411_93e87fc5",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-29T20:34:21Z",
+      "side": 1,
+      "message": "AArch64",
+      "range": {
+        "startLine": 554,
+        "startChar": 24,
+        "endLine": 554,
+        "endChar": 31
+      },
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee13bfd6_3a0b1977",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-29T20:34:21Z",
+      "side": 1,
+      "message": "/*\n * If",
+      "range": {
+        "startLine": 554,
+        "startChar": 2,
+        "endLine": 554,
+        "endChar": 7
+      },
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "876e021e_a4431aa9",
         "filename": "services/std_svc/errata_abi/errata_abi_main.c",
         "patchSetId": 7
@@ -65,6 +443,29 @@
       "writtenOn": "2023-03-29T13:09:13Z",
       "side": 1,
       "message": "could these arch-specific checks be in a function like `int validate_params(...)` or similar? Would make this section more readable and abstracts away only the arch specific stuff and the duplicate stuff is only once",
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "708a8de1_121766c0",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-03-29T20:34:21Z",
+      "side": 1,
+      "message": "As Boyan suggested, please wrap this into a helper function.",
+      "range": {
+        "startLine": 569,
+        "startChar": 0,
+        "endLine": 570,
+        "endChar": 64
+      },
       "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
