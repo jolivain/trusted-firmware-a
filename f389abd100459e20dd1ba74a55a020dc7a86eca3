@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b94b19f_b733d57e",
+        "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-29T13:09:13Z",
+      "side": 1,
+      "message": "nit: stdio? Is it needed? Usually debug.h is included",
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "278d387c_57af6043",
+        "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-29T13:09:13Z",
+      "side": 1,
+      "message": "nit: all the comments here make the lines super long. Could they go above each line?",
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3310cdf3_5ca92426",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-29T13:09:13Z",
+      "side": 1,
+      "message": "I\u0027m confused about this comment. What is it trying to say?",
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "876e021e_a4431aa9",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-29T13:09:13Z",
+      "side": 1,
+      "message": "could these arch-specific checks be in a function like `int validate_params(...)` or similar? Would make this section more readable and abstracts away only the arch specific stuff and the duplicate stuff is only once",
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
