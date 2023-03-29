@@ -706,7 +706,7 @@ func neoverse_n1_errata_ic_trap_handler
 	ldp	x4, x5, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X4]
 	ldr	x30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_LR]
 
-#if IMAGE_BL31 && RAS_EXTENSION
+#if IMAGE_BL31
 	/*
 	 * Issue Error Synchronization Barrier to synchronize SErrors before
 	 * exiting EL3. We're running with EAs unmasked, so any synchronized
