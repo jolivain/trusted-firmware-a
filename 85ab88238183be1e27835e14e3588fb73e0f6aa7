@@ -52,6 +52,23 @@
       "parentUuid": "d9d59ce4_e0bc1bec",
       "revId": "85ab88238183be1e27835e14e3588fb73e0f6aa7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01dff7dd_9073745a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-03-29T16:35:03Z",
+      "side": 1,
+      "message": "The verification failures are in unrelated components...none of them are using OPTEE.  Can we just manually mark Verified+1 to deal with that?  And then is it ready to get merged?",
+      "revId": "85ab88238183be1e27835e14e3588fb73e0f6aa7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
