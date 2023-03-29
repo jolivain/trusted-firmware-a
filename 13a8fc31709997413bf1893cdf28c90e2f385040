@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99e5b669_31f8e412",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-29T10:15:10Z",
+      "side": 1,
+      "message": "could you please say *why* this has to be done? Normally we don\u0027t do this and since it\u0027s compatibility it would be nice to have that noted.",
+      "revId": "13a8fc31709997413bf1893cdf28c90e2f385040",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "714e6c72_ce8f219f",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-29T10:15:10Z",
+      "side": 1,
+      "message": "apologies, this is probably me being unclear, but this might have to be duplicated in both if cases below. I think there\u0027s a configuration where EL2 is not implemented and we get here. But then is it possible to have hcx implemented without EL2? I\u0027m not sure. Have you tried it?",
+      "revId": "13a8fc31709997413bf1893cdf28c90e2f385040",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
