@@ -38,6 +38,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7501f722_56c761b9",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 26
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-29T10:21:55Z",
+      "side": 1,
+      "message": "I think this line got garbled",
+      "revId": "d8fffee3c371c72ee14e50d1cf13d13e4de7cb00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "806b1e71_173226e8",
         "filename": "docs/getting_started/docs-build.rst",
         "patchSetId": 26
@@ -102,6 +119,24 @@
       "side": 1,
       "message": "I thought initially not, however, Boyan highlighted it was missing. Haven\u0027t looked much further than that to be honest. Was it only used for managing dependencies?",
       "parentUuid": "f09b5fee_01593bb9",
+      "revId": "d8fffee3c371c72ee14e50d1cf13d13e4de7cb00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a54aee90_7fde2002",
+        "filename": "pyproject.toml",
+        "patchSetId": 26
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-29T10:21:55Z",
+      "side": 1,
+      "message": "hadn\u0027t thought of it, but if you\u0027re dropping the *.in I suppose it probably is redundant",
+      "parentUuid": "99e136be_155a60ed",
       "revId": "d8fffee3c371c72ee14e50d1cf13d13e4de7cb00",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
