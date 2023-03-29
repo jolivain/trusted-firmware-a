@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc6f1059_61aafaa9",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-29T13:15:22Z",
+      "side": 1,
+      "message": "please rebase these, they should be added to the CPU_FLAGS_LIST to work now...",
+      "revId": "43449fe7022dc11d5f0c31e7206af643d33687bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f319c766_98085fc0",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-29T13:15:22Z",
+      "side": 1,
+      "message": "...and then all of this is redundant",
+      "revId": "43449fe7022dc11d5f0c31e7206af643d33687bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f3fa82c_96ab2e35",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-29T13:15:22Z",
+      "side": 1,
+      "message": "shouldn\u0027t the endif be before all the UNDEF_ERRATA? They are needed regardless, no?",
+      "revId": "43449fe7022dc11d5f0c31e7206af643d33687bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f19b1868_56ac4d9d",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-29T13:15:22Z",
+      "side": 1,
+      "message": "nit: should probably be in patch below?",
+      "revId": "43449fe7022dc11d5f0c31e7206af643d33687bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
