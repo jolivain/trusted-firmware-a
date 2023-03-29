@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa3524d2_65533f96",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-29T13:11:33Z",
+      "side": 1,
+      "message": "nit: could you not just directly return it without a variable? Also, I\u0027m pretty sure the backslash isn\u0027t necessary",
+      "revId": "c105848f62fbf55483a0e2bfc9a170eb3afa35da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afcb41ee_919de362",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-29T13:11:33Z",
+      "side": 1,
+      "message": "nit: this should probably be in the patch below",
+      "revId": "c105848f62fbf55483a0e2bfc9a170eb3afa35da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
