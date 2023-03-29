@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8d38a2fd_b8efad49",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1807,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-29T20:43:12Z",
+      "side": 1,
+      "message": "SCP TZC is not applicable to FVP platform.",
+      "parentUuid": "16df7cac_76f5df78",
+      "revId": "30b4ab4bfe685be3b83fe570b2a28a71febc264d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7729eeaa_a1ddc2c1",
         "filename": "docs/design/firmware-design.rst",
         "patchSetId": 1
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0f7e4345_c09df761",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1850,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-29T20:43:12Z",
+      "side": 1,
+      "message": "In a two-world configuration, SCP TZC and EL3 TZC regions are currently of 2MB size in default configuration. SCP TZC region is not applicable in case of FVP (as it does not support SCP).\n\nThe latest patch has been updated with some changes related to this, in addition to some cosmetic changes.",
+      "parentUuid": "7729eeaa_a1ddc2c1",
+      "revId": "30b4ab4bfe685be3b83fe570b2a28a71febc264d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5dd071cb_50b3c7a1",
         "filename": "docs/design/firmware-design.rst",
         "patchSetId": 1
@@ -48,6 +84,24 @@
       "writtenOn": "2023-03-29T16:18:47Z",
       "side": 1,
       "message": "same as above",
+      "revId": "30b4ab4bfe685be3b83fe570b2a28a71febc264d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7aed1c8_b56f7b01",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1900,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-03-29T20:43:12Z",
+      "side": 1,
+      "message": "Same as above reply.",
+      "parentUuid": "5dd071cb_50b3c7a1",
       "revId": "30b4ab4bfe685be3b83fe570b2a28a71febc264d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
