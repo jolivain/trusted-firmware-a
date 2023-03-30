@@ -139,6 +139,24 @@
       "parentUuid": "99e136be_155a60ed",
       "revId": "d8fffee3c371c72ee14e50d1cf13d13e4de7cb00",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1767c712_c560c24f",
+        "filename": "pyproject.toml",
+        "patchSetId": 26
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-03-30T11:11:24Z",
+      "side": 1,
+      "message": "It was used to generate the requirements.txt file from requirements.txt.in previously, so I think we can remove that now.",
+      "parentUuid": "99e136be_155a60ed",
+      "revId": "d8fffee3c371c72ee14e50d1cf13d13e4de7cb00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
