@@ -16,6 +16,24 @@
       "message": "I was under the impression that this directive is only a hint to the compiler. In the end, the compiler takes the decision whether to embed the code into parent function or not. Hence, I feel its better to declare the function as inline.\nBy the way, did you notice a reduction in binary size with this patch?",
       "revId": "8cf5925b3320e21adc23b9ea9174ce475b156a40",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a98d183b_e616a5c9",
+        "filename": "plat/ti/k3/common/drivers/sec_proxy/sec_proxy.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000106
+      },
+      "writtenOn": "2023-03-30T15:27:41Z",
+      "side": 0,
+      "message": "You are correct that in the end the compiler has the final say. Putting this inline tag *does* influence that decision.\n\nHere there is no good reason to try to influence that decision, there is nothing gained from these function being inline. And yes, I do see the compiler takes the hint and does inline these functions, which only increases binary size and reduces performance, a negative gain.\n\nWithout the inline hint here the compiler makes the correct and *better* choice of not inlining.",
+      "parentUuid": "d5124487_3d9c1820",
+      "revId": "8cf5925b3320e21adc23b9ea9174ce475b156a40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
