@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cde55ed_a8347633",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-30T08:42:14Z",
+      "side": 1,
+      "message": "Most of the failures are due to:\nError message : [ aarch64-none-elf-ld.bfd: BL31 progbits has exceeded its limit. ]\n\nNot related to this patchset. Hence removing verified-1 vote. \nThis issue is generic and still being addressed in the team.",
+      "revId": "1a9be7b5aa77f51f360cd213dfc18ffc535cd329",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
