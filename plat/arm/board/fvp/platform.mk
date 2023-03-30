@@ -24,6 +24,71 @@ FVP_GICR_REGION_PROTECTION		:= 0
 
 FVP_DT_PREFIX		:= fvp-base-gicv3-psci
 
+# Linux relies on these features being enabled if they are present in hardware.
+# Enable them gradually for the build that's being targeted so as to not exceed
+# the BL31 code size limit
+
+# this envelopes a few features, do unconditionally for simplicity
+ENABLE_SYS_REG_TRACE_FOR_NS		:= 2
+
+# enable starting with the version in which the feature was introduced
+ifeq "8.0" "$(word 1, $(sort 8.0 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
+	ENABLE_FEAT_CSV2_2		:= 2
+endif
+ifeq "8.1" "$(word 1, $(sort 8.1 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
+	ENABLE_FEAT_PAN			:= 2
+	ENABLE_FEAT_VHE			:= 2
+endif
+
+ifeq "8.4" "$(word 1, $(sort 8.4 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
+	ENABLE_FEAT_AMU			:= 2
+	ENABLE_MPAM_FOR_LOWER_ELS	:= 2
+	CTX_INCLUDE_NEVE_REGS		:= 2
+	ENABLE_FEAT_SEL2		:= 2
+	ENABLE_TRF_FOR_NS		:= 2
+endif
+
+ifeq "8.5" "$(word 1, $(sort 8.5 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
+	ENABLE_FEAT_RNG			:= 2
+endif
+
+ifeq "8.6" "$(word 1, $(sort 8.6 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
+	ENABLE_FEAT_AMUv1p1		:= 2
+	ENABLE_FEAT_TWED		:= 2
+	ENABLE_FEAT_ECV			:= 2
+	ENABLE_FEAT_FGT			:= 2
+endif
+
+ifeq "8.7" "$(word 1, $(sort 8.7 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
+	ENABLE_FEAT_HCX			:= 2
+endif
+
+ifeq "8.9" "$(word 1, $(sort 8.9 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
+	ENABLE_FEAT_TCR2		:= 2
+endif
+
+ifeq "9.0" "$(word 1, $(sort 9.0 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
+ifeq (${ARCH}, aarch64)
+ifeq (${ENABLE_RME},0)
+	ENABLE_BRBE_FOR_NS		:= 2
+endif
+endif
+	ENABLE_TRBE_FOR_NS		:= 2
+endif
+
+ifeq "9.2" "$(word 1, $(sort 9.2 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
+# Enable SME access to NS by default
+ifeq (${ARCH},aarch64)
+ifeq (${SPM_MM}, 0)
+ifeq (${ENABLE_RME}, 0)
+ifeq (${CTX_INCLUDE_FPREGS}, 0)
+	ENABLE_SME_FOR_NS		:= 2
+endif
+endif
+endif
+endif
+endif
+
 # The FVP platform depends on this macro to build with correct GIC driver.
 $(eval $(call add_define,FVP_USE_GIC_DRIVER))
 
@@ -318,10 +383,6 @@ $(eval FVP_HW_CONFIG	:=	${BUILD_PLAT}/$(patsubst %.dts,%.dtb,$(FVP_HW_CONFIG_DTS
 $(eval $(call TOOL_ADD_PAYLOAD,${FVP_HW_CONFIG},--hw-config,${FVP_HW_CONFIG}))
 endif
 
-# Enable Activity Monitor Unit extensions by default
-ENABLE_FEAT_AMU			:=	2
-ENABLE_FEAT_AMUv1p1		:=	2
-
 # Enable dynamic mitigation support by default
 DYNAMIC_WORKAROUND_CVE_2018_3639	:=	1
 
@@ -445,49 +506,6 @@ BL2_SOURCES		+=	plat/arm/board/fvp/fvp_trusted_boot.c
 # FVP being a development platform, enable capability to disable Authentication
 # dynamically if TRUSTED_BOARD_BOOT is set.
 DYN_DISABLE_AUTH	:=	1
-endif
-
-# enable trace buffer control registers access to NS by default
-ENABLE_TRBE_FOR_NS		:= 2
-
-# enable branch record buffer control registers access in NS by default
-# only enable for aarch64
-# do not enable when ENABLE_RME=1
-ifeq (${ARCH}, aarch64)
-ifeq (${ENABLE_RME},0)
-	ENABLE_BRBE_FOR_NS		:= 2
-endif
-endif
-
-# enable trace system registers access to NS by default
-ENABLE_SYS_REG_TRACE_FOR_NS	:= 2
-
-# enable trace filter control registers access to NS by default
-ENABLE_TRF_FOR_NS		:= 2
-
-# Linux relies on EL3 enablement if those features are present
-ENABLE_FEAT_FGT			:= 2
-ENABLE_FEAT_HCX			:= 2
-ENABLE_FEAT_TCR2		:= 2
-
-CTX_INCLUDE_NEVE_REGS		:= 2
-ENABLE_FEAT_CSV2_2		:= 2
-ENABLE_FEAT_ECV			:= 2
-ENABLE_FEAT_PAN			:= 2
-ENABLE_FEAT_SEL2		:= 2
-ENABLE_FEAT_TWED		:= 2
-ENABLE_FEAT_VHE			:= 2
-ENABLE_MPAM_FOR_LOWER_ELS	:= 2
-
-# Enable SME access to NS by default
-ifeq (${ARCH},aarch64)
-ifeq (${SPM_MM}, 0)
-ifeq (${ENABLE_RME}, 0)
-ifeq (${CTX_INCLUDE_FPREGS}, 0)
-	ENABLE_SME_FOR_NS		:= 2
-endif
-endif
-endif
 endif
 
 ifeq (${SPMC_AT_EL3}, 1)
