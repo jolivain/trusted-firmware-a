@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6acad295_15ab589b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2023-03-30T02:07:22Z",
+      "side": 1,
+      "message": "Hi Manish and Olivier,\n\nThe failure is caused by\n```\n****** Newly added files detection check for Coverity Scan analysis on patch(es) ******\n\nResult : FAILURE\n\n\nNew source files have been identified in your patch..\nplat/mediatek/drivers/apusys/apusys.c\nplat/mediatek/drivers/apusys/mt8188/apusys_power.c\n```\nThe build command was already added in https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/16449",
+      "revId": "85ae66ab255e117cbd3eff2a9392f0c6ee425837",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
