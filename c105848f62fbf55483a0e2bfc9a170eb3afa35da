@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4e57696_5cc3d374",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-30T22:04:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0d251a31_de0cfeea",
+      "revId": "c105848f62fbf55483a0e2bfc9a170eb3afa35da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa3524d2_65533f96",
@@ -35,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d4ba7fa_d8295203",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-30T22:04:57Z",
+      "side": 1,
+      "message": "Ack, I added since I anted to avoid another if statement, I reordered the logic in the patch above.",
+      "parentUuid": "aa3524d2_65533f96",
+      "revId": "c105848f62fbf55483a0e2bfc9a170eb3afa35da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afcb41ee_919de362",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-03-29T13:11:33Z",
       "side": 1,
       "message": "nit: this should probably be in the patch below",
+      "revId": "c105848f62fbf55483a0e2bfc9a170eb3afa35da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "115f52bc_061ff0ac",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-30T22:04:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "afcb41ee_919de362",
       "revId": "c105848f62fbf55483a0e2bfc9a170eb3afa35da",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
