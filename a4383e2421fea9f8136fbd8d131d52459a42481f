@@ -16,6 +16,41 @@
       "message": "Just checking :\nI see Chaberton cores are based out of Hunter core.\nand Blackhawk is based on Hunter-ELP core. Are both based out of HunterELP ??\n@Bipin and  @Govind could anyone confirm this ?",
       "revId": "a4383e2421fea9f8136fbd8d131d52459a42481f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18ef7dd7_256da489",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-30T10:13:20Z",
+      "side": 1,
+      "message": "Nothing changes from the code perspective, as this is the initial basic support and more or less both Hunter and Hunter-ELP changes look similar. Only the commit message could be precisely updated.",
+      "parentUuid": "3d6ed6e9_f15c8915",
+      "revId": "a4383e2421fea9f8136fbd8d131d52459a42481f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a5e50e4_d380b3d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-30T10:13:20Z",
+      "side": 1,
+      "message": "LGTM other than one minor comment related to commit message.\n\nAlso, I believe that the patch has been explicitly tested on the FVP model based on Chaberton,\nwhich are not public yet.\n\n ",
+      "revId": "a4383e2421fea9f8136fbd8d131d52459a42481f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
