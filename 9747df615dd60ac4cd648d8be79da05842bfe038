@@ -161,6 +161,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f1d4852a_39ef4253",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-30T06:53:10Z",
+      "side": 1,
+      "message": "The value of 0 in relevant control regs in EL2 (TCR2_EL2, VTCR_EL2) means the feature is disabled and value of 0 in the new PIE/POE regs are No access.  The FGT control also trap if the bits are 0. So this is safe to be enabled from EL3 for Secure and realm.",
+      "parentUuid": "1cb32e71_ff357542",
+      "range": {
+        "startLine": 364,
+        "startChar": 5,
+        "endLine": 364,
+        "endChar": 22
+      },
+      "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "456bd0cb_d21b0de7",
         "filename": "include/arch/aarch64/arch_features.h",
         "patchSetId": 10
@@ -213,6 +237,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0f86289a_9d32ccb1",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-30T06:53:10Z",
+      "side": 1,
+      "message": "Not sure this is needed as these features are present on hardware which support AArch64 only I think .",
+      "range": {
+        "startLine": 362,
+        "startChar": 4,
+        "endLine": 362,
+        "endChar": 37
+      },
+      "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b96685d0_a1a1c05d",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 10
@@ -236,6 +283,47 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "16dd6d0d_b8ecbdf3",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-30T06:53:10Z",
+      "side": 1,
+      "message": "ignore this.",
+      "parentUuid": "b96685d0_a1a1c05d",
+      "range": {
+        "startLine": 361,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 0
+      },
+      "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5af9e8c_b99cef08",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-30T06:53:10Z",
+      "side": 1,
+      "message": "S2PIR_EL2 need to be being saved and restored as well ?",
+      "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9fbf9ff8_2f538e35",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 10
@@ -253,6 +341,47 @@
         "endLine": 912,
         "endChar": 3
       },
+      "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9839cab4_ed4cd0e5",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 912,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-30T06:53:10Z",
+      "side": 1,
+      "message": "after checking the reg spec, it seems the defaults for the traps are 0 so, it should be alright for El3 to save ans restore for Secure and realm without RMM and SPM knowing about this.",
+      "parentUuid": "9fbf9ff8_2f538e35",
+      "range": {
+        "startLine": 906,
+        "startChar": 0,
+        "endLine": 912,
+        "endChar": 3
+      },
+      "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f698a230_7af952fe",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 978,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-03-30T06:53:10Z",
+      "side": 1,
+      "message": "S2PIR_EL2 can be restored as well.",
       "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
