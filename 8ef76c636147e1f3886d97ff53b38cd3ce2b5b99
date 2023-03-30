@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "279c7d9d_66dd7a45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-03-30T06:59:28Z",
+      "side": 1,
+      "message": "If we fix the copyright for year, use Arm for all changed instances instead of ARM.",
+      "revId": "8ef76c636147e1f3886d97ff53b38cd3ce2b5b99",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fb6efe0_2be78d5c",
+        "filename": "include/lib/cpus/errata.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-03-30T06:59:28Z",
+      "side": 1,
+      "message": "either use \"AArch32 and AArch64\" or \"aarch32 and aarch64\". Fix all instances if it exists.",
+      "range": {
+        "startLine": 35,
+        "startChar": 49,
+        "endLine": 35,
+        "endChar": 68
+      },
+      "revId": "8ef76c636147e1f3886d97ff53b38cd3ce2b5b99",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
