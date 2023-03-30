@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a560750c_947e242b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 19
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-30T16:16:51Z",
+      "side": 1,
+      "message": "I understand that, but that\u0027s not the purpose of this line. All it means to do is assert that they are similar and writing a bit at reset covers a majority of cases without being too specific. The framework supports any arbitrary combination, but that\u0027s not important here.",
+      "parentUuid": "a637c18a_3781e3d1",
+      "range": {
+        "startLine": 15,
+        "startChar": 16,
+        "endLine": 15,
+        "endChar": 21
+      },
+      "revId": "aaca0c48feb32cdbfca5e42292e723af71208449",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ec62fb44_98361163",
         "filename": "/COMMIT_MSG",
         "patchSetId": 19
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-30T06:48:35Z",
       "side": 1,
       "message": "nit: This looks a bit busy. If the erratum number is simplified and  give a generic CPU register name, probably could be concise.  If you rather prefer a real erratum number, feel free to ignore the above comment but rather remove/adjust the tabs and/or use spaces.\n\nworkaround_reset_start cortex_a77, ERRATUM(X), ERRATA_A77_X\n       sysreg_bit_set CORTEX_A77_CPUREG, CORTEX_A77_CPUREG_BIT_8\nworkaround_reset_end cortex_a77, ERRATUM(X)\ncheck_erratum_ls cortex_a77, ERRATUM(X), CPU_REV(1, 1)",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 61
+      },
+      "revId": "aaca0c48feb32cdbfca5e42292e723af71208449",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b648d506_ea8d4118",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 19
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-30T16:16:51Z",
+      "side": 1,
+      "message": "I\u0027ve reduced the indentation to 2 spaces. The real erratum is intentional as I want the example to be concrete and traceable.",
+      "parentUuid": "ec62fb44_98361163",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -95,6 +143,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "07a0a5be_1dc8e972",
+        "filename": "include/lib/cpus/cpu_ops.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-30T16:16:51Z",
+      "side": 1,
+      "message": "Yes, but I wasn\u0027t sure if I should keep it. It\u0027s because all of these defines are prefixed with CPU but then this particular value is called CPU_STR_SIZE. Not sure.",
+      "parentUuid": "a4511300_7e6af3b7",
+      "range": {
+        "startLine": 61,
+        "startChar": 8,
+        "endLine": 61,
+        "endChar": 15
+      },
+      "revId": "aaca0c48feb32cdbfca5e42292e723af71208449",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e6632b34_d4073565",
         "filename": "include/lib/cpus/errata.h",
         "patchSetId": 19
@@ -106,6 +178,30 @@
       "writtenOn": "2023-03-30T06:48:35Z",
       "side": 1,
       "message": "nit: Since we changed the header for the date, can we do Arm for all instances where it was changed?",
+      "range": {
+        "startLine": 2,
+        "startChar": 28,
+        "endLine": 2,
+        "endChar": 31
+      },
+      "revId": "aaca0c48feb32cdbfca5e42292e723af71208449",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66ef05e3_075dd2f3",
+        "filename": "include/lib/cpus/errata.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-30T16:16:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e6632b34_d4073565",
       "range": {
         "startLine": 2,
         "startChar": 28,
