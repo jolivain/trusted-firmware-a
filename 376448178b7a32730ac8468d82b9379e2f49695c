@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19201ad2_bca31529",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-31T17:01:34Z",
+      "side": 1,
+      "message": "To be precise, explicitly for this feature(SVE) we were doing dynamic check when we had ENABLE_SVE_FOR_NS\u003d1, but with the introduction of FEAT_STATE_CHECK\u003d2, we have slighlty shifted that from 1 to 2. Platforms still could expect the same old behaviour, but just that they need to set these flags to 2.\nThats it.\nI will add a bit more details here, as well as we are notifying the partners explicitly about this breaking change.\nThanks",
+      "parentUuid": "88bb4646_04cbaf0c",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 48
+      },
+      "revId": "376448178b7a32730ac8468d82b9379e2f49695c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c48aef71_c048e75d",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-03-31T16:41:34Z",
       "side": 1,
       "message": "nit: formatting in message i.e. line lengths",
+      "revId": "376448178b7a32730ac8468d82b9379e2f49695c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d52dbe0_ab1fb98a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-31T17:01:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c48aef71_c048e75d",
       "revId": "376448178b7a32730ac8468d82b9379e2f49695c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
