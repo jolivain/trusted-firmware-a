@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2018-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -12,12 +12,11 @@ SGI575_BASE		=	plat/arm/board/sgi575
 
 PLAT_INCLUDES		+=	-I${SGI575_BASE}/include/
 
-SGI_CPU_SOURCES		:=	lib/cpus/aarch64/cortex_a75.S
+CPUS_ENABLE		+=	cortex_a75
 
 PLAT_BL_COMMON_SOURCES	+=	${CSS_ENT_BASE}/sgi_plat.c
 
-BL1_SOURCES		+=	${SGI_CPU_SOURCES}			\
-				${SGI575_BASE}/sgi575_err.c
+BL1_SOURCES		+=	${SGI575_BASE}/sgi575_err.c
 
 BL2_SOURCES		+=	${SGI575_BASE}/sgi575_plat.c		\
 				${SGI575_BASE}/sgi575_security.c	\
@@ -26,8 +25,7 @@ BL2_SOURCES		+=	${SGI575_BASE}/sgi575_plat.c		\
 				lib/utils/mem_region.c			\
 				plat/arm/common/arm_nor_psci_mem_protect.c
 
-BL31_SOURCES		+=	${SGI_CPU_SOURCES}			\
-				${SGI575_BASE}/sgi575_plat.c		\
+BL31_SOURCES		+=	${SGI575_BASE}/sgi575_plat.c		\
 				${SGI575_BASE}/sgi575_topology.c	\
 				drivers/cfi/v2m/v2m_flash.c		\
 				lib/utils/mem_region.c			\

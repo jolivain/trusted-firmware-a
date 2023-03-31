@@ -13,12 +13,11 @@ RDE1EDGE_BASE		=	plat/arm/board/rde1edge
 
 PLAT_INCLUDES		+=	-I${RDE1EDGE_BASE}/include/
 
-SGI_CPU_SOURCES		:=	lib/cpus/aarch64/neoverse_e1.S
+CPUS_ENABLE		+=	neoverse_e1
 
 PLAT_BL_COMMON_SOURCES	+=	${CSS_ENT_BASE}/sgi_plat.c
 
-BL1_SOURCES		+=	${SGI_CPU_SOURCES}			\
-				${RDE1EDGE_BASE}/rde1edge_err.c
+BL1_SOURCES		+=	${RDE1EDGE_BASE}/rde1edge_err.c
 
 BL2_SOURCES		+=	${RDE1EDGE_BASE}/rde1edge_plat.c	\
 				${RDE1EDGE_BASE}/rde1edge_security.c	\
@@ -27,8 +26,7 @@ BL2_SOURCES		+=	${RDE1EDGE_BASE}/rde1edge_plat.c	\
 				lib/utils/mem_region.c			\
 				plat/arm/common/arm_nor_psci_mem_protect.c
 
-BL31_SOURCES		+=	${SGI_CPU_SOURCES}			\
-				${RDE1EDGE_BASE}/rde1edge_plat.c	\
+BL31_SOURCES		+=	${RDE1EDGE_BASE}/rde1edge_plat.c	\
 				${RDE1EDGE_BASE}/rde1edge_topology.c	\
 				drivers/cfi/v2m/v2m_flash.c		\
 				lib/utils/mem_region.c			\

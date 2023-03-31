@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2019-2021, Arm Limited. All rights reserved.
+# Copyright (c) 2019-2023, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -37,7 +37,7 @@ PLAT_BL_COMMON_SOURCES	:=	drivers/arm/pl011/${ARCH}/pl011_console.S	\
 				plat/arm/common/arm_console.c			\
 				plat/arm/board/common/${ARCH}/board_arm_helpers.S
 
-A5DS_CPU_LIBS		:=	lib/cpus/aarch32/cortex_a5.S
+CPUS_ENABLE		+=	cortex_a5
 
 BL1_SOURCES		+=	drivers/io/io_fip.c				\
 				drivers/io/io_memmap.c				\
@@ -52,7 +52,6 @@ BL1_SOURCES		+=	drivers/io/io_fip.c				\
 				plat/arm/board/a5ds/a5ds_bl1_setup.c		\
 				lib/aarch32/arm32_aeabi_divmod.c		\
 				lib/aarch32/arm32_aeabi_divmod_a32.S		\
-				${A5DS_CPU_LIBS}				\
 				${DYN_CFG_SOURCES}
 
 BL2_SOURCES		+=	lib/aarch32/arm32_aeabi_divmod.c		\

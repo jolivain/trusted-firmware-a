@@ -24,6 +24,17 @@ MV_DDR_INCLUDES		:=	-I$(CURDIR)/include				\
 BLE_DEFAULT_LINKER_SCRIPT_SOURCE := $(BLE_PATH)/ble.ld.S
 
 BLE_OBJS := $(addprefix $(BUILD_PLAT)/ble/,$(call SOURCES_TO_OBJS,$(BLE_SOURCES)))
+
+#
+# Set up the CPU library for BLE.
+#
+
+include lib/cpus/cpus.mk
+
+$(eval BLE_DEFINES += $(CPUS_DEFINES))
+$(eval BLE_INCLUDE_DIRS += $(CPUS_INCLUDE_DIRS))
+$(eval BLE_SOURCES += $(CPUS_SOURCES))
+
 $(BLE_OBJS): PLAT_INCLUDES += -I$(MV_DDR_PATH)
 $(BLE_OBJS): $(MV_DDR_LIB)
 

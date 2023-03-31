@@ -41,13 +41,13 @@ PLAT_BL_COMMON_SOURCES	:=	$(PLAT_COMMON_BASE)/aarch64/a3700_common.c \
 				$(PLAT_COMMON_BASE)/aarch64/a3700_clock.S \
 				$(MARVELL_DRV_BASE)/uart/a3700_console.S
 
-BL1_SOURCES		+=	$(PLAT_COMMON_BASE)/aarch64/plat_helpers.S \
-				lib/cpus/aarch64/cortex_a53.S
+CPUS_ENABLE		+=	cortex_a53
+
+BL1_SOURCES		+=	$(PLAT_COMMON_BASE)/aarch64/plat_helpers.S
 
 MARVELL_DRV		:=	$(MARVELL_DRV_BASE)/comphy/phy-comphy-3700.c
 
-BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a53.S		\
-				$(PLAT_COMMON_BASE)/aarch64/plat_helpers.S \
+BL31_SOURCES		+=	$(PLAT_COMMON_BASE)/aarch64/plat_helpers.S \
 				$(PLAT_COMMON_BASE)/plat_cci.c		\
 				$(PLAT_COMMON_BASE)/plat_pm.c		\
 				$(PLAT_COMMON_BASE)/dram_win.c		\

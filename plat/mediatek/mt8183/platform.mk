@@ -31,6 +31,8 @@ PLAT_BL_COMMON_SOURCES := lib/xlat_tables/aarch64/xlat_tables.c       \
 # Include GICv3 driver files
 include drivers/arm/gic/v3/gicv3.mk
 
+CPUS_ENABLE          += aem_generic cortex_a53 cortex_a73
+
 BL31_SOURCES    += common/desc_image_load.c                              \
                    drivers/arm/cci/cci.c                                 \
                    ${GICV3_SOURCES}					 \
@@ -39,9 +41,6 @@ BL31_SOURCES    += common/desc_image_load.c                              \
                    drivers/gpio/gpio.c                                   \
                    drivers/ti/uart/aarch64/16550_console.S               \
                    lib/bl_aux_params/bl_aux_params.c                     \
-                   lib/cpus/aarch64/aem_generic.S                        \
-                   lib/cpus/aarch64/cortex_a53.S                         \
-                   lib/cpus/aarch64/cortex_a73.S                         \
                    plat/common/plat_gicv3.c                              \
                    ${MTK_PLAT}/common/mtk_plat_common.c                  \
                    ${MTK_PLAT}/common/params_setup.c                     \
@@ -87,4 +86,3 @@ MACH_MT8183 := 1
 $(eval $(call add_define,MACH_MT8183))
 
 include lib/coreboot/coreboot.mk
-

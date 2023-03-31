@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2019, Arm Limited. All rights reserved.
+# Copyright (c) 2019-2023, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -17,6 +17,5 @@ BL32_SOURCES		+=	drivers/cfi/v2m/v2m_flash.c			\
 				plat/arm/common/sp_min/arm_sp_min_setup.c	\
 				plat/common/aarch32/platform_mp_stack.S		\
 				plat/common/plat_psci_common.c			\
-				${FVP_VE_CPU_LIBS}				\
 				${FVP_VE_GIC_SOURCES}				\
 				${FVP_VE_SECURITY_SOURCES}

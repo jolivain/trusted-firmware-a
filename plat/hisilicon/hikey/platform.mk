@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2017-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -51,6 +51,8 @@ PLAT_BL_COMMON_SOURCES	:=	drivers/arm/pl011/aarch64/pl011_console.S \
 				lib/xlat_tables/xlat_tables_common.c	\
 				plat/hisilicon/hikey/aarch64/hikey_common.c
 
+CPUS_ENABLE		+=	cortex_a53
+
 BL1_SOURCES		+=	bl1/tbbr/tbbr_img_desc.c		\
 				drivers/arm/pl061/pl061_gpio.c		\
 				drivers/arm/sp804/sp804_delay_timer.c	\
@@ -61,7 +63,6 @@ BL1_SOURCES		+=	bl1/tbbr/tbbr_img_desc.c		\
 				drivers/io/io_storage.c			\
 				drivers/mmc/mmc.c			\
 				drivers/synopsys/emmc/dw_mmc.c		\
-				lib/cpus/aarch64/cortex_a53.S		\
 				plat/hisilicon/hikey/aarch64/hikey_helpers.S \
 				plat/hisilicon/hikey/hikey_bl1_setup.c	\
 				plat/hisilicon/hikey/hikey_bl_common.c	\
@@ -79,7 +80,6 @@ BL2_SOURCES		+=	common/desc_image_load.c		\
 				drivers/partition/gpt.c			\
 				drivers/partition/partition.c		\
 				drivers/synopsys/emmc/dw_mmc.c		\
-				lib/cpus/aarch64/cortex_a53.S		\
 				plat/hisilicon/hikey/aarch64/hikey_helpers.S \
 				plat/hisilicon/hikey/hikey_bl2_mem_params_desc.c \
 				plat/hisilicon/hikey/hikey_bl2_setup.c	\
@@ -107,7 +107,6 @@ HIKEY_GIC_SOURCES	:=	drivers/arm/gic/common/gic_common.c	\
 BL31_SOURCES		+=	drivers/arm/cci/cci.c			\
 				drivers/arm/sp804/sp804_delay_timer.c	\
 				drivers/delay_timer/delay_timer.c	\
-				lib/cpus/aarch64/cortex_a53.S		\
 				plat/common/plat_psci_common.c	\
 				plat/hisilicon/hikey/aarch64/hikey_helpers.S \
 				plat/hisilicon/hikey/hikey_bl31_setup.c	\

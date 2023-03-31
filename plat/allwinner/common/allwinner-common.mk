@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2017-2021, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2017-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -19,11 +19,12 @@ PLAT_BL_COMMON_SOURCES	:=	drivers/ti/uart/${ARCH}/16550_console.S	\
 				${AW_PLAT}/common/plat_helpers.S	\
 				${AW_PLAT}/common/sunxi_common.c
 
+CPUS_ENABLE		+=	cortex_a53
+
 BL31_SOURCES		+=	drivers/allwinner/axp/common.c		\
 				${GICV2_SOURCES}			\
 				drivers/delay_timer/delay_timer.c	\
 				drivers/delay_timer/generic_delay_timer.c \
-				lib/cpus/${ARCH}/cortex_a53.S		\
 				plat/common/plat_gicv2.c		\
 				plat/common/plat_psci_common.c		\
 				${AW_PLAT}/common/sunxi_bl31_setup.c	\

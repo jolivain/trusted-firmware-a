@@ -16,7 +16,6 @@ BL32_SOURCES		+=	drivers/arm/fvp/fvp_pwrc.c			\
 				plat/arm/board/fvp/fvp_topology.c		\
 				plat/arm/board/fvp/sp_min/fvp_sp_min_setup.c	\
 				plat/arm/common/arm_nor_psci_mem_protect.c	\
-				${FVP_CPU_LIBS}					\
 				${FVP_GIC_SOURCES}				\
 				${FVP_INTERCONNECT_SOURCES}			\
 				${FVP_SECURITY_SOURCES}

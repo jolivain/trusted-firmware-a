@@ -1,4 +1,4 @@
-# Copyright (c) 2020-2021, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2020-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -12,12 +12,11 @@ RDV1_BASE		=	plat/arm/board/rdv1
 
 PLAT_INCLUDES		+=	-I${RDV1_BASE}/include/
 
-SGI_CPU_SOURCES		:=	lib/cpus/aarch64/neoverse_v1.S
-
 PLAT_BL_COMMON_SOURCES	+=	${CSS_ENT_BASE}/sgi_plat.c
 
-BL1_SOURCES		+=	${SGI_CPU_SOURCES}			\
-				${RDV1_BASE}/rdv1_err.c
+CPUS_ENABLE		+=	neoverse_v1
+
+BL1_SOURCES		+=	${RDV1_BASE}/rdv1_err.c
 
 BL2_SOURCES		+=	${RDV1_BASE}/rdv1_plat.c	\
 				${RDV1_BASE}/rdv1_security.c	\
@@ -27,8 +26,7 @@ BL2_SOURCES		+=	${RDV1_BASE}/rdv1_plat.c	\
 				plat/arm/common/arm_tzc400.c		\
 				plat/arm/common/arm_nor_psci_mem_protect.c
 
-BL31_SOURCES		+=	${SGI_CPU_SOURCES}			\
-				${RDV1_BASE}/rdv1_plat.c	\
+BL31_SOURCES		+=	${RDV1_BASE}/rdv1_plat.c	\
 				${RDV1_BASE}/rdv1_topology.c	\
 				drivers/cfi/v2m/v2m_flash.c		\
 				lib/utils/mem_region.c			\

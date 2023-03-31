@@ -208,7 +208,7 @@ ifneq (${ENABLE_STACK_PROTECTOR},0)
 PLAT_BL_COMMON_SOURCES	+=	plat/st/stm32mp1/stm32mp1_stack_protector.c
 endif
 
-PLAT_BL_COMMON_SOURCES	+=	lib/cpus/aarch32/cortex_a7.S
+CPUS_ENABLE		+=	cortex_a7
 
 PLAT_BL_COMMON_SOURCES	+=	drivers/arm/tzc/tzc400.c				\
 				drivers/st/bsec/bsec2.c					\
