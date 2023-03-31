@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2021-2022, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2021-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -9,7 +9,7 @@ ifeq ($(filter ${TARGET_PLATFORM}, fpga fvp),)
 	$(error TARGET_PLATFORM must be fpga or fvp)
 endif
 
-CORSTONE1000_CPU_LIBS	+=lib/cpus/aarch64/cortex_a35.S
+CPUS_ENABLE		+=	cortex_a35
 
 PLAT_INCLUDES		:=	-Iplat/arm/board/corstone1000/common/include	\
 				-Iplat/arm/board/corstone1000/include		\
@@ -45,9 +45,7 @@ BL2_SOURCES		+=	plat/arm/board/corstone1000/common/corstone1000_security.c		\
 				lib/utils/mem_region.c					\
 				plat/arm/board/corstone1000/common/corstone1000_helpers.S		\
 				plat/arm/board/corstone1000/common/corstone1000_plat.c		\
-				plat/arm/board/corstone1000/common/corstone1000_bl2_mem_params_desc.c \
-				${CORSTONE1000_CPU_LIBS}					\
-
+				plat/arm/board/corstone1000/common/corstone1000_bl2_mem_params_desc.c
 
 BL31_SOURCES	+=	drivers/cfi/v2m/v2m_flash.c				\
 			lib/utils/mem_region.c					\
@@ -57,7 +55,6 @@ BL31_SOURCES	+=	drivers/cfi/v2m/v2m_flash.c				\
 			plat/arm/board/corstone1000/common/corstone1000_plat.c		\
 			plat/arm/board/corstone1000/common/corstone1000_pm.c		\
 			plat/arm/board/corstone1000/common/corstone1000_bl31_setup.c	\
-			${CORSTONE1000_CPU_LIBS}					\
 			${CORSTONE1000_GIC_SOURCES}
 
 ifneq (${ENABLE_STACK_PROTECTOR},0)

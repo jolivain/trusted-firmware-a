@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2018-2022, Arm Limited. All rights reserved.
+# Copyright (c) 2018-2023, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -12,7 +12,7 @@ INTERCONNECT_SOURCES	:=	${N1SDP_BASE}/n1sdp_interconnect.c
 PLAT_INCLUDES		:=	-I${N1SDP_BASE}/include
 
 
-N1SDP_CPU_SOURCES	:=	lib/cpus/aarch64/neoverse_n1.S
+CPUS_ENABLE		+=	neoverse_n1
 
 # GIC-600 configuration
 GICV3_SUPPORT_GIC600		:=	1
@@ -28,8 +28,7 @@ N1SDP_GIC_SOURCES	:=	${GICV3_SOURCES}			\
 PLAT_BL_COMMON_SOURCES	:=	${N1SDP_BASE}/n1sdp_plat.c	        \
 				${N1SDP_BASE}/aarch64/n1sdp_helper.S
 
-BL1_SOURCES		:=	${N1SDP_CPU_SOURCES}                \
-				${INTERCONNECT_SOURCES}             \
+BL1_SOURCES		:=	${INTERCONNECT_SOURCES}             \
 				${N1SDP_BASE}/n1sdp_err.c           \
 				${N1SDP_BASE}/n1sdp_trusted_boot.c  \
 				${N1SDP_BASE}/n1sdp_bl1_setup.c     \
@@ -43,8 +42,7 @@ BL2_SOURCES		:=	${N1SDP_BASE}/n1sdp_security.c      \
 				${N1SDP_BASE}/n1sdp_image_load.c     \
 				drivers/arm/css/sds/sds.c
 
-BL31_SOURCES		:=	${N1SDP_CPU_SOURCES}			\
-				${INTERCONNECT_SOURCES}			\
+BL31_SOURCES		:=	${INTERCONNECT_SOURCES}			\
 				${N1SDP_GIC_SOURCES}			\
 				${N1SDP_BASE}/n1sdp_bl31_setup.c	\
 				${N1SDP_BASE}/n1sdp_pm.c		\

@@ -88,9 +88,10 @@ include drivers/arm/gic/v2/gicv2.mk
 RCAR_GIC_SOURCES	:=	${GICV2_SOURCES} \
 				plat/common/plat_gicv2.c
 
+CPUS_ENABLE	+=	cortex_a53					\
+			cortex_a57
+
 BL2_SOURCES	+=	${RCAR_GIC_SOURCES}				\
-			lib/cpus/aarch64/cortex_a53.S			\
-			lib/cpus/aarch64/cortex_a57.S			\
 			${LIBFDT_SRCS}					\
 			common/desc_image_load.c			\
 			plat/renesas/common/aarch64/platform_common.c	\
@@ -123,8 +124,6 @@ BL2_SOURCES	+=	${RCAR_GIC_SOURCES}				\
 			drivers/io/io_storage.c
 
 BL31_SOURCES	+=	${RCAR_GIC_SOURCES}				\
-			lib/cpus/aarch64/cortex_a53.S			\
-			lib/cpus/aarch64/cortex_a57.S			\
 			plat/common/plat_psci_common.c			\
 			plat/renesas/common/plat_topology.c		\
 			plat/renesas/common/aarch64/plat_helpers.S	\

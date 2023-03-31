@@ -111,8 +111,9 @@ BLE_SOURCES		:=	drivers/mentor/i2c/mi2cv.c		\
 				$(MARVELL_DRV_BASE)/ccu.c		\
 				$(MARVELL_DRV_BASE)/io_win.c
 
-BL1_SOURCES		+=	$(PLAT_COMMON_BASE)/aarch64/plat_helpers.S \
-				lib/cpus/aarch64/cortex_a72.S
+CPUS_ENABLE		+=	cortex_a72
+
+BL1_SOURCES		+=	$(PLAT_COMMON_BASE)/aarch64/plat_helpers.S
 
 MARVELL_DRV		:= 	$(MARVELL_DRV_BASE)/io_win.c	\
 				$(MARVELL_DRV_BASE)/iob.c	\
@@ -139,8 +140,7 @@ ifeq ($(SYSTEM_POWER_SUPPORT),1)
 BL31_PORTING_SOURCES	+=	$(BOARD_DIR)/board/system_power.c
 endif
 
-BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a72.S		       \
-				$(PLAT_COMMON_BASE)/aarch64/plat_helpers.S     \
+BL31_SOURCES		+=	$(PLAT_COMMON_BASE)/aarch64/plat_helpers.S     \
 				$(PLAT_COMMON_BASE)/aarch64/plat_arch_config.c \
 				$(PLAT_COMMON_BASE)/plat_pm.c		       \
 				$(PLAT_COMMON_BASE)/plat_bl31_setup.c	       \

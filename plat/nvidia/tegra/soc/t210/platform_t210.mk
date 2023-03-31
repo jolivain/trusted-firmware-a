@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
 # Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
@@ -28,10 +28,11 @@ ENABLE_TEGRA_WDT_LEGACY_FIQ_HANDLING	:= 1
 PLAT_INCLUDES		+=	-Iplat/nvidia/tegra/include/t210		\
 				-I${SOC_DIR}/drivers/se
 
+CPUS_ENABLE		+=	cortex_a53					\
+				cortex_a57
+
 BL31_SOURCES		+=	${TEGRA_GICv2_SOURCES}				\
 				drivers/ti/uart/aarch64/16550_console.S		\
-				lib/cpus/aarch64/cortex_a53.S			\
-				lib/cpus/aarch64/cortex_a57.S			\
 				${TEGRA_DRIVERS}/bpmp/bpmp.c			\
 				${TEGRA_DRIVERS}/flowctrl/flowctrl.c		\
 				${TEGRA_DRIVERS}/memctrl/memctrl_v1.c		\
