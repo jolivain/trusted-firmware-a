@@ -30,10 +30,11 @@ PLAT_BL_COMMON_SOURCES	:=	\
 
 BL2_SOURCES     +=
 
+CPUS_SUPPORTED	+=	aem_generic 					\
+			cortex_a53
+
 BL31_SOURCES	+=	\
 		drivers/arm/cci/cci.c					\
-		lib/cpus/aarch64/aem_generic.S				\
-		lib/cpus/aarch64/cortex_a53.S				\
 		plat/common/plat_psci_common.c				\
 		plat/intel/soc/n5x/bl31_plat_setup.c			\
 		plat/intel/soc/common/socfpga_psci.c			\
