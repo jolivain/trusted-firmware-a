@@ -170,7 +170,7 @@ PLAT_INCLUDES		:=	-Iplat/arm/board/fvp/include		\
 
 PLAT_BL_COMMON_SOURCES	:=	plat/arm/board/fvp/fvp_common.c
 
-FVP_CPU_LIBS		:=	lib/cpus/${ARCH}/aem_generic.S
+CPUS_ENABLE		:=	aem_generic
 
 ifeq (${ARCH}, aarch64)
 
@@ -178,52 +178,51 @@ ifeq (${ARCH}, aarch64)
 # hardware assisted coherency cores or not
 ifeq (${HW_ASSISTED_COHERENCY}, 0)
 # Cores used without DSU
-	FVP_CPU_LIBS	+=	lib/cpus/aarch64/cortex_a35.S			\
-				lib/cpus/aarch64/cortex_a53.S			\
-				lib/cpus/aarch64/cortex_a57.S			\
-				lib/cpus/aarch64/cortex_a72.S			\
-				lib/cpus/aarch64/cortex_a73.S
+	CPUS_ENABLE	+=	cortex_a35					\
+				cortex_a53					\
+				cortex_a57					\
+				cortex_a72					\
+				cortex_a73
 else
 # Cores used with DSU only
 	ifeq (${CTX_INCLUDE_AARCH32_REGS}, 0)
 	# AArch64-only cores
 	# TODO: add all cores to the appropriate lists
-		FVP_CPU_LIBS	+=	lib/cpus/aarch64/cortex_a65.S		\
-					lib/cpus/aarch64/cortex_a65ae.S		\
-					lib/cpus/aarch64/cortex_a76.S		\
-					lib/cpus/aarch64/cortex_a76ae.S		\
-					lib/cpus/aarch64/cortex_a77.S		\
-					lib/cpus/aarch64/cortex_a78.S		\
-					lib/cpus/aarch64/cortex_a78_ae.S	\
-					lib/cpus/aarch64/cortex_a78c.S		\
-					lib/cpus/aarch64/cortex_a510.S		\
-					lib/cpus/aarch64/cortex_a520.S		\
-					lib/cpus/aarch64/cortex_a710.S		\
-					lib/cpus/aarch64/cortex_a715.S		\
-					lib/cpus/aarch64/cortex_a720.S		\
-					lib/cpus/aarch64/cortex_x2.S		\
-					lib/cpus/aarch64/cortex_x3.S 		\
-					lib/cpus/aarch64/cortex_x4.S		\
-					lib/cpus/aarch64/cortex_gelas.S		\
-					lib/cpus/aarch64/cortex_blackhawk.S	\
-					lib/cpus/aarch64/cortex_chaberton.S	\
-					lib/cpus/aarch64/cortex_gelas.S		\
-					lib/cpus/aarch64/nevis.S		\
-					lib/cpus/aarch64/neoverse_n_common.S	\
-					lib/cpus/aarch64/neoverse_n1.S		\
-					lib/cpus/aarch64/neoverse_n2.S		\
-					lib/cpus/aarch64/neoverse_e1.S		\
-					lib/cpus/aarch64/neoverse_v1.S
+		CPUS_ENABLE	+=	cortex_a65				\
+					cortex_a65ae				\
+					cortex_a76				\
+					cortex_a76ae				\
+					cortex_a77				\
+					cortex_a78				\
+					cortex_a78_ae				\
+					cortex_a78c				\
+					cortex_a510				\
+					cortex_a520				\
+					cortex_a710				\
+					cortex_a715				\
+					cortex_a720				\
+					cortex_x2				\
+					cortex_x3 				\
+					cortex_x4				\
+					cortex_gelas				\
+					cortex_blackhawk			\
+					cortex_chaberton			\
+					cortex_gelas				\
+					nevis					\
+					neoverse_n1				\
+					neoverse_n2				\
+					neoverse_e1				\
+					neoverse_v1
 	endif
 	# AArch64/AArch32 cores
-	FVP_CPU_LIBS	+=	lib/cpus/aarch64/cortex_a55.S		\
-				lib/cpus/aarch64/cortex_a75.S
+	CPUS_ENABLE	+=	cortex_a55.S					\
+				cortex_a75.S
 endif
 
 else
-FVP_CPU_LIBS		+=	lib/cpus/aarch32/cortex_a32.S			\
-				lib/cpus/aarch32/cortex_a57.S			\
-				lib/cpus/aarch32/cortex_a53.S
+CPUS_ENABLE		+=	cortex_a32					\
+				cortex_a57					\
+				cortex_a53
 endif
 
 BL1_SOURCES		+=	drivers/arm/smmu/smmu_v3.c			\
@@ -236,7 +235,6 @@ BL1_SOURCES		+=	drivers/arm/smmu/smmu_v3.c			\
 				plat/arm/board/fvp/fvp_bl1_setup.c		\
 				plat/arm/board/fvp/fvp_err.c			\
 				plat/arm/board/fvp/fvp_io_storage.c		\
-				${FVP_CPU_LIBS}					\
 				${FVP_INTERCONNECT_SOURCES}
 
 ifeq (${USE_SP804_TIMER},1)
@@ -281,7 +279,6 @@ endif
 ifeq (${RESET_TO_BL2},1)
 BL2_SOURCES		+=	plat/arm/board/fvp/${ARCH}/fvp_helpers.S	\
 				plat/arm/board/fvp/fvp_bl2_el3_setup.c		\
-				${FVP_CPU_LIBS}					\
 				${FVP_INTERCONNECT_SOURCES}
 endif
 
@@ -307,7 +304,6 @@ BL31_SOURCES		+=	drivers/arm/fvp/fvp_pwrc.c			\
 				plat/arm/board/fvp/fvp_topology.c		\
 				plat/arm/board/fvp/aarch64/fvp_helpers.S	\
 				plat/arm/common/arm_nor_psci_mem_protect.c	\
-				${FVP_CPU_LIBS}					\
 				${FVP_GIC_SOURCES}				\
 				${FVP_INTERCONNECT_SOURCES}			\
 				${FVP_SECURITY_SOURCES}
@@ -387,16 +383,6 @@ endif
 
 # Enable dynamic mitigation support by default
 DYNAMIC_WORKAROUND_CVE_2018_3639	:=	1
-
-ifneq (${ENABLE_FEAT_AMU},0)
-BL31_SOURCES		+=	lib/cpus/aarch64/cpuamu.c		\
-				lib/cpus/aarch64/cpuamu_helpers.S
-
-ifeq (${HW_ASSISTED_COHERENCY}, 1)
-BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a75_pubsub.c	\
-				lib/cpus/aarch64/neoverse_n1_pubsub.c
-endif
-endif
 
 ifeq (${RAS_FFH_SUPPORT},1)
 BL31_SOURCES		+=	plat/arm/board/fvp/aarch64/fvp_ras.c
