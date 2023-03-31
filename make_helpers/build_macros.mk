@@ -503,8 +503,21 @@ endef
 #   $(4) = BL encryption flag (optional) (0, 1)
 define MAKE_BL
         $(eval BUILD_DIR  := ${BUILD_PLAT}/$(1))
+
         $(eval BL_SOURCES := $($(call uppercase,$(1))_SOURCES))
         $(eval SOURCES    := $(sort $(BL_SOURCES) $(BL_COMMON_SOURCES) $(PLAT_BL_COMMON_SOURCES)))
+
+        $(eval $(1)-cpus += $(CPUS))
+        $(eval $(1)-cpus-bl-sources := $(SOURCES))
+
+        $(eval $(call cpus-config,$(1)))
+
+        $(eval BL_SOURCES := $(sort $(BL_SOURCES) $($(1)-cpus-sources)))
+        $(eval SOURCES    := $(sort $(SOURCES) $($(1)-cpus-sources)))
+
+        $(eval $(call uppercase,$(1))_DEFINES += $($(1)-cpus-defines))
+        $(eval $(call uppercase,$(1))_INCLUDE_DIRS += $($(1)-cpus-include-dirs))
+
         $(eval OBJS       := $(addprefix $(BUILD_DIR)/,$(call SOURCES_TO_OBJS,$(SOURCES))))
         $(eval MAPFILE    := $(call IMG_MAPFILE,$(1)))
         $(eval ELF        := $(call IMG_ELF,$(1)))
