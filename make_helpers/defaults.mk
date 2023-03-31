@@ -58,7 +58,11 @@ CREATE_KEYS			:= 1
 
 # Build flag to include AArch32 registers in cpu context save and restore during
 # world switch. This flag must be set to 0 for AArch64-only platforms.
-CTX_INCLUDE_AARCH32_REGS	:= 1
+CTX_INCLUDE_AARCH32_REGS := 1
+
+ifeq ($(ARCH),aarch32)
+        override CTX_INCLUDE_AARCH32_REGS := 0
+endif
 
 # Include FP registers in cpu context
 CTX_INCLUDE_FPREGS		:= 0
