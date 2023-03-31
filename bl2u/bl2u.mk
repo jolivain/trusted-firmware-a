@@ -19,3 +19,14 @@ ifneq ($(findstring gcc,$(notdir $(LD))),)
 else ifneq ($(findstring ld,$(notdir $(LD))),)
         BL2U_LDFLAGS	+=	--sort-section=alignment
 endif
+
+#
+# Set up the CPU library for BL2U.
+#
+
+include lib/cpus/cpus.mk
+
+$(eval BL2U_DEFINES += $(CPUS_DEFINES))
+$(eval BL2U_INCLUDE_DIRS += $(CPUS_INCLUDE_DIRS))
+$(eval BL2U_SOURCES += $(CPUS_SOURCES))
+
