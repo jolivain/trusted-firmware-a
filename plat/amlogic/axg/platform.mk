@@ -22,8 +22,7 @@ GIC_SOURCES		:=	drivers/arm/gic/common/gic_common.c		\
 				drivers/arm/gic/v2/gicv2_helpers.c		\
 				plat/common/plat_gicv2.c
 
-BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a53.S			\
-				plat/common/plat_psci_common.c			\
+BL31_SOURCES		+=	plat/common/plat_psci_common.c			\
 				drivers/amlogic/console/aarch64/meson_console.S	\
 				${AML_PLAT_SOC}/${PLAT}_bl31_setup.c		\
 				${AML_PLAT_SOC}/${PLAT}_pm.c			\
@@ -39,6 +38,8 @@ BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a53.S			\
 				drivers/amlogic/crypto/sha_dma.c		\
 				${XLAT_TABLES_LIB_SRCS}				\
 				${GIC_SOURCES}
+
+CPUS_SOURCES		+=	cortex_a53
 
 # Tune compiler for Cortex-A53
 ifeq ($(notdir $(CC)),armclang)
@@ -92,4 +93,3 @@ ${DOIMAGETOOL}:
 
 ${BUILD_PLAT}/bl31.img: ${BUILD_PLAT}/bl31.bin ${DOIMAGETOOL}
 	${DOIMAGETOOL} ${BUILD_PLAT}/bl31.bin ${BUILD_PLAT}/bl31.img
-

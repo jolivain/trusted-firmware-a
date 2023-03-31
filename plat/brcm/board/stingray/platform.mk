@@ -4,6 +4,8 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
+CPUS_SUPPORTED		+=	cortex_a72
+
 # Set the toc_flags to 1 for 100% speed operation
 # Set the toc_flags to 2 for 50% speed operation
 # Set the toc_flags to 3 for 25% speed operation
@@ -190,8 +192,7 @@ PLAT_INCLUDES		+=	-Iplat/${SOC_DIR}/include/ \
 				-Iinclude/plat/brcm/common/ \
 				-Iplat/brcm/common/
 
-PLAT_BL_COMMON_SOURCES	+=	lib/cpus/aarch64/cortex_a72.S \
-				plat/${SOC_DIR}/aarch64/plat_helpers.S \
+PLAT_BL_COMMON_SOURCES	+=	plat/${SOC_DIR}/aarch64/plat_helpers.S \
 				drivers/ti/uart/aarch64/16550_console.S \
 				plat/${SOC_DIR}/src/tz_sec.c \
 				drivers/arm/tzc/tzc400.c \

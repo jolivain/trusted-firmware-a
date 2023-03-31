@@ -75,3 +75,12 @@ $(eval $(call assert_boolean,RESET_TO_SP_MIN))
 SP_MIN_WITH_SECURE_FIQ 	?= 0
 $(eval $(call add_define,SP_MIN_WITH_SECURE_FIQ))
 $(eval $(call assert_boolean,SP_MIN_WITH_SECURE_FIQ))
+
+#
+# Set up the CPU library for BL32.
+#
+
+include lib/cpus/cpus.mk
+
+$(eval BL32_INCLUDE_DIRS += $(CPUS_INCLUDE_DIRS))
+$(eval BL32_SOURCES += $(CPUS_SOURCES))

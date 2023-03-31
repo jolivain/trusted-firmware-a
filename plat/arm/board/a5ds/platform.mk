@@ -8,6 +8,8 @@
 include common/fdt_wrappers.mk
 include lib/fconf/fconf.mk
 
+CPUS_SUPPORTED		+=	cortex_a5
+
 BL1_SOURCES		+=	${FCONF_SOURCES} ${FCONF_DYN_SOURCES}
 BL2_SOURCES		+=	${FCONF_SOURCES} ${FCONF_DYN_SOURCES}
 
@@ -37,8 +39,6 @@ PLAT_BL_COMMON_SOURCES	:=	drivers/arm/pl011/${ARCH}/pl011_console.S	\
 				plat/arm/common/arm_console.c			\
 				plat/arm/board/common/${ARCH}/board_arm_helpers.S
 
-A5DS_CPU_LIBS		:=	lib/cpus/aarch32/cortex_a5.S
-
 BL1_SOURCES		+=	drivers/io/io_fip.c				\
 				drivers/io/io_memmap.c				\
 				drivers/io/io_storage.c				\
@@ -52,7 +52,6 @@ BL1_SOURCES		+=	drivers/io/io_fip.c				\
 				plat/arm/board/a5ds/a5ds_bl1_setup.c		\
 				lib/aarch32/arm32_aeabi_divmod.c		\
 				lib/aarch32/arm32_aeabi_divmod_a32.S		\
-				${A5DS_CPU_LIBS}				\
 				${DYN_CFG_SOURCES}
 
 BL2_SOURCES		+=	lib/aarch32/arm32_aeabi_divmod.c		\

@@ -19,10 +19,11 @@ PLAT_BL_COMMON_SOURCES	:=	drivers/ti/uart/aarch64/16550_console.S	\
 				plat/rpi/common/rpi3_common.c		\
 				${XLAT_TABLES_LIB_SRCS}
 
+CPUS_SUPPORTED		+=	cortex_a53
+
 BL1_SOURCES		+=	drivers/io/io_fip.c			\
 				drivers/io/io_memmap.c			\
 				drivers/io/io_storage.c			\
-				lib/cpus/aarch64/cortex_a53.S		\
 				plat/common/aarch64/platform_mp_stack.S	\
 				plat/rpi/rpi3/rpi3_bl1_setup.c		\
 				plat/rpi/common/rpi3_io_storage.c	\
@@ -43,8 +44,9 @@ BL2_SOURCES		+=	common/desc_image_load.c		\
 				plat/rpi/common/rpi3_image_load.c	\
 				plat/rpi/common/rpi3_io_storage.c
 
-BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a53.S		\
-				plat/common/plat_psci_common.c		\
+CPUS_SUPPORTED		+=	cortex_a53
+
+BL31_SOURCES		+=	plat/common/plat_psci_common.c		\
 				plat/rpi/rpi3/rpi3_bl31_setup.c		\
 				plat/rpi/common/rpi3_pm.c		\
 				plat/rpi/common/rpi3_topology.c		\

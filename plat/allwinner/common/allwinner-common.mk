@@ -10,6 +10,8 @@ include drivers/arm/gic/v2/gicv2.mk
 
 AW_PLAT			:=	plat/allwinner
 
+CPUS_SUPPORTED		+=	cortex_a53
+
 PLAT_INCLUDES		:=	-Iinclude/plat/arm/common/aarch64	\
 				-I${AW_PLAT}/common/include		\
 				-I${AW_PLAT}/${PLAT}/include
@@ -23,7 +25,6 @@ BL31_SOURCES		+=	drivers/allwinner/axp/common.c		\
 				${GICV2_SOURCES}			\
 				drivers/delay_timer/delay_timer.c	\
 				drivers/delay_timer/generic_delay_timer.c \
-				lib/cpus/${ARCH}/cortex_a53.S		\
 				plat/common/plat_gicv2.c		\
 				plat/common/plat_psci_common.c		\
 				${AW_PLAT}/common/sunxi_bl31_setup.c	\
