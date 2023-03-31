@@ -1333,12 +1333,16 @@ needs to be exported for each type of CPU in the platform. It is defined in
 ``reset_func()``, ``cpu_pwr_down_ops`` (array of power down functions) and
 ``cpu_reg_dump()``.
 
-The CPU specific files in ``lib/cpus`` export a ``cpu_ops`` data structure with
+The CPU-specific files in ``lib/cpus`` export a ``cpu_ops`` data structure with
 suitable handlers for that CPU. For example, ``lib/cpus/aarch64/cortex_a53.S``
-exports the ``cpu_ops`` for Cortex-A53 CPU. According to the platform
-configuration, these CPU specific files must be included in the build by
-the platform makefile. The generic CPU specific operations framework code exists
-in ``lib/cpus/aarch64/cpu_helpers.S``.
+exports the ``cpu_ops`` for the Cortex-A53 CPU. These CPU-specific operations
+are added to the build by appending the name of the CPU (more specifically, the
+name of its source file) to the ``CPUS_ENABLE`` build option in the platform
+Makefile, e.g.:
+
+.. code:: make
+
+    CPUS_ENABLE += cortex_a53 cortex_a57
 
 CPU PCS
 ~~~~~~~
