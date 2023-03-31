@@ -40,17 +40,32 @@ else
 # BL2 at EL3, no RME
 BL2_SOURCES		+=	bl2/${ARCH}/bl2_el3_entrypoint.S	\
 				bl2/${ARCH}/bl2_el3_exceptions.S	\
-				bl2/${ARCH}/bl2_run_next_image.S        \
-				lib/cpus/${ARCH}/cpu_helpers.S		\
-				lib/cpus/errata_report.c
+				bl2/${ARCH}/bl2_run_next_image.S
 
 ifeq (${DISABLE_MTPMU},1)
 BL2_SOURCES		+=	lib/extensions/mtpmu/${ARCH}/mtpmu.S
 endif
 
-ifeq (${ARCH},aarch64)
-BL2_SOURCES		+=	lib/cpus/aarch64/dsu_helpers.S
-endif
-
 BL2_DEFAULT_LINKER_SCRIPT_SOURCE := bl2/bl2_el3.ld.S
 endif
+
+#
+# Set up the CPU library for BL2.
+#
+
+ifeq ($(ENABLE_RME),0)
+        ifneq ($(RESET_TO_BL2),0)
+                CPUS_CPU_HELPERS_ENABLED := 1
+                CPUS_ERRATA_REPORT_ENABLED := 1
+
+                ifeq ($(ARCH),aarch64)
+                        CPUS_DSU_HELPERS_ENABLED := 1
+                endif
+        endif
+endif
+
+include lib/cpus/cpus.mk
+
+$(eval BL2_DEFINES += $(CPUS_DEFINES))
+$(eval BL2_INCLUDE_DIRS += $(CPUS_INCLUDE_DIRS))
+$(eval BL2_SOURCES += $(CPUS_SOURCES))
