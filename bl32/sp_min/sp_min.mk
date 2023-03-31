@@ -8,6 +8,7 @@ ifneq (${ARCH}, aarch32)
 	$(error SP_MIN is only supported on AArch32 platforms)
 endif
 
+include lib/cpus/cpus.mk
 include lib/extensions/amu/amu.mk
 include lib/psci/psci_lib.mk
 
@@ -82,3 +83,14 @@ $(eval $(call assert_boolean,RESET_TO_SP_MIN))
 SP_MIN_WITH_SECURE_FIQ 	?= 0
 $(eval $(call add_define,SP_MIN_WITH_SECURE_FIQ))
 $(eval $(call assert_boolean,SP_MIN_WITH_SECURE_FIQ))
+
+bl32-cpus := $(CPUS)
+bl32-cpus-compat-sources := $(BL2_SOURCES)
+bl32-cpus-enable-cpu-operations := 1
+bl32-cpus-enable-errata-report := 1
+
+$(eval $(call cpus-config,bl32))
+
+BL32_DEFINES += $(bl32-cpus-defines)
+BL32_INCLUDE_DIRS += $(bl32-cpus-include-dirs)
+BL32_SOURCES += $(bl32-cpus-sources)

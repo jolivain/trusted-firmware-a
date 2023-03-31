@@ -4,6 +4,8 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
+include lib/cpus/cpus.mk
+
 BL2_SOURCES		+=	bl2/bl2_image_load_v2.c			\
 				bl2/bl2_main.c				\
 				bl2/${ARCH}/bl2_arch_setup.c		\
@@ -40,12 +42,7 @@ else
 # BL2 at EL3, no RME
 BL2_SOURCES		+=	bl2/${ARCH}/bl2_el3_entrypoint.S	\
 				bl2/${ARCH}/bl2_el3_exceptions.S	\
-				bl2/${ARCH}/bl2_run_next_image.S        \
-				lib/cpus/${ARCH}/cpu_helpers.S
-
-ifeq (${ARCH},aarch64)
-BL2_SOURCES		+=	lib/cpus/aarch64/dsu_helpers.S
-endif
+				bl2/${ARCH}/bl2_run_next_image.S
 
 BL2_DEFAULT_LINKER_SCRIPT_SOURCE := bl2/bl2_el3.ld.S
 endif
@@ -53,3 +50,13 @@ endif
 ifeq (${ENABLE_PMF},1)
 BL2_SOURCES		+=	lib/pmf/pmf_main.c
 endif
+
+bl2-cpus := $(CPUS)
+bl2-cpus-compat-sources := $(BL2_SOURCES)
+bl2-cpus-enable-cpu-operations := 1
+
+$(eval $(call cpus-config,bl2))
+
+BL2_DEFINES += $(bl2-cpus-defines)
+BL2_INCLUDE_DIRS += $(bl2-cpus-include-dirs)
+BL2_SOURCES += $(bl2-cpus-sources)

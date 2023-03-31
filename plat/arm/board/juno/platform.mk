@@ -5,6 +5,7 @@
 #
 
 include common/fdt_wrappers.mk
+include lib/cpus/cpus.mk
 
 # Include GICv2 driver files
 include drivers/arm/gic/v2/gicv2.mk
@@ -216,3 +217,12 @@ include plat/arm/board/common/board_common.mk
 include plat/arm/common/arm_common.mk
 include plat/arm/soc/common/soc_css.mk
 include plat/arm/css/common/css_common.mk
+
+plat-cpus := $(CPUS)
+plat-cpus-compat-sources := $(PLAT_BL_COMMON_SOURCES)
+
+$(eval $(call cpus-config,plat))
+
+PLAT_BL_COMMON_DEFINES += $(plat-cpus-defines)
+PLAT_BL_COMMON_INCLUDE_DIRS += $(plat-cpus-include-dirs)
+PLAT_BL_COMMON_SOURCES += $(plat-cpus-sources)

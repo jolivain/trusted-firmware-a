@@ -4,6 +4,8 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
+include lib/cpus/cpus.mk
+
 ################################################################################
 # Include Makefile for the SPM-MM implementation
 ################################################################################
@@ -44,7 +46,6 @@ BL31_SOURCES		+=	bl31/bl31_main.c				\
 				bl31/bl31_context_mgmt.c			\
 				bl31/bl31_traps.c				\
 				common/runtime_svc.c				\
-				lib/cpus/aarch64/dsu_helpers.S			\
 				plat/common/aarch64/platform_mp_stack.S		\
 				services/arm_arch_svc/arm_arch_svc_setup.c	\
 				services/std_svc/std_svc_setup.c		\
@@ -126,11 +127,6 @@ ifneq (${ENABLE_TRF_FOR_NS},0)
 BL31_SOURCES		+=	lib/extensions/trf/aarch64/trf.c
 endif
 
-ifeq (${WORKAROUND_CVE_2017_5715},1)
-BL31_SOURCES		+=	lib/cpus/aarch64/wa_cve_2017_5715_bpiall.S	\
-				lib/cpus/aarch64/wa_cve_2017_5715_mmu.S
-endif
-
 ifeq ($(SMC_PCI_SUPPORT),1)
 BL31_SOURCES		+=	services/std_svc/pci_svc.c
 endif
@@ -182,3 +178,22 @@ $(eval $(call add_defines,\
         EL3_EXCEPTION_HANDLING \
         SDEI_SUPPORT \
 )))
+
+bl31-cpus := $(CPUS)
+bl31-cpus-compat-sources := $(BL31_SOURCES)
+bl31-cpus-enable-cpu-operations := 1
+bl31-cpus-enable-errata-report := 1
+
+ifeq ($(ENABLE_FEAT_AMU),1)
+        bl31-cpus-enable-impdef-amu := 1
+endif
+
+ifeq ($(WORKAROUND_CVE_2017_5715),1)
+        bl31-cpus-enable-cve-2017-5715-workaround := 1
+endif
+
+$(eval $(call cpus-config,bl31))
+
+BL31_DEFINES += $(bl31-cpus-defines)
+BL31_INCLUDE_DIRS += $(bl31-cpus-include-dirs)
+BL31_SOURCES += $(bl31-cpus-sources)
