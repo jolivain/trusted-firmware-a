@@ -32,11 +32,12 @@ PLAT_INCLUDES		:=	-I$(PLAT_PATH)/include		\
 				-Idrivers/arm/css/scmi \
 				-Idrivers/arm/css/scmi/vendor
 
+CPUS_SUPPORTED		+=	cortex_a53
+
 PLAT_BL_COMMON_SOURCES	+=	$(PLAT_PATH)/sq_helpers.S		\
 				drivers/arm/pl011/aarch64/pl011_console.S \
 				drivers/delay_timer/delay_timer.c	\
 				drivers/delay_timer/generic_delay_timer.c \
-				lib/cpus/aarch64/cortex_a53.S		\
 				$(PLAT_PATH)/sq_xlat_setup.c	\
 				${XLAT_TABLES_LIB_SRCS}
 
