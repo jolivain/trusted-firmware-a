@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "90c1a226_0e987e30",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-03-31T13:48:42Z",
+      "side": 1,
+      "message": "Done. \nBTW, It has been sometime when we moved to 100 col width",
+      "parentUuid": "91032ab6_ccb34111",
+      "range": {
+        "startLine": 361,
+        "startChar": 64,
+        "endLine": 361,
+        "endChar": 66
+      },
+      "revId": "8d28d0913c6435d95243ef671cb7aa6f9ba0ee71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b08bb7f5_7c10ca0b",
         "filename": "bl31/aarch64/runtime_exceptions.S",
         "patchSetId": 13
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-31T13:32:30Z",
       "side": 1,
       "message": "suggest: \"The platform  will eventually panic for the later case.\"\n\nAlso confirm that this is indeed true.",
+      "range": {
+        "startLine": 363,
+        "startChar": 3,
+        "endLine": 363,
+        "endChar": 76
+      },
+      "revId": "8d28d0913c6435d95243ef671cb7aa6f9ba0ee71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2515f0c0_bb63ed44",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-03-31T13:48:42Z",
+      "side": 1,
+      "message": "Done, It will end up in elx_panic through plat_default_ea_handler()",
+      "parentUuid": "b08bb7f5_7c10ca0b",
       "range": {
         "startLine": 363,
         "startChar": 3,
