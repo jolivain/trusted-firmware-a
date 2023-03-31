@@ -12,10 +12,11 @@ PLAT_BL_COMMON_SOURCES	:= ${XLAT_TABLES_LIB_SRCS}
 PLAT_INCLUDES	:=	-Iinclude/plat/arm/common/${ARCH}		\
 			-Iplat/qti/msm8916/include
 
+CPUS_SUPPORTED	+=	cortex_a53
+
 BL31_SOURCES	+=	${GICV2_SOURCES}				\
 			drivers/delay_timer/delay_timer.c		\
 			drivers/delay_timer/generic_delay_timer.c	\
-			lib/cpus/${ARCH}/cortex_a53.S			\
 			plat/common/plat_gicv2.c			\
 			plat/common/plat_psci_common.c			\
 			plat/qti/msm8916/msm8916_bl31_setup.c		\
