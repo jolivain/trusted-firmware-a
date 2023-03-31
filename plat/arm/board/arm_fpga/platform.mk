@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2021-2022, Arm Limited. All rights reserved.
+# Copyright (c) 2021-2023, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -45,46 +45,45 @@ PL011_GENERIC_UART	:=	1
 
 SUPPORT_UNKNOWN_MPID	?=	1
 
-FPGA_CPU_LIBS	:=	lib/cpus/${ARCH}/aem_generic.S
+CPU_SUPPORT		:=	aem_generic
 
 # select a different set of CPU files, depending on whether we compile for
 # hardware assisted coherency cores or not
 ifeq (${HW_ASSISTED_COHERENCY}, 0)
 # Cores used without DSU
-	FPGA_CPU_LIBS	+=	lib/cpus/aarch64/cortex_a35.S	\
-				lib/cpus/aarch64/cortex_a53.S	\
-				lib/cpus/aarch64/cortex_a57.S	\
-				lib/cpus/aarch64/cortex_a72.S	\
-				lib/cpus/aarch64/cortex_a73.S
+	CPUS_SUPPORTED	+=	cortex_a35	\
+				cortex_a53	\
+				cortex_a57	\
+				cortex_a72	\
+				cortex_a73
 else
 # AArch64-only cores
-	FPGA_CPU_LIBS	+=	lib/cpus/aarch64/cortex_a76.S		\
-				lib/cpus/aarch64/cortex_a76ae.S		\
-				lib/cpus/aarch64/cortex_a77.S		\
-				lib/cpus/aarch64/cortex_a78.S		\
-				lib/cpus/aarch64/neoverse_n_common.S	\
-				lib/cpus/aarch64/neoverse_n1.S		\
-				lib/cpus/aarch64/neoverse_n2.S		\
-				lib/cpus/aarch64/neoverse_e1.S		\
-				lib/cpus/aarch64/neoverse_v1.S		\
-				lib/cpus/aarch64/cortex_a78_ae.S	\
-				lib/cpus/aarch64/cortex_a65.S		\
-				lib/cpus/aarch64/cortex_a65ae.S		\
-				lib/cpus/aarch64/cortex_a510.S		\
-				lib/cpus/aarch64/cortex_a710.S		\
-				lib/cpus/aarch64/cortex_a715.S		\
-				lib/cpus/aarch64/cortex_x3.S 		\
-				lib/cpus/aarch64/cortex_a78c.S
+	CPUS_SUPPORTED	+=	cortex_a76	\
+				cortex_a76ae	\
+				cortex_a77	\
+				cortex_a78	\
+				neoverse_n1	\
+				neoverse_n2	\
+				neoverse_e1	\
+				neoverse_v1	\
+				cortex_a78_ae	\
+				cortex_a65	\
+				cortex_a65ae	\
+				cortex_a510	\
+				cortex_a710	\
+				cortex_a715	\
+				cortex_x3 	\
+				cortex_a78c
 
 # AArch64/AArch32 cores
-	FPGA_CPU_LIBS	+=	lib/cpus/aarch64/cortex_a55.S	\
-				lib/cpus/aarch64/cortex_a75.S
+	CPUS_SUPPORTED	+=	cortex_a55	\
+				cortex_a75
 endif
 
 ifeq (${SUPPORT_UNKNOWN_MPID}, 1)
 # Add support for unknown/invalid MPIDs (aarch64 only)
 $(eval $(call add_define,SUPPORT_UNKNOWN_MPID))
-	FPGA_CPU_LIBS	+=	lib/cpus/aarch64/generic.S
+	CPUS_SUPPORTED	+=	generic
 endif
 
 # Allow detection of GIC-600
@@ -114,7 +113,6 @@ BL31_SOURCES		+=	common/fdt_fixup.c				\
 				plat/arm/board/arm_fpga/fpga_topology.c		\
 				plat/arm/board/arm_fpga/fpga_console.c		\
 				plat/arm/board/arm_fpga/fpga_bl31_setup.c		\
-				${FPGA_CPU_LIBS}				\
 				${FPGA_GIC_SOURCES}
 
 BL31_SOURCES		+=	${FDT_WRAPPERS_SOURCES}
