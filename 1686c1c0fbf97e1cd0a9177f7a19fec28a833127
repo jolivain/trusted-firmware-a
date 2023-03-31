@@ -16,6 +16,23 @@
       "message": "LGTM, moving my vote to CR instead to get this through.",
       "revId": "1686c1c0fbf97e1cd0a9177f7a19fec28a833127",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac3db4b1_02e3bbf3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-03-31T10:30:09Z",
+      "side": 1,
+      "message": "CI failures are accounted for. \n\nHeader file issues need to be overuled. The file that can\u0027t fulfil the include order is due to the conditional includes. It\u0027s based on the generic tbbr_cot_bl2.c file with the same issue.\n\nOther issues are to do with a CI system wide issue with BL31 image size and unrelated to this change.",
+      "revId": "1686c1c0fbf97e1cd0a9177f7a19fec28a833127",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
