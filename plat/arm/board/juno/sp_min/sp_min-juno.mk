@@ -6,10 +6,7 @@
 
 # SP_MIN source files specific to JUNO platform
 BL32_SOURCES	+=	drivers/cfi/v2m/v2m_flash.c		\
-			lib/cpus/aarch32/cortex_a53.S		\
-			lib/cpus/aarch32/cortex_a57.S		\
-			lib/cpus/aarch32/cortex_a72.S		\
-			lib/utils/mem_region.c			\
+			ib/utils/mem_region.c			\
 			plat/arm/board/juno/juno_pm.c		\
 			plat/arm/board/juno/juno_topology.c	\
 			plat/arm/common/arm_nor_psci_mem_protect.c	\
