@@ -16,6 +16,8 @@ ifneq ($(CSS_SGI_CHIP_COUNT),$(filter $(CSS_SGI_CHIP_COUNT),$(SEQ)))
  currently it is set to ${CSS_SGI_CHIP_COUNT}.")
 endif
 
+CPUS_SUPPORTED		:=	neoverse_n2 neoverse_v2
+
 # RD-N2 platform uses GIC-700 which is based on GICv4.1
 GIC_ENABLE_V4_EXTN	:=	1
 GIC_EXT_INTID		:=	1
@@ -34,13 +36,9 @@ RDN2_BASE		=	plat/arm/board/rdn2
 
 PLAT_INCLUDES		+=	-I${RDN2_BASE}/include/
 
-SGI_CPU_SOURCES		:=	lib/cpus/aarch64/neoverse_n2.S \
-				lib/cpus/aarch64/neoverse_v2.S
-
 PLAT_BL_COMMON_SOURCES	+=	${CSS_ENT_BASE}/sgi_plat_v2.c
 
-BL1_SOURCES		+=	${SGI_CPU_SOURCES}			\
-				${RDN2_BASE}/rdn2_err.c
+BL1_SOURCES		+=	${RDN2_BASE}/rdn2_err.c
 
 BL2_SOURCES		+=	${RDN2_BASE}/rdn2_plat.c		\
 				${RDN2_BASE}/rdn2_security.c		\
@@ -50,8 +48,7 @@ BL2_SOURCES		+=	${RDN2_BASE}/rdn2_plat.c		\
 				plat/arm/common/arm_tzc400.c		\
 				plat/arm/common/arm_nor_psci_mem_protect.c
 
-BL31_SOURCES		+=	${SGI_CPU_SOURCES}			\
-				${RDN2_BASE}/rdn2_plat.c		\
+BL31_SOURCES		+=	${RDN2_BASE}/rdn2_plat.c		\
 				${RDN2_BASE}/rdn2_topology.c		\
 				drivers/cfi/v2m/v2m_flash.c		\
 				lib/utils/mem_region.c			\

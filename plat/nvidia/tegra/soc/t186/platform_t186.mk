@@ -40,10 +40,10 @@ $(eval $(call add_define,MAX_MMAP_REGIONS))
 PLAT_INCLUDES		+=	-Iplat/nvidia/tegra/include/t186 \
 				-I${SOC_DIR}/drivers/include
 
+CPUS_SUPPORTED		+=	cortex_a57 denver
+
 BL31_SOURCES		+=	${TEGRA_GICv2_SOURCES}			\
 				drivers/ti/uart/aarch64/16550_console.S	\
-				lib/cpus/aarch64/denver.S		\
-				lib/cpus/aarch64/cortex_a57.S		\
 				${TEGRA_DRIVERS}/bpmp_ipc/intf.c	\
 				${TEGRA_DRIVERS}/bpmp_ipc/ivc.c		\
 				${TEGRA_DRIVERS}/gpcdma/gpcdma.c	\

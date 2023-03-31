@@ -68,8 +68,9 @@ PLAT_BL_COMMON_SOURCES	:=						\
 		plat/hisilicon/poplar/aarch64/poplar_helpers.S		\
 		plat/hisilicon/poplar/poplar_gicv2.c
 
+CPUS_SUPPORTED	:=	aem_generic cortex_a53
+
 BL1_SOURCES	+=							\
-		lib/cpus/aarch64/cortex_a53.S				\
 		drivers/arm/pl061/pl061_gpio.c				\
 		drivers/mmc/mmc.c					\
 		drivers/synopsys/emmc/dw_mmc.c				\
@@ -104,8 +105,6 @@ BL2_SOURCES	+=							\
 endif
 
 BL31_SOURCES	+=							\
-		lib/cpus/aarch64/aem_generic.S				\
-		lib/cpus/aarch64/cortex_a53.S				\
 		plat/common/plat_psci_common.c			\
 		plat/hisilicon/poplar/bl31_plat_setup.c			\
 		plat/hisilicon/poplar/plat_topology.c			\

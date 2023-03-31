@@ -29,6 +29,8 @@ PLAT_BL_COMMON_SOURCES	:=	\
 			plat/intel/soc/common/socfpga_delay_timer.c	\
 			plat/intel/soc/common/soc/socfpga_firewall.c
 
+CPUS_SUPPORTED		+= cortex_a53
+
 BL2_SOURCES     +=	\
 		common/desc_image_load.c				\
 		drivers/mmc/mmc.c					\
@@ -39,7 +41,6 @@ BL2_SOURCES     +=	\
 		drivers/partition/partition.c				\
 		drivers/partition/gpt.c					\
 		drivers/synopsys/emmc/dw_mmc.c				\
-		lib/cpus/aarch64/cortex_a53.S				\
 		plat/intel/soc/stratix10/bl2_plat_setup.c		\
 		plat/intel/soc/stratix10/soc/s10_clock_manager.c	\
 		plat/intel/soc/stratix10/soc/s10_memory_controller.c	\
@@ -59,10 +60,10 @@ include lib/zlib/zlib.mk
 PLAT_INCLUDES	+=	-Ilib/zlib
 BL2_SOURCES	+=	$(ZLIB_SOURCES)
 
+CPUS_SUPPORTED	+=	aem_generic cortex_a53
+
 BL31_SOURCES	+=	\
 		drivers/arm/cci/cci.c					\
-		lib/cpus/aarch64/aem_generic.S				\
-		lib/cpus/aarch64/cortex_a53.S				\
 		plat/common/plat_psci_common.c				\
 		plat/intel/soc/stratix10/soc/s10_clock_manager.c	\
 		plat/intel/soc/stratix10/bl31_plat_setup.c	 	\

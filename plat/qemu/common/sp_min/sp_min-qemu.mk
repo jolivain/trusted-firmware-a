@@ -4,13 +4,12 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
+CPUS_SUPPORTED		+=	aem_generic cortex_a15
+
 BL32_SOURCES		+=	plat/qemu/sp_min/sp_min_setup.c		\
 				plat/qemu/aarch32/plat_helpers.S	\
 				plat/qemu/qemu_pm.c			\
 				plat/qemu/topology.c
-
-BL32_SOURCES		+=	lib/cpus/aarch32/aem_generic.S		\
-				lib/cpus/aarch32/cortex_a15.S
 
 BL32_SOURCES		+=	plat/common/aarch32/platform_mp_stack.S \
 				plat/common/plat_psci_common.c \

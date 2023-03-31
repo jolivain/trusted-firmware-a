@@ -101,14 +101,12 @@ TIMER_SOURCES		:=	drivers/delay_timer/generic_delay_timer.c	\
 GIC_SOURCES		:=	plat/common/plat_gicv3.c			\
 				${GICV3_SOURCES}				\
 
-CPU_SOURCES		:=	lib/cpus/aarch64/cortex_a78.S			\
-				lib/cpus/aarch64/cortex_a55.S			\
+CPUS_SUPPORTED		:=	cortex_a78 cortex_a55
 
 BL31_SOURCES		+=	${QTI_BL31_SOURCES}				\
 				${PSCI_SOURCES}					\
 				${GIC_SOURCES}					\
-				${TIMER_SOURCES}				\
-				${CPU_SOURCES}					\
+				${TIMER_SOURCES}
 
 LIB_QTI_PATH	:=	${QTI_PLAT_PATH}/qtiseclib/lib/${CHIPSET}
 
@@ -128,4 +126,3 @@ else
 LDFLAGS += -L $(dir $(QTISECLIB_PATH))
 LDLIBS += -l$(patsubst lib%.a,%,$(notdir $(QTISECLIB_PATH)))
 endif
-
