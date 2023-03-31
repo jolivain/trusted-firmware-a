@@ -9,16 +9,13 @@ BL1_SOURCES		+=	bl1/${ARCH}/bl1_arch_setup.c		\
 				bl1/${ARCH}/bl1_entrypoint.S		\
 				bl1/${ARCH}/bl1_exceptions.S		\
 				bl1/bl1_main.c				\
-				lib/cpus/${ARCH}/cpu_helpers.S		\
-				lib/cpus/errata_report.c		\
 				lib/el3_runtime/${ARCH}/context_mgmt.c	\
 				plat/common/plat_bl1_common.c		\
 				plat/common/${ARCH}/platform_up_stack.S \
 				${MBEDTLS_SOURCES}
 
 ifeq (${ARCH},aarch64)
-BL1_SOURCES		+=	lib/cpus/aarch64/dsu_helpers.S		\
-				lib/el3_runtime/aarch64/context.S
+BL1_SOURCES		+=	lib/el3_runtime/aarch64/context.S
 endif
 
 ifeq (${TRUSTED_BOARD_BOOT},1)
@@ -36,3 +33,6 @@ else ifneq ($(findstring ld,$(notdir $(LD))),)
 endif
 
 BL1_DEFAULT_LINKER_SCRIPT_SOURCE := bl1/bl1.ld.S
+
+bl1-cpus-enable-cpu-operations := 1
+bl1-cpus-enable-errata-report := 1

@@ -82,3 +82,6 @@ $(eval $(call assert_boolean,RESET_TO_SP_MIN))
 SP_MIN_WITH_SECURE_FIQ 	?= 0
 $(eval $(call add_define,SP_MIN_WITH_SECURE_FIQ))
 $(eval $(call assert_boolean,SP_MIN_WITH_SECURE_FIQ))
+
+bl32-cpus-enable-cpu-operations := 1
+bl32-cpus-enable-errata-report := $(if $(filter aarch32,$(ARCH)),1,0)

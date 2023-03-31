@@ -4,6 +4,8 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
+include lib/cpus/cpus.mk
+
 #
 # Trusted Firmware Version
 #
@@ -437,7 +439,6 @@ endif
 
 INCLUDES		+=	-Iinclude				\
 				-Iinclude/arch/${ARCH}			\
-				-Iinclude/lib/cpus/${ARCH}		\
 				-Iinclude/lib/el3_runtime/${ARCH}	\
 				${PLAT_INCLUDES}			\
 				${SPD_INCLUDES}
@@ -1447,6 +1448,58 @@ else
 	endif
 endif #(SP_LAYOUT_FILE)
 endif #(SPD)
+
+################################################################################
+# Configure the CPU support library for each image
+################################################################################
+
+cpus-derived-paths = $(sort $(filter lib/cpus/%, \
+        $(BL1_SOURCES) $(BL1_INCLUDE_DIRS) $(BL2_SOURCES) $(BL2_INCLUDE_DIRS) \
+        $(BL31_SOURCES) $(BL31_INCLUDE_DIRS) $(PLAT_BL_COMMON_SOURCES) \
+        $(PLAT_BL_COMMON_INCLUDE_DIRS) \
+))
+
+cpus-derived = $(sort $(filter-out %_helpers cpuamu wa_%, \
+        $(basename $(notdir \
+                $(filter lib/cpus/aarch32/% lib/cpus/aarch64/%, \
+                        $(BL1_SOURCES) $(BL2_SOURCES) $(BL31_SOURCES) \
+                        $(PLAT_BL_COMMON_SOURCES) \
+                ) \
+        )) \
+))
+
+ifneq ($(cpus-derived-paths),)
+        $(warning this platform has explicitly specified CPU support library include directories and/or source files: $(cpus-derived-paths))
+        $(warning CPUs should instead be specified directly via `CPUS` (e.g. `CPUS := $(cpus-derived)`).)
+endif
+
+CPUS += $(cpus-derived)
+
+$(eval $(call cpus-config,plat))
+$(eval $(call cpus-config,bl1))
+$(eval $(call cpus-config,bl2))
+$(eval $(call cpus-config,bl31))
+$(eval $(call cpus-config,bl32))
+
+PLAT_BL_COMMON_DEFINES += $(plat-cpus-defines)
+PLAT_BL_COMMON_INCLUDE_DIRS += $(plat-cpus-include-dirs)
+PLAT_BL_COMMON_SOURCES += $(plat-cpus-sources)
+
+BL1_DEFINES += $(bl1-cpus-defines)
+BL1_INCLUDE_DIRS += $(bl1-cpus-include-dirs)
+BL1_SOURCES += $(bl1-cpus-sources)
+
+BL2_DEFINES += $(bl2-cpus-defines)
+BL2_INCLUDE_DIRS += $(bl2-cpus-include-dirs)
+BL2_SOURCES += $(bl2-cpus-sources)
+
+BL31_DEFINES += $(bl31-cpus-defines)
+BL31_INCLUDE_DIRS += $(bl31-cpus-include-dirs)
+BL31_SOURCES += $(bl31-cpus-sources)
+
+BL32_DEFINES += $(bl32-cpus-defines)
+BL32_INCLUDE_DIRS += $(bl32-cpus-include-dirs)
+BL32_SOURCES += $(bl32-cpus-sources)
 
 ################################################################################
 # Build targets
