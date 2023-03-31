@@ -56,6 +56,23 @@
       "message": "Some minor comments otherwise this looks good to me. Appears to have fixed the issue in CI too (for QEMU at least)! :) ",
       "revId": "376448178b7a32730ac8468d82b9379e2f49695c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "849ddddb_72cfef44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-03-31T16:42:36Z",
+      "side": 1,
+      "message": "TF-A-Main has been completed. [ https://ci.trustedfirmware.org/job/tf-a-main/625/]\nFew failures related to known issue [ aarch64-none-elf-ld.bfd: BL31 progbits has exceeded its limit. ]\n\nSPM-L3 tests and QEMU test groups have passed completely.",
+      "revId": "376448178b7a32730ac8468d82b9379e2f49695c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
