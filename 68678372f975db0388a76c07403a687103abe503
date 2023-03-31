@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76688717_18f8b361",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-31T21:54:55Z",
+      "side": 1,
+      "message": "I added these in here, since these errata do not have any mitigation at EL3 and are specific to platforms with a non-arm interconnect, as an example. \n\nAlso, the suggestion from the Kernel team was to make the information available from a platform level -\u003e https://gerrit.oss.arm.com/c/pdcs-platforms/ap/tf-topics/+/244960/10/services/std_svc/errata_abi/errata_abi_main.c#486.",
+      "parentUuid": "65ae918b_244a2ee3",
+      "revId": "68678372f975db0388a76c07403a687103abe503",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "602a3797_3f899e80",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-03-29T13:21:04Z",
       "side": 1,
       "message": "Could you leave a TODO saying this will get removed when the abi is synchronized with the framework? It\u0027s ugly code but it\u0027s temporary I suppose so it\u0027s alright.",
+      "revId": "68678372f975db0388a76c07403a687103abe503",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "315d8822_0208c37d",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-03-31T21:54:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "602a3797_3f899e80",
       "revId": "68678372f975db0388a76c07403a687103abe503",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
