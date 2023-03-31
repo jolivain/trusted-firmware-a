@@ -8,7 +8,6 @@
 #define PLAT_DEF_H
 
 #include <arch.h>
-#include <cortex_a72.h>
 /*
  * Required without TBBR.
  * To include the defines for DDR PHY

@@ -81,3 +81,16 @@ $(eval $(call assert_boolean,RESET_TO_SP_MIN))
 SP_MIN_WITH_SECURE_FIQ 	?= 0
 $(eval $(call add_define,SP_MIN_WITH_SECURE_FIQ))
 $(eval $(call assert_boolean,SP_MIN_WITH_SECURE_FIQ))
+
+#
+# Set up the CPU library for SP_MIN.
+#
+
+CPUS_ENABLE_CPU_OPERATIONS := 1
+CPUS_ENABLE_ERRATA_REPORT := 1
+
+include lib/cpus/cpus.mk
+
+$(eval BL32_DEFINES += $(CPUS_DEFINES))
+$(eval BL32_INCLUDE_DIRS += $(CPUS_INCLUDE_DIRS))
+$(eval BL32_SOURCES += $(CPUS_SOURCES))
