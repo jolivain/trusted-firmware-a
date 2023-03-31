@@ -534,7 +534,6 @@ endif
 
 INCLUDES		+=	-Iinclude				\
 				-Iinclude/arch/${ARCH}			\
-				-Iinclude/lib/cpus/${ARCH}		\
 				-Iinclude/lib/el3_runtime/${ARCH}	\
 				${PLAT_INCLUDES}			\
 				${SPD_INCLUDES}
@@ -556,72 +555,6 @@ SPDS			:=	$(sort $(filter-out none, $(patsubst services/spd/%,%,$(wildcard servi
 
 # Platforms providing their own TBB makefile may override this value
 INCLUDE_TBBR_MK		:=	1
-
-
-################################################################################
-# Include SPD Makefile if one has been specified
-################################################################################
-
-ifneq (${SPD},none)
-    ifeq (${ARCH},aarch32)
-        $(error "Error: SPD is incompatible with AArch32.")
-    endif
-
-    ifdef EL3_PAYLOAD_BASE
-        $(warning "SPD and EL3_PAYLOAD_BASE are incompatible build options.")
-        $(warning "The SPD and its BL32 companion will be present but ignored.")
-    endif
-
-    ifeq (${SPD},spmd)
-        # SPMD is located in std_svc directory
-        SPD_DIR := std_svc
-
-        ifeq ($(SPMD_SPM_AT_SEL2),1)
-            CTX_INCLUDE_EL2_REGS := 1
-	    ifeq ($(SPMC_AT_EL3),1)
-                $(error SPM cannot be enabled in both S-EL2 and EL3.)
-            endif
-        endif
-
-        ifeq ($(findstring optee_sp,$(ARM_SPMC_MANIFEST_DTS)),optee_sp)
-            DTC_CPPFLAGS	+=	-DOPTEE_SP_FW_CONFIG
-        endif
-
-        ifeq ($(TS_SP_FW_CONFIG),1)
-            DTC_CPPFLAGS	+=	-DTS_SP_FW_CONFIG
-        endif
-
-        ifneq ($(ARM_BL2_SP_LIST_DTS),)
-            DTC_CPPFLAGS += -DARM_BL2_SP_LIST_DTS=$(ARM_BL2_SP_LIST_DTS)
-        endif
-
-        ifneq ($(SP_LAYOUT_FILE),)
-            BL2_ENABLE_SP_LOAD := 1
-        endif
-    else
-        # All other SPDs in spd directory
-        SPD_DIR := spd
-    endif
-
-    # We expect to locate an spd.mk under the specified SPD directory
-    SPD_MAKE	:=	$(wildcard services/${SPD_DIR}/${SPD}/${SPD}.mk)
-
-    ifeq (${SPD_MAKE},)
-        $(error Error: No services/${SPD_DIR}/${SPD}/${SPD}.mk located)
-    endif
-    $(info Including ${SPD_MAKE})
-    include ${SPD_MAKE}
-
-    # If there's BL32 companion for the chosen SPD, we expect that the SPD's
-    # Makefile would set NEED_BL32 to "yes". In this case, the build system
-    # supports two mutually exclusive options:
-    # * BL32 is built from source: then BL32_SOURCES must contain the list
-    #   of source files to build BL32
-    # * BL32 is a prebuilt binary: then BL32 must point to the image file
-    #   that will be included in the FIP
-    # If both BL32_SOURCES and BL32 are defined, the binary takes precedence
-    # over the sources.
-endif
 
 ifeq (${CTX_INCLUDE_EL2_REGS}, 1)
 ifeq (${SPD},none)
@@ -1058,6 +991,71 @@ DOCS_PATH		?=	docs
 
 # Defination of SIMICS flag
 SIMICS_BUILD	?=	0
+
+################################################################################
+# Include SPD Makefile if one has been specified
+################################################################################
+
+ifneq (${SPD},none)
+    ifeq (${ARCH},aarch32)
+        $(error "Error: SPD is incompatible with AArch32.")
+    endif
+
+    ifdef EL3_PAYLOAD_BASE
+        $(warning "SPD and EL3_PAYLOAD_BASE are incompatible build options.")
+        $(warning "The SPD and its BL32 companion will be present but ignored.")
+    endif
+
+    ifeq (${SPD},spmd)
+        # SPMD is located in std_svc directory
+        SPD_DIR := std_svc
+
+        ifeq ($(SPMD_SPM_AT_SEL2),1)
+            CTX_INCLUDE_EL2_REGS := 1
+	    ifeq ($(SPMC_AT_EL3),1)
+                $(error SPM cannot be enabled in both S-EL2 and EL3.)
+            endif
+        endif
+
+        ifeq ($(findstring optee_sp,$(ARM_SPMC_MANIFEST_DTS)),optee_sp)
+            DTC_CPPFLAGS	+=	-DOPTEE_SP_FW_CONFIG
+        endif
+
+        ifeq ($(TS_SP_FW_CONFIG),1)
+            DTC_CPPFLAGS	+=	-DTS_SP_FW_CONFIG
+        endif
+
+        ifneq ($(ARM_BL2_SP_LIST_DTS),)
+            DTC_CPPFLAGS += -DARM_BL2_SP_LIST_DTS=$(ARM_BL2_SP_LIST_DTS)
+        endif
+
+        ifneq ($(SP_LAYOUT_FILE),)
+            BL2_ENABLE_SP_LOAD := 1
+        endif
+    else
+        # All other SPDs in spd directory
+        SPD_DIR := spd
+    endif
+
+    # We expect to locate an spd.mk under the specified SPD directory
+    SPD_MAKE	:=	$(wildcard services/${SPD_DIR}/${SPD}/${SPD}.mk)
+
+    ifeq (${SPD_MAKE},)
+        $(error Error: No services/${SPD_DIR}/${SPD}/${SPD}.mk located)
+    endif
+    $(info Including ${SPD_MAKE})
+    include ${SPD_MAKE}
+
+    # If there's BL32 companion for the chosen SPD, we expect that the SPD's
+    # Makefile would set NEED_BL32 to "yes". In this case, the build system
+    # supports two mutually exclusive options:
+    # * BL32 is built from source: then BL32_SOURCES must contain the list
+    #   of source files to build BL32
+    # * BL32 is a prebuilt binary: then BL32 must point to the image file
+    #   that will be included in the FIP
+    # If both BL32_SOURCES and BL32 are defined, the binary takes precedence
+    # over the sources.
+endif
 
 ################################################################################
 # Include BL specific makefiles
