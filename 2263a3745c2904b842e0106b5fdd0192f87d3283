@@ -70,6 +70,24 @@
       "parentUuid": "e0e55dba_6d4a0d01",
       "revId": "2263a3745c2904b842e0106b5fdd0192f87d3283",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fef32207_e72ddc5d",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-03-31T11:18:15Z",
+      "side": 1,
+      "message": "yeah I think it\u0027s a little better, but I guess it\u0027s okay as it is now, I didn\u0027t realise it was RES0 otherwise. Up to you, I don\u0027t mind",
+      "parentUuid": "2b79af91_e096b86f",
+      "revId": "2263a3745c2904b842e0106b5fdd0192f87d3283",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
