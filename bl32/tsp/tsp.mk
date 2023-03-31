@@ -30,6 +30,16 @@ else ifneq ($(findstring ld,$(notdir $(LD))),)
         BL32_LDFLAGS	+=	--sort-section=alignment
 endif
 
+#
+# Set up the CPU library for the TSP.
+#
+
+include lib/cpus/cpus.mk
+
+$(eval BL32_DEFINES += $(CPUS_DEFINES))
+$(eval BL32_INCLUDE_DIRS += $(CPUS_INCLUDE_DIRS))
+$(eval BL32_SOURCES += $(CPUS_SOURCES))
+
 # This flag determines if the TSPD initializes BL32 in tspd_init() (synchronous
 # method) or configures BL31 to pass control to BL32 instead of BL33
 # (asynchronous method).

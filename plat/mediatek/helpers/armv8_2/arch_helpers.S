@@ -7,7 +7,6 @@
 #include <arch.h>
 #include <asm_macros.S>
 #include <assert_macros.S>
-#include <cpu_macros.S>
 #if CONFIG_MTK_MCUSYS
 #include <mcucfg.h>
 #endif
