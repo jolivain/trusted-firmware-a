@@ -44,14 +44,13 @@ PLAT_BL_COMMON_SOURCES	:=	${PLAT_QEMU_COMMON_PATH}/qemu_common.c		\
 # Treating this as a memory-constrained port for now
 USE_COHERENT_MEM	:=	0
 
-# This can be overridden depending on CPU(s) used in the QEMU image
-HW_ASSISTED_COHERENCY	:=	1
-
-QEMU_CPU_LIBS		:=	lib/cpus/aarch64/cortex_a57.S			\
-				lib/cpus/aarch64/cortex_a72.S			\
-				lib/cpus/aarch64/neoverse_n_common.S		\
-				lib/cpus/aarch64/neoverse_n1.S			\
-				lib/cpus/aarch64/qemu_max.S
+ifeq ($(HW_ASSISTED_COHERENCY),0)
+        CPUS_SUPPORTED  +=      cortex_a57						\
+                                cortex_a72						\
+                                qemu_max
+else
+        CPUS_SUPPORTED  +=      neoverse_n1
+endif
 
 include lib/xlat_tables_v2/xlat_tables.mk
 PLAT_BL_COMMON_SOURCES	+=	${XLAT_TABLES_LIB_SRCS}
@@ -65,8 +64,6 @@ BL1_SOURCES		+=	drivers/io/io_semihosting.c			\
 				${PLAT_QEMU_COMMON_PATH}/qemu_io_storage.c	\
 				${PLAT_QEMU_COMMON_PATH}/${ARCH}/plat_helpers.S	\
 				${PLAT_QEMU_COMMON_PATH}/qemu_bl1_setup.c
-
-BL1_SOURCES		+=	${QEMU_CPU_LIBS}
 
 BL2_SOURCES		+=	drivers/io/io_semihosting.c			\
 				drivers/io/io_storage.c				\
@@ -92,8 +89,7 @@ QEMU_GIC_SOURCES	:=	${GICV3_SOURCES}				\
 				plat/common/plat_gicv3.c			\
 				${PLAT_QEMU_COMMON_PATH}/qemu_gicv3.c
 
-BL31_SOURCES		+=	${QEMU_CPU_LIBS}				\
-				lib/semihosting/semihosting.c			\
+BL31_SOURCES		+=	lib/semihosting/semihosting.c			\
 				lib/semihosting/${ARCH}/semihosting_call.S	\
 				plat/common/plat_psci_common.c			\
 				${PLAT_QEMU_PATH}/sbsa_pm.c			\
