@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
 # Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
@@ -40,10 +40,11 @@ $(eval $(call add_define,MAX_MMAP_REGIONS))
 PLAT_INCLUDES		+=	-Iplat/nvidia/tegra/include/t186 \
 				-I${SOC_DIR}/drivers/include
 
+CPUS_ENABLE		+=	denver 				\
+				cortex_a57
+
 BL31_SOURCES		+=	${TEGRA_GICv2_SOURCES}			\
 				drivers/ti/uart/aarch64/16550_console.S	\
-				lib/cpus/aarch64/denver.S		\
-				lib/cpus/aarch64/cortex_a57.S		\
 				${TEGRA_DRIVERS}/bpmp_ipc/intf.c	\
 				${TEGRA_DRIVERS}/bpmp_ipc/ivc.c		\
 				${TEGRA_DRIVERS}/gpcdma/gpcdma.c	\

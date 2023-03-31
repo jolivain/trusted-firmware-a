@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2019-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -22,8 +22,9 @@ GIC_SOURCES		:=	drivers/arm/gic/common/gic_common.c		\
 				drivers/arm/gic/v2/gicv2_helpers.c		\
 				plat/common/plat_gicv2.c
 
-BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a53.S			\
-				plat/common/plat_psci_common.c			\
+CPUS_ENABLE		+=	cortex_a53
+
+BL31_SOURCES		+=	plat/common/plat_psci_common.c			\
 				drivers/amlogic/console/aarch64/meson_console.S	\
 				${AML_PLAT_SOC}/${PLAT}_bl31_setup.c		\
 				${AML_PLAT_SOC}/${PLAT}_pm.c			\
@@ -88,4 +89,3 @@ ${DOIMAGETOOL}:
 
 ${BUILD_PLAT}/bl31.img: ${BUILD_PLAT}/bl31.bin ${DOIMAGETOOL}
 	${DOIMAGETOOL} ${BUILD_PLAT}/bl31.bin ${BUILD_PLAT}/bl31.img
-

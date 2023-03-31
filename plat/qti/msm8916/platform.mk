@@ -7,6 +7,8 @@
 include drivers/arm/gic/v2/gicv2.mk
 include lib/xlat_tables_v2/xlat_tables.mk
 
+CPUS_ENABLE	+=	cortex_a53
+
 PLAT_BL_COMMON_SOURCES	:=	${GICV2_SOURCES}				\
 				${XLAT_TABLES_LIB_SRCS}				\
 				drivers/delay_timer/delay_timer.c		\

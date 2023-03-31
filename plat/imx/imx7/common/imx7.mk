@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2018-2022, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2018-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -21,6 +21,8 @@ PLAT_INCLUDES		:=	-Idrivers/imx/uart			\
 # Translation tables library
 include lib/xlat_tables_v2/xlat_tables.mk
 
+CPUS_ENABLE		+=	cortex_a7
+
 BL2_SOURCES		+=	common/desc_image_load.c			\
 				drivers/delay_timer/delay_timer.c		\
 				drivers/mmc/mmc.c				\
@@ -33,7 +35,6 @@ BL2_SOURCES		+=	common/desc_image_load.c			\
 				drivers/imx/uart/imx_crash_uart.S		\
 				lib/aarch32/arm32_aeabi_divmod.c		\
 				lib/aarch32/arm32_aeabi_divmod_a32.S		\
-				lib/cpus/aarch32/cortex_a7.S			\
 				lib/optee/optee_utils.c				\
 				plat/imx/common/imx_aips.c			\
 				plat/imx/common/imx_caam.c			\

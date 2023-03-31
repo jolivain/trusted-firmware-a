@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2017-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -49,13 +49,14 @@ PLAT_BL_COMMON_SOURCES	+=	plat/common/aarch64/crash_console_helpers.S \
 				$(PLAT_PATH)/uniphier_xlat_setup.c	\
 				${XLAT_TABLES_LIB_SRCS}
 
+CPUS_ENABLE		+=	cortex_a53				\
+				cortex_a72
+
 BL2_SOURCES		+=	common/desc_image_load.c		\
 				drivers/io/io_block.c			\
 				drivers/io/io_fip.c			\
 				drivers/io/io_memmap.c			\
 				drivers/io/io_storage.c			\
-				lib/cpus/aarch64/cortex_a53.S		\
-				lib/cpus/aarch64/cortex_a72.S		\
 				$(PLAT_PATH)/uniphier_bl2_setup.c	\
 				$(PLAT_PATH)/uniphier_boot_device.c	\
 				$(PLAT_PATH)/uniphier_emmc.c		\
@@ -70,8 +71,6 @@ include drivers/arm/gic/v3/gicv3.mk
 
 BL31_SOURCES		+=	drivers/arm/cci/cci.c			\
 				${GICV3_SOURCES}			\
-				lib/cpus/aarch64/cortex_a53.S		\
-				lib/cpus/aarch64/cortex_a72.S		\
 				plat/common/plat_gicv3.c		\
 				plat/common/plat_psci_common.c		\
 				$(PLAT_PATH)/uniphier_bl31_setup.c	\

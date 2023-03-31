@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2018-2020, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2018-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -15,12 +15,11 @@ RDN1EDGE_BASE		=	plat/arm/board/rdn1edge
 
 PLAT_INCLUDES		+=	-I${RDN1EDGE_BASE}/include/
 
-SGI_CPU_SOURCES		:=	lib/cpus/aarch64/neoverse_n1.S
+CPUS_ENABLE		+=	neoverse_n1
 
 PLAT_BL_COMMON_SOURCES	+=	${CSS_ENT_BASE}/sgi_plat.c
 
-BL1_SOURCES		+=	${SGI_CPU_SOURCES}			\
-				${RDN1EDGE_BASE}/rdn1edge_err.c
+BL1_SOURCES		+=	${RDN1EDGE_BASE}/rdn1edge_err.c
 
 BL2_SOURCES		+=	${RDN1EDGE_BASE}/rdn1edge_plat.c	\
 				${RDN1EDGE_BASE}/rdn1edge_security.c	\
@@ -29,8 +28,7 @@ BL2_SOURCES		+=	${RDN1EDGE_BASE}/rdn1edge_plat.c	\
 				lib/utils/mem_region.c			\
 				plat/arm/common/arm_nor_psci_mem_protect.c
 
-BL31_SOURCES		+=	${SGI_CPU_SOURCES}			\
-				${RDN1EDGE_BASE}/rdn1edge_plat.c	\
+BL31_SOURCES		+=	${RDN1EDGE_BASE}/rdn1edge_plat.c	\
 				${RDN1EDGE_BASE}/rdn1edge_topology.c	\
 				drivers/cfi/v2m/v2m_flash.c		\
 				lib/utils/mem_region.c			\

@@ -56,7 +56,7 @@ COREBOOT			:= 0
 # For Chain of Trust
 CREATE_KEYS			:= 1
 
-# Build flag to include AArch32 registers in cpu context save and restore during
+# Build flag to include AArch32 registers in CPU context save and restore during
 # world switch. This flag must be set to 0 for AArch64-only platforms.
 CTX_INCLUDE_AARCH32_REGS	:= 1
 

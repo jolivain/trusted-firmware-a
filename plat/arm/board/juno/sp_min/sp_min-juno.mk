@@ -1,14 +1,11 @@
 #
-# Copyright (c) 2016-2018, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2016-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
 # SP_MIN source files specific to JUNO platform
 BL32_SOURCES	+=	drivers/cfi/v2m/v2m_flash.c		\
-			lib/cpus/aarch32/cortex_a53.S		\
-			lib/cpus/aarch32/cortex_a57.S		\
-			lib/cpus/aarch32/cortex_a72.S		\
 			lib/utils/mem_region.c			\
 			plat/arm/board/juno/juno_pm.c		\
 			plat/arm/board/juno/juno_topology.c	\

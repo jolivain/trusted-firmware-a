@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2021-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -41,7 +41,7 @@ FVP_R_BL1_SOURCES	:=	plat/arm/board/fvp_r/fvp_r_bl1_arch_setup.c	\
 				plat/arm/board/fvp_r/fvp_r_bl1_exceptions.S	\
 				plat/arm/board/fvp_r/fvp_r_bl1_main.c
 
-FVP_R_CPU_LIBS		:=	lib/cpus/${ARCH}/aem_generic.S
+CPUS_ENABLE		+=	aem_generic
 
 FVP_R_DYNC_CFG_SOURCES	:=	common/fdt_wrappers.c				\
 				plat/arm/common/arm_dyn_cfg.c
@@ -82,8 +82,6 @@ override BL1_SOURCES	:=	drivers/arm/sp805/sp805.c			\
 				drivers/io/io_memmap.c				\
 				drivers/io/io_storage.c				\
 				drivers/io/io_semihosting.c			\
-				lib/cpus/aarch64/cpu_helpers.S			\
-				lib/cpus/errata_report.c			\
 				lib/fconf/fconf_dyn_cfg_getter.c		\
 				lib/semihosting/semihosting.c			\
 				lib/semihosting/${ARCH}/semihosting_call.S	\
@@ -95,6 +93,18 @@ override BL1_SOURCES	:=	drivers/arm/sp805/sp805.c			\
 				plat/common/aarch64/platform_up_stack.S		\
 				${FVP_R_BL1_SOURCES}				\
 				${FVP_R_BL_COMMON_SOURCES}			\
-				${FVP_R_CPU_LIBS}				\
 				${FVP_R_DYNC_CFG_SOURCES}			\
 				${FVP_R_INTERCONNECT_SOURCES}
+
+#
+# Set up the CPU library for FVP-R BL1.
+#
+
+CPUS_ENABLE_CPU_OPERATIONS := 1
+CPUS_ENABLE_ERRATA_REPORT := 1
+
+include lib/cpus/cpus.mk
+
+$(eval override BL1_DEFINES += $(CPUS_DEFINES))
+$(eval override BL1_INCLUDE_DIRS += $(CPUS_INCLUDE_DIRS))
+$(eval override BL1_SOURCES += $(CPUS_SOURCES))

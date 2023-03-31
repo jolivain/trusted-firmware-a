@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016-2019, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2016-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -38,12 +38,13 @@ PLAT_BL_COMMON_SOURCES	:=	common/desc_image_load.c			\
 PLAT_BL_COMMON_SOURCES	+=	lib/xlat_tables/xlat_tables_common.c		\
 				lib/xlat_tables/aarch32/xlat_tables.c
 
+CPUS_ENABLE		+=	cortex_a12
+
 BL32_SOURCES		+=	${RK_GIC_SOURCES}				\
 				drivers/arm/cci/cci.c				\
 				drivers/ti/uart/aarch32/16550_console.S		\
 				drivers/delay_timer/delay_timer.c		\
 				drivers/delay_timer/generic_delay_timer.c	\
-				lib/cpus/aarch32/cortex_a12.S			\
 				${RK_PLAT_COMMON}/aarch32/plat_helpers.S	\
 				${RK_PLAT_COMMON}/params_setup.c		\
 				${RK_PLAT_COMMON}/aarch32/pmu_sram_cpus_on.S	\

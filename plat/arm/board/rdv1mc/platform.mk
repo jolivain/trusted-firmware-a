@@ -1,4 +1,4 @@
-# Copyright (c) 2020-2021, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2020-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -13,12 +13,11 @@ RDV1MC_BASE	=	plat/arm/board/rdv1mc
 
 PLAT_INCLUDES		+=	-I${RDV1MC_BASE}/include/
 
-SGI_CPU_SOURCES		:=	lib/cpus/aarch64/neoverse_v1.S
+CPUS_ENABLE		+=	neoverse_v1
 
 PLAT_BL_COMMON_SOURCES	+=	${CSS_ENT_BASE}/sgi_plat.c
 
-BL1_SOURCES		+=	${SGI_CPU_SOURCES}			\
-				${RDV1MC_BASE}/rdv1mc_err.c
+BL1_SOURCES		+=	${RDV1MC_BASE}/rdv1mc_err.c
 
 BL2_SOURCES		+=	${RDV1MC_BASE}/rdv1mc_plat.c	\
 				${RDV1MC_BASE}/rdv1mc_security.c	\
@@ -28,8 +27,7 @@ BL2_SOURCES		+=	${RDV1MC_BASE}/rdv1mc_plat.c	\
 				lib/utils/mem_region.c			\
 				plat/arm/common/arm_nor_psci_mem_protect.c
 
-BL31_SOURCES		+=	${SGI_CPU_SOURCES}			\
-				${RDV1MC_BASE}/rdv1mc_plat.c	\
+BL31_SOURCES		+=	${RDV1MC_BASE}/rdv1mc_plat.c	\
 				${RDV1MC_BASE}/rdv1mc_topology.c	\
 				drivers/cfi/v2m/v2m_flash.c		\
 				drivers/arm/gic/v3/gic600_multichip.c	\

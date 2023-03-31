@@ -169,7 +169,7 @@ PLAT_INCLUDES		:=	-Iplat/arm/board/fvp/include		\
 
 PLAT_BL_COMMON_SOURCES	:=	plat/arm/board/fvp/fvp_common.c
 
-FVP_CPU_LIBS		:=	lib/cpus/${ARCH}/aem_generic.S
+CPUS_ENABLE		:=	aem_generic
 
 ifeq (${ARCH}, aarch64)
 
@@ -177,51 +177,49 @@ ifeq (${ARCH}, aarch64)
 # hardware assisted coherency cores or not
 ifeq (${HW_ASSISTED_COHERENCY}, 0)
 # Cores used without DSU
-	FVP_CPU_LIBS	+=	lib/cpus/aarch64/cortex_a35.S			\
-				lib/cpus/aarch64/cortex_a53.S			\
-				lib/cpus/aarch64/cortex_a57.S			\
-				lib/cpus/aarch64/cortex_a72.S			\
-				lib/cpus/aarch64/cortex_a73.S
+	CPUS_ENABLE	+=	cortex_a35					\
+				cortex_a53					\
+				cortex_a57					\
+				cortex_a72					\
+				cortex_a73
 else
 # Cores used with DSU only
 	ifeq (${CTX_INCLUDE_AARCH32_REGS}, 0)
 	# AArch64-only cores
-	# TODO: add all cores to the appropriate lists
-		FVP_CPU_LIBS	+=	lib/cpus/aarch64/cortex_a76.S		\
-					lib/cpus/aarch64/cortex_a76ae.S		\
-					lib/cpus/aarch64/cortex_a77.S		\
-					lib/cpus/aarch64/cortex_a78.S		\
-					lib/cpus/aarch64/cortex_a78_ae.S	\
-					lib/cpus/aarch64/neoverse_n_common.S	\
-					lib/cpus/aarch64/neoverse_n1.S		\
-					lib/cpus/aarch64/neoverse_n2.S		\
-					lib/cpus/aarch64/neoverse_e1.S		\
-					lib/cpus/aarch64/neoverse_v1.S		\
-					lib/cpus/aarch64/neoverse_v2.S	\
-					lib/cpus/aarch64/cortex_a78_ae.S	\
-					lib/cpus/aarch64/cortex_a510.S		\
-					lib/cpus/aarch64/cortex_a710.S		\
-					lib/cpus/aarch64/cortex_a715.S		\
-					lib/cpus/aarch64/cortex_x3.S 		\
-					lib/cpus/aarch64/cortex_a65.S		\
-					lib/cpus/aarch64/cortex_a65ae.S		\
-					lib/cpus/aarch64/cortex_a78c.S		\
-					lib/cpus/aarch64/cortex_hayes.S		\
-					lib/cpus/aarch64/cortex_hunter.S	\
-					lib/cpus/aarch64/cortex_hunter_elp_arm.S \
-					lib/cpus/aarch64/cortex_x2.S		\
-					lib/cpus/aarch64/neoverse_poseidon.S	\
-					lib/cpus/aarch64/cortex_chaberton.S	\
-					lib/cpus/aarch64/cortex_blackhawk.S
+		CPUS_ENABLE	+=	cortex_a76		\
+					cortex_a76ae		\
+					cortex_a77		\
+					cortex_a78		\
+					cortex_a78_ae		\
+					neoverse_n1		\
+					neoverse_n2		\
+					neoverse_e1		\
+					neoverse_v1		\
+					neoverse_v2		\
+					cortex_a78_ae		\
+					cortex_a510		\
+					cortex_a710		\
+					cortex_a715		\
+					cortex_x3		\
+					cortex_a65		\
+					cortex_a65ae		\
+					cortex_a78c		\
+					cortex_hayes		\
+					cortex_hunter		\
+					cortex_hunter_elp_arm	\
+					cortex_x2		\
+					neoverse_poseidon	\
+					cortex_chaberton	\
+					cortex_blackhawk
 	endif
 	# AArch64/AArch32 cores
-	FVP_CPU_LIBS	+=	lib/cpus/aarch64/cortex_a55.S		\
-				lib/cpus/aarch64/cortex_a75.S
+	CPUS_ENABLE	+=	cortex_a55					\
+				cortex_a75
 endif
 
 else
-FVP_CPU_LIBS		+=	lib/cpus/aarch32/cortex_a32.S			\
-				lib/cpus/aarch32/cortex_a57.S
+CPUS_ENABLE		+=	cortex_a32					\
+				cortex_a57
 endif
 
 BL1_SOURCES		+=	drivers/arm/smmu/smmu_v3.c			\
@@ -234,7 +232,6 @@ BL1_SOURCES		+=	drivers/arm/smmu/smmu_v3.c			\
 				plat/arm/board/fvp/fvp_bl1_setup.c		\
 				plat/arm/board/fvp/fvp_err.c			\
 				plat/arm/board/fvp/fvp_io_storage.c		\
-				${FVP_CPU_LIBS}					\
 				${FVP_INTERCONNECT_SOURCES}
 
 ifeq (${USE_SP804_TIMER},1)
@@ -279,7 +276,6 @@ endif
 ifeq (${RESET_TO_BL2},1)
 BL2_SOURCES		+=	plat/arm/board/fvp/${ARCH}/fvp_helpers.S	\
 				plat/arm/board/fvp/fvp_bl2_el3_setup.c		\
-				${FVP_CPU_LIBS}					\
 				${FVP_INTERCONNECT_SOURCES}
 endif
 
@@ -305,7 +301,6 @@ BL31_SOURCES		+=	drivers/arm/fvp/fvp_pwrc.c			\
 				plat/arm/board/fvp/fvp_topology.c		\
 				plat/arm/board/fvp/aarch64/fvp_helpers.S	\
 				plat/arm/common/arm_nor_psci_mem_protect.c	\
-				${FVP_CPU_LIBS}					\
 				${FVP_GIC_SOURCES}				\
 				${FVP_INTERCONNECT_SOURCES}			\
 				${FVP_SECURITY_SOURCES}
@@ -387,13 +382,7 @@ endif
 DYNAMIC_WORKAROUND_CVE_2018_3639	:=	1
 
 ifneq (${ENABLE_FEAT_AMU},0)
-BL31_SOURCES		+=	lib/cpus/aarch64/cpuamu.c		\
-				lib/cpus/aarch64/cpuamu_helpers.S
-
-ifeq (${HW_ASSISTED_COHERENCY}, 1)
-BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a75_pubsub.c	\
-				lib/cpus/aarch64/neoverse_n1_pubsub.c
-endif
+CPUS_ENABLE_CPU_AMU	:=	1
 endif
 
 ifeq (${RAS_FFH_SUPPORT},1)

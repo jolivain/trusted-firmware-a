@@ -535,7 +535,6 @@ endif
 
 INCLUDES		+=	-Iinclude				\
 				-Iinclude/arch/${ARCH}			\
-				-Iinclude/lib/cpus/${ARCH}		\
 				-Iinclude/lib/el3_runtime/${ARCH}	\
 				${PLAT_INCLUDES}			\
 				${SPD_INCLUDES}

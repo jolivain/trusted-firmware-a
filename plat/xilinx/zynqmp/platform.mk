@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2021, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
 # Portions copyright (c) 2021-2022, ProvenRun S.A.S. All rights reserved.
 # Copyright (c) 2018-2022, Xilinx, Inc. All rights reserved.
 # Copyright (c) 2022-2023, Advanced Micro Devices, Inc. All rights reserved.
@@ -119,9 +119,10 @@ $(eval $(call add_define_val,ZYNQMP_CONSOLE,ZYNQMP_CONSOLE_ID_${ZYNQMP_CONSOLE})
 # Build PM code as a Library
 include plat/xilinx/zynqmp/libpm.mk
 
+CPUS_ENABLE		+=	aem_generic					\
+				cortex_a53
+
 BL31_SOURCES		+=	drivers/arm/cci/cci.c				\
-				lib/cpus/aarch64/aem_generic.S			\
-				lib/cpus/aarch64/cortex_a53.S			\
 				plat/common/plat_psci_common.c			\
 				common/fdt_fixup.c				\
 				${LIBFDT_SRCS}					\

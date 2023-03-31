@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016-2020, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2016-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -42,14 +42,14 @@ ifneq (${ENABLE_STACK_PROTECTOR},0)
 PLAT_BL_COMMON_SOURCES	+=	${RK_PLAT_COMMON}/rockchip_stack_protector.c
 endif
 
+CPUS_ENABLE		+=	cortex_a53 cortex_a72
+
 BL31_SOURCES	+=	${RK_GIC_SOURCES}				\
 			drivers/arm/cci/cci.c				\
 			drivers/ti/uart/aarch64/16550_console.S		\
 			drivers/delay_timer/delay_timer.c		\
 			drivers/delay_timer/generic_delay_timer.c	\
 			drivers/gpio/gpio.c				\
-			lib/cpus/aarch64/cortex_a53.S			\
-			lib/cpus/aarch64/cortex_a72.S			\
 			${RK_PLAT_COMMON}/aarch64/plat_helpers.S	\
 			${RK_PLAT_COMMON}/bl31_plat_setup.c		\
 			${RK_PLAT_COMMON}/params_setup.c		\

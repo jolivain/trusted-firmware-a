@@ -44,7 +44,6 @@ BL31_SOURCES		+=	bl31/bl31_main.c				\
 				bl31/bl31_context_mgmt.c			\
 				bl31/bl31_traps.c				\
 				common/runtime_svc.c				\
-				lib/cpus/aarch64/dsu_helpers.S			\
 				plat/common/aarch64/platform_mp_stack.S		\
 				services/arm_arch_svc/arm_arch_svc_setup.c	\
 				services/std_svc/std_svc_setup.c		\
@@ -126,11 +125,6 @@ ifneq (${ENABLE_TRF_FOR_NS},0)
 BL31_SOURCES		+=	lib/extensions/trf/aarch64/trf.c
 endif
 
-ifeq (${WORKAROUND_CVE_2017_5715},1)
-BL31_SOURCES		+=	lib/cpus/aarch64/wa_cve_2017_5715_bpiall.S	\
-				lib/cpus/aarch64/wa_cve_2017_5715_mmu.S
-endif
-
 ifeq ($(SMC_PCI_SUPPORT),1)
 BL31_SOURCES		+=	services/std_svc/pci_svc.c
 endif
@@ -182,3 +176,24 @@ $(eval $(call add_defines,\
         EL3_EXCEPTION_HANDLING \
         SDEI_SUPPORT \
 )))
+
+#
+# Set up the CPU library for BL31.
+#
+
+CPUS_ENABLE_CPU_OPERATIONS := 1
+CPUS_ENABLE_ERRATA_REPORT := 1
+
+ifeq ($(ENABLE_FEAT_AMU),1)
+        CPUS_ENABLE_CPU_AMU := 1
+endif
+
+ifeq ($(WORKAROUND_CVE_2017_5715),1)
+        CPUS_ENABLE_CVE_2017_5715_WORKAROUND := 1
+endif
+
+include lib/cpus/cpus.mk
+
+$(eval BL31_DEFINES += $(CPUS_DEFINES))
+$(eval BL31_INCLUDE_DIRS += $(CPUS_INCLUDE_DIRS))
+$(eval BL31_SOURCES += $(CPUS_SOURCES))

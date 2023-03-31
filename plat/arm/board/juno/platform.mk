@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -65,11 +65,12 @@ override BL31_SOURCES =
   endif
 endif
 
+CPUS_ENABLE		+=	cortex_a53				\
+				cortex_a57				\
+				cortex_a72
+
 ifeq (${ARCH},aarch64)
-BL1_SOURCES		+=	lib/cpus/aarch64/cortex_a53.S		\
-				lib/cpus/aarch64/cortex_a57.S		\
-				lib/cpus/aarch64/cortex_a72.S		\
-				plat/arm/board/juno/juno_err.c		\
+BL1_SOURCES		+=	plat/arm/board/juno/juno_err.c		\
 				plat/arm/board/juno/juno_bl1_setup.c	\
 				drivers/arm/sp805/sp805.c		\
 				${JUNO_INTERCONNECT_SOURCES}		\
@@ -85,9 +86,6 @@ BL2_SOURCES		+=	drivers/arm/sp805/sp805.c		\
 BL2U_SOURCES		+=	${JUNO_SECURITY_SOURCES}
 
 BL31_SOURCES		+=	drivers/cfi/v2m/v2m_flash.c		\
-				lib/cpus/aarch64/cortex_a53.S		\
-				lib/cpus/aarch64/cortex_a57.S		\
-				lib/cpus/aarch64/cortex_a72.S		\
 				lib/utils/mem_region.c			\
 				lib/fconf/fconf.c			\
 				lib/fconf/fconf_dyn_cfg_getter.c	\
@@ -211,3 +209,13 @@ include plat/arm/board/common/board_common.mk
 include plat/arm/common/arm_common.mk
 include plat/arm/soc/common/soc_css.mk
 include plat/arm/css/common/css_common.mk
+
+#
+# Juno's platform helpers depend on the CPU support headers.
+#
+
+include lib/cpus/cpus.mk
+
+$(eval PLAT_BL_COMMON_DEFINES += $(CPUS_DEFINES))
+$(eval PLAT_BL_COMMON_INCLUDE_DIRS += $(CPUS_INCLUDE_DIRS))
+$(eval PLAT_BL_COMMON_SOURCES += $(CPUS_SOURCES))

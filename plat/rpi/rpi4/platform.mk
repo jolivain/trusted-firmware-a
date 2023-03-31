@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -17,8 +17,9 @@ PLAT_BL_COMMON_SOURCES	:=	drivers/ti/uart/aarch64/16550_console.S	\
 				plat/rpi/common/rpi3_common.c		\
 				${XLAT_TABLES_LIB_SRCS}
 
-BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a72.S		\
-				plat/rpi/common/aarch64/plat_helpers.S	\
+CPUS_ENABLE		+=	cortex_a72
+
+BL31_SOURCES		+=	plat/rpi/common/aarch64/plat_helpers.S	\
 				plat/rpi/rpi4/aarch64/armstub8_header.S	\
 				drivers/delay_timer/delay_timer.c	\
 				drivers/gpio/gpio.c			\
@@ -113,4 +114,3 @@ endif
 ifeq ($(SMC_PCI_SUPPORT), 1)
 BL31_SOURCES            +=      plat/rpi/rpi4/rpi4_pci_svc.c
 endif
-

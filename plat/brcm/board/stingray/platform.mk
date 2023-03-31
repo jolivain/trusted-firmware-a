@@ -190,8 +190,9 @@ PLAT_INCLUDES		+=	-Iplat/${SOC_DIR}/include/ \
 				-Iinclude/plat/brcm/common/ \
 				-Iplat/brcm/common/
 
-PLAT_BL_COMMON_SOURCES	+=	lib/cpus/aarch64/cortex_a72.S \
-				plat/${SOC_DIR}/aarch64/plat_helpers.S \
+CPUS_ENABLE		+=	cortex_a72
+
+PLAT_BL_COMMON_SOURCES	+=	plat/${SOC_DIR}/aarch64/plat_helpers.S \
 				drivers/ti/uart/aarch64/16550_console.S \
 				plat/${SOC_DIR}/src/tz_sec.c \
 				drivers/arm/tzc/tzc400.c \

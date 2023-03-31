@@ -58,17 +58,16 @@ PLAT_INCLUDES		:=	-Iinclude/plat/arm/common/		\
 ifeq (${ARM_ARCH_MAJOR},8)
 PLAT_INCLUDES		+=	-Iinclude/plat/arm/common/${ARCH}
 
-QEMU_CPU_LIBS		:=	lib/cpus/aarch64/aem_generic.S		\
-				lib/cpus/aarch64/cortex_a53.S		\
-				lib/cpus/aarch64/cortex_a57.S		\
-				lib/cpus/aarch64/cortex_a72.S		\
-				lib/cpus/aarch64/cortex_a76.S		\
-				lib/cpus/aarch64/neoverse_n_common.S	\
-				lib/cpus/aarch64/neoverse_n1.S		\
-				lib/cpus/aarch64/neoverse_v1.S		\
-				lib/cpus/aarch64/qemu_max.S
+CPUS_ENABLE		:=	aem_generic		\
+				cortex_a53		\
+				cortex_a57		\
+				cortex_a72		\
+				cortex_a76		\
+				neoverse_n1		\
+				neoverse_v1		\
+				qemu_max
 else
-QEMU_CPU_LIBS		:=	lib/cpus/${ARCH}/cortex_a15.S
+CPUS_ENABLE		+=	cortex_a15
 endif
 
 PLAT_BL_COMMON_SOURCES	:=	${PLAT_QEMU_COMMON_PATH}/qemu_common.c			\
@@ -158,19 +157,7 @@ BL1_SOURCES		+=	drivers/io/io_semihosting.c		\
 				lib/semihosting/${ARCH}/semihosting_call.S \
 				${PLAT_QEMU_COMMON_PATH}/qemu_io_storage.c		\
 				${PLAT_QEMU_COMMON_PATH}/${ARCH}/plat_helpers.S	\
-				${PLAT_QEMU_COMMON_PATH}/qemu_bl1_setup.c	\
-				${QEMU_CPU_LIBS}
-
-ifeq (${ARM_ARCH_MAJOR},8)
-BL1_SOURCES		+=	lib/cpus/${ARCH}/aem_generic.S		\
-				lib/cpus/${ARCH}/cortex_a53.S		\
-				lib/cpus/${ARCH}/cortex_a57.S		\
-				lib/cpus/${ARCH}/cortex_a72.S		\
-				lib/cpus/${ARCH}/qemu_max.S		\
-
-else
-BL1_SOURCES		+=	lib/cpus/${ARCH}/cortex_a15.S
-endif
+				${PLAT_QEMU_COMMON_PATH}/qemu_bl1_setup.c
 
 BL2_SOURCES		+=	drivers/io/io_semihosting.c		\
 				drivers/io/io_storage.c			\
@@ -219,8 +206,7 @@ $(error "Incorrect GIC driver chosen for QEMU platform")
 endif
 
 ifeq (${ARM_ARCH_MAJOR},8)
-BL31_SOURCES		+=	${QEMU_CPU_LIBS}			\
-				lib/semihosting/semihosting.c		\
+BL31_SOURCES		+=	lib/semihosting/semihosting.c		\
 				lib/semihosting/${ARCH}/semihosting_call.S \
 				plat/common/plat_psci_common.c		\
 				drivers/arm/pl061/pl061_gpio.c		\

@@ -40,14 +40,15 @@ PLAT_BL_COMMON_SOURCES := ${GICV3_SOURCES}                              \
                           plat/common/aarch64/crash_console_helpers.S   \
                           plat/common/plat_psci_common.c
 
+CPUS_ENABLE  += cortex_a55                                            \
+                   cortex_a76
+
 BL31_SOURCES    += common/desc_image_load.c                              \
                    drivers/delay_timer/delay_timer.c                     \
                    drivers/delay_timer/generic_delay_timer.c             \
                    drivers/ti/uart/aarch64/16550_console.S               \
                    drivers/gpio/gpio.c                                   \
                    lib/bl_aux_params/bl_aux_params.c                     \
-                   lib/cpus/aarch64/cortex_a55.S                         \
-                   lib/cpus/aarch64/cortex_a76.S                         \
                    plat/common/plat_gicv3.c                              \
                    ${MTK_PLAT}/common/mtk_plat_common.c                  \
                    ${MTK_PLAT}/common/mtk_sip_svc.c                      \
@@ -100,4 +101,3 @@ MACH_MT8192 := 1
 $(eval $(call add_define,MACH_MT8192))
 
 include lib/coreboot/coreboot.mk
-

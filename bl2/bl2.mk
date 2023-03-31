@@ -40,12 +40,19 @@ else
 # BL2 at EL3, no RME
 BL2_SOURCES		+=	bl2/${ARCH}/bl2_el3_entrypoint.S	\
 				bl2/${ARCH}/bl2_el3_exceptions.S	\
-				bl2/${ARCH}/bl2_run_next_image.S        \
-				lib/cpus/${ARCH}/cpu_helpers.S
-
-ifeq (${ARCH},aarch64)
-BL2_SOURCES		+=	lib/cpus/aarch64/dsu_helpers.S
-endif
+				bl2/${ARCH}/bl2_run_next_image.S
 
 BL2_DEFAULT_LINKER_SCRIPT_SOURCE := bl2/bl2_el3.ld.S
 endif
+
+#
+# Set up the CPU library for BL2.
+#
+
+CPUS_ENABLE_CPU_OPERATIONS := 1
+
+include lib/cpus/cpus.mk
+
+$(eval BL2_DEFINES += $(CPUS_DEFINES))
+$(eval BL2_INCLUDE_DIRS += $(CPUS_INCLUDE_DIRS))
+$(eval BL2_SOURCES += $(CPUS_SOURCES))

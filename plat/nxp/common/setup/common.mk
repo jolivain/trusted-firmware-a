@@ -61,8 +61,7 @@ PLAT_INCLUDES		+=	-I${PLAT_SETUP_PATH}/include			\
 PLAT_INCLUDES		+=	-Iinclude/common/tbbr
 
 include ${PLAT_SETUP_PATH}/core.mk
-PLAT_BL_COMMON_SOURCES	+= 	${CPU_LIBS} \
-				plat/nxp/common/setup/ls_err.c		\
+PLAT_BL_COMMON_SOURCES	+= 	plat/nxp/common/setup/ls_err.c		\
 				plat/nxp/common/setup/ls_common.c
 
 ifneq (${ENABLE_STACK_PROTECTOR},0)

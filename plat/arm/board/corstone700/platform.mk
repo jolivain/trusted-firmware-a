@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2019-2022, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2019-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -9,14 +9,13 @@ ifeq ($(filter ${TARGET_PLATFORM}, fpga fvp),)
         $(error TARGET_PLATFORM must be fpga or fvp)
 endif
 
-CORSTONE700_CPU_LIBS	+=	lib/cpus/aarch32/cortex_a32.S
+CPUS_ENABLE		+=	cortex_a32
 
 BL32_SOURCES		+=	plat/arm/common/aarch32/arm_helpers.S	\
 				plat/arm/common/arm_console.c	\
 				plat/arm/common/arm_common.c	\
 				lib/xlat_tables/aarch32/xlat_tables.c	\
 				lib/xlat_tables/xlat_tables_common.c	\
-				${CORSTONE700_CPU_LIBS}	\
 				plat/arm/board/corstone700/common/drivers/mhu/corstone700_mhu.c
 
 PLAT_INCLUDES		:=	-Iplat/arm/board/corstone700/common/include	\

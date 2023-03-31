@@ -41,9 +41,10 @@ RAS_FFH_SUPPORT				:= 1
 PLAT_INCLUDES		+=	-Iplat/nvidia/tegra/include/t194 \
 				-I${SOC_DIR}/drivers/include
 
+CPUS_ENABLE		+=	denver
+
 BL31_SOURCES		+=	${TEGRA_GICv2_SOURCES}			\
 				drivers/ti/uart/aarch64/16550_console.S \
-				lib/cpus/aarch64/denver.S		\
 				${TEGRA_DRIVERS}/bpmp_ipc/intf.c	\
 				${TEGRA_DRIVERS}/bpmp_ipc/ivc.c		\
 				${TEGRA_DRIVERS}/memctrl/memctrl_v2.c	\

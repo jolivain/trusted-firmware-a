@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -18,6 +18,9 @@ IMX_GIC_SOURCES	:=		${GICV3_SOURCES}			\
 				plat/common/plat_psci_common.c		\
 				plat/imx/common/plat_imx8_gic.c
 
+CPUS_ENABLE		+=	cortex_a53 				\
+				cortex_a72
+
 BL31_SOURCES		+=	plat/imx/common/lpuart_console.S	\
 				plat/imx/common/imx8_helpers.S		\
 				plat/imx/imx8qm/imx8qm_bl31_setup.c	\
@@ -26,8 +29,6 @@ BL31_SOURCES		+=	plat/imx/common/lpuart_console.S	\
 				plat/imx/common/imx8_psci.c		\
 				plat/imx/common/imx_sip_svc.c		\
 				plat/imx/common/imx_sip_handler.c	\
-				lib/cpus/aarch64/cortex_a53.S			\
-				lib/cpus/aarch64/cortex_a72.S			\
 				drivers/arm/cci/cci.c				\
 				${XLAT_TABLES_LIB_SRCS}				\
 				${IMX_GIC_SOURCES}				\

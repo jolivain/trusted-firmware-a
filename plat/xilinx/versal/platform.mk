@@ -1,4 +1,4 @@
-# Copyright (c) 2018-2021, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2018-2023, Arm Limited and Contributors. All rights reserved.
 # Copyright (c) 2022-2023, Advanced Micro Devices, Inc. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
@@ -76,8 +76,9 @@ endif
 
 $(eval $(call add_define_val,VERSAL_CONSOLE,VERSAL_CONSOLE_ID_${VERSAL_CONSOLE}))
 
+CPUS_ENABLE		+=	cortex_a72
+
 BL31_SOURCES		+=	drivers/arm/cci/cci.c				\
-				lib/cpus/aarch64/cortex_a72.S			\
 				plat/common/plat_psci_common.c			\
 				plat/xilinx/common/ipi.c			\
 				plat/xilinx/common/plat_startup.c		\

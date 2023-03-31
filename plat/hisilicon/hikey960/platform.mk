@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2017-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -57,6 +57,10 @@ HIKEY960_GIC_SOURCES	:=	drivers/arm/gic/common/gic_common.c	\
 				drivers/arm/gic/v2/gicv2_helpers.c	\
 				plat/common/plat_gicv2.c
 
+CPUS_ENABLE		+=	cortex_a53 				\
+				cortex_a72 				\
+				cortex_a73
+
 BL1_SOURCES		+=	bl1/tbbr/tbbr_img_desc.c		\
 				drivers/arm/pl061/pl061_gpio.c		\
 				drivers/gpio/gpio.c			\
@@ -65,7 +69,6 @@ BL1_SOURCES		+=	bl1/tbbr/tbbr_img_desc.c		\
 				drivers/io/io_storage.c			\
 				drivers/synopsys/ufs/dw_ufs.c		\
 				drivers/ufs/ufs.c 			\
-				lib/cpus/aarch64/cortex_a53.S		\
 				plat/hisilicon/hikey960/aarch64/hikey960_helpers.S \
 				plat/hisilicon/hikey960/hikey960_bl1_setup.c \
 				plat/hisilicon/hikey960/hikey960_bl_common.c \
@@ -82,7 +85,6 @@ BL2_SOURCES		+=	common/desc_image_load.c		\
 				drivers/partition/partition.c		\
 				drivers/synopsys/ufs/dw_ufs.c		\
 				drivers/ufs/ufs.c			\
-				lib/cpus/aarch64/cortex_a53.S		\
 				plat/hisilicon/hikey960/aarch64/hikey960_helpers.S \
 				plat/hisilicon/hikey960/hikey960_bl2_mem_params_desc.c \
 				plat/hisilicon/hikey960/hikey960_bl2_setup.c \
@@ -102,9 +104,6 @@ BL2_SOURCES		+=	$(ZLIB_SOURCES)
 BL31_SOURCES		+=	drivers/arm/cci/cci.c			\
 				drivers/arm/pl061/pl061_gpio.c		\
 				drivers/gpio/gpio.c			\
-				lib/cpus/aarch64/cortex_a53.S           \
-				lib/cpus/aarch64/cortex_a72.S		\
-				lib/cpus/aarch64/cortex_a73.S		\
 				plat/common/plat_psci_common.c  \
 				plat/hisilicon/hikey960/aarch64/hikey960_helpers.S \
 				plat/hisilicon/hikey960/hikey960_bl31_setup.c \

@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2019-2021, Arm Limited. All rights reserved.
+# Copyright (c) 2019-2023, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -31,9 +31,9 @@ PLAT_BL_COMMON_SOURCES	:=	plat/arm/board/fvp_ve/fvp_ve_common.c		\
 				plat/arm/board/common/${ARCH}/board_arm_helpers.S
 
 ifdef ARM_CORTEX_A5
-FVP_VE_CPU_LIBS		:=	lib/cpus/aarch32/cortex_a5.S
+CPUS_ENABLE		+=	cortex_a5
 else
-FVP_VE_CPU_LIBS		:=	lib/cpus/aarch32/cortex_a7.S
+CPUS_ENABLE		+=	cortex_a7
 endif
 
 BL1_SOURCES		+=	drivers/arm/sp805/sp805.c			\
@@ -50,7 +50,6 @@ BL1_SOURCES		+=	drivers/arm/sp805/sp805.c			\
 				plat/arm/board/fvp_ve/fvp_ve_bl1_setup.c	\
 				lib/aarch32/arm32_aeabi_divmod.c		\
 				lib/aarch32/arm32_aeabi_divmod_a32.S		\
-				${FVP_VE_CPU_LIBS}					\
 				${DYN_CFG_SOURCES}
 
 BL2_SOURCES		+=	plat/arm/board/fvp_ve/fvp_ve_bl2_setup.c		\

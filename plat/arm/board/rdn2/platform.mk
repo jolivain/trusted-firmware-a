@@ -34,13 +34,12 @@ RDN2_BASE		=	plat/arm/board/rdn2
 
 PLAT_INCLUDES		+=	-I${RDN2_BASE}/include/
 
-SGI_CPU_SOURCES		:=	lib/cpus/aarch64/neoverse_n2.S \
-				lib/cpus/aarch64/neoverse_v2.S
+CPUS_ENABLE		+=	neoverse_n2				\
+				neoverse_v2
 
 PLAT_BL_COMMON_SOURCES	+=	${CSS_ENT_BASE}/sgi_plat_v2.c
 
-BL1_SOURCES		+=	${SGI_CPU_SOURCES}			\
-				${RDN2_BASE}/rdn2_err.c
+BL1_SOURCES		+=	${RDN2_BASE}/rdn2_err.c
 
 BL2_SOURCES		+=	${RDN2_BASE}/rdn2_plat.c		\
 				${RDN2_BASE}/rdn2_security.c		\
@@ -50,8 +49,7 @@ BL2_SOURCES		+=	${RDN2_BASE}/rdn2_plat.c		\
 				plat/arm/common/arm_tzc400.c		\
 				plat/arm/common/arm_nor_psci_mem_protect.c
 
-BL31_SOURCES		+=	${SGI_CPU_SOURCES}			\
-				${RDN2_BASE}/rdn2_plat.c		\
+BL31_SOURCES		+=	${RDN2_BASE}/rdn2_plat.c		\
 				${RDN2_BASE}/rdn2_topology.c		\
 				drivers/cfi/v2m/v2m_flash.c		\
 				lib/utils/mem_region.c			\
