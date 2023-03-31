@@ -9,8 +9,6 @@ BL1_SOURCES		+=	bl1/${ARCH}/bl1_arch_setup.c		\
 				bl1/${ARCH}/bl1_entrypoint.S		\
 				bl1/${ARCH}/bl1_exceptions.S		\
 				bl1/bl1_main.c				\
-				lib/cpus/${ARCH}/cpu_helpers.S		\
-				lib/cpus/errata_report.c		\
 				lib/el3_runtime/${ARCH}/context_mgmt.c	\
 				plat/common/plat_bl1_common.c		\
 				plat/common/${ARCH}/platform_up_stack.S \
@@ -21,8 +19,7 @@ BL1_SOURCES		+=	lib/extensions/mtpmu/${ARCH}/mtpmu.S
 endif
 
 ifeq (${ARCH},aarch64)
-BL1_SOURCES		+=	lib/cpus/aarch64/dsu_helpers.S		\
-				lib/el3_runtime/aarch64/context.S
+BL1_SOURCES		+=	lib/el3_runtime/aarch64/context.S
 endif
 
 ifeq (${TRUSTED_BOARD_BOOT},1)
@@ -30,3 +27,19 @@ BL1_SOURCES		+=	bl1/bl1_fwu.c
 endif
 
 BL1_DEFAULT_LINKER_SCRIPT_SOURCE := bl1/bl1.ld.S
+
+#
+# Set up the CPU library for BL1.
+#
+
+CPUS_CPU_HELPERS_ENABLED := 1
+CPUS_ERRATA_REPORT_ENABLED := 1
+
+ifeq ($(ARCH),aarch64)
+        CPUS_DSU_HELPERS_ENABLED := 1
+endif
+
+include lib/cpus/cpus.mk
+
+$(eval BL1_INCLUDE_DIRS += $(CPUS_INCLUDE_DIRS))
+$(eval BL1_SOURCES += $(CPUS_SOURCES))

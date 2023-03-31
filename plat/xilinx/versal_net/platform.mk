@@ -82,9 +82,9 @@ PLAT_BL_COMMON_SOURCES	:=	\
 				${PLAT_PATH}/aarch64/versal_net_helpers.S	\
 				${PLAT_PATH}/aarch64/versal_net_common.c
 
+CPUS_SUPPORTED		+=	cortex_a78 cortex_a78_ae
+
 BL31_SOURCES		+=	drivers/arm/cci/cci.c				\
-				lib/cpus/aarch64/cortex_a78_ae.S		\
-				lib/cpus/aarch64/cortex_a78.S			\
 				plat/common/plat_psci_common.c
 ifeq ($(TFA_NO_PM), 0)
 BL31_SOURCES		+=	plat/xilinx/versal/pm_service/pm_api_sys.c	\

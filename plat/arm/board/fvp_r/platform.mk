@@ -7,6 +7,8 @@
 # Only aarch64 ARCH supported for FVP_R
 ARCH	:= aarch64
 
+CPUS_SUPPORTED		:= aem_generic
+
 # Override to exclude BL2, BL2U, BL31, and BL33 for FVP_R
 override NEED_BL2	:= no
 override NEED_BL2U	:= no
@@ -40,8 +42,6 @@ FVP_R_BL1_SOURCES	:=	plat/arm/board/fvp_r/fvp_r_bl1_arch_setup.c	\
 				plat/arm/board/fvp_r/fvp_r_bl1_entrypoint.S	\
 				plat/arm/board/fvp_r/fvp_r_bl1_exceptions.S	\
 				plat/arm/board/fvp_r/fvp_r_bl1_main.c
-
-FVP_R_CPU_LIBS		:=	lib/cpus/${ARCH}/aem_generic.S
 
 FVP_R_DYNC_CFG_SOURCES	:=	common/fdt_wrappers.c				\
 				plat/arm/common/arm_dyn_cfg.c
@@ -82,7 +82,6 @@ override BL1_SOURCES	:=	drivers/arm/sp805/sp805.c			\
 				drivers/io/io_memmap.c				\
 				drivers/io/io_storage.c				\
 				drivers/io/io_semihosting.c			\
-				lib/cpus/aarch64/cpu_helpers.S			\
 				lib/fconf/fconf_dyn_cfg_getter.c		\
 				lib/semihosting/semihosting.c			\
 				lib/semihosting/${ARCH}/semihosting_call.S	\
@@ -94,6 +93,5 @@ override BL1_SOURCES	:=	drivers/arm/sp805/sp805.c			\
 				plat/common/aarch64/platform_up_stack.S		\
 				${FVP_R_BL1_SOURCES}				\
 				${FVP_R_BL_COMMON_SOURCES}			\
-				${FVP_R_CPU_LIBS}				\
 				${FVP_R_DYNC_CFG_SOURCES}			\
 				${FVP_R_INTERCONNECT_SOURCES}

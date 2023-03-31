@@ -62,10 +62,11 @@ override BL31_SOURCES =
 endif
 
 ifeq (${ARCH},aarch64)
-BL1_SOURCES		+=	lib/cpus/aarch64/cortex_a53.S		\
-				lib/cpus/aarch64/cortex_a57.S		\
-				lib/cpus/aarch64/cortex_a72.S		\
-				plat/arm/board/juno/juno_err.c		\
+CPUS_SUPPORTED		:=	cortex_a53
+CPUS_SUPPORTED		+=	cortex_a57
+CPUS_SUPPORTED		+=	cortex_a72
+
+BL1_SOURCES		+=	plat/arm/board/juno/juno_err.c		\
 				plat/arm/board/juno/juno_bl1_setup.c	\
 				drivers/arm/sp805/sp805.c		\
 				${JUNO_INTERCONNECT_SOURCES}		\
@@ -81,9 +82,6 @@ BL2_SOURCES		+=	drivers/arm/sp805/sp805.c		\
 BL2U_SOURCES		+=	${JUNO_SECURITY_SOURCES}
 
 BL31_SOURCES		+=	drivers/cfi/v2m/v2m_flash.c		\
-				lib/cpus/aarch64/cortex_a53.S		\
-				lib/cpus/aarch64/cortex_a57.S		\
-				lib/cpus/aarch64/cortex_a72.S		\
 				lib/utils/mem_region.c			\
 				lib/fconf/fconf.c			\
 				lib/fconf/fconf_dyn_cfg_getter.c	\

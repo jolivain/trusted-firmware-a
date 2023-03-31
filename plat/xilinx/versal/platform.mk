@@ -75,8 +75,9 @@ endif
 
 $(eval $(call add_define_val,VERSAL_CONSOLE,VERSAL_CONSOLE_ID_${VERSAL_CONSOLE}))
 
+CPUS_SUPPORTED		+=	cortex_a72
+
 BL31_SOURCES		+=	drivers/arm/cci/cci.c				\
-				lib/cpus/aarch64/cortex_a72.S			\
 				plat/common/plat_psci_common.c			\
 				plat/xilinx/common/ipi.c			\
 				plat/xilinx/common/plat_startup.c		\

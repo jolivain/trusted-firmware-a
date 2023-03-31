@@ -302,7 +302,7 @@ endif
 include lib/xlat_tables_v2/xlat_tables.mk
 PLAT_BL_COMMON_SOURCES	+=	${XLAT_TABLES_LIB_SRCS}
 
-PLAT_BL_COMMON_SOURCES	+=	lib/cpus/aarch32/cortex_a7.S
+CPUS_SUPPORTED		+=	cortex_a7
 
 PLAT_BL_COMMON_SOURCES	+=	drivers/arm/tzc/tzc400.c				\
 				drivers/clk/clk.c					\
