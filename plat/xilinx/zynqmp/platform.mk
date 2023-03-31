@@ -119,9 +119,9 @@ $(eval $(call add_define_val,ZYNQMP_CONSOLE,ZYNQMP_CONSOLE_ID_${ZYNQMP_CONSOLE})
 # Build PM code as a Library
 include plat/xilinx/zynqmp/libpm.mk
 
+CPUS_SUPPORTED		+=	aem_generic cortex_a53
+
 BL31_SOURCES		+=	drivers/arm/cci/cci.c				\
-				lib/cpus/aarch64/aem_generic.S			\
-				lib/cpus/aarch64/cortex_a53.S			\
 				plat/common/plat_psci_common.c			\
 				common/fdt_fixup.c				\
 				${LIBFDT_SRCS}					\

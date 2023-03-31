@@ -13,6 +13,8 @@ AML_PLAT_COMMON		:=	${AML_PLAT}/common
 DOIMAGEPATH		?=	tools/amlogic
 DOIMAGETOOL		?=	${DOIMAGEPATH}/doimage
 
+CPUS_SUPPORTED		+=	cortex_a53
+
 PLAT_INCLUDES		:=	-Iinclude/drivers/amlogic/			\
 				-I${AML_PLAT_SOC}/include			\
 				-I${AML_PLAT_COMMON}/include
@@ -22,8 +24,7 @@ GIC_SOURCES		:=	drivers/arm/gic/common/gic_common.c		\
 				drivers/arm/gic/v2/gicv2_helpers.c		\
 				plat/common/plat_gicv2.c
 
-BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a53.S			\
-				plat/common/plat_psci_common.c			\
+BL31_SOURCES		+=	plat/common/plat_psci_common.c			\
 				drivers/amlogic/console/aarch64/meson_console.S	\
 				${AML_PLAT_SOC}/${PLAT}_bl31_setup.c		\
 				${AML_PLAT_SOC}/${PLAT}_pm.c			\
@@ -88,4 +89,3 @@ ${DOIMAGETOOL}:
 
 ${BUILD_PLAT}/bl31.img: ${BUILD_PLAT}/bl31.bin ${DOIMAGETOOL}
 	${DOIMAGETOOL} ${BUILD_PLAT}/bl31.bin ${BUILD_PLAT}/bl31.img
-

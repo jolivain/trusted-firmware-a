@@ -73,23 +73,23 @@ PLAT_INCLUDES		+=	-I${TC_BASE}/include/
 
 # CPU libraries for TARGET_PLATFORM=0
 ifeq (${TARGET_PLATFORM}, 0)
-TC_CPU_SOURCES	+=	lib/cpus/aarch64/cortex_a510.S	\
-			lib/cpus/aarch64/cortex_a710.S	\
-			lib/cpus/aarch64/cortex_x2.S
+CPUS_SUPPORTED	+=	cortex_a510	\
+			cortex_a710	\
+			cortex_x2
 endif
 
 # CPU libraries for TARGET_PLATFORM=1
 ifeq (${TARGET_PLATFORM}, 1)
-TC_CPU_SOURCES	+=	lib/cpus/aarch64/cortex_a510.S \
-			lib/cpus/aarch64/cortex_a715.S \
-			lib/cpus/aarch64/cortex_x3.S
+CPUS_SUPPORTED	+=	cortex_a510 \
+			cortex_a715 \
+			cortex_x3
 endif
 
 # CPU libraries for TARGET_PLATFORM=2
 ifeq (${TARGET_PLATFORM}, 2)
-TC_CPU_SOURCES	+=	lib/cpus/aarch64/cortex_hayes.S \
-			lib/cpus/aarch64/cortex_hunter.S \
-			lib/cpus/aarch64/cortex_hunter_elp_arm.S
+CPUS_SUPPORTED	+=	cortex_hayes \
+			cortex_hunter \
+			cortex_hunter_elp_arm
 endif
 
 INTERCONNECT_SOURCES	:=	${TC_BASE}/tc_interconnect.c
@@ -98,7 +98,6 @@ PLAT_BL_COMMON_SOURCES	+=	${TC_BASE}/tc_plat.c	\
 				${TC_BASE}/include/tc_helpers.S
 
 BL1_SOURCES		+=	${INTERCONNECT_SOURCES}	\
-				${TC_CPU_SOURCES}	\
 				${TC_BASE}/tc_trusted_boot.c	\
 				${TC_BASE}/tc_err.c	\
 				drivers/arm/sbsa/sbsa.c
@@ -113,7 +112,6 @@ BL2_SOURCES		+=	${TC_BASE}/tc_security.c	\
 				plat/arm/common/arm_nor_psci_mem_protect.c
 
 BL31_SOURCES		+=	${INTERCONNECT_SOURCES}	\
-				${TC_CPU_SOURCES}	\
 				${ENT_GIC_SOURCES}			\
 				${TC_BASE}/tc_bl31_setup.c	\
 				${TC_BASE}/tc_topology.c	\
