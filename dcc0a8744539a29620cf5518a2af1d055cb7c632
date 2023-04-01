@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf8fdba2_4a8fb16b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001013
+      },
+      "writtenOn": "2023-04-01T08:40:18Z",
+      "side": 1,
+      "message": "hi,\n\nThere is still a build issue in aarch32 with the xlat_tables change (can be seen in CI). Maybe you can update copyright-year (we have 2023 now) in next version?\n\nCan you answer questions from Patchset 2 about ddr init (some information here in uboot-Patch https://patchwork.ozlabs.org/project/uboot/patch/20230225190130.2564462-3-jonas@kwiboo.se/) and SCMI (afaik needed for hdmi output)? will this be added in a follow-up Patch?",
+      "revId": "dcc0a8744539a29620cf5518a2af1d055cb7c632",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
