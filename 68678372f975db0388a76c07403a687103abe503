@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5592fe51_73ae5d0b",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-03T13:52:48Z",
+      "side": 1,
+      "message": "right, but the fvp does not simulate errata. Sure, it\u0027s for platforms to include it, but the fvp is not one of them. The fvp doesn\u0027t include any errata _in the makefile_ (anyone is welcome to enable them on the commandline for testing) and I still don\u0027t see why these should be an exception.\n\nalso a nit: please add a space between the \":\u003d\" and the \"1\"",
+      "parentUuid": "76688717_18f8b361",
+      "revId": "68678372f975db0388a76c07403a687103abe503",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "602a3797_3f899e80",
         "filename": "plat/arm/board/fvp/platform.mk",
         "patchSetId": 6
