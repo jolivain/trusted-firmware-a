@@ -61,18 +61,17 @@ void sunxi_configure_mmu_el3(int flags)
 	enable_mmu_el3(0);
 }
 
-#define SRAM_VER_REG (SUNXI_SYSCON_BASE + 0x24)
 uint16_t sunxi_read_soc_id(void)
 {
-	uint32_t reg = mmio_read_32(SRAM_VER_REG);
+	uint32_t reg = mmio_read_32(SUNXI_SRAM_VER_REG);
 
 	/* Set bit 15 to prepare for the SOCID read. */
-	mmio_write_32(SRAM_VER_REG, reg | BIT(15));
+	mmio_write_32(SUNXI_SRAM_VER_REG, reg | BIT(15));
 
-	reg = mmio_read_32(SRAM_VER_REG);
+	reg = mmio_read_32(SUNXI_SRAM_VER_REG);
 
 	/* deactivate the SOCID access again */
-	mmio_write_32(SRAM_VER_REG, reg & ~BIT(15));
+	mmio_write_32(SUNXI_SRAM_VER_REG, reg & ~BIT(15));
 
 	return reg >> 16;
 }
@@ -181,7 +180,7 @@ int32_t plat_get_soc_version(void)
 
 int32_t plat_get_soc_revision(void)
 {
-	uint32_t reg = mmio_read_32(SRAM_VER_REG);
+	uint32_t reg = mmio_read_32(SUNXI_SRAM_VER_REG);
 
 	return reg & GENMASK_32(7, 0);
 }

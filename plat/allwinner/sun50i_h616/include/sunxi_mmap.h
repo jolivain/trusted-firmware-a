@@ -23,6 +23,7 @@
 
 /* Memory-mapped devices */
 #define SUNXI_SYSCON_BASE		0x03000000
+#define SUNXI_SRAM_VER_REG		(SUNXI_SYSCON_BASE + 0x24)
 #define SUNXI_CCU_BASE			0x03001000
 #define SUNXI_DMA_BASE			0x03002000
 #define SUNXI_SID_BASE			0x03006000
