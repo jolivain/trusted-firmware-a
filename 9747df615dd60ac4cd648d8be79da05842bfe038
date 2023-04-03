@@ -232,6 +232,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f3f691e0_0045c3bd",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000686
+      },
+      "writtenOn": "2023-04-03T21:48:01Z",
+      "side": 1,
+      "message": "These are separate options in the architecture, clearly called out as such, and trying to handle things as a single option really doesn\u0027t play nicely with the feature detection - check_feature() just doesn\u0027t work for that case, and you\u0027d need to assert that everything is enabled. I\u0027d also worry about it being a sharp edge for users as they\u0027d have to know that this doesn\u0027t follow the usual pattern of ENABLE_FEAT_FOO - that\u0027s not insurmountable but given the amount of typing that\u0027s required anyway making things consistent has advantages too.\n\nThe way the code is written it really feels very non-idiomatic to confect a combined option, the problem with there being too many options reads more like something that\u0027d be addressed with helpers in the Makefiles like the architecture versions.",
+      "parentUuid": "4ccc061e_47300d7d",
+      "range": {
+        "startLine": 181,
+        "startChar": 5,
+        "endLine": 181,
+        "endChar": 23
+      },
+      "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "456bd0cb_d21b0de7",
         "filename": "include/arch/aarch64/arch_features.h",
         "patchSetId": 10
