@@ -36,4 +36,9 @@
 #define SUNXI_AA64nAA32_REG		SUNXI_CPUCFG_CLS_CTRL_REG0
 #define SUNXI_AA64nAA32_OFFSET		24
 
+static inline bool sunxi_cpucfg_has_per_core_regs(void)
+{
+	return false;
+}
+
 #endif /* SUNXI_CPUCFG_H */
