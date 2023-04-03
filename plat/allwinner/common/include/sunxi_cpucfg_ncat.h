@@ -40,4 +40,11 @@
 #define SUNXI_AA64nAA32_REG		SUNXI_CPUCFG_CLS_CTRL_REG0
 #define SUNXI_AA64nAA32_OFFSET		24
 
+static inline bool sunxi_cpucfg_has_per_core_regs(void)
+{
+	uint32_t die_version = mmio_read_32(SUNXI_SRAM_VER_REG);
+
+	return (die_version & SUNXI_VER_BITS_MASK) != 0;
+}
+
 #endif /* SUNXI_CPUCFG_H */
