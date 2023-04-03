@@ -305,6 +305,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f9054c2_cff0a918",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000686
+      },
+      "writtenOn": "2023-04-03T21:22:51Z",
+      "side": 1,
+      "message": "I was erring on the side of caution and not enabling things for AArch32 if they\u0027re not supported there.",
+      "parentUuid": "0f86289a_9d32ccb1",
+      "range": {
+        "startLine": 362,
+        "startChar": 4,
+        "endLine": 362,
+        "endChar": 37
+      },
+      "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b96685d0_a1a1c05d",
@@ -369,6 +393,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68d15bb8_087b3c23",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1000686
+      },
+      "writtenOn": "2023-04-03T21:22:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5af9e8c_b99cef08",
+      "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fbf9ff8_2f538e35",
@@ -429,6 +471,24 @@
       "writtenOn": "2023-03-30T06:53:10Z",
       "side": 1,
       "message": "S2PIR_EL2 can be restored as well.",
+      "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f00b106e_08e5613d",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 978,
+      "author": {
+        "id": 1000686
+      },
+      "writtenOn": "2023-04-03T21:22:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f698a230_7af952fe",
       "revId": "9747df615dd60ac4cd648d8be79da05842bfe038",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
