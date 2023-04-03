@@ -120,6 +120,98 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e9d2344b_66431f8a",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-03T16:59:29Z",
+      "side": 1,
+      "message": "BL31",
+      "range": {
+        "startLine": 27,
+        "startChar": 70,
+        "endLine": 27,
+        "endChar": 74
+      },
+      "revId": "137633f3df7eb63bdde1d786109ed01d9b65534f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d8c8e87_6bf5ba83",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-03T16:59:29Z",
+      "side": 1,
+      "message": "twofold",
+      "range": {
+        "startLine": 29,
+        "startChar": 55,
+        "endLine": 29,
+        "endChar": 62
+      },
+      "revId": "137633f3df7eb63bdde1d786109ed01d9b65534f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "687f5515_cb12f9b2",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-03T16:59:29Z",
+      "side": 1,
+      "message": "nitpick: latest",
+      "range": {
+        "startLine": 35,
+        "startChar": 43,
+        "endLine": 35,
+        "endChar": 52
+      },
+      "revId": "137633f3df7eb63bdde1d786109ed01d9b65534f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "751e7e8f_f774fdcb",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-03T16:59:29Z",
+      "side": 1,
+      "message": "tspd",
+      "range": {
+        "startLine": 37,
+        "startChar": 55,
+        "endLine": 37,
+        "endChar": 58
+      },
+      "revId": "137633f3df7eb63bdde1d786109ed01d9b65534f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0d5591c1_a09e156f",
         "filename": "plat/arm/board/fvp/platform.mk",
         "patchSetId": 6
@@ -207,6 +299,29 @@
         "startChar": 0,
         "endLine": 66,
         "endChar": 27
+      },
+      "revId": "137633f3df7eb63bdde1d786109ed01d9b65534f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19f3371e_5706be89",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-03T16:59:29Z",
+      "side": 1,
+      "message": "just curious: cant we move these to lines 48 such that these are left disabled when tspd is chosen.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 22
       },
       "revId": "137633f3df7eb63bdde1d786109ed01d9b65534f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
