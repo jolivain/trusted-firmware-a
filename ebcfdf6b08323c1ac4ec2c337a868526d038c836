@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f631792_916755ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-04-03T15:50:43Z",
+      "side": 1,
+      "message": "Latest CI build: [ https://ci.trustedfirmware.org/job/tf-a-main/628/] \nFailed test_configs are related to bl31 progbits issue and not related.\nQEMU and TC platform related tests have passed.\nManually providing Verifying +1.",
+      "revId": "ebcfdf6b08323c1ac4ec2c337a868526d038c836",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
