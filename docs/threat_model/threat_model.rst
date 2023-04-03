@@ -36,11 +36,30 @@ assumptions:
 - There is no Secure-EL2. We don't consider threats that may come with
   Secure-EL2 software.
 
-- Measured boot is disabled. We do not consider the threats nor the mitigations
-  that may come with it.
-
 - No experimental features are enabled. We do not consider threats that may come
   from them.
+
+.. note::
+
+ In the current Measured Boot design, BL1, BL2, and BL31, as well as the
+ secure world components, form the SRTM. Measurement data is currently
+ considered an asset to be protected against attack, and this is achieved
+ by storing it in a TCG-compatible Event Log buffer in the Secure Memory.
+ Beyond the TCG-compliant Event Log buffer, there are no other assets to
+ protect or threats to defend against that could compromise the security
+ guarantees provided by Measured Boot.
+
+ There are general security assets and threats associated with remote/delegated
+ attestation. However, these are outside the TF-A security boundary and should
+ be dealt with by the appropriate agent in the platform/system.
+
+ A limitation of the current Measured Boot design is that it is dependent upon
+ Secure Boot as implementation of Measured Boot does not extend measurements
+ into a discrete TPM. This implies that if Secure-Boot is compromised, Measured
+ Boot may also be compromised.
+
+ Platforms must carefully evaluate the security of the default implementation
+ since the SRTM includes all secure world components.
 
 Data Flow Diagram
 =================
