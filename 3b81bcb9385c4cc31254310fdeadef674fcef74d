@@ -22,6 +22,30 @@
       },
       "revId": "3b81bcb9385c4cc31254310fdeadef674fcef74d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "248fd6ce_634a7314",
+        "filename": "plat/arm/board/tc/platform.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-04-03T10:20:16Z",
+      "side": 1,
+      "message": "Well, we validate the ENABLE_SVE_FOR_SWD flag under the ENABLE_SVE_FOR_NS world flag.\nSo, ENABLE_SVE_FOR_NS has to be 2, for dynamic detection happening in this function (is_feat_sve_supported).\nif (is_feat_sve_supported()) {\n\tif (ENABLE_SVE_FOR_SWD) {\n\t/*\n\t * Enable SVE and FPU in secure context, secure manager must\n\t * ensure that the SVE and FPU register contexts are properly\n\t * managed.\n\t */\n\t\tsve_enable(ctx);\n\t} else {\n\t/*\n\t * Disable SVE and FPU in secure context so non-secure world\n\t * can safely use them.\n\t */\n\t\tsve_disable(ctx);\n\t}\n}\n\nAgain, if in case ENABLE_SVE_FOR_SWD\u003d1 , ENABLE_SVE_FOR_NS\u003d1 as well and if the SVE is present in platform, no issues, it works fine.\n\nBut TC platform being virtual, in case SVE plugin not present in model params, it would fail, which we encountered in our daily CI test failure.\nHence explicitly we need to set this to 2, for dynamic detection.",
+      "parentUuid": "661330a8_4c85b50d",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 22
+      },
+      "revId": "3b81bcb9385c4cc31254310fdeadef674fcef74d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
