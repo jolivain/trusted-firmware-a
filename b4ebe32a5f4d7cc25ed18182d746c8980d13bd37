@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c014d7a_586c1c6b",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-04T09:03:51Z",
+      "side": 1,
+      "message": "If we are going to refactor this function then I\u0027d like us to go one step further. I see this as an opportunity to address some things that have been bothering me for a while. Here are my suggestions:\n\n- Let\u0027s move the crypto_mod_verify_signature() call to the end of the function, as this needs doing for all cases (root and non-root certificates).\n\n- Let\u0027s move lines 185-226 (responsible for validating the certificate\u0027s subject public key against the platform ROTPK) under the \u0027if (img_desc-\u003eparent \u003d\u003d NULL)\u0027 code branch, i.e. under line 181.\n\nI made a quick attempt and here is how it would look like (I\u0027ve not compiled/tested this code!):\n\n static int auth_signature(const auth_method_param_sig_t *param,\n\t\t\t  const auth_img_desc_t *img_desc,\n\t\t\t  void *img, unsigned int img_len)\n {\n\tvoid *data_ptr, *pk_ptr, *sig_ptr, *sig_alg_ptr;\n\tunsigned int data_len, pk_len, sig_len, sig_alg_len;\n\tint rc;\n\n\t/* Get the data to be signed from current image */\n\trc \u003d img_parser_get_auth_param(img_desc-\u003eimg_type, param-\u003edata,\n\t\t\timg, img_len, \u0026data_ptr, \u0026data_len);\n\treturn_if_error(rc);\n\n\t/* Get the signature from current image */\n\trc \u003d img_parser_get_auth_param(img_desc-\u003eimg_type, param-\u003esig,\n\t\t\timg, img_len, \u0026sig_ptr, \u0026sig_len);\n\treturn_if_error(rc);\n\n\t/* Get the signature algorithm from current image */\n\trc \u003d img_parser_get_auth_param(img_desc-\u003eimg_type, param-\u003ealg,\n\t\t\timg, img_len, \u0026sig_alg_ptr, \u0026sig_alg_len);\n\treturn_if_error(rc);\n\n\tif (img_desc-\u003eparent !\u003d NULL) {\n\t\t/* Get the public key from the parent. */\n\t\trc \u003d auth_get_param(param-\u003epk, img_desc-\u003eparent,\n\t\t\t\t    \u0026pk_ptr, \u0026pk_len);\n\t\treturn_if_error(rc);\n\t} else {\n\t\tunsigned int flags;\n\t\tvoid *pk_plat_ptr;\n\t\tunsigned int pk_plat_len;\n\n\t\t/*\n\t\t * Root certificates are signed with the ROTPK, so we have to\n\t\t * get it from the platform.\n\t\t */\n\t\trc \u003d plat_get_rotpk_info(param-\u003epk-\u003ecookie,\n\t\t\t\t\t \u0026pk_plat_ptr, \u0026pk_plat_len,\n\t\t\t\t\t \u0026flags);\n\t\treturn_if_error(rc);\n\n\t\t/* Also retrieve the key from the image. */\n\t\trc \u003d img_parser_get_auth_param(img_desc-\u003eimg_type,\n\t\t\t\t\t       param-\u003epk, img, img_len,\n\t\t\t\t\t       \u0026pk_ptr, \u0026pk_len);\n\t\treturn_if_error(rc);\n\n\t\t/*\n\t\t * Validate the certificate\u0027s key against the platform ROTPK.\n\t\t *\n\t\t * Platform may store key in one of the following way -\n\t\t * 1. Hash of ROTPK\n\t\t * 2. Hash if prefixed, suffixed or modified ROTPK\n\t\t * 3. Full ROTPK\n\t\t */\n\t\tif ((flags \u0026 ROTPK_NOT_DEPLOYED) !\u003d 0U) {\n\t\t\tNOTICE(\"ROTPK is not deployed on platform. \"\n\t\t\t       \"Skipping ROTPK verification.\\n\");\n\t\t} else if ((flags \u0026 ROTPK_IS_FULL_KEY) !\u003d 0U) {\n\t\t\t/* Certificate\u0027s public key must match the ROTPK. */\n\t\t\tif ((pk_len !\u003d pk_plat_len) ||\n\t\t\t    (memcmp(pk_plat_ptr, pk_ptr, pk_len) !\u003d 0)) {\n\t\t\t\tERROR(\"plat and cert ROTPK len mismatch\\n\");\n\t\t\t\treturn -1;\n\t\t\t}\n\t\t} else {\n\t\t\t/*\n\t\t\t * The platform may store the hash of a prefixed,\n\t\t\t * suffixed or modified public key.\n\t\t\t */\n\t\t\trc \u003d plat_convert_pk(pk_ptr, pk_len, \u0026pk_ptr, \u0026pk_len);\n\t\t\treturn_if_error(rc);\n\n\t\t\t/*\n\t\t\t * The hash of the certificate\u0027s public key must match\n\t\t\t * the hash of the ROTPK.\n\t\t\t */\n\t\t\trc \u003d crypto_mod_verify_hash(pk_ptr, pk_len,\n\t\t\t\t\t\t    pk_plat_ptr, pk_plat_len);\n\t\t\treturn_if_error(rc);\n\t\t}\n\t}\n\n\t/* Verify the signature. */\n\trc \u003d crypto_mod_verify_signature(data_ptr, data_len,\n\t\t\t\t\t sig_ptr, sig_len,\n\t\t\t\t\t sig_alg_ptr, sig_alg_len,\n\t\t\t\t\t pk_ptr, pk_len);\n\treturn rc;\n }\n\nI feel the code is more straightforward like that and it is easier to reason about it.\n\nNotice that it makes it clear that the flags and pk_plat_ptr/pk_plat_len variables are only used in the case of root certificates.\n\nWhat do you think?",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 37
+      },
+      "revId": "b4ebe32a5f4d7cc25ed18182d746c8980d13bd37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0caedacd_b4db6ca5",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-04T09:03:51Z",
+      "side": 1,
+      "message": "Remove this part of the comment, as this is done in all cases now, even in the case where the platform provides the full key.",
+      "range": {
+        "startLine": 198,
+        "startChar": 5,
+        "endLine": 199,
+        "endChar": 30
+      },
+      "revId": "b4ebe32a5f4d7cc25ed18182d746c8980d13bd37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc67799a_b872cbee",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-04T09:03:51Z",
+      "side": 1,
+      "message": "I think there is no value in returning the value from memcmp(). In fact, it might even confuse the caller, as in other code paths we return CRYPTO_ERR_* error codes.",
+      "range": {
+        "startLine": 216,
+        "startChar": 3,
+        "endLine": 216,
+        "endChar": 23
+      },
+      "revId": "b4ebe32a5f4d7cc25ed18182d746c8980d13bd37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42a28af3_5e8d6b4d",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-04T09:03:51Z",
+      "side": 1,
+      "message": "I wonder whether we need a new flag for this. Could we say that !ROTPK_IS_HASH means that the platform provides the full key? IOW if bits 0 of the flags is set then it\u0027s a hash, if it\u0027s 1 then it\u0027s the full key? Or are there consequences to such a change?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 35
+      },
+      "revId": "b4ebe32a5f4d7cc25ed18182d746c8980d13bd37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e238d8b_58f7c33c",
+        "filename": "plat/arm/board/common/board_arm_trusted_boot.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-04T09:03:51Z",
+      "side": 1,
+      "message": "Changes in this file may be better off in a separate patch, as they are specific to Arm Ltd platforms.",
+      "revId": "b4ebe32a5f4d7cc25ed18182d746c8980d13bd37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
