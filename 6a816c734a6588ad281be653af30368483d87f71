@@ -16,6 +16,24 @@
       "message": "Hi Michal, Yes our FVP builds are exceeding the secure memory limit for ur FVP platforms. We should be getting a new FVP model that doubles the memory but that needs to be released by our DSG group in Arm and may be a moth or so be fore we can deploy it in the OpenCI. In the meantime we are putting in temporary changes to help reduce the memory used.\n\nI\u0027ve rebased the patch and restarted the CI that hopefully will clear the FVP failure.\n\nOn the zynqmp platform build then yes that\u0027s something you should look into.\n\nThe trouble with TF-A is we keep adding new features but its difficult to enable them all and keep wishing the image size limits so choices are needed which to enable given memory limits.\n\n",
       "revId": "6a816c734a6588ad281be653af30368483d87f71",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "243454d0_47c7b6db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-04-04T19:43:45Z",
+      "side": 1,
+      "message": "Agg, \"moth\" should me \"month\" and \"wishing\" should be \"within\".",
+      "parentUuid": "ed311b74_8e504f40",
+      "revId": "6a816c734a6588ad281be653af30368483d87f71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
