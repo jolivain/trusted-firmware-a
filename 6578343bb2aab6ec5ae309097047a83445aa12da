@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b68da04b_0015f443",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-04-04T15:19:31Z",
+      "side": 1,
+      "message": "CI is expected to fail with a DRTM related test config as there is still a patch under review to address its BL31 size issue. If that\u0027s the only failure we can manually Verified+1 on both these patches which should allow them to be merged.",
+      "revId": "6578343bb2aab6ec5ae309097047a83445aa12da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
