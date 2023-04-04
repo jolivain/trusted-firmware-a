@@ -144,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f46e3d6f_8218d2aa",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-04T12:20:45Z",
+      "side": 1,
+      "message": "Sorry, I did not mean that we should ignore errors from memcmp() and continue execution regardless ; I agree with you that it *needs* checking. What I meant is that perhaps we should translate the error code returned by memcmp() into something more relevant in this context, such as:\n\n if (memcmp() !\u003d 0) {\n   return CRYPTO_ERR_SIGNATURE;\n }\n\nWhat value is there for the caller to know that keys started to differ from the 5th byte (which is effectively what memcmp() would tell you)?",
+      "parentUuid": "d5584a10_4b333f13",
+      "range": {
+        "startLine": 216,
+        "startChar": 3,
+        "endLine": 216,
+        "endChar": 23
+      },
+      "revId": "b4ebe32a5f4d7cc25ed18182d746c8980d13bd37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "42a28af3_5e8d6b4d",
         "filename": "include/plat/common/platform.h",
         "patchSetId": 11
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "I feel this more readable and provide better way to handle it. Though, surely it is possible to use !ROTPK_IS_HASH for full development key but it just lose the readability.",
       "parentUuid": "42a28af3_5e8d6b4d",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 35
+      },
+      "revId": "b4ebe32a5f4d7cc25ed18182d746c8980d13bd37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffd97d73_36e589b2",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-04T12:20:45Z",
+      "side": 1,
+      "message": "We could argue about the code being more readable that way but using different bits effectively allows you to set both flags at the same time (ROTPK_IS_HASH | ROTPK_IS_FULL_KEY), which does not make sense. These are mutually exclusive and contradictory/opposite.",
+      "parentUuid": "e8a68677_e5ef3d80",
       "range": {
         "startLine": 54,
         "startChar": 0,
