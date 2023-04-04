@@ -224,6 +224,7 @@ BL31_SOURCES		+=	${QEMU_CPU_LIBS}			\
 				plat/common/plat_psci_common.c		\
 				drivers/arm/pl061/pl061_gpio.c		\
 				drivers/gpio/gpio.c			\
+				plat/qemu/common/qemu_sdei.c		\
 				${PLAT_QEMU_COMMON_PATH}/qemu_pm.c			\
 				${PLAT_QEMU_COMMON_PATH}/topology.c			\
 				${PLAT_QEMU_COMMON_PATH}/aarch64/plat_helpers.S	\
@@ -322,4 +323,8 @@ qemu_fw.rom: qemu_fw.bios
 
 ifneq (${BL33},)
 all: qemu_fw.bios qemu_fw.rom
+endif
+
+ifeq (${EL3_EXCEPTION_HANDLING},1)
+BL31_SOURCES            +=      plat/common/aarch64/plat_ehf.c
 endif
