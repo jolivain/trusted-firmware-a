@@ -16,6 +16,24 @@
       "message": "Hi Manish,\n\nNot using sizeof() here was done on purpose. Please see the discussion here:\n\n https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/16979/comment/07eafeda_47313e7a/",
       "revId": "0cddea1671c5600e8b6062efde8fc764ec1442b7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "caade199_77b9ee33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-04-04T12:51:54Z",
+      "side": 1,
+      "message": "I\u0027m not pretty sure why RSS driver needs to take care of the size of sw_type. It is platform data and platform needs to properly put actual value of the size of sw_type rather than asking RSS driver to do this job. I will discuss about this with you offline. (I can abandon this patch if it is not needed)",
+      "parentUuid": "16d85e2e_74da6097",
+      "revId": "0cddea1671c5600e8b6062efde8fc764ec1442b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
