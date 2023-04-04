@@ -33,6 +33,24 @@
       "message": "Ok a quick analysis of what the CI results are reporting.\n\nThey look quite scary buts seem to be 3 main types of failures with the majority of the red a single issue:\nhttps://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/838/\n\nThe first is some complains about the conventional commit header with some of them being very long\nDetails can be found here https://ci.trustedfirmware.org/job/tf-a-commitlint/4307/console\n\nThe second is one unique build failure under this set of tests:\nhttps://ci.trustedfirmware.org/job/tf-a-ci-gateway/33436/ in particular\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1877986/console that is a typedef issue\n22:16:59 include/services/el3_spmc_ffa_memory.h:221:2: error: redefinition of typedef \u0027assert_ffa_mtd_size_v1_0_mismatch\u0027 is a C11 feature [-Werror,-Wtypedef-redefinition]\n22:16:59         assert_ffa_mtd_size_v1_0_mismatch);\n22:16:59         ^\n22:16:59 include/services/el3_spmc_ffa_memory.h:219:44: note: previous definition is here\n22:16:59 CASSERT(sizeof(struct ffa_mtd_v1_0) \u003d\u003d 32, assert_ffa_mtd_size_v1_0_mismatch);\n\nThe third us the same issue but exhibiting across the rest of the test failure from my quick scan:\nOne example is https://ci.trustedfirmware.org/job/tf-a-builder/1877846/console where at the bottom where the size of the BL31 image is exceeding the size now used in FVP testing. \n...\n/home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/bl31/pl011_console.o /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/bl31/board_arm_helpers.o /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/bl31/arm_helpers.o /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/bl31/enable_mmu.o -L/home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/lib  -lfdt -lmbedtls -lc \n22:09:03 aarch64-none-elf-ld.bfd: BL31 progbits has exceeded its limit.\n22:09:03 make: *** [Makefile:1422: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/bl31/bl31.elf] Error 1\n...\nExactly which change in this stack is causing this I\u0027ve not looked for. We could do a binary chop on the stack of changes and do CI runs if those more familiar with the stack of changes are not aware of a candidate change that may be causing this.\n\nAs one of the above failures appears in the level 1 set of tests setting the gerrit AllowCI label to +1 rather than +2 (as in this run) could be used what runs a smaller set of tests.\n\n\n",
       "revId": "3850bef82b55280a48300fa9688475f5fb9892d8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cf55806_335a2ee8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-04-04T07:56:46Z",
+      "side": 1,
+      "message": "Scrap the third issue. I\u0027ve just been made aware some change overnight has appeared in our integration branch that is likey causing this BL31 image exceeding the size now used in FVP testing. Bad timing on doing the rebase :-) Once that\u0027s addressed we can do a new Level 2 CI run (AllowCI+2).\n\nHowever the first two issues above are specific to this patch stack.",
+      "parentUuid": "00f68ca2_6d567890",
+      "revId": "3850bef82b55280a48300fa9688475f5fb9892d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
