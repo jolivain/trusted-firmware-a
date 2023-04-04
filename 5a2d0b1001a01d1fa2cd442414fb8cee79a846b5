@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6067311f_303ede68",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 21
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-04T15:54:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "893dc72b_16f103fd",
+      "range": {
+        "startLine": 97,
+        "startChar": 4,
+        "endLine": 97,
+        "endChar": 12
+      },
+      "revId": "5a2d0b1001a01d1fa2cd442414fb8cee79a846b5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6c6b33d_d19c5d05",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-04-04T11:36:30Z",
       "side": 1,
       "message": "Please add banner explaining the usage and clobber list.",
+      "revId": "5a2d0b1001a01d1fa2cd442414fb8cee79a846b5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "212f1ee3_2250a8e1",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 21
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-04T15:54:14Z",
+      "side": 1,
+      "message": "these macros (the ones I\u0027ve prefixed with \"_\") are not for external use. I don\u0027t think that\u0027s necessary?",
+      "parentUuid": "c6c6b33d_d19c5d05",
       "revId": "5a2d0b1001a01d1fa2cd442414fb8cee79a846b5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -71,6 +113,30 @@
       "writtenOn": "2023-04-04T11:36:30Z",
       "side": 1,
       "message": "Please make each macro banner self sufficient. It will be helpful if the reader can get all the information for a macro from its own banner. Right now one has to scroll to the previous macro to understand the usage of the other fields.",
+      "range": {
+        "startLine": 352,
+        "startChar": 0,
+        "endLine": 356,
+        "endChar": 3
+      },
+      "revId": "5a2d0b1001a01d1fa2cd442414fb8cee79a846b5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbf6fc7d_9f638b26",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 21
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-04T15:54:14Z",
+      "side": 1,
+      "message": "the only reason why I didn\u0027t do that is because these macros are highly similar and this will add more lines of comments than there are macros. I think this will be even more annoying to scroll past. I\u0027ve made an effort to separate these sections with big identifiable headers and only document the difference of each new macro from the \"base\" one.",
+      "parentUuid": "a8b2cc97_d2353852",
       "range": {
         "startLine": 352,
         "startChar": 0,
@@ -144,6 +210,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30eef2b1_1730205d",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 21
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-04T15:54:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4371451d_c3105b74",
+      "revId": "5a2d0b1001a01d1fa2cd442414fb8cee79a846b5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b40322f0_6f394235",
@@ -157,6 +241,24 @@
       "writtenOn": "2023-04-04T11:36:30Z",
       "side": 1,
       "message": "Please add clobber list",
+      "revId": "5a2d0b1001a01d1fa2cd442414fb8cee79a846b5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5406fc8_12f35d6d",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 21
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-04T15:54:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b40322f0_6f394235",
       "revId": "5a2d0b1001a01d1fa2cd442414fb8cee79a846b5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
