@@ -16,6 +16,23 @@
       "message": "This makes sense as a temporary fix meanwhile to provide space for DRTM implementation in SRAM.",
       "revId": "bf8ffa1204eb60477991b6d74c406cbde7740748",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfecfb91_c93e6528",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-04T14:49:06Z",
+      "side": 1,
+      "message": "This fixed the faulting config: https://ci.trustedfirmware.org/job/tf-a-ci-gateway/33973/\n\nWaiting for the CI+2 but seems hopeful",
+      "revId": "bf8ffa1204eb60477991b6d74c406cbde7740748",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
