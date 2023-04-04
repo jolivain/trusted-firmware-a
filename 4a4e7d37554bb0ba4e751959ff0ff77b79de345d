@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4a5d9fb_086629c6",
+        "filename": "docs/design/auth-framework.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-04T11:58:38Z",
+      "side": 1,
+      "message": "Actually this callback is not really optional since crypto_mod_calc_hash() unconditionally calls it:\n\n return crypto_lib_desc.calc_hash(alg, data_ptr, data_len, output);\n\nIf it was optional then we\u0027d need to check it against the NULL pointer first, and fall back on some default implementation, like Yann has done in the crypto_mod_convert_pk() function.\n\nSee https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19592/2/drivers/auth/crypto_mod.c#140\n\nI suppose you meant that this callback is not always called, only when some flavour of measured boot is enabled, but I think the current wording is confusing. I would simply remove the word \u0027optional\u0027 in this sentence.",
+      "range": {
+        "startLine": 258,
+        "startChar": 26,
+        "endLine": 258,
+        "endChar": 34
+      },
+      "revId": "4a4e7d37554bb0ba4e751959ff0ff77b79de345d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
