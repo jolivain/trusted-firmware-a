@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "701a03a8_e2ef81ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-04-04T17:09:47Z",
+      "side": 1,
+      "message": "fvp-tspd-tbb-mbedtls-dualroot\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1898576/console\n\nthis is likely not problem with our patch but with CI.\n\nBut this one zynqmp-wdtrestart is likely related\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1898917/console\n\nand we are back to issue with size. :-(\n",
+      "revId": "8c5d62eb1b2bc261b666150d81b5f34e8719b4e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
