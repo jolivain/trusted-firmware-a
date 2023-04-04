@@ -168,6 +168,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1c9fcf50_f5411039",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-04-04T14:02:26Z",
+      "side": 1,
+      "message": "This makes sense! I will update the patch accordingly.",
+      "parentUuid": "f46e3d6f_8218d2aa",
+      "range": {
+        "startLine": 216,
+        "startChar": 3,
+        "endLine": 216,
+        "endChar": 23
+      },
+      "revId": "b4ebe32a5f4d7cc25ed18182d746c8980d13bd37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "42a28af3_5e8d6b4d",
         "filename": "include/plat/common/platform.h",
         "patchSetId": 11
@@ -227,6 +251,30 @@
       "side": 1,
       "message": "We could argue about the code being more readable that way but using different bits effectively allows you to set both flags at the same time (ROTPK_IS_HASH | ROTPK_IS_FULL_KEY), which does not make sense. These are mutually exclusive and contradictory/opposite.",
       "parentUuid": "e8a68677_e5ef3d80",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 35
+      },
+      "revId": "b4ebe32a5f4d7cc25ed18182d746c8980d13bd37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81b79b73_ffe7f77f",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-04-04T14:02:26Z",
+      "side": 1,
+      "message": "The flag has two possible values today (ROTPK_IS_HASH |ROTPK_NOT_DEPLOYED), and if someone set it to ROTPK_IS_HASH and ROTPK_NOT_DEPLOYED both by mistake, then hash check of ROTPK gets bypassed by giving the warning [1]. I think proper sanity checking is anyways necessary before taking any action with this flag then right?\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19999/11/drivers/auth/auth_mod.c#b203",
+      "parentUuid": "ffd97d73_36e589b2",
       "range": {
         "startLine": 54,
         "startChar": 0,
