@@ -64,6 +64,10 @@ CASSERT(sizeof(struct erratum_entry) == ERRATUM_ENTRY_SIZE,
 #define CVE(year, id)		year, id
 #define NO_ISB			1
 #define NO_ASSERT		0
+#define NO_WA			0
+#define WITH_WA			1
+/* useful for errata that end up always being worked around */
+#define ERRATUM_ALWAYS_CHOSEN	1
 
 #endif /* __ASSEMBLER__ */
 
