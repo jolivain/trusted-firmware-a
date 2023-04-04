@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "196660f7_f7959122",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-04-04T09:54:27Z",
+      "side": 1,
+      "message": "This looks to be more refactoring. Let me think more about it.",
+      "parentUuid": "2c014d7a_586c1c6b",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 37
+      },
+      "revId": "b4ebe32a5f4d7cc25ed18182d746c8980d13bd37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0caedacd_b4db6ca5",
         "filename": "drivers/auth/auth_mod.c",
         "patchSetId": 11
@@ -37,6 +61,30 @@
       "writtenOn": "2023-04-04T09:03:51Z",
       "side": 1,
       "message": "Remove this part of the comment, as this is done in all cases now, even in the case where the platform provides the full key.",
+      "range": {
+        "startLine": 198,
+        "startChar": 5,
+        "endLine": 199,
+        "endChar": 30
+      },
+      "revId": "b4ebe32a5f4d7cc25ed18182d746c8980d13bd37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbe79937_94b56b7a",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-04-04T09:54:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0caedacd_b4db6ca5",
       "range": {
         "startLine": 198,
         "startChar": 5,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d5584a10_4b333f13",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-04-04T09:54:27Z",
+      "side": 1,
+      "message": "It is not the case that auth_signature function should return only CRYPTO_ERR*, It returns error even if image parsing fails. \n\nFurthermore, if you don\u0027t return here, I don\u0027t see any benefit in giving wrong input to the crypto engine.",
+      "parentUuid": "fc67799a_b872cbee",
+      "range": {
+        "startLine": 216,
+        "startChar": 3,
+        "endLine": 216,
+        "endChar": 23
+      },
+      "revId": "b4ebe32a5f4d7cc25ed18182d746c8980d13bd37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "42a28af3_5e8d6b4d",
         "filename": "include/plat/common/platform.h",
         "patchSetId": 11
@@ -95,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e8a68677_e5ef3d80",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-04-04T09:54:27Z",
+      "side": 1,
+      "message": "I feel this more readable and provide better way to handle it. Though, surely it is possible to use !ROTPK_IS_HASH for full development key but it just lose the readability.",
+      "parentUuid": "42a28af3_5e8d6b4d",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 35
+      },
+      "revId": "b4ebe32a5f4d7cc25ed18182d746c8980d13bd37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7e238d8b_58f7c33c",
         "filename": "plat/arm/board/common/board_arm_trusted_boot.c",
         "patchSetId": 11
@@ -106,6 +202,24 @@
       "writtenOn": "2023-04-04T09:03:51Z",
       "side": 1,
       "message": "Changes in this file may be better off in a separate patch, as they are specific to Arm Ltd platforms.",
+      "revId": "b4ebe32a5f4d7cc25ed18182d746c8980d13bd37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f68ef1a_72186e4c",
+        "filename": "plat/arm/board/common/board_arm_trusted_boot.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-04-04T09:54:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7e238d8b_58f7c33c",
       "revId": "b4ebe32a5f4d7cc25ed18182d746c8980d13bd37",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
