@@ -71,6 +71,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "beb8a117_202f6de3",
+        "filename": "docs/change-log.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 6845,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-04-04T06:25:53Z",
+      "side": 1,
+      "message": "As long as there is no changes in the file, revert the date.",
+      "parentUuid": "49b6eee2_5c0a255e",
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c11b370_e1e7431d",
@@ -536,6 +554,24 @@
       "side": 1,
       "message": "Some erratum\u0027s are present in earlier cpu revisions but have been fixed completely in hardware at a later revision, if the revision and variant information that has been extracted from the MIDR register is \u003e\u003d the Hardware mitigated version(saved in the structure) we don\u0027t need to apply the errata mitigation. This is the first check the Kernel team suggested we do because we can avoid any further checks if the mitigation is provided at a hardware level.",
       "parentUuid": "3310cdf3_5ca92426",
+      "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cde681e_2db02bf5",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-04-04T06:25:53Z",
+      "side": 1,
+      "message": "Maybe change to \"errata has been fixed in h/w for the specified revision and above\"",
+      "parentUuid": "88999804_9203de5d",
       "revId": "f389abd100459e20dd1ba74a55a020dc7a86eca3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
