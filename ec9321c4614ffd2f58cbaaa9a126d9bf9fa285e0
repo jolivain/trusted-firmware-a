@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91ac3cd1_c1d42c7e",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-04-04T06:42:30Z",
+      "side": 1,
+      "message": "nit: unrelated to this patch, but we need to replace makalu with A715 for all instances.",
+      "range": {
+        "startLine": 530,
+        "startChar": 19,
+        "endLine": 530,
+        "endChar": 37
+      },
+      "revId": "ec9321c4614ffd2f58cbaaa9a126d9bf9fa285e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
