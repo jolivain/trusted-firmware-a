@@ -491,11 +491,6 @@ Common build options
    ``ENABLE_FEAT`` mechanism. At this time, this build option cannot be
    used on systems that have SPM_MM enabled. The default is 1.
 
--  ``ENABLE_SVE_FOR_SWD``: Boolean option to enable SVE for the Secure world.
-   SVE is an optional architectural feature for AArch64. Note that this option
-   requires ENABLE_SVE_FOR_NS to be enabled. The default is 0 and it is
-   automatically disabled when the target architecture is AArch32.
-
 -  ``ENABLE_STACK_PROTECTOR``: String option to enable the stack protection
    checks in GCC. Allowed values are "all", "strong", "default" and "none". The
    default value is set to "none". "strong" is the recommended stack protection
@@ -1270,11 +1265,6 @@ Common build options
    This should be set along with ENABLE_SME_FOR_NS=1, if not, the default SME
    accesses will still be trapped. This flag can take the values 0 to 2, to
    align with the ``ENABLE_FEAT`` mechanism. Default is 0.
-
--  ``ENABLE_SME_FOR_SWD``: Boolean option to enable the Scalable Matrix
-   Extension for secure world. Used along with SVE and FPU/SIMD.
-   ENABLE_SME_FOR_NS and ENABLE_SVE_FOR_SWD must also be set to use this.
-   Default is 0.
 
 -  ``ENABLE_SPMD_LP`` : This boolean option is used jointly with the SPM
    Dispatcher option (``SPD=spmd``). When enabled (1) it indicates support
