@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f66cd3b1_36c3a663",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-04-05T15:45:30Z",
+      "side": 1,
+      "message": "it would be worth mentioning that in the current measured boot model, bl1, bl2, bl31 and all of secure world effectively forms the S-CRTM.There are assets to protect, i.e the event log and measurements, and I think it would be good to call out that these are stored in secure memory, like you mention in the commit messages.\nBl1, bl2, bl31 itself are assets (FW) that need protection and are protected by secure boot.",
+      "revId": "4d559f5a76f62254a00c956360ac1168cf482725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
