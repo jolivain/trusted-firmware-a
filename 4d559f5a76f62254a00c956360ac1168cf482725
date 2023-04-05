@@ -52,6 +52,24 @@
       "parentUuid": "360ca13e_ac8b2102",
       "revId": "4d559f5a76f62254a00c956360ac1168cf482725",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0926b848_a7814999",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-04-05T16:54:11Z",
+      "side": 1,
+      "message": "Hi Manish, for #2, I wouldn\u0027t word it exactly like I did and scare people, instead we should probably just say, the SCRTM includes all of those components and people can make up their mind about how large they think it is (it is subjective).\nFor #1, I could design a measured boot scheme where the first measurement to the TPM (discrete TPM) is made from the boot rom. That way, secure boot does not matter even if it is broken, since measured boot only relies on integrity of only the boot rom. Since the first measurement is made in boot rom, even if mutable firmware is malicious, it cannot spoof the measurement of the first mutable code (i.e first mutable code cannot lie about its measurement). \nLet me know if that clears out #1.",
+      "parentUuid": "e1fdca54_4aaa1806",
+      "revId": "4d559f5a76f62254a00c956360ac1168cf482725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
