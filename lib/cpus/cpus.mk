@@ -128,10 +128,6 @@ CPUS_INCLUDE_DIRS += include/lib/cpus/$(ARCH)
 CPUS_SOURCES := $(addprefix lib/cpus/$(ARCH)/,$(CPUS_SUPPORTED))
 CPUS_SOURCES := $(addsuffix .S,$(CPUS_SOURCES))
 
-ifneq ($(filter neoverse_%,$(CPUS_SUPPORTED)),)
-        CPUS_SOURCES += lib/cpus/$(ARCH)/neoverse_n_common.S
-endif
-
 ifneq ($(CPUS_CPU_HELPERS_ENABLED),0)
         CPUS_SOURCES += lib/cpus/$(ARCH)/cpu_helpers.S
 endif
