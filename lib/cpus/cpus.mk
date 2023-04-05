@@ -249,10 +249,6 @@ ifneq ($(CPUS_ENABLE_CPU_OPERATIONS),0)
         ifneq ($(CPUS_HAVE_DSU_HELPERS),0)
                 CPUS_SOURCES += lib/cpus/$(ARCH)/dsu_helpers.S
         endif
-
-        ifneq ($(filter neoverse_n%,$(CPUS_ENABLE)),)
-                CPUS_SOURCES += lib/cpus/$(ARCH)/neoverse_n_common.S
-        endif
 endif
 
 #

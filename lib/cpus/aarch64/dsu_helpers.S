@@ -8,6 +8,10 @@
 #include <dsu_def.h>
 #include <lib/cpus/errata.h>
 
+#if HAVE_CPU_NEOVERSE_Nx
+#	include <neoverse_n_common.h>
+#endif
+
 	/* -----------------------------------------------------------------------
 	 * DSU erratum 798953 check function
 	 * Checks the DSU variant, revision and configuration to determine if
@@ -77,7 +81,6 @@ endfunc errata_dsu_798953_wa
 	 */
 	.globl	check_errata_dsu_936184
 	.globl	errata_dsu_936184_wa
-	.weak	is_scu_present_in_dsu
 
 	/* --------------------------------------------------------------------
 	 * Default behaviour respresents SCU is always present with DSU.
@@ -87,7 +90,23 @@ endfunc errata_dsu_798953_wa
 	 * --------------------------------------------------------------------
 	 */
 func is_scu_present_in_dsu
+#if HAVE_CPU_NEOVERSE_Nx
+	/*
+	 * Check if the SCU L3 Unit is present on the DSU:
+	 *
+	 * - `1` -> SCU present
+	 * - `0` -> SCU not present
+	 *
+	 * This is implemented for Neoverse Nx cores only.
+	 */
+
+	mrs	x0, CPUCFR_EL1
+	ubfx	x0, x0, #SCU_SHIFT, #1
+	eor	x0, x0, #1
+#else
 	mov	x0, #1
+#endif
+
 	ret
 endfunc is_scu_present_in_dsu
 
