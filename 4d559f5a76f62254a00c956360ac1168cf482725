@@ -70,6 +70,24 @@
       "parentUuid": "e1fdca54_4aaa1806",
       "revId": "4d559f5a76f62254a00c956360ac1168cf482725",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89dcd3f2_9d030cc0",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-04-05T19:56:03Z",
+      "side": 1,
+      "message": "\u003e Hi Manish, for #2, I wouldn\u0027t word it exactly like I did and scare people, instead we should probably just say, the SCRTM includes all of those components and people can make up their mind about how large they think it is (it is subjective).\n\nOkay. IMO, it is more of an FYI than a warning I will mention in this document. As SRTM is generally designed in this way, this limitation is well known. \n\n\u003e For #1, I could design a measured boot scheme where the first measurement to the TPM (discrete TPM) is made from the boot rom. That way, secure boot does not matter even if it is broken, since measured boot only relies on integrity of only the boot rom. Since the first measurement is made in boot rom, even if mutable firmware is malicious, it cannot spoof the measurement of the first mutable code (i.e first mutable code cannot lie about its measurement).\n\u003e Let me know if that clears out #1\n\nThanks that clears my understanding. Since the first measurement is taken by an immutable component (BL1) in dTPM, it is always legit. Any subsequent measurements taken by malicious mutable component will be added to this first measurement in dTPM and that results in always final PCR value different than expected one that explains Measured-Boot is not really depends on Secure-Boot but only need to be depend on integrity of BL1 (that is the must case anyways).\nIn the current TF-A Measured Boot design, the first measurement is taken by the immutable component (BL1) and is recorded in the Event Log via platform API. However, there are no existing platforms today that leverage use of this API to record the measurement in the dTPM that is why we can say Measured Boot depends on Secure Boot (so if Secure-Boot is broken then Measured-Boot is broken) to trust on Event Log. But this is not really a TF-A Measured-Boot design limitation but rather implementation choice by the platform/HW limitation (dTPM) of the platform right?",
+      "parentUuid": "0926b848_a7814999",
+      "revId": "4d559f5a76f62254a00c956360ac1168cf482725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
