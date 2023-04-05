@@ -52,7 +52,7 @@ void sme_init_el3(void)
 	 * to be the least restrictive, then lower ELs can restrict as needed
 	 * using SMCR_EL2 and SMCR_EL1.
 	 */
-	smcr_el3 = SMCR_ELX_LEN_MAX;
+	smcr_el3 = SMCR_ELX_LEN_MAX; /* TODO: should it be platform dependent? */
 	if (read_feat_sme_fa64_id_field() != 0U) {
 		VERBOSE("[SME] FA64 enabled\n");
 		smcr_el3 |= SMCR_ELX_FA64_BIT;

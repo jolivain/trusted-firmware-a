@@ -996,6 +996,7 @@ ifeq (${ARCH},aarch32)
 	endif
 endif #(ARCH=aarch32)
 
+# TODO: this doesn't permit the case SME and not SVE
 ifneq (${ENABLE_SME_FOR_NS},0)
 	ifeq (${ENABLE_SVE_FOR_NS},0)
                 $(error "ENABLE_SME_FOR_NS requires ENABLE_SVE_FOR_NS")
@@ -1183,8 +1184,6 @@ $(eval $(call assert_booleans,\
 	ENABLE_PMF \
 	ENABLE_PSCI_STAT \
 	ENABLE_RUNTIME_INSTRUMENTATION \
-	ENABLE_SME_FOR_SWD \
-	ENABLE_SVE_FOR_SWD \
 	ENABLE_FEAT_RAS	\
 	FFH_SUPPORT	\
 	ERROR_DEPRECATED \
@@ -1344,10 +1343,8 @@ $(eval $(call add_defines,\
 	ENABLE_RUNTIME_INSTRUMENTATION \
 	ENABLE_SME_FOR_NS \
 	ENABLE_SME2_FOR_NS \
-	ENABLE_SME_FOR_SWD \
 	ENABLE_SPE_FOR_NS \
 	ENABLE_SVE_FOR_NS \
-	ENABLE_SVE_FOR_SWD \
 	ENABLE_FEAT_RAS \
 	FFH_SUPPORT \
 	ENCRYPT_BL31 \

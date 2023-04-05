@@ -670,35 +670,34 @@ static void manage_extensions_secure_per_world(void)
 	cm_el3_arch_init_per_world(&per_world_context[CPU_CONTEXT_SECURE]);
 
 	if (is_feat_sme_supported()) {
-
-		if (ENABLE_SME_FOR_SWD) {
+ #if defined(SPD_spmd) && (SPMD_SPM_AT_SEL2 == 1)
 		/*
 		 * Enable SME, SVE, FPU/SIMD in secure context, SPM must ensure
 		 * SME, SVE, and FPU/SIMD context properly managed.
 		 */
-			sme_enable_per_world(&per_world_context[CPU_CONTEXT_SECURE]);
-		} else {
+		sme_enable_per_world(&per_world_context[CPU_CONTEXT_SECURE]);
+#else
 		/*
 		 * Disable SME, SVE, FPU/SIMD in secure context so non-secure
 		 * world can safely use the associated registers.
 		 */
-			sme_disable_per_world(&per_world_context[CPU_CONTEXT_SECURE]);
-		}
+		sme_disable_per_world(&per_world_context[CPU_CONTEXT_SECURE]);
+#endif
 	}
 	if (is_feat_sve_supported()) {
-		if (ENABLE_SVE_FOR_SWD) {
+ #if defined(SPD_spmd) && (SPMD_SPM_AT_SEL2 == 1)
 		/*
 		 * Enable SVE and FPU in secure context, SPM must ensure
 		 * that the SVE and FPU register contexts are properly managed.
 		 */
-			sve_enable_per_world(&per_world_context[CPU_CONTEXT_SECURE]);
-		} else {
+		sve_enable_per_world(&per_world_context[CPU_CONTEXT_SECURE]);
+#else
 		/*
 		 * Disable SVE and FPU in secure context so non-secure world
 		 * can safely use them.
 		 */
-			sve_disable_per_world(&per_world_context[CPU_CONTEXT_SECURE]);
-		}
+		sve_disable_per_world(&per_world_context[CPU_CONTEXT_SECURE]);
+#endif
 	}
 
 	/* NS can access this but Secure shouldn't */
@@ -798,20 +797,20 @@ static void manage_extensions_secure(cpu_context_t *ctx)
 {
 #if IMAGE_BL31
 	if (is_feat_sme_supported()) {
-		if (ENABLE_SME_FOR_SWD) {
+ #if defined(SPD_spmd) && (SPMD_SPM_AT_SEL2 == 1)
 		/*
 		 * Enable SME, SVE, FPU/SIMD in secure context, secure manager
 		 * must ensure SME, SVE, and FPU/SIMD context properly managed.
 		 */
-			sme_init_el3();
-			sme_enable(ctx);
-		} else {
+		sme_init_el3();
+		sme_enable(ctx);
+#else
 		/*
 		 * Disable SME, SVE, FPU/SIMD in secure context so non-secure
 		 * world can safely use the associated registers.
 		 */
-			sme_disable(ctx);
-		}
+		sme_disable(ctx);
+#endif
 	}
 #endif /* IMAGE_BL31 */
 }
