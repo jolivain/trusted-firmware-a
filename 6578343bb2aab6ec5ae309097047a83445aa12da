@@ -16,6 +16,23 @@
       "message": "CI is expected to fail with a DRTM related test config as there is still a patch under review to address its BL31 size issue. If that\u0027s the only failure we can manually Verified+1 on both these patches which should allow them to be merged.",
       "revId": "6578343bb2aab6ec5ae309097047a83445aa12da",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "452c9e5e_af1dc71f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-04-05T22:41:41Z",
+      "side": 1,
+      "message": "https://ci.trustedfirmware.org/job/tf-a-ci-gateway/34182/",
+      "revId": "6578343bb2aab6ec5ae309097047a83445aa12da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
