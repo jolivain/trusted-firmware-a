@@ -88,6 +88,24 @@
       "parentUuid": "0926b848_a7814999",
       "revId": "4d559f5a76f62254a00c956360ac1168cf482725",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22f61817_77f086cb",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-04-05T21:41:32Z",
+      "side": 1,
+      "message": "agree with warning for #2.\nFor #1, agree, if a platform implements measured boot with the backend as TPM and event log as opposed to using a dTPM, there is no issue. It is a platform choice. I think my statement was more from the point of view of the most common and default implementation, which DOES have this problem since a fTPM is used. \nPerhaps the clarification should be that the warning and threat/mitigation applies to the default implementation and the fTPM model and need not necessarily apply to a dTPM implementation that hooks up to the dTPM from Bl1.\nI just saw a review from Sandrine that talks about how the threat model applies to most common platforms so if that is the case with this document, I thought it might be worth calling this nuance out. Let me know if you disagree.",
+      "parentUuid": "89dcd3f2_9d030cc0",
+      "revId": "4d559f5a76f62254a00c956360ac1168cf482725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
