@@ -287,6 +287,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a7c9075e_f9b95278",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-04-05T07:26:06Z",
+      "side": 1,
+      "message": "Another option would change these defines to sequential values i.e. \n\nROTPK_NOT_DEPLOYED 0\nROTPK_IS_HASH      1 \nROTPK_IS_FULL_KEY. 2\n\nWhat do you think? I may be missing something, is there historical reason to use bitfields here?",
+      "parentUuid": "81b79b73_ffe7f77f",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 35
+      },
+      "revId": "b4ebe32a5f4d7cc25ed18182d746c8980d13bd37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7e238d8b_58f7c33c",
         "filename": "plat/arm/board/common/board_arm_trusted_boot.c",
         "patchSetId": 11
