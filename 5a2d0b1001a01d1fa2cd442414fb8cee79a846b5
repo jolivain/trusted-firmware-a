@@ -83,6 +83,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d4cb2ec_b1d61a2e",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 21
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-04-05T15:14:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "212f1ee3_2250a8e1",
+      "revId": "5a2d0b1001a01d1fa2cd442414fb8cee79a846b5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "546f03d7_d12981c0",
@@ -96,6 +114,24 @@
       "writtenOn": "2023-04-04T11:36:30Z",
       "side": 1,
       "message": "Please add banner explaining the usage and clobber list.",
+      "revId": "5a2d0b1001a01d1fa2cd442414fb8cee79a846b5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8023c82d_6c91b946",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 21
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-04-05T15:14:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "546f03d7_d12981c0",
       "revId": "5a2d0b1001a01d1fa2cd442414fb8cee79a846b5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -137,6 +173,30 @@
       "side": 1,
       "message": "the only reason why I didn\u0027t do that is because these macros are highly similar and this will add more lines of comments than there are macros. I think this will be even more annoying to scroll past. I\u0027ve made an effort to separate these sections with big identifiable headers and only document the difference of each new macro from the \"base\" one.",
       "parentUuid": "a8b2cc97_d2353852",
+      "range": {
+        "startLine": 352,
+        "startChar": 0,
+        "endLine": 356,
+        "endChar": 3
+      },
+      "revId": "5a2d0b1001a01d1fa2cd442414fb8cee79a846b5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4253e2e_bd1857df",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 21
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-04-05T15:14:38Z",
+      "side": 1,
+      "message": "Unfortunately, the current way is unclear to me. If we can simplify and provide self-sufficient description then that would be great.",
+      "parentUuid": "bbf6fc7d_9f638b26",
       "range": {
         "startLine": 352,
         "startChar": 0,
