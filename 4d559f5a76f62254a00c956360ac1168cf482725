@@ -34,6 +34,24 @@
       "parentUuid": "f66cd3b1_36c3a663",
       "revId": "4d559f5a76f62254a00c956360ac1168cf482725",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1fdca54_4aaa1806",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-04-05T16:38:57Z",
+      "side": 1,
+      "message": "\u003e it would be worth mentioning that in the current measured boot model, bl1, bl2, bl31 and all of secure world effectively forms the S-CRTM.There are assets to protect, i.e the event log and measurements, and I think it would be good to call out that these are stored in secure memory, like you mention in the commit messages.\nBl1, bl2, bl31 itself are assets (FW) that need protection and are protected by secure boot.\n\nThanks! I will mention this explicitly in the document.\n\n\u003e would highly recommend being explicit so people are aware what they are signing up for. There are two issues with the measured boot design, that I have pointed out in earlier reviews:\n1) If secure boot is broken, measured boot is broken.\n2) S-CRTM is fairly large, since it includes all of secure world.\n\nAs far as (1) is concerned, it is obvious that secured boot is broken, and measured boot is broken because BL2 is taking measurements of all images. In order for those components which take the measurements to trust them, Secure-Boot must be implemented. This doesn\u0027t seem to be a problem to me. Please correct me if I\u0027m wrong. I\u0027m fine with (2) to mention it explicitly.",
+      "parentUuid": "360ca13e_ac8b2102",
+      "revId": "4d559f5a76f62254a00c956360ac1168cf482725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
