@@ -69,14 +69,7 @@ func cortex_a5_cluster_pwr_dwn
 	b	cortex_a5_disable_smp
 endfunc cortex_a5_cluster_pwr_dwn
 
-#if REPORT_ERRATA
-/*
- * Errata printing function for Cortex-A5. Must follow AAPCS.
- */
-func cortex_a5_errata_report
-	bx	lr
-endfunc cortex_a5_errata_report
-#endif
+errata_report_shim cortex_a5
 
 declare_cpu_ops cortex_a5, CORTEX_A5_MIDR, \
 	cortex_a5_reset_func, \
