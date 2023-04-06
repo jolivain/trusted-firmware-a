@@ -33,6 +33,23 @@
       "message": "Behavior is correct. Ready for review. ",
       "revId": "d5a7e15757ef6f60310eeb293547981b72e8ae09",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53d8dc55_681eaace",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-06T09:15:35Z",
+      "side": 1,
+      "message": "why did you move this? It should execute in both cases",
+      "revId": "d5a7e15757ef6f60310eeb293547981b72e8ae09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
