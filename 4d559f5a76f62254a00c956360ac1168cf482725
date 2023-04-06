@@ -106,6 +106,24 @@
       "parentUuid": "89dcd3f2_9d030cc0",
       "revId": "4d559f5a76f62254a00c956360ac1168cf482725",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c20636e_af08649e",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-04-06T08:29:41Z",
+      "side": 1,
+      "message": "Hi Raghu, I agree with what you said. Now that I\u0027ve captured everything below -\n\n\"In the current Measured Boot design, BL1, BL2, and BL31, as well as the secure world components, form the SRTM. Measuring data is currently considered an asset to be protected against attack, and this is achieved by storing it in a TCG-compatible Event Log buffer in the Secure Memory. Beyond the TCG-compliant Event Log buffer, there are no other assets to protect or threats to defend against that could compromise the TF-A execution environment\u0027s security.\n\nThere are generally security assets and threats associated with remote/delegated attestation. However, these are outside the TF-A security boundary and should be dealt with by the appropriate agent in the platform system. \n\nA limitation of the current Measured Boot design is that it is dependent upon Secure Boot as the default implementation of Measured Boot does not support Discrete TPM. This implies that if Secure-Boot breaks, Measured Boot also breaks.\n\nPlatforms must be cautious in deciding how large they need this SRTM as SRTM includes all Secure World components.\"\n\nPlease let me know if this is okay. If there is anything else I can cover, let me know.",
+      "parentUuid": "22f61817_77f086cb",
+      "revId": "4d559f5a76f62254a00c956360ac1168cf482725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
