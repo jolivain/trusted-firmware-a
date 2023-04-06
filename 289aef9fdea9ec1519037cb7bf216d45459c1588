@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b5e17e8_741681ae",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 1342,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-04-06T16:57:31Z",
+      "side": 1,
+      "message": "S2PIR_EL2 is missing here.",
+      "revId": "289aef9fdea9ec1519037cb7bf216d45459c1588",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "340945b8_72349403",
+        "filename": "include/arch/aarch64/arch_helpers.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-04-06T16:57:31Z",
+      "side": 1,
+      "message": "S2PIR_EL2 is missing here.",
+      "revId": "289aef9fdea9ec1519037cb7bf216d45459c1588",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08879370_7faae5be",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-04-06T16:57:31Z",
+      "side": 1,
+      "message": "CTX_S2PIR_EL2 is missing here.",
+      "revId": "289aef9fdea9ec1519037cb7bf216d45459c1588",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
