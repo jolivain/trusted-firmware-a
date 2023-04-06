@@ -16,6 +16,23 @@
       "message": "LGTM",
       "revId": "e75a3b6e89c4bce11d1885426f22262def9bd664",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f4de8a4_eef20de5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-04-06T10:52:33Z",
+      "side": 1,
+      "message": "@Marco: can you confirm that this actually works still? I don\u0027t have a board using this platform, I just compile tested it. And with just \"make PLAT\u003dimx8mq\" I see it reporting:\n\n  LD      build/imx8mq/release/bl31/bl31.elf\nld.bfd: build/imx8mq/release/bl31/bl31.elf section `.xlat_table\u0027 will not fit in region `RAM\u0027\nld.bfd: BL31 image has exceeded its limit.\nld.bfd: region `RAM\u0027 overflowed by 20480 bytes\nmake: *** [Makefile:1426: build/imx8mq/release/bl31/bl31.elf] Error 1\n\nThis seems to be a long standing issue, not sure if there is a fix or workaround? In any case it would be good to know if the changed code really works.\n",
+      "revId": "e75a3b6e89c4bce11d1885426f22262def9bd664",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
