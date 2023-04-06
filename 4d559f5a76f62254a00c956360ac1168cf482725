@@ -124,6 +124,24 @@
       "parentUuid": "22f61817_77f086cb",
       "revId": "4d559f5a76f62254a00c956360ac1168cf482725",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edec962c_8dc0f867",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-04-06T13:40:01Z",
+      "side": 1,
+      "message": "this looks fine. some nits: feel free to ignore:\n1) Would change \"Measuring data\" to \"Measurement Data\".\n2) \"that could compromise the TF-A execution environment\u0027s security.\" -\u003e \"that could compromise the security guarantees provided by measured boot\"\n3) \"There are generally security assets\" -\u003e \"There are general security assets\"\n4) \"appropriate agent in the platform system\" -\u003e \"appropriate agent in the platform/system\"? \n5) \"implementation of Measured Boot does not support Discrete TPM\" -\u003e \"implementation of measured boot does not extend measurements into a discrete TPM\". discrete TPM is supported by the default implementation if the platform chooses to right? and is it the default implementation or the FVP implementation? This looks like we dont support a dTPM backend, but i believe we do?\n6) \"This implies that if Secure-Boot breaks, Measured Boot also breaks.\" - Would remove the word \"breaks\" and replace with \"is compromised, measured boot may also be compromised\".\n7) \"Platforms must be cautious in deciding how large they need this SRTM as SRTM includes all Secure World components\" -\u003e \"Platforms must carefully evaluate the security of the default implementation since the SRTM includes all secure world components\".",
+      "parentUuid": "1c20636e_af08649e",
+      "revId": "4d559f5a76f62254a00c956360ac1168cf482725",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
