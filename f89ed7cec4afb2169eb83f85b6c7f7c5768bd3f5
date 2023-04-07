@@ -85,6 +85,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4463d94b_cc5cd139",
+        "filename": "plat/hisilicon/hikey960/hikey960_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-04-07T15:03:06Z",
+      "side": 1,
+      "message": "I agree but then why creating a dedicated platform change for FVP, but not Hikey960 and qemu?\nCurrent change relates to \u0027adding support for FFA_EL3_INTR_HANDLE_32 ABI\u0027, but it isn\u0027t generic in that it also adds platform changes for the said platforms?",
+      "parentUuid": "4114ebfb_bf5657c5",
+      "revId": "f89ed7cec4afb2169eb83f85b6c7f7c5768bd3f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "24a678b1_8cc2571c",
         "filename": "plat/qemu/common/qemu_common.c",
         "patchSetId": 2
