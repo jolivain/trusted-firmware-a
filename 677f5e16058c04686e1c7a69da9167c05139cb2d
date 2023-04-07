@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a6e8f50_02de8b16",
+        "filename": "changelog.yaml",
+        "patchSetId": 33
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-04-07T13:34:25Z",
+      "side": 1,
+      "message": "ideally those refactoring should not be part of this change",
+      "range": {
+        "startLine": 95,
+        "startChar": 54,
+        "endLine": 95,
+        "endChar": 64
+      },
+      "revId": "677f5e16058c04686e1c7a69da9167c05139cb2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac73fc1b_77e6c2b6",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-04-07T13:34:25Z",
+      "side": 1,
+      "message": "should not be part of this change",
+      "range": {
+        "startLine": 366,
+        "startChar": 1,
+        "endLine": 366,
+        "endChar": 32
+      },
+      "revId": "677f5e16058c04686e1c7a69da9167c05139cb2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ef0d4b3_c0c4857e",
+        "filename": "lib/extensions/sme/sme.c",
+        "patchSetId": 33
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-04-07T13:34:25Z",
+      "side": 1,
+      "message": "Should this be platform configurable similarly to:\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/lib/extensions/sve/sve.c#n36\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/make_helpers/defaults.mk#n383",
+      "range": {
+        "startLine": 47,
+        "startChar": 8,
+        "endLine": 47,
+        "endChar": 24
+      },
+      "revId": "677f5e16058c04686e1c7a69da9167c05139cb2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cda65b8_1acc1efc",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 33
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-04-07T13:34:25Z",
+      "side": 1,
+      "message": "remove trailing space",
+      "range": {
+        "startLine": 54,
+        "startChar": 25,
+        "endLine": 54,
+        "endChar": 26
+      },
+      "revId": "677f5e16058c04686e1c7a69da9167c05139cb2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
