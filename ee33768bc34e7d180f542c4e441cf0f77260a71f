@@ -34,6 +34,24 @@
       "parentUuid": "2c8060ff_ea01268a",
       "revId": "ee33768bc34e7d180f542c4e441cf0f77260a71f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "235a563c_2ab59c58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2023-04-07T12:12:00Z",
+      "side": 1,
+      "message": "What process is required to commit the files to the script?\nI want to submit the files:\n\n group/tf-l1-build-plat/rk3568-coreboot:nil |  6 ++++++\n group/tf-l1-build-plat/rk3568-default:nil  | 12 ++++++++++++\n script/tf-coverity/tf-cov-make             |  2 ++\n tf_config/rk3568-coreboot                  |  3 +++\n tf_config/rk3568-default                   |  3 +++\n 5 files changed, 26 insertions(+)\n\n--- /dev/null\n+++ b/group/tf-l1-build-plat/rk3568-coreboot:nil\n@@ -0,0 +1,6 @@\n+#\n+# Copyright (c) 2019-2023 Arm Limited. All rights reserved.\n+#\n+# SPDX-License-Identifier: BSD-3-Clause\n+#\n+\ndiff --git a/group/tf-l1-build-plat/rk3568-default:nil b/group/tf-l1-build-plat/rk3568-default:nil\nnew file mode 100644\nindex 0000000..26062d0\n--- /dev/null\n+++ b/group/tf-l1-build-plat/rk3568-default:nil\n@@ -0,0 +1,12 @@\n+#!/usr/bin/env bash\n+#\n+# Copyright (c) 2019-2023 Arm Limited. All rights reserved.\n+#\n+# SPDX-License-Identifier: BSD-3-Clause\n+#\n+\n+post_tf_archive() {\n+       echo \"Removing bl31.bin\"\n+       rm -f \"$archive/bl31.bin\"\n+       touch \"$archive/bl31.bin.deleted\"\n+}\ndiff --git a/script/tf-coverity/tf-cov-make b/script/tf-coverity/tf-cov-make\nindex e863fd7..8e2ec78 100755\n--- a/script/tf-coverity/tf-cov-make\n+++ b/script/tf-coverity/tf-cov-make\n@@ -348,6 +348,8 @@ make PLAT\u003drk3328 $(common_flags) COREBOOT\u003d1 PLAT_RK_SECURE_DDR_MINILOADER\u003d1 \\\n     ENABLE_STACK_PROTECTOR\u003dstrong all\n make PLAT\u003dpx30 $(common_flags) PLAT_RK_SECURE_DDR_MINILOADER\u003d1 \\\n     ENABLE_STACK_PROTECTOR\u003dstrong all\n+make PLAT\u003drk3568 $(common_flags) COREBOOT\u003d1 PLAT_RK_SECURE_DDR_MINILOADER\u003d1\\\n+    ENABLE_STACK_PROTECTOR\u003dstrong all\n \n # Although we do several consecutive builds for the Tegra platform below, we\n # don\u0027t need to clean between each one because the Tegra makefiles specify\ndiff --git a/tf_config/rk3568-coreboot b/tf_config/rk3568-coreboot\nnew file mode 100644\nindex 0000000..cdecd50\n--- /dev/null\n+++ b/tf_config/rk3568-coreboot\n@@ -0,0 +1,3 @@\n+COREBOOT\u003d1\n+CROSS_COMPILE\u003daarch64-none-elf-\n+PLAT\u003drk3568\ndiff --git a/tf_config/rk3568-default b/tf_config/rk3568-default\nnew file mode 100644\nindex 0000000..595ff6b\n--- /dev/null\n+++ b/tf_config/rk3568-default\n@@ -0,0 +1,3 @@\n+CROSS_COMPILE\u003daarch64-none-elf-\n+ENABLE_STACK_PROTECTOR\u003dstrong\n+PLAT\u003drk3568\n(END)",
+      "parentUuid": "7a43a82c_949d39b7",
+      "revId": "ee33768bc34e7d180f542c4e441cf0f77260a71f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
