@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5416373c_8e0f6510",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-04-07T14:59:34Z",
+      "side": 1,
+      "message": "Hi Jens, this ABI is atm treated as impdef for Hafnium. It may appear in a next iteration of the FF-A specification. When this appears, we can populate a comment with the cross reference originated from spec.",
+      "parentUuid": "2f89ff6d_1c1b980b",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 25
+      },
+      "revId": "f89ed7cec4afb2169eb83f85b6c7f7c5768bd3f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "219a9757_1d862bf0",
@@ -238,6 +262,48 @@
       "side": 1,
       "message": "Good point. If that\u0027s the case then there\u0027s no need to check anything more here.",
       "parentUuid": "12406006_40d01f70",
+      "range": {
+        "startLine": 1166,
+        "startChar": 6,
+        "endLine": 1166,
+        "endChar": 19
+      },
+      "revId": "f89ed7cec4afb2169eb83f85b6c7f7c5768bd3f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0122cca3_0bb347d4",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1166,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-04-07T14:59:34Z",
+      "side": 1,
+      "message": "I\u0027m thinking of EL3 G0 int. handler further delegating the interrupt to normal world by SDEI. If this use case exists, we\u0027re not guarded against the OS SDEI handler emitting a fresh FF-A SMC and enter the SPMD again. It would end up resuming the SPMC with a func id different from FFA_SUCCESS as a result of FFA_EL3_INTR_HANDLE and panic.\nI agree this is convoluted, and would requires more changes like, SPMC must exit in a clean state before calling FFA_EL3_INTR_HANDLE (like done by a NS int. managed exit with current vCPU is parked and \u0027other world vCPU\u0027 context restored).\nWe may ignore this for now. I suspect this problem already exists with other interfaces like PSCI.",
+      "parentUuid": "6c2cbd7e_49be5057",
+      "revId": "f89ed7cec4afb2169eb83f85b6c7f7c5768bd3f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d28d5fb0_80c24277",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1166,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-04-07T14:59:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52b5555a_d6f0e685",
       "range": {
         "startLine": 1166,
         "startChar": 6,
