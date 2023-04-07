@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc31e28d_0fc6406a",
+        "filename": "plat/arm/board/tc/tc_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-04-07T15:30:22Z",
+      "side": 1,
+      "message": "Perhaps this should restrict to the configuration with SEL2 SPMC (aka Hafnium), by checking defined(SPD_spmd) \u0026\u0026 (SPMD_SPM_AT_SEL2 \u003d\u003d 1).\nI don\u0027t believe this would work with other SPMC implementations, in particular SEL1 SPMC..\n\nAlternative is to use a dedicated TC build option such as ENABLE_GENERIC_WTD\nSimilarly how ARM_DISABLE_TRUSTED_WDOG exists on Arm platforms for the Trusted Watchdog...",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 21
+      },
+      "revId": "ddb3f33a116158d1e10071b09e3ad2d255e1c93c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
