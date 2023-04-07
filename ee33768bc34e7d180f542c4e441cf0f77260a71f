@@ -16,6 +16,24 @@
       "message": "Hi Olivier,\nFiles Detection check FAILURE happen, how can we handle this kind of failure? Add a new platform for test script?",
       "revId": "ee33768bc34e7d180f542c4e441cf0f77260a71f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a43a82c_949d39b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001013
+      },
+      "writtenOn": "2023-04-07T11:37:46Z",
+      "side": 1,
+      "message": "as far as i understand you have to add new files to tf-cov-make script or tf-l1-build-plat group.\n\nthere is a link to documentation below the description,but anchor is wrong this is the right link:\n\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#add-ci-configurations\n\nhth Frank",
+      "parentUuid": "2c8060ff_ea01268a",
+      "revId": "ee33768bc34e7d180f542c4e441cf0f77260a71f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
