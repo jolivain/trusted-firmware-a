@@ -133,8 +133,22 @@ static uintptr_t arm_sip_handler(unsigned int smc_fid,
 		SMC_RET2(handle, ARM_SIP_SVC_VERSION_MAJOR, ARM_SIP_SVC_VERSION_MINOR);
 
 	default:
+#if ENABLE_SPMD_EL3_LP
+extern uintptr_t plat_spmd_logical_sp_smc_handler(unsigned int smc_fid,
+		u_register_t x1,
+		u_register_t x2,
+		u_register_t x3,
+		u_register_t x4,
+		void *cookie,
+		void *handle,
+		u_register_t flags);
+
+		return plat_spmd_logical_sp_smc_handler(smc_fid, x1, x2, x3, x4,
+				cookie, handle, flags);
+#else
 		WARN("Unimplemented ARM SiP Service Call: 0x%x \n", smc_fid);
 		SMC_RET1(handle, SMC_UNK);
+#endif
 	}
 
 }
