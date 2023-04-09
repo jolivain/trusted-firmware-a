@@ -7,14 +7,14 @@
 #include <assert.h>
 #include <errno.h>
 #include <string.h>
+#include "spmd_private.h"
 
 #include <common/debug.h>
-#include <common/uuid.h>
 #include <lib/el3_runtime/context_mgmt.h>
-#include <services/spmc_svc.h>
 #include <services/el3_spmd_logical_sp.h>
+#include <services/spmc_svc.h>
+#include <common/uuid.h>
 #include <smccc_helpers.h>
-#include "spmd_private.h"
 
 /*
  * Maximum ffa_partition_info entries that can be returned by an invocation
