@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e05be23d_c8336d64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-04-10T14:44:30Z",
+      "side": 1,
+      "message": "LGTM. \n\nThe CI failure is seen with other patches too and is being looked into for a solution\n\"08:36:48 aarch64-none-elf-ld.bfd: BL31 progbits has exceeded its limit. Consider disabling some features.\"",
+      "revId": "b611a05a7bdbc7a6afa7ae60935e686bf55d3de5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
