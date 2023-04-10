@@ -101,6 +101,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0830624_ccc26c07",
+        "filename": "plat/hisilicon/hikey960/hikey960_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-10T19:52:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4463d94b_cc5cd139",
+      "revId": "f89ed7cec4afb2169eb83f85b6c7f7c5768bd3f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24a678b1_8cc2571c",
@@ -114,6 +132,24 @@
       "writtenOn": "2023-03-21T09:47:07Z",
       "side": 1,
       "message": "May this be moved to this platform change https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19899 ?",
+      "revId": "f89ed7cec4afb2169eb83f85b6c7f7c5768bd3f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60a63bbd_35147218",
+        "filename": "plat/qemu/common/qemu_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-10T19:52:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24a678b1_8cc2571c",
       "revId": "f89ed7cec4afb2169eb83f85b6c7f7c5768bd3f5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -346,6 +382,24 @@
       "side": 1,
       "message": "Olivier, this is a great point. In my mind, i had assumed that the EL3 interrupt handler would not go back to the normal world, perhaps we should make that explicit in the platform handler description and expectations.\nEven if we do go back to normal world, the sequence would really be:\nNWd FFA SMC-\u003eSP execution-\u003eGroup0 interrupt-\u003eEL3_FFA_INTR SMC-\u003eSDEI to OS NWd (save secure state, restore NS state)-\u003eSDEI handler calls FFA SMC-\u003e lots of trouble.\nis that what you had in mind?\nI agree, hypothetically if we did this, we\u0027d have to make it look like a NS interrupt pre-empted SP execution and have SPMC make it look like it is entering normal world but then we\u0027d have problems around guarantees we have for masking interrupts or run to completion for SPs (and even that can be worked around with a little bit of effort i think, since group0 interrupt can only occur during SP execution since SPMC has interrupts masked during its execution).\n\nUnresolving comment, so that madhu can make the change to add some comments in description for the plat_ function on expectations to NOT do this? \ni\u0027m thinking this should be a follow up patch to enforce such state changes, but you are right, other paths already exist where this is not enforced. How do we track this tech debt?",
       "parentUuid": "0122cca3_0bb347d4",
+      "revId": "f89ed7cec4afb2169eb83f85b6c7f7c5768bd3f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "622a6e49_f611d359",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1166,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-10T19:52:39Z",
+      "side": 1,
+      "message": "Okay, I will update the documentation and leave a comment as well.",
+      "parentUuid": "f6cd6b7c_75df87a5",
       "revId": "f89ed7cec4afb2169eb83f85b6c7f7c5768bd3f5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
