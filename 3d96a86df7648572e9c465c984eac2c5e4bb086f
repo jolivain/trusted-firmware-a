@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8e7f0af_c60c052d",
+        "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-04-10T13:55:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5f36913d_b9d20d9e",
+      "range": {
+        "startLine": 51,
+        "startChar": 8,
+        "endLine": 51,
+        "endChar": 22
+      },
+      "revId": "3d96a86df7648572e9c465c984eac2c5e4bb086f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7170efd3_f7bdbd32",
@@ -41,6 +65,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46b8fa0b_e911bbd3",
+        "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-04-10T13:55:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7170efd3_f7bdbd32",
+      "revId": "3d96a86df7648572e9c465c984eac2c5e4bb086f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cddc2ccc_42387415",
@@ -54,6 +96,30 @@
       "writtenOn": "2023-04-06T15:47:30Z",
       "side": 1,
       "message": "nitpick: Use spaces instead of tabs in these scenarios",
+      "range": {
+        "startLine": 27,
+        "startChar": 17,
+        "endLine": 27,
+        "endChar": 18
+      },
+      "revId": "3d96a86df7648572e9c465c984eac2c5e4bb086f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5775f2d4_2e378bae",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-04-10T13:55:24Z",
+      "side": 1,
+      "message": "The static check was complaining when I had spaces instead of tabs, so added tabs here instead.",
+      "parentUuid": "cddc2ccc_42387415",
       "range": {
         "startLine": 27,
         "startChar": 17,
@@ -87,6 +153,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0355a30_06d84969",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-04-10T13:55:24Z",
+      "side": 1,
+      "message": "Ack, yes avoid unnecessary checks since MAX_ERRATA_ENTRIES is \u003e 0",
+      "parentUuid": "e8da0452_3ebb9dc7",
+      "range": {
+        "startLine": 460,
+        "startChar": 0,
+        "endLine": 462,
+        "endChar": 63
+      },
+      "revId": "3d96a86df7648572e9c465c984eac2c5e4bb086f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b618df1_b26e4df8",
@@ -110,6 +200,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64547699_8eb03f38",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-04-10T13:55:24Z",
+      "side": 1,
+      "message": "Ack, changed to partnum_extracted",
+      "parentUuid": "8b618df1_b26e4df8",
+      "range": {
+        "startLine": 515,
+        "startChar": 11,
+        "endLine": 515,
+        "endChar": 27
+      },
+      "revId": "3d96a86df7648572e9c465c984eac2c5e4bb086f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b6c42b2_118c5503",
@@ -123,6 +237,30 @@
       "writtenOn": "2023-04-06T15:47:30Z",
       "side": 1,
       "message": "#endif /* __arch64__ */",
+      "range": {
+        "startLine": 556,
+        "startChar": 1,
+        "endLine": 556,
+        "endChar": 7
+      },
+      "revId": "3d96a86df7648572e9c465c984eac2c5e4bb086f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df1bbe74_744b30f8",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-04-10T13:55:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4b6c42b2_118c5503",
       "range": {
         "startLine": 556,
         "startChar": 1,
