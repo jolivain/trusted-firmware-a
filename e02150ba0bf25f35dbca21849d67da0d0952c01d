@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5082f30_10a7359a",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-04-11T21:13:01Z",
+      "side": 1,
+      "message": "Looks like we expect platform to handle all interrupt sources forwarded to it through this call. Is this a contract? Will this be the case always or possibilities to have platform don\u0027t support in some instances (and expect interrupt to be handled elsewhere in the stack) whereas the platform supports for some other interrupt sources? Just curious.",
+      "range": {
+        "startLine": 280,
+        "startChar": 1,
+        "endLine": 280,
+        "endChar": 11
+      },
+      "revId": "e02150ba0bf25f35dbca21849d67da0d0952c01d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
