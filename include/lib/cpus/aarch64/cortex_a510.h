@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, ARM Limited. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -14,11 +14,13 @@
  ******************************************************************************/
 #define CORTEX_A510_CPUECTLR_EL1				S3_0_C15_C1_4
 #define CORTEX_A510_CPUECTLR_EL1_READPREFERUNIQUE_SHIFT		U(19)
+#define CORTEX_A510_CPUECTLR_EL1_READPREFERUNIQUE_WIDTH		U(1)
 #define CORTEX_A510_CPUECTLR_EL1_READPREFERUNIQUE_DISABLE	U(1)
 #define CORTEX_A510_CPUECTLR_EL1_RSCTL_SHIFT			U(23)
 #define CORTEX_A510_CPUECTLR_EL1_NTCTL_SHIFT			U(46)
 #define CORTEX_A510_CPUECTLR_EL1_ATOM_EXECALLINSTRNEAR		U(2)
-#define CORTEX_A510_CPUECTLR_EL1_ATOM				U(38)
+#define CORTEX_A510_CPUECTLR_EL1_ATOM_SHIFT			U(38)
+#define CORTEX_A510_CPUECTLR_EL1_ATOM_WIDTH			U(3)
 
 /*******************************************************************************
  * CPU Power Control register specific definitions
@@ -30,6 +32,8 @@
  * Complex auxiliary control register specific definitions
  ******************************************************************************/
 #define CORTEX_A510_CMPXACTLR_EL1				S3_0_C15_C1_3
+#define CORTEX_A510_CMPXACTLR_EL1_BIT_25_SHIFT			U(25)
+#define CORTEX_A510_CMPXACTLR_EL1_BIT_25_WIDTH			U(1)
 
 /*******************************************************************************
  * Auxiliary control register specific definitions
@@ -37,5 +41,7 @@
 #define CORTEX_A510_CPUACTLR_EL1				S3_0_C15_C1_0
 #define CORTEX_A510_CPUACTLR_EL1_BIT_17				(ULL(1) << 17)
 #define CORTEX_A510_CPUACTLR_EL1_BIT_38				(ULL(1) << 38)
+#define CORTEX_A510_CPUACTLR_EL1_BIT_18_SHIFT			U(18)
+#define CORTEX_A510_CPUACTLR_EL1_BIT_18_WIDTH			U(1)
 
 #endif /* CORTEX_A510_H */
