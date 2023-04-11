@@ -92,37 +92,61 @@ int rss_mboot_measure_and_record(struct rss_mboot_metadata *metadata_ptr,
 	return 0;
 }
 
+#if ENABLE_ASSERTIONS
+static bool null_arr(const uint8_t *signer_id, size_t signer_id_size)
+{
+	for (size_t i = 0U; i < signer_id_size; i++) {
+		if (signer_id[i] != 0U) {
+			return false;
+		}
+	}
+
+	return true;
+}
+#endif /* ENABLE_ASSERTIONS */
+
 int rss_mboot_set_signer_id(struct rss_mboot_metadata *metadata_ptr,
-			    unsigned int img_id,
+			    const void *pk_oid,
 			    const void *pk_ptr,
 			    size_t pk_len)
 {
 	unsigned char hash_data[CRYPTO_MD_MAX_SIZE];
 	int rc;
+	bool hash_calc_done = false;
 
 	assert(metadata_ptr != NULL);
 
-	/* Get the metadata associated with this image. */
-	while ((metadata_ptr->id != RSS_MBOOT_INVALID_ID) &&
-		(metadata_ptr->id != img_id)) {
+	while (metadata_ptr->id != RSS_MBOOT_INVALID_ID) {
+		/* Get the metadata associated with this key-oid */
+		if (metadata_ptr->pk_oid == pk_oid) {
+			assert(null_arr(metadata_ptr->signer_id,
+					MBOOT_DIGEST_SIZE));
+			if (!hash_calc_done) {
+				/* Calculate public key hash */
+				rc = crypto_mod_calc_hash(CRYPTO_MD_ID,
+							  (void *)pk_ptr,
+							  pk_len, hash_data);
+				if (rc != 0) {
+					return rc;
+				}
+
+				hash_calc_done = true;
+			}
+
+			/*
+		         * Fill the signer-ID field with the newly/already
+		         * computed hash of the public key and update its
+		         * signer ID size field with compile-time decided
+		         * digest size.
+		         */
+			(void)memcpy(metadata_ptr->signer_id,
+				     hash_data,
+				     MBOOT_DIGEST_SIZE);
+			metadata_ptr->signer_id_size = MBOOT_DIGEST_SIZE;
+		}
+
 		metadata_ptr++;
 	}
-
-	/* If image is not present in metadata array then skip */
-	if (metadata_ptr->id == RSS_MBOOT_INVALID_ID) {
-		return 0;
-	}
-
-	/* Calculate public key hash */
-	rc = crypto_mod_calc_hash(CRYPTO_MD_ID, (void *)pk_ptr,
-				  pk_len, hash_data);
-	if (rc != 0) {
-		return rc;
-	}
-
-	/* Update metadata struct with the received signer_id */
-	(void)memcpy(metadata_ptr->signer_id, hash_data, MBOOT_DIGEST_SIZE);
-	metadata_ptr->signer_id_size = MBOOT_DIGEST_SIZE;
 
 	return 0;
 }
