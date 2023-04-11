@@ -1421,7 +1421,7 @@ endif
 # Build targets
 ################################################################################
 
-.PHONY:	all msg_start clean realclean distclean cscope locate-checkpatch checkcodebase checkpatch fiptool sptool fip sp fwu_fip certtool dtbs memmap doc enctool
+.PHONY:	all msg_start clean realclean distclean cscope locate-checkpatch checkcodebase checkpatch fiptool sptool fip sp fwu_fip certtool dtbs memmap doc enctool dump_defines
 .SUFFIXES:
 
 all: msg_start
@@ -1668,6 +1668,9 @@ else
 		${PYTHON} -m memory.memmap -sr ${BUILD_PLAT}
 endif
 
+dump_defines:
+	@echo "${DEFINES}" | tr ' ' '\n'
+
 doc:
 	@echo "  BUILD DOCUMENTATION"
 	${Q}${MAKE} --no-print-directory -C ${DOCS_PATH} html
@@ -1712,6 +1715,7 @@ help:
 	@echo "  checkcodebase  Check the coding style of the entire source tree"
 	@echo "  checkpatch     Check the coding style on changes in the current"
 	@echo "                 branch against BASE_COMMIT (default origin/master)"
+	@echo "  dump_defines   Print a list of global CPP variables and their values"
 	@echo "  clean          Clean the build for the selected platform"
 	@echo "  cscope         Generate cscope index"
 	@echo "  distclean      Remove all build artifacts for all platforms"
