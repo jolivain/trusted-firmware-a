@@ -33,3 +33,7 @@ $(eval $(call add_define,PLAT_XLAT_TABLES_DYNAMIC))
 $(eval $(call add_define,OPTEE_ALLOW_SMC_LOAD))
 include lib/libfdt/libfdt.mk
 endif
+
+ifeq ($(CROS_WIDEVINE_SMC),1)
+$(eval $(call add_define,CROS_WIDEVINE_SMC))
+endif
