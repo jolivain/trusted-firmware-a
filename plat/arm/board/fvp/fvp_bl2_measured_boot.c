@@ -10,6 +10,7 @@
 #include <drivers/measured_boot/event_log/event_log.h>
 #include <drivers/measured_boot/rss/rss_measured_boot.h>
 #include <tools_share/tbbr_oid.h>
+#include <tools_share/zero_oid.h>
 #include <fvp_critical_data.h>
 
 #include <plat/arm/common/plat_arm.h>
@@ -62,24 +63,28 @@ struct rss_mboot_metadata fvp_rss_mboot_metadata[] = {
 		.slot = U(9),
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = RSS_MBOOT_BL31_STRING,
+		.pk_oid = ZERO_OID,
 		.lock_measurement = true },
 	{
 		.id = HW_CONFIG_ID,
 		.slot = U(10),
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = RSS_MBOOT_HW_CONFIG_STRING,
+		.pk_oid = ZERO_OID,
 		.lock_measurement = true },
 	{
 		.id = SOC_FW_CONFIG_ID,
 		.slot = U(11),
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = RSS_MBOOT_SOC_FW_CONFIG_STRING,
+		.pk_oid = ZERO_OID,
 		.lock_measurement = true },
 	{
 		.id = RMM_IMAGE_ID,
 		.slot = U(12),
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = RSS_MBOOT_RMM_STRING,
+		.pk_oid = ZERO_OID,
 		.lock_measurement = true },
 	{
 		.id = RSS_MBOOT_INVALID_ID }
