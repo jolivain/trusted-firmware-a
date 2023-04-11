@@ -16,6 +16,24 @@
       "message": "I feel it is not a good idea to remove CPUs from this list. We would lose the ability to test the corresponding CPU source files. In addition, I am sure some of our CI tests would fail to boot since they depend on specific CPU models.",
       "revId": "4b88d048f538a621131deb09d75519d0db957d62",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9de240cf_5e112891",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-11T17:28:00Z",
+      "side": 0,
+      "message": "I have matched the list to what\u0027s in the CI. It should pass (and almost has but it\u0027s still running). All removed cpus are not tested at all.\n\nAs for the testing, yes it is a little annoying, but I don\u0027t really have any other ideas for pain-free ways to reduce the binary size in the short term. Everything I\u0027ve come up with so far will include disabling tests or refactoring them. Disabling tests doesn\u0027t sound like a good idea and no-one want to spend lots of time on refactoring tf-a and/or tests as far as I can tell.",
+      "parentUuid": "f6a2b723_ae92374e",
+      "revId": "4b88d048f538a621131deb09d75519d0db957d62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
