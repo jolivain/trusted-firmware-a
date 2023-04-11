@@ -45,3 +45,9 @@ int plat_mboot_measure_image(unsigned int image_id, image_info_t *image_data)
 
 	return rc;
 }
+
+int plat_mboot_measure_key(void *pk_oid, void *pk_ptr, unsigned int pk_len)
+{
+	return rss_mboot_set_signer_id(fvp_rss_mboot_metadata, pk_oid, pk_ptr,
+				       pk_len);
+}
