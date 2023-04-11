@@ -157,6 +157,10 @@ BL31_SOURCES		+=	services/std_svc/drtm/drtm_main.c		\
 				${MBEDTLS_SOURCES}
 endif
 
+ifeq ($(CROS_WIDEVINE_SMC),1)
+BL31_SOURCES		+=	services/cros_widevine/cros_widevine_smc_handlers.c
+endif
+
 BL31_DEFAULT_LINKER_SCRIPT_SOURCE := bl31/bl31.ld.S
 
 # Flag used to indicate if Crash reporting via console should be included
