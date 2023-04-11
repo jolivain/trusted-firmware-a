@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b09ada2_8803ccf0",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 25
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-04-11T21:58:04Z",
+      "side": 1,
+      "message": "nit: space\ncan you please explain the comment for my understanding... do you mean here a field can be added to indicate mitigated or unmitigated errata?",
+      "range": {
+        "startLine": 300,
+        "startChar": 11,
+        "endLine": 300,
+        "endChar": 12
+      },
+      "revId": "d74d8dd5346269f3c8d942901575a20a204e35dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "435bb999_68883cd7",
+        "filename": "include/lib/cpus/cpu_ops.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-04-11T21:58:04Z",
+      "side": 1,
+      "message": "nit: I think these are spaces.",
+      "range": {
+        "startLine": 99,
+        "startChar": 29,
+        "endLine": 99,
+        "endChar": 32
+      },
+      "revId": "d74d8dd5346269f3c8d942901575a20a204e35dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acee52ed_b2f0adb8",
+        "filename": "include/lib/cpus/cpu_ops.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-04-11T21:58:04Z",
+      "side": 1,
+      "message": "nit: tab",
+      "range": {
+        "startLine": 100,
+        "startChar": 27,
+        "endLine": 100,
+        "endChar": 32
+      },
+      "revId": "d74d8dd5346269f3c8d942901575a20a204e35dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "beeed94d_a5083420",
+        "filename": "include/lib/cpus/cpu_ops.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-04-11T21:58:04Z",
+      "side": 1,
+      "message": "nit: tab",
+      "range": {
+        "startLine": 103,
+        "startChar": 23,
+        "endLine": 103,
+        "endChar": 32
+      },
+      "revId": "d74d8dd5346269f3c8d942901575a20a204e35dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89d346d0_458c56f4",
+        "filename": "include/lib/cpus/cpu_ops.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-04-11T21:58:04Z",
+      "side": 1,
+      "message": "nit: should it be a space instead?",
+      "range": {
+        "startLine": 104,
+        "startChar": 7,
+        "endLine": 104,
+        "endChar": 8
+      },
+      "revId": "d74d8dd5346269f3c8d942901575a20a204e35dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed35c1db_7a646ab9",
+        "filename": "include/lib/cpus/errata.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-04-11T21:58:04Z",
+      "side": 1,
+      "message": "/*\n * errata framework - Should we change it to this instead?\n *",
+      "revId": "d74d8dd5346269f3c8d942901575a20a204e35dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
