@@ -30,7 +30,12 @@
 #include <lib/xlat_tables/xlat_tables_v2.h>
 #if OPTEE_ALLOW_SMC_LOAD
 #include <libfdt.h>
-#endif  /* OPTEE_ALLOW_SMC_LOAD */
+#if CROS_WIDEVINE_SMC
+#include <plat/common/platform.h>
+#include <services/oem/chromeos/widevine_smc_handlers.h>
+#include <tools_share/uuid.h>
+#endif /* CROS_WIDEVINE_SMC */
+#endif /* OPTEE_ALLOW_SMC_LOAD */
 #include <plat/common/platform.h>
 #include <tools_share/uuid.h>
 
@@ -56,7 +61,12 @@ DEFINE_SVC_UUID2(optee_image_load_uuid,
 	0xb1eafba3, 0x5d31, 0x4612, 0xb9, 0x06,
 	0xc4, 0xc7, 0xa4, 0xbe, 0x3c, 0xc0);
 
+#if CROS_WIDEVINE_SMC
+#define OPTEED_FDT_SIZE 2048
+#else
 #define OPTEED_FDT_SIZE 256
+#endif /* CROS_WIDEVINE_SMC */
+
 static uint8_t fdt_buf[OPTEED_FDT_SIZE] __aligned(CACHE_WRITEBACK_GRANULE);
 
 #else
@@ -252,6 +262,39 @@ static int add_coreboot_node(void *fdt)
 	ret = fdt_property_string(fdt, "compatible", "coreboot");
 	if (ret)
 		return ret;
+
+#if CROS_WIDEVINE_SMC
+
+	ret = fdt_begin_node(fdt, "widevine");
+	if (ret)
+		return ret;
+
+	ret = fdt_property(fdt, "tpm_auth_pk", cros_oem_tpm_auth_pk.buffer,
+			   cros_oem_tpm_auth_pk.length);
+	if (ret)
+		return ret;
+
+	ret = fdt_property(fdt, "huk", cros_oem_huk.buffer,
+			   cros_oem_huk.length);
+	if (ret)
+		return ret;
+
+	ret = fdt_property(fdt, "widevine_dice", cros_oem_widevine_dice.buffer,
+			   cros_oem_widevine_dice.length);
+	if (ret)
+		return ret;
+
+	ret = fdt_property(fdt, "widevine_ta_key",
+			   cros_oem_widevine_ta_key.buffer,
+			   cros_oem_widevine_ta_key.length);
+	if (ret)
+		return ret;
+
+	ret = fdt_end_node(fdt);
+	if (ret)
+		return ret;
+
+#endif /* CROS_WIDEVINE_SMC */
 
 	reg_node.addr = cpu_to_fdt64(coreboot_table_addr);
 	reg_node.size = cpu_to_fdt32(coreboot_table_size);
