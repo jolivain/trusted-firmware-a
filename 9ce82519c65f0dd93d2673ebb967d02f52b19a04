@@ -46,6 +46,30 @@
       },
       "revId": "9ce82519c65f0dd93d2673ebb967d02f52b19a04",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6467a386_5e5dbddd",
+        "filename": "plat/intel/soc/common/soc/socfpga_reset_manager.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-11T08:20:24Z",
+      "side": 1,
+      "message": "Hi Benjamin,\n\nOK. Should you consider adding the \u0027volatile\u0027 qualifier to make sure that the compiler does not move this instruction? From what you\u0027re telling me, this instruction must be inserted here, and not earlier or later than that. As in:\n\n asm volatile(\"nop\");",
+      "parentUuid": "dd330d33_00165c72",
+      "range": {
+        "startLine": 300,
+        "startChar": 2,
+        "endLine": 300,
+        "endChar": 13
+      },
+      "revId": "9ce82519c65f0dd93d2673ebb967d02f52b19a04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
