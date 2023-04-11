@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2018-2022, ARM Limited and Contributors. All rights reserved.
- * Copyright (c) 2022, NVIDIA Corporation. All rights reserved.
+ * Copyright (c) 2022-2023, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -49,6 +49,10 @@ endfunc handle_lower_el_ea_esb
 func handle_lower_el_sync_ea
 	mrs	x30, esr_el3
 	ubfx	x30, x30, #ESR_EC_SHIFT, #ESR_EC_LENGTH
+
+	/* Check for trapped system instructions from lower EL */
+	cmp	x30, #EC_AARCH64_SYS
+	b.eq	1f
 
 	/* Check for I/D aborts from lower EL */
 	cmp	x30, #EC_IABORT_LOWER_EL
@@ -235,6 +239,12 @@ func ea_proceed
 	no_ret	plat_handle_double_fault
 
 1:
+	/* Adjust ELR_EL3 for trapped system instructions from lower EL */
+	cmp	x1, #EC_AARCH64_SYS
+	mrs	x2, elr_el3
+	add	x2, x2, #4
+	msr	elr_el3, x2
+
 	/* Save EL3 state */
 	mrs	x2, spsr_el3
 	mrs	x3, elr_el3
