@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "594e4a81_cb895b9a",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-11T10:06:04Z",
+      "side": 1,
+      "message": "As we discussed this with Varun on another patch, I\u0027ve split the helpers in \"families\". Each family has identical arguments which are only documented on the top macro. This is part of the check_erratum family. I don\u0027t want to add the entire blurb to each macro as the total amount of comments will make code less readable in my opinion. Instead I only document the differences.",
+      "parentUuid": "99404970_cbd37689",
+      "range": {
+        "startLine": 512,
+        "startChar": 37,
+        "endLine": 512,
+        "endChar": 45
+      },
+      "revId": "9180d3eb53d3766ee2670c44bb0e067a1db9288f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4b36e894_35d1d8ce",
         "filename": "include/lib/cpus/aarch64/cpu_macros.S",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "writtenOn": "2023-04-10T15:16:30Z",
       "side": 1,
       "message": "From commit message to here, the comment intent got altered in meaning",
+      "range": {
+        "startLine": 531,
+        "startChar": 43,
+        "endLine": 531,
+        "endChar": 62
+      },
+      "revId": "9180d3eb53d3766ee2670c44bb0e067a1db9288f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27c43f07_46df1653",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-11T10:06:04Z",
+      "side": 1,
+      "message": "I don\u0027t see how. Can you explain? I think they\u0027re complementary",
+      "parentUuid": "c6b3c11f_5a81412d",
       "range": {
         "startLine": 531,
         "startChar": 43,
