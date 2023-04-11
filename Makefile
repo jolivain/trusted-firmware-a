@@ -1619,6 +1619,9 @@ romlib.bin: libraries FORCE
 memmap: all
 	${Q}${PYTHON} ${PRINT_MEMORY_MAP} ${BUILD_PLAT} ${INVERTED_MEMMAP}
 
+dumpdefines:
+	@echo "${DEFINES}" | tr ' ' '\n'
+
 doc:
 	@echo "  BUILD DOCUMENTATION"
 	${Q}${MAKE} --no-print-directory -C ${DOCS_PATH} html
