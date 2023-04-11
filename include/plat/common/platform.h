@@ -146,6 +146,7 @@ int plat_mboot_measure_image(unsigned int image_id, image_info_t *image_data);
 int plat_mboot_measure_critical_data(unsigned int critical_data_id,
 				     const void *base,
 				     size_t size);
+int plat_mboot_measure_key(void *pk_oid, void *pk_ptr, unsigned int pk_len);
 #else
 static inline int plat_mboot_measure_image(unsigned int image_id __unused,
 					   image_info_t *image_data __unused)
@@ -156,6 +157,11 @@ static inline int plat_mboot_measure_critical_data(
 					unsigned int critical_data_id __unused,
 					const void *base __unused,
 					size_t size __unused)
+{
+	return 0;
+}
+static inline int plat_mboot_measure_key(void *pk_oid, void *pk_ptr,
+					 unsigned int pk_len)
 {
 	return 0;
 }
@@ -356,7 +362,6 @@ int get_mbedtls_heap_helper(void **heap_addr, size_t *heap_size);
 int plat_get_enc_key_info(enum fw_enc_status_t fw_enc_status, uint8_t *key,
 			  size_t *key_len, unsigned int *flags,
 			  const uint8_t *img_id, size_t img_id_len);
-
 /*******************************************************************************
  * Secure Partitions functions
  ******************************************************************************/
