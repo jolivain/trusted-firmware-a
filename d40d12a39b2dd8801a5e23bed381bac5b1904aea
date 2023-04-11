@@ -16,6 +16,40 @@
       "message": "I compared all the bits (sysreg encodings, SCR and MMFR3 bits) against the VMSA2022 addendum manual.",
       "revId": "d40d12a39b2dd8801a5e23bed381bac5b1904aea",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d02d6b4f_606f0901",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-04-11T10:57:13Z",
+      "side": 1,
+      "message": "Boyan, Jayanth, I think you are the closest to the code owners here, right? Could you provide a COR+1 on this, so this can be merged?",
+      "revId": "d40d12a39b2dd8801a5e23bed381bac5b1904aea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4de85f5_0e83900b",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-04-11T10:57:13Z",
+      "side": 1,
+      "message": "As Joey just pointed out, this should read is_feat_s1pie_supported || is_feat_s2pie_supported.",
+      "revId": "d40d12a39b2dd8801a5e23bed381bac5b1904aea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
