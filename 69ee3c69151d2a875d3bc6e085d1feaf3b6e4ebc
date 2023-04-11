@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11eba4de_4a959da4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-04-11T14:09:59Z",
+      "side": 1,
+      "message": "versal_net-no-pm fails with this. \n\n09:52:35 aarch64-none-elf-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/versal_net/debug/bl31/versal.o: in function `plat_get_soc_version\u0027:\n09:52:35 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/plat/xilinx/common/versal.c:43: undefined reference to `pm_get_chipid\u0027\n\n",
+      "revId": "69ee3c69151d2a875d3bc6e085d1feaf3b6e4ebc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
