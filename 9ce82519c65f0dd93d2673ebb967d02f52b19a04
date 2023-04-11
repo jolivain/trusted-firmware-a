@@ -22,6 +22,30 @@
       },
       "revId": "9ce82519c65f0dd93d2673ebb967d02f52b19a04",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd330d33_00165c72",
+        "filename": "plat/intel/soc/common/soc/socfpga_reset_manager.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-04-11T08:01:51Z",
+      "side": 1,
+      "message": "Hi Sandrine, \n\nThe intention for using \"nop\" here is not execute for a cpu cycle. This also allows other interrupts to occur so as to reduce the latency caused by the critical scenario.",
+      "parentUuid": "4fe0f9a7_4a16bcee",
+      "range": {
+        "startLine": 300,
+        "startChar": 2,
+        "endLine": 300,
+        "endChar": 13
+      },
+      "revId": "9ce82519c65f0dd93d2673ebb967d02f52b19a04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
