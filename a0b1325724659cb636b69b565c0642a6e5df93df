@@ -46,6 +46,30 @@
       },
       "revId": "a0b1325724659cb636b69b565c0642a6e5df93df",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86d2f6e1_9eef0931",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-11T17:08:55Z",
+      "side": 1,
+      "message": "I dont think many CPUs are missing. May be a few could be missing. The author might have a valid reason:\nSome CPUs were added by our partners such as Google(Cortex-x1) and hence need not be made part of FVP.\nFew CPUs were introduced based on partner requests(such as automotive derivatives) but our team doesn\u0027t plan to support them in long term.\nIt is also possible the author might have missed it unintentionally.\n\nBipin can correct me if I am mistaken.",
+      "parentUuid": "63f6a049_cd13b149",
+      "range": {
+        "startLine": 12,
+        "startChar": 37,
+        "endLine": 12,
+        "endChar": 48
+      },
+      "revId": "a0b1325724659cb636b69b565c0642a6e5df93df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
