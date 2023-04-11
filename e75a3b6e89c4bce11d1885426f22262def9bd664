@@ -51,6 +51,24 @@
       "parentUuid": "8f4de8a4_eef20de5",
       "revId": "e75a3b6e89c4bce11d1885426f22262def9bd664",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52ba4b88_c1ab05bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-04-11T09:27:19Z",
+      "side": 1,
+      "message": "Thanks, I was assuming something like this. So can you confirm that applying your \"hacks\" on top of this patch still works and boots the platform? I cannot test this, and would feel better if someone could at least do a quick boot test.\nHappy to merge this afterwards.",
+      "parentUuid": "d15998f1_21d0bdf4",
+      "revId": "e75a3b6e89c4bce11d1885426f22262def9bd664",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
